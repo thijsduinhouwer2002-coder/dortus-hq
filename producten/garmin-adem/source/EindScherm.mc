@@ -23,7 +23,8 @@ module EbbEindScherm {
         var tijden = [] as Array<String>;
         for (var i = 0; i < n; i += 1) {
             var s = (v.sessie.inhoudtijden[i] + 500) / 1000;
-            tijden.add((s / 60) + ":" + (s % 60).format("%02d"));
+            // Herkeuring veiligheid 2: een vanzelf gestopte inhouding staat er als "5:00 auto", niet als een tijd om te halen.
+            tijden.add((s / 60) + ":" + (s % 60).format("%02d") + ((v.sessie.vanzelf && i == n - 1) ? " auto" : ""));
         }
         // Mila blad v13: alles omhoog. Kop midden op 38/260 D (bovenkant 34), tijden midden op 67 (bovenkant 63),
         // kamlijn op 94, het dier in een vast vak onder de kamlijn. Bij 4 tot 6 rondes (twee regels tijden) begint de
@@ -43,7 +44,8 @@ module EbbEindScherm {
         dc.drawText(w / 2, kopPx, EbbTeken.fS(), n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         if (n <= 3) {
-            dc.drawText(w / 2, yTijden, EbbTeken.fS(), regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            // Drie tijden met " auto" erachter passen niet in de grote letter op een rond scherm: dan de kleine.
+            dc.drawText(w / 2, yTijden, (v.sessie.vanzelf && n == 3) ? EbbTeken.fX() : EbbTeken.fS(), regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         } else {
             var helft = (n + 1) / 2;
             // Keuring bouw 2 punt 4: twee regels van 3, de eerste 6 px onder de titel.

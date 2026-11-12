@@ -48,6 +48,20 @@ module Ebb {
         var ronde as Number = 0;          // 0-gebaseerd
         var segmentStart as Number = 0;   // begin van het huidige stuk
         var inhoudtijden as Array<Number> = [] as Array<Number>;
+        // Herkeuring 12 nov, veiligheid 1 en 2 (besluit hoofdchat 17:40): is de laatste inhouding vanzelf gestopt op
+        // 5:00, dan komt er na het herstel GEEN nieuwe ronde (wie niet reageert is er misschien niet bij) en telt die
+        // inhouding nergens mee als tijd.
+        var vanzelf as Boolean = false;
+
+        // De inhoudtijden die meetellen in Today, 8 weeks en het gemiddelde: alles behalve een vanzelf gestopte.
+        // Die is altijd de laatste, want daarna eindigt de sessie.
+        function telbaar() as Array<Number> {
+            var n = inhoudtijden.size();
+            if (vanzelf && n > 0) {
+                return inhoudtijden.slice(0, n - 1);
+            }
+            return inhoudtijden;
+        }
 
         function initialize(ademhalingen as Number, tempoMs as Number, rondes as Number, herstelMs as Number, startMs as Number) {
             self.ademhalingen = ademhalingen;
@@ -96,7 +110,7 @@ module Ebb {
                 } else if (fase == FASE_HERSTEL && nu - segmentStart >= herstelMs) {
                     segmentStart += herstelMs;
                     ronde += 1;
-                    fase = (ronde >= rondes) ? FASE_KLAAR : FASE_ADEMEN;
+                    fase = (ronde >= rondes || vanzelf) ? FASE_KLAAR : FASE_ADEMEN;
                     doorgaan = true;
                 }
             }

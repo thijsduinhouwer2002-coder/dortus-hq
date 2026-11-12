@@ -193,3 +193,58 @@ function testInhoudenStoptVanzelfOpVijfMinuten(logger as Test.Logger) as Boolean
     return !teVroeg && nogInhouden && gestopt && tijd == 300000 && view.sessie.fase == Ebb.FASE_HERSTEL
         && view.vanzelfGestopt && !nogEens && view.sessie.inhoudtijden.size() == 1;
 }
+
+// Herkeuring 12 nov, veiligheid 1 (besluit hoofdchat 17:40): na een inhouding die vanzelf stopt op 5:00 begint er
+// GEEN nieuwe ronde. Na het herstel is de sessie klaar, ook al waren er drie rondes gekozen. Een inhouding die je zelf
+// stopt gaat wel gewoon door naar de volgende ronde.
+(:test)
+function testNaVanzelfStoppenGeenNieuweRonde(logger as Test.Logger) as Boolean {
+    var view = new EbbView();
+    view.sessie = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    view.sessie.bijwerken(96050);
+    var start = view.sessie.segmentStart;
+    view.bewaak(start + 300050);
+    view.sessie.bijwerken(start + 300000 + 14999);
+    var inHerstel = view.sessie.fase == Ebb.FASE_HERSTEL;
+    view.sessie.bijwerken(start + 300000 + 15000);
+    var klaar = view.sessie.fase == Ebb.FASE_KLAAR;
+    view.sessie.bijwerken(start + 300000 + 900000);
+    var blijftKlaar = view.sessie.fase == Ebb.FASE_KLAAR && view.sessie.inhoudtijden.size() == 1;
+    // zelf gestopt: wel door naar ronde 2
+    var zelf = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    zelf.bijwerken(96050);
+    zelf.stopInhouden(96000 + 80000);
+    zelf.bijwerken(96000 + 80000 + 15000);
+    var door = zelf.fase == Ebb.FASE_ADEMEN && zelf.ronde == 1 && !zelf.vanzelf;
+    logger.debug("VANZELF herstel " + inHerstel + " klaar " + klaar + " blijft " + blijftKlaar + " zelf door " + door);
+    return inHerstel && klaar && blijftKlaar && door;
+}
+
+// Herkeuring 12 nov, veiligheid 2: een vanzelf gestopte inhouding telt niet mee in Today, 8 weeks en het gemiddelde.
+// Ronde 1 zelf gestopt op 1:20, ronde 2 vanzelf op 5:00: er telt precies één tijd mee, 80 s.
+(:test)
+function testVanzelfGestoptTeltNietMee(logger as Test.Logger) as Boolean {
+    var view = new EbbView();
+    view.sessie = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    view.sessie.bijwerken(96050);
+    view.stopInhouden(96000 + 80000);
+    var zonder = view.sessie.telbaar().size();
+    view.sessie.bijwerken(96000 + 80000 + 15000 + 96050);
+    var start = view.sessie.segmentStart;
+    var gestopt = view.bewaak(start + 300010);
+    var tel = view.sessie.telbaar();
+    var alle = view.sessie.inhoudtijden;
+    logger.debug("TELBAAR voor " + zonder + " gestopt " + gestopt + " alle " + alle + " telt " + tel);
+    return zonder == 1 && gestopt && alle.size() == 2 && alle[1] == 300000 && tel.size() == 1 && tel[0] == 80000;
+}
+
+// Herkeuring 12 nov, veiligheid 4: een melding over het pauzemenu zet de 30 minuten niet terug op nul. Na 10 minuten
+// in het menu loopt de timer nog 20 minuten, en nooit korter dan 50 ms.
+(:test)
+function testPauzeRestNaMelding(logger as Test.Logger) as Boolean {
+    var vers = PauzeView.rest(1800000, 5000, 5000);
+    var naTien = PauzeView.rest(1800000, 5000, 5000 + 600000);
+    var voorbij = PauzeView.rest(1800000, 5000, 5000 + 1900000);
+    logger.debug("PAUZEREST " + vers + " " + naTien + " " + voorbij);
+    return vers == 1800000 && naTien == 1200000 && voorbij == 50;
+}

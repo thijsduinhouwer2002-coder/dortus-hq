@@ -29,13 +29,27 @@ class PauzeView extends WatchUi.View {
 
     function onShow() as Void {
         if (!EbbBouw.PLAATJE && _wacht == null) {
+            // Herkeuring 12 nov, veiligheid 4: een melding over het pauzemenu (onHide, daarna weer onShow) zet de
+            // 30 minuten niet terug op nul; de timer loopt alleen nog de rest.
+            var nu = System.getTimer();
+            if (_sinds < 0) {
+                _sinds = nu;
+            }
             var t = new Timer.Timer();
-            t.start(method(:tijdOm), grens(), false);
+            t.start(method(:tijdOm), rest(grens(), _sinds, nu), false);
             _wacht = t;
             if (EbbBouw.DEMO) {
                 System.println("PAUZE timer gestart, grens " + grens() + " ms");
             }
         }
+    }
+
+    private var _sinds as Number = -1;
+
+    // Hoe lang de timer nog moet lopen als het menu sinds `sinds` open staat. Nooit korter dan 50 ms (een timer van 0 mag niet).
+    static function rest(grensMs as Number, sinds as Number, nu as Number) as Number {
+        var r = grensMs - (nu - sinds);
+        return r < 50 ? 50 : r;
     }
 
     // De grens van het pauzemenu. In de toetsbouw 4 s, zodat de vierde start van de workflow (EbbApp.pauzeProef) de

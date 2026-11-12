@@ -4,11 +4,11 @@ import Toybox.Math;
 import Toybox.System;
 import Toybox.WatchUi;
 
-// PROEF (berichten hoofdchat 12 nov 02:30 en 03:10 NL): de krabwereld v2.2 van Mila (ontwerp/garmin/werelden21/,
-// bron/werelden_v21.py, bouwgegevens in ebb-werelden-v2.md) op zes schermen, dag en nacht, om te meten wat het
-// horloge aankan. Alleen in de plaatjesbouw (scène 51 tot 62), niet in de gewone app. Maten in 1/260 D zoals het
-// blad. Wat stil staat komt in vijf beurten in één plaatje van het hele scherm; lukt dat plaatje niet, dan tekent
-// hij alles direct en meldt dat in het log.
+// De werelden van de dieren (krab, schildpad en de gedeelde zee per familie), ontwerp van Mila (ontwerp/garmin/werelden21/,
+// bron/werelden_v21.py, bouwgegevens in ebb-werelden-v2.md). Begon als proef op 12 nov en zit sinds die dag in de
+// gewone app: de echte sessie tekent hiermee (WereldSessie.mc), en de plaatjesbouw gebruikt dezelfde code voor de
+// testbeelden. Maten in 1/260 D zoals het blad. Wat stil staat komt in vijf beurten in één plaatje van het hele
+// scherm; lukt dat plaatje niet (te weinig geheugen), dan tekent hij een effen vlak met de held en meldt dat in het log.
 // scherm: 0 inademen, 1 uitademen, 2 Calm (boven water), 3 inhouden, 4 menu, 5 eindscherm (onder water).
 class KrabV2View extends WatchUi.View {
     const STAPPEN = 5;

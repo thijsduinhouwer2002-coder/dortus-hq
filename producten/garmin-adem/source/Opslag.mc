@@ -1,5 +1,6 @@
 import Toybox.Application;
 import Toybox.Lang;
+import Toybox.System;
 
 // Eis 9: 56 dagen als één ByteArray van 56 x 11 = 616 B. Per dag: dagnummer 4 B, 2 B vrij (was "beste", weg sinds
 // keuring v5 G1: Ebb houdt geen record bij), som 4 B (s), aantal 1 B. De maat bleef gelijk, zodat oude opslag blijft werken.
@@ -54,7 +55,11 @@ class EbbOpslag {
     }
 
     function bewaar() as Void {
-        Application.Storage.setValue(SLEUTEL, bytes);
+        try {
+            Application.Storage.setValue(SLEUTEL, bytes);
+        } catch (ex instanceof Lang.Exception) {
+            System.println("OPSLAG FOUT dagen: " + ex.getErrorMessage());
+        }
     }
 
     static function wis() as Void {

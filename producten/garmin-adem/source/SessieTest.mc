@@ -233,3 +233,17 @@ function testCalmTeLangNaDertigMinuten(logger as Test.Logger) as Boolean {
     logger.debug("net " + net + " om " + om + " in pauze " + inPauze + " na pauze " + naPauze + " " + naPauzeOm);
     return !net && om && !inPauze && !naPauze && naPauzeOm;
 }
+
+// Herkeuring 12 nov, veiligheid 4: Calm de hele weg, tot en met opslaan na 30 minuten. Eén keer vanzelf stoppen,
+// daarna opslaan en een eindscherm met de 30 minuten en het aantal ademhalingen (94 keer 4-7-8).
+(:test)
+function testCalmVanzelfTotEnMetOpslaan(logger as Test.Logger) as Boolean {
+    var rv = new RustigView(Ebb.calm(), "Calm 4-7-8");
+    rv.sessie.startMs = 1000;
+    var teVroeg = rv.bewaak(1000 + 1799999);
+    var om = rv.bewaak(1000 + 1800000);
+    var nogEens = rv.bewaak(1000 + 1800100);
+    var ev = rv.eindeMaken(1000 + 1800000);
+    logger.debug("CALMEINDE te vroeg " + teVroeg + " om " + om + " nog eens " + nogEens + " opgeslagen " + rv.opgeslagen + " ms " + ev.ms + " adem " + ev.ademhalingen + " telt " + ev.telt);
+    return !teVroeg && om && !nogEens && rv.opgeslagen && ev.ms == 1800000 && ev.ademhalingen == 94 && ev.telt;
+}

@@ -20,11 +20,12 @@ module EbbOverzicht {
             return [[460, [70, 85, 100]], [1275, [80, 105, 184]]] as Array<Array>;
         }
         var lijst = EbbVandaag.lees(EbbView.vandaag());
-        if (lijst.size() == 0 && v != null && v.sessie.inhoudtijden.size() > 0) {
-            // Niet opgeslagen (weggegooid): dan alleen deze sessie, zonder klok.
+        if (lijst.size() == 0 && v != null && v.sessie.telbaar().size() > 0) {
+            // Niet opgeslagen (weggegooid): dan alleen deze sessie, zonder klok. Zonder een vanzelf gestopte inhouding.
+            var tel = v.sessie.telbaar();
             var secs = [] as Array<Number>;
-            for (var i = 0; i < v.sessie.inhoudtijden.size(); i += 1) {
-                secs.add((v.sessie.inhoudtijden[i] + 500) / 1000);
+            for (var i = 0; i < tel.size(); i += 1) {
+                secs.add((tel[i] + 500) / 1000);
             }
             lijst.add([-1, secs] as Array);
         }

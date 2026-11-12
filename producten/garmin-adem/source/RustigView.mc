@@ -48,8 +48,7 @@ class RustigView extends WatchUi.View {
         }
         // Keuring code en veiligheid 12 nov, punt 2: na 30 minuten ademen vanzelf opslaan en naar het eindscherm,
         // precies zoals Save in het pauzemenu. Eén keer; daarna stopt de timer in onHide.
-        if (!_vanzelf && plaatjeMs < 0 && sessie.teLang(System.getTimer())) {
-            _vanzelf = true;
+        if (bewaak(System.getTimer())) {
             _timer.stop();
             System.println("CALM 30 min, vanzelf opgeslagen");
             opslaanEnTonen();
@@ -118,6 +117,15 @@ class RustigView extends WatchUi.View {
         dc.drawText(w / 2, (d * 0.84).toNumber(), EbbTeken.fS(), label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
+    // Is het tijd om vanzelf te stoppen (30 minuten geademd)? Eén keer true. Met de klok als getal, voor de toets.
+    function bewaak(nu as Number) as Boolean {
+        if (!_vanzelf && plaatjeMs < 0 && sessie.teLang(nu)) {
+            _vanzelf = true;
+            return true;
+        }
+        return false;
+    }
+
     function pauzeer() as Void {
         sessie.pauzeer(System.getTimer());
         opname.pauzeer();
@@ -125,8 +133,17 @@ class RustigView extends WatchUi.View {
 
     // Save uit het pauzemenu: opslaan, trouw tellen, dan het eindscherm 6d (blad v7, "counts as a session").
     function opslaanEnTonen() as Void {
+        WatchUi.switchToView(eindeMaken(System.getTimer()), new CalmEindeDelegate(), WatchUi.SLIDE_UP);
+    }
+
+    // Opslaan en tellen op tijdstip nu; geeft het eindscherm terug. Apart van het wisselen van scherm, zodat de
+    // toets de hele weg tot en met opslaan kan lopen (herkeuring 12 nov, veiligheid 4).
+    var opgeslagen as Boolean = false;
+
+    function eindeMaken(nu as Number) as CalmEindeView {
         opname.opslaan();
-        var ms = sessie.klok(System.getTimer()) - sessie.startMs;
+        opgeslagen = true;
+        var ms = sessie.klok(nu) - sessie.startMs;
         var meetelt = EbbTrouw.telt(0, ms);
         var tellers = meetelt ? EbbTrouw.naSessie(EbbView.vandaag()) : EbbTrouw.stand(EbbView.vandaag());
         var nieuw = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
@@ -135,7 +152,7 @@ class RustigView extends WatchUi.View {
         var ev = new CalmEindeView(ms, c > 0 ? ms / c : 0, nieuw, tellers[1]);
         // Codelezing hoofdchat 11 nov: komt het 24e dier door Calm, dan ook hier het feestscherm (één keer).
         ev.feest = EbbTrouw.feestNu(meetelt, tellers);
-        WatchUi.switchToView(ev, new CalmEindeDelegate(), WatchUi.SLIDE_UP);
+        return ev;
     }
 
     function weggooien() as Void {

@@ -74,6 +74,7 @@ class EbbView extends WatchUi.View {
         if (sessie.fase == Ebb.FASE_INHOUDEN && sessie.verstreken(nu) >= Ebb.MAX_INHOUD_MS) {
             if (stopInhouden(sessie.segmentStart + Ebb.MAX_INHOUD_MS)) {
                 vanzelfGestopt = true;
+                sessie.vanzelf = true;
                 EbbTrillen.tril(EbbTrillen.M_VIJF_MIN);
                 System.println("INHOUDEN vanzelf gestopt op 5:00");
                 return true;
@@ -99,33 +100,37 @@ class EbbView extends WatchUi.View {
         opgeslagen = true;
         var ok = opname.opslaan();
         System.println("OPNAME opgeslagen " + ok + " laps " + (opname.laps + 1));
-        var opslag = new EbbOpslag();
+        var tel = sessie.telbaar();   // herkeuring veiligheid 2: een vanzelf gestopte inhouding telt niet mee
         var dag = vandaag();
-        for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
-            opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
+        // Herkeuring punt 6: lukt het schrijven niet, dan geen crash; de activiteit is al bewaard, alleen de tellers ontbreken.
+        try {
+            // 8 weeks (opslag) en blad v6 today (secs): de hele dag, per sessie de klok en de inhoudtijden.
+            var opslag = new EbbOpslag();
+            var secs = [] as Array<Number>;
+            for (var i = 0; i < tel.size(); i += 1) {
+                opslag.voegToe(dag, (tel[i] + 500) / 1000);
+                secs.add((tel[i] + 500) / 1000);
+            }
+            opslag.bewaar();
+            var klok = System.getClockTime();
+            // Keuring bouw 3 punt 11: geen lege sessie in Today bij 0 inhouden.
+            if (secs.size() > 0) {
+                EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
+            }
+            // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
+            var meetelt = EbbTrouw.telt(sessie.inhoudtijden.size(), 0);
+            var tellers = meetelt ? EbbTrouw.naSessie(dag) : EbbTrouw.stand(dag);
+            nieuweDieren = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
+            eindReeks = tellers[1];
+            var v = EbbTrouw.volgende(tellers);
+            eindVolgend = v[0];
+            eindRest = v[1];
+            // Keuring bouw 6 punt 2: het feestscherm alleen de eerste keer dat alles gevonden is; daarna weer het gewone
+            // eindscherm met de rondetijden (de winkeltekst belooft tijden na elke sessie).
+            feest = EbbTrouw.feestNu(meetelt, tellers);
+        } catch (ex instanceof Lang.Exception) {
+            System.println("OPSLAG FOUT bij tellers: " + ex.getErrorMessage());
         }
-        opslag.bewaar();
-        // Blad v6 today: de hele dag, per sessie de klok en de inhoudtijden.
-        var secs = [] as Array<Number>;
-        for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
-            secs.add((sessie.inhoudtijden[i] + 500) / 1000);
-        }
-        var klok = System.getClockTime();
-        // Keuring bouw 3 punt 11: geen lege sessie in Today bij 0 inhouden.
-        if (secs.size() > 0) {
-            EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
-        }
-        // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
-        var meetelt = EbbTrouw.telt(sessie.inhoudtijden.size(), 0);
-        var tellers = meetelt ? EbbTrouw.naSessie(dag) : EbbTrouw.stand(dag);
-        nieuweDieren = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
-        eindReeks = tellers[1];
-        var v = EbbTrouw.volgende(tellers);
-        eindVolgend = v[0];
-        eindRest = v[1];
-        // Keuring bouw 6 punt 2: het feestscherm alleen de eerste keer dat alles gevonden is; daarna weer het gewone
-        // eindscherm met de rondetijden (de winkeltekst belooft tijden na elke sessie).
-        feest = EbbTrouw.feestNu(meetelt, tellers);
         System.println("TROUW nieuwe dieren " + nieuweDieren);
         return ok;
     }
