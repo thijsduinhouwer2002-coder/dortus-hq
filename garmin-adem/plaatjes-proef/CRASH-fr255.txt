@@ -1,0 +1,66 @@
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-63.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-64.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 lucht 2 px, norm 6 NEE
+/tmp/plaatje-fr255-69.log:VEILIG wereld 1 scherm 0 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
+/tmp/plaatje-fr255-70.log:VEILIG wereld 1 scherm 1 meeuw lucht 3 px, norm 6 NEE
