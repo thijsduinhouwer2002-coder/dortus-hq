@@ -11,7 +11,7 @@ GELIJK einde-6c-fenix7xpro.png
 GELIJK einde-6c-krab-fenix7xpro.png
 GELIJK einde-6d-fenix7xpro.png
 GELIJK einde-na-feest-fenix7xpro.png
-GELIJK einde-sea-complete-fenix7xpro.png
+VERSCHIL einde-sea-complete-fenix7xpro.png 2234 pixels in (148, 339, 336, 391)
 GELIJK einde-weekdoel-fenix7xpro.png
 GELIJK herstel-fenix7xpro.png
 GELIJK inhouden-0-30-fenix7xpro.png
@@ -21,7 +21,7 @@ GELIJK inhouden-3-04-fenix7xpro.png
 GELIJK inhouden-krab-fenix7xpro.png
 GELIJK menu-krab-fenix7xpro.png
 GELIJK menu-leeg-fenix7xpro.png
-GELIJK menu-today-fenix7xpro.png
+VERSCHIL menu-today-fenix7xpro.png 340 pixels in (285, 345, 338, 371)
 GELIJK overzicht-menu-fenix7xpro.png
 GELIJK pauze-fenix7xpro.png
 GELIJK rustig-fenix7xpro.png
@@ -40,4 +40,4 @@ GELIJK veilig-3-fenix7xpro.png
 VERSCHIL wereld-clownvis-fenix7xpro.png 545 pixels in (106, 312, 378, 438)
 VERSCHIL wereld-krab-fenix7xpro.png 157 pixels in (117, 309, 378, 446)
 GELIJK wereld-schildpad-fenix7xpro.png
-42 beelden, 2 met verschil of ontbrekend
+42 beelden, 4 met verschil of ontbrekend
