@@ -72,3 +72,10 @@ Bestanden: `werelden21/krab-<scherm>-<dag|nacht>-<454|260>.png` met zes schermen
 3. Gele streepjes lezen als ladder: nu drie rustige streepjes recht onder zon of maan; nachtzee duidelijker petrol (004B96).
 4. Eindscherm druk, stippen raken "Crab": "new friend" klein en "Crab" groot (ook keuring 8), stippen lager. "new friend" blijft: zo heet het vrijspelen van een dier in de app.
 5. Stipjes vlak tegen de kleine tekst: bellen en vonkjes weg uit de tekstregels.
+
+## Versie 2.2 (run 46, 12 nov): keuringen 11 en 12, beide 7
+Zelfde map `werelden21/`, zelfde script.
+- **MIP onder water:** bovenin nu een raster van 0055AA en 005555 (leest als het teal van AMOLED, niet als modderig groen), daaronder vlak 000055 vanaf y 142 (eind 146). Geen raster meer achter tekst of held. **Besluit gewijzigd:** van vlak petrol naar teal-raster. Waarom: keuring 10 en 11 vonden 005555 als groot vlak modderig; teal houdt onder water apart van de heldere lucht (00AAFF) en past toch bij boven water.
+- **Ademschermen:** wolkje rechts (bij nacht donker), meeuw overdag, en de grap: ver weg op de kam drijft **de andere slipper van het paar**. De lichtstreepjes zijn weg (lazen als ladder). Krab dobbert boven de kam (bij uitademen 5 hoger). Cijfer en woord iets hoger, kam bij inademen 134: er zit lucht tussen scharen en cijfer. Onderregel staat tussen twee golfrijen (kam + 40), nooit op een lijn.
+- **Eindscherm:** de nieuwe vriend zelf (hier de garnaal) in een belletje in sea log-stijl (0055AA, rand 00FFFF, glimpje), groot rechts; de krab links in zijn slipper met een roze hartje ertussen. "new friend" klein, naam groot, stippen hoger.
+- Nog open uit keuring 12: de grap "slipper is zijn bed" zie je onder water niet (een schelp als kussen of het bandje als dekentje, zonder het dier aan te passen).

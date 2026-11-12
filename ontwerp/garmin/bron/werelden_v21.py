@@ -230,8 +230,7 @@ def water_onder(d, dd, maan=False, stralen=3, raster_y=None):
             d.im.paste(raster(c0, boven), (0, 0))
         else:
             d.verloop(0, 260, c0, None)
-        d.im.paste(raster(c0, c2), (0, 0), onder_golf(raster_y or (142 if boven else 148)))   # raster nooit achter tekst
-        d.golf(178, 262, c2, 3, 2, 1.0)
+        d.golf(raster_y or (142 if boven else 150), 262, c2, 3, 2, 1.0)   # daaronder vlak: geen raster achter tekst of held
     # oppervlak: lichte golvende rand bovenin
     d.dr.polygon([d.P(x, 7 + 2.5 * math.sin(x / 260 * 2 * math.pi * 5)) for x in range(0, 261, 2)] + [d.P(260, 0), d.P(0, 0)],
                  fill=(dd['mip_licht'] if dd['mip_licht'] != (0, 0, 170) else (85, 85, 255)) if not d.am else tuple((a + b) // 2 for a, b in zip(dd['licht'], dd['zee_top'])))
@@ -291,7 +290,7 @@ def fonkel(d, x, y, k):
 
 
 # ---------------- schermen ----------------
-def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='round 2 · 18 left', held_maat=36):
+def adem_in(D_, am, dd, nacht, top=134, woord='breathe in', getal='12', onder='round 2 · 18 left', held_maat=36):
     """Boven water: het cijfer staat groot in de lucht, de krab dobbert groot en midden op de kam,
     eronder rijen golven die naar voren breder worden (diepte zonder bodem). Zon of maan links met een baan van licht."""
     d = Doek(D_, am)
@@ -314,6 +313,10 @@ def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='r
     for k, (y, a, n, fa) in enumerate(rijen):
         if k: d.golf(y - 1.6, 262, (85, 170, 255) if not nacht else (85, 85, 255), a, n, fa)   # lichte rand op elke rij
         d.golf(y, 262, golfkleur_am[k] if am else golfkleur_mip[k], a, n, fa)
+    # grap: ver weg drijft de andere slipper van het paar (klein, op de kam links)
+    zx, zy = 76, top - 2
+    k = 1.7; d.blob([(zx - 7 * k, zy), (zx - 4 * k, zy - 2.6 * k), (zx + 3 * k, zy - 2.2 * k), (zx + 8 * k, zy - .4 * k), (zx + 3 * k, zy + 1.2 * k), (zx - 4 * k, zy + 1.2 * k)], ROZE, WIT, 1.4)
+    d.dr.line([d.P(zx + 4 * k, zy - 1 * k), d.P(zx - 1 * k, zy - 2.4 * k), d.P(zx + 4 * k, zy + .2 * k)], fill=WIT, width=max(1, round(1.4 * d.s)))
     # boven water iets te zien: een wolkje (bij nacht donker) en overdag een meeuw
     wk = (255, 255, 255) if not nacht else (85, 85, 170); wr = (170, 255, 255) if not nacht else (0, 0, 170)
     for cx, cy, rx, ry in [(214, 70, 14, 8), (226, 64, 12, 10), (236, 72, 11, 7)]:
@@ -329,9 +332,9 @@ def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='r
     dy = 0 if top < 140 else -5      # bij lage zee iets hoger op de kam, zodat hij dobbert en niet verdrinkt
     r = slipper(d, hx + 4, top + 12 + dy * .6, sch, hoek=-5)    # hak onder de krab, neus en bandje steken rechts uit
     d.dier(hx, top + dy, held_maat); bandje(d, r, sch)
-    d.tekst(130, 18 if top < 140 else 22, woord, 25, WIT)
-    d.tekst(130, 36 if top < 140 else 42, getal, 56, WIT)
-    d.tekst(130, min(212, max(top + 60, 196)), onder, 16, WIT, False)
+    d.tekst(130, 14 if top < 140 else 22, woord, 25, WIT)
+    d.tekst(130, 32 if top < 140 else 42, getal, 56, WIT)
+    d.tekst(130, top + 40, onder, 16, WIT, False)     # tussen twee golfrijen in, nooit op een lijn
     return d.klaar()
 
 
@@ -368,27 +371,29 @@ def menu(D_, am, dd, nacht):
 
 def eind(D_, am, dd, nacht):
     """Eindscherm: de krab in zijn slipper links, de nieuwe vriend (hier de garnaal) in een belletje rechts: dat heb je gewonnen."""
-    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0, raster_y=176)
+    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0, raster_y=146)
     bundel(d, dd, nacht, xo=184, xh=186, yh=164)     # het licht staat op de nieuwe vriend
     wereld_onder(d, dd, held=False, zak=22, met_slipper=False, anem_dy=14, anem_dx=-8)
     stofjes(d, dd)
     for x, y, r_ in [(40, 96, 2.6), (52, 82, 1.8), (224, 168, 2.4)]:
         bellen(d, [(x, y, r_)], WIT)
-    for x, y, k in [(222, 88, 8), (150, 92, 5.5), (234, 136, 5)]:
+    for x, y, k in [(226, 82, 8), (146, 86, 5), (236, 146, 5)]:
         fonkel(d, x, y, k)
     # belletje van de sea log (zelfde stijl als in de app: vlak 0055AA, rand 00FFFF, glimpje)
-    bx, by, brx, bry = 186, 124, 34, 30
+    bx, by, brx, bry = 184, 122, 40, 35
     kring(d, dd, bx, by, 44)
     d.rondje(bx, by, brx, bry, (0, 85, 170), (0, 255, 255), dikte=2.4)
     d.rondje(bx - .62 * brx, by - .5 * bry, 4, 4, WIT)
-    d.dier(bx, by + 1, 26, D[1])
+    d.dier(bx, by + 1, 31, D[1])
+    hart = [(126 + 6 * math.sin(t / 20 * 2 * math.pi) ** 3, 108 - (5 * math.cos(t / 20 * 2 * math.pi) - 2 * math.cos(2 * t / 20 * 2 * math.pi) - math.cos(3 * t / 20 * 2 * math.pi))) for t in range(20)]
+    d.blob(hart, ROZE, WIT, 1.6)        # de krab vindt zijn nieuwe vriend leuk
     r = slipper(d, 70, 152, 1.25 * SLIP, hoek=-6)
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
     d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
     d.dier(76, 130, 34); bandje(d, r, 1.25 * SLIP)
     d.tekst(130, 163, 'new friend', 15, WIT, False)
-    d.tekst(130, 173, 'Shrimp', 30, GEEL)       # de naam groot (keuring 8)
-    stippen(d.dr, 130 * s_(d), 213 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
+    d.tekst(130, 171, 'Shrimp', 30, GEEL)       # de naam groot (keuring 8)
+    stippen(d.dr, 130 * s_(d), 209 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
 
 
