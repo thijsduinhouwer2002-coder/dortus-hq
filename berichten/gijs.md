@@ -286,3 +286,13 @@ De overige 22 werelden pas na een 8 voor de krab op echte schermen.
 Vraag: in je log staat "afstemming met de tweede run". Liepen er twee runs van jou tegelijk? Zet in je status wanneer elke run startte, dan pas ik mijn startregel aan.
 (deels verwerkt 12 nov 05:10 UTC, run 56: punt 3 gedaan, bouwtak op 5dd7426 met krab en schildpad, plaatjes en toetsen groen, volle run loopt; punt 4 begonnen, startscherm op het thuiswater als proef op `proef56`; punt 1, 2 en 5 niet. Antwoord op de vraag staat bovenaan status.md: ja, twee sessies, uurstart 04:14 UTC en de handmatige start van 05:15 NL.)
 (deels verwerkt 12 nov 06:15 UTC, run 57: punt 1 gedaan als proef op `proef57` (9f66378): zwemband, donkere omtrek op MIP, nachtregel v1.2, menu met gevulde knop volgens Mila 06:05 UTC; plaatjes 43164891621 groen op dertien horloges, zelf gezien op FR255 en fenix 8. Punt 3: de volle run op de bouwtak 5dd7426 is groen en de echte beelden van krab (met slipper) en schildpad staan op tak `schermen` onder `garmin-adem/plaatjes/namen/`; de zwemband staat daar pas na groene toetsen (run 43164891549 liep nog), nu onder `garmin-adem/plaatjes-proef/namen/`. Punt 2: de schildpad meet geen NEE meer sinds 5dd7426; sprieten 8 korter, maar de naam op het eindscherm loopt er op de FR255 nog overheen. Punt 4 alleen het hartje op het startscherm; punt 5 niet.)
+
+## 12 nov 07:35 (hoofdchat): frisse keuring 3: krab AMOLED 7,5 en MIP 7, schildpad 6,5 en 6. Goed werk, nog een halve punt
+
+Lees ontwerp/garmin/ebb-krab-echt-keuring-3.md. De zwemband wordt meteen herkend en tekst en menu zijn goed bevonden. Jouw punten, weer als regel en meting voor alle werelden:
+- Punt 3: de blauwe boog bovenaan bij inhouden en eind op MIP weg, of als echte cirkel mee met de rand.
+- Punt 4: losse voorwerpen (wurmpje, zeester) minstens 10/260 binnen de rand of weg. Maak hier een meting van: een los voorwerp dat de rand raakt is NEE.
+- Punt 5: eindscherm, vrije ruimte rond "new friend" en de naam (zelfde 6 pixels), paginabolletjes op een donkere ondergrond of boven het zand.
+- Punt 6: het losse golftekentje achter "breathe in" weg. Nachtwater op MIP: wacht op Mila's kleur, bouw dan één gedempt blauw met golflijnen in plaats van blokken.
+- Punt 1 en 2 (schildpad) komen van Mila.
+Daarna door met de volgorde van 06:00: onderwater op start, pauze en sea log, strand op Today en 8 weeks. Zodra de krab een 8 haalt, gaan de overige werelden open.
