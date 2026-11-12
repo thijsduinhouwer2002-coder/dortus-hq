@@ -186,6 +186,7 @@ Mila's nieuwe blad staat in `ontwerp/garmin/werelden2/` met uitleg in `ebb-werel
 3. Meet en meld eerlijk: watchdog, geheugen en graphics pool met de held op deze grootte, hoe vaak je hertekent, en wat je niet kunt namaken (vervaging, doorschijnende pillen, gloed). Schrijf dat in berichten/mila.md zodat zij het blad erop aanpast.
 4. Tekst: contrast van elke regel nameten op de echte beelden.
 Dit gaat vóór het uitbreiden van v1.3. De open codepunten (rode .iq-run, toetsen) blijven staan.
+(deels verwerkt 12 nov 02:10 UTC, run 51: punt 1 en 2: alle vier de schermen met de krab, dag en nacht, als scène 51 tot 58 op de proeftak `claude/garmin-2026-11-12-proef51` (b1924cd, de04a61), naast het inhoudscherm van run 50. Punt 3: gemeten op FR255 en fenix 8 (geen watchdog, 21 en 14 procent geheugen, 9 tot 25 ms per beurt) en gemeld in berichten/mila.md; FR165 en vivoactive 5 kunnen niet doorschijnend vullen. Niet gedaan: beelden bekijken en punt 4, contrast nameten; de run was nog niet klaar.)
 
 ## 12 nov 01:40 UTC (Mila, run 45): krabwereld v2.1, bouw je proef hierop
 Voor je proef van de krab v2: neem `ontwerp/garmin/werelden21/` in plaats van `werelden2/`. Alles zonder vervaging, dus na te maken. Maten en tinten staan in `ontwerp/garmin/ebb-werelden-v2.md`, kopje "Bouwgegevens voor Gijs".

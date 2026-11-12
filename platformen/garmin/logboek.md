@@ -708,3 +708,19 @@
 2. Het werk van run 49 staat nu op de bouwtak, met het ademscherm boven water (grote zee, dier op de kam) in proefscènes; de rode .iq-run is opgelost.
 3. Volgende run: AMOLED-beelden bekijken, de botsing herstellen, omzetten naar Mila's v2.1 en de andere schermen van de krab bouwen.
 
+
+
+## 12 nov 2026, 01:27 tot 02:12 UTC, run 51 (Gijs)
+- Begin: een andere run van mij (run 50) liep nog en pushte om 01:27 naar de bouwtak. Daarom niets naar de bouwtak; mijn werk staat op de proeftak `claude/garmin-2026-11-12-proef51` (b1924cd, daarna de04a61), bovenop cd88313.
+- Taak: bericht hoofdchat 02:30 NL, de krabwereld v2 als proef op vier schermen. Run 50 bouwde tegelijk alleen het inhoudscherm, direct getekend (`Wereld2.mc`, 87e5425). Ik wist dat pas toen mijn bouw al liep. Mijn proef vult dat aan: alle vier de schermen (inademen boven water, inhouden, menu, eindscherm), dag en nacht, scène 51 tot 58, in `KrabV2.mc` en `KrabV2Lagen.mc`, met een andere techniek: wat stil staat in vijf beurten in één plaatje van het hele scherm, daarna de krab uit de voorraad, het bandje van de slipper erover en de tekst. Beslissing: niet weggooien maar naast run 50 laten staan, want nu zijn beide manieren gemeten (direct en via een plaatje). Let op: gebouwd op Mila's v2 (`werelden2`), niet op haar v2.1 van 01:40 UTC; dat bericht las ik te laat.
+- BEWEZEN: e2e 43135243190 groen op b1924cd (toetsen, regel van 300, .iq bouwt voor alle horloges). Gemeten in het log (run 43135243219, commit b1924cd): FR255 (260, MIP) alle acht scènes zonder crash, plaatje van het hele scherm gelukt, 9 tekenbeurten tot het beeld staat (5 voor de wereld, 4 voor de krab), traagste beurt 9 tot 10 ms, 117 tot 329 punten in veelhoeken per scherm, gewoon geheugen 111 tot 112 kB van 520 kB (21 procent). fenix 8 47 mm (454, AMOLED): zonder crash, traagste beurt 18 tot 25 ms, geheugen 112,8 kB van 782 kB (14 procent), held op maat 75 px (43/260). fenix 7 en fenix 7X Pro groen. De voorraad voor plaatjes meet de simulator niet: geschat 132 kB op 260 en 402 kB op 454 voor één plaatje van het hele scherm (breedte x hoogte x 2 bytes), plus het dierplaatje.
+- ROOD en waarom: op FR165 en vivoactive 5 crashten alle acht scènes met "Could not find symbol 'setFill'". Die twee horloges kennen doorschijnend vullen niet, ook al vraagt de app API 5.0. Dat is een echte grens voor het ontwerp: doorschijnende pillen, bundel en gloed kunnen niet op elk AMOLED-horloge. Mila's v2.1 (vaste mengtinten) lost dat al op. In de04a61 valt de proef daar terug op een vaste mengkleur; NIET bewezen, die run (43139099778) liep nog bij het stoppen.
+- NIET gezien: de beelden van scène 51 tot 58. De plaatjes komen pas op de tak `schermen` als de hele run klaar is, en dat was bij het stoppen nog niet zo. Ik weet dus niet of de slipper, de anemoon, de tekst en de krab goed staan; alleen dat het zonder crash tekent. Contrast van de tekst is daarom ook niet nagemeten.
+- Wat niet na te maken is: vervaging (geen enkel horloge), doorschijnend alleen waar `setFill` bestaat. Op het ademscherm beweegt de zee, dus daar kan de zee niet in het plaatje; in mijn proef staat dat scherm stil. Vier golfrijen opnieuw tekenen kost ±240 punten per beurt, dat is boven de grens van 200 uit de codekeuring.
+- Workflow: de plaatjesrun loopt nu over 59 scènes; de tijdgrens per horloge ging van 25 naar 32 minuten (alleen op de proeftak).
+- Botsing voor de volgende run: run 50 en ik gebruiken allebei scène 51 en 52. Bij samenvoegen krijgt één van de twee andere nummers.
+
+**In drie regels:**
+1. De krabwereld v2 tekent op vier schermen, dag en nacht, zonder crash op FR255, fenix 7 en fenix 8, met ruim geheugen (21 en 14 procent) en korte tekenbeurten.
+2. FR165 en vivoactive 5 kunnen niet doorschijnend vullen: het ontwerp moet met vaste tinten werken (Mila's v2.1 doet dat).
+3. De beelden heb ik nog niet gezien; de volgende run bekijkt ze en zet de proef om naar v2.1.
