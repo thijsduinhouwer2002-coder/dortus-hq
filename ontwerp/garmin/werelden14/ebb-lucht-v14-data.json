@@ -1,0 +1,197 @@
+{
+ "versie": "werelden v1.4 lucht en bellen (bij werelden v1.3-data)",
+ "eenheid": "1/260 D, y van boven",
+ "dagdelen": {
+  "ochtend": {
+   "uren": [
+    6,
+    10
+   ],
+   "lucht": "0x0000AA",
+   "rand": "0xFF55AA",
+   "rand_hoog": 8,
+   "zon": {
+    "kleur": "0xFFFF55",
+    "x": 96,
+    "y": "kam+1",
+    "r": 10
+   },
+   "sterren": false,
+   "maan": false,
+   "wat": "roze streep op de horizon, zon komt links van het midden half uit het water (vrij van planten en rotsen)"
+  },
+  "dag": {
+   "uren": [
+    10,
+    17
+   ],
+   "lucht": "0x0000AA",
+   "rand": null,
+   "rand_hoog": 0,
+   "zon": {
+    "kleur": "0xFFFF55",
+    "x": 214,
+    "y": 40,
+    "r": 8
+   },
+   "wolk": [
+    [
+     182,
+     62
+    ],
+    [
+     190,
+     56
+    ],
+    [
+     200,
+     58
+    ],
+    [
+     206,
+     54
+    ],
+    [
+     216,
+     60
+    ],
+    [
+     214,
+     64
+    ],
+    [
+     184,
+     66
+    ]
+   ],
+   "sterren": false,
+   "maan": false,
+   "wat": "zon hoog rechts op de plek van de maan, een wolkje eronder"
+  },
+  "avond": {
+   "uren": [
+    17,
+    21
+   ],
+   "lucht": "0x550055",
+   "rand": "0xFF5500",
+   "rand_hoog": 7,
+   "zon": {
+    "kleur": "0xFFAA00",
+    "x": 166,
+    "y": "kam+1",
+    "r": 11
+   },
+   "sterren": true,
+   "maan": false,
+   "wat": "paarse lucht, oranje streep, grote oranje zon zakt rechts van het midden in het water, eerste sterren"
+  },
+  "nacht": {
+   "uren": [
+    21,
+    6
+   ],
+   "lucht": "0x000055",
+   "rand": null,
+   "rand_hoog": 0,
+   "zon": null,
+   "sterren": true,
+   "maan": true,
+   "wat": "nachtblauw met sterren en de maan in de stand van vandaag"
+  }
+ },
+ "maan": {
+  "x": 214,
+  "y": 40,
+  "r": 8
+ },
+ "maanstanden": [
+  {
+   "nr": 0,
+   "naam": "nieuwe maan",
+   "licht": null,
+   "ellips": null,
+   "nieuw": true
+  },
+  {
+   "nr": 1,
+   "naam": "wassende sikkel",
+   "licht": "rechts",
+   "ellips": [
+    "lucht",
+    0.35
+   ]
+  },
+  {
+   "nr": 2,
+   "naam": "eerste kwartier",
+   "licht": "rechts",
+   "ellips": null
+  },
+  {
+   "nr": 3,
+   "naam": "wassend bol",
+   "licht": "rechts",
+   "ellips": [
+    "licht",
+    0.6
+   ]
+  },
+  {
+   "nr": 4,
+   "naam": "volle maan",
+   "licht": "heel",
+   "ellips": null
+  },
+  {
+   "nr": 5,
+   "naam": "afnemend bol",
+   "licht": "links",
+   "ellips": [
+    "licht",
+    0.6
+   ]
+  },
+  {
+   "nr": 6,
+   "naam": "laatste kwartier",
+   "licht": "links",
+   "ellips": null
+  },
+  {
+   "nr": 7,
+   "naam": "afnemende sikkel",
+   "licht": "links",
+   "ellips": [
+    "lucht",
+    0.35
+   ]
+  }
+ ],
+ "bellen": {
+  "Turtle": {
+   "bron": "snuit van het dier (kader rechtsboven)",
+   "dx": 10,
+   "dy": -6,
+   "wanneer": "uitademen"
+  },
+  "Crab": {
+   "bron": "mond van de krab",
+   "dx": 8,
+   "dy": -8,
+   "wanneer": "altijd, twee ringen"
+  },
+  "Clownfish": {
+   "bron": "bek van de vis",
+   "dx": -10,
+   "dy": -4,
+   "wanneer": "uitademen; in de anemoon komen ze tussen de vingers door"
+  }
+ },
+ "regels": [
+  "dagdeel uit de klok van het horloge; maanstand uit de datum (synodische maand 29,53 dagen vanaf een bekende nieuwe maan), afronden op de dichtstbijzijnde van 8",
+  "zon en maan alleen tekenen als ze minstens 2 boven de kam vallen (op hold dekt het water ze)",
+  "de rand (horizonstreep) ligt direct boven de kam en beweegt mee met de kam",
+  "avond: alleen de eerste drie sterren"
+ ]
+}

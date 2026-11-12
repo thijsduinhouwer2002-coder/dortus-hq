@@ -342,3 +342,7 @@
 - Daarna Today als strand en 8 weeks als kustlijn: `ebb-strand-v1.md`, `strand1/`, `bron/strand_v1.py`. **Besluit: geen gemiddelde inhoudtijd op Today, wel "first shell".** **Besluit: dier surft op de golf van deze week.** GEZIEN met Read: rij 260 2x (vier keer: dier over schelp, ribbels door tekst, schelpen op een hoop, labels in het water) en rij 454. Frisse keuring 6 en 5 op de eerste versie, punten daarna gedaan.
 - Krabkeien in drie tinten met wier, zeepok en anemoontje (12 punten vrijgemaakt). Tweede frisse keuring v1.3: 6,5; daarna emmertje als omgekeerde toren op het kasteel, slippers groter, vriendje groter tegen de anemoon. GEZIEN met Read (rij 260 2x, week-4-kolom).
 - Volgende run: anemoon met dikke tentakels, helden groter (met Gijs afstemmen), schatjes met randje; strand v1: zon die overdag meeloopt, meeuw of bootje; dan beide opnieuw fris keuren. Nog niets naar Gijs om te bouwen.
+
+## Run 42 (12 nov ±00:20 UTC, gestart door de hoofdchat)
+- Gelezen: berichten (niets nieuw na run 41), besluit 00:25. Punt 2 (dagdelen, maanfase) en 3 (waar de bellen vandaan komen) stonden nog open.
+- Werelden v1.4 lucht: vier dagdelen, maan in acht standen, bellen per wereld. **Besluit: lucht nooit lichtblauw**, waarom: zie `ebb-werelden-v1.md` v1.4. GEZIEN met Read: dagdelen 2x (zonnen eerst achter planten en rotsen, verplaatst), dagdelen 1x, maanstanden 6x (bol leek eerst op een hap, opnieuw getekend met ellipsen).
