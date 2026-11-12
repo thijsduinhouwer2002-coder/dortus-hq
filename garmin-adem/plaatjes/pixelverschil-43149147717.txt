@@ -19,18 +19,18 @@ GELIJK inhouden-1-45-fenix847mm.png
 GELIJK inhouden-2-30-fenix847mm.png
 GELIJK inhouden-3-04-fenix847mm.png
 GELIJK inhouden-krab-fenix847mm.png
-VERSCHIL krab2-calm-dag-fenix847mm.png 46195 pixels in (154, 434, 573, 680)
-VERSCHIL krab2-calm-nacht-fenix847mm.png 46219 pixels in (154, 434, 573, 680)
-GELIJK krab2-eind-dag-fenix847mm.png
-GELIJK krab2-eind-nacht-fenix847mm.png
-GELIJK krab2-hold-dag-fenix847mm.png
-GELIJK krab2-hold-nacht-fenix847mm.png
-VERSCHIL krab2-in-dag-fenix847mm.png 53320 pixels in (146, 419, 580, 659)
-VERSCHIL krab2-in-nacht-fenix847mm.png 53329 pixels in (146, 419, 580, 659)
-GELIJK krab2-menu-dag-fenix847mm.png
-GELIJK krab2-menu-nacht-fenix847mm.png
-VERSCHIL krab2-uit-dag-fenix847mm.png 24727 pixels in (177, 528, 552, 701)
-VERSCHIL krab2-uit-nacht-fenix847mm.png 24714 pixels in (177, 528, 552, 701)
+VERSCHIL krab2-calm-dag-fenix847mm.png 2341 pixels in (183, 335, 389, 553)
+VERSCHIL krab2-calm-nacht-fenix847mm.png 2218 pixels in (184, 335, 389, 551)
+VERSCHIL krab2-eind-dag-fenix847mm.png 18271 pixels in (308, 249, 562, 636)
+VERSCHIL krab2-eind-nacht-fenix847mm.png 18173 pixels in (308, 249, 562, 636)
+VERSCHIL krab2-hold-dag-fenix847mm.png 59040 pixels in (231, 247, 520, 662)
+VERSCHIL krab2-hold-nacht-fenix847mm.png 58453 pixels in (232, 247, 520, 662)
+VERSCHIL krab2-in-dag-fenix847mm.png 3779 pixels in (183, 280, 438, 532)
+VERSCHIL krab2-in-nacht-fenix847mm.png 3668 pixels in (184, 280, 438, 530)
+VERSCHIL krab2-menu-dag-fenix847mm.png 20751 pixels in (232, 247, 441, 540)
+VERSCHIL krab2-menu-nacht-fenix847mm.png 20023 pixels in (232, 247, 441, 636)
+VERSCHIL krab2-uit-dag-fenix847mm.png 2519 pixels in (183, 334, 386, 595)
+VERSCHIL krab2-uit-nacht-fenix847mm.png 2405 pixels in (184, 334, 386, 593)
 GELIJK lucht-avond-in-fenix847mm.png
 GELIJK lucht-dag-uit-fenix847mm.png
 GELIJK lucht-nacht-uit-fenix847mm.png
@@ -61,4 +61,4 @@ GELIJK wereld-krab-fenix847mm.png
 GELIJK wereld-krab-week4-fenix847mm.png
 GELIJK wereld-schildpad-fenix847mm.png
 GELIJK wereld-schildpad-week4-fenix847mm.png
-63 beelden, 6 met verschil of ontbrekend
+63 beelden, 12 met verschil of ontbrekend
