@@ -114,9 +114,9 @@ def spat(d, x, y, k=1.0):
     """Spatwater waar de clownvis uit de golf springt: een kroontje van druppels."""
     for dx, dy, r_ in [(-16, -6, 2.4), (-10, -14, 2.2), (-2, -19, 2.4), (8, -16, 2), (16, -8, 2.4), (21, -2, 1.8)]:
         d.rondje(x + dx * k, y + dy * k, r_ * k, r_ * k, WIT, (0, 85, 170), dikte=.9)
-    for i in range(7):        # spatkroon: puntjes omhoog vanuit de golf
-        a = math.pi * (1.1 + i * .8 / 6); x0, y0 = x + 2 * k + 14 * k * math.cos(a) * 1.2, y + 2 * k
-        d.blob([(x0 - 2 * k, y0), (x0 + 6 * k * math.cos(a) * .6, y0 - 7 * k), (x0 + 2 * k, y0)], WIT)
+    # twee ringen in het water waar hij uitsprong (geen spijlen meer: die lazen als hekje, keuring 15)
+    for rx, ry in ((18, 4), (26, 6)):
+        d.dr.arc([(x + 2 * k - rx * k) * d.s, (y + 3 * k - ry * k) * d.s, (x + 2 * k + rx * k) * d.s, (y + 3 * k + ry * k) * d.s], 0, 180, fill=WIT, width=max(1, round(1.6 * d.s)))
 
 
 # ---------------- boven water ----------------
@@ -130,7 +130,13 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
         for cx, cy, rx, ry in [(wx - 8, 70, 14, 8), (wx + 4, 64, 12, 10), (wx + 14, 72, 11, 7)]: d.rondje(cx, cy, rx, ry, wr)
         for cx, cy, rx, ry in [(wx - 8, 69, 12, 6.5), (wx + 4, 63, 10, 8.5), (wx + 14, 71, 9, 5.5)]: d.rondje(cx, cy, rx, ry, wk)
     zee(d, nacht, top)
-    volgende_vriend(d, nacht, top, x={'schild': 150, 'clown': 190}.get(wereld, 196) if top < 160 else 196)
+    if wereld == 'schild':      # eigen detail: een losgeraakt blad zeegras drijft onder het oppervlak (keuring 15)
+        y = top + 74
+        if y < 236:
+            pts = [(162 + t * 34, y + 4 * math.sin(t * 5)) for t in [i / 10 for i in range(11)]]
+            d.blob(pts + [(q[0], q[1] + 5) for q in reversed(pts)], GRAS, GRAS_L, 1.1)
+    else:
+        volgende_vriend(d, nacht, top, x=190 if (wereld == 'clown' and top < 160) else 196)
     hoek = {'in': 8, 'calm': 3, 'uit': 0}[fase]          # held kantelt mee: neus omhoog bij inademen
     if wereld == 'schild':
         hx = 128 if top > 160 else 166; dy = 0 if top < 140 else -4
@@ -184,6 +190,13 @@ def spriet(d, x0, y0, lengte, buig, breed, c, rand, hap=False):
     return None
 
 
+def blad_in_bek(d, bx, by, k=1.0):
+    """Breed blad zeegras tussen de kaken van de schildpad, twee keer zo groot als eerst, steekt naar voren uit."""
+    blad = [(bx + 4, by - 4), (bx - 14, by - 6), (bx - 30, by - 2), (bx - 38, by + 8), (bx - 28, by + 8), (bx - 12, by + 5), (bx + 4, by + 4)]
+    d.blob([(bx + (x - bx) * k, by + (y - by) * k) for x, y in blad], GRAS, WIT, 1.5)
+    d.dr.line([d.P(bx + 2 * k, by), d.P(bx - 26 * k, by + 2 * k)], fill=GRAS_D, width=max(1, round(1.2 * d.s)))
+
+
 def pluk(d, x, y, n, hoogte, c, rand, spiegel=1):
     """Dichte pluk kort zeegras: n sprietjes die uitwaaieren."""
     for i in range(n):
@@ -229,11 +242,10 @@ def wereld_schild(d, dd, hx=124, hy=186, m=40, spiegel=False, held=True, zak=0):
         # hij eet: naast hem een spriet met een ronde hap eruit, en een breed blad tussen zijn kaken (keuring 14)
         sg = 1      # het dier kijkt altijd naar links, ook als de weide gespiegeld is
         bek_x, bek_y = hx - .86 * m * sg, hy + .06 * m
-        spriet(d, bek_x - 12, hy + m * .8, m * 1.15, 4, 10, g, gl, hap=True)
-        dier_kantel(d, hx, hy, m, SCHILD, 0)
-        blad = [(bek_x + 4, bek_y - 2.5), (bek_x - 8, bek_y - 3), (bek_x - 17, bek_y + 1), (bek_x - 21, bek_y + 6),
-                (bek_x - 15, bek_y + 5), (bek_x - 6, bek_y + 3.5), (bek_x + 4, bek_y + 2.5)]
-        d.blob(blad, GRAS, WIT, 1.3)          # donkerder groen dan zijn kop, anders leest het als tong
+        spriet(d, bek_x - 8, hy + m * .8, m * 1.15, 4, 10, g, gl, hap=True)
+        dier_kantel(d, hx, hy, m, SCHILD, 7)      # kop omhoog naar zijn spriet: een moment, niet plat (keuring 15)
+        bek_y -= 5
+        blad_in_bek(d, bek_x, bek_y, 1.0)          # donkerder groen dan zijn kop, anders leest het als tong
         for dx, dy, r_ in [(-9, -6, 2.0), (-14, 2, 1.5)]:
             d.blob([(bek_x + dx * sg - r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy - r_ * 1.4), (bek_x + dx * sg + r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy + r_ * .8)], GRAS_L, WIT, .9)
 
@@ -260,7 +272,7 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
         d.dr.line([d.P(x0, y0 + zak), d.P(x1, y1 + zak)], fill=ZON, width=round(4 * s))
         d.rondje(x1, y1 + zak, 2.4, 2.4, ZON)
     # rechts: rifbult met de anemoon als huis; de vis zit erin, twee vingers liggen voor hem
-    d.rondje(214 + adx, 222 + zak, 52, 30, RIF, RIF_L, glans=RIF_L)
+    d.rondje(222 + adx, 234 + zak, 66, 30, RIF, RIF_L, glans=RIF_L)     # brede lage rifbult: geen bloempot
     vingers = [(-34, -34), (-24, -46), (-12, -54), (0, -58), (12, -54), (24, -46), (34, -34), (40, -20)]
     ax, ay = 206 + adx, 200 + zak
     def vinger(i, vx_, vy_, c_rand=True):
@@ -307,7 +319,7 @@ def hold(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=126, xh=128); wereld_schild(d, dd, hx=136, hy=182, m=46)
     else:
-        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=162, hy=186, m=33, nacht=nacht)
+        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=155, hy=186, m=33, nacht=nacht)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
     d.tekst(130, 48, 'press START to breathe', 14, WIT, False)     # blijft altijd staan (veiligheid, besluit 12 nov 03:10)
@@ -323,7 +335,7 @@ def menu(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=188, m=42, spiegel=True, zak=4)
     else:
-        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=154, hy=190, m=30, zak=4, nacht=nacht)
+        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=147, hy=190, m=30, zak=4, nacht=nacht)
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
     for y, t in [(52, 'Rounds'), (86, 'Calm 4-7-8')]:
@@ -357,6 +369,7 @@ def eind(D_, am, dd, nacht, wereld):
     d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
     if wereld == 'schild':
         dier_kantel(d, 76, 134, 36, SCHILD, 6)
+        blad_in_bek(d, 76 - .86 * 36, 134 - 2, .8)   # hij kauwt nog na: de grap van zijn wereld
     else:
         anemoon(d, 84, 160, .75)                 # vis en anemoon samen in beeld: hij zit in zijn huis (keuring 14)
         dier_kantel(d, 74, 130, 29, CLOWN, 0)

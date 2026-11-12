@@ -38,3 +38,15 @@ Schildpad: de meeuw als lifter komt zonder uitleg over, ook op 260. Clownvis: de
 - Meeuw ook bij nacht wit (verdween tegen de nachtlucht).
 - Meeuw weg van het eindscherm (stond onder water, klopte niet).
 Open voor de volgende run: zeegras eten duidelijker (breed blad tussen de kaken, spriet met hap ernaast), weide rijker (dichte plukken in twee tinten, zeester), overdag iets onder het eilandje, clownvis echt half in zijn anemoon, eindscherm clownvis met vis en anemoon samen in beeld. Daarna weer een frisse keuring; door naar Gijs bij een frisse 7 voor de clownvis plus akkoord hoofdchat.
+
+## Versie 3.1 (run 48, 12 nov): punten keuring 13 en 14
+Zelfde map en script; `werelden3/` heeft nu ook de krab (`krab-*.png`, `overzicht-krab-*`) met de gedeelde lucht en zee van v3, zodat alle drie de werelden hetzelfde water hebben.
+- **Krab (keuring 13 punt 1 en 2):** de verre slipper is een derde van de bootslipper (k 2,4 op x 72) met een witte V; de bootslipper kantelt mee (hoek −5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab draait 0,6 keer mee; teenpaaltje wit met donkerroze rand. Onder water en eindscherm zoals v2.2.
+- **Schildpad eet zichtbaar:** een breed blad zeegras (00AA55, witte rand, nerf) steekt uit zijn bek, naast hem een spriet met een ronde hap uit de rand; de schildpad buigt 7 graden met de kop omhoog naar zijn spriet. Op het eindscherm kauwt hij nog op een blad. **Rijkere weide:** dichte plukken in twee groentinten vooraan en een oranje zeester.
+- **Eigen detail onderin bij de ademschermen:** schildpad een losgeraakt blad zeegras dat onder het oppervlak drijft; krab en clownvis de schim van de volgende vriend, overdag nu lichter (0055AA op MIP) zodat hij ook overdag te zien is.
+- **Clownvis:** zit nu half in zijn anemoon (vier vingers voor hem, kop en voorste band vrij); rifbult breed en laag (geen bloempot); spatwater als twee ringen in het water plus druppels (de spijlen lazen als hekje); jongleerballen geel, roze en groen; eindscherm met vis in een kleine anemoon samen in beeld.
+
+### Frisse keuring 15 (op v3.1 vóór de laatste punten): schildpad **7**, clownvis **6**
+Gedaan na keuring 15: blad twee keer zo groot en de schildpad schuin met de kop omhoog, blad in de bek op het eindscherm, drijvend zeegras als eigen detail, spat als ringen, rifbult zachter, vis verder uit de anemoon.
+Niet gedaan: borstvinnen omhoog naar de ballen (dat is het dier zelf aanpassen, en de dieren liggen vast). Open: jongleren nog sterker zonder het dier te wijzigen (misschien een bal die net op zijn neus stuitert), lucht naast de zon bij de clownvis.
+**Stand:** schildpad heeft een frisse 7 (twee keer); die kan met akkoord van de hoofdchat naar Gijs. Clownvis zit op 6 en blijft bij mij.
