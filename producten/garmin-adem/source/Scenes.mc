@@ -110,13 +110,8 @@ module EbbScenes {
         if (thuis != null) {
             return thuis;
         }
-        // Run 62: achttien scènes voor de laatste acht (thuiswater van Bas) zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
-        // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
-        // Run 63: daarna vier met een dier zonder eigen wereld (dolfijn, basiswereld KrabV2Basis.mc).
-        // Zes per dier (blad voor Thijs): in, uit en inhouden bij dag, daarna hetzelfde bij nacht.
-        // Run 64: daarna zes van de allereerste sessie (nog geen dier): de gedeelde zee zonder held (`sessie-eerste-*`).
-        // Daarna zes van de terugval (keuring code en veiligheid punt 4): de krab, maar het plaatje van de wereld
-        // "lukt niet": effen achtergrond met de held en de tekst (`sessie-terugval-*`).
+        // Dertig scènes voor de laatste acht: de echte sessie in de wereld (WereldSessie.mc), zes per blok (in, uit en
+        // inhouden bij dag, dan bij nacht): krab, schildpad, dolfijn, eerste sessie zonder dier, terugval zonder plaatje.
         var ns = EbbBouw.SCENES - 38;
         if (k >= ns && k < ns + 30 && ns >= 53) {
             var si = (k - ns) % 6;
