@@ -105,6 +105,27 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
+        // Run 62: de laatste acht scènes zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
+        // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
+        var ns = EbbBouw.SCENES - 8;
+        if (k >= ns && ns >= 53) {
+            var si = (k - ns) % 4;
+            Application.Storage.setValue(EbbTrouw.BITS, 255);
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, (k - ns) < 4 ? 4 : 3);
+            EbbWereldSessie.aan = true;
+            EbbWereldSessie.proefNacht = (si == 3) ? 1 : 0;
+            view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
+            view.opnemen = false;
+            view.sessie.ronde = 1;
+            if (si < 2) {
+                view.plaatjeFase = Ebb.FASE_ADEMEN;
+                view.plaatjeMs = 11 * 3000 + (si == 0 ? 400 : 2100);
+            } else {
+                view.plaatjeMs = 105000;
+            }
+            view.gezelschap = EbbTrouw.zwemmer();
+            return [view, new EbbDelegate(view)];
+        }
         if (k >= 53) {
             // Proef krabwereld v2.2 (berichten hoofdchat 12 nov 02:30 en 03:10 NL): 51 tot 56 in, uit, Calm, inhouden, menu,
             // eind bij dag, 57 tot 62 hetzelfde bij nacht.

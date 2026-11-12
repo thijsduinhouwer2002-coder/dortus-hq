@@ -131,3 +131,13 @@ function testDetailsVerdiend(logger as Test.Logger) as Boolean {
     return EbbWereld.verdiend(det, 0) == 0 && EbbWereld.verdiend(det, 1) == 2 && EbbWereld.verdiend(det, 2) == 2
         && EbbWereld.verdiend(det, 3) == 3 && EbbWereld.verdiend(det, 40) == 3;
 }
+
+// Run 62: elk dier met een wereld in de lijst van KrabV2Werelden wordt gevonden, een dier zonder wereld niet.
+(:test)
+function testWereldVanDier(logger as Test.Logger) as Boolean {
+    var krab = EbbWereldSessie.wereldVan(4);
+    var schild = EbbWereldSessie.wereldVan(3);
+    var geen = EbbWereldSessie.wereldVan(99);
+    logger.debug("wereld krab " + krab + ", schildpad " + schild + ", dier 99 " + geen);
+    return krab == 0 && schild >= 1 && geen == -1 && !EbbWereldSessie.aan;
+}

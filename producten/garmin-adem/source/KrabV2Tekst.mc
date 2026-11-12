@@ -12,6 +12,10 @@ module KrabV2Tekst {
     const KAM = [134, 170, 146] as Array<Number>;
     const DONKER = 0x001E3C;
 
+    // De echte sessie (WereldSessie.mc) zet hier de tekst van dit moment neer; null is de vaste voorbeeldtekst van
+    // de proefscènes. Boven water: woord, getal, onderregel, korte onderregel. Inhouden: kop, stopregel, tijd, hartregel.
+    var echt as Array<String> or Null = null;
+
     var _rand as Number = 0;
     var _cijfers as WatchUi.FontResource or Null = null;
     // Tekstvakken van dit scherm in pixels (x0, y0, x1, y1 achter elkaar), gemeten met de echte letter van het
@@ -157,16 +161,17 @@ module KrabV2Tekst {
             var yd = v.q(hb) - v.q(v.w().ruimte() + kantelMaat(v)) - dc.getFontHeight(cijfers()); // krab 11 (keuring 05:25 punt 6: ruim), anders 7 lucht plus wat door het kantelen omhoog komt
             yd = yd > v.q(18) + hk ? v.q(18) + hk : yd;
             yd = yd < v.q(4) + hk ? v.q(4) + hk : yd;
-            regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
-            var getal = (["12", "9", "5"] as Array<String>)[scherm];
+            var e = echt;
+            regel(dc, d, yd - hk, EbbTeken.fM(), e != null ? e[0] : (scherm == 0 ? "breathe in" : "breathe out"), wit, 100);
+            var getal = e != null ? e[1] : (["12", "9", "5"] as Array<String>)[scherm];
             y = regel(dc, d, yd, cijfers(), getal, wit, 100);
             // Keuring 4 punt 4: "18 left" zei niet wat er over is. Het zijn ademhalingen; past de lange regel niet
             // binnen de ronde rand, dan valt de ronde weg (die staat al in het menu en op het inhoudscherm).
             var onderTekst = "4-7-8 · 2 of 4";
-            if (scherm != 2) {
-                onderTekst = "round 2 · 18 breaths left";
+            if (scherm != 2 || e != null) {
+                onderTekst = e != null ? e[2] : "round 2 · 18 breaths left";
                 if (dc.getTextWidthInPixels(onderTekst, EbbTeken.fX()) > breedteOp(v, top + 38, top + 52)) {
-                    onderTekst = "18 breaths left";
+                    onderTekst = e != null ? e[3] : "18 breaths left";
                 }
             }
             var yo = regel(dc, d, v.q(top + 38), EbbTeken.fX(), onderTekst, wit, 100);
@@ -174,15 +179,19 @@ module KrabV2Tekst {
                 _onder = [v.q(top + 38), yo] as Array<Number>;
                 return;
             }
+            if (e != null) {
+                return; // de echte sessie tekent elke tik: geen meting in het log
+            }
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", held vanaf " + v.q(hb));
             veilig(v, scherm, y, v.q(hb));
             v.w().veiligExtra(v, scherm, d / 2 + dc.getTextWidthInPixels(getal, cijfers()) / 2, y);
         } else if (scherm == 3) {
-            y = regel(dc, d, v.q(12), EbbTeken.fM(), "hold", geel, 90);
-            y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
-            y = regel(dc, d, y, cijfers(), "1:45", wit, 100);
-            y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
-            if (_meet) {
+            var e3 = echt;
+            y = regel(dc, d, v.q(12), EbbTeken.fM(), e3 != null ? e3[0] : "hold", geel, 90);
+            y = regel(dc, d, y, EbbTeken.fX(), e3 != null ? e3[1] : "press START to breathe", wit, 100);
+            y = regel(dc, d, y, cijfers(), e3 != null ? e3[2] : "1:45", wit, 100);
+            y = regel(dc, d, y, EbbTeken.fX(), e3 != null ? e3[3] : "61 bpm · round 2", wit, 100);
+            if (_meet || e3 != null) {
                 return;
             }
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", held vanaf " + v.q(heldBoven(v, 3, 0)));
