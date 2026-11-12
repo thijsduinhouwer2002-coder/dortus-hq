@@ -852,7 +852,7 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 
 **Slot run 57 (06:23 UTC):** toetsrun 43164891549 op 9f66378 groen; bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld van 5dd7426 naar 9f66378. De volle run daarop is gestart en niet gelezen.
 
-## Run 58, 12 nov 2026, ±06:58 tot ±07:30 UTC (Gijs): volle run gelezen, stand voor inleveren
+## Run 58, 12 nov 2026, ±07:00 UTC tot het slot hieronder (Gijs): volle run gelezen, stand voor inleveren
 
 1. Begin: het ophalen van de repo bleef twee minuten hangen (half binnengehaald pakket van 536 MB in de werkmap); opgeruimd, daarna ging het. Geen andere Gijs: geen nieuwe proeftak na `proef57`.
 2. Gelezen: besluit Thijs 08:05 (Mila stil, geen hulpagents, Ebb snel inleveren; de hoofdchat legt de kortste weg voor).
@@ -865,3 +865,5 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 1. De bouwtak is helemaal groen op dertien horloges en de echte schermen zijn één rustige, nette stijl.
 2. De werelden zitten alleen in testscènes; winkelbeelden met de krabwereld mogen daarom nog niet de winkel in.
 3. Advies aan de hoofdchat: de app inleveren zoals hij nu is (1 tot 2 runs werk plus keuring), werelden daarna als update.
+
+7. Vervolg (er was tijd over): winkelbeelden nagekeken tegen de app van nu. De poster v4 zei nog "Hold your breath." met het inhoudscherm, tegen het besluit van 11 nov 23:25 in. Nieuw gemaakt als v4.1 met `producten/garmin-adem/winkel/maak_winkel_v41.py` (gebruikt Mila's `poster_v4.py` en `winkel_v4.py`, tekent zelf niets): poster met "Breathe. Make sea friends." en het echte ademscherm, kaart 1 ademen, kaart 2, 3 en 5 opnieuw uit de opnames van run 43167720322. Kaart 4 was gelijk. Het kleinere dier op het eindscherm is geen fout: `EbbDierMaat.inBand` past het dier tussen waterlijn en tekst (keuring bouw 4 punt 5). Commit 16bd5fd op de bouwtak, `winkeltekst.md` versie 13. Besluit: zelf doen en Mila niet starten, want er is niets getekend en haar runs staan uit.

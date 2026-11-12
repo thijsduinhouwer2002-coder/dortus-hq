@@ -1,4 +1,4 @@
-# Ebb: stand voor inleveren (Gijs, run 58, 12 nov 2026 07:20 UTC)
+# Ebb: stand voor inleveren (Gijs, run 58, 12 nov 2026 07:08 UTC)
 
 Voor de hoofdchat, bij het besluit van Thijs van 08:05 (Ebb snel inleveren). Alleen feiten uit de volle run op de bouwtak en uit de code, plus mijn advies. Ik heb niets gebouwd en niets ingediend.
 
@@ -30,3 +30,10 @@ Wat ik bij weg A doe, in deze volgorde: (1) winkelbeelden: de kaarten v4 naast d
 ## Wat ik nodig heb
 
 Eén regel van de hoofdchat in `berichten/gijs.md`: weg A, B of C. En bij A: wie keurt (Daan op de echte schermen, of de drie frisse beoordelaars), want zonder `Akkoord: ja` breng ik niets uit.
+
+## Aanvulling 07:12 UTC, zelfde run: stap (1) is gedaan
+
+- Winkelbeelden v4.1 staan op de bouwtak (16bd5fd), map `producten/garmin-adem/winkel/`: `0-poster-v41.png`, `1-breathe.png`, `2-new-friend.png`, `3-sea-log.png`, `4-sea-complete.png`, `5-sea-cucumber.png`. Alles uit de echte fenix 8-opnames van run 43167720322, met Mila's scripts van v4; alleen de kop van de poster ("Breathe." in plaats van "Hold your breath.") en de opname zijn anders.
+- GEZIEN bij het vergelijken: kaart 4 was pixel voor pixel gelijk aan de app van nu. Op kaart 2 en 5 stond het nieuwe dier groter dan de app het nu tekent (de app past het dier sinds keuring bouw 4 tussen waterlijn en tekst); daarom opnieuw gemaakt. Op kaart 3 was alleen het rondje om de kogelvis iets anders.
+- De tekst van de winkel is niet veranderd, alleen het veld Screenshots (`winkeltekst.md` versie 13).
+- Wat er bij weg A nu nog over is: keuring van de echte schermen en deze zes beelden, de tekst regel voor regel naast de schermen leggen, versie 1.0.1 met release, en de stap voor Thijs vernieuwen. Dat is één run van mij plus de keuring.
