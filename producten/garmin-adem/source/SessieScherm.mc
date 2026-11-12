@@ -25,6 +25,11 @@ module EbbSessieScherm {
         // Golf schuift ±2 rad per seconde; in de plaatjesbouw stil, zodat testbeelden vóór en na pixel voor pixel te vergelijken zijn.
         var golfFase = EbbBouw.PLAATJE ? 0.0 : (nu % 3142) / 500.0;
         var t = v.sessie.verstreken(nu);
+        // PROEF krabwereld v2 (bericht hoofdchat 12 nov 02:30 NL): het hele inhoudscherm uit Wereld2.mc, alleen in scène 51 en 52.
+        if (EbbWereld2.proef && fase == Ebb.FASE_INHOUDEN) {
+            EbbWereld2.inhoud(dc, d, v.gezelschap, t / 1000, v.stopTekst(), v.sessie.ronde + 1);
+            return;
+        }
         var woord = "";
         var groot = "";
         var klein = "";

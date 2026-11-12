@@ -36,6 +36,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 | `DierenData.mc` | de punten en kleuren van Mila's dieren (gemaakt door `bron/maak_dieren_json.py`) |
 | `Zee.mc` | de zee |
 | `BovenWater.mc` | het ademscherm boven water samenstellen: lucht, grote zee (`EbbZee.ademZeeGroot`), dier op de kam; nu alleen in de proefscènes |
+| `Wereld2.mc` | PROEF: de krabwereld v2 onder water op het inhoudscherm, alles direct getekend (scène 51 en 52); vormen uit `bron/krab-v2-vormen.json` |
 | `Lucht.mc` | dagdeel en maanstand uit klok en datum; de lucht boven water (`EbbLucht.teken`) |
 | `Wereld.mc` | de wereld per dier (gegevens in `resources/werelden/werelden.xml`, lijst in `WereldData.mc`, beide gemaakt uit Mila's json; maan en dagdeel in `Lucht.mc`): het wereldplaatje en `EbbWereld.teken` |
 | `Teken.mc` | kleuren, letters, pil, hart, weekstippen en kleine tekenhulpen: `px` (maat in 1/260 D), `tekst260` (tekst met bovenkant op y/260), `tekstInRonde` (tekst die in de cirkel past) |

@@ -213,6 +213,14 @@ module EbbScenes {
             view.sessie.ronde = 1;
             view.plaatjeFase = Ebb.FASE_ADEMEN;
             view.plaatjeMs = 22 * 3000 + 2100;
+        } else if (k >= 51) {
+            // PROEF krabwereld v2 onder water op het inhoudscherm, 1:45: 51 dag, 52 nacht (Wereld2.mc).
+            Application.Storage.setValue(EbbTrouw.BITS, 31);
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, 4);
+            EbbWereld2.proef = true;
+            EbbWereld2.nacht = (k == 52);
+            view.sessie.ronde = 1;
+            view.plaatjeMs = 105000;
         } else if (k >= 47) {
             // Proef lucht (bericht hoofdchat 12 nov 01:45): ademen boven water in ochtend (in), dag (uit), avond (in) en
             // nacht (uit, wassende bolle maan), met de lucht van Mila's v1.4.
