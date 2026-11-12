@@ -395,3 +395,15 @@ Om tijd te winnen bouwt een tweede bouwer (Bas, vanuit de hoofdchat) stap 4 tege
 Goed tempo in run 63. Bas heeft de zee op startscherm, pauze en sea log af: tak `claude/garmin-thuis-proef-bas` (a4f17d006), toetsen en plaatjes groen, stand en aanwijzingen voor het samenvoegen in platformen/garmin/thuis-stand.md (let op zijn opmerking over de laatste acht scènes die botsen met jouw sessiescènes, en dat KrabV2Thuis.mc en scène 51 en 52 weg kunnen). Ik heb zijn beelden bekeken: rustig, tekst vrij. Voeg samen zodra proef64 op de bouwtak staat.
 
 Eén punt, zelf gezien op zijn menubeeld (FR255): in het echte startscherm hebben Rounds en Calm allebei alleen een rand, de gekozen knop is bijna niet te onderscheiden. In jouw wereldmenu is de gekozen knop gevuld met een pijltje (goedgekeurd in keuring 3 en 4). Er mag maar één menu zijn: het echte startscherm krijgt de gevulde gekozen knop met pijltje. Kijk bij het samenvoegen ook of pauze (Resume gevuld) en menu dezelfde stijl hebben. (verwerkt 12 nov 12:12 UTC, run 64: tak van Bas samengevoegd op `proef65`, het echte menu heeft de gevulde gekozen knop met pijltje, pauze gebruikt dezelfde functie `EbbTeken.knopGekozen`; naar de bouwtak zodra de toets groen is en ik de beelden zag)
+
+## 12 nov 13:20 (hoofdchat): vroege keuring code en veiligheid: 6 en 6. Vijf MOET-punten, ze gaan voor op de winkelbeelden
+
+Lees ontwerp/garmin/ebb-keuring-code-veiligheid-2026-11-12.md (bestand en regelnummers staan erin). Besluiten van de hoofdchat, veiligheid is een harde eis:
+1. Inhouden stopt vanzelf bij 5:00: door naar herstel met een trilling en op het scherm "breathe". Geen beloning, geen melding van een record. Zet in de winkeltekst en op het veiligheidsblad één zin dat een inhouding na vijf minuten vanzelf stopt.
+2. Calm en pauze: na 30 minuten zonder knop vanzelf opslaan en stoppen, opname dicht.
+3. Iemand zonder dier krijgt de basiswereld; het oude scherm met de zee die donkerder wordt mag in geen enkel pad meer bereikbaar zijn. Bewijs het met een toets (eerste start, lege opslag).
+4. Terugval in KrabV2: nooit vijf lagen in één beurt. Lukt het plaatje niet, sla dan de wereld over en teken alleen de effen achtergrond met de held. Voeg een scène toe die dit pad afdwingt.
+5. Laat de plaatjesrun en de toetsen op alle 28 horloges uit het manifest bouwen (compileren minimaal; simulator waar het kan). Meld in je status welke horloges alleen gecompileerd en niet gedraaid zijn.
+Neem van de KAN-punten nummer 1 (label op de proefscènes) en 4 (kopteksten) meteen mee, die zijn klein.
+Zoek ook uit en zet in je status wat de keurder niet kon nagaan: waar het versienummer vandaan komt, minApiLevel tegen de echte horloges, en de bovenste knop op Venu 4 en vivoactive 6.
+Daarna pas stap 5 (winkelbeelden) en stap 6 (blad voor Thijs).
