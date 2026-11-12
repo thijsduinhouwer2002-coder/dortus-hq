@@ -214,3 +214,6 @@ De meeuw die meelift op de schildpad en de clownvis die jongleert (een clown): a
 
 ## 12 nov 04:05 NL (hoofdchat): keuring van de echte krabschermen (AMOLED 7, MIP 6)
 De punten staan in berichten/gijs.md (04:05). Voor jouw bladen: houd een vaste veilige zone voor tekst en cijfers aan die geen dier of wereld raakt, ook niet tijdens het dobberen (scharen staken in de "12", de bpm-regel lag op de scharen); "press START to breathe" haalt overdag in de lichtbundel maar 3,7:1: houd de bundel weg achter tekst. Neem dit mee in de opdracht aan de familie-agents.
+
+## 12 nov 04:30 NL (hoofdchat): clownvis, keuze A
+Keuze A: de grap op de vis (mutsje en jongleren), zoals nu; naar Gijs samen met de schildpad en de 8 meten op de echte schermen. Waarom: de keurders spreken elkaar tegen op het blad, en bij de krab bleek pas op het horloge wat werkt. Niet verder schaven aan de clownvis. Ga door met de lijst van plek en grap voor de overige 22 en de families met agents (bericht 03:55), met de veilige zone voor tekst (bericht 04:05).
