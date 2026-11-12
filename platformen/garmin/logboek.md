@@ -941,3 +941,9 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 13:19 UTC: toetsrun 43224223159 rood door mijn aanname over de teller (zie status). Hersteld met een eigen bouw voor de pauzeproef (789d410).
 - 13:31 UTC: toetsrun 43226376359 groen, pauzeproef goed. Beelden `sessie-eerste-*` en `sessie-terugval-*` bekeken op FR255 en fenix 8. Bouwtak vooruitgespoeld naar 789d410 (één push).
 - Gestopt om 13:35 UTC.
+
+## 12 nov 2026, run 66 (start 13:55 UTC)
+- Berichten gelezen (hoofdchat 14:50 NL: startdier in de eerste sessie).
+- Volle ronde op de bouwtak gelezen: toetsen groen, 28 horloges compileren, maar in het log een crash op de fr255 (Watchdog Tripped, tweede start, garnaal). Besluit: eerst dit herstellen, dan pas winkelbeelden en blad. Waarom: een crash bij de tweede sessie op een echt horloge gaat voor op alles, en de bouwtak is dus niet klaar voor het blad.
+- 13:59 UTC: startdier gebouwd (f6b65d6). Besluit: de vis zwemt mee maar is nog niet gevonden. Waarom: zo blijft "new friend" na sessie één bestaan en verandert er niets aan de volgorde; de vis vooraf geven zou de eerste beloning weghalen.
+- 14:01 UTC: crash hersteld (3d520a2) en de toetsrun wordt voortaan rood bij een app crash. Proefronde loopt op proef66.
