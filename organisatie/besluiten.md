@@ -275,3 +275,7 @@ De krab v2.2 kreeg vier keer een frisse 7 na dertien keuringen. Besluit: een ont
 - Het ontwerp kostte vannacht te veel verbruik (Thijs: 23%). Mila's vaste runs staan uit. Ze wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, zonder hulpagents.
 - Fout van de hoofdchat: alle 22 werelden laten ontwerpen voordat de krab op een echt horloge goed was. Regel voortaan: eerst één voorbeeld op het echte scherm een 8, dan pas de rest.
 - Thijs wil Ebb inleveren en verder met iets nieuws of Het Hol. De hoofdchat legt hem de kortste weg voor.
+
+## 12 nov 08:10 (Thijs): Ebb wordt helemaal afgebouwd (route 2)
+
+Thijs koos: alle 24 werelden en het strand in versie 1, niet klein inleveren. Mila blijft stil; Gijs bouwt uit de ontwerpen die er liggen. Volgorde blijft: krab een 8 op echte schermen, schildpad, onderwater op start, pauze en sea log, strand, overige 22 werelden vijf per run, winkelbeelden met echte schermen, volle keuring, winkelbestand.

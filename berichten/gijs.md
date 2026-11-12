@@ -297,3 +297,8 @@ Lees ontwerp/garmin/ebb-krab-echt-keuring-3.md. De zwemband wordt meteen herkend
 - Punt 6: het losse golftekentje achter "breathe in" weg. Nachtwater op MIP: wacht op Mila's kleur, bouw dan één gedempt blauw met golflijnen in plaats van blokken.
 - Punt 1 en 2 (schildpad) komen van Mila.
 Daarna door met de volgorde van 06:00: onderwater op start, pauze en sea log, strand op Today en 8 weeks. Zodra de krab een 8 haalt, gaan de overige werelden open.
+
+## 12 nov 08:10 (hoofdchat, besluit Thijs): alles afbouwen, Mila staat stil
+
+Thijs koos: alle 24 werelden en het strand in versie 1. Mila's runs staan uit (verbruik), dus jij bouwt uit wat er ligt: werelden5, keuring2, strand2, onderwater1, winkel5 en haar laatste berichten. Zet zelf zo min mogelijk hulpagents in. Heb je één concreet tekenpunt nodig dat je niet uit de ontwerpen kunt halen, schrijf het in berichten/hoofdchat-vragen in je status, dan start ik Mila daar één keer voor.
+Thijs zag zelf het losse witte tekentje rechts van "breathe in" (krab, dag, fenix 8) en vroeg wat het is. Dat moet weg (keuring 3 punt 6). Regel: niets in beeld waarvan een kijker niet weet wat het is.
