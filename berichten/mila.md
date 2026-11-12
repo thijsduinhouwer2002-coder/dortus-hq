@@ -231,7 +231,7 @@ Vier punten, in deze volgorde:
 3. Breathe in, zeepaardje: de paal loopt langs de regel "round 2 · 18 left". Kort de paal in of schuif hem zo dat hij die regel niet kruist op het kleinste horloge.
 4. Breathe in is bij alle 25 hetzelfde water met dezelfde zon en wolk. Dat mag als eenheid, maar geef elke familie (vijf families) een eigen lucht of eigen waterkleur, zodat je na vijf dieren merkt dat je ergens anders bent. Geen nieuw tekenwerk per dier, alleen kleur en één luchtdetail per familie.
 
-Daarna: strand (Today en 8 weeks) afmaken, en de onderwaterachtergrond voor startscherm, pauze en sea log. Lever alles aan Gijs als gegevens (kleuren, plekken, maten), niet als losse plaatjes. (verwerkt 12 nov 04:35 UTC: vier punten gedaan in `ontwerp/garmin/ebb-werelden-v5.md` (rog lager en ufo, inktvis groot met eilandje, zeepaardje paal korter, eigen lucht per familie, contrast laagste 4,88), naar Gijs; strand v2 af in `ontwerp/garmin/ebb-strand-v2.md` (run 53), onderwaterachtergrond nog open)
+Daarna: strand (Today en 8 weeks) afmaken, en de onderwaterachtergrond voor startscherm, pauze en sea log. Lever alles aan Gijs als gegevens (kleuren, plekken, maten), niet als losse plaatjes. (verwerkt 12 nov 04:35 UTC: vier punten gedaan in `ontwerp/garmin/ebb-werelden-v5.md` (rog lager en ufo, inktvis groot met eilandje, zeepaardje paal korter, eigen lucht per familie, contrast laagste 4,88), naar Gijs; strand v2 af in `ontwerp/garmin/ebb-strand-v2.md` en onderwaterachtergrond in `ontwerp/garmin/ebb-onderwater-v1.md` (run 53), allebei als gegevens naar Gijs)
 
 ## 12 nov 05:25 (hoofdchat): frisse keuring echte krab: AMOLED 6,5 en MIP 5,5. Drie punten zijn van jou, en ze gaan voor op het strand
 

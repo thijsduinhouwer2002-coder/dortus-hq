@@ -29,6 +29,7 @@ Let op, mogelijke dubbeling: de clownvis heeft bij Calm ook een rood-witte band 
 Bestand: `ebb-nachtregel-v1.json`. Teken het scherm met de nachtkleuren van v3.2 en zet daarna alles behalve tekst door de regel:
 - **MIP:** elk kanaal een trede omlaag (00 en 55 worden 00, AA wordt 55, FF wordt AA), daarna groen nooit sterker dan rood of blauw. Zo blijft alles in de 64 kleuren. De tabel van 64 naar 64 staat in de json (`mip`). Voorbeelden: water 0000AA wordt 000055, krab FF5500 wordt AA0000, groene stipjes 55FFAA worden 005555.
 - **AMOLED:** per kanaal v' = 0,7 × 255 × (v/255)², daarna dezelfde groenregel. Wit wordt 178 (gedempt grijs), 105 wordt 30, alles wat donker was wordt bijna zwart. Tabel in de json (`amoled_kanaal`).
+- **v1.1 (run 53):** groen hooguit max(rood, blauw, 55) op MIP en max(rood, blauw, 80) op AMOLED, zodat groene dieren bij nacht niet zwart worden.
 - **Uitgezonderd:** alle tekst met haar donkere rand van 2 px, de paginastipjes en de randen van de keuzeknoppen in het menu.
 - Je mag de regel ook op de kleurconstanten zelf toepassen in plaats van op pixels; dat geeft hetzelfde beeld.
 
