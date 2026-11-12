@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.WatchUi;
 
@@ -129,6 +130,19 @@ module KrabV2Tekst {
         return y + dc.getFontHeight(f) * pct / 100;
     }
 
+    // Breedte (pixels) die binnen de ronde rand past tussen y0 en y1 (1/260), met 8/260 lucht aan elke kant.
+    function breedteOp(v as KrabV2View, y0 as Numeric, y1 as Numeric) as Number {
+        var a = y0 - 130.0;
+        var b = y1 - 130.0;
+        a = a < 0 ? -a : a;
+        b = b < 0 ? -b : b;
+        var m = a > b ? a : b;
+        if (m >= 122.0) {
+            return 0;
+        }
+        return v.q(2.0 * Math.sqrt(122.0 * 122.0 - m * m));
+    }
+
     function teken(v as KrabV2View, dc as Graphics.Dc, d as Number, scherm as Number, am as Boolean, nacht as Boolean) as Void {
         var geel = EbbTeken.LICHT;
         var wit = 0xFFFFFF;
@@ -146,7 +160,16 @@ module KrabV2Tekst {
             regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
             var getal = (["12", "9", "5"] as Array<String>)[scherm];
             y = regel(dc, d, yd, cijfers(), getal, wit, 100);
-            var yo = regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
+            // Keuring 4 punt 4: "18 left" zei niet wat er over is. Het zijn ademhalingen; past de lange regel niet
+            // binnen de ronde rand, dan valt de ronde weg (die staat al in het menu en op het inhoudscherm).
+            var onderTekst = "4-7-8 · 2 of 4";
+            if (scherm != 2) {
+                onderTekst = "round 2 · 18 breaths left";
+                if (dc.getTextWidthInPixels(onderTekst, EbbTeken.fX()) > breedteOp(v, top + 38, top + 52)) {
+                    onderTekst = "18 breaths left";
+                }
+            }
+            var yo = regel(dc, d, v.q(top + 38), EbbTeken.fX(), onderTekst, wit, 100);
             if (_meet) {
                 _onder = [v.q(top + 38), yo] as Array<Number>;
                 return;
@@ -205,32 +228,36 @@ module KrabV2Tekst {
                 dc.setColor(i == 0 ? gt : wit, Graphics.COLOR_TRANSPARENT);
                 dc.drawText(d / 2 + (i == 0 ? v.q(4) : 0), v.q(py + 14), EbbTeken.fS(), namen[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             }
-            dc.setColor(pk, pk);
-            if (am && (dc has :setFill)) {
-                dc.setFill(Graphics.createColor(255, (pk >> 16) & 0xFF, (pk >> 8) & 0xFF, pk & 0xFF));
-            }
-            dc.fillRectangle(0, by, d, bh);
+            // Keuring 4 punt 5: geen balk meer achter de voetregel (de ronde rand sneed hem af); de regel staat op
+            // het rustige water en versiering blijft er 6/260 vandaan (tekstvak hierboven).
             regel(dc, d, by + v.q(2), EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", wit, 100);
             veilig(v, scherm, by + bh, v.q(heldBoven(v, 4, 0)));
         } else {
             y = regel(dc, d, v.q(26), EbbTeken.fM(), "3 rounds done", geel, 82);
-            var yt = regel(dc, d, y, EbbTeken.fS(), "1:20   1:45   1:58", wit, 100);
+            // Keuring 4 punt 4: klein label "holds" bij de drie tijden. Eerst als eigen regel erboven; is daar geen
+            // 6/260 lucht tot de held voor, dan ervoor op dezelfde regel; past ook dat niet binnen de rand, dan zonder.
+            var tijden = "1:20   1:45   1:58";
+            var hx = dc.getFontHeight(EbbTeken.fX()) * 78 / 100;
+            var yt = 0;
+            if (y + hx + dc.getFontHeight(EbbTeken.fS()) + v.q(6) <= v.q(heldBoven(v, 5, 0))) {
+                y = regel(dc, d, y, EbbTeken.fX(), "holds", wit, 78);
+                yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
+            } else if (dc.getTextWidthInPixels("holds  " + tijden, EbbTeken.fS()) <= breedteOp(v, 52, 76)) {
+                yt = regel(dc, d, y, EbbTeken.fS(), "holds  " + tijden, wit, 100);
+            } else {
+                yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
+                if (!_meet) {
+                    System.println("KRABV2 tekst scherm 5 label holds past niet");
+                }
+            }
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
-            var sy = y + v.q(5);
             if (_meet) {
-                _vak.addAll([v.q(112), sy - v.q(4), v.q(148), sy + v.q(4)] as Array<Number>);
                 return;
             }
             veilig(v, scherm, yt, v.q(heldBoven(v, 5, 0)));
-            // Keuring 3 punt 5: de bolletjes vielen weg tegen het zand; nu op een donker pilletje.
-            v.kleur(dc, am ? DONKER : 0x000055);
-            dc.fillRoundedRectangle(v.q(106), sy - v.q(7), v.q(48), v.q(14), v.q(7));
-            v.kleur(dc, EbbTeken.SCHUIM);
-            dc.fillCircle(v.q(130), sy, v.q(3.5));
-            dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-            dc.drawCircle(v.q(117), sy, v.q(3.5));
-            dc.drawCircle(v.q(143), sy, v.q(3.5));
+            // Keuring 4 punt 4: de drie bolletjes zijn weg. Het waren de weekstippen (geen pagina's); zonder uitleg
+            // zeggen ze niets en ze lagen over rots en zand. De week staat in Today.
         }
     }
 }

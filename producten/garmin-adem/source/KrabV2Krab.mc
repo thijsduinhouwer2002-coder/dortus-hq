@@ -36,8 +36,10 @@ module KrabV2Krab {
             for (var i = 0; i < 4; i += 1) {
                 v.rondje(dc, r2[4 * i], r2[4 * i + 1], r2[4 * i + 2], r2[4 * i + 3], ver, -1, -1);
             }
-            v.rondje(dc, 130, 276, 170, 54, 0xAAAA55, -1, -1);
-            v.rondje(dc, 130, 278, 160, 52, am ? 0xEBE196 : 0xFFFFAA, -1, -1);
+            // Keuring 4 punt 2: bij nacht op MIP gedempt zand (555500 met een smalle lichte kam AAAA55), was AAAA55.
+            var dof = nacht && !am;
+            v.rondje(dc, 130, 276, 170, 54, dof ? 0xFFFFAA : 0xAAAA55, -1, -1);
+            v.rondje(dc, 130, 278, 160, 52, am ? 0xEBE196 : (dof ? 0xAAAA55 : 0xFFFFAA), -1, -1);
             if (am) {
                 v.gloed(dc, 124, 234, 36, 8, 0xFFFFFF, 46, 0xEBE196);
             }
@@ -48,6 +50,11 @@ module KrabV2Krab {
             var adx = eind ? -8 : 0;
             // Keuring 05:25 punt 5: anemoon en zeester staan heel in beeld; hun rots schuift mee.
             var oa = KrabV2Lagen.inRond(sp ? 260 - 36 - adx : 36 + adx, 166 + zak + ady / 2, 30);
+            if (eind) {
+                // Keuring 4 punt 1: op het eindscherm geen anemoon; zijn rots ligt laag tegen de linkerrand, zodat
+                // "new friend" en de naam op een vrij vlak staan.
+                oa = [-26.0, 14.0] as Array<Float>;
+            }
             v.rondje(dc, (sp ? 224 : 36) + oa[0], 202 + zak + oa[1], 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
             var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
             var by = 180 + zak + oa[1];
@@ -62,7 +69,7 @@ module KrabV2Krab {
             }
             var ak = 0.0;
             var maten = [1.0, 0.8, 0.6] as Array<Float>;
-            for (var m = 0; m < 3 && ak == 0.0; m += 1) {
+            for (var m = 0; m < 3 && ak == 0.0 && !eind; m += 1) {
                 var past = true;
                 for (var i = 0; i < 5; i += 1) {
                     if (KrabV2Tekst.raakt(v, ax + (tips[2 * i] - ax) * maten[m], by + (tips[2 * i + 1] - by) * maten[m], 5)) {
@@ -100,8 +107,13 @@ module KrabV2Krab {
             var os = KrabV2Lagen.inRond(sx, 197 + zak, 14);
             sx += os[0];
             zak += os[1];
+            // Keuring 4 punt 1: op het eindscherm ligt ook deze rots tegen de rand (20 naar rechts); de zeester staat
+            // er alleen als hij 6/260 van de tekst blijft.
+            v.rondje(dc, (sp ? 260 - rx : rx) + os[0] + (eind ? 20 : 0), 210 + zak + (eind ? 6 : 0), 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
+            if (eind && KrabV2Tekst.raakt(v, sx, 197 + zak, 12)) {
+                return;
+            }
             KrabV2Rand.meet(v, scherm, "zeester", sx, 197 + zak, 14);
-            v.rondje(dc, (sp ? 260 - rx : rx) + os[0], 210 + zak, 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
             var ster = [] as Array<Float>;
             for (var i = 0; i < 10; i += 1) {
                 var a = -Math.PI / 2 + i * Math.PI / 5;

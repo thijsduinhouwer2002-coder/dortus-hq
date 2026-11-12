@@ -72,7 +72,9 @@ module KrabV2Lagen {
             } else {
                 if (nacht) {
                     // Mila nachtregel v1.3 (mip_nachtwater): één gedempt blauw met golflijnen, geen blokken
-                    dc.setColor(0x000055, 0x000055);
+                    // Keuring 4 punt 2: het ene blauw oogde fel naast het zwarte inademscherm. Nu zwart water met
+                    // donkerblauwe golflijnen; de ruggen op de bodem zijn het donkerste blauw (000055).
+                    dc.setColor(0x000000, 0x000000);
                     dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
                     KrabV2Rand.nachtwater(v, dc, 100, 244);
                 } else {

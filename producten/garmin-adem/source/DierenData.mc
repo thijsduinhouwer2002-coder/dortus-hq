@@ -138,11 +138,21 @@ module EbbDierData {
             } else if (maat < 60) {
                 var e = (8 * maat + 50) / 100;
                 e = e < 2 ? 2 : e;
+                if (nacht == 1) {
+                    // Keuring 4 punt 3: bij nacht op MIP viel de zwarte pupil weg op het gedempte lijf. Nu een licht
+                    // oogpunt met een donkere kern, voor elk dier.
+                    dc.setColor(0xFFFFFF, 0xFFFFFF);
+                    dc.fillRectangle(x - e / 2 - 1, y - e / 2 - 1, e + 2, e + 2);
+                }
                 dc.setColor(0x000000, 0x000000);
                 dc.fillRectangle(x - e / 2, y - e / 2, e, e);
             } else {
                 var r = maat / 20;
                 r = r < 3 ? 3 : r;
+                if (nacht == 1) {
+                    dc.setColor(0xFFFFFF, 0xFFFFFF);
+                    dc.fillCircle(x, y, r + 1);
+                }
                 dc.setColor(0x000000, 0x000000);
                 dc.fillCircle(x, y, r);
                 dc.setColor(0xFFFFFF, 0xFFFFFF);

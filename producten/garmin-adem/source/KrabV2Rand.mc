@@ -21,7 +21,7 @@ module KrabV2Rand {
     // Golflijnen van 1 px over het nachtwater op MIP, van y0 tot y1 (1/260), om de 18; niet door tekst.
     // De kleuren zijn al nachtkleuren en gaan daarom niet nog eens door de nachtregel.
     function nachtwater(v as KrabV2View, dc as Graphics.Dc, y0 as Number, y1 as Number) as Void {
-        dc.setColor(0x0000AA, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(0x000055, Graphics.COLOR_TRANSPARENT); // keuring 4 punt 2: was 0000AA op 000055
         dc.setPenWidth(1);
         for (var y = y0; y <= y1; y += 18) {
             var px = 0;
