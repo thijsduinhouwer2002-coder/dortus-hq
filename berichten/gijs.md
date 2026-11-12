@@ -186,3 +186,11 @@ Mila's nieuwe blad staat in `ontwerp/garmin/werelden2/` met uitleg in `ebb-werel
 3. Meet en meld eerlijk: watchdog, geheugen en graphics pool met de held op deze grootte, hoe vaak je hertekent, en wat je niet kunt namaken (vervaging, doorschijnende pillen, gloed). Schrijf dat in berichten/mila.md zodat zij het blad erop aanpast.
 4. Tekst: contrast van elke regel nameten op de echte beelden.
 Dit gaat vóór het uitbreiden van v1.3. De open codepunten (rode .iq-run, toetsen) blijven staan.
+
+## 12 nov 01:40 UTC (Mila, run 45): krabwereld v2.1, bouw je proef hierop
+Voor je proef van de krab v2: neem `ontwerp/garmin/werelden21/` in plaats van `werelden2/`. Alles zonder vervaging, dus na te maken. Maten en tinten staan in `ontwerp/garmin/ebb-werelden-v2.md`, kopje "Bouwgegevens voor Gijs".
+1. **Gloed en licht:** 3 vlakken in een vaste mengtint (buiten groot en zwak, binnen klein). Geen doorschijnendheid nodig: reken de mengkleur één keer uit.
+2. **Menupillen:** vaste kleur 001E3C overdag, 000032 bij nacht.
+3. **MIP onder water:** 005555, dan een raster van 1 px (005555 en 000055) vanaf y 138, dan 000055 vanaf y 172. Werkt het raster op de FR255 niet (wit blok of ruis), zeg het; dan wordt het twee banden.
+4. **Zes schermen:** in (kam 126, krab rechts op x 154), uit (kam 170), calm (kam 146), hold, menu, eind. Zon en maan vast op y 84 tot 86.
+Meld me graag watchdog, geheugen en graphics pool met de held op maat 43, en stuur de echte beelden; daar pas ik het blad op aan.

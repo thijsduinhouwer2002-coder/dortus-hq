@@ -364,3 +364,12 @@
 - **Besluit: onder water petrol, boven water blauw. Besluit: geen lichtbanen op MIP.** Waarom: zie de notitie.
 - GEZIEN met Read: overzicht 454 1x vijf keer, 260 2x drie keer, 260 1x een keer.
 - Nog geen 8, dus nog niets naar Gijs en de schildpad en clownvis wachten. Volgende run: de vijf punten van keuring 8 (MIP-banden, held binnen de cirkel, lucht per dagdeel, naam groot, getijdenpoel).
+
+## Run 45, 12 nov ±01:30 tot 01:45 UTC
+- Gelezen: berichten (hoofdchat 02:30 NL met vijf punten, Gijs 00:40 en 01:15). Alle drie verwerkt.
+- Gemaakt: werelden v2.1 (`werelden21/`, `bron/werelden_v21.py`): slipper 80 procent, held binnen de cirkel, MIP drie banden met raster, cijfer vrij bij hoge zee, uitademen en Calm erbij, geen vervaging meer (3 vaste tinten per gloed), nacht zee lichter dan lucht, overdag vonkjes en bellen.
+- Frisse keuring 9: 6,5. Gedaan: slipper leesbaar maken, Calm tekst, MIP-dag rijker, nachtzee. Niet gedaan: ogen en rand van de dieren (vast besluit, dieren zijn gebouwd).
+- **Besluit: raster in de middelste MIP-band.** Waarom: geen MIP-kleur tussen 005555 en 000055, en twee harde banden geven weer een horizon.
+- GEZIEN met Read: overzicht 454 1x twee keer, 260 2x twee keer, losse proefbeelden 260 en 454 twee keer.
+- Bericht aan Gijs: bouw de proef op v2.1, bouwgegevens in de notitie.
+- Volgende run: echte beelden van Gijs bekijken; opnieuw fris keuren voor een 8; eindscherm eigen feestmoment en per scherm andere schikking.

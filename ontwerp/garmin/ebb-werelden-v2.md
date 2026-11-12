@@ -41,3 +41,26 @@ Bestanden: `werelden2/krab-<scherm>-<dag|nacht>-<454|260>.png`, overzichten `wer
 - Uitademen en Calm (boven water, zee laag) en sea log-dierscherm zijn nog niet getekend.
 - Tekst op 260 is in mijn nabootsing zacht (ongeveer 1800 pixels buiten MIP, alleen letterranden); de wereld zelf gebruikt alleen MIP-kleuren.
 - Pas bij een 8: schildpad en clownvis, dan naar Gijs (zijn mechanisme: laag "ver" over de hele breedte, stralen als losse vlakken, verloop op AMOLED, held op een maat per scherm).
+
+## Versie 2.1 (run 45, 12 nov ±01:45 UTC): punten hoofdchat 02:30 NL
+Bestanden: `werelden21/krab-<scherm>-<dag|nacht>-<454|260>.png` met zes schermen (in, uit, calm, hold, menu, eind), overzichten `werelden21/overzicht-454-1x.png`, `-260-2x.png`, `-260-1x.png`. Script: `bron/werelden_v21.py`.
+1. **Slipper kleiner:** 80 procent van v2 (eerst 70; de frisse keuring zag de slipper toen niet meer als slipper, dus iets terug). De hak ligt onder de krab, neus en V-bandje steken rechts uit. De krab is nu duidelijk de held.
+2. **Held binnen de cirkel:** krab en slipper staan op inhouden en menu helemaal binnen de rand (midden van de krab op x 118/260).
+3. **MIP onder water:** de harde horizon is weg. Drie banden: petrol 005555 bovenin (alle tekst staat hierop), dan een raster van 005555 en 000055 (leest op ware grootte als tussentint), dan 000055. Bij nacht 000055, raster, 000000. De harde ellips achter de krab op het eindscherm is weg op MIP. Overdag ook belletjes en vonkjes, niet alleen bij nacht.
+4. **Inademen:** zee hoog (kam op 126/260), krab schuift naar rechts (midden x 154) zodat het cijfer vrij blijft; cijfer en woord iets hoger (18 en 36). **Uitademen** (kam 170, krab midden) en **Calm** (kam 146, "breathe out", "4-7-8 · 2 of 4") zijn getekend. Zon en maan staan vast op y 84 tot 86, altijd boven de hoogste kam (Gijs zag de ochtendzon bijna verdwijnen).
+5. **Bouwbaar:** geen enkele vervaging meer. Elke gloed is 3 vlakken in een vaste mengtint (2 bij plankton), buiten groot en zwak, binnen klein. De pillen in het menu hebben een vaste kleur (001E3C overdag, 000032 bij nacht). De donkere rand van de kast op AMOLED is 3 ringen.
+6. Nacht boven water: lucht donker (000055 op MIP), zee meer petrol, zodat het stijgen ook 's nachts leest.
+
+**Besluit: het raster blijft in de middelste band.** Waarom: tussen 005555 en 000055 zit geen MIP-kleur, en twee harde banden gaven weer een horizon. Een raster van 1 px is op een MIP-scherm van 260 een tussentint (veel Garmin-wijzerplaten doen dit); in Gijs zijn plaatje kost het niets extra. Alle tekst staat erboven, op vlak petrol.
+**Besluit: de dieren zelf blijven zoals ze zijn** (ogen en stickerrand). De keuring vraagt ronde ogen en een effen donkere rand; dat is een wijziging van alle 25 gebouwde dieren en hoort niet bij deze wereldproef. Staat op de lijst voor na de proef van Gijs.
+
+### Frisse keuring 9
+**6,5.** Punten: slipper leest niet als slipper (gedaan: 80 procent, hak onder de krab, neus en bandje vrij); ogen als driehoekjes en rafelige rand (niet gedaan, zie besluit); MIP overdag arm en raster vuil in het menu (gedaan: vonkjes en bellen overdag, raster pas onder de tekst); Calm twee getallen (gedaan); nachtzee gelijk aan nachtlucht (gedaan).
+
+### Bouwgegevens voor Gijs (1/260 D)
+- Gloed in 3 stappen met totale sterkte T: elke stap mengt a = 1 − (1 − T)^(1/3) van de lichtkleur over wat eronder ligt. Grootte van buiten naar binnen 1,35 / 1,175 / 1,0 keer de kern.
+- Bundel (inhouden en menu): kern boven 52 breed op x 118, onder 96 breed op y 236 rond x 112; stappen 1,45 / 1,2 / 0,95 keer; T = 0,34 dag, 0,22 nacht; kleur 55FFFF dag, AAAAFF nacht. Eindscherm: recht op x 104 tot y 170. Alleen AMOLED.
+- Lichtvlek op het zand: ellips (124, 234) 48 x 11, wit, T 0,45. Schaduw slipper: ellips (held_x + 30, voet + 15) 44 x 5, kleur 5A5028, T 0,5 (MIP: vlak AAAA55 42 x 5).
+- Lichtkring eindscherm: ellips (130, 124) 46 x 38, lichtkleur, T 0,4. Alleen AMOLED.
+- Plankton bij nacht: 2 stappen, straal 2,4 keer het stipje, 00FFAA, T 0,45.
+- Held: inhouden maat 43 op (118, 184), menu 38 op (118, 186), eind 40 op (118, 126). Slipper-hak op held_x + 2, schaal maat/30 × 1,3 × 0,8, hoek −4 (eind: hak 112, schaal 1,2, hoek −6). Boven water: maat 36, kam 126 (in), 146 (calm), 170 (uit); held_x 154 bij kam onder 140, anders 124.
