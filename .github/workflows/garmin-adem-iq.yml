@@ -140,7 +140,9 @@ jobs:
   # Keuring bouw 2 punt 3: één job per horloge (8 x 22 scènes paste niet in 40 minuten), elk ±10 minuten.
   plaatjes:
     runs-on: ubuntu-latest
-    timeout-minutes: 44
+    # Run 68: 44 werd 75. De volle ronde heeft 157 scènes; op AMOLED kost een scène ongeveer 24 s, samen ruim 60 min.
+    # In run 43247534136 braken tien van de dertien jobs af op 44 min, zonder beelden op naam (alleen de drie MIP-horloges haalden het).
+    timeout-minutes: 75
     permissions:
       contents: read
       actions: read
