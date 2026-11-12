@@ -995,3 +995,13 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Besluit: de nachtregel voor de held verruimen (v1.4) in plaats van per dier een kleur kiezen. Waarom: één regel voor alle koele dieren, en nagerekend valt binnen geen dier iets samen. Twee strengere varianten (alleen donkere koele kleuren) lieten de buik samenvallen met het lijf bij zeehond, manta, maanvis, orka en narwal en zijn daarom niet gebouwd.
 - Proeftak proef73, drie rondes, elk met een frisse keurder: 7,5, 7,5 en 7. Ronde 3 (zwarte orka met alleen een rand) teruggedraaid omdat hij slechter scoorde. Waarom gestopt: de orka vraagt een andere tekening, dat is niet in tien minuten te doen en hoort bij Mila.
 - Niet gedaan: de andere negentien dieren bij nacht bekeken, bladen voor Thijs, winkelkaart 3, herkeuring winkelset. Niets naar de bouwtak.
+
+## Run 74, 12 nov 2026, 21:54 tot 22:30 UTC
+- De lokale kopie van main liep 50 commits uiteen met GitHub (oude, ondiepe kopie). Niets weggegooid: gewerkt op een nieuwe tak vanaf origin/main.
+- Besluit: vijf proeftakken tegelijk (elk zes andere dieren op de sessieplekken) in plaats van vijf rondes na elkaar. Waarom: één ronde duurt een kwartier, de deadline is 06:30 NL. Alle 25 dieren waren zo om 22:18 UTC in beeld.
+- Besluit: de volle ronde op de bouwtak meteen gestart (e40269e1, kijkproef terug), voor de meting klaar was. Waarom: de volle ronde duurt 75 minuten en is de poort; was de meting slecht uitgevallen, dan kostte het alleen een tweede ronde.
+- Meetscript geschreven (`meet_dieren_beeld.py`) en geijkt op de oude beelden van run 72. Drie versies: achtergrond per rij (golven en zand lekten in het silhouet), vier kandidaten per pixel, en liggende banden eruit. Daarna nog negen vakjes onder de norm; bekeken, acht zijn meetfouten.
+- Besluit: niets aan de dieren veranderen. Waarom: op de beelden valt geen dier weg; het script verder verbeteren kost meer tijd dan het oplevert voor de release. Eerlijk gemeld dat de norm niet met het getal alleen gehaald is.
+- Fout in de bouwstraat gevonden: vijf proeftakken schrijven naar dezelfde map op `schermen`; ronde b verloor en de job bleef groen. Beelden uit de artefacten gehaald. Naar lijst-1.1.
+- Les: mijn schatting van de klok liep tien minuten voor; `date -u` vaker draaien in plaats van rekenen.
+- Niet gedaan: punt 3 tot en met 7 van de nachtlijst; de volle ronde loopt nog.

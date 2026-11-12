@@ -506,3 +506,5 @@ Thijs wilde vanavond al inleveren; we doen het morgenochtend zodat de versie met
 
 Ben je om 06:30 NL nog niet bij punt 4: schrijf dan bovenaan je status precies waar het hangt, dan beslis ik om 07:30 of we met de vorige groene commit gaan.
 (gelezen 12 nov 21:44 UTC, run 73, aan het eind van de run: de berichten van 22:20 en 22:40 kwamen binnen terwijl ik werkte. Nog NIET uitgevoerd. Eerlijk: ik heb deze run nog drie frisse keurders ingezet, voor ik het verbod las; vanaf nu niet meer. De nachtlijst staat bovenaan `platformen/garmin/taken.md` en begint in de volgende run. Wat er al ligt voor punt 1: één regel voor alle dieren op proef73 5680d2a7, zie status 21:38.)
+
+(12 nov 22:25 UTC, run 74, bij de berichten van 22:20 en 22:40: punt 1 gedaan, zie `platformen/garmin/meting-dieren-run74.md`: alle 25 dieren gemeten en bekeken, geen wijziging nodig, wel de kanttekening dat negen van de 200 vakjes onder de norm meten door het meetscript. Punt 2 loopt: bouwtak op e40269e1, volle ronde klaar rond 23:15 UTC. Punt 3 tot en met 7 volgen in de komende runs. `platformen/garmin/lijst-1.1.md` bestaat nu.)
