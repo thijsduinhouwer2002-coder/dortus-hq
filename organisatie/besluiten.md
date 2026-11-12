@@ -311,3 +311,8 @@ Thijs: de hele dag gewerkt en alles blijft op een 6 tot 7, dit schiet niet op. O
 - Eerst Ebb (Garmin) inleveren, vrijdag 13 nov 08:30.
 - Daarna Het Hol (Steam): harde datum Desktop Companion Fest 14 tot 18 januari 2027, winkelpagina klaar rond 1 december (zie besluit 9 nov). Eerste stap: onderzoek naar waar goede beelden vandaan komen, met een proef, en een planning teruggerekend vanaf 14 januari met vooraf vastgelegd wat klaar is.
 - Er komt iets anders naast Het Hol. Wat, kiest Thijs na het onderzoek en nadat de hoofdchat de stand van de wachtende producten heeft nagelopen (Superhive, JetBrains, de Confluence-apps, een tweede Garmin-app). Advies hoofdchat: iets kleins dat weinig tekenwerk vraagt, en pas starten als de planning van Het Hol staat.
+
+## 12 nov 23:30 (Thijs): website helemaal ombouwen (B), en meer onderzoek naar hoe Ebb kopers krijgt
+
+- De website dortus.com gaat nu alleen over Atlassian; Thijs noemt dat een doodlopende weg. Keuze B: de hele site ombouwen naar apps voor gewone gebruikers, met Ebb en straks Het Hol voorop. Er gaat niets op de openbare site zonder dat Thijs het concept heeft gezien en ja zegt.
+- Er was nooit uitgezocht hoe Ebb gebruikers krijgt terwijl de grootste concurrent gratis te proberen is. Thijs: meerdere agents op dat onderzoek. Vier onderzoekers gestart (nacht 12 op 13 nov): gebruikers krijgen en verwachting (platformen/garmin/gebruikers-krijgen-2026-11-13.md), concurrenten (platformen/garmin/concurrenten-2026-11-13.md), kanalen en recensenten (platformen/garmin/kanalen-2026-11-13.md), ombouw website (ontwerp/website/voorstel-ombouw-2026-11-13.md). De hoofdchat vat samen en legt keuzes voor.
