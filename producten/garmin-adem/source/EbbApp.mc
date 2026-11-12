@@ -60,9 +60,9 @@ class EbbApp extends Application.AppBase {
             var k = (keer instanceof Number) ? keer as Number : 0;
             Application.Storage.setValue("demokeer", k + 1);
             System.println("DEMO start nummer " + k);
-            if (k == 3) {
-                // Vierde start (de workflow doet die alleen op fenix847mm): bewijs voor keuring code en veiligheid
-                // punt 2. Lang ademen (2 keer 5 s), na 1,5 s opent de echte terugknop het pauzemenu; daar loopt de
+            if (EbbBouw.PAUZEPROEF) {
+                // Aparte bouw van de workflow (alleen fenix847mm; de teller demokeer is gedeeld tussen horloges, run
+                // 43224223159, dus die kan dit niet kiezen): bewijs voor keuring code en veiligheid punt 2. Lang ademen (2 keer 5 s), na 1,5 s opent de echte terugknop het pauzemenu; daar loopt de
                 // echte timer (PauzeView.grens, in de toetsbouw 4 s) af en moet de opname vanzelf opgeslagen worden.
                 view.sessie = new Ebb.Rondes(2, 5000, 2, 500, System.getTimer());
                 var t = new Timer.Timer();

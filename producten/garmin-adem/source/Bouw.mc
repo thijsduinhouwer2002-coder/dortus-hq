@@ -10,6 +10,8 @@ module EbbBouw {
     // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
     const EERSTE = 0;
     const INHOUD_MS = [3000, 5000] as Array<Number>;
+    // De workflow zet dit voor één aparte bouw op true (bin/pauze-<horloge>.prg): bewijs dat het pauzemenu vanzelf opslaat.
+    const PAUZEPROEF = false;
 }
 
 (:echt)
@@ -20,6 +22,7 @@ module EbbBouw {
     // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
     const EERSTE = 0;
     const INHOUD_MS = [] as Array<Number>;
+    const PAUZEPROEF = false;
 }
 
 // Bouw voor de winkelplaatjes (plaatjes.jungle): elke start toont één vaste scène, stilgezet zodat de
@@ -32,4 +35,5 @@ module EbbBouw {
     // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
     const EERSTE = 0;
     const INHOUD_MS = [] as Array<Number>;
+    const PAUZEPROEF = false;
 }

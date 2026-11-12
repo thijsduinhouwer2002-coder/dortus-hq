@@ -198,13 +198,18 @@ jobs:
           find / -xdev -iname '*.fit' -newer /tmp/zonder-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
             cp "$f" "schermen/fit-proef/$d/$(basename "$f")"
           done
-          # Vierde start op fenix847mm (keuring code en veiligheid 12 nov, punt 2): de testbouw opent na 1,5 s het
+          # Pauzeproef op fenix847mm (keuring code en veiligheid 12 nov, punt 2): een eigen testbouw opent na 1,5 s het
           # pauzemenu met de echte terugknop; de grens is in de testbouw 4 s. Dan moet het menu vanzelf opslaan:
           # de logregel van de timer, de logregel van het opslaan en een nieuw FIT-bestand. Telt mee.
+          # Eigen bouw met EbbBouw.PAUZEPROEF aan (de teller van de testbouw is gedeeld tussen de horloges en kan dit niet kiezen).
+          sed -i "s/const PAUZEPROEF = false;/const PAUZEPROEF = true;/" source/Bouw.mc
+          monkeyc -f demo.jungle -d "$d" -o "bin/pauze-$d.prg" -y /tmp/key.der -l 2 || touch schermen/pauze-fout
+          sed -i "s/const PAUZEPROEF = true;/const PAUZEPROEF = false;/" source/Bouw.mc
+          herstart
           touch /tmp/pauze-$d
-          monkeydo "bin/demo-$d.prg" "$d" > "/tmp/pauze-$d.log" 2>&1 &
-          MD=$!; sleep 20; import -window root "schermen/$d-pauzeproef.png"; kill "$MD" 2>/dev/null || true; sleep 2
-          echo "== uitvoer vierde start pauzeproef"; cat "/tmp/pauze-$d.log"
+          monkeydo "bin/pauze-$d.prg" "$d" > "/tmp/pauze-$d.log" 2>&1 &
+          MD=$!; sleep 25; import -window root "schermen/$d-pauzeproef.png"; kill "$MD" 2>/dev/null || true; sleep 2
+          echo "== uitvoer pauzeproef"; cat "/tmp/pauze-$d.log"
           mkdir -p "schermen/fit-pauze/$d"
           find / -xdev -iname '*.fit' -newer /tmp/pauze-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
             ls -la "$f"; cp "$f" "schermen/fit-pauze/$d/$(basename "$f")"
@@ -288,7 +293,7 @@ jobs:
           if os.path.exists(sys.argv[1] + "/s1-fout"):
               fout.append("veiligheidsblad over te slaan met bladertoetsen")
           if os.path.exists(sys.argv[1] + "/pauze-fout"):
-              fout.append("pauzemenu sloeg na de grens niet vanzelf op, zie de vierde start")
+              fout.append("pauzemenu sloeg na de grens niet vanzelf op, zie de pauzeproef")
           if os.path.exists(sys.argv[1] + "/eis11-12-fout"):
               fout.append("eis 11 of 12 niet gehaald, zie metingen in de stap ervoor")
           print("EIS10 UITSLAG:", "goed" if not fout else fout)

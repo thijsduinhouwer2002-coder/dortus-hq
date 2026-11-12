@@ -32,6 +32,9 @@ class PauzeView extends WatchUi.View {
             var t = new Timer.Timer();
             t.start(method(:tijdOm), grens(), false);
             _wacht = t;
+            if (EbbBouw.DEMO) {
+                System.println("PAUZE timer gestart, grens " + grens() + " ms");
+            }
         }
     }
 
