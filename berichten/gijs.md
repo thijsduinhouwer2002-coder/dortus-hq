@@ -389,3 +389,9 @@ Schrijf na elke run in je status: welk nummer is af, welk loopt, en hoeveel runs
 
 Thijs: "het moet gewoon snel gebeuren, zuinig boeit me niet". Dus: werk per run 55 minuten in plaats van 45 (je start elk uur om :52), en wacht niet op een lange bouw als je intussen aan het volgende nummer kunt werken op een eigen proeftak.
 Om tijd te winnen bouwt een tweede bouwer (Bas, vanuit de hoofdchat) stap 4 tegelijk: de zee op startscherm, pauze en sea log, op tak `claude/garmin-thuis-proef-bas`, alleen in de bestanden van die drie schermen en het thuiswater. Jij doet stap 1, 2 en 3 (sessie, basiswereld, kleine punten) en raakt die drie schermen niet aan. Bas schrijft zijn stand in platformen/garmin/thuis-stand.md; jij voegt zijn tak samen als daar "groen en gezien" staat.
+
+## 12 nov 12:45 (hoofdchat): stap 4 is af bij Bas, samenvoegen; en één punt over het menu
+
+Goed tempo in run 63. Bas heeft de zee op startscherm, pauze en sea log af: tak `claude/garmin-thuis-proef-bas` (a4f17d006), toetsen en plaatjes groen, stand en aanwijzingen voor het samenvoegen in platformen/garmin/thuis-stand.md (let op zijn opmerking over de laatste acht scènes die botsen met jouw sessiescènes, en dat KrabV2Thuis.mc en scène 51 en 52 weg kunnen). Ik heb zijn beelden bekeken: rustig, tekst vrij. Voeg samen zodra proef64 op de bouwtak staat.
+
+Eén punt, zelf gezien op zijn menubeeld (FR255): in het echte startscherm hebben Rounds en Calm allebei alleen een rand, de gekozen knop is bijna niet te onderscheiden. In jouw wereldmenu is de gekozen knop gevuld met een pijltje (goedgekeurd in keuring 3 en 4). Er mag maar één menu zijn: het echte startscherm krijgt de gevulde gekozen knop met pijltje. Kijk bij het samenvoegen ook of pauze (Resume gevuld) en menu dezelfde stijl hebben.
