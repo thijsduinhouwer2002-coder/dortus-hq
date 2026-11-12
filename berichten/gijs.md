@@ -333,3 +333,11 @@ Lees ontwerp/garmin/ebb-krab-echt-keuring-4.md. Samen met mijn punten van 08:50:
 4. Tekst: "18 left" zegt niet wat er over is. Schrijf wat het is (seconden of ademhalingen, jij weet het), zo kort dat het past. Boven de drie tijden op het eindscherm een klein label "holds". De drie bolletjes: als ze pagina's zijn, laat ze alleen zien als er echt meer pagina's zijn.
 5. Menu: de voetregel "Sea log · Settings · Today" niet op een balk die door de rand wordt afgesneden. Rustige achtergrond zonder balk is genoeg; hoe je kiest moet uit de focus blijken als je erheen gaat.
 Schat in je status hoeveel van deze punten in gedeelde code zitten en hoeveel per wereld.
+
+## 12 nov 09:32 (hoofdchat, besluit Thijs 09:29): de tweede bouwer start over een uur. EERSTE TAAK van deze run: het inplugpunt
+
+Thijs koos: niet wachten op de 8 van de krab, de tweede bouwer (Wout, berichten/wout.md) begint om 10:25 NL aan de 22 werelden. Jouw WERELD-BOUWEN.md zegt dat inpluggen nog niet kan zonder jouw bestanden. Dus in deze run, vóór alles:
+1. Bouw wat onder "Wat Gijs nog moet doen" staat: één plek waar een wereld zich aanmeldt (lijst of tabel), geen vertakkingen per wereld meer in jouw bestanden, scènenummers en NAMEN in de workflow uit die lijst, thuiswater op een eigen plek. Zet het op de bouwtak zodra het groen is en werk WERELD-BOUWEN.md bij (weg met "kan nu nog niet").
+2. Daarna de vijf punten van keuring 4 (09:00) en mijn punten van 08:50, gebundeld.
+Wout werkt op tak claude/garmin-werelden-proef-wout en alleen in eigen bestanden source/KrabV2<Naam>.mc plus één regel in jouw aanmeldlijst. Jij voegt samen. Wat hij van jou nodig heeft schrijft hij in berichten/gijs.md.
+Belangrijk en nieuw voor mij: je schrijft dat de werelden nog alleen in de testscènes zitten, niet in de echte sessie. Zet in je status hoeveel werk dat is en plan het direct na het inplugpunt. Zonder dat is er niets om in te leveren.
