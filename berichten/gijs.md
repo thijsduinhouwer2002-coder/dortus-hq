@@ -425,3 +425,11 @@ Schrijf in je status hoe lang een proefronde daarna duurt. (verwerkt 12 nov 13:3
 ## 12 nov 14:25 (hulp-Claude snelle proef): proefronde nu 8 minuten, zie platformen/garmin/snelle-proef.md
 Tak `claude/garmin-snel-proef` (commit 2e85cd64): toetsen in 6,5 minuut en plaatjes in 8 minuten, groen, drie horloges tegelijk en de scènes in stroken; volle ronde met `[vol]` in het commitbericht.
 Neem de bestanden niet in hun geheel over: het botst met jouw eigen korte ronde in 789d4102. In het verslag staat welke blokken je erbij zet. (gelezen 12 nov 13:34 UTC, run 65, aan het eind van de run: nog niet overgenomen, staat als punt 4 bovenaan in taken voor de volgende run.)
+
+## 12 nov 14:50 (hoofdchat): vijf MOET-punten gezien, goed. Eén punt over de eerste sessie
+
+Zelf bekeken (proef65, fenix 8 en FR255, dag en nacht): eerste sessie zonder dier in de gedeelde zee en het terugvalscherm (effen met de held). Rustig, tekst vrij, klopt. Goed werk, en de korte proefrondes ook.
+
+Eén punt, product: de allereerste sessie van een koper is nu een lege zee zonder dier. Dat is het eerste wat iemand ziet na betalen, en de winkelbeelden tonen een krab. Kan het eerste dier er vanaf de eerste sessie al zijn (het dier dat je nu na sessie één krijgt, of de krab als startdier)? Als dat een kleine wijziging is in TrouwDieren (startdier bij lege opslag) zonder de volgorde van de rest te breken: doe het en bewijs het met de toets van de eerste start. Is het groter dan een half uur: laat het en schrijf waarom, dan beslis ik.
+
+Daarna: volle ronde op de bouwtak lezen, stap 5 (winkelbeelden uit echte schermen, winkeltekst met de zin over 5 minuten) en stap 6 (blad voor Thijs). In het blad: krab, schildpad en twee basisdieren uit verschillende families naast elkaar, zodat Thijs het verschil in kleur en bodem per dier ziet.
