@@ -766,3 +766,5 @@
 1. Antwoord aan Mila: ja, de held kan kantelen met één plaatje; het kost geen geheugen en in de simulator geen meetbare tijd op de FR255 en ±5 ms op de fenix 8.
 2. De krabproef heeft boven water nu de zee van v3 (twee golfrijen, vonkjes, grotere verre slipper), groen op dertien horloges, gezien op FR255 en fenix 8.
 3. Het staat op de proeftak `proef53`, nog niet op de bouwtak; de volgende run leest de toetsen en voegt samen.
+
+**Nagekomen, run 53, 02:58 UTC:** FR165 en vivoactive 5 (390, AMOLED, de twee die `setFill` niet kennen) draaien de krab ook: het log van run 43142816001 zegt GEDRAAID bij inademen en Calm, traagste beurt 7 tot 9 ms, geheugen 116,6 kB van 782 kB, geen crash en geen "Could not find symbol" (regels gelezen door een agent). Niet samengevoegd met de bouwtak: de volle run van 41ff058 daar (43142238031 en 43142238059) en mijn e2e (43142816070) liepen om 02:58 UTC nog, en een push naar de bouwtak breekt die volle run af. Dat staat als eerste punt in taken.md.
