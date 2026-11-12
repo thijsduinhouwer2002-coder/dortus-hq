@@ -4,7 +4,7 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 // Mila blad v10 punt 2 (keuring bouw 5 punt 6): het pauzemenu in Ebb-stijl in plaats van het witte systeemmenu.
-// De zee staat stil (platte kamlijn), bovenaan "paused" en welke ronde en hoe lang, drie keuzes Resume, Save, Discard;
+// Achtergrond: het thuiswater (Thuis.mc), bovenaan "paused" en welke ronde en hoe lang, drie keuzes Resume, Save, Discard;
 // de gekozen keuze in een pil van schuim, en je eigen dier (gekozen in de sea log) wijst hem aan. Startkeuze Resume.
 // Maten in 1/260 D (blad v10).
 class PauzeView extends WatchUi.View {
@@ -33,7 +33,21 @@ class PauzeView extends WatchUi.View {
         var d = (w < h) ? w : h;
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        EbbZee.stil(dc, d);
+        // Thuiswater (Thuis.mc): de tekstvakken van dit scherm (kop, regel, de drie keuzes met het dier, voetregel);
+        // het zand begint 6/260 onder "the sea waits".
+        var c = w / 2;
+        var fx = dc.getFontHeight(EbbTeken.fX());
+        var rw = dc.getTextWidthInPixels(regel, EbbTeken.fX()) / 2;
+        var sw = dc.getTextWidthInPixels("the sea waits", EbbTeken.fX()) / 2;
+        var vakken = [
+            c - d / 4, EbbTeken.px(d, 24), c + d / 4, EbbTeken.px(d, 24) + dc.getFontHeight(EbbTeken.fS()),
+            c - rw, EbbTeken.px(d, 56), c + rw, EbbTeken.px(d, 56) + fx,
+            c - EbbTeken.px(d, 93), EbbTeken.px(d, 86), c + EbbTeken.px(d, 57), EbbTeken.px(d, 202),
+            c - sw, EbbTeken.px(d, 214), c + sw, EbbTeken.px(d, 214) + fx
+        ] as Array<Number>;
+        if (!EbbThuis.teken(dc, d, EbbTeken.px(d, 214) + fx + EbbTeken.px(d, 6) + 3, vakken, EbbThuis.PAUZE)) {
+            WatchUi.requestUpdate();
+        }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, EbbTeken.px(d, 24), EbbTeken.fS(), "paused", Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -55,7 +69,7 @@ class PauzeView extends WatchUi.View {
         }
         // Je eigen dier wijst de keuze aan: midden 22 px (in 1/260) links van de pilrand.
         if (dier >= 0) {
-            EbbDierVoorraad.teken(dc, dier, w / 2 - pb / 2 - EbbTeken.px(d, 22), EbbTeken.px(d, Y[keuze]), EbbTeken.px(d, 12), EbbDierPlaatje.GEVONDEN);
+            EbbDierVoorraad.teken(dc, dier, w / 2 - pb / 2 - EbbTeken.px(d, 22), EbbTeken.px(d, Y[keuze]), EbbTeken.px(d, 12), EbbThuis.nacht() ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, EbbTeken.px(d, 214), EbbTeken.fX(), "the sea waits", Graphics.TEXT_JUSTIFY_CENTER);

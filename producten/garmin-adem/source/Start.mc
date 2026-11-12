@@ -37,7 +37,7 @@ module EbbStart {
 
 // Blad v6 scherm 1 (keuring 01:55, besluit 22:53 punt 7): eigen startscherm in plaats van een systeemmenu.
 // "Ebb" bovenaan, twee gelijke pillen Rounds en Calm 4-7-8 (gekozen = dikke schuimrand), daaronder "Sea log · Settings",
-// onderaan de zee met je eigen dier. Box staat er niet meer in; My pattern zit in de instellingen.
+// onderaan je eigen dier op de zandbodem van het thuiswater (Thuis.mc). Box staat er niet meer in; My pattern zit in de instellingen.
 class EbbMenuView extends WatchUi.View {
     var keuze as Number = 0;   // 0 Rounds, 1 Calm 4-7-8, 2 Sea log, 3 Settings, 4 Today (EbbStart.MENU_AANTAL)
 
@@ -57,9 +57,10 @@ class EbbMenuView extends WatchUi.View {
         var lw = (d / 130 > 2 ? d / 130 : 2) * (gekozen ? 2 : 1);
         var x0 = d / 2 - bw / 2;
         var y0 = (d * y).toNumber() - bh / 2;
-        dc.setColor(gekozen ? EbbTeken.SCHUIM : EbbTeken.ZEE_KLEUR[1], Graphics.COLOR_TRANSPARENT);
+        // Op het thuiswater: rand in 00AAFF (0055AA viel weg tegen het water), binnenkant nachtblauw.
+        dc.setColor(gekozen ? EbbTeken.SCHUIM : EbbTeken.ZEE_KLEUR[0], Graphics.COLOR_TRANSPARENT);
         dc.fillRoundedRectangle(x0, y0, bw, bh, bh / 2);
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.setColor(EbbTeken.NACHT, EbbTeken.NACHT);
         dc.fillRoundedRectangle(x0 + lw, y0 + lw, bw - 2 * lw, bh - 2 * lw, (bh - 2 * lw) / 2);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), EbbTeken.fS(), tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -76,19 +77,40 @@ class EbbMenuView extends WatchUi.View {
             System.println("LETTERHOOGTE d " + d + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY) + " small " + dc.getFontHeight(Graphics.FONT_SMALL)
                 + " medium " + dc.getFontHeight(EbbTeken.fM()) + " ascent " + Graphics.getFontAscent(EbbTeken.fX()) + "/" + Graphics.getFontAscent(EbbTeken.fS()) + "/" + Graphics.getFontAscent(EbbTeken.fM()));
         }
-        EbbZee.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
         var eigen = EbbTrouw.zwemmer();
+        // Thuiswater (Thuis.mc) in plaats van de zeebanden. Tekstvakken: "Ebb", de twee pillen, de menuregel en het
+        // dier (of de twee regels "first friend"). Met dier ligt het zand onder het dier, anders 6/260 onder de regels.
+        var f = EbbTeken.fX();
+        var fh = dc.getFontHeight(f);
+        var m = "  ·  ";
+        var tot = regelBreed(dc, f, m);
+        if (tot > d * 0.84) {
+            m = " · ";
+            tot = regelBreed(dc, f, m);
+        }
+        var c = d / 2;
+        var yb = (d * 0.783).toNumber() + 4 + fh / 2;
+        var half = (eigen >= 0) ? d / 10 : dc.getTextWidthInPixels("after 1 session", f) / 2;
+        var vakken = [
+            c - d / 6, (d * 0.165).toNumber() - dc.getFontHeight(EbbTeken.fM()) / 2, c + d / 6, (d * 0.165).toNumber() + dc.getFontHeight(EbbTeken.fM()) / 2,
+            c - (d * 0.31).toNumber(), (d * 0.25).toNumber(), c + (d * 0.31).toNumber(), (d * 0.595).toNumber(),
+            c - tot / 2 - d / 30, (d * 0.655).toNumber() - fh / 2 - d / 60, c + tot / 2 + d / 30, (d * 0.655).toNumber() + fh / 2 + d / 60,
+            c - half, (eigen >= 0) ? (d * 0.715).toNumber() : yb - fh / 2, c + half, (eigen >= 0) ? (d * 0.875).toNumber() : yb + fh + fh / 2
+        ] as Array<Number>;
+        var zand = (eigen >= 0) ? (d * 0.855).toNumber() : yb + fh + fh / 2 + EbbTeken.px(d, 6) + 3;
+        if (!EbbThuis.teken(dc, d, zand, vakken, EbbThuis.MENU)) {
+            WatchUi.requestUpdate();
+        }
         if (eigen >= 0) {
             // Keuring bouw 2 punt 7: het dier ±80 px breed op 454 (0,17 D), op de kamlijn (0,775 D), onder "Sea log · Settings".
             // Keuring bouw 3 punt 8: menu-dier 80 px breed op 454 (0,176 D).
             var mm = EbbDierMaat.inVak(eigen, (d * 0.176).toNumber(), (d * 0.14).toNumber());
-            EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, EbbDierPlaatje.GEVONDEN);
+            EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, EbbThuis.nacht() ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
         } else {
             // Keuring bouw 4 punt 11: bij de eerste start een belofte waar straks het dier zwemt.
-            var fx = dc.getFontHeight(EbbTeken.fX());
-            // Keuring bouw 6 punt 5 (scène 28): beide regels helemaal in het water, 4 px onder de golftop (0,783 D).
-            var yb = (d * 0.783).toNumber() + 4 + fx / 2;
+            // Keuring bouw 6 punt 5 (scène 28): beide regels helemaal in het water, 4 px onder 0,783 D (yb, hierboven).
+            var fx = fh;
             dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
             dc.drawText(d / 2, yb, EbbTeken.fX(), "first friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.drawText(d / 2, yb + fx, EbbTeken.fX(), "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -99,15 +121,7 @@ class EbbMenuView extends WatchUi.View {
         pilRand(dc, d, 0.510, "Calm 4-7-8", keuze == 1);
         // "Sea log · Settings · Today": het gekozen woord wit in een pil met schuimrand, de andere lichtcyaan.
         // Keuring bouw 7 punt 6: today en 8 weeks ook vanuit het menu. Past de regel niet, dan smallere tussenruimte.
-        var f = EbbTeken.fX();
         var y = (d * 0.655).toNumber();
-        var fh = dc.getFontHeight(f);
-        var m = "  ·  ";
-        var tot = regelBreed(dc, f, m);
-        if (tot > d * 0.84) {
-            m = " · ";
-            tot = regelBreed(dc, f, m);
-        }
         var wm = dc.getTextWidthInPixels(m, f);
         var x = d / 2 - tot / 2;
         for (var i = 0; i < WOORDEN.size(); i += 1) {

@@ -105,6 +105,11 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
+        // Thuiswater (Bas, stap 4): de laatste acht scènes zijn menu, pauze en sea log op het thuiswater (ThuisSchermen.mc).
+        var thuis = EbbThuisSchermen.scene(k);
+        if (thuis != null) {
+            return thuis;
+        }
         if (k >= 53) {
             // Proef krabwereld v2.2 (berichten hoofdchat 12 nov 02:30 en 03:10 NL): 51 tot 56 in, uit, Calm, inhouden, menu,
             // eind bij dag, 57 tot 62 hetzelfde bij nacht.
