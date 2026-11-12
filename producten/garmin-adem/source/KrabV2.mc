@@ -4,11 +4,12 @@ import Toybox.Math;
 import Toybox.System;
 import Toybox.WatchUi;
 
-// PROEF (bericht hoofdchat 12 nov 02:30 NL): de krabwereld v2 van Mila (ontwerp/garmin/ebb-werelden-v2.md,
-// bron/werelden_v2.py) op vier schermen, dag en nacht, om te meten wat het horloge aankan. Alleen in de plaatjesbouw
-// (scène 51 tot 58), niet in de gewone app. Maten in 1/260 D zoals het blad. Wat stil staat komt in vijf beurten in
-// één plaatje van het hele scherm; lukt dat plaatje niet, dan tekent hij alles direct en meldt dat in het log.
-// scherm: 0 inademen (boven water), 1 inhouden, 2 menu, 3 eindscherm (onder water).
+// PROEF (berichten hoofdchat 12 nov 02:30 en 03:10 NL): de krabwereld v2.2 van Mila (ontwerp/garmin/werelden21/,
+// bron/werelden_v21.py, bouwgegevens in ebb-werelden-v2.md) op zes schermen, dag en nacht, om te meten wat het
+// horloge aankan. Alleen in de plaatjesbouw (scène 51 tot 62), niet in de gewone app. Maten in 1/260 D zoals het
+// blad. Wat stil staat komt in vijf beurten in één plaatje van het hele scherm; lukt dat plaatje niet, dan tekent
+// hij alles direct en meldt dat in het log.
+// scherm: 0 inademen, 1 uitademen, 2 Calm (boven water), 3 inhouden, 4 menu, 5 eindscherm (onder water).
 class KrabV2View extends WatchUi.View {
     const STAPPEN = 5;
     var scherm as Number;
@@ -23,23 +24,33 @@ class KrabV2View extends WatchUi.View {
     private var _d as Number = 260;
     private var _am as Boolean = false;
     // slipper: hak x, y, schaal, hoek in graden; held: midden van het kader x, y en maat
-    private var _sl as Array<Float> = [100.0, 152.0, 1.45, -5.0] as Array<Float>;
-    private var _held as Array<Number> = [104, 136, 34] as Array<Number>;
+    private var _sl as Array<Float> = [158.0, 146.0, 1.4125, -5.0] as Array<Float>;
+    private var _held as Array<Number> = [154, 134, 36] as Array<Number>;
 
     function initialize(s as Number, n as Boolean) {
         View.initialize();
         scherm = s;
         nacht = n;
         if (s == 1) {
-            _sl = [100.0, 210.7, 1.863, -4.0] as Array<Float>;
-            _held = [106, 184, 43] as Array<Number>;
+            _sl = [128.0, 179.0, 1.4125, -5.0] as Array<Float>;
+            _held = [124, 165, 36] as Array<Number>;
         } else if (s == 2) {
-            _sl = [100.0, 209.6, 1.647, -4.0] as Array<Float>;
-            _held = [106, 186, 38] as Array<Number>;
+            _sl = [128.0, 155.0, 1.4125, -5.0] as Array<Float>;
+            _held = [124, 141, 36] as Array<Number>;
         } else if (s == 3) {
-            _sl = [92.0, 151.0, 1.5, -6.0] as Array<Float>;
-            _held = [98, 127, 39] as Array<Number>;
+            _sl = [120.0, 207.65, 1.4907, -4.0] as Array<Float>;
+            _held = [118, 184, 43] as Array<Number>;
+        } else if (s == 4) {
+            _sl = [120.0, 206.9, 1.3173, -4.0] as Array<Float>;
+            _held = [118, 186, 38] as Array<Number>;
+        } else if (s == 5) {
+            _sl = [70.0, 152.0, 1.0, -6.0] as Array<Float>;
+            _held = [76, 130, 34] as Array<Number>;
         }
+    }
+
+    function heldMaat() as Number {
+        return _held[2];
     }
 
     function q(v as Numeric) as Number {
@@ -49,18 +60,29 @@ class KrabV2View extends WatchUi.View {
     function kleur(dc as Graphics.Dc, k as Number) as Void {
         dc.setColor(k, k);
         if (_am && (dc has :setFill)) {
-            dc.setFill(Graphics.createColor(255, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
+            // Wit met volle dekking is hetzelfde getal als "doorzichtig" (-1): daarom een fractie onder wit.
+            dc.setFill(Graphics.createColor(255, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k == 0xFFFFFF ? 0xFE : (k & 0xFF)));
         }
     }
 
     // Doorschijnend vullen kan alleen met setFill (AMOLED); op MIP gebruiken we het niet.
-    // FR165 en vivoactive 5 kennen setFill niet (crash in run 43135243219): daar een vaste mengkleur.
-    function glas(dc as Graphics.Dc, a as Number, k as Number) as Void {
+    // Vaste mengtint (Mila v2.1): a van 255 van kleur k over wat er ligt. Met setFill echt gemengd; FR165 en
+    // vivoactive 5 kennen setFill niet (crash in run 43135243219): daar de mengkleur met de tint basis.
+    function glas(dc as Graphics.Dc, a as Number, k as Number, basis as Number) as Void {
         if (dc has :setFill) {
             dc.setFill(Graphics.createColor(a, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
         } else {
-            var m = EbbTeken.meng(nacht ? 0x000040 : 0x004060, k, a / 255.0);
+            var m = EbbTeken.meng(basis, k, a / 255.0);
             dc.setColor(m, m);
+        }
+    }
+
+    // Gloed zonder vervaging: drie ellipsen, buiten groot en zwak, binnen klein (alleen AMOLED).
+    function gloed(dc as Graphics.Dc, cx as Numeric, cy as Numeric, rx as Numeric, ry as Numeric, k as Number, a as Number, basis as Number) as Void {
+        for (var i = 0; i < 3; i += 1) {
+            var f = 1.35 - 0.175 * i;
+            glas(dc, a, k, EbbTeken.meng(basis, k, a * i / 255.0));
+            dc.fillEllipse(q(cx), q(cy), q(rx * f), q(ry * f));
         }
     }
 
@@ -144,7 +166,13 @@ class KrabV2View extends WatchUi.View {
             var x = -13.0 + i * 78.0 / 14.0;
             p.addAll(rs(x, halveBreedte(x) * 0.8));
         }
-        blob(dc, p, 0xFF55AA, 0xFFFFFF, 2.2);
+        var zool = [] as Array<Float>;
+        for (var i = 0; i < p.size(); i += 2) {
+            zool.add(p[i] + 0.8 * _sl[2]);
+            zool.add(p[i + 1] + 3.2 * _sl[2]);
+        }
+        blob(dc, zool, 0xAA0055, 0xFFFFFF, 2.2);
+        blob(dc, p, 0xFF55AA, -1, 0.0);
         var g = [] as Array<Float>;
         g.addAll(rs(30.0, -4.5)); g.addAll(rs(46.0, -6.0)); g.addAll(rs(58.0, -4.0)); g.addAll(rs(46.0, -3.0));
         blob(dc, g, 0xFFAAFF, -1, 0.0);
@@ -156,9 +184,9 @@ class KrabV2View extends WatchUi.View {
     // V-bandje over de krab heen: van het teenpaaltje naar beide kanten van de taille, wit en dik.
     function bandje(dc as Graphics.Dc) as Void {
         var sch = _sl[2];
-        var paal = rs(50.0, -1.0);
-        var py = paal[1] - 5.0 * sch;
-        var kant = [rs(24.0, -9.5), rs(26.0, 9.0)] as Array<Array<Float> >;
+        var paal = rs(55.0, 0.0);
+        var py = paal[1] - 2.0 * sch;
+        var kant = [rs(31.0, -10.5), rs(31.0, 10.5)] as Array<Array<Float> >;
         kleur(dc, 0xFFFFFF);
         var w = q(5.0 * sch);
         dc.setPenWidth(w < 2 ? 2 : w);
@@ -166,74 +194,26 @@ class KrabV2View extends WatchUi.View {
             dc.drawLine(q(kant[i][0]), q(kant[i][1]), q(paal[0]), q(py));
             dc.fillCircle(q(kant[i][0]), q(kant[i][1]), q(2.1 * sch));
         }
-        dc.fillCircle(q(paal[0]), q(py), q(3.0 * sch));
+        dc.fillCircle(q(paal[0]), q(py), q(3.2 * sch));
         dc.setPenWidth(1);
     }
 
-    // Eén beurt van wat stil staat. Boven water: lucht, golven, vonkjes, slipper. Onder water: water, ver en zand,
-    // rotsen met anemoon en zeester, lichtjes en bellen, slipper.
+    // Eén beurt van wat stil staat. Boven water: lucht, golven, verre slipper, slipper. Onder water: water, ver en
+    // zand, rotsen met anemoon en zeester, lichtjes en bellen, slipper.
     function laag(dc as Graphics.Dc, stap as Number) as Void {
         if (stap == 4) {
-            if (scherm == 1 || scherm == 2) {
+            if (scherm == 3 || scherm == 4) {
                 if (_am) {
-                    glas(dc, 110, 0x5A5028);
-                    dc.fillEllipse(q(140), q(_sl[1] + 17), q(56), q(7));
+                    gloed(dc, _held[0] + 30, _sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
                 } else {
-                    rondje(dc, 140, _sl[1] + 17, 54, 6, 0xAAAA55, -1, -1);
+                    rondje(dc, _held[0] + 30, _sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
                 }
             }
             slipper(dc);
-        } else if (scherm == 0) {
-            KrabV2Lagen.boven(self, dc, stap, _am, nacht);
+        } else if (scherm <= 2) {
+            KrabV2Lagen.boven(self, dc, stap, _am, nacht, ([134, 170, 146] as Array<Number>)[scherm]);
         } else {
             KrabV2Lagen.onder(self, dc, stap, _am, nacht, scherm);
-        }
-    }
-
-    function tekst(dc as Graphics.Dc) as Void {
-        var geel = EbbTeken.LICHT;
-        var wit = 0xFFFFFF;
-        var d = _d;
-        if (scherm == 0) {
-            EbbTeken.tekst260(dc, d, 22, EbbTeken.fM(), "breathe in", wit);
-            EbbTeken.tekst260(dc, d, 42, EbbTeken.grootKlein(), "12", wit);
-            EbbTeken.tekst260(dc, d, 200, EbbTeken.fX(), "round 2 · 18 left", wit);
-        } else if (scherm == 1) {
-            EbbTeken.tekst260(dc, d, 24, EbbTeken.fM(), "hold", geel);
-            EbbTeken.tekst260(dc, d, 48, EbbTeken.fX(), "press START to breathe", wit);
-            EbbTeken.tekst260(dc, d, 58, EbbTeken.grootKlein(), "1:45", wit);
-            EbbTeken.tekst260(dc, d, 118, EbbTeken.fX(), "61 bpm · round 2", wit);
-        } else if (scherm == 2) {
-            EbbTeken.tekst260(dc, d, 16, EbbTeken.fM(), "Ebb", geel);
-            var namen = ["Rounds", "Calm 4-7-8"] as Array<String>;
-            for (var i = 0; i < 2; i += 1) {
-                var y = 52 + 34 * i;
-                if (_am) {
-                    glas(dc, 140, 0x00003C);
-                } else {
-                    dc.setColor(0x000055, 0x000055);
-                }
-                dc.fillRoundedRectangle(q(64), q(y), q(132), q(28), q(14));
-                dc.setColor(i == 0 ? wit : 0x00AAFF, Graphics.COLOR_TRANSPARENT);
-                dc.setPenWidth(q(2.4) < 2 ? 2 : q(2.4));
-                dc.drawRoundedRectangle(q(64), q(y), q(132), q(28), q(14));
-                dc.setPenWidth(1);
-                dc.setColor(wit, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(d / 2, q(y + 14), EbbTeken.fS(), namen[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            }
-            EbbTeken.tekst260(dc, d, 118, EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", geel);
-        } else {
-            EbbTeken.tekst260(dc, d, 30, EbbTeken.fM(), "3 rounds done", geel);
-            EbbTeken.tekst260(dc, d, 56, EbbTeken.fS(), "1:20   1:45   1:58", wit);
-            EbbTeken.tekst260(dc, d, 172, EbbTeken.fM(), "new friend: Crab", geel);
-            kleur(dc, EbbTeken.SCHUIM);
-            for (var i = -1; i <= 1; i += 1) {
-                if (i == 0) {
-                    dc.fillCircle(q(130), q(205), q(3.5));
-                } else {
-                    dc.drawCircle(q(130 + 13 * i), q(205), q(3.5));
-                }
-            }
         }
     }
 
@@ -278,11 +258,17 @@ class KrabV2View extends WatchUi.View {
             staat = EbbDierVoorraad.teken(dc, 4, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN);
             if (staat) {
                 bandje(dc);
+                if (scherm == 5) {
+                    // de nieuwe vriend (garnaal) in zijn belletje rechts
+                    var m2 = q(31);
+                    var g2 = EbbDierMaat.grenzen(1);
+                    staat = EbbDierVoorraad.teken(dc, 1, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, EbbDierPlaatje.GEVONDEN);
+                }
             }
         } else {
             WatchUi.requestUpdate();
         }
-        tekst(dc);
+        KrabV2Tekst.teken(self, dc, _d, scherm, _am, nacht);
         var ms = System.getTimer() - t0;
         _msMax = ms > _msMax ? ms : _msMax;
         if (staat && !_gemeld) {

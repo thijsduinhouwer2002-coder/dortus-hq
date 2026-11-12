@@ -6,7 +6,9 @@ import Toybox.Lang;
 module EbbBouw {
     const DEMO = true;
     const PLAATJE = false;
-    const SCENES = 59;
+    const SCENES = 63;
+    // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
+    const EERSTE = 0;
     const INHOUD_MS = [3000, 5000] as Array<Number>;
 }
 
@@ -14,7 +16,9 @@ module EbbBouw {
 module EbbBouw {
     const DEMO = false;
     const PLAATJE = false;
-    const SCENES = 59;
+    const SCENES = 63;
+    // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
+    const EERSTE = 0;
     const INHOUD_MS = [] as Array<Number>;
 }
 
@@ -24,6 +28,8 @@ module EbbBouw {
 module EbbBouw {
     const DEMO = false;
     const PLAATJE = true;
-    const SCENES = 59;
+    const SCENES = 63;
+    // Eerste scène van de plaatjesbouw; de workflow zet dit op een proeftak op 51 (alleen de proefscènes).
+    const EERSTE = 0;
     const INHOUD_MS = [] as Array<Number>;
 }
