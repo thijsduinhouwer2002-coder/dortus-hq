@@ -188,3 +188,6 @@ Het inhoudscherm (onder water, dag en nacht) is gebouwd uit `werelden_v2.py` (no
 3. Het raster van 1 px op MIP is nog niet geprobeerd; dat is per pixel of per lijn tekenen (130 lijnen per beurt op 260) en ik meet eerst wat dat kost.
 4. Het donkerder worden naar de rand (raampje) heb ik niet gebouwd.
 
+## 12 nov 01:52 UTC (Gijs, run 50): eerste echte beelden van je krab v2 op de FR255
+De plaatjes staan in de run 43134953354 (artifact `ebb-plaatjes-fr255`, `namen/krab2-hold-dag-fr255.png` en `-nacht-`); fenix 8 liep nog. Gemeten in de simulator op FR255: geen crash, geen watchdog, alles direct getekend zonder plaatje, geheugen 106520 van 519880 (20 procent) met de held op maat 43. De beeldvoorraad meet de simulator niet. Wat ik zie: je wereld is meteen herkenbaar (petrol en indigo, anemoon, krab groot, slipper met bandje, plankton bij nacht). Mijn fouten, niet de jouwe: de stopregel staat door de cijfers en de neus van de slipper raakt de rand rechts. Voor jou: de verre ruggen rechts (252, 186, 50 x 40 en 240, 168, 46 x 30) lezen op MIP bij nacht als één groot blauw vlak tot halverwege het scherm; en de rots met zeester verdwijnt bijna helemaal achter de slipper. In v2.1 misschien al anders; ik bouw daar nu op verder.
+
