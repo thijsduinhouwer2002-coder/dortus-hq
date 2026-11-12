@@ -434,7 +434,7 @@ Eén punt, product: de allereerste sessie van een koper is nu een lege zee zonde
 
 Daarna: volle ronde op de bouwtak lezen, stap 5 (winkelbeelden uit echte schermen, winkeltekst met de zin over 5 minuten) en stap 6 (blad voor Thijs). In het blad: krab, schildpad en twee basisdieren uit verschillende families naast elkaar, zodat Thijs het verschil in kleur en bodem per dier ziet. (deels verwerkt 12 nov 14:20 UTC, run 66: startdier gedaan, de vis zwemt vanaf de eerste sessie mee en wordt na die sessie gewoon je eerste vriend; toets groen, beelden gezien, op de bouwtak 3d520a2. In de volle ronde op 789d410 vond ik een crash op de FR255 in een groene run; hersteld, en de toetsrun wordt nu rood bij een crash. Stap 5 en 6 wachten op de volle ronde op 3d520a2. Zie status 14:20.)
 
-## 12 nov 15:30 (hoofdchat): antwoorden op je open punten van run 66
+## 12 nov 15:30 (hoofdchat): antwoorden op je open punten van run 66 (verwerkt 12 nov 15:27 UTC, run 67: zware dieren bewezen en gezien, winkeltekst v16, vis op het startscherm zonder regel, versie.txt stond al op 1.0.0, snelle proef niet overgenomen; zie status 15:27)
 
 Goed gevonden, die crash op de FR255, en goed dat de toetsrun nu ook een crashcontrole heeft. Punt 1b (zware dieren in de echte sessie op de FR255: zeekomkommer, kreeft, zeeotter, en de krab met zijn wereld) gaat voor op de winkelbeelden: het is precies het soort fout waar een koper zijn geld voor terugvraagt.
 (3) Winkeltekst: schrijf het eerlijk nu de vis er vanaf het begin is, bijvoorbeeld: "A small fish swims with you from your first session. New sea friends join as you keep coming back." Geen "found" voor het startdier.

@@ -952,3 +952,16 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Les: een groene run zegt alleen iets over wat de run nakijkt. De crash stond gewoon in het log van een groene run. Voortaan zoekt de toetsrun zelf naar een crash.
 - 14:18 UTC: punten per dier geteld. De garnaal is niet het zwaarste dier (zeekomkommer 200, kreeft 194, zeeotter 187). Besluit: geen haastige scènes meer in deze run, wel als punt 1b bovenaan in taken. Waarom: nieuwe scènes verschuiven de nummers en zouden de volle ronde die nu loopt afbreken.
 - Gestopt om 14:20 UTC, na 25 minuten: het volgende werk (winkelbeelden, blad, bewijs zware dieren) wacht op de volle ronde, die rond 15:00 UTC klaar is.
+
+## 12 nov 2026, run 67 (start 14:53 UTC)
+- De lokale kopie van main liep achter op een herschreven geschiedenis; de oude tak bewaard als `oud-main-lokaal` (alleen lokaal) en main opnieuw van GitHub genomen. Niets weggegooid.
+- Berichten gelezen (hoofdchat 15:30: zware dieren eerst, winkeltekst, startscherm, versie laten liggen).
+- Hulp-agent las de logs van de volle ronde op 3d520a2: toetsen groen met `CRASH geen`, 28 horloges compileren, plaatjes rood op drie horloges door `VEILIG ... meeuw ... NEE` in scène 47.
+- Besluit: de meeuw eerst oplossen, samen met de zware dieren in één proefronde. Waarom: met rode plaatjes kan ik de winkelbeelden en het blad niet eerlijk maken, en het is het echte sessiescherm (elke ronde met de schildpad en een breed getal).
+- Besluit: de schildpad 5 naar rechts in plaats van de cijfers of de meeuw apart verschuiven. Waarom: de meeuw blijft zo op het schild staan en het getal blijft in het midden; gezien dat hij de wolk niet raakt.
+- Besluit: op het startscherm de vis zonder regel. Waarom: "next friend, after 1 session" klopt niet (na sessie één komt de vis zelf als "new friend") en dier en regel staan op dezelfde plek.
+- 15:01 UTC: proef67 gepusht; toetsrun rood op de regel van 300 regels (Scenes.mc 302). 15:02 hersteld.
+- 15:13 UTC: beide runs op 46a31f7 groen. In het beeld gezien dat de scène van de zeekomkommer de walvis toonde (bonusbit ontbrak). 15:14 hersteld (fc7bcf5), 15:21 plaatjes groen, zeekomkommer gezien.
+- 15:24 UTC: bouwtak vooruitgespoeld naar fc7bcf5 (één push), volle ronde loopt.
+- Les: lees van een volle ronde ook alle plaatjesjobs, niet alleen de toetsrun. En kijk naar het beeld: het log zei niets over het verkeerde dier.
+- Gestopt om 15:30 UTC.
