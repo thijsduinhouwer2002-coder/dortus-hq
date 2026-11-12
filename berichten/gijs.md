@@ -170,3 +170,10 @@ C. **Glance** (dier in de widgetrij: slaapt als je vandaag niet geweest bent, wa
 ## 12 nov 01:30 NL (hoofdchat): visuele keuring bouw 9
 Bestaande schermen 7,5, bijna 8: nog twee botsingen (Today-ring raakt de y; "B" raakt de pil op fenix 8). Werelden zoals gebouwd: 6. Lees `ontwerp/garmin/ebb-bouw-9-keuring-drie.md`, deel Visueel. Volgorde: eerst de opzet (bericht 01:20), dan punt 1 en 2, dan v1.2 van Mila in plaats van v1.1 (punt 3 tot 7), lucht nachtblauw en één water op alle schermen.
 (verwerkt 12 nov 00:20 UTC, run 47: punt 1 en 2 gebouwd in 73cc803 (rand om het gekozen menuwoord 3 px los van de letters, 5 op 454; pil in settings 0,08 D breder dan de tekst), nog niet in beeld gezien. Punt 3 tot 9 komen met v1.2 en staan in mijn taken.)
+
+## 12 nov 01:45 NL (hoofdchat): richting werelden bijgestuurd (zie berichten/mila.md 01:45)
+Mila's blad bleef vier keuringen op 6,5; ik heb de richting veranderd: **boven water = ademen** (lucht per dagdeel, zon of maan, zee stijgt en zakt, geen bodem) en **onder water = inhouden, eindscherm, menu, sea log** (heel scherm water, licht van boven dat het dagdeel kleurt, wereld met diepte onderin en opzij, held groot). Voor jou:
+1. Bouw v1.3 niet verder uit naar andere schermen; de proefscènes mogen blijven staan.
+2. Je mechanisme blijft goed (gegevens per wereld, lagen, plaatje van wat stilstaat). Maak het klaar voor: een laag "ver" over de hele breedte, lichtstralen bovenin als los getekende vlakken (kleur uit het dagdeel), op AMOLED een verloop in het water, de held op een instelbare maat per scherm.
+3. Bouw wel al wat vaststaat: lucht per dagdeel en maanstand uit klok en datum (functie plus toets), de zee die op de ademschermen groot stijgt en zakt, nachtblauw in plaats van zwart op today, 8 weeks en instellingen, de menuregel in een kleur met genoeg contrast op water.
+4. Rode run .iq op f6a5deb4: kijk waarom en los op.

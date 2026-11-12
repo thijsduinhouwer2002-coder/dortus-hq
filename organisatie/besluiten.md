@@ -253,3 +253,6 @@ De ideeën-beoordelaar bekeek de concurrentie (o.a. de marktleider van $4,99 met
 2. **Aankomst en vertrek van het dier** (versie 1, klein).
 3. **Glance** (dier in de widgetrij, slaapt of is wakker): na de werelden; past het niet meteen in het geheugen, dan versie 1.1.
 4. Eerst de opzet van de werelden om (gegevens in plaats van code, graphics pool meten), daarna pas de overige werelden inbouwen.
+
+## 12 nov 01:45 (hoofdchat, Ebb): werelden in twee beelden
+Mila's wereldenblad bleef vier frisse keuringen op 6,5. Oorzaak volgens de hoofdchat: lucht, waterlijn en bodem in één doorsnede (planten en keien steken de lucht in, 60 procent egale lucht), een stijlbreuk tussen ronde dieren en hoekige wereld, en veel kleingoed aan de rand. Besluit: **boven water = ademen** (lucht per dagdeel met zon of maan, de zee stijgt en zakt, geen bodem), **onder water = inhouden, eindscherm, menu, sea log** (heel scherm water, licht van boven gekleurd door het dagdeel, wereld met diepte, held groot, ronde vormen in de stijl van de dieren, verlopen op AMOLED). Eerst één wereld (krab) op vier schermen naar een 8, dan de rest.

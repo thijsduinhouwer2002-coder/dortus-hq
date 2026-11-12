@@ -144,3 +144,21 @@ De eerste drie werelden draaien echt op het horloge (scène 39 tot 41, tak scher
 
 ## 12 nov 01:30 NL (hoofdchat): visuele keuring van de gebouwde werelden (6)
 Lees `ontwerp/garmin/ebb-bouw-9-keuring-drie.md`, punt 3 tot 9: clownvis vrij uit de anemoon, anemoonarm weg van het hartje, slipper als teenslipper, geen platte keien, één water in plaats van banden, nachtblauwe lucht en golvende kam op alle schermen. Controleer je v1.2 hierop en kijk zelf naar de echte beelden (tak schermen, scène 39 tot 41, FR255). (verwerkt 12 nov 00:10 UTC: punt 3 tot 7 zaten al in v1.2; v1.3 erbovenop met eigen schatjes en week-4-grap per wereld, geen Y-koraal, aankomst en vertrek; fris 6,5 en daarna verbeterd; echte beelden van v1.2 nog niet gebouwd, dus nog niet te zien)
+
+## 12 nov 01:45 NL (hoofdchat): richting voor de werelden. Vier keuringen op 6,5: niet verder schaven, het beeld zelf moet anders
+Ik heb werelden14 zelf bekeken (454 en 260 dubbel). De details worden steeds beter (krab in zijn slipper, emmertje op het kasteel), maar het cijfer blijft hangen omdat het **beeld als geheel** niet klopt. Wat ik zie:
+1. **Twee beelden door elkaar.** Lucht, waterlijn en zeebodem staan in één doorsnede, en zeegras en keien steken boven het water uit de lucht in. De wereld is onder water, maar 60 procent van het scherm is egale lucht. Daardoor blijft de wereld een randje onderin, hoe mooi de details ook zijn.
+2. **Stijlbreuk.** De dieren zijn ronde stickers met een witte rand; de wereld is hoekige vlakken in harde primaire kleuren. Het leest als twee tekenaars.
+3. **Kleingoed aan de rand.** Veel kleine spullen onderin die de ronde kast afsnijdt; de held is klein.
+
+**Nieuwe richting (besluit hoofdchat 12 nov 01:45): twee duidelijke beelden in plaats van één doorsnede.**
+- **Boven water = ademen.** Ademschermen (breathe in, breathe out, Calm): lucht per dagdeel met zon of maan in de echte stand, en de zee die groot stijgt en zakt. Geen zeebodem, geen planten. Rustig en groot. Het dier dobbert in de kam.
+- **Onder water = stil zijn en thuis.** Inhouden, eindscherm, menu, sea log-dierscherm, sea complete: het hele scherm is water, géén lucht. Bovenin licht dat van het oppervlak komt (lichtstralen; het dagdeel kleurt het licht: ochtend roze, dag helder, avond oranje, nacht donker met een maanvlek in de stand van de maan). Midden: de tekst op rustig water. Onderin en aan de zijkanten de wereld van het dier, met diepte: ver weg donkere silhouetten, dan de plek, vooraan de held.
+- **De held groot:** minstens een kwart van de breedte op het menu en het dierscherm.
+- **Eén stijl:** de wereld in ronde, zachte vormen met dezelfde witte of lichte rand en glans als de dieren; minder en grotere dingen (drie tot vijf per wereld, elk herkenbaar op 260 ware grootte). Alles wat ertoe doet binnen de veilige cirkel (niet afgesneden door de kast).
+- **AMOLED mag meer:** op 454 zachte verlopen in water en licht; op MIP dezelfde compositie in vlakken. Ontwerp niet meer voor de kleinste gemene deler.
+- Tekstkleuren: de menuregel in wit of lichtgeel op water (het cyaan haalt het contrast niet op 0055AA); meet na.
+- Blijft: groei per weekdoel (de plek begint kaal en krijgt zijn drie tot vier dingen), de grapjes (slipper, emmertje, vriendje), aankomst en vertrek, bellen.
+- Niets in beeld mag afhangen van hoe lang je inhoudt, en geen duikwoorden of dieptemeters.
+
+Maak dit eerst voor **één wereld (de krab)** op vier schermen (inademen, inhouden, menu, eindscherm), 454 en 260 ware grootte, dag en nacht. Laat fris keuren met de vraag "stop je met scrollen als je dit in de winkel ziet, naast zwarte apps met een cirkel?". Pas bij een 8 de schildpad en de clownvis, dan de families met agents. Strand en kustlijn (Today, 8 weeks) passen in het beeld "boven water": prima, laat die apart keuren.
