@@ -21,7 +21,7 @@ module EbbThuis {
     const GRAS = 0x00AA55;
     const BEL = 0xAAFFFF;
     // Belletjes per scherm: x, y, straal in 1/260, drie per scherm, naast de knoppen en nooit bij tekst.
-    const BELLEN = [30, 134, 3, 37, 118, 2, 226, 150, 3,
+    const BELLEN = [30, 134, 3, 37, 118, 2, 227, 126, 3,
         24, 142, 3, 220, 150, 3, 227, 134, 2,
         36, 196, 3, 226, 192, 3, 219, 206, 2] as Array<Number>;
     // Drie sprieten per pluk: voet opzij, hoogte en uitslag van de top, in 1/260.
@@ -44,7 +44,7 @@ module EbbThuis {
         dc.setColor(k, Graphics.COLOR_TRANSPARENT);
     }
 
-    // Het strookje raster voor MIP bij dag (w breed, 16 hoog). Geeft [strookje of null, net gemaakt].
+    // Het strookje raster voor MIP bij dag (w breed, 16 hoog). Geeft null in de beurt waarin het gemaakt wordt.
     function strook(w as Number) as Graphics.BufferedBitmap or Null {
         var ref = _strook;
         if (ref != null && _strookW == w) {
@@ -130,11 +130,11 @@ module EbbThuis {
                 af = (_strook == null);
             }
         }
-        // Zandbodem: flauwe golf, loopt door de rand (bodem mag dat).
+        // Zandbodem: flauwe bolling, in het midden het hoogst (op zand), loopt door de rand (bodem mag dat).
         if (zand < h - 2) {
             var pts = [] as Array<[Numeric, Numeric]>;
             for (var i = 0; i <= 13; i += 1) {
-                pts.add([w * i / 13, zand + (EbbTeken.px(d, 2) * Math.sin(i * 0.9 + 0.6)).toNumber()]);
+                pts.add([w * i / 13, zand + (EbbTeken.px(d, 3) * (1.0 - Math.cos((i - 6.5) * 0.45))).toNumber()]);
             }
             pts.add([w, h]);
             pts.add([0, h]);
