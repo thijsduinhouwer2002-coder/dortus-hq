@@ -69,6 +69,57 @@ jobs:
             /tmp/uit/Ebb.iq.sha256
             /tmp/uit/bouw.log
 
+  # Keuring code en veiligheid 12 nov, punt 5: de plaatjesrun draait op 13 en de toetsen op 9 van de 28 horloges.
+  # Deze job compileert de app, de toetsbouw (demo.jungle) en de plaatjesbouw (plaatjes.jungle) voor ELK horloge uit
+  # manifest.xml, met typecontrole (-l 2). Alleen compileren, niet draaien: één NEE of minder dan 28 horloges is rood.
+  alle-horloges:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Compileren voor elk horloge uit het manifest (app, toetsbouw, plaatjesbouw)
+        run: |
+          mkdir -p /tmp/k /tmp/alle && chmod 777 /tmp/alle
+          openssl genrsa -out /tmp/k/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/k/key.pem -out /tmp/k/key.der -nocrypt
+          chmod 644 /tmp/k/key.der
+          cat > /tmp/alle.sh <<'SH'
+          cp -r /app /tmp/app && cd /tmp/app && mkdir -p /tmp/bin
+          doe() {
+            d=$1; r=""
+            for j in monkey demo plaatjes; do
+              mkdir -p "/tmp/bin/$d-$j"   # eigen map per bouw: vier compilers tegelijk mogen elkaars tussenbestanden niet raken
+              if monkeyc -f $j.jungle -d "$d" -o "/tmp/bin/$d-$j/app.prg" -y /k/key.der -l 2 > "/uit/$j-$d.log" 2>&1; then r="$r $j ja"; else r="$r $j NEE"; fi
+            done
+            echo "COMPILEERT $d:$r"
+          }
+          export -f doe
+          grep -o 'iq:product id="[^"]*"' manifest.xml | cut -d'"' -f2 | xargs -P 4 -I{} bash -c 'doe {}' > /uit/regels.txt
+          sort /uit/regels.txt
+          n=$(grep -c '^COMPILEERT ' /uit/regels.txt)
+          echo "COMPILEERT horloges: $n"
+          fout=0
+          if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
+          [ "$n" -ge 28 ] || fout=1
+          exit $fout
+          SH
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
+          exit ${PIPESTATUS[0]}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ebb-alle-horloges
+          path: /tmp/alle
+
   # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
   # Keuring bouw 2 punt 3: één job per horloge (8 x 22 scènes paste niet in 40 minuten), elk ±10 minuten.
   plaatjes:
