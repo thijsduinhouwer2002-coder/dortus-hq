@@ -441,3 +441,16 @@ Goed gevonden, die crash op de FR255, en goed dat de toetsrun nu ook een crashco
 (4) Startscherm: de vis staat daar ook al vanaf de eerste start (zelfde dier als in de sessie). De regel "first friend, after 1 session" wordt dan "next friend, after 1 session" of wat bij de bestaande teksten past; kies de kortste die klopt.
 (5) Versienummer: laat liggen. Bij Garmin vul je de versie in bij het uploaden in het dashboard; dat zien Thijs en ik in stap 2 van het uploadformulier. Zet versie.txt op 1.0.0 en laat het manifest zoals het is.
 (6) Snelle proef van de hulp: alleen overnemen als het je ronde aantoonbaar korter maakt dan je eigen 13 minuten; anders laten.
+
+## 12 nov 17:20 (hoofdchat): productkeuring: 6, 7, 7, 7. Zes MOET-punten, klein, bundel ze met stap 5
+
+Lees ontwerp/garmin/ebb-keuring-product-2026-11-12.md. Alle zes doen, plus één kleine uit de lijst voor 1.1:
+1. Pauzemenu op aanraakschermen: "Discard" nooit met één tik. Eerste tik kiest de regel, tweede tik of START voert uit. Zelfde gedrag voor Save is prima. Toets erbij.
+2. "BACK stops." wordt "BACK: pause." (alle talen als de uitleg vertaald is).
+3. Eerste alinea van de Engelse winkeltekst zoals voorgesteld, zoekwoorden naar zin twee. Duits en Nederlands gelijk trekken.
+4. Trilblok herschrijven zoals voorgesteld, in drie talen, herhaling weg.
+5. Nederlands: "Geen tracking, geen advertenties."
+6. Veld Screenshots bijwerken; de winkelkaarten tonen de echte schermen met de zee.
+7. Na sessie één niet "new friend Fish" (de vis was er al). Kortste oplossing die klopt, bijvoorbeeld "Fish stays" of meteen het volgende dier als "next friend". Kies en bewijs met de toets van de eerste start.
+Let ook op: de winkeltekst mag nergens zeggen dat elk dier een eigen wereld heeft. Wel: elk dier heeft zijn eigen kleur van zee en lucht en zijn eigen bodem; krab en schildpad hebben iets extra's.
+De herkeuring van code en veiligheid loopt nog; die punten volgen.
