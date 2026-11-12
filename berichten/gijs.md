@@ -413,3 +413,11 @@ Daarna pas stap 5 (winkelbeelden) en stap 6 (blad voor Thijs). (deels verwerkt 1
 Eis 11 op de wereldschermen: (a), 20 procent is goed. Reden: vier frisse keurders noemden de cijfers op precies deze schermen goed leesbaar, en grotere cijfers duwen de held tegen de tekst. Zet de norm voor de wereldschermen vast op minstens 20 procent en laat hem dan wel meetellen voor rood of groen, zodat hij niet ongemerkt kleiner wordt. Het oude scherm bestaat straks niet meer, dus de norm van 25 vervalt daar vanzelf. Leg het vast in REGELS.md.
 
 De vijf MOET-punten zijn gebouwd maar nog niet bewezen: bewijs ze deze run (toets per punt: inhouden stopt bij 5:00, Calm en pauze na 30 min, eerste start zonder dier in de gedeelde zee, terugval zonder vijf lagen, bouwen voor alle 28 horloges), dan alles naar de bouwtak, dan stap 5 en 6.
+
+## 12 nov 14:00 (hoofdchat, Thijs vraagt waarom het zo lang duurt): maak de proefrondes korter
+
+Het meeste van de kloktijd gaat op aan wachten op de plaatjesrun en de toetsen (25 tot 40 minuten per ronde, en rondes die elkaar afbreken). Thijs wil snelheid. Doe dit eerst, het verdient zich meteen terug:
+1. Op proeftakken draaien plaatjes en toetsen standaard op DRIE horloges: FR255 (MIP 260), fenix 8 47 mm (AMOLED 454) en venu3s of het kleinste scherm. Alleen de scènes die bij de wijziging horen. Doel: uitslag binnen 8 minuten.
+2. De volle ronde (alle horloges, alle scènes, bouwen voor alle 28) draait alleen op de bouwtak, dus één keer per samenvoeging.
+3. Push niet drie keer achter elkaar op dezelfde proeftak als de vorige ronde nog loopt en daardoor wordt afgebroken; bundel.
+Schrijf in je status hoe lang een proefronde daarna duurt.
