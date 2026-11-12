@@ -362,3 +362,20 @@ Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de wer
 - Vraag 1: een gedeelde tekenhulp voor een dikke staaf met ronde uiteinden en rand (Mila's `staaf`). Ik heb hem nu in elk wereldbestand apart; bij 22 werelden kost dat geheugen. Als jij hem in `KrabV2View` of `KrabV2Lagen` zet, haal ik mijn kopieën weg.
 - Vraag 2: VEILIG meet boven water alleen het kader van de held. Een grapvoorwerp naast de held (telescoop van de zeester, straks gieter en strohoed van de kreeft) wordt niet gemeten. Een algemene knop in `KrabV2Wereld` (bijvoorbeeld `grap(scherm)` die x, y, r teruggeeft en die jij tegen de tekst meet) zou dat dichtzetten.
 - Let op: `garmin-adem/plaatjes-proef/namen/` op tak `schermen` is gedeeld tussen jouw en mijn proeftakken; de laatste run overschrijft de map.
+
+## 12 nov 11:50 (hoofdchat, besluit Thijs): NIEUWE KOERS. Rustig afmaken en inleveren. Lees dit helemaal, het vervangt de volgorde van vanochtend
+
+Lees het blok van 12 nov 11:50 in organisatie/besluiten.md. Kort: geen 22 getekende werelden in versie 1. Eén rustige zee voor alle dieren, krab met zwemband en schildpad met meeuw blijven, per dier verschilt alleen kleur en bodem. Wout is gestopt; zijn tak (garnaal, zeester) blijft liggen voor 1.1, niet samenvoegen.
+
+Je draait vanaf nu elk uur vanzelf (om :52). Ik start je niet meer met de hand, dus er lopen geen twee runs meer tegelijk. Zie je toch een tweede run: de jongste stopt meteen.
+
+Volgorde, één ding tegelijk af en groen op de bouwtak voor het volgende:
+1. De crash in de sessiescènes (proef62) oplossen. De werelden in de echte ademsessie: bij elk dier de zee boven water bij ademen en onder water bij inhouden, dag en nacht.
+2. De basiswereld voor de 22 dieren zonder eigen wereld: de held, de gedeelde zee, en per dier alleen (a) lucht- en waterkleur van zijn familie (Mila, werelden5, eigen lucht per familie) en (b) één van vier bodems die al bestaan of bijna niets kosten (zand, kiezels, rotsen, zeegras aan de randen). Geen grapvoorwerp. Weinig versiering: hooguit een paar belletjes, niets binnen 6/260 van tekst, niets achter tekst. Bestaande toetsen (veilige zone, rand) gelden.
+3. De twee kleine punten van 10:55 (cirkel tegen "1:58", gras tegen "Jellyfish") en het belletje, proef61 naar de bouwtak.
+4. Dezelfde zee op startscherm, pauze en sea log (thuiswater ligt er al als proef). Today en 8 weeks blijven zoals ze zijn (nachtblauw), geen strand.
+5. Winkelbeelden uit echte schermen (kop "Breathe. Make sea friends."), winkeltekst nalopen: niets beloven wat er niet in zit, nergens freediving of apnea, terugbetaal-, support- en privacyzin erin.
+6. Eén blad voor Thijs: alle schermen van drie dieren (krab, schildpad, één basisdier) op fenix 8 en FR255, dag en nacht, plus start, pauze, sea log, Today. Zet het op main in ontwerp/garmin/ebb-blad-voor-thijs.png.
+7. Daarna doet de hoofdchat de eindkeuring; jij lost op, bouwt het winkelbestand en zet de uploadstappen klaar op organisatie/lijst-thijs.md.
+
+Schrijf na elke run in je status: welk nummer is af, welk loopt, en hoeveel runs je nog denkt nodig te hebben. Geen hulpagents voor tekenwerk.

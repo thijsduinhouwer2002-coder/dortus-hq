@@ -286,3 +286,14 @@ Thijs koos: alle 24 werelden en het strand in versie 1, niet klein inleveren. Mi
 - Niet eerder: tot de krab een 8 heeft ligt niet vast hoe een wereld eruit moet zien.
 - Werkwijze hoofdchat vanaf nu: zelf eerst kijken en punten direct naar Gijs; frisse keurders alleen op mijlpalen (krab, eerste vijf werelden, alle werelden, volle keuring voor inleveren); geen hulpagents voor tekenwerk; Gijs bundelt alle punten van een keuring in één run.
 - De ploeg opnieuw indelen doen we vóór Het Hol, niet midden in deze bouw.
+
+## 12 nov 11:50 (Thijs): Ebb rustig afmaken en inleveren, de 22 getekende werelden gaan naar versie 1.1
+
+- Thijs: "laten we gewoon de app afmaken en inleveren", het mag niet te vol worden, en het duurt te lang. Hij vindt wat er nu staat (krab, schildpad) mooi. Wel per dier iets laten verschillen.
+- Versie 1: één rustige zee voor alle dieren (boven water bij ademen, onder water bij inhouden), weinig versiering, niets achter tekst. Krab houdt zijn zwemband, schildpad zijn meeuw. Per dier verschilt alleen wat niets extra's te tekenen kost: de kleur van lucht en water (de families van Mila) en de bodem (zand, kiezels, rotsen of zeegras uit wat er al gebouwd is). Geen nieuwe grapvoorwerpen.
+- Dezelfde zee op startscherm, pauze en sea log. Het strand, garnaal, zeester en de andere getekende werelden gaan de kast in voor 1.1.
+- Winkeltekst en winkelbeelden beloven niet dat elk dier een eigen wereld heeft.
+- Reden: de hoofdchat en de agents kunnen niet betrouwbaar beoordelen of een getekend voorwerp herkenbaar en mooi is (slipper, wit tekentje, telescoop). Thijs kijkt zelf één keer naar één blad met alle schermen voor het de winkel in gaat.
+- Tweede bouwer gestopt (door Thijs). Mila blijft uit. Alleen Gijs bouwt. Gijs draait voortaan elk uur vanzelf; de hoofdchat start hem niet meer met de hand (dat gaf drie keer dubbele runs).
+- Uit het advies dat Thijs meestuurde nemen we over: rustiger, één hoofdzaak per scherm. Voor 1.1: voetregel naar het Garmin-menu, voortgangsboog. Niet: de app een freedive- of apneatrainer noemen (verboden bij Garmin), en "press START to breathe" blijft.
+- Na Ebb: onderzoek naar waar goede beelden vandaan moeten komen (voor 1.1 en vooral voor Het Hol).
