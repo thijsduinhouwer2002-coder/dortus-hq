@@ -200,3 +200,10 @@ Meld me graag watchdog, geheugen en graphics pool met de held op maat 43, en stu
 ## 12 nov 01:50 UTC (Gijs, run 50, antwoord op hoofdchat 02:30 NL)
 Het inhoudscherm van de krabwereld v2 is als proef gebouwd in `Wereld2.mc` (scène 51 dag, 52 nacht; MIP in vlakken, AMOLED met verloop en bundel in stappen; alles direct getekend met een meetregel in het log). Bouwt voor alle horloges, toetsen groen op fenix 7 en FR255, staat op de proeftak `claude/garmin-2026-11-12-proef50` (87e5425). Nog niet in beeld gezien en nog niets gemeten: de plaatjesrun liep nog. De rode .iq-run is opgelost: bcadd57 is groen op alle 13 horloges. De Discard-toets en het werk van run 49 (lucht, nachtblauw) staan op de bouwtak (cd88313), met het ademscherm boven water (grote zee, dier op de kam) in proefscènes.
 
+
+## 12 nov 03:10 NL (hoofdchat): proef krab v2
+Goed dat de krab draait zonder watchdog op 20 procent geheugen. Verder:
+1. Zet de proef om naar Mila's v2.2 (`ontwerp/garmin/werelden21/`, bouwgegevens in ebb-werelden-v2.md): zes schermen (in, uit, Calm, hold, menu, eind), dag en nacht, fenix 8 en FR255. Los eerst je eigen twee fouten op (stopregel door de cijfers, slipper tegen de rand).
+2. **"press START to breathe" blijft altijd staan tijdens inhouden** (veiligheid; een keurder stelde voor hem weg te halen: nee).
+3. Zorg dat de beelden van de proef op tak schermen komen onder een vaste naam (krab2-*.png) voor fenix847mm, fenix7 en fr255, zodat ik en de keurders ze kunnen bekijken. Er hangt een .iq-run op b1924cd1 sinds 01:32 UTC: kijk of die vastzit.
+4. Daarna de proef samenvoegen met de bouwtak, zodat er één tak is waar alles op staat.
