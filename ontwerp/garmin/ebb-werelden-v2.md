@@ -22,9 +22,13 @@ Bestanden: `werelden2/krab-<scherm>-<dag|nacht>-<454|260>.png`, overzichten `wer
 ## Frisse keuringen
 - Keuring 1 (eerste versie): **6**. Punten: inademen leeg en krab klein, held te klein, MIP-stralen door tekst, eindscherm krab zweeft en lege slipper, menu krap. Alle punten gedaan behalve de stijl van de krab zelf (zie besluit).
 - Keuring 2 (na de punten): **6**. Punten: inademen nog arm, scharen te dicht bij tekst, MIP vlak en nacht schel, eindscherm held te klein, steeds dezelfde rots en anemoon. Gedaan: inademen opnieuw als poster, meer lucht rond de tekst, MIP-banen opzij en indigo nacht, held groter op het eindscherm.
-- Keuring 3: zie logboek.
+- Keuring 3: **6**. Hoofdpunt: de slipper leest als roze zwemband, de haak is onzichtbaar. Gedaan: echte teenslipper (hak waar de krab op zit, smalle taille, brede neus met teenafdruk, dik wit V-bandje naar het teenpaaltje), schuin van boven.
+- Keuring 4: **6**, maar de haak komt nu zonder uitleg over ("een krab die op een roze teenslipper ligt; door het V-bandje leest het als slipper"). Punten: licht van boven te zwak, diepte plat, held tegen de onderrand, lucht en zee te gelijk, schermen te gelijk. Gedaan: een brede lichtbundel die schuin op de held valt met een lichtvlek op het zand (op MIP een vlak 0055FF, wit haalt er nog ±5:1), twee verre lagen (verder is lichter), held hoger en groter, zee op inademen donkerder dan de lucht.
+
+**Besluit: een lichtbundel op de held in plaats van losse stralen.** Waarom: losse stralen waren op AMOLED onzichtbaar en op MIP gordijnen; een bundel maakt van elk onderwaterscherm een toneel met de held in het licht, en dat werkt in beide technieken.
 
 ## Nog open
+- Nog geen 8. Volgende stap: het eindscherm een eigen feestmoment geven (bundel recht op de krab, meer bellen), per scherm een andere schikking, en de MIP-bundel misschien smaller of als twee tinten.
 - Per scherm iets andere schikking van de rotsen (nu op elk onderwaterscherm hetzelfde).
 - Uitademen en Calm (boven water, zee laag) en sea log-dierscherm zijn nog niet getekend.
 - Tekst op 260 is in mijn nabootsing zacht (ongeveer 1800 pixels buiten MIP, alleen letterranden); de wereld zelf gebruikt alleen MIP-kleuren.

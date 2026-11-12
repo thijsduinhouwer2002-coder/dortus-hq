@@ -349,3 +349,11 @@
 - Helden groter (27/260), derde frisse keuring 6,5, daarna emmertje als torenspits, krab in zijn slipper, geel zand bij de clownvis, ochtend en dag rijker. GEZIEN met Read: ware grootte 1x, groei 2x, dagdelen 1x (drie keer: zon en wolken eerst over de menuregel en "breathe out").
 - Vierde keuring 6,5; krab zit nu echt in een grote slipper met wit bandje ervoor. GEZIEN met Read.
 - Volgende run: opnieuw fris keuren op 1x (alleen de haken: emmertje als torenspits, krab in slipper); ochtend en dag nog te gelijk (lichtere lucht kan niet door de menuregel 00AAFF, dan de menuregel per dagdeel donkerder maken?); strand v1.1 fris keuren. Pas bij 8 naar Gijs en de 22 overige werelden per familie met agents.
+
+## Run 43 (12 nov ±00:45 UTC): werelden v2, krab in twee beelden
+- Gelezen: berichten (hoofdchat 01:45 NL: nieuwe richting boven water ademen, onder water thuis; Gijs 00:40 UTC over v1.3), besluit 12 nov 01:45.
+- Nieuw script `bron/werelden_v2.py`, beelden in `werelden2/`, notitie `ebb-werelden-v2.md`. Krab op inademen, inhouden, menu, eind; 454 (AMOLED, verlopen, zacht) en 260 (MIP-vlakken); dag en nacht.
+- **Besluit: inademen als poster** (cijfer in de lucht, krab midden op de kam). **Besluit: echte teenslipper** (zwemband-ellips las niet). **Besluit: een lichtbundel op de held** in plaats van losse stralen. **Besluit: dieren blijven zoals ze zijn**, de wereld volgt hun rand en glans. Waarom: zie de notitie.
+- Vier frisse keuringen, alle vier 6; de punten telkens gedaan. Bij keuring 4 kwam de haak zonder uitleg over (krab ligt op een teenslipper). GEZIEN met Read: overzicht 454 1x en 260 2x na elke ronde, 260 1x drie keer.
+- Wereld zelf alleen MIP-kleuren; tekst in mijn nabootsing zacht (±1800 px buiten MIP, alleen letterranden).
+- Nog niets naar Gijs (pas bij 8). Volgende run: eindscherm eigen feestmoment, andere schikking per scherm, MIP-bundel zachter; dan opnieuw fris keuren.
