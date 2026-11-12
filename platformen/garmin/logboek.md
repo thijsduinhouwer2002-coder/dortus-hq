@@ -947,3 +947,7 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Volle ronde op de bouwtak gelezen: toetsen groen, 28 horloges compileren, maar in het log een crash op de fr255 (Watchdog Tripped, tweede start, garnaal). Besluit: eerst dit herstellen, dan pas winkelbeelden en blad. Waarom: een crash bij de tweede sessie op een echt horloge gaat voor op alles, en de bouwtak is dus niet klaar voor het blad.
 - 13:59 UTC: startdier gebouwd (f6b65d6). Besluit: de vis zwemt mee maar is nog niet gevonden. Waarom: zo blijft "new friend" na sessie één bestaan en verandert er niets aan de volgorde; de vis vooraf geven zou de eerste beloning weghalen.
 - 14:01 UTC: crash hersteld (3d520a2) en de toetsrun wordt voortaan rood bij een app crash. Proefronde loopt op proef66.
+- 14:15 UTC: proefronde op proef66 groen (toetsrun 43233017111, plaatjesrun 43233017022), beelden van de eerste sessie met de vis bekeken op drie horloges. Bouwtak vooruitgespoeld naar 3d520a2 (één push).
+- Besluit: winkelbeelden en blad niet maken uit de oude beelden. Waarom: de beelden van de volle ronde op 789d410 stonden nog niet op de tak `schermen`, en het blad hoort bij de bouw die naar Thijs gaat, dus bij 3d520a2.
+- Les: een groene run zegt alleen iets over wat de run nakijkt. De crash stond gewoon in het log van een groene run. Voortaan zoekt de toetsrun zelf naar een crash.
+- Gestopt om 14:22 UTC.
