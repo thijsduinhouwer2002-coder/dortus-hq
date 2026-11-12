@@ -14,8 +14,8 @@ from PIL import Image, ImageDraw, ImageFilter
 
 KRAB = D[4]
 WIT, GEEL = (255, 255, 255), (255, 255, 170)
-DAG = dict(lucht=[(0, 85, 170), (0, 170, 255)], zee_top=(0, 110, 205), zee_bodem=(0, 20, 95), licht=(85, 255, 255),
-           ver=(0, 0, 85), mip_water=[(0, 85, 170), (0, 0, 170)], mip_licht=(0, 85, 255), mip_zee=(0, 85, 170), mip_ver=(0, 0, 85), mip_verder=(0, 0, 170), mip_bundel=(0, 85, 255))
+DAG = dict(lucht=[(0, 85, 170), (0, 170, 255)], zee_top=(0, 105, 140), zee_bodem=(0, 22, 60), licht=(85, 255, 255),
+           ver=(0, 30, 70), mip_water=[(0, 85, 85), (0, 0, 85)], mip_licht=(0, 85, 255), mip_zee=(0, 85, 170), mip_ver=(0, 0, 85), mip_verder=(0, 85, 170), mip_bundel=(0, 85, 170))
 NACHT = dict(lucht=[(0, 0, 85), (0, 0, 170)], zee_top=(0, 0, 105), zee_bodem=(0, 0, 22), licht=(170, 170, 255),
              ver=(0, 0, 60), mip_water=[(0, 0, 85), (0, 0, 85)], mip_licht=(0, 0, 170), mip_zee=(0, 0, 170), mip_ver=(0, 0, 170), mip_verder=(0, 0, 85), mip_bundel=(0, 0, 170))
 ROTS, ROTS_R, ROTS_DONKER = (85, 85, 170), (170, 170, 255), (0, 0, 85)
@@ -176,7 +176,14 @@ def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak
         ster.append((X(218 - zak / 3) + rr * math.cos(a), 197 + zak + rr * math.sin(a)))
     d.blob(ster, ZON, WIT, 1.8)
     # held: krab in zijn slipper
-    sy = slipper_y if slipper_y is not None else held_y + 14
+    sy = slipper_y if slipper_y is not None else held_y + held_maat * .62
+    if met_slipper:   # schaduw van de slipper op het zand
+        if d.am:
+            laag = Image.new('L', (d.N, d.N), 0)
+            ImageDraw.Draw(laag).ellipse([84 * s, (sy + 10) * s, 196 * s, (sy + 24) * s], fill=120)
+            d.im.paste(Image.new('RGB', (d.N, d.N), (90, 80, 40)), (0, 0), laag.filter(ImageFilter.GaussianBlur(3 * s)))
+        else:
+            d.rondje(140, sy + 17, 54, 6, ZAND_DONKER)
     if met_slipper:
         r = slipper(d, 100, sy, held_maat / 30 * 1.3, hoek=-4)
     if held:
@@ -209,13 +216,11 @@ def bundel(d, dd, nacht, xo=118, xh=112, yh=236):
     top_b, onder_b = (26, 96) if d.am else (16, 74)
     vlak = [d.P(xo - top_b, 0), d.P(xo + top_b, 0), d.P(xh + onder_b / 2, yh), d.P(xh - onder_b / 2, yh)]
     if d.am:
-        laag = Image.new('L', (d.N, d.N), 0); ImageDraw.Draw(laag).polygon(vlak, fill=60 if not nacht else 45)
+        laag = Image.new('L', (d.N, d.N), 0); ImageDraw.Draw(laag).polygon(vlak, fill=95 if not nacht else 60)
         laag = laag.filter(ImageFilter.GaussianBlur(9 * d.s))
         d.im.paste(Image.new('RGB', (d.N, d.N), dd['licht']), (0, 0), laag)
     else:
-        for dx, b0, b1 in [(-24, 4, 9), (0, 5, 12), (24, 4, 9)]:
-            d.dr.polygon([d.P(xo + dx * 1.6 - b0, 0), d.P(xo + dx * 1.6 + b0, 0),
-                          d.P(xh + dx * .5 + b1, yh), d.P(xh + dx * .5 - b1, yh)], fill=dd['mip_bundel'])
+        pass      # MIP: geen bundel (harde vlakken lazen als palen); het licht zit in de golfrand bovenin
 
 
 def kring(d, dd, cx, cy, r_):
@@ -308,22 +313,22 @@ def hold(D_, am, dd, nacht):
 
 def menu(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=200, held_maat=36, spiegel=True, anem_dy=10)
+    wereld_onder(d, dd, held_y=186, held_maat=38, spiegel=True, anem_dy=10)
     stofjes(d, dd)
     s = d.s
-    d.tekst(130, 22, 'Ebb', 28, GEEL)
-    for y, t in [(56, 'Rounds'), (96, 'Calm 4-7-8')]:
+    d.tekst(130, 16, 'Ebb', 25, GEEL)
+    for y, t in [(52, 'Rounds'), (86, 'Calm 4-7-8')]:
         if am:
             laag = Image.new('L', (d.N, d.N), 0)
-            ImageDraw.Draw(laag).rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=140)
+            ImageDraw.Draw(laag).rounded_rectangle([64 * s, y * s, 196 * s, (y + 28) * s], radius=14 * s, fill=140)
             d.im.paste(Image.new('RGB', (d.N, d.N), (0, 0, 60)), (0, 0), laag)
-            d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s,
+            d.dr.rounded_rectangle([64 * s, y * s, 196 * s, (y + 28) * s], radius=14 * s,
                                    outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
         else:
-            d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=(0, 0, 85),
+            d.dr.rounded_rectangle([64 * s, y * s, 196 * s, (y + 28) * s], radius=14 * s, fill=(0, 0, 85),
                                    outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
-        d.tekst(130, y + 3, t, 22, WIT)
-    d.tekst(130, 132, 'Sea log  ·  Settings  ·  Today', 17, GEEL, False)
+        d.tekst(130, y + 2, t, 20, WIT)
+    d.tekst(130, 118, 'Sea log  ·  Settings  ·  Today', 16, GEEL, False)
     return d.klaar()
 
 
@@ -336,13 +341,13 @@ def eind(D_, am, dd, nacht):
         bellen(d, [(x, y, r_)], WIT)
     for x, y, k in [(58, 108, 9), (194, 96, 7.5), (176, 150, 5), (46, 142, 5)]:
         fonkel(d, x, y, k)
-    kring(d, dd, 128, 124, 52)
-    r = slipper(d, 96, 145, 1.4, hoek=-6)
+    kring(d, dd, 128, 124, 58)
+    r = slipper(d, 92, 151, 1.5, hoek=-6)
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
-    d.tekst(130, 58, '1:20   1:45   1:58', 24, WIT)
-    d.dier(101, 124, 35); bandje(d, r, 1.4)
-    d.tekst(130, 166, 'new friend: Crab', 24, GEEL)
-    stippen(d.dr, 130 * s_(d), 202 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
+    d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
+    d.dier(98, 127, 39); bandje(d, r, 1.5)
+    d.tekst(130, 172, 'new friend: Crab', 23, GEEL)
+    stippen(d.dr, 130 * s_(d), 205 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
 
 

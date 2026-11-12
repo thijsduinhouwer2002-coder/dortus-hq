@@ -357,3 +357,10 @@
 - Vier frisse keuringen, alle vier 6; de punten telkens gedaan. Bij keuring 4 kwam de haak zonder uitleg over (krab ligt op een teenslipper). GEZIEN met Read: overzicht 454 1x en 260 2x na elke ronde, 260 1x drie keer.
 - Wereld zelf alleen MIP-kleuren; tekst in mijn nabootsing zacht (±1800 px buiten MIP, alleen letterranden).
 - Nog niets naar Gijs (pas bij 8). Volgende run: eindscherm eigen feestmoment, andere schikking per scherm, MIP-bundel zachter; dan opnieuw fris keuren.
+
+## Run 44 (12 nov ±00:56 UTC, handmatig gestart met de opdracht van 01:45 NL)
+- Gelezen: berichten (niets nieuw na run 43). Opdracht stond al in uitvoering; doorgewerkt aan de krab in `werelden2/`.
+- Vier frisse keuringen: 7, 6, 7, 7 (eerste keer boven de 6). Telkens de punten gedaan; zie `ebb-werelden-v2.md`, tweede ronde.
+- **Besluit: onder water petrol, boven water blauw. Besluit: geen lichtbanen op MIP.** Waarom: zie de notitie.
+- GEZIEN met Read: overzicht 454 1x vijf keer, 260 2x drie keer, 260 1x een keer.
+- Nog geen 8, dus nog niets naar Gijs en de schildpad en clownvis wachten. Volgende run: de vijf punten van keuring 8 (MIP-banden, held binnen de cirkel, lucht per dagdeel, naam groot, getijdenpoel).

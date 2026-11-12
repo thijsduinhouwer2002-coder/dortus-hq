@@ -27,6 +27,14 @@ Bestanden: `werelden2/krab-<scherm>-<dag|nacht>-<454|260>.png`, overzichten `wer
 
 **Besluit: een lichtbundel op de held in plaats van losse stralen.** Waarom: losse stralen waren op AMOLED onzichtbaar en op MIP gordijnen; een bundel maakt van elk onderwaterscherm een toneel met de held in het licht, en dat werkt in beide technieken.
 
+## Tweede ronde (run 44, 12 nov ±01:00 UTC)
+- Keuring 5: **7** (eerste keer boven de 6). Daarna: lichtkring achter de nieuwe vriend op het eindscherm, held groter, zand kleiner, glinstering als losse vonkjes, nacht donkerder, menu gespiegeld (anemoon rechts, zeester links), zwevende lichtjes, rand donkerder op AMOLED (raampje in de zee), feestvonkjes en bellen op het eindscherm.
+- Keuring 6: **6**. Daarna: held op inhouden groot en hoger (43/260), anemoon met vijf dikke tentakels in plaats van "druiven", lichtgevend plankton bij nacht, menupillen doorschijnend op AMOLED.
+- Keuring 7: **7**. Daarna: onder water petrol in plaats van middenblauw (boven en onder water nu meteen uit elkaar), MIP zonder lichtbanen (lazen als palen), krab zit echt op de slipper met schaduw op het zand, menu compacter met held hoger, eindscherm held groter en tijden kleiner.
+- Keuring 8: **7**. Punten voor de volgende run: MIP overdag onder water drie banden van licht naar donker en de harde ellips achter de krab weg; held op inhouden en menu helemaal binnen de cirkel (slipper wordt rechtsonder afgesneden); lucht per dagdeel warmer en krab bij inademen groter; eindscherm "Crab" groot als naam; de krab iets eigens geven (getijdenpoel met schelpjes) zodat elke wereld anders voelt.
+
+**Besluit: onder water petrol, boven water blauw.** Waarom: drie keurders zagen lucht en water als hetzelfde blauw; met petrol zie je in een oogopslag "nu ben ik onder". **Besluit: geen lichtbanen op MIP.** Waarom: in 64 kleuren worden ze altijd harde palen; het licht zit daar in de golfrand bovenin en de banden.
+
 ## Nog open
 - Nog geen 8. Volgende stap: het eindscherm een eigen feestmoment geven (bundel recht op de krab, meer bellen), per scherm een andere schikking, en de MIP-bundel misschien smaller of als twee tinten.
 - Per scherm iets andere schikking van de rotsen (nu op elk onderwaterscherm hetzelfde).
