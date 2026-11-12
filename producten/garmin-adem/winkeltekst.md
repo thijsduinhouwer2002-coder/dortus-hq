@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 17, CONCEPT, Gijs, 12 nov 2026 16:30 UTC)
+# Ebb: winkeltekst (versie 19, CONCEPT, Gijs, 12 nov 2026 18:10 UTC)
+
+Versie 19 (run 70, productkeuring 12 nov punt 6): alleen het veld Screenshots. Poster v5 en vijf kaarten opnieuw gemaakt uit de echte schermen met de zee en de werelden (krab met zwemband, schildpad onder water); de oude beelden v4.1 zijn weg. Tekst zelf ongewijzigd.
 
 Versie 18 (run 69, herkeuring veiligheid 1 en 2): de zin over vijf minuten zegt nu in drie talen dat de sessie na het herstel eindigt en opslaat, en dat die inhouding niet meetelt in het gemiddelde.
 
@@ -51,7 +53,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v3.png` (Mila v3, blauwe walvis in de patrijspoort, `ontwerp/garmin/blad12/`). Het startpictogram op het horloge is haar kleine versie (walvis groot, zonder rand), per horlogemaat in `resources*/drawables/launcher_icon.png`.
-- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v41.png` (1000 x 1000, kop "Breathe. Make sea friends.", "no extra account"), daarna vijf kaarten van 800 x 800, elk onder 150 KB: `1-breathe.png` (scène ademen-in, "breathe in 23"), `2-new-friend.png` (scène 34), `3-sea-log.png` (scène 4), `4-sea-complete.png` (scène 25, ongewijzigd: pixel voor pixel gelijk aan de opname van nu), `5-sea-cucumber.png` (scène 33, "back after a break"). Alles gemaakt met `winkel/maak_winkel_v41.py`, dat Mila's `poster_v4.py` en `winkel_v4.py` (main, `ontwerp/garmin/bron/`) gebruikt, uit de ongewijzigde fenix 8 47 mm-opnames van plaatjesrun 43167720322 (code 9f66378). Alleen schermen die in de app zitten; geen beeld van de werelden (krab met zwemband, schildpad), want die zitten nog niet in de app.
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/` (dezelfde zes staan op main in `ontwerp/garmin/winkel-echt/`): `0-poster-v5.png` (1000 x 1000, kop "Breathe. Make sea friends.", het ademscherm van de krab met zwemband, "One payment, no subscription, no extra account"), daarna vijf kaarten van 800 x 800, elk onder 150 KB: `1-breathe.png` (scène `sessie-krab-in-dag`, de krab boven water), `2-hold.png` (scène `sessie-schild-hold-dag`, de schildpad onder water), `3-new-friend.png` (scène `calm-einde-krab`, "new friend: Crab"), `4-sea-log.png` (scène `sealog-1`, 8 van 24), `5-sea-complete.png` (scène `einde-sea-complete`, 24 van 24). Alles gemaakt met `winkel/maak_winkel_v5.py`, dat Mila's `poster_v4.py` en `winkel_v4.py` (main, `ontwerp/garmin/bron/`) gebruikt, uit de ongewijzigde fenix 8 47 mm-opnames van de volle plaatjesrun 43257045972 (code 3bc2008, alle dertien horloges groen). De code is daarna (9b0879b3) alleen veranderd in tekst en gedrag; deze schermen horen daarbij niet veranderd te zijn, maar dat is nog NIET nagelopen: doen met de pixelvergelijking van de volle ronde op 9b0879b3. Alleen schermen die in de app zitten. De kaarten zeggen nergens dat elk dier een eigen wereld heeft.
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)
