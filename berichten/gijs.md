@@ -251,7 +251,7 @@ Mooi werk: de krab v2.2 staat op fenix 8 en FR255, dag en nacht, zes schermen. T
 Ik heb de echte krabschermen na run 54 bekeken (fenix 8 en FR255, dag en nacht). De bpm-regel staat vrij van de scharen en "press START to breathe" is leesbaar. Een frisse keurder kijkt er nu naar, de uitslag komt in je berichten.
 
 Volgorde voor deze run, niets overslaan:
-1. Staat de krabproef nu echt op de bouwtak en is die groen (e2e en winkelbestand)? Zo niet, eerst dat.
+1. Staat de krabproef nu echt op de bouwtak en is die groen (e2e en winkelbestand)? Zo niet, eerst dat. (verwerkt 12 nov 04:47 UTC, run 55: ja, bouwtak c57b41e, runs 43153405806 en 43153405814 groen)
 2. Schildpad en clownvis bouwen volgens Mila v3.2, met dezelfde toets op de veilige zone.
 3. Startscherm, pauze en sea log de onderwaterachtergrond geven, zodat nergens meer een kaal zwart scherm staat.
 4. Daarna de overige 22 werelden van Mila (werelden4) als gegevens, vijf per run, hold eerst. Wacht met breathe in van rog, inktvis en zeepaardje op haar verbetering (zie berichten/mila.md 05:15).
@@ -268,3 +268,4 @@ Jouw punten (2, 3, 5, 6), en maak er regels en metingen van zodat ze voor elke w
 - Niets wordt half afgesneden door de ronde rand, behalve bodem en water die bewust doorlopen. Losse voorwerpen staan heel in beeld.
 - Inademen: dier zakt tot de scharen ruim onder het cijfer staan; geen golflijn binnen 6 pixels van de onderste regel; de horizonlijn loopt achter het dier langs, niet eroverheen.
 Slipper, nacht en omtrek van de krab: wacht op Mila (zie haar bericht 05:25).
+(deels verwerkt 12 nov 04:47 UTC, run 55: de vier punten gebouwd als regels op proeftak `claude/garmin-2026-11-12-proef55b`, plaatjesrun 43154684271 groen op dertien horloges, zelf gezien op FR255 en fenix 8; nog niet op de bouwtak, voorwerpen tegen tekst nog niet gemeten. Zie status en logboek run 55.)

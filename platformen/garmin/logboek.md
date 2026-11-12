@@ -792,3 +792,21 @@
 3. Open: gele koppen 4,4 in plaats van 4,5, en schildpad en clownvis bouwen.
 
 **Slot, run 54, 04:14 UTC:** de toetsen zijn groen op adcd6af (run 43149443865) en op c57b41e (run 43150745885); de plaatjesrun op c57b41e (43150745924) is ook groen, net als de volle run op 80cf3d4 op de bouwtak (43149147717 en 43149147478). Daarna de bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld van 80cf3d4 naar c57b41e, één push. De volle run op c57b41e op de bouwtak is gestart en NIET gelezen. Verbetering op het blok hierboven: fr965 liep nog toen ik de logs las; run 43150726564 eindigde daarna als geheel groen, dus alle dertien horloges.
+
+## Run 55, 12 nov 2026, 04:14 tot ±04:50 UTC (Gijs): frisse keuring 2, de vier punten van Gijs als regels
+
+Gelezen: berichten (hoofdchat 05:15 en 05:25 NL, Mila 03:45 en 03:55 UTC), `ontwerp/garmin/ebb-krab-echt-keuring-2.md`, status, taken, REGELS. De keuring gaat voor op de overige werelden, dus die eerst.
+
+Andere Gijs: bij het pushen bleek `claude/garmin-2026-11-12-proef55` al te bestaan (f1433af, 04:18 UTC, sessie van run 54, schildpad). Ik heb mijn werk daar bovenop opnieuw aangebracht en als `proef55b` gepusht, zodat er niets van de ander overschreven is. Les: bij de start ook `git ls-remote` op nieuwe proeftakken doen, niet alleen kijken naar de bouwtak.
+
+Gebouwd (b0fd2b9 en c45568e op `proef55b`):
+1. Punt 2 en 3, versiering 6/260 van tekst: `KrabV2Tekst.meet` meet de tekstvakken met de echte letter, door dezelfde code die de tekst tekent. Belletjes, sterren, vonkjes, lichtjes en de meeuw vragen `KrabV2Tekst.vrij` en blijven weg als ze te dicht staan. Log: `VERSIERING wereld W scherm N getekend X, geweken voor tekst Y`. REGELS punt 9. Eerlijk: dit is een regel in de code, geen meting achteraf op de pixels.
+2. Punt 3, menu: gekozen knop gevuld lichtgeel met donkere letter en pijltje, de andere donker met dunne rand; voetregel wit op een donkere band over de hele breedte.
+3. Punt 5, niets half afgesneden: `KrabV2Lagen.inRond` schuift anemoon en zeester (met hun rots) naar binnen; de maanvlek bovenin onder water is weg. REGELS punt 10.
+4. Punt 6, inademen: krab 8/260 lager, kam op 150 (8 onder het midden van de krab, de schuimlijn loopt onder het lijf), cijfers 11 plus kantelmarge boven de scharen, golfrijen wijken 6 voor de onderste regel, band 0055FF achter de krab op MIP weg.
+5. Veilige zone ook op menu en eindscherm (held tegen voetband en tegen de rij tijden).
+6. Zoekterm in `garmin-adem-iq.yml`: `VEILIG .* NEE` (de oude term zag de regel met "wereld" niet).
+
+Uitslag: zie status van 04:47 UTC. Bouwtak c57b41e groen (43153405806, 43153405814). Plaatjesrun 43154684271 groen op dertien horloges.
+
+Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de krab op MIP is weg en de kam staat bij inademen 8 onder de krab; past dat bij jouw blad? (2) de maanvlek onder water is weg, neem dat mee in de nieuwe nacht; (3) op het eindscherm is de bodem 22 gezakt en daardoor komen anemoon en ster naar binnen geschoven dicht bij "new friend": graag een plek op het blad waar ze heel in beeld en 6 van de tekst staan; (4) de meeuw op (196, 38) staat op de fenix 8 krap naast "breathe in".
