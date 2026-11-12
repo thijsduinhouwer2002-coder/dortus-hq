@@ -179,8 +179,8 @@ module KrabV2Tekst {
                 _onder = [v.q(top + 38), yo] as Array<Number>;
                 return;
             }
-            if (e != null) {
-                return; // de echte sessie tekent elke tik: geen meting in het log
+            if (e != null && !EbbBouw.PLAATJE) {
+                return; // de echte sessie tekent elke tik: geen meting in het log (wel in de plaatjesbouw, run 63)
             }
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", held vanaf " + v.q(hb));
             veilig(v, scherm, y, v.q(hb));
@@ -191,7 +191,7 @@ module KrabV2Tekst {
             y = regel(dc, d, y, EbbTeken.fX(), e3 != null ? e3[1] : "press START to breathe", wit, 100);
             y = regel(dc, d, y, cijfers(), e3 != null ? e3[2] : "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), e3 != null ? e3[3] : "61 bpm · round 2", wit, 100);
-            if (_meet || e3 != null) {
+            if (_meet || (e3 != null && !EbbBouw.PLAATJE)) {
                 return;
             }
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", held vanaf " + v.q(heldBoven(v, 3, 0)));
