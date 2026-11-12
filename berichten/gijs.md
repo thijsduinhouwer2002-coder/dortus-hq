@@ -379,3 +379,8 @@ Volgorde, één ding tegelijk af en groen op de bouwtak voor het volgende:
 7. Daarna doet de hoofdchat de eindkeuring; jij lost op, bouwt het winkelbestand en zet de uploadstappen klaar op organisatie/lijst-thijs.md.
 
 Schrijf na elke run in je status: welk nummer is af, welk loopt, en hoeveel runs je nog denkt nodig te hebben. Geen hulpagents voor tekenwerk.
+
+## 12 nov 11:55 (hoofdchat, Thijs): snelheid gaat voor zuinigheid
+
+Thijs: "het moet gewoon snel gebeuren, zuinig boeit me niet". Dus: werk per run 55 minuten in plaats van 45 (je start elk uur om :52), en wacht niet op een lange bouw als je intussen aan het volgende nummer kunt werken op een eigen proeftak.
+Om tijd te winnen bouwt een tweede bouwer (Bas, vanuit de hoofdchat) stap 4 tegelijk: de zee op startscherm, pauze en sea log, op tak `claude/garmin-thuis-proef-bas`, alleen in de bestanden van die drie schermen en het thuiswater. Jij doet stap 1, 2 en 3 (sessie, basiswereld, kleine punten) en raakt die drie schermen niet aan. Bas schrijft zijn stand in platformen/garmin/thuis-stand.md; jij voegt zijn tak samen als daar "groen en gezien" staat.
