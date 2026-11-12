@@ -116,3 +116,28 @@ Vorm: **dier: plek onder water / grap (boven water, onder water)**.
 22. **Sea cucumber (bonus, slaperig):** een schelp als bedje / hij slaapt altijd: boven water drijft hij op een kussen met een slaapmuts en drie z's, onder water slaapt hij in een schelp met een plukje kelp als deken.
 
 Bewust vermeden: een tweede passagier (meeuw is van de schildpad), jongleren of balanceren (clownvis), een slipper of schoen (krab), stopwatches of medailles (niets beloont tijd of winnen).
+
+### Frisse lezing van de lijst (keuring 23, agent, alleen deze sectie gelezen)
+Sterkst: Shark 8,5; Seahorse, Pufferfish, Sunfish, Sea cucumber 8. Zwakst: Starfish 4, Swordfish 4, Dolphin 5, Ray 5, Manta 5, Narwhal 5,5. Kern: grappen die op beweging leunen (rollen, looping, springen) of op iets wat de vaste sticker moet doen (bek open, schaar, arm zwaaien) werken niet; één groot herkenbaar voorwerp (bril, tandenborstel, ballon, slaapmuts) werkt op 260. Dubbelingen: touwtje (puffer en rog), vliegen (rog, manta, dolfijn), wonen in een vondst (vis, octopus, aal), bellen (dolfijn en walvis), drie gekleurde dingen (narwal en clownvis), een tweede beestje (kwal).
+
+### Lijst versie 2 (dit tekenen de familie-agents)
+Gewijzigd waar de lezing onder 7 gaf of een dubbeling zag; de rest blijft zoals hierboven.
+1. **Fish:** zandvlakte met fles / boven water dobbert hij in de fles en wipt de kurk omhoog bij inademen; onder water ligt de kurk naast de fles. Geen briefje meer.
+3. **Jellyfish:** open blauw met lichtpuntjes / hij is een parapluutje: onder een klein regenwolkje met een handvat onder zijn hoed; onder water hangt het handvat nog onder hem. Geen visje meer.
+5. **Starfish:** getijdenpoel / hij kijkt door een telescoopje naar de sterren (overdag naar de zon met een donker glaasje); onder water ligt het telescoopje naast hem in de poel.
+7. **Octopus:** een badje op pootjes dat op de bodem is gezakt / hij neemt een bad met een geel badeendje; onder water drijft het eendje boven hem aan het oppervlak.
+8. **Eel:** zand vol gaatjes (zoals echte tuinalen) / hij heeft een idee: boven water steekt hij uit de golf met een lampje boven zijn kop dat aangaat bij inademen; onder water steekt hij uit zijn gaatje met het lampje uit.
+9. **Ray:** wit zand met rimpels / hij is een vliegende schotel: drie lichtjes eronder en een bundeltje licht op de golf; onder water ligt er een rond spoor in het zand waar hij geland is.
+11. **Dolphin:** open water met lichtvlekken / hij draagt een duikbril met een snorkel die uit de golf steekt (het dier dat het minst een snorkel nodig heeft, en het past bij ademen); onder water staat de bril op zijn voorhoofd.
+12. **Swordfish:** open blauw met lichtstreepjes / hij tekent met de punt van zijn zwaard een witte lijn langs jouw golf; onder water staat er een hartje in het zand getekend. Alleen als het zwaard buiten de sticker steekt (anders een potlood op zijn neus).
+14. **Manta:** open water met een zandbank ver weg / hij trekt als reclamevliegtuigje een spandoekje met een hartje erop; onder water ligt het spandoekje opgerold op de zandbank.
+15. **Shark:** poetsstation / tandenborstel boven water; onder water zwemmen twee poetsvisjes langs zijn kop met een piepklein borsteltje (geen open bek, de sticker ligt vast).
+17. **Orca:** open water / rood strikje en muzieknootjes die met jouw adem stijgen en zakken; onder water een rijtje visjes met nootjes boven hun kop.
+18. **Narwhal:** onder het ijs met een wak / een wollen sjaaltje en een want hangen aan zijn tand te drogen; onder water hangt het sjaaltje nog aan zijn tand.
+19. **Giant squid:** schemerig water met lichtpuntjes, niet zwart / slecht verstoppen: boven water achter een piepkleine boei, onder water achter één klein plantje. Het voorwerp moet heel klein zijn, dan wordt hij groot.
+20. **Lobster:** tuin van zeegras / tuinman met strohoedje, op de golf drijven een gietertje en een bloempotje; onder water staat een pluk zeegras als hartje.
+21. **Whale:** open diep blauw / zijn fontein met een regenboog (bij nacht een witte maanboog); onder water ligt er een boog van gekleurde steentjes in het zand onder hem (geen bellen, die zijn van niemand apart).
+Blijven: 2 Shrimp (surfplank), 4 Seahorse (draaimolen), 6 Pufferfish (ballon aan een touwtje, de sticker groeit niet, alleen de hoogte volgt de adem), 10 Seal (hengel en dobber), 13 Sea otter (lunch op zijn buik, kelplint), 16 Sunfish (zonnebril), 22 Sea cucumber (slaapmuts).
+
+### Veilige zone voor tekst (hoofdchat 04:05), geldt voor alle 25
+Toets `bron/toets_veilige_zone_v32.py`: elk tekstvak houdt minstens **6/260 D** afstand tot elke pixel van het dier en zijn grapvoorwerp, in de standen in, uit en Calm en op hold, menu en eind. Eerste meting: 5 regels te dicht (schildpad "12" 5,1, clownvis menuregel 4,0). Gedaan: schildpad bij inademen x 172, clownvis in het menu y 199. Nu 0 te dicht; contrast blijft op alle 36 schermen 4,5 of hoger. GEZIEN met Read: overzicht schildpad en clownvis 260 2x.

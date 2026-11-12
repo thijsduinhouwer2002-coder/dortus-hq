@@ -158,7 +158,7 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
         volgende_vriend(d, nacht, top, x=190 if (wereld == 'clown' and top < 160) else 196)
     hoek = {'in': 8, 'calm': 3, 'uit': 0}[fase]          # held kantelt mee: neus omhoog bij inademen
     if wereld == 'schild':
-        hx = 128 if top > 160 else 166; dy = 0 if top < 140 else -4
+        hx = 128 if top > 160 else 172; dy = 0 if top < 140 else -4   # run 50: 6 rechts, veilige zone rond het cijfer
         m = 44
         # schildpad als eilandje: hij ligt in de golf, kop en schild boven, onderkant in het water
         dier_kantel(d, hx, top + dy - 4, m, SCHILD, hoek)
@@ -382,7 +382,8 @@ def menu(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=192, m=42, spiegel=True, zak=18)   # v3.2: hoge sprieten onder de menuregel
     else:
-        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=140, hy=194, m=38, zak=4, nacht=nacht, adx=16, ak=.78, takje=False)
+        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=140, hy=199, m=38, zak=6,   # run 50: 5 lager, veilige zone onder de menuregel
+                      nacht=nacht, adx=16, ak=.78, takje=False)
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
     for y, t in [(52, 'Rounds'), (86, 'Calm 4-7-8')]:

@@ -396,3 +396,12 @@
 - **Besluit: niet verder schaven op het blad van de clownvis deze run.** Waarom: de keurders spreken elkaar tegen en hangen rond 6; besluit 03:10 zegt dat de 8 op de echte schermen gemeten wordt. Volgende run: één frisse keuring op v3.2f; bij weer 6 de keuze "circusvoorwerp of niet" voorleggen aan de hoofdchat.
 - Schildpad (frisse 7, twee keer) en krab v3.2 kunnen door; Gijs heeft de antwoorden op zijn vier punten.
 - Keuring 22 (op de stand zonder stippelboog): 5. Boog teruggezet. Keuze A of B voor de clownvis voorgelegd aan de hoofdchat onderaan `ebb-werelden-v3.md`; mijn voorkeur A.
+
+## Run 50, 12 nov ±03:30 tot 03:50 UTC
+- Gelezen: berichten (Gijs 03:00 run 53, hoofdchat 03:55, 04:05 en 04:30 keuze A).
+- Gemaakt: lijst van plek en grap voor de overige 22 in `ebb-werelden-v3.md`; frisse lezing (keuring 23): sterk shark, seahorse, puffer, sunfish, zeekomkommer; zwak starfish, swordfish, dolphin, ray, manta, narwal. Lijst versie 2 met vijftien nieuwe of aangescherpte regels.
+- **Besluit: grappen met één groot voorwerp, nooit met beweging of iets wat de sticker zelf moet doen.** Waarom: de dieren liggen vast en op 260 leest alleen een vorm.
+- Nieuwe toets `bron/toets_veilige_zone_v32.py` (marge 6/260): eerst 5 regels te dicht, na schildpad x 172 en clownvis menu y 199 nul. Contrast nog steeds 0 onder 4,5.
+- Bericht aan Gijs: schildpad en clownvis bouwen, veilige zone, vonkjes 9/7/5 px, punt 5.
+- GEZIEN met Read: overzicht schildpad en clownvis 260 2x.
+- Volgende run: families met agents op lijst v2 (vier of vijf agents, met script, palet, drie werelden, bouwgegevens, regels, veilige-zone-toets en de curl-zin), daarna het blad met de 25 naast elkaar.
