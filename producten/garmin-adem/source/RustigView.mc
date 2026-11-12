@@ -46,6 +46,15 @@ class RustigView extends WatchUi.View {
         if (sessie.pauzeSinds >= 0) {
             return;
         }
+        // Keuring code en veiligheid 12 nov, punt 2: na 30 minuten ademen vanzelf opslaan en naar het eindscherm,
+        // precies zoals Save in het pauzemenu. Eén keer; daarna stopt de timer in onHide.
+        if (!_vanzelf && plaatjeMs < 0 && sessie.teLang(System.getTimer())) {
+            _vanzelf = true;
+            _timer.stop();
+            System.println("CALM 30 min, vanzelf opgeslagen");
+            opslaanEnTonen();
+            return;
+        }
         var i = sessie.faseIndex(System.getTimer());
         if (i != _vorige) {
             // Een vast-fase van 0 s wordt overgeslagen, dus alleen trillen bij een fase die er echt is.
@@ -70,6 +79,7 @@ class RustigView extends WatchUi.View {
     }
 
     private var _getekendSec as Number = -1;
+    private var _vanzelf as Boolean = false;
 
     static const WOORDEN = ["in", "hold", "out", "hold"] as Array<String>;
 

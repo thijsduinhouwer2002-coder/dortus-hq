@@ -8,6 +8,9 @@ module Ebb {
     // Keuring code en veiligheid 12 nov, punt 1 (besluit hoofdchat 13:20, harde eis): een inhouding stopt vanzelf na
     // vijf minuten. Doet iemand niets of valt hij weg, dan gaat de sessie door naar herstel in plaats van eindeloos door.
     const MAX_INHOUD_MS = 300000;
+    // Zelfde keuring, punt 2: Calm en het pauzemenu lopen niet eindeloos door met de opname open. Na 30 minuten
+    // (Calm: 30 minuten ademen; pauze: 30 minuten in het pauzemenu) slaat de app vanzelf op en stopt.
+    const MAX_STIL_MS = 1800000;
     enum Fase {
         FASE_ADEMEN = 0,
         FASE_INHOUDEN = 1,
@@ -190,6 +193,11 @@ module Ebb {
         // De klok voor het scherm: tijdens pauze het moment van pauzeren.
         function klok(nu as Number) as Number {
             return pauzeSinds >= 0 ? pauzeSinds : nu;
+        }
+
+        // Calm heeft 30 minuten geademd (pauzes tellen niet mee): tijd om vanzelf op te slaan en te stoppen.
+        function teLang(nu as Number) as Boolean {
+            return klok(nu) - startMs >= MAX_STIL_MS;
         }
 
         // Hele seconden die nog over zijn in de huidige fase (afgerond naar boven), voor het grote getal.

@@ -218,3 +218,18 @@ function testLaatsteDrie(logger as Test.Logger) as Boolean {
     var inhouden = r.laatsteDrie(30 * adem + 10);
     return !nr27 && nr28 && nr30 && !inhouden;
 }
+
+// Keuring code en veiligheid 12 nov, punt 2: Calm stopt vanzelf na 30 minuten ademen; een pauze telt niet mee.
+(:test)
+function testCalmTeLangNaDertigMinuten(logger as Test.Logger) as Boolean {
+    var r = new Ebb.Rustig(Ebb.calm(), 1000);
+    var net = r.teLang(1000 + 1799999);
+    var om = r.teLang(1000 + 1800000);
+    r.pauzeer(1000 + 600000);
+    var inPauze = r.teLang(1000 + 5000000);
+    r.hervat(1000 + 5000000);
+    var naPauze = r.teLang(1000 + 5000000 + 1199999);
+    var naPauzeOm = r.teLang(1000 + 5000000 + 1200000);
+    logger.debug("net " + net + " om " + om + " in pauze " + inPauze + " na pauze " + naPauze + " " + naPauzeOm);
+    return !net && om && !inPauze && !naPauze && naPauzeOm;
+}

@@ -1,6 +1,7 @@
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Timer;
 import Toybox.WatchUi;
 
 // Mila blad v10 punt 2 (keuring bouw 5 punt 6): het pauzemenu in Ebb-stijl in plaats van het witte systeemmenu.
@@ -18,6 +19,36 @@ class PauzeView extends WatchUi.View {
         View.initialize();
         regel = regelTekst;
         dier = gezelschap;
+    }
+
+    // Keuring code en veiligheid 12 nov, punt 2: het pauzemenu blijft niet eindeloos staan met de opname open. Na
+    // 30 minuten zonder keuze doet het vanzelf wat Save doet. De delegate zet naTijd en haalt hem bij elke uitgang
+    // weer weg (anders houden scherm en delegate elkaar vast in het geheugen).
+    var naTijd as (Method() as Void) or Null = null;
+    private var _wacht as Timer.Timer or Null = null;
+
+    function onShow() as Void {
+        if (!EbbBouw.PLAATJE && _wacht == null) {
+            var t = new Timer.Timer();
+            t.start(method(:tijdOm), Ebb.MAX_STIL_MS, false);
+            _wacht = t;
+        }
+    }
+
+    function onHide() as Void {
+        if (_wacht != null) {
+            (_wacht as Timer.Timer).stop();
+            _wacht = null;
+        }
+    }
+
+    function tijdOm() as Void {
+        _wacht = null;
+        var m = naTijd;
+        if (m != null) {
+            System.println("PAUZE 30 min, vanzelf opgeslagen");
+            m.invoke();
+        }
     }
 
     // Regel onder "paused": welke ronde en hoe lang het huidige stuk al duurt, bijvoorbeeld "round 2 · 1:12".
@@ -91,6 +122,12 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
         _hervat = hervat;
         _opslaan = opslaan;
         _weg = weg;
+        pv.naTijd = method(:vanzelfOpslaan);
+    }
+
+    // Na 30 minuten in het pauzemenu (PauzeView.tijdOm): hetzelfde als Save kiezen.
+    function vanzelfOpslaan() as Void {
+        kies(1);
     }
 
     function schuif(stap as Number) as Boolean {
@@ -112,6 +149,7 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function kies(k as Number) as Boolean {
+        _pv.naTijd = null;
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         if (doe(k)) {
             EbbNaarMenu.ga(WatchUi.SLIDE_RIGHT);
@@ -162,6 +200,7 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
 
     // Terug in het pauzemenu is ook doorgaan.
     function onBack() as Boolean {
+        _pv.naTijd = null;
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         _hervat.invoke();
         return true;
