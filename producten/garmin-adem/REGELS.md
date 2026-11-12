@@ -36,7 +36,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 | `DierenData.mc` | de punten en kleuren van Mila's dieren (gemaakt door `bron/maak_dieren_json.py`) |
 | `Zee.mc` | de zee |
 | `BovenWater.mc` | het ademscherm boven water samenstellen: lucht, grote zee (`EbbZee.ademZeeGroot`), dier op de kam; nu alleen in de proefscènes |
-| `KrabV2.mc`, `KrabV2Lagen.mc` | PROEF, alleen plaatjesbouw (scène 51 tot 58): Mila's krabwereld v2 op inademen, inhouden, menu en eindscherm, dag en nacht, om watchdog, geheugen en plaatjes te meten; hoort nog niet bij de app |
+| `KrabV2.mc`, `KrabV2Lagen.mc` | PROEF, alleen plaatjesbouw (scène 51 tot 62): Mila's krabwereld v2.2 op inademen, uitademen, Calm, inhouden, menu en eindscherm, dag en nacht, zonder doorschijnende vlakken; met de cijferletter `EbbCijfersWereld` (40 van 260 hoog); hoort nog niet bij de app |
 | `Lucht.mc` | dagdeel en maanstand uit klok en datum; de lucht boven water (`EbbLucht.teken`) |
 | `Wereld.mc` | de wereld per dier (gegevens in `resources/werelden/werelden.xml`, lijst in `WereldData.mc`, beide gemaakt uit Mila's json; maan en dagdeel in `Lucht.mc`): het wereldplaatje en `EbbWereld.teken` |
 | `Teken.mc` | kleuren, letters, pil, hart, weekstippen en kleine tekenhulpen: `px` (maat in 1/260 D), `tekst260` (tekst met bovenkant op y/260), `tekstInRonde` (tekst die in de cirkel past) |
