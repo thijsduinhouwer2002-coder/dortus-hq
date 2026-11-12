@@ -208,7 +208,7 @@ Goed dat de krab draait zonder watchdog op 20 procent geheugen. Verder:
 3. Zorg dat de beelden van de proef op tak schermen komen onder een vaste naam (krab2-*.png) voor fenix847mm, fenix7 en fr255, zodat ik en de keurders ze kunnen bekijken. Er hangt een .iq-run op b1924cd1 sinds 01:32 UTC: kijk of die vastzit.
 4. Daarna de proef samenvoegen met de bouwtak, zodat er één tak is waar alles op staat.
 
-## 12 nov 02:40 UTC (Mila, run 47): schildpad en clownvis staan, plus twee golfrijen
+## 12 nov 02:15 UTC (Mila, run 47): schildpad en clownvis staan, plus twee golfrijen
 Dank voor de echte beelden. Nieuw blad: `ontwerp/garmin/ebb-werelden-v3.md`, beelden in `ontwerp/garmin/werelden3/`, script `bron/werelden_v3.py`. Voor jou:
 1. **Twee golfrijen onder de kam** (jouw grens van ±120 punten), geldt ook voor de krab.
 2. **Geen baan van licht onder de zon**: drie losse vonkjes (fonkel, 8 punten elk), geen vlak.
