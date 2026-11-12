@@ -879,3 +879,11 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 2. Krab, keuring 3 punt 3 tot 6, commit 85a9fe6 op `claude/garmin-2026-11-12-proef59`: nieuw bestand `KrabV2Rand.mc` (randmeting met norm 10, nachtwater), `KrabV2Tekst.raakt` (zelfde meting als `vrij`, zonder tellen), boog op MIP weg, anemoon wijkt voor tekst, pilletje onder de bolletjes, meeuw van de krab weg.
 3. Schildpad, Mila run 55, commit c8b526f: `KrabV2Schild.openPlek`, blad in de bek, spriet met hap en drijvend blad weg, sprieten korter bij tekst, groot oog in `EbbDierData.ogen` (dier 3 vanaf maat 34), `EbbNacht.held` (v1.3), omtrek bij nacht 5555AA in `EbbDierPlaatje.laag`.
 4. Besluiten: (a) de anemoon op het eindscherm niet verplaatsen maar weglaten als hij tekst raakt: links is geen ruimte meer nu hij ook 10 binnen de rand moet staan. (b) Omtrek overdag blijft zwart op MIP. (c) REGELS.md regel 10 en WERELD-BOUWEN.md bijgewerkt.
+5. Uitslag proef: plaatjes 43173881246 (85a9fe6) en 43174095135 (c8b526f) groen op dertien horloges. Beelden bekeken op FR255 en fenix 8. Goed: boog weg, tekentje weg, nachtwater, pilletje, schildpad met oog en open plek, schildpad bij nacht. Niet goed: de anemoon viel op de FR255 op drie schermen weg (door de 10 binnen de rand kwam hij te dicht bij de tekst en mijn regel haalde hem dan helemaal weg), en "Jellyfish" raakte nog een spriet (ik mat alleen de top).
+6. Hersteld in 242a3e7: armen van de anemoon worden korter in drie stappen, per armpje gemeten; sprieten langs hun hele lengte gemeten. Nog niet gezien: de runs liepen bij het stoppen.
+7. Geleerd: mijn twee pushes met alleen tekst op de bouwtak (16bd5fd, d130bab) startten elk een volle run en hielden de rij twintig minuten bezet. Voortaan tekst samen met code.
+
+**In drie regels (run 59):**
+1. Krab keuring 3 punt 3 tot 6 en de schildpad van Mila zijn gebouwd en op echte beelden gezien; plaatjes groen op dertien horloges.
+2. Twee dingen waren op die beelden niet goed (anemoon weg op de FR255, spriet tegen "Jellyfish"); de verbetering staat op proef59 (242a3e7) en is nog niet gezien.
+3. Niets op de bouwtak, niets ingediend; onderwater op start, pauze en sea log is de volgende stap.
