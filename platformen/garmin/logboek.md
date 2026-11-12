@@ -950,4 +950,5 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 14:15 UTC: proefronde op proef66 groen (toetsrun 43233017111, plaatjesrun 43233017022), beelden van de eerste sessie met de vis bekeken op drie horloges. Bouwtak vooruitgespoeld naar 3d520a2 (één push).
 - Besluit: winkelbeelden en blad niet maken uit de oude beelden. Waarom: de beelden van de volle ronde op 789d410 stonden nog niet op de tak `schermen`, en het blad hoort bij de bouw die naar Thijs gaat, dus bij 3d520a2.
 - Les: een groene run zegt alleen iets over wat de run nakijkt. De crash stond gewoon in het log van een groene run. Voortaan zoekt de toetsrun zelf naar een crash.
-- Gestopt om 14:22 UTC.
+- 14:18 UTC: punten per dier geteld. De garnaal is niet het zwaarste dier (zeekomkommer 200, kreeft 194, zeeotter 187). Besluit: geen haastige scènes meer in deze run, wel als punt 1b bovenaan in taken. Waarom: nieuwe scènes verschuiven de nummers en zouden de volle ronde die nu loopt afbreken.
+- Gestopt om 14:20 UTC, na 25 minuten: het volgende werk (winkelbeelden, blad, bewijs zware dieren) wacht op de volle ronde, die rond 15:00 UTC klaar is.
