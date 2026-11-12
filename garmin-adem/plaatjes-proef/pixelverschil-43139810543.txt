@@ -1,0 +1,13 @@
+VERSCHIL krab2-calm-dag-fenix847mm.png 2304 pixels in (335, 326, 389, 446)
+VERSCHIL krab2-calm-nacht-fenix847mm.png 2304 pixels in (335, 326, 389, 446)
+GELIJK krab2-eind-dag-fenix847mm.png
+GELIJK krab2-eind-nacht-fenix847mm.png
+VERSCHIL krab2-hold-dag-fenix847mm.png 11048 pixels in (241, 283, 483, 508)
+VERSCHIL krab2-hold-nacht-fenix847mm.png 11048 pixels in (241, 283, 483, 508)
+VERSCHIL krab2-in-dag-fenix847mm.png 4750 pixels in (287, 278, 438, 434)
+VERSCHIL krab2-in-nacht-fenix847mm.png 4747 pixels in (287, 278, 438, 434)
+GELIJK krab2-menu-dag-fenix847mm.png
+GELIJK krab2-menu-nacht-fenix847mm.png
+VERSCHIL krab2-uit-dag-fenix847mm.png 2028 pixels in (332, 325, 386, 446)
+VERSCHIL krab2-uit-nacht-fenix847mm.png 2028 pixels in (332, 325, 386, 446)
+12 beelden, 8 met verschil of ontbrekend
