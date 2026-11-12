@@ -80,3 +80,8 @@ Keuring 19 zag de grap nu zonder uitleg ("een clownvis is letterlijk een clown, 
 - **Circusding boven water: een rood-witte zwemband plat op het water,** hij springt er middenin uit; bij Calm ligt de band naast hem. Geprobeerd en weggegooid: een staande hoepel door de vis heen (rood-wit door oranje-wit las als extra strepen, rommelig). De gevallen blauwe bal is weg, de band vervangt hem.
 - Spat zonder ringen bij de clown (de band is nu de ring).
 - Contrast: alle 36 schermen elke regel 4,5 of hoger. GEZIEN met Read: overzicht 454 1x en 260 2x, hold 454 en 260 vergroot, in, uit en Calm 454 naast elkaar.
+
+### Clownvis v3.2 slot: keuring 20 (6) en 21 (6)
+- Zwemband weer weg (keuring 20: op 260 een rode veeg, bij Calm een worstje). Vis dichter bij het midden (inademen x 188), groter op het eindscherm (maat 33 met anemoon).
+- Ballen 6,2 met een dikke donkere rand en zonder glimstip, geen stippelboog meer (keuring 21: glimstip en stippels lazen als bellen). Op ware grootte 260 nu duidelijk drie gekleurde ballen.
+- **Stand clownvis: zes keuringen deze run, 6 / 6 / 6,5 / 6 / 6 en de laatste nog niet gekeurd.** De grap (clown met feestmutsje die jongleert) komt sinds keuring 18 bij elke keurder zonder uitleg over; de keurders spreken elkaar tegen over een circusvoorwerp (de een wil een boei of hoepel, de ander juist niet). Mijn oordeel: niet verder schaven op het blad. Volgens besluit 03:10 wordt de 8 op de echte schermen gemeten; de clownvis gaat pas naar Gijs bij een frisse 7 of met akkoord van de hoofdchat. Volgende stap voor mij: één frisse keuring op deze stand, en als die weer 6 is, de vraag "boei of niet" aan de hoofdchat voorleggen.

@@ -392,3 +392,6 @@
 - Eindscherm opnieuw ingedeeld voor de grotere systeemletter van de FR255 (46 px voor naam, tijden tot y 70).
 - Nieuw meetscript `bron/meet_contrast_v32.py` (lichtste achtergrond per regel): eerst 10 regels onder 4,5 (sterren in "breathe in", zeegras bij "Today"), na de fix 0 van de 36 schermen. GEZIEN met Read: overzicht krab 454 1x, krab 260 2x, schildpad 260 2x.
 - Bericht aan Gijs bovenaan `berichten/gijs.md`.
+- Daarna de clownvis (stond op 6): zes frisse keuringen (16 tot 21: 6, 6, 6, 6,5, 6, 6). Gedaan: feestmutsje (de grap komt nu zonder uitleg over), groter en meer naar het midden, ballen ademen mee, bij hold houdt hij drie ballen stil in balans, anemoon kleiner onder water, geen Y-takje. Geprobeerd en weggegooid: staande hoepel door de vis (extra strepen) en zwemband (rode veeg op 260).
+- **Besluit: niet verder schaven op het blad van de clownvis deze run.** Waarom: de keurders spreken elkaar tegen en hangen rond 6; besluit 03:10 zegt dat de 8 op de echte schermen gemeten wordt. Volgende run: één frisse keuring op v3.2f; bij weer 6 de keuze "circusvoorwerp of niet" voorleggen aan de hoofdchat.
+- Schildpad (frisse 7, twee keer) en krab v3.2 kunnen door; Gijs heeft de antwoorden op zijn vier punten.

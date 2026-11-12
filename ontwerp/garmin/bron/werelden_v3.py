@@ -116,18 +116,15 @@ def meeuw(d, x, y, k=1.0, nacht=False):
 def jongleer(d, cx, cy, r_, k=1.0, nacht=False, neus=None):
     """Drie ballen in een boog boven de clownvis: hij jongleert. v3.2: groot, vlak met donkere rand en een glimpje,
     een witte stippelboog als spoor, en (boven water) de eerste bal net boven zijn neus (keuring 16)."""
-    for i in range(9):
-        a = math.pi * (1.0 + i / 8)
-        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), 1.2 * k, 1.2 * k, WIT)
+    # geen stippelboog meer: die las als een bellenspoor (keuring 21)
     plekken = []
     for t, c in ((.5, (255, 85, 170)), (.86, (85, 255, 85))):
         a = math.pi * (1.0 + t); plekken.append((cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), c))
-    if neus: plekken.insert(0, (neus[0] - 1, neus[1] - 6.5 * k, (255, 255, 0)))
+    if neus: plekken.insert(0, (neus[0] - 1, neus[1] - 7.6 * k, (255, 255, 0)))
     else:
         a = math.pi * 1.14; plekken.insert(0, (cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), (255, 255, 0)))
     for x, y, c in plekken:
-        d.rondje(x, y, 5 * k, 5 * k, c, (0, 0, 85), dikte=1.3 * k)
-        d.rondje(x - 1.8 * k, y - 1.8 * k, 1.4 * k, 1.4 * k, WIT)
+        d.rondje(x, y, 6.2 * k, 6.2 * k, c, (0, 0, 85), dikte=1.8 * k)     # keuring 21: groter, dikke donkere rand, geen glimstip (las als bel)
 
 
 def spat(d, x, y, k=1.0, ringen=True):
@@ -190,7 +187,7 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
     elif wereld == 'clown':
         # v3.2 (keuring 16): vis groter en dichter bij het midden, ballen groter, een bal op zijn neus,
         # en links de grap: een vierde bal is al in zee gevallen en drijft weg
-        hx = 182 if top < 140 else (176 if top < 160 else 156)   # bij hoge zee rechts: het cijfer blijft vrij
+        hx = 188 if top < 140 else (176 if top < 160 else 156)   # bij hoge zee rechts: het cijfer blijft vrij
         sprong = {'in': 24, 'calm': 6, 'uit': 12}[fase]          # Calm: hij ligt rustig op de golfrug
         m = 38
         # v3.2 (keuring 19): het circusding van deze wereld: een rood-witte hoepel; hij springt erdoorheen
