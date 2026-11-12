@@ -305,3 +305,9 @@ Thijs: de hele dag gewerkt en alles blijft op een 6 tot 7, dit schiet niet op. O
 - Vanaf nu komt er NIETS nieuws meer bij en er komen GEEN open keuringen meer. Alleen nog nameten of een punt van de lijst af is.
 - Wat kopers en Garmin daarna vinden gaat in versie 1.1.
 - Les voor Het Hol: vooraf vastleggen wat klaar is, en een cijfer van een frisse keurder nooit als poort gebruiken voor iets wat nog verandert.
+
+## 12 nov 23:25 (Thijs): volgorde na Ebb
+
+- Eerst Ebb (Garmin) inleveren, vrijdag 13 nov 08:30.
+- Daarna Het Hol (Steam): harde datum Desktop Companion Fest 14 tot 18 januari 2027, winkelpagina klaar rond 1 december (zie besluit 9 nov). Eerste stap: onderzoek naar waar goede beelden vandaan komen, met een proef, en een planning teruggerekend vanaf 14 januari met vooraf vastgelegd wat klaar is.
+- Er komt iets anders naast Het Hol. Wat, kiest Thijs na het onderzoek en nadat de hoofdchat de stand van de wachtende producten heeft nagelopen (Superhive, JetBrains, de Confluence-apps, een tweede Garmin-app). Advies hoofdchat: iets kleins dat weinig tekenwerk vraagt, en pas starten als de planning van Het Hol staat.
