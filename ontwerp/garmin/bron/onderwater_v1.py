@@ -22,7 +22,7 @@ def bodem(d, dd, y=214, nacht=False):
     ver = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else (dd['mip_verder'])
     for cx, cy, rx, ry in [(30, y + 4, 70, 22), (230, y, 64, 26)]:
         d.rondje(cx, cy, rx, ry, ver)
-    d.golf(y + 10, 262, ZAND_D if nacht else ZAND, 2, 2, .6)   # bij nacht een trede donkerder zand, dan de nachtregel
+    d.golf(y + 10, 262, (85, 85, 170) if nacht else ZAND, 2, 2, .6)   # bij nacht koel blauwgrijs zand, dan de nachtregel
     d.dr.line([d.P(x, y + 10 + 2 * math.sin(x / 260 * 2 * math.pi * 2 + .6)) for x in range(0, 261, 2)], fill=WIT, width=max(1, round(1.2 * d.s)))
     for x, yy, r in [(96, y + 22, 3.5), (168, y + 20, 2.6)]:
         d.rondje(x, yy, r * 1.3, r, ZAND_D, WIT, dikte=1)
@@ -65,7 +65,7 @@ def start(D_, am, dd, nacht, nr=3):
 def pauze(D_, am, dd, nacht, keuze=0, nr=3):
     """Pauzemenu v10 op het thuiswater: water staat stil, gekozen regel in een pil van schuim, eigen dier wijst aan."""
     d = Doek(D_, am); achtergrond(d, dd, nacht, stil=True, bodem_y=226); s = d.s
-    d.tekst(130, 16, 'paused', 26, (0, 255, 255))
+    d.tekst(130, 16, 'paused', 26, (85, 170, 255) if nacht else (0, 255, 255))
     d.tekst(130, 46, 'round 2 · 1:12', 17, WIT, False)
     for i, (y, t) in enumerate([(98, 'Resume'), (134, 'Save'), (170, 'Discard')]):
         if i == keuze:
@@ -74,7 +74,7 @@ def pauze(D_, am, dd, nacht, keuze=0, nr=3):
             dier_klein(d, nr, 58, y + 14, 18)
         else:
             d.tekst(130, y, t, 24, WIT)
-    d.tekst(130, 204, 'the sea waits', 15, (0, 255, 255), False)
+    d.tekst(130, 204, 'the sea waits', 15, (85, 170, 255) if nacht else (0, 255, 255), False)
     return d.klaar()
 
 

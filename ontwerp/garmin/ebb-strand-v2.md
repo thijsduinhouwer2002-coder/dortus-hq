@@ -21,3 +21,10 @@ Inhoud en regels blijven zoals in strand v1 (`ebb-strand-v1.md`): een schelp per
 
 ## Voor Gijs
 Bouwen na de krabpunten en het eenheidsblad. Kosten zoals v1 plus ±8 punten per pootje of belletje (alleen tussen eerste schelp en dier). Krab op het strand: zonder zwemband (hij loopt op het zand), of met de band om zijn buik als dat in één plaatje goedkoop is; jouw keuze.
+
+## Frisse keuring (run 53) en wat er daarna veranderde
+Eerste keuring van v2: Today dag 6, nacht 4, 8 weeks dag 6, nacht 5 (onderwater: start 6, pauze 7, sea log 7). Drie punten, alle drie gedaan:
+1. **Nacht niet rustig** (fel olijfgeel zand, felle cyaan koppen): zand bij nacht nu koel blauwgrijs (basis droog 5555AA, nat 000055, daarna de nachtregel: MIP 000055 en zwart, AMOLED bijna zwart), koppen "today", "8 weeks", "paused" en "the sea waits" bij nacht 55AAFF. Ook in de onderwaterschermen.
+2. **8 weeks, grap te klein:** de zeven vorige weken klein (x 20 + i × 21, hoog 32), een gemiste week plat en kalm (4 hoog). **Deze week is één grote golf** van 50 breed op x 168, hoogte 30 + 26 × voortgang, altijd met schuimkrul, en het dier maat 26 staat erop op een gele surfplank met rode streep. Koppen 8 links (x 112) zodat de surfer vrij staat.
+3. **Today te standaard:** schelpen groter (1,3; afstand 23, tweede rij 17 hoger), schaal alleen streepjes met cijfers 0, 12 en 24 (maat 13), pootjes groter (2,4 × 1,7). Zwemmers liggen niet meer op het zand: ze **springen uit de branding** (dier op y 100, schuimboogje en vier druppels eronder).
+Meting na de wijzigingen: laagste 5,03, 0 te laag. GEZIEN met Read: rij 260 2x.
