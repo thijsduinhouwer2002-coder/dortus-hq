@@ -86,7 +86,8 @@ module KrabV2Garnaal {
             v.golf(dc, 224 + z, 262, KIEZEL_D, 3.0, 2, 0.0);
         } else if (stap == 2) {
             // twee steigerpalen aan de randen; de bovenkant zakt tot hij 6/260 van tekst blijft
-            var px = [36, 224] as Array<Number>;
+            // eindscherm: palen tegen de rand, de rechter stond op de FR255 tegen de naam van de nieuwe vriend (hoofdchat run 1)
+            var px = (scherm == 5 ? [22, 238] : [36, 224]) as Array<Number>;
             for (var i = 0; i < 2; i += 1) {
                 var top = 132 + z;
                 while (top < 196 + z && KrabV2Tekst.raakt(v, px[i], top, 8)) {

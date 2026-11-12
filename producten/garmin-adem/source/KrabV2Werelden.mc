@@ -110,6 +110,9 @@ module KrabV2Werelden {
         if (w == 1) { return new KrabV2WSchild(); } // naam: schild2
         if (w == 2) { return new KrabV2WGarnaal(); } // naam: garnaal
         if (w == 3) { return new KrabV2WZeester(); } // naam: zeester
+        if (w == 4) { return new KrabV2WKreeft(); } // naam: kreeft
+        if (w == 5) { return new KrabV2WZeehond(); } // naam: zeehond
+        if (w == 6) { return new KrabV2WZeeotter(); } // naam: zeeotter
         return new KrabV2Wereld();
     }
 }
