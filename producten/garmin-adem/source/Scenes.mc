@@ -105,13 +105,14 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
-        // Run 62: de laatste acht scènes zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
+        // Run 62: de laatste scènes zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
         // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
-        var ns = EbbBouw.SCENES - 8;
+        // Run 63: daarna vier met een dier zonder eigen wereld (dolfijn, basiswereld KrabV2Basis.mc).
+        var ns = EbbBouw.SCENES - 12;
         if (k >= ns && ns >= 53) {
             var si = (k - ns) % 4;
-            Application.Storage.setValue(EbbTrouw.BITS, 255);
-            Application.Storage.setValue(EbbTrouw.GEKOZEN, (k - ns) < 4 ? 4 : 3);
+            Application.Storage.setValue(EbbTrouw.BITS, 0xFFFFFF);
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[(k - ns) / 4]);
             EbbWereldSessie.aan = true;
             EbbWereldSessie.proefNacht = (si == 3) ? 1 : 0;
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());

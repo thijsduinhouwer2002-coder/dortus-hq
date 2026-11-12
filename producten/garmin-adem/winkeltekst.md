@@ -1,4 +1,8 @@
-# Ebb: winkeltekst (versie 13, CONCEPT, Gijs, 12 nov 2026 07:10 UTC)
+# Ebb: winkeltekst (versie 14, CONCEPT, Gijs, 12 nov 2026 11:20 UTC)
+
+Versie 14 (besluit Thijs 12 nov 11:50 NL, nummer 5 van de nieuwe volgorde, eerste helft: de tekst). (1) De woorden freediving en apnea staan nergens meer, ook niet als "is not a ... trainer" (drie talen). (2) Het inhouden: de zee wordt in de wereld van je dier niet meer donkerder; je gaat onder water en het beeld blijft gelijk hoe lang je ook inhoudt. Die zinnen kloppen pas als de werelden in de echte sessie aan staan (`EbbWereldSessie.aan`); staat dat bij het indienen nog uit, dan gelden de zinnen van versie 13. (3) Nergens staat dat elk dier een eigen wereld heeft. De winkelbeelden (veld Screenshots) zijn nog die van versie 13 en moeten opnieuw uit de echte schermen met de werelden. Nog niet gekeurd.
+
+(Oude kop: versie 13, CONCEPT, Gijs, 12 nov 2026 07:10 UTC)
 
 Versie 13: alleen het veld Screenshots (besluit 11 nov 23:25: geen timer van het inhouden op de poster; besluit Thijs 12 nov 08:05: snel inleveren). Poster v4.1 met kop "Breathe. Make sea friends." en het echte ademscherm; kaart 1 is nu `1-breathe.png` in plaats van `1-hold.png`; kaart 2, 3 en 5 opnieuw uit de opnames van nu, omdat het dier op het eindscherm in de app kleiner is geworden dan op de kaarten v4 stond. Tekst zelf ongewijzigd. Nog niet gekeurd door Daan of een frisse beoordelaar.
 
@@ -38,12 +42,12 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Description (English)
 
-Breathwork on your Garmin watch: breathing exercises and breath hold training, rounds of power breathing with breath holds, and calm 4-7-8 breathing, drawn as water. Ebb turns your round watch face into a porthole: the sea at the bottom rises as you breathe in and falls as you breathe out. Hold only while it feels easy; the sea slowly darkens while you do. For practice on land only: sit or lie down, never in or near water, never while driving.
+Breathwork on your Garmin watch: breathing exercises and breath hold training, rounds of power breathing with breath holds, and calm 4-7-8 breathing, drawn as water. Ebb turns your round watch face into a porthole on a small sea: the water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. For practice on land only: sit or lie down, never in or near water, never while driving.
 
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
-• While you hold, the sea darkens every 30 seconds and a sea animal you found swims along. Your live heart rate shows small under the timer. From 3:00 on the watch shows "time to breathe" and buzzes every 30 seconds.
+• While you hold, you are under water with a sea animal you found. The picture stays the same however long you hold. Your live heart rate shows small under the timer. From 3:00 on the watch shows "time to breathe" and buzzes every 30 seconds.
 • Before every session, also Calm and My pattern, Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP
@@ -77,7 +81,7 @@ SETTINGS ON THE WATCH
 Breaths per round, breathing pace, rounds, recovery hold, weekly goal, vibration on or off, buzz every 30 s, buzz on the last 3 breaths, My pattern, and the safety info. No phone needed.
 
 WHAT EBB IS NOT
-Ebb is breathwork and dry breath hold practice on land. It is not a freediving or apnea trainer, it has no CO2 or O2 tables, and it is not a medical device.
+Ebb is breathwork and dry breath hold practice on land. It has no CO2 or O2 tables, and it is not a medical device.
 
 HONEST
 • One payment in the Garmin store.
@@ -103,7 +107,7 @@ Tags: breathing, breathwork, breath hold, breath training, 4-7-8 breathing, calm
 ## Deutsch
 Titel (39 tekens): `Ebb: Atemübungen, Atem anhalten & 4-7-8`
 
-Breathwork auf deiner Garmin-Uhr: Atemübungen und Atem anhalten, Runden aus kräftigem Atmen mit Atempausen und ruhiges 4-7-8-Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: das Meer unten steigt beim Einatmen und sinkt beim Ausatmen. Halte den Atem nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
+Breathwork auf deiner Garmin-Uhr: Atemübungen und Atem anhalten, Runden aus kräftigem Atmen mit Atempausen und ruhiges 4-7-8-Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: das Wasser steigt beim Einatmen und sinkt beim Ausatmen, und beim Anhalten tauchst du unter Wasser. Halte den Atem nur an, solange es leicht fällt. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
 • Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Ab 3:00 zeigt die Uhr "time to breathe" und vibriert alle 30 Sekunden. Vor jeder Sitzung, auch bei Calm und My pattern, erinnert Ebb: setz oder leg dich hin.
 • Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Wochen in Folge mit deinem Wochenziel, standardmäßig 3 Sitzungen, einstellbar 2 bis 7; Ruhetage unterbrechen die Serie nie), nie durch längeres Halten. Pro Tag zählen bis zu zwei Sitzungen. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier. Alle 24 gefunden: dein Meer ist komplett, deine Wochenserie zählt weiter.
@@ -115,14 +119,14 @@ Breathwork auf deiner Garmin-Uhr: Atemübungen und Atem anhalten, Runden aus kr�
 • Datenschutz: Ebb sammelt nichts. Sitzungen, Tiere und Einstellungen bleiben auf der Uhr; nur eine Aktivität, die du speicherst, geht an Garmin Connect (Datenschutzerklärung von Garmin). Keine Analyse, keine Werbung.
 • Support: thijs@dortus.com, mit deinem Uhrenmodell. Wir antworten möglichst innerhalb von 5 Werktagen. Erstattungen folgen den Regeln des Garmin Connect IQ Store: Garmin gibt dir nach dem Kauf 48 Stunden Rückgabefrist.
 
-Die App ist auf Englisch. Kein Freediving- oder Apnoe-Trainer, keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
+Die App ist auf Englisch. Keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
 Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, Entspannung, Atmung
 
 ## Nederlands
 Titel (49 tekens): `Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8`
 
-Breathwork op je Garmin-horloge: ademhalingsoefeningen en adem inhouden, rondes krachtig ademen met inhouden en rustig 4-7-8-ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: de zee onderin stijgt als je inademt en zakt als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
+Breathwork op je Garmin-horloge: ademhalingsoefeningen en adem inhouden, rondes krachtig ademen met inhouden en rustig 4-7-8-ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het water stijgt als je inademt en zakt als je uitademt, en bij inhouden ga je onder water. Houd alleen in zolang het makkelijk gaat. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
 • Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Vanaf 3:00 toont het horloge "time to breathe" en trilt het elke 30 seconden. Voor elke sessie, ook Calm en My pattern, zegt Ebb: ga zitten of liggen.
 • Verzamel 24 zeedieren door vol te houden (sessies en weken op rij met je weekdoel, standaard 3 sessies, in te stellen van 2 tot 7; rustdagen breken je reeks nooit), nooit door langer in te houden. Per dag tellen hoogstens twee sessies. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier. Alle 24 gevonden: je zee is compleet en je reeks in weken telt door.
@@ -134,11 +138,12 @@ Breathwork op je Garmin-horloge: ademhalingsoefeningen en adem inhouden, rondes 
 • Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een activiteit die je opslaat gaat naar Garmin Connect (privacybeleid van Garmin). Geen metingen, geen advertenties.
 • Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Terugbetalen volgt de regels van de Garmin Connect IQ Store: Garmin geeft je na je aankoop 48 uur om terug te geven.
 
-De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
+De app is in het Engels. Geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
+- Versie 14 (12 nov 11:20 UTC): gezocht op "freediv", "apne", "apno" in de drie teksten die de winkel in gaan (van "## Description" tot "## Nagekeken"): 0 keer. Terugbetaalzin, supportzin en privacyzin staan in alle drie de talen. "You go under water" bij inhouden en water hoger bij in dan bij uit: GEZIEN op de sessiebeelden van run 43199170851 (krab en schildpad, FR255, fenix 7, fenix 8). NIET nagekeken: Calm ("the sea rising and falling at the bottom") tegen de bouw met werelden; Calm tekent nu nog het oude scherm. De regel hieronder over freediving van versie 11 vervalt.
 - Versie 13 (11 nov 22:40 UTC, keuring bouw 8 punt 4 en besluit hoofdchat 22:55): terugbetaalzin in drie talen, rechte haken weg. GEZIEN in Garmins eigen uitleg (developer.garmin.com/connect-iq/articles/monetization/App_Sales.html en Account_Management.html, gelezen met curl): "Funds are not captured from customers until the 48-hour return window has passed" en "Customers who have purchases still in their return window are allowed to request refunds". NIET GEZIEN: een manier waarop wij als verkoper zelf geld terugsturen. Daarom de terugvalzin uit het besluit (beleid van de winkel, 48 uur) en geen belofte van 14 dagen die we niet kunnen waarmaken.
 - Versie 12 (11 nov 21:45 UTC, regels Garmin gelezen door de hoofdchat, `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`): privacyzin en supportzin erbij in drie talen (regel 6 en 7). De zin over terugbetalen ontbreekt nog met opzet: dat beleid beslist Thijs; de plek staat tussen rechte haken en moet weg voor het indienen. "Within 5 working days" is een streven ("aim"), geen belofte; aanpassen als Thijs iets anders wil. Privacy nagekeken tegen manifest.xml: de app vraagt geen recht om met internet of de telefoon te praten.
 Versie 11, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het opruimen (b39cd77 en later). Oudere versies staan in de git-geschiedenis van dit bestand.

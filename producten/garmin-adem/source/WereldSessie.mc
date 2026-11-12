@@ -6,10 +6,10 @@ import Toybox.System;
 // Rounds tekenen de wereld van je dier (KrabV2View) met de echte tekst van dit moment. Per scherm (in, uit,
 // inhouden) één stilstaand plaatje; bij een wissel bouwt het nieuwe zich in vijf beurten op.
 // Veiligheid: de wereld bij inhouden is op elk moment hetzelfde plaatje, hij beloont langer inhouden niet.
-// Staat nog UIT in de gewone app (aan = false): alleen de proefscènes "sessie-..." zetten hem aan, tot de beelden
-// gekeurd zijn. Herstel, eindscherm, menu en Calm volgen in stap 2.
+// Staat sinds run 63 AAN in de gewone app (besluit Thijs 12 nov 11:50: de werelden in de echte ademsessie). Een dier
+// zonder eigen wereld krijgt de basiswereld (KrabV2Basis.mc). Herstel, eindscherm, menu en Calm tekenen het oude scherm.
 module EbbWereldSessie {
-    var aan as Boolean = false;
+    var aan as Boolean = true;
     // Plaatjesbouw: 0 dag, 1 nacht; -1 is de klok van het horloge (nacht van 21 tot 6 uur, EbbLucht).
     var proefNacht as Number = -1;
     var _kv as KrabV2View or Null = null;

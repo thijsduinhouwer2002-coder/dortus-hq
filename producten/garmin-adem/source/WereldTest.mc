@@ -141,5 +141,5 @@ function testWereldVanDier(logger as Test.Logger) as Boolean {
     var vis = EbbWereldSessie.wereldVan(0);
     var basis = KrabV2Werelden.maak(vis);
     logger.debug("wereld krab " + krab + ", schildpad " + schild + ", vis " + vis + " (dier " + basis.dier() + "), dier 99 " + geen);
-    return krab == 0 && schild == 1 && geen == -1 && vis == KrabV2Werelden.BASIS && basis.dier() == 0 && basis.lucht() != null && !EbbWereldSessie.aan;
+    return krab == 0 && schild == 1 && geen == -1 && vis == KrabV2Werelden.BASIS && basis.dier() == 0 && basis.lucht() != null && EbbWereldSessie.aan;
 }

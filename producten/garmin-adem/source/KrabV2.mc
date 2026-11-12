@@ -227,7 +227,12 @@ class KrabV2View extends WatchUi.View {
             }
         }
         var staat = false;
-        if (af) {
+        if (!af) {
+            WatchUi.requestUpdate();
+        }
+        // In de echte sessie staat de held er ook tijdens het opbouwen van een nieuw scherm (wissel van in naar uit):
+        // anders verdwijnt hij bij elke halve ademhaling vier beurten lang.
+        if (af || KrabV2Tekst.echt != null) {
             // Midden van het kader van het dier op de plek van het blad (de voorraad plakt op het zwaartepunt).
             var m = q(_held[2]);
             var g = EbbDierMaat.grenzen(dier);
@@ -246,9 +251,8 @@ class KrabV2View extends WatchUi.View {
                     staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(124) - (g2[2] + g2[3]) * m2 / (2 * s), m2, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
                 }
             }
-        } else {
-            WatchUi.requestUpdate();
         }
+        staat = staat && af;
         KrabV2Tekst.teken(self, dc, _d, scherm, _am, nacht);
         var ms = System.getTimer() - t0;
         if (ms > _msMax) {
