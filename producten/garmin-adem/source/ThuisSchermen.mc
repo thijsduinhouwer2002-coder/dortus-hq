@@ -46,12 +46,7 @@ module EbbThuisSchermen {
         if (s < 4) {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             Application.Storage.setValue(EbbTrouw.GEKOZEN, 4);
-            var pv = new PauzeView("round 2 · 1:12", EbbTrouw.zwemmer());
-            // KIJKPROEF run 70 (tijdelijk, terugdraaien voor de bouwtak): bij nacht het menu na de eerste tik op Discard.
-            if (s == 3) {
-                pv.keuze = 2;
-            }
-            return [pv, new WatchUi.BehaviorDelegate()];
+            return [new PauzeView("round 2 · 1:12", EbbTrouw.zwemmer()), new WatchUi.BehaviorDelegate()];
         }
         Application.Storage.setValue(EbbTrouw.BITS, s == 7 ? (1 << 25) - 1 : 255);
         var dv = new DierenView();
