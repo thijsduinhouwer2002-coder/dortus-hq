@@ -13,8 +13,9 @@ module KrabV2Schild {
 
     // Midden van het kader en maat van de schildpad per scherm: in, uit, Calm, inhouden, menu, eind. Run 55: bij
     // inademen 5 naar rechts en bij uitademen 4 lager dan het blad, want de meeuw stond 3 px van de cijfers op de FR255.
+    // Run 67: bij inademen 5 naar rechts (was 177). Met brede cijfers ("23") stond de meeuw 2 px van de cijfers (norm 6).
     function held(s as Number) as Array<Number> {
-        return ([[177, 130, 44], [128, 166, 44], [172, 138, 44], [136, 182, 46], [132, 192, 42], [76, 134, 36]] as Array<Array<Number> >)[s];
+        return ([[182, 130, 44], [128, 166, 44], [172, 138, 44], [136, 182, 46], [132, 192, 42], [76, 134, 36]] as Array<Array<Number> >)[s];
     }
 
     // Kantelen in graden (min is met de klok mee: neus omhoog, het dier kijkt naar links).

@@ -93,7 +93,8 @@ class EbbMenuView extends WatchUi.View {
                 + " medium " + dc.getFontHeight(EbbTeken.fM()) + " ascent " + Graphics.getFontAscent(EbbTeken.fX()) + "/" + Graphics.getFontAscent(EbbTeken.fS()) + "/" + Graphics.getFontAscent(EbbTeken.fM()));
         }
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
-        var eigen = EbbTrouw.zwemmer();
+        // Hoofdchat 12 nov 15:30: de vis (het startdier van de sessie) staat hier ook al vanaf de eerste start.
+        var eigen = EbbTrouw.sessieDier();
         // Thuiswater (Thuis.mc) in plaats van de zeebanden. Tekstvakken: "Ebb", de twee pillen, de menuregel en het
         // dier (of de twee regels "first friend"). Met dier ligt het zand onder het dier, anders 6/260 onder de regels.
         var f = EbbTeken.fX();
@@ -123,6 +124,7 @@ class EbbMenuView extends WatchUi.View {
             var mm = EbbDierMaat.inVak(eigen, (d * 0.176).toNumber(), (d * 0.14).toNumber());
             EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, EbbThuis.nacht() ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
         } else {
+            // Run 67: sessieDier geeft altijd een dier (zonder dier de vis), dus deze tak tekent niet meer; opruimen in nummer 7.
             // Keuring bouw 4 punt 11: bij de eerste start een belofte waar straks het dier zwemt.
             // Keuring bouw 6 punt 5 (scène 28): beide regels helemaal in het water, 4 px onder 0,783 D (yb, hierboven).
             var fx = fh;

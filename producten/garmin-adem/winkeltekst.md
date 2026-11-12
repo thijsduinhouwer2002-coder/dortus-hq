@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 15, CONCEPT, Gijs, 12 nov 2026 12:15 UTC)
+# Ebb: winkeltekst (versie 16, CONCEPT, Gijs, 12 nov 2026 15:10 UTC)
+
+Versie 16 (run 67, hoofdchat 12 nov 15:30): de vis zwemt vanaf de eerste sessie mee, dus in het Engels geen "a sea animal you found" meer maar: "A small fish swims with you from your first session; new sea friends join as you keep coming back." De Duitse en Nederlandse tekst hadden die zin niet.
 
 Versie 15 (run 64): één zin in drie talen. Vanaf 3:00 staat in de wereldsessie "breathe" bovenaan, niet "time to breathe" (dat past in de grote letter niet bovenaan het ronde scherm, `WereldSessie.mc`). De tekst zei nog "time to breathe". Erbij (keuring code en veiligheid 12 nov, punt 1, besluit hoofdchat 13:20): één zin in drie talen dat een inhouding na vijf minuten vanzelf stopt (`EbbView.bewaak`, `Ebb.MAX_INHOUD_MS`). Het open punt hieronder is opgelost in e26db02 (eerste sessie in de gedeelde zee), nog niet gezien. Verder ongewijzigd. Nog niet gekeurd. **Open punt, gevonden in run 64:** wie nog geen dier heeft (de allereerste sessie) krijgt het oude sessiescherm (`WereldSessie.teken` geeft false bij `gezelschap < 0`): daar wordt de zee elke 30 seconden donkerder en staat er "time to breathe". De zinnen "you are under water with a sea animal you found" en "the picture stays the same however long you hold" kloppen dan in die eerste sessie niet. Oplossing hoort in de app (eerste sessie in de gedeelde zee zonder dier), niet in de tekst; tot dat gebouwd en gezien is mag deze tekst niet ingediend worden.
 
@@ -51,7 +53,7 @@ Breathwork on your Garmin watch: breathing exercises and breath hold training, r
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
-• While you hold, you are under water with a sea animal you found. The picture stays the same however long you hold. Your live heart rate shows small under the timer. From 3:00 on the watch shows "breathe" at the top and buzzes every 30 seconds. A hold stops by itself after five minutes and the watch moves on to recovery.
+• While you hold, you are under water with a sea animal. A small fish swims with you from your first session; new sea friends join as you keep coming back. The picture stays the same however long you hold. Your live heart rate shows small under the timer. From 3:00 on the watch shows "breathe" at the top and buzzes every 30 seconds. A hold stops by itself after five minutes and the watch moves on to recovery.
 • Before every session, also Calm and My pattern, Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP

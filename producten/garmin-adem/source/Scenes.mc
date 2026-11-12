@@ -110,14 +110,16 @@ module EbbScenes {
         if (thuis != null) {
             return thuis;
         }
-        // Dertig scènes voor de laatste acht, de echte sessie in de wereld: krab, schildpad, dolfijn, zonder dier, terugval.
-        var ns = EbbBouw.SCENES - 38;
-        if (k >= ns && k < ns + 30 && ns >= 53) {
+        // 48 scènes voor de laatste acht, de echte sessie in de wereld: krab, schildpad, dolfijn, zonder dier, terugval,
+        // en (run 67, na de crash op de FR255) de drie zwaarste dieren van de gedeelde zee: zeekomkommer (200 punten),
+        // kreeft (194) en zeeotter (187). De plaatjesrun wordt rood bij een crash.
+        var ns = EbbBouw.SCENES - 56;
+        if (k >= ns && k < ns + 48 && ns >= 53) {
             var si = (k - ns) % 6;
             var wie = (k - ns) / 6;
             Application.Storage.setValue(EbbTrouw.BITS, wie == 3 ? 0 : 0xFFFFFF);
             if (wie != 3) {
-                Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13, 4, 4] as Array<Number>)[wie]);
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13, 4, 4, 24, 22, 15] as Array<Number>)[wie]);
             }
             EbbWereldSessie.proefDirect = (wie == 4);
             EbbWereldSessie.aan = true;
