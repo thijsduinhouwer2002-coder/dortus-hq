@@ -2,19 +2,12 @@
 # Eén naam per regel, een sterretje mag. De namen staan in NAMEN in .github/workflows/garmin-adem-iq.yml.
 # Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
 # Leeg bestand: alle proefscènes vanaf 51 (lang).
-# Run 71, proef71: uitleg op het thuiswater in plaats van zwart (hoofdchat 12 nov 20:15 punt 1)
+# Run 71, proef71b: uitleg, eindscherm van Rounds en Calm en het Calm-scherm zonder zwart (hoofdchat 12 nov 20:15 punt 1 en 3)
 uitleg
-startcheck
-thuis-pauze-dag
-thuis-start-dag
-# Run 71: eindscherm van Rounds en Calm op het thuiswater (hoofdchat 20:15 punt 3)
 einde-6c
 einde-6b
 einde-6c-6rondes
 einde-weekdoel
 calm-einde-krab
-einde-na-feest
-# Run 71, proef71b: Calm in de zee boven water met het dier (hoofdchat 20:15 punt 1, tweede helft)
 rustig
 calm-45s
-calmcheck

@@ -125,8 +125,10 @@ module EbbEindScherm {
         var t = (d * 0.40).toNumber();
         var vakken = [c - t, 0, c + t, onderTekst,
             c - b, vakTop(d, kam), c + b, EbbTeken.px(d, VAK_ONDER),
-            c - t, EbbTeken.px(d, NAAM) - dc.getFontHeight(EbbTeken.fS()) / 2, c + t, EbbTeken.px(d, STIP + REGEL2 + 8)] as Array<Number>;
-        if (!EbbThuis.teken(dc, d, EbbTeken.px(d, 222), vakken, EbbThuis.SEALOG)) {
+            c - t, EbbTeken.px(d, NAAM) - dc.getFontHeight(EbbTeken.fS()) / 2, c + t, EbbTeken.px(d, STIP + REGEL2 + 34)] as Array<Number>;
+        // Beelden run 43288500096: met het zand op 222 stond de regel "4 weeks in a row" (onder de stippen, bij twee
+        // naamregels op 237) in het zand. Nu een smalle rand zand op 243, onder alle tekst.
+        if (!EbbThuis.teken(dc, d, EbbTeken.px(d, 243), vakken, EbbThuis.SEALOG)) {
             WatchUi.requestUpdate();
         }
     }
