@@ -154,11 +154,15 @@ module KrabV2Basis {
         var y0 = v.kam() + 2;
         for (var ronde = 0; ronde < 2; ronde += 1) {
             var pts = [] as Array<[Numeric, Numeric]>;
-            for (var x = h[0] - b; x <= h[0] + b; x += 8) {
+            // Run 64 (beeld run 43210421635, octopus op fenix 8): het golfje hield rechts op met een rechte kant, omdat de
+            // stap van 8 het eind niet haalde. Nu loopt het aan beide kanten uit in een punt (lensvorm).
+            pts.add([v.q(h[0] - b), v.q(y0 + 3)]);
+            for (var x = h[0] - b + 4; x <= h[0] + b - 4; x += 8) {
                 pts.add([v.q(x), v.q(y0 + 1.8 * Math.sin((x - h[0]) / 7.0) - (ronde == 0 ? 1.6 : 0.0))]);
             }
-            pts.add([v.q(h[0] + b * 0.9), v.q(y0 + 6)]);
-            pts.add([v.q(h[0] - b * 0.9), v.q(y0 + 6)]);
+            pts.add([v.q(h[0] + b), v.q(y0 + 3)]);
+            pts.add([v.q(h[0] + b * 0.8), v.q(y0 + 6)]);
+            pts.add([v.q(h[0] - b * 0.8), v.q(y0 + 6)]);
             v.kleur(dc, ronde == 0 ? 0xFFFFFF : (am ? (nacht ? 0x004B96 : 0x0055AF) : (nacht ? 0x0000AA : 0x0055AA)));
             dc.fillPolygon(pts);
         }
