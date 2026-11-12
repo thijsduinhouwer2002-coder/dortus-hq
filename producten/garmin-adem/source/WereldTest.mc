@@ -143,3 +143,21 @@ function testWereldVanDier(logger as Test.Logger) as Boolean {
     logger.debug("wereld krab " + krab + ", schildpad " + schild + ", vis " + vis + " (dier " + basis.dier() + "), dier 99 " + geen);
     return krab == 0 && schild == 1 && geen == -1 && vis == KrabV2Werelden.BASIS && basis.dier() == 0 && basis.lucht() != null && EbbWereldSessie.aan;
 }
+
+// Keuring code en veiligheid 12 nov, punt 3: bij de eerste start (lege opslag, nog geen dier) en voor elk dier
+// tekent de wereld het ademen en het inhouden; het oude scherm komt in geen van die gevallen.
+(:test)
+function testWereldOokZonderDier(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var geen = EbbTrouw.zwemmer();
+    var goed = geen == -1 && EbbWereldSessie.aan
+        && EbbWereldSessie.kan(geen, Ebb.FASE_ADEMEN as Number) && EbbWereldSessie.kan(geen, Ebb.FASE_INHOUDEN as Number);
+    for (var i = 0; i < EbbTrouw.DIEREN.size(); i += 1) {
+        if (!EbbWereldSessie.kan(i, Ebb.FASE_ADEMEN as Number) || !EbbWereldSessie.kan(i, Ebb.FASE_INHOUDEN as Number)) {
+            logger.debug("dier " + i + " krijgt geen wereld");
+            goed = false;
+        }
+    }
+    logger.debug("zonder dier: zwemmer " + geen + ", dieren " + EbbTrouw.DIEREN.size() + ", goed " + goed);
+    return goed && !EbbWereldSessie.kan(geen, Ebb.FASE_HERSTEL as Number);
+}

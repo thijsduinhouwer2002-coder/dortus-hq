@@ -57,7 +57,9 @@ module EbbSessieScherm {
             // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
             // daaronder hoe je stopt, dan de tijd, je dier, en onderaan hartslag en ronde.
             var s = t / 1000;
-            var stand = EbbProfiel.zeeStand(s);
+            // Keuring code en veiligheid 12 nov, punt 3: dit scherm hoort bij inhouden niet meer te komen (de wereld
+            // tekent, ook zonder dier). Komt het er toch, dan blijft de zee op één stand: niets wordt donkerder.
+            var stand = 0;
             EbbZee.zee(dc, d, stand, golfFase);
             // Wereld van je dier onderin (Wereld.mc); tekent alleen in de proefscènes tot de werelden gekeurd zijn.
             EbbWereld.teken(dc, v.gezelschap, d, 0);

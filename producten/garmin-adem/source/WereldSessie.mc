@@ -27,6 +27,13 @@ module EbbWereldSessie {
         return (dier >= 0 && dier < 25) ? KrabV2Werelden.BASIS + dier : -1;
     }
 
+    // Tekent de wereld dit moment? Ja bij ademen en inhouden, voor elk dier en ook zonder dier (keuring code en
+    // veiligheid 12 nov, punt 3: het oude scherm met de zee die donkerder wordt mag in geen enkel pad meer komen).
+    // Eigen functie zodat de toets alle dieren en de lege opslag kan nalopen.
+    function kan(gezelschap as Number, fase as Number) as Boolean {
+        return aan && (fase == Ebb.FASE_ADEMEN || fase == Ebb.FASE_INHOUDEN) && wereldVan(gezelschap < 0 ? 13 : gezelschap) >= 0;
+    }
+
     function los() as Void {
         _kv = null;
         _sleutel = -1;
@@ -39,7 +46,7 @@ module EbbWereldSessie {
             v.sessie.bijwerken(nu);
         }
         var fase = v.sessie.fase;
-        if (!aan || (fase != Ebb.FASE_ADEMEN && fase != Ebb.FASE_INHOUDEN)) {
+        if (!kan(v.gezelschap, fase as Number)) {
             los();
             return false;
         }
