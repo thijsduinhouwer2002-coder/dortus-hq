@@ -135,3 +135,9 @@ Thijs vindt v1.1 een stuk beter, maar het kan mooier; ik ook: rotsen en koraal z
 
 ## 12 nov 00:30 NL (hoofdchat): meer agents mag (besluit Thijs 00:28)
 Zodra de eerste drie werelden een frisse 8 hebben: verdeel de overige 22 over agents per familie (zand en zeegras, rotsen, rif, ijs, open zee), elk met jouw script, palet, puntenmaximum en de drie goedgekeurde werelden als voorbeeld. Jij bewaakt de eenheid en laat elke familie fris keuren. Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 12 nov 01:20 NL (hoofdchat): ideeënronde, twee dingen erbij
+De eerste drie werelden draaien echt op het horloge (scène 39 tot 41, tak schermen). Naast de werelden (gaat voor):
+1. **Today als strand, 8 weeks als kustlijn** (besluit 12 nov 01:20): strandlijn met getijdenlijn, per sessie een schelp op het uur van de sessie, alle even groot (geen hoogte voor inhoudtijd); gemiddelde klein als tekst. 8 weeks: per week een golf, vol bij een gehaald weekdoel. Blad op 454 en 260.
+2. **Aankomst en vertrek van het dier** (±2 s inzwemmen bij de start, naar huis na de laatste ronde): geef de baan per wereld.
+3. Voor Gijs' techniek: planten in twee standen met dezelfde punten in beide standen; in het plaatje alleen de lagen ver en midden, planten en voorlaag los. Lever de data in die vorm.

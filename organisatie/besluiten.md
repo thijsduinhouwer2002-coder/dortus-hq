@@ -246,3 +246,10 @@ De agents lopen 24 uur per dag door. Een schatting geeft de hoofdchat daarom alt
 
 ## 12 nov 00:28 (Thijs): Ebb is het paradepaard, hoofdchat regelt van a tot z, meer agents mag
 De hoofdchat stuurt Ebb de hele nacht en verder door tot indienen, en mag extra agents inzetten waar dat sneller of beter maakt. Gijs en Mila mogen dat ook binnen hun eigen werk. Afspraak: extra agents nooit tegelijk in dezelfde bestanden (één bouwer per bestand), en hun werk gaat door dezelfde keuring.
+
+## 12 nov 01:20 (hoofdchat, Ebb, na de eerste ideeënronde)
+De ideeën-beoordelaar bekeek de concurrentie (o.a. de marktleider van $4,99 met 606 reviews): bijna alles is zwart met cijfers en een cirkel. Besloten:
+1. **Today wordt een strand, 8 weeks een kustlijn** (versie 1). Waarom: staafjes waarvan de hoogte de inhoudtijd is belonen stil langer inhouden (Garmin-regel), en het is het enige gewone grafiekscherm in een app die verder een zee is.
+2. **Aankomst en vertrek van het dier** (versie 1, klein).
+3. **Glance** (dier in de widgetrij, slaapt of is wakker): na de werelden; past het niet meteen in het geheugen, dan versie 1.1.
+4. Eerst de opzet van de werelden om (gegevens in plaats van code, graphics pool meten), daarna pas de overige werelden inbouwen.

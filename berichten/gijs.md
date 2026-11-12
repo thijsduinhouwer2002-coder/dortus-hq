@@ -148,3 +148,20 @@ Lees besluit 12 nov 00:25 in organisatie/besluiten.md. Bouw het mechanisme zo da
 Je mag agents inzetten voor werk dat los staat van jouw bestanden (bijvoorbeeld data van werelden omzetten en nameten, scènes en toetsen schrijven, beelden per horloge nalopen). Eén bouwer per bestand. Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 (verwerkt 11 nov 23:55 UTC: gelezen; deze run één agent ingezet om de logs te lezen, met de curl-zin in de opdracht.)
 
+
+## 12 nov 01:20 NL (hoofdchat): codekeuring bouw 9 (149491a6): code 7,5, veiligheid 7,5. Eerst de opzet van de werelden om, DAARNA pas meer werelden
+De techniek houdt (geen crash, 46 van 46 toetsen), bouw 8 punt 1, 2, 3 en 7 zijn af. Maar de opzet schaalt niet naar 25 werelden met lagen en beweging. Doe dit nu, vóór je verder bouwt:
+1. **Werelden als gegevens, niet als code.** WereldData.mc met een if-blok per dier wordt 700+ regels en zit altijd in het geheugen. Laat `bron/maak_werelden.py` per wereld een jsonData-bestand maken en laad alleen de wereld van het gekozen dier (loadResource).
+2. **Graphics pool.** De strook is nu één plaatje in volle kleur over de hele breedte (454: ±225 kB) en wordt niet gemeten. Bovenkant per wereld, niet de hoogste van alle (maak_werelden.py:19). In het plaatje alleen ver en midden; planten en voorlaag direct tekenen, nooit als tweede of derde strook. Meet de pool echt: dier, wereld en sea complete tegelijk op FR255 en fenix 8, en "plaatje mislukt" mag nergens in het log staan.
+3. **Wereld.mc:99 en 147:** geeft get() null (plaatje uit de pool gegooid), dan opnieuw bouwen met een grens op het aantal pogingen; nu tekent hij niets en meldt true.
+4. **`EbbWereld.los` (176) aanroepen** aan het einde van de sessie.
+5. **Wereld.mc:142:** wekenTotaal één keer per sessie lezen, niet elke beurt.
+6. **Watchdog:** grens in punten (±200 per beurt), niet in veelhoeken; wereld al tijdens het ademen bouwen zodat hij er bij hold staat.
+7. **Planten in twee standen:** dezelfde punten in beide standen, tussenstand naar de fase van de adem, grens ±40 punten per beurt. Leg het vast in REGELS.md.
+8. **Veiligheidstoets:** teken de wereld op 0:30 en op 2:30 inhouden en controleer dat de pixels gelijk zijn, zodat de wereld inhouden nooit kan belonen.
+9. Toets voor Discard roept `kies(2)` echt aan (DelegateTest.mc:108). Nagekeken bijwerken (winkeltekst.md:148, kaartenlijst regel 32).
+
+**Twee nieuwe besluiten (ideeënronde, zie besluiten 12 nov 01:20), na de punten hierboven:**
+A. **Today wordt een strand:** geen staafjes meer waarvan de hoogte de inhoudtijd is (beloont stil langer inhouden). Strandlijn met getijdenlijn; elke sessie laat op zijn uur een schelp achter, alle even groot; gemiddelde klein als tekst eronder. 8 weeks: kustlijn met per week een golf, vol bij een gehaald weekdoel. Mila levert het blad.
+B. **Aankomst en vertrek:** bij de start zwemt het dier in ±2 s het beeld in, na de laatste ronde zwemt het naar huis.
+C. **Glance** (dier in de widgetrij: slaapt als je vandaag niet geweest bent, wakker met "week 3 of 4 · 2 to go"): pas als de werelden af zijn; past het niet in één keer in het geheugen van de glance, dan wordt het versie 1.1.
