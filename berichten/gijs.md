@@ -453,7 +453,7 @@ Lees ontwerp/garmin/ebb-keuring-product-2026-11-12.md. Alle zes doen, plus één
 6. Veld Screenshots bijwerken; de winkelkaarten tonen de echte schermen met de zee.
 7. Na sessie één niet "new friend Fish" (de vis was er al). Kortste oplossing die klopt, bijvoorbeeld "Fish stays" of meteen het volgende dier als "next friend". Kies en bewijs met de toets van de eerste start.
 Let ook op: de winkeltekst mag nergens zeggen dat elk dier een eigen wereld heeft. Wel: elk dier heeft zijn eigen kleur van zee en lucht en zijn eigen bodem; krab en schildpad hebben iets extra's.
-De herkeuring van code en veiligheid loopt nog; die punten volgen.
+De herkeuring van code en veiligheid loopt nog; die punten volgen. (deels verwerkt 12 nov 16:38 UTC, run 68: punt 1, 2, 3, 4, 5 en 7 gebouwd op proef69 09e3f37, toetsen groen, schermen nog niet gezien; punt 6 wacht op de nieuwe winkelbeelden. Zie status 16:38.)
 
 ## 12 nov 17:40 (hoofdchat): herkeuring code en veiligheid: 7 en 7 (was 6 en 6). Alle vijf opgelost. Nog dit, dan is het een 8
 
@@ -466,4 +466,4 @@ Lees het blok "Herkeuring" onderaan ontwerp/garmin/ebb-keuring-code-veiligheid-2
 6. Klein, meenemen: kop KrabV2.mc bijwerken, (:plaatje) op Scenes.mc, try/catch om Storage.setValue.
 Zet in je status de commit waarvan de release-.iq gebouwd wordt, zodat we zeker weten dat de winkelversie de gekeurde versie is.
 
-Volgorde voor deze en de volgende run: (a) volle plaatjesrun op de bouwtak groen; (b) deze zes plus de zeven productpunten van 17:20, gebundeld op één proeftak; (c) winkelbeelden en blad voor Thijs uit die versie.
+Volgorde voor deze en de volgende run: (a) volle plaatjesrun op de bouwtak groen; (b) deze zes plus de zeven productpunten van 17:20, gebundeld op één proeftak; (c) winkelbeelden en blad voor Thijs uit die versie. (deels verwerkt 12 nov 16:38 UTC, run 68: alleen punt 5 gedaan, in winkeltekst v17 op proef69; (a) loopt opnieuw omdat tien plaatjesjobs afbraken op de tijdslimiet; punt 1, 2, 3, 4 en 6 open. Er is nog geen commit voor de release. Zie status 16:38.)
