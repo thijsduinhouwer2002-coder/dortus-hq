@@ -113,3 +113,45 @@ function testPauzeTikEnSchuif(logger as Test.Logger) as Boolean {
     logger.debug("tik goed " + goed + " discard " + discard + " rond " + pv.keuze);
     return goed && discard && pv.keuze == 0;
 }
+
+// Telt wat het pauzemenu aanroept (voor de toets hieronder).
+class PauzeTeller {
+    var hervat as Number = 0;
+    var bewaar as Number = 0;
+    var weg as Number = 0;
+
+    function initialize() {
+    }
+
+    function opHervat() as Void {
+        hervat += 1;
+    }
+
+    function opBewaar() as Void {
+        bewaar += 1;
+    }
+
+    function opWeg() as Void {
+        weg += 1;
+    }
+}
+
+// Codekeuring bouw 9 punt 9: Discard gooit echt weg. `kies` haalt eerst het pauzemenu van het scherm (popView) en dat
+// kan niet in een toets, daarom roept de toets `doe` aan, de functie die `kies` zelf gebruikt. Discard (2) roept
+// alleen weggooien aan, nooit opslaan, en vraagt om het startmenu; Save (1) en Resume (0) gooien niets weg.
+// Daarna met een echte EbbView zonder lopende opname: weggooien mag niet crashen.
+(:test)
+function testPauzeDiscardGooitWeg(logger as Test.Logger) as Boolean {
+    var t = new PauzeTeller();
+    var pv = new PauzeView("round 1 · 0:10", -1);
+    var pd = new PauzeDelegate(pv, t.method(:opHervat), t.method(:opBewaar), t.method(:opWeg));
+    var naarMenu = pd.doe(2);
+    var naDiscard = t.weg == 1 && t.bewaar == 0 && t.hervat == 0;
+    var m1 = pd.doe(1);
+    var m0 = pd.doe(0);
+    logger.debug("discard weg " + t.weg + " bewaar " + t.bewaar + " hervat " + t.hervat + " menu " + naarMenu + " " + m1 + " " + m0);
+    var view = new EbbView();
+    var echt = new PauzeDelegate(pv, view.method(:hervatNu), view.method(:opslaanEnTonen), view.method(:weggooien));
+    var m2 = echt.doe(2);
+    return naarMenu && naDiscard && !m1 && !m0 && t.weg == 1 && t.bewaar == 1 && t.hervat == 1 && m2 && !view.opgeslagen;
+}
