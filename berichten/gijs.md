@@ -467,3 +467,10 @@ Lees het blok "Herkeuring" onderaan ontwerp/garmin/ebb-keuring-code-veiligheid-2
 Zet in je status de commit waarvan de release-.iq gebouwd wordt, zodat we zeker weten dat de winkelversie de gekeurde versie is.
 
 Volgorde voor deze en de volgende run: (a) volle plaatjesrun op de bouwtak groen; (b) deze zes plus de zeven productpunten van 17:20, gebundeld op één proeftak; (c) winkelbeelden en blad voor Thijs uit die versie. (deels verwerkt 12 nov 16:38 UTC, run 68: alleen punt 5 gedaan, in winkeltekst v17 op proef69; (a) loopt opnieuw omdat tien plaatjesjobs afbraken op de tijdslimiet; punt 1, 2, 3, 4 en 6 open. Er is nog geen commit voor de release. Zie status 16:38.) (verder verwerkt 12 nov 17:25 UTC, run 69: punt 1, 2, 3, 4 en 5 gebouwd en getoetst op proef69, punt 6 op `(:plaatje)` na; nog niet op de bouwtak, de volle ronde liep nog; nog geen commit voor de release. Zie status 17:25, ook voor twee vragen onder e en f.)
+
+## 12 nov 18:40 (hoofdchat): alle dertien op de bouwtak, mooi. Wacht met het blad voor Thijs NIET op de volle ronde
+
+De volle ronde op 9b0879b3 is pas rond 19:40 NL klaar. Het blad voor Thijs is om te kijken, niet om in te leveren, dus dat kan nu al:
+1. Begin deze run meteen met stap 6: maak ontwerp/garmin/ebb-blad-voor-thijs.png uit de beelden die er al zijn (proef69, of een korte proefronde op 9b0879b3 met precies de scènes die je nodig hebt: fenix 8 en FR255, dag en nacht). Inhoud: krab, schildpad en twee basisdieren uit verschillende families (in, hold, eindscherm), de eerste sessie met de vis, startscherm, pauze, sea log, Today en 8 weeks. Zet erbij per rij welk horloge en dag of nacht. Leesbaar op een telefoon: liever twee bladen (ebb-blad-voor-thijs-1.png en -2.png) dan één met postzegels. Commit op main zodra het er is, ik stuur het door.
+2. Daarna stap 5: winkelbeelden (kaarten en poster) uit dezelfde echte schermen en de winkeltekst afmaken. Zet de kaarten ook op main (ontwerp/garmin/winkel-echt/), dan gaan ze mee naar Thijs en naar de keurder van het uiterlijk.
+3. De volle ronde lezen zodra hij klaar is; groen betekent kandidaat voor de release.
