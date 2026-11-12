@@ -35,7 +35,7 @@ GELIJK einde-6c-fenix7xpro.png
 GELIJK einde-6c-krab-fenix7xpro.png
 GELIJK einde-6d-fenix7xpro.png
 GELIJK einde-na-feest-fenix7xpro.png
-GELIJK einde-sea-complete-fenix7xpro.png
+VERSCHIL einde-sea-complete-fenix7xpro.png 1364 pixels in (149, 339, 335, 388)
 GELIJK einde-weekdoel-fenix7xpro.png
 GELIJK herstel-fenix7xpro.png
 VERSCHIL inhouden-0-30-fenix7xpro.png 52053 pixels in (99, 175, 379, 455)
@@ -58,9 +58,9 @@ GELIJK krab2-uit-nacht-fenix7xpro.png
 VERSCHIL lucht-avond-in-fenix7xpro.png 61457 pixels in (99, 175, 379, 455)
 VERSCHIL lucht-dag-uit-fenix7xpro.png 58301 pixels in (99, 175, 379, 455)
 VERSCHIL lucht-nacht-uit-fenix7xpro.png 59245 pixels in (99, 175, 379, 455)
-VERSCHIL lucht-ochtend-in-fenix7xpro.png 58979 pixels in (99, 175, 379, 455)
+VERSCHIL lucht-ochtend-in-fenix7xpro.png 58984 pixels in (99, 175, 379, 455)
 VERSCHIL menu-krab-fenix7xpro.png 57170 pixels in (99, 175, 379, 455)
-VERSCHIL menu-leeg-fenix7xpro.png 56876 pixels in (99, 175, 379, 455)
+VERSCHIL menu-leeg-fenix7xpro.png 57923 pixels in (99, 175, 379, 455)
 VERSCHIL menu-today-fenix7xpro.png 56215 pixels in (99, 175, 379, 455)
 GELIJK overzicht-menu-fenix7xpro.png
 VERSCHIL pauze-fenix7xpro.png 43175 pixels in (99, 175, 379, 455)
@@ -71,14 +71,14 @@ GELIJK schild2-eind-dag-fenix7xpro.png
 GELIJK schild2-eind-nacht-fenix7xpro.png
 GELIJK schild2-hold-dag-fenix7xpro.png
 GELIJK schild2-hold-nacht-fenix7xpro.png
-GELIJK schild2-in-dag-fenix7xpro.png
-GELIJK schild2-in-nacht-fenix7xpro.png
+VERSCHIL schild2-in-dag-fenix7xpro.png 1615 pixels in (242, 260, 343, 345)
+VERSCHIL schild2-in-nacht-fenix7xpro.png 1498 pixels in (242, 262, 343, 345)
 GELIJK schild2-menu-dag-fenix7xpro.png
 GELIJK schild2-menu-nacht-fenix7xpro.png
 GELIJK schild2-uit-dag-fenix7xpro.png
 GELIJK schild2-uit-nacht-fenix7xpro.png
 VERSCHIL sealog-1-fenix7xpro.png 53133 pixels in (99, 175, 379, 455)
-VERSCHIL sealog-2-fenix7xpro.png 55430 pixels in (99, 175, 379, 455)
+VERSCHIL sealog-2-fenix7xpro.png 54334 pixels in (99, 175, 379, 455)
 VERSCHIL sealog-3-alle25-fenix7xpro.png 53001 pixels in (99, 175, 379, 455)
 ONTBREEKT sessie-basis-hold-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-basis-hold-nacht-fenix7xpro.png (voor: False, na: True)
@@ -92,12 +92,30 @@ ONTBREEKT sessie-eerste-in-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-eerste-in-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-eerste-uit-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-eerste-uit-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-hold-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-hold-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-in-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-in-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-uit-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-komkommer-uit-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-hold-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-hold-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-in-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-in-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-uit-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-krab-uit-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-hold-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-hold-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-in-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-in-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-uit-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-uit-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-hold-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-hold-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-in-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-in-nacht-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-uit-dag-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT sessie-otter-uit-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-schild-hold-dag-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-schild-hold-nacht-fenix7xpro.png (voor: False, na: True)
 ONTBREEKT sessie-schild-in-dag-fenix7xpro.png (voor: False, na: True)
@@ -137,4 +155,4 @@ VERSCHIL wereld-krab-fenix7xpro.png 51472 pixels in (99, 175, 379, 446)
 VERSCHIL wereld-krab-week4-fenix7xpro.png 52249 pixels in (99, 175, 379, 446)
 VERSCHIL wereld-schildpad-fenix7xpro.png 48823 pixels in (99, 175, 379, 444)
 VERSCHIL wereld-schildpad-week4-fenix7xpro.png 49102 pixels in (99, 175, 379, 444)
-139 beelden, 89 met verschil of ontbrekend
+157 beelden, 110 met verschil of ontbrekend
