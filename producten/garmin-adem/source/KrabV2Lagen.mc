@@ -38,9 +38,9 @@ module KrabV2Lagen {
             var bb = ref.get();
             if (bb != null) {
                 var t = (bb as Graphics.BufferedBitmap).getDc();
-                t.setColor(a, a);
+                t.setColor(v.nk(a), v.nk(a));
                 t.clear();
-                t.setColor(b, b);
+                t.setColor(v.nk(b), v.nk(b));
                 for (var x = 0; x < w; x += 2) {
                     t.drawPoint(x, 0);
                     t.drawPoint(x + 1, 1);
@@ -145,7 +145,7 @@ module KrabV2Lagen {
                     x0 += oa[0];
                     x1 += oa[0];
                     var y1 = an[3 * i + 2] + zak + ady + oa[1];
-                    dc.setColor(ronde == 0 ? 0xFFFFFF : 0xAA55FF, Graphics.COLOR_TRANSPARENT);
+                    v.pen(dc, ronde == 0 ? 0xFFFFFF : 0xAA55FF);
                     dc.setPenWidth(v.q(ronde == 0 ? 8.6 : 5.6));
                     dc.drawLine(v.q(x0), v.q(180 + zak + oa[1]), v.q(x1), v.q(y1));
                     v.rondje(dc, x1, y1, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 0xFFFFFF : 0xFF55AA, -1, -1);
@@ -185,7 +185,7 @@ module KrabV2Lagen {
                 dc.fillCircle(v.q(pl[2 * i]), v.q(pl[2 * i + 1]), v.q(1.2) < 1 ? 1 : v.q(1.2));
             }
             var bl = (eind ? [40, 96, 3, 52, 82, 2, 224, 168, 2] : ((scherm == 3 && v.wereld == 0) ? [192, 160, 3, 198, 148, 2] : [])) as Array<Number>;
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            v.pen(dc, 0xFFFFFF);
             for (var i = 0; i < bl.size() / 3; i += 1) {
                 if (!KrabV2Tekst.vrij(v, bl[3 * i], bl[3 * i + 1], bl[3 * i + 2])) {
                     continue;
@@ -193,7 +193,7 @@ module KrabV2Lagen {
                 dc.drawCircle(v.q(bl[3 * i]), v.q(bl[3 * i + 1]), v.q(bl[3 * i + 2]));
             }
             if (!nacht) {
-                dc.setColor(0xAAFFFF, Graphics.COLOR_TRANSPARENT);
+                v.pen(dc, 0xAAFFFF);
                 if (KrabV2Tekst.vrij(v, 26, 132, 3)) {
                     dc.drawCircle(v.q(26), v.q(132), v.q(2.6));
                 }

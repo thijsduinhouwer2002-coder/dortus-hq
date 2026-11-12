@@ -89,7 +89,18 @@ class KrabV2View extends WatchUi.View {
         return (v * _d / 260.0 + 0.5).toNumber();
     }
 
+    // Nachtregel v1.2 (Mila, EbbNacht): bij nacht gaat elke kleur van de wereld erdoor; tekst tekent KrabV2Tekst zelf.
+    function nk(k as Number) as Number {
+        return nacht ? EbbNacht.k(k, _am) : k;
+    }
+
+    // Lijnkleur met doorzichtige achtergrond, ook door de nachtregel.
+    function pen(dc as Graphics.Dc, k as Number) as Void {
+        dc.setColor(nk(k), Graphics.COLOR_TRANSPARENT);
+    }
+
     function kleur(dc as Graphics.Dc, k as Number) as Void {
+        k = nk(k);
         dc.setColor(k, k);
         if (_am && (dc has :setFill)) {
             // Wit met volle dekking is hetzelfde getal als "doorzichtig" (-1): daarom een fractie onder wit.
@@ -101,6 +112,8 @@ class KrabV2View extends WatchUi.View {
     // Vaste mengtint (Mila v2.1): a van 255 van kleur k over wat er ligt. Met setFill echt gemengd; FR165 en
     // vivoactive 5 kennen setFill niet (crash in run 43135243219): daar de mengkleur met de tint basis.
     function glas(dc as Graphics.Dc, a as Number, k as Number, basis as Number) as Void {
+        k = nk(k);
+        basis = nk(basis);
         if (dc has :setFill) {
             dc.setFill(Graphics.createColor(a, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
         } else {
@@ -184,12 +197,12 @@ class KrabV2View extends WatchUi.View {
         } else if (stap == 4) {
             if (scherm == 3 || scherm == 4) {
                 if (_am) {
-                    gloed(dc, _held[0] + 30, sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
+                    gloed(dc, sl[0] - 4.0 * sl[2], sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
                 } else {
-                    rondje(dc, _held[0] + 30, sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
+                    rondje(dc, sl[0] - 4.0 * sl[2], sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
                 }
             }
-            KrabV2Slipper.slipper(self, dc);
+            KrabV2Band.teken(self, dc, false);
         } else if (scherm <= 2) {
             KrabV2Boven.boven(self, dc, stap, _am, nacht, kam());
         } else {
@@ -235,20 +248,20 @@ class KrabV2View extends WatchUi.View {
             var m = q(_held[2]);
             var g = EbbDierMaat.grenzen(dier);
             var s = EbbDierData.SCHAAL;
-            _gedraaid = EbbDierVoorraad.tekenHoek(dc, dier, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN, _kantel, _am);
+            _gedraaid = EbbDierVoorraad.tekenHoek(dc, dier, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN, _kantel, _am);
             staat = _gedraaid > 0;
             if (staat) {
                 if (wereld == 1) {
                     KrabV2Schild.voor(self, dc, scherm, _am, nacht, _held, _kantel);
                 } else if (wereld == 0) {
-                    KrabV2Slipper.bandje(self, dc);
+                    KrabV2Band.teken(self, dc, true);
                 }
                 if (scherm == 5) {
                     // de nieuwe vriend (garnaal) in zijn belletje rechts
                     var m2 = q(31);
                     var vr = (wereld == 1) ? 2 : 1;
                     var g2 = EbbDierMaat.grenzen(vr);
-                    staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, EbbDierPlaatje.GEVONDEN);
+                    staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
                 }
             }
         } else {

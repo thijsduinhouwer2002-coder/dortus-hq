@@ -16,7 +16,7 @@ module KrabV2Thuis {
             v.rondje(dc, 30, y + 4, 70, 22, ver, -1, -1);
             v.rondje(dc, 230, y, 64, 26, ver, -1, -1);
             v.golf(dc, y + 10, 262, nacht ? 0x5555AA : 0xFFFFAA, 2.0, 2, 0.6);
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            v.pen(dc, 0xFFFFFF);
             dc.setPenWidth(v.q(1.2) < 1 ? 1 : v.q(1.2));
             for (var x = 0; x < 260; x += 10) {
                 dc.drawLine(v.q(x), v.q(y + 10 + 2.0 * Math.sin(x / 260.0 * 4.0 * Math.PI + 0.6)), v.q(x + 10), v.q(y + 10 + 2.0 * Math.sin((x + 10) / 260.0 * 4.0 * Math.PI + 0.6)));
@@ -36,7 +36,7 @@ module KrabV2Thuis {
                 for (var i = 0; i < 3; i += 1) {
                     var xa = (x0 + sp[2 * i]).toFloat();
                     var ya = (y + 12).toFloat();
-                    dc.setColor(0x00AA55, Graphics.COLOR_TRANSPARENT);
+                    v.pen(dc, 0x00AA55);
                     dc.setPenWidth(w);
                     for (var t = 3; t < sp[2 * i + 1]; t += 3) {
                         var xb = (x0 + sp[2 * i] + kant * 5.0 * Math.sin(t / 10.0)).toFloat();
@@ -53,7 +53,7 @@ module KrabV2Thuis {
             KrabV2Lagen.onder(v, dc, 3, am, nacht, 4);
             // startscherm: twee belletjes boven het eigen dier
             var bl = [150.0, 172.0, 2.2, 156.0, 162.0, 1.6] as Array<Float>;
-            dc.setColor(0xAAFFFF, Graphics.COLOR_TRANSPARENT);
+            v.pen(dc, 0xAAFFFF);
             for (var i = 0; i < 2; i += 1) {
                 if (KrabV2Tekst.vrij(v, bl[3 * i], bl[3 * i + 1], bl[3 * i + 2])) {
                     dc.drawCircle(v.q(bl[3 * i]), v.q(bl[3 * i + 1]), v.q(bl[3 * i + 2]) < 2 ? 2 : v.q(bl[3 * i + 2]));

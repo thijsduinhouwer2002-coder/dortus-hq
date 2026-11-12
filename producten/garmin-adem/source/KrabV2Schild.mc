@@ -52,7 +52,7 @@ module KrabV2Schild {
     function pluk(v as KrabV2View, dc as Graphics.Dc, x as Numeric, y as Numeric, n as Number, hoogte as Numeric, c as Number) as Void {
         for (var ronde = 0; ronde < 2; ronde += 1) {
             var w = v.q(ronde == 0 ? 6.6 : 4.0);
-            dc.setColor(ronde == 0 ? GRAS_L : c, Graphics.COLOR_TRANSPARENT);
+            v.pen(dc, ronde == 0 ? GRAS_L : c);
             dc.setPenWidth(w < 2 ? 2 : w);
             for (var i = 0; i < n; i += 1) {
                 var u = i / (n - 1.0) - 0.5;
@@ -146,7 +146,7 @@ module KrabV2Schild {
             p.add((by + b[2 * i + 1] * k).toFloat());
         }
         v.blob(dc, p, GRAS, 0xFFFFFF, 1.5);
-        dc.setColor(GRAS_D, Graphics.COLOR_TRANSPARENT);
+        v.pen(dc, GRAS_D);
         dc.setPenWidth(v.q(1.2) < 1 ? 1 : v.q(1.2));
         dc.drawLine(v.q(bx + 2 * k), v.q(by), v.q(bx - 26 * k), v.q(by + 2 * k));
         dc.setPenWidth(1);
@@ -154,7 +154,7 @@ module KrabV2Schild {
 
     // Een meeuw die op het schild staat en de andere kant op kijkt dan de schildpad (de grap). Ook bij nacht wit.
     function meeuw(v as KrabV2View, dc as Graphics.Dc, x as Float, y as Float, k as Float) as Void {
-        dc.setColor(0xFFAA00, Graphics.COLOR_TRANSPARENT);
+        v.pen(dc, 0xFFAA00);
         dc.setPenWidth(v.q(1.5 * k) < 1 ? 1 : v.q(1.5 * k));
         dc.drawLine(v.q(x - 2 * k), v.q(y + 3 * k), v.q(x - 2.6 * k), v.q(y + 8 * k));
         dc.drawLine(v.q(x + 2 * k), v.q(y + 3 * k), v.q(x + 2.6 * k), v.q(y + 8 * k));

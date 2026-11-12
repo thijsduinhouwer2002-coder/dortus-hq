@@ -18,6 +18,7 @@ class EbbDierPlaatje {
     static const GEVONDEN = 0;
     static const SILHOUET = 1;
     static const SCHADUW = 2;
+    static const NACHT = 3;   // als GEVONDEN, kleuren door de nachtregel (EbbNacht)
     static const RAND8_DX = [-1, 0, 1, -1, 1, -1, 0, 1] as Array<Number>;
     static const RAND8_DY = [-1, -1, -1, 0, 0, 1, 1, 1] as Array<Number>;
     var dier as Number;
@@ -33,7 +34,7 @@ class EbbDierPlaatje {
         maat = m;
         soort = s;
         var g = EbbDierMaat.grenzen(i);
-        var r = (s != GEVONDEN ? 2 : EbbDierData.randPx(m)) + 1;
+        var r = ((s == GEVONDEN || s == NACHT) ? EbbDierData.randPx(m) : 2) + 1;
         links = -g[0] * m / EbbDierData.SCHAAL + r;
         boven = -g[2] * m / EbbDierData.SCHAAL + r;
         var br = links + g[1] * m / EbbDierData.SCHAAL + r + 1;
@@ -49,7 +50,7 @@ class EbbDierPlaatje {
 
     // Aantal lagen van een dier van deze soort.
     static function lagenVan(s as Number) as Number {
-        return s == GEVONDEN ? 5 : 9;
+        return (s == GEVONDEN || s == NACHT) ? 5 : 9;
     }
 
     function lagen() as Number {
@@ -106,14 +107,22 @@ class EbbDierPlaatje {
     // (x, y). GEVONDEN: 4 keer stickerrand, dan lijf en ogen (5 lagen). SILHOUET en SCHADUW: 8 keer rand, dan het vlak
     // (9 lagen). Het plaatje hieronder en het blad van de sea log gebruiken allebei deze functie.
     static function laag(dc as Graphics.Dc, i as Number, x as Number, y as Number, maat as Number, s as Number, stap as Number) as Void {
-        if (s == GEVONDEN) {
+        if (s == GEVONDEN || s == NACHT) {
+            var am = EbbTeken.amoled();
+            EbbDierData.nacht = (s == NACHT) ? (am ? 2 : 1) : 0;
             var k = EbbDierData.randPx(maat);
-            if (stap < 4) {
+            if (stap < 4 && am) {
                 EbbDierData.delen(dc, i, x + EbbDierData.RAND_DX[stap] * k, y + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[i][3], 2);
+            } else if (stap < 4) {
+                // MIP (Mila keuring 2 punt 3): donkere omtrek van 1 px in acht richtingen, twee per beurt, in
+                // plaats van de witte stickerrand (die gaf korrelige trapjes).
+                EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, 0x000000, 2);
+                EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, 0x000000, 2);
             } else {
                 var o = EbbDierData.delen(dc, i, x, y, maat, -1, 0);
                 EbbDierData.ogen(dc, i, o, x, y, maat);
             }
+            EbbDierData.nacht = 0;
             return;
         }
         var px = maat >= 40 ? 2 : 1;

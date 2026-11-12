@@ -61,7 +61,7 @@ module KrabV2Boven {
             }
             if (!nacht && v.wereld == 0 && KrabV2Tekst.vrij(v, 196, 36, 14)) {
                 // Mila 12 nov 03:55 UTC: de meeuw rechts boven de wolk; op 260 weg (raakte "breathe out"); de schildpad heeft zijn eigen meeuw
-                dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+                v.pen(dc, 0xFFFFFF);
                 dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));
                 for (var sg = -1; sg <= 1; sg += 2) {
                     dc.drawLine(v.q(196), v.q(38), v.q(196 + sg * 5), v.q(34));
@@ -83,19 +83,7 @@ module KrabV2Boven {
             }
         } else if (stap == 3 && v.wereld == 1) {
             KrabV2Schild.blad(v, dc, top);
-        } else if (stap == 3) {
-            // de grap: ver weg op de kam drijft de andere slipper van het paar
-            var zx = 72.0;
-            var zy = top - 2.0;
-            var k = 2.4;
-            var p = [zx - 7 * k, zy, zx - 4 * k, zy - 2.6 * k, zx + 3 * k, zy - 2.2 * k, zx + 8 * k, zy - 0.4 * k, zx + 3 * k, zy + 1.2 * k, zx - 4 * k, zy + 1.2 * k] as Array<Float>;
-            v.blob(dc, p, 0xFF55AA, 0xFFFFFF, 1.4);
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));
-            dc.drawLine(v.q(zx + 4 * k), v.q(zy - k), v.q(zx - k), v.q(zy - 2.4 * k));
-            dc.drawLine(v.q(zx + 4 * k), v.q(zy - k), v.q(zx - k), v.q(zy + 0.3 * k));
-            dc.fillCircle(v.q(zx + 4 * k), v.q(zy - k), v.q(1.6) < 1 ? 1 : v.q(1.6));
-            dc.setPenWidth(1);
         }
+        // De verre slipper van het paar is weg: de krab zit nu in een zwemband (Mila keuring 2, 12 nov 04:25 UTC).
     }
 }
