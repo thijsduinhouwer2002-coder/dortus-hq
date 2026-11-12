@@ -211,3 +211,48 @@ module KrabV2Schild {
         // onleesbaar (Mila run 55, frisse keuring 3). Zijn grap is de meeuw boven water.
     }
 }
+
+// Het aanmeldblok van de schildpad: zo meldt een wereld zich aan (zie KrabV2Werelden.mc). Neem dit blok over,
+// zet je eigen module erin en laat weg wat je niet nodig hebt.
+class KrabV2WSchild extends KrabV2Wereld {
+    function initialize() {
+        KrabV2Wereld.initialize();
+    }
+
+    function dier() as Number {
+        return 3;
+    }
+
+    function vriend() as Number {
+        return 2;
+    }
+
+    function vriendNaam() as String {
+        return "Jellyfish";
+    }
+
+    function held(s as Number) as Array<Number> {
+        return KrabV2Schild.held(s);
+    }
+
+    function kantel(s as Number) as Float {
+        return KrabV2Schild.kantel(s);
+    }
+
+    function onder(v as KrabV2View, dc as Graphics.Dc, stap as Number, am as Boolean, nacht as Boolean, scherm as Number) as Void {
+        KrabV2Schild.onder(v, dc, stap, am, nacht, scherm);
+    }
+
+    function onderHeld(v as KrabV2View, dc as Graphics.Dc, scherm as Number, am as Boolean, h as Array<Number>) as Void {
+        KrabV2Schild.onderHeld(v, dc, scherm, am, h);
+    }
+
+    function voor(v as KrabV2View, dc as Graphics.Dc, scherm as Number, am as Boolean, nacht as Boolean, h as Array<Number>, graden as Float) as Void {
+        KrabV2Schild.voor(v, dc, scherm, am, nacht, h, graden);
+    }
+
+    // De meeuw staat naast de cijfers: eigen meting (run 55).
+    function veiligExtra(v as KrabV2View, scherm as Number, tekstRechts as Number, tekstOnder as Number) as Void {
+        KrabV2Tekst.veiligMeeuw(v, scherm, tekstRechts, tekstOnder);
+    }
+}

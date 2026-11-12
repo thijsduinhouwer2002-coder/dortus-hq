@@ -2,7 +2,7 @@
 
 Gijs, 12 nov 2026 (run 58), op verzoek van de hoofdchat (besluit Thijs 08:15: tweede bouwer voor de 22 werelden zodra de krab een 8 haalt). Voor iemand die de code niet kent. Lees ook `REGELS.md` (regel 4 en 7 tot 10).
 
-**Eerlijk vooraf.** Dit beschrijft de code zoals hij op 12 nov op de bouwtak staat (16bd5fd). Er staan twee werelden in als proef: de krab (wereld 0, verspreid over `KrabV2.mc`, `KrabV2Band.mc`, `KrabV2Lagen.mc`, `KrabV2Boven.mc`) en de schildpad (wereld 1, bijna helemaal in `KrabV2Schild.mc`). **De schildpad is het voorbeeld om na te doen.** De werelden zitten nog alleen in de testscènes, niet in de echte sessie. En een wereld inpluggen kan nu nog niet zonder de bestanden van Gijs aan te raken: zie "Wat Gijs nog moet doen" onderaan. Tot dat klaar is levert de tweede bouwer alleen zijn eigen bestand en plugt Gijs het in.
+**Eerlijk vooraf.** Sinds run 60 (12 nov) is er een inplugpunt: `source/KrabV2Werelden.mc`. Een wereld toevoegen is je eigen bestand plus één regel in de lijst daar (hoofdstuk 7). Er staan twee werelden in: de krab (wereld 0, `KrabV2Krab.mc` met de zwemband in `KrabV2Band.mc`) en de schildpad (wereld 1, `KrabV2Schild.mc`). **De schildpad is het voorbeeld om na te doen.** De werelden zitten nog alleen in de testscènes, niet in de echte sessie; dat bouwt Gijs en het verandert jouw bestand niet.
 
 ## 1. Wat een wereld is
 
@@ -32,7 +32,7 @@ Houd elke laag klein. Maatstaf: een beurt blijft op AMOLED onder de 100 ms in de
 
 ## 3. Wat jouw bestand levert
 
-Eén bestand `source/KrabV2<Naam>.mc` met één module `KrabV2<Naam>`, hoogstens 300 regels (anders splitsen). Neem `KrabV2Schild.mc` als voorbeeld. Deze functies, met precies deze vorm:
+Eén bestand `source/KrabV2<Naam>.mc`, hoogstens 300 regels (anders splitsen), met twee dingen: een module `KrabV2<Naam>` met de functies hieronder, en onderaan het aanmeldblok `class KrabV2W<Naam> extends KrabV2Wereld` dat die functies doorgeeft en zegt welk dier de held is (`dier`) en wie de nieuwe vriend is (`vriend`, `vriendNaam`). Neem `KrabV2Schild.mc` als voorbeeld, ook voor het blok. Wat je in het blok weglaat doet niets. Deze functies, met precies deze vorm:
 
 | Functie | Wat |
 |---|---|
@@ -43,7 +43,7 @@ Eén bestand `source/KrabV2<Naam>.mc` met één module `KrabV2<Naam>`, hoogstens
 | `boven(v, dc, top)` | boven water, laag 3: één drijvend ding onder het oppervlak, alleen als een frisse kijker het herkent (krab en schildpad hebben er nu geen: de verre slipper en het drijvende blad lazen niet) |
 | `voor(v, dc, scherm, am, nacht, h, graden)` | elke beurt na de held: de grap en wat voor het dier langs loopt (golfje voor de buik, voorhelft van de zwemband) |
 
-`v` is de `KrabV2View`, `dc` het tekenvlak, `am` waar op een AMOLED-scherm, `nacht` waar bij nacht. Welk dier de held is (het nummer uit `DierenData.mc`) geef je door aan Gijs; het dier zelf teken je nooit (regel 4).
+`v` is de `KrabV2View`, `dc` het tekenvlak, `am` waar op een AMOLED-scherm, `nacht` waar bij nacht. Welk dier de held is (het nummer uit `DierenData.mc`) zet je in je aanmeldblok; het dier zelf teken je nooit (regel 4). In `KrabV2Wereld` (bovenaan `KrabV2Werelden.mc`) staan nog een paar zelden nodige knoppen (plek van de lichtbundel, belletjes, hoogte van de kam, eigen meting van de grap); gebruik die alleen met een reden uit een keuring.
 
 ## 4. Wat je gebruikt in plaats van zelf te schrijven
 
@@ -69,23 +69,25 @@ De plaatjesrun (`.github/workflows/garmin-adem-iq.yml`) start op dertien horloge
 ## 6. Hoe je wereld in de plaatjesrun komt
 
 - **Tak:** werk op een eigen tak met "proef" in de naam, bijvoorbeeld `claude/garmin-werelden-proef-<naam>`. Op zo'n tak draait de plaatjesrun alleen de wereldscènes (vanaf 51) en is de uitslag er in ongeveer tien minuten in plaats van veertig.
-- **Scènenummer:** `51 + 12 x wereld + 6 x nacht + scherm`. Krab is 51 tot 62, schildpad 63 tot 74. Let op: 75 en 76 zijn nu het thuiswater van het startscherm; dat krijgt een eigen plek voordat wereld 2 erbij komt (zie onderaan).
+- **Scènenummer en naam:** volgen vanzelf uit de lijst: `53 + 12 x wereld + 6 x nacht + scherm` (krab 53 tot 64, schildpad 65 tot 76; 51 en 52 zijn het thuiswater). De beelden heten `<naam>-<in|uit|calm|hold|menu|eind>-<dag|nacht>-<horloge>.png`, met de naam uit jouw regel in de lijst. Je hoeft `Bouw.mc`, `Scenes.mc` en de workflow niet aan te raken.
 - **Beelden:** de run zet ze openbaar op tak `schermen`, map `garmin-adem/plaatjes-proef/namen/` (proeftak) of `garmin-adem/plaatjes/namen/` (bouwtak), als `<naam>-<horloge>.png`. Kijk altijd zelf naar FR255 (MIP, 260) en fenix 8 47 mm (AMOLED, 454), dag en nacht, naast Mila's blad.
 - **Uitslag lezen:** `curl -s "https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/runs?branch=<tak>&per_page=4"`.
 - **Bundelen:** alle punten van een keuring in één run, en één keer beelden maken.
 
-## 7. Wat Gijs nog moet doen voordat de tweede bouwer begint
+## 7. Inpluggen: één regel
 
-Nu staat op ongeveer twintig plekken in de bestanden van Gijs een vertakking per wereld (`if (wereld == 1)`): in `KrabV2.mc` (held en kantel bij de start, laag 4, `voor`, de nieuwe vriend op het eindscherm), `KrabV2Lagen.mc` (laag 1 tot 3, plek van de lichtbundel, belletjes), `KrabV2Boven.mc` (laag 3, meeuw) en `KrabV2Tekst.mc` (ruimte boven de held, naam van de nieuwe vriend, veilige zone). Verder staan het aantal scènes in `Bouw.mc` en de lijst `NAMEN` en de teller `seq $EERSTE 76` in de workflow vast. Daarmee kan een tweede bouwer nu geen wereld toevoegen zonder die bestanden te wijzigen.
+In `source/KrabV2Werelden.mc` staat de lijst, in de functie `maak`:
 
-Wat Gijs daarvoor bouwt, in één run, vóór de start van de tweede bouwer:
+```
+if (w == 0) { return new KrabV2WKrab(); } // naam: krab2
+if (w == 1) { return new KrabV2WSchild(); } // naam: schild2
+```
 
-1. Eén bestand `KrabV2Werelden.mc`: de enige plek waar een wereldnummer naar een module wijst (held, kantel, onder, onderHeld, boven, voor, het dier, de nieuwe vriend, de plek van de lichtbundel). Alle vertakkingen hierboven vragen het daar. Een wereld toevoegen is dan één blok in dat bestand, en dat blok voegt Gijs toe bij het samenvoegen.
-2. De krab in dezelfde vorm als de schildpad (`KrabV2Krab.mc` met dezelfde zes functies), zodat er geen uitzondering voor wereld 0 meer is.
-3. Het thuiswater een eigen scènenummer buiten de reeks van de werelden, en de scènes en namen van de werelden uit het aantal werelden laten volgen, zodat `Bouw.mc` en de workflow niet per wereld gewijzigd hoeven.
-4. Bewijs dat er niets verandert: de beelden van krab en schildpad voor en na pixel voor pixel gelijk (`bron/vergelijk_plaatjes.py`, regel 6).
+Jouw wereld is de volgende regel: het volgende nummer (zonder gaten), jouw blok, en achter `// naam:` een kort woord in kleine letters en cijfers zonder spaties. Dat woord wordt de naam van je beelden en de workflow telt deze regels om te weten hoeveel scènes er zijn. Meer hoeft niet.
 
-Daarna geldt: de tweede bouwer raakt alleen `source/KrabV2<Naam>.mc` aan, op zijn eigen tak; Gijs voegt samen en zet het ene blok in `KrabV2Werelden.mc`.
+- **Tweede bouwer:** op je eigen tak mag je die ene regel zelf toevoegen om beelden te krijgen. Raak verder alleen je eigen bestanden aan. Gijs voegt samen; bij twee bouwers die dezelfde regel toevoegen kiest Gijs de nummers.
+- Nergens anders in de code staat nog een vertakking per wereld. Mis je iets wat je wereld nodig heeft (een knop in `KrabV2Wereld`), schrijf het in `berichten/gijs.md`; bouw het niet zelf in de bestanden van Gijs.
+- Bewijs dat het inplugpunt niets veranderde: de beelden van krab en schildpad voor en na zijn vergeleken, zie `platformen/garmin/status.md` (run 60).
 
 ## 8. Wat nog niet vastligt
 

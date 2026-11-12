@@ -30,7 +30,7 @@ module KrabV2Boven {
                 v.kleur(dc, l0);
                 dc.fillRectangle(0, 0, dc.getWidth(), v.q(top + 6));
                 // bij de krab is de band 0055FF weg: zijn rand liep als een lijn dwars door de krab (keuring 05:25 punt 6)
-                if (!nacht && v.wereld != 0) {
+                if (!nacht && v.w().luchtband()) {
                     v.golf(dc, top - 28, top + 6, 0x0055FF, 2.5, 2, 0.0);
                 }
             }

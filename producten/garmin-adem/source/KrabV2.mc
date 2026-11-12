@@ -26,8 +26,9 @@ class KrabV2View extends WatchUi.View {
     private var _am as Boolean = false;
     // slipper: hak x, y, schaal, hoek in graden; held: midden van het kader x, y en maat
     // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
-    var wereld as Number = 0; // 0 krab, 1 schildpad (Mila v3.2)
+    var wereld as Number = 0; // nummer uit de lijst in KrabV2Werelden.mc, of KrabV2Werelden.THUIS
     var dier as Number = 4;
+    private var _w as KrabV2Wereld;
     // Keuring 05:25 punt 6: bij inademen krab 8/260 lager en de kam 8 onder zijn midden (schuimlijn onder het lijf).
     var sl as Array<Float> = [158.0, 154.0, 1.4125, -13.0] as Array<Float>;
     private var _kantel as Float = 4.8;
@@ -39,34 +40,18 @@ class KrabV2View extends WatchUi.View {
         View.initialize();
         scherm = s;
         nacht = n;
-        _kantel = (s == 0) ? 4.8 : ((s == 2) ? 1.8 : 0.0);
-        if (s == 1) {
-            sl = [128.0, 179.0, 1.4125, -5.0] as Array<Float>;
-            _held = [124, 165, 36] as Array<Number>;
-        } else if (s == 2) {
-            sl = [128.0, 155.0, 1.4125, -8.0] as Array<Float>;
-            _held = [124, 141, 36] as Array<Number>;
-        } else if (s == 3) {
-            sl = [120.0, 215.65, 1.4907, -4.0] as Array<Float>;
-            _held = [118, 192, 43] as Array<Number>;
-        } else if (s == 4) {
-            sl = [120.0, 206.9, 1.3173, -4.0] as Array<Float>;
-            _held = [118, 186, 38] as Array<Number>;
-        } else if (s == 5) {
-            sl = [70.0, 152.0, 1.0, -6.0] as Array<Float>;
-            _held = [76, 130, 34] as Array<Number>;
-        }
         wereld = w;
-        if (w == 2) {
-            // thuiswater (startscherm, Mila onderwater v1): het eigen dier onderin midden, geen slipper
-            _held = [130, 196, 30] as Array<Number>;
-            _kantel = 0.0;
-        }
-        if (w == 1) {
-            dier = 3;
-            _held = KrabV2Schild.held(s);
-            _kantel = KrabV2Schild.kantel(s);
-        }
+        // Alles wat van de wereld afhangt komt uit de lijst (KrabV2Werelden.mc). Het thuiswater (startscherm, Mila
+        // onderwater v1) is geen wereld: het eigen dier onderin midden, dat is de gewone waarde van KrabV2Wereld.
+        _w = KrabV2Werelden.maak(w);
+        dier = _w.dier();
+        _held = _w.held(s);
+        _kantel = _w.kantel(s);
+        _w.start(self, s);
+    }
+
+    function w() as KrabV2Wereld {
+        return _w;
     }
 
     function kantel() as Float {
@@ -78,7 +63,7 @@ class KrabV2View extends WatchUi.View {
     }
 
     function kam() as Number {
-        return (wereld == 0 && scherm == 0) ? 150 : KrabV2Tekst.KAM[scherm];
+        return _w.kam(scherm);
     }
 
     function heldMaat() as Number {
@@ -188,23 +173,17 @@ class KrabV2View extends WatchUi.View {
             _gemeten = true;
             KrabV2Tekst.meet(self, dc, _d, scherm, _am, nacht);
         }
-        if (wereld == 2) {
+        if (wereld == KrabV2Werelden.THUIS) {
             if (stap < 4) {
                 KrabV2Thuis.laag(self, dc, stap, _am, nacht, 214);
             }
-        } else if (stap == 4 && wereld == 1) {
-            KrabV2Schild.onderHeld(self, dc, scherm, _am, _held);
         } else if (stap == 4) {
-            if (scherm == 3 || scherm == 4) {
-                if (_am) {
-                    gloed(dc, sl[0] - 4.0 * sl[2], sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
-                } else {
-                    rondje(dc, sl[0] - 4.0 * sl[2], sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
-                }
-            }
-            KrabV2Band.teken(self, dc, false);
+            _w.onderHeld(self, dc, scherm, _am, _held);
         } else if (scherm <= 2) {
             KrabV2Boven.boven(self, dc, stap, _am, nacht, kam());
+            if (stap == 3) {
+                _w.boven(self, dc, kam());
+            }
         } else {
             KrabV2Lagen.onder(self, dc, stap, _am, nacht, scherm);
         }
@@ -251,15 +230,13 @@ class KrabV2View extends WatchUi.View {
             _gedraaid = EbbDierVoorraad.tekenHoek(dc, dier, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN, _kantel, _am);
             staat = _gedraaid > 0;
             if (staat) {
-                if (wereld == 1) {
-                    KrabV2Schild.voor(self, dc, scherm, _am, nacht, _held, _kantel);
-                } else if (wereld == 0) {
-                    KrabV2Band.teken(self, dc, true);
+                if (wereld != KrabV2Werelden.THUIS) {
+                    _w.voor(self, dc, scherm, _am, nacht, _held, _kantel);
                 }
                 if (scherm == 5) {
                     // de nieuwe vriend (garnaal) in zijn belletje rechts
                     var m2 = q(31);
-                    var vr = (wereld == 1) ? 2 : 1;
+                    var vr = _w.vriend();
                     var g2 = EbbDierMaat.grenzen(vr);
                     staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
                 }

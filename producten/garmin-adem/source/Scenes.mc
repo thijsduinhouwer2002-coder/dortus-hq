@@ -105,15 +105,16 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
-        if (k >= 75) {
-            // 75 en 76: startscherm op het thuiswater (Mila onderwater v1), dag en nacht.
-            return [new KrabV2View(4, k == 76, 2), new WatchUi.BehaviorDelegate()];
-        }
-        if (k >= 51) {
+        if (k >= 53) {
             // Proef krabwereld v2.2 (berichten hoofdchat 12 nov 02:30 en 03:10 NL): 51 tot 56 in, uit, Calm, inhouden, menu,
             // eind bij dag, 57 tot 62 hetzelfde bij nacht.
             // 63 tot 74: hetzelfde voor de schildpadwereld (Mila v3.2, run 55).
-            return [new KrabV2View((k - 51) % 6, ((k - 51) / 6) % 2 == 1, (k - 51) / 12), new WatchUi.BehaviorDelegate()];
+            // Run 60: de werelden beginnen op 53 en volgen de lijst in KrabV2Werelden.mc: 53 + 12 x wereld + 6 x nacht + scherm.
+            return [new KrabV2View((k - 53) % 6, ((k - 53) / 6) % 2 == 1, (k - 53) / 12), new WatchUi.BehaviorDelegate()];
+        }
+        if (k >= 51) {
+            // 51 en 52: startscherm op het thuiswater (Mila onderwater v1), dag en nacht. Eigen plek voor de werelden.
+            return [new KrabV2View(4, k == 52, KrabV2Werelden.THUIS), new WatchUi.BehaviorDelegate()];
         }
         view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
         view.opnemen = false;

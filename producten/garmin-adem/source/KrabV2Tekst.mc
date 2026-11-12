@@ -78,7 +78,7 @@ module KrabV2Tekst {
         var lucht = heldBoven - v.q(kantelMaat(v)) - tekstOnder;
         // Bij de krab zijn de scharen de bovenkant: te weinig lucht is NEE (run rood). Bij een ander dier is dit het
         // kader van het hele dier, te grof voor een rond schild naast de cijfers: daar meldt hij "krap" (niet rood).
-        System.println("VEILIG wereld " + v.wereld + " scherm " + scherm + (v.wereld == 0 ? " lucht " : " kader lucht ") + lucht + " px, norm " + v.q(6) + (lucht >= v.q(6) ? " ja" : (v.wereld == 0 ? " NEE" : " krap")));
+        System.println("VEILIG wereld " + v.wereld + " scherm " + scherm + (v.w().streng() ? " lucht " : " kader lucht ") + lucht + " px, norm " + v.q(6) + (lucht >= v.q(6) ? " ja" : (v.w().streng() ? " NEE" : " krap")));
     }
 
     function kantelMaat(v as KrabV2View) as Float {
@@ -88,12 +88,7 @@ module KrabV2Tekst {
 
     // Bovenkant van de held in 1/260: bij de krab de scharen (vaste maat van het blad), anders uit het kader van het dier.
     function heldBoven(v as KrabV2View, scherm as Number, top as Number) as Number {
-        if (v.wereld == 0) {
-            return scherm <= 2 ? v.held()[1] - 24 : 164;
-        }
-        var g = EbbDierMaat.grenzen(v.dier);
-        var h = v.held();
-        return h[1] - (g[3] - g[2]) * h[2] / (2 * EbbDierData.SCHAAL);
+        return v.w().heldBoven(v, scherm);
     }
 
     // De meeuw op het schild staat naast de cijfers, niet eronder: lucht is de grootste van opzij en erboven.
@@ -145,7 +140,7 @@ module KrabV2Tekst {
             // 12/260 boven de scharen (keuring 12 nov 04:05 NL punt 2), de kop staat er direct boven (niet hoger dan 4/260).
             var hk = dc.getFontHeight(EbbTeken.fM()) * 92 / 100;
             var hb = heldBoven(v, scherm, top);
-            var yd = v.q(hb) - v.q((v.wereld == 0 ? 11 : 7) + kantelMaat(v)) - dc.getFontHeight(cijfers()); // krab 11 (keuring 05:25 punt 6: ruim), anders 7 lucht plus wat door het kantelen omhoog komt
+            var yd = v.q(hb) - v.q(v.w().ruimte() + kantelMaat(v)) - dc.getFontHeight(cijfers()); // krab 11 (keuring 05:25 punt 6: ruim), anders 7 lucht plus wat door het kantelen omhoog komt
             yd = yd > v.q(18) + hk ? v.q(18) + hk : yd;
             yd = yd < v.q(4) + hk ? v.q(4) + hk : yd;
             regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
@@ -158,9 +153,7 @@ module KrabV2Tekst {
             }
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", held vanaf " + v.q(hb));
             veilig(v, scherm, y, v.q(hb));
-            if (v.wereld == 1) {
-                veiligMeeuw(v, scherm, d / 2 + dc.getTextWidthInPixels(getal, cijfers()) / 2, y);
-            }
+            v.w().veiligExtra(v, scherm, d / 2 + dc.getTextWidthInPixels(getal, cijfers()) / 2, y);
         } else if (scherm == 3) {
             y = regel(dc, d, v.q(12), EbbTeken.fM(), "hold", geel, 90);
             y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
@@ -218,18 +211,18 @@ module KrabV2Tekst {
             }
             dc.fillRectangle(0, by, d, bh);
             regel(dc, d, by + v.q(2), EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", wit, 100);
-            veilig(v, scherm, by + bh, v.q(v.wereld == 0 ? 186 - 25 : heldBoven(v, 4, 0)));
+            veilig(v, scherm, by + bh, v.q(heldBoven(v, 4, 0)));
         } else {
             y = regel(dc, d, v.q(26), EbbTeken.fM(), "3 rounds done", geel, 82);
             var yt = regel(dc, d, y, EbbTeken.fS(), "1:20   1:45   1:58", wit, 100);
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
-            y = regel(dc, d, y, EbbTeken.fM(), v.wereld == 1 ? "Jellyfish" : "Shrimp", geel, 95);
+            y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
             var sy = y + v.q(5);
             if (_meet) {
                 _vak.addAll([v.q(112), sy - v.q(4), v.q(148), sy + v.q(4)] as Array<Number>);
                 return;
             }
-            veilig(v, scherm, yt, v.q(v.wereld == 0 ? 130 - 22 : heldBoven(v, 5, 0)));
+            veilig(v, scherm, yt, v.q(heldBoven(v, 5, 0)));
             // Keuring 3 punt 5: de bolletjes vielen weg tegen het zand; nu op een donker pilletje.
             v.kleur(dc, am ? DONKER : 0x000055);
             dc.fillRoundedRectangle(v.q(106), sy - v.q(7), v.q(48), v.q(14), v.q(7));

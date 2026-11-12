@@ -59,9 +59,9 @@ module KrabV2Lagen {
         var zeeTop = nacht ? 0x000069 : 0x00698C;
         var licht = nacht ? 0xAAAAFF : 0x55FFFF;
         var eind = (scherm == 5);
-        var zak = eind ? 22 : 0;
-        if (v.wereld == 1 && stap >= 1 && stap <= 3) {
-            KrabV2Schild.onder(v, dc, stap, am, nacht, scherm);
+        // Laag 1 tot 3 is van de wereld zelf (KrabV2Werelden.mc); in laag 3 komt daarna wat elke wereld deelt.
+        if (stap >= 1 && stap <= 3) {
+            v.w().onder(v, dc, stap, am, nacht, scherm);
             if (stap < 3) {
                 return;
             }
@@ -94,9 +94,10 @@ module KrabV2Lagen {
                 v.punten += pts.size();
             }
             // de maanvlek bovenin is weg: de ronde rand sneed hem half af (keuring 05:25 punt 5)
-            if (am && v.wereld != 2) { // het thuiswater heeft geen lichtbundel (Mila onderwater v1)
-                var xo = eind ? 184 : (v.wereld == 1 ? (scherm == 3 ? 126 : 120) : 118);
-                var xh = eind ? 186 : (v.wereld == 1 ? (scherm == 3 ? 128 : 124) : 112);
+            if (am && v.wereld != KrabV2Werelden.THUIS) { // het thuiswater heeft geen lichtbundel (Mila onderwater v1)
+                var bu = v.w().bundel(scherm);
+                var xo = eind ? 184 : bu[0];
+                var xh = eind ? 186 : bu[1];
                 var yh = eind ? 164 : 236;
                 var basis = nacht ? 0x000040 : 0x004060;
                 var kap = eind ? 72 : 140; // Mila v3.2 (a): boven de onderste tekstregel één zwakke tint (wit 4,5 op 1)
@@ -114,91 +115,6 @@ module KrabV2Lagen {
                     }
                 }
             }
-        } else if (stap == 1) {
-            var ver = am ? (nacht ? 0x00003C : 0x001E46) : (nacht ? 0x0000AA : 0x000055);
-            var verder = am ? EbbTeken.meng(ver, zeeTop, 0.5) : (nacht ? 0x0000AA : 0x0055AA); // nacht MIP: geen zwart (keuring 04:05 punt 3)
-            var r1 = [40, 176, 60, 26, 150, 186, 70, 20, 240, 168, 46, 30] as Array<Number>;
-            var r2 = [10, 192, 52, 36, 78, 208, 46, 20, 186, 206, 50, 20, 252, 186, 50, 40] as Array<Number>;
-            for (var i = 0; i < 3; i += 1) {
-                v.rondje(dc, r1[4 * i], r1[4 * i + 1], r1[4 * i + 2], r1[4 * i + 3], verder, -1, -1);
-            }
-            for (var i = 0; i < 4; i += 1) {
-                v.rondje(dc, r2[4 * i], r2[4 * i + 1], r2[4 * i + 2], r2[4 * i + 3], ver, -1, -1);
-            }
-            v.rondje(dc, 130, 276, 170, 54, 0xAAAA55, -1, -1);
-            v.rondje(dc, 130, 278, 160, 52, am ? 0xEBE196 : 0xFFFFAA, -1, -1);
-            if (am) {
-                v.gloed(dc, 124, 234, 36, 8, 0xFFFFFF, 46, 0xEBE196);
-            }
-        } else if (stap == 2) {
-            // rots met anemoon (links, in het menu rechts) en rots met zeester
-            var sp = (scherm == 4);
-            var ady = eind ? 14 : (sp ? 10 : 0);
-            var adx = eind ? -8 : 0;
-            // Keuring 05:25 punt 5: anemoon en zeester staan heel in beeld; hun rots schuift mee.
-            var oa = inRond(sp ? 260 - 36 - adx : 36 + adx, 166 + zak + ady / 2, 30);
-            v.rondje(dc, (sp ? 224 : 36) + oa[0], 202 + zak + oa[1], 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
-            var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
-            var by = 180 + zak + oa[1];
-            var an = [18, 12, 158, 26, 22, 150, 36, 36, 146, 46, 50, 150, 54, 60, 160] as Array<Number>;
-            // Keuring 3 punt 5: de anemoon blijft 6/260 van tekst. Raakt een armpje tekst, dan worden de armen korter
-            // (0,8 en 0,6 keer); past het dan nog niet, dan blijft alleen zijn rots.
-            var tips = [] as Array<Float>;
-            for (var i = 0; i < 5; i += 1) {
-                var tx = an[3 * i + 1] + adx;
-                tips.add(((sp ? 260 - tx : tx) + oa[0]).toFloat());
-                tips.add((an[3 * i + 2] + zak + ady + oa[1]).toFloat());
-            }
-            var ak = 0.0;
-            var maten = [1.0, 0.8, 0.6] as Array<Float>;
-            for (var m = 0; m < 3 && ak == 0.0; m += 1) {
-                var past = true;
-                for (var i = 0; i < 5; i += 1) {
-                    if (KrabV2Tekst.raakt(v, ax + (tips[2 * i] - ax) * maten[m], by + (tips[2 * i + 1] - by) * maten[m], 5)) {
-                        past = false;
-                    }
-                }
-                if (past) {
-                    ak = maten[m];
-                }
-            }
-            if (ak > 0.0) {
-                KrabV2Rand.meet(v, scherm, "anemoon", ax, 166 + zak + ady / 2 + oa[1], 30 * ak);
-            }
-            for (var ronde = 0; ak > 0.0 && ronde < 2; ronde += 1) {
-                for (var i = 0; i < 5; i += 1) {
-                    var x0 = an[3 * i] + adx;
-                    if (sp) {
-                        x0 = 260 - x0;
-                    }
-                    var x1 = ax + (tips[2 * i] - ax) * ak;
-                    var y1 = by + (tips[2 * i + 1] - by) * ak;
-                    v.pen(dc, ronde == 0 ? 0xFFFFFF : 0xAA55FF);
-                    dc.setPenWidth(v.q(ronde == 0 ? 8.6 : 5.6));
-                    dc.drawLine(v.q(x0 + oa[0]), v.q(by), v.q(x1), v.q(y1));
-                    v.rondje(dc, x1, y1, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 0xFFFFFF : 0xFF55AA, -1, -1);
-                }
-            }
-            dc.setPenWidth(1);
-            if (ak > 0.0) {
-                v.rondje(dc, ax, by, 23.6, 8.6, 0xFFFFFF, -1, -1);
-                v.rondje(dc, ax, by, 22, 7, 0xAA55FF, -1, -1);
-            }
-            var rx = 222 - zak / 3;
-            var sx = sp ? 260 - (218 - zak / 3) : 218 - zak / 3;
-            var os = inRond(sx, 197 + zak, 14);
-            sx += os[0];
-            zak += os[1];
-            KrabV2Rand.meet(v, scherm, "zeester", sx, 197 + zak, 14);
-            v.rondje(dc, (sp ? 260 - rx : rx) + os[0], 210 + zak, 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
-            var ster = [] as Array<Float>;
-            for (var i = 0; i < 10; i += 1) {
-                var a = -Math.PI / 2 + i * Math.PI / 5;
-                var rr = (i % 2 == 0) ? 11.0 : 4.6;
-                ster.add((sx + rr * Math.cos(a)).toFloat());
-                ster.add((197 + zak + rr * Math.sin(a)).toFloat());
-            }
-            v.blob(dc, ster, 0xFFFF55, 0xFFFFFF, 1.8);
         } else if (stap == 3) {
             // zwevende lichtjes (dag) of plankton (nacht), alleen opzij; bellen; op het eindscherm feest en het belletje
             var pl = (nacht ? [22, 112, 34, 138, 16, 158, 48, 120, 232, 104, 244, 132, 220, 146, 208, 118, 60, 150, 196, 156, 30, 92, 236, 84]
@@ -214,7 +130,7 @@ module KrabV2Lagen {
                 v.kleur(dc, nacht ? (am ? 0xAAFFAA : 0x55FFAA) : 0xAAFFFF);
                 dc.fillCircle(v.q(pl[2 * i]), v.q(pl[2 * i + 1]), v.q(1.2) < 1 ? 1 : v.q(1.2));
             }
-            var bl = (eind ? [40, 96, 3, 52, 82, 2, 224, 168, 2] : ((scherm == 3 && v.wereld == 0) ? [192, 160, 3, 198, 148, 2] : [])) as Array<Number>;
+            var bl = (eind ? [40, 96, 3, 52, 82, 2, 224, 168, 2] : v.w().bellen(scherm)) as Array<Number>;
             v.pen(dc, 0xFFFFFF);
             for (var i = 0; i < bl.size() / 3; i += 1) {
                 if (!KrabV2Tekst.vrij(v, bl[3 * i], bl[3 * i + 1], bl[3 * i + 2])) {
