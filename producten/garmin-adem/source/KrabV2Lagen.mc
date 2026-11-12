@@ -89,7 +89,7 @@ module KrabV2Lagen {
             dc.fillPolygon(pts);
             v.punten += pts.size();
             // de maanvlek bovenin is weg: de ronde rand sneed hem half af (keuring 05:25 punt 5)
-            if (am) {
+            if (am && v.wereld != 2) { // het thuiswater heeft geen lichtbundel (Mila onderwater v1)
                 var xo = eind ? 184 : (v.wereld == 1 ? (scherm == 3 ? 126 : 120) : 118);
                 var xh = eind ? 186 : (v.wereld == 1 ? (scherm == 3 ? 128 : 124) : 112);
                 var yh = eind ? 164 : 236;

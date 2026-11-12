@@ -105,6 +105,10 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
+        if (k >= 75) {
+            // 75 en 76: startscherm op het thuiswater (Mila onderwater v1), dag en nacht.
+            return [new KrabV2View(4, k == 76, 2), new WatchUi.BehaviorDelegate()];
+        }
         if (k >= 51) {
             // Proef krabwereld v2.2 (berichten hoofdchat 12 nov 02:30 en 03:10 NL): 51 tot 56 in, uit, Calm, inhouden, menu,
             // eind bij dag, 57 tot 62 hetzelfde bij nacht.

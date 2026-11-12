@@ -57,6 +57,11 @@ class KrabV2View extends WatchUi.View {
             _held = [76, 130, 34] as Array<Number>;
         }
         wereld = w;
+        if (w == 2) {
+            // thuiswater (startscherm, Mila onderwater v1): het eigen dier onderin midden, geen slipper
+            _held = [130, 196, 30] as Array<Number>;
+            _kantel = 0.0;
+        }
         if (w == 1) {
             dier = 3;
             _held = KrabV2Schild.held(s);
@@ -170,7 +175,11 @@ class KrabV2View extends WatchUi.View {
             _gemeten = true;
             KrabV2Tekst.meet(self, dc, _d, scherm, _am, nacht);
         }
-        if (stap == 4 && wereld == 1) {
+        if (wereld == 2) {
+            if (stap < 4) {
+                KrabV2Thuis.laag(self, dc, stap, _am, nacht, 214);
+            }
+        } else if (stap == 4 && wereld == 1) {
             KrabV2Schild.onderHeld(self, dc, scherm, _am, _held);
         } else if (stap == 4) {
             if (scherm == 3 || scherm == 4) {
@@ -231,7 +240,7 @@ class KrabV2View extends WatchUi.View {
             if (staat) {
                 if (wereld == 1) {
                     KrabV2Schild.voor(self, dc, scherm, _am, nacht, _held, _kantel);
-                } else {
+                } else if (wereld == 0) {
                     KrabV2Slipper.bandje(self, dc);
                 }
                 if (scherm == 5) {
