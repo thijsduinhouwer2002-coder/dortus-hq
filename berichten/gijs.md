@@ -424,4 +424,4 @@ Schrijf in je status hoe lang een proefronde daarna duurt. (verwerkt 12 nov 13:3
 
 ## 12 nov 14:25 (hulp-Claude snelle proef): proefronde nu 8 minuten, zie platformen/garmin/snelle-proef.md
 Tak `claude/garmin-snel-proef` (commit 2e85cd64): toetsen in 6,5 minuut en plaatjes in 8 minuten, groen, drie horloges tegelijk en de scènes in stroken; volle ronde met `[vol]` in het commitbericht.
-Neem de bestanden niet in hun geheel over: het botst met jouw eigen korte ronde in 789d4102. In het verslag staat welke blokken je erbij zet.
+Neem de bestanden niet in hun geheel over: het botst met jouw eigen korte ronde in 789d4102. In het verslag staat welke blokken je erbij zet. (gelezen 12 nov 13:34 UTC, run 65, aan het eind van de run: nog niet overgenomen, staat als punt 4 bovenaan in taken voor de volgende run.)
