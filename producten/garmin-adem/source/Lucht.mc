@@ -54,9 +54,10 @@ module EbbLucht {
     const WOLK = [208, 96, 214, 88, 224, 88, 230, 80, 240, 82, 246, 90, 250, 96] as Array<Number>;
     const WOLK2 = [14, 110, 20, 104, 30, 105, 36, 100, 46, 104, 50, 110] as Array<Number>;
     // Zon overdag en de maan staan rechtsboven. Mila gaf 214, 40 met straal 8; dat valt 1 buiten de ronde rand
-    // (afstand tot het midden 123 plus 8 is 131 van 130), daarom 210, 44.
-    const HOOG_X = 210;
-    const HOOG_Y = 44;
+    // (afstand tot het midden 123 plus 8 is 131 van 130) en op 210, 44 stond hij 4 px naast de t van "breathe out"
+    // (beeld FR255, run 43130206691). Nu 222, 60: 16 px rechts van het fasewoord, onder de regel, 10 px boven de wolk.
+    const HOOG_X = 222;
+    const HOOG_Y = 60;
     const HOOG_R = 8;
 
     // Lucht van de ademschermen, vóór de zee getekend: de zee dekt alles onder de kam. kam is de hoogte van de
