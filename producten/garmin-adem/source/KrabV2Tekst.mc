@@ -18,6 +18,7 @@ module KrabV2Tekst {
 
     var _rand as Number = 0;
     var _cijfers as WatchUi.FontResource or Null = null;
+    var _demoGemeld as Boolean = false;
     // Tekstvakken van dit scherm in pixels (x0, y0, x1, y1 achter elkaar), gemeten met de echte letter van het
     // horloge door dezelfde code die de tekst tekent (meet). Versiering vraagt met vrij() of ze mag staan.
     var _meet as Boolean = false;
@@ -178,6 +179,23 @@ module KrabV2Tekst {
             if (_meet) {
                 _onder = [v.q(top + 38), yo] as Array<Number>;
                 return;
+            }
+            if (EbbBouw.DEMO && e != null && !_demoGemeld) {
+                // Run 64: met de werelden aan tekent het gewone sessiescherm het ademen niet meer, dus de metingen van
+                // de toetsbouw (Daan M1: ondertekst onder de golfrand en binnen de ronde rand) komen nu hiervandaan.
+                // De kam golft 4/260 om "top"; de regel begint op top + 38. Eén keer per start.
+                _demoGemeld = true;
+                var fx = EbbTeken.fX();
+                var leeg = dc.getFontHeight(fx) - Graphics.getFontAscent(fx) - Graphics.getFontDescent(fx);
+                var lt = v.q(top + 38) + (leeg > 0 ? leeg : 0);
+                var gr = v.q(top + 4);
+                var br = dc.getTextWidthInPixels(onderTekst, fx);
+                var ko = breedteOp(v, top + 38, top + 52);
+                System.println("ONDERTEKST golf " + gr + " lettertop " + lt + " ruimte " + (lt - gr) + " breedte " + br + " koorde " + ko + " over " + (ko - br) + " wereld");
+                // Eis 11 (groot getal minstens 25 procent) is gemeten op het oude scherm. De wereldcijfers zijn kleiner
+                // (goedgekeurd met de krabwereld); de maat staat hier eerlijk in het log, de norm is aan de hoofdchat.
+                var asc = Graphics.getFontAscent(cijfers());
+                System.println("WERELDCIJFERS scherm " + scherm + " tekst " + getal + " hoogte " + asc + " van " + d + " = " + (asc * 100 / d) + "%");
             }
             if (e != null && !EbbBouw.PLAATJE) {
                 return; // de echte sessie tekent elke tik: geen meting in het log (wel in de plaatjesbouw, run 63)

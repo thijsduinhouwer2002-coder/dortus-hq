@@ -171,7 +171,7 @@ jobs:
           done
           # Eis 11 en 12 nakijken: groot getal minstens 25% van het scherm, geheugen onder 80%.
           # Eis 11 was 30%; besluit hoofdchat 11 nov 10:45 (organisatie/besluiten.md): 25%, omdat het eigen dier van 90 x 70 tijdens inhouden voorgaat (besluit 09:30).
-          grep -H "GROOT\|GEHEUGEN\|ONDERTEKST" /tmp/demo-*.log | sed "s,/tmp/demo-,," | tee /tmp/metingen.txt schermen/metingen.txt
+          grep -H "GROOT\|GEHEUGEN\|ONDERTEKST\|WERELDCIJFERS" /tmp/demo-*.log | sed "s,/tmp/demo-,," | tee /tmp/metingen.txt schermen/metingen.txt
           # Epix2pro47mm: grootste systeemletter 123 van 416 px (29,6%), daarom daar de eigen cijferletter (130 px).
           awk '/GROOT/ { p=$NF; sub("%","",p); if (p+0 < 25) { print "EIS11 TE KLEIN: " $0; f=1 } }
                /ONDERTEKST/ { m++; for (i=1;i<NF;i++) { if ($i=="ruimte") r=$(i+1); if ($i=="over") o=$(i+1) } if (r+0 < 4 || o+0 < 0) { print "DAAN M1 FOUT: " $0; f=1 } }
