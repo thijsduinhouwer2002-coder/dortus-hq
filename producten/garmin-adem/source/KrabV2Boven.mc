@@ -59,7 +59,7 @@ module KrabV2Boven {
                     v.rondje(dc, wo[4 * i], wo[4 * i + 1] - ronde, wo[4 * i + 2] - 2 * ronde, wo[4 * i + 3] - 1.5 * ronde, wk, -1, -1);
                 }
             }
-            if (!nacht && v.wereld == 0 && KrabV2Tekst.vrij(v, 196, 36, 10)) {
+            if (!nacht && v.wereld == 0 && KrabV2Tekst.vrij(v, 196, 36, 14)) {
                 // Mila 12 nov 03:55 UTC: de meeuw rechts boven de wolk; op 260 weg (raakte "breathe out"); de schildpad heeft zijn eigen meeuw
                 dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
                 dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));
