@@ -22,7 +22,7 @@ module KrabV2Boven {
         var rijN = [2, 4, 3] as Array<Number>;
         var rijF = [1.2, 0.3, 2.0] as Array<Float>;
         var kl = (am ? (nacht ? [0x004B96, 0x002D73, 0x000F4B] : [0x0055AF, 0x00378C, 0x001E64])
-            : (nacht ? [0x0000AA, 0x000055, 0x000055] : [0x0055AA, 0x0000AA, 0x000055])) as Array<Number>;
+            : (nacht ? [0x0000AA, 0x0000AA, 0x0000AA] : [0x0055AA, 0x0000AA, 0x000055])) as Array<Number>; // nacht MIP: na de nachtregel één blauw 000055 (v1.3)
         if (stap == 0) {
             if (am) {
                 KrabV2Lagen.verloop(v, dc, 0, top + 6, l0, l1);
@@ -51,7 +51,7 @@ module KrabV2Boven {
                 }
                 v.rondje(dc, 40, 86, 14, 14, 0xFFFF55, 0xFFFFFF, 0xFFFFFF);
             }
-            // wolkje rechts (bij nacht donker) en overdag een meeuw
+            // wolkje rechts (bij nacht donker)
             var wo = [214, 70, 14, 8, 226, 64, 12, 10, 236, 72, 11, 7] as Array<Number>;
             for (var ronde = 0; ronde < 2; ronde += 1) {
                 var wk = (ronde == 0) ? (nacht ? 0x0000AA : 0xAAFFFF) : (nacht ? 0x5555AA : 0xFFFFFF);
@@ -59,16 +59,8 @@ module KrabV2Boven {
                     v.rondje(dc, wo[4 * i], wo[4 * i + 1] - ronde, wo[4 * i + 2] - 2 * ronde, wo[4 * i + 3] - 1.5 * ronde, wk, -1, -1);
                 }
             }
-            if (!nacht && v.wereld == 0 && KrabV2Tekst.vrij(v, 196, 36, 14)) {
-                // Mila 12 nov 03:55 UTC: de meeuw rechts boven de wolk; op 260 weg (raakte "breathe out"); de schildpad heeft zijn eigen meeuw
-                v.pen(dc, 0xFFFFFF);
-                dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));
-                for (var sg = -1; sg <= 1; sg += 2) {
-                    dc.drawLine(v.q(196), v.q(38), v.q(196 + sg * 5), v.q(34));
-                    dc.drawLine(v.q(196 + sg * 5), v.q(34), v.q(196 + sg * 9), v.q(37));
-                }
-                dc.setPenWidth(1);
-            }
+            // De meeuw van de krab is weg (keuring 3 punt 6, Thijs 12 nov 08:10): een los tekentje naast "breathe in"
+            // waarvan een kijker niet weet wat het is. Regel: niets in beeld dat je niet herkent.
         } else if (stap == 1 || stap == 2) {
             if (stap == 1) {
                 v.golf(dc, top - 3, 262, 0xFFFFFF, 4.0, 2, 1.2);

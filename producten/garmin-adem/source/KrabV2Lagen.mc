@@ -71,23 +71,28 @@ module KrabV2Lagen {
                 verloop(v, dc, 0, 260, zeeTop, nacht ? 0x000016 : 0x00163C);
             } else {
                 if (nacht) {
-                    v.kleur(dc, 0x000055);
+                    // Mila nachtregel v1.3 (mip_nachtwater): één gedempt blauw met golflijnen, geen blokken
+                    dc.setColor(0x000055, 0x000055);
                     dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
+                    KrabV2Rand.nachtwater(v, dc, 100, 244);
                 } else {
                     raster(v, dc, 0x005555, 0x0055AA, v.q(eind ? 152 : 148));
                     v.golf(dc, eind ? 146 : 142, 262, 0x000055, 3.0, 2, 1.0);
                 }
             }
-            // oppervlak: lichte golvende rand bovenin
-            var pts = [] as Array<[Numeric, Numeric]>;
-            for (var x = 0; x <= 260; x += 10) {
-                pts.add([v.q(x), v.q(7 + 2.5 * Math.sin(x / 260.0 * 2.0 * Math.PI * 5))]);
+            // oppervlak: lichte golvende rand bovenin. Op MIP weg (keuring 3 punt 3): de ronde rand sneed hem af
+            // tot een losse blauwe boog.
+            if (am) {
+                var pts = [] as Array<[Numeric, Numeric]>;
+                for (var x = 0; x <= 260; x += 10) {
+                    pts.add([v.q(x), v.q(7 + 2.5 * Math.sin(x / 260.0 * 2.0 * Math.PI * 5))]);
+                }
+                pts.add([v.q(260), 0]);
+                pts.add([0, 0]);
+                v.kleur(dc, EbbTeken.meng(licht, zeeTop, 0.5));
+                dc.fillPolygon(pts);
+                v.punten += pts.size();
             }
-            pts.add([v.q(260), 0]);
-            pts.add([0, 0]);
-            v.kleur(dc, am ? EbbTeken.meng(licht, zeeTop, 0.5) : (nacht ? 0x5555FF : 0x0055FF));
-            dc.fillPolygon(pts);
-            v.punten += pts.size();
             // de maanvlek bovenin is weg: de ronde rand sneed hem half af (keuring 05:25 punt 5)
             if (am && v.wereld != 2) { // het thuiswater heeft geen lichtbundel (Mila onderwater v1)
                 var xo = eind ? 184 : (v.wereld == 1 ? (scherm == 3 ? 126 : 120) : 118);
@@ -133,8 +138,15 @@ module KrabV2Lagen {
             // Keuring 05:25 punt 5: anemoon en zeester staan heel in beeld; hun rots schuift mee.
             var oa = inRond(sp ? 260 - 36 - adx : 36 + adx, 166 + zak + ady / 2, 30);
             v.rondje(dc, (sp ? 224 : 36) + oa[0], 202 + zak + oa[1], 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
+            var acx = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
+            var acy = 166 + zak + ady / 2 + oa[1];
+            // Keuring 3 punt 5: staat de anemoon binnen 6/260 van tekst (eindscherm), dan blijft alleen zijn rots.
+            var anemoon = !KrabV2Tekst.raakt(v, acx, acy, 30);
+            if (anemoon) {
+                KrabV2Rand.meet(v, scherm, "anemoon", acx, acy, 30);
+            }
             var an = [18, 12, 158, 26, 22, 150, 36, 36, 146, 46, 50, 150, 54, 60, 160] as Array<Number>;
-            for (var ronde = 0; ronde < 2; ronde += 1) {
+            for (var ronde = 0; anemoon && ronde < 2; ronde += 1) {
                 for (var i = 0; i < 5; i += 1) {
                     var x0 = an[3 * i] + adx;
                     var x1 = an[3 * i + 1] + adx;
@@ -153,13 +165,16 @@ module KrabV2Lagen {
             }
             dc.setPenWidth(1);
             var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
-            v.rondje(dc, ax, 180 + zak + oa[1], 23.6, 8.6, 0xFFFFFF, -1, -1);
-            v.rondje(dc, ax, 180 + zak + oa[1], 22, 7, 0xAA55FF, -1, -1);
+            if (anemoon) {
+                v.rondje(dc, ax, 180 + zak + oa[1], 23.6, 8.6, 0xFFFFFF, -1, -1);
+                v.rondje(dc, ax, 180 + zak + oa[1], 22, 7, 0xAA55FF, -1, -1);
+            }
             var rx = 222 - zak / 3;
             var sx = sp ? 260 - (218 - zak / 3) : 218 - zak / 3;
             var os = inRond(sx, 197 + zak, 14);
             sx += os[0];
             zak += os[1];
+            KrabV2Rand.meet(v, scherm, "zeester", sx, 197 + zak, 14);
             v.rondje(dc, (sp ? 260 - rx : rx) + os[0], 210 + zak, 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
             var ster = [] as Array<Float>;
             for (var i = 0; i < 10; i += 1) {
@@ -237,12 +252,12 @@ module KrabV2Lagen {
     }
 
     // Keuring 05:25 punt 5: een los voorwerp staat heel in beeld. Geeft de verschuiving (1/260) die een cirkel
-    // (x, y, r) binnen de ronde rand brengt, met 3 lucht; 0 als hij al past.
+    // (x, y, r) binnen de ronde rand brengt, met 10 lucht (keuring 3 punt 4, was 3); 0 als hij al past.
     function inRond(x as Numeric, y as Numeric, r as Numeric) as Array<Float> {
         var dx = x - 130.0;
         var dy = y - 130.0;
         var l = Math.sqrt(dx * dx + dy * dy);
-        var max = 127.0 - r;
+        var max = 130.0 - KrabV2Rand.NORM - r;
         if (l <= max || l < 1.0) {
             return [0.0, 0.0] as Array<Float>;
         }

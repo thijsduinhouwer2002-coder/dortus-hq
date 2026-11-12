@@ -31,17 +31,25 @@ module KrabV2Tekst {
     // Keuring 12 nov 05:25 NL punt 2 en 3: versiering (belletjes, sterren, vonkjes, lichtjes) blijft minstens 6/260
     // weg van elk tekstvak, op elk scherm. Staat ze te dicht, dan wordt ze niet getekend. x, y, r in 1/260.
     function vrij(v as KrabV2View, x as Numeric, y as Numeric, r as Numeric) as Boolean {
+        if (raakt(v, x, y, r)) {
+            _weg += 1;
+            return false;
+        }
+        _stond += 1;
+        return true;
+    }
+
+    // Zelfde meting zonder te tellen: staat een cirkel (x, y, r) binnen 6/260 van een tekstvak?
+    function raakt(v as KrabV2View, x as Numeric, y as Numeric, r as Numeric) as Boolean {
         var m = v.q(r + 6);
         var px = v.q(x);
         var py = v.q(y);
         for (var i = 0; i + 3 < _vak.size(); i += 4) {
             if (px + m > _vak[i] && px - m < _vak[i + 2] && py + m > _vak[i + 1] && py - m < _vak[i + 3]) {
-                _weg += 1;
-                return false;
+                return true;
             }
         }
-        _stond += 1;
-        return true;
+        return false;
     }
 
     // Boven- en onderkant (pixels) van de onderste regel van het ademscherm: de golfrijen blijven daar 6/260 vandaan.
@@ -222,6 +230,9 @@ module KrabV2Tekst {
                 return;
             }
             veilig(v, scherm, yt, v.q(v.wereld == 0 ? 130 - 22 : heldBoven(v, 5, 0)));
+            // Keuring 3 punt 5: de bolletjes vielen weg tegen het zand; nu op een donker pilletje.
+            v.kleur(dc, am ? DONKER : 0x000055);
+            dc.fillRoundedRectangle(v.q(106), sy - v.q(7), v.q(48), v.q(14), v.q(7));
             v.kleur(dc, EbbTeken.SCHUIM);
             dc.fillCircle(v.q(130), sy, v.q(3.5));
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
