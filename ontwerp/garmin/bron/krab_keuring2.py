@@ -113,7 +113,7 @@ def nacht_pixel(c, am):
         r, g, b = (nacht_kanaal_amoled(v) for v in c)
     else:
         r, g, b = (MIP_STAP[min(MIP_STAP, key=lambda k: abs(k - v))] for v in c)
-    g = min(g, max(r, b))          # geen groen: groen nooit sterker dan rood of blauw
+    g = min(g, max(r, b, 80 if am else 85))   # geen fel groen: groen hooguit zo sterk als rood of blauw, of de laagste trede (groene dieren blijven zichtbaar)
     return (r, g, b)
 
 
@@ -124,10 +124,10 @@ def nacht_lut(am):
     return lut
 
 
-def nachtregel(im_met, im_zonder, am):
+def nachtregel(im_met, im_zonder, am, masker_van=None):
     """im_met = scherm met tekst, im_zonder = zelfde scherm zonder tekst. Tekst blijft, de rest gaat door de regel."""
-    mk = ImageChops.difference(im_met, im_zonder).convert('L').point(lambda v: 255 if v > 8 else 0)
-    mk = mk.filter(ImageFilter.MaxFilter(3))
+    mk = ImageChops.difference(masker_van or im_met, im_zonder).convert('L').point(lambda v: 255 if v > 8 else 0)
+    if masker_van is None: mk = mk.filter(ImageFilter.MaxFilter(3))
     # kanaal voor kanaal, daarna de groenregel
     r, g, b = im_zonder.split()
     if am:
@@ -135,9 +135,15 @@ def nachtregel(im_met, im_zonder, am):
     else:
         f = [MIP_STAP[min(MIP_STAP, key=lambda k: abs(k - v))] for v in range(256)]
     r, g, b = r.point(f), g.point(f), b.point(f)
-    g = ImageChops.darker(g, ImageChops.lighter(r, b))
+    vloer = Image.new('L', r.size, 80 if am else 85)
+    g = ImageChops.darker(g, ImageChops.lighter(ImageChops.lighter(r, b), vloer))
     donker = Image.merge('RGB', (r, g, b))
     return Image.composite(im_met, donker, mk)
+
+
+def nachtregel_masker(im_met, im_zonder, im_sleutel, am):
+    """Zoals nachtregel, maar het tekstmasker komt uit een beeld met alle tekst in sleutelkleur."""
+    return nachtregel(im_met, im_zonder, am, masker_van=im_sleutel)
 
 
 def zonder_tekst(fn):
