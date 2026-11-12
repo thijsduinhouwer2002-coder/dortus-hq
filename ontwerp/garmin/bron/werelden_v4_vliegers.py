@@ -97,10 +97,12 @@ def ufo_bundel(d, cx, cy, m, yg, nacht):
 def spandoek(d, x0, y0, b=62, hg=20, opgerold=False):
     """Spandoekje van een reclamevliegtuigje: wit doek met golvende onderrand en een groot roze hart."""
     if opgerold:
-        d.rondje(x0 + b / 2, y0, b / 2, 5, WIT, DONKER, dikte=1.2)
-        for i in range(1, 4): d.rondje(x0 + i * b / 4, y0, 1.4, 4, (170, 170, 170))
-        d.blob([(x0 + b, y0 - 4), (x0 + b + 14, y0 - 2), (x0 + b + 16, y0 + 8), (x0 + b, y0 + 5)], WIT, DONKER, 1.0)
-        hartje(d, x0 + b + 8, y0 + 2, 4.5, ROZE, None)
+        # rol met een stuk doek dat er nog uit hangt, met het hart erop: zo herken je het spandoek
+        d.blob([(x0 + b - 4, y0 - 7), (x0 + b + 26, y0 - 4), (x0 + b + 28, y0 + 14), (x0 + b - 4, y0 + 10)], WIT, DONKER, 1.4)
+        hartje(d, x0 + b + 12, y0 + 3, 7, ROZE, None)
+        d.rondje(x0 + b / 2, y0, b / 2, 7.5, WIT, DONKER, dikte=1.4)
+        for i in range(1, 6): d.rondje(x0 + i * b / 6, y0, 1.2, 6, (170, 170, 170))
+        d.rondje(x0, y0, 3, 7.5, (170, 170, 170), DONKER, dikte=1.0)
         return
     golf = lambda x, t: 2.6 * math.sin((x - x0) / b * 2 * math.pi + t)
     boven = [(x0 + i * b / 12, y0 + golf(x0 + i * b / 12, 0)) for i in range(13)]
@@ -168,41 +170,58 @@ def zandbodem(d, dd, zak=0, y=210, licht=True):
 def kiezel(d, x, y, rx, ry, c): d.rondje(x, y, rx, ry, c, WIT, glans=WIT, dikte=1.4)
 
 
+def bodem(d, y, c, rand=WIT, golf=2.0, n=2):
+    """Bodem over de hele breedte met een golvende bovenrand (geen schijf)."""
+    pts = [(x, y + golf * math.sin(x / 260 * 2 * math.pi * n)) for x in range(-4, 266, 2)]
+    if rand: d.blob([(x, q - 1.6) for x, q in pts] + [(266, 270), (-4, 270)], rand)
+    d.blob(pts + [(266, 270), (-4, 270)], c)
+
+
+def bel_ring(d, x, y, r_):
+    d.dr.ellipse([(x - r_) * d.s, (y - r_) * d.s, (x + r_) * d.s, (y + r_) * d.s], outline=WIT, width=max(1, round(1.6 * d.s)))
+    d.rondje(x - r_ * .4, y - r_ * .4, max(.8, r_ * .18), max(.8, r_ * .18), WIT)
+
+
 def plek(d, dd, dier, zak=0, held_x=130, held_y=186, m=44, spiegel=False):
+    """Ronde 2: elke plek een eigen bodem die je meteen herkent, geen gele zandschijf met verre bollen meer."""
     X = (lambda x: 260 - x) if spiegel else (lambda x: x)
     if dier == 'ray':
-        # wit zand met rimpels (lichte bogen), een schelp, een kiezel, en het landingsspoor onder de held
-        zandbodem(d, dd, zak, y=204)
-        rimpel = (170, 170, 85) if not d.am else (200, 190, 120)
-        for x0, y0, b in [(40, 226, 46), (210, 224, 44), (70, 244, 50), (196, 244, 40)]:
-            pts = [(X(x0) + t - b / 2, y0 + zak + 2.2 * math.sin(t / b * 2 * math.pi * 1.5)) for t in range(0, int(b) + 1, 2)]
-            d.dr.line([d.P(*p) for p in pts], fill=rimpel, width=max(1, round(2 * d.s)), joint='curve')
-        kiezel(d, X(30), 210 + zak, 9, 6, (170, 170, 255))
-        d.rondje(X(232), 214 + zak, 7, 5, (255, 170, 170), WIT, dikte=1.2)
+        # wit rimpelzand over de hele breedte, met veel rimpels
+        bodem(d, 206 + zak, WIT if not d.am else (238, 238, 228), (170, 170, 170) if not d.am else (190, 190, 180))
+        rimpel = (170, 170, 85) if not d.am else (196, 186, 140)
+        for i, y0 in enumerate([214, 224, 236, 250]):
+            pts = [(x, y0 + zak + 2.4 * math.sin(x / 26 * 2 * math.pi + i)) for x in range(0, 261, 2)]
+            d.dr.line([d.P(*q) for q in pts], fill=rimpel, width=max(1, round(2.2 * d.s)), joint='curve')
+        d.rondje(X(30), 212 + zak, 6, 4, (255, 170, 170), (170, 85, 85), dikte=1.2)
     elif dier == 'manta':
-        # open water; ver weg rechts een lichte zandbank (rond), twee kiezels, een zeestertje
-        verder = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else dd['mip_verder']
-        d.rondje(X(70), 214 + zak, 80, 14, verder)
-        d.rondje(X(206), 222 + zak, 70, 24, ZAND_DONKER)
-        d.rondje(X(206), 226 + zak, 66, 22, ZAND if not d.am else (235, 225, 150))
-        d.dr.ellipse([-60 * d.s, (240 + zak) * d.s, 320 * d.s, 340 * d.s], fill=ZAND_DONKER)
-        kiezel(d, X(162), 236 + zak, 6, 4, (170, 170, 255)); kiezel(d, X(250 - 4), 230 + zak, 5, 3.6, (255, 170, 170))
-        v3.zeester(d, X(186), 214 + zak, 6)
+        # open water, ver weg een lage zandbank (heuvel met witte rand) en daarvoor het opgerolde spandoek, groot
+        d.rondje(X(196), 238 + zak, 92, 34, WIT)
+        d.rondje(X(196), 240 + zak, 90, 32, ZAND if not d.am else (235, 225, 150))
+        d.rondje(X(150), 230 + zak, 4, 2.6, (170, 85, 85) if not d.am else (170, 120, 80))
+        d.rondje(X(238), 226 + zak, 4, 2.6, (170, 85, 85) if not d.am else (170, 120, 80))
     elif dier == 'dolphin':
-        # open water met lichtvlekken op het zand (ronde lichte plekken), twee ronde stenen, een schelp
-        zandbodem(d, dd, zak, y=214)
-        vlek = (255, 255, 255) if not d.am else (250, 245, 200)
-        for x0, y0, rx, ry in [(46, 230, 14, 4), (92, 244, 10, 3), (196, 236, 16, 4.5), (232, 224, 8, 3)]:
+        # glad bodempje (vlak, lichtgrijs-blauw met witte rand) met ronde lichtvlekken, bellenringen opzij
+        bodem(d, 218 + zak, (85, 170, 170) if not d.am else (70, 150, 160), WIT, golf=1.2, n=1)
+        vlek = (170, 255, 255) if not d.am else (170, 240, 235)
+        for x0, y0, rx, ry in [(40, 230, 16, 4.5), (96, 246, 12, 3.6), (190, 236, 18, 5), (236, 226, 9, 3)]:
             d.rondje(X(x0), y0 + zak, rx, ry, vlek)
-        kiezel(d, X(24), 214 + zak, 12, 9, (85, 85, 170)); kiezel(d, X(240), 214 + zak, 10, 7, (85, 85, 170))
-        d.rondje(X(214), 246 + zak, 6, 4, (255, 170, 170), WIT, dikte=1.2)
+        for x0, y0, r_ in [(30, 196, 5), (38, 176, 3.6), (32, 160, 2.6), (232, 192, 4.4), (226, 174, 3.2)]:
+            bel_ring(d, X(x0), y0 + zak, r_)
     else:   # swordfish
-        # open blauw met lichtstreepjes in het water, zand, twee ronde stenen
+        # open blauw met lichtstreepjes; alleen een smalle zandstrook onderin voor het hartje
         streep = (0, 170, 255) if not d.am else (60, 160, 220)
-        for x0, y0, b in [(30, 150, 30), (210, 160, 34), (44, 176, 22), (226, 182, 20)]:
+        for x0, y0, b in [(28, 150, 30), (206, 160, 34), (40, 176, 22), (222, 184, 22)]:
             lijn(d, [(X(x0), y0 + zak), (X(x0 + b), y0 + zak)], streep, 2.4)
-        zandbodem(d, dd, zak, y=216)
-        kiezel(d, X(22), 222 + zak, 10, 7, (170, 85, 255)); kiezel(d, X(244), 220 + zak, 8, 6, (170, 85, 255))
+        bodem(d, 194 + zak, ZAND if not d.am else (235, 225, 150), WIT, golf=2.4, n=1)
+
+
+def spoor(d, gx, gy, gr):
+    """Landingsspoor: een brede ronde groef in het witte zand met drie putjes van de pootjes."""
+    zd = (170, 170, 85) if not d.am else (170, 160, 110)
+    d.rondje(gx, gy, gr, gr * .22, zd)
+    d.rondje(gx, gy - .8, gr * .80, gr * .16, WIT if not d.am else (238, 238, 228))
+    for dx, dy in ((-.9, 0), (0, .2), (.9, 0)):
+        d.rondje(gx + dx * gr * .9, gy + dy * gr + 1, 4, 2.6, (85, 85, 85) if not d.am else (110, 100, 70))
 
 
 def schaduw(d, x, y, b):
@@ -215,11 +234,8 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
     wie = WIE[dier]
     if dier == 'ray':
         # het landingsspoor: een ronde ring met drie putjes, de rog zweeft erboven met de lampjes uit
-        gx, gy, gr = (184, 224, 26) if scherm != 'eind' else (60, 238, 24)
-        d.rondje(gx, gy, gr, 8, ZAND_DONKER, WIT, dikte=1.4)
-        d.rondje(gx, gy, gr * .74, 5, ZAND if not d.am else (235, 225, 150))
-        for dx, dy in ((-.62, 2), (0, 5.5), (.62, 2)): d.rondje(gx + dx * gr, gy + dy, 3.2, 2.0, (170, 85, 85) if not d.am else (150, 110, 60))
-        schaduw(d, hx, hy + .9 * m + 8, m * .7)
+        gx, gy, gr = (hx + 6, 238, 54) if scherm != 'eind' else (74, 238, 34)
+        spoor(d, gx, gy, gr)
         if HELD_AAN:
             v3.dier_kantel(d, hx, hy, m, wie, 0); ufo_lichtjes(d, hx, hy, m, 0, aan=False)
     elif dier == 'manta':
@@ -233,7 +249,7 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
         mk = merk(wie)
         hoek = -10       # neus omlaag: de punt van zijn zwaard staat in het zand
         r = rot(hx, hy, m, hoek); tx, ty = r(*mk['neus'])
-        zand_hart(d, tx - 22, ty + 1, 19)
+        zand_hart(d, tx - 26, ty, 24)
         if HELD_AAN:
             v3.dier_kantel(d, hx, hy, m, wie, hoek)
         return (tx, ty)
@@ -304,7 +320,7 @@ def hold(D_, am, dd, nacht, dier):
     v3.onder(d, dd, nacht, xo=hx - 6, xh=hx - 2)
     plek(d, dd, dier)
     if dier == 'manta':
-        spandoek(d, 176, 222, 46, opgerold=True)
+        spandoek(d, 96, 230, 62, opgerold=True)
     held_onder(d, dier, hx, hy, m, nacht)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
@@ -320,7 +336,7 @@ def menu(D_, am, dd, nacht, dier):
     v3.onder(d, dd, nacht, xo=hx - 8, xh=hx - 4)
     plek(d, dd, dier, zak=4)
     if dier == 'manta':
-        spandoek(d, 172, 228, 46, opgerold=True)
+        spandoek(d, 96, 234, 62, opgerold=True)
     held_onder(d, dier, hx, hy, m, nacht, 'menu')
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
@@ -339,7 +355,7 @@ def eind(D_, am, dd, nacht, dier):
     d = Doek(D_, am); w.water_onder(d, dd, nacht, stralen=0, raster_y=146)
     v.bundel(d, dd, nacht, xo=184, xh=184, yh=136)
     plek(d, dd, dier, zak=14)
-    if dier == 'manta': spandoek(d, 168, 236, 40, opgerold=True)
+    if dier == 'manta': spandoek(d, 120, 240, 50, opgerold=True)
     stofjes(d, dd)
     for x, y, k in [(228, 76, 7), (236, 140, 5)]: fonkel(d, x, y, k)
     bx, by, brx, bry = 186, 108, 36, 32
@@ -363,6 +379,7 @@ def eind(D_, am, dd, nacht, dier):
         elif dier == 'dolphin':
             v3.dier_kantel(d, 76, 116, 32, wie, 6); duikbril(d, 76, 116, 32, 6, wie, op_voorhoofd=True, snorkel=False)
         else:
+            zand_hart(d, 98, 230, 12)
             v3.dier_kantel(d, 82, 118, 30, wie, 4)
     d.tekst(130, 150, 'new friend', 18, WIT, False)
     naam = VRIEND[dier]

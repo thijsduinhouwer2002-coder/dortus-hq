@@ -37,6 +37,8 @@ for dn in sys.argv[1:] or v.DIEREN:
                 kk = (L(c) + .05) / (hi + .05); laagste = min(laagste, kk)
                 if kk < 4.5: slecht += 1; print(f'CONTRAST {tag0}: "{s}" {kk:.1f}')
             mk = ImageChops.difference(a, b).convert('L').point(lambda q: 255 if q > 24 else 0)
+            if D_ == 260 and naam in ('hold', 'menu'):
+                bb = mk.getbbox(); print(f'BREEDTE {tag0}: held-groep {bb[2] - bb[0]} px')
             m_ = mk.load(); pts = [(x, y) for y in range(D_) for x in range(D_) if m_[x, y]]
             for s, c, (x0, y0, x1, y1) in vk:
                 if not pts: break

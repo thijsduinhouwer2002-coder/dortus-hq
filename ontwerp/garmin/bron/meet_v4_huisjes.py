@@ -46,3 +46,13 @@ print('schermen:', n)
 print('contrast, regels onder 4,5:', slecht)
 print('krap (binnen marge + 4):', len(krap)); [print('  ', t) for t in krap[:20]]
 print(f'veilige zone, regels te dicht (marge {MARGE}/260):', fout)
+# Breedte van de held (alleen de sticker) bij hold en menu op 260: eis 65 px (een kwart)
+smal = 0
+for dier in (sys.argv[1:] or v.DIEREN):
+    for naam in ('hold', 'menu'):
+        a = v.scherm(naam, dier)(260, False, v.DAG, False).convert('RGB')
+        v.ZONDER_DIER[0] = True; b = v.scherm(naam, dier)(260, False, v.DAG, False).convert('RGB'); v.ZONDER_DIER[0] = False
+        bb = ImageChops.difference(a, b).convert('L').point(lambda q: 255 if q > 24 else 0).getbbox()
+        br = bb[2] - bb[0] if bb else 0
+        print(f'breedte held {dier} {naam}: {br} px'); smal += br < 65
+print('held smaller dan 65 px:', smal)

@@ -80,7 +80,7 @@ def paal(d, x, y0, y1, knop=True):
         d.rondje(x, y0 - 13.5, 2, 2, GOUD, DONKER, dikte=1.0)
 
 
-def zonnebril(d, r, omhoog=False):
+def zonnebril(d, r, omhoog=False, k=1.0):
     """Zonnebril op de maanvis: glas over zijn oog, het tweede glas steekt voor zijn neus uit, pootje naar achter.
     omhoog = bij nacht op zijn voorhoofd."""
     dy = -.36 if omhoog else 0
@@ -90,7 +90,7 @@ def zonnebril(d, r, omhoog=False):
     for g, rr in ((g1, .17), (g2, .13)):
         dm = rr * (d.D and 1)
     m = math.hypot(r(1, 0)[0] - r(0, 0)[0], r(1, 0)[1] - r(0, 0)[1])
-    for g, rr in ((g1, .17), (g2, .135)):
+    for g, rr in ((g1, .17 * k), (g2, .135 * k)):
         d.rondje(g[0], g[1], rr * m, rr * m * .82, (0, 0, 0), WIT, dikte=1.3)
         d.rondje(g[0] - rr * m * .35, g[1] - rr * m * .3, rr * m * .28, rr * m * .2, (85, 85, 170))
 
@@ -155,7 +155,7 @@ def held_sunfish(d, hx, hy, m, hoek, nacht, boven=False):
     r = rot(hx, hy, m, hoek)
     v3.dier_kantel(d, hx, hy, m, MAAN, hoek)
     if boven: zonnebril(d, r, omhoog=nacht)
-    else: bril_aan_koord(d, r)
+    else: zonnebril(d, r, omhoog=True, k=1.3)      # onder water: de bril groot op zijn kop
 
 
 def held_shark(d, hx, hy, m, hoek, nacht, boven=False):
@@ -179,46 +179,64 @@ def bodem(d, dd, zak, heuvel=226, ruggen=((30, 190, 56, 26), (140, 200, 70, 16),
     if d.am: d.gloed_ellips(gloed_x, heuvel + 10 + zak, 46, 9, WIT, .4)
 
 
+HUIDIG = {'pos': (130, 190, 44)}      # positie van de held op dit scherm (hx, hy, maat), gezet door hold, menu en eind
+
+
 def plek_jelly(d, dd, zak=0, nacht=False):
-    """Open blauw met lichtbolletjes: alleen een lage zandbank, drie zwevende lichtbolletjes, twee steentjes."""
-    bodem(d, dd, zak, heuvel=234, ruggen=((40, 200, 60, 18), (220, 196, 60, 22)))
+    """Open blauw zonder bodem: zwevende lichtbolletjes en een lichte kring onder hem (hij zweeft, hij landt nergens)."""
+    hx, hy, m = HUIDIG['pos']
     licht = (170, 255, 255) if not nacht else (85, 255, 170)
-    for x, y, r_ in [(36, 176, 5), (52, 196, 3.6), (222, 170, 4.4), (236, 190, 3)]:
+    rand = (85, 170, 255) if not nacht else (0, 170, 170)
+    ky, rx = hy + 1.42 * m, .95 * m
+    if d.am: d.gloed_ellips(hx, ky, rx, .2 * m, dd['licht'], .35)
+    for k_, c in ((1.0, licht), (.62, rand)):
+        d.dr.ellipse([(hx - rx * k_) * d.s, (ky - .2 * m * k_) * d.s, (hx + rx * k_) * d.s, (ky + .2 * m * k_) * d.s], outline=c, width=max(1, round(1.8 * d.s)))
+    for x, y, r_ in [(34, 172, 5), (52, 196, 3.6), (40, 220, 4.4), (70, 236, 3), (224, 168, 4.6), (210, 200, 3.4), (230, 222, 4), (196, 236, 2.8)]:
         d.rondje(x, y + zak, r_, r_, licht, WIT, dikte=1.2); d.rondje(x - r_ * .3, y + zak - r_ * .3, r_ * .35, r_ * .35, WIT)
-    d.rondje(78, 244 + zak, 7, 4.5, (170, 170, 255), WIT, dikte=1.2)
-    d.rondje(190, 246 + zak, 6, 4, (255, 170, 170), WIT, dikte=1.2)
 
 
 def plek_seahorse(d, dd, zak=0, nacht=False):
-    """Zandheuvel met twee plukjes zeegras in geelgroen, een gouden ring in het zand en twee steentjes."""
-    bodem(d, dd, zak)
-    for x, n, hgt in [(42, 4, 34), (222, 5, 40)]:
-        v3.pluk(d, x, 236 + zak, n, hgt, (85, 170, 0), (170, 255, 85))
-    d.rondje(84, 244 + zak, 8, 4.4, GOUD, DONKER, dikte=1.2); d.rondje(84, 244 + zak, 4.6, 2.0, ZAND if not d.am else (235, 225, 150))
-    d.rondje(184, 246 + zak, 6, 4, (170, 170, 255), WIT, dikte=1.2)
+    """Groene zeegrasbult met dichte plukken rond de voet van zijn paal, een gouden ring ernaast."""
+    hx, hy, m = HUIDIG['pos']; px = hx + .30 * m; s = d.s
+    d.dr.ellipse([-40 * s, (226 + zak) * s, 300 * s, 340 * s], fill=(0, 170, 85))
+    d.dr.ellipse([-36 * s, (229 + zak) * s, 296 * s, 340 * s], fill=(0, 85, 85))
+    for x, n, hgt, c in [(30, 4, 40, (0, 170, 85)), (232, 5, 44, (0, 170, 85)), (px - 18, 4, 26, (85, 170, 0)), (px + 18, 4, 28, (85, 170, 0)),
+                         (62, 3, 22, (85, 170, 0)), (200, 3, 24, (0, 170, 85))]:
+        v3.pluk(d, x, 238 + zak, n, hgt, c, (170, 255, 85))
+    d.rondje(84, 246 + zak, 8, 4.4, GOUD, DONKER, dikte=1.2); d.rondje(84, 246 + zak, 4.6, 2.0, (0, 85, 85))
 
 
 def plek_sunfish(d, dd, zak=0, nacht=False):
-    """Licht zand vlak onder het oppervlak: lichtringen van de zon op het zand, een schelp en een strandbal."""
-    bodem(d, dd, zak, heuvel=222, ruggen=((40, 196, 60, 20), (230, 192, 56, 24)))
-    ring = (255, 255, 255) if not nacht else (170, 170, 255)
-    for cx, cy, rx, ry in [(70, 240, 14, 4), (196, 238, 16, 4.6), (130, 250, 12, 3.4)]:
-        d.dr.ellipse([(cx - rx) * d.s, (cy - ry + zak) * d.s, (cx + rx) * d.s, (cy + ry + zak) * d.s], outline=ring, width=max(1, round(1.4 * d.s)))
-    d.rondje(46, 230 + zak, 7, 5, (255, 170, 170), WIT, dikte=1.2)
-    bx, by = 220, 222 + zak
-    d.rondje(bx, by, 8, 8, WIT, DONKER, dikte=1.2)
-    d.dr.pieslice([(bx - 8) * d.s, (by - 8) * d.s, (bx + 8) * d.s, (by + 8) * d.s], 200, 260, fill=ROOD)
-    d.dr.pieslice([(bx - 8) * d.s, (by - 8) * d.s, (bx + 8) * d.s, (by + 8) * d.s], 320, 20, fill=(0, 85, 255))
-    d.dr.pieslice([(bx - 8) * d.s, (by - 8) * d.s, (bx + 8) * d.s, (by + 8) * d.s], 80, 140, fill=(255, 255, 0))
+    """Licht water vlak onder het oppervlak: geen bodem dichtbij, alleen ver weg een vage rug; lichtringen van de zon
+    zweven in het water, een strandbal drijft weg."""
+    s = d.s
+    ver = dd['ver'] if d.am else dd['mip_ver']
+    d.dr.ellipse([-20 * s, (246 + zak) * s, 280 * s, 330 * s], fill=ver)
+    ring = (170, 255, 255) if not nacht else (170, 170, 255)
+    for cx, cy, rx, ry in [(40, 170, 12, 3.6), (58, 196, 9, 2.8), (220, 176, 13, 3.6), (206, 206, 9, 2.8), (130, 244, 14, 3.6)]:
+        d.dr.ellipse([(cx - rx) * s, (cy - ry + zak) * s, (cx + rx) * s, (cy + ry + zak) * s], outline=ring, width=max(1, round(1.4 * s)))
+    bx, by = 40, 222 + zak
+    d.rondje(bx, by, 9, 9, WIT, DONKER, dikte=1.2)
+    for a0, c in ((200, ROOD), (320, (0, 85, 255)), (80, (255, 255, 0))):
+        d.dr.pieslice([(bx - 9) * s, (by - 9) * s, (bx + 9) * s, (by + 9) * s], a0, a0 + 60, fill=c)
 
 
 def plek_shark(d, dd, zak=0, nacht=False):
-    """Poetsstation: twee ronde rotsen links en rechts met sponsbolletjes, zand ertussen."""
-    bodem(d, dd, zak)
-    for x, y, rx, ry in [(30, 214, 34, 26), (232, 212, 34, 28)]:
-        d.rondje(x, y + zak, rx, ry, ROTS, ROTS_R, glans=ROTS_R)
-    for x, y, r_, c in [(22, 190, 5, (255, 170, 0)), (38, 194, 3.6, (255, 85, 170)), (238, 186, 5, (255, 85, 170)), (224, 192, 3.6, (255, 255, 85))]:
+    """Poetsstation: twee grote ronde rotsen links en rechts, een bordje met een tandenborstel erop (geen tekst), grind ertussen."""
+    s = d.s
+    d.dr.ellipse([-40 * s, (230 + zak) * s, 300 * s, 340 * s], fill=(0, 170, 170))
+    d.dr.ellipse([-36 * s, (233 + zak) * s, 296 * s, 340 * s], fill=(0, 85, 85))
+    for x, y, rx, ry in [(22, 212, 46, 42), (240, 210, 46, 44)]:
+        d.rondje(x, y + zak, rx, ry, (170, 85, 85), (255, 170, 170), glans=(255, 170, 170))
+    for x, y, r_, c in [(14, 174, 5, (255, 170, 0)), (32, 180, 3.6, (255, 255, 85)), (48, 196, 3, (255, 170, 0))]:
         d.rondje(x, y + zak, r_, r_, c, WIT, dikte=1.1)
+    # bordje op de rechter rots: wit met een roze tandenborstel als plaatje
+    bx, by = 222, 156 + zak
+    d.dr.rectangle([(bx - 2) * s, by * s, (bx + 2) * s, (by + 24) * s], fill=(255, 170, 85))
+    d.dr.rounded_rectangle([(bx - 17) * s, (by - 12) * s, (bx + 17) * s, (by + 6) * s], radius=5 * s, fill=WIT, outline=DONKER, width=max(1, round(1.6 * s)))
+    d.dr.line([d.P(bx - 12, by - 1), d.P(bx + 4, by - 5)], fill=ROZE, width=max(2, round(3 * s)))
+    d.dr.rectangle([(bx + 3) * s, (by - 9) * s, (bx + 12) * s, (by - 4) * s], fill=ROZE)
+    for i in range(4): d.dr.rectangle([(bx + 3.6 + i * 2.2) * s, (by - 11) * s, (bx + 4.8 + i * 2.2) * s, (by - 9) * s], fill=(0, 85, 255))
 
 
 PLEK = dict(jelly=plek_jelly, seahorse=plek_seahorse, sunfish=plek_sunfish, shark=plek_shark)
@@ -227,8 +245,8 @@ VRIEND = dict(jelly=(D[5], 'Seahorse'), seahorse=(D[6], 'Starfish'), sunfish=(D[
 # positie (hx, hy, maat) bij hold, menu en eind
 POS = dict(
     jelly=dict(hold=(130, 189, 44), menu=(130, 188, 42), eind=(70, 106, 30)),
-    seahorse=dict(hold=(124, 198, 42), menu=(124, 200, 40), eind=(68, 119, 30)),
-    sunfish=dict(hold=(128, 192, 48), menu=(128, 194, 46), eind=(70, 108, 32)),
+    seahorse=dict(hold=(124, 198, 42), menu=(124, 199, 42), eind=(68, 119, 30)),
+    sunfish=dict(hold=(128, 192, 48), menu=(128, 194, 48), eind=(70, 108, 32)),
     shark=dict(hold=(136, 182, 36), menu=(136, 184, 34), eind=(74, 104, 28)),
 )
 
@@ -274,7 +292,7 @@ def adem(D_, am, dd, nacht, dier, fase):
 # ---------------- onder water ----------------
 def hold(D_, am, dd, nacht, dier):
     v._KAP['y'] = 117 + 22
-    hx, hy, m = POS[dier]['hold']
+    hx, hy, m = POS[dier]['hold']; HUIDIG['pos'] = (hx, hy, m)
     d = Doek(D_, am); v3.onder(d, dd, nacht, xo=hx - 4, xh=hx)
     PLEK[dier](d, dd, 0, nacht)
     if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
@@ -289,7 +307,7 @@ def hold(D_, am, dd, nacht, dier):
 
 def menu(D_, am, dd, nacht, dier):
     v._KAP['y'] = 140
-    hx, hy, m = POS[dier]['menu']
+    hx, hy, m = POS[dier]['menu']; HUIDIG['pos'] = (hx, hy, m)
     d = Doek(D_, am); v3.onder(d, dd, nacht, xo=hx - 6, xh=hx)
     PLEK[dier](d, dd, 4, nacht)
     if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
@@ -307,7 +325,7 @@ def menu(D_, am, dd, nacht, dier):
 
 def eind(D_, am, dd, nacht, dier):
     """Indeling van v3.2 (d): kop en tijden tot y 70, held links, vriend in het belletje, naam van y 150 tot 196."""
-    v._KAP['y'] = 72
+    v._KAP['y'] = 72; HUIDIG['pos'] = POS[dier]['eind']
     d = Doek(D_, am); w.water_onder(d, dd, nacht, stralen=0, raster_y=146)
     v.bundel(d, dd, nacht, xo=184, xh=184, yh=136)
     PLEK[dier](d, dd, 16, nacht)
@@ -323,7 +341,7 @@ def eind(D_, am, dd, nacht, dier):
     d.blob(hart, ROZE, WIT, 1.6)
     d.tekst(130, 18, '3 rounds done', 27, GEEL)
     d.tekst(130, 46, '1:20   1:45   1:58', 22, WIT)
-    hx, hy, m = POS[dier]['eind']
+    hx, hy, m = POS[dier]['eind']; HUIDIG['pos'] = (hx, hy, m)
     if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
     else: HELD[dier](d, hx, hy, m, 0, nacht)
     d.tekst(130, 150, 'new friend', 18, WIT, False)

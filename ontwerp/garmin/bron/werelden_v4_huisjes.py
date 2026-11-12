@@ -28,6 +28,7 @@ BLAUW_L = (85, 170, 255)
 GRAS, GRAS_L = (0, 170, 85), (85, 255, 85)
 # voor de veilige-zone-toets: met ZONDER_HELD aan tekent geen enkel grapvoorwerp
 ZONDER_HELD = [False]
+ZONDER_DIER = [False]     # alleen de sticker weg (meting: breedte van de held)
 
 
 def held(fn):
@@ -50,6 +51,7 @@ def lijn(d, pts, c, b):
 
 @held
 def kantel(d, cx, cy, maat, wie, hoek):
+    if ZONDER_DIER[0]: return
     v3.dier_kantel(d, cx, cy, maat, wie, hoek)
 
 
@@ -137,9 +139,9 @@ def badje(d, f, voeten=True, voor=True):
         d.rondje(p[0], p[1], rr, rr, WIT, BLAUW_L, dikte=1.0)
 
 
-def bad_met_octo(d, cx, cy, m, hoek, eend_k=1.4, voeten=True, met_eend=True):
+def bad_met_octo(d, cx, cy, m, hoek, eend_k=1.4, voeten=True, met_eend=True, op=.32):
     f = R(cx, cy, hoek, m)
-    kantel(d, *f(0, -.32), m, OCTO, hoek)
+    kantel(d, *f(0, -op), m, OCTO, hoek)
     badje(d, f, voeten)
     if met_eend:
         ex, ey = f(1.12, -.06)
@@ -181,10 +183,24 @@ def schelp(d, x, y, k=1.0, c=(255, 170, 170), rib=(255, 85, 170)):
         lijn(d, [(x, y + 3 * k), (x + 10 * k * math.cos(math.radians(a)), y - 2 * k + 8 * k * math.sin(math.radians(a)))], rib, max(1, .9 * k))
 
 
+def kussen_rand(x0, y0, x1, y1, bol, n=8):
+    """Rand van een kussen: vier spitse punten, de zijden bollen tussen de punten naar buiten."""
+    hoeken = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]; pts = []
+    for i in range(4):
+        (ax, ay), (bx, by) = hoeken[i], hoeken[(i + 1) % 4]
+        nx, ny = (by - ay), -(bx - ax); L = math.hypot(nx, ny); nx, ny = nx / L, ny / L
+        for j in range(n):
+            t = j / n; b = bol * math.sin(math.pi * t) ** .6
+            pts.append((ax + (bx - ax) * t - nx * b, ay + (by - ay) * t - ny * b))
+    return pts
+
+
 @held
 def kussen(d, f):
-    d.blob([f(-1.35, .0), f(-.4, .05), f(.4, .05), f(1.35, .0), f(1.42, .32), f(1.35, .64), f(.4, .6), f(-.4, .6), f(-1.35, .64), f(-1.42, .32)], WIT, BLAUW_L, 1.6)
-    lijn(d, [f(-1.05, .32), f(1.05, .32)], (170, 255, 255), 1.0)
+    """Echt kussen: bijna vierkant met vier punten, een naad rondom en een knoopje in het midden."""
+    d.blob([f(*p) for p in kussen_rand(-1.25, -.05, 1.25, 1.15, .16)], WIT, BLAUW_L, 1.6)
+    lijn(d, [f(*p) for p in kussen_rand(-1.0, .14, 1.0, .96, .1)] + [f(-1.0, .14)], (85, 170, 255), 1.0)
+    p = f(0, .55); d.rondje(p[0], p[1], 1.8, 1.8, BLAUW_L)
 
 
 @held
@@ -257,13 +273,66 @@ def zee_egel(d, x, y, r_=6):
     d.rondje(x, y, r_, r_ * .8, (85, 0, 170), (170, 85, 255), dikte=1.2)
 
 
+def kiezelbodem(d, dd, zak=0, hx=124):
+    """Bodem van ronde kiezels (fles-wereld): grijsblauw met lichte keien, geen zand."""
+    s = d.s
+    verder = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else dd['mip_verder']
+    for cx, cy, rx, ry in ((60, 196, 90, 18), (210, 192, 80, 22)):
+        d.rondje(cx, cy + zak, rx, ry, verder)
+    d.dr.ellipse([-60 * s, (206 + zak) * s, 320 * s, 340 * s], fill=(170, 170, 255) if not d.am else (150, 160, 220))
+    d.dr.ellipse([-50 * s, (210 + zak) * s, 310 * s, 340 * s], fill=(85, 85, 170) if not d.am else (80, 90, 160))
+    kl = [(170, 170, 255), (170, 170, 170), (255, 170, 170), (255, 255, 170), (170, 255, 255)]
+    for i, (x, y, r_) in enumerate([(30, 222, 6), (46, 232, 4.5), (62, 222, 3.6), (40, 244, 5), (70, 240, 6.5), (98, 236, 4),
+                                    (112, 246, 5.5), (150, 238, 4.5), (170, 248, 6), (190, 232, 5.5), (210, 222, 4.4),
+                                    (222, 238, 6), (232, 226, 3.6), (196, 246, 3.8), (86, 250, 4.4), (136, 252, 4)]):
+        d.rondje(x, y + zak, r_, r_ * .7, kl[i % 5], WIT, dikte=1.0)
+    if d.am: d.gloed_ellips(hx, 230 + zak, 52, 10, WIT, .3)
+
+
+def schim_kleur(d, nacht):
+    return ((0, 30, 75) if not nacht else (0, 0, 40)) if d.am else ((0, 0, 85) if not nacht else (0, 0, 0))
+
+
+def fles_ver(d, dd, nacht, x, y, k):
+    """Een tweede, lege fles ver weg op de bodem: alleen een schim."""
+    c = schim_kleur(d, nacht)
+    f = R(x, y, -10, k)
+    d.blob([f(*p) for p in fles_punten()], c)
+
+
+def tuinalen(d, dd, nacht, zak=0):
+    """Ver weg meer aaltjes die uit hun gaatje steken: donkere schimmen, links en rechts (niet achter tekst)."""
+    c = schim_kleur(d, nacht)
+    for x, h, b in [(22, 18, 1), (34, 24, -1), (46, 16, 1), (206, 20, -1), (220, 26, 1), (236, 16, -1)]:
+        y0 = 200 + zak
+        pts = [(x + b * 3 * math.sin(t * 2.2), y0 - h * t) for t in [i / 8 for i in range(9)]]
+        lijn(d, pts, c, 3.6)
+        hx_, hy_ = pts[-1]
+        d.rondje(hx_ - b * 1.6, hy_, 2.6, 2.2, c)
+
+
+def vlaggetjes(d, x0, y0, x1, y1, zakking):
+    """Kermis: een lijn met vlaggetjes tussen twee ronde stenen."""
+    for x, y in ((x0, y0), (x1, y1)):
+        d.rondje(x, y + 6, 13, 10, (85, 85, 170), (170, 170, 255), glans=(170, 170, 255), dikte=1.6)
+    kl = [(255, 0, 0), (255, 255, 0), (0, 170, 255), (255, 85, 170), (85, 255, 85)]
+    n = 16; pts = []
+    for i in range(n + 1):
+        t = i / n; pts.append((x0 + (x1 - x0) * t, y0 - 4 + (y1 - y0) * t + zakking * 4 * t * (1 - t)))
+    lijn(d, pts, WIT, 1.2)
+    for i in range(1, n, 1):
+        (ax, ay), (bx, by) = pts[i], pts[i + 1] if i + 1 <= n else pts[i]
+        mx = (ax + bx) / 2
+        d.blob([(ax + 1, ay), (bx - 1, by), (mx, (ay + by) / 2 + 8)], kl[i % 5], WIT, .9)
+
+
 def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
     """Plek en held onder water; eind=True: alleen de plek (held wordt apart links getekend)."""
     hx = 124
-    zandvlakte(d, dd, zak, hx)
+    if dier == 'fish': kiezelbodem(d, dd, zak, hx)
+    else: zandvlakte(d, dd, zak, hx)
     if dier == 'fish':
-        steentje(d, 50, 228 + zak, 6, 3.6); steentje(d, 64, 236 + zak, 3.6, 2.4, (255, 170, 170))
-        if not eind: schelp(d, 214, 230 + zak, .8, (255, 255, 170), (255, 170, 0))
+        fles_ver(d, dd, nacht, 44, 196 + zak, 9)
         if held_:
             schaduw(d, 120, 222 + zak, 58)
             fles_met_vis(d, 126, 190 + zak, 40, 34, -4)
@@ -272,10 +341,12 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
         steentje(d, 44, 226 + zak, 6, 3.6); steentje(d, 214, 232 + zak, 5, 3, (255, 170, 170))
         zee_egel(d, 60, 236 + zak, 4.4)
         if held_:
-            schaduw(d, 128, 224 + zak, 56)
-            bad_met_octo(d, 128, 194 + zak, 40, -5, met_eend=False)
+            cy = 204 + zak * .3
+            schaduw(d, 128, cy + 34, 58)
+            bad_met_octo(d, 128, cy, 42, -4, met_eend=False, op=.56)
     elif dier == 'eel':
-        for x, y, rx in [(52, 226, 7), (206, 230, 7), (92, 240, 6), (164, 242, 5.5)]:
+        tuinalen(d, dd, nacht, zak)
+        for x, y, rx in [(52, 226, 7), (206, 230, 7), (92, 240, 6), (164, 242, 5.5), (34, 216, 5), (226, 220, 5), (128, 232, 5)]:
             gaatje(d, x, y + zak, rx, rx * .4)
         steentje(d, 226, 214 + zak, 4, 2.6, (255, 170, 170))
         if held_:
@@ -287,8 +358,7 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
             # zandlip voor het gaatje: zijn staart zit in het zand
             d.blob([(tx - 13, ty + .6), (tx + 13, ty + .6), (tx + 11, ty + 4), (tx - 11, ty + 4)], ZAND if not d.am else (235, 225, 150))
     elif dier == 'puffer':
-        steentje(d, 46, 226 + zak, 6, 3.6); steentje(d, 60, 234 + zak, 3.6, 2.4, (255, 170, 170))
-        zee_egel(d, 210, 226 + zak, 5)
+        vlaggetjes(d, 52, 202 + zak, 210, 200 + zak, 16)
         if held_:
             sx, sy = 160, 228 + zak
             schaduw(d, 124, 222 + zak, 34)
@@ -343,12 +413,12 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         kantel(d, hx, y, m, PUFF, hoek)
         knoopje(d, bx, by - 1, .9)
     elif dier == 'cucumber':
-        hx = {'in': 180, 'calm': 176, 'uit': 130}[fase]; y = top + dy - 6; m = 30
+        hx = {'in': 180, 'calm': 176, 'uit': 130}[fase]; y = top + dy - 14; m = 28
         f = R(hx, y, hoek, m)
-        kussen(d, R(hx, y + .2 * m, hoek, m))
+        kussen(d, R(hx, y + .32 * m, hoek, m))
         kantel(d, hx, y, m, CUKE, hoek)
         slaapmuts(d, f, m)
-        golfje(d, hx, y + 18, 46, nacht)
+        golfje(d, hx, y + 34, 50, nacht)
         zzz(d, [f(.5, -1.05) + (3.4,), f(1.0, -1.4) + (4.6,), f(1.6, -1.75) + (5.8,)])
     v3.tekst_adem(d, top, woord, getal, onder)
     return d.klaar()

@@ -195,6 +195,8 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         dobber(d, *dob, 1.2)
     elif dier == 'otter':
         hx = 136 if hoog else 158; hy = top - 6
+        # ronde 2: 70 tot 90 graden gedraaid geprobeerd (-80, 100, 180): dan staat hij rechtop of op zijn kop.
+        # De sticker ligt zelf al op zijn rug met iets op zijn buik; plat laten en de schelp op die buik leggen.
         v3.dier_kantel(d, hx, hy, 36, OTTER, hoek * .6)
         schelp(d, hx + 4, hy - 8, 1.35)
         steentje(d, hx + 20, hy - 2, 1.2)
@@ -204,65 +206,82 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
 
 
 # ---------------- plekken onder water ----------------
-def zandbodem(d, dd, zak=0, y=222, kl=None):
+def bodem(d, y, c, rand, zak=0, golf=3):
+    """Een eigen bodemvlak met lichte golvende rand (geen gele zandschijf meer, ronde 2)."""
     s = d.s
-    verder = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else dd['mip_verder']
-    for cx, cy, rx, ry in [(40, 186, 60, 24), (150, 194, 70, 18), (236, 180, 50, 30)]:
-        d.rondje(cx, cy + zak, rx, ry, verder)
-    d.dr.ellipse([-40 * s, (y + zak) * s, 300 * s, 340 * s], fill=ZAND_DONKER)
-    d.dr.ellipse([-30 * s, (y + 4 + zak) * s, 290 * s, 340 * s], fill=kl or (ZAND if not d.am else (235, 225, 150)))
+    pts = [d.P(x, y + zak + golf * math.sin(x / 260 * 2 * math.pi * 2.5)) for x in range(0, 261, 2)]
+    d.dr.polygon([(p[0], p[1] - 2.2 * s) for p in pts] + [d.P(260, 262), d.P(0, 262)], fill=rand)
+    d.dr.polygon(pts + [d.P(260, 262), d.P(0, 262)], fill=c)
+
+
+GRIJS, GRIJS_L, GRIJS_D = (170, 170, 170), WIT, (85, 85, 85)
 
 
 def plek(d, dd, dier, hx, hy, m, held=True, zak=0, nacht=False, stand='hold'):
     """Eigen plek per dier, drie tot vijf dingen, alles binnen de ronde rand; held vooraan."""
-    if dier == 'shrimp':   # kiezelstrandje onder een steiger
-        zandbodem(d, dd, zak, 220)
-        for px in (40, 220):
-            staaf(d, (px, 120 + zak), (px, 232 + zak), 11, HOUT, HOUT_L, 1.8)
-        for x, y, r_, c in [(70, 236, 7, (170, 170, 170)), (84, 240, 5, (255, 170, 170)), (186, 240, 6, (170, 170, 255)), (200, 234, 4.5, (170, 170, 170)), (58, 244, 4, WIT)]:
-            d.rondje(x, y + zak, r_, r_ * .75, c, WIT, dikte=1.1)
+    if dier == 'shrimp':   # kiezelstrandje onder een steiger: grijze kiezelbank, twee palen met een dwarsbalk, een touw
+        bodem(d, 224, GRIJS_D, GRIJS, zak)
+        for i, x in enumerate(range(10, 260, 15)):
+            d.rondje(x, 238 + zak + 5 * (i % 2), 6.5, 4.6, GRIJS if i % 3 else (255, 170, 170), WIT, dikte=1)
+        for px in (36, 224):
+            staaf(d, (px, 132 + zak), (px, 236 + zak), 12, HOUT, HOUT_L, 1.8)
+            for yy in (176, 204): d.rondje(px, yy + zak, 6, 2, (85, 170, 85))      # aangroei op de paal
+        if stand != 'eind':
+            d.dr.arc([d.P(36, 120 + zak), d.P(224, 190 + zak)], 20, 160, fill=HOUT_L, width=max(1, round(2 * d.s)))   # hangend touw tussen de palen
         if held:
             surfplank(d, hx + m * 1.25, hy + 4, m * .8, staand=True)
             d.dier(hx, hy, m, SHRIMP)
-    elif dier == 'starfish':   # getijdenpoel met mosselbank
-        zandbodem(d, dd, zak, 214)
-        for x, y, rx, ry in [(26, 222, 28, 22), (234, 220, 30, 24), (70, 238, 22, 13), (196, 240, 24, 13)]:
-            d.rondje(x, y + zak, rx, ry, (85, 85, 170), (170, 170, 255), glans=(170, 170, 255))
-        for x, y in [(18, 202), (30, 198), (240, 198), (228, 202), (252, 206)]:
+    elif dier == 'starfish':   # getijdenpoel: ring van grijze rotsen om een kom licht water, mossels op de rand
+        bodem(d, 218, GRIJS_D, GRIJS, zak)
+        d.rondje(130, 246 + zak, 96, 20, (0, 170, 170), WIT, dikte=2)              # de poel
+        d.rondje(130, 250 + zak, 80, 12, (85, 255, 255))
+        for x, y, rx, ry in [(22, 220, 26, 20), (238, 218, 26, 22), (40, 244, 16, 10), (222, 244, 16, 10)]:
+            d.rondje(x, y + zak, rx, ry, GRIJS, WIT, glans=WIT)
+        for x, y in [(14, 202), (28, 200), (244, 200), (232, 204)]:
             d.rondje(x, y + zak, 5, 3, DONKER, (85, 85, 255), dikte=1.1)
-        d.rondje(130, 240 + zak, 70, 9, (0, 170, 170) if d.am else (0, 170, 170), WIT, dikte=1.4)    # het poeltje
         if held:
             telescoop(d, hx + m * 1.5, hy + m * .45, hoek=-20, k=1.45 * m / 40, nacht=nacht, poten=False)
             d.dier(hx, hy, m, STAR)
-    elif dier == 'lobster':   # zeegrastuin met hartje
-        zandbodem(d, dd, zak, 220)
-        for x, y, r_ in [(30, 206, 18), (232, 204, 20)]:
-            d.rondje(x, y + zak, r_, r_ * .9, GROEN_D, GROEN_L)
-            d.rondje(x - 4, y - 5 + zak, r_ * .5, r_ * .45, GROEN)
-        for x in (56, 206):
-            d.rondje(x, 238 + zak, 6, 4, (255, 170, 170), WIT, dikte=1.1)
+    elif dier == 'lobster':   # tuin: groen gazon, wit tuinhekje, twee bloempotten op de bodem
+        bodem(d, 222, (0, 170, 85), GROEN_L, zak)
+        for x in range(14, 252, 16):
+            if 70 < x < 196 and held: continue          # hekje opzij: de held en zijn hartje staan vrij
+            e = 12 if stand == 'eind' else 0
+            d.blob([(x - 4, 224 + zak), (x - 4, 196 + zak + e), (x, 191 + zak + e), (x + 4, 196 + zak + e), (x + 4, 224 + zak)], WIT, GRIJS_D, 1)
+        for yy in (202, 216):
+            for x0, x1 in ((6, 74), (190, 254)) if held else ((6, 254),):
+                ee = 8 if stand == 'eind' else 0
+                d.dr.rectangle([d.P(x0, yy + zak + ee), d.P(x1, yy + 3 + zak + ee)], fill=WIT)
+        bloempot(d, 44, 238 + zak, 1.0); bloempot(d, 214, 240 + zak, .9)
         if held:
             zeegras_hart(d, hx + m * 1.55, hy - m * .2, m * .62)
             d.dier(hx, hy, m, LOBSTER)
-    elif dier == 'seal':   # ijsklonten op de bodem, dobber en visje
-        zandbodem(d, dd, zak, 222, kl=(170, 255, 255) if not d.am else (200, 235, 245))
-        for x, y, rx, ry in [(28, 214, 26, 22), (234, 210, 28, 26), (78, 236, 14, 10)]:
-            d.rondje(x, y + zak, rx, ry, IJS, WIT, glans=WIT)
+    elif dier == 'seal':   # onder het ijs: donkere ijsrand bovenin, een kleine schots, donkere stenen bodem
+        s = d.s
+        ijs, ijs_r = ((0, 85, 170), (85, 170, 255)) if not nacht else ((0, 0, 170), (85, 85, 255))
+        pts = [(x, 14 + 4 * math.sin(x / 9) + 3 * math.sin(x / 23)) for x in range(0, 261, 3)]
+        d.dr.polygon([d.P(x, y + 2) for x, y in pts] + [d.P(260, 0), d.P(0, 0)], fill=ijs_r)
+        d.dr.polygon([d.P(x, y) for x, y in pts] + [d.P(260, 0), d.P(0, 0)], fill=ijs)
+        if stand != 'eind': ijsschots(d, 206, 22, 20, 5)   # kleine schots in de ijsrand
+        bodem(d, 226, (0, 85, 85), (85, 170, 170), zak)
+        for x, y, r_ in [(24, 236, 9), (56, 244, 6), (206, 242, 7), (236, 234, 10)]:
+            d.rondje(x, y + zak, r_, r_ * .7, GRIJS_D, GRIJS, dikte=1.1)
         if held:
             dx_, dy_ = hx + m * 1.35, hy - m * .7
             d.dr.line([d.P(dx_, dy_ - 20), d.P(dx_, dy_ - 10)], fill=WIT, width=max(1, round(1.2 * d.s)))
             dobber(d, dx_, dy_, 1.25)
             visje(d, dx_ + 4, dy_ + 18, 1.0, links=True)
             d.dier(hx, hy, m, SEAL)
-    elif dier == 'otter':   # kelpwoud, vastgeknoopt aan een kelplint
-        zandbodem(d, dd, zak, 224)
-        for x0, b, h in [(18, 10, 120), (36, 8, 96), (226, 9, 112), (246, 10, 128)]:
-            kelplint(d, x0, 236 + zak, x0 + (6 if x0 < 130 else -6), 236 + zak - h, buig=5, b=b * .7)
+    elif dier == 'otter':   # kelpwoud: donkergroene bodem, hoge kelplinten met blaasjes aan beide kanten
+        bodem(d, 228, GROEN_D, KELP, zak)
+        for x0, b, h in [(14, 9, 150), (34, 8, 112), (54, 7, 80), (208, 7, 86), (228, 8, 120), (248, 9, 156)]:
+            top = 236 + zak - h
+            kelplint(d, x0, 240 + zak, x0 + (6 if x0 < 130 else -6), top, buig=5, b=b * .75)
             for i in range(3):
-                yy = 236 + zak - h * (.35 + i * .25); d.blob([(x0, yy), (x0 + 10, yy - 7), (x0 + 3, yy - 2)], KELP, KELP_L, 1)
-        d.rondje(196, 240 + zak, 8, 5, (170, 170, 170), WIT, dikte=1.1)
+                yy = 236 + zak - h * (.3 + i * .25); sg = 1 if x0 < 130 else -1
+                d.blob([(x0, yy), (x0 + sg * 11, yy - 7), (x0 + sg * 3, yy - 2)], KELP, KELP_L, 1)
+                d.rondje(x0 + sg * 4, yy + 3, 2.2, 2.2, (255, 255, 85))
         if held:
-            # lint van de bodem naar zijn buik, met een strik: hij drijft niet weg
             lint_vast(d, hx + 6, 248, hx + 2, hy + m * .35, buig=6, b=5)
             d.dier(hx, hy, m, OTTER)
             bx, by = hx + 2, hy + m * .38
@@ -289,7 +308,7 @@ def hold(D_, am, dd, nacht, dier):
 def menu(D_, am, dd, nacht, dier):
     v._KAP['y'] = 140
     d = Doek(D_, am)
-    hx, hy, m = {'shrimp': (112, 194, 38), 'starfish': (112, 198, 34), 'lobster': (106, 196, 36),
+    hx, hy, m = {'shrimp': (112, 194, 38), 'starfish': (112, 196, 37), 'lobster': (106, 196, 36),
                  'seal': (118, 200, 33), 'otter': (116, 198, 36)}[dier]
     v3.onder(d, dd, nacht, xo=hx + 6, xh=hx + 8)
     plek(d, dd, dier, hx, hy, m, zak=6, nacht=nacht, stand='menu')
