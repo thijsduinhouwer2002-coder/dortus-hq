@@ -19,14 +19,20 @@ module KrabV2Tekst {
         var y = 0;
         if (scherm <= 2) {
             var top = ([134, 170, 146] as Array<Number>)[scherm];
-            y = regel(dc, d, v.q(scherm == 0 ? 10 : 18), EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 78);
-            y = regel(dc, d, y, EbbTeken.grootKlein(), (["12", "9", "5"] as Array<String>)[scherm], wit, 100);
+            // Run 43139810543: de cijferletter vult zijn hele regel, dus geen overlap met de kop; de cijfers eindigen
+            // 3 px boven de scharen, de kop staat er direct boven (niet hoger dan 4/260).
+            var hk = dc.getFontHeight(EbbTeken.fM()) * 92 / 100;
+            var yd = v.q(top - 24) - 3 - dc.getFontHeight(EbbTeken.grootKlein());
+            yd = yd > v.q(18) + hk ? v.q(18) + hk : yd;
+            yd = yd < v.q(4) + hk ? v.q(4) + hk : yd;
+            regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
+            y = regel(dc, d, yd, EbbTeken.grootKlein(), (["12", "9", "5"] as Array<String>)[scherm], wit, 100);
             regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", scharen vanaf " + v.q(top - 24));
         } else if (scherm == 3) {
-            y = regel(dc, d, v.q(14), EbbTeken.fM(), "hold", geel, 78);
-            y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 82);
-            y = regel(dc, d, y, EbbTeken.grootKlein(), "1:45", wit, 92);
+            y = regel(dc, d, v.q(12), EbbTeken.fM(), "hold", geel, 90);
+            y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
+            y = regel(dc, d, y, EbbTeken.grootKlein(), "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", scharen vanaf " + v.q(184 - 28));
         } else if (scherm == 4) {
