@@ -17,8 +17,10 @@ function testMaanfaseBekendeDagen(logger as Test.Logger) as Boolean {
 
 (:test)
 function testDagdeel(logger as Test.Logger) as Boolean {
-    return EbbLucht.dagdeel(4) == 3 && EbbLucht.dagdeel(5) == 0 && EbbLucht.dagdeel(9) == 1 && EbbLucht.dagdeel(17) == 1
-        && EbbLucht.dagdeel(18) == 2 && EbbLucht.dagdeel(21) == 3 && EbbLucht.dagdeel(0) == 3;
+    // Uren van Mila (lucht v1.4): ochtend 6 tot 10, dag 10 tot 17, avond 17 tot 21, nacht 21 tot 6.
+    return EbbLucht.dagdeel(5) == 3 && EbbLucht.dagdeel(6) == 0 && EbbLucht.dagdeel(9) == 0 && EbbLucht.dagdeel(10) == 1
+        && EbbLucht.dagdeel(16) == 1 && EbbLucht.dagdeel(17) == 2 && EbbLucht.dagdeel(20) == 2 && EbbLucht.dagdeel(21) == 3
+        && EbbLucht.dagdeel(0) == 3 && EbbLucht.KLEUR.size() == 4 && EbbLucht.STERREN.size() == 14;
 }
 
 (:test)

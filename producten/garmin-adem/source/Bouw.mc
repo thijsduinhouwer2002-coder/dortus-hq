@@ -6,7 +6,7 @@ import Toybox.Lang;
 module EbbBouw {
     const DEMO = true;
     const PLAATJE = false;
-    const SCENES = 47;
+    const SCENES = 51;
     const INHOUD_MS = [3000, 5000] as Array<Number>;
 }
 
@@ -14,7 +14,7 @@ module EbbBouw {
 module EbbBouw {
     const DEMO = false;
     const PLAATJE = false;
-    const SCENES = 47;
+    const SCENES = 51;
     const INHOUD_MS = [] as Array<Number>;
 }
 
@@ -24,6 +24,6 @@ module EbbBouw {
 module EbbBouw {
     const DEMO = false;
     const PLAATJE = true;
-    const SCENES = 47;
+    const SCENES = 51;
     const INHOUD_MS = [] as Array<Number>;
 }

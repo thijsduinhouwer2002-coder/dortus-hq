@@ -32,6 +32,8 @@ module EbbOverzicht {
     }
 
     function vandaag(dc as Graphics.Dc, d as Number, v as EbbView or Null) as Void {
+        dc.setColor(EbbTeken.NACHT, EbbTeken.NACHT);
+        dc.clear();
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "today", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbZee.strook(dc, d);
@@ -109,6 +111,8 @@ module EbbOverzicht {
     }
 
     function weken(dc as Graphics.Dc, d as Number, v as EbbView or Null) as Void {
+        dc.setColor(EbbTeken.NACHT, EbbTeken.NACHT);
+        dc.clear();
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "8 weeks", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbZee.strook(dc, d);
