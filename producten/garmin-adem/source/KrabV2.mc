@@ -28,6 +28,8 @@ class KrabV2View extends WatchUi.View {
     // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
     var wereld as Number = 0; // nummer uit de lijst in KrabV2Werelden.mc, of KrabV2Werelden.THUIS
     var dier as Number = 4;
+    // Run 64: de allereerste sessie (nog geen dier) speelt in de gedeelde zee zonder held (WereldSessie.mc).
+    var zonderHeld as Boolean = false;
     private var _w as KrabV2Wereld;
     // Keuring 05:25 punt 6: bij inademen krab 8/260 lager en de kam 8 onder zijn midden (schuimlijn onder het lijf).
     var sl as Array<Float> = [158.0, 154.0, 1.4125, -13.0] as Array<Float>;
@@ -183,7 +185,9 @@ class KrabV2View extends WatchUi.View {
                 KrabV2Thuis.laag(self, dc, stap, _am, nacht, 214);
             }
         } else if (stap == 4) {
-            _w.onderHeld(self, dc, scherm, _am, _held);
+            if (!zonderHeld) {
+                _w.onderHeld(self, dc, scherm, _am, _held);
+            }
         } else if (scherm <= 2) {
             KrabV2Boven.boven(self, dc, stap, _am, nacht, kam());
             if (stap == 3) {
@@ -232,7 +236,9 @@ class KrabV2View extends WatchUi.View {
         }
         // In de echte sessie staat de held er ook tijdens het opbouwen van een nieuw scherm (wissel van in naar uit):
         // anders verdwijnt hij bij elke halve ademhaling vier beurten lang.
-        if (af || KrabV2Tekst.echt != null) {
+        if (zonderHeld) {
+            staat = true;
+        } else if (af || KrabV2Tekst.echt != null) {
             // Midden van het kader van het dier op de plek van het blad (de voorraad plakt op het zwaartepunt).
             var m = q(_held[2]);
             var g = EbbDierMaat.grenzen(dier);

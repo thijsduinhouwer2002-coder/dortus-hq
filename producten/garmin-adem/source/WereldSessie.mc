@@ -32,18 +32,22 @@ module EbbWereldSessie {
         _sleutel = -1;
     }
 
-    // Tekent ademen of inhouden in de wereld van het dier. Geeft false als dat niet kan (uit, geen dier, geen
+    // Tekent ademen of inhouden in de wereld van het dier. Geeft false als dat niet kan (uit, geen
     // wereld, andere fase): dan tekent het gewone sessiescherm.
     function teken(v as EbbView, dc as Graphics.Dc, nu as Number) as Boolean {
         if (aan) {
             v.sessie.bijwerken(nu);
         }
         var fase = v.sessie.fase;
-        if (!aan || v.gezelschap < 0 || (fase != Ebb.FASE_ADEMEN && fase != Ebb.FASE_INHOUDEN)) {
+        if (!aan || (fase != Ebb.FASE_ADEMEN && fase != Ebb.FASE_INHOUDEN)) {
             los();
             return false;
         }
-        var w = wereldVan(v.gezelschap);
+        // Run 64: wie nog geen dier heeft (de allereerste sessie) kreeg het oude scherm, met een zee die per 30 s
+        // donkerder werd en "time to breathe". Nu dezelfde gedeelde zee als de andere dieren (blauwe lucht, zand,
+        // de basiswereld van dier 13), alleen zonder held. Zo ziet de eerste sessie eruit zoals de winkel belooft.
+        var zonder = v.gezelschap < 0;
+        var w = wereldVan(zonder ? 13 : v.gezelschap);
         if (w < 0) {
             return false;
         }
@@ -67,10 +71,12 @@ module EbbWereldSessie {
             tekst = [s < 180 ? "hold" : "breathe", v.stopTekst(), (s / 60).toString() + ":" + (s % 60).format("%02d"),
                 (bpm > 0 ? bpm + " bpm · " : "") + ronde] as Array<String>;
         }
-        var sleutel = scherm + 10 * w + (nacht ? 100000 : 0);
+        var sleutel = scherm + 10 * w + (nacht ? 100000 : 0) + (zonder ? 200000 : 0);
         if (sleutel != _sleutel || _kv == null) {
             _kv = null; // eerst het oude plaatje los, dan pas het nieuwe (geheugen op de FR255)
-            _kv = new KrabV2View(scherm, nacht, w);
+            var kv = new KrabV2View(scherm, nacht, w);
+            kv.zonderHeld = zonder;
+            _kv = kv;
             _sleutel = sleutel;
         }
         KrabV2Tekst.echt = tekst;

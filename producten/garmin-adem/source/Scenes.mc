@@ -114,11 +114,15 @@ module EbbScenes {
         // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
         // Run 63: daarna vier met een dier zonder eigen wereld (dolfijn, basiswereld KrabV2Basis.mc).
         // Zes per dier (blad voor Thijs): in, uit en inhouden bij dag, daarna hetzelfde bij nacht.
-        var ns = EbbBouw.SCENES - 26;
-        if (k >= ns && k < ns + 18 && ns >= 53) {
+        // Run 64: daarna zes van de allereerste sessie (nog geen dier): de gedeelde zee zonder held (`sessie-eerste-*`).
+        var ns = EbbBouw.SCENES - 32;
+        if (k >= ns && k < ns + 24 && ns >= 53) {
             var si = (k - ns) % 6;
-            Application.Storage.setValue(EbbTrouw.BITS, 0xFFFFFF);
-            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[(k - ns) / 6]);
+            var wie = (k - ns) / 6;
+            Application.Storage.setValue(EbbTrouw.BITS, wie < 3 ? 0xFFFFFF : 0);
+            if (wie < 3) {
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[wie]);
+            }
             EbbWereldSessie.aan = true;
             EbbWereldSessie.proefNacht = (si >= 3) ? 1 : 0;
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
