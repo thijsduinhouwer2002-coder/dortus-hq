@@ -105,12 +105,17 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
-        // Run 62: de laatste scènes zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
+        // Thuiswater (Bas, stap 4): de laatste acht scènes zijn menu, pauze en sea log op het thuiswater (ThuisSchermen.mc).
+        var thuis = EbbThuisSchermen.scene(k);
+        if (thuis != null) {
+            return thuis;
+        }
+        // Run 62: achttien scènes voor de laatste acht (thuiswater van Bas) zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
         // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
         // Run 63: daarna vier met een dier zonder eigen wereld (dolfijn, basiswereld KrabV2Basis.mc).
         // Zes per dier (blad voor Thijs): in, uit en inhouden bij dag, daarna hetzelfde bij nacht.
-        var ns = EbbBouw.SCENES - 18;
-        if (k >= ns && ns >= 53) {
+        var ns = EbbBouw.SCENES - 26;
+        if (k >= ns && k < ns + 18 && ns >= 53) {
             var si = (k - ns) % 6;
             Application.Storage.setValue(EbbTrouw.BITS, 0xFFFFFF);
             Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[(k - ns) / 6]);

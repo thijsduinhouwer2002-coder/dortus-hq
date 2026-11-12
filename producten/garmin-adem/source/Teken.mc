@@ -126,6 +126,21 @@ module EbbTeken {
 
 
 
+    // Eén stijl voor de gekozen knop in menu en pauze (hoofdchat 12 nov 12:45, Mila ebb-punten-0600.md punt 1, zoals het
+    // wereldmenu in KrabV2Tekst.mc): overdag een vol vlak 00FFFF zonder rand met tekst 000055; bij nacht vlak 0055AA
+    // met rand 55AAFF van 2 px en witte tekst. Geeft de tekstkleur terug. Knoppen vallen buiten de nachtregel.
+    function knopGekozen(dc as Graphics.Dc, x0 as Number, y0 as Number, bw as Number, bh as Number, nacht as Boolean) as Number {
+        dc.setColor(nacht ? 0x0055AA : 0x00FFFF, Graphics.COLOR_TRANSPARENT);
+        dc.fillRoundedRectangle(x0, y0, bw, bh, bh / 2);
+        if (nacht) {
+            dc.setColor(0x55AAFF, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(2);
+            dc.drawRoundedRectangle(x0, y0, bw, bh, bh / 2);
+            dc.setPenWidth(1);
+        }
+        return nacht ? Graphics.COLOR_WHITE : 0x000055;
+    }
+
     // Blad v6: knop als pil (0055AA) met witte tekst, midden op hoogte y (deel van D).
     function pil(dc as Graphics.Dc, d as Number, y as Float, breed as Float, hoog as Float, tekst as String, font as Graphics.FontType) as Void {
         var bw = (d * breed).toNumber();

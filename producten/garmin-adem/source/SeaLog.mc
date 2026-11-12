@@ -26,19 +26,6 @@ class DierenView extends WatchUi.View {
         return l >= EbbDierPlaatje.lagenVan(soort) - 1;
     }
 
-    // De 64 kleuren van het MIP-scherm: alle dieren en silhouetten gebruiken alleen deze, 1 byte per pixel.
-    function palet() as Array<Number> {
-        var p = [] as Array<Number>;
-        for (var r = 0; r < 4; r += 1) {
-            for (var g = 0; g < 4; g += 1) {
-                for (var b = 0; b < 4; b += 1) {
-                    p.add(r * 0x550000 + g * 0x5500 + b * 0x55);
-                }
-            }
-        }
-        return p;
-    }
-
     // Voor de toets: staat het hele blad in het plaatje?
     function klaar() as Boolean {
         return _plaatje != null && _getekend >= opBlad(bladVan(keuze));
@@ -163,6 +150,8 @@ class DierenView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
+        // Thuiswater (Thuis.mc, vakken in ThuisSchermen.mc); het blad met de dieren is daarom doorzichtig, zonder palet.
+        var water = EbbThuisSchermen.seaLog(dc, d, self);
         var blad = bladVan(keuze);
         // Keuring bouw 2 punt 1 (watchdog): de dieren van een blad komen in één plaatje op zwart, één laag per beurt.
         // Is het plaatje af, dan kost een beurt alleen nog het plakken. Opnieuw na een ander blad of een nieuw dier.
@@ -172,11 +161,11 @@ class DierenView extends WatchUi.View {
         var bb = (ref != null) ? ref.get() : null;
         if (bb == null || sleutel != _sleutel) {
             bouwBlad(d, blad);
-            ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => _onder - _boven + 2, :palette => palet()});
+            ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => _onder - _boven + 2});
             _plaatje = ref;
             bb = ref.get();
             var pdc0 = (bb as Graphics.BufferedBitmap).getDc();
-            pdc0.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            pdc0.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
             pdc0.clear();
             _sleutel = sleutel;
             _getekend = 0;
@@ -216,7 +205,7 @@ class DierenView extends WatchUi.View {
         EbbTeken.tekst260(dc, d, 28, EbbTeken.fS(), "sea log", EbbTeken.SCHUIM);
         // Keuring bouw 6 punt 6: de bonus telt zichtbaar mee ("24 of 24 + bonus").
         var telling = EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal() + (EbbTrouw.heeft(EbbTrouw.ZEEKOMKOMMER) ? " + bonus" : "");
-        EbbTeken.tekst260(dc, d, 58, EbbTeken.fX(), telling, EbbTeken.ZEE_KLEUR[0]);
+        EbbTeken.tekst260(dc, d, 58, EbbTeken.fX(), telling, Graphics.COLOR_WHITE);
         if (blad == BLADEN - 1) {
             EbbTeken.tekst260(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
         }
@@ -228,8 +217,8 @@ class DierenView extends WatchUi.View {
         }
         var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
         EbbTeken.tekst260(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
-        EbbTeken.tekst260(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.ZEE_KLEUR[0]);
-        // Bladstippen op y 236: actief vol in schuim, de andere als ring in 00AAFF (blad v9).
+        EbbTeken.tekst260(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.LICHTCYAAN);
+        // Bladstippen op y 236: actief vol in schuim, de andere als ring in lichtcyaan (leesbaar op het thuiswater).
         var stap = EbbTeken.px(d, 9);
         var rb = EbbTeken.px(d, 2);
         rb = rb < 2 ? 2 : rb;
@@ -241,11 +230,11 @@ class DierenView extends WatchUi.View {
                 dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
                 dc.fillCircle(x, yStip, rb);
             } else {
-                dc.setColor(EbbTeken.ZEE_KLEUR[0], Graphics.COLOR_TRANSPARENT);
+                dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
                 dc.drawCircle(x, yStip, rb);
             }
         }
-        if (_getekend < n) {
+        if (_getekend < n || !water) {
             WatchUi.requestUpdate();
         }
     }
