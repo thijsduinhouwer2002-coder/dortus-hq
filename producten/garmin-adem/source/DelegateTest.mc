@@ -155,3 +155,21 @@ function testPauzeDiscardGooitWeg(logger as Test.Logger) as Boolean {
     var m2 = echt.doe(2);
     return naarMenu && naDiscard && !m1 && !m0 && t.weg == 1 && t.bewaar == 1 && t.hervat == 1 && m2 && !view.opgeslagen;
 }
+
+// Keuring code en veiligheid 12 nov, punt 1: het inhouden stopt vanzelf op 5:00 en gaat door naar herstel.
+(:test)
+function testInhoudenStoptVanzelfOpVijfMinuten(logger as Test.Logger) as Boolean {
+    var view = new EbbView();
+    view.sessie = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    view.sessie.bijwerken(96050);
+    var start = view.sessie.segmentStart;
+    var teVroeg = view.bewaak(start + 299999);
+    var nogInhouden = view.sessie.fase == Ebb.FASE_INHOUDEN;
+    // de timer komt soms later: 137 ms na de grens moet de tijd toch precies 5:00 zijn
+    var gestopt = view.bewaak(start + 300137);
+    var tijd = view.sessie.inhoudtijden.size() == 1 ? view.sessie.inhoudtijden[0] : -1;
+    var nogEens = view.bewaak(start + 300500);
+    logger.debug("te vroeg " + teVroeg + ", gestopt " + gestopt + ", tijd " + tijd + " ms, fase " + view.sessie.fase + ", nog eens " + nogEens);
+    return !teVroeg && nogInhouden && gestopt && tijd == 300000 && view.sessie.fase == Ebb.FASE_HERSTEL
+        && view.vanzelfGestopt && !nogEens && view.sessie.inhoudtijden.size() == 1;
+}

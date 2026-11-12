@@ -14,7 +14,8 @@ module EbbTrillen {
         M_KLAAR = 6,       // sessie klaar: kort, pauze, lang
         M_LAATSTE = 7,     // begin van elk van de laatste drie inademingen: twee lichte tikjes
         M_DERTIG = 8,      // tijdens inhouden elke 30 s: één zachte (aan/uit in de instellingen)
-        M_DRIE_MIN = 9     // 3 minuten inhouden: zacht signaal, twee lange zachte
+        M_DRIE_MIN = 9,    // 3 minuten inhouden: zacht signaal, twee lange zachte
+        M_VIJF_MIN = 10    // 5 minuten inhouden: het inhouden stopt vanzelf, twee lange sterke (komt altijd)
     }
 
     var aan as Boolean = true;
@@ -30,14 +31,16 @@ module EbbTrillen {
             case M_LAATSTE: return [[50, 60], [0, 90], [50, 60]] as Array<Array<Number> >;
             case M_DERTIG: return [[25, 150]] as Array<Array<Number> >;
             case M_DRIE_MIN: return [[40, 400], [0, 300], [40, 400]] as Array<Array<Number> >;
+            case M_VIJF_MIN: return [[100, 600], [0, 200], [100, 600]] as Array<Array<Number> >;
             default: return [[80, 100], [0, 200], [80, 500]] as Array<Array<Number> >;
         }
     }
 
     // Geeft true als er getrild is (voor de toets); doet niets als trillen uit staat of het horloge niet kan trillen.
-    // Uitzondering: het signaal op 3:00 inhouden (en elke 30 s daarna) komt altijd (veiligheidskeuring blad v5.4).
+    // Uitzondering: het signaal op 3:00 inhouden (en elke 30 s daarna) komt altijd (veiligheidskeuring blad v5.4),
+    // net als het signaal op 5:00, waar het inhouden vanzelf stopt (keuring code en veiligheid 12 nov, punt 1).
     function tril(m as Moment) as Boolean {
-        if ((!aan && m != M_DRIE_MIN) || !(Attention has :vibrate)) {
+        if ((!aan && m != M_DRIE_MIN && m != M_VIJF_MIN) || !(Attention has :vibrate)) {
             return false;
         }
         var p = patroon(m);

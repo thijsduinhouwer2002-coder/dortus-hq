@@ -5,6 +5,9 @@ import Toybox.Math;
 // Alle tijden in ms. Elke fasegrens wordt berekend vanaf het begin van het stuk (segment),
 // nooit door timerstappen op te tellen, zodat er geen afwijking opbouwt.
 module Ebb {
+    // Keuring code en veiligheid 12 nov, punt 1 (besluit hoofdchat 13:20, harde eis): een inhouding stopt vanzelf na
+    // vijf minuten. Doet iemand niets of valt hij weg, dan gaat de sessie door naar herstel in plaats van eindeloos door.
+    const MAX_INHOUD_MS = 300000;
     enum Fase {
         FASE_ADEMEN = 0,
         FASE_INHOUDEN = 1,

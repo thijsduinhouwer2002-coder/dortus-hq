@@ -166,7 +166,8 @@ module EbbSessieScherm {
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
             // Beelden run 42940068457: op vivoactive 5 en fenix 8 liep deze regel in FONT_SMALL door de ronde rand.
             // Past hij niet binnen 80 procent van de koorde op 0,215 D, dan de kleinere letter.
-            var kop = "big breath in, hold";
+            // Na het vanzelf stoppen op 5:00 staat er alleen "breathe": niet nog eens vasthouden.
+            var kop = v.vanzelfGestopt ? "breathe" : "big breath in, hold";
             var kopF = EbbTeken.fS();
             var koorde = 2.0 * Math.sqrt(0.16 - 0.285 * 0.285) * d;   // binnen de cirkel van 0,8 D op 0,215 D
             if (dc.getTextWidthInPixels(kop, kopF) > koorde) {

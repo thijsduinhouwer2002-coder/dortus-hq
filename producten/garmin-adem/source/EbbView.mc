@@ -65,6 +65,23 @@ class EbbView extends WatchUi.View {
         return true;
     }
 
+    // Het inhouden stopt vanzelf op 5:00 (Ebb.MAX_INHOUD_MS): door naar herstel, met een trilling die altijd komt en
+    // "breathe" bovenaan het herstelscherm. De tijd op de lap en in de lijst is precies 5:00. Geen beloning, geen
+    // melding. Geeft true als er hier gestopt is. Eigen functie met de klok als getal, zodat de toets hem kan sturen.
+    var vanzelfGestopt as Boolean = false;
+
+    function bewaak(nu as Number) as Boolean {
+        if (sessie.fase == Ebb.FASE_INHOUDEN && sessie.verstreken(nu) >= Ebb.MAX_INHOUD_MS) {
+            if (stopInhouden(sessie.segmentStart + Ebb.MAX_INHOUD_MS)) {
+                vanzelfGestopt = true;
+                EbbTrillen.tril(EbbTrillen.M_VIJF_MIN);
+                System.println("INHOUDEN vanzelf gestopt op 5:00");
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Dagnummer van de lokale datum (dagen sinds 1970).
     static function vandaag() as Number {
         return (Time.today().value() + System.getClockTime().timeZoneOffset) / 86400;
@@ -169,6 +186,7 @@ class EbbView extends WatchUi.View {
                 stopInhouden(sessie.segmentStart + doel);
             }
         }
+        bewaak(nu);
         sessie.bijwerken(nu);
         // Elke afgeronde ronde die niet de laatste is sluit een lap (onUpdate kan de ronde al verder gezet hebben).
         while (_lapsGesloten < sessie.ronde && _lapsGesloten < sessie.rondes - 1) {
@@ -224,12 +242,16 @@ class EbbView extends WatchUi.View {
         var isIn = (fase == Ebb.FASE_ADEMEN) && sessie.isIn(nu);
         if (fase != _vorigeFase) {
             if (fase == Ebb.FASE_ADEMEN) {
+                vanzelfGestopt = false;
                 EbbTrillen.tril(_vorigeFase == Ebb.FASE_HERSTEL ? EbbTrillen.M_LOS : EbbTrillen.M_IN);
             } else if (fase == Ebb.FASE_INHOUDEN) {
                 _vorigInhoudMs = 0;
                 EbbTrillen.tril(EbbTrillen.M_INHOUDEN);
             } else if (fase == Ebb.FASE_HERSTEL) {
-                EbbTrillen.tril(EbbTrillen.M_HERSTEL);
+                // Na het vanzelf stoppen op 5:00 heeft bewaak() al getrild; dat signaal niet overschrijven.
+                if (!vanzelfGestopt) {
+                    EbbTrillen.tril(EbbTrillen.M_HERSTEL);
+                }
             } else if (fase == Ebb.FASE_KLAAR) {
                 EbbTrillen.tril(EbbTrillen.M_KLAAR);
             }
