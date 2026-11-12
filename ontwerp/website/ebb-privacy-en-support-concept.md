@@ -59,7 +59,7 @@ Ebb runs on 28 round Garmin watches. The list is on the store page.
 - Vraagt het uploadformulier om een privacy-URL, dan is dat dortus.com/ebb/privacy.html.
 - Plaatsen kan los van de ombouw van de site: een nieuwe map /ebb/ raakt geen bestaande pagina.
 
-## NAGELOPEN tegen e40269e1 (Gijs, 12 nov 23:10 UTC, run 75): klopt, op twee zinnen na
+## NAGELOPEN tegen e40269e1 (Gijs, 12 nov 23:00 UTC, run 75): klopt, op twee zinnen na
 
 Punt voor punt tegen de code van de bouwtak op e40269e1:
 - Rechten in het manifest: Fit, FitContributor, Sensor. Geen Communications, geen Positioning, geen UserProfile; in de code geen webverzoek en geen geluid. "No internet connection of its own" klopt.
