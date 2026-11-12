@@ -17,3 +17,10 @@ Regels:
 - Zuinig: geen hulpagents. Bundel, één plaatjesrun per groep werelden.
 - Houd `platformen/garmin/werelden-stand.md` bij: per dier bestand, tak, commit, plaatjesrun groen ja of nee, zelf gezien ja of nee, open punten.
 - Zijn alle 22 af en gezien: schrijf bovenaan werelden-stand.md "KLAAR" en doe in volgende runs niets meer dan dat melden.
+
+## 12 nov 11:25 (hoofdchat): zeester, de telescoop onder water wordt niet herkend (Thijs vroeg zelf "wat is dat ding naast hem?")
+
+Boven water staat de telescoop op een driepoot en is hij goed. Onder water (inhouden, menu, eind) ligt hij plat op de bodem zonder poten en leest hij als een buis of een kanon. Neem dit mee in je eerstvolgende plaatjesrun:
+- Onder water staat de telescoop ook op zijn driepoot, schuin omhoog gericht, met de zeester erachter die erdoor kijkt (oog bij het kijkgat). Zelfde vorm en kleuren als boven water, zodat het hetzelfde ding is.
+- Past dat niet naast de tekst: telescoop weg onder water en alleen boven water houden. Een half herkenbaar voorwerp is erger dan geen voorwerp.
+Regel voor alle werelden: het grapvoorwerp heeft op elk scherm dezelfde herkenbare vorm als op het scherm waar het het duidelijkst is. Niet plat leggen, niet verkleinen tot het een streepje wordt. De hoofdchat laat voortaan elke nieuwe groep werelden blind toetsen (kijker ziet alleen het inhoud-scherm op 260 en zegt wat het is).
