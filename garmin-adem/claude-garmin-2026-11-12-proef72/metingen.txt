@@ -1,12 +1,12 @@
 fenix847mm.log:ONDERTEKST golf 269 lettertop 328 ruimte 59 breedte 218 koorde 344 over 126 wereld
 fenix847mm.log:WERELDCIJFERS scherm 0 tekst 1 hoogte 97 van 454 = 21%
 fenix847mm.log:GROOT fase 2 tekst 1 breedte 57 hoogte 143 van 454 = 31%
-fenix847mm.log:GEHEUGEN hoogste 144408 van 781888 = 18%
+fenix847mm.log:GEHEUGEN hoogste 144448 van 781888 = 18%
 fr255.log:ONDERTEKST golf 151 lettertop 185 ruimte 34 breedte 141 koorde 201 over 60 wereld
 fr255.log:WERELDCIJFERS scherm 0 tekst 1 hoogte 56 van 260 = 21%
 fr255.log:GROOT fase 2 tekst 1 breedte 32 hoogte 82 van 260 = 31%
-fr255.log:GEHEUGEN hoogste 143840 van 519880 = 27%
+fr255.log:GEHEUGEN hoogste 143880 van 519880 = 27%
 vivoactive5.log:ONDERTEKST golf 227 lettertop 278 ruimte 51 breedte 192 koorde 302 over 110 wereld
 vivoactive5.log:WERELDCIJFERS scherm 0 tekst 1 hoogte 83 van 390 = 21%
 vivoactive5.log:GROOT fase 2 tekst 1 breedte 49 hoogte 123 van 390 = 31%
-vivoactive5.log:GEHEUGEN hoogste 145008 van 781888 = 18%
+vivoactive5.log:GEHEUGEN hoogste 145048 van 781888 = 18%
