@@ -219,6 +219,11 @@ class KrabV2WBasis extends KrabV2Wereld {
             // krijgt Mila's eerste band van de familie licht (roze).
             lu[1] = 0xFFAAFF;
             lu[4] = 0xFFAAE6;
+        } else if (_dier == 13) {
+            // Run 72, beelden 43295837436 (hoofdchat 12 nov 20:15 punt 2): de dolfijn (55AAFF) had op MIP precies de
+            // kleur van de luchtband van zijn familie en viel boven water weg. Hij krijgt de lichte band van koud.
+            lu[1] = 0xAAFFFF;
+            lu[4] = 0xBEF5FF;
         }
         return lu;
     }

@@ -9,9 +9,8 @@ import Toybox.Lang;
     function scene(n as Number) as Number {
         var aantal = KEUZE.size();
         var k = (aantal > 0) ? KEUZE[n % aantal] : (n + EbbBouw.EERSTE) % EbbBouw.SCENES;
-        // KIJKPROEF run 72 (terugdraaien voor de bouwtak): calm-45s (26), einde-6b (17), einde-weekdoel (29) en
-        // calm-einde-krab (34) bij nacht, om Calm en het eindscherm op het thuiswater bij nacht te zien.
-        if (k == 26 || k == 17 || k == 29 || k == 34) {
+        // KIJKPROEF run 72 (terugdraaien voor de bouwtak): rustig (7) bij nacht, om het Calm-scherm bij nacht te zien.
+        if (k == 7) {
             EbbWereldSessie.proefNacht = 1;
             EbbThuis.proefNacht = 1;
         }
