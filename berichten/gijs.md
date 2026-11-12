@@ -406,4 +406,4 @@ Lees ontwerp/garmin/ebb-keuring-code-veiligheid-2026-11-12.md (bestand en regeln
 5. Laat de plaatjesrun en de toetsen op alle 28 horloges uit het manifest bouwen (compileren minimaal; simulator waar het kan). Meld in je status welke horloges alleen gecompileerd en niet gedraaid zijn.
 Neem van de KAN-punten nummer 1 (label op de proefscènes) en 4 (kopteksten) meteen mee, die zijn klein.
 Zoek ook uit en zet in je status wat de keurder niet kon nagaan: waar het versienummer vandaan komt, minApiLevel tegen de echte horloges, en de bovenste knop op Venu 4 en vivoactive 6.
-Daarna pas stap 5 (winkelbeelden) en stap 6 (blad voor Thijs).
+Daarna pas stap 5 (winkelbeelden) en stap 6 (blad voor Thijs). (deels verwerkt 12 nov 12:19 UTC, run 64: de vijf MOET-punten zijn gebouwd op `proef65` ffd639c, nog niet bewezen of gezien; open staan de zin op het veiligheidsblad in de app, KAN 1 en 4 en de drie vragen. Zie status 12:19 en taken.)
