@@ -1,0 +1,18 @@
+GELIJK lucht-ochtend-in-fenix847mm.png
+VERSCHIL sessie-komkommer-hold-dag-fenix847mm.png 131930 pixels in (135, 247, 589, 671)
+ONTBREEKT sessie-komkommer-hold-nacht-fenix847mm.png (voor: False, na: True)
+VERSCHIL sessie-komkommer-in-dag-fenix847mm.png 105663 pixels in (135, 247, 589, 637)
+VERSCHIL sessie-komkommer-in-nacht-fenix847mm.png 49418 pixels in (135, 298, 589, 637)
+VERSCHIL sessie-komkommer-uit-dag-fenix847mm.png 101011 pixels in (135, 247, 589, 576)
+ONTBREEKT sessie-komkommer-uit-nacht-fenix847mm.png (voor: False, na: True)
+ONTBREEKT sessie-kreeft-hold-dag-fenix847mm.png (voor: True, na: False)
+GELIJK sessie-kreeft-in-dag-fenix847mm.png
+ONTBREEKT sessie-kreeft-in-nacht-fenix847mm.png (voor: True, na: False)
+ONTBREEKT sessie-kreeft-uit-dag-fenix847mm.png (voor: True, na: False)
+ONTBREEKT sessie-otter-hold-dag-fenix847mm.png (voor: True, na: False)
+GELIJK sessie-otter-in-dag-fenix847mm.png
+ONTBREEKT sessie-otter-in-nacht-fenix847mm.png (voor: True, na: False)
+ONTBREEKT sessie-otter-uit-dag-fenix847mm.png (voor: True, na: False)
+ONTBREEKT sessie-schild-in-dag-fenix847mm.png (voor: True, na: False)
+ONTBREEKT thuis-menu-leeg-dag-fenix847mm.png (voor: True, na: False)
+17 beelden, 14 met verschil of ontbrekend
