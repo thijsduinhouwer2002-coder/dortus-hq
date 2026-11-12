@@ -190,7 +190,7 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
     elif wereld == 'clown':
         # v3.2 (keuring 16): vis groter en dichter bij het midden, ballen groter, een bal op zijn neus,
         # en links de grap: een vierde bal is al in zee gevallen en drijft weg
-        hx = 192 if top < 140 else (180 if top < 160 else 160)   # bij hoge zee rechts: het cijfer blijft vrij
+        hx = 182 if top < 140 else (176 if top < 160 else 156)   # bij hoge zee rechts: het cijfer blijft vrij
         sprong = {'in': 24, 'calm': 6, 'uit': 12}[fase]          # Calm: hij ligt rustig op de golfrug
         m = 38
         # v3.2 (keuring 19): het circusding van deze wereld: een rood-witte hoepel; hij springt erdoorheen
@@ -209,13 +209,12 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
                 kl = (255, 0, 0) if i % 2 == 0 else WIT
                 for dikte_, c_, e in ((6.6, (85, 0, 0), 2), (4.2, kl, 0)):
                     d.dr.arc([(cx_ - rx_) * d.s, (cy_ - ry_) * d.s, (cx_ + rx_) * d.s, (cy_ + ry_) * d.s], a0 - e, a0 + 30 + e, fill=c_, width=max(2, round(dikte_ * d.s)))
-        hoepel(False)
+        # zwemband weggehaald na keuring 20 (op 260 een rode veeg); de hoepel-functie blijft voor later
         if fase != 'calm':
             spat(d, hx + 6, top - 1, 1.1 if fase == 'in' else .85, ringen=False)
         dier_kantel(d, hx, top - sprong, m, CLOWN, hoek + (10 if fase != 'calm' else 0))
         clownshoed(d, hx, top - sprong, m, hoek + (10 if fase != 'calm' else 0))
-        hoepel(True)
-        r_ = {'in': 30, 'calm': 22, 'uit': 17}[fase]          # ballen ademen mee: hoog bij inademen, net gevangen bij uitademen
+        r_ = {'in': 26, 'calm': 22, 'uit': 17}[fase]          # ballen ademen mee: hoog bij inademen, net gevangen bij uitademen
         jongleer(d, hx + 2, top - sprong - m * (.42 if fase != 'uit' else .3), r_, 1.3, nacht, neus=(hx - m * .52, top - sprong - m * .18))
     tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
