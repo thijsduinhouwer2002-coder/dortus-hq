@@ -165,12 +165,13 @@ module KrabV2Lagen {
                     v.blob(dc, p, 0xFFFFAA, -1, 0.0);
                 }
                 if (am) {
-                    v.gloed(dc, 184, 122, 35, 29, licht, 40, zeeTop);
+                    v.gloed(dc, 184, 123, 32, 27, licht, 40, zeeTop);
                 }
-                // belletje van de sea log: vlak 0055AA, rand 00FFFF, glimpje
-                v.rondje(dc, 184, 122, am ? 40.2 : 42.4, am ? 35.2 : 37.4, 0x00FFFF, -1, -1);
-                v.rondje(dc, 184, 122, 40, 35, 0x0055AA, -1, -1);
-                v.rondje(dc, 159, 104.5, 4, 4, 0xFFFFFF, -1, -1);
+                // belletje van de sea log: vlak 0055AA, rand 00FFFF, glimpje. Hoofdchat 10:55 punt 1: iets kleiner
+                // (was 40 x 35 om 184, 122), zodat de tijden erboven 6/260 lucht houden; bovenkant nu op 88,6.
+                v.rondje(dc, 184, 123, am ? 37.2 : 39.4, am ? 32.2 : 34.4, 0x00FFFF, -1, -1);
+                v.rondje(dc, 184, 123, 37, 32, 0x0055AA, -1, -1);
+                v.rondje(dc, 161, 107, 4, 4, 0xFFFFFF, -1, -1);
                 // roze hartje tussen de krab en zijn nieuwe vriend
                 var hart = [] as Array<Float>;
                 for (var i = 0; i < 20; i += 1) {

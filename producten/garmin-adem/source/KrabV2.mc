@@ -235,10 +235,10 @@ class KrabV2View extends WatchUi.View {
                 }
                 if (scherm == 5) {
                     // de nieuwe vriend (garnaal) in zijn belletje rechts
-                    var m2 = q(31);
+                    var m2 = q(28);
                     var vr = _w.vriend();
                     var g2 = EbbDierMaat.grenzen(vr);
-                    staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
+                    staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(124) - (g2[2] + g2[3]) * m2 / (2 * s), m2, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN);
                 }
             }
         } else {
