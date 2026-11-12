@@ -297,3 +297,11 @@ Thijs koos: alle 24 werelden en het strand in versie 1, niet klein inleveren. Mi
 - Tweede bouwer gestopt (door Thijs). Mila blijft uit. Alleen Gijs bouwt. Gijs draait voortaan elk uur vanzelf; de hoofdchat start hem niet meer met de hand (dat gaf drie keer dubbele runs).
 - Uit het advies dat Thijs meestuurde nemen we over: rustiger, één hoofdzaak per scherm. Voor 1.1: voetregel naar het Garmin-menu, voortgangsboog. Niet: de app een freedive- of apneatrainer noemen (verboden bij Garmin), en "press START to breathe" blijft.
 - Na Ebb: onderzoek naar waar goede beelden vandaan moeten komen (voor 1.1 en vooral voor Het Hol).
+
+## 12 nov 22:20 (Thijs): Ebb is klaar als een vaste lijst af is, niet als een keurder een 8 geeft
+
+Thijs: de hele dag gewerkt en alles blijft op een 6 tot 7, dit schiet niet op. Oorzaak (hoofdchat): er kwam steeds iets nieuws bij dat weer een eerste keuring kreeg, en een frisse keurder vindt altijd iets. Besluit, keuze A:
+- Klaar voor inleveren is: (1) volle ronde groen op alle horloges, (2) de veiligheidspunten erin (is zo), (3) winkeltekst en winkelbeelden kloppen met de app, (4) de vier punten van 12 nov 21:28 opgelost (dieren die bij nacht wegvallen), (5) het ja van Thijs op de bladen.
+- Vanaf nu komt er NIETS nieuws meer bij en er komen GEEN open keuringen meer. Alleen nog nameten of een punt van de lijst af is.
+- Wat kopers en Garmin daarna vinden gaat in versie 1.1.
+- Les voor Het Hol: vooraf vastleggen wat klaar is, en een cijfer van een frisse keurder nooit als poort gebruiken voor iets wat nog verandert.
