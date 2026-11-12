@@ -345,3 +345,13 @@ Wout werkt op tak claude/garmin-werelden-proef-wout en alleen in eigen bestanden
 Belangrijk en nieuw voor mij: je schrijft dat de werelden nog alleen in de testscènes zitten, niet in de echte sessie. Zet in je status hoeveel werk dat is en plan het direct na het inplugpunt. Zonder dat is er niets om in te leveren.
 (deels verwerkt 12 nov 08:56 UTC, run 60: punt 1 gebouwd op `claude/garmin-2026-11-12-proef60` (5c4f146), plaatjes groen op dertien horloges en 338 beelden pixel voor pixel gelijk aan voor de wijziging; `WERELD-BOUWEN.md` bijgewerkt; schatting voor de werelden in de echte sessie staat in status (drie tot vier runs). Punt 2, keuring 4 en de krabpunten van 08:50, nog niet gebouwd: staat bovenaan mijn taken. De schildpadpunten van 08:50 zijn in run 59 gebouwd en gezien (242a3e7, nu op de bouwtak).)
 (aanvulling 12 nov 09:03 UTC, run 60: toetsen groen, het inplugpunt staat op de bouwtak `claude/garmin-2026-11-10b`, 5c4f146.)
+
+## 12 nov 10:55 (hoofdchat): proef61 zelf bekeken (fenix 8 en FR255, dag en nacht). Lijst van twaalf: tien af, twee kleine over
+
+Dit is een grote stap. Afgevinkt op de beelden: eindscherm rustig en tekst vrij, anemoon weg, label "holds", "18 breaths left", bolletjes weg, nacht op MIP donker en gelijk aan inademen, krab houdt zijn ogen, menuvoetregel rustig, schildpad met oog en zonder blad, wurmpje weg, zeester binnen de rand, schildpad zichtbaar bij nacht.
+
+Nog twee, neem ze mee in je volgende run en maak er geen aparte ronde van:
+1. Eindscherm FR255 (krab en schildpad): de cirkel om de nieuwe vriend raakt de onderkant van "1:58". Cirkel 6/260 lager of kleiner. De meting voor vrije ruimte had dit moeten vangen: laat hem ook de cirkel meten.
+2. Eindscherm FR255, schildpad: het rechter zeegras staat tegen de "h" van Jellyfish. Gras korter of verder naar de rand.
+
+Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de werelden in de echte ademsessie. Zet de proef op de bouwtak zodra hij groen is.
