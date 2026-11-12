@@ -832,3 +832,21 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 3. Uitslag 5dd7426: plaatjes 43156801665 groen op dertien horloges (met de zoekterm `VEILIG .* NEE`), toetsen 43156801685 groen. Bouwtak vooruitgespoeld naar 5dd7426, één push. De lopende run op c45568e (43156597504) heb ik afgebroken om plek te maken; de toetsrun op b0fd2b9 werd door de nieuwe push vanzelf afgebroken.
 4. Thuiswater (Mila onderwater v1) als proef op `proef56` (602ccd3): `KrabV2Thuis.laag(v, dc, stap, am, nacht, y)` tekent water zonder bundel, ruggen, zand, kiezels en kelp; startscherm is `KrabV2View(4, nacht, 2)`, scène 75 en 76. Plaatjesrun 43157510802 groen op dertien horloges, gezien op FR255 en fenix 8. Niet op de bouwtak.
 5. Niet gedaan: zwemband, omtrek, nachtregel, pauze en sea log, clownvis. Eén keer `gh api` gebruikt om een runstatus te lezen; dat hoort via de GitHub-koppeling, daarna weer zo gedaan.
+
+## Run 57, 12 nov 2026, 05:36 tot ±06:18 UTC (Gijs): zwemband, nachtregel v1.2, donkere omtrek op MIP, menu
+
+1. Gekeken of er een andere Gijs liep: nee (geen nieuwe proeftak, laatste push 05:10 UTC van run 56).
+2. Volle run op de bouwtak (5dd7426) gelezen: plaatjes 43159529655 groen op dertien horloges (per horloge: scènes, pixelvergelijking, veiligheid gelijk, geen crash) en toetsen 43159529684 groen. De echte beelden van krab en schildpad staan op tak `schermen` (run 43159529655). Daarmee is punt 3 van de hoofdchat (06:00 NL) gedaan, nog met de slipper.
+3. Gebouwd op `claude/garmin-2026-11-12-proef57` (bovenop proef56):
+   - 34a0657: `Nacht.mc` met `EbbNacht.k` (nachtregel v1.2, MIP een trede omlaag en groen begrensd, AMOLED kwadraat, groenregel en 30 procent naar grijs) en toets `testNachtregel`; `KrabV2View.kleur`, `glas` en de nieuwe `pen` gaan er bij nacht door, tekst en knoppen niet; dieren bij nacht via soort `NACHT` in `EbbDierPlaatje`. `KrabV2Band.mc` vervangt `KrabV2Slipper.mc`: 16 stukken rood en wit, achterhelft in het plaatje, voorhelft elke beurt over de krab, donkere onderrand en glimlijntje, draait 0,4 keer de hoek mee. Verre slipper weg. Op MIP voor alle dieren een donkere omtrek van 1 px in acht richtingen (twee per beurt, nog steeds vijf lagen) in plaats van de witte stickerrand.
+   - 5179a78: band op de ademschermen 5/260 lager (op de eerste beelden viel de voorhelft over het gezicht); hoge sprieten van de schildpad 8 korter op menu en eind; roze hartje op het startscherm (onderwater v1.1).
+   - 9f66378: menu volgens Mila 06:05 UTC punt 1 (gekozen knop 00FFFF met tekst 000055, bij nacht 0055AA met rand 55AAFF en witte tekst).
+4. **BEWEZEN:** plaatjesrun 43163208511 (34a0657) en 43164891621 (9f66378) groen op dertien horloges. **ZELF GEZIEN** op FR255 en fenix 8 47 mm: krab in, uit, Calm, inhouden, menu en eind bij dag en nacht (eerste run), en in, uit, Calm nacht, menu dag en nacht, schildpad menu en eind, startscherm (laatste run), naast Mila's blad van keuring 2. Het lijkt er sterk op.
+5. **NIET bewezen / niet goed:** toetsen op 9f66378 (run 43164891549 liep nog; de toetsruns op 34a0657 en 5179a78 zijn door de volgende push afgebroken), dus niet naar de bouwtak. Donkere omtrek alleen gezien in de proefscènes. Hartje niet kunnen onderscheiden. "Jellyfish" loopt bij de schildpad op de FR255 nog over de sprieten. Meeuw van de krab op de fenix 8 naast "breathe in". Afwijking van Mila's maat: band 5 lager op de ademschermen.
+6. Niet gedaan: pauze en sea log op het thuiswater, strand, clownvis, eindscherm schildpad v3.2 d.
+
+**In drie regels:**
+1. De krab zit in zijn zwemband, de nacht is donker zonder groen en de dieren hebben op MIP een dunne donkere rand: gebouwd en gezien op FR255 en fenix 8, plaatjes groen op dertien horloges.
+2. Het staat op proeftak `proef57` (9f66378), nog niet op de bouwtak: de toetsen liepen nog.
+3. De bouwtak zelf (krab met slipper en schildpad) is helemaal groen en de echte beelden staan op tak `schermen`.
+
