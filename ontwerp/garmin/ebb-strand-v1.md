@@ -25,3 +25,7 @@ Op de eerste versie: Today 6, 8 weeks 5. Daarna gedaan: schelpen botsen niet mee
 
 ## Voor Gijs
 Nog niet bouwen tot de frisse keuring 8 geeft. Kosten: Today ±30 punten plus 15 per schelp, 8 weeks ±110 punten; geen bitmaps nodig behalve het dier.
+
+## v1.1 (zelfde run)
+- **Lucht volgt de klok:** van 6 tot 18 uur diepblauw 0000AA met een zon FFFF55 (straal 6) op een lage boog (x 40 tot 220, y 67 tot 64, onder de kop) en een witte meeuw van 8 punten aan de andere kant; 's nachts nachtblauw met maan en sterren. Nieuw voorbeeld: 2 schelpen om 14:00.
+- Dier staat 32 naast de nieuwste schelp. Nog zichtbaar: de schildpad raakt op 260 net de schelp ervoor (kader van het gespiegelde dier is breder dan gedacht); volgende run meten in plaats van schatten.

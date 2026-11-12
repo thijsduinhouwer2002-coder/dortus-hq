@@ -23,8 +23,16 @@ def golfrand(dr, D_, y, a, n, kleur, tot):
         yk = S(y, D_) + int(a * s * math.sin(x / D_ * 2 * math.pi * n))
         dr.line([(x, yk), (x, S(tot, D_))], fill=kleur)
 
-def zee_strand(D_, kam, natlijn, droog):
-    im = Image.new('RGB', (D_, D_)); dr = ImageDraw.Draw(im); dr.rectangle([0, 0, D_, D_], fill=NACHT); lucht(dr, D_)
+def zee_strand(D_, kam, natlijn, droog, uur=None):
+    im = Image.new('RGB', (D_, D_)); dr = ImageDraw.Draw(im)
+    if uur is not None and 6 <= uur < 18:      # overdag: diepblauwe lucht, zon op een boog die de klok volgt, een meeuw
+        dr.rectangle([0, 0, D_, D_], fill=hx('0x0000AA'))
+        t = (uur - 6) / 12; zx, zy, r = 40 + t * 180, 67 - 3 * math.sin(math.pi * t), 6
+        dr.ellipse([S(zx - r, D_), S(zy - r, D_), S(zx + r, D_), S(zy + r, D_)], fill=hx('0xFFFF55'))
+        mx = 210 if zx < 130 else 52
+        dr.polygon([(S(x, D_), S(y, D_)) for x, y in [(mx - 8, 48), (mx - 4, 45), (mx, 49), (mx + 4, 45), (mx + 8, 48), (mx + 4, 47), (mx, 51), (mx - 4, 47)]], fill=WIT)
+    else:
+        dr.rectangle([0, 0, D_, D_], fill=NACHT); lucht(dr, D_)
     s = D_ / 260
     golfrand(dr, D_, kam, 3, 3, MIDDEN, 260)
     for x in range(D_):   # schuimkam
@@ -57,7 +65,7 @@ def X_uur(u): return 36 + u / 24 * 188          # 00:00 op x 36, 24:00 op x 224
 def today(D_, sessies, nu, nr, gemiddeld):
     nm = f'today-{len(sessies)}-{D_}'; c = D_ // 2; s = D_ / 260
     kam, nat, droog = 74, 128, 150
-    im, dr = zee_strand(D_, kam, nat, droog)
+    im, dr = zee_strand(D_, kam, nat, droog, nu)
     zet(dr, D_, nm, c, 26 * s, 'today', f(FS, round(26 * s)), SCHUIM)
     # uurstreepjes en labels op het droge zand
     for u in (0, 6, 12, 18, 24):
@@ -75,7 +83,7 @@ def today(D_, sessies, nu, nr, gemiddeld):
         schelp(dr, D_, x, nat + 12 - rij * 14); eind[rij] = x; vorige = max(vorige, x)
     # lopers (schildpad, krab) zitten op het natte zand; zwemmers kijken uit het ondiepe water net boven de getijdenlijn
     loper = nr in (3, 4)
-    xd = X_uur(nu) if not sessies else (vorige + 26 if vorige + 26 <= 210 else vorige - 28)   # naast de nieuwste schelp, nooit erover
+    xd = X_uur(nu) if not sessies else (vorige + 32 if vorige + 32 <= 212 else vorige - 32)   # naast de nieuwste schelp, nooit erover
     dier(dr, D_, nr, min(xd, 212), 134 if loper else 110, round(24 * s), spiegel=True)
     for x0, y0 in ((84, 226), (150, 228), (112, 240)):    # ribbels in het droge zand
         poly(dr, D_, [(0, 0), (8, -2), (16, 0), (8, -1)], x0, y0, NAT)
@@ -119,7 +127,7 @@ if __name__ == '__main__':
     beelden = []; meting = []; vreemd = 0
     for D_ in (260, 454):
         rij = []
-        for maak in (lambda: today(D_, [7.2, 12.6, 21.1], 21.5, 3, '7:12'), lambda: today(D_, [], 9.0, 4, None),
+        for maak in (lambda: today(D_, [7.2, 12.6, 21.1], 21.5, 3, '7:12'), lambda: today(D_, [], 9.0, 4, None), lambda: today(D_, [7.2, 12.6], 14.0, 3, '7:12'),
                      lambda: today(D_, [7.0, 7.3, 7.6, 13.0, 18.5], 19.0, 7, '7:00'),
                      lambda: weken(D_, [True, True, False, True, True, True, False], 0.66, 3)):
             TEKSTVAK.clear(); im, nm = maak(); vak = list(TEKSTVAK); im.save(os.path.join(uit, nm + '.png')); rij.append(im)
