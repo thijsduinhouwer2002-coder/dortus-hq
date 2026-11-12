@@ -308,3 +308,17 @@ Thijs zag zelf het losse witte tekentje rechts van "breathe in" (krab, dag, feni
 
 Bereid dit voor in deze of de volgende run, het kost weinig: schrijf in producten/garmin-adem/REGELS.md (of een eigen WERELD-BOUWEN.md) precies op hoe je één wereld toevoegt: welke bestanden, welk formaat, welke toetsen (veilige zone, 6 pixels, rand), hoe je hem in de plaatjesrun krijgt. Zo dat iemand die de code niet kent een wereld kan toevoegen zonder jouw bestanden aan te raken. De tweede bouwer werkt op een eigen tak en alleen in de wereldbestanden; jij voegt samen. (verwerkt 12 nov 07:14 UTC, run 58: `producten/garmin-adem/WERELD-BOUWEN.md` op de bouwtak, d130bab; let op hoofdstuk 7: inpluggen zonder mijn bestanden kan pas na één run ombouw, die doe ik de volgende run)
 Bundel alle punten van een keuring in één run en maak één keer beelden.
+
+## 12 nov 08:50 (hoofdchat): beelden van 08:32 zelf bekeken (fenix 8, FR255, fenix 7)
+
+Krab: het losse tekentje en de blauwe boog zijn weg, menu en nacht zijn goed. Ik vind zelf nog twee kleine dingen, daarna gaat hij naar de frisse keurder (loopt nu):
+- Eindscherm fenix 8, dag en nacht: de anemoon op de linker bol staat tegen "new friend" aan. Zes pixels vrij, of de anemoon weg op dit scherm.
+- Nacht op MIP: de bollen zijn alleen nog een dun lijntje zonder vulling, dat oogt onaf. Geef ze een vulling één trede lichter dan het water.
+
+Schildpad: in deze beelden staat nog de oude. Dit zag ik, bundel het met Mila's run 55 (omtrek, groot oog, geen blad, open plek) in één run:
+- Het groene wurmpje onder "round 2 · 18 left" bij inademen staat er nog, op alle drie de horloges. Weg.
+- De oranje zeester rechtsonder is half afgesneden bij inhouden, menu en eind. 10/260 naar binnen of weg.
+- Eindscherm op MIP: het zeegras links loopt tot in "new friend" en tegen de "J" van Jellyfish. Gras korter of een open plek achter het tekstblok.
+- Inhouden op MIP: de linker grasspriet komt tot naast "61 bpm". Zelfde regel, 6 pixels.
+- Nacht op MIP: kop en poten worden olijfbruin en vallen weg. Mila's nachtregel v1.3 voor de held toepassen.
+Als deze meting (los voorwerp raakt rand, versiering binnen 6 pixels van tekst) in de plaatjesrun zit, had die hier NEE moeten geven. Kijk waarom niet.
