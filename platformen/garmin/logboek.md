@@ -903,3 +903,7 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 09:40 UTC: plaatjes 43190187315 groen, zelf gekeken op FR255 en fenix 8. Goed: eindscherm rustig, menu zonder balk, nacht op MIP donker, ogen bij nacht. Mis: het label "holds" duwde "1:58" in het belletje; ik mat alleen tegen de held, niet tegen het belletje. Hersteld in c9b6be6 (kop "3 holds done" als het label niet past), niet meer gezien deze run.
 - Geleerd: de tak `schermen` wordt overschreven; ophalen moet met een plus voor de verwijzing, anders kijk je naar oude beelden zonder dat het opvalt. Bouwtak 5c4f146: volle runs groen.
 - 09:56 UTC: plaatjes 43193610592 op c9b6be6 groen en gezien (FR255, fenix 7, fenix 8): "3 holds done", tijden vrij. Toetsrun 43193610516 liep nog, dus bouwtak niet vooruitgespoeld. Gestopt.
+
+## 12 nov 2026 10:00 UTC (Gijs, run 62, gestart door de hoofdchat 09:55 UTC)
+- Bericht hoofdchat 10:55 gelezen (tien van twaalf af, twee over). Punt 1 (belletje raakt "1:58") was al hersteld in c9b6be6; de meting van het belletje erbij gebouwd. Punt 2 (gras tegen de h van Jellyfish): de meting begon 16 boven de voet, nu vanaf de voet. baf61de op proef61.
+- Werelden in de echte sessie, stap 1, op proef62 (2e212bb): nieuwe module, tekst via `KrabV2Tekst.echt`, acht proefscènes, workflow telt ze mee. Uit in de gewone app.
