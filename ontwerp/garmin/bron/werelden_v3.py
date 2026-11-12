@@ -28,6 +28,20 @@ ORANJE = (255, 170, 0)
 
 
 # ---------------- hulpjes ----------------
+def clownshoed(d, cx, cy, m, hoek=0):
+    """v3.2 (keuring 17): een puntmutsje met stippen en een pompon op zijn kop: hij IS een clown, zonder uitleg.
+    Los extraatje zoals de slipper van de krab; de vis zelf blijft zoals hij is. Draait mee met de vis."""
+    a = math.radians(hoek)
+    def r(dx, dy):     # punt t.o.v. het midden van de vis (in maat m), kantelt mee (rechtsom = neus omhoog)
+        x, y = dx * m, dy * m
+        return (cx + x * math.cos(a) - y * math.sin(a), cy + x * math.sin(a) + y * math.cos(a))
+    vorm = [r(-.40, -.40), r(-.04, -.46), r(-.30, -.98)]
+    d.blob(vorm, (255, 85, 170), WIT, 1.6)
+    for dx, dy in ((-.28, -.52), (-.14, -.58), (-.27, -.72)):
+        p_ = r(dx, dy); d.rondje(p_[0], p_[1], .05 * m, .05 * m, (255, 255, 0))
+    p_ = r(-.30, -.98); d.rondje(p_[0], p_[1], .085 * m, .085 * m, WIT)
+
+
 def dier_kantel(d, cx, cy, maat, wie, hoek):
     """Het dier zoals in de app (niet aangepast), alleen als geheel gekanteld. hoek in graden, + = neus omhoog (dier kijkt naar links)."""
     m = round(maat * d.D / 260)
@@ -186,6 +200,7 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
         if fase != 'calm':
             spat(d, hx + 6, top - 1, 1.1 if fase == 'in' else .85)
         dier_kantel(d, hx, top - sprong, m, CLOWN, hoek + (10 if fase != 'calm' else 0))
+        clownshoed(d, hx, top - sprong, m, hoek + (10 if fase != 'calm' else 0))
         r_ = (26 if top < 140 else 30) if fase != 'calm' else 22
         jongleer(d, hx + 2, top - sprong - m * .42, r_, 1.25, nacht, neus=(hx - m * .52, top - sprong - m * .18))
     tekst_adem(d, top, woord, getal, onder)
@@ -302,13 +317,17 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
     for i, (a, b) in enumerate(vingers): vinger(i, a, b, False)
     d.rondje(ax, ay, 30, 9, (255, 85, 170), WIT, dikte=1.6)
     if held:
-        dier_kantel(d, hx, hy, m, CLOWN, 0)
+        dier_kantel(d, hx, hy, m, CLOWN, 0); clownshoed(d, hx, hy, m)
         # twee vingers vooraan liggen over zijn staart: hij woont erin (oog en banden blijven vrij)
         for a, b in [(-44, 2), (-50, -12), (-40, -26), (-28, -8)]:
             x0, y0, x1, y1 = ax - 10, ay + 4, ax + a, ay + b
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=WIT, width=round(9 * s)); d.rondje(x1, y1, 4.5, 4.5, WIT)
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=(255, 85, 170), width=round(6 * s)); d.rondje(x1, y1, 3.8, 3.8, (255, 170, 255))
-        if jong:
+        if jong == 'rust':     # hold: de ballen liggen stil op de toppen van zijn anemoon, hij wacht met jou (keuring 17)
+            for (vx_, vy_), c in (((-12, -54), (255, 255, 0)), ((12, -54), (255, 85, 170)), ((34, -34), (85, 255, 85))):
+                x_, y_ = ax + vx_, ay + vy_ - 7
+                d.rondje(x_, y_, 5.5, 5.5, c, (0, 0, 85), dikte=1.4); d.rondje(x_ - 2, y_ - 2, 1.5, 1.5, WIT)
+        elif jong:
             jongleer(d, hx - m * .55, hy - m * .5, m * .66, 1.1, nacht)
 
 
@@ -336,7 +355,7 @@ def hold(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=126, xh=128); wereld_schild(d, dd, hx=136, hy=182, m=46)
     else:
-        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=155, hy=186, m=33, nacht=nacht)
+        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=155, hy=186, m=33, nacht=nacht, jong='rust')
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
     d.tekst(130, 48, 'press START to breathe', 14, WIT, False)     # blijft altijd staan (veiligheid, besluit 12 nov 03:10)

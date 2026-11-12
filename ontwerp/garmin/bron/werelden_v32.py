@@ -85,7 +85,7 @@ def eind(D_, am, dd, nacht, wereld='krab'):
     elif wereld == 'schild':
         v3.dier_kantel(d, 78, 116, 33, v3.SCHILD, 6); v3.blad_in_bek(d, 78 - .86 * 33, 114, .75)
     else:
-        v3.anemoon(d, 86, 142, .7); v3.dier_kantel(d, 76, 112, 27, v3.CLOWN, 0)
+        v3.anemoon(d, 86, 142, .7); v3.dier_kantel(d, 76, 112, 27, v3.CLOWN, 0); v3.clownshoed(d, 76, 112, 27)
         v3.anemoon(d, 102, 144, .7, voor=True); v3.jongleer(d, 64, 98, 18, .75, nacht)
     d.tekst(130, 150, 'new friend', 18, WIT, False)
     d.tekst(130, 166, naam, 32 if len(naam) < 9 else 29, GEEL)

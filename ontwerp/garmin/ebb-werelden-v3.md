@@ -59,3 +59,15 @@ Script `bron/werelden_v32.py` (leunt op v21 en v3), beelden `werelden32/<krab|sc
 - **(d) Eindscherm, nieuwe indeling voor de grote systeemletter van de FR255 (geldt voor alle werelden en beide maten):** kop "3 rounds done" boven op y 18, tijden boven op y 46 en klaar op y 70; held links (krab: slipper (72, 134) schaal 1,1 x 0,8, krab (78, 114) maat 31; schildpad (78, 116) maat 33; clownvis (76, 112) maat 27 met anemoon op (86, 142) en (102, 144), schaal 0,7, ballen op (64, 98) straal 18); hartje (132, 94); belletje (186, 108) rx 36 ry 32, vriend erin maat 28 (zeepaardje 27); "new friend" boven op y 150, naam boven op y 166, samen tot y 196 (de 46 px die je meet); stipjes op y 212. Wereld 24 lager dan op het blad van v2.2 (krab `zak` 24, schildpad 14, clownvis 32), anemoon krab 10 naar links: niets komt in het vak van de tekst.
 - Ook meegenomen: twee sterren bij nacht stonden in het vak van "breathe in" (verplaatst naar (202, 22) en (58, 22)); bij de schildpad in het menu raakten de hoge sprieten "Today" (weide 14 lager, schildpad op y 192).
 - GEZIEN met Read: overzicht krab 454 1x, krab 260 2x, schildpad 260 2x. Eindscherm 260: "new friend Shrimp" staat vrij onder de slipper; nacht MIP leest als diep blauw met paarse ruggen, geen gaten.
+
+### Clownvis v3.2 (run 49): keuring 16 en 17 (allebei 6) verwerkt
+Beide keurders: het jongleren leest pas als je het weet ("vis met bellen"), de vis is klein en staat aan de rand, de clown heeft boven water geen eigen extraatje. Gedaan:
+- **Puntmutsje met stippen en een pompon op zijn kop** (roze, gele stippen, witte pompon), op elk scherm, draait mee met de vis. Nu staat er zonder uitleg: een clown. Een los extraatje zoals de slipper van de krab; de vis zelf is niet veranderd.
+- **Ballen groter met een donkere rand** (000055) en een glimpje, een witte stippelboog als spoor; boven water ligt de gele bal net op zijn neus.
+- **Vis groter (maat 38) en dichter bij het midden** waar het cijfer het toelaat (inademen x 192, uitademen 160, Calm 180).
+- **Calm heeft een eigen moment:** hij ligt rustig op de golfrug (sprong 6, niet gekanteld), lage boog.
+- **De grap links op het water: een vierde bal is al in zee gevallen en drijft weg** (blauw, met een golfje).
+- **Hold: de drie ballen liggen stil op de toppen van zijn anemoon,** hij wacht met jou. Menu en eind jongleren door.
+- Spat naast het lijf in plaats van eronder (twee druppels onder het lijf lazen als wieltjes).
+- Eindscherm: geen tweede grote anemoon meer en geen geel takje aan de rand (leek een vinkje).
+- Contrast na alles: elke regel op alle 36 schermen 4,5 of hoger (`bron/meet_contrast_v32.py`). GEZIEN met Read: overzicht clown 454 1x en 260 2x na elke stap, uitvergroting inademen 454 en hold 260.
