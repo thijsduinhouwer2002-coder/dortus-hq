@@ -7,7 +7,7 @@ import Toybox.System;
 // inhouden) één stilstaand plaatje; bij een wissel bouwt het nieuwe zich in vijf beurten op.
 // Veiligheid: de wereld bij inhouden is op elk moment hetzelfde plaatje, hij beloont langer inhouden niet.
 // Staat sinds run 63 AAN in de gewone app (besluit Thijs 12 nov 11:50: de werelden in de echte ademsessie). Een dier
-// zonder eigen wereld krijgt de basiswereld (KrabV2Basis.mc). Herstel, eindscherm, menu en Calm tekenen het oude scherm.
+// zonder eigen wereld krijgt de basiswereld (KrabV2Basis.mc). Herstel, eindscherm en menu tekenen hun eigen scherm; Calm sinds run 71 ook de wereld (tekenCalm).
 module EbbWereldSessie {
     var aan as Boolean = true;
     // Plaatjesbouw: 0 dag, 1 nacht; -1 is de klok van het horloge (nacht van 21 tot 6 uur, EbbLucht).
@@ -80,6 +80,23 @@ module EbbWereldSessie {
             tekst = [s < 180 ? "hold" : "breathe", v.stopTekst(), (s / 60).toString() + ":" + (s % 60).format("%02d"),
                 (bpm > 0 ? bpm + " bpm · " : "") + ronde] as Array<String>;
         }
+        return toon(dc, scherm, w, nacht, zonder, tekst);
+    }
+
+    // Calm (hoofdchat 12 nov 20:15 punt 1): geen zwart scherm meer. Dezelfde zee boven water als het ademen, met je
+    // dier (scherm 2 van de wereld, dat er al was). tekst: fasewoord, seconden, naam van het patroon (lang en kort).
+    function tekenCalm(dc as Graphics.Dc, gezelschap as Number, tekst as Array<String>) as Boolean {
+        var zonder = gezelschap < 0;
+        var w = wereldVan(zonder ? 13 : gezelschap);
+        if (!aan || w < 0) {
+            return false;
+        }
+        var nacht = proefNacht >= 0 ? proefNacht == 1 : (!EbbBouw.PLAATJE && EbbLucht.deelNu() == 3);
+        return toon(dc, 2, w, nacht, zonder, tekst);
+    }
+
+    // Het plaatje van dit scherm (nieuw bij een wissel, eerst het oude los) met de echte tekst van dit moment.
+    function toon(dc as Graphics.Dc, scherm as Number, w as Number, nacht as Boolean, zonder as Boolean, tekst as Array<String>) as Boolean {
         var sleutel = scherm + 10 * w + (nacht ? 100000 : 0) + (zonder ? 200000 : 0);
         if (sleutel != _sleutel || _kv == null) {
             _kv = null; // eerst het oude plaatje los, dan pas het nieuwe (geheugen op de FR255)

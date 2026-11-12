@@ -14,3 +14,7 @@ einde-6c-6rondes
 einde-weekdoel
 calm-einde-krab
 einde-na-feest
+# Run 71, proef71b: Calm in de zee boven water met het dier (hoofdchat 20:15 punt 1, tweede helft)
+rustig
+calm-45s
+calmcheck

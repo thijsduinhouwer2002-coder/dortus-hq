@@ -40,6 +40,7 @@ class RustigView extends WatchUi.View {
 
     function onHide() as Void {
         _timer.stop();
+        EbbWereldSessie.los();
     }
 
     function tik() as Void {
@@ -89,6 +90,11 @@ class RustigView extends WatchUi.View {
         dc.clear();
         var nu = plaatjeMs >= 0 ? sessie.startMs + plaatjeMs : sessie.klok(System.getTimer());
         var i = sessie.faseIndex(nu);
+        var label = naam.equals("4-7-8") ? "Calm 4-7-8" : naam;
+        // Hoofdchat 12 nov 20:15 punt 1: de zee boven water van het ademen, met je dier. Lukt dat niet, dan het oude scherm.
+        if (EbbWereldSessie.tekenCalm(dc, EbbTrouw.zwemmer(), [WOORDEN[i], sessie.overS(nu).toString(), label, label] as Array<String>)) {
+            return;
+        }
         // Keuring bouw 1 punt 5 (blad v6 scherm 5): zwart, fasewoord bovenaan, groot cijfer met "s", de zee onderaan
         // die zacht mee ademt (hoogste golf 0,60 D), het cijfer staat altijd boven de hoogste golfstand; geen teal vlak.
         EbbZee.ademZee(dc, d, sessie.water(nu), _golf);
@@ -113,7 +119,6 @@ class RustigView extends WatchUi.View {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx + gb / 2 + 4, onder - Graphics.getFontAscent(EbbTeken.fS()), EbbTeken.fS(), "s", Graphics.TEXT_JUSTIFY_LEFT);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        var label = naam.equals("4-7-8") ? "Calm 4-7-8" : naam;
         dc.drawText(w / 2, (d * 0.84).toNumber(), EbbTeken.fS(), label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
