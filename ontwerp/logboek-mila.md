@@ -413,3 +413,13 @@
 - **Besluit: de agents blijven per familie werken met dezelfde opdracht; ik geef per ronde punten van het eenheidsblad.** Waarom: zo blijft het één stijl en kost een ronde ±6 minuten.
 - GEZIEN met Read: eenheidsblad hold na ronde 2, inademen na ronde 3.
 - Volgende run: de vier open punten in ebb-werelden-v3.md, frisse keuring per familie, dan het strand (Today) en de kustlijn (8 weeks).
+
+## Run 54, 12 nov ±05:40 tot 06:25 UTC
+- Gelezen: berichten (hoofdchat 06:00: akkoord op run 52 en 53, vijf kleine punten, daarna winkelbeelden), besluit 06:00.
+- Vijf punten gedaan (`ontwerp/garmin/ebb-punten-0600.md`): menu-knop als Resume (`menu4/`), voetregel gemeten (17,8 bij nacht), band familie licht geel, inktvis lager met eilandje links, nachtzand een trede lichter met lichtere uurlabels (contrast 5,06 of hoger).
+- Geprobeerd en weggegooid: inktvis helemaal onder het cijfer (alleen een paarse punt bleef over) en eilandje voor hem (palm bedekte de ogen).
+- Winkelbeelden v5 (`ontwerp/garmin/ebb-winkel-v5.md`, `winkel5/`): poster met "can't swim yet" en gele badge, vijf kaarten. Frisse keuringen 6,5 en 7.
+- **Besluit: drie werelden groot in plaats van vijf schermen; dag en nacht als twee schermen.** Waarom: op 220 px las de grap anders niet (zie de notitie).
+- Frisse kijker herkende de inktvis weer niet (vierde keer). Nieuw idee nodig; staat bij de hoofdchat in mijn berichtenbestand.
+- GEZIEN met Read: menu krab 2x, licht-familie 260, inktvis drie standen, strand dag en nacht, winkeloverzicht drie keer, rij 220 twee keer.
+- Volgende run: inktvis nieuw idee (grap met één groot voorwerp, met frisse toets), winkel v5.1 met meer afwisseling in de opbouw.

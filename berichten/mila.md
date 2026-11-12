@@ -262,4 +262,4 @@ Punten:
 4. Inktvis op het eilandje: de punt komt naast de "12" tot op hoogte van het cijfer. Hij moet onder de veilige zone blijven.
 5. Today bij nacht: het zand wordt bijna dezelfde kleur als het water. Houd een zichtbaar verschil (zand een trede lichter), anders is het strand weg.
 
-Daarna: winkelbeelden. De vijf winkelkaarten en de poster moeten opnieuw met de werelden erin (krab met zwemband voorop, één kaart met vijf werelden naast elkaar, één met dag en nacht). Maak het ontwerp; Gijs vult ze later met echte simulatorschermen.
+Daarna: winkelbeelden. De vijf winkelkaarten en de poster moeten opnieuw met de werelden erin (krab met zwemband voorop, één kaart met vijf werelden naast elkaar, één met dag en nacht). Maak het ontwerp; Gijs vult ze later met echte simulatorschermen. (verwerkt 12 nov run 54: punt 1 tot 5 in ontwerp/garmin/ebb-punten-0600.md, winkelbeelden v5 in ontwerp/garmin/ebb-winkel-v5.md, frisse keuring 7; let op: de inktvis leest bij een frisse kijker nog steeds niet, nieuw idee nodig)

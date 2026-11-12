@@ -141,9 +141,9 @@ def kaart_werelden(uit):
     """Frisse keuring v5 punt 1: niet vijf hele schermen maar drie helden groot, elk met zijn grap als onderschrift."""
     W = 800; im = Image.new('RGB', (W, W), NACHT); zee(im, W, W, .66); dr = ImageDraw.Draw(im)
     kop(dr, W, 20, 'Every friend, their own world.', 'own world', 84); onder(dr, W, 130, 'And their own silly thing.', 56)
-    plek = [(138, 'krab-in', .50, 'in a float'), (400, 'octopus', .60, 'in a bath'), (662, 'shark', .66, 'brushing')]
+    plek = [(138, 'krab-in', .50, 'in a float'), (400, 'octopus', .60, 'in a bath'), (662, 'shark', .64, 'brushing')]
     for x, n, hx, t in plek:
-        kast(im, x, 455, 120, inzoom(laad(n), hx, .52, .34), ring=.06)
+        kast(im, x, 455, 120, inzoom(laad(n), hx, .49, .38), ring=.06)
         ImageDraw.Draw(im).text((x, 620), t, font=f(FX, 54), fill=GEEL, anchor='mt')
     im.save(os.path.join(uit, '2-worlds.png')); return im
 
@@ -151,18 +151,12 @@ def kaart_werelden(uit):
 def kaart_dagnacht(uit):
     W = 800; im = Image.new('RGB', (W, W), NACHT); zee(im, W, W); dr = ImageDraw.Draw(im)
     kop(dr, W, 20, 'The sea keeps your time.', 'your time', 84); onder(dr, W, 130, 'Sun by day. Moon by night.', 56)
-    r = 250; d = 2 * r
-    dag = laad('krab-in').resize((d, d), Image.LANCZOS); nacht = laad('krab-in-nacht').resize((d, d), Image.LANCZOS)
-    # één scherm, schuin gedeeld: links dag, rechts nacht, met een witte golflijn ertussen
-    m = Image.new('L', (d, d), 0); md = ImageDraw.Draw(m)
-    pts = [(d * .5 + 40 * math.sin(t / d * 2 * math.pi * 1.5) + (t - d / 2) * .18, t) for t in range(0, d + 1, 4)]
-    md.polygon(pts + [(d, d), (d, 0)], fill=255)
-    samen = Image.composite(nacht, dag, m)
-    sd = ImageDraw.Draw(samen); sd.line(pts, fill=WIT, width=5)
-    kast(im, 400, 492, r, samen)
+    # frisse keuring v5b punt 1: geen scheidslijn door cijfer en krab, maar twee schermen naast elkaar (nacht achter, dag voor)
+    kast(im, 560, 520, 185, laad('krab-in-nacht'))
+    kast(im, 240, 470, 185, laad('krab-in'))
     dr = ImageDraw.Draw(im)
-    for x, t in ((150, 'day'), (650, 'night')):
-        dr.text((x, 760), t, font=f(FS, 40), fill=SCHUIM if t == 'day' else (170, 170, 255), anchor='mm')
+    dr.text((200, 700), 'day', font=f(FX, 56), fill=SCHUIM, anchor='mm')
+    dr.text((640, 752), 'night', font=f(FX, 56), fill=(170, 170, 255), anchor='mm')
     im.save(os.path.join(uit, '3-day-night.png')); return im
 
 
