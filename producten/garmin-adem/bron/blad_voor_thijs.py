@@ -6,12 +6,15 @@
 import sys, os
 from PIL import Image, ImageDraw, ImageFont
 m, uit = sys.argv[1], sys.argv[2]
-# Uitsnede van het scherm in de bijgesneden simulatorfoto (gemeten door Wout, werelden-stand.md).
-HORLOGES = [('fenix847mm', 'fenix 8, 47 mm (AMOLED)', (152, 233, 572, 653)), ('fr255', 'Forerunner 255 (MIP)', (83, 155, 363, 435))]
+# Uitsnede: precies het ronde scherm in de simulatorfoto. Gemeten in run 64 op de beelden van run 43210421635:
+# fenix 8 47 mm 454 px vanaf (135, 247), Forerunner 255 260 px vanaf (80, 184). De oude vakken lagen ernaast (bij de
+# FR255 kwam rechts een randje kast in beeld). Wat buiten de cirkel valt (de kast) krijgt de kleur van het blad.
+HORLOGES = [('fenix847mm', 'fenix 8, 47 mm (AMOLED)', (135, 247, 589, 701)), ('fr255', 'Forerunner 255 (MIP)', (80, 184, 340, 444))]
 DIEREN = [('krab', 'Crab, with his swim ring'), ('schild', 'Turtle, with the gull'), ('basis', 'Dolphin, the shared sea')]
 SESSIE = [('in-dag', 'breathe in, day'), ('uit-dag', 'breathe out, day'), ('hold-dag', 'hold, day'),
           ('in-nacht', 'breathe in, night'), ('uit-nacht', 'breathe out, night'), ('hold-nacht', 'hold, night')]
-REST = [('thuis-start-dag', 'start, day'), ('thuis-start-nacht', 'start, night'), ('pauze', 'pause'), ('sealog-1', 'sea log'),
+# Start, pauze en sea log komen uit de acht thuisscènes van Bas (thuiswater); Today en het eindscherm uit de gewone scènes.
+REST = [('thuis-menu-dag', 'start, day'), ('thuis-menu-nacht', 'start, night'), ('thuis-pauze-dag', 'pause'), ('thuis-sealog-dag', 'sea log'),
         ('today', 'Today'), ('einde-6c-krab', 'end of a session')]
 C, GAT, KOP = 300, 14, 26
 def letter(maat):
@@ -20,6 +23,9 @@ def letter(maat):
             return ImageFont.truetype(p, maat)
     return ImageFont.load_default()
 F, FG = letter(15), letter(22)
+ROND = Image.new('L', (C * 4, C * 4), 0)
+ImageDraw.Draw(ROND).ellipse([0, 0, C * 4 - 1, C * 4 - 1], fill=255)
+ROND = ROND.resize((C, C), Image.LANCZOS)
 rijen = []
 for d, dnaam in DIEREN:
     for h, hnaam, vak in HORLOGES:
@@ -40,7 +46,7 @@ for kop, cellen in rijen:
         p = os.path.join(m, naam)
         if os.path.exists(p):
             im = Image.open(p).convert('RGB').crop(vak).resize((C, C), Image.LANCZOS)
-            blad.paste(im, (x, y))
+            blad.paste(im, (x, y), ROND)
         else:
             mis += 1
             dr.rectangle([x, y, x + C - 1, y + C - 1], fill=(60, 60, 70))
