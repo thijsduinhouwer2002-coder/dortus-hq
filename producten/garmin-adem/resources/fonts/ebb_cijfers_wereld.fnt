@@ -1,0 +1,15 @@
+info face="EbbCijfers" size=77 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=56 base=56 scaleW=374 scaleH=60 pages=1 packed=0
+page id=0 file="ebb_cijfers_wereld.png"
+chars count=11
+char id=48 x=2 y=2 width=34 height=56 xoffset=0 yoffset=0 xadvance=36 page=0 chnl=15
+char id=49 x=40 y=3 width=20 height=54 xoffset=0 yoffset=1 xadvance=22 page=0 chnl=15
+char id=50 x=64 y=2 width=32 height=55 xoffset=0 yoffset=0 xadvance=34 page=0 chnl=15
+char id=51 x=100 y=3 width=32 height=55 xoffset=0 yoffset=1 xadvance=34 page=0 chnl=15
+char id=52 x=136 y=3 width=34 height=54 xoffset=0 yoffset=1 xadvance=36 page=0 chnl=15
+char id=53 x=174 y=3 width=32 height=55 xoffset=0 yoffset=1 xadvance=34 page=0 chnl=15
+char id=54 x=210 y=2 width=32 height=56 xoffset=0 yoffset=0 xadvance=34 page=0 chnl=15
+char id=55 x=246 y=3 width=29 height=54 xoffset=0 yoffset=1 xadvance=31 page=0 chnl=15
+char id=56 x=279 y=2 width=33 height=56 xoffset=0 yoffset=0 xadvance=35 page=0 chnl=15
+char id=57 x=316 y=2 width=32 height=56 xoffset=0 yoffset=0 xadvance=34 page=0 chnl=15
+char id=58 x=352 y=21 width=18 height=36 xoffset=0 yoffset=19 xadvance=20 page=0 chnl=15

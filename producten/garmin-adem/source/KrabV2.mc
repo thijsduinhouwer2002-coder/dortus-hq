@@ -25,10 +25,10 @@ class KrabV2View extends WatchUi.View {
     private var _am as Boolean = false;
     // slipper: hak x, y, schaal, hoek in graden; held: midden van het kader x, y en maat
     // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
-    private var _sl as Array<Float> = [158.0, 152.0, 1.4125, -13.0] as Array<Float>;
+    private var _sl as Array<Float> = [158.0, 146.0, 1.4125, -13.0] as Array<Float>;
     private var _kantel as Float = 4.8;
     private var _gedraaid as Number = 0;
-    private var _held as Array<Number> = [154, 140, 36] as Array<Number>;
+    private var _held as Array<Number> = [154, 134, 36] as Array<Number>;
 
     function initialize(s as Number, n as Boolean) {
         View.initialize();

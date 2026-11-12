@@ -3,6 +3,8 @@
     <font id="EbbCijfers" filename="ebb_cijfers.fnt" filter="0123456789:" antialias="true"/>
     <!-- Besluit 11 nov 09:30 punt 2: de tijd tijdens inhouden 80 procent, zodat het dier 90 x 70 (454) krijgt. -->
     <font id="EbbCijfersKlein" filename="ebb_cijfers_klein.fnt" filter="0123456789:" antialias="true"/>
+    <!-- Keuring 12 nov 04:05 NL: cijfers op de wereldschermen 85 procent van klein (56 van 260, zoals Mila's blad). -->
+    <font id="EbbCijfersWereld" filename="ebb_cijfers_wereld.fnt" filter="0123456789:" antialias="true"/>
     <!-- Keuring bouw 4 punt 4: Barlow Condensed voor alle tekst, gemaakt met bron/maak_letters.py. -->
     <font id="EbbXtiny" filename="ebb_xtiny.fnt" antialias="true"/>
     <font id="EbbSmall" filename="ebb_small.fnt" antialias="true"/>

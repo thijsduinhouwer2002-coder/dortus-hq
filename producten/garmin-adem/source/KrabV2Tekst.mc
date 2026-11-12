@@ -1,17 +1,27 @@
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.WatchUi;
 
 // PROEF krabwereld v2.2 (zie KrabV2.mc): de tekst van de zes schermen. De regels staan onder elkaar op de echte
 // letterhoogte van het horloge (de systeemletter op MIP is hoger dan op het blad; in run 43135243219 liepen de
 // cijfers door de kop). "press START to breathe" staat altijd in beeld tijdens inhouden (besluit 12 nov 03:10).
 module KrabV2Tekst {
-    // Kam van de zee bij in, uit en Calm (1/260). Keuring 12 nov 04:05 NL punt 2: bij inademen 6 lager (was 134),
-    // zodat de scharen vrij blijven van de cijfers; de echte oplossing is een kleinere cijferletter (taken.md).
-    const KAM = [140, 170, 146] as Array<Number>;
+    // Kam van de zee bij in, uit en Calm (1/260).
+    const KAM = [134, 170, 146] as Array<Number>;
     const DONKER = 0x001E3C;
 
     var _rand as Number = 0;
+    var _cijfers as WatchUi.FontResource or Null = null;
+
+    // Cijferletter van de wereldschermen: 85 procent van EbbCijfersKlein (56 van 260, de maat van Mila's blad),
+    // zodat er lucht is tussen kop, cijfers, hartslagregel en de held (keuring 12 nov 04:05 NL punt 1 en 2).
+    function cijfers() as Graphics.FontType {
+        if (_cijfers == null) {
+            _cijfers = WatchUi.loadResource(Rez.Fonts.EbbCijfersWereld) as WatchUi.FontResource;
+        }
+        return _cijfers as WatchUi.FontResource;
+    }
 
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
@@ -36,19 +46,19 @@ module KrabV2Tekst {
         if (scherm <= 2) {
             var top = KAM[scherm];
             // Run 43139810543: de cijferletter vult zijn hele regel, dus geen overlap met de kop; de cijfers eindigen
-            // 3 px boven de scharen, de kop staat er direct boven (niet hoger dan 4/260).
+            // 12/260 boven de scharen (keuring 12 nov 04:05 NL punt 2), de kop staat er direct boven (niet hoger dan 4/260).
             var hk = dc.getFontHeight(EbbTeken.fM()) * 92 / 100;
-            var yd = v.q(top - 24) - 3 - dc.getFontHeight(EbbTeken.grootKlein());
+            var yd = v.q(top - 24) - v.q(12) - dc.getFontHeight(cijfers()); // 7 lucht plus 5 voor de schaar die door het kantelen omhoog komt
             yd = yd > v.q(18) + hk ? v.q(18) + hk : yd;
             yd = yd < v.q(4) + hk ? v.q(4) + hk : yd;
             regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
-            y = regel(dc, d, yd, EbbTeken.grootKlein(), (["12", "9", "5"] as Array<String>)[scherm], wit, 100);
+            y = regel(dc, d, yd, cijfers(), (["12", "9", "5"] as Array<String>)[scherm], wit, 100);
             regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", scharen vanaf " + v.q(top - 24));
         } else if (scherm == 3) {
             y = regel(dc, d, v.q(12), EbbTeken.fM(), "hold", geel, 90);
             y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
-            y = regel(dc, d, y, EbbTeken.grootKlein(), "1:45", wit, 100);
+            y = regel(dc, d, y, cijfers(), "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", scharen vanaf " + v.q(192 - 28));
         } else if (scherm == 4) {
