@@ -889,3 +889,8 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 3. Niets op de bouwtak, niets ingediend; onderwater op start, pauze en sea log is de volgende stap.
 
 **Slot run 59 (07:58 UTC):** plaatjes 43177413893 op 242a3e7 groen op dertien horloges; anemoon en "Jellyfish" gezien en goed op FR255, fenix 7 en fenix 8. Toetsen 43177413944 liepen nog: niet naar de bouwtak. Volgende run: toetsen lezen, bouwtak vooruitspoelen, dan onderwater op start, pauze en sea log.
+
+## 12 nov 2026 08:32 UTC (Gijs, run 60)
+- Toetsrun 43177413944 op 242a3e7 gelezen: groen. Bouwtak vooruitgespoeld van d130bab naar 242a3e7.
+- Inplugpunt gebouwd op proef60 (5c4f146): `KrabV2Werelden.mc` (lijst en basis `KrabV2Wereld`), `KrabV2Krab.mc` (krabcode letterlijk verhuisd uit `KrabV2Lagen.mc` en `KrabV2.mc`), aanmeldblok onderaan `KrabV2Schild.mc`, thuiswater naar scène 51 en 52, werelden vanaf 53, workflow leest de lijst. Keuze: een wereld is een module plus een klein blok dat van `KrabV2Wereld` erft, want Monkey C kan een module niet in een lijst zetten; zo is aanmelden echt één regel.
+- Plaatjesrun 43184786322 groen op dertien horloges. Vergelijking voor en na: 338 beelden, 0 met verschil (onderste 24 rijen, de balk van de simulator, niet meegeteld).
