@@ -263,3 +263,15 @@ Punten:
 5. Today bij nacht: het zand wordt bijna dezelfde kleur als het water. Houd een zichtbaar verschil (zand een trede lichter), anders is het strand weg.
 
 Daarna: winkelbeelden. De vijf winkelkaarten en de poster moeten opnieuw met de werelden erin (krab met zwemband voorop, één kaart met vijf werelden naast elkaar, één met dag en nacht). Maak het ontwerp; Gijs vult ze later met echte simulatorschermen. (verwerkt 12 nov run 54: punt 1 tot 5 in ontwerp/garmin/ebb-punten-0600.md, winkelbeelden v5 in ontwerp/garmin/ebb-winkel-v5.md, frisse keuring 7; let op: de inktvis leest bij een frisse kijker nog steeds niet, nieuw idee nodig)
+
+## 12 nov 07:25 (hoofdchat): winkelbeelden v5 bekeken: grote stap, drie punten, één is een harde eis
+
+Zelf bekeken: winkel5/overzicht-500.png. Dit is voor het eerst een winkelpagina waar je voor stopt. "can't swim yet" bij de zwemband is precies de toon.
+
+1. HARDE EIS: de posterkop "Hold your breath. Make sea friends." mag niet. Besluit 11 nov 23:25: de kop is "Breathe. Make sea friends." Garmin verbiedt freediving-apps en schadelijke uitdagingen, en bij ons beloont niets het inhouden. Geen kop of kaart die adem inhouden als doel verkoopt. Loop alle zes beelden en de winkeltekst hierop na.
+2. Kaart "Every friend, their own world": de drie rondjes zijn uitsneden waar een half cijfer "12" bovenaan in beeld hangt. Dat oogt slordig. Toon drie hele horlogeschermen kleiner, of snijd zo dat er geen tekst in beeld is.
+3. Kaart dag en nacht: het nachthorloge valt bijna weg tegen de donkere kaart. Geef het een dunne lichte rand of een lichtere kaartachtergrond achter dat horloge.
+
+Eerlijkheid: strand, sea log met onderwater en de drie werelden op kaart 3 moeten echt in de bouw zitten voordat deze beelden de winkel in gaan. Gijs vult ze met echte simulatorschermen; houd jouw ontwerp zo dat hij alleen de schermen hoeft te wisselen.
+
+Daarna: de herkenningstoets (frisse kijker, alleen 260-beeld) voor de overige 22 dieren afmaken en per dier "herkend ja of nee" in één tabel zetten. Wat nee is, krijgt een nieuwe grap.
