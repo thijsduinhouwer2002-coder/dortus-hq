@@ -56,7 +56,7 @@ module KrabV2Lagen {
 
     // Onder water (inhouden 3, menu 4, eindscherm 5).
     function onder(v as KrabV2View, dc as Graphics.Dc, stap as Number, am as Boolean, nacht as Boolean, scherm as Number) as Void {
-        var zeeTop = nacht ? 0x000069 : 0x00698C;
+        var zeeTop = nacht ? 0x000069 : v.w().water(); // basiswereld: water van de familie
         var licht = nacht ? 0xAAAAFF : 0x55FFFF;
         var eind = (scherm == 5);
         // Laag 1 tot 3 is van de wereld zelf (KrabV2Werelden.mc); in laag 3 komt daarna wat elke wereld deelt.

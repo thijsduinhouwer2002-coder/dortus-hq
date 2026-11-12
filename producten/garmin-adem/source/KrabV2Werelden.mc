@@ -94,6 +94,17 @@ class KrabV2Wereld {
         return false;
     }
 
+    // Eigen lucht overdag (basiswereld, Mila werelden v5): MIP boven, MIP band, AMOLED drie stappen en de knik in
+    // procenten van de horizon. Null is de gewone lucht van krab en schildpad.
+    function lucht() as Array<Number> or Null {
+        return null;
+    }
+
+    // Kleur van het water bovenin onder water op AMOLED overdag.
+    function water() as Number {
+        return 0x00698C;
+    }
+
     // Eigen meting van de grap tegen de cijfers boven water (de meeuw van de schildpad).
     function veiligExtra(v as KrabV2View, scherm as Number, tekstRechts as Number, tekstOnder as Number) as Void {
     }
@@ -102,12 +113,19 @@ class KrabV2Wereld {
 module KrabV2Werelden {
     // Het thuiswater (startscherm) is geen wereld en heeft een eigen nummer buiten de lijst.
     const THUIS = -1;
+    // Vanaf dit nummer is een wereld de basiswereld van dier (nummer - BASIS); staat niet in de lijst met beelden.
+    const BASIS = 100;
 
     // DE LIJST. Eén regel per wereld, in volgorde, nummers zonder gaten. Het woord achter "naam:" wordt de naam van
     // de beelden (<naam>-in-dag-<horloge>.png) en de workflow telt deze regels om te weten hoeveel scènes er zijn.
     function maak(w as Number) as KrabV2Wereld {
         if (w == 0) { return new KrabV2WKrab(); } // naam: krab2
         if (w == 1) { return new KrabV2WSchild(); } // naam: schild2
+        // Proefbeelden van de basiswereld (KrabV2Basis.mc): octopus (familie huisjes, rotsen) en zeepaardje (licht, zeegras).
+        if (w == 2) { return new KrabV2WBasis(9); } // naam: basisoctopus
+        if (w == 3) { return new KrabV2WBasis(5); } // naam: basiszeepaard
+        // Elk ander dier zonder eigen wereld: de basiswereld met zijn eigen lucht, water en bodem (wereld 100 + dier).
+        if (w >= BASIS && w < BASIS + 25) { return new KrabV2WBasis(w - BASIS); }
         return new KrabV2Wereld();
     }
 }

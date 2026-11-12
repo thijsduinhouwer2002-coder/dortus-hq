@@ -14,27 +14,17 @@ module EbbWereldSessie {
     var proefNacht as Number = -1;
     var _kv as KrabV2View or Null = null;
     var _sleutel as Number = -1;
-    var _dier as Number = -2;
-    var _wereld as Number = -1;
 
-    // Nummer van de wereld van dit dier in de lijst van KrabV2Werelden, of -1 als het dier nog geen wereld heeft.
-    // De lijst eindigt bij de eerste lege wereld: die geeft het dier van de krab terug en staat niet op plek 0.
+    // Nummer van de wereld van dit dier: krab 0, schildpad 1, elk ander dier zijn basiswereld (KrabV2Basis.mc,
+    // besluit Thijs 12 nov 11:50); -1 als het nummer geen dier is.
     function wereldVan(dier as Number) as Number {
-        if (dier != _dier) {
-            _dier = dier;
-            _wereld = -1;
-            for (var w = 0; w < 40; w += 1) {
-                var d = KrabV2Werelden.maak(w).dier();
-                if (w > 0 && d == 4) {
-                    break;
-                }
-                if (d == dier) {
-                    _wereld = w;
-                    break;
-                }
-            }
+        if (dier == 4) {
+            return 0;
         }
-        return _wereld;
+        if (dier == 3) {
+            return 1;
+        }
+        return (dier >= 0 && dier < 25) ? KrabV2Werelden.BASIS + dier : -1;
     }
 
     function los() as Void {
@@ -76,7 +66,7 @@ module EbbWereldSessie {
             tekst = [s < 180 ? "hold" : "breathe", v.stopTekst(), (s / 60).toString() + ":" + (s % 60).format("%02d"),
                 (bpm > 0 ? bpm + " bpm · " : "") + ronde] as Array<String>;
         }
-        var sleutel = scherm + 10 * w + (nacht ? 1000 : 0);
+        var sleutel = scherm + 10 * w + (nacht ? 100000 : 0);
         if (sleutel != _sleutel || _kv == null) {
             _kv = null; // eerst het oude plaatje los, dan pas het nieuwe (geheugen op de FR255)
             _kv = new KrabV2View(scherm, nacht, w);

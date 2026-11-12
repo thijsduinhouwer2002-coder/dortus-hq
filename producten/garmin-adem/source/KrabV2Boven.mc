@@ -24,7 +24,25 @@ module KrabV2Boven {
         var kl = (am ? (nacht ? [0x004B96, 0x002D73, 0x000F4B] : [0x0055AF, 0x00378C, 0x001E64])
             : (nacht ? [0x0000AA, 0x0000AA, 0x0000AA] : [0x0055AA, 0x0000AA, 0x000055])) as Array<Number>; // nacht MIP: na de nachtregel één blauw 000055 (v1.3)
         if (stap == 0) {
-            if (am) {
+            // Basiswereld: eigen lucht per familie, alleen overdag (Mila werelden v5). Het lichte deel begint pas
+            // 4/260 onder de cijfers (gemeten tekstvak), zodat wit op elk horloge 4,5 houdt.
+            var lu = nacht ? null : v.w().lucht();
+            if (lu != null) {
+                var grens = KrabV2Basis.tekstOnder(v, top) + 4;
+                if (am) {
+                    var ky = lu[5] * top / 100;
+                    ky = ky < grens ? grens : ky;
+                    ky = ky > top ? top : ky;
+                    KrabV2Lagen.verloop(v, dc, 0, ky, lu[2], lu[3]);
+                    KrabV2Lagen.verloop(v, dc, ky, top + 6, lu[3], lu[4]);
+                } else {
+                    v.kleur(dc, lu[0]);
+                    dc.fillRectangle(0, 0, dc.getWidth(), v.q(top + 6));
+                    if (grens < top) {
+                        v.golf(dc, grens > top - 28 ? grens : top - 28, top + 6, lu[1], 2.5, 2, 0.0);
+                    }
+                }
+            } else if (am) {
                 KrabV2Lagen.verloop(v, dc, 0, top + 6, l0, l1);
             } else {
                 v.kleur(dc, l0);

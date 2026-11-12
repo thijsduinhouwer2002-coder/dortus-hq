@@ -132,12 +132,14 @@ function testDetailsVerdiend(logger as Test.Logger) as Boolean {
         && EbbWereld.verdiend(det, 3) == 3 && EbbWereld.verdiend(det, 40) == 3;
 }
 
-// Run 62: elk dier met een wereld in de lijst van KrabV2Werelden wordt gevonden, een dier zonder wereld niet.
+// Run 62 en 63: krab en schildpad hebben hun eigen wereld, elk ander dier de basiswereld, een onbekend nummer geen.
 (:test)
 function testWereldVanDier(logger as Test.Logger) as Boolean {
     var krab = EbbWereldSessie.wereldVan(4);
     var schild = EbbWereldSessie.wereldVan(3);
     var geen = EbbWereldSessie.wereldVan(99);
-    logger.debug("wereld krab " + krab + ", schildpad " + schild + ", dier 99 " + geen);
-    return krab == 0 && schild >= 1 && geen == -1 && !EbbWereldSessie.aan;
+    var vis = EbbWereldSessie.wereldVan(0);
+    var basis = KrabV2Werelden.maak(vis);
+    logger.debug("wereld krab " + krab + ", schildpad " + schild + ", vis " + vis + " (dier " + basis.dier() + "), dier 99 " + geen);
+    return krab == 0 && schild == 1 && geen == -1 && vis == KrabV2Werelden.BASIS && basis.dier() == 0 && basis.lucht() != null && !EbbWereldSessie.aan;
 }
