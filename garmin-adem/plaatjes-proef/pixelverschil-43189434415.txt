@@ -1,0 +1,51 @@
+GELIJK garnaal-calm-dag-fenix847mm.png
+GELIJK garnaal-calm-nacht-fenix847mm.png
+VERSCHIL garnaal-eind-dag-fenix847mm.png 2894 pixels in (295, 659, 430, 693)
+VERSCHIL garnaal-eind-nacht-fenix847mm.png 2894 pixels in (295, 659, 430, 693)
+VERSCHIL garnaal-hold-dag-fenix847mm.png 6676 pixels in (242, 638, 483, 684)
+VERSCHIL garnaal-hold-nacht-fenix847mm.png 6676 pixels in (242, 638, 483, 684)
+GELIJK garnaal-in-dag-fenix847mm.png
+GELIJK garnaal-in-nacht-fenix847mm.png
+VERSCHIL garnaal-menu-dag-fenix847mm.png 4023 pixels in (268, 644, 457, 677)
+VERSCHIL garnaal-menu-nacht-fenix847mm.png 4022 pixels in (268, 644, 457, 677)
+GELIJK garnaal-uit-dag-fenix847mm.png
+GELIJK garnaal-uit-nacht-fenix847mm.png
+GELIJK krab2-calm-dag-fenix847mm.png
+GELIJK krab2-calm-nacht-fenix847mm.png
+GELIJK krab2-eind-dag-fenix847mm.png
+GELIJK krab2-eind-nacht-fenix847mm.png
+GELIJK krab2-hold-dag-fenix847mm.png
+GELIJK krab2-hold-nacht-fenix847mm.png
+GELIJK krab2-in-dag-fenix847mm.png
+GELIJK krab2-in-nacht-fenix847mm.png
+GELIJK krab2-menu-dag-fenix847mm.png
+GELIJK krab2-menu-nacht-fenix847mm.png
+GELIJK krab2-uit-dag-fenix847mm.png
+GELIJK krab2-uit-nacht-fenix847mm.png
+GELIJK schild2-calm-dag-fenix847mm.png
+GELIJK schild2-calm-nacht-fenix847mm.png
+GELIJK schild2-eind-dag-fenix847mm.png
+GELIJK schild2-eind-nacht-fenix847mm.png
+GELIJK schild2-hold-dag-fenix847mm.png
+GELIJK schild2-hold-nacht-fenix847mm.png
+GELIJK schild2-in-dag-fenix847mm.png
+GELIJK schild2-in-nacht-fenix847mm.png
+GELIJK schild2-menu-dag-fenix847mm.png
+GELIJK schild2-menu-nacht-fenix847mm.png
+GELIJK schild2-uit-dag-fenix847mm.png
+GELIJK schild2-uit-nacht-fenix847mm.png
+GELIJK thuis-start-dag-fenix847mm.png
+GELIJK thuis-start-nacht-fenix847mm.png
+GELIJK zeester-calm-dag-fenix847mm.png
+GELIJK zeester-calm-nacht-fenix847mm.png
+VERSCHIL zeester-eind-dag-fenix847mm.png 6693 pixels in (207, 445, 520, 701)
+VERSCHIL zeester-eind-nacht-fenix847mm.png 6209 pixels in (207, 445, 520, 701)
+VERSCHIL zeester-hold-dag-fenix847mm.png 8120 pixels in (189, 581, 538, 701)
+VERSCHIL zeester-hold-nacht-fenix847mm.png 7806 pixels in (189, 581, 538, 701)
+GELIJK zeester-in-dag-fenix847mm.png
+GELIJK zeester-in-nacht-fenix847mm.png
+VERSCHIL zeester-menu-dag-fenix847mm.png 6314 pixels in (194, 587, 533, 680)
+VERSCHIL zeester-menu-nacht-fenix847mm.png 5845 pixels in (194, 587, 533, 680)
+GELIJK zeester-uit-dag-fenix847mm.png
+GELIJK zeester-uit-nacht-fenix847mm.png
+50 beelden, 12 met verschil of ontbrekend
