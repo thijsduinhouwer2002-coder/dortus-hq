@@ -331,3 +331,11 @@
 - Data met `laag`, `p2`, `week`, `schermen`; alles onder y 118; 111 tot 113 punten; 0 pixels buiten MIP; contrast 5,4:1.
 - Frisse keuring op de eerste versie: 7. Alle zes punten daarna gedaan (slipper, groei, visjes, kasteel, arm, bodem). GEZIEN met Read: rij, ware grootte en groei.
 - Volgende run: opnieuw fris keuren; zwak nog: koraaltak leest als "Y", kasteel half achter de rand op hold, schatjes bij alle werelden dezelfde vormen. Bij 8 naar Gijs.
+
+## Run 41 (12 nov ±00:05 UTC): werelden v1.3
+- Gelezen: berichten (hoofdchat 01:20 en 01:30 NL: keuring bouw 9 werelden 6, Today als strand, aankomst en vertrek), besluit 12 nov 01:20, keuring bouw 9.
+- Keuringspunten 3 tot 7 zaten al in v1.2 (clownvis vrij, arm laag, teenslipper, één water, nachtblauw met kam).
+- **Besluit: eigen schatjes per wereld, week 4 als grap** (emmertje, tweede slipper, vriendje). **Besluit: aankomst en vertrek als baan in de data.** Waarom: zie `ebb-werelden-v1.md` v1.3.
+- GEZIEN met Read: rij 260 2x (twee keer: kasteel eerst te ver naar links onder de tekst, teruggezet), groei 260 2x (twee keer: schatjes week 1 vielen achter de rand en de kei), ware grootte 1x.
+- Frisse keuring 6,5; vijf van zes punten daarna gedaan.
+- Volgende run: Today als strand en 8 weeks als kustlijn (blad op 454 en 260); daarna opnieuw fris keuren op v1.3; krabkeien.

@@ -93,3 +93,13 @@ GEZIEN met Read: rij 260 dubbel, ware grootte 1x (twee keer), groei 2x (twee kee
 
 ## Frisse keuring v1.2 (eerste versie, vóór de laatste ronde): 7 van 10
 Opgelost: clownvis vrij, keien, maan. Moest nog: slipper (voetvorm), groei zichtbaar maken, visjes lichter als school, kasteel binnen de cirkel met kantelen, arm met lucht en lichte toppen, clownvisbodem lichter. Alle zes daarna gedaan (dit blad). Volgende run: opnieuw fris keuren; bij 8 gaat het naar Gijs.
+
+## v1.3 (Mila, run 41, 12 nov ±01:30 NL)
+Beelden en data: `werelden13/`, script `bron/werelden_v13.py`, data `werelden13/ebb-werelden-v13-data.json` (zelfde namen als v1.2, plus `aankomst` en `vertrek` per wereld).
+- **Besluit: elke wereld eigen schatjes, en week 4 is een grap.** Waarom: v1.2 had in alle drie dezelfde schelp, ster, slak en Y-koraal; dat las als rommel en vertelde niets. Nu: schildpad schelp, zeester, flesje met briefje, en in week 4 zijn eigen geel emmertje tegen het kasteel. Krab schelp, mosseltje met parel, munt, en in week 4 spoelt de tweede slipper aan: het paar is compleet. Clownvis schelp, zeester, garnaal, en in week 4 een klein clownvisje als vriendje vlak bij huis.
+- Y-koraal weg (was de klacht "leest als Y"); bij de clownvis een waaierkoraal met nerven.
+- Krab: losse paarse zeshoek weg, plukje wier op de linkerkei, zeepok op de rechter, lichte kant koel blauwgrijs (AAAAFF). Nog steeds de zwakste wereld (zie onder).
+- **Aankomst en vertrek** (besluit 12 nov 01:20), per wereld een baan in 1/260 D, ±2 s: schildpad glijdt van rechtsboven schuin naar huis en peddelt linksboven weg; krab loopt zijwaarts over het zand binnen en schuift weg onder de rechterkei; clownvis schiet van links in een boogje zijn anemoon in en duikt er weer in (voorste vingers erover).
+- Toetsen: 118, 120, 120 punten (grens 120), 0 pixels buiten MIP, alles onder y 118 op 120, 0 botsende teksten, laagste contrast 5,4:1.
+- Frisse keuring (agent, op de eerste versie van v1.3): 6,5 (schildpad 7, krab 6, clownvis 6,5). Daarna gedaan: emmertje groter tegen het kasteel, slippers als spiegelbeeldig paar recht naast elkaar, vriendje bij de clownvis in plaats van los op de bodem, nerven in de waaier, keien minder plat. Niet gedaan: kasteelvlag dichter bij "4 weeks in a row" (0 botsingen gemeten, laat ik staan).
+- Open voor een 8: krabkeien echt rijk (meer tinten kost punten, de krab zit op 120: misschien de grens per wereld naar 140 als Gijs' meting dat toelaat), emmertje omgekeerd met de schildpad erbij als haak, krab die in week 4 de slipper in zijn schaar houdt (vraagt een tweede krabplaatje).
