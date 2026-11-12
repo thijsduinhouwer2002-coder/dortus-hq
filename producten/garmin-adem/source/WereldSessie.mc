@@ -12,6 +12,8 @@ module EbbWereldSessie {
     var aan as Boolean = true;
     // Plaatjesbouw: 0 dag, 1 nacht; -1 is de klok van het horloge (nacht van 21 tot 6 uur, EbbLucht).
     var proefNacht as Number = -1;
+    // Plaatjesbouw, scène sessie-terugval-*: dwingt de terugval zonder plaatje af (KrabV2View.onUpdate).
+    var proefDirect as Boolean = false;
     var _kv as KrabV2View or Null = null;
     var _sleutel as Number = -1;
 

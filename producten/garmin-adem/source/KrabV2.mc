@@ -203,6 +203,11 @@ class KrabV2View extends WatchUi.View {
         _d = dc.getWidth();
         _am = EbbTeken.amoled();
         _beurten += 1;
+        if (EbbWereldSessie.proefDirect) {
+            // Proefscène sessie-terugval-*: doet alsof het plaatje niet lukt.
+            _direct = true;
+            _ref = null;
+        }
         if (_ref == null && !_direct) {
             try {
                 var ref = Graphics.createBufferedBitmap({:width => _d, :height => _d});
@@ -226,9 +231,15 @@ class KrabV2View extends WatchUi.View {
             dc.drawBitmap(0, 0, bb as Graphics.BufferedBitmap);
             af = _stap >= STAPPEN;
         } else {
-            for (var i = 0; i < STAPPEN; i += 1) {
-                laag(dc, i);
+            // Keuring code en veiligheid 12 nov, punt 4: lukt het plaatje niet (te weinig geheugen), dan NIET de vijf
+            // lagen in één beurt (watchdog op MIP). De wereld vervalt: een effen achtergrond in de waterkleur, daarop
+            // de held en de tekst. De tekstmeting doet niets zichtbaars en blijft, zodat de regels op hun plek staan.
+            if (!_gemeten) {
+                _gemeten = true;
+                KrabV2Tekst.meet(self, dc, _d, scherm, _am, nacht);
             }
+            dc.setColor(nacht ? 0x000055 : 0x0055AA, nacht ? 0x000055 : 0x0055AA);
+            dc.clear();
         }
         var staat = false;
         if (!af) {
@@ -246,7 +257,8 @@ class KrabV2View extends WatchUi.View {
             _gedraaid = EbbDierVoorraad.tekenHoek(dc, dier, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, nacht ? EbbDierPlaatje.NACHT : EbbDierPlaatje.GEVONDEN, _kantel, _am);
             staat = _gedraaid > 0;
             if (staat) {
-                if (wereld != KrabV2Werelden.THUIS) {
+                // In de terugval (geen plaatje) ook geen golfje of ander voorwerp voor de held: dat hoort bij de wereld.
+                if (wereld != KrabV2Werelden.THUIS && bb != null) {
                     _w.voor(self, dc, scherm, _am, nacht, _held, _kantel);
                 }
                 if (scherm == 5) {
