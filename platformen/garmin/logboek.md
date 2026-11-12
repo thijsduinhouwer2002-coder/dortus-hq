@@ -936,3 +936,8 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Besluit: het pauzemenu bewijs ik met een echte start in de simulator en niet met een toets die `tijdOm` zelf aanroept. Waarom: de keuring vroeg om bewijs dat het menu niet eindeloos open blijft; dan moet de echte timer aflopen en de echte opname dichtgaan.
 - Besluit: de zin over vijf minuten op het uitlegscherm in de app doe ik niet blind. Waarom: "how it works" heeft al vijf regels en een knop en is op de FR255 vol (beeld `uitleg-fr255` bekeken); een zesde regel is een ontwerpvraag voor Mila.
 - Eén commit en één push (ed2f4e5 op proef65), zoals de les van run 64 zegt.
+- 13:07 UTC: bericht hoofdchat 14:00 NL (proefrondes korter) kwam binnen tijdens de run. Meteen gedaan, omdat het elke volgende ronde tijd scheelt: drie horloges op proeftakken, scènes uit `proef-scenes.txt`, `alle-horloges` alleen op de bouwtak (ee33bad). Besluit: ik heb de lopende toetsrun van ed2f4e5 laten afbreken door deze push. Waarom: de korte ronde gaf dezelfde uitslag eerder dan de lange run klaar zou zijn.
+- Besluit: voor de toetsen op proeftakken vivoactive 5 als derde horloge (aanraakscherm, 390 px), voor de plaatjes Venu 3S. Waarom: de toetsworkflow kende de Venu 3S niet en de veegproef heeft een aanraakhorloge nodig.
+- 13:19 UTC: toetsrun 43224223159 rood door mijn aanname over de teller (zie status). Hersteld met een eigen bouw voor de pauzeproef (789d410).
+- 13:31 UTC: toetsrun 43226376359 groen, pauzeproef goed. Beelden `sessie-eerste-*` en `sessie-terugval-*` bekeken op FR255 en fenix 8. Bouwtak vooruitgespoeld naar 789d410 (één push).
+- Gestopt om 13:35 UTC.
