@@ -110,9 +110,7 @@ module EbbScenes {
         if (thuis != null) {
             return thuis;
         }
-        // 48 scènes voor de laatste acht, de echte sessie in de wereld: krab, schildpad, dolfijn, zonder dier, terugval,
-        // en (run 67, na de crash op de FR255) de drie zwaarste dieren van de gedeelde zee: zeekomkommer (200 punten),
-        // kreeft (194) en zeeotter (187). De plaatjesrun wordt rood bij een crash.
+        // 48 scènes voor de laatste acht, de echte sessie in de wereld: krab, schildpad, dolfijn, zonder dier, terugval en (run 67, na de crash op de FR255) de zwaarste dieren van de gedeelde zee: zeekomkommer, kreeft, zeeotter.
         var ns = EbbBouw.SCENES - 56;
         if (k >= ns && k < ns + 48 && ns >= 53) {
             var si = (k - ns) % 6;
