@@ -121,7 +121,9 @@ class EbbMenuView extends WatchUi.View {
                 var pad = wm / 3;
                 var maxPad = (d * 0.03).toNumber();
                 pad = pad > maxPad ? maxPad : (pad < 3 ? 3 : pad);
-                var ph = fh + 2;
+                // Keuring bouw 9 punt 1: de staart van de "y" in "Today" raakte de rand; nu 3 px lucht (5 op 454).
+                var om = d / 90 > 3 ? d / 90 : 3;
+                var ph = fh + 2 * om;
                 dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
                 dc.setPenWidth(d / 130 > 2 ? d / 130 : 2);
                 dc.drawRoundedRectangle(x - pad, y - ph / 2, ww + 2 * pad, ph, ph / 2);

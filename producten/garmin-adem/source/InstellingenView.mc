@@ -86,13 +86,17 @@ class EbbInstellingenView extends WatchUi.View {
         var fx = dc.getFontHeight(EbbTeken.fX());
         var lucht = (d * 0.035).toNumber();
         var maxW = (d * 0.83).toNumber();
+        // Keuring bouw 9 punt 2 (fenix 8): de "B" van "Breathing pace" raakte de ronde kant van de pil. De pil is nu
+        // 0,08 D breder dan de tekst (36 px op 454, was 24), op kleine schermen blijft het 24.
+        var rand = (d * 0.08).toNumber();
+        rand = rand < 24 ? 24 : rand;
         var naam = REGELS[keuze][0] as String;
         var v = waarde(keuze);
         var fNaam = EbbTeken.fM();
-        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
+        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - rand) {
             fNaam = EbbTeken.fS();
         }
-        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
+        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - rand) {
             fNaam = EbbTeken.fX();
         }
         var langst = dc.getTextWidthInPixels(naam, fNaam);
@@ -128,7 +132,7 @@ class EbbInstellingenView extends WatchUi.View {
         } else if (keuze > 0) {
             regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
         }
-        var bw = langst + 24;
+        var bw = langst + rand;
         var minW = (d * 0.5).toNumber();
         bw = bw < minW ? minW : (bw > maxW ? maxW : bw);
         dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
