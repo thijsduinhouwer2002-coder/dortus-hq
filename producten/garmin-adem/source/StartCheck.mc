@@ -58,7 +58,6 @@ class StartCheckView extends WatchUi.View {
 
     // Blad v7 scherm 1c: "how it works", in gewone woorden, met de juiste knop per horloge.
     function tekenUitleg(dc as Graphics.Dc, d as Number) as Void {
-        EbbZee.strook(dc, d);
         // Besluit 11 nov 09:30 punt 1: de regels een maat groter (fLees). Kop, regels en pil als één groep rond 0,47 D;
         // de pil blijft 0,02 D boven de hoogste golftop van de strook.
         var f = EbbTeken.fLees();
@@ -75,6 +74,19 @@ class StartCheckView extends WatchUi.View {
         var onderMax = ((EbbZee.STROOK_TOP - 0.02) * d).toNumber();
         if (top + groep > onderMax) {
             top = onderMax - groep;
+        }
+        // Hoofdchat 12 nov 20:15 punt 1: geen zwart scherm meer; het thuiswater van start en pauze (Thuis.mc). De tekst
+        // staat waar hij stond. Eén tekstvak om kop, regels en pil; het zand begint waar de oude strook zee begon.
+        var half = dc.getTextWidthInPixels("how it works", EbbTeken.fS()) / 2;
+        for (var j = 0; j < regels.size(); j += 1) {
+            var rb = dc.getTextWidthInPixels(regels[j], f) / 2;
+            half = rb > half ? rb : half;
+        }
+        var vakken = [d / 2 - half, top, d / 2 + half, top + groep] as Array<Number>;
+        var zand = top + groep + EbbTeken.px(d, 6) + 3;
+        var zandMin = (EbbZee.STROOK_TOP * d).toNumber();
+        if (!EbbThuis.teken(dc, d, zand > zandMin ? zand : zandMin, vakken, EbbThuis.PAUZE)) {
+            WatchUi.requestUpdate();
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, top + kh / 2, EbbTeken.fS(), "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
