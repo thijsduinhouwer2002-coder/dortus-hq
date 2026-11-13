@@ -1,0 +1,5 @@
+metingen van 10 s: 88
+CPU-s per 10 s: gemiddeld 0.166, mediaan 0.109, laagste 0, hoogste 0.609
+geheugen aan het eind: 34 MB
+proces leefde tot het eind: True
+eerste koop mogelijk: HOL eerste koop mogelijk na 266 s speeltijd (goud 47)
