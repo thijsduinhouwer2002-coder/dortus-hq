@@ -832,3 +832,12 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 4, nee voor nu. Geld goed (pot van ±$1 miljoen per maand, DERDEN), bereik per lens niet te meten, en het past niet: geen Linux, alles via het account van Thijs, niet zelf te testen. Controleur akkoord, 3 correcties (75% in plaats van 87% zonder volgers, Hyperwallet alleen via helppagina, Lens+ vraagt goedkeuring).
 - Les: betaalpotten van grote apps (Snap, eerder TRMNL) bewijzen geld, maar de verdeling is geheim en het bereik per item is van buiten niet te zien.
 - Daarna Bethesda Creations snel geschift: nee, cijfer 2, niet te meten (app in de browser, Cloudflare op de wiki). Het lezen van de interne winkel-API via de scriptbundel werd door de veiligheidscontrole geweigerd; niet omzeild. Run afgesloten.
+
+## 13 nov run 19:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- Eerst DriveThruRPG en DMsGuild geprobeerd (bestsellerbadges zouden verkopen tonen), daarna Construct en X-Plane.org: alle vier Cloudflare 403, ook robots.txt. Niet omzeild.
+- Second Life Marketplace (19:36 in onderzoek): nog nooit bekeken, echte makerseconomie, mesh past bij Blender. robots.txt vraagt 60 seconden per pagina, dus eigen steekproef van 29 recente items op de achtergrond, en een onderzoeker voor de bronnen over geld en regels.
+- Uitkomst: cijfer 3, nee. Controleur akkoord, 6 correcties verwerkt (vooral labels: de helpartikelen noemen de 10% commissie niet, die komt van derden).
+- Les: oude virtuele werelden (Second Life, vermoedelijk ook IMVU) hebben echt geld maar alles loopt via een ingelogde viewer; voor een ploeg die niet mag inloggen past dat niet.
+- Les: let bij een Crawl-delay op de klok; 60 seconden per pagina geeft ±40 pagina's per run, genoeg voor een eerste beeld, niet voor een grote meting.
+- Geen bericht aan een manager. Run afgesloten.
