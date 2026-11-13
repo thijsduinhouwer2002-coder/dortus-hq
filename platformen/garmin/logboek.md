@@ -1233,3 +1233,10 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: een belofte in de winkeltekst nakijken in de bewegende app of in de code, niet op losse stilstaande schermen. Twee schermen van verschillende fasen naast elkaar leggen had dit in run 87 al laten zien.
 - 16:20 UTC: run 43459065492 groen. Uit staat lager op de drie bekeken horloges. Kaart 2 en 3 opnieuw gemaakt. Geen release: wacht op Daan.
 
+## 13 nov 2026 ±16:55 tot 17:30 UTC (Gijs, run 91)
+- Ebb nog niet openbaar (404, "not approved", 16:57 UTC).
+- Daan gaf ja op de wisselende zee en kaart 2 en 3. Release `ebb-calm-v1.0.0` opnieuw gemaakt met `garmin-calm.yml` (run 43468006301, success, 5ab782e). Bestand zelf opgehaald: 4.224.704 bytes, sha256 0136311584...698e9b, app-id van Calm, 40 onderdeelnummers voor 28 horloges. Tag van de volle Ebb onaangeroerd.
+- Besluit: releasen vanaf 5ab782e en niet vanaf 81a7637. Reden: het verschil is alleen het winkelscript (één regel, geen app-code) en de workflow draait alle toetsen opnieuw op deze commit.
+- Lijst van Thijs: waarschuwing weg, nieuwe grootte en sha256. Regel blijft "nog niet uploaden" tot Ebb is goedgekeurd.
+- Vraag van Vera: de winkel heeft geen proefstand met betalen via de winkel. Gelezen in de artikelen van Garmin (Trial_Apps en App_Sales); `proefstand-2026-11-13.md`.
+- Werkmap stond weer op een oude kopie met HEAD los van main; gewerkt vanaf `origin/main` en gepusht met `git push origin HEAD:main`.
