@@ -123,7 +123,8 @@ def geen_stop(voor):
     return voor >= MAX_VOOR - 1e-6
 
 
-GROEI_MM = 1.0  # rood als vlak (Daan punt 5): ook de vlakken binnen 1 mm van een rakend vlak, anders zie je alleen een lijn
+GROEI_MM = 1.0  # oude manier (tot 1.0.0): ook de vlakken binnen 1 mm van een rakend vlak; nu alleen als terugval
+VLAK_TOL_MM = 0.02  # 1.0.1 (Daan moet 1): hele vlakken rood, alle vlakken op hetzelfde platte vlak als een rakend vlak
 
 
 def _terug(ob):
@@ -157,6 +158,39 @@ def _groei(ob, vlakken, afstand):
     return uit
 
 
+def _vlak(ob, vlakken, tol, bol):
+    """1.0.1 (Daan moet 1, strakke randen): de rakende vlakken plus alle vlakken van ob die op hetzelfde platte vlak
+    liggen (zelfde richting, binnen tol ervan), binnen `bol` van het draaipunt. Zo wordt het hele stopvlak rood, met
+    als rand de rand van de snede, en niet een vlek met trapjes plus losse strepen op het been. Een rakend vlak dat
+    niet op een groter plat vlak ligt blijft gewoon zelf rood (eerlijk: daar botst het). Alles in mesh-coordinaten."""
+    if not vlakken:
+        return set()
+    me = ob.data
+    n = len(me.polygons)
+    c = np.empty(n * 3, dtype=np.float64)
+    me.polygons.foreach_get("center", c)
+    c = c.reshape(n, 3)
+    nn = np.empty(n * 3, dtype=np.float64)
+    me.polygons.foreach_get("normal", nn)
+    nn = nn.reshape(n, 3)
+    m_inv = np.array(echte_matrix(ob).inverted(), dtype=np.float64)
+    p = m_inv[:3, :3] @ np.array(ob["cj_scharnier_punt"], dtype=np.float64) + m_inv[:3, 3]
+    dichtbij = np.linalg.norm(c - p, axis=1) <= bol
+    uit = set(vlakken)
+    gezien = []
+    for v in vlakken:
+        n0 = nn[v]
+        if not np.isfinite(n0).all() or np.linalg.norm(n0) < 0.5:
+            continue
+        d0 = float(c[v] @ n0)
+        if any(abs(float(n0 @ m)) > 0.9995 and abs(d0 - d) <= tol for m, d in gezien):
+            continue
+        gezien.append((n0, d0))
+        zelfde = dichtbij & (nn @ n0 > 0.9995) & (np.abs(c @ n0 - d0) <= tol)
+        uit.update(np.flatnonzero(zelfde).tolist())
+    return uit
+
+
 def _kleur(ob, vlakken, kleur_rood):
     me = ob.data
     if not vlakken:
@@ -179,7 +213,7 @@ def _kleur(ob, vlakken, kleur_rood):
 def pose(a, b, graden, kleur_rood=None):
     """Eis 8 (plaatjes 11 en 12): deel B in de weergave `graden` naar voren om H draaien, zoals de beweegproef.
     Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A en B die elkaar raken het rode materiaal
-    (kleur_rood), plus de vlakken binnen GROEI_MM daarvan, zodat het rood als vlak leest (Daan, Pro punt 5); de vorige
+    (kleur_rood), plus (sinds 1.0.1) de rest van het platte vlak waar ze op liggen, zodat het rood als strak vlak leest (Daan, Pro punt 5); de vorige
     rode vlakken eerst terug. Geeft het aantal rode vlakken van A (zoals eerst); die van B staan in cj_rood_vlakken van B."""
     # Alleen de weergave: de draaiing staat in delta_rotation en delta_location van deel B (zet_scharnier),
     # net als de pose van de kogel. location, rotation en matrix_world-zonder-delta's blijven van de gebruiker,
@@ -215,8 +249,15 @@ def pose(a, b, graden, kleur_rood=None):
     except Exception:  # noqa: BLE001  zonder scene: rekenen in mm
         u = 1.0
     # Groeien in de eigen coördinaten van het deel: schaal van het object eruit halen (mesh-eenheden per mm).
-    vlakken_a = _groei(a, raak_a, GROEI_MM * u / max(1e-9, ma.to_scale().length / 3 ** 0.5))
-    vlakken_b = _groei(b, raak_b, GROEI_MM * u / max(1e-9, echte_matrix(b).to_scale().length / 3 ** 0.5))
+    # 1.0.1: hele platte vlakken (_vlak); de oude groei binnen GROEI_MM alleen als er geen scharnierpunt is.
+    def groei(ob, raak, m):
+        schaal = max(1e-9, m.to_scale().length / 3 ** 0.5)
+        if "cj_scharnier_punt" in ob:
+            bol = (float(ob.get("cj_t_vlak", 0.0)) + 2.0 * float(ob.get("cj_naad_r", 0.0))) / schaal
+            return _vlak(ob, raak, VLAK_TOL_MM * u / schaal, bol)
+        return _groei(ob, raak, GROEI_MM * u / schaal)
+    vlakken_a = groei(a, raak_a, ma)
+    vlakken_b = groei(b, raak_b, echte_matrix(b))
     _kleur(a, vlakken_a, kleur_rood)
     _kleur(b, vlakken_b, kleur_rood)
     me.update()

@@ -109,6 +109,19 @@ def toets(stap, eigen, cursor):
         band[ob.name] = (int(ob.get("cj_band_vlakken", 0)), sum(1 for f in ob.data.polygons if f.material_index == vak))
     print(f"[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {band}")
     stap("band: A en B hebben een groene band langs de naad", all(n > 0 and n == m for n, m in band.values()), str(band))
+    # 1.0.1 (Daan moet 1): band uit hele cilindervlakken om H, niet uit losse driehoeken binnen een afstand.
+    soort = {ob.name: ob.get("cj_band_soort") for ob in (a, b)}
+    stap("band 1.0.1: strak (hele cilindervlakken) op A en B", all(v == "strak" for v in soort.values()), str(soort))
+    import numpy as _np
+    for ob in (a, b):
+        p0 = _np.array(ob["cj_scharnier_punt"]); hz = _np.array(ob["cj_as"]); hz = hz / _np.linalg.norm(hz)
+        mw = ob.matrix_world
+        groen_vak = [m.name if m else None for m in ob.data.materials].index(groen)
+        verst = max((abs(float((_np.array(mw @ f.center) - p0) @ hz)) for f in ob.data.polygons
+                     if f.material_index == groen_vak), default=0.0)
+        grens = float(ob["cj_naad_r"]) + 2 * float(ob["cj_speling_mm"]) * u + 1e-6
+        stap(f"band 1.0.1: geen groen verder dan de naad langs het lid ({ob.name})", verst <= grens,
+             f"verst {verst:.3f}, grens {grens:.3f}")
     vakken0 = {ob.name: [f.material_index for f in ob.data.polygons] for ob in (a, b)}
     voorbij = float(a["cj_bereik_graden"]) + 3.0
     beweeg.pose(a, b, voorbij, kleur.materiaal("rood"))
