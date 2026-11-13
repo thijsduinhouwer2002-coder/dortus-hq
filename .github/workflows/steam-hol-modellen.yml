@@ -9,7 +9,7 @@ name: Het Hol 3D-modellen (Blender naar Godot)
 on:
   push:
     branches: [main, "claude/steam-*"]
-    paths: ["producten/steam-hol/modellen/**", "producten/steam-hol/pijplijn/**", ".github/workflows/steam-hol-modellen.yml"]
+    paths: ["producten/steam-hol/modellen/**", "producten/steam-hol/pijplijn/*.py", "producten/steam-hol/pijplijn/sprites.json", ".github/workflows/steam-hol-modellen.yml"]
   workflow_dispatch:
     inputs:
       sprites:
