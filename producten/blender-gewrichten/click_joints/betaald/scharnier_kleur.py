@@ -15,6 +15,7 @@ from mathutils.bvhtree import BVHTree
 from .. import kleur as kleuren
 from ..uit_elkaar import echte_matrix
 
+STRAK = False   # proef 1 (run 43491692615): de cilinderwanden zitten binnenin, groen onzichtbaar; uit tot de huid-aanpak er is
 BAND_MM = 2.0   # zoals RING_MM 3 van de kogel, iets smaller omdat de naad van het scharnier langer is
 
 
@@ -113,7 +114,7 @@ def band(a, b, speling, u, bol):
         idx = np.empty(n, dtype=np.int32)
         me.polygons.foreach_get("material_index", idx)
         raak = []
-        if all(k in ob for k in ("cj_scharnier_as", "cj_naad_r", "cj_tong_half", "cj_deel")):
+        if STRAK and all(k in ob for k in ("cj_scharnier_as", "cj_naad_r", "cj_tong_half", "cj_deel")):
             raak = strak(ob, speling, u).tolist()
             ob["cj_band_soort"] = "strak"
         if not raak:

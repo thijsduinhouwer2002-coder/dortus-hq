@@ -158,36 +158,37 @@ def _groei(ob, vlakken, afstand):
     return uit
 
 
-def _vlak(ob, vlakken, tol, bol):
-    """1.0.1 (Daan moet 1, strakke randen): de rakende vlakken plus alle vlakken van ob die op hetzelfde platte vlak
-    liggen (zelfde richting, binnen tol ervan), binnen `bol` van het draaipunt. Zo wordt het hele stopvlak rood, met
-    als rand de rand van de snede, en niet een vlek met trapjes plus losse strepen op het been. Een rakend vlak dat
-    niet op een groter plat vlak ligt blijft gewoon zelf rood (eerlijk: daar botst het). Alles in mesh-coordinaten."""
+def _vlak(ob, vlakken, tol, reik):
+    """1.0.1 (Daan moet 1, strakke randen): de rakende vlakken plus de vlakken die er via randen aan vast zitten en op
+    hetzelfde platte vlak liggen (zelfde richting, binnen tol), en niet verder dan `reik` langs de lidas van het
+    snijpunt. Zo wordt het stopvlak rood tot de rand van de snede, zonder trapjes, en niet de hele platte zijkant van
+    een staaf (proef 1, run 43491692615: 3493 vlakken tot 17,7 mm). Alles in mesh-coordinaten."""
     if not vlakken:
         return set()
+    import bmesh
     me = ob.data
-    n = len(me.polygons)
-    c = np.empty(n * 3, dtype=np.float64)
-    me.polygons.foreach_get("center", c)
-    c = c.reshape(n, 3)
-    nn = np.empty(n * 3, dtype=np.float64)
-    me.polygons.foreach_get("normal", nn)
-    nn = nn.reshape(n, 3)
-    m_inv = np.array(echte_matrix(ob).inverted(), dtype=np.float64)
-    p = m_inv[:3, :3] @ np.array(ob["cj_scharnier_punt"], dtype=np.float64) + m_inv[:3, 3]
-    dichtbij = np.linalg.norm(c - p, axis=1) <= bol
+    m_inv = echte_matrix(ob).inverted()
+    p = m_inv @ Vector(ob["cj_snijpunt"])
+    lid = (m_inv.to_3x3().inverted().transposed() @ Vector(ob["cj_as"])).normalized()
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bm.faces.ensure_lookup_table()
     uit = set(vlakken)
-    gezien = []
-    for v in vlakken:
-        n0 = nn[v]
-        if not np.isfinite(n0).all() or np.linalg.norm(n0) < 0.5:
-            continue
-        d0 = float(c[v] @ n0)
-        if any(float(n0 @ m) > 0.9995 and abs(d0 - d) <= tol for m, d in gezien):
-            continue
-        gezien.append((n0, d0))
-        zelfde = dichtbij & (nn @ n0 > 0.9995) & (np.abs(c @ n0 - d0) <= tol)
-        uit.update(np.flatnonzero(zelfde).tolist())
+    rij = [bm.faces[v] for v in vlakken if v < len(bm.faces)]
+    bron = {f.index: (f.normal.copy(), f.normal.dot(f.calc_center_median())) for f in rij}
+    while rij:
+        f = rij.pop()
+        n0, d0 = bron[f.index]
+        for e in f.edges:
+            for g in e.link_faces:
+                if g.index in uit:
+                    continue
+                c = g.calc_center_median()
+                if g.normal.dot(n0) > 0.9995 and abs(c.dot(n0) - d0) <= tol and abs((c - p).dot(lid)) <= reik:
+                    uit.add(g.index)
+                    bron[g.index] = (n0, d0)
+                    rij.append(g)
+    bm.free()
     return uit
 
 
@@ -252,9 +253,9 @@ def pose(a, b, graden, kleur_rood=None):
     # 1.0.1: hele platte vlakken (_vlak); de oude groei binnen GROEI_MM alleen als er geen scharnierpunt is.
     def groei(ob, raak, m):
         schaal = max(1e-9, m.to_scale().length / 3 ** 0.5)
-        if "cj_scharnier_punt" in ob:
-            bol = (float(ob.get("cj_t_vlak", 0.0)) + 2.0 * float(ob.get("cj_naad_r", 0.0)) + float(ob.get("cj_breedte", 0.0))) / schaal
-            return _vlak(ob, raak, VLAK_TOL_MM * u / schaal, bol)
+        if "cj_snijpunt" in ob and "cj_reik" in ob:
+            reik = float(ob.get("cj_reik", 0.0)) / schaal
+            return _vlak(ob, raak, VLAK_TOL_MM * u / schaal, reik)
         return _groei(ob, raak, GROEI_MM * u / schaal)
     vlakken_a = groei(a, raak_a, ma)
     vlakken_b = groei(b, raak_b, echte_matrix(b))
