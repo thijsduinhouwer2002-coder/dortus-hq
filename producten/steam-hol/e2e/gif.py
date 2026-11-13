@@ -2,11 +2,12 @@
 import sys, glob, os
 from PIL import Image
 bron, uit = sys.argv[1], sys.argv[2]
+fps = int(sys.argv[3]) if len(sys.argv) > 3 else 15   # beelden per s van de film (13 nov: 20, veelvoud van de loopklok)
 beelden = sorted(glob.glob(os.path.join(bron, "f*.png")))
 print("beelden:", len(beelden))
 if not beelden:
     sys.exit(0)
-gekozen = beelden[::3]
+gekozen = beelden[::max(1, fps // 5)]
 frames = []
 for p in gekozen:
     im = Image.open(p).convert("RGBA")
@@ -15,5 +16,5 @@ for p in gekozen:
     frames.append(achter.convert("RGB").quantize(colors=128, dither=Image.Dither.NONE))
 frames[0].save(uit, save_all=True, append_images=frames[1:], duration=200, loop=0, optimize=True)
 for i in (len(beelden) // 6, len(beelden) // 2, len(beelden) - 1):
-    Image.open(beelden[i]).save(os.path.join(bron, "los-%03d.png" % (i // 15)))
+    Image.open(beelden[i]).save(os.path.join(bron, "los-%03d.png" % (i // fps)))
 print("gif:", uit, os.path.getsize(uit), "bytes,", len(frames), "beelden")

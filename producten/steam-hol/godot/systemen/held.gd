@@ -77,7 +77,8 @@ var klappen := 0
 var t := 0.0
 var geraakt_tot := 0.0
 var val_t := 0.0
-var pas_klok := 0.0          # tijd sinds de laatste stap
+var pas_klok := PAS / 4.0    # tijd sinds de laatste stap; start een kwart stap voor de beeldgrens, zodat beelden die
+                             # een paar ms te vroeg of te laat komen niet afwisselend 0 en 2 pixels geven (controleur 13 nov)
 var pas_rest := 0.0          # deel van een pixel dat nog niet gezet is (alleen bij snelheden die geen heel getal per stap geven)
 var passen := 0              # stappen in deze aanroep van stap()
 var val_teken := ""          # het teken op het moment dat hij viel ("boos" wordt een poef)
@@ -148,6 +149,8 @@ func herstel(h, d: Dictionary) -> void:
 		info["gezien_vijand"] = gezien_v   # start() zet hem terug op false via _kies_doel
 	staat = String(d.get("staat", staat))
 	position = Vector2(float(d.get("x", position.x)), float(d.get("y", position.y)))
+	if not d.has("pas_rest"):
+		position = position.round()   # oude save: lopen ging toen in delen van een pixel
 	doel_kol = int(d.get("doel_kol", doel_kol))
 	vijand_kol = int(d.get("vijand_kol", vijand_kol))
 	klappen = int(d.get("klappen", 0))
@@ -161,7 +164,7 @@ func herstel(h, d: Dictionary) -> void:
 	verdedigingen = int(d.get("verdedigingen", 0))
 	dut_kol = int(d.get("dut_kol", dut_kol))
 	dut_tot = float(d.get("dut_tot", 0.0))
-	pas_klok = float(d.get("pas_klok", 0.0))
+	pas_klok = float(d.get("pas_klok", PAS / 4.0))
 	pas_rest = float(d.get("pas_rest", 0.0))
 	if d.has("rng"):
 		rng.state = String(d.rng).to_int()

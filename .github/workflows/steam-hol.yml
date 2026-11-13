@@ -130,7 +130,7 @@ jobs:
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after 900 -- hoogte=120 demo=1 vers=1 film=1 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 20 --quit-after 1200 -- hoogte=120 demo=1 vers=1 film=1 log=$log" -PassThru
           if (-not $p.WaitForExit(600000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           (Get-ChildItem $film -Filter *.png).Count
@@ -219,7 +219,7 @@ jobs:
         shell: pwsh
         run: |
           python -m pip install --quiet pillow
-          python producten/steam-hol/e2e/gif.py producten/steam-hol/e2e/screenshots/film producten/steam-hol/e2e/screenshots/film.gif
+          python producten/steam-hol/e2e/gif.py producten/steam-hol/e2e/screenshots/film producten/steam-hol/e2e/screenshots/film.gif 20
       - name: Schermafbeeldingen openbaar zetten (tak schermen)
         if: always()
         shell: bash

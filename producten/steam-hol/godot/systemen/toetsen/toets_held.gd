@@ -739,5 +739,28 @@ func _init() -> void:
 			ok(sprongen.has(1.0) and sprongen.has(0.0) and sprongen.size() == 2, "pas: op 20 fps 0 of 1 pixel (%s)" % str(sprongen.keys()))
 		ok(heel, "pas: op %d fps altijd hele pixels" % int(fps))
 		hol_p.free()
+	# haperende beelden (0,099 en 0,101 s door elkaar, en 0,095 / 0,105): op 10 fps toch elke stap 1 pixel
+	for afw in [0.001, 0.005]:
+		var hol_q := Node2D.new()
+		hol_q.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+		var hq := Node2D.new()
+		hq.set_script(load("res://systemen/held.gd"))
+		hol_q.add_child(hq)
+		hq.start(hol_q, {"trek": "dapper"})
+		hq.trek = "dapper"
+		var nq := 0
+		while hq.staat != "lopen" and nq < 2000:
+			hq.stap(0.1)
+			nq += 1
+		var spr := {}
+		var xq: float = hq.position.x
+		for i in 30:
+			hq.stap(0.1 - afw if i % 2 == 0 else 0.1 + afw)
+			if hq.staat != "lopen":
+				break
+			spr[absf(hq.position.x - xq)] = true
+			xq = hq.position.x
+		ok(spr.keys() == [1.0], "pas: haperend (%.3f s) toch elke stap 1 pixel (%s)" % [afw, str(spr.keys())])
+		hol_q.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

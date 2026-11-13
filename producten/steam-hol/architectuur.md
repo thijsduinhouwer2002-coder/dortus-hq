@@ -6,6 +6,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 |---|---|---|---|
 | Strook | `kern/strook.gd` | Olaf | venster boven de taakbalk, hoogte (96, 120, 160), muis door lucht en gras, helden laten komen, de eerste tien minuten (BEGIN, BEGIN_DEMO), de demo, `_process` |
 | Kroniek-wachtrij | `kern/wachtrij.gd` | Olaf | welke regel wanneer in het tekstvak komt (gebeurtenis gaat voor, binnenkom-regel vervalt na 3 s) |
+| Beeldtempo | `kern/beeldtempo.gd` | Olaf | 10 beelden per s, 20 tijdens een moment (val, hap, muntjes); `fps=<n>` houdt het vast. Helden lopen in hele pixels op een klok van 0,1 s (`systemen/held.gd` PAS) |
 | Namen | `kern/namen.gd` | Olaf | vrije naam (geen twee tegelijk, Kees II), bijnamen, de terugkomer-regel met bijnaam |
 | Afloop | `kern/afloop.gd` | Olaf | wat er gebeurt als een held klaar is: vlucht met wrok, of val met goud, munten en hoed op de toren |
 | Opslag | `kern/opslag.gd` | Olaf | bewaren en laden (`user://hol.json`), voortgang terwijl je weg was (via `systemen/voortgang.gd`) |
