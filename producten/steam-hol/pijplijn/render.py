@@ -83,21 +83,32 @@ def render_sprite(naam, s, bpy_python, snel):
 
 
 def _render(naam, s, bpy_python, samples, namen):
+    """Een beeld is [breed, hoog] of {"schaal": [breed, hoog], "stand": "hap"}. Beelden met dezelfde stand komen
+    uit één Blender-run; {stand} in de argumenten wordt ingevuld (standaard "rust")."""
     w, h = s["render"]
+    groepen = {}
+    for i, n in enumerate(namen):
+        f = s["frames"][n]
+        stand, schaal = (f.get("stand", "rust"), f.get("schaal", [1, 1])) if isinstance(f, dict) else ("rust", f)
+        groepen.setdefault(stand, []).append((i, schaal))
+    beelden = [None] * len(namen)
+    t0 = time.time()
     with tempfile.TemporaryDirectory() as tmp:
-        uit = os.path.join(tmp, "beeld.png")
-        args = [a.format(uit=uit, w=w, h=h, samples=samples) for a in s["args"]]
-        env = dict(os.environ, HOL_FRAMES=json.dumps([s["frames"][n] for n in namen]),
-                   HOL_RUIMTE=str(s.get("ruimte", 1.0)))
-        t0 = time.time()
-        r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
-                           capture_output=True, text=True)
-        duur = time.time() - t0
-        if r.returncode != 0:
-            print(r.stdout[-3000:], r.stderr[-3000:])
-            raise SystemExit(f"FOUT: model {s['model']} faalde voor {naam}")
-        print(f"{naam}: {len(namen)} beelden gerenderd in {duur:.0f} s")
-        return [Image.open(os.path.join(tmp, f"beeld_{i}.png")).convert("RGBA") for i in range(len(namen))], duur
+        for stand, lijst in groepen.items():
+            uit = os.path.join(tmp, f"{stand}.png")
+            args = [a.format(uit=uit, w=w, h=h, samples=samples, stand=stand) for a in s["args"]]
+            env = dict(os.environ, HOL_FRAMES=json.dumps([sc for _, sc in lijst]),
+                       HOL_RUIMTE=str(s.get("ruimte", 1.0)))
+            r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
+                               capture_output=True, text=True)
+            if r.returncode != 0:
+                print(r.stdout[-3000:], r.stderr[-3000:])
+                raise SystemExit(f"FOUT: model {s['model']} faalde voor {naam} (stand {stand})")
+            for k, (i, _) in enumerate(lijst):
+                beelden[i] = Image.open(os.path.join(tmp, f"{stand}_{k}.png")).convert("RGBA")
+    duur = time.time() - t0
+    print(f"{naam}: {len(namen)} beelden gerenderd in {duur:.0f} s")
+    return beelden, duur
 
 
 def _blad(naam, s, beelden, namen, samples, duur):

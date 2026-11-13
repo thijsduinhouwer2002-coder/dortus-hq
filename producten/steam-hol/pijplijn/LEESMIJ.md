@@ -4,6 +4,7 @@ Van een `.py`-model in `producten/steam-hol/modellen/` naar een blad dat Godot t
 
 ## Zo werkt het
 1. Zet je model in `sprites.json`: welk script, welke argumenten (`{uit} {w} {h} {samples}` worden ingevuld), de cel in spelpixels, `px` (bladpixels per spelpixel, 4 = scherp tot strook 160 px) en de beelden (`frames`: naam en `[breed, hoog]`, geschaald rond de vloer; `[1.3, 0.42]` is plat).
+   Een beeld mag ook `{"schaal": [1, 1], "stand": "hap"}` zijn: dan draait het model apart met `{stand}` ingevuld in de argumenten (standaard `rust`). Zo kan Daan standen (knipperen, kauwen, hap) als argument van zijn model maken.
 2. Je model roept zoals altijd `gedeeld.render(...)` aan. Met `HOL_FRAMES` maakt die dan meerdere beelden; zonder verandert er niets.
 3. `render.py` snijdt strak bij (de vage uitloop van de schaduw telt niet mee), schaalt zodat het eerste beeld precies in de cel past (alle beelden dezelfde schaal), verkleint met Lanczos op voorvermenigvuldigde alfa (geen donkere randjes) en schrijft `godot/kunst/3d/<naam>.png`, `.png.import` (mipmaps) en `sprites.json` (maten, anker, kruin per beeld).
 4. In Actions (`.github/workflows/steam-hol-modellen.yml`): bij elke push in `modellen/` of `pijplijn/` op main of `claude/steam-*`. Is het blad veranderd, dan commit hij het terug op dezelfde tak en start hij de Windows-run (`steam-hol.yml`), met schermbeelden op 96, 120 en 160 px op tak `schermen`.
