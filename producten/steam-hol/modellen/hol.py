@@ -99,7 +99,13 @@ def aardemat(naam, donker, licht, schaal=1.6):
     yy = nt.nodes.new("ShaderNodeMath"); yy.operation = "MULTIPLY"; yy.inputs[1].default_value = schaal
     mp = nt.nodes.new("ShaderNodeCombineXYZ")
     nt.links.new(tc.outputs["Object"], sep.inputs[0])
-    nt.links.new(sep.outputs["X"], hoek.inputs[0])
+    # Ronde 6 (moet 1): x uit de wereldpositie. "Object" is de geschaalde blokruimte (x van -0,5 tot 0,5 over het
+    # hele hol), dus de ruis ging niet rond per kolom maar liep als één trage golf van links (donker) naar het midden
+    # (licht). Daardoor had elke kamer een eigen tint. Nu gaat x echt rond met een periode van één kolom.
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    sepw = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo.outputs["Position"], sepw.inputs[0])
+    nt.links.new(sepw.outputs["X"], hoek.inputs[0])
     nt.links.new(hoek.outputs[0], co.inputs[0]); nt.links.new(hoek.outputs[0], si.inputs[0])
     nt.links.new(co.outputs[0], cr_.inputs[0]); nt.links.new(si.outputs[0], sr_.inputs[0])
     nt.links.new(sep.outputs["Z"], zz.inputs[0]); nt.links.new(sep.outputs["Y"], yy.inputs[0])
@@ -231,11 +237,16 @@ for i in range(160):
     cil("spriet", (x, y, MAAIVELD + 0.18 + h / 2), 0.05, h, random.choice([GRAS, GRAS_D]),
         rot=(random.uniform(-0.3, 0.3), random.uniform(-0.35, 0.35), 0), verts=4, r2=0.0)
 # gras hangt over de rand naar voren
+# Ronde 6: overal het patroon van het rustige stuk (4 per kolom), want losse plukjes wierpen een schaduw op de
+# bovenste strook aarde die per kolom verschilde (moet 1). Trek de random toch even, zodat de rest gelijk blijft.
 for i in range(60):
-    x = random.uniform(X0, X1)
-    if -11.7 < x < -10.3 or x > TEGEL_X - KOL:
-        continue
-    cil("rand", (x, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
+    random.uniform(X0, X1)
+for k in range(-9, 0):
+    for dx in (0.2, 0.65, 1.1, 1.55):
+        x = TEGEL_X + k * KOL + dx
+        if -11.7 < x < -10.3:
+            continue
+        cil("rand", (x, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
 for x, m in [(-6.3, BLOEM), (-4.1, BLOEM_R), (4.6, BLOEM), (7.9, BLOEM_R), (-8.4, BLOEM_R), (5.9, BLOEM)]:
     cil("steel", (x, 0.1, MAAIVELD + 0.38), 0.025, 0.4, GRAS_D, verts=6)
     bol("bloem", (x, 0.1, MAAIVELD + 0.6), (0.11, 0.11, 0.08), m, 12)
@@ -336,8 +347,10 @@ fakkel(-7.2, 0.95, 90)
 fakkel(5.0, 0.95, 90)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
 # Kamers (Daan, moet 3): geen fakkel hoog meer (die vlam las als pupil: drie kommen werden drie ogen).
 # Begin: fakkel laag op de linkerwand. Midden a: stut met schoren. Midden b: houweel en tonnetje. Eind: kistje.
-blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.7, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.4, 0.06), VLOER)
-blok("kamervloer", (LOS, 0.7, KZ - 0.6), (1.2, 1.4, 0.06), VLOER)
+# Ronde 6 (Daan kan a): de vloer begint 0,2 achter de voorkant. Eerst stak hij tot y = 0 en voorbij de ronde
+# einden door, en las de voorrand als een donker plankje onder de kamer.
+blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.8, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.2, 0.06), VLOER)
+blok("kamervloer", (LOS, 0.8, KZ - 0.6), (1.2, 1.2, 0.06), VLOER)
 fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
 STUT = g.mat("stut", "6e4632", rough=0.75)       # een tint donkerder en minder oranje dan Daans proef
 BAND = g.mat("band", "d9a441", rough=0.4, spec=0.5)
@@ -413,7 +426,7 @@ bol("spin", (8.9, 0.4, GANG_TOP - 0.56), (0.07, 0.06, 0.07), PRUIM_D, 10)
 # het licht daar niet verloopt in x en de tegels naadloos naast elkaar passen. De fakkels vallen er zwak op.
 # Ronde 5 (moet 1, Daan): deze lamp loopt nu over de hele breedte, zodat de aarde overal precies het licht van
 # de aardtegel krijgt (het spel legt die tegel op elke dichte cel). Zelfde sterkte per vlak als eerst (300 op 10 breed).
-TL_BREED = BREED + 6.0
+TL_BREED = BREED + 40.0
 tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = TL_BREED; tl.size_y = 3.0
 tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT * TL_BREED / 10.0
 tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (0.0, -3.0, 4.6)
@@ -467,5 +480,19 @@ for o in sc.objects:
 for o in sc.objects:
     if o.type == "LIGHT":
         o.visible_camera = False   # de lampen zelf niet in beeld
+
+# Ronde 6 (moet 1, Daan 21:45): de aarde was midden in het beeld 2 keer zo licht als aan de randen (gemeten 42
+# links, 85 midden, 49 rechts), want de vier gedeelde lampen staan voor Gloop in het midden en vallen als een
+# grote vlek op de voorkant van de aarde. Daardoor kreeg elke kamer een eigen tint en een trede op de celrand.
+# Nu schijnen de gedeelde lampen en de lampjes van de helden alleen op Gloop, de helden en de schat
+# (light linking in Cycles). De aarde krijgt alleen de lange egale tegellamp: overal hetzelfde licht.
+FIGUUR = ("gloop_", "held_", "berg", "munt", "robijn", "safier", "beker", "kist", "deksel")
+fig = bpy.data.collections.new("figuren")   # niet aan de scène gehangen: alleen een lijst voor het licht
+for o in sc.objects:
+    if o.type != "LIGHT" and o.name.startswith(FIGUUR):
+        fig.objects.link(o)
+for o in sc.objects:
+    if o.type == "LIGHT" and o.name.split(".")[0] in ("fakkel", "koel", "boven", "vul", "heldgloed", "heldrand", "staflicht"):
+        o.light_linking.receiver_collection = fig
 g.render(uit, W, H, SAMPLES, doorzichtig=True)
 print("klaar", uit)

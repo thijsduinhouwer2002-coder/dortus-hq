@@ -55,6 +55,19 @@ Alleen in `hol.py`:
 - Daarna Gloop in de stand `hap` (mond wijd open, Daans `gloop.py`; `HOL_GLOOP_STAND` kiest, standaard hap). GEZIEN: op 2x leest het als happen, op ware grootte is het verschil klein; de mond kijkt naar ons, niet naar de ridder. Beelden overschreven met deze versie.
 - Concept: `ontwerp/steam/hol-3d-blad-voor-thijs.png` (Rusty's, versie 1 met het moment, versie 2 ridder in de gang). Nog niet op de lijst van Thijs.
 
+## Ronde 6 (13/14 nov ±23:40 tot 00:10 UTC): moet 1 van Daan, de aarde overal één licht
+Tak `claude/steam-hol-naad` (bovenop Daans `claude/steam-hol-fakkel`, dus met zijn nieuwe fakkels). Alleen in `hol.py`. Twee oorzaken gevonden door te meten (helderheid 0,21 R + 0,72 G + 0,07 B, mediaan van de aarde op spelpixel 10 tot 12 per kolom, 960 x 160 zonder Gloop en helden):
+1. **De gedeelde lampen** van `gedeeld.licht()` (fakkel, koel, boven, vul) staan voor Gloop in het midden en vielen als een grote vlek op de voorkant van de aarde: kolom 0 tot 14 was 42, 42, 45, 52, 59, 66, 72, 79, 85, 83, 71, 58, 51, 51, 49. Nu schijnen die vier en de lampjes van de helden alleen op Gloop, helden en schat (light linking in Cycles, collectie `figuren`). De aarde krijgt alleen de egale tegellamp, die nu 40 breder is dan het beeld (aan de randen liep hij nog iets af).
+2. **De ruis in de aarde ging niet rond per kolom.** De knoop gebruikte "Object", en dat is de geschaalde blokruimte (x van -0,5 tot 0,5 over het hele hol), dus de vlekken liepen als één trage golf van donker links naar licht in het midden. Dat zag ik pas toen er met alleen de tegellamp nog een helling van 42 naar 49 overbleef, ook met alle sprietjes, kiezels en fakkels verborgen. Nu komt x uit de wereldpositie en gaat het patroon echt rond met een periode van 16 spelpixels.
+3. Kan (a) van Daan: de kamervloer begint 0,2 achter de voorkant, het donkere plankje onder de kamers is weg.
+4. Het overhangende gras langs de rand ligt overal in het patroon van kolom 14 (4 per kolom). Dat bleek niet de oorzaak, maar het is wel eerlijker naar het spel, dat overal de grastegel van kolom 14 legt.
+- Na: kolom 0 tot 14 is 48,0 / 43,8 (de schacht) / 48,0 / 48,0 / 48,0 / 48,0 / 48,7 / 48,9 / 49,9 / 49,0 / 49,0 / 48,0 / 48,7 / 48,0 / 48,7. Zonder de schacht: hoogstens 1,9 verschil.
+- Kamertoets zoals het spel legt (aarde 14, begin 2, midden a 3, midden b 4, a, b, eind 5, aarde, los 11, aarde, aarde), naad in de bovenste strook: voor 4,4 / 0,3 / 0,1 / 15,4 / 0,1 / 0,5 / 19,6 / 12,1 / 4,5 / 0,6, na 1,4 / 1,8 / 1,7 / 1,9 / 1,7 / 1,5 / 1,4 / 1,3 / 1,3 / 1,4. Doel was onder 3.
+- `ronde6-2x.png`, `ronde6-ware-grootte.png` (met Gloop, helden, Daans fakkels), `ronde6-kamertegels-toets.png`, `ronde6-naden-voor-na-versterkt.png` (boven voor, midden na, beide 4 keer versterkt rond 48; onder de toets gewoon).
+- GEZIEN met Read: geen lichtere blokken meer rond de kamers, geen plankje, de aarde heeft nu zichtbare vlekken (pruim met lagen) in plaats van een glad verloop. Gloop, ridder en goud zijn even licht als in ronde 5b, het gras in het midden iets minder fel (de vlek van de gedeelde lampen viel er ook op).
+- Eerlijk: het vlekpatroon herhaalt nu elke kolom; op 2x zie je het als je zoekt, op ware grootte niet. In het spel was dat al zo (overal de aardtegel van kolom 14).
+- Kan voor Bram en Daan: de vlam van de gangfakkel links (kolom 3) begint precies op spelpixel 24. In de laag `boven` zit hij dus op de onderrand van `kamer_midden_a`; met de doorgetrokken rand van 4 bladpixels kan daar een oranje stipje komen. Was voor de nieuwe fakkel ook al zo (gemeten, zelfde rij).
+
 ## Volgende ronde (voor ma 16 nov)
 1. Spanning in één stilstaand beeld: Gloop met open mond (hap) naar de ridder, of munten die van de berg vliegen; vraag Daan of `gloop.py` een hapstand heeft (in het spel bestaat hap al: `slijm.gd`).
 2. Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
