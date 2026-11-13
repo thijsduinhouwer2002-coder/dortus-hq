@@ -1,0 +1,9 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL demo: speeltijd 0 s, grens 10 s
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Rik read about you in a tavern.
+HOL begin: vallen (Rik)
+HOL demo voorbij na 10 s speeltijd
+HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL einde na 15 s, fps=10, goud=20, terugkomers=0
