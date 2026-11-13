@@ -1231,4 +1231,5 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Uitgezocht waarom de zee op "out 4" even hoog stond als op "hold 7": Calm tekende altijd hetzelfde stilstaande plaatje. De winkeltekst belooft water dat stijgt en zakt. Hersteld in de app (81a7637): bij uitademen het lagere plaatje van Rounds.
 - Besluit: app aanpassen in plaats van de belofte uit de tekst halen. Reden: het is de kern van het product en de code lag er al.
 - Les: een belofte in de winkeltekst nakijken in de bewegende app of in de code, niet op losse stilstaande schermen. Twee schermen van verschillende fasen naast elkaar leggen had dit in run 87 al laten zien.
+- 16:20 UTC: run 43459065492 groen. Uit staat lager op de drie bekeken horloges. Kaart 2 en 3 opnieuw gemaakt. Geen release: wacht op Daan.
 
