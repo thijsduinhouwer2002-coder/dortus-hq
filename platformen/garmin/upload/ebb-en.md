@@ -5,7 +5,7 @@ Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40
 ## Titel (42 tekens)
 
 ```
-Ebb: Breathing, Breath Hold Rounds & 4-7-8
+Ebb: Breathing Exercises, Breath Hold & Calm
 ```
 
 ## Korte beschrijving (alleen als het formulier er een apart veld voor heeft; dit is de eerste alinea van de lange)
@@ -64,13 +64,13 @@ Mail thijs@dortus.com with your watch model. We aim to reply within 5 working da
 SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems. Ebb has no CO2 or O2 tables and is not a medical device.
 
-Tags: breathing, breathwork, breath hold, breath training, 4-7-8, relaxation
+Tags: breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation
 ```
 
 ## Trefwoorden (alleen als er een apart veld is)
 
 ```
-breathing, breathwork, breath hold, breath training, 4-7-8, relaxation
+breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation
 ```
 
 ## Wat is nieuw

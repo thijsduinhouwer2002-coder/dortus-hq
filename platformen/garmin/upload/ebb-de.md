@@ -5,7 +5,7 @@ Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40
 ## Titel (39 tekens)
 
 ```
-Ebb: Atemübungen, Atem anhalten & 4-7-8
+Ebb: Atemübungen, Atem anhalten & Entspannung
 ```
 
 ## Korte beschrijving (alleen als het formulier er een apart veld voor heeft; dit is de eerste alinea van de lange)
@@ -33,13 +33,13 @@ Breathwork-Runden und ruhiges 4-7-8-Atmen auf deiner Garmin. Folge jeder Phase p
 
 Die App ist auf Englisch. Keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
-Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, Entspannung, Atmung
+Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung
 ```
 
 ## Trefwoorden (alleen als er een apart veld is)
 
 ```
-Atemübungen, Atemtraining, Atem anhalten, 4-7-8, Entspannung, Atmung
+Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung
 ```
 
 ## Wat is nieuw

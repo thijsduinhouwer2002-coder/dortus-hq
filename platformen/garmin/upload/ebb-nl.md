@@ -5,7 +5,7 @@ Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40
 ## Titel (49 tekens)
 
 ```
-Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8
+Ebb: Ademhalingsoefeningen, Adem inhouden & Calm
 ```
 
 ## Korte beschrijving (alleen als het formulier er een apart veld voor heeft; dit is de eerste alinea van de lange)
@@ -33,13 +33,13 @@ Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de tril
 
 De app is in het Engels. Geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
-Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
+Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, 478, ontspanning
 ```
 
 ## Trefwoorden (alleen als er een apart veld is)
 
 ```
-ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
+ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, 478, ontspanning
 ```
 
 ## Wat is nieuw
