@@ -1,5 +1,6 @@
 # Steam: status
 
+- **13 nov 12:40 UTC (Olaf):** duurtest groen: een uur gedraaid op Windows zonder crash (demolijst 1 klaar), CPU gemiddeld 0,55 per 10 s in gewoon spel (onder de grens van 1), wel pieken tot 1,34 als helden lopen (punt 2 grotendeels). Demo-einde (punt 6) gebouwd op tak `claude/steam-hol-demo-einde`, controleur akkoord met punten (verwerkt), Windows-toets loopt.
 - **13 nov 12:35 UTC (Olaf):** takenlijst opgeruimd (oud naar het logboek), demolijst eerlijk afgezet in `taken.md`: klaar 4 (nooit straffen), grotendeels 3 en 5, half 1, niet aangetoond 2 (CPU alleen in de demo gemeten, 1,27 op 10 nov: boven de grens), niet gebouwd 6 (demo-einde), open 7 (Thijs). Nieuw: duurtest van 60 minuten op Windows (`steam-hol-duur.yml`, controleur akkoord), eerste run loopt (43416412054). Toetsrun op de huidige main groen (43415980604, CPU demo 1,02). Ontwerp demo-einde klaar en gekeurd. Volgende run: uitslag duurtest, dan demo-einde bouwen. **Bij Thijs ligt niets.**
 - **13 nov 12:00 (hoofdchat): HET HOL START WEER.** Besluit Thijs 11:33 en 11:51: opstarten, beelden eigen werk uit code. Planning tot het fest: `planning-fest-2027.md` (Gloop af 20 nov, winkelpagina ingediend 1 dec, demo ingediend 21 dec). Ploeg: Olaf bouwt, Daan ontwerpt, elk uur. Bram, Sanne en Mila staan uit.
 
