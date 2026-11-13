@@ -5,6 +5,8 @@ Draai:  <venv>/bin/python gloop.py <uit.png> <versie> <hoeden> <breedte> <hoogte
   versie 2 = Muntje   (1 plus een gouden munt die half in zijn buik zit)
   versie 3 = Schatbuik (doorschijnend lijf met munten en belletjes erin)
   hoeden  = 0 tot 4 (helm, kroon, heksenhoed, rode muts), scheef op elkaar
+  stand   = (optioneel, 7e woord) rust (standaard), knipper (oog dicht), blij (oog als boogje omhoog,
+            grotere lach), hap (mond wijd open). Voor de pijplijn van Bram: elke stand een eigen beeld.
 
 Lessen uit de pixelrondes (kijkers 1 tot 7): oog met veel wit en een ronde pupil met één glimstip,
 een open lach (geen streepje), hoeden echt óp het hoofd, kroon zonder donkere binnenkant
@@ -18,6 +20,7 @@ import gedeeld as g
 uit = sys.argv[1]
 VERSIE = int(sys.argv[2]); HOEDEN = int(sys.argv[3])
 W, H, SAMPLES = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
+STAND = sys.argv[7] if len(sys.argv) > 7 else "rust"
 
 g.leeg()
 sc = bpy.context.scene
@@ -55,9 +58,20 @@ vloer = bpy.context.object; vloer.is_shadow_catcher = True
 # ---------- gezicht ----------
 # Voorkant van het lijf ligt rond y = -1.05 op ooghoogte. Oog groot en iets rechts van het midden.
 OX, OZ = 0.16, 0.98
-bol("oogwit", (OX, -0.98, OZ), (0.44, 0.22, 0.46), g.mat("oogwit", "oogwit", rough=0.18, spec=0.5))
-bol("pupil", (OX + 0.07, -1.17, OZ - 0.02), (0.21, 0.07, 0.23), g.mat("pupil", "pupil", rough=0.35, spec=0.2))
-bol("glim", (OX + 0.15, -1.235, OZ + 0.09), (0.07, 0.03, 0.07), g.mat("glim", "oogwit", emis=4.0))
+_stand = globals().get("STAND", "rust")   # hol.py leest dit stuk in zonder STAND: dan rust
+if _stand in ("knipper", "blij"):
+    # oog dicht: een donker boogje op de plek van het oog (knipper hangt, blij staat omhoog als ^)
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.3, minor_radius=0.065, location=(OX, -1.06, OZ + (0.1 if _stand == "knipper" else -0.12)),
+                                     rotation=(math.radians(90), 0, 0))
+    ooglid = bpy.context.object; ooglid.data.materials.append(g.mat("pupil", "pupil", rough=0.35, spec=0.2))
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(OX, -1.06, OZ + (0.4 if _stand == "knipper" else -0.42))); sn_o = bpy.context.object
+    sn_o.scale = (1.0, 0.5, 0.6); sn_o.hide_render = True; sn_o.hide_viewport = True
+    mo = ooglid.modifiers.new("snij", "BOOLEAN"); mo.object = sn_o; mo.operation = "DIFFERENCE"
+    ooglid.scale = (1.0, 0.4 if _stand == "knipper" else 0.85, 1.0)   # lokaal y is na het kantelen de hoogte
+else:
+    bol("oogwit", (OX, -0.98, OZ), (0.44, 0.22, 0.46), g.mat("oogwit", "oogwit", rough=0.18, spec=0.5))
+    bol("pupil", (OX + 0.07, -1.17, OZ - 0.02), (0.21, 0.07, 0.23), g.mat("pupil", "pupil", rough=0.35, spec=0.2))
+    bol("glim", (OX + 0.15, -1.235, OZ + 0.09), (0.07, 0.03, 0.07), g.mat("glim", "oogwit", emis=4.0))
 # open lach: halve schijf (mond), tong, één tand, scheef
 bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.26, depth=0.12, location=(0.02, -1.0, 0.46),
                                     rotation=(math.radians(90), math.radians(-10), 0))
@@ -66,7 +80,11 @@ bpy.ops.mesh.primitive_cube_add(size=1, location=(0.02, -1.0, 0.62)); snij = bpy
 snij.scale = (0.8, 0.5, 0.32); snij.rotation_euler = (0, math.radians(-10), 0); snij.hide_render = True; snij.hide_viewport = True
 m1 = mond.modifiers.new("snij", "BOOLEAN"); m1.object = snij; m1.operation = "DIFFERENCE"
 mond.scale = (1.15, 1.0, 0.85)
-bol("tong", (0.0, -1.03, 0.37), (0.15, 0.06, 0.07), g.mat("tong", "tong", rough=0.4))
+if _stand == "blij":
+    mond.scale = (1.35, 1.0, 1.05)
+if _stand == "hap":
+    mond.scale = (1.3, 1.0, 1.9)   # wijd open, naar onder
+bol("tong", (0.0, -1.03, 0.37 if _stand != "hap" else 0.22), (0.15, 0.06, 0.07), g.mat("tong", "tong", rough=0.4))
 bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565)); tand = bpy.context.object
 tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
 bev = tand.modifiers.new("rond", "BEVEL"); bev.width = 0.02; bev.segments = 3
