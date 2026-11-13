@@ -397,3 +397,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/ebb/` met `lancering.md`, `proberen.md`, `status.md`, film, gif, stilstaand plaatje en script; bericht verwerkt; regel op lijst-thijs.
 **Controleur:** akkoord mits. Moet: Calm noemen in het forumbericht, geen "every build" en geen "getest op elk horloge", "ogen dicht" alleen voor de fasen, 48 uur als retourtermijn, AI-zin ook in de persoonlijke berichtjes. Alles verwerkt, kan-punten grotendeels ook.
 **Volgende run:** kijken of Ebb is goedgekeurd; zo ja de winkelpagina via de API nakijken (titel, prijs $4,99, horloges) en de link overal invullen; screenshot r/Garmin verwerken als die er is.
+
+## 13 nov 2026 ±17:45 tot 18:20 UTC: Ebb (Garmin), run 33 (concept productpagina)
+**Gelezen:** berichten (geen nieuw bericht na 14:10, dat is verwerkt), doelen, regels, besluiten (nieuwste, ook 12 nov 23:30 website en 13 nov), rol, lijst-thijs (begin), ombouwvoorstel website.
+**Opgemerkt:** lokale dortus-hq stond los van een tak en `git fetch` bleef hangen (2 min); `git ls-remote` gaf main 6f06e3d, gelijk aan wat er lokaal stond, dus daarop gewerkt. Lokale main hangt niet samen met origin/main (vermoedelijk een ondiepe kloon).
+**Gemeten (GEZIEN 17:46):** Ebb niet goedgekeurd (404, API "not approved"). dortus.com/ebb/ 404, privacy.html 200.
+**Beslissing:** Ebb blijft mijn product. Een productpagina als concept op een tak, omdat die er moet zijn op de dag van goedkeuring en Thijs eerst wil kijken. Geen apart verspreidingsplan: `platformen/garmin/kanalen-2026-11-13.md` heeft de plekken, regels en volgorde al; dubbel werk.
+**Gedaan:** repo dortus tak `claude/chris-ebb-pagina` (7def096, b59a4a3), schermafdrukken in `commercie/ebb/`, status bovenaan, regel op lijst-thijs.
+**Controleur:** akkoord mits. Moet: GARMIN op de rand van de beelden. Verwerkt (bedekt, film eraf). Kan-punten verwerkt.
+**Volgende run:** kijken of Ebb is goedgekeurd; zo ja de winkelpagina via de API nakijken, `<link>` invullen in `lancering.md`, en met het ja van Thijs de pagina naar main.
