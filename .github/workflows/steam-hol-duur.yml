@@ -1,0 +1,114 @@
+name: Het Hol duurtest (60 minuten, Windows)
+
+# Olaf, 13 nov 2026. Demolijst punt 1 en 2 (platformen/steam/planning-fest-2027.md):
+# - geen crash in 60 minuten draaien (gewoon spel, geen demo-versnelling, nieuw spel, strook 120 px);
+# - zuinig: gemiddeld onder 1 CPU-seconde per 10 s, stilstaand beeld bijna 0.
+# Elke 10 s een CPU-meting; aan het eind gemiddelde, mediaan, laagste en hoogste.
+# Rood als het proces eerder stopt, als er een scriptfout in de uitvoer staat of als het gemiddelde 1,0 of hoger is.
+on:
+  workflow_dispatch:
+    inputs:
+      minuten:
+        description: "Hoe lang draaien (minuten)"
+        default: "60"
+
+permissions:
+  contents: write
+
+jobs:
+  duur:
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 downloaden
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+      - name: Importeren
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Een uur draaien met Kladblok erachter
+        shell: pwsh
+        env:
+          MINUTEN: ${{ github.event.inputs.minuten || '60' }}
+        run: |
+          $uit = "producten/steam-hol/e2e/screenshots/duur"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          $vol = (Resolve-Path $uit).Path
+          Start-Process notepad.exe
+          Start-Sleep 3
+          $sec = [int]$env:MINUTEN * 60
+          $log = ($vol -replace '\\','/') + "/hol.log"
+          # Het spel stopt zelf na duur+30 s; wij meten tot duur.
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) log=$log" `
+            -RedirectStandardOutput "$vol/uit.txt" -RedirectStandardError "$vol/fout.txt" -PassThru
+          $null = $p.Handle
+          Start-Sleep 20
+          if ($p.HasExited) { Write-Output "PROCES GESTOPT binnen 20 s, code $($p.ExitCode)"; Get-Content "$vol/uit.txt", "$vol/fout.txt" -ErrorAction SilentlyContinue; exit 1 }
+          $metingen = @()
+          $p.Refresh(); $vorig = $p.TotalProcessorTime.TotalSeconds
+          $stappen = [int](($sec - 20) / 10)
+          $dood = $false
+          for ($i = 1; $i -le $stappen; $i++) {
+            Start-Sleep 10
+            if ($p.HasExited) { $dood = $true; Write-Output "PROCES GESTOPT na $(20 + $i * 10) s, code $($p.ExitCode)"; break }
+            $p.Refresh(); $nu = $p.TotalProcessorTime.TotalSeconds
+            $metingen += [math]::Round($nu - $vorig, 3); $vorig = $nu
+            if ($i % 60 -eq 0) {
+              & producten/steam-hol/e2e/scherm.ps1 "$vol/strook-$([int]($i / 6))min.png"
+              Write-Output "na $([int]($i / 6)) min: geheugen $([int]($p.WorkingSet64 / 1MB)) MB, laatste 10 s $($metingen[-1]) CPU-s"
+            }
+          }
+          $gesorteerd = $metingen | Sort-Object
+          $gem = if ($metingen.Count) { [math]::Round(($metingen | Measure-Object -Average).Average, 3) } else { -1 }
+          $med = if ($metingen.Count) { $gesorteerd[[int]($gesorteerd.Count / 2)] } else { -1 }
+          $samen = @(
+            "metingen van 10 s: $($metingen.Count)",
+            "CPU-s per 10 s: gemiddeld $gem, mediaan $med, laagste $($gesorteerd[0]), hoogste $($gesorteerd[-1])",
+            "geheugen aan het eind: $(if (-not $p.HasExited) { [int]($p.WorkingSet64 / 1MB) } else { 'proces weg' }) MB",
+            "proces leefde tot het eind: $(-not $dood)"
+          )
+          $samen | Set-Content "$vol/uitslag.txt"
+          ($metingen -join "`n") | Set-Content "$vol/cpu-per-10s.txt"
+          $samen | ForEach-Object { Write-Output $_ }
+          if (-not $p.HasExited) { $p.WaitForExit(150000) | Out-Null }
+          if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+          Write-Output "===== hol.log (laatste 40 regels)"; Get-Content $log -Tail 40 -ErrorAction SilentlyContinue
+          $fouten = (Get-Content "$vol/uit.txt", "$vol/fout.txt" -ErrorAction SilentlyContinue | Select-String -CaseSensitive -Pattern "SCRIPT ERROR|Parse Error" | Select-Object -First 20)
+          Write-Output "===== fouten in de uitvoer: $(@($fouten).Count)"; $fouten | ForEach-Object { Write-Output $_.Line }
+          $einde = [bool](Select-String -Path $log -Pattern "HOL einde" -Quiet -ErrorAction SilentlyContinue)
+          Write-Output "===== spel stopte zelf netjes (HOL einde in hol.log): $einde; regels in uit.txt: $(@(Get-Content "$vol/uit.txt" -ErrorAction SilentlyContinue).Count)"
+          $rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or ($gem -ge 1.0) -or ($metingen.Count -eq 0)
+          if ($rood) { Write-Output "== DUURTEST ROOD"; exit 1 } else { Write-Output "== DUURTEST GROEN" }
+      - name: Uitslag openbaar zetten (tak schermen)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/duur"
+          [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-hol-duur/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Duurtest steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol-duur/$NAAM"
