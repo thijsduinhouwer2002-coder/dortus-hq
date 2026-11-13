@@ -1,6 +1,6 @@
 # Blender: status
 
-- **13 nov 19:25 UTC (Bram): 104 downloads**, 0 reviews, click-joints 0 issues en 0 PR. Geen melding van moderatoren of Superhive bekend. Pro 1.0.1 strakke kleuring (Daans moet 1, lost ook streep en kreukel op 13 en de strepen op 14b op) gebouwd op tak `claude/blender-pro-kleur` (7d46903), run 43491692615 in de echte Blender.
+- **13 nov 19:25 UTC (Bram): 104 downloads**, 0 reviews, click-joints 0 issues en 0 PR. Geen melding van moderatoren of Superhive bekend. Pro 1.0.1 strakke kleuring (Daans moet 1, lost ook streep en kreukel op 13 en de strepen op 14b op) gebouwd op tak `claude/blender-pro-kleur` (7d46903), run 43491692615 in de echte Blender: toetsen groen, maar groen onzichtbaar op de winkelplaatjes en rood te groot op plaatje 12, dus niet samengevoegd; aanpak bijgesteld (logboek).
 - **13 nov 18:11 UTC (Bram): 103 downloads**, 0 reviews, click-joints 0 issues. Geen melding van moderatoren of Superhive bekend; Superhive-aanvraag loopt nog.
 - **13 nov 17:45 UTC (Bram): 102 downloads**, 0 reviews, click-joints 0 issues. Superhive-aanvraag loopt nog. Pro-winkelplaatjes: voorwaarde 2 van Daan grotendeels, 3 en 4 nog niet (tak `claude/blender-pro-winkel` 1e5fd5e); 13 wacht waarschijnlijk op de strakke kleuring (1.0.1), die haal ik naar voren.
 - **13 nov 15:58 UTC (Bram): 102 downloads** (10 nov 14:00: 6), 0 reviews, meldingenrepo click-joints 0 issues. Geen melding van moderatoren of Superhive bekend; Superhive-makersaanvraag loopt nog. Bram werkt nu aan de 3D-pijplijn voor Het Hol (besluit 13 nov).
