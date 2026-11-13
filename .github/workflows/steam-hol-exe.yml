@@ -70,10 +70,11 @@ jobs:
           function Speel($soort, $log, $args_, $meet, $driver) {
             $exe = (Resolve-Path "producten/steam-hol/bouw/$soort/HetHol.exe").Path
             Remove-Item $glog -ErrorAction SilentlyContinue
+            # let op: alles wat de functie uitspuugt komt in de uitkomst; daarom $null = en | Out-String bij de aanroep
             $p = Start-Process -FilePath $exe -ArgumentList "$driver-- hoogte=120 $args_ log=$log" -PassThru
             if ($meet) {
               Start-Sleep 12
-              & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-120-$soort.png"
+              $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-120-$soort.png"
               $p.Refresh(); $c1 = $p.TotalProcessorTime.TotalSeconds
               Start-Sleep 10
               $p.Refresh(); $c2 = $p.TotalProcessorTime.TotalSeconds
@@ -85,12 +86,12 @@ jobs:
             if ($g -match "SCRIPT ERROR|Parse Error") { $script:samen += "FOUT: SCRIPT ERROR in godot.log van $soort" }
             Get-Content $log -ErrorAction SilentlyContinue | Out-String
           }
-          $a = Speel "volledig" "$uit/volledig.log" "demo_einde=10 demo=1 vers=1 duur=30" $true ""
+          $a = (Speel "volledig" "$uit/volledig.log" "demo_einde=10 demo=1 vers=1 duur=30" $true "") | Out-String
           Write-Output "===== 1 volledig (standaard driver, zoals een speler)"; Write-Output $a
           if ($a -notmatch "HOL einde") { Write-Output "FOUT: volle spel stopte niet netjes"; $fout++ }
           if ($a -notmatch "HOL koop ") { Write-Output "FOUT: volle spel kocht niets"; $fout++ }
           if ($a -match "That's the demo|HOL demo voorbij") { Write-Output "FOUT: volle spel heeft een demo-einde"; $fout++ }
-          $b = Speel "demo" "$uit/demo.log" "demo_einde=10 demo=1 vers=1 duur=30" $true "--rendering-driver opengl3_angle "
+          $b = (Speel "demo" "$uit/demo.log" "demo_einde=10 demo=1 vers=1 duur=30" $true "--rendering-driver opengl3_angle ") | Out-String
           Write-Output "===== 2 demo"; Write-Output $b
           $n = ([regex]::Matches($b, "HOL demo voorbij na")).Count
           if ($n -ne 1 -or $b -notmatch "That's the demo\.") { Write-Output "FOUT: demo-einde $n keer of niet in de kroniek"; $fout++ }
