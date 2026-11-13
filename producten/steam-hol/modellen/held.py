@@ -3,7 +3,7 @@
 Twee helden die het hol binnenlopen en hun hoed verliezen aan Gloops toren. Zelfde hoeden als in
 gloop.py (helm en heksenhoed), zodat je ziet waar de toren vandaan komt.
   ridder = blauwe tuniek, stalen helm met neusstuk, zwaard, rond schild
-  heks   = oranje jurk, brede heksenhoed met gouden band, staf met een lichtje
+  heks   = oranje jurk, brede heksenhoed met gouden band, bezem met een geel borstel (ronde 3)
 
 Speelgoedstijl zoals Gloop (3d-stijl.md, regel 2): groot hoofd, twee grote ogen met glimstip,
 korte beentjes. Op ware grootte (120 px = 4,5 eenheden) is een held ±1,9 eenheden hoog, ±50 px:
@@ -73,19 +73,20 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     ouder = bpy.data.objects.new("held_" + soort, None)
     sc.collection.objects.link(ouder)
 
-    huid = g.mat("huid", HUID, rough=0.45, sss=0.2)
+    # ronde 3: matte speelgoedlak (frisse kijker ronde 2: "plastic glanst zo sterk dat ze goedkoop ogen")
+    huid = g.mat("huid", HUID, rough=0.62, spec=0.25, sss=0.2)
     blos = g.mat("hblos", "blos", rough=0.7)
     wit = g.mat("hwit", "oogwit", rough=0.2, spec=0.5)
     pupil = g.mat("hpupil", "pupil", rough=0.35)
     glim = g.mat("hglim", "oogwit", emis=4.0)
     laars = g.mat("laars", "4a2e2a", rough=0.6)
     if soort == "ridder":
-        kleed = g.mat("tuniek", "4a86f0", rough=0.5)
-        kleed_d = g.mat("tuniek_d", "2a4a94", rough=0.6)
+        kleed = g.mat("tuniek", "4a86f0", rough=0.72, spec=0.25)
+        kleed_d = g.mat("tuniek_d", "2a4a94", rough=0.75, spec=0.2)
     else:
         # jurk warm oranje, niet paars: paars op het pruimen hol viel weg (frisse kijker ronde 1)
-        kleed = g.mat("jurk", "e8873a", rough=0.6)
-        kleed_d = g.mat("jurk_d", "a8552a", rough=0.6)
+        kleed = g.mat("jurk", "e8873a", rough=0.75, spec=0.25)
+        kleed_d = g.mat("jurk_d", "a8552a", rough=0.75, spec=0.2)
 
     # benen: stap1 linkervoet naar voren, stap2 rechts; schrik op de tenen
     stap = {"rust": 0.0, "stap1": 1.0, "stap2": -1.0, "schrik": 0.0, "vallen": 0.6}.get(stand, 0.0)
@@ -199,11 +200,19 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         top = HZ + 0.68 * K
     else:
         hout = g.mat("hout", "7a4a2a", rough=0.6)
-        # staf schuin naar buiten, zodat het lichtje naast de hoedrand staat en niet erachter
-        sk = math.radians(14) if not bang else 0.0
-        tx, tz = hx + 0.46 * math.sin(sk), hz + 0.66 * math.cos(sk)
-        _cil(ouder, (hx + 0.2 * math.sin(sk), -0.04, hz + 0.2 * math.cos(sk)), 0.03, 0.85, hout, rot=(0, sk, 0))
-        _bol(ouder, (tx, -0.04, tz), (0.09, 0.09, 0.09), g.mat("lichtje", "a8f0cf", emis=6.0), segs=16)
+        # ronde 3: bezem in plaats van staf, als eigen trek (zoals Gloops munt): steel schuin over de
+        # schouder, gele borstel omhoog naast de hoed. Op 25 px is dat een eigen silhouet; een staf was een streepje.
+        sk = math.radians(28) if not bang else math.radians(8)
+        tx, tz = hx + 0.5 * math.sin(sk), hz + 0.62 * math.cos(sk)
+        _cil(ouder, (hx + 0.15 * math.sin(sk), -0.04, hz + 0.15 * math.cos(sk)), 0.03, 0.95, hout, rot=(0, sk, 0))
+        borstel = g.mat("borstel", "e8c25a", rough=0.85, spec=0.1)
+        bx, bz = hx + 0.68 * math.sin(sk), hz + 0.68 * math.cos(sk)
+        _cil(ouder, (bx, -0.04, bz), 0.045, 0.08, g.mat("bezemkoord", "rood", rough=0.7), rot=(0, sk, 0))
+        _cil(ouder, (bx + 0.13 * math.sin(sk), -0.04, bz + 0.13 * math.cos(sk)), 0.05, 0.3, borstel,
+             rot=(0, sk, 0), r2=0.16, verts=20)
+        # klein groen lichtje blijft, nu als vonkje bij de borstel
+        tx, tz = bx + 0.32 * math.sin(sk), bz + 0.32 * math.cos(sk)
+        _bol(ouder, (tx, -0.06, tz), (0.05, 0.05, 0.05), g.mat("lichtje", "a8f0cf", emis=6.0), segs=12)
         l = bpy.data.lights.new("staflicht", "POINT"); l.color = (0.6, 1.0, 0.85); l.energy = 3
         l.shadow_soft_size = 0.1
         lo = bpy.data.objects.new("staflicht", l); lo.location = (tx, -0.2, tz)

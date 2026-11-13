@@ -46,8 +46,11 @@ Frisse kijker ronde 2 (alleen de plaatjes, kort):
 
 Mijn les: de helden moeten niet mooier worden dan Gloop, maar wel eigen. Gloop blijft de ster (dat zegt de kijker ook), helden zijn de figuranten die je op 25 px moet kunnen lezen: silhouet en één kleur per held.
 
+## Ronde 3 (13 nov, ±17:00 UTC): bezem en matte lak
+`ronde3-los.png` (rechtsonder elk figuur op ±25 px, 2x vergroot): de heks heeft een **bezem** met een geel borstel en rood koord in plaats van een staf, schuin naast de hoed; op 25 px zie je een gele stip naast de paarse punthoed, dus een eigen silhouet. Huid en kleren matter (rough 0,62 tot 0,75, minder spec). De ridder houdt de rode pluim als eigen trek.
+
 ## Volgende ronde (Daan)
-1. Eigen trek per held, zoals Gloops munt: bijvoorbeeld een ridder met te grote helm die over zijn ogen zakt, een heks met een bezem in plaats van een staf. Silhouet eerst, op 25 px toetsen.
+1. (Heks: bezem gedaan in ronde 3.) Eigen trek per held, zoals Gloops munt: bijvoorbeeld een ridder met te grote helm die over zijn ogen zakt, een heks met een bezem in plaats van een staf. Silhouet eerst, op 25 px toetsen.
 2. Minder glans op lijf en huid (rough omhoog), een matte speelgoedlak in plaats van plastic.
 3. Wachten op Mila's besluit over de gang (1,9); daarna schaal 0.85 proberen.
 4. Winkelplaatje: een close-up (Gloop met een vallende held), niet de hele strook. Dat is voor het blad van ma 16 nov.
