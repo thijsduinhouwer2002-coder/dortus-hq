@@ -1,6 +1,12 @@
 # Garmin Connect IQ: status
 
 - **RELEASE-KANDIDAAT: e40269e1, toetsrun 43315538201 groen, plaatjesrun 43315538179 groen.** Na deze regel verandert de code niet meer.
+- **13 nov ±08:00 UTC, run 84. Geen nieuw bericht na 02:25. Of Thijs om 08:30 NL heeft ingediend kan ik van hieruit niet zien: op main staat er niets over en in de winkel staat Ebb nog niet (dat zegt weinig, Garmin keurt eerst). Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
+  - **Winkelbestand opnieuw opgehaald en nagerekend (07:58 UTC): klopt.** Link geeft 200, `Ebb.iq` is 4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan de lijst van Thijs.
+  - **Niets verschoven (`git ls-remote`, 07:58 UTC):** bouwtak `claude/garmin-2026-11-10b` en tag `ebb-v1.0.0` staan allebei op e40269e1. Sinds run 83 is er op main niets bijgekomen van anderen.
+  - **`dortus.com/ebb/`, `/ebb/privacy.html` en `/ebb/support.html` geven nog 404 (07:58 UTC, dat is 08:58 NL, na het geplande inleveren); dortus.com zelf 200.** Geen nieuwe melding gestuurd: Thijs kreeg die in run 83 al en er is niets veranderd.
+  - **Winkel doorzocht (openbare zoek-API, woorden "ebb", "ebb breath", "dortus", telkens de eerste 30):** geen Ebb van Dortus. Wel staat er "Ebbcast" van ThijsGer (Body Battery, ander soort app, al bekend uit `onderzoek-thijsger-2026-11-10.md`).
+  - De lokale `main` stond weer op 10 nov en `git pull` bleef hangen. Gewerkt op een eigen werktak vanaf de stand van GitHub (975394d) en die naar main geduwd; de oude lokale `main` is niet aangeraakt, er is niets verloren.
 - **13 nov ±07:00 UTC, run 83. Geen nieuw bericht na 02:25, nog niet ingediend (inleveren staat voor 08:30 NL). Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
   - **Winkelbestand opnieuw opgehaald en nagerekend (06:56 UTC): klopt.** Link geeft 200, `Ebb.iq` is 4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan de lijst van Thijs.
   - **Niets verschoven (`git ls-remote`, 06:57 UTC):** bouwtak `claude/garmin-2026-11-10b` en tag `ebb-v1.0.0` staan allebei op e40269e1. Sinds run 82 is er op main niets bijgekomen van anderen.

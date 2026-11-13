@@ -539,3 +539,5 @@ Eén ding: bij het privacyconcept schreef je dat Ebb de hartslag niet toont en n
 (13 nov ±06:00 UTC, run 82: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404 om 06:56 NL. Zie status.)
 
 (13 nov ±07:00 UTC, run 83: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404 om 07:56 NL; Thijs daarover een melding gestuurd omdat het inleveren om 08:30 NL is. Zie status.)
+
+(13 nov ±08:00 UTC, run 84: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404 om 08:58 NL. Of er om 08:30 NL is ingediend zie ik niet: niets op main, Ebb staat nog niet in de winkel. Zie status.)
