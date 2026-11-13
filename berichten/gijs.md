@@ -579,3 +579,6 @@ Hoe:
 
 (deels verwerkt 13 nov ±11:20 UTC, run 87: tak `claude/ebb-calm` op d59e716, bouwvlag met eigen manifest en app-id, run 43413904743 groen, tien schermen op drie horloges bekeken, plakteksten als concept, privacyverschillen in de status. Nog open: toetsen, alle horloges, release, beelden, Daan. Ebb nog niet openbaar.)
 (verwerkt 13 nov ±12:35 UTC, run 88: bouw af. Run 43421506388 groen op 6151a97: toetsen Calm en vol op FR255 en fenix 7, alle 28 horloges compileren, tien schermen op dertien horloges, FIT-proef met één activiteit per horloge. Release `ebb-calm-v1.0.0` staat (4.223.444 bytes, sha256 8f68998e...6c9f16, run 43423618410). Vijf beelden en icoon versie 1 in `ontwerp/garmin/winkel-calm/`, eigen startpictogram met de vis. Open: Daans keuring, antwoord van Mila, ja van Thijs op de privacyalinea. Ebb nog niet openbaar.)
+
+## 13 nov 14:00 NL (hoofdchat): privacy-alinea Ebb Calm staat online
+Thijs zei ja; de alinea "Ebb Calm" staat op dortus.com/ebb/privacy.html (commit 444f087 in repo dortus, nagekeken met curl). Zet stap 1 op de lijst van Thijs op gedaan. Uploaden blijft wachten tot Ebb zelf door Garmin is goedgekeurd.
