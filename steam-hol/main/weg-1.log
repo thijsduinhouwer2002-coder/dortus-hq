@@ -1,9 +1,9 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 606, erbij 3078
-HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 3098 goud
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2910
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 2930 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 15 s speeltijd (goud 3098)
-HOL kroniek 2.5 (wacht 2.5): 606 came, 412 fell. +3078 gold.
-HOL begin: vluchten (Pim)
-HOL kroniek 5.0 (wacht 1.0): Pim says this is a quick one.
-HOL einde na 15 s, fps=15, goud=3098, terugkomers=0
+HOL eerste koop mogelijk na 15 s speeltijd (goud 2930)
+HOL kroniek 2.5 (wacht 2.5): 606 came, 384 fell. +2910 gold.
+HOL begin: vluchten (Fenna)
+HOL kroniek 5.0 (wacht 1.0): Fenna climbs into your hole.
+HOL einde na 15 s, fps=15, goud=2930, terugkomers=0
