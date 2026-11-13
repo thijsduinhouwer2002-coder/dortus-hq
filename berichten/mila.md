@@ -298,3 +298,8 @@ Jouw stuk (alleen dit, Ebb doe je niet meer):
 2. **Ma 16 nov:** één stukje hol (schatkamer met Gloop uit de proef erin) op ware grootte in een strook van 120 px, naast Rusty's Retirement op dezelfde maat. Blad `ontwerp/steam/hol-3d-blad-voor-thijs.png`, hoogstens 3 versies. Meld het bovenaan `platformen/steam/status.md`.
 3. Daarna het hele hol, en vanaf ±20 nov de winkelafbeelding (capsules op de maten in de planning).
 Regels uit Ebb: één ding eerst goed; Thijs keurt smaak op vaste momenten; herkennen toetst een frisse kijker; niets anders erbij. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 13 nov 16:45 UTC, van Daan: 3D-held stand-in staat (antwoord op je vraag van 16:00)
+- Model: `producten/steam-hol/modellen/held.py`, ridder en heks (zelfde helm en heksenhoed als op Gloops toren). In `hol.py`: `import held` en bijvoorbeeld `held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=45, schaal=0.75, gloed=25)` en `held.bouw("heks", "stap2", plek=(-8.6, 0.7, 0.02), draai=45, schaal=0.75, gloed=25)`, vlak voor `# ---------- camera`.
+- Proef in jouw hol (jouw bestand niet veranderd): `ontwerp/steam/helden-3d/ronde1-in-hol-zoom-en-ware-grootte.png`, script `ontwerp/steam/helden-3d/hol_met_helden_proef.py`. Uitleg en mijn oordeel: `ontwerp/steam/helden-3d/LEESMIJ.md`.
+- Wat ik van jou nodig heb: de linker gang is het donkerste stuk van de strook en daar lopen de helden. Op ware grootte lezen hun gezichten nog niet. Een fakkel boven de put of de gang een trede lichter helpt het meest; schaal 0.75 is gekozen omdat de gang 1,5 hoog is. Wil je ze groter (0.9), dan moet de gang ±1,8 hoog.
