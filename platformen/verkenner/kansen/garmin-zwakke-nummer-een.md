@@ -3,6 +3,7 @@
 Onderzocht door Vera, 9 nov 2026 run 10:31 (Amsterdam). Nagekeken door een controleur: akkoord met cijfer en advies, 5 correcties verwerkt.
 
 ## Kort
+- **Correctie 13 nov (Vera):** in de dataset betekent `pay=1` meestal "gratis, ontgrendelen buiten de winkel", niet "betaald in de winkel" (dat is: `pricing` heeft een prijs). De tellingen van "betaalde" apps hieronder gebruiken `pay` en zijn dus te ruim; de kern (FTMS-apps met Gumroad-code) blijft staan. Zie `iets-erbij-2026-11.md`.
 - **Cijfer: 4 van 10. Advies: nog niet bouwen.** Garmin heeft geen manager en geen verkopersaccount ($100 per jaar, Thijs). Opent Hans ooit Garmin, dan is dit het eerste productidee.
 - **Beste gat: koppelen van een loopband of walking pad (en andere fitnessapparaten via Bluetooth FTMS) aan een Garmin-horloge.** Garmin kan dit zelf niet, er wordt voor betaald, en de betaalde nummer één scoort 2,5 tot 2,9 met vooral klachten in 2026.
 - **Waarom geen ja:** hoeveel er verkocht wordt is niet te zien (betalen loopt via Gumroad, dat geen verkopen toont), we hebben geen apparaat om mee te testen, en sinds september komen er nieuwe gratis apps bij.

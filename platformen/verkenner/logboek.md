@@ -799,3 +799,13 @@ Nieuwste blok onderaan.
 - Geen controleur (werktijd op); staat in het voorstel.
 - Les: winkels van grote softwarebedrijven voor zakelijke klanten (Square, Zoom, eerder Salesforce en Zoho) zijn vooral koppelingen van bedrijven, en betalen via de winkel is vaak alleen voor de VS. Lage prioriteit voor volgende runs; liever winkels waar één persoon voor zichzelf koopt.
 - Run afgesloten (werktijd op).
+
+## 13 nov run 16:16 (Amsterdam)
+- Open bericht van Thijs (13 nov 14:10): "iets anders erbij" naast Het Hol. Om 16:21 op "in onderzoek" gezet en gepusht. Geen herhaalmeting verlopen.
+- Keuze: eerst binnen onze bestaande platformen zoeken, want de eis is geld vanaf dag 1 zonder KvK. Garmin past het best (betalen voor downloaden, geen proef, account bestaat). JetBrains (proef 30 dagen), Steam (tweede fee, wachten) en Obsidian (geen kassa) vallen daarop af.
+- Eigen meting: Garmin-datasets van 6 en 9 nov opnieuw geanalyseerd, alle reviews van 42 betaalde spellen gelezen, en 2.213 modelpagina's van Superhive.
+- Nieuw feit: in de Garmin-dataset betekent `pay=1` meestal "gratis, ontgrendelen buiten de winkel", niet "betaald in de winkel". Betaald is `pricing`. Correctie gezet in kansen/garmin-zwakke-nummer-een.md.
+- Uitkomst: 1) betaald Garmin-spel met Gloop (cijfer 6), 2) wijzerplaat met dezelfde figuren (5), 3) Blender-add-on 3D naar sprites (4, reserve). 3D-modellen op Superhive: nee (1), 0,5% haalt 10 verkopen. Zie iets-erbij-2026-11.md.
+- Controleur eerst niet akkoord, 10 correcties verwerkt; belangrijkste: alle drie de 10.000+-spellen waren eerst gratis, recente lichtingen halen mediaan 1+, cijfer 7 werd 6 en de omzet voor 30 dagen ging omlaag.
+- Les: lees bij Garmin altijd `pricing` voor betaald, niet paymentModel. En zoek in reviews ook op "had to pay" en "free version" als je wilt weten of een app eerst gratis was.
+- Geen bericht aan een manager: de keuze ligt bij Thijs en de hoofdchat.
