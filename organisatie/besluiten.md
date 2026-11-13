@@ -334,3 +334,6 @@ Thijs koos C: geen tekenaar, geen AI-beeldtool, alles uit code zoals nu (advies 
 
 ## 13 nov 13:35: Het Hol helemaal in 3D (Blender), meer agents
 Thijs zag de 3D-proef van Gloop en zei: "ja de hele app gewoon ofzo, ik denk dat je ook wel wat meer agents moet gaan aansturen". Alle beelden van Het Hol (figuren, helden, hol, winkelbeelden) worden met code in Blender gemaakt en gerenderd; geen pixelart, geen AI-beeld. Stijl: `ontwerp/steam/3d-stijl.md`. Ploeg elk uur: Olaf (spel), Bram (3D-pijplijn naar Godot), Daan (Gloop, helden), Mila (hol, winkelbeelden); Gijs blijft op Garmin. Eerste toetsmoment voor Thijs: ma 16 nov.
+
+## 13 nov 13:45: Mila weer aan; privacy-alinea Ebb Calm ja
+Thijs: "mila aan, en 2 ja". Mila draait weer (geplande taak aan; schema nog elke 3 uur op :37, het wijzigen naar elk uur werd door de beveiliging geweigerd). Haar opdracht: het hol in 3D en de winkelafbeelding (`berichten/mila.md`). De alinea "Ebb Calm" op dortus.com/ebb/privacy.html staat klaar in de website-repo en gaat online zodra Thijs de tekst zelf zag (afspraak: niets online zonder dat hij het zag).
