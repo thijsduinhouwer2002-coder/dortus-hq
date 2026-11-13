@@ -77,6 +77,9 @@ static func laad(s, begin) -> void:
 			s.slijm.upgrade_veranderd()   # het lijf van zijn gekochte stap meteen bij openen (Bram 03:25)
 	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
 	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
+	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
+	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d" % [int(weg.weg_s), str(weg.teruggezet),
+		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0])
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
 		var helden_d := {}
