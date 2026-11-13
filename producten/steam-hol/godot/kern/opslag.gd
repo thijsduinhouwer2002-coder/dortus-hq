@@ -4,9 +4,12 @@ extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
+# voortgang.gd belooft dat de bewaarde tijd nooit achteruit gaat (nieuwe_laatst). Stond de klok terug, dan blijft de
+# hoogste tijd bewaard; anders telt het gat nog een keer als de klok weer goed staat (controleur 13 nov, kan-punt).
+static var tijd_vloer := 0
 
 static func bewaar(s) -> void:
-	var data := {"versie": OPSLAG_VERSIE, "tijd": Time.get_unix_time_from_system(), "gang": s.hol.gang, "boven": s.hol.boven,
+	var data := {"versie": OPSLAG_VERSIE, "tijd": maxi(int(Time.get_unix_time_from_system()), tijd_vloer), "gang": s.hol.gang, "boven": s.hol.boven,
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
@@ -77,6 +80,10 @@ static func laad(s, begin) -> void:
 			s.slijm.upgrade_veranderd()   # het lijf van zijn gekochte stap meteen bij openen (Bram 03:25)
 	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
 	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
+	tijd_vloer = int(weg.get("nieuwe_laatst", 0))
+	# stond de klok per ongeluk ver vooruit (meer dan 3 dagen), dan niet tot die datum zonder weg-winst blijven (controleur kan-punt)
+	if tijd_vloer > int(Time.get_unix_time_from_system()) + 3 * 86400:
+		tijd_vloer = 0
 	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
 	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d" % [int(weg.weg_s), str(weg.teruggezet),
 		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0])
