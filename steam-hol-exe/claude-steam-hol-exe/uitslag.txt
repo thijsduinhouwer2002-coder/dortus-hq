@@ -1,6 +1,6 @@
-CPU volledig op 120 px: 1.28 CPU-seconden per 10 s, geheugen 110 MB
-CPU demo op 120 px: 0.95 CPU-seconden per 10 s, geheugen 105 MB
+CPU volledig op 120 px: 1 CPU-seconden per 10 s, geheugen 111 MB
+CPU demo op 120 px: 0.83 CPU-seconden per 10 s, geheugen 106 MB
 save staat in C:\Users\runneradmin\AppData\Roaming\Dortus\Het Hol\hol.json (gedeeld door vol en demo)
 bestand volledig/HetHol.exe: 81.4 MB
 bestand demo/HetHol.exe: 81.4 MB
-exe-toetsen: 4 FOUT
+exe-toetsen: 5 FOUT
