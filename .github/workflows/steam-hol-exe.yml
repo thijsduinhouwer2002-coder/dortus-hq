@@ -1,0 +1,143 @@
+name: Het Hol .exe bouwen (vol en demo, Windows)
+
+# Olaf, 13 nov 2026 (demolijst 6): bouwt met export_presets.cfg twee echte .exe's, het volle spel en de demo
+# (Godot-feature steamdemo), en toetst ze op een Windows-runner zonder startargument steamdemo:
+#   1. het volle spel draait, koopt, en kent geen demo-einde
+#   2. de demo stopt precies één keer met "That's the demo." (grens 10 s via demo_einde=10)
+#   3. geen SCRIPT ERROR in godot.log, beeld op 120 px, CPU per 10 s, grootte van de bestanden
+# Uitslag op tak schermen, map steam-hol-exe/<tak>; de .exe's als artifact (7 dagen).
+on:
+  push:
+    branches: [main, "claude/steam-*"]
+    paths: ["producten/steam-hol/godot/export_presets.cfg", ".github/workflows/steam-hol-exe.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exe:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 en de Windows-sjablonen downloaden
+        shell: pwsh
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -OutFile sjablonen.zip
+          $doel = Join-Path $env:APPDATA "Godot/export_templates/4.3.stable"
+          New-Item -ItemType Directory -Force $doel | Out-Null
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path sjablonen.zip).Path)
+          foreach ($e in $zip.Entries) {
+            if ($e.FullName -match '^templates/(windows_.*|version\.txt)$') {
+              [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path $doel $e.Name), $true)
+            }
+          }
+          $zip.Dispose()
+          Get-ChildItem $doel | ForEach-Object { Write-Output "$($_.Name) $([int]($_.Length / 1MB)) MB" }
+      - name: Importeren
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Bouwen (vol en demo)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force producten/steam-hol/bouw/volledig, producten/steam-hol/bouw/demo | Out-Null
+          $fout = 0
+          foreach ($v in @(@("Windows", "volledig"), @("Windows demo", "demo"))) {
+            $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release $v[0] "../bouw/$($v[1])/HetHol.exe" 2>&1 | Out-String
+            Write-Output "===== $($v[0])"; Write-Output $uit
+            if (-not (Test-Path "producten/steam-hol/bouw/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
+          }
+          Get-ChildItem -Recurse producten/steam-hol/bouw -File | ForEach-Object { Write-Output "$($_.FullName) $([math]::Round($_.Length / 1MB, 1)) MB" }
+          if ($fout -gt 0) { exit 1 }
+      - name: Toetsen op de echte .exe's (zonder startargument steamdemo)
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/screenshots/exe"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          $uit = (Resolve-Path $uit).Path -replace '\\','/'
+          $glog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log"
+          Start-Process notepad.exe
+          Start-Sleep 3
+          $fout = 0
+          $samen = @()
+          function Speel($soort, $log, $args_, $meet) {
+            $exe = (Resolve-Path "producten/steam-hol/bouw/$soort/HetHol.exe").Path
+            Remove-Item $glog -ErrorAction SilentlyContinue
+            $p = Start-Process -FilePath $exe -ArgumentList "--rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            if ($meet) {
+              Start-Sleep 12
+              & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-120-$soort.png"
+              $p.Refresh(); $c1 = $p.TotalProcessorTime.TotalSeconds
+              Start-Sleep 10
+              $p.Refresh(); $c2 = $p.TotalProcessorTime.TotalSeconds
+              $script:samen += "CPU $soort op 120 px: $([math]::Round($c2 - $c1, 2)) CPU-seconden per 10 s, geheugen $([int]($p.WorkingSet64 / 1MB)) MB"
+            }
+            if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force; $script:samen += "FOUT: $soort stopte niet zelf" }
+            Copy-Item $glog "$uit/godot-$soort.log" -ErrorAction SilentlyContinue
+            $g = Get-Content $glog -ErrorAction SilentlyContinue | Out-String
+            if ($g -match "SCRIPT ERROR|Parse Error") { $script:samen += "FOUT: SCRIPT ERROR in godot.log van $soort" }
+            Get-Content $log -ErrorAction SilentlyContinue | Out-String
+          }
+          $a = Speel "volledig" "$uit/volledig.log" "demo_einde=10 demo=1 vers=1 duur=30" $true
+          Write-Output "===== 1 volledig"; Write-Output $a
+          if ($a -notmatch "HOL einde") { Write-Output "FOUT: volle spel stopte niet netjes"; $fout++ }
+          if ($a -notmatch "HOL koop ") { Write-Output "FOUT: volle spel kocht niets"; $fout++ }
+          if ($a -match "That's the demo|HOL demo voorbij") { Write-Output "FOUT: volle spel heeft een demo-einde"; $fout++ }
+          $b = Speel "demo" "$uit/demo.log" "demo_einde=10 demo=1 vers=1 duur=30" $true
+          Write-Output "===== 2 demo"; Write-Output $b
+          $n = ([regex]::Matches($b, "HOL demo voorbij na")).Count
+          if ($n -ne 1 -or $b -notmatch "That's the demo\.") { Write-Output "FOUT: demo-einde $n keer of niet in de kroniek"; $fout++ }
+          if ($b -match "HOL koop ") { Write-Output "FOUT: demo kocht na het einde"; $fout++ }
+          if ($b -notmatch "HOL einde") { Write-Output "FOUT: demo stopte niet netjes"; $fout++ }
+          $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          if (Test-Path $save) { $samen += "save staat in $save (gedeeld door vol en demo)" } else { Write-Output "FOUT: geen save"; $fout++ }
+          foreach ($s in @("volledig", "demo")) {
+            Get-ChildItem "producten/steam-hol/bouw/$s" -File | ForEach-Object { $samen += "bestand $s/$($_.Name): $([math]::Round($_.Length / 1MB, 1)) MB" }
+          }
+          $fout += @($samen | Where-Object { $_ -like "FOUT*" }).Count
+          $samen += "exe-toetsen: $fout FOUT"
+          $samen | ForEach-Object { Write-Output $_ }
+          $samen | Set-Content "$uit/uitslag.txt"
+          if ($fout -gt 0) { exit 1 }
+      - name: De .exe's bewaren (artifact, 7 dagen)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: het-hol-exe
+          path: producten/steam-hol/bouw/
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Uitslag openbaar zetten (tak schermen)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/exe"
+          [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-hol-exe/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Exe steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol-exe/$NAAM"
