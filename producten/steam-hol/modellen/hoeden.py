@@ -13,14 +13,20 @@ van wat spelers al kennen verandert:
 
 Als module:
     import hoeden
-    hoeden.bouw(nr, plek=(x, y, z), schaal=1.0, kantel=0)
+    hoeden.bouw(nr, plek=(x, y, z), schaal=1.0, kantel=0, draai=0, hap=False)
   plek   = midden van de onderrand van de hoed (zet die 1 spelpixel ín de kruin, anders zweeft hij)
   schaal = 1.0 past op een hoofd met straal ±0,4 (Gloop, en held.py op schaal 1)
   kantel = graden om de as naar de camera (scheef op de toren)
+  draai  = graden om de staande as, net als `draai` in held.py (positief kijkt naar rechts). Geef de
+           draai van de held mee, dan wijzen klep, steel, slip, pluim en veer mee met het gezicht.
+  hap    = True: Gloop heeft een hap uit de hoed genomen (drie tandbogen bovenaan opzij, naar de camera;
+           aan de kant waar klep, steel of slip het minst uitsteekt).
+           Voor de stand hap van Gloop en voor de toren na een hap. Zonder hap is niets veranderd.
   Alle objecten heten hoed_<naam>_..., de ouder hoed_<naam>.
 
 Los draaien (proefblad, alle 10 naast elkaar):
-    <venv>/bin/python hoeden.py <uit.png> <breedte> <hoogte> <samples> [nr]
+    <venv>/bin/python hoeden.py <uit.png> <breedte> <hoogte> <samples> [nr] [draai] [hap]
+  bijvoorbeeld `... uit.png 1600 260 64 alle 30 hap`: alle 10, 30 graden gedraaid, met hap
 """
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -66,7 +72,55 @@ def _halve_bol(ouder, loc, schaal, m):
     return o
 
 
-def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0):
+def _hap(ouder, naam):
+    """Daan 13 nov: drie bollen in een boog rechtsboven uit de hoed snijden, zodat er een tekenfilmhap
+    met tandbogen in zit. Plaats volgt de maat van de hoed zelf, dus het werkt voor alle 10."""
+    import mathutils
+    delen = [o for o in ouder.children_recursive if o.type == "MESH" and not o.hide_render]
+    # het lijf van de hoed = het deel met het grootste blok (niet de pluim, klep of steel)
+    def blok(o):
+        # echte hoekpunten in de wereld (een gedraaid blok steekt verder uit dan de ronde hoed)
+        v = [o.matrix_world @ p.co for p in o.data.vertices]
+        return (min(p.x for p in v), max(p.x for p in v), min(p.z for p in v), max(p.z for p in v),
+                max(p.y for p in v) - min(p.y for p in v))
+    lijf = max(delen, key=lambda o: (lambda b: (b[1] - b[0]) * (b[3] - b[2]) * b[4])(blok(o)))
+    x0, x1, z0, z1, _ = blok(lijf)
+    h = z1 - z0
+    sch = ouder.scale[0]
+    # kant: waar klep, steel of slip het minst uitsteekt (anders hapt Gloop de klep van de pet doormidden)
+    alle = [blok(o) for o in delen]
+    uit_r = max(b[1] for b in alle) - x1
+    uit_l = x0 - min(b[0] for b in alle)
+    kant = 1 if uit_r <= uit_l + 0.01 else -1
+    pz = z0 + h * 0.64
+    # rand = buitenste punt op de hoogte van de hap, over alle delen (koksmuts: de zijwolk, anders bleef
+    # er een los stukje wolk zweven)
+    op = [b for b in alle if b[2] <= pz <= b[3]] or [blok(lijf)]
+    rand = max(b[1] for b in op) if kant == 1 else min(b[0] for b in op)
+    # drie tanden op een boog rond een punt net buiten de rand: de binnenkant wordt geschulpt
+    px = rand + kant * 0.16 * sch
+    snij = []
+    for i, a in enumerate((-50, 0, 50)):
+        ah = math.radians(a)
+        loc = (px - kant * 0.25 * sch * math.cos(ah), ouder.location[1], pz + 0.25 * sch * math.sin(ah))
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, radius=1.0)
+        b = bpy.context.object
+        b.name = "hoed_" + naam + "_hapsnij%d" % i
+        b.hide_render = True; b.hide_viewport = True
+        b.parent = ouder
+        b.matrix_parent_inverse.identity()
+        # in de wereld: bol van 0,14 rond, 4x zo diep naar de camera, zodat hij dwars door de hoed snijdt
+        r = 0.15 * sch
+        b.matrix_world = (mathutils.Matrix.Translation(loc) @
+                          mathutils.Matrix.Diagonal((r, 4 * r, r, 1.0)))
+        snij.append(b)
+    for o in delen:
+        for b in snij:
+            m = o.modifiers.new("hap", "BOOLEAN"); m.object = b; m.operation = "DIFFERENCE"
+            m.solver = "EXACT"
+
+
+def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
     nr = int(nr) % len(NAMEN)
     naam = NAMEN[nr]
     voor = set(bpy.data.objects)
@@ -154,12 +208,18 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0):
         _zet(v, ouder, veer)
         _bol(ouder, (0.2, -0.02, 0.2), (0.05, 0.05, 0.05), g.mat("veerknop", "goud", rough=0.3, metaal=0.6), segs=12)
 
-    for o in bpy.data.objects:
+    # list(): hernoemen tijdens het doorlopen liet Blender hetzelfde object vaker langskomen (namen tot 63 tekens)
+    for o in list(bpy.data.objects):
         if o not in voor and o is not ouder and o.type not in ("CAMERA", "LIGHT"):
             o.name = "hoed_" + naam + "_" + o.name
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
-    ouder.rotation_euler = (0, math.radians(kantel), 0)
+    # XYZ: eerst kantelen (toren), dan draaien om de staande as (held.py: positief kijkt naar rechts)
+    ouder.rotation_euler = (0, math.radians(kantel), math.radians(-draai))
+    if hap:
+        # na het plaatsen, zodat de hap altijd recht naar de camera wijst, ook als de hoed gedraaid is
+        bpy.context.view_layer.update()
+        _hap(ouder, naam)
     return ouder
 
 
@@ -167,12 +227,15 @@ if __name__ == "__main__":
     uit = sys.argv[1]
     W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
     g.leeg()
-    if len(sys.argv) > 5:
-        bouw(int(sys.argv[5]), (0, 0, 0.0))
+    nr = sys.argv[5] if len(sys.argv) > 5 else "alle"
+    dr = float(sys.argv[6]) if len(sys.argv) > 6 else 0
+    hp = len(sys.argv) > 7 and sys.argv[7] == "hap"
+    if nr != "alle":
+        bouw(int(nr), (0, 0, 0.0), draai=dr, hap=hp)
         g.camera(hoogte_midden=0.35, schaal=1.6)
     else:
         for i in range(10):
-            bouw(i, ((i - 4.5) * 1.3, 0, 0.0))
+            bouw(i, ((i - 4.5) * 1.3, 0, 0.0), draai=dr, hap=hp)
         g.camera(hoogte_midden=0.35, schaal=13.5)
     g.licht()
     g.render(uit, W, H, SAMPLES, doorzichtig=True)

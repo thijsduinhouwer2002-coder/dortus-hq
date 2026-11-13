@@ -8,7 +8,8 @@ paren = [("ridder", 0), ("heks", 1), ("ridder", 4), ("heks", 2), ("ridder", 7), 
 for i, (soort, nr) in enumerate(paren):
     x = (i - 4.5) * 1.5
     voor = set(bpy.data.objects)
-    h = held.bouw(soort, "rust", (x, 0, 0), draai=20)
+    DR = float(os.environ.get("HELD_DRAAI", "20"))
+    h = held.bouw(soort, "rust", (x, 0, 0), draai=DR)
     bpy.context.view_layer.update()
     for o in list(bpy.data.objects):
         if o not in voor and o.name.startswith("hoed_"):
@@ -23,7 +24,9 @@ for i, (soort, nr) in enumerate(paren):
             w = e.matrix_world @ v.co
             if abs(w.x - x) < 0.3 and w.z > hoog:
                 hoog, hx = w.z, w.x
-    hoeden.bouw(nr, (x, 0, hoog - 0.08), schaal=float(os.environ.get("HOED_SCHAAL", "1.3")))
+    # Daan 13 nov 21:40: HOED_DRAAI=1 laat de hoed mee draaien met de held, HOED_HAP=1 geeft elke hoed een hap
+    hoeden.bouw(nr, (x, 0, hoog - 0.08), schaal=float(os.environ.get("HOED_SCHAAL", "1.3")),
+                draai=DR if os.environ.get("HOED_DRAAI") == "1" else 0, hap=os.environ.get("HOED_HAP") == "1")
 bpy.ops.mesh.primitive_plane_add(size=40); bpy.context.object.is_shadow_catcher = True
 g.camera(hoogte_midden=1.25, schaal=15.5)
 g.licht()
