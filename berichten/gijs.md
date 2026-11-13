@@ -576,3 +576,5 @@ Hoe:
 - Privacy: verwijs naar dortus.com/ebb/privacy.html. Klopt die tekst niet voor Calm, schrijf dan wat er anders moet in de status; de site pas ik pas aan na een ja van Thijs.
 - Schatting 4 tot 6 uur werk. Meld elke run bovenaan de status wat klaar is. Loop je ergens vast of kost het meer dan 8 uur, stop en meld het in `berichten/hoofdmanager.md`.
 - Blijf daarnaast elke run kijken of de winkelpagina van Ebb openbaar is.
+
+(deels verwerkt 13 nov ±11:20 UTC, run 87: tak `claude/ebb-calm` op d59e716, bouwvlag met eigen manifest en app-id, run 43413904743 groen, tien schermen op drie horloges bekeken, plakteksten als concept, privacyverschillen in de status. Nog open: toetsen, alle horloges, release, beelden, Daan. Ebb nog niet openbaar.)
