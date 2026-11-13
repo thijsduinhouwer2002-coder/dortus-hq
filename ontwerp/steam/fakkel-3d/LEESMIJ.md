@@ -14,3 +14,4 @@ Beelden (GEZIEN met Read):
 - `hol-boven-oud-onder-nieuw.png`: het hele hol op 1440x240, boven oud, onder nieuw.
 
 Draaien: `venv/bin/python fakkel.py /abs/pad/uit.png 900 600 48` (venv met `bpy==5.2.4`, Python 3.13).
+- Na de frisse kijker (8 tegen 3 voor de oude): de ring om de steel werd op ware grootte een donkere vlek, dus weg; plaat en arm blijven achter de steel. GEZIEN: `deco-fakkel-zonder-ring-6x.png`.

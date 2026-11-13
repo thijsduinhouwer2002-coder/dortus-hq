@@ -314,7 +314,6 @@ def vlam_fakkel(pre, x, y, z, beugel=True, groot=1.2):
     if beugel:
         cil(pre + "beugelplaat", (x, y + 0.12, z - 0.18), 0.07, 0.03, IJZER, rot=(math.radians(90), 0, 0), verts=6)
         cil(pre + "beugelarm", (x, y + 0.04, z - 0.14), 0.018, 0.16, IJZER, rot=(math.radians(90), 0, 0), verts=8)
-        cil(pre + "beugelring", (x, y - 0.03, z - 0.12), 0.07, 0.04, IJZER, verts=16)
     cil(pre + "steel", (x, y - 0.03, z - 0.16), 0.055, 0.42, HOUT_F, rot=(math.radians(-12), 0, 0), verts=10, r2=0.035)
     cil(pre + "kop", (x, y - 0.06, z + 0.07), 0.085 * groot, 0.13, DOEK, verts=12, r2=0.1 * groot)
     zv = z + 0.16
