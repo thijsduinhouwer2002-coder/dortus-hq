@@ -66,26 +66,57 @@ def verklein(im, maat):
     return im.convert("RGBa").resize(maat, Image.LANCZOS).convert("RGBA")
 
 
-def render_sprite(naam, s, bpy_python, snel):
+def render_sprite(naam, s, bpy_python, snel, index=None):
     w, h = s["render"]
     samples = max(8, s["samples"] // 4) if snel else s["samples"]
     namen = list(s["frames"].keys())
     ruw = [os.path.join(UIT, f"{naam}_ruw_{i}.png") for i in range(len(namen))]
     duur = 0.0
+    if s.get("maat_zonder_verberg") and s.get("verberg"):
+        s = dict(s, eenheid_px=_maat_zonder_verberg(naam, s, bpy_python, samples, namen[0]))
     if os.environ.get("HOL_HERGEBRUIK") == "1" and all(os.path.exists(p) for p in ruw):
         beelden = [Image.open(p).convert("RGBA") for p in ruw]   # alleen bijsnijden en schalen opnieuw (proef)
     else:
-        beelden, duur = _render(naam, s, bpy_python, samples, namen)
+        beelden, duur, cam = _render(naam, s, bpy_python, samples, namen)
         os.makedirs(UIT, exist_ok=True)
         for b, p in zip(beelden, ruw):
             b.save(p)
-    return _blad(naam, s, beelden, namen, samples, duur)
+        with open(os.path.join(UIT, f"{naam}_cam.json"), "w") as f:
+            json.dump(cam, f)
+    return _blad(naam, s, beelden, namen, samples, duur, _lees_cam(naam), index)
+
+
+def _maat_zonder_verberg(naam, s, bpy_python, samples, eerste):
+    """Held zonder eigen hoed even groot houden als met (Bram 13 nov 20:40): render het eerste beeld nog een keer
+    zonder 'verberg', pas dat in de cel zoals altijd, en geef die schaal terug als eenheid_px (bladpixels per eenheid).
+    Zo blijft het lijf even groot als Daan het bedoelde, ook als hij het model later verandert."""
+    s2 = dict(s, verberg=[], frames={eerste: s["frames"][eerste]})
+    (b,), _, cam = _render(naam + "_maat", s2, bpy_python, max(8, samples // 4), [eerste])
+    if not cam:
+        raise SystemExit(f"FOUT: {naam}: geen camera uit het model, maat_zonder_verberg kan niet")
+    v = b.getchannel("A").point(lambda a: 255 if a > 60 else 0).getbbox()
+    marge = round(0.04 * (v[2] - v[0]))
+    y1 = min(b.height, v[3] + marge // 2)
+    cw, ch = s["cel"]; px = s["px"]
+    schaal = min(cw * px / (v[2] - v[0]), ch * px / (y1 - v[1]))
+    e = schaal * max(cam["breed"], cam["hoog"]) / cam["ortho"]
+    print(f"{naam}: maat met eigen hoed geeft eenheid_px {e:.3f}")
+    return e
+
+
+def _lees_cam(naam):
+    p = os.path.join(UIT, f"{naam}_cam.json")
+    return json.load(open(p)) if os.path.exists(p) else None
 
 
 def _render(naam, s, bpy_python, samples, namen):
     """Een beeld is [breed, hoog] of {"schaal": [breed, hoog], "stand": "hap"}. Beelden met dezelfde stand komen
     uit één Blender-run; {stand} in de argumenten wordt ingevuld (standaard "rust")."""
     w, h = s["render"]
+    verberg = s.get("verberg", [])
+    if not isinstance(verberg, list) or not all(isinstance(b, str) and b for b in verberg):
+        raise SystemExit(f"FOUT: {naam}: 'verberg' moet een lijst met namen zijn, bv. [\"hoed\"]")
+    cam = None
     groepen = {}
     for i, n in enumerate(namen):
         f = s["frames"][n]
@@ -99,6 +130,9 @@ def _render(naam, s, bpy_python, samples, namen):
             args = [a.format(uit=uit, w=w, h=h, samples=samples, stand=stand) for a in s["args"]]
             env = dict(os.environ, HOL_FRAMES=json.dumps([sc for _, sc in lijst]),
                        HOL_RUIMTE=str(s.get("ruimte", 1.0)))
+            env.pop("HOL_VERBERG", None)
+            if verberg:
+                env["HOL_VERBERG"] = json.dumps(verberg)   # bv. helden zonder eigen hoed: de spelhoed komt los
             r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
                                capture_output=True, text=True)
             if r.returncode != 0:
@@ -106,12 +140,18 @@ def _render(naam, s, bpy_python, samples, namen):
                 raise SystemExit(f"FOUT: model {s['model']} faalde voor {naam} (stand {stand})")
             for k, (i, _) in enumerate(lijst):
                 beelden[i] = Image.open(os.path.join(tmp, f"{stand}_{k}.png")).convert("RGBA")
+            pc = os.path.join(tmp, f"{stand}_cam.json")
+            if os.path.exists(pc):
+                c = json.load(open(pc))
+                if cam and abs(c["ortho"] - cam["ortho"]) > 1e-6:
+                    raise SystemExit(f"FOUT: {naam}: stand {stand} heeft een andere camera dan de rest, dan klopt de schaal niet")
+                cam = c
     duur = time.time() - t0
     print(f"{naam}: {len(namen)} beelden gerenderd in {duur:.0f} s")
-    return beelden, duur
+    return beelden, duur, cam
 
 
-def _blad(naam, s, beelden, namen, samples, duur):
+def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
     w, h = s["render"]
     # wat duidelijk zichtbaar is (alfa boven 60 van 255): de vage uitloop van de schaduw telt niet mee voor de maat,
     # anders wordt het figuur klein in zijn cel. Rondom een kleine marge zodat de schaduw zacht afloopt.
@@ -125,11 +165,25 @@ def _blad(naam, s, beelden, namen, samples, duur):
     cw, ch = s["cel"]; px = s["px"]
     v = vakken[0]
     schaal = min(cw * px / (v[2] - v[0]), ch * px / (y1 - v[1]))
+    # Vaste maat (Bram 13 nov 20:30): "eenheid_px" = bladpixels per Blender-eenheid, of "schaal_van": {"sprite": "ridder",
+    # "maal": 1.3} = dezelfde eenheid als een ander blad maal een factor (hoeden op de helden). Zonder: passen in de cel.
+    rpe = max(cam["breed"], cam["hoog"]) / cam["ortho"] if cam else None   # renderpixels per eenheid
+    if "eenheid_px" in s or "schaal_van" in s:
+        if not rpe:
+            raise SystemExit(f"FOUT: {naam}: vaste maat gevraagd maar het model gaf geen camera door (gedeeld.render)")
+        if "eenheid_px" in s:
+            doel = float(s["eenheid_px"])
+        else:
+            ref = (index or {}).get(s["schaal_van"]["sprite"], {})
+            if "eenheid_px" not in ref:
+                raise SystemExit(f"FOUT: {naam}: {s['schaal_van']['sprite']} heeft nog geen eenheid_px; render die eerst")
+            doel = float(ref["eenheid_px"]) * float(s["schaal_van"].get("maal", 1.0))
+        schaal = doel / rpe
     cel_w = max(cw * px, round((x1 - x0) * schaal)); cel_h = max(ch * px, round((y1 - y0) * schaal))
     blad = Image.new("RGBA", (cel_w * len(namen), cel_h), (0, 0, 0, 0))
     midden = w / 2   # camera staat op x = 0, dus x = 0 van het model is het midden van de render
     anker_x = round(cel_w / 2)
-    tops = []
+    tops, nul_y, kruin = [], [], []
     for i, b in enumerate(beelden):
         stuk = b.crop((x0, y0, x1, y1))
         klein = verklein(stuk, (max(1, round(stuk.width * schaal)), max(1, round(stuk.height * schaal))))
@@ -137,8 +191,21 @@ def _blad(naam, s, beelden, namen, samples, duur):
         links = anker_x - round((midden - x0) * schaal)
         boven = cel_h - klein.height
         blad.alpha_composite(klein, (i * cel_w + max(0, links), max(0, boven)))
-        vak = blad.crop((i * cel_w, 0, (i + 1) * cel_w, cel_h)).getchannel("A").point(lambda a: 255 if a > 40 else 0).getbbox()
+        cel_a = blad.crop((i * cel_w, 0, (i + 1) * cel_w, cel_h)).getchannel("A").point(lambda a: 255 if a > 40 else 0)
+        vak = cel_a.getbbox()
         tops.append(round(vak[1] / px, 2) if vak else 0)
+        if cam:
+            nul_y.append(round((boven + (cam["nul_px"][1] - y0) * schaal) / px, 2))
+            # kruin: bovenste rij met inhoud in een strook rond het midden (+-0,35 eenheid), daar het midden in x
+            band = 0.35 * schaal * rpe
+            xa, xb = max(0, round(anker_x - band)), min(cel_w, round(anker_x + band) + 1)
+            strook = cel_a.crop((xa, 0, xb, cel_h)).getbbox()
+            if strook:
+                rij = cel_a.crop((xa, strook[1], xb, strook[1] + 1))
+                xs = [xa + k for k in range(rij.width) if rij.getpixel((k, 0))]
+                kruin.append([round((sum(xs) / len(xs) - anker_x) / px, 2), round(strook[1] / px, 2)])
+            else:
+                kruin.append([0, 0])
     os.makedirs(DOEL, exist_ok=True)
     blad.save(os.path.join(DOEL, f"{naam}.png"), optimize=True)
     with open(os.path.join(DOEL, f"{naam}.png.import"), "w") as f:
@@ -152,6 +219,10 @@ def _blad(naam, s, beelden, namen, samples, duur):
     kijk.save(os.path.join(UIT, f"{naam}-kijk.png"))
     info = {"blad": f"res://kunst/3d/{naam}.png", "frames": namen, "cel_px": [cel_w, cel_h], "px": px,
             "anker_x": anker_x, "top": tops, "model": s["model"], "samples": samples, "bytes": os.path.getsize(os.path.join(DOEL, f"{naam}.png"))}
+    if cam:
+        # eenheid_px: bladpixels per Blender-eenheid; nul_y: rij (spelpixels vanaf de bovenkant van de cel) van het
+        # nulpunt van het model (helden: de vloer, hoeden: midden van de onderrand); kruin: [x vanaf anker, y] per beeld.
+        info.update({"eenheid_px": round(schaal * rpe, 4), "nul_y": nul_y, "kruin": kruin})
     print(f"{naam}: blad {blad.width}x{blad.height}, top {tops}")
     return info
 
@@ -269,8 +340,10 @@ def main():
     index = json.load(open(pad)) if os.path.exists(pad) else {}
     for naam in kies:
         s = alles[naam]
-        maak = render_stukken if s.get("soort") == "stukken" else render_sprite
-        index[naam] = maak(naam, s, bpy_python, snel)
+        if s.get("soort") == "stukken":
+            index[naam] = render_stukken(naam, s, bpy_python, snel)
+        else:
+            index[naam] = render_sprite(naam, s, bpy_python, snel, index)
     with open(pad, "w") as f:
         json.dump(index, f, indent=1, sort_keys=True)
         f.write("\n")

@@ -770,5 +770,18 @@ func _init() -> void:
 	HB3._laad_3d()
 	if FileAccess.file_exists("res://kunst/3d/ridder.png"):
 		ok(HB3.held3d.has("ridder") and HB3.held3d["ridder"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-held: ridder-blad geladen, filter lineair")
+	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
+	var t0: Vector3 = HB3.hoed_tuimel(0.0)
+	var t1: Vector3 = HB3.hoed_tuimel(0.2)
+	var t2: Vector3 = HB3.hoed_tuimel(1.4)
+	ok(t0.length() < 0.001, "3D-hoed: tuimelen begint op de kruin")
+	ok(t1.y < -1.0 and t2.y > 6.0 and absf(t2.z) > 1.5, "3D-hoed: wipt eerst op (%.1f), zakt daarna de put in (%.1f) en draait weg (%.1f)" % [t1.y, t2.y, t2.z])
+	if HB3.held3d.has("hoeden") and HB3.held3d.has("ridder"):
+		var hi: Dictionary = HB3.held3d["hoeden"][1]
+		var ri: Dictionary = HB3.held3d["ridder"][1]
+		ok((hi["frames"] as Array).size() == 10 and hi.has("nul_y"), "3D-hoed: blad met 10 hoeden en nulpunt per hoed")
+		ok(ri.has("kruin") and (ri["kruin"] as Array).size() == (ri["frames"] as Array).size(), "3D-hoed: kruin per stand van de ridder")
+		var e_h := float(hi.get("eenheid_px", 0)); var e_r := float(ri.get("eenheid_px", 1))
+		ok(absf(e_h / e_r - 1.3) < 0.01, "3D-hoed: hoed op schaal 1,3 tegenover de held (%.3f)" % (e_h / e_r))
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
