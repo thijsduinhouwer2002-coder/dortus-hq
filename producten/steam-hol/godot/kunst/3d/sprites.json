@@ -2,7 +2,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29202,
+  "bytes": 29204,
   "cel_px": [
    105,
    64
@@ -58,7 +58,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12021,
+  "bytes": 12014,
   "cel_px": [
    52,
    56
@@ -209,7 +209,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113776,
+  "bytes": 113793,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -444,7 +444,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17582,
+  "bytes": 17580,
   "cel_px": [
    59,
    62
