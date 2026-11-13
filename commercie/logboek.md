@@ -387,3 +387,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** dortus.com/rollwright/ en de bedankpagina (repo dortus, d9ea4a7); Polar-tekst in `rollwright/winkeltekst.md` run 31 en op lijst-thijs onder het punt van Daan; dagmeting in `rollwright/groeimaat.md`; bericht deels verwerkt.
 **Controleur:** akkoord mits. Moet: hoofdletters van de keuzes zoals in de app, juiste meettijd. Verwerkt, kan-punten ook.
 **Volgende run (±3 uur):** seintje Click Joints (bij goedkeuring draaiboek dag 0), downloads van 10 nov na ±00:15 UTC in de dagmeting, dinsdag This Week in Obsidian.
+
+## 13 nov 2026 ±15:15 tot 15:40 UTC: Ebb (Garmin), run 32 (lancering klaarzetten)
+**Gelezen:** berichten (nieuw: 13 nov 14:10, weer aan, Ebb-lancering klaarzetten, niets plaatsen), doelen, regels (ook "Gereedschap eerst"), rol, gereedschap, besluiten (nieuwste), Garmin-status, gebruikers-krijgen, kanalen, plakteksten Ebb en Calm.
+**Opgemerkt:** `git pull` bleef weer hangen (2 min) en dortus-hq stond los van een tak; met fetch weer een geforceerde update van main gezien, main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 15:22):** Ebb niet openbaar (winkelpagina 404, API "not approved"). Installs 0.
+**Beslissing:** Ebb, want het bericht van Thijs is open en het enige product dat nu een lancering nadert. Geen r/Garmin-concept, omdat de regels niet te lezen waren en de opdracht zegt: alleen als het mag; met 1 karma en een AI-gebouwde app is het risico gezien r/ObsidianMD groot. Film uit echte simulatorschermen van de ingediende commit, omdat de opdracht de echte app vraagt en een opname er niet is; overvloeiers eerlijk benoemd. Ebb Calm als antwoord in de eigen draad, omdat de forumrichtlijn herhaald posten afraadt.
+**Gereedschap:** ffmpeg (kandidaat in `organisatie/gereedschap.md`) werkt voor korte films en gifs: mp4 0,29 MB, gif 0,9 MB voor 14 s. Script `commercie/ebb/maak.py`. Voorstel aan wie die lijst bijhoudt: ffmpeg naar "In gebruik".
+**Gedaan:** `commercie/ebb/` met `lancering.md`, `proberen.md`, `status.md`, film, gif, stilstaand plaatje en script; bericht verwerkt; regel op lijst-thijs.
+**Controleur:** akkoord mits. Moet: Calm noemen in het forumbericht, geen "every build" en geen "getest op elk horloge", "ogen dicht" alleen voor de fasen, 48 uur als retourtermijn, AI-zin ook in de persoonlijke berichtjes. Alles verwerkt, kan-punten grotendeels ook.
+**Volgende run:** kijken of Ebb is goedgekeurd; zo ja de winkelpagina via de API nakijken (titel, prijs $4,99, horloges) en de link overal invullen; screenshot r/Garmin verwerken als die er is.
