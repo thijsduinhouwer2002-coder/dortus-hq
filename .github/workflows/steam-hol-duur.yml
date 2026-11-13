@@ -11,6 +11,9 @@ on:
       minuten:
         description: "Hoe lang draaien (minuten)"
         default: "60"
+      extra:
+        description: "Extra spel-argumenten voor een proef (bijvoorbeeld fps=12), leeg = gewoon spel"
+        default: ""
 
 permissions:
   contents: write
@@ -35,6 +38,7 @@ jobs:
         shell: pwsh
         env:
           MINUTEN: ${{ github.event.inputs.minuten || '60' }}
+          EXTRA: ${{ github.event.inputs.extra }}
         run: |
           $uit = "producten/steam-hol/e2e/screenshots/duur"
           New-Item -ItemType Directory -Force $uit | Out-Null
@@ -45,7 +49,7 @@ jobs:
           $log = ($vol -replace '\\','/') + "/hol.log"
           # Het spel stopt zelf na duur+30 s; wij meten tot duur.
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) log=$log" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) $env:EXTRA log=$log" `
             -RedirectStandardOutput "$vol/uit.txt" -RedirectStandardError "$vol/fout.txt" -PassThru
           $null = $p.Handle
           Start-Sleep 20

@@ -36,6 +36,7 @@ var logpad := ""
 var demo := false
 var film := false
 var vers := false
+var proef_fps := 15
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
 var demo_grens := 7200.0      # demo_einde=<s> voor de toets
 var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
@@ -112,10 +113,11 @@ func _ready() -> void:
 			"film": film = kv[1] == "1"
 			"vers": vers = kv[1] == "1"
 			"demo_einde": demo_grens = maxf(1.0, float(kv[1]))
+			"fps": proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), standaard 15
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else int(Time.get_unix_time_from_system())
 	if not film:
-		Engine.max_fps = 15
+		Engine.max_fps = proef_fps
 		OS.low_processor_usage_mode = true
 	get_viewport().transparent_bg = true
 	# Brams held als die er is, anders de stand-in
