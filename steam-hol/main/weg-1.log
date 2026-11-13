@@ -1,10 +1,10 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 606, erbij 2850
-HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 2870 goud
+HOL weg geweest 28801 s (klok terug: false): goud voor 26, helden 606, erbij 2916
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 2942 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 15 s speeltijd (goud 2870)
-HOL kroniek 2.5 (wacht 2.5): 606 came, 374 fell. +2850 gold.
-HOL begin: vluchten (Wout)
-HOL kroniek 5.0 (wacht 1.0): Wout knocks first. Polite.
+HOL eerste koop mogelijk na 15 s speeltijd (goud 2942)
+HOL kroniek 2.5 (wacht 2.5): 606 came, 385 fell. +2916 gold.
+HOL begin: vluchten (Lotte)
+HOL kroniek 5.0 (wacht 1.0): Lotte has a map. It is wrong.
 HOL meting t=10 beelden=92 helden=1
-HOL einde na 15 s, fps=15, goud=2870, terugkomers=0
+HOL einde na 15 s, fps=15, goud=2942, terugkomers=0
