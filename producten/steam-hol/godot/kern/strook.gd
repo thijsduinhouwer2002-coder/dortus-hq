@@ -2,7 +2,7 @@ extends Node2D
 # Kern van Het Hol (Olaf): de strook boven de taakbalk.
 # - hoogte instelbaar (standaard 120 px, 96 tot 160), over de hele breedte, net boven de taakbalk
 # - alleen de strook vangt klikken, de rest laat ze door
-# - zuinig: 15 fps en alleen tekenen wat beweegt (proef 9 nov: stil beeld kost bijna niets)
+# - zuinig: 10 fps (20 tijdens een moment, kern/beeldtempo.gd) en alleen tekenen wat beweegt
 # - geen kaartjes over andere vensters: alle tekst staat klein in de strook
 # Argumenten na "--": hoogte=120 duur=60 log=<pad> demo=1 film=1 vers=1 steamdemo=1 demo_einde=<s>
 
@@ -12,6 +12,7 @@ const OPSLAG_M := preload("res://kern/opslag.gd")
 const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
+const BEELDTEMPO := preload("res://kern/beeldtempo.gd")
 const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of terugkomer binnen laten
 const KAARTJE := preload("res://kern/kaartje.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
@@ -36,7 +37,9 @@ var logpad := ""
 var demo := false
 var film := false
 var vers := false
-var proef_fps := 15
+var proef_fps := 10          # kern/beeldtempo.gd GEWOON; met fps=<n> vast op n (CPU-proef)
+var fps_vast := false
+var moment_tot := -1.0
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
@@ -116,7 +119,9 @@ func _ready() -> void:
 			"film": film = kv[1] == "1"
 			"vers": vers = kv[1] == "1"
 			"demo_einde": demo_grens = maxf(1.0, float(kv[1]))
-			"fps": proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), standaard 15
+			"fps":
+				proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
+				fps_vast = true
 			"zaad": proef_zaad = int(kv[1])
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
@@ -252,6 +257,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 func _process(delta: float) -> void:
 	t += delta
 	DEMO_EINDE.tik(self, delta)
+	BEELDTEMPO.tik(self)
 	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7).
 	if slijm and slijm.has_method("kan_vechten"):
 		var nu_plat: bool = not slijm.kan_vechten()

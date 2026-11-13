@@ -44,7 +44,10 @@ const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]   # Mila 23:00 en 23:10: helm m
 const OOGLAP := 1
 const SCHRAM := 2                # ooglap en schram nooit samen (zelfde oog, Daan)
 
-const SNEL := 11.0           # spelpixels per seconde
+const SNEL := 10.0           # spelpixels per seconde (was 11; Daan 13 nov: bij 10 beelden per s precies 1 pixel per stap)
+# Lopen in gelijke stappen (Daan 13 nov 17:35, "moet"): een held verschuift alleen op een vaste klok van PAS s en
+# altijd in hele spelpixels. Bij snelheid 1 is dat elke stap precies 1 pixel, hoe de beelden ook vallen (10 of 20 fps).
+const PAS := 0.1
 const KANS := {"slijm": 0.45, "stekelput": 0.35}   # uit sim/ (Bram 9 nov), balans.md had 0,30 en 0,22
 const KANS_ANDERS := 0.25
 const ROEKELOOS := 0.10      # extra kans om te vallen tegen zijn eigen vijand
@@ -74,6 +77,10 @@ var klappen := 0
 var t := 0.0
 var geraakt_tot := 0.0
 var val_t := 0.0
+var pas_klok := PAS / 4.0    # tijd sinds de laatste stap; start een kwart stap voor de beeldgrens, zodat beelden die
+                             # een paar ms te vroeg of te laat komen niet afwisselend 0 en 2 pixels geven (controleur 13 nov)
+var pas_rest := 0.0          # deel van een pixel dat nog niet gezet is (alleen bij snelheden die geen heel getal per stap geven)
+var passen := 0              # stappen in deze aanroep van stap()
 var val_teken := ""          # het teken op het moment dat hij viel ("boos" wordt een poef)
 var gezien := {}             # kolommen waar hij al gegooid heeft
 var rng := RandomNumberGenerator.new()
@@ -126,7 +133,7 @@ func naar_dict() -> Dictionary:
 	return {"info": i, "staat": staat, "x": position.x, "y": position.y, "doel_kol": doel_kol, "vijand_kol": vijand_kol,
 		"klappen": klappen, "t": t, "geraakt_tot": geraakt_tot, "val_t": val_t, "val_teken": val_teken,
 		"gezien": gezien.keys(), "verdedigingen": verdedigingen, "rng": str(rng.state),
-		"dut_kol": dut_kol, "dut_tot": dut_tot}
+		"dut_kol": dut_kol, "dut_tot": dut_tot, "pas_klok": pas_klok, "pas_rest": pas_rest}
 
 func herstel(h, d: Dictionary) -> void:
 	var i: Dictionary = (d.get("info", {}) as Dictionary).duplicate()
@@ -142,6 +149,8 @@ func herstel(h, d: Dictionary) -> void:
 		info["gezien_vijand"] = gezien_v   # start() zet hem terug op false via _kies_doel
 	staat = String(d.get("staat", staat))
 	position = Vector2(float(d.get("x", position.x)), float(d.get("y", position.y)))
+	if not d.has("pas_rest"):
+		position = position.round()   # oude save: lopen ging toen in delen van een pixel
 	doel_kol = int(d.get("doel_kol", doel_kol))
 	vijand_kol = int(d.get("vijand_kol", vijand_kol))
 	klappen = int(d.get("klappen", 0))
@@ -155,6 +164,8 @@ func herstel(h, d: Dictionary) -> void:
 	verdedigingen = int(d.get("verdedigingen", 0))
 	dut_kol = int(d.get("dut_kol", dut_kol))
 	dut_tot = float(d.get("dut_tot", 0.0))
+	pas_klok = float(d.get("pas_klok", PAS / 4.0))
+	pas_rest = float(d.get("pas_rest", 0.0))
 	if d.has("rng"):
 		rng.state = String(d.rng).to_int()
 
@@ -240,9 +251,13 @@ func stap(delta: float) -> void:
 	t += delta
 	var echt := delta
 	delta *= clampf(float(info.get("snelheid", 1.0)) * SOORT.snel(soort_held), 0.25, 4.0)   # alleen lopen en klimmen; t en het wegzakken blijven gewoon
+	pas_klok += echt
+	passen = int(pas_klok / PAS + 0.0001)
+	pas_klok = maxf(0.0, pas_klok - passen * PAS)
+	var f := delta / echt if echt > 0.0 else 1.0   # snelheidsfactor van deze held
 	match staat:
 		"afdalen":
-			position.y = move_toward(position.y, vloer, SNEL * delta)
+			position.y = move_toward(position.y, vloer, _px(SNEL * f))
 			if position.y >= vloer:
 				staat = "lopen"
 		"lopen":
@@ -258,7 +273,7 @@ func stap(delta: float) -> void:
 				info["dutje"] = true
 				return
 			var tempo := 1.25 if trek == "hebzuchtig" else (0.8 if trek == "opschepper" else 1.0)
-			position.x = move_toward(position.x, doel.x, SNEL * tempo * delta)
+			position.x = move_toward(position.x, doel.x, _px(SNEL * tempo * f))
 			_onderweg()
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
@@ -267,11 +282,11 @@ func stap(delta: float) -> void:
 				staat = "lopen"   # wakker, verder (dezelfde kolom gooit hij niet nog eens)
 		"vluchten":
 			var terug: Vector2 = hol.cel_naar_pos(hol.ingang())
-			position.x = move_toward(position.x, terug.x, SNEL * 1.5 * delta)
+			position.x = move_toward(position.x, terug.x, _px(SNEL * 1.5 * f))
 			if absf(position.x - terug.x) < 0.5:
 				staat = "klimmen"
 		"klimmen":
-			position.y = move_toward(position.y, -4, SNEL * delta)
+			position.y = move_toward(position.y, -4, _px(SNEL * f))
 			if position.y <= -4:
 				staat = "weg"
 				klaar.emit(self, "ontsnapt", info)
@@ -283,6 +298,15 @@ func stap(delta: float) -> void:
 				klaar.emit(self, "gevallen", info)
 				queue_free()
 	queue_redraw()
+
+# Hele pixels voor deze aanroep bij v spelpixels per seconde: alleen op een stap van de klok (PAS).
+func _px(v: float) -> float:
+	if passen == 0:
+		return 0.0
+	pas_rest += v * PAS * passen
+	var heel := floorf(pas_rest + 0.0001)
+	pas_rest -= heel
+	return heel
 
 func _aangekomen() -> void:
 	if doel_kol == vijand_kol:
