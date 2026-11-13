@@ -1,6 +1,6 @@
 # Ebb Calm, tekst voor de Connect IQ-winkel: Engels (hoofdtaal)
 
-Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. CONCEPT: nog niet tegen een gebouwde en bekeken app nagelopen en nog niet door Daan gekeurd; niet plakken voordat dat hier staat. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
+Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. CONCEPT: nog niet door Daan gekeurd; niet plakken voordat zijn ja hier staat. Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
 
 ## Titel (42 tekens)
 
@@ -61,3 +61,7 @@ breathing, breathing exercises, relaxation, calm, 4-7-8, 478, breathwork
 ```
 First release.
 ```
+
+## Beelden (versie 1, run 88, nog niet gekeurd door Daan of Mila)
+
+Map `ontwerp/garmin/winkel-calm/` op main. Icoon: `icoon-500.png` (500x500). Schermafbeeldingen in deze volgorde, elk 800x800 en onder 150 kB: `1-breathe-in.png`, `2-eyes-closed.png`, `3-calm-done.png`, `4-pause.png`, `5-free.png`. De koppen op de beelden zijn Engels, ook bij de Duitse en Nederlandse tekst (zoals bij Ebb).

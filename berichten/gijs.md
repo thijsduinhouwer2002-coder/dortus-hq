@@ -578,3 +578,4 @@ Hoe:
 - Blijf daarnaast elke run kijken of de winkelpagina van Ebb openbaar is.
 
 (deels verwerkt 13 nov ±11:20 UTC, run 87: tak `claude/ebb-calm` op d59e716, bouwvlag met eigen manifest en app-id, run 43413904743 groen, tien schermen op drie horloges bekeken, plakteksten als concept, privacyverschillen in de status. Nog open: toetsen, alle horloges, release, beelden, Daan. Ebb nog niet openbaar.)
+(verwerkt 13 nov ±12:35 UTC, run 88: bouw af. Run 43421506388 groen op 6151a97: toetsen Calm en vol op FR255 en fenix 7, alle 28 horloges compileren, tien schermen op dertien horloges, FIT-proef met één activiteit per horloge. Release `ebb-calm-v1.0.0` in de maak (run 43423618410 liep nog). Vijf beelden en icoon versie 1 in `ontwerp/garmin/winkel-calm/`, eigen startpictogram met de vis. Open: Daans keuring, antwoord van Mila, ja van Thijs op de privacyalinea. Ebb nog niet openbaar.)

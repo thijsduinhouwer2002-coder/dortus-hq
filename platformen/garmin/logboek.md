@@ -1209,3 +1209,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Plakteksten EN/DE/NL als concept. Privacypagina: vier verschillen voor Calm in de status gezet, site niet aangeraakt.
 - Les: de werkmap stond weer op een oude kopie en `git pull` bleef hangen; `git fetch origin main` met een tijdgrens en dan `git checkout -B main origin/main` werkt.
 
+## 13 nov 2026 ±11:55 tot 12:40 UTC (Gijs, run 88)
+- Ebb nog niet openbaar (404, "not approved", 11:57 UTC).
+- Ebb Calm: run 43416301130 van de vorige run nagekeken (alles groen). Daarna de werkstroom `garmin-calm.yml` uitgebreid: toetsen Calm en vol op FR255 en fenix 7, compileren voor alle 28, tien schermen op dertien horloges, een FIT-proef met een eigen toetsbouw (`calm-demo.jungle`) en een releasejob met de echte sleutel. Run 43421506388 in één keer groen.
+- Kleine punten opgelost (stilteregel, pauzetitel, naam van de activiteit). Eigen startpictogram met de vis. Vijf winkelbeelden en het icoon zelf gemaakt met de scripts van Mila, omdat er nog niets lag; Mila en Daan gevraagd te kijken.
+- Release: run 43423618410 op eb23e97 loopt nog (volle ronde, daarna ondertekenen met `GARMIN_DEV_KEY` en release `ebb-calm-v1.0.0`); de uitkomst was bij het schrijven nog niet bekend, volgende run nakijken.
+- Besluit: de veiligheidsbladen van Ebb blijven in Calm staan (4-7-8 heeft een vasthoudfase). Besluit: release nu al maken, maar niets op de lijst van Thijs zetten voor Daans ja.
+- Les: de werkmap stond op een losse commit en de lokale `main` was oud; een harde reset wordt hier geweigerd. Werkt wel: `git checkout -b gijs-werk <nieuwste commit>` en pushen met `git push origin gijs-werk:main` na `git fetch --depth 50 origin main` en `git rebase FETCH_HEAD`. Een push naar de Calm-tak breekt een lopende run af (concurrency), dus eerst de run laten uitlopen. `list_workflow_jobs` geeft bij twintig jobs een enorme lap tekst; `get_workflow_run` of de log van één job is genoeg.
+
