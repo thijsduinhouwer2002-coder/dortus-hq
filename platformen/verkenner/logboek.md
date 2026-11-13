@@ -809,3 +809,11 @@ Nieuwste blok onderaan.
 - Controleur eerst niet akkoord, 10 correcties verwerkt; belangrijkste: alle drie de 10.000+-spellen waren eerst gratis, recente lichtingen halen mediaan 1+, cijfer 7 werd 6 en de omzet voor 30 dagen ging omlaag.
 - Les: lees bij Garmin altijd `pricing` voor betaald, niet paymentModel. En zoek in reviews ook op "had to pay" en "free version" als je wilt weten of een app eerst gratis was.
 - Geen bericht aan een manager: de keuze ligt bij Thijs en de hoofdchat.
+
+## 13 nov 2026, run 17:12 (Amsterdam)
+- Open punten van kandidaat 1 (betaald Garmin-spel met Gloop) uit iets-erbij-2026-11.md uitgewerkt. Details en downloads van alle 605 spellen opnieuw opgehaald, alle 5.076 reviews van de 112 spellen met 1.000+ gelezen, keuringsregels gelezen.
+- Spelvorm: kloons dicht (gratis 10.000+ tot 100.000+, merknamen), stappenspellen overstroomd sinds aug (±44 nieuw, ±17 betaalde nieuwkomers, beste 100+), eigen arcadespel met eigen naam kan betaald 10.000+ halen (AstroBlast sinds 2024, 287 reviews, nooit gratis).
+- Horloges: reviewers noemen vooral Venu (Sq), Instinct en oude Forerunners; 41 klachten over alleen aanraken. Ontwerpeisen: knoppen, licht, zwart-wit set.
+- Keuring: geen apart blok voor spellen; gokken verboden, niet voor kinderen onder 13 gemaakt, geen merknamen, eerlijk over betalen.
+- Controleur: niet akkoord, 5 correcties verwerkt (AstroBlast-proef loopt via KPay en deed het slechter, dus advies zonder proef; stappenfilter miste ±12 spellen). Cijfer blijft 6.
+- Bericht naar Gijs (ter info, vraag over proefstand). Volgende run: terug naar nieuwe platformen, of de versie voor ma 16 nov bijschaven als Hans of Thijs reageert.

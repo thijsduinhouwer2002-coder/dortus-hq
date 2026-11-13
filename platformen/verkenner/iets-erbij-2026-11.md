@@ -59,7 +59,7 @@ Prijsmediaan betaald: $2,25; 28 van de 42 betaalde spellen kosten $1,99, de rest
 
 ### Uitwerking open punten kandidaat 1 (run 17:12, 13 nov)
 
-**Kort:** maak een **eigen arcadespel voor één knop** met Gloop (geen kloon van een bekend spel en geen stappenspel als kern), dat **met knoppen werkt zonder aanraakscherm**, licht is voor oude horloges en een **zwart-wit versie voor de Instinct** heeft. Cijfer blijft 6.
+**Kort:** maak een **eenvoudig eigen arcadespel** met Gloop, gewoon betaald in de winkel, (geen kloon van een bekend spel en geen stappenspel als kern), dat **met knoppen werkt zonder aanraakscherm**, licht is voor oude horloges en een **zwart-wit versie voor de Instinct** heeft. Cijfer blijft 6.
 
 **(1) Spelvorm (GEZIEN, alle 605 spellen, details en downloads van vandaag via de open API, `data/garmin-spellen-details-2026-11-13.jsonl`, script `data/garmin-spellen-details-script.py`; indeling op naam met `data/garmin-spellen-vorm-script.py`, grof):**
 | Vorm | Spellen | Sterkste gratis | Sterkste betaald |
@@ -72,42 +72,44 @@ Prijsmediaan betaald: $2,25; 28 van de 42 betaalde spellen kosten $1,99, de rest
 
 Wat dit zegt:
 - **Kloons zijn voor ons dicht.** Bij elke klassieker staat een gratis versie met 10.000+ downloads, en namen als Flappy Bird, Crossy Road, Pac-Man, Tetris en de Google-dino zijn van anderen (keuringsregel 3a, zie (2)). Betaald lukt daar vooral voor makers die al een achterban hebben.
-- **Een eigen spel met een eigen naam kan wel betaald groot worden:** AstroBlast staat sinds april 2024 betaald in de winkel, heeft 10.000+ downloads en 287 reviews, zonder klachten dat het eerst gratis was (alle reviews gelezen). Er is wel een tweede versie "with trial and kpay" (1.000+) die één keer gratis laat spelen; zo'n proefversie is een route die wij ook kunnen nemen. Fruit Spider: 10.000+, 36 reviews, ook betaald.
-- **Stappenspel: echte vraag, zwakke leider, maar sinds augustus overstroomd.** Step Farmer (10.000+) krijgt in 2026 vooral 1 en 2 sterren: knoppen werken niet zonder aanraakscherm (Forerunner 255, Instinct), "Doesnt work" (okt 2026), en het was eerst gratis ("I had it before then you made so I have to pay", jun 2025). Maar van de 41 stappenspellen zijn er 31 nieuw sinds augustus 2026 of zonder datum (QuadroGames, SilyCrafts, RunningNitro, Bitochi en anderen). De 11 betaalde nieuwkomers halen 1+ tot 100+ (Stepasaurus 10+, Stardew Farm 10+, Stepkins 1+). Een stappenspel als kern: nee. Stappen als klein extraatje (een hoed vrijspelen met je dagelijkse stappen) kan wel en geeft een reden om elke dag terug te komen.
+- **Een eigen spel met een eigen naam kan wel betaald groot worden:** AstroBlast staat sinds april 2024 betaald in de winkel, heeft 10.000+ downloads en 287 reviews, zonder klachten dat het eerst gratis was (alle reviews gelezen). Er is ook een tweede versie "with trial and kpay" die één potje gratis laat spelen en daarna laat betalen via KPay, buiten de Garmin-winkel; die haalt maar 1.000+ (107 reviews). Geen van de 605 spellen heeft de proefstand van de winkel aan. Het bewijs wijst dus op gewoon betaald in de winkel, zonder proef. AstroBlast bestuur je met tikken links of rechts (of twee knoppen), het is geen spel met één knop. Fruit Spider: 10.000+, 36 reviews, ook betaald. Beide zijn van 2024, toen er minder aanbod was.
+- **Stappenspel: echte vraag, zwakke leider, maar sinds augustus overstroomd.** Step Farmer (10.000+) krijgt in 2026 vooral 1 en 2 sterren: knoppen werken niet zonder aanraakscherm (Forerunner 255, aug en sep 2026; eerder al een Instinct 3 AMOLED, sep 2025), "Doesnt work" (okt 2026); in 2026 5 keer 1 ster, 2 keer 2, 1 keer 3, 1 keer 5, en het was eerst gratis ("I had it before then you made so I have to pay", jun 2025). Maar mijn filter vond 41 stappenspellen, waarvan 32 nieuw sinds augustus 2026 of zonder datum, en de controleur vond er nog ±12 die het filter miste (WristHop, BlockMine, Dungeon Dash, Step Garden, Step Isles en andere). Samen ±53 stappenspellen, ±44 nieuw sinds augustus (QuadroGames, SilyCrafts, RunningNitro, Bitochi en anderen), ±17 betaalde nieuwkomers met 1+ tot hoogstens 100+ (Stepasaurus 10+, Stardew Farm 10+, Stepkins 1+). Een stappenspel als kern: nee. Stappen als klein extraatje (een hoed vrijspelen met je dagelijkse stappen) kan wel en geeft een reden om terug te komen, maar ±10 nieuwkomers doen dat al (WristHop, BlockMine, Dungeon Dash, Sea Strike en andere), dus het onderscheidt ons niet.
 - Huisdieren: alleen gratis spellen halen 1.000+; zie ook "Wat afviel".
 
 **(2) Keuringsregels voor spellen (GEZIEN, developer.garmin.com/connect-iq/app-review-guidelines, laatst bijgewerkt 13 okt 2021, vandaag gelezen; de algemene punten staan al bij Gijs in `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`).** Er is geen apart blok voor spellen. Wat een spel raakt:
 - **1a Gokken verboden.** Geen gokautomaat, roulette of inzet, ook niet voor nep-munten. (Er staan wel casinospellen in de winkel, maar we nemen dat risico niet.)
-- **1f Geen apps voor kinderen onder 13.** Gloop is schattig; de winkeltekst richt zich op volwassen hardlopers en wandelaars, niet op kinderen.
+- **1f Geen apps die voor kinderen onder 13 gemaakt zijn** (een app voor iedereen mag, tenzij je weet dat kinderen hem gebruiken). Gloop is schattig; de winkeltekst richt zich op volwassen hardlopers en wandelaars, niet op kinderen.
 - **1b Geen schadelijke uitdagingen.** Als stappen meetellen: geen "loop vandaag 30.000 stappen", wel kleine doelen.
 - **3a Geen inbreuk.** Geen namen of uiterlijk van bekende spellen (Flappy, Crossy, Pac-Man, Tetris, dino). Ons eigen figuur is hier een voordeel.
 - **4d Eerlijk over betalen:** zeggen dat het spel betaald is, het terugbetaalbeleid noemen, en een proefversie moet vanaf het begin zeggen dat ze beperkt is.
 - **2a Batterij en prestaties:** niet onnodig vaak hertekenen (de les van Gloop in de Windows-build en van Ebb Calm).
-- **4c** Niet om 5 sterren vragen in ruil voor iets. (AstroBlast vraagt in de tekst om 5 sterren; dat is net toegestaan, maar wij doen het niet.)
+- **4c** Niet om 5 sterren vragen in ruil voor iets. (AstroBlast vraagt in de tekst om 5 sterren; de regel verbiedt ook aanmoedigen dat de score vertekent, dus dat is een grijs gebied. Wij doen het niet.)
 - Keuring duurt bij Ebb "maximaal 3 dagen" (`platformen/garmin/status.md`).
 
 **(3) Welke horloges spelers hebben (benadering, GEZIEN).** De review-API geeft geen toestel mee. Daarom alle 5.076 reviews gelezen van de 112 spellen met 1.000+ downloads (`data/garmin-spellen-reviews-2026-11-13.jsonl`, scripts `data/garmin-spellen-reviews-modellen-script.py` en `data/garmin-spellen-modellen-analyse.py`) en geteld welk model reviewers noemen (456 reviews):
 | Model | Keren genoemd |
 |---|---|
 | Venu (vooral Venu Sq en Sq 2, ook Venu 3) | 100 |
-| Instinct (zwart-wit scherm) | 72 |
+| Instinct (meest zwart-wit; Instinct 3 deels AMOLED) | 72 |
 | Forerunner 55, 245, 745, 945 (oud) | 67 |
-| fenix 7 | 43 |
 | vivoactive | 47 |
+| fenix 7 | 43 |
 | Forerunner 165, 255, 265, 965, 970 | 46 |
 | fenix 8 en epix | 13 |
 | overig (fenix 6 en ouder, fenix of Forerunner zonder nummer, Enduro, Approach, Descent) | 68 |
 
-Spelers zitten dus vaak op **goedkopere en oudere horloges**: Venu Sq, Forerunner 55 en 245, Instinct. De klachten gaan over: blokjes onzichtbaar of zwart beeld op zwart-wit schermen (Instinct), haperen en 3D dat stottert op de Forerunner 55 en Venu Sq, en spellen die alleen met aanraken werken (41 klachten over aanraken of knoppen, het meest bij Step Farmer en Flick Golf). Benadering: een review noemt vaker een model als er iets mis is, dus dit telt eerder klagers dan kopers.
+Spelers zitten dus vaak op **goedkopere en oudere horloges**: Venu Sq (35 keer), Forerunner 55 en 245, Instinct. De klachten gaan over: blokjes onzichtbaar of zwart beeld op zwart-wit schermen (Instinct), haperen en 3D dat stottert op de Forerunner 55 en Venu Sq, en spellen die alleen met aanraken werken (41 klachten over aanraken of knoppen, het meest bij Step Farmer en Flick Golf). Benadering: een review noemt vaker een model als er iets mis is, dus dit telt eerder klagers dan kopers.
 
 **Wat dit betekent voor het ontwerp (advies aan Gijs, Bram en Daan):**
 1. Alles met de **knoppen te bedienen**; aanraken mag erbij, nooit alleen aanraken.
 2. Gloop als **vooraf gerenderde plaatjes** uit Blender (geen 3D op het horloge), in een paar maten; ook een **zwart-wit set** voor de Instinct, getest op contrast.
 3. Begin met de horloges die Ebb al ondersteunt, voeg daarna de Venu Sq, Forerunner 55 en 245 en de Instinct toe als het geheugen het toelaat.
-4. Eigen spelidee met één knop (bijvoorbeeld Gloop springt van richel naar richel in Het Hol en verzamelt hoeden), eigen naam, en een korte gratis proef in de app (één potje per dag) zoals AstroBlast, eerlijk vermeld in de tekst.
-5. Stappen alleen als extraatje (bijvoorbeeld elke 5.000 stappen een hoed), geen kern.
+4. Een eenvoudig eigen arcadespel met eigen naam (ons idee: één knop, Gloop springt van richel naar richel in Het Hol en verzamelt hoeden; dat één knop beter werkt is niet bewezen). Gewoon betaald in de winkel, zonder proef: een proef via KPay deed het bij AstroBlast slechter, en of de winkel een proefstand met betalen biedt is nog onbekend (Gijs kan dat in het portaal zien).
+5. Stappen alleen als extraatje (bijvoorbeeld elke 5.000 stappen een hoed), geen kern en geen onderscheid.
 
-**Wat dit niet oplost:** de nieuwe lichtingen betaalde spellen (aug tot okt) halen nog steeds mediaan 1+; de verwachting voor de eerste 30 dagen blijft $0 tot $250 met de nadruk op de onderkant. Het cijfer blijft 6.
+**Wat dit niet oplost:** de nieuwe lichtingen betaalde spellen (aug tot okt) halen nog steeds mediaan 1+; de verwachting voor de eerste 30 dagen blijft $0 tot $250 met de nadruk op de onderkant. Het cijfer blijft 6. Wat het omgooit: als nieuwe betaalde spellen zonder proef ook na 3 maanden op 1+ blijven, dan gaat de omzet richting $0 en het cijfer omlaag.
+
+**Controleur (agent, run 17:12):** eerst niet akkoord, 5 correcties, alle verwerkt: proef van AstroBlast loopt via KPay en doet het slechter (advies 4 aangepast), AstroBlast is geen spel met één knop, stappenspellen ±53 met ±44 nieuw en ±17 betaalde nieuwkomers (filter miste er ±12), Instinct-klacht bij Step Farmer is van sep 2025, kleine punten over de tabel en regels 1f en 4c. Getallen van de horlogetabel en de touchklachten klopten precies. Advies en cijfer 6 bleven staan.
 
 ---
 
