@@ -96,10 +96,13 @@ jobs:
         env:
           TOKEN: ${{ github.token }}
           TAK: ${{ github.ref_name }}
+          EXTRA: ${{ github.event.inputs.extra }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/duur"
           [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
           NAAM=$(echo "$TAK" | tr '/' '-')
+          # een proef met extra argumenten krijgt een eigen map, zodat twee proeven naast elkaar elkaar niet overschrijven
+          if [ -n "$EXTRA" ]; then NAAM="$NAAM-$(echo "$EXTRA" | tr -c 'a-zA-Z0-9' '-' | sed 's/-*$//')"; fi
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
