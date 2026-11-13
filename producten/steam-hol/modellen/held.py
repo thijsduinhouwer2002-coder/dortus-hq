@@ -3,7 +3,7 @@
 Twee helden die het hol binnenlopen en hun hoed verliezen aan Gloops toren. Zelfde hoeden als in
 gloop.py (helm en heksenhoed), zodat je ziet waar de toren vandaan komt.
   ridder = blauwe tuniek, stalen helm met neusstuk, zwaard, rond schild
-  heks   = paarse jurk, brede heksenhoed met gouden band, staf met een lichtje
+  heks   = oranje jurk, brede heksenhoed met gouden band, staf met een lichtje
 
 Speelgoedstijl zoals Gloop (3d-stijl.md, regel 2): groot hoofd, twee grote ogen met glimstip,
 korte beentjes. Op ware grootte (120 px = 4,5 eenheden) is een held ±1,9 eenheden hoog, ±50 px:
@@ -76,8 +76,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         kleed = g.mat("tuniek", "4a86f0", rough=0.5)
         kleed_d = g.mat("tuniek_d", "2a4a94", rough=0.6)
     else:
-        kleed = g.mat("jurk", "paars", rough=0.6)
-        kleed_d = g.mat("jurk_d", "4a3490", rough=0.6)
+        # jurk warm oranje, niet paars: paars op het pruimen hol viel weg (frisse kijker ronde 1)
+        kleed = g.mat("jurk", "e8873a", rough=0.6)
+        kleed_d = g.mat("jurk_d", "a8552a", rough=0.6)
 
     # benen: stap1 linkervoet naar voren, stap2 rechts; schrik op de tenen
     stap = {"rust": 0.0, "stap1": 1.0, "stap2": -1.0, "schrik": 0.0}.get(stand, 0.0)
@@ -111,7 +112,18 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     if stand == "schrik":
         _bol(ouder, (0, -0.32, HZ - 0.15), (0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
     else:
-        _bol(ouder, (0.03, -0.32, HZ - 0.15), (0.06, 0.02, 0.025), g.mat("hmond", "mond", rough=0.6), segs=16)
+        # vastberaden: kleine glimlach (halve ring) en twee wenkbrauwen die naar binnen zakken
+        # (frisse kijker ronde 1: de o-mond las als "verbaasd of leeg")
+        bpy.ops.mesh.primitive_torus_add(major_radius=0.065, minor_radius=0.017, location=(0.02, -0.325, HZ - 0.12),
+                                         rotation=(math.radians(90), 0, 0))
+        lach = bpy.context.object; lach.data.materials.append(g.mat("hmond", "mond", rough=0.6)); _kind(lach, ouder)
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(0.02, -0.325, HZ - 0.07)); sn2 = bpy.context.object
+        sn2.scale = (0.3, 0.2, 0.1); sn2.hide_render = True; sn2.hide_viewport = True; _kind(sn2, ouder)
+        bl = lach.modifiers.new("snij", "BOOLEAN"); bl.object = sn2; bl.operation = "DIFFERENCE"
+        brauw = g.mat("brauw", "5a3a2a", rough=0.6)
+        for kant in (-1, 1):
+            _blok(ouder, (0.13 * kant, -0.31, HZ + 0.15), (0.1, 0.02, 0.025), brauw,
+                  rot=(0, math.radians(18 * kant), 0), rond=0.01)
     _bol(ouder, (0, -0.34, HZ - 0.05), (0.04, 0.03, 0.035), g.mat("neus", HUID_D, rough=0.5), segs=16)
 
     # armen en handen

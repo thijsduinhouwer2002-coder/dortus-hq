@@ -13,3 +13,20 @@ Eigen oordeel (GEZIEN met Read):
 - **Goed:** dezelfde speelgoedwereld als Gloop (groot hoofd, grote ogen met glimstip, blosjes); helm en heksenhoed lezen meteen; de stap leest als lopen. In het hol vertelt het beeld nu het spel: twee helden lopen naar de put, Gloop zit op de schat.
 - **Moet beter:** (1) op ware grootte zijn de helden ±30 px en lezen ze als "twee poppetjes", de gezichten niet; de gang is daar het donkerste deel. Mila: gang een trede lichter of een fakkel boven de helden, en mogelijk de gang 1,8 hoog zodat schaal 0.9 past. (2) De ridder kijkt nog te veel naar voren, bij draai 60 leest het lopen beter. (3) Het schild zit los op het lijf. (4) De heks heeft geen arm aan de stafkant die je ziet. (5) Nog geen frisse kijker.
 - **Eerlijk:** dit is een stand-in, geen eindheld. Eindhelden (meer soorten, schrik, vallen, opgegeten worden) volgen na Gloop.
+
+## Frisse kijker ronde 1 (alleen de plaatjes, letterlijk samengevat)
+- Ware grootte: "groene slijmbal met één oog, kroontje en zilveren helm op een berg goud. Links lopen twee kleine figuurtjes naar hem toe. Ik denk een verdedig- of tower-defense-spel: helden komen het hol binnen om de schat te pakken." Niet te zien: wie wie is, zwaard, schild, staf, gezichten, of ze lopen. "De tovenaar is donkerpaars op een donkerpaarse achtergrond." Stoppen met scrollen: 4 of 5 van 10, "de helden zijn te klein om te begrijpen wat het spel is".
+- Los: "ridder met ronde zilveren helm, blauw pak, rood schild, klein zwaard; heks met paarse punthoed met gouden band. Schattig, glanzend speelgoed, niet eng, niet echt generiek." 7,5 van 10. Stoort: "gezichtjes kijken verbaasd of leeg", heks valt weg, ridder staat scheef.
+- Winst: voor het eerst raadt een kijker het spel zonder uitleg (helden komen de schat halen). Dat is precies wat Mila's strook miste.
+
+## Ronde 1b (zelfde run, ±16:30 UTC)
+- Heks in een warm oranje jurk (hoed blijft paars, zoals op de toren): valt niet meer weg tegen pruim.
+- Kleine glimlach en wenkbrauwen in plaats van de o-mond (de o-mond blijft voor `schrik`).
+- Ridder met draai 60 in de proef: loopt duidelijker naar rechts.
+- `ronde1b-los.png`, `ronde1b-in-hol-zoom-en-ware-grootte.png`, `ronde1b-in-hol-ware-grootte.png`.
+- Voor Mila: de hangende wortels bij x ±-8,7 lopen door het gezicht van de heks, en een wandlamp staat precies achter het hoofd van de ridder. Helden of wortels een stukje verschuiven. Het grootste punt blijft de maat: op ware grootte zijn helden ±30 px in een donkere gang.
+
+## Volgende ronde (Daan)
+1. Grotere koppen ten opzichte van het lijf (op 30 px telt alleen het hoofd en de hoed), en een lichte rand van achteren zodat ze loskomen van de gang.
+2. Schild vast aan de arm; de heks een zichtbare arm aan de stafkant.
+3. Standen voor de pijplijn: rust, stap1, stap2, schrik, vallen.

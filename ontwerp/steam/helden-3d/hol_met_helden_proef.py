@@ -306,7 +306,7 @@ for o in nieuw:
         o.scale = o.scale * GLOOP_S
 
 import held
-held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=45, schaal=0.75, gloed=25)
+held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=60, schaal=0.75, gloed=25)
 held.bouw("heks", "stap2", plek=(-8.6, 0.7, 0.02), draai=45, schaal=0.75, gloed=25)
 # ---------- camera en licht (gedeeld) ----------
 g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
