@@ -13,9 +13,9 @@ HOL kroniek 14.1 (wacht 1.8): Odo climbs into your hole.
 HOL gegraven kolom 9
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
+HOL meting t=20 beelden=150 helden=2
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
-HOL meting t=20 beelden=151 helden=2
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
