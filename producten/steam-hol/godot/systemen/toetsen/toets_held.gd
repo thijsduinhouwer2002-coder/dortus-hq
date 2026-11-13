@@ -787,13 +787,26 @@ func _init() -> void:
 	HB3._laad_3d()
 	if FileAccess.file_exists("res://kunst/3d/ridder.png"):
 		ok(HB3.held3d.has("ridder") and HB3.held3d["ridder"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-held: ridder-blad geladen, filter lineair")
-	# gewone held, dief en bard krijgen tot Daans modellen er zijn het ridder- of heksblad (Daan 21:50: strook had alleen pixels)
+	# eigen bladen (Daan 22:45): gewone held per tuniek held0..held4, dief en bard eigen blad; ontbreekt er een, dan ridder/heks
 	ok(HB3.blad_voor("ridder", 3) == "ridder" and HB3.blad_voor("magier", 0) == "heks", "3D-held: ridder en magier hun eigen blad")
-	ok(HB3.blad_voor("", 0) != "" and HB3.blad_voor("dief", 1) != "" and HB3.blad_voor("bard", 2) != "", "3D-held: gewone held, dief en bard niet meer in pixels")
-	ok(HB3.blad_voor("", 0) != HB3.blad_voor("", 1), "3D-held: gewone helden wisselen tussen ridder en heks (per kleur_nr)")
+	ok(HB3.eigen_blad("", 2) == "held2" and HB3.eigen_blad("", 7) == "held2" and HB3.eigen_blad("dief", 1) == "dief" and HB3.eigen_blad("bard", 0) == "bard", "3D-held: eigen blad per tuniek (kleur_nr), dief en bard")
+	ok(HB3.blad_voor("", 0) != "" and HB3.blad_voor("dief", 1) != "" and HB3.blad_voor("bard", 2) != "", "3D-held: gewone held, dief en bard niet in pixels")
+	for k in 5:
+		if HB3.held3d.has("held%d" % k):
+			ok(HB3.blad_voor("", k) == "held%d" % k, "3D-held: gewone held kleur %d krijgt held%d" % [k, k])
+	if HB3.held3d.has("dief") and HB3.held3d.has("bard"):
+		ok(HB3.blad_voor("dief", 4) == "dief" and HB3.blad_voor("bard", 3) == "bard", "3D-held: dief en bard hun eigen blad")
+		var di: Dictionary = HB3.held3d["dief"][1]
+		var rj: Dictionary = HB3.held3d["ridder"][1]
+		ok(absf(float(di.get("eenheid_px", 0)) - float(rj.get("eenheid_px", 1))) < 0.01, "3D-held: dief even groot als de ridder (zelfde eenheid)")
+	var bewaard: Dictionary = HB3.held3d.duplicate()
+	for k in ["held0", "held1", "held2", "held3", "held4", "dief", "bard"]:
+		HB3.held3d.erase(k)
+	ok(HB3.blad_voor("", 0) != HB3.blad_voor("", 1) and HB3.blad_voor("dief", 1) in ["ridder", "heks"], "3D-held: zonder eigen blad terugval op ridder of heks")
 	HB3.GEWOON_3D = false
-	ok(HB3.blad_voor("", 0) == "" and HB3.blad_voor("ridder", 0) == "ridder", "3D-held: GEWOON_3D uit geeft gewone helden weer pixels")
+	ok(HB3.blad_voor("", 0) == "" and HB3.blad_voor("ridder", 0) == "ridder", "3D-held: GEWOON_3D uit en geen eigen blad geeft pixels")
 	HB3.GEWOON_3D = true
+	HB3.held3d = bewaard
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)
 	var t1: Vector3 = HB3.hoed_tuimel(0.2)

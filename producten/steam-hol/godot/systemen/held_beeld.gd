@@ -87,10 +87,12 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 # zoals Gloop in slijm.gd; de rest van de held (tekens, nootjes, poef) blijft nearest.
 static var met_3d := true
 const HELD3D_JSON := "res://kunst/3d/sprites.json"
-const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks"}
-# Tussenstap (Bram 13 nov 22:25): de eerste 10 helden zijn altijd gewoon (heldensoort.gd EERSTE_GEWOON) en Daan heeft nog
-# geen 3D-model voor de gewone held, dief en bard. Daardoor stonden er in de strook alleen pixelhelden (Daan 21:50).
-# Tot die modellen er zijn krijgen zij het ridder- of heksblad (via kleur_nr, vast per naam). Uit met GEWOON_3D := false.
+const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks", "dief": "dief", "bard": "bard"}
+# Gewone held (soort ""): eigen blad per tuniek, held0 tot held4, gelijk aan kleur_nr (Daan 22:45, held_soorten.py), zodat
+# Kees bij terugkomst dezelfde tuniek heeft. Dief en bard hun eigen blad.
+const HELD3D_GEWOON := ["held0", "held1", "held2", "held3", "held4"]
+# Terugval (Bram 13 nov 22:25, nog steeds nodig zolang een eigen blad ontbreekt): wie geen eigen blad heeft krijgt het ridder-
+# of heksblad (via kleur_nr). Uit met GEWOON_3D := false, dan blijft zo'n held pixels.
 static var GEWOON_3D := true
 const HELD3D_ANDER := ["ridder", "heks"]
 const NIET_3D := -9999
@@ -100,10 +102,20 @@ const HOED_IN_KOP := 1.0         # onderrand van de hoed zoveel spelpixels in de
 static var held3d := {}          # blad-naam -> [CanvasTexture, info]
 static var held3d_gezocht := false
 
-# Welk 3D-blad hoort bij deze heldensoort ("" = pixels).
-static func blad_voor(soort: String, nr: int) -> String:
+# Het eigen 3D-blad van deze held (ook als het niet geladen is).
+static func eigen_blad(soort: String, nr: int) -> String:
 	if HELD3D_SOORT.has(soort):
 		return String(HELD3D_SOORT[soort])
+	return String(HELD3D_GEWOON[posmod(nr, HELD3D_GEWOON.size())])
+
+# Welk 3D-blad hoort bij deze held ("" = pixels): het eigen blad als het geladen is, anders (GEWOON_3D) ridder of heks.
+static func blad_voor(soort: String, nr: int) -> String:
+	_laad_3d()
+	var eigen := eigen_blad(soort, nr)
+	if held3d.has(eigen):
+		return eigen
+	if soort == "ridder" or soort == "magier":
+		return eigen
 	if GEWOON_3D:
 		return String(HELD3D_ANDER[absi(nr) % HELD3D_ANDER.size()])
 	return ""
@@ -119,15 +131,17 @@ static func _laad_3d() -> void:
 	if typeof(d) != TYPE_DICTIONARY:
 		print("HELD3D niet geladen: %s is geen woordenboek" % HELD3D_JSON)
 		return
-	for naam in HELD3D_SOORT.values() + [HOEDEN3D, HOEDEN3D_HAP]:
+	var ontbreekt := []
+	for naam in HELD3D_SOORT.values() + HELD3D_GEWOON + [HOEDEN3D, HOEDEN3D_HAP]:
 		if not d.has(naam) or typeof(d[naam]) != TYPE_DICTIONARY or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
-			print("HELD3D niet geladen: %s (geen blad in sprites.json of bestand ontbreekt)" % naam)
+			ontbreekt.append(naam)
 			continue
 		var ct := CanvasTexture.new()
 		ct.diffuse_texture = load(str(d[naam]["blad"]))
 		ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		held3d[naam] = [ct, d[naam]]
-	print("HELD3D geladen: %s; gewone held, dief en bard op 3D: %s" % [", ".join(PackedStringArray(held3d.keys())), str(GEWOON_3D)])
+	print("HELD3D geladen: %s; zonder eigen blad: %s; terugval op ridder/heks: %s" % [", ".join(PackedStringArray(held3d.keys())),
+		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
 
 # Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
 static func stand_3d(staat: String, frame: int) -> String:
