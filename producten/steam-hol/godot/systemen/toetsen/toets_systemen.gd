@@ -466,5 +466,22 @@ func _init() -> void:
 	var bk_p: Array = bk.paginas()
 	ok(bk_p.size() == 5 + 5 + 10 + 1 + 1 and String(bk_p[3].titel) == "The Wizard" and bk_p[3].regels[0] == "Weak to: Gloop", "bladzijden in boekvolgorde, magier met zwakte")
 	ok(bk.nieuw_sinds(8).size() == 2 and bk.nieuw_sinds(99).is_empty(), "nieuw_sinds voor while you were away")
+	# demo-einde (Olaf 13 nov, kern/demo_einde.gd): alleen met steamdemo, precies één keer, startregel daarna
+	var DE = load("res://kern/demo_einde.gd")
+	ok(not DE.voorbij(false, 99999.0) and not DE.voorbij(true, 7199.9) and DE.voorbij(true, 7200.0), "demo voorbij alleen met steamdemo en na 7200 s")
+	ok(DE.regel_bij_einde(true, 59.9, 60.1, 60.0) == DE.REGEL_EINDE and DE.regel_bij_einde(true, 60.1, 60.2, 60.0) == ""
+		and DE.regel_bij_einde(false, 59.9, 60.1, 60.0) == "", "eindregel precies één keer, nooit zonder steamdemo")
+	var keer := 0
+	var st := 0.0
+	for i in 1000:
+		var de_r: String = DE.regel_bij_einde(true, st, st + 0.13, 60.0)
+		st += 0.13
+		if de_r != "":
+			keer += 1
+	ok(keer == 1, "eindregel één keer in 130 s met kleine stapjes: %d" % keer)
+	ok(DE.regel_bij_start(true, 61.0, 60.0) == DE.REGEL_START and DE.regel_bij_start(true, 59.0, 60.0) == ""
+		and DE.regel_bij_start(false, 99999.0) == "", "startregel alleen na het einde, alleen in de demo")
+	ok(DE.REGEL_EINDE.length() <= 42 and DE.REGEL_START.length() <= 42 and DE.KAART.length() <= 42, "demo-regels hooguit 42 tekens")
+	ok(DE.is_demo(PackedStringArray(["steamdemo=1"])) and not DE.is_demo(PackedStringArray(["demo=1", "steamdemo=0"])), "steamdemo=1 herkend, demo=1 is geen Steam-demo")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

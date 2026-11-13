@@ -6,6 +6,9 @@ config_version=5
 config/name="Het Hol"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3")
+; demo en volle spel delen de save (demo-einde, ontwerp.md): %APPDATA%/Dortus/Het Hol
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Dortus/Het Hol"
 
 [display]
 window/size/viewport_width=1280

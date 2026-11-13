@@ -10,6 +10,7 @@ extends RefCounted
 
 const HOL := preload("res://hol/hol.gd")
 const UPG := preload("res://systemen/upgrades.gd")
+const DEMO_EINDE := preload("res://kern/demo_einde.gd")
 const OPEN_S := 6.0   # zo lang blijft het kaartje staan na de laatste klik
 const DUBBELKLIK_S := 0.4   # zo lang na Buy telt een klik op Undo niet
 const NA_KOOP_S := 2.5   # na Buy: de nieuwe naam en alleen "Undo", dan de eigen regel (Sanne toets 8, punt 3: Undo zag je nooit)
@@ -53,6 +54,7 @@ static func beschrijving(s, soort: String) -> Dictionary:
 		d.uitleg = String(v.uitleg)
 		d.kost = int(v.kost)
 		d.kan = up.kan_kopen(soort, s.hol.goud)
+		d["demo_over"] = DEMO_EINDE.klaar(s)   # tekst.gd: "Full game: keep this hole." in plaats van Buy, zonder klikvlak
 		d.tekort = maxi(0, int(v.kost) - int(s.hol.goud))
 	d.terug = terug_bedrag(up, soort)
 	if s.kaart_gekocht and up.niveau(soort) > 0:
@@ -104,6 +106,8 @@ static func ververs(s) -> void:
 
 static func koop(s) -> void:
 	var soort: String = s.kaart_soort
+	if DEMO_EINDE.weiger(s, "kopen " + soort):
+		return
 	var up = s.hol.upgrades
 	var rest: int = up.koop(soort, s.hol.goud)
 	if rest < 0:
@@ -210,9 +214,11 @@ static func tik(s) -> void:
 		dicht(s)
 	var up = s.hol.upgrades
 	var munt: Array = []
-	if up.kan_kopen("slijm", s.hol.goud):
+	if DEMO_EINDE.klaar(s):
+		pass   # na het demo-einde geen muntje en geen koop-hint meer
+	elif up.kan_kopen("slijm", s.hol.goud):
 		munt.append(slijm_kol(s))
-	if up.kan_kopen("stekelput", s.hol.goud):
+	if not DEMO_EINDE.klaar(s) and up.kan_kopen("stekelput", s.hol.goud):
 		for k in s.hol.vallen:
 			munt.append(int(k))
 	# het muntje boven Gloop staat 3 spelpixels boven het bovenste wat hij draagt (Sanne toets 8, punt 2: het hing
