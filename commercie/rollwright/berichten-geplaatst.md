@@ -95,3 +95,5 @@ Made by Thijs at Dortus
 - Titel: [Suggestion] Rollwright. Name: Rollwright. Link: https://community.obsidian.md/plugins/rollwright. Creator: Yes.
 - Tekst: zie de tekst in commercie/rollwright/lancering.md deel run 29 (met de eerlijke AI-zin en "Made by Thijs at Dortus").
 - Volgen: de nieuwsbrief komt op dinsdag uit; kijk of Rollwright erin staat en meet de downloads de dagen erna.
+- **Uitkomst (Chris, run 34, 13 nov 20:46 UTC, GEZIEN):** Rollwright staat in This Week in Obsidian #47, verschenen dinsdag 10 nov 11:27 UTC (https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-47), als regel "[Show] Rollwright: Roll Dice and Custom Tables in Notes, With a Session Log", het laatste van 15 [Show]-items in een nummer met ±75 links. De link gaat naar de GitHub-repo (github.com/thijsduinhouwer2002-coder/rollwright), niet naar de listing. Downloads daarna: +10 (11 nov) en +3 (12 nov), zie `groeimaat.md`. Gelezen via de RSS-feed van Substack met curl. De status van issue #37 zelf kon ik niet lezen (GitHub geeft deze run geen toegang tot die repo); niet nodig, want het nummer is uit.
+

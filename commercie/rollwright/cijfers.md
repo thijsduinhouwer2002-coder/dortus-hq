@@ -134,3 +134,16 @@ Wat dit zegt: de 9 in de stats zijn de downloads van de releases op GitHub, de 4
 - `community-plugin-stats.json`: 9 downloads (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 1; 0.3.3 nog niet in de stats). Nulpunt voor r/ObsidianMD blijft 9.
 - `community-plugins.json`: korte tekst is nu de nieuwe ("... A natural 20 lands in gold ... keep your rolls in a Roll log"), dus de lijst in de app loopt niet meer achter (advies 29 helemaal klaar).
 - Forumdraad: 1 bericht, 19 keer bekeken, 0 likes, niet gesloten. Repo: 0 sterren, 0 open issues. Release 0.3.3 staat (9 nov 06:55 UTC).
+
+## Stand 13 nov 2026, 20:46 UTC (run 34, GEZIEN)
+| Wat | Stand | Bron |
+|---|---|---|
+| `community-plugin-stats.json` (ververs 13 nov 00:15) | 38 downloads, waarvan 14 op 0.3.5 | GEZIEN (raw.githubusercontent.com en git-geschiedenis obsidian-releases) |
+| Listing community.obsidian.md, Adoption | 16 installations | GEZIEN |
+| Forumdraad t/121721 | 42 keer bekeken, 1 bericht, 0 likes | GEZIEN |
+| Repo rollwright | 0 sterren, 0 issues, 0 forks; release-bestanden main.js: 0.3.5 18, 0.3.4 6, 0.3.3 6, 0.3.2 4 | GEZIEN (GitHub-API) |
+| This Week in Obsidian #47 (10 nov) | genoemd, [Show], link naar de repo | GEZIEN |
+| Verkopen skins | onbekend: Polar kan ik niet lezen (geen POLAR_TOKEN in deze run) | GOK |
+
+Dagverloop en wat het zegt: `groeimaat.md`, deel Dagmeting.
+

@@ -406,3 +406,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** repo dortus tak `claude/chris-ebb-pagina` (7def096, b59a4a3), schermafdrukken in `commercie/ebb/`, status bovenaan, regel op lijst-thijs.
 **Controleur:** akkoord mits. Moet: GARMIN op de rand van de beelden. Verwerkt (bedekt, film eraf). Kan-punten verwerkt.
 **Volgende run:** kijken of Ebb is goedgekeurd; zo ja de winkelpagina via de API nakijken, `<link>` invullen in `lancering.md`, en met het ja van Thijs de pagina naar main.
+
+## 13 nov 2026 ±20:45 tot 21:05 UTC: Rollwright (dagmeting en This Week in Obsidian), run 34
+**Gelezen:** berichten (nieuwste van 14:10 al verwerkt; open: Rollwright downloads per dag en de nieuwsbrief van dinsdag), doelen, regels, besluiten, rol, lijst-thijs (begin), status Garmin en Ebb.
+**Opgemerkt:** `git pull` in dortus-hq bleef 2 minuten hangen; `git fetch origin main` werkte en gaf weer een geforceerde update van main. Main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 20:45):** Ebb niet goedgekeurd (404, API "not approved"). Rollwright: 38 downloads in de stats (9, 23, 33, 36, 38 van 9 tot 13 nov), 16 installaties op de listing, forum 42 keer bekeken, 0 sterren en issues. This Week in Obsidian #47 (10 nov) noemt Rollwright.
+**Beslissing:** Rollwright als product van deze run, omdat Ebb wacht op Garmin en er voor Ebb niets klaar te zetten valt, terwijl de dagmeting van Rollwright sinds 9 nov stillag en de nieuwsbriefcontrole van dinsdag openstond. De gemiste dagen uit de git-geschiedenis van obsidian-releases gehaald, zodat de reeks voor de meting van dag 14 (22 nov) heel is.
+**Gedaan:** `commercie/rollwright/groeimaat.md` (vier dagregels en een stand), `cijfers.md` (stand 13 nov), `berichten-geplaatst.md` (uitkomst nieuwsbrief), status Ebb bovenaan, bericht verwerkt.
+**Controleur:** akkoord mits. Moet: 16 is de Adoption-teller van Obsidian met onbekende telling; ±2 per dag zijn ruwe downloads met updates, piek valt samen met 0.3.5 en de nieuwsbrief, vroege trend. Beide verwerkt.
+**Volgende run:** Ebb goedgekeurd? Zo ja winkelpagina via de API nakijken en `<link>` invullen. Rollwright dagregel. Verkopen van de skins kan ik niet lezen zonder POLAR_TOKEN.
+
