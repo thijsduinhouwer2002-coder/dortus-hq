@@ -614,3 +614,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Toren-strooktest: `toren=0,4,5,1,6` met `vers=1` in `slijm.gd` en in de strookstap van `steam-hol.yml` op tak `claude/steam-hol-toren3d` (bfaa88f).
 - Blender: 107 downloads, 0 issues, geen melding.
 
+
+## 13 nov 2026, 23:16 tot 23:55 UTC, Olaf
+- Lokale main liep uiteen met GitHub (daar was de geschiedenis herschreven, "forced update"); niets lokaal overschreven, gewerkt op een nieuwe tak vanaf origin/main en naar main gepusht. De oude lokale main staat nog in de kloon.
+- helden3d: code nagelezen (`held_beeld.gd`), ja met voorwaarden. Duurtest-paar `zaad=4242`: tak 0,381 / hoogste 1,016, main 0,258 / 0,812 (+48%). Tweede paar `zaad=777` gestart 23:38.
+- Toren-proef `toren=6` gebouwd (taken `claude/steam-hol-toren-proef` en `claude/steam-hol-toren3d-proef`), controleur akkoord met 3 kan-punten (verwerkt). Windows-run 43526391391 groen: 3D-toren GEZIEN, emmer op 160 px afgesneden. Bram had tegelijk `toren=`; zijn versie blijft, de mijne gaat niet naar main.
+- Deco: `hol_3d.gd` laadt het blad `deco`, `hol.gd` tekent de gangfakkel in 3D (hoogte uit `uit`), pixelfakkel in de 3D-schatkamer weg. Controleur akkoord met 4 kan-punten (verwerkt). Windows-run 43528973494 groen, op main (f5ba933). Ladder zat al in het 3D-ingangsstuk.
+- Lokaal Godot draaien werd geweigerd door de veiligheidscontrole (gedownload programma); alles via de Windows-runs getoetst.
