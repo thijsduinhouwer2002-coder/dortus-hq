@@ -328,3 +328,6 @@ Thijs: "ja ga maar gewoon door". Gijs bouwt Ebb Calm (alleen Calm 4-7-8, de zee,
 
 ## 13 nov 11:33: Het Hol weer opstarten
 Thijs: "laten we het hol gaan opstarten". Het Steam-team staat sinds 10 nov stil. Volgorde: (1) Thijs kiest hoe de beelden gemaakt worden (bestellen uiterlijk ma 16 of di 17 nov, zie `ontwerp/beelden-onderzoek-2026-11-13.md`); (2) de hoofdchat schrijft een planning terug vanaf het Desktop Companion Fest (14 tot 18 jan 2027) met een vaste lijst van wat klaar is, zoals bij Ebb; (3) daarna een kleine ploeg aan, geen vijf tegelijk. Lessen uit Ebb gelden: eerst één figuur (Gloop) helemaal goed op het echte scherm, Thijs keurt smaak op vaste momenten, herkennen toetst een frisse kijker.
+
+## 13 nov 11:51: beelden Het Hol blijven eigen werk (route C)
+Thijs koos C: geen tekenaar, geen AI-beeldtool, alles uit code zoals nu (advies hoofdchat was B: capsule door een illustrator, proef PixelLab voor de figuren). Planning in `platformen/steam/planning-fest-2027.md`. Toetsmoment: halen we op wo 25 nov geen ja van Thijs op de capsule, dan legt de hoofdchat de tekenaar opnieuw voor (later dan 25 nov schuift de winkelpagina op). Ploeg aan: Olaf (bouw, elk uur op :13) en Daan (ontwerp, elk uur op :23). Bram, Sanne en Mila blijven uit.
