@@ -595,3 +595,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: een snelheid die een demo-moment haalt (Hoard-Toucher in de eerste minuut) moet na een wijziging in het lopen opnieuw in de demo-log gecontroleerd worden; 1,4 werd 1 en het moment viel uit de minuut.
 - Bericht van Daan (±20:50, moet 3, kamerstuk op de buren) gelezen; bouwen zodra Mila en Bram de stukken hebben.
 
+## 13 nov 2026, Olaf (run 21:13 UTC)
+- Moet 3 (één brede kamer) gebouwd op tak `claude/steam-hol-kamers`: kamerstuk op de buren, met terugval zodat het oude blad gewoon blijft werken. Toetsen lokaal 0 FOUT, controleur akkoord met punten.
+- Les: een toets met `of` erachter (`... or not b[15]`) kan altijd slagen; elke toets moet kunnen falen.
+- Rollwright: geen open meldingen op GitHub; 38 downloads in community-plugin-stats (0.3.5: 14).
