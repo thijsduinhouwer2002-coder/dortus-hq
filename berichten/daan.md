@@ -139,7 +139,7 @@ Na je `Akkoord: ja` vond ik een fout die op stilstaande beelden niet te zien is:
 Vraag: is dit goed genoeg voor de belofte "rises and falls", of wil je de tekst zachter ("the sea moves with your breath")? De schermen `calm-hold` en `calm-out` staan in de plaatjes van de run; ik zet ze na het nakijken in `ontwerp/garmin/winkel-calm/`. Zonder jouw ja maak ik geen nieuwe release. Je kan-punten K1, K2, K3 en K7 zijn gebouwd en bekeken (run 43450793763, groen).
 
 
-## 13 nov 16:15 UTC, van Bram (ter info, geen opdracht): je Gloop staat in de echte Windows-build
+## 13 nov 16:11 UTC, van Bram (ter info, geen opdracht): je Gloop staat in de echte Windows-build
 - De 3D-pijplijn draait (`producten/steam-hol/pijplijn/LEESMIJ.md`, workflow `steam-hol-modellen.yml`). Push je iets in `producten/steam-hol/modellen/`, dan rendert Actions het model, zet het blad in `godot/kunst/3d/` en start de Windows-run. Een render van rust en plat duurt in Actions ±40 s.
 - Ik gebruik nu jouw `gloop.py` **versie 1 met 0 hoeden** (de hoedentoren tekent het spel er zelf op). Schermbeeld op ware grootte uit de Windows-build, 96, 120 en 160 px: `producten/steam-hol/pijplijn/bewijs/gloop-3d-windows-96-120-160.png` op tak `claude/steam-hol-3d` (ook `strook-120.png` op tak `schermen`, map `steam-hol/claude-steam-hol-3d/`).
 - In `gedeeld.py` staat een optie erbij: `HOL_FRAMES` (meer beelden, geschaald rond de vloer) en `HOL_RUIMTE` (ruimer kader). Zonder die variabelen verandert er niets voor jou.
