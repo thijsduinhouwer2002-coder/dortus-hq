@@ -95,6 +95,12 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         dx = 0.13 * kant
         voor = -0.14 * stap * kant         # -y is naar voren (het gezicht kijkt naar -y)
         til = 0.07 if (stap * kant < 0) else 0.0
+        if stand == "vallen":
+            # ronde 4: benen gespreid en schuin (spartelen), leest op 25 px als een V van laarzen
+            sp = math.radians(28)
+            _cil(ouder, (dx + 0.07 * kant, 0, 0.2), 0.075, 0.3, kleed_d, rot=(0, -kant * sp, 0))
+            _bol(ouder, (dx + 0.15 * kant, -0.04, 0.07), (0.1, 0.12, 0.075), laars)
+            continue
         _cil(ouder, (dx, voor, 0.2 + til), 0.075, 0.3, kleed_d)
         _bol(ouder, (dx, voor - 0.04, 0.06 + til), (0.1, 0.12, 0.075), laars)
 
@@ -146,7 +152,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
 
     # armen en handen
     arm_z = 0.7
-    if bang:
+    if stand == "vallen":
+        hoek_l, hoek_r = 105, 105   # ronde 4: armen wijd opzij, niet omhoog (op 25 px een plus-teken)
+    elif bang:
         hoek_l, hoek_r = 150, 150
     else:
         hoek_l, hoek_r = 20 + 15 * stap, 20 - 15 * stap
@@ -232,9 +240,11 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     if stand == "vallen":
-        # eerst draaien om de hoogte-as, dan 35 graden voorover in de looprichting (naar +x)
+        # ronde 4: kop naar beneden de put in, laarzen omhoog (cartoon-val; 35 graden voorover las op
+        # 25 px als struikelen). Draai rond het midden van de figuur, zodat hij in hetzelfde vak blijft.
         ouder.rotation_mode = "ZYX"
-        ouder.rotation_euler = (0, math.radians(35), math.radians(-draai))
+        ouder.rotation_euler = (0, math.radians(155), math.radians(-draai))
+        ouder.location = (plek[0], plek[1], plek[2] + 0.95 * top * schaal)
     else:
         ouder.rotation_euler = (0, 0, math.radians(-draai))
     # gebouwd met het gezicht naar -y (de camera); draai positief kijkt naar rechts

@@ -63,3 +63,8 @@ Verwerkt in `winkel-closeup-proef2.png`: Gloop in stand hap (`GLOOP_STAND=hap`),
 2. Minder glans op lijf en huid (rough omhoog), een matte speelgoedlak in plaats van plastic.
 3. Wachten op Mila's besluit over de gang (1,9); daarna schaal 0.85 proberen.
 4. Winkelplaatje: een close-up (Gloop met een vallende held), niet de hele strook. Dat is voor het blad van ma 16 nov.
+
+## Ronde 4 en close-up proef 3 (13 nov, ±17:30 UTC)
+Gloop hap (`gloop.py`, stand hap): de mond is nu een hele ovaal (bovenkant rond), breed en laag, met de tand aan de bovenlip en een grotere tong. De halve schijf las als een diepe lach. Voor en na: `../gloop-3d/hap-ronde3-rust-en-hap.png`. Rust, knipper en blij zijn niet veranderd.
+`winkel-closeup-proef3.png`: zelfde camera als proef 2, nu met de nieuwe hap. Eigen oordeel (GEZIEN): Gloop gaapt de helden echt tegemoet, het moment heeft nu spanning en leest in één tel ("het monster hapt"). Nog voor het blad van ma 16 nov: de helden kijken in de camera en niet naar Gloop (pupillen naar rechts bij schrik), de kist links is een vlakke bruine doos, zwaard van de ridder te klein, titel en logo erbij.
+Vallen (`held.py`, stand vallen, `ronde4-vallen.png`, rechts op 25 px 2x vergroot): kop naar beneden, laarzen gespreid omhoog, armen opzij. Los leest het als een grappige duikeling; op 25 px zie je bij de heks de omgekeerde punthoed en de laarzen, bij de ridder vooral een witte bol met blauw. De armen verdwijnen achter het grote hoofd. Goed genoeg voor een kort moment met beweging in het spel; eventueel later de armen langer.

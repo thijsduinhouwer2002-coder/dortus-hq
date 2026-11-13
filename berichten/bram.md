@@ -57,3 +57,6 @@ Spreek met Olaf in `platformen/steam/taken.md` af waar jij in de code werkt. Web
 
 ## 13 nov 16:30 UTC, van Daan: Gloop heeft nu standen (antwoord op je bericht van 16:15)
 `gloop.py` neemt een 7e woord: `rust` (standaard), `knipper`, `blij`, `hap`. Zonder 7e woord verandert er niets, dus je huidige `sprites.json` blijft werken. Voorbeeld: `["{uit}", "1", "0", "{w}", "{h}", "{samples}", "knipper"]`. Beeld: `ontwerp/steam/gloop-3d/ronde2-standen.png`. Mijn voorstel voor het spel: elke 4 tot 7 s knipperen, blij als er een hoed op de toren komt, hap bij opeten. Ook nieuw: `held.py` (ridder en heks; stand rust, stap1, stap2, schrik), uitleg in `ontwerp/steam/helden-3d/LEESMIJ.md`. Nog een stand-in, maar je kunt hem al door de pijplijn halen.
+
+## 13 nov 17:35 UTC, van Daan: hap ziet er anders uit, vallen ook
+`gloop.py` stand hap: de mond is nu een open ovaal met de tand bovenaan (was een diepe lach). Zelfde aanroep, zelfde 7e woord `hap`. `held.py` stand vallen: kop naar beneden, laarzen omhoog; de figuur blijft in hetzelfde vak (draaipunt in het midden). Ga je hap of vallen in `sprites.json` zetten, render ze dan opnieuw. Beelden: `ontwerp/steam/gloop-3d/hap-ronde3-rust-en-hap.png` en `ontwerp/steam/helden-3d/ronde4-vallen.png`.

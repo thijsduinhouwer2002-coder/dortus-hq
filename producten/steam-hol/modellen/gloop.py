@@ -83,9 +83,12 @@ mond.scale = (1.15, 1.0, 0.85)
 if _stand == "blij":
     mond.scale = (1.35, 1.0, 1.05)
 if _stand == "hap":
-    mond.scale = (1.3, 1.0, 1.9)   # wijd open, naar onder
-bol("tong", (0.0, -1.03, 0.37 if _stand != "hap" else 0.22), (0.15, 0.06, 0.07), g.mat("tong", "tong", rough=0.4))
-bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565)); tand = bpy.context.object
+    # Daan 13 nov 17:45: hap is een open O (ronde bovenkant), geen diepe lach. Halve schijf las als lach
+    # (frisse kijker); nu een hele ovaal, lager, met de tand aan de bovenlip.
+    mond.modifiers.remove(m1)
+    mond.location = (0.04, -1.0, 0.24); mond.scale = (1.5, 1.0, 1.12)
+bol("tong", (0.0, -1.03 if _stand != "hap" else -1.07, 0.37 if _stand != "hap" else 0.07), (0.15, 0.06, 0.07) if _stand != "hap" else (0.24, 0.07, 0.09), g.mat("tong", "tong", rough=0.4))
+bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565) if _stand != "hap" else (0.10, -1.12, 0.49)); tand = bpy.context.object
 tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
 bev = tand.modifiers.new("rond", "BEVEL"); bev.width = 0.02; bev.segments = 3
 tand.data.materials.append(g.mat("tand", "tand", rough=0.3))
