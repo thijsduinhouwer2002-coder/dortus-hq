@@ -76,7 +76,7 @@ def strak(ob, s, u):
     x, y, z = c @ hx, c @ hy, c @ hz
     rho = np.hypot(y, z)
     rad = (np.outer(y, hy) + np.outer(z, hz)) / np.maximum(rho, 1e-12)[:, None]
-    loodrecht = np.abs(np.einsum("ij,ij->i", _normalen(ob), rad)) > 0.95   # vlak staat dwars op de straal: cilinderwand
+    loodrecht = np.abs(np.einsum("ij,ij->i", _normalen(ob), rad)) > 0.95   # normaal langs de straal: cilinderwand
     tol = 0.25 * s + 0.01 * rn + 0.05 * u   # 64 zijden: middelpunt van een zijvlak ligt 0,12% binnen de straal
     if ob.get("cj_deel") == "B":
         ringen = ((r, np.abs(x) <= tw + tol), (rn + s / 2, np.abs(x) >= tw - tol))
@@ -86,7 +86,8 @@ def strak(ob, s, u):
     for straal, binnen in ringen:
         op |= binnen & (np.abs(rho - straal) <= tol)
     # alleen de wanden bij het scharnier zelf (de naad en wang lopen niet verder dan de huid van het lid)
-    op &= loodrecht & (np.abs(x) <= tw + 2.0 * rn + 4 * s)
+    breed = float(ob.get("cj_breedte", tw + 2.0 * rn))   # halve breedte van het lid langs H (sinds 1.0.1 bewaard)
+    op &= loodrecht & (np.abs(x) <= breed + tol)
     return np.flatnonzero(op)
 
 

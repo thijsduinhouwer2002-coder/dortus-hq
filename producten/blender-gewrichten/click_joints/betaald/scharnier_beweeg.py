@@ -183,7 +183,7 @@ def _vlak(ob, vlakken, tol, bol):
         if not np.isfinite(n0).all() or np.linalg.norm(n0) < 0.5:
             continue
         d0 = float(c[v] @ n0)
-        if any(abs(float(n0 @ m)) > 0.9995 and abs(d0 - d) <= tol for m, d in gezien):
+        if any(float(n0 @ m) > 0.9995 and abs(d0 - d) <= tol for m, d in gezien):
             continue
         gezien.append((n0, d0))
         zelfde = dichtbij & (nn @ n0 > 0.9995) & (np.abs(c @ n0 - d0) <= tol)
@@ -253,7 +253,7 @@ def pose(a, b, graden, kleur_rood=None):
     def groei(ob, raak, m):
         schaal = max(1e-9, m.to_scale().length / 3 ** 0.5)
         if "cj_scharnier_punt" in ob:
-            bol = (float(ob.get("cj_t_vlak", 0.0)) + 2.0 * float(ob.get("cj_naad_r", 0.0))) / schaal
+            bol = (float(ob.get("cj_t_vlak", 0.0)) + 2.0 * float(ob.get("cj_naad_r", 0.0)) + float(ob.get("cj_breedte", 0.0))) / schaal
             return _vlak(ob, raak, VLAK_TOL_MM * u / schaal, bol)
         return _groei(ob, raak, GROEI_MM * u / schaal)
     vlakken_a = groei(a, raak_a, ma)
