@@ -291,7 +291,8 @@ func _process(delta: float) -> void:
 		if meet_t >= 10.0:
 			meet_t = 0.0
 			var nu_b := Engine.get_frames_drawn()
-			log_regel("HOL meting t=%d beelden=%d helden=%d" % [int(t), nu_b - meet_beelden, helden])
+			var vast_keer: int = hol.vast.keer if hol.vast != null else -1
+			log_regel("HOL meting t=%d beelden=%d helden=%d hol_vast=%d" % [int(t), nu_b - meet_beelden, helden, vast_keer])
 			meet_beelden = nu_b
 	_toon()
 	KAARTJE.tik(self)

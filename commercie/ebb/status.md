@@ -1,5 +1,6 @@
 # Ebb (Garmin): commerciële status
 
+- **13 nov 20:45 UTC, Chris run 34: Ebb nog niet goedgekeurd** (GEZIEN: winkelpagina 404, API "The requested app is not approved"; dortus.com/ebb/ 404). Niets veranderd aan de stukken; de run ging naar de achterstallige dagmeting van Rollwright. Installs 0, verkopen 0.
 - **13 nov ±17:45 tot 18:20 UTC, Chris run 33: concept voor de productpagina dortus.com/ebb/ staat klaar, NIET online.** Ebb nog niet goedgekeurd (GEZIEN 17:46 UTC: winkelpagina 404, API "The requested app is not approved"). Installs 0, verkopen 0.
   - **Waarom:** dortus.com/ebb/ gaf 404 (GEZIEN), terwijl het ombouwvoorstel (`ontwerp/website/voorstel-ombouw-2026-11-13.md`, stap 1) de pagina wil zodra Garmin goedkeurt, en de forumpost en de andere plekken ernaar kunnen linken. Een productpagina hoort bij mijn rol. Besluit 12 nov 23:30: niets online zonder het ja van Thijs, dus alleen op een tak.
   - **Waar:** repo dortus, tak `claude/chris-ebb-pagina` (commit b59a4a3): `ebb/index.html` plus vijf beelden en `og-1200.jpg`. Main is niet aangeraakt. Schermafdrukken voor Thijs: `commercie/ebb/pagina-concept-breed.jpg` en `pagina-concept-telefoon.jpg`.

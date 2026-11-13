@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **13 nov ±20:56 UTC, run 95. Ebb nog niet openbaar (winkelpagina 404, API "not approved"). Geen nieuwe berichten. Niets veranderd: Ebb Calm is klaar en wacht op de goedkeuring van Ebb. Installs 0, verkopen 0.**
 - **13 nov ±19:56 UTC, run 94. Ebb nog niet openbaar (winkelpagina 404, API "not approved"). Geen nieuwe berichten. Niets veranderd: Ebb Calm is klaar en wacht op de goedkeuring van Ebb. Installs 0, verkopen 0.**
 - **13 nov ±18:55 UTC, run 93. Ebb nog niet openbaar (winkelpagina 404, API "not approved"). Geen nieuwe berichten. Niets veranderd: Ebb Calm is klaar en wacht op de goedkeuring van Ebb. Installs 0, verkopen 0.**
 - **13 nov ±17:57 UTC, run 92. Ebb nog niet openbaar (winkelpagina 404, API "not approved"). Geen nieuwe berichten. Niets veranderd: Ebb Calm is klaar en wacht op de goedkeuring van Ebb. Installs 0, verkopen 0.**

@@ -580,3 +580,18 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Tekenkant van de 3D-helden gebouwd op tak `claude/steam-hol-helden3d` achter een schakelaar die uit staat; Windows-toetsen groen (run 43492553141). Les: in `toets_held.gd` bestaan al namen als `HB`; eerst zoeken voor je een naam kiest.
 - 19:47 UTC: hol 3D naar main (d609414). Duurtest tegelijk: tak 0,484 / 1,375, main 0,425 / 1,047 (+14%). Main zelf gaf een uur eerder 0,236 / 0,844 met hetzelfde zaad: de runner schommelt bijna een factor 2, dus alleen tegelijk gestarte paren zeggen iets. Tweede paar met `zaad=777` gestart (main met 3D tegen `claude/steam-hol-pas` zonder).
 - Rollwright: 38 downloads, 0 open issues (status.md).
+
+## 13 nov 20:12 tot ±20:45 UTC (Bram)
+- Daans keuze A (hoeden los van de held) gebouwd op tak `claude/steam-hol-helden3d`. Pijplijn: `verberg` en `maat_zonder_verberg` (held zonder eigen hoed, even groot als met), `gedeeld.render` geeft de camera door, `eenheid_px`, `nul_y` en `kruin` per blad, `schaal_van` voor het hoedenblad (1,3 keer de ridder). `held_beeld.gd`: spelhoed op de kruin, per held op 1,3, tuimelt los bij vallen, niet getekend als hij naar de toren gaat. Schakelaar `met_3d` blijft uit.
+- Controleur: akkoord met punten. Moet: heks heeft een kleinere eenheid (21,3 tegen 26,0), dus de hoed rekent per held om; cel van het hoedenblad niet symmetrisch rond het anker (pansteel links, klep rechts). Beide verwerkt. Kan: kruin bij schrik (bezem) en vallen (voet) is niet het hoofd; Godot gebruikt bij vallen de kruin van rust.
+- Les: een toets die op een nieuw veld in een gerenderd blad let, faalt in de Windows-run van dezelfde push (het blad komt pas een render later). Dat is verwacht, niet schrikken; kijk naar de run na de terugcommit.
+- Click Joints 104 downloads, geen meldingen.
+
+## 13 nov 20:14 tot ±20:55 UTC (Olaf)
+- Obsidian: niets dringends in `taken.md`.
+- Tweede paar duurtests (`zaad=777`) gelezen: main met 3D-hol 0,506 / 1,266, zonder 3D-hol 0,233 / 0,547. Het eerste paar (+14%) was dus geluk van de runner; het 3D-hol kost het dubbele. Afspraak 3 met Bram (meer dan 20%: het hol één keer tekenen) gaat in.
+- Gebouwd op tak `claude/steam-hol-vast`: `hol/hol_vast.gd` (vaste deel in een SubViewport, alleen opnieuw bij een andere sleutel), gloed weg op de 3D-gang (Daan moet 1, het lichte vierkant), keus b van Daan (hele pixels per stap), demo-Hoard-Toucher op snelheid 2. Film met en zonder cache pixel voor pixel gelijk. Controleur akkoord met punten.
+- Les: lokaal importeren met Godot op Linux herschrijft de `.import`-bestanden van de pijplijn (andere `path` en `uid`). Niet meecommitten (`git checkout -- kunst/3d/*.import`), en na het terugzetten opnieuw importeren voordat je toetsen draait, anders hangt `toets_held` op een ontbrekende `.ctex`.
+- Les: een snelheid die een demo-moment haalt (Hoard-Toucher in de eerste minuut) moet na een wijziging in het lopen opnieuw in de demo-log gecontroleerd worden; 1,4 werd 1 en het moment viel uit de minuut.
+- Bericht van Daan (±20:50, moet 3, kamerstuk op de buren) gelezen; bouwen zodra Mila en Bram de stukken hebben.
+

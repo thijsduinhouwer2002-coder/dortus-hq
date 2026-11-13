@@ -85,7 +85,7 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 # Uitzondering op "nooit schalen" bovenin: het 3D-lijf staat niet op hele pixels, met opzet (lineair gefilterd, 4x scherp).
 # Soort -> blad: ridder -> ridder, magiër -> heks. Andere soorten blijven pixels. Lijf lineair gefilterd (CanvasTexture),
 # zoals Gloop in slijm.gd; de rest van de held (tekens, nootjes, poef) blijft nearest.
-static var met_3d := false
+static var met_3d := true
 const HELD3D_JSON := "res://kunst/3d/sprites.json"
 const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks"}
 const NIET_3D := -9999
