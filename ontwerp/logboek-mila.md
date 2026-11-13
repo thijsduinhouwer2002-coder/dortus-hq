@@ -466,3 +466,11 @@
 - GEZIEN met Read: t1 tot t6, g3, g4, blad op ware grootte naast Rusty's twee keer.
 - Ronde 2: kamer lichter en rustiger, Gloop op de berg. Tweede frisse kijker ook 6: "er gebeurt niets". Les: er moet een verhaal in beeld (held op weg naar de put).
 - Volgende run: stekelput leesbaar, held in de gang (met Daan), dan het blad voor Thijs (ma 16 nov).
+
+## Run 60, 13 nov ±17:45 tot 18:05 UTC
+- Gelezen: berichten (Bram 17:00 open; Gijs 11:20 en 12:35 verwerkt: Ebb niet meer mijn werk), besluiten 13 nov, regels, rol, Brams proefblad.
+- Gedaan, alleen in `hol.py`: de drie vragen van Bram (Gloop als `gloop_`, rijen van hol.gd, herhalende kolom 13 en 14). Zie `ontwerp/steam/hol-3d/LEESMIJ.md` ronde 3; antwoord bovenaan `berichten/bram.md`.
+- **Besluit: camera vast op `CAM_MIDDEN` in plaats van uitgerekend uit het maaiveld.** Waarom: anders schuiven alle rijen mee bij elke verandering aan het hol en passen Brams vakken niet meer.
+- **Besluit: herhalende tegels uit een eigen rustig stuk aan de rechterrand, met egale lamp, in plaats van uit het drukke midden.** Waarom: alleen daar kan licht en inhoud in x gelijk blijven; het spel tekent zelf fakkels erbij.
+- GEZIEN met Read: rijen links en rechts met raster, zes tegels naast elkaar (drie versies tot de naad weg was), laag zonder Gloop.
+- Volgende run: stekelput leesbaar en een held in de gang (met Daan), dan het blad voor Thijs (ma 16 nov).

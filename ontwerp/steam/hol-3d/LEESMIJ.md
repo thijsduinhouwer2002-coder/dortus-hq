@@ -20,6 +20,16 @@ Punt 1 en 2 van hieronder gedaan: geen kiezels rond de boog, achterwand van de s
 - Tweede frisse kijker (andere kijker, alleen het plaatje): "groenblauwe slijm met één groot oog en een gouden kroontje, voor een berg goud, kist, beker, ladder, fakkels". Niet herkend: stekelput met helm ("kleine donkere figuurtjes met lichtpuntjes"), spinrag ("zwaard aan de muur"). Weer 6 van 10: "er gebeurt niets dat het oog vasthoudt, ik zie niet meteen wat het spel is".
 - Les: rustiger en lichter helpt de figuur, maar het cijfer komt pas omhoog met een verhaal in beeld. Het spel is: helden komen binnen, vallen in de put of worden opgegeten, hun hoed gaat op Gloops toren. Een held in de gang op weg naar de put (Daan maakt de helden) is wat ontbreekt. De stekelput moet groter of lichter om op 120 px te lezen.
 
+## Ronde 3 (13 nov ±17:45 tot 18:00 UTC): het hol als tegels voor Bram
+Bram knipt het hol in stukken voor het spel (`"soort": "stukken"` in `pijplijn/sprites.json`). Drie dingen gedaan, alleen in `hol.py`:
+1. Gloop heet `gloop_...` (alle onderdelen), zodat een laag zonder Gloop kan; het spel tekent hem zelf.
+2. Het hol ligt op de rijen van `hol.gd`: gras 0 tot 8, bovenste rij 8 tot 24, gang 24 tot 40, vloer op 37. De camera staat vast (`CAM_MIDDEN`), zodat de rijen niet meer verschuiven als het maaiveld verandert. Het gras loopt ver naar achteren en vult rij 0 tot 8 (er zat een donkere band boven). Kamers boven de gang en de stekelput staan elk midden in één kolom van 16.
+3. Kolom 13 en 14 (spelpixel 208 tot 240) zijn een rustig stuk dat herhaalt: de aarde-ruis gaat rond in x met een periode van één kolom, gras en kiezels liggen daar in elke kolom gelijk, en een lange egale lamp geeft er licht dat niet verloopt. De fakkel van de rechter gang schoof naar x 5,0, wortels en spinrag een stukje naar links.
+- `ronde3-rijen-links.png`, `ronde3-rijen-rechts.png`: 960 x 160, 2x, met blauwe lijnen op 8 en 24, geel op 37, paars per kolom.
+- `ronde3-tegel-kolom14-zesmaal.png`: zes keer kolom 14 naast elkaar.
+- GEZIEN met Read: rijen kloppen (grasrand op 8, plafond op 24, vloer op 37), kamers en put binnen hun kolom, zonder-Gloop-laag zonder Gloop of hoed. GEMETEN: randverschil per kolom 1,8 tot 2,3 op 255 (eerst 4 tot 9, door het verloop van de fakkels; zonder egale lamp was het stuk ook veel te donker, helderheid 24 tegen ±55 nu).
+- Eerlijk: het rustige stuk is vlak, met opzet; het spel tekent er zelf fakkels en gloed overheen. Op het blad voor Thijs laat ik het hele hol zien, niet de tegels.
+
 ## Volgende ronde
 1. (gedaan in ronde 2) Gloop kan niet groter (ware maat in het spel), dus de kamer rond hem rustiger en lichter: geen kiezels binnen een halve kamer om de boog, warme gloed achter hem, achterwand van de kamer een trede lichter. Hij moet het lichtste vlak van de strook zijn.
 2. (gedaan in ronde 2) Gloop op de rand van de berg in plaats van ernaast.

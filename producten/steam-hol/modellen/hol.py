@@ -30,7 +30,17 @@ sc = bpy.context.scene
 HOOGTE = 4.5                      # wereld-eenheden op de hoogte van het plaatje
 BREED = HOOGTE * W / H
 ONDER = -0.55                     # onderkant van het beeld
-MAAIVELD = 3.25                   # bovenkant van de aarde
+# Rijen van hol.gd (Bram 13 nov): 40 spelpixels hoog, gras 0 tot 8, bovenste rij 8 tot 24, gang 24 tot 40,
+# kolom 16 breed. Eén spelpixel is HOOGTE / 40 = 0,1125 eenheid. De camera kijkt 15 graden van boven, dus een
+# hoogte z op de voorkant (y = 0) komt op spelpixel 40 * (2,25 - 0,966 * (z - CAM_MIDDEN)) / 4,5.
+CAM_MIDDEN = 2.025                # vast, zodat de rijen niet verschuiven als er iets aan het hol verandert
+MAAIVELD = 3.423                  # bovenkant van de aarde: voorrand op spelpixel 8
+GANG_TOP = 1.559                  # plafond van de gang: spelpixel 24 (vloer z = 0 komt op 37,4, voeten op 37)
+SPX = HOOGTE / 40                 # één spelpixel in eenheden
+KOL = 16 * SPX                    # één kolom van hol.gd
+LINKS = -BREED / 2                # x van spelpixel 0
+TEGEL_X = LINKS + 13 * KOL        # kolom 13 en 14 (spelpixel 208 tot 240): rustig stuk voor herhalende tegels
+TEGEL_LICHT = float(os.environ.get("HOL_TEGEL_LICHT", "300"))
 X0, X1 = -BREED / 2 - 0.5, BREED / 2 + 0.5
 
 
@@ -75,14 +85,33 @@ def aardemat(naam, donker, licht, schaal=1.6):
     """Pruim met lagen en vlekken (ruis), zodat de aarde op ware grootte niet als één vlak leest."""
     m = g.mat(naam, donker, rough=0.85, spec=0.15)
     nt = m.node_tree; b = nt.nodes["Principled BSDF"]
+    # Herhaalt precies elke kolom (16 spelpixels) in x: x gaat rond op een cirkel (cos, sin), z en y blijven.
+    # Zo past elk stuk van 16 breed links en rechts op zichzelf (Bram 13 nov, vraag 3).
     tc = nt.nodes.new("ShaderNodeTexCoord")
-    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (schaal * 0.7, schaal, schaal * 2.6)
-    ns = nt.nodes.new("ShaderNodeTexNoise"); ns.inputs["Scale"].default_value = 1.4; ns.inputs["Detail"].default_value = 3
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    hoek = nt.nodes.new("ShaderNodeMath"); hoek.operation = "MULTIPLY"; hoek.inputs[1].default_value = 2 * math.pi / KOL
+    co = nt.nodes.new("ShaderNodeMath"); co.operation = "COSINE"
+    si = nt.nodes.new("ShaderNodeMath"); si.operation = "SINE"
+    r = KOL / (2 * math.pi) * schaal * 0.7       # zelfde korrel als vroeger in x
+    cr_ = nt.nodes.new("ShaderNodeMath"); cr_.operation = "MULTIPLY"; cr_.inputs[1].default_value = r
+    sr_ = nt.nodes.new("ShaderNodeMath"); sr_.operation = "MULTIPLY"; sr_.inputs[1].default_value = r
+    zz = nt.nodes.new("ShaderNodeMath"); zz.operation = "MULTIPLY"; zz.inputs[1].default_value = schaal * 2.6
+    yy = nt.nodes.new("ShaderNodeMath"); yy.operation = "MULTIPLY"; yy.inputs[1].default_value = schaal
+    mp = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(tc.outputs["Object"], sep.inputs[0])
+    nt.links.new(sep.outputs["X"], hoek.inputs[0])
+    nt.links.new(hoek.outputs[0], co.inputs[0]); nt.links.new(hoek.outputs[0], si.inputs[0])
+    nt.links.new(co.outputs[0], cr_.inputs[0]); nt.links.new(si.outputs[0], sr_.inputs[0])
+    nt.links.new(sep.outputs["Z"], zz.inputs[0]); nt.links.new(sep.outputs["Y"], yy.inputs[0])
+    nt.links.new(cr_.outputs[0], mp.inputs["X"]); nt.links.new(sr_.outputs[0], mp.inputs["Y"])
+    nt.links.new(zz.outputs[0], mp.inputs["Z"])
+    ns = nt.nodes.new("ShaderNodeTexNoise"); ns.noise_dimensions = "4D"
+    nt.links.new(yy.outputs[0], ns.inputs["W"])
+    ns.inputs["Scale"].default_value = 1.4; ns.inputs["Detail"].default_value = 3
     cr = nt.nodes.new("ShaderNodeValToRGB")
     cr.color_ramp.elements[0].position = 0.42; cr.color_ramp.elements[0].color = (*g.hex2(donker), 1)
     cr.color_ramp.elements[1].position = 0.62; cr.color_ramp.elements[1].color = (*g.hex2(licht), 1)
     bm = nt.nodes.new("ShaderNodeBump"); bm.inputs["Strength"].default_value = 0.25
-    nt.links.new(tc.outputs["Object"], mp.inputs["Vector"])
     nt.links.new(mp.outputs["Vector"], ns.inputs["Vector"])
     nt.links.new(ns.outputs["Fac"], cr.inputs["Fac"])
     nt.links.new(cr.outputs["Color"], b.inputs["Base Color"])
@@ -120,18 +149,19 @@ bpy.ops.mesh.primitive_cylinder_add(vertices=64, radius=1.0, depth=2.4, location
 boog = bpy.context.object; boog.scale = ((KX1 - KX0) / 2, (KTOP - 1.4), 1)
 uithollen(aarde, boog)
 # gang naar links, één rij hoog, met een schacht omhoog naar het gras
-gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, 0.75), (KX0 - (-11.8) + 0.6, 2.4, 1.5))
+gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, GANG_TOP / 2), (KX0 - (-11.8) + 0.6, 2.4, GANG_TOP))
 uithollen(aarde, gang)
 schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2))
 uithollen(aarde, schacht)
 # gang naar rechts, met een kleine voorraadkamer
-gang_r = blok("gangr_gat", ((KX1 + 12.5) / 2, 0.2, 0.75), (12.5 - KX1 + 0.6, 2.4, 1.5))
+# loopt door tot voorbij de rand: het rustige stuk (kolom 13 en 14) is een gang die herhaalt
+gang_r = blok("gangr_gat", ((KX1 + X1 + 1) / 2, 0.2, GANG_TOP / 2), (X1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
 uithollen(aarde, gang_r)
 # twee kleine kamers boven de gang (in het spel: klik in de aarde boven de gang; later woont er iemand)
-KAMERS = [(-7.4, 2.25), (7.8, 2.25)]
+KAMERS = [(LINKS + 3.5 * KOL, 2.25), (LINKS + 11.5 * KOL, 2.25)]   # midden van kolom 3 en 11 (x = -7,2 en 7,2)
 for kx, kz in KAMERS:
     bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=1.0, depth=2.4, location=(kx, 0.2, kz), rotation=(math.radians(90), 0, 0))
-    kg = bpy.context.object; kg.scale = (1.05, 0.62, 1)
+    kg = bpy.context.object; kg.scale = (0.85, 0.62, 1)   # 1,7 breed: past in één kolom (15 spelpixels)
     uithollen(aarde, kg)
 for o in (aarde,):
     afronden(o, 0.18, 4)
@@ -144,21 +174,38 @@ blok("achterwand", (0, 1.35, 1.2), (X1 - X0, 0.1, 4.0), PRUIM_L)
 for i in range(70):
     x = random.uniform(X0, X1); z = random.uniform(ONDER, MAAIVELD - 0.25)
     # niet in de gaten
-    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.25 and abs(z - kz) < 0.8 for kx, kz in [(-7.4, 2.25), (7.8, 2.25)]):
+    if x > TEGEL_X - 0.3:
+        continue   # rustig stuk: daar liggen dezelfde kiezels in elke kolom (hieronder)
+    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.05 and abs(z - kz) < 0.8 for kx, kz in KAMERS):
         continue
     r = random.uniform(0.07, 0.2)
     bol("kiezel", (x, -0.02, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, PRUIM_L, PRUIM_L]), 12)
+for k in range(-1, 3):   # kolom 12 (half, voor de naad) tot 14, plus één voorbij de rand
+    x0 = TEGEL_X + k * KOL
+    for (dx, z, r, m) in [(0.35, 2.35, 0.15, STEEN), (1.2, 2.9, 0.1, PRUIM_L), (0.9, 1.85, 0.08, PRUIM_L)]:
+        if x0 + dx < KAMERS[1][0] + 0.85 + 0.3:
+            continue   # niet in de kamer rechts boven de gang
+        bol("kiezel", (x0 + dx, -0.02, z), (r * 1.3, r * 0.6, r), m, 12)
 # een strook lichtere aarde net onder het gras
 blok("toplaag", ((X0 + X1) / 2, -0.01, MAAIVELD - 0.18), (X1 - X0, 0.04, 0.12), PRUIM_L)
 
 # ---------- gras bovenop ----------
-grasplak = blok("gras", ((X0 + X1) / 2, 0.75, MAAIVELD + 0.09), (X1 - X0, 1.6, 0.22), GRAS_D)
+# loopt ver naar achteren door, zodat het gras de rij 0 tot 8 helemaal vult (geen donkere band erboven)
+grasplak = blok("gras", ((X0 + X1) / 2, 1.4, MAAIVELD + 0.09), (X1 - X0, 2.9, 0.22), GRAS_D)
 afronden(grasplak, 0.08, 3)
 # gat in het gras boven de schacht
-uithollen(grasplak, blok("graspgat", (-11.0, 0.5, MAAIVELD), (1.2, 1.6, 1.0)))
+uithollen(grasplak, blok("graspgat", (-11.0, 0.5, MAAIVELD), (1.2, 1.6, 1.0)))  # alleen vooraan open
+GRAS_PATROON = [(random.uniform(0, KOL), random.uniform(-0.05, 0.55), random.uniform(0.12, 0.32),
+                 random.uniform(-0.3, 0.3), random.uniform(-0.35, 0.35), random.random() < 0.5) for i in range(11)]
+for k in range(-1, 3):   # rustig stuk: elke kolom hetzelfde gras
+    for (dx, y, h, rx, ry, licht) in GRAS_PATROON:
+        cil("spriet", (TEGEL_X + k * KOL + dx, y, MAAIVELD + 0.18 + h / 2), 0.05, h, GRAS if licht else GRAS_D,
+            rot=(rx, ry, 0), verts=4, r2=0.0)
+    for dx in (0.2, 0.65, 1.1, 1.55):
+        cil("rand", (TEGEL_X + k * KOL + dx, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
 for i in range(160):
     x = random.uniform(X0, X1)
-    if -11.7 < x < -10.3:
+    if -11.7 < x < -10.3 or x > TEGEL_X - KOL:
         continue
     y = random.uniform(-0.05, 0.55)
     h = random.uniform(0.12, 0.32)
@@ -167,16 +214,16 @@ for i in range(160):
 # gras hangt over de rand naar voren
 for i in range(60):
     x = random.uniform(X0, X1)
-    if -11.7 < x < -10.3:
+    if -11.7 < x < -10.3 or x > TEGEL_X - KOL:
         continue
     cil("rand", (x, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
-for x, m in [(-6.3, BLOEM), (-4.1, BLOEM_R), (4.6, BLOEM), (7.9, BLOEM_R), (-8.4, BLOEM_R), (10.2, BLOEM)]:
+for x, m in [(-6.3, BLOEM), (-4.1, BLOEM_R), (4.6, BLOEM), (7.9, BLOEM_R), (-8.4, BLOEM_R), (5.9, BLOEM)]:
     cil("steel", (x, 0.1, MAAIVELD + 0.38), 0.025, 0.4, GRAS_D, verts=6)
     bol("bloem", (x, 0.1, MAAIVELD + 0.6), (0.11, 0.11, 0.08), m, 12)
 # wortels die door het plafond van de gang hangen
-for x in (-8.6, -5.4, 6.2, 9.4):
+for x in (-8.6, -3.9, 6.2, 8.4):
     for k in range(3):
-        cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, 1.4 - k * 0.05), 0.035, 0.35 + 0.1 * k, WORTEL,
+        cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, GANG_TOP - 0.16 - k * 0.05), 0.035, 0.35 + 0.1 * k, WORTEL,
             rot=(0, random.uniform(-0.3, 0.3), 0), verts=6, r2=0.008)
 
 # ---------- vloer van kamer en gangen ----------
@@ -244,13 +291,13 @@ def fakkel(x, z, kracht=160):
 fakkel(-2.9, 1.65)
 fakkel(2.9, 1.65)
 fakkel(-7.2, 0.95, 90)
-fakkel(7.6, 0.95, 90)
+fakkel(5.0, 0.95, 90)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
 for kx, kz in KAMERS:
-    fakkel(kx + 0.55, kz - 0.15, 45)
-    blok("kamervloer", (kx, 0.7, kz - 0.6), (1.6, 1.4, 0.06), VLOER)
+    fakkel(kx + 0.45, kz - 0.15, 45)
+    blok("kamervloer", (kx, 0.7, kz - 0.6), (1.3, 1.4, 0.06), VLOER)
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")
-PUT_X = -6.0
+PUT_X = LINKS + 4.5 * KOL   # midden van kolom 4 (spelpixel 64 tot 80), zoals hol.gd een put in één kolom tekent
 uithollen(vloer, blok("put_gat_v", (PUT_X, 0.4, -0.2), (1.3, 2.0, 0.6)))
 uithollen(aarde, blok("put_gat_a", (PUT_X, 0.4, -0.25), (1.3, 2.0, 0.7)))
 blok("put_bodem", (PUT_X, 0.7, -0.52), (1.3, 1.5, 0.06), PRUIM_D)
@@ -280,9 +327,16 @@ for k in range(9):
 WEB = g.mat("web", "e8e0f0", rough=0.6, emis=0.3)
 for k in range(5):
     a = math.radians(-90 + k * 22)
-    cil("draad", (10.6 + 0.25 * math.cos(a), 0.4, 1.38 + 0.25 * math.sin(a) * 0.6), 0.008, 0.55, WEB,
+    cil("draad", (8.9 + 0.25 * math.cos(a), 0.4, GANG_TOP - 0.18 + 0.25 * math.sin(a) * 0.6), 0.008, 0.55, WEB,
         rot=(0, a + math.pi / 2, 0), verts=4)
-bol("spin", (10.6, 0.4, 1.0), (0.07, 0.06, 0.07), PRUIM_D, 10)
+bol("spin", (8.9, 0.4, GANG_TOP - 0.56), (0.07, 0.06, 0.07), PRUIM_D, 10)
+
+# egaal licht op het rustige stuk rechts (kolom 13 en 14): een lange lamp die voorbij beide randen loopt, zodat
+# het licht daar niet verloopt in x en de tegels naadloos naast elkaar passen. De fakkels vallen er zwak op.
+tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = 10.0; tl.size_y = 3.0
+tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT
+tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (TEGEL_X + KOL + 1.0, -3.0, 4.6)
+tlo.rotation_euler = (math.radians(52), 0, 0); sc.collection.objects.link(tlo)
 
 # ---------- Gloop van Daan erin (gloop.py ongewijzigd, alleen het model) ----------
 voor = set(bpy.data.objects)
@@ -301,12 +355,13 @@ for o in nieuw:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
         bpy.data.objects.remove(o, do_unlink=True)
         continue
+    o.name = "gloop_" + o.name   # zodat de pijplijn een laag zonder Gloop kan maken (HOL_VERBERG ["gloop"])
     if o.parent is None:
         o.location = Vector((o.location.x * GLOOP_S + GLOOP_X, o.location.y * GLOOP_S + GLOOP_Y, o.location.z * GLOOP_S + GLOOP_Z))
         o.scale = o.scale * GLOOP_S
 
 # ---------- camera en licht (gedeeld) ----------
-g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
+g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)
 g.licht()
 # Het gedeelde licht is gezet voor Gloop alleen. In het hol zat "koel" in de achterwand en gaf
 # "boven" een vlek op het gras. Zelfde richting en kleur, alleen verplaatst (Gloop krijgt evenveel licht).
