@@ -187,7 +187,8 @@ func _ready() -> void:
 		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
 	if demo:
 		hol.goud = KAARTJE.DEMO_GOUD
-	if proef_toren > 0 and slijm.has_method("krijg_hoed"):
+	if proef_toren > 0 and vers and slijm.has_method("krijg_hoed"):   # nooit op een echte save
+		volgende_held = 30.0   # eerste held later, zodat het scherm de vaste toren toont (controleur kan 3)
 		for i in proef_toren:
 			slijm.krijg_hoed(TOREN_PROEF[i])
 		log_regel("HOL toren proef: %d hoeden %s" % [proef_toren, str(TOREN_PROEF.slice(0, proef_toren))])

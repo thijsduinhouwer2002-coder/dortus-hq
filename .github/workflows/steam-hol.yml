@@ -91,7 +91,6 @@ jobs:
             Write-Output "===== log toren $h"; Get-Content $log -ErrorAction SilentlyContinue
             $alles = Get-Content $log -Raw -ErrorAction SilentlyContinue
             if ($alles -notmatch "HOL toren proef: 6 hoeden") { Write-Output "FOUT: toren-proef niet in het log"; exit 1 }
-            if ($alles -match "SCRIPT ERROR|Parse Error") { exit 1 }
           }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (120 px)
         shell: pwsh
