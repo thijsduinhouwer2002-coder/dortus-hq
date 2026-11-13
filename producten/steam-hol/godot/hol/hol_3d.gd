@@ -46,3 +46,25 @@ static func teken(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	var m: Array = s["maat"]
 	doek.draw_texture_rect_region(blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
+
+# 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
+# (de schacht houdt de pixeltegel als het 3D-stuk ingang ontbreekt; een open put of een put met gekochte stappen krijgt de
+# 3D-gang en de pixel-put erover, zodat je niet twee putten door elkaar ziet en het schudden van de koop te zien is)
+static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
+	if not h.met_3d or schat_3d and k >= h.schat_kol - 2 and k <= h.schat_kol:
+		return ""
+	if k == h.ingang_kol and not heeft("ingang"):
+		return ""
+	var naam := "aarde"
+	if r == 1 and h.gang[k]:
+		var put_niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+		naam = "put" if h.vallen.has(k) and not h.put_open.has(k) and put_niv == 0 and heeft("put") else "gang"
+	elif r == 0 and h.boven[k] and k != h.ingang_kol:
+		naam = "kamer_links" if k % 2 == 0 else "kamer_rechts"
+	return naam if heeft(naam) else ""
+
+# de schatkamer in 3D beslaat 3 kolommen en 2 rijen; alleen als het blad hem 48 breed heeft en de 3 kolommen open zijn
+static func schatkamer_aan(h) -> bool:
+	if not h.met_3d or h.schat_kol - 2 <= h.ingang_kol or not heeft("schatkamer"):
+		return false
+	return h.boven[h.schat_kol] and h.boven[h.schat_kol - 1] and h.boven[h.schat_kol - 2]

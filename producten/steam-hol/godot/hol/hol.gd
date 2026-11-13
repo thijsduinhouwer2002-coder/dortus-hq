@@ -285,25 +285,8 @@ func _open(r: int, k: int) -> bool:
 		return boven[k] or k == ingang_kol
 	return gang[k]
 
-# 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
-func _stuk_3d(r: int, k: int) -> String:
-	if not met_3d or _schatkamer_3d() and k >= schat_kol - 2 and k <= schat_kol:
-		return ""
-	var naam := "aarde"
-	if r == 1 and gang[k]:
-		naam = "put" if vallen.has(k) and HOL3D.heeft("put") else "gang"
-	elif r == 0 and boven[k] and k != ingang_kol:
-		naam = "kamer_links" if k % 2 == 0 else "kamer_rechts"
-	return naam if HOL3D.heeft(naam) else ""
-
-# de schatkamer in 3D beslaat 3 kolommen en 2 rijen; alleen als het blad hem 48 breed heeft en de 3 kolommen open zijn
-func _schatkamer_3d() -> bool:
-	if not met_3d or schat_kol - 2 <= ingang_kol or not HOL3D.heeft("schatkamer"):
-		return false
-	return boven[schat_kol] and boven[schat_kol - 1] and boven[schat_kol - 2]
-
-func _tegel(x: float, y: float, r: int, k: int) -> void:
-	var stuk := _stuk_3d(r, k)
+func _tegel(x: float, y: float, r: int, k: int, schat_3d := false) -> void:
+	var stuk := HOL3D.stuk(self, r, k, schat_3d)
 	if stuk != "" and HOL3D.teken(self, stuk, Vector2(x, y)):
 		return
 	if _open(r, k):
@@ -332,10 +315,10 @@ func _draw() -> void:
 		if h < 22 and k != ingang_kol and k <= max_kol + 1:
 			draw_texture_rect_region(MAAIVELD, Rect2(k * KOL, 0, KOL, OPP), Rect2((h % 5) * KOL, 0, KOL, OPP))
 	# twee rijen cellen
+	var schat_3d := HOL3D.schatkamer_aan(self)
 	for k in kolommen:
-		_tegel(k * KOL, OPP, 0, k)
-		_tegel(k * KOL, GANG_BOVEN, 1, k)
-	var schat_3d := _schatkamer_3d()
+		_tegel(k * KOL, OPP, 0, k, schat_3d)
+		_tegel(k * KOL, GANG_BOVEN, 1, k, schat_3d)
 	if schat_3d:
 		HOL3D.teken(self, "schatkamer", Vector2((schat_kol - 2) * KOL, OPP))
 	for k in kolommen:
@@ -344,13 +327,14 @@ func _draw() -> void:
 			var kx := k * KOL + (1 if k > 0 and gang[k - 1] else KOL - 2)
 			for y in range(GANG_BOVEN + 3, GANG_BOVEN + KOL - 2, 3):
 				draw_rect(Rect2(kx, y, 1, 1), Color("#c9a27a"))
-	# net gegraven cellen: de aarde brokkelt weg (over de open tegel heen, onder de figuren)
-	for c in brokkel:
-		_brokkel(c, float(brokkel[c]))
-	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft)
+	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft); voor het brokkelen,
+	# want het 3D-stuk is 16 x 40 en dekkend en schoof anders over de net gegraven kolom heen (controleur 13 nov)
 	var ix := _ingang_x()
 	if not (met_3d and HOL3D.teken(self, "ingang", Vector2(ix, 0))):
 		draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
+	# net gegraven cellen: de aarde brokkelt weg (over de open tegel heen, onder de figuren)
+	for c in brokkel:
+		_brokkel(c, float(brokkel[c]))
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren
 	for k in range(ingang_kol + 1, schat_kol - 1):
 		var h := _hash(k, 7)
@@ -369,11 +353,10 @@ func _draw() -> void:
 	var sx := 0
 	if put_schud > 0.0:
 		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])
-	var put_3d := met_3d and HOL3D.heeft("put")
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
-		if put_3d and put_niv == 0 and f == 0:
-			continue   # dichte put zit al in het 3D-stuk; open (na een klap) en gekochte stappen blijven pixels erover
+		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
+			continue   # deze dichte put zit al in het 3D-stuk; open (na een klap) en gekochte stappen blijven pixels erover
 		if put_niv > 0:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
