@@ -326,6 +326,49 @@ def doorzichtig_b():
             b.data.materials[i] = glas
 
 
+def kijk(zij_lidas, hoogte, naar=None):
+    """Camera om de knie: zij_lidas graden van H naar de lidas, dan hoogte graden naar de buigkant (min = van onder)."""
+    a = staat.get("a")
+    _, gebied, _ = zijbalk()
+    if a is None or gebied is None:
+        return
+    rv3d = gebied.spaces.active.region_3d
+    h = Vector(a["cj_scharnier_as"]).normalized()
+    lidas = Vector(a["cj_as"]).normalized()
+    buig = Vector(a["cj_buigkant"]).normalized()
+    k = (h * math.cos(math.radians(zij_lidas)) + lidas * math.sin(math.radians(zij_lidas))).normalized()
+    k = (k * math.cos(math.radians(hoogte)) + buig * math.sin(math.radians(hoogte))).normalized()
+    rv3d.view_rotation = k.to_track_quat("-Z", "Y")
+    gebied.tag_redraw()
+
+
+def inzoom(factor):
+    """Na kader: dichter op de knie (Daan moet 4), het punt van H schuift naar het midden met dezelfde factor."""
+    a = staat.get("a")
+    _, gebied, _ = zijbalk()
+    if a is None or gebied is None or factor >= 1.0:
+        return
+    rv3d = gebied.spaces.active.region_3d
+    c = Vector(a["cj_scharnier_punt"])
+    rv3d.view_location = rv3d.view_location.lerp(c, 1.0 - factor)
+    rv3d.view_distance *= factor
+    gebied.tag_redraw()
+
+
+def exploded(factor):
+    """Afstand van Exploded view in de opname (Daan moet 2): de factor van de add-on alleen tijdens deze sessie."""
+    _mod("uit_elkaar").FACTOR = factor
+    bpy.context.scene.click_joints.uit_elkaar = False
+    bpy.context.scene.click_joints.uit_elkaar = True
+
+
+# Proeven: (naam, soort, zij_lidas, hoogte, inzoom of exploded-factor)
+PROEF13 = [("p13-a", 20, -20, 0.85), ("p13-b", 25, -35, 0.85), ("p13-c", 35, -15, 0.75)]
+PROEF14B = [("p14b-a", 15, 10, 2.5), ("p14b-b", 30, 25, 2.5), ("p14b-c", -25, 20, 2.5), ("p14b-d", 15, -25, 2.5)]
+KIJK13 = (20, -20, 0.85)
+KIJK14B = (15, 10, 2.5)
+
+
 def kijk_van_boven():
     """Op 14 meer van de buigkant (boven) op de stop, zodat het rode stopvlak van A door B heen als vlak leest."""
     a = staat.get("a")
@@ -356,7 +399,9 @@ def stap():
         staat["rood13"] = zet(POSE)
         return 2.0
     if n == 3:
+        kijk(KIJK13[0], KIJK13[1])
         kader()
+        inzoom(KIJK13[2])
         return 1.5
     if n == 4:
         schiet("13-pro-knie-schoon.png")
@@ -387,8 +432,9 @@ def stap():
             for i, m in enumerate(b.data.materials):
                 if m is not None and m.name == "Hout doorzichtig":
                     b.data.materials[i] = bpy.data.materials.get("Hout") or m
-        bpy.context.scene.click_joints.uit_elkaar = True
+        exploded(KIJK14B[2])
         staat["rood14b"] = zet(staat["voorbij"])
+        kijk(KIJK14B[0], KIJK14B[1])
         return 2.0
     if n == 8:
         kader()
@@ -396,6 +442,28 @@ def stap():
     if n == 9:
         schiet("14b-pro-knie-rood-los.png")
         verslag("14b-pro-knie-rood-los-x.png", "rood-los", staat["voorbij"], staat["rood14b"], True)
+        staat["proef"] = [("14b",) + p for p in PROEF14B] + [("13",) + p for p in PROEF13]
+        return 0.5
+    proef = staat.get("proef") or []
+    if proef and n % 2 == 0:
+        soort, naam, zl, hg, f = proef[0]
+        if soort == "13":
+            bpy.context.scene.click_joints.uit_elkaar = False
+            zet(POSE)
+            wm.cj_scharnier_boog = False
+            kijk(zl, hg)
+            kader()
+            inzoom(f)
+        else:
+            exploded(f)
+            zet(staat["voorbij"])
+            kijk(zl, hg)
+            kader()
+        return 1.5
+    if proef:
+        soort, naam, *_ = proef.pop(0)
+        schiet(naam + ".png")
+        log(f"PRO proef {naam}")
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
