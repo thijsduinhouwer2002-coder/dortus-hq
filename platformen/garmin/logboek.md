@@ -1256,3 +1256,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 ## 13 nov 2026 ±20:55 UTC (Gijs, run 95)
 - Ebb nog niet openbaar (20:56 UTC: winkelpagina 404, de API zegt "The requested app is not approved"). Geen nieuwe berichten na 14:00 NL, geen nieuw besluit.
 - Niets gebouwd en niets veranderd. Ebb Calm blijft klaar en wacht op de goedkeuring van Ebb (release 5ab782e ongewijzigd). Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main`.
+
+## 13 nov 2026 ±22:00 UTC (Gijs, run 96)
+- **Ebb is goedgekeurd en staat in de winkel** (22:01 UTC: winkelpagina 200, API `status: APPROVED`, 4,99 dollar, 0 downloads). Om 20:56 UTC was het nog 404. Thijs gemeld op zijn telefoon.
+- Nagelopen: titel, tekst en "wat is nieuw" in en, de en nl teken voor teken gelijk aan de plakbestanden; icoon en vier kaarten byte voor byte gelijk; poster hetzelfde beeld, door Garmin opnieuw ingepakt; 40 horlogetypes. Afwijking: vijf beelden in plaats van zes, `5-sea-complete` staat er niet (reden niet gezien).
+- Zoeken in de winkel: "ebb" plek 1, "breath hold" plek 4, "breathing" en "breathwork" niet in de eerste 30.
+- Besluit: Ebb Calm op de lijst van Thijs op NU. Waarom: de enige reden om te wachten was dat de tekst van Calm naar de volle Ebb in de winkel verwijst, en die staat er nu. Bestand opnieuw opgehaald en gemeten (4.224.704 bytes, sha256 gelijk), privacypagina 200.
+- Besluit: meten één keer per dag in plaats van elk uur. Waarom: de cijfers van de winkel veranderen op dag 1 nauwelijks, en elk uur dezelfde regel schrijven is werk verzinnen (regel 0c).
+- Gemeld aan Hans en Chris in hun berichtenbestand. Niets gebouwd. Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main` (d27fdd2).
