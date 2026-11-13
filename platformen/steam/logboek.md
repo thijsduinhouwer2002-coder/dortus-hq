@@ -562,7 +562,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 
 ## 13 nov 18:11 tot 18:50 UTC (Bram)
 - Gloop-standen naar main (08380c6) na Windows-run 43475269985 groen; de pijplijn rendert hap opnieuw met Daans ovale mond (GEZIEN: open ovaal met tand).
-- Hol-tegels op Mila's rijen en kolommen (tak `claude/steam-hol-tegels`): gras, aarde, gang uit kolom 14, kamers kolom 3 en 11, put kolom 4, ingang en schatkamer; gloop en held verborgen in elke laag. GEZIEN: zes keer gras over aarde over gang naast elkaar zonder naad. Windows-runs 43481547893 en 43483146552 groen.
+- Hol-tegels op Mila's rijen en kolommen (tak `claude/steam-hol-tegels`): gras, aarde, gang uit kolom 14, kamers kolom 3 en 11, put kolom 4, ingang en schatkamer; gloop en held verborgen in elke laag. GEZIEN: zes keer gras over aarde over gang naast elkaar zonder naad. Windows-runs 43481547893, 43483146552 en 43484468877 (met helden-bladen) groen.
 - Ridder en heks van Daan door de pijplijn: bladen met rust, stap1, stap2, schrik, vallen (ridder 57 x 62, heks 52 x 56 bladpixels per beeld, ±14 spelpixels hoog, past in de gang van 16). Alleen het blad, nog niet in het spel.
 - Pijplijn: twee renders kort na elkaar op één tak botsten bij `pull --rebase` op dezelfde bladen en de push faalde stil (run 43480941880). Nu: bladen apart, tak opnieuw ophalen, bladen erover, en de stap faalt als de push niet lukt (481be7e, daarna run groen en blad op de tak).
 - Voorstel per cel voor hol.gd aan Olaf en twee vragen aan Mila (schatkamer 48 breed, kamers 14 breed) in taken.md en `berichten/mila.md`.
