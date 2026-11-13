@@ -1,0 +1,4 @@
+metingen van 10 s: 358
+CPU-s per 10 s: gemiddeld 0.554, mediaan 0.547, laagste 0, hoogste 1.344
+geheugen aan het eind: 34 MB
+proces leefde tot het eind: True
