@@ -294,7 +294,7 @@ bron = open(os.path.join(HIER, "gloop.py"), encoding="utf-8").read()
 begin = bron.index("# ---------- lijf")
 eind = bron.index("# ---------- camera")
 stuk = bron[begin:eind]
-ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": GLOOP_V, "HOEDEN": HOEDEN, "sys": sys, "os": os}
+ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": GLOOP_V, "HOEDEN": HOEDEN, "STAND": os.environ.get("GLOOP_STAND", "rust"), "sys": sys, "os": os}
 # de hulpjes bol en kegel uit gloop.py
 hulp = bron[bron.index("def bol("):begin]
 exec(hulp, ns)
@@ -325,12 +325,17 @@ else:
 WINKEL = os.environ.get("WINKEL") == "1"
 if WINKEL:
     held.bouw("heks", "schrik", plek=(-1.75, 0.45, 0.02), draai=55, schaal=0.85, gloed=30, rand=40)
+    held.bouw("ridder", "schrik", plek=(-3.05, 0.3, 0.02), draai=40, schaal=0.85, gloed=30, rand=40)
+    # warm licht op het hele moment, zodat de figuren loskomen (kijker: "meer contrast, sterkere lichtbron")
+    wl = bpy.data.lights.new("winkellicht", "AREA"); wl.energy = 260; wl.size = 3.0; wl.color = (1.0, 0.88, 0.75)
+    wo = bpy.data.objects.new("winkellicht", wl); wo.location = (-1.0, -3.5, 3.0)
+    wo.rotation_euler = (math.radians(55), 0, 0); sc.collection.objects.link(wo)
 # ---------- camera en licht (gedeeld) ----------
 cam = g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
 if WINKEL:
-    cam.data.ortho_scale = 6.6
-    cam.location.x = -1.2
-    cam.location.z -= 0.75
+    cam.data.ortho_scale = float(os.environ.get("WINKEL_SCHAAL", "5.8"))
+    cam.location.x = -0.95
+    cam.location.z -= 0.7
 g.licht()
 # Het gedeelde licht is gezet voor Gloop alleen. In het hol zat "koel" in de achterwand en gaf
 # "boven" een vlek op het gras. Zelfde richting en kleur, alleen verplaatst (Gloop krijgt evenveel licht).

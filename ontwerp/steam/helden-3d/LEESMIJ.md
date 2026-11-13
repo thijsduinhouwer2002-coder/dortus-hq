@@ -53,7 +53,12 @@ Mijn les: de helden moeten niet mooier worden dan Gloop, maar wel eigen. Gloop b
 `winkel-closeup-proef1.png` (1280 x 720, `WINKEL=1` in `hol_met_helden_proef.py`): de heks schrikt vlak voor Gloop met helm en kroon op zijn goud. Eigen oordeel (GEZIEN): dit is het eerste beeld dat in één tel het spel vertelt en waar Gloop groot en schattig in staat; precies wat de frisse kijker vroeg. Moet nog: onderste vijfde is lege vloer (camera iets omlaag of strakker), bezemborstel hangt over de hoedrand, de ridder in de put valt buiten beeld, gras bovenaan afgesneden. Geen winkelplaatje nog, wel de richting voor het blad van ma 16 nov.
 Gloop: de bolletjes van de kroon zweefden boven de punten (rekenfout bij de kanteling), nu precies op de punt (`gloop.py`).
 
+## Frisse kijker ronde 3 en close-up proef 2 (13 nov, ±17:05 UTC)
+Kijker (alleen de plaatjes): close-up 1 "schattige, luchtige dungeon- of verzamelgame ... het tovenaartje betrapt de slijm", 6 van 10, "erg rustig, ik zie niet wat je doet; linkerkant leeg, bovenrand zonde, meer contrast en een sterkere lichtbron op de figuren". Figuren ronde 3: 7 van 10 (ronde 2: 6,5), "schattig en goed gemaakt, wel vrij generiek". Klein: "ik herken wie wie is, alleen aan kleur en silhouet: rode stip en wit-blauw, paarse punt en oranje"; de vallende ridder is klein onleesbaar.
+Verwerkt in `winkel-closeup-proef2.png`: Gloop in stand hap (`GLOOP_STAND=hap`), twee geschrokken helden, warm vlaklicht op het moment (`winkellicht`), camera strakker zonder grasband. Eigen oordeel (GEZIEN): dit is een moment met spanning en Gloop is de ster; bruikbaar als richting voor de capsule. Nog: Gloops mond kan wijder (hap leest als lach), titel en logo ontbreken, de vallende ridder moet in het spel een grotere houding krijgen (armen wijd, benen omhoog) om op 25 px te lezen.
+
 ## Volgende ronde (Daan)
+0. Vallen grover maken (armen wijd, benen omhoog, schild weg uit beeld) en op 25 px toetsen; hap van Gloop wijder.
 1. (Heks: bezem gedaan in ronde 3.) Eigen trek per held, zoals Gloops munt: bijvoorbeeld een ridder met te grote helm die over zijn ogen zakt, een heks met een bezem in plaats van een staf. Silhouet eerst, op 25 px toetsen.
 2. Minder glans op lijf en huid (rough omhoog), een matte speelgoedlak in plaats van plastic.
 3. Wachten op Mila's besluit over de gang (1,9); daarna schaal 0.85 proberen.
