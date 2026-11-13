@@ -3,6 +3,6 @@ HOL opslag geladen: 0 terugkomers, 20 goud
 HOL demo: speeltijd 15 s, grens 10 s
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek 4.0 (wacht 0.0): Odo has a map. It is wrong.
-HOL begin: vluchten (Odo)
+HOL kroniek 4.0 (wacht 0.0): Mara has a map. It is wrong.
+HOL begin: vluchten (Mara)
 HOL einde na 8 s, fps=15, goud=20, terugkomers=0
