@@ -11,6 +11,9 @@ const SCHATKAMER_B := 48
 static var blad: CanvasTexture = null
 static var stukken := {}
 static var gezocht := false
+# losse versiering op een doorzichtig blad (Bram 13 nov 23:30, Daan 22:55): fakkel, ladder; zelfde schaal en licht
+static var deco_blad: CanvasTexture = null
+static var deco := {}
 
 static func laad() -> void:
 	if gezocht:
@@ -19,7 +22,15 @@ static func laad() -> void:
 	if not FileAccess.file_exists(JSON_PAD):
 		return
 	var d = JSON.parse_string(FileAccess.get_file_as_string(JSON_PAD))
-	if typeof(d) != TYPE_DICTIONARY or not d.has("hol_proef"):
+	if typeof(d) != TYPE_DICTIONARY:
+		return
+	if d.has("deco") and typeof(d["deco"]) == TYPE_DICTIONARY and d["deco"].has("stukken") \
+			and ResourceLoader.exists(str(d["deco"].get("blad", ""))):
+		deco_blad = CanvasTexture.new()
+		deco_blad.diffuse_texture = load(str(d["deco"]["blad"]))
+		deco_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		deco = d["deco"]["stukken"]
+	if not d.has("hol_proef"):
 		return
 	var info: Dictionary = d["hol_proef"]
 	if not info.has("stukken") or not ResourceLoader.exists(str(info.get("blad", ""))):
@@ -46,6 +57,22 @@ static func teken(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	var m: Array = s["maat"]
 	doek.draw_texture_rect_region(blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
+
+# Versiering uit het deco-blad met de linkerbovenhoek op `plek`, op zijn eigen maat. false = niet getekend (dan pixels).
+static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
+	laad()
+	if deco_blad == null or not deco.has(naam):
+		return false
+	var v: Array = deco[naam]["vak_px"]
+	var m: Array = deco[naam]["maat"]
+	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
+	return true
+
+static func deco_maat(naam: String) -> Vector2:
+	laad()
+	if not deco.has(naam):
+		return Vector2.ZERO
+	return Vector2(deco[naam]["maat"][0], deco[naam]["maat"][1])
 
 # 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
 # (de schacht houdt de pixeltegel als het 3D-stuk ingang ontbreekt; een open put of een put met gekochte stappen krijgt de
