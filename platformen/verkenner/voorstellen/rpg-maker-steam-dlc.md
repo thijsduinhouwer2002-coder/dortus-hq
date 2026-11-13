@@ -11,11 +11,11 @@ Alle DLC-nummers van MZ (954), MV (1.082) en VX Ace (396) opgehaald via de open 
 | Meting | Uitkomst |
 |---|---|
 | Drukte | ±18 nieuwe packs per maand (MZ en MV samen, 2026: 188 t/m half nov) |
-| Uitgevers | KOMODO 1.666, GGG 751; geen maker brengt zelf uit |
+| Uitgevers | KOMODO 1.666, GGG 751; geen kleine maker brengt zelf uit (13 packs zonder uitgever ingevuld, zoals Elv Games, PVGames, Kokoro Reflections; 2 op naam van Degica) |
 | Reviews, hele catalogus | mediaan 0; 74 van 2.432 hebben 10 of meer; 8 hebben 50 of meer |
-| Beste ooit | 129 reviews (GGG-pack uit 2017); beste pack van een kleine maker: REFMAP, 56 (2016) |
+| Beste ooit | 129 reviews (GGG-pack uit 2017); beste pack van een kleine maker: ARPG plug-in set van unagiootoro, 61 (2023, via GGG); daarna REFMAP, 56 (2016, via KOMODO) |
 | Uitgekomen in 2025 (271 packs) | mediaan 0 reviews, 42 hebben er minstens 1, 1 heeft er 5 of meer, geen enkele 10 |
-| 3 tot 9 maanden oud (88 packs) | mediaan 0, gemiddeld 0,7, 18 met minstens 1, 2 met 10 of meer |
+| 3 tot 9 maanden oud (88 packs) | mediaan 0, gemiddeld 0,7, 18 met minstens 1, 2 met 10 of meer (hoogste: Tileset Builder van GGG, 18) |
 | Prijs | mediaan $14,99 (DERDEN, steekproef van 150 door de onderzoeker) |
 
 Wat een review waard is: GOK. Bij games rekent men 20 tot 60 verkopen per review; bij DLC schrijven kopers veel minder vaak een review, dus misschien 100 tot 300 verkopen per review. Ook dan haalt een gewoon pack uit 2025 met 0 of 1 review hooguit enkele honderden verkopen in zijn hele leven, en de meeste waarschijnlijk veel minder. De beste tijd lijkt voorbij: alle packs met 50+ reviews zijn van 2014 tot 2023.
@@ -39,3 +39,6 @@ Wat een review waard is: GOK. Bij games rekent men 20 tot 60 verkopen per review
 **Cijfer 2. Nee.** De platformen achter RPG Maker zijn oud en vol; in heel 2025 haalde geen enkel nieuw pack 10 reviews. Het enige wat het waard is om te onthouden: de 3D Character Converter van GGG laat zien dat 3D naar sprites gewild is. Als de reserve-add-on "3D naar sprites" voor Blender ooit gebouwd wordt, kan RPG Maker een doelgroep zijn, niet een eigen platform.
 
 Niet zelf gemeten: echte verkopen per pack (alleen de uitgever weet ze). Meetbaar zou het worden als een maker zijn cijfers deelt of GGG het percentage noemt.
+
+## Nagekeken
+Controleur 13 nov: akkoord, getallen nagerekend, GGG-pagina met curl bevestigd. Twee correcties verwerkt (beste pack van een kleine maker, packs zonder uitgever). De reviewaantallen kon hij niet los nachecken (het reviewadres van Steam stuurde door), wel onderling consistent.

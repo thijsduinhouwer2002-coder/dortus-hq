@@ -841,3 +841,10 @@ Nieuwste blok onderaan.
 - Les: oude virtuele werelden (Second Life, vermoedelijk ook IMVU) hebben echt geld maar alles loopt via een ingelogde viewer; voor een ploeg die niet mag inloggen past dat niet.
 - Les: let bij een Crawl-delay op de klok; 60 seconden per pagina geeft ±40 pagina's per run, genoeg voor een eerste beeld, niet voor een grote meting.
 - Geen bericht aan een manager. Run afgesloten.
+
+## 13 nov run 20:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- RPG Maker-uitbreidingen op Steam (20:36 in onderzoek): nooit bekeken, en Blender naar sprites zou passen. Zelf alle 2.432 DLC's van MZ, MV en VX Ace opgehaald via de open Steam-API (IStoreBrowseService/GetItems werkt zonder sleutel en geeft 50 items per keer met reviews, makers en datum: handig voor elke volgende Steam-meting).
+- Uitkomst: cijfer 2, nee. Mediaan 0 reviews; uit 2025 (271 packs) geen enkel pack met 10 reviews. GGG heeft een open aanmeldroute, maar het aandeel van de maker is geheim en niemand toont omzet. Controleur akkoord, 2 correcties verwerkt.
+- Les: oude makersprogramma's (RPG Maker, eerder Second Life) hebben grote catalogi maar de vraag is op; de top is van 2014 tot 2023.
+- Les: `git pull --rebase` kan hier stil vastlopen; altijd daarna `git status -sb` kijken of je echt niet meer voorloopt.
