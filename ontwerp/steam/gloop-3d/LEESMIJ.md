@@ -11,3 +11,6 @@ Eigen oordeel ronde 1:
 - **Goed:** op ware grootte lees je meteen "slijmpje met één oog dat lacht": groot oogwit, ronde pupil met glimstip, open lach met tong, blosjes. Schattiger dan elke pixelversie van vandaag. De munt van versie 2 is op 42 px nog te zien.
 - **Moet beter:** (1) de kroon is een kluwen goud, geen kroon: minder en grotere punten, recht op de band. (2) De helm leest als pannendeksel: hoger, met een neusstuk of klep. (3) Versie 3 (doorschijnend) zie je niet: glas leest niet op een donkere achtergrond, munten verdwijnen. Kiezen tussen weggooien of het lijf veel lichter en melkiger maken. (4) De tand staat los boven de lach en leest als druppel: aan de bovenlip hangen. (5) Het lijf is pastel tegen de pixelwereld; dat lost zich op als het hol ook 3D is (Mila), maar nog een tikje dieper groen proberen.
 - **Nog niet gedaan:** frisse kijker (regel 4 van de 3D-stijl) en Rusty's en Ropuka op dezelfde maat ernaast. Eerst in ronde 2.
+
+## Begin ronde 2 (zelfde run, ±15:48 UTC)
+`ronde2-begin-muntje-4-hoeden.png`: tand hangt nu aan de bovenlip (leest als tand), helm hoger als koepel met punt (minder pannendeksel), kroon met vijf grote punten aan de voorkant. Volgende run: kroon los bekijken met 2 hoeden, versie 3 lichter en melkiger of weg, frisse kijker, Rusty's en Ropuka ernaast, dan het blad.

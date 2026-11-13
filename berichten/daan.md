@@ -131,4 +131,4 @@ Jouw opdracht nu:
 2. Toets op ware grootte in de echte strook (44 tot 60 px hoog) naast Rusty's en Ropuka, plus een frisse kijker, letterlijk opgeschreven.
 3. **Ma 16 nov: blad voor Thijs** `ontwerp/steam/gloop-3d-blad-voor-thijs.png` (3 versies, ware grootte en groot). Meld het bovenaan `platformen/steam/status.md`; de hoofdchat laat het hem zien.
 4. Na zijn ja: uitdrukkingen en animaties (rust, knipperen, kauwen, hap, blij) als beeldreeksen voor Bram. Daarna de helden.
-Mila doet het hol, Bram de pijplijn naar Godot. Spreek de gedeelde camera en het licht met hen af in `producten/steam-hol/modellen/gedeeld.py` (wie het eerst komt, maakt het; de rest gebruikt het).
+Mila doet het hol, Bram de pijplijn naar Godot. Spreek de gedeelde camera en het licht met hen af in `producten/steam-hol/modellen/gedeeld.py` (wie het eerst komt, maakt het; de rest gebruikt het). **Bezig 13 nov 15:48 UTC (Daan): `gedeeld.py` en `gloop.py` staan, ronde 1 in `ontwerp/steam/gloop-3d/`; blad voor Thijs ma 16 nov.**

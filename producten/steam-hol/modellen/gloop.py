@@ -67,8 +67,8 @@ snij.scale = (0.8, 0.5, 0.32); snij.rotation_euler = (0, math.radians(-10), 0); 
 m1 = mond.modifiers.new("snij", "BOOLEAN"); m1.object = snij; m1.operation = "DIFFERENCE"
 mond.scale = (1.15, 1.0, 0.85)
 bol("tong", (0.0, -1.03, 0.37), (0.15, 0.06, 0.07), g.mat("tong", "tong", rough=0.4))
-bpy.ops.mesh.primitive_cube_add(size=1, location=(0.13, -1.13, 0.53)); tand = bpy.context.object
-tand.scale = (0.09, 0.05, 0.10); tand.rotation_euler = (0, math.radians(-10), 0)
+bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565)); tand = bpy.context.object
+tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
 bev = tand.modifiers.new("rond", "BEVEL"); bev.width = 0.02; bev.segments = 3
 tand.data.materials.append(g.mat("tand", "tand", rough=0.3))
 # blosjes
@@ -112,21 +112,23 @@ hoeden = []
 if HOEDEN >= 1:   # helm van de ridder
     staal = g.mat("staal", "staal", rough=0.28, spec=0.8, metaal=0.85)
     bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=24, location=(x, 0, z))
-    helm = bpy.context.object; helm.scale = (0.62, 0.62, 0.42); helm.rotation_euler = (0, math.radians(kantel), 0)
+    helm = bpy.context.object; helm.scale = (0.6, 0.6, 0.55); helm.rotation_euler = (0, math.radians(kantel), 0)
     bpy.ops.object.shade_smooth(); helm.data.materials.append(staal)
     bpy.ops.mesh.primitive_cube_add(size=1, location=(x, 0, z - 0.3)); sn = bpy.context.object
     sn.scale = (2, 2, 0.6); sn.hide_render = True; sn.hide_viewport = True
     bm = helm.modifiers.new("snij", "BOOLEAN"); bm.object = sn; bm.operation = "DIFFERENCE"
     kegel("helmrand", (x, 0, z + 0.01), 0.68, 0.68, 0.07, staal, kantel)
-    kegel("helmpunt", (x - 0.03, 0, z + 0.48), 0.06, 0.0, 0.14, staal, kantel)
-    z += 0.38; x -= 0.03; kantel = 9
+    kegel("helmpunt", (x - 0.03, 0, z + 0.6), 0.07, 0.0, 0.18, staal, kantel)
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(x + 0.02, -0.62, z - 0.02)); neus = bpy.context.object
+    neus.scale = (0.08, 0.05, 0.22); neus.data.materials.append(staal)
+    z += 0.5; x -= 0.03; kantel = 9
 if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
     kr = g.mat("kroon", "goud", rough=0.16, spec=1.0, metaal=0.9, emis=0.1)
     kegel("kroonband", (x, 0, z + 0.1), 0.40, 0.42, 0.2, kr, kantel)
-    for i in range(8):
-        a = math.radians(i * 45 + 22.5)
-        px, py = x + 0.36 * math.cos(a), 0.36 * math.sin(a)
-        kegel("kroonpunt", (px, py, z + 0.3), 0.075, 0.0, 0.22, kr, kantel, verts=16)
+    for i in range(5):
+        a = math.radians(200 + i * 35)
+        px, py = x + 0.37 * math.cos(a), 0.37 * math.sin(a)
+        kegel("kroonpunt", (px, py, z + 0.32), 0.11, 0.0, 0.26, kr, kantel, verts=4)
     bol("steen", (x, -0.43, z + 0.1), (0.07, 0.035, 0.07), g.mat("robijn", "rood", rough=0.1, emis=0.3))
     z += 0.26; x += 0.05; kantel = -11
 if HOEDEN >= 3:   # heksenhoed: breed en paars met een gouden band, punt knakt
