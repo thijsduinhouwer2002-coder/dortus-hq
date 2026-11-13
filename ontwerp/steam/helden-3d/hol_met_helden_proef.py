@@ -324,8 +324,8 @@ else:
 # een close-up"): heks schrikt vlak voor Gloop, de ridder valt in de put op de achtergrond.
 WINKEL = os.environ.get("WINKEL") == "1"
 if WINKEL:
-    held.bouw("heks", "schrik", plek=(-1.75, 0.45, 0.02), draai=55, schaal=0.85, gloed=30, rand=40)
-    held.bouw("ridder", "schrik", plek=(-3.05, 0.3, 0.02), draai=40, schaal=0.85, gloed=30, rand=40)
+    held.bouw("heks", "schrik", plek=(-1.75, 0.45, 0.02), draai=30, schaal=0.85, gloed=30, rand=40)
+    held.bouw("ridder", "schrik", plek=(-3.05, 0.3, 0.02), draai=25, schaal=0.85, gloed=30, rand=40)
     # warm licht op het hele moment, zodat de figuren loskomen (kijker: "meer contrast, sterkere lichtbron")
     wl = bpy.data.lights.new("winkellicht", "AREA"); wl.energy = 260; wl.size = 3.0; wl.color = (1.0, 0.88, 0.75)
     wo = bpy.data.objects.new("winkellicht", wl); wo.location = (-1.0, -3.5, 3.0)

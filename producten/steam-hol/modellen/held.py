@@ -129,7 +129,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     for kant in (-1, 1):
         ox = 0.13 * kant
         _bol(ouder, hk(ox, -0.29, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
-        kijk = 0.025 if not bang else 0.0
+        kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
         _bol(ouder, hk(ox + kijk, -0.33, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
         _bol(ouder, hk(ox + kijk + 0.025, -0.355, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
         _bol(ouder, hk(0.22 * kant, -0.26, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
