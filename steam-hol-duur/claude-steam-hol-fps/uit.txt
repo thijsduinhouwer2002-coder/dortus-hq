@@ -1,0 +1,66 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API OpenGL ES 3.0.0 (ANGLE 2.1.1 git hash: 468fcbe033fa) - Compatibility - Using Device: Google Inc. (Microsoft) - ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.33648)
+
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Rik climbs into your hole.
+HOL begin: vallen (Rik)
+HOL kroniek 15.1 (wacht 0.0): Rik left gold and one boot. +6
+HOL kroniek 17.7 (wacht 2.6): Page for the Hero. The pit got him.
+HOL kroniek 45.5 (wacht 0.0): Tibbe is here for your gold.
+HOL begin: vluchten (Tibbe)
+HOL kroniek 63.7 (wacht 0.0): Tibbe escaped with a limp.
+HOL kroniek 66.3 (wacht 2.6): New stamp for the Hero. He got away.
+HOL kroniek 83.2 (wacht 0.0): Gerda says this is a quick one.
+HOL begin: opgegeten (Gerda)
+HOL kroniek 96.4 (wacht 0.0): Gloop ate Gerda. Kept the crown. +6
+HOL kroniek 99.0 (wacht 2.6): New stamp for the Hero. Gloop got him.
+HOL kroniek 122.9 (wacht 0.0): Tibbe limps back to the Spike Pit.
+HOL begin: terug (Tibbe)
+HOL kroniek 134.0 (wacht 0.0): Tibbe came back. The Spike Pit won. +9
+HOL kroniek 167.2 (wacht 0.0): Mara knocks first. Polite.
+HOL begin: doorlopen (Mara)
+HOL kroniek 179.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 182.3 (wacht 0.0): Mara touched your hoard!
+HOL kroniek 195.8 (wacht 0.0): Mara ran off, giggling.
+HOL kroniek 211.3 (wacht 0.0): Mara the Hoard-Toucher is back for Gloop.
+HOL kroniek 221.1 (wacht 0.0): Mara stays forever. +9
+HOL eerste koop mogelijk na 221 s speeltijd (goud 50)
+HOL kroniek 239.3 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 259.7 (wacht 0.0): Joost has a map. It is wrong.
+HOL kroniek 271.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 282.9 (wacht 0.0): Joost fled, crying a little.
+HOL kroniek 316.6 (wacht 0.0): Joost wrote a song about Gloop.
+HOL kroniek 331.7 (wacht 0.0): Joost licked a coin and ran.
+HOL kroniek 334.3 (wacht 2.3): Gloop is up again. Wobbly.
+HOL kroniek 345.2 (wacht 0.0): Joost ran. Hands smell of gold.
+HOL kroniek 357.7 (wacht 0.0): Fenna read about you in a tavern.
+HOL kroniek 375.8 (wacht 0.0): Fenna fled. Grudge: the Spike Pit.
+HOL kroniek 415.6 (wacht 0.0): Odo brought a torch. And hope.
+HOL kroniek 433.8 (wacht 0.0): Odo ran. Swore revenge.
+HOL kroniek 464.3 (wacht 0.0): Odo remembers the Spike Pit.
+HOL kroniek 478.6 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 489.6 (wacht 0.0): Odo left. Took nothing. Angry.
+HOL kroniek 519.8 (wacht 0.0): Pim climbs into your hole.
+HOL kroniek 538.0 (wacht 0.0): Pim fled. Grudge: the Spike Pit.
+HOL kroniek 540.5 (wacht 1.9): Gloop is up again. Wobbly.
+HOL kroniek 568.2 (wacht 0.0): Kees knocks first. Polite.
+HOL kroniek 586.3 (wacht 0.0): Kees escaped with a limp.
+HOL kroniek 621.9 (wacht 0.0): Lotte brought a torch. And hope.
+HOL kroniek 636.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 647.3 (wacht 0.0): Lotte fled, crying a little.
+HOL kroniek 681.2 (wacht 0.0): Bram says this is a quick one.
+HOL kroniek 692.3 (wacht 0.0): Bram will not be leaving. +6
+HOL kroniek 696.3 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 737.0 (wacht 0.0): Sir Wout is very slow. Very sure.
+HOL kroniek 749.6 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 752.1 (wacht 2.5): Booked: the Knight. Spikes: one.
+HOL kroniek 782.5 (wacht 0.0): Mara II climbs in. Family business.
+HOL kroniek 795.8 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL kroniek 836.7 (wacht 0.0): Mara III wants dad's boot back.
+HOL kroniek 854.8 (wacht 0.0): Mara III left. Took nothing. Angry.
+HOL kroniek 857.3 (wacht 2.5): New page: the Wizard. Ran off. Counts.
+HOL kroniek 884.7 (wacht 0.0): Wout II. Wout fell here once.
+HOL kroniek 896.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 907.9 (wacht 0.0): Wout II ran. Swore revenge.
+HOL einde na 930 s, fps=12, goud=68, terugkomers=3
