@@ -16,10 +16,6 @@ const OPP := 8           # maaiveld
 const GANG_BOVEN := 24   # bovenkant van de onderste rij (de gang)
 const GANG_ONDER := 38   # anker van een figuur: voeten op y 37, de bovenste vloerrij van Daans gangtegel
 
-const TEGELS := preload("res://kunst/tegels.png")
-const GRAS := preload("res://kunst/gras.png")
-const MAAIVELD := preload("res://kunst/maaiveld.png")
-const INGANG := preload("res://kunst/ingang.png")
 const SCHAT := preload("res://kunst/schat.png")
 const PUT := preload("res://kunst/stekelput.png")
 const FAKKEL := preload("res://kunst/fakkel.png")
@@ -31,6 +27,10 @@ const PUT_UPG := preload("res://kunst/stekelput_upgrades.png")     # Mila 03:05:
 # blad staat valt per cel terug op de pixeltegel.
 const HOL3D := preload("res://hol/hol_3d.gd")
 var met_3d := true
+# Het vaste deel van het hol in een eigen beeld (hol/hol_vast.gd). Uit = elk beeld alles opnieuw, zoals voor 13 nov.
+const HOLVAST := preload("res://hol/hol_vast.gd")
+var met_vast := true
+var vast
 
 var kolommen := 0
 var gang: Array[bool] = []    # onderste rij
@@ -60,6 +60,10 @@ func maak(breedte_spelpixels: int) -> void:
 		boven[i] = false
 	_schatkamer()
 	vallen[7] = "stekelput"
+	vast = HOLVAST.new()
+	vast.h = self
+	if met_vast:
+		vast.maak_in(self)
 	queue_redraw()
 
 # leg het begin-hol aan met de schat op kolom s (rechts, tegen het tekstvak) en de ingang lengte kolommen ervoor
@@ -285,68 +289,21 @@ func _open(r: int, k: int) -> bool:
 		return boven[k] or k == ingang_kol
 	return gang[k]
 
-func _tegel(x: float, y: float, r: int, k: int, schat_3d := false) -> void:
-	var stuk := HOL3D.stuk(self, r, k, schat_3d)
-	if stuk != "" and HOL3D.teken(self, stuk, Vector2(x, y)):
-		return
-	if _open(r, k):
-		var n := r == 0 or not _open(0, k)
-		if r == 0 and k == ingang_kol:
-			n = false   # de schacht loopt door naar boven
-		var s := r == 0 and not _open(1, k)
-		if r == 1:
-			s = true    # onder de gang zit altijd aarde
-		var e := not _open(r, k + 1)
-		var w := not _open(r, k - 1)
-		var m := int(n) | int(e) << 1 | int(s) << 2 | int(w) << 3
-		draw_texture_rect_region(TEGELS, Rect2(x, y, KOL, KOL), Rect2(m * KOL, KOL, KOL, KOL))
-	else:
-		var v := _hash(k, r) % 8
-		draw_texture_rect_region(TEGELS, Rect2(x, y, KOL, KOL), Rect2(v * KOL, 0, KOL, KOL))
-
 func _draw() -> void:
 	var vloer := GANG_ONDER - 1   # bovenste vloerrij
-	# maaiveld: gras met hier en daar een plantje of steen
-	var gras_3d := met_3d and HOL3D.heeft("gras")
-	for k in kolommen:
-		if not (gras_3d and HOL3D.teken(self, "gras", Vector2(k * KOL, 0))):
-			draw_texture_rect_region(GRAS, Rect2(k * KOL, 0, KOL, OPP), Rect2((k % 4) * KOL, 0, KOL, OPP))
-		var h := _hash(k, 99)
-		if h < 22 and k != ingang_kol and k <= max_kol + 1:
-			draw_texture_rect_region(MAAIVELD, Rect2(k * KOL, 0, KOL, OPP), Rect2((h % 5) * KOL, 0, KOL, OPP))
-	# twee rijen cellen
+	# gras, tegels, schatkamer, stippels, ingang en versiering: hol/hol_vast.gd, een eigen beeld dat alleen opnieuw
+	# getekend wordt als er iets aan verandert (demolijst 2)
+	if vast == null:
+		pass
+	elif met_vast:
+		vast.ververs()
+	else:
+		vast.teken(self)
 	var schat_3d := HOL3D.schatkamer_aan(self)
-	for k in kolommen:
-		_tegel(k * KOL, OPP, 0, k, schat_3d)
-		_tegel(k * KOL, GANG_BOVEN, 1, k, schat_3d)
-	if schat_3d:
-		HOL3D.teken(self, "schatkamer", Vector2((schat_kol - 2) * KOL, OPP))
-	for k in kolommen:
-		# hier kun je graven: lichte stippels op de rand
-		if not gang[k] and k <= max_kol and ((k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1])):
-			var kx := k * KOL + (1 if k > 0 and gang[k - 1] else KOL - 2)
-			for y in range(GANG_BOVEN + 3, GANG_BOVEN + KOL - 2, 3):
-				draw_rect(Rect2(kx, y, 1, 1), Color("#c9a27a"))
-	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft); voor het brokkelen,
-	# want het 3D-stuk is 16 x 40 en dekkend en schoof anders over de net gegraven kolom heen (controleur 13 nov)
 	var ix := _ingang_x()
-	if not (met_3d and HOL3D.teken(self, "ingang", Vector2(ix, 0))):
-		draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
 	# net gegraven cellen: de aarde brokkelt weg (over de open tegel heen, onder de figuren)
 	for c in brokkel:
 		_brokkel(c, float(brokkel[c]))
-	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren
-	for k in range(ingang_kol + 1, schat_kol - 1):
-		var h := _hash(k, 7)
-		if vallen.has(k):
-			continue
-		if h < 14:
-			draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(7 * KOL, 0, KOL, KOL))   # stut
-		elif h < 30:
-			var soorten := [0, 1, 2, 4, 5]   # paddenstoel, lichtzwam, ton, schedel, kristal
-			draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(soorten[h % 5] * KOL, 0, KOL, KOL))
-		elif h < 36 and not boven[k]:
-			draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
 	# vallen: stekelput dicht, en even open na een klap
 	# gekochte stappen (Rusty Spikes, Deep Pit, Trick Lid) hebben elk een eigen rij in stekelput_upgrades.png
 	var put_niv: int = upgrades.niveau("stekelput") if upgrades != null else 0
@@ -371,7 +328,10 @@ func _draw() -> void:
 		var fx: float = k * KOL + 4
 		if i == 0:
 			fx = ix + KOL + 4   # de fakkel bij de ingang schuift mee
-		draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
+		# gloed alleen op de pixeltegels: de 3D-gang heeft zijn eigen licht, en de gloed stopte daar als een lichter
+		# vierkant op de celrand (Daan 13 nov 19:35, moet 1)
+		if not (met_3d and HOL3D.heeft("gang")):
+			draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
 	if boven[schat_kol] and not schat_3d:

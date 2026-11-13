@@ -762,5 +762,31 @@ func _init() -> void:
 			xq = hq.position.x
 		ok(spr.keys() == [1.0], "pas: haperend (%.3f s) toch elke stap 1 pixel (%s)" % [afw, str(spr.keys())])
 		hol_q.free()
+	# keus b van Daan (13 nov 19:45): elke trek loopt 1 pixel per stap, vluchten 2, nooit een rest
+	for geval in [["hebzuchtig", "lopen", 1.0], ["opschepper", "lopen", 1.0], ["dapper", "vluchten", 2.0]]:
+		var hol_t := Node2D.new()
+		hol_t.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+		var ht := Node2D.new()
+		ht.set_script(load("res://systemen/held.gd"))
+		hol_t.add_child(ht)
+		ht.start(hol_t, {"trek": geval[0]})
+		ht.trek = geval[0]
+		var nt := 0
+		while ht.staat != "lopen" and nt < 2000:
+			ht.stap(0.1)
+			nt += 1
+		if geval[1] == "vluchten":
+			ht.staat = "vluchten"
+			ht.position.x = hol_t.cel_naar_pos(Vector2i(10, 0)).x
+		var stappen_t := {}
+		var xt: float = ht.position.x
+		for i in 20:
+			ht.stap(0.1)
+			if ht.staat != geval[1]:
+				break
+			stappen_t[absf(ht.position.x - xt)] = true
+			xt = ht.position.x
+		ok(stappen_t.keys() == [geval[2]], "pas b: %s %s elke stap %d pixel (%s)" % [geval[0], geval[1], int(geval[2]), str(stappen_t.keys())])
+		hol_t.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

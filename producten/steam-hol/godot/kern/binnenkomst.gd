@@ -101,7 +101,7 @@ static func nieuwe_held(s) -> bool:
 		"doorlopen":
 			info["moet_doorlopen"] = true
 			if s.demo:
-				info["snelheid"] = 1.4   # held.gd (Bram 23:30): raakt de schat binnen de minuut en rent nog weg
+				info["snelheid"] = 2.0   # held.gd (Bram 23:30): raakt de schat binnen de minuut en rent nog weg; 2 sinds keus b van Daan (hele pixels per stap, 1,4 werd 1 en dan kwam hij te laat)
 	if stap != "":
 		s.begin_gedaan.append(stap)
 		s.log_regel("HOL begin: %s (%s)" % [stap, info.naam])
