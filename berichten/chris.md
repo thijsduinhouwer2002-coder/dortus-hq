@@ -33,3 +33,14 @@ Forumbericht Rollwright: niet geplaatst, en dat lag niet alleen aan Chrome. In d
 - **8 nov 09:49 (Thijs, via de projectchat):** Nieuwe vaste regel voor elk product: perfect, onderscheidend van de concurrenten, en een waardebelofte die meteen duidelijk is (wat het doet, voor wie, waarom beter, wat gratis en wat betaald, overal hetzelfde). Lees `organisatie/regels.md`, deel "Elk product". Zet de ene zin "waarom wij" bovenaan het ontwerp van je product als die er nog niet staat. (verwerkt 8 nov voor Bison & Flex: zin staat bovenaan het ontwerp (Jet), nagemeten met de Marketplace-API; gratis en Pro staan nu bovenaan de productpagina met dezelfde verdeling als de winkeltekst)
 
 - **7 nov 15:45:** Het supportadres op alle winkelpagina's en lanceerberichten is **thijs@dortus.com**, niet support@dortus.com. (verwerkt 7 nov: thijs@dortus.com gebruikt op dortus.com/rollwright/ en in alle stukken in commercie/rollwright/)
+
+## 13 nov 14:10 (hoofdchat): JE STAAT WEER AAN. Opdracht: de lancering van Ebb (Garmin) klaarzetten.
+Thijs (13 nov 14:03) zette je aan. Ebb (ademapp, $4,99) is op 13 nov ingediend en wordt binnen 3 dagen gekeurd; de gratis Ebb Calm volgt daarna. Lees `platformen/garmin/status.md`, `platformen/garmin/gebruikers-krijgen-2026-11-13.md`, `concurrenten-2026-11-13.md`, `kanalen-2026-11-13.md` en de plakteksten in `platformen/garmin/upload/`. Lees ook `organisatie/gereedschap.md` (nieuwe regel: eerst een tool).
+**Belangrijk: je plaatst niets.** Je toestemming om onder de naam van Thijs te posten geldt alleen voor de Obsidian-plekken van 8 nov. Voor Garmin zet je alles klaar; Thijs plaatst zelf.
+Klaarzetten in `commercie/ebb/`:
+1. Bericht voor het Garmin-forum, Connect IQ Showcase (regels staan in kanalen-2026-11-13.md): Engels, eerlijk "I made this", wat het doet, prijs, gratis Calm, link volgt. Plus een forumhandtekening van één regel.
+2. r/Garmin: lees zelf de regels en de wiki met curl (de onderzoekers konden ze niet openen). Mag zelfpromotie? Welke flair? Zet de uitkomst letterlijk erbij, en alleen als het mag een concept.
+3. Een korte film of GIF van de echte app (de schermen uit de simulatorruns op tak `schermen`), met ffmpeg: water stijgt en zakt, onder water met een dier, een nieuw dier. Hoogstens 15 seconden, klein bestand.
+4. Een lijstje "wie kun je persoonlijk vragen om Ebb te proberen en eerlijk te beoordelen" (soorten mensen en plekken, geen namen van privépersonen), met een kort berichtje dat Thijs kan sturen. Niets beloven of geven voor een beoordeling.
+5. Een tekst voor als Ebb Calm live gaat.
+Meld bovenaan `commercie/ebb/status.md` wat klaar is; zet op `organisatie/lijst-thijs.md` één regel "Ebb-lancering: klaar om te plaatsen zodra Garmin goedkeurt" met minuten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

@@ -19,3 +19,12 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
   2. Zijn er makers die **alleen buiten de lijst** verspreiden en toch aantoonbaar verdienen (Patreon via graphtreon, Ko-fi, eigen winkel)? Hoeveel, en hoe vinden hun gebruikers ze (Reddit r/FoundryVTT, Discord, YouTube)?
   3. Hoe reageert de gemeenschap op modules die met AI gemaakt zijn? Als we dit doen, verstoppen we het niet.
   Geef daarna een cijfer voor Foundry met route (c). Komt bijna al het bereik uit de officiële lijst, zeg dan eerlijk nee. Neem de tijd die het nodig heeft. (verwerkt 7 nov run 15:32: route (c) nee, cijfer 3. (1) Beide makers staan in de officiële lijst, 16 van 16 modules, en verkopen daar als Publisher, Wand & Widgets aantoonbaar via de Patreon-koppeling. (2) Alleen buiten de lijst vond ik niemand boven ±$350 per maand (Shattered Codex $346 maar met gratis modules in de lijst, Loremaster $90). Het zoekscherm in Foundry toont alleen de lijst, en van ±900 nieuwe gratis code-modules zitten er maar 40 echt buiten, met minder bereik. (3) Reddit niet leesbaar vanaf hier; Foundry en de Forge zijn streng op AI, openlijke AI-makers blijven klein. Zie voorstellen/foundry-vtt.md.)
+
+## 13 nov 14:10 (hoofdchat): JE STAAT WEER AAN. Opdracht: "iets anders erbij" naast Het Hol.
+Thijs (12 nov 23:24): na Ebb gaan we Het Hol doen "en iets anders erbij". Hij zette je op 13 nov 14:03 aan. Lees `organisatie/besluiten.md` (nieuwste eerst), `organisatie/gereedschap.md` en `platformen/verkenner/onderzocht.md` (wat al bekeken is, niet opnieuw doen).
+Gezocht: **één klein product dat Dortus in 1 tot 2 weken kan bouwen en dat vanaf dag 1 geld oplevert**, naast Het Hol (dat de grote inzet blijft). Voorwaarden:
+- Bewijs dat kleine makers er nu aantoonbaar aan verdienen (verkooptellers, reviews, omzetcijfers), geen gevoel.
+- Past bij wat we al kunnen of hebben: Garmin (Ebb, account bestaat), Blender (Click Joints, Superhive-aanvraag loopt), Steam (account komt), Obsidian, JetBrains (keuring loopt), web. Een nieuw platform mag, maar dan met een 8.
+- Geen KvK nodig vóór de verhuizing van Thijs (TikTok valt daarom nu af).
+- Iets wat zich onderscheidt en mooi kan worden met onze nieuwe gereedschappen (3D met Blender, simulators).
+Lever in `platformen/verkenner/iets-erbij-2026-11.md`: top 3 met per kandidaat het bewijs (bron en datum), verwachte omzet eerste 30 dagen als gok met onderbouwing, uren werk en wat Thijs ervoor moet doen. Geef je advies. Eerste versie uiterlijk ma 16 nov 12:00. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

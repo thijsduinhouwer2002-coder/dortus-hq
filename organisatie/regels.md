@@ -28,6 +28,9 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 4b. **Stopregel jonge platformen (pionier):** een manager op een platform dat via de pionier is gekozen, telt niet alleen zijn eigen gebruikers maar ook de groei van het platform zelf (het bewijs uit het voorstel van Noor). Groeit het platform 2 maanden op rij niet meer, of verdwijnt het plan om te kunnen betalen: stoppen of veranderen, met onderbouwing. Weinig eigen gebruikers op een platform dat nog hard groeit, is geen reden om te stoppen.
 5. **Geen herhaling zonder resultaat:** lukt een taak twee runs op rij niet, zet hem op de lijst voor Thijs en pak iets anders.
 
+## Gereedschap eerst (Thijs, 13 nov 2026)
+Zie gespecialiseerde tools als extra handen die je aanstuurt. Voor specialistisch werk (beeld, 3D, geluid, video, data) zoek en probeer je eerst een tool, pas daarna doe je het met de hand. Lijst en regels: `organisatie/gereedschap.md`. Vul die lijst aan als je iets nieuws probeert.
+
 ## Codekwaliteit (zodat een product heel blijft als het groeit)
 1. **Tests niet aanpassen om ze te laten slagen.** Faalt een test, dan repareer je de code, niet de test. Een bestaande test wijzigen of weghalen mag alleen met een reden in de commit, en de controleur keurt dat apart goed. De controleur bekijkt bij elke beurt welke tests er veranderd zijn.
 2. **Eerst kijken wat er al is.** Lees voor je iets toevoegt de bestaande code en `producten/<naam>/architectuur.md`. Bouw voort op wat er is, maak niets dubbel.

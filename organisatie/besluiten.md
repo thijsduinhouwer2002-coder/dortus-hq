@@ -337,3 +337,6 @@ Thijs zag de 3D-proef van Gloop en zei: "ja de hele app gewoon ofzo, ik denk dat
 
 ## 13 nov 13:45: Mila weer aan; privacy-alinea Ebb Calm ja
 Thijs: "mila aan, en 2 ja". Mila draait weer (geplande taak aan; schema nog elke 3 uur op :37, het wijzigen naar elk uur werd door de beveiliging geweigerd). Haar opdracht: het hol in 3D en de winkelafbeelding (`berichten/mila.md`). De alinea "Ebb Calm" op dortus.com/ebb/privacy.html staat klaar in de website-repo en gaat online zodra Thijs de tekst zelf zag (afspraak: niets online zonder dat hij het zag).
+
+## 13 nov 14:03: Chris en Vera aan; gereedschap eerst
+Thijs: "doe maar a en b". Chris zet de lancering van Ebb klaar (plaatst niets; Thijs plaatst zelf), Vera zoekt het "iets anders erbij" (eerste versie ma 16 nov). Nieuwe vaste regel: gespecialiseerde tools zijn extra handen die we aansturen; voor specialistisch werk eerst een tool zoeken en proberen (`organisatie/gereedschap.md`, regels.md "Gereedschap eerst").
