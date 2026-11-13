@@ -21,6 +21,7 @@ FAAM_FACTOR = 0.97
 FAAM_BODEM = 0.75
 TERUG_KANS = 0.25      # kans dat de volgende held een terugkomer is (als die er zijn)
 BLIJFT_KANS = 0.6      # kans dat een gevluchte held ooit terugkomt (anders gaat hij met pensioen en vertelt over je hol)
+START_GOUD = 20        # Olaf 13 nov: nieuw spel begint met 20 goud (kern/kaartje.gd START_GOUD, demolijst 3)
 UPG_BASIS = 45         # Sanne 10 nov 01:50 (balans.md): 45, 126, 353 (45 x 2,8^n); was 60
 GRAAF_DREMPEL = 12     # Sanne 10 nov 01:50: graven 5 + 1,2 x gangen, plus 3 per gang boven de 12
 
@@ -41,7 +42,7 @@ NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", 
 def speel(uren, zaad):
     rng = random.Random(zaad)
     t = 0.0
-    goud = 0.0
+    goud = float(START_GOUD)
     gangen = 6
     verd = [{"soort": "slijm", "plat_tot": -1}, {"soort": "put", "plat_tot": -1}]
     upg = {"slijm": 0, "put": 0}
