@@ -109,7 +109,8 @@ func teken(d: CanvasItem) -> void:
 	if not (h.met_3d and HOL3D.teken(d, "ingang", Vector2(ix, 0))):
 		d.draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
-	# Brokkelen (hol.gd) komt er los overheen; nieuwe cellen liggen altijd aan de rand, waar geen versiering staat.
+	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
+	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
 	var vloer: int = h.GANG_ONDER - 1
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)

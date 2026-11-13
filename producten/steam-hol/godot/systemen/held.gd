@@ -79,7 +79,7 @@ var geraakt_tot := 0.0
 var val_t := 0.0
 var pas_klok := PAS / 4.0    # tijd sinds de laatste stap; start een kwart stap voor de beeldgrens, zodat beelden die
                              # een paar ms te vroeg of te laat komen niet afwisselend 0 en 2 pixels geven (controleur 13 nov)
-var pas_rest := 0.0          # deel van een pixel dat nog niet gezet is (alleen bij snelheden die geen heel getal per stap geven)
+var pas_rest := 0.0          # niet meer gebruikt sinds keus b van Daan (13 nov 19:45, altijd hele pixels per stap); blijft voor oude saves
 var passen := 0              # stappen in deze aanroep van stap()
 var val_teken := ""          # het teken op het moment dat hij viel ("boos" wordt een poef)
 var gezien := {}             # kolommen waar hij al gegooid heeft
@@ -257,7 +257,7 @@ func stap(delta: float) -> void:
 	var f := delta / echt if echt > 0.0 else 1.0   # snelheidsfactor van deze held
 	match staat:
 		"afdalen":
-			position.y = move_toward(position.y, vloer, _px(SNEL * f))
+			position.y = move_toward(position.y, vloer, _px(f))
 			if position.y >= vloer:
 				staat = "lopen"
 		"lopen":
@@ -273,7 +273,7 @@ func stap(delta: float) -> void:
 				info["dutje"] = true
 				return
 			var tempo := 1.25 if trek == "hebzuchtig" else (0.8 if trek == "opschepper" else 1.0)
-			position.x = move_toward(position.x, doel.x, _px(SNEL * tempo * f))
+			position.x = move_toward(position.x, doel.x, _px(tempo * f))
 			_onderweg()
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
@@ -282,11 +282,11 @@ func stap(delta: float) -> void:
 				staat = "lopen"   # wakker, verder (dezelfde kolom gooit hij niet nog eens)
 		"vluchten":
 			var terug: Vector2 = hol.cel_naar_pos(hol.ingang())
-			position.x = move_toward(position.x, terug.x, _px(SNEL * 1.5 * f))
+			position.x = move_toward(position.x, terug.x, _px(1.5 * f))
 			if absf(position.x - terug.x) < 0.5:
 				staat = "klimmen"
 		"klimmen":
-			position.y = move_toward(position.y, -4, _px(SNEL * f))
+			position.y = move_toward(position.y, -4, _px(f))
 			if position.y <= -4:
 				staat = "weg"
 				klaar.emit(self, "ontsnapt", info)
@@ -299,14 +299,14 @@ func stap(delta: float) -> void:
 				queue_free()
 	queue_redraw()
 
-# Hele pixels voor deze aanroep bij v spelpixels per seconde: alleen op een stap van de klok (PAS).
-func _px(v: float) -> float:
+# Hele pixels voor deze aanroep: per stap van de klok (PAS) een heel aantal spelpixels, nooit een rest (Daan 13 nov
+# 19:45, keus b). Factor x de gewone snelheid (SNEL, 1 pixel per stap) wordt afgerond, minstens 1: gewoon, hebzuchtig
+# (1,25), opschepper (0,8), ridder (0,75), dief (1,3) en demo 1,4 lopen 1 pixel per stap; vluchten (1,5) en demo 1,8
+# lopen 2. Een sprong van 2 tussen stappen van 1 las op ware grootte als haperen; karakter zit in het lopen zelf.
+func _px(factor: float) -> float:
 	if passen == 0:
 		return 0.0
-	pas_rest += v * PAS * passen
-	var heel := floorf(pas_rest + 0.0001)
-	pas_rest -= heel
-	return heel
+	return float(passen * maxi(1, roundi(factor * SNEL * PAS)))
 
 func _aangekomen() -> void:
 	if doel_kol == vijand_kol:
