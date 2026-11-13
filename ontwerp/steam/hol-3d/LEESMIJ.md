@@ -66,6 +66,7 @@ Tak `claude/steam-hol-naad` (bovenop Daans `claude/steam-hol-fakkel`, dus met zi
 - `ronde6-2x.png`, `ronde6-ware-grootte.png` (met Gloop, helden, Daans fakkels), `ronde6-kamertegels-toets.png`, `ronde6-naden-voor-na-versterkt.png` (boven voor, midden na, beide 4 keer versterkt rond 48; onder de toets gewoon).
 - GEZIEN met Read: geen lichtere blokken meer rond de kamers, geen plankje, de aarde heeft nu zichtbare vlekken (pruim met lagen) in plaats van een glad verloop. Gloop, ridder en goud zijn even licht als in ronde 5b, het gras in het midden iets minder fel (de vlek van de gedeelde lampen viel er ook op).
 - Eerlijk: het vlekpatroon herhaalt nu elke kolom; op 2x zie je het als je zoekt, op ware grootte niet. In het spel was dat al zo (overal de aardtegel van kolom 14).
+- Nagemeten in het echte blad van de pijplijn (`godot/kunst/3d/hol_proef.png`, Action-commit 6349111 op deze tak, gerenderd van ronde 6), zelfde maat als Daan (aarde in de bovenste strook van elk vak): aarde 47,8, kamer_begin, midden_a, midden_b, eind en los allemaal 47,7. Was 60 / 60 / 64 / 70 / 77 / 71.
 - Kan voor Bram en Daan: de vlam van de gangfakkel links (kolom 3) begint precies op spelpixel 24. In de laag `boven` zit hij dus op de onderrand van `kamer_midden_a`; met de doorgetrokken rand van 4 bladpixels kan daar een oranje stipje komen. Was voor de nieuwe fakkel ook al zo (gemeten, zelfde rij).
 
 ## Ronde 6b (13 nov ±23:55 UTC): gang een trede lichter dan de aarde (volgende ronde punt 2)
