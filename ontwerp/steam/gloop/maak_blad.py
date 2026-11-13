@@ -25,7 +25,7 @@ def met_toren(gloop, hats, n):
     # ronde 2: de onderste hoed zakt 1 px over het hoofd, elke volgende 2 px in de vorige, recht boven elkaar (kijkers: "zweeft los")
     y = gy + top + 1; mid = 3 + gloop.width // 2
     for k in range(n):
-        h = hats[k]; y -= h.height - 2
+        h = hats[k]; y -= h.height - (2 if k == 0 else 0)  # op het hoofd 2 px gezakt, op elkaar rakend zodat de kroonpunten te zien blijven
         dx = [0, 0, 1, 0][k % 4]
         im.paste(h, (mid - h.width // 2 + dx, y), h)
     return im
@@ -37,7 +37,7 @@ def blad():
     for v, naam in (("A", "A druppel"), ("B", "B groot"), ("C", "C gelei")):
         s = Image.open(os.path.join(HIER, f"gloop_{v}.png"))
         fw = s.width // 6; fh = s.height; rust = s.crop((0, 0, fw, fh)); hap = s.crop((4 * fw, 0, 5 * fw, fh)); kauw = s.crop((5 * fw, 0, 6 * fw, fh))
-        toren = met_toren(rust, keuze, 3)
+        toren = met_toren(rust, [mg.hoed_beeld("kroon"), mg.hoed_beeld("puntmuts")], 2) if v == "B" else met_toren(rust, keuze, 3)
         kol.append((naam, [rust, hap, kauw, toren]))
     W = 1500; H = 900
     out = Image.new("RGB", (W, H), BG2); d = ImageDraw.Draw(out)

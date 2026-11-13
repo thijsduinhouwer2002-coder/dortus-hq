@@ -16,7 +16,43 @@ P = {
     "g": (255, 205, 80), "G": (196, 130, 40),  # munt in de buik (versie C)
     "i": (170, 176, 196), "I": (110, 114, 136),  # zwaardje in de buik (versie C)
     "u": (196, 250, 224),  # belletje
+    "v": (128, 86, 196), "V": (84, 54, 146), "c": (206, 200, 196),  # muts paars, kokswit schaduw
 }
+
+# Hoeden voor Gloop groot, een maat groter dan de heldenhoeden (kijker ronde 3: "de muts is een onduidelijke vlek").
+# Er passen er twee op het hoofd in een kamer van 32 spelpixels (lijf 19 + 2 hoeden ±7, 2 px in elkaar); de rest gaat op de hoedenberg.
+GLOOP_HOEDEN = {
+    "kroon": ["kk..kk..kk",
+              "kgkkggkkgk",
+              "kggrggrggk",
+              "kGGGGGGGGk",
+              "kkkkkkkkkk"],
+    "puntmuts": ["....k....",
+                 "...kvk...",
+                 "...kvVk..",
+                 "..kvvVk..",
+                 "..kvvvVk.",
+                 ".kgggggk.",
+                 "kvvvvvvVk",
+                 "kkkkkkkkk"],
+    "koksmuts": [".kkk.kkk.",
+                 "kwwwkwwwk",
+                 "kwwwwwwck",
+                 ".kwwwwck.",
+                 ".kkkkkkk.",
+                 ".kwwwwck.",
+                 ".kkkkkkk."],
+}
+
+def hoed_beeld(naam):
+    rijen = GLOOP_HOEDEN[naam]
+    im = Image.new("RGBA", (len(rijen[0]), len(rijen)), (0, 0, 0, 0))
+    for y, r in enumerate(rijen):
+        assert len(r) == len(rijen[0]), (naam, r)
+        for x, c in enumerate(r):
+            if c != ".":
+                im.putpixel((x, y), P[c] + (255,))
+    return im
 
 def lichaam(breed, hoog, punt=False):
     """Masker van het lijf: koepel boven, platte voet die iets uitloopt. Geeft set (x, y) in het frame."""

@@ -85,3 +85,6 @@ B is nu **Gloop groot**: frame 28 x 22, lijf 24 x 19 spelpixels (±57 schermpixe
 ## Stand na ronde 3 (Daan)
 - **Groot wint**: eerste 8, en voor het eerst leest het oog, de blosjes en de muts op ware grootte. Richting voor het blad: Gloop wordt groter (±19 spelpixels hoog).
 - Nog open voor de volgende run: (1) hoeden zijn op de grote Gloop te klein en lezen als vlek: hoeden voor Gloop een maat groter tekenen; (2) Gloop valt weg tegen pruim en de groene plantjes: lichtere rand of iets warmer munt; (3) "niet uniek, bekend type slijm met muts": het eigen gezicht moet uit de grap komen (hoedentoren hoog en wiebelig, en eten); (4) de uitsnede zonder de afgekapte tekst van de runner bovenaan; (5) dan blad voor Thijs (`ontwerp/steam/gloop-blad-voor-thijs.png`) met hoogstens 3 versies, waarvan minstens twee groot.
+
+## Nawerk zelfde run (Daan)
+Punt 1 en 4 uit "Stand na ronde 3" gedaan: eigen Gloop-hoeden een maat groter (`GLOOP_HOEDEN` in `maak_gloop.py`: kroon 10x5, puntmuts 9x8, koksmuts 9x7); op de grote Gloop passen er twee in de kamer van 32 spelpixels (kroon met puntmuts erop, kroonpunten zichtbaar), de rest gaat naar de hoedenberg. Kijkerplaatjes zonder de runnertekst bovenaan. Nog niet opnieuw door een frisse kijker bekeken; dat is stap 1 van de volgende run, samen met contrast tegen pruim.

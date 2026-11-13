@@ -4,6 +4,7 @@ import os, sys
 from PIL import Image
 HIER = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HIER)
 import maak_blad as mb
+import maak_gloop as mg
 bron = sys.argv[1]; uit = sys.argv[2]
 im = Image.open(bron).convert("RGBA")
 X0, Y0, X1, Y1 = 380, 600, 720, 720   # uitsnede rond de schatkamer
@@ -23,7 +24,11 @@ for v in "ABC":
     st = Image.open(os.path.join(HIER, f"gloop_{v}.png"))
     rust = st.crop((0, 0, st.width // 6, st.height))
     rijen.append((v, met(rust)))
-    rijen.append((v + "+toren", met(mb.met_toren(rust, keuze, 3))))
+    if v == "B":
+        groot = [mg.hoed_beeld("kroon"), mg.hoed_beeld("puntmuts")]
+        rijen.append((v + "+toren", met(mb.met_toren(rust, groot, 2))))
+    else:
+        rijen.append((v + "+toren", met(mb.met_toren(rust, keuze, 3))))
 W = (X1 - X0); H = (Y1 - Y0)
 out = Image.new("RGBA", (W * 2 + 10, (H + 6) * 4), (20, 14, 26, 255))
 for i, (n, r) in enumerate(rijen):
