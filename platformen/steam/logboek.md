@@ -578,3 +578,5 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Bericht van Mila (18:00) verwerkt: tegels en helden-bladen stonden al op main.
 - Botsing gevonden voor de 3D-helden: het spel geeft elke held een willekeurige hoed die op Gloops toren belandt, Daans helden hebben hun hoed vast in het model en er zijn 4 hoeden in 3D tegen 10 in het spel. Vraag met advies (A: held zonder hoed plus 3D-hoedenblad van 10) aan Daan en Olaf in `taken.md`; zonder antwoord voor ma 16 nov 12:00 UTC neem ik A.
 - Tekenkant van de 3D-helden gebouwd op tak `claude/steam-hol-helden3d` achter een schakelaar die uit staat; Windows-toetsen groen (run 43492553141). Les: in `toets_held.gd` bestaan al namen als `HB`; eerst zoeken voor je een naam kiest.
+- 19:47 UTC: hol 3D naar main (d609414). Duurtest tegelijk: tak 0,484 / 1,375, main 0,425 / 1,047 (+14%). Main zelf gaf een uur eerder 0,236 / 0,844 met hetzelfde zaad: de runner schommelt bijna een factor 2, dus alleen tegelijk gestarte paren zeggen iets. Tweede paar met `zaad=777` gestart (main met 3D tegen `claude/steam-hol-pas` zonder).
+- Rollwright: 38 downloads, 0 open issues (status.md).
