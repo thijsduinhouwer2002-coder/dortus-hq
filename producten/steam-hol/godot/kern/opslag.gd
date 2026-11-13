@@ -81,6 +81,9 @@ static func laad(s, begin) -> void:
 	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
 	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
 	tijd_vloer = int(weg.get("nieuwe_laatst", 0))
+	# stond de klok per ongeluk ver vooruit (meer dan 3 dagen), dan niet tot die datum zonder weg-winst blijven (controleur kan-punt)
+	if tijd_vloer > int(Time.get_unix_time_from_system()) + 3 * 86400:
+		tijd_vloer = 0
 	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
 	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d" % [int(weg.weg_s), str(weg.teruggezet),
 		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0])
