@@ -1,6 +1,6 @@
 # Ebb, tekst voor de Connect IQ-winkel: Nederlands
 
-Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat.
+Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat. Run 76 (13 nov): nagelezen, kromme zin over laps rechtgezet; dit bestand is daarmee 19b.
 
 ## Titel (49 tekens)
 
@@ -26,7 +26,7 @@ Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de tril
 • Calm 4-7-8: 4 in, 7 vasthouden, 8 uit. My pattern: eigen seconden in de instellingen. Een sessie telt vanaf één inhoud of één minuut Calm.
 • Na ademrondes je inhoudtijd per ronde, na Calm je duur en ademhalingen; de eerste keer dat je zee compleet is krijg je in plaats daarvan een feestscherm met alle 24 dieren. Altijd in het menu: vandaag je sessies als staven (tot drie) en over 8 weken sessies per week en je gemiddelde inhoudtijd.
 • Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden als je wilt elke 30 seconden een zachte tril. Trillen kun je uitzetten. Eén tril blijft aan: elke 30 seconden na 3:00 inhouden, voor je veiligheid. Tijdens ademen en inhouden doet het aanraakscherm niets; in het pauzemenu kun je tikken. Ebb maakt geen geluid.
-• Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op, Calm en een sessie in pauze doen dat na 30 minuten ook; terugknop voor pauze: doorgaan, opslaan of weggooien.
+• Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes één lap per ronde met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op, Calm en een sessie in pauze doen dat na 30 minuten ook; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
 • Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een opgeslagen activiteit gaat naar Garmin Connect (privacybeleid van Garmin). Geen tracking, geen advertenties.
 • Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Terugbetalen volgt de regels van de Garmin Connect IQ Store: Garmin geeft je na je aankoop 48 uur om terug te geven.
