@@ -554,3 +554,25 @@ Wat jij doet, en niets anders:
 3. Kijk elke run met `curl` of de winkelpagina openbaar is (zonder inloggen). Zodra dat zo is: titel, tekst, beelden, prijs en horloges nalopen tegen de plakbestanden en het melden bovenaan de status en in `berichten/hoofdmanager.md`.
 4. Verder niets bouwen. Versie 1.1 en de gratis versie starten pas na een besluit van Thijs.
 (verwerkt 13 nov ±10:15 UTC, run 86: (1) staat bovenaan de status. (2) `winkeltekst.md` op de bouwtak is versie 19b, commit 53648fa, letterlijk uit de drie plakbestanden; geen code, tag `ebb-v1.0.0` blijft op e40269e1; gepusht met "[skip ci]", dus geen volle ronde. (3) Nog niet openbaar om 10:12 UTC: pagina 404, de API zegt "The requested app is not approved"; ik kijk elke run. Het bestand `berichten/hoofdmanager.md` bestaat niet; als Ebb openbaar is meld ik het in `berichten/hans.md` en bovenaan de status. (4) Ik bouw niets. Klein: de tellingen van de lange beschrijving in de plakbestanden liepen 5 tekens achter door "478, "; rechtgezet, tekst ongewijzigd.)
+
+## 13 nov 11:30 NL, van de hoofdchat: BOUW "EBB CALM" (gratis versie). Besluit van Thijs, 11:26 NL.
+Doel: een gratis app die downloads en beoordelingen verzamelt en mensen naar de betaalde Ebb stuurt. Zelfde model als de grootste concurrent (gratis WHM breathing 50.000+, betaalde plus $4,99).
+
+Wat erin zit:
+- Alleen Calm 4-7-8 met de zee: water stijgt bij in, zakt bij uit, trilling per fase, ogen dicht. Zelfde uiterlijk als in Ebb.
+- Eén dier: de vis (het startdier). Geen verzameling, geen sea log, geen reeksen.
+- Opslaan in Garmin Connect als ademactiviteit met hartslag, zoals Ebb. Stopt en slaat vanzelf op na 30 minuten, zoals Calm in Ebb.
+- Herinnering "sit or lie down" voor elke sessie blijft.
+- Op het eindscherm één rustige regel, bijvoorbeeld "Full Ebb: breath hold rounds, your own pattern, 24 sea animals". Geen knop, geen druk, niet bij elke start.
+
+Wat er NIET in zit: inhoudrondes, My pattern, dierenverzameling, 8-weken-overzicht. Inhouden blijft alleen in de betaalde app, met alle waarschuwingen.
+
+Hoe:
+- Nieuwe tak `claude/ebb-calm` vanaf e40269e1. Tak en tag van Ebb 1.0 niet aanraken.
+- Eigen app-id (nieuwe UUID) en eigen naam in het manifest, zelfde ondertekensleutel, zelfde 28 horloges. Kies zelf de kleinste route (aparte jungle of bouwvlag); schrijf in de status waarom.
+- Klaar is: (1) toetsrun en plaatjesrun groen op alle horloges, (2) proef op de drie snelle horloges bekeken door jou, (3) `.iq` als release `ebb-calm-v1.0.0` met grootte en sha256, (4) plakteksten EN/DE/NL in `platformen/garmin/upload/calm-en.md`, `-de.md`, `-nl.md`, (5) vijf winkelbeelden van 800x800, elk onder 150 kB, plus icoon 500x500 onder 300 kB, in `ontwerp/garmin/winkel-calm/`.
+- Titel: GEEN "4-7-8" in de titel (de winkelzoeker vindt daar niets op, zie besluit 13 nov 09:55). Zoekwoorden die vrij zijn: "calm", "relaxation", "breathing exercises". Voorstel: `Ebb Calm: Breathing Exercises & Relaxation`. Wijk alleen af met reden. "478" in de tags.
+- Tekst: gratis, geen account, verzamelt niets, veiligheidsregels, één zin over de volle Ebb. Geen medische claims, nergens freediving of apnea.
+- Privacy: verwijs naar dortus.com/ebb/privacy.html. Klopt die tekst niet voor Calm, schrijf dan wat er anders moet in de status; de site pas ik pas aan na een ja van Thijs.
+- Schatting 4 tot 6 uur werk. Meld elke run bovenaan de status wat klaar is. Loop je ergens vast of kost het meer dan 8 uur, stop en meld het in `berichten/hoofdmanager.md`.
+- Blijf daarnaast elke run kijken of de winkelpagina van Ebb openbaar is.
