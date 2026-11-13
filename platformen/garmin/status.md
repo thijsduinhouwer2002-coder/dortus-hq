@@ -1,6 +1,11 @@
 # Garmin Connect IQ: status
 
 - **RELEASE-KANDIDAAT: e40269e1, toetsrun 43315538201 groen, plaatjesrun 43315538179 groen.** Na deze regel verandert de code niet meer.
+- **13 nov ±07:00 UTC, run 83. Geen nieuw bericht na 02:25, nog niet ingediend (inleveren staat voor 08:30 NL). Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
+  - **Winkelbestand opnieuw opgehaald en nagerekend (06:56 UTC): klopt.** Link geeft 200, `Ebb.iq` is 4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan de lijst van Thijs.
+  - **Niets verschoven (`git ls-remote`, 06:57 UTC):** bouwtak `claude/garmin-2026-11-10b` en tag `ebb-v1.0.0` staan allebei op e40269e1. Sinds run 82 is er op main niets bijgekomen van anderen.
+  - **`dortus.com/ebb/`, `/ebb/privacy.html` en `/ebb/support.html` geven nog 404 (06:56 UTC, dat is 07:56 NL, een half uur voor het inleveren); dortus.com zelf 200.** Thijs heeft hierover een melding op zijn telefoon gekregen: vraagt het formulier om een privacy-URL, dan moet de pagina eerst geplaatst worden (hoofdchat), de rest kan gewoon door.
+  - De lokale kopie stond weer op 10 nov en `git pull` bleef hangen; `git fetch origin main` werkte, gelijkgezet met GitHub (ad0837b), er is niets verloren.
 - **13 nov ±06:00 UTC, run 82. Geen nieuw bericht na 02:25, nog niet ingediend. Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
   - **Winkelbestand opnieuw opgehaald en nagerekend (05:56 UTC): klopt.** Link geeft 200, `Ebb.iq` is 4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan de lijst van Thijs.
   - **Niets verschoven (`git ls-remote`, 05:56 UTC):** bouwtak `claude/garmin-2026-11-10b` en tag `ebb-v1.0.0` staan allebei op e40269e1. Sinds run 81 is er op main niets bijgekomen van anderen.
