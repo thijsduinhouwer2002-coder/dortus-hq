@@ -15,14 +15,14 @@ HOL kroniek 12.6 (wacht 0.1): Kees stays forever. +6
 HOL kroniek 15.2 (wacht 2.8): Odo read about you in a tavern.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
 HOL demo klik op Gloop
-HOL kaartje open 18.6: slijm
+HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
-HOL meting t=20 beelden=127 helden=2
+HOL meting t=20 beelden=126 helden=2
 HOL begin: doorlopen (Tibbe)
-HOL kaartje dicht 24.6
-HOL kroniek 24.6 (wacht 0.4): Tibbe has a map. It is wrong.
+HOL kaartje dicht 24.5
+HOL kroniek 24.5 (wacht 0.4): Tibbe has a map. It is wrong.
 HOL kroniek 26.8 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
-HOL kroniek 29.3 (wacht 0.2): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 29.4 (wacht 0.2): Gloop ate Odo. Kept the crown. +6
 HOL einde na 30 s, fps=20, goud=78, terugkomers=1

@@ -1,10 +1,10 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2820
+HOL weg geweest 28801 s (klok terug: false): goud voor 26, helden 606, erbij 3018
 HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 2840 goud
+HOL opslag geladen: 0 terugkomers, 3044 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 15 s speeltijd (goud 2840)
-HOL kroniek 2.6 (wacht 2.6): 606 came, 369 fell. +2820 gold.
-HOL begin: vluchten (Tibbe)
-HOL kroniek 5.1 (wacht 1.0): Tibbe brought a torch. And hope.
+HOL eerste koop mogelijk na 15 s speeltijd (goud 3044)
+HOL kroniek 2.6 (wacht 2.6): 606 came, 402 fell. +3018 gold.
+HOL begin: vluchten (Wout)
+HOL kroniek 5.1 (wacht 1.0): Wout is here for your gold.
 HOL meting t=10 beelden=62 helden=1
-HOL einde na 15 s, fps=10, goud=2840, terugkomers=0
+HOL einde na 15 s, fps=10, goud=3044, terugkomers=0
