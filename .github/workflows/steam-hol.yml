@@ -92,21 +92,30 @@ jobs:
           $log = "$uit/klik.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=25 log=$log" -PassThru
-          Start-Sleep 8
-          $start = Select-String -Path $log -Pattern "pos=\((\d+), (\d+)\)" | Select-Object -First 1
+          $start = $null
+          for ($w = 0; $w -lt 30 -and -not $start; $w++) {
+            Start-Sleep 1
+            $start = Select-String -Path $log -Pattern "pos=\((\d+), (\d+)\)" -ErrorAction SilentlyContinue | Select-Object -First 1
+          }
+          if (-not $start) { Write-Output "FOUT: geen startregel met pos in 30 s"; Get-Content $log -ErrorAction SilentlyContinue; exit 1 }
+          Start-Sleep 3
           $x0 = [int]$start.Matches[0].Groups[1].Value; $y0 = [int]$start.Matches[0].Groups[2].Value
+          Write-Output "venster op $x0,$y0"
           $fout = 0
+          # eerst in het hol: dat moet in het spel tellen en het spel naar voren halen (anders bewijst de luchtklik niets)
+          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 115)
+          Start-Sleep 1
+          $voor0 = VoorProces
+          $na_hol = @(Select-String -Path $log -Pattern "HOL klik op").Count
+          Write-Output "hol: voorgrond $voor0, kliks in het spel $na_hol"
+          if ($na_hol -ne 1 -or $voor0 -notlike "Godot*") { Write-Output "FOUT: klik in het hol telde niet of het spel kwam niet naar voren"; $fout++ }
+          # dan de lucht: moet bij Kladblok aankomen en niet in het spel
           & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 4)
           Start-Sleep 1
           $voor1 = VoorProces
           $na_lucht = @(Select-String -Path $log -Pattern "HOL klik op").Count
           Write-Output "lucht: voorgrond $voor1, kliks in het spel $na_lucht"
-          if ($voor1 -ne "notepad" -or $na_lucht -ne 0) { Write-Output "FOUT: klik op de lucht kwam niet bij Kladblok"; $fout++ }
-          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 115)
-          Start-Sleep 1
-          $na_hol = @(Select-String -Path $log -Pattern "HOL klik op").Count
-          Write-Output "hol: kliks in het spel $na_hol"
-          if ($na_hol -ne 1) { Write-Output "FOUT: klik in het hol telde niet"; $fout++ }
+          if ($voor1 -ne "notepad" -or $na_lucht -ne 1) { Write-Output "FOUT: klik op de lucht kwam niet bij Kladblok"; $fout++ }
           & producten/steam-hol/e2e/scherm.ps1 "$uit/klik-na.png"
           $p.WaitForExit(40000) | Out-Null
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
