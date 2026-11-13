@@ -144,7 +144,7 @@ blok("achterwand", (0, 1.35, 1.2), (X1 - X0, 0.1, 4.0), PRUIM_L)
 for i in range(70):
     x = random.uniform(X0, X1); z = random.uniform(ONDER, MAAIVELD - 0.25)
     # niet in de gaten
-    if (KX0 - 0.2 < x < KX1 + 0.2 and z < KTOP + 0.2) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.25 and abs(z - kz) < 0.8 for kx, kz in [(-7.4, 2.25), (7.8, 2.25)]):
+    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.25 and abs(z - kz) < 0.8 for kx, kz in [(-7.4, 2.25), (7.8, 2.25)]):
         continue
     r = random.uniform(0.07, 0.2)
     bol("kiezel", (x, -0.02, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, PRUIM_L, PRUIM_L]), 12)
@@ -186,24 +186,31 @@ vloer = blok("vloer", ((X0 + X1) / 2, 0.7, -0.03), (X1 - X0, 1.5, 0.1), VLOER)
 # ---------- de schat: een gouden berg rechts in de kamer ----------
 mb = bpy.data.metaballs.new("berg"); mb.resolution = 0.06; mb.render_resolution = 0.03
 berg = bpy.data.objects.new("berg", mb); sc.collection.objects.link(berg)
-for (x, y, z, r) in [(1.9, 0.75, -0.25, 1.05), (2.55, 0.85, -0.3, 0.85), (1.2, 0.7, -0.4, 0.75), (2.1, 0.9, 0.1, 0.65)]:
+for (x, y, z, r) in [(1.5, 0.75, -0.25, 1.05), (2.25, 0.85, -0.3, 0.85), (0.4, 0.7, -0.45, 0.9), (1.7, 0.9, 0.1, 0.65)]:
     e = mb.elements.new(); e.co = (x, y, z); e.radius = r
 berg.data.materials.append(GOUD_D)
 # losse munten op en rond de berg
 for i in range(90):
     a = random.uniform(0, math.pi); rr = random.uniform(0.2, 1.25)
-    x = 1.95 + rr * math.cos(a) * 1.15; z = max(0.03, 0.75 - rr * 0.62 + random.uniform(-0.05, 0.05))
+    x = 1.55 + rr * math.cos(a) * 1.3; z = max(0.03, 0.75 - rr * 0.62 + random.uniform(-0.05, 0.05))
     y = random.uniform(0.25, 1.0)
     cil("munt", (x, y, z), 0.13, 0.035, GOUD, rot=(random.uniform(-0.9, 0.9), random.uniform(-0.9, 0.9), 0), verts=20)
 for i in range(14):   # munten die over de vloer gerold zijn
     x = random.uniform(-2.6, 3.0); y = random.uniform(0.1, 0.9)
     cil("munt_vloer", (x, y, 0.02), 0.12, 0.03, GOUD, verts=20)
-bol("robijn", (1.55, 0.35, 0.62), (0.12, 0.1, 0.14), ROBIJN, 8)
-bol("safier", (2.6, 0.4, 0.5), (0.1, 0.08, 0.12), SAFIER, 8)
+bol("robijn", (1.15, 0.35, 0.62), (0.12, 0.1, 0.14), ROBIJN, 8)
+bol("safier", (2.3, 0.4, 0.5), (0.1, 0.08, 0.12), SAFIER, 8)
 # een beker bovenop de berg
-cil("beker_voet", (2.05, 0.7, 0.92), 0.12, 0.05, GOUD, verts=24)
-cil("beker_steel", (2.05, 0.7, 1.02), 0.04, 0.18, GOUD, verts=16)
-cil("beker_kom", (2.05, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
+cil("beker_voet", (1.75, 0.7, 0.92), 0.12, 0.05, GOUD, verts=24)
+cil("beker_steel", (1.75, 0.7, 1.02), 0.04, 0.18, GOUD, verts=16)
+cil("beker_kom", (1.75, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
+
+# achterwand van de schatkamer een trede lichter en warmer, met een gloed achter Gloop:
+# hij moet het lichtste vlak van de strook zijn (frisse kijker ronde 1: "figuur te klein voor de drukke strook")
+KAMERWAND = g.mat("kamerwand", "7a4a78", rough=0.8, spec=0.15)
+blok("kamerwand", (0, 1.3, 1.3), (KX1 - KX0, 0.05, 2.9), KAMERWAND)
+gg = bpy.data.lights.new("gloopgloed", "POINT"); gg.color = (1.0, 0.8, 0.55); gg.energy = 90; gg.shadow_soft_size = 1.0
+ggo = bpy.data.objects.new("gloopgloed", gg); ggo.location = (-0.3, 1.15, 1.2); sc.collection.objects.link(ggo)
 
 # de berg geeft zelf een warme gloed op de wand (dat is de sfeer: goud dat licht geeft)
 gd = bpy.data.lights.new("goudgloed", "POINT"); gd.color = (1.0, 0.75, 0.3); gd.energy = 220; gd.shadow_soft_size = 0.8
@@ -289,13 +296,13 @@ hulp = bron[bron.index("def bol("):begin]
 exec(hulp, ns)
 exec(stuk, ns)
 nieuw = [o for o in bpy.data.objects if o not in voor]
-GLOOP_X, GLOOP_Y, GLOOP_S = -0.45, 0.65, 0.95
+GLOOP_X, GLOOP_Y, GLOOP_S, GLOOP_Z = -0.25, 0.6, 0.95, 0.18
 for o in nieuw:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
         bpy.data.objects.remove(o, do_unlink=True)
         continue
     if o.parent is None:
-        o.location = Vector((o.location.x * GLOOP_S + GLOOP_X, o.location.y * GLOOP_S + GLOOP_Y, o.location.z * GLOOP_S))
+        o.location = Vector((o.location.x * GLOOP_S + GLOOP_X, o.location.y * GLOOP_S + GLOOP_Y, o.location.z * GLOOP_S + GLOOP_Z))
         o.scale = o.scale * GLOOP_S
 
 # ---------- camera en licht (gedeeld) ----------

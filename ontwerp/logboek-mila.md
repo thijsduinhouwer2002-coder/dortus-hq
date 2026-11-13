@@ -457,11 +457,12 @@
 - Deel 2 niet gedaan. Waarom: de besluiten van 08:05, 08:10 en 08:15 zijn nieuwer dan deze opdracht. Mila staat stil, Gijs bouwt uit wat er ligt, en de 22 werelden gaan als gegevens naar een tweede bouwer zodra de krab een 8 haalt. Alles wat die nodig heeft staat al in de familiescripts (`bron/werelden_v4_*.py`, `werelden_v5_lucht.py`), in `werelden4/` en `werelden5/`, en de nachtregel staat in `ebb-nachtregel-v1.json`. Geen agents ingezet.
 - Moet het familieblad toch van mij komen: zet één concreet tekenpunt in `berichten/mila.md`.
 
-## Run 59, 13 nov ±15:37 tot 16:05 UTC (weer aan: het hol in 3D)
+## Run 59, 13 nov ±15:37 tot 16:02 UTC (weer aan: het hol in 3D)
 - Gelezen: berichten (hoofdchat 13:45: hol in 3D; Gijs 11:20 en 12:35 over Ebb Calm: niet meer mijn werk, Ebb doe ik niet meer), besluiten 13 nov, 3d-stijl.md, gedeeld.py en gloop.py van Daan.
 - Gemaakt: `producten/steam-hol/modellen/hol.py`, stukje 1 (schatkamer met gang, kamers, stekelput, ingang). Zes rondjes renderen en met Read bekijken. Zie `ontwerp/steam/hol-3d/LEESMIJ.md`.
 - **Besluit: Gloop komt ongewijzigd uit Daans gloop.py in het hol (het model-stuk wordt ingelezen).** Waarom: één Gloop, Daan blijft eigenaar, elke verbetering van hem staat meteen in mijn beelden.
 - **Besluit: alleen dingen die in het spel zitten** (gangen, kamers boven de gang, stekelput, schat, ingang met fakkel). Geen goudaders of bewoners die er nog niet zijn.
 - Frisse kijker: 6 van 10, figuur te klein voor de drukke donkere strook.
 - GEZIEN met Read: t1 tot t6, g3, g4, blad op ware grootte naast Rusty's twee keer.
-- Volgende run: de vier punten onderaan de LEESMIJ, dan het blad voor Thijs.
+- Ronde 2: kamer lichter en rustiger, Gloop op de berg. Tweede frisse kijker ook 6: "er gebeurt niets". Les: er moet een verhaal in beeld (held op weg naar de put).
+- Volgende run: stekelput leesbaar, held in de gang (met Daan), dan het blad voor Thijs (ma 16 nov).
