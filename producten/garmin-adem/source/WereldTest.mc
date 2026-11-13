@@ -150,6 +150,10 @@ function testWereldVanDier(logger as Test.Logger) as Boolean {
 // tekent de wereld het ademen en het inhouden; het oude scherm komt in geen van die gevallen.
 (:test)
 function testWereldOokZonderDier(logger as Test.Logger) as Boolean {
+    if (EbbSoort.CALM) {
+        // Ebb Calm verzamelt geen dieren: daar is de zwemmer altijd de vis (zie testCalmAltijdDeVis).
+        return true;
+    }
     EbbTrouw.wis();
     var geen = EbbTrouw.zwemmer();
     var goed = geen == -1 && EbbWereldSessie.aan
@@ -177,6 +181,10 @@ function testStartdierIsGeenNieuweVriend(logger as Test.Logger) as Boolean {
 // wereld, zonder dat hij al gevonden is; na de eerste sessie wordt hij gewoon het eerste dier (volgorde gelijk).
 (:test)
 function testStartdierInEersteSessie(logger as Test.Logger) as Boolean {
+    if (EbbSoort.CALM) {
+        // Ebb Calm verzamelt geen dieren: daar is de zwemmer altijd de vis (zie testCalmAltijdDeVis).
+        return true;
+    }
     EbbTrouw.wis();
     var geen = EbbTrouw.zwemmer();
     var start = EbbTrouw.sessieDier();
@@ -249,3 +257,23 @@ function testCalmInDeWereld(logger as Test.Logger) as Boolean {
     logger.debug("calm in de wereld: met en zonder dier " + goed + ", werelden uit " + uit);
     return goed && !uit && geen;
 }
+
+// Ebb Calm (besluit Thijs 13 nov 2026): één dier, de vis, ook zonder opslag en ook als er in de opslag dieren staan;
+// het eindscherm krijgt geen nieuwe dieren en geen reeks. In de volle Ebb geldt deze toets niet.
+(:test)
+function testCalmAltijdDeVis(logger as Test.Logger) as Boolean {
+    if (!EbbSoort.CALM) {
+        return true;
+    }
+    EbbTrouw.wis();
+    var leeg = EbbTrouw.zwemmer() == EbbTrouw.STARTDIER && EbbTrouw.sessieDier() == EbbTrouw.STARTDIER;
+    Application.Storage.setValue(EbbTrouw.BITS, 15);
+    var vol = EbbTrouw.zwemmer() == EbbTrouw.STARTDIER;
+    var rv = new RustigView(Ebb.calm(), EbbStart.CALM_NAAM);
+    var ev = rv.eindeMaken(rv.sessie.startMs + 240000);
+    var einde = ev.nieuw.size() == 0 && ev.reeks == 0 && !ev.feest;
+    EbbTrouw.wis();
+    logger.debug("CALM vis leeg " + leeg + " vol " + vol + " einde " + einde);
+    return leeg && vol && einde;
+}
+
