@@ -221,6 +221,11 @@ static func tik(s) -> void:
 	if not DEMO_EINDE.klaar(s) and up.kan_kopen("stekelput", s.hol.goud):
 		for k in s.hol.vallen:
 			munt.append(int(k))
+	# demolijst punt 3 (bewijs in het spel): de eerste keer dat je iets kunt kopen, als er nog niets gekocht is
+	if not munt.is_empty() and not s.eerste_koop_gemeld:
+		s.eerste_koop_gemeld = true
+		if up.niveau("slijm") == 0 and up.niveau("stekelput") == 0:
+			s.log_regel("HOL eerste koop mogelijk na %d s speeltijd (goud %d)" % [int(s.speeltijd_s), s.hol.goud])
 	# het muntje boven Gloop staat 3 spelpixels boven het bovenste wat hij draagt (Sanne toets 8, punt 2: het hing
 	# ±25 spelpixels boven hem in de schacht). Vaste rust-hoogte, niet de wiebel, anders tekent het hol elk beeld opnieuw.
 	var my := {}

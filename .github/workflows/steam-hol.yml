@@ -74,6 +74,45 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
+      - name: Klikken door de lucht naar Kladblok, klik in het hol telt (120 px)
+        shell: pwsh
+        run: |
+          # demolijst punt 5: een klik op de lucht boven het hol moet bij het venster erachter (Kladblok) aankomen en
+          # niet in het spel; een klik onderin het hol wel in het spel (logregel "HOL klik op").
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public class Voor { [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+            [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h, out uint pid); }
+          "@
+          function VoorProces { [uint32]$pid_ = 0; [Voor]::GetWindowThreadProcessId([Voor]::GetForegroundWindow(), [ref]$pid_) | Out-Null; (Get-Process -Id $pid_).ProcessName }
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
+          Get-Process notepad -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Process notepad.exe -WindowStyle Maximized
+          Start-Sleep 3
+          $log = "$uit/klik.log"
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=25 log=$log" -PassThru
+          Start-Sleep 8
+          $start = Select-String -Path $log -Pattern "pos=\((\d+), (\d+)\)" | Select-Object -First 1
+          $x0 = [int]$start.Matches[0].Groups[1].Value; $y0 = [int]$start.Matches[0].Groups[2].Value
+          $fout = 0
+          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 4)
+          Start-Sleep 1
+          $voor1 = VoorProces
+          $na_lucht = @(Select-String -Path $log -Pattern "HOL klik op").Count
+          Write-Output "lucht: voorgrond $voor1, kliks in het spel $na_lucht"
+          if ($voor1 -ne "notepad" -or $na_lucht -ne 0) { Write-Output "FOUT: klik op de lucht kwam niet bij Kladblok"; $fout++ }
+          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 115)
+          Start-Sleep 1
+          $na_hol = @(Select-String -Path $log -Pattern "HOL klik op").Count
+          Write-Output "hol: kliks in het spel $na_hol"
+          if ($na_hol -ne 1) { Write-Output "FOUT: klik in het hol telde niet"; $fout++ }
+          & producten/steam-hol/e2e/scherm.ps1 "$uit/klik-na.png"
+          $p.WaitForExit(40000) | Out-Null
+          if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+          Get-Content $log
+          "klik: $fout FOUT (voorgrond na luchtklik: $voor1)" | Set-Content "$uit/klik.txt"
+          if ($fout -gt 0) { exit 1 }
       - name: Film van een minuut spelen (Movie Maker, 15 fps)
         shell: pwsh
         run: |

@@ -71,7 +71,8 @@ jobs:
             "metingen van 10 s: $($metingen.Count)",
             "CPU-s per 10 s: gemiddeld $gem, mediaan $med, laagste $($gesorteerd[0]), hoogste $($gesorteerd[-1])",
             "geheugen aan het eind: $(if (-not $p.HasExited) { [int]($p.WorkingSet64 / 1MB) } else { 'proces weg' }) MB",
-            "proces leefde tot het eind: $(-not $dood)"
+            "proces leefde tot het eind: $(-not $dood)",
+            "eerste koop mogelijk: $((Select-String -Path ($vol + '/hol.log') -Pattern 'HOL eerste koop mogelijk.*' -ErrorAction SilentlyContinue | Select-Object -First 1).Matches.Value)"
           )
           $samen | Set-Content "$vol/uitslag.txt"
           ($metingen -join "`n") | Set-Content "$vol/cpu-per-10s.txt"
