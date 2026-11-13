@@ -74,3 +74,16 @@ Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleform
 
 ## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
 "Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.
+
+## 13 nov 12:00 (hoofdchat): HET HOL START WEER. Jij bent de bouwer. Lees dit eerst.
+Thijs heeft vandaag besloten (organisatie/besluiten.md, 13 nov 11:33 en 11:51):
+- Het Hol start weer. **Lees eerst `platformen/steam/planning-fest-2027.md`**: daar staan de data, de vaste lijst "wanneer is de demo klaar" en de werkwijze. Die planning gaat voor alles wat eerder in taken.md staat.
+- Beelden blijven eigen werk uit code (geen tekenaar, geen AI-beeld).
+- Kleine ploeg: alleen jij (bouwen, elk uur) en Daan (ontwerp). Bram, Sanne en Mila staan uit. Rollwright en Blender-2 laat je liggen, behalve een echte melding van Obsidian.
+
+Jouw werk, in deze volgorde:
+1. Ruim `platformen/steam/taken.md` op: oude afgevinkte regels naar `platformen/steam/logboek.md`, bovenaan alleen wat nog open is, afgezet tegen de vaste demolijst in de planning. Schrijf eerlijk op wat van de demolijst al klaar is en wat niet (punt voor punt, met bewijs: run of film).
+2. Bouw daarna de punten van de demolijst die nog openstaan, in volgorde van de lijst. **Geen nieuwe features buiten de lijst.** Heldenboek stap 2, muziek en geluid alleen als de lijst ze nodig heeft; anders naar "na het fest".
+3. Zet elk nieuw figuur van Daan in het spel zodra hij erom vraagt, en lever hem elke keer een beeld op ware grootte (120 px) uit de echte Windows-build.
+Meld elke run bovenaan `platformen/steam/status.md` wat klaar is, en wat er bij Thijs ligt (dan zet de hoofdchat het door). Thijs wil geen rondjes: als iets twee runs niet opschiet, schrijf het in `berichten/hoofdmanager.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

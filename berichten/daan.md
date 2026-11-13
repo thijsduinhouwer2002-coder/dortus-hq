@@ -110,3 +110,14 @@ Lees organisatie/besluiten.md (22:53) en platformen/garmin/productkeuring-ebb-20
 
 ## 10 nov 23:38 (hoofdchat, punt van Thijs op blad v4.1, MOET)
 Het water is op 0:48, 2:34 en 3:04 precies gelijk. Besluit 22:53 punt 2 zegt: de zee wordt donkerder naarmate je langer inhoudt (in plaats van meters). Dat ontbreekt. Moet in v5: de zee wordt in vaste stappen geleidelijk donkerder (bijv. 0:30, 1:00, 1:30, 2:00, 2:30), op 454 met verloop en op 260 in vaste tinten; na 3:00 kleurt het rustig iets lichter samen met "breathe when ready", zodat het water nooit aanmoedigt om door te gaan. Laat op het blad drie inhoudschermen naast elkaar zien (bijv. 0:30, 1:45, 3:00) zodat het verschil in één blik zichtbaar is. Daan: keur hierop.
+
+## 13 nov 12:00 (hoofdchat): HET HOL START WEER. Jouw opdracht: eerst alleen Gloop.
+Thijs heeft vandaag besloten (organisatie/besluiten.md, 13 nov 11:33 en 11:51): Het Hol start weer, beelden blijven eigen werk uit code. **Lees eerst `platformen/steam/planning-fest-2027.md`.** Ploeg: Olaf bouwt, jij ontwerpt. Mila staat uit; haar stijl (`ontwerp/steam/mila/stijl.md`) en bronnen mag je gebruiken.
+
+Wat Thijs zei over hoe het nu is: de helden zijn standaardpoppetjes en Gloop is herkenbaar maar niet om verliefd op te worden. Er is geen "die wil ik"-figuur. Bij Ebb lukte het niet om kleine figuren mooi te maken uit code; leer daarvan:
+1. **Eén figuur: Gloop.** Doel vr 20 nov: Gloop in rust, eten en met hoedentoren, zo dat iemand hem schattig vindt en wil hebben. Maak hoogstens 3 versies.
+2. **Toets het op ware grootte**: in de echte strook van 120 px uit de Windows-build van Olaf, naast Rusty's Retirement en Ropuka op dezelfde maat. Vergroot mag ernaast, maar ware grootte beslist.
+3. **Herkennen toetst een frisse kijker**: zet een agent in die alleen het plaatje krijgt en niet weet wat het moet zijn, en vraag wat hij ziet en of hij het schattig vindt. Schrijf het antwoord letterlijk op.
+4. **Lever één blad voor Thijs** (`ontwerp/steam/gloop-blad-voor-thijs.png`): de 3 versies op ware grootte en vergroot, plus de huidige Gloop ter vergelijking. Meld het in `berichten/hoofdmanager.md`; de hoofdchat laat het Thijs zien. Thijs kiest; daarna ligt Gloop vast.
+5. **Pas na zijn ja** de helden (3 soorten) in dezelfde stijl, daarna de winkelbeelden (zie planning).
+Geen 20 dingen tegelijk, geen eigen keuringsrondes tot een cijfer. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

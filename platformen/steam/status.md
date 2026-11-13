@@ -1,5 +1,7 @@
 # Steam: status
 
+- **13 nov 12:00 (hoofdchat): HET HOL START WEER.** Besluit Thijs 11:33 en 11:51: opstarten, beelden eigen werk uit code. Planning tot het fest: `planning-fest-2027.md` (Gloop af 20 nov, winkelpagina ingediend 1 dec, demo ingediend 21 dec). Ploeg: Olaf bouwt, Daan ontwerpt, elk uur. Bram, Sanne en Mila staan uit.
+
 - **Stand 9 nov 20:30 UTC:** Het Hol draait op een Windows-runner met Daans kunst; in de film van een minuut valt er in de eerste 15 s een held (+6 goud, muntjes vliegen naar de schat), komen helden terug met een wrok tegen Gloop of de put, en staat de kroniek vol korte grappige regels. Het tekstvak ligt nu op elke hoogte naast de schat (hol groeit naar links). CPU 0,61 CPU-s per 10 s op 120 px. Nog niet naar Thijs: eerst Hoard-Toucher in de demo, de eerste tien minuten en Daans akkoord. Niets betaald of gepubliceerd.
 - **Stand 9 nov 18:30 UTC: we bouwen Het Hol** (besluit Thijs 19:20: richting Het Hol, meteen het spel bouwen; Thijs ziet het pas als het speelbaar is en er goed uitziet). Team: Olaf hoofdbouwer, Bram tweede bouwer, Sanne game-ontwerper, Daan ontwerp; taakverdeling in `taken.md`. Productmap `producten/steam-hol/`. Eerste kern met blokjes op tak `claude/steam-hol-kern` (workflow `steam-hol.yml`). Niets betaald of gepubliceerd. Verlanglijsten 0, verkopen 0, reviews 0.
 - **Bouwer sinds 9 nov 2026: Olaf** (neemt over van Sanne; besluit Thijs).
