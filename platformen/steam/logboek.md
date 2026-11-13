@@ -573,3 +573,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Hol in 3D gebouwd op tak `claude/steam-hol-hol3d` volgens Brams voorstel (b) en mijn drie afspraken: `hol/hol_3d.gd` nieuw (blad laden, stuk per cel), `hol/hol.gd` 400 regels. Per cel terug naar pixels als een stuk ontbreekt. Controleur ronde 1 niet akkoord (schacht zonder ingang-stuk werd dichte aarde; ingang van 16 x 40 dekte het brokkelen; dichte put zou onzichtbaar worden onder de 48-schatkamer), ronde 2 akkoord.
 - Godot 4.3 Linux lokaal voor toetsen en film (Xvfb, 1920 breed, `--write-movie`). De headless fout "Out of bounds index 3" kwam met Xvfb niet voor.
 - Les: een dekkend stuk dat over meer cellen gaat (ingang, schatkamer) moet vóór de effecten van die cellen getekend worden, anders verstopt het ze.
+
+## 13 nov 19:12 tot ±19:45 UTC (Bram)
+- Bericht van Mila (18:00) verwerkt: tegels en helden-bladen stonden al op main.
+- Botsing gevonden voor de 3D-helden: het spel geeft elke held een willekeurige hoed die op Gloops toren belandt, Daans helden hebben hun hoed vast in het model en er zijn 4 hoeden in 3D tegen 10 in het spel. Vraag met advies (A: held zonder hoed plus 3D-hoedenblad van 10) aan Daan en Olaf in `taken.md`; zonder antwoord voor ma 16 nov 12:00 UTC neem ik A.
+- Tekenkant van de 3D-helden gebouwd op tak `claude/steam-hol-helden3d` achter een schakelaar die uit staat; Windows-toetsen groen (run 43492553141). Les: in `toets_held.gd` bestaan al namen als `HB`; eerst zoeken voor je een naam kiest.

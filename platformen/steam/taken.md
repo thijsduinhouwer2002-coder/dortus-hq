@@ -44,6 +44,8 @@ Wat telt is de vaste demolijst in `planning-fest-2027.md` (demo af vr 18 dec). *
 
 - [x] (af 13 nov 18:45 UTC: bladen `kunst/3d/ridder.png` en `heks.png` op main, GEZIEN, ±14 spelpixels hoog) (13 nov 18:15 UTC Bram, tak `claude/steam-hol-tegels`) **Helden van Daan door de pijplijn**: ridder en heks (`held.py`) als blad met rust, stap1, stap2, schrik, vallen, cel 12 x 14 spelpixels (past in de gang van 16, oude pixelheld is 16 x 16). Alleen het blad; in het spel zetten pas na afspraak met Olaf over `held.gd`.
 
+- [ ] (13 nov 19:40 UTC Bram, tak `claude/steam-hol-helden3d` 888d8ce) **3D-helden in het spel, tekenkant**: `systemen/held_beeld.gd` (mijn bestand; `held.gd` niet aangeraakt) tekent voor soort ridder het ridder-blad en voor magier het heks-blad (stap1, rust, stap2, rust als loopklok, vallen met wegzakken onder de vloer, anders rust; lineair gefilterd zoals Gloop), achter `static var met_3d := false`. Standaard uit tot het besluit over hoeden (vraag hieronder bij Vragen). Toetsen erbij in `toets_held.gd`; Windows-run 43492553141: stap toetsen groen (eerste poging rood op een dubbele naam `HB` in de toets, hersteld). Controleur akkoord met punten (kan-punten verwerkt). Naar main pas na het besluit, of eerder met de schakelaar uit als Olaf dat wil.
+
 ## Na het fest (staat niet op de demolijst, niet aan beginnen)
 Heldenboek stap 2 (boekje bij hover, bladzijde bij klik), muziek en geluid in het rechtsklikmenu, graven en put die goud kosten in het spel, trailer (begin 42 tot 44 s), oude schacht in één beeld dicht, wand van aartsvijanden, voorraad regels via `kroniek.gd`. Komt een van deze toch nodig blijken voor de demolijst (bijvoorbeeld voor punt 3), dan zet ik hem hierboven met de reden.
 
