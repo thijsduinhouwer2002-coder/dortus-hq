@@ -707,5 +707,37 @@ func _init() -> void:
 	else:
 		print("[held-toets] let op: geen kunst/3d/sprites.json, 3D-toetsen overgeslagen")
 	hol_3.free()
+
+	# Lopen in gelijke stappen (Daan 13 nov 17:35): op 10 beelden per s elke stap precies 1 hele pixel,
+	# op 20 per s om het andere beeld 1 pixel, en bij hapering (0,1 en 0,2 s door elkaar) nooit een halve pixel.
+	for fps in [10.0, 20.0, 15.0]:
+		var hol_p := Node2D.new()
+		hol_p.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+		var hp := Node2D.new()
+		hp.set_script(load("res://systemen/held.gd"))
+		hol_p.add_child(hp)
+		hp.start(hol_p, {"trek": "dapper"})
+		hp.trek = "dapper"
+		var np := 0
+		while hp.staat != "lopen" and np < 2000:
+			hp.stap(1.0 / fps)
+			np += 1
+		var sprongen := {}
+		var heel := true
+		var x0: float = hp.position.x
+		for i in 30:
+			hp.stap(1.0 / fps)
+			if hp.staat != "lopen":
+				break
+			var dp: float = absf(hp.position.x - x0)
+			sprongen[dp] = true
+			heel = heel and is_equal_approx(hp.position.x, roundf(hp.position.x))
+			x0 = hp.position.x
+		if fps == 10.0:
+			ok(sprongen.keys() == [1.0], "pas: op 10 fps elke stap 1 pixel (%s)" % str(sprongen.keys()))
+		elif fps == 20.0:
+			ok(sprongen.has(1.0) and sprongen.has(0.0) and sprongen.size() == 2, "pas: op 20 fps 0 of 1 pixel (%s)" % str(sprongen.keys()))
+		ok(heel, "pas: op %d fps altijd hele pixels" % int(fps))
+		hol_p.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
