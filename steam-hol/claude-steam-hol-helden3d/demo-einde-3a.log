@@ -1,8 +1,8 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek 4.1 (wacht 0.0): Mara knocks first. Polite.
-HOL begin: vallen (Mara)
+HOL kroniek 4.1 (wacht 0.0): Bram is here for your gold.
+HOL begin: vallen (Bram)
 HOL demo voorbij na 10 s speeltijd
 HOL kroniek 10.1 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
