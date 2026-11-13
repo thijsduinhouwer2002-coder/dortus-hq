@@ -2,17 +2,17 @@ GELIJK 8weeks-fenix847mm.png
 GELIJK ademen-in-fenix847mm.png
 GELIJK ademen-uit-fenix847mm.png
 GELIJK basisoctopus-calm-dag-fenix847mm.png
-VERSCHIL basisoctopus-calm-nacht-fenix847mm.png 3931 pixels in (310, 452, 415, 539)
+GELIJK basisoctopus-calm-nacht-fenix847mm.png
 GELIJK basisoctopus-eind-dag-fenix847mm.png
-VERSCHIL basisoctopus-eind-nacht-fenix847mm.png 2946 pixels in (228, 448, 415, 516)
+GELIJK basisoctopus-eind-nacht-fenix847mm.png
 GELIJK basisoctopus-hold-dag-fenix847mm.png
-VERSCHIL basisoctopus-hold-nacht-fenix847mm.png 4692 pixels in (310, 539, 415, 626)
+GELIJK basisoctopus-hold-nacht-fenix847mm.png
 GELIJK basisoctopus-in-dag-fenix847mm.png
-VERSCHIL basisoctopus-in-nacht-fenix847mm.png 3931 pixels in (310, 452, 415, 539)
+GELIJK basisoctopus-in-nacht-fenix847mm.png
 GELIJK basisoctopus-menu-dag-fenix847mm.png
-VERSCHIL basisoctopus-menu-nacht-fenix847mm.png 3586 pixels in (317, 552, 408, 628)
+GELIJK basisoctopus-menu-nacht-fenix847mm.png
 GELIJK basisoctopus-uit-dag-fenix847mm.png
-VERSCHIL basisoctopus-uit-nacht-fenix847mm.png 3921 pixels in (310, 487, 415, 574)
+GELIJK basisoctopus-uit-nacht-fenix847mm.png
 GELIJK basiszeepaard-calm-dag-fenix847mm.png
 GELIJK basiszeepaard-calm-nacht-fenix847mm.png
 GELIJK basiszeepaard-eind-dag-fenix847mm.png
@@ -25,18 +25,18 @@ GELIJK basiszeepaard-menu-dag-fenix847mm.png
 GELIJK basiszeepaard-menu-nacht-fenix847mm.png
 GELIJK basiszeepaard-uit-dag-fenix847mm.png
 GELIJK basiszeepaard-uit-nacht-fenix847mm.png
-VERSCHIL calm-45s-fenix847mm.png 151323 pixels in (135, 247, 589, 701)
-VERSCHIL calm-einde-krab-fenix847mm.png 150431 pixels in (135, 247, 589, 701)
+GELIJK calm-45s-fenix847mm.png
+GELIJK calm-einde-krab-fenix847mm.png
 GELIJK calmcheck-fenix847mm.png
-VERSCHIL einde-6b-fenix847mm.png 150843 pixels in (135, 247, 589, 701)
-VERSCHIL einde-6b-zeekomkommer-fenix847mm.png 149355 pixels in (135, 247, 589, 701)
-VERSCHIL einde-6c-6rondes-fenix847mm.png 148687 pixels in (135, 247, 589, 701)
-VERSCHIL einde-6c-fenix847mm.png 149012 pixels in (135, 247, 589, 701)
-VERSCHIL einde-6c-krab-fenix847mm.png 149602 pixels in (135, 247, 589, 701)
-VERSCHIL einde-6d-fenix847mm.png 150920 pixels in (135, 247, 589, 701)
-VERSCHIL einde-na-feest-fenix847mm.png 150603 pixels in (135, 247, 589, 701)
+GELIJK einde-6b-fenix847mm.png
+GELIJK einde-6b-zeekomkommer-fenix847mm.png
+GELIJK einde-6c-6rondes-fenix847mm.png
+GELIJK einde-6c-fenix847mm.png
+GELIJK einde-6c-krab-fenix847mm.png
+GELIJK einde-6d-fenix847mm.png
+GELIJK einde-na-feest-fenix847mm.png
 GELIJK einde-sea-complete-fenix847mm.png
-VERSCHIL einde-weekdoel-fenix847mm.png 148857 pixels in (135, 247, 589, 701)
+GELIJK einde-weekdoel-fenix847mm.png
 GELIJK herstel-fenix847mm.png
 GELIJK inhouden-0-30-fenix847mm.png
 GELIJK inhouden-1-45-fenix847mm.png
@@ -59,16 +59,16 @@ GELIJK lucht-avond-in-fenix847mm.png
 GELIJK lucht-dag-uit-fenix847mm.png
 GELIJK lucht-nacht-uit-fenix847mm.png
 GELIJK lucht-ochtend-in-fenix847mm.png
-VERSCHIL menu-krab-fenix847mm.png 142488 pixels in (135, 247, 589, 701)
-VERSCHIL menu-leeg-fenix847mm.png 142551 pixels in (135, 247, 589, 701)
-VERSCHIL menu-today-fenix847mm.png 125865 pixels in (135, 247, 589, 701)
+GELIJK menu-krab-fenix847mm.png
+GELIJK menu-leeg-fenix847mm.png
+GELIJK menu-today-fenix847mm.png
 GELIJK overzicht-menu-fenix847mm.png
-VERSCHIL pauze-fenix847mm.png 156150 pixels in (135, 247, 589, 701)
+GELIJK pauze-fenix847mm.png
 GELIJK rustig-fenix847mm.png
 GELIJK schild2-calm-dag-fenix847mm.png
 GELIJK schild2-calm-nacht-fenix847mm.png
 GELIJK schild2-eind-dag-fenix847mm.png
-VERSCHIL schild2-eind-nacht-fenix847mm.png 137 pixels in (430, 433, 446, 443)
+GELIJK schild2-eind-nacht-fenix847mm.png
 GELIJK schild2-hold-dag-fenix847mm.png
 GELIJK schild2-hold-nacht-fenix847mm.png
 GELIJK schild2-in-dag-fenix847mm.png
@@ -77,15 +77,15 @@ GELIJK schild2-menu-dag-fenix847mm.png
 GELIJK schild2-menu-nacht-fenix847mm.png
 GELIJK schild2-uit-dag-fenix847mm.png
 GELIJK schild2-uit-nacht-fenix847mm.png
-VERSCHIL sealog-1-fenix847mm.png 136990 pixels in (135, 247, 589, 701)
-VERSCHIL sealog-2-fenix847mm.png 139618 pixels in (135, 247, 589, 701)
-VERSCHIL sealog-3-alle25-fenix847mm.png 135879 pixels in (135, 247, 589, 701)
+GELIJK sealog-1-fenix847mm.png
+GELIJK sealog-2-fenix847mm.png
+GELIJK sealog-3-alle25-fenix847mm.png
 GELIJK sessie-basis-hold-dag-fenix847mm.png
-VERSCHIL sessie-basis-hold-nacht-fenix847mm.png 4383 pixels in (288, 539, 437, 626)
+GELIJK sessie-basis-hold-nacht-fenix847mm.png
 GELIJK sessie-basis-in-dag-fenix847mm.png
-VERSCHIL sessie-basis-in-nacht-fenix847mm.png 3325 pixels in (290, 451, 435, 535)
+GELIJK sessie-basis-in-nacht-fenix847mm.png
 GELIJK sessie-basis-uit-dag-fenix847mm.png
-VERSCHIL sessie-basis-uit-nacht-fenix847mm.png 3272 pixels in (290, 488, 435, 572)
+GELIJK sessie-basis-uit-nacht-fenix847mm.png
 GELIJK sessie-eerste-hold-dag-fenix847mm.png
 GELIJK sessie-eerste-hold-nacht-fenix847mm.png
 GELIJK sessie-eerste-in-dag-fenix847mm.png
@@ -93,11 +93,11 @@ GELIJK sessie-eerste-in-nacht-fenix847mm.png
 GELIJK sessie-eerste-uit-dag-fenix847mm.png
 GELIJK sessie-eerste-uit-nacht-fenix847mm.png
 GELIJK sessie-komkommer-hold-dag-fenix847mm.png
-VERSCHIL sessie-komkommer-hold-nacht-fenix847mm.png 895 pixels in (308, 592, 435, 602)
+GELIJK sessie-komkommer-hold-nacht-fenix847mm.png
 GELIJK sessie-komkommer-in-dag-fenix847mm.png
-VERSCHIL sessie-komkommer-in-nacht-fenix847mm.png 168 pixels in (316, 490, 404, 495)
+GELIJK sessie-komkommer-in-nacht-fenix847mm.png
 GELIJK sessie-komkommer-uit-dag-fenix847mm.png
-VERSCHIL sessie-komkommer-uit-nacht-fenix847mm.png 203 pixels in (316, 542, 407, 548)
+GELIJK sessie-komkommer-uit-nacht-fenix847mm.png
 GELIJK sessie-krab-hold-dag-fenix847mm.png
 GELIJK sessie-krab-hold-nacht-fenix847mm.png
 GELIJK sessie-krab-in-dag-fenix847mm.png
@@ -111,11 +111,11 @@ GELIJK sessie-kreeft-in-nacht-fenix847mm.png
 GELIJK sessie-kreeft-uit-dag-fenix847mm.png
 GELIJK sessie-kreeft-uit-nacht-fenix847mm.png
 GELIJK sessie-otter-hold-dag-fenix847mm.png
-VERSCHIL sessie-otter-hold-nacht-fenix847mm.png 1011 pixels in (338, 565, 391, 602)
+GELIJK sessie-otter-hold-nacht-fenix847mm.png
 GELIJK sessie-otter-in-dag-fenix847mm.png
-VERSCHIL sessie-otter-in-nacht-fenix847mm.png 910 pixels in (338, 476, 391, 510)
+GELIJK sessie-otter-in-nacht-fenix847mm.png
 GELIJK sessie-otter-uit-dag-fenix847mm.png
-VERSCHIL sessie-otter-uit-nacht-fenix847mm.png 903 pixels in (338, 513, 391, 547)
+GELIJK sessie-otter-uit-nacht-fenix847mm.png
 GELIJK sessie-schild-hold-dag-fenix847mm.png
 GELIJK sessie-schild-hold-nacht-fenix847mm.png
 GELIJK sessie-schild-in-dag-fenix847mm.png
@@ -130,7 +130,7 @@ GELIJK sessie-terugval-uit-dag-fenix847mm.png
 GELIJK sessie-terugval-uit-nacht-fenix847mm.png
 GELIJK settings-1-fenix847mm.png
 GELIJK settings-2-fenix847mm.png
-VERSCHIL start-fenix847mm.png 142550 pixels in (135, 247, 589, 701)
+GELIJK start-fenix847mm.png
 GELIJK startcheck-fenix847mm.png
 GELIJK thuis-menu-dag-fenix847mm.png
 GELIJK thuis-menu-leeg-dag-fenix847mm.png
@@ -143,7 +143,7 @@ GELIJK thuis-sealog-nacht-fenix847mm.png
 GELIJK thuis-start-dag-fenix847mm.png
 GELIJK thuis-start-nacht-fenix847mm.png
 GELIJK today-fenix847mm.png
-VERSCHIL uitleg-fenix847mm.png 139989 pixels in (135, 247, 589, 701)
+GELIJK uitleg-fenix847mm.png
 GELIJK veilig-1-fenix847mm.png
 GELIJK veilig-2-fenix847mm.png
 GELIJK veilig-3-fenix847mm.png
@@ -155,4 +155,4 @@ GELIJK wereld-krab-fenix847mm.png
 GELIJK wereld-krab-week4-fenix847mm.png
 GELIJK wereld-schildpad-fenix847mm.png
 GELIJK wereld-schildpad-week4-fenix847mm.png
-157 beelden, 35 met verschil of ontbrekend
+157 beelden, 0 met verschil of ontbrekend
