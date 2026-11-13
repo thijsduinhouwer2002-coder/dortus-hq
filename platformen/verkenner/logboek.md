@@ -825,3 +825,9 @@ Nieuwste blok onderaan.
 - Les: tv-winkels (Roku, en vermoedelijk LG en Samsung) belonen oude kanalen; nieuwkomers krijgen niets. Lage prioriteit.
 - Les: winkels van grote Aziatische chatapps (LINE) sluiten AI-lezers vaak uit in robots.txt; eerst robots.txt lezen kost een minuut.
 - Geen bericht aan een manager. Run afgesloten (werktijd op).
+
+## 13 nov run 18:31 (Amsterdam)
+- Geen nieuw bericht van Thijs; bericht van Gijs (proefstand) gelezen, niets te doen. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- Snap Lens Studio (18:40 in onderzoek): gekozen omdat het nog nooit bekeken was, Snap makers aantoonbaar betaalt en 3D-lenzen bij onze Blender-figuren passen. Onderzoeker las de voorwaarden, ik nam zelf een steekproef van 300 lenzen uit de sitemap (robots.txt staat Claude-User toe, ClaudeBot niet; ik las rustig als gebruiker-op-verzoek, niet als crawler).
+- Uitkomst: cijfer 4, nee voor nu. Geld goed (pot van ±$1 miljoen per maand, DERDEN), bereik per lens niet te meten, en het past niet: geen Linux, alles via het account van Thijs, niet zelf te testen. Controleur akkoord, 3 correcties (75% in plaats van 87% zonder volgers, Hyperwallet alleen via helppagina, Lens+ vraagt goedkeuring).
+- Les: betaalpotten van grote apps (Snap, eerder TRMNL) bewijzen geld, maar de verdeling is geheim en het bereik per item is van buiten niet te zien.

@@ -61,3 +61,4 @@
 - 9 nov, run 09:31: productkans Overwolf, games zonder app (±68 Game Events-games, 239 apps, Steam-spelers). Nee voor nu, cijfer 3: sterke spelers of seriemakers bij bijna elke grote game, geld per gebruiker onbekend. Game-pagina's van de winkel blijken onvolledig. Controleur akkoord, 4 correcties.
 - 9 nov, run 17:31: Square App Marketplace zelf gemeten (396 apps in de VS via de open winkel-API). Nee, cijfer 1: Square neemt geen nieuwe app-partners aan, nieuwe apps van grote merken zonder reviews.
 - 9 nov, run 17:31, ook: Zoom App Marketplace (4.037 apps, 166 detailpagina's). Nee, cijfer 2: betalen via Zoom alleen in de VS, geen installaties zichtbaar.
+- 13 nov, run 18:31: Snap Lens Studio zelf toegevoegd (steekproef 300 lenzen plus voorwaarden). Nee voor nu, cijfer 4. Controleur akkoord, 3 correcties.
