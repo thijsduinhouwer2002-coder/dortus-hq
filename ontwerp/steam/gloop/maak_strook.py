@@ -25,8 +25,8 @@ for v in "ABC":
     rust = st.crop((0, 0, st.width // 6, st.height))
     rijen.append((v, met(rust)))
     if v == "B":
-        groot = [mg.hoed_beeld("puntmuts")]
-        rijen.append((v + "+toren", met(mb.met_toren(rust, groot, 1))))
+        groot = [mg.hoed_beeld("kroon"), mg.hoed_beeld("puntmuts")]
+        rijen.append((v + "+toren", met(mb.met_toren(rust, groot, 2))))
     else:
         rijen.append((v + "+toren", met(mb.met_toren(rust, keuze, 3))))
 W = (X1 - X0); H = (Y1 - Y0)

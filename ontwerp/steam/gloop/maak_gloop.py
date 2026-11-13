@@ -44,7 +44,32 @@ GLOOP_HOEDEN = {
                  ".kkkkkkk."],
 }
 
+# Kroon zonder donkere binnenlijnen en zonder rode steentjes (kijker ronde 4: "zwart gezichtje met grijns"); de buitenrand komt er in code omheen.
+GLOOP_HOEDEN["kroon"] = ["g...gg...g",
+                         "gg.gggg.gg",
+                         "gggggggggg",
+                         "GGGGGGGGGG"]
+MET_RAND = {"kroon"}
+
+def met_buitenrand(im):
+    w, h = im.size
+    uit = Image.new("RGBA", (w + 2, h + 2), (0, 0, 0, 0)); uit.paste(im, (1, 1), im)
+    a = uit.copy()
+    for y in range(h + 2):
+        for x in range(w + 2):
+            if a.getpixel((x, y))[3] == 0 and any(0 <= x + dx < w + 2 and 0 <= y + dy < h + 2 and a.getpixel((x + dx, y + dy))[3] > 0 for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                uit.putpixel((x, y), P["k"] + (255,))
+    return uit
+
 def hoed_beeld(naam):
+    if naam in MET_RAND:
+        rijen = GLOOP_HOEDEN[naam]
+        im = Image.new("RGBA", (len(rijen[0]), len(rijen)), (0, 0, 0, 0))
+        for y, r in enumerate(rijen):
+            for x, c in enumerate(r):
+                if c != ".":
+                    im.putpixel((x, y), P[c] + (255,))
+        return met_buitenrand(im)
     rijen = GLOOP_HOEDEN[naam]
     im = Image.new("RGBA", (len(rijen[0]), len(rijen)), (0, 0, 0, 0))
     for y, r in enumerate(rijen):

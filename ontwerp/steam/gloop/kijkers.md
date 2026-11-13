@@ -99,3 +99,17 @@ Eén nieuwe agent, alleen B. Letterlijk:
 
 ## Wat ik deed (Daan)
 De kroon leest als "zwart gezichtje met grijns" (donkere rand plus rode steentjes). Koksmuts eronder geprobeerd: leest als schedel of stapel. Daarom staat er nu op B alleen de grote puntmuts (schoon, GEZIEN in `kijker/B.png`). **De toren voor de grote Gloop is nog niet opgelost**: volgende run hoeden zonder donkere binnenrand tekenen (alleen een buitenrand), kroon zonder rode steentjes, en twee hoeden toetsen. Ook nog: contrast tegen pruim en de groene plantjes, en het oog iets minder strak (pupil kleiner of het oog 1 px lager zodat de bovenkant van het lijf als "voorhoofd" leest).
+
+# Ronde 5 (Daan, zelfde run): B groot met kroon zonder binnenlijnen en grote puntmuts
+Kroon nu zonder donkere binnenlijnen en zonder rode steentjes, buitenrand in code. Eén nieuwe agent, alleen B. Letterlijk:
+
+1. Rechterhelft: twee keer hetzelfde figuur, 8x vergroot, pixelart. Het is een mintgroene, koepelvormige slijmblob (slime) met één groot oog in het midden: wit met een zwarte pupil die naar rechts kijkt en een glimpje. Eronder zit een klein zwart mondje met een roze tongetje en een klein tandje of puntje. Aan weerskanten zitten roze blosvlekjes op de wangen. Rechts heeft het figuur een gouden kroontje, met daar bovenop een paarse puntmuts (heksenhoed) met een gele band. Links staat dus dezelfde blob zonder hoed en kroon, rechts met.
+2. Ja, in de strook links staat de blob met hoed en kroon, ongeveer in het midden. Op ware grootte herken ik: de groene bolvorm, het ene grote oog, de paarse puntmuts met gouden kroon erbij en de roze blosjes als twee kleine stipjes. Wat ik niet goed herken: het mondje en het tongetje, die zijn nog maar een paar pixels en lezen als een vaag streepje of vlekje. De pupil is ook klein, dus de kijkrichting valt weg. Kroon en hoed lopen in elkaar over tot één gele en paarse klomp. Het is ook niet duidelijk dat het twee losse dingen zijn.
+3. Ja, schattig: een 7 van 10. Het grote ene oog, de blosjes en de ronde vorm werken goed. De hoed met kroon is grappig. Als klein maatje op mijn scherm zou ik hem wel willen, vooral als hij een beetje beweegt. Het cijfer is niet hoger omdat het gezicht klein is en de combinatie hoed plus kroon wat druk is. Op ware grootte is hij minder schattig dan vergroot.
+4. Het meest stoort mij: het oog met de zwarte pupil kijkt wat strak of leeg, en met één oog en dat kleine mondje met tandje kan hij op ware grootte iets gek of licht eng overkomen, bijna als een glitch. De kroon plus puntmuts op elkaar is een rare stapel: een kroon met een heksenhoed erbovenop, het is niet logisch wat dat voorstelt. Verder is de blob links zo rond en plat dat hij in de drukke achtergrond (stenen, fakkel, schatkist, bord) wat wegvalt. De mond leest als een foutpixel, geen mond.
+
+## Wat ik eruit haal (Daan), voor de volgende run
+- Kroon leest nu als kroon. Dat een kroon met heksenhoed "niet logisch" is, is juist de grap (hoeden van opgegeten helden); in het spel zie je het verhaal, de kijker zonder uitleg niet. Op het blad voor Thijs één regel uitleg.
+- **Mond moet groter** (las in ronde 3, 4 en 5 als "foutpixel" of "bloedende tong"): op de grote Gloop een lach van 7 breed en 3 hoog, zonder los tandje in het midden.
+- **Oog minder strak**: pupil groter en ronder (3x3 met glimlicht van 2x2), of een kleine ooglid-boog. Vijf van de negen kijkers noemden het oog strak of leeg.
+- Contrast tegen de drukke kamer blijft open.
