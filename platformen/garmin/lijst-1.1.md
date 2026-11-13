@@ -13,3 +13,28 @@ Besluit Thijs 12 nov 22:20: wat geen crash, veiligheid of onwaarheid in de winke
 - **Scènes voor de bladen:** "fish stays with you" (eindscherm na sessie 1) en "5:00 auto" zitten niet in de volle plaatjesronde. Twee scènes erbij in `Scenes.mc`, zodat ze op elk horloge gezien worden.
 - **Bouwstraat, tijdgrens plaatjesjob** (run 77): in run 43327097299 duurde de checkout bij één horloge (epix 2 pro) 20 minuten en haalde de job de grens van 75 minuten niet, waardoor de hele run op `cancelled` kwam. Een grens per stap in plaats van per job, of de checkout laten herhalen als hij na een minuut niet klaar is.
 - **Hartslag op het inhoudscherm** (run 78): de app toont tijdens het inhouden de live hartslag, maar de winkeltekst noemt dat niet als functie. Eén regel erbij in de winkeltekst van 1.1. En gelijktrekken wat er staat als er geen meting is: het gewone scherm toont "--" (`Teken.hartRonde`), het wereldscherm laat de hartslag dan weg (`WereldSessie.mc` r.81).
+
+## Resten uit de vervallen taken van 12 nov (nagelopen 13 nov, run 85)
+
+De 33 regels die in run 76 op "vervallen" gingen zijn nu inhoudelijk gelezen. Wat hieronder staat stond nog nergens op deze lijst. Niets ervan is een crash, een veiligheidspunt of een onwaarheid in de winkel. Bij elk punt staat of het is nagekeken in de kandidaat; "niet nagekeken" betekent dat eerst in de code van e40269e1 gekeken moet worden of het nog geldt.
+
+App:
+- **Dode code weghalen:** de oude `EbbWereld` (`Wereld.mc`, `WereldData.mc`, `WereldTest.mc`, `resources/werelden`, scène 39 tot 46), `KrabV2Thuis.mc` met scène 51 en 52, en de dode tak "first friend" in `Start.mc`. Kost de gebruiker niets, maar weghalen verschuift scènenummers en de lijst NAMEN in de workflow: in één commit, met een volle ronde. Niet nagekeken.
+- **Vanzelf gestopte inhouding in het FIT-bestand** (vraag e uit status 12 nov 17:25, nooit beantwoord): de inhouding die na 5 minuten vanzelf stopt staat in de activiteit als lap van 300 s en in "Hold times". Mijn keuze was: laten staan, de activiteit is een eerlijk verslag. Wil de hoofdchat het anders, dan is het één regel in `EbbView.bewaak`.
+- **Vraag f uit dezelfde status** (telt een sessie met een vanzelf gestopte inhouding mee voor de reeks en de dieren): ook nooit beantwoord, nu zoals gebouwd. Bij 1.1 één keer voorleggen.
+- **Gepauzeerde opname als de app gestopt wordt met het pauzemenu open:** de vraag of de simulator dan toch een bestand bewaart is in run 67 deels uitgezocht (regel `OPNAME weggegooid`, status 12 nov 15:27). Niet nagekeken of dat bewijs rond is. Als eerste oppakken in 1.1, want het gaat over wat er van de gebruiker wordt opgeslagen.
+- **Bovenste knop op Venu 4 en vivoactive 6:** de uitleg zegt daar "top button"; nooit apart nagelopen of dat op beide horloges de goede knop is. Niet nagekeken.
+- **Kopteksten in de code** (KAN 4 van de hoofdchat, 12 nov 13:20): `KrabV2.mc` regel 7 tot 11 en `REGELS.md` kloppen niet meer met wat er gebouwd is. Alleen commentaar.
+- **Thuiswater en clownvis delen wereld 2** (`KrabV2View`, scène 75 en 76): het thuiswater een eigen nummer geven voordat er een wereld bijkomt. Hoort bij de 22 getekende werelden van 1.1.
+- **Gele koppen ("hold", "Ebb", "3 rounds done") op de fenix 8 bij dag:** in run 54 gemeten op 4,4 tegen een norm van 4,5. De schermen zijn daarna vaak veranderd. Opnieuw meten, niet nagekeken.
+
+Winkel:
+- **Hero image van 1440 x 720 px** (staat in Garmins merkregels, gevonden in run 71): niet gemaakt, in `ontwerp/garmin/winkel-echt/` staan alleen poster, vijf kaarten en het icoon. Het formulier vroeg er in onze voorbereiding niet om. Vraagt Garmin er toch om: uit de echte schermen maken, met Mila.
+- **Versienummer:** nog steeds een gok dat je het bij het uploaden invult en dat het niet in het manifest staat (Garmins documentatie is met curl niet te lezen). Thijs ziet het in het formulier; daarna hier opschrijven hoe het zit.
+- **Mila de nachtregel v1.4 laten zien** (koele dieren houden bij nacht hun kleur): is gebouwd zonder dat zij hem zag.
+
+Bouwstraat:
+- **Volle ronde korter:** de snelle proef van de hulp-Claude (`platformen/garmin/snelle-proef.md`, tak `claude/garmin-snel-proef`: toetsen in 6,5 minuut, scènes in stroken) is nooit overgenomen. Een volle ronde duurt nu ruim een uur.
+- **Contrast van tekst als stap in de plaatjesrun:** `bron/contrast_tekst.py` staat alleen op tak `gijs/run52-klaar`, en Mila's toets op de pixels van het echte beeld (`ontwerp/garmin/bron/toets_veilige_zone_v32.py`) draait niet mee.
+- **Een push met alleen tekst start ook de volle ronde** en houdt de rij ±40 minuten bezet: de workflow alleen laten starten als er code verandert.
+- **Takken opruimen** (allemaal van Gijs, pas na de keuring van Garmin, en eerst nalopen dat alles wat telt op de bouwtak staat): `claude/garmin-2026-11-12-proef49` tot `proef74e` (31 takken), `claude/garmin-2026-11-12-vol65`, `gijs/run49-klaar`, en `gijs/run52-klaar` pas als het contrastscript op de bouwtak staat. De takken `claude/garmin-snel-proef`, `claude/garmin-thuis-proef-bas` en `claude/garmin-werelden-proef-wout` zijn van anderen: niet weghalen, vragen via de hoofdchat.
