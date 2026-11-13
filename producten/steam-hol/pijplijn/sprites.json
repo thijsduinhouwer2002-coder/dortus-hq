@@ -447,6 +447,105 @@
           ]
         }
       }
+    },
+    "hoeden_hap": {
+      "model": "hoeden.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}",
+        "0",
+        "hap"
+      ],
+      "render": [
+        320,
+        320
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        1,
+        1
+      ],
+      "px": 4,
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.3
+      },
+      "frames": {
+        "helm": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "puntmuts": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kap": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pet": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kroon": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "koksmuts": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "emmer": {
+          "stand": "6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "hoge_hoed": {
+          "stand": "7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pan": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veermuts": {
+          "stand": "9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      }
     }
   }
 }
