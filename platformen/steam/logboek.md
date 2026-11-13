@@ -602,3 +602,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Ronde-5-blad van Bram in de kamertak samengevoegd en lokaal bekeken (Godot 4.3 onder xvfb, `--write-movie`, 120 px): één brede kamer naast de schacht, schatkamer 48 breed. Les: na `git checkout -- kunst/` eerst opnieuw importeren, anders laadt het spel lokaal de bladen niet.
 - Demolijst 2 op een breed scherm: duurtest kan nu de schermmaat van de runner zetten (tak `claude/steam-hol-breed`), paar van 15 min gestart.
 - Overbodige Windows-runs op de kamertak gestopt (43509655163 en 43510347192, ingehaald door nieuwere commits).
+
+## 13 nov 21:10 tot 21:45 UTC (Bram)
+- Hol ronde 5 door de pijplijn (tak `claude/steam-hol-ronde5`): schatkamer 48, vijf kamerstukken, laag `boven` zonder gras, spriet en rand. Oorzaak moet 2 (groene spikkels): de graspunten `rand` in `hol.py` hangen onder het maaiveld en zaten bovenin elk vak van rij 8; de randen van 4 bladpixels waren al goed. Eerste poging verborg alleen gras en spriet en hielp niet (GEZIEN), tweede met rand wel.
+- 3D-helden: schakelaar aan op tak `claude/steam-hol-helden3d`; eerste Windows-run rood op mijn eigen samenvoeging (gloop-maat in sprites.json van main, png van de tak), opgelost door de pijplijn die alles opnieuw rendert (run 43510188670 groen).
