@@ -9,17 +9,17 @@ HOL gegraven kolom 5
 HOL meting t=10 beelden=96 helden=2
 HOL kroniek 12.4 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
-HOL kroniek 13.5 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
 HOL gegraven kolom 2
 HOL demo klik op Gloop
-HOL kaartje open 18.5: slijm
+HOL kaartje open 18.6: slijm
 HOL demo klik op Buy
-HOL koop 20.0: slijm niveau 1, goud 27
+HOL koop 20.1: slijm niveau 1, goud 27
 HOL meting t=20 beelden=126 helden=2
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 25.1 (wacht 0.8): Tibbe has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.9): Tibbe has a map. It is wrong.
 HOL gegraven kolom 4
 HOL kroniek 27.9 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL einde na 30 s, fps=20, goud=33, terugkomers=1

@@ -12,30 +12,30 @@ HOL begin: opgegeten (Odo)
 HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
 HOL gegraven kolom 2
 HOL demo klik op Gloop
-HOL kaartje open 18.6: slijm
+HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
-HOL koop 20.1: slijm niveau 1, goud 27
+HOL koop 20.0: slijm niveau 1, goud 27
 HOL meting t=20 beelden=126 helden=2
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 25.1 (wacht 0.9): Tibbe has a map. It is wrong.
+HOL kroniek 25.2 (wacht 0.9): Tibbe has a map. It is wrong.
 HOL gegraven kolom 4
 HOL kroniek 27.9 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
-HOL meting t=30 beelden=136 helden=1
+HOL meting t=30 beelden=137 helden=1
 HOL kroniek 30.4 (wacht 1.3): Gloop ate Odo. Kept the crown. +6
-HOL kroniek 33.0 (wacht 5.1): Bram's song got popular. Uh oh.
 HOL begin: terug (Bram)
-HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
-HOL kroniek 34.0 (wacht 0.1): Bram is back for the Spike Pit.
+HOL kroniek 33.0 (wacht 1.0): Bram is back for the Spike Pit.
+HOL kroniek 35.5 (wacht 7.6): Bram's song got popular. Uh oh.
 HOL gegraven kolom 1
-HOL kroniek 36.5 (wacht 2.5): Bram's song got popular. Uh oh.
-HOL kroniek 37.5 (wacht 0.9): Gloop is flat. Back soon.
-HOL kroniek 39.5 (wacht 0.0): Tibbe is now the Hoard-Toucher.
+HOL kroniek weggedrukt na 1.3 s, komt terug: Bram's song got popular. Uh oh.
+HOL kroniek 36.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 39.3 (wacht 2.5): Bram's song got popular. Uh oh.
 HOL meting t=40 beelden=105 helden=2
+HOL kroniek 40.3 (wacht 0.6): Tibbe is now the Hoard-Toucher.
 HOL gegraven kolom 3
-HOL kroniek 45.7 (wacht 0.0): Gloop is up again. Wobbly.
-HOL begin: opgegeten2 (Joost)
-HOL kroniek 46.7 (wacht 0.5): Joost came for the gold in the song.
-HOL kroniek 49.3 (wacht 1.8): Bram came back. The Spike Pit won. +9
-HOL einde na 50 s, fps=14, goud=42, terugkomers=0
+HOL kroniek 45.5 (wacht 0.0): Bram came back. The Spike Pit won. +9
+HOL begin: opgegeten2 (Mara)
+HOL kroniek 48.0 (wacht 1.7): Mara knows all the words. Sadly.
+HOL kroniek vervallen 48.8: Gloop is up again. Wobbly.
+HOL einde na 50 s, fps=10, goud=42, terugkomers=0
