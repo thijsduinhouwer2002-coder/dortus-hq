@@ -1,6 +1,12 @@
 # Garmin Connect IQ: status
 
 - **RELEASE-KANDIDAAT: e40269e1, toetsrun 43315538201 groen, plaatjesrun 43315538179 groen.** Na deze regel verandert de code niet meer.
+- **13 nov ±04:00 UTC, run 80. Geen nieuw bericht na 02:25, nog niet ingediend. Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
+  - **Winkelbestand opnieuw opgehaald en nagerekend (03:55 UTC): klopt.** De link op de lijst van Thijs geeft 200, `Ebb.iq` is 4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan de lijst.
+  - **Niets verschoven (`git ls-remote`, 03:56 UTC):** bouwtak `claude/garmin-2026-11-10b` en tag `ebb-v1.0.0` staan allebei op e40269e1. Plakbestanden en winkelbeelden zijn sinds 00:01 UTC niet gewijzigd.
+  - **`dortus.com/ebb/`, `/ebb/privacy.html` en `/ebb/support.html` geven nog 404 (03:56 UTC); dortus.com zelf 200.** Nog steeds het enige open punt voor 08:30 NL, en alleen als het formulier om een privacy-URL vraagt. Ligt bij de hoofdchat en Thijs.
+  - `ontwerp/na-ebb-keuzes-2026-11-13.md` van de hoofdchat gelezen (gratis versie "Ebb Calm" als eerste werk na het inleveren, als Thijs ja zegt; meer horloges voor 1.1). Niets aan begonnen: het is een keuze van Thijs en de code blijft dicht tot er is ingediend.
+  - Bij het begin van de run stond de lokale kopie op een oude stand van 10 nov; gewerkt vanaf de stand van GitHub (7c7cda3), er is niets verloren.
 - **13 nov ±03:00 UTC, run 79. Geen nieuw bericht na 02:25, nog niet ingediend. Alleen nagekeken, niets veranderd aan code, plakbestanden of beelden. Kandidaat blijft e40269e1. Installs 0, verkopen 0.**
   - **Het winkelbestand opnieuw opgehaald en nagerekend (02:57 UTC): klopt.** De link op de lijst van Thijs geeft 200, `Ebb.iq` is 4.170.508 bytes en de sha256 is `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gelijk aan wat op de lijst staat.
   - **Niemand heeft iets verschoven (`git ls-remote`, 02:57 UTC):** de bouwtak `claude/garmin-2026-11-10b` en de tag `ebb-v1.0.0` staan allebei op e40269e1. De plakbestanden en de winkelbeelden zijn sinds 00:01 UTC niet gewijzigd.
