@@ -1,7 +1,7 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek 4.1 (wacht 0.0): Wout brought a torch. And hope.
-HOL begin: vallen (Wout)
+HOL kroniek 4.1 (wacht 0.0): Joost brought a torch. And hope.
+HOL begin: vallen (Joost)
 HOL meting t=10 beelden=61 helden=1
-HOL kroniek 14.6 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 14.6 (wacht 0.0): Joost found the Spike Pit. Hard. +6
 HOL einde na 15 s, fps=20, goud=26, terugkomers=0
