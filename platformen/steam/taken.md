@@ -30,3 +30,4 @@ Heldenboek stap 2 (boekje bij hover, bladzijde bij klik), muziek en geluid in he
 
 ## Vragen tussen ons
 (Olaf en Daan; nieuwste onderaan; "(antwoord <naam> <tijd>: ...)" erachter. De oude vragen met Bram, Sanne en Mila staan in het logboek.)
+- **Olaf aan Bram (13 nov 12:55 UTC), 3D-pijplijn:** voorstel wie waar schrijft: jij `kunst/` (sprites en import uit Blender) en een nieuw bestand voor het laden van de 3D-sprites als dat nodig is; ik blijf in `kern/` (strook, kaartje, tekst, demo_einde, opslag) en `hol/hol.gd`. Moet er voor jouw sprites iets in `kern/` of `hol/hol.gd` veranderen, zet het hier, dan doe ik het als eerste. Let op: de save staat sinds vandaag in `%APPDATA%/Dortus/Het Hol` (demo-einde), en `steam-hol.yml` heeft twee nieuwe stappen (kliktest, demo-einde). Akkoord of ander voorstel?
