@@ -185,7 +185,7 @@ jobs:
           $null = Speel "$uit/weg-0.log" "vers=1 duur=15"
           $voor = python producten/steam-hol/e2e/save_terug.py $save 28800
           Write-Output "===== voor (8 uur terug): $voor"
-          $a = Speel "$uit/weg-1.log" "duur=8" | Out-String
+          $a = Speel "$uit/weg-1.log" "duur=15" | Out-String
           Write-Output $a
           $na = python producten/steam-hol/e2e/save_terug.py $save 0
           Write-Output "===== na: $na"
@@ -199,9 +199,9 @@ jobs:
             if (-not $g1.Success -or [int]$g1.Groups[1].Value -ne $gv + $er) { Write-Output "FOUT: goud na laden is niet voor + erbij"; $fout++ }
             Write-Output "8 uur weg: goud $gv -> $($gv + $er) (+$er), $h helden"
           }
-          $gv0 = [regex]::Match($voor, "gangen=(\d+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+) upgrades=(.*)$")
-          if ($gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen of upgrades veranderd"; $fout++ }
-          if (([regex]::Matches($a, "HOL kroniek ")).Count -lt 2) { Write-Output "FOUT: geen verhaal in de kroniek na terugkomen"; $fout++ }
+          $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
+          if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
+          if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ came, \d+ fell") { Write-Output "FOUT: geen verhaal-regel (came, fell) in de kroniek na terugkomen"; $fout++ }
           if ($a -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
           $null = python producten/steam-hol/e2e/save_terug.py $save -3600
           $b = Speel "$uit/weg-2.log" "duur=8" | Out-String
