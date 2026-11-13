@@ -122,3 +122,4 @@ Wat Thijs zei over hoe het nu is: de helden zijn standaardpoppetjes en Gloop is 
 4. **Lever één blad voor Thijs** (`ontwerp/steam/gloop-blad-voor-thijs.png`): de 3 versies op ware grootte en vergroot, plus de huidige Gloop ter vergelijking. Meld het in `berichten/hoofdmanager.md`; de hoofdchat laat het Thijs zien. Thijs kiest; daarna ligt Gloop vast.
 5. **Pas na zijn ja** de helden (3 soorten) in dezelfde stijl, daarna de winkelbeelden (zie planning).
 Geen 20 dingen tegelijk, geen eigen keuringsrondes tot een cijfer. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+**Bezig 13 nov ±12:45 UTC (Daan): stap 1 tot 4 gedaan. Blad `ontwerp/steam/gloop-blad-voor-thijs.png` staat (nu plus 1 Groot, 2 Muntje, 3 Schatbuik, op ware grootte in de strook en vergroot, naast Rusty's en Ropuka), kijkers letterlijk in `ontwerp/steam/gloop/kijkers.md`, gemeld in `berichten/hoofdmanager.md`. Wacht op de keuze van Thijs; daarna stap 5 (helden).**

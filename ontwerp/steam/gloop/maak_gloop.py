@@ -69,7 +69,15 @@ def hoed_beeld(naam):
             for x, c in enumerate(r):
                 if c != ".":
                     im.putpixel((x, y), P[c] + (255,))
-        return met_buitenrand(im)
+        uit = met_buitenrand(im)
+        # kijker ronde 7: de rand tussen de kroonpunten las als "zwarte druppels" of "tanden"; daar geen rand
+        for y in range(0, 3):
+            gevuld = [x for x in range(uit.width) if uit.getpixel((x, y))[:3] != P["k"] and uit.getpixel((x, y))[3] > 0]
+            if not gevuld: continue
+            for x in range(min(gevuld) + 1, max(gevuld)):
+                if uit.getpixel((x, y))[:3] == P["k"]:
+                    uit.putpixel((x, y), (0, 0, 0, 0))
+        return uit
     rijen = GLOOP_HOEDEN[naam]
     im = Image.new("RGBA", (len(rijen[0]), len(rijen)), (0, 0, 0, 0))
     for y, r in enumerate(rijen):
