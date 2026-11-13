@@ -142,7 +142,8 @@ BLOEM_R = g.mat("bloemr", "f08a9a", rough=0.5, emis=0.2)
 aarde = blok("aarde", ((X0 + X1) / 2, 1.5, (ONDER - 1 + MAAIVELD) / 2), (X1 - X0, 3.0, MAAIVELD - ONDER + 1), PRUIM)
 
 # schatkamer: boog (cilinder) plus vierkant onderstuk; achterwand blijft staan op y = 1.4
-KX0, KX1, KVL, KTOP = -3.1, 3.1, 0.0, 2.75
+# Ronde 5 (Bram 18:30): 48 breed, precies kolom 6 tot 9 (spelpixel 96 tot 144), zoals de schatkamer in het spel.
+KX0, KX1, KVL, KTOP = LINKS + 6 * KOL + 0.08, LINKS + 9 * KOL - 0.08, 0.0, 2.75
 kamer_b = blok("kamer_gat", (0, 0.2, (KVL + 1.4) / 2), (KX1 - KX0, 2.4, 1.4 - KVL))
 uithollen(aarde, kamer_b)
 bpy.ops.mesh.primitive_cylinder_add(vertices=64, radius=1.0, depth=2.4, location=(0, 0.2, 1.4), rotation=(math.radians(90), 0, 0))
@@ -157,12 +158,22 @@ uithollen(aarde, schacht)
 # loopt door tot voorbij de rand: het rustige stuk (kolom 13 en 14) is een gang die herhaalt
 gang_r = blok("gangr_gat", ((KX1 + X1 + 1) / 2, 0.2, GANG_TOP / 2), (X1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
 uithollen(aarde, gang_r)
-# twee kleine kamers boven de gang (in het spel: klik in de aarde boven de gang; later woont er iemand)
-KAMERS = [(LINKS + 3.5 * KOL, 2.25), (LINKS + 11.5 * KOL, 2.25)]   # midden van kolom 3 en 11 (x = -7,2 en 7,2)
-for kx, kz in KAMERS:
-    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=1.0, depth=2.4, location=(kx, 0.2, kz), rotation=(math.radians(90), 0, 0))
-    kg = bpy.context.object; kg.scale = (0.85, 0.62, 1)   # 1,7 breed: past in één kolom (15 spelpixels)
-    uithollen(aarde, kg)
+# Kamers boven de gang (in het spel: klik in de aarde boven de gang). Ronde 5, voorstel Daan (moet 3):
+# een gegraven stuk van meer kolommen is EEN kamer. Kolom 2 begin, 3 midden a, 4 midden b, 5 eind;
+# kolom 11 een losse kamer. Het midden is recht en egaal belicht, zodat elk stuk naast elk ander past.
+# Ovaal 0,78 breed (14 spelpixels, Bram 18:30): heel binnen zijn vak van 16.
+KZ = 2.25; KH = 0.62; KR = 0.78
+BREDE = (LINKS + 2.5 * KOL, LINKS + 5.5 * KOL)     # middens van de ronde einden (kolom 2 en 5)
+LOS = LINKS + 11.5 * KOL
+MID_A, MID_B = LINKS + 3.5 * KOL, LINKS + 4.5 * KOL
+KAMERS = [(BREDE[0], KZ), (MID_A, KZ), (MID_B, KZ), (BREDE[1], KZ), (LOS, KZ)]   # voor de kiezels
+def ovaal(kx):
+    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=1.0, depth=2.4, location=(kx, 0.2, KZ), rotation=(math.radians(90), 0, 0))
+    kg = bpy.context.object; kg.scale = (KR, KH, 1)
+    return kg
+for kx in (BREDE[0], BREDE[1], LOS):
+    uithollen(aarde, ovaal(kx))
+uithollen(aarde, blok("kamer_mid", ((BREDE[0] + BREDE[1]) / 2, 0.2, KZ), (BREDE[1] - BREDE[0], 2.4, 2 * KH)))
 for o in (aarde,):
     afronden(o, 0.18, 4)
     bpy.context.view_layer.objects.active = o
@@ -176,14 +187,14 @@ for i in range(70):
     # niet in de gaten
     if x > TEGEL_X - 0.3:
         continue   # rustig stuk: daar liggen dezelfde kiezels in elke kolom (hieronder)
-    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.05 and abs(z - kz) < 0.8 for kx, kz in KAMERS):
+    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.05 and abs(z - kz) < 0.8 for kx, kz in KAMERS) or (BREDE[0] - 1.0 < x < BREDE[1] + 1.0 and abs(z - KZ) < 0.8):
         continue
     r = random.uniform(0.07, 0.2)
     bol("kiezel", (x, -0.02, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, PRUIM_L, PRUIM_L]), 12)
 for k in range(-1, 3):   # kolom 12 (half, voor de naad) tot 14, plus één voorbij de rand
     x0 = TEGEL_X + k * KOL
     for (dx, z, r, m) in [(0.35, 2.35, 0.15, STEEN), (1.2, 2.9, 0.1, PRUIM_L), (0.9, 1.85, 0.08, PRUIM_L)]:
-        if x0 + dx < KAMERS[1][0] + 0.85 + 0.3:
+        if x0 + dx < LOS + KR + 0.3:
             continue   # niet in de kamer rechts boven de gang
         bol("kiezel", (x0 + dx, -0.02, z), (r * 1.3, r * 0.6, r), m, 12)
 # een strook lichtere aarde net onder het gras
@@ -233,24 +244,24 @@ vloer = blok("vloer", ((X0 + X1) / 2, 0.7, -0.03), (X1 - X0, 1.5, 0.1), VLOER)
 # ---------- de schat: een gouden berg rechts in de kamer ----------
 mb = bpy.data.metaballs.new("berg"); mb.resolution = 0.06; mb.render_resolution = 0.03
 berg = bpy.data.objects.new("berg", mb); sc.collection.objects.link(berg)
-for (x, y, z, r) in [(1.5, 0.75, -0.25, 1.05), (2.25, 0.85, -0.3, 0.85), (0.4, 0.7, -0.45, 0.9), (1.7, 0.9, 0.1, 0.65)]:
+for (x, y, z, r) in [(1.35, 0.75, -0.25, 1.0), (1.95, 0.85, -0.3, 0.8), (0.4, 0.7, -0.45, 0.88), (1.5, 0.9, 0.1, 0.62)]:
     e = mb.elements.new(); e.co = (x, y, z); e.radius = r
 berg.data.materials.append(GOUD_D)
 # losse munten op en rond de berg
 for i in range(90):
     a = random.uniform(0, math.pi); rr = random.uniform(0.2, 1.25)
-    x = 1.55 + rr * math.cos(a) * 1.3; z = max(0.03, 0.75 - rr * 0.62 + random.uniform(-0.05, 0.05))
+    x = 1.35 + rr * math.cos(a) * 1.0; z = max(0.03, 0.75 - rr * 0.62 + random.uniform(-0.05, 0.05))
     y = random.uniform(0.25, 1.0)
     cil("munt", (x, y, z), 0.13, 0.035, GOUD, rot=(random.uniform(-0.9, 0.9), random.uniform(-0.9, 0.9), 0), verts=20)
 for i in range(14):   # munten die over de vloer gerold zijn
-    x = random.uniform(-2.6, 3.0); y = random.uniform(0.1, 0.9)
+    x = random.uniform(KX0 + 0.3, KX1 - 0.3); y = random.uniform(0.1, 0.9)
     cil("munt_vloer", (x, y, 0.02), 0.12, 0.03, GOUD, verts=20)
 bol("robijn", (1.15, 0.35, 0.62), (0.12, 0.1, 0.14), ROBIJN, 8)
-bol("safier", (2.3, 0.4, 0.5), (0.1, 0.08, 0.12), SAFIER, 8)
+bol("safier", (2.0, 0.4, 0.5), (0.1, 0.08, 0.12), SAFIER, 8)
 # een beker bovenop de berg
-cil("beker_voet", (1.75, 0.7, 0.92), 0.12, 0.05, GOUD, verts=24)
-cil("beker_steel", (1.75, 0.7, 1.02), 0.04, 0.18, GOUD, verts=16)
-cil("beker_kom", (1.75, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
+cil("beker_voet", (1.55, 0.7, 0.92), 0.12, 0.05, GOUD, verts=24)
+cil("beker_steel", (1.55, 0.7, 1.02), 0.04, 0.18, GOUD, verts=16)
+cil("beker_kom", (1.55, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
 
 # achterwand van de schatkamer een trede lichter en warmer, met een gloed achter Gloop:
 # hij moet het lichtste vlak van de strook zijn (frisse kijker ronde 1: "figuur te klein voor de drukke strook")
@@ -270,11 +281,11 @@ for k in range(8):
     cil("sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
 
 # ---------- kist links in de kamer, open, goud puilt eruit ----------
-kist = blok("kist", (-2.25, 0.75, 0.32), (0.95, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
-blok("kistband", (-2.25, 0.44, 0.32), (0.98, 0.03, 0.12), GOUD_D)
-deksel = blok("deksel", (-2.25, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
+kist = blok("kist", (-1.85, 0.75, 0.32), (0.95, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
+blok("kistband", (-1.85, 0.44, 0.32), (0.98, 0.03, 0.12), GOUD_D)
+deksel = blok("deksel", (-1.85, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
 for i in range(10):
-    cil("kistmunt", (-2.25 + random.uniform(-0.38, 0.38), 0.7 + random.uniform(-0.15, 0.15), 0.66 + random.uniform(0, 0.08)),
+    cil("kistmunt", (-1.85 + random.uniform(-0.38, 0.38), 0.7 + random.uniform(-0.15, 0.15), 0.66 + random.uniform(0, 0.08)),
         0.12, 0.03, GOUD, rot=(random.uniform(-0.6, 0.6), random.uniform(-0.6, 0.6), 0), verts=20)
 
 
@@ -288,13 +299,43 @@ def fakkel(x, z, kracht=160):
     o = bpy.data.objects.new("fakkellicht", d); o.location = (x, 0.5, z + 0.35); sc.collection.objects.link(o)
 
 
-fakkel(-2.9, 1.65)
-fakkel(2.9, 1.65)
+fakkel(KX0 + 0.2, 1.65)
+fakkel(KX1 - 0.2, 1.65)
 fakkel(-7.2, 0.95, 90)
 fakkel(5.0, 0.95, 90)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
-for kx, kz in KAMERS:
-    fakkel(kx + 0.45, kz - 0.15, 45)
-    blok("kamervloer", (kx, 0.7, kz - 0.6), (1.3, 1.4, 0.06), VLOER)
+# Kamers (Daan, moet 3): geen fakkel hoog meer (die vlam las als pupil: drie kommen werden drie ogen).
+# Begin: fakkel laag op de linkerwand. Midden a: stut met schoren. Midden b: houweel en tonnetje. Eind: kistje.
+blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.7, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.4, 0.06), VLOER)
+blok("kamervloer", (LOS, 0.7, KZ - 0.6), (1.2, 1.4, 0.06), VLOER)
+fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
+STUT = g.mat("stut", "6e4632", rough=0.75)       # een tint donkerder en minder oranje dan Daans proef
+BAND = g.mat("band", "d9a441", rough=0.4, spec=0.5)
+for dx in (-0.55, 0.55):
+    blok("stut", (MID_A + dx, 0.5, KZ - 0.05), (0.16, 0.16, 2 * KH - 0.1), STUT)
+blok("stut", (MID_A, 0.5, KZ + KH - 0.12), (1.45, 0.18, 0.16), STUT)
+for dx, a in ((-0.38, 45), (0.38, -45)):
+    blok("stut", (MID_A + dx, 0.5, KZ + KH - 0.3), (0.42, 0.12, 0.1), STUT, rot=(0, math.radians(a), 0))
+HOUWEEL = g.mat("houweel", "b8b4c8", rough=0.35, spec=0.6, metaal=0.6)
+blok("houweelsteel", (MID_B - 0.25, 0.5, KZ - 0.2), (0.07, 0.07, 0.75), STUT, rot=(0, math.radians(-18), 0))
+blok("houweelkop", (MID_B - 0.14, 0.5, KZ + 0.15), (0.5, 0.07, 0.08), HOUWEEL, rot=(0, math.radians(-8), 0))
+cil("ton", (MID_B + 0.35, 0.5, KZ - 0.36), 0.2, 0.42, STUT, verts=20)
+for dz in (-0.12, 0.12):
+    cil("tonband", (MID_B + 0.35, 0.5, KZ - 0.36 + dz), 0.21, 0.04, BAND, verts=20)
+blok("kistje", (BREDE[1] + 0.1, 0.45, KZ - 0.36), (0.5, 0.36, 0.38), STUT)
+blok("kistje", (BREDE[1] + 0.1, 0.45, KZ - 0.2), (0.52, 0.38, 0.05), BAND)
+# licht van binnen over de hele brede kamer, naar achteren gericht: licht de kamer, niet de voorkant van de aarde
+kl = bpy.data.lights.new("kamerlicht", "AREA"); kl.shape = "RECTANGLE"; kl.size = BREDE[1] - BREDE[0] + 1.0; kl.size_y = 0.8
+kl.color = (1.0, 0.78, 0.6); kl.energy = 90
+klo = bpy.data.objects.new("kamerlicht", kl); klo.location = ((BREDE[0] + BREDE[1]) / 2, 0.05, KZ)
+klo.rotation_euler = (math.radians(90), 0, 0); sc.collection.objects.link(klo)
+# losse kamer: twee lichtgevende zwammetjes op de vloer, warm lila licht van binnen
+for dx, s_ in ((-0.3, 1.0), (-0.08, 0.7)):
+    cil("steel", (LOS + dx, 0.6, KZ - 0.48), 0.035 * s_, 0.18 * s_, g.mat("zsteel", "efe4d8", rough=0.6))
+    bol("hoedje", (LOS + dx, 0.6, KZ - 0.39 + 0.05 * s_), (0.11 * s_, 0.11 * s_, 0.06 * s_), g.mat("zwam", "7fe3d0", rough=0.5, emis=1.2), 16)
+ll = bpy.data.lights.new("loslicht", "AREA"); ll.size = 0.9; ll.color = (1.0, 0.8, 0.7); ll.energy = 25
+llo = bpy.data.objects.new("loslicht", ll); llo.location = (LOS, 0.05, KZ); llo.rotation_euler = (math.radians(90), 0, 0); sc.collection.objects.link(llo)
+zl = bpy.data.lights.new("zwamlicht", "POINT"); zl.color = (0.55, 1.0, 0.9); zl.energy = 25; zl.shadow_soft_size = 0.3
+zlo = bpy.data.objects.new("zwamlicht", zl); zlo.location = (LOS - 0.2, 0.2, KZ - 0.2); sc.collection.objects.link(zlo)
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")
 PUT_X = LINKS + 4.5 * KOL   # midden van kolom 4 (spelpixel 64 tot 80), zoals hol.gd een put in één kolom tekent
@@ -337,9 +378,12 @@ bol("spin", (8.9, 0.4, GANG_TOP - 0.56), (0.07, 0.06, 0.07), PRUIM_D, 10)
 
 # egaal licht op het rustige stuk rechts (kolom 13 en 14): een lange lamp die voorbij beide randen loopt, zodat
 # het licht daar niet verloopt in x en de tegels naadloos naast elkaar passen. De fakkels vallen er zwak op.
-tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = 10.0; tl.size_y = 3.0
-tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT
-tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (TEGEL_X + KOL + 1.0, -3.0, 4.6)
+# Ronde 5 (moet 1, Daan): deze lamp loopt nu over de hele breedte, zodat de aarde overal precies het licht van
+# de aardtegel krijgt (het spel legt die tegel op elke dichte cel). Zelfde sterkte per vlak als eerst (300 op 10 breed).
+TL_BREED = BREED + 6.0
+tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = TL_BREED; tl.size_y = 3.0
+tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT * TL_BREED / 10.0
+tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (0.0, -3.0, 4.6)
 tlo.rotation_euler = (math.radians(52), 0, 0); sc.collection.objects.link(tlo)
 
 # ---------- Gloop van Daan erin (gloop.py ongewijzigd, alleen het model) ----------
@@ -382,7 +426,7 @@ for o in sc.objects:
     if o.name == "boven":
         o.location.z = 9.0; o.data.energy *= 2.25
     if o.name == "koel":
-        o.location = (-2.6, 1.05, 2.3); o.data.size = 1.2; o.data.energy *= 0.6
+        o.location = (-1.6, 1.05, 2.2); o.data.size = 1.0; o.data.energy *= 0.6
 for o in sc.objects:
     if o.type == "LIGHT":
         o.visible_camera = False   # de lampen zelf niet in beeld
