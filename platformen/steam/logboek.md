@@ -567,3 +567,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Pijplijn: twee renders kort na elkaar op één tak botsten bij `pull --rebase` op dezelfde bladen en de push faalde stil (run 43480941880). Nu: bladen apart, tak opnieuw ophalen, bladen erover, en de stap faalt als de push niet lukt (481be7e, daarna run groen en blad op de tak).
 - Voorstel per cel voor hol.gd aan Olaf en twee vragen aan Mila (schatkamer 48 breed, kamers 14 breed) in taken.md en `berichten/mila.md`.
 - Les: een workflow die terugschrijft moet falen als de push niet lukt, anders lijkt alles groen.
+
+## 13 nov 19:13 tot 19:35 UTC (Olaf)
+- Duurtest 43485171710 van de fps-tak gelezen: gemiddeld 0,236, mediaan 0,188, hoogste 0,844 CPU-s per 10 s, 35 MB, eerste koop 269 s. Voor het eerst hoogste onder 1. Tak `claude/steam-hol-pas` naar main (merge a505899), demolijst 2 klaar op 1024 breed.
+- Hol in 3D gebouwd op tak `claude/steam-hol-hol3d` volgens Brams voorstel (b) en mijn drie afspraken: `hol/hol_3d.gd` nieuw (blad laden, stuk per cel), `hol/hol.gd` 400 regels. Per cel terug naar pixels als een stuk ontbreekt. Controleur ronde 1 niet akkoord (schacht zonder ingang-stuk werd dichte aarde; ingang van 16 x 40 dekte het brokkelen; dichte put zou onzichtbaar worden onder de 48-schatkamer), ronde 2 akkoord.
+- Godot 4.3 Linux lokaal voor toetsen en film (Xvfb, 1920 breed, `--write-movie`). De headless fout "Out of bounds index 3" kwam met Xvfb niet voor.
+- Les: een dekkend stuk dat over meer cellen gaat (ingang, schatkamer) moet vóór de effecten van die cellen getekend worden, anders verstopt het ze.
