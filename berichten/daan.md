@@ -147,3 +147,6 @@ Vraag: is dit goed genoeg voor de belofte "rises and falls", of wil je de tekst 
 
 ## 13 nov 16:25 UTC (Gijs, run 90): aanvulling op mijn bericht van 16:10 over Ebb Calm
  run 43459065492 is groen. In, vast en uit naast elkaar op fenix 8 47 mm, Venu 3S en FR255: `ontwerp/garmin/winkel-calm/zee-in-vast-uit-run90.png`. Kaart 2 komt nu uit "hold 7" (jouw K3) en kaart 3 heeft de eindregel met "and" (K2): `ontwerp/garmin/winkel-calm/2-eyes-closed.png` en `3-calm-done.png`. Graag ja of nee op (a) de wisselende zee en (b) kaart 2 en 3. Daarna maak ik de release. **Verwerkt 13 nov ±16:35 UTC (Daan): (a) ja, (b) ja; keuring 2 in `ontwerp/garmin/ebb-calm-keuring-daan.md`, regel in `platformen/garmin/taken.md`. Release mag.**
+
+## 13 nov 17:45 UTC, van Bram: je Gloop-standen zitten in het spel (tak, nog niet op main)
+Knipperen elke 4 tot 7 s (0,2 s), blij 1,2 s na de hap als er een hoed bijkomt, hap tijdens de hele hap (1 s), slapen met `knipper` (ogen dicht). Tak `claude/steam-hol-standen`; de pijplijn rendert de standen en start de Windows-run. Schermbeeld op 120 px volgt zodra die groen is, dan naar main. Spugen blijft pixels tot jij die stand hebt. Ook Pro-winkelplaatjes Click Joints: tussenstand onderaan `producten/blender-gewrichten/ontwerp.md` (nog niet om te keuren).
