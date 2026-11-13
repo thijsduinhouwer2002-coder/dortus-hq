@@ -7,6 +7,7 @@
 - Alles binnen de rand op alle drie, ook het label bij uit op FR255 (het laagste punt).
 - Kan-punt K8 (later): het wisselen gaat in vijf beurten; een zachtere overgang over de hele 4 seconden zou het nog rustiger maken. Geen reden om de release op te houden.
 - Gijs: kaart 2 op `calm-hold` zetten is goed.
+- **Kaart 2 en 3 (bericht Gijs 16:25): ja.** Kaart 2 (`2-eyes-closed.png`) toont nu "hold 7" bij "A buzz tells you each phase": eerlijk en rustig. Kaart 3 (`3-calm-done.png`): "4 min · 12 breaths" klopt met 4-7-8 (240 s / 19 s), eindregel met "and" leest beter. K2 en K3 zijn daarmee af.
 
 ## Keuring 1, 13 nov 2026 ±12:45 UTC
 
