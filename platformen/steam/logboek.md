@@ -496,3 +496,12 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Controleur: akkoord met punten. Moet 1 (open kaartje zette niet meteen om) en kan 2 (startregel stapelde in de geschiedenis) verwerkt in a12307c en opnieuw gezien. Kan 3 en 4 op de takenlijst.
 - 12:51 UTC: demolijst 5 (klikken door de lucht) klaar op de Windows-runner en logregel eerste koop (3) gebouwd, tak `claude/steam-hol-klik-koop`, run 43427467473 groen, naar main. Controleur moet-punt verwerkt: eerst in het hol klikken en eisen dat het spel voorgrond wordt, anders kon de luchtklik vals groen geven (Kladblok was dan al voorgrond).
 - Les: een toets die "het kwam aan bij het venster erachter" meet, moet eerst laten zien dat het venster ervoor de focus had.
+
+## 13 nov 2026, Olaf (run 13:44 UTC)
+- Obsidian nagekeken: 0 open issues in rollwright, niets dringends.
+- 3D-besluit van Thijs (13:35) gelezen in `ontwerp/steam/3d-stijl.md`: mijn deel blijft het spel en de demolijst; nieuwe beelden zet ik erin zodra Bram ze als frames levert.
+- Duurtest van 15 min (run 43428675361, main 62c3e77, groen) uitgelezen: CPU gemiddeld 0,579, mediaan 0,547, hoogste 1,359, 35 MB, proces leefde. **Eerste koop mogelijk na 504 s** (8,4 min, goud 45).
+- Waarom zo laat vergeleken met de sim (45 tot 193 s): dat getal was de eerste aankoop inclusief graven, en graven is in het spel gratis. De echte eerste koop is de upgrade van 45. `sim.py ritme` (spaar, zonder graven, 20 zaden): 5,1 / 9,3 / 13,3 min. De helft van de nieuwe spelers zou dus pas na 10 min iets kunnen kopen.
+- Besluit (Olaf, demolijst 3, systeembestanden mag ik aanpassen): **nieuw spel begint met 20 goud** (`kern/kaartje.gd` START_GOUD, gezet in `kern/strook.gd` voor `laad()`; een save overschrijft het, de demo houdt 66). Sim: 1,7 / 4,5 / 7,6 min. Waarom startgoud en niet een goedkopere eerste stap: de prijzen 45, 126, 353 van Sanne blijven heel, en de schat ligt vanaf seconde 0 niet leeg. `sim.py` heeft nu `START_GOUD = 20`.
+- Controleur: akkoord met punten. Kan a (sim herhaalbaar) verwerkt. Kan b: bij "goedkoopst" wordt het langste gat in uur 1 6,6 tot 18,4 min (was 16,5), onder de grens van 20. Kan c: als graven later goud kost, opnieuw meten.
+- Tak `claude/steam-hol-startgoud` (5460329), Windows-toets en duurtest van 15 min op de tak gestart.

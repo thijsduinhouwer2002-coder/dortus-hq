@@ -93,3 +93,11 @@ Sanne vraagt in `features.md` (eerste tien minuten): geen aartsvijand in het eer
 | pas na 3600 s open tijd | ja | 0 | 1,00 u | 2,29 u | 58 |
 | pas vanaf 60 nieuwe helden | ja | 1 (0,98 u) | 0,98 u | 2,25 u | 58 |
 In uur 1 komen 50 tot 69 nieuwe helden (mediaan 60). Advies: tel in nieuwe helden (`helden_nr` staat al in de save), dan hoeft er geen open tijd bij. `heldensoort.aarts_mag(helden_nr)` geeft true vanaf 60. De aartsvijand komt dan gemiddeld na ±2,3 u, nog steeds op dag 1.
+
+## 13 nov 2026 (Olaf): eerste upgrade zonder graven, en startgoud 20
+In het spel is graven gratis, dus de echte eerste koop is de upgrade van 45. `python3 sim.py ritme`, strategie spaar, 20 zaden (GEZIEN):
+| Startgoud | eerste upgrade min / mediaan / max | langste gat uur 1 (goedkoopst) |
+|---|---|---|
+| 0 | 5,1 / 9,3 / 13,3 min | 6,7 tot 16,5 min |
+| 20 (nu, `START_GOUD`) | 1,7 / 4,5 / 7,6 min | 6,6 tot 18,4 min |
+In het spel zelf: duurtest run 43428675361 met 0 goud gaf 504 s.

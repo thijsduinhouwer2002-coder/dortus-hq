@@ -168,6 +168,48 @@ jobs:
           if (Test-Path $save) { Write-Output "save staat in $save" } else { Write-Output "FOUT: geen save in $save"; $fout++ }
           Write-Output "demo-einde: $fout FOUT"; "demo-einde: $fout FOUT" | Set-Content "$uit/demo-einde.txt"
           if ($fout -gt 0) { exit 1 }
+      - name: Weg geweest (demolijst 4, nooit straffen; 8 uur, klok terug)
+        shell: pwsh
+        run: |
+          # 1: nieuw spel 15 s, save 8 uur terugzetten, opnieuw starten: goud alleen erbij, gangen en upgrades gelijk, kroniek-regels
+          # 2: daarna de klok 1 uur vooruit in de save (klok terug op de pc): geen goud erbij en geen crash
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
+          $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          function Speel($log, $args_) {
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force }
+            Get-Content $log -ErrorAction SilentlyContinue
+          }
+          $fout = 0
+          $null = Speel "$uit/weg-0.log" "vers=1 duur=15"
+          $voor = python producten/steam-hol/e2e/save_terug.py $save 28800
+          Write-Output "===== voor (8 uur terug): $voor"
+          $a = Speel "$uit/weg-1.log" "duur=15" | Out-String
+          Write-Output $a
+          $na = python producten/steam-hol/e2e/save_terug.py $save 0
+          Write-Output "===== na: $na"
+          $m = [regex]::Match($a, "HOL weg geweest (\d+) s \(klok terug: false\): goud voor (\d+), helden (\d+), erbij (\d+)")
+          if (-not $m.Success) { Write-Output "FOUT: geen regel 'weg geweest'"; $fout++ }
+          else {
+            $ws = [int]$m.Groups[1].Value; $gv = [int]$m.Groups[2].Value; $h = [int]$m.Groups[3].Value; $er = [int]$m.Groups[4].Value
+            if ($ws -lt 28700 -or $ws -gt 29000) { Write-Output "FOUT: weg $ws s, verwacht ±28800"; $fout++ }
+            if ($h -lt 1 -or $er -lt 1) { Write-Output "FOUT: 8 uur weg gaf geen helden of goud ($h, $er)"; $fout++ }
+            $g1 = [regex]::Match($a, "HOL opslag geladen: \d+ terugkomers, (\d+) goud")
+            if (-not $g1.Success -or [int]$g1.Groups[1].Value -ne $gv + $er) { Write-Output "FOUT: goud na laden is niet voor + erbij"; $fout++ }
+            Write-Output "8 uur weg: goud $gv -> $($gv + $er) (+$er), $h helden"
+          }
+          $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
+          if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
+          if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ came, \d+ fell") { Write-Output "FOUT: geen verhaal-regel (came, fell) in de kroniek na terugkomen"; $fout++ }
+          if ($a -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
+          $null = python producten/steam-hol/e2e/save_terug.py $save -3600
+          $b = Speel "$uit/weg-2.log" "duur=8" | Out-String
+          Write-Output "===== klok terug"; Write-Output $b
+          if ($b -notmatch "HOL weg geweest 0 s \(klok terug: true\): goud voor \d+, helden 0, erbij 0") { Write-Output "FOUT: klok terug gaf toch iets of geen regel"; $fout++ }
+          if ($b -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
+          Write-Output "weg: $fout FOUT"; "weg: $fout FOUT" | Set-Content "$uit/weg.txt"
+          if ($fout -gt 0) { exit 1 }
       - name: GIF maken
         shell: pwsh
         run: |

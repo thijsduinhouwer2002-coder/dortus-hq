@@ -17,6 +17,10 @@ const NA_KOOP_S := 2.5   # na Buy: de nieuwe naam en alleen "Undo", dan de eigen
 # Demo: begint met 66 goud, alsof het hol al even open is, en koopt rond 20 s Big Gloop: twee klikken, zoals een speler
 # (Sanne, toets voor het kaartje: muntjes naar Gloop en de regel in de film van een minuut)
 const DEMO_GOUD := 66
+# Nieuw spel: een klein hoopje op de schat, zodat de eerste upgrade (45) binnen 10 minuten kan (demolijst punt 3).
+# Olaf 13 nov: duurtest run 43428675361 gaf 504 s met 0 goud; sim/sim.py ritme (spaar, 20 zaden) zonder graven 5,1 / 9,3 / 13,3 min,
+# met 20 goud 1,7 / 4,5 / 7,6 min. Een save overschrijft dit (opslag.gd), de demo zet DEMO_GOUD.
+const START_GOUD := 20
 const DEMO_KLIK_T := 18.5
 const DEMO_KOOP_T := 20.0
 
