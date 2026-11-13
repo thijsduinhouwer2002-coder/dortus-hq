@@ -18,9 +18,9 @@ HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
 HOL begin: doorlopen (Tibbe)
-HOL kaartje dicht 24.5
-HOL kroniek 24.5 (wacht 1.5): Tibbe has a map. It is wrong.
+HOL kaartje dicht 24.6
+HOL kroniek 24.6 (wacht 1.5): Tibbe has a map. It is wrong.
 HOL kroniek 25.6 (wacht 0.5): Bram fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
-HOL kroniek 28.1 (wacht 0.4): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 28.2 (wacht 0.5): Gloop ate Odo. Kept the crown. +6
 HOL einde na 30 s, fps=15, goud=78, terugkomers=1
