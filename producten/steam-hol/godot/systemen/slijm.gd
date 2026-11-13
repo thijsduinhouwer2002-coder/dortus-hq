@@ -43,6 +43,15 @@ const SCHEEF := [0, 1, -1, 1]      # x-verschuiving om en om, zodat het wiebelt
 const BERG_MAAT := [5, 25, 100, 300, 1000, 3000]   # vanaf zoveel hoeden wordt de berg een maat groter (Sanne 21:50: zesde maat bij 3000)
 const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
 const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
+# 3D-lijf (Bram 13 nov, besluit Thijs 13:35, ontwerp/steam/3d-stijl.md): gerenderd door producten/steam-hol/pijplijn/.
+# Staat kunst/3d/gloop.png er, dan tekent hij dat lijf voor rust, slapen, plat en opstaan; hap en spugen blijven
+# voorlopig de pixelbeelden tot Daan die in 3D heeft. Filter lineair alleen voor dit lijf (CanvasTexture), de
+# pixelhoeden blijven scherp. Klein lijf = 0,8 x het grote (zelfde verhouding als 16 en 20 breed).
+const LIJF3D_JSON := "res://kunst/3d/sprites.json"
+static var lijf3d: CanvasTexture = null
+static var lijf3d_info := {}
+static var lijf3d_gezocht := false
+var met_3d := true                 # uit = de oude pixel-Gloop (toetsen, of terug als het tegenvalt)
 
 var hol
 var soort := "slijm"
@@ -275,8 +284,55 @@ func _frame_klein() -> Array:
 		return [LEVEN, SPUGEN[mini(SPUGEN.size() - 1, int((t - leven_van) * FPS))]]
 	return [RUST, 0]
 
+# 3D-lijf laden (één keer voor alle slijmen). Leeg als de pijplijn nog niets maakte.
+static func _laad_3d() -> void:
+	if lijf3d_gezocht:
+		return
+	lijf3d_gezocht = true
+	if not FileAccess.file_exists(LIJF3D_JSON):
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(LIJF3D_JSON))
+	if typeof(d) != TYPE_DICTIONARY or not d.has("gloop") or not ResourceLoader.exists(str(d["gloop"]["blad"])):
+		return
+	lijf3d_info = d["gloop"]
+	lijf3d = CanvasTexture.new()
+	lijf3d.diffuse_texture = load(str(lijf3d_info["blad"]))
+	lijf3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+
+# Welk 3D-beeld nu ("rust" of "plat"), of "" als het pixelbeeld moet (hap, spugen, of geen 3D).
+func beeld_3d() -> String:
+	if not met_3d:
+		return ""
+	_laad_3d()
+	if lijf3d == null:
+		return ""
+	var f := _frame_klein()
+	if f[0] == LEVEN and (f[1] == PLAT):
+		return "plat"
+	if f[0] == RUST or (f[0] == LEVEN and (f[1] == OPSTAAN or SLAPEN.has(f[1]))):
+		return "rust"
+	return ""
+
+# Het 3D-lijf tekenen met de onderkant op de vloer (y = 0 + wip), x = 0 in het midden van Gloop.
+func _teken_3d(naam: String, wip: int) -> void:
+	var i: int = lijf3d_info["frames"].find(naam)
+	var cw: float = lijf3d_info["cel_px"][0]
+	var ch: float = lijf3d_info["cel_px"][1]
+	var px: float = lijf3d_info["px"]
+	var k := 1.0 if is_groot() else 0.8
+	var w := cw / px * k
+	var h := ch / px * k
+	var x := -float(lijf3d_info["anker_x"]) / px * k
+	draw_texture_rect_region(lijf3d, Rect2(x, -h + wip, w, h), Rect2(i * cw, 0, cw, ch))
+
 # Bovenkant van Gloop in het huidige frame (de toren volgt hem: hap, spugen, opstaan).
 func top_nu() -> int:
+	var b3 := beeld_3d()
+	if b3 != "":
+		var ch: float = float(lijf3d_info["cel_px"][1]) / float(lijf3d_info["px"])
+		var top3: float = lijf3d_info["top"][lijf3d_info["frames"].find(b3)]
+		var k := 1.0 if is_groot() else 0.8
+		return int(round(16.0 - (ch - top3) * k)) + 1   # +1: de onderste hoedrij zakt 1 px in zijn kruin, zoals bij de pixels
 	var f := frame_nu()
 	var tabel: Array = RUST_TOP if (f[0] == RUST or f[0] == RUST_GROOT) else LEVEN_TOP
 	var top := int(tabel[int(f[1])])
@@ -345,7 +401,10 @@ func _draw() -> void:
 	var n := niveau()
 	if n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
-	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
+	var b3 := beeld_3d()
+	if b3 != "":
+		_teken_3d(b3, wip)
+	elif f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
 		draw_texture_rect_region(f[0], Rect2(-10, -16 + wip, 20, 16), Rect2(int(f[1]) * 20, 0, 20, 16))
 	else:
 		draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))

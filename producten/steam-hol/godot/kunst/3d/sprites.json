@@ -1,0 +1,22 @@
+{
+ "gloop": {
+  "anker_x": 50,
+  "blad": "res://kunst/3d/gloop.png",
+  "bytes": 13254,
+  "cel_px": [
+   99,
+   64
+  ],
+  "frames": [
+   "rust",
+   "plat"
+  ],
+  "model": "gloop.py",
+  "px": 4,
+  "samples": 48,
+  "top": [
+   1.5,
+   7.0
+  ]
+ }
+}
