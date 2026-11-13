@@ -9,7 +9,7 @@ HOL gegraven kolom 5
 HOL meting t=10 beelden=96 helden=2
 HOL kroniek 12.4 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
-HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.4 (wacht 1.0): Kees stays forever. +6
 HOL gegraven kolom 2
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm

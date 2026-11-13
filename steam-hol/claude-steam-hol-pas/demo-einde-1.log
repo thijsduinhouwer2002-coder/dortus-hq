@@ -11,8 +11,8 @@ HOL demo voorbij na 10 s speeltijd
 HOL kroniek 10.1 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL meting t=10 beelden=96 helden=2
 HOL begin: opgegeten (Odo)
-HOL kroniek 12.6 (wacht 0.2): Odo read about you in a tavern.
-HOL kroniek 13.6 (wacht 1.0): Kees stays forever. +6
+HOL kroniek 12.6 (wacht 0.1): Kees stays forever. +6
+HOL kroniek 15.1 (wacht 2.7): Odo read about you in a tavern.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
