@@ -139,8 +139,35 @@ def _verberg_uit_pijplijn():
             weg(o)
 
 
+def _alleen_uit_pijplijn():
+    """Bram (13 nov 23:20): HOL_ALLEEN is het omgekeerde van HOL_VERBERG: een JSON-lijst van naambegins, en alleen
+    die objecten (met hun kinderen) komen in de render; lampen en camera blijven altijd. Zo maakt de pijplijn een
+    doorzichtige laag met alleen fakkels, ladder en ingang (Daan 22:55). Zonder HOL_ALLEEN verandert er niets."""
+    import json, os
+    tekst = os.environ.get("HOL_ALLEEN", "").strip()
+    if not tekst:
+        return
+    lijst = json.loads(tekst)
+    if not isinstance(lijst, list) or not lijst or not all(isinstance(b, str) and b for b in lijst):
+        raise SystemExit("HOL_ALLEEN moet een lijst met namen zijn, bv. [\"vlam\"]")
+    begins = tuple(lijst)
+    houd = set()
+
+    def bewaar(o):
+        houd.add(o.name)
+        for k in o.children:
+            bewaar(k)
+    for o in list(bpy.context.scene.objects):
+        if o.name.split(".")[0].startswith(begins):
+            bewaar(o)
+    for o in list(bpy.context.scene.objects):
+        if o.type not in ("CAMERA", "LIGHT") and o.name not in houd:
+            o.hide_render = True
+
+
 def render(pad, breedte, hoogte, samples=64, doorzichtig=True):
     _verberg_uit_pijplijn()
+    _alleen_uit_pijplijn()
     frames = _frames_uit_pijplijn()
     if frames:
         import os

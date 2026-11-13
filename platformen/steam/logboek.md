@@ -606,3 +606,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 ## 13 nov 21:10 tot 21:45 UTC (Bram)
 - Hol ronde 5 door de pijplijn (tak `claude/steam-hol-ronde5`): schatkamer 48, vijf kamerstukken, laag `boven` zonder gras, spriet en rand. Oorzaak moet 2 (groene spikkels): de graspunten `rand` in `hol.py` hangen onder het maaiveld en zaten bovenin elk vak van rij 8; de randen van 4 bladpixels waren al goed. Eerste poging verborg alleen gras en spriet en hielp niet (GEZIEN), tweede met rand wel.
 - 3D-helden: schakelaar aan op tak `claude/steam-hol-helden3d`; eerste Windows-run rood op mijn eigen samenvoeging (gloop-maat in sprites.json van main, png van de tak), opgelost door de pijplijn die alles opnieuw rendert (run 43510188670 groen).
+
+## 13 nov 23:09 tot 23:50 UTC (Bram)
+- Eigen 3D-bladen voor gewone held (`held0`-`held4` per tuniek), dief en bard op tak `claude/steam-hol-helden3d` (a68b926, render 694b83c GEZIEN); `held_beeld.gd` kiest het eigen blad, ridder of heks alleen als terugval. Windows-run 43525807117 (vóór de render, dus met terugval) groen, toetsen 0 FOUT.
+- Hoeden op draai 30 GEZIEN in de strook (run 43521146939): ze horen bij het hoofd.
+- Blad `deco` (3D-fakkel en 3D-ladder, doorzichtig, `HOL_ALLEEN` in `gedeeld.py`) op main via `claude/steam-hol-deco`; maat en voetpunt aan Olaf in taken.md.
+- Toren-strooktest: `toren=0,4,5,1,6` met `vers=1` in `slijm.gd` en in de strookstap van `steam-hol.yml` op tak `claude/steam-hol-toren3d` (bfaa88f).
+- Blender: 107 downloads, 0 issues, geen melding.
+

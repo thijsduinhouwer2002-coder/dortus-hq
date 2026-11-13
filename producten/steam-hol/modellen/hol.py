@@ -276,9 +276,9 @@ go = bpy.data.objects.new("goudgloed", gd); go.location = (2.0, 0.2, 1.3); sc.co
 
 # ladder in de schacht naar het gras
 for kant in (-0.35, 0.35):
-    cil("ladderpaal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT, verts=8)
+    cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT, verts=8)
 for k in range(8):
-    cil("sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
+    cil("ladder_sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
 
 # ---------- kist links in de kamer, open, goud puilt eruit ----------
 kist = blok("kist", (-2.05, 0.75, 0.32), (0.85, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
@@ -291,10 +291,11 @@ for i in range(10):
 
 # ---------- fakkels met echt warm licht ----------
 def fakkel(x, z, kracht=160):
-    cil("steel", (x, 1.0, z - 0.25), 0.05, 0.55, HOUT_D, rot=(math.radians(-18), 0, 0), verts=8)
-    cil("kop", (x, 0.92, z + 0.05), 0.09, 0.12, HOUT, verts=10)
-    bol("vlam", (x, 0.9, z + 0.24), (0.14, 0.11, 0.26), VLAM, 12)
-    bol("vlamkern", (x, 0.85, z + 0.2), (0.06, 0.05, 0.1), VLAM_K, 10)
+    # namen beginnen met "fakkel" (Bram 13 nov 23:25): de pijplijn maakt er een losse laag van (HOL_ALLEEN ["fakkel"])
+    cil("fakkelsteel", (x, 1.0, z - 0.25), 0.05, 0.55, HOUT_D, rot=(math.radians(-18), 0, 0), verts=8)
+    cil("fakkelkop", (x, 0.92, z + 0.05), 0.09, 0.12, HOUT, verts=10)
+    bol("fakkelvlam", (x, 0.9, z + 0.24), (0.14, 0.11, 0.26), VLAM, 12)
+    bol("fakkelkern", (x, 0.85, z + 0.2), (0.06, 0.05, 0.1), VLAM_K, 10)
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.6, 0.28); d.energy = kracht; d.shadow_soft_size = 0.15
     o = bpy.data.objects.new("fakkellicht", d); o.location = (x, 0.5, z + 0.35); sc.collection.objects.link(o)
 

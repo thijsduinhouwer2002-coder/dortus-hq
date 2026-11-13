@@ -1,8 +1,54 @@
 {
+ "deco": {
+  "beeld": [
+   240,
+   40
+  ],
+  "blad": "res://kunst/3d/deco.png",
+  "bytes": 6476,
+  "model": "hol.py",
+  "px": 4,
+  "samples": 24,
+  "soort": "stukken",
+  "stukken": {
+   "fakkel": {
+    "maat": [
+     6,
+     12
+    ],
+    "uit": [
+     53,
+     21
+    ],
+    "vak_px": [
+     4,
+     4,
+     24,
+     48
+    ]
+   },
+   "ladder": {
+    "maat": [
+     11,
+     35
+    ],
+    "uit": [
+     17,
+     3
+    ],
+    "vak_px": [
+     36,
+     4,
+     44,
+     140
+    ]
+   }
+  }
+ },
  "gloop": {
   "anker_x": 50,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29022,
+  "bytes": 29010,
   "cel_px": [
    99,
    64
@@ -28,7 +74,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 15687,
+  "bytes": 15673,
   "cel_px": [
    52,
    56
@@ -57,7 +103,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113756,
+  "bytes": 113795,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -292,7 +338,7 @@
  "ridder": {
   "anker_x": 28,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 20037,
+  "bytes": 20085,
   "cel_px": [
    57,
    62
