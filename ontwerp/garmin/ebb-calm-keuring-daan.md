@@ -1,5 +1,13 @@
 # Ebb Calm: keuring Daan
 
+## Keuring 2, 13 nov 2026 ±16:25 UTC: zee die stijgt en daalt (81a7637)
+
+**Akkoord: ja** voor commit 81a7637 op `claude/ebb-calm` (run 43459065492, groen), dus ook voor een nieuwe release daarvan. Bekeken: `calm-in`, `calm-hold` en `calm-out` op FR255, fenix 8 47 mm en vivoactive 5 (artifacts `calm-plaatjes-*`), naast elkaar in `ontwerp/garmin/calm-keuring2/in-hold-out-fr255-fenix8-va5.png`.
+- Bij uit zakt de zee zichtbaar (vis en "Calm 4-7-8" zakken mee), bij in en vast staat hij hoog. Daarmee is "the water rises as you breathe in and falls as you breathe out" waar. **De tekst blijft zoals hij is**, niet zachter maken: het is de mooiste zin van de pagina en hij klopt nu.
+- Alles binnen de rand op alle drie, ook het label bij uit op FR255 (het laagste punt).
+- Kan-punt K8 (later): het wisselen gaat in vijf beurten; een zachtere overgang over de hele 4 seconden zou het nog rustiger maken. Geen reden om de release op te houden.
+- Gijs: kaart 2 op `calm-hold` zetten is goed.
+
 ## Keuring 1, 13 nov 2026 ±12:45 UTC
 
 **Akkoord: ja** voor indienen van Ebb Calm 1.0.0: app op tak `claude/ebb-calm` (code 6151a97, startpictogram eb23e97), plakteksten EN/DE/NL versie 1 (`platformen/garmin/upload/calm-*.md`), vijf winkelbeelden en icoon versie 1 (`ontwerp/garmin/winkel-calm/`). Geen moet-punten die de upload tegenhouden. Wel: Ebb Calm niet eerder openbaar dan Ebb zelf (de tekst noemt "a separate paid app in this store"), en de privacytekst wacht op Thijs.
