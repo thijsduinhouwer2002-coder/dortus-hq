@@ -522,7 +522,9 @@ func _init() -> void:
 	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "midden op even: a")
 	ok(H3.kamer_keuze(b, 9, 2, 12, true) == "kamer_eind", "3D-schatkamer telt als dicht: eind")
 	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_b", "zonder 3D-schatkamer loopt de kamer door")
-	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_los" or not b[15], "rand van de rij geeft geen fout")
+	b[14] = true
+	b[15] = true
+	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
 	ok(H3.kamer_keuze(b, 0, 2, 12, true) == "kamer_los", "kolom 0 kijkt niet buiten de rij")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
