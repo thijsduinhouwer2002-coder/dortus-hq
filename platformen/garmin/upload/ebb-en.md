@@ -14,7 +14,7 @@ Ebb: Breathing Exercises, Breath Hold & Calm
 Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. For practice on land only: sit or lie down, never in or near water, never while driving.
 ```
 
-## Lange beschrijving (3982 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3987 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 

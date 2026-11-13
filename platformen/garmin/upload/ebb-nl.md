@@ -14,7 +14,7 @@ Ebb: Ademhalingsoefeningen, Adem inhouden & Calm
 Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de trilling met je ogen dicht, terwijl een kleine zee zich vult met dieren als je blijft terugkomen. Ademhalingsoefeningen en adem inhouden met rondes krachtig ademen, getekend als water: je ronde horloge wordt een patrijspoort. Het water stijgt als je inademt en zakt als je uitademt, en bij inhouden ga je onder water. Houd alleen in zolang het makkelijk gaat. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 ```
 
-## Lange beschrijving (3251 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3256 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 

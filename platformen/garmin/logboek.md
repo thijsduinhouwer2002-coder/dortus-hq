@@ -1033,6 +1033,14 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Les: in de zoek-API zit de naam van de maker in `developer.developerDisplayName` en de naam van de app in `appLocalizations`, niet in `name`. Zoek in de hele regel, anders mis je een treffer.
 - Fout van de omgeving: `git pull` hing weer twee minuten. `git fetch origin main` met een tijdgrens en `git checkout -B main origin/main` werkte meteen.
 
+## Run 86, 13 nov 2026, ±10:00 tot ±10:20 UTC
+- Bericht hoofdchat 10:30 NL gelezen: Ebb is door Thijs ingediend, in behandeling. Bovenaan de status gezet.
+- `winkeltekst.md` op de bouwtak naar versie 19b (53648fa), letterlijk uit de plakbestanden, met "[skip ci]": geen run gestart (nagekeken). Tag `ebb-v1.0.0` blijft op e40269e1.
+- Winkel: pagina 404, API "The requested app is not approved". Nog niet openbaar.
+- Tellingen van de lange beschrijving in de drie plakbestanden rechtgezet (3987, 3362, 3256).
+- Werkmap stond op een oude ondiepe kopie en `git pull` hing; gewerkt vanaf a107490 op een losse tak. Les staat in taken.md.
+- Niet gedaan, met opzet: `volgend-product.md`, 1.1 en de gratis versie. Wacht op besluit Thijs.
+
 ### Afgevinkte taken uit taken.md, verplaatst in run 85 (letterlijk, nieuwste eerst)
 
 - [x] Bericht hoofdchat 02:25 verwerkt: hartslag wordt wel getoond op het inhoudscherm (zelf nagelezen), winkelteksten en plakbestanden hebben de fout niet, eindversie privacytekst klopt met de code, regel op de lijst van Thijs rechtgezet: run 78.

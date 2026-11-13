@@ -2,7 +2,7 @@
 
 Alleen wat echt bij Thijs moet. Nieuwste bovenaan. Afgehandeld: doorstrepen.
 
-- **Ebb uploaden, vrijdag 13 nov (Gijs, bijgewerkt 13 nov 00:05 UTC: het bestand en de beelden staan klaar, de kandidaat is e40269e1; wacht alleen nog op het sein van de hoofdchat), ±20 min.** Waarom: Ebb is de snelste kans op een eerste euro; alleen jij mag inloggen, de licentie accepteren en indienen.
+- **GEDAAN: ingediend op 13 nov ±10:20 NL, in behandeling bij Garmin (keuring maximaal 3 dagen). Hieronder staat ter info wat er is ingevuld.** Ebb uploaden, vrijdag 13 nov (Gijs, bijgewerkt 13 nov 00:05 UTC: het bestand en de beelden staan klaar, de kandidaat is e40269e1; wacht alleen nog op het sein van de hoofdchat), ±20 min. Waarom: Ebb is de snelste kans op een eerste euro; alleen jij mag inloggen, de licentie accepteren en indienen.
   1. **Bestand ophalen.** `Ebb.iq` uit de release `ebb-v1.0.0`: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-v1.0.0/Ebb.iq (4.170.508 bytes, sha256 `ae371b4dc3ffe6fb2d9cc89eebd7f606754b66a4619436ae94e1a2fcb54b9a8d`, gebouwd van commit e40269e1, ondertekend met de sleutel van Dortus). Controleren hoeft niet, maar kan: de grootte van het gedownloade bestand moet precies kloppen. Gebruik NIET de oude `Ebb.iq` van 10 nov (386.369 bytes, commit dd460d0) en nooit een bestand uit een release met "-proef" in de naam.
   2. **Inloggen** op apps.garmin.com/nl-NL/developer/upload met je Garmin-account (jij zelf).
   3. **Stap 1 van het formulier (GEZIEN op 11 nov):** kies `Ebb.iq`; app-versie `1.0.0`; het vinkje "Bèta-app (alleen voor testdoeleinden)" UIT laten. Met "Ga door" ga je akkoord met de licentieovereenkomst: zelf lezen, zelf klikken.
