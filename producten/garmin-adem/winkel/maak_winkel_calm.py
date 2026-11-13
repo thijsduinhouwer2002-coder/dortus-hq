@@ -9,7 +9,7 @@ sys.path.insert(0, bron)
 import winkel_v4
 KAARTEN = [
     ('calm-in', '1-breathe-in.png', 'Breathe in. The sea rises.', 'sea rises', 'Calm 4-7-8: in 4, hold 7, out 8. The water shows the way.'),
-    ('calmcheck', '2-eyes-closed.png', 'Sit down. Close your eyes.', 'Close your eyes', 'A buzz tells you each phase. No sound, no screen needed.'),
+    ('calm-hold', '2-eyes-closed.png', 'Sit down. Close your eyes.', 'Close your eyes', 'A buzz tells you each phase. No sound, no screen needed.'),
     ('einde-4min', '3-calm-done.png', 'A few calm minutes.', 'calm', 'Save it to Garmin Connect as breathwork, with heart rate.'),
     ('pauze', '4-pause.png', 'Pause. The sea waits.', 'waits', 'Resume, save or discard. Any time.'),
     ('menu', '5-free.png', 'Free. One button.', 'Free', 'No account, no ads. Ebb Calm collects nothing.')]
