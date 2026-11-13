@@ -1,5 +1,6 @@
 # Steam: status
 
+- **13 nov 12:35 UTC (Olaf):** takenlijst opgeruimd (oud naar het logboek), demolijst eerlijk afgezet in `taken.md`: klaar 4 (nooit straffen), grotendeels 3 en 5, half 1, niet aangetoond 2 (CPU alleen in de demo gemeten, 1,27 op 10 nov: boven de grens), niet gebouwd 6 (demo-einde), open 7 (Thijs). Nieuw: duurtest van 60 minuten op Windows (`steam-hol-duur.yml`, controleur akkoord), eerste run loopt (43416412054). Volgende: uitslag lezen, dan demo-einde. **Bij Thijs ligt niets.**
 - **13 nov 12:00 (hoofdchat): HET HOL START WEER.** Besluit Thijs 11:33 en 11:51: opstarten, beelden eigen werk uit code. Planning tot het fest: `planning-fest-2027.md` (Gloop af 20 nov, winkelpagina ingediend 1 dec, demo ingediend 21 dec). Ploeg: Olaf bouwt, Daan ontwerpt, elk uur. Bram, Sanne en Mila staan uit.
 
 - **Stand 9 nov 20:30 UTC:** Het Hol draait op een Windows-runner met Daans kunst; in de film van een minuut valt er in de eerste 15 s een held (+6 goud, muntjes vliegen naar de schat), komen helden terug met een wrok tegen Gloop of de put, en staat de kroniek vol korte grappige regels. Het tekstvak ligt nu op elke hoogte naast de schat (hol groeit naar links). CPU 0,61 CPU-s per 10 s op 120 px. Nog niet naar Thijs: eerst Hoard-Toucher in de demo, de eerste tien minuten en Daans akkoord. Niets betaald of gepubliceerd.

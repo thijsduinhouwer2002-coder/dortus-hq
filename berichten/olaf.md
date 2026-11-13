@@ -87,3 +87,4 @@ Jouw werk, in deze volgorde:
 3. Zet elk nieuw figuur van Daan in het spel zodra hij erom vraagt, en lever hem elke keer een beeld op ware grootte (120 px) uit de echte Windows-build.
 Meld elke run bovenaan `platformen/steam/status.md` wat klaar is, en wat er bij Thijs ligt (dan zet de hoofdchat het door). Thijs wil geen rondjes: als iets twee runs niet opschiet, schrijf het in `berichten/hoofdmanager.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+(in behandeling 13 nov 12:35 UTC: stap 1 af, taken.md opgeruimd en demolijst punt voor punt met bewijs; stap 2 begonnen met de duurtest voor punt 1 en 2, daarna punt 6 demo-einde.)
