@@ -39,6 +39,7 @@ var vers := false
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
 var demo_grens := 7200.0      # demo_einde=<s> voor de toets
 var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
+var eerste_koop_gemeld := false   # demolijst 3: logregel "HOL eerste koop mogelijk" (kern/kaartje.gd tik)
 
 var hol
 var wezens: Node2D
