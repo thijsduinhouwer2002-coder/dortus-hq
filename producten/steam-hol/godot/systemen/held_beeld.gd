@@ -80,8 +80,9 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 
 # 3D-helden (Bram 13 nov, pijplijn producten/steam-hol/pijplijn/, modellen/held.py van Daan). Schakelaar, standaard UIT:
 # Daans helden hebben hun hoed nog vast in het model, terwijl het spel elke held een eigen hoed geeft die op Gloops
-# toren belandt (vraag aan Daan en Olaf in platformen/steam/taken.md, 13 nov 19:25). Staat in sprites.json bij een held
+# toren belandt (vraag aan Daan en Olaf in platformen/steam/taken.md, 13 nov 19:25).
 # Tot dat besluit tekent de 3D-held alleen zijn eigen lijf met eigen hoed.
+# Uitzondering op "nooit schalen" bovenin: het 3D-lijf staat niet op hele pixels, met opzet (lineair gefilterd, 4x scherp).
 # Soort -> blad: ridder -> ridder, magiër -> heks. Andere soorten blijven pixels. Lijf lineair gefilterd (CanvasTexture),
 # zoals Gloop in slijm.gd; de rest van de held (tekens, nootjes, poef) blijft nearest.
 static var met_3d := false
@@ -101,7 +102,7 @@ static func _laad_3d() -> void:
 	if typeof(d) != TYPE_DICTIONARY:
 		return
 	for naam in HELD3D_SOORT.values():
-		if not d.has(naam) or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
+		if not d.has(naam) or typeof(d[naam]) != TYPE_DICTIONARY or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
 			continue
 		var ct := CanvasTexture.new()
 		ct.diffuse_texture = load(str(d[naam]["blad"]))
