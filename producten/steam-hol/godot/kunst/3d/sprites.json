@@ -2,7 +2,7 @@
  "gloop": {
   "anker_x": 50,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29024,
+  "bytes": 29034,
   "cel_px": [
    99,
    64
@@ -25,13 +25,39 @@
    1.5
   ]
  },
+ "heks": {
+  "anker_x": 26,
+  "blad": "res://kunst/3d/heks.png",
+  "bytes": 15663,
+  "cel_px": [
+   52,
+   56
+  ],
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "schrik",
+   "vallen"
+  ],
+  "model": "held.py",
+  "px": 4,
+  "samples": 32,
+  "top": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
  "hol_proef": {
   "beeld": [
    240,
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 103129,
+  "bytes": 103105,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -182,5 +208,31 @@
     ]
    }
   }
+ },
+ "ridder": {
+  "anker_x": 28,
+  "blad": "res://kunst/3d/ridder.png",
+  "bytes": 20037,
+  "cel_px": [
+   57,
+   62
+  ],
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "schrik",
+   "vallen"
+  ],
+  "model": "held.py",
+  "px": 4,
+  "samples": 32,
+  "top": [
+   1.5,
+   1.5,
+   1.5,
+   1.5,
+   0.0
+  ]
  }
 }
