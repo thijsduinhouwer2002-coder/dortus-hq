@@ -9,7 +9,8 @@
         "0",
         "{w}",
         "{h}",
-        "{samples}"
+        "{samples}",
+        "{stand}"
       ],
       "render": [
         640,
@@ -30,7 +31,28 @@
         "plat": [
           1.3,
           0.42
-        ]
+        ],
+        "knipper": {
+          "stand": "knipper",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "blij": {
+          "stand": "blij",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "hap": {
+          "stand": "hap",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
       }
     },
     "hol_proef": {
