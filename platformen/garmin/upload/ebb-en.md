@@ -2,7 +2,7 @@
 
 Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat.
 
-## Titel (42 tekens)
+## Titel (44 tekens)
 
 ```
 Ebb: Breathing Exercises, Breath Hold & Calm
