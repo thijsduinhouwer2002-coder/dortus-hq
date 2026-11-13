@@ -63,3 +63,69 @@ jobs:
         with:
           name: ebb-calm-bouw
           path: /tmp/uit
+
+  # Stap 2: de schermen van Ebb Calm in de simulator op de drie snelle horloges (FR255 MIP 260, fenix 8 47 mm AMOLED 454,
+  # Venu 3S AMOLED 390). calm-plaatjes.jungle toont per start één stilgezette scène uit Scenes.mc; de nummers hieronder
+  # zijn de scènes die in Ebb Calm bestaan (scène 20 niet: die kiest instellingsregel 13 en Calm heeft er twee).
+  plaatjes:
+    needs: bouw
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        horloge: [fr255, fenix847mm, venu3s]
+    env:
+      D: ${{ matrix.horloge }}
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Scènes in de simulator
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/$APP/plaatjes"
+          cat > /tmp/plaatjes.sh <<'SH'
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          KEUZE="10 22 13 14 15 7 21 26 19 35"
+          NAMEN="menu calmcheck veilig-1 veilig-2 veilig-3 calm-in einde-4min einde-45s settings pauze"
+          sed -i "s/const KEUZE = \[\] as/const KEUZE = [$(echo $KEUZE | sed "s/ /, /g")] as/" source/SceneKeuze.mc; grep -n "const KEUZE" source/SceneKeuze.mc
+          d=$D
+          monkeyc -f calm-plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
+          simulator > /tmp/sim.log 2>&1 & sleep 10
+          i=0
+          for k in $KEUZE; do
+            i=$((i+1)); n=$(echo $NAMEN | cut -d' ' -f$i)
+            monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$i.log" 2>&1 &
+            MD=$!
+            case "$d" in fr255) sleep 12 ;; *) sleep 20 ;; esac
+            s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$i.log" | tail -1 | awk '{print $3}')
+            if [ "$s" = "$k" ]; then import -window root "plaatjes/calm-$n-$d.png"; else echo "VERKEERDE SCENE bij start $i: verwacht $k, kreeg ${s:-niets}"; import -window root "plaatjes/calm-mis$i-$d.png"; echo "start $i verwacht $k kreeg ${s:-niets}" >> plaatjes/CRASH-$d.txt; fi
+            kill "$MD" 2>/dev/null || true; sleep 3
+            cat "/tmp/plaatje-$d-$i.log"
+          done
+          grep -iE "watchdog|app crash|unhandled exception|out of memory|VEILIG .* NEE|Error:" /tmp/plaatje-*.log /tmp/sim.log >> plaatjes/CRASH-$d.txt
+          [ -s plaatjes/CRASH-$d.txt ] || rm -f plaatjes/CRASH-$d.txt
+          mogrify -fuzz 2% -trim +repage plaatjes/*.png
+          SH
+          docker run --rm --entrypoint bash -e D="$D" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
+          ls -la "$APP/plaatjes"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calm-plaatjes-${{ matrix.horloge }}
+          path: producten/garmin-adem/plaatjes
+      - name: Geen crash
+        run: |
+          if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH of verkeerde scène op $D"; exit 1; fi
+          echo "geen crash op $D"

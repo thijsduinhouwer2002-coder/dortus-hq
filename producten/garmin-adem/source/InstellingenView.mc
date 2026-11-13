@@ -17,8 +17,9 @@ class EbbInstellingenView extends WatchUi.View {
     const ZEE_BODEM = 0.745;
     var dier as Number = EbbTrouw.zwemmer();
     // Ebb Calm: alleen trillen aan of uit en de veiligheidsbladen opnieuw lezen.
-    var REGELS as Array<Array> = EbbSoort.CALM ? ([["Vibration", 1, :trillen], ["Safety info", 2, :veilig]] as Array<Array>) : REGELS_VOL;
-    const REGELS_VOL = [
+    const REGELS_CALM = [["Vibration", 1, :trillen], ["Safety info", 2, :veilig]] as Array<Array>;
+    function regels() as Array<Array> { return EbbSoort.CALM ? REGELS_CALM : REGELS; }
+    const REGELS = [
         ["Rounds", 0, 2], ["Breathing pace", 0, 1], ["Breaths", 0, 0], ["Recovery hold", 0, 3], ["Weekly goal", 0, 8],
         ["Buzz every 30 s", 1, :tik30], ["Buzz on last 3 breaths", 1, :laatste3], ["Vibration", 1, :trillen],
         ["My pattern: in", 0, 4], ["My pattern: hold", 0, 5], ["My pattern: out", 0, 6], ["My pattern: rest", 0, 7],
@@ -31,11 +32,11 @@ class EbbInstellingenView extends WatchUi.View {
     }
 
     function aantal() as Number {
-        return REGELS.size();
+        return regels().size();
     }
 
     function waarde(r as Number) as String or Null {
-        var regel = REGELS[r];
+        var regel = regels()[r];
         var soort = regel[1] as Number;
         if (soort == 0) {
             return EbbInstellingen.tekst(regel[2] as Number);
@@ -92,7 +93,7 @@ class EbbInstellingenView extends WatchUi.View {
         // 0,08 D breder dan de tekst (36 px op 454, was 24), op kleine schermen blijft het 24.
         var rand = (d * 0.08).toNumber();
         rand = rand < 24 ? 24 : rand;
-        var naam = REGELS[keuze][0] as String;
+        var naam = regels()[keuze][0] as String;
         var v = waarde(keuze);
         var fNaam = EbbTeken.fM();
         if (dc.getTextWidthInPixels(naam, fNaam) > maxW - rand) {
@@ -166,7 +167,7 @@ class EbbInstellingenView extends WatchUi.View {
     // Regel buiten de pil: "Rounds  3" in lichtcyaan, kleiner als hij niet binnen de ronde rand past.
     function regelKort(dc as Graphics.Dc, d as Number, r as Number, y as Float) as Void {
         var v = waarde(r);
-        var tekst = (REGELS[r][0] as String) + ((v != null && (REGELS[r][1] as Number) != 3) ? "  " + v : "");
+        var tekst = (regels()[r][0] as String) + ((v != null && (regels()[r][1] as Number) != 3) ? "  " + v : "");
         var f = EbbTeken.fX();
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -179,7 +180,7 @@ class EbbInstellingenView extends WatchUi.View {
 
     // Select: waarde een stap verder, aan/uit wisselen, of de actie. Geeft true als er een nieuw scherm kwam.
     function kies() as Boolean {
-        var regel = REGELS[keuze];
+        var regel = regels()[keuze];
         var soort = regel[1] as Number;
         if (soort == 0) {
             EbbInstellingen.volgende(regel[2] as Number);
