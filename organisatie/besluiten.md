@@ -319,3 +319,6 @@ Thijs: de hele dag gewerkt en alles blijft op een 6 tot 7, dit schiet niet op. O
 
 ## 13 nov 09:55: titel Ebb zonder "4-7-8"
 Thijs: "4-7-8" hoort niet in de titel. Reden: de winkelzoeker geeft 0 resultaten op "4-7-8" (gemeten, `platformen/garmin/concurrenten-2026-11-13.md` punt 6), dus het woord is in de titel niets waard. Nieuwe titels: `Ebb: Breathing Exercises, Breath Hold & Calm`, `Ebb: Atemübungen, Atem anhalten & Entspannung`, `Ebb: Ademhalingsoefeningen, Adem inhouden & Calm`. In de tags is "478" toegevoegd. Les voor de hoofdmanager: een bevinding uit eigen onderzoek die een ingeleverd stuk raakt, meteen doorvoeren of voorleggen, niet parkeren als "voor later".
+
+## 13 nov ±10:20: Ebb is ingediend bij Garmin
+Thijs heeft zelf op Verzend geklikt. Garmin toont "App in behandeling": de pagina is alleen voor ons account zichtbaar tot de app is goedgekeurd, dat kan volgens Garmin maximaal 3 dagen duren. Winkelpagina: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641. Versie 1.0.0, ontwikkelaar "Dortus", prijs $4,99 (in Nederland getoond als 5,99 euro), categorie Wellness, vijf beelden, drie talen. De handtekeningmelding in het formulier gaf bij verzenden geen fout.
