@@ -92,7 +92,7 @@ class RustigView extends WatchUi.View {
         var i = sessie.faseIndex(nu);
         var label = naam.equals("4-7-8") ? "Calm 4-7-8" : naam;
         // Hoofdchat 12 nov 20:15 punt 1: de zee boven water van het ademen, met je dier. Lukt dat niet, dan het oude scherm.
-        if (EbbWereldSessie.tekenCalm(dc, EbbTrouw.zwemmer(), [WOORDEN[i], sessie.overS(nu).toString(), label, label] as Array<String>)) {
+        if (EbbWereldSessie.tekenCalm(dc, EbbTrouw.zwemmer(), [WOORDEN[i], sessie.overS(nu).toString(), label, label] as Array<String>, i >= 2)) {
             return;
         }
         // Keuring bouw 1 punt 5 (blad v6 scherm 5): zwart, fasewoord bovenaan, groot cijfer met "s", de zee onderaan

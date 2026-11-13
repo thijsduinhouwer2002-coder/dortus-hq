@@ -240,8 +240,9 @@ function testCalmInDeWereld(logger as Test.Logger) as Boolean {
         EbbWereldSessie.proefNacht = n;
         for (var i = 0; i < wie.size(); i += 1) {
             EbbWereldSessie.aan = true;
-            for (var beurt = 0; beurt < 8; beurt += 1) {
-                if (!EbbWereldSessie.tekenCalm(dc, wie[i], tekst)) {
+            for (var beurt = 0; beurt < 12; beurt += 1) {
+                // Run 90: de eerste zes beurten het plaatje van in en vast, daarna zes het plaatje van uitademen.
+                if (!EbbWereldSessie.tekenCalm(dc, wie[i], tekst, beurt >= 6)) {
                     logger.debug("calm tekent niet: dier " + wie[i] + " nacht " + n + " beurt " + beurt);
                     goed = false;
                 }
@@ -249,7 +250,7 @@ function testCalmInDeWereld(logger as Test.Logger) as Boolean {
         }
     }
     EbbWereldSessie.aan = false;
-    var uit = EbbWereldSessie.tekenCalm(dc, 4, tekst);
+    var uit = EbbWereldSessie.tekenCalm(dc, 4, tekst, false);
     var geen = EbbWereldSessie.wereldVan(99) < 0;
     EbbWereldSessie.aan = oudAan;
     EbbWereldSessie.proefNacht = oudNacht;

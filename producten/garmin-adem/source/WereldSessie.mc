@@ -85,14 +85,16 @@ module EbbWereldSessie {
 
     // Calm (hoofdchat 12 nov 20:15 punt 1): geen zwart scherm meer. Dezelfde zee boven water als het ademen, met je
     // dier (scherm 2 van de wereld, dat er al was). tekst: fasewoord, seconden, naam van het patroon (lang en kort).
-    function tekenCalm(dc as Graphics.Dc, gezelschap as Number, tekst as Array<String>) as Boolean {
+    // Run 90 (13 nov): bij uitademen het plaatje van uitademen (scherm 1, de zee lager), zoals in Rounds. Tot dan
+    // stond de zee in Calm bij in, vast en uit even hoog, terwijl de winkeltekst zegt dat het water stijgt en zakt.
+    function tekenCalm(dc as Graphics.Dc, gezelschap as Number, tekst as Array<String>, uit as Boolean) as Boolean {
         var zonder = gezelschap < 0;
         var w = wereldVan(zonder ? 13 : gezelschap);
         if (!aan || w < 0) {
             return false;
         }
         var nacht = proefNacht >= 0 ? proefNacht == 1 : (!EbbBouw.PLAATJE && EbbLucht.deelNu() == 3);
-        return toon(dc, 2, w, nacht, zonder, tekst);
+        return toon(dc, uit ? 1 : 2, w, nacht, zonder, tekst);
     }
 
     // Het plaatje van dit scherm (nieuw bij een wissel, eerst het oude los) met de echte tekst van dit moment.
