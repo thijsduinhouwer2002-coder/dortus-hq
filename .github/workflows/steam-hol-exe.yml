@@ -67,10 +67,10 @@ jobs:
           Start-Sleep 3
           $fout = 0
           $samen = @()
-          function Speel($soort, $log, $args_, $meet) {
+          function Speel($soort, $log, $args_, $meet, $driver) {
             $exe = (Resolve-Path "producten/steam-hol/bouw/$soort/HetHol.exe").Path
             Remove-Item $glog -ErrorAction SilentlyContinue
-            $p = Start-Process -FilePath $exe -ArgumentList "--rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            $p = Start-Process -FilePath $exe -ArgumentList "$driver-- hoogte=120 $args_ log=$log" -PassThru
             if ($meet) {
               Start-Sleep 12
               & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-120-$soort.png"
@@ -85,16 +85,17 @@ jobs:
             if ($g -match "SCRIPT ERROR|Parse Error") { $script:samen += "FOUT: SCRIPT ERROR in godot.log van $soort" }
             Get-Content $log -ErrorAction SilentlyContinue | Out-String
           }
-          $a = Speel "volledig" "$uit/volledig.log" "demo_einde=10 demo=1 vers=1 duur=30" $true
-          Write-Output "===== 1 volledig"; Write-Output $a
+          $a = Speel "volledig" "$uit/volledig.log" "demo_einde=10 demo=1 vers=1 duur=30" $true ""
+          Write-Output "===== 1 volledig (standaard driver, zoals een speler)"; Write-Output $a
           if ($a -notmatch "HOL einde") { Write-Output "FOUT: volle spel stopte niet netjes"; $fout++ }
           if ($a -notmatch "HOL koop ") { Write-Output "FOUT: volle spel kocht niets"; $fout++ }
           if ($a -match "That's the demo|HOL demo voorbij") { Write-Output "FOUT: volle spel heeft een demo-einde"; $fout++ }
-          $b = Speel "demo" "$uit/demo.log" "demo_einde=10 demo=1 vers=1 duur=30" $true
+          $b = Speel "demo" "$uit/demo.log" "demo_einde=10 demo=1 vers=1 duur=30" $true "--rendering-driver opengl3_angle "
           Write-Output "===== 2 demo"; Write-Output $b
           $n = ([regex]::Matches($b, "HOL demo voorbij na")).Count
           if ($n -ne 1 -or $b -notmatch "That's the demo\.") { Write-Output "FOUT: demo-einde $n keer of niet in de kroniek"; $fout++ }
           if ($b -match "HOL koop ") { Write-Output "FOUT: demo kocht na het einde"; $fout++ }
+          if ($b -notmatch "geweigerd \(kopen") { Write-Output "FOUT: kopen niet geweigerd in de demo"; $fout++ }
           if ($b -notmatch "HOL einde") { Write-Output "FOUT: demo stopte niet netjes"; $fout++ }
           $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
           if (Test-Path $save) { $samen += "save staat in $save (gedeeld door vol en demo)" } else { Write-Output "FOUT: geen save"; $fout++ }
