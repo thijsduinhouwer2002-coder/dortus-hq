@@ -95,6 +95,7 @@ static var GEWOON_3D := true
 const HELD3D_ANDER := ["ridder", "heks"]
 const NIET_3D := -9999
 const HOEDEN3D := "hoeden"       # blad met de 10 hoeden in de volgorde van held.gd
+const HOEDEN3D_HAP := "hoeden_hap"   # dezelfde hoeden met drie tandbogen eruit (Daan 21:45: bovenste hoed van de toren)
 const HOED_IN_KOP := 1.0         # onderrand van de hoed zoveel spelpixels in de kruin (Daan: nooit zwevend)
 static var held3d := {}          # blad-naam -> [CanvasTexture, info]
 static var held3d_gezocht := false
@@ -118,7 +119,7 @@ static func _laad_3d() -> void:
 	if typeof(d) != TYPE_DICTIONARY:
 		print("HELD3D niet geladen: %s is geen woordenboek" % HELD3D_JSON)
 		return
-	for naam in HELD3D_SOORT.values() + [HOEDEN3D]:
+	for naam in HELD3D_SOORT.values() + [HOEDEN3D, HOEDEN3D_HAP]:
 		if not d.has(naam) or typeof(d[naam]) != TYPE_DICTIONARY or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
 			print("HELD3D niet geladen: %s (geen blad in sprites.json of bestand ontbreekt)" % naam)
 			continue

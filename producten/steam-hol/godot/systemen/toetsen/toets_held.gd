@@ -684,6 +684,16 @@ func _init() -> void:
 		ok(t3 >= 2 and t3 <= 12, "3D: kruin op een redelijke hoogte (%d)" % t3)
 		g3.krijg_hoed(4)
 		ok(int(g3.toren()[0][2]) + g3.HOED_ONDER[4] == -16 + t3, "3D: de eerste hoed staat op zijn kruin")
+		var t3d: Array = g3.toren_3d()
+		var hb_t = load("res://systemen/held_beeld.gd")
+		hb_t._laad_3d()
+		if hb_t.held3d.has("hoeden"):
+			ok(t3d.size() == 1 and is_equal_approx(float(t3d[0][2]), float(-16 + t3)), "3D-toren: nulpunt van de eerste 3D-hoed op zijn kruin (%s)" % str(t3d))
+			g3.krijg_hoed(7)
+			var t3e: Array = g3.toren_3d()
+			ok(t3e.size() == 2 and is_equal_approx(float(t3e[1][2]), float(t3e[0][3]) + 1.0), "3D-toren: tweede hoed 1 spelpixel in de bovenkant van de eerste, nooit zwevend")
+			ok(g3.hoogste_punt() == int(floor(float(t3e[1][3]))), "3D-toren: hoogste punt is de bovenkant van de bovenste hoed")
+			g3.hoeden.pop_back()   # terug naar één hoed voor de toetsen hieronder
 		g3.plat()
 		ok(g3.beeld_3d() == "plat", "3D: plat-beeld")
 		g3.plat_tot = -100.0
