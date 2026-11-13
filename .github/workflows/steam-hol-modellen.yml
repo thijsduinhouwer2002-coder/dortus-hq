@@ -55,15 +55,23 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add producten/steam-hol/godot/kunst/3d
-          if git diff --cached --quiet; then echo "Bladen gelijk, niets te doen."; exit 0; fi
+          # Bram 13 nov 18:35: twee renders kort na elkaar op dezelfde tak botsten bij pull --rebase (zelfde bladen),
+          # de push faalde stil. Nu: eigen bladen apart zetten, tak opnieuw ophalen, bladen erover, en falen als het niet lukt.
+          D=producten/steam-hol/godot/kunst/3d
+          rm -rf /tmp/bladen && cp -r "$D" /tmp/bladen
           git config user.name "dortus-pijplijn"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -q -m "Pijplijn: 3D-bladen opnieuw gerenderd (${GITHUB_SHA::7})"
           TAK="${GITHUB_REF_NAME}"
+          GELUKT=0
           for i in 1 2 3 4 5; do
-            git pull -q --rebase origin "$TAK" && git push -q origin "HEAD:$TAK" && break
+            git fetch -q origin "$TAK" && git reset -q --hard FETCH_HEAD
+            rm -rf "$D" && cp -r /tmp/bladen "$D"
+            git add "$D"
+            if git diff --cached --quiet; then echo "Bladen gelijk aan de tak, niets te doen."; exit 0; fi
+            git commit -q -m "Pijplijn: 3D-bladen opnieuw gerenderd (${GITHUB_SHA::7})"
+            if git push -q origin "HEAD:$TAK"; then GELUKT=1; break; fi
             sleep $((i * 5))
           done
           git ls-remote origin "$TAK"
+          if [ "$GELUKT" != 1 ]; then echo "FOUT: bladen niet op de tak gekregen"; exit 1; fi
           gh workflow run steam-hol.yml --ref "$TAK" && echo "Windows-run gestart op $TAK"
