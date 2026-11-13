@@ -1,2 +1,2 @@
 project.manifest = manifest.xml
-base.excludeAnnotations = echt;plaatje
+base.excludeAnnotations = echt;plaatje;calm

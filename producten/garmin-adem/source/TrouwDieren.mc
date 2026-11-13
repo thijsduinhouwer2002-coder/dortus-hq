@@ -149,6 +149,10 @@ module EbbTrouw {
     // Keuring bouw 1 punt 6 en Daan B3: het dier op het startscherm en tijdens het inhouden is je eigen dier
     // (keuze, anders het laatst gevonden), anders het hoogste dat je hebt (oude opslag zonder "laatst"), anders -1.
     function zwemmer() as Number {
+        if (EbbSoort.CALM) {
+            // Ebb Calm: één dier, de vis. Geen verzameling.
+            return STARTDIER;
+        }
         var m = meezwemmer();
         if (m >= 0) {
             return m;

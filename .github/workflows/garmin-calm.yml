@@ -1,0 +1,65 @@
+name: Garmin Ebb Calm (gratis versie)
+
+# Ebb Calm is dezelfde code als Ebb met de vlag EbbSoort.CALM (calm.jungle, manifest-calm.xml, eigen app-id).
+# Stap 1 (deze workflow): compileert Ebb Calm voor de drie snelle horloges en voor alle horloges uit het manifest,
+# en bewijst dat de volle Ebb op deze tak nog bouwt. Toetsen, simulatorplaatjes en de release komen in de volgende stappen.
+
+on:
+  push:
+    branches: ["claude/ebb-calm"]
+    paths: ["producten/garmin-adem/**", ".github/workflows/garmin-calm.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: garmin-calm-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Regels, bestanden hoogstens 300 regels
+        run: |
+          cd "$APP/source"; fout=0
+          for f in *.mc; do case "$f" in *Test.mc) continue ;; esac
+            n=$(wc -l < "$f"); if [ "$n" -gt 300 ]; then echo "::error::$f heeft $n regels"; fout=1; fi; done
+          exit $fout
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Wegwerpsleutel
+        run: |
+          mkdir -p /tmp/k /tmp/uit && chmod 777 /tmp/uit
+          openssl genrsa -out /tmp/k/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/k/key.pem -out /tmp/k/key.der -nocrypt
+          chmod 644 /tmp/k/key.der
+      - name: Ebb Calm en de volle Ebb compileren op de drie snelle horloges
+        run: |
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro -v /tmp/uit:/uit "$IMAGE" -c '
+            fout=0
+            for d in fr255 fenix847mm vivoactive5; do for j in calm calm-plaatjes monkey; do
+              if monkeyc -f $j.jungle -d "$d" -o "/tmp/bin/$d-$j/app.prg" -y /k/key.der -l 2 > "/uit/$j-$d.log" 2>&1; then
+                echo "BOUW $j $d ja, $(stat -c %s /tmp/bin/$d-$j/app.prg) bytes, waarschuwingen $(grep -ci warning /uit/$j-$d.log)"
+              else echo "BOUW $j $d NEE"; cat "/uit/$j-$d.log"; fout=1; fi
+            done; done
+            exit $fout'
+      - name: Ebb Calm als .iq voor alle horloges uit manifest-calm.xml (wegwerpsleutel, niet indienen)
+        run: |
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro -v /tmp/uit:/uit "$IMAGE" -c \
+            'monkeyc -e -r -w -f calm.jungle -y /k/key.der -o /uit/EbbCalm-proef.iq > /uit/bouw-iq.log 2>&1; tail -40 /uit/bouw-iq.log; test -s /uit/EbbCalm-proef.iq'
+          rm -rf /tmp/k
+          ls -la /tmp/uit/EbbCalm-proef.iq; cd /tmp/uit && sha256sum EbbCalm-proef.iq
+          echo "Waarschuwingen: $(grep -ci warning /tmp/uit/bouw-iq.log || true)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ebb-calm-bouw
+          path: /tmp/uit

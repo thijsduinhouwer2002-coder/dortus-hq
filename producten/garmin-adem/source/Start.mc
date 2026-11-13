@@ -39,7 +39,8 @@ module EbbStart {
 // "Ebb" bovenaan, twee gelijke pillen Rounds en Calm 4-7-8 (gekozen = gevuld met een pijltje), daaronder "Sea log · Settings",
 // onderaan je eigen dier op de zandbodem van het thuiswater (Thuis.mc). Box staat er niet meer in; My pattern zit in de instellingen.
 class EbbMenuView extends WatchUi.View {
-    var keuze as Number = 0;   // 0 Rounds, 1 Calm 4-7-8, 2 Sea log, 3 Settings, 4 Today (EbbStart.MENU_AANTAL)
+    var keuze as Number = EbbSoort.CALM ? 1 : 0;   // Ebb Calm: alleen 1 (Calm) en 3 (Settings).
+    // 0 Rounds, 1 Calm 4-7-8, 2 Sea log, 3 Settings, 4 Today (EbbStart.MENU_AANTAL)
 
     function initialize() {
         View.initialize();
@@ -133,19 +134,25 @@ class EbbMenuView extends WatchUi.View {
             dc.drawText(d / 2, yb + fx, EbbTeken.fX(), "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.165).toNumber(), EbbTeken.fM(), "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        pilRand(dc, d, 0.335, "Rounds", keuze == 0);
-        pilRand(dc, d, 0.510, "Calm 4-7-8", keuze == 1);
+        dc.drawText(d / 2, (d * 0.165).toNumber(), EbbTeken.fM(), EbbSoort.NAAM, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (EbbSoort.CALM) {
+            // Ebb Calm: één knop, midden in het vak van de twee knoppen (0,25 tot 0,595 D).
+            pilRand(dc, d, 0.4225, "Calm 4-7-8", keuze == 1);
+        } else {
+            pilRand(dc, d, 0.335, "Rounds", keuze == 0);
+            pilRand(dc, d, 0.510, "Calm 4-7-8", keuze == 1);
+        }
         // "Sea log · Settings · Today": het gekozen woord wit in een pil met schuimrand, de andere lichtcyaan.
         // Keuring bouw 7 punt 6: today en 8 weeks ook vanuit het menu. Past de regel niet, dan smallere tussenruimte.
         var y = (d * 0.655).toNumber();
         var wm = dc.getTextWidthInPixels(m, f);
         var x = d / 2 - tot / 2;
-        for (var i = 0; i < WOORDEN.size(); i += 1) {
-            var ww = dc.getTextWidthInPixels(WOORDEN[i], f);
-            var gekozen = (keuze == i + 2);
+        var woorden = woorden();
+        for (var i = 0; i < woorden.size(); i += 1) {
+            var ww = dc.getTextWidthInPixels(woorden[i], f);
+            var gekozen = EbbSoort.CALM ? (keuze == 3) : (keuze == i + 2);
             dc.setColor(gekozen ? Graphics.COLOR_WHITE : EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y, f, WOORDEN[i], Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(x, y, f, woorden[i], Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             if (gekozen) {
                 // Keuring bouw 8 punt 3: het gekozen woord in een pil met schuimrand (was een streep van 1 px).
                 // Beeld run 43113167622: met de halve tussenruimte raakte de rand het puntje ernaast; nu een derde.
@@ -163,7 +170,7 @@ class EbbMenuView extends WatchUi.View {
             x += ww;
             // Tot hier (midden van de tussenruimte) hoort een tik bij dit woord.
             grens[i] = x + wm / 2;
-            if (i < WOORDEN.size() - 1) {
+            if (i < woorden.size() - 1) {
                 dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
                 dc.drawText(x, y, f, m, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
                 x += wm;
@@ -172,18 +179,28 @@ class EbbMenuView extends WatchUi.View {
     }
 
     const WOORDEN = ["Sea log", "Settings", "Today"] as Array<String>;
+    const WOORDEN_CALM = ["Settings"] as Array<String>;
+
+    // De woorden van de onderste menuregel; Ebb Calm heeft alleen Settings (geen sea log, geen today).
+    function woorden() as Array<String> {
+        return EbbSoort.CALM ? WOORDEN_CALM : WOORDEN;
+    }
     var grens as Array<Number> = [0, 0, 0] as Array<Number>;
 
     function regelBreed(dc as Graphics.Dc, f as Graphics.FontType, m as String) as Number {
-        var t = (WOORDEN.size() - 1) * dc.getTextWidthInPixels(m, f);
-        for (var i = 0; i < WOORDEN.size(); i += 1) {
-            t += dc.getTextWidthInPixels(WOORDEN[i], f);
+        var lijst = woorden();
+        var t = (lijst.size() - 1) * dc.getTextWidthInPixels(m, f);
+        for (var i = 0; i < lijst.size(); i += 1) {
+            t += dc.getTextWidthInPixels(lijst[i], f);
         }
         return t;
     }
 
     // Welke keuze hoort bij een tik op x in de onderste regel (2 Sea log, 3 Settings, 4 Today).
     function keuzeBij(x as Number) as Number {
+        if (EbbSoort.CALM) {
+            return 3;
+        }
         if (x < grens[0]) {
             return 2;
         }
@@ -200,6 +217,13 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function stap(n as Number) as Boolean {
+        if (EbbSoort.CALM) {
+            // Ebb Calm: twee keuzes, Calm (1) en Settings (3).
+            _view.keuze = (_view.keuze == 1) ? 3 : 1;
+            System.println("MENU keuze " + _view.keuze);
+            WatchUi.requestUpdate();
+            return true;
+        }
         _view.keuze = (_view.keuze + n + EbbStart.MENU_AANTAL) % EbbStart.MENU_AANTAL;
         System.println("MENU keuze " + _view.keuze);
         WatchUi.requestUpdate();
@@ -228,7 +252,9 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
         var xy = evt.getCoordinates();
         var d = System.getDeviceSettings().screenWidth;
         var y = xy[1].toFloat() / d;
-        if (y < 0.42) {
+        if (EbbSoort.CALM && y < 0.59) {
+            _view.keuze = 1;
+        } else if (y < 0.42) {
             _view.keuze = 0;
         } else if (y < 0.59) {
             _view.keuze = 1;

@@ -16,7 +16,9 @@ class EbbInstellingenView extends WatchUi.View {
     const GEEN_GELUID = "Ebb is silent. Buzz only.";
     const ZEE_BODEM = 0.745;
     var dier as Number = EbbTrouw.zwemmer();
-    const REGELS = [
+    // Ebb Calm: alleen trillen aan of uit en de veiligheidsbladen opnieuw lezen.
+    var REGELS as Array<Array> = EbbSoort.CALM ? ([["Vibration", 1, :trillen], ["Safety info", 2, :veilig]] as Array<Array>) : REGELS_VOL;
+    const REGELS_VOL = [
         ["Rounds", 0, 2], ["Breathing pace", 0, 1], ["Breaths", 0, 0], ["Recovery hold", 0, 3], ["Weekly goal", 0, 8],
         ["Buzz every 30 s", 1, :tik30], ["Buzz on last 3 breaths", 1, :laatste3], ["Vibration", 1, :trillen],
         ["My pattern: in", 0, 4], ["My pattern: hold", 0, 5], ["My pattern: out", 0, 6], ["My pattern: rest", 0, 7],

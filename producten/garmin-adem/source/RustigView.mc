@@ -149,6 +149,10 @@ class RustigView extends WatchUi.View {
         opname.opslaan();
         opgeslagen = true;
         var ms = sessie.klok(nu) - sessie.startMs;
+        if (EbbSoort.CALM) {
+            // Ebb Calm: geen reeksen en geen dieren om te vinden; alleen de tijd en de ademhalingen.
+            return new CalmEindeView(ms, sessie.cyclus() > 0 ? ms / sessie.cyclus() : 0, [] as Array<Number>, 0);
+        }
         var meetelt = EbbTrouw.telt(0, ms);
         var tellers = meetelt ? EbbTrouw.naSessie(EbbView.vandaag()) : EbbTrouw.stand(EbbView.vandaag());
         var nieuw = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
@@ -207,6 +211,7 @@ class CalmEindeView extends WatchUi.View {
     var reeks as Number;
     var telt as Boolean = true;
     var feest as Boolean = false;
+    static const VOL = ["The full Ebb adds", "breath hold rounds,", "24 sea animals"] as Array<String>;
 
     function onHide() as Void {
         EbbSeaComplete.los();
@@ -247,6 +252,17 @@ class CalmEindeView extends WatchUi.View {
         var bandBreed = EbbTeken.px(d, EbbEindScherm.VAK_BREED);
         var naamY = EbbEindScherm.NAAM / 260.0;
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
+        if (EbbSoort.CALM) {
+            // Ebb Calm: de vis en één rustige zin over de volle Ebb op drie korte regels. Geen knop, stippen of reeks.
+            EbbDierMaat.inBand(dc, EbbTrouw.zwemmer(), w / 2, bandTop, bandOnder, bandBreed, d, EbbDierPlaatje.GEVONDEN);
+            var lh = dc.getFontHeight(EbbTeken.fX());
+            var y0 = EbbTeken.px(d, EbbEindScherm.NAAM);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            for (var r = 0; r < VOL.size(); r += 1) {
+                dc.drawText(w / 2, y0 + r * lh, EbbTeken.fX(), VOL[r], midden);
+            }
+            return;
+        }
         var regel = telt ? "counts as a session" : "from 1 min it counts";
         var kleur = Graphics.COLOR_WHITE;
         if (nieuw.size() > 0) {

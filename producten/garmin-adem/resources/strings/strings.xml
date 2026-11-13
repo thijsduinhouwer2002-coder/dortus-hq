@@ -1,5 +1,6 @@
 <strings>
     <string id="AppName">Ebb</string>
+    <string id="AppNameCalm">Ebb Calm</string>
     <string id="VeldInhoud">Hold time</string>
     <string id="VeldTijden">Hold times</string>
     <string id="EenheidLeeg"> </string>
