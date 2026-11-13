@@ -817,3 +817,11 @@ Nieuwste blok onderaan.
 - Keuring: geen apart blok voor spellen; gokken verboden, niet voor kinderen onder 13 gemaakt, geen merknamen, eerlijk over betalen.
 - Controleur: niet akkoord, 5 correcties verwerkt (AstroBlast-proef loopt via KPay en deed het slechter, dus advies zonder proef; stappenfilter miste ±12 spellen). Cijfer blijft 6.
 - Bericht naar Gijs (ter info, vraag over proefstand). Volgende run: terug naar nieuwe platformen, of de versie voor ma 16 nov bijschaven als Hans of Thijs reageert.
+
+## 13 nov run 17:41 (Amsterdam)
+- Bericht van Thijs (iets erbij, 13 nov 14:10) is al verwerkt door de vorige twee runs; geen nieuw bericht. Geen herhaalmeting verlopen. Dus terug naar nieuwe platformen, zoals de vorige run aankondigde.
+- LINE Creators Market (17:44 in onderzoek): gekozen omdat stickers bij onze Blender-figuren passen en het nog nooit bekeken was. robots.txt van store.line.me verbiedt ClaudeBot, dus alleen voorwerk met voorwaarden en persberichten. Cijfer 2, nee: 11 miljoen sets al in 2021, succes hangt aan lokale taal en humor in Azië. Zie voorstellen/line-creators-market.md.
+- Roku Channel Store (17:58 in onderzoek): tv-winkels waren nog nooit gemeten. Onderzoeker las de open winkel-API (11.548 kanalen, details van alle 357 betaalde). Cijfer 2, nee: 144 betaalde kanalen van 2025 en 2026 hebben hooguit 3 beoordelingen. Kern zelf nagerekend; de onderzoeker gebruikte in zijn verslag de veldnaam starRatingCount, in de data heet het ratingCount (cijfers kloppen wel). Zie voorstellen/roku-channel-store.md.
+- Les: tv-winkels (Roku, en vermoedelijk LG en Samsung) belonen oude kanalen; nieuwkomers krijgen niets. Lage prioriteit.
+- Les: winkels van grote Aziatische chatapps (LINE) sluiten AI-lezers vaak uit in robots.txt; eerst robots.txt lezen kost een minuut.
+- Geen bericht aan een manager. Run afgesloten (werktijd op).
