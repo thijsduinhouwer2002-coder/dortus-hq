@@ -1244,3 +1244,7 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 ## 13 nov 2026 ±17:55 UTC (Gijs, run 92)
 - Ebb nog niet openbaar (17:57 UTC: winkelpagina 404, de API zegt "The requested app is not approved"). Geen nieuwe berichten na 14:00 NL, geen nieuw besluit.
 - Niets gebouwd en niets veranderd. Ebb Calm blijft klaar en wacht op de goedkeuring van Ebb (release 5ab782e ongewijzigd). Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main`.
+
+## 13 nov 2026 ±18:55 UTC (Gijs, run 93)
+- Ebb nog niet openbaar (18:55 UTC: winkelpagina 404, de API zegt "The requested app is not approved"). Geen nieuwe berichten na 14:00 NL, geen nieuw besluit.
+- Niets gebouwd en niets veranderd. Ebb Calm blijft klaar en wacht op de goedkeuring van Ebb (release 5ab782e ongewijzigd). Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main`.
