@@ -23,8 +23,8 @@ for i, (soort, nr) in enumerate(paren):
             w = e.matrix_world @ v.co
             if abs(w.x - x) < 0.3 and w.z > hoog:
                 hoog, hx = w.z, w.x
-    hoeden.bouw(nr, (x, 0, hoog - 0.06), schaal=0.95)
+    hoeden.bouw(nr, (x, 0, hoog - 0.08), schaal=float(os.environ.get("HOED_SCHAAL", "1.3")))
 bpy.ops.mesh.primitive_plane_add(size=40); bpy.context.object.is_shadow_catcher = True
-g.camera(hoogte_midden=1.1, schaal=15.5)
+g.camera(hoogte_midden=1.25, schaal=15.5)
 g.licht()
 g.render(uit, int(sys.argv[2]), int(sys.argv[3]), 24, doorzichtig=True)
