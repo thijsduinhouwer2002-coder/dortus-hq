@@ -16,3 +16,12 @@ Godot tekent het blad met filter lineair via een `CanvasTexture` (alleen dat lij
 
 ## Zuinig
 Het blad van Gloop is 198 x 64 pixels (±13 kB als PNG, in het geheugen ±67 kB met mipmaps). Gloop tekent alleen opnieuw als er iets gebeurt, net als eerst. Meting van CPU met het nieuwe blad: zie `platformen/steam/taken.md`.
+
+## Stukken voor het hol (soort "stukken", 13 nov 16:50)
+Voor het hol is bijsnijden juist fout: tegels moeten op vaste schaal blijven en op elkaar passen. Met `"soort": "stukken"` in `sprites.json` rendert het model het hele beeld één keer per laag, zonder bijsnijden, en knipt de pijplijn er vakken uit in spelpixels.
+- `beeld`: het hele modelbeeld in spelpixels (voor `hol.py`: 240 x 40, dus 120 px strook = 40 spelpixels, net als in het spel), `px` 4, `over` 2 (twee keer groter renderen, dan verkleinen).
+- `lagen`: per laag de naambegins die verborgen worden, bv. `{"vol": [], "achter": ["gloop", "kist"]}`. Dat gaat via `HOL_VERBERG` in `gedeeld.render`; zonder die variabele verandert er niets.
+- `stukken`: `{"gang": {"laag": "vol", "vak": [x, y, breed, hoog]}}`, linksboven is 0, 0. Zelfde rijen als `hol/hol.gd`: gras 0 tot 8, bovenste rij 8 tot 24, gang 24 tot 40, kolom 16 breed.
+- Uit: `godot/kunst/3d/<naam>.png` met de stukken naast elkaar (rond elk stuk 4 bladpixels waarin de buitenste rand is doorgetrokken, tegen naden bij lineair filter en mipmaps; elk stuk begint op een veelvoud van 4) en in `sprites.json` per stuk `vak_px` (plek in het blad) en `maat` (spelpixels).
+Proef `hol_proef` (Mila's `hol.py` zoals het nu is): gras, gang, ingang, put en schatkamer, 53 s op 2 kernen voor 1920 x 320. Bewijs: `bewijs/hol_proef-blad-2x.png`. Nog niet in het spel: `hol/hol.gd` is van Olaf, en Gloop zit nog in de schatkamer (hij moet eruit, want het spel tekent hem zelf).
+Let op bij lagen: een verborgen object werpt ook geen schaduw en geeft geen licht (een vlam met gloed), dus rond een verborgen kist is een achterlaag net anders dan "vol". Lampen worden nooit verborgen, ook niet als kind, zodat elke laag hetzelfde licht heeft. Naambegins pakken breed ("kist" pakt ook kistband en kistmunt, niet "deksel"); objecten zonder eigen naam (zoals `Sphere`) zijn niet goed te kiezen. Een verkeerde laagnaam of een losse tekst in plaats van een lijst geeft een FOUT.

@@ -3,13 +3,117 @@
   "sprites": {
     "gloop": {
       "model": "gloop.py",
-      "args": ["{uit}", "1", "0", "{w}", "{h}", "{samples}"],
-      "render": [640, 640],
+      "args": [
+        "{uit}",
+        "1",
+        "0",
+        "{w}",
+        "{h}",
+        "{samples}"
+      ],
+      "render": [
+        640,
+        640
+      ],
       "samples": 48,
       "ruimte": 1.6,
-      "cel": [20, 16],
+      "cel": [
+        20,
+        16
+      ],
       "px": 4,
-      "frames": {"rust": [1.0, 1.0], "plat": [1.3, 0.42]}
+      "frames": {
+        "rust": [
+          1.0,
+          1.0
+        ],
+        "plat": [
+          1.3,
+          0.42
+        ]
+      }
+    },
+    "hol_proef": {
+      "soort": "stukken",
+      "model": "hol.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "2",
+        "2"
+      ],
+      "beeld": [
+        240,
+        40
+      ],
+      "px": 4,
+      "over": 2,
+      "samples": 24,
+      "lagen": {
+        "vol": [],
+        "zonder_kist": [
+          "kist",
+          "deksel"
+        ]
+      },
+      "stukken": {
+        "gras": {
+          "laag": "vol",
+          "vak": [
+            32,
+            0,
+            16,
+            8
+          ]
+        },
+        "gang": {
+          "laag": "vol",
+          "vak": [
+            32,
+            8,
+            16,
+            32
+          ]
+        },
+        "ingang": {
+          "laag": "vol",
+          "vak": [
+            14,
+            0,
+            16,
+            40
+          ]
+        },
+        "put": {
+          "laag": "vol",
+          "vak": [
+            58,
+            24,
+            16,
+            16
+          ]
+        },
+        "schatkamer": {
+          "laag": "vol",
+          "vak": [
+            92,
+            8,
+            58,
+            32
+          ]
+        },
+        "schatkamer_zonder_kist": {
+          "laag": "zonder_kist",
+          "vak": [
+            92,
+            8,
+            58,
+            32
+          ]
+        }
+      }
     }
   }
 }

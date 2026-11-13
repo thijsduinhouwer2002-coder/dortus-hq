@@ -113,7 +113,34 @@ def _frames_uit_pijplijn():
     return json.loads(tekst) if tekst else None
 
 
+def _verberg_uit_pijplijn():
+    """Bram (13 nov): HOL_VERBERG is een JSON-lijst van naambegins, bv. ["gras", "kist"]. Objecten waarvan
+    de naam (zonder .001 en zo) zo begint, en hun kinderen, komen niet in de render. Zo maakt de pijplijn
+    lagen van één model (achtergrond zonder schat, alleen de schat, ...). Zonder HOL_VERBERG verandert er niets."""
+    import json, os
+    tekst = os.environ.get("HOL_VERBERG", "").strip()
+    if not tekst:
+        return
+    lijst = json.loads(tekst)
+    if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
+        raise SystemExit("HOL_VERBERG moet een lijst met namen zijn, bv. [\"kist\"]")
+    begins = tuple(lijst)
+    if not begins:
+        return
+
+    def weg(o):
+        if o.type in ("CAMERA", "LIGHT"):
+            return   # lampen blijven altijd, ook als kind: elke laag houdt hetzelfde licht
+        o.hide_render = True
+        for k in o.children:
+            weg(k)
+    for o in list(bpy.context.scene.objects):
+        if o.name.split(".")[0].startswith(begins):
+            weg(o)
+
+
 def render(pad, breedte, hoogte, samples=64, doorzichtig=True):
+    _verberg_uit_pijplijn()
     frames = _frames_uit_pijplijn()
     if frames:
         import os
