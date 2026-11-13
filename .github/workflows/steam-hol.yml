@@ -203,9 +203,14 @@ jobs:
           if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
           if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ came, \d+ fell") { Write-Output "FOUT: geen verhaal-regel (came, fell) in de kroniek na terugkomen"; $fout++ }
           if ($a -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
-          $null = python producten/steam-hol/e2e/save_terug.py $save -3600
+          $vooruit = python producten/steam-hol/e2e/save_terug.py $save -3600
           $b = Speel "$uit/weg-2.log" "duur=8" | Out-String
           Write-Output "===== klok terug"; Write-Output $b
+          # de bewaarde tijd gaat nooit achteruit (voortgang.gd, nieuwe_laatst): anders telt het uur nog een keer als de klok weer goed staat
+          $na2 = python producten/steam-hol/e2e/save_terug.py $save 0
+          $tv = [regex]::Match($vooruit, "tijd=(\d+)"); $tn = [regex]::Match($na2, "tijd=(\d+)")
+          if (-not ($tv.Success -and $tn.Success) -or [long]$tn.Groups[1].Value -lt [long]$tv.Groups[1].Value) { Write-Output "FOUT: bewaarde tijd ging achteruit na klok terug ($vooruit -> $na2)"; $fout++ }
+          else { Write-Output "bewaarde tijd bleef staan: $($tv.Groups[1].Value) -> $($tn.Groups[1].Value)" }
           if ($b -notmatch "HOL weg geweest 0 s \(klok terug: true\): goud voor \d+, helden 0, erbij 0") { Write-Output "FOUT: klok terug gaf toch iets of geen regel"; $fout++ }
           if ($b -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
           Write-Output "weg: $fout FOUT"; "weg: $fout FOUT" | Set-Content "$uit/weg.txt"
