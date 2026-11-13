@@ -43,6 +43,11 @@ static func teken(h) -> void:
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
 	var y := -16 + zak + hop
 	var hoed_nr: int = int(h.hoed_nr)
+	var kop3d := _teken_3d(h, staat, frame, zak, hop, vb, kleur)
+	if kop3d != NIET_3D:
+		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+		_tekens(h, staat, vb, t, kop3d - 1)
+		return
 	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
 	_laag(h, LIJF, frame * 16, int(h.kleur_nr) * 16, y, zak, kleur)
 	var rij: int = h.SOORT.rij(String(h.soort_held))
@@ -56,9 +61,13 @@ static func teken(h) -> void:
 		_laag(h, WAPENS, wapen * 16, 0, y + omlaag, 0, kleur)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
-	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	var tops: Array = h.get_script().get_script_constant_map().get("HOED_TOP", [])   # HOED_TOP blijft in held.gd (strook.gd leest hem daar)
 	var onder: int = y + (int(tops[hoed_nr]) if hoed_nr < tops.size() else 0) + omlaag - 1
+	_tekens(h, staat, vb, t, onder)
+
+# Teken (boos, uitroep, ...), poef en nootjes boven het hoofd; onder = de rij net boven de bovenkant van de hoed.
+static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> void:
+	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	if staat != "vallen":
 		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
 			_noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
@@ -68,6 +77,77 @@ static func teken(h) -> void:
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+
+# 3D-helden (Bram 13 nov, pijplijn producten/steam-hol/pijplijn/, modellen/held.py van Daan). Schakelaar, standaard UIT:
+# Daans helden hebben hun hoed nog vast in het model, terwijl het spel elke held een eigen hoed geeft die op Gloops
+# toren belandt (vraag aan Daan en Olaf in platformen/steam/taken.md, 13 nov 19:25). Staat in sprites.json bij een held
+# Tot dat besluit tekent de 3D-held alleen zijn eigen lijf met eigen hoed.
+# Soort -> blad: ridder -> ridder, magiër -> heks. Andere soorten blijven pixels. Lijf lineair gefilterd (CanvasTexture),
+# zoals Gloop in slijm.gd; de rest van de held (tekens, nootjes, poef) blijft nearest.
+static var met_3d := false
+const HELD3D_JSON := "res://kunst/3d/sprites.json"
+const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks"}
+const NIET_3D := -9999
+static var held3d := {}          # blad-naam -> [CanvasTexture, info]
+static var held3d_gezocht := false
+
+static func _laad_3d() -> void:
+	if held3d_gezocht:
+		return
+	held3d_gezocht = true
+	if not FileAccess.file_exists(HELD3D_JSON):
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(HELD3D_JSON))
+	if typeof(d) != TYPE_DICTIONARY:
+		return
+	for naam in HELD3D_SOORT.values():
+		if not d.has(naam) or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
+			continue
+		var ct := CanvasTexture.new()
+		ct.diffuse_texture = load(str(d[naam]["blad"]))
+		ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		held3d[naam] = [ct, d[naam]]
+
+# Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
+static func stand_3d(staat: String, frame: int) -> String:
+	if staat == "vallen":
+		return "vallen"
+	if staat in ["lopen", "vluchten"]:
+		return ["stap1", "rust", "stap2", "rust"][frame % 4]
+	return "rust"
+
+# Tekent het 3D-lijf (voeten op y 0, midden op x 0, onder de vloer afgesneden zoals _laag) en geeft de bovenste rij van het
+# hoofd (of van de spelhoed) terug, of NIET_3D als deze held pixels blijft.
+static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, _vb: Dictionary, kleur: Color) -> int:
+	if not met_3d:
+		return NIET_3D
+	var naam: String = String(HELD3D_SOORT.get(String(h.soort_held), ""))
+	if naam == "":
+		return NIET_3D
+	_laad_3d()
+	if not held3d.has(naam):
+		return NIET_3D
+	var ct: CanvasTexture = held3d[naam][0]
+	var info: Dictionary = held3d[naam][1]
+	var stand := stand_3d(staat, frame)
+	var i: int = info["frames"].find(stand)
+	if i < 0:
+		i = maxi(0, info["frames"].find("rust"))
+	var px: float = float(info["px"])
+	var cw: float = float(info["cel_px"][0])
+	var ch: float = float(info["cel_px"][1])
+	var hoog := ch / px
+	var zicht := hoog - float(zak)
+	var x := -float(info["anker_x"]) / px
+	var y := -hoog + float(zak + hop)
+	if zicht <= 0.0:
+		return int(y)   # helemaal in de put gezakt: niets te tekenen, tekens wel
+	h.draw_texture_rect_region(ct, Rect2(x, y, cw / px, zicht), Rect2(i * cw, 0, cw, zicht * px), kleur)
+	var tops: Array = info.get("top", [])
+	var kop := int(floor(y + (float(tops[i]) if i < tops.size() else 0.0)))
+	# De spelhoed op de kruin ("zonder_hoed": true) komt pas na het besluit over hoeden (taken.md, 13 nov 19:25):
+	# dan ook de maat van de hoed (pixel of 3D-blad) en waar de kruin per stand zit.
+	return kop
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
 static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:
