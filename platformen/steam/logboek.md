@@ -586,3 +586,12 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Controleur: akkoord met punten. Moet: heks heeft een kleinere eenheid (21,3 tegen 26,0), dus de hoed rekent per held om; cel van het hoedenblad niet symmetrisch rond het anker (pansteel links, klep rechts). Beide verwerkt. Kan: kruin bij schrik (bezem) en vallen (voet) is niet het hoofd; Godot gebruikt bij vallen de kruin van rust.
 - Les: een toets die op een nieuw veld in een gerenderd blad let, faalt in de Windows-run van dezelfde push (het blad komt pas een render later). Dat is verwacht, niet schrikken; kijk naar de run na de terugcommit.
 - Click Joints 104 downloads, geen meldingen.
+
+## 13 nov 20:14 tot ±20:55 UTC (Olaf)
+- Obsidian: niets dringends in `taken.md`.
+- Tweede paar duurtests (`zaad=777`) gelezen: main met 3D-hol 0,506 / 1,266, zonder 3D-hol 0,233 / 0,547. Het eerste paar (+14%) was dus geluk van de runner; het 3D-hol kost het dubbele. Afspraak 3 met Bram (meer dan 20%: het hol één keer tekenen) gaat in.
+- Gebouwd op tak `claude/steam-hol-vast`: `hol/hol_vast.gd` (vaste deel in een SubViewport, alleen opnieuw bij een andere sleutel), gloed weg op de 3D-gang (Daan moet 1, het lichte vierkant), keus b van Daan (hele pixels per stap), demo-Hoard-Toucher op snelheid 2. Film met en zonder cache pixel voor pixel gelijk. Controleur akkoord met punten.
+- Les: lokaal importeren met Godot op Linux herschrijft de `.import`-bestanden van de pijplijn (andere `path` en `uid`). Niet meecommitten (`git checkout -- kunst/3d/*.import`), en na het terugzetten opnieuw importeren voordat je toetsen draait, anders hangt `toets_held` op een ontbrekende `.ctex`.
+- Les: een snelheid die een demo-moment haalt (Hoard-Toucher in de eerste minuut) moet na een wijziging in het lopen opnieuw in de demo-log gecontroleerd worden; 1,4 werd 1 en het moment viel uit de minuut.
+- Bericht van Daan (±20:50, moet 3, kamerstuk op de buren) gelezen; bouwen zodra Mila en Bram de stukken hebben.
+
