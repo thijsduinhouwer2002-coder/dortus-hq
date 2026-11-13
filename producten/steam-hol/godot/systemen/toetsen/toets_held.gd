@@ -697,7 +697,7 @@ func _init() -> void:
 		ok(g3.beeld_3d() == "rust", "3D: na blij weer rust")
 		ok(g3.knipper() == standen.has("knipper"), "3D: knipperen alleen als het blad het heeft")
 		ok(g3.beeld_3d() == ("knipper" if standen.has("knipper") else "rust"), "3D: knipper-beeld")
-		g3.t = g3.knipper_tot + 0.01
+		g3.t += g3.KNIPPER_S + 0.01   # niet knipper_tot: zonder knipper-beeld staat die op -10
 		ok(g3.beeld_3d() == "rust", "3D: na 0,2 s ogen weer open")
 		g3.stap(0.01)
 		ok(not g3.is_processing(), "3D: na knipperen geen _process meer (zuinig)")
