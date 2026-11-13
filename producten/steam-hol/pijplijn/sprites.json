@@ -342,6 +342,54 @@
           ]
         }
       }
+    },
+    "deco": {
+      "soort": "stukken",
+      "model": "hol.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "2",
+        "2"
+      ],
+      "beeld": [
+        240,
+        40
+      ],
+      "px": 4,
+      "over": 2,
+      "samples": 24,
+      "lagen": {
+        "deco": {
+          "alleen": [
+            "fakkel",
+            "ladder"
+          ]
+        }
+      },
+      "_uitleg": "Bram 13 nov 23:30 (Daan 22:55: pixelfakkels en pixelladder zijn het grootste stijlverschil). Zelfde model, camera, schaal en licht als hol_proef, maar alleen fakkels en ladder op een doorzichtige achtergrond (HOL_ALLEEN). fakkel = de gangfakkel links (hol.py fakkel(-7.2, 0.95)), ladder = de ladder in de schacht zonder de boog. Vakken in spelpixels van het hele beeld 240x40. Rondom 1 spelpixel doorzichtige marge, anders trekt de naadrand (RAND) de vlam en de paal door.",
+      "stukken": {
+        "fakkel": {
+          "laag": "deco",
+          "vak": [
+            53,
+            21,
+            6,
+            12
+          ]
+        },
+        "ladder": {
+          "laag": "deco",
+          "vak": [
+            17,
+            3,
+            11,
+            35
+          ]
+        }
+      }
     }
   }
 }
