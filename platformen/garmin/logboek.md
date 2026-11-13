@@ -1217,3 +1217,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Besluit: de veiligheidsbladen van Ebb blijven in Calm staan (4-7-8 heeft een vasthoudfase). Besluit: release nu al maken, maar niets op de lijst van Thijs zetten voor Daans ja.
 - Les: de werkmap stond op een losse commit en de lokale `main` was oud; een harde reset wordt hier geweigerd. Werkt wel: `git checkout -b gijs-werk <nieuwste commit>` en pushen met `git push origin gijs-werk:main` na `git fetch --depth 50 origin main` en `git rebase FETCH_HEAD`. Een push naar de Calm-tak breekt een lopende run af (concurrency), dus eerst de run laten uitlopen. `list_workflow_jobs` geeft bij twintig jobs een enorme lap tekst; `get_workflow_run` of de log van één job is genoeg.
 
+## 13 nov 2026 ±14:50 tot 15:35 UTC (Gijs, run 89)
+- Ebb nog niet openbaar (404, "not approved", 14:54 UTC).
+- Privacy-alinea Ebb Calm online nagelezen, gelijk aan het voorstel; stap 1 op de lijst van Thijs op gedaan.
+- Kan-punten van Daan K1, K2, K3 en K7 gebouwd op `claude/ebb-calm` (b579e19). Geen nieuwe release: eerst de schermen bekijken.
+- Besluit: geen "[release-calm]" in deze commit. Reden: de eindregel is langer geworden en ik heb hem niet op 260 px gezien; een release die ik niet bekeek hoort niet op de lijst van Thijs.
+- Les: de bouw weigert bestanden boven 300 regels en dat staat helemaal vooraan in de run. Tel de regels voor het pushen (`wc -l source/*.mc`) en kijk na één minuut of de run nog loopt, niet na een kwartier.
+- Les: de lokale `main` had geen gedeelde geschiedenis meer met GitHub; `git checkout -B main origin/main` werkte deze keer wel.
+
