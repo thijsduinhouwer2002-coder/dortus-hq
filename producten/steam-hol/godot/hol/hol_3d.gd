@@ -60,8 +60,33 @@ static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
 		var put_niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
 		naam = "put" if h.vallen.has(k) and not h.put_open.has(k) and put_niv == 0 and heeft("put") else "gang"
 	elif r == 0 and h.boven[k] and k != h.ingang_kol:
-		naam = "kamer_links" if k % 2 == 0 else "kamer_rechts"
+		# één brede kamer (moet 3, Daan 20:50, Bram 21:30): het stuk volgt de buren; ontbreekt het, dan kamer_los,
+		# dan de oude losse kommen (zolang een blad die nog heeft)
+		for n in [kamer_keuze(h.boven, k, h.ingang_kol, h.schat_kol, schat_3d), "kamer_los",
+				"kamer_links" if k % 2 == 0 else "kamer_rechts"]:
+			if heeft(n):
+				return n
+		return ""
 	return naam if heeft(naam) else ""
+
+# welk kamerstuk een open cel k in de bovenste rij krijgt, alleen op de buren (zonder te kijken of het blad het heeft).
+# Schacht en 3D-schatkamer tellen als niet gegraven. Midden wisselt a en b op k % 2, zodat een lange kamer niet
+# steeds hetzelfde stuk herhaalt.
+static func kamer_keuze(boven: Array, k: int, ingang_kol: int, schat_kol: int, schat_3d: bool) -> String:
+	var l := _kamer_open(boven, k - 1, ingang_kol, schat_kol, schat_3d)
+	var r := _kamer_open(boven, k + 1, ingang_kol, schat_kol, schat_3d)
+	if l and r:
+		return "kamer_midden_a" if k % 2 == 0 else "kamer_midden_b"
+	if r:
+		return "kamer_begin"
+	if l:
+		return "kamer_eind"
+	return "kamer_los"
+
+static func _kamer_open(boven: Array, k: int, ingang_kol: int, schat_kol: int, schat_3d: bool) -> bool:
+	if k < 0 or k >= boven.size() or k == ingang_kol or not boven[k]:
+		return false
+	return not (schat_3d and k >= schat_kol - 2 and k <= schat_kol)
 
 # de schatkamer in 3D beslaat 3 kolommen en 2 rijen; alleen als het blad hem 48 breed heeft en de 3 kolommen open zijn
 static func schatkamer_aan(h) -> bool:
