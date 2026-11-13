@@ -78,9 +78,17 @@
           "gloop",
           "held"
         ],
-        "zonder_kist": [
+        "boven": [
           "gloop",
           "held",
+          "gras",
+          "spriet"
+        ],
+        "boven_zonder_kist": [
+          "gloop",
+          "held",
+          "gras",
+          "spriet",
           "kist",
           "deksel"
         ]
@@ -96,7 +104,7 @@
           ]
         },
         "aarde": {
-          "laag": "vol",
+          "laag": "boven",
           "vak": [
             224,
             8,
@@ -122,8 +130,17 @@
             40
           ]
         },
-        "kamer_links": {
-          "laag": "vol",
+        "kamer_begin": {
+          "laag": "boven",
+          "vak": [
+            32,
+            8,
+            16,
+            16
+          ]
+        },
+        "kamer_midden_a": {
+          "laag": "boven",
           "vak": [
             48,
             8,
@@ -131,8 +148,44 @@
             16
           ]
         },
+        "kamer_midden_b": {
+          "laag": "boven",
+          "vak": [
+            64,
+            8,
+            16,
+            16
+          ]
+        },
+        "kamer_eind": {
+          "laag": "boven",
+          "vak": [
+            80,
+            8,
+            16,
+            16
+          ]
+        },
+        "kamer_los": {
+          "laag": "boven",
+          "vak": [
+            176,
+            8,
+            16,
+            16
+          ]
+        },
+        "kamer_links": {
+          "laag": "boven",
+          "vak": [
+            176,
+            8,
+            16,
+            16
+          ]
+        },
         "kamer_rechts": {
-          "laag": "vol",
+          "laag": "boven",
           "vak": [
             176,
             8,
@@ -150,25 +203,25 @@
           ]
         },
         "schatkamer": {
-          "laag": "vol",
+          "laag": "boven",
           "vak": [
-            92,
+            96,
             8,
-            58,
+            48,
             32
           ]
         },
         "schatkamer_zonder_kist": {
-          "laag": "zonder_kist",
+          "laag": "boven_zonder_kist",
           "vak": [
-            92,
+            96,
             8,
-            58,
+            48,
             32
           ]
         }
       },
-      "_uitleg": "Rijen en kolommen van Mila (berichten/bram.md 13 nov 18:00): gras rij 0-8, aarde 8-24, gang 24-40, kolom 16. Herhalende tegels uit kolom 14 (x 224). Gloop en helden altijd verborgen, want die tekent het spel zelf."
+      "_uitleg": "Rijen en kolommen van Mila (hol.py ronde 5, 13 nov 21:05): gras rij 0-8, aarde 8-24, gang 24-40, kolom 16. Herhalende tegels uit kolom 14 (x 224). Kamers: begin kolom 2, midden_a 3, midden_b 4, eind 5, los 11. Schatkamer kolom 6 tot 9 (48 breed). kamer_links en kamer_rechts zijn tijdelijk gelijk aan kamer_los tot hol_3d.gd de vijf kamerstukken kiest. Laag 'boven' (alles in de rijen 8 en lager) verbergt gras en sprietjes: die staken over de rand van rij 8 en gaven groene spikkels bovenaan de kamers (moet 2 van Daan). Gloop en helden altijd verborgen, want die tekent het spel zelf."
     },
     "ridder": {
       "model": "held.py",
