@@ -49,6 +49,10 @@ Mijn les: de helden moeten niet mooier worden dan Gloop, maar wel eigen. Gloop b
 ## Ronde 3 (13 nov, ±17:00 UTC): bezem en matte lak
 `ronde3-los.png` (rechtsonder elk figuur op ±25 px, 2x vergroot): de heks heeft een **bezem** met een geel borstel en rood koord in plaats van een staf, schuin naast de hoed; op 25 px zie je een gele stip naast de paarse punthoed, dus een eigen silhouet. Huid en kleren matter (rough 0,62 tot 0,75, minder spec). De ridder houdt de rode pluim als eigen trek.
 
+## Eerste close-up voor een winkelplaatje (13 nov, ±17:00 UTC)
+`winkel-closeup-proef1.png` (1280 x 720, `WINKEL=1` in `hol_met_helden_proef.py`): de heks schrikt vlak voor Gloop met helm en kroon op zijn goud. Eigen oordeel (GEZIEN): dit is het eerste beeld dat in één tel het spel vertelt en waar Gloop groot en schattig in staat; precies wat de frisse kijker vroeg. Moet nog: onderste vijfde is lege vloer (camera iets omlaag of strakker), bezemborstel hangt over de hoedrand, de ridder in de put valt buiten beeld, gras bovenaan afgesneden. Geen winkelplaatje nog, wel de richting voor het blad van ma 16 nov.
+Gloop: de bolletjes van de kroon zweefden boven de punten (rekenfout bij de kanteling), nu precies op de punt (`gloop.py`).
+
 ## Volgende ronde (Daan)
 1. (Heks: bezem gedaan in ronde 3.) Eigen trek per held, zoals Gloops munt: bijvoorbeeld een ridder met te grote helm die over zijn ogen zakt, een heks met een bezem in plaats van een staf. Silhouet eerst, op 25 px toetsen.
 2. Minder glans op lijf en huid (rough omhoog), een matte speelgoedlak in plaats van plastic.

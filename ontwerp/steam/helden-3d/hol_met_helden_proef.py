@@ -320,8 +320,17 @@ if RONDE == "2":
 else:
     held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=60, schaal=0.75, gloed=25)
     held.bouw("heks", "stap2", plek=(-8.6, 0.7, 0.02), draai=45, schaal=0.75, gloed=25)
+# Daan: WINKEL=1 maakt een close-up voor een winkelplaatje (frisse kijker ronde 2: "geen hele strook,
+# een close-up"): heks schrikt vlak voor Gloop, de ridder valt in de put op de achtergrond.
+WINKEL = os.environ.get("WINKEL") == "1"
+if WINKEL:
+    held.bouw("heks", "schrik", plek=(-1.75, 0.45, 0.02), draai=55, schaal=0.85, gloed=30, rand=40)
 # ---------- camera en licht (gedeeld) ----------
-g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
+cam = g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
+if WINKEL:
+    cam.data.ortho_scale = 6.6
+    cam.location.x = -1.2
+    cam.location.z -= 0.75
 g.licht()
 # Het gedeelde licht is gezet voor Gloop alleen. In het hol zat "koel" in de achterwand en gaf
 # "boven" een vlek op het gras. Zelfde richting en kleur, alleen verplaatst (Gloop krijgt evenveel licht).

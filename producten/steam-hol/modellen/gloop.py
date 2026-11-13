@@ -155,7 +155,9 @@ if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
         px, py = x + 0.36 * math.cos(a), 0.36 * math.sin(a)
         hoog = 0.42 if a_g == 270 else 0.34
         kegel("kroonpunt", (px, py, z + 0.24 + hoog / 2), 0.15, 0.0, hoog, kr, kantel, verts=24)
-        bol("kroonbol", (px - math.sin(math.radians(kantel)) * hoog, py, z + 0.26 + hoog), (0.06, 0.06, 0.06), kr)
+        # ronde 3: bolletje precies op de punt (zweefde erboven): de kegel kantelt om zijn midden
+        k = math.radians(kantel)
+        bol("kroonbol", (px + math.sin(k) * hoog / 2, py, z + 0.24 + hoog / 2 + math.cos(k) * hoog / 2 + 0.01), (0.06, 0.06, 0.06), kr)
     bol("steen", (x, -0.43, z + 0.12), (0.08, 0.04, 0.08), g.mat("robijn", "rood", rough=0.1, emis=0.3))
     z += 0.5; x += 0.05; kantel = -11   # ronde 3: 0,42 werd 0,5, de heksenhoed zakte over de kroonpunten
 if HOEDEN >= 3:   # heksenhoed: breed en paars met een gouden band, punt knakt
