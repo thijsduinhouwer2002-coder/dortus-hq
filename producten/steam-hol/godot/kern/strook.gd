@@ -36,6 +36,10 @@ var logpad := ""
 var demo := false
 var film := false
 var vers := false
+var proef_fps := 15
+var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
+var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
+var meet_beelden := 0
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
 var demo_grens := 7200.0      # demo_einde=<s> voor de toets
 var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
@@ -112,10 +116,12 @@ func _ready() -> void:
 			"film": film = kv[1] == "1"
 			"vers": vers = kv[1] == "1"
 			"demo_einde": demo_grens = maxf(1.0, float(kv[1]))
+			"fps": proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), standaard 15
+			"zaad": proef_zaad = int(kv[1])
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
-	rng.seed = 7 if demo else int(Time.get_unix_time_from_system())
+	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
-		Engine.max_fps = 15
+		Engine.max_fps = proef_fps
 		OS.low_processor_usage_mode = true
 	get_viewport().transparent_bg = true
 	# Brams held als die er is, anders de stand-in
@@ -383,6 +389,13 @@ func _process(delta: float) -> void:
 			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
 				hi["dutje_gemeld"] = true
 				_kroniek(regels.kies("dutje", {"naam": hi.get("naam", "")}), true)
+	if logpad != "":
+		meet_t += delta
+		if meet_t >= 10.0:
+			meet_t = 0.0
+			var nu_b := Engine.get_frames_drawn()
+			log_regel("HOL meting t=%d beelden=%d helden=%d" % [int(t), nu_b - meet_beelden, helden])
+			meet_beelden = nu_b
 	_toon()
 	KAARTJE.tik(self)
 	if demo:
