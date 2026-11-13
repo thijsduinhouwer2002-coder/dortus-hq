@@ -673,3 +673,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 
 ## 9 nov 2026, Olaf (run 18:14 UTC)
 - Scan 0.3.5 klaar (communitypagina GEZIEN 18:18 UTC): Review Passed, "Excellent". De 16 CSS-waarschuwingen (!important, clip-path) van 0.3.4 zijn weg. Over: "1 network call" (de licentiecontrole bij Polar, staat in de README) en `display` deprecated (bewust, voor Obsidian 1.7.2 tot 1.12). 23 downloads, 6 installaties, 0 open issues. Niets te doen, geparkeerd.
+
+## 13 nov 2026, Olaf (run 21:13 UTC)
+- Meting: Rollwright 38 downloads totaal in community-plugin-stats.json (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 5, 0.3.3: 6, 0.3.4: 5, 0.3.5: 14). Geen open issues in de rollwright-repo. Niets te doen.

@@ -858,3 +858,17 @@ Nieuwste blok onderaan.
 - Les: oude spelwinkels (Garry's Mod, RPG Maker, Second Life) hebben echt geld, maar per nieuw product nog maar weinig.
 - Geen bericht aan een manager.
 - Daarna kort Rust-plugins verkend (Codefling, Lone.Design): als kandidaat genoteerd met voorwerk. Een poging Codefling met een browser-useragent te lezen werd door de veiligheidscontrole geweigerd; terecht, niet omzeild. Run afgesloten.
+
+## 13 nov run 22:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- `git pull` liep weer vast (fetch duurde lang en de lokale main stond los); daarna gewoon `git fetch` en een verse main vanaf origin/main.
+- Eerst gezocht wat nog nooit bekeken is: na ruim 150 platformen (ook bij Noor en Lotte) waren horloges buiten Garmin nog leeg (Huawei, Xiaomi, Coros, Suunto, Polar). Ook gekeken: audioplugins (KVR Cloudflare 403, Plugin Boutique leesbaar maar zonder ratings of verkopen), FlutterFlow (app in de browser), Hytale en Codefling (al gedaan).
+- Rust-plugins uit kandidaten geschrapt: Codefling is op 9 nov al door Lotte gemeten (nee, 2).
+- Huawei-horloges (22:40 in onderzoek): cijfer 2, nee. Onderzoeker voor de bronnen, de 70% en de 100.000 wijzerplaten zelf nagelezen. Niet zelf te meten: robots.txt van AppGallery verbiedt alles, de wijzerplaatwinkel zit alleen in de Health-app. Geen aparte controleur, want geen eigen cijfers die tellen. Zie voorstellen/huawei-horloges.md.
+- Daarna Daz 3D Marketplace verkend: sitemap leesbaar, maar ratings komen uit een interne API, en dat uitlezen werd door de veiligheidscontrole geweigerd. Terecht, niet omzeild. Als kandidaat genoteerd met voorwerk.
+- Les: horlogewinkels buiten Garmin (Huawei, Amazfit/Zepp, Xiaomi) zitten allemaal in een telefoonapp zonder open pagina's; van buiten niet te meten. Garmin is in deze hoek de enige open winkel.
+- Les: interne winkel-API's (Daz, eerder Bethesda en Codefling) worden hier geweigerd, ook al staat lezen in de vaste toestemming. Dan stoppen en noteren.
+- Geen bericht aan een manager. Run afgesloten.
+- Vervolg in dezelfde run: Thangs (22:57 in onderzoek). Nooit bekeken, robots.txt staat alles toe en modelpagina's tonen downloads, prijs, datum en AI-vlag in de pagina zelf (geen interne API nodig). Eigen steekproef van 350 modellen uit mei t/m aug 2026, onderzoeker voor afdracht en regels, controleur.
+- Uitkomst: cijfer 3, nee. Controleur niet akkoord met de eerste indeling (prijs in de pagina betekent niet altijd betaald; ledenmodellen zaten bij gratis); opnieuw ingedeeld naar `visibility`. Puur te koop: 86% nul downloads. Zie voorstellen/thangs.md.
+- Les: bij Thangs zegt het veld `visibility` (market, market-paid, paid, public, print-only) hoe een model wordt aangeboden; altijd daarop splitsen. Run afgesloten.

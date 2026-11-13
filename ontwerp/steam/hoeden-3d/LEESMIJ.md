@@ -17,3 +17,11 @@ Nog niet: dezelfde hoeden op Gloops toren in `gloop.py` (nu 4 eigen hoeden, zelf
 
 ## Ronde 2 (±19:40 UTC)
 Frisse kijker op versie 1: aantrekkelijk 7, leesbaar op ware grootte 5. Niet te lezen: emmer (leek een oranje pan), pan (zwarte bolhoed met stokje), pet (verdween in het rode haar van de heks). Advies: hoeden 1,3 tot 1,5 keer groter, elk een eigen silhouet en kleur. Gedaan: alle hoeden op 1,3 in de proef, emmer hoger met lichte duigen en donkere banden, pan met de steel schuin omhoog en een glans, pet feller rood met witte band en knoop en de klep opzij naar voren. Eigen oordeel op `helden-met-hoed-v2-55px-4x.png`: alle 10 nu te noemen, de pan het zwakst maar wel een pan. `hoeden-v2.png` is het blad op schaal 1. Donkere omlijning (ook geadviseerd) doe ik niet: de 3D-stijl werkt met licht en kleur, niet met lijnen (`3d-stijl.md`).
+
+## Ronde 3 (±21:40 UTC): mee draaien en hap, vragen van Bram (20:40)
+- `hoeden.bouw(nr, plek, schaal, kantel, draai=0, hap=False)`. `draai` werkt als in `held.py` (positief kijkt naar rechts). `hap=True` snijdt drie tandbogen boven opzij uit de hoed, recht naar de camera, aan de kant waar klep, steel of slip het minst uitsteekt.
+- `draai-en-hap.png`: boven heel (draai 0), midden draai 30 met hap, onder draai 0 met hap. `draai-en-hap-ware-grootte-4x.png`: hetzelfde op ±25 px per hoed.
+- `helden-draai30-recht-boven-mee-onder.png`: helden 30 graden gedraaid, boven de hoed recht naar de camera, onder mee gedraaid. Gemaakt met `proef/helden_met_hoed.py` en `HELD_DRAAI=30`, `HOED_DRAAI=1` (nieuw: `HOED_HAP=1`).
+- Besluit: mee draaien, want een hoed die recht naar ons kijkt terwijl het hoofd wegdraait leest als geplakt (kroon met de robijn opzij, pansteel naar voren). Hap alleen voor de toren en close-ups: op ±25 px is het een deuk, in de gang op 16 hoog bijna weg.
+- Drie eerdere pogingen weggegooid: de snijbollen zaten binnen de hoed (een gat in plaats van een hap), draaiden mee met de hoed (snee schuin door de voorkant), en bij de koksmuts bleef een los stukje zijwolk zweven. Nu gemeten op de echte hoekpunten in de wereld en op de buitenste rand op de hoogte van de hap.
+- Opgelost: hoednamen werden soms dubbel geplakt (tot 63 tekens), nu één keer `hoed_<naam>_...`.

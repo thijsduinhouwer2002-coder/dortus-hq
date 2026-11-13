@@ -14,6 +14,9 @@ on:
       extra:
         description: "Extra spel-argumenten voor een proef (bijvoorbeeld fps=12), leeg = gewoon spel"
         default: ""
+      breed:
+        description: "Schermmaat van de runner, bijvoorbeeld 1920x1080 (leeg = zoals de runner is, 1024x768)"
+        default: ""
 
 permissions:
   contents: write
@@ -34,6 +37,42 @@ jobs:
         run: |
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
           if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Schermmaat zetten (alleen als breed gevuld is)
+        if: ${{ github.event.inputs.breed != '' }}
+        shell: pwsh
+        env:
+          BREED: ${{ github.event.inputs.breed }}
+        run: |
+          # demolijst 2 op een breed scherm (Olaf 13 nov): user32 ChangeDisplaySettings met een DEVMODE
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public class Scherm {
+            [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+            public struct DEVMODE {
+              [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string dmDeviceName;
+              public short dmSpecVersion, dmDriverVersion, dmSize, dmDriverExtra; public int dmFields;
+              public int dmPositionX, dmPositionY, dmDisplayOrientation, dmDisplayFixedOutput;
+              public short dmColor, dmDuplex, dmYResolution, dmTTOption, dmCollate;
+              [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string dmFormName;
+              public short dmLogPixels; public int dmBitsPerPel, dmPelsWidth, dmPelsHeight, dmDisplayFlags, dmDisplayFrequency;
+              public int dmICMMethod, dmICMIntent, dmMediaType, dmDitherType, dmReserved1, dmReserved2, dmPanningWidth, dmPanningHeight;
+            }
+            [DllImport("user32.dll")] public static extern bool EnumDisplaySettings(string n, int m, ref DEVMODE d);
+            [DllImport("user32.dll")] public static extern int ChangeDisplaySettings(ref DEVMODE d, int f);
+            public static int Zet(int b, int h) {
+              DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
+              EnumDisplaySettings(null, -1, ref d);
+              d.dmPelsWidth = b; d.dmPelsHeight = h; d.dmFields = 0x80000 | 0x100000;
+              return ChangeDisplaySettings(ref d, 0);
+            }
+          }
+          "@
+          $m = $env:BREED -split 'x'
+          $r = [Scherm]::Zet([int]$m[0], [int]$m[1])
+          Add-Type -AssemblyName System.Windows.Forms
+          $s = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+          Write-Output "ChangeDisplaySettings gaf $r (0 = gelukt); scherm nu $($s.Width) x $($s.Height)"
+          if ($s.Width -ne [int]$m[0]) { Write-Output "== SCHERMMAAT NIET GEZET"; exit 1 }
       - name: Een uur draaien met Kladblok erachter
         shell: pwsh
         env:
@@ -97,12 +136,14 @@ jobs:
           TOKEN: ${{ github.token }}
           TAK: ${{ github.ref_name }}
           EXTRA: ${{ github.event.inputs.extra }}
+          BREED: ${{ github.event.inputs.breed }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/duur"
           [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
           NAAM=$(echo "$TAK" | tr '/' '-')
           # een proef met extra argumenten krijgt een eigen map, zodat twee proeven naast elkaar elkaar niet overschrijven
           if [ -n "$EXTRA" ]; then NAAM="$NAAM-$(echo "$EXTRA" | tr -c 'a-zA-Z0-9' '-' | sed 's/-*$//')"; fi
+          if [ -n "$BREED" ]; then NAAM="$NAAM-$BREED"; fi
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"

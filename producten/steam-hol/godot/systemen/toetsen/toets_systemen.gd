@@ -504,5 +504,27 @@ func _init() -> void:
 	hvast.vast.ververs()
 	ok(hvast.vast.keer == 3, "hol_vast: graven links, opnieuw")
 	hvast.free()
+	# kamerkeuze in het 3D-hol (Olaf 13 nov, moet 3 Daan): stuk volgt de buren; schacht (2) en 3D-schatkamer (10-12) dicht
+	var H3 = load("res://hol/hol_3d.gd")
+	var b := []
+	b.resize(16)
+	b.fill(false)
+	for kk in [2, 4, 6, 7, 8, 10, 11, 12, 3]:
+		b[kk] = true
+	ok(H3.kamer_keuze(b, 3, 2, 12, true) == "kamer_begin", "naast de schacht begint de kamer: " + H3.kamer_keuze(b, 3, 2, 12, true))
+	ok(H3.kamer_keuze(b, 4, 2, 12, true) == "kamer_eind", "cel 4 na 3: eind")
+	b[3] = false
+	ok(H3.kamer_keuze(b, 4, 2, 12, true) == "kamer_los", "losse kamer zonder buren")
+	ok(H3.kamer_keuze(b, 6, 2, 12, true) == "kamer_begin" and H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_eind",
+		"rij 6-8: begin en eind")
+	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_b", "midden op oneven: b")
+	b[9] = true
+	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "midden op even: a")
+	ok(H3.kamer_keuze(b, 9, 2, 12, true) == "kamer_eind", "3D-schatkamer telt als dicht: eind")
+	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_b", "zonder 3D-schatkamer loopt de kamer door")
+	b[14] = true
+	b[15] = true
+	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
+	ok(H3.kamer_keuze(b, 0, 2, 12, true) == "kamer_los", "kolom 0 kijkt niet buiten de rij")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
