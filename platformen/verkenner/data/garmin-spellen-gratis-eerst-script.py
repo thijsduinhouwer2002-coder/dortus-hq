@@ -6,7 +6,8 @@ d=json.load(gzip.open(sys.argv[1]))
 def dt(ms): return datetime.datetime.fromtimestamp(ms/1000,datetime.UTC).date().isoformat() if ms else '0'
 P=lambda x:x['pricing']['listPrice']['price'] if x['pricing'] else 0
 g=[x for x in d if x['cat']=='206' and P(x)>0 and '2026-01-01'<=dt(x['first'])<='2026-08-15']
-pat=re.compile(r'was free|for free|used to be free|now (paid|charg)|have to pay|make us pay|pay for it|no longer free|not free anymore|kostenlos war|war gratis|era gratis|jadi berbayar|it was free|free before',re.I)
+pat=re.compile(r'was free|for free|used to be free|now (paid|charg)|have to pay|make us pay|pay for it|no longer free|not free anymore|kostenlos war|war gratis|era gratis|jadi berbayar|it was free|free before|had to pay|free version|cost money|costs money',re.I)
+# Na de controleur (13 nov) uitgebreid met 'had to pay', 'free version', 'cost money': de eerste versie miste Stack - Blocks Game.
 for x in sorted(g,key=lambda x:-x['dl']):
     rv=[]
     for off in range(0,600,30):

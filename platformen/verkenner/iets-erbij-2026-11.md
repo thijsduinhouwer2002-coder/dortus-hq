@@ -5,7 +5,7 @@ Vera, eerste versie 13 nov 2026, run 16:16 (Amsterdam). Uiterlijke datum voor de
 Labels: GEZIEN (zelf gemeten), DERDEN (bron), GOK (schatting).
 
 ## Advies in vier zinnen
-1. **Bouw een klein betaald spelletje voor Garmin-horloges met Gloop uit Het Hol, in Blender gerenderd** (kandidaat 1, cijfer 7). Betaalde spelletjes zijn op Garmin de sterkste soort betaalde app van 2026: van de nieuwe betaalde spellen van kleine makers haalt ±62% de 100+ en ±24% de 1.000+ downloads, tegen 46% en 10% voor alle betaalde apps.
+1. **Bouw een klein betaald spelletje voor Garmin-horloges met Gloop uit Het Hol, in Blender gerenderd** (kandidaat 1, cijfer 6). Betaalde spelletjes doen het op Garmin beter dan andere betaalde apps: van de nieuwe betaalde spellen van kleine makers die niet eerst gratis waren haalt ±58 tot 61% de 100+ en ±16 tot 21% de 1.000+ downloads, tegen 42% en 11% voor alle betaalde apps (zelfde opbouw). Het bewijs is dun (±31 spellen) en de nieuwste lichtingen halen veel minder, dus de verwachting voor de eerste maand is klein.
 2. Maak met dezelfde plaatjes een betaalde wijzerplaat (kandidaat 2, cijfer 5): een paar dagen extra werk, kleiner geld, extra zichtbaarheid en reclame voor Ebb en Het Hol.
 3. Kandidaat 3 (een Blender-add-on die 3D-figuren omzet in sprites, op Superhive, cijfer 4) is alleen reserve: het bewijs is dun en geld hangt aan de Superhive-aanvraag die nog loopt.
 4. **Niet doen: 3D-modellen of assetpakketten verkopen op Superhive.** Van 2.199 betaalde modellen van 0 tot 7 maanden oud heeft ±0,5% 10 of meer verkopen; er komen ±1.150 modellen per maand bij (GEZIEN, vandaag).
@@ -14,7 +14,7 @@ Waarom Garmin voor de top 2: de opdracht vraagt geld vanaf dag 1 zonder KvK. Bij
 
 ## Hoe gemeten
 - Garmin: eigen analyse van de dataset van 9 nov (6.244 apps zonder wijzerplaat uit de open winkel-API, `data/garmin-niet-wijzerplaten-2026-11-09.json.gz`) en die van 6 nov (27.935 apps sinds juni 2025, met wijzerplaten, `data/garmin-nieuw-sinds-jun2025-2026-11-06.json`). Vandaag alle reviews gelezen van de 42 betaalde spellen uit jan t/m 15 aug 2026 (`data/garmin-spellen-gratis-eerst-script.py`, uitkomst `data/garmin-spellen-gratis-eerst-2026-11-13.jsonl`). Spellen = categorie 206 in de API.
-- **Correctie op eerder werk:** in de dataset van 9 nov betekent `pay=1` niet "betaald in de winkel" maar "gratis, ontgrendelen buiten de winkel" (paymentModel 1; Caffeine Tracker en Beer Counter noemen zichzelf in hun beschrijving gratis met een premiumcode, GEZIEN). Betaald in de winkel is: het veld `pricing` heeft een prijs. Alle cijfers hier gebruiken `pricing`. Eerdere stukken die `pay` als "betaald" lazen (onder meer de tabel met zwakke betaalde apps in `kansen/garmin-zwakke-nummer-een.md`) moeten worden nagekeken.
+- **Correctie op eerder werk:** in de dataset van 9 nov betekent `pay=1` niet "betaald in de winkel" maar "gratis, ontgrendelen buiten de winkel" (paymentModel 1; Caffeine Tracker noemt zichzelf "Free to use. Optional one-time Premium unlock", GEZIEN; controleur zag hetzelfde bij 4 andere). Niet altijd: 46 van de 807 apps met pay=1 hebben ook een winkelprijs (37 van RiversideArt). Betaald in de winkel is: het veld `pricing` heeft een prijs. Alle cijfers hier gebruiken `pricing`. Eerdere stukken die `pay` als "betaald" lazen (onder meer de tabel met zwakke betaalde apps in `kansen/garmin-zwakke-nummer-een.md`) moeten worden nagekeken.
 - Superhive: 2.213 modelpagina's uit de categorie 3D-modellen (elke 3e lijstpagina van 1 tot 150 en elke 6e van 151 tot 417, nieuwste eerst), met verkoopteller (Superhive toont die vanaf 10). Script `data/superhive-modellen-script.py`, data `data/superhive-modellen-2026-11-13.jsonl.gz`. Add-ons uit de meting van 9 nov (`data/superhive-nieuwe-addons-2026-11-09.jsonl`).
 - Geen onderzoeker-agent; wel een controleur (zie onderaan).
 
@@ -24,29 +24,32 @@ Waarom Garmin voor de top 2: de opdracht vraagt geld vanaf dag 1 zonder KvK. Bij
 | Betaald in de winkel, alle soorten | 241 | 10+ | 46% | 10% |
 | Gratis, ontgrendelen buiten de winkel | 164 | 100+ | 74% | 17% |
 | Gratis | 966 | 100+ | 72% | 24% |
+| Betaald in de winkel, zonder ThijsGer en QuadroGames | 226 | 10+ | 42% | 11% |
 | **Betaalde spellen, zonder ThijsGer en QuadroGames** | 41 | 100+ | 68% | 29% |
-| **Idem, ook zonder de 7 die eerst gratis waren** | 34 | 100+ | 62% | 24% |
+| **Idem, zonder de 8 die zeker eerst gratis waren** | 33 | 100+ | 61% | 21% |
+| **Idem, ook zonder 2 waarschijnlijk eerst gratis (ZigZag, Snake van li2niu)** | 31 | 100+ | 58% | 16% |
 
-Prijsmediaan betaald: $2,25; spellen bijna allemaal $1,99. Van de 24 betaalde apps met 1.000+ zijn er 12 spellen, en alle drie met 10.000+ zijn spellen.
+Prijsmediaan betaald: $2,25; 28 van de 42 betaalde spellen kosten $1,99, de rest $2,25 tot $3,99. Van de 24 betaalde apps met 1.000+ zijn er 12 spellen, en alle drie met 10.000+ zijn spellen, **maar alle drie waren eerst gratis** (controleur). Er is geen bewijs dat een spel dat vanaf het begin betaald is 10.000+ haalt.
 
 ---
 
-## Kandidaat 1: betaald horlogespel met Gloop (Garmin). Cijfer 7.
+## Kandidaat 1: betaald horlogespel met Gloop (Garmin). Cijfer 6 (eerst 7, verlaagd na de controleur).
 
 **Wat:** een kort spelletje voor één knop en een paar seconden per potje, zoals de toppers (stapelen, springen, ontwijken), met Gloop en zijn hoeden uit Het Hol. De figuur wordt in Blender gerenderd tot kleine plaatjes per pose, met dezelfde stijl als Het Hol (`ontwerp/steam/3d-stijl.md`). Op het eindscherm: "Gloop lives in Het Hol, coming to Steam".
 
 **Bewijs dat kleine makers verdienen (GEZIEN):**
-- Betaalde spellen uit jan t/m 15 aug 2026, 3 tot 10 maanden oud: 34 spellen van kleine makers zonder aanwijzing dat ze eerst gratis waren; 62% heeft 100+ downloads, 24% heeft 1.000+. Bij betaalde apps in het algemeen is dat 46% en 10%.
-- Voorbeelden zonder klachten over eerst gratis: Stack - Blocks Game (garminland, 10.000+, 60 reviews), ZigZag (garminland, 1.000+, 45), Chess Pro (Bitochi, 1.000+, 45), Blackjack (SilveroStudios, 1.000+, 39), Circle Pong, Snake (KBialy). Allemaal $1,99 tot $2,25.
+- Betaalde spellen uit jan t/m 15 aug 2026, 3 tot 10 maanden oud: 31 tot 33 spellen van kleine makers zonder aanwijzing dat ze eerst gratis waren; 58 tot 61% heeft 100+ downloads, 16 tot 21% heeft 1.000+. Bij betaalde apps in het algemeen (zelfde opbouw) is dat 42% en 11%.
+- Voorbeelden zonder klachten over eerst gratis: Chess Pro (Bitochi, 1.000+, 45 reviews), Blackjack (SilveroStudios, 1.000+, 39), Circle Pong (garminland), Snake (KBialy). $1,99 tot $2,25. Flick Scorer (1.000+, 3 reviews) is verdacht.
+- **Voorbehoud: de hits komen van makers met veel gratis apps** (garminland heeft 4 gratis spellen met 1.000+, reviewers schrijven "like all your others"). Zij sturen hun eigen spelers door; wij hebben die achterban nog niet (wel Ebb Calm straks).
 - Rekenvoorbeeld (GOK, aangenomen dat downloads verkopen zijn): 100 tot 999 kopers x $1,99 x 0,85 = $170 tot $1.700 per spel over 3 tot 10 maanden; 1.000+ is minstens $1.700.
-- **Eerlijk voorbehoud 1, eerst gratis:** 7 van de 42 betaalde spellen hebben klachten "it was free" in de reviews (MangoIQ met Crossy Road 3D, Stack en Google Dinosaur Game; KBialy Flags Quiz; drie van nioquant). Die tellen hierboven niet mee. Geen klachten bewijst niet dat een spel nooit gratis was, zeker bij weinig reviews.
+- **Eerlijk voorbehoud 1, eerst gratis:** 8 van de 42 betaalde spellen hebben klachten "it was free" in de reviews (MangoIQ met Crossy Road 3D, Stack en Google Dinosaur Game; garminland met Stack - Blocks Game, "rip free version", gevonden door de controleur; KBialy Flags Quiz; drie van nioquant), en bij ZigZag en Snake (li2niu) is het waarschijnlijk. Die tellen hierboven niet mee. Geen klachten bewijst niet dat een spel nooit gratis was, zeker bij weinig reviews.
 - Wat wel betaald is bij een spel dat eerst gratis was: Crossy Road 3D kreeg na de omslag (eind juli) nog 14 reviews in september en 13 in oktober, met "Totally worth the money" (GEZIEN, 238 reviews gelezen). Ter vergelijking: WHM breathing+ ($4,99) krijgt ±26 per maand.
-- **Eerlijk voorbehoud 2, het wordt drukker:** nieuwe betaalde spellen per maand: ±2 tot 12 in jan t/m jul 2026, daarna 27 in aug, 16 in sep, 39 in okt en 17 in de eerste 9 dagen van nov. De lichting 16 aug t/m 30 sep (1,5 tot 3 maanden oud, zonder ThijsGer en QuadroGames) staat op 6 van de 24 met 100+ (25%) en nog geen 1.000+. Dat is nog steeds beter dan betaalde apps in het algemeen op die leeftijd (±9% op 1 tot 2 maanden, Gijs, `platformen/garmin/onderzoek-thijsger-2026-11-10.md`), maar het venster gaat dicht. Wie dit doet, moet het snel doen.
+- **Eerlijk voorbehoud 2, het wordt drukker:** nieuwe betaalde spellen per maand (zonder ThijsGer en QuadroGames): ±2 tot 12 in jan t/m jul 2026, daarna 18 in aug, 12 in sep en 38 in okt. De lichting 16 aug t/m 30 sep (1,5 tot 3 maanden oud) heeft mediaan 1+: 12 van de 24 op 0 tot 9 downloads, 6 op 10+, 6 op 100+, geen 1.000+. Van de lichting okt zitten 35 van de 38 onder 10. Het venster gaat dicht; wie dit doet, moet het snel doen en zelf voor bezoekers zorgen.
 - ThijsGer (187 apps) en QuadroGames (18) laten bijna elke betaalde app 100+ halen met 0 tot 1 review; Gijs vond dat geen gewoon koopgedrag. Ik laat ze weg.
 
 **Waarom wij ons onderscheiden:** de toppers zijn platte blokjes, pixels en kloons van bekende spellen (Crossy Road, Google Dinosaur). Een echt in 3D gerenderde figuur met karakter (Gloop met hoed, wiebel bij landen) valt op tussen de vierkantjes, en het is ons eigen figuur, dus geen gedoe met merken. Het spel is daarnaast een reclamebord voor Het Hol bij mensen die graag iets op hun scherm hebben.
 
-**Verwachte omzet eerste 30 dagen (GOK):** 20 tot 150 kopers x $1,99 x 0,85 = **$35 tot $250**. Onderkant: de lichting van aug en sep (25% haalt 100+ in 1,5 tot 3 maanden). Bovenkant: tempo van de beste spellen van begin 2026. Geen proef, dus elke download is een verkoop (met 48 uur terugbetalen).
+**Verwachte omzet eerste 30 dagen (GOK):** 0 tot 150 kopers x $1,99 x 0,85 = **$0 tot $250, met de nadruk op de onderkant** (midden ±10 kopers, ±$17). Onderkant: de lichtingen van aug tot okt (mediaan 1+). Bovenkant: tempo van de beste spellen van begin 2026. Meer valt er pas over 2 tot 6 maanden te verwachten (midden 100+ kopers, ±$170+). Eerlijk: aan dag-1-geld levert dit weinig; het sterkste punt is dat het goedkoop is en Het Hol en Ebb zichtbaar maakt. Uitbetaling door Garmin is voor ons nog niet bewezen (Ebb zit in de keuring). Garmin heeft geen proef in de winkel (hasTrialMode overal uit; sommige makers bouwen zelf een proef in), dus elke download is een verkoop (met 48 uur terugbetalen).
 
 **Uren werk (GOK):** Gijs 20 tot 35 uur (spel in Monkey C, één scherm, punten, beste score opslaan; hij kent de SDK en de simulator van Ebb), Bram of Daan 6 tot 10 uur (Gloop renderen in 6 tot 12 poses op 3 schermmaten, met de pijplijn van Het Hol). Kloktijd bij doorlopen: ±1 week. Risico: geheugen op oudere horloges; begin zoals Ebb met de ronde horloges die Ebb al ondersteunt.
 
@@ -97,7 +100,7 @@ Voorbeelden van kleine makers op 1.000+: Cool Otter (MONYMAHONY, 3 wijzerplaten,
 - **Steam, tweede klein product:** tweede fee en weken wachten. **JetBrains:** verplichte proef van 30 dagen. **TikTok:** KvK nodig. **Cults3D** (3D-printbestanden): niet te meten, Cloudflare blokkeert lezen; niet omheen gewerkt.
 
 ## Controleur
-(volgt in deze run)
+Agent-controleur, 13 nov run 16:16: eerst niet akkoord, 10 correcties, alle verwerkt. Tabellen, wijzerplaten, drukte en Superhive (5 pagina's live) klopten. Belangrijkste: Stack - Blocks Game was ook eerst gratis (alle drie de 10.000+-spellen dus), ZigZag en Snake van li2niu waarschijnlijk ook; de vergelijkingsgroep moest zonder ThijsGer en QuadroGames (42% en 11%); de recente lichtingen halen mediaan 1+, dus de omzet voor de eerste 30 dagen ging omlaag en het cijfer van 7 naar 6. Het advies bleef staan: niets draait de conclusie om.
 
 ## Bronnen
 - Open winkel-API Garmin: `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/<id>` en `/reviews?startPageIndex=<n>&pageSize=30` (gelezen 13 nov 2026).
