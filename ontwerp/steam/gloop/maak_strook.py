@@ -7,7 +7,7 @@ import maak_blad as mb
 bron = sys.argv[1]; uit = sys.argv[2]
 im = Image.open(bron).convert("RGBA")
 X0, Y0, X1, Y1 = 380, 600, 720, 720   # uitsnede rond de schatkamer
-hats = mb.hoeden(); keuze = [hats[0], hats[1], hats[7]]
+hats = mb.hoeden(); keuze = [hats[0], hats[4], hats[1]]
 rijen = []
 def met(g):
     s = im.copy()

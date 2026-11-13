@@ -22,15 +22,16 @@ def met_toren(gloop, hats, n):
     hoogte = sum(hats[i].height - 1 for i in range(n))
     im = Image.new("RGBA", (gloop.width + 6, gloop.height + hoogte + 2), (0, 0, 0, 0))
     gy = im.height - gloop.height; im.paste(gloop, (3, gy), gloop)
+    # ronde 2: de onderste hoed zakt 1 px over het hoofd, elke volgende 2 px in de vorige, recht boven elkaar (kijkers: "zweeft los")
     y = gy + top + 1; mid = 3 + gloop.width // 2
     for k in range(n):
-        h = hats[k]; y -= h.height - 1 + (1 if k == 0 else 0)
-        dx = [0, 1, -1, 1][k % 4]
+        h = hats[k]; y -= h.height - 2
+        dx = [0, 0, 1, 0][k % 4]
         im.paste(h, (mid - h.width // 2 + dx, y), h)
     return im
 
 def blad():
-    hats = hoeden(); keuze = [hats[0], hats[1], hats[7]]  # helm, puntmuts, hoge hoed
+    hats = hoeden(); keuze = [hats[0], hats[4], hats[1]]  # helm, kroon, puntmuts (hoge hoed las als "pot")
     font = ImageFont.load_default()
     kol = []
     for v, naam in (("A", "A druppel"), ("B", "B mochi"), ("C", "C gelei")):

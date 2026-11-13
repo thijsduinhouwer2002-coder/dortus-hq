@@ -9,7 +9,7 @@ FW, FH = 20, 16
 
 # palet: munt op pruim (stijl Mila), omlijning donker groenblauw in plaats van zwart: zachter en schattiger
 P = {
-    "o": (22, 58, 62), "d": (36, 112, 104), "s": (52, 160, 132), "m": (92, 211, 166),
+    "o": (18, 52, 58), "d": (36, 112, 104), "s": (52, 160, 132), "m": (92, 211, 166),
     "l": (150, 238, 196), "h": (232, 255, 244), "w": (250, 247, 238), "p": (34, 22, 44),
     "e": (255, 255, 255), "k": (34, 22, 44), "t": (255, 255, 255), "b": (255, 132, 150),
     "r": (232, 86, 110),  # tong
@@ -97,10 +97,35 @@ OOG_BLIJ = [  # dichtgeknepen van plezier ^
     "......",
     "......",
 ]
-MOND_33 = ["k..k", ".kt."]      # kleine lach met één tandje
-MOND_LACH = ["k..k", ".kt."]
-MOND_OPEN = [".kkk.", "kkkkk", "krrrk", ".kkk."]
-MOND_KAUW = [".kk.", "k..k"]
+# Ronde 2 (na de frisse kijkers): elk oog krijgt een donkere rand en wit, en elke versie een duidelijke open lach.
+OOG_PIXAR = [  # A: wit oog met hoge pupil iets naar rechts, glimlicht linksboven
+    "..kkk..",
+    ".kwwwk.",
+    "kwwekwk",
+    "kwwkkwk",
+    ".kwwwk.",
+    "..kkk..",
+]
+OOG_LOOM = [  # B: tevreden half dicht, het ooglid in lijfkleur
+    "..kkk..",
+    "kkkkkkk",
+    "kwwekwk",
+    "kwwkkwk",
+    ".kwwwk.",
+    "..kkk..",
+]
+OOG_KRAAL = [  # C: kraaloog met groot glimlicht en een witte onderrand
+    "..kkk..",
+    ".kkkkk.",
+    "kkeekkk",
+    "kkkkkek",
+    ".kwwwk.",
+    "..kkk..",
+]
+MOND_LACH = ["ktkkk", ".krk."]   # open lach met tong en één tandje
+MOND_KLEIN = ["k...k", ".kkk."]
+MOND_OPEN = ["kkkkk", "krrrk", "krrrk", ".kkk."]
+MOND_KAUW = ["k.k.k", ".k.k."]
 
 def stempel(pix, patroon, x0, y0, mask=None):
     for j, rij in enumerate(patroon):
@@ -115,41 +140,35 @@ def frame(versie, staat, wiebel):
         dw, dh = -1, 1
     if staat == "kauw":
         dw, dh = 2, -1
-    if versie == "A":    # Druppel: rond en iets hoger, puntje bovenop
-        B, H, punt, glas = 14, 13, True, False
-    elif versie == "B":  # Mochi: breed en zacht
-        B, H, punt, glas = 18, 12, False, False
-    else:                # C Gelei: doorzichtig, je ziet wat hij at
-        B, H, punt, glas = 16, 13, False, True
-    mask = lichaam(B + dw, H + dh, punt)
+    if versie == "A":    # Druppel: hoog en rond, open blik
+        B, H, glas, oog, mond = 14, 14, False, OOG_PIXAR, MOND_LACH
+    elif versie == "B":  # Mochi: breed en zacht, tevreden half dicht
+        B, H, glas, oog, mond = 18, 13, False, OOG_LOOM, MOND_KLEIN
+    else:                # C Gelei: glazig, kraaloog
+        B, H, glas, oog, mond = 16, 14, True, OOG_KRAAL, MOND_LACH
+    H2 = min(H + dh, 15)
+    mask = lichaam(B + dw, H2, False)
     pix = kleur_lijf(mask, glas)
-    bodem = FH - 1; top = bodem - (H + dh) + 1
+    bodem = FH - 1; top = bodem - H2 + 1
     cx = FW // 2
     oy = top + 2
     ox = cx - 3 + 1
     if versie == "C":
-        # spullen in de buik, achter het oog getekend
-        munt = [(-6, -4, "g"), (-5, -4, "g"), (-7, -3, "g"), (-6, -3, "G"), (-5, -3, "g"), (-4, -3, "g"), (-6, -2, "G"), (-5, -2, "G")]
-        zwaard = [(3, -2, "I"), (4, -3, "i"), (5, -4, "i"), (6, -5, "i"), (3, -4, "I"), (4, -2, "I")]
-        bel = [(-4, -(H - 4), "u"), (-6, -(H - 7), "u"), (5, -(H - 9), "u")]
-        for (dx, dy, c) in munt + zwaard + bel:
-            x, y = cx + dx, bodem + dy
+        for (dx, dy, c) in [(-5, 4, "u"), (-4, 4, "u"), (-5, 5, "u"), (5, 9, "u")]:
+            x, y = cx + dx, top + dy
             if pix.get((x, y)) in ("m", "l", "s"):
                 pix[(x, y)] = c
     if staat in ("rust", "hap"):
-        if versie == "B":
-            stempel(pix, OOG_WIT, ox - 1, oy)
-        else:
-            stempel(pix, OOG, ox, oy)
+        stempel(pix, oog, ox, oy)
     else:
         stempel(pix, OOG_BLIJ, ox, oy)
     my = oy + 7
     if staat == "hap":
-        stempel(pix, MOND_OPEN, cx - 1, my)
+        stempel(pix, MOND_OPEN, cx - 1, my - 1)
     elif staat == "kauw":
         stempel(pix, MOND_KAUW, cx - 1, my)
     else:
-        stempel(pix, MOND_33 if versie != "B" else MOND_LACH, cx - 1, my)
+        stempel(pix, mond, cx - 1, my)
     # blosjes: twee pixels breed, links en rechts van het oog, op de onderste ooghoogte
     by = oy + 6
     for bx in (ox - 3, ox + 7):
