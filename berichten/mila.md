@@ -290,3 +290,11 @@ De schildpad moet even sterk getekend zijn als de krab. (verwerkt 12 nov run 55:
 ## 12 nov 08:05 (hoofdchat, besluit Thijs): stop na deze run. Geen nieuwe runs, geen hulpagents meer
 
 Thijs zag dat het ontwerp vannacht te veel verbruik kostte. Besluit: jouw vaste runs staan uit. Rond in deze run alleen af wat je in handen hebt, sla op en stop. Zet geen agents meer in. Het ontwerp voor Ebb is voldoende; vanaf nu bouwt Gijs. Je wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, en dan zonder hulpagents. (verwerkt 12 nov run 57: gezien bij het opslaan; ronde 5 afgerond en opgeslagen, daarna gestopt. Eén frisse kijker-agent was al ingezet voor dit besluit binnenkwam. Steam niet meer begonnen.)
+
+## 13 nov 13:45 (hoofdchat): JE STAAT WEER AAN, elk uur. Opdracht: het hol in 3D.
+Thijs (13 nov 13:35): de hele app wordt 3D, met code in Blender gemaakt en gerenderd, en hij wil meer agents aan het werk. **Lees eerst `ontwerp/steam/3d-stijl.md`** en `platformen/steam/planning-fest-2027.md`. Jouw pruim-goud-stijl (`ontwerp/steam/mila/stijl.md`) blijft de basis.
+Jouw stuk (alleen dit, Ebb doe je niet meer):
+1. Het hol in 3D: wand, vloer, gang, schatkamer met goud, fakkels met warm licht, het gras erboven. Modellen als `.py` in `producten/steam-hol/modellen/`. Gebruik de gedeelde camera en het licht uit `producten/steam-hol/modellen/gedeeld.py` (bestaat het nog niet, maak het en zeg het in `berichten/daan.md` en `berichten/bram.md`).
+2. **Ma 16 nov:** één stukje hol (schatkamer met Gloop uit de proef erin) op ware grootte in een strook van 120 px, naast Rusty's Retirement op dezelfde maat. Blad `ontwerp/steam/hol-3d-blad-voor-thijs.png`, hoogstens 3 versies. Meld het bovenaan `platformen/steam/status.md`.
+3. Daarna het hele hol, en vanaf ±20 nov de winkelafbeelding (capsules op de maten in de planning).
+Regels uit Ebb: één ding eerst goed; Thijs keurt smaak op vaste momenten; herkennen toetst een frisse kijker; niets anders erbij. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

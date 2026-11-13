@@ -1,6 +1,6 @@
 # Het Hol: planning tot het Desktop Companion Fest (hoofdchat, 13 nov 2026)
 
-Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen tekenaar, geen AI-beeldtool. Alles uit code, zoals nu. Thijs is het oog voor smaak; herkennen toetst een frisse kijker.
+Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen tekenaar, geen AI-beeldtool. **Aanvulling 13 nov 13:35: de hele app wordt 3D, met code in Blender gemaakt en gerenderd** (zie `ontwerp/steam/3d-stijl.md`). Thijs is het oog voor smaak; herkennen toetst een frisse kijker.
 
 ## Vaste data (GEZIEN in de Steamworks-docs, zie `ontwerp/steam/winkelpagina/fest.md`)
 - **14 tot 18 jan 2027:** Desktop Companion Fest. Wij doen mee als "binnenkort" met een gratis demo.
@@ -11,8 +11,9 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 ## Mijlpalen, terug gerekend
 | Datum | Wat | Wie keurt |
 |---|---|---|
-| **vr 20 nov** | **Gloop af**: één figuur helemaal goed op ware grootte (120 px strook). Thijs zegt ja op een blad met hoogstens 3 versies. Een frisse kijker herkent "een slijm met één oog die hoeden draagt" zonder uitleg. | Thijs, frisse kijker |
-| **wo 25 nov** | **Helden en winkelbeelden**: 3 heldensoorten in dezelfde stijl als de goedgekeurde Gloop; capsule (header 920x430, klein 462x174, hoofd 1232x706, bibliotheek 600x900) en 5 schermafbeeldingen. | Thijs |
+| **ma 16 nov** | **Gloop in 3D**: blad met hoogstens 3 versies voor Thijs (Daan). Zelfde dag: één stukje hol in 3D (Mila) en de eerste render in Godot via de pijplijn (Bram). | Thijs |
+| **vr 20 nov** | **Gloop af**: één figuur helemaal goed op ware grootte (120 px strook), in 3D, met animaties in het spel. Thijs zegt ja op een blad met hoogstens 3 versies. Een frisse kijker herkent "een slijm met één oog die hoeden draagt" zonder uitleg. | Thijs, frisse kijker |
+| **wo 25 nov** | **Helden, hol en winkelbeelden**: 3 heldensoorten en het hele hol in dezelfde 3D-stijl; capsule (header 920x430, klein 462x174, hoofd 1232x706, bibliotheek 600x900) en 5 schermafbeeldingen. | Thijs |
 | **ma 30 nov** | **Winkelpagina klaar**: tekst, tags (Desktop Companion, Idler eerst), beelden, prijs. Thijs zegt ja. | Thijs |
 | **di 1 dec** | Thijs dient de winkelpagina in bij Steam (hij klikt zelf). | |
 | **±8 dec** | Pagina live als "binnenkort", verlanglijsten beginnen. | |
@@ -36,7 +37,7 @@ Niets nieuws erbij na 18 dec. Wat niet op deze lijst staat, gaat naar na het fes
 - **Thijs keurt smaak, op vaste momenten**, met hoogstens 3 versies per blad, op ware grootte én vergroot.
 - **Herkennen toetst iemand die niet weet wat het moet zijn** (een frisse agent die alleen het plaatje krijgt).
 - **Geen open keuringsrondes.** Na een ja van Thijs ligt een onderdeel vast.
-- **Kleine ploeg:** één bouwer elk uur, één ontwerper, de hoofdchat stuurt en laat Thijs zien. Geen vijf agents tegelijk.
+- **Ploeg (13 nov 13:35, Thijs wil meer agents):** Olaf (spel), Bram (3D-pijplijn), Daan (Gloop, helden), Mila (hol, winkelbeelden), elk uur, elk op een eigen stuk. De hoofdchat stuurt en laat Thijs zien.
 - Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 
 ## Grootste risico (eerlijk)

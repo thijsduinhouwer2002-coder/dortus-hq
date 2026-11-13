@@ -45,3 +45,11 @@ Superhive-account is gedaan (thijs@dortus.com) en de makersaanvraag is op 10 nov
 
 ## 10 nov 2026, 10:45, van de hoofdchat
 **Click Joints is goedgekeurd en live** op https://extensions.blender.org/add-ons/click-joints/ (moderator nickberckley, 10 nov 10:34). Zet het in status.md. Meten: downloads per dag vanaf vandaag. **(verwerkt 10 nov 09:55 UTC: in status.md; eerste meting 2 downloads, 0 reviews; `platformen/blender/downloads.csv` plus `meet_downloads.sh`, elke Blender-run een regel.)**
+
+## 13 nov 13:45 (hoofdchat): JE STAAT WEER AAN, elk uur. Opdracht: de 3D-pijplijn voor Het Hol.
+Thijs (13 nov 13:35): de hele app Het Hol wordt 3D, met code in Blender gemaakt en gerenderd tot plaatjes; Godot toont ze. **Lees `ontwerp/steam/3d-stijl.md`** en `platformen/steam/planning-fest-2027.md`. Click Joints gaat nog steeds voor als er een melding van Blender of Superhive komt.
+Jouw stuk:
+1. Een workflow in GitHub Actions: elk `producten/steam-hol/modellen/*.py` wordt met Blender gerenderd tot beeldreeksen (frames, met transparante achtergrond) op de maten die het spel nodig heeft, en klaargezet voor Godot (spritesheet of losse frames plus import-instellingen; filter lineair, niet nearest).
+2. **Ma 16 nov:** de proef-Gloop (`ontwerp/steam/proef-3d/sprite.py`) staat via die workflow in de echte Windows-build, op de plek van de huidige Gloop. Lever een schermbeeld op ware grootte aan Daan en Olaf.
+3. Zuinig blijven: meet CPU en geheugen met de nieuwe plaatjes (demolijst punt 2: onder 1 CPU-seconde per 10 s). Grote reeksen: kleiner renderen, minder frames, of atlas.
+Spreek met Olaf in `platformen/steam/taken.md` af waar jij in de code werkt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

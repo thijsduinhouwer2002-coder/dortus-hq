@@ -331,3 +331,6 @@ Thijs: "laten we het hol gaan opstarten". Het Steam-team staat sinds 10 nov stil
 
 ## 13 nov 11:51: beelden Het Hol blijven eigen werk (route C)
 Thijs koos C: geen tekenaar, geen AI-beeldtool, alles uit code zoals nu (advies hoofdchat was B: capsule door een illustrator, proef PixelLab voor de figuren). Planning in `platformen/steam/planning-fest-2027.md`. Toetsmoment: halen we op wo 25 nov geen ja van Thijs op de capsule, dan legt de hoofdchat de tekenaar opnieuw voor (later dan 25 nov schuift de winkelpagina op). Ploeg aan: Olaf (bouw, elk uur op :13) en Daan (ontwerp, elk uur op :23). Bram, Sanne en Mila blijven uit.
+
+## 13 nov 13:35: Het Hol helemaal in 3D (Blender), meer agents
+Thijs zag de 3D-proef van Gloop en zei: "ja de hele app gewoon ofzo, ik denk dat je ook wel wat meer agents moet gaan aansturen". Alle beelden van Het Hol (figuren, helden, hol, winkelbeelden) worden met code in Blender gemaakt en gerenderd; geen pixelart, geen AI-beeld. Stijl: `ontwerp/steam/3d-stijl.md`. Ploeg elk uur: Olaf (spel), Bram (3D-pijplijn naar Godot), Daan (Gloop, helden), Mila (hol, winkelbeelden); Gijs blijft op Garmin. Eerste toetsmoment voor Thijs: ma 16 nov.

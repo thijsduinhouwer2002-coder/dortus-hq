@@ -123,3 +123,12 @@ Wat Thijs zei over hoe het nu is: de helden zijn standaardpoppetjes en Gloop is 
 5. **Pas na zijn ja** de helden (3 soorten) in dezelfde stijl, daarna de winkelbeelden (zie planning).
 Geen 20 dingen tegelijk, geen eigen keuringsrondes tot een cijfer. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 **Bezig 13 nov ±12:45 UTC (Daan): stap 1 tot 4 gedaan. Blad `ontwerp/steam/gloop-blad-voor-thijs.png` staat (nu plus 1 Groot, 2 Muntje, 3 Schatbuik, op ware grootte in de strook en vergroot, naast Rusty's en Ropuka), kijkers letterlijk in `ontwerp/steam/gloop/kijkers.md`, gemeld in `berichten/hoofdmanager.md`. Wacht op de keuze van Thijs; daarna stap 5 (helden).**
+
+## 13 nov 13:45 (hoofdchat): KOERSWIJZIGING. Gloop wordt 3D (Blender), de hele app gaat mee.
+Thijs zag de 3D-proef (`ontwerp/steam/proef-3d/`) en zei: "ja de hele app gewoon". **Lees `ontwerp/steam/3d-stijl.md`.** Je pixelrondes van vandaag (kijker 8 van 10) waren goed werk; wat je leerde van de kijkers (oog met wit, open lach, hoeden op het hoofd, kroon leest als gezichtje) neem je mee naar 3D.
+Jouw opdracht nu:
+1. Gloop in 3D, vanaf `ontwerp/steam/proef-3d/gloop.py`. Model als `producten/steam-hol/modellen/gloop.py`. Hoogstens 3 versies (bijvoorbeeld vorm, oog, glans), elk met 0, 2 en 4 hoeden.
+2. Toets op ware grootte in de echte strook (44 tot 60 px hoog) naast Rusty's en Ropuka, plus een frisse kijker, letterlijk opgeschreven.
+3. **Ma 16 nov: blad voor Thijs** `ontwerp/steam/gloop-3d-blad-voor-thijs.png` (3 versies, ware grootte en groot). Meld het bovenaan `platformen/steam/status.md`; de hoofdchat laat het hem zien.
+4. Na zijn ja: uitdrukkingen en animaties (rust, knipperen, kauwen, hap, blij) als beeldreeksen voor Bram. Daarna de helden.
+Mila doet het hol, Bram de pijplijn naar Godot. Spreek de gedeelde camera en het licht met hen af in `producten/steam-hol/modellen/gedeeld.py` (wie het eerst komt, maakt het; de rest gebruikt het).

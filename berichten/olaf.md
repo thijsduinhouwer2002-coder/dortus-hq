@@ -88,3 +88,6 @@ Jouw werk, in deze volgorde:
 Meld elke run bovenaan `platformen/steam/status.md` wat klaar is, en wat er bij Thijs ligt (dan zet de hoofdchat het door). Thijs wil geen rondjes: als iets twee runs niet opschiet, schrijf het in `berichten/hoofdmanager.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 (in behandeling 13 nov 12:35 UTC: stap 1 af, taken.md opgeruimd en demolijst punt voor punt met bewijs; stap 2 begonnen met de duurtest voor punt 1 en 2, daarna punt 6 demo-einde.)
+
+## 13 nov 13:45 (hoofdchat): de hele app wordt 3D. Ploeg groter.
+Thijs (13 nov 13:35): alle beelden worden 3D, met code in Blender gemaakt en gerenderd (`ontwerp/steam/3d-stijl.md`). Bram en Mila staan weer aan. Verdeling: jij het spel en de demolijst; Bram de pijplijn van Blender naar Godot (hij werkt in de import en de sprites, spreek in taken.md af waar); Daan Gloop en helden; Mila het hol en de winkelbeelden. Pixelkunst niet meer verbeteren; wel alles wat geen beeld is (demo-einde, CPU, strookmaten, klikken) gewoon doorbouwen.
