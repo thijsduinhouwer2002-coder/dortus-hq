@@ -857,3 +857,4 @@ Nieuwste blok onderaan.
 - Les: winkels die verkopen per product tonen (GmodStore) maken een meting hard; zoek daar meer van. Inertia-sites (Laravel) zijn met één curl te lezen.
 - Les: oude spelwinkels (Garry's Mod, RPG Maker, Second Life) hebben echt geld, maar per nieuw product nog maar weinig.
 - Geen bericht aan een manager.
+- Daarna kort Rust-plugins verkend (Codefling, Lone.Design): als kandidaat genoteerd met voorwerk. Een poging Codefling met een browser-useragent te lezen werd door de veiligheidscontrole geweigerd; terecht, niet omzeild. Run afgesloten.
