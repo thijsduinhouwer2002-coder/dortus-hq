@@ -1,8 +1,8 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL klik op (200, 115): val
-HOL kroniek 4.0 (wacht 0.0): Tibbe knocks first. Polite.
-HOL begin: vallen (Tibbe)
-HOL kroniek 9.2 (wacht 0.0): Tibbe will not be leaving. +6
-HOL kroniek 11.8 (wacht 2.5): Page for the Hero. The pit got him.
+HOL kroniek 4.0 (wacht 0.0): Gerda knocks first. Polite.
+HOL begin: vallen (Gerda)
+HOL kroniek 9.1 (wacht 0.0): Gerda stays forever. +6
+HOL kroniek 11.6 (wacht 2.5): Page for the Hero. The pit got him.
 HOL einde na 25 s, fps=15, goud=26, terugkomers=0
