@@ -481,7 +481,20 @@ if os.environ.get("HOL_HELDEN", "1") == "1":
     # Ronde 5, frisse kijker: "de helden staan ver van het monster, er gebeurt niets". De ridder staat nu bij de
     # kist en schrikt van Gloop (in het spel: helden lopen naar de schat en Gloop eet ze op).
     held.bouw("ridder", "schrik", plek=(KX0 + 0.75, 0.3, 0.0), draai=25, schaal=0.85, gloed=35, rand=40)
+    voor_heks = set(bpy.data.objects)
     held.bouw("heks", "vallen", plek=(PUT_X - 0.25, 0.5, -0.05), draai=20, schaal=0.68, gloed=25, rand=40)
+    # Ronde 6c (volgende ronde punt 3, Daan 21:45 kan c): de heks las niet als vallen. Haar hoed blijft los boven
+    # de put hangen, zoals in het spel (Brams held_beeld.gd laat de hoed bij een val even hangen). Haar eigen hoed
+    # gaat weg, de puntmuts uit hoeden.py hangt scheef boven de put. Naam held_..., dus de tegels hebben hem niet.
+    if os.environ.get("HOL_HOED_LOS", "1") == "1":
+        for o in [o for o in bpy.data.objects if o not in voor_heks and "heksenhoed" in o.name]:
+            bpy.data.objects.remove(o, do_unlink=True)
+        import hoeden
+        voor_hoed = set(bpy.data.objects)
+        hoeden.bouw(1, plek=(PUT_X + 0.62, 0.45, 0.98), schaal=0.62, kantel=28, draai=20)
+        for o in bpy.data.objects:
+            if o not in voor_hoed:
+                o.name = "held_los_" + o.name
 
 # ---------- camera en licht (gedeeld) ----------
 g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)

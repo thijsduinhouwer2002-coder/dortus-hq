@@ -74,10 +74,15 @@ Frisse kijker 5b: "weinig contrast tussen gang en aarde". Gemeten: de achterwand
 - Naden in de kamertoets daarna nog hoogstens 2,4, gang tegen gang egaal (55 tot 57).
 - `ronde6b-gang-2x.png`, `ronde6b-gang-ware-grootte.png`. GEZIEN met Read: de heks en de stekels staan nu tegen een lichtere gang, de aarde is een duidelijk donkerder vlak eromheen.
 
+## Ronde 6c (14 nov ±00:00 UTC): de hoed van de heks blijft boven de put hangen (volgende ronde punt 3)
+Daan (21:45, kan c): de hoed die los boven de put hangt vertelt de val beter dan de houding, en zo doet het spel het ook (`held_beeld.gd`). De heksenhoed op haar hoofd is weg; de puntmuts uit `hoeden.py` hangt scheef (28 graden) rechts naast haar, boven de put. Alles heet `held_...`, dus de tegels hebben hem niet: de laag zonder helden is gelijk aan 6b (grootste verschil 1 op 255). `HOL_HOED_LOS=0` zet hem terug op haar hoofd.
+- `ronde6c-hoed-2x.png`, `ronde6c-hoed-ware-grootte.png`, `ronde6c-hoed-put-6x.png`.
+- GEZIEN met Read: op 6x leest het als "de hoed vliegt eraf, zij valt kop eerst". Op ware grootte is het een paars vlekje naast een oranje figuurtje; beter dan een figuurtje alleen, nog geen schreeuw.
+
 ## Volgende ronde (voor ma 16 nov)
 1. Spanning in één stilstaand beeld: Gloop met open mond (hap) naar de ridder, of munten die van de berg vliegen; vraag Daan of `gloop.py` een hapstand heeft (in het spel bestaat hap al: `slijm.gd`).
 2. (gedaan in ronde 6b) Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
-3. De heks moet lezen als vallen: kop naar beneden duidelijker, of een held die net op de rand wankelt.
+3. (eerste stap in ronde 6c, hoed los) De heks moet lezen als vallen: kop naar beneden duidelijker, of een held die net op de rand wankelt.
 4. Daarna opnieuw een frisse kijker; doel 7.
 
 ## Oudere lijst van ronde 4
