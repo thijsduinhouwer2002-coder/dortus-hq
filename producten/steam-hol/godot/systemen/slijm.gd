@@ -60,7 +60,7 @@ var laars_op_vloer := false   # ligt de laars naast hem (8 s, dan haalt een wekk
 var laars_kant := 1         # 1 rechts, -1 links
 var rng := RandomNumberGenerator.new()
 var koop_van := -10.0       # wanneer de laatste upgrade gekocht werd (vier_koop)
-var laatste_beeld := []      # wat er het laatst getekend is (frame, wip, leven, laars); alleen opnieuw tekenen als dat verandert
+var laatste_beeld := []      # wat er het laatst getekend is (sleutel in _teken_als_anders); alleen opnieuw tekenen als dat verandert
 var plat_tot := -10.0       # was 0.0: dan stond hij bij de start in "opstaan" en bleef zo (Olaf 19:55, GEZIEN in run 42682511064)
 
 func zet(h, kol: int) -> void:
@@ -238,7 +238,6 @@ func _process(delta: float) -> void:
 
 func stap(delta: float) -> void:
 	t += delta
-	_teken_als_anders()
 	if leven == "slapen" and (t > leven_van + SLAAP_S or _held_in_de_buurt() or is_plat()):
 		leven = ""             # een held komt binnen: wakker
 	elif leven == "spugen" and t > leven_van + 0.6 + BOOG_S:
@@ -254,7 +253,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau()]
+	var nu := [frame_nu(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat()]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
