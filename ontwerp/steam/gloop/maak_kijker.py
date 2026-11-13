@@ -12,7 +12,7 @@ os.makedirs(os.path.join(HIER, 'kijker'), exist_ok=True)
 for k, c in crops.items():
     g = oud if k == 'nu' else (lambda q: q.crop((0, 0, q.width // 6, q.height)))(Image.open(os.path.join(HIER, f'gloop_{k}.png')))
     import maak_gloop as mg
-    t = mb.met_toren(g, [mg.hoed_beeld('kroon'), mg.hoed_beeld('puntmuts')], 2) if k == 'B' else mb.met_toren(g, keuze, 3)
+    t = mb.met_toren(g, [mg.hoed_beeld('puntmuts')], 1) if k == 'B' else mb.met_toren(g, keuze, 3)
     big = [x.resize((x.width * 8, x.height * 8), Image.NEAREST) for x in (g, t)]
     out = Image.new('RGB', (W + 40 + sum(b.width for b in big) + 40, max(H, max(b.height for b in big)) + 20), (63, 40, 70))
     out.paste(c, (10, 10)); x = W + 30
