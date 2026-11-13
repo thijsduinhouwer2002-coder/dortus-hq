@@ -22,7 +22,7 @@ HOL begin: doorlopen (Tibbe)
 HOL kroniek 25.1 (wacht 0.7): Tibbe has a map. It is wrong.
 HOL kroniek 26.4 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 4
-HOL kroniek 29.0 (wacht 2.5): Bram's song got popular. Uh oh.
+HOL kroniek 28.9 (wacht 2.5): Bram's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
-HOL kroniek 30.0 (wacht 0.8): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 30.0 (wacht 0.9): Gloop ate Odo. Kept the crown. +6
 HOL einde na 30 s, fps=20, goud=33, terugkomers=1
