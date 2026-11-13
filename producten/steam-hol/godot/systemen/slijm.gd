@@ -95,8 +95,10 @@ func zet(h, kol: int) -> void:
 	_toren_uit_argument(OS.get_cmdline_user_args())
 
 # Alleen voor de strooktest (Daan 13 nov 22:55: de 3D-toren keuren met 4 tot 6 hoeden): argument toren=0,4,5,1,6 geeft Gloop
-# die hoeden, oudste eerst (nummers als in held.gd). Een save die daarna laadt (van_dict) gaat voor. Zonder argument niets.
+# die hoeden, oudste eerst (nummers als in held.gd). Alleen samen met vers=1. Zonder argument niets.
 func _toren_uit_argument(args: PackedStringArray) -> void:
+	if not args.has("vers=1"):
+		return   # alleen in een vers spel, anders komen de hoeden voorgoed in een echte save (controleur Olaf 23:40)
 	for a in args:
 		if a.begins_with("toren="):
 			for h in a.substr(6).split(",", false):

@@ -302,8 +302,10 @@ func _init() -> void:
 	ok(g.toren().is_empty() and g.berg().is_empty() and g.hover_regel() == "Gloop has no hats yet.", "zonder hoeden: geen toren, geen berg")
 	var gt = Node2D.new()
 	gt.set_script(load("res://systemen/slijm.gd"))
-	gt._toren_uit_argument(PackedStringArray(["hoogte=120", "toren=0,4,x,15,6"]))
-	ok(gt.hoeden == [0, 4, 5, 6] and gt.gegeten == 4, "strooktest: toren=... geeft Gloop die hoeden (%s)" % str(gt.hoeden))
+	gt._toren_uit_argument(PackedStringArray(["hoogte=120", "toren=0,4"]))
+	ok(gt.hoeden.is_empty(), "strooktest: toren=... zonder vers=1 doet niets (geen hoeden in een echte save)")
+	gt._toren_uit_argument(PackedStringArray(["hoogte=120", "vers=1", "toren=0,4,x,15,6"]))
+	ok(gt.hoeden == [0, 4, 5, 6] and gt.gegeten == 4, "strooktest: toren=... met vers=1 geeft Gloop die hoeden (%s)" % str(gt.hoeden))
 	gt.free()
 	for i in 3:
 		g.raak(i)
