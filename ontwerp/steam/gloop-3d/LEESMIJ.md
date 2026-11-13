@@ -26,3 +26,6 @@ Nog in ronde 2: kroon los bekijken met 2 hoeden, versie 3 lichter of weg, frisse
 - **Helm:** neusstuk weg (las als staafje dat in het oog prikt), koepel hoger en rand smaller. Leest nog steeds een beetje als schaal; volgende ronde een rand van klinknagels of een pluim.
 - **Versie 3 (Schatbuik): weg.** Ook met 0 hoeden zie je de munten in het glazen lijf niet, en het lijf zelf leest als gewoon Gloop. Blijft in de code staan, maar gaat niet op het blad voor Thijs. Het blad wordt versie 1 en 2, plus Gloop met standen.
 - Met 4 hoeden zakt de rand van de heksenhoed over de kroonpunten; volgende ronde iets hoger.
+
+## Ronde 3: pluim (13 nov, ±16:50 UTC)
+`ronde3-pluim-en-4-hoeden.png`: helm alleen krijgt een rode pluim, zoals de ridder in `held.py` (leest niet meer als schaal of pannendeksel); met meer hoeden blijft de punt, want de kroon staat erop. De heksenhoed staat 0,08 hoger, zodat hij niet meer over de kroonpunten zakt. De camera houdt de pluim in beeld (`PLUIM_TOP`). Het spel gebruikt Gloop zonder hoeden (`pijplijn/sprites.json`), dus daar verandert niets.
