@@ -1,5 +1,5 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek 4.0 (wacht 0.0): Tibbe is here for your gold.
-HOL begin: vallen (Tibbe)
+HOL kroniek 4.0 (wacht 0.0): Fenna brought a torch. And hope.
+HOL begin: vallen (Fenna)
 HOL einde na 15 s, fps=15, goud=20, terugkomers=0
