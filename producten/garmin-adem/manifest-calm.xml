@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
-    <iq:application id="036252cad2204924b6fcad6209d52d1e" type="watch-app" name="@Strings.AppNameCalm" entry="EbbApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="5.0.0">
+    <iq:application id="036252cad2204924b6fcad6209d52d1e" type="watch-app" name="@Strings.AppNameCalm" entry="EbbApp" launcherIcon="@Drawables.LauncherIconCalm" minApiLevel="5.0.0">
         <iq:products>
             <iq:product id="fenix7"/>
             <iq:product id="fr255"/>
