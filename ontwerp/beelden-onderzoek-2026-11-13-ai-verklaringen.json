@@ -1,0 +1,1862 @@
+{
+"gemeten": "2026-11-13 07:30-07:58 UTC",
+"bron": "store.steampowered.com/app/<id>, blok AI Generated Content Disclosure; lijst: platformen/verkenner/data/steam-kans-2026-11-09/lijst.json (apps met 1+ review)",
+"apps": [
+{
+"appid": 3419430,
+"titel": "Bongo Cat",
+"reviews": 31102,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2113850,
+"titel": "Spirit City: Lofi Sessions",
+"reviews": 9227,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3678970,
+"titel": "TBH: Task Bar Hero",
+"reviews": 8812,
+"positief": 62,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2666510,
+"titel": "Rusty's Retirement",
+"reviews": 6625,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 1275670,
+"titel": "Outcore: Desktop Adventure",
+"reviews": 6113,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3483740,
+"titel": "Cast n Chill",
+"reviews": 5344,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 1920960,
+"titel": "VPet-Simulator",
+"reviews": 3747,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3416070,
+"titel": "Ropuka's Idle Island",
+"reviews": 2405,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4111370,
+"titel": "Birdwatching Notebook",
+"reviews": 1805,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3772810,
+"titel": "Desktop Defender",
+"reviews": 1789,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3454590,
+"titel": "Cornerpond",
+"reviews": 1772,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3330250,
+"titel": "Ithya: Magic Studies",
+"reviews": 1316,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3659410,
+"titel": "Your Big, Cute Monster Farm",
+"reviews": 1215,
+"positief": 77,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3167550,
+"titel": "Tiny Pasture",
+"reviews": 1209,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 1091920,
+"titel": "Plantera 2: Golden Acorn",
+"reviews": 1200,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3339420,
+"titel": "your wife",
+"reviews": 1138,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2834600,
+"titel": "My Little Life",
+"reviews": 1057,
+"positief": 89,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3136330,
+"titel": "Tiny Terraces",
+"reviews": 1004,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3399950,
+"titel": "Your Mother",
+"reviews": 962,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3959890,
+"titel": "Tap Tap Loot",
+"reviews": 868,
+"positief": 76,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3417120,
+"titel": "Lakeside Bar",
+"reviews": 843,
+"positief": 86,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2091250,
+"titel": "Koishi Navigation Desktop Youkai",
+"reviews": 824,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3399960,
+"titel": "Fish to Dish: Idle Sushi",
+"reviews": 791,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4643090,
+"titel": "The NOexistenceN of Lilith",
+"reviews": 769,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4641700,
+"titel": "Sill Cats ",
+"reviews": 767,
+"positief": 93,
+"ai_verklaring": true,
+"tekst": "his: This app uses AI tools during the development process, for example to configure some behavior algorithms. All cat sprite art consists of hand-drawn work"
+},
+{
+"appid": 3511030,
+"titel": "Mini Cozy Room: Lo-Fi",
+"reviews": 760,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4282780,
+"titel": "Duelist: Idle Expedition",
+"reviews": 735,
+"positief": 77,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2943180,
+"titel": "Virtual Cottage 2",
+"reviews": 733,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4952980,
+"titel": "My Party Is Grinding",
+"reviews": 731,
+"positief": 44,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3673060,
+"titel": "How to Train Your Cock",
+"reviews": 714,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3122460,
+"titel": "Desktop Raid",
+"reviews": 702,
+"positief": 75,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4753760,
+"titel": "Your Fiancée",
+"reviews": 693,
+"positief": 96,
+"ai_verklaring": true,
+"tekst": "his: The game's core content was created through extensive manual development. The main character, outfits, and all Live2D models are entirely hand-drawn, ma"
+},
+{
+"appid": 4842670,
+"titel": "PC FISH: Taskbar Aquarium",
+"reviews": 683,
+"positief": 77,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3404470,
+"titel": "Maltese's Fluffy Onsen",
+"reviews": 554,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3874950,
+"titel": "Bit Buddy",
+"reviews": 541,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4038990,
+"titel": "Crusaders Quest : Mini",
+"reviews": 526,
+"positief": 80,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3244210,
+"titel": "Chonkers",
+"reviews": 526,
+"positief": 87,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4211860,
+"titel": "Mushroom Nook",
+"reviews": 486,
+"positief": 98,
+"ai_verklaring": true,
+"tekst": "his: All core content—including mushrooms, ornaments, scenes, animals, sounds, and more—is created, designed, and produced by us personally. AI tools are use"
+},
+{
+"appid": 4335620,
+"titel": "Lootborne",
+"reviews": 479,
+"positief": 57,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4623570,
+"titel": "Deskrawl: Idle ARPG",
+"reviews": 472,
+"positief": 69,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3868850,
+"titel": "MISHA",
+"reviews": 426,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3714370,
+"titel": "NoSlack Pets: Lo-Fi Paws",
+"reviews": 420,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3194550,
+"titel": "Bao Bao's™ Cozy Laundromat",
+"reviews": 413,
+"positief": 83,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3854330,
+"titel": "My Little Spider",
+"reviews": 408,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3064030,
+"titel": "Whimside",
+"reviews": 399,
+"positief": 91,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3820130,
+"titel": "The Dream Globe",
+"reviews": 381,
+"positief": 94,
+"ai_verklaring": true,
+"tekst": "his: All in-game assets are handcrafted without using AI generation. Several game store pages visual assets originate from limited AI-generated concept proto"
+},
+{
+"appid": 4126220,
+"titel": "Crusaders Quest : Hero Town",
+"reviews": 362,
+"positief": 79,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3733510,
+"titel": "Book of Fei",
+"reviews": 357,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2963540,
+"titel": "Idle Waters",
+"reviews": 356,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3896460,
+"titel": "Farlands: Tiny Harvest",
+"reviews": 343,
+"positief": 78,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3411730,
+"titel": "Desktop Fishing",
+"reviews": 338,
+"positief": 91,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5084200,
+"titel": "Task Bar Cube",
+"reviews": 335,
+"positief": 27,
+"ai_verklaring": true,
+"tekst": "his: AI support was utilized for the code and the store page. System Requirements Minimum: OS: Windows 10 Processor: Intel Core i3 Memory: 1 GB RAM Graphics:"
+},
+{
+"appid": 5033210,
+"titel": "Desk Top Racer",
+"reviews": 308,
+"positief": 61,
+"ai_verklaring": true,
+"tekst": "his: We use generative AI tools to assist in creating visual artwork. All content was reviewed and edited by the developer. System Requirements Windows macOS"
+},
+{
+"appid": 3447510,
+"titel": "Village Tale",
+"reviews": 289,
+"positief": 81,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4308110,
+"titel": "Your Stepmom",
+"reviews": 283,
+"positief": 73,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4891320,
+"titel": "[WoG] War of Genesis: Idle Loot",
+"reviews": 275,
+"positief": 79,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4397180,
+"titel": "Your Friend's Mom",
+"reviews": 273,
+"positief": 75,
+"ai_verklaring": true,
+"tekst": "his: The game uses an on-device local LLM to generate the character’s dialogue responses in real time during gameplay. The model runs locally on the player’s"
+},
+{
+"appid": 4270850,
+"titel": "SCREENSIDE FISHER",
+"reviews": 267,
+"positief": 97,
+"ai_verklaring": true,
+"tekst": "his: received help from AI for localization and code writing. translations aided by AI are reviewed by a human (myself...), and since AI was used in writing "
+},
+{
+"appid": 3437350,
+"titel": "Little Aviary",
+"reviews": 247,
+"positief": 85,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3915610,
+"titel": "Meow Palace: Forbidden City",
+"reviews": 244,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4861510,
+"titel": "Sill Sticks",
+"reviews": 215,
+"positief": 97,
+"ai_verklaring": true,
+"tekst": "his: This application uses AI tools in parts of its development process, including creating the in-character dialogue text and some artwork (such as characte"
+},
+{
+"appid": 3301840,
+"titel": "fanxiu",
+"reviews": 204,
+"positief": 8,
+"ai_verklaring": true,
+"tekst": "his: This game uses generative AI to create art assets, including character illustrations and background images, as well as some promotional materials. All s"
+},
+{
+"appid": 4341360,
+"titel": "Sister",
+"reviews": 200,
+"positief": 99,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3924280,
+"titel": "Pat the Cat",
+"reviews": 198,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4030830,
+"titel": "Focus Grove",
+"reviews": 197,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 1001860,
+"titel": "Casual Desktop Game",
+"reviews": 197,
+"positief": 87,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4225890,
+"titel": "Desktop Detective",
+"reviews": 183,
+"positief": 85,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4210010,
+"titel": "Incremental Infinity",
+"reviews": 166,
+"positief": 57,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3894790,
+"titel": "Professor Simulator: Desktop Lab",
+"reviews": 166,
+"positief": 86,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5249210,
+"titel": "NekoTrak",
+"reviews": 163,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3395760,
+"titel": "With Me: Aquatic Time",
+"reviews": 161,
+"positief": 87,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3901850,
+"titel": "Desktop Duck",
+"reviews": 160,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4044170,
+"titel": "Deskworm",
+"reviews": 158,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3942610,
+"titel": "DriveWave",
+"reviews": 155,
+"positief": 85,
+"ai_verklaring": true,
+"tekst": "his: DriveWave is made by a solo developer, and AI tools are part of how one person can build and compete at this scale. AI was used for some store page asse"
+},
+{
+"appid": 4302940,
+"titel": "Corner Market",
+"reviews": 149,
+"positief": 89,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3723680,
+"titel": "Your Second Wife",
+"reviews": 146,
+"positief": 84,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5164660,
+"titel": "Slime Trader",
+"reviews": 140,
+"positief": 48,
+"ai_verklaring": true,
+"tekst": "his: UI, development System Requirements Minimum: OS: Windows 10 Processor: Intel i5+ Memory: 8 GB RAM Graphics: Nvidia 450 GTS / Radeon HD 5750 or better St"
+},
+{
+"appid": 4485620,
+"titel": "Artesnaut",
+"reviews": 131,
+"positief": 60,
+"ai_verklaring": true,
+"tekst": "his: This game uses generative AI for localization and some icons. In-game text translations were created with the assistance of generative AI, and some icon"
+},
+{
+"appid": 5052450,
+"titel": "Desktop Wallet Heroes",
+"reviews": 130,
+"positief": 41,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3967820,
+"titel": "Push Push",
+"reviews": 127,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4289410,
+"titel": "BuGarden",
+"reviews": 121,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3691420,
+"titel": "Tidehaven: Ale & Trade",
+"reviews": 120,
+"positief": 70,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3778040,
+"titel": "Ramen-ten ‘Heart Abyss’",
+"reviews": 117,
+"positief": 70,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3590780,
+"titel": "Nano Neighbors",
+"reviews": 116,
+"positief": 74,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 1498060,
+"titel": "Nanomon Virtual Pet",
+"reviews": 114,
+"positief": 87,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4141710,
+"titel": "Neko Station",
+"reviews": 112,
+"positief": 89,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5335850,
+"titel": "Idle Abyss Princesses",
+"reviews": 111,
+"positief": 85,
+"ai_verklaring": true,
+"tekst": "his: Generative AI tools were used during development to create or assist with character illustrations, some character sprites and other visual assets, store"
+},
+{
+"appid": 2452240,
+"titel": "Desktop Mark",
+"reviews": 105,
+"positief": 87,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4628250,
+"titel": "How to Grow Your Sausage",
+"reviews": 99,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3615360,
+"titel": "Your StepSister",
+"reviews": 98,
+"positief": 78,
+"ai_verklaring": true,
+"tekst": "his: AI generated voice acting, store assets System Requirements Minimum: OS *: Windows 8 Processor: Intel i3 Memory: 1 GB RAM Graphics: GTX660 Storage: 1 GB"
+},
+{
+"appid": 4613890,
+"titel": "Lazy Kickers",
+"reviews": 94,
+"positief": 88,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4381180,
+"titel": "Coin Harvest",
+"reviews": 88,
+"positief": 59,
+"ai_verklaring": true,
+"tekst": "his: Coin Harvest is made by a solo developer, and AI tools are part of how one person can build and compete at this scale. AI was used for some store page a"
+},
+{
+"appid": 4579750,
+"titel": "Idle Knight",
+"reviews": 86,
+"positief": 69,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2978180,
+"titel": "Desktop Cat Cafe",
+"reviews": 84,
+"positief": 76,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4132960,
+"titel": "Little Ghosties",
+"reviews": 80,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3972410,
+"titel": "Black Cat Book Club",
+"reviews": 77,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4081590,
+"titel": "Card Corner",
+"reviews": 77,
+"positief": 74,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5147000,
+"titel": "Daydream Cat: DreamSpirits Idle Adventure",
+"reviews": 74,
+"positief": 78,
+"ai_verklaring": true,
+"tekst": "his: No generative AI was used to create the game's visual art or artwork. Generative AI was used to create the initial versions of some music tracks, which "
+},
+{
+"appid": 4502210,
+"titel": "Goblin Attack",
+"reviews": 74,
+"positief": 75,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2488690,
+"titel": "Desktop Beach Girls",
+"reviews": 74,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4009450,
+"titel": "Petunia's Purgatory",
+"reviews": 73,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3916540,
+"titel": "BBY DON'T HURT ME",
+"reviews": 73,
+"positief": 73,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3158070,
+"titel": "Deadline Savior",
+"reviews": 71,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4869070,
+"titel": "Delvegg",
+"reviews": 68,
+"positief": 91,
+"ai_verklaring": true,
+"tekst": "his: Some early designs of characters were assisted by AI, and the initial animations of some characters were also aided by AI. Utilize generative artificial"
+},
+{
+"appid": 3863740,
+"titel": "NeeNee Deskpals",
+"reviews": 67,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3979710,
+"titel": "Cafe Cafe: Idle Bird Collector",
+"reviews": 67,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3595460,
+"titel": "Tiny Vending Machines",
+"reviews": 67,
+"positief": 61,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4202710,
+"titel": "Hocus Focus",
+"reviews": 66,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3719580,
+"titel": "My Tiny Garden",
+"reviews": 63,
+"positief": 60,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3681780,
+"titel": "WinMon",
+"reviews": 60,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4482480,
+"titel": "Chess Kingdom",
+"reviews": 60,
+"positief": 90,
+"ai_verklaring": true,
+"tekst": "his: I have used Claude Code to create the game itself code and assets. System Requirements Minimum: OS: Windows 10 (64-bit) Processor: Intel Core i3 2.0 GHz"
+},
+{
+"appid": 3720590,
+"titel": "Sin Slayers: Meat & Greed",
+"reviews": 59,
+"positief": 52,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2578290,
+"titel": "Stop and Smell the Flowers",
+"reviews": 55,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3820630,
+"titel": "Soluna's Mood",
+"reviews": 55,
+"positief": 85,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4515550,
+"titel": "Desktop Pet: DonEatFish",
+"reviews": 54,
+"positief": 64,
+"ai_verklaring": true,
+"tekst": "his: AI-assisted artwork System Requirements Minimum: Requires a 64-bit processor and operating system OS: Windows 10 / 11 Processor: Intel i5 5200 or AMD Ry"
+},
+{
+"appid": 3518340,
+"titel": "Chill Fishing",
+"reviews": 54,
+"positief": 81,
+"ai_verklaring": true,
+"tekst": "his: Generative AI was used to create some fish sprites in the game. System Requirements Minimum: VR Support: Nah uh $J( function() { var $Tabs = $J('.sysreq"
+},
+{
+"appid": 5119020,
+"titel": "Sill Dogs",
+"reviews": 52,
+"positief": 94,
+"ai_verklaring": true,
+"tekst": "his: This app uses AI tools during the development process, for example to configure some behavior algorithms. All dog sprite art consists of hand-drawn work"
+},
+{
+"appid": 3751430,
+"titel": "Pocket Gecko",
+"reviews": 51,
+"positief": 98,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4794170,
+"titel": "Swarmslam",
+"reviews": 50,
+"positief": 78,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3686480,
+"titel": "Kernelbay",
+"reviews": 50,
+"positief": 86,
+"ai_verklaring": true,
+"tekst": "his: Some of Kernelbay’s 2D assets and music tracks were initially generated using AI tools as a base. However, every asset has been processed, refined, and "
+},
+{
+"appid": 3063730,
+"titel": "Milly's Meadow",
+"reviews": 50,
+"positief": 74,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3098750,
+"titel": "Dino Market",
+"reviews": 50,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4481560,
+"titel": "CORGI & WOOLLY - Little Horizon -",
+"reviews": 48,
+"positief": 93,
+"ai_verklaring": true,
+"tekst": "his: Generative AI was used to assist with the translation and localization of menu text and interface elements, and to help create graphic assets for the St"
+},
+{
+"appid": 3806060,
+"titel": "Stress Relief",
+"reviews": 48,
+"positief": 83,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3085770,
+"titel": "Cat On My Desktop",
+"reviews": 47,
+"positief": 89,
+"ai_verklaring": true,
+"tekst": "his: Localized text is generated by AI translation. System Requirements Minimum: Requires a 64-bit processor and operating system OS: Windows 10 Processor: C"
+},
+{
+"appid": 3574760,
+"titel": "Cozy Sanctuary",
+"reviews": 45,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4438600,
+"titel": "Tiny Capsule Collector",
+"reviews": 42,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5005100,
+"titel": "Corgi Corgi Cor!",
+"reviews": 42,
+"positief": 97,
+"ai_verklaring": true,
+"tekst": "his: Some in-game artwork, including assets shown in screenshots and store capsules, was created by modifying AI-generated imagery. All AI-assisted content w"
+},
+{
+"appid": 3920420,
+"titel": "Spacenap",
+"reviews": 42,
+"positief": 85,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4414270,
+"titel": "PawMart Tiny Market",
+"reviews": 41,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4283650,
+"titel": "Cozy Mining",
+"reviews": 41,
+"positief": 75,
+"ai_verklaring": true,
+"tekst": "his: AI is partially used for translations. System Requirements Windows macOS Minimum: Requires a 64-bit processor and operating system OS: Windows 10+ Recom"
+},
+{
+"appid": 3090790,
+"titel": "GibblePETS",
+"reviews": 41,
+"positief": 78,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2564140,
+"titel": "Your Cute Wife",
+"reviews": 41,
+"positief": 78,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4188260,
+"titel": "Cozy~Fishing Kitten",
+"reviews": 40,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4997960,
+"titel": "FarmWings",
+"reviews": 38,
+"positief": 78,
+"ai_verklaring": true,
+"tekst": "his: This game was entirely generated using artificial intelligence tools, including all visual assets, audio, graphics, and code. System Requirements Minimu"
+},
+{
+"appid": 3952880,
+"titel": "Chill & Reel",
+"reviews": 38,
+"positief": 76,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4060780,
+"titel": "Peckers",
+"reviews": 38,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4303660,
+"titel": "Wartide",
+"reviews": 37,
+"positief": 83,
+"ai_verklaring": true,
+"tekst": "his: Wartide is made by a solo developer, and AI tools are part of how one person can build and compete at this scale. AI was used for some store page assets"
+},
+{
+"appid": 3507110,
+"titel": "Vinyl Desktop",
+"reviews": 37,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4960570,
+"titel": "Get It Free",
+"reviews": 36,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Generative AI tools were used to assist with certain code, UI elements, and visual effect assets. All AI-assisted content was reviewed and ultimately ap"
+},
+{
+"appid": 3988370,
+"titel": "Rise & Pop!",
+"reviews": 36,
+"positief": 97,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3599510,
+"titel": "oiia",
+"reviews": 36,
+"positief": 88,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5332430,
+"titel": "Kur - Endless Descent",
+"reviews": 35,
+"positief": 54,
+"ai_verklaring": true,
+"tekst": "his: KUR is developed by a single person with over 18 years of experience in software development, using generative AI as a supporting tool, primarily for ar"
+},
+{
+"appid": 3839360,
+"titel": "Tiny Birdtopia",
+"reviews": 34,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3661430,
+"titel": "Feather Land",
+"reviews": 34,
+"positief": 82,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3617390,
+"titel": "My Shelter",
+"reviews": 33,
+"positief": 45,
+"ai_verklaring": true,
+"tekst": "his: To elevate the visual presentation, portions of the game's artwork were produced with AI-assisted tools System Requirements Minimum: Requires a 64-bit p"
+},
+{
+"appid": 5057210,
+"titel": "Dog",
+"reviews": 32,
+"positief": 84,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5031490,
+"titel": "My Desktop Cat",
+"reviews": 31,
+"positief": 74,
+"ai_verklaring": true,
+"tekst": "his: Generative AI was used during development to create and refine some pre-generated visual assets, including cat character and animation sprites, backgrou"
+},
+{
+"appid": 4720820,
+"titel": "tiny desktop pals",
+"reviews": 31,
+"positief": 77,
+"ai_verklaring": true,
+"tekst": "his: AI tools were used in the development of this project System Requirements Minimum: OS: Windows 10 / 11 Processor: Intel i5 5200 or AMD Ryzen 5 5600X Mem"
+},
+{
+"appid": 3259090,
+"titel": "Desktop Summoni: Maidy",
+"reviews": 31,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3658030,
+"titel": "Desktop Hellfarmer",
+"reviews": 30,
+"positief": 70,
+"ai_verklaring": true,
+"tekst": "his: AI generated art, models, sounds, music, localizations. Mature Content Description The developers describe the content like this: Fantasy violence again"
+},
+{
+"appid": 4114490,
+"titel": "Desktop Golf",
+"reviews": 30,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3330100,
+"titel": "Plump! Dumb Frog Pond",
+"reviews": 30,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3669020,
+"titel": "Tiny Monster Haven",
+"reviews": 29,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4663380,
+"titel": "Hello Duck",
+"reviews": 29,
+"positief": 96,
+"ai_verklaring": true,
+"tekst": "his: Generative AI tools were used as development assistance for scripting and for some marketing or store presentation assets. All 3D models and core visual"
+},
+{
+"appid": 3954800,
+"titel": "Campfire Harmony",
+"reviews": 28,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4585070,
+"titel": "Boil Cabbage Make Soup",
+"reviews": 28,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3745020,
+"titel": "Swarm Survivor: Endless Siege",
+"reviews": 27,
+"positief": 96,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4922330,
+"titel": "Casino Legends",
+"reviews": 26,
+"positief": 84,
+"ai_verklaring": true,
+"tekst": "his: The game has been made with Claude Code System Requirements Minimum: OS: Windows 10 64-bit Processor: Quad-core, 2.5 GHz or better Graphics: Vulkan-comp"
+},
+{
+"appid": 4565910,
+"titel": "Hamster Pet: Desktop Companion",
+"reviews": 26,
+"positief": 69,
+"ai_verklaring": true,
+"tekst": "his: The hamster character artwork and visual assets used in this game were created with the assistance of AI image generation tools. No AI is used to genera"
+},
+{
+"appid": 4199070,
+"titel": "Aviarium",
+"reviews": 26,
+"positief": 65,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2179690,
+"titel": "Desktop Pet",
+"reviews": 26,
+"positief": 80,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5009270,
+"titel": "Daily Botanica",
+"reviews": 25,
+"positief": 96,
+"ai_verklaring": true,
+"tekst": "his: AI was used for some of the in-game and store artwork. System Requirements Minimum: Requires a 64-bit processor and operating system OS: Windows 10 (64-"
+},
+{
+"appid": 4353610,
+"titel": "My Pocket Paradise",
+"reviews": 25,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3985130,
+"titel": "Hamster Talk",
+"reviews": 25,
+"positief": 80,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4592560,
+"titel": "Ratalorica",
+"reviews": 24,
+"positief": 91,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4255630,
+"titel": "MeltyFlow: A Cozy Desktop Lava Lamp",
+"reviews": 24,
+"positief": 95,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 2636430,
+"titel": "Soggy Beans",
+"reviews": 23,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3326530,
+"titel": "My Taskbar Farm",
+"reviews": 23,
+"positief": 69,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4828550,
+"titel": "Your Furry Mother",
+"reviews": 22,
+"positief": 81,
+"ai_verklaring": true,
+"tekst": "his: Used to create content on the store page. During gameplay, it is used for speech recognition, response generation, and voice output. System Requirements"
+},
+{
+"appid": 4529510,
+"titel": "CielChan: Anime Desktop AI Companion",
+"reviews": 22,
+"positief": 63,
+"ai_verklaring": true,
+"tekst": "his: CielChan uses generative AI to create real-time conversation responses and voice synthesis. By default, a local AI model generates text responses, and b"
+},
+{
+"appid": 4848460,
+"titel": "Desktop Tower Survivor",
+"reviews": 21,
+"positief": 95,
+"ai_verklaring": true,
+"tekst": "his: Desktop Tower Survivor is designed and directed by a solo developer. AI tools assisted in producing some of the game's visual assets (renders of skins, "
+},
+{
+"appid": 3969190,
+"titel": "PomoTrain: Rabbit Town",
+"reviews": 21,
+"positief": 85,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3070310,
+"titel": "Tiny Fishing Club",
+"reviews": 20,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Generative AI was used in limited cases to assist with some in-game music and selected images shown on the Steam store page. All AI-assisted assets were"
+},
+{
+"appid": 5191880,
+"titel": "Magic Cursor",
+"reviews": 20,
+"positief": 90,
+"ai_verklaring": true,
+"tekst": "his: Generative AI tools were used during development to assist with the creation and iteration of certain visual assets, artwork, and promotional/store mate"
+},
+{
+"appid": 5194330,
+"titel": "AFK - Army For Keyboard",
+"reviews": 20,
+"positief": 65,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4498210,
+"titel": "Desktop Pinforge",
+"reviews": 20,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4681680,
+"titel": "Cat Caffeine",
+"reviews": 19,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3209160,
+"titel": "Grandpa's Bee Haven",
+"reviews": 19,
+"positief": 84,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4333980,
+"titel": "Selfie Worm",
+"reviews": 19,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Art: Human-designed; AI used only for rough drafting. Final assets are hand-refined. Audio: Human-composed and designed, with AI assistance used only fo"
+},
+{
+"appid": 4499040,
+"titel": "Tiny Slime Farm",
+"reviews": 19,
+"positief": 89,
+"ai_verklaring": true,
+"tekst": "his: Some translations and BGM 1,2 were created using AI tools and reviewed by the developer. System Requirements Minimum: Requires a 64-bit processor and op"
+},
+{
+"appid": 2422470,
+"titel": "Emojis vs Zombies",
+"reviews": 18,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4270230,
+"titel": "Idle Bookstore",
+"reviews": 18,
+"positief": 77,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4749880,
+"titel": "Desktop Bouncer",
+"reviews": 18,
+"positief": 88,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4335540,
+"titel": "Lepidarium",
+"reviews": 18,
+"positief": 61,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3894960,
+"titel": "Desktop Snail Assassin",
+"reviews": 18,
+"positief": 77,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4324300,
+"titel": "My Little Cosmos",
+"reviews": 18,
+"positief": 88,
+"ai_verklaring": true,
+"tekst": "his: AI generates a few images and icons, reviewed manually. System Requirements Minimum: OS *: Windows 10/8/7 Processor: AMD FX 6300 Memory: 8 GB RAM Graphi"
+},
+{
+"appid": 4356500,
+"titel": "My Little Someone",
+"reviews": 18,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4951840,
+"titel": "Infi-Knight",
+"reviews": 17,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4296280,
+"titel": "Amphibarium",
+"reviews": 17,
+"positief": 58,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3420070,
+"titel": "Cozy Littlequarium",
+"reviews": 17,
+"positief": 94,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3906800,
+"titel": "Poua! – Your Pomodoro Buddy & Minimal Desktop Timer",
+"reviews": 17,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5389120,
+"titel": "Bongo VPet - Taskbar Buddy",
+"reviews": 15,
+"positief": 53,
+"ai_verklaring": true,
+"tekst": "his: AI assistance was used in some visuals. System Requirements Minimum: OS: Win 11 DirectX: Version 11 Recommended: OS: Win 11 DirectX: Version 11 $J( func"
+},
+{
+"appid": 4699700,
+"titel": "Desktop Reptiles",
+"reviews": 15,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Some artwork in this title was created using Stable Diffusion System Requirements Windows SteamOS + Linux Minimum: Requires a 64-bit processor and opera"
+},
+{
+"appid": 4766080,
+"titel": "Stay: Ember's Desktop Adventures",
+"reviews": 15,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4412590,
+"titel": "Neofold",
+"reviews": 15,
+"positief": 93,
+"ai_verklaring": true,
+"tekst": "his: Neofold includes real-time generated AI content, such as its recommended \"Infinity Mode\", which uses a local diffusion model to generate infinite unique"
+},
+{
+"appid": 3757430,
+"titel": "Tame-a-goat-chi",
+"reviews": 15,
+"positief": 93,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4293300,
+"titel": "MaoMaoMao",
+"reviews": 15,
+"positief": 86,
+"ai_verklaring": true,
+"tekst": "his: Generative AI is used only to assist with localization/translation. All localized text is reviewed and edited by the developer. No AI-generated art, aud"
+},
+{
+"appid": 3537140,
+"titel": "Misty's Idle Fishing",
+"reviews": 15,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: AI was used to assist in translating the game's store page. System Requirements Minimum: Requires a 64-bit processor and operating system OS: Windows 10"
+},
+{
+"appid": 5340680,
+"titel": "Tiny Ring Defense",
+"reviews": 14,
+"positief": 85,
+"ai_verklaring": true,
+"tekst": "his: AI helped only with translations and sound. Nothing is generated by AI while you play. System Requirements Minimum: Requires a 64-bit processor and oper"
+},
+{
+"appid": 5034300,
+"titel": "Cosmo Cat: A Cozy Desktop Idler",
+"reviews": 14,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4600920,
+"titel": "CoreBreaker: Desktop Swarm",
+"reviews": 14,
+"positief": 92,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4161680,
+"titel": "Terminal Colony Deep Core",
+"reviews": 14,
+"positief": 28,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5328430,
+"titel": "cat.exe",
+"reviews": 13,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4864900,
+"titel": "Dyson Sphere: Desktop Factory",
+"reviews": 13,
+"positief": 76,
+"ai_verklaring": true,
+"tekst": "his: 游戏开发期间借助 Claude 大模型辅助完成部分代码撰写与逻辑梳理，部分 UI 界面、动画视觉素材使用 AI 工具辅助创作。游戏整体玩法框架、核心业务逻辑、数值策划全部由开发者独立设计与校验。 游戏正式运行时不会联网访问任何 AI 服务，不会在游戏内实时生成任何玩家可见内容。 System Requi"
+},
+{
+"appid": 4005940,
+"titel": "Motivation Monsters",
+"reviews": 13,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4604680,
+"titel": "Tiny Tape Store",
+"reviews": 13,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4508760,
+"titel": "Dinosaurium",
+"reviews": 13,
+"positief": 69,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4308330,
+"titel": "Chippu",
+"reviews": 13,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5057340,
+"titel": "Aquarium Days",
+"reviews": 12,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Some graphics, music, and translations were initially generated by AI and subsequently revised by humans. System Requirements Minimum: Requires a 64-bit"
+},
+{
+"appid": 3083550,
+"titel": "Literally Just A Rock",
+"reviews": 12,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4790650,
+"titel": "Forge Maiden",
+"reviews": 12,
+"positief": 91,
+"ai_verklaring": true,
+"tekst": "his: AI generates a few images and icons, reviewed manually. System Requirements Minimum: OS *: Windows 11/10/8/7 Processor: AMD FX 6300 Memory: 8 GB RAM Gra"
+},
+{
+"appid": 4725000,
+"titel": "MyBiz: Pomodoro Desk Tycoon",
+"reviews": 12,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3972520,
+"titel": "Genesis Relic: Idle Sandbox Simulator",
+"reviews": 12,
+"positief": 91,
+"ai_verklaring": true,
+"tekst": "his: During the development of this project, the production team created multiple built-in demo maps featuring diverse themes and gameplay styles to showcase"
+},
+{
+"appid": 4095710,
+"titel": "Punch, Rest, Repeat",
+"reviews": 12,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4643120,
+"titel": "Pier Pals",
+"reviews": 11,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4080870,
+"titel": "bobanook!",
+"reviews": 11,
+"positief": 81,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4388810,
+"titel": "Reptilarium",
+"reviews": 11,
+"positief": 72,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4705550,
+"titel": "Endless Snake",
+"reviews": 11,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: I have used Claude Code to create the game itself code and assets. System Requirements Minimum: OS: Windows 10 (64-bit) Processor: Dual-core 2.0 GHz (In"
+},
+{
+"appid": 3923900,
+"titel": "GrowBud",
+"reviews": 11,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 3109830,
+"titel": "Peacequarium",
+"reviews": 11,
+"positief": 81,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4992720,
+"titel": "Gloombo",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 5387930,
+"titel": "Idle Immortal Mountain",
+"reviews": 10,
+"positief": 80,
+"ai_verklaring": true,
+"tekst": "his: This game was primarily created by the development team. AI tools were used to assist with certain aspects of programming and visual design, while AI-ge"
+},
+{
+"appid": 5286290,
+"titel": "Type 'n Hatch",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4639490,
+"titel": "Custom Corner",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4911990,
+"titel": "CompaDesk",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: Some visual assets were created with the assistance of generative AI and were subsequently reviewed, refined, and integrated into the game by the develo"
+},
+{
+"appid": 5047730,
+"titel": "PC Electro Onna-chan Checker",
+"reviews": 10,
+"positief": 90,
+"ai_verklaring": true,
+"tekst": "his: Some illustrations on the store page were created using AI. System Requirements Minimum: OS: Windows10 Additional Notes: Some PCs may not support this f"
+},
+{
+"appid": 4465210,
+"titel": "Boat on Desk",
+"reviews": 10,
+"positief": 90,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4651000,
+"titel": "Checkers Kingdom",
+"reviews": 10,
+"positief": 90,
+"ai_verklaring": true,
+"tekst": "his: I have used Claude Code to create the game itself code and assets. System Requirements Minimum: OS: Windows 10 (64-bit) Processor: Intel Core i3 2.0 GHz"
+},
+{
+"appid": 3165880,
+"titel": "A Tiny Garden",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4406970,
+"titel": "Cat Screen",
+"reviews": 10,
+"positief": 80,
+"ai_verklaring": false,
+"tekst": ""
+},
+{
+"appid": 4167350,
+"titel": "Little Desktop Runner",
+"reviews": 10,
+"positief": 100,
+"ai_verklaring": true,
+"tekst": "his: AI is used to assist with coding and general queries related to game development and the Godot engine. System Requirements Minimum: OS: It works on my W"
+}
+]
+}
