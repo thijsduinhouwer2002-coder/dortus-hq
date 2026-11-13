@@ -136,7 +136,14 @@ if HOEDEN >= 1:   # helm van de ridder
     sn.scale = (2, 2, 0.6); sn.hide_render = True; sn.hide_viewport = True
     bm = helm.modifiers.new("snij", "BOOLEAN"); bm.object = sn; bm.operation = "DIFFERENCE"
     kegel("helmrand", (x, 0, z + 0.01), 0.63, 0.63, 0.08, staal, kantel)
-    kegel("helmpunt", (x - 0.03, 0, z + 0.6), 0.07, 0.0, 0.18, staal, kantel)
+    if HOEDEN == 1:
+        # ronde 3: rode pluim zoals op de helm van de ridder (held.py); alleen als de helm bovenop staat
+        pl = g.mat("pluim", "rood", rough=0.7)
+        for px, pz, ps in [(0.0, 0.74, 0.2), (0.13, 0.88, 0.18), (0.28, 0.95, 0.15), (0.42, 0.93, 0.12)]:
+            bol("pluim", (x - 0.03 + px, 0, z + pz), (ps, ps * 0.8, ps), pl)
+        PLUIM_TOP = z + 1.1   # voor de camera: de pluim mag niet uit beeld vallen
+    else:
+        kegel("helmpunt", (x - 0.03, 0, z + 0.6), 0.07, 0.0, 0.18, staal, kantel)
     # ronde 2: neusstuk weg, het las als een staafje dat in het oog prikt
     z += 0.5; x -= 0.03; kantel = 9
 if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
@@ -150,7 +157,7 @@ if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
         kegel("kroonpunt", (px, py, z + 0.24 + hoog / 2), 0.15, 0.0, hoog, kr, kantel, verts=24)
         bol("kroonbol", (px - math.sin(math.radians(kantel)) * hoog, py, z + 0.26 + hoog), (0.06, 0.06, 0.06), kr)
     bol("steen", (x, -0.43, z + 0.12), (0.08, 0.04, 0.08), g.mat("robijn", "rood", rough=0.1, emis=0.3))
-    z += 0.42; x += 0.05; kantel = -11
+    z += 0.5; x += 0.05; kantel = -11   # ronde 3: 0,42 werd 0,5, de heksenhoed zakte over de kroonpunten
 if HOEDEN >= 3:   # heksenhoed: breed en paars met een gouden band, punt knakt
     pa = g.mat("paars", "paars", rough=0.65)
     kegel("hoedrand", (x, 0, z + 0.04), 0.58, 0.58, 0.05, pa, kantel)
@@ -165,7 +172,7 @@ if HOEDEN >= 4:   # rood mutsje met pompon, bovenop de geknakte punt
     z += 0.3
 
 # ---------- camera en licht (gedeeld) ----------
-hoogste = max(TOP, z + 0.15)
+hoogste = max(TOP, z + 0.15, globals().get("PLUIM_TOP", 0))
 midden = hoogste / 2 - 0.25
 schaal = max(3.0, hoogste * 1.08 + 0.45)
 g.camera(hoogte_midden=midden, schaal=schaal)

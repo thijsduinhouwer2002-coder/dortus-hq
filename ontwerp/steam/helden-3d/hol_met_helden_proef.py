@@ -23,6 +23,9 @@ W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
 GLOOP_V = int(sys.argv[5]) if len(sys.argv) > 5 else 2
 HOEDEN = int(sys.argv[6]) if len(sys.argv) > 6 else 2
 random.seed(7)
+# Daan, ronde 2: voorstel gang 1,9 hoog in plaats van 1,5, zodat helden op schaal 0.75 met hoed passen
+# (heks is dan 1,87 hoog). GANG_H=1.5 geeft Mila's hol zoals het is.
+GH = float(os.environ.get("GANG_H", "1.9"))
 
 g.leeg()
 sc = bpy.context.scene
@@ -120,18 +123,19 @@ bpy.ops.mesh.primitive_cylinder_add(vertices=64, radius=1.0, depth=2.4, location
 boog = bpy.context.object; boog.scale = ((KX1 - KX0) / 2, (KTOP - 1.4), 1)
 uithollen(aarde, boog)
 # gang naar links, één rij hoog, met een schacht omhoog naar het gras
-gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, 0.75), (KX0 - (-11.8) + 0.6, 2.4, 1.5))
+gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, GH / 2), (KX0 - (-11.8) + 0.6, 2.4, GH))
 uithollen(aarde, gang)
 schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2))
 uithollen(aarde, schacht)
 # gang naar rechts, met een kleine voorraadkamer
-gang_r = blok("gangr_gat", ((KX1 + 12.5) / 2, 0.2, 0.75), (12.5 - KX1 + 0.6, 2.4, 1.5))
+gang_r = blok("gangr_gat", ((KX1 + 12.5) / 2, 0.2, GH / 2), (12.5 - KX1 + 0.6, 2.4, GH))
 uithollen(aarde, gang_r)
 # twee kleine kamers boven de gang (in het spel: klik in de aarde boven de gang; later woont er iemand)
-KAMERS = [(-7.4, 2.25), (7.8, 2.25)]
+KAMERS = [(-7.4, 2.25 + (GH - 1.5))] + [(7.8, 2.25 + (GH - 1.5))] if GH <= 1.5 else [(-7.4, 2.68), (7.8, 2.68)]
+KAMER_HOOG = 0.62 if GH <= 1.5 else 0.48
 for kx, kz in KAMERS:
     bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=1.0, depth=2.4, location=(kx, 0.2, kz), rotation=(math.radians(90), 0, 0))
-    kg = bpy.context.object; kg.scale = (1.05, 0.62, 1)
+    kg = bpy.context.object; kg.scale = (1.05, KAMER_HOOG, 1)
     uithollen(aarde, kg)
 for o in (aarde,):
     afronden(o, 0.18, 4)
@@ -144,7 +148,7 @@ blok("achterwand", (0, 1.35, 1.2), (X1 - X0, 0.1, 4.0), PRUIM_L)
 for i in range(70):
     x = random.uniform(X0, X1); z = random.uniform(ONDER, MAAIVELD - 0.25)
     # niet in de gaten
-    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < 1.7 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.25 and abs(z - kz) < 0.8 for kx, kz in [(-7.4, 2.25), (7.8, 2.25)]):
+    if (KX0 - 1.4 < x < KX1 + 1.4 and z < KTOP + 0.45) or (z < GH + 0.2 and x < 12.6 and x > -12.2) or (-11.8 < x < -10.2) or any(abs(x - kx) < 1.25 and abs(z - kz) < 0.8 for kx, kz in [(-7.4, 2.25), (7.8, 2.25)]):
         continue
     r = random.uniform(0.07, 0.2)
     bol("kiezel", (x, -0.02, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, PRUIM_L, PRUIM_L]), 12)
@@ -176,7 +180,7 @@ for x, m in [(-6.3, BLOEM), (-4.1, BLOEM_R), (4.6, BLOEM), (7.9, BLOEM_R), (-8.4
 # wortels die door het plafond van de gang hangen
 for x in (-8.6, -5.4, 6.2, 9.4):
     for k in range(3):
-        cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, 1.4 - k * 0.05), 0.035, 0.35 + 0.1 * k, WORTEL,
+        cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, GH - 0.1 - k * 0.05), 0.035, 0.35 + 0.1 * k, WORTEL,
             rot=(0, random.uniform(-0.3, 0.3), 0), verts=6, r2=0.008)
 
 # ---------- vloer van kamer en gangen ----------
@@ -247,7 +251,7 @@ fakkel(-7.2, 0.95, 90)
 fakkel(7.6, 0.95, 90)
 for kx, kz in KAMERS:
     fakkel(kx + 0.55, kz - 0.15, 45)
-    blok("kamervloer", (kx, 0.7, kz - 0.6), (1.6, 1.4, 0.06), VLOER)
+    blok("kamervloer", (kx, 0.7, kz - KAMER_HOOG + 0.02), (1.6, 1.4, 0.06), VLOER)
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")
 PUT_X = -6.0
@@ -306,8 +310,16 @@ for o in nieuw:
         o.scale = o.scale * GLOOP_S
 
 import held
-held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=60, schaal=0.75, gloed=25)
-held.bouw("heks", "stap2", plek=(-8.6, 0.7, 0.02), draai=45, schaal=0.75, gloed=25)
+# ronde 2: helden weg van de wortels (x -8,6) en de wandlamp (x -7,2), met een lichte rand van achteren
+RONDE = os.environ.get("HELDEN", "2")
+if RONDE == "2":
+    held.bouw("ridder", "stap1", plek=(-7.75, 0.6, 0.02), draai=60, schaal=0.75, gloed=25, rand=40)
+    held.bouw("heks", "stap2", plek=(-9.35, 0.7, 0.02), draai=45, schaal=0.75, gloed=25, rand=40)
+    # derde held valt in de stekelput: laat zien wat er in het spel gebeurt
+    held.bouw("ridder", "vallen", plek=(-6.0, 0.55, -0.02), draai=70, schaal=0.75, gloed=20, rand=30)
+else:
+    held.bouw("ridder", "stap1", plek=(-7.3, 0.6, 0.02), draai=60, schaal=0.75, gloed=25)
+    held.bouw("heks", "stap2", plek=(-8.6, 0.7, 0.02), draai=45, schaal=0.75, gloed=25)
 # ---------- camera en licht (gedeeld) ----------
 g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
 g.licht()
