@@ -298,13 +298,17 @@ for kx, kz in KAMERS:
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")
 PUT_X = LINKS + 4.5 * KOL   # midden van kolom 4 (spelpixel 64 tot 80), zoals hol.gd een put in één kolom tekent
-uithollen(vloer, blok("put_gat_v", (PUT_X, 0.4, -0.2), (1.3, 2.0, 0.6)))
-uithollen(aarde, blok("put_gat_a", (PUT_X, 0.4, -0.25), (1.3, 2.0, 0.7)))
-blok("put_bodem", (PUT_X, 0.7, -0.52), (1.3, 1.5, 0.06), PRUIM_D)
+uithollen(vloer, blok("put_gat_v", (PUT_X, 0.4, -0.2), (1.55, 2.0, 0.6)))
+uithollen(aarde, blok("put_gat_a", (PUT_X, 0.4, -0.25), (1.55, 2.0, 0.7)))
+blok("put_bodem", (PUT_X, 0.7, -0.52), (1.55, 1.5, 0.06), PRUIM_D)
 STAAL = g.mat("staal", "staal", rough=0.25, spec=0.8, metaal=0.9)
-for i in range(5):
+# Ronde 4: de stekels steken boven de vloer uit (zoals hol.gd de put tekent: 8 spelpixels vanaf de vloer),
+# want onder de vloer is maar 2,6 spelpixel beeld over. Lichter staal met een glimpje, zodat ze op 120 px lezen.
+STAAL_L = g.mat("staal_l", "d8dce8", rough=0.2, spec=0.9, metaal=0.7, emis=0.15)
+for i in range(6):
     for j in range(3):
-        cil("stekel", (PUT_X - 0.48 + i * 0.24, 0.2 + j * 0.4, -0.3), 0.06, 0.42, STAAL, verts=8, r2=0.0)
+        hoog = 0.62 if (i + j) % 2 == 0 else 0.5
+        cil("stekel", (PUT_X - 0.6 + i * 0.24, 0.15 + j * 0.38, -0.25 + hoog / 2), 0.07, hoog, STAAL_L, verts=8, r2=0.0)
 # buit van een gevallen held: een paar munten en zijn helm aan de rand
 for dx in (-0.85, -0.7, 0.75):
     cil("buit", (PUT_X + dx, 0.5, 0.04), 0.12, 0.03, GOUD, verts=20, rot=(0.2, 0.3, 0))
@@ -359,6 +363,15 @@ for o in nieuw:
     if o.parent is None:
         o.location = Vector((o.location.x * GLOOP_S + GLOOP_X, o.location.y * GLOOP_S + GLOOP_Y, o.location.z * GLOOP_S + GLOOP_Z))
         o.scale = o.scale * GLOOP_S
+
+# ---------- helden van Daan (held.py): het verhaal in beeld ----------
+# Frisse kijker ronde 2: "er gebeurt niets". Het spel is: helden komen binnen en vallen in de put. Een ridder
+# loopt vanaf de ladder naar de put, een heks valt er net in. Alles heet held_..., dus HOL_VERBERG ["held"]
+# geeft het hol zonder helden (het spel tekent ze zelf).
+if os.environ.get("HOL_HELDEN", "1") == "1":
+    import held
+    held.bouw("ridder", "stap1", plek=(LINKS + 2.5 * KOL, 0.45, 0.0), draai=40, schaal=0.78, gloed=25, rand=40)
+    held.bouw("heks", "vallen", plek=(PUT_X - 0.25, 0.5, -0.05), draai=20, schaal=0.68, gloed=25, rand=40)
 
 # ---------- camera en licht (gedeeld) ----------
 g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)

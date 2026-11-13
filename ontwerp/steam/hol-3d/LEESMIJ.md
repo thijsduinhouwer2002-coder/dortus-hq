@@ -30,7 +30,18 @@ Bram knipt het hol in stukken voor het spel (`"soort": "stukken"` in `pijplijn/s
 - GEZIEN met Read: rijen kloppen (grasrand op 8, plafond op 24, vloer op 37), kamers en put binnen hun kolom, zonder-Gloop-laag zonder Gloop of hoed. GEMETEN: randverschil per kolom 1,8 tot 2,3 op 255 (eerst 4 tot 9, door het verloop van de fakkels; zonder egale lamp was het stuk ook veel te donker, helderheid 24 tegen ±55 nu).
 - Eerlijk: het rustige stuk is vlak, met opzet; het spel tekent er zelf fakkels en gloed overheen. Op het blad voor Thijs laat ik het hele hol zien, niet de tegels.
 
+## Ronde 4 (13 nov ±18:00 UTC): het verhaal in beeld
+Punt 4 en 5 van hieronder. Daans `held.py` als module: een ridder (stap1) loopt van de ladder naar de put, een heks valt er kop eerst in (stand vallen). Alles heet `held_...`, dus `HOL_VERBERG ["held"]` geeft het hol zonder helden voor de tegels; `HOL_HELDEN=0` laat ze helemaal weg. De stekels steken nu boven de vloer uit (zoals hol.gd de put tekent, 8 spelpixels vanaf de vloer), lichter staal, put 1,55 breed in kolom 4.
+- `ronde4-ware-grootte.png`, `ronde4-2x.png`, `ronde4-blad.png` (met Rusty's erboven).
+- GEZIEN met Read: op ware grootte lezen de ridder (helm, blauw) en de witte stekels; de heks leest als een figuurtje dat valt of springt boven de put.
+- Frisse kijker (alleen ware grootte), samengevat: "een ridder loopt naar rechts, een oranje figuurtje springt boven een rij witte pinnen (een val), een gekroond eenogig slijm op een berg goud". Spel volgens hem: "jij bent een gekroond slijmmonster dat zijn schat verdedigt tegen avonturiers, met vallen". Dat klopt met het spel (ronde 2: "ik zie niet wat het spel is"). Niet gelezen: de ronde kamers boven de gang, wat de helden precies doen (te klein). Stoppen met scrollen nog 6 van 10: "donker en klein, geen duidelijke actie of titel".
+- Eerlijk: het rustige stuk rechts (egale lamp voor de tegels) is lichter en vlakker dan de rest; voor het blad voor Thijs wil ik daar nog wat sfeer terug zonder de naad te breken.
+
 ## Volgende ronde
+- Het moment groter maken: Gloop die grijnst of kijkt naar de vallende heks (vraag Daan, zijn gloop.py), de heks en de put iets dichter bij de kamer zodat het oog van Gloop naar de val gaat. Titel of logo hoort op de capsule, niet in de strook.
+- Ronde kamers boven de gang laten lezen als kamers (iets erin: een bed of een kist, alleen als het in het spel zit).
+
+## Oude lijst
 1. (gedaan in ronde 2) Gloop kan niet groter (ware maat in het spel), dus de kamer rond hem rustiger en lichter: geen kiezels binnen een halve kamer om de boog, warme gloed achter hem, achterwand van de kamer een trede lichter. Hij moet het lichtste vlak van de strook zijn.
 2. (gedaan in ronde 2) Gloop op de rand van de berg in plaats van ernaast.
 3. De gang breken: een bocht of trapje, en meer kleine dingen die over de dag veranderen (munten op de vloer).

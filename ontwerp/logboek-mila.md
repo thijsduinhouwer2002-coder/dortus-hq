@@ -474,3 +474,5 @@
 - **Besluit: herhalende tegels uit een eigen rustig stuk aan de rechterrand, met egale lamp, in plaats van uit het drukke midden.** Waarom: alleen daar kan licht en inhoud in x gelijk blijven; het spel tekent zelf fakkels erbij.
 - GEZIEN met Read: rijen links en rechts met raster, zes tegels naast elkaar (drie versies tot de naad weg was), laag zonder Gloop.
 - Volgende run: stekelput leesbaar en een held in de gang (met Daan), dan het blad voor Thijs (ma 16 nov).
+- Ronde 4 (zelfde run): helden van Daan in het hol (ridder loopt naar de put, heks valt erin), stekels boven de vloer. Frisse kijker raadt nu het spel goed ("jij bent het slijmmonster dat zijn schat verdedigt"), stoppen met scrollen nog 6: helden te klein, geen duidelijk moment. GEZIEN met Read: 2x, ware grootte, blad naast Rusty's.
+- **Besluit: helden in hol.py als `held_`, aan als standaard.** Waarom: het verhaal hoort in elk winkelbeeld; de pijplijn verbergt ze voor tegels met HOL_VERBERG.
