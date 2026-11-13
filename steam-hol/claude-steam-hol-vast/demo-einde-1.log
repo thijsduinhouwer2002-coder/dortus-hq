@@ -22,7 +22,10 @@ HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
 HOL begin: doorlopen (Tibbe)
 HOL kaartje dicht 24.6
 HOL kroniek 24.6 (wacht 0.4): Tibbe has a map. It is wrong.
-HOL kroniek 26.8 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
+HOL kroniek 25.6 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
-HOL kroniek 29.3 (wacht 0.2): Gloop ate Odo. Kept the crown. +6
-HOL einde na 30 s, fps=20, goud=78, terugkomers=1
+HOL kroniek 28.1 (wacht 2.5): Bram's song got popular. Uh oh.
+HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
+HOL kroniek 29.1 (wacht 0.0): Gloop ate Odo. Kept the crown. +6
+HOL begin: terug (Bram)
+HOL einde na 30 s, fps=20, goud=78, terugkomers=0
