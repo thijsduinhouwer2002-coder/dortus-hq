@@ -52,7 +52,11 @@
       "over": 2,
       "samples": 24,
       "lagen": {
-        "vol": []
+        "vol": [],
+        "zonder_kist": [
+          "kist",
+          "deksel"
+        ]
       },
       "stukken": {
         "gras": {
@@ -93,6 +97,15 @@
         },
         "schatkamer": {
           "laag": "vol",
+          "vak": [
+            92,
+            8,
+            58,
+            32
+          ]
+        },
+        "schatkamer_zonder_kist": {
+          "laag": "zonder_kist",
           "vak": [
             92,
             8,

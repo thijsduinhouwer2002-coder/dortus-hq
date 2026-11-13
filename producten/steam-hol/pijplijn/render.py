@@ -170,17 +170,26 @@ def render_stukken(naam, s, bpy_python, snel):
     bw, bh = s["beeld"]; px = s["px"]; over = s.get("over", 2)
     samples = max(8, s["samples"] // 4) if snel else s["samples"]
     w, h = bw * px * over, bh * px * over
+    if not s.get("stukken"):
+        raise SystemExit(f"FOUT: {naam}: geen stukken")
+    for laag, lijst in s["lagen"].items():
+        if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
+            raise SystemExit(f"FOUT: {naam}: laag {laag} moet een lijst met namen zijn")
     nodig = sorted({st["laag"] for st in s["stukken"].values()})
+    for laag in nodig:
+        if laag not in s["lagen"]:
+            raise SystemExit(f"FOUT: {naam}: laag {laag} staat niet in 'lagen' (tikfout?)")
     lagen = {}
     t0 = time.time()
     os.makedirs(UIT, exist_ok=True)
     for laag in nodig:
-        ruw = os.path.join(UIT, f"{naam}_laag_{laag}.png")
+        sleutel = "-".join(sorted(s["lagen"][laag])) or "niets"   # andere verberglijst = ander bestand (HOL_HERGEBRUIK)
+        ruw = os.path.join(UIT, f"{naam}_laag_{laag}_{sleutel}.png")
         if not (os.environ.get("HOL_HERGEBRUIK") == "1" and os.path.exists(ruw)):
             with tempfile.TemporaryDirectory() as tmp:
                 uit = os.path.join(tmp, "laag.png")
                 args = [a.format(uit=uit, w=w, h=h, samples=samples, stand="rust") for a in s["args"]]
-                env = dict(os.environ, HOL_VERBERG=json.dumps(s["lagen"].get(laag, [])))
+                env = dict(os.environ, HOL_VERBERG=json.dumps(s["lagen"][laag]))
                 env.pop("HOL_FRAMES", None); env.pop("HOL_RUIMTE", None)
                 r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
                                    capture_output=True, text=True)
@@ -194,25 +203,41 @@ def render_stukken(naam, s, bpy_python, snel):
         lagen[laag] = verklein(b, (bw * px, bh * px))
     duur = time.time() - t0
     print(f"{naam}: {len(nodig)} lagen in {duur:.0f} s")
-    # stukken naast elkaar, elk op zijn eigen maat; 1 bladpixel lucht ertussen tegen doorlopen bij lineair filter
+    # stukken naast elkaar, elk op zijn eigen maat, met een rand van RAND bladpixels waarin de buitenste pixels
+    # van het stuk zijn doorgetrokken: zo geeft lineair filteren en mipmaps geen doorzichtige naad tussen tegels.
+    # Elk stuk begint op een veelvoud van 4 (px), dan vallen de mipmap-blokken netjes.
+    RAND = 4
     namen = list(s["stukken"])
     vakken = {}
     for n in namen:
         x, y, b_, h_ = s["stukken"][n]["vak"]
+        if not all(isinstance(v, int) for v in (x, y, b_, h_)) or b_ <= 0 or h_ <= 0:
+            raise SystemExit(f"FOUT: {naam}: vak van {n} moet vier hele getallen zijn, breed en hoog boven 0")
         if x < 0 or y < 0 or x + b_ > bw or y + h_ > bh:
             raise SystemExit(f"FOUT: {naam}: stuk {n} valt buiten het beeld {bw}x{bh}")
         vakken[n] = (x, y, b_, h_)
-    breed = sum(v[2] * px + 2 for v in vakken.values())
-    hoog = max(v[3] * px for v in vakken.values())
+    breed = sum(v[2] * px + 2 * RAND for v in vakken.values())
+    hoog = max(v[3] * px for v in vakken.values()) + 2 * RAND
     blad = Image.new("RGBA", (breed, hoog), (0, 0, 0, 0))
     info_stukken = {}
     links = 0
     for n in namen:
         x, y, b_, h_ = vakken[n]
         stuk = lagen[s["stukken"][n]["laag"]].crop((x * px, y * px, (x + b_) * px, (y + h_) * px))
-        blad.alpha_composite(stuk, (links + 1, 0))
-        info_stukken[n] = {"vak_px": [links + 1, 0, b_ * px, h_ * px], "maat": [b_, h_], "uit": [x, y]}
-        links += b_ * px + 2
+        sw, sh = stuk.size
+        met_rand = Image.new("RGBA", (sw + 2 * RAND, sh + 2 * RAND))
+        met_rand.paste(stuk.resize((sw + 2 * RAND, sh + 2 * RAND), Image.NEAREST), (0, 0))   # grof doortrekken
+        # randen precies: elke randstrook is de buitenste rij of kolom van het stuk, uitgerekt
+        met_rand.paste(stuk.crop((0, 0, sw, 1)).resize((sw, RAND)), (RAND, 0))
+        met_rand.paste(stuk.crop((0, sh - 1, sw, sh)).resize((sw, RAND)), (RAND, sh + RAND))
+        kol = met_rand.crop((RAND, 0, RAND + 1, sh + 2 * RAND))
+        met_rand.paste(kol.resize((RAND, sh + 2 * RAND)), (0, 0))
+        kol = met_rand.crop((RAND + sw - 1, 0, RAND + sw, sh + 2 * RAND))
+        met_rand.paste(kol.resize((RAND, sh + 2 * RAND)), (RAND + sw, 0))
+        met_rand.paste(stuk, (RAND, RAND))
+        blad.paste(met_rand, (links, 0))
+        info_stukken[n] = {"vak_px": [links + RAND, RAND, b_ * px, h_ * px], "maat": [b_, h_], "uit": [x, y]}
+        links += sw + 2 * RAND
     os.makedirs(DOEL, exist_ok=True)
     blad.save(os.path.join(DOEL, f"{naam}.png"), optimize=True)
     with open(os.path.join(DOEL, f"{naam}.png.import"), "w") as f:

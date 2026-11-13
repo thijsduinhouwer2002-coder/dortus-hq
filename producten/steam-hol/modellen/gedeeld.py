@@ -121,16 +121,21 @@ def _verberg_uit_pijplijn():
     tekst = os.environ.get("HOL_VERBERG", "").strip()
     if not tekst:
         return
-    begins = tuple(json.loads(tekst))
+    lijst = json.loads(tekst)
+    if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
+        raise SystemExit("HOL_VERBERG moet een lijst met namen zijn, bv. [\"kist\"]")
+    begins = tuple(lijst)
     if not begins:
         return
 
     def weg(o):
+        if o.type in ("CAMERA", "LIGHT"):
+            return   # lampen blijven altijd, ook als kind: elke laag houdt hetzelfde licht
         o.hide_render = True
         for k in o.children:
             weg(k)
     for o in list(bpy.context.scene.objects):
-        if o.type not in ("CAMERA", "LIGHT") and o.name.split(".")[0].startswith(begins):
+        if o.name.split(".")[0].startswith(begins):
             weg(o)
 
 
