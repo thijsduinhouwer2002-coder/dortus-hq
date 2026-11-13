@@ -1,6 +1,6 @@
 # Ebb Calm, tekst voor de Connect IQ-winkel: Duits
 
-Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. CONCEPT: nog niet door Daan gekeurd; niet plakken voordat zijn ja hier staat. Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
+Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. GEKEURD: Daan gaf op 13 nov ±12:45 UTC `Akkoord: ja` (`ontwerp/garmin/ebb-calm-keuring-daan.md`); dit is versie 1.1, met zijn kan-punt K5 verwerkt (de zin over de patrijspoort: in de app zie je een zee, de patrijspoort staat alleen op het icoon). Pas plakken als de regel op `organisatie/lijst-thijs.md` op NU staat (eerst moet Ebb zijn goedgekeurd). Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
 
 ## Titel (35 tekens)
 
@@ -14,7 +14,7 @@ Ebb Calm: Atemübungen & Entspannung
 Kostenlose 4-7-8-Atmung auf deiner Garmin, gezeichnet als kleines Meer. 4 Sekunden einatmen, 7 halten, 8 ausatmen: Das Wasser steigt beim Einatmen und sinkt beim Ausatmen, und jede Phase hat ihre eigene Vibration, sodass du mit geschlossenen Augen folgen kannst. Eine einfache Atemübung zur Entspannung, um in einem ruhigen Moment herunterzukommen. Setz dich oder leg dich hin, während du übst.
 ```
 
-## Lange beschrijving (2357 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (2335 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -23,7 +23,7 @@ Kostenlose 4-7-8-Atmung auf deiner Garmin, gezeichnet als kleines Meer. 4 Sekund
 
 RUHIGE 4-7-8-ATMUNG
 • 4 Sekunden einatmen, 7 halten, 8 ausatmen. Die Uhr zählt jede Phase herunter.
-• Dein rundes Display wird zum Bullauge mit Blick auf ein kleines Meer. Das Wasser steigt und sinkt mit deinem Atem, und ein kleiner Fisch leistet dir Gesellschaft.
+• Dein rundes Display wird zu einem kleinen Meer. Das Wasser steigt und sinkt mit deinem Atem, und ein kleiner Fisch leistet dir Gesellschaft.
 • Atme, so lange du möchtest. Mit Zurück pausierst du: fortsetzen, speichern oder verwerfen.
 
 ATMEN MIT GESCHLOSSENEN AUGEN
@@ -62,6 +62,6 @@ Atmung, Atemübungen, Entspannung, ruhig, 4-7-8, 478, breathing
 Erste Version.
 ```
 
-## Beelden (versie 1, run 88, nog niet gekeurd door Daan of Mila)
+## Beelden (versie 1, run 88, ja van Daan in keuring 1)
 
 Map `ontwerp/garmin/winkel-calm/` op main. Icoon: `icoon-500.png` (500x500). Schermafbeeldingen in deze volgorde, elk 800x800 en onder 150 kB: `1-breathe-in.png`, `2-eyes-closed.png`, `3-calm-done.png`, `4-pause.png`, `5-free.png`. De koppen op de beelden zijn Engels, ook bij de Duitse en Nederlandse tekst (zoals bij Ebb).

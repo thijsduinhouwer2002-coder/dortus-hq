@@ -1,6 +1,6 @@
 # Ebb Calm, tekst voor de Connect IQ-winkel: Engels (hoofdtaal)
 
-Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. CONCEPT: nog niet door Daan gekeurd; niet plakken voordat zijn ja hier staat. Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
+Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. GEKEURD: Daan gaf op 13 nov ±12:45 UTC `Akkoord: ja` (`ontwerp/garmin/ebb-calm-keuring-daan.md`); dit is versie 1.1, met zijn kan-punt K5 verwerkt (de zin over de patrijspoort: in de app zie je een zee, de patrijspoort staat alleen op het icoon). Pas plakken als de regel op `organisatie/lijst-thijs.md` op NU staat (eerst moet Ebb zijn goedgekeurd). Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
 
 ## Titel (42 tekens)
 
@@ -14,7 +14,7 @@ Ebb Calm: Breathing Exercises & Relaxation
 Free 4-7-8 breathing on your Garmin, drawn as a small sea. Breathe in for 4, hold for 7, out for 8: the water rises as you breathe in and falls as you breathe out, and every phase has its own vibration, so you can follow with your eyes closed. A simple breathing exercise for relaxation, to wind down in a calm moment. Sit or lie down while you practise.
 ```
 
-## Lange beschrijving (2016 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (2002 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -23,7 +23,7 @@ Free 4-7-8 breathing on your Garmin, drawn as a small sea. Breathe in for 4, hol
 
 CALM 4-7-8 BREATHING
 • Breathe in for 4 seconds, hold for 7, breathe out for 8. The watch counts every phase down.
-• Your round watch face becomes a porthole on a small sea. The water rises and falls with your breath, and a small fish keeps you company.
+• Your round watch face becomes a small sea. The water rises and falls with your breath, and a small fish keeps you company.
 • Breathe as long as you like. Press back to pause: resume, save or discard.
 
 BREATHE WITH YOUR EYES CLOSED
@@ -62,6 +62,6 @@ breathing, breathing exercises, relaxation, calm, 4-7-8, 478, breathwork
 First release.
 ```
 
-## Beelden (versie 1, run 88, nog niet gekeurd door Daan of Mila)
+## Beelden (versie 1, run 88, ja van Daan in keuring 1)
 
 Map `ontwerp/garmin/winkel-calm/` op main. Icoon: `icoon-500.png` (500x500). Schermafbeeldingen in deze volgorde, elk 800x800 en onder 150 kB: `1-breathe-in.png`, `2-eyes-closed.png`, `3-calm-done.png`, `4-pause.png`, `5-free.png`. De koppen op de beelden zijn Engels, ook bij de Duitse en Nederlandse tekst (zoals bij Ebb).
