@@ -1,0 +1,61 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL kroniek 4.1 (wacht 0.0): Joost is here for your gold.
+HOL begin: vallen (Joost)
+HOL kroniek 13.8 (wacht 0.0): Joost left gold and one boot. +6
+HOL kroniek 16.3 (wacht 2.5): Page for the Hero. The pit got him.
+HOL kroniek 48.5 (wacht 0.0): Odo brought a torch. And hope.
+HOL begin: vluchten (Odo)
+HOL kroniek 66.7 (wacht 0.0): Odo fled, crying a little.
+HOL kroniek 69.3 (wacht 2.5): New stamp for the Hero. He got away.
+HOL kroniek 87.9 (wacht 0.0): Pim climbs into your hole.
+HOL begin: opgegeten (Pim)
+HOL kroniek 103.3 (wacht 0.0): Gloop ate Pim. Kept the crown. +6
+HOL kroniek 105.8 (wacht 2.5): New stamp for the Hero. Gloop got him.
+HOL kroniek 124.8 (wacht 0.0): Odo limps back to the Spike Pit.
+HOL begin: terug (Odo)
+HOL kroniek 135.9 (wacht 0.0): The Spike Pit won. Grudge settled. +9
+HOL kroniek 169.8 (wacht 0.0): Kees says this is a quick one.
+HOL begin: doorlopen (Kees)
+HOL kroniek 184.1 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 187.7 (wacht 0.0): Kees touched your hoard!
+HOL kroniek 201.2 (wacht 0.0): Kees the Hoard-Toucher ran.
+HOL kroniek 214.4 (wacht 0.0): Kees the Hoard-Toucher is back for Gloop.
+HOL kroniek 232.6 (wacht 0.0): Kees fled. Grudge: the Spike Pit.
+HOL kroniek 244.1 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 273.6 (wacht 0.0): Kees remembers the Spike Pit.
+HOL kroniek 284.7 (wacht 0.0): The Spike Pit wins round two. +12
+HOL eerste koop mogelijk na 284 s speeltijd (goud 53)
+HOL kroniek 322.5 (wacht 0.0): Tibbe knocks first. Polite.
+HOL kroniek 340.7 (wacht 0.0): Tibbe ran. Swore revenge.
+HOL kroniek 374.4 (wacht 0.0): Bram has a map. It is wrong.
+HOL kroniek 388.7 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 399.8 (wacht 0.0): Bram left. Took nothing. Angry.
+HOL kroniek 425.5 (wacht 0.0): Mara read about you in a tavern.
+HOL kroniek 440.6 (wacht 0.0): Mara is now the Hoard-Toucher.
+HOL kroniek 448.8 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 454.1 (wacht 0.0): Mara ran. Hands smell of gold.
+HOL kroniek 466.8 (wacht 0.0): Lotte is here for your gold.
+HOL kroniek 477.9 (wacht 0.0): Lotte stays forever. +6
+HOL kroniek 526.0 (wacht 0.0): Gerda brought a torch. And hope.
+HOL kroniek 538.1 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 549.2 (wacht 0.0): Gerda escaped with a limp.
+HOL kroniek 580.8 (wacht 0.0): Tibbe is back for the Spike Pit.
+HOL kroniek 598.2 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 599.3 (wacht 0.5): Tibbe licked a coin and ran.
+HOL kroniek 612.2 (wacht 0.0): Tibbe ran off, giggling.
+HOL kroniek 636.5 (wacht 0.0): Mara remembers the Spike Pit.
+HOL kroniek 646.3 (wacht 0.0): Mara came back. The Spike Pit won. +9
+HOL kroniek 692.7 (wacht 0.0): Fenna says this is a quick one.
+HOL kroniek 708.1 (wacht 0.0): Gloop ate Fenna. Burp. +6
+HOL kroniek 751.2 (wacht 0.0): Wout the Wizard sniffs for traps.
+HOL kroniek 764.4 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL kroniek 766.9 (wacht 2.5): New page: the Wizard. Gloop says yum.
+HOL kroniek 796.3 (wacht 0.0): Rik knocks first. Polite.
+HOL kroniek 807.3 (wacht 0.0): Rik fell to the Spike Pit. +6
+HOL kroniek 842.1 (wacht 0.0): Wout II wants dad's boot back.
+HOL kroniek 852.5 (wacht 0.0): Wout II stays forever. +6
+HOL kroniek 855.0 (wacht 2.5): Booked: the Thief. Gloop got him.
+HOL kroniek 889.5 (wacht 0.0): Kees II climbs in. Family business.
+HOL kroniek 900.5 (wacht 0.0): Kees II will not be leaving. +6
+HOL einde na 930 s, fps=15, goud=98, terugkomers=0
