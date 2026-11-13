@@ -132,6 +132,14 @@ HOUT = g.mat("hout", "8a4b2a", rough=0.7, spec=0.2)
 HOUT_D = g.mat("hout_d", "5a2e1c", rough=0.75)
 VLAM = g.mat("vlam", "ffb347", emis=9.0)
 VLAM_K = g.mat("vlamkern", "fff1b0", emis=14.0)
+# Daan 13 nov 23:40: vlam in drie lagen met lage emissie. Emissie 9 en 14 knipt met view transform Standard naar
+# wit: de fakkel las als een wit ei op een stokje. Proef en vergelijking in ontwerp/steam/fakkel-3d/.
+V_BUIT = g.mat("v_buit", "ff5a1f", emis=1.6)   # rood-oranje rand
+V_MID = g.mat("v_mid", "ff9b2a", emis=2.4)     # oranje
+V_HART = g.mat("v_hart", "ffe27a", emis=3.2)   # geel hart, net niet wit
+HOUT_F = g.mat("hout_f", "6e4632", rough=0.75, spec=0.2)   # zelfde donkerder hout als de kamerstukken
+DOEK = g.mat("doek", "3a2418", rough=0.9, spec=0.1)        # omwikkelde kop met pek
+IJZER = g.mat("ijzer", "3b3640", rough=0.45, metaal=0.8)
 ROBIJN = g.mat("robijn", "rood", rough=0.08, spec=1.0, emis=0.4)
 SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 WORTEL = g.mat("wortel", "c9a27a", rough=0.8)
@@ -276,7 +284,7 @@ go = bpy.data.objects.new("goudgloed", gd); go.location = (2.0, 0.2, 1.3); sc.co
 
 # ladder in de schacht naar het gras
 for kant in (-0.35, 0.35):
-    cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT, verts=8)
+    cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT_F, verts=8)  # Daan 23:45: kamerhout, minder oranje
 for k in range(8):
     cil("ladder_sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
 
@@ -290,12 +298,35 @@ for i in range(10):
 
 
 # ---------- fakkels met echt warm licht ----------
+def druppel(naam, loc, r, hoog, m, scheef=0.0):
+    """Vlam als druppel: onderkant bol, bovenhelft getrokken tot een punt die iets opzij buigt. Geen schaduw."""
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=20, ring_count=14, radius=1, location=(0, 0, 0))
+    o = bpy.context.object; o.name = naam
+    for v in o.data.vertices:
+        if v.co.z > 0:
+            t = v.co.z; k = (1 - t) ** 1.6
+            v.co.x = v.co.x * k + scheef * t * t; v.co.y *= k; v.co.z = t * hoog
+    o.scale = (r, r * 0.85, r); o.location = loc; o.visible_shadow = False
+    bpy.ops.object.shade_smooth(); return kies(o, m)
+
+
+def vlam_fakkel(pre, x, y, z, beugel=True, groot=1.2):
+    if beugel:
+        cil(pre + "beugelplaat", (x, y + 0.12, z - 0.18), 0.07, 0.03, IJZER, rot=(math.radians(90), 0, 0), verts=6)
+        cil(pre + "beugelarm", (x, y + 0.04, z - 0.14), 0.018, 0.16, IJZER, rot=(math.radians(90), 0, 0), verts=8)
+        cil(pre + "beugelring", (x, y - 0.03, z - 0.12), 0.07, 0.04, IJZER, verts=16)
+    cil(pre + "steel", (x, y - 0.03, z - 0.16), 0.055, 0.42, HOUT_F, rot=(math.radians(-12), 0, 0), verts=10, r2=0.035)
+    cil(pre + "kop", (x, y - 0.06, z + 0.07), 0.085 * groot, 0.13, DOEK, verts=12, r2=0.1 * groot)
+    zv = z + 0.16
+    druppel(pre + "vlam", (x, y - 0.08, zv + 0.10 * groot), 0.15 * groot, 2.3, V_BUIT, scheef=0.05)
+    druppel(pre + "vlammid", (x, y - 0.13, zv + 0.08 * groot), 0.11 * groot, 2.0, V_MID, scheef=0.04)
+    druppel(pre + "kern", (x, y - 0.18, zv + 0.05 * groot), 0.06 * groot, 1.7, V_HART, scheef=0.02)
+
 def fakkel(x, z, kracht=160):
     # namen beginnen met "fakkel" (Bram 13 nov 23:25): de pijplijn maakt er een losse laag van (HOL_ALLEEN ["fakkel"])
-    cil("fakkelsteel", (x, 1.0, z - 0.25), 0.05, 0.55, HOUT_D, rot=(math.radians(-18), 0, 0), verts=8)
-    cil("fakkelkop", (x, 0.92, z + 0.05), 0.09, 0.12, HOUT, verts=10)
-    bol("fakkelvlam", (x, 0.9, z + 0.24), (0.14, 0.11, 0.26), VLAM, 12)
-    bol("fakkelkern", (x, 0.85, z + 0.2), (0.06, 0.05, 0.1), VLAM_K, 10)
+    # Daan 13 nov 23:40: ijzeren beugel, steel van kamerhout, donkere kop, vlam als druppel met punt (3 lagen).
+    # Zelfde hoogte als de oude fakkel (van z - 0,52 tot z + 0,52), dus het vak in sprites.json blijft passen.
+    vlam_fakkel("fakkel", x, 1.0, z - 0.17, beugel=True)
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.6, 0.28); d.energy = kracht; d.shadow_soft_size = 0.15
     o = bpy.data.objects.new("fakkellicht", d); o.location = (x, 0.5, z + 0.35); sc.collection.objects.link(o)
 
@@ -360,9 +391,11 @@ helm.rotation_euler = (0, math.radians(25), 0)
 
 # ingang: fakkel op een paal naast de schacht, met een boogje van stenen
 cil("ingangpaal", (-10.0, 0.35, MAAIVELD + 0.45), 0.05, 0.9, HOUT_D, verts=8)
-cil("ingangkop", (-10.0, 0.35, MAAIVELD + 0.93), 0.09, 0.12, HOUT, verts=10)
-bol("ingangvlam", (-10.0, 0.33, MAAIVELD + 1.1), (0.14, 0.11, 0.26), VLAM, 12)
-bol("ingangkern", (-10.0, 0.28, MAAIVELD + 1.06), (0.06, 0.05, 0.1), VLAM_K, 10)
+# Daan 13 nov 23:40: zelfde vlam als de gangfakkels, kop bovenop de paal
+cil("ingangkop", (-10.0, 0.35, MAAIVELD + 0.93), 0.085 * 1.2, 0.13, DOEK, verts=12, r2=0.1 * 1.2)
+druppel("ingangvlam", (-10.0, 0.33, MAAIVELD + 1.03 + 0.12), 0.18, 2.3, V_BUIT, scheef=0.05)
+druppel("ingangvlammid", (-10.0, 0.28, MAAIVELD + 1.03 + 0.10), 0.13, 2.0, V_MID, scheef=0.04)
+druppel("ingangkern", (-10.0, 0.23, MAAIVELD + 1.03 + 0.06), 0.07, 1.7, V_HART, scheef=0.02)
 il = bpy.data.lights.new("ingangslicht", "POINT"); il.color = (1.0, 0.6, 0.28); il.energy = 60; il.shadow_soft_size = 0.15
 ilo = bpy.data.objects.new("ingangslicht", il); ilo.location = (-10.0, 0.0, MAAIVELD + 1.15); sc.collection.objects.link(ilo)
 for k in range(9):
