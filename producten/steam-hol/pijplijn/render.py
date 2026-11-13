@@ -179,7 +179,10 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
                 raise SystemExit(f"FOUT: {naam}: {s['schaal_van']['sprite']} heeft nog geen eenheid_px; render die eerst")
             doel = float(ref["eenheid_px"]) * float(s["schaal_van"].get("maal", 1.0))
         schaal = doel / rpe
-    cel_w = max(cw * px, round((x1 - x0) * schaal)); cel_h = max(ch * px, round((y1 - y0) * schaal))
+    # anker in het midden: de cel reikt even ver links als rechts van x = 0 (controleur 13 nov: scheve hoeden zoals de pan
+    # liepen anders over in de buurcel of schoven opzij)
+    half = max(w / 2 - x0, x1 - w / 2)
+    cel_w = max(cw * px, round(2 * half * schaal)); cel_h = max(ch * px, round((y1 - y0) * schaal))
     blad = Image.new("RGBA", (cel_w * len(namen), cel_h), (0, 0, 0, 0))
     midden = w / 2   # camera staat op x = 0, dus x = 0 van het model is het midden van de render
     anker_x = round(cel_w / 2)
@@ -223,6 +226,8 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
         # eenheid_px: bladpixels per Blender-eenheid; nul_y: rij (spelpixels vanaf de bovenkant van de cel) van het
         # nulpunt van het model (helden: de vloer, hoeden: midden van de onderrand); kruin: [x vanaf anker, y] per beeld.
         info.update({"eenheid_px": round(schaal * rpe, 4), "nul_y": nul_y, "kruin": kruin})
+        if "schaal_van" in s:
+            info["maal"] = float(s["schaal_van"].get("maal", 1.0))   # hoed tegenover de held; Godot rekent per held bij
     print(f"{naam}: blad {blad.width}x{blad.height}, top {tops}")
     return info
 

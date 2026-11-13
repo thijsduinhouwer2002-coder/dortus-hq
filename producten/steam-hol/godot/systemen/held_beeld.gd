@@ -143,8 +143,8 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 	var zicht := hoog - float(zak)
 	var x := -float(info["anker_x"]) / px
 	var y := -hoog + float(zak + hop)
-	if zicht <= 0.0:
-		return int(y)   # helemaal in de put gezakt: niets te tekenen, tekens wel
+	if zicht <= 0.0:   # helemaal in de put gezakt: geen lijf meer, de losse hoed kan nog net zichtbaar zijn, tekens wel
+		return mini(int(y), _teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur))
 	h.draw_texture_rect_region(ct, Rect2(x, y, cw / px, zicht), Rect2(i * cw, 0, cw, zicht * px), kleur)
 	var tops: Array = info.get("top", [])
 	var kop := int(floor(y + (float(tops[i]) if i < tops.size() else 0.0)))
@@ -169,6 +169,10 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	var px: float = float(hi["px"])
 	var cw: float = float(hi["cel_px"][0])
 	var ch: float = float(hi["cel_px"][1])
+	# hoed = maal (1,3) keer de eenheid van DEZE held (controleur: de heks heeft een kleinere eenheid dan de ridder)
+	var f := 1.0
+	if hi.has("eenheid_px") and info.has("eenheid_px"):
+		f = float(info["eenheid_px"]) * float(hi.get("maal", 1.3)) / float(hi["eenheid_px"])
 	var ax: float = float(hi["anker_x"]) / px
 	var ny: float = float(hi["nul_y"][nr]) if hi.has("nul_y") else ch / px
 	var draai := 0.0
@@ -184,24 +188,24 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 		var vlucht := hoed_tuimel(vt)
 		plek = start + Vector2(vlucht.x, vlucht.y)
 		draai = vlucht.z
-		alfa = clampf(1.0 - plek.y / 4.0, 0.0, 1.0)   # onder de vloer (y > 0) vervaagt hij in de put
+		alfa = clampf(1.0 - plek.y / 3.0, 0.0, 1.0)   # onderrand onder de vloer (y > 0): hij vervaagt in de put
 		if alfa <= 0.0:
 			return 9999
 	else:
 		plek = hoed_plek_3d(info, i, kx, ky, hi)
 	var sx := -1.0 if staat == "vluchten" else 1.0       # het lijf is dan gespiegeld (teken), de hoed dus ook
-	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx, 1))
+	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f))
 	var c := Color(kleur.r, kleur.g, kleur.b, kleur.a * alfa)
 	h.draw_texture_rect_region(ct, Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), c)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	var tops: Array = hi.get("top", [])
-	return int(floor(plek.y - ny + (float(tops[nr]) if nr < tops.size() else 0.0)))
+	return int(floor(plek.y + (-ny + (float(tops[nr]) if nr < tops.size() else 0.0)) * f))
 
 # Baan van de losse hoed bij vallen, tijd vt sinds de val: [dx, dy, draai in radialen]. Eerst 0,2 s omhoog (los van het
-# hoofd), dan zakt hij met de val mee maar trager, en draait een halve slag weg. Los zodat de toets hem kan nakijken.
+# hoofd), dan zakt hij de put in (begint hoger dan het lijf, dus blijft los te zien) en draait een derde slag weg. Los zodat de toets hem kan nakijken.
 static func hoed_tuimel(vt: float) -> Vector3:
 	var op := -3.0 * sin(clampf(vt / 0.4, 0.0, 1.0) * PI)            # wipt 3 spelpixels op en komt terug
-	var zak := 14.0 * pow(clampf((vt - 0.3) / 0.9, 0.0, 1.0), 2.0)    # daarna de put in, iets na de held
+	var zak := 16.0 * pow(clampf((vt - 0.25) / 0.7, 0.0, 1.0), 2.0)   # daarna de put in; voor VAL_WEG (1 s) is hij onder de vloer
 	return Vector3(2.5 * clampf(vt / 0.6, 0.0, 1.0), op + zak, -2.2 * clampf(vt / 1.0, 0.0, 1.0))
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.

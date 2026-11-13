@@ -782,6 +782,6 @@ func _init() -> void:
 		ok((hi["frames"] as Array).size() == 10 and hi.has("nul_y"), "3D-hoed: blad met 10 hoeden en nulpunt per hoed")
 		ok(ri.has("kruin") and (ri["kruin"] as Array).size() == (ri["frames"] as Array).size(), "3D-hoed: kruin per stand van de ridder")
 		var e_h := float(hi.get("eenheid_px", 0)); var e_r := float(ri.get("eenheid_px", 1))
-		ok(absf(e_h / e_r - 1.3) < 0.01, "3D-hoed: hoed op schaal 1,3 tegenover de held (%.3f)" % (e_h / e_r))
+		ok(absf(e_h / e_r - 1.3) < 0.01 and absf(float(hi.get("maal", 0)) - 1.3) < 0.001, "3D-hoed: hoedenblad op 1,3 keer de ridder, maal 1,3 in de info (%.3f)" % (e_h / e_r))
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
