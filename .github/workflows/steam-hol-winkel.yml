@@ -65,7 +65,7 @@ jobs:
           # Een echte save in het formaat van kern/opslag.gd (versie 3). Lang gang, vijf kamers, drie stekelputten,
           # 320 opgegeten hoeden (berg maat 4: na ±15 uur open, Sanne 21:50), Royal Gloop en Deep Pit gekocht.
           # 'tijd' 3 uur geleden, zodat het spel bij openen vertelt wat er gebeurde terwijl je weg was.
-          $dir = Join-Path $env:APPDATA "Godot/app_userdata/Het Hol"
+          $dir = Join-Path $env:APPDATA "Dortus/Het Hol"   # project.godot: use_custom_user_dir (demo-einde, 13 nov)
           New-Item -ItemType Directory -Force $dir | Out-Null
           $gang = @(); $boven = @()
           for ($i = 0; $i -lt 40; $i++) { $gang += ($i -ge 1 -and $i -le 29); $boven += ($i -in 4,5,9,10,15,16,21,22) }

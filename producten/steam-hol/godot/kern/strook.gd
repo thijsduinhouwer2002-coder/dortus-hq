@@ -4,7 +4,7 @@ extends Node2D
 # - alleen de strook vangt klikken, de rest laat ze door
 # - zuinig: 15 fps en alleen tekenen wat beweegt (proef 9 nov: stil beeld kost bijna niets)
 # - geen kaartjes over andere vensters: alle tekst staat klein in de strook
-# Argumenten na "--": hoogte=120 duur=60 log=<pad> demo=1 film=1 vers=1
+# Argumenten na "--": hoogte=120 duur=60 log=<pad> demo=1 film=1 vers=1 steamdemo=1 demo_einde=<s>
 
 const HOL := preload("res://hol/hol.gd")
 const TEKST := preload("res://kern/tekst.gd")
@@ -13,6 +13,7 @@ const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
 const KAARTJE := preload("res://kern/kaartje.gd")
+const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 const SOORT := preload("res://systemen/heldensoort.gd")   # ridder, dief, magier, bard en drie trekken (Bram, versie 1)
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
@@ -35,6 +36,9 @@ var logpad := ""
 var demo := false
 var film := false
 var vers := false
+var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
+var demo_grens := 7200.0      # demo_einde=<s> voor de toets
+var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
 
 var hol
 var wezens: Node2D
@@ -106,6 +110,8 @@ func _ready() -> void:
 			"demo": demo = kv[1] == "1"
 			"film": film = kv[1] == "1"
 			"vers": vers = kv[1] == "1"
+			"demo_einde": demo_grens = maxf(1.0, float(kv[1]))
+	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else int(Time.get_unix_time_from_system())
 	if not film:
 		Engine.max_fps = 15
@@ -165,6 +171,7 @@ func _ready() -> void:
 		hol.goud = KAARTJE.DEMO_GOUD
 	if kroniek.is_empty():
 		_kroniek("Your hole is open. Heroes will come.")
+	DEMO_EINDE.bij_start(self)
 	hol.gegraven.connect(func(cel): log_regel("HOL gegraven kolom %d" % cel.x))
 	log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [hoogte, schaal,
 		int(scherm.size.x / schaal), spel_h, DisplayServer.window_get_size(), DisplayServer.window_get_position(), held_script.resource_path])
@@ -345,6 +352,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	t += delta
+	DEMO_EINDE.tik(self, delta)
 	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7).
 	if slijm and slijm.has_method("kan_vechten"):
 		var nu_plat: bool = not slijm.kan_vechten()
@@ -411,7 +419,9 @@ func _process(delta: float) -> void:
 		# demo: om en om een stuk gang erbij en een kamer boven de gang, zodat de film graven laat zien
 		volgende_graaf = t + 9.0
 		var k: int = hol.ingang_kol - 1
-		if int(t / 9.0) % 2 == 0 and k >= 1:
+		if DEMO_EINDE.weiger(self, "graven (film)"):
+			pass
+		elif int(t / 9.0) % 2 == 0 and k >= 1:
 			hol.klik(hol.cel_naar_pos(Vector2i(k, 0)) - Vector2(0, 6))
 		else:
 			for kk in range(hol.ingang_kol + 2, hol.schat_kol - 1):
@@ -430,6 +440,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if KAARTJE.klik(self, event.position):
 			log_regel("HOL klik op %s: kaartje" % event.position)
+			return
+		if DEMO_EINDE.weiger(self, "klik in het hol"):
 			return
 		var p: Vector2 = (event.position - hol.position) / schaal
 		var wat: String = hol.klik(p)

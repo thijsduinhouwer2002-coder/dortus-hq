@@ -97,7 +97,12 @@ func _draw_kaart() -> void:
 	knop_koop = Rect2()
 	knop_undo = Rect2()
 	knop_weg = Rect2()
-	if int(kaart.kost) >= 0:
+	if int(kaart.kost) >= 0 and bool(kaart.get("demo_over", false)):
+		# demo voorbij: tekst in plaats van de knop, zonder klikvlak (kern/demo_einde.gd)
+		var vol: String = preload("res://kern/demo_einde.gd").KAART
+		draw_string(font, Vector2(kx, ky + kh / 2.0 + maat * 0.35), vol, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#ffe07a"))
+		kx += font.get_string_size(vol, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
+	elif int(kaart.kost) >= 0:
 		if bool(kaart.kan):
 			knop_koop = _knop(kx, ky, kh, "Buy  %d" % int(kaart.kost), maat, font)
 			kx = knop_koop.end.x + 4 * schaal

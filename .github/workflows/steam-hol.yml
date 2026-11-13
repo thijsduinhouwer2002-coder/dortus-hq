@@ -86,6 +86,40 @@ jobs:
           if (-not $p.WaitForExit(600000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           (Get-ChildItem $film -Filter *.png).Count
+      - name: Demo-einde (steamdemo=1, grens 10 s; ontwerp.md sectie Demo-einde)
+        shell: pwsh
+        run: |
+          # 1: met steamdemo komt de regel precies één keer, graven en kopen geweigerd, helden blijven komen
+          # 2: zonder steamdemo geen regel en kopen werkt  3: herstart met dezelfde save: speeltijd loopt door, startregel
+          # 4: hol.json staat in %APPDATA%/Dortus/Het Hol
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
+          function Speel($log, $args_) {
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force }
+            Get-Content $log -ErrorAction SilentlyContinue
+          }
+          $fout = 0
+          $a = Speel "$uit/demo-einde-1.log" "steamdemo=1 demo_einde=10 demo=1 vers=1 duur=30" | Out-String
+          Write-Output "===== 1 (steamdemo)"; Write-Output $a
+          $n = ([regex]::Matches($a, "HOL demo voorbij na")).Count
+          if ($n -ne 1 -or $a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): That's the demo\.") { Write-Output "FOUT: eindregel $n keer of niet in de kroniek"; $fout++ }
+          if ($a -notmatch "geweigerd \(kopen") { Write-Output "FOUT: kopen niet geweigerd"; $fout++ }
+          if ($a -match "HOL koop ") { Write-Output "FOUT: toch gekocht"; $fout++ }
+          if ($a -notmatch "geweigerd \(graven") { Write-Output "FOUT: graven niet geweigerd"; $fout++ }
+          $na = $a.Substring([math]::Max(0, $a.IndexOf("HOL demo voorbij na")))
+          if ($na -notmatch "HOL begin: ") { Write-Output "FOUT: geen held meer na het einde"; $fout++ }
+          $b = Speel "$uit/demo-einde-2.log" "demo=1 vers=1 duur=30" | Out-String
+          Write-Output "===== 2 (zonder steamdemo)"; Write-Output $b
+          if ($b -match "That's the demo" -or $b -notmatch "HOL koop ") { Write-Output "FOUT: zonder steamdemo toch een einde"; $fout++ }
+          $null = Speel "$uit/demo-einde-3a.log" "steamdemo=1 demo_einde=10 vers=1 duur=15"
+          $c = Speel "$uit/demo-einde-3.log" "steamdemo=1 demo_einde=10 duur=8" | Out-String
+          Write-Output "===== 3 (herstart)"; Write-Output $c
+          if ($c -notmatch "speeltijd 1[5-9] s" -or $c -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Demo over\. The full game keeps it all\.") { Write-Output "FOUT: speeltijd of startregel na herstart"; $fout++ }
+          $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          if (Test-Path $save) { Write-Output "save staat in $save" } else { Write-Output "FOUT: geen save in $save"; $fout++ }
+          Write-Output "demo-einde: $fout FOUT"; "demo-einde: $fout FOUT" | Set-Content "$uit/demo-einde.txt"
+          if ($fout -gt 0) { exit 1 }
       - name: GIF maken
         shell: pwsh
         run: |
