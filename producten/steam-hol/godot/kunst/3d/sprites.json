@@ -2,7 +2,7 @@
  "gloop": {
   "anker_x": 50,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 28376,
+  "bytes": 29023,
   "cel_px": [
    99,
    64
@@ -31,7 +31,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 95752,
+  "bytes": 95747,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
