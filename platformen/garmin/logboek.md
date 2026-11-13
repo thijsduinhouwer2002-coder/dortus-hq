@@ -1015,3 +1015,11 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Les: het winkelbestand is een 7-zip-archief; uitpakken met py7zr en dan zoeken, zoeken in het bestand zelf vindt niets.
 - Niet gedaan: punt 5 (bladen en winkelkaarten uit de kandidaat).
 
+
+## 13 nov 2026 ±02:10 UTC (Gijs, run 78)
+- Bericht hoofdchat 02:25: mijn zin uit run 75 "Ebb toont de hartslag niet en leest hem niet uit" was fout. Zelf nagelezen op e40269e1: `Opname.hartslag()` leest `currentHeartRate`, aangeroepen in `SessieScherm.mc` r.152 en `WereldSessie.mc` r.77, alleen bij inhouden.
+- Winkeltekst en de drie plakbestanden nagelopen: de vergissing staat er nergens, niets veranderd. Eindversie privacytekst klopt met de code (opslag, FIT-velden, rechten, imports nagelopen).
+- Lijst van Thijs: regel bij het privacybeleid verwijst nu naar de eindversie. Lijst-1.1: hartslag als regel in de winkeltekst, en "--" tegenover niets bij geen meting.
+- `dortus.com/ebb/privacy.html` en `support.html`: 404.
+- Les: bij "doet de app niet" eerst alle aanroepen lezen (`git grep` op de functie en de module), niet alleen de plek waar het begint.
+- Fout van de omgeving: `git pull` hing weer twee minuten (lokale main van 10 nov, HEAD los). Opgelost met `git fetch origin main` en een eigen tak vanaf origin/main.
