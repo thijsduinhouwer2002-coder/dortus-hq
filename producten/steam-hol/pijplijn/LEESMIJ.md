@@ -12,7 +12,7 @@ Van een `.py`-model in `producten/steam-hol/modellen/` naar een blad dat Godot t
 Lokaal: `python3 -m venv ~/bpyenv && ~/bpyenv/bin/pip install bpy==5.2.4 pillow`, dan `BPY_PYTHON=~/bpyenv/bin/python python3 render.py gloop` (±2 min voor 2 beelden op 640 px, 48 samples). `HOL_HERGEBRUIK=1` snijdt en schaalt opnieuw zonder te renderen, `HOL_SNEL=1` rendert met een kwart van de samples.
 
 ## In het spel
-Godot tekent het blad met filter lineair via een `CanvasTexture` (alleen dat lijf; de rest blijft nearest). Gloop: `systemen/slijm.gd`, functies `beeld_3d()` en `_teken_3d()`; `met_3d = false` geeft de oude pixel-Gloop terug. Voorlopig 3D voor rust, slapen, plat en opstaan; hap en spugen blijven pixels tot Daan die beelden in 3D heeft (dan erbij in `frames`).
+Godot tekent het blad met filter lineair via een `CanvasTexture` (alleen dat lijf; de rest blijft nearest). Gloop: `systemen/slijm.gd`, functies `beeld_3d()` en `_teken_3d()`; `met_3d = false` geeft de oude pixel-Gloop terug. 3D voor rust, slapen (ogen dicht), plat, opstaan, hap, blij (na een nieuwe hoed) en knipperen (elke 4 tot 7 s, 0,2 s); spugen blijft pixels tot Daan die stand heeft. Een stand die niet in het blad staat valt terug op rust, dus een oud blad blijft werken.
 
 ## Zuinig
 Het blad van Gloop is 198 x 64 pixels (±13 kB als PNG, in het geheugen ±67 kB met mipmaps). Gloop tekent alleen opnieuw als er iets gebeurt, net als eerst. Meting van CPU met het nieuwe blad: zie `platformen/steam/taken.md`.

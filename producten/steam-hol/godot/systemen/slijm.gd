@@ -44,14 +44,23 @@ const BERG_MAAT := [5, 25, 100, 300, 1000, 3000]   # vanaf zoveel hoeden wordt d
 const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
 const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
 # 3D-lijf (Bram 13 nov, besluit Thijs 13:35, ontwerp/steam/3d-stijl.md): gerenderd door producten/steam-hol/pijplijn/.
-# Staat kunst/3d/gloop.png er, dan tekent hij dat lijf voor rust, slapen, plat en opstaan; hap en spugen blijven
-# voorlopig de pixelbeelden tot Daan die in 3D heeft. Filter lineair alleen voor dit lijf (CanvasTexture), de
+# Staat kunst/3d/gloop.png er, dan tekent hij dat lijf voor rust, slapen, plat, opstaan, hap, blij en knipper;
+# spugen blijft voorlopig het pixelbeeld tot Daan die in 3D heeft. Filter lineair alleen voor dit lijf (CanvasTexture), de
 # pixelhoeden blijven scherp. Klein lijf = 0,8 x het grote (zelfde verhouding als 16 en 20 breed).
 const LIJF3D_JSON := "res://kunst/3d/sprites.json"
 static var lijf3d: CanvasTexture = null
 static var lijf3d_info := {}
 static var lijf3d_gezocht := false
 var met_3d := true                 # uit = de oude pixel-Gloop (toetsen, of terug als het tegenvalt)
+# Standen van Daan (13 nov 16:30, gloop.py 7e woord): knipperen elke 4 tot 7 s, blij als er een hoed op de toren
+# komt, hap bij opeten. Alleen in 3D en alleen als die stand in het blad staat (anders gewoon rust).
+const KNIPPER_MIN_S := 4.0
+const KNIPPER_MAX_S := 7.0
+const KNIPPER_S := 0.2
+const BLIJ_S := 1.2
+var knipper_tot := -10.0
+var blij_tot := -10.0
+var rng_oog := RandomNumberGenerator.new()   # eigen dobbelsteen, zodat de leven-wekker gelijk blijft
 
 var hol
 var soort := "slijm"
@@ -79,7 +88,9 @@ func zet(h, kol: int) -> void:
 	set_process(false)
 	queue_redraw()
 	rng.seed = hash([kol, "gloop"])
+	rng_oog.seed = hash([kol, "oog"])
 	_plan_leven()
+	_plan_knipper()
 
 # Zuinig: geen _process tussendoor, alleen een wekker voor de volgende leven-animatie.
 func _plan_leven() -> void:
@@ -89,6 +100,22 @@ func _plan_leven() -> void:
 func _wek() -> void:
 	begin_leven()
 	_plan_leven()
+
+# Knipperen: een wekker, en alleen 0,2 s _process (zuinig, demolijst 2).
+func _plan_knipper() -> void:
+	if is_inside_tree():
+		get_tree().create_timer(rng_oog.randf_range(KNIPPER_MIN_S, KNIPPER_MAX_S)).timeout.connect(_knipper)
+
+func _knipper() -> void:
+	knipper()
+	_plan_knipper()
+
+func knipper() -> bool:
+	if not _heeft_3d("knipper") or is_plat() or leven != "" or t < blij_tot:
+		return false
+	knipper_tot = t + KNIPPER_S
+	set_process(true)
+	return true
 
 func _held_in_de_buurt() -> bool:
 	if get_parent() == null:
@@ -177,6 +204,7 @@ func raak(hoed := -1) -> int:
 	hap_van = t
 	if hoed >= 0:
 		hoeden.append(hoed % HOED_SOORTEN)
+		blij_tot = t + HAP_S + BLIJ_S     # na de hap even blij om de nieuwe hoed
 	set_process(true)
 	return hoeden.size()
 
@@ -254,7 +282,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S:
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot:
 		set_process(false)
 	_teken_als_anders()
 
@@ -262,7 +290,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat()]
+	var nu := [frame_nu(), beeld_3d(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat()]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
@@ -309,7 +337,7 @@ static func _laad_3d() -> void:
 	lijf3d.diffuse_texture = load(str(lijf3d_info["blad"]))
 	lijf3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 
-# Welk 3D-beeld nu ("rust" of "plat"), of "" als het pixelbeeld moet (hap, spugen, of geen 3D).
+# Welk 3D-beeld nu (rust, plat, hap, blij, knipper), of "" als het pixelbeeld moet (spugen, of geen 3D).
 func beeld_3d() -> String:
 	if not met_3d:
 		return ""
@@ -317,11 +345,21 @@ func beeld_3d() -> String:
 	if lijf3d == null:
 		return ""
 	var f := _frame_klein()
+	if f[0] == LEVEN and HAP.has(f[1]) and t < hap_van + HAP_S:
+		return "hap" if _heeft_3d("hap") else ""
 	if f[0] == LEVEN and (f[1] == PLAT):
 		return "plat"
 	if f[0] == RUST or (f[0] == LEVEN and (f[1] == OPSTAAN or SLAPEN.has(f[1]))):
+		if f[0] == RUST and t < blij_tot and _heeft_3d("blij"):
+			return "blij"
+		if (f[0] == RUST and t < knipper_tot or f[0] == LEVEN and SLAPEN.has(f[1])) and _heeft_3d("knipper"):
+			return "knipper"     # slapen = ogen dicht
 		return "rust"
 	return ""
+
+func _heeft_3d(naam: String) -> bool:
+	_laad_3d()
+	return met_3d and lijf3d != null and lijf3d_info["frames"].has(naam)
 
 # Het 3D-lijf tekenen met de onderkant op de vloer (y = 0 + wip), x = 0 in het midden van Gloop.
 func _teken_3d(naam: String, wip: int) -> void:

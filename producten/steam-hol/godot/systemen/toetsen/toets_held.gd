@@ -688,7 +688,20 @@ func _init() -> void:
 		ok(g3.beeld_3d() == "plat", "3D: plat-beeld")
 		g3.plat_tot = -100.0
 		g3.hap_van = g3.t
-		ok(g3.beeld_3d() == "", "3D: hap blijft voorlopig het pixelbeeld")
+		var standen: Array = g3.lijf3d_info["frames"]
+		ok(g3.beeld_3d() == ("hap" if standen.has("hap") else ""), "3D: hap (of pixels als het blad geen hap heeft)")
+		g3.raak(2)
+		g3.t = g3.hap_van + g3.HAP_S + 0.1
+		ok(g3.beeld_3d() == ("blij" if standen.has("blij") else "rust"), "3D: blij na een hoed erbij")
+		g3.t = g3.blij_tot + 0.1
+		ok(g3.beeld_3d() == "rust", "3D: na blij weer rust")
+		ok(g3.knipper() == standen.has("knipper"), "3D: knipperen alleen als het blad het heeft")
+		ok(g3.beeld_3d() == ("knipper" if standen.has("knipper") else "rust"), "3D: knipper-beeld")
+		g3.t = g3.knipper_tot + 0.01
+		ok(g3.beeld_3d() == "rust", "3D: na 0,2 s ogen weer open")
+		g3.stap(0.01)
+		ok(not g3.is_processing(), "3D: na knipperen geen _process meer (zuinig)")
+		g3.hap_van = -100.0
 		g3.met_3d = false
 		ok(g3.beeld_3d() == "", "3D uit: de oude pixel-Gloop")
 	else:
