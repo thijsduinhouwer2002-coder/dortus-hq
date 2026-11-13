@@ -46,6 +46,8 @@ static func tik(s, delta: float) -> void:
 	if r != "":
 		s.log_regel("HOL demo voorbij na %d s speeltijd" % int(s.speeltijd_s))
 		s._kroniek(r)
+		if s.kaart_soort != "":
+			preload("res://kern/kaartje.gd").ververs(s)   # een open kaartje zet meteen om (geen Buy meer), controleur 13 nov
 		s.tekst.queue_redraw()
 		s.bewaar()
 
@@ -55,6 +57,7 @@ static func bij_start(s) -> void:
 		s.log_regel("HOL demo: speeltijd %d s, grens %d s" % [int(s.speeltijd_s), int(s.demo_grens)])
 	var r := regel_bij_start(s.steamdemo, s.speeltijd_s, s.demo_grens)
 	if r != "":
+		s.kroniek.erase(r)   # de vorige startregel eruit, zodat hij niet bij elke start opnieuw in de geschiedenis stapelt
 		s._kroniek(r)
 
 # Vraag dit vóór graven of kopen. Geeft true (en logt) als het geweigerd wordt.
