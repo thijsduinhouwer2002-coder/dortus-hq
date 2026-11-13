@@ -88,28 +88,45 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 static var met_3d := true
 const HELD3D_JSON := "res://kunst/3d/sprites.json"
 const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks"}
+# Tussenstap (Bram 13 nov 22:25): de eerste 10 helden zijn altijd gewoon (heldensoort.gd EERSTE_GEWOON) en Daan heeft nog
+# geen 3D-model voor de gewone held, dief en bard. Daardoor stonden er in de strook alleen pixelhelden (Daan 21:50).
+# Tot die modellen er zijn krijgen zij het ridder- of heksblad (via kleur_nr, vast per naam). Uit met GEWOON_3D := false.
+static var GEWOON_3D := true
+const HELD3D_ANDER := ["ridder", "heks"]
 const NIET_3D := -9999
 const HOEDEN3D := "hoeden"       # blad met de 10 hoeden in de volgorde van held.gd
 const HOED_IN_KOP := 1.0         # onderrand van de hoed zoveel spelpixels in de kruin (Daan: nooit zwevend)
 static var held3d := {}          # blad-naam -> [CanvasTexture, info]
 static var held3d_gezocht := false
 
+# Welk 3D-blad hoort bij deze heldensoort ("" = pixels).
+static func blad_voor(soort: String, nr: int) -> String:
+	if HELD3D_SOORT.has(soort):
+		return String(HELD3D_SOORT[soort])
+	if GEWOON_3D:
+		return String(HELD3D_ANDER[absi(nr) % HELD3D_ANDER.size()])
+	return ""
+
 static func _laad_3d() -> void:
 	if held3d_gezocht:
 		return
 	held3d_gezocht = true
 	if not FileAccess.file_exists(HELD3D_JSON):
+		print("HELD3D niet geladen: %s ontbreekt" % HELD3D_JSON)
 		return
 	var d = JSON.parse_string(FileAccess.get_file_as_string(HELD3D_JSON))
 	if typeof(d) != TYPE_DICTIONARY:
+		print("HELD3D niet geladen: %s is geen woordenboek" % HELD3D_JSON)
 		return
 	for naam in HELD3D_SOORT.values() + [HOEDEN3D]:
 		if not d.has(naam) or typeof(d[naam]) != TYPE_DICTIONARY or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
+			print("HELD3D niet geladen: %s (geen blad in sprites.json of bestand ontbreekt)" % naam)
 			continue
 		var ct := CanvasTexture.new()
 		ct.diffuse_texture = load(str(d[naam]["blad"]))
 		ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		held3d[naam] = [ct, d[naam]]
+	print("HELD3D geladen: %s; gewone held, dief en bard op 3D: %s" % [", ".join(PackedStringArray(held3d.keys())), str(GEWOON_3D)])
 
 # Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
 static func stand_3d(staat: String, frame: int) -> String:
@@ -124,7 +141,7 @@ static func stand_3d(staat: String, frame: int) -> String:
 static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dictionary, kleur: Color) -> int:
 	if not met_3d:
 		return NIET_3D
-	var naam: String = String(HELD3D_SOORT.get(String(h.soort_held), ""))
+	var naam: String = blad_voor(String(h.soort_held), int(h.kleur_nr))
 	if naam == "":
 		return NIET_3D
 	_laad_3d()
