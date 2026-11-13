@@ -325,3 +325,6 @@ Thijs heeft zelf op Verzend geklikt. Garmin toont "App in behandeling": de pagin
 
 ## 13 nov 11:26: gratis versie "Ebb Calm" bouwen
 Thijs: "ja ga maar gewoon door". Gijs bouwt Ebb Calm (alleen Calm 4-7-8, de zee, één dier, eindregel naar de volle Ebb) op tak `claude/ebb-calm`. Opdracht in `berichten/gijs.md`. Reden: de gratis-plus-betaald-opzet is het enige model dat in deze hoek aantoonbaar werkt tegen een gratis leider (`platformen/garmin/concurrenten-2026-11-13.md`). Inleveren doet Thijs zelf, zoals bij Ebb.
+
+## 13 nov 11:33: Het Hol weer opstarten
+Thijs: "laten we het hol gaan opstarten". Het Steam-team staat sinds 10 nov stil. Volgorde: (1) Thijs kiest hoe de beelden gemaakt worden (bestellen uiterlijk ma 16 of di 17 nov, zie `ontwerp/beelden-onderzoek-2026-11-13.md`); (2) de hoofdchat schrijft een planning terug vanaf het Desktop Companion Fest (14 tot 18 jan 2027) met een vaste lijst van wat klaar is, zoals bij Ebb; (3) daarna een kleine ploeg aan, geen vijf tegelijk. Lessen uit Ebb gelden: eerst één figuur (Gloop) helemaal goed op het echte scherm, Thijs keurt smaak op vaste momenten, herkennen toetst een frisse kijker.
