@@ -55,7 +55,7 @@ Alleen in `hol.py`:
 - Daarna Gloop in de stand `hap` (mond wijd open, Daans `gloop.py`; `HOL_GLOOP_STAND` kiest, standaard hap). GEZIEN: op 2x leest het als happen, op ware grootte is het verschil klein; de mond kijkt naar ons, niet naar de ridder. Beelden overschreven met deze versie.
 - Concept: `ontwerp/steam/hol-3d-blad-voor-thijs.png` (Rusty's, versie 1 met het moment, versie 2 ridder in de gang). Nog niet op de lijst van Thijs.
 
-## Ronde 6 (13/14 nov ±23:40 tot 00:10 UTC): moet 1 van Daan, de aarde overal één licht
+## Ronde 6 (13 nov ±23:40 tot 23:50 UTC): moet 1 van Daan, de aarde overal één licht
 Tak `claude/steam-hol-naad` (bovenop Daans `claude/steam-hol-fakkel`, dus met zijn nieuwe fakkels). Alleen in `hol.py`. Twee oorzaken gevonden door te meten (helderheid 0,21 R + 0,72 G + 0,07 B, mediaan van de aarde op spelpixel 10 tot 12 per kolom, 960 x 160 zonder Gloop en helden):
 1. **De gedeelde lampen** van `gedeeld.licht()` (fakkel, koel, boven, vul) staan voor Gloop in het midden en vielen als een grote vlek op de voorkant van de aarde: kolom 0 tot 14 was 42, 42, 45, 52, 59, 66, 72, 79, 85, 83, 71, 58, 51, 51, 49. Nu schijnen die vier en de lampjes van de helden alleen op Gloop, helden en schat (light linking in Cycles, collectie `figuren`). De aarde krijgt alleen de egale tegellamp, die nu 40 breder is dan het beeld (aan de randen liep hij nog iets af).
 2. **De ruis in de aarde ging niet rond per kolom.** De knoop gebruikte "Object", en dat is de geschaalde blokruimte (x van -0,5 tot 0,5 over het hele hol), dus de vlekken liepen als één trage golf van donker links naar licht in het midden. Dat zag ik pas toen er met alleen de tegellamp nog een helling van 42 naar 49 overbleef, ook met alle sprietjes, kiezels en fakkels verborgen. Nu komt x uit de wereldpositie en gaat het patroon echt rond met een periode van 16 spelpixels.
@@ -68,9 +68,15 @@ Tak `claude/steam-hol-naad` (bovenop Daans `claude/steam-hol-fakkel`, dus met zi
 - Eerlijk: het vlekpatroon herhaalt nu elke kolom; op 2x zie je het als je zoekt, op ware grootte niet. In het spel was dat al zo (overal de aardtegel van kolom 14).
 - Kan voor Bram en Daan: de vlam van de gangfakkel links (kolom 3) begint precies op spelpixel 24. In de laag `boven` zit hij dus op de onderrand van `kamer_midden_a`; met de doorgetrokken rand van 4 bladpixels kan daar een oranje stipje komen. Was voor de nieuwe fakkel ook al zo (gemeten, zelfde rij).
 
+## Ronde 6b (13 nov ±23:55 UTC): gang een trede lichter dan de aarde (volgende ronde punt 2)
+Frisse kijker 5b: "weinig contrast tussen gang en aarde". Gemeten: de achterwand van de gang lag in de schaduw van het plafond en was donkerder dan de aarde (37 tegen 48). Nu een lange warme lamp in de gang (`ganglicht`), naar achteren gericht, alleen op achterwand en vloer (light linking), even lang als de tegellamp, dus egaal in x. `HOL_GANG_LICHT` (standaard 60, 0 is uit).
+- Drie sterktes naast elkaar: `ronde6b-gang-licht-0-60-120.png`. Gang op spelpixel 27 tot 33 in kolom 13 en 14: 37 / 56 / 70. Gekozen 60: de gang leest als een verlichte tunnel en de poelen van de fakkels blijven zichtbaar; bij 120 verdwijnen die en wordt het vlak.
+- Naden in de kamertoets daarna nog hoogstens 2,4, gang tegen gang egaal (55 tot 57).
+- `ronde6b-gang-2x.png`, `ronde6b-gang-ware-grootte.png`. GEZIEN met Read: de heks en de stekels staan nu tegen een lichtere gang, de aarde is een duidelijk donkerder vlak eromheen.
+
 ## Volgende ronde (voor ma 16 nov)
 1. Spanning in één stilstaand beeld: Gloop met open mond (hap) naar de ridder, of munten die van de berg vliegen; vraag Daan of `gloop.py` een hapstand heeft (in het spel bestaat hap al: `slijm.gd`).
-2. Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
+2. (gedaan in ronde 6b) Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
 3. De heks moet lezen als vallen: kop naar beneden duidelijker, of een held die net op de rand wankelt.
 4. Daarna opnieuw een frisse kijker; doel 7.
 

@@ -432,6 +432,22 @@ tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT * TL_BREED / 10.0
 tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (0.0, -3.0, 4.6)
 tlo.rotation_euler = (math.radians(52), 0, 0); sc.collection.objects.link(tlo)
 
+# Ronde 6b (volgende ronde punt 2, frisse kijker 5b: "weinig contrast tussen gang en aarde"): de achterwand van de
+# gang lag in de schaduw van het plafond en was donkerder dan de aarde (37 tegen 48). Een lange warme lamp in de
+# gang, naar achteren gericht, alleen op achterwand en vloer (light linking). Even lang als de tegellamp, dus egaal
+# in x: de gangtegel past nog steeds op zichzelf. HOL_GANG_LICHT = 0 zet hem uit.
+GANG_LICHT = float(os.environ.get("HOL_GANG_LICHT", "60"))
+if GANG_LICHT > 0:
+    gl_ = bpy.data.lights.new("ganglicht", "AREA"); gl_.shape = "RECTANGLE"; gl_.size = TL_BREED; gl_.size_y = 0.5
+    gl_.color = (1.0, 0.78, 0.66); gl_.energy = GANG_LICHT * TL_BREED / 10.0
+    glo = bpy.data.objects.new("ganglicht", gl_); glo.location = (0.0, -0.3, GANG_TOP - 0.25)
+    glo.rotation_euler = (math.radians(100), 0, 0); sc.collection.objects.link(glo)
+    gangwand = bpy.data.collections.new("gangwand")
+    for o in sc.objects:
+        if o.name.split(".")[0] in ("achterwand", "vloer"):
+            gangwand.objects.link(o)
+    glo.light_linking.receiver_collection = gangwand
+
 # ---------- Gloop van Daan erin (gloop.py ongewijzigd, alleen het model) ----------
 voor = set(bpy.data.objects)
 bron = open(os.path.join(HIER, "gloop.py"), encoding="utf-8").read()
