@@ -74,8 +74,13 @@
       "over": 2,
       "samples": 24,
       "lagen": {
-        "vol": [],
+        "vol": [
+          "gloop",
+          "held"
+        ],
         "zonder_kist": [
+          "gloop",
+          "held",
           "kist",
           "deksel"
         ]
@@ -84,19 +89,28 @@
         "gras": {
           "laag": "vol",
           "vak": [
-            32,
+            224,
             0,
             16,
             8
           ]
         },
+        "aarde": {
+          "laag": "vol",
+          "vak": [
+            224,
+            8,
+            16,
+            16
+          ]
+        },
         "gang": {
           "laag": "vol",
           "vak": [
-            32,
-            8,
+            224,
+            24,
             16,
-            32
+            16
           ]
         },
         "ingang": {
@@ -108,10 +122,28 @@
             40
           ]
         },
+        "kamer_links": {
+          "laag": "vol",
+          "vak": [
+            48,
+            8,
+            16,
+            16
+          ]
+        },
+        "kamer_rechts": {
+          "laag": "vol",
+          "vak": [
+            176,
+            8,
+            16,
+            16
+          ]
+        },
         "put": {
           "laag": "vol",
           "vak": [
-            58,
+            64,
             24,
             16,
             16
@@ -135,7 +167,8 @@
             32
           ]
         }
-      }
+      },
+      "_uitleg": "Rijen en kolommen van Mila (berichten/bram.md 13 nov 18:00): gras rij 0-8, aarde 8-24, gang 24-40, kolom 16. Herhalende tegels uit kolom 14 (x 224). Gloop en helden altijd verborgen, want die tekent het spel zelf."
     }
   }
 }
