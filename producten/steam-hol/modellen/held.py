@@ -67,6 +67,15 @@ def _blok(ouder, loc, maat, m, rot=(0, 0, 0), rond=0.02):
     return _kind(o, ouder)
 
 
+def _noem_hoed(voor, naam):
+    """Daan 13 nov (keuze A van Bram): elk hoedobject heet hoed_<naam>_..., zodat de pijplijn met
+    HOL_VERBERG ["hoed"] een held zonder hoed rendert en het spel de hoed van held.gd erop zet.
+    Zonder HOL_VERBERG verandert er niets aan het beeld."""
+    for o in bpy.data.objects:
+        if o not in voor and o.type not in ("CAMERA", "LIGHT"):
+            o.name = "hoed_" + naam + "_" + o.name
+
+
 def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, gloed=0, rand=0):
     """Bouwt één held met de voeten op plek. Geeft het ouderobject terug."""
     sc = bpy.context.scene
@@ -192,6 +201,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         rnd = bpy.context.object; bpy.ops.object.shade_smooth(); rnd.data.materials.append(goud); _kind(rnd, ouder)
         _cil(ouder, (sx - 0.01, -0.165, sz), 0.06, 0.05, goud,
              rot=(math.radians(90), 0, math.radians(-25)))
+        voor = set(bpy.data.objects)   # Daan 13 nov: alles wat hierna komt tot top= is de hoed
         # helm: zelfde als Gloops helm (koepel, rand, punt, neusstuk)
         bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=24, location=hk(0, 0, HZ + 0.1))
         helm = bpy.context.object; helm.scale = hs(0.37, 0.35, 0.33)
@@ -206,6 +216,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         for i, (px, pz, ps) in enumerate([(0.0, 0.47, 0.11), (0.06, 0.55, 0.1), (0.13, 0.6, 0.085), (0.2, 0.6, 0.07)]):
             _bol(ouder, hk(px, 0.02, HZ + pz), hs(ps, ps * 0.8, ps), pluim, segs=16)
         top = HZ + 0.68 * K
+        _noem_hoed(voor, "helm")
     else:
         hout = g.mat("hout", "7a4a2a", rough=0.6)
         # ronde 3: bezem in plaats van staf, als eigen trek (zoals Gloops munt): steel schuin over de
@@ -230,12 +241,14 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         for kant in (-1, 1):
             _bol(ouder, hk(0.3 * kant, 0.02, HZ - 0.1), hs(0.08, 0.08, 0.16), haar, segs=16)
         # heksenhoed: zelfde als op Gloops toren
+        voor = set(bpy.data.objects)
         pa = g.mat("hpaars", "paars", rough=0.65)
         _cil(ouder, hk(0, 0, HZ + 0.24), 0.55 * K, 0.04 * K, pa)
         _cil(ouder, hk(0, 0, HZ + 0.3), 0.32 * K, 0.08 * K, g.mat("hband", "goud", rough=0.3, metaal=0.6), r2=0.3 * K)
         _cil(ouder, hk(0, 0.0, HZ + 0.6), 0.31 * K, 0.65 * K, pa, r2=0.05 * K)
         _cil(ouder, hk(-0.13, 0, HZ + 0.98), 0.055 * K, 0.2 * K, pa, r2=0.0, rot=(0, math.radians(-35), 0))
         top = HZ + 1.05 * K
+        _noem_hoed(voor, "heksenhoed")
 
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
