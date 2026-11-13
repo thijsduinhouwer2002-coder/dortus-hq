@@ -559,3 +559,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Lokaal (Godot 4.3 Linux, headless): toets_held 0 FOUT (7 nieuwe pas-toetsen, ook haperend 0,099/0,101 en 0,095/0,105), toets_systemen 0 FOUT. Demo 60 s: Hoard-Toucher raakt de schat op 17,4 s, alle vaste stappen in de minuut.
 - Gezien, niet van deze wijziging: een headless demo op Linux geeft honderden SCRIPT ERRORs "Out of bounds get index '3'" in `hol/hol.gd:360` en `_schatkamer` (regel 89), ook op main. Op Windows (echt scherm) niet. Vermoedelijk een hol dat te smal is op een headless scherm. Later nakijken (kan).
 - Controleur akkoord met punten: moet 1 (klokfase) en 3 (architectuur) en kan 4 (film 20) en 5 (afronden) verwerkt; moet 2 is een ontwerpvraag, staat bij Daan; kan 6 (strook.gd 409 regels) en 7 (standin_held op 11) open.
+
+## 13 nov 18:11 tot 18:50 UTC (Bram)
+- Gloop-standen naar main (08380c6) na Windows-run 43475269985 groen; de pijplijn rendert hap opnieuw met Daans ovale mond (GEZIEN: open ovaal met tand).
+- Hol-tegels op Mila's rijen en kolommen (tak `claude/steam-hol-tegels`): gras, aarde, gang uit kolom 14, kamers kolom 3 en 11, put kolom 4, ingang en schatkamer; gloop en held verborgen in elke laag. GEZIEN: zes keer gras over aarde over gang naast elkaar zonder naad. Windows-runs 43481547893 en 43483146552 groen.
+- Ridder en heks van Daan door de pijplijn: bladen met rust, stap1, stap2, schrik, vallen (ridder 57 x 62, heks 52 x 56 bladpixels per beeld, ±14 spelpixels hoog, past in de gang van 16). Alleen het blad, nog niet in het spel.
+- Pijplijn: twee renders kort na elkaar op één tak botsten bij `pull --rebase` op dezelfde bladen en de push faalde stil (run 43480941880). Nu: bladen apart, tak opnieuw ophalen, bladen erover, en de stap faalt als de push niet lukt (481be7e, daarna run groen en blad op de tak).
+- Voorstel per cel voor hol.gd aan Olaf en twee vragen aan Mila (schatkamer 48 breed, kamers 14 breed) in taken.md en `berichten/mila.md`.
+- Les: een workflow die terugschrijft moet falen als de push niet lukt, anders lijkt alles groen.
