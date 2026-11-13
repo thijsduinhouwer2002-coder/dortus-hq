@@ -37,7 +37,7 @@ var demo := false
 var film := false
 var vers := false
 var proef_fps := 15
-var proef_zaad := 0           # zaad=<n>: vaste helden voor een eerlijke CPU-vergelijking (proef)
+var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
