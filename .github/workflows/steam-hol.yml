@@ -74,6 +74,25 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
+      - name: Toren van hoeden (proef toren=6, 120 en 160 px)
+        shell: pwsh
+        run: |
+          # Daan 13 nov 22:55: de 3D-toren is pas te keuren als Gloop hoeden heeft. Nieuw spel met 6 hoeden
+          # (kern/strook.gd TOREN_PROEF: 4 op zijn hoofd, 2 op de berg), geen demo, scherm na 12 s.
+          $uit = "producten/steam-hol/e2e/screenshots"
+          foreach ($h in @(120, 160)) {
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/toren-$h.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h vers=1 zaad=4242 toren=6 duur=20 log=$log" -PassThru
+            Start-Sleep 12
+            & producten/steam-hol/e2e/scherm.ps1 "$uit/toren-$h.png"
+            $p.WaitForExit(20000) | Out-Null
+            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+            Write-Output "===== log toren $h"; Get-Content $log -ErrorAction SilentlyContinue
+            $alles = Get-Content $log -Raw -ErrorAction SilentlyContinue
+            if ($alles -notmatch "HOL toren proef: 6 hoeden") { Write-Output "FOUT: toren-proef niet in het log"; exit 1 }
+            if ($alles -match "SCRIPT ERROR|Parse Error") { exit 1 }
+          }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (120 px)
         shell: pwsh
         run: |

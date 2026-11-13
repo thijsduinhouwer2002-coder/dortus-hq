@@ -40,6 +40,10 @@ var vers := false
 var proef_fps := 10          # kern/beeldtempo.gd GEWOON; met fps=<n> vast op n (CPU-proef)
 var fps_vast := false
 var moment_tot := -1.0
+# toren=<n>: proef voor de strook (Daan 13 nov 22:55): Gloop begint met n hoeden, oudste eerst, zodat de toren te keuren is.
+# Bij 6: helm, kroon, koksmuts, emmer op zijn hoofd (OP_HOOFD 4) en pan en pet op de berg. Alleen met vers=1 zinvol.
+const TOREN_PROEF := [8, 3, 0, 4, 5, 6, 1, 7, 2, 9]
+var proef_toren := 0
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
@@ -123,6 +127,7 @@ func _ready() -> void:
 				proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
 				fps_vast = true
 			"zaad": proef_zaad = int(kv[1])
+			"toren": proef_toren = clampi(int(kv[1]), 0, TOREN_PROEF.size())
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
@@ -182,6 +187,10 @@ func _ready() -> void:
 		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
 	if demo:
 		hol.goud = KAARTJE.DEMO_GOUD
+	if proef_toren > 0 and slijm.has_method("krijg_hoed"):
+		for i in proef_toren:
+			slijm.krijg_hoed(TOREN_PROEF[i])
+		log_regel("HOL toren proef: %d hoeden %s" % [proef_toren, str(TOREN_PROEF.slice(0, proef_toren))])
 	if kroniek.is_empty():
 		_kroniek("Your hole is open. Heroes will come.")
 	DEMO_EINDE.bij_start(self)
