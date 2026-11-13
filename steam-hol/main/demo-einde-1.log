@@ -3,26 +3,26 @@ HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL begin: vallen (Kees)
-HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 6.8 (wacht 0.0): Bram the Bard tunes his lute.
+HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 7.0 (wacht 0.0): Bram the Bard tunes his lute.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 5
 HOL demo voorbij na 10 s speeltijd
 HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
-HOL meting t=10 beelden=144 helden=2
+HOL meting t=10 beelden=143 helden=2
 HOL begin: opgegeten (Odo)
-HOL kroniek 12.6 (wacht 1.1): Kees fell to the Spike Pit. +6
-HOL kroniek 15.1 (wacht 2.9): Odo climbs into your hole.
+HOL kroniek 12.6 (wacht 0.9): Kees fell to the Spike Pit. +6
+HOL kroniek 15.1 (wacht 2.7): Odo climbs into your hole.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
 HOL demo klik op Gloop
-HOL kaartje open 18.5: slijm
+HOL kaartje open 18.6: slijm
 HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
 HOL meting t=20 beelden=151 helden=2
 HOL begin: doorlopen (Tibbe)
 HOL kaartje dicht 24.6
-HOL kroniek 24.6 (wacht 1.6): Tibbe has a map. It is wrong.
-HOL kroniek 25.6 (wacht 0.5): Bram fled. Grudge: the Spike Pit.
+HOL kroniek 24.6 (wacht 1.5): Tibbe has a map. It is wrong.
+HOL kroniek 25.7 (wacht 0.5): Bram fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
-HOL kroniek 28.1 (wacht 0.5): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 28.2 (wacht 0.5): Gloop ate Odo. Kept the crown. +6
 HOL einde na 30 s, fps=15, goud=78, terugkomers=1
