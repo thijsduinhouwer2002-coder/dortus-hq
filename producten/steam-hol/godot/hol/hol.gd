@@ -325,6 +325,8 @@ func _draw() -> void:
 		var k: int = fk[i]
 		if k <= ingang_kol or k >= kolommen:
 			continue
+		if i == 1 and schat_3d:
+			continue   # de 3D-schatkamer heeft zijn eigen twee fakkels (Daan 13 nov 22:55: die voor de goudberg mag weg)
 		var fx: float = k * KOL + 4
 		if i == 0:
 			fx = ix + KOL + 4   # de fakkel bij de ingang schuift mee
@@ -332,6 +334,11 @@ func _draw() -> void:
 		# vierkant op de celrand (Daan 13 nov 19:35, moet 1)
 		if not (met_3d and HOL3D.heeft("gang")):
 			draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
+		# 3D-fakkel uit het deco-blad (vast beeld, het licht zit in de 3D-gang); hoogte uit de render (`uit`), anders gelijk met de pixelfakkel
+		var fm := HOL3D.deco_maat("fakkel")
+		if met_3d and HOL3D.heeft("gang") and fm != Vector2.ZERO and HOL3D.teken_deco(self, "fakkel",
+				Vector2(fx + 4 - floor(fm.x / 2.0), HOL3D.deco_y("fakkel", GANG_BOVEN + 13 - fm.y))):
+			continue
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
 	if boven[schat_kol] and not schat_3d:
