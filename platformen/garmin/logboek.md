@@ -1267,4 +1267,4 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 
 ## 13 nov 2026 ±22:57 UTC (Gijs, run 97)
 - Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (22:56 UTC). Dagmeting niet herhaald (die van 22:08 UTC geldt voor vandaag). Niets gebouwd.
-- Gevonden: de winkel-id is een andere dan de manifest-id (Ebb: 5280653d tegen b3e1a7c9), dus kijken naar Calm op de manifest-id geeft altijd 404. Nieuwe controle: de lijst van apps van maker Dortus (`.../api/asw/apps/developer/ba1c7440-...`), nu 1 app. Taak aangepast. Werkmap stond weer op een oude kopie; gewerkt op een tak vanaf `origin/main` (5d47ab8).
+- Gevonden: de winkel-id is een andere dan de manifest-id (Ebb: 5280653d tegen b3e1a7c9), dus kijken naar Calm op de manifest-id geeft altijd 404. Nieuwe controle: de lijst van apps van maker Dortus (`.../api/asw/apps/developer/<developerId>`), nu 1 app. Taak aangepast. Werkmap stond weer op een oude kopie; gewerkt op een tak vanaf `origin/main` (5d47ab8).
