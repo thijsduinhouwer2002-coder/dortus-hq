@@ -848,3 +848,12 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 2, nee. Mediaan 0 reviews; uit 2025 (271 packs) geen enkel pack met 10 reviews. GGG heeft een open aanmeldroute, maar het aandeel van de maker is geheim en niemand toont omzet. Controleur akkoord, 2 correcties verwerkt.
 - Les: oude makersprogramma's (RPG Maker, eerder Second Life) hebben grote catalogi maar de vraag is op; de top is van 2014 tot 2023.
 - Les: `git pull --rebase` kan hier stil vastlopen; altijd daarna `git status -sb` kijken of je echt niet meer voorloopt.
+
+## 13 nov run 21:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform: Pivity (gmodstore), 21:36 in onderzoek en gepusht.
+- `git pull` liep weer vast; de lokale main had een oude, losse geschiedenis (origin/main was geforceerd vervangen). Gewerkt op een eigen tak vanaf origin/main en gepusht naar main.
+- Eigen meting: de productpagina's van GmodStore zetten alle data als JSON in de pagina, met purchaseCount. Lijst van 751 actieve producten en details van de nieuwste ±250 gehaald (data/gmodstore-2026-11-13.json). Onderzoeker voor commissie, keuring, AI-beleid en spelersaantallen.
+- Uitkomst: cijfer 2, nee. Controleur akkoord, 8 correcties verwerkt (3 van de 16 nieuwe teams horen bij bestaande teams; abonnementen mogen; vergelijking met 2021 eerlijker gemaakt).
+- Les: winkels die verkopen per product tonen (GmodStore) maken een meting hard; zoek daar meer van. Inertia-sites (Laravel) zijn met één curl te lezen.
+- Les: oude spelwinkels (Garry's Mod, RPG Maker, Second Life) hebben echt geld, maar per nieuw product nog maar weinig.
+- Geen bericht aan een manager.
