@@ -763,12 +763,12 @@ func _init() -> void:
 		ok(spr.keys() == [1.0], "pas: haperend (%.3f s) toch elke stap 1 pixel (%s)" % [afw, str(spr.keys())])
 		hol_q.free()
 	# 3D-helden (Bram 13 nov): schakelaar standaard uit, standen, en het blad laadt lineair als het er is.
-	var HB = load("res://systemen/held_beeld.gd")
-	ok(HB.met_3d == false, "3D-held: schakelaar staat standaard uit (besluit hoeden open)")
-	ok(HB.stand_3d("lopen", 0) == "stap1" and HB.stand_3d("lopen", 1) == "rust" and HB.stand_3d("lopen", 2) == "stap2", "3D-held: lopen stap1, rust, stap2")
-	ok(HB.stand_3d("vallen", 3) == "vallen" and HB.stand_3d("klimmen", 2) == "rust", "3D-held: vallen en anders rust")
-	HB._laad_3d()
+	var HB3 = load("res://systemen/held_beeld.gd")
+	ok(HB3.met_3d == false, "3D-held: schakelaar staat standaard uit (besluit hoeden open)")
+	ok(HB3.stand_3d("lopen", 0) == "stap1" and HB3.stand_3d("lopen", 1) == "rust" and HB3.stand_3d("lopen", 2) == "stap2", "3D-held: lopen stap1, rust, stap2")
+	ok(HB3.stand_3d("vallen", 3) == "vallen" and HB3.stand_3d("klimmen", 2) == "rust", "3D-held: vallen en anders rust")
+	HB3._laad_3d()
 	if FileAccess.file_exists("res://kunst/3d/ridder.png"):
-		ok(HB.held3d.has("ridder") and HB.held3d["ridder"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-held: ridder-blad geladen, filter lineair")
+		ok(HB3.held3d.has("ridder") and HB3.held3d["ridder"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-held: ridder-blad geladen, filter lineair")
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
