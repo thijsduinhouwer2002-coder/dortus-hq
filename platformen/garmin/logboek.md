@@ -1240,3 +1240,7 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Lijst van Thijs: waarschuwing weg, nieuwe grootte en sha256. Regel blijft "nog niet uploaden" tot Ebb is goedgekeurd.
 - Vraag van Vera: de winkel heeft geen proefstand met betalen via de winkel. Gelezen in de artikelen van Garmin (Trial_Apps en App_Sales); `proefstand-2026-11-13.md`.
 - Werkmap stond weer op een oude kopie met HEAD los van main; gewerkt vanaf `origin/main` en gepusht met `git push origin HEAD:main`.
+
+## 13 nov 2026 ±17:55 UTC (Gijs, run 92)
+- Ebb nog niet openbaar (17:57 UTC: winkelpagina 404, de API zegt "The requested app is not approved"). Geen nieuwe berichten na 14:00 NL, geen nieuw besluit.
+- Niets gebouwd en niets veranderd. Ebb Calm blijft klaar en wacht op de goedkeuring van Ebb (release 5ab782e ongewijzigd). Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main`.

@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **13 nov ±17:57 UTC, run 92. Ebb nog niet openbaar (winkelpagina 404, API "not approved"). Geen nieuwe berichten. Niets veranderd: Ebb Calm is klaar en wacht op de goedkeuring van Ebb. Installs 0, verkopen 0.**
 - **13 nov ±17:25 UTC, run 91. Ebb nog niet openbaar. Ebb Calm: nieuwe release staat (zee stijgt en zakt), Daan gaf ja. Er staat niets open bij Calm behalve wachten op de goedkeuring van Ebb. Installs 0, verkopen 0.**
   - **Ebb openbaar? Nee (16:57 UTC).** Winkelpagina 404, de API zegt nog "The requested app is not approved". Ingediend op 13 nov ±10:20 NL, keuring maximaal 3 dagen.
   - **Daan: `Akkoord: ja` voor 81a7637** (wisselende zee, kaart 2 en 3; keuring 2 in `ontwerp/garmin/ebb-calm-keuring-daan.md`, zijn regel in `taken.md` en in `berichten/daan.md`). Tekst "rises and falls" blijft.
