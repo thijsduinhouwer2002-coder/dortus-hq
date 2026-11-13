@@ -24,7 +24,7 @@ static func laad() -> void:
 	var d = JSON.parse_string(FileAccess.get_file_as_string(JSON_PAD))
 	if typeof(d) != TYPE_DICTIONARY:
 		return
-	if d.has("deco") and typeof(d["deco"]) == TYPE_DICTIONARY and d["deco"].has("stukken") \
+	if d.has("deco") and typeof(d["deco"]) == TYPE_DICTIONARY and typeof(d["deco"].get("stukken")) == TYPE_DICTIONARY \
 			and ResourceLoader.exists(str(d["deco"].get("blad", ""))):
 		deco_blad = CanvasTexture.new()
 		deco_blad.diffuse_texture = load(str(d["deco"]["blad"]))
@@ -67,6 +67,13 @@ static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	var m: Array = deco[naam]["maat"]
 	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
+
+# bovenkant van het stuk in spelpixels zoals de render hem zette (`uit`, beeld = spel), of `anders` als die er niet is
+static func deco_y(naam: String, anders: float) -> float:
+	laad()
+	if not deco.has(naam) or not deco[naam].has("uit"):
+		return anders
+	return float(deco[naam]["uit"][1])
 
 static func deco_maat(naam: String) -> Vector2:
 	laad()
