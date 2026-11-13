@@ -26,12 +26,13 @@ de linkerhand, heks houdt de staf voor zich uit, rode pluim op de helm (leest ni
 stand vallen erbij.
 
 Los renderen:
-    <venv>/bin/python held.py <uit.png> <soort> <stand> <breedte> <hoogte> <samples>
+    <venv>/bin/python held.py <uit.png> <soort> <stand> <breedte> <hoogte> <samples> [kleur]
 """
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
+import held_soorten as hs_
 
 HUID = "f2c2a0"
 HUID_D = "d89a7a"
@@ -76,8 +77,9 @@ def _noem_hoed(voor, naam):
             o.name = "hoed_" + naam + "_" + o.name
 
 
-def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, gloed=0, rand=0):
-    """Bouwt één held met de voeten op plek. Geeft het ouderobject terug."""
+def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, gloed=0, rand=0, kleur=0):
+    """Bouwt één held met de voeten op plek. Geeft het ouderobject terug.
+    soort: ridder, heks, held, dief, bard (die laatste drie in held_soorten.py). kleur: tuniek 0 tot 4 (alleen held)."""
     sc = bpy.context.scene
     ouder = bpy.data.objects.new("held_" + soort, None)
     sc.collection.objects.link(ouder)
@@ -89,7 +91,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     pupil = g.mat("hpupil", "pupil", rough=0.35)
     glim = g.mat("hglim", "oogwit", emis=4.0)
     laars = g.mat("laars", "4a2e2a", rough=0.6)
-    if soort == "ridder":
+    if soort in hs_.SOORTEN:
+        kleed, kleed_d = hs_.kleding(soort, kleur)
+    elif soort == "ridder":
         kleed = g.mat("tuniek", "4a86f0", rough=0.72, spec=0.25)
         kleed_d = g.mat("tuniek_d", "2a4a94", rough=0.75, spec=0.2)
     else:
@@ -114,7 +118,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         _bol(ouder, (dx, voor - 0.04, 0.06 + til), (0.1, 0.12, 0.075), laars)
 
     # lijf: rond, iets peervormig
-    if soort == "ridder":
+    if soort != "heks":
         _bol(ouder, (0, 0, 0.55), (0.3, 0.26, 0.3), kleed)
         _cil(ouder, (0, 0, 0.42), 0.27, 0.07, g.mat("riem", "4a2e2a", rough=0.5))
         _blok(ouder, (0, -0.27, 0.42), (0.08, 0.02, 0.07), g.mat("gesp", "goud", rough=0.2, metaal=0.9), rond=0.01)
@@ -135,12 +139,18 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         return (a * K, b * K, c * K)
 
     _bol(ouder, (0, 0, HZ), hs(0.36, 0.33, 0.34), huid, segs=48)
+    oy = 0.0
+    if soort in hs_.SOORTEN:
+        hs_.haar(ouder, soort, kleur, hk, hs, HZ)
+        if soort == "dief":
+            hs_.masker(ouder, hk, hs, HZ)
+            oy = -0.03   # ogen iets naar voren, zodat ze wit op het zwarte masker liggen
     for kant in (-1, 1):
         ox = 0.13 * kant
-        _bol(ouder, hk(ox, -0.29, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
+        _bol(ouder, hk(ox, -0.29 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
         kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
-        _bol(ouder, hk(ox + kijk, -0.33, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
-        _bol(ouder, hk(ox + kijk + 0.025, -0.355, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
+        _bol(ouder, hk(ox + kijk, -0.33 + oy, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
+        _bol(ouder, hk(ox + kijk + 0.025, -0.355 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
         _bol(ouder, hk(0.22 * kant, -0.26, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
     if bang:
         _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
@@ -169,19 +179,25 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         hoek_l, hoek_r = 20 + 15 * stap, 20 - 15 * stap
         if soort == "heks":
             hoek_r = 70   # staf voor zich uit, zodat je arm en hand ziet (frisse kijker ronde 1)
+    if soort in hs_.SOORTEN and hs_.armen(soort, stand, stap):
+        hoek_l, hoek_r = hs_.armen(soort, stand, stap)
+    hy = hs_.hand_y(soort, stand) if soort in hs_.SOORTEN else -0.02
     handen = {}
     for kant, hoek in ((-1, hoek_l), (1, hoek_r)):
         a = math.radians(hoek)
         hx = kant * (0.3 + 0.18 * math.sin(a))
         hz = arm_z - 0.22 * math.cos(a)
-        _cil(ouder, ((kant * 0.29 + hx) / 2, 0, (arm_z + hz) / 2), 0.055, 0.24, kleed,
-             rot=(0, kant * a, 0))
-        _bol(ouder, (hx, -0.02, hz), (0.085, 0.085, 0.085), huid, segs=16)
+        _cil(ouder, ((kant * 0.29 + hx) / 2, hy / 2, (arm_z + hz) / 2), 0.055, 0.24, kleed,
+             rot=(math.atan2(-hy, 0.24) if hy < -0.05 else 0, kant * a, 0))
+        _bol(ouder, (hx, hy, hz), (0.085, 0.085, 0.085), huid, segs=16)
         handen[kant] = (hx, hz)
 
     # spullen
     hx, hz = handen[1]
-    if soort == "ridder":
+    if soort in hs_.SOORTEN:
+        hs_.spullen(ouder, soort, stand, handen, kleur)
+        top = HZ + 0.4 * K   # geen eigen hoed: de kruin van het haar
+    elif soort == "ridder":
         staal = g.mat("hstaal", "staal", rough=0.42, spec=0.6, metaal=0.8)   # ronde 2b: minder spiegel, oogde goedkoop plastic
         goud = g.mat("hgoud", "goud", rough=0.2, metaal=0.9, emis=0.1)
         # zwaard rechtop in de rechterhand, iets schuin naar voren
@@ -282,8 +298,9 @@ if __name__ == "__main__":
     uit = sys.argv[1]
     SOORT, STAND = sys.argv[2], sys.argv[3]
     W, H, SAMPLES = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
+    KLEUR_NR = int(sys.argv[7]) if len(sys.argv) > 7 else 0
     g.leeg()
-    h = bouw(SOORT, STAND, (0, 0, 0), draai=30)
+    h = bouw(SOORT, STAND, (0, 0, 0), draai=30, kleur=KLEUR_NR)
     bpy.ops.mesh.primitive_plane_add(size=30, location=(0, 0, 0))
     bpy.context.object.is_shadow_catcher = True
     top = h["top"]
