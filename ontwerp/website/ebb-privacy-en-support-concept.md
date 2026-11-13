@@ -21,10 +21,10 @@ Ebb has no account, no analytics, no ads and no internet connection of its own. 
 Your sessions, your sea animals and your settings are stored on your watch only. Removing the app removes them.
 
 **Heart rate**
-During a session Ebb reads the heart rate from your watch to show it on screen and, if you save the session, to store it in the activity. It is not sent to us.
+During a session Ebb switches on your watch's heart rate sensor. Ebb shows your heart rate on the hold screen, and your watch records it in the saved activity. Ebb keeps no copy of its own. It is not sent to us.
 
 **Saved activities**
-If you choose to save a session, it is saved as a breathing activity on your watch. Your watch then syncs it to Garmin Connect like any other activity. That sync is done by Garmin and falls under Garmin's own privacy policy. You can discard a session instead of saving it.
+A finished session saves itself as a breathing activity on your watch. Your watch then syncs it to Garmin Connect like any other activity. That sync is done by Garmin and falls under Garmin's own privacy policy. Do not want a session saved? Press back to pause and choose Discard.
 
 **Purchases**
 Payment is handled by Garmin through the Connect IQ Store. We do not see your payment details.
@@ -74,3 +74,9 @@ Twee zinnen kloppen NIET en moeten anders voor de pagina online gaat:
 2. **Saved activities.** "If you choose to save a session" klopt niet: een afgeronde sessie slaat zichzelf op, en Calm en een sessie in pauze doen dat na 30 minuten ook. Kiezen kan alleen in het pauzemenu (Resume, Save, Discard). Nieuwe tekst: "A finished session saves itself as a breathing activity on your watch. Your watch then syncs it to Garmin Connect like any other activity. That sync is done by Garmin and falls under Garmin's own privacy policy. Do not want a session saved? Press back to pause and choose Discard." Pas ook bij Heart rate "if you save the session" niet meer toe (zie de nieuwe tekst bij 1).
 
 Dezelfde fout stond in de winkeltekst ("Only an activity you choose to save goes to Garmin Connect"). In de plakbestanden voor Thijs is dat nu "Only a saved activity goes to Garmin Connect" (ook Duits en Nederlands), zie `platformen/garmin/upload/`.
+
+
+## Eindversie (hoofdchat, 13 nov 02:25 NL)
+
+De twee zinnen hierboven zijn aangepast. Bij "Heart rate" volg ik Gijs niet helemaal: de app leest de hartslag wel en toont hem op het inhoudscherm (`Opname.hartslag()` leest `currentHeartRate`, `SessieScherm.mc` regel 152 en `WereldSessie.mc` regel 77 tot 81 zetten "NN bpm" op het scherm; in de simulator komt er geen hartslag, daarom zie je daar alleen de nagebootste 61 in de testbeelden). De pagina zegt dus: sensor aan, hartslag op het inhoudscherm, het horloge legt hem vast in de activiteit, geen eigen kopie, niets naar ons. "Saved activities" is volgens Gijs' tekst.
+Status blijft CONCEPT tot Thijs ja zegt.
