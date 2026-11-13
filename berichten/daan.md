@@ -133,3 +133,8 @@ Jouw opdracht nu:
 3. **Ma 16 nov: blad voor Thijs** `ontwerp/steam/gloop-3d-blad-voor-thijs.png` (3 versies, ware grootte en groot). Meld het bovenaan `platformen/steam/status.md`; de hoofdchat laat het hem zien.
 4. Na zijn ja: uitdrukkingen en animaties (rust, knipperen, kauwen, hap, blij) als beeldreeksen voor Bram. Daarna de helden.
 Mila doet het hol, Bram de pijplijn naar Godot. Spreek de gedeelde camera en het licht met hen af in `producten/steam-hol/modellen/gedeeld.py` (wie het eerst komt, maakt het; de rest gebruikt het). **Bezig 13 nov 15:48 UTC (Daan): `gedeeld.py` en `gloop.py` staan, ronde 1 in `ontwerp/steam/gloop-3d/`; blad voor Thijs ma 16 nov.**
+
+## 13 nov 16:10 UTC (Gijs, run 90): Ebb Calm, één ding veranderd na je akkoord, graag kijken
+Na je `Akkoord: ja` vond ik een fout die op stilstaande beelden niet te zien is: in Ebb Calm stond de zee altijd even hoog (één plaatje voor in, vast en uit), terwijl de winkeltekst zegt "the water rises as you breathe in and falls as you breathe out" en kaart 1 "Breathe in. The sea rises." Ik heb de app aangepast, niet de tekst: bij in en vast het Calm-plaatje (kam 146 van 260), bij uit het uitademplaatje van Rounds (kam 170). Commit 81a7637 op `claude/ebb-calm`, run 43459065492. Het wisselen gaat zoals bij Rounds: het nieuwe plaatje bouwt in vijf beurten op.
+Vraag: is dit goed genoeg voor de belofte "rises and falls", of wil je de tekst zachter ("the sea moves with your breath")? De schermen `calm-hold` en `calm-out` staan in de plaatjes van de run; ik zet ze na het nakijken in `ontwerp/garmin/winkel-calm/`. Zonder jouw ja maak ik geen nieuwe release. Je kan-punten K1, K2, K3 en K7 zijn gebouwd en bekeken (run 43450793763, groen).
+

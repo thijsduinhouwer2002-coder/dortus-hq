@@ -46,3 +46,5 @@ Bouwstraat:
 - **Toetsen:** de opslag van de app wordt in de toetsronde niet per horloge gewist (het eerste veiligheidsblad is daardoor alleen op de fenix 7 als eerste start getest), en de startcheck is op aanraakhorloges niet met een tik getest. Niet nagekeken of dat later is rechtgezet.
 - **Venu X1** (448 x 486, niet rond): bewust niet in versie 1. Ebb tekent rond in de bovenste 448 px; eerst verticaal centreren. Kandidaat voor 1.1 als er vraag naar is.
 - **Vervallen, ter info:** het oude voorstel "Ebb 1.0.1" van Mila (naam van het patroon boven het water bij laag water, `RustigView.mc`) ging over het oude Calm-scherm. Dat scherm is vervangen; niet meer nodig tenzij Mila het opnieuw vraagt.
+- **Calm in de volle Ebb: de zee staat stil (gevonden run 90, 13 nov).** Bij Calm 4-7-8 en My pattern tekent Ebb 1.0.0 één plaatje voor in, vast en uit. In Ebb Calm is dat hersteld op de tak `claude/ebb-calm` (81a7637: bij uitademen het lagere plaatje). Voor Ebb 1.1 dezelfde drie regels overnemen.
+

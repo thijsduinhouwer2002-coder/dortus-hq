@@ -1225,3 +1225,10 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de bouw weigert bestanden boven 300 regels en dat staat helemaal vooraan in de run. Tel de regels voor het pushen (`wc -l source/*.mc`) en kijk na één minuut of de run nog loopt, niet na een kwartier.
 - Les: de lokale `main` had geen gedeelde geschiedenis meer met GitHub; `git checkout -B main origin/main` werkte deze keer wel.
 
+## 13 nov 2026 ±16:00 tot 16:40 UTC (Gijs, run 90)
+- Ebb nog niet openbaar (404, "not approved", 16:01 UTC).
+- Run 43450793763 (b579e19) groen. Schermen bekeken op FR255, fenix 8 47 mm en Venu 3S: goed.
+- Uitgezocht waarom de zee op "out 4" even hoog stond als op "hold 7": Calm tekende altijd hetzelfde stilstaande plaatje. De winkeltekst belooft water dat stijgt en zakt. Hersteld in de app (81a7637): bij uitademen het lagere plaatje van Rounds.
+- Besluit: app aanpassen in plaats van de belofte uit de tekst halen. Reden: het is de kern van het product en de code lag er al.
+- Les: een belofte in de winkeltekst nakijken in de bewegende app of in de code, niet op losse stilstaande schermen. Twee schermen van verschillende fasen naast elkaar leggen had dit in run 87 al laten zien.
+
