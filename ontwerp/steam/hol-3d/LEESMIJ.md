@@ -47,7 +47,20 @@ Alleen in `hol.py`:
 - GEZIEN met Read: geen naad in de kamertoets, de aarde is overal één tint, geen sikkels meer.
 - Eerlijk: de schatkamer is nu krap; Gloop staat voor de kist en de helft van de berg. In het spel tekent het spel Gloop zelf. Voor het blad voor Thijs wil ik Gloop een stukje naar links en de berg rechts hoger, zodat goud links en rechts van hem te zien is.
 
-## Volgende ronde
+## Ronde 5b (13 nov ±20:55 UTC): concept van het blad voor Thijs
+- Gloop 0,25 naar links, kist smaller en verder naar links: de berg is nu rechts van hem te zien.
+- Eerst drie versies met meer of minder licht op de aarde (`HOL_TEGEL_LICHT` 200, 300, 420). Frisse kijker 1: "op ware grootte zie ik bijna geen verschil", alle drie een 5. Les: licht is hier niet de knop; drie lichtversies tonen heeft geen zin. Zijn punt: "de helden staan ver van het monster, er gebeurt niets".
+- Daarom staat de ridder nu bij de kist en schrikt hij van Gloop (stand `schrik`, kijkt naar Gloop, schaal 0,85). Eerlijk: in het spel lopen helden naar de schat en eet Gloop ze op. `ronde5b-moment-ware-grootte.png`, `ronde5b-moment-2x.png`.
+- Frisse kijker 2 (nieuw, alleen dit beeld): herkent slijm met kroon op goud, ridder voor de schatkamer, stekels, ladder; spel volgens hem "bewaak je schat tegen helden, Dungeon Keeper maar schattig" (klopt). Nog steeds 5 van 10: "een mooi stilleven, geen moment met spanning; figuurtjes piepklein; weinig contrast tussen gang en aarde". Het oranje figuurtje bij de put leest niet als vallen.
+- Concept: `ontwerp/steam/hol-3d-blad-voor-thijs.png` (Rusty's, versie 1 met het moment, versie 2 ridder in de gang). Nog niet op de lijst van Thijs.
+
+## Volgende ronde (voor ma 16 nov)
+1. Spanning in één stilstaand beeld: Gloop met open mond (hap) naar de ridder, of munten die van de berg vliegen; vraag Daan of `gloop.py` een hapstand heeft (in het spel bestaat hap al: `slijm.gd`).
+2. Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
+3. De heks moet lezen als vallen: kop naar beneden duidelijker, of een held die net op de rand wankelt.
+4. Daarna opnieuw een frisse kijker; doel 7.
+
+## Oudere lijst van ronde 4
 - Het moment groter maken: Gloop die grijnst of kijkt naar de vallende heks (vraag Daan, zijn gloop.py), de heks en de put iets dichter bij de kamer zodat het oog van Gloop naar de val gaat. Titel of logo hoort op de capsule, niet in de strook.
 - Ronde kamers boven de gang laten lezen als kamers (iets erin: een bed of een kist, alleen als het in het spel zit).
 

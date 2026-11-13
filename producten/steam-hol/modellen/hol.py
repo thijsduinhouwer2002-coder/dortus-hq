@@ -281,11 +281,11 @@ for k in range(8):
     cil("sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
 
 # ---------- kist links in de kamer, open, goud puilt eruit ----------
-kist = blok("kist", (-1.85, 0.75, 0.32), (0.95, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
-blok("kistband", (-1.85, 0.44, 0.32), (0.98, 0.03, 0.12), GOUD_D)
-deksel = blok("deksel", (-1.85, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
+kist = blok("kist", (-2.05, 0.75, 0.32), (0.85, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
+blok("kistband", (-2.05, 0.44, 0.32), (0.98, 0.03, 0.12), GOUD_D)
+deksel = blok("deksel", (-2.05, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
 for i in range(10):
-    cil("kistmunt", (-1.85 + random.uniform(-0.38, 0.38), 0.7 + random.uniform(-0.15, 0.15), 0.66 + random.uniform(0, 0.08)),
+    cil("kistmunt", (-2.05 + random.uniform(-0.38, 0.38), 0.7 + random.uniform(-0.15, 0.15), 0.66 + random.uniform(0, 0.08)),
         0.12, 0.03, GOUD, rot=(random.uniform(-0.6, 0.6), random.uniform(-0.6, 0.6), 0), verts=20)
 
 
@@ -398,7 +398,7 @@ hulp = bron[bron.index("def bol("):begin]
 exec(hulp, ns)
 exec(stuk, ns)
 nieuw = [o for o in bpy.data.objects if o not in voor]
-GLOOP_X, GLOOP_Y, GLOOP_S, GLOOP_Z = -0.25, 0.6, 0.95, 0.18
+GLOOP_X, GLOOP_Y, GLOOP_S, GLOOP_Z = -0.5, 0.6, 0.95, 0.18   # ronde 5: iets naar links, zodat de berg rechts van hem te zien is
 for o in nieuw:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
         bpy.data.objects.remove(o, do_unlink=True)
@@ -414,7 +414,9 @@ for o in nieuw:
 # geeft het hol zonder helden (het spel tekent ze zelf).
 if os.environ.get("HOL_HELDEN", "1") == "1":
     import held
-    held.bouw("ridder", "stap1", plek=(LINKS + 2.5 * KOL, 0.45, 0.0), draai=40, schaal=0.78, gloed=25, rand=40)
+    # Ronde 5, frisse kijker: "de helden staan ver van het monster, er gebeurt niets". De ridder staat nu bij de
+    # kist en schrikt van Gloop (in het spel: helden lopen naar de schat en Gloop eet ze op).
+    held.bouw("ridder", "schrik", plek=(KX0 + 0.75, 0.3, 0.0), draai=25, schaal=0.85, gloed=35, rand=40)
     held.bouw("heks", "vallen", plek=(PUT_X - 0.25, 0.5, -0.05), draai=20, schaal=0.68, gloed=25, rand=40)
 
 # ---------- camera en licht (gedeeld) ----------
