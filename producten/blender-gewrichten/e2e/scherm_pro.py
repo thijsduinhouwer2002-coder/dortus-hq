@@ -363,10 +363,11 @@ def exploded(factor):
 
 
 # Proeven: (naam, soort, zij_lidas, hoogte, inzoom of exploded-factor)
-PROEF13 = [("p13-a", 20, -20, 0.85), ("p13-b", 25, -35, 0.85), ("p13-c", 35, -15, 0.75)]
-PROEF14B = [("p14b-a", 15, 10, 2.5), ("p14b-b", 30, 25, 2.5), ("p14b-c", -25, 20, 2.5), ("p14b-d", 15, -25, 2.5)]
-KIJK13 = (20, -20, 0.85)
-KIJK14B = (15, 10, 2.5)
+# Ronde 1 (run 43471356542): van onder (p13-a, b) maakte het groen kleiner; p14b-c gaf twee losse delen.
+PROEF13 = [("p13-d", 20, 30, 0.7), ("p13-e", 35, 15, 0.7)]
+PROEF14B = [("p14b-e", -35, 25, 2.5)]
+KIJK13 = (20, 15, 0.7)
+KIJK14B = (-25, 20, 2.5)
 
 
 def kijk_van_boven():
