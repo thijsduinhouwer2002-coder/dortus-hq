@@ -129,3 +129,26 @@ jobs:
         run: |
           if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH of verkeerde scène op $D"; exit 1; fi
           echo "geen crash op $D"
+
+  # Stap 3: de toetsen met de vlag van Ebb Calm. De image draait de toetsen uit monkey.jungle; daarom een kopie van de
+  # app waarin monkey.jungle de inhoud van calm.jungle heeft. De bron zelf verandert niet.
+  toetsen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Toetsen Ebb Calm in de simulator (fr255)
+        run: |
+          cp -r "$GITHUB_WORKSPACE/$APP" /tmp/calm-app && cp /tmp/calm-app/calm.jungle /tmp/calm-app/monkey.jungle && chmod -R a+rwX /tmp/calm-app
+          docker run --rm -v /tmp/calm-app:/app -w /app "$IMAGE" fr255 2>&1 | tee /tmp/toetsen.log; R=${PIPESTATUS[0]}
+          echo "== samenvatting"; grep -E "PASS|FAIL|ERROR|Ran [0-9]+" /tmp/toetsen.log | tail -90
+          exit $R
