@@ -229,7 +229,17 @@ for k in range(8):
 # ---------- kist links in de kamer, open, goud puilt eruit ----------
 kist = blok("kist", (-2.25, 0.75, 0.32), (0.95, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
 blok("kistband", (-2.25, 0.44, 0.32), (0.98, 0.03, 0.12), GOUD_D)
-deksel = blok("deksel", (-2.25, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
+if os.environ.get("WINKEL") == "1":
+    # Daan, close-up 5: kist met een bol deksel, gouden hoekbanden en een slot (kijker: "vlakke bruine doos")
+    for kx in (-0.36, 0.36):
+        blok("kistbeslag", (-2.25 + kx, 0.44, 0.32), (0.09, 0.035, 0.64), GOUD_D)
+    cil("kistslot", (-2.25, 0.42, 0.5), 0.09, 0.05, GOUD, rot=(math.radians(90), 0, 0), verts=24)
+    blok("slotgat", (-2.25, 0.395, 0.49), (0.025, 0.01, 0.06), HOUT_D)
+    deksel = cil("deksel", (-2.25, 1.12, 0.86), 0.31, 0.95, HOUT_D, rot=(math.radians(-60), math.radians(90), 0), verts=32)
+    for kx in (-0.36, 0.36):
+        cil("dekselband", (-2.25 + kx, 1.12, 0.86), 0.325, 0.09, GOUD_D, rot=(math.radians(-60), math.radians(90), 0), verts=32)
+else:
+    deksel = blok("deksel", (-2.25, 1.05, 0.88), (0.95, 0.12, 0.55), HOUT_D, rot=(math.radians(-25), 0, 0)); afronden(deksel, 0.04, 2)
 for i in range(10):
     cil("kistmunt", (-2.25 + random.uniform(-0.38, 0.38), 0.7 + random.uniform(-0.15, 0.15), 0.66 + random.uniform(0, 0.08)),
         0.12, 0.03, GOUD, rot=(random.uniform(-0.6, 0.6), random.uniform(-0.6, 0.6), 0), verts=20)
@@ -334,8 +344,8 @@ if WINKEL:
 cam = g.camera(hoogte_midden=(ONDER + MAAIVELD + 0.75) / 2 + 0.3, schaal=BREED)
 if WINKEL:
     cam.data.ortho_scale = float(os.environ.get("WINKEL_SCHAAL", "5.8"))
-    cam.location.x = -0.95
-    cam.location.z -= 0.7
+    cam.location.x = float(os.environ.get("WINKEL_X", "-0.95"))
+    cam.location.z -= float(os.environ.get("WINKEL_ZAK", "0.7"))
 g.licht()
 # Het gedeelde licht is gezet voor Gloop alleen. In het hol zat "koel" in de achterwand en gaf
 # "boven" een vlek op het gras. Zelfde richting en kleur, alleen verplaatst (Gloop krijgt evenveel licht).
