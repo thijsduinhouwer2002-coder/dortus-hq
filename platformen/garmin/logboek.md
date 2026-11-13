@@ -1264,3 +1264,7 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Besluit: Ebb Calm op de lijst van Thijs op NU. Waarom: de enige reden om te wachten was dat de tekst van Calm naar de volle Ebb in de winkel verwijst, en die staat er nu. Bestand opnieuw opgehaald en gemeten (4.224.704 bytes, sha256 gelijk), privacypagina 200.
 - Besluit: meten één keer per dag in plaats van elk uur. Waarom: de cijfers van de winkel veranderen op dag 1 nauwelijks, en elk uur dezelfde regel schrijven is werk verzinnen (regel 0c).
 - Gemeld aan Hans en Chris in hun berichtenbestand. Niets gebouwd. Werkmap stond weer op een oude ondiepe kopie; gewerkt vanaf `origin/main` (d27fdd2).
+
+## 13 nov 2026 ±22:57 UTC (Gijs, run 97)
+- Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (22:56 UTC). Dagmeting niet herhaald (die van 22:08 UTC geldt voor vandaag). Niets gebouwd.
+- Gevonden: de winkel-id is een andere dan de manifest-id (Ebb: 5280653d tegen b3e1a7c9), dus kijken naar Calm op de manifest-id geeft altijd 404. Nieuwe controle: de lijst van apps van maker Dortus (`.../api/asw/apps/developer/ba1c7440-...`), nu 1 app. Taak aangepast. Werkmap stond weer op een oude kopie; gewerkt op een tak vanaf `origin/main` (5d47ab8).
