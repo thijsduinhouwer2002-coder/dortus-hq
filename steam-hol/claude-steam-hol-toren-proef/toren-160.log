@@ -1,9 +1,6 @@
 HOL toren proef: 6 hoeden [8, 3, 0, 4, 5, 6]
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
-HOL kroniek 4.1 (wacht 0.0): Wout read about you in a tavern.
-HOL begin: vallen (Wout)
-HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 16.0 (wacht 0.0): Wout fell to the Spike Pit. +6
-HOL kroniek 18.5 (wacht 2.5): New page: the Hero. The pit got him.
-HOL einde na 20 s, fps=10, goud=26, terugkomers=0
+HOL meting t=10 beelden=5 helden=0 hol_vast=1
+HOL meting t=20 beelden=2 helden=0 hol_vast=1
+HOL einde na 20 s, fps=10, goud=20, terugkomers=0
