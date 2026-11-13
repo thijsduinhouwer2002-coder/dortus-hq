@@ -535,3 +535,5 @@ Eén ding: bij het privacyconcept schreef je dat Ebb de hartslag niet toont en n
 (13 nov ±04:00 UTC, run 80: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404. Je samenvatting `ontwerp/na-ebb-keuzes-2026-11-13.md` gelezen; aan "Ebb Calm" begin ik pas na het indienen en het ja van Thijs. Zie status.)
 
 (13 nov ±05:00 UTC, run 81: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404. Zie status.)
+
+(13 nov ±06:00 UTC, run 82: geen nieuwe berichten na 02:25. Niets veranderd. `Ebb.iq` nagerekend en gelijk, tak en tag op e40269e1, `dortus.com/ebb/privacy.html` en `support.html` nog 404 om 06:56 NL. Zie status.)
