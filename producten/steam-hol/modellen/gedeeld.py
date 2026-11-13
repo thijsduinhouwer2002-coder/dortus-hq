@@ -103,7 +103,39 @@ def licht():
     sc.world.node_tree.nodes["Background"].inputs["Strength"].default_value = 1.0
 
 
+def _frames_uit_pijplijn():
+    """Bram (13 nov): de pijplijn (producten/steam-hol/pijplijn/render.py) kan via HOL_FRAMES vragen om
+    meer beelden van hetzelfde model: een JSON-lijst van [breed, hoog] per beeld, bijvoorbeeld
+    [[1, 1], [1.3, 0.45]] voor rust en plat. Alles behalve camera en licht wordt dan rond de vloer (0, 0, 0)
+    zo geschaald. Zonder HOL_FRAMES verandert er niets."""
+    import json, os
+    tekst = os.environ.get("HOL_FRAMES", "").strip()
+    return json.loads(tekst) if tekst else None
+
+
 def render(pad, breedte, hoogte, samples=64, doorzichtig=True):
+    frames = _frames_uit_pijplijn()
+    if frames:
+        import os
+        sc = bpy.context.scene
+        anker = bpy.data.objects.new("pijplijn_anker", None)
+        sc.collection.objects.link(anker)
+        for o in list(sc.objects):
+            if o is not anker and o.parent is None and o.type not in ("CAMERA", "LIGHT"):
+                o.parent = anker
+        # ruimer kader (HOL_RUIMTE, bv. 1.6): de pijplijn snijdt daarna zelf strak bij, dan valt plat niet buiten beeld
+        ruimte = float(os.environ.get("HOL_RUIMTE", "1") or 1)
+        if sc.camera and ruimte != 1:
+            sc.camera.data.ortho_scale *= ruimte
+        stam, ext = os.path.splitext(pad)
+        for i, (sx, sz) in enumerate(frames):
+            anker.scale = (sx, sx, sz)
+            _render_een(f"{stam}_{i}{ext or '.png'}", breedte, hoogte, samples, doorzichtig)
+        return
+    _render_een(pad, breedte, hoogte, samples, doorzichtig)
+
+
+def _render_een(pad, breedte, hoogte, samples=64, doorzichtig=True):
     sc = bpy.context.scene
     sc.render.engine = "CYCLES"
     sc.cycles.samples = samples

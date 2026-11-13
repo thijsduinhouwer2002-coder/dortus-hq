@@ -37,6 +37,7 @@ func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> 
 	if met_slijm:
 		slijm = Node2D.new()
 		slijm.set_script(load("res://systemen/slijm.gd"))
+		slijm.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 		wezens.add_child(slijm)
 		slijm.zet(hol, 6)
 	var held := Node2D.new()
@@ -154,6 +155,7 @@ func _init() -> void:
 	hol3.set_script(load("res://systemen/toetsen/nep_hol.gd"))
 	var sl := Node2D.new()
 	sl.set_script(load("res://systemen/slijm.gd"))
+	sl.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 	hol3.add_child(sl)
 	sl.zet(hol3, 6)
 	ok(sl.kan_vechten() and not sl.is_plat(), "slijm staat bij de start klaar, niet plat")
@@ -294,6 +296,7 @@ func _init() -> void:
 	hol5.set_script(load("res://systemen/toetsen/nep_hol.gd"))
 	var g = Node2D.new()
 	g.set_script(load("res://systemen/slijm.gd"))
+	g.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 	hol5.add_child(g)
 	g.zet(hol5, 6)
 	ok(g.toren().is_empty() and g.berg().is_empty() and g.hover_regel() == "Gloop has no hats yet.", "zonder hoeden: geen toren, geen berg")
@@ -354,6 +357,7 @@ func _init() -> void:
 	var d: Dictionary = g.naar_dict()
 	var g2 = Node2D.new()
 	g2.set_script(load("res://systemen/slijm.gd"))
+	g2.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 	hol5.add_child(g2)
 	g2.zet(hol5, 8)
 	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
@@ -413,6 +417,7 @@ func _init() -> void:
 	hol_b.upgrades = bouncy
 	var sl_b := Node2D.new()
 	sl_b.set_script(load("res://systemen/slijm.gd"))
+	sl_b.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 	hol_b.add_child(sl_b)
 	sl_b.zet(hol_b, 6)
 	sl_b.plat()
@@ -605,6 +610,7 @@ func _init() -> void:
 	hol_u.upgrades = upg_u
 	var sl_u := Node2D.new()
 	sl_u.set_script(load("res://systemen/slijm.gd"))
+	sl_u.met_3d = false   # deze toetsen gaan over de pixelbeelden; 3D apart onderaan
 	hol_u.add_child(sl_u)
 	sl_u.zet(hol_u, 6)
 	for hh in [4, 1]:
@@ -662,5 +668,31 @@ func _init() -> void:
 	ok(int(nt1[1]) < int(nt0[1]) and float(nt1[2]) < float(nt0[2]), "nootje stijgt op en vervaagt")
 	ok(HB.nootjes("bard", false, "vallen", 1.0).is_empty() and HB.nootjes("", false, "lopen", 1.0).is_empty() and HB.nootjes("ridder", false, "lopen", 1.0).is_empty(), "geen nootjes bij vallen of bij andere helden")
 	ok(HB.nootjes("", true, "afdalen", 1.0).size() == 1 and HB.nootjes("", true, "lopen", 2.5).is_empty(), "held door het lied: de eerste 2 s één nootje")
+	# 3D-lijf uit de pijplijn (Bram 13 nov, producten/steam-hol/pijplijn/)
+	var hol_3 := Node2D.new()
+	hol_3.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	hol_3.upgrades = U.new()
+	var g3 := Node2D.new()
+	g3.set_script(load("res://systemen/slijm.gd"))
+	hol_3.add_child(g3)
+	g3.zet(hol_3, 6)
+	if FileAccess.file_exists("res://kunst/3d/sprites.json"):
+		ok(g3.beeld_3d() == "rust" and g3.lijf3d != null and g3.lijf3d.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D: rust uit kunst/3d/gloop.png, filter lineair")
+		var tex: Texture2D = g3.lijf3d.diffuse_texture
+		ok(tex.get_width() == int(g3.lijf3d_info["cel_px"][0]) * g3.lijf3d_info["frames"].size() and tex.get_height() == int(g3.lijf3d_info["cel_px"][1]), "3D: blad heeft de maat uit sprites.json (%dx%d)" % [tex.get_width(), tex.get_height()])
+		var t3: int = g3.top_nu()
+		ok(t3 >= 2 and t3 <= 12, "3D: kruin op een redelijke hoogte (%d)" % t3)
+		g3.krijg_hoed(4)
+		ok(int(g3.toren()[0][2]) + g3.HOED_ONDER[4] == -16 + t3, "3D: de eerste hoed staat op zijn kruin")
+		g3.plat()
+		ok(g3.beeld_3d() == "plat", "3D: plat-beeld")
+		g3.plat_tot = -100.0
+		g3.hap_van = g3.t
+		ok(g3.beeld_3d() == "", "3D: hap blijft voorlopig het pixelbeeld")
+		g3.met_3d = false
+		ok(g3.beeld_3d() == "", "3D uit: de oude pixel-Gloop")
+	else:
+		print("[held-toets] let op: geen kunst/3d/sprites.json, 3D-toetsen overgeslagen")
+	hol_3.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

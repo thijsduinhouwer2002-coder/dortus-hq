@@ -1,0 +1,69 @@
+name: Het Hol 3D-modellen (Blender naar Godot)
+
+# Bram, 13 nov 2026 (besluit Thijs 13:35, ontwerp/steam/3d-stijl.md).
+# Elk model in producten/steam-hol/modellen/ dat in producten/steam-hol/pijplijn/sprites.json staat wordt met
+# Blender (pakket bpy 5.2.4, Cycles op de CPU) gerenderd tot beelden met doorzichtige achtergrond, strak bijgesneden,
+# verkleind en als blad met import-instellingen (lineair, mipmaps) in producten/steam-hol/godot/kunst/3d/ gezet.
+# Veranderd blad: commit terug op dezelfde tak en start daarna de Windows-run (steam-hol.yml), want een push
+# met GITHUB_TOKEN start zelf geen nieuwe runs. Zo komt een nieuw model vanzelf in de echte Windows-build.
+on:
+  push:
+    branches: [main, "claude/steam-*"]
+    paths: ["producten/steam-hol/modellen/**", "producten/steam-hol/pijplijn/*.py", "producten/steam-hol/pijplijn/sprites.json", ".github/workflows/steam-hol-modellen.yml"]
+  workflow_dispatch:
+    inputs:
+      sprites:
+        description: "Welke sprites (leeg = alle uit sprites.json)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: steam-hol-modellen-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Blender als Python-pakket (bpy 5.2.4)
+        run: |
+          python -m pip install --quiet bpy==5.2.4 pillow
+          python -c "import bpy; print('Blender', bpy.app.version_string)"
+      - name: Renderen
+        run: |
+          cd producten/steam-hol/pijplijn
+          BPY_PYTHON=python python render.py ${{ github.event.inputs.sprites }} 2>&1 | tee /tmp/render.log
+          grep -E "gerenderd|blad" /tmp/render.log || true
+          cat ../godot/kunst/3d/sprites.json
+      - name: Om naar te kijken (vergroting en ware grootte)
+        uses: actions/upload-artifact@v4
+        with:
+          name: steam-hol-3d
+          path: |
+            producten/steam-hol/pijplijn/uit/*-kijk.png
+            producten/steam-hol/godot/kunst/3d/
+      - name: Terug op de tak en de Windows-run starten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add producten/steam-hol/godot/kunst/3d
+          if git diff --cached --quiet; then echo "Bladen gelijk, niets te doen."; exit 0; fi
+          git config user.name "dortus-pijplijn"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Pijplijn: 3D-bladen opnieuw gerenderd (${GITHUB_SHA::7})"
+          TAK="${GITHUB_REF_NAME}"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase origin "$TAK" && git push -q origin "HEAD:$TAK" && break
+            sleep $((i * 5))
+          done
+          git ls-remote origin "$TAK"
+          gh workflow run steam-hol.yml --ref "$TAK" && echo "Windows-run gestart op $TAK"
