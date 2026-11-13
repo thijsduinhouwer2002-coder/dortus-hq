@@ -113,3 +113,15 @@ Kroon nu zonder donkere binnenlijnen en zonder rode steentjes, buitenrand in cod
 - **Mond moet groter** (las in ronde 3, 4 en 5 als "foutpixel" of "bloedende tong"): op de grote Gloop een lach van 7 breed en 3 hoog, zonder los tandje in het midden.
 - **Oog minder strak**: pupil groter en ronder (3x3 met glimlicht van 2x2), of een kleine ooglid-boog. Vijf van de negen kijkers noemden het oog strak of leeg.
 - Contrast tegen de drukke kamer blijft open.
+
+# Ronde 6 (Daan, zelfde run): B groot met ronde pupil, één glimstip en lach van 7 breed
+Eén nieuwe agent, alleen B. Letterlijk:
+
+1. Rechterhelft: een groen, koepelvormig slijmwezen (slime) met precies één groot oog. Het oog is wit met een zwarte pupil met een wit glansstipje. Het heeft roze wangetjes, een kleine open mond met roze tong en een lichte schaduwrand onderaan. Op zijn kop staat een gouden kroontje met daar bovenop een paarse puntmuts (heksen- of tovenaarshoed) met een gele band. De twee vergrotingen lijken identiek.
+2. Links in de strook zit het wezen midden in een donkere kerkerachtige scène (stenen muur, fakkel, rode hangbord, goudhoop, kist, kristallen). Op ware grootte herken ik: een groene klodder met één oog, de muts en de kroon als gele en paarse vlek. De roze wangetjes zijn nog net te zien. Wat ik niet goed herken: de mond (een paar pixels, leest nauwelijks) en de details van de kroon en muts (je ziet vooral dat er iets geel en paars op staat). De muts en kroon zijn klein en de hele figuur valt best op tegen de donkere achtergrond, maar de details verdwijnen.
+3. Ja, schattig: 8 van 10. Het eenogige, ronde, groene lijf met blozende wangetjes en een klein open mondje is vrolijk en de kroon met muts is grappig. Als klein maatje op mijn scherm zou ik het wel willen. Het kost een punt omdat de uitstraling een beetje generiek slime-achtig is en kroon plus muts samen wat druk zijn.
+4. Het meest storend: kroon en muts tegelijk. Dat leest als twee hoeden op elkaar en op kleine schaal als een rommelig geel-paars vlekje. Verder is het ene oog met de strakke blik een beetje star en kan het door de zwarte pupil midden in het wit iets verbaasds of intens overkomen. De mond is klein en onduidelijk op ware grootte. Niets ziet er echt eng of als een fout uit.
+
+## Stand einde run (Daan)
+- B groot staat op een 8, tweede keer. "Niets ziet er echt eng of als een fout uit": voor het eerst. Basis voor het blad.
+- Volgende run: (1) "generiek slime-achtig" is het echte punt: Gloop moet een eigen trek krijgen die geen ander slijm heeft (denk aan: een schatmuntje dat hij altijd vasthoudt of in zijn lijf ziet glimmen, of een lijf dat aan de onderkant als een pudding uitzakt met een druppel ernaast); (2) twee hoeden lezen klein als vlek: op ware grootte toetsen met 2 hoeden die in kleur verder uit elkaar liggen; (3) dan het blad voor Thijs met 3 versies (B groot plus twee varianten met een eigen trek), op ware grootte en vergroot, plus de huidige Gloop.

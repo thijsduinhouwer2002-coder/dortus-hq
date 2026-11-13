@@ -186,10 +186,10 @@ OOG_KRAAL = [  # C: kraaloog met groot glimlicht en een witte onderrand
 OOG_GROOT = [  # B groot: zelfde oog als A, maar 9 breed, pupil 3 breed met glimlicht van 1 x 2
     "..kkkkk..",
     ".kwwwwwk.",
-    "kwwwekkwk",
-    "kwwwekkwk",
-    "kwwwkkkwk",
-    "kwwwkkkwk",
+    "kwwkkkkwk",
+    "kwwkekkwk",
+    "kwwkkkkwk",
+    "kwwwkkwwk",
     ".kwwwwwk.",
     "..kkkkk..",
 ]
@@ -203,7 +203,7 @@ OOG_BLIJ_GROOT = [
     ".........",
     ".........",
 ]
-MOND_GROOT = ["kktkkk", ".krrk.", "..kk.."]
+MOND_GROOT = ["kkkkkkk", ".krrrk.", "..kkk.."]  # ronde 6: lach 7 breed zonder los tandje (las als foutpixel)
 MOND_OPEN_GROOT = [".kkkk.", "kkkkkk", "krrrrk", "krrrrk", ".kkkk."]
 MOND_KAUW_GROOT = ["k.kk.k", ".k..k."]
 MOND_LACH = ["ktkkk", ".krk."]   # open lach met tong en één tandje
@@ -284,7 +284,7 @@ def frame_groot(staat, wiebel):
         my = oy + 9
         if staat == "hap": stempel(pix, MOND_OPEN_GROOT, cx - 2, my - 1)
         elif staat == "kauw": stempel(pix, MOND_KAUW_GROOT, cx - 2, my)
-        else: stempel(pix, MOND_GROOT, cx - 2, my)
+        else: stempel(pix, MOND_GROOT, cx - 2, my)  # midden van de lach onder het midden van het oog
         by = oy + 7
         for bx in (ox - 4, ox + 10):
             for x in (bx, bx + 1, bx + 2):
