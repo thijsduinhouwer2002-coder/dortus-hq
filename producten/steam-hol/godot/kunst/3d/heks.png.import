@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/heks.png.ctex"
+uid="uid://dvdgtin60o46o"
+path="res://.godot/imported/heks.png-bb52baf679a9f25ae48a8afcdfca7a7d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/heks.png"
-dest_files=["res://.godot/imported/heks.png.ctex"]
+dest_files=["res://.godot/imported/heks.png-bb52baf679a9f25ae48a8afcdfca7a7d.ctex"]
 
 [params]
 

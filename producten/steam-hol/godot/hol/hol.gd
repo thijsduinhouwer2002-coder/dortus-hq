@@ -27,6 +27,10 @@ const DECO := preload("res://kunst/versiering.png")
 const GLOED := preload("res://kunst/gloed.png")
 const KOOP_MUNT := preload("res://kunst/koop_munt.png")            # Mila 03:15: munt van twee beelden die draait
 const PUT_UPG := preload("res://kunst/stekelput_upgrades.png")     # Mila 03:05: rij niveau - 1, zelfde indeling als stekelput.png
+# Het hol in 3D (hol/hol_3d.gd, afspraak Bram en Olaf 13 nov 18:50). Uit = de oude pixeltegels. Een stuk dat niet in het
+# blad staat valt per cel terug op de pixeltegel.
+const HOL3D := preload("res://hol/hol_3d.gd")
+var met_3d := true
 
 var kolommen := 0
 var gang: Array[bool] = []    # onderste rij
@@ -281,7 +285,27 @@ func _open(r: int, k: int) -> bool:
 		return boven[k] or k == ingang_kol
 	return gang[k]
 
+# 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
+func _stuk_3d(r: int, k: int) -> String:
+	if not met_3d or _schatkamer_3d() and k >= schat_kol - 2 and k <= schat_kol:
+		return ""
+	var naam := "aarde"
+	if r == 1 and gang[k]:
+		naam = "put" if vallen.has(k) and HOL3D.heeft("put") else "gang"
+	elif r == 0 and boven[k] and k != ingang_kol:
+		naam = "kamer_links" if k % 2 == 0 else "kamer_rechts"
+	return naam if HOL3D.heeft(naam) else ""
+
+# de schatkamer in 3D beslaat 3 kolommen en 2 rijen; alleen als het blad hem 48 breed heeft en de 3 kolommen open zijn
+func _schatkamer_3d() -> bool:
+	if not met_3d or schat_kol - 2 <= ingang_kol or not HOL3D.heeft("schatkamer"):
+		return false
+	return boven[schat_kol] and boven[schat_kol - 1] and boven[schat_kol - 2]
+
 func _tegel(x: float, y: float, r: int, k: int) -> void:
+	var stuk := _stuk_3d(r, k)
+	if stuk != "" and HOL3D.teken(self, stuk, Vector2(x, y)):
+		return
 	if _open(r, k):
 		var n := r == 0 or not _open(0, k)
 		if r == 0 and k == ingang_kol:
@@ -300,8 +324,10 @@ func _tegel(x: float, y: float, r: int, k: int) -> void:
 func _draw() -> void:
 	var vloer := GANG_ONDER - 1   # bovenste vloerrij
 	# maaiveld: gras met hier en daar een plantje of steen
+	var gras_3d := met_3d and HOL3D.heeft("gras")
 	for k in kolommen:
-		draw_texture_rect_region(GRAS, Rect2(k * KOL, 0, KOL, OPP), Rect2((k % 4) * KOL, 0, KOL, OPP))
+		if not (gras_3d and HOL3D.teken(self, "gras", Vector2(k * KOL, 0))):
+			draw_texture_rect_region(GRAS, Rect2(k * KOL, 0, KOL, OPP), Rect2((k % 4) * KOL, 0, KOL, OPP))
 		var h := _hash(k, 99)
 		if h < 22 and k != ingang_kol and k <= max_kol + 1:
 			draw_texture_rect_region(MAAIVELD, Rect2(k * KOL, 0, KOL, OPP), Rect2((h % 5) * KOL, 0, KOL, OPP))
@@ -309,6 +335,10 @@ func _draw() -> void:
 	for k in kolommen:
 		_tegel(k * KOL, OPP, 0, k)
 		_tegel(k * KOL, GANG_BOVEN, 1, k)
+	var schat_3d := _schatkamer_3d()
+	if schat_3d:
+		HOL3D.teken(self, "schatkamer", Vector2((schat_kol - 2) * KOL, OPP))
+	for k in kolommen:
 		# hier kun je graven: lichte stippels op de rand
 		if not gang[k] and k <= max_kol and ((k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1])):
 			var kx := k * KOL + (1 if k > 0 and gang[k - 1] else KOL - 2)
@@ -319,7 +349,8 @@ func _draw() -> void:
 		_brokkel(c, float(brokkel[c]))
 	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft)
 	var ix := _ingang_x()
-	draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
+	if not (met_3d and HOL3D.teken(self, "ingang", Vector2(ix, 0))):
+		draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren
 	for k in range(ingang_kol + 1, schat_kol - 1):
 		var h := _hash(k, 7)
@@ -338,8 +369,11 @@ func _draw() -> void:
 	var sx := 0
 	if put_schud > 0.0:
 		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])
+	var put_3d := met_3d and HOL3D.heeft("put")
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
+		if put_3d and put_niv == 0 and f == 0:
+			continue   # dichte put zit al in het 3D-stuk; open (na een klap) en gekochte stappen blijven pixels erover
 		if put_niv > 0:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
@@ -357,10 +391,11 @@ func _draw() -> void:
 		draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
-	if boven[schat_kol]:
+	if boven[schat_kol] and not schat_3d:
 		draw_texture_rect_region(DECO, Rect2(schat_kol * KOL, OPP + 1, KOL, KOL), Rect2(8 * KOL, 0, KOL, KOL))
 	var sf := (anim / 2) % 4
-	draw_texture_rect_region(SCHAT, Rect2(schat_kol * KOL - 4, vloer - 15, 24, 16), Rect2(sf * 24, 0, 24, 16))
+	if not schat_3d:   # de 3D-schatkamer heeft de kist er zelf in
+		draw_texture_rect_region(SCHAT, Rect2(schat_kol * KOL - 4, vloer - 15, 24, 16), Rect2(sf * 24, 0, 24, 16))
 	# vliegende muntjes: een boogje van de val naar de schat, 2 bij 2 spelpixels met een donkere rand
 	var doel := schat_kol * KOL + KOL / 2.0
 	for m in munten:
