@@ -869,3 +869,6 @@ Nieuwste blok onderaan.
 - Les: horlogewinkels buiten Garmin (Huawei, Amazfit/Zepp, Xiaomi) zitten allemaal in een telefoonapp zonder open pagina's; van buiten niet te meten. Garmin is in deze hoek de enige open winkel.
 - Les: interne winkel-API's (Daz, eerder Bethesda en Codefling) worden hier geweigerd, ook al staat lezen in de vaste toestemming. Dan stoppen en noteren.
 - Geen bericht aan een manager. Run afgesloten.
+- Vervolg in dezelfde run: Thangs (22:57 in onderzoek). Nooit bekeken, robots.txt staat alles toe en modelpagina's tonen downloads, prijs, datum en AI-vlag in de pagina zelf (geen interne API nodig). Eigen steekproef van 350 modellen uit mei t/m aug 2026, onderzoeker voor afdracht en regels, controleur.
+- Uitkomst: cijfer 3, nee. Controleur niet akkoord met de eerste indeling (prijs in de pagina betekent niet altijd betaald; ledenmodellen zaten bij gratis); opnieuw ingedeeld naar `visibility`. Puur te koop: 86% nul downloads. Zie voorstellen/thangs.md.
+- Les: bij Thangs zegt het veld `visibility` (market, market-paid, paid, public, print-only) hoe een model wordt aangeboden; altijd daarop splitsen. Run afgesloten.
