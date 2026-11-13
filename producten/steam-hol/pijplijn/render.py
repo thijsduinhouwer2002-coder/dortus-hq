@@ -156,6 +156,84 @@ def _blad(naam, s, beelden, namen, samples, duur):
     return info
 
 
+def render_stukken(naam, s, bpy_python, snel):
+    """Soort "stukken" (voor het hol): het model rendert één keer per laag het hele beeld, op vaste schaal en
+    zonder bijsnijden. Daarna knipt de pijplijn vakken eruit, in spelpixels, precies op maat. Zo passen
+    tegels op elkaar en hebben ze allemaal dezelfde schaal en hetzelfde licht als het hele hol.
+    In sprites.json:
+      "beeld": [breed, hoog]        het hele modelbeeld in spelpixels (zelfde verhouding als de args van het model)
+      "over": 2                     zoveel keer groter renderen dan het blad, daarna verkleinen (scherper)
+      "lagen": {"vol": [], "achter": ["kist", "buit"]}   per laag de naambegins die verborgen worden (HOL_VERBERG)
+      "stukken": {"gang": {"laag": "achter", "vak": [x, y, b, h]}}   vak in spelpixels, linksboven = 0, 0
+    Het blad zet de stukken naast elkaar (elk zijn eigen maat); sprites.json in kunst/3d geeft per stuk
+    de plek in het blad (vak_px) en de maat in spelpixels (maat)."""
+    bw, bh = s["beeld"]; px = s["px"]; over = s.get("over", 2)
+    samples = max(8, s["samples"] // 4) if snel else s["samples"]
+    w, h = bw * px * over, bh * px * over
+    nodig = sorted({st["laag"] for st in s["stukken"].values()})
+    lagen = {}
+    t0 = time.time()
+    os.makedirs(UIT, exist_ok=True)
+    for laag in nodig:
+        ruw = os.path.join(UIT, f"{naam}_laag_{laag}.png")
+        if not (os.environ.get("HOL_HERGEBRUIK") == "1" and os.path.exists(ruw)):
+            with tempfile.TemporaryDirectory() as tmp:
+                uit = os.path.join(tmp, "laag.png")
+                args = [a.format(uit=uit, w=w, h=h, samples=samples, stand="rust") for a in s["args"]]
+                env = dict(os.environ, HOL_VERBERG=json.dumps(s["lagen"].get(laag, [])))
+                env.pop("HOL_FRAMES", None); env.pop("HOL_RUIMTE", None)
+                r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
+                                   capture_output=True, text=True)
+                if r.returncode != 0:
+                    print(r.stdout[-3000:], r.stderr[-3000:])
+                    raise SystemExit(f"FOUT: model {s['model']} faalde voor {naam} (laag {laag})")
+                Image.open(uit).convert("RGBA").save(ruw)
+        b = Image.open(ruw).convert("RGBA")
+        if b.size != (w, h):
+            raise SystemExit(f"FOUT: {naam}: laag {laag} is {b.size}, verwacht {(w, h)} (klopt 'beeld' met het model?)")
+        lagen[laag] = verklein(b, (bw * px, bh * px))
+    duur = time.time() - t0
+    print(f"{naam}: {len(nodig)} lagen in {duur:.0f} s")
+    # stukken naast elkaar, elk op zijn eigen maat; 1 bladpixel lucht ertussen tegen doorlopen bij lineair filter
+    namen = list(s["stukken"])
+    vakken = {}
+    for n in namen:
+        x, y, b_, h_ = s["stukken"][n]["vak"]
+        if x < 0 or y < 0 or x + b_ > bw or y + h_ > bh:
+            raise SystemExit(f"FOUT: {naam}: stuk {n} valt buiten het beeld {bw}x{bh}")
+        vakken[n] = (x, y, b_, h_)
+    breed = sum(v[2] * px + 2 for v in vakken.values())
+    hoog = max(v[3] * px for v in vakken.values())
+    blad = Image.new("RGBA", (breed, hoog), (0, 0, 0, 0))
+    info_stukken = {}
+    links = 0
+    for n in namen:
+        x, y, b_, h_ = vakken[n]
+        stuk = lagen[s["stukken"][n]["laag"]].crop((x * px, y * px, (x + b_) * px, (y + h_) * px))
+        blad.alpha_composite(stuk, (links + 1, 0))
+        info_stukken[n] = {"vak_px": [links + 1, 0, b_ * px, h_ * px], "maat": [b_, h_], "uit": [x, y]}
+        links += b_ * px + 2
+    os.makedirs(DOEL, exist_ok=True)
+    blad.save(os.path.join(DOEL, f"{naam}.png"), optimize=True)
+    with open(os.path.join(DOEL, f"{naam}.png.import"), "w") as f:
+        f.write(IMPORT.format(naam=naam))
+    # om naar te kijken: elke laag op ware grootte (schaal 3, strook 120) en het blad 2x
+    kijk_lagen = [verklein(l, (bw * 3, bh * 3)) for l in lagen.values()]
+    groot = blad.resize((blad.width * 2, blad.height * 2), Image.LANCZOS)
+    kw = max([groot.width] + [k.width for k in kijk_lagen]) + 20
+    kh = sum(k.height + 10 for k in kijk_lagen) + groot.height + 20
+    kijk = Image.new("RGBA", (kw, kh), (29, 20, 38, 255))
+    yy = 10
+    for k in kijk_lagen:
+        kijk.alpha_composite(k, (10, yy)); yy += k.height + 10
+    kijk.alpha_composite(groot, (10, yy))
+    kijk.save(os.path.join(UIT, f"{naam}-kijk.png"))
+    print(f"{naam}: blad {blad.width}x{blad.height}, stukken {namen}")
+    return {"soort": "stukken", "blad": f"res://kunst/3d/{naam}.png", "px": px, "beeld": [bw, bh],
+            "stukken": info_stukken, "model": s["model"], "samples": samples,
+            "bytes": os.path.getsize(os.path.join(DOEL, f"{naam}.png"))}
+
+
 def main():
     with open(os.path.join(HIER, "sprites.json")) as f:
         alles = json.load(f)["sprites"]
@@ -165,7 +243,9 @@ def main():
     pad = os.path.join(DOEL, "sprites.json")
     index = json.load(open(pad)) if os.path.exists(pad) else {}
     for naam in kies:
-        index[naam] = render_sprite(naam, alles[naam], bpy_python, snel)
+        s = alles[naam]
+        maak = render_stukken if s.get("soort") == "stukken" else render_sprite
+        index[naam] = maak(naam, s, bpy_python, snel)
     with open(pad, "w") as f:
         json.dump(index, f, indent=1, sort_keys=True)
         f.write("\n")
