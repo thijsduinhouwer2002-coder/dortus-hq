@@ -7,7 +7,7 @@ import maak_blad as mb
 bron = sys.argv[1]; uit = sys.argv[2]
 im = Image.open(bron).convert("RGBA")
 X0, Y0, X1, Y1 = 380, 600, 720, 720   # uitsnede rond de schatkamer
-hats = mb.hoeden(); keuze = [hats[0], hats[4], hats[1]]
+hats = mb.hoeden(); keuze = [hats[4], hats[5], hats[1]]
 rijen = []
 def met(g):
     s = im.copy()
@@ -21,7 +21,7 @@ oud = im.crop((X0, Y0, X1, Y1))
 rijen.append(("nu", oud))
 for v in "ABC":
     st = Image.open(os.path.join(HIER, f"gloop_{v}.png"))
-    rust = st.crop((0, 0, 20, 16))
+    rust = st.crop((0, 0, st.width // 6, st.height))
     rijen.append((v, met(rust)))
     rijen.append((v + "+toren", met(mb.met_toren(rust, keuze, 3))))
 W = (X1 - X0); H = (Y1 - Y0)

@@ -122,6 +122,29 @@ OOG_KRAAL = [  # C: kraaloog met groot glimlicht en een witte onderrand
     ".kwwwk.",
     "..kkk..",
 ]
+OOG_GROOT = [  # B groot: zelfde oog als A, maar 9 breed, pupil 3 breed met glimlicht van 1 x 2
+    "..kkkkk..",
+    ".kwwwwwk.",
+    "kwwwekkwk",
+    "kwwwekkwk",
+    "kwwwkkkwk",
+    "kwwwkkkwk",
+    ".kwwwwwk.",
+    "..kkkkk..",
+]
+OOG_BLIJ_GROOT = [
+    ".........",
+    ".........",
+    "...kkk...",
+    "..k...k..",
+    ".k.....k.",
+    "k.......k",
+    ".........",
+    ".........",
+]
+MOND_GROOT = ["kktkkk", ".krrk.", "..kk.."]
+MOND_OPEN_GROOT = [".kkkk.", "kkkkkk", "krrrrk", "krrrrk", ".kkkk."]
+MOND_KAUW_GROOT = ["k.kk.k", ".k..k."]
 MOND_LACH = ["ktkkk", ".krk."]   # open lach met tong en één tandje
 MOND_KLEIN = ["k...k", ".kkk."]
 MOND_OPEN = ["kkkkk", "krrrk", "krrrk", ".kkk."]
@@ -140,12 +163,14 @@ def frame(versie, staat, wiebel):
         dw, dh = -1, 1
     if staat == "kauw":
         dw, dh = 2, -1
+    if versie == "B":
+        return frame_groot(staat, wiebel)
     if versie == "A":    # Druppel: hoog en rond, open blik
         B, H, glas, oog, mond = 14, 14, False, OOG_PIXAR, MOND_LACH
     elif versie == "B":  # Mochi: breed en zacht, tevreden half dicht
         B, H, glas, oog, mond = 18, 13, False, OOG_LOOM, MOND_KLEIN
-    else:                # C Gelei: glazig, kraaloog
-        B, H, glas, oog, mond = 16, 14, True, OOG_KRAAL, MOND_LACH
+    else:                # C Gelei: glazig, zelfde oog als A (kraaloog las als "twee ogen")
+        B, H, glas, oog, mond = 16, 14, True, OOG_PIXAR, MOND_LACH
     H2 = min(H + dh, 15)
     mask = lichaam(B + dw, H2, False)
     pix = kleur_lijf(mask, glas)
@@ -181,11 +206,43 @@ def frame(versie, staat, wiebel):
             im.putpixel((x, y), P[c] + (255,))
     return im
 
+def frame_groot(staat, wiebel):
+    """B groot: frame 28 x 22, lijf 24 x 19 (ronde 2: op ware grootte las het gezicht niet, Ropuka is daar ±100 px hoog)."""
+    global FW, FH
+    oud = (FW, FH); FW, FH = 28, 22
+    try:
+        dw, dh = [(0, 0), (1, -1), (0, 0), (-1, 1)][wiebel]
+        if staat == "hap": dw, dh = -1, 1
+        if staat == "kauw": dw, dh = 2, -1
+        H2 = 19 + dh
+        mask = lichaam(24 + dw, H2, False)
+        pix = kleur_lijf(mask, False)
+        bodem = FH - 1; top = bodem - H2 + 1; cx = FW // 2
+        oy = top + 3; ox = cx - 4 + 1
+        stempel(pix, OOG_GROOT if staat != "kauw" else OOG_BLIJ_GROOT, ox, oy)
+        my = oy + 9
+        if staat == "hap": stempel(pix, MOND_OPEN_GROOT, cx - 2, my - 1)
+        elif staat == "kauw": stempel(pix, MOND_KAUW_GROOT, cx - 2, my)
+        else: stempel(pix, MOND_GROOT, cx - 2, my)
+        by = oy + 7
+        for bx in (ox - 4, ox + 10):
+            for x in (bx, bx + 1, bx + 2):
+                if pix.get((x, by)) in ("m", "l", "s"):
+                    pix[(x, by)] = "b"
+        im = Image.new("RGBA", (FW, FH), (0, 0, 0, 0))
+        for (x, y), c in pix.items():
+            if 0 <= x < FW and 0 <= y < FH:
+                im.putpixel((x, y), P[c] + (255,))
+        return im
+    finally:
+        FW, FH = oud
+
 def strip(versie):
     frames = [frame(versie, "rust", w) for w in range(4)] + [frame(versie, "hap", 0), frame(versie, "kauw", 0)]
-    s = Image.new("RGBA", (FW * len(frames), FH), (0, 0, 0, 0))
+    fw, fh = frames[0].size
+    s = Image.new("RGBA", (fw * len(frames), fh), (0, 0, 0, 0))
     for i, f in enumerate(frames):
-        s.paste(f, (i * FW, 0))
+        s.paste(f, (i * fw, 0))
     return s
 
 if __name__ == "__main__":

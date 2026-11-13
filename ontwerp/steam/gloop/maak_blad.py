@@ -31,12 +31,12 @@ def met_toren(gloop, hats, n):
     return im
 
 def blad():
-    hats = hoeden(); keuze = [hats[0], hats[4], hats[1]]  # helm, kroon, puntmuts (hoge hoed las als "pot")
+    hats = hoeden(); keuze = [hats[4], hats[5], hats[1]]  # kroon, koksmuts, puntmuts (punt bovenaan) (helm en hoge hoed lazen als "pot" of "emmer")
     font = ImageFont.load_default()
     kol = []
-    for v, naam in (("A", "A druppel"), ("B", "B mochi"), ("C", "C gelei")):
+    for v, naam in (("A", "A druppel"), ("B", "B groot"), ("C", "C gelei")):
         s = Image.open(os.path.join(HIER, f"gloop_{v}.png"))
-        rust = s.crop((0, 0, 20, 16)); hap = s.crop((80, 0, 100, 16)); kauw = s.crop((100, 0, 120, 16))
+        fw = s.width // 6; fh = s.height; rust = s.crop((0, 0, fw, fh)); hap = s.crop((4 * fw, 0, 5 * fw, fh)); kauw = s.crop((5 * fw, 0, 6 * fw, fh))
         toren = met_toren(rust, keuze, 3)
         kol.append((naam, [rust, hap, kauw, toren]))
     W = 1500; H = 900
