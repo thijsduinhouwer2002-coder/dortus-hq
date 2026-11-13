@@ -55,10 +55,12 @@ import Toybox.WatchUi;
             dv.keuze = 8;
             return [dv, new DierenDelegate(dv)];
         }
-        if (k == 7) {
+        if (k == 7 || k == 60 || k == 61) {
             var rv = new RustigView(Ebb.calm(), EbbStart.CALM_NAAM);
             // Stilgezet 0,53 s in de fase "in": het getal staat boven de golf (run 42868087287).
-            rv.plaatjeMs = 530;
+            // Daan K3 (Ebb Calm, 13 nov): 60 is "hold 7" (0,1 s na het inademen, de zee staat hoog en stil),
+            // 61 is "out 4" (4 s in het uitademen, de zee zakt). Voor winkelkaart 2.
+            rv.plaatjeMs = k == 7 ? 530 : (k == 60 ? 4100 : 15000);
             app.zetRustig(rv);
             return [rv, new RustigDelegate(rv)];
         }
@@ -180,7 +182,8 @@ import Toybox.WatchUi;
         if (k == 26) {
             // Keuring bouw 3 punt 14: Calm onder 1 minuut (45 s, telt niet mee: "from 1 min it counts").
             Application.Storage.setValue(EbbTrouw.BITS, 15);
-            return [new CalmEindeView(45000, 4, [] as Array<Number>, 5), new CalmEindeDelegate()];
+            // Daan K1 (13 nov): één ronde 4-7-8 duurt 19 s, de app rekent ms / cyclus, dus 45 s is 2 ademhalingen.
+            return [new CalmEindeView(45000, 2, [] as Array<Number>, 5), new CalmEindeDelegate()];
         }
         if (k == 25 || k == 36) {
             // Keuring bouw 3 punt 12 en 14: alle 24 gevonden, "sea complete", reeks 12 weken.

@@ -211,7 +211,7 @@ class CalmEindeView extends WatchUi.View {
     var reeks as Number;
     var telt as Boolean = true;
     var feest as Boolean = false;
-    static const VOL = ["The full Ebb adds", "breath hold rounds,", "24 sea animals"] as Array<String>;
+    static const VOL = ["The full Ebb adds", "breath hold rounds", "and 24 sea animals"] as Array<String>;
 
     function onHide() as Void {
         EbbSeaComplete.los();

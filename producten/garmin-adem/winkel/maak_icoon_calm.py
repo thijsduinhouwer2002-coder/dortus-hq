@@ -10,6 +10,12 @@ sys.path.insert(0, bron)
 import icoon_v3
 icoon_v3.WALVIS = 0
 icoon_v3.NACHT = (85, 0, 170)
+# Daan K7 (13 nov): op 40 px raakte de witte rand van de vis links en rechts de rand van het rondje. In het
+# startpictogram tekenen we de vis daarom op 88 procent (het winkelicoon met de ring blijft zoals het was).
+KLEINER = 0.88
+if sys.argv[2] != 'winkel':
+    _teken = icoon_v3.h.teken
+    icoon_v3.h.teken = lambda dr, dier, x, y, m: _teken(dr, dier, x, y, round(m * KLEINER))
 if sys.argv[2] == 'winkel':
     icoon_v3.winkel(sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 500)
 else:

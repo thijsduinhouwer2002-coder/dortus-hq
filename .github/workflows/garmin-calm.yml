@@ -2,7 +2,7 @@ name: Garmin Ebb Calm (gratis versie)
 
 # Ebb Calm is dezelfde code als Ebb met de vlag EbbSoort.CALM (calm.jungle, manifest-calm.xml, eigen app-id).
 # Jobs: bouw (drie snelle horloges plus proef-.iq), alle-horloges (compileren voor alle 28), toetsen (Calm en de volle
-# Ebb op fr255 en fenix7), plaatjes (tien schermen op dertien horloges), fit (Calm neemt op en bewaart een activiteit)
+# Ebb op fr255 en fenix7), plaatjes (twaalf schermen op dertien horloges), fit (Calm neemt op en bewaart een activiteit)
 # en de release. De release alleen met de hand (workflow_dispatch) of met "[release-calm]" in het commitbericht, en
 # alleen als alle andere jobs groen zijn. Deze workflow raakt de release ebb-v1.0.0 van de volle Ebb niet aan.
 
@@ -100,8 +100,8 @@ jobs:
           export DISPLAY=:1
           Xvfb :1 -screen 0 1280x1024x24 &
           sleep 2
-          KEUZE="10 22 13 14 15 7 21 26 19 35"
-          NAMEN="menu calmcheck veilig-1 veilig-2 veilig-3 calm-in einde-4min einde-45s settings pauze"
+          KEUZE="10 22 13 14 15 7 60 61 21 26 19 35"
+          NAMEN="menu calmcheck veilig-1 veilig-2 veilig-3 calm-in calm-hold calm-out einde-4min einde-45s settings pauze"
           sed -i "s/const KEUZE = \[\] as/const KEUZE = [$(echo $KEUZE | sed "s/ /, /g")] as/" source/SceneKeuze.mc; grep -n "const KEUZE" source/SceneKeuze.mc
           d=$D
           monkeyc -f calm-plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
