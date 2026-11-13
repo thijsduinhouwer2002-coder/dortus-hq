@@ -165,6 +165,7 @@ func _ready() -> void:
 	regels = REGELS.new()
 	regels.rng = rng
 
+	hol.goud = KAARTJE.START_GOUD   # nieuw spel; laad() zet het goud uit de save
 	if not vers:
 		laad()
 		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
