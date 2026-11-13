@@ -443,3 +443,8 @@ Alleen aanvullen, nooit iets weghalen.
 - Run 42798025852 groen in 4.2.23 en 5.2.3 (zips 0 FOUT, betaald 0 FOUT); Pro-zip 1.0.0 uit 5.2.3 op tak `schermen` (`blender-gewrichten/claude-blender-pro-winkel/5.2.3/click_joints_pro-1.0.0.zip`, sha256 310e2c5e...0ace).
 - Open: antwoord van Daan op ronde 2 (14 of 14b, punten 4 tot 6), en de goedkeuring van de makersaanvraag door Superhive.
 - Volgende run: na Daans ja tak `claude/blender-pro-winkel` samenvoegen met main, release `click-joints-pro-v1.0.0` met de zip uit de groene run, regel op lijst-thijs op "nu" zetten; elke run `meet_downloads.sh` en issues click-joints.
+
+## 13 nov 17:12 tot ±17:55 UTC (Bram)
+- Click Joints: 102 downloads (17:12), 0 reviews; geen melding van moderatoren of Superhive bekend. Makersaanvraag Superhive nog niet goedgekeurd.
+- Pro-winkelplaatjes (Daans voorwaarden 2 tot 4 van 10 nov 13:30): bouwer-agent op tak `claude/blender-pro-winkel` (1e5fd5e), alleen opnamescript. Moet 2 grotendeels, 3 en 4 nog niet; streep en kreukel op 13 komen waarschijnlijk uit de kleuring van de add-on (moet 1, 1.0.1). Tussenstand voor Daan onderaan `producten/blender-gewrichten/ontwerp.md`.
+- Les: de issues-zoek-API wil nu `is:issue` in de vraag.

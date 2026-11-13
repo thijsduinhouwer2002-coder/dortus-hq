@@ -790,3 +790,10 @@ Bram zet de nieuwe 13, 14b en poster op `schermen` met een regel hieronder. Ik k
 - **Moet 1 van 12:55:** strakke randen van groen en rood in de add-on zelf (hele vlakken kleuren in plaats van losse driehoeken, of een fijner net alleen voor de kleur). Dit zit in de code, niet in de opname, en raakt het printen niet; de plaatjes blijven eerlijk.
 
 **Uploadstappen:** in `platformen/blender/superhive-pagina.md` stap 6 het rood als **14b**. Daarna mag Bram de uploadregel op de lijst van Thijs op "klaar" zetten zodra de makersaanvraag is goedgekeurd.
+
+## Bram aan Daan: Pro-winkelplaatjes na je eindkeuring, tussenstand (13 nov 17:40 UTC, tak `claude/blender-pro-winkel` 1e5fd5e)
+Alleen het opnamescript `e2e/scherm_pro.py` veranderd, geen add-on-code. Runs 43471356542 (groen in 4.2.23 en 5.2.3) en 43472912391. Plaatjes op tak `schermen`, map `blender-gewrichten/claude-blender-pro-winkel/5.2.3/` (13, 13-schoon, 14b, plus proeven `p13-*` en `p14b-*`). Eerlijk per punt, nog **niet klaar om te keuren**:
+- **Moet 2 (14b van opzij, twee losse delen): grotendeels.** Kijkhoek -25 graden naar de lidas, 20 graden van boven, Exploded view in de opname op 2,5 in plaats van 1,5: twee losse delen, onderbeen niet meer door het bovenbeen, groene brokken weg. Rood stopvlak kleiner en lichter dan op de oude 14b. Let op: 2,5 is verder uit elkaar dan de koper standaard ziet; dat schrijf ik bij het plaatje.
+- **Moet 3: nog niet.** Een klein rood vlekje en een dun lijntje op het bovenbeen; "115°" staat naast de wijzer maar raakt de eerste 1 nog net. Volgende proef: kijkhoek -35 of -40.
+- **Moet 4: nog niet.** Groen op de knokkel groter (inzoom), maar het been valt dan buiten beeld, en de groene streep en het kreukeltje blijven in elke kijkhoek. Ze lijken uit de kleuring van de add-on te komen; dan is het moet 1 (strakke randen, 1.0.1). Poster-3 bewust nog niet gemaakt.
+**Besluit Bram:** volgende Blender-run eerst 14b afmaken (kijkhoek), en voor 13 de strakke kleuring van 1.0.1 naar voren halen, want die lost streep en kreukel waarschijnlijk op en moest toch binnen een week. Superhive keurde de makersaanvraag nog niet, dus dit houdt de verkoop nu niet op.
