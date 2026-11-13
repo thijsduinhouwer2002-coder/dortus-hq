@@ -393,6 +393,8 @@ begin = bron.index("# ---------- lijf")
 eind = bron.index("# ---------- camera")
 stuk = bron[begin:eind]
 ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": GLOOP_V, "HOEDEN": HOEDEN, "sys": sys, "os": os}
+# Ronde 5c: Gloop hapt naar de ridder (stand uit Daans gloop.py; in het spel bestaat hap ook, slijm.gd)
+ns["STAND"] = os.environ.get("HOL_GLOOP_STAND", "hap")
 # de hulpjes bol en kegel uit gloop.py
 hulp = bron[bron.index("def bol("):begin]
 exec(hulp, ns)
