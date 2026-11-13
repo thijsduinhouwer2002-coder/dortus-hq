@@ -14,6 +14,7 @@ class EbbInstellingenView extends WatchUi.View {
     // Mila blad v12 punt 3: bij de laatste twee regels ben je op de bodem. De zee komt hoger (kamlijn 0,745 D), de
     // vaste zin staat wit in het water (geen knop) en je eigen dier zit eronder. Bij Safety info zakt de pil één plek.
     const GEEN_GELUID = "Ebb is silent. Buzz only.";
+    const GEEN_GELUID_CALM = "Silent app. Buzz only.";   // Ebb Calm: korter dan de regel van Ebb, dus het past overal
     const ZEE_BODEM = 0.745;
     var dier as Number = EbbTrouw.zwemmer();
     // Ebb Calm: alleen trillen aan of uit en de veiligheidsbladen opnieuw lezen.
@@ -157,7 +158,7 @@ class EbbInstellingenView extends WatchUi.View {
         }
         if (bodem) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (d * 0.802).toNumber(), EbbTeken.fX(), GEEN_GELUID, midden);
+            dc.drawText(w / 2, (d * 0.802).toNumber(), EbbTeken.fX(), EbbSoort.CALM ? GEEN_GELUID_CALM : GEEN_GELUID, midden);
             if (dier >= 0) {
                 EbbDierVoorraad.teken(dc, dier, w / 2, (d * 0.890).toNumber(), EbbTeken.px(d, 12), EbbDierPlaatje.GEVONDEN);
             }

@@ -53,7 +53,7 @@ class EbbOpname {
         var s = ActivityRecording.createSession({
             :sport => Activity.SPORT_TRAINING,
             :subSport => Activity.SUB_SPORT_BREATHING,
-            :name => "Ebb"
+            :name => EbbSoort.NAAM
         });
         if (metRondes) {
             _inhoud = s.createField("inhoud", 0, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_LAP, :units => "s"});

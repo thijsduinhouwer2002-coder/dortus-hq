@@ -43,6 +43,17 @@ class EbbApp extends Application.AppBase {
         }
     }
 
+    // Alleen de toetsbouw van Ebb Calm (calm-demo.jungle): na 9 s opslaan zoals Save in het pauzemenu, zodat de
+    // workflow kan nakijken dat Ebb Calm in de simulator een activiteit (FIT-bestand) bewaart.
+    function calmProefKlaar() as Void {
+        _proefTimer = null;
+        if (EbbBouw.DEMO && _rustig != null) {
+            var rv = _rustig as RustigView;
+            rv.opslaanEnTonen();
+            System.println("CALMPROEF opgeslagen " + rv.opgeslagen);
+        }
+    }
+
     function zetView(view as EbbView) as Void {
         _view = view;
     }
@@ -50,6 +61,16 @@ class EbbApp extends Application.AppBase {
     function getInitialView() as [WatchUi.Views] or [WatchUi.Views, WatchUi.InputDelegates] {
         var view = new EbbView();
         _view = view;
+        if (EbbBouw.DEMO && EbbSoort.CALM) {
+            // Testbouw van Ebb Calm: meteen Calm 4-7-8 (geen rondes, die bestaan in Calm niet), na 9 s opslaan.
+            var crv = new RustigView(Ebb.calm(), EbbStart.CALM_NAAM);
+            _rustig = crv;
+            var ct = new Timer.Timer();
+            ct.start(method(:calmProefKlaar), 9000, false);
+            _proefTimer = ct;
+            System.println("CALMPROEF start");
+            return [crv, new RustigDelegate(crv)];
+        }
         if (EbbBouw.DEMO) {
             // Testbouw eis 10: 2 ademhalingen van 250 ms, 2 rondes, herstel 500 ms.
             view.sessie = new Ebb.Rondes(2, 250, 2, 500, System.getTimer());

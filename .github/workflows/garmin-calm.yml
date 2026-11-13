@@ -1,8 +1,10 @@
 name: Garmin Ebb Calm (gratis versie)
 
 # Ebb Calm is dezelfde code als Ebb met de vlag EbbSoort.CALM (calm.jungle, manifest-calm.xml, eigen app-id).
-# Stap 1 (deze workflow): compileert Ebb Calm voor de drie snelle horloges en voor alle horloges uit het manifest,
-# en bewijst dat de volle Ebb op deze tak nog bouwt. Toetsen, simulatorplaatjes en de release komen in de volgende stappen.
+# Jobs: bouw (drie snelle horloges plus proef-.iq), alle-horloges (compileren voor alle 28), toetsen (Calm en de volle
+# Ebb op fr255 en fenix7), plaatjes (tien schermen op dertien horloges), fit (Calm neemt op en bewaart een activiteit)
+# en de release. De release alleen met de hand (workflow_dispatch) of met "[release-calm]" in het commitbericht, en
+# alleen als alle andere jobs groen zijn. Deze workflow raakt de release ebb-v1.0.0 van de volle Ebb niet aan.
 
 on:
   push:
@@ -76,7 +78,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        horloge: [fr255, fenix847mm, venu3s]
+        # Dezelfde dertien horloges als de volle ronde van Ebb (garmin-adem-iq.yml).
+        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965, fenix7, fenix7xpro, fr165, venu3s, venu441mm]
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -108,7 +111,7 @@ jobs:
             i=$((i+1)); n=$(echo $NAMEN | cut -d' ' -f$i)
             monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$i.log" 2>&1 &
             MD=$!
-            case "$d" in fr255) sleep 12 ;; *) sleep 20 ;; esac
+            case "$d" in fr255|fenix7|fenix7xpro) sleep 12 ;; *) sleep 20 ;; esac
             s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$i.log" | tail -1 | awk '{print $3}')
             if [ "$s" = "$k" ]; then import -window root "plaatjes/calm-$n-$d.png"; else echo "VERKEERDE SCENE bij start $i: verwacht $k, kreeg ${s:-niets}"; import -window root "plaatjes/calm-mis$i-$d.png"; echo "start $i verwacht $k kreeg ${s:-niets}" >> plaatjes/CRASH-$d.txt; fi
             kill "$MD" 2>/dev/null || true; sleep 3
@@ -130,9 +133,92 @@ jobs:
           if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH of verkeerde scène op $D"; exit 1; fi
           echo "geen crash op $D"
 
-  # Stap 3: de toetsen met de vlag van Ebb Calm. De image draait de toetsen uit monkey.jungle; daarom een kopie van de
-  # app waarin monkey.jungle de inhoud van calm.jungle heeft. De bron zelf verandert niet.
+  # Stap 3: de toetsen. Soort calm: de image draait de toetsen uit monkey.jungle, daarom een kopie van de app waarin
+  # monkey.jungle de inhoud van calm.jungle heeft (de bron zelf verandert niet). Soort vol: de toetsen van de volle Ebb
+  # op deze tak, als bewijs dat de vlag daar niets breekt.
   toetsen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        soort: [calm, vol]
+        horloge: [fr255, fenix7]
+    env:
+      SOORT: ${{ matrix.soort }}
+      D: ${{ matrix.horloge }}
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Toetsen in de simulator
+        run: |
+          cp -r "$GITHUB_WORKSPACE/$APP" /tmp/calm-app && chmod -R a+rwX /tmp/calm-app
+          if [ "$SOORT" = calm ]; then cp /tmp/calm-app/calm.jungle /tmp/calm-app/monkey.jungle; fi
+          docker run --rm -v /tmp/calm-app:/app -w /app "$IMAGE" "$D" 2>&1 | tee /tmp/toetsen.log; R=${PIPESTATUS[0]}
+          echo "== samenvatting $SOORT $D"; grep -E "PASS|FAIL|ERROR|Ran [0-9]+" /tmp/toetsen.log | tail -90
+          exit $R
+
+  # Stap 4: Ebb Calm, de plaatjesbouw en de toetsbouw compileren voor ELK horloge uit manifest-calm.xml, met
+  # typecontrole (-l 2). Alleen compileren: één NEE of minder dan 28 horloges is rood.
+  alle-horloges:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Compileren voor elk horloge uit manifest-calm.xml (app, plaatjesbouw, toetsbouw)
+        run: |
+          mkdir -p /tmp/k /tmp/alle && chmod 777 /tmp/alle
+          openssl genrsa -out /tmp/k/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/k/key.pem -out /tmp/k/key.der -nocrypt
+          chmod 644 /tmp/k/key.der
+          cat > /tmp/alle.sh <<'SH'
+          cp -r /app /tmp/app && cd /tmp/app && mkdir -p /tmp/bin
+          doe() {
+            d=$1; r=""
+            for j in calm calm-plaatjes calm-demo; do
+              mkdir -p "/tmp/bin/$d-$j"
+              if monkeyc -f $j.jungle -d "$d" -o "/tmp/bin/$d-$j/app.prg" -y /k/key.der -l 2 > "/uit/$j-$d.log" 2>&1; then r="$r $j ja"; else r="$r $j NEE"; fi
+            done
+            echo "COMPILEERT $d:$r, app $(stat -c %s /tmp/bin/$d-calm/app.prg 2>/dev/null) bytes, waarschuwingen $(cat /uit/*-$d.log | grep -ci warning)"
+          }
+          export -f doe
+          grep -o 'iq:product id="[^"]*"' manifest-calm.xml | cut -d'"' -f2 | xargs -P 4 -I{} bash -c 'doe {}' > /uit/regels.txt
+          sort /uit/regels.txt
+          n=$(grep -c '^COMPILEERT ' /uit/regels.txt)
+          echo "COMPILEERT horloges: $n"
+          fout=0
+          if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
+          [ "$n" -ge 28 ] || fout=1
+          exit $fout
+          SH
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
+          exit ${PIPESTATUS[0]}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ebb-calm-alle-horloges
+          path: /tmp/alle
+
+  # Stap 5: de toetsbouw van Ebb Calm (calm-demo.jungle) start meteen Calm 4-7-8 en slaat na 9 s op, zoals Save in het
+  # pauzemenu. Bewijs per horloge: de logregel "CALMPROEF opgeslagen true" en precies één nieuw FIT-bestand met sport
+  # training (10) en subsport breathing (62). Een crash in de logs is rood.
+  fit:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -146,9 +232,141 @@ jobs:
           persist-credentials: false
       - name: Image ophalen
         run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
-      - name: Toetsen Ebb Calm in de simulator (fr255)
+      - name: Calm opnemen en opslaan in de simulator (fr255, fenix847mm, venu3s)
         run: |
-          cp -r "$GITHUB_WORKSPACE/$APP" /tmp/calm-app && cp /tmp/calm-app/calm.jungle /tmp/calm-app/monkey.jungle && chmod -R a+rwX /tmp/calm-app
-          docker run --rm -v /tmp/calm-app:/app -w /app "$IMAGE" fr255 2>&1 | tee /tmp/toetsen.log; R=${PIPESTATUS[0]}
-          echo "== samenvatting"; grep -E "PASS|FAIL|ERROR|Ran [0-9]+" /tmp/toetsen.log | tail -90
-          exit $R
+          mkdir -p "$GITHUB_WORKSPACE/$APP/calmfit"
+          cat > /tmp/fit.sh <<'SH'
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          for d in fr255 fenix847mm venu3s; do
+            monkeyc -f calm-demo.jungle -d "$d" -o "bin/calmdemo-$d.prg" -y /tmp/key.der -l 2 || { echo "bouw $d" >> calmfit/FOUT.txt; continue; }
+            pkill -f simulator 2>/dev/null; sleep 2; simulator > "/tmp/sim-$d.log" 2>&1 & sleep 10
+            touch "/tmp/merk-$d"
+            monkeydo "bin/calmdemo-$d.prg" "$d" > "/tmp/calmdemo-$d.log" 2>&1 &
+            MD=$!
+            sleep 8;  import -window root "calmfit/$d-a-ademen.png"
+            sleep 14; import -window root "calmfit/$d-b-einde.png"
+            kill "$MD" 2>/dev/null || true; sleep 3
+            echo "== uitvoer $d"; cat "/tmp/calmdemo-$d.log"
+            mkdir -p "calmfit/fit/$d"
+            find / -xdev -iname '*.fit' -newer "/tmp/merk-$d" -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+              ls -la "$f"; cp "$f" "calmfit/fit/$d/$(basename "$f")"
+            done
+            grep -q "CALMPROEF opgeslagen true" "/tmp/calmdemo-$d.log" || echo "$d: geen regel CALMPROEF opgeslagen true" >> calmfit/FOUT.txt
+            if grep -iE "watchdog|app crash|unhandled exception|out of memory|Error:" "/tmp/calmdemo-$d.log" "/tmp/sim-$d.log"; then echo "$d: crash of fout in de log" >> calmfit/FOUT.txt; fi
+          done
+          mogrify -fuzz 2% -trim +repage calmfit/*.png
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/fit.sh:/tmp/fit.sh "$IMAGE" /tmp/fit.sh
+          ls -laR "$APP/calmfit" | head -60
+      - name: FIT-bestanden lezen met fitdecode
+        run: |
+          pip install -q --break-system-packages fitdecode || pip install -q fitdecode
+          python3 - "$APP/calmfit" <<'PY'
+          import glob, os, sys
+          import fitdecode
+          basis = sys.argv[1]; fout = []
+          if os.path.exists(basis + "/FOUT.txt"): fout.append(open(basis + "/FOUT.txt").read().strip())
+          for d in ("fr255", "fenix847mm", "venu3s"):
+              fits = sorted(glob.glob("%s/fit/%s/*.fit" % (basis, d)))
+              if len(fits) != 1:
+                  fout.append("%s: %d FIT-bestanden in plaats van 1" % (d, len(fits))); continue
+              sessie, rec, hr, laps, naam = {}, 0, [], 0, None
+              with fitdecode.FitReader(fits[0]) as fit:
+                  for fr in fit:
+                      if not isinstance(fr, fitdecode.FitDataMessage): continue
+                      velden = {f.name: f.value for f in fr.fields}
+                      if fr.name == "session":
+                          sessie = {f.name: f.raw_value for f in fr.fields if f.name in ("sport", "sub_sport", "total_elapsed_time")}
+                      if fr.name == "sport": naam = velden.get("name")
+                      if fr.name == "lap": laps += 1
+                      if fr.name == "record":
+                          rec += 1
+                          if velden.get("heart_rate") is not None: hr.append(velden.get("heart_rate"))
+              print("CALMFIT", d, os.path.getsize(fits[0]), "bytes, sessie", sessie, "naam", naam, "laps", laps, "records", rec, "met hartslag", len(hr), hr[:5])
+              if (sessie.get("sport"), sessie.get("sub_sport")) != (10, 62):
+                  fout.append("%s: sport en subsport %s" % (d, sessie))
+          if fout:
+              print("CALMFIT FOUT:", fout); sys.exit(1)
+          print("CALMFIT goed: op drie horloges één activiteit, training en breathing")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ebb-calm-fit
+          path: producten/garmin-adem/calmfit
+
+  # Stap 6: het winkelbestand, ondertekend met de ontwikkelaarssleutel van Dortus (geheim GARMIN_DEV_KEY, dezelfde als
+  # Ebb). Alleen met de hand of met "[release-calm]" in het commitbericht, en pas als alle andere jobs groen zijn.
+  # Zoals bij Ebb: de image van een derde draait zonder netwerk in een job zonder schrijfrechten, zodat de sleutel er
+  # niet uit kan; alleen de job release mag schrijven en die draait de image niet.
+  iq-echt:
+    needs: [bouw, plaatjes, toetsen, alle-horloges, fit]
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release-calm]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Sleutel
+        env:
+          KEY: ${{ secrets.GARMIN_DEV_KEY }}
+        run: |
+          mkdir -p /tmp/k && chmod 700 /tmp/k
+          if [ -z "$KEY" ]; then echo "::error::Geen GARMIN_DEV_KEY, geen release"; exit 1; fi
+          echo "$KEY" | base64 -d > /tmp/k/key.der; echo "Ondertekend met GARMIN_DEV_KEY"
+      - name: .iq bouwen (alle horloges uit manifest-calm.xml)
+        run: |
+          mkdir -p /tmp/uit && chmod 777 /tmp/uit
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro -v /tmp/uit:/uit "$IMAGE" -c \
+            'monkeyc -e -r -w -f calm.jungle -y /k/key.der -o /uit/EbbCalm.iq > /uit/bouw.log 2>&1; cat /uit/bouw.log; test -s /uit/EbbCalm.iq'
+          rm -rf /tmp/k
+          ls -la /tmp/uit/EbbCalm.iq
+          echo "Waarschuwingen: $(grep -ci warning /tmp/uit/bouw.log || true)"
+          cd /tmp/uit && sha256sum EbbCalm.iq | tee EbbCalm.iq.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ebb-calm-iq
+          path: |
+            /tmp/uit/EbbCalm.iq
+            /tmp/uit/EbbCalm.iq.sha256
+            /tmp/uit/bouw.log
+
+  release:
+    needs: iq-echt
+    concurrency:
+      group: ebb-calm-release
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: producten/garmin-adem/versie.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: ebb-calm-iq
+          path: iq
+      - name: Release op GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSIE=$(tr -d ' \n' < producten/garmin-adem/versie.txt)
+          TAG="ebb-calm-v$VERSIE"
+          gh release delete "$TAG" -R "$GITHUB_REPOSITORY" -y --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" -t "$TAG" \
+            -n "Ebb Calm $VERSIE (gratis versie) voor de Connect IQ-winkel, ondertekend met de ontwikkelaarssleutel van Dortus. Commit $GITHUB_SHA, run $GITHUB_RUN_ID. Grootte: $(stat -c %s iq/EbbCalm.iq) bytes. sha256: $(cut -d' ' -f1 iq/EbbCalm.iq.sha256)" iq/EbbCalm.iq iq/EbbCalm.iq.sha256
