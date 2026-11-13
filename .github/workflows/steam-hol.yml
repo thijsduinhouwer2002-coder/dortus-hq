@@ -59,7 +59,7 @@ jobs:
           foreach ($h in @(96, 120, 160)) {
             $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/hol-$h.log"
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 log=$log" -PassThru
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 toren=0,4,5,1,6 log=$log" -PassThru
             Start-Sleep 22
             & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-$h.png"
             if ($h -eq 120) {

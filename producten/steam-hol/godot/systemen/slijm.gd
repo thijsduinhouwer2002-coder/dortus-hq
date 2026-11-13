@@ -92,6 +92,18 @@ func zet(h, kol: int) -> void:
 	rng_oog.seed = hash([kol, "oog"])
 	_plan_leven()
 	_plan_knipper()
+	_toren_uit_argument(OS.get_cmdline_user_args())
+
+# Alleen voor de strooktest (Daan 13 nov 22:55: de 3D-toren keuren met 4 tot 6 hoeden): argument toren=0,4,5,1,6 geeft Gloop
+# die hoeden, oudste eerst (nummers als in held.gd). Een save die daarna laadt (van_dict) gaat voor. Zonder argument niets.
+func _toren_uit_argument(args: PackedStringArray) -> void:
+	for a in args:
+		if a.begins_with("toren="):
+			for h in a.substr(6).split(",", false):
+				if h.is_valid_int():
+					hoeden.append(absi(int(h)) % HOED_SOORTEN)
+			gegeten = maxi(gegeten, hoeden.size())
+			queue_redraw()
 
 # Zuinig: geen _process tussendoor, alleen een wekker voor de volgende leven-animatie.
 func _plan_leven() -> void:
