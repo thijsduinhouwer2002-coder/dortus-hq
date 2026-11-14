@@ -754,3 +754,5 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Royal: spelkant voor een eigen blad `royal` (frames `achter` en `voor`, bredere cel) op tak `claude/steam-hol-royal3d` (cb9cb63), zonder blad niets veranderd, toetsen lokaal 0 FOUT. Pas naar main na Daans ja op het model.
 - Let op: de tijden 09:25 en 09:40 in mijn eerste twee berichten van deze run in taken.md liepen voor op de klok (echt ±09:15 en ±09:22); ook 09:36 en 09:42 waren echt ±09:31 en ±09:34.
 - 09:40 graaf3d op main na Daans ja (4ab002f), zonder graaf_proef. Volgende run: Windows-run op main lezen.
+- 09:44 Royal: Daan koos (b) en zette het blok `royal` in de pijplijn (troon in plaats van mantel, kijker 8). Main in `claude/steam-hol-royal3d` samengevoegd, `royal_proef=1` erbij (8154599), toetsen lokaal 0 FOUT, lokaal Royal aan GEZIEN (nog pixels). Pijplijn op de tak run 43581796922, Windows-run 43581796991 (nog zonder blad). Volgende run: de Windows-run na de pijplijn-commit lezen, uitsneden 120 en 160 aan Daan.
+- Volgende run verder: Windows-run op main na graaf3d (43581332851) nakijken; laars-proef wacht op Daan.
