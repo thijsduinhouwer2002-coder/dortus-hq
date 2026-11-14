@@ -98,6 +98,64 @@ jobs:
           $i = 0
           foreach ($b in $alle) { if ($i % 5 -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
           Remove-Item $film -Recurse -Force
+      - name: Echt bureaublad op 1920 x 1080 met de echte taakbalk (alleen bij week)
+        if: env.SOORT == 'week'
+        shell: pwsh
+        run: |
+          # Olaf 14 nov (kan van Daan bij scherm 2): Rusty's toont een echt bureaublad met taakbalk. Hier geen
+          # nagemaakte taakbalk: de runner zelf op 1920 x 1080, Kladblok erachter, het spel met de week-save
+          # (de film hierboven speelde er al ±90 s op door), en elke 15 s een schermafbeelding van het hele scherm.
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public class Scherm {
+            [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+            public struct DEVMODE {
+              [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string dmDeviceName;
+              public short dmSpecVersion, dmDriverVersion, dmSize, dmDriverExtra; public int dmFields;
+              public int dmPositionX, dmPositionY, dmDisplayOrientation, dmDisplayFixedOutput;
+              public short dmColor, dmDuplex, dmYResolution, dmTTOption, dmCollate;
+              [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string dmFormName;
+              public short dmLogPixels; public int dmBitsPerPel, dmPelsWidth, dmPelsHeight, dmDisplayFlags, dmDisplayFrequency;
+              public int dmICMMethod, dmICMIntent, dmMediaType, dmDitherType, dmReserved1, dmReserved2, dmPanningWidth, dmPanningHeight;
+            }
+            [DllImport("user32.dll")] public static extern bool EnumDisplaySettings(string n, int m, ref DEVMODE d);
+            [DllImport("user32.dll")] public static extern int ChangeDisplaySettings(ref DEVMODE d, int f);
+            public static int Zet(int b, int h) {
+              DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
+              EnumDisplaySettings(null, -1, ref d);
+              d.dmPelsWidth = b; d.dmPelsHeight = h; d.dmFields = 0x80000 | 0x100000;
+              return ChangeDisplaySettings(ref d, 0);
+            }
+          }
+          "@
+          $r = [Scherm]::Zet(1920, 1080)
+          Start-Sleep 3
+          Add-Type -AssemblyName System.Windows.Forms
+          $s = [System.Windows.Forms.Screen]::PrimaryScreen
+          Write-Output "ChangeDisplaySettings gaf $r (0 = gelukt); scherm $($s.Bounds), werkgebied $($s.WorkingArea)"
+          if ($s.Bounds.Width -ne 1920) { Write-Output "== SCHERMMAAT NIET GEZET, geen bureaubladbeelden"; exit 0 }
+          $uit = "producten/steam-hol/e2e/winkel/bureaublad"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          $vol = (Resolve-Path $uit).Path
+          # Eerst alles van de runner wegklappen (zijn eigen terminalvenster stond in beeld, run 43631337323),
+          # dan Kladblok met een kort briefje, zodat het leest als een gewone werkdag.
+          (New-Object -ComObject Shell.Application).MinimizeAll()
+          Start-Sleep 2
+          $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
+          Set-Content -Encoding utf8 $briefje "Monday`r`n`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor`r`n- water the plant"
+          Start-Process notepad.exe -ArgumentList "`"$briefje`""
+          Start-Sleep 3
+          $log = ($vol -replace '\\','/') + "/hol.log"
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=130 log=$log" -PassThru
+          Start-Sleep 20
+          for ($i = 1; $i -le 6; $i++) {
+            Start-Sleep 15
+            if ($p.HasExited) { Write-Output "spel gestopt voor beeld $i"; break }
+            & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$i.png"
+          }
+          if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+          Get-Content $log -ErrorAction SilentlyContinue | Select-Object -First 15
       - name: Openbaar zetten (tak schermen, steam-hol/winkel-1920)
         if: always()
         shell: bash
@@ -115,6 +173,7 @@ jobs:
           # workflow er steeds tussen, faalden alle 5 pogingen en bleef de stap toch groen (run 43560837368).
           git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
           D="$T/steam-hol/winkel-1920-$SOORT-$HOOGTE"
+          [ "$GITHUB_REF_NAME" = main ] || D="$D-$(echo "$GITHUB_REF_NAME" | tr / -)"
           rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
           echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
           cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
