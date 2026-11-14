@@ -7,10 +7,14 @@ groen is altijd waar. Welke vlakken: die van A die binnen speling + BAND_MM van 
 stand (echte_matrix, dus zonder pose en Exploded view). Alleen vlakken binnen de bol rond het draaipunt worden
 bekeken, zodat het ook op een arm van 261K vlot gaat.
 
-Alleen weergave: vorm, vlakken en hoekpunten veranderen niet, alleen material_index; STL en 3MF blijven gelijk."""
+Alleen weergave: de vorm verandert niet. Sinds 1.0.1 (glad, Daan 14 nov 07:40) wordt de huid langs de grens van de
+band doorgesneden: nieuwe hoekpunten op bestaande randen en nieuwe randen binnen bestaande vlakken, dus de rand van
+het groen is een gladde lijn in plaats van een trapje van hele vlakken. Het oppervlak en de maten blijven gelijk."""
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
+
+import bmesh
 
 from .. import kleur as kleuren
 from ..uit_elkaar import echte_matrix
@@ -79,6 +83,72 @@ def _heel_bij(ob, raak, bvh, grens):
         if all(bvh.find_nearest(Vector(co[v]), grens)[0] is not None for v in me.polygons[i].vertices):
             uit.append(i)
     return uit if uit else raak
+
+
+GLAD = True       # 1.0.1 (Daan 14 nov 07:40, moet bij poster 3): huid langs de bandgrens doorsnijden, geen trapjesrand
+GLAD_SNAP = 0.1   # ligt de grens binnen 10% van een hoekpunt, dan telt dat hoekpunt als grens (geen splinters)
+
+
+def _glad(ob, ander, midden, bol, grens):
+    """Snijdt de huid van ob door langs de lijn waar de afstand tot het andere deel precies `grens` is, en geeft de
+    vlaknummers die er helemaal binnen liggen. Per hoekpunt f = afstand - grens; een rand met f < 0 aan de ene en
+    f > 0 aan de andere kant krijgt een nieuw hoekpunt op de plek waar f (lineair) 0 is, en die punten worden binnen
+    elk vlak verbonden. Hoekpunten blijven op hun plek en nieuwe liggen op bestaande randen: de vorm is gelijk.
+    Geeft None als er niets te snijden valt (dan de oude manier)."""
+    me = ob.data
+    bvh = _bvh(ander, midden, bol + grens)
+    mw = echte_matrix(ob)
+    bm = bmesh.new()
+    try:
+        bm.from_mesh(me)
+        bm.verts.ensure_lookup_table()
+        co = np.array([tuple(mw @ v.co) for v in bm.verts], dtype=np.float64)
+        bereik = bol + 3.0 * grens
+        f = np.full(len(co), 10.0 * grens)
+        dichtbij = np.flatnonzero(np.linalg.norm(co - np.asarray(midden), axis=1) <= bereik)
+        for i in dichtbij:
+            hit = bvh.find_nearest(Vector(co[i]), 4.0 * grens)
+            if hit[0] is not None:
+                f[i] = hit[3] - grens
+        if not (f < 0).any():
+            return None
+        # stap 1: grens vlak bij een hoekpunt -> dat hoekpunt is grens (f = 0)
+        for e in bm.edges:
+            i, j = e.verts[0].index, e.verts[1].index
+            if (f[i] < 0) != (f[j] < 0) and f[i] != 0 and f[j] != 0:
+                t = f[i] / (f[i] - f[j])
+                if t < GLAD_SNAP:
+                    f[i] = 0.0
+                elif t > 1.0 - GLAD_SNAP:
+                    f[j] = 0.0
+        laag = bm.verts.layers.float.new("cj_glad_f")
+        for v in bm.verts:
+            v[laag] = float(f[v.index])
+        # stap 2: snijden
+        snij = [e for e in bm.edges if (e.verts[0][laag] < 0 < e.verts[1][laag]) or (e.verts[1][laag] < 0 < e.verts[0][laag])]
+        grensv = set(v for v in bm.verts if v[laag] == 0.0)
+        for e in snij:
+            v0 = e.verts[0]
+            f0, f1 = v0[laag], e.verts[1][laag]
+            t = f0 / (f0 - f1)
+            _, nv = bmesh.utils.edge_split(e, v0, t)
+            nv[laag] = 0.0
+            grensv.add(nv)
+        if grensv:
+            bmesh.ops.connect_verts(bm, verts=list(grensv), check_degenerate=True)
+        bm.faces.ensure_lookup_table()
+        bm.faces.index_update()
+        mid = np.asarray(midden)
+        binnen = []
+        for fa in bm.faces:
+            if all(v[laag] <= 0.0 for v in fa.verts) and any(v[laag] < 0.0 for v in fa.verts):
+                binnen.append(fa.index)
+        bm.verts.layers.float.remove(laag)
+        bm.to_mesh(me)
+        me.update()
+        return binnen
+    finally:
+        bm.free()
 
 
 def strak(ob, s, u):
@@ -206,11 +276,16 @@ def band(a, b, speling, u, bol):
         else:
             me.materials.append(mat)
             vak = len(me.materials) - 1
+        raak = []
+        if GLAD:
+            gesneden = _glad(ob, ander, midden, bol, grens)
+            if gesneden:
+                raak = gesneden
+                ob["cj_band_soort"] = "glad"
         n = len(me.polygons)
         idx = np.empty(n, dtype=np.int32)
         me.polygons.foreach_get("material_index", idx)
-        raak = []
-        if STRAK and all(k in ob for k in ("cj_scharnier_as", "cj_naad_r", "cj_tong_half", "cj_deel")):
+        if not raak and STRAK and all(k in ob for k in ("cj_scharnier_as", "cj_naad_r", "cj_tong_half", "cj_deel")):
             raak = strak(ob, speling, u).tolist()
             ob["cj_band_soort"] = "strak"
         if not raak:
