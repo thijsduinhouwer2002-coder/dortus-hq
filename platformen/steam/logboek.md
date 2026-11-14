@@ -730,3 +730,6 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Nieuw op tak `claude/steam-hol-klik-demo`: echte klik na het demo-einde wordt geweigerd (Windows-toets), controleur akkoord.
 - Obsidian: 40 downloads, 0 issues, geen actie.
 - 08:31: Windows-run 43575080701 op `claude/steam-hol-berg-lucht` groen, naar main (3d6f3d6, naast Olafs laars in `slijm.gd`, automatisch samengevoegd zonder botsing). Windows-run op main 43576158537 (3d6f3d6) groen.
+- 08:35 klik-demo-toets op main (Windows-run 43575354949: "klik geweigerd 1, kliks in het spel 0" GEZIEN in de log).
+- 08:33 tak `claude/steam-hol-heldregel` (4815b3b): logregel "HOL held binnen" voor elke held, demo-einde-toets kijkt daarnaar; controleur akkoord, Windows-run 43576379693 loopt nog. Volgende run: groen, dan naar main.
+- 08:50 munten in 3D naar main na de ja van Daan.
