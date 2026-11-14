@@ -264,6 +264,46 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
     return info
 
 
+
+def naadloos(stukken, naden, px, rand):
+    """Bram 14 nov 22:30 (moet Daan 21:45, naad in de ovale kamer): de kamerstukken komen van verschillende plekken
+    in de render, met ander licht (de schatkamer ligt naast kamer_eind, de lage fakkel in kamer_begin). In het spel
+    komen ze in elke volgorde naast elkaar (begin naast eind bij een kamer van twee kolommen), dus elke binnenrand
+    moet hetzelfde zijn. `naden` is een lijst van [stuk, "l" of "r"]. Per rij nemen we het gemiddelde van al die
+    randkolommen (C) en schuiven we de laatste `rand` spelpixels van elk stuk geleidelijk naar C: aan de rand
+    precies C, na `rand` spelpixels weer het origineel. Het patroon blijft, alleen de stap verdwijnt.
+    `stukken` is {naam: RGBA-beeld}, wordt in place vervangen."""
+    import numpy as np
+    if not naden:
+        return
+    arr = {n: np.asarray(stukken[n], dtype=np.float64).copy() for n in {n for n, _ in naden}}
+    hoog = {a.shape[0] for a in arr.values()}
+    if len(hoog) != 1:
+        raise SystemExit(f"FOUT: naadloos: stukken {sorted(arr)} zijn niet even hoog")
+    def randkol(a, kant):
+        k = a[:, :2, :3] if kant == "l" else a[:, -2:, :3]
+        k = k.mean(axis=1)
+        # een tikje verticaal gladstrijken, anders geeft de korrel van één kolom strepen in de overgang
+        g = np.pad(k, ((1, 1), (0, 0)), mode="edge")
+        return (g[:-2] + g[1:-1] + g[2:]) / 3
+    kols = {}
+    for n, kant in naden:
+        if kant not in ("l", "r"):
+            raise SystemExit(f"FOUT: naadloos: kant van {n} moet l of r zijn, niet {kant}")
+        kols[(n, kant)] = randkol(arr[n], kant)
+    c = sum(kols.values()) / len(kols)
+    breed = rand * px
+    for (n, kant), k in kols.items():
+        a = arr[n]
+        verschil = c - k
+        for d in range(min(breed, a.shape[1])):
+            t = d / breed
+            w = 1 - t * t * (3 - 2 * t)          # zachte S: 1 aan de rand, 0 na `rand` spelpixels
+            x = d if kant == "l" else a.shape[1] - 1 - d
+            a[:, x, :3] += w * verschil
+    for n, a in arr.items():
+        stukken[n] = Image.fromarray(np.clip(np.rint(a), 0, 255).astype(np.uint8), "RGBA")
+
 def render_stukken(naam, s, bpy_python, snel):
     """Soort "stukken" (voor het hol): het model rendert één keer per laag het hele beeld, op vaste schaal en
     zonder bijsnijden. Daarna knipt de pijplijn vakken eruit, in spelpixels, precies op maat. Zo passen
@@ -375,9 +415,17 @@ def render_stukken(naam, s, bpy_python, snel):
     blad = Image.new("RGBA", (breed, hoog), (0, 0, 0, 0))
     info_stukken = {}
     links = 0
+    gesneden = {n: lagen[s["stukken"][n]["laag"]].crop((vakken[n][0] * px, vakken[n][1] * px,
+                (vakken[n][0] + vakken[n][2]) * px, (vakken[n][1] + vakken[n][3]) * px)) for n in namen}
+    nl = s.get("naadloos")
+    if nl:
+        onbekend = [n for n, _ in nl.get("naden", []) if n not in gesneden]
+        if onbekend:
+            raise SystemExit(f"FOUT: {naam}: naadloos noemt onbekende stukken {onbekend}")
+        naadloos(gesneden, nl.get("naden", []), px, int(nl.get("rand", 4)))
     for n in namen:
         x, y, b_, h_ = vakken[n]
-        stuk = lagen[s["stukken"][n]["laag"]].crop((x * px, y * px, (x + b_) * px, (y + h_) * px))
+        stuk = gesneden[n]
         sw, sh = stuk.size
         met_rand = Image.new("RGBA", (sw + 2 * RAND, sh + 2 * RAND))
         met_rand.paste(stuk.resize((sw + 2 * RAND, sh + 2 * RAND), Image.NEAREST), (0, 0))   # grof doortrekken
