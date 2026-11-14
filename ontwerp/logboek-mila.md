@@ -499,3 +499,4 @@
 - 14 nov ±09:00 UTC: capsule ronde 4 na Daans keuring: pluim op Gloops helm, titel vrij van de rand, boog en vijf losse hoeden weg, ridder groter, klein opgeschoond. Frisse kijker groot 7, klein 6.
 - **Besluit: minder dingen, één beeld.** Waarom: Daan en de frisse kijker konden de losse hoeden en de boog niet thuisbrengen; wat niet leest, haalt de aandacht weg van de helmgrap.
 - Fout gevonden: `GS` in `capsule3d.py` deed niets (oude `matrix_world`); vergroten nu via `anker.scale`.
+- 14 nov ±09:15 UTC: ronde 4b klein. **Besluit: klein met alleen de helm op Gloop.** Waarom: frisse kijker A/B, grap 1 tot 2 s en cijfer 8 tegen 3 tot 5 s en 6 met helm plus kroon.

@@ -52,8 +52,13 @@ Alle vier moets van Daan gedaan in `capsule3d.py`:
 - **Frisse kijker** (alleen header en klein), letterlijk: "het monster verzamelt de hoeden van gevallen avonturiers, en het jochie is de volgende ... De helm met rode pluim onderaan de stapel is precies dezelfde als die van het ridderjongetje", na 3 tot 5 seconden. Klein: "HATS lees je goed, OF THE FALLEN kun je nog net lezen ... de kroon en de helm lopen in elkaar over, en dat de helmen hetzelfde zijn zie je op dit formaat niet meer." Wat niet leest: de koksmuts ("slagroom of een wolkje?"), het mesje, de kroon lijkt "een hoopje munten". Cijfer groot 7 (was 7 bij Daans proef, 5 tot 6 bij ronde 2), klein 6 (was 5).
 - GEZIEN met Read: header, klein, voor/na. Eigen oordeel: één helder beeld nu, rustiger en rijker. Nog niet genoeg: op klein valt de grap weg.
 
+## Ronde 4b (zelfde run): klein met de grap
+- Klein met 2 hoeden (helm met pluim en kroon), Gloop 1,3 en ridder 1,5: `proef-klein-2hoeden-462x174.png`. Frisse kijker: grap na 3 tot 5 s, "de kroon trekt de aandacht weg van de helm", cijfer 7.
+- Klein met 1 hoed: alleen de helm, dan krijgt hij in `gloop.py` gewoon de rechte rode pluim, precies zoals de ridder. Nieuwe frisse kijker zag A (2 hoeden) en B (1 hoed) naast elkaar: B "het monster draagt de helm van een gevallen ridder, en de levende ridder kijkt naar zijn eigen toekomst. Ik snap het in 1 tot 2 seconden." A 6, B 8.
+- **Besluit: klein krijgt 1 hoed (de helm), `KLEIN_HOEDEN` standaard 1.** Waarom: op 174 px is twee gelijke helmen naast elkaar de hele grap, sneller (1 tot 2 s tegen 3 tot 5) en hoger cijfer (8 tegen 6); de titel zegt al HATS, de header laat de toren zien. Eerlijk: in het spel draagt Gloop ook vaak maar één hoed.
+
 ## Volgende ronde
-1. **Klein: de grap moet op 174 px leven.** Idee: in klein alleen helm en kroon op Gloop (2 hoeden), helm groot en met pluim vooraan, de ridder met dezelfde pluim even groot ernaast. Of: de pluimen extra fel rood en dikker in klein.
+1. ~~Klein: de grap op 174 px~~ gedaan in ronde 4b. Nieuw: probeer ook in de header of de helm sneller leest als hij groter en vooraan op de toren staat (frisse kijker groot: grap na 3 tot 5 s).
 2. Kroon: minder glans of strakkere punten, zodat hij niet als munten leest.
 3. Koksmuts: duidelijker (hogere band, plooien) of vervangen door een hoed die meteen leest (de heksenhoed staat al op de toren; misschien de hoge hoed alleen).
 4. Hoedjes op de letters van HATS (oude pixelcapsule), daarna hoofdbeeld 1232x706 en bibliotheek 600x900.

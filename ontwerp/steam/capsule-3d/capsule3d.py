@@ -73,10 +73,10 @@ ROBIJN = g.mat("robijn", "rood", rough=0.08, spec=1.0, emis=0.4)
 SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 
 KLEIN = VARIANT == "klein"
-GX = 2.35 if not KLEIN else 3.5         # Gloop rechts van het midden
-RX = -0.85 if not KLEIN else 0.9       # ridder
-RY = -2.2 if not KLEIN else -1.6
-RS = 1.2 if not KLEIN else 1.3
+GX = 2.35 if not KLEIN else 3.3         # Gloop rechts van het midden
+RX = -0.85 if not KLEIN else 1.15       # ridder
+RY = -2.2 if not KLEIN else -1.35
+RS = 1.2 if not KLEIN else 1.5
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
@@ -163,7 +163,7 @@ cil("bekerbodem", (GX + 2.15, 0.4, 0.06), 0.18, 0.05, GOUD, verts=24)
 voor = set(bpy.data.objects)
 bron = open(os.path.join(MOD, "gloop.py"), encoding="utf-8").read()
 begin = bron.index("# ---------- lijf"); eind = bron.index("# ---------- camera")
-ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": 4, "sys": sys, "os": os,
+ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": 4 if not KLEIN else int(os.environ.get("KLEIN_HOEDEN", "1")), "sys": sys, "os": os,
       "STAND": os.environ.get("CAPSULE_STAND", "rust"), "PLUIM_KNAK": True}
 exec(bron[bron.index("def bol("):begin], ns)
 exec(bron[begin:eind], ns)
@@ -182,7 +182,7 @@ for o in list(sc.objects):
         mw = o.matrix_world.copy(); o.parent = anker; o.matrix_world = mw
 anker.rotation_euler = (0, 0, math.radians(-12))
 # ronde 4: Gloop met toren groter, hij is de ster (via het anker: GS hierboven telt niet mee, matrix_world is daar nog oud)
-GROOT = 1.1 if not KLEIN else 1.15
+GROOT = 1.1 if not KLEIN else 1.3
 anker.scale = (GROOT, GROOT, GROOT)
 
 # ---------- de ridder: komt binnen en schrikt ----------
@@ -242,7 +242,7 @@ sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = (0.03, 0.
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.lens = 42; cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-doel = Vector((0.3, 0.6, 1.95)) if not KLEIN else Vector((0.45, 0.6, 2.0))
+doel = Vector((0.3, 0.6, 1.95)) if not KLEIN else Vector((0.45, 0.6, 2.1))
 co.location = (0.3, -13.5, 3.6) if not KLEIN else (0.45, -13.5, 3.5)
 co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 if KLEIN:
