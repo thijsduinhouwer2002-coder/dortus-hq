@@ -519,8 +519,9 @@
 - GEZIEN met Read: proef header, toren 2x, zoom 3/4/4b, put stap 1 en 2, voor/na 6 en 6b, hoofdbeeld.
 - Volgende: hoge hoed en titelafstand header, bibliotheek 600x900, scherm 1 kiezen na Olafs put-onder-troon.
 
-## 14 nov 2026, ±23:40 tot 00:10 UTC (Mila)
+## 14 nov 2026, ±23:40 tot 23:55 UTC (Mila)
 - Weekopname run 43653516628 (tak save-schuif, met schaduwfix en kamernaad) gehaald en bekeken met Read: 6 bureaubladbeelden en 270 losse beelden op 1920.
 - Scherm 1: nieuwe kandidaat uit beeld 345, Sir Fenna zwetend aan de stekelval met de munt als lokaas, kaartje "Sir Fenna polished his armor for this." Frisse kijker 7,5 tegen 6 voor het oude. **Besluit:** dit moment wordt scherm 1, definitief uit de opname op main na save-schuif en ogen. Waarom: de grap leest in een tel en de opmaakfouten van het oude (paal, halve kamer, lichte vloer) zijn weg.
 - Scherm 2: in alle 6 bureaubladbeelden is de gang leeg (held binnen ±7 s dood door de put naast de ingang). Wens aan Olaf in `platformen/steam/taken.md`: beelden 2 tot 4 s na "held binnen". **Besluit:** nog niet kiezen. Waarom: een leeg hol oogt dood, en het oude beeld 2 heeft nog naad en kaartje over de put.
 - Volgende: scherm 1 en 2 definitief zodra de opname op main er is.
+- Kan aan Olaf: koopmuntje en paneelmuntje met gladde rand (draw_arc antialiased), want op 4,5x in de winkelschermen is de munt het enige stuk dat als pixelart leest.
