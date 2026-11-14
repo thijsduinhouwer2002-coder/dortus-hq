@@ -1,5 +1,6 @@
 # Blender: status
 
+- **14 nov 01:11 UTC (Bram): 107 downloads**, 0 reviews. Geen melding van moderatoren of Superhive bekend (issues van click-joints deze run niet bekeken: repo niet gekoppeld). Deze run Het Hol: tekens in 3D.
 - **13 nov 23:11 UTC (Bram): 107 downloads**, 0 reviews, click-joints 0 issues. Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: eigen 3D-bladen voor gewone held, dief en bard, en de strooktest voor de 3D-toren.
 - **13 nov 21:10 UTC (Bram): 105 downloads**, 0 reviews, click-joints 0 issues en 0 PR. Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: tegels ronde 5 door de pijplijn en de 3D-helden aan op de tak.
 - **13 nov 20:12 UTC (Bram): 104 downloads**, 0 reviews, click-joints 0 issues en 0 PR. Geen melding van moderatoren of Superhive bekend. Pro 1.0.1 (strakke kleuring) nog op tak `claude/blender-pro-kleur`; deze run eerst Daans hoeden voor Het Hol (open bericht).

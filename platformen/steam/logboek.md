@@ -633,3 +633,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: één duurtest-paar zegt weinig, de runner schommelt tot ±50% tussen twee tegelijk gestarte runs. Beslis op minstens twee paren.
 - Les: bij samenvoegen van takken met bladen: `sprites.json` als JSON samenvoegen per sleutel (hol, deco, gloop van de ene tak, helden van de andere); de pijplijn op main rendert daarna alles gelijk.
 - Blender: 107 downloads, 0 reviews, 0 issues, geen melding.
+
+## 14 nov 01:35 UTC, Bram
+- Tekens boven het hoofd in 3D (Daan 00:55): blad `tekens` in de pijplijn, `teken_3d()` in `held_beeld.gd` en Gloops zzz in `slijm.gd`, terugval naar `tekens.png`. Tak `claude/steam-hol-tekens3d`, Windows-run 43539598170 groen, GEZIEN in de strook. Wacht op ja van Daan en Olaf.
+- Muzieknootje: komt uit code (`NOOT_PIX`), aan Daan gemeld. Toren met plafond: doe ik volgende run. Deco-rest: wacht op modellen in `hol.py`.
+- Les: lokaal Godot draaien zet uid's in alle `.import`-bestanden; zet die terug voor je commit, maar draai daarna opnieuw `--import` voor je weer toetst, anders vindt de toets de bladen niet (kostte 7 minuten).
+- Blender: 107 downloads, geen melding.
+
