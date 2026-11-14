@@ -590,10 +590,19 @@ func _init() -> void:
 	hg.zet_graaf_proef()
 	var gb := []
 	for c in hg.brokkel:
-		gb.append(HG.graaf_beeld(hg.brokkel[c]))
+		if c.y == 0:
+			gb.append(HG.graaf_beeld(hg.brokkel[c]))
 	ok(gb.size() == 4 and gb.has(0) and gb.has(1) and gb.has(2) and gb.has(3), "graaf: keurstrook heeft vier kamers in beeld 0 tot 3 (%s)" % [gb])
+	ok(hg.graaf_rij_proef.values().has(1) and hg.graaf_rij_proef.values().has(2), "graaf: keurstrook heeft een gangcel open naar links en een naar rechts")
+	var nb: int = hg.brokkel.size()
 	hg._process(5.0)
-	ok(hg.brokkel.size() == 4, "graaf: de keurstrook-kamers blijven staan")
+	ok(hg.brokkel.size() == nb and nb >= 4, "graaf: de keurstrook-cellen blijven staan")
+	# rij van het graafblad (kan Daan 14 nov 09:35): kamer open naar onder, gangcel open naar de buur die al gang was
+	var gr := [true, true, false, false, true, true]
+	ok(HG.graaf_rij(Vector2i(2, 0), gr) == 3, "graaf: kamer boven de gang is open naar onder")
+	ok(HG.graaf_rij(Vector2i(2, 1), [true, true, true, false]) == 1, "graaf: gangcel met open buur links is open naar links")
+	ok(HG.graaf_rij(Vector2i(3, 1), gr) == 2 and HG.graaf_rij(Vector2i(0, 1), [true, true]) == 2, "graaf: gangcel met open buur rechts is open naar rechts (ook in kolom 0)")
+	ok(HG.graaf_rij(Vector2i(1, 1), [true, true, true]) == 0 and HG.graaf_rij(Vector2i(5, 1), gr) == 1, "graaf: beide buren open geeft het midden; laatste kolom kijkt alleen links")
 	ok(ResourceLoader.exists(HG.GRAAF3D_PAD) and hg.GRAAF3D != null, "graaf: 3D-blad geladen")
 	hg.free()
 	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
