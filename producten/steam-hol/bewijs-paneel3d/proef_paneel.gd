@@ -1,5 +1,5 @@
 extends SceneTree
-# Olaf: proefbeeld van het paneel (kaartje en kroniek) op 160 px, oud en nieuw
+# Olaf: proefbeeld van het 3D-paneel op 160 px: boven de kroniek bij hover, onder het kaartje (met_3d is static, dus beide 3D)
 var stap := 0
 var t
 func _initialize():

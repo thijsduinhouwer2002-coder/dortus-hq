@@ -61,8 +61,8 @@ func _paneel_3d(rect: Rect2) -> void:
 	sb.bg_color = Color(0.09, 0.03, 0.11, 0.0)
 	sb.set_corner_radius_all(int(3.5 * schaal))
 	sb.shadow_color = Color(0.09, 0.03, 0.11, 0.55)
-	sb.shadow_size = 6
-	sb.shadow_offset = Vector2(-1, 3)
+	sb.shadow_size = 3
+	sb.shadow_offset = Vector2(1, 3)   # bijna niets links of boven: Windows tekent niets buiten het muisvlak (controleur 14 nov)
 	draw_style_box(sb, r)
 	var m := roundf(4.5 * schaal)
 	var S := float(PANEEL_3D.get_width())
