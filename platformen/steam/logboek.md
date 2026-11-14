@@ -864,4 +864,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 
 ## 14 nov 2026, 19:10 tot ±19:55 UTC, Bram
 - Click Joints: 120 downloads (add-onpagina, GEZIEN), 0 reviews, geen melding.
-- Ingang zonder grasrechthoek: ja van Daan 18:27, Olaf geen bezwaar. Tak `claude/steam-hol-ingang-gras` met de pijplijn-render fd4ed3d naar main (merge c49e729). Waarom met de render: daarin staat het nieuwe stuk `ingang_boog`, en sinds de tak veranderde op main niets in `kunst/3d`. Toetsen na de merge lokaal Godot 4.3: systemen 0 FOUT, held 0 FOUT.
+- Ingang zonder grasrechthoek: ja van Daan 18:27, Olaf geen bezwaar. Tak `claude/steam-hol-ingang-gras` met de pijplijn-render naar main (430fdbf tot 9694b0d; `git pull --rebase` maakte van de merge een rechte rij, inhoud gelijk; les: `git pull --rebase=merges`). Waarom met de render: daarin staat het nieuwe stuk `ingang_boog`, en sinds de tak veranderde op main niets in `kunst/3d`. Toetsen na de merge lokaal Godot 4.3: systemen 0 FOUT, held 0 FOUT.
