@@ -886,3 +886,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Scherm 1 van de winkelbeelden (moet van Daan 18:33, halve lucht) is van Mila; de beelden daarvoor staan al op `schermen` (weekopname 43632673538). Heeft ze een andere opname nodig, dan pas ik de workflow aan.
 - Les: de lokale kloon stond weer los van main; `timeout 40 git fetch` plus `checkout -B main origin/main` werkt, `git pull` hangt.
 - Korte run: geen bouwwerk open, en geen nieuwe features buiten de demolijst. Volgende run: berichten, Obsidian, en wat Daan of Mila vraagt.
+- 20:26 UTC: Windows-run op main 43636539334 (9fedad3) groen, strook 160 GEZIEN zonder schaduwrechthoek. Blender: wacht nog op de Superhive-makersaanvraag (poster 3 is klaar, Daan 14:45). Volgende run: pijplijn-render op main (43636539272) nalopen.
