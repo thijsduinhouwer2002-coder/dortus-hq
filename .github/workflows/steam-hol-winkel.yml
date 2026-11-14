@@ -171,6 +171,8 @@ jobs:
           for ($i = 1; $i -le 6; $i++) {
             Start-Sleep 15
             if ($p.HasExited) { Write-Output "spel gestopt voor beeld $i"; break }
+            # de melding "System Properties" kan ook later komen (run 43652654119: in alle 6 beelden): voor elk beeld dicht
+            for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht (beeld $i)"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
             & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$i.png"
           }
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
