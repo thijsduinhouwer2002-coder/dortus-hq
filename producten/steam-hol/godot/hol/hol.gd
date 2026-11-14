@@ -154,6 +154,7 @@ const GRAAF3D_PX := 64
 var GRAAF3D: CanvasTexture = _laad_graaf3d()
 var graaf_proef := false     # graaf_proef=1 (strook.gd): vier kamers staan stil in beeld 0 tot 3, alleen om op te keuren
 var graaf_stil := {}         # cellen van de keurstrook die niet verder brokkelen
+var graaf_rij_proef := {}    # keurstrook: gangcellen met een vaste rij (open naar links of rechts), anders graaf_rij()
 
 static func _laad_graaf3d() -> CanvasTexture:
 	if not ResourceLoader.exists(GRAAF3D_PAD):
@@ -167,6 +168,20 @@ static func _laad_graaf3d() -> CanvasTexture:
 static func graaf_beeld(tijd: float) -> int:
 	return clampi(int(tijd / GRAAF_S * 4.0), 0, 3)
 
+# welke rij van het 3D-graafblad: 0 midden, 1 open naar links, 2 open naar rechts, 3 open naar onder.
+# Een kamer (rij 0 van het hol) ligt altijd boven een open gang; een gangcel opent naar de buur die al gang was.
+# Zijn beide buren open (een gat dichtgraven), dan het midden.
+static func graaf_rij(cel: Vector2i, gang_rij: Array) -> int:
+	if cel.y == 0:
+		return 3
+	var l: bool = cel.x > 0 and gang_rij[cel.x - 1]
+	var r: bool = cel.x < gang_rij.size() - 1 and gang_rij[cel.x + 1]
+	if l and not r:
+		return 1
+	if r and not l:
+		return 2
+	return 0
+
 # keurstrook: vier kamers boven de gang, links van de schatkamer, elk stil in een ander beeld van het graafmoment
 func zet_graaf_proef() -> void:
 	var gezet := 0
@@ -178,6 +193,15 @@ func zet_graaf_proef() -> void:
 			brokkel[Vector2i(k, 0)] = (gezet + 0.5) / 4.0 * GRAAF_S
 			graaf_stil[Vector2i(k, 0)] = true
 			gezet += 1
+	# Bram 14 nov: ook twee gangcellen rechts van de ingang, open naar links (beeld 1) en naar rechts (beeld 2), zodat de
+	# rechte kant naast een gegraven buur in het echte beeld te keuren is (alleen keurstrook, de gang blijft open)
+	var proef := [[ingang_kol + 2, 1, 1], [ingang_kol + 4, 2, 2]]
+	for p in proef:
+		var c := Vector2i(p[0], 1)
+		if p[0] < schat_kol - 2 and gang[p[0]] and not vallen.has(p[0]):
+			brokkel[c] = (p[2] + 0.5) / 4.0 * GRAAF_S
+			graaf_stil[c] = true
+			graaf_rij_proef[c] = p[1]
 	queue_redraw()
 
 func _graaf_moment(cel: Vector2i) -> void:
@@ -197,7 +221,11 @@ func _brokkel(cel: Vector2i, tijd: float) -> void:
 	var y := float(OPP if cel.y == 0 else GANG_BOVEN)
 	var beeld := graaf_beeld(tijd)
 	if met_3d and GRAAF3D != null:
-		draw_texture_rect_region(GRAAF3D, Rect2(x, y, KOL, KOL), Rect2(beeld * GRAAF3D_PX, 0, GRAAF3D_PX, GRAAF3D_PX))
+		# Bram 14 nov (kan Daan 09:35): rij 1 tot 3 van het blad zijn open naar de buur die al gang is, dus een rechte kant
+		# en geen aardkorst tussen twee open cellen; een oud blad van één rij geeft altijd rij 0
+		var rij: int = graaf_rij_proef.get(cel, graaf_rij(cel, gang)) if GRAAF3D.diffuse_texture.get_height() >= GRAAF3D_PX * 4 else 0
+		draw_texture_rect_region(GRAAF3D, Rect2(x, y, KOL, KOL),
+			Rect2(beeld * GRAAF3D_PX, rij * GRAAF3D_PX, GRAAF3D_PX, GRAAF3D_PX))
 		return
 	if GRAAF_BLAD != null:
 		draw_texture_rect_region(GRAAF_BLAD, Rect2(x, y, KOL, KOL), Rect2(beeld * KOL, 0, KOL, KOL))

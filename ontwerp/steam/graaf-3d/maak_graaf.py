@@ -9,6 +9,13 @@ Bron van de aarde: het echte 3D-stuk `aarde` uit godot/kunst/3d/hol_proef.png (M
 zodat de kleur en korrel precies gelijk zijn aan de cel ernaast. Steentjes zijn bolletjes met hetzelfde zachte licht
 van linksboven als Gloop en de kist (3d-stijl.md).
 
+Bram 14 nov 12:30 (kan van Daan 09:35: "rechte kant naast een gegraven buur, lichte rand om het gat"): het blad heeft
+nu 4 rijen van elk 4 beelden (256 x 256). Rij 0 midden (zoals eerst: het gat groeit uit het midden), rij 1 open naar
+links, rij 2 open naar rechts (het gat begint over de hele hoogte aan de kant van de gang die er al was, dus een rechte
+kant naast de buur en geen aardkorst tussen twee open cellen), rij 3 open naar onder (een kamer boven de gang). Rondom
+het gat loopt een smalle lichte breukrand in kiezelkleur (licht van linksboven blijft: de schaduwkant is minder licht).
+hol.gd kiest de rij; een blad van 64 hoog (oud) geeft altijd rij 0.
+
 Gebruik: python3 maak_graaf.py <hol_proef.png> <uitmap>
 """
 import sys, math
@@ -45,6 +52,34 @@ def bol(r, kleur, licht=(-0.55, -0.6)):
     return out
 
 
+def kluit(r, kleur, rand_kleur):
+    """Kluitje aarde (Bram 14 nov): bolletje in de kleur van de aarde met een lichte bovenrand in kiezelkleur."""
+    out = bol(r, kleur)
+    d = out.shape[0]
+    yy, xx = np.mgrid[0:d, 0:d].astype(np.float32)
+    c = (d - 1) / 2
+    nx, ny = (xx - c) / r, (yy - c) / (r * 0.86)
+    rr = nx * nx + ny * ny
+    # rand: buitenste deel van de bol, aan de bovenkant (en iets naar links, waar het licht vandaan komt)
+    boven = np.clip(-(ny * 1.0 + nx * 0.4), 0, 1)
+    lip = np.clip((rr - 0.2) * 2.5, 0, 1) * np.clip(boven * 1.6, 0, 1) * np.clip((0.95 - rr) * 4, 0, 1) * out[..., 3]
+    rk = np.array(rand_kleur, dtype=np.float32)[None, None, :] / 255.0
+    out[..., :3] = out[..., :3] * (1 - lip[..., None]) + rk * lip[..., None]
+    return out
+
+
+def klein(stuk, f=4):
+    """Verklein een op f-maal gemaakt stuk met voorvermenigvuldigde alfa, zodat kleine kluitjes rond blijven."""
+    h, w = stuk.shape[:2]
+    pm = stuk.copy()
+    pm[..., :3] *= pm[..., 3:4]
+    nw, nh = max(1, round(w / f)), max(1, round(h / f))
+    kan = [np.asarray(Image.fromarray(pm[..., k]).resize((nw, nh), Image.BOX), dtype=np.float32) for k in range(4)]
+    out = np.dstack(kan)
+    out[..., :3] /= np.maximum(out[..., 3:4], 1e-6)
+    return np.clip(out, 0, 1)
+
+
 def plak(doek, stuk, x, y):
     h, w = stuk.shape[:2]
     x0, y0 = int(round(x - w / 2)), int(round(y - h / 2))
@@ -65,13 +100,34 @@ def plak(doek, stuk, x, y):
             doek[ty, tx, 3] = oa
 
 
+KANTEN = ["midden", "links", "rechts", "onder"]   # rij in het blad
+
+
+def afstand(kant, xx, yy):
+    """Hoe ver een bladpixel van het begin van het gat ligt (klein = valt eerst weg)."""
+    dx, dy = (xx - 31.5) / 32, (yy - 28) / 32
+    if kant == "midden":
+        # afstand tot het midden, iets lager (de vloer valt eerst weg)
+        d = np.sqrt(dx * dx * 0.9 + dy * dy)
+    elif kant in ("links", "rechts"):
+        # vanaf de open kant over de hele hoogte; een beetje bol zodat het midden van de wand eerst wijkt
+        u = xx / (S - 1) if kant == "links" else (S - 1 - xx) / (S - 1)
+        d = u * 1.25 + dy * dy * 0.35
+    else:
+        # kamer boven de gang: vanaf de vloer omhoog, het midden eerst
+        u = (S - 1 - yy) / (S - 1)
+        d = u * 1.25 + dx * dx * 0.35
+    return d + (ruis(3, 16) - 0.5) * 0.45 + (ruis(5, 8) - 0.5) * 0.10   # grove brokken, weinig fijne rafel
+
+
 def maak(aarde):
+    return np.concatenate([maak_rij(aarde, k) for k in KANTEN], 0)
+
+
+def maak_rij(aarde, kant):
     aarde = aarde.astype(np.float32) / 255.0
     yy, xx = np.mgrid[0:S, 0:S].astype(np.float32)
-    # afstand tot het midden, iets lager (de vloer valt eerst weg), met grove en fijne ruis voor een brokkelige rand
-    dx, dy = (xx - 31.5) / 32, (yy - 28) / 32
-    d = np.sqrt(dx * dx * 0.9 + dy * dy)
-    d = d + (ruis(3, 16) - 0.5) * 0.45 + (ruis(5, 8) - 0.5) * 0.10   # grove brokken, weinig fijne rafel
+    d = afstand(kant, xx, yy)
     gem = aarde[..., :3].reshape(-1, 3).mean(0)
     pix = aarde[..., :3].reshape(-1, 3)
     hel = pix.sum(1)
@@ -101,6 +157,11 @@ def maak(aarde):
         lip = np.clip(licht, 0, 1) * rand
         rgb = rgb * (1 - lip[..., None]) + kiezel * lip[..., None] * 0.95          # lichte breukrand in kiezelkleur
         rgb = rgb * (1 - 0.35 * (np.clip(-licht, 0, 1) * rand)[..., None])          # schaduwkant
+        # smalle lichte rand rondom het gat (Daan 09:35), aan de schaduwkant zwakker zodat het licht linksboven blijft
+        g1 = np.asarray(Image.fromarray((gat * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.4)),
+                        dtype=np.float32) / 255.0
+        zoom = np.clip(g1 * 3.0, 0, 1) * rest * (0.75 - 0.35 * np.clip(-licht, 0, 1))
+        rgb = rgb * (1 - zoom[..., None]) + np.clip(kiezel * 1.15, 0, 1) * zoom[..., None]
         doek = np.dstack([np.clip(rgb, 0, 1), a])
         # stofwolkje achter de steentjes: warm, zacht, groeit en vervaagt
         f = (i + 0.5) / FRAMES
@@ -121,20 +182,21 @@ def maak(aarde):
             t = np.clip((i + 1) / FRAMES * 1.25 - vt, 0, 1)
             if t <= 0:
                 continue
-            sy = sy0 + (sy1 - sy0) * t * t
-            kleur = np.clip(kiezel * kf * 0.95 * 255, 0, 255)
-            schaduw = bol(r * 1.1, (20, 8, 24)); schaduw[..., 3] *= 0.45 * t
-            plak(out, schaduw, sx + 1.2, sy + 1.5)
-            plak(out, bol(r * 1.15, kleur), sx, sy)
+            sy = sy0 + (sy1 - sy0) * min(1.0, t * t * 1.3)     # Bram 14 nov: sneller vallen
+            # Bram 14 nov (kan Daan 12:45): kleur van de aarde met een lichte bovenrand in kiezelkleur, kleiner,
+            # en een zwakkere schaduw, zodat ze als kluitjes aarde lezen en niet als kevers of gaten
+            kleur = np.clip(gem * kf * 1.5 * 255, 0, 255)
+            schaduw = klein(bol(r * 3.2, (20, 8, 24))); schaduw[..., 3] *= 0.25 * t
+            plak(out, schaduw, sx + 0.8, sy + 1.0)
+            plak(out, klein(kluit(r * 3.2, kleur, np.clip(kiezel * 1.1 * 255, 0, 255))), sx, sy)
         beelden.append(out)
-    blad = np.concatenate(beelden, 1)
-    return Image.fromarray((np.clip(blad, 0, 1) * 255).astype(np.uint8), "RGBA")
+    return np.concatenate(beelden, 1)
 
 
 if __name__ == "__main__":
     bron = Image.open(sys.argv[1]).convert("RGBA")
     aarde = np.asarray(bron.crop((76, 4, 140, 68)))   # vak_px van `aarde` in sprites.json
     uit = sys.argv[2]
-    blad = maak(aarde)
+    blad = Image.fromarray((np.clip(maak(aarde), 0, 1) * 255).astype(np.uint8), "RGBA")
     blad.save(uit + "/graaf_3d.png")
     print("klaar", blad.size)
