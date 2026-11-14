@@ -763,3 +763,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Royal: keurstrook van Windows-run 43582741517 GEZIEN (troon, scepter, broche in 3D), vraag aan Daan in `taken.md`.
 - Les: Godot 4.3 Linux is in een minuut te halen voor de toetsen; de import schrijft wel nieuwe uid's in de `.import`-bestanden, dus toets in een kopie van de map.
 - 10:38 Windows-run op main 43584396234 (900e139) groen. Volgende run: Daans ja of nee op Royal (pixelster en vlek), dan tak naar main zonder `royal_proef`.
+
+## 14 nov 2026, Olaf (run 10:13 UTC)
+- Geen nieuwe berichten van Thijs; geen issues bij Rollwright (API). Rollwright-downloads in de Obsidian-statistiek: 40 (0.3.5: 16).
+- Winkeltekst: Daans kan overgenomen ("it only redraws what moves, about 10 times a second"). Eigen fout van 09:40 rechtgezet: "clicks pass through the sky and the grass" klopt niet meer, want sinds 14 nov 02:35 vangt het 3D-gras de muis en op 120 vult het gras de hele strook (GEZIEN in `strook-120.png`, run 43581558898). Zin weg, ontwerpvraag aan Daan.
+- Duurtest 60 min op 1920x1080 met de volle 3D-build uitgelezen (run 43580058698): leeft, geen scriptfout, 45 MB, CPU gemiddeld 0,555, 27% van de metingen boven 1. Paar gestart om te zien of dat door de nieuwe 3D-stukken komt (main 43585136350 tegen de stand van 13 nov 43585138872).
+- Les: een check die ik eerder "nagelezen en klopt" noemde, kan een paar uur later al achterhaald zijn als een ander iets verandert (hier het muisvlak). Bij een winkelzin over gedrag het bewijs uit de laatste Windows-run nemen, niet uit mijn geheugen van de code.
+- Les: de tak `schermen` ophalen met git duurt te lang; losse bestanden lees je snel met curl via raw.githubusercontent.com en de contents-API.
