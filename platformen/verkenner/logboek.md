@@ -942,3 +942,14 @@ Nieuwste blok onderaan.
 - Les: hoog bereik en geen geld komt steeds terug bij modsites (Modrinth, Nexus). Modsites zonder kassa niet meer pakken.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna snel geschift: SignalRGB Marketplace en Touch Portal, geen kassa voor makers, nee (1). Afgesloten om ±13:05.
+
+## 14 nov run 13:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote was geforceerd bijgewerkt).
+- Gezocht naar wat nergens in de repo voorkomt (ook niet bij Noor, Lotte of Kees): Zedge. 13:42 in onderzoek en gepusht.
+- Eigen meting: 3.000 willekeurige items uit de item-sitemap (allemaal gratis, de sitemap heeft geen premium) en 857 premium-items uit 160 willekeurige zoekwoorden. Itempagina's geven dateUploaded, downloadCount en paymentMethod (NONE, VIDEO, ZEDGE_TOKENS).
+- Hulpagent voor geld en regels: 70% voor de maker, filmpje $0,002 tot $0,09 per download, uitbetaling vanaf $50, 10-K: 19,3 miljoen gebruikers (min 17%), Premium ±$0,65 miljoen per kwartaal.
+- Uitkomst: cijfer 2, nee. Niet apart nagekeken (nee, cijfers staan in de gegevens).
+- Les: bij Zedge staan premium-items niet in de sitemap; de zoekwoordpagina's (/wallpapers/<woord>) tonen ze met "licensed":true.
+- Les: wallpaper- en plaatjesmarkten zijn een volumespel met fracties van een cent per download. Niet meer pakken tenzij er per item echt betaald wordt.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Kittl (13:57 in onderzoek): robots.txt staat ClaudeBot toe, sjabloonpagina's leesbaar, maar zonder gebruik of verdiensten; pot van onbekende grootte, toelating via portfolio en quiz. Voorwerk, nee (2). Afgesloten om ±14:05.

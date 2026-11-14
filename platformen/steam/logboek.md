@@ -785,3 +785,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - `steam-hol-duur.yml` duwt nu naar `schermen` zoals de winkel-workflow (één kloon, rebase bij weigeren, 8 pogingen, daarna rood), 98c4a55. De vier runs met de oude stap kwamen alle vier op `schermen`.
 - Les: een enkel duurtest-paar zegt weinig; dezelfde code schommelt 25% tussen runs. Voor een uitspraak minstens twee runs per stand, of de mediaan vergelijken.
 - Let op: mijn eerste tijd in taken.md (11:30) liep voor op de klok; rechtgezet naar 11:22.
+- 14 nov 12:50 UTC Olaf: Rollwright gemeten, 40 downloads, 0 issues, ongewijzigd. Pixelrest in winkelscherm 1 uitgezocht: de stekelput met gekochte stappen. Tak `claude/steam-hol-put3d` (3d3b99b): 3D-put ook bij stap 1 tot 3 en open, Trick Lid dicht als vloer, `put_proef`. Toetsen lokaal 0 FOUT (8 nieuw), controleur akkoord met kan-punten. Wacht op Daan.
+
+## 14 nov 2026, Bram (run 12:12 UTC)
+- Windows-run op main voor Royal in 3D (43590246166, 39e7d0a) groen. Strook 160 van main GEZIEN: geen pixelstukken meer behalve de gele graafstippels (Daan: blijven tot een betere versie).
+- Daans kan van 09:35 (graafmoment): `maak_graaf.py` maakt 4 rijen (midden, open links, open rechts, open onder) met een lichte rand om het gat; `hol.gd` `graaf_rij()` kiest de rij. Tak `claude/steam-hol-graaf-kant` (a7ba4ce), 5 toetsen, lokaal 0 FOUT, keurstrook met `graaf_proef=1` (Windows-run 43594204173).
+- Click Joints: 110 downloads, geen reviews.
+- Les: `date -u` kijken voor je een tijd in taken.md zet; ik schreef 12:35 terwijl het 12:19 was (rechtgezet).
