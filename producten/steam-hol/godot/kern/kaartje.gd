@@ -247,6 +247,10 @@ static func munt_top(s) -> float:
 	var top := -16.0 + 6.0   # RUST_TOP van het rust-frame
 	if sl.has_method("is_plat") and sl.is_plat():
 		return sl.position.y - 16.0 + 10.0
+	# Volgt het torenplafond en de 3D-toren (Bram 14 nov, slijm.gd hoogste_punt_rust): rust-frame zonder wip,
+	# dus het muntje wipt niet mee. Zonder die functie de oude som hieronder.
+	if sl.has_method("hoogste_punt_rust"):
+		return sl.position.y + float(sl.hoogste_punt_rust())
 	if sl.has_method("is_groot") and sl.is_groot():
 		top -= 1.0   # Big Gloop is 1 spelpixel hoger (slijm.gd top_nu, Bram 762fd71)
 	if sl.has_method("hoeden_op_hoofd"):
