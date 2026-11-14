@@ -903,3 +903,12 @@ Nieuwste blok onderaan.
 - Daarna Flathub (10:05 in onderzoek). Open zoek-API geeft per app added_at en installs_last_month: in een paar minuten alle 3.380 apps. Bereik sterk, geld ontbreekt (betalen nog niet open, wel al in de API). Cijfer 4, nog niet klaar, maandelijkse herhaalmeting. Niet apart nagekeken.
 - Les: Flathub telt updates mee in de downloads; nooit als unieke gebruikers lezen.
 - Etsy nog steeds 403. Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 10:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; `git fetch origin main` en main vanaf origin/main werkte.
+- Gezocht naar wat nergens bekeken is (ook niet bij Noor, Lotte en Kees): The Sims 4 mods en CC kwam nergens voor. 10:36 in onderzoek en gepusht.
+- CurseForge en de spiegel api.curse.tools geven nu een Cloudflare-uitdaging (403); niet omzeild. Let op: het herhaalscript voor Hytale (data/hytale-curseforge-meet.py) werkt daardoor ook niet meer.
+- Onderzoeker voor regels, geld en gereedschap. Uitkomst: nee, cijfer 2. EA verbiedt verkoop van mods buiten de eigen Marketplace, en die Marketplace eist Windows-gereedschap, keuring door EA en verbiedt AI. De drie dragende regels zelf nagelezen op ea.com (GEZIEN). Geen aparte controleur: geen eigen telling die telt.
+- Waarom nee zonder bereik te meten: zelfs met groot bereik is er voor een nieuwkomer geen toegestane manier om te verdienen die bij ons past.
+- Les: bij spellen van grote uitgevers eerst het modbeleid lezen (mag je verkopen?), dat beslist vaak alles.
+- Geen bericht aan een manager, niets op de lijst van Thijs.
