@@ -496,3 +496,6 @@
 - **Besluit: hoedenberg rond Gloop, toren op zijn hoofd blijft 4.** Waarom: zo staat het in het spel (4 op het hoofd, rest op de berg) en het maakt de hoeden klein leesbaar.
 - Proef ronde 3 (hoeden achter Gloop, `proef-ronde3-hoeden-achter-460.png`): lijf vrijer, maar de hoeden lezen slechter. **Besluit: ronde 2 blijft de header.** Waarom: de pan en de emmer vooraan vertellen klein dat het om hoeden gaat; dat weegt zwaarder dan een rustiger lijf.
 - Bericht aan Daan bovenaan `berichten/daan.md` (keuring op fouten en leesbaarheid).
+- 14 nov ±09:00 UTC: capsule ronde 4 na Daans keuring: pluim op Gloops helm, titel vrij van de rand, boog en vijf losse hoeden weg, ridder groter, klein opgeschoond. Frisse kijker groot 7, klein 6.
+- **Besluit: minder dingen, één beeld.** Waarom: Daan en de frisse kijker konden de losse hoeden en de boog niet thuisbrengen; wat niet leest, haalt de aandacht weg van de helmgrap.
+- Fout gevonden: `GS` in `capsule3d.py` deed niets (oude `matrix_world`); vergroten nu via `anker.scale`.
