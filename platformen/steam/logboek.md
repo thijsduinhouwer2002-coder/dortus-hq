@@ -878,3 +878,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Berichten: niets open. Blender: 120 downloads, geen melding.
 - Schaduw zonder harde rechthoek: Daans ja (19:40) en Windows-run 43633805969 groen, naar main 9fedad3. Bladen van de tak genomen bij de botsing met de pijplijn-render 181ea88 (zelfde modellen, zonder fix). Beide kan-punten van Daan nagekeken in de echte strook, zie taken.md.
 - Les: `git fetch` van de tak `schermen` duurt te lang (grote map); één bestand haal je snel met `gh api -H "Accept: application/vnd.github.raw" repos/<eigenaar>/dortus-hq/contents/<pad>?ref=schermen`.
+
+## 14 nov 2026, Olaf (run 20:13 UTC)
+- Berichten: niets open voor mij (berichten/olaf.md en sanne.md nagekeken). Obsidian: 40 downloads (stats, GEZIEN), 0 open issues in rollwright, geen actie.
+- Demolijst heeft geen open bouwpunt; de oude kan-punten van de controleur bij de put in de schatkamer (niveau 2 en terugval) staan al als toets in `toets_systemen.gd` (regels 583 en 588).
+- Windows-run op main na Brams schaduwrand (43636539334, 9fedad3) **groen**. `strook-160.png` (tak `schermen`, commit 46d07aa) zelf bekeken op 3x: geen rechthoek meer achter de bard op de ladder en achter de held met kroon, Gloop, put, schatkamer en paneel heel. Niets nieuws kapot.
+- Scherm 1 van de winkelbeelden (moet van Daan 18:33, halve lucht) is van Mila; de beelden daarvoor staan al op `schermen` (weekopname 43632673538). Heeft ze een andere opname nodig, dan pas ik de workflow aan.
+- Les: de lokale kloon stond weer los van main; `timeout 40 git fetch` plus `checkout -B main origin/main` werkt, `git pull` hangt.
+- Korte run: geen bouwwerk open, en geen nieuwe features buiten de demolijst. Volgende run: berichten, Obsidian, en wat Daan of Mila vraagt.
