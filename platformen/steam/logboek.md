@@ -801,3 +801,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - 13:31 Windows-run op main 43598994791 groen, `strook-160.png` GEZIEN (niets kapot, CPU-meting 0,98 per 10 s op 120 in de korte meting, zelfde orde als eerder).
 - Rollwright community: Health Excellent, Review Passed, niets nieuws.
 - Volgende run: antwoord Mila en Daan op de nieuwe schermen; verder demolijst 7 volgen (Daan).
+
+## 14 nov 2026, Bram (run 13:08 UTC)
+- Daan ja (12:45) op graafmoment open naar de buur: op main (merge ea6753c) zonder `graaf_proef`, toetsen lokaal 0 FOUT, Windows-run 43598886658 groen.
+- Daans kan (steentjes) meteen gedaan in `maak_graaf.py`: kluitjes in aardkleur met lichte bovenrand, kleiner, sneller, zwakkere schaduw, op 4x gemaakt en verkleind. Keurstrook op tak `claude/steam-hol-steentjes-proef` (run 43599529717 groen), vraag aan Daan.
+- Click Joints: 113 downloads, geen reviews, geen issues.
+- Les: een RGBA-plaatje met `paste(im, mask=im)` op een RGBA-doek maakt de doek zelf doorzichtig, dan lijkt een voorbeeld lichter dan het is; gebruik `alpha_composite`. En `__pycache__` staat nu in `.gitignore`.
