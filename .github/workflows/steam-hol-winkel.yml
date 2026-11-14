@@ -124,6 +124,7 @@ jobs:
             [DllImport("user32.dll")] public static extern bool EnumDisplaySettings(string n, int m, ref DEVMODE d);
             [DllImport("user32.dll")] public static extern int ChangeDisplaySettings(ref DEVMODE d, int f);
             [DllImport("user32.dll")] public static extern bool MoveWindow(IntPtr h, int x, int y, int b, int hg, bool r);
+            [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
             public static int Zet(int b, int h) {
               DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
               EnumDisplaySettings(null, -1, ref d);
@@ -146,14 +147,17 @@ jobs:
           (New-Object -ComObject Shell.Application).MinimizeAll()
           $weg = Join-Path $env:RUNNER_TEMP "snelkoppelingen"; New-Item -ItemType Directory -Force $weg | Out-Null
           foreach ($bd in @("$env:PUBLIC\Desktop", [Environment]::GetFolderPath("Desktop"))) {
-            Get-ChildItem $bd -Filter *.lnk -ErrorAction SilentlyContinue | ForEach-Object { Write-Output "snelkoppeling weg: $($_.Name)"; Move-Item $_.FullName $weg -Force -ErrorAction SilentlyContinue }
+            Get-ChildItem -Path "$bd\*" -Include *.lnk, *.url -File -ErrorAction SilentlyContinue | ForEach-Object { Write-Output "snelkoppeling weg: $($_.Name)"; Move-Item $_.FullName $weg -Force -ErrorAction SilentlyContinue }
           }
           Start-Sleep 2
           $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
           Set-Content -Encoding utf8 $briefje "Monday`r`n`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor`r`n- water the plant"
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
-          $kl.Refresh(); $gezet = [Scherm]::MoveWindow($kl.MainWindowHandle, 24, 24, 520, 300, $true)
+          $h = [IntPtr]::Zero
+          for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
+          [Scherm]::ShowWindow($h, 9) | Out-Null
+          $gezet = [Scherm]::MoveWindow($h, 24, 24, 520, 300, $true)
           Write-Output "Kladblok 520 x 300 linksboven: $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `

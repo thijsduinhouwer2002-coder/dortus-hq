@@ -117,13 +117,23 @@ jobs:
           Write-Output "hol: voorgrond $voor0, kliks in het spel $na_hol"
           if ($na_hol -ne 1 -or $voor0 -ne "notepad") { Write-Output "FOUT: klik in het hol telde niet of het spel pakte de focus"; $fout++ }
           # dan de voorgrond weg van Kladblok met een klik op een leeg stuk taakbalk, anders bewijst de luchtklik niets
-          Add-Type -AssemblyName System.Windows.Forms
-          $sc = [System.Windows.Forms.Screen]::PrimaryScreen
-          $tx = [int]($sc.Bounds.Width * 0.68); $ty = [int]($sc.Bounds.Height - ($sc.Bounds.Height - $sc.WorkingArea.Height) / 2)
+          # net links van het systeemvak (daar staan geen programmaknoppen, ook niet bij een gecentreerde taakbalk)
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public class Balk { [StructLayout(LayoutKind.Sequential)] public struct R { public int L, T, Rt, B; }
+            [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string n);
+            [DllImport("user32.dll")] public static extern IntPtr FindWindowEx(IntPtr p, IntPtr a, string c, string n);
+            [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out R r); }
+          "@
+          $vak = New-Object Balk+R
+          $tray = [Balk]::FindWindowEx([Balk]::FindWindow("Shell_TrayWnd", $null), [IntPtr]::Zero, "TrayNotifyWnd", $null)
+          [Balk]::GetWindowRect($tray, [ref]$vak) | Out-Null
+          $tx = $vak.L - 20; $ty = [int](($vak.T + $vak.B) / 2)
           & producten/steam-hol/e2e/klik.ps1 $tx $ty
           Start-Sleep 1
           $voorT = VoorProces
           Write-Output "taakbalk ($tx,$ty): voorgrond $voorT"
+          & producten/steam-hol/e2e/scherm.ps1 "$uit/taakbalk-na.png"
           if ($voorT -eq "notepad") { Write-Output "FOUT: voorgrond niet weg van Kladblok, luchtklik bewijst niets"; $fout++ }
           # dan de lucht: moet bij Kladblok aankomen en niet in het spel
           & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 4)

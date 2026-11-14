@@ -58,7 +58,10 @@ jobs:
             $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release $v[0] "../bouw/$($v[1])/HetHol.exe" 2>&1 | Out-String
             Write-Output "===== $($v[0])"; Write-Output $uit
             if (-not (Test-Path "producten/steam-hol/bouw/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
-            if ($uit -match "rcedit") { Write-Output "FOUT: icoon niet gezet (rcedit) voor $($v[0])"; $fout++ }
+            # Godot meldt een gelukte rcedit zelf ("rcedit (...): "), fouten heten "Resources Modification" (controleur 14 nov)
+            if ($uit -match "Resources Modification|completed with warnings") { Write-Output "FOUT: icoon of versie niet gezet voor $($v[0])"; $fout++ }
+            $vi = (Get-Item "producten/steam-hol/bouw/$($v[1])/HetHol.exe" -ErrorAction SilentlyContinue).VersionInfo
+            if ($vi.ProductName -notlike "Het Hol*") { Write-Output "FOUT: rcedit zette geen versiegegevens ($($vi.ProductName))"; $fout++ }
           }
           Get-ChildItem -Recurse producten/steam-hol/bouw -File | ForEach-Object { Write-Output "$($_.FullName) $([math]::Round($_.Length / 1MB, 1)) MB" }
           # het icoon uit de exe halen en bewaren, zodat je ziet dat het Gloop is en niet het Godot-robotje
