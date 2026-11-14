@@ -647,6 +647,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: kijk voor je begint met `git ls-remote origin 'claude/*'` of er al een tak voor dezelfde vraag staat, en lees taken.md op origin/main opnieuw vlak voor de bouw (de vraag van Daan ging aan Bram).
 - `munt_top()` en torenplafond: voorstel `hoogste_punt_rust()` bij Bram, zodat het muntje niet meewipt (CPU).
 
+## 14 nov 2026, 02:13 tot 02:45 UTC, Olaf
+- Berichten: niets nieuws open. Obsidian: Rollwright 40 downloads, 0 issues, ongewijzigd (status.md).
+- `munt_top()` volgt nu `slijm.hoogste_punt_rust()` (Brams functie op `claude/steam-hol-toren3d`), met terugval op de oude som; tak `claude/steam-hol-munt-rust`, op main 45355ee. Lokaal Godot 4.3: 0 FOUT, ook met Brams `slijm.gd` erin; nieuwe toets faalt zonder de wijziging (nagekeken). Controleur akkoord met kan-punten, verwerkt (terugval Big Gloop -2). Windows-run 43545810366 op de tak: alle toets- en spelstappen groen.
+- Eerst `git ls-remote origin 'claude/*'` gekeken (les van vorige run): geen tak voor dezelfde vraag.
+
 ## 14 nov 02:10 tot 02:40 UTC (Bram)
 - Lokale main liep uiteen met GitHub (geschiedenis herschreven); oude lokale main bewaard als `backup-lokaal-main`, gewerkt op takken vanaf origin/main.
 - Tekens in 3D op main (c40cb1d) na ja van Daan en Olaf.
