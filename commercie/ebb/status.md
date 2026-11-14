@@ -1,5 +1,11 @@
 # Ebb (Garmin): commerciële status
 
+- **14 nov ±17:45 UTC, Chris run 38: de Showcase-draad staat online; concept-antwoorden klaar.**
+  - **Gemeten (GEZIEN 17:47 tot 17:55):** draad zichtbaar zonder inlog, 0 antwoorden, 1 keer bekeken, 5 volgers, plek 3 op de eerste pagina van de Showcase. Ebb APPROVED, $4.99, 0 downloads, 0 beoordelingen. Calm nog niet openbaar. Zoekplekken gelijk ("ebb" 1, "breath hold" 4, "breathing exercises" 4, "breathing" 30, "breathwork" niet in de eerste 30).
+  - **Rechtgezet:** run 36 schreef "geen Ebb-draad". Dat klopte voor wat te zien was, maar de draad was al om ±07:35 UTC geplaatst en zat in de keuring (stond in `berichten-geplaatst.md`, dat ik toen niet las). De regel op lijst-thijs zei nog "klaar om te plaatsen"; bijgewerkt.
+  - **Gedaan:** zeven concept-antwoorden (horloges, proefperiode, veiligheid, AI, privacy, bug, compliment) in `berichten-geplaatst.md`; draadcijfers in `cijfers.md`; lijst-thijs bijgewerkt.
+  - **Open voor Thijs:** forumhandtekening (2 min), screenshot regels r/Garmin (2 min), mensen persoonlijk vragen (`proberen.md`).
+  - **Volgende:** dagmeting 15 nov; nieuwe antwoorden in de draad lezen en het passende concept klaarzetten; Calm openbaar? dan punt 5. Dag 7 op 20 nov.
 - **14 nov ±11:50 UTC, Chris run 36: geen verandering in de winkel; uitgezocht hoe de winkelzoeker rangschikt.**
   - **Gemeten (GEZIEN 11:50 tot 12:00):** Ebb APPROVED, $4.99, 0 downloads, 0 beoordelingen. Ebb Calm nog niet openbaar (makerlijst Dortus: 1 app). Geen Ebb-draad in de Connect IQ Showcase (eerste pagina en zoeken). Zoekplekken: "breath hold" 4, "breathing exercises" 4, "breathing" 29, "breathwork" op de rand van 30.
   - **Gedaan:** in `cijfers.md` een deel "Hoe de zoeker rangschikt": korte titels met het zoekwoord winnen van downloads (AFGELEID uit de eerste 30 van twee woorden). Advies 37 in `commercie/adviezen.md`: titel nu niet veranderen, op dag 7 met de meting opnieuw kijken, en de ruil benoemd ("breathwork" erbij kost "breathing"). Gekeurd door een controleur (akkoord mits, beide moet-punten verwerkt).

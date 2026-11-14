@@ -11,22 +11,23 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 13 nov 22:01 (Gijs, run 96) | 0 | APPROVED | 0 | 0 | 0 | $4.99 | nee (niet ingediend) |
 | 14 nov 08:45 (Chris, run 35) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (ingediend 14 nov ±07:30, in keuring) |
 | 14 nov 11:50 (Chris, run 36, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
+| 14 nov 17:50 (Chris, run 38) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (zoeken op "ebb calm": alleen Ebb, plek 1) |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 
 ## Vindbaarheid in de winkelzoeker (plek in de eerste 30, mostRelevant)
 
-| Zoekwoord | 13 nov 22:15 (Gijs) | 14 nov 08:45 (Chris) | 14 nov 11:55 (Chris, run 36) |
-|---|---|---|---|
-| ebb | 1 | 1 | niet gemeten |
-| breath hold | 4 | 4 | 4 |
-| breathing exercises | niet gemeten | 4 | 4 |
-| breathing | niet in de eerste 30 | 30 (controleur even later: 29, plekken schuiven) | 29 |
-| breathwork | niet in de eerste 30 | niet in de eerste 30 | 30 bij de eerste vraag, een minuut later niet in de eerste 30 (wisselt op de rand) |
-| box breathing | niet gemeten | niet in de eerste 30 | niet gemeten |
-| calm | niet gemeten | niet in de eerste 30 | niet gemeten |
-| apnea | niet gemeten | niet in de eerste 30 | niet gemeten |
-| 4-7-8 | niet gemeten | zoeker geeft 0 treffers | niet gemeten |
+| Zoekwoord | 13 nov 22:15 (Gijs) | 14 nov 08:45 (Chris) | 14 nov 11:55 (Chris, run 36) | 14 nov 17:50 (Chris, run 38) |
+|---|---|---|---|---|
+| ebb | 1 | 1 | niet gemeten | 1 (87 treffers) |
+| breath hold | 4 | 4 | 4 | 4 |
+| breathing exercises | niet gemeten | 4 | 4 | 4 |
+| breathing | niet in de eerste 30 | 30 (controleur even later: 29, plekken schuiven) | 29 | 30 |
+| breathwork | niet in de eerste 30 | niet in de eerste 30 | 30 bij de eerste vraag, een minuut later niet in de eerste 30 (wisselt op de rand) | niet in de eerste 30 |
+| box breathing | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
+| calm | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
+| apnea | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
+| 4-7-8 | niet gemeten | zoeker geeft 0 treffers | niet gemeten | niet gemeten |
 
 "Breathing" en "breathing exercises" staan in de titel, "breathwork" alleen in de tekst en de tags. Na een week kijken of de plek op "breathwork" verandert; zo niet, dan is dat een punt voor een volgende versie van de titel (advies, niet nu: de titel is net gekeurd).
 
@@ -48,3 +49,15 @@ Gemeten op dezelfde zoek-API, eerste 30 van "breathing" (993 treffers) en "breat
 ## Volgende metingen
 - Dag 7: 20 nov. Dag 30: 13 dec. Tussendoor bij elke run één regel als er iets verandert.
 - Wat ik verwacht (GOK): zonder forumbericht en persoonlijke berichtjes bijna niets, want Ebb staat op de grote zoekwoorden niet of laag in de eerste 30. Het plan (`commercie/ebb/proberen.md`) mikt op 10 mensen die het een week proberen; het weekverslag met kopers is van Gijs (plan dag 7 in `platformen/garmin/gebruikers-krijgen-2026-11-13.md`).
+
+## Forumdraad in de Connect IQ Showcase
+
+Geplaatst door de hoofdchat op 14 nov ±07:35 UTC, eerst "Content Under Review". Link en tekst in `berichten-geplaatst.md`.
+
+| Moment (UTC) | Zichtbaar zonder inlog | Antwoorden | Bekeken | Volgers | Plek op de eerste pagina van de Showcase |
+|---|---|---|---|---|---|
+| 14 nov 11:50 (Chris, run 36) | nee (niet in de lijst, niet te vinden) | | | | |
+| 14 nov 17:47 (Chris, run 38) | ja, pagina 200 met de volledige tekst | 0 | 1 | 5 | 3 (na de vaste README-draad op 1 en één andere draad) |
+
+GEZIEN met curl. "Bekeken" is de teller van het forum zelf; of die bezoekers zonder inlog telt, is NIET GEZIEN. De 5 volgers zijn waarschijnlijk vaste abonnees van nieuwe draden of de maker zelf (GOK).
+

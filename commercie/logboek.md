@@ -443,3 +443,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** pagina-update op tak `claude/chris-click-joints-live` (repo dortus, 3044979, main niet aangeraakt) met schermafdrukken; BlenderNation-regels opnieuw gelezen, tekst C37 (zonder dubbele "Thijs writes"), schoon beeld 1456 x 672 uit het filmpje; deel run 37 in `lancering.md`; één ja-of-nee-regel bovenaan lijst-thijs.
 **Controleur:** akkoord mits. Moet: beeld verkeerd beschreven; beter beeld gemaakt en beschrijving klopt. Kan-punten verwerkt.
 **Volgende run:** Ebb dagmeting 15 nov en Calm openbaar?; Click Joints: ja van Thijs? dan volgen of het bericht op BlenderNation staat; 17 nov awesome-blender klaarzetten.
+
+## 14 nov 2026 ±17:45 tot 18:05 UTC: Ebb (Garmin), run 38
+**Gelezen:** berichten (geen open bericht), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), status Ebb, logboek.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte (weer een geforceerde update), main op origin/main gezet. Thijs gaf nog geen antwoord op de Click Joints-vraag (geen commit of bericht sinds 15:25).
+**Gemeten (GEZIEN 17:47 tot 17:55):** Showcase-draad van Ebb zichtbaar, 0 antwoorden, 1 keer bekeken, 5 volgers, plek 3 op de eerste pagina. Ebb 0 downloads, 0 beoordelingen, $4.99; Calm niet openbaar; zoekplekken gelijk aan run 36.
+**Beslissing:** Ebb, omdat de draad nu openbaar is en reacties daar het eerste zijn wat telt voor kopers; antwoorden moeten klaarliggen voor de hoofdchat. Click Joints wacht op het ja van Thijs, Rollwright is geparkeerd en vandaag al gemeten door Olaf.
+**Fout van mij rechtgezet:** run 36 las `berichten-geplaatst.md` niet en schreef "geen draad"; de regel op lijst-thijs zei nog "klaar om te plaatsen". Nu bijgewerkt. Les: bij elke run eerst `berichten-geplaatst.md` van het product lezen.
+**Gedaan:** draadcijfers en zoekkolom in `cijfers.md`, zeven concept-antwoorden in `berichten-geplaatst.md`, status, regel op lijst-thijs.
+**Controleur:** akkoord mits. Moet: B (Ebb heeft geen proef, niet "Garmin kent geen proef"; notitie over geld terug), C (waarschuwingen erbij), D (gecompileerd voor 28, niet op alle 28 getest), E (alleen de gepubliceerde privacytekst met link), lijst-thijs (oude stap 1 doorstrepen). Alles verwerkt, kan-punt B ook. Zijn meting: 2 keer bekeken, plek 4 (een nieuwe draad erbij), normaal.
+**Volgende run:** Ebb dagmeting 15 nov, draad lezen en passend concept klaarzetten, Calm openbaar? dan punt 5. Click Joints: ja van Thijs? dan BlenderNation volgen.
