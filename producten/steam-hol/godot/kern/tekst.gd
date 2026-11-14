@@ -29,6 +29,37 @@ func _letter(gewicht: int) -> Font:
 		letters[gewicht] = f
 	return letters[gewicht]
 
+# StyleBoxen één keer maken en bewaren (kan-punt controleur 14 nov): niet bij elke tekening nieuwe objecten.
+# Alleen de hoekstraal hangt af van schaal en knophoogte; die zet de tekenaar per keer.
+var dozen := {}
+
+func _doos(naam: String) -> StyleBoxFlat:
+	if dozen.has(naam):
+		return dozen[naam]
+	var sb := StyleBoxFlat.new()
+	match naam:
+		"paneel_schaduw":
+			sb.bg_color = Color(0.09, 0.03, 0.11, 0.0)
+			sb.shadow_color = Color(0.09, 0.03, 0.11, 0.55)
+			sb.shadow_size = 3
+			sb.shadow_offset = Vector2(1, 3)   # bijna niets links of boven: Windows tekent niets buiten het muisvlak (controleur 14 nov)
+		"knop_schaduw":
+			sb.bg_color = Color(0.08, 0.02, 0.09, 0.0)
+			sb.shadow_color = Color(0.08, 0.02, 0.09, 0.5)
+			sb.shadow_size = 2
+			sb.shadow_offset = Vector2(0, 2)
+		"knop":
+			sb.bg_color = Color("#7a426c")
+			sb.border_color = Color("#e8b040")
+			sb.set_border_width_all(2)
+			sb.anti_aliasing = true
+		"knop_glans":
+			sb.bg_color = Color("#925880")
+		_:
+			push_error("tekst.gd: onbekende doos " + naam)
+	dozen[naam] = sb
+	return sb
+
 # tekst met een zachte donkere schaduw van 1 px eronder (Daan ronde 2: titel en getal)
 func _tekst(font: Font, p: Vector2, t: String, breed: float, maat: int, kleur: Color, schaduw := true) -> void:
 	if schaduw and met_3d:
@@ -57,12 +88,8 @@ func _paneel(rect: Rect2) -> void:
 # 3D-paneel: 4 px lucht rechts en onder (Daan ronde 2), zachte schaduw naar het hol, rand 4,5 spelpixel (18 px op 160)
 func _paneel_3d(rect: Rect2) -> void:
 	var r := Rect2(rect.position, rect.size - Vector2(2, 2))
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.09, 0.03, 0.11, 0.0)
+	var sb := _doos("paneel_schaduw")
 	sb.set_corner_radius_all(int(3.5 * schaal))
-	sb.shadow_color = Color(0.09, 0.03, 0.11, 0.55)
-	sb.shadow_size = 3
-	sb.shadow_offset = Vector2(1, 3)   # bijna niets links of boven: Windows tekent niets buiten het muisvlak (controleur 14 nov)
 	draw_style_box(sb, r)
 	var m := roundf(4.5 * schaal)
 	var S := float(PANEEL_3D.get_width())
@@ -126,22 +153,13 @@ func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) 
 	var r := Rect2(x, y, w, h)
 	if met_3d:
 		# ronde pil (Daan ronde 2): gouden rand, warm pruimroze, glansstrook bovenin, zachte schaduw eronder
-		var sch := StyleBoxFlat.new()
-		sch.bg_color = Color(0.08, 0.02, 0.09, 0.0)
+		var sch := _doos("knop_schaduw")
 		sch.set_corner_radius_all(int(h / 2.0))
-		sch.shadow_color = Color(0.08, 0.02, 0.09, 0.5)
-		sch.shadow_size = 2
-		sch.shadow_offset = Vector2(0, 2)
 		draw_style_box(sch, r)
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color("#7a426c")
-		sb.border_color = Color("#e8b040")
-		sb.set_border_width_all(2)
+		var sb := _doos("knop")
 		sb.set_corner_radius_all(int(h / 2.0))
-		sb.anti_aliasing = true
 		draw_style_box(sb, r)
-		var gl := StyleBoxFlat.new()
-		gl.bg_color = Color("#925880")
+		var gl := _doos("knop_glans")
 		gl.set_corner_radius_all(int(h * 0.15))
 		draw_style_box(gl, Rect2(x + 4, y + 3, w - 8, h * 0.27))
 		var tw := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
