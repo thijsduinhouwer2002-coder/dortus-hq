@@ -941,3 +941,4 @@ Nieuwste blok onderaan.
 - Nexus Mods opnieuw gepakt (12:37 in onderzoek): de open GraphQL-API werkt zonder sleutel. Eigen meting van 1.600 mods: mediaan 378 downloads, 77% haalt 100+. Hulpagent voor geld: verkopen verboden, DP centen per maand. Cijfer 3, nee. Niet apart nagekeken (nee, en de cijfers staan in de gegevens en help-artikelen).
 - Les: hoog bereik en geen geld komt steeds terug bij modsites (Modrinth, Nexus). Modsites zonder kassa niet meer pakken.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna snel geschift: SignalRGB Marketplace en Touch Portal, geen kassa voor makers, nee (1). Afgesloten om ±13:05.
