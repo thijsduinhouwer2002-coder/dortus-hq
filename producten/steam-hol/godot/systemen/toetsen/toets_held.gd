@@ -673,6 +673,7 @@ func _init() -> void:
 	var nt0: Array = HB.nootjes("bard", false, "lopen", 0.1)[0]
 	var nt1: Array = HB.nootjes("bard", false, "lopen", 1.9)[0]
 	ok(int(nt1[1]) < int(nt0[1]) and float(nt1[2]) < float(nt0[2]), "nootje stijgt op en vervaagt")
+	ok(HB.noot_alfa(1.0) == 0.0 and HB.noot_alfa(0.95) < 0.1 and HB.noot_alfa(0.0) == 1.0 and HB.noot_alfa(0.5) > 0.7, "nootje is weg voor het eind van zijn weg (Daan 03:50)")
 	ok(HB.nootjes("bard", false, "vallen", 1.0).is_empty() and HB.nootjes("", false, "lopen", 1.0).is_empty() and HB.nootjes("ridder", false, "lopen", 1.0).is_empty(), "geen nootjes bij vallen of bij andere helden")
 	ok(HB.nootjes("", true, "afdalen", 1.0).size() == 1 and HB.nootjes("", true, "lopen", 2.5).is_empty(), "held door het lied: de eerste 2 s één nootje")
 	# 3D-lijf uit de pijplijn (Bram 13 nov, producten/steam-hol/pijplijn/)
@@ -865,6 +866,10 @@ func _init() -> void:
 	HB3.held3d = tb
 	doek_t.position = Vector2(10, 5)
 	ok(HB3.teken_onder_min(doek_t) == 1 + 8 - 5, "teken-rand: bovenkant van het teken 1 spelpixel onder de bovenrand (%d)" % HB3.teken_onder_min(doek_t))
+	ok(HB3.noot_y_min(doek_t) == 1 + 1 - 5, "noot-rand: noot minstens 1 spelpixel onder de bovenrand (%d)" % HB3.noot_y_min(doek_t))
+	ok(HB3.teken_vak_3d(doek_t, "bestaat_niet", Vector2.ZERO) == false, "3D-noot: onbekend frame geeft false, dan pixels")
+	if HB3.held3d.has("tekens") and (HB3.held3d["tekens"][1]["frames"] as Array).has("noot"):
+		ok((HB3.held3d["tekens"][1]["frames"] as Array).find("noot") == 5, "3D-noot: 6e frame in het blad")
 	doek_t.free()
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)
