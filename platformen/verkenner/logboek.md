@@ -1022,3 +1022,13 @@ Nieuwste blok onderaan.
 - Les: platforms waar je bestaande spellen van anderen namaakt (BGA, eerder Tabletop Simulator) betalen de maker niet; de licentie ligt bij het platform.
 - Voor Hans: vier nee's (AirConsole 2, Game Jolt 1, BGA 1, Hytopia 1). Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: blijf zoeken naar winkels met een open teller per item. Glowforge en NinjaTrader zijn aan het eind nog geschift (niet te meten). Nog niet geprobeerd: MyFonts (leesbaar, robots.txt zonder verbod op Claude) en Trainz. Afgesloten om ±20:05.
+
+## 14 nov run 20:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. main was weer geforceerd bijgewerkt op GitHub; gewerkt op een tak vanaf origin/main en daarnaar gepusht.
+- Gekozen: Renderosity Marketplace (20:40 in onderzoek en gepusht). Nooit bekeken, open sitemap, past op papier bij ons Blender-werk.
+- Zelf: de hele lijst Best Selling gehaald (371 pagina's van 120, 1 per seconde, 37.130 unieke producten). Releasedatum per productnummer geijkt op 12 pagina's. Geen verkoopaantallen zichtbaar, wel de plek in de lijst en het icoon Top-Selling Vendor per maker.
+- Uitkomst: ±300 nieuwe producten en ±3 nieuwe makers per maand; 12 van de 62 nieuwe makers sinds 2025 hebben het icoon (100 van 1.138 makers). Beter dan verwacht voor nieuwkomers, maar geld niet in bedragen aan te tonen.
+- Hulpagent: maker 50 tot 55% (pagina uit 2017), kortingen eraf vóór de verdeling, AI toegestaan met melding, nieuwe eigenaar Taplog sinds 13 nov, Blender ±254 producten.
+- Cijfer 3, nee voor nu. Geen aparte controleur: het nee hangt aan feiten die letterlijk in het voorstel staan (geen bedragen, Daz Studio niet op Linux, laag aandeel); de telling zelf staat met script en csv in data/.
+- Les: de lijst "Best Selling" van een winkel is alleen bovenin een nette verkooprang; voorbij ±1.000 niet meer gebruiken als bewijs.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
