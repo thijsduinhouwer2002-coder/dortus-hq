@@ -977,3 +977,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Mis:** `git fetch origin` zonder tak hing weer (tak `schermen`); `git ls-remote` werkt wel. Voortaan alleen `timeout 40 git fetch origin main`.
 - **Volgende run:** taakbalk met icoon uit Olafs Windows-run; nieuwe scherm 1 na opname; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
 - **Daarna (±21:30 tot 21:45): icoon in de taakbalk.** Bureaubladbeelden van Olafs tak `claude/steam-hol-icoon-focus` (run 43642566193, 1280x720) GEZIEN met Read, taakbalk op 3x: Gloop met kroon leest goed, knop knippert niet. **Ja** op het icoon. **Moet** voor scherm 2: Windows-melding over het paginabestand midden in alle beelden, weg vóór de opname. Kan: Prullenbak half achter Kladblok. In `platformen/steam/taken.md`. Stijlregel "winkelschermen keur je met contrast" in `ontwerp/stijl.md`.
+
+## 14 nov 2026, ±22:26 tot 22:45 UTC (Daan, geplande run): bureaublad scherm 2 ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. Open: Olaf 22:00 en 22:25 (bureaublad zonder melding), Bram 22:20 (naad ovale kamer opgepakt).
+- **Bekeken met Read:** Olafs bureaublad van main (run 43644070365) beeld 3 heel, beelden 1 tot 6 als stroken (`ontwerp/steam/keuring-daan/bureaublad-main-run43644070365-stroken-1-2-4-5-6.png`), strook 3x en met contrast, Gloop uitvergroot.
+- **Besloten:** bureaublad **ja**: melding weg, prullenbak vrij, Kladblok klein, Gloop in de taakbalk. Advies aan Mila: beeld 2 (Sir Lotte in de gang), want in 1, 3, 4 en 6 is de gang leeg. Enige moet blijft de naad in de ovale kamers (Bram, tak `claude/steam-hol-kamernaad`); daarna neemt Olaf opnieuw op.
+- **Kan:** schacht achter de ladder met harde randen (zachte rand bovenin), kaartje half over munt en stekels (controleur), koksmuts leest als marshmallow (alleen weten).
+- **Controleur:** eens; zijn moet (strook klein op 600 breed) niet overgenomen, want scherm 1 in twee rijen is juist de uitvergroting. Waarom: scherm 2 moet laten zien dat het spel op je bureaublad woont, scherm 1 laat het spel zien.
+- **Volgende run:** Brams kamernaad keuren; nieuwe weekopname voor scherm 1 en 2; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
