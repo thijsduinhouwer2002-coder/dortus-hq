@@ -69,7 +69,9 @@ jobs:
           GELUKT=0
           for i in 1 2 3 4 5; do
             git fetch -q origin "$TAK" && git reset -q --hard FETCH_HEAD
-            rm -rf "$D" && cp -r /tmp/bladen "$D"
+            # Bram 14 nov 10:30: niet meer eerst wissen. Een render vanaf een oudere commit (zonder de stap van maak_graaf)
+            # wiste zo graaf_3d.png op main (a7568e9). Nu alleen overschrijven en toevoegen; weghalen doe je met de hand.
+            cp -r /tmp/bladen/. "$D"/
             git add "$D"
             if git diff --cached --quiet; then echo "Bladen gelijk aan de tak, niets te doen."; exit 0; fi
             git commit -q -m "Pijplijn: 3D-bladen opnieuw gerenderd (${GITHUB_SHA::7})"

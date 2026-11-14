@@ -41,6 +41,7 @@ var proef_fps := 10          # kern/beeldtempo.gd GEWOON; met fps=<n> vast op n 
 var fps_vast := false
 var moment_tot := -1.0
 var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van het graafmoment, om op te keuren (Daan 14 nov)
+var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
@@ -127,6 +128,7 @@ func _ready() -> void:
 			"zaad": proef_zaad = int(kv[1])
 			"deco_proef": proef_deco = kv[1] == "1"
 			"graaf_proef": proef_graaf = kv[1] == "1"
+			"laars_proef": proef_laars = kv[1] == "1"
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
@@ -163,6 +165,8 @@ func _ready() -> void:
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
 	wezens.add_child(slijm)
 	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
+	if proef_laars and slijm.has_method("zet_laars_proef"):
+		slijm.zet_laars_proef()
 	if demo:
 		volgende_held = 0.5
 	if demo and "plat_s" in slijm:
