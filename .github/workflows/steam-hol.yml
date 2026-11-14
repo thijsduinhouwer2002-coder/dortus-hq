@@ -122,6 +122,30 @@ jobs:
           $p.WaitForExit(40000) | Out-Null
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
           Get-Content $log
+          # demo voorbij: een echte klik in het hol wordt geweigerd (kan-punt controleur 13 nov; Olaf 14 nov).
+          # Zelfde plek als de holklik hierboven, maar met steamdemo=1 en een grens van 3 s.
+          $log2 = "$uit/klik-demo.log"
+          $p2 = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=96 vers=1 steamdemo=1 demo_einde=3 duur=25 log=$log2" -PassThru
+          $klaar = $null
+          for ($w = 0; $w -lt 30 -and -not $klaar; $w++) {
+            Start-Sleep 1
+            $klaar = Select-String -Path $log2 -Pattern "HOL demo voorbij na" -ErrorAction SilentlyContinue | Select-Object -First 1
+          }
+          $s2 = Select-String -Path $log2 -Pattern "pos=\((\d+), (\d+)\)" -ErrorAction SilentlyContinue | Select-Object -First 1
+          if (-not $klaar -or -not $s2) { Write-Output "FOUT: demo werd niet voorbij in 30 s of geen startregel"; $fout++ }
+          else {
+            $x2 = [int]$s2.Matches[0].Groups[1].Value; $y2 = [int]$s2.Matches[0].Groups[2].Value
+            & producten/steam-hol/e2e/klik.ps1 ($x2 + 200) ($y2 + 90)
+            Start-Sleep 2
+            $geweigerd = @(Select-String -Path $log2 -Pattern "geweigerd \(klik in het hol\)").Count
+            $geteld = @(Select-String -Path $log2 -Pattern "HOL klik op").Count
+            Write-Output "demo voorbij: klik geweigerd $geweigerd, kliks in het spel $geteld"
+            if ($geweigerd -ne 1 -or $geteld -ne 0) { Write-Output "FOUT: echte klik na het demo-einde niet geweigerd"; $fout++ }
+          }
+          $p2.WaitForExit(40000) | Out-Null
+          if (-not $p2.HasExited) { Stop-Process -Id $p2.Id -Force }
+          Get-Content $log2 -ErrorAction SilentlyContinue
           "klik: $fout FOUT (voorgrond na luchtklik: $voor1)" | Set-Content "$uit/klik.txt"
           if ($fout -gt 0) { exit 1 }
       - name: Film van een minuut spelen (Movie Maker, 15 fps)
