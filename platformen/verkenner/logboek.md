@@ -1006,3 +1006,4 @@ Nieuwste blok onderaan.
 - Les: winkels die alleen in een telefoonapp zitten (thema's, wijzerplaten) zijn van buiten niet te meten. Niet meer afzoeken. Bij modplatforms eerst robots.txt en de vraag of makers geld krijgen; Nexus en Overwolf waren al gedaan.
 - Voor Hans: drie nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: zoek platformen met een open API of open sitemap waar per item een verkoop- of gebruiksteller staat; probeer eerst introspectie of de API-documentatie.
+- Laatste minuten: Facebook Instant Games als voorwerk in kandidaten.md gezet (geen openbare spelers per spel, lage prioriteit). Afgesloten om ±19:05.
