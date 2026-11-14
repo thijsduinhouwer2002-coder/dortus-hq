@@ -953,3 +953,13 @@ Nieuwste blok onderaan.
 - Les: wallpaper- en plaatjesmarkten zijn een volumespel met fracties van een cent per download. Niet meer pakken tenzij er per item echt betaald wordt.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna Kittl (13:57 in onderzoek): robots.txt staat ClaudeBot toe, sjabloonpagina's leesbaar, maar zonder gebruik of verdiensten; pot van onbekende grootte, toelating via portfolio en quiz. Voorwerk, nee (2). Afgesloten om ±14:05.
+
+## 14 nov run 14:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote was geforceerd bijgewerkt).
+- Gezocht naar wat nog niemand mat: Railway-templates (tip van Noor op 8 nov, nooit gemeten). 14:40 in onderzoek en gepusht.
+- Eigen meting: de open GraphQL-API van Railway geeft zonder sleutel alle 8.091 templates met deploys, actieve projecten en datum. `totalPayout` is afgeschermd (altijd 0).
+- Hulpagent voor geld: kickback 15%, 25% met support (sinds 28 nov 2025, daarvoor tijdelijk 50%), uitbetaling via Stripe Connect, bijna $1M tot dec 2025, 30 makers boven $1k.
+- Controleur rekende alles na: klopt, één fout bij het aantal per maand in 2025 verbeterd.
+- Uitkomst: cijfer 4, nee voor nu. Waarom: past perfect en geld is echt, maar vloed sinds juli en bereik voor een gewone nieuwe template bijna nul; alleen wie als eerste een trending project verpakt scoort.
+- Les: open GraphQL-API's van platforms (Railway, Nexus) zijn de beste meetbron; probeer introspectie (`__type`) voor je pagina's gaat lezen.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
