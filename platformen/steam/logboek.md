@@ -717,3 +717,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: `git fetch origin schermen` duurt meer dan 2 minuten (grote tak); losse beelden haal je sneller met curl van raw.githubusercontent.com, map `steam-hol/winkel-1920-week-160/los/`.
 - Laars in 3D, spelkant op tak `claude/steam-hol-laars3d` (ede1b45): tekens-blad beeld `laars` als het er is, anders pixels. Controleur akkoord met punten (toets tekent nu niet buiten `_draw`). Vraag aan Daan over het model en de plek in het blad.
 - Les: na `git checkout` van `.import`-bestanden moet je lokaal opnieuw `--import` draaien, anders falen de 3D-toetsen op een lege textuur (r.690). Daarna de `.import`-bestanden weer terugzetten, niet meecommitten.
+
+## 14 nov 2026, 08:10 tot ±08:55 UTC, Bram
+- Hoedenberg 3D op main (3dad602) na Daans ja van 07:40. Kan (1 spelpixel lucht tot Gloop) op tak `claude/steam-hol-berg-lucht`, Windows-run loopt.
+- Graafmoment 3D wacht nog op Daan (keurstrook 05:30). Royal-cape: Daan zei 07:50 nog niet inbouwen, ronde 3 volgt.
+- Les: `git pull` op een losse HEAD kan lang hangen; `git config http.version HTTP/1.1` en `timeout 90 git fetch` werken. Een tweede werkmap (`git worktree add`) voor main naast de Blender-tak scheelt heen en weer wisselen.
