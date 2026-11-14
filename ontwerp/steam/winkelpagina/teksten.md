@@ -96,6 +96,23 @@ Niet Side Scroller: het beeld schuift niet.
 
 Bewust niet: Tower Defense (helden lopen door vallen, maar je bouwt geen torens en stuurt niets tijdens het lopen; dat zou kopers misleiden), Dungeon Crawler (jij crawlt niet), Strategy (te licht), Dark Humor (het is eerder slapstick dan grimmig).
 
+## 4b. Systeemeisen (Olaf, 14 nov 2026; Steam vraagt dit veld op de winkelpagina)
+Alleen minimum, alleen Windows (de enige build). Engels zoals het in Steamworks komt:
+> **Minimum:**
+> OS: Windows 10 (64-bit)
+> Processor: any 64-bit dual-core CPU
+> Memory: 2 GB RAM
+> Graphics: OpenGL 3.3 or DirectX 11 (integrated graphics are fine)
+> Storage: 200 MB available space
+> Additional Notes: Sits above the taskbar. Uses about 40 MB of RAM while running.
+
+Waar het op steunt:
+- Engine Godot 4.3 met de Compatibility-renderer (`project.godot`: `gl_compatibility`). Godot noemt daarvoor als minimum OpenGL 3.3, een x86_64-CPU, 2 GB RAM en Windows 7 (DERDEN: docs.godotengine.org/en/4.3/about/system_requirements.html, met curl gelezen 14 nov). Windows 10 omdat Steam zelf sinds 2024 alleen nog Windows 10 en nieuwer ondersteunt (DERDEN, eigen kennis, niet opnieuw nagelezen) en omdat doorklikken en doorzichtig venster alleen op de Windows-runner (Server 2022) getoetst zijn.
+- DirectX 11: de exe valt zonder OpenGL 3.3 zelf terug op ANGLE (GEZIEN in run 43472246886: "switching to ANGLE"), en ANGLE tekent via Direct3D 11.
+- 200 MB: beide exe's zijn 81,4 MB (pck zit erin, run 43472246886), plus save en Godot-cache; ruim genomen.
+- 40 MB RAM: gemeten 34 tot 37 MB in de duurtests (runs 43416412054, 43510747682). 2 GB staat erbij omdat Godot dat als ondergrens noemt, niet omdat het spel het gebruikt.
+- Niet gemeten: een echte zwakke pc. Draait de duurtest ooit op een trage machine, dan dit bijwerken.
+
 ## 5. Prijs (voorstel, versie 2)
 **$4,99 / € 4,99**, eerste week 10% korting, plus een permanente gratis demo. Uitgewerkt in `platformen/steam/verdienmodel.md` (controleur akkoord): betaald levert in alle drie de schattingen 3,5 tot 11 keer meer op dan gratis zonder drops; $4,99 is de mediaan van de betaalde Desktop Companion-apps (GEZIEN door Kees) en een kleine stap na de demo. Thijs neigt naar gratis en beslist; kiest hij gratis, dan geldt hoofdstuk 4 van `verdienmodel.md` en verandert alleen deze regel en de zin "The whole game for one price" (wordt "Free. The whole game, no shop inside it, nothing that makes you faster."). Versie 1 van dit voorstel was $5,99.
 
