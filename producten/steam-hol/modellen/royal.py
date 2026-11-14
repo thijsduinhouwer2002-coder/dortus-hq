@@ -167,8 +167,12 @@ def _troon():
         # armleuning: rood kussen op een gouden steun, steekt naast hem naar voren
         bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, 0.0, 0.64))
         a = bpy.context.object; a.name = "troon_arm"; a.scale = (0.3, 1.5, 0.2)
-        bv = a.modifiers.new("rond", "BEVEL"); bv.width = 0.06; bv.segments = 4
-        a.data.materials.append(fluweel)
+        bv = a.modifiers.new("rond", "BEVEL"); bv.width = 0.09; bv.segments = 6   # 7c: ronder (kijker: blokken)
+        a.data.materials.append(fluweel); bpy.ops.object.shade_smooth()
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, 0.0, 0.52))   # gouden rand onder het kussen
+        r = bpy.context.object; r.name = "troon_armrand"; r.scale = (0.34, 1.54, 0.06)
+        bv = r.modifiers.new("rond", "BEVEL"); bv.width = 0.025; bv.segments = 3
+        r.data.materials.append(goud)
         bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, -0.55, 0.3))
         p = bpy.context.object; p.name = "troon_poot"; p.scale = (0.16, 0.16, 0.6)
         bv = p.modifiers.new("rond", "BEVEL"); bv.width = 0.04; bv.segments = 3
@@ -230,8 +234,8 @@ def _scepter():
     """Staf van goud met een rode bol en een kruisje erop, onderaan op de vloer rechts naast hem, schuin tegen zijn flank.
     Groot genoeg om op spelgrootte als staf met bol te lezen (bol ±0,22 = ±2 spelpixels)."""
     goud = g.mat("scepter_goud", "goud", rough=0.18, spec=1.0, metaal=0.9, emis=0.12)
-    rood = g.mat("scepter_bol", "goud", rough=0.15, spec=1.0, metaal=0.9, emis=0.15) if TROON else \
-        g.mat("scepter_bol", "b3102e", rough=0.04, spec=1.0, emis=0.35, glas=0.3)   # 7b: gouden bol, de rode liep in het rode fluweel
+    rood = g.mat("scepter_bol", "2f6fe0", rough=0.04, spec=1.0, emis=0.45, glas=0.3) if TROON else \
+        g.mat("scepter_bol", "b3102e", rough=0.04, spec=1.0, emis=0.35, glas=0.3)   # 7c: saffier; rood liep in het fluweel (7), goud in de troon (7b)
     import mathutils
     voet = mathutils.Vector((1.15, -0.15, 0.0)); top = mathutils.Vector((0.98, -0.15, 1.05))
     as_ = top - voet; lang = as_.length; rot = as_.to_track_quat("Z", "Y").to_euler()
