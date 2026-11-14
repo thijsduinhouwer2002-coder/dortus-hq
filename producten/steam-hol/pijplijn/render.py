@@ -253,9 +253,10 @@ def render_stukken(naam, s, bpy_python, snel):
         raise SystemExit(f"FOUT: {naam}: geen stukken")
     for laag, lijst in s["lagen"].items():
         if isinstance(lijst, dict):   # {"alleen": [...]}: alleen die objecten, doorzichtig eromheen (HOL_ALLEEN)
-            lijst = lijst.get("alleen")
+            # Bram 14 nov: of {"verberg": [...]} met een eigen model (put per stap): het hele beeld, zoals een lijst
+            lijst = lijst.get("alleen") or lijst.get("verberg")
             if not lijst:
-                raise SystemExit(f"FOUT: {naam}: laag {laag}: een woordenboek moet 'alleen' met namen hebben")
+                raise SystemExit(f"FOUT: {naam}: laag {laag}: een woordenboek moet 'alleen' of 'verberg' met namen hebben")
         if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
             raise SystemExit(f"FOUT: {naam}: laag {laag} moet een lijst met namen zijn")
     nodig = sorted({st["laag"] for st in s["stukken"].values()})
@@ -269,7 +270,7 @@ def render_stukken(naam, s, bpy_python, snel):
     for laag in nodig:
         cfg = s["lagen"][laag]
         alleen = cfg.get("alleen") if isinstance(cfg, dict) else None
-        verberg = [] if alleen else cfg
+        verberg = [] if alleen else (cfg.get("verberg", []) if isinstance(cfg, dict) else cfg)
         sleutel = ("alleen-" + "-".join(sorted(alleen))) if alleen else ("-".join(sorted(verberg)) or "niets")   # andere lijst = ander bestand (HOL_HERGEBRUIK)
         model = cfg.get("model", s["model"]) if isinstance(cfg, dict) else s["model"]
         model_args = cfg.get("args", s["args"]) if isinstance(cfg, dict) else s["args"]
