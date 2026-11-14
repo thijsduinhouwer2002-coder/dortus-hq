@@ -712,3 +712,6 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 
 ## 14 nov 2026, 07:06 tot ±07:45 UTC, Bram
 - Hoedenberg 3D (`claude/steam-hol-berg3d`) wacht nog op Daans ja (06:40). Royal-cape, bovenzoom en glansster in 3D geclaimd in taken.md; vraag aan Daan of hij ze als standen in `gloop.py` maakt (zelfde camera, lijf verborgen), dan zet ik ze in het blad en in `slijm.gd`. Deze run vooral Blender (poster Click Joints Pro).
+- Windows-run op main na paneel r3 (43570376262) groen, strook 160 GEZIEN.
+- Goudmuntjes in 3D-stijl op tak `claude/steam-hol-munt3d` (8e529ba): vliegende muntjes en het koopmuntje achter `met_3d` rond en glanzend (vier kleuren van het paneelmuntje, geen nieuw blad), draaien door in te drukken. Toetsen lokaal 0 FOUT (4 nieuw), controleur akkoord met punten (3 verwerkt, .import-bestanden van mijn lokale import teruggezet). Windows-run 43570696183 groen, winkelbeeld week 160 (run 43570708482) GEZIEN. Wacht op Daan.
+- Les: `git fetch origin schermen` duurt meer dan 2 minuten (grote tak); losse beelden haal je sneller met curl van raw.githubusercontent.com, map `steam-hol/winkel-1920-week-160/los/`.
