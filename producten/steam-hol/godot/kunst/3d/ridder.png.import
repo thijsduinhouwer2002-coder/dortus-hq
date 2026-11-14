@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/ridder.png.ctex"
+uid="uid://dlt0ovenrw0hk"
+path="res://.godot/imported/ridder.png-0790452022c93b3edc32709d9ecf2450.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/ridder.png"
-dest_files=["res://.godot/imported/ridder.png.ctex"]
+dest_files=["res://.godot/imported/ridder.png-0790452022c93b3edc32709d9ecf2450.ctex"]
 
 [params]
 
