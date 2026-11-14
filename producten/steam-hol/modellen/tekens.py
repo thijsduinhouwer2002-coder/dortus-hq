@@ -124,7 +124,7 @@ def _noot(ouder):
     goud = g.mat("teken_noot_goud", "ffd25a", rough=0.3, spec=0.6, metaal=0.25)
     rug = g.mat("teken_noot_rug", "2a1810", rough=0.7)
     for laag, m, dik, y0 in (("rug", rug, 1.0, 0.07), ("voor", goud, 0.0, 0.0)):
-        e = 0.05 * dik  # rug iets dikker rondom
+        e = 0.035 * dik  # rug iets dikker rondom (was 0.05; frisse kijker: groot te zwaar)
         # kopje: platte ellips, 25 graden gekanteld
         bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(-0.1, y0, 0.2))
         k = _obj(bpy.context.object, f"teken_noot_{laag}_kop", m, ouder)
