@@ -192,6 +192,22 @@ def _vlak(ob, vlakken, tol, reik):
     return uit
 
 
+HUID_DREMPEL = 0.3  # proef 3: |normaal . lidas| eronder = huid van de staaf (straalsgewijs), geen stopvlak
+
+
+def _zonder_huid(ob, vlakken):
+    """1.0.1 proef 3 (Bram 14 nov): rakende vlakken die op de huid van de staaf liggen (normaal dwars op de lidas) niet
+    rood maken. In proef 2 (run 43494134537, plaatje 14) gaven lange smalle huidvlakken bij de snede twee rode strepen
+    op het bovenbeen. Het stopvlak van de snede staat schuin op de lidas en blijft. Blijft er niets over, dan het oude."""
+    if not vlakken or "cj_as" not in ob:
+        return set(vlakken)
+    m_inv = echte_matrix(ob).inverted()
+    lid = (m_inv.to_3x3().inverted().transposed() @ Vector(ob["cj_as"])).normalized()
+    me = ob.data
+    uit = {v for v in vlakken if v < len(me.polygons) and abs(me.polygons[v].normal.dot(lid)) >= HUID_DREMPEL}
+    return uit if uit else set(vlakken)
+
+
 def _kleur(ob, vlakken, kleur_rood):
     me = ob.data
     if not vlakken:
@@ -244,6 +260,8 @@ def pose(a, b, graden, kleur_rood=None):
     paren = bvh_a.overlap(bvh_b)
     raak_a = {me.loop_triangles[i].polygon_index for i, _ in paren}
     raak_b = {b.data.loop_triangles[j].polygon_index for _, j in paren}
+    raak_a = _zonder_huid(a, raak_a)
+    raak_b = _zonder_huid(b, raak_b)
     try:
         from ..eigenschappen import eenheid_per_mm
         u = eenheid_per_mm(bpy.context.scene)
