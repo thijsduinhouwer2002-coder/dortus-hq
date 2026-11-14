@@ -1,6 +1,6 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek 4.1 (wacht 0.0): Tibbe knocks first. Polite.
+HOL kroniek 4.0 (wacht 0.0): Tibbe knocks first. Polite.
 HOL begin: vallen (Tibbe)
 HOL held binnen: Tibbe
 HOL muisvlak 4 punten, lucht vrij op x=-1
