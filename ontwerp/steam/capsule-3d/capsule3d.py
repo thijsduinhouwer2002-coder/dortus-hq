@@ -177,8 +177,12 @@ if PLUIM_RECHT:
     hr = bpy.data.objects.get("helmrand")
     hx, hz = hr.location.x, hr.location.z - 0.01
     pl = g.mat("pluim", "rood", rough=0.7)
-    for px, py, pz, ps in [(-0.42, 0.0, 0.40, 0.19), (-0.62, 0.0, 0.52, 0.18), (-0.80, 0.0, 0.68, 0.16), (-0.90, 0.0, 0.86, 0.13)]:
-        ns["bol"]("pluim", (hx + px, py, hz + pz), (ps, ps * 0.8, ps), pl)
+    # ronde 6 (Daan moet 2, 14 nov 14:45): vier losse bollen lazen als rups of kralen. Nu precies de pluim van de ridder
+    # (held.py: vier bollen die elkaar half overlappen en omkrullen), gespiegeld en x1,64 groter (helm 0,63 tegen 0,385).
+    # Hij begint links aan de helm, onder de kroon, en krult naar buiten en omhoog.
+    K = 0.63 / 0.385
+    for px, pz, ps in [(0.0, 0.47, 0.11), (0.06, 0.55, 0.1), (0.13, 0.6, 0.085), (0.2, 0.6, 0.07)]:
+        ns["bol"]("pluim", (hx - 0.30 - px * K * 1.25, 0.0, hz + 0.20 + (pz - 0.47) * K * 1.6), (ps * K, ps * K * 0.8, ps * K), pl)
 GS = 1.95
 for o in [o for o in bpy.data.objects if o not in voor]:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
@@ -216,7 +220,8 @@ import held
 # ronde 4: groter en dichterbij, zodat de grap (zijn helm, zijn pluim, op Gloop) sneller valt
 # ronde 5b (frisse kijker: "lijkt eroverheen geplakt, kijkt de kijker aan en niet het monster"): minder randlicht,
 # meer naar Gloop gedraaid. Oud: draai 38, rand 60 (RIDDER_DRAAI, RIDDER_RAND)
-ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "50")), schaal=RS,
+# ronde 6 (Daan moet 1): hoger draaide hem juist weg; -40 kijkt hij naar de helm op Gloop (ridder-draai-reeks.png)
+ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40")), schaal=RS,
                    gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))
 # ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
 SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))
