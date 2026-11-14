@@ -675,3 +675,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Kan-toets van de controleur van 02:35 (munt_top met de echte `slijm.gd`, 12 hoeden) gedaan, groen.
 - Les: de lokale Godot (download naar het kladblok) maakt `.import`-wijzigingen in `kunst/3d/`; voor elke commit terugzetten.
 - Windows-runs groen (43551828820, 43552298117), gras zichtbaar GEZIEN in `strook-120.png`; tak op main samengevoegd. Volgende: `deco_plek` dunner (Daan 02:50: hooguit één stuk per twee gangtegels, niets op het looppad), daarna paneel in 3D (Daan, `ontwerp/steam/paneel-3d/`).
+- 03:50: versiering-keurstrook groen (run 43552105745), 3D-stukken in de gang GEZIEN, bij Daan. Pro 1.0.1 proef 3 (Blender): rode strepen weg.
