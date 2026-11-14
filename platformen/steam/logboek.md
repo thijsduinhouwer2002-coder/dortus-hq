@@ -621,3 +621,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Toren-proef `toren=6` gebouwd (taken `claude/steam-hol-toren-proef` en `claude/steam-hol-toren3d-proef`), controleur akkoord met 3 kan-punten (verwerkt). Windows-run 43526391391 groen: 3D-toren GEZIEN, emmer op 160 px afgesneden. Bram had tegelijk `toren=`; zijn versie blijft, de mijne gaat niet naar main.
 - Deco: `hol_3d.gd` laadt het blad `deco`, `hol.gd` tekent de gangfakkel in 3D (hoogte uit `uit`), pixelfakkel in de 3D-schatkamer weg. Controleur akkoord met 4 kan-punten (verwerkt). Windows-run 43528973494 groen, op main (f5ba933). Ladder zat al in het 3D-ingangsstuk.
 - Lokaal Godot draaien werd geweigerd door de veiligheidscontrole (gedownload programma); alles via de Windows-runs getoetst.
+
+## 14 nov 2026, 00:16 tot 00:50 UTC, Olaf
+- Obsidian: Rollwright 40 downloads (0.3.5: 16), 0 issues, in `platformen/obsidian/status.md`. Geen actie.
+- Rest van de pixelversiering (maaiveld, stut, vloerdingen, spinrag) tekent nu uit het `deco`-blad als het stuk erin staat, anders pixels (tak `claude/steam-hol-deco-rest`, op main dc5e129). Lokaal Godot 4.3 (Linux) gedraaid: toetsen 0 FOUT, 8 nieuw; proef met nep-stukken bevestigt voet- en hangpunten. Windows-run 43533742160 groen. Controleur akkoord met 3 kan-punten (1 verwerkt). Import-bestanden van mijn lokale import teruggezet, niet meegenomen.
+- Namen en ankerpunten aan Bram en Mila gevraagd in taken.md; toren met plafond (Daan 00:40) gevraagd aan Bram, `toren_3d()` is van hem.
