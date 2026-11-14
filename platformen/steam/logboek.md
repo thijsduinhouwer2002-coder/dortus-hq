@@ -705,3 +705,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Hoedenberg in 3D (Olafs winkelbeeld 05:35, Daans volgorde 06:40: hoeden eerst): `berg_3d()` in `slijm.gd` op tak `claude/steam-hol-berg3d` (a3d2c8e), 3 toetsen, lokaal 0 FOUT. Winkelbeeld week 160 van de tak (run 43566435282) GEZIEN: 3D-hoeden in de berg. Windows-run 43566430557 groen in alle spelstappen. Wacht op Daans ja.
 - Nog pixels naast Gloop in dat beeld: Royal-cape en bovenzoom (UPG), munten, laars. Gemeld.
 - Les: de winkel-workflow schrijft altijd naar `steam-hol/winkel-1920-week-160/`, ook vanaf een tak; RUN.txt zegt welke commit.
+
+## 14 nov 2026, 07:16 tot ±08:00 UTC, Olaf
+- Rollwright: zie Obsidian, niets dringends.
+- Paneel 3D ronde 3 naar main (merge cd0a408) met de voorlopige ja van Daan (06:48). Na zijn run veranderden alleen 2 regels (getal 3 px van het goud, toetsrand 31/128); run 43566561301 op de tak was groen.
