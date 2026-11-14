@@ -12,3 +12,12 @@ Bestanden:
 - `voorbeeld.py`: hoe het voorbeeld is gemaakt (maten op 160 px: rand 18, titel 18, tekst 15, knop 24 hoog met hoek 12).
 
 Voor Olaf (`kern/tekst.gd`), als voorstel en pas na de demolijst-punten die voorgaan: `PANEEL` naar de 3D-bron met lineair filter en rand `R * schaal` zoals nu (bron-rand 128), `ThemeDB.fallback_font` naar Fredoka met de gewichten hierboven, `_knop()` als ronde pil (StyleBoxFlat met hoek, of een tweede 9-slice), `_munt()` als rond muntje (zelfde 3D-munt als op de schat mag ook). De indeling en de teksten blijven zoals ze zijn.
+
+## Ronde 2 (Daan, 14 nov 2026, ±03:50 UTC), na de frisse kijker
+Frisse kijker (agent) gaf ronde 1 een 7,5: beter dan het pixelpaneel en bijna goed genoeg, maar plaat te grijs en koel naast het warme hol, gouden rand op 160 px maar 1 tot 2 px, plat, geen lucht aan de rechterrand (rand leek afgesneden), knop te donker en te vlak.
+Verwerkt:
+- `paneel.py`: binnenvlak warmer pruim (3e2446, was 2b1b33), rand dikker (binnenplaat 1,70 in plaats van 1,78: op 160 px ±3 px goud), wereldlicht iets warmer. Nieuwe bron: `paneel-3d-bron-384.png` (rand nog steeds 128 px).
+- `voorbeeld.py` (maten voor Olaf): 4 px vrij van de rechterrand, boven en onder; schaduw zachter en groter naar het hol (blur 6, 3 px omlaag); titel en getal met een zachte donkere schaduw van 1 px; muntje met kleine schaduw; knop 26 hoog met hoek 13, vulling warm pruimroze (7a426c) met een glansstrook bovenin (925880), letter 16 in plaats van 15, gewicht 600.
+- Niet gedaan: oplichten bij hover (kan-punt; de strook moet zuinig blijven, en de knop heeft al een hover in `tekst.gd`).
+Beelden (GEZIEN met Read): `kaartje-voor-na-3x-ronde2.png`, `kaartje-voor-na-160-ware-grootte-ronde2.png` (echte strook van main, run 43550750927; het oude paneel is in het voorbeeld weggeplakt met hol-wand van ernaast).
+Oordeel: goed genoeg om te bouwen. Het paneel valt niet meer uit de 3D-wereld en de knop leest als knop.

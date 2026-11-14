@@ -26,9 +26,9 @@ def plaat(naam, b, d, z, r, m):
     bpy.ops.object.shade_smooth()
     return o
 goud = mat("rand", "e0a83a", rough=0.35, metaal=0.6)
-hout = mat("binnen", "2b1b33", rough=0.8)
+hout = mat("binnen", "3e2446", rough=0.8)   # ronde 2: warmer pruim (kijker: te grijs en koel naast het hol)
 plaat("rand", 2.0, 0.3, 0.0, 0.14, goud)
-plaat("binnen", 1.78, 0.3, 0.06, 0.1, hout)
+plaat("binnen", 1.70, 0.3, 0.06, 0.1, hout)   # ronde 2: rand dikker, op 160 px ±3 px goud
 cam = bpy.data.cameras.new("cam"); cam.type = "ORTHO"; cam.ortho_scale = 2.0
 co = bpy.data.objects.new("cam", cam); co.location = (0, 0, 5); sc.collection.objects.link(co); sc.camera = co
 for naam, loc, e, kleur in (("sleutel", (-3, 3, 6), 600, (1, 0.9, 0.8)), ("vul", (3, -2, 5), 150, (0.8, 0.8, 1))):
@@ -40,5 +40,5 @@ sc.render.engine = "CYCLES"; sc.cycles.samples = SAMPLES; sc.cycles.device = "CP
 sc.render.film_transparent = True; sc.render.resolution_x = sc.render.resolution_y = PX
 sc.view_settings.view_transform = "Standard"
 w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-w.node_tree.nodes["Background"].inputs[0].default_value = (0.25, 0.2, 0.3, 1); w.node_tree.nodes["Background"].inputs[1].default_value = 0.6
+w.node_tree.nodes["Background"].inputs[0].default_value = (0.32, 0.2, 0.3, 1); w.node_tree.nodes["Background"].inputs[1].default_value = 0.6
 sc.render.filepath = uit; bpy.ops.render.render(write_still=True)
