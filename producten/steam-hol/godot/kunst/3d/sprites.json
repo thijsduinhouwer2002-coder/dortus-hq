@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 17016,
+  "bytes": 17046,
   "cel_px": [
    87,
    56
@@ -62,7 +62,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 47777,
+  "bytes": 47778,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -385,7 +385,7 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 18960,
+  "bytes": 18951,
   "cel_px": [
    87,
    58
@@ -442,7 +442,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29188,
+  "bytes": 29201,
   "cel_px": [
    105,
    64
@@ -498,7 +498,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12135,
+  "bytes": 12178,
   "cel_px": [
    52,
    56
@@ -554,7 +554,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 19706,
+  "bytes": 19687,
   "cel_px": [
    87,
    56
@@ -611,7 +611,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 20136,
+  "bytes": 20121,
   "cel_px": [
    87,
    56
@@ -668,7 +668,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 19356,
+  "bytes": 19373,
   "cel_px": [
    86,
    56
@@ -725,7 +725,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 19669,
+  "bytes": 19695,
   "cel_px": [
    87,
    56
@@ -782,7 +782,7 @@
  "held4": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 19013,
+  "bytes": 19042,
   "cel_px": [
    86,
    56
@@ -931,7 +931,7 @@
  "hoeden_hap": {
   "anker_x": 25,
   "blad": "res://kunst/3d/hoeden_hap.png",
-  "bytes": 19263,
+  "bytes": 19265,
   "cel_px": [
    50,
    37
@@ -1026,7 +1026,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113025,
+  "bytes": 112930,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1261,7 +1261,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17536,
+  "bytes": 17533,
   "cel_px": [
    59,
    62
@@ -1314,10 +1314,46 @@
    0.0
   ]
  },
+ "royal": {
+  "anker_x": 75,
+  "blad": "res://kunst/3d/royal.png",
+  "bytes": 15078,
+  "cel_px": [
+   150,
+   88
+  ],
+  "eenheid_px": 31.1891,
+  "frames": [
+   "achter",
+   "voor"
+  ],
+  "kruin": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    -2.62,
+    9.0
+   ]
+  ],
+  "maal": 1.0,
+  "model": "gloop.py",
+  "nul_y": [
+   19.06,
+   19.06
+  ],
+  "px": 4,
+  "samples": 48,
+  "top": [
+   0.0,
+   8.75
+  ]
+ },
  "tekens": {
   "anker_x": 16,
   "blad": "res://kunst/3d/tekens.png",
-  "bytes": 9699,
+  "bytes": 9700,
   "cel_px": [
    32,
    32
