@@ -52,6 +52,8 @@ KUSSEN = False  # ronde 4: hij zit op een rood kussen met gouden kwasten (eigen 
 MUNTEN = True   # ronde 5: drie gouden munten aan zijn voet
 SCEPTER = True  # gouden scepter met bol, schuin tegen zijn rechterflank (frisse kijker 3b: een eigen koningsstuk)
 KRANS = False   # stralenkrans achter hem: ronde 3a las als stekels of schrik, dus uit
+TROON = True    # ronde 7 (Daan 14 nov 09:45): rugleuning van een troon achter hem in plaats van een mantel
+MANTEL = False  # ronde 3 tot 6: mantel achter hem (vast op koning 6 tot 7, duur 5: "vlag", "tent")
 RONDE = 3   # 3: rood fluweel, wijde sleep, hermelijn als zoom, stralenkrans (Daan 14 nov 08:45); 2: paarse kelk
 
 
@@ -64,6 +66,14 @@ def cape(lijf_delen, vloer):
     - een gouden stralenkrans achter hem: dit is de duurste upgrade, die mag glanzen (betaald mag gloed hebben)."""
     import bmesh
     _weg(lijf_delen)                       # het lijf tekent het spel er zelf overheen
+    if TROON:
+        _troon()
+    if not MANTEL:
+        if SCEPTER:
+            _scepter()
+        if MUNTEN:
+            _munten()
+        return
     fluweel = g.mat("cape", "8a0f26", rough=0.45, spec=0.6, sss=0.05)   # ronde 6: dieper rood met glans
     voering = g.mat("cape_voering", "5e0c1c", rough=0.85, spec=0.15)
     bont = hermelijn()
@@ -122,6 +132,55 @@ def cape(lijf_delen, vloer):
     so = kr.modifiers.new("dik", "SOLIDIFY"); so.thickness = 0.03
 
 
+def _troon():
+    """Ronde 7: Gloop heeft geen schouders, dus een mantel valt nergens van af (rondes 3 tot 6 bleven "vlag" of "tent").
+    Een troon heeft dat probleem niet: een hoge rugleuning met boog van rood fluweel in een dikke gouden lijst,
+    twee gouden knoppen bovenop en twee armleuningen die links en rechts naast hem uitsteken. Eén rijk silhouet
+    achter hem, ook klein te lezen, binnen 36 spelpixels breed (Bram 09:25)."""
+    import bmesh
+    fluweel = g.mat("troon", "a3122e", rough=0.5, spec=0.5, sss=0.03)   # 7b: meer glans (kijker: dof en plat)
+    goud = g.mat("troon_goud", "goud", rough=0.3, spec=0.8, metaal=0.9, emis=0.0)
+    W2, H0, BOOG, Y = 1.3, 1.5, 0.75, 0.75          # halve breedte, hoogte tot de boog, boog, diepte achter hem
+    pts = [(-W2, 0.0), (-W2, H0)]
+    for i in range(1, 24):
+        a = math.pi * i / 24
+        pts.append((-W2 * math.cos(a), H0 + BOOG * math.sin(a)))
+    pts += [(W2, H0), (W2, 0.0)]
+    def plaat(naam, inzet, dikte, mt, dy):
+        me = bpy.data.meshes.new(naam); bm = bmesh.new()
+        vs = []
+        for x, z in pts:
+            kx = x * (W2 - inzet) / W2
+            kz = z if z < H0 else H0 + (z - H0) * (BOOG - inzet) / BOOG
+            vs.append(bm.verts.new((kx, Y + dy, max(kz - (inzet if z > 0.01 else 0), 0) if z > 0.01 else 0)))
+        bm.faces.new(vs); bm.to_mesh(me); bm.free()
+        o = bpy.data.objects.new(naam, me); bpy.context.scene.collection.objects.link(o)
+        so = o.modifiers.new("dik", "SOLIDIFY"); so.thickness = dikte
+        bv = o.modifiers.new("rond", "BEVEL"); bv.width = 0.03; bv.segments = 3
+        o.data.materials.append(mt)
+        return o
+    plaat("troon_lijst", 0.0, 0.16, goud, 0.0)            # gouden lijst
+    plaat("troon_rug", 0.15, 0.06, fluweel, -0.22)       # fluweel ervoor, 0,13 kleiner: lijst blijft zichtbaar
+    for sx in (-1, 1):
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.15, location=(sx * W2, Y - 0.05, H0 + 0.12))
+        o = bpy.context.object; o.name = "troon_knop"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
+        # armleuning: rood kussen op een gouden steun, steekt naast hem naar voren
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, 0.0, 0.64))
+        a = bpy.context.object; a.name = "troon_arm"; a.scale = (0.3, 1.5, 0.2)
+        bv = a.modifiers.new("rond", "BEVEL"); bv.width = 0.06; bv.segments = 4
+        a.data.materials.append(fluweel)
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, -0.55, 0.3))
+        p = bpy.context.object; p.name = "troon_poot"; p.scale = (0.16, 0.16, 0.6)
+        bv = p.modifiers.new("rond", "BEVEL"); bv.width = 0.04; bv.segments = 3
+        p.data.materials.append(goud)
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, radius=0.14, location=(sx * 1.24, -0.75, 0.66))
+        o = bpy.context.object; o.name = "troon_armknop"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
+    # robijn midden boven in de lijst
+    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2, radius=0.11, location=(0, Y - 0.04, H0 + BOOG - 0.02))
+    o = bpy.context.object; o.name = "troon_robijn"
+    o.data.materials.append(g.mat("troon_robijnmat", "c8203a", rough=0.05, spec=1.0, emis=0.4))
+
+
 def _kussen():
     """Plat, bol kussen van rood fluweel onder hem, met een gouden bies en vier gouden kwasten op de hoeken.
     Het spel tekent het lijf eroverheen, dus je ziet het links, rechts en voor zijn onderkant."""
@@ -171,7 +230,8 @@ def _scepter():
     """Staf van goud met een rode bol en een kruisje erop, onderaan op de vloer rechts naast hem, schuin tegen zijn flank.
     Groot genoeg om op spelgrootte als staf met bol te lezen (bol ±0,22 = ±2 spelpixels)."""
     goud = g.mat("scepter_goud", "goud", rough=0.18, spec=1.0, metaal=0.9, emis=0.12)
-    rood = g.mat("scepter_bol", "b3102e", rough=0.04, spec=1.0, emis=0.35, glas=0.3)   # robijn, geen snoep
+    rood = g.mat("scepter_bol", "goud", rough=0.15, spec=1.0, metaal=0.9, emis=0.15) if TROON else \
+        g.mat("scepter_bol", "b3102e", rough=0.04, spec=1.0, emis=0.35, glas=0.3)   # 7b: gouden bol, de rode liep in het rode fluweel
     import mathutils
     voet = mathutils.Vector((1.15, -0.15, 0.0)); top = mathutils.Vector((0.98, -0.15, 1.05))
     as_ = top - voet; lang = as_.length; rot = as_.to_track_quat("Z", "Y").to_euler()
