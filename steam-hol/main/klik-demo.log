@@ -7,9 +7,9 @@ HOL muisvlak 4 punten, lucht vrij op x=200
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL begin: vallen (Tibbe)
 HOL held binnen: Tibbe
-HOL kroniek 5.5 (wacht 1.5): Tibbe climbs into your hole.
+HOL kroniek 5.5 (wacht 1.5): Tibbe says this is a quick one.
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL kroniek 15.9 (wacht 0.0): Tibbe will not be leaving. +6
-HOL kroniek 18.5 (wacht 2.5): Page for the Hero. The pit got him.
+HOL kroniek 15.9 (wacht 0.0): Tibbe fell to the Spike Pit. +6
+HOL kroniek 18.5 (wacht 2.5): New page: the Hero. The pit got him.
 HOL meting t=20 beelden=95 helden=0 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0
