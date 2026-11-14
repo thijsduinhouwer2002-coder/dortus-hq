@@ -5,7 +5,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 6476,
+  "bytes": 6719,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -48,7 +48,7 @@
  "gloop": {
   "anker_x": 50,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29010,
+  "bytes": 29020,
   "cel_px": [
    99,
    64
@@ -74,7 +74,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 15673,
+  "bytes": 15634,
   "cel_px": [
    52,
    56
@@ -103,7 +103,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113795,
+  "bytes": 113662,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -338,7 +338,7 @@
  "ridder": {
   "anker_x": 28,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 20085,
+  "bytes": 20027,
   "cel_px": [
    57,
    62
