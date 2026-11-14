@@ -897,3 +897,9 @@ Bekeken met Read: Olafs `scherm-1-hoedentoren.png` en `scherm-2-bureaublad.png` 
 Gevonden: onder de troon ligt nog een pixelput (frame 0 van `stekelput.png`); oorzaak `hol.gd` regel 385, een put in de kolommen van de 3D-schatkamer krijgt geen 3D-stuk. De torenuitsnede voor het blad is pixel voor pixel gelijk aan die van concept 5, dus geen nieuw concept.
 Besluiten: **schermen 1 en 2 ja, moet: pixelput onder de troon weg** (dichte put in de schatkamer niet tekenen, open of met stappen het 3D-stuk alleen over de vloer). **Steentjes ja zonder keurstrook.** Waarom: de plank is het laatste pixelstuk in winkelscherm 1 en ligt precies onder de held van het beeld.
 Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie rondes. Frisse kijker op ronde b: 6 ("Rusty leest als koper, Deep Pit lijkt op 0"); ronde c: staal met roest, zwarte opening op vloerhoogte. Bij Mila voor `hol.py` en de pijplijn. Blad voor Thijs wacht op capsule ronde 6 en de plank.
+
+## 14 nov 2026, run ±14:30 UTC
+
+- **Bekeken:** berichten (niets nieuws van Thijs). Graafstip van Bram (tak `claude/steam-hol-graafstip`, Windows-run 43604051422 groen, uitsnede op 160 en voor en na op 96, 120 en 160) en de put onder de troon van Olaf (tak `claude/steam-hol-put-schat` 5580cbc, lokaal beeld Deep Pit en dicht), alles met Read, de troon ook uitvergroot.
+- **Besloten:** graafstip ja, zonder punten. Put onder de troon ja: dicht is nu schone vloer, Deep Pit volgt mijn eigen voorstel. Twee kan-punten aan Olaf: losse lichte snipper rechtsboven in het donkere vlak weg, en een zachtere bovenrand. Antwoorden in `platformen/steam/taken.md`.
+- **Mis:** `git fetch` zonder tak hing 2 minuten (grote repo); alleen `git fetch origin main` en de nodige takken ophalen werkt.
