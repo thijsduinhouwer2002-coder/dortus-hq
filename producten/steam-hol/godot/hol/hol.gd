@@ -357,7 +357,7 @@ func _draw() -> void:
 		var y: float = vloer - 6 - sin(f * PI) * 12
 		if met_3d:
 			# 3D-stijl (Daan 06:40): rond en glanzend zoals het paneelmuntje, draait in de vlucht
-			munt_3d(Vector2(x, y), 1.6, munt_draai(f * 3.0))
+			munt_3d(Vector2(x + 0.5, y + 0.5), 1.6, munt_draai(f * 3.0))
 			continue
 		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
@@ -371,7 +371,7 @@ func _draw() -> void:
 		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
 		if met_3d:
 			# zelfde plek en maat als Mila's munt (rij 1 tot 6 van het 8 x 8 beeld), rond; de twee beelden worden vol en op zijn kant
-			munt_3d(Vector2(mx + 1, my + 3), 3.0, 1.0 if (anim / 3) % 2 == 0 else 0.55)
+			munt_3d(Vector2(mx + 1, my + 3), 3.0, 1.0 if (anim / 3) % 2 == 0 else 0.67)
 			continue
 		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))
 
