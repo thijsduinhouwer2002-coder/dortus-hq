@@ -25,9 +25,18 @@ Eerlijk: alles in beeld zit in het spel. Gloop en de ridder komen ongewijzigd ui
 ## Eigen toets (GEZIEN met Read)
 - Naast de toppers op 231 px hoog: veel rijker dan de pixelheader van v5; titel leest, de toren leest als hoeden. Zwakker dan de toppers: hun figuren vullen het vak, bij ons is er nog veel muur. Rusty's en Tiny Pasture zijn feller en lichter.
 
+## Ronde 2 (zelfde run, na de frisse kijker)
+Frisse kijker (alleen de header en de rij met toppers), letterlijk: "Rechts zit een groen eenogig slijmmonster op een berg goud. Het draagt een stapel hoeden ... Het ridderventje draagt dezelfde soort helm, dus zijn helm komt straks waarschijnlijk op die stapel. Dat is een leuke donkere knipoog. Maar je moet het zelf in elkaar puzzelen." Klein: "Bij Hats zie je kerker met twee kleine dingetjes ... het paars is donker en vlak." Zijn tip: "maak het slijm met zijn hoedenstapel veel groter ... (liefst hoger en gekker) ... een lichtere, warmere achtergrond rond het slijm." Cijfer 5 (groot 6 tot 7).
+- Gloop ±20% groter en dichterbij, de ridder kleiner en verder naar voren links (bang erbij, niet de ster).
+- **Besluit: een hoedenberg rond Gloop (emmer, koksmuts, pan, pet, veermuts, kap, hoge hoed uit Daans `hoeden.py`), de toren op zijn hoofd blijft 4.** Waarom: in het spel draagt Gloop er hoogstens 4 en ligt de rest op de berg (`toets_held.gd`: "10 hoeden: 4 op zijn hoofd, 6 op de berg"). Zo wordt het "gekker" zonder te liegen, en zie je klein aan de pan en de emmer dat het om hoeden gaat.
+- Warme gloed op de muur achter Gloop, koel licht alleen nog op de ridder.
+- De hoge hoed stond eerst voor zijn mond; verplaatst naar achter op de berg, de grijns is weer vrij.
+- `header-ronde1-920x430.png` is ronde 1 ter vergelijking.
+- GEZIEN met Read: header, klein, rij met toppers. Eigen oordeel: voller en grappiger dan ronde 1, de hoeden lezen nu als thema. Nog steeds minder één helder idee dan Rusty's of Deskrawl: te veel kleine dingen tegelijk. Geen nieuwe frisse kijker meer deze run.
+
 ## Volgende ronde
 1. Frisse kijker alleen op `header-920x430.png` en op ware grootte; letterlijk opschrijven wat hij ziet en of de helm-grap leest.
-2. Meer vullen: de boog en de muur kleiner in beeld, Gloop nog dichterbij.
+2. Eén helder idee: minder kleine dingen (fakkels of boog weg), Gloop met toren groot en midden, hoedenberg erachter in plaats van ervoor. Frisse kijker opnieuw, doel 7.
 3. Hoofdbeeld 1232x706 en bibliotheek 600x900 (staand: toren past daar juist goed).
 4. Idee uit de oude pixelcapsule terughalen: kleine hoeden op de letters van HATS (klein-oud-nieuw.png links). Dat maakt de titel zelf de grap.
 5. Daan keurt op fouten en leesbaarheid.

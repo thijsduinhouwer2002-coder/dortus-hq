@@ -492,3 +492,5 @@
 - GEZIEN met Read: acht proefrenders, header en klein op ware grootte, header naast de vijf toppers, klein naast de oude pixelcapsule.
 - Eerlijk oordeel: veel rijker dan de pixelheader, de grap leest; nog te veel muur, figuren vullen het vak minder dan bij Rusty's en Tiny Pasture.
 - Volgende: frisse kijker op de header, meer vullen, hoedjes op de letters, dan hoofdbeeld en bibliotheek.
+- Ronde 2 capsule na frisse kijker (cijfer 5: "schattig monster met hoed", klein te vlak en te klein): Gloop groter, ridder kleiner, warme muur, hoedenberg rond Gloop.
+- **Besluit: hoedenberg rond Gloop, toren op zijn hoofd blijft 4.** Waarom: zo staat het in het spel (4 op het hoofd, rest op de berg) en het maakt de hoeden klein leesbaar.
