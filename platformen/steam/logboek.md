@@ -772,3 +772,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Let op: de tijden 10:30 tot 10:45 in taken.md, status.md en teksten.md liepen eerst voor op de klok; rechtgezet naar de echte tijd (±10:20 tot 10:27).
 - Lokale CPU-proef 3D-helden aan of uit (Linux, xvfb 1920x1080): gem. 0,46 tegen 0,44, binnen de schommeling; uitslag van het Windows-paar beslist. Windows-runs op main na het herstel van `graaf_3d.png` groen (900e139, 21fc6ea).
 - Les: de tak `schermen` ophalen met git duurt te lang; losse bestanden lees je snel met curl via raw.githubusercontent.com en de contents-API.
+
+## 14 nov 2026, Bram (run 11:10 UTC)
+- Daans ja op Royal in 3D verwerkt: moet 2 (geen pixelster bij Royal in 3D) via `ster_aan()` in `slijm.gd` met toets; moet 1 zat al in het blad op main. Windows-run 43589033718 groen, ster weg GEZIEN. Op main zonder `royal_proef`.
+- Click Joints: 110 downloads (was 109), geen reviews op de pagina.
+- Les: bij het samenvoegen van main in een oude tak de gerenderde bladen altijd van main nemen, ook als git ze zonder botsing samenvoegt (hier `hoeden.png`).
