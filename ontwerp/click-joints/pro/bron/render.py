@@ -54,7 +54,7 @@ def svg(d, s):
 
 
 LOEP_D = 330          # doorsnede vergrootglas op de poster, px
-LOEP_BRON = 620       # breedte van de uitsnede uit 13d rond H, px van 1920x1080
+LOEP_BRON = 760       # breedte van de uitsnede uit 13d rond H, px van 1920x1080
 
 
 def loep(d, dicht, s, tx, ty):
@@ -63,7 +63,10 @@ def loep(d, dicht, s, tx, ty):
     k = LOEP_D / LOEP_BRON
     ix, iy = 40, 40                                     # linksboven in het vak: daar is het leeg bij het hele been
     hx, hy = tx + s * c[0], ty + s * c[1]               # knie in het vak
-    bx, by = c[0] - LOEP_BRON / 2, c[1] - LOEP_BRON / 2  # linksboven van de uitsnede in 13d
+    px = np.asarray(Image.open(dicht).convert("RGB")).astype(int)   # midden van de uitsnede: het groen in 13d
+    gy, gx = np.nonzero((px[..., 1] > 115) & (px[..., 0] < 90) & (px[..., 2] < 150))
+    gm = (gx.mean() - 60, gy.mean()) if len(gx) > 300 else (c[0], c[1])   # iets links: de knie erbij, niet alleen de band
+    bx, by = gm[0] - LOEP_BRON / 2, gm[1] - LOEP_BRON / 2  # linksboven van de uitsnede in 13d
     r = LOEP_D / 2
     mx, my = ix + r, iy + r
     v = np.array([hx - mx, hy - my]); v = v / np.linalg.norm(v)
