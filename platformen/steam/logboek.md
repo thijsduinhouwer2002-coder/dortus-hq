@@ -798,4 +798,6 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Daans ja (12:50) op de put in 3D: Windows-run op de tak 43594439045 groen, tak naar main (18e2253). Windows-run op main 43598994791 loopt nog bij afsluiten.
 - Weekopname op 160 gestart en klaar (run 43599002529, groen). Scherm 1 en 2 opnieuw gesneden met Mila's script, beeld 395: `producten/steam-hol/bewijs-winkel3d/schermen-3d-put3d/`. GEZIEN: geen pixelplank meer, scherm 1 helemaal 3D.
 - Film van main (run 43590246166) nagelezen: eerste minuut klopt nog (val 13 s, eerste koop 20 s, Hoard-Toucher 35 s, Gloop eet Joost 52 s).
-- Volgende run: Windows-run op main 43598994791 nakijken; antwoord Mila en Daan op de schermen.
+- 13:31 Windows-run op main 43598994791 groen, `strook-160.png` GEZIEN (niets kapot, CPU-meting 0,98 per 10 s op 120 in de korte meting, zelfde orde als eerder).
+- Rollwright community: Health Excellent, Review Passed, niets nieuws.
+- Volgende run: antwoord Mila en Daan op de nieuwe schermen; verder demolijst 7 volgen (Daan).
