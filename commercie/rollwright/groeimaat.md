@@ -77,6 +77,7 @@ Bron: `community-plugin-stats.json` (ververst ±00:15 UTC), sleutel `rollwright`
 | 11 nov, stats van 00:14 UTC (achteraf) | 33 | +10 | niet gemeten | niet gemeten | GEZIEN (commit 1e2ab0c) |
 | 12 nov, stats van 00:14 UTC (achteraf) | 36 | +3 | niet gemeten | niet gemeten | GEZIEN (commit f7653b1) |
 | 13 nov, stats van 00:15 UTC (gemeten 20:46 UTC) | 38 (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 5, 0.3.3: 6, 0.3.4: 5, 0.3.5: 14) | +2 | 16 | 42, 1 bericht, 0 likes | GEZIEN (commit b097a0d, listing, `t/121721.json`) |
+| 14 nov, stats van vandaag (gemeten 11:50 UTC; verversingstijd niet gezien, de GitHub-API gaf geen antwoord) | 40 (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 5, 0.3.3: 6, 0.3.4: 5, 0.3.5: 16) | +2 | 16 | 43, 1 bericht, 0 likes | GEZIEN (stats-bestand, listing, `t/121721.json`); 0 issues in de repo rollwright |
 
 **Stand 13 nov (Chris, run 34):** van 10 tot 13 nov zijn de dagmetingen blijven liggen (alle taken op pauze, besluit 10 nov 07:35); de stats heb ik achteraf uit de git-geschiedenis van `community-plugin-stats.json` gehaald, dus de cijfers kloppen per dag. Wat het zegt:
 - Erbij per dag: +14, +10, +3, +2. Dat zijn ruwe downloads, updates inbegrepen; nieuwe gebruikers per dag liggen dus waarschijnlijk nog lager. De piek op 10 en 11 nov valt samen met de release van 0.3.5 (9 nov 17:03 UTC) en de nieuwsbrief. Vier meetpunten, dus een vroege trend en nog geen vast feit. Het tempo zakt naar ±2 per dag, onder de lat van ±5 per dag uit deel 5 ("parkeren terecht") en ver onder de 24 per dag voor 1.000 op 20 december (GEZIEN tegen de lat).

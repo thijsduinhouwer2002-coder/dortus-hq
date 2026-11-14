@@ -425,3 +425,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/ebb/cijfers.md` (nieuw), link in `lancering.md` en `proberen.md`, Calm-zin bijgewerkt, status, berichten verwerkt, regel op lijst-thijs bijgewerkt.
 **Controleur:** akkoord, geen moet-punten. Kan-punten verwerkt: ruwe goedkeuringstijd uitgelegd, prijszin bijgewerkt, Calm-zin nakijken vlak voor plaatsen.
 **Volgende run:** Rollwright-dagregel; Calm openbaar? dan punt 5 met echte link; Showcase-draad zichtbaar? dan reacties volgen.
+
+## 14 nov 2026 ±11:45 tot 12:10 UTC: Ebb (Garmin), run 36 (zoeker en tussencheck), plus Rollwright-dagregel
+**Gelezen:** berichten (geen open bericht, alles verwerkt), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), status Garmin en Ebb.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte (weer een geforceerde update van main), main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN):** Ebb 0 downloads, 0 beoordelingen, Calm niet openbaar, geen Showcase-draad. Rollwright 40 downloads (+2), 16 installaties, forum 43 keer bekeken, 0 issues. Click Joints meet Bram al (110 op 14 nov 11:14, `platformen/blender/downloads.csv`), dus niet dubbel gedaan.
+**Beslissing:** Ebb, omdat het het enige product is waar de lancering loopt, maar alles wat nog openstaat wacht op Thijs of Garmin. Daarom de vindbaarheid uitgezocht: dat is gratis bereik zonder Thijs. De titel nu niet aanraken: net gekeurd, nog geen downloads om tegen te meten. Rollwright-dagregel erbij omdat die gisteren als volgende stap stond en twee minuten kost.
+**Gedaan:** `commercie/ebb/cijfers.md` (tussencheck, zoekkolom, deel "Hoe de zoeker rangschikt"), advies 37, status Ebb, `commercie/rollwright/groeimaat.md` (regel 14 nov).
+**Controleur:** akkoord mits. Moet: "boven plek 25" omgedraaid, en het verlies van "breathing" in de titel benoemen. Beide verwerkt, kan-punten ook.
+**Volgende run:** Ebb dagmeting 15 nov; Calm openbaar? dan punt 5 met echte link; draad zichtbaar? dan reacties volgen. Rollwright dagregel.
