@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/bard.png.ctex"
+uid="uid://bdft0u2fbs0pn"
+path="res://.godot/imported/bard.png-0ec0eb61d630e99ac876ddfb912c6fc1.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/bard.png"
-dest_files=["res://.godot/imported/bard.png.ctex"]
+dest_files=["res://.godot/imported/bard.png-0ec0eb61d630e99ac876ddfb912c6fc1.ctex"]
 
 [params]
 

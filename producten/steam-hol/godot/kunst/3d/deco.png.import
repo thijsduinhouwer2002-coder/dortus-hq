@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/deco.png.ctex"
+uid="uid://6qlshyhiok55"
+path="res://.godot/imported/deco.png-1f27149b5e7d10c533b14d1c8035d91c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/deco.png"
-dest_files=["res://.godot/imported/deco.png.ctex"]
+dest_files=["res://.godot/imported/deco.png-1f27149b5e7d10c533b14d1c8035d91c.ctex"]
 
 [params]
 

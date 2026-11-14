@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/tekens.png.ctex"
+uid="uid://blhixa227rp0i"
+path="res://.godot/imported/tekens.png-bb9f351e65e7e56b6bf52c50384fdfc3.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/tekens.png"
-dest_files=["res://.godot/imported/tekens.png.ctex"]
+dest_files=["res://.godot/imported/tekens.png-bb9f351e65e7e56b6bf52c50384fdfc3.ctex"]
 
 [params]
 

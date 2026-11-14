@@ -664,5 +664,17 @@ func _init() -> void:
 	ok(tk._letter(600) == ThemeDB.fallback_font, "paneel 3D uit: de oude letter")
 	TK.met_3d = true
 	tk.free()
+	# goudmuntjes in de 3D-stijl (Daan 14 nov 06:40): vliegend en koopmuntje rond als het paneelmuntje, draaien door in te drukken
+	var HS = load("res://hol/hol.gd")
+	ok(is_equal_approx(HS.munt_draai(0.0), 1.0) and is_equal_approx(HS.munt_draai(1.0), 1.0), "munt 3D: plat voor je bij hele slag")
+	ok(is_equal_approx(HS.munt_draai(0.5), 0.3), "munt 3D: op zijn kant nooit dunner dan 0,3")
+	var mmin := 1.0
+	for i in 31:
+		mmin = minf(mmin, HS.munt_draai(i / 10.0))
+	ok(mmin >= 0.3 - 0.0001, "munt 3D: draai blijft tussen 0,3 en 1")
+	var hm = Node2D.new()
+	hm.set_script(HS)
+	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")
+	hm.free()
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

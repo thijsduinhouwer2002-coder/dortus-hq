@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/hoeden.png.ctex"
+uid="uid://b1rq2p0wvbcv7"
+path="res://.godot/imported/hoeden.png-d04053eaf52b3f767fcd6002d585a03c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/hoeden.png"
-dest_files=["res://.godot/imported/hoeden.png.ctex"]
+dest_files=["res://.godot/imported/hoeden.png-d04053eaf52b3f767fcd6002d585a03c.ctex"]
 
 [params]
 
