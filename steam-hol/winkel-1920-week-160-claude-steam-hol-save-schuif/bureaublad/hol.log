@@ -1,0 +1,26 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 33 s (klok terug: false): goud voor 1631, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1631 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Lotte climbs into your hole.
+HOL held binnen: Lotte
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 9.5 (wacht 0.0): Lotte stays forever. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=2
+HOL kroniek 12.1 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL meting t=50 beelden=2 helden=0 hol_vast=3
+HOL kroniek 53.7 (wacht 0.0): Rik brought a torch. And hope.
+HOL held binnen: Rik
+HOL meting t=60 beelden=76 helden=1 hol_vast=3
+HOL kroniek 67.2 (wacht 0.0): Rik will not be leaving. +6
+HOL meting t=70 beelden=104 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL kroniek 96.3 (wacht 0.0): Bram sneaks in. Nobody saw. You saw.
+HOL held binnen: Bram
+HOL meting t=100 beelden=44 helden=1 hol_vast=5
+HOL kroniek 101.8 (wacht 0.0): Bram fell to the Spike Pit. +6
+HOL kroniek 104.3 (wacht 2.5): New page: the Thief. Spikes: one.
