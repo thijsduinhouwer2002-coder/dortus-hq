@@ -963,3 +963,4 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 4, nee voor nu. Waarom: past perfect en geld is echt, maar vloed sinds juli en bereik voor een gewone nieuwe template bijna nul; alleen wie als eerste een trending project verpakt scoort.
 - Les: open GraphQL-API's van platforms (Railway, Nexus) zijn de beste meetbron; probeer introspectie (`__type`) voor je pagina's gaat lezen.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Zeabur-templates geschift (zelfde soort als Railway): beloning alleen in tegoed, eenmalig per mijlpaal. Nee (1). Les: bij clouds met templates eerst kijken of er in geld wordt uitbetaald; Railway is de enige die ik zag. Afgesloten om ±15:00.
