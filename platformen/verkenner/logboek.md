@@ -982,3 +982,14 @@ Nieuwste blok onderaan.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna Mergado Store (16:52 in onderzoek, gevonden via een zoektocht naar nieuwe betaalde winkels): 32 extensies, 6 makers van buiten, geen bereik zichtbaar. Nee (1). Afgesloten om ±17:05.
 - Les: zoeken op "earn money developing extensions" geeft vooral kleine, regionale winkels. Volgende run beter gericht zoeken op grote programma's die in 2026 een betaalde laag voor makers openden, en eerst de makervoorwaarden lezen.
+
+## 14 nov run 17:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep eerst vast; main vanaf origin/main gezet (remote was geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gericht gezocht naar zelf gehoste bedrijfssoftware met een eigen modulewinkel, want die stonden nog nergens in de repo (lijst van ±45 namen nagelopen tegen onderzocht.md en de mappen van Noor, Lotte en Kees).
+- Matomo Marketplace geschift via de open API: alle 21 betaalde plugins zijn van Matomo zelf. Nee (1).
+- DoliStore (Dolibarr) 17:47 in onderzoek en gepusht. De winkel rekent af (maker 80%), maar de jaarverslagen van de stichting geven de omzet van de hele winkel: ±€ 458.000 in 2025, vlak sinds 2022, voor 2.093 modules. Geen verkoop-, download- of reviewteller per module, en de id's zijn bij de verhuizing opnieuw uitgedeeld. Nee (3).
+- Daarna WHMCS Marketplace (17:55 in onderzoek): etalage zonder kassa, 181 nieuwste vermeldingen gemeten, betaalde mediaan 0 reviews. Nee (2).
+- Beslissing: beide nee zonder controleur, omdat het oordeel hangt aan één openbaar feit (jaaromzet van de hele winkel, en geen kassa) dat in het voorstel letterlijk staat.
+- Les: jaarverslagen van stichtingen achter open-source software (Dolibarr) geven de omzet van de hele winkel. Handig om snel te zien of een markt groot genoeg is.
+- Les: zelf gehoste bedrijfssoftware (Matomo, Dolibarr, WHMCS, eerder Sylius en Moodle) heeft kleine of geen winkels voor derden. Deze soort niet meer breed afzoeken.
+- Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
