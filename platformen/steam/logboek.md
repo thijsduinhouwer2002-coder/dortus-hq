@@ -785,3 +785,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - `steam-hol-duur.yml` duwt nu naar `schermen` zoals de winkel-workflow (één kloon, rebase bij weigeren, 8 pogingen, daarna rood), 98c4a55. De vier runs met de oude stap kwamen alle vier op `schermen`.
 - Les: een enkel duurtest-paar zegt weinig; dezelfde code schommelt 25% tussen runs. Voor een uitspraak minstens twee runs per stand, of de mediaan vergelijken.
 - Let op: mijn eerste tijd in taken.md (11:30) liep voor op de klok; rechtgezet naar 11:22.
+- 14 nov 12:50 UTC Olaf: Rollwright gemeten, 40 downloads, 0 issues, ongewijzigd. Pixelrest in winkelscherm 1 uitgezocht: de stekelput met gekochte stappen. Tak `claude/steam-hol-put3d` (3d3b99b): 3D-put ook bij stap 1 tot 3 en open, Trick Lid dicht als vloer, `put_proef`. Toetsen lokaal 0 FOUT (8 nieuw), controleur akkoord met kan-punten. Wacht op Daan.
