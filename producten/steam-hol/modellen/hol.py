@@ -174,6 +174,15 @@ gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, GANG_TOP / 2), (KX0 - (-11.8) +
 uithollen(aarde, gang)
 schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2))
 uithollen(aarde, schacht)
+# Bram 14 nov 23:30 (kan Daan 22:40): de schacht had harde rechte randen in de rots. Langs beide wanden een paar
+# scheve brokken eruit, zodat het een gegraven gat wordt. Eigen random, zodat de rest van het hol gelijk blijft.
+_rs = random.Random(11)
+for _kant in (-0.6, 0.6):
+    for _i in range(4):
+        _z = GANG_TOP + 0.25 + _i * (MAAIVELD - GANG_TOP - 0.5) / 3 + _rs.uniform(-0.08, 0.08)
+        _m = _rs.uniform(0.26, 0.38)
+        uithollen(aarde, blok("schacht_brok", (-11.0 + _kant + _rs.uniform(-0.04, 0.04), 0.2, _z), (_m, 2.4, _m * _rs.uniform(1.0, 1.6)),
+                              rot=(0, _rs.uniform(0.25, 0.6), 0)))
 # gang naar rechts, met een kleine voorraadkamer
 # loopt door tot voorbij de rand: het rustige stuk (kolom 13 en 14) is een gang die herhaalt
 gang_r = blok("gangr_gat", ((KX1 + XP1 + 1) / 2, 0.2, GANG_TOP / 2), (XP1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
@@ -200,6 +209,11 @@ for o in (aarde,):
 
 # achterwand donkerder dan de voorkant, zodat de kamer diepte heeft
 blok("achterwand", (0, 1.35, 1.2), (XP1 - XP0, 0.1, 4.0), PRUIM_L)
+# Bram 14 nov 23:30 (kan Daan): zachte donkere rand bovenin de schacht, op de achterwand onder het gras.
+# Platte donkere bollen die naar beneden kleiner worden: het licht van boven komt er niet bij, dus een gegraven gat.
+for _dx, _dz, _sx, _sz in [(-0.42, -0.22, 0.34, 0.26), (0.0, -0.18, 0.42, 0.24), (0.42, -0.22, 0.34, 0.26),
+                           (-0.25, -0.5, 0.24, 0.16), (0.27, -0.48, 0.22, 0.15)]:
+    bol("schacht_rand", (-11.0 + _dx, 1.29, MAAIVELD + _dz), (_sx, 0.03, _sz), PRUIM_D, 16)
 
 # ---------- lagen en stenen in de voorkant ----------
 for i in range(70):
