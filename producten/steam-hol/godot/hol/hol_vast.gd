@@ -20,6 +20,18 @@ const MAAIVELD := preload("res://kunst/maaiveld.png")
 const INGANG := preload("res://kunst/ingang.png")
 const DECO := preload("res://kunst/versiering.png")
 const HOL3D := preload("res://hol/hol_3d.gd")
+# "Hier kun je graven" als 3D-kiezeltjes (Bram 14 nov, ontwerp/steam/graaf-3d/maak_graafstip.py): 2 vakken van
+# 12 x 64 bladpixels (3 x 16 spelpixels). Lineair gefilterd zoals hol_3d.gd. Zonder blad blijven de pixelstippels.
+const STIP3D_PAD := "res://kunst/3d/graafstip_3d.png"
+static var STIP3D: CanvasTexture = _laad_stip3d()
+
+static func _laad_stip3d() -> CanvasTexture:
+	if not ResourceLoader.exists(STIP3D_PAD):
+		return null
+	var t := CanvasTexture.new()
+	t.diffuse_texture = load(STIP3D_PAD)
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return t
 const DECO_PROEF := [15, 0, 17, 18, 99, 19, 30, 16, 99]   # hh per gangkolom bij deco_proef (zie hol.gd): de eerste vier kolommen vol, want op 1024 breed is de gang kort (kolom 5 is de put)
 
 var h                         # hol.gd
@@ -148,7 +160,14 @@ func teken(d: CanvasItem) -> void:
 	for k in h.kolommen:
 		# hier kun je graven: lichte stippels op de rand
 		if not gang[k] and k <= h.max_kol and ((k > 0 and gang[k - 1]) or (k < h.kolommen - 1 and gang[k + 1])):
-			var kx: int = k * KOL + (1 if k > 0 and gang[k - 1] else KOL - 2)
+			var links_open: bool = k > 0 and gang[k - 1]
+			# Bram 14 nov (Daan 13:42): op de 3D-gang vier kiezeltjes uit graafstip_3d.png op dezelfde plek
+			# (vak 0: gang links van de cel, vak 1: gang rechts), anders de oude pixelstippels
+			if h.met_3d and STIP3D != null:
+				d.draw_texture_rect_region(STIP3D, Rect2(k * KOL + (0 if links_open else KOL - 3), GANG_BOVEN, 3, KOL),
+					Rect2(0 if links_open else 12, 0, 12, 64))
+				continue
+			var kx: int = k * KOL + (1 if links_open else KOL - 2)
 			for y in range(GANG_BOVEN + 3, GANG_BOVEN + KOL - 2, 3):
 				d.draw_rect(Rect2(kx, y, 1, 1), Color("#c9a27a"))
 	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft); voor het brokkelen,

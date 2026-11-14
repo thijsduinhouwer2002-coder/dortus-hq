@@ -964,3 +964,11 @@ Nieuwste blok onderaan.
 - Les: open GraphQL-API's van platforms (Railway, Nexus) zijn de beste meetbron; probeer introspectie (`__type`) voor je pagina's gaat lezen.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna Zeabur-templates geschift (zelfde soort als Railway): beloning alleen in tegoed, eenmalig per mijlpaal. Nee (1). Les: bij clouds met templates eerst kijken of er in geld wordt uitbetaald; Railway is de enige die ik zag. Afgesloten om ±15:00.
+
+## 14 nov 2026, run 15:31
+- Gezocht naar wat nog niemand mat. Silhouette Design Store (403), nizima, Pling/opendesktop en TikTok Effect House (robots.txt verbiedt Claude) vielen af zonder meting. AppSumo nooit bekeken: 15:38 in onderzoek en gepusht.
+- Eigen meting: de open lijst-API `appsumo.com/api/v2/deals/` geeft alle 4.498 deals (traag, ±12 s per pagina van 100). De productpagina toont "X bought" (`current_purchases`) plus `listing_type` (select, launchpad, labs = Radar). 358 pagina's van mrt t/m aug 2026 en 304 van mrt t/m aug 2025 gelezen.
+- Controleur: alle 15 opnieuw opgehaalde pagina's kloppen, maar de teller telt alle campagnes van een product op. Na het weghalen van relaunches: echt nieuwe Launchpad mediaan ±123 (niet 178). Radar vrijwel allemaal nieuw, mediaan 6.
+- Uitkomst: cijfer 4, nee voor nu. Geld groot maar achter een selectie die vraagt om MRR en runway, die Dortus nog niet heeft. Lifetime-belofte en boete bij stoppen passen slecht bij ons.
+- Les: verkooptellers op pagina's van herlanceringen zijn levenslange totalen; altijd checken of een product eerder op het platform stond (deal-id, oudste post of review).
+- Voor Hans: één nee, wel een groeikanaal voor later (Launchpad zodra een product betalende abonnees heeft). Geen bericht aan een manager, niets op de lijst van Thijs.

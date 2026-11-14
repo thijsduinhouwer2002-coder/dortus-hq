@@ -654,6 +654,8 @@ func _init() -> void:
 	ok(HG.graaf_rij(Vector2i(3, 1), gr) == 2 and HG.graaf_rij(Vector2i(0, 1), [true, true]) == 2, "graaf: gangcel met open buur rechts is open naar rechts (ook in kolom 0)")
 	ok(HG.graaf_rij(Vector2i(1, 1), [true, true, true]) == 0 and HG.graaf_rij(Vector2i(5, 1), gr) == 1, "graaf: beide buren open geeft het midden; laatste kolom kijkt alleen links")
 	ok(ResourceLoader.exists(HG.GRAAF3D_PAD) and hg.GRAAF3D != null, "graaf: 3D-blad geladen")
+	# graafstippels als 3D-kiezeltjes (Bram 14 nov, Daan 13:42): blad met 2 vakken van 12 x 64
+	ok(ResourceLoader.exists(HV.STIP3D_PAD) and HV.STIP3D != null and HV.STIP3D.diffuse_texture.get_size() == Vector2(24, 64), "graafstip: 3D-blad geladen, 24 x 64")
 	hg.free()
 	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
 	var KJ = load("res://kern/kaartje.gd")

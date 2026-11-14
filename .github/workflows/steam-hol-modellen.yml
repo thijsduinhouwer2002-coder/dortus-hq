@@ -48,6 +48,10 @@ jobs:
         run: |
           # Bram 14 nov: kunst/3d/graaf_3d.png komt uit het 3D-stuk aarde van hol_proef.png, dus na elke hol-render opnieuw
           python ontwerp/steam/graaf-3d/maak_graaf.py producten/steam-hol/godot/kunst/3d/hol_proef.png producten/steam-hol/godot/kunst/3d
+      - name: Graafstippels als kiezeltjes (Bram 14 nov, maak_graafstip.py)
+        run: |
+          # Bram 14 nov 15:20: graafstip_3d.png leent bol() en klein() uit maak_graaf.py, dus mee na elke render
+          python ontwerp/steam/graaf-3d/maak_graafstip.py producten/steam-hol/godot/kunst/3d
       - name: Om naar te kijken (vergroting en ware grootte)
         uses: actions/upload-artifact@v4
         with:

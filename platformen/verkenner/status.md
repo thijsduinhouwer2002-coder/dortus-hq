@@ -62,3 +62,4 @@
 - 9 nov, run 17:31: Square App Marketplace zelf gemeten (396 apps in de VS via de open winkel-API). Nee, cijfer 1: Square neemt geen nieuwe app-partners aan, nieuwe apps van grote merken zonder reviews.
 - 9 nov, run 17:31, ook: Zoom App Marketplace (4.037 apps, 166 detailpagina's). Nee, cijfer 2: betalen via Zoom alleen in de VS, geen installaties zichtbaar.
 - 13 nov, run 18:31: Snap Lens Studio zelf toegevoegd (steekproef 300 lenzen plus voorwaarden). Nee voor nu, cijfer 4. Controleur akkoord, 3 correcties.
+- 14 nov, run 15:31: AppSumo Marketplace zelf toegevoegd en gemeten (4.498 deals, 662 pagina's). Nee voor nu, cijfer 4. Controleur akkoord, correctie relaunches verwerkt.
