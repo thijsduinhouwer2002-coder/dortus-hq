@@ -14,6 +14,7 @@ from mathutils.bvhtree import BVHTree
 
 from .. import kleur as kleuren
 from ..uit_elkaar import echte_matrix
+from .scharnier_neus import ZAAG_X
 
 STRAK = False   # proef 1 (run 43491692615): de cilinderwanden zitten binnenin, groen onzichtbaar; uit tot de huid-aanpak er is
 BAND_MM = 2.0   # zoals RING_MM 3 van de kogel, iets smaller omdat de naad van het scharnier langer is
@@ -111,6 +112,82 @@ def strak(ob, s, u):
     return np.flatnonzero(op)
 
 
+SLEUF_NAAM = "Click Joints Flex slot"
+SLEUF_KLEUR = (0.045, 0.040, 0.036, 1.0)   # donker warm grijs (#3D3935 in sRGB): zo ziet een smalle sleuf er echt uit
+
+
+def _sleuf_materiaal():
+    import bpy
+    mat = bpy.data.materials.get(SLEUF_NAAM)
+    if mat is None:
+        mat = bpy.data.materials.new(SLEUF_NAAM)
+    mat.diffuse_color = SLEUF_KLEUR
+    mat.roughness = 0.8
+    mat.metallic = 0.0
+    boom = getattr(mat, "node_tree", None)
+    bsdf = boom.nodes.get("Principled BSDF") if boom is not None else None
+    if bsdf is not None:
+        bsdf.inputs["Base Color"].default_value = SLEUF_KLEUR
+    return mat
+
+
+def sleuf_vlakken(ob, s):
+    """1.0.1 (Daan 14 nov 05:45, lichte krasjes op het been): de vlakken van de veersleuf in deel A (zaag_maten in
+    scharnier_neus: 1,05 s breed naast de tong, van -lip tot -s/4 langs de lidas, door het hele lid). Die sleuf is
+    echt en wordt geprint (de wang veert erdoor), maar in de weergave lichtten de wanden op als een licht krasje
+    langs de onderkant van het been. Een vlak hoort erbij als al zijn hoekpunten binnen de sleuf liggen en zijn
+    normaal langs H (wand) of langs de lidas (bodem) staat. Geeft de vlaknummers."""
+    if ob.get("cj_deel") != "A" or float(ob.get("cj_lip", 0.0)) <= 0.0:
+        return np.zeros(0, dtype=np.int64)
+    if not all(k in ob for k in ("cj_snijpunt", "cj_scharnier_as", "cj_as", "cj_tong_half")):
+        return np.zeros(0, dtype=np.int64)
+    p = np.array(ob["cj_snijpunt"], dtype=np.float64)
+    hx = np.array(Vector(ob["cj_scharnier_as"]).normalized())
+    hz = np.array(Vector(ob["cj_as"]).normalized())
+    tw, lip = float(ob["cj_tong_half"]), float(ob["cj_lip"])
+    e = 0.1 * s
+    x0, x1 = tw + ZAAG_X[0] * s - e, tw + ZAAG_X[1] * s + e
+    z0, z1 = -lip - e, -s / 4 + e
+    co = _wereld(ob) - p
+    xv, zv = np.abs(co @ hx), co @ hz
+    binnen = (xv >= x0) & (xv <= x1) & (zv >= z0) & (zv <= z1)
+    me = ob.data
+    n = len(me.polygons)
+    start = np.empty(n, dtype=np.int64)
+    tal = np.empty(n, dtype=np.int64)
+    me.polygons.foreach_get("loop_start", start)
+    me.polygons.foreach_get("loop_total", tal)
+    lv = np.empty(len(me.loops), dtype=np.int64)
+    me.loops.foreach_get("vertex_index", lv)
+    alle = np.minimum.reduceat(binnen[lv].astype(np.int8), start) == 1 if n else np.zeros(0, dtype=bool)
+    nn = _normalen(ob)
+    richting = (np.abs(nn @ hx) > 0.9) | (np.abs(nn @ hz) > 0.9)
+    return np.flatnonzero(alle & richting & (tal >= 3))
+
+
+def sleuf(ob, s):
+    """Zet de veersleuf van deel A in het donkere materiaal (alleen weergave: vorm en export gelijk). Geeft het aantal."""
+    idx_s = sleuf_vlakken(ob, s)
+    ob["cj_sleuf_vlakken"] = int(len(idx_s))
+    if len(idx_s) == 0:
+        return 0
+    me = ob.data
+    mat = _sleuf_materiaal()
+    namen = [m.name if m else None for m in me.materials]
+    if mat.name in namen:
+        vak = namen.index(mat.name)
+    else:
+        me.materials.append(mat)
+        vak = len(me.materials) - 1
+    n = len(me.polygons)
+    idx = np.empty(n, dtype=np.int32)
+    me.polygons.foreach_get("material_index", idx)
+    idx[idx_s] = vak
+    me.polygons.foreach_set("material_index", idx)
+    me.update()
+    return int(len(idx_s))
+
+
 def band(a, b, speling, u, bol):
     """Zet de band op A en B. speling en bol in scene-eenheden, u = eenheden per mm. Geeft {naam: aantal vlakken}.
     Sinds 1.0.1 met hele cilindervlakken (strak); valt dat leeg uit (oude scharnieren zonder alle maten), dan de
@@ -143,9 +220,13 @@ def band(a, b, speling, u, bol):
             raak = [i for i in kandidaat if bvh.find_nearest(Vector(centra[i]), grens)[0] is not None]
             raak = _heel_bij(ob, raak, bvh, grens * HEEL_RUIM)
             ob["cj_band_soort"] = "afstand"
+        uit = set(sleuf_vlakken(ob, speling).tolist())   # de sleuf is geen passing: niet groen, wordt donker
+        if uit:
+            raak = [i for i in raak if i not in uit]
         idx[raak] = vak
         me.polygons.foreach_set("material_index", idx)
         me.update()
         ob["cj_band_vlakken"] = len(raak)
         tel[ob.name] = len(raak)
+    sleuf(a, speling)   # na de band, op de vlakken die de band oversloeg
     return tel
