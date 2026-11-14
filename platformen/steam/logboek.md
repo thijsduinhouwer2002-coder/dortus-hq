@@ -841,3 +841,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Berichten: niets nieuws, alles verwerkt.
 - Put per stap: Windows-run 43616692182 op e41b661 groen, ja van Daan 16:45, tak `claude/steam-hol-put-stappen` naar main (merge 8abc8f0). Geen Godot in deze container; de toetsen draaiden in die Windows-run.
 - Les: `git fetch` van tak `schermen` blijft hangen; alleen de tak die je nodig hebt ophalen met een volledige refspec lukt in seconden.
+- 17:33: Windows-run op main 43619825341 (8abc8f0, put per stap) **groen**, alle stappen. De pijplijn-run 43619825363 op main rendert de bladen opnieuw en start daarna zelf een Windows-run; die lees ik volgende run.
