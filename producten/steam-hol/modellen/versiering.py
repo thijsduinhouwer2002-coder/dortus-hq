@@ -160,7 +160,7 @@ def bouw(naam, x, z, y=0.35):
         lo = bpy.data.objects.new(p + "_licht", l); lo.location = (0, -0.35, 5 * s); lo.parent = ouder
         bpy.context.scene.collection.objects.link(lo)
     elif naam == "spinrag":
-        web = m("web", "b9b0c6", rough=0.7)  # grijzer en dikker: was op ware grootte een wit krasje
+        web = m("web", "9a95a3", rough=0.7)  # grijzer en dikker: was op ware grootte een wit krasje; 14 nov nog een tikje grijzer (Daan kan 1)
         zw = m("spin", "2a1832", rough=0.6)
         oog = m("spinoog", "ff6a5a", rough=0.3, emis=1.0)
         # waaier van draden vanuit de linkerbovenhoek, met twee bogen dwars
@@ -276,12 +276,17 @@ if __name__ == "__main__":
     CAM_MIDDEN, MAAIVELD, GANG_TOP = 2.025, 3.423, 1.559
     LINKS = -BREED / 2
     KOL = 16 * SPX
+    # Bram 14 nov: 1,6 kolom (25,6 spelpixels) tussen de middens in plaats van 1,3, en een marge van 2 spelpixels om
+    # elk vak. Met 1,3 en marge 1 lag er een randje van het stuk zelf (de vervaging bij het verkleinen) in de buitenste
+    # kolom van het vak, en de pijplijn trekt die kolom door in de rand van het blad: Daans oranje streepje naast de stut
+    # en het stipje naast de vliegenzwam. Alleen de plek in de proefrender verandert, niet het stuk.
+    STAP = KOL * 1.6
     plek = {}
     for i, n in enumerate(GANG):
-        x = LINKS + (i + 0.5) * KOL * 1.3 + KOL * 0.3
+        x = LINKS + (i + 0.5) * STAP + KOL * 0.2
         plek[n] = (x, GANG_TOP if n in HANGT else 0.0)
     for i, n in enumerate(MAAIVELD_NAMEN):
-        plek[n] = (LINKS + (i + 0.5) * KOL * 1.3 + KOL * 0.3, MAAIVELD)
+        plek[n] = (LINKS + (i + 0.5) * STAP + KOL * 0.2, MAAIVELD)
     ouders = {n: bouw(n, x, z) for n, (x, z) in plek.items()}
     cam = g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)
     g.licht()
@@ -304,8 +309,8 @@ if __name__ == "__main__":
         sp = [world_to_camera_view(sc, cam, p) for p in pts]
         xs = [p.x * 240 for p in sp]; ys = [(1 - p.y) * 40 for p in sp]
         a = world_to_camera_view(sc, cam, Vector((plek[n][0], 0.35, plek[n][1])))
-        x0, y0 = math.floor(min(xs)) - 1, math.floor(min(ys)) - 1
-        x1, y1 = math.ceil(max(xs)) + 1, math.ceil(max(ys)) + 1
+        x0, y0 = math.floor(min(xs)) - 2, math.floor(min(ys)) - 2
+        x1, y1 = math.ceil(max(xs)) + 2, math.ceil(max(ys)) + 2
         vakken[n] = {"vak": [x0, y0, x1 - x0, y1 - y0],
                      ("hang" if n in HANGT else "voet"): [round(a.x * 240 - x0, 1), round((1 - a.y) * 40 - y0, 1)]}
     with open(os.path.splitext(uit)[0] + "_vakken.json", "w") as f:

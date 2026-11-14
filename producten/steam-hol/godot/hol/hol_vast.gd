@@ -20,6 +20,7 @@ const MAAIVELD := preload("res://kunst/maaiveld.png")
 const INGANG := preload("res://kunst/ingang.png")
 const DECO := preload("res://kunst/versiering.png")
 const HOL3D := preload("res://hol/hol_3d.gd")
+const DECO_PROEF := [15, 0, 17, 18, 99, 19, 30, 16, 99]   # hh per gangkolom bij deco_proef (zie hol.gd): de eerste vier kolommen vol, want op 1024 breed is de gang kort (kolom 5 is de put)
 
 var h                         # hol.gd
 var vp: SubViewport
@@ -166,6 +167,8 @@ func teken(d: CanvasItem) -> void:
 	var vorige := -99   # kolom van het laatste stuk: hooguit één stuk per twee gangtegels (Daan 14 nov 02:50)
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
+		if h.deco_proef:   # keurstrook: vaste rij, paddenstoel, stut, ton, schedel, (put), kristal, spinrag, lichtzwam (99 = niets)
+			hh = DECO_PROEF[(k - h.ingang_kol - 1) % DECO_PROEF.size()]
 		if h.vallen.has(k):
 			continue
 		hh = deco_hh(h, k, hh, vorige)

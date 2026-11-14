@@ -40,6 +40,7 @@ var vers := false
 var proef_fps := 10          # kern/beeldtempo.gd GEWOON; met fps=<n> vast op n (CPU-proef)
 var fps_vast := false
 var moment_tot := -1.0
+var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
@@ -123,6 +124,7 @@ func _ready() -> void:
 				proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
 				fps_vast = true
 			"zaad": proef_zaad = int(kv[1])
+			"deco_proef": proef_deco = kv[1] == "1"
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
@@ -149,6 +151,7 @@ func _ready() -> void:
 	hol.scale = Vector2(schaal, schaal)
 	hol.position = Vector2(0, boven)
 	add_child(hol)
+	hol.deco_proef = proef_deco
 	hol.maak(int(scherm.size.x / schaal))
 	wezens = Node2D.new()
 	wezens.name = "Wezens"
