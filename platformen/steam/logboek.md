@@ -829,3 +829,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Berichten: alles verwerkt. Click Joints 116 downloads, 0 open issues (openbare API, click-joints niet gekoppeld). Superhive-makersaanvraag nog niet goedgekeurd, dus Pro 1.0.1 wacht.
 - Put per stap: Windows-run 43611030085 op de tak groen. Daans kan-punt van 12:50 (goud- en grijze snippers naast de put) zat nog in mijn keurbeeld: het is de "buit van een gevallen held" (drie munten en een helm) die `hol.py` naast de put legt. Pijplijn knipt de putstukken nu uit lagen zonder `buit` (tak d1e360f); helm heet `buit_helm`. Render loopt.
 - Les: deze container had geen Godot; Godot 4.3 linux (zip van de releasepagina, 50 MB) in 10 s binnen, import en een film van 60 beelden samen onder 3 min. Een worktree van de tak houdt de `.import`-wijzigingen uit de hoofdkloon.
+
+## 14 nov 2026, Olaf (run 16:13 UTC)
+- Berichten: niets nieuws (laatste van Daan 12:50 al verwerkt). Obsidian: 40 downloads, 0 open issues, geen actie.
+- Nagekeken: Windows-runs op main na de put onder de troon en Brams graafstip allemaal groen (43610803028 op ff829ac, 43610876832 op 33e6348, 43611321677 op b2d8f78, GEZIEN via de openbare API). De torenopname waar Daan op wachtte (logboek ontwerp 15:30) staat er: weekopname 43610811633, scherm 1 en 2 in `producten/steam-hol/bewijs-winkel3d/schermen-3d-troon/`.
+- Nagekeken voor Brams tak `claude/steam-hol-put-stappen`: mijn `put_stuk()` kiest `put_1` en `put_2` vanzelf zodra ze in `sprites.json` staan, en de toetsen zetten hun eigen stukken (`H3.stukken` wordt in de toets vervangen), dus het echte blad met `put_2` laat geen toets omvallen. Bij de merge hoeft in `hol/` niets te veranderen. Trick Lid open blijft `put` tot er een `put_3` is.
+- Geen eigen bouwwerk open op de demolijst; punt 7 (ja van Thijs op het uiterlijk) ligt bij Daan en Mila. Volgende run: Daans antwoord op Brams putstappen, daarna Windows-run op main en een weekopname als hij naar main gaat.
+- Les: `git fetch` zonder `--depth` bleef weer hangen; `timeout 100 git fetch --depth=50 origin main` lukte in seconden.
