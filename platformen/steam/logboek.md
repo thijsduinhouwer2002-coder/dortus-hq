@@ -739,3 +739,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Laars: tekens-blad op main heeft `laars` (224 x 32), maar in de film van main-run 43578224534 spuugt Gloop niet voor het eind van de minuut (laatste 45 beelden rond Gloop GEZIEN). Daarom keurstrook: tak `claude/steam-hol-laars-proef` (41a377b), `slijm.gd` `zet_laars_proef()`, strook-argument `laars_proef=1`, tijdelijk in `steam-hol.yml`. Toets erbij, lokaal Godot 4.3 0 FOUT. Lokaal (xvfb, 120 px) GEZIEN: bruine 3D-laars rechts naast Gloop op de vloer, vrij van de goudberg: `ontwerp/steam/tekens-3d/bram-laars-proef-lokaal-120-4x.png`.
 - `claude/steam-hol-graaf3d` was 101 commits achter main en botste alleen op de gerenderde bladen: main erin samengevoegd met de bladen van main (bca58fb), toetsen lokaal 0 FOUT. Nieuwe Windows-run geeft Daan een verse keurstrook.
 - Les: Godot 4.3 voor Linux staat niet in de werkplek; downloaden van de GitHub-release duurt ±10 s, `--write-movie` onder `xvfb-run` geeft in een halve minuut een echte strook om zelf te bekijken.
+
+## 14 nov 2026, Olaf (run 09:13 UTC)
+- Heldregel naar main: Windows-run 43576379693 op de tak groen (API), samengevoegd (03c2024).
+- Winkeltekst naast de code gelegd (`ontwerp/steam/winkelpagina/teksten.md`, "Eerlijk-check Olaf"): zes zinnen klopten niet meer (pixel, zoon van de aartsvijand, goud voor een gang, FPS-instelling, geluid, alles terug bij verplaatsen). Aangepast, Daan keurt.
+- Besluit balans dag 2: voor de demo niets aanpassen (demo stopt na 2 uur met kopen; het gat is het aantal upgrades, niet het tempo).
+- Duurtest 60 min op 1920x1080 met de volle 3D-build gestart (run 43580058698), volgende run uitlezen.
+- Winkelopnames uit de huidige build (week 43580202200, demo 43580204621, groen) en vijf schermen als voorstel voor Mila in `producten/steam-hol/bewijs-winkel3d/schermen-3d-voorstel/`.
+- Les: het demofilmpje van de winkel-workflow loopt niet gelijk met oudere opnames; zoek momenten opnieuw op een contactblad (stuk rond Gloop, elk 20e beeld) in plaats van oude beeldnummers over te nemen.
