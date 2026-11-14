@@ -42,6 +42,11 @@ LINKS = -BREED / 2                # x van spelpixel 0
 TEGEL_X = LINKS + 13 * KOL        # kolom 13 en 14 (spelpixel 208 tot 240): rustig stuk voor herhalende tegels
 TEGEL_LICHT = float(os.environ.get("HOL_TEGEL_LICHT", "300"))
 X0, X1 = -BREED / 2 - 0.5, BREED / 2 + 0.5
+# Ronde 7 (Daan kan): de platen (aarde, achterwand, vloer, gras, gang rechts) lopen nu 6 eenheden voorbij de rand.
+# Ze hielden 0,5 voorbij het beeld op, en door het open einde viel er licht in de gang: in kolom 14 liep de wand
+# van 60 naar 62, en omdat het spel die tegel herhaalt kwam er elke 32 px een trede. X0 en X1 blijven voor de
+# kiezels en sprieten (zelfde willekeurige reeks, dus verder hetzelfde beeld).
+XP0, XP1 = -BREED / 2 - 6.0, BREED / 2 + 6.0
 
 
 def kies(o, m):
@@ -153,7 +158,7 @@ BLOEM = g.mat("bloem", "ffd84a", rough=0.5, emis=0.2)
 BLOEM_R = g.mat("bloemr", "f08a9a", rough=0.5, emis=0.2)
 
 # ---------- de aarde: een plaat met de voorkant op y = 0 ----------
-aarde = blok("aarde", ((X0 + X1) / 2, 1.5, (ONDER - 1 + MAAIVELD) / 2), (X1 - X0, 3.0, MAAIVELD - ONDER + 1), PRUIM)
+aarde = blok("aarde", ((XP0 + XP1) / 2, 1.5, (ONDER - 1 + MAAIVELD) / 2), (XP1 - XP0, 3.0, MAAIVELD - ONDER + 1), PRUIM)
 
 # schatkamer: boog (cilinder) plus vierkant onderstuk; achterwand blijft staan op y = 1.4
 # Ronde 5 (Bram 18:30): 48 breed, precies kolom 6 tot 9 (spelpixel 96 tot 144), zoals de schatkamer in het spel.
@@ -170,7 +175,7 @@ schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2))
 uithollen(aarde, schacht)
 # gang naar rechts, met een kleine voorraadkamer
 # loopt door tot voorbij de rand: het rustige stuk (kolom 13 en 14) is een gang die herhaalt
-gang_r = blok("gangr_gat", ((KX1 + X1 + 1) / 2, 0.2, GANG_TOP / 2), (X1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
+gang_r = blok("gangr_gat", ((KX1 + XP1 + 1) / 2, 0.2, GANG_TOP / 2), (XP1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
 uithollen(aarde, gang_r)
 # Kamers boven de gang (in het spel: klik in de aarde boven de gang). Ronde 5, voorstel Daan (moet 3):
 # een gegraven stuk van meer kolommen is EEN kamer. Kolom 2 begin, 3 midden a, 4 midden b, 5 eind;
@@ -193,7 +198,7 @@ for o in (aarde,):
     bpy.context.view_layer.objects.active = o
 
 # achterwand donkerder dan de voorkant, zodat de kamer diepte heeft
-blok("achterwand", (0, 1.35, 1.2), (X1 - X0, 0.1, 4.0), PRUIM_L)
+blok("achterwand", (0, 1.35, 1.2), (XP1 - XP0, 0.1, 4.0), PRUIM_L)
 
 # ---------- lagen en stenen in de voorkant ----------
 for i in range(70):
@@ -212,11 +217,11 @@ for k in range(-1, 3):   # kolom 12 (half, voor de naad) tot 14, plus één voor
             continue   # niet in de kamer rechts boven de gang
         bol("kiezel", (x0 + dx, -0.02, z), (r * 1.3, r * 0.6, r), m, 12)
 # een strook lichtere aarde net onder het gras
-blok("toplaag", ((X0 + X1) / 2, -0.01, MAAIVELD - 0.18), (X1 - X0, 0.04, 0.12), PRUIM_L)
+blok("toplaag", ((XP0 + XP1) / 2, -0.01, MAAIVELD - 0.18), (XP1 - XP0, 0.04, 0.12), PRUIM_L)
 
 # ---------- gras bovenop ----------
 # loopt ver naar achteren door, zodat het gras de rij 0 tot 8 helemaal vult (geen donkere band erboven)
-grasplak = blok("gras", ((X0 + X1) / 2, 1.4, MAAIVELD + 0.09), (X1 - X0, 2.9, 0.22), GRAS_D)
+grasplak = blok("gras", ((XP0 + XP1) / 2, 1.4, MAAIVELD + 0.09), (XP1 - XP0, 2.9, 0.22), GRAS_D)
 afronden(grasplak, 0.08, 3)
 # gat in het gras boven de schacht
 uithollen(grasplak, blok("graspgat", (-11.0, 0.5, MAAIVELD), (1.2, 1.6, 1.0)))  # alleen vooraan open
@@ -258,7 +263,7 @@ for x in (-8.6, -3.9, 6.2, 8.4):
 
 # ---------- vloer van kamer en gangen ----------
 VLOER = g.mat("vloer", "8a5a8e", rough=0.8, spec=0.2)
-vloer = blok("vloer", ((X0 + X1) / 2, 0.7, -0.03), (X1 - X0, 1.5, 0.1), VLOER)
+vloer = blok("vloer", ((XP0 + XP1) / 2, 0.7, -0.03), (XP1 - XP0, 1.5, 0.1), VLOER)
 
 # ---------- de schat: een gouden berg rechts in de kamer ----------
 mb = bpy.data.metaballs.new("berg"); mb.resolution = 0.06; mb.render_resolution = 0.03
@@ -332,19 +337,25 @@ def vlam_fakkel(pre, x, y, z, beugel=True, groot=1.2):
     druppel(pre + "vlammid", (x, y - 0.13, zv + 0.08 * groot), 0.11 * groot, 2.0, V_MID, scheef=0.04)
     druppel(pre + "kern", (x, y - 0.18, zv + 0.05 * groot), 0.06 * groot, 1.7, V_HART, scheef=0.02)
 
-def fakkel(x, z, kracht=160):
+FAKKEL_POEL = os.environ.get("HOL_FAKKEL_POEL", "0") == "1"
+GANGFAKKELS = []   # lampen van de gangfakkels; zie onderaan (light linking)
+
+
+def fakkel(x, z, kracht=160, gang=False):
     # namen beginnen met "fakkel" (Bram 13 nov 23:25): de pijplijn maakt er een losse laag van (HOL_ALLEEN ["fakkel"])
     # Daan 13 nov 23:40: ijzeren beugel, steel van kamerhout, donkere kop, vlam als druppel met punt (3 lagen).
     # Zelfde hoogte als de oude fakkel (van z - 0,52 tot z + 0,52), dus het vak in sprites.json blijft passen.
     vlam_fakkel("fakkel", x, 1.0, z - 0.17, beugel=True)
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.6, 0.28); d.energy = kracht; d.shadow_soft_size = 0.15
     o = bpy.data.objects.new("fakkellicht", d); o.location = (x, 0.5, z + 0.35); sc.collection.objects.link(o)
+    if gang:
+        GANGFAKKELS.append(o)
 
 
 fakkel(KX0 + 0.2, 1.65)
 fakkel(KX1 - 0.2, 1.65)
-fakkel(-7.2, 0.95, 90)
-fakkel(5.0, 0.95, 90)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
+fakkel(-7.2, 0.95, 90, gang=True)
+fakkel(5.0, 0.95, 90, gang=True)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
 # Kamers (Daan, moet 3): geen fakkel hoog meer (die vlam las als pupil: drie kommen werden drie ogen).
 # Begin: fakkel laag op de linkerwand. Midden a: stut met schoren. Midden b: houweel en tonnetje. Eind: kistje.
 # Ronde 6 (Daan kan a): de vloer begint 0,2 achter de voorkant. Eerst stak hij tot y = 0 en voorbij de ronde
@@ -486,7 +497,9 @@ if os.environ.get("HOL_HELDEN", "1") == "1":
     # Ronde 6c (volgende ronde punt 3, Daan 21:45 kan c): de heks las niet als vallen. Haar hoed blijft los boven
     # de put hangen, zoals in het spel (Brams held_beeld.gd laat de hoed bij een val even hangen). Haar eigen hoed
     # gaat weg, de puntmuts uit hoeden.py hangt scheef boven de put. Naam held_..., dus de tegels hebben hem niet.
-    if os.environ.get("HOL_HOED_LOS", "1") == "1":
+    # Ronde 7 (Daan 14 nov 00:40): hoed weer op haar hoofd. Zonder hoed is ze geen heks meer, en de losse hoed
+    # viel op ware grootte weg tegen de paarse muur. Het wegvliegen tekent het spel zelf (held_beeld.gd).
+    if os.environ.get("HOL_HOED_LOS", "0") == "1":
         for o in [o for o in bpy.data.objects if o not in voor_heks and "heksenhoed" in o.name]:
             bpy.data.objects.remove(o, do_unlink=True)
         import hoeden
@@ -522,6 +535,15 @@ for o in sc.objects:
         fig.objects.link(o)
 for o in sc.objects:
     if o.type == "LIGHT" and o.name.split(".")[0] in ("fakkel", "koel", "boven", "vul", "heldgloed", "heldrand", "staflicht"):
+        o.light_linking.receiver_collection = fig
+# Ronde 7 (Daan 14 nov 00:40, moet): de achterwand van de put-cel was een lichter roze blok met een harde linkerrand
+# (81 links, aflopend naar 64; gang 60 tot 63). Dat was de poel van de gangfakkel links (x -7,2, kolom 3): hij ligt
+# vlak naast kolom 4, waar de pijplijn de put uitknipt. In het spel legt de put-tegel naast gangtegels zonder poel,
+# dus de rand werd een blok. Het spel tekent zijn fakkels zelf, zonder poel op de muur. Daarom schijnen de twee
+# gangfakkels nu alleen op de figuren, net als de gedeelde lampen. HOL_FAKKEL_POEL=1 geeft de poelen terug (alleen
+# voor een sfeerplaatje, nooit voor de tegels).
+if not FAKKEL_POEL:
+    for o in GANGFAKKELS:
         o.light_linking.receiver_collection = fig
 g.render(uit, W, H, SAMPLES, doorzichtig=True)
 print("klaar", uit)
