@@ -186,7 +186,7 @@ func teken(d: CanvasItem) -> void:
 # Welke versiering op gangkolom k komt (hh zoals in teken(): onder 14 stut, 14 tot 30 een vloerding, 30 tot 36 spinrag,
 # 99 = niets). Dunner na de frisse kijker (Daan 14 nov 02:50 en 03:55):
 # 1. hooguit één stuk per twee gangtegels: niets direct naast het vorige stuk;
-# 2. geen vloerding waar helden stilstaan of vallen (op hun looppad): de landingstegel onder de schacht en de tegels naast een val;
+# 2. geen vloerding waar helden stilstaan of vallen (op hun looppad): de eerste tegel na de schacht (daar staat de held net na zijn val, keurstrook 14 nov) en de tegels naast een val;
 #    daar mag wel iets dat aan het plafond hangt (stut, spinrag);
 # 3. geen lichtzwam binnen twee tegels van Gloop (schat_kol - 2): zijn cyaan trekt aan Gloops mint; dan een paddenstoel.
 # Bij de keurstrook (deco_proef in hol.gd, als die er is) blijft de vaste rij staan.

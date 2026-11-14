@@ -547,8 +547,8 @@ func _init() -> void:
 	var nh := {"ingang_kol": 2, "schat_kol": 14, "vallen": {7: "stekelput"}}
 	ok(HV.deco_hh(nh, 5, 20, 4) == 99, "deco: niets direct naast het vorige stuk")
 	ok(HV.deco_hh(nh, 5, 5, 3) == 5, "deco: twee tegels verder mag weer (stut)")
-	ok(HV.deco_hh(nh, 3, 20, -99) == 99, "deco: geen vloerding op de landingstegel onder de schacht")
-	ok(HV.deco_hh(nh, 3, 10, -99) == 10, "deco: stut aan het plafond mag op de landingstegel")
+	ok(HV.deco_hh(nh, 3, 20, -99) == 99, "deco: geen vloerding op de eerste tegel na de schacht")
+	ok(HV.deco_hh(nh, 3, 10, -99) == 10, "deco: stut aan het plafond mag op de eerste tegel na de schacht")
 	ok(HV.deco_hh(nh, 6, 20, -99) == 99 and HV.deco_hh(nh, 8, 24, -99) == 99, "deco: geen vloerding naast de val")
 	ok(HV.deco_hh(nh, 8, 32, -99) == 32, "deco: spinrag naast de val mag")
 	ok(HV.deco_hh(nh, 10, 21, -99) == 20 and HV.deco_hh(nh, 13, 16, -99) == 15, "deco: lichtzwam binnen twee van Gloop wordt paddenstoel")
@@ -570,9 +570,13 @@ func _init() -> void:
 			if hk < 30 or (hk < 36 and not hdk.boven[kk]):
 				if kk - vk < 2:
 					dicht += 1
+				if hk >= 14 and hk < 30 and (kk == hdk.ingang_kol + 1 or hdk.vallen.has(kk - 1) or hdk.vallen.has(kk + 1)):
+					dicht += 1   # vloerding op het looppad
+				if hk >= 14 and hk < 30 and hk % 5 == 1 and absi(kk - (hdk.schat_kol - 2)) <= 2:
+					dicht += 1   # lichtzwam bij Gloop
 				stukken += 1
 				vk = kk
-	ok(dicht == 0 and stukken > 0, "deco in een echt hol: %d stukken, %d direct naast elkaar" % [stukken, dicht])
+	ok(dicht == 0 and stukken > 0, "deco in een echt hol: %d stukken, %d tegen de regels (naast elkaar, looppad, lichtzwam bij Gloop)" % [stukken, dicht])
 	hdk.free()
 	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
 	var KJ = load("res://kern/kaartje.gd")
