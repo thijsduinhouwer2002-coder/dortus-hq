@@ -502,3 +502,12 @@
 - 14 nov ±09:15 UTC: ronde 4b klein. **Besluit: klein met alleen de helm op Gloop.** Waarom: frisse kijker A/B, grap 1 tot 2 s en cijfer 8 tegen 3 tot 5 s en 6 met helm plus kroon.
 - 14 nov ±09:05 UTC (klok van de run): ronde 4c header. **Besluit: ridder dichtbij Gloop, toren 3 hoeden, op de berg alleen de hoge hoed.** Waarom: frisse kijker A/B, ±2 s en 7,5 tegen 3 tot 4 s en 6.
 - 14 nov ±09:10 UTC: eerste hoofdbeeld 1232x706 uit dezelfde scène; leest, maar nog te leeg boven en onder. Volgende run: vullen, frisse kijker, dan bibliotheek 600x900.
+
+## Run, 14 nov ±11:40 tot 12:20 UTC (capsule ronde 5, schermen 3D)
+- Gelezen: berichten (Olaf 09:30 schermen-voorstel, Daan 09:35 vier kan-punten, beide open), regels, besluiten, rol, LEESMIJ capsule-3d.
+- Capsule ronde 5: munt weg uit Gloop, schild van de ridder lager, pluim recht (steekt links onder de kroon uit), kroon strakker en minder glans, laarzen en fakkel iets verschoven. Alleen in `capsule3d.py`, Daans modellen ongewijzigd.
+- Proef tweede hoed achter de helm op klein: frisse kijker 5 tegen 4, "vlekje of bloem". **Besluit: klein blijft 1 hoed.** Waarom: maar één punt winst en het hoedje leest als fout.
+- Ronde 5b na de frisse kijker (groot 6): ridder kijkt naar Gloop, minder randlicht, renders op dubbele grootte verkleind (scherper).
+- Schermen: **Besluit: scherm 1 en 2 opnieuw uit de weekopname met Royal in 3D (run 43590467908), 3 tot 5 van Olaf.** Waarom: het eerste scherm mocht geen pixelcape meer hebben. In `ontwerp/steam/winkelpagina/schermen-3d/`.
+- GEZIEN met Read: header (vier proeven en eindversie), klein (proef A/B), hoofdbeeld, zoom op de toren, uitsnede scherpte, scherm 1 nieuw, overzicht van Olaf.
+- Volgende: hoge hoed en titelafstand in de header, klein leesbaar zonder header, bibliotheek 600x900, minder lucht in de zoomschermen (met Daan).

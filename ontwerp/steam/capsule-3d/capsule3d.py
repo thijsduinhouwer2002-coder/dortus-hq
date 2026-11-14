@@ -214,7 +214,10 @@ if km:
 # ---------- de ridder: komt binnen en schrikt ----------
 import held
 # ronde 4: groter en dichterbij, zodat de grap (zijn helm, zijn pluim, op Gloop) sneller valt
-ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=38, schaal=RS, gloed=30, rand=60)
+# ronde 5b (frisse kijker: "lijkt eroverheen geplakt, kijkt de kijker aan en niet het monster"): minder randlicht,
+# meer naar Gloop gedraaid. Oud: draai 38, rand 60 (RIDDER_DRAAI, RIDDER_RAND)
+ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "50")), schaal=RS,
+                   gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))
 # ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
 SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))
 schild = [o for o in ridder.children if o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("schild")]
@@ -271,7 +274,7 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     return o
 
 lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), 1600, 4.0, (GX, 0.3, 1.5))
-lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 500, 3.0, (RX, RY, 1.0))
+lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
