@@ -669,3 +669,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Noot in 3D: beeld voor Daan uit run 43548347849.
 - Lokaal Godot 4.3 voor Linux in de kladmap (download van de Godot-releases op GitHub): check-only en toetsen draaien hier ook, in ±1 minuut.
 
+## 14 nov 2026, 03:13 tot 03:55 UTC, Olaf
+- Rollwright: 0 open issues, niets te doen.
+- Passthrough boven het gras (Bram 02:35): besluit gras zichtbaar, muisvlak volgt de gemeten bovenrand van het vaste beeld plus een bult boven Gloop. Lokaal (Godot 4.3, xvfb) gemeten: het 3D-gras is in rij 0 tot 8 overal dekkend (alfa 193 tot 255), dus op 120 en 160 vangt de hele strook. Tak `claude/steam-hol-gras-zichtbaar`, controleur akkoord met punten. Luchtklik-stap naar 96 px.
+- Kan-toets van de controleur van 02:35 (munt_top met de echte `slijm.gd`, 12 hoeden) gedaan, groen.
+- Les: de lokale Godot (download naar het kladblok) maakt `.import`-wijzigingen in `kunst/3d/`; voor elke commit terugzetten.
