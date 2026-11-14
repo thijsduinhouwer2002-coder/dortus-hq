@@ -177,12 +177,23 @@ if PLUIM_RECHT:
     hr = bpy.data.objects.get("helmrand")
     hx, hz = hr.location.x, hr.location.z - 0.01
     pl = g.mat("pluim", "rood", rough=0.7)
-    # ronde 6 (Daan moet 2, 14 nov 14:45): vier losse bollen lazen als rups of kralen. Nu precies de pluim van de ridder
-    # (held.py: vier bollen die elkaar half overlappen en omkrullen), gespiegeld en x1,64 groter (helm 0,63 tegen 0,385).
-    # Hij begint links aan de helm, onder de kroon, en krult naar buiten en omhoog.
-    K = 0.63 / 0.385
-    for px, pz, ps in [(0.0, 0.47, 0.11), (0.06, 0.55, 0.1), (0.13, 0.6, 0.085), (0.2, 0.6, 0.07)]:
-        ns["bol"]("pluim", (hx - 0.30 - px * K * 1.25, 0.0, hz + 0.20 + (pz - 0.47) * K * 1.6), (ps * K, ps * K * 0.8, ps * K), pl)
+    # ronde 6 (Daan moet 2, 14 nov 14:45): vier losse bollen lazen als rups of kralen. Daan nam de vier bollen van de
+    # ridder x1,64; dat bleef op groot vier bollen. Ronde 6b (Mila): dezelfde lijn als de ridder (eerst omhoog, dan om),
+    # maar als gladde boog van negen bollen die dicht op elkaar liggen (stap ±0,55 van de straal, zoals bij de ridder op
+    # zijn eigen maat), zodat hij als één gekrulde pluim leest. Gespiegeld: links onder de kroon uit, naar de ridder toe.
+    P = [(-0.36, 0.32), (-0.46, 0.58), (-0.64, 0.70), (-0.79, 0.64)]   # bezier
+    N = 9
+    for i in range(N):
+        t = i / (N - 1); u = 1 - t
+        px = u**3 * P[0][0] + 3 * u * u * t * P[1][0] + 3 * u * t * t * P[2][0] + t**3 * P[3][0]
+        pz = u**3 * P[0][1] + 3 * u * u * t * P[1][1] + 3 * u * t * t * P[2][1] + t**3 * P[3][1]
+        ps = 0.18 - 0.065 * t
+        ns["bol"]("pluim", (hx + px, 0.0, hz + pz), (ps, ps * 0.8, ps), pl)
+# ronde 6b (Daan kan 3): de kroonpunten (ronde 5 15% hoger) prikten door de rand van de heksenhoed: hoed 0,2 hoger
+HEKS_OP = float(os.environ.get("HEKS_OP", "0.2"))
+for o in [o for o in bpy.data.objects if o not in voor]:
+    if o.name.split(".")[0] in ("hoedrand", "hoedband", "hoed", "hoedpunt", "muts", "pompon"):
+        o.location.z += HEKS_OP
 GS = 1.95
 for o in [o for o in bpy.data.objects if o not in voor]:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
