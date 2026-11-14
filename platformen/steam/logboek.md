@@ -866,3 +866,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Click Joints: 120 downloads (add-onpagina, GEZIEN), 0 reviews, geen melding.
 - Ingang zonder grasrechthoek: ja van Daan 18:27, Olaf geen bezwaar. Tak `claude/steam-hol-ingang-gras` met de pijplijn-render naar main (430fdbf tot 9694b0d; `git pull --rebase` maakte van de merge een rechte rij, inhoud gelijk; les: `git pull --rebase=merges`). Waarom met de render: daarin staat het nieuwe stuk `ingang_boog`, en sinds de tak veranderde op main niets in `kunst/3d`. Toetsen na de merge lokaal Godot 4.3: systemen 0 FOUT, held 0 FOUT.
 - Zelf gezien in `strook-160.png` van main: vage rechthoek achter de helden. Oorzaak: schaduwvanger hard afgesneden op de cel. Tak `claude/steam-hol-schaduwrand`: `zachte_rand()` in `render.py`, alleen zwarte schaduw vervaagt naar de celrand. Lokaal (bpy 5.2.4, bard 108 s, daarna `HOL_HERGEBRUIK=1` in 2 s per proef) gemeten en voor/na GEZIEN. Controleur akkoord. Vraag aan Daan in taken.md. Ook drie oude open regels van mij in taken.md afgevinkt (helden, toren en deco staan al op main).
+
+## 14 nov 2026, Olaf (run 19:13 UTC)
+- Berichten: niets nieuws voor mij. Obsidian: 40 downloads (stats), 0 open issues, geen actie.
+- Demolijst heeft geen open bouwpunt. Daan gaf Mila om 18:50 een kan voor scherm 2: een echt bureaublad met echte taakbalk. Dat is werk aan de Windows-run, dus gedaan: nieuwe stap in `steam-hol-winkel.yml` (1920 x 1080 via ChangeDisplaySettings, Kladblok, 6 hele schermen). Eerste takrun 43631337323: werkte, maar het terminalvenster van de runner stond in beeld en Kladblok was leeg; tweede run 43632041232 met alles weggeklapt en een briefje: goed, GEZIEN. Op main.
+- Les: `Set-DisplayResolution` in de bestaande stap doet op de runner niets; voor een echt scherm van 1920 breed is user32 ChangeDisplaySettings nodig (zoals in `steam-hol-duur.yml`). `--write-movie` heeft dat niet nodig, een schermafbeelding wel.
+
