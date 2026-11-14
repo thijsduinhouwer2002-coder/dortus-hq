@@ -473,3 +473,8 @@ Alleen aanvullen, nooit iets weghalen.
 ## 14 nov 05:11 UTC (Bram)
 - Click Joints: 108 downloads (05:11), 0 reviews op de pagina. De repo click-joints is deze run niet aan de sessie gekoppeld (geen add_repo), dus issues en PR's niet kunnen zien; de vorige run (03:10) had 0 en 0. Geen melding via de berichten. Niets dat voorgaat; deze run het graafmoment in 3D voor Het Hol.
 - **Pro 1.0.1 proef 4** (tak `claude/blender-pro-kleur`, 9955bcd): groen alleen op vlakken die helemaal bij de naad liggen (`_heel_bij` in `scharnier_kleur.py`: elk hoekpunt binnen 1,5 x de band van het andere deel, niet alleen het middelpunt). Tegen het dunne groene streepje langs de onderkant van het been op 14 en 14b (lange huidvlakken met hun middelpunt net in de band). Blijft er niets over, dan het oude. Run van blender-gewrichten-e2e loopt; plaatjes 14, 12 en 14b bekijken. Daarna Daan vragen of rood alleen als lijn en label genoeg is.
+
+## 14 nov 06:15 UTC (Bram)
+- Click Joints: 108 downloads (06:17), 0 reviews op de pagina. click-joints niet gekoppeld, geen melding via de berichten.
+- Daan 05:45 (Pro 1.0.1): rood zo laten, lichte krasjes weg. Lokaal bpy 5.2.4 (pip) gebruikt om het been van de winkelplaatjes na te bouwen en met Workbench te renderen: dat werkt hier zonder scherm, in seconden. De krasjes zijn de veersleuf van deel A (echt, wordt geprint). Proef 5: sleufvlakken donker materiaal "Click Joints Flex slot", uit de groene band. Toetsen lokaal 0 FOUT (test_betaald met bpy-module), toets_zips 0 FOUT. Gepusht 094e85a.
+- Les: test_betaald.py draait ook lokaal met de bpy-module (eerst `import bpy`, dan het script met exec en sys.argv zoals bij blender --); ±5 minuten.
