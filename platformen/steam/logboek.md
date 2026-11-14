@@ -639,4 +639,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Muzieknootje: komt uit code (`NOOT_PIX`), aan Daan gemeld. Toren met plafond: doe ik volgende run. Deco-rest: wacht op modellen in `hol.py`.
 - Les: lokaal Godot draaien zet uid's in alle `.import`-bestanden; zet die terug voor je commit, maar draai daarna opnieuw `--import` voor je weer toetst, anders vindt de toets de bladen niet (kostte 7 minuten).
 - Blender: 107 downloads, geen melding.
-
+- Toren met plafond gebouwd op `claude/steam-hol-toren3d` (2d3d22b), toetsen lokaal 0 FOUT; controleur en Windows-beeld volgende run.
