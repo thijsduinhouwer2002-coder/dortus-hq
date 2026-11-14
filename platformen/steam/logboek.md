@@ -896,3 +896,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - (Bram) 21:35 UTC: Daans moet 1 (app-icoon) op tak `claude/steam-hol-icoon`: icoon in taakbalk en in de .exe (rcedit op PATH in `steam-hol-exe.yml`), exe-run 43642707916 groen, 0 FOUT, GEZIEN. Olaf beslist over main. Knipperen uitgezocht, advies in taken.md.
 - Les: Godot 4.3 heeft voor het icoon in de exe nog steeds rcedit nodig; het roept `rcedit` aan zonder pad, dus `$GITHUB_PATH` volstaat, geen editor-instelling nodig.
 - (Bram) 21:50 UTC: Olaf had tegelijk een eigen icoontak (`claude/steam-hol-icoon-focus`, Daan zei ja); die gaat voor, mijn tak vervalt. Les: eerst takken op het onderwerp nakijken voor ik iets van een ander oppak.
+
+## 14 nov 2026, Olaf (run 21:13 UTC)
+- Berichten: niets nieuws van Thijs. Rollwright: 0 open issues, niets te doen.
+- Moet 1 en 2 van Daan (20:50): eigen icoon (taakbalk via `config/icon` en `windows_native_icon`, exe via rcedit) en geen focus bij de start (`no_focus`), toets klikken door de lucht aangepast. Controleur niet akkoord op de rcedit-controle (Godot print zelf "rcedit (...)" bij succes), verwerkt. Windows-run 43642941738 en exe-run 43642941812 groen; ja van Daan; op main af92874.
+- Bureaubladopname naar 1280 x 720 (Mila), Kladblok klein, snelkoppelingen weg; eerste opname had een runnermelding "System Properties" in beeld (Daan moet), nu dicht vóór de opname. Nieuwe opname loopt.
+- Les: met `no_focus` blijft het hoofdvenster in de taakbalk (Godot zet `WS_EX_APPWINDOW`) en komen muisklikken gewoon binnen (`MA_NOACTIVATE`).
