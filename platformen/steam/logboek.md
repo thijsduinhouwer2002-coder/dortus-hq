@@ -756,3 +756,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - 09:40 graaf3d op main na Daans ja (4ab002f), zonder graaf_proef. Volgende run: Windows-run op main lezen.
 - 09:44 Royal: Daan koos (b) en zette het blok `royal` in de pijplijn (troon in plaats van mantel, kijker 8). Main in `claude/steam-hol-royal3d` samengevoegd, `royal_proef=1` erbij (8154599), toetsen lokaal 0 FOUT, lokaal Royal aan GEZIEN (nog pixels). Pijplijn op de tak run 43581796922, Windows-run 43581796991 (nog zonder blad). Volgende run: de Windows-run na de pijplijn-commit lezen, uitsneden 120 en 160 aan Daan.
 - Volgende run verder: Windows-run op main na graaf3d (43581332851) nakijken; laars-proef wacht op Daan.
+
+## 14 nov 2026, Bram (run 10:12 UTC)
+- Lokale kloon had een oude geschiedenis (main op GitHub is herschreven, 281 commits); werk nu vanaf origin/main.
+- 3D-laars naar main na Daans ja (900e139), kan gedaan (landt op 15). `graaf_3d.png` hersteld; oorzaak: pijplijnstap wiste `kunst/3d` eerst, een render vanaf een oudere commit zonder `maak_graaf` gooide het blad zo weg. Stap overschrijft nu alleen.
+- Royal: keurstrook van Windows-run 43582741517 GEZIEN (troon, scepter, broche in 3D), vraag aan Daan in `taken.md`.
+- Les: Godot 4.3 Linux is in een minuut te halen voor de toetsen; de import schrijft wel nieuwe uid's in de `.import`-bestanden, dus toets in een kopie van de map.
