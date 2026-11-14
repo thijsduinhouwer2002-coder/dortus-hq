@@ -99,7 +99,13 @@ def aardemat(naam, donker, licht, schaal=1.6):
     yy = nt.nodes.new("ShaderNodeMath"); yy.operation = "MULTIPLY"; yy.inputs[1].default_value = schaal
     mp = nt.nodes.new("ShaderNodeCombineXYZ")
     nt.links.new(tc.outputs["Object"], sep.inputs[0])
-    nt.links.new(sep.outputs["X"], hoek.inputs[0])
+    # Ronde 6 (moet 1): x uit de wereldpositie. "Object" is de geschaalde blokruimte (x van -0,5 tot 0,5 over het
+    # hele hol), dus de ruis ging niet rond per kolom maar liep als één trage golf van links (donker) naar het midden
+    # (licht). Daardoor had elke kamer een eigen tint. Nu gaat x echt rond met een periode van één kolom.
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    sepw = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo.outputs["Position"], sepw.inputs[0])
+    nt.links.new(sepw.outputs["X"], hoek.inputs[0])
     nt.links.new(hoek.outputs[0], co.inputs[0]); nt.links.new(hoek.outputs[0], si.inputs[0])
     nt.links.new(co.outputs[0], cr_.inputs[0]); nt.links.new(si.outputs[0], sr_.inputs[0])
     nt.links.new(sep.outputs["Z"], zz.inputs[0]); nt.links.new(sep.outputs["Y"], yy.inputs[0])
@@ -132,6 +138,14 @@ HOUT = g.mat("hout", "8a4b2a", rough=0.7, spec=0.2)
 HOUT_D = g.mat("hout_d", "5a2e1c", rough=0.75)
 VLAM = g.mat("vlam", "ffb347", emis=9.0)
 VLAM_K = g.mat("vlamkern", "fff1b0", emis=14.0)
+# Daan 13 nov 23:40: vlam in drie lagen met lage emissie. Emissie 9 en 14 knipt met view transform Standard naar
+# wit: de fakkel las als een wit ei op een stokje. Proef en vergelijking in ontwerp/steam/fakkel-3d/.
+V_BUIT = g.mat("v_buit", "ff5a1f", emis=1.6)   # rood-oranje rand
+V_MID = g.mat("v_mid", "ff9b2a", emis=2.4)     # oranje
+V_HART = g.mat("v_hart", "ffe27a", emis=3.2)   # geel hart, net niet wit
+HOUT_F = g.mat("hout_f", "6e4632", rough=0.75, spec=0.2)   # zelfde donkerder hout als de kamerstukken
+DOEK = g.mat("doek", "3a2418", rough=0.9, spec=0.1)        # omwikkelde kop met pek
+IJZER = g.mat("ijzer", "3b3640", rough=0.45, metaal=0.8)
 ROBIJN = g.mat("robijn", "rood", rough=0.08, spec=1.0, emis=0.4)
 SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 WORTEL = g.mat("wortel", "c9a27a", rough=0.8)
@@ -223,11 +237,16 @@ for i in range(160):
     cil("spriet", (x, y, MAAIVELD + 0.18 + h / 2), 0.05, h, random.choice([GRAS, GRAS_D]),
         rot=(random.uniform(-0.3, 0.3), random.uniform(-0.35, 0.35), 0), verts=4, r2=0.0)
 # gras hangt over de rand naar voren
+# Ronde 6: overal het patroon van het rustige stuk (4 per kolom), want losse plukjes wierpen een schaduw op de
+# bovenste strook aarde die per kolom verschilde (moet 1). Trek de random toch even, zodat de rest gelijk blijft.
 for i in range(60):
-    x = random.uniform(X0, X1)
-    if -11.7 < x < -10.3 or x > TEGEL_X - KOL:
-        continue
-    cil("rand", (x, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
+    random.uniform(X0, X1)
+for k in range(-9, 0):
+    for dx in (0.2, 0.65, 1.1, 1.55):
+        x = TEGEL_X + k * KOL + dx
+        if -11.7 < x < -10.3:
+            continue
+        cil("rand", (x, -0.05, MAAIVELD - 0.02), 0.07, 0.16, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
 for x, m in [(-6.3, BLOEM), (-4.1, BLOEM_R), (4.6, BLOEM), (7.9, BLOEM_R), (-8.4, BLOEM_R), (5.9, BLOEM)]:
     cil("steel", (x, 0.1, MAAIVELD + 0.38), 0.025, 0.4, GRAS_D, verts=6)
     bol("bloem", (x, 0.1, MAAIVELD + 0.6), (0.11, 0.11, 0.08), m, 12)
@@ -276,7 +295,7 @@ go = bpy.data.objects.new("goudgloed", gd); go.location = (2.0, 0.2, 1.3); sc.co
 
 # ladder in de schacht naar het gras
 for kant in (-0.35, 0.35):
-    cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT, verts=8)
+    cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT_F, verts=8)  # Daan 23:45: kamerhout, minder oranje
 for k in range(8):
     cil("ladder_sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
 
@@ -290,12 +309,34 @@ for i in range(10):
 
 
 # ---------- fakkels met echt warm licht ----------
+def druppel(naam, loc, r, hoog, m, scheef=0.0):
+    """Vlam als druppel: onderkant bol, bovenhelft getrokken tot een punt die iets opzij buigt. Geen schaduw."""
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=20, ring_count=14, radius=1, location=(0, 0, 0))
+    o = bpy.context.object; o.name = naam
+    for v in o.data.vertices:
+        if v.co.z > 0:
+            t = v.co.z; k = (1 - t) ** 1.6
+            v.co.x = v.co.x * k + scheef * t * t; v.co.y *= k; v.co.z = t * hoog
+    o.scale = (r, r * 0.85, r); o.location = loc; o.visible_shadow = False
+    bpy.ops.object.shade_smooth(); return kies(o, m)
+
+
+def vlam_fakkel(pre, x, y, z, beugel=True, groot=1.2):
+    if beugel:
+        cil(pre + "beugelplaat", (x, y + 0.12, z - 0.18), 0.07, 0.03, IJZER, rot=(math.radians(90), 0, 0), verts=6)
+        cil(pre + "beugelarm", (x, y + 0.04, z - 0.14), 0.018, 0.16, IJZER, rot=(math.radians(90), 0, 0), verts=8)
+    cil(pre + "steel", (x, y - 0.03, z - 0.16), 0.055, 0.42, HOUT_F, rot=(math.radians(-12), 0, 0), verts=10, r2=0.035)
+    cil(pre + "kop", (x, y - 0.06, z + 0.07), 0.085 * groot, 0.13, DOEK, verts=12, r2=0.1 * groot)
+    zv = z + 0.16
+    druppel(pre + "vlam", (x, y - 0.08, zv + 0.10 * groot), 0.15 * groot, 2.3, V_BUIT, scheef=0.05)
+    druppel(pre + "vlammid", (x, y - 0.13, zv + 0.08 * groot), 0.11 * groot, 2.0, V_MID, scheef=0.04)
+    druppel(pre + "kern", (x, y - 0.18, zv + 0.05 * groot), 0.06 * groot, 1.7, V_HART, scheef=0.02)
+
 def fakkel(x, z, kracht=160):
     # namen beginnen met "fakkel" (Bram 13 nov 23:25): de pijplijn maakt er een losse laag van (HOL_ALLEEN ["fakkel"])
-    cil("fakkelsteel", (x, 1.0, z - 0.25), 0.05, 0.55, HOUT_D, rot=(math.radians(-18), 0, 0), verts=8)
-    cil("fakkelkop", (x, 0.92, z + 0.05), 0.09, 0.12, HOUT, verts=10)
-    bol("fakkelvlam", (x, 0.9, z + 0.24), (0.14, 0.11, 0.26), VLAM, 12)
-    bol("fakkelkern", (x, 0.85, z + 0.2), (0.06, 0.05, 0.1), VLAM_K, 10)
+    # Daan 13 nov 23:40: ijzeren beugel, steel van kamerhout, donkere kop, vlam als druppel met punt (3 lagen).
+    # Zelfde hoogte als de oude fakkel (van z - 0,52 tot z + 0,52), dus het vak in sprites.json blijft passen.
+    vlam_fakkel("fakkel", x, 1.0, z - 0.17, beugel=True)
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.6, 0.28); d.energy = kracht; d.shadow_soft_size = 0.15
     o = bpy.data.objects.new("fakkellicht", d); o.location = (x, 0.5, z + 0.35); sc.collection.objects.link(o)
 
@@ -306,8 +347,10 @@ fakkel(-7.2, 0.95, 90)
 fakkel(5.0, 0.95, 90)   # verder van het rustige stuk rechts, zodat dat egaal licht krijgt
 # Kamers (Daan, moet 3): geen fakkel hoog meer (die vlam las als pupil: drie kommen werden drie ogen).
 # Begin: fakkel laag op de linkerwand. Midden a: stut met schoren. Midden b: houweel en tonnetje. Eind: kistje.
-blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.7, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.4, 0.06), VLOER)
-blok("kamervloer", (LOS, 0.7, KZ - 0.6), (1.2, 1.4, 0.06), VLOER)
+# Ronde 6 (Daan kan a): de vloer begint 0,2 achter de voorkant. Eerst stak hij tot y = 0 en voorbij de ronde
+# einden door, en las de voorrand als een donker plankje onder de kamer.
+blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.8, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.2, 0.06), VLOER)
+blok("kamervloer", (LOS, 0.8, KZ - 0.6), (1.2, 1.2, 0.06), VLOER)
 fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
 STUT = g.mat("stut", "6e4632", rough=0.75)       # een tint donkerder en minder oranje dan Daans proef
 BAND = g.mat("band", "d9a441", rough=0.4, spec=0.5)
@@ -360,9 +403,11 @@ helm.rotation_euler = (0, math.radians(25), 0)
 
 # ingang: fakkel op een paal naast de schacht, met een boogje van stenen
 cil("ingangpaal", (-10.0, 0.35, MAAIVELD + 0.45), 0.05, 0.9, HOUT_D, verts=8)
-cil("ingangkop", (-10.0, 0.35, MAAIVELD + 0.93), 0.09, 0.12, HOUT, verts=10)
-bol("ingangvlam", (-10.0, 0.33, MAAIVELD + 1.1), (0.14, 0.11, 0.26), VLAM, 12)
-bol("ingangkern", (-10.0, 0.28, MAAIVELD + 1.06), (0.06, 0.05, 0.1), VLAM_K, 10)
+# Daan 13 nov 23:40: zelfde vlam als de gangfakkels, kop bovenop de paal
+cil("ingangkop", (-10.0, 0.35, MAAIVELD + 0.93), 0.085 * 1.2, 0.13, DOEK, verts=12, r2=0.1 * 1.2)
+druppel("ingangvlam", (-10.0, 0.33, MAAIVELD + 1.03 + 0.12), 0.18, 2.3, V_BUIT, scheef=0.05)
+druppel("ingangvlammid", (-10.0, 0.28, MAAIVELD + 1.03 + 0.10), 0.13, 2.0, V_MID, scheef=0.04)
+druppel("ingangkern", (-10.0, 0.23, MAAIVELD + 1.03 + 0.06), 0.07, 1.7, V_HART, scheef=0.02)
 il = bpy.data.lights.new("ingangslicht", "POINT"); il.color = (1.0, 0.6, 0.28); il.energy = 60; il.shadow_soft_size = 0.15
 ilo = bpy.data.objects.new("ingangslicht", il); ilo.location = (-10.0, 0.0, MAAIVELD + 1.15); sc.collection.objects.link(ilo)
 for k in range(9):
@@ -381,11 +426,27 @@ bol("spin", (8.9, 0.4, GANG_TOP - 0.56), (0.07, 0.06, 0.07), PRUIM_D, 10)
 # het licht daar niet verloopt in x en de tegels naadloos naast elkaar passen. De fakkels vallen er zwak op.
 # Ronde 5 (moet 1, Daan): deze lamp loopt nu over de hele breedte, zodat de aarde overal precies het licht van
 # de aardtegel krijgt (het spel legt die tegel op elke dichte cel). Zelfde sterkte per vlak als eerst (300 op 10 breed).
-TL_BREED = BREED + 6.0
+TL_BREED = BREED + 40.0
 tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = TL_BREED; tl.size_y = 3.0
 tl.color = (1.0, 0.82, 0.86); tl.energy = TEGEL_LICHT * TL_BREED / 10.0
 tlo = bpy.data.objects.new("tegellicht", tl); tlo.location = (0.0, -3.0, 4.6)
 tlo.rotation_euler = (math.radians(52), 0, 0); sc.collection.objects.link(tlo)
+
+# Ronde 6b (volgende ronde punt 2, frisse kijker 5b: "weinig contrast tussen gang en aarde"): de achterwand van de
+# gang lag in de schaduw van het plafond en was donkerder dan de aarde (37 tegen 48). Een lange warme lamp in de
+# gang, naar achteren gericht, alleen op achterwand en vloer (light linking). Even lang als de tegellamp, dus egaal
+# in x: de gangtegel past nog steeds op zichzelf. HOL_GANG_LICHT = 0 zet hem uit.
+GANG_LICHT = float(os.environ.get("HOL_GANG_LICHT", "60"))
+if GANG_LICHT > 0:
+    gl_ = bpy.data.lights.new("ganglicht", "AREA"); gl_.shape = "RECTANGLE"; gl_.size = TL_BREED; gl_.size_y = 0.5
+    gl_.color = (1.0, 0.78, 0.66); gl_.energy = GANG_LICHT * TL_BREED / 10.0
+    glo = bpy.data.objects.new("ganglicht", gl_); glo.location = (0.0, -0.3, GANG_TOP - 0.25)
+    glo.rotation_euler = (math.radians(100), 0, 0); sc.collection.objects.link(glo)
+    gangwand = bpy.data.collections.new("gangwand")
+    for o in sc.objects:
+        if o.name.split(".")[0] in ("achterwand", "vloer"):
+            gangwand.objects.link(o)
+    glo.light_linking.receiver_collection = gangwand
 
 # ---------- Gloop van Daan erin (gloop.py ongewijzigd, alleen het model) ----------
 voor = set(bpy.data.objects)
@@ -420,7 +481,20 @@ if os.environ.get("HOL_HELDEN", "1") == "1":
     # Ronde 5, frisse kijker: "de helden staan ver van het monster, er gebeurt niets". De ridder staat nu bij de
     # kist en schrikt van Gloop (in het spel: helden lopen naar de schat en Gloop eet ze op).
     held.bouw("ridder", "schrik", plek=(KX0 + 0.75, 0.3, 0.0), draai=25, schaal=0.85, gloed=35, rand=40)
+    voor_heks = set(bpy.data.objects)
     held.bouw("heks", "vallen", plek=(PUT_X - 0.25, 0.5, -0.05), draai=20, schaal=0.68, gloed=25, rand=40)
+    # Ronde 6c (volgende ronde punt 3, Daan 21:45 kan c): de heks las niet als vallen. Haar hoed blijft los boven
+    # de put hangen, zoals in het spel (Brams held_beeld.gd laat de hoed bij een val even hangen). Haar eigen hoed
+    # gaat weg, de puntmuts uit hoeden.py hangt scheef boven de put. Naam held_..., dus de tegels hebben hem niet.
+    if os.environ.get("HOL_HOED_LOS", "1") == "1":
+        for o in [o for o in bpy.data.objects if o not in voor_heks and "heksenhoed" in o.name]:
+            bpy.data.objects.remove(o, do_unlink=True)
+        import hoeden
+        voor_hoed = set(bpy.data.objects)
+        hoeden.bouw(1, plek=(PUT_X + 0.62, 0.45, 0.98), schaal=0.62, kantel=28, draai=20)
+        for o in bpy.data.objects:
+            if o not in voor_hoed:
+                o.name = "held_los_" + o.name
 
 # ---------- camera en licht (gedeeld) ----------
 g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)
@@ -435,5 +509,19 @@ for o in sc.objects:
 for o in sc.objects:
     if o.type == "LIGHT":
         o.visible_camera = False   # de lampen zelf niet in beeld
+
+# Ronde 6 (moet 1, Daan 21:45): de aarde was midden in het beeld 2 keer zo licht als aan de randen (gemeten 42
+# links, 85 midden, 49 rechts), want de vier gedeelde lampen staan voor Gloop in het midden en vallen als een
+# grote vlek op de voorkant van de aarde. Daardoor kreeg elke kamer een eigen tint en een trede op de celrand.
+# Nu schijnen de gedeelde lampen en de lampjes van de helden alleen op Gloop, de helden en de schat
+# (light linking in Cycles). De aarde krijgt alleen de lange egale tegellamp: overal hetzelfde licht.
+FIGUUR = ("gloop_", "held_", "berg", "munt", "robijn", "safier", "beker", "kist", "deksel")
+fig = bpy.data.collections.new("figuren")   # niet aan de scène gehangen: alleen een lijst voor het licht
+for o in sc.objects:
+    if o.type != "LIGHT" and o.name.startswith(FIGUUR):
+        fig.objects.link(o)
+for o in sc.objects:
+    if o.type == "LIGHT" and o.name.split(".")[0] in ("fakkel", "koel", "boven", "vul", "heldgloed", "heldrand", "staflicht"):
+        o.light_linking.receiver_collection = fig
 g.render(uit, W, H, SAMPLES, doorzichtig=True)
 print("klaar", uit)
