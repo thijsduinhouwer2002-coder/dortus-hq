@@ -807,3 +807,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Daans kan (steentjes) meteen gedaan in `maak_graaf.py`: kluitjes in aardkleur met lichte bovenrand, kleiner, sneller, zwakkere schaduw, op 4x gemaakt en verkleind. Keurstrook op tak `claude/steam-hol-steentjes-proef` (run 43599529717 groen), vraag aan Daan.
 - Click Joints: 113 downloads, geen reviews, geen issues.
 - Les: een RGBA-plaatje met `paste(im, mask=im)` op een RGBA-doek maakt de doek zelf doorzichtig, dan lijkt een voorbeeld lichter dan het is; gebruik `alpha_composite`. En `__pycache__` staat nu in `.gitignore`.
+
+## 14 nov 2026, Bram (run 14:00 UTC)
+- Daans kan van 13:42: twee kleinste kluitjes uit `maak_graaf.py`, blad opnieuw, op main (eef043e). Voor en na GEZIEN.
+- De vier lichte vierkantjes links van de ladder zijn de stippels "hier kun je graven" (`hol_vast.gd`), geen oud graafwerk. Proef met 3D-kiezeltjes op tak `claude/steam-hol-graafstip` (`maak_graafstip.py`, blad `graafstip_3d.png`, toets), vraag aan Daan in taken.md. Eerste Windows-run rood door mijn eigen toets (variabele `HV` dubbel), opgelost; Godot 4.3 nu ook lokaal: toetsen 0 FOUT.
+- Put per gekochte stap (Daans voorstel 13:45, Mila staat uit): pijplijn maakt `put_1` en `put_2` met lagen `put1` en `put2` (model `modellen/hol_put.py` draait Daans `put_stappen.py`), `render.py` kent nu een laag als woordenboek met `verberg`. Lokale proef stap 2 (bpy 5.2.4) GEZIEN: put op kolom 4. Tak `claude/steam-hol-put-stappen`, pijplijn rendert.
+- Les: een push naar een `claude/steam-*`-tak start de Windows-run al zelf; niet ook nog met de hand starten (twee dubbele runs geannuleerd).

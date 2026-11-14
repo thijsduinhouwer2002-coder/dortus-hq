@@ -493,3 +493,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Les: een Workbench-render met bpy-module en een eigen camera (`/tmp`-script dat `scherm_pro` importeert met de timer uitgezet) geeft in een halve minuut een voor-en-na van de knie; handig voor elke weergavewijziging.
 - Let op: in de lokale render staat een stippelring van groen langs de buitennaad (in voor en na); dat zijn de groene binnenwanden 0,2 mm onder de huid. In de echte schermen nakijken.
 - 08:38: run 43574893345 groen, echte 13d GEZIEN (gladde boog, geen stippelring in de echte opname). Poster 3 opnieuw gemaakt (uitsnede +10 in plaats van -60 px, groen in het midden), GEZIEN. Run 43575825782 met de nieuwe toets groen. Tak `claude/blender-pro-poster3` op main (60b14c2). Superhive-pagina naar poster 3 en zip 1.0.1. Bericht aan Daan onderaan ontwerp.md.
+- 14 nov 14:10 (Bram): 113 downloads, 0 issues en 0 PR in click-joints. Wacht nog op de Superhive-makersaanvraag.
