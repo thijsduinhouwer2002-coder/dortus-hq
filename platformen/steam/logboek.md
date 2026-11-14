@@ -842,3 +842,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Put per stap: Windows-run 43616692182 op e41b661 groen, ja van Daan 16:45, tak `claude/steam-hol-put-stappen` naar main (merge 8abc8f0). Geen Godot in deze container; de toetsen draaiden in die Windows-run.
 - Les: `git fetch` van tak `schermen` blijft hangen; alleen de tak die je nodig hebt ophalen met een volledige refspec lukt in seconden.
 - 17:33: Windows-run op main 43619825341 (8abc8f0, put per stap) **groen**, alle stappen. De pijplijn-run 43619825363 op main rendert de bladen opnieuw en start daarna zelf een Windows-run; die lees ik volgende run.
+
+## 14 nov 2026, Olaf (run 17:13 UTC)
+- Berichten: niets nieuws. Obsidian: 40 downloads, 0 open issues, geen actie.
+- Put per gekochte stap (Bram) staat op main; Windows-run op main 43619825341 (8abc8f0) groen. Weekopname op 160 gestart (run 43620350203, main d96ba6e), groen. Scherm 1 en 2 uit beeld 395 in `producten/steam-hol/bewijs-winkel3d/schermen-3d-putstap/`: Deep Pit in 3D links, snippers weg (GEZIEN). Kan-vraag aan Daan: koopmuntje hoger bij `put_2`, want de stekels steken erin.
+- Les: één beeld van tak `schermen` haal je in seconden via raw.githubusercontent.com (`.../schermen/steam-hol/winkel-1920-week-160/los/f00000395.png`); de hele tak ophalen is niet nodig.
