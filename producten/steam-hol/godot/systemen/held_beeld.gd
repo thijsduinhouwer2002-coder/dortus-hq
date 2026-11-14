@@ -43,6 +43,11 @@ static func teken(h) -> void:
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
 	var y := -16 + zak + hop
 	var hoed_nr: int = int(h.hoed_nr)
+	var kop3d := _teken_3d(h, staat, frame, zak, hop, vb, kleur)
+	if kop3d != NIET_3D:
+		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+		_tekens(h, staat, vb, t, kop3d - 1)
+		return
 	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
 	_laag(h, LIJF, frame * 16, int(h.kleur_nr) * 16, y, zak, kleur)
 	var rij: int = h.SOORT.rij(String(h.soort_held))
@@ -56,9 +61,13 @@ static func teken(h) -> void:
 		_laag(h, WAPENS, wapen * 16, 0, y + omlaag, 0, kleur)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
-	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	var tops: Array = h.get_script().get_script_constant_map().get("HOED_TOP", [])   # HOED_TOP blijft in held.gd (strook.gd leest hem daar)
 	var onder: int = y + (int(tops[hoed_nr]) if hoed_nr < tops.size() else 0) + omlaag - 1
+	_tekens(h, staat, vb, t, onder)
+
+# Teken (boos, uitroep, ...), poef en nootjes boven het hoofd; onder = de rij net boven de bovenkant van de hoed.
+static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> void:
+	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	if staat != "vallen":
 		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
 			_noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
@@ -68,6 +77,167 @@ static func teken(h) -> void:
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+
+# 3D-helden (Bram 13 nov, pijplijn producten/steam-hol/pijplijn/, modellen/held.py van Daan). Schakelaar, standaard UIT:
+# Hoeden: keuze A (Daan 13 nov 19:35, taken.md). De pijplijn rendert de held zonder eigen hoed ("verberg": ["hoed"]) en de
+# 10 spelhoeden als eigen blad "hoeden" (modellen/hoeden.py, schaal 1,3 tegenover de held). De hoed van de held (hoed_nr)
+# komt op de kruin met de onderrand 1 spelpixel in het hoofd; bij vallen tuimelt hij los (Daans twee moet-punten).
+# Uitzondering op "nooit schalen" bovenin: het 3D-lijf staat niet op hele pixels, met opzet (lineair gefilterd, 4x scherp).
+# Soort -> blad: ridder -> ridder, magiër -> heks. Andere soorten blijven pixels. Lijf lineair gefilterd (CanvasTexture),
+# zoals Gloop in slijm.gd; de rest van de held (tekens, nootjes, poef) blijft nearest.
+static var met_3d := true
+const HELD3D_JSON := "res://kunst/3d/sprites.json"
+const HELD3D_SOORT := {"ridder": "ridder", "magier": "heks", "dief": "dief", "bard": "bard"}
+# Gewone held (soort ""): eigen blad per tuniek, held0 tot held4, gelijk aan kleur_nr (Daan 22:45, held_soorten.py), zodat
+# Kees bij terugkomst dezelfde tuniek heeft. Dief en bard hun eigen blad.
+const HELD3D_GEWOON := ["held0", "held1", "held2", "held3", "held4"]
+# Terugval (Bram 13 nov 22:25, nog steeds nodig zolang een eigen blad ontbreekt): wie geen eigen blad heeft krijgt het ridder-
+# of heksblad (via kleur_nr). Uit met GEWOON_3D := false, dan blijft zo'n held pixels.
+static var GEWOON_3D := true
+const HELD3D_ANDER := ["ridder", "heks"]
+const NIET_3D := -9999
+const HOEDEN3D := "hoeden"       # blad met de 10 hoeden in de volgorde van held.gd
+const HOED_IN_KOP := 1.0         # onderrand van de hoed zoveel spelpixels in de kruin (Daan: nooit zwevend)
+static var held3d := {}          # blad-naam -> [CanvasTexture, info]
+static var held3d_gezocht := false
+
+# Het eigen 3D-blad van deze held (ook als het niet geladen is).
+static func eigen_blad(soort: String, nr: int) -> String:
+	if HELD3D_SOORT.has(soort):
+		return String(HELD3D_SOORT[soort])
+	return String(HELD3D_GEWOON[posmod(nr, HELD3D_GEWOON.size())])
+
+# Welk 3D-blad hoort bij deze held ("" = pixels): het eigen blad als het geladen is, anders (GEWOON_3D) ridder of heks.
+static func blad_voor(soort: String, nr: int) -> String:
+	_laad_3d()
+	var eigen := eigen_blad(soort, nr)
+	if held3d.has(eigen):
+		return eigen
+	if soort == "ridder" or soort == "magier":
+		return eigen
+	if GEWOON_3D:
+		return String(HELD3D_ANDER[absi(nr) % HELD3D_ANDER.size()])
+	return ""
+
+static func _laad_3d() -> void:
+	if held3d_gezocht:
+		return
+	held3d_gezocht = true
+	if not FileAccess.file_exists(HELD3D_JSON):
+		print("HELD3D niet geladen: %s ontbreekt" % HELD3D_JSON)
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(HELD3D_JSON))
+	if typeof(d) != TYPE_DICTIONARY:
+		print("HELD3D niet geladen: %s is geen woordenboek" % HELD3D_JSON)
+		return
+	var ontbreekt := []
+	for naam in HELD3D_SOORT.values() + HELD3D_GEWOON + [HOEDEN3D]:
+		if not d.has(naam) or typeof(d[naam]) != TYPE_DICTIONARY or not ResourceLoader.exists(str(d[naam].get("blad", ""))):
+			ontbreekt.append(naam)
+			continue
+		var ct := CanvasTexture.new()
+		ct.diffuse_texture = load(str(d[naam]["blad"]))
+		ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		held3d[naam] = [ct, d[naam]]
+	print("HELD3D geladen: %s; zonder eigen blad: %s; terugval op ridder/heks: %s" % [", ".join(PackedStringArray(held3d.keys())),
+		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
+
+# Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
+static func stand_3d(staat: String, frame: int) -> String:
+	if staat == "vallen":
+		return "vallen"
+	if staat in ["lopen", "vluchten"]:
+		return ["stap1", "rust", "stap2", "rust"][frame % 4]
+	return "rust"
+
+# Tekent het 3D-lijf (voeten op y 0, midden op x 0, onder de vloer afgesneden zoals _laag) en geeft de bovenste rij van het
+# hoofd (of van de spelhoed) terug, of NIET_3D als deze held pixels blijft.
+static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dictionary, kleur: Color) -> int:
+	if not met_3d:
+		return NIET_3D
+	var naam: String = blad_voor(String(h.soort_held), int(h.kleur_nr))
+	if naam == "":
+		return NIET_3D
+	_laad_3d()
+	if not held3d.has(naam):
+		return NIET_3D
+	var ct: CanvasTexture = held3d[naam][0]
+	var info: Dictionary = held3d[naam][1]
+	var stand := stand_3d(staat, frame)
+	var i: int = info["frames"].find(stand)
+	if i < 0:
+		i = maxi(0, info["frames"].find("rust"))
+	var px: float = float(info["px"])
+	var cw: float = float(info["cel_px"][0])
+	var ch: float = float(info["cel_px"][1])
+	var hoog := ch / px
+	var zicht := hoog - float(zak)
+	var x := -float(info["anker_x"]) / px
+	var y := -hoog + float(zak + hop)
+	if zicht <= 0.0:   # helemaal in de put gezakt: geen lijf meer, de losse hoed kan nog net zichtbaar zijn, tekens wel
+		return mini(int(y), _teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur))
+	h.draw_texture_rect_region(ct, Rect2(x, y, cw / px, zicht), Rect2(i * cw, 0, cw, zicht * px), kleur)
+	var tops: Array = info.get("top", [])
+	var kop := int(floor(y + (float(tops[i]) if i < tops.size() else 0.0)))
+	var top_hoed := _teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur)
+	return mini(kop, top_hoed)
+
+# De spelhoed uit het hoedenblad op de kruin. kx, ky = plek van het anker (midden, bovenkant cel) van het lijf.
+# Geeft de bovenste rij van de hoed terug (voor de tekens erboven), of een groot getal als er geen hoed staat.
+static func hoed_plek_3d(info: Dictionary, i: int, kx: float, ky: float, _hi: Dictionary) -> Vector2:
+	var kr: Array = info.get("kruin", [])
+	var k: Array = kr[i] if i < kr.size() else [0.0, float(info.get("top", [0])[0])]
+	return Vector2(kx + float(k[0]), ky + float(k[1]) + HOED_IN_KOP)   # waar het nulpunt van de hoed komt
+
+static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, staat: String, vb: Dictionary, kleur: Color) -> int:
+	if not held3d.has(HOEDEN3D) or not info.has("kruin"):
+		return 9999
+	var ct: CanvasTexture = held3d[HOEDEN3D][0]
+	var hi: Dictionary = held3d[HOEDEN3D][1]
+	var nr := int(h.hoed_nr)
+	if nr < 0 or nr >= (hi["frames"] as Array).size():
+		return 9999
+	var px: float = float(hi["px"])
+	var cw: float = float(hi["cel_px"][0])
+	var ch: float = float(hi["cel_px"][1])
+	# hoed = maal (1,3) keer de eenheid van DEZE held (controleur: de heks heeft een kleinere eenheid dan de ridder)
+	var f := 1.0
+	if hi.has("eenheid_px") and info.has("eenheid_px"):
+		f = float(info["eenheid_px"]) * float(hi.get("maal", 1.3)) / float(hi["eenheid_px"])
+	var ax: float = float(hi["anker_x"]) / px
+	var ny: float = float(hi["nul_y"][nr]) if hi.has("nul_y") else ch / px
+	var draai := 0.0
+	var plek: Vector2
+	var alfa := 1.0
+	if staat == "vallen":
+		if vb.is_empty() or not bool(vb.get("hoed", true)):
+			return 9999                      # hoed gaat naar de toren van de bewoner: niet tekenen
+		# los tuimelen: start op de kruin van rust, wipt iets op, draait weg en zakt trager dan de held (Daan moet 2)
+		var ir: int = maxi(0, (info["frames"] as Array).find("rust"))
+		var vt: float = float(h.val_t)
+		var start := hoed_plek_3d(info, ir, kx, ky - float(int(vb.get("zak", 0)) + int(vb.get("hop", 0))), hi)
+		var vlucht := hoed_tuimel(vt)
+		plek = start + Vector2(vlucht.x, vlucht.y)
+		draai = vlucht.z
+		alfa = clampf(1.0 - plek.y / 3.0, 0.0, 1.0)   # onderrand onder de vloer (y > 0): hij vervaagt in de put
+		if alfa <= 0.0:
+			return 9999
+	else:
+		plek = hoed_plek_3d(info, i, kx, ky, hi)
+	var sx := -1.0 if staat == "vluchten" else 1.0       # het lijf is dan gespiegeld (teken), de hoed dus ook
+	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f))
+	var c := Color(kleur.r, kleur.g, kleur.b, kleur.a * alfa)
+	h.draw_texture_rect_region(ct, Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), c)
+	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+	var tops: Array = hi.get("top", [])
+	return int(floor(plek.y + (-ny + (float(tops[nr]) if nr < tops.size() else 0.0)) * f))
+
+# Baan van de losse hoed bij vallen, tijd vt sinds de val: [dx, dy, draai in radialen]. Eerst 0,2 s omhoog (los van het
+# hoofd), dan zakt hij de put in (begint hoger dan het lijf, dus blijft los te zien) en draait een derde slag weg. Los zodat de toets hem kan nakijken.
+static func hoed_tuimel(vt: float) -> Vector3:
+	var op := -3.0 * sin(clampf(vt / 0.4, 0.0, 1.0) * PI)            # wipt 3 spelpixels op en komt terug
+	var zak := 16.0 * pow(clampf((vt - 0.25) / 0.7, 0.0, 1.0), 2.0)   # daarna de put in; voor VAL_WEG (1 s) is hij onder de vloer
+	return Vector3(2.5 * clampf(vt / 0.6, 0.0, 1.0), op + zak, -2.2 * clampf(vt / 1.0, 0.0, 1.0))
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
 static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:

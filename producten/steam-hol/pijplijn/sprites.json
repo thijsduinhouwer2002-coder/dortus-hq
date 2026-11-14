@@ -282,7 +282,11 @@
             1.0
           ]
         }
-      }
+      },
+      "verberg": [
+        "hoed"
+      ],
+      "maat_zonder_verberg": true
     },
     "heks": {
       "model": "held.py",
@@ -336,6 +340,653 @@
         },
         "vallen": {
           "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "verberg": [
+        "hoed"
+      ],
+      "maat_zonder_verberg": true
+    },
+    "held0": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "held",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "0"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "held1": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "held",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "1"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "held2": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "held",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "2"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "held3": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "held",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "3"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "held4": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "held",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "4"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "dief": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "dief",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "bard": {
+      "model": "held.py",
+      "args": [
+        "{uit}",
+        "bard",
+        "{stand}",
+        "{w}",
+        "{h}",
+        "{samples}"
+      ],
+      "render": [
+        480,
+        480
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        12,
+        14
+      ],
+      "px": 4,
+      "frames": {
+        "rust": {
+          "stand": "rust",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap1": {
+          "stand": "stap1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "stap2": {
+          "stand": "stap2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "schrik": {
+          "stand": "schrik",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vallen": {
+          "stand": "vallen",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.0
+      }
+    },
+    "hoeden": {
+      "model": "hoeden.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}",
+        "30"
+      ],
+      "render": [
+        320,
+        320
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        1,
+        1
+      ],
+      "px": 4,
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.3
+      },
+      "frames": {
+        "helm": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "puntmuts": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kap": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pet": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kroon": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "koksmuts": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "emmer": {
+          "stand": "6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "hoge_hoed": {
+          "stand": "7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pan": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veermuts": {
+          "stand": "9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "hoeden_hap": {
+      "model": "hoeden.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}",
+        "30",
+        "hap"
+      ],
+      "render": [
+        320,
+        320
+      ],
+      "samples": 32,
+      "ruimte": 1.4,
+      "cel": [
+        1,
+        1
+      ],
+      "px": 4,
+      "schaal_van": {
+        "sprite": "ridder",
+        "maal": 1.3
+      },
+      "frames": {
+        "helm": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "puntmuts": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kap": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pet": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kroon": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "koksmuts": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "emmer": {
+          "stand": "6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "hoge_hoed": {
+          "stand": "7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "pan": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veermuts": {
+          "stand": "9",
           "schaal": [
             1.0,
             1.0

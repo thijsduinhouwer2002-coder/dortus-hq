@@ -182,6 +182,18 @@ def render(pad, breedte, hoogte, samples=64, doorzichtig=True):
         if sc.camera and ruimte != 1:
             sc.camera.data.ortho_scale *= ruimte
         stam, ext = os.path.splitext(pad)
+        # Bram 13 nov 20:30: de pijplijn wil weten hoe groot een Blender-eenheid in de render is, zodat helden en
+        # hun losse hoeden op dezelfde schaal komen. Alleen met HOL_FRAMES, dus voor gewoon draaien verandert niets.
+        if sc.camera:
+            import json as _json
+            from bpy_extras.object_utils import world_to_camera_view
+            from mathutils import Vector
+            sc.render.resolution_x, sc.render.resolution_y = breedte, hoogte
+            bpy.context.view_layer.update()
+            o = world_to_camera_view(sc, sc.camera, Vector((0, 0, 0)))   # waar het nulpunt in beeld valt (0..1, y omhoog)
+            with open(f"{stam}_cam.json", "w") as f:
+                _json.dump({"ortho": sc.camera.data.ortho_scale, "breed": breedte, "hoog": hoogte,
+                            "nul_px": [o.x * breedte, (1 - o.y) * hoogte]}, f)
         for i, (sx, sz) in enumerate(frames):
             anker.scale = (sx, sx, sz)
             _render_een(f"{stam}_{i}{ext or '.png'}", breedte, hoogte, samples, doorzichtig)
