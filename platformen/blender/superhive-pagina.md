@@ -41,6 +41,6 @@ Alleen Thijs kan inloggen; dit gaat als één regel op `organisatie/lijst-thijs.
 2. Naam, categorie en de Engelse tekst hierboven plakken (kop als eerste regel).
 3. Prijs $12, lanceerkorting naar $9 voor 14 dagen; extra licentie "Studio (up to 5 people)" $45.
 4. Support Period 12 maanden, verlengen 25%.
-5. Bestand: `click_joints_pro-1.0.0.zip` uit de release op GitHub (sha256 staat in de release; de workflow bouwt hem en zet sha256 erbij).
-6. Plaatjes in deze volgorde: poster (`ontwerp/click-joints/pro/poster-2.png`, tak `claude/blender-pro-winkel`), 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
+5. Bestand: `click_joints_pro-1.0.1.zip` uit de release (1.0.1: strakke kleuring, donkere veersleuf, gladde groene band; bijgewerkt 14 nov 08:35 Bram) op GitHub (sha256 staat in de release; de workflow bouwt hem en zet sha256 erbij).
+6. Plaatjes in deze volgorde: poster 3 (`ontwerp/click-joints/pro/poster-3.png` op main, Daan ja 07:40 met vergrootglas), 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
 7. Opslaan als concept, kijken, dan indienen. Duur ±10 min.
