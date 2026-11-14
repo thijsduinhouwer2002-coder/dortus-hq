@@ -673,6 +673,20 @@ func _init() -> void:
 	sl_u.royal3d_info = {"frames": ["achter", "voor"], "cel_px": [160, 64], "px": 4, "anker_x": 80}
 	ok(sl_u.is_groot() and sl_u.royal_rect("achter", 0) == Rect2(-20, -16, 40, 16), "Royal 3D: cel 40 spelpixels breed, midden onder hem, onderkant op de vloer (%s)" % str(sl_u.royal_rect("achter", 0)))
 	ok(sl_u.royal_rect("voor", -2) == Rect2(-20, -18, 40, 16) and sl_u.royal_rect("kroon", 0).size.x == 0.0, "Royal 3D: wipt mee, onbekend frame tekent niets")
+	var rt_oud: CanvasTexture = sl_u.royal3d
+	if sl_u.royal3d == null:
+		sl_u.royal3d = CanvasTexture.new()
+	var gekocht := 0
+	while sl_u.niveau() < 3 and gekocht < 5:
+		upg_u.koop("slijm", 100000)
+		sl_u.upgrade_veranderd()
+		gekocht += 1
+	sl_u.plat_tot = -100.0
+	ok(sl_u.niveau() >= 3 and not sl_u.ster_aan("rust") and sl_u.ster_aan(""), "Royal 3D: geen pixelster, zonder 3D-lijf wel (Daan 10:45 moet 2, niveau %d)" % sl_u.niveau())
+	for i in gekocht:
+		upg_u.verkoop("slijm")
+	sl_u.upgrade_veranderd()
+	sl_u.royal3d = rt_oud
 	sl_u.royal3d_info = ri_oud
 	hol_u.free()
 

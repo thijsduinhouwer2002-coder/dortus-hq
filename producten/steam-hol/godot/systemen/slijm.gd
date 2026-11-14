@@ -417,6 +417,14 @@ static func _laad_royal() -> void:
 	royal3d.diffuse_texture = load(str(royal3d_info["blad"]))
 	royal3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 
+# Bouncy-glansster: vanaf niveau 2, niet plat. Bij Royal in 3D niet meer: de saffier van de scepter glanst al,
+# en hoger vecht hij met de rugleuning (Daan 14 nov 10:45, moet 2). Royal zonder 3D-blad houdt de pixelster.
+func ster_aan(b3: String) -> bool:
+	var n := niveau()
+	if n < 2 or is_plat():
+		return false
+	return not (n >= 3 and royal_3d_aan(b3))
+
 # Royal in 3D aan: alleen met het 3D-lijf in beeld en het blad "royal" geladen. Dan geen pixel-cape of -zoom meer.
 func royal_3d_aan(b3: String) -> bool:
 	_laad_royal()
@@ -658,7 +666,7 @@ func _draw() -> void:
 		for i in t3.size():
 			var h3: Array = t3[i]
 			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), i == t3.size() - 1 and not is_plat())   # bovenste hoed met hap
-	if n >= 2 and not is_plat():
+	if ster_aan(b3):
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
 	if leven == "slapen":
