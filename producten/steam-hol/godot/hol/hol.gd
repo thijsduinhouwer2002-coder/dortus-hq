@@ -29,7 +29,7 @@ const HOL3D := preload("res://hol/hol_3d.gd")
 var met_3d := true
 # Het vaste deel van het hol in een eigen beeld (hol/hol_vast.gd). Uit = elk beeld alles opnieuw, zoals voor 13 nov.
 const HOLVAST := preload("res://hol/hol_vast.gd")
-var met_vast := true
+var met_vast := true   # alleen een testschakelaar: uit = geen gemeten bovenrand, dan is het gras op Windows weg (strook.gd muisvlak)
 var vast
 
 var kolommen := 0

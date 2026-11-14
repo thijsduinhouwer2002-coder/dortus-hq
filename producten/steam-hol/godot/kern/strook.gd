@@ -401,8 +401,10 @@ func muis_vlak_punten(paneel: bool) -> PackedVector2Array:
 	tops.fill(vangt_y)
 	var boven := vangt_y - HOL.OPP * schaal
 	var r: PackedInt32Array = hol.vast.rand if hol != null and hol.vast != null else PackedInt32Array()
-	for x in mini(r.size(), w.x):
-		tops[x] = mini(tops[x], boven + r[x])
+	var hx := int(hol.position.x) if hol != null else 0   # nu altijd 0, maar zelfde som als gloop_bult (controleur kan 3)
+	for x in r.size():
+		if x + hx >= 0 and x + hx < w.x:
+			tops[x + hx] = mini(tops[x + hx], boven + r[x])
 	vlak_gloop = gloop_bult()
 	for x in range(maxi(0, vlak_gloop.x), mini(w.x, vlak_gloop.y)):
 		tops[x] = mini(tops[x], vlak_gloop.z)
@@ -435,7 +437,11 @@ func gloop_bult() -> Vector3i:
 	if slijm == null or hol == null or not slijm.has_method("hoogste_punt_rust"):
 		return Vector3i(-1, -1, -1)
 	var boven := vangt_y - HOL.OPP * schaal
-	var top := int(floor((slijm.position.y + float(slijm.hoogste_punt_rust()) - 1.0) * schaal)) + boven
+	var rel := float(slijm.hoogste_punt_rust())
+	# slaapt hij, dan staat de zzz 9 boven de toren, nooit hoger dan 1 onder de bovenrand (slijm.gd; controleur kan 1)
+	if "leven" in slijm and slijm.leven == "slapen" and slijm.has_method("teken_rand_y"):
+		rel = maxf(minf(rel - 9.0, -25.0), ceilf(slijm.teken_rand_y()))
+	var top := int(floor((slijm.position.y + rel - 1.0) * schaal)) + boven
 	var x := int(hol.position.x + slijm.position.x * schaal)
 	return Vector3i(x - 11 * schaal, x + 11 * schaal, clampi(top, 0, vangt_y))
 
