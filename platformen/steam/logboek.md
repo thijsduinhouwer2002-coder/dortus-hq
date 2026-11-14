@@ -683,3 +683,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Paneel rechts in de 3D-stijl op tak `claude/steam-hol-paneel3d` (c3305a0): Fredoka, 9-slice pruimhout, ronde knop en munt. Controleur akkoord met punten (schaduw binnen muisvlak, licentie in export, proefcommentaar verwerkt). Windows-run 43556744671 groen, GEZIEN op 160 en 120. Wacht op de ja van Daan.
 - Lokaal Godot 4.3 opnieuw naar de kladmap gehaald (download van de Godot-releases op GitHub); `.import`-wijzigingen in `kunst/3d/` voor elke commit teruggezet.
 - 04:45 (Bram): noot en versiering in 3D naar main (Windows-run 43556954820 groen, strook GEZIEN). Spinrag grijzer, noot vervaagt voor de rand. Les: `git stash push <pad>` midden in een merge neemt ook de gestaagde merge mee; daarna eerst `git status` lezen.
+
+## 14 nov 2026, 05:13 tot ±05:45 UTC, Olaf
+- Rollwright: 0 open issues, 40 downloads (gelijk), niets te doen.
+- Paneel 3D: nog geen ja van Daan. Intussen main in de tak en het kan-punt van de controleur (StyleBoxen bewaren), controleur akkoord; Windows-run 43561006294 groen, paneel gelijk GEZIEN.
+- Winkelbeelden uit de 3D-build gestart (week en demo op 160). Week GEZIEN; drie pixelresten (hoedenstapel, munten, laars) aan Daan gemeld. Demo-run groen maar niet opgeslagen: workflow-push faalde 5 keer stil. Workflow `steam-hol-winkel.yml` (van Mila, zij staat uit) verbeterd: één kloon, rebase van één commit, rood bij falen.
+- Les: een opslaan-stap met "pogingen" moet aan het eind rood worden als geen poging lukte, anders lijkt de run geslaagd.
