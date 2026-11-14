@@ -631,5 +631,22 @@ func _init() -> void:
 		ok(mt >= echt.position.y + echt.plafond_y() - 1.0, "toren van 12 hoeden blijft onder het plafond (%s tegen %s)" % [str(mt), str(echt.position.y + echt.plafond_y())])
 		echt.free()
 	h2.free()
+	# paneel in de 3D-stijl (Olaf 14 nov, Daan ronde 2): Fredoka met gewicht, 3D-bron, terugval naar het pixelpaneel
+	var TK = load("res://kern/tekst.gd")
+	ok(TK.met_3d, "paneel 3D: schakelaar staat aan")
+	ok(TK.PANEEL_3D.get_width() == 384 and TK.BRON_RAND == 128, "paneel 3D: bron 384 px met rand 128")
+	var tk = Node2D.new()
+	tk.set_script(TK)
+	var f6: Font = tk._letter(600)
+	ok(f6 is FontVariation and f6.base_font == TK.FREDOKA and tk._letter(600) == f6, "paneel 3D: Fredoka 600, één keer gemaakt")
+	ok(tk._letter(450) != f6, "paneel 3D: tekst 450 is een eigen letter")
+	ok(f6.get_string_size("Buy  45", HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x > 20, "paneel 3D: Fredoka meet tekst")
+	var d1: StyleBoxFlat = tk._doos("knop")
+	ok(tk._doos("knop") == d1 and d1.border_color == Color("#e8b040"), "paneel 3D: knop-StyleBox één keer gemaakt en bewaard")
+	ok(tk._doos("paneel_schaduw") != d1 and tk._doos("paneel_schaduw").shadow_offset == Vector2(1, 3), "paneel 3D: schaduw is een eigen doos, offset 1,3")
+	TK.met_3d = false
+	ok(tk._letter(600) == ThemeDB.fallback_font, "paneel 3D uit: de oude letter")
+	TK.met_3d = true
+	tk.free()
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
