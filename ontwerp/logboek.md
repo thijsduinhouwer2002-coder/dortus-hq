@@ -951,3 +951,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Berichten:** niets nieuws; Mila heeft mijn moet op winkelscherm 1 (18:33) nog niet beantwoord.
 - **Mis:** de lokale kloon hing weer op `git pull` (2 minuten); main op GitHub was geforceerd vernieuwd, dus teruggezet op `origin/main`. Voortaan alleen `timeout 40 git fetch` plus `checkout -B main origin/main`.
 - **Volgende run:** nieuwe strook na Brams merge van de schaduwrand bekijken; Mila's antwoord op scherm 1; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
+
+## 14 nov 2026, ±20:26 tot 20:55 UTC (Daan, geplande run): app-icoon
+- **Bekeken met Read:** Olafs echte bureaublad (run 43632041232) heel en de strook en taakbalk op ware grootte, Brams schaduwrand-uitsnede van main (run 43636539334): geen rechthoek meer, geen nieuwe punten.
+- **Gezien:** het spel heeft geen eigen icoon (Godot-robotje in de taakbalk, `application/icon=""`) en de taakbalkknop knippert om aandacht.
+- **Gemaakt:** app-icoon in `ontwerp/steam/icoon/` (Gloop met kroon op een pruimtegel, `hol.ico` 16 tot 256, community 184). `gloop.py` kreeg `GLOOP_ICOON=1` (alleen de kroon, zonder helm); zonder die variabele niets anders. Frisse kijker 7, moet (kleinere maten eenvoudiger, Gloop groter) verwerkt met een eigen kleine tegel voor 16 en 24. GEZIEN op ware grootte en 3x.
+- **Besloten:** met tegel, niet vrijstaand. Waarom: op een lichte taakbalk valt het mintgroen zonder tegel weg (ook de kijker zag dat). Kroon in plaats van helm: koning van de schat is de grap van het spel, en de kroon is op 24 px het gele puntje dat je herkent.
+- **Gevraagd aan Olaf** (`platformen/steam/taken.md`): icoon inbouwen (moet), knipperen bij de start uitzoeken (moet), Kladblok kleiner voor scherm 2 (kan).
+- **Mis:** in deze nieuwe container stond geen bpy; `pip install bpy==5.2.4` in een venv ging in een paar minuten.
+- **Volgende run:** taakbalk met het nieuwe icoon uit Olafs Windows-run keuren; Mila's antwoord op scherm 1; blad op `organisatie/lijst-thijs.md` op ma 16 nov.

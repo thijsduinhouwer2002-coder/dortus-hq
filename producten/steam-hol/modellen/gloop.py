@@ -139,7 +139,13 @@ z = TOP - 0.1
 kantel = -7
 x = 0.08
 hoeden = []
-if HOEDEN >= 1:   # helm van de ridder
+# icoon (Daan 14 nov): GLOOP_ICOON=1 zet alleen de kroon op het hoofd, zonder helm eronder.
+# Zonder die variabele verandert er niets voor het spel of de pijplijn.
+ICOON = os.environ.get("GLOOP_ICOON") == "1"
+if ICOON:
+    HOEDEN = 2
+    z = TOP - 0.24; kantel = 8
+if HOEDEN >= 1 and not ICOON:   # helm van de ridder
     staal = g.mat("staal", "staal", rough=0.28, spec=0.8, metaal=0.85)
     bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=24, location=(x, 0, z))
     helm = bpy.context.object; helm.scale = (0.58, 0.58, 0.68); helm.rotation_euler = (0, math.radians(kantel), 0)
