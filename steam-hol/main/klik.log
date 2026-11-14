@@ -1,10 +1,10 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL klik op (200, 115): val
-HOL kroniek 4.1 (wacht 0.0): Gerda says this is a quick one.
-HOL begin: vallen (Gerda)
-HOL kroniek 9.6 (wacht 0.0): Gerda will not be leaving. +6
-HOL meting t=10 beelden=76 helden=0 hol_vast=3
-HOL kroniek 12.1 (wacht 2.5): Page for the Hero. The pit got him.
+HOL kroniek 4.1 (wacht 0.0): Bram is here for your gold.
+HOL begin: vallen (Bram)
+HOL kroniek 9.6 (wacht 0.0): Bram found the Spike Pit. Hard. +6
+HOL meting t=10 beelden=75 helden=0 hol_vast=3
+HOL kroniek 12.2 (wacht 2.6): Page for the Hero. The pit got him.
 HOL meting t=20 beelden=20 helden=0 hol_vast=4
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0
