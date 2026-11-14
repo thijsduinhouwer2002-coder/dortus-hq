@@ -52,6 +52,34 @@ def bol(r, kleur, licht=(-0.55, -0.6)):
     return out
 
 
+def kluit(r, kleur, rand_kleur):
+    """Kluitje aarde (Bram 14 nov): bolletje in de kleur van de aarde met een lichte bovenrand in kiezelkleur."""
+    out = bol(r, kleur)
+    d = out.shape[0]
+    yy, xx = np.mgrid[0:d, 0:d].astype(np.float32)
+    c = (d - 1) / 2
+    nx, ny = (xx - c) / r, (yy - c) / (r * 0.86)
+    rr = nx * nx + ny * ny
+    # rand: buitenste deel van de bol, aan de bovenkant (en iets naar links, waar het licht vandaan komt)
+    boven = np.clip(-(ny * 1.0 + nx * 0.4), 0, 1)
+    lip = np.clip((rr - 0.2) * 2.5, 0, 1) * np.clip(boven * 1.6, 0, 1) * np.clip((0.95 - rr) * 4, 0, 1) * out[..., 3]
+    rk = np.array(rand_kleur, dtype=np.float32)[None, None, :] / 255.0
+    out[..., :3] = out[..., :3] * (1 - lip[..., None]) + rk * lip[..., None]
+    return out
+
+
+def klein(stuk, f=4):
+    """Verklein een op f-maal gemaakt stuk met voorvermenigvuldigde alfa, zodat kleine kluitjes rond blijven."""
+    h, w = stuk.shape[:2]
+    pm = stuk.copy()
+    pm[..., :3] *= pm[..., 3:4]
+    nw, nh = max(1, round(w / f)), max(1, round(h / f))
+    kan = [np.asarray(Image.fromarray(pm[..., k]).resize((nw, nh), Image.BOX), dtype=np.float32) for k in range(4)]
+    out = np.dstack(kan)
+    out[..., :3] /= np.maximum(out[..., 3:4], 1e-6)
+    return np.clip(out, 0, 1)
+
+
 def plak(doek, stuk, x, y):
     h, w = stuk.shape[:2]
     x0, y0 = int(round(x - w / 2)), int(round(y - h / 2))
@@ -154,11 +182,13 @@ def maak_rij(aarde, kant):
             t = np.clip((i + 1) / FRAMES * 1.25 - vt, 0, 1)
             if t <= 0:
                 continue
-            sy = sy0 + (sy1 - sy0) * t * t
-            kleur = np.clip(kiezel * kf * 0.95 * 255, 0, 255)
-            schaduw = bol(r * 1.1, (20, 8, 24)); schaduw[..., 3] *= 0.45 * t
-            plak(out, schaduw, sx + 1.2, sy + 1.5)
-            plak(out, bol(r * 1.15, kleur), sx, sy)
+            sy = sy0 + (sy1 - sy0) * min(1.0, t * t * 1.3)     # Bram 14 nov: sneller vallen
+            # Bram 14 nov (kan Daan 12:45): kleur van de aarde met een lichte bovenrand in kiezelkleur, kleiner,
+            # en een zwakkere schaduw, zodat ze als kluitjes aarde lezen en niet als kevers of gaten
+            kleur = np.clip(gem * kf * 1.5 * 255, 0, 255)
+            schaduw = klein(bol(r * 3.2, (20, 8, 24))); schaduw[..., 3] *= 0.25 * t
+            plak(out, schaduw, sx + 0.8, sy + 1.0)
+            plak(out, klein(kluit(r * 3.2, kleur, np.clip(kiezel * 1.1 * 255, 0, 255))), sx, sy)
         beelden.append(out)
     return np.concatenate(beelden, 1)
 
