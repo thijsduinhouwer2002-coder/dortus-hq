@@ -49,6 +49,7 @@ def hermelijn():
 
 
 KUSSEN = False  # ronde 4: hij zit op een rood kussen met gouden kwasten (eigen teken van rijkdom)
+MUNTEN = True   # ronde 5: drie gouden munten aan zijn voet
 SCEPTER = True  # gouden scepter met bol, schuin tegen zijn rechterflank (frisse kijker 3b: een eigen koningsstuk)
 KRANS = False   # stralenkrans achter hem: ronde 3a las als stekels of schrik, dus uit
 RONDE = 3   # 3: rood fluweel, wijde sleep, hermelijn als zoom, stralenkrans (Daan 14 nov 08:45); 2: paarse kelk
@@ -63,10 +64,10 @@ def cape(lijf_delen, vloer):
     - een gouden stralenkrans achter hem: dit is de duurste upgrade, die mag glanzen (betaald mag gloed hebben)."""
     import bmesh
     _weg(lijf_delen)                       # het lijf tekent het spel er zelf overheen
-    fluweel = g.mat("cape", "a3182e", rough=0.72, spec=0.3, sss=0.05)
+    fluweel = g.mat("cape", "8a0f26", rough=0.45, spec=0.6, sss=0.05)   # ronde 6: dieper rood met glans
     voering = g.mat("cape_voering", "5e0c1c", rough=0.85, spec=0.15)
     bont = hermelijn()
-    BX, BY, BZ, CY, VOOR = 1.0, 0.85, 1.3, 0.22, -0.4
+    BX, BY, BZ, CY, VOOR = 1.0, 0.85, 1.55, 0.22, -0.4
     WIJD = 0.7 if not KUSSEN else 0.3                             # extra breedte onderaan (sleep)
     ZOOM_Z = 0.17                           # tot hier hermelijn
     bpy.ops.mesh.primitive_uv_sphere_add(segments=128, ring_count=48, location=(0, 0, 0))
@@ -98,6 +99,8 @@ def cape(lijf_delen, vloer):
         _kussen()
     if SCEPTER:
         _scepter()
+    if MUNTEN:
+        _munten()
     if not KRANS:
         return
     # gouden stralenkrans achter hem: 16 spitse stralen, om en om lang en kort, plat en licht gevend
@@ -145,23 +148,42 @@ def _kussen():
             o = bpy.context.object; o.name = "kwast"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
 
 
+def _munten():
+    """Ronde 6: een hoopje goud met een robijn links aan zijn voet in plaats van drie losse munten (las als kleingeld)."""
+    import random
+    rnd = random.Random(7)
+    goud = g.mat("royal_munt", "goud", rough=0.2, spec=1.0, metaal=0.9, emis=0.12)
+    for i in range(16):
+        a = rnd.uniform(0, 2 * math.pi); r = rnd.uniform(0, 0.24) * (1 - i / 22)
+        x, y = -1.2 + r * math.cos(a) * 1.3, -0.6 + r * math.sin(a) * 0.7
+        z = 0.03 + 0.24 * (1 - (r / 0.26) ** 2) * (i / 16)
+        bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=0.1, depth=0.04, location=(x, y, z),
+                                            rotation=(rnd.uniform(-0.5, 0.5), rnd.uniform(-0.5, 0.5), 0))
+        o = bpy.context.object; o.name = "royal_munt"; o.data.materials.append(goud)
+        bv = o.modifiers.new("rond", "BEVEL"); bv.width = 0.01; bv.segments = 2
+        bpy.ops.object.shade_smooth()
+    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=1, radius=0.09, location=(-1.12, -0.72, 0.2))
+    o = bpy.context.object; o.name = "royal_robijn"
+    o.data.materials.append(g.mat("royal_robijn", "c8203a", rough=0.05, spec=1.0, emis=0.4))
+
+
 def _scepter():
     """Staf van goud met een rode bol en een kruisje erop, onderaan op de vloer rechts naast hem, schuin tegen zijn flank.
     Groot genoeg om op spelgrootte als staf met bol te lezen (bol ±0,22 = ±2 spelpixels)."""
     goud = g.mat("scepter_goud", "goud", rough=0.18, spec=1.0, metaal=0.9, emis=0.12)
-    rood = g.mat("scepter_bol", "c8203a", rough=0.12, spec=0.8, emis=0.15)
+    rood = g.mat("scepter_bol", "b3102e", rough=0.04, spec=1.0, emis=0.35, glas=0.3)   # robijn, geen snoep
     import mathutils
-    voet = mathutils.Vector((1.15, -0.15, 0.0)); top = mathutils.Vector((0.92, -0.15, 1.3))
+    voet = mathutils.Vector((1.15, -0.15, 0.0)); top = mathutils.Vector((0.98, -0.15, 1.05))
     as_ = top - voet; lang = as_.length; rot = as_.to_track_quat("Z", "Y").to_euler()
-    bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=0.07, depth=lang, location=(voet + top) / 2, rotation=rot)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=0.085, depth=lang, location=(voet + top) / 2, rotation=rot)
     st = bpy.context.object; st.name = "scepter_staf"; st.data.materials.append(goud); bpy.ops.object.shade_smooth()
     for t, r in ((0.35, 0.1), (0.7, 0.095), (0.97, 0.12)):
         bpy.ops.mesh.primitive_torus_add(major_radius=r, minor_radius=0.035, location=voet + as_ * t, rotation=rot)
         o = bpy.context.object; o.name = "scepter_ring"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
     bol = top + as_.normalized() * 0.24
-    bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.26, location=bol)
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.3, location=bol)
     b = bpy.context.object; b.name = "scepter_bol"; b.data.materials.append(rood); bpy.ops.object.shade_smooth()
-    bpy.ops.mesh.primitive_torus_add(major_radius=0.26, minor_radius=0.04, location=bol, rotation=(0, math.radians(90), 0))
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.3, minor_radius=0.045, location=bol, rotation=(0, math.radians(90), 0))
     o = bpy.context.object; o.name = "scepter_band"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
     kr = bol + as_.normalized() * 0.38
     for sx, sz in ((0.07, 0.24), (0.2, 0.07)):
@@ -175,7 +197,7 @@ def zoom(lijf_delen, vloer):
     _weg(lijf_delen, holdout=True)
     vloer.hide_render = True
     goud = g.mat("gesp", "goud", rough=0.16, spec=1.0, metaal=0.9, emis=0.12)
-    loc, draai = (-0.42, -0.24, 1.2), (math.radians(60), 0, math.radians(-30))   # op het lijf, naar buiten gekeerd
+    loc, draai = (-0.42, -0.24, 1.2), (math.radians(60), 0, math.radians(-30))   # ronde 5 op de flank las als knoop of wond; terug naar de schouder   # op het lijf, naar buiten gekeerd
     bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.17, depth=0.07, location=loc, rotation=draai)
     s = bpy.context.object; s.name = "gesp"
     bv = s.modifiers.new("rond", "BEVEL"); bv.width = 0.025; bv.segments = 4
