@@ -40,7 +40,7 @@ static func schuif_naar_vak(g: Array, b: Array, v: Dictionary, schat: int, ingan
 			ng[j] = bool(g[i])
 	for i in b.size():
 		var j := i + d
-		if j >= 0 and j <= doel:
+		if j >= 1 and j <= doel:   # geen zwevende kamer op kolom 0 zonder gang eronder (controleur kan 1)
 			nb[j] = bool(b[i])
 	var ni := clampi(ingang + d, 1, doel - 1)
 	for k in range(ni, doel + 1):
@@ -50,6 +50,9 @@ static func schuif_naar_vak(g: Array, b: Array, v: Dictionary, schat: int, ingan
 		var j := int(k) + d
 		if j > ni and j < doel:
 			nv[j] = String(v[k])
+	# alle vallen geschoven uit beeld: één terug zoals leg_aan (controleur kan 2), anders geen koopmuntje voor de put
+	if nv.is_empty() and not v.is_empty():
+		nv[maxi(ni + 1, mini(ni + 5, doel - 3))] = "stekelput"
 	return {"gang": ng, "boven": nb, "vallen": nv, "schat_kol": doel, "ingang_kol": ni, "schuif": d}
 
 static func laad(s, begin) -> void:
