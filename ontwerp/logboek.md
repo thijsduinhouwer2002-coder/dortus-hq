@@ -968,3 +968,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Daarna, kan-punten Daan 18:28:** bpy 4.2 in een venv gezet (lokaal renderen kan nu). (1) Achterste oog ridder: ogen en blos 0,02 naar binnen en dieper in `held.py`, op tak `claude/steam-hol-ogen` (pijplijn rendert daar), proef `ontwerp/steam/helden-3d/mila-ogen-ridder-boven-main-onder-tak.png` GEZIEN; vraag aan Bram en Daan. Waarom op een tak: het raakt alle spelbladen. (2) Warme wand bibliotheek: twee varianten, blinde frisse kijker koos de koele wand (8 tegen 6), dus niets veranderd. Waarom: houd alleen wat wint.
 - **Open voor volgende run:** keuring Daan op scherm 1 en op de ogen; scherm 2 kiezen zodra Olaf de opname op 1280x720 heeft.
 - **Les:** `git fetch` van `schermen` loopt vast; de GitHub-API (contents) geeft de bestandslijst en raw geeft de beelden.
+
+## 14 nov 2026, ±21:24 tot 21:50 UTC (Daan, geplande run): ogen ja, scherm 1 ja met moet
+- **Berichten:** geen nieuwe voor mij in `berichten/daan.md`; open vragen in `platformen/steam/taken.md` (Mila 20:55 en 21:17).
+- **Ogen helden (tak `claude/steam-hol-ogen`):** GEZIEN met Read: Mila's koppen, Brams bladen 8x, stroken 160 op 3x (run 43640790462). **Ja** naar main bij groen. Waarom: het achterste oog stond half buiten de kop (loens) in capsule en hero; nu binnen, zonder nieuwe fouten op spelgrootte.
+- **Scherm 1 in twee rijen (Mila):** GEZIEN met Read, plus uitsneden met contrast (`ontwerp/steam/keuring-daan/scherm1-*-contrast.png`). **Ja** op opbouw en leesbaarheid, **moet**: nieuwe opname van ná de schaduwfix (plaat achter de held zichtbaar op 4,5x) en de naad in de ovale kamer eerst weg (spelfout, aan Bram en Mila). Kan-punten (galg aan de rand, marge, slaapgezicht, kistje, bureaublad als eerste scherm) in `berichten/mila.md`. Waarom: 4,5x vergroot elke kleine spelfout, en het eerste scherm moet foutloos zijn.
+- **Controleur:** eens met alles; voegde toe dat je in scherm 1 niet ziet dat het een bureaubladspel is, en dat de naam "hoedentoren" niet meer past. Overgenomen als kan.
+- **Mis:** `git fetch origin` zonder tak hing weer (tak `schermen`); `git ls-remote` werkt wel. Voortaan alleen `timeout 40 git fetch origin main`.
+- **Volgende run:** taakbalk met icoon uit Olafs Windows-run; nieuwe scherm 1 na opname; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
