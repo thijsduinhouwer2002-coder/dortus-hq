@@ -1,0 +1,174 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(0, 912) held=res://systemen/held.gd
+HOL kroniek 4.1 (wacht 0.0): Wout read about you in a tavern.
+HOL begin: vallen (Wout)
+HOL held binnen: Wout
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL kroniek 16.0 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 18.6 (wacht 2.5): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=96 helden=0 hol_vast=3
+HOL meting t=30 beelden=24 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL kroniek 42.4 (wacht 0.0): Tibbe climbs into your hole.
+HOL begin: vluchten (Tibbe)
+HOL held binnen: Tibbe
+HOL meting t=50 beelden=81 helden=1 hol_vast=3
+HOL meting t=60 beelden=101 helden=1 hol_vast=3
+HOL kroniek 61.0 (wacht 0.0): Tibbe escaped with a limp.
+HOL kroniek 63.5 (wacht 2.5): New stamp for the Hero. He got away.
+HOL meting t=70 beelden=8 helden=0 hol_vast=3
+HOL kroniek 79.6 (wacht 0.0): Fenna has a map. It is wrong.
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
+HOL meting t=80 beelden=16 helden=1 hol_vast=3
+HOL meting t=90 beelden=101 helden=1 hol_vast=3
+HOL kroniek 96.3 (wacht 0.0): Gloop ate Fenna. Kept the crown. +6
+HOL kroniek 98.8 (wacht 2.5): New stamp for the Hero. Gloop got him.
+HOL meting t=100 beelden=90 helden=0 hol_vast=3
+HOL meting t=111 beelden=9 helden=0 hol_vast=3
+HOL kroniek 119.0 (wacht 0.0): Tibbe remembers the Spike Pit.
+HOL begin: terug (Tibbe)
+HOL held binnen: Tibbe
+HOL meting t=121 beelden=24 helden=1 hol_vast=3
+HOL kroniek 130.9 (wacht 0.0): Tibbe came back. The Spike Pit won. +9
+HOL meting t=131 beelden=112 helden=0 hol_vast=4
+HOL meting t=141 beelden=23 helden=0 hol_vast=5
+HOL meting t=151 beelden=17 helden=0 hol_vast=5
+HOL meting t=161 beelden=8 helden=0 hol_vast=5
+HOL kroniek 161.6 (wacht 0.0): Bram is here for your gold.
+HOL begin: doorlopen (Bram)
+HOL held binnen: Bram
+HOL meting t=171 beelden=99 helden=1 hol_vast=5
+HOL kroniek 177.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek 181.3 (wacht 0.0): Bram tried to lift it. Too heavy.
+HOL meting t=181 beelden=101 helden=1 hol_vast=5
+HOL meting t=191 beelden=101 helden=1 hol_vast=5
+HOL kroniek 193.4 (wacht 0.0): Bram ran. Hands smell of gold.
+HOL meting t=201 beelden=18 helden=0 hol_vast=5
+HOL kroniek 205.3 (wacht 0.0): Bram the Hoard-Toucher is back for Gloop.
+HOL held binnen: Bram
+HOL meting t=211 beelden=66 helden=1 hol_vast=5
+HOL meting t=221 beelden=101 helden=1 hol_vast=5
+HOL kroniek 225.0 (wacht 0.0): Bram licked a coin and ran.
+HOL meting t=232 beelden=101 helden=1 hol_vast=5
+HOL kroniek 237.1 (wacht 0.0): Bram ran off, giggling.
+HOL kroniek 239.7 (wacht 2.3): Gloop is up again. Wobbly.
+HOL meting t=242 beelden=56 helden=0 hol_vast=5
+HOL meting t=252 beelden=4 helden=0 hol_vast=5
+HOL kroniek 257.5 (wacht 0.0): Kees knocks first. Polite.
+HOL held binnen: Kees
+HOL meting t=262 beelden=70 helden=1 hol_vast=5
+HOL kroniek 269.4 (wacht 0.0): Kees stays forever. +6
+HOL eerste koop mogelijk na 269 s speeltijd (goud 47)
+HOL meting t=272 beelden=106 helden=0 hol_vast=7
+HOL meting t=282 beelden=9 helden=0 hol_vast=7
+HOL meting t=292 beelden=16 helden=0 hol_vast=7
+HOL kroniek 300.9 (wacht 0.0): Joost brought a torch. And hope.
+HOL held binnen: Joost
+HOL meting t=302 beelden=22 helden=1 hol_vast=7
+HOL meting t=312 beelden=101 helden=1 hol_vast=7
+HOL kroniek 316.6 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=322 beelden=101 helden=1 hol_vast=7
+HOL kroniek 326.7 (wacht 0.0): Joost left. Took nothing. Angry.
+HOL meting t=333 beelden=39 helden=0 hol_vast=7
+HOL meting t=343 beelden=0 helden=0 hol_vast=7
+HOL meting t=353 beelden=0 helden=0 hol_vast=7
+HOL kroniek 354.7 (wacht 0.0): Mara says this is a quick one.
+HOL held binnen: Mara
+HOL meting t=363 beelden=86 helden=1 hol_vast=7
+HOL meting t=373 beelden=101 helden=1 hol_vast=7
+HOL kroniek 374.4 (wacht 0.0): Mara touched your hoard!
+HOL kroniek 376.9 (wacht 0.2): Gloop is up again. Wobbly.
+HOL meting t=383 beelden=101 helden=1 hol_vast=7
+HOL kroniek 386.5 (wacht 0.0): Mara the Hoard-Toucher ran.
+HOL meting t=393 beelden=33 helden=0 hol_vast=7
+HOL meting t=403 beelden=4 helden=0 hol_vast=7
+HOL kroniek 412.3 (wacht 0.0): Rik climbs into your hole.
+HOL held binnen: Rik
+HOL meting t=413 beelden=27 helden=1 hol_vast=7
+HOL meting t=423 beelden=101 helden=1 hol_vast=7
+HOL kroniek 429.0 (wacht 0.0): Rik stays forever. +6
+HOL meting t=433 beelden=87 helden=0 hol_vast=7
+HOL meting t=443 beelden=4 helden=0 hol_vast=7
+HOL meting t=454 beelden=11 helden=0 hol_vast=7
+HOL kroniek 455.3 (wacht 0.0): Mara limps back to the Spike Pit.
+HOL held binnen: Mara
+HOL meting t=464 beelden=88 helden=1 hol_vast=7
+HOL kroniek 467.2 (wacht 0.0): The Spike Pit wins round two. +9
+HOL meting t=474 beelden=67 helden=0 hol_vast=9
+HOL meting t=484 beelden=4 helden=0 hol_vast=9
+HOL meting t=494 beelden=23 helden=0 hol_vast=9
+HOL kroniek 500.8 (wacht 0.0): Odo is here for your gold.
+HOL held binnen: Odo
+HOL meting t=504 beelden=39 helden=1 hol_vast=9
+HOL meting t=514 beelden=101 helden=1 hol_vast=9
+HOL kroniek 517.5 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL meting t=524 beelden=65 helden=0 hol_vast=9
+HOL meting t=534 beelden=11 helden=0 hol_vast=9
+HOL meting t=544 beelden=3 helden=0 hol_vast=9
+HOL kroniek 549.2 (wacht 0.0): Lotte read about you in a tavern.
+HOL held binnen: Lotte
+HOL meting t=554 beelden=60 helden=1 hol_vast=9
+HOL meting t=565 beelden=101 helden=1 hol_vast=9
+HOL kroniek 567.8 (wacht 0.0): Lotte ran. Swore revenge.
+HOL meting t=575 beelden=32 helden=0 hol_vast=9
+HOL meting t=585 beelden=23 helden=0 hol_vast=9
+HOL meting t=595 beelden=2 helden=0 hol_vast=9
+HOL kroniek 603.4 (wacht 0.0): Pim has a map. It is wrong.
+HOL held binnen: Pim
+HOL meting t=605 beelden=25 helden=1 hol_vast=9
+HOL meting t=615 beelden=101 helden=1 hol_vast=9
+HOL kroniek 622.0 (wacht 0.0): Pim fled. Grudge: the Spike Pit.
+HOL meting t=625 beelden=67 helden=0 hol_vast=9
+HOL meting t=635 beelden=5 helden=0 hol_vast=9
+HOL meting t=645 beelden=20 helden=0 hol_vast=9
+HOL meting t=655 beelden=4 helden=0 hol_vast=9
+HOL kroniek 658.7 (wacht 0.0): Gerda brought a torch. And hope.
+HOL held binnen: Gerda
+HOL meting t=666 beelden=74 helden=1 hol_vast=9
+HOL kroniek 670.6 (wacht 0.0): Gerda will not be leaving. +6
+HOL meting t=676 beelden=98 helden=0 hol_vast=11
+HOL meting t=686 beelden=5 helden=0 hol_vast=11
+HOL meting t=696 beelden=4 helden=0 hol_vast=11
+HOL meting t=706 beelden=5 helden=0 hol_vast=11
+HOL kroniek 709.3 (wacht 0.0): Mara II climbs in. Family business.
+HOL held binnen: Mara II
+HOL meting t=716 beelden=87 helden=1 hol_vast=11
+HOL kroniek 725.0 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=726 beelden=101 helden=1 hol_vast=11
+HOL kroniek 735.1 (wacht 0.0): Mara II fled, crying a little.
+HOL meting t=736 beelden=86 helden=0 hol_vast=11
+HOL meting t=746 beelden=0 helden=0 hol_vast=11
+HOL meting t=756 beelden=0 helden=0 hol_vast=11
+HOL meting t=766 beelden=0 helden=0 hol_vast=11
+HOL kroniek 767.4 (wacht 0.0): Kees II. Kees fell here once.
+HOL held binnen: Kees II
+HOL meting t=777 beelden=97 helden=1 hol_vast=11
+HOL kroniek 785.1 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 786.1 (wacht 0.1): Kees II escaped with a limp.
+HOL meting t=787 beelden=91 helden=0 hol_vast=11
+HOL meting t=797 beelden=4 helden=0 hol_vast=11
+HOL meting t=807 beelden=23 helden=0 hol_vast=11
+HOL kroniek 817.3 (wacht 0.0): Bram knocks first. Polite.
+HOL held binnen: Bram
+HOL meting t=817 beelden=6 helden=1 hol_vast=11
+HOL meting t=827 beelden=101 helden=1 hol_vast=11
+HOL kroniek 835.9 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
+HOL meting t=837 beelden=84 helden=0 hol_vast=11
+HOL meting t=847 beelden=6 helden=0 hol_vast=11
+HOL meting t=857 beelden=2 helden=0 hol_vast=11
+HOL meting t=867 beelden=4 helden=0 hol_vast=11
+HOL kroniek 873.3 (wacht 0.0): Rik II wants dad's boot back.
+HOL held binnen: Rik II
+HOL meting t=878 beelden=62 helden=1 hol_vast=11
+HOL kroniek 885.2 (wacht 0.0): Rik II found the Spike Pit. Hard. +6
+HOL kroniek 887.8 (wacht 2.6): Booked: the Knight. Spikes: one.
+HOL meting t=888 beelden=109 helden=0 hol_vast=13
+HOL meting t=898 beelden=2 helden=0 hol_vast=13
+HOL meting t=908 beelden=23 helden=0 hol_vast=13
+HOL kroniek 916.4 (wacht 0.0): Wout II climbs in. Family business.
+HOL held binnen: Wout II
+HOL meting t=918 beelden=20 helden=1 hol_vast=13
+HOL meting t=928 beelden=101 helden=1 hol_vast=13
+HOL einde na 930 s, fps=10, goud=80, terugkomers=1
