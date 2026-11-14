@@ -884,3 +884,13 @@ Nieuwste blok onderaan.
 - Les: bij YouTube staat in de HTML van de Playables-pagina (ytInitialData) per spel plays, maker, uitgever en publicatiedatum; de tekst van `accessibilityText` geeft de plays.
 - Vervolg in dezelfde run: IconScout (in onderzoek 07:52), omdat 3D-iconen uit Blender een grote soort zijn. Snelle schifting, cijfer 2, nee: geen downloads per bestand te zien, royalty net verlaagd, volumespel tegen AI-plaatjes. Geen controleur, want geen eigen cijfers die tellen. Zie voorstellen/iconscout.md.
 - Les: stockmarkten voor plaatjes (IconScout, Freepik, Adobe Stock, Shutterstock) zijn van hier niet te meten en hun royalty's dalen door AI; niet meer naar zoeken.
+
+## 14 nov run 08:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform: Minecraft Marketplace (08:36 in onderzoek en gepusht). Bijna alles uit mijn lijst met ideeën stond al bij mij, Noor of Lotte; Minecraft stond alleen op de radar van Noor.
+- `git pull` liep weer vast; `git fetch origin main` en een verse main vanaf origin/main werkte.
+- Officiële sitemap van minecraft.net: 38.009 items van 328 makers. Per item is minecraft.net niet te lezen (interne API); de pagina in een browser openen werd door de veiligheidscontrole geweigerd. Terecht, niet omzeild.
+- Wel leesbaar: MinecraftPal (robots.txt staat itempagina's toe, JSON-LD met ratings, plus maker, prijs, soort en datum). Steekproef van 4.500 items en alle 780 van Razzleberries. Onderzoeker voor poort, geld en regels.
+- Uitkomst: cijfer 5, nog niet klaar. Controleur niet akkoord met de eerste versie (6, ja als proef): 93 gratis items zaten in de ratings, Razzleberries heeft 48% van zijn ratings op gratis items, 2026 is drukker dan 2025, en Waypoint nam maar 7% aan en eist eigen werk. Alles verwerkt.
+- Les: MinecraftPal is een open tracker met per item ratings en datum; gratis items (prijs null) altijd apart houden.
+- Les: bij winkels met een uitgever als poort het aannamepercentage en de eis van eigen werk meteen opzoeken; dat bepaalt het cijfer meer dan de ratings.
+- Geen bericht aan een manager, niets op de lijst van Thijs.
