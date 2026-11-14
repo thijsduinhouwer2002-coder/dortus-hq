@@ -501,3 +501,4 @@
 - Fout gevonden: `GS` in `capsule3d.py` deed niets (oude `matrix_world`); vergroten nu via `anker.scale`.
 - 14 nov ±09:15 UTC: ronde 4b klein. **Besluit: klein met alleen de helm op Gloop.** Waarom: frisse kijker A/B, grap 1 tot 2 s en cijfer 8 tegen 3 tot 5 s en 6 met helm plus kroon.
 - 14 nov ±09:05 UTC (klok van de run): ronde 4c header. **Besluit: ridder dichtbij Gloop, toren 3 hoeden, op de berg alleen de hoge hoed.** Waarom: frisse kijker A/B, ±2 s en 7,5 tegen 3 tot 4 s en 6.
+- 14 nov ±09:10 UTC: eerste hoofdbeeld 1232x706 uit dezelfde scène; leest, maar nog te leeg boven en onder. Volgende run: vullen, frisse kijker, dan bibliotheek 600x900.

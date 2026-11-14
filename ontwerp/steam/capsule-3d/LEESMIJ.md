@@ -62,8 +62,12 @@ Alle vier moets van Daan gedaan in `capsule3d.py`:
 - **Besluit: header met de ridder dichtbij en 3 hoeden op de toren; op de berg alleen nog de hoge hoed, rechts, goed zichtbaar; koksmuts weg.** Waarom: sneller begrepen (2 s tegen 3 tot 4) en hoger cijfer; wat niet leest gaat eruit. Instelbaar met `HEADER_RX` en `HEADER_HOEDEN`.
 - GEZIEN met Read: de nieuwe header; titel en toren vrij van de rand, hoge hoed heel in beeld.
 
+## Hoofdbeeld 1232x706, eerste versie (zelfde run)
+- `hoofdbeeld-1232x706.png`: zelfde scène als de header, alleen het formaat anders (`capsule3d.py hoofdbeeld-1232x706.png 1232 706 48`, ±2 min). GEZIEN met Read: alles binnen het vak, titel en toren vrij van de rand; wel veel lege muur boven en vloer onder. Nog geen frisse kijker.
+- Volgende stap voor het hoofdbeeld: camera dichterbij of Gloop en ridder groter, zodat ze het vak vullen.
+
 ## Volgende ronde
 1. ~~Klein: de grap op 174 px~~ gedaan in ronde 4b. Nieuw: probeer ook in de header of de helm sneller leest als hij groter en vooraan op de toren staat (frisse kijker groot: grap na 3 tot 5 s).
 2. Kroon: minder glans of strakkere punten, zodat hij niet als munten leest.
 3. Koksmuts: duidelijker (hogere band, plooien) of vervangen door een hoed die meteen leest (de heksenhoed staat al op de toren; misschien de hoge hoed alleen).
-4. Hoedjes op de letters van HATS (oude pixelcapsule), daarna hoofdbeeld 1232x706 en bibliotheek 600x900.
+4. Hoofdbeeld vullen (zie boven), frisse kijker erop; bibliotheek 600x900 (staand); hoedjes op de letters van HATS als proef.
