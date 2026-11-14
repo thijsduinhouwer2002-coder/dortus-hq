@@ -1044,3 +1044,11 @@ Nieuwste blok onderaan.
 - Les: winkels van snijplotters zijn tekenwerk per stuk voor $1, met geheime royalty en toelating. Niet ons terrein zolang er geen software of 3D in zit.
 - Voor Hans: vier nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: blijf zoeken naar winkels met een teller per item. Nog niet geprobeerd: vakprogramma's zonder dekking in de repo (Graphisoft Archicad, Vectorworks, ArcGIS Marketplace, KiCad); verwachting laag omdat de meeste geen betaalde winkel voor derden hebben.
+
+## 14 nov run 22:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet.
+- Eerst ±190 namen nagelopen in alle lijsten (ook Noor, Lotte, Kees). Bijna alles stond er al. Afgevallen bij voorwerk: Etsy (403) en Creative Market (verbiedt ClaudeBot) zoals eerder, UI8 (403), nizima en MyMiniFactory (verbieden ClaudeBot), Xmind (geen sjabloonwinkel te vinden in de sitemap).
+- Gekozen: CapCut-sjablonen (22:42 in onderzoek en gepusht). Nooit bekeken; sjabloonpagina's mogen gelezen worden.
+- Uitkomst: cijfer 1, nee. Het betaalprogramma voor sjabloonmakers bestaat alleen voor de VS en GB; de pagina's voor nl, de, br en id geven 404 (zelf gecontroleerd). Bedragen per export klein en niet openbaar. Bereik niet te meten: /templates/ verboden, geen sjablonen in de sitemap.
+- Les: bij grote apps met een makersprogramma eerst de programmapagina per land proberen (/partners/<programma>-nl). Eén curl beslist of Nederland mee mag.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
