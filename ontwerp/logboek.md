@@ -928,4 +928,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Gemaakt:** logo in 3D (`ontwerp/steam/capsule-3d-daan/logo-3d-ronde3.png`, 1055x720) met `winkel3d.py logo`: Mila's titel plus op elke letter een hoed uit het spel (kroon, heksenhoed, koksmuts, veermuts), zoals het pixellogo. Pan en helm op de T afgewezen. Frisse kijker 7,5, dan 8; moet (koksmuts plat) verwerkt. Uitleg in `LEESMIJ-winkel.md`, bericht aan Mila.
 - **Besloten:** dit is het logo voor de Steam-bibliotheek. Waarom: de hoedjes op de letters zijn het eigen gezicht van de titel, en op de hero linksonder blijft het leesbaar.
 - **Mis:** in logomodus bleef Gloop zichtbaar (metaball valt buiten MESH/CURVE/FONT) en zocht ik `titel` op naam terwijl de lamp `titellamp` heet. Beide opgelost.
-- **Volgende run:** ridderblik omhoog en muntenrand in de hero met Mila; blad op `organisatie/lijst-thijs.md` op ma 16 nov, met hero en logo erbij.
+- **Blad voor Thijs concept 8:** hero met logo onder de capsule in vak 1 (`ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept8.png`), GEZIEN.
+- **Volgende run:** ridderblik omhoog en muntenrand in de hero met Mila; blad concept 8 op `organisatie/lijst-thijs.md` op ma 16 nov.
