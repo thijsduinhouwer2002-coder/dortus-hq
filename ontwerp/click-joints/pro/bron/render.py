@@ -65,7 +65,7 @@ def loep(d, dicht, s, tx, ty):
     hx, hy = tx + s * c[0], ty + s * c[1]               # knie in het vak
     px = np.asarray(Image.open(dicht).convert("RGB")).astype(int)   # midden van de uitsnede: het groen in 13d
     gy, gx = np.nonzero((px[..., 1] > 115) & (px[..., 0] < 90) & (px[..., 2] < 150))
-    gm = (gx.mean() - 60, gy.mean()) if len(gx) > 300 else (c[0], c[1])   # iets links: de knie erbij, niet alleen de band
+    gm = (gx.mean() + 10, gy.mean()) if len(gx) > 300 else (c[0], c[1])   # groen in het midden (kan Daan 07:40: geen los grijs hoekje linksboven)
     bx, by = gm[0] - LOEP_BRON / 2, gm[1] - LOEP_BRON / 2  # linksboven van de uitsnede in 13d
     r = LOEP_D / 2
     mx, my = ix + r, iy + r

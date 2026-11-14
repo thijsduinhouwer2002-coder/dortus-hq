@@ -109,6 +109,8 @@ def toets(stap, eigen, cursor):
         band[ob.name] = (int(ob.get("cj_band_vlakken", 0)), sum(1 for f in ob.data.polygons if f.material_index == vak))
     print(f"[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {band}")
     stap("band: A en B hebben een groene band langs de naad", all(n > 0 and n == m for n, m in band.values()), str(band))
+    soort = {ob.name: ob.get("cj_band_soort") for ob in (a, b)}
+    stap("band: rand glad gesneden (1.0.1, geen trapjesrand)", all(v == "glad" for v in soort.values()), str(soort))
     # (g2) 1.0.1 (Daan 14 nov 05:45): de veersleuf van A donker in plaats van een licht krasje, alleen weergave.
     sleuf = {}
     for ob in (a, b):
