@@ -554,9 +554,29 @@ func _past_op_berg(onder: int) -> int:
 		n += onder - r
 	return n
 
-func _draw() -> void:
+# De hoedenberg met de 3D-hoeden (Bram 14 nov, winkelbeeld Olaf 05:35: pixelhoeden naast de 3D-Gloop): zelfde plekken
+# en volgorde als berg(), elke hoed met zijn nulpunt (midden van de onderrand) waar de onderrand van de pixelhoed lag,
+# dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y]. Leeg als er geen 3D-hoedenblad is (dan pixels).
+func berg_3d() -> Array:
+	var uit := []
+	if not met_3d or beeld_3d() == "":
+		return uit
+	HB._laad_3d()
+	if not HB.held3d.has(HB.HOEDEN3D):
+		return uit
 	for b in berg():
-		draw_texture_rect_region(HOEDEN, Rect2(int(b[1]) - 8, int(b[2]), 16, 16), Rect2(int(b[0]) * 16, 0, 16, 16))
+		var h: int = int(b[0])
+		uit.append([h, float(b[1]), float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
+	return uit
+
+func _draw() -> void:
+	var berg3 := berg_3d()
+	if berg3.is_empty():
+		for b in berg():
+			draw_texture_rect_region(HOEDEN, Rect2(int(b[1]) - 8, int(b[2]), 16, 16), Rect2(int(b[0]) * 16, 0, 16, 16))
+	else:
+		for b3 in berg3:
+			_teken_hoed_3d(int(b3[0]), float(b3[1]), float(b3[2]), false)
 	var f := frame_nu()
 	var wip := wip_nu()
 	var n := niveau()
