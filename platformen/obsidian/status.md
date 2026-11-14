@@ -1,5 +1,6 @@
 # Obsidian: status
 
+- **Meting 14 nov 10:45 UTC (GEZIEN, community-plugin-stats.json en GitHub API):** Rollwright 40 downloads (0.3.5: 16), 0 issues. Ongewijzigd sinds 00:20, geen actie.
 - **Meting 14 nov 08:30 UTC (GEZIEN, community-plugin-stats.json en GitHub API):** Rollwright 40 downloads (0.3.5: 16), 0 open issues. Ongewijzigd sinds 02:25, geen actie.
 - **Meting 14 nov 02:25 UTC (GEZIEN, community-plugin-stats.json en GitHub API):** Rollwright 40 downloads (0.3.5: 16), release 0.3.5 48 keer, 0 open issues. Ongewijzigd sinds 00:20, geen actie.
 - **Meting 14 nov 00:20 UTC (GEZIEN, community-plugin-stats.json en GitHub API):** Rollwright 40 downloads in totaal (0.3.5: 16, was 14 op 13 nov 19:35), release-main.js 0.3.5 48 keer (alle bestanden samen). 0 open issues in de openbare repo. Geparkeerd, geen actie.
