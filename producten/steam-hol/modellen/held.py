@@ -146,12 +146,12 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             hs_.masker(ouder, hk, hs, HZ)
             oy = -0.03   # ogen iets naar voren, zodat ze wit op het zwarte masker liggen
     for kant in (-1, 1):
-        ox = 0.13 * kant
-        _bol(ouder, hk(ox, -0.29 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
+        ox = 0.11 * kant   # Mila 14 nov: was 0.13; ogen en blos iets naar binnen en dieper, zodat het achterste oog bij draai -40 binnen het hoofd blijft (kan Daan 18:28)
+        _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
         kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
-        _bol(ouder, hk(ox + kijk, -0.33 + oy, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
-        _bol(ouder, hk(ox + kijk + 0.025, -0.355 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
-        _bol(ouder, hk(0.22 * kant, -0.26, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
+        _bol(ouder, hk(ox + kijk, -0.31 + oy, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
+        _bol(ouder, hk(ox + kijk + 0.025, -0.335 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
+        _bol(ouder, hk(0.18 * kant, -0.25, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
     if bang:
         _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
     else:
