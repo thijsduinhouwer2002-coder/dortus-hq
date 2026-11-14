@@ -770,4 +770,5 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Duurtest 60 min op 1920x1080 met de volle 3D-build uitgelezen (run 43580058698): leeft, geen scriptfout, 45 MB, CPU gemiddeld 0,555, 27% van de metingen boven 1. Paar gestart om te zien of dat door de nieuwe 3D-stukken komt (main 43585136350 tegen de stand van 13 nov 43585138872).
 - Les: een check die ik eerder "nagelezen en klopt" noemde, kan een paar uur later al achterhaald zijn als een ander iets verandert (hier het muisvlak). Bij een winkelzin over gedrag het bewijs uit de laatste Windows-run nemen, niet uit mijn geheugen van de code.
 - Let op: de tijden 10:30 tot 10:45 in taken.md, status.md en teksten.md liepen eerst voor op de klok; rechtgezet naar de echte tijd (±10:20 tot 10:27).
+- Lokale CPU-proef 3D-helden aan of uit (Linux, xvfb 1920x1080): gem. 0,46 tegen 0,44, binnen de schommeling; uitslag van het Windows-paar beslist. Windows-runs op main na het herstel van `graaf_3d.png` groen (900e139, 21fc6ea).
 - Les: de tak `schermen` ophalen met git duurt te lang; losse bestanden lees je snel met curl via raw.githubusercontent.com en de contents-API.
