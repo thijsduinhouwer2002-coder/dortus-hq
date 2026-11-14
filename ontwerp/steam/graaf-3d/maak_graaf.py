@@ -134,9 +134,10 @@ def maak_rij(aarde, kant):
     kiezel = pix[hel >= np.quantile(hel, 0.97)].mean(0)   # de lichte kiezels in de aardtegel
     beelden = []
     rng = np.random.default_rng(11)
+    # Bram 14 nov 14:15 (kan Daan 13:42): de twee kleinste kluitjes (straal 3,0 en 2,6) zijn weg; op de kamervloer
+    # lazen ze als een rij donkere kraaltjes. De drie grotere lezen als aarde en blijven.
     stenen = [  # x, start y, eind y, straal, kleur-factor, vertraging
-        (15, 14, 56, 5.0, 1.0, 0.00), (30, 20, 58, 3.6, 0.85, 0.15), (45, 12, 56, 4.4, 1.05, 0.05),
-        (54, 24, 58, 3.0, 0.9, 0.30), (23, 26, 59, 2.6, 0.8, 0.35)]
+        (15, 14, 56, 5.0, 1.0, 0.00), (30, 20, 58, 3.6, 0.85, 0.15), (45, 12, 56, 4.4, 1.05, 0.05)]
     for i, over in enumerate(OVER):
         # drempel zo kiezen dat precies `over` van de cel aarde blijft
         drem = np.quantile(d, 1 - over)
