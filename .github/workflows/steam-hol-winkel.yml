@@ -137,7 +137,13 @@ jobs:
           $uit = "producten/steam-hol/e2e/winkel/bureaublad"
           New-Item -ItemType Directory -Force $uit | Out-Null
           $vol = (Resolve-Path $uit).Path
-          Start-Process notepad.exe
+          # Eerst alles van de runner wegklappen (zijn eigen terminalvenster stond in beeld, run 43631337323),
+          # dan Kladblok met een kort briefje, zodat het leest als een gewone werkdag.
+          (New-Object -ComObject Shell.Application).MinimizeAll()
+          Start-Sleep 2
+          $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
+          Set-Content -Encoding utf8 $briefje "Monday`r`n`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor`r`n- water the plant"
+          Start-Process notepad.exe -ArgumentList "`"$briefje`""
           Start-Sleep 3
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
