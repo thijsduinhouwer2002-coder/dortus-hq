@@ -52,6 +52,12 @@ const LIJF3D_JSON := "res://kunst/3d/sprites.json"
 static var lijf3d: CanvasTexture = null
 static var lijf3d_info := {}
 static var lijf3d_gezocht := false
+# Royal in 3D (Bram 14 nov, vraag Daan 08:55): eigen blad "royal" in sprites.json met een eigen, bredere cel dan het lijf.
+# Frame "achter" (mantel, scepter, goud) komt achter het lijf, frame "voor" (broche) ervoor, onder de hoeden.
+# Zolang dat blad er niet is: de pixel-cape en -bovenzoom uit UPG zoals altijd.
+static var royal3d: CanvasTexture = null
+static var royal3d_info := {}
+static var royal3d_gezocht := false
 const HB := preload("res://systemen/held_beeld.gd")   # laadt ook het 3D-hoedenblad (kunst/3d/sprites.json)
 var met_3d := true                 # uit = de oude pixel-Gloop (toetsen, of terug als het tegenvalt)
 # Standen van Daan (13 nov 16:30, gloop.py 7e woord): knipperen elke 4 tot 7 s, blij als er een hoed op de toren
@@ -390,6 +396,45 @@ func beeld_3d() -> String:
 		return "rust"
 	return ""
 
+static func _laad_royal() -> void:
+	if royal3d_gezocht:
+		return
+	royal3d_gezocht = true
+	if not FileAccess.file_exists(LIJF3D_JSON):
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(LIJF3D_JSON))
+	if typeof(d) != TYPE_DICTIONARY or not d.has("royal") or not ResourceLoader.exists(str(d["royal"]["blad"])):
+		return
+	royal3d_info = d["royal"]
+	royal3d = CanvasTexture.new()
+	royal3d.diffuse_texture = load(str(royal3d_info["blad"]))
+	royal3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+
+# Royal in 3D aan: alleen met het 3D-lijf in beeld en het blad "royal" geladen. Dan geen pixel-cape of -zoom meer.
+func royal_3d_aan(b3: String) -> bool:
+	_laad_royal()
+	return b3 != "" and royal3d != null and not royal3d_info.is_empty()
+
+# Waar een Royal-frame komt (spelpixels, Gloop-coordinaten): onderkant op de vloer, anker_x onder zijn midden,
+# klein lijf 0,8 zoals _teken_3d. Leeg als het frame niet in het blad staat.
+func royal_rect(naam: String, wip: int) -> Rect2:
+	if royal3d_info.is_empty() or not (royal3d_info["frames"] as Array).has(naam):
+		return Rect2()
+	var px: float = royal3d_info["px"]
+	var k := 1.0 if is_groot() else 0.8
+	var w: float = float(royal3d_info["cel_px"][0]) / px * k
+	var h: float = float(royal3d_info["cel_px"][1]) / px * k
+	return Rect2(-float(royal3d_info["anker_x"]) / px * k, -h + wip, w, h)
+
+func _teken_royal(naam: String, wip: int) -> void:
+	var r := royal_rect(naam, wip)
+	if r.size.x <= 0.0 or royal3d == null:
+		return
+	var i: int = (royal3d_info["frames"] as Array).find(naam)
+	var cw: float = royal3d_info["cel_px"][0]
+	var ch: float = royal3d_info["cel_px"][1]
+	draw_texture_rect_region(royal3d, r, Rect2(i * cw, 0, cw, ch))
+
 func _heeft_3d(naam: String) -> bool:
 	_laad_3d()
 	return met_3d and lijf3d != null and lijf3d_info["frames"].has(naam)
@@ -582,16 +627,21 @@ func _draw() -> void:
 	var f := frame_nu()
 	var wip := wip_nu()
 	var n := niveau()
-	if n >= 3 and not is_plat():
-		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
 	var b3 := beeld_3d()
+	var royal3 := n >= 3 and not is_plat() and royal_3d_aan(b3)
+	if royal3:
+		_teken_royal("achter", wip)   # Royal in 3D: mantel en scepter achter hem
+	elif n >= 3 and not is_plat():
+		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
 	if b3 != "":
 		_teken_3d(b3, wip)
 	elif f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
 		draw_texture_rect_region(f[0], Rect2(-10, -16 + wip, 20, 16), Rect2(int(f[1]) * 20, 0, 20, 16))
 	else:
 		draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
-	if n >= 3 and not is_plat():
+	if royal3:
+		_teken_royal("voor", wip)     # Royal in 3D: broche voor hem, onder de hoeden
+	elif n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(48, 0, 20, 16))   # Royal: bovenzoom met gouden gesp voor hem, vóór de hoeden
 	var t3 := toren_3d()
 	if t3.is_empty():
