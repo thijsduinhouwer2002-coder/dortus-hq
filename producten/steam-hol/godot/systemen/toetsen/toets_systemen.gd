@@ -579,6 +579,15 @@ func _init() -> void:
 	ok(H3.put_in_schatkamer(sh, 12, true) == "put_1", "put schatkamer: Rusty Spikes het eigen stuk")
 	pu.van_dict({"slijm": 0, "stekelput": 3})
 	ok(H3.put_in_schatkamer(sh, 12, true) == "weg", "put schatkamer: Trick Lid dicht niet tekenen")
+	pu.van_dict({"slijm": 0, "stekelput": 2})
+	ok(H3.put_in_schatkamer(sh, 12, true) == "put", "put schatkamer: Deep Pit zonder eigen stuk de 3D-put")
+	pu.van_dict({"slijm": 0, "stekelput": 3})
+	sh["put_open"] = {12: 1.0}
+	ok(H3.put_in_schatkamer(sh, 12, true) == "put", "put schatkamer: Trick Lid open toont de stekels")
+	H3.stukken.erase("put")
+	ok(H3.put_in_schatkamer(sh, 12, true) == "", "put schatkamer: zonder 3D-stuk de pixel-put als terugval")
+	H3.stukken["put"] = {"maat": [16, 16], "vak_px": [0, 0, 64, 64]}
+	sh["put_open"] = {}
 	var orr: Array = H3.onder_rects("put", Vector2(192, 24), 8)
 	ok(orr[0] == Rect2(192, 32, 16, 8) and orr[1] == Rect2(0, 32, 64, 32), "put schatkamer: alleen de onderste 8 rijen, blad 4 keer zo groot: " + str(orr))
 	H3.blad = oud_hblad
