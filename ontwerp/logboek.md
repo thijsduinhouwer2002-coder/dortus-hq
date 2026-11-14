@@ -932,7 +932,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Hero ronde 3** (±17:40 tot 17:52): blik van de ridder omhoog en rafelige muntenrand, alleen in `winkel3d.py`; frisse kijker 7, "onder is beter", moet over munten bij de voeten verwerkt, loensend achteroog bij Mila neergelegd (zit in `held.py`). Vol formaat GEZIEN, op blad concept 8.
 - **Volgende run:** blad concept 8 op `organisatie/lijst-thijs.md` op ma 16 nov.
 
-## 14 nov 2026, ±18:26 tot 18:55 UTC (Daan, geplande run): koopmuntje en ingang ja, bibliotheek en staand ja, blad concept 9
+## 14 nov 2026, ±18:24 UTC en verder (Daan, geplande run): koopmuntje en ingang ja, bibliotheek en staand ja, blad concept 9
 - **Bekeken met Read:** Olafs `munt-put2/voor-boven-na-onder-lokaal-160-3x.png` (ook 3x uitvergroot), Brams `bram-ingang-gras-voor-na-120-160-3x.png` (boog 2x uitvergroot), Mila's `bibliotheek-600x900.png`, `staand-748x896.png` (ridderhoofd 3x) en de rij met toppers, blad concept 9.
 - **Besloten:** koopmuntje boven Deep Pit **ja** (munt prikte op main in de stekels en las als iets óp de val), kan: 3 spelpixels als dat vrij blijft, want hij raakt nu een kiezel en lijkt een eikel. Ingang zonder grasrechthoek **ja**, geen punten: gras loopt door, boog leest als poortje. Antwoorden in `platformen/steam/taken.md`. Bibliotheek en staand **ja** op fouten en leesbaarheid, kan: achterste oog ridder, warmere achterwand (bericht in `berichten/mila.md`).
 - **Blad concept 9:** bibliotheektegel plus plankje naast drie toppers in vak 1. Staand niet apart: dubbel. Waarom het plankje: Thijs ziet zo meteen hoe we op de plank staan, en dat we donkerder zijn; eerlijker dan alleen ons eigen beeld groot.
