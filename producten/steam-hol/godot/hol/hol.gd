@@ -146,6 +146,39 @@ var brokkel := {}             # Vector2i(kolom, rij 0 of 1) -> tijd sinds graven
 var ingang_van_x := -1.0      # x (spelpixels) waar de ingang vandaan schuift
 var ingang_schuif := 0.0      # tijd die het schuiven nog duurt
 var GRAAF_BLAD: Texture2D = load("res://kunst/graaf.png") if ResourceLoader.exists("res://kunst/graaf.png") else null
+# Daan 14 nov: het graafmoment in de 3D-stijl, 4 beelden van 64 x 64 bladpixels (4 per spelpixel, zoals hol_proef.png),
+# gemaakt uit het 3D-stuk aarde door ontwerp/steam/graaf-3d/maak_graaf.py. Steentjes en stof zitten in het blad.
+# Lineair gefilterd zoals hol_3d.gd. Zonder blad (of met_3d uit) blijft het oude graafmoment.
+const GRAAF3D_PAD := "res://kunst/3d/graaf_3d.png"
+const GRAAF3D_PX := 64
+var GRAAF3D: CanvasTexture = _laad_graaf3d()
+var graaf_proef := false     # graaf_proef=1 (strook.gd): vier kamers staan stil in beeld 0 tot 3, alleen om op te keuren
+var graaf_stil := {}         # cellen van de keurstrook die niet verder brokkelen
+
+static func _laad_graaf3d() -> CanvasTexture:
+	if not ResourceLoader.exists(GRAAF3D_PAD):
+		return null
+	var t := CanvasTexture.new()
+	t.diffuse_texture = load(GRAAF3D_PAD)
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return t
+
+# welk beeld (0 tot 3) bij `tijd` seconden na het graven
+static func graaf_beeld(tijd: float) -> int:
+	return clampi(int(tijd / GRAAF_S * 4.0), 0, 3)
+
+# keurstrook: vier kamers boven de gang, links van de schatkamer, elk stil in een ander beeld van het graafmoment
+func zet_graaf_proef() -> void:
+	var gezet := 0
+	for k in range(ingang_kol + 1, schat_kol - 1):
+		if gezet >= 4:
+			break
+		if gang[k] and not boven[k] and not vallen.has(k):
+			boven[k] = true
+			brokkel[Vector2i(k, 0)] = (gezet + 0.5) / 4.0 * GRAAF_S
+			graaf_stil[Vector2i(k, 0)] = true
+			gezet += 1
+	queue_redraw()
 
 func _graaf_moment(cel: Vector2i) -> void:
 	brokkel[cel] = 0.0
@@ -162,7 +195,10 @@ func _ingang_x() -> float:
 func _brokkel(cel: Vector2i, tijd: float) -> void:
 	var x := float(cel.x * KOL)
 	var y := float(OPP if cel.y == 0 else GANG_BOVEN)
-	var beeld := mini(3, int(tijd / GRAAF_S * 4.0))
+	var beeld := graaf_beeld(tijd)
+	if met_3d and GRAAF3D != null:
+		draw_texture_rect_region(GRAAF3D, Rect2(x, y, KOL, KOL), Rect2(beeld * GRAAF3D_PX, 0, GRAAF3D_PX, GRAAF3D_PX))
+		return
 	if GRAAF_BLAD != null:
 		draw_texture_rect_region(GRAAF_BLAD, Rect2(x, y, KOL, KOL), Rect2(beeld * KOL, 0, KOL, KOL))
 	else:
@@ -211,6 +247,8 @@ func _process(delta: float) -> void:
 		put_schud = maxf(0.0, put_schud - delta)
 		queue_redraw()
 	for c in brokkel.keys():
+		if graaf_stil.has(c):
+			continue   # keurstrook: deze beelden blijven staan
 		brokkel[c] += delta
 		if brokkel[c] >= GRAAF_S:
 			brokkel.erase(c)
@@ -223,7 +261,7 @@ func _process(delta: float) -> void:
 	munten = munten.filter(func(m): return m.t < MUNT_S)
 	if not munten.is_empty():
 		queue_redraw()
-	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and brokkel.is_empty() and ingang_schuif <= 0.0:
+	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and brokkel.size() <= graaf_stil.size() and ingang_schuif <= 0.0:
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
