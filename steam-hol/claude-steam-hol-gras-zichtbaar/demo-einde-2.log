@@ -10,7 +10,7 @@ HOL gegraven kolom 5
 HOL meting t=10 beelden=96 helden=2 hol_vast=2
 HOL kroniek 12.4 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
-HOL kroniek 13.5 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
 HOL gegraven kolom 2
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
@@ -25,5 +25,5 @@ HOL kroniek 26.4 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 4
 HOL kroniek 28.9 (wacht 2.5): Bram's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
-HOL kroniek 30.0 (wacht 0.8): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 29.9 (wacht 0.8): Gloop ate Odo. Kept the crown. +6
 HOL einde na 30 s, fps=20, goud=33, terugkomers=1
