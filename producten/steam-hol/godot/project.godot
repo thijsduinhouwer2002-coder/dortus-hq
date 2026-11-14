@@ -9,6 +9,9 @@ config/features=PackedStringArray("4.3")
 ; demo en volle spel delen de save (demo-einde, ontwerp.md): %APPDATA%/Dortus/Het Hol
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Dortus/Het Hol"
+; app-icoon van Daan (ontwerp/steam/icoon): taakbalk en venster, ook bij starten met de editor-binary
+config/icon="res://kunst/icoon/icoon-tegel-256.png"
+config/windows_native_icon="res://kunst/icoon/hol.ico"
 
 [display]
 window/size/viewport_width=1280
