@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 17006,
+  "bytes": 17073,
   "cel_px": [
    87,
    56
@@ -62,7 +62,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 47778,
+  "bytes": 47781,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -385,7 +385,7 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 18912,
+  "bytes": 18993,
   "cel_px": [
    87,
    58
@@ -442,7 +442,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29200,
+  "bytes": 29194,
   "cel_px": [
    105,
    64
@@ -498,7 +498,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12171,
+  "bytes": 12131,
   "cel_px": [
    52,
    56
@@ -554,7 +554,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 19736,
+  "bytes": 19729,
   "cel_px": [
    87,
    56
@@ -611,7 +611,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 20135,
+  "bytes": 20154,
   "cel_px": [
    87,
    56
@@ -668,7 +668,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 19383,
+  "bytes": 19360,
   "cel_px": [
    86,
    56
@@ -725,7 +725,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 19688,
+  "bytes": 19698,
   "cel_px": [
    87,
    56
@@ -782,7 +782,7 @@
  "held4": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 19054,
+  "bytes": 19049,
   "cel_px": [
    86,
    56
@@ -1026,7 +1026,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 112943,
+  "bytes": 113012,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1261,7 +1261,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17558,
+  "bytes": 17532,
   "cel_px": [
    59,
    62
@@ -1315,11 +1315,11 @@
   ]
  },
  "royal": {
-  "anker_x": 75,
+  "anker_x": 74,
   "blad": "res://kunst/3d/royal.png",
-  "bytes": 15077,
+  "bytes": 14708,
   "cel_px": [
-   150,
+   148,
    88
   ],
   "eenheid_px": 31.1891,
@@ -1333,7 +1333,7 @@
     0.0
    ],
    [
-    -2.62,
+    -2.5,
     9.0
    ]
   ],

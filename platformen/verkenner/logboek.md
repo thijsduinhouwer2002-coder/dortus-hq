@@ -903,3 +903,34 @@ Nieuwste blok onderaan.
 - Daarna Flathub (10:05 in onderzoek). Open zoek-API geeft per app added_at en installs_last_month: in een paar minuten alle 3.380 apps. Bereik sterk, geld ontbreekt (betalen nog niet open, wel al in de API). Cijfer 4, nog niet klaar, maandelijkse herhaalmeting. Niet apart nagekeken.
 - Les: Flathub telt updates mee in de downloads; nooit als unieke gebruikers lezen.
 - Etsy nog steeds 403. Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 10:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; `git fetch origin main` en main vanaf origin/main werkte.
+- Gezocht naar wat nergens bekeken is (ook niet bij Noor, Lotte en Kees): The Sims 4 mods en CC kwam nergens voor. 10:36 in onderzoek en gepusht.
+- CurseForge en de spiegel api.curse.tools geven nu een Cloudflare-uitdaging (403); niet omzeild. Let op: het herhaalscript voor Hytale (data/hytale-curseforge-meet.py) werkt daardoor ook niet meer.
+- Onderzoeker voor regels, geld en gereedschap. Uitkomst: nee, cijfer 2. EA verbiedt verkoop van mods buiten de eigen Marketplace, en die Marketplace eist Windows-gereedschap, keuring door EA en verbiedt AI. De drie dragende regels zelf nagelezen op ea.com (GEZIEN). Geen aparte controleur: geen eigen telling die telt.
+- Waarom nee zonder bereik te meten: zelfs met groot bereik is er voor een nieuwkomer geen toegestane manier om te verdienen die bij ons past.
+- Les: bij spellen van grote uitgevers eerst het modbeleid lezen (mag je verkopen?), dat beslist vaak alles.
+- Geen bericht aan een manager, niets op de lijst van Thijs.
+- Vervolg in dezelfde run: audio-plugins (11:00 in onderzoek). Plugin Boutique leesbaar maar zonder verkopen of ratings; KVR 403. Zelf gemeten via de open zoek-API van Gumroad Discover: 310 betaalde plugins, mediaan 1 rating, 5% 10+, niemand 50+. Onderzoeker voor winkels, verdienbewijs, AI en bouwen. Cijfer 3, nee voor nu. Niet apart nagekeken (advies geen ja).
+- Waarom nee: geld per nieuwe plugin klein, bereik via YouTubers, AI-plugins zijn "slop" voor kopers, en we kunnen niet luisteren. Bouwen vanaf Linux kan wel goed (JUCE, nih-plug, Pamplejuce).
+- Les: de zoek-API van Gumroad (gumroad.com/products/search?query=...&from=N) geeft ratings per product voor elke niche; handig als snelle geldtoets.
+- Idee voor een productkans: MIDI-plugins (akkoorden, sequencers) doen het relatief goed en vragen geen gehoor.
+- Controleur voor beide voorstellen: akkoord. Audio-plugins: cijfers exact herrekend, 3 pagina's live gelijk; ±8% niet-audio en 42 Proteus-pakketten eruit gehaald (244 betaald, 6% 10+), conclusie gelijk. Sims 4: regels van EA letterlijk bevestigd, 30% nu GEZIEN, advertenties en donaties erbij. Alles verwerkt.
+- Daarna snelle schifting: IMVU (robots.txt verbiedt Claudebot, gerespecteerd), Rec Room (gesloten 1 juni 2026), FlutterFlow Marketplace (Flutter-webapp, niet leesbaar). Alle drie in kandidaten.md.
+- Voor Hans: deze run twee nee's (Sims 4 cijfer 2, audio-plugins cijfer 3), geen nieuwe kanshebber. Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 11:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; `git fetch` en main vanaf origin/main werkte. Push eerst geweigerd (remote verder), na rebase gelukt.
+- Gezocht naar wat nergens bekeken is: BlenderKit (sinds juni 2026 Blendkit) kwam alleen voor als regel in de Rhino-gegevens. 11:40 in onderzoek en gepusht.
+- Open zoek-API zonder sleutel: per asset datum, maker, prijs, bladwijzers en oordelen, maar geen downloads of verkopen (ook niet op de webpagina, alleen "Bookmarks in 90 days").
+- Eigen meting: alle 1.061 add-ons (865 betaald) en de 8.000 nieuwste modellen. Onderzoeker voor geld, regels en bereik; controleur herrekende alles en vond vier fouten (start van Zahit 13 okt, niet half sep; "zes keer" moest ±9 keer met hem en ±4 zonder; bladwijzers van de hits 7 tot 41; GOK is een bovengrens). Verwerkt.
+- Eigen fout eerst: bij de koppeling met Superhive las ik "10+" als 0, waardoor ik dacht dat bijna niemand verkocht. Herrekend: 74 van 126 halen 10+ op Superhive, 13 halen 100+. Dat maakte het oordeel scherper: dezelfde add-on krijgt op Blendkit veel minder aandacht.
+- Uitkomst: cijfer 3, nee. Bijroute voor Bram en Hans: Click Joints Pro later ook op Blendkit (75% voor de maker, extensions-formaat hebben we al). Niets op de lijst van Thijs.
+- Les: verkooptellers van Superhive zijn tekst ("10+", "100+"); altijd het getal eruit halen, nooit int() op de hele tekst.
+- Les: Blendkit-API: blendkit.com/api/v1/search/?query=asset_type:addon+order:-created&page_size=100, telt tot 10.000 per zoekvraag.
+- Vervolg in dezelfde run: Design Bundles (productpagina's 403) en Creative Fabrica (403) vielen af; Godot Asset Store nog alleen gratis. Daarna Atomm van xTool (11:56 in onderzoek). Projectpagina's geven per project weergaven, downloads, gebruiken en verkopen. Steekproef 222 projecten: aug 2026 mediaan 7 gebruiken, betaalde projecten ±$2 met mediaan 0 verkopen. Cijfer 2, nee. Niet apart nagekeken (nee, en de cijfers staan zelf in de gegevens).
+- Les: bij Atomm staan de cijfers van het project in de dict met `combinedActionSum`; de eerste dict met `sales` hoort bij een ander (aanbevolen) project. Mijn eerste telling pakte de verkeerde en gaf overal 0.
+- Voor Hans: deze run twee nee's (Blendkit 3, Atomm 2). Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Creality Cloud (11:54 in onderzoek). Modelpagina's leesbaar met downloads en aantal betalingen; de sitemap lijkt alleen gekozen modellen te bevatten en zoeken is verboden, dus alleen voorwerk. Voorlopig 3, nee voor nu. Les: lees de paginagegevens (`__NUXT_DATA__`) van zulke sites via de verwijzingen, de getallen in de ruwe tekst zijn indexen.
+- Afgesloten na Blendkit (3), Atomm (2) en Creality Cloud (voorlopig 3).

@@ -754,3 +754,21 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Royal: spelkant voor een eigen blad `royal` (frames `achter` en `voor`, bredere cel) op tak `claude/steam-hol-royal3d` (cb9cb63), zonder blad niets veranderd, toetsen lokaal 0 FOUT. Pas naar main na Daans ja op het model.
 - Let op: de tijden 09:25 en 09:40 in mijn eerste twee berichten van deze run in taken.md liepen voor op de klok (echt ±09:15 en ±09:22); ook 09:36 en 09:42 waren echt ±09:31 en ±09:34.
 - 09:40 graaf3d op main na Daans ja (4ab002f), zonder graaf_proef. Volgende run: Windows-run op main lezen.
+- 09:44 Royal: Daan koos (b) en zette het blok `royal` in de pijplijn (troon in plaats van mantel, kijker 8). Main in `claude/steam-hol-royal3d` samengevoegd, `royal_proef=1` erbij (8154599), toetsen lokaal 0 FOUT, lokaal Royal aan GEZIEN (nog pixels). Pijplijn op de tak run 43581796922, Windows-run 43581796991 (nog zonder blad). Volgende run: de Windows-run na de pijplijn-commit lezen, uitsneden 120 en 160 aan Daan.
+- Volgende run verder: Windows-run op main na graaf3d (43581332851) nakijken; laars-proef wacht op Daan.
+
+## 14 nov 2026, Bram (run 10:12 UTC)
+- Lokale kloon had een oude geschiedenis (main op GitHub is herschreven, 281 commits); werk nu vanaf origin/main.
+- 3D-laars naar main na Daans ja (900e139), kan gedaan (landt op 15). `graaf_3d.png` hersteld; oorzaak: pijplijnstap wiste `kunst/3d` eerst, een render vanaf een oudere commit zonder `maak_graaf` gooide het blad zo weg. Stap overschrijft nu alleen.
+- Royal: keurstrook van Windows-run 43582741517 GEZIEN (troon, scepter, broche in 3D), vraag aan Daan in `taken.md`.
+- Les: Godot 4.3 Linux is in een minuut te halen voor de toetsen; de import schrijft wel nieuwe uid's in de `.import`-bestanden, dus toets in een kopie van de map.
+- 10:38 Windows-run op main 43584396234 (900e139) groen. Volgende run: Daans ja of nee op Royal (pixelster en vlek), dan tak naar main zonder `royal_proef`.
+
+## 14 nov 2026, Olaf (run 10:13 UTC)
+- Geen nieuwe berichten van Thijs; geen issues bij Rollwright (API). Rollwright-downloads in de Obsidian-statistiek: 40 (0.3.5: 16).
+- Winkeltekst: Daans kan overgenomen ("it only redraws what moves, about 10 times a second"). Eigen fout van 09:40 rechtgezet: "clicks pass through the sky and the grass" klopt niet meer, want sinds 14 nov 02:35 vangt het 3D-gras de muis en op 120 vult het gras de hele strook (GEZIEN in `strook-120.png`, run 43581558898). Zin weg, ontwerpvraag aan Daan.
+- Duurtest 60 min op 1920x1080 met de volle 3D-build uitgelezen (run 43580058698): leeft, geen scriptfout, 45 MB, CPU gemiddeld 0,555, 27% van de metingen boven 1. Paar gestart om te zien of dat door de nieuwe 3D-stukken komt (main 43585136350 tegen de stand van 13 nov 43585138872).
+- Les: een check die ik eerder "nagelezen en klopt" noemde, kan een paar uur later al achterhaald zijn als een ander iets verandert (hier het muisvlak). Bij een winkelzin over gedrag het bewijs uit de laatste Windows-run nemen, niet uit mijn geheugen van de code.
+- Let op: de tijden 10:30 tot 10:45 in taken.md, status.md en teksten.md liepen eerst voor op de klok; rechtgezet naar de echte tijd (±10:20 tot 10:27).
+- Lokale CPU-proef 3D-helden aan of uit (Linux, xvfb 1920x1080): gem. 0,46 tegen 0,44, binnen de schommeling; uitslag van het Windows-paar beslist. Windows-runs op main na het herstel van `graaf_3d.png` groen (900e139, 21fc6ea).
+- Les: de tak `schermen` ophalen met git duurt te lang; losse bestanden lees je snel met curl via raw.githubusercontent.com en de contents-API.

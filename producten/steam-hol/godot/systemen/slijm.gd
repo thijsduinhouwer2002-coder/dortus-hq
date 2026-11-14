@@ -166,14 +166,21 @@ func laars_weg() -> void:
 	laars_op_vloer = false
 	queue_redraw()
 
-# Waar de laars is (onder-midden, ten opzichte van Gloop), in hele pixels: boogje van 12 px opzij in 0,3 s.
+# Keurstrook (Bram 14 nov, laars_proef=1 in strook.gd): de laars ligt vast rechts naast hem, zonder timer,
+# zodat de 3D-laars in de echte strook te keuren is. Spuugt hij later echt, dan gaat alles weer zoals altijd.
+func zet_laars_proef() -> void:
+	laars_kant = 1
+	laars_op_vloer = true
+	queue_redraw()
+
+# Waar de laars is (onder-midden, ten opzichte van Gloop), in hele pixels: boogje van 12 px opzij in 0,3 s, landt op 15.
 func laars_pos() -> Vector2i:
 	if leven != "spugen":
-		return Vector2i(16 * laars_kant, 0)   # geland: blijft liggen, ook als hij daarna slaapt
+		return Vector2i(15 * laars_kant, 0)   # geland: blijft liggen, ook als hij daarna slaapt (15: een spelpixel lucht naar de goudberg, Daan 14 nov)
 	var u := clampf((t - (leven_van + 0.6)) / BOOG_S, 0.0, 1.0)   # vliegt na spugen-frame 3 (index 3 = 0,6 s)
 	var x := int(round(12.0 * u)) * laars_kant
 	var y := -int(round(8.0 * u * (1.0 - u) * 4.0 / 2.0))
-	return Vector2i(x + 4 * laars_kant, y)
+	return Vector2i(x + 3 * laars_kant, y)
 
 # Welke upgrade-stap Gloop heeft (0 tot 3), uit hol.upgrades (systemen/upgrades.gd). Zonder upgrades 0.
 func niveau() -> int:

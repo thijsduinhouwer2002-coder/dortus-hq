@@ -253,6 +253,11 @@ def _scepter():
     for sx, sz in ((0.07, 0.24), (0.2, 0.07)):
         bpy.ops.mesh.primitive_cube_add(size=1, location=kr, rotation=rot)
         o = bpy.context.object; o.name = "scepter_kruis"; o.scale = (sx, 0.06, sz); o.data.materials.append(goud)
+    # Daan 14 nov 10:40 (keurstrook Bram, run 43582741517): de scepter wierp zijn schaduw (bol met kruisje) op het
+    # fluweel; in het spel stak die als donkerrode vlek boven Gloops hoofd uit. Geen schaduw van de scepter dus.
+    for o in bpy.context.scene.objects:
+        if o.name.startswith("scepter"):
+            o.visible_shadow = False
 
 
 def zoom(lijf_delen, vloer):
