@@ -952,3 +952,4 @@ Nieuwste blok onderaan.
 - Les: bij Zedge staan premium-items niet in de sitemap; de zoekwoordpagina's (/wallpapers/<woord>) tonen ze met "licensed":true.
 - Les: wallpaper- en plaatjesmarkten zijn een volumespel met fracties van een cent per download. Niet meer pakken tenzij er per item echt betaald wordt.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Kittl (13:57 in onderzoek): robots.txt staat ClaudeBot toe, sjabloonpagina's leesbaar, maar zonder gebruik of verdiensten; pot van onbekende grootte, toelating via portfolio en quiz. Voorwerk, nee (2). Afgesloten om ±14:05.
