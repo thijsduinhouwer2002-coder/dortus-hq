@@ -803,6 +803,9 @@ func _init() -> void:
 		ok(HB3.held3d["tekens"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-teken: lineair gefilterd")
 	var doek_t := Node2D.new()
 	ok(HB3.teken_3d(doek_t, "poef", 0.0, 0.0) == false, "3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf")
+	HB3.met_3d = false
+	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: met_3d uit geeft false, ook met blad")
+	HB3.met_3d = true
 	var tb: Dictionary = HB3.held3d.duplicate()
 	HB3.held3d.erase("tekens")
 	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: zonder blad false, dan tekens.png")
