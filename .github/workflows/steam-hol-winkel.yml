@@ -125,6 +125,8 @@ jobs:
             [DllImport("user32.dll")] public static extern int ChangeDisplaySettings(ref DEVMODE d, int f);
             [DllImport("user32.dll")] public static extern bool MoveWindow(IntPtr h, int x, int y, int b, int hg, bool r);
             [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
+            [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string n);
+            [DllImport("user32.dll")] public static extern bool PostMessage(IntPtr h, uint m, IntPtr w, IntPtr l);
             public static int Zet(int b, int h) {
               DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
               EnumDisplaySettings(null, -1, ref d);
@@ -157,8 +159,10 @@ jobs:
           $h = [IntPtr]::Zero
           for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
           [Scherm]::ShowWindow($h, 9) | Out-Null
-          $gezet = [Scherm]::MoveWindow($h, 24, 24, 520, 300, $true)
-          Write-Output "Kladblok 520 x 300 linksboven: $gezet"
+          $gezet = [Scherm]::MoveWindow($h, 110, 24, 520, 300, $true)
+          # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan: dicht (run 43642948819)
+          for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
+          Write-Output "Kladblok 520 x 300 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=130 log=$log" -PassThru
