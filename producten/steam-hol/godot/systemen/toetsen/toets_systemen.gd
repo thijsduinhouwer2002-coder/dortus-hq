@@ -526,5 +526,21 @@ func _init() -> void:
 	b[15] = true
 	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
 	ok(H3.kamer_keuze(b, 0, 2, 12, true) == "kamer_los", "kolom 0 kijkt niet buiten de rij")
+	# rest van de versiering in 3D (Olaf 14 nov, kan Daan 13 nov 19:35): ankerpunt en terugval naar pixels
+	H3.laad()
+	ok(H3.DECO_GANG.size() == 9 and H3.DECO_GANG[6] == "spinrag" and H3.DECO_GANG[7] == "stut", "deco: namen op de vakken van versiering.png")
+	ok(H3.DECO_MAAIVELD.size() == 5, "deco: vijf maaiveldnamen")
+	ok(H3.deco_plek("bestaat_niet", Vector2(40, 39), false) == Vector2.INF, "deco: niet in het blad, dan pixels")
+	var oud_blad = H3.deco_blad
+	var oud_deco: Dictionary = H3.deco
+	H3.deco_blad = CanvasTexture.new()
+	H3.deco = {"proef": {"maat": [6, 12], "vak_px": [0, 0, 24, 48]}, "proef_voet": {"maat": [6, 12], "vak_px": [0, 0, 24, 48], "voet": [2, 10], "hang": [1, 2]}}
+	ok(H3.deco_plek("proef", Vector2(40, 39), false) == Vector2(37, 27), "deco staand: midden onderkant op het punt: " + str(H3.deco_plek("proef", Vector2(40, 39), false)))
+	ok(H3.deco_plek("proef", Vector2(40, 24), true) == Vector2(37, 24), "deco hangend: midden bovenkant op het punt")
+	ok(H3.deco_plek("proef_voet", Vector2(40, 39), false) == Vector2(38, 29), "deco staand met voet uit de pijplijn")
+	ok(H3.deco_plek("proef_voet", Vector2(40, 24), true) == Vector2(39, 22), "deco hangend met hang uit de pijplijn")
+	ok(H3.deco_plek("proef", Vector2(40.5, 39), false) == Vector2(37, 27), "deco: hele spelpixels")
+	H3.deco_blad = oud_blad
+	H3.deco = oud_deco
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
