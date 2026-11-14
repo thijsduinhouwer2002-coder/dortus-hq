@@ -13,38 +13,38 @@ HOL meting t=10 beelden=96 helden=2 hol_vast=2
 HOL kroniek 12.3 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
 HOL held binnen: Odo
-HOL kroniek 13.3 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
 HOL gegraven kolom 4
 HOL demo klik op Gloop
 HOL kaartje open 18.6: slijm
 HOL meting t=20 beelden=126 helden=2 hol_vast=5
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
-HOL kaartje dicht 22.7
-HOL kroniek 22.7 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
 HOL held binnen: Tibbe
-HOL kroniek 25.2 (wacht 0.9): Tibbe has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.9): Tibbe has a map. It is wrong.
 HOL kroniek 26.2 (wacht 0.7): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 5
-HOL kroniek 28.8 (wacht 2.9): Gloop ate Odo. Kept the crown. +6
+HOL kroniek 28.7 (wacht 2.9): Gloop ate Odo. Kept the crown. +6
 HOL begin: terug (Bram)
 HOL held binnen: Bram
-HOL meting t=30 beelden=142 helden=2 hol_vast=6
-HOL kroniek 31.3 (wacht 1.4): Bram is back for the Spike Pit.
-HOL kroniek 33.8 (wacht 1.2): Tibbe is now the Hoard-Toucher.
-HOL kroniek 36.3 (wacht 5.7): Gloop is flat. Back soon.
-HOL kroniek 38.8 (wacht 13.3): Bram's song got popular. Uh oh.
+HOL meting t=30 beelden=141 helden=2 hol_vast=6
+HOL kroniek 31.2 (wacht 1.4): Bram is back for the Spike Pit.
+HOL kroniek 33.7 (wacht 1.2): Tibbe is now the Hoard-Toucher.
+HOL kroniek 36.2 (wacht 5.7): Gloop is flat. Back soon.
+HOL kroniek 38.7 (wacht 13.2): Bram's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
-HOL kroniek 39.8 (wacht 0.9): Tibbe the Hoard-Toucher ran.
-HOL meting t=40 beelden=101 helden=1 hol_vast=6
+HOL kroniek 39.7 (wacht 0.9): Tibbe the Hoard-Toucher ran.
+HOL meting t=40 beelden=100 helden=1 hol_vast=6
 HOL begin: opgegeten2 (Mara)
 HOL held binnen: Mara
-HOL kroniek 42.3 (wacht 2.1): Mara knows all the words. Sadly.
-HOL kroniek vervallen 42.7: Gloop is up again. Wobbly.
-HOL kroniek 44.9 (wacht 3.1): The Spike Pit wins round two. +9
+HOL kroniek 42.2 (wacht 2.1): Mara knows all the words. Sadly.
+HOL kroniek vervallen 42.5: Gloop is up again. Wobbly.
+HOL kroniek 44.8 (wacht 3.1): The Spike Pit wins round two. +9
 HOL held binnen: Fenna
-HOL kroniek 47.4 (wacht 7.6): Bram's song got popular. Uh oh.
-HOL kroniek 48.5 (wacht 0.9): Gloop ate Mara. Kept the bucket. +6
-HOL kroniek vervallen 48.9: Fenna knocks first. Polite.
-HOL einde na 50 s, fps=15, goud=48, terugkomers=1
+HOL kroniek 47.3 (wacht 7.6): Bram's song got popular. Uh oh.
+HOL kroniek 48.4 (wacht 0.9): Gloop ate Mara. Kept the bucket. +6
+HOL kroniek vervallen 48.8: Fenna knocks first. Polite.
+HOL einde na 50 s, fps=14, goud=48, terugkomers=1
