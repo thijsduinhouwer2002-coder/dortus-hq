@@ -87,3 +87,20 @@ Alle vier gedaan in `capsule3d.py`; `gloop.py` en `held.py` van Daan zijn niet a
 - **Ridder kijkt naar Gloop** (draai 38 werd 50, `RIDDER_DRAAI`), minder randlicht (60 werd 25) en minder koel licht (500 werd 300). Waarom: de frisse kijker vond hem "eroverheen geplakt" en "hij kijkt de kijker aan, niet het monster, dus geen spanning". Nu kijkt hij naar de helm op Gloop; dat is de grap. Ik koos 50 en niet 58 (proef): bij 58 zag je zijn schrikgezicht bijna niet meer.
 - **Scherper:** alle drie renderen op dubbele grootte en dan verkleinen (`maak_alles.sh`). GEZIEN met Read in een uitsnede van de ridder: munten en randen duidelijk scherper dan de 1x-render met ontruisen.
 - Nog open voor een volgende ronde: de hoge hoed rechts staat los aan de rand; OF THE FALLEN zit dicht bij de helm van de ridder; klein snapt een frisse kijker zonder de header nog niet altijd (helm = helm leest als "maatjes").
+
+## Ronde 6 (14 nov ±14:40 tot 15:00 UTC, Daan zelf, want Mila staat uit)
+Daans twee moet-punten van 12:50 verwerkt in `capsule3d.py`, zodat de capsule klaar is voor het blad van Thijs (ma 16 nov):
+- **Ridder kijkt naar Gloop:** `RIDDER_DRAAI` standaard -40 (was 50; hoger draaide hem juist weg). Zijn schild leest nu als rood schild met gouden rand, niet als tweede munt.
+- **Zelfde pluim op beide helmen:** op Gloops helm nu precies de pluim van de ridder uit `held.py` (vier bollen die half overlappen en omkrullen), gespiegeld en x1,64 groter (helm 0,63 tegen 0,385). Hij komt links uit de helm, onder de kroon, en krult naar buiten en omhoog. Klein had al de pluim uit `gloop.py` (1 hoed) en is daarom alleen opnieuw gerenderd voor de draai.
+- Alle drie opnieuw met `maak_alles.sh` (header en hoofdbeeld daarna nog eens na het vastzetten van de pluim aan de helm). Voor en na: `voor-na-ronde5-ronde6.png`.
+- **Frisse kijker (Agent, met Read, wist niets):** header 7,5 en hoofdbeeld 7,5 (ronde 5: 6), grap na 3 tot 4 s: "het ridderje ziet dat zijn eigen soort helm al in de verzameling zit, hij is de volgende"; ridder kijkt naar het monster. Klein 6: daar leest één helm als "familie". Zijn punt "pluim oogt als losse bolletjes" was op de render waar de pluim nog los naast de helm stond; daarna vastgezet.
+- **Nog open (kan, versie 2):** kroonpunten prikken door de rand van de heksenhoed; losse munt links van het schild; klein toont alleen de helm (de proef met een tweede hoed scoorde niet beter, zie ronde 5).
+
+## Ronde 6b (14 nov ±14:40 tot 15:05 UTC, Mila, tegelijk met Daans ronde 6)
+Ik werkte dezelfde twee moet-punten uit terwijl Daan dat ook deed (hij dacht dat ik uit stond). Draai -40 is gelijk aan Daan. Verschil zit in de pluim, en kan 3 erbij:
+- **Pluim als één gladde krul.** Daans versie (vier bollen van de ridder x1,64) leest op groot nog als losse bolletjes. Nu dezelfde lijn als bij de ridder (eerst omhoog, dan om), als boog van negen bollen dicht op elkaar, gespiegeld naar de ridder toe, links onder de kroon uit.
+- **Heksenhoed 0,2 hoger** (`HEKS_OP`, Daan kan 3): de kroonpunten prikken niet meer door de rand.
+- `header-ronde6-920x430.png` is Daans ronde 6 ter vergelijking; `voor-na-ronde6-ronde6b.png`: links ronde 6, rechts 6b, onder klein (gelijk gebleven: klein heeft maar 1 hoed en daar staat al de pluim uit `gloop.py`).
+- **Frisse kijker (Agent, met Read, A = ronde 6, B = 6b), letterlijk:** A "drie losse rode bolletjes in een kromme rij, een beetje als een rups, een rij ballonnetjes of een tros bessen"; B "één doorlopende gebogen pluim met ribbels ... lijkt veel meer op de pluim van het ridderje ... je snapt meteen dat dit de helm van een eerder ridderje is". A 7, B 8. Zijn punt over B: de krul is klein en zit deels achter de kroon. Over de kroonpunten: in beide ziet hij gouden puntjes net onder de rand, niet erdoorheen.
+- **Besluit: 6b wordt de header en het hoofdbeeld.** Waarom: de pluim is de hele grap (zelfde helm), en die leest nu als pluim en niet als rups; frisse kijker 8 tegen 7. Klein blijft Daans render (beeld is gelijk).
+- GEZIEN met Read: header 6b heel, uitsnede van de toren 2x, voor/na, hoofdbeeld 6b.

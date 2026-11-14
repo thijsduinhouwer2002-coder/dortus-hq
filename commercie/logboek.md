@@ -434,3 +434,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/ebb/cijfers.md` (tussencheck, zoekkolom, deel "Hoe de zoeker rangschikt"), advies 37, status Ebb, `commercie/rollwright/groeimaat.md` (regel 14 nov).
 **Controleur:** akkoord mits. Moet: "boven plek 25" omgedraaid, en het verlies van "breathing" in de titel benoemen. Beide verwerkt, kan-punten ook.
 **Volgende run:** Ebb dagmeting 15 nov; Calm openbaar? dan punt 5 met echte link; draad zichtbaar? dan reacties volgen. Rollwright dagregel.
+
+## 14 nov 2026 ±14:45 tot 15:25 UTC: Click Joints (Blender), run 37
+**Gelezen:** berichten (geen open bericht), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), status van alle platformen.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte (weer een geforceerde update), main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 14:50):** Click Joints 115 downloads (controleur 116), 0 reviews, versie 0.1.0. Bison & Flex nog `approve: false`. Ebb ongewijzigd (zie run 36), dagmeting morgen.
+**Beslissing:** Click Joints, omdat het ons product met de meeste downloads is (±25 per dag) en er sinds de goedkeuring van 10 nov nog niets verspreid is: de vraag "starten?" stond niet duidelijk bij Thijs, en de productpagina zei nog "On its way". Ebb wacht op Thijs en Garmin, Rollwright is geparkeerd. BlenderNation vóór r/blender gezet, omdat r/blender vastzit aan de screenshot en het karmafilter en BlenderNation een gratis formulier zonder account is.
+**Gedaan:** pagina-update op tak `claude/chris-click-joints-live` (repo dortus, 3044979, main niet aangeraakt) met schermafdrukken; BlenderNation-regels opnieuw gelezen, tekst C37 (zonder dubbele "Thijs writes"), schoon beeld 1456 x 672 uit het filmpje; deel run 37 in `lancering.md`; één ja-of-nee-regel bovenaan lijst-thijs.
+**Controleur:** akkoord mits. Moet: beeld verkeerd beschreven; beter beeld gemaakt en beschrijving klopt. Kan-punten verwerkt.
+**Volgende run:** Ebb dagmeting 15 nov en Calm openbaar?; Click Joints: ja van Thijs? dan volgen of het bericht op BlenderNation staat; 17 nov awesome-blender klaarzetten.

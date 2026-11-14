@@ -177,8 +177,23 @@ if PLUIM_RECHT:
     hr = bpy.data.objects.get("helmrand")
     hx, hz = hr.location.x, hr.location.z - 0.01
     pl = g.mat("pluim", "rood", rough=0.7)
-    for px, py, pz, ps in [(-0.42, 0.0, 0.40, 0.19), (-0.62, 0.0, 0.52, 0.18), (-0.80, 0.0, 0.68, 0.16), (-0.90, 0.0, 0.86, 0.13)]:
-        ns["bol"]("pluim", (hx + px, py, hz + pz), (ps, ps * 0.8, ps), pl)
+    # ronde 6 (Daan moet 2, 14 nov 14:45): vier losse bollen lazen als rups of kralen. Daan nam de vier bollen van de
+    # ridder x1,64; dat bleef op groot vier bollen. Ronde 6b (Mila): dezelfde lijn als de ridder (eerst omhoog, dan om),
+    # maar als gladde boog van negen bollen die dicht op elkaar liggen (stap ±0,55 van de straal, zoals bij de ridder op
+    # zijn eigen maat), zodat hij als één gekrulde pluim leest. Gespiegeld: links onder de kroon uit, naar de ridder toe.
+    P = [(-0.36, 0.32), (-0.46, 0.58), (-0.64, 0.70), (-0.79, 0.64)]   # bezier
+    N = 9
+    for i in range(N):
+        t = i / (N - 1); u = 1 - t
+        px = u**3 * P[0][0] + 3 * u * u * t * P[1][0] + 3 * u * t * t * P[2][0] + t**3 * P[3][0]
+        pz = u**3 * P[0][1] + 3 * u * u * t * P[1][1] + 3 * u * t * t * P[2][1] + t**3 * P[3][1]
+        ps = 0.18 - 0.065 * t
+        ns["bol"]("pluim", (hx + px, 0.0, hz + pz), (ps, ps * 0.8, ps), pl)
+# ronde 6b (Daan kan 3): de kroonpunten (ronde 5 15% hoger) prikten door de rand van de heksenhoed: hoed 0,2 hoger
+HEKS_OP = float(os.environ.get("HEKS_OP", "0.2"))
+for o in [o for o in bpy.data.objects if o not in voor]:
+    if o.name.split(".")[0] in ("hoedrand", "hoedband", "hoed", "hoedpunt", "muts", "pompon"):
+        o.location.z += HEKS_OP
 GS = 1.95
 for o in [o for o in bpy.data.objects if o not in voor]:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
@@ -216,7 +231,8 @@ import held
 # ronde 4: groter en dichterbij, zodat de grap (zijn helm, zijn pluim, op Gloop) sneller valt
 # ronde 5b (frisse kijker: "lijkt eroverheen geplakt, kijkt de kijker aan en niet het monster"): minder randlicht,
 # meer naar Gloop gedraaid. Oud: draai 38, rand 60 (RIDDER_DRAAI, RIDDER_RAND)
-ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "50")), schaal=RS,
+# ronde 6 (Daan moet 1): hoger draaide hem juist weg; -40 kijkt hij naar de helm op Gloop (ridder-draai-reeks.png)
+ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40")), schaal=RS,
                    gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))
 # ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
 SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))

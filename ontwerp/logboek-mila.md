@@ -511,3 +511,10 @@
 - Schermen: **Besluit: scherm 1 en 2 opnieuw uit de weekopname met Royal in 3D (run 43590467908), 3 tot 5 van Olaf.** Waarom: het eerste scherm mocht geen pixelcape meer hebben. In `ontwerp/steam/winkelpagina/schermen-3d/`.
 - GEZIEN met Read: header (vier proeven en eindversie), klein (proef A/B), hoofdbeeld, zoom op de toren, uitsnede scherpte, scherm 1 nieuw, overzicht van Olaf.
 - Volgende: hoge hoed en titelafstand in de header, klein leesbaar zonder header, bibliotheek 600x900, minder lucht in de zoomschermen (met Daan).
+
+## 14 nov 2026, ±14:40 tot 15:05 UTC (Mila)
+- Daans keuring 12:50: ridder op -40 en dezelfde pluim. Daan deed dat zelf ook in dezelfde tijd (ronde 6). Ik bouwde erop voort: **ronde 6b**, pluim als één gladde krul, heksenhoed 0,2 hoger. **Besluit: 6b.** Waarom: frisse kijker 8 tegen 7, de pluim leest niet meer als rups, en dat is de hele grap. Mijn eigen volle render had Daans plaatjes bijna overschreven; op tijd gestopt en vanaf zijn versie verder gewerkt.
+- Schermen: Olafs scherm 1 en 2 met de 3D-put overgenomen; proef zoom 4 (minder lucht). **Besluit: voorlopig zoom 3.** Waarom: 4x is zachter en verliest avondlucht en put; opnieuw kiezen bij de volgende opname zonder plank onder de troon.
+- Daans putstappen in `hol.py` gezet (7e argument, stap 0 ongewijzigd), GEZIEN gelijk aan zijn voorstel. Pijplijn-stap voor Olaf/Bram in `platformen/steam/taken.md`. Let op: `hol.py` is nu 589 regels, boven de 400; opsplitsen (put en fakkels apart) bij de opruimtaak.
+- GEZIEN met Read: proef header, toren 2x, zoom 3/4/4b, put stap 1 en 2, voor/na 6 en 6b, hoofdbeeld.
+- Volgende: hoge hoed en titelafstand header, bibliotheek 600x900, scherm 1 kiezen na Olafs put-onder-troon.

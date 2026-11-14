@@ -315,3 +315,66 @@ Wordt Click Joints afgekeurd, of staat hij over 3 weken (30 nov) nog op Awaiting
 
 ### Controleur
 Akkoord mits. Moet: (1) "geen getallen" klopte niet helemaal, de eindkaart heeft een regel met versies; (2) de video kon niet stilgezet worden. Beide verwerkt (`controls` op de Click Joints- en de Rollwright-pagina). Kan-punten ook: aria-label met de hele eindkaart, render-zin met de boog, Exploded view in het antwoord, het label in Inter genoemd, regel over afkeuring hierboven.
+
+## Run 37 (Chris, 14 nov ±14:45 tot 15:30 UTC): Click Joints staat 4 dagen live zonder één bericht; draaiboek bijgewerkt en de vraag "starten?" bij Thijs
+
+Dit deel gaat voor op alles hierboven waar het verschilt.
+
+### Stand (GEZIEN 14 nov 14:50 UTC)
+- Live sinds 10 nov (besluit hoofdchat 10:45). API extensions.blender.org: `click_joints` versie 0.1.0, zelfde zip (sha256 `6798ce4e...61432a`). Listing: **115 downloads**, 0 reviews, Website dortus.com/click-joints, Report Issues naar de repo click-joints. Bram telde 113 om 13:20 (`platformen/blender/status.md`), dus ±25 per dag zonder enige verspreiding.
+- Er is nog **geen enkel lanceerbericht** geplaatst. Reden: het besluit van 10 nov 10:45 zegt "lancering start alleen als Thijs het zegt", en die vraag stond niet duidelijk op zijn lijst. Die staat er nu.
+- dortus.com/click-joints/ zei nog "On its way to Blender Extensions", zonder knop naar de listing (dag-0-stap 3 uit run 16 was nooit gedaan). Klaargezet op tak `claude/chris-click-joints-live` in repo dortus (commit 3044979): knop "Get it on Blender Extensions", de pil wordt een link "Version 0.1.0, free on Blender Extensions", en bij Install de zin "Or download it from its page on Blender Extensions". Main niet aangeraakt (afspraak: niets online zonder dat Thijs het zag). Schermafdrukken: `pagina-live-breed.jpg` en `pagina-live-telefoon.jpg` in deze map. Lokaal getest op 1280 en 390 px: geen zijwaarts scrollen, drie links naar de listing (GEZIEN).
+- Nog steeds geen echte print. "I haven't printed a joint with it yet" blijft in elk bericht.
+
+### Nieuwe volgorde (mijn besluit) en waarom
+1. **BlenderNation eerst (versie C37 hieronder), niet meer pas na r/blender.** Reden: r/blender hangt aan de screenshot-stap en aan het karmafilter (account van Thijs heeft 1 karma, run 29); dat kan dagen duren of nooit lukken. BlenderNation is een formulier zonder account, zonder karma, en een gratis product kost niets (GEZIEN vandaag op https://www.blendernation.com/submit-news/: "Commercial promotions require a 'Commercial Blender User' membership ... EUR 25 per post"; voor een niet-commercieel bericht staat er geen prijs). Er staat geen regel over AI op het formulier (GEZIEN).
+2. **r/blender (B30)** alleen na de screenshot van de regels en als er geen AI-, zelfpromotie- of karmaregel is. Geen screenshot of twijfel: niet plaatsen.
+3. **awesome-blender** (pull request, via de hoofdchat of Thijs): dag 7 is 17 nov; regel en voorwaarden in `verspreiding.md` plek 3.
+4. **r/3Dprinting** blijft wachten op een echte print.
+
+### Regels BlenderNation, letterlijk gelezen (GEZIEN 14 nov 14:55 UTC)
+- Kies "Full post" (niet "Message"). Vraag "Is your post about a commercial product or service?": **No**. Dit bericht gaat alleen over de gratis add-on; er staat geen woord over Pro in, en Pro is nergens te koop. "Are you already supporting BlenderNation on Patreon?": **No**. Nooit betalen.
+- Titel: geen clickbait, geen hoofdletters.
+- Categorie: **Development, Add-ons**.
+- De tekst verschijnt als "(your name) writes:", gevolgd door onze tekst. **Daarom begint de tekst niet meer met "Thijs writes:"** (in C16/C27/C30 stond dat erin; dan zou het er dubbel staan).
+- Video: geen HTML-embed, alleen de link op een eigen regel.
+- Eén hoofdbeeld, jpg/png/gif, 728 x 336 of 1456 x 672 voor retina, liefst "clean images without any text or logo overlays". Onze poster heeft tekst, dus die niet. **Nieuw beeld: `blendernation-1456x672.jpg`** in deze map: één beeld uit het gekeurde filmpje (seconde 15,5: de hele houten tekenpop op één been, met een groene ring op de elleboog en op de knie, het onderwerp in het midden), zonder tekst, verkleind naar 672 hoog en links en rechts aangevuld met de donkere achtergrond tot 1456 x 672, zodat het bij het bijsnijden op de voorpagina in beeld blijft. Eigen beeld, dus rechten in orde. Het is een render; dat staat in de tekst.
+- Velden: Your name: `Thijs (Dortus)`, Your email: thijs@dortus.com (het openbare supportadres).
+
+### BlenderNation, versie C37 (letterlijk plakken)
+**Post Title:** `Click Joints: free add-on that cuts printable ball joints and shows how far they bend`
+
+**Post Body:**
+> I made Click Joints, a free extension that cuts a ball and socket or a pin joint into a mesh for 3D printing, with the clearance you set in millimetres. For a ball joint it measures how far the joint bends in 8 directions before the parts collide, and shows that range on the model; bend it further and the spot that collides turns red. A ring on the cut shows whether the wall is thick enough. Export to STL or 3MF, one file per part. Tested on Blender 4.2 LTS and 5.2 LTS.
+>
+> I haven't printed a joint with it yet; fit and bend are measured in Blender. The image and the video are renders in Blender of joints the add-on placed.
+>
+> It's free and open source (GPL-3.0-or-later). The code is written by AI agents that my small studio Dortus runs; I direct the work, and every version is tested automatically in real Blender.
+>
+> Get it: https://extensions.blender.org/add-ons/click-joints/
+>
+> Video and more images: https://dortus.com/click-joints/
+>
+> Made by Thijs at Dortus
+
+Elke bewering nagelegd tegen de live listing van vandaag (8 richtingen, rood voorbij de grens, ring op de snede, STL en 3MF, Blender 4.2 en nieuwer, GPL-3.0-or-later): klopt. "5.2 LTS" staat in de tests van Bram (run 30 en eerder).
+
+**Na het versturen:** BlenderNation stuurt een bevestigingsmail naar thijs@dortus.com; daarop hoeft niets terug. Ik kijk in elke run met curl of het bericht op blendernation.com staat (zoeken op "Click Joints") en meet de downloads 2 dagen erna. Reacties onder een BlenderNation-bericht staan op hun site; antwoorden alleen daar, met de antwoorden uit run 16 en 30.
+
+- BlenderNation schrijft zelf een korte inleiding boven ons bericht ("we'll add an introduction text"); die sturen we niet mee.
+- De link naar de repo staat niet in C37: de listing linkt de meldingen al, en zo blijft het bericht bij voornaam en supportadres.
+
+### Op de pagina
+De knop "What it does" (naar #features) is vervangen door "How to install" als tweede knop; de eerste knop is nu "Get it on Blender Extensions". Twee knoppen is rustiger dan drie. Daan krijgt de schermafdrukken via deze regel en via lijst-thijs te zien.
+
+### Later, bij Pro
+Komt Pro op Superhive en op dortus.com/click-joints/: geen aanpassing van het BlenderNation-bericht vragen. Pro gaat als eigen commercieel bericht (alleen met Thijs, het kost geld) of helemaal niet naar BlenderNation.
+
+### Controleur
+Akkoord mits. Moet: het beeld was verkeerd beschreven; vervangen door een beter beeld (hele pop in het midden, kan-punt 1) en de beschrijving klopt nu. Kan-punten 2 tot 5 verwerkt (repo-link uit C37, knop benoemd, inleiding van BlenderNation, regel voor Pro).
+
+### Wat Thijs beslist (één ja dekt drie dingen)
+"Click Joints lancering ja" in de hoofdchat betekent: (1) de hoofdchat zet tak `claude/chris-click-joints-live` van repo dortus op main (alleen `click-joints/index.html`, 4 regels); (2) de hoofdchat stuurt C37 in bij BlenderNation, met het beeld hierboven; (3) de screenshot-stap voor r/blender mag gevraagd worden. Nee of later: niets verandert, de downloads lopen vanzelf door.
+
+### Wat dit deel zou veranderen
+Komt het BlenderNation-bericht er niet door (na 7 dagen niet op de site), dan geen tweede inzending; dan telt alleen r/blender en awesome-blender. Komt er een vraag van BlenderNation over "commercial" omdat er later een Pro komt: niet beantwoorden zonder Thijs, op zijn lijst.
