@@ -1,9 +1,9 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 2936, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 2936 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 2942, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 2942 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 30 s speeltijd (goud 2936)
-HOL kroniek 4.0 (wacht 0.0): Kees is here for your gold.
-HOL begin: opgegeten (Kees)
-HOL held binnen: Kees
+HOL eerste koop mogelijk na 30 s speeltijd (goud 2942)
+HOL kroniek 4.1 (wacht 0.0): Pim knocks first. Polite.
+HOL begin: opgegeten (Pim)
+HOL held binnen: Pim
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=2936, terugkomers=0
+HOL einde na 8 s, fps=10, goud=2942, terugkomers=0
