@@ -147,6 +147,13 @@ if HOEDEN >= 1:   # helm van de ridder
         PLUIM_TOP = z + 1.1   # voor de camera: de pluim mag niet uit beeld vallen
     else:
         kegel("helmpunt", (x - 0.03, 0, z + 0.6), 0.07, 0.0, 0.18, staal, kantel)
+        if globals().get("PLUIM_KNAK", False):
+            # capsule (Daan 14 nov): de rode pluim van de ridder hangt geknakt langs de helm,
+            # zodat je ziet dat het dezelfde helm is als die van de ridder. Standaard uit (spel ongewijzigd).
+            pl = g.mat("pluim", "rood", rough=0.7)
+            for px, py, pz, ps in [(-0.28, -0.1, 0.5, 0.2), (-0.48, -0.13, 0.48, 0.18),
+                                   (-0.64, -0.16, 0.36, 0.16), (-0.72, -0.18, 0.18, 0.14), (-0.74, -0.18, 0.01, 0.11)]:
+                bol("pluim", (x + px, py, z + pz), (ps, ps * 0.85, ps), pl)
     # ronde 2: neusstuk weg, het las als een staafje dat in het oog prikt
     z += 0.5; x -= 0.03; kantel = 9
 if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
