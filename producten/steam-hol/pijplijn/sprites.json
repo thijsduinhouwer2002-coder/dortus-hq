@@ -1169,6 +1169,50 @@
         }
       },
       "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png. Bram 14 nov 02:40 (Daan 02:45): 6e frame noot, _noot() tekent het 8x8-vak op (x - 2, y - 3). Daan 14 nov 08:45 (Olaf 07:50): 7e frame laars, de uitgespuugde laars; slijm.gd tekent hem met HB.teken_3d(self, \"laars\"), voetpunt onder-midden."
+    },
+    "royal": {
+      "model": "gloop.py",
+      "args": [
+        "{uit}",
+        "1",
+        "0",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        640,
+        640
+      ],
+      "samples": 48,
+      "ruimte": 1.6,
+      "cel": [
+        1,
+        1
+      ],
+      "px": 4,
+      "schaal_van": {
+        "sprite": "gloop",
+        "maal": 1.0
+      },
+      "frames": {
+        "achter": {
+          "stand": "cape",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "voor": {
+          "stand": "zoom",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Daan 14 nov 09:40 (Bram 09:25 en 09:40, keuze b): eigen blad voor Royal, zelfde eenheid als gloop. achter = troon, scepter en goudhoop (royal.py ronde 7c, stand cape), voor = broche (stand zoom). Model ja voor de proef in het echte beeld, nog niet naar main."
     }
   }
 }

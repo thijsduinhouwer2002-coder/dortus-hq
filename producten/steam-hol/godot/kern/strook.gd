@@ -40,6 +40,7 @@ var vers := false
 var proef_fps := 10          # kern/beeldtempo.gd GEWOON; met fps=<n> vast op n (CPU-proef)
 var fps_vast := false
 var moment_tot := -1.0
+var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van het graafmoment, om op te keuren (Daan 14 nov)
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
@@ -125,6 +126,7 @@ func _ready() -> void:
 				fps_vast = true
 			"zaad": proef_zaad = int(kv[1])
 			"deco_proef": proef_deco = kv[1] == "1"
+			"graaf_proef": proef_graaf = kv[1] == "1"
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
@@ -175,6 +177,9 @@ func _ready() -> void:
 	# het hol groeit niet onder het tekstvak: de schat staat er rechts tegenaan, het hol groeit naar links
 	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 40) / (HOL.KOL * schaal)) - 1
 	hol.leg_aan(hol.max_kol)
+	if proef_graaf:
+		hol.graaf_proef = true
+		hol.zet_graaf_proef()
 	slijm.position = hol.cel_naar_pos(Vector2i(hol.schat_kol - 2, 0))
 	regels = REGELS.new()
 	regels.rng = rng

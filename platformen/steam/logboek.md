@@ -739,3 +739,18 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Laars: tekens-blad op main heeft `laars` (224 x 32), maar in de film van main-run 43578224534 spuugt Gloop niet voor het eind van de minuut (laatste 45 beelden rond Gloop GEZIEN). Daarom keurstrook: tak `claude/steam-hol-laars-proef` (41a377b), `slijm.gd` `zet_laars_proef()`, strook-argument `laars_proef=1`, tijdelijk in `steam-hol.yml`. Toets erbij, lokaal Godot 4.3 0 FOUT. Lokaal (xvfb, 120 px) GEZIEN: bruine 3D-laars rechts naast Gloop op de vloer, vrij van de goudberg: `ontwerp/steam/tekens-3d/bram-laars-proef-lokaal-120-4x.png`.
 - `claude/steam-hol-graaf3d` was 101 commits achter main en botste alleen op de gerenderde bladen: main erin samengevoegd met de bladen van main (bca58fb), toetsen lokaal 0 FOUT. Nieuwe Windows-run geeft Daan een verse keurstrook.
 - Les: Godot 4.3 voor Linux staat niet in de werkplek; downloaden van de GitHub-release duurt ±10 s, `--write-movie` onder `xvfb-run` geeft in een halve minuut een echte strook om zelf te bekijken.
+
+## 14 nov 2026, Olaf (run 09:13 UTC)
+- Heldregel naar main: Windows-run 43576379693 op de tak groen (API), samengevoegd (03c2024).
+- Winkeltekst naast de code gelegd (`ontwerp/steam/winkelpagina/teksten.md`, "Eerlijk-check Olaf"): zes zinnen klopten niet meer (pixel, zoon van de aartsvijand, goud voor een gang, FPS-instelling, geluid, alles terug bij verplaatsen). Aangepast, Daan keurt.
+- Besluit balans dag 2: voor de demo niets aanpassen (demo stopt na 2 uur met kopen; het gat is het aantal upgrades, niet het tempo).
+- Duurtest 60 min op 1920x1080 met de volle 3D-build gestart (run 43580058698), volgende run uitlezen.
+- Winkelopnames uit de huidige build (week 43580202200, demo 43580204621, groen) en vijf schermen als voorstel voor Mila in `producten/steam-hol/bewijs-winkel3d/schermen-3d-voorstel/`.
+- Les: het demofilmpje van de winkel-workflow loopt niet gelijk met oudere opnames; zoek momenten opnieuw op een contactblad (stuk rond Gloop, elk 20e beeld) in plaats van oude beeldnummers over te nemen.
+- Systeemeisen voor de winkelpagina in `teksten.md` 4b (Windows 10 64-bit, OpenGL 3.3 of DX11 via ANGLE, 2 GB, 200 MB), elke regel met bron.
+- Correctie: geheugen voor spelers is ±116 MB (echte exe, run 43579985781), niet 35 MB (duurtest draait de losse Godot-binary). Systeemeisen aangepast. Kan: in `steam-hol-exe.yml` gaf "volledig" in die run "geheugen 0 MB"; meten na de schermfoto lijkt soms een al gestopt proces te raken.
+- 09:36 laars-keurstrook: Windows-run 43579921279 groen, 3D-laars GEZIEN op 96, 120 en 160 (beelden op tak `claude/steam-hol-laars-proef`). Vraag aan Daan in taken.md.
+- 09:40 graaf3d: Windows-run 43579985806 groen op de bijgewerkte tak, keurstrook GEZIEN, opnieuw aan Daan gevraagd.
+- Royal: spelkant voor een eigen blad `royal` (frames `achter` en `voor`, bredere cel) op tak `claude/steam-hol-royal3d` (cb9cb63), zonder blad niets veranderd, toetsen lokaal 0 FOUT. Pas naar main na Daans ja op het model.
+- Let op: de tijden 09:25 en 09:40 in mijn eerste twee berichten van deze run in taken.md liepen voor op de klok (echt ±09:15 en ±09:22); ook 09:36 en 09:42 waren echt ±09:31 en ±09:34.
+- 09:40 graaf3d op main na Daans ja (4ab002f), zonder graaf_proef. Volgende run: Windows-run op main lezen.

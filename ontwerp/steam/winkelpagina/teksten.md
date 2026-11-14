@@ -27,27 +27,27 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 
 > [b]Your taskbar has a basement now.[/b]
 >
-> Hats of the Fallen is a tiny pixel dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
+> Hats of the Fallen is a tiny dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
 >
 > [h2]Gloop wears the hats[/h2]
 > Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks. Spend your gold on him and he grows.
 >
 > [h2]Heroes hold grudges[/h2]
-> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy. **[v1]** One day his son shows up and wants his father's hat back.
+> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy.
 >
 > [h2]Glance, smile, get back to work[/h2]
 > [list]
 > [*]Something happens about every minute: a fall, a burp, a hero who tries to lift your whole hoard and gives up.
-> [*]A visit of 30 seconds is enough: read the chronicle, spend your gold on a new tunnel, go back to what you were doing.
+> [*]A visit of 30 seconds is enough: read the chronicle, dig a new tunnel or give Gloop an upgrade, go back to what you were doing.
 > [*]Coming back after a night away? You get gold and three lines about who came by. Nothing broke, none of your monsters died, nothing was stolen.
 > [/list]
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
 > [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks pass straight through the sky and the grass.
-> [*]Light on your PC: it only draws when something moves, with an FPS setting.
-> [*]Sound is off by default.
-> [*]No daily rewards, no energy, no timers calling you back. Anything you build can be moved or removed for all its gold back.
+> [*]Light on your PC: it draws 10 frames a second, and only what moves.
+> [*]Silent: no sound at all, so it never talks over your call.
+> [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.
 > [*]The whole game for one price. No shop inside the game, no marketplace, nothing that makes you faster.
 > [/list]
 
@@ -55,16 +55,25 @@ Te controleren voor het indienen (Olaf, Bram):
 - Hoogte en klikken (10 nov 00:55 UTC): rechtsklik wisselt 96, 120, 160 en bewaart het (`HOOGTES` en `MOUSE_BUTTON_RIGHT` in `kern/strook.gd`), klikken gaan door lucht en gras (`window_set_mouse_passthrough`), op main volgens Olaf, controleur akkoord. Zin aangepast naar wat de build doet. Klopt.
 - "about every minute": held elke 40 tot 60 s (strook.gd), klopt nu.
 - "three lines about who came by": `kern/strook.gd` roept `VOORTGANG.verhaal` al aan (controleur, GEZIEN). Klopt.
-- "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN).
+- "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN). (14 nov Olaf: niet in de bouw, zinnen aangepast, zie eerlijk-check hieronder.)
 - "A crown, a chef's hat, a bucket, a frying pan": zitten in Mila's 10 hoeden en in de code (Bram 22:40). Klopt.
 - "hats pile up next to him ... for weeks": hoedenberg in zes maten, 3000 hoeden na ±110 u open tijd (Bram, sim). Klopt.
 - Archenemy na drie keer vluchten: `kroniek.gd`. De zoon **[v1]**.
+
+**Eerlijk-check Olaf, 14 nov 2026 09:40 UTC (code op main f89cac7 nagelezen):** de tekst hierboven is op zes plekken aangepast, omdat de oude zin niet klopte met wat er in het spel zit. Daan keurt; zegt hij nee, dan staat de oude zin hieronder.
+1. "a tiny **pixel** dungeon": sinds het besluit van Thijs (13 nov 13:35) is de hele app 3D, gerenderd uit Blender. Nu "a tiny dungeon". Om dezelfde reden tag 3 Pixel Graphics naar Stylized.
+2. "One day his son shows up and wants his father's hat back" **[v1]**: zit niet in de code, niet op de demolijst en niet in "na het fest". Volgens de eerlijk-regel gaat hij eruit; ik bevestig hem niet. De aartsvijand na drie keer vluchten zit er wel in (`boek.gd` hoofdstuk 4, `kroniek_regels.gd` "aartsvijand").
+3. "spend your gold on a new tunnel": graven is gratis (`hol.gd` `klik()`; graven dat goud kost staat bij "na het fest"). Goud gaat naar Gloop en de put. Nu "dig a new tunnel or give Gloop an upgrade".
+4. "with an FPS setting": er is geen instelling voor de speler, alleen `fps=<n>` op de opdrachtregel voor de CPU-proef. Wel waar: 10 beelden per s, 20 tijdens een moment (`kern/beeldtempo.gd`), en het hol wordt één keer getekend (`hol_vast.gd`). Gemeten op een scherm van 1920 breed: gemiddeld 0,36 CPU-s per 10 s (demolijst 2). Nu "it draws 10 frames a second, and only what moves".
+5. "Sound is off by default": er zit helemaal geen geluid in (muziek en geluid staan bij "na het fest"). Nu "Silent: no sound at all". Komt er voor het uitbrengen toch geluid in, dan wordt het weer "Sound is off by default".
+6. "Anything you build can be moved or removed for all its gold back": verplaatsen bestaat niet en een gang kun je niet dichtgooien. Wel waar: Undo op de bovenste stap geeft de volle prijs terug en kan stap voor stap tot niveau 0 (`kern/kaartje.gd` `undo()`), en een put kun je weghalen (`weg()`). Nu "Changed your mind? Every upgrade can be undone for all its gold back."
+Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door lucht en gras (`strook.gd`, alleen onder het maaiveld vangt de muis), held ongeveer elke minuut, drie regels na een nacht weg (`voortgang.gd`), de vier genoemde hoeden (`modellen/hoeden.py`: kroon, koksmuts, emmer, pan), pleister en littekens (`held_beeld.gd`), bijnaam (Hoard-Toucher), bard met lied en "knows all the words" (`kroniek_regels.gd`), hoedenberg, geen winkel met echt geld in het spel.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
 Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
 1. **Desktop Companion** (verplicht voor het fest, zie `fest.md`)
 2. Idler
-3. Pixel Graphics
+3. Stylized (was Pixel Graphics; sinds 13 nov is alles 3D gerenderd, zie eerlijk-check Olaf 14 nov; Mila mag een andere stijl-tag kiezen, Stylized bestaat, GEZIEN)
 4. Funny
 5. Casual
 6. Management
@@ -86,6 +95,23 @@ Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tag
 Niet Side Scroller: het beeld schuift niet.
 
 Bewust niet: Tower Defense (helden lopen door vallen, maar je bouwt geen torens en stuurt niets tijdens het lopen; dat zou kopers misleiden), Dungeon Crawler (jij crawlt niet), Strategy (te licht), Dark Humor (het is eerder slapstick dan grimmig).
+
+## 4b. Systeemeisen (Olaf, 14 nov 2026; Steam vraagt dit veld op de winkelpagina)
+Alleen minimum, alleen Windows (de enige build). Engels zoals het in Steamworks komt:
+> **Minimum:**
+> OS: Windows 10 (64-bit)
+> Processor: any 64-bit dual-core CPU
+> Memory: 2 GB RAM
+> Graphics: OpenGL 3.3 or DirectX 11 (integrated graphics are fine)
+> Storage: 200 MB available space
+> Additional Notes: Sits above the taskbar. Uses about 120 MB of RAM while running.
+
+Waar het op steunt:
+- Engine Godot 4.3 met de Compatibility-renderer (`project.godot`: `gl_compatibility`). Godot noemt daarvoor als minimum OpenGL 3.3, een x86_64-CPU, 2 GB RAM en Windows 7 (DERDEN: docs.godotengine.org/en/4.3/about/system_requirements.html, met curl gelezen 14 nov). Windows 10 omdat Steam zelf sinds 2024 alleen nog Windows 10 en nieuwer ondersteunt (DERDEN, eigen kennis, niet opnieuw nagelezen) en omdat doorklikken en doorzichtig venster alleen op de Windows-runner (Server 2022) getoetst zijn.
+- DirectX 11: de exe valt zonder OpenGL 3.3 zelf terug op ANGLE (GEZIEN in run 43472246886: "switching to ANGLE"), en ANGLE tekent via Direct3D 11.
+- 200 MB: beide exe's zijn 81,4 MB (pck zit erin, run 43472246886), plus save en Godot-cache; ruim genomen.
+- 120 MB RAM: de echte exe (pck zit erin) gebruikt 116 MB (demo-exe, run 43579985781 op de 3D-build, 14 nov 09:22). De duurtests zeggen 34 tot 37 MB, maar die draaien het project met de losse Godot-binary, niet de exe; voor spelers telt de exe. 2 GB staat erbij omdat Godot dat als ondergrens noemt, niet omdat het spel het gebruikt.
+- Niet gemeten: een echte zwakke pc. Draait de duurtest ooit op een trage machine, dan dit bijwerken.
 
 ## 5. Prijs (voorstel, versie 2)
 **$4,99 / € 4,99**, eerste week 10% korting, plus een permanente gratis demo. Uitgewerkt in `platformen/steam/verdienmodel.md` (controleur akkoord): betaald levert in alle drie de schattingen 3,5 tot 11 keer meer op dan gratis zonder drops; $4,99 is de mediaan van de betaalde Desktop Companion-apps (GEZIEN door Kees) en een kleine stap na de demo. Thijs neigt naar gratis en beslist; kiest hij gratis, dan geldt hoofdstuk 4 van `verdienmodel.md` en verandert alleen deze regel en de zin "The whole game for one price" (wordt "Free. The whole game, no shop inside it, nothing that makes you faster."). Versie 1 van dit voorstel was $5,99.
