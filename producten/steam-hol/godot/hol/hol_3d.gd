@@ -89,7 +89,9 @@ const DECO_MAAIVELD := ["bloemen", "struik", "steen", "bordje", "vliegenzwam"]
 
 # Linkerbovenhoek voor stuk `naam` zodat zijn ankerpunt op `punt` valt (spelpixels). Staand: het voetpunt (standaard
 # midden onderkant, of `voet` [x, y] binnen het stuk uit de pijplijn). Hangend: het hangpunt (standaard midden bovenkant,
-# of `hang` [x, y]). Hele spelpixels, zoals de rest van het hol. Vector2.INF als het stuk niet in het blad staat.
+# of `hang` [x, y]). `uit` (plek in de render) telt hier niet: deze dingen staan op plekken die het spel kiest, dus voor
+# de pijplijn tellen alleen `maat`, `voet` en `hang`. Hele spelpixels, zoals de rest van het hol. Vector2.INF als het stuk
+# niet in het blad staat.
 static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
 	var m := deco_maat(naam)
 	if m == Vector2.ZERO or deco_blad == null:
