@@ -20,3 +20,14 @@ de hoedentoren op staat; mijn proef heeft geen hoeden. Toch: **5 is niet goed ge
 Volgende ronde (Daan): beoordelen met de hoedentoren erop (zoals in het spel), op ware grootte; goud groter en
 dikker zodat het klein blijft staan (zoom op de vloer, kraagrand); kraag lager zodat hij niet als losse schelp
 boven hem zweeft; eventueel hermelijn (wit met zwarte stipjes) als rand, het bekendste teken voor koning.
+
+## Ronde 2 (zelfde run, ±07:50 UTC)
+Hermelijnrand (wit met zwarte stipjes) aan kraag en zoom, kraag lager, gesp groter. Proefbeelden nu mét de hoedentoren
+erop zoals in het spel (de standen krijgen het 3e woord `4` alleen voor de camera; de hoeden zelf worden in deze standen
+niet gerenderd). Beelden: `ronde2-voor-na.png` en `ronde2-voor-na-klein3x.png`, GEZIEN met Read.
+Frisse kijker: **4**. "Cape en broche lezen als tovenaar of held, niet als koning. De witte uiteinden van kraag en zoom
+lijken handjes en voetjes. Klein is het verschil bijna weg. Voor de duurste upgrade moet het silhouet duidelijk anders en
+rijker." Eens: dit is de climax van de upgrades en mag veel groter.
+**Ronde 3 (volgende run Daan):** brede cape die duidelijk breder is dan het lijf en op de vloer uitwaaiert, hermelijn als
+doorlopende rand zonder losse uiteinden (geen handjes of voetjes), een warme gouden gloed of stralenkrans erachter, en
+toetsen op de kleine maat (3x) voordat een kijker hem ziet. Tot dan: niet inbouwen, pixels blijven.

@@ -131,6 +131,7 @@ if VERSIE == 3:
 if _stand in ("cape", "zoom", "ster"):
     import royal
     royal.bouw(_stand, [o for o in sc.objects if o.type == "MESH" or o.type == "META"], vloer)
+    _voor_toren = set(sc.objects)
 
 # ---------- hoedentoren ----------
 TOP = 1.52  # bovenkant van het lijf
@@ -192,6 +193,10 @@ if HOEDEN >= 4:   # rood mutsje met pompon, bovenop de geknakte punt
     z += 0.3
 
 # ---------- camera en licht (gedeeld) ----------
+if _stand in ("cape", "zoom", "ster"):   # hoeden alleen voor de camera (proefbeelden met toren), niet in de render
+    for o in sc.objects:
+        if o not in _voor_toren:
+            o.hide_render = True
 hoogste = max(TOP, z + 0.15, globals().get("PLUIM_TOP", 0))
 midden = hoogste / 2 - 0.25
 schaal = max(3.0, hoogste * 1.08 + 0.45)

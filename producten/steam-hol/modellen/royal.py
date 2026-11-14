@@ -33,6 +33,20 @@ def _knip(o, x=(-5, 5), y=(-5, 5), z=(-5, 5)):
     return o
 
 
+def hermelijn():
+    """Witte bontrand met zwarte stipjes: het bekendste teken voor koning (ronde 2, frisse kijkers lazen geen koning)."""
+    m = bpy.data.materials.new("hermelijn"); m.use_nodes = True
+    nt = m.node_tree; b = nt.nodes["Principled BSDF"]
+    b.inputs["Roughness"].default_value = 0.9
+    vo = nt.nodes.new("ShaderNodeTexVoronoi"); vo.inputs["Scale"].default_value = 9.0
+    ra = nt.nodes.new("ShaderNodeValToRGB")
+    ra.color_ramp.elements[0].position = 0.06; ra.color_ramp.elements[0].color = (0.02, 0.02, 0.025, 1)
+    ra.color_ramp.elements[1].position = 0.08; ra.color_ramp.elements[1].color = (0.92, 0.9, 0.86, 1)
+    ra.color_ramp.interpolation = "CONSTANT"
+    nt.links.new(vo.outputs["Distance"], ra.inputs["Fac"]); nt.links.new(ra.outputs["Color"], b.inputs["Base Color"])
+    return m
+
+
 def cape(lijf_delen, vloer):
     """Open mantel achter hem (alleen de achterste helft), klokvormig, met plooien die naar onder dieper worden.
     Hij komt aan de zijkanten iets naar voren, zodat je naast het lijf de buitenkant ziet, met een gouden zoom op de vloer."""
@@ -60,25 +74,25 @@ def cape(lijf_delen, vloer):
     sub = m.modifiers.new("glad", "SUBSURF"); sub.levels = 1; sub.render_levels = 1
     # hoge kraag achter zijn kruin (Daan 07:50, frisse kijker: de koepel las niet als mantel): een open kelk
     # die naar boven uitwaaiert, met gouden rand. Zo valt de mantel zichtbaar van zijn schouders.
-    bpy.ops.mesh.primitive_cone_add(vertices=96, radius1=0.45, radius2=0.82, depth=0.55, end_fill_type="NOTHING",
-                                    location=(0.04, 0.2, 1.3), rotation=(math.radians(14), 0, 0))
+    bpy.ops.mesh.primitive_cone_add(vertices=96, radius1=0.42, radius2=0.74, depth=0.42, end_fill_type="NOTHING",
+                                    location=(0.04, 0.2, 1.18), rotation=(math.radians(14), 0, 0))
     k = bpy.context.object; k.name = "cape_kraag"; bpy.ops.object.shade_smooth()
     k.data.materials.append(fluweel); k.data.materials.append(voering)
     ks = k.modifiers.new("dik", "SOLIDIFY"); ks.thickness = 0.04; ks.material_offset = 1
     _knip(k, y=(0.0, 5))
-    bpy.ops.mesh.primitive_torus_add(major_radius=0.82, minor_radius=0.04, major_segments=96, minor_segments=12,
-                                     location=(0.04, 0.2, 1.3), rotation=(math.radians(14), 0, 0))
-    kr = bpy.context.object; kr.name = "cape_kraagrand"; bpy.ops.object.shade_smooth(); kr.data.materials.append(goud)
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.74, minor_radius=0.085, major_segments=96, minor_segments=16,
+                                     location=(0.04, 0.2, 1.18), rotation=(math.radians(14), 0, 0))
+    kr = bpy.context.object; kr.name = "cape_kraagrand"; bpy.ops.object.shade_smooth(); kr.data.materials.append(hermelijn())
     # de rand ligt op de bovenkant van de kelk: in de lokale z een halve diepte omhoog
     import mathutils
-    kr.location = mathutils.Vector(kr.location) + mathutils.Euler(kr.rotation_euler).to_matrix() @ mathutils.Vector((0, 0, 0.275))
+    kr.location = mathutils.Vector(kr.location) + mathutils.Euler(kr.rotation_euler).to_matrix() @ mathutils.Vector((0, 0, 0.21))
     _knip(kr, y=(0.0, 5))
     # gouden zoom langs de onderrand op de vloer (naast het lijf zichtbaar); geen bies langs de opening,
     # die las als een regenboog
-    bpy.ops.mesh.primitive_torus_add(major_radius=1.0, minor_radius=0.05, major_segments=128, minor_segments=12,
+    bpy.ops.mesh.primitive_torus_add(major_radius=1.0, minor_radius=0.09, major_segments=128, minor_segments=16,
                                      location=(0, CY, 0.04))
     o = bpy.context.object; o.name = "cape_zoom"; o.scale = (BX * 1.08 * 1.02, BY * 1.02, 1.0)
-    bpy.ops.object.shade_smooth(); o.data.materials.append(goud)
+    bpy.ops.object.shade_smooth(); o.data.materials.append(hermelijn())
     _knip(o, y=(VOOR + 0.05, 5))
 
 
@@ -89,11 +103,11 @@ def zoom(lijf_delen, vloer):
     vloer.hide_render = True
     goud = g.mat("gesp", "goud", rough=0.16, spec=1.0, metaal=0.9, emis=0.12)
     loc, draai = (-0.42, -0.24, 1.2), (math.radians(60), 0, math.radians(-30))   # op het lijf, naar buiten gekeerd
-    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.13, depth=0.06, location=loc, rotation=draai)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.17, depth=0.07, location=loc, rotation=draai)
     s = bpy.context.object; s.name = "gesp"
     bv = s.modifiers.new("rond", "BEVEL"); bv.width = 0.025; bv.segments = 4
     bpy.ops.object.shade_smooth(); s.data.materials.append(goud)
-    bpy.ops.mesh.primitive_torus_add(major_radius=0.13, minor_radius=0.025, major_segments=48, minor_segments=12,
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.17, minor_radius=0.035, major_segments=48, minor_segments=12,
                                      location=loc, rotation=draai)
     t = bpy.context.object; t.name = "gesp_rand"; bpy.ops.object.shade_smooth(); t.data.materials.append(goud)
     # robijn: een beetje naar voren
@@ -102,7 +116,7 @@ def zoom(lijf_delen, vloer):
     if n.y > 0:
         n = -n
     bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, location=tuple(mathutils.Vector(loc) + n * 0.05))
-    r = bpy.context.object; r.name = "gesp_steen"; r.scale = (0.065, 0.065, 0.065)
+    r = bpy.context.object; r.name = "gesp_steen"; r.scale = (0.085, 0.085, 0.085)
     bpy.ops.object.shade_smooth(); r.data.materials.append(g.mat("gesp_robijn", "rood", rough=0.1, emis=0.3))
 
 
