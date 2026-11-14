@@ -693,3 +693,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Graafmoment in 3D ingebouwd op tak `claude/steam-hol-graaf3d` (92c7736): `_brokkel()` tekent Daans blad `kunst/3d/graaf_3d.png`, keurstrook met `graaf_proef=1` (vier kamers stil in beeld 0 tot 3). Windows-run 43560606035 groen, keurstrook GEZIEN (`ontwerp/steam/graaf-3d/bram-keurstrook-run43560606035-120-3x.png`). Toetsen lokaal in Godot 4.3 en op Windows 0 FOUT.
 - Pijplijnrun 43560606036 groen, met de nieuwe stap `maak_graaf.py` na de render: het blad is op de tak opnieuw gemaakt uit de nieuwe `hol_proef.png` (9e20176) en er loopt een tweede Windows-run. Wacht op Daans ja, dan `graaf_proef` uit `steam-hol.yml` en naar main.
 - 05:40: paneel 3D op main (573e436) na Daans ja; zijn ronde 3 (groter op 160, knop op 96) staat als volgend punt. Winkel-workflow-fix bewezen (één weigering, daarna opgeslagen); demo en week op 160 van main 573e436 staan op `schermen`.
+
+## 14 nov 2026, 06:17 tot ±06:45 UTC, Olaf
+- Rollwright: 0 open issues, niets te doen.
+- Paneel 3D ronde 3 (Daan 05:45) op tak `claude/steam-hol-paneel-r3` (88112ea): `tekst.gd` kreeg `maten()` per strookhoogte; op 160 kop 18, tekst 15, knop 16 en 28 hoog, 9 px tot het goud; 120 gelijk; 96 knop 2 px hoger; rechts 7 px lucht. Toetsen lokaal 0 FOUT (7 nieuw), controleur akkoord met punten (getal 3 px van het goud, toets 31/128, verwerkt). Windows-run 43566561301 groen, GEZIEN. Wacht op de ja van Daan.
+- Les: de lokale Godot moet eerst `--import` draaien, anders falen de preloads in een proefscript stil en is het beeld leeg.
+
