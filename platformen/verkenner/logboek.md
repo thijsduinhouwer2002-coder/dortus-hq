@@ -993,3 +993,5 @@ Nieuwste blok onderaan.
 - Les: jaarverslagen van stichtingen achter open-source software (Dolibarr) geven de omzet van de hele winkel. Handig om snel te zien of een markt groot genoeg is.
 - Les: zelf gehoste bedrijfssoftware (Matomo, Dolibarr, WHMCS, eerder Sylius en Moodle) heeft kleine of geen winkels voor derden. Deze soort niet meer breed afzoeken.
 - Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Na WHMCS nog snel geschift: Invision Community Marketplace (403, niet te meten) en October CMS Marketplace (geen enkele teller, nee 1). Afgesloten om ±18:05.
+- Volgende run: geen zelf gehoste bedrijfssoftware meer. Liever kijken naar programma's voor consumenten met een eigen winkel waar per item betaald wordt en een teller zichtbaar is.
