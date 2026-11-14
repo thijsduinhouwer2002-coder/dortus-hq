@@ -43,6 +43,13 @@ vervang('RY = float(os.environ.get("HEADER_RY", "-1.95"))', 'RY = float(os.envir
 vervang("BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]",
         os.environ.get("ST_BERG", "BERG = [(8, GX + 2.3, 0.9, 0.3, -10, 30)]"))
 
+# ronde 3 (kan Daan 18:28): warmere, iets lichtere wand rond de titel, zodat hij op de bibliotheekplank
+# naast lichte toppers niet wegvalt. ST_WARM=1 zet hem aan (B: ST_WAND1/2 standaard, C: 4a2e3a/86584e en ST_GLOED=700).
+WARM = os.environ.get("ST_WARM", "0") == "1"   # proef 14 nov: frisse kijker koos de koele wand (A 8, warm 6), dus standaard uit
+if WARM:
+    vervang('WAND = ruismat("wand", "35203c", "5a3a66", 1.1)',
+            'WAND = ruismat("wand", "' + os.environ.get("ST_WAND1", "4a2838") + '", "' + os.environ.get("ST_WAND2", "7c4a5c") + '", 1.1)')
+
 titel_begin = src.index("if KLEIN:\n    tekst(\"HATS\"")
 titel_eind = src.rindex("# ---------- licht")
 src = src[:titel_begin] + '''# ---------- titel staand: gecentreerd bovenaan, met een hoed op elke letter (zoals Daans logo) ----------
@@ -80,6 +87,12 @@ if os.environ.get("ST_LETTERHOEDEN", "1") == "1":
 ''' + src[titel_eind:]
 vervang('lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))',
         'lamp("titellamp", "AREA", (CX, -4.5, TZ + 1.5), (1.0, 0.95, 0.85), 550, 4.0, (CX, -0.6, TZ))')
+
+if WARM:   # fakkelgloed op de wand achter de titel: een warm lampje vlak voor de wand, zelf onzichtbaar
+    vervang("# ---------- camera ----------", """gl = bpy.data.lights.new("titelgloed", "POINT"); gl.color = (1.0, 0.62, 0.32)
+gl.energy = """ + os.environ.get("ST_GLOED", "900") + """; gl.shadow_soft_size = 2.0
+glo = bpy.data.objects.new("titelgloed", gl); glo.location = (CX, 1.6, TZ - 0.2); glo.visible_camera = False; sc.collection.objects.link(glo)
+# ---------- camera ----------""")
 
 cam_begin = src.rindex("# ---------- camera")
 cam_eind = src.rindex("sc.render.engine")
