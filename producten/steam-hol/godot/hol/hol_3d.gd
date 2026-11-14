@@ -132,6 +132,23 @@ static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
 		return ""
 	return naam if heeft(naam) else ""
 
+# Welk 3D-stuk hol.gd zelf (niet het vaste beeld) over de put in kolom k tekent (Olaf 14 nov: de laatste pixels in
+# winkelscherm 1 waren de put met gekochte stappen). "" = geen 3D, dan de pixel-put zoals altijd.
+# - dicht zonder stappen: zit al in het vaste beeld, dus "vast" (niets erover);
+# - Trick Lid (stap 3) dicht: "Looks like floor until it isn't", dus "gang": gewone vloer, geen stekels;
+# - Rusty Spikes en Deep Pit, en open na een klap: "put_<stap>" als Mila die stukken maakt, anders de 3D-put.
+static func put_stuk(h, k: int) -> String:
+	if not h.met_3d or not h.vallen.has(k) or not heeft("put"):
+		return ""
+	var niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	var open: bool = h.put_open.has(k)
+	if niv == 0 and not open:
+		return "vast"
+	if niv >= 3 and not open:
+		return "gang" if heeft("gang") else ""
+	var eigen := "put_%d" % niv
+	return eigen if niv > 0 and heeft(eigen) else "put"
+
 # welk kamerstuk een open cel k in de bovenste rij krijgt, alleen op de buren (zonder te kijken of het blad het heeft).
 # Schacht en 3D-schatkamer tellen als niet gegraven. Midden wisselt a en b op k % 2, zodat een lange kamer niet
 # steeds hetzelfde stuk herhaalt.

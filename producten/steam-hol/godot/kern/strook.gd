@@ -42,6 +42,7 @@ var fps_vast := false
 var moment_tot := -1.0
 var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van het graafmoment, om op te keuren (Daan 14 nov)
 var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), alleen om Royal in 3D te keuren (Bram 14 nov)
+var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_uit3d: PackedStringArray = []   # uit3d=helden,hol,slijm: dat deel zonder 3D, alleen voor de CPU-proef (demolijst 2, Olaf 14 nov)
@@ -132,6 +133,7 @@ func _ready() -> void:
 			"royal_proef": proef_royal = kv[1] == "1"
 			"graaf_proef": proef_graaf = kv[1] == "1"
 			"laars_proef": proef_laars = kv[1] == "1"
+			"put_proef": proef_put = clampi(int(kv[1]), 0, 3)
 			"uit3d": proef_uit3d = kv[1].split(",", false)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
@@ -201,6 +203,9 @@ func _ready() -> void:
 	hol.goud = KAARTJE.START_GOUD   # nieuw spel; laad() zet het goud uit de save
 	if not vers:
 		laad()
+	if proef_put > 0 and hol.upgrades != null:
+		hol.upgrades.niveaus["stekelput"] = proef_put
+		hol.queue_redraw()
 	if proef_royal and hol.upgrades != null and slijm.has_method("upgrade_veranderd"):
 		hol.upgrades.niveaus["slijm"] = 3
 		slijm.upgrade_veranderd()
