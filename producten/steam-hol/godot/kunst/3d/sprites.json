@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 16077,
+  "bytes": 16097,
   "cel_px": [
    87,
    56
@@ -62,7 +62,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 47779,
+  "bytes": 47777,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -385,7 +385,7 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 18001,
+  "bytes": 17971,
   "cel_px": [
    87,
    58
@@ -442,7 +442,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 28090,
+  "bytes": 28114,
   "cel_px": [
    105,
    64
@@ -498,7 +498,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 11369,
+  "bytes": 11339,
   "cel_px": [
    52,
    56
@@ -554,7 +554,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 18524,
+  "bytes": 18400,
   "cel_px": [
    87,
    56
@@ -611,7 +611,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 19002,
+  "bytes": 18788,
   "cel_px": [
    87,
    56
@@ -626,19 +626,19 @@
   ],
   "kruin": [
    [
-    0.0,
+    -0.12,
     1.75
    ],
    [
-    0.0,
+    -0.12,
     1.75
    ],
    [
-    0.0,
+    -0.12,
     1.75
    ],
    [
-    0.0,
+    -0.12,
     1.75
    ],
    [
@@ -668,7 +668,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 18346,
+  "bytes": 18350,
   "cel_px": [
    86,
    56
@@ -725,7 +725,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 18634,
+  "bytes": 18418,
   "cel_px": [
    87,
    56
@@ -780,11 +780,11 @@
   ]
  },
  "held4": {
-  "anker_x": 43,
+  "anker_x": 42,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 18021,
+  "bytes": 18019,
   "cel_px": [
-   86,
+   85,
    56
   ],
   "eenheid_px": 26.0307,
@@ -1026,7 +1026,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 128937,
+  "bytes": 128896,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1309,7 +1309,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 16488,
+  "bytes": 16358,
   "cel_px": [
    59,
    62
