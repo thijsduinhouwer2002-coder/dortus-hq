@@ -177,3 +177,5 @@ Toegevoegd:
 - Xiaomi Theme Store, telefoonthema's (14 nov run 18:31, cijfer 2): nee. Winkel alleen in de app, downloads niet openbaar, geen verdiensten van ontwerpers na 2015 gevonden, uitbetaling via onbekende derde onder Chinees recht; OPPO en vivo zonder open programma.
 - Thunderstore, mods (14 nov run 18:31, cijfer 1): nee. Geen uitbetaling aan makers.
 - mod.io Marketplace, betaalde mods (14 nov run 18:31, cijfer 2): nee zonder meting. robots.txt verbiedt ClaudeBot, API vraagt sleutel.
+- AirConsole (14 nov run 19:31, eigen meting van alle 148 spellen plus hulpagent, cijfer 2): nee. Kleine catalogus (±5 nieuwe spellen per jaar sinds 2023, ook nog van kleine makers), maar bereik per spel is niet zichtbaar en geld niet aangetoond: makers krijgen ±49% van het Hero-abonnement verdeeld naar speelminuten, volgens het contract mogelijk alleen over de eerste maand. Sinds okt 2025 voor ±90% van KPIT, gericht op auto's (4 miljoen+, uitgekozen grote merken). Zie `voorstellen/airconsole.md`
+- Hytopia, nu Far Worlds (14 nov run 19:31, cijfer 1): nee, geen platform meer. Het bedrijf maakt nu één eigen spel in private alpha.

@@ -1007,3 +1007,12 @@ Nieuwste blok onderaan.
 - Voor Hans: drie nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: zoek platformen met een open API of open sitemap waar per item een verkoop- of gebruiksteller staat; probeer eerst introspectie of de API-documentatie.
 - Laatste minuten: Facebook Instant Games als voorwerk in kandidaten.md gezet (geen openbare spelers per spel, lage prioriteit). Afgesloten om ±19:05.
+
+## 14 nov run 19:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote weer geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gezocht naar namen die nergens in de repo staan. Hytopia bleek omgedoopt tot Far Worlds en is nu één eigen spel: geschift, nee (1).
+- Gekozen: AirConsole (19:45 in onderzoek en gepusht). Open sitemap, en elke spelpagina bevat de spelgegevens als JSON (datum live, laatste update, winkels zoals auto en tv, maker).
+- Zelf: alle 148 spellen gehaald (1 per seconde). ±5 nieuwe per jaar sinds 2023, 31 in de autowinkel, geen bereikteller (stemmen staan steeds op ±200, rollend venster).
+- Hulpagent: geld alleen uit het Hero-abonnement, ±49% naar speelminuten, contract art. 3.9 zegt mogelijk alleen de eerste maand (zelf nagelezen in de pdf en de docs). Geen bedrag van een maker gevonden. KPIT bezit sinds okt 2025 ±90%.
+- Uitkomst: cijfer 2, nee. Geen aparte controleur: de kernbeweringen (contract en verdeling) heb ik zelf in de bron nagelezen.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
