@@ -386,7 +386,7 @@ func _draw() -> void:
 		var ps := HOL3D.put_in_schatkamer(self, k, schat_3d)
 		if ps == "weg":
 			continue   # in de 3D-schatkamer: dicht of Trick Lid dicht, de vloer is daar al dicht (Daan 14 nov 13:50)
-		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN), PUT_VLOER_Y):
+		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN), PUT_VLOER_Y, 1):
 			continue   # open of met gekochte stappen: alleen de vloerstrook, de rode koepel blijft erachter
 		var p3 := "" if schat_3d and k >= schat_kol - 2 and k <= schat_kol else HOL3D.put_stuk(self, k)
 		if p3 == "vast" or p3 == "gang" and sx == 0:

@@ -590,6 +590,11 @@ func _init() -> void:
 	sh["put_open"] = {}
 	var orr: Array = H3.onder_rects("put", Vector2(192, 24), 8)
 	ok(orr[0] == Rect2(192, 32, 16, 8) and orr[1] == Rect2(0, 32, 64, 32), "put schatkamer: alleen de onderste 8 rijen, blad 4 keer zo groot: " + str(orr))
+	var orr1: Array = H3.onder_rects("put", Vector2(192, 24), 8, 1)
+	ok(orr1[0] == Rect2(193, 32, 14, 8) and orr1[1] == Rect2(4, 32, 56, 32), "put schatkamer: rand 1 haalt links en rechts een spelpixel weg (kan 1 Daan): " + str(orr1))
+	var br: Array = H3.boven_rij(orr1, 4.0)
+	ok(br[0] == Rect2(193, 32, 14, 1) and br[1] == Rect2(4, 32, 56, 4) and br[2] == Rect2(193, 33, 14, 7) and br[3] == Rect2(4, 36, 56, 28), "put schatkamer: bovenste rij los (half doorzichtig, kan 2 Daan): " + str(br))
+	ok(H3.ZACHTE_RAND > 0.0 and H3.ZACHTE_RAND < 1.0, "put schatkamer: bovenste rij is half doorzichtig")
 	H3.blad = oud_hblad
 	H3.stukken = oud_stukken
 	# versiering dunner (Olaf 14 nov, Daan 02:50 en 03:55): één per twee tegels, geen vloerding op het looppad, lichtzwam weg bij Gloop
