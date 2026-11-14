@@ -73,22 +73,17 @@ ROBIJN = g.mat("robijn", "rood", rough=0.08, spec=1.0, emis=0.4)
 SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 
 KLEIN = VARIANT == "klein"
-GX = 2.35 if not KLEIN else 3.4          # Gloop rechts van het midden
-RX = -0.95 if not KLEIN else 0.2        # ridder
+GX = 2.35 if not KLEIN else 3.5         # Gloop rechts van het midden
+RX = -0.85 if not KLEIN else 0.9       # ridder
+RY = -2.2 if not KLEIN else -1.6
+RS = 1.2 if not KLEIN else 1.3
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
 o.scale = (30, 14, 1); o.rotation_euler = (math.radians(90), 0, 0); kies(o, WAND)
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0, 0)); o = bpy.context.object
 o.scale = (30, 14, 1); kies(o, VLOER)
-# stenen boog achter Gloop: een ring van afgeronde blokken, half in de wand
-for i in range(15):
-    a = math.radians(180 * i / 14)
-    x = GX + 3.4 * math.cos(a); z = 0.2 + 4.9 * math.sin(a)
-    bpy.ops.mesh.primitive_cube_add(size=1, location=(x, 3.05, z)); s = bpy.context.object
-    s.scale = (0.55, 0.4, 0.42); s.rotation_euler = (0, -a + math.pi / 2, 0)
-    bv = s.modifiers.new("r", "BEVEL"); bv.width = 0.1; bv.segments = 3
-    kies(s, STEEN if i % 2 == 0 else g.mat("steen_d", "65497a", rough=0.65))
+# ronde 4: stenen boog weg (las als los roze confetti, geen boog)
 # rotsen langs de voet van de wand (geen harde lijn tussen vloer en wand)
 for i in range(40):
     x = -7.5 + i * 0.4 + random.uniform(-0.1, 0.1)
@@ -123,8 +118,12 @@ def fakkel(x, z, y=2.9, kracht=260, groot=1.6):
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.6, 0.28); d.energy = kracht; d.shadow_soft_size = 0.3
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.6, zv + 0.5); sc.collection.objects.link(l)
 
-fakkel(GX - 3.4, 3.1)
-fakkel(GX + 3.4, 3.1)
+if not KLEIN:   # ronde 4: klein zonder fakkels, minder dingen
+    fakkel(GX - 3.4, 3.1)
+    fakkel(GX + 3.4, 3.1)
+else:
+    lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = 500
+    lk = bpy.data.objects.new("wandwarm", lamp_k); lk.location = (GX, 2.0, 3.5); sc.collection.objects.link(lk)
 
 # ---------- de schat: een berg munten onder en rond Gloop ----------
 bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=24, location=(GX, 0.5, -0.4)); berg = bpy.context.object
@@ -165,7 +164,7 @@ voor = set(bpy.data.objects)
 bron = open(os.path.join(MOD, "gloop.py"), encoding="utf-8").read()
 begin = bron.index("# ---------- lijf"); eind = bron.index("# ---------- camera")
 ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": 4, "sys": sys, "os": os,
-      "STAND": os.environ.get("CAPSULE_STAND", "rust")}
+      "STAND": os.environ.get("CAPSULE_STAND", "rust"), "PLUIM_KNAK": True}
 exec(bron[bron.index("def bol("):begin], ns)
 exec(bron[begin:eind], ns)
 GS = 1.95
@@ -182,17 +181,21 @@ for o in list(sc.objects):
     if o.name.startswith("gloop_") and o.parent is None and o is not anker:
         mw = o.matrix_world.copy(); o.parent = anker; o.matrix_world = mw
 anker.rotation_euler = (0, 0, math.radians(-12))
+# ronde 4: Gloop met toren groter, hij is de ster (via het anker: GS hierboven telt niet mee, matrix_world is daar nog oud)
+GROOT = 1.1 if not KLEIN else 1.15
+anker.scale = (GROOT, GROOT, GROOT)
 
 # ---------- de ridder: komt binnen en schrikt ----------
 import held
-held.bouw("ridder", "schrik", plek=(RX, -1.6, 0.0), draai=38, schaal=1.0, gloed=30, rand=60)
+# ronde 4: groter en dichterbij, zodat de grap (zijn helm, zijn pluim, op Gloop) sneller valt
+held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=38, schaal=RS, gloed=30, rand=60)
 
 # ---------- de hoedenberg: in het spel draagt Gloop er 4, de rest ligt op de berg (toets_held.gd) ----------
 import hoeden
-for nr, x, y, z, k, d in [(6, GX - 2.15, -0.9, 0.38, -18, 20), (5, GX + 2.0, -0.6, 0.55, 22, -15),
-                          (8, GX - 1.2, -1.75, 0.22, 12, 40), (3, GX + 1.25, -1.6, 0.32, -14, -30),
-                          (9, GX + 2.75, 0.2, 0.55, 28, -20), (2, GX - 2.9, 0.1, 0.2, -25, 30),
-                          (7, GX - 1.7, 0.35, 0.72, -10, 25)]:
+BERG = [(7, GX - 2.0, 0.2, 0.62, -14, 25), (5, GX + 2.15, -0.3, 0.6, 12, -20)]   # pet weg: las als rood bord
+if KLEIN:
+    BERG = []
+for nr, x, y, z, k, d in BERG:
     hoeden.bouw(nr, plek=(x, y, z), schaal=0.85, kantel=k, draai=d)
 
 # ---------- titel ----------
@@ -211,11 +214,11 @@ def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0):
     return o
 
 if KLEIN:
-    tekst("HATS", (-5.1, -0.6, 2.3), 2.3, kantel=-3)
-    tekst("OF THE FALLEN", (-5.0, -0.6, 1.32), 0.9, kantel=-3)
+    tekst("HATS", (-4.75, -0.6, 1.85), 2.0, kantel=-3)
+    tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3)
 else:
-    tekst("HATS", (-5.0, -0.6, 3.0), 1.95, kantel=-3)
-    tekst("OF THE FALLEN", (-4.9, -0.6, 2.1), 0.74, kantel=-3)
+    tekst("HATS", (-4.55, -0.6, 2.55), 1.75, kantel=-3)
+    tekst("OF THE FALLEN", (-4.45, -0.6, 1.72), 0.7, kantel=-3)
 
 # ---------- licht ----------
 def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
@@ -228,7 +231,7 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     return o
 
 lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), 1600, 4.0, (GX, 0.3, 1.5))
-lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 500, 3.0, (RX, -1.6, 1.0))
+lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 500, 3.0, (RX, RY, 1.0))
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
@@ -239,7 +242,7 @@ sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = (0.03, 0.
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.lens = 42; cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-doel = Vector((0.3, 0.6, 2.2)) if not KLEIN else Vector((0.45, 0.6, 2.1))
+doel = Vector((0.3, 0.6, 1.95)) if not KLEIN else Vector((0.45, 0.6, 2.0))
 co.location = (0.3, -13.5, 3.6) if not KLEIN else (0.45, -13.5, 3.5)
 co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 if KLEIN:

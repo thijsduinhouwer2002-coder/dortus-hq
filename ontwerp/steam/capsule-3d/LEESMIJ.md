@@ -40,3 +40,20 @@ Frisse kijker (alleen de header en de rij met toppers), letterlijk: "Rechts zit 
 3. Hoofdbeeld 1232x706 en bibliotheek 600x900 (staand: toren past daar juist goed).
 4. Idee uit de oude pixelcapsule terughalen: kleine hoeden op de letters van HATS (klein-oud-nieuw.png links). Dat maakt de titel zelf de grap.
 5. Daan keurt op fouten en leesbaarheid.
+
+## Ronde 4 (14 nov ±09:00 UTC, na Daans keuring van 06:35)
+Alle vier moets van Daan gedaan in `capsule3d.py`:
+1. **Helmgrap:** `"PLUIM_KNAK": True` naar `gloop.py`; Gloops helm draagt nu dezelfde rode pluim als de ridder.
+2. **Titel vrij van de rand:** HATS kleiner en naar binnen. Gemeten op de header (GEZIEN): links ±50 px, boven ±45 px. Klein: links ±38 px, boven ±30 px.
+3. **Niets afgesneden, alleen dingen die lezen:** stenen boog weg (las als confetti), kap, pan, emmer, pet en veermuts weg. Op de berg alleen nog de hoge hoed en de koksmuts, beide binnen het vak. De ridder groter (1,2) en dichterbij, voeten in beeld; de camera kijkt iets lager.
+4. **Klein:** geen fakkels en geen losse hoeden, Gloop met toren groter, ondertitel groter (0,86), ridder tussen titel en Gloop.
+- **Fout gevonden en omzeild:** `GS` (de grootte van Gloop) telde nooit mee: de lus zet locatie en schaal, maar daarna leest het anker `matrix_world` voordat Blender die bijwerkt. Gloop vergroten gaat nu via `anker.scale` (`GROOT`, header 1,1, klein 1,15). `GS` laat ik staan zodat de plek gelijk blijft.
+- `header-ronde2-920x430.png`, `klein-ronde2-462x174.png`: ronde 2 ter vergelijking. `voor-na-ronde2-ronde4.png`: boven groot, onder klein, links ronde 2, rechts ronde 4.
+- **Frisse kijker** (alleen header en klein), letterlijk: "het monster verzamelt de hoeden van gevallen avonturiers, en het jochie is de volgende ... De helm met rode pluim onderaan de stapel is precies dezelfde als die van het ridderjongetje", na 3 tot 5 seconden. Klein: "HATS lees je goed, OF THE FALLEN kun je nog net lezen ... de kroon en de helm lopen in elkaar over, en dat de helmen hetzelfde zijn zie je op dit formaat niet meer." Wat niet leest: de koksmuts ("slagroom of een wolkje?"), het mesje, de kroon lijkt "een hoopje munten". Cijfer groot 7 (was 7 bij Daans proef, 5 tot 6 bij ronde 2), klein 6 (was 5).
+- GEZIEN met Read: header, klein, voor/na. Eigen oordeel: één helder beeld nu, rustiger en rijker. Nog niet genoeg: op klein valt de grap weg.
+
+## Volgende ronde
+1. **Klein: de grap moet op 174 px leven.** Idee: in klein alleen helm en kroon op Gloop (2 hoeden), helm groot en met pluim vooraan, de ridder met dezelfde pluim even groot ernaast. Of: de pluimen extra fel rood en dikker in klein.
+2. Kroon: minder glans of strakkere punten, zodat hij niet als munten leest.
+3. Koksmuts: duidelijker (hogere band, plooien) of vervangen door een hoed die meteen leest (de heksenhoed staat al op de toren; misschien de hoge hoed alleen).
+4. Hoedjes op de letters van HATS (oude pixelcapsule), daarna hoofdbeeld 1232x706 en bibliotheek 600x900.
