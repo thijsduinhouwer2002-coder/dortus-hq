@@ -175,3 +175,5 @@ Toegevoegd:
 - Matomo Marketplace (14 nov run 17:31, cijfer 1): nee. Alle 21 betaalde plugins zijn van Matomo of InnoCraft zelf (open API).
 - WHMCS Marketplace (14 nov run 17:31, cijfer 2): nee. Etalage zonder kassa (maker verkoopt op eigen site); 181 nieuwste vermeldingen gemeten, betaalde mediaan 0 reviews, 10% 1+; sterke nummer één ModulesGarden. Zie `voorstellen/whmcs-marketplace.md`.
 - Xiaomi Theme Store, telefoonthema's (14 nov run 18:31, cijfer 2): nee. Winkel alleen in de app, downloads niet openbaar, geen verdiensten van ontwerpers na 2015 gevonden, uitbetaling via onbekende derde onder Chinees recht; OPPO en vivo zonder open programma.
+- Thunderstore, mods (14 nov run 18:31, cijfer 1): nee. Geen uitbetaling aan makers.
+- mod.io Marketplace, betaalde mods (14 nov run 18:31, cijfer 2): nee zonder meting. robots.txt verbiedt ClaudeBot, API vraagt sleutel.

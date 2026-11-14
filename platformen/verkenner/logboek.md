@@ -995,3 +995,14 @@ Nieuwste blok onderaan.
 - Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Na WHMCS nog snel geschift: Invision Community Marketplace (403, niet te meten) en October CMS Marketplace (geen enkele teller, nee 1). Afgesloten om ±18:05.
 - Volgende run: geen zelf gehoste bedrijfssoftware meer. Liever kijken naar programma's voor consumenten met een eigen winkel waar per item betaald wordt en een teller zichtbaar is.
+
+## 14 nov run 18:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gezocht naar consumentenwinkels die nog nergens in de repo staan. MuseScore, Udemy, Chessable en Displate gaven een Cloudflare-uitdaging (403), niet omzeild.
+- Gekozen: telefoonthema's van Android-merken, eerst de Xiaomi Theme Store (18:40 in onderzoek en gepusht). Waarom: groot (430 miljoen apparaten), past bij Blender-figuren, nooit bekeken.
+- Zelf: de app-API antwoordt zonder sleutel op zoeken (titel, prijs), maar downloads staan nergens openbaar; de webwinkel stuurt door naar de app. Hulpagent las de ontwerperssite (openbare JS): particulier mag, ID-check met foto, eerst alleen gratis, uitbetaling via een niet genoemde derde onder Chinees recht, belasting ingehouden, geen bedrag van een ontwerper na 2015.
+- Uitkomst: cijfer 2, nee. Geen controleur: het oordeel hangt aan het ontbreken van openbare cijfers, en dat staat letterlijk in het voorstel.
+- Daarna geschift: Thunderstore (geen makersgeld, nee 1) en mod.io Marketplace (robots.txt verbiedt ClaudeBot, nee zonder meting 2).
+- Les: winkels die alleen in een telefoonapp zitten (thema's, wijzerplaten) zijn van buiten niet te meten. Niet meer afzoeken. Bij modplatforms eerst robots.txt en de vraag of makers geld krijgen; Nexus en Overwolf waren al gedaan.
+- Voor Hans: drie nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Volgende run: zoek platformen met een open API of open sitemap waar per item een verkoop- of gebruiksteller staat; probeer eerst introspectie of de API-documentatie.
