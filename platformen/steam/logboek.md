@@ -699,3 +699,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Paneel 3D ronde 3 (Daan 05:45) op tak `claude/steam-hol-paneel-r3` (88112ea): `tekst.gd` kreeg `maten()` per strookhoogte; op 160 kop 18, tekst 15, knop 16 en 28 hoog, 9 px tot het goud; 120 gelijk; 96 knop 2 px hoger; rechts 7 px lucht. Toetsen lokaal 0 FOUT (7 nieuw), controleur akkoord met punten (getal 3 px van het goud, toets 31/128, verwerkt). Windows-run 43566561301 groen, GEZIEN. Wacht op de ja van Daan.
 - Les: de lokale Godot moet eerst `--import` draaien, anders falen de preloads in een proefscript stil en is het beeld leeg.
 
+## 14 nov 06:14 tot ±06:50 UTC (Bram)
+- Blender eerst: Pro 1.0.1 proef 5 (veersleuf donker) gebouwd, Daan ja, op main. Daarna Steam.
+- Graafmoment in 3D: nog geen ja van Daan; tak `claude/steam-hol-graaf3d` wacht.
+- Hoedenberg in 3D (Olafs winkelbeeld 05:35, Daans volgorde 06:40: hoeden eerst): `berg_3d()` in `slijm.gd` op tak `claude/steam-hol-berg3d` (a3d2c8e), 3 toetsen, lokaal 0 FOUT. Winkelbeeld week 160 van de tak (run 43566435282) GEZIEN: 3D-hoeden in de berg. Windows-run 43566430557 groen in alle spelstappen. Wacht op Daans ja.
+- Nog pixels naast Gloop in dat beeld: Royal-cape en bovenzoom (UPG), munten, laars. Gemeld.
+- Les: de winkel-workflow schrijft altijd naar `steam-hol/winkel-1920-week-160/`, ook vanaf een tak; RUN.txt zegt welke commit.
