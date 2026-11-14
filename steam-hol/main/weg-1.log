@@ -1,10 +1,10 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2892
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2850
 HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 2912 goud
+HOL opslag geladen: 0 terugkomers, 2870 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 15 s speeltijd (goud 2912)
-HOL kroniek 2.6 (wacht 2.6): 606 came, 381 fell. +2892 gold.
-HOL begin: vluchten (Fenna)
-HOL kroniek 5.2 (wacht 1.1): Fenna is here for your gold.
+HOL eerste koop mogelijk na 15 s speeltijd (goud 2870)
+HOL kroniek 2.6 (wacht 2.6): 606 came, 374 fell. +2850 gold.
+HOL begin: vluchten (Odo)
+HOL kroniek 5.1 (wacht 1.0): Odo read about you in a tavern.
 HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=2912, terugkomers=0
+HOL einde na 15 s, fps=10, goud=2870, terugkomers=0
