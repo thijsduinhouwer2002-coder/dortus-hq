@@ -75,7 +75,7 @@ SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 KLEIN = VARIANT == "klein"
 GX = 2.35 if not KLEIN else 3.3         # Gloop rechts van het midden
 RX = float(os.environ.get("HEADER_RX", "-0.1")) if not KLEIN else 1.15       # ridder
-RY = -2.2 if not KLEIN else -1.35
+RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else -1.35   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
 RS = 1.2 if not KLEIN else 1.5
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
@@ -119,7 +119,7 @@ def fakkel(x, z, y=2.9, kracht=260, groot=1.6):
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.6, zv + 0.5); sc.collection.objects.link(l)
 
 if not KLEIN:   # ronde 4: klein zonder fakkels, minder dingen
-    fakkel(GX - 3.4, 3.1)
+    fakkel(GX - 3.4 + 0.2, 3.1)   # ronde 5 (Daan kan 4): iets naar rechts, weg van de S van HATS
     fakkel(GX + 3.4, 3.1)
 else:
     lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = 500
@@ -163,10 +163,22 @@ cil("bekerbodem", (GX + 2.15, 0.4, 0.06), 0.18, 0.05, GOUD, verts=24)
 voor = set(bpy.data.objects)
 bron = open(os.path.join(MOD, "gloop.py"), encoding="utf-8").read()
 begin = bron.index("# ---------- lijf"); eind = bron.index("# ---------- camera")
-ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": int(os.environ.get("HEADER_HOEDEN", "3")) if not KLEIN else int(os.environ.get("KLEIN_HOEDEN", "1")), "sys": sys, "os": os,
-      "STAND": os.environ.get("CAPSULE_STAND", "rust"), "PLUIM_KNAK": True}
+# ronde 5 (Daan 14 nov kan 1): geen munt in de buik (versie 1). De losse munt bij zijn wang herhaalde het gouden
+# schild bij het gezicht van de ridder: twee gouden schijven naast twee gezichten.
+ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": int(os.environ.get("CAPSULE_GLOOP_V", "1")), "HOEDEN": int(os.environ.get("HEADER_HOEDEN", "3")) if not KLEIN else int(os.environ.get("KLEIN_HOEDEN", "1")), "sys": sys, "os": os,
+      "STAND": os.environ.get("CAPSULE_STAND", "rust"), "PLUIM_KNAK": os.environ.get("PLUIM_KNAK", "0") == "1"}
 exec(bron[bron.index("def bol("):begin], ns)
 exec(bron[begin:eind], ns)
+# ronde 5 (Daan kan 2): een rechte pluim zoals bij de ridder, geen geknakte (las als "rode rups langs de helm").
+# Met een kroon erop past hij niet bovenop; hij steekt links onder de kroon uit en buigt omhoog, net als bij de ridder.
+# Alleen hier in de capsule; gloop.py blijft ongewijzigd.
+PLUIM_RECHT = os.environ.get("PLUIM_KNAK", "0") != "1" and ns["HOEDEN"] >= 2
+if PLUIM_RECHT:
+    hr = bpy.data.objects.get("helmrand")
+    hx, hz = hr.location.x, hr.location.z - 0.01
+    pl = g.mat("pluim", "rood", rough=0.7)
+    for px, py, pz, ps in [(-0.42, 0.0, 0.40, 0.19), (-0.62, 0.0, 0.52, 0.18), (-0.80, 0.0, 0.68, 0.16), (-0.90, 0.0, 0.86, 0.13)]:
+        ns["bol"]("pluim", (hx + px, py, hz + pz), (ps, ps * 0.8, ps), pl)
 GS = 1.95
 for o in [o for o in bpy.data.objects if o not in voor]:
     if getattr(o, "is_shadow_catcher", False) or o.name.startswith("Plane"):
@@ -185,10 +197,32 @@ anker.rotation_euler = (0, 0, math.radians(-12))
 GROOT = 1.1 if not KLEIN else 1.3
 anker.scale = (GROOT, GROOT, GROOT)
 
+# ronde 5 (Daan kan 3): kroon minder munt: strakkere, smallere punten, kleinere bolletjes, minder glans
+for o in list(sc.objects):
+    if o.name.startswith("gloop_kroon") or (o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("kroon")):
+        if "kroonpunt" in o.name:
+            o.scale = (o.scale.x * 0.72, o.scale.y * 0.72, o.scale.z * 1.15)
+        if "kroonbol" in o.name:
+            o.scale = o.scale * 0.7
+km = bpy.data.materials.get("kroon")
+if km:
+    b = km.node_tree.nodes["Principled BSDF"]
+    b.inputs["Roughness"].default_value = 0.38; b.inputs["Metallic"].default_value = 0.75
+    if "Emission Strength" in b.inputs:
+        b.inputs["Emission Strength"].default_value = 0.0
+
 # ---------- de ridder: komt binnen en schrikt ----------
 import held
 # ronde 4: groter en dichterbij, zodat de grap (zijn helm, zijn pluim, op Gloop) sneller valt
-held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=38, schaal=RS, gloed=30, rand=60)
+ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=38, schaal=RS, gloed=30, rand=60)
+# ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
+SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))
+schild = [o for o in ridder.children if o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("schild")]
+if schild and SCHILD_ZAK:
+    s0 = schild[0].location.copy()
+    for o in ridder.children:
+        if abs(o.location.x - s0.x) < 0.03 and abs(o.location.z - s0.z) < 0.02:
+            o.location.z -= SCHILD_ZAK; o.location.x -= 0.12
 
 # ---------- de hoedenberg: in het spel draagt Gloop er 4, de rest ligt op de berg (toets_held.gd) ----------
 import hoeden
@@ -197,6 +231,12 @@ if KLEIN:
     BERG = []
 for nr, x, y, z, k, d in BERG:
     hoeden.bouw(nr, plek=(x, y, z), schaal=0.85, kantel=k, draai=d)
+# proef ronde 5 (Daan): klein met een tweede, kleinere hoed achter de helm (heksenhoed), niet ernaast. KLEIN_ACHTER=1
+if KLEIN and os.environ.get("KLEIN_ACHTER", "0") == "1":
+    bpy.context.view_layer.update()
+    hr = bpy.data.objects.get("gloop_helmrand")
+    p0 = hr.matrix_world.translation
+    hoeden.bouw(1, plek=(p0.x + 0.75, p0.y + 0.9, p0.z + 0.45), schaal=float(os.environ.get("ACHTER_S", "1.6")), kantel=-28, draai=0)
 
 # ---------- titel ----------
 def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0):

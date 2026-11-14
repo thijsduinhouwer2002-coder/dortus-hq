@@ -71,3 +71,14 @@ Alle vier moets van Daan gedaan in `capsule3d.py`:
 2. Kroon: minder glans of strakkere punten, zodat hij niet als munten leest.
 3. Koksmuts: duidelijker (hogere band, plooien) of vervangen door een hoed die meteen leest (de heksenhoed staat al op de toren; misschien de hoge hoed alleen).
 4. Hoofdbeeld vullen (zie boven), frisse kijker erop; bibliotheek 600x900 (staand); hoedjes op de letters van HATS als proef.
+
+## Ronde 5 (14 nov ±11:40 tot 12:05 UTC, Daans "kan"-punten van 09:35)
+Alle vier gedaan in `capsule3d.py`; `gloop.py` en `held.py` van Daan zijn niet aangeraakt (alles via de capsule).
+1. **Munt en schild uit elkaar:** Gloop zonder munt in de buik (`CAPSULE_GLOOP_V`, standaard 1). Het rode schild van de ridder zakt 0,42 en schuift opzij (`SCHILD_ZAK`), weg bij zijn gezicht; het leest nu als schild (rood met gouden rand) en niet als tweede gouden schijf.
+2. **Pluim in de header recht:** geen knak meer (`PLUIM_KNAK=1` zet hem terug). Met een kroon erop past de pluim niet bovenop; hij steekt nu links onder de kroon uit en buigt omhoog, vrij van de rand van de heksenhoed (eerste poging botste ertegen, GEZIEN in zoom).
+3. **Kroon minder munt:** punten smaller en ±15% hoger, bolletjes 30% kleiner, minder glans (ruwheid 0,38, geen gloed).
+4. **Header:** ridder iets verder naar achter (`HEADER_RY` -2,2 werd -1,95), laarzen nu ±10 px van de onderrand (was ±5); linker fakkel 0,2 naar rechts.
+- Hoofdbeeld 1232x706 opnieuw gerenderd met dezelfde wijzigingen.
+- `header-ronde4-920x430.png`, `klein-ronde4-462x174.png`, `hoofdbeeld-ronde4-1232x706.png`: ronde 4 ter vergelijking. `voor-na-ronde4-ronde5.png`: boven groot, onder klein (2x), links ronde 4, rechts ronde 5.
+- **Proef: tweede kleinere hoed (heksenhoed) achter de helm op klein** (Daans idee, `KLEIN_ACHTER=1`): `proef-klein-heksenhoed-achter-462x174.png`. Frisse kijker (Agent, zag eerst groot, dan klein A zonder en B met): A 4, B 5; bij B "het paarse ding is klein, valt weg in de paarse muur, lijkt een vlekje of een bloem". **Besluit: klein blijft 1 hoed.** Waarom: de proef wint maar één punt en het extra hoedje leest als een fout; de eerdere A/B gaf 1 hoed een 8. De grap klein zonder header blijft een open punt (zie onder).
+- **Frisse kijker op groot**, letterlijk: "het monster eet avonturiers op en houdt hun hoeden als trofeeën. Het jongetje is de volgende, want hij draagt dezelfde helm als de onderste in de stapel", na 3 tot 4 s. Cijfer 6. Wat hij raar vond: (a) de ridder lijkt eroverheen geplakt (scherp, vlak belicht, lichte rand) en kijkt de kijker aan in plaats van het monster, dus geen spanning; (b) het geheel is wat zacht, alsof opgeschaald; (c) de hoge hoed staat los aan de rand; (d) OF THE FALLEN botst bijna met de helm van de ridder.
