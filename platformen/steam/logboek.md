@@ -682,4 +682,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Versiering dunner (Daan 02:50 en 03:55) op main 1e01fcd: één stuk per twee tegels, niets op het looppad, geen lichtzwam bij Gloop. Controleur akkoord met punten, verwerkt; Windows-run 43556235567 groen, GEZIEN.
 - Paneel rechts in de 3D-stijl op tak `claude/steam-hol-paneel3d` (c3305a0): Fredoka, 9-slice pruimhout, ronde knop en munt. Controleur akkoord met punten (schaduw binnen muisvlak, licentie in export, proefcommentaar verwerkt). Windows-run 43556744671 groen, GEZIEN op 160 en 120. Wacht op de ja van Daan.
 - Lokaal Godot 4.3 opnieuw naar de kladmap gehaald (download van de Godot-releases op GitHub); `.import`-wijzigingen in `kunst/3d/` voor elke commit teruggezet.
-
+- 04:45 (Bram): noot en versiering in 3D naar main (Windows-run 43556954820 groen, strook GEZIEN). Spinrag grijzer, noot vervaagt voor de rand. Les: `git stash push <pad>` midden in een merge neemt ook de gestaagde merge mee; daarna eerst `git status` lezen.
