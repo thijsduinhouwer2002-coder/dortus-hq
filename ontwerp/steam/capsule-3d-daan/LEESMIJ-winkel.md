@@ -17,3 +17,8 @@ Vol formaat, 24 samples, `HERO_LENS=30 HERO_X=0.8 HERO_Z=1.75`. Proeven op half 
 - Iets dichterbij (lens 30 in plaats van 26): minder lege muur.
 - De punt van de heksenhoed en de laarzen vallen buiten het veilige vak; dat mag, het gaat om de gezichten en de helm.
 - Nog te doen: frisse kijker op het volle formaat, logo (`python winkel3d.py logo.png 2560 1410 32 logo`).
+
+### Frisse kijker op ronde 2 (agent, ±16:52 UTC): 7,5
+"Mooie, warme achtergrond, links rustig voor het logo, de grap snap je." Eén moet: de punt van de heksenhoed valt boven het veilige vak uit en de mond zit tegen de onderrand; de groep moet ±25% kleiner. Kan: ridder omhoog laten kijken naar de helm, twee of drie hoeden meer op de toren, rand van de muntenplas losser, fakkel linksboven helemaal in beeld.
+Geprobeerd: **ronde 2b** (`HERO_LENS=24 HERO_X=1.0 HERO_Z=1.6`, proef f en vol formaat GEZIEN met Read, met het veilige vak erop getekend). **Afgewezen, ronde 2 blijft de kandidaat.** Waarom: ook in 2b steekt de hoedpunt 40 px (half formaat) boven het vak uit, want de groep is hoger dan 380; passen kan alleen nog verder weg, en dan is de hero een lege muur met vier gelijke fakkels, precies wat ronde 1 fout deed. Steam vraagt dat de gezichten in het veilige vak staan; in ronde 2 staan beide gezichten, de helm op Gloop en zijn mond erin, alleen de punt van de heksenhoed en de kroon vallen bij een heel laag venster weg. 2b niet bewaard.
+Niet gedaan: meer hoeden op de toren, want de toren komt uit Mila's capsule en moet daarmee gelijk blijven (in het spel draagt Gloop er 4, de rest ligt op de berg). Ridderblik omhoog en de muntenrand: volgende ronde, met Mila (het is haar opstelling).
