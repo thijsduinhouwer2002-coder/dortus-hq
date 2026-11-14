@@ -566,6 +566,21 @@ func _init() -> void:
 	ph["met_3d"] = true
 	H3.stukken.erase("put")
 	ok(H3.put_stuk(ph, 7) == "", "put 3D: zonder stuk put in het blad de pixel-put")
+	# put in de 3D-schatkamer (Olaf 14 nov, moet Daan 13:50): geen pixel-plank onder de troon
+	H3.stukken["put"] = {"maat": [16, 16], "vak_px": [0, 0, 64, 64]}
+	var sh := {"met_3d": true, "schat_kol": 14, "vallen": {12: "stekelput", 7: "stekelput"}, "put_open": {}, "upgrades": pu}
+	pu.van_dict({"slijm": 0, "stekelput": 0})
+	ok(H3.put_in_schatkamer(sh, 12, true) == "weg", "put schatkamer: dicht zonder stappen niet tekenen")
+	ok(H3.put_in_schatkamer(sh, 7, true) == "" and H3.put_in_schatkamer(sh, 12, false) == "", "put schatkamer: buiten de 3D-schatkamer de gewone weg")
+	sh["put_open"] = {12: 1.0}
+	ok(H3.put_in_schatkamer(sh, 12, true) == "put", "put schatkamer: open na een klap het 3D-stuk (alleen de vloerstrook)")
+	sh["put_open"] = {}
+	pu.van_dict({"slijm": 0, "stekelput": 1})
+	ok(H3.put_in_schatkamer(sh, 12, true) == "put_1", "put schatkamer: Rusty Spikes het eigen stuk")
+	pu.van_dict({"slijm": 0, "stekelput": 3})
+	ok(H3.put_in_schatkamer(sh, 12, true) == "weg", "put schatkamer: Trick Lid dicht niet tekenen")
+	var orr: Array = H3.onder_rects("put", Vector2(192, 24), 8)
+	ok(orr[0] == Rect2(192, 32, 16, 8) and orr[1] == Rect2(0, 32, 64, 32), "put schatkamer: alleen de onderste 8 rijen, blad 4 keer zo groot: " + str(orr))
 	H3.blad = oud_hblad
 	H3.stukken = oud_stukken
 	# versiering dunner (Olaf 14 nov, Daan 02:50 en 03:55): één per twee tegels, geen vloerding op het looppad, lichtzwam weg bij Gloop

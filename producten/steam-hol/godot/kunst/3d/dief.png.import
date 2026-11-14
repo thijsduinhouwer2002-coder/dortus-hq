@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/dief.png.ctex"
+uid="uid://ceflw8n2uphyq"
+path="res://.godot/imported/dief.png-eaa2a8c8aa4352a7da1246b2c02678f4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/dief.png"
-dest_files=["res://.godot/imported/dief.png.ctex"]
+dest_files=["res://.godot/imported/dief.png-eaa2a8c8aa4352a7da1246b2c02678f4.ctex"]
 
 [params]
 

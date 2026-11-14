@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/held2.png.ctex"
+uid="uid://bsram4sb0lviy"
+path="res://.godot/imported/held2.png-3fd399e6222a33df1bfbb36909e7bebe.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/held2.png"
-dest_files=["res://.godot/imported/held2.png.ctex"]
+dest_files=["res://.godot/imported/held2.png-3fd399e6222a33df1bfbb36909e7bebe.ctex"]
 
 [params]
 

@@ -58,6 +58,35 @@ static func teken(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	doek.draw_texture_rect_region(blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
+# Alleen het onderste deel van een stuk, vanaf rij `van_y` (spelpixels binnen het stuk), op zijn plek. Voor de put in
+# de 3D-schatkamer: alleen de vloerstrook, zodat de koepel erachter blijft (Daan 14 nov 13:50). false = niet getekend.
+static func teken_onder(doek: CanvasItem, naam: String, plek: Vector2, van_y: int) -> bool:
+	if not heeft(naam):
+		return false
+	var r := onder_rects(naam, plek, van_y)
+	doek.draw_texture_rect_region(blad, r[0], r[1])
+	return true
+
+# [plek op het scherm, vak in het blad] voor teken_onder (los, zodat de toets het kan narekenen)
+static func onder_rects(naam: String, plek: Vector2, van_y: int) -> Array:
+	var v: Array = stukken[naam]["vak_px"]
+	var m: Array = stukken[naam]["maat"]
+	var y0: int = clampi(van_y, 0, int(m[1]) - 1)
+	var schaal: float = float(v[3]) / float(m[1])
+	return [Rect2(plek + Vector2(0, y0), Vector2(m[0], int(m[1]) - y0)),
+			Rect2(v[0], v[1] + y0 * schaal, v[2], v[3] - y0 * schaal)]
+
+# een put in de kolommen van de 3D-schatkamer (Daan 14 nov 13:50): "weg" als hij dicht is zonder stappen of als Trick
+# Lid dicht (de vloer van de schatkamer is al dicht), anders het stuk waarvan alleen de vloerstrook getekend wordt.
+# "" = niet in de 3D-schatkamer (gewone weg), of geen 3D-stuk (dan de pixel-put als terugval).
+static func put_in_schatkamer(h, k: int, schat_3d: bool) -> String:
+	if not schat_3d or k < h.schat_kol - 2 or k > h.schat_kol or not h.vallen.has(k):
+		return ""
+	var niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	if not h.put_open.has(k) and (niv == 0 or niv >= 3):
+		return "weg"
+	return put_stuk(h, k)
+
 # Versiering uit het deco-blad met de linkerbovenhoek op `plek`, op zijn eigen maat. false = niet getekend (dan pixels).
 static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	laad()

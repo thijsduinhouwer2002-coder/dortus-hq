@@ -15,6 +15,7 @@ const H := 40            # hoogte van de strook in spelpixels
 const OPP := 8           # maaiveld
 const GANG_BOVEN := 24   # bovenkant van de onderste rij (de gang)
 const GANG_ONDER := 38   # anker van een figuur: voeten op y 37, de bovenste vloerrij van Daans gangtegel
+const PUT_VLOER_Y := 8     # in het 3D-putstuk (16 hoog) beginnen de stekels op rij 8: daaronder is de vloerstrook
 
 const SCHAT := preload("res://kunst/schat.png")
 const PUT := preload("res://kunst/stekelput.png")
@@ -382,7 +383,12 @@ func _draw() -> void:
 		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
 			continue   # deze dichte put zit al in het 3D-stuk
 		# open (na een klap) en gekochte stappen: het 3D-stuk over de 3D-gang, met het schudden van de koop (Olaf 14 nov)
-		var p3 := HOL3D.put_stuk(self, k) if not (schat_3d and k >= schat_kol - 2 and k <= schat_kol) else ""
+		var ps := HOL3D.put_in_schatkamer(self, k, schat_3d)
+		if ps == "weg":
+			continue   # in de 3D-schatkamer: dicht of Trick Lid dicht, de vloer is daar al dicht (Daan 14 nov 13:50)
+		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN), PUT_VLOER_Y):
+			continue   # open of met gekochte stappen: alleen de vloerstrook, de rode koepel blijft erachter
+		var p3 := "" if schat_3d and k >= schat_kol - 2 and k <= schat_kol else HOL3D.put_stuk(self, k)
 		if p3 == "vast" or p3 == "gang" and sx == 0:
 			continue
 		if p3 != "" and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN)):
