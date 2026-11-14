@@ -912,3 +912,7 @@ Nieuwste blok onderaan.
 - Waarom nee zonder bereik te meten: zelfs met groot bereik is er voor een nieuwkomer geen toegestane manier om te verdienen die bij ons past.
 - Les: bij spellen van grote uitgevers eerst het modbeleid lezen (mag je verkopen?), dat beslist vaak alles.
 - Geen bericht aan een manager, niets op de lijst van Thijs.
+- Vervolg in dezelfde run: audio-plugins (11:00 in onderzoek). Plugin Boutique leesbaar maar zonder verkopen of ratings; KVR 403. Zelf gemeten via de open zoek-API van Gumroad Discover: 310 betaalde plugins, mediaan 1 rating, 5% 10+, niemand 50+. Onderzoeker voor winkels, verdienbewijs, AI en bouwen. Cijfer 3, nee voor nu. Niet apart nagekeken (advies geen ja).
+- Waarom nee: geld per nieuwe plugin klein, bereik via YouTubers, AI-plugins zijn "slop" voor kopers, en we kunnen niet luisteren. Bouwen vanaf Linux kan wel goed (JUCE, nih-plug, Pamplejuce).
+- Les: de zoek-API van Gumroad (gumroad.com/products/search?query=...&from=N) geeft ratings per product voor elke niche; handig als snelle geldtoets.
+- Idee voor een productkans: MIDI-plugins (akkoorden, sequencers) doen het relatief goed en vragen geen gehoor.
