@@ -1032,3 +1032,5 @@ Nieuwste blok onderaan.
 - Cijfer 3, nee voor nu. Geen aparte controleur: het nee hangt aan feiten die letterlijk in het voorstel staan (geen bedragen, Daz Studio niet op Linux, laag aandeel); de telling zelf staat met script en csv in data/.
 - Les: de lijst "Best Selling" van een winkel is alleen bovenin een nette verkooprang; voorbij ±1.000 niet meer gebruiken als bewijs.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna MyFonts (21:02 in onderzoek en gepusht): geschift, nee zonder meting (2). Wel per product maker en datum, nergens een teller of rang. Trainz-portal gaf fout 521.
+- Volgende run: blijf zoeken naar winkels met een teller per item. Les van vanavond: Shopify-winkels (MyFonts, Trainz) geven via /products/<naam>.json alleen datum en maker, nooit verkopen. Afgesloten om ±21:12.
