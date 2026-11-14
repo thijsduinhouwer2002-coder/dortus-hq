@@ -1052,3 +1052,4 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 1, nee. Het betaalprogramma voor sjabloonmakers bestaat alleen voor de VS en GB; de pagina's voor nl, de, br en id geven 404 (zelf gecontroleerd). Bedragen per export klein en niet openbaar. Bereik niet te meten: /templates/ verboden, geen sjablonen in de sitemap.
 - Les: bij grote apps met een makersprogramma eerst de programmapagina per land proberen (/partners/<programma>-nl). Eén curl beslist of Nederland mee mag.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Volgende run: Kahoot! Marketplace staat klaar in kandidaten.md (alleen Verified creators, PayPal). Afgesloten om ±23:20.
