@@ -418,12 +418,19 @@ func toren() -> Array:
 		for i in op.size():
 			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, -1 - int(HOED_ONDER[op[i]])])   # groot lijf is 20 breed
 		return uit
-	var boven := -16 + top_nu() + wip_nu()
-	for i in op.size():
-		var h: int = op[i]
-		var y := boven - int(HOED_ONDER[h])
-		uit.append([h, int(SCHEEF[i]), y])
-		boven = y + int(HOED_TOP[h])
+	var extra := 0
+	for ronde in 2:   # plafond, zoals in toren_3d(), in hele pixels
+		uit.clear()
+		var boven := -16 + top_nu() + wip_nu()
+		for i in op.size():
+			var h: int = op[i]
+			var y := boven - int(HOED_ONDER[h])
+			uit.append([h, int(SCHEEF[i]), y])
+			boven = y + int(HOED_TOP[h]) + extra
+		if ronde == 0:
+			extra = int(ceil(toren_extra(float(uit[-1][2] + int(HOED_TOP[int(uit[-1][0])])) if uit else 0.0, op.size())))
+			if extra <= 0:
+				break
 	return uit
 
 # De toren met de 3D-hoeden (Bram 13 nov 22:40): zelfde volgorde en scheefstand als toren(), maar elke hoed staat met
@@ -444,16 +451,37 @@ func toren_3d() -> Array:
 		for i in op.size():
 			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, 0.0, -ch])
 		return uit
-	var boven := float(-16 + top_nu() + wip_nu())
-	for i in op.size():
-		var h: int = op[i]
-		var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch
-		var top: float = float(hi["top"][h]) if hi.has("top") else 0.0
-		var nul := boven
-		var bovenkant := nul - (ny - top)
-		uit.append([h, int(SCHEEF[i]), nul, bovenkant])
-		boven = bovenkant + HB.HOED_IN_KOP
+	# Plafond (Daan 14 nov 00:40): eerst stapelen zoals altijd; komt de bovenste hoed hoger dan PLAFOND spelpixels onder de
+	# bovenrand van het hol, dan schuiven alle hoeden gelijk verder in elkaar (extra overlap per hoed), nooit afsnijden.
+	var extra := 0.0
+	for ronde in 2:
+		uit.clear()
+		var boven := float(-16 + top_nu() + wip_nu())
+		for i in op.size():
+			var h: int = op[i]
+			var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch
+			var top: float = float(hi["top"][h]) if hi.has("top") else 0.0
+			var nul := boven
+			var bovenkant := nul - (ny - top)
+			uit.append([h, int(SCHEEF[i]), nul, bovenkant])
+			boven = bovenkant + HB.HOED_IN_KOP + extra
+		if ronde == 0:
+			extra = toren_extra(float(uit[-1][3]) if uit else 0.0, op.size())
+			if extra <= 0.0:
+				break
 	return uit
+
+# Hoeveel spelpixels elke hoed extra in de vorige moet zakken zodat de bovenkant van de toren (Gloop-coordinaten) niet
+# boven het plafond komt. 0 als het past of als er maar één hoed is (die zit al op zijn kop). Hooguit TOREN_MAX_EXTRA,
+# dan blijft van elke hoed nog een rand zichtbaar.
+const PLAFOND := 2.0
+const TOREN_MAX_EXTRA := 6.0
+func plafond_y() -> float:
+	return PLAFOND - position.y   # bovenrand van het hol (hol-y 0) in Gloop-coordinaten, plus 2
+func toren_extra(bovenkant: float, n: int) -> float:
+	if n < 2 or bovenkant >= plafond_y():
+		return 0.0
+	return minf((plafond_y() - bovenkant) / float(n - 1), TOREN_MAX_EXTRA)
 
 # Eén 3D-hoed tekenen met zijn nulpunt op (x, nul). hap = uit het blad met de tandbogen (als dat er is).
 func _teken_hoed_3d(h: int, x: float, nul: float, hap: bool) -> void:
