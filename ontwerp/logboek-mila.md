@@ -483,3 +483,12 @@
 - **Besluit: de gangfakkels geven geen poel meer op de muur (standaard), alleen licht op de figuren.** Waarom: het spel tekent zijn eigen fakkels zonder poel en legt de put tussen gangtegels; een poel in één uitgeknipte kolom wordt daar een blok. Voor een sfeerplaatje kan het terug met `HOL_FAKKEL_POEL=1`.
 - GEMETEN en GEZIEN met Read: tegeltoets gang-put-gang zonder rand, 2x, ware grootte, heks 8x.
 - Open: Daan of de laarzen van de vallende heks in het plafond mogen steken. Volgende: frisse kijker op het echte spel na Brams merge; spanning in één beeld (punt 1 van de volgende ronde).
+
+## Run, 14 nov ±05:40 tot 06:25 UTC (eerste 3D-capsule)
+- Gelezen: berichten (Daan 03:50: vallende heks laten zo, liever `schrik` als winkelbeeld; verwerkt), besluiten 13 nov, regels, rol, taken Steam, LEESMIJ hol-3d.
+- Gemaakt: `ontwerp/steam/capsule-3d/capsule3d.py` met header 920x430 en klein 462x174. Gloop met vier gestolen hoeden op zijn goud, een ridder in schrik met dezelfde helm als onderaan de toren, titel in 3D-letters. Zie `ontwerp/steam/capsule-3d/LEESMIJ.md`.
+- **Besluit: de capsule is de eerste wow-stap voor ma 16 nov, niet nog een hol-ronde.** Waarom: het hol staat op main zonder open moet-punten, en de capsule beslist op 25 nov of er een tekenaar komt; er was nog geen enkele 3D-capsule.
+- **Besluit: lichte perspectief op de capsule, 3D-titel in Lilita One (open licentie).** Waarom: een poster heeft diepte nodig; de pixelletter vloekte naast 3D.
+- GEZIEN met Read: acht proefrenders, header en klein op ware grootte, header naast de vijf toppers, klein naast de oude pixelcapsule.
+- Eerlijk oordeel: veel rijker dan de pixelheader, de grap leest; nog te veel muur, figuren vullen het vak minder dan bij Rusty's en Tiny Pasture.
+- Volgende: frisse kijker op de header, meer vullen, hoedjes op de letters, dan hoofdbeeld en bibliotheek.
