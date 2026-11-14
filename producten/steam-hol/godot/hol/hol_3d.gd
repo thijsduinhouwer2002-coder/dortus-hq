@@ -58,6 +58,18 @@ static func teken(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	doek.draw_texture_rect_region(blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
+# Een stuk vanaf rij `van_y` (spelpixels binnen het stuk) tot onder, hard afgesneden, op zijn plek. Voor de ingang
+# (Bram 14 nov): het gras erboven komt van de gewone grastegel, de boog los erover (stuk ingang_boog). false = niet getekend.
+static func teken_vanaf(doek: CanvasItem, naam: String, plek: Vector2, van_y: int) -> bool:
+	if not heeft(naam):
+		return false
+	var v: Array = stukken[naam]["vak_px"]
+	var m: Array = stukken[naam]["maat"]
+	var f: float = float(v[3]) / float(m[1])
+	doek.draw_texture_rect_region(blad, Rect2(plek.x, plek.y + van_y, m[0], m[1] - van_y),
+		Rect2(v[0], v[1] + van_y * f, v[2], v[3] - van_y * f))
+	return true
+
 # Alleen het onderste deel van een stuk, vanaf rij `van_y` (spelpixels binnen het stuk), op zijn plek. Voor de put in
 # de 3D-schatkamer: alleen de vloerstrook, zodat de koepel erachter blijft (Daan 14 nov 13:50). `rand` spelpixels links
 # en rechts vallen weg (kan 1 van Daan 14:40: losse lichte snipper in de rechterkolom). De bovenste rij half doorzichtig,

@@ -173,7 +173,12 @@ func teken(d: CanvasItem) -> void:
 	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft); voor het brokkelen,
 	# want het 3D-stuk is 16 x 40 en dekkend en schoof anders over de net gegraven kolom heen (controleur 13 nov)
 	var ix: float = h._ingang_x()
-	if not (h.met_3d and HOL3D.teken(d, "ingang", Vector2(ix, 0))):
+	# Bram 14 nov: met een los boogstuk het ingangstuk pas vanaf het maaiveld, zodat de grastegel eronder doorloopt
+	# (het gras in het ingangstuk zelf week af en gaf een harde rechthoek), en de boogstenen er los overheen
+	if h.met_3d and HOL3D.heeft("ingang") and HOL3D.heeft("ingang_boog"):
+		HOL3D.teken_vanaf(d, "ingang", Vector2(ix, 0), OPP)
+		HOL3D.teken(d, "ingang_boog", Vector2(ix, 0))
+	elif not (h.met_3d and HOL3D.teken(d, "ingang", Vector2(ix, 0))):
 		d.draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
