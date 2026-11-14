@@ -42,6 +42,14 @@ co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_eul
     vervang("BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]",
             "BERG = [(7, GX + 2.3, -0.4, 0.55, 12, -20), (8, GX + 3.5, 0.3, 0.0, -10, 30), (6, GX + 4.3, 0.4, 0.0, 6, -20), (2, GX + 5.1, 0.3, 0.0, 15, -10),"
             " (5, GX + 3.9, 0.5, 0.42, -12, 10), (9, GX + 4.7, 0.55, 0.48, 14, 25), (3, GX + 4.3, 0.6, 0.9, -6, 0)]")
+    # ronde 4 (Daan, 14 nov ±18:40): HERO_BERG=4 maakt de hoedenberg voller, als een hoop: onder 5, midden 3, boven 2,
+    # met de hoge hoed rechtop op de top. In ronde 3 lag de hoge hoed plat naast Gloop en las de berg als losse spullen.
+    if os.environ.get("HERO_BERG", "4") == "4":
+        vervang("BERG = [(7, GX + 2.3, -0.4, 0.55, 12, -20), (8, GX + 3.5, 0.3, 0.0, -10, 30), (6, GX + 4.3, 0.4, 0.0, 6, -20), (2, GX + 5.1, 0.3, 0.0, 15, -10),"
+                " (5, GX + 3.9, 0.5, 0.42, -12, 10), (9, GX + 4.7, 0.55, 0.48, 14, 25), (3, GX + 4.3, 0.6, 0.9, -6, 0)]",
+                "BERG = [(8, GX + 2.6, 0.0, 0.0, -10, 30), (6, GX + 3.4, 0.2, 0.0, 6, -20), (2, GX + 4.2, 0.3, 0.0, 15, -10), (0, GX + 5.0, 0.3, 0.0, -8, 20), (1, GX + 5.35, 0.35, 0.0, 10, 0),"
+                " (5, GX + 3.1, 0.3, 0.45, -12, 10), (9, GX + 3.9, 0.45, 0.5, 14, 25), (4, GX + 4.7, 0.45, 0.45, -6, -10),"
+                " (3, GX + 3.55, 0.55, 0.92, -6, 0), (1, GX + 4.35, 0.6, 0.9, 8, 40), (7, GX + 3.95, 0.7, 1.18, 4, -15)]")
     # ronde 3 (kan van de frisse kijker): de ridder kijkt omhoog naar zijn helm op Gloop, niet recht vooruit.
     # Alleen in de hero: pupillen en glimstip iets hoger (HERO_BLIK, in hoofdmaat). Mila's capsule blijft gelijk.
     blik = float(os.environ.get("HERO_BLIK", "0.035"))

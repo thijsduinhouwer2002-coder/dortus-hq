@@ -38,3 +38,10 @@ Niet gedaan: meer hoeden op de toren, want de toren komt uit Mila's capsule en m
 - Rand van de muntenplas rafelig: 90 losse munten over de rand (`HERO_RAND`, eigen random zodat de rest op zijn plek blijft), niet bij de voeten en het schild van de ridder.
 - Frisse kijker op half formaat (voor/na): "onder is beter, klein verschil", 7. Moet 2 (munten bij de voeten) verwerkt. Moet 1 (achterste oog van de ridder valt half buiten het gezicht, loenst klein) zit in `held.py` met draai -40 en staat ook zo in de capsule: niet hier oplossen; bij Mila neergelegd.
 - Vol formaat `hero-ronde3-3840x1240.png` (20 samples) GEZIEN met Read, ook uitsnede bij de voeten op ware grootte. Ronde 3 is nu de kandidaat; op het blad (concept 8) vervangen.
+
+## Hero ronde 4 (±18:35 tot 18:45 UTC), hoedenberg als echte hoop
+- In ronde 3 lag rechts een laag hoopje van zeven spullen met de hoge hoed plat naast Gloop; het las als losse rommel, niet als "alle gevallen helden". Nu (`HERO_BERG=4`, standaard): onder 5, midden 3, boven 2 hoeden, met de hoge hoed rechtop op de top. Ronde 3 blijft te maken met `HERO_BERG=3`.
+- Camera als ronde 3: `HERO_LENS=30 HERO_X=0.8 HERO_Z=1.75`.
+- Proeven op 1920x620 met 8 samples GEZIEN met Read (ook de berg 1,5x uitvergroot). Hoge hoed eerst 0,17 te hoog (zweefde), verlaagd naar 1,18.
+- Frisse kijker (agent) op half formaat A/B, `hero-voor-na-ronde3-ronde4-1920.png`: A 6, B 8, "B leest als een echte berg hoeden". Kan 2 (heksenhoed rechts te dicht op de rand) verwerkt: 0,35 naar links. Kan 1 (berg iets meer laten overlopen in het goud) niet gedaan: de munten raken de berg al, en Steam legt hier niets overheen.
+- Vol formaat: `hero-ronde4-3840x1240.png` (24 samples).
