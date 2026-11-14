@@ -174,3 +174,4 @@ Toegevoegd:
 - DoliStore, modules voor Dolibarr (14 nov run 17:31, cijfer 3): nee. Winkel rekent af, maker 80%, maar de hele winkel draait ±€ 458.000 per jaar (2025, vlak sinds 2022) over 2.093 modules; geen verkoop- of downloadteller per module, dus niet per maker te meten; GPL verplicht. Zie `voorstellen/dolistore.md`.
 - Matomo Marketplace (14 nov run 17:31, cijfer 1): nee. Alle 21 betaalde plugins zijn van Matomo of InnoCraft zelf (open API).
 - WHMCS Marketplace (14 nov run 17:31, cijfer 2): nee. Etalage zonder kassa (maker verkoopt op eigen site); 181 nieuwste vermeldingen gemeten, betaalde mediaan 0 reviews, 10% 1+; sterke nummer één ModulesGarden. Zie `voorstellen/whmcs-marketplace.md`.
+- Xiaomi Theme Store, telefoonthema's (14 nov run 18:31, cijfer 2): nee. Winkel alleen in de app, downloads niet openbaar, geen verdiensten van ontwerpers na 2015 gevonden, uitbetaling via onbekende derde onder Chinees recht; OPPO en vivo zonder open programma.
