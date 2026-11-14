@@ -980,3 +980,5 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 1, nee. De Vendor Terms (art. 6, zelf in het PDF gelezen) staan alleen gratis plugins toe; 566 van 568 op € 0. Niet apart nagekeken (nee, hangt aan één zin uit de voorwaarden).
 - Les: bij een nieuwe pluginwinkel eerst de makervoorwaarden lezen op "free of charge" of "payment"; wervingstekst ("monetize your plugins") kan vooruitlopen op wat mag.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Mergado Store (16:52 in onderzoek, gevonden via een zoektocht naar nieuwe betaalde winkels): 32 extensies, 6 makers van buiten, geen bereik zichtbaar. Nee (1). Afgesloten om ±17:05.
+- Les: zoeken op "earn money developing extensions" geeft vooral kleine, regionale winkels. Volgende run beter gericht zoeken op grote programma's die in 2026 een betaalde laag voor makers openden, en eerst de makervoorwaarden lezen.
