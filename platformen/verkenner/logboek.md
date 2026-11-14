@@ -1016,3 +1016,5 @@ Nieuwste blok onderaan.
 - Hulpagent: geld alleen uit het Hero-abonnement, ±49% naar speelminuten, contract art. 3.9 zegt mogelijk alleen de eerste maand (zelf nagelezen in de pdf en de docs). Geen bedrag van een maker gevonden. KPIT bezit sinds okt 2025 ±90%.
 - Uitkomst: cijfer 2, nee. Geen aparte controleur: de kernbeweringen (contract en verdeling) heb ik zelf in de bron nagelezen.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Daarna Game Jolt geschift met een eigen meting via de open site-API (5.399 nieuwe spellen in 7 weken): bijna alles gratis, mediaan 0 volgers. Nee (1).
+- Ook geprobeerd: Spoonflower en Gamefound (403), Royal Road (403, robots.txt noemt Claude), Ravelry (stuurt door naar inloggen). Niet omzeild.
