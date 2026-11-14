@@ -240,7 +240,8 @@ static func tik(s) -> void:
 		s.hol.koop_munt_y = my
 		s.hol.queue_redraw()
 
-# Bovenkant (hol-spelpixels) van Gloop met zijn hoedentoren, in rust. Zelfde rekensom als slijm.gd toren():
+# Bovenkant (hol-spelpixels) van Gloop met zijn hoedentoren, in rust. Bij voorkeur slijm.gd hoogste_punt_rust()
+# (volgt 3D-lijf, 3D-hoeden en het torenplafond). Terugval voor een slijm zonder die functie: de pixelsom van toren(),
 # elke hoed staat met HOED_ONDER in de bovenkant van wat eronder staat en steekt tot HOED_TOP uit.
 static func munt_top(s) -> float:
 	var sl = s.slijm
@@ -252,7 +253,7 @@ static func munt_top(s) -> float:
 	if sl.has_method("hoogste_punt_rust"):
 		return sl.position.y + float(sl.hoogste_punt_rust())
 	if sl.has_method("is_groot") and sl.is_groot():
-		top -= 1.0   # Big Gloop is 1 spelpixel hoger (slijm.gd top_nu, Bram 762fd71)
+		top -= 2.0   # Big Gloop is 2 spelpixels hoger (slijm.gd top_nu bij RUST_GROOT; controleur 14 nov: -1 zat er 1 naast)
 	if sl.has_method("hoeden_op_hoofd"):
 		var c: Dictionary = sl.get_script().get_script_constant_map()
 		var onder: Array = c.get("HOED_ONDER", [])
