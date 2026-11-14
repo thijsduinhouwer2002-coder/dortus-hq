@@ -790,6 +790,24 @@ func _init() -> void:
 	ok(HB3.blad_voor("", 0) == "" and HB3.blad_voor("ridder", 0) == "ridder", "3D-held: GEWOON_3D uit en geen eigen blad geeft pixels")
 	HB3.GEWOON_3D = true
 	HB3.held3d = bewaard
+	# tekens in 3D (Bram 14 nov, Daan 00:55): blad in de volgorde van tekens.png, 8 x 8 spelpixels, zonder blad pixels
+	if FileAccess.file_exists("res://kunst/3d/tekens.png"):
+		ok(HB3.held3d.has("tekens"), "3D-teken: blad tekens geladen")
+	if HB3.held3d.has("tekens"):
+		var ti: Dictionary = HB3.held3d["tekens"][1]
+		var volg_ok := true
+		for tn in HB3.TEKEN:
+			volg_ok = volg_ok and (ti["frames"] as Array).find(tn) == int(HB3.TEKEN[tn])
+		ok(volg_ok, "3D-teken: zelfde volgorde als tekens.png (%s)" % str(ti["frames"]))
+		ok(float(ti["cel_px"][1]) / float(ti["px"]) == 8.0 and float(ti["cel_px"][0]) / float(ti["px"]) <= 10.0, "3D-teken: cel 8 hoog, hooguit 10 breed (%s)" % str(ti["cel_px"]))
+		ok(HB3.held3d["tekens"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-teken: lineair gefilterd")
+	var doek_t := Node2D.new()
+	ok(HB3.teken_3d(doek_t, "poef", 0.0, 0.0) == false, "3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf")
+	var tb: Dictionary = HB3.held3d.duplicate()
+	HB3.held3d.erase("tekens")
+	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: zonder blad false, dan tekens.png")
+	HB3.held3d = tb
+	doek_t.free()
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)
 	var t1: Vector3 = HB3.hoed_tuimel(0.2)

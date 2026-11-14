@@ -23,6 +23,7 @@ const HAP_S := 1.0          # 5 frames op 5 fps
 const OPSTAAN_S := 0.4
 const LAARS := preload("res://kunst/laars.png")         # 8 x 8, de laars van een held die hij at
 const TEKENS := preload("res://kunst/tekens.png")       # zzz = frame 3
+const HELD_BEELD := preload("res://systemen/held_beeld.gd")   # teken_3d(): zzz in 3D als het blad er is
 const SLAPEN := [0, 1]
 const SPUGEN := [2, 3, 4, 5]
 const SLAAP_S := 4.0
@@ -467,7 +468,8 @@ func _draw() -> void:
 		var zy := -25
 		for h in toren():
 			zy = mini(zy, int(h[2]) + int(HOED_TOP[int(h[0])]) - 9)   # zzz boven de hoedentoren
-		draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
+		if not HELD_BEELD.teken_3d(self, "zzz", 0.0, float(zy + 8)):   # 3D-wolkje uit het blad tekens, anders pixels
+			draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
 	if (leven == "spugen" and t >= leven_van + 0.6) or laars_ligt():
 		var p := laars_pos()
 		draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))
