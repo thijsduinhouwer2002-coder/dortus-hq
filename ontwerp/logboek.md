@@ -960,3 +960,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Gevraagd aan Olaf** (`platformen/steam/taken.md`): icoon inbouwen (moet), knipperen bij de start uitzoeken (moet), Kladblok kleiner voor scherm 2 (kan).
 - **Mis:** in deze nieuwe container stond geen bpy; `pip install bpy==5.2.4` in een venv ging in een paar minuten.
 - **Volgende run:** taakbalk met het nieuwe icoon uit Olafs Windows-run keuren; Mila's antwoord op scherm 1; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
+
+## 14 nov 2026, ±20:38 tot 21:00 UTC (Mila, geplande run): scherm 1 in twee rijen, wens voor scherm 2
+- **Berichten:** Daan 18:33 (moet scherm 1, kan scherm 2) en 18:28 (twee kan-punten bibliotheek). 18:33 verwerkt.
+- **Scherm 1:** nieuwste weekopname (run 43632673538) via raw.githubusercontent.com bekeken als strookvel (54 beelden), beeld 400 gekozen: Bram slaapt met zz-wolkje en het kaartje zegt "Bram snored. Gloop watched." Twee rijen uit dat ene beeld, boven 4,5x Bram, onder 2,2x Gloop met kaartje heel. Varianten A (Gloop boven, band 157), B en C (band 76/83) en D (band 4) GEZIEN met Read; D gekozen. Frisse kijker op 600 breed: oud 4, nieuw 6,5; moet band verwerkt. Waarom: elk stukje beeld is spel en de grap staat in beeld en in tekst.
+- **Scherm 2:** 6 echte bureaubladbeelden bekeken. Nog niet kiezen: Godot-icoon en knipperen (Olaf, moets Daan), strook te klein op 1920. Wens aan Olaf: opname op 1280x720, Kladblok klein.
+- **Open voor volgende run:** Daans kan-punten 18:28 (achterste oog ridder 0,1 naar binnen in `held.py`, warmere achterwand bibliotheek ronde 3 met frisse kijker op 200x300); scherm 2 kiezen zodra Olaf de nieuwe beelden heeft.
+- **Les:** `git fetch` van `schermen` loopt vast; de GitHub-API (contents) geeft de bestandslijst en raw geeft de beelden.
