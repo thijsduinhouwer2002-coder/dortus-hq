@@ -22,6 +22,7 @@ uit = sys.argv[1]
 W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
 GLOOP_V = int(sys.argv[5]) if len(sys.argv) > 5 else 2
 HOEDEN = int(sys.argv[6]) if len(sys.argv) > 6 else 2
+PUT_STAP = int(sys.argv[7]) if len(sys.argv) > 7 else 0   # Mila 14 nov: gekochte stap van de put (0 dicht, 1 Rusty Spikes, 2 Deep Pit)
 random.seed(7)
 
 g.leeg()
@@ -401,10 +402,49 @@ STAAL = g.mat("staal", "staal", rough=0.25, spec=0.8, metaal=0.9)
 # Ronde 4: de stekels steken boven de vloer uit (zoals hol.gd de put tekent: 8 spelpixels vanaf de vloer),
 # want onder de vloer is maar 2,6 spelpixel beeld over. Lichter staal met een glimpje, zodat ze op 120 px lezen.
 STAAL_L = g.mat("staal_l", "d8dce8", rough=0.2, spec=0.9, metaal=0.7, emis=0.15)
-for i in range(6):
-    for j in range(3):
-        hoog = 0.62 if (i + j) % 2 == 0 else 0.5
-        cil("stekel", (PUT_X - 0.6 + i * 0.24, 0.15 + j * 0.38, -0.25 + hoog / 2), 0.07, hoog, STAAL_L, verts=8, r2=0.0)
+if PUT_STAP == 0:
+    for i in range(6):
+        for j in range(3):
+            hoog = 0.62 if (i + j) % 2 == 0 else 0.5
+            cil("stekel", (PUT_X - 0.6 + i * 0.24, 0.15 + j * 0.38, -0.25 + hoog / 2), 0.07, hoog, STAAL_L, verts=8, r2=0.0)
+else:
+    # Mila 14 nov: de put per gekochte stap, ontwerp van Daan (ontwerp/steam/put-3d/put_stappen.py ronde d), hier
+    # overgenomen zodat de pijplijn put_1 en put_2 kan uitknippen (7e argument). Stap 0 blijft precies zoals hij was.
+    rnd_put = random.Random(4)
+    STAAL_D = g.mat("staal_d", "8c8a90", rough=0.55, spec=0.5, metaal=0.6)
+    ROEST = g.mat("roest_d", "7a3a1a", rough=0.85, spec=0.2, metaal=0.2)
+    for i in range(6):
+        for j in range(3):
+            x, y = PUT_X - 0.6 + i * 0.24, 0.15 + j * 0.38
+            if PUT_STAP == 1:   # Rusty Spikes: grijs staal met roestbanden, een derde helemaal roest, iets scheef
+                hoog = (0.6 if (i + j) % 2 == 0 else 0.48) + rnd_put.uniform(-0.05, 0.05)
+                m = ROEST if (i + j) % 3 == 0 else STAAL_D
+                kant = (math.radians(rnd_put.uniform(-14, 14)), math.radians(rnd_put.uniform(-14, 14)), 0)
+                cil("stekel", (x, y, -0.25 + hoog / 2), 0.075, hoog, m, rot=kant, verts=8, r2=0.0)
+                cil("stekelpunt", (x, y, -0.25 + hoog * 0.85), 0.075 * 0.3, hoog * 0.3, STAAL_L, rot=kant, verts=8, r2=0.0)
+                for zb in (0.12, 0.3):
+                    cil("roestband", (x, y, -0.25 + zb), 0.075 * (1 - zb / hoog) + 0.008, 0.06, ROEST, rot=kant, verts=8)
+            else:               # Deep Pit: langere, dunnere stalen stekels met roestige voet
+                hoog = 0.92 if (i + j) % 2 == 0 else 0.78
+                cil("stekel", (x, y, -0.42 + 0.18 + hoog / 2), 0.07, hoog, STAAL_L, verts=8, r2=0.0)
+                cil("stekelvoet", (x, y, -0.42 + 0.1), 0.08, 0.2, ROEST, verts=8)
+    if PUT_STAP == 1:
+        for dx in (-0.82, 0.8):
+            blok("roestrand", (PUT_X + dx, 0.2, 0.0), (0.12, 0.35, 0.03), ROEST)
+    else:   # zwart diep gat, donkere wanden, zwarte brede opening op vloerhoogte, donkere randen met rode band
+        ZWART = g.mat("diep", "0b0610", rough=1.0, spec=0.0)
+        for o in [o for o in sc.objects if o.name.split(".")[0] == "put_bodem"]:
+            bpy.data.objects.remove(o, do_unlink=True)
+        blok("put_diep", (PUT_X, 0.7, -0.66), (1.5, 1.5, 0.05), ZWART)
+        for dx in (-0.76, 0.76):
+            blok("put_wand", (PUT_X + dx, 0.6, -0.35), (0.04, 1.6, 0.62), ZWART)
+        blok("put_wand", (PUT_X, 1.35, -0.35), (1.55, 0.04, 0.62), ZWART)
+        blok("put_mond", (PUT_X, 0.45, 0.004), (1.72, 0.9, 0.01), ZWART)
+        RAND_P = g.mat("putrand_d", "3a2a40", rough=0.85)
+        BAND = g.mat("band", "c23a2a", rough=0.6, emis=0.1)
+        for dx in (-0.84, 0.84):
+            blok("putrand", (PUT_X + dx, 0.25, 0.08), (0.12, 0.5, 0.16), RAND_P)
+            blok("putband", (PUT_X + dx, 0.0, 0.1), (0.125, 0.02, 0.05), BAND)
 # buit van een gevallen held: een paar munten en zijn helm aan de rand
 for dx in (-0.85, -0.7, 0.75):
     cil("buit", (PUT_X + dx, 0.5, 0.04), 0.12, 0.03, GOUD, verts=20, rot=(0.2, 0.3, 0))
