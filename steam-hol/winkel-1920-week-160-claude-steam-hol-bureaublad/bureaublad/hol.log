@@ -1,24 +1,25 @@
-HOL weg geweest 35 s (klok terug: false): goud voor 1625, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 1625 goud
+HOL weg geweest 38 s (klok terug: false): goud voor 1565, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1565 goud
 HOL start hoogte=160 schaal=4 spelpixels=480x40 venster=(1920, 160) pos=(0, 872) held=res://systemen/held.gd
-HOL kroniek 4.0 (wacht 0.0): Sir Wout polished his armor for this.
-HOL held binnen: Wout
+HOL kroniek 4.0 (wacht 0.0): Tibbe the Sleepy shuffles in.
+HOL held binnen: Tibbe
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL meting t=20 beelden=101 helden=1 hol_vast=1
-HOL meting t=30 beelden=101 helden=1 hol_vast=1
-HOL meting t=40 beelden=101 helden=1 hol_vast=1
-HOL kroniek 45.4 (wacht 0.0): Wout left. Took nothing. Angry.
-HOL kroniek 47.9 (wacht 2.5): Page for the Knight. He got away.
-HOL meting t=50 beelden=53 helden=0 hol_vast=1
-HOL kroniek 54.8 (wacht 0.0): Rik knocks first. Polite.
-HOL held binnen: Rik
-HOL meting t=60 beelden=66 helden=1 hol_vast=1
-HOL meting t=70 beelden=101 helden=1 hol_vast=1
-HOL kroniek 76.3 (wacht 0.0): Rik found the Spike Pit. Hard. +6
-HOL kroniek 78.9 (wacht 2.5): Booked: the Hero. The pit got him.
-HOL meting t=80 beelden=98 helden=0 hol_vast=3
-HOL meting t=90 beelden=5 helden=0 hol_vast=3
-HOL meting t=100 beelden=4 helden=0 hol_vast=3
-HOL kroniek 108.0 (wacht 0.0): Wout limps back to the Spike Pit.
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 23.0 (wacht 0.0): Tibbe snored. Gloop watched.
+HOL kroniek 29.6 (wacht 0.0): Tibbe stays forever. +6
+HOL meting t=30 beelden=113 helden=0 hol_vast=2
+HOL meting t=40 beelden=20 helden=0 hol_vast=3
+HOL meting t=50 beelden=2 helden=0 hol_vast=3
+HOL kroniek 54.9 (wacht 0.0): Wout sneaks in. Nobody saw. You saw.
 HOL held binnen: Wout
+HOL meting t=60 beelden=63 helden=1 hol_vast=3
+HOL meting t=70 beelden=100 helden=1 hol_vast=3
+HOL kroniek 79.5 (wacht 0.0): Wout left. Took nothing. Angry.
+HOL meting t=80 beelden=93 helden=0 hol_vast=3
+HOL kroniek 82.1 (wacht 2.6): Page for the Thief. He got away.
+HOL meting t=90 beelden=4 helden=0 hol_vast=3
+HOL kroniek 94.9 (wacht 0.0): Gerda read about you in a tavern.
+HOL held binnen: Gerda
+HOL meting t=100 beelden=57 helden=1 hol_vast=3
+HOL kroniek 106.9 (wacht 0.0): Gerda found the Spike Pit. Hard. +6
