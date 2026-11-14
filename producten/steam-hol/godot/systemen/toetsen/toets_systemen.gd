@@ -578,6 +578,24 @@ func _init() -> void:
 				vk = kk
 	ok(dicht == 0 and stukken > 0, "deco in een echt hol: %d stukken, %d tegen de regels (naast elkaar, looppad, lichtzwam bij Gloop)" % [stukken, dicht])
 	hdk.free()
+	# graafmoment in 3D (Daan 14 nov): beeld 0 tot 3 over GRAAF_S, keurstrook zet vier kamers stil in elk beeld
+	var HG = load("res://hol/hol.gd")
+	ok(HG.graaf_beeld(0.0) == 0 and HG.graaf_beeld(HG.GRAAF_S * 0.3) == 1 and HG.graaf_beeld(HG.GRAAF_S * 0.6) == 2 \
+		and HG.graaf_beeld(HG.GRAAF_S * 0.99) == 3 and HG.graaf_beeld(9.0) == 3, "graaf: beelden 0 tot 3 over de graaftijd")
+	var hg = Node2D.new()
+	hg.set_script(HG)
+	hg.maak(640)
+	hg.leg_aan(640 / 16 - 4)
+	hg.graaf_proef = true
+	hg.zet_graaf_proef()
+	var gb := []
+	for c in hg.brokkel:
+		gb.append(HG.graaf_beeld(hg.brokkel[c]))
+	ok(gb.size() == 4 and gb.has(0) and gb.has(1) and gb.has(2) and gb.has(3), "graaf: keurstrook heeft vier kamers in beeld 0 tot 3 (%s)" % [gb])
+	hg._process(5.0)
+	ok(hg.brokkel.size() == 4, "graaf: de keurstrook-kamers blijven staan")
+	ok(ResourceLoader.exists(HG.GRAAF3D_PAD) and hg.GRAAF3D != null, "graaf: 3D-blad geladen")
+	hg.free()
 	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
 	var KJ = load("res://kern/kaartje.gd")
 	var nep_s := GDScript.new()
