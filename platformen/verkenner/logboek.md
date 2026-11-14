@@ -1021,4 +1021,4 @@ Nieuwste blok onderaan.
 - Daarna Board Game Arena (20:00 in onderzoek en gepusht): docs en wiki gelezen via de MediaWiki-API. Geen geld voor makers, licentie van de uitgever nodig. Nee (1).
 - Les: platforms waar je bestaande spellen van anderen namaakt (BGA, eerder Tabletop Simulator) betalen de maker niet; de licentie ligt bij het platform.
 - Voor Hans: vier nee's (AirConsole 2, Game Jolt 1, BGA 1, Hytopia 1). Geen bericht aan een manager, niets op de lijst van Thijs.
-- Volgende run: blijf zoeken naar winkels met een open teller per item; nog niet geprobeerd: MyFonts (leesbaar, robots.txt zonder verbod op Claude), Glowforge Catalog, NinjaTrader Ecosystem, Trainz.
+- Volgende run: blijf zoeken naar winkels met een open teller per item. Glowforge en NinjaTrader zijn aan het eind nog geschift (niet te meten). Nog niet geprobeerd: MyFonts (leesbaar, robots.txt zonder verbod op Claude) en Trainz. Afgesloten om ±20:05.
