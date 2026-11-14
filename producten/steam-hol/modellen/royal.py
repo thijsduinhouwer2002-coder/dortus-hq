@@ -48,6 +48,7 @@ def hermelijn():
     return m
 
 
+KUSSEN = False  # ronde 4: hij zit op een rood kussen met gouden kwasten (eigen teken van rijkdom)
 SCEPTER = True  # gouden scepter met bol, schuin tegen zijn rechterflank (frisse kijker 3b: een eigen koningsstuk)
 KRANS = False   # stralenkrans achter hem: ronde 3a las als stekels of schrik, dus uit
 RONDE = 3   # 3: rood fluweel, wijde sleep, hermelijn als zoom, stralenkrans (Daan 14 nov 08:45); 2: paarse kelk
@@ -66,7 +67,7 @@ def cape(lijf_delen, vloer):
     voering = g.mat("cape_voering", "5e0c1c", rough=0.85, spec=0.15)
     bont = hermelijn()
     BX, BY, BZ, CY, VOOR = 1.0, 0.85, 1.3, 0.22, -0.4
-    WIJD = 0.7                              # extra breedte onderaan (sleep)
+    WIJD = 0.7 if not KUSSEN else 0.3                             # extra breedte onderaan (sleep)
     ZOOM_Z = 0.17                           # tot hier hermelijn
     bpy.ops.mesh.primitive_uv_sphere_add(segments=128, ring_count=48, location=(0, 0, 0))
     m = bpy.context.object; m.name = "cape"
@@ -93,6 +94,8 @@ def cape(lijf_delen, vloer):
     sol = m.modifiers.new("dik", "SOLIDIFY"); sol.thickness = 0.06; sol.material_offset = 1
     sub = m.modifiers.new("glad", "SUBSURF"); sub.levels = 1; sub.render_levels = 1
     # geen losse bontrol op de vloer meer: die las als een witte plas (ronde 3a)
+    if KUSSEN:
+        _kussen()
     if SCEPTER:
         _scepter()
     if not KRANS:
@@ -114,6 +117,32 @@ def cape(lijf_delen, vloer):
     bpy.context.scene.collection.objects.link(kr)
     kr.location = (0, 0.95, 0.95); kr.data.materials.append(goud)
     so = kr.modifiers.new("dik", "SOLIDIFY"); so.thickness = 0.03
+
+
+def _kussen():
+    """Plat, bol kussen van rood fluweel onder hem, met een gouden bies en vier gouden kwasten op de hoeken.
+    Het spel tekent het lijf eroverheen, dus je ziet het links, rechts en voor zijn onderkant."""
+    import bmesh
+    fluweel = g.mat("kussen", "b81d34", rough=0.6, spec=0.35, sss=0.05)
+    goud = g.mat("kussen_goud", "goud", rough=0.2, spec=1.0, metaal=0.9, emis=0.1)
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(0, -0.1, 0.2))
+    k = bpy.context.object; k.name = "kussen"; k.scale = (3.3, 1.9, 0.6)
+    bpy.ops.object.transform_apply(scale=True)
+    sub = k.modifiers.new("bol", "SUBSURF"); sub.levels = 3; sub.render_levels = 3
+    bpy.ops.object.shade_smooth(); k.data.materials.append(fluweel)
+    # gouden bies rond het midden
+    bpy.ops.mesh.primitive_torus_add(major_radius=1.0, minor_radius=0.035, major_segments=96, minor_segments=12,
+                                     location=(0, -0.1, 0.2))
+    b = bpy.context.object; b.name = "kussen_bies"; b.scale = (1.38, 0.74, 1); b.data.materials.append(goud)
+    bpy.ops.object.shade_smooth()
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            x, y = 1.3 * sx, -0.1 + 0.66 * sy
+            bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, radius=0.07, location=(x, y, 0.22))
+            o = bpy.context.object; o.name = "kwast_knop"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
+            bpy.ops.mesh.primitive_cone_add(vertices=24, radius1=0.1, radius2=0.03, depth=0.2,
+                                            location=(x + 0.07 * sx, y - 0.02, 0.1))
+            o = bpy.context.object; o.name = "kwast"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
 
 
 def _scepter():
