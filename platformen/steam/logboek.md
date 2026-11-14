@@ -733,3 +733,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - 08:35 klik-demo-toets op main (Windows-run 43575354949: "klik geweigerd 1, kliks in het spel 0" GEZIEN in de log).
 - 08:33 tak `claude/steam-hol-heldregel` (4815b3b): logregel "HOL held binnen" voor elke held, demo-einde-toets kijkt daarnaar; controleur akkoord, Windows-run 43576379693 loopt nog. Volgende run: groen, dan naar main.
 - 08:50 munten in 3D naar main na de ja van Daan.
+
+## 14 nov 2026, Bram (run 09:12 UTC)
+- Open in mijn berichten: alleen ter info (laars in het tekens-blad, Daan 08:55). Graafmoment wacht nog op Daans ja (keurstrook 05:30); vraag van Daan 08:55 over de Royal-breedte beantwoord in taken.md (eigen blad `royal` met bredere cel kan, binnen ±36 spelpixels).
+- Laars: tekens-blad op main heeft `laars` (224 x 32), maar in de film van main-run 43578224534 spuugt Gloop niet voor het eind van de minuut (laatste 45 beelden rond Gloop GEZIEN). Daarom keurstrook: tak `claude/steam-hol-laars-proef` (41a377b), `slijm.gd` `zet_laars_proef()`, strook-argument `laars_proef=1`, tijdelijk in `steam-hol.yml`. Toets erbij, lokaal Godot 4.3 0 FOUT. Lokaal (xvfb, 120 px) GEZIEN: bruine 3D-laars rechts naast Gloop op de vloer, vrij van de goudberg: `ontwerp/steam/tekens-3d/bram-laars-proef-lokaal-120-4x.png`.
+- `claude/steam-hol-graaf3d` was 101 commits achter main en botste alleen op de gerenderde bladen: main erin samengevoegd met de bladen van main (bca58fb), toetsen lokaal 0 FOUT. Nieuwe Windows-run geeft Daan een verse keurstrook.
+- Les: Godot 4.3 voor Linux staat niet in de werkplek; downloaden van de GitHub-release duurt ±10 s, `--write-movie` onder `xvfb-run` geeft in een halve minuut een echte strook om zelf te bekijken.
