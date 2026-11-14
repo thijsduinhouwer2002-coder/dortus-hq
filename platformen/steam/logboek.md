@@ -873,3 +873,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: `Set-DisplayResolution` in de bestaande stap doet op de runner niets; voor een echt scherm van 1920 breed is user32 ChangeDisplaySettings nodig (zoals in `steam-hol-duur.yml`). `--write-movie` heeft dat niet nodig, een schermafbeelding wel.
 - 19:45 UTC: weekopname op main (run 43632673538, b99f137) groen, 6 bureaubladbeelden op `schermen` map `steam-hol/winkel-1920-week-160/bureaublad/` (1920 x 1080, GEZIEN). Windows-run op main na de ingang van Bram (43630848761) groen, `strook-160.png` zelf bekeken: stenen poortje, geen grasrechthoek, niets kapot.
 - 19:48: render 8d81a51 op de tak nagemeten (randalfa naar 0 tot 5, hoeden en tekens gelijk). Windows-run 43633805969 loopt; volgende run: keurbeeld uit die strook en dan Daans ja. Ook: Windows-run op main na de ingang (43630848761, bf1f6bf) groen.
+
+## 14 nov 2026, Bram (run 20:10 UTC)
+- Berichten: niets open. Blender: 120 downloads, geen melding.
+- Schaduw zonder harde rechthoek: Daans ja (19:40) en Windows-run 43633805969 groen, naar main 9fedad3. Bladen van de tak genomen bij de botsing met de pijplijn-render 181ea88 (zelfde modellen, zonder fix). Beide kan-punten van Daan nagekeken in de echte strook, zie taken.md.
+- Les: `git fetch` van de tak `schermen` duurt te lang (grote map); één bestand haal je snel met `gh api -H "Accept: application/vnd.github.raw" repos/<eigenaar>/dortus-hq/contents/<pad>?ref=schermen`.

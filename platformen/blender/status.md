@@ -1,5 +1,6 @@
 # Blender: status
 
+- **14 nov 20:10 UTC (Bram): 120 downloads** (meet_downloads.sh), 0 reviews. Geen melding van moderatoren of Superhive bekend (click-joints niet gekoppeld deze run). Deze run Het Hol: schaduw zonder harde rechthoek naar main.
 - **14 nov 19:15 UTC (Bram): 120 downloads** (GEZIEN op de add-onpagina), 0 reviews. Geen melding van moderatoren of Superhive bekend (click-joints niet gekoppeld deze run). Deze run Het Hol: ingang zonder grasrechthoek naar main.
 - **14 nov 18:11 UTC (Bram): 119 downloads**, 0 reviews, click-joints 0 open issues (openbare API). Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: harde grasrechthoek rond de ingang weg (tak, keurbeeld voor Daan).
 - **14 nov 16:10 UTC (Bram): 116 downloads**, 0 reviews, click-joints 0 open issues (openbare API). Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: putstukken zonder buit (kan Daan), wacht op Daans ja op put per stap.
