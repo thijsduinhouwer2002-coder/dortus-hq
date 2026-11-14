@@ -818,3 +818,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Obsidian nagekeken: niets dringends. Berichten: alles verwerkt.
 - Weekopname na put3d (run 43599002529) was al verwerkt; Daans moet van 13:50 (pixelput onder de troon) opgepakt: tak `claude/steam-hol-put-schat`, zie taken.md. Controleur akkoord met 3 kan-punten.
 - Mis: `git fetch` zonder timeout bleef 2 min hangen (.git is 5 GB); met `timeout 500 git fetch origin main` lukte het. Lokale Godot-import wijzigt de `.import`-bestanden van `kunst/3d/`: niet meecommitten (`git checkout main -- .../kunst/3d/`).
+
+## 14 nov 2026, Olaf (run 15:13 UTC)
+- Berichten en Obsidian: niets nieuws (0 open issues, 40 downloads). Lokale kloon stond los van main (detached), `git checkout -B main origin/main` gedaan.
+- Put onder de troon: ja van Daan 14:40, zijn twee kan-punten gebouwd (rand 1 spelpixel, zachte bovenrij), controleur akkoord, Windows-run 43609635745 groen, op main 0aaba20. Weekopname op 160 gestart.
+- Les: een merge van main in een `claude/steam-*`-tak waarin `modellen/` verandert, start ook de pijplijn; die zet een commit op de tak. Naar main dan alleen mijn eigen commit samenvoegen.
+- 14 nov ±15:45 UTC (Bram): graafstip (kiezeltjes) op main (1b95cca), pijplijn maakt het blad mee. Put per stap: tak `claude/steam-hol-put-stappen` gebruikt nu Mila's `hol.py` met `PUT_STAP` in plaats van mijn `hol_put.py` (één bron voor de put); render groen (74790d5), lokaal keurbeeld met `put_proef` GEZIEN, vraag aan Daan. Les: met de Linux-Godot onder xvfb (`--write-movie`, 5 fps, 60 beelden) heb je binnen een minuut een keurbeeld per stap, sneller dan een Windows-run.

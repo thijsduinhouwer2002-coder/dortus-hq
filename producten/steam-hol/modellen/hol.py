@@ -446,10 +446,12 @@ else:
             blok("putrand", (PUT_X + dx, 0.25, 0.08), (0.12, 0.5, 0.16), RAND_P)
             blok("putband", (PUT_X + dx, 0.0, 0.1), (0.125, 0.02, 0.05), BAND)
 # buit van een gevallen held: een paar munten en zijn helm aan de rand
+# Bram 14 nov: alles heet buit..., zodat de pijplijn de putstukken zonder buit knipt (HOL_VERBERG ["buit"]); in het spel
+# staat het putstuk los in de gang en werden de halve munten en de helm losse goud- en grijze snippers (kan Daan).
 for dx in (-0.85, -0.7, 0.75):
     cil("buit", (PUT_X + dx, 0.5, 0.04), 0.12, 0.03, GOUD, verts=20, rot=(0.2, 0.3, 0))
 bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, location=(PUT_X + 0.95, 0.55, 0.0))
-helm = bpy.context.object; helm.scale = (0.24, 0.22, 0.2); bpy.ops.object.shade_smooth(); helm.data.materials.append(STAAL)
+helm = bpy.context.object; helm.name = "buit_helm"; helm.scale = (0.24, 0.22, 0.2); bpy.ops.object.shade_smooth(); helm.data.materials.append(STAAL)
 helm.rotation_euler = (0, math.radians(25), 0)
 
 # ingang: fakkel op een paal naast de schacht, met een boogje van stenen
