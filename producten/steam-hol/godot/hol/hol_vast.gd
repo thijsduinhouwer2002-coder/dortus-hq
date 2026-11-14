@@ -88,7 +88,9 @@ func teken(d: CanvasItem) -> void:
 			d.draw_texture_rect_region(GRAS, Rect2(k * KOL, 0, KOL, OPP), Rect2((k % 4) * KOL, 0, KOL, OPP))
 		var hh: int = h._hash(k, 99)
 		if hh < 22 and k != h.ingang_kol and k <= h.max_kol + 1:
-			d.draw_texture_rect_region(MAAIVELD, Rect2(k * KOL, 0, KOL, OPP), Rect2((hh % 5) * KOL, 0, KOL, OPP))
+			# op 3D-gras het 3D-plantje uit het deco-blad (voet op de grasrand), anders het pixelplantje
+			if not (gras_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_MAAIVELD[hh % 5], Vector2(k * KOL + KOL / 2.0, OPP), false)):
+				d.draw_texture_rect_region(MAAIVELD, Rect2(k * KOL, 0, KOL, OPP), Rect2((hh % 5) * KOL, 0, KOL, OPP))
 	# twee rijen cellen
 	var schat_3d: bool = HOL3D.schatkamer_aan(h)
 	for k in h.kolommen:
@@ -111,18 +113,26 @@ func teken(d: CanvasItem) -> void:
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
 	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
+	# Op de 3D-gang het 3D-stuk uit het deco-blad als het daar staat (HOL3D.DECO_GANG), met hetzelfde voet- of hangpunt
+	# als het pixelding: vloerdingen staan op de gangvloer, stut en spinrag hangen aan het plafond.
 	var vloer: int = h.GANG_ONDER - 1
+	var gang_3d: bool = h.met_3d and HOL3D.heeft("gang")
+	var midden: float = KOL / 2.0
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
 		if h.vallen.has(k):
 			continue
 		if hh < 14:
-			d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(7 * KOL, 0, KOL, KOL))   # stut
+			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[7], Vector2(k * KOL + midden, GANG_BOVEN), true)):
+				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(7 * KOL, 0, KOL, KOL))   # stut
 		elif hh < 30:
 			var soorten := [0, 1, 2, 4, 5]   # paddenstoel, lichtzwam, ton, schedel, kristal
-			d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(soorten[hh % 5] * KOL, 0, KOL, KOL))
+			var c: int = soorten[hh % 5]
+			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[c], Vector2(k * KOL + midden, vloer + 1), false)):
+				d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(c * KOL, 0, KOL, KOL))
 		elif hh < 36 and not h.boven[k]:
-			d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
+			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
+				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
 
 func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -> void:
 	var stuk: String = HOL3D.stuk(h, r, k, schat_3d)

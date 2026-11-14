@@ -81,6 +81,35 @@ static func deco_maat(naam: String) -> Vector2:
 		return Vector2.ZERO
 	return Vector2(deco[naam]["maat"][0], deco[naam]["maat"][1])
 
+# De pixelversiering die nog over is (Daan 13 nov 19:35, kan: "pixels met zwarte rand staan hard op de zachte 3D-grond").
+# Namen in het deco-blad, op de volgorde van de vakken in kunst/versiering.png en kunst/maaiveld.png. Staat een naam niet
+# in het blad, dan blijft dat ding pixels; zo werkt main met elk blad.
+const DECO_GANG := ["paddenstoel", "lichtzwam", "ton", "krat", "schedel", "kristal", "spinrag", "stut", "vaandel"]
+const DECO_MAAIVELD := ["bloemen", "struik", "steen", "bordje", "vliegenzwam"]
+
+# Linkerbovenhoek voor stuk `naam` zodat zijn ankerpunt op `punt` valt (spelpixels). Staand: het voetpunt (standaard
+# midden onderkant, of `voet` [x, y] binnen het stuk uit de pijplijn). Hangend: het hangpunt (standaard midden bovenkant,
+# of `hang` [x, y]). `uit` (plek in de render) telt hier niet: deze dingen staan op plekken die het spel kiest, dus voor
+# de pijplijn tellen alleen `maat`, `voet` en `hang`. Hele spelpixels, zoals de rest van het hol. Vector2.INF als het stuk
+# niet in het blad staat.
+static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
+	var m := deco_maat(naam)
+	if m == Vector2.ZERO or deco_blad == null:
+		return Vector2.INF
+	var sleutel := "hang" if hangend else "voet"
+	var a := Vector2(m.x / 2.0, 0.0 if hangend else m.y)
+	var s: Dictionary = deco[naam]
+	if s.has(sleutel) and typeof(s[sleutel]) == TYPE_ARRAY and s[sleutel].size() == 2:
+		a = Vector2(float(s[sleutel][0]), float(s[sleutel][1]))
+	return (punt - a).floor()
+
+# Teken versiering met het ankerpunt op `punt`; false = niet in het blad (dan tekent de aanroeper de pixels).
+static func teken_deco_op(doek: CanvasItem, naam: String, punt: Vector2, hangend: bool) -> bool:
+	var plek := deco_plek(naam, punt, hangend)
+	if plek == Vector2.INF:
+		return false
+	return teken_deco(doek, naam, plek)
+
 # 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
 # (de schacht houdt de pixeltegel als het 3D-stuk ingang ontbreekt; een open put of een put met gekochte stappen krijgt de
 # 3D-gang en de pixel-put erover, zodat je niet twee putten door elkaar ziet en het schudden van de koop te zien is)
