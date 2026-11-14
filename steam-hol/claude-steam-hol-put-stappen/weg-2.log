@@ -1,9 +1,9 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 2930, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 2930 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 2936, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 2936 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 30 s speeltijd (goud 2930)
-HOL kroniek 4.0 (wacht 0.0): Fenna brought a torch. And hope.
-HOL begin: opgegeten (Fenna)
-HOL held binnen: Fenna
+HOL eerste koop mogelijk na 30 s speeltijd (goud 2936)
+HOL kroniek 4.0 (wacht 0.0): Mara read about you in a tavern.
+HOL begin: opgegeten (Mara)
+HOL held binnen: Mara
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=2930, terugkomers=0
+HOL einde na 8 s, fps=10, goud=2936, terugkomers=0
