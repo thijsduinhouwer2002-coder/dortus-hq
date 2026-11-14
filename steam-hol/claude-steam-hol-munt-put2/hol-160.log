@@ -1,0 +1,50 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
+HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
+HOL begin: vluchten (Bram)
+HOL held binnen: Bram
+HOL gegraven kolom 3
+HOL meting t=10 beelden=96 helden=2 hol_vast=2
+HOL kroniek 12.4 (wacht 0.0): Odo read about you in a tavern.
+HOL begin: opgegeten (Odo)
+HOL held binnen: Odo
+HOL kroniek 13.4 (wacht 1.0): Kees stays forever. +6
+HOL gegraven kolom 4
+HOL demo klik op Gloop
+HOL kaartje open 18.5: slijm
+HOL meting t=20 beelden=126 helden=2 hol_vast=5
+HOL demo klik op Buy
+HOL koop 20.0: slijm niveau 1, goud 27
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL begin: doorlopen (Tibbe)
+HOL held binnen: Tibbe
+HOL kroniek 25.1 (wacht 0.9): Tibbe has a map. It is wrong.
+HOL kroniek 26.1 (wacht 0.6): Bram fled. Grudge: the Spike Pit.
+HOL gegraven kolom 5
+HOL kroniek 28.6 (wacht 2.7): Gloop ate Odo. Kept the crown. +6
+HOL begin: terug (Bram)
+HOL held binnen: Bram
+HOL meting t=30 beelden=143 helden=2 hol_vast=6
+HOL kroniek 31.2 (wacht 1.4): Bram is back for the Spike Pit.
+HOL kroniek 33.7 (wacht 1.2): Tibbe is now the Hoard-Toucher.
+HOL kroniek 36.3 (wacht 5.8): Gloop is flat. Back soon.
+HOL kroniek 38.8 (wacht 13.3): Bram's song got popular. Uh oh.
+HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
+HOL kroniek 39.8 (wacht 1.0): Tibbe the Hoard-Toucher ran.
+HOL begin: opgegeten2 (Mara)
+HOL held binnen: Mara
+HOL meting t=40 beelden=101 helden=2 hol_vast=6
+HOL kroniek 42.3 (wacht 2.2): Mara knows all the words. Sadly.
+HOL kroniek vervallen 42.6: Gloop is up again. Wobbly.
+HOL kroniek 44.8 (wacht 3.1): The Spike Pit wins round two. +9
+HOL held binnen: Fenna
+HOL kroniek 47.3 (wacht 7.5): Bram's song got popular. Uh oh.
+HOL kroniek 48.4 (wacht 0.9): Gloop ate Mara. Kept the bucket. +6
+HOL kroniek vervallen 48.9: Fenna knocks first. Polite.
+HOL einde na 50 s, fps=14, goud=48, terugkomers=1
