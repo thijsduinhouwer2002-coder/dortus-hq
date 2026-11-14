@@ -542,6 +542,38 @@ func _init() -> void:
 	ok(H3.deco_plek("proef", Vector2(40.5, 39), false) == Vector2(37, 27), "deco: hele spelpixels")
 	H3.deco_blad = oud_blad
 	H3.deco = oud_deco
+	# versiering dunner (Olaf 14 nov, Daan 02:50 en 03:55): één per twee tegels, geen vloerding op het looppad, lichtzwam weg bij Gloop
+	var HV = load("res://hol/hol_vast.gd")
+	var nh := {"ingang_kol": 2, "schat_kol": 14, "vallen": {7: "stekelput"}}
+	ok(HV.deco_hh(nh, 5, 20, 4) == 99, "deco: niets direct naast het vorige stuk")
+	ok(HV.deco_hh(nh, 5, 5, 3) == 5, "deco: twee tegels verder mag weer (stut)")
+	ok(HV.deco_hh(nh, 3, 20, -99) == 99, "deco: geen vloerding op de landingstegel onder de schacht")
+	ok(HV.deco_hh(nh, 3, 10, -99) == 10, "deco: stut aan het plafond mag op de landingstegel")
+	ok(HV.deco_hh(nh, 6, 20, -99) == 99 and HV.deco_hh(nh, 8, 24, -99) == 99, "deco: geen vloerding naast de val")
+	ok(HV.deco_hh(nh, 8, 32, -99) == 32, "deco: spinrag naast de val mag")
+	ok(HV.deco_hh(nh, 10, 21, -99) == 20 and HV.deco_hh(nh, 13, 16, -99) == 15, "deco: lichtzwam binnen twee van Gloop wordt paddenstoel")
+	ok(HV.deco_hh(nh, 9, 21, -99) == 21, "deco: lichtzwam drie tegels van Gloop blijft")
+	nh["deco_proef"] = true
+	ok(HV.deco_hh(nh, 5, 20, 4) == 20, "deco: keurstrook houdt de vaste rij")
+	var hdk = Node2D.new()
+	hdk.set_script(load("res://hol/hol.gd"))
+	var dicht := 0
+	var stukken := 0
+	for breed in [320, 480, 640]:
+		hdk.maak(breed)
+		hdk.leg_aan(breed / 16 - 4)
+		var vk := -99
+		for kk in range(hdk.ingang_kol + 1, hdk.schat_kol - 1):
+			if hdk.vallen.has(kk):
+				continue
+			var hk: int = HV.deco_hh(hdk, kk, hdk._hash(kk, 7), vk)
+			if hk < 30 or (hk < 36 and not hdk.boven[kk]):
+				if kk - vk < 2:
+					dicht += 1
+				stukken += 1
+				vk = kk
+	ok(dicht == 0 and stukken > 0, "deco in een echt hol: %d stukken, %d direct naast elkaar" % [stukken, dicht])
+	hdk.free()
 	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
 	var KJ = load("res://kern/kaartje.gd")
 	var nep_s := GDScript.new()
