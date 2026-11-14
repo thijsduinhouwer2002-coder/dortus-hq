@@ -745,9 +745,9 @@ func _init() -> void:
 			var b3d: Array = g3.berg_3d()
 			var b_ok := b3d.size() == bp.size() and bp.size() >= 3
 			for k in mini(bp.size(), b3d.size()):
-				b_ok = b_ok and int(b3d[k][0]) == int(bp[k][0]) and is_equal_approx(float(b3d[k][1]), float(bp[k][1]))
+				b_ok = b_ok and int(b3d[k][0]) == int(bp[k][0]) and is_equal_approx(float(b3d[k][1]), float(bp[k][1]) - g3.BERG_3D_LUCHT)
 				b_ok = b_ok and is_equal_approx(float(b3d[k][2]), float(int(bp[k][2]) + 1 + g3.HOED_ONDER[int(bp[k][0])]))
-			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg (%d)" % b3d.size())
+			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg, 1 spelpixel verder van Gloop (%d)" % b3d.size())
 			ok(b3d.size() > 0 and is_equal_approx(float(b3d[0][2]), 0.0), "3D-berg: onderste rij staat op de vloer")
 			g3.met_3d = false
 			ok(g3.berg_3d().is_empty(), "3D-berg: zonder met_3d leeg (dan pixels)")
