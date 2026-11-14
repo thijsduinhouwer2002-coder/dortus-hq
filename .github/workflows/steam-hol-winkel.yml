@@ -62,7 +62,8 @@ jobs:
         if: env.SOORT == 'week'
         shell: pwsh
         run: |
-          # Een echte save in het formaat van kern/opslag.gd (versie 3). Lang gang, vijf kamers, drie stekelputten,
+          # Een echte save in het formaat van kern/opslag.gd (versie 3). Lang gang, vijf kamers, vier stekelputten,
+          # (Olaf 14 nov: opslag.gd schuift het hol naar het tekstvak; op 1280 bij 160 blijven de putten van 19 en 24 over),
           # 320 opgegeten hoeden (berg maat 4: na ±15 uur open, Sanne 21:50), Royal Gloop en Deep Pit gekocht.
           # 'tijd' 3 uur geleden, zodat het spel bij openen vertelt wat er gebeurde terwijl je weg was.
           $dir = Join-Path $env:APPDATA "Dortus/Het Hol"   # project.godot: use_custom_user_dir (demo-einde, 13 nov)
@@ -73,7 +74,7 @@ jobs:
           $hoeden = @(4, 8, 6, 2); for ($i = 0; $i -lt 316; $i++) { $hoeden += $r.Next(0, 10) }
           $nu = [int][double]::Parse((Get-Date -UFormat %s))
           $data = [ordered]@{ versie = 3; tijd = $nu - 10800; gang = $gang; boven = $boven; eerste_held_gedaan = $true
-            vallen = @{ "7" = "stekelput"; "13" = "stekelput"; "19" = "stekelput" }; ingang_kol = 2; schat_kol = 29
+            vallen = @{ "7" = "stekelput"; "13" = "stekelput"; "19" = "stekelput"; "24" = "stekelput" }; ingang_kol = 2; schat_kol = 29
             gevallen_namen = @{ "Kees" = 1; "Odo" = 1; "Mara" = 1 }; goud = 240; terugkomers = @(); kroniek = @()
             begin_gedaan = @("vallen", "vluchten", "opgegeten", "terug", "doorlopen"); begin_vlucht = ""; helden_nr = 340; lied_helden = 0
             pensioen_namen = @(); slijm = @{ hoeden = $hoeden; gegeten = 320; gespuugd = 0; keer_plat = 12 }

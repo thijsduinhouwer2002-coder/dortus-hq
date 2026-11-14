@@ -763,5 +763,26 @@ func _init() -> void:
 	# koopmuntje boven Deep Pit hoger (stekels staken erin, Olaf 14 nov), andere putstukken op de oude plek
 	ok(HS.munt_boven_put("put_2") == 3.0, "koopmuntje: boven put_2 3 spelpixels hoger")
 	ok(HS.munt_boven_put("put_1") == 0.0 and HS.munt_boven_put("put") == 0.0 and HS.munt_boven_put("") == 0.0, "koopmuntje: andere putten oude plek")
+	# save van een breder scherm schuift naar het tekstvak (kan Daan 14 nov 22:40, Olaf): week-save op 1920 (schat 29),
+	# opname op 1280 bij 160 px (max_kol 12, 20 kolommen): niets meer rechts van de schat, putten mee geschoven
+	var OP = load("res://kern/opslag.gd")
+	var wg := []
+	var wb := []
+	for i in 40:
+		wg.append(i >= 1 and i <= 29)
+		wb.append(i in [4, 5, 9, 10, 15, 16, 21, 22])
+	var sw: Dictionary = OP.schuif_naar_vak(wg, wb, {"7": "stekelput", "13": "stekelput", "19": "stekelput"}, 29, 2, 12, 20)
+	ok(sw.schat_kol == 12 and sw.schuif == -17 and sw.ingang_kol == 1, "save schuift: schat 12, 17 naar links, ingang 1 (%s)" % [sw.schat_kol])
+	var rechts_leeg := true
+	for kr in range(13, 20):
+		rechts_leeg = rechts_leeg and not sw.gang[kr] and not sw.boven[kr]
+	ok(rechts_leeg, "save schuift: rechts van de schat geen gang of kamer (onder het paneel)")
+	ok(sw.vallen.size() == 1 and sw.vallen.has(2), "save schuift: alleen de put van 19 blijft, op 2 (%s)" % [sw.vallen])
+	ok(sw.boven[4] and sw.boven[5] and not sw.boven[3], "save schuift: kamers 21 en 22 op 4 en 5")
+	ok(not sw.gang[0] and sw.gang[1] and sw.gang[12], "save schuift: gang van 1 tot de schat")
+	var sz: Dictionary = OP.schuif_naar_vak(wg, wb, {"7": "stekelput"}, 29, 2, 29, 40)
+	ok(sz.schuif == 0 and sz.gang == wg.map(func(x): return x) and sz.vallen.has(7) and sz.ingang_kol == 2, "save schuift niet als het scherm gelijk is")
+	var sr: Dictionary = OP.schuif_naar_vak(wg.slice(0, 20), wb.slice(0, 20), {"7": "stekelput"}, 12, 2, 15, 24)
+	ok(sr.schuif == 3 and sr.schat_kol == 15 and sr.ingang_kol == 5 and sr.vallen.has(10) and sr.gang[5] and not sr.gang[16], "save schuift naar rechts als er meer ruimte is")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

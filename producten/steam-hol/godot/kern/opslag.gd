@@ -22,6 +22,36 @@ static func bewaar(s) -> void:
 		f.store_string(JSON.stringify(data))
 		f.close()
 
+# Pure rekensom (toets in systemen/toetsen/toets_systemen.gd): schuif gang, kamers en vallen zo dat de schat op
+# de laatste kolom voor het tekstvak staat (min(max_kol, kolommen - 1)). Wat links van kolom 1 valt is weg; de ingang
+# blijft minstens op kolom 1 en de gang loopt van de ingang tot de schat. Een val komt alleen tussen ingang en schat.
+static func schuif_naar_vak(g: Array, b: Array, v: Dictionary, schat: int, ingang: int, max_kol: int, kolommen: int) -> Dictionary:
+	var doel := clampi(mini(max_kol, kolommen - 1), 3, maxi(3, kolommen - 1))
+	var d := doel - schat
+	var ng: Array = []
+	var nb: Array = []
+	ng.resize(kolommen)
+	nb.resize(kolommen)
+	ng.fill(false)
+	nb.fill(false)
+	for i in g.size():
+		var j := i + d
+		if j >= 1 and j <= doel:
+			ng[j] = bool(g[i])
+	for i in b.size():
+		var j := i + d
+		if j >= 0 and j <= doel:
+			nb[j] = bool(b[i])
+	var ni := clampi(ingang + d, 1, doel - 1)
+	for k in range(ni, doel + 1):
+		ng[k] = true
+	var nv := {}
+	for k in v:
+		var j := int(k) + d
+		if j > ni and j < doel:
+			nv[j] = String(v[k])
+	return {"gang": ng, "boven": nb, "vallen": nv, "schat_kol": doel, "ingang_kol": ni, "schuif": d}
+
 static func laad(s, begin) -> void:
 	if not FileAccess.file_exists(OPSLAG):
 		return
@@ -32,17 +62,19 @@ static func laad(s, begin) -> void:
 	if int(data.get("versie", 0)) < OPSLAG_VERSIE:
 		s.log_regel("HOL opslag van een oudere versie, vers begin")
 		return
-	var g: Array = data.get("gang", [])
-	for i in mini(g.size(), s.hol.kolommen):
-		s.hol.gang[i] = bool(g[i])
-	s.hol.vallen.clear()
-	for k in data.get("vallen", {}):
-		s.hol.vallen[int(k)] = String(data.vallen[k])
-	var b: Array = data.get("boven", [])
-	for i in mini(b.size(), s.hol.kolommen):
-		s.hol.boven[i] = bool(b[i])
-	s.hol.schat_kol = clampi(int(data.get("schat_kol", s.hol.schat_kol)), 0, mini(s.hol.max_kol, s.hol.kolommen - 1))
-	s.hol.ingang_kol = clampi(int(data.get("ingang_kol", s.hol.ingang_kol)), 1, s.hol.schat_kol - 1)
+	# Olaf 14 nov (kan Daan 22:40): de save kan van een breder scherm of een lagere strook komen (week-save op 1920,
+	# opname op 1280; of de hoogte via rechtsklik naar 160). Dan schuift het hele hol zo dat de schat weer rechts
+	# tegen het tekstvak staat; anders lagen putten en kamers onder het paneel.
+	var a := schuif_naar_vak(data.get("gang", []), data.get("boven", []), data.get("vallen", {}),
+		int(data.get("schat_kol", s.hol.schat_kol)), int(data.get("ingang_kol", s.hol.ingang_kol)), s.hol.max_kol, s.hol.kolommen)
+	for i in s.hol.kolommen:
+		s.hol.gang[i] = a.gang[i]
+		s.hol.boven[i] = a.boven[i]
+	s.hol.vallen = a.vallen
+	s.hol.schat_kol = a.schat_kol
+	s.hol.ingang_kol = a.ingang_kol
+	if int(a.schuif) != 0:
+		s.log_regel("HOL save geschoven %d kolommen: schat %d, ingang %d, vallen %s" % [int(a.schuif), int(a.schat_kol), int(a.ingang_kol), str(a.vallen.keys())])
 	s.hol.gang[0] = false   # oude save met de ingang op kolom 0: die kolom hoort niet meer bij de gang (controleur 22:30)
 	var gn = data.get("gevallen_namen", {})
 	for n in gn:
