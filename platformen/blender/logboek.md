@@ -479,3 +479,16 @@ Alleen aanvullen, nooit iets weghalen.
 - Daan 05:45 (Pro 1.0.1): rood zo laten, lichte krasjes weg. Lokaal bpy 5.2.4 (pip) gebruikt om het been van de winkelplaatjes na te bouwen en met Workbench te renderen: dat werkt hier zonder scherm, in seconden. De krasjes zijn de veersleuf van deel A (echt, wordt geprint). Proef 5: sleufvlakken donker materiaal "Click Joints Flex slot", uit de groene band. Toetsen lokaal 0 FOUT (test_betaald met bpy-module), toets_zips 0 FOUT. Gepusht 094e85a.
 - Les: test_betaald.py draait ook lokaal met de bpy-module (eerst `import bpy`, dan het script met exec en sys.argv zoals bij blender --); ±5 minuten.
 - 06:45: Daan ja op proef 5 (06:35), echte schermen gelijk aan het lokale beeld. Pro 1.0.1 naar main door de 9 bestanden van de tak over te nemen (geen gemeenschappelijke basis; main had sinds de herschreven geschiedenis niets nieuwers in die paden, nagekeken met git log). Gratis zip inhoudelijk gelijk aan `uitgave/click_joints-0.1.0.zip` (diff -r leeg), toets_zips en test_betaald lokaal 0 FOUT.
+
+## 14 nov 2026, 07:06 tot ±07:45 UTC, Bram
+- Click Joints: 109 downloads (07:10), geen melding in de berichten.
+- Main-run 43567420512 (Pro 1.0.1) groen; plaatje 13-schoon op main bleek ingezoomd met het been links buiten beeld, dus ongeschikt voor de poster.
+- Tak `claude/blender-pro-poster3`: 13-schoon weer het hele been, nieuwe opname 13d van dichtbij (stap 4 van `scherm_pro.py` twee keer, met `toestand["n"] -= 1`), workflow eist "PRO OK dicht". Run 43570285848 groen in 4.2.23 en 5.2.3. Poster 3 (vergrootglas uit 13d, midden op het groen) en 3b (zonder) gemaakt met `render.py` uit de bron van tak `claude/blender-pro-winkel`, GEZIEN. Vraag aan Daan onderaan ontwerp.md.
+- Les: het vergrootglas laat de trapjesrand van het groen duidelijk zien; een uitvergroting maakt van een kan een moet. Ook: `inzoom()` houdt H niet precies op dezelfde pixel (perspectief), dus de uitsnede zoekt het groen zelf op.
+
+## 14 nov 2026, 08:10 tot ±08:55 UTC, Bram
+- Click Joints: 109 downloads (08:17), geen melding in de berichten.
+- Daan 07:40: poster 3 met moet "trapjesrand glad". Oorzaak: het groen bestond uit hele huidvlakken, dus de rand volgde de vlakken. Oplossing in `scharnier_kleur.py` (`GLAD`, `_glad()`): per hoekpunt f = afstand tot het andere deel min de bandgrens; randen met f < 0 en f > 0 krijgen een nieuw hoekpunt waar f nul is (lineair), die punten worden per vlak verbonden (bmesh connect_verts), en groen wordt elk vlak dat er helemaal binnen ligt. Ligt de grens binnen 10% van een hoekpunt, dan telt dat hoekpunt als grens (geen splinters).
+- Lokaal met bpy 5.2.4: volume en maten van A en B precies gelijk aan zonder snede, test_betaald 0 FOUT, toets_zips 0 FOUT. Nieuwe toets: `cj_band_soort` is "glad" op A en B.
+- Les: een Workbench-render met bpy-module en een eigen camera (`/tmp`-script dat `scherm_pro` importeert met de timer uitgezet) geeft in een halve minuut een voor-en-na van de knie; handig voor elke weergavewijziging.
+- Let op: in de lokale render staat een stippelring van groen langs de buitennaad (in voor en na); dat zijn de groene binnenwanden 0,2 mm onder de huid. In de echte schermen nakijken.

@@ -709,3 +709,23 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 ## 14 nov 2026, 07:16 tot ±08:00 UTC, Olaf
 - Rollwright: zie Obsidian, niets dringends.
 - Paneel 3D ronde 3 naar main (merge cd0a408) met de voorlopige ja van Daan (06:48). Na zijn run veranderden alleen 2 regels (getal 3 px van het goud, toetsrand 31/128); run 43566561301 op de tak was groen.
+
+## 14 nov 2026, 07:06 tot ±07:45 UTC, Bram
+- Hoedenberg 3D (`claude/steam-hol-berg3d`) wacht nog op Daans ja (06:40). Royal-cape, bovenzoom en glansster in 3D geclaimd in taken.md; vraag aan Daan of hij ze als standen in `gloop.py` maakt (zelfde camera, lijf verborgen), dan zet ik ze in het blad en in `slijm.gd`. Deze run vooral Blender (poster Click Joints Pro).
+- Windows-run op main na paneel r3 (43570376262) groen, strook 160 GEZIEN.
+- Goudmuntjes in 3D-stijl op tak `claude/steam-hol-munt3d` (8e529ba): vliegende muntjes en het koopmuntje achter `met_3d` rond en glanzend (vier kleuren van het paneelmuntje, geen nieuw blad), draaien door in te drukken. Toetsen lokaal 0 FOUT (4 nieuw), controleur akkoord met punten (3 verwerkt, .import-bestanden van mijn lokale import teruggezet). Windows-run 43570696183 groen, winkelbeeld week 160 (run 43570708482) GEZIEN. Wacht op Daan.
+- Les: `git fetch origin schermen` duurt meer dan 2 minuten (grote tak); losse beelden haal je sneller met curl van raw.githubusercontent.com, map `steam-hol/winkel-1920-week-160/los/`.
+- Laars in 3D, spelkant op tak `claude/steam-hol-laars3d` (ede1b45): tekens-blad beeld `laars` als het er is, anders pixels. Controleur akkoord met punten (toets tekent nu niet buiten `_draw`). Vraag aan Daan over het model en de plek in het blad.
+- Les: na `git checkout` van `.import`-bestanden moet je lokaal opnieuw `--import` draaien, anders falen de 3D-toetsen op een lege textuur (r.690). Daarna de `.import`-bestanden weer terugzetten, niet meecommitten.
+
+## 14 nov 2026, 08:10 tot ±08:55 UTC, Bram
+- Hoedenberg 3D op main (3dad602) na Daans ja van 07:40. Kan (1 spelpixel lucht tot Gloop) op tak `claude/steam-hol-berg-lucht`, Windows-run loopt.
+- Graafmoment 3D wacht nog op Daan (keurstrook 05:30). Royal-cape: Daan zei 07:50 nog niet inbouwen, ronde 3 volgt.
+- Les: `git pull` op een losse HEAD kan lang hangen; `git config http.version HTTP/1.1` en `timeout 90 git fetch` werken. Een tweede werkmap (`git worktree add`) voor main naast de Blender-tak scheelt heen en weer wisselen.
+
+## 14 nov 2026, Olaf (run 08:13 UTC)
+- Repo opnieuw gekloond (ondiep, `--filter=blob:limit=2m`): de oude kloon had 3 GB half binnengehaalde packs en `git fetch` liep na 2 min vast.
+- Laars in 3D naar main (7ba4d53): Windows-run op de tak 43572860248 groen, alleen `slijm.gd` en een toets, geen beeldverschil, dus zonder ja van Daan.
+- Munt in 3D wacht nog op de ja van Daan (vraag 07:50 onder Vragen tussen ons).
+- Nieuw op tak `claude/steam-hol-klik-demo`: echte klik na het demo-einde wordt geweigerd (Windows-toets), controleur akkoord.
+- Obsidian: 40 downloads, 0 issues, geen actie.

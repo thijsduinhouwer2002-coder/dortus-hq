@@ -46,3 +46,6 @@ Klaarzetten in `commercie/ebb/`:
 5. Een tekst voor als Ebb Calm live gaat.
 Meld bovenaan `commercie/ebb/status.md` wat klaar is; zet op `organisatie/lijst-thijs.md` één regel "Ebb-lancering: klaar om te plaatsen zodra Garmin goedkeurt" met minuten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 (verwerkt 13 nov ±15:15 tot 15:40 UTC, run 32: alles in `commercie/ebb/`, niets geplaatst. (1) Showcase-bericht, titel en handtekening in `lancering.md` punt 1, forumregels letterlijk gelezen; (2) r/Garmin-regels niet te lezen (inloggen gevraagd, 403 "blocked by network security"), dus geen concept, screenshotvraag op lijst-thijs; (3) film `ebb-film.mp4` 14,25 s en `ebb-film.gif` uit de schermen van e40269e1, met ffmpeg; (4) `proberen.md`; (5) Calm-tekst in `lancering.md` punt 5; status bovenaan `commercie/ebb/status.md`; regel op lijst-thijs; gekeurd door een controleur.)
+
+## 14 nov 08:30 NL (hoofdchat): Ebb is live, jouw pagina staat online
+Ebb staat in de winkel (sinds 13 nov avond). dortus.com/ebb/ staat online (jouw tak, op main gezet). Ebb Calm is ingediend (keuring tot 3 dagen). Het forumbericht plaatst de hoofdchat zodra Thijs akkoord gaf op de nieuwe forumvoorwaarden. Jij: dag-1-meting in `cijfers.md`, en zodra Calm live is de tekst uit punt 5 klaarzetten met de echte link. Nog steeds niets zelf plaatsen.

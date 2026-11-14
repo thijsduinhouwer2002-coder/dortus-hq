@@ -737,6 +737,22 @@ func _init() -> void:
 			g3.position = pos_pl
 			g3.hoeden = voor_pl
 			ok(is_equal_approx(float(g3.toren_3d()[1][2]), float(g3.toren_3d()[0][3]) + 1.0), "3D-toren: met twee hoeden geen extra overlap")
+			# hoedenberg in 3D (Bram 14 nov): zelfde plekken als berg(), nulpunt op de onderrand van de pixelhoed
+			var voor_b: Array = g3.hoeden.duplicate()
+			for hh in [0, 5, 1, 6, 2, 3, 8, 9, 4, 7]:
+				g3.krijg_hoed(hh)
+			var bp: Array = g3.berg()
+			var b3d: Array = g3.berg_3d()
+			var b_ok := b3d.size() == bp.size() and bp.size() >= 3
+			for k in mini(bp.size(), b3d.size()):
+				b_ok = b_ok and int(b3d[k][0]) == int(bp[k][0]) and is_equal_approx(float(b3d[k][1]), float(bp[k][1]))
+				b_ok = b_ok and is_equal_approx(float(b3d[k][2]), float(int(bp[k][2]) + 1 + g3.HOED_ONDER[int(bp[k][0])]))
+			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg (%d)" % b3d.size())
+			ok(b3d.size() > 0 and is_equal_approx(float(b3d[0][2]), 0.0), "3D-berg: onderste rij staat op de vloer")
+			g3.met_3d = false
+			ok(g3.berg_3d().is_empty(), "3D-berg: zonder met_3d leeg (dan pixels)")
+			g3.met_3d = true
+			g3.hoeden = voor_b
 			g3.hoeden.pop_back()   # terug naar één hoed voor de toetsen hieronder
 		g3.plat()
 		ok(g3.beeld_3d() == "plat", "3D: plat-beeld")
@@ -857,6 +873,13 @@ func _init() -> void:
 		ok(HB3.held3d["tekens"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-teken: lineair gefilterd")
 	var doek_t := Node2D.new()
 	ok(HB3.teken_3d(doek_t, "poef", 0.0, 0.0) == false, "3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf")
+	# laars (Olaf 14 nov): 3D zodra het tekens-blad een beeld "laars" heeft, anders false en tekent slijm.gd de pixel-laars
+	var heeft_laars: bool = HB3.held3d.has("tekens") and (HB3.held3d["tekens"][1]["frames"] as Array).has("laars")
+	if heeft_laars:   # niet tekenen buiten _draw; wel het voetpunt: onder-midden zoals de pixel-laars (8 x 8)
+		var li: Dictionary = HB3.held3d["tekens"][1]
+		ok(float(li["anker_x"]) / float(li["px"]) == 4.0 and float(li["cel_px"][1]) / float(li["px"]) == 8.0, "3D-laars: voetpunt onder-midden, 8 hoog")
+	else:
+		ok(HB3.teken_3d(doek_t, "laars", 16.0, 0.0) == false, "3D-laars: nog niet in het blad, dan false en de pixel-laars")
 	HB3.met_3d = false
 	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: met_3d uit geeft false, ook met blad")
 	HB3.met_3d = true

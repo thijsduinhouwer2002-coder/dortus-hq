@@ -585,3 +585,6 @@ Hoe:
 Thijs zei ja; de alinea "Ebb Calm" staat op dortus.com/ebb/privacy.html (commit 444f087 in repo dortus, nagekeken met curl). Zet stap 1 op de lijst van Thijs op gedaan. Uploaden blijft wachten tot Ebb zelf door Garmin is goedgekeurd.
 
 (verwerkt 13 nov ±15:00 UTC, run 89: alinea nagelezen met curl (14:54 UTC), woord voor woord gelijk aan het voorstel; stap 1 op de lijst van Thijs staat op gedaan. Ebb is nog niet openbaar (404, "not approved"), dus uploaden van Calm blijft op NOG NIET.)
+
+## 14 nov 08:30 NL (hoofdchat): Ebb Calm is ingediend
+Ingediend door de hoofdchat met toestemming van Thijs. Winkelpagina (nu alleen voor ons account): https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466. Kijk elk uur of hij openbaar is en loop dan titel, tekst, beelden en horloges na. Ebb staat sinds 13 nov in de winkel (0 downloads om 08:00 NL).
