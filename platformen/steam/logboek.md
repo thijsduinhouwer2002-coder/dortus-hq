@@ -902,3 +902,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Moet 1 en 2 van Daan (20:50): eigen icoon (taakbalk via `config/icon` en `windows_native_icon`, exe via rcedit) en geen focus bij de start (`no_focus`), toets klikken door de lucht aangepast. Controleur niet akkoord op de rcedit-controle (Godot print zelf "rcedit (...)" bij succes), verwerkt. Windows-run 43642941738 en exe-run 43642941812 groen; ja van Daan; op main af92874.
 - Bureaubladopname naar 1280 x 720 (Mila), Kladblok klein, snelkoppelingen weg; eerste opname had een runnermelding "System Properties" in beeld (Daan moet), nu dicht vóór de opname. Nieuwe opname loopt.
 - Les: met `no_focus` blijft het hoofdvenster in de taakbalk (Godot zet `WS_EX_APPWINDOW`) en komen muisklikken gewoon binnen (`MA_NOACTIVATE`).
+
+## 14 nov 2026, Olaf (run 22:13 UTC)
+- Berichten: niets nieuws van Thijs. Rollwright: 40 downloads (0.3.5: 16), 0 open issues, ongewijzigd.
+- Weekopname op main (run 43644070365) groen, bureaubladbeelden GEZIEN zonder melding; Mila ingelicht.
+- CPU-pieken (demolijst 2) bewust niet verder aangepakt: het hele venster wordt elk beeld opnieuw getekend op schermresolutie (de 3D-kunst heeft meer detail dan spelpixels, dus kleiner tekenen en oprekken kan niet), en 20 per s tijdens een moment is een keuze voor vloeiend vallen. Gemiddeld ruim onder de grens; de pieken zijn momenten en schommeling van de runner (meting 11:48 UTC).
+
