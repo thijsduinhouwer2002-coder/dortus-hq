@@ -182,7 +182,7 @@ jobs:
           if ($a -match "HOL koop ") { Write-Output "FOUT: toch gekocht"; $fout++ }
           if ($a -notmatch "geweigerd \(graven") { Write-Output "FOUT: graven niet geweigerd"; $fout++ }
           $na = $a.Substring([math]::Max(0, $a.IndexOf("HOL demo voorbij na")))
-          if ($na -notmatch "HOL begin: ") { Write-Output "FOUT: geen held meer na het einde"; $fout++ }
+          if ($na -notmatch "HOL held binnen: ") { Write-Output "FOUT: geen held meer na het einde"; $fout++ }
           $b = Speel "$uit/demo-einde-2.log" "demo=1 vers=1 duur=30" | Out-String
           Write-Output "===== 2 (zonder steamdemo)"; Write-Output $b
           if ($b -match "That's the demo" -or $b -notmatch "HOL koop ") { Write-Output "FOUT: zonder steamdemo toch een einde"; $fout++ }

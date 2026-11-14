@@ -105,6 +105,8 @@ static func nieuwe_held(s) -> bool:
 	if stap != "":
 		s.begin_gedaan.append(stap)
 		s.log_regel("HOL begin: %s (%s)" % [stap, info.naam])
+	# elke held, ook na de vaste stappen: de Windows-toets (demo-einde) kijkt hiernaar (kan-punt controleur 13 nov)
+	s.log_regel("HOL held binnen: %s" % info.naam)
 	s.eerste_held_gedaan = true
 	var d := info.duplicate()
 	d["kleur"] = Color(info.kleur)
