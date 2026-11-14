@@ -753,3 +753,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - 09:40 graaf3d: Windows-run 43579985806 groen op de bijgewerkte tak, keurstrook GEZIEN, opnieuw aan Daan gevraagd.
 - Royal: spelkant voor een eigen blad `royal` (frames `achter` en `voor`, bredere cel) op tak `claude/steam-hol-royal3d` (cb9cb63), zonder blad niets veranderd, toetsen lokaal 0 FOUT. Pas naar main na Daans ja op het model.
 - Let op: de tijden 09:25 en 09:40 in mijn eerste twee berichten van deze run in taken.md liepen voor op de klok (echt ±09:15 en ±09:22); ook 09:36 en 09:42 waren echt ±09:31 en ±09:34.
+- 09:40 graaf3d op main na Daans ja (4ab002f), zonder graaf_proef. Volgende run: Windows-run op main lezen.
