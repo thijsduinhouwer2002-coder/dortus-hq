@@ -18,4 +18,4 @@ In `hol.gd` `_brokkel()`: als `res://kunst/3d/graaf_3d.png` bestaat en `met_3d` 
 Ronde 1: 4 van 10 (kluitjes leken deuken: het licht stond omgekeerd; rafelige rand; vloer al in beeld 1). Alle drie verwerkt in ronde 2 (licht linksboven, grove brokken, gat begint hoger).
 
 ## Gezien bij de ingang (niet van mij, wel melden)
-`pixelresten-bij-ingang-main-8x.png`: op main staan boven de ladder nog pixelstukjes met zwarte rand: een groen-geel figuurtje rechtsboven op het gras, een beige blok en een zwart trapje met gele pixels half achter het zweetwolkje. Waarschijnlijk pixelplantje (maaiveld, komt goed met de versiering) en iets van een pixelhoed of pixelteken achter het 3D-wolkje.
+`pixelresten-bij-ingang-main-8x.png`: op main staan boven de ladder nog pixelstukjes met zwarte rand: een groen-geel figuurtje rechtsboven op het gras, een beige blok en een zwart trapje met gele pixels half achter het zweetwolkje. Nagezocht in `held_beeld.gd`: dat zijn de pixelnootjes van de bard (`_noot()`, gele 5x5 met donkere rand), die bij elkaar staan met het 3D-wolkje. Komt goed als Brams tak `claude/steam-hol-noot-deco` op main staat; bij de keurstrook daarvan kijk ik juist hier.
