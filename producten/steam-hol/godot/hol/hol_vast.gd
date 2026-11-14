@@ -163,10 +163,14 @@ func teken(d: CanvasItem) -> void:
 	var vloer: int = h.GANG_ONDER - 1
 	var gang_3d: bool = h.met_3d and HOL3D.heeft("gang")
 	var midden: float = KOL / 2.0
+	var vorige := -99   # kolom van het laatste stuk: hooguit één stuk per twee gangtegels (Daan 14 nov 02:50)
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
 		if h.vallen.has(k):
 			continue
+		hh = deco_hh(h, k, hh, vorige)
+		if hh < 30 or (hh < 36 and not h.boven[k]):   # spinrag alleen onder een dicht plafond (zie onder)
+			vorige = k
 		if hh < 14:
 			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[7], Vector2(k * KOL + midden, GANG_BOVEN), true)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(7 * KOL, 0, KOL, KOL))   # stut
@@ -178,6 +182,25 @@ func teken(d: CanvasItem) -> void:
 		elif hh < 36 and not h.boven[k]:
 			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
+
+# Welke versiering op gangkolom k komt (hh zoals in teken(): onder 14 stut, 14 tot 30 een vloerding, 30 tot 36 spinrag,
+# 99 = niets). Dunner na de frisse kijker (Daan 14 nov 02:50 en 03:55):
+# 1. hooguit één stuk per twee gangtegels: niets direct naast het vorige stuk;
+# 2. geen vloerding waar helden stilstaan of vallen (op hun looppad): de eerste tegel na de schacht (daar staat de held net na zijn val, keurstrook 14 nov) en de tegels naast een val;
+#    daar mag wel iets dat aan het plafond hangt (stut, spinrag);
+# 3. geen lichtzwam binnen twee tegels van Gloop (schat_kol - 2): zijn cyaan trekt aan Gloops mint; dan een paddenstoel.
+# Bij de keurstrook (deco_proef in hol.gd, als die er is) blijft de vaste rij staan.
+static func deco_hh(h, k: int, hh: int, vorige: int) -> int:
+	if h.get("deco_proef") == true:
+		return hh
+	if k - vorige < 2:
+		return 99
+	if hh >= 14 and hh < 30:
+		if k == h.ingang_kol + 1 or h.vallen.has(k - 1) or h.vallen.has(k + 1):
+			return 99
+		if hh % 5 == 1 and absi(k - (h.schat_kol - 2)) <= 2:
+			return hh - 1   # soorten[hh % 5]: 1 = lichtzwam, 0 = paddenstoel
+	return hh
 
 func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -> void:
 	var stuk: String = HOL3D.stuk(h, r, k, schat_3d)
