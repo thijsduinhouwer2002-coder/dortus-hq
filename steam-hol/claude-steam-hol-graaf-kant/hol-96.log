@@ -8,43 +8,44 @@ HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 7.0 (wacht 0.0): Bram the Bard tunes his lute.
 HOL begin: vluchten (Bram)
 HOL held binnen: Bram
-HOL gegraven kolom 16
+HOL gegraven kolom 12
 HOL meting t=10 beelden=96 helden=2 hol_vast=2
 HOL kroniek 12.4 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
 HOL held binnen: Odo
-HOL kroniek 13.4 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.4 (wacht 1.0): Kees stays forever. +6
 HOL gegraven kolom 9
 HOL demo klik op Gloop
 HOL kaartje open 18.6: slijm
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
 HOL meting t=20 beelden=126 helden=2 hol_vast=9
-HOL kaartje dicht 22.7
-HOL kroniek 22.7 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
 HOL held binnen: Tibbe
-HOL kroniek 25.2 (wacht 0.9): Tibbe has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.9): Tibbe has a map. It is wrong.
 HOL kroniek 26.4 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
-HOL gegraven kolom 17
+HOL gegraven kolom 11
 HOL kroniek 28.9 (wacht 2.5): Bram's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
 HOL kroniek 29.9 (wacht 0.8): Gloop ate Odo. Kept the crown. +6
-HOL meting t=30 beelden=137 helden=1 hol_vast=10
+HOL meting t=30 beelden=136 helden=1 hol_vast=10
 HOL begin: terug (Bram)
 HOL held binnen: Bram
-HOL kroniek 32.4 (wacht 0.5): Bram is back for the Spike Pit.
-HOL kroniek 34.9 (wacht 1.9): Gloop is flat. Back soon.
-HOL kroniek 35.9 (wacht 0.9): Tibbe is now the Hoard-Toucher.
+HOL kroniek 32.5 (wacht 0.6): Bram is back for the Spike Pit.
+HOL kroniek 35.0 (wacht 0.1): Tibbe is now the Hoard-Toucher.
 HOL gegraven kolom 8
-HOL kroniek 38.4 (wacht 8.5): Bram's song got popular. Uh oh.
+HOL kroniek 37.5 (wacht 4.6): Gloop is flat. Back soon.
+HOL kroniek 40.0 (wacht 10.1): Bram's song got popular. Uh oh.
 HOL meting t=40 beelden=105 helden=2 hol_vast=15
-HOL kroniek 42.0 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 42.2 (wacht 0.0): Joost came for the gold in the song.
 HOL begin: opgegeten2 (Joost)
 HOL held binnen: Joost
-HOL kroniek 43.0 (wacht 0.8): Joost came for the gold in the song.
+HOL kroniek 44.7 (wacht 1.4): Tibbe the Hoard-Toucher ran.
+HOL kroniek vervallen 45.0: Gloop is up again. Wobbly.
 HOL gegraven kolom 10
-HOL kroniek 45.5 (wacht 2.1): Tibbe the Hoard-Toucher ran.
+HOL kroniek 47.3 (wacht 1.9): The Spike Pit wins round two. +9
 HOL held binnen: Fenna
-HOL kroniek 48.1 (wacht 2.6): The Spike Pit wins round two. +9
-HOL einde na 50 s, fps=10, goud=42, terugkomers=1
+HOL kroniek 49.9 (wacht 2.2): Fenna knocks first. Polite.
+HOL einde na 50 s, fps=9, goud=42, terugkomers=1
