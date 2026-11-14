@@ -74,7 +74,7 @@ SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 
 KLEIN = VARIANT == "klein"
 GX = 2.35 if not KLEIN else 3.3         # Gloop rechts van het midden
-RX = -0.85 if not KLEIN else 1.15       # ridder
+RX = float(os.environ.get("HEADER_RX", "-0.1")) if not KLEIN else 1.15       # ridder
 RY = -2.2 if not KLEIN else -1.35
 RS = 1.2 if not KLEIN else 1.5
 
@@ -163,7 +163,7 @@ cil("bekerbodem", (GX + 2.15, 0.4, 0.06), 0.18, 0.05, GOUD, verts=24)
 voor = set(bpy.data.objects)
 bron = open(os.path.join(MOD, "gloop.py"), encoding="utf-8").read()
 begin = bron.index("# ---------- lijf"); eind = bron.index("# ---------- camera")
-ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": 4 if not KLEIN else int(os.environ.get("KLEIN_HOEDEN", "1")), "sys": sys, "os": os,
+ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 2, "HOEDEN": int(os.environ.get("HEADER_HOEDEN", "3")) if not KLEIN else int(os.environ.get("KLEIN_HOEDEN", "1")), "sys": sys, "os": os,
       "STAND": os.environ.get("CAPSULE_STAND", "rust"), "PLUIM_KNAK": True}
 exec(bron[bron.index("def bol("):begin], ns)
 exec(bron[begin:eind], ns)
@@ -192,7 +192,7 @@ held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=38, schaal=RS, gloed=30,
 
 # ---------- de hoedenberg: in het spel draagt Gloop er 4, de rest ligt op de berg (toets_held.gd) ----------
 import hoeden
-BERG = [(7, GX - 2.0, 0.2, 0.62, -14, 25), (5, GX + 2.15, -0.3, 0.6, 12, -20)]   # pet weg: las als rood bord
+BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]   # ronde 4c: alleen de hoge hoed, rechts, goed zichtbaar
 if KLEIN:
     BERG = []
 for nr, x, y, z, k, d in BERG:

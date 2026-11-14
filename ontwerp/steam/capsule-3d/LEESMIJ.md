@@ -57,6 +57,11 @@ Alle vier moets van Daan gedaan in `capsule3d.py`:
 - Klein met 1 hoed: alleen de helm, dan krijgt hij in `gloop.py` gewoon de rechte rode pluim, precies zoals de ridder. Nieuwe frisse kijker zag A (2 hoeden) en B (1 hoed) naast elkaar: B "het monster draagt de helm van een gevallen ridder, en de levende ridder kijkt naar zijn eigen toekomst. Ik snap het in 1 tot 2 seconden." A 6, B 8.
 - **Besluit: klein krijgt 1 hoed (de helm), `KLEIN_HOEDEN` standaard 1.** Waarom: op 174 px is twee gelijke helmen naast elkaar de hele grap, sneller (1 tot 2 s tegen 3 tot 5) en hoger cijfer (8 tegen 6); de titel zegt al HATS, de header laat de toren zien. Eerlijk: in het spel draagt Gloop ook vaak maar één hoed.
 
+## Ronde 4c (zelfde run): header, ridder dichterbij
+- Proef: ridder van x -0,85 naar -0,1 (vlak bij de goudberg), toren 3 hoeden (helm, kroon, heksenhoed; de rode muts weg, die raakte bijna de bovenrand). Frisse kijker A (ronde 4) tegen B (proef): A "het ridderje staat ver van het monster, dus het verband zie je niet meteen", 3 tot 4 s, cijfer 6; B "dit ventje loopt het hol binnen en daar zit iemand met de hoeden van zijn voorgangers op", ±2 s, cijfer 7,5. Zijn punt bij B: de hoge hoed verdween half achter de ridder (rood randje leek een fout), de koksmuts bleef vaag.
+- **Besluit: header met de ridder dichtbij en 3 hoeden op de toren; op de berg alleen nog de hoge hoed, rechts, goed zichtbaar; koksmuts weg.** Waarom: sneller begrepen (2 s tegen 3 tot 4) en hoger cijfer; wat niet leest gaat eruit. Instelbaar met `HEADER_RX` en `HEADER_HOEDEN`.
+- GEZIEN met Read: de nieuwe header; titel en toren vrij van de rand, hoge hoed heel in beeld.
+
 ## Volgende ronde
 1. ~~Klein: de grap op 174 px~~ gedaan in ronde 4b. Nieuw: probeer ook in de header of de helm sneller leest als hij groter en vooraan op de toren staat (frisse kijker groot: grap na 3 tot 5 s).
 2. Kroon: minder glans of strakkere punten, zodat hij niet als munten leest.
