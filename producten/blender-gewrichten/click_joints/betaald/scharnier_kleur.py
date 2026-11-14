@@ -61,6 +61,25 @@ def _normalen(ob):
     return w / lengte[:, None]
 
 
+HEEL_RUIM = 1.5   # proef 4: elk hoekpunt van een groen vlak binnen 1,5 x de band van het andere deel
+
+
+def _heel_bij(ob, raak, bvh, grens):
+    """1.0.1 proef 4 (Bram 14 nov): een vlak wordt alleen groen als het helemaal bij de naad ligt, dus elk hoekpunt
+    binnen `grens` van het andere deel, niet alleen het middelpunt. In proef 3 (run 43551121841, plaatjes 14 en 14b)
+    liep het groen als dun streepje langs de onderkant van het been: lange smalle huidvlakken van de staaf met hun
+    middelpunt net in de band. Blijft er niets over, dan het oude (liever te veel groen dan geen band)."""
+    if not raak:
+        return raak
+    co = _wereld(ob)
+    me = ob.data
+    uit = []
+    for i in raak:
+        if all(bvh.find_nearest(Vector(co[v]), grens)[0] is not None for v in me.polygons[i].vertices):
+            uit.append(i)
+    return uit if uit else raak
+
+
 def strak(ob, s, u):
     """1.0.1 (Daan moet 1, 10 nov): hele vlakken in plaats van losse driehoeken binnen een afstand. Een vlak hoort
     bij de band als het op een van de cilinders om H ligt die het scharnier zelf sneed: op B de knokkel (straal R,
@@ -122,6 +141,7 @@ def band(a, b, speling, u, bol):
             centra = _centra(ob)
             kandidaat = np.flatnonzero(np.linalg.norm(centra - np.asarray(midden), axis=1) <= bol + grens)
             raak = [i for i in kandidaat if bvh.find_nearest(Vector(centra[i]), grens)[0] is not None]
+            raak = _heel_bij(ob, raak, bvh, grens * HEEL_RUIM)
             ob["cj_band_soort"] = "afstand"
         idx[raak] = vak
         me.polygons.foreach_set("material_index", idx)
