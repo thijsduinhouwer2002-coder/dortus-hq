@@ -80,6 +80,9 @@ Daan (21:45, kan c): de hoed die los boven de put hangt vertelt de val beter dan
 - `ronde6c-hoed-2x.png`, `ronde6c-hoed-ware-grootte.png`, `ronde6c-hoed-put-6x.png`.
 - GEZIEN met Read: op 6x leest het als "de hoed vliegt eraf, zij valt kop eerst". Op ware grootte is het een paars vlekje naast een oranje figuurtje; beter dan een figuurtje alleen, nog geen schreeuw.
 
+- Frisse kijker (nieuw, alleen `ronde6c-hoed-ware-grootte.png`): herkent ladder, kamer met stut, houweel, ton en kistje, heks boven de stekels, ridder met pluim, slijm met kroon en open mond op goud, beker, zwammennis, spinnenweb. Spel volgens hem: "slijmkoning beschermt zijn schat tegen helden, Dungeon Keeper maar lief" (klopt). Bij de stekels: "figuurtje staat in de stekels, geen schrik, geen beweging"; de losse hoed noemt hij niet als val. 6 van 10 (was 5): "de slijm met kroon en goud valt meteen op en is grappig, de rest te klein en er gebeurt niets duidelijks". Zijn ene tip: maak het stekelmoment groot en duidelijk (een au-houding, een sterretje) en dichter bij de slijm.
+- Les: de hoed alleen is op 120 px te klein om de val te vertellen. Volgende stap voor punt 3: een held die op de rand van de put wankelt met armen omhoog (stand `schrik` bestaat), of de val laten zien met een klein stofwolkje of sterretjes, alleen als het spel dat ook tekent (navragen bij Bram of `held_beeld.gd` zoiets heeft).
+
 ## Volgende ronde (voor ma 16 nov)
 1. Spanning in één stilstaand beeld: Gloop met open mond (hap) naar de ridder, of munten die van de berg vliegen; vraag Daan of `gloop.py` een hapstand heeft (in het spel bestaat hap al: `slijm.gd`).
 2. (gedaan in ronde 6b) Contrast gang tegen aarde: gangvloer en achterwand een trede lichter en warmer, de aarde blijft. Geldt ook voor de tegels, dus samen met Bram.
