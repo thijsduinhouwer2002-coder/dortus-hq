@@ -46,12 +46,44 @@ elif soort == "logo":
     # alleen de titel, doorzichtig, recht van voren
     src = src[:cam_begin] + '''# ---------- logo: alles behalve de titel onzichtbaar ----------
 for o in list(sc.objects):
-    if o.type in ("MESH", "CURVE", "FONT") and not o.name.startswith("titel"):
+    if o.type in ("MESH", "CURVE", "FONT", "META", "SURFACE") and not o.name.startswith("titel"):
         o.hide_render = True
 for o in sc.objects:
     if o.name.startswith("titel"):
         o.location.x += 4.55; o.location.z -= 1.4
-cam = bpy.data.cameras.new("cam"); cam.type = "ORTHO"; cam.ortho_scale = float(os.environ.get("LOGO_SCHAAL", "6.4"))
+        if o.type == "FONT" and o.data.body == "OF THE FALLEN":
+            # logo ronde 2: ondertitel dichter onder HATS en eronder gecentreerd (in de capsule mag hij uitsteken, los niet)
+            o.location.x += float(os.environ.get("LOGO_OX", "-0.28")); o.location.z += float(os.environ.get("LOGO_OZ", "0.23"))
+sc.view_settings.exposure = float(os.environ.get("LOGO_BELICHTING", "-0.6"))   # zonder muur en Gloop eromheen werd HATS bijna wit
+# ronde 1 logo (Daan, 14 nov 17:40): op elke letter van HATS een hoed uit het spel, zoals het pixellogo deed
+# (kroon, heksenhoed, pan, veermuts). LOGO_HOEDEN=0 zet ze uit, LOGO_HS is de maat van de hoeden.
+if os.environ.get("LOGO_HOEDEN", "1") == "1":
+    import hoeden
+    bpy.context.view_layer.update()
+    hats = [o for o in sc.objects if o.type == "FONT" and o.name.startswith("titel") and not o.name.startswith("titelrand") and o.data.body == "HATS"][0]
+    def breedte(woord):
+        cu = hats.data.copy(); cu.body = woord; cu.extrude = 0; cu.bevel_depth = 0
+        t = bpy.data.objects.new("maat", cu); sc.collection.objects.link(t); bpy.context.view_layer.update()
+        bb = [Vector(v) for v in t.bound_box]; xs = [v.x for v in bb]; ys = [v.y for v in bb]
+        bpy.data.objects.remove(t)
+        return min(xs), max(xs), max(ys)
+    KEUZE = [(4, -4, 0), (1, 6, 0), (5, 5, 10), (9, -10, -15)]   # ronde 3: pan las als zwart potje, helm los als serveerdeksel met worm (frisse kijker); koksmuts leest wel, kroon minder scheef   # (hoed, kantel, draai) per letter
+    hs = float(os.environ.get("LOGO_HS", "0.68"))
+    vorig = 0.0
+    for i, (nr, k, d) in enumerate(KEUZE):
+        x0, x1, top = breedte("HATS"[:i + 1])
+        lx0, lx1, ltop = breedte("HATS"[i])
+        links = x1 - (lx1 - lx0)
+        midden = (links + x1) / 2
+        p = hats.matrix_world @ Vector((midden, ltop + 0.04, 0.0))
+        hoeden.bouw(nr, plek=(p.x, p.y, p.z), schaal=hs, kantel=k, draai=d)
+    # ronde 3b: koksmuts was egaal wit en plat (frisse kijker); in het logo iets grijzer, dan tonen de plooien
+    for m in bpy.data.materials:
+        if m.name.startswith("koks") and m.use_nodes:
+            for n in m.node_tree.nodes:
+                if n.type == "BSDF_PRINCIPLED":
+                    n.inputs["Base Color"].default_value = (0.52, 0.53, 0.58, 1)
+cam =bpy.data.cameras.new("cam"); cam.type = "ORTHO"; cam.ortho_scale = float(os.environ.get("LOGO_SCHAAL", "6.4"))
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
 doel = Vector((float(os.environ.get("LOGO_X", "2.4")), -0.6, float(os.environ.get("LOGO_Z", "1.85"))))
 co.location = (doel.x, -13.5, doel.z + 1.2)

@@ -922,3 +922,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Hero ronde 2** (`ontwerp/steam/capsule-3d-daan/`): hoedenberg rechts, groep rechts van het midden, linksonder vrij voor het logo. Nieuw feit: Steam kent geen logo linksboven, alleen linksonder en drie keer midden (DERDEN, Steamworks-documentatie), dus mijn eerste plan (logo linksboven) was fout en de camera is verschoven. Regel in `ontwerp/stijl.md`.
 - **Hero frisse kijker:** 7,5, moet: hele toren in het veilige vak. Ronde 2b (verder weg) geprobeerd en afgewezen: past nog steeds niet en wordt leeg; de gezichten staan al in het vak, en dat is wat Steam vraagt. Ronde 2 blijft de kandidaat.
 - **Volgende run:** logo, ridderblik en muntenrand met Mila; blad op `organisatie/lijst-thijs.md` op ma 16 nov.
+
+## 14 nov 2026, ±17:26 tot 17:50 UTC (Daan, geplande run): logo in 3D
+- **Bekeken met Read:** berichten (niets open), oud pixellogo `winkelpagina/logo-1280.png`, capsule 6b, eigen logoproeven 1 tot 6 op donker en licht, de volle render, en het logo op de hero.
+- **Gemaakt:** logo in 3D (`ontwerp/steam/capsule-3d-daan/logo-3d-ronde3.png`, 1055x720) met `winkel3d.py logo`: Mila's titel plus op elke letter een hoed uit het spel (kroon, heksenhoed, koksmuts, veermuts), zoals het pixellogo. Pan en helm op de T afgewezen. Frisse kijker 7,5, dan 8; moet (koksmuts plat) verwerkt. Uitleg in `LEESMIJ-winkel.md`, bericht aan Mila.
+- **Besloten:** dit is het logo voor de Steam-bibliotheek. Waarom: de hoedjes op de letters zijn het eigen gezicht van de titel, en op de hero linksonder blijft het leesbaar.
+- **Mis:** in logomodus bleef Gloop zichtbaar (metaball valt buiten MESH/CURVE/FONT) en zocht ik `titel` op naam terwijl de lamp `titellamp` heet. Beide opgelost.
+- **Volgende run:** ridderblik omhoog en muntenrand in de hero met Mila; blad op `organisatie/lijst-thijs.md` op ma 16 nov, met hero en logo erbij.
