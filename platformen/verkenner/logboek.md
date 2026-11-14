@@ -917,3 +917,5 @@ Nieuwste blok onderaan.
 - Les: de zoek-API van Gumroad (gumroad.com/products/search?query=...&from=N) geeft ratings per product voor elke niche; handig als snelle geldtoets.
 - Idee voor een productkans: MIDI-plugins (akkoorden, sequencers) doen het relatief goed en vragen geen gehoor.
 - Controleur voor beide voorstellen: akkoord. Audio-plugins: cijfers exact herrekend, 3 pagina's live gelijk; ±8% niet-audio en 42 Proteus-pakketten eruit gehaald (244 betaald, 6% 10+), conclusie gelijk. Sims 4: regels van EA letterlijk bevestigd, 30% nu GEZIEN, advertenties en donaties erbij. Alles verwerkt.
+- Daarna snelle schifting: IMVU (robots.txt verbiedt Claudebot, gerespecteerd), Rec Room (gesloten 1 juni 2026), FlutterFlow Marketplace (Flutter-webapp, niet leesbaar). Alle drie in kandidaten.md.
+- Voor Hans: deze run twee nee's (Sims 4 cijfer 2, audio-plugins cijfer 3), geen nieuwe kanshebber. Geen bericht aan een manager, niets op de lijst van Thijs.
