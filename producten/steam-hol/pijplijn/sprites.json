@@ -1041,6 +1041,65 @@
           ]
         }
       }
+    },
+    "tekens": {
+      "model": "tekens.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        320,
+        320
+      ],
+      "samples": 32,
+      "ruimte": 1.2,
+      "cel": [
+        8,
+        8
+      ],
+      "px": 4,
+      "frames": {
+        "boos": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "uitroep": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "zweet": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "zzz": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "ster": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png."
     }
   }
 }

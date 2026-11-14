@@ -23,6 +23,7 @@ const HAP_S := 1.0          # 5 frames op 5 fps
 const OPSTAAN_S := 0.4
 const LAARS := preload("res://kunst/laars.png")         # 8 x 8, de laars van een held die hij at
 const TEKENS := preload("res://kunst/tekens.png")       # zzz = frame 3
+const HELD_BEELD := preload("res://systemen/held_beeld.gd")   # teken_3d(): zzz in 3D als het blad er is
 const SLAPEN := [0, 1]
 const SPUGEN := [2, 3, 4, 5]
 const SLAAP_S := 4.0
@@ -188,7 +189,7 @@ func upgrade_veranderd() -> void:
 
 # Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
 func wip_nu() -> int:
-	if t < koop_van or t >= koop_van + KOOP_S or is_plat():
+	if _rust_som or t < koop_van or t >= koop_van + KOOP_S or is_plat():
 		return 0
 	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))])
 
@@ -203,6 +204,16 @@ func hoogste_punt() -> int:
 		return y
 	for h in toren():
 		y = mini(y, int(h[2]) + int(HOED_TOP[int(h[0])]))
+	return y
+
+# Zelfde som als hoogste_punt(), maar met het rust-frame en zonder wip (Olaf 14 nov 01:50, voor kaartje.gd munt_top()):
+# knipperen, blij, hap en het koop-moment laten het muntje dan niet meewippen, en het plafond telt wel mee.
+# Plat telt gewoon (dan liggen de hoeden op de vloer). Gloop-coordinaten, y omhoog negatief.
+var _rust_som := false
+func hoogste_punt_rust() -> int:
+	_rust_som = true
+	var y := hoogste_punt()
+	_rust_som = false
 	return y
 
 func is_bewoner() -> bool:
@@ -365,6 +376,8 @@ func beeld_3d() -> String:
 	if lijf3d == null:
 		return ""
 	var f := _frame_klein()
+	if _rust_som and not is_plat():
+		return "rust" if _heeft_3d("rust") else ""
 	if f[0] == LEVEN and HAP.has(f[1]) and t < hap_van + HAP_S:
 		return "hap" if _heeft_3d("hap") else ""
 	if f[0] == LEVEN and (f[1] == PLAT):
@@ -402,6 +415,8 @@ func top_nu() -> int:
 		var k := 1.0 if is_groot() else 0.8
 		return int(round(16.0 - (ch - top3) * k)) + 1   # +1: de onderste hoedrij zakt 1 px in zijn kruin, zoals bij de pixels
 	var f := frame_nu()
+	if _rust_som and not is_plat():
+		f = [RUST_GROOT if is_groot() else RUST, 0]
 	var tabel: Array = RUST_TOP if (f[0] == RUST or f[0] == RUST_GROOT) else LEVEN_TOP
 	var top := int(tabel[int(f[1])])
 	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
@@ -478,6 +493,10 @@ const PLAFOND := 2.0
 const TOREN_MAX_EXTRA := 6.0
 func plafond_y() -> float:
 	return PLAFOND - position.y   # bovenrand van het hol (hol-y 0) in Gloop-coordinaten, plus 2
+# Hoogste y voor de bovenkant van een teken (zzz): 1 spelpixel onder de bovenrand van het hol (Daan 14 nov 01:40).
+const TEKEN_RAND := 1.0
+func teken_rand_y() -> float:
+	return TEKEN_RAND - position.y
 func toren_extra(bovenkant: float, n: int) -> float:
 	if n < 2 or bovenkant >= plafond_y():
 		return 0.0
@@ -566,7 +585,9 @@ func _draw() -> void:
 		else:
 			for h3 in t3z:
 				zy = mini(zy, int(floor(float(h3[3]))) - 9)
-		draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
+		zy = maxi(zy, int(ceil(teken_rand_y())))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
+		if not HELD_BEELD.teken_3d(self, "zzz", 0.0, float(zy + 8)):   # 3D-wolkje uit het blad tekens, anders pixels
+			draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
 	if (leven == "spugen" and t >= leven_van + 0.6) or laars_ligt():
 		var p := laars_pos()
 		draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))

@@ -716,6 +716,15 @@ func _init() -> void:
 			ok(absf(float(tp[-1][3]) - g3.plafond_y()) < 0.01 or ov0 >= 1.0 + g3.TOREN_MAX_EXTRA - 0.01, "3D-toren plafond: precies tegen het plafond, of de grootste overlap")
 			var tpx: Array = g3.toren()
 			ok(int(tpx[-1][2]) + g3.HOED_TOP[int(tpx[-1][0])] >= int(floor(g3.plafond_y())), "pixeltoren plafond: bovenkant niet boven de rand")
+			# hoogste_punt_rust (Olaf 14 nov 01:50): rust-frame, geen wip, met plafond; zzz minstens 1 spelpixel onder de rand
+			ok(g3.hoogste_punt_rust() >= int(floor(g3.plafond_y())), "rustpunt volgt het plafond (%d, plafond %.1f)" % [g3.hoogste_punt_rust(), g3.plafond_y()])
+			var rp0: int = g3.hoogste_punt_rust()
+			var kv: float = g3.koop_van
+			g3.koop_van = g3.t - 0.05
+			ok(g3.hoogste_punt_rust() == rp0, "rustpunt wipt niet mee met het koop-moment")
+			g3.koop_van = kv
+			ok(g3._rust_som == false, "rustpunt zet de schakelaar terug")
+			ok(is_equal_approx(g3.teken_rand_y(), 1.0 - g3.position.y), "teken-rand 1 spelpixel onder de bovenrand")
 			g3.position = pos_pl
 			g3.hoeden = voor_pl
 			ok(is_equal_approx(float(g3.toren_3d()[1][2]), float(g3.toren_3d()[0][3]) + 1.0), "3D-toren: met twee hoeden geen extra overlap")
@@ -826,6 +835,27 @@ func _init() -> void:
 	ok(HB3.blad_voor("", 0) == "" and HB3.blad_voor("ridder", 0) == "ridder", "3D-held: GEWOON_3D uit en geen eigen blad geeft pixels")
 	HB3.GEWOON_3D = true
 	HB3.held3d = bewaard
+	# tekens in 3D (Bram 14 nov, Daan 00:55): blad in de volgorde van tekens.png, 8 x 8 spelpixels, zonder blad pixels
+	if FileAccess.file_exists("res://kunst/3d/tekens.png"):
+		ok(HB3.held3d.has("tekens"), "3D-teken: blad tekens geladen")
+	if HB3.held3d.has("tekens"):
+		var ti: Dictionary = HB3.held3d["tekens"][1]
+		var volg_ok := true
+		for tn in HB3.TEKEN:
+			volg_ok = volg_ok and (ti["frames"] as Array).find(tn) == int(HB3.TEKEN[tn])
+		ok(volg_ok, "3D-teken: zelfde volgorde als tekens.png (%s)" % str(ti["frames"]))
+		ok(float(ti["cel_px"][1]) / float(ti["px"]) == 8.0 and float(ti["cel_px"][0]) / float(ti["px"]) <= 10.0, "3D-teken: cel 8 hoog, hooguit 10 breed (%s)" % str(ti["cel_px"]))
+		ok(HB3.held3d["tekens"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-teken: lineair gefilterd")
+	var doek_t := Node2D.new()
+	ok(HB3.teken_3d(doek_t, "poef", 0.0, 0.0) == false, "3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf")
+	HB3.met_3d = false
+	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: met_3d uit geeft false, ook met blad")
+	HB3.met_3d = true
+	var tb: Dictionary = HB3.held3d.duplicate()
+	HB3.held3d.erase("tekens")
+	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: zonder blad false, dan tekens.png")
+	HB3.held3d = tb
+	doek_t.free()
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)
 	var t1: Vector3 = HB3.hoed_tuimel(0.2)
