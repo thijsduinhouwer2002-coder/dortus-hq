@@ -160,6 +160,13 @@ func laars_weg() -> void:
 	laars_op_vloer = false
 	queue_redraw()
 
+# Keurstrook (Bram 14 nov, laars_proef=1 in strook.gd): de laars ligt vast rechts naast hem, zonder timer,
+# zodat de 3D-laars in de echte strook te keuren is. Spuugt hij later echt, dan gaat alles weer zoals altijd.
+func zet_laars_proef() -> void:
+	laars_kant = 1
+	laars_op_vloer = true
+	queue_redraw()
+
 # Waar de laars is (onder-midden, ten opzichte van Gloop), in hele pixels: boogje van 12 px opzij in 0,3 s.
 func laars_pos() -> Vector2i:
 	if leven != "spugen":
