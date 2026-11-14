@@ -1,0 +1,23 @@
+HOL weg geweest 33 s (klok terug: false): goud voor 1613, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1613 goud
+HOL start hoogte=160 schaal=4 spelpixels=480x40 venster=(1920, 160) pos=(0, 872) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Joost brought a pillow.
+HOL held binnen: Joost
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 23.0 (wacht 0.0): Joost took a nap in your hole.
+HOL meting t=30 beelden=99 helden=1 hol_vast=1
+HOL meting t=40 beelden=101 helden=1 hol_vast=1
+HOL kroniek 41.1 (wacht 0.0): Joost fled, crying a little.
+HOL meting t=50 beelden=13 helden=0 hol_vast=1
+HOL kroniek 56.4 (wacht 0.0): Gerda read about you in a tavern.
+HOL held binnen: Gerda
+HOL meting t=60 beelden=49 helden=1 hol_vast=1
+HOL meting t=70 beelden=101 helden=1 hol_vast=1
+HOL kroniek 77.9 (wacht 0.0): Gerda left gold and one boot. +6
+HOL meting t=80 beelden=110 helden=0 hol_vast=3
+HOL meting t=90 beelden=4 helden=0 hol_vast=3
+HOL meting t=100 beelden=4 helden=0 hol_vast=3
+HOL kroniek 105.9 (wacht 0.0): Lotte picks the lock. It was open.
+HOL held binnen: Lotte
