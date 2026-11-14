@@ -873,6 +873,13 @@ func _init() -> void:
 		ok(HB3.held3d["tekens"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-teken: lineair gefilterd")
 	var doek_t := Node2D.new()
 	ok(HB3.teken_3d(doek_t, "poef", 0.0, 0.0) == false, "3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf")
+	# laars (Olaf 14 nov): 3D zodra het tekens-blad een beeld "laars" heeft, anders false en tekent slijm.gd de pixel-laars
+	var heeft_laars: bool = HB3.held3d.has("tekens") and (HB3.held3d["tekens"][1]["frames"] as Array).has("laars")
+	if heeft_laars:   # niet tekenen buiten _draw; wel het voetpunt: onder-midden zoals de pixel-laars (8 x 8)
+		var li: Dictionary = HB3.held3d["tekens"][1]
+		ok(float(li["anker_x"]) / float(li["px"]) == 4.0 and float(li["cel_px"][1]) / float(li["px"]) == 8.0, "3D-laars: voetpunt onder-midden, 8 hoog")
+	else:
+		ok(HB3.teken_3d(doek_t, "laars", 16.0, 0.0) == false, "3D-laars: nog niet in het blad, dan false en de pixel-laars")
 	HB3.met_3d = false
 	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: met_3d uit geeft false, ook met blad")
 	HB3.met_3d = true

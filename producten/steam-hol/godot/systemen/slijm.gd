@@ -616,4 +616,7 @@ func _draw() -> void:
 			draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
 	if (leven == "spugen" and t >= leven_van + 0.6) or laars_ligt():
 		var p := laars_pos()
-		draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))
+		# 3D-laars uit het tekens-blad zodra daar een beeld "laars" in staat (Daan 06:40, volgorde 3; Olaf 14 nov),
+		# zelfde voetpunt (onder-midden); anders de pixel-laars zoals altijd
+		if not (met_3d and HB.teken_3d(self, "laars", float(p.x), float(p.y))):
+			draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))
