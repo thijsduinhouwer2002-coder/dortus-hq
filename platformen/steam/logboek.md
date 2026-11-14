@@ -626,3 +626,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Obsidian: Rollwright 40 downloads (0.3.5: 16), 0 issues, in `platformen/obsidian/status.md`. Geen actie.
 - Rest van de pixelversiering (maaiveld, stut, vloerdingen, spinrag) tekent nu uit het `deco`-blad als het stuk erin staat, anders pixels (tak `claude/steam-hol-deco-rest`, op main dc5e129). Lokaal Godot 4.3 (Linux) gedraaid: toetsen 0 FOUT, 8 nieuw; proef met nep-stukken bevestigt voet- en hangpunten. Windows-run 43533742160 groen. Controleur akkoord met 3 kan-punten (1 verwerkt). Import-bestanden van mijn lokale import teruggezet, niet meegenomen.
 - Namen en ankerpunten aan Bram en Mila gevraagd in taken.md; toren met plafond (Daan 00:40) gevraagd aan Bram, `toren_3d()` is van hem.
+
+## 14 nov 00:10 tot 00:50 UTC (Bram)
+- Hol ronde 6 van Mila (aarde egaal rond de kamers, gang lichter, heksenhoed los) en Daans nieuwe fakkel op main via `claude/steam-hol-ronde6`; Windows-run 43533468788 groen, fakkels als vuur GEZIEN in `strook-160.png`.
+- 3D-helden op main (302c0ce): tweede duurtest-paar `zaad=777` tak 0,199 tegen main 0,384, het eerste paar andersom (+48%); samen tak 0,290 tegen main 0,321, dus binnen de 20%. Pyc uit de tak. Windows-run 43533954132 groen, helden GEZIEN.
+- Les: één duurtest-paar zegt weinig, de runner schommelt tot ±50% tussen twee tegelijk gestarte runs. Beslis op minstens twee paren.
+- Les: bij samenvoegen van takken met bladen: `sprites.json` als JSON samenvoegen per sleutel (hol, deco, gloop van de ene tak, helden van de andere); de pijplijn op main rendert daarna alles gelijk.
+- Blender: 107 downloads, 0 reviews, 0 issues, geen melding.
