@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 17027,
+  "bytes": 17054,
   "cel_px": [
    87,
    56
@@ -62,7 +62,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 6722,
+  "bytes": 6717,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -105,7 +105,7 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 18998,
+  "bytes": 19044,
   "cel_px": [
    87,
    58
@@ -218,7 +218,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12177,
+  "bytes": 12144,
   "cel_px": [
    52,
    56
@@ -274,7 +274,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 19683,
+  "bytes": 19740,
   "cel_px": [
    87,
    56
@@ -331,7 +331,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 20125,
+  "bytes": 20128,
   "cel_px": [
    87,
    56
@@ -388,7 +388,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 19345,
+  "bytes": 19383,
   "cel_px": [
    86,
    56
@@ -445,7 +445,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 19694,
+  "bytes": 19674,
   "cel_px": [
    87,
    56
@@ -502,7 +502,7 @@
  "held4": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 19046,
+  "bytes": 19037,
   "cel_px": [
    86,
    56
@@ -746,7 +746,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113624,
+  "bytes": 113611,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -981,7 +981,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17515,
+  "bytes": 17536,
   "cel_px": [
    59,
    62
@@ -1037,7 +1037,7 @@
  "tekens": {
   "anker_x": 16,
   "blad": "res://kunst/3d/tekens.png",
-  "bytes": 6499,
+  "bytes": 6497,
   "cel_px": [
    32,
    32
