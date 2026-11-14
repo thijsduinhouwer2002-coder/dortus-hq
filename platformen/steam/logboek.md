@@ -861,3 +861,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: bpy 5.2.4 met pip in 10 s; `hol_proef` rendert lokaal 6 lagen in 380 s op 2 kernen, `HOL_HERGEBRUIK=1` rendert daarna alleen een nieuwe laag (24 s). Let op: na een lokale Godot-import veranderen alle `.import`-bestanden; niet meecommitten (ging deze run mis, teruggezet in 1f09d97).
 - 18:38: Windows-run 43626223460 op de tak groen, keurbeeld uit die run op main. Pijplijn-run 43626202992 rendert nog alle bladen; zet hij een commit terug op de tak, dan lees ik de Windows-run daarvan volgende run. Wacht op ja of nee van Daan.
 - 18:42 UTC: ja van Daan (18:30) met kan 3 in plaats van 4; 3 gerenderd en vergeleken (0, 3, 4), 3 gekozen, Windows-run 43626959498 groen, op main. Bram vraagt of zijn ingang-fix (twee regels in `hol_vast.gd`, `teken_vanaf()` in `hol_3d.gd`) mag: van mij ja, geen bezwaar.
+
+## 14 nov 2026, 19:10 tot ±19:55 UTC, Bram
+- Click Joints: 120 downloads (add-onpagina, GEZIEN), 0 reviews, geen melding.
+- Ingang zonder grasrechthoek: ja van Daan 18:27, Olaf geen bezwaar. Tak `claude/steam-hol-ingang-gras` met de pijplijn-render fd4ed3d naar main (merge c49e729). Waarom met de render: daarin staat het nieuwe stuk `ingang_boog`, en sinds de tak veranderde op main niets in `kunst/3d`. Toetsen na de merge lokaal Godot 4.3: systemen 0 FOUT, held 0 FOUT.
