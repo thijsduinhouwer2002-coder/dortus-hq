@@ -762,3 +762,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - 3D-laars naar main na Daans ja (900e139), kan gedaan (landt op 15). `graaf_3d.png` hersteld; oorzaak: pijplijnstap wiste `kunst/3d` eerst, een render vanaf een oudere commit zonder `maak_graaf` gooide het blad zo weg. Stap overschrijft nu alleen.
 - Royal: keurstrook van Windows-run 43582741517 GEZIEN (troon, scepter, broche in 3D), vraag aan Daan in `taken.md`.
 - Les: Godot 4.3 Linux is in een minuut te halen voor de toetsen; de import schrijft wel nieuwe uid's in de `.import`-bestanden, dus toets in een kopie van de map.
+- 10:38 Windows-run op main 43584396234 (900e139) groen. Volgende run: Daans ja of nee op Royal (pixelster en vlek), dan tak naar main zonder `royal_proef`.
