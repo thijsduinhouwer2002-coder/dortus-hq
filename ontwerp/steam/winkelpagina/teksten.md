@@ -44,8 +44,8 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
-> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks pass straight through the sky and the grass.
-> [*]Light on your PC: it draws 10 frames a second, and only what moves.
+> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks on the empty sky above it go straight to the window behind.
+> [*]Light on your PC: it only redraws what moves, about 10 times a second.
 > [*]Silent: no sound at all, so it never talks over your call.
 > [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.
 > [*]The whole game for one price. No shop inside the game, no marketplace, nothing that makes you faster.
@@ -67,7 +67,11 @@ Te controleren voor het indienen (Olaf, Bram):
 4. "with an FPS setting": er is geen instelling voor de speler, alleen `fps=<n>` op de opdrachtregel voor de CPU-proef. Wel waar: 10 beelden per s, 20 tijdens een moment (`kern/beeldtempo.gd`), en het hol wordt één keer getekend (`hol_vast.gd`). Gemeten op een scherm van 1920 breed: gemiddeld 0,36 CPU-s per 10 s (demolijst 2). Nu "it draws 10 frames a second, and only what moves".
 5. "Sound is off by default": er zit helemaal geen geluid in (muziek en geluid staan bij "na het fest"). Nu "Silent: no sound at all". Komt er voor het uitbrengen toch geluid in, dan wordt het weer "Sound is off by default".
 6. "Anything you build can be moved or removed for all its gold back": verplaatsen bestaat niet en een gang kun je niet dichtgooien. Wel waar: Undo op de bovenste stap geeft de volle prijs terug en kan stap voor stap tot niveau 0 (`kern/kaartje.gd` `undo()`), en een put kun je weghalen (`weg()`). Nu "Changed your mind? Every upgrade can be undone for all its gold back."
-Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door lucht en gras (`strook.gd`, alleen onder het maaiveld vangt de muis), held ongeveer elke minuut, drie regels na een nacht weg (`voortgang.gd`), de vier genoemde hoeden (`modellen/hoeden.py`: kroon, koksmuts, emmer, pan), pleister en littekens (`held_beeld.gd`), bijnaam (Hoard-Toucher), bard met lied en "knows all the words" (`kroniek_regels.gd`), hoedenberg, geen winkel met echt geld in het spel.
+Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door de lucht (zie punt 8: niet meer door het gras), held ongeveer elke minuut, drie regels na een nacht weg (`voortgang.gd`), de vier genoemde hoeden (`modellen/hoeden.py`: kroon, koksmuts, emmer, pan), pleister en littekens (`held_beeld.gd`), bijnaam (Hoard-Toucher), bard met lied en "knows all the words" (`kroniek_regels.gd`), hoedenberg, geen winkel met echt geld in het spel.
+
+**Aanvulling Olaf, 14 nov 10:30 UTC (main 21fc6ea):**
+7. Kan van Daan (09:35) overgenomen: "it draws 10 frames a second, and only what moves" wordt "it only redraws what moves, about 10 times a second" (zelfde feit, gewone woorden; "about" dekt de 20 per s tijdens een moment).
+8. Correctie op mijn eigen check van 09:40: "Clicks pass straight through the sky and the grass" klopt sinds 14 nov 02:35 niet meer. Bram liet het muisvlak het 3D-gras en de plantjes meenemen (`hol_vast.gd` `rand`, `strook.gd` `muis_vlak_punten()`), anders tekende Windows ze niet. Een klik op het gras komt dus in het spel. Nu: "Clicks on the empty sky above it go straight to the window behind." Bewijs dat dat werkt: stap "Klikken door de lucht" in `steam-hol.yml` (96 px, klik 4 px onder de bovenrand komt bij Kladblok). Op 120 en 160 vult het gras de strook bijna helemaal, dus daar is weinig lucht; daarom geen getal in de zin.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
 Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
