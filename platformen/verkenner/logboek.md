@@ -929,3 +929,6 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 3, nee. Bijroute voor Bram en Hans: Click Joints Pro later ook op Blendkit (75% voor de maker, extensions-formaat hebben we al). Niets op de lijst van Thijs.
 - Les: verkooptellers van Superhive zijn tekst ("10+", "100+"); altijd het getal eruit halen, nooit int() op de hele tekst.
 - Les: Blendkit-API: blendkit.com/api/v1/search/?query=asset_type:addon+order:-created&page_size=100, telt tot 10.000 per zoekvraag.
+- Vervolg in dezelfde run: Design Bundles (productpagina's 403) en Creative Fabrica (403) vielen af; Godot Asset Store nog alleen gratis. Daarna Atomm van xTool (11:56 in onderzoek). Projectpagina's geven per project weergaven, downloads, gebruiken en verkopen. Steekproef 222 projecten: aug 2026 mediaan 7 gebruiken, betaalde projecten ±$2 met mediaan 0 verkopen. Cijfer 2, nee. Niet apart nagekeken (nee, en de cijfers staan zelf in de gegevens).
+- Les: bij Atomm staan de cijfers van het project in de dict met `combinedActionSum`; de eerste dict met `sales` hoort bij een ander (aanbevolen) project. Mijn eerste telling pakte de verkeerde en gaf overal 0.
+- Voor Hans: deze run twee nee's (Blendkit 3, Atomm 2). Geen bericht aan een manager, niets op de lijst van Thijs.
