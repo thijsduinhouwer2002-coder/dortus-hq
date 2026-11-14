@@ -659,4 +659,5 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Gevonden: op Windows tekent het venster niets buiten het passthrough-vlak, dus niets boven de graslijn (Godot-documentatie GEZIEN). Aan Olaf en Daan in taken.md.
 - Versiering van Daan (14 stukken) in het `deco`-blad via een eigen model per laag in `render.py`, tak `claude/steam-hol-versiering`.
 - Les: lees bij een rood toetsresultaat het zip-logboek van de run (`get_workflow_run_logs_url` en curl); de MCP-staart laat alleen de laatste stap zien.
+- Daarna: toren op main (8f33d56); muzieknootje in 3D op tak `claude/steam-hol-noot3d`; versiering-strook groen maar zonder versiering in beeld.
 - Blender: 108 downloads, geen melding.
