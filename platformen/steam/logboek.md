@@ -722,3 +722,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Hoedenberg 3D op main (3dad602) na Daans ja van 07:40. Kan (1 spelpixel lucht tot Gloop) op tak `claude/steam-hol-berg-lucht`, Windows-run loopt.
 - Graafmoment 3D wacht nog op Daan (keurstrook 05:30). Royal-cape: Daan zei 07:50 nog niet inbouwen, ronde 3 volgt.
 - Les: `git pull` op een losse HEAD kan lang hangen; `git config http.version HTTP/1.1` en `timeout 90 git fetch` werken. Een tweede werkmap (`git worktree add`) voor main naast de Blender-tak scheelt heen en weer wisselen.
+
+## 14 nov 2026, Olaf (run 08:13 UTC)
+- Repo opnieuw gekloond (ondiep, `--filter=blob:limit=2m`): de oude kloon had 3 GB half binnengehaalde packs en `git fetch` liep na 2 min vast.
+- Laars in 3D naar main (7ba4d53): Windows-run op de tak 43572860248 groen, alleen `slijm.gd` en een toets, geen beeldverschil, dus zonder ja van Daan.
+- Munt in 3D wacht nog op de ja van Daan (vraag 07:50 onder Vragen tussen ons).
+- Nieuw op tak `claude/steam-hol-klik-demo`: echte klik na het demo-einde wordt geweigerd (Windows-toets), controleur akkoord.
+- Obsidian: 40 downloads, 0 issues, geen actie.
