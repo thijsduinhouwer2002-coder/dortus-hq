@@ -12,6 +12,7 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 14 nov 08:45 (Chris, run 35) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (ingediend 14 nov ±07:30, in keuring) |
 | 14 nov 11:50 (Chris, run 36, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
 | 14 nov 17:50 (Chris, run 38) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (zoeken op "ebb calm": alleen Ebb, plek 1) |
+| 14 nov 20:47 (Chris, run 39, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 
@@ -38,6 +39,23 @@ Gemeten op dezelfde zoek-API, eerste 30 van "breathing" (993 treffers) en "breat
 - **Wat ik eruit afleid (AFGELEID, niet bewezen):** de zoeker kijkt eerst naar de titel, en een korte titel waarin het zoekwoord een groot deel is, wint van veel downloads. De tekst telt pas als geen titel past. Downloads en beoordelingen tellen vermoedelijk wel mee, maar minder dan de titel (GOK).
 - **Wat het betekent voor Ebb:** op "breath hold" (4) en "breathing exercises" (4) staan we goed, want daar zijn weinig titels met precies die woorden (AFGELEID). Op de brede woorden "breathing" en "breathwork" komen we met deze lange titel niet hoog, ook niet met wat downloads erbij (GOK). Hoeveel mensen op elk woord zoeken, laat de winkel niet zien. Zie advies 37 in `commercie/adviezen.md`.
 
+## Ebb in de lijsten van de winkel: "Hot & Fresh" loopt ±17 nov af (14 nov 20:45 UTC, run 39)
+
+GEZIEN met curl op dezelfde winkel-API, met `commercie/ebb/meet-lijsten.py`. De namen staan in de pagina en broncode van apps.garmin.com: `store_category_hotFresh` "Hot & Fresh Apps", `store_category_newAndUpdated` "New and Updated Apps", `store_category_trending` "Trending Apps", en in de code `HOT_FRESH:"hotFresh"`. Dat "New and Updated" op de site de API-sortering `mostRecent` gebruikt, is AFGELEID, niet bewezen. Hoe groot elk blok op de site of in de Connect IQ-app is (hoeveel apps je ziet zonder door te klikken), is NIET GEZIEN.
+
+- **"Hot & Fresh Apps", alleen watch-apps:** 120 plekken. Plek 1 tot 9 zijn bekende apps met veel downloads (Crossy Road 3D, Atmos Weather, ...). Daarna 111 nieuwe apps (`markedAsNew: true`), nieuwste goedkeuring eerst: 38 van 13 nov, 43 van 12 nov, 30 van 11 nov. **Ebb staat op plek 36.** In dezelfde lijst ook twee nieuwe ademapps: "GroundApp: Breathwork with Bodie" (plek 19, gratis, 0 downloads, ook 13 nov) en twee keer "Nim Breathe" (plek 68 en 69, gratis, 1+; lijken twee aparte apps met dezelfde naam), en de vrijduikapp "Capnia" (plek 16).
+- **Dezelfde lijst voor alle soorten samen (met wijzerplaten):** Ebb staat niet in de 120. Wie in de winkel niet op "apps" filtert, ziet Ebb hier dus niet.
+- **Hoe lang nog:** Garmin keurt in groepen op werkdagen. Nieuw goedgekeurde watch-apps per dag (afgeleid uit de lijst "New and Updated", `firstApprovalDate`): 9 nov 134, 10 nov 49, 11 nov 62, 12 nov 48, 13 nov 38; op za 7 nov 2 en zo 8 nov 0. Na ±85 nieuwe watch-apps valt Ebb uit de 120 (plek 36 van een lijst die bij 120 stopt; controleur: pagina 5 en verder geven niets). **Verwachting (GOK op GEZIEN): Ebb staat het weekend nog in Hot & Fresh en valt eruit bij de goedkeuringen van ma 16 of di 17 nov, uiterlijk wo 18 nov.** Na het vorige weekend kwamen er op ma 9 nov in één keer 134 bij; gebeurt dat weer, dan is het maandag al.
+- **"New and Updated Apps" (`mostRecent`):** gesorteerd op `changedDate`; in de API oplopend vanaf ±7 nov, Ebb op plek 744 van 1.350. Hoe de site die lijst toont, is NIET GEZIEN. Een nieuwe versie zet `changedDate` opnieuw (GOK, niet getest).
+- **"Trending Apps":** Ebb staat niet in de eerste 118.
+
+**Is 0 downloads normaal? Ja, voor een betaalde nieuwkomer (GEZIEN, zelfde lijst, 14 nov 20:45 UTC).** Van de 111 nieuwe watch-apps zijn er 24 betaald in de winkel ($1,99 tot $4,99, geen enkele met proef). Na 1 tot 3 dagen staan er 13 op "1" (1 tot 9 downloads) en 11 op 0; **geen enkele haalde 10+**. Bij de 87 gratis nieuwkomers staan er 28 op 10+ en 1 op 100+. Eén maker bracht op 13 nov drie apps van $4,99 tegelijk uit (Racketday, Catchday, Huntday), alle drie 0. Ebb wijkt dus niet af. AFGELEID: de winkel brengt een betaalde app in de eerste dagen bijna niets; kopers moeten van buiten komen (forumdraad, persoonlijke berichtjes uit `proberen.md`) of later uit de zoeker.
+
+**Wat dit betekent:**
+1. De gratis zichtbaarheid van Hot & Fresh is er nog tot ±17 nov. Dit weekend is dus het beste moment voor de persoonlijke berichtjes uit `proberen.md` en de handtekening: wie Ebb dan opzoekt, ziet hem ook nog in de lijst van nieuwe apps.
+2. **Ebb Calm krijgt waarschijnlijk zijn eigen plek in Hot & Fresh** als hij goedgekeurd wordt (AFGELEID: hij is een nieuwe app en, volgens Gijs, als watch-app gebouwd). Als gratis app haalt Calm in die dagen waarschijnlijk wel 10+ (zoals 28 van de 87 gratis nieuwkomers, GOK voor Calm), en de tekst van Calm verwijst naar Ebb. Dat is de tweede kans op aandacht, zonder werk van Thijs.
+3. Na ±17 nov komt bereik in de winkel alleen nog uit de zoeker (zie hierboven: "breath hold" en "breathing exercises" plek 4) en mogelijk uit "New and Updated" bij een nieuwe versie (GOK). Zie advies 38.
+
 ## Winkelpagina nagekeken (14 nov 08:45 UTC, GEZIEN)
 - Titel en: "Ebb: Breathing Exercises, Breath Hold & Calm"; ook een Duitse en een Nederlandse titel staan erop.
 - Prijs $4.99, eenmalig, geen proefperiode (`hasTrialMode: false`).
@@ -58,6 +76,7 @@ Geplaatst door de hoofdchat op 14 nov ±07:35 UTC, eerst "Content Under Review".
 |---|---|---|---|---|---|
 | 14 nov 11:50 (Chris, run 36) | nee (niet in de lijst, niet te vinden) | | | | |
 | 14 nov 17:47 (Chris, run 38) | ja, pagina 200 met de volledige tekst | 0 | 1 | 5 | 3 (na de vaste README-draad op 1 en één andere draad) |
+| 14 nov 20:46 (Chris, run 39) | ja | 0 | 4 | 5 | niet gemeten |
 
 GEZIEN met curl. "Bekeken" is de teller van het forum zelf; of die bezoekers zonder inlog telt, is NIET GEZIEN. De 5 volgers zijn waarschijnlijk vaste abonnees van nieuwe draden of de maker zelf (GOK).
 

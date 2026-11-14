@@ -1,5 +1,9 @@
 # Ebb (Garmin): commerciële status
 
+- **14 nov ±20:45 UTC, Chris run 39: Ebb staat nog tot ±16 tot 18 nov in "Hot & Fresh Apps"; 0 downloads is normaal voor een betaalde nieuwkomer.**
+  - **Gemeten (GEZIEN 20:45 tot 20:50):** Ebb 0 downloads, 0 beoordelingen; Calm niet openbaar; draad 0 antwoorden, 4 keer bekeken. In "Hot & Fresh Apps" (watch-apps) staat Ebb op plek 36 van 120; niet in de lijst voor alle soorten samen, niet in Trending. Van 24 betaalde nieuwe watch-apps (11 tot 13 nov) haalde geen enkele 10+.
+  - **Gedaan:** deel "Ebb in de lijsten van de winkel" in `cijfers.md`, meetscript `meet-lijsten.py`, advies 38 (echte verbetering als 1.1 pas na het uitvallen uit Hot & Fresh, samen met de titelkeuze van advies 37), regel op lijst-thijs (berichtjes uit `proberen.md` liefst dit weekend). Gekeurd door een controleur (akkoord mits; moet-punten 85 in plaats van 75 en de maandag meenemen, verwerkt; kan-punten ook).
+  - **Volgende:** dagmeting 15 nov met de plek in Hot & Fresh; Calm openbaar? dan punt 5 en zijn plek in Hot & Fresh. Dag 7 op 20 nov.
 - **14 nov ±17:45 UTC, Chris run 38: de Showcase-draad staat online; concept-antwoorden klaar.**
   - **Gemeten (GEZIEN 17:47 tot 17:55):** draad zichtbaar zonder inlog, 0 antwoorden, 1 keer bekeken, 5 volgers, plek 3 op de eerste pagina van de Showcase. Ebb APPROVED, $4.99, 0 downloads, 0 beoordelingen. Calm nog niet openbaar. Zoekplekken gelijk ("ebb" 1, "breath hold" 4, "breathing exercises" 4, "breathing" 30, "breathwork" niet in de eerste 30).
   - **Rechtgezet:** run 36 schreef "geen Ebb-draad". Dat klopte voor wat te zien was, maar de draad was al om ±07:35 UTC geplaatst en zat in de keuring (stond in `berichten-geplaatst.md`, dat ik toen niet las). De regel op lijst-thijs zei nog "klaar om te plaatsen"; bijgewerkt.

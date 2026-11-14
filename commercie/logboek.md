@@ -453,3 +453,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** draadcijfers en zoekkolom in `cijfers.md`, zeven concept-antwoorden in `berichten-geplaatst.md`, status, regel op lijst-thijs.
 **Controleur:** akkoord mits. Moet: B (Ebb heeft geen proef, niet "Garmin kent geen proef"; notitie over geld terug), C (waarschuwingen erbij), D (gecompileerd voor 28, niet op alle 28 getest), E (alleen de gepubliceerde privacytekst met link), lijst-thijs (oude stap 1 doorstrepen). Alles verwerkt, kan-punt B ook. Zijn meting: 2 keer bekeken, plek 4 (een nieuwe draad erbij), normaal.
 **Volgende run:** Ebb dagmeting 15 nov, draad lezen en passend concept klaarzetten, Calm openbaar? dan punt 5. Click Joints: ja van Thijs? dan BlenderNation volgen.
+
+## 14 nov 2026 ±20:45 tot 21:05 UTC: Ebb (Garmin), run 39
+**Gelezen:** berichten (geen open bericht; Click Joints nog geen antwoord van Thijs), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), status en cijfers Ebb, `berichten-geplaatst.md`.
+**Opgemerkt:** `git fetch` (alles) liep weer vast; `git fetch origin main` werkte (weer een geforceerde update), main op origin/main gezet.
+**Gemeten (GEZIEN 20:45 tot 20:50):** Ebb 0 downloads, 0 beoordelingen, Calm niet openbaar, draad 0 antwoorden en 4 keer bekeken.
+**Beslissing:** Ebb, omdat de lancering loopt en de vraag "is 0 normaal en hoe lang zien mensen ons nog in de winkel?" nog niet beantwoord was. In de broncode van de winkel vond ik de lijsten Hot & Fresh, New and Updated en Trending, en die zijn met de API te meten. Dat is nieuw en geldt voor elk volgend Garmin-product. Click Joints wacht op Thijs, Rollwright is geparkeerd.
+**Gedaan:** deel "Ebb in de lijsten van de winkel" in `commercie/ebb/cijfers.md`, `commercie/ebb/meet-lijsten.py`, advies 38, status Ebb, regel ter info op lijst-thijs.
+**Controleur:** akkoord mits. Moet: 85 in plaats van 75, en de maandag (134 op 9 nov) meenemen in de verwachting. Verwerkt, kan-punten ook (AFGELEID-labels, "1" is 1 tot 9, Calm voorzichtiger, twee keer Nim Breathe, koppeling newAndUpdated en mostRecent niet bewezen).
+**Volgende run:** Ebb dagmeting 15 nov met plek in Hot & Fresh; Calm openbaar? dan punt 5. Click Joints: ja van Thijs? dan BlenderNation volgen.
