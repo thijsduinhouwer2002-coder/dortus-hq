@@ -813,6 +813,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - De vier lichte vierkantjes links van de ladder zijn de stippels "hier kun je graven" (`hol_vast.gd`), geen oud graafwerk. Proef met 3D-kiezeltjes op tak `claude/steam-hol-graafstip` (`maak_graafstip.py`, blad `graafstip_3d.png`, toets), vraag aan Daan in taken.md. Eerste Windows-run rood door mijn eigen toets (variabele `HV` dubbel), opgelost; Godot 4.3 nu ook lokaal: toetsen 0 FOUT.
 - Put per gekochte stap (Daans voorstel 13:45, Mila staat uit): pijplijn maakt `put_1` en `put_2` met lagen `put1` en `put2` (model `modellen/hol_put.py` draait Daans `put_stappen.py`), `render.py` kent nu een laag als woordenboek met `verberg`. Lokale proef stap 2 (bpy 5.2.4) GEZIEN: put op kolom 4. Tak `claude/steam-hol-put-stappen`, pijplijn rendert.
 - Les: een push naar een `claude/steam-*`-tak start de Windows-run al zelf; niet ook nog met de hand starten (twee dubbele runs geannuleerd).
+
 ## 14 nov 2026, Olaf (run 14:13 UTC)
 - Obsidian nagekeken: niets dringends. Berichten: alles verwerkt.
 - Weekopname na put3d (run 43599002529) was al verwerkt; Daans moet van 13:50 (pixelput onder de troon) opgepakt: tak `claude/steam-hol-put-schat`, zie taken.md. Controleur akkoord met 3 kan-punten.
