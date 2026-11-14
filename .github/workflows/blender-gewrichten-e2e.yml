@@ -112,6 +112,7 @@ jobs:
             /tmp/blender/blender /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
           grep "\[cj-scherm\] PRO" /tmp/pro.log || true
           grep -q "PRO OK schoon" /tmp/pro.log || { echo "FOUT: plaatje 13 schoon niet goed"; exit 1; }
+          grep -q "PRO OK dicht" /tmp/pro.log || { echo "FOUT: plaatje 13d dichtbij niet goed"; exit 1; }
           grep -q "PRO OK pose" /tmp/pro.log || { echo "FOUT: plaatje 13 niet goed"; exit 1; }
           grep -q "PRO OK rood" /tmp/pro.log || { echo "FOUT: plaatje 14 niet goed"; exit 1; }
           for f in 13-pro-knie-schoon-x.png 13-pro-knie-x.png 14-pro-knie-rood-x.png pro-knie.json; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done

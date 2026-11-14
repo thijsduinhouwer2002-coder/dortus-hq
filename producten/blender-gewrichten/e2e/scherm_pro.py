@@ -2,7 +2,8 @@
 op een echt ding, een houten been (dij en scheen, rond en taps, met een knie), in plaats van twee cilinders.
     blender --python e2e/scherm_pro.py -- <map> <betaalde zip>
 Plaatjes (alle 1920x1080, hele X-scherm):
-  13-pro-knie-schoon-x.png  pose 60, zonder gradenboog (bron voor de poster in ontwerp/click-joints/pro/)
+  13-pro-knie-schoon-x.png  pose 60, zonder gradenboog, hele been (bron voor de poster in ontwerp/click-joints/pro/)
+  13d-pro-knie-dicht-x.png  zelfde stand en kijkhoek, dichtbij op de knokkel (vergrootglas op de poster)
   13-pro-knie-x.png         pose 60 met de gradenboog van de add-on
   14-pro-knie-rood-x.png    3 graden voorbij de gemeten stop, rood van de add-on op A, B doorzichtig
 En pro-knie.json met de echte getallen (bereik, speling, stand) en de plek in beeld van H en de lidas, voor de poster.
@@ -367,6 +368,7 @@ def exploded(factor):
 PROEF13 = [("p13-d", 20, 30, 0.7), ("p13-e", 35, 15, 0.7)]
 PROEF14B = [("p14b-e", -35, 25, 2.5)]
 KIJK13 = (20, 15, 0.7)
+DICHT13 = 0.38   # 13d: knokkel van dichtbij voor het vergrootglas op de poster (Daan moet 4: groen groter)
 KIJK14B = (-25, 20, 2.5)
 
 
@@ -401,14 +403,23 @@ def stap():
         return 2.0
     if n == 3:
         kijk(KIJK13[0], KIJK13[1])
-        kader()
-        inzoom(KIJK13[2])
+        kader()   # schoon: het hele been in beeld (poster), niet ingezoomd
         return 1.5
-    if n == 4:
+    if n == 4 and not staat.get("dicht"):
         schiet("13-pro-knie-schoon.png")
         verslag("13-pro-knie-schoon-x.png", "schoon", POSE, staat["rood13"], False)
         if staat.get("a"):
             schrijf_json()
+        inzoom(DICHT13)   # H blijft op dezelfde pixel, dus centrum uit de json klopt ook voor 13d
+        staat["dicht"] = True
+        toestand["n"] -= 1   # stap 4 nog een keer: nu de opname van dichtbij
+        return 1.5
+    if n == 4:
+        schiet("13d-pro-knie-dicht.png")
+        verslag("13d-pro-knie-dicht-x.png", "dicht", POSE, staat["rood13"], False)
+        kijk(KIJK13[0], KIJK13[1])
+        kader()
+        inzoom(KIJK13[2])
         wm.cj_scharnier_boog = True
         return 2.0
     if n == 5:
