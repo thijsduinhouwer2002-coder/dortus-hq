@@ -148,16 +148,21 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           T="$RUNNER_TEMP/s"
-          for poging in 1 2 3 4 5; do
-            rm -rf "$T"
-            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
-              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
-            fi
-            D="$T/steam-hol-duur/$NAAM"
-            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
-            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
-            cd "$T" && git add -A && git commit -q -m "Duurtest steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
-            if git push -q origin schermen; then cd - >/dev/null; break; fi
-            cd - >/dev/null; sleep $((poging * 3))
+          # Olaf 14 nov: zoals steam-hol-winkel.yml één keer klonen en bij een geweigerde push alleen de nieuwste stand
+          # ophalen en onze ene commit erop zetten; 8 pogingen, daarna rood (vier proeven tegelijk duwen naar dezelfde tak).
+          if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+            mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+          fi
+          D="$T/steam-hol-duur/$NAAM"
+          rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+          echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+          cd "$T" && git add -A && git commit -q -m "Duurtest steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+          gelukt=0
+          for poging in 1 2 3 4 5 6 7 8; do
+            if git push -q origin schermen; then gelukt=1; break; fi
+            sleep $((poging * 2))
+            git fetch -q --depth 1 origin schermen && git rebase -q --onto FETCH_HEAD HEAD~1 || { git rebase --abort 2>/dev/null; true; }
           done
+          cd - >/dev/null
+          [ "$gelukt" = 1 ] || { echo "::error::push naar schermen 8 keer geweigerd"; exit 1; }
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol-duur/$NAAM"
