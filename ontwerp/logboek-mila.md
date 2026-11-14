@@ -483,3 +483,22 @@
 - **Besluit: de gangfakkels geven geen poel meer op de muur (standaard), alleen licht op de figuren.** Waarom: het spel tekent zijn eigen fakkels zonder poel en legt de put tussen gangtegels; een poel in één uitgeknipte kolom wordt daar een blok. Voor een sfeerplaatje kan het terug met `HOL_FAKKEL_POEL=1`.
 - GEMETEN en GEZIEN met Read: tegeltoets gang-put-gang zonder rand, 2x, ware grootte, heks 8x.
 - Open: Daan of de laarzen van de vallende heks in het plafond mogen steken. Volgende: frisse kijker op het echte spel na Brams merge; spanning in één beeld (punt 1 van de volgende ronde).
+
+## Run, 14 nov ±05:40 tot 06:25 UTC (eerste 3D-capsule)
+- Gelezen: berichten (Daan 03:50: vallende heks laten zo, liever `schrik` als winkelbeeld; verwerkt), besluiten 13 nov, regels, rol, taken Steam, LEESMIJ hol-3d.
+- Gemaakt: `ontwerp/steam/capsule-3d/capsule3d.py` met header 920x430 en klein 462x174. Gloop met vier gestolen hoeden op zijn goud, een ridder in schrik met dezelfde helm als onderaan de toren, titel in 3D-letters. Zie `ontwerp/steam/capsule-3d/LEESMIJ.md`.
+- **Besluit: de capsule is de eerste wow-stap voor ma 16 nov, niet nog een hol-ronde.** Waarom: het hol staat op main zonder open moet-punten, en de capsule beslist op 25 nov of er een tekenaar komt; er was nog geen enkele 3D-capsule.
+- **Besluit: lichte perspectief op de capsule, 3D-titel in Lilita One (open licentie).** Waarom: een poster heeft diepte nodig; de pixelletter vloekte naast 3D.
+- GEZIEN met Read: acht proefrenders, header en klein op ware grootte, header naast de vijf toppers, klein naast de oude pixelcapsule.
+- Eerlijk oordeel: veel rijker dan de pixelheader, de grap leest; nog te veel muur, figuren vullen het vak minder dan bij Rusty's en Tiny Pasture.
+- Volgende: frisse kijker op de header, meer vullen, hoedjes op de letters, dan hoofdbeeld en bibliotheek.
+- Ronde 2 capsule na frisse kijker (cijfer 5: "schattig monster met hoed", klein te vlak en te klein): Gloop groter, ridder kleiner, warme muur, hoedenberg rond Gloop.
+- **Besluit: hoedenberg rond Gloop, toren op zijn hoofd blijft 4.** Waarom: zo staat het in het spel (4 op het hoofd, rest op de berg) en het maakt de hoeden klein leesbaar.
+- Proef ronde 3 (hoeden achter Gloop, `proef-ronde3-hoeden-achter-460.png`): lijf vrijer, maar de hoeden lezen slechter. **Besluit: ronde 2 blijft de header.** Waarom: de pan en de emmer vooraan vertellen klein dat het om hoeden gaat; dat weegt zwaarder dan een rustiger lijf.
+- Bericht aan Daan bovenaan `berichten/daan.md` (keuring op fouten en leesbaarheid).
+- 14 nov ±09:00 UTC: capsule ronde 4 na Daans keuring: pluim op Gloops helm, titel vrij van de rand, boog en vijf losse hoeden weg, ridder groter, klein opgeschoond. Frisse kijker groot 7, klein 6.
+- **Besluit: minder dingen, één beeld.** Waarom: Daan en de frisse kijker konden de losse hoeden en de boog niet thuisbrengen; wat niet leest, haalt de aandacht weg van de helmgrap.
+- Fout gevonden: `GS` in `capsule3d.py` deed niets (oude `matrix_world`); vergroten nu via `anker.scale`.
+- 14 nov ±09:15 UTC: ronde 4b klein. **Besluit: klein met alleen de helm op Gloop.** Waarom: frisse kijker A/B, grap 1 tot 2 s en cijfer 8 tegen 3 tot 5 s en 6 met helm plus kroon.
+- 14 nov ±09:05 UTC (klok van de run): ronde 4c header. **Besluit: ridder dichtbij Gloop, toren 3 hoeden, op de berg alleen de hoge hoed.** Waarom: frisse kijker A/B, ±2 s en 7,5 tegen 3 tot 4 s en 6.
+- 14 nov ±09:10 UTC: eerste hoofdbeeld 1232x706 uit dezelfde scène; leest, maar nog te leeg boven en onder. Volgende run: vullen, frisse kijker, dan bibliotheek 600x900.

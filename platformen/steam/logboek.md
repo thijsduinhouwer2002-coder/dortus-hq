@@ -683,3 +683,53 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Paneel rechts in de 3D-stijl op tak `claude/steam-hol-paneel3d` (c3305a0): Fredoka, 9-slice pruimhout, ronde knop en munt. Controleur akkoord met punten (schaduw binnen muisvlak, licentie in export, proefcommentaar verwerkt). Windows-run 43556744671 groen, GEZIEN op 160 en 120. Wacht op de ja van Daan.
 - Lokaal Godot 4.3 opnieuw naar de kladmap gehaald (download van de Godot-releases op GitHub); `.import`-wijzigingen in `kunst/3d/` voor elke commit teruggezet.
 - 04:45 (Bram): noot en versiering in 3D naar main (Windows-run 43556954820 groen, strook GEZIEN). Spinrag grijzer, noot vervaagt voor de rand. Les: `git stash push <pad>` midden in een merge neemt ook de gestaagde merge mee; daarna eerst `git status` lezen.
+
+## 14 nov 2026, 05:13 tot ±05:45 UTC, Olaf
+- Rollwright: 0 open issues, 40 downloads (gelijk), niets te doen.
+- Paneel 3D: nog geen ja van Daan. Intussen main in de tak en het kan-punt van de controleur (StyleBoxen bewaren), controleur akkoord; Windows-run 43561006294 groen, paneel gelijk GEZIEN.
+- Winkelbeelden uit de 3D-build gestart (week en demo op 160). Week GEZIEN; drie pixelresten (hoedenstapel, munten, laars) aan Daan gemeld. Demo-run groen maar niet opgeslagen: workflow-push faalde 5 keer stil. Workflow `steam-hol-winkel.yml` (van Mila, zij staat uit) verbeterd: één kloon, rebase van één commit, rood bij falen.
+- Les: een opslaan-stap met "pogingen" moet aan het eind rood worden als geen poging lukte, anders lijkt de run geslaagd.
+## 14 nov 05:11 tot ±05:40 UTC (Bram)
+- Graafmoment in 3D ingebouwd op tak `claude/steam-hol-graaf3d` (92c7736): `_brokkel()` tekent Daans blad `kunst/3d/graaf_3d.png`, keurstrook met `graaf_proef=1` (vier kamers stil in beeld 0 tot 3). Windows-run 43560606035 groen, keurstrook GEZIEN (`ontwerp/steam/graaf-3d/bram-keurstrook-run43560606035-120-3x.png`). Toetsen lokaal in Godot 4.3 en op Windows 0 FOUT.
+- Pijplijnrun 43560606036 groen, met de nieuwe stap `maak_graaf.py` na de render: het blad is op de tak opnieuw gemaakt uit de nieuwe `hol_proef.png` (9e20176) en er loopt een tweede Windows-run. Wacht op Daans ja, dan `graaf_proef` uit `steam-hol.yml` en naar main.
+- 05:40: paneel 3D op main (573e436) na Daans ja; zijn ronde 3 (groter op 160, knop op 96) staat als volgend punt. Winkel-workflow-fix bewezen (één weigering, daarna opgeslagen); demo en week op 160 van main 573e436 staan op `schermen`.
+
+## 14 nov 2026, 06:17 tot ±06:45 UTC, Olaf
+- Rollwright: 0 open issues, niets te doen.
+- Paneel 3D ronde 3 (Daan 05:45) op tak `claude/steam-hol-paneel-r3` (88112ea): `tekst.gd` kreeg `maten()` per strookhoogte; op 160 kop 18, tekst 15, knop 16 en 28 hoog, 9 px tot het goud; 120 gelijk; 96 knop 2 px hoger; rechts 7 px lucht. Toetsen lokaal 0 FOUT (7 nieuw), controleur akkoord met punten (getal 3 px van het goud, toets 31/128, verwerkt). Windows-run 43566561301 groen, GEZIEN. Wacht op de ja van Daan.
+- Les: de lokale Godot moet eerst `--import` draaien, anders falen de preloads in een proefscript stil en is het beeld leeg.
+
+## 14 nov 06:14 tot ±06:50 UTC (Bram)
+- Blender eerst: Pro 1.0.1 proef 5 (veersleuf donker) gebouwd, Daan ja, op main. Daarna Steam.
+- Graafmoment in 3D: nog geen ja van Daan; tak `claude/steam-hol-graaf3d` wacht.
+- Hoedenberg in 3D (Olafs winkelbeeld 05:35, Daans volgorde 06:40: hoeden eerst): `berg_3d()` in `slijm.gd` op tak `claude/steam-hol-berg3d` (a3d2c8e), 3 toetsen, lokaal 0 FOUT. Winkelbeeld week 160 van de tak (run 43566435282) GEZIEN: 3D-hoeden in de berg. Windows-run 43566430557 groen in alle spelstappen. Wacht op Daans ja.
+- Nog pixels naast Gloop in dat beeld: Royal-cape en bovenzoom (UPG), munten, laars. Gemeld.
+- Les: de winkel-workflow schrijft altijd naar `steam-hol/winkel-1920-week-160/`, ook vanaf een tak; RUN.txt zegt welke commit.
+
+## 14 nov 2026, 07:16 tot ±08:00 UTC, Olaf
+- Rollwright: zie Obsidian, niets dringends.
+- Paneel 3D ronde 3 naar main (merge cd0a408) met de voorlopige ja van Daan (06:48). Na zijn run veranderden alleen 2 regels (getal 3 px van het goud, toetsrand 31/128); run 43566561301 op de tak was groen.
+
+## 14 nov 2026, 07:06 tot ±07:45 UTC, Bram
+- Hoedenberg 3D (`claude/steam-hol-berg3d`) wacht nog op Daans ja (06:40). Royal-cape, bovenzoom en glansster in 3D geclaimd in taken.md; vraag aan Daan of hij ze als standen in `gloop.py` maakt (zelfde camera, lijf verborgen), dan zet ik ze in het blad en in `slijm.gd`. Deze run vooral Blender (poster Click Joints Pro).
+- Windows-run op main na paneel r3 (43570376262) groen, strook 160 GEZIEN.
+- Goudmuntjes in 3D-stijl op tak `claude/steam-hol-munt3d` (8e529ba): vliegende muntjes en het koopmuntje achter `met_3d` rond en glanzend (vier kleuren van het paneelmuntje, geen nieuw blad), draaien door in te drukken. Toetsen lokaal 0 FOUT (4 nieuw), controleur akkoord met punten (3 verwerkt, .import-bestanden van mijn lokale import teruggezet). Windows-run 43570696183 groen, winkelbeeld week 160 (run 43570708482) GEZIEN. Wacht op Daan.
+- Les: `git fetch origin schermen` duurt meer dan 2 minuten (grote tak); losse beelden haal je sneller met curl van raw.githubusercontent.com, map `steam-hol/winkel-1920-week-160/los/`.
+- Laars in 3D, spelkant op tak `claude/steam-hol-laars3d` (ede1b45): tekens-blad beeld `laars` als het er is, anders pixels. Controleur akkoord met punten (toets tekent nu niet buiten `_draw`). Vraag aan Daan over het model en de plek in het blad.
+- Les: na `git checkout` van `.import`-bestanden moet je lokaal opnieuw `--import` draaien, anders falen de 3D-toetsen op een lege textuur (r.690). Daarna de `.import`-bestanden weer terugzetten, niet meecommitten.
+
+## 14 nov 2026, 08:10 tot ±08:55 UTC, Bram
+- Hoedenberg 3D op main (3dad602) na Daans ja van 07:40. Kan (1 spelpixel lucht tot Gloop) op tak `claude/steam-hol-berg-lucht`, Windows-run loopt.
+- Graafmoment 3D wacht nog op Daan (keurstrook 05:30). Royal-cape: Daan zei 07:50 nog niet inbouwen, ronde 3 volgt.
+- Les: `git pull` op een losse HEAD kan lang hangen; `git config http.version HTTP/1.1` en `timeout 90 git fetch` werken. Een tweede werkmap (`git worktree add`) voor main naast de Blender-tak scheelt heen en weer wisselen.
+
+## 14 nov 2026, Olaf (run 08:13 UTC)
+- Repo opnieuw gekloond (ondiep, `--filter=blob:limit=2m`): de oude kloon had 3 GB half binnengehaalde packs en `git fetch` liep na 2 min vast.
+- Laars in 3D naar main (7ba4d53): Windows-run op de tak 43572860248 groen, alleen `slijm.gd` en een toets, geen beeldverschil, dus zonder ja van Daan.
+- Munt in 3D wacht nog op de ja van Daan (vraag 07:50 onder Vragen tussen ons).
+- Nieuw op tak `claude/steam-hol-klik-demo`: echte klik na het demo-einde wordt geweigerd (Windows-toets), controleur akkoord.
+- Obsidian: 40 downloads, 0 issues, geen actie.
+- 08:31: Windows-run 43575080701 op `claude/steam-hol-berg-lucht` groen, naar main (3d6f3d6, naast Olafs laars in `slijm.gd`, automatisch samengevoegd zonder botsing). Windows-run op main 43576158537 (3d6f3d6) groen.
+- 08:35 klik-demo-toets op main (Windows-run 43575354949: "klik geweigerd 1, kliks in het spel 0" GEZIEN in de log).
+- 08:33 tak `claude/steam-hol-heldregel` (4815b3b): logregel "HOL held binnen" voor elke held, demo-einde-toets kijkt daarnaar; controleur akkoord, Windows-run 43576379693 loopt nog. Volgende run: groen, dan naar main.
+- 08:50 munten in 3D naar main na de ja van Daan.

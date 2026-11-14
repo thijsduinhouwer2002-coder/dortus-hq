@@ -393,6 +393,10 @@ func _draw() -> void:
 		var f: float = m.t / MUNT_S
 		var x: float = lerpf(m.van, float(m.get("naar", doel)), f)
 		var y: float = vloer - 6 - sin(f * PI) * 12
+		if met_3d:
+			# 3D-stijl (Daan 06:40): rond en glanzend zoals het paneelmuntje, draait in de vlucht
+			munt_3d(Vector2(x + 0.5, y + 0.5), 1.6, munt_draai(f * 3.0))
+			continue
 		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
 	# kun je iets kopen, dan een klein muntje boven Gloop of de put (Sanne, het kaartje): 2 bij 2 spelpixels met rand, twee beelden
@@ -403,4 +407,27 @@ func _draw() -> void:
 		var mx: float = k * KOL + KOL / 2.0 - 1
 		var onder_y: float = float(koop_munt_y[k]) - 3.0 if koop_munt_y.has(k) else float(GANG_BOVEN + 8)
 		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
+		if met_3d:
+			# zelfde plek en maat als Mila's munt (rij 1 tot 6 van het 8 x 8 beeld), rond; de twee beelden worden vol en op zijn kant
+			munt_3d(Vector2(mx + 1, my + 3), 3.0, 1.0 if (anim / 3) % 2 == 0 else 0.67)
+			continue
 		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))
+
+# Muntje in de 3D-stijl (Daan 14 nov 06:40), zonder nieuw blad: dezelfde vier kleuren als het paneelmuntje (kern/tekst.gd
+# _munt): schaduw, donkere rand, goud, één glimlicht linksboven. c is het midden en r de straal in spelpixels; breed (0 tot 1)
+# drukt hem horizontaal in, zo lijkt hij te draaien. Het hol staat op schaal 4 of 5, dus de cirkels zijn op het scherm glad.
+const MUNT_SCHADUW := Color(0.12, 0.04, 0.12, 0.45)
+const MUNT_RAND := Color("#aa691e")
+const MUNT_GOUD := Color("#f2b632")
+const MUNT_GLIM := Color("#fff0aa")
+func munt_3d(c: Vector2, r: float, breed := 1.0) -> void:
+	draw_set_transform(c, 0.0, Vector2(clampf(breed, 0.2, 1.0), 1.0))
+	draw_circle(Vector2(0.15, 0.4), r, MUNT_SCHADUW)
+	draw_circle(Vector2.ZERO, r, MUNT_RAND)
+	draw_circle(Vector2(-0.08, -0.08), r * 0.72, MUNT_GOUD)
+	draw_circle(Vector2(-0.33, -0.38) * r, r * 0.24, MUNT_GLIM)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+# hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
+static func munt_draai(d: float) -> float:
+	return 0.3 + 0.7 * absf(cos(d * PI))

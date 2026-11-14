@@ -340,3 +340,6 @@ Thijs: "mila aan, en 2 ja". Mila draait weer (geplande taak aan; schema nog elke
 
 ## 13 nov 14:03: Chris en Vera aan; gereedschap eerst
 Thijs: "doe maar a en b". Chris zet de lancering van Ebb klaar (plaatst niets; Thijs plaatst zelf), Vera zoekt het "iets anders erbij" (eerste versie ma 16 nov). Nieuwe vaste regel: gespecialiseerde tools zijn extra handen die we aansturen; voor specialistisch werk eerst een tool zoeken en proberen (`organisatie/gereedschap.md`, regels.md "Gereedschap eerst").
+
+## 14 nov 08:06: hoofdchat mag uploaden, posten en de productpagina zetten
+Thijs: "1, 2 en 3 mag je allemaal zelf doen, je hebt toestemming" en 08:16 "je hebt overal waar jij denkt dat het goed is toestemming voor". Gedaan: dortus.com/ebb/ online (concept van Chris), Ebb Calm ingediend bij Garmin (in behandeling, winkel-id bcc58192-667b-4bd8-a824-e6fe26794466). Forumbericht: het Garmin-forum vraagt eerst akkoord met nieuwe voorwaarden; dat juridische akkoord vraagt de hoofdchat apart aan Thijs. Thijs kiest het .iq-bestand zelf in stap 1 (te groot voor het uploadgereedschap).

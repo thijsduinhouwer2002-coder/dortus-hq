@@ -99,6 +99,51 @@ def toets(stap, eigen, cursor):
             for f in ("STL", "3MF"):
                 d = _max_verschil(_exporteer(inst, f, b), ref[f])
                 stap(f"pose 60 met Exploded view: export {f} gelijk aan zonder pose", d < 1e-4, f"{d:.7f} mm")
+    # (g) Ronde 2 Pro-winkelplaatjes (Daan punt 4 en 5): groene band van de add-on en rood als vlak op A en B.
+    beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
+    groen = kleur.materiaal("groen").name
+    band = {}
+    for ob in (a, b):
+        namen = [m.name if m else None for m in ob.data.materials]
+        vak = namen.index(groen) if groen in namen else -1
+        band[ob.name] = (int(ob.get("cj_band_vlakken", 0)), sum(1 for f in ob.data.polygons if f.material_index == vak))
+    print(f"[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {band}")
+    stap("band: A en B hebben een groene band langs de naad", all(n > 0 and n == m for n, m in band.values()), str(band))
+    soort = {ob.name: ob.get("cj_band_soort") for ob in (a, b)}
+    stap("band: rand glad gesneden (1.0.1, geen trapjesrand)", all(v == "glad" for v in soort.values()), str(soort))
+    # (g2) 1.0.1 (Daan 14 nov 05:45): de veersleuf van A donker in plaats van een licht krasje, alleen weergave.
+    sleuf = {}
+    for ob in (a, b):
+        namen = [m.name if m else None for m in ob.data.materials]
+        vak = namen.index("Click Joints Flex slot") if "Click Joints Flex slot" in namen else -1
+        sleuf[ob.name] = (int(ob.get("cj_sleuf_vlakken", 0)), sum(1 for f in ob.data.polygons if f.material_index == vak))
+    print(f"[cj-betaald] METING sleuf (cj_sleuf_vlakken, vlakken op Flex slot): {sleuf}")
+    stap("sleuf: alleen A heeft donkere sleufvlakken, even veel als de add-on telde",
+         sleuf[a.name][0] > 0 and sleuf[a.name][0] == sleuf[a.name][1] and sleuf[b.name] == (0, 0), str(sleuf))
+    vakken0 = {ob.name: [f.material_index for f in ob.data.polygons] for ob in (a, b)}
+    voorbij = float(a["cj_bereik_graden"]) + 3.0
+    beweeg.pose(a, b, voorbij, kleur.materiaal("rood"))
+    bpy.context.view_layer.update()
+    ra, rb = len(a.get("cj_rood_vlakken", [])) // 2, len(b.get("cj_rood_vlakken", [])) // 2
+    verst = 0.0
+    for ob in (a, b):
+        lijst = list(ob.get("cj_rood_vlakken", []))
+        m = uit_elkaar.echte_matrix(ob)
+        for i in range(0, len(lijst), 2):
+            # Dichtste hoekpunt van het vlak: de staaf heeft lange zijvlakken waarvan het middelpunt ver weg ligt
+            # (run 42794577017: 25,9 mm met het middelpunt), terwijl het vlak zelf wel bij de stop raakt.
+            f = ob.data.polygons[lijst[i]]
+            verst = max(verst, min((m @ ob.data.vertices[k].co - punt).length for k in f.vertices) / u)
+    print(f"[cj-betaald] METING rood {voorbij:.1f} graden: A {ra} vlakken, B {rb} vlakken, verst {verst:.2f} mm van H")
+    stap("rood voorbij de stop op A en op B", ra > 0 and rb > 0, f"A {ra}, B {rb}")
+    stap("rood alleen bij de stop (binnen 15 mm van het draaipunt)", verst <= 15.0, f"{verst:.2f} mm")
+    for f in ("STL", "3MF"):
+        d = _max_verschil(_exporteer(inst, f, b), ref[f])
+        stap(f"rood en band: export {f} van B gelijk aan zonder pose", d < 1e-4, f"{d:.7f} mm")
+    beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
+    terug = all([f.material_index for f in ob.data.polygons] == vakken0[ob.name] for ob in (a, b))
+    stap("pose 0 haalt het rood van A en B weg, de band blijft", terug and not a.get("cj_rood_vlakken")
+         and not b.get("cj_rood_vlakken"))
     # (d) Pose terug naar 0.
     beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
     bpy.context.view_layer.update()

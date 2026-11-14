@@ -31,7 +31,7 @@ Nederlands:
 ```
 Hoi [naam], jij hebt toch een Garmin? Ik heb met mijn bedrijfje Dortus een ademapp voor ronde Garmins uitgebracht: Ebb. De code is geschreven door AI-agents, ik stuur en test. Je scherm wordt een kleine zee die meegaat met je adem, en er komen zeedieren bij als je blijft terugkomen. Je volgt elke fase met je ogen dicht, op trillingen.
 Heb je zin om hem een week te proberen en me eerlijk te zeggen wat je ervan vindt, ook wat stom of onduidelijk is? Hij kost $4,99 in de Connect IQ-winkel (binnen 48 uur na het kopen kun je hem terugsturen). [Of: ik heb een code, dan kost het je niets.]
-<link>
+https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 Geen verplichtingen, en zeg gerust nee.
 ```
 
@@ -40,7 +40,7 @@ Engels (voor wie geen Nederlands spreekt):
 ```
 Hi [name], you have a Garmin, right? With my small studio Dortus I just released a breathing app for round Garmin watches: Ebb. AI agents wrote the code; I direct and test it. Your watch face becomes a little sea that moves with your breath, and sea animals join as you keep coming back. You can follow every phase with your eyes closed, by vibration.
 Would you like to try it for a week and tell me honestly what you think, including what's annoying or unclear? It's $4.99 in the Connect IQ store (you can return it within 48 hours of buying). [Or: I have a code, so it's free for you.]
-<link>
+https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 No obligation at all, feel free to say no.
 ```
 

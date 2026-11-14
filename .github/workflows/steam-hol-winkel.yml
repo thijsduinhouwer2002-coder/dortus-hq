@@ -110,14 +110,21 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           T="$RUNNER_TEMP/s"
-          for poging in 1 2 3 4 5; do
-            rm -rf "$T"
-            git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
-            D="$T/steam-hol/winkel-1920-$SOORT-$HOOGTE"
-            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
-            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
-            cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
-            if git push -q origin schermen; then cd - >/dev/null; break; fi
-            cd - >/dev/null; sleep $((poging * 3))
+          # Olaf 14 nov: één keer klonen (duurt ±1,5 min, de tak is groot) en bij een geweigerde push alleen de nieuwste
+          # stand ophalen en onze ene commit erop zetten. Eerder kloonde elke poging opnieuw; dan duwde een andere
+          # workflow er steeds tussen, faalden alle 5 pogingen en bleef de stap toch groen (run 43560837368).
+          git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
+          D="$T/steam-hol/winkel-1920-$SOORT-$HOOGTE"
+          rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+          echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+          cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
+          gelukt=0
+          for poging in 1 2 3 4 5 6 7 8; do
+            if git push -q origin schermen; then gelukt=1; break; fi
+            sleep $((poging * 2))
+            git fetch -q --depth 1 origin schermen && git rebase -q --onto FETCH_HEAD HEAD~1 || { git rebase --abort 2>/dev/null; true; }
           done
+          cd - >/dev/null
           ls -la "$SRC" | head
+          [ "$gelukt" = 1 ] || { echo "::error::push naar schermen 8 keer geweigerd"; exit 1; }
+          echo "op tak schermen: steam-hol/winkel-1920-$SOORT-$HOOGTE"

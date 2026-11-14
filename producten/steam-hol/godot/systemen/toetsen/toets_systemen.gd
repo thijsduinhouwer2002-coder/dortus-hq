@@ -649,5 +649,50 @@ func _init() -> void:
 		ok(mt >= echt.position.y + echt.plafond_y() - 1.0, "toren van 12 hoeden blijft onder het plafond (%s tegen %s)" % [str(mt), str(echt.position.y + echt.plafond_y())])
 		echt.free()
 	h2.free()
+	# paneel in de 3D-stijl (Olaf 14 nov, Daan ronde 2): Fredoka met gewicht, 3D-bron, terugval naar het pixelpaneel
+	var TK = load("res://kern/tekst.gd")
+	ok(TK.met_3d, "paneel 3D: schakelaar staat aan")
+	ok(TK.PANEEL_3D.get_width() == 384 and TK.BRON_RAND == 128, "paneel 3D: bron 384 px met rand 128")
+	var tk = Node2D.new()
+	tk.set_script(TK)
+	var f6: Font = tk._letter(600)
+	ok(f6 is FontVariation and f6.base_font == TK.FREDOKA and tk._letter(600) == f6, "paneel 3D: Fredoka 600, één keer gemaakt")
+	ok(tk._letter(450) != f6, "paneel 3D: tekst 450 is een eigen letter")
+	ok(f6.get_string_size("Buy  45", HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x > 20, "paneel 3D: Fredoka meet tekst")
+	var d1: StyleBoxFlat = tk._doos("knop")
+	ok(tk._doos("knop") == d1 and d1.border_color == Color("#e8b040"), "paneel 3D: knop-StyleBox één keer gemaakt en bewaard")
+	ok(tk._doos("paneel_schaduw") != d1 and tk._doos("paneel_schaduw").shadow_offset == Vector2(1, 3), "paneel 3D: schaduw is een eigen doos, offset 1,3")
+	# Daan ronde 3 (14 nov): op 160 groter, 120 gelijk, 96 knop 2 px hoger; knop houdt 8 px tot de gouden binnenrand
+	tk.schaal = 4; tk.hoogte = 160.0
+	var m160: Dictionary = tk.maten()
+	ok(m160.kop == 18 and m160.tekst == 15 and m160.knop == 16 and m160.knop_h == 28.0, "paneel r3: op 160 kop 18, tekst 15, knop 16 en 28 hoog")
+	var ky160: float = tk.hoogte - int(m160.onder) - int(m160.regel_h) * 4 + int(m160.regel_h) * 2 + int(m160.knop_dy)
+	var rand160: float = tk.hoogte - 4.0 - 31.0 / 128.0 * roundf(4.5 * tk.schaal)   # binnenkant goud: 31 bronpixels vanaf de rand
+	ok(rand160 - (ky160 + m160.knop_h) >= 8.0, "paneel r3: op 160 minstens 8 px tussen knop en goud (%s)" % str(rand160 - (ky160 + m160.knop_h)))
+	ok(tk.hover_vak().position.y == 54.0, "paneel r3: op 160 blijft het paneel even hoog (top 54)")
+	tk.schaal = 3; tk.hoogte = 120.0
+	var m120: Dictionary = tk.maten()
+	ok(m120.kop == 13 and m120.tekst == 13 and m120.uitleg == 12 and m120.knop_dy == 3 and m120.onder == 15 and m120.boven == 13 and m120.kop_dy == 0, "paneel r3: op 120 alles gelijk")
+	tk.schaal = 2; tk.hoogte = 96.0
+	ok(tk.maten().knop_dy == 1 and tk.maten().kop == 12, "paneel r3: op 96 knop 2 px hoger, letter 12")
+	TK.met_3d = false
+	ok(tk.maten().knop_dy == 3, "paneel r3 uit: oude knopplek")
+	tk.schaal = 4; tk.hoogte = 160.0
+	ok(tk.maten().kop == 13, "paneel r3 uit: op 160 de oude maat")
+	ok(tk._letter(600) == ThemeDB.fallback_font, "paneel 3D uit: de oude letter")
+	TK.met_3d = true
+	tk.free()
+	# goudmuntjes in de 3D-stijl (Daan 14 nov 06:40): vliegend en koopmuntje rond als het paneelmuntje, draaien door in te drukken
+	var HS = load("res://hol/hol.gd")
+	ok(is_equal_approx(HS.munt_draai(0.0), 1.0) and is_equal_approx(HS.munt_draai(1.0), 1.0), "munt 3D: plat voor je bij hele slag")
+	ok(is_equal_approx(HS.munt_draai(0.5), 0.3), "munt 3D: op zijn kant nooit dunner dan 0,3")
+	var mmin := 1.0
+	for i in 31:
+		mmin = minf(mmin, HS.munt_draai(i / 10.0))
+	ok(mmin >= 0.3 - 0.0001, "munt 3D: draai blijft tussen 0,3 en 1")
+	var hm = Node2D.new()
+	hm.set_script(HS)
+	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")
+	hm.free()
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

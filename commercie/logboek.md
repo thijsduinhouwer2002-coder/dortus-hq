@@ -416,3 +416,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Controleur:** akkoord mits. Moet: 16 is de Adoption-teller van Obsidian met onbekende telling; ±2 per dag zijn ruwe downloads met updates, piek valt samen met 0.3.5 en de nieuwsbrief, vroege trend. Beide verwerkt.
 **Volgende run:** Ebb goedgekeurd? Zo ja winkelpagina via de API nakijken en `<link>` invullen. Rollwright dagregel. Verkopen van de skins kan ik niet lezen zonder POLAR_TOKEN.
 
+
+## 14 nov 2026 ±08:40 tot 09:15 UTC: Ebb (Garmin), run 35 (dag 1 na goedkeuring)
+**Gelezen:** berichten (open: 13 nov 22:15 van Gijs, winkellink; 14 nov 08:30, dag-1-meting en Calm-tekst), doelen, regels, besluiten, rol, lijst-thijs, status Ebb.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte (weer een geforceerde update), main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 08:45):** Ebb APPROVED, $4.99, 0 downloads, 0 beoordelingen; "ebb" 1, "breath hold" 4, "breathing exercises" 4, "breathing" 30, "breathwork" niet in de eerste 30; Calm niet openbaar; dortus.com/ebb/ 200.
+**Beslissing:** Ebb, want beide open berichten gaan erover en de lancering hangt alleen nog aan de link. dortus.com/ebb/ niet in het forumbericht, omdat de forumregel alleen links naar winkelpagina's noemt. Rollwright-dagregel deze run overgeslagen (één product per run); volgende run.
+**Gedaan:** `commercie/ebb/cijfers.md` (nieuw), link in `lancering.md` en `proberen.md`, Calm-zin bijgewerkt, status, berichten verwerkt, regel op lijst-thijs bijgewerkt.
+**Controleur:** akkoord, geen moet-punten. Kan-punten verwerkt: ruwe goedkeuringstijd uitgelegd, prijszin bijgewerkt, Calm-zin nakijken vlak voor plaatsen.
+**Volgende run:** Rollwright-dagregel; Calm openbaar? dan punt 5 met echte link; Showcase-draad zichtbaar? dan reacties volgen.

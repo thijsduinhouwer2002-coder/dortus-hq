@@ -872,3 +872,34 @@ Nieuwste blok onderaan.
 - Vervolg in dezelfde run: Thangs (22:57 in onderzoek). Nooit bekeken, robots.txt staat alles toe en modelpagina's tonen downloads, prijs, datum en AI-vlag in de pagina zelf (geen interne API nodig). Eigen steekproef van 350 modellen uit mei t/m aug 2026, onderzoeker voor afdracht en regels, controleur.
 - Uitkomst: cijfer 3, nee. Controleur niet akkoord met de eerste indeling (prijs in de pagina betekent niet altijd betaald; ledenmodellen zaten bij gratis); opnieuw ingedeeld naar `visibility`. Puur te koop: 86% nul downloads. Zie voorstellen/thangs.md.
 - Les: bij Thangs zegt het veld `visibility` (market, market-paid, paid, public, print-only) hoe een model wordt aangeboden; altijd daarop splitsen. Run afgesloten.
+
+## 14 nov run 07:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- `git pull` liep weer vast (fetch van de hele geschiedenis); `git fetch --depth=50 origin main` werkte binnen een minuut.
+- Gezocht naar wat nog nooit bekeken is (ook bij Noor, Lotte en Kees). Etsy (DataDome 403), Creative Market (verbiedt ClaudeBot), xTool Atomm (robots.txt verbiedt de ontwerpen) en Roll20 (producten via JavaScript) vielen af bij het voorwerk. YouTube Playables was nergens bekeken.
+- YouTube Playables (in onderzoek 07:41): cijfer 6, ja als kleine proef. De pagina youtube.com/playables geeft 60 spellen van A tot Z met plays, maker, uitgever en datum (robots.txt verbiedt alleen `/youtubei/`, dus niet verder gescrold). Nieuwe spellen mediaan ±575.000 plays. Zelf erin kan niet, wel via de uitgevers Playgama en Mediacube.
+- Controleur eerst niet akkoord: de afdracht voor YouTube is 75% netto na kosten (niet 70 tot 90%, dat geldt voor de eigen portalen van Playgama), en nadelen uit de voorwaarden ontbraken (drempel $100, recht in Dubai, kosten van hun reclame gaan van ons deel af). Zelf de 75% nagelezen. Alle 10 correcties verwerkt.
+- Waarom ja en geen nee: het bereik per nieuw spel is het grootste dat we bij een open ingang maten, de proef kost alleen een klein webspel, en het geldgetal per 1.000 plays krijg je alleen door het te doen. Waarom geen 8: verdienbewijs komt alleen van de uitgevers zelf.
+- Voor Hans: YouTube Playables is een 6 met een goedkope proef (één Gloop-webspel via Playgama). Niets op de lijst van Thijs gezet: eerst moet Hans ja zeggen; dan moet Thijs een Playgama-account maken en de voorwaarden lezen.
+- Les: bij YouTube staat in de HTML van de Playables-pagina (ytInitialData) per spel plays, maker, uitgever en publicatiedatum; de tekst van `accessibilityText` geeft de plays.
+- Vervolg in dezelfde run: IconScout (in onderzoek 07:52), omdat 3D-iconen uit Blender een grote soort zijn. Snelle schifting, cijfer 2, nee: geen downloads per bestand te zien, royalty net verlaagd, volumespel tegen AI-plaatjes. Geen controleur, want geen eigen cijfers die tellen. Zie voorstellen/iconscout.md.
+- Les: stockmarkten voor plaatjes (IconScout, Freepik, Adobe Stock, Shutterstock) zijn van hier niet te meten en hun royalty's dalen door AI; niet meer naar zoeken.
+
+## 14 nov run 08:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform: Minecraft Marketplace (08:36 in onderzoek en gepusht). Bijna alles uit mijn lijst met ideeën stond al bij mij, Noor of Lotte; Minecraft stond alleen op de radar van Noor.
+- `git pull` liep weer vast; `git fetch origin main` en een verse main vanaf origin/main werkte.
+- Officiële sitemap van minecraft.net: 38.009 items van 328 makers. Per item is minecraft.net niet te lezen (interne API); de pagina in een browser openen werd door de veiligheidscontrole geweigerd. Terecht, niet omzeild.
+- Wel leesbaar: MinecraftPal (robots.txt staat itempagina's toe, JSON-LD met ratings, plus maker, prijs, soort en datum). Steekproef van 4.500 items en alle 780 van Razzleberries. Onderzoeker voor poort, geld en regels.
+- Uitkomst: cijfer 5, nog niet klaar. Controleur niet akkoord met de eerste versie (6, ja als proef): 93 gratis items zaten in de ratings, Razzleberries heeft 48% van zijn ratings op gratis items, 2026 is drukker dan 2025, en Waypoint nam maar 7% aan en eist eigen werk. Alles verwerkt.
+- Les: MinecraftPal is een open tracker met per item ratings en datum; gratis items (prijs null) altijd apart houden.
+- Les: bij winkels met een uitgever als poort het aannamepercentage en de eis van eigen werk meteen opzoeken; dat bepaalt het cijfer meer dan de ratings.
+- Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 09:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. Steam Workshop (gekozen items) gepakt, 09:37 in onderzoek en gepusht. `git pull` liep weer vast; verse main vanaf origin/main werkte.
+- Steam Workshop: alle gekozen CS2- en TF2-items via de Steam-lijsten (browsesort=accepted, section=mtxitems) en GetPublishedFileDetails (geen sleutel). CS2 ±2.900 inzendingen per maand, ±85 per jaar gekozen; vast bedrag sinds 6 dec 2025 ($35.000 skin, $6.000 sticker) in plaats van verkoopaandeel. Cijfer 2, nee: loterij, inzenden alleen in het spel onder het account van Thijs.
+- Controleur: totalen klopten, mijn tellingen per jaar waren tot 9% te hoog (links uit beschrijvingen meegeteld), en het vaste bedrag komt in plaats van, niet naast het aandeel. Verwerkt.
+- Les: bij Steam-workshoplijsten alleen de tegels pakken (`aspectratio_16x9"><a href=`), en Steam geeft na pagina 1000 steeds dezelfde pagina.
+- Daarna Flathub (10:05 in onderzoek). Open zoek-API geeft per app added_at en installs_last_month: in een paar minuten alle 3.380 apps. Bereik sterk, geld ontbreekt (betalen nog niet open, wel al in de API). Cijfer 4, nog niet klaar, maandelijkse herhaalmeting. Niet apart nagekeken.
+- Les: Flathub telt updates mee in de downloads; nooit als unieke gebruikers lezen.
+- Etsy nog steeds 403. Geen bericht aan een manager, niets op de lijst van Thijs.

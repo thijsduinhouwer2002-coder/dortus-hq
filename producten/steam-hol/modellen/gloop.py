@@ -124,6 +124,15 @@ if VERSIE == 3:
     for (x, z, r) in [(-0.15, 0.25, 0.06), (0.25, 0.65, 0.05), (-0.6, 0.7, 0.045), (0.75, 0.55, 0.04)]:
         bol("bel", (x, -0.5, z), (r, r, r), bel)
 
+# ---------- Royal-stukken (Daan 14 nov): cape, zoom, ster ----------
+# Stand cape, zoom of ster rendert alleen dat stuk, met dezelfde camera als rust (hoeden 0), zodat de pijplijn
+# het als los frame op de plek van de oude pixels kan leggen (slijm.gd: cape vóór het lijf getekend, zoom en ster erna).
+# Uitwerking in royal.py. hol.py leest dit stuk wel in, maar zonder STAND is het rust en gebeurt hier niets.
+if _stand in ("cape", "zoom", "ster"):
+    import royal
+    royal.bouw(_stand, [o for o in sc.objects if o.type == "MESH" or o.type == "META"], vloer)
+    _voor_toren = set(sc.objects)
+
 # ---------- hoedentoren ----------
 TOP = 1.52  # bovenkant van het lijf
 z = TOP - 0.1
@@ -147,6 +156,13 @@ if HOEDEN >= 1:   # helm van de ridder
         PLUIM_TOP = z + 1.1   # voor de camera: de pluim mag niet uit beeld vallen
     else:
         kegel("helmpunt", (x - 0.03, 0, z + 0.6), 0.07, 0.0, 0.18, staal, kantel)
+        if globals().get("PLUIM_KNAK", False):
+            # capsule (Daan 14 nov): de rode pluim van de ridder hangt geknakt langs de helm,
+            # zodat je ziet dat het dezelfde helm is als die van de ridder. Standaard uit (spel ongewijzigd).
+            pl = g.mat("pluim", "rood", rough=0.7)
+            for px, py, pz, ps in [(-0.28, -0.1, 0.5, 0.2), (-0.48, -0.13, 0.48, 0.18),
+                                   (-0.64, -0.16, 0.36, 0.16), (-0.72, -0.18, 0.18, 0.14), (-0.74, -0.18, 0.01, 0.11)]:
+                bol("pluim", (x + px, py, z + pz), (ps, ps * 0.85, ps), pl)
     # ronde 2: neusstuk weg, het las als een staafje dat in het oog prikt
     z += 0.5; x -= 0.03; kantel = 9
 if HOEDEN >= 2:   # kroon van de koning: open, zonder donkere binnenkant
@@ -177,6 +193,10 @@ if HOEDEN >= 4:   # rood mutsje met pompon, bovenop de geknakte punt
     z += 0.3
 
 # ---------- camera en licht (gedeeld) ----------
+if _stand in ("cape", "zoom", "ster"):   # hoeden alleen voor de camera (proefbeelden met toren), niet in de render
+    for o in sc.objects:
+        if o not in _voor_toren:
+            o.hide_render = True
 hoogste = max(TOP, z + 0.15, globals().get("PLUIM_TOP", 0))
 midden = hoogste / 2 - 0.25
 schaal = max(3.0, hoogste * 1.08 + 0.45)
