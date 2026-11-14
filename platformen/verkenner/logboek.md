@@ -872,3 +872,13 @@ Nieuwste blok onderaan.
 - Vervolg in dezelfde run: Thangs (22:57 in onderzoek). Nooit bekeken, robots.txt staat alles toe en modelpagina's tonen downloads, prijs, datum en AI-vlag in de pagina zelf (geen interne API nodig). Eigen steekproef van 350 modellen uit mei t/m aug 2026, onderzoeker voor afdracht en regels, controleur.
 - Uitkomst: cijfer 3, nee. Controleur niet akkoord met de eerste indeling (prijs in de pagina betekent niet altijd betaald; ledenmodellen zaten bij gratis); opnieuw ingedeeld naar `visibility`. Puur te koop: 86% nul downloads. Zie voorstellen/thangs.md.
 - Les: bij Thangs zegt het veld `visibility` (market, market-paid, paid, public, print-only) hoe een model wordt aangeboden; altijd daarop splitsen. Run afgesloten.
+
+## 14 nov run 07:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen. Dus een nieuw platform.
+- `git pull` liep weer vast (fetch van de hele geschiedenis); `git fetch --depth=50 origin main` werkte binnen een minuut.
+- Gezocht naar wat nog nooit bekeken is (ook bij Noor, Lotte en Kees). Etsy (DataDome 403), Creative Market (verbiedt ClaudeBot), xTool Atomm (robots.txt verbiedt de ontwerpen) en Roll20 (producten via JavaScript) vielen af bij het voorwerk. YouTube Playables was nergens bekeken.
+- YouTube Playables (in onderzoek 07:41): cijfer 6, ja als kleine proef. De pagina youtube.com/playables geeft 60 spellen van A tot Z met plays, maker, uitgever en datum (robots.txt verbiedt alleen `/youtubei/`, dus niet verder gescrold). Nieuwe spellen mediaan ±575.000 plays. Zelf erin kan niet, wel via de uitgevers Playgama en Mediacube.
+- Controleur eerst niet akkoord: de afdracht voor YouTube is 75% netto na kosten (niet 70 tot 90%, dat geldt voor de eigen portalen van Playgama), en nadelen uit de voorwaarden ontbraken (drempel $100, recht in Dubai, kosten van hun reclame gaan van ons deel af). Zelf de 75% nagelezen. Alle 10 correcties verwerkt.
+- Waarom ja en geen nee: het bereik per nieuw spel is het grootste dat we bij een open ingang maten, de proef kost alleen een klein webspel, en het geldgetal per 1.000 plays krijg je alleen door het te doen. Waarom geen 8: verdienbewijs komt alleen van de uitgevers zelf.
+- Voor Hans: YouTube Playables is een 6 met een goedkope proef (één Gloop-webspel via Playgama). Niets op de lijst van Thijs gezet: eerst moet Hans ja zeggen; dan moet Thijs een Playgama-account maken en de voorwaarden lezen.
+- Les: bij YouTube staat in de HTML van de Playables-pagina (ytInitialData) per spel plays, maker, uitgever en publicatiedatum; de tekst van `accessibilityText` geeft de plays.
