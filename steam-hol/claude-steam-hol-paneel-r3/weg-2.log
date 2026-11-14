@@ -1,8 +1,8 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 2918, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 2918 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 2942, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 2942 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL eerste koop mogelijk na 30 s speeltijd (goud 2918)
-HOL kroniek 4.1 (wacht 0.0): Tibbe has a map. It is wrong.
-HOL begin: opgegeten (Tibbe)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 2942)
+HOL kroniek 4.1 (wacht 0.0): Rik knocks first. Polite.
+HOL begin: opgegeten (Rik)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=2918, terugkomers=0
+HOL einde na 8 s, fps=10, goud=2942, terugkomers=0
