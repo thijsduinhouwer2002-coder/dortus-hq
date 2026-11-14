@@ -919,3 +919,13 @@ Nieuwste blok onderaan.
 - Controleur voor beide voorstellen: akkoord. Audio-plugins: cijfers exact herrekend, 3 pagina's live gelijk; ±8% niet-audio en 42 Proteus-pakketten eruit gehaald (244 betaald, 6% 10+), conclusie gelijk. Sims 4: regels van EA letterlijk bevestigd, 30% nu GEZIEN, advertenties en donaties erbij. Alles verwerkt.
 - Daarna snelle schifting: IMVU (robots.txt verbiedt Claudebot, gerespecteerd), Rec Room (gesloten 1 juni 2026), FlutterFlow Marketplace (Flutter-webapp, niet leesbaar). Alle drie in kandidaten.md.
 - Voor Hans: deze run twee nee's (Sims 4 cijfer 2, audio-plugins cijfer 3), geen nieuwe kanshebber. Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 11:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; `git fetch` en main vanaf origin/main werkte. Push eerst geweigerd (remote verder), na rebase gelukt.
+- Gezocht naar wat nergens bekeken is: BlenderKit (sinds juni 2026 Blendkit) kwam alleen voor als regel in de Rhino-gegevens. 11:40 in onderzoek en gepusht.
+- Open zoek-API zonder sleutel: per asset datum, maker, prijs, bladwijzers en oordelen, maar geen downloads of verkopen (ook niet op de webpagina, alleen "Bookmarks in 90 days").
+- Eigen meting: alle 1.061 add-ons (865 betaald) en de 8.000 nieuwste modellen. Onderzoeker voor geld, regels en bereik; controleur herrekende alles en vond vier fouten (start van Zahit 13 okt, niet half sep; "zes keer" moest ±9 keer met hem en ±4 zonder; bladwijzers van de hits 7 tot 41; GOK is een bovengrens). Verwerkt.
+- Eigen fout eerst: bij de koppeling met Superhive las ik "10+" als 0, waardoor ik dacht dat bijna niemand verkocht. Herrekend: 74 van 126 halen 10+ op Superhive, 13 halen 100+. Dat maakte het oordeel scherper: dezelfde add-on krijgt op Blendkit veel minder aandacht.
+- Uitkomst: cijfer 3, nee. Bijroute voor Bram en Hans: Click Joints Pro later ook op Blendkit (75% voor de maker, extensions-formaat hebben we al). Niets op de lijst van Thijs.
+- Les: verkooptellers van Superhive zijn tekst ("10+", "100+"); altijd het getal eruit halen, nooit int() op de hele tekst.
+- Les: Blendkit-API: blendkit.com/api/v1/search/?query=asset_type:addon+order:-created&page_size=100, telt tot 10.000 per zoekvraag.
