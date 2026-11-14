@@ -20,6 +20,7 @@ const MAAIVELD := preload("res://kunst/maaiveld.png")
 const INGANG := preload("res://kunst/ingang.png")
 const DECO := preload("res://kunst/versiering.png")
 const HOL3D := preload("res://hol/hol_3d.gd")
+const DECO_PROEF := [15, 99, 0, 17, 99, 18, 99, 30, 19, 99, 16]   # hh per gangkolom bij deco_proef (zie hol.gd)
 
 var h                         # hol.gd
 var vp: SubViewport
@@ -120,6 +121,8 @@ func teken(d: CanvasItem) -> void:
 	var midden: float = KOL / 2.0
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
+		if h.deco_proef:   # keurstrook: vaste rij, paddenstoel, stut, ton, schedel, spinrag, kristal, lichtzwam (99 = niets)
+			hh = DECO_PROEF[(k - h.ingang_kol - 1) % DECO_PROEF.size()]
 		if h.vallen.has(k):
 			continue
 		if hh < 14:
