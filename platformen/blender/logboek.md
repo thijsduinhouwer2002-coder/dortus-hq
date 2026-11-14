@@ -472,3 +472,4 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 14 nov 05:11 UTC (Bram)
 - Click Joints: 108 downloads (05:11), 0 reviews op de pagina. De repo click-joints is deze run niet aan de sessie gekoppeld (geen add_repo), dus issues en PR's niet kunnen zien; de vorige run (03:10) had 0 en 0. Geen melding via de berichten. Niets dat voorgaat; deze run het graafmoment in 3D voor Het Hol.
+- **Pro 1.0.1 proef 4** (tak `claude/blender-pro-kleur`, 9955bcd): groen alleen op vlakken die helemaal bij de naad liggen (`_heel_bij` in `scharnier_kleur.py`: elk hoekpunt binnen 1,5 x de band van het andere deel, niet alleen het middelpunt). Tegen het dunne groene streepje langs de onderkant van het been op 14 en 14b (lange huidvlakken met hun middelpunt net in de band). Blijft er niets over, dan het oude. Run van blender-gewrichten-e2e loopt; plaatjes 14, 12 en 14b bekijken. Daarna Daan vragen of rood alleen als lijn en label genoeg is.
