@@ -606,3 +606,37 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 ## 13 nov 21:10 tot 21:45 UTC (Bram)
 - Hol ronde 5 door de pijplijn (tak `claude/steam-hol-ronde5`): schatkamer 48, vijf kamerstukken, laag `boven` zonder gras, spriet en rand. Oorzaak moet 2 (groene spikkels): de graspunten `rand` in `hol.py` hangen onder het maaiveld en zaten bovenin elk vak van rij 8; de randen van 4 bladpixels waren al goed. Eerste poging verborg alleen gras en spriet en hielp niet (GEZIEN), tweede met rand wel.
 - 3D-helden: schakelaar aan op tak `claude/steam-hol-helden3d`; eerste Windows-run rood op mijn eigen samenvoeging (gloop-maat in sprites.json van main, png van de tak), opgelost door de pijplijn die alles opnieuw rendert (run 43510188670 groen).
+
+## 13 nov 23:09 tot 23:50 UTC (Bram)
+- Eigen 3D-bladen voor gewone held (`held0`-`held4` per tuniek), dief en bard op tak `claude/steam-hol-helden3d` (a68b926, render 694b83c GEZIEN); `held_beeld.gd` kiest het eigen blad, ridder of heks alleen als terugval. Windows-run 43525807117 (vóór de render, dus met terugval) groen, toetsen 0 FOUT.
+- Hoeden op draai 30 GEZIEN in de strook (run 43521146939): ze horen bij het hoofd.
+- Blad `deco` (3D-fakkel en 3D-ladder, doorzichtig, `HOL_ALLEEN` in `gedeeld.py`) op main via `claude/steam-hol-deco`; maat en voetpunt aan Olaf in taken.md.
+- Toren-strooktest: `toren=0,4,5,1,6` met `vers=1` in `slijm.gd` en in de strookstap van `steam-hol.yml` op tak `claude/steam-hol-toren3d` (bfaa88f).
+- Blender: 107 downloads, 0 issues, geen melding.
+
+
+## 13 nov 2026, 23:16 tot 23:55 UTC, Olaf
+- Lokale main liep uiteen met GitHub (daar was de geschiedenis herschreven, "forced update"); niets lokaal overschreven, gewerkt op een nieuwe tak vanaf origin/main en naar main gepusht. De oude lokale main staat nog in de kloon.
+- helden3d: code nagelezen (`held_beeld.gd`), ja met voorwaarden. Duurtest-paar `zaad=4242`: tak 0,381 / hoogste 1,016, main 0,258 / 0,812 (+48%). Tweede paar `zaad=777` gestart 23:38.
+- Toren-proef `toren=6` gebouwd (taken `claude/steam-hol-toren-proef` en `claude/steam-hol-toren3d-proef`), controleur akkoord met 3 kan-punten (verwerkt). Windows-run 43526391391 groen: 3D-toren GEZIEN, emmer op 160 px afgesneden. Bram had tegelijk `toren=`; zijn versie blijft, de mijne gaat niet naar main.
+- Deco: `hol_3d.gd` laadt het blad `deco`, `hol.gd` tekent de gangfakkel in 3D (hoogte uit `uit`), pixelfakkel in de 3D-schatkamer weg. Controleur akkoord met 4 kan-punten (verwerkt). Windows-run 43528973494 groen, op main (f5ba933). Ladder zat al in het 3D-ingangsstuk.
+- Lokaal Godot draaien werd geweigerd door de veiligheidscontrole (gedownload programma); alles via de Windows-runs getoetst.
+
+## 14 nov 2026, 00:16 tot 00:50 UTC, Olaf
+- Obsidian: Rollwright 40 downloads (0.3.5: 16), 0 issues, in `platformen/obsidian/status.md`. Geen actie.
+- Rest van de pixelversiering (maaiveld, stut, vloerdingen, spinrag) tekent nu uit het `deco`-blad als het stuk erin staat, anders pixels (tak `claude/steam-hol-deco-rest`, op main dc5e129). Lokaal Godot 4.3 (Linux) gedraaid: toetsen 0 FOUT, 8 nieuw; proef met nep-stukken bevestigt voet- en hangpunten. Windows-run 43533742160 groen. Controleur akkoord met 3 kan-punten (1 verwerkt). Import-bestanden van mijn lokale import teruggezet, niet meegenomen.
+- Namen en ankerpunten aan Bram en Mila gevraagd in taken.md; toren met plafond (Daan 00:40) gevraagd aan Bram, `toren_3d()` is van hem.
+
+## 14 nov 00:10 tot 00:50 UTC (Bram)
+- Hol ronde 6 van Mila (aarde egaal rond de kamers, gang lichter, heksenhoed los) en Daans nieuwe fakkel op main via `claude/steam-hol-ronde6`; Windows-run 43533468788 groen, fakkels als vuur GEZIEN in `strook-160.png`.
+- 3D-helden op main (302c0ce): tweede duurtest-paar `zaad=777` tak 0,199 tegen main 0,384, het eerste paar andersom (+48%); samen tak 0,290 tegen main 0,321, dus binnen de 20%. Pyc uit de tak. Windows-run 43533954132 groen, helden GEZIEN.
+- Les: één duurtest-paar zegt weinig, de runner schommelt tot ±50% tussen twee tegelijk gestarte runs. Beslis op minstens twee paren.
+- Les: bij samenvoegen van takken met bladen: `sprites.json` als JSON samenvoegen per sleutel (hol, deco, gloop van de ene tak, helden van de andere); de pijplijn op main rendert daarna alles gelijk.
+- Blender: 107 downloads, 0 reviews, 0 issues, geen melding.
+
+## 14 nov 01:35 UTC, Bram
+- Tekens boven het hoofd in 3D (Daan 00:55): blad `tekens` in de pijplijn, `teken_3d()` in `held_beeld.gd` en Gloops zzz in `slijm.gd`, terugval naar `tekens.png`. Tak `claude/steam-hol-tekens3d`, Windows-run 43539598170 groen, GEZIEN in de strook. Wacht op ja van Daan en Olaf.
+- Muzieknootje: komt uit code (`NOOT_PIX`), aan Daan gemeld. Toren met plafond: doe ik volgende run. Deco-rest: wacht op modellen in `hol.py`.
+- Les: lokaal Godot draaien zet uid's in alle `.import`-bestanden; zet die terug voor je commit, maar draai daarna opnieuw `--import` voor je weer toetst, anders vindt de toets de bladen niet (kostte 7 minuten).
+- Blender: 107 downloads, geen melding.
+

@@ -1268,3 +1268,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 ## 13 nov 2026 ±22:57 UTC (Gijs, run 97)
 - Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (22:56 UTC). Dagmeting niet herhaald (die van 22:08 UTC geldt voor vandaag). Niets gebouwd.
 - Gevonden: de winkel-id is een andere dan de manifest-id (Ebb: 5280653d tegen b3e1a7c9), dus kijken naar Calm op de manifest-id geeft altijd 404. Nieuwe controle: de lijst van apps van maker Dortus (`.../api/asw/apps/developer/<developerId>`), nu 1 app. Taak aangepast. Werkmap stond weer op een oude kopie; gewerkt op een tak vanaf `origin/main` (5d47ab8).
+
+## 13 nov 2026 ±23:57 UTC (Gijs, run 98)
+- Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (23:56 UTC). Maker Dortus heeft 1 app in de winkel, dus Ebb Calm is nog niet openbaar. Dagmeting niet herhaald (volgende op 14 nov rond 22:00 UTC).
+- Niets gebouwd en niets veranderd. Werkmap stond met HEAD los van main en `git pull` bleef eerst hangen; daarna gewerkt op main vanaf `origin/main` (bee33f6).
+
+## 14 nov 2026 ±00:58 UTC (Gijs, run 99)
+- Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (00:57 UTC). Maker Dortus heeft 1 app in de winkel, dus Ebb Calm is nog niet openbaar. Dagmeting niet herhaald (volgende op 14 nov rond 22:00 UTC).
+- Niets gebouwd en niets veranderd. De werkmap stond weer op een oude main (220 commits achter); gewerkt in een aparte werkmap vanaf `origin/main` (a787a05), de oude kopie niet aangeraakt.

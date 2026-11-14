@@ -249,6 +249,10 @@ def render_stukken(naam, s, bpy_python, snel):
     if not s.get("stukken"):
         raise SystemExit(f"FOUT: {naam}: geen stukken")
     for laag, lijst in s["lagen"].items():
+        if isinstance(lijst, dict):   # {"alleen": [...]}: alleen die objecten, doorzichtig eromheen (HOL_ALLEEN)
+            lijst = lijst.get("alleen")
+            if not lijst:
+                raise SystemExit(f"FOUT: {naam}: laag {laag}: een woordenboek moet 'alleen' met namen hebben")
         if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
             raise SystemExit(f"FOUT: {naam}: laag {laag} moet een lijst met namen zijn")
     nodig = sorted({st["laag"] for st in s["stukken"].values()})
@@ -259,13 +263,19 @@ def render_stukken(naam, s, bpy_python, snel):
     t0 = time.time()
     os.makedirs(UIT, exist_ok=True)
     for laag in nodig:
-        sleutel = "-".join(sorted(s["lagen"][laag])) or "niets"   # andere verberglijst = ander bestand (HOL_HERGEBRUIK)
+        cfg = s["lagen"][laag]
+        alleen = cfg.get("alleen") if isinstance(cfg, dict) else None
+        verberg = [] if alleen else cfg
+        sleutel = ("alleen-" + "-".join(sorted(alleen))) if alleen else ("-".join(sorted(verberg)) or "niets")   # andere lijst = ander bestand (HOL_HERGEBRUIK)
         ruw = os.path.join(UIT, f"{naam}_laag_{laag}_{sleutel}.png")
         if not (os.environ.get("HOL_HERGEBRUIK") == "1" and os.path.exists(ruw)):
             with tempfile.TemporaryDirectory() as tmp:
                 uit = os.path.join(tmp, "laag.png")
                 args = [a.format(uit=uit, w=w, h=h, samples=samples, stand="rust") for a in s["args"]]
-                env = dict(os.environ, HOL_VERBERG=json.dumps(s["lagen"][laag]))
+                env = dict(os.environ, HOL_VERBERG=json.dumps(verberg))
+                env.pop("HOL_ALLEEN", None)
+                if alleen:
+                    env["HOL_ALLEEN"] = json.dumps(alleen)
                 env.pop("HOL_FRAMES", None); env.pop("HOL_RUIMTE", None)
                 r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
                                    capture_output=True, text=True)
