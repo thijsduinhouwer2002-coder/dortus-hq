@@ -90,6 +90,27 @@ const TEKENS3D := "tekens"
 # spelpixels onder de bovenrand van het hol (hol-y 0) blijft; h staat in hol-coordinaten. Bij een held hoog op de ladder
 # zakt het teken dan iets naar zijn hoofd toe.
 const TEKEN_RAND := 1
+# Hoogste y (linkerbovenhoek van het 5x5-nootje) zodat de noot, ook de 3D-noot die 1 rij hoger begint, minstens TEKEN_RAND onder de rand blijft.
+static func noot_y_min(h) -> int:
+	if not (h is Node2D):
+		return -100000
+	return TEKEN_RAND + 1 - int(floor((h as Node2D).position.y))
+# Eén frame uit het blad tekens met de linkerbovenhoek van zijn vak op `hoek` (spelpixels). false = geen blad of frame.
+static func teken_vak_3d(doek: CanvasItem, naam: String, hoek: Vector2, kleur := Color.WHITE) -> bool:
+	if not met_3d:
+		return false
+	_laad_3d()
+	if not held3d.has(TEKENS3D):
+		return false
+	var info: Dictionary = held3d[TEKENS3D][1]
+	var i: int = (info["frames"] as Array).find(naam)
+	if i < 0:
+		return false
+	var px: float = float(info["px"])
+	var cw: float = float(info["cel_px"][0])
+	var ch: float = float(info["cel_px"][1])
+	doek.draw_texture_rect_region(held3d[TEKENS3D][0], Rect2(hoek, Vector2(cw / px, ch / px)), Rect2(i * cw, 0, cw, ch), kleur)
+	return true
 static func teken_onder_min(h) -> int:
 	if not (h is Node2D):
 		return -100000
@@ -324,6 +345,9 @@ static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float
 # Nootje van 5 x 5 in pixels (achtste noot met vlag), tot Mila er een tekening voor heeft (tekens.png, 2 beelden).
 const NOOT_PIX := ["..##.", "..#.#", "..#..", "###..", "###.."]
 static func _noot(h, x: int, y: int, alfa: float) -> void:
+	y = maxi(y, noot_y_min(h))   # Daan 14 nov 02:45: ook de noot minstens 1 spelpixel onder de bovenrand
+	if teken_vak_3d(h, "noot", Vector2(x - 2, y - 3), Color(1, 1, 1, alfa)):
+		return   # 3D-noot uit het blad tekens (Daan: valt in het 8x8-vak precies over het 5x5-pixelnootje)
 	var licht := Color(1.0, 0.88, 0.45, alfa)
 	var rand := Color(0.13, 0.08, 0.05, alfa * 0.9)
 	for ry in 5:

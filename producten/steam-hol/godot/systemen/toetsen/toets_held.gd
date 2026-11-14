@@ -865,6 +865,10 @@ func _init() -> void:
 	HB3.held3d = tb
 	doek_t.position = Vector2(10, 5)
 	ok(HB3.teken_onder_min(doek_t) == 1 + 8 - 5, "teken-rand: bovenkant van het teken 1 spelpixel onder de bovenrand (%d)" % HB3.teken_onder_min(doek_t))
+	ok(HB3.noot_y_min(doek_t) == 1 + 1 - 5, "noot-rand: noot minstens 1 spelpixel onder de bovenrand (%d)" % HB3.noot_y_min(doek_t))
+	ok(HB3.teken_vak_3d(doek_t, "bestaat_niet", Vector2.ZERO) == false, "3D-noot: onbekend frame geeft false, dan pixels")
+	if HB3.held3d.has("tekens") and (HB3.held3d["tekens"][1]["frames"] as Array).has("noot"):
+		ok((HB3.held3d["tekens"][1]["frames"] as Array).find("noot") == 5, "3D-noot: 6e frame in het blad")
 	doek_t.free()
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)

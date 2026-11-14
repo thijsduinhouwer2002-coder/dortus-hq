@@ -1097,9 +1097,16 @@
             1.0,
             1.0
           ]
+        },
+        "noot": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
         }
       },
-      "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png."
+      "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png. Bram 14 nov 02:40 (Daan 02:45): 6e frame noot, _noot() tekent het 8x8-vak op (x - 2, y - 3)."
     }
   }
 }
