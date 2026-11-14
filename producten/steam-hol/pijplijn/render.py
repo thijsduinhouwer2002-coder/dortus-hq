@@ -17,7 +17,7 @@ Per sprite:
 Ook een vergroting naast ware grootte in pijplijn/uit/ (niet in git) om naar te kijken.
 """
 import json, os, shutil, subprocess, sys, tempfile, time
-from PIL import Image
+from PIL import Image, ImageChops, ImageFilter
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 HOL = os.path.dirname(HIER)
@@ -64,6 +64,37 @@ detect_3d/compress_to=1
 def verklein(im, maat):
     """Lanczos op voorvermenigvuldigde alfa, anders krijgen de randen een donkere zoom."""
     return im.convert("RGBa").resize(maat, Image.LANCZOS).convert("RGBA")
+
+
+def zachte_rand(stuk, deel=0.3, onder_px=0):
+    """Schaduw zacht laten aflopen naar de rand van de uitsnede (Bram 14 nov 19:40).
+
+    Onder elke held ligt in de render een schaduwvanger: lange schaduw, een brede zachte vlek en een vage vloerstrook
+    over de hele breedte. Hard afgesneden op de cel gaf dat in de strook een rechthoek achter elke held (bard: alfa
+    52 tot 58 op de onder- en rechterrand). Nu gaat de alfa naar 0 in het buitenste `deel` van de breedte aan beide
+    kanten (zachte S-curve) en in de onderste `onder_px` rijen. Alleen buiten het figuur: niet-zwart met alfa boven 60
+    plus een paar pixels eromheen blijft precies zoals het was (de schaduw is zuiver zwart). De bovenrand blijft zoals hij is (daar staat de kruin)."""
+    w, h = stuk.size
+    band = max(1.0, deel * w)
+    def s(d, b):
+        if b <= 0:
+            return 1.0
+        x = min(1.0, max(0.0, d / b))
+        return x * x * (3 - 2 * x)
+    kol = [min(s(x + 0.5, band), s(w - 0.5 - x, band)) for x in range(w)]
+    rij = [s(h - 0.5 - y, onder_px) for y in range(h)]
+    masker = Image.new("L", (w, h))
+    masker.putdata([round(255 * kol[x] * rij[y]) for y in range(h) for x in range(w)])
+    a = stuk.getchannel("A")
+    # figuur = duidelijk zichtbaar en niet zwart; de schaduwvanger rendert zuiver zwart (0, 0, 0) met lage alfa
+    kleur = ImageChops.lighter(ImageChops.lighter(stuk.getchannel("R"), stuk.getchannel("G")), stuk.getchannel("B"))
+    figuur = ImageChops.multiply(a.point(lambda v: 255 if v > 60 else 0), kleur.point(lambda v: 255 if v > 8 else 0))
+    figuur = figuur.filter(ImageFilter.MaxFilter(2 * max(1, round(w / 60)) + 1))
+    # alleen zwarte pixels (schaduw) vervagen; alles met kleur (vage rook, glans, zweetwolkje) blijft zoals het was
+    masker = ImageChops.lighter(ImageChops.lighter(masker, figuur), kleur.point(lambda v: 255 if v > 8 else 0))
+    uit = stuk.copy()
+    uit.putalpha(ImageChops.multiply(a, masker))
+    return uit
 
 
 def render_sprite(naam, s, bpy_python, snel, index=None):
@@ -161,6 +192,7 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
     marge = round(0.04 * max(v[2] - v[0] for v in vakken))
     x0 = max(0, min(v[0] for v in vakken) - marge); y0 = min(v[1] for v in vakken)
     x1 = min(w, max(v[2] for v in vakken) + marge); y1 = min(h, max(v[3] for v in vakken) + marge // 2)
+    rand_o = y1 - max(v[3] for v in vakken)   # marge onder de voeten zoals hij echt werd; de vloerstrook loopt minstens 6% van de hoogte af (meer dimt de contactschaduw onder de voeten)
     # schaal: het eerste beeld (rust) past precies in de cel
     cw, ch = s["cel"]; px = s["px"]
     v = vakken[0]
@@ -188,7 +220,7 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
     anker_x = round(cel_w / 2)
     tops, nul_y, kruin = [], [], []
     for i, b in enumerate(beelden):
-        stuk = b.crop((x0, y0, x1, y1))
+        stuk = zachte_rand(b.crop((x0, y0, x1, y1)), onder_px=max(rand_o, round(0.06 * (y1 - y0))))
         klein = verklein(stuk, (max(1, round(stuk.width * schaal)), max(1, round(stuk.height * schaal))))
         # links zo dat x = 0 van het model op anker_x valt, onderkant op de bodem van de cel
         links = anker_x - round((midden - x0) * schaal)
