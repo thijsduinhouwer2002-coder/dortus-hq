@@ -1,28 +1,24 @@
-HOL weg geweest 42 s (klok terug: false): goud voor 1655, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 1655 goud
+HOL weg geweest 42 s (klok terug: false): goud voor 1577, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1577 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL kroniek 4.0 (wacht 0.0): Sir Tibbe polished his armor for this.
-HOL held binnen: Tibbe
+HOL kroniek 4.0 (wacht 0.0): Sir Fenna polished his armor for this.
+HOL held binnen: Fenna
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 19.7 (wacht 0.0): Gloop is flat. Back soon.
-HOL meting t=20 beelden=101 helden=1 hol_vast=1
-HOL meting t=30 beelden=101 helden=1 hol_vast=1
-HOL kroniek 35.8 (wacht 0.0): Tibbe fled, crying a little.
-HOL kroniek 38.3 (wacht 2.5): Page for the Knight. He got away.
-HOL meting t=40 beelden=58 helden=0 hol_vast=1
-HOL kroniek 44.4 (wacht 0.0): Joost is here for your gold.
-HOL held binnen: Joost
-HOL meting t=50 beelden=60 helden=1 hol_vast=1
-HOL kroniek 59.7 (wacht 0.0): Gloop is up again. Wobbly.
-HOL meting t=60 beelden=100 helden=1 hol_vast=1
-HOL kroniek 60.7 (wacht 0.6): Gloop is flat. Back soon.
-HOL kroniek 70.2 (wacht 0.0): Joost escaped with a limp.
-HOL meting t=70 beelden=99 helden=0 hol_vast=1
-HOL kroniek 72.8 (wacht 2.6): Booked: the Hero. Ran off. Counts.
-HOL meting t=80 beelden=1 helden=0 hol_vast=1
-HOL meting t=90 beelden=0 helden=0 hol_vast=1
-HOL kroniek 100.2 (wacht 0.0): Gloop is up again. Wobbly.
-HOL meting t=100 beelden=3 helden=0 hol_vast=1
-HOL held binnen: Wout
-HOL kroniek 102.8 (wacht 0.6): Wout climbs into your hole.
+HOL kroniek 15.9 (wacht 0.0): Fenna left gold and one boot. +6
+HOL kroniek 18.5 (wacht 2.6): New page: the Knight. The pit got him.
+HOL meting t=20 beelden=95 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL kroniek 47.1 (wacht 0.0): Tibbe knocks first. Polite.
+HOL held binnen: Tibbe
+HOL meting t=50 beelden=34 helden=1 hol_vast=3
+HOL kroniek 59.1 (wacht 0.0): Tibbe found the Spike Pit. Hard. +6
+HOL meting t=60 beelden=122 helden=0 hol_vast=5
+HOL kroniek 61.6 (wacht 2.6): Booked: the Hero. Spikes: one.
+HOL meting t=70 beelden=4 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL meting t=100 beelden=4 helden=0 hol_vast=5
+HOL kroniek 105.6 (wacht 0.0): Gerda the Bard tunes his lute.
+HOL held binnen: Gerda
