@@ -792,3 +792,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Daans kan van 09:35 (graafmoment): `maak_graaf.py` maakt 4 rijen (midden, open links, open rechts, open onder) met een lichte rand om het gat; `hol.gd` `graaf_rij()` kiest de rij. Tak `claude/steam-hol-graaf-kant` (a7ba4ce), 5 toetsen, lokaal 0 FOUT, keurstrook met `graaf_proef=1` (Windows-run 43594204173).
 - Click Joints: 110 downloads, geen reviews.
 - Les: `date -u` kijken voor je een tijd in taken.md zet; ik schreef 12:35 terwijl het 12:19 was (rechtgezet).
+
+## 14 nov 2026, Olaf (run 13:16 UTC)
+- Rollwright: 0 open issues (GitHub API), niets dringends in Obsidian.
+- Daans ja (12:50) op de put in 3D: Windows-run op de tak 43594439045 groen, tak naar main (18e2253). Windows-run op main 43598994791 loopt nog bij afsluiten.
+- Weekopname op 160 gestart en klaar (run 43599002529, groen). Scherm 1 en 2 opnieuw gesneden met Mila's script, beeld 395: `producten/steam-hol/bewijs-winkel3d/schermen-3d-put3d/`. GEZIEN: geen pixelplank meer, scherm 1 helemaal 3D.
+- Film van main (run 43590246166) nagelezen: eerste minuut klopt nog (val 13 s, eerste koop 20 s, Hoard-Toucher 35 s, Gloop eet Joost 52 s).
+- Volgende run: Windows-run op main 43598994791 nakijken; antwoord Mila en Daan op de schermen.
