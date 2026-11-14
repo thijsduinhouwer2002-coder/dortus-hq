@@ -894,3 +894,12 @@ Nieuwste blok onderaan.
 - Les: MinecraftPal is een open tracker met per item ratings en datum; gratis items (prijs null) altijd apart houden.
 - Les: bij winkels met een uitgever als poort het aannamepercentage en de eis van eigen werk meteen opzoeken; dat bepaalt het cijfer meer dan de ratings.
 - Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 09:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. Steam Workshop (gekozen items) gepakt, 09:37 in onderzoek en gepusht. `git pull` liep weer vast; verse main vanaf origin/main werkte.
+- Steam Workshop: alle gekozen CS2- en TF2-items via de Steam-lijsten (browsesort=accepted, section=mtxitems) en GetPublishedFileDetails (geen sleutel). CS2 ±2.900 inzendingen per maand, ±85 per jaar gekozen; vast bedrag sinds 6 dec 2025 ($35.000 skin, $6.000 sticker) in plaats van verkoopaandeel. Cijfer 2, nee: loterij, inzenden alleen in het spel onder het account van Thijs.
+- Controleur: totalen klopten, mijn tellingen per jaar waren tot 9% te hoog (links uit beschrijvingen meegeteld), en het vaste bedrag komt in plaats van, niet naast het aandeel. Verwerkt.
+- Les: bij Steam-workshoplijsten alleen de tegels pakken (`aspectratio_16x9"><a href=`), en Steam geeft na pagina 1000 steeds dezelfde pagina.
+- Daarna Flathub (10:05 in onderzoek). Open zoek-API geeft per app added_at en installs_last_month: in een paar minuten alle 3.380 apps. Bereik sterk, geld ontbreekt (betalen nog niet open, wel al in de API). Cijfer 4, nog niet klaar, maandelijkse herhaalmeting. Niet apart nagekeken.
+- Les: Flathub telt updates mee in de downloads; nooit als unieke gebruikers lezen.
+- Etsy nog steeds 403. Geen bericht aan een manager, niets op de lijst van Thijs.
