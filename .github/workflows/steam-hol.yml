@@ -74,11 +74,13 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
-      - name: Klikken door de lucht naar Kladblok, klik in het hol telt (120 px)
+      - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |
           # demolijst punt 5: een klik op de lucht boven het hol moet bij het venster erachter (Kladblok) aankomen en
           # niet in het spel; een klik onderin het hol wel in het spel (logregel "HOL klik op").
+          # Op 96 px (Olaf 14 nov): sinds het muisvlak het 3D-gras volgt (anders tekent Windows het niet) is er op 120 en
+          # 160 geen lucht meer, het gras vult rij 0 tot 8 (Mila, hol.py). Op 96 staat 16 px lucht boven het hol.
           Add-Type @"
           using System; using System.Runtime.InteropServices;
           public class Voor { [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
@@ -91,7 +93,7 @@ jobs:
           Start-Sleep 3
           $log = "$uit/klik.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=25 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=96 vers=1 duur=25 log=$log" -PassThru
           $start = $null
           for ($w = 0; $w -lt 30 -and -not $start; $w++) {
             Start-Sleep 1
@@ -103,7 +105,7 @@ jobs:
           Write-Output "venster op $x0,$y0"
           $fout = 0
           # eerst in het hol: dat moet in het spel tellen en het spel naar voren halen (anders bewijst de luchtklik niets)
-          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 115)
+          & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 90)
           Start-Sleep 1
           $voor0 = VoorProces
           $na_hol = @(Select-String -Path $log -Pattern "HOL klik op").Count
