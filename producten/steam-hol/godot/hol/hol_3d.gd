@@ -58,6 +58,51 @@ static func teken(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	doek.draw_texture_rect_region(blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
+# Alleen het onderste deel van een stuk, vanaf rij `van_y` (spelpixels binnen het stuk), op zijn plek. Voor de put in
+# de 3D-schatkamer: alleen de vloerstrook, zodat de koepel erachter blijft (Daan 14 nov 13:50). `rand` spelpixels links
+# en rechts vallen weg (kan 1 van Daan 14:40: losse lichte snipper in de rechterkolom). De bovenste rij half doorzichtig,
+# zodat het gat zacht in de vloer zakt (kan 2 van Daan 14:40). false = niet getekend.
+static func teken_onder(doek: CanvasItem, naam: String, plek: Vector2, van_y: int, rand: int = 0) -> bool:
+	if not heeft(naam):
+		return false
+	var r := onder_rects(naam, plek, van_y, rand)
+	var boven := boven_rij(r, float(stukken[naam]["vak_px"][3]) / float(stukken[naam]["maat"][1]))
+	doek.draw_texture_rect_region(blad, boven[0], boven[1], Color(1, 1, 1, ZACHTE_RAND))
+	doek.draw_texture_rect_region(blad, boven[2], boven[3])
+	return true
+
+const ZACHTE_RAND := 0.5   # dekking van de bovenste rij bij teken_onder
+
+# [plek op het scherm, vak in het blad] voor teken_onder (los, zodat de toets het kan narekenen)
+static func onder_rects(naam: String, plek: Vector2, van_y: int, rand: int = 0) -> Array:
+	var v: Array = stukken[naam]["vak_px"]
+	var m: Array = stukken[naam]["maat"]
+	var y0: int = clampi(van_y, 0, int(m[1]) - 1)
+	var x0: int = clampi(rand, 0, (int(m[0]) - 1) / 2)
+	var schaal: float = float(v[3]) / float(m[1])
+	var schaal_x: float = float(v[2]) / float(m[0])
+	return [Rect2(plek + Vector2(x0, y0), Vector2(int(m[0]) - 2 * x0, int(m[1]) - y0)),
+			Rect2(v[0] + x0 * schaal_x, v[1] + y0 * schaal, v[2] - 2 * x0 * schaal_x, v[3] - y0 * schaal)]
+
+# deelt [scherm, vak] uit onder_rects in de bovenste rij (1 spelpixel) en de rest: [scherm boven, vak boven, scherm rest, vak rest]
+static func boven_rij(r: Array, schaal: float) -> Array:
+	var sc: Rect2 = r[0]
+	var vk: Rect2 = r[1]
+	return [Rect2(sc.position, Vector2(sc.size.x, 1)), Rect2(vk.position, Vector2(vk.size.x, schaal)),
+			Rect2(sc.position + Vector2(0, 1), Vector2(sc.size.x, sc.size.y - 1)),
+			Rect2(vk.position + Vector2(0, schaal), Vector2(vk.size.x, vk.size.y - schaal))]
+
+# een put in de kolommen van de 3D-schatkamer (Daan 14 nov 13:50): "weg" als hij dicht is zonder stappen of als Trick
+# Lid dicht (de vloer van de schatkamer is al dicht), anders het stuk waarvan alleen de vloerstrook getekend wordt.
+# "" = niet in de 3D-schatkamer (gewone weg), of geen 3D-stuk (dan de pixel-put als terugval).
+static func put_in_schatkamer(h, k: int, schat_3d: bool) -> String:
+	if not schat_3d or k < h.schat_kol - 2 or k > h.schat_kol or not h.vallen.has(k):
+		return ""
+	var niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	if not h.put_open.has(k) and (niv == 0 or niv >= 3):
+		return "weg"
+	return put_stuk(h, k)
+
 # Versiering uit het deco-blad met de linkerbovenhoek op `plek`, op zijn eigen maat. false = niet getekend (dan pixels).
 static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
 	laad()
