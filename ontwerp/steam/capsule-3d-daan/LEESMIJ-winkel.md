@@ -29,7 +29,7 @@ Niet gedaan: meer hoeden op de toren, want de toren komt uit Mila's capsule en m
 - Ronde 1: Gloop (metaball) bleef zichtbaar; nu verborgen. HATS bijna wit omdat muur en Gloop het licht niet meer opvangen: belichting -0,6.
 - Ronde 2: ondertitel 0,23 hoger en 0,28 naar links, gecentreerd onder HATS. Pan op de T las als zwart potje: helm geprobeerd.
 - Frisse kijker 7,5: helm los leest als serveerdeksel met een worm. Ronde 3: koksmuts op de T, hoeden iets groter, kroon minder scheef. Kijker 8, moet: koksmuts egaal wit en plat. Ronde 3b: koksmuts in het logo grijzer, nu tonen de plooien. GEZIEN op 2x.
-- Op de hero linksonder gezet (`hero-ronde2-met-logo-1920.png`, logo 48% van de hoogte): leesbaar, botst niet met de ridder.
+- Op de hero linksonder gezet (eerst ronde 2, nu `hero-ronde3-met-logo-1920.png`, logo 48% van de hoogte): leesbaar, botst niet met de ridder.
 - Besluit: dit is het logo. Waarom: naam meteen leesbaar, vier hoeden lezen als hoed, en het herhaalt de grap van het spel zonder iets te beloven dat er niet in zit.
 - Nog te doen: logo en hero in `ontwerp/steam/winkelpagina/` zetten als het blad voor Thijs ja krijgt (de pixelversies blijven tot dan staan).
 
@@ -37,3 +37,4 @@ Niet gedaan: meer hoeden op de toren, want de toren komt uit Mila's capsule en m
 - Ridder kijkt omhoog naar zijn helm op Gloop: pupillen en glimstip 0,035 hoger (`HERO_BLIK`). 0,045 geprobeerd: pupil tegen de helmrand.
 - Rand van de muntenplas rafelig: 90 losse munten over de rand (`HERO_RAND`, eigen random zodat de rest op zijn plek blijft), niet bij de voeten en het schild van de ridder.
 - Frisse kijker op half formaat (voor/na): "onder is beter, klein verschil", 7. Moet 2 (munten bij de voeten) verwerkt. Moet 1 (achterste oog van de ridder valt half buiten het gezicht, loenst klein) zit in `held.py` met draai -40 en staat ook zo in de capsule: niet hier oplossen; bij Mila neergelegd.
+- Vol formaat `hero-ronde3-3840x1240.png` (20 samples) GEZIEN met Read, ook uitsnede bij de voeten op ware grootte. Ronde 3 is nu de kandidaat; op het blad (concept 8) vervangen.

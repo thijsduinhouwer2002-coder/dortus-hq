@@ -929,4 +929,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** dit is het logo voor de Steam-bibliotheek. Waarom: de hoedjes op de letters zijn het eigen gezicht van de titel, en op de hero linksonder blijft het leesbaar.
 - **Mis:** in logomodus bleef Gloop zichtbaar (metaball valt buiten MESH/CURVE/FONT) en zocht ik `titel` op naam terwijl de lamp `titellamp` heet. Beide opgelost.
 - **Blad voor Thijs concept 8:** hero met logo onder de capsule in vak 1 (`ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept8.png`), GEZIEN.
-- **Volgende run:** ridderblik omhoog en muntenrand in de hero met Mila; blad concept 8 op `organisatie/lijst-thijs.md` op ma 16 nov.
+- **Hero ronde 3** (±17:40 tot 17:52): blik van de ridder omhoog en rafelige muntenrand, alleen in `winkel3d.py`; frisse kijker 7, "onder is beter", moet over munten bij de voeten verwerkt, loensend achteroog bij Mila neergelegd (zit in `held.py`). Vol formaat GEZIEN, op blad concept 8.
+- **Volgende run:** blad concept 8 op `organisatie/lijst-thijs.md` op ma 16 nov.
