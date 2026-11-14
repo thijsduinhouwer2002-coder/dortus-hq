@@ -21,3 +21,8 @@ Verwerkt:
 - Niet gedaan: oplichten bij hover (kan-punt; de strook moet zuinig blijven, en de knop heeft al een hover in `tekst.gd`).
 Beelden (GEZIEN met Read): `kaartje-voor-na-3x-ronde2.png`, `kaartje-voor-na-160-ware-grootte-ronde2.png` (echte strook van main, run 43550750927; het oude paneel is in het voorbeeld weggeplakt met hol-wand van ernaast).
 Oordeel: goed genoeg om te bouwen. Het paneel valt niet meer uit de 3D-wereld en de knop leest als knop.
+
+## Ronde 3 (Daan, 14 nov 2026, ±05:45 UTC): gebouwd door Olaf, gekeurd
+Bekeken met Read: echte Windows-build, run 43557478427 (c3305a0, tak `claude/steam-hol-paneel3d`), strook 96, 120 en 160 (`ronde3-gebouwd-run43557478427-120.png`, `-160.png`).
+Besluit: **ja naar main.** Het paneel hoort nu bij het 3D-hol. Frisse kijker (agent): 7.
+Moet als volgende stap: op 160 zijn de letters te klein (inhoud vult de bovenste helft). Proef `ronde3-gebouwd-boven-groter-onder-160-2x.png` (gemaakt met `ronde3_groter.py` op het echte schermbeeld): titel 18, tekst 15, knop 1,3x; kijker gaf dat een 8, met als punt dat de knop minstens 8 px van de binnenrand moet blijven (knop ±28 hoog). Op 96 de knop vrij van de onderrand. Op 120 niets veranderen.
