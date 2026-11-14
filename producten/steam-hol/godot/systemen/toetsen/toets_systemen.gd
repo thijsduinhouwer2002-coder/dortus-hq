@@ -644,7 +644,23 @@ func _init() -> void:
 	var d1: StyleBoxFlat = tk._doos("knop")
 	ok(tk._doos("knop") == d1 and d1.border_color == Color("#e8b040"), "paneel 3D: knop-StyleBox één keer gemaakt en bewaard")
 	ok(tk._doos("paneel_schaduw") != d1 and tk._doos("paneel_schaduw").shadow_offset == Vector2(1, 3), "paneel 3D: schaduw is een eigen doos, offset 1,3")
+	# Daan ronde 3 (14 nov): op 160 groter, 120 gelijk, 96 knop 2 px hoger; knop houdt 8 px tot de gouden binnenrand
+	tk.schaal = 4; tk.hoogte = 160.0
+	var m160: Dictionary = tk.maten()
+	ok(m160.kop == 18 and m160.tekst == 15 and m160.knop == 16 and m160.knop_h == 28.0, "paneel r3: op 160 kop 18, tekst 15, knop 16 en 28 hoog")
+	var ky160: float = tk.hoogte - int(m160.onder) - int(m160.regel_h) * 4 + int(m160.regel_h) * 2 + int(m160.knop_dy)
+	var rand160: float = tk.hoogte - 4.0 - 30.0 / 128.0 * roundf(4.5 * tk.schaal)   # binnenkant goud: 98 van 128 bronpixels
+	ok(rand160 - (ky160 + m160.knop_h) >= 8.0, "paneel r3: op 160 minstens 8 px tussen knop en goud (%s)" % str(rand160 - (ky160 + m160.knop_h)))
+	ok(tk.hover_vak().position.y == 54.0, "paneel r3: op 160 blijft het paneel even hoog (top 54)")
+	tk.schaal = 3; tk.hoogte = 120.0
+	var m120: Dictionary = tk.maten()
+	ok(m120.kop == 13 and m120.tekst == 13 and m120.uitleg == 12 and m120.knop_dy == 3 and m120.onder == 15 and m120.boven == 13 and m120.kop_dy == 0, "paneel r3: op 120 alles gelijk")
+	tk.schaal = 2; tk.hoogte = 96.0
+	ok(tk.maten().knop_dy == 1 and tk.maten().kop == 12, "paneel r3: op 96 knop 2 px hoger, letter 12")
 	TK.met_3d = false
+	ok(tk.maten().knop_dy == 3, "paneel r3 uit: oude knopplek")
+	tk.schaal = 4; tk.hoogte = 160.0
+	ok(tk.maten().kop == 13, "paneel r3 uit: op 160 de oude maat")
 	ok(tk._letter(600) == ThemeDB.fallback_font, "paneel 3D uit: de oude letter")
 	TK.met_3d = true
 	tk.free()
