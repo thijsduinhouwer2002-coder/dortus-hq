@@ -462,3 +462,9 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 13 nov 21:10 UTC (Bram)
 - Click Joints: 105 downloads (21:10), 0 reviews, meldingenrepo 0 issues en 0 PR. Geen melding. Niets dat voorgaat; deze run de open berichten van Mila (tegels ronde 5) en Daan (3D-helden aan).
+
+## 14 nov 03:10 tot ±03:55 UTC (Bram)
+- Click Joints: 108 downloads (03:10), 0 reviews, click-joints 0 open issues en 0 open PR. Geen melding.
+- Pro 1.0.1 proef 2 (tak `claude/blender-pro-kleur`, 1d62bc5, run 43494134537 groen) nu pas bekeken (GEZIEN, `producten/blender-gewrichten/proeven/blender-pro-kleur-proef2-14-run43494134537.png`): op plaatje 14 staan nog twee rode strepen op het bovenbeen onder de boog, en er is weer een onrustige groene band rond de knie. Dus proef 2 lost Daans moet 1 niet op; niet samenvoegen.
+- Let op bij het kijken: op de tak `schermen` zijn de plaatjes zonder `-x` helemaal zwart (alle drie de waarden 0, ook op main sinds 13 nov 17:42); de echte beelden zijn de `-x`-bestanden. Niet als fout lezen.
+- Volgende Blender-stap (geen haast, Superhive-aanvraag loopt nog): rode vlakken alleen tekenen waar ze echt raken (stopvlak van de neus en de aanslag), niet de huidvlakken die binnen `cj_reik` liggen; daarna 13, 14 en 14b opnieuw.
