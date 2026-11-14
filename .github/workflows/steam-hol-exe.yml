@@ -56,6 +56,20 @@ jobs:
           }
           Get-ChildItem -Recurse producten/steam-hol/bouw -File | ForEach-Object { Write-Output "$($_.FullName) $([math]::Round($_.Length / 1MB, 1)) MB" }
           if ($fout -gt 0) { exit 1 }
+      - name: Icoon in de .exe (Bram, 14 nov, Daans app-icoon)
+        shell: pwsh
+        run: |
+          # application/modify_resources=true zet hol.ico in de exe (Godot 4.2+ doet dat zelf, zonder rcedit).
+          # Haal het icoon er weer uit als png, dan zie je op tak schermen wat Verkenner en Steam laten zien.
+          Add-Type -AssemblyName System.Drawing
+          $uit = "producten/steam-hol/e2e/screenshots/exe"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          foreach ($s in @("volledig", "demo")) {
+            $exe = (Resolve-Path "producten/steam-hol/bouw/$s/HetHol.exe").Path
+            $ico = [System.Drawing.Icon]::ExtractAssociatedIcon($exe)
+            $ico.ToBitmap().Save((Join-Path (Resolve-Path $uit).Path "icoon-exe-$s.png"), [System.Drawing.Imaging.ImageFormat]::Png)
+            Write-Output "ICOON $s : $($ico.Width)x$($ico.Height)"
+          }
       - name: Toetsen op de echte .exe's (zonder startargument steamdemo)
         shell: pwsh
         run: |
