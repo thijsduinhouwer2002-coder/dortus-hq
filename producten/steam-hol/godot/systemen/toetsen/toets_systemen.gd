@@ -761,7 +761,7 @@ func _init() -> void:
 	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")
 	hm.free()
 	# koopmuntje boven Deep Pit hoger (stekels staken erin, Olaf 14 nov), andere putstukken op de oude plek
-	ok(HS.munt_boven_put("put_2") == 4.0, "koopmuntje: boven put_2 4 spelpixels hoger")
+	ok(HS.munt_boven_put("put_2") == 3.0, "koopmuntje: boven put_2 3 spelpixels hoger")
 	ok(HS.munt_boven_put("put_1") == 0.0 and HS.munt_boven_put("put") == 0.0 and HS.munt_boven_put("") == 0.0, "koopmuntje: andere putten oude plek")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

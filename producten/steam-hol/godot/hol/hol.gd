@@ -456,10 +456,11 @@ func _draw() -> void:
 		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))
 
 # zoveel spelpixels hoger komt het koopmuntje boven een put met dit 3D-stuk. De lange stekels van Deep Pit (`put_2`)
-# steken ±3 spelpixels boven de gang uit en raakten het muntje (weekopname 43620350203, Olaf 14 nov 17:40); 4 laat
-# 1 spelpixel lucht. Andere stukken blijven op de oude plek.
+# steken ±3 spelpixels boven de gang uit en raakten het muntje (weekopname 43620350203, Olaf 14 nov 17:40). Daan 18:30:
+# 3 in plaats van 4, want op 4 raakt de munt een kiezel in de aardrij (eikel met steeltje); op 3 prikken de stekels niet.
+# Andere stukken blijven op de oude plek.
 static func munt_boven_put(stuk: String) -> float:
-	return 4.0 if stuk == "put_2" else 0.0
+	return 3.0 if stuk == "put_2" else 0.0
 
 # Muntje in de 3D-stijl (Daan 14 nov 06:40), zonder nieuw blad: dezelfde vier kleuren als het paneelmuntje (kern/tekst.gd
 # _munt): schaduw, donkere rand, goud, één glimlicht linksboven. c is het midden en r de straal in spelpixels; breed (0 tot 1)
