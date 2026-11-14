@@ -1,6 +1,8 @@
 """Tekens boven het hoofd van een held in 3D (Daan, 14 nov 2026). Vervangt kunst/tekens.png (8 x 8 pixels).
 
-Volgorde zoals tekens.png: 0 boos, 1 uitroep, 2 zweet, 3 zzz, 4 ster.
+Volgorde zoals tekens.png: 0 boos, 1 uitroep, 2 zweet, 3 zzz, 4 ster. Erbij (14 nov 02:40): 5 noot, het
+muzieknootje van de bard en de liedheld (nu `NOOT_PIX` in held_beeld.gd). Dat is geen wolkje maar een los
+gouden achtste noot met een donkere rug, zodat hij op lucht en aarde leest zonder pixelrand.
 Elk teken is een rond, room-kleurig wolkje met een staartje naar beneden (naar het hoofd) en het
 symbool er dik op, zodat het op ±8 spelpixels leest tegen de paarse aarde. Zelfde licht en camera als
 alle modellen (gedeeld.py), mat zoals de kist, geen lijnen.
@@ -16,7 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
 
-NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster"]
+NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot"]
 
 
 def _obj(o, naam, m, ouder):
@@ -43,6 +45,11 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     x, y, z = plek
     ouder = bpy.data.objects.new(f"teken_{naam}", None)
     bpy.context.scene.collection.objects.link(ouder)
+    if naam == "noot":
+        _noot(ouder)
+        ouder.location = (x, y, z)
+        ouder.scale = (schaal, schaal, schaal)
+        return ouder
     room = g.mat(f"teken_room_{naam}", "fbf3df", rough=0.55, spec=0.3)
     # wolkje: platte bol met staartje, net iets naar de camera
     bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(0, 0.02, 0.62))
@@ -110,12 +117,47 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     return ouder
 
 
+def _noot(ouder):
+    """Achtste noot: schuin ovaal kopje, steel rechts omhoog, vlag naar rechts omlaag.
+    Goud zoals de ster, met een donkerbruine rug er net achter en iets groter: die geeft op ware grootte
+    de rand die het pixelnootje met losse pixels had (leesbaar op lucht en op de paarse aarde)."""
+    goud = g.mat("teken_noot_goud", "ffd25a", rough=0.3, spec=0.6, metaal=0.25)
+    rug = g.mat("teken_noot_rug", "2a1810", rough=0.7)
+    for laag, m, dik, y0 in (("rug", rug, 1.0, 0.07), ("voor", goud, 0.0, 0.0)):
+        e = 0.035 * dik  # rug iets dikker rondom (was 0.05; frisse kijker: groot te zwaar)
+        # kopje: platte ellips, 25 graden gekanteld
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(-0.1, y0, 0.2))
+        k = _obj(bpy.context.object, f"teken_noot_{laag}_kop", m, ouder)
+        k.scale = (0.2 + e, 0.09, 0.14 + e); k.rotation_euler = (0, math.radians(25), 0)
+        bpy.ops.object.shade_smooth()
+        # steel
+        bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=0.045 + e, depth=0.62 + e,
+                                            location=(0.075, y0, 0.52))
+        st = _obj(bpy.context.object, f"teken_noot_{laag}_steel", m, ouder)
+        st.scale = (1, 0.7, 1); bpy.ops.object.shade_smooth()
+        # vlag: dikke gebogen staart van de top van de steel naar rechtsonder
+        cu = bpy.data.curves.new(f"teken_noot_{laag}_vlag", "CURVE")
+        cu.dimensions = "3D"; cu.bevel_depth = 0.045 + e; cu.bevel_resolution = 4
+        sp = cu.splines.new("BEZIER"); sp.bezier_points.add(1)
+        a, b = sp.bezier_points
+        a.co = (0.075, y0, 0.8); a.handle_left = (0.075, y0, 0.9); a.handle_right = (0.12, y0, 0.66)
+        b.co = (0.3, y0, 0.42); b.handle_left = (0.32, y0, 0.58); b.handle_right = (0.28, y0, 0.36)
+        sp.use_cyclic_u = False
+        o = bpy.data.objects.new(f"teken_noot_{laag}_vlag", cu)
+        bpy.context.scene.collection.objects.link(o)
+        o.data.materials.append(m); o.parent = ouder
+        # glansje op het kopje (alleen voor)
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=16, ring_count=8, location=(-0.16, -0.08, 0.25))
+    gl = _obj(bpy.context.object, "teken_noot_glans", g.mat("teken_glans", "ffffff", rough=0.2, emis=0.6), ouder)
+    gl.scale = (0.05, 0.01, 0.025)
+
+
 if __name__ == "__main__":
     uit = sys.argv[1]
     W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
     keuze = sys.argv[5] if len(sys.argv) > 5 else "alle"
     g.leeg()
-    nrs = range(5) if keuze == "alle" else [int(keuze)]
+    nrs = range(len(NAMEN)) if keuze == "alle" else [int(keuze)]
     nrs = list(nrs)
     for i, nr in enumerate(nrs):
         bouw(nr, ((i - (len(nrs) - 1) / 2) * 1.1, 0, 0))

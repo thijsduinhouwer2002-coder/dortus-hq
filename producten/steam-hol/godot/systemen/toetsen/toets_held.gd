@@ -300,6 +300,13 @@ func _init() -> void:
 	hol5.add_child(g)
 	g.zet(hol5, 6)
 	ok(g.toren().is_empty() and g.berg().is_empty() and g.hover_regel() == "Gloop has no hats yet.", "zonder hoeden: geen toren, geen berg")
+	var gt = Node2D.new()
+	gt.set_script(load("res://systemen/slijm.gd"))
+	gt._toren_uit_argument(PackedStringArray(["hoogte=120", "toren=0,4"]))
+	ok(gt.hoeden.is_empty(), "strooktest: toren=... zonder vers=1 doet niets (geen hoeden in een echte save)")
+	gt._toren_uit_argument(PackedStringArray(["hoogte=120", "vers=1", "toren=0,4,x,15,6"]))
+	ok(gt.hoeden == [0, 4, 5, 6] and gt.gegeten == 4, "strooktest: toren=... met vers=1 geeft Gloop die hoeden (%s)" % str(gt.hoeden))
+	gt.free()
 	for i in 3:
 		g.raak(i)
 	g.stap(2.0)
@@ -684,6 +691,52 @@ func _init() -> void:
 		ok(t3 >= 2 and t3 <= 12, "3D: kruin op een redelijke hoogte (%d)" % t3)
 		g3.krijg_hoed(4)
 		ok(int(g3.toren()[0][2]) + g3.HOED_ONDER[4] == -16 + t3, "3D: de eerste hoed staat op zijn kruin")
+		var t3d: Array = g3.toren_3d()
+		var hb_t = load("res://systemen/held_beeld.gd")
+		hb_t._laad_3d()
+		if hb_t.held3d.has("hoeden"):
+			ok(t3d.size() == 1 and is_equal_approx(float(t3d[0][2]), float(-16 + t3)), "3D-toren: nulpunt van de eerste 3D-hoed op zijn kruin (%s)" % str(t3d))
+			g3.krijg_hoed(7)
+			var t3e: Array = g3.toren_3d()
+			ok(t3e.size() == 2 and is_equal_approx(float(t3e[1][2]), float(t3e[0][3]) + 1.0), "3D-toren: tweede hoed 1 spelpixel in de bovenkant van de eerste, nooit zwevend")
+			ok(g3.hoogste_punt() == int(floor(float(t3e[1][3]) + 0.001)), "3D-toren: hoogste punt is de bovenkant van de bovenste hoed")
+			# plafond (Daan 14 nov 00:40): veel hoeden, dan blijft de bovenkant 2 spelpixels onder de bovenrand, alles schuift pl_gelijk in elkaar
+			var voor_pl: Array = g3.hoeden.duplicate()
+			for hh in [0, 5, 1, 6, 2, 3, 8, 9]:
+				g3.krijg_hoed(hh)
+			var pos_pl: Vector2 = g3.position
+			g3.position.y = 20.0   # zo laag dat de toren van 4 hoeden tegen het plafond komt (in het hol pas met de gang hoger)
+			var tp: Array = g3.toren_3d()
+			var rand_min := 99.0   # kleinste rand van een hoed boven de vorige
+			for k in range(1, tp.size()):
+				rand_min = minf(rand_min, float(tp[k - 1][3]) - float(tp[k][3]))
+			ok(rand_min >= 1.0 - 0.01, "3D-toren plafond: van elke hoed blijft minstens 1 spelpixel rand (%.2f)" % rand_min)
+			ok(float(tp[-1][3]) >= g3.plafond_y() - 0.01 or absf(rand_min - 1.0) < 0.01, "3D-toren plafond: bovenkant %.2f niet boven %.2f (%d hoeden)" % [float(tp[-1][3]), g3.plafond_y(), tp.size()])
+			var pl_gelijk := true
+			var ov0 := float(tp[1][2]) - float(tp[0][3])
+			for k in range(1, tp.size()):
+				pl_gelijk = pl_gelijk and absf((float(tp[k][2]) - float(tp[k - 1][3])) - ov0) < 0.01
+			ok(pl_gelijk and ov0 > 1.0, "3D-toren plafond: elke hoed zakt evenveel extra in de vorige (%.2f)" % ov0)
+			ok(absf(float(tp[-1][3]) - g3.plafond_y()) < 0.01 or ov0 >= 1.0 + g3.TOREN_MAX_EXTRA - 0.01 or absf(rand_min - 1.0) < 0.01, "3D-toren plafond: precies tegen het plafond, of de grootste overlap")
+			var tpx: Array = g3.toren()
+			var rand_px := 99
+			for k in range(1, tpx.size()):
+				rand_px = mini(rand_px, (int(tpx[k - 1][2]) + g3.HOED_TOP[int(tpx[k - 1][0])]) - (int(tpx[k][2]) + g3.HOED_TOP[int(tpx[k][0])]))
+			ok(rand_px >= 1, "pixeltoren plafond: van elke hoed blijft een rand (%d)" % rand_px)
+			ok(int(tpx[-1][2]) + g3.HOED_TOP[int(tpx[-1][0])] >= int(floor(g3.plafond_y())) or rand_px == 1, "pixeltoren plafond: bovenkant niet boven de rand")
+			# hoogste_punt_rust (Olaf 14 nov 01:50): rust-frame, geen wip, met plafond; zzz minstens 1 spelpixel onder de rand
+			ok(g3.hoogste_punt_rust() >= int(floor(g3.plafond_y())) or absf(rand_min - 1.0) < 0.01, "rustpunt volgt het plafond (%d, plafond %.1f)" % [g3.hoogste_punt_rust(), g3.plafond_y()])
+			var rp0: int = g3.hoogste_punt_rust()
+			var kv: float = g3.koop_van
+			g3.koop_van = g3.t - 0.05
+			ok(g3.hoogste_punt_rust() == rp0, "rustpunt wipt niet mee met het koop-moment")
+			g3.koop_van = kv
+			ok(g3._rust_som == false, "rustpunt zet de schakelaar terug")
+			ok(is_equal_approx(g3.teken_rand_y(), 1.0 - g3.position.y), "teken-rand 1 spelpixel onder de bovenrand")
+			g3.position = pos_pl
+			g3.hoeden = voor_pl
+			ok(is_equal_approx(float(g3.toren_3d()[1][2]), float(g3.toren_3d()[0][3]) + 1.0), "3D-toren: met twee hoeden geen extra overlap")
+			g3.hoeden.pop_back()   # terug naar één hoed voor de toetsen hieronder
 		g3.plat()
 		ok(g3.beeld_3d() == "plat", "3D: plat-beeld")
 		g3.plat_tot = -100.0
@@ -810,6 +863,8 @@ func _init() -> void:
 	HB3.held3d.erase("tekens")
 	ok(HB3.teken_3d(doek_t, "zzz", 0.0, 0.0) == false, "3D-teken: zonder blad false, dan tekens.png")
 	HB3.held3d = tb
+	doek_t.position = Vector2(10, 5)
+	ok(HB3.teken_onder_min(doek_t) == 1 + 8 - 5, "teken-rand: bovenkant van het teken 1 spelpixel onder de bovenrand (%d)" % HB3.teken_onder_min(doek_t))
 	doek_t.free()
 	# hoeden in 3D (keuze A, Daan 13 nov 19:35): losse hoed tuimelt bij vallen, kruin en nulpunt uit de pijplijn
 	var t0: Vector3 = HB3.hoed_tuimel(0.0)

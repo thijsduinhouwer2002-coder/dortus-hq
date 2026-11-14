@@ -27,7 +27,7 @@ MAAIVELD_NAMEN = ("bloemen", "struik", "steen", "bordje", "vliegenzwam")
 GANG_HOOG = 16 * SPX * 0.966 / 0.966  # 16 spelpixels gang (vloer z 0 tot plafond)
 
 _M = {}
-SCHAAL = {"ton": 0.78, "krat": 0.82}
+SCHAAL = {"ton": 0.78, "krat": 0.82, "kristal": 0.75, "schedel": 0.85}  # kristal en schedel: frisse kijker 14 nov, te groot en te fel
 
 
 def m(naam, kleur, **kw):
@@ -129,7 +129,7 @@ def bouw(naam, x, z, y=0.35):
         blok(ouder, p + "_kruis", (0, -4.15 * s, 4.8 * s), (11 * s, 0.5 * s, 1.3 * s), hout_d, rond=0.2 * s,
              rot=(0, math.radians(45), 0))
     elif naam == "schedel":
-        bot = m("bot", "eee6d8", rough=0.55)
+        bot = m("bot", "c8b8a2", rough=0.7)  # frisse kijker 14 nov: was te wit en te fel
         gat = m("gat", "2a1832", rough=0.9)
         bol(ouder, p + "_kop", (-0.8 * s, 0, 3.6 * s), (3.0 * s, 2.7 * s, 2.7 * s), bot, 32)
         blok(ouder, p + "_kaak", (-0.8 * s, -0.4 * s, 1.0 * s), (3.6 * s, 3.2 * s, 1.8 * s), bot, rond=0.7 * s)
@@ -141,8 +141,8 @@ def bouw(naam, x, z, y=0.35):
         for dx in (-1.7, 1.7):
             bol(ouder, p + "_knobbel", (3.6 * s + dx * s * 0.94, -0.6 * s + dx * s * 0.34, 0.6 * s), (0.7 * s, 0.7 * s, 0.6 * s), bot, 12)
     elif naam == "kristal":
-        groen = m("kristal", "2fb889", rough=0.12, spec=0.8, emis=0.25)
-        licht = m("kristal_l", "5fe0b0", rough=0.1, spec=0.8, emis=0.3)
+        groen = m("kristal", "4f8fd0", rough=0.15, spec=0.7, emis=0.08)  # ijsblauw, niet Gloops muntgroen
+        licht = m("kristal_l", "86b8e6", rough=0.12, spec=0.7, emis=0.1)
         voet = m("kristal_voet", "4e3158", rough=0.85)
         bol(ouder, p + "_steen", (0, 0.1, 0.4 * s), (4.6 * s, 2.6 * s, 1.4 * s), voet, 16)
         for i, (dx, hoog, r, kant, mt) in enumerate(((0, 9.0, 1.7, 0, groen), (-2.4, 6.4, 1.4, -26, licht),
@@ -156,11 +156,11 @@ def bouw(naam, x, z, y=0.35):
             cil(ouder, p + f"_zuil{i}", (cx, -0.2 * s, cz), r * s, lang, mt, rot=(0, a, 0), verts=6, glad=False)
             px, pz = dx * s + math.sin(a) * (lang + hoog * 0.14 * s), z0 + math.cos(a) * (lang + hoog * 0.14 * s)
             cil(ouder, p + f"_punt{i}", (px, -0.2 * s, pz), r * s, hoog * 0.28 * s, mt, rot=(0, a, 0), verts=6, r2=0.0, glad=False)
-        l = bpy.data.lights.new(p + "_licht", "POINT"); l.color = (0.5, 1.0, 0.75); l.energy = 3; l.shadow_soft_size = 0.2
+        l = bpy.data.lights.new(p + "_licht", "POINT"); l.color = (0.6, 0.78, 1.0); l.energy = 1.2; l.shadow_soft_size = 0.2
         lo = bpy.data.objects.new(p + "_licht", l); lo.location = (0, -0.35, 5 * s); lo.parent = ouder
         bpy.context.scene.collection.objects.link(lo)
     elif naam == "spinrag":
-        web = m("web", "ddd4e8", rough=0.6, emis=0.12)
+        web = m("web", "b9b0c6", rough=0.7)  # grijzer en dikker: was op ware grootte een wit krasje
         zw = m("spin", "2a1832", rough=0.6)
         oog = m("spinoog", "ff6a5a", rough=0.3, emis=1.0)
         # waaier van draden vanuit de linkerbovenhoek, met twee bogen dwars
@@ -169,14 +169,14 @@ def bouw(naam, x, z, y=0.35):
             a = math.radians(-90 + k * 22.5)
             lang = 7.5 * s
             cil(ouder, p + "_draad", (mid[0] + math.cos(a) * lang / 2 + lang / 2 * 0, mid[1], mid[2] + math.sin(a) * lang / 2 * 0.9),
-                0.18 * s, lang, web, rot=(0, -a + math.pi / 2, 0), verts=6)
+                0.28 * s, lang, web, rot=(0, -a + math.pi / 2, 0), verts=6)
         for rr in (3.0, 5.6):
             for k in range(4):
                 a1, a2 = math.radians(-90 + k * 22.5), math.radians(-90 + (k + 1) * 22.5)
                 x1, z1 = math.cos(a1) * rr * s, math.sin(a1) * rr * s * 0.9
                 x2, z2 = math.cos(a2) * rr * s, math.sin(a2) * rr * s * 0.9
                 dx, dz = x2 - x1, z2 - z1
-                cil(ouder, p + "_boog", (mid[0] + (x1 + x2) / 2, mid[1], (z1 + z2) / 2), 0.14 * s, math.hypot(dx, dz) * 1.1,
+                cil(ouder, p + "_boog", (mid[0] + (x1 + x2) / 2, mid[1], (z1 + z2) / 2), 0.22 * s, math.hypot(dx, dz) * 1.1,
                     web, rot=(0, math.atan2(dx, dz), 0), verts=6)
         # spin aan een draadje
         cil(ouder, p + "_hangdraad", (1.5 * s, -0.1, -3.2 * s), 0.12 * s, 6.4 * s, web, verts=6)

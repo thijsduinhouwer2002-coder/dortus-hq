@@ -52,6 +52,7 @@ const LIJF3D_JSON := "res://kunst/3d/sprites.json"
 static var lijf3d: CanvasTexture = null
 static var lijf3d_info := {}
 static var lijf3d_gezocht := false
+const HB := preload("res://systemen/held_beeld.gd")   # laadt ook het 3D-hoedenblad (kunst/3d/sprites.json)
 var met_3d := true                 # uit = de oude pixel-Gloop (toetsen, of terug als het tegenvalt)
 # Standen van Daan (13 nov 16:30, gloop.py 7e woord): knipperen elke 4 tot 7 s, blij als er een hoed op de toren
 # komt, hap bij opeten. Alleen in 3D en alleen als die stand in het blad staat (anders gewoon rust).
@@ -92,6 +93,20 @@ func zet(h, kol: int) -> void:
 	rng_oog.seed = hash([kol, "oog"])
 	_plan_leven()
 	_plan_knipper()
+	_toren_uit_argument(OS.get_cmdline_user_args())
+
+# Alleen voor de strooktest (Daan 13 nov 22:55: de 3D-toren keuren met 4 tot 6 hoeden): argument toren=0,4,5,1,6 geeft Gloop
+# die hoeden, oudste eerst (nummers als in held.gd). Alleen samen met vers=1. Zonder argument niets.
+func _toren_uit_argument(args: PackedStringArray) -> void:
+	if not args.has("vers=1"):
+		return   # alleen in een vers spel, anders komen de hoeden voorgoed in een echte save (controleur Olaf 23:40)
+	for a in args:
+		if a.begins_with("toren="):
+			for h in a.substr(6).split(",", false):
+				if h.is_valid_int():
+					hoeden.append(absi(int(h)) % HOED_SOORTEN)
+			gegeten = maxi(gegeten, hoeden.size())
+			queue_redraw()
 
 # Zuinig: geen _process tussendoor, alleen een wekker voor de volgende leven-animatie.
 func _plan_leven() -> void:
@@ -174,7 +189,7 @@ func upgrade_veranderd() -> void:
 
 # Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
 func wip_nu() -> int:
-	if t < koop_van or t >= koop_van + KOOP_S or is_plat():
+	if _rust_som or t < koop_van or t >= koop_van + KOOP_S or is_plat():
 		return 0
 	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))])
 
@@ -182,8 +197,23 @@ func wip_nu() -> int:
 # anders zijn kruin, de glansster of de zzz niet meegerekend. Voor het muntje erboven (Sanne toets 8 punt 2: 3 spelpixels boven het bovenste).
 func hoogste_punt() -> int:
 	var y := -16 + top_nu() + wip_nu()
+	var t3 := toren_3d()
+	if not t3.is_empty():
+		for h3 in t3:
+			y = mini(y, int(floor(float(h3[3]) + 0.001)))   # marge: precies op het plafond niet 1 te hoog
+		return y
 	for h in toren():
 		y = mini(y, int(h[2]) + int(HOED_TOP[int(h[0])]))
+	return y
+
+# Zelfde som als hoogste_punt(), maar met het rust-frame en zonder wip (Olaf 14 nov 01:50, voor kaartje.gd munt_top()):
+# knipperen, blij, hap en het koop-moment laten het muntje dan niet meewippen, en het plafond telt wel mee.
+# Plat telt gewoon (dan liggen de hoeden op de vloer). Gloop-coordinaten, y omhoog negatief.
+var _rust_som := false
+func hoogste_punt_rust() -> int:
+	_rust_som = true
+	var y := hoogste_punt()
+	_rust_som = false
 	return y
 
 func is_bewoner() -> bool:
@@ -306,7 +336,7 @@ func frame_nu() -> Array:
 
 func is_groot() -> bool:
 	var n := niveau()
-	if n == 1 and t >= koop_van and t < koop_van + 1.0 / FPS:
+	if n == 1 and not _rust_som and t >= koop_van and t < koop_van + 1.0 / FPS:
 		return false     # net Big gekocht: beeld 0 nog klein, dan zwelt hij
 	return n >= 1
 
@@ -346,6 +376,8 @@ func beeld_3d() -> String:
 	if lijf3d == null:
 		return ""
 	var f := _frame_klein()
+	if _rust_som and not is_plat():
+		return "rust" if _heeft_3d("rust") else ""
 	if f[0] == LEVEN and HAP.has(f[1]) and t < hap_van + HAP_S:
 		return "hap" if _heeft_3d("hap") else ""
 	if f[0] == LEVEN and (f[1] == PLAT):
@@ -383,6 +415,8 @@ func top_nu() -> int:
 		var k := 1.0 if is_groot() else 0.8
 		return int(round(16.0 - (ch - top3) * k)) + 1   # +1: de onderste hoedrij zakt 1 px in zijn kruin, zoals bij de pixels
 	var f := frame_nu()
+	if _rust_som and not is_plat():
+		f = [RUST_GROOT if is_groot() else RUST, 0]
 	var tabel: Array = RUST_TOP if (f[0] == RUST or f[0] == RUST_GROOT) else LEVEN_TOP
 	var top := int(tabel[int(f[1])])
 	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
@@ -399,13 +433,91 @@ func toren() -> Array:
 		for i in op.size():
 			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, -1 - int(HOED_ONDER[op[i]])])   # groot lijf is 20 breed
 		return uit
-	var boven := -16 + top_nu() + wip_nu()
-	for i in op.size():
-		var h: int = op[i]
-		var y := boven - int(HOED_ONDER[h])
-		uit.append([h, int(SCHEEF[i]), y])
-		boven = y + int(HOED_TOP[h])
+	var extra := 0
+	for ronde in 2:   # plafond, zoals in toren_3d(), in hele pixels
+		uit.clear()
+		var boven := -16 + top_nu() + wip_nu()
+		for i in op.size():
+			var h: int = op[i]
+			var y := boven - int(HOED_ONDER[h])
+			uit.append([h, int(SCHEEF[i]), y])
+			boven = y + int(HOED_TOP[h]) + extra
+		if ronde == 0:
+			var stijg_px := 99
+			for hp in op.slice(1):
+				stijg_px = mini(stijg_px, int(HOED_ONDER[hp]) - int(HOED_TOP[hp]))
+			extra = mini(int(ceil(toren_extra(float(uit[-1][2] + int(HOED_TOP[int(uit[-1][0])])) if uit else 0.0, op.size()))), maxi(0, stijg_px - 1))
+			if extra <= 0:
+				break
 	return uit
+
+# De toren met de 3D-hoeden (Bram 13 nov 22:40): zelfde volgorde en scheefstand als toren(), maar elke hoed staat met
+# zijn nulpunt (midden van de onderrand) 1 spelpixel in de bovenkant van wat eronder staat, gemeten in het hoedenblad,
+# zodat een hoed nooit zweeft (Daan). [hoed, x, y van het nulpunt, bovenkant]. Leeg als het blad er niet is.
+func toren_3d() -> Array:
+	var uit := []
+	if not met_3d or beeld_3d() == "":
+		return uit
+	HB._laad_3d()
+	if not HB.held3d.has(HB.HOEDEN3D):
+		return uit
+	var hi: Dictionary = HB.held3d[HB.HOEDEN3D][1]
+	var px: float = float(hi["px"])
+	var ch: float = float(hi["cel_px"][1]) / px
+	var op := hoeden_op_hoofd()
+	if is_plat():
+		for i in op.size():
+			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, 0.0, -ch])
+		return uit
+	# Plafond (Daan 14 nov 00:40): eerst stapelen zoals altijd; komt de bovenste hoed hoger dan PLAFOND spelpixels onder de
+	# bovenrand van het hol, dan schuiven alle hoeden gelijk verder in elkaar (extra overlap per hoed), nooit afsnijden.
+	var extra := 0.0
+	for ronde in 2:
+		uit.clear()
+		var boven := float(-16 + top_nu() + wip_nu())
+		for i in op.size():
+			var h: int = op[i]
+			var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch
+			var top: float = float(hi["top"][h]) if hi.has("top") else 0.0
+			var nul := boven
+			var bovenkant := nul - (ny - top)
+			uit.append([h, int(SCHEEF[i]), nul, bovenkant])
+			boven = bovenkant + HB.HOED_IN_KOP + extra
+		if ronde == 0:
+			var stijg := 99.0   # kan-punt controleur: van elke hoed blijft minstens 1 spelpixel rand boven de vorige
+			for k in range(1, uit.size()):
+				stijg = minf(stijg, float(uit[k - 1][3]) - float(uit[k][3]))
+			extra = minf(toren_extra(float(uit[-1][3]) if uit else 0.0, op.size()), maxf(0.0, stijg - 1.0))
+			if extra <= 0.0:
+				break
+	return uit
+
+# Hoeveel spelpixels elke hoed extra in de vorige moet zakken zodat de bovenkant van de toren (Gloop-coordinaten) niet
+# boven het plafond komt. 0 als het past of als er maar één hoed is (die zit al op zijn kop). Hooguit TOREN_MAX_EXTRA,
+# dan blijft van elke hoed nog een rand zichtbaar.
+const PLAFOND := 2.0
+const TOREN_MAX_EXTRA := 6.0
+func plafond_y() -> float:
+	return PLAFOND - position.y   # bovenrand van het hol (hol-y 0) in Gloop-coordinaten, plus 2
+# Hoogste y voor de bovenkant van een teken (zzz): 1 spelpixel onder de bovenrand van het hol (Daan 14 nov 01:40).
+const TEKEN_RAND := 1.0
+func teken_rand_y() -> float:
+	return TEKEN_RAND - position.y
+func toren_extra(bovenkant: float, n: int) -> float:
+	if n < 2 or bovenkant >= plafond_y():
+		return 0.0
+	return minf((plafond_y() - bovenkant) / float(n - 1), TOREN_MAX_EXTRA)
+
+# Eén 3D-hoed tekenen met zijn nulpunt op (x, nul). hap = uit het blad met de tandbogen (als dat er is).
+func _teken_hoed_3d(h: int, x: float, nul: float, hap: bool) -> void:
+	var naam: String = HB.HOEDEN3D_HAP if hap and HB.held3d.has(HB.HOEDEN3D_HAP) else HB.HOEDEN3D
+	var ct: CanvasTexture = HB.held3d[naam][0]
+	var hi: Dictionary = HB.held3d[naam][1]
+	var px: float = float(hi["px"])
+	var cw: float = float(hi["cel_px"][0])
+	var ch: float = float(hi["cel_px"][1])
+	var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch / px
+	draw_texture_rect_region(ct, Rect2(x - float(hi["anker_x"]) / px, nul - ny, cw / px, ch / px), Rect2(h * cw, 0, cw, ch))
 
 # Hoedenberg links naast hem: een piramide van hoeden, groter per maat. [hoed, x, y].
 func berg() -> Array:
@@ -459,15 +571,27 @@ func _draw() -> void:
 		draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
 	if n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(48, 0, 20, 16))   # Royal: bovenzoom met gouden gesp voor hem, vóór de hoeden
-	for h in toren():
-		draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
+	var t3 := toren_3d()
+	if t3.is_empty():
+		for h in toren():
+			draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
+	else:
+		for i in t3.size():
+			var h3: Array = t3[i]
+			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), i == t3.size() - 1 and not is_plat())   # bovenste hoed met hap
 	if n >= 2 and not is_plat():
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
 	if leven == "slapen":
 		var zy := -25
-		for h in toren():
-			zy = mini(zy, int(h[2]) + int(HOED_TOP[int(h[0])]) - 9)   # zzz boven de hoedentoren
+		var t3z := toren_3d()
+		if t3z.is_empty():
+			for h in toren():
+				zy = mini(zy, int(h[2]) + int(HOED_TOP[int(h[0])]) - 9)   # zzz boven de hoedentoren
+		else:
+			for h3 in t3z:
+				zy = mini(zy, int(floor(float(h3[3]))) - 9)
+		zy = maxi(zy, int(ceil(teken_rand_y())))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
 		if not HELD_BEELD.teken_3d(self, "zzz", 0.0, float(zy + 8)):   # 3D-wolkje uit het blad tekens, anders pixels
 			draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
 	if (leven == "spugen" and t >= leven_van + 0.6) or laars_ligt():

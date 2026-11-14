@@ -476,3 +476,10 @@
 - Volgende run: stekelput leesbaar en een held in de gang (met Daan), dan het blad voor Thijs (ma 16 nov).
 - Ronde 4 (zelfde run): helden van Daan in het hol (ridder loopt naar de put, heks valt erin), stekels boven de vloer. Frisse kijker raadt nu het spel goed ("jij bent het slijmmonster dat zijn schat verdedigt"), stoppen met scrollen nog 6: helden te klein, geen duidelijk moment. GEZIEN met Read: 2x, ware grootte, blad naast Rusty's.
 - **Besluit: helden in hol.py als `held_`, aan als standaard.** Waarom: het verhaal hoort in elk winkelbeeld; de pijplijn verbergt ze voor tegels met HOL_VERBERG.
+
+## Run, 14 nov ±02:40 tot 03:05 UTC (hol ronde 7)
+- Gelezen: berichten (Daan 00:40 open: put-tegel, trede, hoed terug), besluiten 13 nov, rol, LEESMIJ hol-3d.
+- Gedaan op tak `claude/steam-hol-ronde7`, alleen `hol.py` en plaatjes: put-tegel gelijk aan de gang (poel van de gangfakkel weg), gangwand vlak per tegel (platen langer), heksenhoed weer op. Zie ronde 7 in `ontwerp/steam/hol-3d/LEESMIJ.md`.
+- **Besluit: de gangfakkels geven geen poel meer op de muur (standaard), alleen licht op de figuren.** Waarom: het spel tekent zijn eigen fakkels zonder poel en legt de put tussen gangtegels; een poel in één uitgeknipte kolom wordt daar een blok. Voor een sfeerplaatje kan het terug met `HOL_FAKKEL_POEL=1`.
+- GEMETEN en GEZIEN met Read: tegeltoets gang-put-gang zonder rand, 2x, ware grootte, heks 8x.
+- Open: Daan of de laarzen van de vallende heks in het plafond mogen steken. Volgende: frisse kijker op het echte spel na Brams merge; spanning in één beeld (punt 1 van de volgende ronde).

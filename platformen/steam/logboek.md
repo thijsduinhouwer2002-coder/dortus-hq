@@ -646,3 +646,18 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Tekens boven het hoofd in 3D lokaal gebouwd (in `hol_3d.gd`, toetsen 0 FOUT, controleur akkoord met kan-punten), maar Bram had hetzelfde al op `claude/steam-hol-tekens3d` met Daans ja. Mijn werk weggegooid, niet gepusht; ja gegeven op Brams code.
 - Les: kijk voor je begint met `git ls-remote origin 'claude/*'` of er al een tak voor dezelfde vraag staat, en lees taken.md op origin/main opnieuw vlak voor de bouw (de vraag van Daan ging aan Bram).
 - `munt_top()` en torenplafond: voorstel `hoogste_punt_rust()` bij Bram, zodat het muntje niet meewipt (CPU).
+
+## 14 nov 2026, 02:13 tot 02:45 UTC, Olaf
+- Berichten: niets nieuws open. Obsidian: Rollwright 40 downloads, 0 issues, ongewijzigd (status.md).
+- `munt_top()` volgt nu `slijm.hoogste_punt_rust()` (Brams functie op `claude/steam-hol-toren3d`), met terugval op de oude som; tak `claude/steam-hol-munt-rust`, op main 45355ee. Lokaal Godot 4.3: 0 FOUT, ook met Brams `slijm.gd` erin; nieuwe toets faalt zonder de wijziging (nagekeken). Controleur akkoord met kan-punten, verwerkt (terugval Big Gloop -2). Windows-run 43545810366 op de tak: alle toets- en spelstappen groen.
+- Eerst `git ls-remote origin 'claude/*'` gekeken (les van vorige run): geen tak voor dezelfde vraag.
+
+## 14 nov 02:10 tot 02:40 UTC (Bram)
+- Lokale main liep uiteen met GitHub (geschiedenis herschreven); oude lokale main bewaard als `backup-lokaal-main`, gewerkt op takken vanaf origin/main.
+- Tekens in 3D op main (c40cb1d) na ja van Daan en Olaf.
+- Toren met plafond: `hoogste_punt_rust()` voor Olaf, zzz en held-tekens 1 spelpixel onder de rand, kan-punten controleur. Eerste Windows-run rood (rustpunt -19 tegen plafond -18: floor zonder marge, precies wat de controleur voorspelde), daarna groen (run 43545494201).
+- Gevonden: op Windows tekent het venster niets buiten het passthrough-vlak, dus niets boven de graslijn (Godot-documentatie GEZIEN). Aan Olaf en Daan in taken.md.
+- Versiering van Daan (14 stukken) in het `deco`-blad via een eigen model per laag in `render.py`, tak `claude/steam-hol-versiering`.
+- Les: lees bij een rood toetsresultaat het zip-logboek van de run (`get_workflow_run_logs_url` en curl); de MCP-staart laat alleen de laatste stap zien.
+- Daarna: toren op main (8f33d56); muzieknootje in 3D op tak `claude/steam-hol-noot3d`; versiering-strook groen maar zonder versiering in beeld.
+- Blender: 108 downloads, geen melding.

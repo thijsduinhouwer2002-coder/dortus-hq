@@ -542,5 +542,29 @@ func _init() -> void:
 	ok(H3.deco_plek("proef", Vector2(40.5, 39), false) == Vector2(37, 27), "deco: hele spelpixels")
 	H3.deco_blad = oud_blad
 	H3.deco = oud_deco
+	# muntje boven Gloop volgt hoogste_punt_rust() als slijm.gd die heeft (torenplafond, Olaf 14 nov), anders de oude som
+	var KJ = load("res://kern/kaartje.gd")
+	var nep_s := GDScript.new()
+	nep_s.source_code = "extends RefCounted\nvar slijm\n"
+	nep_s.reload()
+	var nep_rust := GDScript.new()
+	nep_rust.source_code = "extends Node2D\nvar plat := false\nfunc is_plat() -> bool:\n\treturn plat\nfunc hoogste_punt_rust() -> int:\n\treturn -30\n"
+	nep_rust.reload()
+	var nep_oud := GDScript.new()
+	nep_oud.source_code = "extends Node2D\nfunc is_plat() -> bool:\n\treturn false\n"
+	nep_oud.reload()
+	var ms = nep_s.new()
+	var sl_r = nep_rust.new()
+	sl_r.position = Vector2(0, 40)
+	ms.slijm = sl_r
+	ok(is_equal_approx(KJ.munt_top(ms), 10.0), "munt_top volgt hoogste_punt_rust: %s" % str(KJ.munt_top(ms)))
+	sl_r.plat = true
+	ok(is_equal_approx(KJ.munt_top(ms), 34.0), "munt_top plat blijft de platte kruin")
+	var sl_o = nep_oud.new()
+	sl_o.position = Vector2(0, 40)
+	ms.slijm = sl_o
+	ok(is_equal_approx(KJ.munt_top(ms), 30.0), "munt_top zonder hoogste_punt_rust: oude som (rust-frame)")
+	sl_r.free()
+	sl_o.free()
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
