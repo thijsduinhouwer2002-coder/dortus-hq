@@ -44,7 +44,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
-> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks on the empty sky above it go straight to the window behind.
+> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160).
 > [*]Light on your PC: it only redraws what moves, about 10 times a second.
 > [*]Silent: no sound at all, so it never talks over your call.
 > [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.
@@ -71,7 +71,7 @@ Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door de lucht (zie
 
 **Aanvulling Olaf, 14 nov 10:30 UTC (main 21fc6ea):**
 7. Kan van Daan (09:35) overgenomen: "it draws 10 frames a second, and only what moves" wordt "it only redraws what moves, about 10 times a second" (zelfde feit, gewone woorden; "about" dekt de 20 per s tijdens een moment).
-8. Correctie op mijn eigen check van 09:40: "Clicks pass straight through the sky and the grass" klopt sinds 14 nov 02:35 niet meer. Bram liet het muisvlak het 3D-gras en de plantjes meenemen (`hol_vast.gd` `rand`, `strook.gd` `muis_vlak_punten()`), anders tekende Windows ze niet. Een klik op het gras komt dus in het spel. Nu: "Clicks on the empty sky above it go straight to the window behind." Bewijs dat dat werkt: stap "Klikken door de lucht" in `steam-hol.yml` (96 px, klik 4 px onder de bovenrand komt bij Kladblok). Op 120 en 160 vult het gras de strook bijna helemaal, dus daar is weinig lucht; daarom geen getal in de zin.
+8. Correctie op mijn eigen check van 09:40: "Clicks pass straight through the sky and the grass" klopt sinds 14 nov 02:35 niet meer. Bram liet het muisvlak het 3D-gras en de plantjes meenemen (`hol_vast.gd` `rand`, `strook.gd` `muis_vlak_punten()`), anders tekende Windows ze niet. Een klik op het gras komt dus in het spel. Op 120 en 160 vult het 3D-gras de hele strook (demolijst 5), dus op de standaardhoogte gaat er geen klik meer door; alleen op 96 is er lucht (stap "Klikken door de lucht" in `steam-hol.yml`). Daarom is de zin over klikken weg. Daan of Mila: wil je hem terug, dan moet het gras op 120 eerst lucht laten, en dat is een ontwerpkeuze, geen tekstkeuze.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
 Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
