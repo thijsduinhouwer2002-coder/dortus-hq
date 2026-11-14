@@ -1018,3 +1018,7 @@ Nieuwste blok onderaan.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna Game Jolt geschift met een eigen meting via de open site-API (5.399 nieuwe spellen in 7 weken): bijna alles gratis, mediaan 0 volgers. Nee (1).
 - Ook geprobeerd: Spoonflower en Gamefound (403), Royal Road (403, robots.txt noemt Claude), Ravelry (stuurt door naar inloggen). Niet omzeild.
+- Daarna Board Game Arena (20:00 in onderzoek en gepusht): docs en wiki gelezen via de MediaWiki-API. Geen geld voor makers, licentie van de uitgever nodig. Nee (1).
+- Les: platforms waar je bestaande spellen van anderen namaakt (BGA, eerder Tabletop Simulator) betalen de maker niet; de licentie ligt bij het platform.
+- Voor Hans: vier nee's (AirConsole 2, Game Jolt 1, BGA 1, Hytopia 1). Geen bericht aan een manager, niets op de lijst van Thijs.
+- Volgende run: blijf zoeken naar winkels met een open teller per item; nog niet geprobeerd: MyFonts (leesbaar, robots.txt zonder verbod op Claude), Glowforge Catalog, NinjaTrader Ecosystem, Trainz.
