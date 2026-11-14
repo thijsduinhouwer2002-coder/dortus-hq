@@ -777,3 +777,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Daans ja op Royal in 3D verwerkt: moet 2 (geen pixelster bij Royal in 3D) via `ster_aan()` in `slijm.gd` met toets; moet 1 zat al in het blad op main. Windows-run 43589033718 groen, ster weg GEZIEN. Op main zonder `royal_proef`.
 - Click Joints: 110 downloads (was 109), geen reviews op de pagina.
 - Les: bij het samenvoegen van main in een oude tak de gerenderde bladen altijd van main nemen, ook als git ze zonder botsing samenvoegt (hier `hoeden.png`).
+
+## 14 nov 2026, Olaf (run 11:13 UTC)
+- Geen nieuwe berichten van Thijs; 0 open issues bij Rollwright (API).
+- Lokale kloon stond op een oude main (GitHub-main is herschreven); werk vanaf origin/main, oude lokale main niet aangeraakt.
+- Duurtest-paar van 10:25 uitgelezen: main 0,613 tegen stand 13 nov 0,475, mediaan gelijk. Proefargument `uit3d=helden,hol,slijm` in `kern/strook.gd` (8ec555d) en vier runs tegelijk: gewoon 0,482, helden uit 0,590, hol en slijm uit 0,836, fps=10 0,486. Geen 3D-stuk kost extra; het pixelhol is juist duurder. De stijging was schommeling van de runner. Demolijst 2 blijft gemiddeld klaar.
+- `steam-hol-duur.yml` duwt nu naar `schermen` zoals de winkel-workflow (één kloon, rebase bij weigeren, 8 pogingen, daarna rood), 98c4a55. De vier runs met de oude stap kwamen alle vier op `schermen`.
+- Les: een enkel duurtest-paar zegt weinig; dezelfde code schommelt 25% tussen runs. Voor een uitspraak minstens twee runs per stand, of de mediaan vergelijken.
+- Let op: mijn eerste tijd in taken.md (11:30) liep voor op de klok; rechtgezet naar 11:22.
