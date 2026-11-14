@@ -76,7 +76,32 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	if tk == "poef":
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
+	if teken_3d(h, tk, 0.0, float(onder)):
+		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+
+# Tekens in 3D (Daan 14 nov 00:55, modellen/tekens.py; blad "tekens" uit de pijplijn, 5 vakken van 8 x 8 spelpixels in de
+# volgorde van tekens.png). Punt van het staartje op (x, onder), dus op dezelfde plek als het pixelteken. Lineair gefilterd
+# zoals het 3D-lijf. false = geen blad of geen beeld met die naam: de aanroeper tekent tekens.png (main gaat nooit kapot).
+# Ook voor Gloops zzz in slijm.gd.
+const TEKENS3D := "tekens"
+static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kleur := Color.WHITE) -> bool:
+	if not met_3d:
+		return false
+	_laad_3d()
+	if not held3d.has(TEKENS3D):
+		return false
+	var ct: CanvasTexture = held3d[TEKENS3D][0]
+	var info: Dictionary = held3d[TEKENS3D][1]
+	var i: int = (info["frames"] as Array).find(naam)
+	if i < 0:
+		return false
+	var px: float = float(info["px"])
+	var cw: float = float(info["cel_px"][0])
+	var ch: float = float(info["cel_px"][1])
+	doek.draw_texture_rect_region(ct, Rect2(x - float(info["anker_x"]) / px, onder - ch / px, cw / px, ch / px),
+		Rect2(i * cw, 0, cw, ch), kleur)
+	return true
 
 # 3D-helden (Bram 13 nov, pijplijn producten/steam-hol/pijplijn/, modellen/held.py van Daan). Schakelaar, standaard UIT:
 # Hoeden: keuze A (Daan 13 nov 19:35, taken.md). De pijplijn rendert de held zonder eigen hoed ("verberg": ["hoed"]) en de
@@ -139,6 +164,12 @@ static func _laad_3d() -> void:
 		ct.diffuse_texture = load(str(d[naam]["blad"]))
 		ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		held3d[naam] = [ct, d[naam]]
+	# tekens: los erbij, telt niet als ontbrekend eigen blad (zonder blad blijft tekens.png)
+	if d.has(TEKENS3D) and typeof(d[TEKENS3D]) == TYPE_DICTIONARY and ResourceLoader.exists(str(d[TEKENS3D].get("blad", ""))):
+		var tt := CanvasTexture.new()
+		tt.diffuse_texture = load(str(d[TEKENS3D]["blad"]))
+		tt.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		held3d[TEKENS3D] = [tt, d[TEKENS3D]]
 	print("HELD3D geladen: %s; zonder eigen blad: %s; terugval op ridder/heks: %s" % [", ".join(PackedStringArray(held3d.keys())),
 		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
 
