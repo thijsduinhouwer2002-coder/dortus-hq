@@ -98,13 +98,16 @@ jobs:
           $i = 0
           foreach ($b in $alle) { if ($i % 5 -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
           Remove-Item $film -Recurse -Force
-      - name: Echt bureaublad op 1920 x 1080 met de echte taakbalk (alleen bij week)
+      - name: Echt bureaublad op 1280 x 720 met de echte taakbalk (alleen bij week)
         if: env.SOORT == 'week'
         shell: pwsh
         run: |
           # Olaf 14 nov (kan van Daan bij scherm 2): Rusty's toont een echt bureaublad met taakbalk. Hier geen
           # nagemaakte taakbalk: de runner zelf op 1920 x 1080, Kladblok erachter, het spel met de week-save
           # (de film hierboven speelde er al ±90 s op door), en elke 15 s een schermafbeelding van het hele scherm.
+          # Olaf 14 nov 21:40 (wens Mila 20:55, kan Daan 20:50): 1280 x 720 in plaats van 1920 x 1080, zodat de strook
+          # van 160 px 22% van het beeld is en op een kleine winkelplaat leest; Mila vergroot zelf naar 1920 x 1080.
+          # Kladblok klein linksboven (520 x 300) en de snelkoppelingen van de runner (R, Unity Hub) van het bureaublad.
           Add-Type @"
           using System; using System.Runtime.InteropServices;
           public class Scherm {
@@ -120,6 +123,7 @@ jobs:
             }
             [DllImport("user32.dll")] public static extern bool EnumDisplaySettings(string n, int m, ref DEVMODE d);
             [DllImport("user32.dll")] public static extern int ChangeDisplaySettings(ref DEVMODE d, int f);
+            [DllImport("user32.dll")] public static extern bool MoveWindow(IntPtr h, int x, int y, int b, int hg, bool r);
             public static int Zet(int b, int h) {
               DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
               EnumDisplaySettings(null, -1, ref d);
@@ -128,23 +132,29 @@ jobs:
             }
           }
           "@
-          $r = [Scherm]::Zet(1920, 1080)
+          $r = [Scherm]::Zet(1280, 720)
           Start-Sleep 3
           Add-Type -AssemblyName System.Windows.Forms
           $s = [System.Windows.Forms.Screen]::PrimaryScreen
           Write-Output "ChangeDisplaySettings gaf $r (0 = gelukt); scherm $($s.Bounds), werkgebied $($s.WorkingArea)"
-          if ($s.Bounds.Width -ne 1920) { Write-Output "== SCHERMMAAT NIET GEZET, geen bureaubladbeelden"; exit 0 }
+          if ($s.Bounds.Width -ne 1280) { Write-Output "== SCHERMMAAT NIET GEZET, geen bureaubladbeelden"; exit 0 }
           $uit = "producten/steam-hol/e2e/winkel/bureaublad"
           New-Item -ItemType Directory -Force $uit | Out-Null
           $vol = (Resolve-Path $uit).Path
           # Eerst alles van de runner wegklappen (zijn eigen terminalvenster stond in beeld, run 43631337323),
           # dan Kladblok met een kort briefje, zodat het leest als een gewone werkdag.
           (New-Object -ComObject Shell.Application).MinimizeAll()
+          $weg = Join-Path $env:RUNNER_TEMP "snelkoppelingen"; New-Item -ItemType Directory -Force $weg | Out-Null
+          foreach ($bd in @("$env:PUBLIC\Desktop", [Environment]::GetFolderPath("Desktop"))) {
+            Get-ChildItem $bd -Filter *.lnk -ErrorAction SilentlyContinue | ForEach-Object { Write-Output "snelkoppeling weg: $($_.Name)"; Move-Item $_.FullName $weg -Force -ErrorAction SilentlyContinue }
+          }
           Start-Sleep 2
           $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
           Set-Content -Encoding utf8 $briefje "Monday`r`n`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor`r`n- water the plant"
-          Start-Process notepad.exe -ArgumentList "`"$briefje`""
+          $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
+          $kl.Refresh(); $gezet = [Scherm]::MoveWindow($kl.MainWindowHandle, 24, 24, 520, 300, $true)
+          Write-Output "Kladblok 520 x 300 linksboven: $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=130 log=$log" -PassThru

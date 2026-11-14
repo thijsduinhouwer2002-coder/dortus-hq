@@ -9,12 +9,18 @@ config/features=PackedStringArray("4.3")
 ; demo en volle spel delen de save (demo-einde, ontwerp.md): %APPDATA%/Dortus/Het Hol
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Dortus/Het Hol"
+; eigen icoon in de taakbalk in plaats van het Godot-robotje (moet Daan 14 nov, ontwerp/steam/icoon/)
+config/icon="res://kunst/icoon.png"
+config/windows_native_icon="res://kunst/icoon.ico"
 
 [display]
 window/size/viewport_width=1280
 window/size/viewport_height=120
 window/size/borderless=true
 window/size/always_on_top=true
+; niet de focus pakken bij de start (anders knippert de taakbalkknop, moet Daan 14 nov); klikken werken wel,
+; toetsen gebruikt het spel niet
+window/size/no_focus=true
 window/size/transparent=true
 window/per_pixel_transparency/allowed=true
 window/energy_saving/keep_screen_on=false

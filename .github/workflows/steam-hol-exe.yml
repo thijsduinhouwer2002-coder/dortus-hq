@@ -39,6 +39,11 @@ jobs:
           }
           $zip.Dispose()
           Get-ChildItem $doel | ForEach-Object { Write-Output "$($_.Name) $([int]($_.Length / 1MB)) MB" }
+          # Olaf 14 nov (moet Daan 20:50, eigen icoon): Godot zet application/icon met rcedit (modify_resources) en zoekt
+          # het op het PATH als export/windows/rcedit leeg is.
+          $rc = Join-Path $env:RUNNER_TEMP "rcedit"; New-Item -ItemType Directory -Force $rc | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" -OutFile (Join-Path $rc "rcedit.exe")
+          Add-Content $env:GITHUB_PATH $rc
       - name: Importeren
         shell: pwsh
         run: |
@@ -53,8 +58,13 @@ jobs:
             $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release $v[0] "../bouw/$($v[1])/HetHol.exe" 2>&1 | Out-String
             Write-Output "===== $($v[0])"; Write-Output $uit
             if (-not (Test-Path "producten/steam-hol/bouw/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
+            if ($uit -match "rcedit") { Write-Output "FOUT: icoon niet gezet (rcedit) voor $($v[0])"; $fout++ }
           }
           Get-ChildItem -Recurse producten/steam-hol/bouw -File | ForEach-Object { Write-Output "$($_.FullName) $([math]::Round($_.Length / 1MB, 1)) MB" }
+          # het icoon uit de exe halen en bewaren, zodat je ziet dat het Gloop is en niet het Godot-robotje
+          Add-Type -AssemblyName System.Drawing
+          $ic = "producten/steam-hol/e2e/screenshots/exe"; New-Item -ItemType Directory -Force $ic | Out-Null
+          [System.Drawing.Icon]::ExtractAssociatedIcon((Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path).ToBitmap().Save("$((Resolve-Path $ic).Path)\exe-icoon.png")
           if ($fout -gt 0) { exit 1 }
       - name: Toetsen op de echte .exe's (zonder startargument steamdemo)
         shell: pwsh

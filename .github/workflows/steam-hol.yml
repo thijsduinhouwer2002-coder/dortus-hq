@@ -104,13 +104,27 @@ jobs:
           $x0 = [int]$start.Matches[0].Groups[1].Value; $y0 = [int]$start.Matches[0].Groups[2].Value
           Write-Output "venster op $x0,$y0"
           $fout = 0
-          # eerst in het hol: dat moet in het spel tellen en het spel naar voren halen (anders bewijst de luchtklik niets)
+          # Olaf 14 nov (moet Daan 20:50): het spel pakt nooit de focus (project.godot window/size/no_focus), dus geen
+          # knipperende taakbalkknop. Bij de start en na een klik in het hol blijft Kladblok op de voorgrond.
+          $voorS = VoorProces
+          Write-Output "start: voorgrond $voorS"
+          if ($voorS -ne "notepad") { Write-Output "FOUT: het spel pakte bij de start de focus ($voorS)"; $fout++ }
+          # eerst in het hol: dat moet in het spel tellen, zonder de focus te pakken
           & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 90)
           Start-Sleep 1
           $voor0 = VoorProces
           $na_hol = @(Select-String -Path $log -Pattern "HOL klik op").Count
           Write-Output "hol: voorgrond $voor0, kliks in het spel $na_hol"
-          if ($na_hol -ne 1 -or $voor0 -notlike "Godot*") { Write-Output "FOUT: klik in het hol telde niet of het spel kwam niet naar voren"; $fout++ }
+          if ($na_hol -ne 1 -or $voor0 -ne "notepad") { Write-Output "FOUT: klik in het hol telde niet of het spel pakte de focus"; $fout++ }
+          # dan de voorgrond weg van Kladblok met een klik op een leeg stuk taakbalk, anders bewijst de luchtklik niets
+          Add-Type -AssemblyName System.Windows.Forms
+          $sc = [System.Windows.Forms.Screen]::PrimaryScreen
+          $tx = [int]($sc.Bounds.Width * 0.68); $ty = [int]($sc.Bounds.Height - ($sc.Bounds.Height - $sc.WorkingArea.Height) / 2)
+          & producten/steam-hol/e2e/klik.ps1 $tx $ty
+          Start-Sleep 1
+          $voorT = VoorProces
+          Write-Output "taakbalk ($tx,$ty): voorgrond $voorT"
+          if ($voorT -eq "notepad") { Write-Output "FOUT: voorgrond niet weg van Kladblok, luchtklik bewijst niets"; $fout++ }
           # dan de lucht: moet bij Kladblok aankomen en niet in het spel
           & producten/steam-hol/e2e/klik.ps1 ($x0 + 200) ($y0 + 4)
           Start-Sleep 1
