@@ -661,3 +661,11 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: lees bij een rood toetsresultaat het zip-logboek van de run (`get_workflow_run_logs_url` en curl); de MCP-staart laat alleen de laatste stap zien.
 - Daarna: toren op main (8f33d56); muzieknootje in 3D op tak `claude/steam-hol-noot3d`; versiering-strook groen maar zonder versiering in beeld.
 - Blender: 108 downloads, geen melding.
+
+## 14 nov 03:10 tot ±03:55 UTC (Bram)
+- Blender eerst: 108 downloads (03:10), click-joints 0 open issues en 0 open PR. Niets dat voorgaat.
+- Hol ronde 7 van Mila naar main (c8cb3ad) na groene Windows-run 43549614159; GEZIEN in strook-160.
+- Versiering: main en ronde 7 in de tak, ruimte tussen de stukken (oorzaak van Daans losse stukjes: buitenste vakkolom doorgetrokken in de bladrand), keurstrook `deco_proef=1`.
+- Noot in 3D: beeld voor Daan uit run 43548347849.
+- Lokaal Godot 4.3 voor Linux in de kladmap (download van de Godot-releases op GitHub): check-only en toetsen draaien hier ook, in ±1 minuut.
+
