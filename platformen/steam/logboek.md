@@ -824,3 +824,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Put onder de troon: ja van Daan 14:40, zijn twee kan-punten gebouwd (rand 1 spelpixel, zachte bovenrij), controleur akkoord, Windows-run 43609635745 groen, op main 0aaba20. Weekopname op 160 gestart.
 - Les: een merge van main in een `claude/steam-*`-tak waarin `modellen/` verandert, start ook de pijplijn; die zet een commit op de tak. Naar main dan alleen mijn eigen commit samenvoegen.
 - 14 nov ±15:45 UTC (Bram): graafstip (kiezeltjes) op main (1b95cca), pijplijn maakt het blad mee. Put per stap: tak `claude/steam-hol-put-stappen` gebruikt nu Mila's `hol.py` met `PUT_STAP` in plaats van mijn `hol_put.py` (één bron voor de put); render groen (74790d5), lokaal keurbeeld met `put_proef` GEZIEN, vraag aan Daan. Les: met de Linux-Godot onder xvfb (`--write-movie`, 5 fps, 60 beelden) heb je binnen een minuut een keurbeeld per stap, sneller dan een Windows-run.
+
+## 14 nov 2026, Bram (run 16:10 UTC)
+- Berichten: alles verwerkt. Click Joints 116 downloads, 0 open issues (openbare API, click-joints niet gekoppeld). Superhive-makersaanvraag nog niet goedgekeurd, dus Pro 1.0.1 wacht.
+- Put per stap: Windows-run 43611030085 op de tak groen. Daans kan-punt van 12:50 (goud- en grijze snippers naast de put) zat nog in mijn keurbeeld: het is de "buit van een gevallen held" (drie munten en een helm) die `hol.py` naast de put legt. Pijplijn knipt de putstukken nu uit lagen zonder `buit` (tak d1e360f); helm heet `buit_helm`. Render loopt.
+- Les: deze container had geen Godot; Godot 4.3 linux (zip van de releasepagina, 50 MB) in 10 s binnen, import en een film van 60 beelden samen onder 3 min. Een worktree van de tak houdt de `.import`-wijzigingen uit de hoofdkloon.
