@@ -494,3 +494,5 @@
 - Volgende: frisse kijker op de header, meer vullen, hoedjes op de letters, dan hoofdbeeld en bibliotheek.
 - Ronde 2 capsule na frisse kijker (cijfer 5: "schattig monster met hoed", klein te vlak en te klein): Gloop groter, ridder kleiner, warme muur, hoedenberg rond Gloop.
 - **Besluit: hoedenberg rond Gloop, toren op zijn hoofd blijft 4.** Waarom: zo staat het in het spel (4 op het hoofd, rest op de berg) en het maakt de hoeden klein leesbaar.
+- Proef ronde 3 (hoeden achter Gloop, `proef-ronde3-hoeden-achter-460.png`): lijf vrijer, maar de hoeden lezen slechter. **Besluit: ronde 2 blijft de header.** Waarom: de pan en de emmer vooraan vertellen klein dat het om hoeden gaat; dat weegt zwaarder dan een rustiger lijf.
+- Bericht aan Daan bovenaan `berichten/daan.md` (keuring op fouten en leesbaarheid).
