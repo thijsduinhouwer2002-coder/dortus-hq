@@ -2,7 +2,7 @@
 
 Chris, run 32, 13 nov 2026 ±15:15 tot 16:00 UTC. Opdracht: `berichten/chris.md`, bericht van 13 nov 14:10.
 
-**Chris plaatst niets.** De toestemming om onder de naam van Thijs te posten geldt alleen voor de Obsidian-plekken van 8 nov. Alles hieronder plaatst Thijs zelf, en pas als Ebb echt in de winkel staat. Stand om 15:22 UTC (GEZIEN): de winkelpagina https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641 geeft 404 en de winkel-API zegt "The requested app is not approved". Overal waar `<link>` staat, komt die winkellink.
+**Chris plaatst niets.** De toestemming om onder de naam van Thijs te posten geldt alleen voor de Obsidian-plekken van 8 nov. Alles hieronder plaatst Thijs zelf, en pas als Ebb echt in de winkel staat. **Stand 14 nov 08:45 UTC (GEZIEN, Chris run 35): Ebb staat in de winkel.** Winkelpagina 200, API `status: APPROVED`, $4.99, titel "Ebb: Breathing Exercises, Breath Hold & Calm". De winkellink is overal ingevuld waar eerst `<link>` stond (run 32 schreef: stand 15:22 UTC 13 nov, 404). Alleen `<link Calm>` staat nog open tot Ebb Calm in de winkel staat.
 
 Bronnen die ik naast elkaar legde: winkeltekst `platformen/garmin/upload/ebb-en.md` (versie 19a, de ingediende tekst), `calm-en.md` (versie 1.1), de concepten in `platformen/garmin/gebruikers-krijgen-2026-11-13.md` en de plekken in `kanalen-2026-11-13.md`.
 
@@ -42,26 +42,26 @@ Sessions save to Garmin Connect as a breathing activity with heart rate. $4.99 o
 
 How it's made: Ebb comes from Dortus, my small studio, where AI agents write the code. I direct and test the work. This version was compiled for all 28 supported watches and tested in the Connect IQ simulator; it has not been tested on every watch model.
 
-A free calm-only version, Ebb Calm, is planned; I'll post it in this thread when it's in the store.
+A free calm-only version, Ebb Calm, is waiting for Garmin's review; I'll post it in this thread when it's in the store.
 
-Store: <link>
+Store: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 
 Questions, bugs and ideas are welcome in this thread, or mail thijs@dortus.com.
 
 Made by Thijs at Dortus
 ```
 
-Gecontroleerd tegen winkeltekst 19a (zin voor zin, en door een controleur, zie onderaan): stijgen en zakken, onder water bij inhouden, beeld blijft gelijk, rondes met één herstelademhaling, 4-7-8, eigen patroon (My pattern), eigen trilling per fase, aanraakscherm doet niets tijdens ademen en inhouden, vis vanaf de eerste sessie, 24 dieren door sessies en weken op rij, rustdagen breken de reeks niet, opslaan met hartslag, $4,99 eenmalig zonder abonnement, code, account of telefoonapp, alleen op het droge. "Compiled for all 28" en "tested in the simulator": zie `platformen/garmin/status.md` (compileren voor alle 28 horloges; schermen en toetsen in de simulator op 14 horloges, run 43327097299 op e40269e1). Bewust niet "tested on all 28" en niet "every build", want schermen zijn er van een deel van de horloges (14 mappen op tak `schermen`, status.md noemt 13 in de toetsrun), en toekomstige bouwsels beloven we niet. De prijs $4,99 staat in status.md; nakijken op de winkelpagina zodra die openbaar is.
+Gecontroleerd tegen winkeltekst 19a (zin voor zin, en door een controleur, zie onderaan): stijgen en zakken, onder water bij inhouden, beeld blijft gelijk, rondes met één herstelademhaling, 4-7-8, eigen patroon (My pattern), eigen trilling per fase, aanraakscherm doet niets tijdens ademen en inhouden, vis vanaf de eerste sessie, 24 dieren door sessies en weken op rij, rustdagen breken de reeks niet, opslaan met hartslag, $4,99 eenmalig zonder abonnement, code, account of telefoonapp, alleen op het droge. "Compiled for all 28" en "tested in the simulator": zie `platformen/garmin/status.md` (compileren voor alle 28 horloges; schermen en toetsen in de simulator op 14 horloges, run 43327097299 op e40269e1). Bewust niet "tested on all 28" en niet "every build", want schermen zijn er van een deel van de horloges (14 mappen op tak `schermen`, status.md noemt 13 in de toetsrun), en toekomstige bouwsels beloven we niet. De prijs is nagekeken op 14 nov 08:45 UTC in de winkel-API: $4.99 USD eenmalig.
 
 **Forumhandtekening (één regel; in het profiel onder Settings, Signature, als het forum dat veld heeft):**
 
 ```
-Maker of Ebb, breathing rounds and calm 4-7-8 for round Garmin watches: <link>
+Maker of Ebb, breathing rounds and calm 4-7-8 for round Garmin watches: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 ```
 
 Mag volgens de regel hierboven ("may link to their app store listings ... in their signatures"). Pas invullen als de link werkt.
 
-**Wanneer:** dag 2 na goedkeuring (eerst zelf kopen en op het horloge zetten op dag 1, zie het plan in `gebruikers-krijgen-2026-11-13.md`). Minuten Thijs: 10 voor de draad, 2 voor de handtekening.
+**Wanneer:** dag 2 na goedkeuring (eerst zelf kopen en op het horloge zetten op dag 1, zie het plan in `gebruikers-krijgen-2026-11-13.md`). Minuten Thijs: 10 voor de draad, 2 voor de handtekening. **Vlak voor het plaatsen:** kijk of Ebb Calm intussen goedgekeurd of afgewezen is en pas de zin over Calm aan (goedgekeurd: zin weg en punt 5 als eerste antwoord in de draad).
 
 ## 2. r/Garmin
 
@@ -111,7 +111,7 @@ De zin over voortgang tussen de twee apps is geschrapt op advies van de controle
 **Handtekening na Calm:**
 
 ```
-Maker of Ebb (<link Ebb>) and the free Ebb Calm (<link Calm>), breathing apps for round Garmin watches
+Maker of Ebb (https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641) and the free Ebb Calm (<link Calm>), breathing apps for round Garmin watches
 ```
 
 **Wanneer:** dezelfde dag dat Calm openbaar is. Minuten Thijs: 3.
