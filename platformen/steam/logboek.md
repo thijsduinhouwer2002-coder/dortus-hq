@@ -640,3 +640,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: lokaal Godot draaien zet uid's in alle `.import`-bestanden; zet die terug voor je commit, maar draai daarna opnieuw `--import` voor je weer toetst, anders vindt de toets de bladen niet (kostte 7 minuten).
 - Blender: 107 downloads, geen melding.
 - Toren met plafond gebouwd op `claude/steam-hol-toren3d` (2d3d22b), toetsen lokaal 0 FOUT; controleur en Windows-beeld volgende run.
+
+## 14 nov 2026, 01:13 tot 01:55 UTC, Olaf
+- Berichten: niets nieuws open. Obsidian: niets dringends (meting 00:18 gaf 0 issues).
+- Tekens boven het hoofd in 3D lokaal gebouwd (in `hol_3d.gd`, toetsen 0 FOUT, controleur akkoord met kan-punten), maar Bram had hetzelfde al op `claude/steam-hol-tekens3d` met Daans ja. Mijn werk weggegooid, niet gepusht; ja gegeven op Brams code.
+- Les: kijk voor je begint met `git ls-remote origin 'claude/*'` of er al een tak voor dezelfde vraag staat, en lees taken.md op origin/main opnieuw vlak voor de bouw (de vraag van Daan ging aan Bram).
+- `munt_top()` en torenplafond: voorstel `hoogste_punt_rust()` bij Bram, zodat het muntje niet meewipt (CPU).
