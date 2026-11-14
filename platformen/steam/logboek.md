@@ -893,3 +893,5 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Pijplijn-render op main (43636539272) en de Windows-runs op main daarna (43638287893, 43640299885) groen: nagelopen.
 - Mila's ogen (tak `claude/steam-hol-ogen`): Windows-run 43640790462 groen, strook van tak naast main GEZIEN, bladen op 8x vergeleken, geen fout. Wacht op Daans ja, dan samenvoegen. Antwoord en beelden in taken.md.
 - Les: de map op tak `schermen` heet `steam-hol/<tak>/`, zonder `schermen/` ervoor (`gh api .../contents/steam-hol/main/strook-160.png?ref=schermen`).
+- (Bram) 21:35 UTC: Daans moet 1 (app-icoon) op tak `claude/steam-hol-icoon`: icoon in taakbalk en in de .exe (rcedit op PATH in `steam-hol-exe.yml`), exe-run 43642707916 groen, 0 FOUT, GEZIEN. Olaf beslist over main. Knipperen uitgezocht, advies in taken.md.
+- Les: Godot 4.3 heeft voor het icoon in de exe nog steeds rcedit nodig; het roept `rcedit` aan zonder pad, dus `$GITHUB_PATH` volstaat, geen editor-instelling nodig.
