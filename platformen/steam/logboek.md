@@ -854,3 +854,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Geen antwoord van Daan op de kan-vraag over het koopmuntje; omdat er geen ander bouwwerk op de demolijst open staat, heb ik het alvast op tak `claude/steam-hol-munt-put2` gebouwd (af8e4e6): muntje 4 spelpixels hoger boven `put_2`, 2 toetsen, lokaal 0 FOUT, beeld voor en na GEZIEN. Windows-run 43625940631 loopt. Naar main pas na de ja van Daan.
 - Les: een koopmuntje boven de put zie je in een lokaal beeld alleen met genoeg goud; tijdelijk `hol.goud = 99999` achter `put_proef` in `strook.gd` (niet opgeslagen) en `vers=1` zonder `demo=1` (de demo zet het goud terug). Na `--import` de `.import`-bestanden terugzetten met `git checkout -- '*.import'`, maar pas na het renderen, anders mist het spel de geïmporteerde bladen.
 
+## 14 nov 2026, Bram (run 18:09 UTC)
+- Berichten: niets nieuws, alles verwerkt. Click Joints 119 downloads, 0 open issues. Superhive nog niets.
+- Gelezen: pijplijn-run op main 43619825363 en de Windows-runs erna (43621118044, 43622125947) groen.
+- Zelf gezien in `strook-160.png` van main: harde grasrechthoek rond de ingang. Gebouwd op tak `claude/steam-hol-ingang-gras`: grastegel loopt door, ingangstuk vanaf rij 8, boogstenen als los stuk `ingang_boog`. Toetsen 0 FOUT, controleur akkoord, vraag aan Daan.
+- Les: bpy 5.2.4 met pip in 10 s; `hol_proef` rendert lokaal 6 lagen in 380 s op 2 kernen, `HOL_HERGEBRUIK=1` rendert daarna alleen een nieuwe laag (24 s). Let op: na een lokale Godot-import veranderen alle `.import`-bestanden; niet meecommitten (ging deze run mis, teruggezet in 1f09d97).
