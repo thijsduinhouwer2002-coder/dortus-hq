@@ -200,7 +200,7 @@ func hoogste_punt() -> int:
 	var t3 := toren_3d()
 	if not t3.is_empty():
 		for h3 in t3:
-			y = mini(y, int(floor(float(h3[3]))))
+			y = mini(y, int(floor(float(h3[3]) + 0.001)))   # marge: precies op het plafond niet 1 te hoog
 		return y
 	for h in toren():
 		y = mini(y, int(h[2]) + int(HOED_TOP[int(h[0])]))
@@ -336,7 +336,7 @@ func frame_nu() -> Array:
 
 func is_groot() -> bool:
 	var n := niveau()
-	if n == 1 and t >= koop_van and t < koop_van + 1.0 / FPS:
+	if n == 1 and not _rust_som and t >= koop_van and t < koop_van + 1.0 / FPS:
 		return false     # net Big gekocht: beeld 0 nog klein, dan zwelt hij
 	return n >= 1
 
@@ -443,7 +443,10 @@ func toren() -> Array:
 			uit.append([h, int(SCHEEF[i]), y])
 			boven = y + int(HOED_TOP[h]) + extra
 		if ronde == 0:
-			extra = int(ceil(toren_extra(float(uit[-1][2] + int(HOED_TOP[int(uit[-1][0])])) if uit else 0.0, op.size())))
+			var stijg_px := 99
+			for hp in op.slice(1):
+				stijg_px = mini(stijg_px, int(HOED_ONDER[hp]) - int(HOED_TOP[hp]))
+			extra = mini(int(ceil(toren_extra(float(uit[-1][2] + int(HOED_TOP[int(uit[-1][0])])) if uit else 0.0, op.size()))), maxi(0, stijg_px - 1))
 			if extra <= 0:
 				break
 	return uit
@@ -481,7 +484,10 @@ func toren_3d() -> Array:
 			uit.append([h, int(SCHEEF[i]), nul, bovenkant])
 			boven = bovenkant + HB.HOED_IN_KOP + extra
 		if ronde == 0:
-			extra = toren_extra(float(uit[-1][3]) if uit else 0.0, op.size())
+			var stijg := 99.0   # kan-punt controleur: van elke hoed blijft minstens 1 spelpixel rand boven de vorige
+			for k in range(1, uit.size()):
+				stijg = minf(stijg, float(uit[k - 1][3]) - float(uit[k][3]))
+			extra = minf(toren_extra(float(uit[-1][3]) if uit else 0.0, op.size()), maxf(0.0, stijg - 1.0))
 			if extra <= 0.0:
 				break
 	return uit

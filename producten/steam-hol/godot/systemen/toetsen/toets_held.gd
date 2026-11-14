@@ -699,7 +699,7 @@ func _init() -> void:
 			g3.krijg_hoed(7)
 			var t3e: Array = g3.toren_3d()
 			ok(t3e.size() == 2 and is_equal_approx(float(t3e[1][2]), float(t3e[0][3]) + 1.0), "3D-toren: tweede hoed 1 spelpixel in de bovenkant van de eerste, nooit zwevend")
-			ok(g3.hoogste_punt() == int(floor(float(t3e[1][3]))), "3D-toren: hoogste punt is de bovenkant van de bovenste hoed")
+			ok(g3.hoogste_punt() == int(floor(float(t3e[1][3]) + 0.001)), "3D-toren: hoogste punt is de bovenkant van de bovenste hoed")
 			# plafond (Daan 14 nov 00:40): veel hoeden, dan blijft de bovenkant 2 spelpixels onder de bovenrand, alles schuift pl_gelijk in elkaar
 			var voor_pl: Array = g3.hoeden.duplicate()
 			for hh in [0, 5, 1, 6, 2, 3, 8, 9]:
@@ -707,17 +707,25 @@ func _init() -> void:
 			var pos_pl: Vector2 = g3.position
 			g3.position.y = 20.0   # zo laag dat de toren van 4 hoeden tegen het plafond komt (in het hol pas met de gang hoger)
 			var tp: Array = g3.toren_3d()
-			ok(float(tp[-1][3]) >= g3.plafond_y() - 0.01, "3D-toren plafond: bovenkant %.2f niet boven %.2f (%d hoeden)" % [float(tp[-1][3]), g3.plafond_y(), tp.size()])
+			var rand_min := 99.0   # kleinste rand van een hoed boven de vorige
+			for k in range(1, tp.size()):
+				rand_min = minf(rand_min, float(tp[k - 1][3]) - float(tp[k][3]))
+			ok(rand_min >= 1.0 - 0.01, "3D-toren plafond: van elke hoed blijft minstens 1 spelpixel rand (%.2f)" % rand_min)
+			ok(float(tp[-1][3]) >= g3.plafond_y() - 0.01 or absf(rand_min - 1.0) < 0.01, "3D-toren plafond: bovenkant %.2f niet boven %.2f (%d hoeden)" % [float(tp[-1][3]), g3.plafond_y(), tp.size()])
 			var pl_gelijk := true
 			var ov0 := float(tp[1][2]) - float(tp[0][3])
 			for k in range(1, tp.size()):
 				pl_gelijk = pl_gelijk and absf((float(tp[k][2]) - float(tp[k - 1][3])) - ov0) < 0.01
 			ok(pl_gelijk and ov0 > 1.0, "3D-toren plafond: elke hoed zakt evenveel extra in de vorige (%.2f)" % ov0)
-			ok(absf(float(tp[-1][3]) - g3.plafond_y()) < 0.01 or ov0 >= 1.0 + g3.TOREN_MAX_EXTRA - 0.01, "3D-toren plafond: precies tegen het plafond, of de grootste overlap")
+			ok(absf(float(tp[-1][3]) - g3.plafond_y()) < 0.01 or ov0 >= 1.0 + g3.TOREN_MAX_EXTRA - 0.01 or absf(rand_min - 1.0) < 0.01, "3D-toren plafond: precies tegen het plafond, of de grootste overlap")
 			var tpx: Array = g3.toren()
-			ok(int(tpx[-1][2]) + g3.HOED_TOP[int(tpx[-1][0])] >= int(floor(g3.plafond_y())), "pixeltoren plafond: bovenkant niet boven de rand")
+			var rand_px := 99
+			for k in range(1, tpx.size()):
+				rand_px = mini(rand_px, (int(tpx[k - 1][2]) + g3.HOED_TOP[int(tpx[k - 1][0])]) - (int(tpx[k][2]) + g3.HOED_TOP[int(tpx[k][0])]))
+			ok(rand_px >= 1, "pixeltoren plafond: van elke hoed blijft een rand (%d)" % rand_px)
+			ok(int(tpx[-1][2]) + g3.HOED_TOP[int(tpx[-1][0])] >= int(floor(g3.plafond_y())) or rand_px == 1, "pixeltoren plafond: bovenkant niet boven de rand")
 			# hoogste_punt_rust (Olaf 14 nov 01:50): rust-frame, geen wip, met plafond; zzz minstens 1 spelpixel onder de rand
-			ok(g3.hoogste_punt_rust() >= int(floor(g3.plafond_y())), "rustpunt volgt het plafond (%d, plafond %.1f)" % [g3.hoogste_punt_rust(), g3.plafond_y()])
+			ok(g3.hoogste_punt_rust() >= int(floor(g3.plafond_y())) or absf(rand_min - 1.0) < 0.01, "rustpunt volgt het plafond (%d, plafond %.1f)" % [g3.hoogste_punt_rust(), g3.plafond_y()])
 			var rp0: int = g3.hoogste_punt_rust()
 			var kv: float = g3.koop_van
 			g3.koop_van = g3.t - 0.05
