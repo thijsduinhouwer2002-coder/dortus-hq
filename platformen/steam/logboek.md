@@ -749,3 +749,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: het demofilmpje van de winkel-workflow loopt niet gelijk met oudere opnames; zoek momenten opnieuw op een contactblad (stuk rond Gloop, elk 20e beeld) in plaats van oude beeldnummers over te nemen.
 - Systeemeisen voor de winkelpagina in `teksten.md` 4b (Windows 10 64-bit, OpenGL 3.3 of DX11 via ANGLE, 2 GB, 200 MB), elke regel met bron.
 - Correctie: geheugen voor spelers is ±116 MB (echte exe, run 43579985781), niet 35 MB (duurtest draait de losse Godot-binary). Systeemeisen aangepast. Kan: in `steam-hol-exe.yml` gaf "volledig" in die run "geheugen 0 MB"; meten na de schermfoto lijkt soms een al gestopt proces te raken.
+- 09:36 laars-keurstrook: Windows-run 43579921279 groen, 3D-laars GEZIEN op 96, 120 en 160 (beelden op tak `claude/steam-hol-laars-proef`). Vraag aan Daan in taken.md.
+- 09:40 graaf3d: Windows-run 43579985806 groen op de bijgewerkte tak, keurstrook GEZIEN, opnieuw aan Daan gevraagd.
+- Royal: spelkant voor een eigen blad `royal` (frames `achter` en `voor`, bredere cel) op tak `claude/steam-hol-royal3d` (cb9cb63), zonder blad niets veranderd, toetsen lokaal 0 FOUT. Pas naar main na Daans ja op het model.
+- Let op: de tijden 09:25 en 09:40 in mijn eerste twee berichten van deze run in taken.md liepen voor op de klok (echt ±09:15 en ±09:22).
