@@ -11,3 +11,5 @@ Ontwerp:
 - **3 Trick Lid:** blijft zoals Olaf het heeft (dicht is gewone vloer, dat is de grap).
 
 Frisse kijker op ronde b: 6 op ware grootte ("1 springt eruit, 2 lijkt op 0"); ronde c verwerkt beide punten. Volgende stap: Mila neemt de stukken over in `hol.py` (of leest dit script in) en de pijplijn knipt `put_1` en `put_2` uit, zoals `put`. Daarna wil ik een keurstrook op 120 en 160 zien.
+
+Ronde d (±13:50 UTC): frisse kijker op ronde c gaf 6,5 ("1 leest nu als oud roestig staal, goed; silhouet verdwijnt tegen de put; zwart van 2 heeft geen contrast"). Verwerkt: lichte stalen punt op elke roestige stekel, zwarte opening breder (1,72). Een lichte stenen lip voor de opening geprobeerd en weer uit: op 4x een streep dwars door de stekels, leest als een hekje. Besluit: dit is het voorstel; het echte oordeel volgt op de keurstrook in het spel.

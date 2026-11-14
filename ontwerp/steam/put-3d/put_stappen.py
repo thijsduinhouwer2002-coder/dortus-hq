@@ -40,6 +40,8 @@ if STAP >= 1:
                 kant = (math.radians(rnd.uniform(-14, 14)), math.radians(rnd.uniform(-14, 14)), 0)
                 x, y = PUT_X - 0.6 + i * 0.24, 0.15 + j * 0.38
                 cil("stekel", (x, y, -0.25 + hoog / 2), 0.075, hoog, m, rot=kant, verts=8, r2=0.0)
+                # ronde d (kijker: "silhouet verdwijnt tegen de donkere put"): lichte stalen punt
+                cil("stekelpunt", (x, y, -0.25 + hoog * 0.85), 0.075 * 0.3, hoog * 0.3, STAAL_L, rot=kant, verts=8, r2=0.0)
                 for zb in (0.12, 0.3):
                     cil("roestband", (x, y, -0.25 + zb), 0.075 * (1 - zb / hoog) + 0.008, 0.06, ROEST, rot=kant, verts=8)
             else:
@@ -65,7 +67,11 @@ if STAP == 2:
     # Ronde b: het diepe gat zie je bijna niet (camera 15 graden), dus het verschil moet boven de vloer zitten:
     # langere stekels en twee donkere stenen randen met een rode waarschuwingsband (zoals een mijnschacht)
     # ronde c (frisse kijker: "lijkt op 0"): een zwarte, bredere opening op vloerhoogte, die zie je wel
-    blok("put_mond", (PUT_X, 0.45, 0.004), (1.62, 0.9, 0.01), ZWART)
+    blok("put_mond", (PUT_X, 0.45, 0.004), (1.72, 0.9, 0.01), ZWART)
+    # ronde d (kijker: "zwart heeft geen contrast"): lichte stenen lip aan de voorkant van de opening
+    LIP = g.mat("lip", "b89ab8", rough=0.7, emis=0.05)
+    # (lip geprobeerd en uit: op 4x een lichte streep dwars door de stekels, leest als een hekje)
+    # blok("put_lip", (PUT_X, -0.02, 0.012), (1.78, 0.06, 0.02), LIP)
     RAND = g.mat("putrand_d", "3a2a40", rough=0.85)
     BAND = g.mat("band", "c23a2a", rough=0.6, emis=0.1)
     for dx in (-0.84, 0.84):
