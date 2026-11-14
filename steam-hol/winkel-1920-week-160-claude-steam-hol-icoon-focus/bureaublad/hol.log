@@ -1,0 +1,23 @@
+HOL weg geweest 39 s (klok terug: false): goud voor 1649, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1649 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Rik has a map. It is wrong.
+HOL held binnen: Rik
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL meting t=20 beelden=103 helden=1 hol_vast=1
+HOL kroniek 20.7 (wacht 0.0): Gloop ate Rik. Burp. +6
+HOL kroniek 23.3 (wacht 2.5): New stamp for the Hero. Gloop got him.
+HOL meting t=30 beelden=44 helden=0 hol_vast=1
+HOL meting t=40 beelden=4 helden=0 hol_vast=1
+HOL kroniek 49.3 (wacht 0.0): Wout brought a torch. And hope.
+HOL held binnen: Wout
+HOL meting t=50 beelden=11 helden=1 hol_vast=1
+HOL meting t=60 beelden=101 helden=1 hol_vast=2
+HOL kroniek 61.2 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL meting t=70 beelden=46 helden=0 hol_vast=3
+HOL meting t=80 beelden=4 helden=0 hol_vast=3
+HOL meting t=90 beelden=11 helden=0 hol_vast=3
+HOL meting t=100 beelden=5 helden=0 hol_vast=3
+HOL kroniek 102.2 (wacht 0.0): Pim the Thief tiptoes in.
+HOL held binnen: Pim
