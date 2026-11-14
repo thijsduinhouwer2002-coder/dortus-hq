@@ -44,6 +44,14 @@ jobs:
         run: |
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
           if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: rcedit klaarzetten (icoon en versie in de exe)
+        shell: pwsh
+        run: |
+          # Godot 4.3 roept bij application/modify_resources=true het programma "rcedit" aan (zonder pad), dus op PATH zetten.
+          New-Item -ItemType Directory -Force rcedit | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" -OutFile rcedit/rcedit.exe
+          (Resolve-Path rcedit).Path | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          Write-Output "rcedit $((Get-Item rcedit/rcedit.exe).Length) bytes"
       - name: Bouwen (vol en demo)
         shell: pwsh
         run: |
