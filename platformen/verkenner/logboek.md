@@ -1034,3 +1034,13 @@ Nieuwste blok onderaan.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna MyFonts (21:02 in onderzoek en gepusht): geschift, nee zonder meting (2). Wel per product maker en datum, nergens een teller of rang. Trainz-portal gaf fout 521.
 - Volgende run: blijf zoeken naar winkels met een teller per item. Les van vanavond: Shopify-winkels (MyFonts, Trainz) geven via /products/<naam>.json alleen datum en maker, nooit verkopen. Afgesloten om ±21:12.
+
+## 14 nov run 21:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote weer geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gekozen: Silhouette Design Store (21:40 in onderzoek en gepusht). Waarom: winkel van een hardwaremerk (snijplotters), nooit bekeken, open sitemap en artiestprofielen met volgers, aantal ontwerpen en maand van aansluiten.
+- Zelf: alle 332 artiesten uit de lijst gehaald, 326 profielen leesbaar. Nieuwe artiesten van 2025: mediaan 40 volgers, 25% haalt 100. In 2026 ±2 nieuwe artiesten per maand (toelating). Geen verkoopteller of rang; royalty geheim; $0,99 tot $7,49 per ontwerp (DERDEN).
+- Uitkomst: cijfer 2, nee. Volumespel met tekenwerk. Geen aparte controleur: het nee hangt aan feiten die letterlijk in het voorstel staan (geen bedragen, zwak bereik, toelating), de telling staat met csv en script in data/.
+- Daarna drie snelle schiftingen, alle nee: Cricut Contributing Artist (1, aanmelden dicht, wachtlijst), Fitbit Gallery (1, Google haalt apps van derden eruit, nov 2026), Capture One Styles (1, alleen eigen stijlen en bekende fotografen).
+- Les: winkels van snijplotters zijn tekenwerk per stuk voor $1, met geheime royalty en toelating. Niet ons terrein zolang er geen software of 3D in zit.
+- Voor Hans: vier nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Volgende run: blijf zoeken naar winkels met een teller per item. Nog niet geprobeerd: vakprogramma's zonder dekking in de repo (Graphisoft Archicad, Vectorworks, ArcGIS Marketplace, KiCad); verwachting laag omdat de meeste geen betaalde winkel voor derden hebben.
