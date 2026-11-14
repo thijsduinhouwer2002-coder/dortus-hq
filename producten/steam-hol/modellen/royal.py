@@ -38,24 +38,36 @@ def hermelijn():
     m = bpy.data.materials.new("hermelijn"); m.use_nodes = True
     nt = m.node_tree; b = nt.nodes["Principled BSDF"]
     b.inputs["Roughness"].default_value = 0.9
-    vo = nt.nodes.new("ShaderNodeTexVoronoi"); vo.inputs["Scale"].default_value = 9.0
+    vo = nt.nodes.new("ShaderNodeTexVoronoi"); vo.inputs["Scale"].default_value = 7.0
+    tc = nt.nodes.new("ShaderNodeTexCoord"); nt.links.new(tc.outputs["Object"], vo.inputs["Vector"])
     ra = nt.nodes.new("ShaderNodeValToRGB")
-    ra.color_ramp.elements[0].position = 0.06; ra.color_ramp.elements[0].color = (0.02, 0.02, 0.025, 1)
-    ra.color_ramp.elements[1].position = 0.08; ra.color_ramp.elements[1].color = (0.92, 0.9, 0.86, 1)
+    ra.color_ramp.elements[0].position = 0.11; ra.color_ramp.elements[0].color = (0.02, 0.02, 0.025, 1)
+    ra.color_ramp.elements[1].position = 0.12; ra.color_ramp.elements[1].color = (0.92, 0.9, 0.86, 1)
     ra.color_ramp.interpolation = "CONSTANT"
     nt.links.new(vo.outputs["Distance"], ra.inputs["Fac"]); nt.links.new(ra.outputs["Color"], b.inputs["Base Color"])
     return m
 
 
+SCEPTER = True  # gouden scepter met bol, schuin tegen zijn rechterflank (frisse kijker 3b: een eigen koningsstuk)
+KRANS = False   # stralenkrans achter hem: ronde 3a las als stekels of schrik, dus uit
+RONDE = 3   # 3: rood fluweel, wijde sleep, hermelijn als zoom, stralenkrans (Daan 14 nov 08:45); 2: paarse kelk
+
+
 def cape(lijf_delen, vloer):
-    """Open mantel achter hem (alleen de achterste helft), klokvormig, met plooien die naar onder dieper worden.
-    Hij komt aan de zijkanten iets naar voren, zodat je naast het lijf de buitenkant ziet, met een gouden zoom op de vloer."""
+    """Ronde 3 (frisse kijker ronde 2: 4, "tovenaar, niet koning; witte uiteinden lijken handjes en voetjes"):
+    - koningsrood fluweel in plaats van paars: paars verdween in het paarse hol en las als tovenaar;
+    - een wijde sleep die op de vloer duidelijk breder uitwaaiert dan het lijf (silhouet anders, ook klein);
+    - hermelijn is het onderste stuk van de mantel zelf, geen losse ring: geen losse witte uiteinden meer;
+    - geen kraag boven zijn schouders (die las als schelp of handjes);
+    - een gouden stralenkrans achter hem: dit is de duurste upgrade, die mag glanzen (betaald mag gloed hebben)."""
     import bmesh
     _weg(lijf_delen)                       # het lijf tekent het spel er zelf overheen
-    fluweel = g.mat("cape", "paars", rough=0.78, spec=0.25, sss=0.05)
-    voering = g.mat("cape_voering", "3a2470", rough=0.85, spec=0.15)
-    goud = g.mat("cape_goud", "goud", rough=0.22, spec=1.0, metaal=0.9, emis=0.08)
-    BX, BY, BZ, CY, VOOR = 1.3, 0.92, 1.32, 0.2, -0.3
+    fluweel = g.mat("cape", "a3182e", rough=0.72, spec=0.3, sss=0.05)
+    voering = g.mat("cape_voering", "5e0c1c", rough=0.85, spec=0.15)
+    bont = hermelijn()
+    BX, BY, BZ, CY, VOOR = 1.0, 0.85, 1.3, 0.22, -0.4
+    WIJD = 0.7                              # extra breedte onderaan (sleep)
+    ZOOM_Z = 0.17                           # tot hier hermelijn
     bpy.ops.mesh.primitive_uv_sphere_add(segments=128, ring_count=48, location=(0, 0, 0))
     m = bpy.context.object; m.name = "cape"
     bm = bmesh.new(); bm.from_mesh(m.data)
@@ -64,36 +76,68 @@ def cape(lijf_delen, vloer):
     for v in bm.verts:
         x, y, z = v.co.x * BX, v.co.y * BY + CY, v.co.z * BZ
         hoek = math.atan2(x, y - CY)
-        diep = 0.25 + 0.75 * (1 - z / BZ)           # boven glad, onder diepe plooien
-        r = 1 + 0.045 * diep * math.sin(11 * hoek)
-        v.co = ((x) * r * (1 + 0.08 * (1 - z / BZ)), CY + (y - CY) * r, z)   # onderaan iets wijder: klok
+        laag = 1 - z / BZ
+        diep = 0.2 + 0.8 * laag                # boven glad, onder diepe plooien
+        r = 1 + 0.05 * diep * math.sin(9 * hoek)
+        v.co = (x * r * (1 + WIJD * laag ** 1.6), CY + (y - CY) * r * (1 + 0.25 * laag ** 2), z)
     bm.to_mesh(m.data); bm.free()
     bpy.ops.object.shade_smooth()
-    m.data.materials.append(fluweel); m.data.materials.append(voering)
-    sol = m.modifiers.new("dik", "SOLIDIFY"); sol.thickness = 0.05; sol.material_offset = 1
+    goudrand = g.mat("cape_goudrand", "goud", rough=0.2, spec=1.0, metaal=0.9, emis=0.1)
+    for mt in (fluweel, voering, bont, bont, goudrand, goudrand):
+        m.data.materials.append(mt)
+    for f in m.data.polygons:
+        if f.center.z < ZOOM_Z:
+            f.material_index = 2
+        elif f.center.z < ZOOM_Z + 0.07:
+            f.material_index = 4      # gouden bies boven het bont (frisse kijker 3b: meer goud)
+    sol = m.modifiers.new("dik", "SOLIDIFY"); sol.thickness = 0.06; sol.material_offset = 1
     sub = m.modifiers.new("glad", "SUBSURF"); sub.levels = 1; sub.render_levels = 1
-    # hoge kraag achter zijn kruin (Daan 07:50, frisse kijker: de koepel las niet als mantel): een open kelk
-    # die naar boven uitwaaiert, met gouden rand. Zo valt de mantel zichtbaar van zijn schouders.
-    bpy.ops.mesh.primitive_cone_add(vertices=96, radius1=0.42, radius2=0.74, depth=0.42, end_fill_type="NOTHING",
-                                    location=(0.04, 0.2, 1.18), rotation=(math.radians(14), 0, 0))
-    k = bpy.context.object; k.name = "cape_kraag"; bpy.ops.object.shade_smooth()
-    k.data.materials.append(fluweel); k.data.materials.append(voering)
-    ks = k.modifiers.new("dik", "SOLIDIFY"); ks.thickness = 0.04; ks.material_offset = 1
-    _knip(k, y=(0.0, 5))
-    bpy.ops.mesh.primitive_torus_add(major_radius=0.74, minor_radius=0.085, major_segments=96, minor_segments=16,
-                                     location=(0.04, 0.2, 1.18), rotation=(math.radians(14), 0, 0))
-    kr = bpy.context.object; kr.name = "cape_kraagrand"; bpy.ops.object.shade_smooth(); kr.data.materials.append(hermelijn())
-    # de rand ligt op de bovenkant van de kelk: in de lokale z een halve diepte omhoog
+    # geen losse bontrol op de vloer meer: die las als een witte plas (ronde 3a)
+    if SCEPTER:
+        _scepter()
+    if not KRANS:
+        return
+    # gouden stralenkrans achter hem: 16 spitse stralen, om en om lang en kort, plat en licht gevend
+    goud = g.mat("krans", "goud", rough=0.25, spec=0.8, metaal=0.6, emis=0.6)
+    me = bpy.data.meshes.new("krans")
+    pts, vlakken = [(0, 0, 0)], []
+    N = 16
+    for i in range(N):
+        a0 = 2 * math.pi * i / N
+        lang = 1.3 if i % 2 == 0 else 1.05
+        for da, rr in ((-0.14, 0.5), (0.0, lang), (0.14, 0.5)):
+            pts.append((rr * math.sin(a0 + da), 0, rr * math.cos(a0 + da)))
+        k = 1 + 3 * i
+        vlakken.append([k, k + 1, k + 2])
+    me.from_pydata(pts, [], vlakken)
+    kr = bpy.data.objects.new("cape_krans", me)
+    bpy.context.scene.collection.objects.link(kr)
+    kr.location = (0, 0.95, 0.95); kr.data.materials.append(goud)
+    so = kr.modifiers.new("dik", "SOLIDIFY"); so.thickness = 0.03
+
+
+def _scepter():
+    """Staf van goud met een rode bol en een kruisje erop, onderaan op de vloer rechts naast hem, schuin tegen zijn flank.
+    Groot genoeg om op spelgrootte als staf met bol te lezen (bol ±0,22 = ±2 spelpixels)."""
+    goud = g.mat("scepter_goud", "goud", rough=0.18, spec=1.0, metaal=0.9, emis=0.12)
+    rood = g.mat("scepter_bol", "c8203a", rough=0.12, spec=0.8, emis=0.15)
     import mathutils
-    kr.location = mathutils.Vector(kr.location) + mathutils.Euler(kr.rotation_euler).to_matrix() @ mathutils.Vector((0, 0, 0.21))
-    _knip(kr, y=(0.0, 5))
-    # gouden zoom langs de onderrand op de vloer (naast het lijf zichtbaar); geen bies langs de opening,
-    # die las als een regenboog
-    bpy.ops.mesh.primitive_torus_add(major_radius=1.0, minor_radius=0.09, major_segments=128, minor_segments=16,
-                                     location=(0, CY, 0.04))
-    o = bpy.context.object; o.name = "cape_zoom"; o.scale = (BX * 1.08 * 1.02, BY * 1.02, 1.0)
-    bpy.ops.object.shade_smooth(); o.data.materials.append(hermelijn())
-    _knip(o, y=(VOOR + 0.05, 5))
+    voet = mathutils.Vector((1.15, -0.15, 0.0)); top = mathutils.Vector((0.92, -0.15, 1.3))
+    as_ = top - voet; lang = as_.length; rot = as_.to_track_quat("Z", "Y").to_euler()
+    bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=0.07, depth=lang, location=(voet + top) / 2, rotation=rot)
+    st = bpy.context.object; st.name = "scepter_staf"; st.data.materials.append(goud); bpy.ops.object.shade_smooth()
+    for t, r in ((0.35, 0.1), (0.7, 0.095), (0.97, 0.12)):
+        bpy.ops.mesh.primitive_torus_add(major_radius=r, minor_radius=0.035, location=voet + as_ * t, rotation=rot)
+        o = bpy.context.object; o.name = "scepter_ring"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
+    bol = top + as_.normalized() * 0.24
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.26, location=bol)
+    b = bpy.context.object; b.name = "scepter_bol"; b.data.materials.append(rood); bpy.ops.object.shade_smooth()
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.26, minor_radius=0.04, location=bol, rotation=(0, math.radians(90), 0))
+    o = bpy.context.object; o.name = "scepter_band"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
+    kr = bol + as_.normalized() * 0.38
+    for sx, sz in ((0.07, 0.24), (0.2, 0.07)):
+        bpy.ops.mesh.primitive_cube_add(size=1, location=kr, rotation=rot)
+        o = bpy.context.object; o.name = "scepter_kruis"; o.scale = (sx, 0.06, sz); o.data.materials.append(goud)
 
 
 def zoom(lijf_delen, vloer):
@@ -123,14 +167,14 @@ def zoom(lijf_delen, vloer):
 def ster(lijf_delen, vloer):
     _weg(lijf_delen)
     vloer.hide_render = True
-    glans = g.mat("ster", "munt", emis=1.2, rough=0.2)
-    wit = g.mat("ster_hart", "munt_l", emis=3.0)
+    glans = g.mat("ster", "goud", emis=1.6, rough=0.2)
+    wit = g.mat("ster_hart", "fff3c4", emis=3.0)
     loc = (0.66, -0.72, 1.2)               # rechterschouder, iets voor het lijf
-    for hoek, lang in ((0, 0.21), (90, 0.21)):
+    for hoek, lang in ((0, 0.3), (90, 0.3)):
         # lange platte punt: een bol, langgerekt en dun (vier punten = twee kruisende spillen)
         bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, location=loc,
                                              rotation=(0, math.radians(hoek), 0))
-        p = bpy.context.object; p.name = "ster_punt"; p.scale = (lang, 0.03, 0.045)
+        p = bpy.context.object; p.name = "ster_punt"; p.scale = (lang, 0.035, 0.06)
         bpy.ops.object.shade_smooth(); p.data.materials.append(glans)
     for hoek in (45, 135):
         bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, location=loc,
