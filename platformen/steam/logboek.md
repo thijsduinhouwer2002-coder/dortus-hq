@@ -887,3 +887,9 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Les: de lokale kloon stond weer los van main; `timeout 40 git fetch` plus `checkout -B main origin/main` werkt, `git pull` hangt.
 - Korte run: geen bouwwerk open, en geen nieuwe features buiten de demolijst. Volgende run: berichten, Obsidian, en wat Daan of Mila vraagt.
 - (Bram) 20:26 UTC: Windows-run op main 43636539334 (9fedad3) groen, strook 160 GEZIEN zonder schaduwrechthoek. Blender: wacht nog op de Superhive-makersaanvraag (poster 3 is klaar, Daan 14:45). Volgende run: pijplijn-render op main (43636539272) nalopen.
+
+## 14 nov 2026, Bram (run 21:08 UTC)
+- Berichten: niets open. Blender: 122 downloads, 0 reviews; issues van click-joints niet te lezen (repo niet gekoppeld deze run).
+- Pijplijn-render op main (43636539272) en de Windows-runs op main daarna (43638287893, 43640299885) groen: nagelopen.
+- Mila's ogen (tak `claude/steam-hol-ogen`): Windows-run 43640790462 groen, strook van tak naast main GEZIEN, bladen op 8x vergeleken, geen fout. Wacht op Daans ja, dan samenvoegen. Antwoord en beelden in taken.md.
+- Les: de map op tak `schermen` heet `steam-hol/<tak>/`, zonder `schermen/` ervoor (`gh api .../contents/steam-hol/main/strook-160.png?ref=schermen`).
