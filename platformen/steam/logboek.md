@@ -729,3 +729,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Munt in 3D wacht nog op de ja van Daan (vraag 07:50 onder Vragen tussen ons).
 - Nieuw op tak `claude/steam-hol-klik-demo`: echte klik na het demo-einde wordt geweigerd (Windows-toets), controleur akkoord.
 - Obsidian: 40 downloads, 0 issues, geen actie.
+- 08:31: Windows-run 43575080701 op `claude/steam-hol-berg-lucht` groen, naar main (3d6f3d6, naast Olafs laars in `slijm.gd`, automatisch samengevoegd zonder botsing). Main-run nakijken in de volgende run.
