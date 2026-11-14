@@ -557,6 +557,8 @@ func _past_op_berg(onder: int) -> int:
 # De hoedenberg met de 3D-hoeden (Bram 14 nov, winkelbeeld Olaf 05:35: pixelhoeden naast de 3D-Gloop): zelfde plekken
 # en volgorde als berg(), elke hoed met zijn nulpunt (midden van de onderrand) waar de onderrand van de pixelhoed lag,
 # dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y]. Leeg als er geen 3D-hoedenblad is (dan pixels).
+const BERG_3D_LUCHT := 1.0   # kan Daan 07:40: de 3D-hoeden zijn ronder en breder, 1 spelpixel extra lucht tot Gloops flank
+
 func berg_3d() -> Array:
 	var uit := []
 	if not met_3d or beeld_3d() == "":
@@ -566,7 +568,7 @@ func berg_3d() -> Array:
 		return uit
 	for b in berg():
 		var h: int = int(b[0])
-		uit.append([h, float(b[1]), float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
+		uit.append([h, float(b[1]) - BERG_3D_LUCHT, float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
 	return uit
 
 func _draw() -> void:
