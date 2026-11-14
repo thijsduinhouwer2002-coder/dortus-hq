@@ -709,3 +709,6 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 ## 14 nov 2026, 07:16 tot ±08:00 UTC, Olaf
 - Rollwright: zie Obsidian, niets dringends.
 - Paneel 3D ronde 3 naar main (merge cd0a408) met de voorlopige ja van Daan (06:48). Na zijn run veranderden alleen 2 regels (getal 3 px van het goud, toetsrand 31/128); run 43566561301 op de tak was groen.
+
+## 14 nov 2026, 07:06 tot ±07:45 UTC, Bram
+- Hoedenberg 3D (`claude/steam-hol-berg3d`) wacht nog op Daans ja (06:40). Royal-cape, bovenzoom en glansster in 3D geclaimd in taken.md; vraag aan Daan of hij ze als standen in `gloop.py` maakt (zelfde camera, lijf verborgen), dan zet ik ze in het blad en in `slijm.gd`. Deze run vooral Blender (poster Click Joints Pro).
