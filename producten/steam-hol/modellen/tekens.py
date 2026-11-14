@@ -3,6 +3,9 @@
 Volgorde zoals tekens.png: 0 boos, 1 uitroep, 2 zweet, 3 zzz, 4 ster. Erbij (14 nov 02:40): 5 noot, het
 muzieknootje van de bard en de liedheld (nu `NOOT_PIX` in held_beeld.gd). Dat is geen wolkje maar een los
 gouden achtste noot met een donkere rug, zodat hij op lucht en aarde leest zonder pixelrand.
+Erbij (14 nov 08:40): 6 laars, de laars die Gloop uitspuugt (nu kunst/laars.png, `HB.teken_3d(self, "laars")` in
+slijm.gd). Achteraan, want 0 tot 5 liggen vast in de toetsen. Zijaanzicht met de neus naar rechts, zool op de
+bodem van de cel (onder-midden), met een omgeslagen kraag en een donkere rug zoals de noot.
 Elk teken is een rond, room-kleurig wolkje met een staartje naar beneden (naar het hoofd) en het
 symbool er dik op, zodat het op ±8 spelpixels leest tegen de paarse aarde. Zelfde licht en camera als
 alle modellen (gedeeld.py), mat zoals de kist, geen lijnen.
@@ -18,7 +21,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
 
-NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot"]
+NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars"]
+GROOT = 0.86  # maat van de laars (Daan 08:55)
+TIL = 0.08    # laars omhoog zodat de onderkant van de rug gelijk ligt met de punt van de staartjes
+SCHUIF = -0.095 # laars naar links, zodat hij in het midden van de cel staat en de cel 8 breed blijft
 
 
 def _obj(o, naam, m, ouder):
@@ -45,8 +51,8 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     x, y, z = plek
     ouder = bpy.data.objects.new(f"teken_{naam}", None)
     bpy.context.scene.collection.objects.link(ouder)
-    if naam == "noot":
-        _noot(ouder)
+    if naam in ("noot", "laars"):
+        (_noot if naam == "noot" else _laars)(ouder)
         ouder.location = (x, y, z)
         ouder.scale = (schaal, schaal, schaal)
         return ouder
@@ -150,6 +156,60 @@ def _noot(ouder):
     bpy.ops.mesh.primitive_uv_sphere_add(segments=16, ring_count=8, location=(-0.16, -0.08, 0.25))
     gl = _obj(bpy.context.object, "teken_noot_glans", g.mat("teken_glans", "ffffff", rough=0.2, emis=0.6), ouder)
     gl.scale = (0.05, 0.01, 0.025)
+
+
+def _blok(ouder, naam, m, loc, maat, rond=0.04, seg=3):
+    """Afgerond blok: kubus met bevel, maat is de halve breedte, diepte, hoogte."""
+    bpy.ops.mesh.primitive_cube_add(location=loc)
+    o = _obj(bpy.context.object, naam, m, ouder)
+    o.scale = maat
+    bpy.context.view_layer.objects.active = o
+    bpy.ops.object.transform_apply(scale=True)
+    b = o.modifiers.new("rond", "BEVEL"); b.width = rond; b.segments = seg
+    bpy.ops.object.shade_smooth()
+    return o
+
+
+def _laars(ouder):
+    """Laars in zijaanzicht, neus naar rechts. Hout-bruin zoals de pixellaars (8a5b33), zodat hij op de paarse
+    vloer leest; zool en hak donkerder, kraag lichter omgeslagen; schacht kort en neus lang (een duidelijke L). Onderkant zool op z 0.07, net als de punt van de
+    staartjes, zodat hij in het blad op de bodem van de cel staat."""
+    leer = g.mat("laars_leer", "b07a43", rough=0.5, spec=0.35)
+    kraag = g.mat("laars_kraag", "e8b673", rough=0.55, spec=0.3)
+    zool = g.mat("laars_zool", "5c3720", rough=0.7)
+    # schacht: rond (cilinder), iets naar achteren, smaller dan de kraag
+    bpy.ops.mesh.primitive_cylinder_add(vertices=40, radius=0.19, depth=0.62, location=(-0.14, 0, 0.53))
+    sc = _obj(bpy.context.object, "laars_schacht", leer, ouder)
+    b = sc.modifiers.new("rond", "BEVEL"); b.width = 0.05; b.segments = 3
+    bpy.ops.object.shade_smooth()
+    # voet: lange ronde neus naar rechts
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(0.24, 0, 0.21))
+    v = _obj(bpy.context.object, "laars_neus", leer, ouder)
+    v.scale = (0.34, 0.16, 0.15); bpy.ops.object.shade_smooth()
+    _blok(ouder, "laars_wreef", leer, (0.0, 0, 0.23), (0.24, 0.155, 0.14), rond=0.08, seg=4)
+    # zool en hak
+    _blok(ouder, "laars_zool", zool, (0.13, 0, 0.1), (0.46, 0.165, 0.035), rond=0.03)
+    _blok(ouder, "laars_hak", zool, (-0.23, 0, 0.14), (0.1, 0.16, 0.065), rond=0.025)
+    # omgeslagen kraag bovenaan: een bredere, platte ring, iets schuin naar achteren
+    bpy.ops.mesh.primitive_cylinder_add(vertices=40, radius=0.24, depth=0.16, location=(-0.14, 0, 0.88),
+                                        rotation=(0, math.radians(-6), 0))
+    kr = _obj(bpy.context.object, "laars_kraagband", kraag, ouder)
+    b = kr.modifiers.new("rond", "BEVEL"); b.width = 0.06; b.segments = 4
+    bpy.ops.object.shade_smooth()
+    # geen slijm en geen gesp: op 7 x 8 spelpixels werden die ruis (frisse kijker 08:58, groen las als sjaal of lampje)
+    # donkere rug net achter de laars en iets dikker rondom, net als bij de noot: op ware grootte geeft die de rand
+    # die de pixellaars had, anders verdwijnt de lichte kraag tegen de roze schatkamer (Daan 08:50, gemeten op f395)
+    rug = g.mat("laars_rug", "22121a", rough=0.7)
+    for o in list(ouder.children):
+        k = o.copy(); k.data = o.data.copy(); k.name = o.name + "_rug"
+        bpy.context.scene.collection.objects.link(k)
+        k.parent = ouder; k.data.materials.clear(); k.data.materials.append(rug)
+        k.location = (k.location[0], k.location[1] + 0.09, k.location[2] - 0.035)
+        d = k.modifiers.new("dik", "DISPLACE"); d.mid_level = 0.0; d.strength = 0.035
+    # maat en hoogte zo dat het blad 8 x 8 spelpixels blijft en de andere tekens even groot (eenheid_px gelijk)
+    for o in ouder.children:
+        o.location = (SCHUIF + o.location[0] * GROOT, o.location[1], 0.07 + TIL + (o.location[2] - 0.07) * GROOT)
+        o.scale = tuple(v * GROOT for v in o.scale)
 
 
 if __name__ == "__main__":
