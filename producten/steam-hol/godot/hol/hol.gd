@@ -380,7 +380,13 @@ func _draw() -> void:
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
 		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
-			continue   # deze dichte put zit al in het 3D-stuk; open (na een klap) en gekochte stappen blijven pixels erover
+			continue   # deze dichte put zit al in het 3D-stuk
+		# open (na een klap) en gekochte stappen: het 3D-stuk over de 3D-gang, met het schudden van de koop (Olaf 14 nov)
+		var p3 := HOL3D.put_stuk(self, k) if not (schat_3d and k >= schat_kol - 2 and k <= schat_kol) else ""
+		if p3 == "vast" or p3 == "gang" and sx == 0:
+			continue
+		if p3 != "" and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN)):
+			continue
 		if put_niv > 0:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:

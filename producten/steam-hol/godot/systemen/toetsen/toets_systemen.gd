@@ -542,6 +542,32 @@ func _init() -> void:
 	ok(H3.deco_plek("proef", Vector2(40.5, 39), false) == Vector2(37, 27), "deco: hele spelpixels")
 	H3.deco_blad = oud_blad
 	H3.deco = oud_deco
+	# put in 3D met gekochte stappen (Olaf 14 nov): geen pixel-put meer als het 3D-stuk er is
+	var oud_hblad = H3.blad
+	var oud_stukken: Dictionary = H3.stukken
+	H3.blad = CanvasTexture.new()
+	H3.stukken = {"put": {"maat": [16, 16], "vak_px": [0, 0, 64, 64]}, "gang": {"maat": [16, 16], "vak_px": [64, 0, 64, 64]}}
+	var pu = load("res://systemen/upgrades.gd").new()
+	var ph := {"met_3d": true, "vallen": {7: "stekelput"}, "put_open": {}, "upgrades": pu}
+	ok(H3.put_stuk(ph, 7) == "vast" and H3.put_stuk(ph, 6) == "", "put 3D: dicht zonder stappen zit in het vaste beeld, geen put geen stuk")
+	ph["put_open"] = {7: 1.0}
+	ok(H3.put_stuk(ph, 7) == "put", "put 3D: open na een klap is de 3D-put, geen pixels")
+	ph["put_open"] = {}
+	pu.van_dict({"slijm": 0, "stekelput": 1})
+	ok(H3.put_stuk(ph, 7) == "put", "put 3D: Rusty Spikes zonder eigen stuk valt terug op de 3D-put")
+	H3.stukken["put_1"] = {"maat": [16, 16], "vak_px": [128, 0, 64, 64]}
+	ok(H3.put_stuk(ph, 7) == "put_1", "put 3D: Rusty Spikes met eigen stuk put_1")
+	pu.van_dict({"slijm": 0, "stekelput": 3})
+	ok(H3.put_stuk(ph, 7) == "gang", "put 3D: Trick Lid dicht ziet eruit als vloer")
+	ph["put_open"] = {7: 1.0}
+	ok(H3.put_stuk(ph, 7) == "put", "put 3D: Trick Lid open toont de stekels")
+	ph["met_3d"] = false
+	ok(H3.put_stuk(ph, 7) == "", "put 3D: zonder 3D de pixel-put")
+	ph["met_3d"] = true
+	H3.stukken.erase("put")
+	ok(H3.put_stuk(ph, 7) == "", "put 3D: zonder stuk put in het blad de pixel-put")
+	H3.blad = oud_hblad
+	H3.stukken = oud_stukken
 	# versiering dunner (Olaf 14 nov, Daan 02:50 en 03:55): één per twee tegels, geen vloerding op het looppad, lichtzwam weg bij Gloop
 	var HV = load("res://hol/hol_vast.gd")
 	var nh := {"ingang_kol": 2, "schat_kol": 14, "vallen": {7: "stekelput"}}
