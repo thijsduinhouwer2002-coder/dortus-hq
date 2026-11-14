@@ -915,3 +915,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 
 ## 14 nov 2026, Bram (run 23:10 UTC)
 - (Bram) 23:15 UTC: kamernaad naar main (merge bf7be4a), botsing alleen in taken.md en logboek.md, versie van main genomen (de tak miste alleen regels). Ogen helden: `held.py` van Mila op verse tak `claude/steam-hol-ogen-main` (f26f8e5), pijplijn 43651992598 loopt. Blender: 125 downloads, click-joints 0 open issues en 0 PR.
+- (Bram) 23:40 UTC: bpy 5.2.4 lokaal geïnstalleerd, schacht als gegraven gat op tak `claude/steam-hol-schacht` (2d80035), voor/na lokaal GEZIEN. Volgende run: (1) ogen-tak: pijplijn 43651992598 en Windows-run nakijken, dan naar main; (2) schacht: bladen van de pijplijn, Windows-run, keurstrook voor Daan.
