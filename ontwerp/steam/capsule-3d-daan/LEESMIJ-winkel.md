@@ -8,3 +8,12 @@ Half formaat, 12 samples, `HERO_X=1.4 HERO_Z=1.95`, lens 26. GEZIEN met Read.
 - Goed: de grap van de capsule staat erin (ridder kijkt naar zijn eigen helm op Gloop), laarzen vrij van de onderrand, links ruimte voor het logo dat Steam erover legt.
 - Nog niet goed (eigen oordeel): veel lege muur, vier fakkels op gelijke afstand lezen als behang, rechts naast de hoge hoed niets. De oude keuring (10 nov, punt 8) zei al: de hero mag rijker of dichter op Gloop.
 - Volgende ronde: hoedenberg van gevallen helden rechts (uit `hoeden.py`), buitenste fakkels weg of op ongelijke hoogte, iets dichter op de groep (lens 30), dan op 3840x1240 met 24 samples. Daarna logo (`python winkel3d.py logo.png 2560 1410 32 logo`, verkleind naar 1280 breed), en een frisse kijker op allebei.
+
+## Ronde 2 (±16:35 UTC), `hero-ronde2-3840x1240.png`
+Vol formaat, 24 samples, `HERO_LENS=30 HERO_X=0.8 HERO_Z=1.75`. Proeven op half formaat (a tot e) GEZIEN met Read.
+- Rechts naast Gloop nu de berg hoeden van gevallen helden, zoals in het spel: hoge hoed op het goud, daarnaast pan, emmer, kap, koksmuts, veermuts en de pet bovenop (hoeden 1,05, iets naar voren, weg van de wand). Proef a had ze los verspreid en de pet zweefde; b en c stapelen ze.
+- Logo en veilig vak (DERDEN, https://partner.steamgames.com/doc/store/assets/libraryassets): Steam laat het logo kiezen uit linksonder, midden boven, midden of midden onder; in het midden zit een veilig vak van 860 x 380 dat nooit wordt bijgesneden. Daarom staat de groep nu rechts van het midden (HERO_X 0,8): linksonder is lege vloer voor het logo, en de gezichten van ridder en Gloop vallen in het veilige vak (op half formaat x 530 tot 1390, y 120 tot 500, nagemeten met een kader op proef e; aanname GOK: de maat geldt op het halve formaat 1920 x 620, zoals de sjablonen van derden het tekenen. Geldt hij op 3840 breed, dan valt alleen Gloop erin en schuift de ridder naar rechts). Logo dus linksonder kiezen.
+- Fakkels: links één zwakkere boven de plek van het logo, rechts één hogere verder weg; geen behang van gelijke fakkels meer.
+- Iets dichterbij (lens 30 in plaats van 26): minder lege muur.
+- De punt van de heksenhoed en de laarzen vallen buiten het veilige vak; dat mag, het gaat om de gezichten en de helm.
+- Nog te doen: frisse kijker op het volle formaat, logo (`python winkel3d.py logo.png 2560 1410 32 logo`).

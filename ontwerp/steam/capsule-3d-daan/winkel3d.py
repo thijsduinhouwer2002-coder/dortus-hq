@@ -34,7 +34,14 @@ co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_eul
 ''' + src[cam_eind:]
     vervang("for i in range(40):\n    x = -7.5 + i * 0.4", "for i in range(75):\n    x = -12.5 + i * 0.4")
     vervang("for i in range(26):\n    x = random.uniform(-7, 7)", "for i in range(50):\n    x = random.uniform(-11, 15)")
-    vervang("    fakkel(GX + 3.4, 3.1)\n", "    fakkel(GX + 3.4, 3.1)\n    fakkel(GX - 8.6, 3.1, kracht=200)\n    fakkel(GX + 8.6, 3.1, kracht=200)\n")
+    # ronde 2: geen behang van vier gelijke fakkels; links een zwakke boven het logo (Steam zet het logo linksonder), rechts een hogere verder weg
+    vervang("    fakkel(GX + 3.4, 3.1)\n", "    fakkel(GX + 3.4, 3.1)\n    fakkel(GX + 7.9, 3.6, kracht=150)\n    fakkel(GX - 7.6, 3.3, kracht=140)\n")
+    # ronde 2: hoeden op de berg iets groter dan de hoge hoed, schuiven iets naar voren (weg van de wand)
+    vervang("    hoeden.bouw(nr, plek=(x, y, z), schaal=0.85, kantel=k, draai=d)", "    hoeden.bouw(nr, plek=(x, y - (0.5 if nr != 7 else 0), z), schaal=0.85 if nr == 7 else 1.05, kantel=k, draai=d)")
+    # ronde 2: de berg hoeden van gevallen helden rechts naast Gloop (zoals in het spel), in plaats van één hoge hoed
+    vervang("BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]",
+            "BERG = [(7, GX + 2.3, -0.4, 0.55, 12, -20), (8, GX + 3.5, 0.3, 0.0, -10, 30), (6, GX + 4.3, 0.4, 0.0, 6, -20), (2, GX + 5.1, 0.3, 0.0, 15, -10),"
+            " (5, GX + 3.9, 0.5, 0.42, -12, 10), (9, GX + 4.7, 0.55, 0.48, 14, 25), (3, GX + 4.3, 0.6, 0.9, -6, 0)]")
 elif soort == "logo":
     # alleen de titel, doorzichtig, recht van voren
     src = src[:cam_begin] + '''# ---------- logo: alles behalve de titel onzichtbaar ----------
