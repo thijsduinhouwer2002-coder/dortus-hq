@@ -124,6 +124,14 @@ if VERSIE == 3:
     for (x, z, r) in [(-0.15, 0.25, 0.06), (0.25, 0.65, 0.05), (-0.6, 0.7, 0.045), (0.75, 0.55, 0.04)]:
         bol("bel", (x, -0.5, z), (r, r, r), bel)
 
+# ---------- Royal-stukken (Daan 14 nov): cape, zoom, ster ----------
+# Stand cape, zoom of ster rendert alleen dat stuk, met dezelfde camera als rust (hoeden 0), zodat de pijplijn
+# het als los frame op de plek van de oude pixels kan leggen (slijm.gd: cape vóór het lijf getekend, zoom en ster erna).
+# Uitwerking in royal.py. hol.py leest dit stuk wel in, maar zonder STAND is het rust en gebeurt hier niets.
+if _stand in ("cape", "zoom", "ster"):
+    import royal
+    royal.bouw(_stand, [o for o in sc.objects if o.type == "MESH" or o.type == "META"], vloer)
+
 # ---------- hoedentoren ----------
 TOP = 1.52  # bovenkant van het lijf
 z = TOP - 0.1
