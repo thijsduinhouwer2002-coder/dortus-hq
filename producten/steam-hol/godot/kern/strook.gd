@@ -256,6 +256,9 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	t += delta
+	# Gloop groeit, krijgt een hoed of loopt: de bult in het muisvlak mee laten gaan (alleen als hij echt verandert)
+	if slijm and hol and int(t * 2.0) != int((t - delta) * 2.0) and gloop_bult() != vlak_gloop:
+		_muis_vlak(vlak_paneel)
 	DEMO_EINDE.tik(self, delta)
 	BEELDTEMPO.tik(self)
 	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7).
@@ -375,22 +378,70 @@ func _notification(what: int) -> void:
 		KAARTJE.dicht(self)   # een wachtende koopregel komt eerst in de kroniek, dan bewaren (controleur kan-punt 1)
 		bewaar()
 
-# Welk deel van het venster de muis vangt. Normaal alleen het hol; bij hover ook het paneel met drie regels (L-vorm),
-# want dat reikt bij 96 px tot boven het maaiveld en zou anders meteen weer dichtklappen (controleur 00:30). Lucht en gras
-# naast het paneel laten klikken altijd door.
+# Welk deel van het venster de muis vangt. Normaal het hol plus wat erboven getekend staat; bij hover ook het paneel
+# met drie regels, want dat reikt bij 96 px tot boven het maaiveld en zou anders meteen weer dichtklappen
+# (controleur 00:30). Lege lucht laat klikken altijd door naar het venster erachter.
+# Let op (Bram 14 nov 02:35, Godot 4.3 DisplayServer.xml): op Windows tekent het venster NIETS buiten dit vlak. Daarom
+# volgt het vlak de bovenrand van gras, plantjes en ingang (hol_vast.gd `rand`, één keer gemeten na elk nieuw vast
+# beeld) en een bult boven Gloop met zijn hoedentoren (rust-hoogte, zodat het vlak niet bij elke wip verandert).
+# Besluit Olaf 14 nov 03:30: gras en toren zichtbaar, de paar spelpixels gras vangen dan ook de muis.
 var vangt_y := 0
+var vlak_paneel := false
+var vlak_gloop := Vector3i(-1, -1, -1)   # x links, x rechts, bovenkant (venster-pixels) van de bult boven Gloop
+var lucht_gemeld := false
 func _muis_vlak(paneel: bool) -> void:
+	vlak_paneel = paneel
+	DisplayServer.window_set_mouse_passthrough(muis_vlak_punten(paneel))
+
+# De punten van het vlak (los, voor de toetsen). Per pixelkolom een bovenkant, gelijke stukken samengevoegd.
+func muis_vlak_punten(paneel: bool) -> PackedVector2Array:
 	var w := DisplayServer.window_get_size()
-	var y := float(vangt_y)
-	var vlak := PackedVector2Array([Vector2(0, y), Vector2(w.x, y), Vector2(w.x, w.y), Vector2(0, w.y)])
+	var tops := PackedInt32Array()
+	tops.resize(w.x)
+	tops.fill(vangt_y)
+	var boven := vangt_y - HOL.OPP * schaal
+	var r: PackedInt32Array = hol.vast.rand if hol != null and hol.vast != null else PackedInt32Array()
+	for x in mini(r.size(), w.x):
+		tops[x] = mini(tops[x], boven + r[x])
+	vlak_gloop = gloop_bult()
+	for x in range(maxi(0, vlak_gloop.x), mini(w.x, vlak_gloop.y)):
+		tops[x] = mini(tops[x], vlak_gloop.z)
 	if paneel and tekst and tekst.has_method("hover_vak"):
-		var r: Rect2 = tekst.hover_vak()
-		var top := clampf(r.position.y, 0.0, y)
-		var links := clampf(r.position.x, 0.0, float(w.x))
-		if top < y:
-			vlak = PackedVector2Array([Vector2(0, y), Vector2(links, y), Vector2(links, top), Vector2(w.x, top),
-				Vector2(w.x, w.y), Vector2(0, w.y)])
-	DisplayServer.window_set_mouse_passthrough(vlak)
+		var pr: Rect2 = tekst.hover_vak()
+		var top := int(clampf(pr.position.y, 0.0, float(vangt_y)))
+		for x in range(int(clampf(pr.position.x, 0.0, float(w.x))), w.x):
+			tops[x] = mini(tops[x], top)
+	var vlak := PackedVector2Array([Vector2(0, w.y)])
+	var x0 := 0
+	for x in range(1, w.x + 1):
+		if x == w.x or tops[x] != tops[x0]:
+			vlak.append(Vector2(x0, tops[x0]))
+			vlak.append(Vector2(x, tops[x0]))
+			x0 = x
+	vlak.append(Vector2(w.x, w.y))
+	if not lucht_gemeld and r.size() > 0:
+		lucht_gemeld = true
+		# voor de Windows-stap "Klikken door de lucht": een plek waar echt lucht is (4 px onder de bovenrand)
+		var vrij := -1
+		for x in range(200, mini(w.x, r.size())):
+			if tops[x] > 4 + 2 * schaal:
+				vrij = x
+				break
+		log_regel("HOL muisvlak %d punten, lucht vrij op x=%d" % [vlak.size(), vrij])
+	return vlak
+
+# Bult boven Gloop: van de bovenkant van zijn toren (in rust) tot het maaiveld, zo breed als hij met hoeden is.
+func gloop_bult() -> Vector3i:
+	if slijm == null or hol == null or not slijm.has_method("hoogste_punt_rust"):
+		return Vector3i(-1, -1, -1)
+	var boven := vangt_y - HOL.OPP * schaal
+	var top := int(floor((slijm.position.y + float(slijm.hoogste_punt_rust()) - 1.0) * schaal)) + boven
+	var x := int(hol.position.x + slijm.position.x * schaal)
+	return Vector3i(x - 11 * schaal, x + 11 * schaal, clampi(top, 0, vangt_y))
+
+# hol_vast.gd heeft de bovenrand opnieuw gemeten
+func rand_veranderd() -> void:
+	_muis_vlak(vlak_paneel)
 
 # Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
 func zet_hoogte(h: int) -> void:

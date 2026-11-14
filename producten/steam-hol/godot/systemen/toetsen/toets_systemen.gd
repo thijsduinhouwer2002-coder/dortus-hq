@@ -566,5 +566,34 @@ func _init() -> void:
 	ok(is_equal_approx(KJ.munt_top(ms), 30.0), "munt_top zonder hoogste_punt_rust: oude som (rust-frame)")
 	sl_r.free()
 	sl_o.free()
+	# muisvlak volgt wat er boven het maaiveld staat (Olaf 14 nov; op Windows tekent alleen het vlak, Bram 02:35)
+	var h2 = Node2D.new()
+	h2.set_script(load("res://hol/hol.gd"))
+	h2.scale = Vector2(3, 3)
+	h2.maak(320)
+	h2.leg_aan(15)
+	var rimg := Image.create(6, 30, false, Image.FORMAT_RGBA8)
+	rimg.fill(Color(0, 0, 0, 0))
+	rimg.fill_rect(Rect2i(0, 24, 6, 6), Color(0.3, 0.2, 0.3, 1))   # aarde vanaf het maaiveld (rij 8 x schaal 3)
+	rimg.fill_rect(Rect2i(2, 5, 1, 19), Color(0.2, 0.6, 0.2, 1))    # een spriet tot pixel 5
+	rimg.set_pixel(4, 10, Color(1, 1, 1, 0.02))                     # bijna onzichtbaar: telt niet
+	rimg.set_pixel(5, 0, Color(1, 1, 1, 0.5))                       # zachte 3D-rand: telt wel
+	h2.vast.lees_rand(rimg, 3)
+	var rr: PackedInt32Array = h2.vast.rand
+	ok(rr.size() == 6 and rr[0] == 24 and rr[2] == 5 and rr[4] == 24 and rr[5] == 0, "hol_vast: bovenrand per kolom gemeten %s" % str(rr))
+	# kan van de controleur (14 nov 02:35): munt_top met de echte slijm.gd, hoge toren tegen het plafond
+	if ResourceLoader.exists("res://systemen/slijm.gd"):
+		var ms2 = nep_s.new()
+		var echt = Node2D.new()
+		echt.set_script(load("res://systemen/slijm.gd"))
+		echt.zet(h2, 10)
+		for i in 12:
+			echt.krijg_hoed(i % 10)
+		ms2.slijm = echt
+		var mt: float = KJ.munt_top(ms2)
+		ok(is_equal_approx(mt, echt.position.y + float(echt.hoogste_punt_rust())), "munt_top met echte slijm.gd en 12 hoeden volgt hoogste_punt_rust (%s)" % str(mt))
+		ok(mt >= echt.position.y + echt.plafond_y() - 1.0, "toren van 12 hoeden blijft onder het plafond (%s tegen %s)" % [str(mt), str(echt.position.y + echt.plafond_y())])
+		echt.free()
+	h2.free()
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

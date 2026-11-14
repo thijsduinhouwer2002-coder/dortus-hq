@@ -26,6 +26,12 @@ var vp: SubViewport
 var beeld: Sprite2D
 var sleutel := ""
 var keer := 0                 # zo vaak opnieuw getekend (voor de toetsen en de meetregel)
+# Bovenrand van wat er boven het maaiveld getekend staat, per schermpixel-kolom van het eigen beeld (0 = bovenrand van
+# het hol, OPP * schaal = niets boven het gras). Leeg tot het eerste beeld gelezen is, of als lezen niet kan (headless).
+# strook.gd maakt hiermee het muisvlak: op Windows tekent het venster niets buiten dat vlak (Godot 4.3,
+# window_set_mouse_passthrough), dus zonder dit waren gras, plantjes en de top van de ingang weg (Bram 14 nov 02:35).
+var rand := PackedInt32Array()
+var rand_keer := 0            # zo vaak gelezen (toetsen)
 
 func maak_in(hol) -> void:
 	h = hol
@@ -74,6 +80,45 @@ func ververs() -> void:
 	keer += 1
 	queue_redraw()
 	vp.render_target_update_mode = SubViewport.UPDATE_ONCE
+	_lees_later(keer)
+
+# Na het tekenen het beeld één keer terugzien om de bovenrand van gras, plantjes en ingang te meten. Gebeurt alleen
+# als het vaste beeld opnieuw getekend is (graven, put, ingang), dus zelden; twee beelden wachten, want UPDATE_ONCE
+# tekent pas in het volgende beeld.
+func _lees_later(nr: int) -> void:
+	if not is_inside_tree():
+		return
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	if nr != keer or vp == null:
+		return
+	var tex := vp.get_texture()
+	var img: Image = tex.get_image() if tex != null else null
+	if img == null or img.is_empty():
+		return
+	lees_rand(img, int(round(scale.x)))
+	var s = h.get_parent() if h != null else null
+	if s != null and s.has_method("rand_veranderd"):
+		s.rand_veranderd()
+
+# Per kolom de eerste rij (schermpixels) met iets erin, boven het maaiveld. Los aan te roepen voor de toetsen.
+func lees_rand(img: Image, s: int) -> void:
+	if img.get_format() != Image.FORMAT_RGBA8:
+		img.convert(Image.FORMAT_RGBA8)
+	var w := img.get_width()
+	var tot := mini(OPP * s, img.get_height())
+	var data := img.get_data()
+	var r := PackedInt32Array()
+	r.resize(w)
+	for x in w:
+		var top := tot
+		for y in tot:
+			if data[(y * w + x) * 4 + 3] > 8:   # alfa boven ±3 %: een zachte 3D-rand telt mee
+				top = y
+				break
+		r[x] = top
+	rand = r
+	rand_keer += 1
 
 func _draw() -> void:
 	if h != null:
