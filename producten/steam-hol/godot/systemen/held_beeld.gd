@@ -76,6 +76,7 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	if tk == "poef":
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
+	onder = maxi(onder, teken_onder_min(h))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
 	if teken_3d(h, tk, 0.0, float(onder)):
 		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
@@ -85,6 +86,14 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 # zoals het 3D-lijf. false = geen blad of geen beeld met die naam: de aanroeper tekent tekens.png (main gaat nooit kapot).
 # Ook voor Gloops zzz in slijm.gd.
 const TEKENS3D := "tekens"
+# Laagste toegestane onderkant (rij van het staartje) voor een teken van 8 hoog, zodat de bovenkant minstens TEKEN_RAND
+# spelpixels onder de bovenrand van het hol (hol-y 0) blijft; h staat in hol-coordinaten. Bij een held hoog op de ladder
+# zakt het teken dan iets naar zijn hoofd toe.
+const TEKEN_RAND := 1
+static func teken_onder_min(h) -> int:
+	if not (h is Node2D):
+		return -100000
+	return TEKEN_RAND + 8 - int(floor((h as Node2D).position.y))
 static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kleur := Color.WHITE) -> bool:
 	if not met_3d:
 		return false
