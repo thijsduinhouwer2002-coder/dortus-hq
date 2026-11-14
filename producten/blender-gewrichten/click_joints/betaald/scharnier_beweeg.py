@@ -123,10 +123,115 @@ def geen_stop(voor):
     return voor >= MAX_VOOR - 1e-6
 
 
+GROEI_MM = 1.0  # oude manier (tot 1.0.0): ook de vlakken binnen 1 mm van een rakend vlak; nu alleen als terugval
+VLAK_TOL_MM = 0.02  # 1.0.1 (Daan moet 1): hele vlakken rood, alle vlakken op hetzelfde platte vlak als een rakend vlak
+
+
+def _terug(ob):
+    """Vorige rode vlakken van ob terug naar hun eigen materiaalvak."""
+    me = ob.data
+    oud = list(ob.get("cj_rood_vlakken", []))
+    for i in range(0, len(oud), 2):
+        if oud[i] < len(me.polygons):
+            me.polygons[oud[i]].material_index = oud[i + 1]
+    ob["cj_rood_vlakken"] = []
+
+
+def _groei(ob, vlakken, afstand):
+    """De rakende vlakken plus alle vlakken van ob waarvan het middelpunt binnen `afstand` van een rakend vlak ligt."""
+    if not vlakken or afstand <= 0:
+        return set(vlakken)
+    from mathutils.kdtree import KDTree
+    me = ob.data
+    n = len(me.polygons)
+    c = np.empty(n * 3, dtype=np.float64)
+    me.polygons.foreach_get("center", c)
+    c = c.reshape(n, 3)
+    boom = KDTree(n)
+    for i in range(n):
+        boom.insert(c[i], i)
+    boom.balance()
+    uit = set(vlakken)
+    for v in vlakken:
+        for _co, j, _d in boom.find_range(c[v], afstand):
+            uit.add(j)
+    return uit
+
+
+def _vlak(ob, vlakken, tol, reik):
+    """1.0.1 (Daan moet 1, strakke randen): de rakende vlakken plus de vlakken die er via randen aan vast zitten en op
+    hetzelfde platte vlak liggen (zelfde richting, binnen tol), en niet verder dan `reik` langs de lidas van het
+    snijpunt. Zo wordt het stopvlak rood tot de rand van de snede, zonder trapjes, en niet de hele platte zijkant van
+    een staaf (proef 1, run 43491692615: 3493 vlakken tot 17,7 mm). Alles in mesh-coordinaten."""
+    if not vlakken:
+        return set()
+    import bmesh
+    me = ob.data
+    m_inv = echte_matrix(ob).inverted()
+    p = m_inv @ Vector(ob["cj_snijpunt"])
+    lid = (m_inv.to_3x3().inverted().transposed() @ Vector(ob["cj_as"])).normalized()
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bm.faces.ensure_lookup_table()
+    uit = set(vlakken)
+    rij = [bm.faces[v] for v in vlakken if v < len(bm.faces)]
+    bron = {f.index: (f.normal.copy(), f.normal.dot(f.calc_center_median())) for f in rij}
+    while rij:
+        f = rij.pop()
+        n0, d0 = bron[f.index]
+        for e in f.edges:
+            for g in e.link_faces:
+                if g.index in uit:
+                    continue
+                c = g.calc_center_median()
+                if g.normal.dot(n0) > 0.9995 and abs(c.dot(n0) - d0) <= tol and abs((c - p).dot(lid)) <= reik:
+                    uit.add(g.index)
+                    bron[g.index] = (n0, d0)
+                    rij.append(g)
+    bm.free()
+    return uit
+
+
+HUID_DREMPEL = 0.3  # proef 3: |normaal . lidas| eronder = huid van de staaf (straalsgewijs), geen stopvlak
+
+
+def _zonder_huid(ob, vlakken):
+    """1.0.1 proef 3 (Bram 14 nov): rakende vlakken die op de huid van de staaf liggen (normaal dwars op de lidas) niet
+    rood maken. In proef 2 (run 43494134537, plaatje 14) gaven lange smalle huidvlakken bij de snede twee rode strepen
+    op het bovenbeen. Het stopvlak van de snede staat schuin op de lidas en blijft. Blijft er niets over, dan het oude."""
+    if not vlakken or "cj_as" not in ob:
+        return set(vlakken)
+    m_inv = echte_matrix(ob).inverted()
+    lid = (m_inv.to_3x3().inverted().transposed() @ Vector(ob["cj_as"])).normalized()
+    me = ob.data
+    uit = {v for v in vlakken if v < len(me.polygons) and abs(me.polygons[v].normal.dot(lid)) >= HUID_DREMPEL}
+    return uit if uit else set(vlakken)
+
+
+def _kleur(ob, vlakken, kleur_rood):
+    me = ob.data
+    if not vlakken:
+        return
+    if len(me.materials) == 0:
+        me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is het hele deel rood
+    namen = [m.name if m else None for m in me.materials]
+    if kleur_rood.name in namen:
+        vak = namen.index(kleur_rood.name)
+    else:
+        me.materials.append(kleur_rood)
+        vak = len(me.materials) - 1
+    lijst = []
+    for v in sorted(vlakken):
+        lijst += [v, me.polygons[v].material_index]
+        me.polygons[v].material_index = vak
+    ob["cj_rood_vlakken"] = lijst
+
+
 def pose(a, b, graden, kleur_rood=None):
     """Eis 8 (plaatjes 11 en 12): deel B in de weergave `graden` naar voren om H draaien, zoals de beweegproef.
-    Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A die B raken het rode materiaal
-    (kleur_rood); de vorige rode vlakken eerst terug. Geeft het aantal rode vlakken."""
+    Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A en B die elkaar raken het rode materiaal
+    (kleur_rood), plus (sinds 1.0.1) de rest van het platte vlak waar ze op liggen, zodat het rood als strak vlak leest (Daan, Pro punt 5); de vorige
+    rode vlakken eerst terug. Geeft het aantal rode vlakken van A (zoals eerst); die van B staan in cj_rood_vlakken van B."""
     # Alleen de weergave: de draaiing staat in delta_rotation en delta_location van deel B (zet_scharnier),
     # net als de pose van de kogel. location, rotation en matrix_world-zonder-delta's blijven van de gebruiker,
     # dus de export (echte_plek) en echte_matrix zien deel B recht.
@@ -139,34 +244,41 @@ def pose(a, b, graden, kleur_rood=None):
     punt = Vector(b["cj_scharnier_punt"])
     draai = (Matrix.Translation(punt) @ pose_q(b).to_matrix().to_4x4() @ Matrix.Translation(-punt))
     me = a.data
-    oud = list(a.get("cj_rood_vlakken", []))
-    for i in range(0, len(oud), 2):
-        if oud[i] < len(me.polygons):
-            me.polygons[oud[i]].material_index = oud[i + 1]
-    a["cj_rood_vlakken"] = []
+    _terug(a)
+    _terug(b)
     if graden <= float(a.get("cj_bereik_graden", MAX_VOOR)) or kleur_rood is None:
         me.update()
+        b.data.update()
         return 0
     me.calc_loop_triangles()
-    mw = a.matrix_world
-    bvh_a = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
+    b.data.calc_loop_triangles()
+    ma = echte_matrix(a)
+    bvh_a = BVHTree.FromPolygons([ma @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
     mb = draai @ echte_matrix(b)  # waar B echt zou staan bij deze stand, zonder Exploded view
     bvh_b = BVHTree.FromPolygons([mb @ v.co for v in b.data.vertices],
-                                 [tuple(p.vertices) for p in b.data.polygons])
-    vlakken = sorted({me.loop_triangles[i].polygon_index for i, _ in bvh_a.overlap(bvh_b)})
-    if vlakken:
-        if len(me.materials) == 0:
-            me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is heel A rood
-        namen = [m.name if m else None for m in me.materials]
-        if kleur_rood.name in namen:
-            vak = namen.index(kleur_rood.name)
-        else:
-            me.materials.append(kleur_rood)
-            vak = len(me.materials) - 1
-        lijst = []
-        for v in vlakken:
-            lijst += [v, me.polygons[v].material_index]
-            me.polygons[v].material_index = vak
-        a["cj_rood_vlakken"] = lijst
+                                 [tuple(t.vertices) for t in b.data.loop_triangles])
+    paren = bvh_a.overlap(bvh_b)
+    raak_a = {me.loop_triangles[i].polygon_index for i, _ in paren}
+    raak_b = {b.data.loop_triangles[j].polygon_index for _, j in paren}
+    raak_a = _zonder_huid(a, raak_a)
+    raak_b = _zonder_huid(b, raak_b)
+    try:
+        from ..eigenschappen import eenheid_per_mm
+        u = eenheid_per_mm(bpy.context.scene)
+    except Exception:  # noqa: BLE001  zonder scene: rekenen in mm
+        u = 1.0
+    # Groeien in de eigen coördinaten van het deel: schaal van het object eruit halen (mesh-eenheden per mm).
+    # 1.0.1: hele platte vlakken (_vlak); de oude groei binnen GROEI_MM alleen als er geen scharnierpunt is.
+    def groei(ob, raak, m):
+        schaal = max(1e-9, m.to_scale().length / 3 ** 0.5)
+        if "cj_snijpunt" in ob and "cj_reik" in ob:
+            reik = float(ob.get("cj_reik", 0.0)) / schaal
+            return _vlak(ob, raak, VLAK_TOL_MM * u / schaal, reik)
+        return _groei(ob, raak, GROEI_MM * u / schaal)
+    vlakken_a = groei(a, raak_a, ma)
+    vlakken_b = groei(b, raak_b, echte_matrix(b))
+    _kleur(a, vlakken_a, kleur_rood)
+    _kleur(b, vlakken_b, kleur_rood)
     me.update()
-    return len(vlakken)
+    b.data.update()
+    return len(vlakken_a)
