@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 17072,
+  "bytes": 17065,
   "cel_px": [
    87,
    56
@@ -62,12 +62,52 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 6682,
+  "bytes": 47663,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
   "soort": "stukken",
   "stukken": {
+   "bloemen": {
+    "maat": [
+     17,
+     10
+    ],
+    "uit": [
+     8,
+     0
+    ],
+    "vak_px": [
+     708,
+     4,
+     68,
+     40
+    ],
+    "voet": [
+     8.0,
+     7.2
+    ]
+   },
+   "bordje": {
+    "maat": [
+     11,
+     10
+    ],
+    "uit": [
+     87,
+     0
+    ],
+    "vak_px": [
+     924,
+     4,
+     44,
+     40
+    ],
+    "voet": [
+     5.8,
+     7.2
+    ]
+   },
    "fakkel": {
     "maat": [
      6,
@@ -82,6 +122,46 @@
      4,
      24,
      48
+    ]
+   },
+   "krat": {
+    "maat": [
+     13,
+     14
+    ],
+    "uit": [
+     86,
+     26
+    ],
+    "vak_px": [
+     276,
+     4,
+     52,
+     56
+    ],
+    "voet": [
+     6.8,
+     10.6
+    ]
+   },
+   "kristal": {
+    "maat": [
+     16,
+     13
+    ],
+    "uit": [
+     136,
+     27
+    ],
+    "vak_px": [
+     396,
+     4,
+     64,
+     52
+    ],
+    "voet": [
+     8.0,
+     9.6
     ]
    },
    "ladder": {
@@ -99,13 +179,213 @@
      44,
      140
     ]
+   },
+   "lichtzwam": {
+    "maat": [
+     14,
+     12
+    ],
+    "uit": [
+     35,
+     27
+    ],
+    "vak_px": [
+     152,
+     4,
+     56,
+     48
+    ],
+    "voet": [
+     6.6,
+     9.6
+    ]
+   },
+   "paddenstoel": {
+    "maat": [
+     14,
+     11
+    ],
+    "uit": [
+     9,
+     28
+    ],
+    "vak_px": [
+     88,
+     4,
+     56,
+     44
+    ],
+    "voet": [
+     7.0,
+     8.6
+    ]
+   },
+   "schedel": {
+    "maat": [
+     13,
+     10
+    ],
+    "uit": [
+     113,
+     29
+    ],
+    "vak_px": [
+     336,
+     4,
+     52,
+     40
+    ],
+    "voet": [
+     5.4,
+     7.6
+    ]
+   },
+   "spinrag": {
+    "hang": [
+     9.6,
+     3.2
+    ],
+    "maat": [
+     17,
+     14
+    ],
+    "uit": [
+     160,
+     20
+    ],
+    "vak_px": [
+     468,
+     4,
+     68,
+     56
+    ]
+   },
+   "steen": {
+    "maat": [
+     14,
+     9
+    ],
+    "uit": [
+     60,
+     1
+    ],
+    "vak_px": [
+     860,
+     4,
+     56,
+     36
+    ],
+    "voet": [
+     7.2,
+     6.2
+    ]
+   },
+   "struik": {
+    "maat": [
+     17,
+     10
+    ],
+    "uit": [
+     33,
+     0
+    ],
+    "vak_px": [
+     784,
+     4,
+     68,
+     40
+    ],
+    "voet": [
+     8.6,
+     7.2
+    ]
+   },
+   "stut": {
+    "hang": [
+     9.2,
+     2.2
+    ],
+    "maat": [
+     19,
+     19
+    ],
+    "uit": [
+     186,
+     21
+    ],
+    "vak_px": [
+     544,
+     4,
+     76,
+     76
+    ]
+   },
+   "ton": {
+    "maat": [
+     13,
+     15
+    ],
+    "uit": [
+     61,
+     25
+    ],
+    "vak_px": [
+     216,
+     4,
+     52,
+     60
+    ],
+    "voet": [
+     6.2,
+     11.6
+    ]
+   },
+   "vaandel": {
+    "hang": [
+     8.8,
+     2.2
+    ],
+    "maat": [
+     18,
+     15
+    ],
+    "uit": [
+     212,
+     21
+    ],
+    "vak_px": [
+     628,
+     4,
+     72,
+     60
+    ]
+   },
+   "vliegenzwam": {
+    "maat": [
+     11,
+     10
+    ],
+    "uit": [
+     113,
+     0
+    ],
+    "vak_px": [
+     976,
+     4,
+     44,
+     40
+    ],
+    "voet": [
+     5.4,
+     7.2
+    ]
    }
   }
  },
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 18994,
+  "bytes": 18902,
   "cel_px": [
    87,
    58
@@ -162,7 +442,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 29200,
+  "bytes": 29187,
   "cel_px": [
    105,
    64
@@ -218,7 +498,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12129,
+  "bytes": 12109,
   "cel_px": [
    52,
    56
@@ -274,7 +554,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 19712,
+  "bytes": 19704,
   "cel_px": [
    87,
    56
@@ -331,7 +611,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 20146,
+  "bytes": 20149,
   "cel_px": [
    87,
    56
@@ -388,7 +668,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 19354,
+  "bytes": 19359,
   "cel_px": [
    86,
    56
@@ -445,7 +725,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 19701,
+  "bytes": 19695,
   "cel_px": [
    87,
    56
@@ -502,7 +782,7 @@
  "held4": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 19058,
+  "bytes": 19040,
   "cel_px": [
    86,
    56
@@ -651,7 +931,7 @@
  "hoeden_hap": {
   "anker_x": 25,
   "blad": "res://kunst/3d/hoeden_hap.png",
-  "bytes": 19263,
+  "bytes": 19257,
   "cel_px": [
    50,
    37
@@ -746,7 +1026,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 113058,
+  "bytes": 113064,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -981,7 +1261,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17515,
+  "bytes": 17552,
   "cel_px": [
    59,
    62
@@ -1037,7 +1317,7 @@
  "tekens": {
   "anker_x": 16,
   "blad": "res://kunst/3d/tekens.png",
-  "bytes": 6499,
+  "bytes": 6497,
   "cel_px": [
    32,
    32

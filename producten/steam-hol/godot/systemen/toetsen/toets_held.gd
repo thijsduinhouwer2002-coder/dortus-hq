@@ -673,6 +673,7 @@ func _init() -> void:
 	var nt0: Array = HB.nootjes("bard", false, "lopen", 0.1)[0]
 	var nt1: Array = HB.nootjes("bard", false, "lopen", 1.9)[0]
 	ok(int(nt1[1]) < int(nt0[1]) and float(nt1[2]) < float(nt0[2]), "nootje stijgt op en vervaagt")
+	ok(HB.noot_alfa(1.0) == 0.0 and HB.noot_alfa(0.95) < 0.1 and HB.noot_alfa(0.0) == 1.0 and HB.noot_alfa(0.5) > 0.7, "nootje is weg voor het eind van zijn weg (Daan 03:50)")
 	ok(HB.nootjes("bard", false, "vallen", 1.0).is_empty() and HB.nootjes("", false, "lopen", 1.0).is_empty() and HB.nootjes("ridder", false, "lopen", 1.0).is_empty(), "geen nootjes bij vallen of bij andere helden")
 	ok(HB.nootjes("", true, "afdalen", 1.0).size() == 1 and HB.nootjes("", true, "lopen", 2.5).is_empty(), "held door het lied: de eerste 2 s één nootje")
 	# 3D-lijf uit de pijplijn (Bram 13 nov, producten/steam-hol/pijplijn/)

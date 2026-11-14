@@ -16,7 +16,7 @@ Per sprite:
     staat in de cel), top (bovenste rij met inhoud per beeld, in spelpixels), frames (namen in volgorde).
 Ook een vergroting naast ware grootte in pijplijn/uit/ (niet in git) om naar te kijken.
 """
-import json, os, subprocess, sys, tempfile, time
+import json, os, shutil, subprocess, sys, tempfile, time
 from PIL import Image
 
 HIER = os.path.dirname(os.path.abspath(__file__))
@@ -241,6 +241,9 @@ def render_stukken(naam, s, bpy_python, snel):
       "over": 2                     zoveel keer groter renderen dan het blad, daarna verkleinen (scherper)
       "lagen": {"vol": [], "achter": ["kist", "buit"]}   per laag de naambegins die verborgen worden (HOL_VERBERG)
       "stukken": {"gang": {"laag": "achter", "vak": [x, y, b, h]}}   vak in spelpixels, linksboven = 0, 0
+    Bram 14 nov: een laag als woordenboek mag ook een eigen "model" en "args" hebben (bv. versiering.py van Daan), en
+    "vakken": true: dan schrijft het model <uit>_vakken.json met per naam "vak" en "voet" of "hang", en een stuk zonder
+    "vak" neemt die over (bijgeknipt tot het beeld, voetpunt mee verschoven). "voet" en "hang" gaan door naar kunst/3d.
     Het blad zet de stukken naast elkaar (elk zijn eigen maat); sprites.json in kunst/3d geeft per stuk
     de plek in het blad (vak_px) en de maat in spelpixels (maat)."""
     bw, bh = s["beeld"]; px = s["px"]; over = s.get("over", 2)
@@ -256,6 +259,7 @@ def render_stukken(naam, s, bpy_python, snel):
         if not isinstance(lijst, list) or not all(isinstance(b, str) and b for b in lijst):
             raise SystemExit(f"FOUT: {naam}: laag {laag} moet een lijst met namen zijn")
     nodig = sorted({st["laag"] for st in s["stukken"].values()})
+    model_vakken = {}
     for laag in nodig:
         if laag not in s["lagen"]:
             raise SystemExit(f"FOUT: {naam}: laag {laag} staat niet in 'lagen' (tikfout?)")
@@ -267,22 +271,35 @@ def render_stukken(naam, s, bpy_python, snel):
         alleen = cfg.get("alleen") if isinstance(cfg, dict) else None
         verberg = [] if alleen else cfg
         sleutel = ("alleen-" + "-".join(sorted(alleen))) if alleen else ("-".join(sorted(verberg)) or "niets")   # andere lijst = ander bestand (HOL_HERGEBRUIK)
+        model = cfg.get("model", s["model"]) if isinstance(cfg, dict) else s["model"]
+        model_args = cfg.get("args", s["args"]) if isinstance(cfg, dict) else s["args"]
+        wil_vakken = isinstance(cfg, dict) and cfg.get("vakken") is True
+        sleutel = os.path.splitext(model)[0] + "-" + sleutel.replace("_", "")
         ruw = os.path.join(UIT, f"{naam}_laag_{laag}_{sleutel}.png")
         if not (os.environ.get("HOL_HERGEBRUIK") == "1" and os.path.exists(ruw)):
             with tempfile.TemporaryDirectory() as tmp:
                 uit = os.path.join(tmp, "laag.png")
-                args = [a.format(uit=uit, w=w, h=h, samples=samples, stand="rust") for a in s["args"]]
+                args = [a.format(uit=uit, w=w, h=h, samples=samples, stand="rust") for a in model_args]
                 env = dict(os.environ, HOL_VERBERG=json.dumps(verberg))
                 env.pop("HOL_ALLEEN", None)
                 if alleen:
                     env["HOL_ALLEEN"] = json.dumps(alleen)
                 env.pop("HOL_FRAMES", None); env.pop("HOL_RUIMTE", None)
-                r = subprocess.run([bpy_python, os.path.join(MODELLEN, s["model"])] + args, env=env,
+                r = subprocess.run([bpy_python, os.path.join(MODELLEN, model)] + args, env=env,
                                    capture_output=True, text=True)
                 if r.returncode != 0:
                     print(r.stdout[-3000:], r.stderr[-3000:])
-                    raise SystemExit(f"FOUT: model {s['model']} faalde voor {naam} (laag {laag})")
+                    raise SystemExit(f"FOUT: model {model} faalde voor {naam} (laag {laag})")
                 Image.open(uit).convert("RGBA").save(ruw)
+                if wil_vakken:
+                    vj = os.path.join(tmp, "laag_vakken.json")
+                    if not os.path.exists(vj):
+                        raise SystemExit(f"FOUT: {naam}: laag {laag}: model {model} schreef geen _vakken.json")
+                    shutil.copy(vj, ruw + ".vakken.json")
+        if wil_vakken:
+            with open(ruw + ".vakken.json") as f:
+                for n, v in json.load(f).items():
+                    model_vakken[(laag, n)] = v
         b = Image.open(ruw).convert("RGBA")
         if b.size != (w, h):
             raise SystemExit(f"FOUT: {naam}: laag {laag} is {b.size}, verwacht {(w, h)} (klopt 'beeld' met het model?)")
@@ -295,8 +312,26 @@ def render_stukken(naam, s, bpy_python, snel):
     RAND = 4
     namen = list(s["stukken"])
     vakken = {}
+    ankers = {}
     for n in namen:
-        x, y, b_, h_ = s["stukken"][n]["vak"]
+        st = s["stukken"][n]
+        if "vak" not in st:
+            mv = model_vakken.get((st["laag"], st.get("bron", n)))
+            if mv is None:
+                raise SystemExit(f"FOUT: {naam}: stuk {n} heeft geen vak en laag {st['laag']} gaf er geen voor")
+            x, y, b_, h_ = (int(v) for v in mv["vak"])
+            x2, y2 = min(bw, x + b_), min(bh, y + h_)
+            dx, dy = max(0, -x), max(0, -y)   # bijknippen tot het beeld; het ankerpunt schuift mee
+            x, y = x + dx, y + dy
+            st = dict(st, vak=[x, y, x2 - x, y2 - y])
+            for a in ("voet", "hang"):
+                if a in mv and a not in st:
+                    st[a] = [round(float(mv[a][0]) - dx, 2), round(float(mv[a][1]) - dy, 2)]
+            s["stukken"][n] = st
+        for a in ("voet", "hang"):
+            if a in st:
+                ankers.setdefault(n, {})[a] = [float(st[a][0]), float(st[a][1])]
+        x, y, b_, h_ = st["vak"]
         if not all(isinstance(v, int) for v in (x, y, b_, h_)) or b_ <= 0 or h_ <= 0:
             raise SystemExit(f"FOUT: {naam}: vak van {n} moet vier hele getallen zijn, breed en hoog boven 0")
         if x < 0 or y < 0 or x + b_ > bw or y + h_ > bh:
@@ -323,6 +358,7 @@ def render_stukken(naam, s, bpy_python, snel):
         met_rand.paste(stuk, (RAND, RAND))
         blad.paste(met_rand, (links, 0))
         info_stukken[n] = {"vak_px": [links + RAND, RAND, b_ * px, h_ * px], "maat": [b_, h_], "uit": [x, y]}
+        info_stukken[n].update(ankers.get(n, {}))
         links += sw + 2 * RAND
     os.makedirs(DOEL, exist_ok=True)
     blad.save(os.path.join(DOEL, f"{naam}.png"), optimize=True)

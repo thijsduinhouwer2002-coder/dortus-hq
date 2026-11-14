@@ -1018,9 +1018,22 @@
             "fakkel",
             "ladder"
           ]
+        },
+        "versiering": {
+          "model": "versiering.py",
+          "args": [
+            "{uit}",
+            "{w}",
+            "{h}",
+            "{samples}"
+          ],
+          "alleen": [
+            "deco_"
+          ],
+          "vakken": true
         }
       },
-      "_uitleg": "Bram 13 nov 23:30 (Daan 22:55: pixelfakkels en pixelladder zijn het grootste stijlverschil). Zelfde model, camera, schaal en licht als hol_proef, maar alleen fakkels en ladder op een doorzichtige achtergrond (HOL_ALLEEN). fakkel = de gangfakkel links (hol.py fakkel(-7.2, 0.95)), ladder = de ladder in de schacht zonder de boog. Vakken in spelpixels van het hele beeld 240x40. Rondom 1 spelpixel doorzichtige marge, anders trekt de naadrand (RAND) de vlam en de paal door.",
+      "_uitleg": "Bram 13 nov 23:30 (Daan 22:55: pixelfakkels en pixelladder zijn het grootste stijlverschil). Zelfde model, camera, schaal en licht als hol_proef, maar alleen fakkels en ladder op een doorzichtige achtergrond (HOL_ALLEEN). fakkel = de gangfakkel links (hol.py fakkel(-7.2, 0.95)), ladder = de ladder in de schacht zonder de boog. Vakken in spelpixels van het hele beeld 240x40. Rondom 1 spelpixel doorzichtige marge, anders trekt de naadrand (RAND) de vlam en de paal door. Bram 14 nov 02:30: laag versiering = Daans modellen/versiering.py (eigen model, zelfde camera en schaal, alles heet deco_), de vakken en voet/hang komen uit het _vakken.json van dat model.",
       "stukken": {
         "fakkel": {
           "laag": "deco",
@@ -1039,6 +1052,48 @@
             11,
             35
           ]
+        },
+        "paddenstoel": {
+          "laag": "versiering"
+        },
+        "lichtzwam": {
+          "laag": "versiering"
+        },
+        "ton": {
+          "laag": "versiering"
+        },
+        "krat": {
+          "laag": "versiering"
+        },
+        "schedel": {
+          "laag": "versiering"
+        },
+        "kristal": {
+          "laag": "versiering"
+        },
+        "spinrag": {
+          "laag": "versiering"
+        },
+        "stut": {
+          "laag": "versiering"
+        },
+        "vaandel": {
+          "laag": "versiering"
+        },
+        "bloemen": {
+          "laag": "versiering"
+        },
+        "struik": {
+          "laag": "versiering"
+        },
+        "steen": {
+          "laag": "versiering"
+        },
+        "bordje": {
+          "laag": "versiering"
+        },
+        "vliegenzwam": {
+          "laag": "versiering"
         }
       }
     },
