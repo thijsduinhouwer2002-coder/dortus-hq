@@ -27,27 +27,27 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 
 > [b]Your taskbar has a basement now.[/b]
 >
-> Hats of the Fallen is a tiny pixel dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
+> Hats of the Fallen is a tiny dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
 >
 > [h2]Gloop wears the hats[/h2]
 > Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks. Spend your gold on him and he grows.
 >
 > [h2]Heroes hold grudges[/h2]
-> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy. **[v1]** One day his son shows up and wants his father's hat back.
+> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy.
 >
 > [h2]Glance, smile, get back to work[/h2]
 > [list]
 > [*]Something happens about every minute: a fall, a burp, a hero who tries to lift your whole hoard and gives up.
-> [*]A visit of 30 seconds is enough: read the chronicle, spend your gold on a new tunnel, go back to what you were doing.
+> [*]A visit of 30 seconds is enough: read the chronicle, dig a new tunnel or give Gloop an upgrade, go back to what you were doing.
 > [*]Coming back after a night away? You get gold and three lines about who came by. Nothing broke, none of your monsters died, nothing was stolen.
 > [/list]
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
 > [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks pass straight through the sky and the grass.
-> [*]Light on your PC: it only draws when something moves, with an FPS setting.
-> [*]Sound is off by default.
-> [*]No daily rewards, no energy, no timers calling you back. Anything you build can be moved or removed for all its gold back.
+> [*]Light on your PC: it draws 10 frames a second, and only what moves.
+> [*]Silent: no sound at all, so it never talks over your call.
+> [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.
 > [*]The whole game for one price. No shop inside the game, no marketplace, nothing that makes you faster.
 > [/list]
 
@@ -55,16 +55,25 @@ Te controleren voor het indienen (Olaf, Bram):
 - Hoogte en klikken (10 nov 00:55 UTC): rechtsklik wisselt 96, 120, 160 en bewaart het (`HOOGTES` en `MOUSE_BUTTON_RIGHT` in `kern/strook.gd`), klikken gaan door lucht en gras (`window_set_mouse_passthrough`), op main volgens Olaf, controleur akkoord. Zin aangepast naar wat de build doet. Klopt.
 - "about every minute": held elke 40 tot 60 s (strook.gd), klopt nu.
 - "three lines about who came by": `kern/strook.gd` roept `VOORTGANG.verhaal` al aan (controleur, GEZIEN). Klopt.
-- "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN).
+- "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN). (14 nov Olaf: niet in de bouw, zinnen aangepast, zie eerlijk-check hieronder.)
 - "A crown, a chef's hat, a bucket, a frying pan": zitten in Mila's 10 hoeden en in de code (Bram 22:40). Klopt.
 - "hats pile up next to him ... for weeks": hoedenberg in zes maten, 3000 hoeden na ±110 u open tijd (Bram, sim). Klopt.
 - Archenemy na drie keer vluchten: `kroniek.gd`. De zoon **[v1]**.
+
+**Eerlijk-check Olaf, 14 nov 2026 09:40 UTC (code op main f89cac7 nagelezen):** de tekst hierboven is op zes plekken aangepast, omdat de oude zin niet klopte met wat er in het spel zit. Daan keurt; zegt hij nee, dan staat de oude zin hieronder.
+1. "a tiny **pixel** dungeon": sinds het besluit van Thijs (13 nov 13:35) is de hele app 3D, gerenderd uit Blender. Nu "a tiny dungeon". Om dezelfde reden tag 3 Pixel Graphics naar Stylized.
+2. "One day his son shows up and wants his father's hat back" **[v1]**: zit niet in de code, niet op de demolijst en niet in "na het fest". Volgens de eerlijk-regel gaat hij eruit; ik bevestig hem niet. De aartsvijand na drie keer vluchten zit er wel in (`boek.gd` hoofdstuk 4, `kroniek_regels.gd` "aartsvijand").
+3. "spend your gold on a new tunnel": graven is gratis (`hol.gd` `klik()`; graven dat goud kost staat bij "na het fest"). Goud gaat naar Gloop en de put. Nu "dig a new tunnel or give Gloop an upgrade".
+4. "with an FPS setting": er is geen instelling voor de speler, alleen `fps=<n>` op de opdrachtregel voor de CPU-proef. Wel waar: 10 beelden per s, 20 tijdens een moment (`kern/beeldtempo.gd`), en het hol wordt één keer getekend (`hol_vast.gd`). Gemeten op een scherm van 1920 breed: gemiddeld 0,36 CPU-s per 10 s (demolijst 2). Nu "it draws 10 frames a second, and only what moves".
+5. "Sound is off by default": er zit helemaal geen geluid in (muziek en geluid staan bij "na het fest"). Nu "Silent: no sound at all". Komt er voor het uitbrengen toch geluid in, dan wordt het weer "Sound is off by default".
+6. "Anything you build can be moved or removed for all its gold back": verplaatsen bestaat niet en een gang kun je niet dichtgooien. Wel waar: Undo op de bovenste stap geeft de volle prijs terug en kan stap voor stap tot niveau 0 (`kern/kaartje.gd` `undo()`), en een put kun je weghalen (`weg()`). Nu "Changed your mind? Every upgrade can be undone for all its gold back."
+Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door lucht en gras (`strook.gd`, alleen onder het maaiveld vangt de muis), held ongeveer elke minuut, drie regels na een nacht weg (`voortgang.gd`), de vier genoemde hoeden (`modellen/hoeden.py`: kroon, koksmuts, emmer, pan), pleister en littekens (`held_beeld.gd`), bijnaam (Hoard-Toucher), bard met lied en "knows all the words" (`kroniek_regels.gd`), hoedenberg, geen winkel met echt geld in het spel.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
 Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
 1. **Desktop Companion** (verplicht voor het fest, zie `fest.md`)
 2. Idler
-3. Pixel Graphics
+3. Stylized (was Pixel Graphics; sinds 13 nov is alles 3D gerenderd, zie eerlijk-check Olaf 14 nov; Mila mag een andere stijl-tag kiezen, Stylized bestaat, GEZIEN)
 4. Funny
 5. Casual
 6. Management
