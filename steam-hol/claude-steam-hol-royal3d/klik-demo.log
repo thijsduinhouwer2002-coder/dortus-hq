@@ -5,11 +5,11 @@ HOL demo voorbij na 3 s speeltijd
 HOL kroniek 3.0 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL muisvlak 4 punten, lucht vrij op x=200
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL begin: vallen (Pim)
-HOL held binnen: Pim
-HOL kroniek 5.5 (wacht 1.5): Pim knocks first. Polite.
+HOL begin: vallen (Wout)
+HOL held binnen: Wout
+HOL kroniek 5.5 (wacht 1.5): Wout climbs into your hole.
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL kroniek 16.0 (wacht 0.0): Pim found the Spike Pit. Hard. +6
-HOL kroniek 18.6 (wacht 2.6): New page: the Hero. The pit got him.
-HOL meting t=20 beelden=95 helden=0 hol_vast=3
+HOL kroniek 15.9 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 18.5 (wacht 2.6): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=94 helden=0 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0
