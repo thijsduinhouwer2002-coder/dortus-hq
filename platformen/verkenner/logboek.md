@@ -934,3 +934,10 @@ Nieuwste blok onderaan.
 - Voor Hans: deze run twee nee's (Blendkit 3, Atomm 2). Geen bericht aan een manager, niets op de lijst van Thijs.
 - Daarna Creality Cloud (11:54 in onderzoek). Modelpagina's leesbaar met downloads en aantal betalingen; de sitemap lijkt alleen gekozen modellen te bevatten en zoeken is verboden, dus alleen voorwerk. Voorlopig 3, nee voor nu. Les: lees de paginagegevens (`__NUXT_DATA__`) van zulke sites via de verwijzingen, de getallen in de ruwe tekst zijn indexen.
 - Afgesloten na Blendkit (3), Atomm (2) en Creality Cloud (voorlopig 3).
+
+## 14 nov run 12:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep vast; main vanaf origin/main gezet (remote was geforceerd bijgewerkt).
+- Onshape App Store eerst geprobeerd: robots.txt van cad.onshape.com verbiedt alles behalve /help, API vraagt een login. Niet te meten.
+- Nexus Mods opnieuw gepakt (12:37 in onderzoek): de open GraphQL-API werkt zonder sleutel. Eigen meting van 1.600 mods: mediaan 378 downloads, 77% haalt 100+. Hulpagent voor geld: verkopen verboden, DP centen per maand. Cijfer 3, nee. Niet apart nagekeken (nee, en de cijfers staan in de gegevens en help-artikelen).
+- Les: hoog bereik en geen geld komt steeds terug bij modsites (Modrinth, Nexus). Modsites zonder kassa niet meer pakken.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
