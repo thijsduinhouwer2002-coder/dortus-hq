@@ -649,7 +649,7 @@ func _init() -> void:
 	var m160: Dictionary = tk.maten()
 	ok(m160.kop == 18 and m160.tekst == 15 and m160.knop == 16 and m160.knop_h == 28.0, "paneel r3: op 160 kop 18, tekst 15, knop 16 en 28 hoog")
 	var ky160: float = tk.hoogte - int(m160.onder) - int(m160.regel_h) * 4 + int(m160.regel_h) * 2 + int(m160.knop_dy)
-	var rand160: float = tk.hoogte - 4.0 - 30.0 / 128.0 * roundf(4.5 * tk.schaal)   # binnenkant goud: 98 van 128 bronpixels
+	var rand160: float = tk.hoogte - 4.0 - 31.0 / 128.0 * roundf(4.5 * tk.schaal)   # binnenkant goud: 31 bronpixels vanaf de rand
 	ok(rand160 - (ky160 + m160.knop_h) >= 8.0, "paneel r3: op 160 minstens 8 px tussen knop en goud (%s)" % str(rand160 - (ky160 + m160.knop_h)))
 	ok(tk.hover_vak().position.y == 54.0, "paneel r3: op 160 blijft het paneel even hoog (top 54)")
 	tk.schaal = 3; tk.hoogte = 120.0
