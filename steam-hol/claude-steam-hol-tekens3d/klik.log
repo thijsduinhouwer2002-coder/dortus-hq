@@ -1,0 +1,10 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL kroniek 4.1 (wacht 0.0): Lotte is here for your gold.
+HOL begin: vallen (Lotte)
+HOL klik op (200, 115): val
+HOL kroniek 9.6 (wacht 0.0): Lotte stays forever. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=3
+HOL kroniek 12.2 (wacht 2.6): New page: the Hero. The pit got him.
+HOL meting t=20 beelden=18 helden=0 hol_vast=4
+HOL einde na 25 s, fps=10, goud=26, terugkomers=0
