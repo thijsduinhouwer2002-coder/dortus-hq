@@ -748,3 +748,4 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Winkelopnames uit de huidige build (week 43580202200, demo 43580204621, groen) en vijf schermen als voorstel voor Mila in `producten/steam-hol/bewijs-winkel3d/schermen-3d-voorstel/`.
 - Les: het demofilmpje van de winkel-workflow loopt niet gelijk met oudere opnames; zoek momenten opnieuw op een contactblad (stuk rond Gloop, elk 20e beeld) in plaats van oude beeldnummers over te nemen.
 - Systeemeisen voor de winkelpagina in `teksten.md` 4b (Windows 10 64-bit, OpenGL 3.3 of DX11 via ANGLE, 2 GB, 200 MB), elke regel met bron.
+- Correctie: geheugen voor spelers is ±116 MB (echte exe, run 43579985781), niet 35 MB (duurtest draait de losse Godot-binary). Systeemeisen aangepast. Kan: in `steam-hol-exe.yml` gaf "volledig" in die run "geheugen 0 MB"; meten na de schermfoto lijkt soms een al gestopt proces te raken.

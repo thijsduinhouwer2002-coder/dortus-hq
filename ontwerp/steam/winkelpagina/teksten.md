@@ -104,13 +104,13 @@ Alleen minimum, alleen Windows (de enige build). Engels zoals het in Steamworks 
 > Memory: 2 GB RAM
 > Graphics: OpenGL 3.3 or DirectX 11 (integrated graphics are fine)
 > Storage: 200 MB available space
-> Additional Notes: Sits above the taskbar. Uses about 40 MB of RAM while running.
+> Additional Notes: Sits above the taskbar. Uses about 120 MB of RAM while running.
 
 Waar het op steunt:
 - Engine Godot 4.3 met de Compatibility-renderer (`project.godot`: `gl_compatibility`). Godot noemt daarvoor als minimum OpenGL 3.3, een x86_64-CPU, 2 GB RAM en Windows 7 (DERDEN: docs.godotengine.org/en/4.3/about/system_requirements.html, met curl gelezen 14 nov). Windows 10 omdat Steam zelf sinds 2024 alleen nog Windows 10 en nieuwer ondersteunt (DERDEN, eigen kennis, niet opnieuw nagelezen) en omdat doorklikken en doorzichtig venster alleen op de Windows-runner (Server 2022) getoetst zijn.
 - DirectX 11: de exe valt zonder OpenGL 3.3 zelf terug op ANGLE (GEZIEN in run 43472246886: "switching to ANGLE"), en ANGLE tekent via Direct3D 11.
 - 200 MB: beide exe's zijn 81,4 MB (pck zit erin, run 43472246886), plus save en Godot-cache; ruim genomen.
-- 40 MB RAM: gemeten 34 tot 37 MB in de duurtests (runs 43416412054, 43510747682). 2 GB staat erbij omdat Godot dat als ondergrens noemt, niet omdat het spel het gebruikt.
+- 120 MB RAM: de echte exe (pck zit erin) gebruikt 116 MB (demo-exe, run 43579985781 op de 3D-build, 14 nov 09:22). De duurtests zeggen 34 tot 37 MB, maar die draaien het project met de losse Godot-binary, niet de exe; voor spelers telt de exe. 2 GB staat erbij omdat Godot dat als ondergrens noemt, niet omdat het spel het gebruikt.
 - Niet gemeten: een echte zwakke pc. Draait de duurtest ooit op een trage machine, dan dit bijwerken.
 
 ## 5. Prijs (voorstel, versie 2)
