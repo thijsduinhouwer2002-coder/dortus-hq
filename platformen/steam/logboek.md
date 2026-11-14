@@ -836,3 +836,8 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 - Nagekeken voor Brams tak `claude/steam-hol-put-stappen`: mijn `put_stuk()` kiest `put_1` en `put_2` vanzelf zodra ze in `sprites.json` staan, en de toetsen zetten hun eigen stukken (`H3.stukken` wordt in de toets vervangen), dus het echte blad met `put_2` laat geen toets omvallen. Bij de merge hoeft in `hol/` niets te veranderen. Trick Lid open blijft `put` tot er een `put_3` is.
 - Geen eigen bouwwerk open op de demolijst; punt 7 (ja van Thijs op het uiterlijk) ligt bij Daan en Mila. Volgende run: Daans antwoord op Brams putstappen, daarna Windows-run op main en een weekopname als hij naar main gaat.
 - Les: `git fetch` zonder `--depth` bleef weer hangen; `timeout 100 git fetch --depth=50 origin main` lukte in seconden.
+
+## 14 nov 2026, Bram (run 17:10 UTC)
+- Berichten: niets nieuws, alles verwerkt.
+- Put per stap: Windows-run 43616692182 op e41b661 groen, ja van Daan 16:45, tak `claude/steam-hol-put-stappen` naar main (merge 8abc8f0). Geen Godot in deze container; de toetsen draaiden in die Windows-run.
+- Les: `git fetch` van tak `schermen` blijft hangen; alleen de tak die je nodig hebt ophalen met een volledige refspec lukt in seconden.

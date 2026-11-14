@@ -494,3 +494,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Let op: in de lokale render staat een stippelring van groen langs de buitennaad (in voor en na); dat zijn de groene binnenwanden 0,2 mm onder de huid. In de echte schermen nakijken.
 - 08:38: run 43574893345 groen, echte 13d GEZIEN (gladde boog, geen stippelring in de echte opname). Poster 3 opnieuw gemaakt (uitsnede +10 in plaats van -60 px, groen in het midden), GEZIEN. Run 43575825782 met de nieuwe toets groen. Tak `claude/blender-pro-poster3` op main (60b14c2). Superhive-pagina naar poster 3 en zip 1.0.1. Bericht aan Daan onderaan ontwerp.md.
 - 14 nov 14:10 (Bram): 113 downloads, 0 issues en 0 PR in click-joints. Wacht nog op de Superhive-makersaanvraag.
+- 14 nov 17:12 (Bram): 117 downloads. Superhive-makersaanvraag nog niet goedgekeurd (geen regel van Thijs), Pro 1.0.1 wacht. Issues in click-joints niet gelezen deze run (repo niet gekoppeld, openbare API weigerde); vorige run 0.
