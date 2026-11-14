@@ -2,7 +2,7 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bytes": 17890,
+  "bytes": 17001,
   "cel_px": [
    87,
    56
@@ -62,7 +62,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bytes": 47761,
+  "bytes": 47779,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -385,7 +385,7 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bytes": 19942,
+  "bytes": 19011,
   "cel_px": [
    87,
    58
@@ -442,7 +442,7 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bytes": 30529,
+  "bytes": 29194,
   "cel_px": [
    105,
    64
@@ -498,7 +498,7 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bytes": 12664,
+  "bytes": 12130,
   "cel_px": [
    52,
    56
@@ -554,7 +554,7 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bytes": 19818,
+  "bytes": 19697,
   "cel_px": [
    87,
    56
@@ -611,7 +611,7 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bytes": 20171,
+  "bytes": 20149,
   "cel_px": [
    87,
    56
@@ -668,7 +668,7 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bytes": 19443,
+  "bytes": 19375,
   "cel_px": [
    86,
    56
@@ -725,7 +725,7 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bytes": 19669,
+  "bytes": 19693,
   "cel_px": [
    87,
    56
@@ -782,7 +782,7 @@
  "held4": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held4.png",
-  "bytes": 19109,
+  "bytes": 19052,
   "cel_px": [
    86,
    56
@@ -839,7 +839,7 @@
  "hoeden": {
   "anker_x": 25,
   "blad": "res://kunst/3d/hoeden.png",
-  "bytes": 20242,
+  "bytes": 20274,
   "cel_px": [
    50,
    37
@@ -931,7 +931,7 @@
  "hoeden_hap": {
   "anker_x": 25,
   "blad": "res://kunst/3d/hoeden_hap.png",
-  "bytes": 19243,
+  "bytes": 19263,
   "cel_px": [
    50,
    37
@@ -1026,7 +1026,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bytes": 119921,
+  "bytes": 112994,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1261,7 +1261,7 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bytes": 17909,
+  "bytes": 17568,
   "cel_px": [
    59,
    62
@@ -1317,7 +1317,7 @@
  "tekens": {
   "anker_x": 16,
   "blad": "res://kunst/3d/tekens.png",
-  "bytes": 7588,
+  "bytes": 7564,
   "cel_px": [
    32,
    32
