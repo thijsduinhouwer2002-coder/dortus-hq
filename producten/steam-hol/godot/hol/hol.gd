@@ -446,12 +446,20 @@ func _draw() -> void:
 	for k in koop_munt:
 		var mx: float = k * KOL + KOL / 2.0 - 1
 		var onder_y: float = float(koop_munt_y[k]) - 3.0 if koop_munt_y.has(k) else float(GANG_BOVEN + 8)
+		if not koop_munt_y.has(k) and met_3d:
+			onder_y -= munt_boven_put(HOL3D.put_stuk(self, k))
 		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
 		if met_3d:
 			# zelfde plek en maat als Mila's munt (rij 1 tot 6 van het 8 x 8 beeld), rond; de twee beelden worden vol en op zijn kant
 			munt_3d(Vector2(mx + 1, my + 3), 3.0, 1.0 if (anim / 3) % 2 == 0 else 0.67)
 			continue
 		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))
+
+# zoveel spelpixels hoger komt het koopmuntje boven een put met dit 3D-stuk. De lange stekels van Deep Pit (`put_2`)
+# steken ±3 spelpixels boven de gang uit en raakten het muntje (weekopname 43620350203, Olaf 14 nov 17:40); 4 laat
+# 1 spelpixel lucht. Andere stukken blijven op de oude plek.
+static func munt_boven_put(stuk: String) -> float:
+	return 4.0 if stuk == "put_2" else 0.0
 
 # Muntje in de 3D-stijl (Daan 14 nov 06:40), zonder nieuw blad: dezelfde vier kleuren als het paneelmuntje (kern/tekst.gd
 # _munt): schaduw, donkere rand, goud, één glimlicht linksboven. c is het midden en r de straal in spelpixels; breed (0 tot 1)
