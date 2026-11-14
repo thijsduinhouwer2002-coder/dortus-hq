@@ -42,6 +42,28 @@ co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_eul
     vervang("BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]",
             "BERG = [(7, GX + 2.3, -0.4, 0.55, 12, -20), (8, GX + 3.5, 0.3, 0.0, -10, 30), (6, GX + 4.3, 0.4, 0.0, 6, -20), (2, GX + 5.1, 0.3, 0.0, 15, -10),"
             " (5, GX + 3.9, 0.5, 0.42, -12, 10), (9, GX + 4.7, 0.55, 0.48, 14, 25), (3, GX + 4.3, 0.6, 0.9, -6, 0)]")
+    # ronde 3 (kan van de frisse kijker): de ridder kijkt omhoog naar zijn helm op Gloop, niet recht vooruit.
+    # Alleen in de hero: pupillen en glimstip iets hoger (HERO_BLIK, in hoofdmaat). Mila's capsule blijft gelijk.
+    blik = float(os.environ.get("HERO_BLIK", "0.035"))
+    # ronde 3 (kan): de rand van de muntenplas is een harde ellips; losse munten over de rand heen maken hem rafelig.
+    # Eigen random, zodat de rest van de scène (stenen, munten) op dezelfde plek blijft.
+    if os.environ.get("HERO_RAND", "1") == "1":
+        vervang("# beker\n", '''_rr = random.Random(5)
+for _i in range(int(os.environ.get("HERO_RANDMUNTEN", "90"))):
+    _a = _rr.uniform(0, 2 * math.pi); _f = _rr.uniform(0.9, 1.18)
+    _x = GX + 3.25 * _f * math.cos(_a); _y = 0.5 + 2.15 * _f * math.sin(_a)
+    if _y > 1.6 or (_x < GX - 2.4 and _y < 0.6):   # niet bij de voeten en het schild van de ridder (frisse kijker)
+        continue
+    bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=_rr.uniform(0.12, 0.18), depth=0.05, location=(_x, _y, 0.03 + max(0, 1.0 - _f) * 0.6),
+                                        rotation=(math.radians(_rr.uniform(-12, 12)), math.radians(_rr.uniform(-12, 12)), _rr.uniform(0, 6)))
+    _m = bpy.context.object; _m.name = "munt"; bpy.ops.object.shade_smooth(); kies(_m, GOUD)
+# beker
+''')
+    vervang('                   gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))\n',
+            '                   gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))\n'
+            'for _o in ridder.children:\n'
+            '    if _o.type == "MESH" and _o.data.materials and _o.data.materials[0].name.startswith(("hpupil", "hglim")):\n'
+            '        _o.location.z += %f\n' % blik)
 elif soort == "logo":
     # alleen de titel, doorzichtig, recht van voren
     src = src[:cam_begin] + '''# ---------- logo: alles behalve de titel onzichtbaar ----------
