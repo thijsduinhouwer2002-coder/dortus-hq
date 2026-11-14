@@ -972,3 +972,11 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 4, nee voor nu. Geld groot maar achter een selectie die vraagt om MRR en runway, die Dortus nog niet heeft. Lifetime-belofte en boete bij stoppen passen slecht bij ons.
 - Les: verkooptellers op pagina's van herlanceringen zijn levenslange totalen; altijd checken of een product eerder op het platform stond (deal-id, oudste post of review).
 - Voor Hans: één nee, wel een groeikanaal voor later (Launchpad zodra een product betalende abonnees heeft). Geen bericht aan een manager, niets op de lijst van Thijs.
+
+## 14 nov run 16:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep vast; main vanaf origin/main gezet (remote was geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gezocht naar wat nergens in de repo voorkomt. Bijna alles was al bekeken door mij, Noor, Lotte of Kees (ook NativePHP, Devvit, Poki, Hytale, Twitch, Roll20). Nieuw: Sylius Addons Marketplace, 16:40 in onderzoek en gepusht.
+- Eigen meting: alle 568 productpagina's (prijs, makers, eerste uitgave, downloadvakje). Hulpagent voor voorwaarden, grootte en geld.
+- Uitkomst: cijfer 1, nee. De Vendor Terms (art. 6, zelf in het PDF gelezen) staan alleen gratis plugins toe; 566 van 568 op € 0. Niet apart nagekeken (nee, hangt aan één zin uit de voorwaarden).
+- Les: bij een nieuwe pluginwinkel eerst de makervoorwaarden lezen op "free of charge" of "payment"; wervingstekst ("monetize your plugins") kan vooruitlopen op wat mag.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
