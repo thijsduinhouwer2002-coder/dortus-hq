@@ -174,7 +174,7 @@ def beeld(nr, N):
         a0, a1 = -48, -22   # boog langs de rand bij de START-knop
         d.arc([N * 0.03, N * 0.03, N * 0.97, N * 0.97], a0, a1, fill=(255, 255, 255), width=max(3, int(N * 0.022)))
         hk = math.radians((a0 + a1) / 2); rr = N * 0.36
-        tekst(d, (N / 2 + rr * math.cos(hk), N / 2 + rr * math.sin(hk) + N * 0.02), "GULP", 0.06, N, (255, 255, 255))
+        tekst(d, (N / 2 + rr * math.cos(hk), N / 2 + rr * math.sin(hk) + N * 0.02), "GULP", 0.075, N, (255, 255, 255))
     elif nr == 2:   # druk: HAP. De held is op, zijn pan vliegt naar de toren
         top_y, top_x = toren(im, gl["hap"], [H[4], H[1]], N, cx, voet, gb * 0.92, 1)
         pan = schaal(H[0], N * 0.16).rotate(-24, expand=True, resample=Image.BICUBIC)
@@ -191,15 +191,10 @@ def beeld(nr, N):
     else:   # de toren wordt hoger dan je horloge
         rij = [H[i % 10] for i in (0, 4, 1, 8, 6, 2, 7, 5, 3, 9, 0, 6, 4, 8, 1, 7)]
         toren(im, gl["blij"], rij, N, cx, voet, gb * 0.85, 3)
-        d.rounded_rectangle([N * 0.06, N * 0.36, N * 0.38, N * 0.62], radius=int(N * 0.03), fill=(255, 255, 255), outline=(85, 0, 0), width=max(2, int(N * 0.008)))
+        d.rounded_rectangle([N * 0.06, N * 0.38, N * 0.38, N * 0.58], radius=int(N * 0.03), fill=(255, 255, 255), outline=(85, 0, 0), width=max(2, int(N * 0.008)))
         d.text((N * 0.22, N * 0.43), "23", font=ImageFont.truetype(FONT, int(N * 0.10)), fill=(170, 85, 0), anchor="mm")
-        d.text((N * 0.22, N * 0.505), "NEW BEST!", font=ImageFont.truetype(FONT, int(N * 0.042)), fill=(85, 0, 0), anchor="mm")
-        d.text((N * 0.22, N * 0.565), "taller than", font=ImageFont.truetype(FONT, int(N * 0.034)), fill=(85, 0, 0), anchor="mm")
-        d.text((N * 0.22, N * 0.60), "your watch", font=ImageFont.truetype(FONT, int(N * 0.034)), fill=(85, 0, 0), anchor="mm")
-        ax, ay = N * 0.80, N * 0.27   # pijl omhoog: de toren gaat door boven je horloge
-        d.polygon([(ax, ay - N * 0.07), (ax - N * 0.05, ay - N * 0.01), (ax - N * 0.018, ay - N * 0.01), (ax - N * 0.018, ay + N * 0.06),
-                   (ax + N * 0.018, ay + N * 0.06), (ax + N * 0.018, ay - N * 0.01), (ax + N * 0.05, ay - N * 0.01)],
-                  fill=(255, 255, 255), outline=(85, 0, 0))
+        d.text((N * 0.22, N * 0.525), "NEW BEST!", font=ImageFont.truetype(FONT, int(N * 0.05)), fill=(85, 0, 0), anchor="mm")
+        # geen pijl: leest op Garmin als de UP-knop (kijker v2); de toren over de rand zegt het al
     return rond(im, N)
 
 
