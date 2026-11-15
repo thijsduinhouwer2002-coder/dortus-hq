@@ -1066,3 +1066,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Blad voor Thijs concept 13:** op concept 12 stond in vak 2 de taakbalk van de testmachine (Terminal, 2:16 AM). Vervangen door een uitsnede uit de schone weekopname (run 43693604247, 10:40 AM, geen Terminal). GEZIEN met Read.
 - **Frisse kijker op concept 13:** 7. Stekelzin in vak 2 verbeterd; taakbalk (Kladblok, Engels) bewust zo gelaten; ooggaten voor de dief als kan aan Bram na maandag. Uitleg in `ontwerp/steam/blad-3d/LEESMIJ.md`.
 - **Volgende run:** Mila's scherm 2 en 5 uit run 43693604247 keuren zodra ze er zijn; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
+- **Dief proef c (±08:45 UTC):** oorzaak blinde ogen bij b: oogwit ligt achter het oppervlak van de band. Wit en pupil iets naar voren: groot levend boevenmasker, klein witte puntjes in de band. Patch en beelden in `ontwerp/steam/helden-3d/`, als kan aan Bram.
