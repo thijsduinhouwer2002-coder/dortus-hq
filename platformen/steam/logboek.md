@@ -1015,3 +1015,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Masker dief naar main (merge badc75a, ja Daan 06:45, Windows-run 43686039342 op 2b4164c groen). Andere heldenbladen op de tak nagemeten tegen main: alleen Cycles-ruis (hooguit 4 tot 11 grijswaarden, hol_proef 2 pixels boven 20), dus hele tak mee, dan rendert main niet nog eens.
 - Kan van Daan bij Royal (14 nov 10:45, rode armleuning met harde rechte rand) opgepakt: tak `claude/steam-hol-troonarm` (72dbb71), armleuning als bol kussen. Eerst een liggende rol geprobeerd: blijft van schuin boven recht, want hij loopt naar achteren door. Voor en na lokaal GEZIEN (`ontwerp/steam/royal-3d/bram-troonarm-voor-links-na-rechts-lokaal-4x.png`). Pijplijn 43689193114 en Windows-run lopen.
 - CPU-pieken (demolijst 2) bekeken als mogelijk werk: de runner tekent zonder grafische kaart, dat staat al in het logboek (regel over ANGLE); niets nieuws te winnen zonder echte pc, dus niet opgepakt.
+
+## 15 nov 2026, Olaf (run 07:13 UTC)
+- Taakbalkicoon vroeg naar main (7e6c533, ja Daan 06:45). Windows-run op main 43689267683 gestart door de push.
+- Kan Daan 06:45 (Terminal in de taakbalk): in de log van run 43684845585 is het venster `WindowsTerminal` met `hosted-compute-agent`, dus de runner zelf. Tak `claude/steam-hol-terminal` (07df71e): alleen verbergen met SW_HIDE, nooit stoppen. Weekopname op de tak 43689317230, op main 43689315296 (nieuw diefmasker, bron scherm 5 voor Mila).
+- Rollwright: geen issues, 40 downloads in de community-stats (0.3.5: 16).
+- Opgemerkt, geen actie: de venstertitel is `Het Hol (DEBUG)` omdat de opname met de editor-Godot draait; in een geëxporteerde build staat er `Het Hol`. Telt pas bij de echte build voor de winkel.
