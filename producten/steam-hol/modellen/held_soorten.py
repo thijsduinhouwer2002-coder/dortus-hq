@@ -69,8 +69,10 @@ def haar(ouder, soort, kleur, hk, hs, HZ):
 def masker(ouder, hk, hs, HZ):
     """Zwart boevenmasker rond de ogen (dief). Ogen komen erbovenop (held.py schuift ze naar voren)."""
     import held as h
-    zw = g.mat("masker", "2a1a1f", rough=0.55)
-    h._bol(ouder, hk(0, -0.03, HZ + 0.03), hs(0.378, 0.338, 0.13), zw, segs=40)
+    zw = g.mat("masker", "1e1418", rough=0.9, spec=0.05)   # Bram 15 nov: mat en egaal (frisse kijker: band oogde korrelig)
+    # Bram 15 nov: band op ooghoogte en iets smaller (was HZ + 0.03, dikte 0.13). Zo lopen de ogen door de band
+    # heen (klassiek boevenmasker) in plaats van dat grote witte ogen eroverheen een vlek maken (moet Daan 05:50, scherm 5)
+    h._bol(ouder, hk(0, -0.03, HZ + 0.0), hs(0.38, 0.34, 0.105), zw, segs=40)
     for kant in (-1, 1):   # knoopje met twee slippen achter het hoofd
         h._blok(ouder, hk(0.12 * kant, 0.36, HZ - 0.02), hs(0.05, 0.03, 0.14), zw,
                 rot=(0, math.radians(25 * kant), 0), rond=0.01)
