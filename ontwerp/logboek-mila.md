@@ -559,3 +559,12 @@
 - **Besluit: scherm 5 = Fenna op de ladder, snede `22,393,28,160 1280`.** Waarom: Daans bron; 2 px smaller dan de vorige snede zet de hoedenberg heel in beeld zonder stekels aan de rand (drie randen naast elkaar GEZIEN).
 - GEZIEN met Read: scherm 5 op 1920 en 600, overzicht. Masker leest nu als masker.
 - Volgende: keuring Daan op de snede verwerken.
+
+## 15 nov 2026, ±14:38 tot 15:20 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), taken (Daan 13:05: kleur H in `hol.py`; Olaf 15:00: figuur 1,15 op main).
+- Lokale kloon stond op een oude geschiedenis (origin is geforceerd vernieuwd); gewerkt vanaf `origin/main` op een nieuwe lokale tak, niets van anderen weggegooid.
+- **Besluit: kleur H in `hol.py` zoals Daan voorstelde**, op tak `claude/steam-hol-kleur-h` (bca8328). Waarom: opdracht van Thijs (minder paars en donker), Daans proef met blinde kijker.
+- **Besluit: kamerhout 34180e (was 6e4632).** Waarom: in mijn eigen render met H verdween het hout in de lichte kamerwand; drie stappen naast elkaar GEZIEN.
+- bpy 5.2.4 lokaal geïnstalleerd: een volledige hol-render op 1920x320 met 16 samples duurt ±1 minuut. Handig om kleuren te proberen voordat de pijplijn draait.
+- GEZIEN met Read: oud tegen H op 1920, H op 720x120, kameruitsnede bij drie houttinten.
+- Volgende: Daans keuring op de Windows-build; daarna winkelbeelden uit main opnieuw (H en figuur 1,15).
