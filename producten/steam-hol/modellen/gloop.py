@@ -104,11 +104,14 @@ if _stand == "hap":
 if _stand == "spuug":
     # kleine open O, helemaal binnen het lijf (de O van hap hangt onder de onderrand)
     mond.modifiers.remove(m1)
-    mond.location = (0.06, -1.0, 0.36); mond.scale = (1.05, 1.0, 0.82)
+    mond.location = (0.2, -1.0, 0.36); mond.scale = (0.78, 1.0, 0.82)
+    mond.rotation_euler = (math.radians(90), math.radians(-25), math.radians(-18))   # getuit, wijst naar rechts (de laars na)
+    bol("spat", (0.52, -0.98, 0.3), (0.09, 0.07, 0.07), lijfmat)   # klein slijmdruppeltje bij de mondhoek
+    bol("spat2", (0.66, -0.9, 0.36), (0.055, 0.05, 0.05), lijfmat)
 if _stand == "kneep":
     # mond dicht: een kort donker streepje, iets scheef, de lippen op elkaar
     mond.modifiers.remove(m1); mond.rotation_euler = (math.radians(90), 0, 0)
-    mond.location = (0.04, -1.04, 0.44); mond.scale = (0.62, 0.17, 1.0)   # lokaal y is na het kantelen de hoogte
+    mond.location = (0.04, -1.04, 0.44); mond.scale = (0.62, 0.26, 1.0)   # lokaal y is na het kantelen de hoogte
 _tong = bol("tong", (0.0, -1.03 if _stand != "hap" else -1.07, 0.37 if _stand != "hap" else 0.07), (0.15, 0.06, 0.07) if _stand != "hap" else (0.24, 0.07, 0.09), g.mat("tong", "tong", rough=0.4))
 bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565) if _stand != "hap" else (0.10, -1.12, 0.49)); tand = bpy.context.object
 tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
@@ -117,7 +120,7 @@ tand.data.materials.append(g.mat("tand", "tand", rough=0.3))
 if _stand == "kneep":   # mond dicht: geen tong en geen tand (lazen als vuil, controleur 15 nov)
     _tong.hide_render = True; tand.hide_render = True
 if _stand == "spuug":   # tong achter in de O, tand weg (de laars komt eruit)
-    _tong.location = (0.06, -1.05, 0.26); _tong.scale = (0.17, 0.06, 0.06); tand.hide_render = True
+    _tong.location = (0.2, -1.05, 0.27); _tong.scale = (0.17, 0.06, 0.06); tand.hide_render = True
 # blosjes
 blos = g.mat("blos", "blos", rough=0.7)
 bol("blos_l", (-0.48, -0.93, 0.62), (0.13, 0.04, 0.07), blos, rot=(0, 0, math.radians(-25)))
