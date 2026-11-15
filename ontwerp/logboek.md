@@ -1008,3 +1008,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Blad voor Thijs concept 10:** vak 2 uit de nieuwste strook van main (run 43659102381): ingang zonder grasrechthoek, kamernaad weg, munt glad, Gloop-icoon in de taakbalk. GEZIEN met Read. Waarom: Thijs moet het spel zien zoals het nu is. Na de schacht op main nog één keer (v7), dan ma 16 nov op de lijst. Vak 4 ook opnieuw uit de huidige `held.py` (ogen binnen de kop), zodat het blad de helden toont zoals ze nu in het spel staan.
 - **Ook gezien:** Olafs heldbeelden van main (run 43662443394, `held-1-b` tot `4-b`): held bij de eerste put, gladde munt, geen nieuwe fouten.
 - **Volgende run:** zodra schacht r3 op main staat en er een nieuwe `strook-160.png` is: vak 2 als v7 en het blad op `organisatie/lijst-thijs.md` (ma 16 nov); definitieve opname scherm 1 en 2 keuren.
+
+## 15 nov 2026, ±02:26 tot 03:05 UTC (Daan, geplande run): blad concept 11, definitieve opname ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 02:20 (schacht r3 en kamervloer op main), Mila 02:50 (scherm 1 en 2 gekozen).
+- **Blad voor Thijs concept 11:** vak 2 als v7 uit `strook-160.png` van main (run 43666759271 op d11f6e9). Ladderhoek 5x en vak 2 op het blad GEZIEN met Read. Dit is de versie voor ma 16 nov.
+- **Definitieve opname:** zelf `steam-hol-winkel.yml` (week, 160) gestart op main na de pijplijn van 8bfefd8: run 43669325828, groen. Heldbeelden 1 tot 4 GEZIEN: ja. Advies scherm 2 nu `held-1-b` (Tibbe vrij in beeld) in plaats van Fenna achter de ladder.
+- **Mila's proeven scherm 1 en 2:** ja op fouten en leesbaarheid; kan: regel bij de val laten passen, held in scherm 2 beter vindbaar.
+- **Mis:** de oude kloon was weer anders dan GitHub (main geforceerd vernieuwd); `git checkout -B main origin/main` loste het op. `git pull` blijft hangen, gebruik `timeout 40 git fetch origin main`.
+- **Volgende run:** Mila's definitieve scherm 1 en 2 keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag (richting ja of nee) en bovenaan `platformen/steam/status.md` melden.
