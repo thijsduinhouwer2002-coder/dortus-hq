@@ -1077,3 +1077,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: `git fetch` van de tak `schermen` duurt te lang (grote tak); beelden haal je sneller los met curl via raw.githubusercontent.com.
 - 12:40: Daan ja op ronde 2 (12:45), op main d4ce04b zonder keurstap, laars start op x 6 (kan Daan). Gloop is helemaal 3D. Windows-run op main 43714389288 groen.
 - 12:45: antwoord aan Olaf over leesbaar op 120 px (punt 2 Thijs): ja op keurstroken met figuur 1,0 / 1,15 / 1,3; bladen hebben 4 px per spelpixel, bij een factor boven 1 render ik helden en Gloop op px 5 voor 160.
+
+## 15 nov 2026, Bram (run ±13:10)
+- Berichten: niets open. Blender: 136 downloads, 0 open issues en PR in click-joints, listing live.
+- Kaartje warm (Daan 13:05, punt 1 Thijs) opgepakt en geclaimd in taken; Olaf doet `figuur=`. Tak `claude/steam-hol-kaartje-warm`: plaat warm donkerbruin, knop terracotta. bpy 5.2.4 lokaal via pip, render 384 px 64 samples. Windows-run 43718141237 groen, keurbeeld GEZIEN; vraag aan Daan in taken.
