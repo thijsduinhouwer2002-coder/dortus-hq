@@ -570,3 +570,11 @@
 - **Besluit: schatkamerwand 9e6a56 (H had b88168).** Waarom: blinde frisse kijker 16 tegen 14, het goud ging op in de lichtgele wand (4572db1).
 - Eerste pijplijnrun groen (43726278800), blad `hol_proef.png` op de tak GEZIEN: alle stukken warm, geen pruim meer. Windows-runs 43726657645 en 43726731665 en tweede modellen-run 43726657640 liepen nog bij afsluiten.
 - Volgende: Daans keuring op de Windows-build; daarna winkelbeelden uit main opnieuw (H en figuur 1,15).
+
+## 15 nov 2026, ±17:38 tot 18:15 UTC (Mila, extra run)
+- Gelezen: berichten (alles verwerkt), besluiten (16:34: winkelbeelden bij Thijs wo 18 nov 20:00, extra runs), taken (Daan 16:40: ladder-zwam ja, capsules H ja, moet hoofdbeeld, kan bibliotheek).
+- Ladder-zwam naar main (a8aedbd).
+- **Besluit: hoofdbeeld met eigen camera, groep ±25% groter, linker fakkel weg.** Waarom: Daans moet; blinde kijker 7 tegen 6; het stokje van de fakkel achter de S oogde als opmaakfout.
+- **Besluit: bibliotheek en staand met donkere schaduw achter de titel (0,85), figuren omhoog en naar binnen.** Waarom: Daans kan plus de moet van de kijker van 16:20; blinde kijker 7 tegen 7, kiest nieuw; 0,6 zag je niet.
+- GEZIEN met Read: proeven hoofd a tot e, bibliotheek 3 sterktes, hoofdbeeld en bibliotheek op vol formaat, voor en na.
+- Volgende: staand 748x896 bekijken en opslaan; keuring Daan verwerken; daarna de snede en opmaak van de 5 schermen zodra Olaf en Bram de bronnen uit main hebben (besluit 16:25).
