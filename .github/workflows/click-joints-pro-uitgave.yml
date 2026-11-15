@@ -1,0 +1,95 @@
+name: Click Joints Pro uitgave (release met zip en winkelplaatjes voor Superhive)
+
+# Zet de Pro-zip uit een groene e2e-run en de winkelplaatjes als release-assets op één plek,
+# zodat het uploaden op Superhive alleen downloaden en uploaden is (Bram, 15 nov 2026).
+# De zip komt uit de e2e-run zelf (daar getest in 4.2.23, 5.2.3 en 5.3.0), niet opnieuw gebouwd.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Groene run van blender-gewrichten-e2e.yml op main"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+env:
+  TAG: click-joints-pro-v1.0.1
+  VERSIE: "1.0.1"
+  RUN: ${{ inputs.run_id }}
+
+jobs:
+  uitgave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: e2e-run moet groen zijn en van main komen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" --jq '.path, .head_branch, .head_sha, .conclusion' | tee /tmp/run.txt
+          grep -q 'blender-gewrichten-e2e.yml' /tmp/run.txt || { echo "FOUT: geen e2e-run"; exit 1; }
+          [ "$(sed -n 2p /tmp/run.txt)" = "main" ] || { echo "FOUT: niet van main"; exit 1; }
+          [ "$(sed -n 4p /tmp/run.txt)" = "success" ] || { echo "FOUT: run niet groen"; exit 1; }
+      - name: Schermen van de run ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for v in 4.2.23 5.2.3 5.3.0; do gh run download "$RUN" -n "blender-gewrichten-screenshots-$v" -D "/tmp/s/$v"; done
+          ls -la /tmp/s/*/click_joints_pro-*
+      - name: Zip nakijken (sha256, versie, gelijk in alle drie de Blenders)
+        run: |
+          z=/tmp/s/5.3.0/click_joints_pro-$VERSIE.zip
+          (cd /tmp/s/5.3.0 && sed "s# .*#  click_joints_pro-$VERSIE.zip#" click_joints_pro-$VERSIE.sha256 | sha256sum -c -)
+          unzip -p "$z" blender_manifest.toml | tee /tmp/man.toml
+          grep -qx "version = \"$VERSIE\"" /tmp/man.toml || { echo "FOUT: versie"; exit 1; }
+          grep -qx 'name = "Click Joints Pro"' /tmp/man.toml || { echo "FOUT: naam"; exit 1; }
+          unzip -l "$z" | grep -q 'betaald/__init__.py' || { echo "FOUT: geen betaald/"; exit 1; }
+          for v in 4.2.23 5.2.3; do
+            mkdir -p /tmp/a /tmp/b && rm -rf /tmp/a/* /tmp/b/*
+            unzip -q "$z" -d /tmp/a && unzip -q "/tmp/s/$v/click_joints_pro-$VERSIE.zip" -d /tmp/b
+            diff -r /tmp/a /tmp/b && echo "inhoud gelijk aan de zip uit $v"
+          done
+      - name: Bestanden voor de release klaarzetten
+        run: |
+          mkdir -p /tmp/uit
+          cp "/tmp/s/5.3.0/click_joints_pro-$VERSIE.zip" "/tmp/uit/click_joints_pro-$VERSIE.zip"
+          cp ontwerp/click-joints/pro/poster-3.png /tmp/uit/1-poster-3.png
+          cp /tmp/s/5.2.3/13-pro-knie-x.png /tmp/uit/2-knie-met-boog.png
+          cp /tmp/s/5.2.3/14-pro-knie-rood-x.png /tmp/uit/3-rood-voorbij-de-stop.png
+          cp /tmp/s/5.2.3/8-winkel-x.png /tmp/uit/4-kogel-passing.png
+          cp /tmp/s/5.2.3/9-winkel-rood-x.png /tmp/uit/5-kogel-rood.png
+          python3 - <<'EOF'
+          import glob, os, struct
+          for f in sorted(glob.glob("/tmp/uit/*.png")):
+              w, h = struct.unpack(">II", open(f, "rb").read()[16:24])
+              mb = os.path.getsize(f) / 1e6
+              print(f, w, h, f"{mb:.2f} MB")
+              assert (w, h) == (1920, 1080), "maat moet 1920 x 1080 zijn"
+              assert mb < 2, "plaatje moet onder 2 MB"
+          EOF
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Release maken of bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(sha256sum "/tmp/uit/click_joints_pro-$VERSIE.zip" | cut -d' ' -f1)
+          cat > /tmp/notes.md <<EOF
+          Click Joints Pro $VERSIE, betaalde versie voor Superhive (winkel Dortus).
+
+          - \`click_joints_pro-$VERSIE.zip\`: de add-on uit e2e-run $RUN op main, daar getest in de echte Blender 4.2.23, 5.2.3 en 5.3.0 (de zip is in alle drie inhoudelijk gelijk). sha256 \`$sha\`.
+          - Plaatjes in uploadvolgorde, elk 1920 x 1080 PNG onder 2 MB: \`1-poster-3.png\`, \`2-knie-met-boog.png\`, \`3-rood-voorbij-de-stop.png\`, \`4-kogel-passing.png\`, \`5-kogel-rood.png\`.
+          - \`SHA256SUMS.txt\`: sha256 van alles.
+
+          Tekst, prijs en stappen: \`platformen/blender/superhive-pagina.md\`.
+          EOF
+          sed -i 's/^          //' /tmp/notes.md
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* --clobber
+            gh release edit "$TAG" --notes-file /tmp/notes.md
+          else
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints Pro $VERSIE" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
