@@ -108,7 +108,7 @@ jobs:
           # (de film hierboven speelde er al ±90 s op door), en elke 15 s een schermafbeelding van het hele scherm.
           # Olaf 14 nov 21:40 (wens Mila 20:55, kan Daan 20:50): 1280 x 720 in plaats van 1920 x 1080, zodat de strook
           # van 160 px 22% van het beeld is en op een kleine winkelplaat leest; Mila vergroot zelf naar 1920 x 1080.
-          # Kladblok klein linksboven (520 x 300) en de snelkoppelingen van de runner (R, Unity Hub) van het bureaublad.
+          # Kladblok klein linksboven (420 x 170, kan Mila 15 nov 02:50: trok op 600 breed meer aandacht dan het spel) en de snelkoppelingen van de runner (R, Unity Hub) van het bureaublad.
           Add-Type @"
           using System; using System.Runtime.InteropServices;
           public class Scherm {
@@ -128,6 +128,22 @@ jobs:
             [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
             [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string n);
             [DllImport("user32.dll")] public static extern bool PostMessage(IntPtr h, uint m, IntPtr w, IntPtr l);
+            public delegate bool EnumProc(IntPtr h, IntPtr l);
+            [DllImport("user32.dll")] public static extern bool EnumWindows(EnumProc p, IntPtr l);
+            [DllImport("user32.dll")] public static extern bool IsWindowVisible(IntPtr h);
+            [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern int GetWindowText(IntPtr h, System.Text.StringBuilder s, int n);
+            [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern int GetClassName(IntPtr h, System.Text.StringBuilder s, int n);
+            [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h, out uint p);
+            [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+            [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+            public static IntPtr[] Zichtbaar() {
+              var l = new System.Collections.Generic.List<IntPtr>();
+              EnumWindows((h, x) => { if (IsWindowVisible(h)) l.Add(h); return true; }, IntPtr.Zero);
+              return l.ToArray();
+            }
+            public static string Titel(IntPtr h) { var s = new System.Text.StringBuilder(256); GetWindowText(h, s, 256); return s.ToString(); }
+            public static string Klasse(IntPtr h) { var s = new System.Text.StringBuilder(256); GetClassName(h, s, 256); return s.ToString(); }
+            public static uint Proces(IntPtr h) { uint p; GetWindowThreadProcessId(h, out p); return p; }
             public static int Zet(int b, int h) {
               DEVMODE d = new DEVMODE(); d.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
               EnumDisplaySettings(null, -1, ref d);
@@ -147,6 +163,40 @@ jobs:
           $vol = (Resolve-Path $uit).Path
           # Eerst alles van de runner wegklappen (zijn eigen terminalvenster stond in beeld, run 43631337323),
           # dan Kladblok met een kort briefje, zodat het leest als een gewone werkdag.
+          # Olaf 15 nov 04:30 (moet Daan 03:45, voorstel 03:55): de taakbalk verraadde een testmachine (2:49 AM,
+          # servericoon met rood bolletje, doorgestreepte luidspreker). Klok op een werktijd (10:40, loopt daarna
+          # gewoon door), tijdsynchronisatie uit zodat hij niet terugspringt; icoontjes in het overloopmenu
+          # (EnableAutoTray) en de systeemicoontjes netwerk en volume verborgen (HideSCANetwork, HideSCAVolume),
+          # dan Explorer opnieuw starten zodat de taakbalk het overneemt. Datum blijft staan. Niets achteraf bijgetekend.
+          Set-TimeZone -Id "W. Europe Standard Time" -ErrorAction SilentlyContinue
+          Set-Service w32time -StartupType Disabled -ErrorAction SilentlyContinue
+          Stop-Service w32time -Force -ErrorAction SilentlyContinue
+          $voor = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+          Set-Date -Date (Get-Date).Date.AddHours(10).AddMinutes(40) | Out-Null
+          $schuif = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds() - $voor
+          Write-Output "klok gezet: $(Get-Date -Format 'yyyy-MM-dd HH:mm') ($((Get-TimeZone).Id)), verschoven $schuif s"
+          # de save (kern/opslag.gd, sleutel "tijd") schuift even ver mee, anders telt het spel de sprong als weg geweest
+          # (vooruit: extra goud en helden in beeld; achteruit houdt opslag.gd de oude tijd vast). Zo blijft het hol gelijk.
+          $sv = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          if (Test-Path $sv) {
+            $tekst = Get-Content $sv -Raw
+            $m = [regex]::Match($tekst, '"tijd":\s*(\d+)')
+            if ($m.Success) {
+              $oud = [long]$m.Groups[1].Value
+              $tekst = $tekst.Substring(0, $m.Groups[1].Index) + ($oud + $schuif) + $tekst.Substring($m.Groups[1].Index + $m.Groups[1].Length)
+              [System.IO.File]::WriteAllText($sv, $tekst)   # UTF-8 zonder BOM; Set-Content -Encoding gaf hier een fout (run 43676289503)
+              Write-Output "save tijd $oud -> $($oud + $schuif)"
+            } else { Write-Output "save zonder tijd gevonden, niets geschoven" }
+          }
+          Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" EnableAutoTray 1 -Type DWord -ErrorAction SilentlyContinue
+          $pol = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+          if (-not (Test-Path $pol)) { New-Item -Path $pol -Force | Out-Null }
+          foreach ($n in @("HideSCANetwork", "HideSCAVolume")) { Set-ItemProperty $pol $n 1 -Type DWord -ErrorAction SilentlyContinue }
+          Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
+          for ($w = 0; $w -lt 15 -and -not (Get-Process explorer -ErrorAction SilentlyContinue); $w++) { Start-Sleep 1 }
+          if (-not (Get-Process explorer -ErrorAction SilentlyContinue)) { Start-Process explorer.exe; Write-Output "explorer zelf gestart" }
+          Start-Sleep 6
+          Write-Output "systeemvak: EnableAutoTray $((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer' -ErrorAction SilentlyContinue).EnableAutoTray), explorer draait: $([bool](Get-Process explorer -ErrorAction SilentlyContinue))"
           (New-Object -ComObject Shell.Application).MinimizeAll()
           $weg = Join-Path $env:RUNNER_TEMP "snelkoppelingen"; New-Item -ItemType Directory -Force $weg | Out-Null
           foreach ($bd in @("$env:PUBLIC\Desktop", [Environment]::GetFolderPath("Desktop"))) {
@@ -154,16 +204,46 @@ jobs:
           }
           Start-Sleep 2
           $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
-          Set-Content -Encoding utf8 $briefje "Monday`r`n`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor`r`n- water the plant"
+          # Olaf 15 nov: briefje op 4 regels zonder lege regel en Kladblok 186 hoog (op 420 x 170 viel het af na regel 4, met schuifbalk; runs 43669366909 en 43671848393)
+          Set-Content -Encoding utf8 $briefje "Monday`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor"
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
           $h = [IntPtr]::Zero
           for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
           [Scherm]::ShowWindow($h, 9) | Out-Null
-          $gezet = [Scherm]::MoveWindow($h, 110, 24, 520, 300, $true)
-          # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan: dicht (run 43642948819)
-          for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
-          Write-Output "Kladblok 520 x 300 linksboven (naast de prullenbak): $gezet"
+          $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 186, $true)
+          # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan (run 43642948819).
+          # Olaf 15 nov 03:30: FindWindow(null, "System Properties") vond hem in run 43669366909 niet, terwijl hij in alle
+          # 18 beelden stond. Nu: alle zichtbare vensters loggen (titel, klasse, proces) en elk venster met "System
+          # Properties" in de titel op vier manieren dicht: WM_COMMAND IDOK, WM_CLOSE, voorgrond plus Enter (alleen als
+          # hij echt voorgrond is, anders komt de Enter in Kladblok), en als laatste het proces stoppen (nooit explorer).
+          function Vensters($wat) {
+            foreach ($v in [Scherm]::Zichtbaar()) {
+              $t = [Scherm]::Titel($v); if (-not $t) { continue }
+              $pv = [Scherm]::Proces($v); $pn = (Get-Process -Id $pv -ErrorAction SilentlyContinue).ProcessName
+              Write-Output "venster ($wat): '$t' klasse $([Scherm]::Klasse($v)) proces $pn ($pv)"
+            }
+          }
+          function Dicht-Melding($wat) {
+            foreach ($v in [Scherm]::Zichtbaar()) {
+              $t = [Scherm]::Titel($v)
+              if ($t -notlike "*System Properties*" -and $t -notlike "*Systeemeigenschappen*") { continue }
+              $pv = [Scherm]::Proces($v); $pn = (Get-Process -Id $pv -ErrorAction SilentlyContinue).ProcessName
+              [Scherm]::PostMessage($v, 0x0111, [IntPtr]1, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "IDOK"
+              if ([Scherm]::IsWindowVisible($v)) { [Scherm]::PostMessage($v, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "WM_CLOSE" }
+              if ([Scherm]::IsWindowVisible($v)) {
+                [Scherm]::SetForegroundWindow($v) | Out-Null; Start-Sleep -Milliseconds 300
+                if ([Scherm]::GetForegroundWindow() -eq $v) { [System.Windows.Forms.SendKeys]::SendWait("{ENTER}"); Start-Sleep -Milliseconds 500; $hoe = "Enter" }
+              }
+              if ([Scherm]::IsWindowVisible($v) -and $pn -and $pn -notin @("explorer", "csrss", "winlogon", "dwm", "svchost", "pwsh", "powershell", "notepad")) {
+                Stop-Process -Id $pv -Force -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 500; $hoe = "proces $pn gestopt"
+              }
+              Write-Output "melding '$t' ($wat, proces $pn): laatste stap $hoe, nog zichtbaar: $([Scherm]::IsWindowVisible($v))"
+            }
+          }
+          Vensters "start"
+          Dicht-Melding "start"
+          Write-Output "Kladblok 420 x 186 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
@@ -172,9 +252,6 @@ jobs:
           # "HOL held binnen" een beeld na 2,5, 3,7 en 5 s (bureaublad-held-<nr>-a/b/c.png; run 43657940940: op 2,5 s op de
           # ladder, op 5 s vaak al in de put naast de ingang, dus 3,7 erbij), naast de 6 vaste beelden
           # (bureaublad-1 tot 6, elke 15 s vanaf 35 s). Echt moment uit het spel, niets nagemaakt. Hooguit 6 helden.
-          function Dicht-Melding($wat) {
-            for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht ($wat)"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
-          }
           $begin = Get-Date
           $vast = @(35, 50, 65, 80, 95, 110); $vi = 0
           $gezien = 0; $nr = 0; $wacht = @()
@@ -188,6 +265,7 @@ jobs:
             if ($vi -lt $vast.Count -and $nu -ge $vast[$vi]) { $vi++; $wacht += @(@{ t = $nu; naam = "$vi" }) }
             $klaar = @($wacht | Where-Object { $_.t -le $nu }); $wacht = @($wacht | Where-Object { $_.t -gt $nu })
             foreach ($k in $klaar) {
+              if ($k.naam -eq "1") { Vensters "beeld 1" }
               Dicht-Melding $k.naam
               & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$($k.naam).png"
               Write-Output ("{0,6:N1} s  beeld bureaublad-{1}.png" -f ((Get-Date) - $begin).TotalSeconds, $k.naam)
