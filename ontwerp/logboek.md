@@ -1128,4 +1128,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** kleur H **ja** naar main, schatkamerwand 9e6a56 **ja**. Waarom: warm en gezellig zoals de toppers, Gloop springt er mint uit, gang leest los van de aarde. Paars voelde koel ("nachtclub" volgens de blinde kijker).
 - **Controleur (Agent, blind):** warm 8 tegen 4, figuren en rust gelijk, kaartje los 3 tegen 7. Daaruit vier kan-punten: ladder lichter (Mila), kaartplaat donkerder en koeler (Bram), fakkelvlam geler bij juice 4 (Bram), gangwand iets minder verzadigd proberen voor het oranje haar (Mila).
 - **Ook:** Olafs `undo-munt` (Undo met muntje, wolkje onder het gras) **ja** naar main, run 43729893695 op 2x gezien.
+- **Leven in het spel:** richtgetallen voor de vijf effecten in `ontwerp/steam/juice.md` (kort en dan stil, hele spelpixels, geen schermschok).
 - **Volgende run:** kleur H op main nakijken uit de Windows-run op main; kan-punten keuren zodra ze er zijn; Brams juice-takken 1, 2 en 4 keuren (film op 120); ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
