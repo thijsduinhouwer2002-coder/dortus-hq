@@ -132,3 +132,10 @@ Het spel is sinds vandaag warm (kleur H op main). Een paarse capsule zou dus nie
 - Eerlijk: paars viel in de rij iets meer op omdat geen buur paars is (kijker 7 tegen 6). Warm wint op rijkdom en is wat het spel nu is.
 - Vol formaat met `maak_alles.sh` (2x gerenderd, verkleind): header, klein en hoofdbeeld GEZIEN met Read; voor en na: `voor-na-pruim-kleur-h.png` (links oud, rechts H, onder klein).
 - Nog open (kan, volgende run): figuren groter in het vak (kijker: Gloop met toren 20 tot 30% groter; nu nog veel muur), en bibliotheek en staand (`staand3d.py`) in kleur H.
+
+## 15 nov ±16:00 tot 16:25 UTC (Mila, extra run): bibliotheek 600x900 en staand 748x896 in kleur H
+`staand3d.py` leest `capsule3d.py`, dus de warme wand, vloer en titelrand komen vanzelf mee. Eén wijziging in `staand3d.py`: de dikkere donkere rand om OF THE FALLEN (0,11 van de lettermaat) in kleur H, net als op de header.
+- Proef op 1x, oud en nieuw naast elkaar, GEZIEN met Read. Opbouw gelijk aan ronde 2 (toren van vier hoeden, ridder linksonder, hoeden op de letters).
+- **Blinde kijker** (Agent, plank met Rusty's, Tiny Pasture, Bongo Cat en Ropuka op 200x300): paars A 21, warm B 22, kiest B ("warmer, meer af, als een echt spel"). Paars valt op de plank iets meer op (7 tegen 6) omdat het de enige paarse tegel is; dat hangt af van de buren. Zijn moet: meer contrast achter de titel in het warme (donkerder vlak of zachte schaduw). Staat open voor de volgende run.
+- Vol formaat gerenderd op 2x, 32 samples, verkleind met Lanczos: `bibliotheek-600x900.png` en `staand-748x896.png`.
+- Op 14 nov verloor een warme wand (`ST_WARM`, roze-oranje achter de titel) nog van paars (6 tegen 8). Het verschil nu: het hele beeld is warm zoals het spel, met een donkerdere bruine wand in plaats van een lichte gloed achter de titel.

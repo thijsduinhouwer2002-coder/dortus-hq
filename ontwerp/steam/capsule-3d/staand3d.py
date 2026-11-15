@@ -62,7 +62,7 @@ def midden_op(o, cx):
         t.location.x += dx
 hats = tekst("HATS", (0.0, -0.6, TZ), float(os.environ.get("ST_HS", "1.75")), kantel=-3)
 midden_op(hats, CX)
-sub = tekst("OF THE FALLEN", (0.0, -0.6, TZ - float(os.environ.get("ST_SUBZ", "0.7"))), float(os.environ.get("ST_SS", "0.78")), kantel=-3)
+sub = tekst("OF THE FALLEN", (0.0, -0.6, TZ - float(os.environ.get("ST_SUBZ", "0.7"))), float(os.environ.get("ST_SS", "0.78")), kantel=-3, rand=0.11 if KLEUR_H else 0.07)   # Mila 15 nov: dikkere rand in kleur H
 midden_op(sub, CX)
 if os.environ.get("ST_LETTERHOEDEN", "1") == "1":
     bpy.context.view_layer.update()
