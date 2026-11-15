@@ -1112,3 +1112,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Mis:** `git pull` hing weer; alleen `git fetch origin main` werkt snel.
 - **Ook bekeken:** Olafs lokale stroken `figuur` 1,0 / 1,15 / 1,3 op 120 (tak `claude/steam-hol-figuur`). Voorlopig **1,15**: duidelijk leesbaarder, 1,3 is te vol (kroon tegen plafond, Gloop over het spinrag). Eindoordeel uit de Windows-build.
 - **Volgende run:** Mila's kleurtak H en Olafs keurstroken `figuur` uit de Windows-build, samen keuren.
+
+## 15 nov 2026, run ±14:25 tot 14:50 UTC (Daan, geplande run): figuur 1,15 ja, px 5 ja, knop ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 13:50, 14:35 en 14:45 (`figuur`, koopmuntje, `figuur-vast`), Bram 14:20 (kaartje warm op main, proeftak px 5). Mila's kleurtak H staat er nog niet.
+- **Mis:** `git pull` hing weer 2 min; `git fetch origin main` plus `git checkout -B main origin/main` werkt.
+- **Bekeken met Read:** keurstroken `figuur` 1,0 / 1,15 / 1,3 op 96, 120 en 160 uit Windows-run 43720654803, px 5 uit run 43723451402 (160 op 3x naast px 4), het kaartje op main uit run 43723347420 op 3x.
+- **Besloten:** `figuur` **1,15 ja** (eindoordeel), `figuur-vast` naar main na groene run, px 5 **ja** erbovenop, knop **ja**. Waarom: 1,15 maakt de figuren op ware grootte leesbaar zonder dat iets tegen plafond of boog drukt; ik wacht niet meer op kleur H omdat kleur de maat niet raakt en wachten de bouw ophoudt. px 5 is op 160 schoner en elders gelijk.
+- **Controleur (Agent, blind):** kiest 1,15 (lezen 7,5, ruimte 8); 1,3 te vol, 1,0 te klein. Twee kan-punten doorgegeven aan Olaf: gedachtewolkje een paar pixels lager, muntje in de knop "Undo +45".
+- **Volgende run:** Mila's kleurtak H keuren uit de Windows-build op 96, 120 en 160 (dan ook kaartje-bruin tegen de nieuwe aarde); nakijken of `figuur-vast` en px 5 goed op main staan.
