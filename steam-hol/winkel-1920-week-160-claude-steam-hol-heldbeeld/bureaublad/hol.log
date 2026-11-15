@@ -1,0 +1,45 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 39 s (klok terug: false): goud voor 1625, helden 0, erbij 0
+HOL opslag geladen: 1 terugkomers, 1625 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Gerda signs autographs. Nobody asked.
+HOL held binnen: Gerda
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 9.6 (wacht 0.0): Gerda left gold and one boot. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=2
+HOL kroniek 12.2 (wacht 2.6): New page: the Hero. The pit got him.
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL kroniek 45.9 (wacht 0.0): Tibbe knows every trap. Almost.
+HOL held binnen: Tibbe
+HOL meting t=50 beelden=46 helden=1 hol_vast=3
+HOL kroniek 51.4 (wacht 0.0): Tibbe fell to the Spike Pit. +6
+HOL kroniek 54.0 (wacht 2.6): Booked: the Wizard. Spikes: one.
+HOL meting t=60 beelden=57 helden=0 hol_vast=5
+HOL meting t=70 beelden=4 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL kroniek 95.9 (wacht 0.0): Rik knocks first. Polite.
+HOL held binnen: Rik
+HOL meting t=100 beelden=49 helden=1 hol_vast=6
+HOL kroniek 101.4 (wacht 0.0): Rik will not be leaving. +6
+HOL meting t=110 beelden=53 helden=0 hol_vast=7
+HOL meting t=120 beelden=5 helden=0 hol_vast=7
+HOL meting t=130 beelden=2 helden=0 hol_vast=7
+HOL meting t=140 beelden=4 helden=0 hol_vast=7
+HOL kroniek 141.8 (wacht 0.0): Bram is here for a story.
+HOL held binnen: Bram
+HOL meting t=150 beelden=90 helden=1 hol_vast=7
+HOL meting t=160 beelden=101 helden=1 hol_vast=7
+HOL kroniek 162.8 (wacht 0.0): Bram escaped with a limp.
+HOL kroniek 165.4 (wacht 2.6): Page for the Bard. He got away.
+HOL kroniek 168.0 (wacht 5.2): Bram sang about your hole. More came.
+HOL meting t=170 beelden=24 helden=0 hol_vast=7
+HOL kroniek 180.5 (wacht 0.0): Wout remembers the Spike Pit.
+HOL held binnen: Wout
+HOL meting t=181 beelden=15 helden=1 hol_vast=7
+HOL kroniek 185.6 (wacht 0.0): Wout came back. The Spike Pit won. +9
+HOL kroniek 188.1 (wacht 2.5): New stamp for the Thief. The pit got him.
+HOL kroniek 189.2 (wacht 0.0): Pim knows all the words. Sadly.
+HOL held binnen: Pim
