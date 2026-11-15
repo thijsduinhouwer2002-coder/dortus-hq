@@ -1,0 +1,24 @@
+Hats of the Fallen (werknaam in het bestand: Het Hol), ruwe speeltest
+
+Starten
+1. Pak de zip uit naar een map, bijvoorbeeld Bureaublad\HotF.
+2. Dubbelklik HetHol.exe. Windows kan zeggen "Windows heeft uw pc beschermd":
+   klik op "Meer informatie" en dan "Toch uitvoeren". Dat komt omdat de .exe nog
+   niet ondertekend is (dat gebeurt pas via Steam).
+3. Onderaan je scherm, net boven de taakbalk, verschijnt het hol. Gloop staat in de taakbalk.
+   Werk gewoon verder in andere vensters; klikken in de lege lucht gaan door naar wat erachter ligt.
+
+Spelen
+- Linksklik op de aarde naast een gang: graven (het hol groeit, de schat verhuist mee naar het eind).
+- Linksklik boven de gang naast een open stuk: een kamer graven.
+- Linksklik op een gang: een stekelput zetten (niet bij de ingang, de schat of Gloop).
+- Linksklik op Gloop of op een put: een kaartje met Buy (kopen) en Undo (terugdraaien),
+  bij een put ook Remove (weghalen).
+- Rechtsklik in het hol: hoogte wisselen (96, 120, 160 pixels).
+- Helden komen vanzelf. Gloop eet ze op, vallen vangen ze, hun hoeden komen op de stapel.
+
+Stoppen
+- Klik op Gloop in de taakbalk en druk Alt+F4, of rechtsklik op Gloop in de taakbalk en "Venster sluiten".
+  Het spel bewaart zelf (elke 30 s en bij sluiten). Als je het later weer start, gaat het verder.
+
+Opslag staat in %APPDATA%\Dortus\Het Hol (weggooien = opnieuw beginnen).

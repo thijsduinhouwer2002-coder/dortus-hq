@@ -9,7 +9,7 @@ name: Het Hol .exe bouwen (vol en demo, Windows)
 on:
   push:
     branches: [main, "claude/steam-*"]
-    paths: ["producten/steam-hol/godot/export_presets.cfg", ".github/workflows/steam-hol-exe.yml"]
+    paths: ["producten/steam-hol/godot/export_presets.cfg", ".github/workflows/steam-hol-exe.yml", "producten/steam-hol/speeltest/**"]
   workflow_dispatch:
 
 permissions:
@@ -129,6 +129,25 @@ jobs:
           path: producten/steam-hol/bouw/
           retention-days: 7
           if-no-files-found: ignore
+      # Olaf 15 nov (speeltest Thijs za 21 nov): alleen het volle spel met de korte uitleg, als eigen zip van 14 dagen.
+      # Niet openbaar als release: een artifact haal je alleen op met een GitHub-account (Thijs), niets gepubliceerd.
+      - name: Speeltest-map maken (volle spel en uitleg)
+        if: success()
+        shell: pwsh
+        run: |
+          $d = "producten/steam-hol/bouw-speeltest"
+          New-Item -ItemType Directory -Force $d | Out-Null
+          Copy-Item producten/steam-hol/bouw/volledig/* $d
+          Copy-Item producten/steam-hol/speeltest/LEES-MIJ-EERST.txt $d
+          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC" | Set-Content "$d/VERSIE.txt"
+          Get-ChildItem $d | ForEach-Object { Write-Output "$($_.Name) $([math]::Round($_.Length / 1MB, 1)) MB" }
+      - name: Speeltest bewaren (artifact, 14 dagen)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: speeltest-hats-of-the-fallen-windows
+          path: producten/steam-hol/bouw-speeltest/
+          retention-days: 14
       - name: Uitslag openbaar zetten (tak schermen)
         if: always()
         shell: bash

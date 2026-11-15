@@ -207,6 +207,22 @@ jobs:
               Write-Output "save tijd $oud -> $($oud + $schuif)"
             } else { Write-Output "save zonder tijd gevonden, niets geschoven" }
           }
+          # Olaf 15 nov 19:40 (wens Daan 18:50, proef blind 8 tegen 6): geen blauwe Windows-bloem maar een effen donkere
+          # achtergrond 2c3440 (44 52 64), zoals een gebruiker die zelf kiest. Register voor Explorer, SetSysColors en
+          # SystemParametersInfo voor nu meteen. We tekenen niets bij: dit is de instelling van de machine.
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public class Achtergrond {
+            [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern bool SystemParametersInfo(uint a, uint b, string c, uint d);
+            [DllImport("user32.dll")] public static extern bool SetSysColors(int n, int[] e, int[] k);
+          }
+          "@
+          Set-ItemProperty "HKCU:\Control Panel\Colors" Background "44 52 64" -ErrorAction SilentlyContinue
+          Set-ItemProperty "HKCU:\Control Panel\Desktop" WallPaper "" -ErrorAction SilentlyContinue
+          $kleur = 44 + (52 * 256) + (64 * 65536)   # COLORREF is 0x00BBGGRR
+          $a1 = [Achtergrond]::SetSysColors(1, @(1), @($kleur))   # 1 = COLOR_DESKTOP
+          $a2 = [Achtergrond]::SystemParametersInfo(0x14, 0, "", 3)   # SPI_SETDESKWALLPAPER, leeg = geen foto; bijwerken en melden
+          Write-Output "achtergrond: SetSysColors $a1, geen foto $a2, register $((Get-ItemProperty 'HKCU:\Control Panel\Colors').Background)"
           Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" EnableAutoTray 1 -Type DWord -ErrorAction SilentlyContinue
           $pol = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
           if (-not (Test-Path $pol)) { New-Item -Path $pol -Force | Out-Null }
