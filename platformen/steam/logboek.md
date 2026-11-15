@@ -1004,3 +1004,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Moet van Daan op scherm 5 (masker Rik is een vlek) nagezocht: het zit in het blad zelf, alle vijf standen; het masker zat op het voorhoofd en de grote ogen erover. Proef met drie varianten lokaal (bpy 5.2.4, 9 s per render), gekozen: band op ooghoogte en kleiner oogwit. Frisse kijker 4 naar 6,5. Tak `claude/steam-hol-diefmasker`, keuring bij Daan.
 - Les: als een keurder zegt "kies een ander beeld", kijk eerst of het probleem in elk beeld zit; dan helpt kiezen niet.
 
+
+## 15 nov 2026, 06:15 tot 06:45 UTC, Olaf
+- Daans fix b3fbedf (melding Performance Options) op main gezet als cherry-pick 285cd6a; conflict opgelost door zijn titel- en procesfilter te houden en "Virtual Memory" uit mijn filter erbij te zetten. YAML gecontroleerd.
+- Weekopname main run 43684792701 groen: log zegt `melding (start): proces SystemPropertiesPerformance (7904) gestopt`, alle 18 beelden schoon, Gloop in de taakbalk.
+- Late taakbalkicoon (Daan 05:50): tak `claude/steam-hol-icoon-vroeg` 7e99965, `kern/strook.gd` zet het icoon opnieuw na de venstermaat en na 1 s. Toetsrun 43684837991 groen, weekopnames 43684845585 en 43685506283 groen, Gloop in alle 36 beelden. Maar main zonder fix was deze keer ook goed, dus niet bewezen dat het helpt; ter keuze aan Daan.
+- Rollwright: niets dringends in `platformen/obsidian/taken.md`. Blender-2 meting pas 22 nov.

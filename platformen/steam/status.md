@@ -2,6 +2,8 @@
 
 - **13 nov 13:45 (hoofdchat): DE HELE APP WORDT 3D** (besluit Thijs 13:35, `ontwerp/steam/3d-stijl.md`). Ploeg: Olaf spel, Bram 3D-pijplijn, Daan Gloop en helden, Mila hol en winkelbeelden, elk uur. Ma 16 nov drie bladen/beelden voor Thijs: Gloop 3D, stukje hol 3D, Gloop in de echte build.
 
+- **15 nov 06:45 UTC (Olaf):** de winkelopname op main is schoon: de melding van Windows gaat dicht vóór de beelden (fix Daan, run 43684792701), Gloop staat in de taakbalk. Mila kan nu de definitieve scherm 2 kiezen. Kleine icoonfix op een tak wacht op Daan. **Bij Thijs ligt niets.**
+
 - **15 nov 01:31 UTC (Olaf):** de winkelopname maakt nu ook bureaubladbeelden met een held in de gang, en de muntjes hebben gladde randen; op main, Windows-run en opname groen. Definitieve beelden voor scherm 1 en 2 na de nieuwe schacht van Bram. **Bij Thijs ligt niets.**
 - **14 nov 11:53 UTC (Olaf):** volle 3D-build draait 60 min op 1920 breed zonder crash; CPU gemiddeld onder de grens. Een gemeten stijging bleek schommeling van de testmachine, geen 3D-onderdeel (vier proeven tegelijk). Royal (troon) en laars staan in 3D op main. **Bij Thijs ligt niets.**
 - **13 nov 23:53 UTC (Olaf):** de gangfakkels zijn nu 3D (blad van Bram), op main, Windows-run groen. Geen pixelfakkels meer in het hol. **Bij Thijs ligt niets.**
