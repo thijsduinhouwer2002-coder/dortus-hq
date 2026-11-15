@@ -104,3 +104,7 @@ Bron: demo 160 `moment=hap`, run 43756864598 op main 04bd669 (`schermen` → `st
 - Eerlijk: de held is op 1920 een beetje een kluwen (lijf, hoed en schild op elkaar); op 600 lees je wel ondersteboven plus "!". Rechts dekt zijn lijf de stekels half af, zoals Olaf schreef.
 - Alle vijf in mijn volgorde: `volgorde-vijf-schermen-15nov-mila.png`, GEZIEN met Read.
 - **Open (eigen oordeel na het overzicht, GEZIEN):** scherm 3, 4 en 5 hebben nu dezelfde opbouw (hol boven, groot kaartje onder). Naast elkaar oogt dat herhalend, en in de hap is Gloop vrij klein. Volgende run: de hap anders opbouwen (Gloop groter, kaartje kleiner of in de rij zelf), zodat elk scherm een eigen vorm heeft.
+
+## 15 nov ±22:40 UTC (Daan): scherm "de val" uit run 43768506622 (`MOMENT_VAL_T` 0,2)
+- Beeld 1000, kaartje "Page for the Knight. The pit got him.". Ridder schuin, gezicht en kroon zichtbaar, stekels vrij. Bron: `bron/opnames/week160-zaad2-momentval02-run43768506622-f1000.png`.
+- **`voorstel-scherm-val-02-ladder-daan.png` (B) gekozen**: `maak_scherm_rijen_y.py <f1000> 60,620,0,160 1918 <uit> 36`. Ook `voorstel-scherm-val-02-zoom-daan.png` (C, 150,630,10,160, onder 40). Blinde kijker: A 5, B 7,5, C 6,5. Naast elkaar: `vergelijk-val-025-02-600.png`.
