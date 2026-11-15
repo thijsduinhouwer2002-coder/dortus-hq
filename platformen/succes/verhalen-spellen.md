@@ -1,8 +1,50 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: AI-vertalen en de AI-melding van Steam, plus kosten menselijke vertaling (opdracht Thijs 16 nov), Fenna 15 nov 23:35
+bezig: niets (laatste: vraag AI-vertalen en Steam, klaar 15 nov 2026 23:55; volgende run: een taakbalkspel dat het minder goed deed)
 
 Nieuwste bovenaan.
+
+---
+
+## Vraag van Thijs (16 nov): valt vertalen met AI onder de AI-melding van Steam, en wat kost een mens?
+
+Onderzocht 15 nov 2026 (klok van de run), run 2. Geen verhaal maar een vraag; antwoord kort bovenaan, onderbouwing eronder.
+
+### Kort antwoord
+1. **Ja. Vertalen met AI valt er letterlijk onder.** Valve noemt vertalen (localization) bij naam als inhoud die gemeld moet worden. Ook als een mens de AI-vertaling daarna nakijkt, is de tekst "met hulp van AI-tools gemaakt", dus melden (dat laatste is mijn lezing van de definitie, geen apart citaat van Valve).
+2. **Maar voor ons verandert het weinig.** Wij melden toch al AI: de spel- en winkeltekst schrijven Claudes. Het voorstel van Abel voor de melding (`platformen/abel/accounts/steam.md`) noemt al "text and code ... made with the help of AI tools". AI-vertalen voegt één woord toe aan een melding die er al staat; het maakt van een spel zonder melding geen spel met melding.
+3. **Een mens kost ongeveer €45 tot €70 per taal voor 500 woorden**, dus ±€190 tot €270 voor Vereenvoudigd Chinees, Japans, Koreaans en Duits samen, plus mogelijk een minimumbedrag per opdracht en extra voor elke latere tekstwijziging.
+
+### De regel van Valve (bron en citaat)
+- Bron: Steamworks-documentatie, pagina Content Survey, deel 3 "Generative Artificial Intelligence Content", met curl gelezen op 15 nov 2026: https://partner.steamgames.com/doc/gettingstarted/contentsurvey
+- Citaat (één zin): "This includes content such as artwork, sound, narrative, localization, etc." De zin ervoor zegt waar het om gaat: "the use of AI in creating content that ships with your game, and is consumed by players." GEZIEN.
+- Sinds wanneer: deze tekst staat er sinds ongeveer 17 jan 2026. GamingOnLinux meldde op die dag (via GameDiscoverCo) dat Valve het formulier zo had aangepast, met precies dit citaat: https://www.gamingonlinux.com/2026/01/valve-tweak-steam-ai-disclosure-form-for-developers-to-clarify-its-for-content-consumed-by-players DERDEN.
+- Wat er níet onder valt: hulpmiddelen die alleen het werk versnellen ("Efficiency gains through the use of these tools is not the focus of this section"). Volgens FinalBoss valt ook winkeltekst, capsule en trailer eronder (DERDEN, niet in de tekst van Valve zelf gezien).
+- **De demo heeft een eigen Content Survey.** Steamworks, pagina Demos: "Make sure your Content Survey accurately reflects the demo content." GEZIEN: https://partner.steamgames.com/doc/store/application/demos . Komen er talen in de demo, dan moet de melding van de demo dat ook zeggen.
+
+### Hoe gewoon is een AI-melding nu?
+- FinalBoss (nov 2026, eigen analyse van ±63.600 Steam-uitgaven sinds jan 2024): **49,9% van de spellen die in okt 2026 uitkwamen heeft een AI-melding**, tegen 26,4% in okt 2025. Bij spellen met een melding noemt 30% "tekst en vertalingen", 63% beelden, 26% winkelpagina. https://finalboss.io/steam-ai-disclosures-hit-49-9-what-buyers-should-check DERDEN (de methode is niet openbaar, dus voorzichtig).
+- Wat dit betekent: de melding is geen uitzondering meer, de helft van de nieuwe spellen heeft er een. Of hij de verkoop drukt is daarmee niet gezegd; het getal "tot 53% minder" uit de YouTube-video is nog steeds NIET NAGEKEKEN.
+- Eigen meting in de repo (verkenner, itch.io, kleine aantallen): tools met AI-melding haalden minder vaak 3+ beoordelingen (0,8% tegen 3,7%). Andere winkel, maar het wijst dezelfde kant op: een melding kost waarschijnlijk iets. GOK hoeveel.
+
+### Wat kost een menselijke vertaler?
+| Bron | Prijs per woord | 500 woorden | Label |
+|---|---|---|---|
+| Allcorrect (groot spelvertaalbureau), openbare prijslijst: https://allcorrectgames.com/localization-pricing/ | Duits en Japans €0,10 tot €0,14; Koreaans en Trad. Chinees €0,09 tot €0,14; Vereenvoudigd Chinees €0,09 tot €0,12 | €45 tot €70 per taal | DERDEN (gelezen 15 nov 2026) |
+| Gastartikel van een vertaalbureau op Game Developer (oud, datum niet te lezen): https://www.gamedeveloper.com/programming/how-much-does-game-localization-cost- | €0,09 tot €0,12 voor de grote talen, Chinees inbegrepen | €45 tot €60 | DERDEN |
+
+- Optelsom voor de vier talen uit het Rusty-voorstel (zh-Hans, ja, ko, de) bij 500 woorden: Chinees €45 tot €60, Japans €50 tot €70, Koreaans €45 tot €70, Duits €50 tot €70, **samen €190 tot €270**. Mijn rekensom met DERDEN-prijzen.
+- Kleine opdrachten: "The majority of translators and localization agencies charge a minimum fee" (Game Developer). Allcorrect heeft er ook een, maar zegt die maar zelden te rekenen. Bij 500 woorden kan dat minimum de prijs bepalen (GOK, hoe hoog staat er niet).
+- Herhalingen zijn bij Allcorrect gratis. Testen in het spel (LQA, kijken of de tekst past en klopt in beeld) is een aparte post die hier niet in zit.
+- Elke latere tekstwijziging is een nieuwe opdracht. Bij een spel dat nog verandert is dat de verborgen kostenpost.
+
+### Eerlijk: wat ik niet weet
+- Of Chinese, Japanse of Koreaanse spelers een slechte AI-vertaling afstraffen in reviews. Dat hoor je vaak, maar ik heb er nu geen bron voor. GOK.
+- Of 500 woorden klopt: dat getal komt van Thijs, niet uit het spel geteld.
+- Het voorstel van Abel noemt "pixel art"; Het Hol is inmiddels 3D uit Blender-code. Of beelden die Claude met code maakt "met hulp van AI" zijn, beslist niet ik: dat is de tekst die de hoofdchat met Thijs invult. Eerlijk lijkt me: noemen.
+
+### Voorstel voor Dortus
+**De hoofdchat besluit: demo van 18 dec met AI-vertaling (Claude) in Vereenvoudigd Chinees, Japans, Koreaans en Duits, en de AI-melding van spel én demo noemt "text and translations".** Waarom: de melding staat er toch al, dus het kost geen extra label en geen geld, en de grootste voorganger haalde 46% van zijn kopers uit Azië (zie Rusty hieronder). Tweede stap, vóór de lancering van het volle spel en alleen als de demo in Azië verlanglijstjes geeft (te zien in Steamworks per land): een mens kijkt de Chinese en Japanse tekst na, ±€100 tot €130 voor die twee (geld, dus via de lijst van Thijs). Wie: Olaf zet de tabel klaar (al uitgezet), de hoofdchat beslist de talen en past de meldingstekst bij Abel aan. Niet doen: menselijke vertaling nu, terwijl de tekst tot 18 dec nog verandert.
 
 ---
 
