@@ -481,4 +481,5 @@ def stap():
     return None
 
 
-bpy.app.timers.register(stap, first_interval=3.0)
+if __name__ == "__main__":   # film_pro.py leent de functies hierboven zonder deze opnamereeks te starten
+    bpy.app.timers.register(stap, first_interval=3.0)

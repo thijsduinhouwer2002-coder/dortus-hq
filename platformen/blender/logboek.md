@@ -537,3 +537,10 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 15 nov 2026, 16:11 tot ±16:55 UTC, Bram
 - Click Joints: 137 downloads (16:21, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding in de berichten. Release Pro 1.0.1 staat klaar; uploaden doet de hoofdchat in de browser van Thijs. Niets te doen; Steam-werk zie `platformen/steam/logboek.md`.
+
+## 15 nov 2026, 17:10 tot ±17:50 UTC, Bram
+- Click Joints: 138 downloads (17:10, meet_downloads.sh), 0 open issues en 0 open PR in click-joints, geen melding van moderatoren.
+- Demofilm Pro (opdracht hoofdchat 17:55): `e2e/film_pro.py` neemt in de echte Blender 5.3.0 onder Xvfb het hele X-scherm op per filmbeeld (`import -window root`), met een generator in een timer zodat Blender tussen twee beelden tekent; `maak_film.sh` zet onderschriften, eindbeeld en GIF erbij (ffmpeg). Opname ±3 min voor 527 beelden. `scherm_pro.py` start zijn eigen reeks nu alleen als hoofdscript, zodat de film de functies kan lenen.
+- Drie rondes lokaal, elke keer GEZIEN met Read: (1) been te klein en de kogelscène kwam in de volle Blender-interface (tweede `screen_full_area` zet het volle scherm weer uit); (2) goed, maar de kogel op afstand 40 toonde het hoofd van de pop ervoor; (3) afstand 28, goed genoeg voor Daan.
+- Les: de pose-schuif mag in een film nooit boven `cj_bereik_graden` komen (115,0 tegen 114,96 is al voorbij de stop); afronden naar beneden.
+- Les: bij een nieuwe opname de hele voorkeurenmap weggooien, niet alleen de extensiemap; anders denkt Blender dat de add-on al aan staat en laadt hij hem niet.
