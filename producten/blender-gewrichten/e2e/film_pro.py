@@ -270,8 +270,9 @@ ROOD_PLEK = Vector((-3.0, 0, 2.0))              # beeldmidden iets links van de 
 KOGEL_AFSTAND = float(os.environ.get("FILM_KOGEL_AFSTAND", "60"))
 KOGEL_ZIJ, KOGEL_HOOGTE = 25.0, 15.0
 KOGEL_PLEK = Vector((6.0, 0, 0))
-MIDDEN_STAAND = Vector([float(x) for x in os.environ.get("FILM_MIDDEN", "-4,0,14").split(",")])
+MIDDEN_STAAND = None
 if STAAND:   # geen zijbalk rechts, dus niets naar links schuiven; het rood en de kogel iets dichterbij
+    MIDDEN_STAAND = Vector([float(x) for x in os.environ.get("FILM_MIDDEN", "-4,0,14").split(",")])
     ROOD_PLEK = Vector((5.0, 0, 3.0))   # gradenboog loopt naar rechts: beeldmidden iets rechts van de knie
     ROOD_AFSTAND = float(os.environ.get("FILM_ROOD_AFSTAND", "46"))
     KOGEL_PLEK = Vector((0.0, 0, 0))
