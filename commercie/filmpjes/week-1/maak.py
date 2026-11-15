@@ -36,7 +36,7 @@ def segment(i,s,map_):
     if s['bron'].endswith('.mp4'):
         cw=s.get('cw',1152); cx=s.get('cx',(1920-cw)//2)
         inp=['-ss',str(s['start']),'-t',str(dur),'-i',s['bron']]
-        vf=f"crop={cw}:1080:{cx}:0,scale=1080:{mh}"
+        vf=s.get('vf') or f"crop={cw}:1080:{cx}:0,scale=1080:{mh}"
     else:
         inp=['-loop','1','-t',str(dur),'-framerate','30','-i',s['bron']]
         cx,cy,cw,ch=s['crop']; z=s.get('zoom',0.06)

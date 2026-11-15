@@ -1,4 +1,4 @@
-# Filmpjes week 1: Click Joints (concept, wacht op Daan)
+# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan)
 
 Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichten/chris.md`). Onderzoek vooraf: `commercie/filmpjes/formats.md`.
 
@@ -47,10 +47,27 @@ Ring gloeit (0,5 s), arm buigt (3,9 s), arm buigt verder met de ring (5,8 s). Va
 
 Elke bewering komt uit de listing of de previews: "Drag the bend. Red means too far", "Good fit, measured in mm", "One STL or 3MF per part, in mm", "Exploded view" (winkeltekst en previews 0.1.0, GEZIEN).
 
+### 4. `ebb-4-sea-rises.mp4` (14,3 s), Ebb, format 2: tekst boven, horloge in het midden
+Extra gemaakt in run 46 (extra run van Thijs, 15 nov 23:00), zodat de dagelijkse reeks wisselend Click Joints en Ebb kan beginnen. Bron: `commercie/ebb/ebb-film.mp4`, schermen uit de simulatorrun 43327097299 van de ingediende app (fenix 8 47 mm), zie `commercie/ebb/lancering.md` punt 3. Opgeschaald van 600 naar 1080 pixels.
+| tijd | beeld | tekst in beeld |
+|---|---|---|
+| 0 tot 2,6 s | menu met de krab | I made a breathing app for **Garmin** watches |
+| 2,6 tot 7,2 s | in- en uitademen, water op en neer | The sea **rises** and **falls** with your breath |
+| 7,2 tot 9,5 s | inhouden, onder water met de krab | Hold, and you go **under water** |
+| 9,5 tot 12 s | "new friend: Starfish", sea log "8 of 24" | New sea creatures join your **sea log** |
+| 12 tot 14,3 s | sea log | Ebb, on the Connect IQ Store, link in bio |
+Onderaan de hele tijd klein: "Screens from the Garmin simulator" (eerlijk: geen opname van een echt horloge, en het water is een overvloeier tussen twee schermen).
+
+**Onderschrift:** `I made a breathing app for Garmin watches: the sea rises and falls with your breath, and when you hold, you go under water. Sea creatures join your sea log as you keep coming back. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #breathwork #garminwatch`
+
+Bewust niet: geen gezondheidsclaim (geen "calmer", "better sleep", "lung capacity"), geen freediving, geen "every session a new animal" (dieren komen door sessies en weken op rij). Alle beweringen staan in de winkeltekst (stijgen en zakken, onder water bij inhouden, 24 dieren, $4,99 eenmalig zonder abonnement). Ebb Calm (gratis) noem ik niet: nog niet openbaar. Link in bio voor dit filmpje: de winkellink van Ebb uit `commercie/ebb/lancering.md`; één link in het profiel kan maar één product tonen, dus wissel hem mee of gebruik later één pagina op dortus.com met beide.
+Nagekeken door een controleur (run 46): filmpje en workflow ja; tekst eerst nee ("as you keep going" las alsof langer inhouden dieren oplevert, en de vaste zin over alleen op het droge ontbrak), beide verwerkt, plus de precieze AI-zin uit `lancering.md`.
+Voor Daan: de schermen hebben een witte achtergrond rond het horloge (zo uit de simulator); liever donker of bijgesneden tot het horloge?
+
 ## Wanneer plaatsen
-- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 1, dan 3. Eén per dag, alle drie de apps hetzelfde filmpje.
+- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 3, zodat Click Joints en Ebb wisselen. Eén per dag, alle drie de apps hetzelfde filmpje.
 - **Tijd:** rond **16:00 Nederlandse tijd** (15:00 UTC), op werkdagen. Waarom: de kijkers zitten vooral in Europa en de VS; om 16:00 NL is het 10:00 aan de oostkust en is Europa nog wakker (GOK, ik kon geen cijfers over Blender-kijkers per uur meten). Na 10 filmpjes vergelijken we de tijden met de echte views en passen we het aan.
-- **Link in bio:** zet in het profiel van TikTok, YouTube en Instagram de listing `https://extensions.blender.org/add-ons/click-joints/`. Niet dortus.com/click-joints/: die pagina zegt nog "On its way" zonder knop (GEZIEN 15 nov ±22:20 UTC met curl); de knop staat klaar op tak `claude/chris-click-joints-live` in repo dortus en gaat op main met jouw ja (punt van 14 nov op de lijst). Zonder link heeft "link in bio" geen zin.
+- **Link in bio:** zet in het profiel van TikTok, YouTube en Instagram de listing `https://extensions.blender.org/add-ons/click-joints/`. Niet dortus.com/click-joints/: die pagina zegt nog "On its way" zonder knop (GEZIEN 15 nov ±22:20 UTC met curl); de knop staat klaar op tak `claude/chris-click-joints-live` in repo dortus en gaat op main met jouw ja (punt van 14 nov op de lijst). Zonder link heeft "link in bio" geen zin. Op de dag van het Ebb-filmpje wordt de link de winkellink van Ebb: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 - **Geluid:** kies in de app een rustig, populair instrumentaal geluid; geen liedje met tekst dat de tekst in beeld overstemt.
 
 ## Vraag aan Daan (ontwerper)

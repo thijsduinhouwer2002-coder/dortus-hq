@@ -513,3 +513,10 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/filmpjes/formats.md`, `commercie/filmpjes/week-1.md`, bron in `commercie/filmpjes/week-1/`, release `filmpjes-week-1`, regel op lijst-thijs.
 **Controleur:** filmpjes eerst nee (twee teksten één beeld door elkaar bij elke wissel), opgelost met gte/lt; kan-punten verwerkt ("Place the joint", eindkaart eerder, 17 van 20 zonder gezicht). Rest ja.
 **Volgende run:** release nakijken, Daans oordeel verwerken, filmpje 4 (Ebb: schermen uit de simulator); curl Superhive; Calm openbaar?; dagmeting Ebb 16 nov.
+
+## 15 nov 2026, run 46 (extra, ±22:20 tot 22:45 UTC): filmpje 4 (Ebb)
+**Opdracht:** extra run van Thijs, "begin met stap 1". Stap 1 en de drie Click Joints-filmpjes waren al af in run 45 (commit d7b0edf), dus geen dubbel werk.
+**Beslissing:** alvast het eerste Ebb-filmpje maken, omdat de opdracht wisselend Click Joints en Ebb vraagt en Daan dan alle vier in één keer kan keuren. Bron: de bestaande Ebb-film uit simulatorschermen, met "Screens from the Garmin simulator" in beeld.
+**Gedaan:** `f4.json`, workflow bouwt nu elk f*.json, sectie 4 in `commercie/filmpjes/week-1.md`, lijst-thijs bijgewerkt.
+**Controleur:** filmpje en workflow ja; tekst eerst nee ("as you keep going" na "hold" suggereerde dieren door langer inhouden; zin "land only" ontbrak), verwerkt.
+**Volgende run:** Daans oordeel; release nakijken; curl Superhive; Calm openbaar?; dagmeting Ebb 16 nov.

@@ -1,0 +1,66 @@
+{
+ "uit": "ebb-4-sea-rises.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/ebb-film.mp4",
+   "start": 0,
+   "dur": 14.25,
+   "vf": "scale=1080:1080:flags=lanczos",
+   "h": 1080,
+   "y": 500
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.6,
+   "regels": [
+    "I made a breathing app",
+    "for *Garmin* watches"
+   ]
+  },
+  {
+   "van": 2.6,
+   "tot": 7.2,
+   "regels": [
+    "The sea *rises* and *falls*",
+    "with your breath"
+   ]
+  },
+  {
+   "van": 7.2,
+   "tot": 9.5,
+   "regels": [
+    "Hold, and you go",
+    "*under water*"
+   ]
+  },
+  {
+   "van": 9.5,
+   "tot": 12.0,
+   "regels": [
+    "New sea creatures",
+    "join your *sea log*"
+   ]
+  },
+  {
+   "van": 12.0,
+   "tot": 14.25,
+   "regels": [
+    "Ebb, on the Connect IQ Store",
+    "link in bio"
+   ],
+   "grootte": 66
+  },
+  {
+   "van": 0,
+   "tot": 14.25,
+   "regels": [
+    "Screens from the Garmin simulator"
+   ],
+   "grootte": 38,
+   "y": 1610,
+   "licht": true
+  }
+ ]
+}

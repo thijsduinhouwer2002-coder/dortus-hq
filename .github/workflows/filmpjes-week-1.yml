@@ -1,6 +1,6 @@
-name: Filmpjes week 1 (Click Joints)
+name: Filmpjes week 1
 
-# Chris, 15 nov 2026: bouwt de eerste drie staande filmpjes voor TikTok, YouTube Shorts en Reels
+# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (drie Click Joints, één Ebb) voor TikTok, YouTube Shorts en Reels
 # uit echte beelden van Click Joints (film v2 van Bram en de twee previews van de gratis versie)
 # en zet ze in de release filmpjes-week-1. Zo staan er geen grote videobestanden in de repo.
 # Bron en uitleg: commercie/filmpjes/week-1/ en commercie/filmpjes/week-1.md.
@@ -8,7 +8,7 @@ name: Filmpjes week 1 (Click Joints)
 on:
   push:
     branches: [main]
-    paths: ["commercie/filmpjes/week-1/**", ".github/workflows/filmpjes-week-1.yml"]
+    paths: ["commercie/filmpjes/week-1/**", "commercie/filmpjes/week-1.md", "commercie/ebb/ebb-film.mp4", ".github/workflows/filmpjes-week-1.yml"]
   workflow_dispatch:
 
 permissions:
@@ -35,13 +35,14 @@ jobs:
           curl -sSfL -o bron/v2.mp4 https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/film-filmisch/claude-blender-film-2026-11-08/click-joints-filmisch-v2.mp4
           curl -sSfL -o bron/3-preview-buigen.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/3-preview-buigen.png
           curl -sSfL -o bron/4-preview-paneel.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/4-preview-paneel.png
+          cp "$GITHUB_WORKSPACE/commercie/ebb/ebb-film.mp4" bron/ebb-film.mp4
           sha256sum -c bronnen.sha256
       - name: Filmpjes bouwen en controleren
         working-directory: ${{ env.MAP }}
         run: |
-          for n in 1 2 3; do python3 maak.py f$n.json werk$n; done
+          for j in f*.json; do python3 maak.py "$j" "werk-${j%.json}"; done
           mkdir -p /tmp/uit
-          for f in click-joints-*.mp4; do
+          for f in *.mp4; do
             ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -show_entries format=duration -of default=nw=1 "$f" | tee /tmp/p.txt
             grep -qx 'codec_name=h264' /tmp/p.txt && grep -qx 'width=1080' /tmp/p.txt && grep -qx 'height=1920' /tmp/p.txt || { echo "FOUT: $f is geen 1080x1920 H.264"; exit 1; }
             d=$(grep '^duration=' /tmp/p.txt | cut -d= -f2)
