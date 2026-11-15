@@ -1165,3 +1165,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Daans punt 2 (18:05, geen stilstaand moment in de weekopnames) nagezocht in de code: het moment wacht op een hap met hoed of een val, en die kwam niet in 90 s. Plan en vraag aan Olaf in `taken.md`.
 - Later in dezelfde run: ja Daan 18:50 op val-midden, hoofdletter en stof-licht; alle drie op main (f001b11), stof zonder de `.png.import`-bestanden. CPU-mediaan op main. `week` 160 `moment=val` opnieuw (run 43747989453). Kan-punten van Daan (stof als korrels, val 1 spelpixel links) op tak `claude/steam-hol-kan-stof-val` (bfd6625).
 - Les: na wisselen van tak eerst `--import` draaien, anders laden de 3D-bladen niet (lege film, toets_held faalt op `get_width`), en daarna `git checkout -- producten/steam-hol/godot/kunst` zodat de omgeschreven `.png.import` nooit meegaan.
+
+## 15 nov 2026 19:40 UTC, Olaf
+- Speeltest 21 nov: eigen artifact met alleen het volle spel en een uitleg, 14 dagen. Waarom: Thijs wil een gewone zip zonder Steam; een artifact is niet openbaar (alleen met GitHub-account), dus er wordt niets gepubliceerd. Controleur akkoord met punten (putje weghalen gaat via Remove op het kaartje, uitleg verbeterd).
+- Winkelopname: effen donkere achtergrond 2c3440 (wens Daan 18:50). Waarom: de blauwe bloem trok het oog weg van het hol (blinde kijker 6 tegen 8).
+- Bram mag `moment=` in `held.gd` bouwen; trailer-opname na wo 18 nov.

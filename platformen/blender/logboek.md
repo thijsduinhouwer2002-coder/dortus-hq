@@ -551,3 +551,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Drie proefrondes met `FILM_SNEL=8` (alleen elk 8e beeld, ±3,5 min), elke keer GEZIEN met Read: afstand 58 veel te dichtbij (been liep uit beeld), 82 nog te groot, 100 geeft ±60%. Daarna de volle opname (491 beelden) en de film, 11 beelden GEZIEN.
 - Les: `view_location` +x schuift het been naar links in beeld bij deze kijkrichting; de zijbalk rechts vraagt dus een positieve x.
 - Les: xdotool zit niet standaard in een nieuwe container; eerst `apt-get update`.
+
+## 15 nov 2026, 19:10 tot ±19:55 UTC, Bram
+- Click Joints: 140 downloads (19:19, meet_downloads.sh). Issues van click-joints niet kunnen lezen (repo niet gekoppeld in deze run, de webpagina geeft 403 via de proxy); geen melding van moderatoren in de berichten.
+- Besluit Thijs 19:52 verwerkt: `click-joints-pro-uitgave.yml` zet de betaalde zip als Actions-artefact `click-joints-pro-zip-<versie>` (3 dagen), de release krijgt alleen plaatjes en SHA256SUMS; de workflow faalt als er toch een zip in de releasemap komt. De bestaande zip in `click-joints-pro-v1.0.1` laat ik voor de hoofdchat (weg zodra Pro live is).
+- Demofilm Pro v2 (ja Daan 18:55) in release `click-joints-pro-film-v1` via de nieuwe workflow `click-joints-pro-film-release.yml` (run 43751122939 groen, vier bestanden nagekeken met de API). Op Superhive pas na de keuring toevoegen: tijdens Pending kan er niets aangepast worden.
+- Daans drie kan-punten op de film (tekst bovenin, rand om poster 3 in het eindbeeld, rood iets feller of verder) bewaar ik voor een volgende versie; winkelbeelden van wo 18 nov gaan voor.

@@ -127,3 +127,6 @@ Alleen aanvullen, nooit weghalen.
 
 ## Run 11, 15 nov 2026 ±19:20 NL
 - Niets nieuws: geen nieuw bericht na KLAAR VOOR THIJS, geen nieuwe keuring of besluit voor mij. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat nog op 43bbd8c. Afgesloten na 5 minuten.
+
+## Run 12, 15 nov 2026 ±20:20 NL
+- Niets nieuws voor mij: geen nieuw bericht na KLAAR VOOR THIJS, geen keuring of besluit voor mij. Click Joints Pro is ingediend (19:36) maar nog Pending, dus geen kaart. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat op 43bbd8c en bevat de huidige main van dortus (geen botsing). Afgesloten na 5 minuten.
