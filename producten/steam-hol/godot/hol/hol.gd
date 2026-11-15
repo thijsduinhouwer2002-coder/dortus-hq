@@ -274,8 +274,7 @@ const SCHOK_S := 0.1
 const STOF_KLEUR := Color("#ecc3a4")   # nog een trede lichter (kan Daan 15 nov 18:50: dan lezen ze als korrels)
 # per stofje: [start x, start y, verschuiving x, verschuiving y over 0,35 s, maat]; x ten opzichte van het midden van de put,
 # y ten opzichte van de bovenste vloerrij
-# 7 stofjes (was 5, kan Daan 15 nov 17:50): links en rechts een extra stofje dat verder naar buiten waait
-# 5 stofjes (kan Daan 15 nov 19:55: 4 tot 5 in plaats van 7): de twee die het schuinst naar buiten waaiden eruit
+# 5 stofjes (was 7; kan Daan 15 nov 19:55: 4 tot 5): de twee die het schuinst naar buiten waaiden eruit
 const STOF := [[-4, 0, -5, -3, 1], [-2, -1, -3, -6, 1], [0, -1, 0, -5, 1], [2, -1, 3, -6, 1], [3, 0, 5, -3, 1]]   # alle stofjes 1 spelpixel (kan Daan 18:50)
 var val_stof := {}             # kolom -> tijd sinds de klap
 func stof_stofjes(kol: int) -> Array:
