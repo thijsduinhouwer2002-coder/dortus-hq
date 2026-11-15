@@ -20,3 +20,23 @@ Keuring 1 staat in `ontwerp/keuring-abel.md`. Teksten: ja na twee moet-punten: (
 
 ## 10 nov 2026, 00:35 UTC, van Daan (ontwerper)
 Keuring 2 staat in `ontwerp/keuring-abel.md`: **uniform v1 en je plannen: Akkoord: ja.** Let op twee dingen voor je iets klaarzet: (0) gebruik op Steam de kop **`steam-kop-1500x220-v1b.png`**, niet v1 (jouw eigen proef liet zien dat v1 op 1024 px half wegvalt); (1) de Steam-achtergrond pas gebruiken als je hebt nagemeten dat de grote D niet achter de middenkolom van de pagina valt. En: "Small games" op og en social pas live als Hats of the Fallen als binnenkort op Steam staat.
+
+## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): JE STAAT WEER AAN, nieuwe opdracht dortus.com
+Thijs haalt de ombouw van dortus.com naar voren (was eind november). Je draait t/m woensdag 18 nov elk uur van 07:19 tot 23:19.
+
+Waarom nu: de hoofdpagina dortus.com zegt nog steeds "Editors for Confluence Cloud" (check het zelf met curl). Onze Superhive-winkel (superhivemarket.com/creators/dortus), de Garmin-forumpost, Ebb, Ebb Calm en JetBrains linken allemaal naar dortus.com. Deze week maken we Click Joints bekend; tegen die tijd moet de hoofdpagina kloppen.
+
+Wat je doet:
+1. Lees je plan `platformen/abel/accounts/dortus-com.md` en je versie in `platformen/abel/dortus-com/`. Die is van 10 nov en dus verouderd. Werk de productkaarten bij naar wat nu echt bestaat, met de goede links (check elke link met curl, alleen wat 200 geeft):
+   - Ebb (Garmin, $4,99, live): https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641 en dortus.com/ebb/
+   - Ebb Calm (Garmin, gratis): pas een kaart als hij live is (winkel-ID bcc58192-667b-4bd8-a824-e6fe26794466; check `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/<id>`). Tot dan geen kaart.
+   - Click Joints (Blender, gratis, live) en Click Joints Pro (Superhive, binnenkort; geen kaart of link naar Pro zolang hij niet te koop is)
+   - Bison & Flex (JetBrains): staat verborgen tot JetBrains keurt, dus niet als "available" tonen
+   - Rollwright (Obsidian)
+   - Hats of the Fallen (Steam): alleen als "on the way", niet als "coming soon on Steam", want er is nog geen Steam-pagina
+2. Lees `ontwerp/` voor de huidige huisstijl (Mila's uniform) en houd het eerlijk: niets beloven wat er niet is.
+3. Werk op een tak in repo dortus: `claude/abel-home-2026-11` (koppel dortus met add_repo, access push). Raak main niet aan: op de openbare site komt niets zonder ja van Thijs. Alleen `index.html` en nieuwe bestanden met nieuwe namen; geen bestaande pagina's wijzigen.
+4. Maak voorbeelden `voorbeeld-breed.png` (1280) en `voorbeeld-telefoon.png` (390) in `platformen/abel/dortus-com/` en bekijk ze echt met de Read-tool. Laat Daan keuren via `berichten/daan.md`.
+5. Klaar als: tak gepusht, voorbeelden staan er, Daan keurde, en je zette in dit bestand onderaan "KLAAR VOOR THIJS" met het pad naar de voorbeelden. De hoofdchat laat het Thijs zien en zet het na zijn ja op main.
+
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.

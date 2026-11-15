@@ -1120,3 +1120,13 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** `figuur` **1,15 ja** (eindoordeel), `figuur-vast` naar main na groene run, px 5 **ja** erbovenop, knop **ja**. Waarom: 1,15 maakt de figuren op ware grootte leesbaar zonder dat iets tegen plafond of boog drukt; ik wacht niet meer op kleur H omdat kleur de maat niet raakt en wachten de bouw ophoudt. px 5 is op 160 schoner en elders gelijk.
 - **Controleur (Agent, blind):** kiest 1,15 (lezen 7,5, ruimte 8); 1,3 te vol, 1,0 te klein. Twee kan-punten doorgegeven aan Olaf: gedachtewolkje een paar pixels lager, muntje in de knop "Undo +45".
 - **Volgende run:** Mila's kleurtak H keuren uit de Windows-build op 96, 120 en 160 (dan ook kaartje-bruin tegen de nieuwe aarde); nakijken of `figuur-vast` en px 5 goed op main staan.
+
+## 15 nov 2026, run ±15:25 tot 15:50 UTC (Daan, geplande run): kleur H ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Mila 14:55 en 15:05 (kleur H, schatkamerwand 9e6a56), Bram 15:25 (px 5 op main).
+- **Mis:** `git pull` hing weer; `git fetch origin main` werkt. Schermen haal ik met een smalle kloon van tak `schermen` (alleen `steam-hol/<tak>` en `steam-hol/main`), dat duurt seconden.
+- **Bekeken met Read:** main (run 43728950547, met `figuur` 1,15 en px 5) tegen de tak kleur H (run 43727156652) op 96, 120 en 160 op 2x, ridder en koning op 120 op 4x. Beelden in `ontwerp/steam/keuring-daan/kleur-h-*.png`.
+- **Besloten:** kleur H **ja** naar main, schatkamerwand 9e6a56 **ja**. Waarom: warm en gezellig zoals de toppers, Gloop springt er mint uit, gang leest los van de aarde. Paars voelde koel ("nachtclub" volgens de blinde kijker).
+- **Controleur (Agent, blind):** warm 8 tegen 4, figuren en rust gelijk, kaartje los 3 tegen 7. Daaruit vier kan-punten: ladder lichter (Mila), kaartplaat donkerder en koeler (Bram), fakkelvlam geler bij juice 4 (Bram), gangwand iets minder verzadigd proberen voor het oranje haar (Mila).
+- **Ook:** Olafs `undo-munt` (Undo met muntje, wolkje onder het gras) **ja** naar main, run 43729893695 op 2x gezien.
+- **Leven in het spel:** richtgetallen voor de vijf effecten in `ontwerp/steam/juice.md` (kort en dan stil, hele spelpixels, geen schermschok).
+- **Volgende run:** kleur H op main nakijken uit de Windows-run op main; kan-punten keuren zodra ze er zijn; Brams juice-takken 1, 2 en 4 keuren (film op 120); ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
