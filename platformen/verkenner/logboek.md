@@ -1222,3 +1222,11 @@ Nieuwste blok onderaan.
 - Voor Hans en Bram: advies Click Joints Pro keuring op $12 laten lopen en na goedkeuring naar $15; naast Cleave neerzetten ("Works on parts from any splitter, including Cleave", pas na een toets). Volgende add-on: gewichten en skinning, als Hans dat wil. Niets op de lijst van Thijs.
 - Les: superhivemarket.com is vanaf hier wel bereikbaar met curl (superhive.com niet, proxy). De productpagina zet het verkoopblok in `product-info-label` Sales / `product-info-data`. Prijsklassen altijd met ondergrens inclusief en bovengrens exclusief.
 - Volgende run: kandidaten.md heeft geen open platform; eerst nieuwe namen zoeken of herhaalmetingen in taken.md.
+
+## 15 nov 2026, run 23:31 (Amsterdam)
+- Geen open bericht, geen verlopen herhaalmeting (Garmin-emmers eind nov). Kandidaten.md had geen open platform. Lange lijst namen nagelopen tegen alle onderzocht-bestanden (ook Noor, Lotte, Kees): bijna alles is al bekeken. Nieuw en leesbaar: DriverCentral (drivers voor huisautomatisering). Embroiderydesigns.com en Udemy geven een Cloudflare-uitdaging, niet omzeild.
+- DriverCentral om 23:41 in onderzoek gezet en gepusht. Alle categoriepagina's zelf gelezen (Control4 ±423 producten, de rest samen 65), onderzoeker voor bronnen en productpagina's.
+- Uitkomst: nee, cijfer 2. Echte prijzen (mediaan $110), maar alleen dealers kopen en testen vraagt een dealeraccount; verkopen niet openbaar, reviews schaars. Zie voorstellen/drivercentral.md.
+- Voor Hans: één nee, niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: DriverCentral draait op CS-Cart; lijsten via /platforms/<platform>/page-N/?sort_by=timestamp&sort_order=desc, 16 producten per pagina. Revisiedatums staan meestal niet in de html.
+- Volgende run: weer nieuwe namen zoeken. De gewone en de meeste vakwinkels zijn op; overweeg in plaats van nog een kleine winkel de herhaalmetingen die eind nov en begin dec vallen voor te bereiden.
