@@ -255,7 +255,7 @@ def verloop():
     bpy.ops.wm.quit_blender()
 
 
-VOORBIJ = 7.0                                   # Daan M3: 6 tot 8° voorbij de stop, rode vlakken groot
+VOORBIJ = 9.5                                   # Daan M3: 6 tot 8° voorbij de stop; v3 (Daan kan 3): 2 tot 3° verder, rood groter
 ROOD_AFSTAND = float(os.environ.get("FILM_ROOD_AFSTAND", "40"))
 ROOD_PLEK = Vector((-3.0, 0, 2.0))              # beeldmidden iets links van de knie (zijbalk rechts)
 KOGEL_AFSTAND = float(os.environ.get("FILM_KOGEL_AFSTAND", "60"))

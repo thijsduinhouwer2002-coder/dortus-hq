@@ -30,9 +30,10 @@ ffmpeg -y -loglevel error -framerate "$fps" -i "$IN/beelden/b%05d.png" -filter_c
 [a][z]overlay=x=840:y=210:enable='between(t,$tH,$tB)',$F,format=yuv420p" \
   -c:v libx264 -preset veryfast -crf 18 -r "$fps" "$UIT/deel1.mp4"
 # Eindbeeld 3 s (Daan kan): titel links, het gebogen been van poster 3 rechts; geen prijs
+# v3 (Daan kan 2, 15 nov 18:55): de rand van het postervak loopt in 60 px uit, zodat er geen lichter vak staat
 POSTER="$(dirname "$0")/../../../ontwerp/click-joints/pro/poster-3.png"
 ffmpeg -y -loglevel error -f lavfi -i "color=c=0x23262D:s=1920x1080:r=$fps:d=3" -loop 1 -t 3 -i "$POSTER" -filter_complex \
-"[1:v]crop=1000:760:830:120,scale=900:-1:flags=lanczos[p];[0:v][p]overlay=x=930:y=(H-h)/2,\
+"[1:v]crop=1000:760:830:120,scale=900:-1:flags=lanczos,format=rgba,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='255*min(1,min(min(X,W-1-X),min(Y,H-1-Y))/60)'[p];[0:v][p]overlay=x=930:y=(H-h)/2,\
 drawtext=fontfile='$VET':text='Click Joints Pro':fontsize=96:fontcolor=0xF1F3F7:x=110:y=h/2-130,\
 drawtext=fontfile='$GEW':text='Print-ready joints for Blender':fontsize=44:fontcolor=0xC9CDD8:x=110:y=h/2+10,\
 drawtext=fontfile='$VET':text='on Superhive':fontsize=52:fontcolor=0x3BE6B0:x=110:y=h/2+100,format=yuv420p" \
