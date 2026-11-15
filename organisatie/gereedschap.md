@@ -10,6 +10,23 @@ Thijs: "tools zijn echt gespecialiseerd in 1 ding, dus daar kunnen we veel meer 
 5. Netwerk: in de werkomgeving werken alleen PyPI, npm en GitHub; in GitHub Actions is het hele internet open. Zware of netwerkdingen draaien in Actions.
 6. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 
+## Kaart: welk programma is waar gekoppeld (15 nov 2026, hoofdchat)
+Twee plekken. **In de cloud** (GitHub Actions en de werkomgeving van de agents): draait altijd, ook als de pc van Thijs uit staat. **Op de pc van Thijs** (lokale koppeling via de Claude-app): werkt alleen als zijn pc aan staat en het programma open is.
+
+| Programma | In de cloud | Gebruikt voor | Bewijs |
+|---|---|---|---|
+| Blender (echt, 4.2 tot 5.3, met scherm via xvfb) | ja | Click Joints testen, winkelplaatjes, demofilm Pro | workflows `blender-gewrichten-e2e`, `click-joints-pro-film` (v2 groen 15 nov) |
+| Blender als Python-pakket (bpy) | ja | 3D-figuren en sprites Hats of the Fallen | `ontwerp/steam/proef-3d/` |
+| Obsidian (echt, via ObsidianLauncher) | ja | Rollwright testen met schermafbeeldingen | workflow `rollwright-e2e` |
+| Godot 4.3 (Windows-runner) | ja | het spel bouwen, schermen en winkelbeelden | workflows `steam-hol*` |
+| Connect IQ SDK en simulator | ja | Ebb en Ebb Calm | workflow `garmin-proef` |
+| IntelliJ/CLion | ja | Bison & Flex testen en film | workflows `jetbrains-bison-flex-*` |
+| ffmpeg | ja | films en GIF's | `click-joints-pro-film` |
+| sfxr-geluiden | ja | geluiden in het spel | `producten/steam-hol/godot/geluid/` |
+| Blender MCP / Obsidian MCP op de pc van Thijs | nee | live meekijken terwijl Claude in jouw Blender werkt | niet ingesteld; vraagt ±10 min van Thijs |
+
+In de klikbare connector-lijst van Claude staan geen koppelingen voor Blender, Obsidian of Godot (gezocht 15 nov). Wat wel bestaat en later kan helpen: vidIQ (YouTube-onderzoek), Metricool (berichten plannen), TinyFish (websites zoals Reddit lezen). Allemaal met een account van Thijs, nu niet nodig.
+
 ## In gebruik (bewezen)
 | Tool | Waarvoor | Hoe | Bewijs |
 |---|---|---|---|
