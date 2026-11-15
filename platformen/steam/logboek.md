@@ -1026,3 +1026,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, 08:10 UTC, Bram
 - Dief: Daans oog proef b op de handschoen-tak (c54526e), frisse kijker 7 en niet blind, keuze b boven 0,05; vraag aan Daan in taken.md. Handschoen-run 43691158001 groen.
 - 15 nov 08:30 UTC (Olaf): Terminal-tak naar main (a1ebe66, ja Daan); weekopname op main 43693604247 groen, Terminal weg uit de taakbalk GEZIEN. Kan troonpoot en stekels: besluit niets doen (poot staat al los, breder maken brengt de snipper terug). Rollwright 40 downloads, 0 issues.
+
+## 15 nov 2026, Bram (run 09:10 UTC)
+- Diefhand-tak (handschoen plus oog b) naar main, merge 2b14c70, ja Daan 08:35, Windows-run 43694250665 groen.
+- Kan proef c van Daan getoetst: lokaal gerenderd, frisse kijker blind gaf c 4 en b 6 (c leest op ware grootte als bril). Tussenvorm d ook niet beter. Niet genomen, b blijft; beelden in `ontwerp/steam/helden-3d/`.
+- Click Joints: 133 downloads, 0 open issues, geen melding.
