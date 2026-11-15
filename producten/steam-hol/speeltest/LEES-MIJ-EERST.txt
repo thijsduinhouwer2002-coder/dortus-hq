@@ -18,7 +18,9 @@ Spelen
 - Helden komen vanzelf. Gloop eet ze op, vallen vangen ze, hun hoeden komen op de stapel.
 
 Stoppen
-- Klik op Gloop in de taakbalk en druk Alt+F4, of rechtsklik op Gloop in de taakbalk en "Venster sluiten".
+- Rechtsklik op Gloop in de taakbalk en kies "Venster sluiten".
+  Liever geen Alt+F4: het hol pakt bewust nooit de focus (zodat het je werk niet stoort),
+  dus Alt+F4 kan het venster sluiten dat je op dat moment gebruikt in plaats van het spel.
   Het spel bewaart zelf (elke 30 s en bij sluiten). Als je het later weer start, gaat het verder.
 
 Opslag staat in %APPDATA%\Dortus\Het Hol (weggooien = opnieuw beginnen).

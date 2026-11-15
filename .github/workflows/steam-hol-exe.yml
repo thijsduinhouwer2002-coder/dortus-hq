@@ -121,6 +121,50 @@ jobs:
           $samen | ForEach-Object { Write-Output $_ }
           $samen | Set-Content "$uit/uitslag.txt"
           if ($fout -gt 0) { exit 1 }
+      # Olaf 15 nov 23:40 (speeltest za 21 nov): sluiten zoals Thijs het doet. Het venster heeft no_focus, dus Alt+F4 na een
+      # klik op de taakbalk kan het verkeerde venster sluiten. Hier: (a) wie is voorgrond na SwitchToThisWindow (zoals een
+      # taakbalkklik), (b) WM_SYSCOMMAND SC_CLOSE (wat "Venster sluiten" in de taakbalk stuurt): stopt het spel en bewaart het?
+      - name: Sluiten via de taakbalk (speeltest)
+        if: success()
+        shell: pwsh
+        run: |
+          Add-Type @"
+          using System; using System.Runtime.InteropServices; using System.Text;
+          public class Sl {
+            [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+            [DllImport("user32.dll")] public static extern void SwitchToThisWindow(IntPtr h, bool alt);
+            [DllImport("user32.dll")] public static extern IntPtr PostMessage(IntPtr h, uint m, IntPtr w, IntPtr l);
+            [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h, out uint pid);
+          }
+          "@
+          function Voor() { $h = [Sl]::GetForegroundWindow(); $q = 0; $null = [Sl]::GetWindowThreadProcessId($h, [ref]$q); (Get-Process -Id $q -ErrorAction SilentlyContinue).ProcessName }
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/exe").Path
+          $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          $exe = (Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path
+          $n = Start-Process notepad.exe -PassThru
+          Start-Sleep 2
+          $p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 log=$uit/sluiten.log" -PassThru
+          $h = [IntPtr]::Zero
+          for ($i = 0; $i -lt 40 -and $h -eq [IntPtr]::Zero; $i++) { Start-Sleep 0.5; $p.Refresh(); $h = $p.MainWindowHandle }
+          Start-Sleep 6
+          $r = @()
+          $r += "voorgrond voor de taakbalkklik: $(Voor)"
+          [Sl]::SwitchToThisWindow($h, $true); Start-Sleep 1
+          $r += "voorgrond na SwitchToThisWindow op het spel: $(Voor) (is dit niet HetHol, dan sluit Alt+F4 het verkeerde venster)"
+          $t0 = if (Test-Path $save) { (Get-Item $save).LastWriteTimeUtc } else { [datetime]::MinValue }
+          $null = [Sl]::PostMessage($h, 0x0112, [IntPtr]0xF060, [IntPtr]::Zero)
+          $weg = $p.WaitForExit(15000)
+          $r += "SC_CLOSE (Venster sluiten in de taakbalk): spel gestopt binnen 15 s: $weg"
+          $t1 = if (Test-Path $save) { (Get-Item $save).LastWriteTimeUtc } else { [datetime]::MinValue }
+          $r += "save bijgewerkt bij sluiten: $($t1 -gt $t0)"
+          $r += "Kladblok leeft nog: $(-not $n.HasExited)"
+          $fout = 0
+          if (-not $weg) { $fout++; Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
+          if ($n.HasExited) { $fout++ }
+          $r += "sluiten: $fout FOUT"
+          $r | ForEach-Object { Write-Output $_ }
+          $r | Set-Content "$uit/sluiten.txt"
+          if ($fout -gt 0) { exit 1 }
       - name: De .exe's bewaren (artifact, 7 dagen)
         if: always()
         uses: actions/upload-artifact@v4
