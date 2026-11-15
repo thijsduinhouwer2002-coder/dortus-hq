@@ -4,6 +4,8 @@ Draai:  python3 render.py [naam ...]      (zonder naam: alle sprites uit sprites
 Omgeving:
   BPY_PYTHON   python met het pakket bpy (standaard: python3), bv. ~/bpyenv/bin/python
   HOL_SNEL=1   proefstand: kwart van de samples (sneller, niet voor het spel)
+  HOL_ALLES=1  alles opnieuw renderen, ook wat niet veranderde (zonder namen en zonder HOL_ALLES slaat de
+               pijplijn een sprite over als zijn bron gelijk is aan de vorige render, zie bron_hash)
 
 Per sprite:
  1. het model draait in Blender (bpy) met HOL_FRAMES (rust, plat, ...) en HOL_RUIMTE (ruimer kader);
@@ -16,7 +18,7 @@ Per sprite:
     staat in de cel), top (bovenste rij met inhoud per beeld, in spelpixels), frames (namen in volgorde).
 Ook een vergroting naast ware grootte in pijplijn/uit/ (niet in git) om naar te kijken.
 """
-import json, os, shutil, subprocess, sys, tempfile, time
+import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time
 from PIL import Image, ImageChops, ImageFilter
 
 HIER = os.path.dirname(os.path.abspath(__file__))
@@ -462,20 +464,75 @@ def render_stukken(naam, s, bpy_python, snel):
             "bytes": os.path.getsize(os.path.join(DOEL, f"{naam}.png"))}
 
 
+def _modellen_van(bestand, gezien):
+    """Alle modelbestanden waar dit model van afhangt: zichzelf, wat het importeert (`import gedeeld as g`,
+    ook binnen een functie zoals `import royal` in gloop.py) en elk ander model dat het in de code bij naam
+    noemt ("gloop.py", dat hol.py inleest en uitvoert). Uitleg en commentaar tellen niet mee. Alleen
+    bestanden die echt in modellen/ staan tellen."""
+    import ast
+    if bestand in gezien or not os.path.exists(os.path.join(MODELLEN, bestand)):
+        return gezien
+    gezien.add(bestand)
+    boom = ast.parse(open(os.path.join(MODELLEN, bestand), encoding="utf-8").read())
+    uitleg = {id(k.value) for k in ast.walk(boom) if isinstance(k, ast.Expr) and isinstance(k.value, ast.Constant)}
+    namen = set()
+    for k in ast.walk(boom):
+        if isinstance(k, ast.Import):
+            namen |= {a.name.split(".")[0] for a in k.names}
+        elif isinstance(k, ast.ImportFrom) and k.module:
+            namen.add(k.module.split(".")[0])
+        elif isinstance(k, ast.Constant) and isinstance(k.value, str) and id(k) not in uitleg:
+            namen |= set(re.findall(r"(\w+)\.py\b", k.value))
+    for n in sorted(namen):
+        _modellen_van(n + ".py", gezien)
+    return gezien
+
+
+def bron_hash(naam, s, index=None):
+    """Bram 15 nov: vingerafdruk van alles waar het blad van deze sprite uit komt: render.py zelf, zijn regel
+    in sprites.json en de modelbestanden (met wat ze importeren of inlezen, ook de modellen van lagen).
+    Gelijk aan de vorige render: dan niet opnieuw renderen. Dat scheelt tijd (het hol alleen duurt minuten) en
+    vooral botsingen: een tak die alleen hol.py raakt zet dan alleen het holblad om, niet alle heldenbladen met
+    een paar andere bytes door Cycles-ruis, zodat samenvoegen met main geen botsing in de bladen meer geeft."""
+    modellen = _modellen_van(s["model"], set())
+    for laag in (s.get("lagen") or {}).values():
+        if isinstance(laag, dict) and laag.get("model"):
+            _modellen_van(laag["model"], modellen)
+    h = hashlib.sha256()
+    h.update(open(os.path.abspath(__file__), "rb").read())
+    h.update(json.dumps(s, sort_keys=True).encode())
+    if "schaal_van" in s:   # hoeden nemen de maat van een held over: verandert die maat, dan ook opnieuw
+        h.update(str((index or {}).get(s["schaal_van"]["sprite"], {}).get("eenheid_px")).encode())
+    for m in sorted(modellen):
+        h.update(m.encode())
+        h.update(open(os.path.join(MODELLEN, m), "rb").read())
+    return h.hexdigest()[:16]
+
+
 def main():
     with open(os.path.join(HIER, "sprites.json")) as f:
         alles = json.load(f)["sprites"]
     kies = sys.argv[1:] or list(alles)
+    # met namen of HOL_ALLES=1 altijd renderen; anders alleen wat veranderde
+    overslaan_mag = not sys.argv[1:] and os.environ.get("HOL_ALLES") != "1"
     bpy_python = os.environ.get("BPY_PYTHON", "python3")
     snel = os.environ.get("HOL_SNEL") == "1"
     pad = os.path.join(DOEL, "sprites.json")
     index = json.load(open(pad)) if os.path.exists(pad) else {}
     for naam in kies:
         s = alles[naam]
+        bron = bron_hash(naam, s, index)
+        oud = index.get(naam) or {}
+        if (overslaan_mag and not snel and oud.get("bron") == bron
+                and os.path.exists(os.path.join(DOEL, f"{naam}.png"))):
+            print(f"{naam}: bron gelijk ({bron}), niet opnieuw gerenderd", flush=True)
+            continue
         if s.get("soort") == "stukken":
             index[naam] = render_stukken(naam, s, bpy_python, snel)
         else:
             index[naam] = render_sprite(naam, s, bpy_python, snel, index)
+        if not snel:
+            index[naam]["bron"] = bron
     with open(pad, "w") as f:
         json.dump(index, f, indent=1, sort_keys=True)
         f.write("\n")
