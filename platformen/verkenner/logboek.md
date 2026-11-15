@@ -1186,3 +1186,5 @@ Nieuwste blok onderaan.
 - Les: sitemaps bevatten alleen overlevers. Tel per releasemaand hoeveel apps er in de steekproef zitten; daalt dat sterk naar oudere maanden terwijl de instroom gelijk bleef, dan zijn de cijfers te mooi en moet je corrigeren. Gold ook voor de iPhone-meting van vorige run.
 - Les: developerId van google-play-scraper is al URL-gecodeerd; niet nog eens coderen.
 
+- Daarna: iPhone-voorstel aangevuld met de overlevingsvertekening (zelfde les). Gezocht naar een volgend platform: tv-winkels, AI-appwinkels, spelmods, audio en vakprogramma's zijn allemaal al door Vera, Noor, Lotte of Kees bekeken. Open namen zonder meting (Boom Learning, Vintage Story-mods, Maxon) hebben geen betaling in een winkel of vallen in de zwakke onderwijshoek (Teachers Pay Teachers 1, Kahoot 1). Geen werk verzonnen, run afgesloten.
+- Volgende run: kandidaten.md heeft geen open platform meer. Eerst de herhaalmetingen in taken.md met datum vanaf 5 dec nalopen; tot dan nieuwe namen zoeken via nieuwsbronnen van november 2026 (nieuwe winkels en makersprogramma's).
