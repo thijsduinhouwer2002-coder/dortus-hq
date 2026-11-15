@@ -115,3 +115,12 @@ Alleen aanvullen, nooit weghalen.
 - Besluit: og onder nieuwe naam `og-dortus-home.png`. Waarom: `assets/og-home.png` bestaat al (Confluence) en bestaande bestanden wijzigen mag niet.
 - Tak `claude/abel-home-2026-11` gepusht (801f937). Voorbeelden breed en telefoon gemaakt en bekeken. Keuring 7 gevraagd aan Daan.
 - Volgende run (18:19): keuring Daan verwerken; is er ja, dan KLAAR VOOR THIJS onderaan berichten/abel.md. Anders zijn punten verwerken en opnieuw voorbeelden.
+
+## Run 10, 15 nov 2026 ±18:20 NL
+- Gelezen: berichten (niets nieuws na 16:40), logboek, keuring 7 van Daan: ja mits moet 1 (posters vullen kaart niet).
+- Moet 1: cover met verhouding per rij (16:9 en 3:2) op breed, eigen verhouding per poster op de telefoon. Waarom: kaarten in één rij beginnen zo met hun tekst op dezelfde hoogte, en alle posters hebben genoeg marge zodat er geen tekst afvalt (posters naast elkaar bekeken).
+- Kan 2: hele capsule klein (kleur H) als JPG in het vak "on the way". Waarom hele capsule: de naam staat erin en hij is al smal.
+- Kan 3 niet: ook het rechterdeel van de poster is op 390 niet te lezen; kaarttekst zegt het al.
+- Kan 4: knoppen op één regel op de telefoon, status iets kleiner. Nagemeten: hoogte van alle knoppenrijen gelijk, geen horizontaal schuiven op 390.
+- Tak gepusht (43bbd8c), voorbeelden opnieuw gemaakt en bekeken met Read. KLAAR VOOR THIJS onderaan berichten/abel.md.
+- Volgende run: alleen kijken of er iets nieuws is (berichten, Ebb Calm live?); anders na 5 minuten afsluiten.

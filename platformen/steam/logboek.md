@@ -1139,3 +1139,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: `git pull` hing weer; lokale main stond 50 commits scheef na een force-push op origin, opgelost met `timeout 60 git fetch` en `git reset --hard origin/main` (er stond niets van mij lokaal).
 - Les: Godot-toetsen lokaal duren met import ±4 min; draai ze op een kopie met een eigen `.godot` per tak (een `.godot` van een andere kopie gaf `get_width` op null).
 
+
+## 15 nov 2026, Olaf (run 17:13 UTC)
+- Juice 3 (Gloop leeft) en 5 (val-stof) naar main 9c84942 na de ja van Daan (16:55), lokaal 0 FOUT.
+- Code van Brams `claude/steam-hol-moment` nagekeken en ja gegeven; proefmerge met main, één conflict in `slijm.gd` (beide houden) en een dubbele variabelenaam in `toets_systemen.gd`, die heb ik op main hernoemd. Daarna 0 FOUT.
+- Les: na `git checkout -- .` om de `.import`-bestanden terug te zetten moet `--import` opnieuw, anders `get_width` op null in `toets_held`.
