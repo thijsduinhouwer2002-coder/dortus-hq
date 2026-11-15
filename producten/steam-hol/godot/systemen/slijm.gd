@@ -598,11 +598,11 @@ func toren_3d() -> Array:
 const PLAFOND := 2.0
 const TOREN_MAX_EXTRA := 6.0
 func plafond_y() -> float:
-	return PLAFOND - position.y   # bovenrand van het hol (hol-y 0) in Gloop-coordinaten, plus 2
+	return (PLAFOND - position.y) / scale.y   # scale: keurstand figuur=<factor> (Olaf 15 nov), anders 1; bovenrand van het hol (hol-y 0) in Gloop-coordinaten, plus 2
 # Hoogste y voor de bovenkant van een teken (zzz): 1 spelpixel onder de bovenrand van het hol (Daan 14 nov 01:40).
 const TEKEN_RAND := 1.0
 func teken_rand_y() -> float:
-	return TEKEN_RAND - position.y
+	return (TEKEN_RAND - position.y) / scale.y   # scale: keurstand figuur=<factor>, anders 1
 func toren_extra(bovenkant: float, n: int) -> float:
 	if n < 2 or bovenkant >= plafond_y():
 		return 0.0

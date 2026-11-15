@@ -94,7 +94,7 @@ const TEKEN_RAND := 1
 static func noot_y_min(h) -> int:
 	if not (h is Node2D):
 		return -100000
-	return TEKEN_RAND + 1 - int(floor((h as Node2D).position.y))
+	return _gedeeld(TEKEN_RAND - int(floor((h as Node2D).position.y)), h) + 1
 # Eén frame uit het blad tekens met de linkerbovenhoek van zijn vak op `hoek` (spelpixels). false = geen blad of frame.
 static func teken_vak_3d(doek: CanvasItem, naam: String, hoek: Vector2, kleur := Color.WHITE) -> bool:
 	if not met_3d:
@@ -114,7 +114,12 @@ static func teken_vak_3d(doek: CanvasItem, naam: String, hoek: Vector2, kleur :=
 static func teken_onder_min(h) -> int:
 	if not (h is Node2D):
 		return -100000
-	return TEKEN_RAND + 8 - int(floor((h as Node2D).position.y))
+	return _gedeeld(TEKEN_RAND - int(floor((h as Node2D).position.y)), h) + 8
+# Keurstand figuur=<factor> (Olaf 15 nov): de held is geschaald, dus de rand in zijn eigen pixels (de hoogte van teken of noot
+# blijft in zijn eigen pixels en komt er na het delen bij, controleur 15 nov); bij schaal 1 precies als voorheen.
+static func _gedeeld(y: int, h) -> int:
+	var s: float = (h as Node2D).scale.y
+	return y if s == 1.0 else int(ceil(float(y) / s))
 static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kleur := Color.WHITE) -> bool:
 	if not met_3d:
 		return false
