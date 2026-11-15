@@ -114,6 +114,7 @@ static func nieuwe_held(s) -> bool:
 	var held := Node2D.new()
 	held.set_script(s.held_script)
 	s.wezens.add_child(held)
+	held.scale = Vector2.ONE * float(s.proef_figuur)   # figuur=<factor> (keurstand), oorsprong is het voetpunt
 	held.klaar.connect(s._held_klaar)
 	held.start(s.hol, d)
 	return true

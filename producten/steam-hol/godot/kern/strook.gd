@@ -45,6 +45,8 @@ var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), all
 var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
+const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
+var proef_figuur := FIGUUR   # figuur=<factor> blijft als startargument om andere maten te keuren; 1.0 is de oude maat
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_uit3d: PackedStringArray = []   # uit3d=helden,hol,slijm: dat deel zonder 3D, alleen voor de CPU-proef (demolijst 2, Olaf 14 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
@@ -136,6 +138,7 @@ func _ready() -> void:
 			"laars_proef": proef_laars = kv[1] == "1"
 			"spuug_proef": proef_spuug = clampi(int(kv[1]), 0, 3)
 			"put_proef": proef_put = clampi(int(kv[1]), 0, 3)
+			"figuur": proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": proef_uit3d = kv[1].split(",", false)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
@@ -178,6 +181,7 @@ func _ready() -> void:
 	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
 	wezens.add_child(slijm)
+	slijm.scale = Vector2.ONE * proef_figuur   # oorsprong is zijn voetpunt: toren, hoedenberg, laars en wolkje schalen mee
 	if "slijm" in proef_uit3d and "met_3d" in slijm:
 		slijm.met_3d = false
 	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
@@ -475,13 +479,15 @@ func gloop_bult() -> Vector3i:
 	if slijm == null or hol == null or not slijm.has_method("hoogste_punt_rust"):
 		return Vector3i(-1, -1, -1)
 	var boven := vangt_y - HOL.OPP * schaal
-	var rel := float(slijm.hoogste_punt_rust())
+	var rel := float(slijm.hoogste_punt_rust())   # in Gloop-pixels; figuur=<factor> pas hieronder (controleur 15 nov)
 	# slaapt hij, dan staat de zzz 9 boven de toren, nooit hoger dan 1 onder de bovenrand (slijm.gd; controleur kan 1)
 	if "leven" in slijm and slijm.leven == "slapen" and slijm.has_method("teken_rand_y"):
 		rel = maxf(minf(rel - 9.0, -25.0), ceilf(slijm.teken_rand_y()))
+	rel *= proef_figuur
 	var top := int(floor((slijm.position.y + rel - 1.0) * schaal)) + boven
 	var x := int(hol.position.x + slijm.position.x * schaal)
-	return Vector3i(x - 11 * schaal, x + 11 * schaal, clampi(top, 0, vangt_y))
+	var halve := int(ceil(11 * schaal * proef_figuur))   # bij figuur > 1 is de toren breder
+	return Vector3i(x - halve, x + halve, clampi(top, 0, vangt_y))
 
 # hol_vast.gd heeft de bovenrand opnieuw gemeten
 func rand_veranderd() -> void:
