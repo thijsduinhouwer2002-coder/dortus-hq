@@ -762,6 +762,32 @@ func _init() -> void:
 	for i in 31:
 		mmin = minf(mmin, HS.munt_draai(i / 10.0))
 	ok(mmin >= 0.3 - 0.0001, "munt 3D: draai blijft tussen 0,3 en 1")
+	# leven in het spel, punt 1 (hoofdchat 15 nov): muntjes op de schat stuiteren na, naast elkaar; naar een gekocht ding niet
+	var mv := {"van": 20.0, "t": 0.0, "dx": -3.0}
+	ok(is_equal_approx(HS.munt_duur(mv), HS.MUNT_S + HS.STUIT_S), "munt stuitert: leeft vliegen plus stuiteren")
+	ok(is_equal_approx(HS.munt_duur({"van": 0.0, "naar": 9.0, "t": 0.0}), HS.MUNT_S), "munt naar gekocht ding: stuitert niet")
+	mv.t = HS.MUNT_S
+	var ml: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
+	ok(is_equal_approx(ml.x, 98.5) and is_equal_approx(ml.y, 44.0), "munt landt half op dx naast het midden op de vloer: %s" % str(ml))
+	var hoogst := 0.0
+	var tweede := 0.0
+	for i in 41:
+		mv.t = HS.MUNT_S + HS.STUIT_S * i / 40.0
+		var q: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
+		if q.y > 44.0 + 0.0001:
+			ok(false, "munt stuitert nooit door de vloer (%s)" % str(q))
+		if i < 24:
+			hoogst = maxf(hoogst, 44.0 - q.y)
+		else:
+			tweede = maxf(tweede, 44.0 - q.y)
+	ok(hoogst > 2.5 and hoogst <= 3.0 and tweede > 0.5 and tweede <= 1.0, "munt stuitert twee keer, 3 en 1 hoog: %.2f en %.2f" % [hoogst, tweede])
+	mv.t = HS.MUNT_S + HS.STUIT_S
+	var me: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
+	ok(is_equal_approx(me.x, 97.0) and is_equal_approx(me.y, 44.0) and is_equal_approx(me.z, 0.3), "munt ligt aan het eind op dx en op zijn kant: %s" % str(me))
+	var dxs := {}
+	for d in HS.MUNT_DX.slice(0, 3):
+		dxs[d] = true
+	ok(dxs.size() == 3, "de drie muntjes van een val landen op drie plekken")
 	var hm = Node2D.new()
 	hm.set_script(HS)
 	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")

@@ -49,6 +49,8 @@ var munten: Array = []        # vliegende muntjes van een val naar de schat: {va
 # alles op niveau 0 verandert niets. Kopen komt met het kaartje (features.md feature 5, Olaf).
 var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
+const STUIT_S := 0.45         # daarna stuitert een muntje dat op de schat valt nog twee keer (leven in het spel, punt 1)
+const MUNT_DX := [-3.0, 2.0, -1.0, 4.0, 0.0, -4.0]   # elk muntje landt op een eigen plek op de stapel (vast, zodat de keurstrook gelijk blijft)
 var koop_munt: Array = []     # kolommen met een klein muntje erboven: hier kun je iets kopen (kern/kaartje.gd)
 var koop_munt_y := {}         # kolom -> bovenkant van wat daar staat (Gloop met hoeden); het muntje komt 3 erboven
 
@@ -84,7 +86,7 @@ func leg_aan(s: int, lengte := 10) -> void:
 # drie muntjes vliegen van kolom k naar de schat (Sanne toets 2, punt 2: goud zie je binnenkomen)
 func munt_regen(k: int, n := 3) -> void:
 	for i in n:
-		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
+		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i, "dx": MUNT_DX[i % MUNT_DX.size()]})
 	set_process(true)
 
 # na kopen: muntjes vliegen van de schat naar het object, omgekeerd van een val (Sanne, het kaartje)
@@ -287,7 +289,7 @@ func _process(delta: float) -> void:
 		queue_redraw()
 	for m in munten:
 		m.t += delta
-	munten = munten.filter(func(m): return m.t < MUNT_S)
+	munten = munten.filter(func(m): return m.t < munt_duur(m))
 	if not munten.is_empty():
 		queue_redraw()
 	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and brokkel.size() <= graaf_stil.size() and ingang_schuif <= 0.0:
@@ -430,12 +432,12 @@ func _draw() -> void:
 	for m in munten:
 		if m.t < 0.0:
 			continue
-		var f: float = m.t / MUNT_S
-		var x: float = lerpf(m.van, float(m.get("naar", doel)), f)
-		var y: float = vloer - 6 - sin(f * PI) * 12
+		var mp := munt_plek(m, doel, vloer)
+		var x: float = mp.x
+		var y: float = mp.y
 		if met_3d:
 			# 3D-stijl (Daan 06:40): rond en glanzend zoals het paneelmuntje, draait in de vlucht
-			munt_3d(Vector2(x + 0.5, y + 0.5), 1.6, munt_draai(f * 3.0))
+			munt_3d(Vector2(x + 0.5, y + 0.5), 1.6, mp.z)
 			continue
 		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
@@ -491,5 +493,23 @@ func munt_laag(c: Vector2, r: float, kleur: Color) -> void:
 	draw_arc(c, rr, 0.0, TAU, 48, kleur, 1.0, true)
 
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
+# hoe lang een muntje leeft: vliegen, en op de schat nog stuiteren (muntjes naar een gekocht ding stuiteren niet)
+static func munt_duur(m: Dictionary) -> float:
+	return MUNT_S + (0.0 if m.has("naar") else STUIT_S)
+
+# plek van een muntje (x, y in spelpixels) en hoe breed het staat (z, 0,3 tot 1). Leven in het spel, punt 1: een muntje dat
+# op de schat valt landt een paar spelpixels naast het midden (dx) en stuitert twee keer, 3 en 1 spelpixel hoog, dan is het
+# weg in de stapel. Tijdens het stuiteren draait het langzamer en ligt het aan het eind plat (breed 0,3: op zijn kant).
+static func munt_plek(m: Dictionary, doel: float, vloer: float) -> Vector3:
+	var naar: float = float(m.get("naar", doel))
+	var dx: float = float(m.get("dx", 0.0))
+	var t: float = float(m.t)
+	if t <= MUNT_S or m.has("naar"):
+		var f: float = clampf(t / MUNT_S, 0.0, 1.0)
+		return Vector3(lerpf(float(m.van), naar + dx * 0.5, f), vloer - 6 - sin(f * PI) * 12, munt_draai(f * 3.0))
+	var p: float = clampf((t - MUNT_S) / STUIT_S, 0.0, 1.0)
+	var h: float = 3.0 * sin(p / 0.6 * PI) if p < 0.6 else 1.0 * sin((p - 0.6) / 0.4 * PI)
+	return Vector3(naar + dx * (0.5 + 0.5 * p), vloer - 6 - h, lerpf(munt_draai(3.0 + p * 1.5), 0.3, p * p))
+
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
