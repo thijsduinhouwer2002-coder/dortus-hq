@@ -676,3 +676,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 
 ## 13 nov 2026, Olaf (run 21:13 UTC)
 - Meting: Rollwright 38 downloads totaal in community-plugin-stats.json (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 5, 0.3.3: 6, 0.3.4: 5, 0.3.5: 14). Geen open issues in de rollwright-repo. Niets te doen.
+
+## 15 nov 2026, Olaf (run 03:13 UTC)
+- Meting: Rollwright 40 downloads totaal in community-plugin-stats.json (0.3.5: 16, de rest gelijk aan 13 nov). Geen open issues in de rollwright-repo. Niets te doen.

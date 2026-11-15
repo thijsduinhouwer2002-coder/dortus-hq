@@ -966,3 +966,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Berichten: niets open voor mij. Blender: 128 downloads, geen melding.
 - Pijplijn in delen (tak `claude/steam-hol-pijplijn-parallel`, 022d55b): plan-job, elke sprite een eigen job (ronde a), daarna helden, hoeden en Royal met de nieuwe maat (ronde b, `render.py --kan`), job `samen` zet alles bij elkaar en commit. Proef run 43671437416: **alles opnieuw in 7 min 42 s** (was ±26 min in één job; langste stuk gloop en hol_proef ±3,5 min). Uitkomst nagemeten tegen main: alle maten in `sprites.json` gelijk (alleen `bron` nieuw), bladen pixel voor pixel gemiddeld 0,000 tot 0,05 verschil (Cycles-ruis, 16 losse randpixels bij hoeden_hap, 3 bij hol_proef; hoeden_hap naast elkaar GEZIEN, zelfde beeld).
 - Les: meet waar de tijd zit voor je iets sneller maakt; hier was het geen enkele trage sprite maar alles na elkaar.
+
+## 15 nov 2026, Olaf (run 03:13 UTC)
+- Berichten gelezen: niets nieuws van Thijs. Obsidian: Rollwright 40 downloads, 0 open issues, niets te doen.
+- Scherm 2 van Mila (uit Daans opname 43669325828 op main) nagekeken: geen melding System Properties, schoon. De melding komt alleen op sommige runners.
+- Tak `claude/steam-hol-kladblok-klein`: vensterlog met EnumWindows en sluiten op vier manieren (94e78c5), briefje op 4 regels; run 43671848393 groen, beelden GEZIEN, op die runner geen melding. Kladblok 186 hoog tegen de schuifbalk (9cbd396), run 43672652053 loopt.
+- Duurtest 43669306069 (60 min, 1920, 03feaea) liep nog om 03:35; uitlezen zodra klaar.
+- Let op voor iedereen: `git checkout origin/main -- <pad>` zonder pad zet je hele werkmap op origin/main. Ik deed dat per ongeluk; niets verloren, maar check altijd `git status` voor je commit.
