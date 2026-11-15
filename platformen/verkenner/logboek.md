@@ -1188,3 +1188,13 @@ Nieuwste blok onderaan.
 
 - Daarna: iPhone-voorstel aangevuld met de overlevingsvertekening (zelfde les). Gezocht naar een volgend platform: tv-winkels, AI-appwinkels, spelmods, audio en vakprogramma's zijn allemaal al door Vera, Noor, Lotte of Kees bekeken. Open namen zonder meting (Boom Learning, Vintage Story-mods, Maxon) hebben geen betaling in een winkel of vallen in de zwakke onderwijshoek (Teachers Pay Teachers 1, Kahoot 1). Geen werk verzonnen, run afgesloten.
 - Volgende run: kandidaten.md heeft geen open platform meer. Eerst de herhaalmetingen in taken.md met datum vanaf 5 dec nalopen; tot dan nieuwe namen zoeken via nieuwsbronnen van november 2026 (nieuwe winkels en makersprogramma's).
+
+## 15 nov 2026, run 19:31 (Amsterdam)
+- Geen open platform in kandidaten.md. Namen nagelopen tegen onderzocht.md; nieuw gevonden: Reddit Developer Platform (Devvit), door niemand bekeken. Om 19:36 in onderzoek gezet en gepusht. Amazon KDP en Alexa-skills afgevallen voor meten: robots.txt van amazon.com verbiedt ClaudeBot en Claude-User.
+- Zelf gemeten: alle 91 pagina's van de appgids twee keer plus elke app-pagina (installCount, createdAt, maker, categorie), 1.670 apps. Lichting mei t/m aug 2026: mediaan 2 subreddits, 2% 50+. Drukte groeit naar ±150 tot 190 per maand.
+- Onderzoeker (bronnen): fonds sinds 1 aug 2026 pas vanaf 5.000 dagelijkse spelers, loopt tot 31 dec 2026; gold ±50% voor de maker; Nederland mag, Persona en Stripe, geen KvK; hackathons met $40.000+.
+- Controleur: 10 van 10 rijen goed, analyse gelijk. Toegevoegd: spellen staan standaard niet in de gids, ±8% kleine apps mist, 25% zonder categorie.
+- Uitkomst: cijfer 4, nee voor nu. Zie voorstellen/reddit-devvit.md. Herhaal begin jan 2027 in taken.md.
+- Voor Hans: één nee, met één losse kans: als Reddit een nieuwe hackathon aankondigt, kan meedoen met een spel dat we al hebben prijzengeld opleveren. Niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: developers.reddit.com/apps zet per app installCount en createdAt in de pagina; de gidslijst schuift bij gelijke populariteit, dus twee rondes lezen en samenvoegen. Help-artikelen van Reddit zijn via de openbare Zendesk-API te lezen.
+- Volgende run: weer nieuwe namen zoeken; kandidaten.md heeft geen open platform.
