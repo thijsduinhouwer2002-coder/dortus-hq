@@ -951,3 +951,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Blender: 128 downloads, click-joints 0 open issues en 0 PR.
 - Les: bij het zoeken naar afhankelijkheden met een regex telden namen in uitleg en commentaar mee (elk model leek van alles af te hangen). Met `ast` alleen echte imports en strings in de code: helden hangen dan alleen van held.py, held_soorten.py en gedeeld.py af.
 
+
+## 15 nov 2026, Olaf (run 02:13 UTC)
+- Berichten gelezen: niets nieuws van Thijs. Obsidian: Rollwright 40 downloads (0.3.5: 16), 0 open issues, gelijk aan 00:26, niets te doen.
+- Gewacht op de pijplijn van 8bfefd8 (Bram brak die van d11f6e9 af); commit 03feaea kwam 02:46. Daan start de weekopname voor scherm 1 en 2 zelf, dus ik niet.
+- Duurtest 60 min op 1920x1080 op 03feaea gestart (run 43669306069) als controle na alle 3D van vannacht. Uitlezen volgende run.
+- Les: een volle render van alle bladen duurt ±28 min (02:18 tot 02:46); reken daarop bij wachten.
