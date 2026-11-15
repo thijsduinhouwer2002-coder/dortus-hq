@@ -245,13 +245,14 @@ static func tik(s) -> void:
 # elke hoed staat met HOED_ONDER in de bovenkant van wat eronder staat en steekt tot HOED_TOP uit.
 static func munt_top(s) -> float:
 	var sl = s.slijm
+	var sy: float = (sl as Node2D).scale.y if sl is Node2D else 1.0   # keurstand figuur=<factor> (kan-punt controleur 15 nov), anders 1
 	var top := -16.0 + 6.0   # RUST_TOP van het rust-frame
 	if sl.has_method("is_plat") and sl.is_plat():
-		return sl.position.y - 16.0 + 10.0
+		return sl.position.y + (-16.0 + 10.0) * sy
 	# Volgt het torenplafond en de 3D-toren (Bram 14 nov, slijm.gd hoogste_punt_rust): rust-frame zonder wip,
 	# dus het muntje wipt niet mee. Zonder die functie de oude som hieronder.
 	if sl.has_method("hoogste_punt_rust"):
-		return sl.position.y + float(sl.hoogste_punt_rust())
+		return sl.position.y + float(sl.hoogste_punt_rust()) * sy
 	if sl.has_method("is_groot") and sl.is_groot():
 		top -= 2.0   # Big Gloop is 2 spelpixels hoger (slijm.gd top_nu bij RUST_GROOT; controleur 14 nov: -1 zat er 1 naast)
 	if sl.has_method("hoeden_op_hoofd"):
@@ -261,7 +262,7 @@ static func munt_top(s) -> float:
 		for h in sl.hoeden_op_hoofd():
 			if int(h) < onder.size() and int(h) < boven.size():
 				top -= float(int(onder[int(h)]) - int(boven[int(h)]))
-	return sl.position.y + top
+	return sl.position.y + top * sy
 
 static func demo_stap(s) -> void:
 	if s.demo_koop == 0 and s.t >= DEMO_KLIK_T and kan(s):

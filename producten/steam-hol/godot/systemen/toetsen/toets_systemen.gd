@@ -680,6 +680,12 @@ func _init() -> void:
 	ok(is_equal_approx(KJ.munt_top(ms), 10.0), "munt_top volgt hoogste_punt_rust: %s" % str(KJ.munt_top(ms)))
 	sl_r.plat = true
 	ok(is_equal_approx(KJ.munt_top(ms), 34.0), "munt_top plat blijft de platte kruin")
+	# keurstand figuur=<factor> (Olaf 15 nov, kan-punt controleur): het muntje schaalt mee met Gloop, voetpunt gelijk
+	sl_r.scale = Vector2.ONE * 1.15
+	ok(is_equal_approx(KJ.munt_top(ms), 40.0 - 6.0 * 1.15), "munt_top plat met figuur 1,15: %s" % str(KJ.munt_top(ms)))
+	sl_r.plat = false
+	ok(is_equal_approx(KJ.munt_top(ms), 40.0 - 30.0 * 1.15), "munt_top met figuur 1,15 volgt de grotere toren: %s" % str(KJ.munt_top(ms)))
+	sl_r.scale = Vector2.ONE
 	var sl_o = nep_oud.new()
 	sl_o.position = Vector2(0, 40)
 	ms.slijm = sl_o
