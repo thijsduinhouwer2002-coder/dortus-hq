@@ -279,6 +279,8 @@ func is_plat() -> bool:
 # Hij at een held. hoed = index in held_hoeden.png, of -1 als de hoed niet naar hem gaat
 # (later: een afgerekende aartsvijand naar de wand, zodra die te zien is; tot dan krijgt de bewoner ook zijn hoed, Sanne 22:55). Geeft het aantal hoeden terug.
 func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
+	if moment_vast >= 0.0:
+		return hoeden.size()   # winkelbeeld moment=hap staat stil: een volgende hap verandert het beeld niet
 	gegeten += 1
 	hap_van = t
 	if hoed >= 0:
@@ -343,6 +345,8 @@ func van_dict(d: Dictionary) -> void:
 	queue_redraw()
 
 func plat() -> void:
+	if moment_vast >= 0.0:
+		return   # winkelbeeld moment=hap staat stil: niet meer plat (keurstap 885b227: dan viel de kroon op de vloer)
 	keer_plat += 1
 	var duur := plat_s
 	if hol != null and "upgrades" in hol and hol.get("upgrades") != null:
