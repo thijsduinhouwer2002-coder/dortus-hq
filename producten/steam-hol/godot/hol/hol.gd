@@ -420,9 +420,12 @@ func _draw() -> void:
 				Vector2(fx + 4 - floor(fm.x / 2.0), fy)):
 			# leven in het spel, punt 4: een kleine flakkerende gloed om de vlam (bovenste 4 van de 12 spelpixels). Rond en
 			# klein, zodat hij niet als vierkant op de celrand stopt (Daan 13 nov 19:35); verandert alleen met anim (tik()).
+			# Daan (juice.md): gloedkring ±10 spelpixels, laag doorzicht, sterkte 0,85 tot 1, en een gelere kern (ffe08a) zodat
+			# de vlam niet wegvalt tegen kleur H. Kern is één spelpixel breed en twee hoog, op hele spelpixels.
 			var fl := fakkel_flakker(anim, i)
-			var r := 7.0 * fl.y
+			var r := 10.0 * fl.y
 			draw_texture_rect_region(GLOED, Rect2(fx + 4 - r, fy + 2.5 - r, 2.0 * r, 2.0 * r), Rect2(0, 0, 52, 52), Color(1.0, 0.72, 0.38, fl.x))
+			draw_rect(Rect2(fx + 3, fy + 1, 2, 2), Color(1.0, 0.878, 0.541, 0.55 + 0.45 * (fl.y - 0.85) / 0.15))
 			continue
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
@@ -499,10 +502,11 @@ func munt_laag(c: Vector2, r: float, kleur: Color) -> void:
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
 # flakkeren van fakkel i bij beeld a: (alfa van de gloed, maat 0,85 tot 1). Vast patroon van 7 standen, de twee fakkels
 # lopen niet gelijk. Alleen een nieuw beeld als er toch getekend wordt (tik()), dus stil beeld kost niets extra.
-const FLAKKER := [0.0, 0.7, 0.35, 1.0, 0.5, 0.15, 0.8]
+# Zachte overgang (Daan): buren in het patroon liggen dicht bij elkaar, geen sprong van donker naar fel.
+const FLAKKER := [0.2, 0.45, 0.75, 1.0, 0.8, 0.55, 0.3, 0.0, 0.25, 0.55, 0.7, 0.45]
 static func fakkel_flakker(a: int, i: int) -> Vector2:
-	var f: float = FLAKKER[(a + i * 3) % FLAKKER.size()]
-	return Vector2(0.12 + 0.12 * f, 0.85 + 0.15 * f)
+	var f: float = FLAKKER[(a + i * 5) % FLAKKER.size()]
+	return Vector2(0.10 + 0.10 * f, 0.85 + 0.15 * f)
 
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
