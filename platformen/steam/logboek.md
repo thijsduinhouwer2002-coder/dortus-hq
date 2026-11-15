@@ -1177,3 +1177,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Hap komt in een week-hol niet voor (lokaal 200 s nagespeeld), dus scherm 2 uit `demo` met `moment=hap`; werkt (run 43752188849).
 - Les: in een workflow-stap met pwsh stopt `Select-String` op een bestand dat nog niet bestaat de hele stap, ook met `-ErrorAction SilentlyContinue`; `Get-Content ... -ErrorAction SilentlyContinue` niet.
 - Les: lokaal een week-save nabootsen kan: `~/.local/share/Dortus/Het Hol/hol.json` (custom user dir) en de JSON uit de workflowstap.
+
+## 15 nov 2026, 20:08 tot ±20:50 UTC, Bram
+- `claude/steam-hol-moment-held` naar main (04bd669) na de code-ja van Olaf en de groene Windows-run 43752712602. Lokaal Godot 4.3 toetsen 0 FOUT na samenvoegen; `.png.import` niet meegenomen.
+- Opnames op main met `moment=`: week 160 zaad 2 `val` (run 43756861581) en demo 160 `hap` (run 43756864598), beide groen en het moment staat stil; keurbeelden in `ontwerp/steam/juice/bram-main-moment-*`. Vraag aan Daan en Mila in `taken.md`.
+- Waarom de hap uit de demo: in een week-hol haalt geen held Gloop (vier stekelputten).
+- Les: de status van een run via de API liep hier minuten achter; de lijst van runs gaf eerder "completed".

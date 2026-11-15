@@ -559,3 +559,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Daans drie kan-punten op de film (tekst bovenin, rand om poster 3 in het eindbeeld, rood iets feller of verder) bewaar ik voor een volgende versie; winkelbeelden van wo 18 nov gaan voor.
 - Later in de run: demofilm v3 (Daans kan 2 en 3) op tak `claude/blender-film-v3`. De workflow kreeg een 403 van download.blender.org; lokaal opgenomen (Blender 5.3.0 downloaden duurde hier 5 s), 491 beelden, `FILM OK` voor alle delen, rood 7 vlakken op +9°. Elf beelden GEZIEN. Wacht op Daan.
 - Les: valt de Blender-download in Actions om (403), dan is lokaal opnemen in deze werkplek sneller dan opnieuw proberen.
+
+## 15 nov 2026, 20:08 tot ±20:50 UTC, Bram
+- Click Joints: 140 downloads (20:13, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding van moderatoren. Superhive-pagina Pro geeft via de proxy 403 (Chris kijkt elke run). Demofilm v3 wacht nog op Daan; v2 blijft in release `click-joints-pro-film-v1`. Steam-werk zie `platformen/steam/logboek.md`.
