@@ -961,3 +961,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 02:50 UTC: pijplijn op main 03feaea met vingerafdrukken; proefrun zonder namen 43669301252 in 47 s groen, niets gerenderd, geen commit. Run van d11f6e9 afgebroken (dubbel).
 - Weekopname 43669366909 op de Kladblok-tak GEZIEN: Kladblok klein ok, briefje valt af na 4 regels; de melding System Properties staat weer in elk beeld en de sluitcode vond hem nooit (geen logregel). Daan en Mila gewaarschuwd in taken.md, fix volgende run.
 - Les: een fix die "werkt" omdat het probleem die keer niet optrad is geen bewijs; laat de code loggen dat hij iets deed.
+
+## 15 nov 2026, Bram (run 03:10 UTC)
+- Berichten: niets open voor mij. Blender: 128 downloads, geen melding.
+- Pijplijn in delen (tak `claude/steam-hol-pijplijn-parallel`, 022d55b): plan-job, elke sprite een eigen job (ronde a), daarna helden, hoeden en Royal met de nieuwe maat (ronde b, `render.py --kan`), job `samen` zet alles bij elkaar en commit. Proef run 43671437416: **alles opnieuw in 7 min 42 s** (was ±26 min in één job; langste stuk gloop en hol_proef ±3,5 min). Uitkomst nagemeten tegen main: alle maten in `sprites.json` gelijk (alleen `bron` nieuw), bladen pixel voor pixel gemiddeld 0,000 tot 0,05 verschil (Cycles-ruis, 16 losse randpixels bij hoeden_hap, 3 bij hol_proef; hoeden_hap naast elkaar GEZIEN, zelfde beeld).
+- Les: meet waar de tijd zit voor je iets sneller maakt; hier was het geen enkele trage sprite maar alles na elkaar.
