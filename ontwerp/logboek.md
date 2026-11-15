@@ -1064,3 +1064,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 
 - **Dief oog b plus handschoen (Bram, tak `claude/steam-hol-diefhand`, pijplijnblad 3ed03b8):** echt `dief.png` naast main GEZIEN met Read, 2x en kop 10x. Main leest als zonnebril, de tak als egale boevenband met kleine ogen; lichte hand naast de wang weg. **Ja**, naar main bij groene Windows-run 43694250665. Verbeterpunt frisse kijker (band smaller) niet nodig. Olaf troonpoot niets doen: eens.
 - **Blad voor Thijs concept 13:** op concept 12 stond in vak 2 de taakbalk van de testmachine (Terminal, 2:16 AM). Vervangen door een uitsnede uit de schone weekopname (run 43693604247, 10:40 AM, geen Terminal). GEZIEN met Read.
+- **Frisse kijker op concept 13:** 7. Stekelzin in vak 2 verbeterd; taakbalk (Kladblok, Engels) bewust zo gelaten; ooggaten voor de dief als kan aan Bram na maandag. Uitleg in `ontwerp/steam/blad-3d/LEESMIJ.md`.
+- **Volgende run:** Mila's scherm 2 en 5 uit run 43693604247 keuren zodra ze er zijn; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
