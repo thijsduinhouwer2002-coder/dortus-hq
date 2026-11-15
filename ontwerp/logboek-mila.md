@@ -544,3 +544,4 @@
 - Scherm 4 met Gloop in beeld en een groot winkelkaartje. Waarom: de zin gaat over zijn mond, en zo oogt 4 als winkelscherm en niet als nog een hol.
 - GEZIEN met Read: alle nieuwe schermen, A/B-paren, dief 430 tot 475, overzicht.
 - Volgende: scherm 2 opnieuw zodra Daans meldingfix een schone opname geeft (klok 10:40); daarna de volgorde van de vijf met een frisse kijker.
+- (06:20) Daans meldingfix-opname 43681846964 GEZIEN: schoon, klok 10:40. **Besluit:** scherm 2 nog niet vervangen, wel kandidaat `held-1-b` ("Bram climbs into your hole.") in taken. Waarom: de fix staat nog niet op main, en winkelbeelden komen uit main.
