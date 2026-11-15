@@ -1066,3 +1066,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Klok in de winkelopname ging na 10:40 (Europese tijd) terug en de host zette hem weer recht, met een teruggeschoven save als gevolg (6127 s weg geweest, andere helden). Fix: alleen vooruit, naar 10:40 van morgen; run 43709060816 groen, Fenna weer held 4, klok 10:42. Op main.
 - Les: een vaste klok op een vaste tijd werkt alleen als je hem vooruit zet; terugzetten draait de host stilletjes terug.
 - Controle na de merge: weekopname op main run 43709751123 (45c3df8) groen, weg geweest 54 s, taakbalk 10:40 AM 11/16/2026 (GEZIEN met Read, `bureaublad-1.png`). Rollwright niets nieuws.
+- 11:50: spin96 op main (ja Daan). Spugen: Daan nee op ronde 1 (knipper leest als tevreden, hap-mond te laag, laars over het oog); ronde 2 met zijn standen kneep en spuug, laars achter het lijf vanaf x 7, op tak, vraag in taken.
