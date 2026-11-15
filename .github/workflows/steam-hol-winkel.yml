@@ -309,7 +309,7 @@ jobs:
               $gezien++
               if ($nr -lt 6) { $nr++; Write-Output ("{0,6:N1} s  {1}" -f $nu, $binnen[$gezien - 1]); $wacht += @(@{ t = $nu + 2.5; naam = "held-$nr-a" }, @{ t = $nu + 3.7; naam = "held-$nr-b" }, @{ t = $nu + 5; naam = "held-$nr-c" }) }
             }
-            if ($env:MOMENT -and -not $moment_gezien -and (Select-String -Path $log -Pattern "HOL moment vast" -Quiet -ErrorAction SilentlyContinue)) {
+            if ($env:MOMENT -and -not $moment_gezien -and (@(Get-Content $log -ErrorAction SilentlyContinue | Where-Object { $_ -like "HOL moment vast*" }).Count -gt 0)) {
               $moment_gezien = $true; Write-Output ("{0,6:N1} s  HOL moment vast" -f $nu)
               $wacht += @(@{ t = $nu + 0.5; naam = "moment-a" }, @{ t = $nu + 2; naam = "moment-b" }, @{ t = $nu + 4; naam = "moment-c" })
             }
