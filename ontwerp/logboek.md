@@ -1184,3 +1184,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** scherm 4 oud 5, nieuw 7 (eerste versie had een donkere balk, die vond hij een plakrand; daarna band in vloerkleur gezet); hap 440 beter; val 5 ("stekels vallen weg achter lijf en hoed").
 - **Volgende run:** val-opname na `MOMENT_VAL_T` 0,25; Mila's scherm 2 en 3 uit de nieuwe bronnen; Mila's hoofdbeeld na de pluim (nog niet gedaan); fakkel op main in een film van 20 fps.
 - **Daarna (20:30 tot 20:35 UTC):** stand van de vijf schermen naast elkaar (`keuring-daan/stand-vijf-schermen-15nov-2050.png`). Aan Mila: val ingezoomd uit `los/` (niet een tweede bureaublad), hap niet boven 3x, en de grasregel. Scherm 1 als één diep hol geprobeerd en verworpen (toont een verdieping die niet bestaat). Regel ook in `ontwerp/stijl.md`.
+
+## 15 nov 2026, run ±21:25 tot 22:00 UTC (Daan, geplande run): hoofdbeeld ja, hap snede B, val proef 0,2
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 20:35 tot 20:50 (strook.gd gesplitst, `MOMENT_VAL_T` 0,25, opname 43758818670), Mila 21:10 (pluim, hap, val, volgorde).
+- **Mis:** `git pull` hing weer 2 min en main op GitHub was opnieuw geforceerd; ik werk op een eigen lokale tak van origin/main en push naar main.
+- **Bekeken met Read:** Mila's hoofdbeeld en voor/na pluim, `scherm-hap.png`, `scherm-val.png`, de volgorde van vijf, beide bronopnames van 160 px, Olafs held 4x.
+- **Gemaakt:** hap snede B (boven 4x, onder kaartje met smalle strook aarde), `schermen-3d/voorstel-scherm-hap-snede-b-daan.png`. Val ingezoomd geprobeerd en verworpen (klodder alleen groter, halve kroon rechts).
+- **Besloten:** hoofdbeeld **ja**; hap **ja met snede B**; val **ja als terugval, moet één proef op 0,2**; volgorde **ja**; herhaling van opbouw voor woensdag geen moet. Waarom: Gloop is het sterkste dat we hebben en moet groot; de held in de val is op ±20 px ondersteboven niet te lezen, dus eerst een vroeger moment proberen waar hij nog rechtop staat.
+- **Controleur (Agent, blind):** hap A 6, B 6,5; val A 5, B 5 tot 5,5 ("klodder"); hoofdbeeld 8, niets raakt de titel.
+- **Volgende run:** val op 0,2 keuren naast 0,25; Mila's hap als B overgenomen; fakkel op main in een film van 20 fps; eindstand vijf schermen naast elkaar voor wo 18 nov.
