@@ -1,23 +1,38 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 42 s (klok terug: false): goud voor 1625, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 1625 goud
+HOL weg geweest 43 s (klok terug: false): goud voor 1673, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1673 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL kroniek 4.0 (wacht 0.0): Bram is here for your gold.
-HOL held binnen: Bram
+HOL kroniek 4.0 (wacht 0.0): Sir Gerda clanks in.
+HOL held binnen: Gerda
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL meting t=20 beelden=101 helden=1 hol_vast=1
-HOL kroniek 25.0 (wacht 0.0): Bram ran. Swore revenge.
-HOL kroniek 27.5 (wacht 2.5): New page: the Hero. He got away.
-HOL meting t=30 beelden=53 helden=0 hol_vast=1
-HOL meting t=40 beelden=4 helden=0 hol_vast=1
-HOL meting t=50 beelden=2 helden=0 hol_vast=1
-HOL meting t=60 beelden=14 helden=0 hol_vast=1
-HOL kroniek 63.0 (wacht 0.0): Lotte climbs into your hole.
-HOL held binnen: Lotte
-HOL kroniek 68.5 (wacht 0.0): Lotte found the Spike Pit. Hard. +6
-HOL meting t=70 beelden=89 helden=0 hol_vast=3
-HOL kroniek 71.1 (wacht 2.5): New stamp for the Hero. The pit got him.
-HOL meting t=80 beelden=11 helden=0 hol_vast=3
-HOL meting t=90 beelden=5 helden=0 hol_vast=3
+HOL kroniek 9.6 (wacht 0.0): Gerda found the Spike Pit. Hard. +6
+HOL meting t=10 beelden=75 helden=0 hol_vast=2
+HOL kroniek 12.1 (wacht 2.6): Page for the Knight. The pit got him.
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL meting t=50 beelden=2 helden=0 hol_vast=3
+HOL meting t=60 beelden=13 helden=0 hol_vast=3
+HOL kroniek 60.3 (wacht 0.0): Fenna picks the lock. It was open.
+HOL held binnen: Fenna
+HOL meting t=70 beelden=101 helden=1 hol_vast=3
+HOL meting t=80 beelden=100 helden=1 hol_vast=3
+HOL kroniek 81.3 (wacht 0.0): Fenna left. Took nothing. Angry.
+HOL kroniek 83.9 (wacht 2.6): Booked: the Thief. He got away.
+HOL meting t=90 beelden=15 helden=0 hol_vast=3
 HOL meting t=100 beelden=4 helden=0 hol_vast=3
+HOL kroniek 108.1 (wacht 0.0): Fenna remembers the Spike Pit.
+HOL held binnen: Fenna
+HOL meting t=110 beelden=27 helden=1 hol_vast=3
+HOL kroniek 113.7 (wacht 0.0): Fenna came back. The Spike Pit won. +9
+HOL kroniek 116.2 (wacht 2.6): New stamp for the Thief. Spikes: one.
+HOL meting t=120 beelden=74 helden=0 hol_vast=5
+HOL meting t=130 beelden=3 helden=0 hol_vast=5
+HOL meting t=140 beelden=4 helden=0 hol_vast=5
+HOL meting t=150 beelden=9 helden=0 hol_vast=5
+HOL meting t=160 beelden=5 helden=0 hol_vast=5
+HOL kroniek 164.3 (wacht 0.0): Wout brought a torch. And hope.
+HOL held binnen: Wout
+HOL kroniek 169.9 (wacht 0.0): Wout stays forever. +6
+HOL meting t=170 beelden=89 helden=0 hol_vast=7
+HOL meting t=180 beelden=14 helden=0 hol_vast=7
