@@ -118,3 +118,23 @@ static func nieuwe_held(s) -> bool:
 	held.klaar.connect(s._held_klaar)
 	held.start(s.hol, d)
 	return true
+
+# Welke vaste stap is nu aan de beurt: "" (vrij spel) of "wacht" (de volgende stap kan nog niet, even later opnieuw).
+# (Olaf 15 nov: uit strook.gd hierheen, strook.gd houdt _begin_stap als doorgeefluik.)
+static func begin_stap(s) -> String:
+	var wacht := false
+	for stap in s._begin_lijst():
+		if s.begin_gedaan.has(stap):
+			continue
+		if stap == "terug" and s._terugkomer_i(s.begin_vlucht) < 0:
+			wacht = true       # hij is nog in het hol; eerst een andere stap
+			continue
+		if stap == "terug" and s.demo and s.t - s.vlucht_t < 4.0:
+			return "wacht"     # demo: niet meteen na zijn vlucht terug, anders komen vier regels in 2 s (film run 42721290569)
+		if stap == "doorlopen" and s.demo and s.t - s.opgegeten_t < 10.0:
+			return "wacht"     # demo: Hoard-Toucher 4 s later dan voorheen, de drukke stap rond 30 s (Sanne toets 6, punt 3)
+		if stap.begins_with("opgegeten") and s.slijm.has_method("kan_vechten") and not s.slijm.kan_vechten():
+			wacht = true       # Gloop ligt plat; wacht tot hij weer op is
+			continue
+		return stap
+	return "wacht" if wacht else ""

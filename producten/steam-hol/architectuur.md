@@ -4,7 +4,10 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 
 | Deel | Bestand | Wie | Wat |
 |---|---|---|---|
-| Strook | `kern/strook.gd` | Olaf | venster boven de taakbalk, hoogte (96, 120, 160), muis door lucht en gras, helden laten komen, de eerste tien minuten (BEGIN, BEGIN_DEMO), de demo, `_process` |
+| Strook | `kern/strook.gd` | Olaf | venster boven de taakbalk, hoogte (96, 120, 160), de toestand van het spel, de eerste tien minuten (BEGIN, BEGIN_DEMO; de keuze van de stap staat in `binnenkomst.gd`), `_process` |
+| Muisvlak | `kern/muisvlak.gd` | Olaf | welk deel van het venster de muis vangt (hol, gras, bult boven Gloop, paneel bij hover); strook.gd houdt `_muis_vlak`, `muis_vlak_punten` en `gloop_bult` als doorgeefluik |
+| Proef | `kern/proef.gd` | Olaf | startargumenten (hoogte, duur, log, demo, film, zaad, fps en alle `*_proef`), en de winkelmomenten `moment=hap/val/munt` met de logregel `HOL moment vast` |
+| Ritme | `kern/ritme.gd` | Olaf | wanneer de volgende held komt (ook na het lied van een bard) en het graven in de demo-film |
 | Kroniek-wachtrij | `kern/wachtrij.gd` | Olaf | welke regel wanneer in het tekstvak komt (gebeurtenis gaat voor, binnenkom-regel vervalt na 3 s) |
 | Beeldtempo | `kern/beeldtempo.gd` | Olaf | 10 beelden per s, 20 tijdens een moment (val, hap, muntjes); `fps=<n>` houdt het vast. Helden lopen in hele pixels op een klok van 0,1 s (`systemen/held.gd` PAS) |
 | Namen | `kern/namen.gd` | Olaf | vrije naam (geen twee tegelijk, Kees II), bijnamen, de terugkomer-regel met bijnaam |
@@ -16,7 +19,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Systemen | `systemen/*.gd` | Bram | held, slijm (Gloop), kroniek, upgrades, voortgang; toetsen in `systemen/toetsen/` |
 | Kunst | `kunst/` | Daan, Mila | plaatjes |
 
-**Hoe de kern-delen samenhangen:** `wachtrij.gd`, `namen.gd`, `afloop.gd` en `opslag.gd` hebben alleen statische functies met de strook als eerste argument (`s`). De toestand (kroniek, terugkomers, wachtrij, goud via het hol) blijft in `strook.gd`; die roept ze aan via korte doorgeefluiken met de oude namen (`_toon`, `_held_naam`, `_held_klaar`, `bewaar`, `laad`), zodat de rest niet veranderde.
+**Hoe de kern-delen samenhangen:** `wachtrij.gd`, `namen.gd`, `afloop.gd`, `opslag.gd`, `binnenkomst.gd`, `muisvlak.gd`, `proef.gd` en `ritme.gd` hebben alleen statische functies met de strook als eerste argument (`s`). De toestand (kroniek, terugkomers, wachtrij, goud via het hol) blijft in `strook.gd`; die roept ze aan via korte doorgeefluiken met de oude namen (`_toon`, `_held_naam`, `_held_klaar`, `bewaar`, `laad`), zodat de rest niet veranderde.
 
 **Afspraak kern en systemen:** zie `platformen/steam/taken.md` (functies van `hol.gd` die Bram gebruikt).
 
