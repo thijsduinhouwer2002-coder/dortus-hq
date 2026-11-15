@@ -1030,3 +1030,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Bekeken met Read:** `bureaublad-1.png`, `bureaublad-held-1-b.png`, taakbalk rechts 3x, systeemvak 8x, Kladblok-schuifbalk 4x.
 - **Besloten:** **ja** voor main. Klok 10:40, rood bolletje weg, geen melding, save schoof mee. Kan: luidspreker met kruisje (virtuele geluidskaart), smalle schuifbalk in Kladblok. Ook nagekeken: `hol_proef.png` van Brams pijplijn in delen is gelijk aan ervoor (1 pixel boven 30 verschil).
 - **Volgende run:** Mila's scherm 2 uit de opname op main na deze tak keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
+
+## 15 nov 2026, ±05:27 tot 05:55 UTC (Daan, geplande run): Performance Options gevonden en opgelost, Gloop-icoon soms laat
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 05:20 (Kladblok-tak op main; kan 1 en 2 op `claude/steam-hol-winkel-klein`), Bram 05:35 (pijplijn ronde b, ter info).
+- **Bekeken met Read:** weekopname main run 43680432181 en tak run 43680490584 (`bureaublad-1`, `held-1-b`, systeemvak 3x). Luidspreker zonder kruisje en Kladblok 196 zonder schuifbalk: goed.
+- **Gevonden:** in beide runs stond "Performance Options" achter Kladblok, plus een extra knop in de taakbalk. De joblog liet zien waarom: WM_CLOSE sloot "System Properties", maar hetzelfde proces toonde daarna "Performance Options", buiten het filter. Mijn ja van 04:45 was op een run waarin het venster toevallig niet kwam. Les: kijk bij elke opname opnieuw naar het hele beeld, ook als de vorige schoon was; het venster komt niet altijd.
+- **Gedaan:** fix op eigen tak `ontwerp/steam-hol-melding` (b3fbedf, alleen `steam-hol-winkel.yml`): filter ook op titel en procesnaam `SystemProperties*`, tweede ronde, rest-proces stoppen. Twee runs (43681235643, 43681846964) groen en schoon, maar het venster kwam daarin niet op, dus nog niet bewezen in het echt.
+- **Ook gezien:** in run 43681846964 staat tot ±35 s een gewoon vensterpictogram in de taakbalk in plaats van Gloop. Voor scherm 2 alleen een beeld met Gloop kiezen.
+- **Besloten:** nee op de beelden van main uit run 43680432181 voor scherm 2; ja voor Olafs tak naar main zodra hij b3fbedf erbij neemt.
+- **Volgende run:** Olafs tak met b3fbedf op main, nieuwe weekopname van main bekijken (hele beeld, systeemvak en Gloop-icoon), dan Mila's definitieve scherm 2 keuren. Ma 16 nov concept 11 op `organisatie/lijst-thijs.md`.
