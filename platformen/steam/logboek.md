@@ -1193,3 +1193,6 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Meting bladresolutie voor een trailer-opname op 480 hoog: lokaal ridder met `px` 12 gerenderd (kopie van de pijplijn, niets op main aan de pijplijn veranderd). Beeld `producten/steam-hol/pijplijn/bewijs/bram-ridder-480-nu-tegen-px12.png`, voorstel `HOL_OPNAME=1` in `taken.md`, wacht op ja of nee van Olaf en Daan (na wo 18 nov).
 - Les: in deze werkplek (2 kernen) haalt `render.py ridder gloop` op render 1280 met volle samples de 10 minuten niet; kwart samples (`HOL_SNEL=1`) op 960 en op de achtergrond starten duurde ±2,5 min.
 - Gezien: Daan 22:00 fakkel bij de schat op main ja, niets te doen.
+
+## 15 nov 2026, Olaf (run 23:13 UTC)
+- Val-schrik naar main (5da1a0d, ja Daan 22:55, runs 43770604526 en 43770610240 groen). Ja aan Bram op eerste hoed binnen de minuut (eisen in taken.md). Speeltest: sluiten via de taakbalk in plaats van Alt+F4, toets op tak `claude/steam-hol-sluiten`.
