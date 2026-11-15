@@ -1,0 +1,124 @@
+lijst 1 200 24
+lijst 2 200 48
+lijst 3 200 71
+lijst 4 200 93
+lijst 5 200 116
+lijst 6 200 140
+lijst 7 200 164
+lijst 8 200 188
+lijst 9 200 212
+lijst 10 200 236
+  peil 10 9 days ago
+lijst 11 200 259
+lijst 12 200 283
+lijst 13 200 305
+lijst 14 200 329
+lijst 15 200 352
+lijst 16 200 374
+lijst 17 200 398
+lijst 18 200 421
+lijst 19 200 445
+lijst 20 200 468
+  peil 20 17 days ago
+lijst 21 200 491
+lijst 22 200 515
+lijst 23 200 539
+lijst 24 200 562
+lijst 25 200 586
+lijst 26 200 610
+lijst 27 200 633
+lijst 28 200 656
+lijst 29 200 680
+lijst 30 200 703
+  peil 30 27 days ago
+lijst 31 200 727
+lijst 32 200 751
+lijst 33 200 774
+lijst 34 200 797
+lijst 35 200 821
+lijst 36 200 844
+lijst 37 200 868
+lijst 38 200 892
+lijst 39 200 916
+lijst 40 200 940
+  peil 40 about 1 month ago
+lijst 41 200 963
+lijst 42 200 987
+lijst 43 200 1010
+lijst 44 200 1034
+lijst 45 200 1056
+lijst 46 200 1079
+lijst 47 200 1103
+lijst 48 200 1127
+lijst 49 200 1151
+lijst 50 200 1174
+  peil 50 about 2 months ago
+lijst 51 200 1198
+lijst 52 200 1220
+lijst 53 200 1242
+lijst 54 200 1265
+lijst 55 200 1287
+lijst 56 200 1310
+lijst 57 200 1334
+lijst 58 200 1358
+lijst 59 200 1382
+lijst 60 200 1406
+  peil 60 2 months ago
+lijst 61 200 1430
+lijst 62 200 1453
+lijst 63 200 1476
+lijst 64 200 1499
+lijst 65 200 1522
+lijst 66 200 1545
+lijst 67 200 1569
+lijst 68 200 1593
+lijst 69 200 1616
+lijst 70 200 1639
+  peil 70 3 months ago
+lijst 71 200 1663
+lijst 72 200 1686
+lijst 73 200 1710
+lijst 74 200 1734
+lijst 75 200 1758
+lijst 76 200 1782
+lijst 77 200 1806
+lijst 78 200 1830
+lijst 79 200 1853
+lijst 80 200 1877
+  peil 80 4 months ago
+lijst 81 200 1901
+lijst 82 200 1925
+lijst 83 200 1949
+lijst 84 200 1973
+lijst 85 200 1996
+lijst 86 200 2020
+lijst 87 200 2044
+lijst 88 200 2067
+lijst 89 200 2091
+lijst 90 200 2115
+  peil 90 5 months ago
+lijst 91 200 2139
+lijst 92 200 2163
+lijst 93 200 2187
+lijst 94 200 2211
+lijst 95 200 2235
+lijst 96 200 2259
+lijst 97 200 2283
+lijst 98 200 2306
+lijst 99 200 2327
+lijst 100 200 2351
+  peil 100 7 months ago
+lijst 101 200 2375
+lijst 102 200 2399
+lijst 103 200 2423
+lijst 104 200 2446
+lijst 105 200 2470
+lijst 106 200 2494
+lijst 107 200 2518
+lijst 108 200 2542
+lijst 109 200 2566
+lijst 110 200 2589
+  peil 110 8 months ago
+product 0 43 minutes ago 
+product 100 4 days ago 
+product 200 7 days ago 
