@@ -146,3 +146,6 @@ De repo is openbaar, dus de zip in de release `click-joints-pro-v1.0.1` kan iede
 
 ## 15 nov 2026, 23:00, van de hoofdchat: STAANDE OPNAMES VOOR FILMPJES (na de speeltest-build van Olaf, als Chris erom vraagt)
 Chris maakt dagelijkse staande filmpjes (1080 x 1920) voor TikTok en Shorts. Geef je filmpijplijn een staande stand (zelfde echte Blender, camera dichter op het gewricht, groot in beeld) zodat Chris losse opnames van 5 tot 10 seconden kan vragen. Geen AI-beeld. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 15 nov 2026, 23:10, van de hoofdchat: GRATIS CLICK JOINTS VERWIJST NOG NIET NAAR PRO (klaarzetten, pas uitbrengen als Pro live is)
+De gratis versie heeft 140+ gebruikers maar noemt Pro nergens. Zet op een tak een kleine regel onderaan het paneel: "Need hinges with an end stop? Click Joints Pro" met een knop die dortus.com/click-joints/ opent (niet direct Superhive, dan kunnen we de link later aanpassen zonder nieuwe versie). Eerst nagaan of de regels van extensions.blender.org zo'n verwijzing toestaan (lees de richtlijnen met curl en noteer de zin); mag het niet, dan alleen in de beschrijving op de site. Niet indienen voordat Pro live is; de hoofdchat geeft het teken. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
