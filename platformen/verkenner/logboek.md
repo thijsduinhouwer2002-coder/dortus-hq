@@ -1117,3 +1117,11 @@ Nieuwste blok onderaan.
 - Voor Hans: Poki is een 6 en botst met de Playables-proef als het om hetzelfde spel gaat. Mijn advies staat in voorstellen/poki.md. Niets op de lijst van Thijs (pas bij een contract).
 - Daarna Y8 (12:57 in onderzoek). Steekproef van 600 spelpagina's: na 3 tot 6 maanden mediaan 2.804 plays. Kassa zonder KvK, percentage niet openbaar. Cijfer 2, nee.
 - Les van deze run: bij webspellen beslist de portal alles. Poki en CrazyGames geven echt bereik, verdelers (GameDistribution) en oude portals (Y8) niet. Volgende run kan GamePix of Playgama als portal zelf meten, of Kongregate en Armor Games schiften.
+
+## 15 nov 2026, run 13:31 (Amsterdam)
+- Gekozen: Discord Activities (13:35 in onderzoek en gepusht). Waarom: nooit apart bekeken (Discord op 6 nov alleen als bots), past bij onze webspellen naast Poki en Playables, en de open App Directory-API geeft per app een vlag voor Activities.
+- Zelf gemeten: 20.117 apps uit de directory (11 categorieën, ook verborgen, 22 zoektermen; gestopt toen elke term nog maar ±100 apps toevoegde), 2.689 met Activity. Nieuwe per maand stijgt hard (325 in okt 2026). Lichting mei t/m aug: mediaan 5 servers, 9% 100+. Winkelproducten van 269 Activities: mediaan $3,99, verkopen niet zichtbaar. Ook gevonden: de openbare Launcher-collecties (`collections?surface=2`), bijna allemaal oude studiotitels.
+- Onderzoeker: 15% voor Discord tot $1M, EU mag verkopen, Stripe vanaf $100; alle succesverhalen van Discord zelf, enige onafhankelijke kleine maker "een klein beetje omzet". Payouts-artikel achter Cloudflare, niet omzeild; uitbetalen zonder KvK blijft open.
+- Uitkomst: cijfer 4, nee voor nu, hooguit bijkanaal voor een Poki-spel. Controleur akkoord met 8 correcties (vooral: servers is voor Activities een te lage maat, de vlag telt ook bots, groei 4 keer in een half jaar), alle verwerkt.
+- Voor Hans: één nee met een bijkanaal-idee bij de Poki-proef. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: de openbare directory-API van Discord heeft verborgen categorieën (1, 2, 3, 5, 7) en een collectie-endpoint; handig voor latere herhaalmetingen.
