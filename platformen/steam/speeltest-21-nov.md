@@ -11,6 +11,8 @@ Voor Thijs. Opgezet door Olaf, 15 nov 2026. Doel (besluit Thijs 15 nov 19:35): z
 
 Build: _volgt vr 20 nov_ (workflow `steam-hol-exe.yml` op main, zip 14 dagen bewaard).
 
+Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
+
 ## Wat je doet (15 tot 30 min)
 - Start het spel en **werk gewoon door** op je pc (mail, browser). Het hol ligt onderaan, boven de taakbalk.
 - Klik als je zin hebt: graven, een put zetten, op Gloop klikken om iets te kopen. Lees geen uitleg verder dan het briefje; wat je niet snapt, is precies wat we willen weten.
