@@ -1110,3 +1110,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** kaartje warm **ja** naar main. Donkerbruin (gerenderd ±5e3e33) is beter dan mijn lichtere proef: het staat een trede donkerder dan de warme aarde los, tekst leest scherp. Kan: knop iets lichter, pixelterugval `#503856` naar warm.
 - **Controleur (Agent):** Brams versie 8, mijn lichte 4; knop leest als knop, iets dof.
 - **Mis:** `git pull` hing weer; alleen `git fetch origin main` werkt snel.
+- **Ook bekeken:** Olafs lokale stroken `figuur` 1,0 / 1,15 / 1,3 op 120 (tak `claude/steam-hol-figuur`). Voorlopig **1,15**: duidelijk leesbaarder, 1,3 is te vol (kroon tegen plafond, Gloop over het spinrag). Eindoordeel uit de Windows-build.
+- **Volgende run:** Mila's kleurtak H en Olafs keurstroken `figuur` uit de Windows-build, samen keuren.
