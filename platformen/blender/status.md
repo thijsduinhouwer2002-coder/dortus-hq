@@ -1,5 +1,6 @@
 # Blender: status
 
+- **15 nov 03:15 UTC (Bram): 128 downloads** (meet_downloads.sh), 0 reviews. Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: pijplijn rendert in delen tegelijk (tak `claude/steam-hol-pijplijn-parallel`).
 - **15 nov 02:13 UTC (Bram): 128 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: schacht ronde 3 en kamervloer naar main.
 - **15 nov 00:11 UTC (Bram): 127 downloads** (meet_downloads.sh), 0 reviews. Geen melding van moderatoren of Superhive bekend; click-joints 0 open issues en 0 open PR (gh search). Deze run Het Hol: ogen helden naar main, schacht ronde 2.
 - **14 nov 23:10 UTC (Bram): 125 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 PR (openbare API). Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: kamernaad naar main, ogen helden door de pijplijn.
