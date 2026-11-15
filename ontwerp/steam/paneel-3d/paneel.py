@@ -26,7 +26,7 @@ def plaat(naam, b, d, z, r, m):
     bpy.ops.object.shade_smooth()
     return o
 goud = mat("rand", "e0a83a", rough=0.35, metaal=0.6)
-hout = mat("binnen", "4a2a1c", rough=0.8)   # 15 nov: warm donkerbruin (Daan 13:05, punt 1 Thijs: minder paars); was pruim 3e2446
+hout = mat("binnen", "3b2219", rough=0.8)   # 15 nov 16:30: een trede donkerder en koeler (kan 2 Daan 15:45, doel gerenderd 4a3129); de bron is met donker.py uit de vorige render gemaakt, bij een nieuwe render dit hout nameten; daarvoor 4a2a1c, pruim 3e2446
 plaat("rand", 2.0, 0.3, 0.0, 0.14, goud)
 plaat("binnen", 1.70, 0.3, 0.06, 0.1, hout)   # ronde 2: rand dikker, op 160 px ±3 px goud
 cam = bpy.data.cameras.new("cam"); cam.type = "ORTHO"; cam.ortho_scale = 2.0
