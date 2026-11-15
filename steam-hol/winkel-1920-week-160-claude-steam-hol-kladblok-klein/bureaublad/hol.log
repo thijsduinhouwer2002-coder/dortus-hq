@@ -1,36 +1,39 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 43 s (klok terug: false): goud voor 1619, helden 0, erbij 0
-HOL opslag geladen: 1 terugkomers, 1619 goud
+HOL weg geweest 45 s (klok terug: false): goud voor 1643, helden 0, erbij 0
+HOL opslag geladen: 1 terugkomers, 1643 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL kroniek 4.1 (wacht 0.0): Lotte read about you in a tavern.
-HOL held binnen: Lotte
+HOL kroniek 4.1 (wacht 0.0): Bram casts Light. It is a candle.
+HOL held binnen: Bram
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 9.6 (wacht 0.0): Lotte will not be leaving. +6
+HOL kroniek 9.6 (wacht 0.0): Bram stays forever. +6
 HOL meting t=10 beelden=75 helden=0 hol_vast=2
-HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL kroniek 12.1 (wacht 2.5): New page: the Wizard. The pit got him.
+HOL meting t=20 beelden=19 helden=0 hol_vast=3
 HOL meting t=30 beelden=12 helden=0 hol_vast=3
 HOL meting t=40 beelden=4 helden=0 hol_vast=3
 HOL meting t=50 beelden=2 helden=0 hol_vast=3
-HOL kroniek 52.2 (wacht 0.0): Wout remembers the Spike Pit.
-HOL held binnen: Wout
-HOL meting t=60 beelden=83 helden=1 hol_vast=3
-HOL meting t=70 beelden=101 helden=1 hol_vast=3
-HOL kroniek 73.2 (wacht 0.0): Wout fled, crying a little.
-HOL meting t=80 beelden=38 helden=0 hol_vast=3
-HOL meting t=90 beelden=5 helden=0 hol_vast=3
-HOL kroniek 98.9 (wacht 0.0): Sir Bram is very slow. Very sure.
-HOL held binnen: Bram
-HOL meting t=100 beelden=21 helden=1 hol_vast=3
-HOL kroniek 104.4 (wacht 0.0): Bram stays forever. +6
-HOL kroniek 107.0 (wacht 2.6): New page: the Knight. The pit got him.
-HOL meting t=110 beelden=76 helden=0 hol_vast=5
+HOL kroniek 59.8 (wacht 0.0): Tibbe read about you in a tavern.
+HOL held binnen: Tibbe
+HOL meting t=60 beelden=18 helden=1 hol_vast=3
+HOL meting t=70 beelden=100 helden=1 hol_vast=3
+HOL meting t=80 beelden=101 helden=1 hol_vast=3
+HOL kroniek 80.8 (wacht 0.0): Tibbe fled. Grudge: the Spike Pit.
+HOL kroniek 83.4 (wacht 2.6): Booked: the Hero. He got away.
+HOL meting t=90 beelden=9 helden=0 hol_vast=3
+HOL kroniek 100.3 (wacht 0.0): Lotte remembers the Spike Pit.
+HOL held binnen: Lotte
+HOL meting t=100 beelden=8 helden=1 hol_vast=3
+HOL kroniek 105.8 (wacht 0.0): The Spike Pit wins round two. +9
+HOL kroniek 108.4 (wacht 2.5): New stamp for the Thief. Spikes: one.
+HOL meting t=110 beelden=88 helden=0 hol_vast=5
 HOL meting t=120 beelden=11 helden=0 hol_vast=5
 HOL meting t=130 beelden=3 helden=0 hol_vast=5
 HOL meting t=140 beelden=4 helden=0 hol_vast=5
-HOL meting t=150 beelden=4 helden=0 hol_vast=5
-HOL kroniek 152.6 (wacht 0.0): Joost says this is a quick one.
+HOL kroniek 146.2 (wacht 0.0): Joost hums on the way in.
 HOL held binnen: Joost
-HOL kroniek 158.1 (wacht 0.0): Joost left gold and one boot. +6
-HOL meting t=160 beelden=98 helden=0 hol_vast=7
-HOL meting t=170 beelden=4 helden=0 hol_vast=7
-HOL meting t=180 beelden=11 helden=0 hol_vast=7
+HOL meting t=151 beelden=51 helden=1 hol_vast=5
+HOL kroniek 159.7 (wacht 0.0): Joost fell to the Spike Pit. +6
+HOL meting t=161 beelden=121 helden=0 hol_vast=7
+HOL kroniek 162.2 (wacht 2.5): Page for the Bard. The pit got him.
+HOL meting t=171 beelden=5 helden=0 hol_vast=7
+HOL meting t=181 beelden=4 helden=0 hol_vast=7
