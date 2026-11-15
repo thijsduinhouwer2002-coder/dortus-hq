@@ -5,6 +5,8 @@ name: Het Hol duurtest (60 minuten, Windows)
 # - zuinig: gemiddeld onder 1 CPU-seconde per 10 s, stilstaand beeld bijna 0.
 # Elke 10 s een CPU-meting; aan het eind gemiddelde, mediaan, laagste en hoogste.
 # Rood als het proces eerder stopt, als er een scriptfout in de uitvoer staat of als het gemiddelde 1,0 of hoger is.
+# Olaf 15 nov: invoer `exe` = ja meet de echte uitgebrachte .exe (release-sjabloon, preset "Windows") in plaats van
+# de editor-Godot met --path. Een speler draait de .exe, dus dat is het eerlijke getal voor demolijst 2.
 on:
   workflow_dispatch:
     inputs:
@@ -16,6 +18,9 @@ on:
         default: ""
       breed:
         description: "Schermmaat van de runner, bijvoorbeeld 1920x1080 (leeg = zoals de runner is, 1024x768)"
+        default: ""
+      exe:
+        description: "ja = meet de echte .exe (release-sjabloon), leeg = editor-Godot zoals altijd"
         default: ""
 
 permissions:
@@ -37,6 +42,31 @@ jobs:
         run: |
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
           if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Echte .exe bouwen (alleen als exe = ja)
+        if: ${{ github.event.inputs.exe == 'ja' }}
+        shell: pwsh
+        run: |
+          # zelfde sjablonen en rcedit als steam-hol-exe.yml, alleen het volle spel
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -OutFile sjablonen.zip
+          $doel = Join-Path $env:APPDATA "Godot/export_templates/4.3.stable"
+          New-Item -ItemType Directory -Force $doel | Out-Null
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path sjablonen.zip).Path)
+          foreach ($e in $zip.Entries) {
+            if ($e.FullName -match '^templates/(windows_.*|version\.txt)$') {
+              [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path $doel $e.Name), $true)
+            }
+          }
+          $zip.Dispose()
+          $rc = Join-Path $env:RUNNER_TEMP "rcedit"; New-Item -ItemType Directory -Force $rc | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" -OutFile (Join-Path $rc "rcedit.exe")
+          $env:PATH = "$rc;$env:PATH"
+          New-Item -ItemType Directory -Force producten/steam-hol/bouw/volledig | Out-Null
+          $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release "Windows" "../bouw/volledig/HetHol.exe" 2>&1 | Out-String
+          Write-Output $uit
+          if (-not (Test-Path "producten/steam-hol/bouw/volledig/HetHol.exe")) { Write-Output "FOUT: geen exe"; exit 1 }
+          Get-ChildItem producten/steam-hol/bouw/volledig -File | ForEach-Object { Write-Output "$($_.Name) $([math]::Round($_.Length / 1MB, 1)) MB" }
       - name: Schermmaat zetten (alleen als breed gevuld is)
         if: ${{ github.event.inputs.breed != '' }}
         shell: pwsh
@@ -78,6 +108,7 @@ jobs:
         env:
           MINUTEN: ${{ github.event.inputs.minuten || '60' }}
           EXTRA: ${{ github.event.inputs.extra }}
+          EXE: ${{ github.event.inputs.exe }}
         run: |
           $uit = "producten/steam-hol/e2e/screenshots/duur"
           New-Item -ItemType Directory -Force $uit | Out-Null
@@ -87,8 +118,19 @@ jobs:
           $sec = [int]$env:MINUTEN * 60
           $log = ($vol -replace '\\','/') + "/hol.log"
           # Het spel stopt zelf na duur+30 s; wij meten tot duur.
-          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) $env:EXTRA log=$log" `
+          $glog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log"
+          if ($env:EXE -eq 'ja') {
+            # de echte .exe: geen --path, het project zit in de .pck naast de exe
+            $prog = (Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path
+            $voor = ""
+            Remove-Item $glog -ErrorAction SilentlyContinue
+          } else {
+            $prog = "godot/Godot_v4.3-stable_win64.exe"
+            $voor = "--path producten/steam-hol/godot "
+          }
+          Write-Output "SOORT: $(if ($env:EXE -eq 'ja') { 'echte .exe (release)' } else { 'editor-Godot (--path)' })"
+          $p = Start-Process -FilePath $prog `
+            -ArgumentList "$($voor)--rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) $env:EXTRA log=$log" `
             -RedirectStandardOutput "$vol/uit.txt" -RedirectStandardError "$vol/fout.txt" -PassThru
           $null = $p.Handle
           Start-Sleep 20
@@ -115,6 +157,7 @@ jobs:
             "CPU-s per 10 s: gemiddeld $gem, mediaan $med, laagste $($gesorteerd[0]), hoogste $($gesorteerd[-1])",
             "geheugen aan het eind: $(if (-not $p.HasExited) { [int]($p.WorkingSet64 / 1MB) } else { 'proces weg' }) MB",
             "proces leefde tot het eind: $(-not $dood)",
+            "soort: $(if ($env:EXE -eq 'ja') { 'echte .exe (release)' } else { 'editor-Godot (--path)' })",
             "eerste koop mogelijk: $((Select-String -Path ($vol + '/hol.log') -Pattern 'HOL eerste koop mogelijk.*' -ErrorAction SilentlyContinue | Select-Object -First 1).Matches.Value)"
           )
           $samen | Set-Content "$vol/uitslag.txt"
@@ -123,7 +166,8 @@ jobs:
           if (-not $p.HasExited) { $p.WaitForExit(150000) | Out-Null }
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
           Write-Output "===== hol.log (laatste 40 regels)"; Get-Content $log -Tail 40 -ErrorAction SilentlyContinue
-          $fouten = (Get-Content "$vol/uit.txt", "$vol/fout.txt" -ErrorAction SilentlyContinue | Select-String -CaseSensitive -Pattern "SCRIPT ERROR|Parse Error" | Select-Object -First 20)
+          if ($env:EXE -eq 'ja') { Copy-Item $glog "$vol/godot.log" -ErrorAction SilentlyContinue }
+          $fouten = (Get-Content "$vol/uit.txt", "$vol/fout.txt", "$vol/godot.log" -ErrorAction SilentlyContinue | Select-String -CaseSensitive -Pattern "SCRIPT ERROR|Parse Error" | Select-Object -First 20)
           Write-Output "===== fouten in de uitvoer: $(@($fouten).Count)"; $fouten | ForEach-Object { Write-Output $_.Line }
           $einde = [bool](Select-String -Path $log -Pattern "HOL einde" -Quiet -ErrorAction SilentlyContinue)
           Write-Output "===== spel stopte zelf netjes (HOL einde in hol.log): $einde; regels in uit.txt: $(@(Get-Content "$vol/uit.txt" -ErrorAction SilentlyContinue).Count)"
@@ -137,6 +181,7 @@ jobs:
           TAK: ${{ github.ref_name }}
           EXTRA: ${{ github.event.inputs.extra }}
           BREED: ${{ github.event.inputs.breed }}
+          EXE: ${{ github.event.inputs.exe }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/duur"
           [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
@@ -144,6 +189,7 @@ jobs:
           # een proef met extra argumenten krijgt een eigen map, zodat twee proeven naast elkaar elkaar niet overschrijven
           if [ -n "$EXTRA" ]; then NAAM="$NAAM-$(echo "$EXTRA" | tr -c 'a-zA-Z0-9' '-' | sed 's/-*$//')"; fi
           if [ -n "$BREED" ]; then NAAM="$NAAM-$BREED"; fi
+          if [ "$EXE" = "ja" ]; then NAAM="$NAAM-exe"; fi
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
