@@ -96,3 +96,10 @@ Bron: demo 160 `moment=hap`, run 43756864598 op main 04bd669 (`schermen` → `st
 - Eerlijk: boven is 3,4x, iets meer dan Daans 3x; dat was nodig om het hele kaartje zonder gras eronder te krijgen. Op 1920 iets zacht, op 600 scherp genoeg (GEZIEN).
 
 **Volgorde op de winkelpagina (mijn besluit):** 1 grap Royal (Daan), 2 bureaublad Joost, 3 de hap, 4 de val (snede volgt na run 43758818670), 5 het kaartje (Daans versie zonder naad geldt; ik kan het niet beter). Waarom: 1 is de haak (hoedenberg), 2 laat meteen zien dat het op je bureaublad leeft, 3 vertelt de grap in woorden, 4 laat zien hoe helden vallen, 5 laat zien wat je koopt.
+
+## 15 nov ±21:05 UTC (Mila): scherm "de val" gesneden uit run 43758818670 (`MOMENT_VAL_T` 0,25)
+- Beelden 400, 450, 500, 600, 800 en 1000 als blad GEZIEN met Read. De held hangt in alle zes gelijk boven de tweede put. **Beeld 1000 gekozen**, want daar zegt het kaartje **"New page: the Hero. The pit got him."** (in 400 tot 800: "Lotte hums on the way in." en "Rik is here for your gold.", die horen niet bij de val). Zelfde truc als de hap: het spel vertelt de grap zelf.
+- **`scherm-val.png`**: `maak_scherm_rijen_y.py <f1000> 540,1100,0,160 1918 <uit> 36`. Boven 3,4x: held ondersteboven met blauwe baret en "!" boven de stekels, kristal links, rechts de munt als lokaas, de volgende put en de rand van de hoedenberg (waar zijn hoed straks heen gaat). Onder alleen aarde en kaartje, geen gras. Bron: `bron/opnames/week160-zaad2-momentval-run43758818670-f1000.png`.
+- Ook geprobeerd: snede 470 tot 1030 (held in het midden, zonder munt en hoedenberg). Leger. Beide op 600: `vergelijk-val-V1-V2-600.png`.
+- Eerlijk: de held is op 1920 een beetje een kluwen (lijf, hoed en schild op elkaar); op 600 lees je wel ondersteboven plus "!". Rechts dekt zijn lijf de stekels half af, zoals Olaf schreef.
+- Alle vijf in mijn volgorde: `volgorde-vijf-schermen-15nov-mila.png`, GEZIEN met Read.
