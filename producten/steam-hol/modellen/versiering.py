@@ -171,41 +171,33 @@ def bouw(naam, x, z, y=0.35):
             dx, dz = b[0] - a[0], b[1] - a[1]
             cil(ouder, p + "_draad", ((a[0] + b[0]) / 2, -0.1, (a[1] + b[1]) / 2), r * s, math.hypot(dx, dz) * 1.04,
                 web, rot=(0, math.atan2(dx, dz), 0), verts=6)
-        hz, R = -2.6, 4.0  # naaf in spelpixels onder het plafond, straal van het web; de cirkel wordt door het plafond afgesneden
-        ah = math.degrees(math.asin(-hz / R))  # hoek waar de cirkel het plafond raakt
-        boven = [180 - ah, 90, ah]
-        onder = [190, 230, 270, 310, 350]
+        # Ronde 2 (frisse kijker op het ronde web: 5 tegen 8 voor het oude, "zweeft als los stempel, spin valt erin weg"):
+        # een halve waaier die vanaf het plafond omlaag hangt (naaf op het plafond, geen rechte paal), en de spin weer los
+        # aan een eigen draad ernaast, met een eigen silhouet; de draad lichter en dikker.
+        R = 5.6
+        spaken = [196, 228, 260, 292, 324, 352]
 
         def punt(a, r):
-            return (math.cos(math.radians(a)) * r * s, (hz + math.sin(math.radians(a)) * r) * s)
-        for a in boven:
-            r_eind = -hz / math.sin(math.radians(a))
-            draad(punt(a, 0), punt(a, r_eind + 0.3), 0.26)
-        for a in onder:
-            draad(punt(a, 0), punt(a, R), 0.24)
-        rond = sorted(boven + onder)
-        for rr in (1.3, 2.6, R):  # ringen en buitenrand, elk stuk zakt iets door naar de naaf toe
-            for i in range(len(rond)):
-                a1, a2 = rond[i], rond[(i + 1) % len(rond)]
-                if rr == R and a1 < 90 <= a2:  # geen buitenrand langs het plafond
-                    continue
+            return (-1.2 * s + math.cos(math.radians(a)) * r * s, math.sin(math.radians(a)) * r * s * 1.35)  # dieper: de camera kijkt schuin
+        draad(punt(180, 0.6), punt(0, 4.6), 0.3)  # plafondlijn waar het web aan vast zit
+        for a in spaken:
+            draad(punt(a, 0), punt(a, R), 0.26)
+        for rr in (2.0, 3.8, R):
+            for a1, a2 in zip(spaken, spaken[1:]):
                 q1, q2 = punt(a1, rr), punt(a2, rr)
-                if q1[1] > 0.02 * s or q2[1] > 0.02 * s:  # ring boven het plafond: overslaan
-                    continue
-                qm = punt(a1 + ((a2 - a1) % 360) / 2, rr * 0.88)
-                draad(q1, qm, 0.2)
-                draad(qm, q2, 0.2)
-        bol(ouder, p + "_naaf", (0, -0.12, hz * s), (0.5 * s,) * 3, web, 8)
-        # spin klein op het web, rechtsonder op de tweede ring, zodat de naaf en de spaken zichtbaar blijven
-        sx0, sz0 = punt(305, 2.6)
-        k = 1.1
-        bol(ouder, p + "_lijf", (sx0, -0.3, sz0), (1.5 * s * k / 1.1, 1.2 * s, 1.5 * s * k / 1.1), zw, 16)
+                qm = punt((a1 + a2) / 2, rr * 0.86)
+                draad(q1, qm, 0.21)
+                draad(qm, q2, 0.21)
+        draad_l = m("draad_l", "c9c3d2", rough=0.6)  # lichter dan het web, zodat de spin zichtbaar ergens aan hangt
+        sx0, sz0 = 5.0 * s, -7.4 * s  # iets los van de rand van het web (frisse kijker: draad las als paal)
+        cil(ouder, p + "_hangdraad", (sx0, -0.1, sz0 / 2), 0.15 * s, -sz0, draad_l, verts=6)
+        bol(ouder, p + "_lijf", (sx0, -0.12, sz0 - 0.4 * s), (1.5 * s, 1.2 * s, 1.5 * s), zw, 16)
         for sx in (-1, 1):
-            bol(ouder, p + "_oog", (sx0 + sx * 0.5 * s, -0.3 - 1.1 * s, sz0 + 0.25 * s), (0.32 * s,) * 3, oog, 8)
+            bol(ouder, p + "_oog", (sx0 + sx * 0.55 * s, -0.12 - 1.15 * s, sz0 - 0.4 * s), (0.35 * s,) * 3, oog, 8)
             for j in range(3):
                 a = math.radians(-30 + j * 30)
-                cil(ouder, p + "_poot", (sx0 + sx * 1.7 * s, -0.3, sz0 + math.sin(a) * 1.1 * s),
-                    0.18 * s, 2.1 * s, zw, rot=(0, sx * (math.pi / 2 - a * 0.6), 0), verts=6)
+                cil(ouder, p + "_poot", (sx0 + sx * 1.9 * s, -0.12, sz0 - 0.4 * s + math.sin(a) * 1.2 * s),
+                    0.2 * s, 2.4 * s, zw, rot=(0, sx * (math.pi / 2 - a * 0.6), 0), verts=6)
     elif naam == "stut":
         # twee palen tot op de vloer en een balk eronder tegen het plafond; hangpunt = midden bovenkant
         for sx in (-1, 1):
