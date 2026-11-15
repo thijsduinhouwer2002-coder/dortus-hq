@@ -153,7 +153,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
         kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
         _bol(ouder, hk(ox + kijk, -0.31 + oy, HZ + 0.0), hs(0.06, 0.03, 0.075), pupil)
-        _bol(ouder, hk(ox + kijk + 0.025, -0.335 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
+        if soort != "dief":   # Bram 15 nov: geen glimstip op het masker, las als losse witte ruis (frisse kijker)
+            _bol(ouder, hk(ox + kijk + 0.025, -0.335 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
         _bol(ouder, hk(0.18 * kant, -0.25, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
     if bang:
         _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
