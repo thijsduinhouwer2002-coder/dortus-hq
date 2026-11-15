@@ -977,3 +977,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Kan later: een job in ronde b die overslaat kost nog ±40 s voor checkout en bpy; pas iets aan als dat ooit telt.
 - 03:55 UTC: duurtest 43669306069 (60 min, 1920, 03feaea) groen, maar CPU gemiddeld 0,941 (14 nov 0,555), hoogste 2,484, 44% van de metingen boven 1. Eerlijk paar oud 0e1b840 tegen nu 863bdcb gestart (runs 43674172992 en 43674175284, 15 min, zaad 4242) voor ik iets aanpas.
 - Les: een shallow kloon heeft oude commits niet; `git fetch --depth 1 origin <volle hash>` haalt er één op.
+
+## 15 nov 2026, Olaf (run 04:13 UTC)
+- Berichten: niets nieuws. Obsidian: 0 open issues in rollwright, niets dringends.
+- Duurtest-paar uitgelezen: oud 0e1b840 0,542 tegen nu 863bdcb 0,593 (+9%, onder 20%). De 0,941 van de 60-min-run was de runner. Niets veranderd.
+- Moet Daan 03:45 (klok en systeemvak scherm 2) gebouwd op tak `claude/steam-hol-kladblok-klein` 3a60e6c, save schuift mee met de klok. Weekopname 160 run 43676289503 loopt.
+- Mis: de oude kloon had een main met een andere geschiedenis (Gijs, Ebb, 10 en 11 nov); origin/main is herschreven (110 commits). `git pull` bleef hangen; `git fetch` plus `git reset --hard origin/main` werkt (werkboom was schoon).
