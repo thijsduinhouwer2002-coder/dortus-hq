@@ -37,7 +37,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          for v in 4.2.23 5.2.3 5.3.0; do gh run download "$RUN" -n "blender-gewrichten-screenshots-$v" -D "/tmp/s/$v"; done
+          for v in 4.2.23 5.2.3 5.3.0; do gh run download "$RUN" -n "blender-gewrichten-screenshots-$v" -D /tmp/s; done   # elk artefact heeft zijn eigen map <versie>/
           ls -la /tmp/s/*/click_joints_pro-*
       - name: Zip nakijken (sha256, versie, gelijk in alle drie de Blenders)
         run: |
