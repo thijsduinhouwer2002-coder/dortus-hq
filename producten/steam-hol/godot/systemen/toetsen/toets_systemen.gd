@@ -762,6 +762,18 @@ func _init() -> void:
 	for i in 31:
 		mmin = minf(mmin, HS.munt_draai(i / 10.0))
 	ok(mmin >= 0.3 - 0.0001, "munt 3D: draai blijft tussen 0,3 en 1")
+	# leven in het spel, punt 4 (hoofdchat 15 nov): de fakkelgloed flakkert zacht, de twee fakkels niet gelijk
+	var fl_min := 1.0
+	var fl_max := 0.0
+	var gelijk := 0
+	for a in 14:
+		var f0: Vector2 = HS.fakkel_flakker(a, 0)
+		fl_min = minf(fl_min, f0.x)
+		fl_max = maxf(fl_max, f0.x)
+		if is_equal_approx(f0.x, HS.fakkel_flakker(a, 1).x):
+			gelijk += 1
+	ok(fl_min >= 0.12 - 0.0001 and fl_max <= 0.24 + 0.0001 and fl_max - fl_min > 0.1, "fakkel flakkert tussen 0,12 en 0,24 alfa (%.2f tot %.2f)" % [fl_min, fl_max])
+	ok(gelijk == 0, "de twee fakkels flakkeren niet gelijk")
 	var hm = Node2D.new()
 	hm.set_script(HS)
 	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")

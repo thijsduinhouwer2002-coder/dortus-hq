@@ -415,8 +415,14 @@ func _draw() -> void:
 			draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
 		# 3D-fakkel uit het deco-blad (vast beeld, het licht zit in de 3D-gang); hoogte uit de render (`uit`), anders gelijk met de pixelfakkel
 		var fm := HOL3D.deco_maat("fakkel")
+		var fy := HOL3D.deco_y("fakkel", GANG_BOVEN + 13 - fm.y)
 		if met_3d and HOL3D.heeft("gang") and fm != Vector2.ZERO and HOL3D.teken_deco(self, "fakkel",
-				Vector2(fx + 4 - floor(fm.x / 2.0), HOL3D.deco_y("fakkel", GANG_BOVEN + 13 - fm.y))):
+				Vector2(fx + 4 - floor(fm.x / 2.0), fy)):
+			# leven in het spel, punt 4: een kleine flakkerende gloed om de vlam (bovenste 4 van de 12 spelpixels). Rond en
+			# klein, zodat hij niet als vierkant op de celrand stopt (Daan 13 nov 19:35); verandert alleen met anim (tik()).
+			var fl := fakkel_flakker(anim, i)
+			var r := 7.0 * fl.y
+			draw_texture_rect_region(GLOED, Rect2(fx + 4 - r, fy + 2.5 - r, 2.0 * r, 2.0 * r), Rect2(0, 0, 52, 52), Color(1.0, 0.72, 0.38, fl.x))
 			continue
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
@@ -491,5 +497,12 @@ func munt_laag(c: Vector2, r: float, kleur: Color) -> void:
 	draw_arc(c, rr, 0.0, TAU, 48, kleur, 1.0, true)
 
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
+# flakkeren van fakkel i bij beeld a: (alfa van de gloed, maat 0,85 tot 1). Vast patroon van 7 standen, de twee fakkels
+# lopen niet gelijk. Alleen een nieuw beeld als er toch getekend wordt (tik()), dus stil beeld kost niets extra.
+const FLAKKER := [0.0, 0.7, 0.35, 1.0, 0.5, 0.15, 0.8]
+static func fakkel_flakker(a: int, i: int) -> Vector2:
+	var f: float = FLAKKER[(a + i * 3) % FLAKKER.size()]
+	return Vector2(0.12 + 0.12 * f, 0.85 + 0.15 * f)
+
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
