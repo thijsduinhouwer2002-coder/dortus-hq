@@ -45,3 +45,11 @@ Niet gedaan: meer hoeden op de toren, want de toren komt uit Mila's capsule en m
 - Proeven op 1920x620 met 8 samples GEZIEN met Read (ook de berg 1,5x uitvergroot). Hoge hoed eerst 0,17 te hoog (zweefde), verlaagd naar 1,18.
 - Frisse kijker (agent) op half formaat A/B, `hero-voor-na-ronde3-ronde4-1920.png`: A 6, B 8, "B leest als een echte berg hoeden". Kan 2 (heksenhoed rechts te dicht op de rand) verwerkt: 0,35 naar links. Kan 1 (berg iets meer laten overlopen in het goud) niet gedaan: de munten raken de berg al, en Steam legt hier niets overheen.
 - Vol formaat: `hero-ronde4-3840x1240.png` (24 samples).
+
+## Hero en logo in kleur H (15 nov ±16:30 tot 16:45 UTC, Daan)
+Niets aan `winkel3d.py` veranderd: Mila's `capsule3d.py` staat sinds vandaag standaard op kleur H, dus warme wand, vloer, rotsen en de dikkere bruine rand om OF THE FALLEN komen vanzelf mee. Gerenderd met `bpy` 5.0.1 in een venv (python 3.11, `pip install bpy`).
+- Hero: `HERO_LENS=30 HERO_X=0.8 HERO_Z=1.75 python winkel3d.py hero.png 3840 1240 20 hero` (camera en hoedenberg als ronde 4) -> `hero-kleurh-3840x1240.png`.
+- Logo: `LOGO_SCHAAL=7.5 python winkel3d.py logo.png 3200 1800 24 logo`, strak bijgesneden (16 px rand), verkleind binnen 1280x720 -> `logo-3d-kleurh.png` (1082x720).
+- Op elkaar: `hero-kleurh-met-logo-1920.png` (logo linksonder, 48% van de hoogte). GEZIEN met Read, ook het logo op donker en licht naast ronde 3.
+- Oordeel: warm zoals het spel en de capsules, goud leest als goud, logo leest los van de wand (dikkere rand helpt op licht). Kan: de rechter fakkel staat half buiten beeld; Steam snijdt de hero op smalle schermen toch aan de randen, dus laten.
+- Dit vervangt ronde 4 (paars) als kandidaat voor de winkelpagina van wo 18 nov.

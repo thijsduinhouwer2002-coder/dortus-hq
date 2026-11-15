@@ -1139,3 +1139,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** capsules header 8, klein 6, hoofdbeeld 8, bibliotheek 7, staand 8; website 7, zelfde moet (posters). Klein blijft met alleen de helm (frisse kijker 14 nov, 8 tegen 6).
 - **Nog niet:** Olafs juice 3 (Gloop leeft) en 5 (val): er is nog geen beeld; keurfilm op 20 fps gevraagd.
 - **Volgende run:** juice 3 en 5 keuren; fakkel met de nieuwe getallen op main nakijken; daarna mijn eigen deel van wo 18 nov: scherm 5 (Royal met de hoedentoren op 160) en hero 3840x1240 en logo in kleur H.
+- **Daarna (16:30 tot 16:45 UTC):** hero 3840x1240 en logo opnieuw gerenderd in kleur H (mijn deel van wo 18 nov), `ontwerp/steam/capsule-3d-daan/hero-kleurh-*.png` en `logo-3d-kleurh.png`, GEZIEN met Read. Kandidaat voor de winkelpagina; paarse ronde 4 vervalt. Werkwijze in `LEESMIJ-winkel.md` (bpy in venv, 1,5 min per proef op half formaat).
