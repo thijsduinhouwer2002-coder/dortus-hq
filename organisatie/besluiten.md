@@ -370,3 +370,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 15 nov 19:36: Click Joints Pro ingediend bij Superhive
 - 15 nov 2026 19:36 | Thijs | **Click Joints Pro ingediend** (Personal $12, Studio $45, 12 maanden updates). Status Pending, keuring 3 tot 5 dagen. | Snelste kans op de eerste euro; 136+ gebruikers van de gratis versie. | Afgekeurd: punten verwerken en opnieuw indienen.
+
+## 15 nov 19:52: betaalde zip niet meer openbaar op GitHub
+- 15 nov 2026 19:52 | Thijs | **Zodra Click Joints Pro live staat op Superhive, gaat het downloadbestand `click_joints_pro-1.0.1.zip` uit de openbare release `click-joints-pro-v1.0.1` weg** (de hoofdchat doet het). De broncode blijft staan (GPL). Voortaan komen betaalde builds niet meer als download in een openbare release. | Nu kan iedereen Pro gratis downloaden van GitHub. | Niets; GPL staat delen toe, maar wij geven de kant-en-klare download niet zelf weg.
