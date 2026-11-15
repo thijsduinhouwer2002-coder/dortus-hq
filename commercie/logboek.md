@@ -505,3 +505,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** tak `claude/chris-click-joints-pro` in repo dortus (Pro-blok onderaan, knop naar Superhive, $12 en $45, geen lanceerprijs op de pagina); BlenderNation C44 met Pro en beeld `blendernation-pro-1456x672.jpg`; keuze A (€ 25) of B (gratis C37 zonder dortus-link) met advies A; dag 0; regel op lijst-thijs; verwerkt-regel in berichten.
 **Controleur:** akkoord mits. Moet: Pro uit knoppen en menu (regel 6.1), Blender-versie Pro "4.2 to 5.3"; beide verwerkt. Kan: onderschrift verwerkt, 90/135 graden bewust niet.
 **Volgende run:** curl Superhive; Calm openbaar? (`controleer-winkel.py bcc58192-667b-4bd8-a824-e6fe26794466 calm 5280653d-1681-452d-8c03-7cbdc7284641`); dagmeting Ebb 16 nov.
+
+## 15 nov 2026, run 45 (±21:57 tot 22:20 UTC): korte filmpjes, week 1
+**Opdracht:** besluit Thijs 15 nov 22:53, gaat voor. Eén product: Click Joints.
+**Gemeten:** 20 Shorts via de zoekpagina van YouTube (GEZIEN: titel, views, beelden). Afspeelpagina vraagt vanuit de cloud om in te loggen ("not a bot"), yt-dlp ook: niet omzeild, dus lengte en geluid GOK. TikTok laadt alles met JavaScript: niet gemeten. Superhive 403. dortus.com/click-joints/ nog "On its way".
+**Beslissing:** drie formats die zonder gezicht werken (vraag met scherm, satisfying loop, lijstje), alleen de gratis versie, omdat Pro nog niet te koop is. De films bouw ik in een workflow uit beelden die al openbaar staan, zodat er geen grote bestanden in de repo komen (de opdracht vraagt een release). Workflow `.github/workflows/filmpjes-week-1.yml` is nieuw en raakt niets van anderen; zelfde opzet als Bram's release-workflow voor de Pro-film.
+**Gedaan:** `commercie/filmpjes/formats.md`, `commercie/filmpjes/week-1.md`, bron in `commercie/filmpjes/week-1/`, release `filmpjes-week-1`, regel op lijst-thijs.
+**Controleur:** filmpjes eerst nee (twee teksten één beeld door elkaar bij elke wissel), opgelost met gte/lt; kan-punten verwerkt ("Place the joint", eindkaart eerder, 17 van 20 zonder gezicht). Rest ja.
+**Volgende run:** release nakijken, Daans oordeel verwerken, filmpje 4 (Ebb: schermen uit de simulator); curl Superhive; Calm openbaar?; dagmeting Ebb 16 nov.

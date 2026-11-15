@@ -1,0 +1,65 @@
+name: Filmpjes week 1 (Click Joints)
+
+# Chris, 15 nov 2026: bouwt de eerste drie staande filmpjes voor TikTok, YouTube Shorts en Reels
+# uit echte beelden van Click Joints (film v2 van Bram en de twee previews van de gratis versie)
+# en zet ze in de release filmpjes-week-1. Zo staan er geen grote videobestanden in de repo.
+# Bron en uitleg: commercie/filmpjes/week-1/ en commercie/filmpjes/week-1.md.
+# Concept: niemand plaatst zonder akkoord van Daan en het ja van Thijs.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/week-1/**", ".github/workflows/filmpjes-week-1.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: filmpjes-week-1
+  MAP: commercie/filmpjes/week-1
+
+jobs:
+  bouw:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gereedschap
+        run: |
+          sudo apt-get update -q >/dev/null
+          sudo apt-get install -y -q ffmpeg fonts-inter python3-pil >/dev/null
+      - name: Bronbeelden ophalen en nakijken
+        working-directory: ${{ env.MAP }}
+        run: |
+          mkdir -p bron
+          curl -sSfL -o bron/v2.mp4 https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/film-filmisch/claude-blender-film-2026-11-08/click-joints-filmisch-v2.mp4
+          curl -sSfL -o bron/3-preview-buigen.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/3-preview-buigen.png
+          curl -sSfL -o bron/4-preview-paneel.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/4-preview-paneel.png
+          sha256sum -c bronnen.sha256
+      - name: Filmpjes bouwen en controleren
+        working-directory: ${{ env.MAP }}
+        run: |
+          for n in 1 2 3; do python3 maak.py f$n.json werk$n; done
+          mkdir -p /tmp/uit
+          for f in click-joints-*.mp4; do
+            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -show_entries format=duration -of default=nw=1 "$f" | tee /tmp/p.txt
+            grep -qx 'codec_name=h264' /tmp/p.txt && grep -qx 'width=1080' /tmp/p.txt && grep -qx 'height=1920' /tmp/p.txt || { echo "FOUT: $f is geen 1080x1920 H.264"; exit 1; }
+            d=$(grep '^duration=' /tmp/p.txt | cut -d= -f2)
+            python3 -c "import sys; d=float('$d'); sys.exit(0 if 10<=d<=20 else 1)" || { echo "FOUT: $f duurt $d s"; exit 1; }
+            ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$f" | grep -q . && { echo "FOUT: $f heeft geluid"; exit 1; }
+            ffmpeg -v error -y -i "$f" -vf "fps=1,scale=216:384,tile=10x2" -frames:v 1 "/tmp/uit/${f%.mp4}-beelden.jpg"
+            cp "$f" /tmp/uit/
+          done
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Release maken of bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp "$MAP/../week-1.md" /tmp/notes.md
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* --clobber
+            gh release edit "$TAG" --notes-file /tmp/notes.md
+          else
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --prerelease --title "Filmpjes week 1 (concept)" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

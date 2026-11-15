@@ -1,0 +1,115 @@
+{
+ "uit": "click-joints-3-three-checks.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/v2.mp4",
+   "start": 0,
+   "dur": 0.5,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 0.5,
+   "dur": 2.5,
+   "cx": 384
+  },
+  {
+   "bron": "bron/3-preview-buigen.png",
+   "dur": 4,
+   "crop": [
+    960,
+    300,
+    880,
+    680
+   ],
+   "h": 834,
+   "y": 630
+  },
+  {
+   "bron": "bron/4-preview-paneel.png",
+   "dur": 4,
+   "crop": [
+    100,
+    60,
+    1380,
+    960
+   ],
+   "h": 751,
+   "y": 660
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 7.5,
+   "dur": 1.7,
+   "cx": 384
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 9.2,
+   "dur": 1.0,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 16.5,
+   "dur": 3.0,
+   "cx": 384
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 3,
+   "regels": [
+    "3 things my free",
+    "Blender add-on *checks*",
+    "before you print"
+   ]
+  },
+  {
+   "van": 3,
+   "tot": 7,
+   "regels": [
+    "1. How far it bends.",
+    "*Red* means too far."
+   ]
+  },
+  {
+   "van": 7,
+   "tot": 11,
+   "regels": [
+    "2. The fit, measured in *mm*:",
+    "wall and clearance"
+   ],
+   "grootte": 66
+  },
+  {
+   "van": 11,
+   "tot": 13.7,
+   "regels": [
+    "3. Exploded view, then",
+    "one STL or 3MF per part"
+   ],
+   "grootte": 66
+  },
+  {
+   "van": 13.7,
+   "tot": 16.7,
+   "regels": [
+    "Free on Blender Extensions",
+    "link in bio"
+   ],
+   "grootte": 66
+  },
+  {
+   "van": 0,
+   "tot": 13.7,
+   "regels": [
+    "Click Joints for Blender"
+   ],
+   "grootte": 40,
+   "y": 1585,
+   "licht": true
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "uit": "click-joints-1-bend-far-enough.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/v2.mp4",
+   "start": 0,
+   "dur": 0.5,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 0.5,
+   "dur": 3.0,
+   "cx": 384
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 3.5,
+   "dur": 4.0,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 7.5,
+   "dur": 1.7,
+   "cx": 384
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 9.2,
+   "dur": 6.3,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 16.5,
+   "dur": 3.0,
+   "cx": 384
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.2,
+   "regels": [
+    "Will this joint",
+    "bend far enough?"
+   ]
+  },
+  {
+   "van": 2.2,
+   "tot": 4.5,
+   "regels": [
+    "I made a free Blender",
+    "add-on that *checks* it"
+   ]
+  },
+  {
+   "van": 4.5,
+   "tot": 7.5,
+   "regels": [
+    "Place the joint.",
+    "*Drag* the bend."
+   ],
+   "grootte": 70
+  },
+  {
+   "van": 7.5,
+   "tot": 9.2,
+   "regels": [
+    "Exploded view:",
+    "ball and socket apart"
+   ]
+  },
+  {
+   "van": 9.2,
+   "tot": 15.5,
+   "regels": [
+    "Green ring =",
+    "*good fit*, in mm"
+   ]
+  },
+  {
+   "van": 15.5,
+   "tot": 18.5,
+   "regels": [
+    "Free on Blender Extensions",
+    "link in bio"
+   ],
+   "grootte": 66
+  },
+  {
+   "van": 0,
+   "tot": 15.5,
+   "regels": [
+    "Click Joints for Blender"
+   ],
+   "grootte": 40,
+   "y": 1585,
+   "licht": true
+  }
+ ]
+}

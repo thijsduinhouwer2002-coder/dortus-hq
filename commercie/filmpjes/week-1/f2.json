@@ -1,0 +1,44 @@
+{
+ "uit": "click-joints-2-satisfying-bend.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/v2.mp4",
+   "start": 0,
+   "dur": 0.5,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 3.5,
+   "dur": 3.9,
+   "cx": 768
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 9.2,
+   "dur": 5.8,
+   "cx": 768
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 10.2,
+   "regels": [
+    "See how far a joint *bends*,",
+    "before you print."
+   ],
+   "grootte": 72
+  },
+  {
+   "van": 0,
+   "tot": 10.2,
+   "regels": [
+    "Click Joints, a free Blender add-on"
+   ],
+   "grootte": 40,
+   "y": 1585,
+   "licht": true
+  }
+ ]
+}
