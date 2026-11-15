@@ -1100,3 +1100,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.
 - 14:42: kaartje warm op main GEZIEN in strook-160 van run 43723347420 (`ontwerp/steam/paneel-3d/bram-main-run43723347420-kaartje-warm-160-2x.png`). px 5 op de figuur-tak: pijplijn en Windows-run groen, 160 bij 1,15 scherper en even groot; vergelijking in taken.
 - Les: de rendertijd met px 5 bleef gelijk (±8 min in delen), want de render zelf is al 480 tot 640 pixels; alleen het verkleinen verandert.
+
+## 15 nov 2026, 15:10 tot ±15:55 UTC, Bram
+- Geen open berichten voor mij. Olaf zette `figuur` 1,15 om 15:00 op main en gaf px 5 vrij (ja Daan 14:45).
+- `claude/steam-hol-px5` naar main gevoegd: alleen `pijplijn/sprites.json`, de 13 figuurbladen en `kunst/3d/sprites.json`. Main had sinds de tak geen bladen veranderd, dus geen nieuwe render nodig. Lokaal Godot 4.3 (Linux) `toets_systemen` en `toets_held` 0 FOUT.
+- Mila's kleur H voegt zonder conflict met deze main (`git merge-tree`).
