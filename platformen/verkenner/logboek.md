@@ -1065,3 +1065,4 @@ Nieuwste blok onderaan.
 - Ook geschift zonder voorstel: Galaxy Store van Samsung (detailpagina's geven vanaf hier "not supported in this country", downloads niet openbaar, geen aparte sitemap voor wijzerplaten). Niet verder gegaan.
 - Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: graphtreon-methode toepassen op andere modgemeenschappen die nog niet bekeken zijn (Euro Truck Simulator 2, Stardew Valley, Cities: Skylines, Kenshi), of vakprogramma's (Archicad, Vectorworks, ArcGIS).
+- Na het opslaan nog een snelle schifting met de graphtreon-methode: Euro Truck Simulator, Stardew Valley, Cities: Skylines, RimWorld, Kenshi en Factorio (34 makers op naam). Middelste ±$11 per maand, niemand boven $500. Nee (1), in onderzocht.md. Afgesloten om ±08:20.
