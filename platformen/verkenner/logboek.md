@@ -1136,3 +1136,6 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 3, nee als eigen portal. Zie voorstellen/playgama.md.
 - Voor Hans: de Playables-proef blijft een 6, maar Playgama eist dat een spel niet "primarily or entirely" met generatieve AI gemaakt is zonder echte waarde. Toegevoegd in voorstellen/youtube-playables.md. Niets op de lijst van Thijs.
 - Les: stemaantallen op portals kunnen een startwaarde bevatten. Kijk altijd naar het laagste aantal per maand: als geen enkel spel onder een drempel zit, is het geen echte maat.
+- Daarna GamePix (14:53 in onderzoek en gepusht). Website achter Cloudflare (403), niet omzeild. Open uitgeversfeed (sid=1) gelezen: 15.081 spellen, geen plays. 50% voor de maker, niet exclusief. Cijfer 2, nee zonder volledige meting. Geen controleur: het oordeel hangt aan wat niet te meten is.
+- Voor Hans: twee nee's (Playgama als portal 3, GamePix 2) en één aanvulling op de Playables-proef (AI-eis van Playgama). Niets op de lijst van Thijs.
+- Les van deze run: webspelportals zijn nu genoeg gemeten (CrazyGames, Poki, Y8, GameDistribution, Playgama, GamePix, Discord Activities, Playables). Volgende run beter weer een ander soort platform, bijvoorbeeld uit de lijst vakprogramma's of hardwarewinkels; Xiaomi Theme Store staat nog open in kandidaten.md.
