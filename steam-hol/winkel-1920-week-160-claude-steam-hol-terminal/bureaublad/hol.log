@@ -1,0 +1,39 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 54 s (klok terug: false): goud voor 1637, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1644 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Joost
+HOL kroniek 5.1 (wacht 1.0): Joost brought a torch. And hope.
+HOL kroniek 9.6 (wacht 0.0): Joost left gold and one boot. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=2
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL meting t=50 beelden=2 helden=0 hol_vast=3
+HOL kroniek 56.3 (wacht 0.0): Pim picks the lock. It was open.
+HOL held binnen: Pim
+HOL meting t=60 beelden=51 helden=1 hol_vast=3
+HOL meting t=70 beelden=101 helden=1 hol_vast=3
+HOL kroniek 77.3 (wacht 0.0): Pim left. Took nothing. Angry.
+HOL kroniek 79.9 (wacht 2.6): Page for the Thief. He got away.
+HOL meting t=80 beelden=71 helden=0 hol_vast=3
+HOL meting t=90 beelden=4 helden=0 hol_vast=3
+HOL kroniek 98.5 (wacht 0.0): Tibbe climbs into your hole.
+HOL held binnen: Tibbe
+HOL meting t=100 beelden=23 helden=1 hol_vast=3
+HOL kroniek 104.0 (wacht 0.0): Tibbe found the Spike Pit. Hard. +6
+HOL meting t=110 beelden=71 helden=0 hol_vast=5
+HOL meting t=120 beelden=11 helden=0 hol_vast=5
+HOL meting t=130 beelden=3 helden=0 hol_vast=5
+HOL meting t=140 beelden=4 helden=0 hol_vast=5
+HOL meting t=150 beelden=10 helden=0 hol_vast=5
+HOL kroniek 156.2 (wacht 0.0): Sir Rik polished his armor for this.
+HOL held binnen: Rik
+HOL meting t=161 beelden=52 helden=1 hol_vast=5
+HOL meting t=171 beelden=100 helden=1 hol_vast=5
+HOL meting t=181 beelden=101 helden=1 hol_vast=5
+HOL kroniek 181.6 (wacht 0.0): Rik fled. Grudge: the Spike Pit.
+HOL kroniek 184.2 (wacht 2.6): New page: the Knight. Ran off. Counts.
