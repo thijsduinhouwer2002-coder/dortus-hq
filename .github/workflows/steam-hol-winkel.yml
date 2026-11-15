@@ -230,6 +230,12 @@ jobs:
           $pol = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
           if (-not (Test-Path $pol)) { New-Item -Path $pol -Force | Out-Null }
           foreach ($n in @("HideSCANetwork", "HideSCAVolume")) { Set-ItemProperty $pol $n 1 -Type DWord -ErrorAction SilentlyContinue }
+          # Olaf 15 nov 21:30 (kan Daan 20:30): het netwerkicoon bleef staan met alleen HKCU (run 43752055290); de taakbalk
+          # van deze Windows leest de regel ook machinebreed. Zelfde regel onder HKLM; log meldt beide.
+          $polm = "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+          if (-not (Test-Path $polm)) { New-Item -Path $polm -Force | Out-Null }
+          foreach ($n in @("HideSCANetwork", "HideSCAVolume")) { Set-ItemProperty $polm $n 1 -Type DWord -ErrorAction SilentlyContinue }
+          Write-Output "netwerkicoon verbergen: HKCU $((Get-ItemProperty $pol -ErrorAction SilentlyContinue).HideSCANetwork), HKLM $((Get-ItemProperty $polm -ErrorAction SilentlyContinue).HideSCANetwork)"
           Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
           for ($w = 0; $w -lt 15 -and -not (Get-Process explorer -ErrorAction SilentlyContinue); $w++) { Start-Sleep 1 }
           if (-not (Get-Process explorer -ErrorAction SilentlyContinue)) { Start-Process explorer.exe; Write-Output "explorer zelf gestart" }
