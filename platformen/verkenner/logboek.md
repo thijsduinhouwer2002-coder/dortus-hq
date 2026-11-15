@@ -1139,3 +1139,12 @@ Nieuwste blok onderaan.
 - Daarna GamePix (14:53 in onderzoek en gepusht). Website achter Cloudflare (403), niet omzeild. Open uitgeversfeed (sid=1) gelezen: 15.081 spellen, geen plays. 50% voor de maker, niet exclusief. Cijfer 2, nee zonder volledige meting. Geen controleur: het oordeel hangt aan wat niet te meten is.
 - Voor Hans: twee nee's (Playgama als portal 3, GamePix 2) en één aanvulling op de Playables-proef (AI-eis van Playgama). Niets op de lijst van Thijs.
 - Les van deze run: webspelportals zijn nu genoeg gemeten (CrazyGames, Poki, Y8, GameDistribution, Playgama, GamePix, Discord Activities, Playables). Volgende run beter weer een ander soort platform, bijvoorbeeld uit de lijst vakprogramma's of hardwarewinkels; Xiaomi Theme Store staat nog open in kandidaten.md.
+
+## 15 nov 2026, run 15:31 (Amsterdam)
+- Gekozen: Whop App Store (15:35 in onderzoek en gepusht). Waarom: nooit bekeken, een echte appwinkel van een groot betaalplatform, robots.txt staat lezen toe, en de vorige run raadde een ander soort platform aan dan webspelportals.
+- Zelf gemeten: de openbare API van Whop werkt zonder sleutel en geeft alle 194 live apps (48 b2b, 146 b2c, 17 van Whop). Alle 194 app-pagina's gelezen voor reviews met datum en prijzen. Mediaan 0 reviews bij derden, 2 apps met 10+, maar 10 apps kregen een review na 15 aug. Installs nergens openbaar.
+- Geld: betalen via de gewone Whop-checkout (2,7% + $0,30), 17 apps noemen een prijs van meestal $5 tot $29 per maand. Geen bewijs van verdienende makers in TrustMRR of op het web.
+- Controleur: alle 9 punten klopten. Kanttekeningen: 120 makers bij derden (niet 124), de grootste app van derden is mede door Whop gebouwd. Verwerkt.
+- Uitkomst: cijfer 2, nee. Zie voorstellen/whop-app-store.md.
+- Voor Hans: één nee. Niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: een winkel met een open API maar zonder installcijfers is te meten via reviews met datum; kijk dan vooral naar de laatste drie maanden om te zien of de winkel nog leeft.
