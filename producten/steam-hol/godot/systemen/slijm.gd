@@ -72,17 +72,16 @@ var rng_oog := RandomNumberGenerator.new()   # eigen dobbelsteen, zodat de leven
 
 # Leven in het spel 3 (hoofdchat 15 nov 15:55, getallen Daan in ontwerp/steam/juice.md): knijpen en rekken vanaf de voet.
 # Hap: plat en breed (1,25 x 0,8) 80 ms, dan via 0,9 / 1,1 terug naar 1,0 binnen 0,33 s. Blij: eerst rekken omhoog
-# (0,9 x 1,15), zelfde terugveer. Ademen: elke 3 tot 4 s 0,6 s lang één spelpixel hoger, met een wekker (zoals knipperen),
-# dus in rust geen _process tussendoor. Alleen in 3D; de pixel-Gloop blijft zoals hij was. Alles in hele spelpixels:
-# de schaal wordt afgerond op een lijf van KNIJP_B x KNIJP_H spelpixels.
+# (0,9 x 1,15), zelfde terugveer. Ademen: elke 3 tot 4 s 0,6 s lang één spelpixel hoger, met twee wekkers (op en neer),
+# dus in rust geen _process. Alleen in 3D; de pixel-Gloop blijft zoals hij was. Hele spelpixels: de kruin gaat een heel
+# aantal spelpixels omhoog of omlaag, gemeten op de echte zichtbare hoogte van het lijf (controleur 15 nov), en de
+# hoedentoren schuift precies zoveel mee (knijp_dy).
 const KNIJP_HAP := [[0.08, 1.25, 0.8], [0.2, 0.9, 1.1], [0.33, 1.05, 0.95]]   # [tot s, breed, hoog]
 const KNIJP_BLIJ := [[0.08, 0.9, 1.15], [0.2, 1.1, 0.9], [0.33, 0.97, 1.03]]
-const KNIJP_B := 20.0
-const KNIJP_H := 16.0
 const ADEM_MIN_S := 3.0
 const ADEM_MAX_S := 4.0
 const ADEM_S := 0.6
-var adem_van := -10.0
+var adem_aan := false
 var rng_adem := RandomNumberGenerator.new()   # eigen dobbelsteen: de andere wekkers blijven gelijk
 var _knijp := Vector2.ONE                     # de schaal waarmee nu getekend wordt (spiegel in _teken_3d zet hem terug)
 
@@ -162,9 +161,24 @@ func _adem() -> void:
 func adem() -> bool:
 	if not _heeft_3d("rust") or is_plat() or leven != "" or t < hap_van + HAP_S or t < blij_tot or t < koop_van + KOOP_S or t < plat_tot + OPSTAAN_S:
 		return false
-	adem_van = t
-	set_process(true)
+	adem_aan = true
+	_teken_als_anders()
+	if is_inside_tree():
+		get_tree().create_timer(ADEM_S).timeout.connect(adem_uit)
 	return true
+
+func adem_uit() -> void:
+	adem_aan = false
+	_teken_als_anders()
+
+# Zichtbare maat van het 3D-lijf nu in spelpixels (breed = cel, hoog = cel min de lege rand boven de kruin in rust).
+func lijf_maat() -> Vector2:
+	if lijf3d_info.is_empty():
+		return Vector2(20, 16)
+	var px: float = lijf3d_info["px"]
+	var k := 1.0 if is_groot() else 0.8
+	var top3: float = lijf3d_info["top"][lijf3d_info["frames"].find("rust")] if lijf3d_info.has("top") else 0.0
+	return Vector2(float(lijf3d_info["cel_px"][0]) / px * k, (float(lijf3d_info["cel_px"][1]) - top3) / px * k)
 
 # De schaal van het lijf nu (breed, hoog), vanaf de voet. Vector2.ONE als er niets knijpt.
 func knijp_nu() -> Vector2:
@@ -173,21 +187,23 @@ func knijp_nu() -> Vector2:
 	var k := _knijp_uit(KNIJP_HAP, t - hap_van)
 	if k == Vector2.ONE and blij_tot > 0.0:
 		k = _knijp_uit(KNIJP_BLIJ, t - (hap_van + HAP_S)) if t < blij_tot else Vector2.ONE
-	if k == Vector2.ONE and t >= adem_van and t < adem_van + ADEM_S:
-		k = Vector2(1.0, (KNIJP_H + 1.0) / KNIJP_H)
+	if k == Vector2.ONE and adem_aan and not (t < hap_van + HAP_S or t < blij_tot or leven != ""):
+		var m := lijf_maat()
+		k = Vector2(1.0, (m.y + 1.0) / m.y)
 	return k
 
 func _knijp_uit(tabel: Array, dt: float) -> Vector2:
 	if dt < 0.0:
 		return Vector2.ONE
+	var m := lijf_maat()
 	for r in tabel:
 		if dt < float(r[0]):
-			return Vector2(round(KNIJP_B * float(r[1])) / KNIJP_B, round(KNIJP_H * float(r[2])) / KNIJP_H)
+			return Vector2(round(m.x * float(r[1])) / m.x, (m.y + round(m.y * (float(r[2]) - 1.0))) / m.y)
 	return Vector2.ONE
 
 # Hoeveel spelpixels de kruin nu hoger (negatief) of lager staat door het knijpen; de toren gaat mee.
 func knijp_dy() -> int:
-	return -int(round(KNIJP_H * (knijp_nu().y - 1.0)))
+	return -int(round(lijf_maat().y * (knijp_nu().y - 1.0)))
 
 func knipper() -> bool:
 	if not _heeft_3d("knipper") or is_plat() or leven != "" or t < blij_tot:
@@ -404,7 +420,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and t > adem_van + ADEM_S:
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot:
 		set_process(false)
 	_teken_als_anders()
 
