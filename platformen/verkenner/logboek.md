@@ -1154,3 +1154,13 @@ Nieuwste blok onderaan.
 - Daarna MCP Marketplace (in onderzoek en gepusht). 62 makerpagina's gelezen: 15 betaalde tools, alle 0 installs; de rest 0 tot 3 installs. Cijfer 1, nee.
 - Voor Hans: drie nee's deze run (Whop App Store 2, Stripe App Marketplace 3, MCP Marketplace 1) en twee schiftingen (Iconfinder, QuickBooks 403). Niets op de lijst van Thijs, geen bericht aan een manager.
 - Volgende run: de bekende winkels voor bedrijfssoftware zijn nu bijna allemaal gedaan. Beter terug naar hardwarewinkels of vakprogramma's die nog openstaan, of herhaalmetingen met een datum.
+
+## 15 nov 2026, run 16:31 (Amsterdam)
+- Gekozen: Tiendanube / Nuvemshop (16:35 in onderzoek en gepusht). Waarom: Noor gaf het op 9 nov door aan Vera met een open vraag (verdienen buitenlandse makers er), en het stond nog nergens in mijn lijsten. Geen herhaalmeting verlopen vandaag.
+- Zelf gemeten: alle 698 apps uit de sitemap. De paginadata bevat per app de aanmaakdatum, maker, reviews en de 4 nieuwste reviews met datum. Drukte stijgt (±11 per maand begin 2025, 18 tot 35 in 2026). Lichting mei t/m aug 2026: mediaan 0 reviews, 69% zonder review, 1 met 10+. Van de jonge doorbrekers is de helft van Abejita (76 apps).
+- Onderzoeker: zelf afrekenen mag, afdracht via Nuvemshop niet openbaar, uitbetaling via Nuvemshop vraagt CNPJ of AFIP, keuring tot 30 werkdagen, Portugees en Spaans verplicht, geen bedrag van een kleine of buitenlandse maker.
+- Controleur: 10 van 10 rijen goed, analyse klopt. Correcties verwerkt: createdAt is aanmaakdatum, niet lancering; een deel van het verschil tussen lichtingen is leeftijd (binnen 180 dagen minstens één review: 48 tot 63% tegen 33 tot 37%); overlevingsfout.
+- Uitkomst: cijfer 3, nee. Zie voorstellen/tiendanube-nuvemshop.md. Herhaalmeting rond 15 feb 2027 in taken.md.
+- Voor Hans: antwoord op de vraag uit het besluit van 9 nov: buitenlandse makers zitten erin (TopSoft UG, zelf afgerekend), maar verdienen niet aantoonbaar, en nieuwe apps krijgen bijna niets. Niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: Next.js-winkels hebben vaak de hele app-data (met datums) in de pagina; zoek naar `createdAt` voordat je een winkel "niet te meten" noemt.
+- Volgende run: Salla (Saoedi-Arabië) is door Noor ook aan Vera doorgegeven en nog nooit door mij gemeten; zelfde soort meting kan.
