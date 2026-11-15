@@ -10,6 +10,7 @@ USER WARNING: All audio drivers failed, falling back to the dummy driver.
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 7
 HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL begin: vallen (Kees)
@@ -32,7 +33,7 @@ HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
-HOL meting t=20 beelden=126 helden=2 hol_vast=4
+HOL meting t=20 beelden=129 helden=2 hol_vast=4
 HOL begin: doorlopen (Tibbe)
 HOL held binnen: Tibbe
 HOL kaartje dicht 24.5
