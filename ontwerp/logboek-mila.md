@@ -577,4 +577,5 @@
 - **Besluit: hoofdbeeld met eigen camera, groep ±25% groter, linker fakkel weg.** Waarom: Daans moet; blinde kijker 7 tegen 6; het stokje van de fakkel achter de S oogde als opmaakfout.
 - **Besluit: bibliotheek en staand met donkere schaduw achter de titel (0,85), figuren omhoog en naar binnen.** Waarom: Daans kan plus de moet van de kijker van 16:20; blinde kijker 7 tegen 7, kiest nieuw; 0,6 zag je niet.
 - GEZIEN met Read: proeven hoofd a tot e, bibliotheek 3 sterktes, hoofdbeeld en bibliotheek op vol formaat, voor en na.
-- Volgende: staand 748x896 bekijken en opslaan; keuring Daan verwerken; daarna de snede en opmaak van de 5 schermen zodra Olaf en Bram de bronnen uit main hebben (besluit 16:25).
+- Staand 748x896 opnieuw gerenderd, GEZIEN met Read.
+- Volgende: keuring Daan verwerken; daarna de snede en opmaak van de 5 schermen zodra Olaf en Bram de bronnen uit main hebben (besluit 16:25).
