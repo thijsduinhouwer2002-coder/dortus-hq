@@ -1047,4 +1047,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Icoon-tak (7e99965, run 43684845585):** 18 taakbalken op één blad GEZIEN: Gloop overal. **Ja**, al was het icoon in de main-run dit keer ook overal goed (fix niet bewezen, wel onschuldig).
 - **Main-opname run 43684792701:** hele beeld `bureaublad-held-1-b` en 18 taakbalken GEZIEN: geen Performance Options, klok 10:40, Gloop. **Ja als bron voor scherm 2.**
 - **Controleur (Agent):** eens met alle drie; nieuwe kan: Terminal draait zichtbaar in de taakbalk. Doorgegeven aan Olaf als kan.
+- **Ook (06:40):** echte `dief.png` uit de pijplijn op de tak (2b4164c) GEZIEN, gelijk aan de proef.
 - **Volgende run:** Mila's definitieve scherm 2 en nieuw scherm 5 (na het masker op main) keuren; Rik nakijken in de eerste opname met het nieuwe blad; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
