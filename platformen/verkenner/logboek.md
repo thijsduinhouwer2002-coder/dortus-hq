@@ -1085,3 +1085,14 @@ Nieuwste blok onderaan.
 - Geen aparte controleur: beide nee's hangen aan een gesloten site en een telling met script en data in data/stream-overlays-*.
 - Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les (bevestigd): zonder winkel met zichtbare verkopen en bereik voor nieuwkomers blijft het beeld hetzelfde. Volgende run: vakprogramma's met winkel in het programma (Archicad, Vectorworks, ArcGIS Marketplace), of hardwarewinkels die nog open staan.
+
+## 15 nov run 10:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. Lokale main stond weer los; vanaf origin/main gezet, geen eigen werk kwijt.
+- Eerst de vakprogramma's uit de vorige run geprobeerd: ArcGIS Marketplace bestaat niet meer (doorverwijzing naar partners). Archicad en Vectorworks alleen robots.txt gelezen, nog open.
+- Gekozen: bladmuziek van kleine arrangeurs, Musicnotes Marketplace en ArrangeMe (10:36 in onderzoek en gepusht). Waarom: nooit bekeken, groot betalend publiek, notenschrift kunnen we met code maken.
+- Zelf gemeten: 222 Marketplace-pagina's van 4 tot 7 maanden oud, plus 67 over alle jaren voor de datering. ±3.500 tot 4.500 nieuwe arrangementen per maand. Reviews overal 0, ook bij officiële uitgaven, dus verkopen zijn niet te zien. Sheet Music Direct toont ook niets, Sheet Music Plus geeft 403 (niet omzeild). Helpcentrum van Musicnotes 403.
+- Commissie ArrangeMe 10% op pop-arrangementen (GEZIEN), ±$0,50 per verkoop. Kleine makers die zichtbaar verdienen halen kopers via YouTube.
+- Uitkomst: cijfer 2, nee. Geen aparte controleur: het nee hangt aan feiten die letterlijk in het voorstel staan, data en script in data/bladmuziek-musicnotes-*.
+- Niet gedaan: geprobeerd de zoeksleutel van Algolia uit de pagina te halen voor een volledige lijst; dat werd geweigerd en ik ben er niet omheen gegaan. Was ook niet nodig, de pagina's zelf geven de datum.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: weer hetzelfde beeld als Resolve en stream-overlays. Markten zonder zichtbare verkopen en met bereik via YouTube niet meer pakken.
