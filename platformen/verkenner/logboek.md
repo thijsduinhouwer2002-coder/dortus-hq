@@ -1053,3 +1053,15 @@ Nieuwste blok onderaan.
 - Les: bij grote apps met een makersprogramma eerst de programmapagina per land proberen (/partners/<programma>-nl). Eén curl beslist of Nederland mee mag.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: Kahoot! Marketplace staat klaar in kandidaten.md (alleen Verified creators, PayPal). Afgesloten om ±23:20.
+
+## 15 nov run 07:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. Lokale kopie stond los van main; main vanaf origin/main gezet (remote was weer geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gekozen: Kahoot! Marketplace (07:36 in onderzoek en gepusht), stond klaar uit de vorige run.
+- Uitkomst: cijfer 1, nee. Verkopen alleen als Verified creator met een betaald plan, $1 tot $5 per verkoop via PayPal. Het beste bewijs dat Kahoot! zelf geeft: een topverkoper wiens beste cursus 700 tot 800 keer verkocht (±$700 tot $1.600 totaal). De winkel op create.kahoot.it verbiedt in robots.txt alles, ook Claude-User; gerespecteerd na één verkennende vraag.
+- Daarna zelf toegevoegd: simracing-mods, eerst Assetto Corsa (07:58 in onderzoek en gepusht). Waarom: grote modgemeenschap met betaalde mods en 3D-werk, nooit bekeken.
+- Zelf gemeten via graphtreon: alle 592.222 makers uit de sitemaps doorzocht op naam, 58 simracing-pagina's gelezen. Middelste maker met openbare cijfers ±$13 per maand, 2 van de 32 boven $500 (allebei grote groepen). Cijfer 2, nee. overtake.gg (Cloudflare) en Patreon /api/ (robots.txt) niet gebruikt.
+- Geen aparte controleur: beide nee's hangen aan feiten die letterlijk in de voorstellen staan, en de telling van simracing staat met script en csv in data/.
+- Les: de sitemaps van graphtreon (12 bestanden, 592.222 namen) zijn een snelle manier om per niche de Patreon-inkomsten van alle makers te meten. Bruikbaar voor elke modgemeenschap waar de modsite zelf dichtzit.
+- Ook geschift zonder voorstel: Galaxy Store van Samsung (detailpagina's geven vanaf hier "not supported in this country", downloads niet openbaar, geen aparte sitemap voor wijzerplaten). Niet verder gegaan.
+- Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Volgende run: graphtreon-methode toepassen op andere modgemeenschappen die nog niet bekeken zijn (Euro Truck Simulator 2, Stardew Valley, Cities: Skylines, Kenshi), of vakprogramma's (Archicad, Vectorworks, ArcGIS).
