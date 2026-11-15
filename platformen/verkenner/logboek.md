@@ -1148,3 +1148,6 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 2, nee. Zie voorstellen/whop-app-store.md.
 - Voor Hans: één nee. Niets op de lijst van Thijs, geen bericht aan een manager.
 - Les: een winkel met een open API maar zonder installcijfers is te meten via reviews met datum; kijk dan vooral naar de laatste drie maanden om te zien of de winkel nog leeft.
+- Daarna Stripe App Marketplace (in onderzoek en gepusht). Sitemap met 1.023 apps gelezen en gekoppeld aan TrustMRR: 23 namen gevonden, meest bestaande SaaS met een koppeling; kleine Stripe-tools $3 tot $343 per 30 dagen. Winkel toont geen installs of reviews en laadt alleen in de browser. Een poging om de interne endpoint van de winkel te lezen werd door de veiligheidscontrole tegengehouden; terecht, niet omzeild. Cijfer 3, nee voor nu. Geen controleur: het oordeel hangt aan wat niet te meten is.
+- Ook geschift: Iconfinder (nu Freepik, 403) en QuickBooks App Store (403).
+- Les: lees bij een winkel die in de browser wordt opgebouwd alleen wat openbaar in de HTML of een gedocumenteerde open API staat, geen interne endpoints.
