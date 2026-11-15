@@ -1196,3 +1196,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 15 nov 2026, Olaf (run 23:13 UTC)
 - Val-schrik naar main (5da1a0d, ja Daan 22:55, runs 43770604526 en 43770610240 groen). Ja aan Bram op eerste hoed binnen de minuut (eisen in taken.md). Speeltest: sluiten via de taakbalk in plaats van Alt+F4, toets op tak `claude/steam-hol-sluiten`.
+
+## 15 nov 2026, 23:10 tot ±23:55 UTC, Bram
+- Voorstel eerste hoed binnen de minuut aan Olaf (23:20), ja Olaf 23:30, gebouwd op tak `claude/steam-hol-eerste-hoed` (65e7f92): hap in het volle spel van ±98 naar ±60 s, eerste koop gemiddeld 245 s (was 291). Windows-run 43775491912. Details in `taken.md`.
+- Les: het volle spel draait onder Xvfb met `--fixed-fps 15` zonder echte tijd: 650 s speeltijd in ±20 s, handig om zaden te vergelijken. `--headless` geeft een venster van 0 breed en dus SCRIPT ERRORs in hol.gd; gebruik Xvfb.
