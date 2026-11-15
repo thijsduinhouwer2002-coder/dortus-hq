@@ -134,7 +134,11 @@ def fakkel(x, z, y=2.9, kracht=260, groot=1.6):
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.6, zv + 0.5); sc.collection.objects.link(l)
 
 if not KLEIN:   # ronde 4: klein zonder fakkels, minder dingen
-    fakkel(GX - 3.4 + 0.2, 3.1)   # ronde 5 (Daan kan 4): iets naar rechts, weg van de S van HATS
+    if not HOOFD:   # hoofd: de linker fakkel stond achter de S, alleen de steel stak uit als los stokje
+        fakkel(GX - 3.4 + 0.2, 3.1)   # ronde 5 (Daan kan 4): iets naar rechts, weg van de S van HATS
+    else:
+        lf = bpy.data.lights.new("fakkellicht", "POINT"); lf.color = (1.0, 0.6, 0.28); lf.energy = 260; lf.shadow_soft_size = 0.3
+        lo = bpy.data.objects.new("fakkellicht", lf); lo.location = (GX - 3.2, 2.3, 3.9); sc.collection.objects.link(lo)
     fakkel(GX + 3.4, 3.1)
 else:
     lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = float(os.environ.get("CAP_WANDLAMP", "350" if KLEUR_H else "500"))
