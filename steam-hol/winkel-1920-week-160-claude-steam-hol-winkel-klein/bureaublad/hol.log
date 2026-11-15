@@ -1,0 +1,39 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 51 s (klok terug: false): goud voor 1577, helden 1, erbij 1
+HOL kroniek 0.0 (wacht 0.0): 1 came, 0 fell. +1 gold.
+HOL opslag geladen: 0 terugkomers, 1578 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 4.1 (wacht 0.0): Gerda the Thief tiptoes in.
+HOL held binnen: Gerda
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL meting t=20 beelden=101 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Gerda escaped with a limp.
+HOL kroniek 27.6 (wacht 2.5): New page: the Thief. He got away.
+HOL meting t=30 beelden=53 helden=0 hol_vast=1
+HOL meting t=40 beelden=4 helden=0 hol_vast=1
+HOL kroniek 49.1 (wacht 0.0): Joost brought a torch. And hope.
+HOL held binnen: Joost
+HOL meting t=50 beelden=15 helden=1 hol_vast=1
+HOL meting t=60 beelden=100 helden=1 hol_vast=1
+HOL kroniek 70.1 (wacht 0.0): Joost fled, crying a little.
+HOL meting t=70 beelden=98 helden=0 hol_vast=1
+HOL kroniek 72.7 (wacht 2.6): Page for the Hero. Ran off. Counts.
+HOL meting t=80 beelden=5 helden=0 hol_vast=1
+HOL meting t=90 beelden=11 helden=0 hol_vast=1
+HOL meting t=100 beelden=5 helden=0 hol_vast=1
+HOL kroniek 106.8 (wacht 0.0): Gerda is back for the Spike Pit.
+HOL held binnen: Gerda
+HOL meting t=110 beelden=43 helden=1 hol_vast=1
+HOL meting t=120 beelden=101 helden=1 hol_vast=1
+HOL kroniek 127.8 (wacht 0.0): Gerda left. Took nothing. Angry.
+HOL meting t=131 beelden=69 helden=0 hol_vast=1
+HOL meting t=141 beelden=4 helden=0 hol_vast=1
+HOL meting t=151 beelden=11 helden=0 hol_vast=1
+HOL meting t=161 beelden=3 helden=0 hol_vast=1
+HOL kroniek 162.8 (wacht 0.0): Fenna is here for your gold.
+HOL held binnen: Fenna
+HOL kroniek 168.3 (wacht 0.0): Fenna left gold and one boot. +6
+HOL kroniek 170.9 (wacht 2.6): New stamp for the Hero. The pit got him.
+HOL meting t=171 beelden=94 helden=0 hol_vast=3
+HOL meting t=181 beelden=5 helden=0 hol_vast=3
