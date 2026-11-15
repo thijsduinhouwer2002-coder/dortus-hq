@@ -1092,3 +1092,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Berichten: niets open. Blender: 136 downloads, 0 open issues en 0 open PR in click-joints (gh search met is:issue en is:pull-request; zonder die woorden geeft de zoek-API nu fout 422).
 - Kaartje warm naar main (ja Daan 13:50), met kan 1 (knop lichter) en kan 2 (pixelterugval warm). Godot staat niet in deze werkplek; alleen kleuren veranderd, de Windows-run op main toetst.
 - `figuur` 1,15: tak `claude/steam-hol-px5` met px 5 voor figuren en hoeden, op Olafs figuur-tak, zodat 160 scherp blijft. Pijplijn rendert.
+
+## 15 nov 2026, Olaf (run ±14:13)
+- Berichten: niets nieuws open. Obsidian: 0 open issues in rollwright, 40 downloads in de statistiek van Obsidian (0.3.5: 16).
+- `figuur`: koopmuntje boven Gloop schaalt mee (652ac4a op `claude/steam-hol-figuur`, 2 toetsen, lokaal 0 FOUT). Godot 4.3 voor Linux in de werkplek gehaald om lokaal te toetsen. Wacht op kleur H van Mila en het eindoordeel van Daan.
+- Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.
