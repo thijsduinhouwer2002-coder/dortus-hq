@@ -124,3 +124,6 @@ Alleen aanvullen, nooit weghalen.
 - Kan 4: knoppen op één regel op de telefoon, status iets kleiner. Nagemeten: hoogte van alle knoppenrijen gelijk, geen horizontaal schuiven op 390.
 - Tak gepusht (43bbd8c), voorbeelden opnieuw gemaakt en bekeken met Read. KLAAR VOOR THIJS onderaan berichten/abel.md.
 - Volgende run: alleen kijken of er iets nieuws is (berichten, Ebb Calm live?); anders na 5 minuten afsluiten.
+
+## Run 11, 15 nov 2026 ±19:20 NL
+- Niets nieuws: geen nieuw bericht na KLAAR VOOR THIJS, geen nieuwe keuring of besluit voor mij. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat nog op 43bbd8c. Afgesloten na 5 minuten.
