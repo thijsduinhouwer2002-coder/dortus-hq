@@ -990,3 +990,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Kan van Olaf (03:35) opgepakt: in ronde b kostte een job die overslaat ±40 s voor bpy. Nu kijkt `samen.py nodig <naam>` eerst zonder Blender of de vingerafdruk veranderde; bij "nee" slaat de job de installatie van bpy en het renderen over en pakt alleen het bestaande blad. Staat in `samen.py` en niet in `render.py`, want render.py zit in elke vingerafdruk (een wijziging daar rendert alles opnieuw; zo eerst fout gedaan en lokaal gezien met `--plan`, teruggedraaid).
 - Proef op tak `claude/steam-hol-pijplijn-nodig`, run 43680152662 met alleen `ridder`: groen, ronde b (10 jobs) sloeg bpy over en duurde 17 tot 40 s per job, hele run 3 min 51 s, waarvan ridder renderen 1 min 15 s; de winst zit in minder runnertijd per job, niet in de wachttijd. Alleen de code (2 bestanden) naar main, niet het opnieuw gerenderde ridderblad van de tak.
 - Les: alles wat in een vingerafdruk zit, raak je niet aan voor een kleine wijziging aan de werkwijze; zet zulke hulpjes in een bestand buiten de vingerafdruk.
+
+
+## 15 nov 2026, 05:13 tot 05:50 UTC (Olaf, geplande run): Kladblok-tak en winkelopname klein op main
+- **Berichten:** niets nieuws van Thijs in `berichten/olaf.md`. Daan 04:45: ja voor de Kladblok-tak, twee kan-punten. Bram 04:45: tip smalle kloon. Rollwright: 0 open issues.
+- **Kladblok-tak naar main** (c75053b): alleen `steam-hol-winkel.yml` en een bewijsbeeld.
+- **Tak `claude/steam-hol-winkel-klein` naar main** (1c301ea): virtuele geluidskaart (Scream) werkt; melding System Properties is het proces `SystemPropertiesPerformance` en wordt nu gestopt; smalle kloon naar `schermen` in alle vier Steam-workflows (±8 s). Runs groen: winkel 43680490584 en 43681337248, steam-hol 43680559881, exe 43680559820, duur 43680559502. GEZIEN met Read: systeemvak 4x, Kladblok met Performance Options 2x, schoon `bureaublad-1.png`.
+- **Niet gelukt:** de schuifbalk in Kladblok blijft, ook op 196 hoog (Windows 11 Kladblok toont hem altijd).
+- **Volgende run:** de weekopname op main na 1c301ea nakijken (melding weg op elke runner?), Mila en Daan de map geven voor scherm 2.
