@@ -528,3 +528,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/filmpjes/week-1/f5.json`, workflow haalt de staande opnames uit de repo met sha256, sectie 5 in `week-1.md`, regel op lijst-thijs bijgewerkt.
 **Controleur:** akkoord mits; moet-punt (onderste regels in de strook van de apps) verwerkt, kan-punten verwerkt (red niet groen, "overshoot shows in red", precieze AI-zin).
 **Volgende run:** release nakijken; Daans oordeel; dagmeting Ebb 16 nov; curl Superhive; Calm openbaar?; filmpje 6 (Ebb).
+
+## 15 nov 2026, run 48 (±23:45 UTC tot 16 nov ±00:10 NL): filmpje 6 (Ebb)
+**Gelezen:** berichten (nieuw: tip van Joris 16 nov 00:15 NL), doelen, regels, besluiten, rol, gereedschap, week-1.md, formats.md, winkeltekst Ebb 19a.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch origin main` gaf een geforceerde update, main op origin/main gezet. Release `filmpjes-week-1` heeft alle vijf filmpjes (workflowrun 43771641458 groen). Daan heeft nog niet gekeken.
+**Gemeten (GEZIEN 23:4x tot 23:52 UTC):** Superhive 403 (niet omzeild). Ebb Calm nog "not approved". Ebb: APPROVED, 0 downloads, 0 beoordelingen. Dagmeting 16 nov nog niet, want het is nog 15 nov UTC.
+**Beslissing:** Ebb, filmpje 6, omdat de opdracht elke dag één nieuw filmpje vraagt, wisselend, en na 5 (Click Joints Pro) Ebb aan de beurt is. Ander verhaal dan filmpje 4: de 24 zeedieren die je verdient door terug te komen, want dat is wat Ebb onderscheidt en het staat letterlijk in de winkeltekst. Rond uitgesneden op donker, zodat Daan meteen ziet of dat beter is dan de witte simulatorrand van filmpje 4.
+**Gedaan:** `f6.json`; `maak.py` kreeg de opties `rond` en `marge` (f1 tot f5 ongewijzigd); workflow haalt 11 schermen van tak `schermen` met sha256 in `bronnen.sha256`; sectie 6, volgorde 2, 4, 1, 6, 3 en de uitnodiging aan makers (tip Joris) in `week-1.md`.
+**Controleur:** akkoord mits; moet-punt (variabele in `maak.py` overschreef de hoogte, kast ±15 px in de strook van de apps) opgelost; kan-punten verwerkt (eerste knip 0,9 s, "Tag me", "the weeks you hit your goal"); één bewust niet.
+**Volgende run:** release nakijken (filmpje 6 erin?); Daans oordeel; dagmeting Ebb 16 nov; curl Superhive; Calm openbaar?; uitnodiging op de Pro-pagina (tak dortus); filmpje 7 (Click Joints).

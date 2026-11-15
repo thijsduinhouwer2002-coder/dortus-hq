@@ -38,7 +38,15 @@ def segment(i,s,map_):
         inp=['-ss',str(s['start']),'-t',str(dur),'-i',s['bron']]
         vf=s.get('vf') or f"crop={cw}:1080:{cx}:0,scale=1080:{mh}"
     else:
-        inp=['-loop','1','-t',str(dur),'-framerate','30','-i',s['bron']]
+        bron=s['bron']
+        if 'rond' in s:  # [mx,my,r]: ronde uitsnede (horloge zonder witte simulatorrand) op de donkere achtergrond
+            mx,mmy,r=s['rond']; im=Image.open(bron).convert('RGB').crop((mx-r,mmy-r,mx+r,mmy+r))
+            mask=Image.new('L',(8*r,8*r),0); ImageDraw.Draw(mask).ellipse((0,0,8*r-1,8*r-1),fill=255)
+            m=int(r*s.get('marge',1.0))  # marge > 1: donkere rand om het horloge
+            vlak=Image.new('RGB',(2*m,2*m),tuple(int(BG[2:][k:k+2],16) for k in (0,2,4)))
+            vlak.paste(im,(m-r,m-r),mask.resize(im.size,Image.LANCZOS)); bron=f'{map_}/rond{i}.png'; vlak.save(bron)
+            s=dict(s,crop=[0,0,2*m,2*m])
+        inp=['-loop','1','-t',str(dur),'-framerate','30','-i',bron]
         cx,cy,cw,ch=s['crop']; z=s.get('zoom',0.06)
         vf=(f"crop={cw}:{ch}:{cx}:{cy},scale={int(1080*1.0)*2}:-2,"
             f"zoompan=z='1+{z}*on/({dur}*30)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x{mh}:fps=30")

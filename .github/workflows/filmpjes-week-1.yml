@@ -1,6 +1,6 @@
 name: Filmpjes week 1
 
-# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (vier Click Joints, één Ebb; filmpje 5 uit de staande opnames van Bram) voor TikTok, YouTube Shorts en Reels
+# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (vier Click Joints, twee Ebb; filmpje 5 uit de staande opnames van Bram, filmpje 6 uit Ebb-schermen op tak schermen) voor TikTok, YouTube Shorts en Reels
 # uit echte beelden van Click Joints (film v2 van Bram en de twee previews van de gratis versie)
 # en zet ze in de release filmpjes-week-1. Zo staan er geen grote videobestanden in de repo.
 # Bron en uitleg: commercie/filmpjes/week-1/ en commercie/filmpjes/week-1.md.
@@ -37,6 +37,21 @@ jobs:
           curl -sSfL -o bron/4-preview-paneel.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/4-preview-paneel.png
           cp "$GITHUB_WORKSPACE/commercie/ebb/ebb-film.mp4" bron/ebb-film.mp4
           for i in 1 2 3 4 5; do cp "$GITHUB_WORKSPACE"/ontwerp/click-joints/pro/film/staand/click-joints-staand-$i-*.mp4 bron/s$i.mp4; done
+          # filmpje 6 (Ebb): schermen uit simulatorrun 43327097299 op e40269e1 (de ingediende app), fenix 8 47 mm
+          S=https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/garmin-adem/plaatjes/namen
+          while read naam bestand; do curl -sSfL -o "bron/e6-$naam.png" "$S/$bestand-fenix847mm.png"; done <<'LIJST'
+          krab-hold krab2-hold-dag
+          octopus-hold basisoctopus-hold-dag
+          zeepaard-hold basiszeepaard-hold-dag
+          schildpad-hold schild2-hold-dag
+          otter-hold sessie-otter-hold-dag
+          kreeft-hold sessie-kreeft-hold-dag
+          komkommer-hold sessie-komkommer-hold-dag
+          new-friend einde-6b-zeekomkommer
+          sealog-8 sealog-1
+          sealog-24 sealog-3-alle25
+          menu menu-krab
+          LIJST
           sha256sum -c bronnen.sha256
       - name: Filmpjes bouwen en controleren
         working-directory: ${{ env.MAP }}

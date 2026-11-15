@@ -1,0 +1,210 @@
+{
+ "uit": "ebb-6-sea-animals.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/e6-krab-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-octopus-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-zeepaard-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-schildpad-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-otter-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-kreeft-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-komkommer-hold.png",
+   "dur": 0.9,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-new-friend.png",
+   "dur": 2.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.05,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-sealog-8.png",
+   "dur": 1.2,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.05,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-sealog-24.png",
+   "dur": 2.1,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.05,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-menu.png",
+   "dur": 2.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.05,
+   "h": 1080,
+   "y": 400,
+   "marge": 1.12
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.7,
+   "regels": [
+    "My breathing app for Garmin",
+    "has *24* sea animals"
+   ],
+   "y": 110,
+   "grootte": 64
+  },
+  {
+   "van": 2.7,
+   "tot": 6.3,
+   "regels": [
+    "You earn them by *showing up*,",
+    "never by holding longer"
+   ],
+   "y": 110,
+   "grootte": 64
+  },
+  {
+   "van": 6.3,
+   "tot": 8.7,
+   "regels": [
+    "Your streak counts *weeks*,",
+    "so rest days never break it"
+   ],
+   "y": 110,
+   "grootte": 64
+  },
+  {
+   "van": 8.7,
+   "tot": 12.0,
+   "regels": [
+    "Pick the one that",
+    "*swims with you*"
+   ],
+   "y": 110,
+   "grootte": 64
+  },
+  {
+   "van": 12.0,
+   "tot": 14.4,
+   "regels": [
+    "Ebb, on the Connect IQ Store",
+    "link in bio"
+   ],
+   "grootte": 66,
+   "y": 120
+  },
+  {
+   "van": 0,
+   "tot": 14.4,
+   "regels": [
+    "Screens from the Garmin simulator"
+   ],
+   "grootte": 36,
+   "y": 322,
+   "licht": true
+  }
+ ]
+}

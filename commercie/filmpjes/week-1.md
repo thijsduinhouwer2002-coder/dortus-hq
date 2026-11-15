@@ -1,4 +1,4 @@
-# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan; filmpje 5 pas na Pro live)
+# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan; filmpje 5 pas na Pro live; filmpje 6 erbij in run 48)
 
 Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichten/chris.md`). Onderzoek vooraf: `commercie/filmpjes/formats.md`.
 
@@ -82,14 +82,35 @@ Elke bewering komt uit de ingediende Superhive-tekst en BlenderNation C44 (`comm
 Let op: het bestand staat al in de openbare prerelease `filmpjes-week-1`, net als de rest een concept. Dat breekt geen regel; plaatsen op TikTok, Shorts en Reels pas na Pro live.
 Nagekeken door een controleur (run 47): techniek, beweringen, echte beelden en workflow ja; moet-punt (onderste regels in de strook van de apps) verwerkt; kan-punten verwerkt: red niet groen, "overshoot shows in red" in plaats van "parts turn red" (in beeld zie je alleen de boog rood), de precieze AI-zin zoals bij filmpje 4.
 
+### 6. `ebb-6-sea-animals.mp4` (14,4 s), Ebb, format 1 en 4: dieren in snel ritme, korte regels boven
+Gemaakt in run 48 (15 nov ±23:50 tot 16 nov ±00:30 UTC), het tweede Ebb-filmpje volgens punt 4 van de opdracht (na filmpje 5 voor Click Joints). Ander verhaal dan filmpje 4: niet het ademen, maar de verzameling van 24 zeedieren. Bron: 11 losse schermen uit dezelfde simulatorrun 43327097299 op commit e40269e1 (de ingediende app, fenix 8 47 mm), map `garmin-adem/plaatjes/namen/` op tak `schermen`; de workflow haalt ze op en toetst de sha256. **Rond uitgesneden tot het horloge op de donkere achtergrond**, zonder de witte rand en menubalk van de simulator (een mogelijk antwoord op de vraag over filmpje 4 hieronder). Harde knippen met een kleine zoom, geen overvloeiers, dus geen beweging die de app niet heeft.
+| tijd | beeld (scherm uit de simulator) | tekst in beeld |
+|---|---|---|
+| 0 tot 0,9 s | inhouden, onder water met de krab | My breathing app for Garmin has **24** sea animals |
+| 0,9 tot 2,7 s | octopus, zeepaardje | (zelfde) |
+| 2,7 tot 6,3 s | schildpad, otter, kreeft, zeekomkommer | You earn them by **showing up**, never by holding longer |
+| 6,3 tot 8,7 s | eindscherm "new friend: Sea cucumber" | Your streak counts **weeks**, so rest days never break it |
+| 8,7 tot 12 s | sea log "8 of 24", dan "24 of 24 + bonus" | Pick the one that **swims with you** |
+| 12 tot 14,4 s | menu met de krab | Ebb, on the Connect IQ Store, link in bio |
+Klein, de hele tijd, direct onder de tekst (y 322, ver boven de strook van de apps): "Screens from the Garmin simulator".
+
+**Onderschrift:** `I made a breathing app for Garmin watches with 24 sea animals to collect. You earn them with sessions and weeks in a row, never by holding your breath longer, and your streak counts the weeks you hit your goal, so rest days never break it. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #garminwatch #breathwork`
+
+Elke bewering staat letterlijk in de winkeltekst 19a (`platformen/garmin/upload/ebb-en.md`, deel COLLECT SEA ANIMALS BY SHOWING UP): "24 sea animals, earned with sessions and weeks in a row, never by holding longer", "Your streak counts weeks ... so rest days never break it", "Pick the one that swims with you", "plus one bonus animal" (daarom "24 of 24 + bonus" in beeld), $4,99 eenmalig zonder abonnement. Bewust niet: geen gezondheidsclaim, geen freediving, niet "every session a new animal". De hold-schermen tonen allemaal 1:45 en 61 bpm: dat is één testscène met steeds een ander dier, geen echte sessies; daarom geen tijd of hartslag in de tekst. Ebb Calm noem ik niet (nog niet openbaar, API 15 nov 23:4x UTC "not approved").
+**Link in bio:** de winkellink van Ebb, zoals bij filmpje 4.
+Nagekeken door een controleur (run 48): beweringen, bronnen (sha256 zelf nagerekend), workflow en techniek ja; moet-punt (in `maak.py` overschreef de ronde uitsnede de hoogte van het beeld, waardoor de kast ±15 px in de strook van de apps viel) opgelost, nu onderkant y 1439; kan-punten verwerkt: eerste knip op 0,9 s, "Tag me" in plaats van "Tag us", onderschrift "the weeks you hit your goal". Niet verwerkt: minder dieren achter elkaar; de tekst "never by holding longer" staat er juist dan in beeld.
+
 ## Wanneer plaatsen
-- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 3, zodat Click Joints en Ebb wisselen. Eén per dag, alle drie de apps hetzelfde filmpje. Filmpje 5 (Pro) gaat voor zodra Pro live is: plaats het op de eerste werkdag daarna, ook als de reeks dan even niet wisselt.
+- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 6 (Ebb), dan 3, zodat Click Joints en Ebb wisselen (run 48: 6 tussen 1 en 3 gezet). Eén per dag, alle drie de apps hetzelfde filmpje. Filmpje 5 (Pro) gaat voor zodra Pro live is: plaats het op de eerste werkdag daarna, ook als de reeks dan even niet wisselt.
 - **Tijd:** rond **16:00 Nederlandse tijd** (15:00 UTC), op werkdagen. Waarom: de kijkers zitten vooral in Europa en de VS; om 16:00 NL is het 10:00 aan de oostkust en is Europa nog wakker (GOK, ik kon geen cijfers over Blender-kijkers per uur meten). Na 10 filmpjes vergelijken we de tijden met de echte views en passen we het aan.
 - **Link in bio:** zet in het profiel van TikTok, YouTube en Instagram de listing `https://extensions.blender.org/add-ons/click-joints/`. Niet dortus.com/click-joints/: die pagina zegt nog "On its way" zonder knop (GEZIEN 15 nov ±22:20 UTC met curl); de knop staat klaar op tak `claude/chris-click-joints-live` in repo dortus en gaat op main met jouw ja (punt van 14 nov op de lijst). Zonder link heeft "link in bio" geen zin. Op de dag van het Ebb-filmpje wordt de link de winkellink van Ebb: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 - **Geluid:** kies in de app een rustig, populair instrumentaal geluid; geen liedje met tekst dat de tekst in beeld overstemt.
 
+## Uitnodiging aan makers (tip van Joris, 16 nov 00:15, verwerkt in run 48)
+Uit het verhaal van McGybeer (`platformen/succes/verhalen-groei.md`): de beweegbare draak groeide door filmpjes van anderen met de print in hun hand. Daarom komt aan het eind van elk onderschrift voor Click Joints (1, 2, 3 en 5) deze zin, vóór de hashtags: `Made something with Click Joints? Tag me, I'd love to see it.` Bij het plakken dus: onderschrift zoals hierboven, met deze zin vlak voor de eerste #. Niet bij Ebb (daar is niets om te laten zien). Zijn eerste tip (een filmpje van 8 tot 12 s met de figuur die buigt in een hand) kan pas met een echte print; een render "in een hand" maken we niet, want we hebben geen echte hand in beeld en het zou op een print lijken (`formats.md` format 3). Open: Joris vraagt dezelfde uitnodiging ook op de Pro-pagina; die zet ik op tak `claude/chris-click-joints-pro` (repo dortus) in een volgende run, samen met de link naar het account zodra Thijs dat heeft.
+
 ## Vraag aan Daan (ontwerper)
-Kijk de drie filmpjes in de release na: ja of nee met moet-punten. Waar ik zelf twijfel: (a) het beeld staat in een vlak van 1080 x 1013 met donkere ruimte eronder, zodat de knoppen van de apps niets bedekken; wil je het beeld groter? (b) in filmpje 3 staan de previews stil (met een langzame zoom); (c) de rode band in de exploded view (filmpje 1 op 7,5 s, filmpje 3 op 11 s) leg ik niet uit, want ik wil er niets over beweren wat niet klopt; in filmpje 3 komt hij vlak na "Red means too far" en kan dat verwarren. Liever een ander stuk? Dan pas ik het json-bestand aan.
+Kijk de drie filmpjes in de release na: ja of nee met moet-punten. Waar ik zelf twijfel: (a) het beeld staat in een vlak van 1080 x 1013 met donkere ruimte eronder, zodat de knoppen van de apps niets bedekken; wil je het beeld groter? (b) in filmpje 3 staan de previews stil (met een langzame zoom); (c) de rode band in de exploded view (filmpje 1 op 7,5 s, filmpje 3 op 11 s) leg ik niet uit, want ik wil er niets over beweren wat niet klopt; in filmpje 3 komt hij vlak na "Red means too far" en kan dat verwarren. Liever een ander stuk? Dan pas ik het json-bestand aan. (d) run 48: filmpje 6 (Ebb) staat rond uitgesneden op donker, zonder de witte simulatorrand; zo ja, dan maak ik filmpje 4 ook zo.
 
 Nagekeken door een controleur (run 45): techniek, beweringen, onderzoek en workflow ja; zijn moet-punt (twee teksten één beeld lang door elkaar bij elke wissel) is opgelost, en zijn kan-punten ("Place the joint" in plaats van "Click where the joint goes", eindkaart eerder) zijn verwerkt.
 
