@@ -232,8 +232,10 @@ jobs:
           function Dicht-Melding($wat) {
             foreach ($v in [Scherm]::Zichtbaar()) {
               $t = [Scherm]::Titel($v)
-              if ($t -notlike "*System Properties*" -and $t -notlike "*Systeemeigenschappen*") { continue }
               $pv = [Scherm]::Proces($v); $pn = (Get-Process -Id $pv -ErrorAction SilentlyContinue).ProcessName
+              # Daan 15 nov 05:45: na WM_CLOSE op "System Properties" bleef hetzelfde proces staan met "Performance Options"
+              # (run 43680490584 en 43680432181, in alle beelden achter Kladblok). Daarom ook op procesnaam SystemProperties*.
+              if ($t -notlike "*System Properties*" -and $t -notlike "*Systeemeigenschappen*" -and $t -notlike "*Performance Options*" -and $t -notlike "*Prestatieopties*" -and $pn -notlike "SystemProperties*") { continue }
               [Scherm]::PostMessage($v, 0x0111, [IntPtr]1, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "IDOK"
               if ([Scherm]::IsWindowVisible($v)) { [Scherm]::PostMessage($v, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "WM_CLOSE" }
               if ([Scherm]::IsWindowVisible($v)) {
@@ -248,6 +250,9 @@ jobs:
           }
           Vensters "start"
           Dicht-Melding "start"
+          Start-Sleep 1
+          Dicht-Melding "start 2"
+          Get-Process SystemProperties* -ErrorAction SilentlyContinue | ForEach-Object { Write-Output "proces $($_.ProcessName) ($($_.Id)) nog over, gestopt"; Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue }
           Write-Output "Kladblok 420 x 196 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
