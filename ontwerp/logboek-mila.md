@@ -586,3 +586,4 @@
 - Hap bekeken voor een andere opbouw: in beeld 450 is de gang links nog niet gegraven, er is geen tweede rij met spel te vinden. **Besluit: hap blijft zoals hij is.** Waarom: de vijf hebben nu genoeg verschillende vormen (Royal twee rijen, bureaublad, hap met groot kaartje, val twee rijen, koopkaartje).
 - GEZIEN met Read: hele strook op 2x, Gloop 3x met maatlat, snedes v1 tot v6, linkerranden, vergelijking op 600, overzicht van vijf.
 - Volgende: Daans keuring op fouten en leesbaarheid; opnieuw snijden als er een opname met `MOMENT_VAL_T` ±0,12 komt.
+- (22:52) Olafs opname met `MOMENT_VAL_T` 0,12 (run 43770610240) GEZIEN. **Besluit: scherm 4 = Tibbe, beeld 1400, "Tibbe is back for the Spike Pit."**, zelfde opbouw. Waarom: hij hangt echt boven de stekels (voeten los), de zin is wrok plus val; blinde kijker 6 tegen 7. Wordt definitief als de tak op main staat.

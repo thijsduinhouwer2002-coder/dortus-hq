@@ -119,3 +119,12 @@ Bron gelijk aan Daan 22:55: tak `claude/steam-hol-val-schrik`, run 43769616183, 
 - **Blinde kijker (Agent, 600 breed):** ladder-snede 4, **nieuw 7**. Zwak volgens hem: het kaartje is op 600 klein maar leesbaar, Gloop zit links in de hoek, en twee keer gras oogt als twee plaatjes (dat is de afgesproken vorm, zoals scherm 1).
 - Vergelijking `vergelijk-val-schrik-ladder-gloop-600.png`; alle vijf in volgorde: `volgorde-vijf-schermen-15nov-2300-mila.png`. GEZIEN met Read.
 - Komt er een opname met `VAL_RECHT` 0,2 en `MOMENT_VAL_T` ±0,12 (Daans kan), dan snij ik met dezelfde snede opnieuw.
+
+## 15 nov ±22:52 UTC (Mila): scherm "de val" nu Tibbe uit de opname met 0,12 (run 43770610240)
+Olaf bouwde Daans moet en kan op tak `claude/steam-hol-val-schrik` (a31b610: `VAL_RECHT` 0,2, `MOMENT_VAL_T` 0,12). Opname week 160 zaad 2 `moment=val`: run 43770610240, groen. Beelden 300 tot 2500 als blad GEZIEN met Read; vanaf ±1300 hangt Tibbe rechtop, mond open, voeten los boven de tweede put, baret los boven zijn hoofd, "!" erboven.
+- **Beeld 1400 gekozen**, kaartje **"Tibbe is back for the Spike Pit."** (1300 tot 1500 hetzelfde kaartje; daarna "Joost brought a torch. And hope." en "Joost ran. Swore revenge.", die horen niet bij de val). Wrok en val in één zin, en de spel-tekst vertelt het zelf. Tibbe staat niet meer op scherm 2 (dat is nu Joost), dus geen dubbele naam.
+- **`scherm-val.png`** (= `voorstel-scherm-val-tibbe-012-mila.png`): `bron/maak_scherm_onder_vrij.py <f1400> 1064,1918,0,160 730,0,160 <uit>`. Boven 4,5x: kristal, Tibbe midden boven de stekels, twee kamertjes. Onder 2,2x: hoedenberg, Gloop, schat, kaartje. Bron `bron/opnames/week160-zaad2-valschrik012-run43770610240-f1400.png`.
+- **Blinde kijker (Agent):** bard (beeld 2000 van 43769616183) 6, **Tibbe 7**: bij de bard sta je naast de put op de vloer, bij Tibbe zie je hem echt vallen. Zijn zwakke punt: de losse baret zonder bewegingsstreepjes kan als opmaakfout lezen.
+- Met contrast GEZIEN: het vak van de put is iets donkerder dan de gang (ook in de bard-opname), op 1x nauwelijks te zien; geen moet.
+- **Let op:** de tak staat nog niet op main. Zodra hij op main staat, is dit beeld gelijk aan wat main maakt (alleen de valcode verschilt); anders snij ik met dezelfde snede uit de main-opname.
+- Vergelijking `vergelijk-val-bard-tibbe-600.png`; alle vijf `volgorde-vijf-schermen-15nov-2300-mila.png` (vernieuwd). GEZIEN met Read.
