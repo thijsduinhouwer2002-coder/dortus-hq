@@ -469,13 +469,26 @@ const MUNT_SCHADUW := Color(0.12, 0.04, 0.12, 0.45)
 const MUNT_RAND := Color("#aa691e")
 const MUNT_GOUD := Color("#f2b632")
 const MUNT_GLIM := Color("#fff0aa")
+# Gladde rand (Mila 14 nov 23:50, trappetjes in de 4,5x winkelschermen): draw_circle heeft in Godot 4.3 geen antialiasing.
+# Daarom tekenen we in schermpixels (transform gedeeld door de schaal van het hol) en leggen we om elke cirkel een
+# antialiased boog van 1 schermpixel breed, een halve pixel naar binnen; zo blijft de munt even groot. Een boog met
+# breedte 0,3 in spelpixels werd 4 px wazig, want Godot rekent de zachte rand in plaatselijke eenheden (lokaal gemeten,
+# `producten/steam-hol/bewijs-winkel3d/munt-glad/`).
 func munt_3d(c: Vector2, r: float, breed := 1.0) -> void:
-	draw_set_transform(c, 0.0, Vector2(clampf(breed, 0.2, 1.0), 1.0))
-	draw_circle(Vector2(0.15, 0.4), r, MUNT_SCHADUW)
-	draw_circle(Vector2.ZERO, r, MUNT_RAND)
-	draw_circle(Vector2(-0.08, -0.08), r * 0.72, MUNT_GOUD)
-	draw_circle(Vector2(-0.33, -0.38) * r, r * 0.24, MUNT_GLIM)
+	var k := maxf(get_global_transform().get_scale().x, 1.0)
+	draw_set_transform(c, 0.0, Vector2(clampf(breed, 0.2, 1.0), 1.0) / k)
+	munt_laag(Vector2(0.15, 0.4) * k, r * k, MUNT_SCHADUW)
+	munt_laag(Vector2.ZERO, r * k, MUNT_RAND)
+	munt_laag(Vector2(-0.08, -0.08) * k, r * 0.72 * k, MUNT_GOUD)
+	munt_laag(Vector2(-0.33, -0.38) * r * k, r * 0.24 * k, MUNT_GLIM)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+# één cirkel met gladde rand, maten in schermpixels (zie munt_3d)
+func munt_laag(c: Vector2, r: float, kleur: Color) -> void:
+	var rr := maxf(r - 0.5, 0.5)
+	# doorzichtig (de schaduw): schijf een halve pixel kleiner, anders mengt de rand dubbel (controleur 15 nov)
+	draw_circle(c, rr - 0.5 if kleur.a < 1.0 else rr, kleur)
+	draw_arc(c, rr, 0.0, TAU, 48, kleur, 1.0, true)
 
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
 static func munt_draai(d: float) -> float:

@@ -107,10 +107,11 @@ func _munt(p: Vector2, f := 1.0) -> void:
 		# rond en glanzend, zelfde plek als het pixelmuntje (4 x 4 spelpixels vanaf p, keer f), met een kleine schaduw
 		var c := p + Vector2(2, 2) * schaal * f
 		var rr := 2.4 * schaal * f
-		draw_circle(c + Vector2(0.5, 1.5), rr, Color(0.12, 0.04, 0.12, 0.45))
-		draw_circle(c, rr, Color("#aa691e"))
-		draw_circle(c + Vector2(-0.3, -0.3), rr - 1.2, Color("#f2b632"))
-		draw_circle(c + Vector2(-0.8, -0.9) * schaal * f, 0.6 * schaal * f, Color("#fff0aa"))
+		# gladde rand (Mila 14 nov 23:50): om elke cirkel een antialiased boog van 1 schermpixel, zie hol.gd munt_3d
+		_munt_laag(c + Vector2(0.5, 1.5), rr, Color(0.12, 0.04, 0.12, 0.45))
+		_munt_laag(c, rr, Color("#aa691e"))
+		_munt_laag(c + Vector2(-0.3, -0.3), rr - 1.2, Color("#f2b632"))
+		_munt_laag(c + Vector2(-0.8, -0.9) * schaal * f, 0.6 * schaal * f, Color("#fff0aa"))
 		return
 	var px := float(schaal)
 	var rand := Color("#7a4a12")
@@ -137,6 +138,12 @@ func maten() -> Dictionary:
 	var binnen := 5 * schaal
 	return {"kop": m, "tekst": m, "uitleg": m - 1, "knop": m, "knop2": m - 1, "regel_h": m + 4, "onder": binnen,
 		"boven": binnen - 2, "knop_h": float(m + 4 + 2 * schaal), "knop_dy": 1 if (met_3d and hoogte < 110) else 3, "munt": 1.0, "kop_dy": 0}
+
+func _munt_laag(c: Vector2, r: float, kleur: Color) -> void:
+	var rr := maxf(r - 0.5, 0.5)
+	# doorzichtig (de schaduw): schijf een halve pixel kleiner, anders mengt de rand dubbel (controleur 15 nov)
+	draw_circle(c, rr - 0.5 if kleur.a < 1.0 else rr, kleur)
+	draw_arc(c, rr, 0.0, TAU, 48, kleur, 1.0, true)
 
 # muntje naast een getal met lettermaat kop op basislijn y: linksboven van het muntje (zelfde plek als vroeger bij factor 1)
 func _munt_p(x: float, basis: float, kop: int, f: float) -> Vector2:

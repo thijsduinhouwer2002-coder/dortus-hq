@@ -166,15 +166,36 @@ jobs:
           Write-Output "Kladblok 520 x 300 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=130 log=$log" -PassThru
-          Start-Sleep 20
-          for ($i = 1; $i -le 6; $i++) {
-            Start-Sleep 15
-            if ($p.HasExited) { Write-Output "spel gestopt voor beeld $i"; break }
-            # de melding "System Properties" kan ook later komen (run 43652654119: in alle 6 beelden): voor elk beeld dicht
-            for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht (beeld $i)"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
-            & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$i.png"
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
+          # Olaf 15 nov (wens Mila 23:50 voor scherm 2): in run 43653516628 was de gang in alle 6 beelden leeg, want een held
+          # is in ±7 s binnen en weer weg en de beelden vielen ertussen. Nu: elke 0,5 s de log lezen; bij elke nieuwe regel
+          # "HOL held binnen" een beeld na 2,5, 3,7 en 5 s (bureaublad-held-<nr>-a/b/c.png; run 43657940940: op 2,5 s op de
+          # ladder, op 5 s vaak al in de put naast de ingang, dus 3,7 erbij), naast de 6 vaste beelden
+          # (bureaublad-1 tot 6, elke 15 s vanaf 35 s). Echt moment uit het spel, niets nagemaakt. Hooguit 6 helden.
+          function Dicht-Melding($wat) {
+            for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht ($wat)"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
           }
+          $begin = Get-Date
+          $vast = @(35, 50, 65, 80, 95, 110); $vi = 0
+          $gezien = 0; $nr = 0; $wacht = @()
+          while (((Get-Date) - $begin).TotalSeconds -lt 190 -and -not $p.HasExited) {
+            $nu = ((Get-Date) - $begin).TotalSeconds
+            $binnen = @(Get-Content $log -ErrorAction SilentlyContinue | Where-Object { $_ -like "HOL held binnen*" })
+            while ($gezien -lt $binnen.Count) {
+              $gezien++
+              if ($nr -lt 6) { $nr++; Write-Output ("{0,6:N1} s  {1}" -f $nu, $binnen[$gezien - 1]); $wacht += @(@{ t = $nu + 2.5; naam = "held-$nr-a" }, @{ t = $nu + 3.7; naam = "held-$nr-b" }, @{ t = $nu + 5; naam = "held-$nr-c" }) }
+            }
+            if ($vi -lt $vast.Count -and $nu -ge $vast[$vi]) { $vi++; $wacht += @(@{ t = $nu; naam = "$vi" }) }
+            $klaar = @($wacht | Where-Object { $_.t -le $nu }); $wacht = @($wacht | Where-Object { $_.t -gt $nu })
+            foreach ($k in $klaar) {
+              Dicht-Melding $k.naam
+              & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$($k.naam).png"
+              Write-Output ("{0,6:N1} s  beeld bureaublad-{1}.png" -f ((Get-Date) - $begin).TotalSeconds, $k.naam)
+            }
+            if ($vi -ge $vast.Count -and $nr -ge 6 -and $wacht.Count -eq 0) { break }
+            Start-Sleep -Milliseconds 500
+          }
+          Write-Output "helden binnen gezien: $gezien, heldbeelden van $nr helden"
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue | Select-Object -First 15
       - name: Openbaar zetten (tak schermen, steam-hol/winkel-1920)
