@@ -222,12 +222,13 @@ static func _laad_3d() -> void:
 		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
 
 # Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
-# Vallen: de eerste VAL_RECHT s van de schrik staat hij nog rechtop (rust) met het "!" erboven en de hoed die loskomt,
-# daarna de valstand (Olaf 15 nov, voorstel aan Daan: de valstand ligt ondersteboven en leest op 160 px als klodder).
-const VAL_RECHT := 0.12
+# Vallen: de eerste VAL_RECHT s staat hij nog rechtop in de stand "schrik" uit het blad (mond open), met het "!" erboven
+# en de hoed die loskomt; daarna de valstand (Olaf 15 nov, voorstel aan Daan: de valstand ligt ondersteboven en leest op
+# 160 px als klodder). 0,14 = 2 beelden op 15 fps (winkelopname), 2 op 20, 1 op 10.
+const VAL_RECHT := 0.14
 static func stand_3d(staat: String, frame: int, vt: float = 9.0) -> String:
 	if staat == "vallen":
-		return "rust" if vt < VAL_RECHT else "vallen"
+		return "schrik" if vt < VAL_RECHT else "vallen"
 	if staat in ["lopen", "vluchten"]:
 		return ["stap1", "rust", "stap2", "rust"][frame % 4]
 	return "rust"
