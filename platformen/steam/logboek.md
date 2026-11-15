@@ -1067,3 +1067,6 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: een vaste klok op een vaste tijd werkt alleen als je hem vooruit zet; terugzetten draait de host stilletjes terug.
 - Controle na de merge: weekopname op main run 43709751123 (45c3df8) groen, weg geweest 54 s, taakbalk 10:40 AM 11/16/2026 (GEZIEN met Read, `bureaublad-1.png`). Rollwright niets nieuws.
 - 11:50: spin96 op main (ja Daan). Spugen: Daan nee op ronde 1 (knipper leest als tevreden, hap-mond te laag, laars over het oog); ronde 2 met zijn standen kneep en spuug, laars achter het lijf vanaf x 7, op tak, vraag in taken.
+
+## 15 nov 2026 12:35 UTC, Olaf
+- Wens Mila: winkelopname met zaad schrijft naar een eigen map per run (`-zaad<n>-run<run-id>`), tak `claude/steam-hol-zaadmap`, run 43713114177 groen, controleur akkoord met punten, op main f955075. Rollwright: 0 open issues, 40 downloads in de stats (0.3.5: 16). Nieuw bericht van Thijs (13:30): punt 2 leesbaar op 120 px pak ik hierna op.

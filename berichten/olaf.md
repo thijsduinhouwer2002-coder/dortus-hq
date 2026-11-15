@@ -104,5 +104,5 @@ Thijs (13 nov 13:35): alle beelden worden 3D, met code in Blender gemaakt en ger
 ## 15 nov 13:30 (hoofdchat): JA VAN THIJS op de 3D-richting en de naam
 Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` en zei ja ("vind het wel prima"), ook op de naam Hats of the Fallen. De stijl ligt nu vast: geen nieuwe stijlrondes, geen andere richtingen meer proberen. Wat nog beter moet (punten van de hoofdchat):
 1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
-2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf).
+2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf). (in behandeling 15 nov 12:35 UTC Olaf: ik meet hoe groot Gloop en de helden nu op 120 px echt zijn en zet de uitkomst met een voorstel in `platformen/steam/taken.md` onder Vragen)
 Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.
