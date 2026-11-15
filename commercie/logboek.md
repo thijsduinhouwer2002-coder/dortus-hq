@@ -520,3 +520,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `f4.json`, workflow bouwt nu elk f*.json, sectie 4 in `commercie/filmpjes/week-1.md`, lijst-thijs bijgewerkt.
 **Controleur:** filmpje en workflow ja; tekst eerst nee ("as you keep going" na "hold" suggereerde dieren door langer inhouden; zin "land only" ontbrak), verwerkt.
 **Volgende run:** Daans oordeel; release nakijken; curl Superhive; Calm openbaar?; dagmeting Ebb 16 nov.
+
+## 15 nov 2026, run 47 (±22:45 tot 23:15 UTC): filmpje 5 (Click Joints Pro)
+**Opdracht:** punt 4 van het filmpjesbericht (elke dag één nieuw filmpje, wisselend). Daan heeft nog niet gekeken naar 1 tot 4; Superhive geeft nog 403; Ebb Calm nog "not approved" (API, GEZIEN 22:45 UTC).
+**Nieuw feit:** Bram zette om 22:35 vijf staande opnames uit de echte Blender op main (1080 x 1920, zonder tekst). Daarmee vult het beeld het hele scherm, beter dan de uitsneden van 1 tot 3.
+**Beslissing:** filmpje 5 wordt het Pro-filmpje voor de lanceerdag van Pro, omdat vier van de vijf opnames het Pro-scharnier tonen en Pro nog niet te koop is. Het staat duidelijk als "pas na Pro live" in `week-1.md` en `f5.json`. Na filmpje 4 (Ebb) is het weer Click Joints, dus de wisseling klopt.
+**Gedaan:** `commercie/filmpjes/week-1/f5.json`, workflow haalt de staande opnames uit de repo met sha256, sectie 5 in `week-1.md`, regel op lijst-thijs bijgewerkt.
+**Controleur:** akkoord mits; moet-punt (onderste regels in de strook van de apps) verwerkt, kan-punten verwerkt (red niet groen, "overshoot shows in red", precieze AI-zin).
+**Volgende run:** release nakijken; Daans oordeel; dagmeting Ebb 16 nov; curl Superhive; Calm openbaar?; filmpje 6 (Ebb).

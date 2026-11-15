@@ -1,4 +1,4 @@
-# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan)
+# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan; filmpje 5 pas na Pro live)
 
 Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichten/chris.md`). Onderzoek vooraf: `commercie/filmpjes/formats.md`.
 
@@ -64,8 +64,26 @@ Bewust niet: geen gezondheidsclaim (geen "calmer", "better sleep", "lung capacit
 Nagekeken door een controleur (run 46): filmpje en workflow ja; tekst eerst nee ("as you keep going" las alsof langer inhouden dieren oplevert, en de vaste zin over alleen op het droge ontbrak), beide verwerkt, plus de precieze AI-zin uit `lancering.md`.
 Voor Daan: de schermen hebben een witte achtergrond rond het horloge (zo uit de simulator); liever donker of bijgesneden tot het horloge?
 
+### 5. `click-joints-5-pro-hinge-stops.mp4` (16,3 s), Click Joints Pro, format 2: tekst boven, beeld vult het scherm
+**Pas plaatsen als Click Joints Pro live is op Superhive** (keuring loopt sinds 15 nov 19:45). Tot die dag is het een concept voor de lanceerdag van Pro. Gemaakt in run 47 uit de vijf staande opnames die Bram op 15 nov 22:35 maakte in de echte Blender 5.3.0 met de betaalde zip 1.0.1 (`ontwerp/click-joints/pro/film/staand/`, LEESMIJ daar). Deze opnames zijn al 1080 x 1920, dus geen uitsnede uit een liggende film: het beeld vult het hele scherm en het gewricht is groter dan in 1 tot 3. Het grijze label "Bends 0° to 115°" bovenaan zit in Brams opname zelf.
+| tijd | beeld (opname van Bram) | tekst in beeld |
+|---|---|---|
+| 0 tot 2 s | deel 1: knie buigt van 0 naar 115° met de gradenboog | A printable **knee** that stops at 115° |
+| 2 tot 5,3 s | deel 2: been draait, Place hinge, twee delen met groen | I made a Blender add-on that places a click **hinge** |
+| 5,3 tot 9,8 s | deel 3: buigt van 0 naar 115° en blijft 1 s op de stop | It bends to 115° and **stops**, instead of flopping backwards |
+| 9,8 tot 13 s | deel 4: 9° voorbij de stop, rood en "+9° past limit" | Past the stop? It turns red. |
+| 13 tot 16,3 s | deel 5: kogel en kom uit elkaar (gratis versie) | Ball joints: **free**. Click hinges: **Pro**. Link in bio |
+Klein, de hele tijd: "Click Joints Pro, a Blender add-on" op y 1380 en "Link in bio" op y 1290, boven de strook van ±420 px onderaan waar de apps naam en onderschrift zetten (moet-punt controleur). Het woord red staat in wit: de groene nadruk zou hier verwarren.
+
+**Onderschrift:** `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Superhive (link in bio). Measured in Blender, not printed yet. AI agents write the code, I direct and test. #blender #3dprinting #b3d #blenderaddon #articulated`
+
+Elke bewering komt uit de ingediende Superhive-tekst en BlenderNation C44 (`commercie/blender-click-joints/lancering.md`): click hinge voor knieën en ellebogen, 0° tot 115° en daar stoppen "instead of flopping backwards", rood voorbij de stop (in beeld: het stuk van de gradenboog voorbij 115° en "+9° past limit"), kogel en kom gratis. Geen prijs in beeld of onderschrift, want de lanceerprijs van $9 duurt maar twee weken. "Not printed yet" staat erbij, net als in C44 ("I haven't printed a joint with it yet").
+**Link in bio voor dit filmpje:** https://superhivemarket.com/products/click-joints-pro (pas als die pagina openbaar is), of dortus.com/click-joints/ zodra het Pro-blok daar op main staat; die pagina linkt naar gratis en Pro samen.
+Let op: het bestand staat al in de openbare prerelease `filmpjes-week-1`, net als de rest een concept. Dat breekt geen regel; plaatsen op TikTok, Shorts en Reels pas na Pro live.
+Nagekeken door een controleur (run 47): techniek, beweringen, echte beelden en workflow ja; moet-punt (onderste regels in de strook van de apps) verwerkt; kan-punten verwerkt: red niet groen, "overshoot shows in red" in plaats van "parts turn red" (in beeld zie je alleen de boog rood), de precieze AI-zin zoals bij filmpje 4.
+
 ## Wanneer plaatsen
-- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 3, zodat Click Joints en Ebb wisselen. Eén per dag, alle drie de apps hetzelfde filmpje.
+- **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 3, zodat Click Joints en Ebb wisselen. Eén per dag, alle drie de apps hetzelfde filmpje. Filmpje 5 (Pro) gaat voor zodra Pro live is: plaats het op de eerste werkdag daarna, ook als de reeks dan even niet wisselt.
 - **Tijd:** rond **16:00 Nederlandse tijd** (15:00 UTC), op werkdagen. Waarom: de kijkers zitten vooral in Europa en de VS; om 16:00 NL is het 10:00 aan de oostkust en is Europa nog wakker (GOK, ik kon geen cijfers over Blender-kijkers per uur meten). Na 10 filmpjes vergelijken we de tijden met de echte views en passen we het aan.
 - **Link in bio:** zet in het profiel van TikTok, YouTube en Instagram de listing `https://extensions.blender.org/add-ons/click-joints/`. Niet dortus.com/click-joints/: die pagina zegt nog "On its way" zonder knop (GEZIEN 15 nov ±22:20 UTC met curl); de knop staat klaar op tak `claude/chris-click-joints-live` in repo dortus en gaat op main met jouw ja (punt van 14 nov op de lijst). Zonder link heeft "link in bio" geen zin. Op de dag van het Ebb-filmpje wordt de link de winkellink van Ebb: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 - **Geluid:** kies in de app een rustig, populair instrumentaal geluid; geen liedje met tekst dat de tekst in beeld overstemt.

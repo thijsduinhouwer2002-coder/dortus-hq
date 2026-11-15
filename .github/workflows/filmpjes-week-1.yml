@@ -1,6 +1,6 @@
 name: Filmpjes week 1
 
-# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (drie Click Joints, één Ebb) voor TikTok, YouTube Shorts en Reels
+# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (vier Click Joints, één Ebb; filmpje 5 uit de staande opnames van Bram) voor TikTok, YouTube Shorts en Reels
 # uit echte beelden van Click Joints (film v2 van Bram en de twee previews van de gratis versie)
 # en zet ze in de release filmpjes-week-1. Zo staan er geen grote videobestanden in de repo.
 # Bron en uitleg: commercie/filmpjes/week-1/ en commercie/filmpjes/week-1.md.
@@ -36,6 +36,7 @@ jobs:
           curl -sSfL -o bron/3-preview-buigen.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/3-preview-buigen.png
           curl -sSfL -o bron/4-preview-paneel.png https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/click-joints-v0.1.0/4-preview-paneel.png
           cp "$GITHUB_WORKSPACE/commercie/ebb/ebb-film.mp4" bron/ebb-film.mp4
+          for i in 1 2 3 4 5; do cp "$GITHUB_WORKSPACE"/ontwerp/click-joints/pro/film/staand/click-joints-staand-$i-*.mp4 bron/s$i.mp4; done
           sha256sum -c bronnen.sha256
       - name: Filmpjes bouwen en controleren
         working-directory: ${{ env.MAP }}
