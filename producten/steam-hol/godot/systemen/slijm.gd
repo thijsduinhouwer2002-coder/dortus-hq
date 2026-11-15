@@ -78,6 +78,21 @@ var knipper_tot := -10.0
 var blij_tot := -10.0
 var rng_oog := RandomNumberGenerator.new()   # eigen dobbelsteen, zodat de leven-wekker gelijk blijft
 
+# Leven in het spel 3 (hoofdchat 15 nov 15:55, getallen Daan in ontwerp/steam/juice.md): knijpen en rekken vanaf de voet.
+# Hap: plat en breed (1,25 x 0,8) 80 ms, dan via 0,9 / 1,1 terug naar 1,0 binnen 0,33 s. Blij: eerst rekken omhoog
+# (0,9 x 1,15), zelfde terugveer. Ademen: elke 3 tot 4 s 0,6 s lang één spelpixel hoger, met twee wekkers (op en neer),
+# dus in rust geen _process. Alleen in 3D; de pixel-Gloop blijft zoals hij was. Hele spelpixels: de kruin gaat een heel
+# aantal spelpixels omhoog of omlaag, gemeten op de echte zichtbare hoogte van het lijf (controleur 15 nov), en de
+# hoedentoren schuift precies zoveel mee (knijp_dy).
+const KNIJP_HAP := [[0.08, 1.25, 0.8], [0.2, 0.9, 1.1], [0.33, 1.05, 0.95]]   # [tot s, breed, hoog]
+const KNIJP_BLIJ := [[0.08, 0.9, 1.15], [0.2, 1.1, 0.9], [0.33, 0.97, 1.03]]
+const ADEM_MIN_S := 3.0
+const ADEM_MAX_S := 4.0
+const ADEM_S := 0.6
+var adem_aan := false
+var rng_adem := RandomNumberGenerator.new()   # eigen dobbelsteen: de andere wekkers blijven gelijk
+var _knijp := Vector2.ONE                     # de schaal waarmee nu getekend wordt (spiegel in _teken_3d zet hem terug)
+
 var hol
 var soort := "slijm"
 var bijnaam_naam := "Gloop"
@@ -109,6 +124,8 @@ func zet(h, kol: int) -> void:
 	rng_oog.seed = hash([kol, "oog"])
 	_plan_leven()
 	_plan_knipper()
+	rng_adem.seed = hash([kol, "adem"])
+	_plan_adem()
 	_toren_uit_argument(OS.get_cmdline_user_args())
 
 # Alleen voor de strooktest (Daan 13 nov 22:55: de 3D-toren keuren met 4 tot 6 hoeden): argument toren=0,4,5,1,6 geeft Gloop
@@ -141,6 +158,62 @@ func _plan_knipper() -> void:
 func _knipper() -> void:
 	knipper()
 	_plan_knipper()
+
+func _plan_adem() -> void:
+	if is_inside_tree():
+		get_tree().create_timer(rng_adem.randf_range(ADEM_MIN_S, ADEM_MAX_S)).timeout.connect(_adem)
+
+func _adem() -> void:
+	adem()
+	_plan_adem()
+
+# Eén keer ademen: alleen in rust (geen hap, blij, leven, plat of koop-moment), anders slaat hij deze beurt over.
+func adem() -> bool:
+	if not _heeft_3d("rust") or is_plat() or leven != "" or t < hap_van + HAP_S or t < blij_tot or t < koop_van + KOOP_S or t < plat_tot + OPSTAAN_S:
+		return false
+	adem_aan = true
+	_teken_als_anders()
+	if is_inside_tree():
+		get_tree().create_timer(ADEM_S).timeout.connect(adem_uit)
+	return true
+
+func adem_uit() -> void:
+	adem_aan = false
+	_teken_als_anders()
+
+# Zichtbare maat van het 3D-lijf nu in spelpixels (breed = cel, hoog = cel min de lege rand boven de kruin in rust).
+func lijf_maat() -> Vector2:
+	if lijf3d_info.is_empty():
+		return Vector2(20, 16)
+	var px: float = lijf3d_info["px"]
+	var k := 1.0 if is_groot() else 0.8
+	var top3: float = lijf3d_info["top"][lijf3d_info["frames"].find("rust")] if lijf3d_info.has("top") else 0.0
+	return Vector2(float(lijf3d_info["cel_px"][0]) / px * k, (float(lijf3d_info["cel_px"][1]) - top3) / px * k)
+
+# De schaal van het lijf nu (breed, hoog), vanaf de voet. Vector2.ONE als er niets knijpt.
+func knijp_nu() -> Vector2:
+	if beeld_3d() == "" or is_plat() or _rust_som:
+		return Vector2.ONE
+	var k := _knijp_uit(KNIJP_HAP, t - hap_van)
+	if k == Vector2.ONE and blij_tot > 0.0:
+		k = _knijp_uit(KNIJP_BLIJ, t - (hap_van + HAP_S)) if t < blij_tot else Vector2.ONE
+	if k == Vector2.ONE and adem_aan and not (t < hap_van + HAP_S or t < blij_tot or leven != ""):
+		var m := lijf_maat()
+		k = Vector2(1.0, (m.y + 1.0) / m.y)
+	return k
+
+func _knijp_uit(tabel: Array, dt: float) -> Vector2:
+	if dt < 0.0:
+		return Vector2.ONE
+	var m := lijf_maat()
+	for r in tabel:
+		if dt < float(r[0]):
+			return Vector2(round(m.x * float(r[1])) / m.x, (m.y + round(m.y * (float(r[2]) - 1.0))) / m.y)
+	return Vector2.ONE
+
+# Hoeveel spelpixels de kruin nu hoger (negatief) of lager staat door het knijpen; de toren gaat mee.
+func knijp_dy() -> int:
+	return -int(round(lijf_maat().y * (knijp_nu().y - 1.0)))
 
 func knipper() -> bool:
 	if not _heeft_3d("knipper") or is_plat() or leven != "" or t < blij_tot:
@@ -244,7 +317,7 @@ func wip_nu() -> int:
 # Het hoogste punt van Gloop met alles wat hij draagt (Gloop-coordinaten, y omhoog negatief): de bovenste hoed,
 # anders zijn kruin, de glansster of de zzz niet meegerekend. Voor het muntje erboven (Sanne toets 8 punt 2: 3 spelpixels boven het bovenste).
 func hoogste_punt() -> int:
-	var y := -16 + top_nu() + wip_nu()
+	var y := -16 + top_nu() + wip_nu() + knijp_dy()
 	var t3 := toren_3d()
 	if not t3.is_empty():
 		for h3 in t3:
@@ -382,7 +455,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), beeld_3d(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0]
+	var nu := [frame_nu(), beeld_3d(), wip_nu(), knijp_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
@@ -528,10 +601,10 @@ func _teken_3d(naam: String, wip: int) -> void:
 	var x := -float(lijf3d_info["anker_x"]) / px * k
 	var spiegel := naam == "spuug" and laars_kant < 0
 	if spiegel:
-		draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1, 1))
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2(-_knijp.x, _knijp.y))
 	draw_texture_rect_region(lijf3d, Rect2(x, -h + wip, w, h), Rect2(i * cw, 0, cw, ch))
 	if spiegel:
-		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		draw_set_transform(Vector2.ZERO, 0.0, _knijp)
 
 # Bovenkant van Gloop in het huidige frame (de toren volgt hem: hap, spugen, opstaan).
 func top_nu() -> int:
@@ -563,7 +636,7 @@ func toren() -> Array:
 	var extra := 0
 	for ronde in 2:   # plafond, zoals in toren_3d(), in hele pixels
 		uit.clear()
-		var boven := -16 + top_nu() + wip_nu()
+		var boven := -16 + top_nu() + wip_nu() + knijp_dy()
 		for i in op.size():
 			var h: int = op[i]
 			var y := boven - int(HOED_ONDER[h])
@@ -601,7 +674,7 @@ func toren_3d() -> Array:
 	var extra := 0.0
 	for ronde in 2:
 		uit.clear()
-		var boven := float(-16 + top_nu() + wip_nu())
+		var boven := float(-16 + top_nu() + wip_nu() + knijp_dy())
 		for i in op.size():
 			var h: int = op[i]
 			var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch
@@ -737,6 +810,9 @@ func _draw() -> void:
 	var n := niveau()
 	var b3 := beeld_3d()
 	var royal3 := n >= 3 and not is_plat() and royal_3d_aan(b3)
+	_knijp = knijp_nu() if b3 != "" else Vector2.ONE
+	if _knijp != Vector2.ONE:
+		draw_set_transform(Vector2.ZERO, 0.0, _knijp)   # vanaf de voet (y 0 = vloer): de onderkant blijft op de grond
 	if royal3:
 		_teken_royal("achter", wip)   # Royal in 3D: mantel en scepter achter hem
 	elif n >= 3 and not is_plat():
@@ -754,6 +830,9 @@ func _draw() -> void:
 		_teken_royal("voor", wip)     # Royal in 3D: broche voor hem, onder de hoeden
 	elif n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(48, 0, 20, 16))   # Royal: bovenzoom met gouden gesp voor hem, vóór de hoeden
+	if _knijp != Vector2.ONE:
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)   # hoeden niet knijpen: de toren schuift mee via knijp_dy()
+		_knijp = Vector2.ONE
 	var t3 := toren_3d()
 	if t3.is_empty():
 		for h in toren():

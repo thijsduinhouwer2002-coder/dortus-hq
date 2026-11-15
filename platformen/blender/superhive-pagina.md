@@ -1,5 +1,7 @@
 # Click Joints Pro: Superhive-pagina (Bram, sinds 10 nov 2026)
 
+**DEMOFILM v1 TER KEURING (15 nov 17:30 UTC, Bram).** `ontwerp/click-joints/pro/film/click-joints-pro-demo.mp4` (20,6 s, 1920 x 1080, 30 fps, H.264, zonder prijs) en `.gif` (7,4 s, voor fora), echte beelden uit Blender 5.3.0. Nog niet uploaden: eerst Daans ja, dan release `click-joints-pro-film-v1` en dan als eerste preview op de pagina.
+
 **KLAAR OM TE UPLOADEN (15 nov 15:30 UTC, Bram).** Release: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1
 - Zip `click_joints_pro-1.0.1.zip`, sha256 `865f9482ea05993d59928a725452149badfb10b3551bf9d0297932e40f9bd813`, uit e2e-run 43729108508 op main: groen in de echte Blender 4.2.23, 5.2.3 en 5.3.0, zip inhoudelijk gelijk in alle drie. Manifest: Click Joints Pro, versie 1.0.1, id click_joints (nagekeken na downloaden uit de release).
 - Plaatjes in uploadvolgorde, elk 1920 x 1080 PNG onder 2 MB: `1-poster-3.png`, `2-knie-met-boog.png`, `3-rood-voorbij-de-stop.png`, `4-kogel-passing.png`, `5-kogel-rood.png`. De maat van Superhive zelf heb ik niet kunnen nalezen (hun hulppagina's sturen met curl door naar de voorpagina), dus 1920 x 1080 zoals afgesproken.

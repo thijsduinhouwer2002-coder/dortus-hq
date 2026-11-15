@@ -74,20 +74,6 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
-      - name: Keurstap winkelbeelden moment=hap en moment=val op 160 (Bram 15 nov, gaat weg voor main)
-        shell: pwsh
-        run: |
-          $uit = "producten/steam-hol/e2e/screenshots"
-          foreach ($m in @("hap", "val")) {
-            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=160 demo=1 vers=1 duur=70 moment=$m" -PassThru
-            Start-Sleep 30
-            & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-moment-$m-a-160.png"
-            Start-Sleep 30
-            & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-moment-$m-b-160.png"
-            $p.WaitForExit(20000) | Out-Null
-            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
-          }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |

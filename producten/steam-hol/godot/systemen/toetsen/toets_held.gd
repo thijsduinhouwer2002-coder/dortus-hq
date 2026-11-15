@@ -809,6 +809,39 @@ func _init() -> void:
 		ok(g3.beeld_3d() == "rust", "3D: na 0,2 s ogen weer open")
 		g3.stap(0.01)
 		ok(not g3.is_processing(), "3D: na knipperen geen _process meer (zuinig)")
+		# Leven in het spel 3 (Olaf 15 nov, getallen Daan juice.md): knijpen vanaf de voet, ademen met een wekker
+		ok(g3.knijp_nu() == Vector2.ONE and g3.knijp_dy() == 0, "knijp: in rust niets")
+		var tor_rust: Array = g3.toren_3d()
+		g3.hap_van = g3.t
+		g3.blij_tot = g3.t + g3.HAP_S + g3.BLIJ_S
+		var lm: Vector2 = g3.lijf_maat()
+		var kh: Vector2 = g3.knijp_nu()
+		ok(kh.x > 1.15 and kh.y < 0.9 and g3.knijp_dy() == int(round(lm.y * 0.2)), "knijp: hap plat en breed (%s, kruin %d lager, lijf %s)" % [kh, g3.knijp_dy(), lm])
+		ok(is_equal_approx(lm.y * (kh.y - 1.0), float(-g3.knijp_dy())), "knijp: de kruin zakt een heel aantal spelpixels, net als de toren")
+		var tor_hap: Array = g3.toren_3d()
+		ok(tor_rust.size() > 0 and tor_hap.size() == tor_rust.size() and is_equal_approx(float(tor_hap[0][2]), float(tor_rust[0][2]) + g3.knijp_dy()), "knijp: de toren zakt mee in de hap")
+		g3.t = g3.hap_van + 0.1
+		ok(g3.knijp_nu().x < 1.0 and g3.knijp_nu().y > 1.0 and g3.knijp_dy() < 0, "knijp: hap veert terug via 0,9 / 1,1 (%s)" % g3.knijp_nu())
+		g3.t = g3.hap_van + 0.5
+		ok(g3.knijp_nu() == Vector2.ONE, "knijp: na 0,33 s weer 1,0 (hap)")
+		g3.t = g3.hap_van + g3.HAP_S + 0.02
+		ok(g3.knijp_nu().x < 1.0 and g3.knijp_nu().y > 1.0, "knijp: blij rekt omhoog (%s)" % g3.knijp_nu())
+		ok(not g3.adem(), "adem: niet tijdens blij")
+		g3.t = g3.blij_tot + 0.1
+		ok(g3.knijp_nu() == Vector2.ONE, "knijp: na blij weer 1,0")
+		g3.set_process(false)
+		ok(g3.adem() == standen.has("rust"), "adem: in rust wel")
+		ok(g3.knijp_nu().x == 1.0 and is_equal_approx(lm.y * (g3.knijp_nu().y - 1.0), 1.0) and g3.knijp_dy() == -1, "adem: kruin precies één spelpixel hoger (%s)" % g3.knijp_nu())
+		ok(not g3.is_processing(), "adem: zonder _process (twee wekkers)")
+		var tor_adem: Array = g3.toren_3d()
+		ok(tor_adem.size() == tor_rust.size() and is_equal_approx(float(tor_adem[0][2]), float(tor_rust[0][2]) - 1.0), "adem: de toren gaat 1 spelpixel mee omhoog")
+		g3.adem_uit()
+		ok(g3.knijp_nu() == Vector2.ONE, "adem: na de tweede wekker terug")
+		g3.met_3d = false
+		g3.adem_aan = true
+		ok(g3.knijp_nu() == Vector2.ONE, "knijp: de pixel-Gloop knijpt niet")
+		g3.met_3d = true
+		g3.adem_aan = false
 		g3.hap_van = -100.0
 		# Spugen in 3D (Bram 15 nov): knipper, knipper, hap, hap; nooit meer het pixelbeeld zolang er een 3D-blad is
 		g3.leven = "spugen"

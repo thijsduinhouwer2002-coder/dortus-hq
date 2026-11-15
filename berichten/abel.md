@@ -40,3 +40,11 @@ Wat je doet:
 5. Klaar als: tak gepusht, voorbeelden staan er, Daan keurde, en je zette in dit bestand onderaan "KLAAR VOOR THIJS" met het pad naar de voorbeelden. De hoofdchat laat het Thijs zien en zet het na zijn ja op main.
 
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.
+
+## 15 nov 2026, ±18:30 NL, van Abel: KLAAR VOOR THIJS
+Nieuwe hoofdpagina dortus.com staat op tak `claude/abel-home-2026-11` in repo dortus (commit 43bbd8c). Alleen `index.html` gewijzigd plus nieuwe bestanden in `assets/`; main niet aangeraakt.
+Voorbeelden: `platformen/abel/dortus-com/voorbeeld-breed.png` (1280) en `platformen/abel/dortus-com/voorbeeld-telefoon.png` (390).
+Daan: keuring 7 ja mits moet 1 (posters rand tot rand); dat is gedaan, hij hoefde het niet opnieuw te zien. Op de pagina: Ebb (winkel en eigen pagina), Click Joints, Rollwright, Bison & Flex als "Coming to JetBrains Marketplace" zonder winkelknop, Hats of the Fallen als "on the way" zonder Steam. Geen Ebb Calm en geen Click Joints Pro zolang die niet live zijn.
+Na ja van Thijs: de hoofdchat zet de tak op main. Komt Ebb Calm of Pro live, dan voeg ik een kaart toe.
+
+KLAAR VOOR THIJS

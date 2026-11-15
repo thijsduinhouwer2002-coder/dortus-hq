@@ -1,0 +1,49 @@
+name: Click Joints Pro demofilm (echte Blender)
+
+# Bram, 15 nov 2026 (opdracht hoofdchat 17:55): de demofilm uit de echte add-on in de echte Blender 5.3.0.
+# film_pro.py neemt het hele X-scherm per filmbeeld op, maak_film.sh zet er onderschriften en het eindbeeld bij.
+on:
+  push:
+    branches: [main, "claude/blender-*"]
+    paths: ["producten/blender-gewrichten/e2e/film_pro.py", "producten/blender-gewrichten/e2e/maak_film.sh", ".github/workflows/click-joints-pro-film.yml"]
+  workflow_dispatch:
+
+jobs:
+  film:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PRO_VERSIE: "1.0.1"
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
+      - name: Blender 5.3.0 ophalen
+        run: |
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Betaalde zip
+        run: bash e2e/maak_zip.sh betaald
+      - name: Film opnemen
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_film
+          BLENDER_USER_CONFIG: /tmp/cj_film/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_film/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+          timeout 900 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/film_pro.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
+          grep "\[cj-scherm\] FILM" /tmp/film.log || true
+          for d in plaats buig rood kogel; do grep -q "FILM OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
+      - name: Film in elkaar zetten
+        run: bash e2e/maak_film.sh /tmp/filmuit /tmp/filmklaar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: click-joints-pro-film
+          path: /tmp/filmklaar
