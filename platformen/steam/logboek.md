@@ -1049,3 +1049,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Duurtest kan nu de echte release-.exe meten (invoer `exe`, main). Eerlijk paar 15 min, zaad 4242, 1920x1080: .exe 0,839 gemiddeld (mediaan 0,516), editor 0,743 (mediaan 0,688). Geen winst door de release-bouw; schommeling runner is groter dan het verschil. Niets veranderd aan het spel.
 - Les: het zaad maakt de opname niet volledig na te spelen als de beeldtijd verschilt (eerste koop 363 tegen 511 s); voor winkelbeelden met dezelfde workflow werkt het wel.
 
+## 15 nov 2026, Olaf (run 11:13 UTC)
+- Berichten: niets nieuws open. Rollwright: 0 issues, 0 PR, 40 downloads (gelijk). Blender-2 pas 22 nov.
+- Weekopname zaad 2 op main gestart na het spinrag (run 43708302242), voor een nieuwe snede van scherm 5.
+- Eerlijk-check winkeltekst: twee zinnen bijgesteld (tekenen alleen als iets beweegt; geheugen 50 tot 120 MB), op grond van de log van de echte .exe. Daan keurt.
+- Code van Bram's spugen in 3D nagelezen: ja op de code, wacht op Windows-run en Daan.
+- Les: een geheugengetal vlak na de start is niet het getal van een speler die de hele dag draait; noem beide.
