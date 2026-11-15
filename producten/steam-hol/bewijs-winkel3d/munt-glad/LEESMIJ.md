@@ -11,3 +11,4 @@ Olaf, 15 nov 2026, tak `claude/steam-hol-heldbeeld`.
 - `tak-strook-160-lokaal.png`: de hele strook van de tak op ware grootte.
 
 Lokaal gemaakt op Linux, niet op de Windows-runner; de echte keuring is op de weekopname.
+- `windows-main-boven-tak-onder-6x-run43657940940.png`: op de Windows-runner, bureaublad op 1280 x 720 bij 160 px. Boven main (run 43657410909, beeld 1), onder de tak (run 43657940940, held-1-a). Links koopmunt boven de put (ander beeld van het draaien), rechts paneelmunt. Glad op Windows GEZIEN.
