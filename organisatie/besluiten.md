@@ -364,3 +364,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 15 nov 16:34: t/m woensdag extra hard werken
 - 15 nov 2026 16:34 | Thijs | **T/m woensdag 18 nov extra hard werken (A, B en C).** A: Click Joints Pro meteen op Superhive (Bram nu gestart, niet om 17:07). B: ombouw hoofdpagina dortus.com naar voren (was eind november); Abel weer aan, elk uur 07:19 tot 23:19 t/m wo 18 nov, werkt op een tak, niets op main zonder ja van Thijs. C: toets winkelbeelden Hats of the Fallen van wo 25 nov naar wo 18 nov 20:00, extra runs voor Olaf, Mila en Bram. D (Gijs aan voor het Garmin-spelletje) niet. | Thijs zet zijn wekelijkse reset nu in. dortus.com toont nog Confluence terwijl alles ernaar linkt. | Wo 18 nov: Pro te koop of in keuring, nieuwe hoofdpagina klaar voor Thijs, winkelbeelden bij Thijs.
+
+## 15 nov 19:25: ruwe speeltest op za 21 nov
+- 15 nov 2026 19:25 | Thijs | **Ja op een ruwe speeltest van Hats of the Fallen op za 21 nov** (de test van 4 dec blijft). Build en speelinstructie vr 20 nov 20:00 klaar (Olaf). Gaat voor de winkelbeelden van wo 18 nov als die botsen. | YouTube-onderzoek: eerst leuk, dan mooi; AI kan niet zien of iets leuk is. | Niet leuk op 21 nov: kern van het spel aanpassen vóór meer beeldwerk.

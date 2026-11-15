@@ -8,6 +8,8 @@
 - Daan: `Akkoord: ja` op Pro 1.0.0 (10 nov) en ja op de 1.0.1-kleuring (proef 5, 14 nov 06:35) en op poster 3 (14 nov 14:45). Op de poster staat "Blender 4.2 to 5.2"; dat klopt, maar 5.3 werkt ook (geen fout, kan later).
 - Uploaden als concept, eerst aan Thijs laten zien, dan indienen (besluit 15 nov 16:20). Stappen onderaan dit bestand.
 
+**CONCEPT COMPLEET (15 nov 19:35 NL): zip, uitgelicht plaatje en 4 galerijplaatjes staan erop, varianten Personal $12 en Studio (up to 5 people) $45 met de zip, checklist "Complete". Wacht op ja van Thijs om in te dienen. Lanceerprijs $9 pas instellen als hij live is (dan lopen de 14 dagen vanaf de lancering).**
+
 **CONCEPT AANGEMAAKT (15 nov ±17:40 NL, hoofdchat, in de Chrome van Thijs).** Superhive product 269495, slug `click-joints-pro`, status Draft. Ingevuld en opgeslagen: naam, prijs $12, support period aan (verlengen 25%), excerpt, beschrijving (tekst hieronder), categorie Addons met Modeling en Import & Export, 9 tags, GPL, Blender 4.2 tot 5.3, documentatie (installeren, de drie stappen, printtips, support) en 2 FAQ's. Nog te doen: uitgelicht plaatje, 4 galerijplaatjes en de zip. Superhive eist plaatjes van precies 2:1; de 16:9-plaatjes zijn bijgesneden naar 1920 x 960 (poster 60 px boven en onder, de rest 120 px onder; niets belangrijks weg, bekeken). Die uploads lukten nog niet: het Chrome-venster stond geminimaliseerd en de uploader werkt dan niet. Lanceerprijs $9 en de Studio-licentie ($45, via Variations) nog niet ingesteld. Indienen pas na het ja van Thijs.
 
 
