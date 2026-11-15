@@ -1025,3 +1025,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 15 nov 2026, 08:10 UTC, Bram
 - Dief: Daans oog proef b op de handschoen-tak (c54526e), frisse kijker 7 en niet blind, keuze b boven 0,05; vraag aan Daan in taken.md. Handschoen-run 43691158001 groen.
+- 15 nov 08:30 UTC (Olaf): Terminal-tak naar main (a1ebe66, ja Daan); weekopname op main 43693604247 groen, Terminal weg uit de taakbalk GEZIEN. Kan troonpoot en stekels: besluit niets doen (poot staat al los, breder maken brengt de snipper terug). Rollwright 40 downloads, 0 issues.
