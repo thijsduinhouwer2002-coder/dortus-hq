@@ -579,3 +579,10 @@
 - GEZIEN met Read: proeven hoofd a tot e, bibliotheek 3 sterktes, hoofdbeeld en bibliotheek op vol formaat, voor en na.
 - Staand 748x896 opnieuw gerenderd, GEZIEN met Read.
 - Volgende: keuring Daan verwerken; daarna de snede en opmaak van de 5 schermen zodra Olaf en Bram de bronnen uit main hebben (besluit 16:25).
+
+## 15 nov 2026, ±22:38 tot 22:50 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), regels, besluiten, taken (Daan 22:55: bard in schrik als scherm 4, ja met moet `VAL_RECHT` 0,2 voor Olaf).
+- **Besluit: scherm 4 (de val) als twee rijen: boven de bard in schrik op 4,5x, onder Gloop met hoedenberg en kaartje op 2,2x** (`scherm-val.png`, nieuw script `bron/maak_scherm_onder_vrij.py`). Waarom: Daans ladder-snede had een derde lege aarde; nu zie je held, put, Gloop en de hoeden die op hem wachten; blinde kijker 4 tegen 7.
+- Hap bekeken voor een andere opbouw: in beeld 450 is de gang links nog niet gegraven, er is geen tweede rij met spel te vinden. **Besluit: hap blijft zoals hij is.** Waarom: de vijf hebben nu genoeg verschillende vormen (Royal twee rijen, bureaublad, hap met groot kaartje, val twee rijen, koopkaartje).
+- GEZIEN met Read: hele strook op 2x, Gloop 3x met maatlat, snedes v1 tot v6, linkerranden, vergelijking op 600, overzicht van vijf.
+- Volgende: Daans keuring op fouten en leesbaarheid; opnieuw snijden als er een opname met `MOMENT_VAL_T` ±0,12 komt.
