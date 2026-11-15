@@ -142,3 +142,8 @@ Eerder:
 - (15 nov 2026, Daan) **Twee beelden naast elkaar uit verschillende opnames: zeg het erbij.** Op een blad of winkelpagina leest de kijker twee beelden van hetzelfde hol als één moment. Verschilt er iets (stekels op een andere plek), zet dan in één korte zin dat het een andere opname is en waarom het verschilt.
 - (15 nov 2026, Daan) **Een poster in een kaart vult de kaart rand tot rand.** Op dortus.com en elke andere productlijst staat het beeld zonder balken of randjes in zijn vak: maak het vak in de verhouding van de poster, of snijd bij met een veilige marge. Donkere balken naast een poster laten een verder afgewerkte pagina goedkoop ogen (keuring 7).
 - (15 nov 2026, Daan) **Effecten keur je op 20 beelden per seconde.** De film van de Windows-run loopt op 5 per seconde; een stuiter, glinster of knijp van minder dan 0,2 s valt daar tussen de beelden. Keur de vorm op de gewone film, het gevoel op een keurfilm van 20 fps.
+
+## Schermafbeeldingen uit de strook (Daan, 15 nov)
+- Een rij die het hol toont, begint met zijn eigen gras; een rij met alleen een kaartje of bediening krijgt geen gras erboven. Nooit gras midden in een beeld boven een kaartje: dat leest als een tweede wereld (blinde kijker 5 tegen 7).
+- Geen samengestelde beelden die iets tonen wat het spel niet heeft, zoals een tweede verdieping onder het hol.
+- Inzoomen hooguit 3x uit de opname van 160 px; daarboven wordt het zacht.
