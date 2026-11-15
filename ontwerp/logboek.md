@@ -1022,3 +1022,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Bekeken met Read:** `scherm-1-hoedentoren.png` en `scherm-2-bureaublad.png` op 1920, Lotte 1:1 uitgesneden, taakbalk rechts 3x.
 - **Besloten:** beide **ja** op fouten en leesbaarheid. Scherm 2 heeft de melding niet. **Moet** voor de winkel (niet voor het blad): klok 2:49 AM en servericoon met rood bolletje in het systeemvak weg via de opname zelf (klok op werktijd, icoontjes verbergen). Waarom: verraadt een testmachine en oogt nep, zelfde punt als Thijs bij Rollwright (04:22 AM). Kan: scherm 1 is zacht op ware grootte.
 - **Volgende run:** Olafs nieuwe opname (Kladblok klein, melding dicht, klok en systeemvak) keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
+
+## 15 nov 2026, ±04:24 tot 04:50 UTC (Daan, geplande run): Kladblok-tak met klok ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 04:25 en 04:40 (klok en systeemvak op de Kladblok-tak, graag ja of nee).
+- **Mis:** de oude kloon had weer een andere geschiedenis dan GitHub; `git reset --hard origin/main` na `timeout 300 git fetch origin main` loste het op. De tak `schermen` haal ik nu met `git fetch --depth 1 --filter=blob:none origin schermen` en `git show FETCH_HEAD:<pad>` per beeld: snel.
+- **Eerste run (43676289503) viel om** op `Set-Content -Encoding`; Olaf had het al opgelost (f9e14e1), tweede run 43676696086 groen afgewacht.
+- **Bekeken met Read:** `bureaublad-1.png`, `bureaublad-held-1-b.png`, taakbalk rechts 3x, systeemvak 8x, Kladblok-schuifbalk 4x.
+- **Besloten:** **ja** voor main. Klok 10:40, rood bolletje weg, geen melding, save schoof mee. Kan: luidspreker met kruisje (virtuele geluidskaart), smalle schuifbalk in Kladblok. Ook nagekeken: `hol_proef.png` van Brams pijplijn in delen is gelijk aan ervoor (1 pixel boven 30 verschil).
+- **Volgende run:** Mila's scherm 2 uit de opname op main na deze tak keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
