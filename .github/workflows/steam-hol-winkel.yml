@@ -163,6 +163,40 @@ jobs:
           $vol = (Resolve-Path $uit).Path
           # Eerst alles van de runner wegklappen (zijn eigen terminalvenster stond in beeld, run 43631337323),
           # dan Kladblok met een kort briefje, zodat het leest als een gewone werkdag.
+          # Olaf 15 nov 04:30 (moet Daan 03:45, voorstel 03:55): de taakbalk verraadde een testmachine (2:49 AM,
+          # servericoon met rood bolletje, doorgestreepte luidspreker). Klok op een werktijd (10:40, loopt daarna
+          # gewoon door), tijdsynchronisatie uit zodat hij niet terugspringt; icoontjes in het overloopmenu
+          # (EnableAutoTray) en de systeemicoontjes netwerk en volume verborgen (HideSCANetwork, HideSCAVolume),
+          # dan Explorer opnieuw starten zodat de taakbalk het overneemt. Datum blijft staan. Niets achteraf bijgetekend.
+          Set-TimeZone -Id "W. Europe Standard Time" -ErrorAction SilentlyContinue
+          Set-Service w32time -StartupType Disabled -ErrorAction SilentlyContinue
+          Stop-Service w32time -Force -ErrorAction SilentlyContinue
+          $voor = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+          Set-Date -Date (Get-Date).Date.AddHours(10).AddMinutes(40) | Out-Null
+          $schuif = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds() - $voor
+          Write-Output "klok gezet: $(Get-Date -Format 'yyyy-MM-dd HH:mm') ($((Get-TimeZone).Id)), verschoven $schuif s"
+          # de save (kern/opslag.gd, sleutel "tijd") schuift even ver mee, anders telt het spel de sprong als weg geweest
+          # (vooruit: extra goud en helden in beeld; achteruit houdt opslag.gd de oude tijd vast). Zo blijft het hol gelijk.
+          $sv = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+          if (Test-Path $sv) {
+            $tekst = Get-Content $sv -Raw
+            $m = [regex]::Match($tekst, '"tijd":\s*(\d+)')
+            if ($m.Success) {
+              $oud = [long]$m.Groups[1].Value
+              $tekst = $tekst.Substring(0, $m.Groups[1].Index) + ($oud + $schuif) + $tekst.Substring($m.Groups[1].Index + $m.Groups[1].Length)
+              Set-Content -Encoding utf8NoBOM -NoNewline $sv $tekst
+              Write-Output "save tijd $oud -> $($oud + $schuif)"
+            } else { Write-Output "save zonder tijd gevonden, niets geschoven" }
+          }
+          Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" EnableAutoTray 1 -Type DWord -ErrorAction SilentlyContinue
+          $pol = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+          if (-not (Test-Path $pol)) { New-Item -Path $pol -Force | Out-Null }
+          foreach ($n in @("HideSCANetwork", "HideSCAVolume")) { Set-ItemProperty $pol $n 1 -Type DWord -ErrorAction SilentlyContinue }
+          Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
+          for ($w = 0; $w -lt 15 -and -not (Get-Process explorer -ErrorAction SilentlyContinue); $w++) { Start-Sleep 1 }
+          if (-not (Get-Process explorer -ErrorAction SilentlyContinue)) { Start-Process explorer.exe; Write-Output "explorer zelf gestart" }
+          Start-Sleep 6
+          Write-Output "systeemvak: EnableAutoTray $((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer' -ErrorAction SilentlyContinue).EnableAutoTray), explorer draait: $([bool](Get-Process explorer -ErrorAction SilentlyContinue))"
           (New-Object -ComObject Shell.Application).MinimizeAll()
           $weg = Join-Path $env:RUNNER_TEMP "snelkoppelingen"; New-Item -ItemType Directory -Force $weg | Out-Null
           foreach ($bd in @("$env:PUBLIC\Desktop", [Environment]::GetFolderPath("Desktop"))) {
