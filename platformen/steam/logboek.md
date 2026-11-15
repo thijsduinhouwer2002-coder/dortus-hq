@@ -1098,3 +1098,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - `figuur`: koopmuntje boven Gloop schaalt mee (652ac4a op `claude/steam-hol-figuur`, 2 toetsen, lokaal 0 FOUT). Godot 4.3 voor Linux in de werkplek gehaald om lokaal te toetsen. Wacht op kleur H van Mila en het eindoordeel van Daan.
 - `figuur-vast` gebouwd (1,15 vast, keurstap weg), Windows-run 43724124617 groen, ja Daan, op main 41cba5b. Volgende run: uitslag Windows-run en weekopname op main nakijken.
 - Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.
+- 14:42: kaartje warm op main GEZIEN in strook-160 van run 43723347420 (`ontwerp/steam/paneel-3d/bram-main-run43723347420-kaartje-warm-160-2x.png`). px 5 op de figuur-tak: pijplijn en Windows-run groen, 160 bij 1,15 scherper en even groot; vergelijking in taken.
+- Les: de rendertijd met px 5 bleef gelijk (±8 min in delen), want de render zelf is al 480 tot 640 pixels; alleen het verkleinen verandert.
