@@ -486,7 +486,8 @@ func munt_3d(c: Vector2, r: float, breed := 1.0) -> void:
 # één cirkel met gladde rand, maten in schermpixels (zie munt_3d)
 func munt_laag(c: Vector2, r: float, kleur: Color) -> void:
 	var rr := maxf(r - 0.5, 0.5)
-	draw_circle(c, rr, kleur)
+	# doorzichtig (de schaduw): schijf een halve pixel kleiner, anders mengt de rand dubbel (controleur 15 nov)
+	draw_circle(c, rr - 0.5 if kleur.a < 1.0 else rr, kleur)
 	draw_arc(c, rr, 0.0, TAU, 48, kleur, 1.0, true)
 
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
