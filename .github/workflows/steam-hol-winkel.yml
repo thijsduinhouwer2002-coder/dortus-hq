@@ -29,6 +29,11 @@ jobs:
       HOOGTE: ${{ inputs.hoogte || '160' }}
     steps:
       - uses: actions/checkout@v4
+      # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
+      # heeft zoals bij een gewone speler. Mag mislukken: dan blijft het kruisje en gaat de opname gewoon door.
+      - name: Virtuele geluidskaart (Scream)
+        continue-on-error: true
+        uses: LABSN/sound-ci-helpers@v1
       - name: Scherm op 1920 x 1080
         shell: pwsh
         run: |
@@ -204,14 +209,14 @@ jobs:
           }
           Start-Sleep 2
           $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
-          # Olaf 15 nov: briefje op 4 regels zonder lege regel en Kladblok 186 hoog (op 420 x 170 viel het af na regel 4, met schuifbalk; runs 43669366909 en 43671848393)
+          # Olaf 15 nov: briefje op 4 regels zonder lege regel en Kladblok 196 hoog (186 gaf nog een smalle schuifbalk, kan 2 Daan 04:45) (op 420 x 170 viel het af na regel 4, met schuifbalk; runs 43669366909 en 43671848393)
           Set-Content -Encoding utf8 $briefje "Monday`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor"
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
           $h = [IntPtr]::Zero
           for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
           [Scherm]::ShowWindow($h, 9) | Out-Null
-          $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 186, $true)
+          $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
           # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan (run 43642948819).
           # Olaf 15 nov 03:30: FindWindow(null, "System Properties") vond hem in run 43669366909 niet, terwijl hij in alle
           # 18 beelden stond. Nu: alle zichtbare vensters loggen (titel, klasse, proces) en elk venster met "System
@@ -243,7 +248,7 @@ jobs:
           }
           Vensters "start"
           Dicht-Melding "start"
-          Write-Output "Kladblok 420 x 186 linksboven (naast de prullenbak): $gezet"
+          Write-Output "Kladblok 420 x 196 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
@@ -288,22 +293,22 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           T="$RUNNER_TEMP/s"
-          # Olaf 14 nov: één keer klonen (duurt ±1,5 min, de tak is groot) en bij een geweigerde push alleen de nieuwste
-          # stand ophalen en onze ene commit erop zetten. Eerder kloonde elke poging opnieuw; dan duwde een andere
-          # workflow er steeds tussen, faalden alle 5 pogingen en bleef de stap toch groen (run 43560837368).
-          git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
-          D="$T/steam-hol/winkel-1920-$SOORT-$HOOGTE"
-          [ "$GITHUB_REF_NAME" = main ] || D="$D-$(echo "$GITHUB_REF_NAME" | tr / -)"
-          rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
-          echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
-          cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
+          D_REL="steam-hol/winkel-1920-$SOORT-$HOOGTE"
+          [ "$GITHUB_REF_NAME" = main ] || D_REL="$D_REL-$(echo "$GITHUB_REF_NAME" | tr / -)"
+          # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
+          # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0
           for poging in 1 2 3 4 5 6 7 8; do
-            if git push -q origin schermen; then gelukt=1; break; fi
+            rm -rf "$T"
+            git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" "$T" || { sleep $((poging * 2)); continue; }
+            git -C "$T" sparse-checkout set "$D_REL"
+            D="$T/$D_REL"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            git -C "$T" add -A && git -C "$T" commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || { gelukt=1; break; }
+            if git -C "$T" push -q origin schermen; then gelukt=1; break; fi
             sleep $((poging * 2))
-            git fetch -q --depth 1 origin schermen && git rebase -q --onto FETCH_HEAD HEAD~1 || { git rebase --abort 2>/dev/null; true; }
           done
-          cd - >/dev/null
           ls -la "$SRC" | head
           [ "$gelukt" = 1 ] || { echo "::error::push naar schermen 8 keer geweigerd"; exit 1; }
-          echo "op tak schermen: steam-hol/winkel-1920-$SOORT-$HOOGTE"
+          echo "op tak schermen: $D_REL"
