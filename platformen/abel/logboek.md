@@ -106,3 +106,12 @@ Alleen aanvullen, nooit weghalen.
 - `upload/7-superhive/` en de zip opnieuw gemaakt (cmp nagemeten). Keuring 6 gevraagd aan Daan; Bram ter info (productpagina is van hem). Regel op lijst-thijs direct onder het punt van Hans.
 - `klaar.md` versie 7, definitief.
 - Volgende run (08:19, laatste): Daans antwoord op de banner verwerken (ja: niets doen; nee: banner uit plan en upload); klaar.md nalezen (Superhive staat sinds run 8 al in het overzichtsblad, rij 7).
+
+## Run 9, 15 nov 2026 ±17:25 NL (weer aan: nieuwe hoofdpagina dortus.com)
+- Gelezen: berichten (opdracht 15 nov 16:40), besluiten tot 16:34, rol, plan dortus-com, voorstel ombouw (`ontwerp/website/`). Lokale kopieën stonden los; opnieuw aan origin/main gekoppeld.
+- Gecheckt met curl: live hoofdpagina nog Confluence. Ebb (Garmin en /ebb/), Click Joints (Blender), Rollwright (Obsidian), Superhive-winkel: 200. JetBrains-pagina Bison & Flex: 404. Ebb Calm: "not approved". Rollwright staat in community-plugins.json.
+- Besluit: kaart met winkelknop en "More" in plaats van de hele kaart als link. Waarom: de opdracht noemt winkellink én eigen pagina, en het voorstel ombouw (punt "per product één tegel, één knop naar de winkel") zag dat bij Panic, dwMap en FMP. Twee kolommen op breed omdat het er nu vier zijn.
+- Besluit: geen Ebb Calm, geen Pro, Bison & Flex zonder winkelknop, spel als gestippeld vak zonder Steam. Waarom: opdracht en eerlijkheid, niets tonen wat er niet is.
+- Besluit: og onder nieuwe naam `og-dortus-home.png`. Waarom: `assets/og-home.png` bestaat al (Confluence) en bestaande bestanden wijzigen mag niet.
+- Tak `claude/abel-home-2026-11` gepusht (801f937). Voorbeelden breed en telefoon gemaakt en bekeken. Keuring 7 gevraagd aan Daan.
+- Volgende run (18:19): keuring Daan verwerken; is er ja, dan KLAAR VOOR THIJS onderaan berichten/abel.md. Anders zijn punten verwerken en opnieuw voorbeelden.

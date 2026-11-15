@@ -3,100 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dortus: focused tools that fill a real gap</title>
-  <meta name="description" content="Dortus makes focused tools, with small games on the way: Rollwright for Obsidian, Bison &amp; Flex for JetBrains IDEs, Click Joints for Blender. Made by Thijs in the Netherlands." />
+  <title>Dortus: small apps and tools that fill a real gap</title>
+  <meta name="description" content="Dortus makes small apps and tools that each do one thing well: Ebb for Garmin watches, Click Joints for Blender, Rollwright for Obsidian and Bison &amp; Flex for JetBrains IDEs. A small game is on the way. Made by Thijs in the Netherlands." />
   <meta name="theme-color" content="#1d1426" />
   <link rel="icon" href="/assets/dortus-door-small.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/dortus-door-512.png" />
   <link rel="canonical" href="https://dortus.com/" />
   <meta property="og:title" content="Dortus: focused tools today, small games on the way" />
-  <meta property="og:description" content="Tools that fill a real gap in Obsidian, JetBrains IDEs and Blender. Made by Thijs in the Netherlands." />
+  <meta property="og:description" content="Ebb for Garmin, Click Joints for Blender, Rollwright for Obsidian, Bison &amp; Flex for JetBrains. Made by Thijs in the Netherlands." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dortus.com/" />
   <meta property="og:site_name" content="Dortus" />
-  <meta property="og:image" content="https://dortus.com/assets/og-home.png" />
+  <meta property="og:image" content="https://dortus.com/assets/og-dortus-home.png" />
+  <meta property="og:image:alt" content="Dortus: focused tools today, small games on the way. The Dortus D as a door standing ajar with warm light behind it." />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dortus",
+    "url": "https://dortus.com/",
+    "logo": "https://dortus.com/assets/dortus-door-512.png",
+    "email": "thijs@dortus.com"
+  }
+  </script>
   <style>
     @font-face { font-family: "Archivo"; font-weight: 500 800; font-display: swap; src: url("/assets/fonts/archivo-latin.woff2") format("woff2"); }
     @font-face { font-family: "Public Sans"; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/publicsans-latin.woff2") format("woff2"); }
-    :root { --bg: #1d1426; --bg-2: #160f1d; --card: #2a1e33; --line: #3f2846; --ink: #fff4e0; --ink-2: #cdbfd8; --ink-3: #9a8aa8; --accent: #ffd25c; --lila: #a58cff; }
+    :root { --bg: #1d1426; --bg-2: #160f1d; --card: #2a1e33; --line: #3f2846; --ink: #fff4e0; --ink-2: #cdbfd8; --ink-3: #a597b3; --accent: #ffd25c; --lila: #a58cff; }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Public Sans", system-ui, sans-serif; }
     a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
     header { padding: 22px 0; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font: 700 22px "Archivo", sans-serif; text-decoration: none; }
     .brand img { width: 36px; height: 36px; border-radius: 9px; }
-    .hero { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 32px; }
-    .door { width: 100%; max-width: 340px; justify-self: center; }
-    .hero { padding: 64px 0 56px; }
+    header nav { display: flex; gap: 20px; font-size: 15px; color: var(--ink-2); }
+    header nav a { text-decoration: none; }
+    header nav a:hover { color: var(--ink); }
+    .hero { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 32px; padding: 56px 0 48px; }
+    .door { width: 100%; max-width: 320px; justify-self: center; }
     .hero h1 { font: 800 clamp(36px, 6vw, 64px)/1.05 "Archivo", sans-serif; letter-spacing: -0.02em; margin: 0 0 20px; max-width: 14ch; }
     .hero h1 em { font-style: normal; color: var(--accent); }
     .hero p { color: var(--ink-2); font-size: 20px; max-width: 46ch; margin: 0; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 72px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
-    .card:hover { transform: translateY(-3px); border-color: #5a4b78; }
-    .card img { width: 100%; aspect-ratio: 3 / 2; object-fit: contain; object-position: center; display: block; background: var(--bg-2); }
-    .card .body { padding: 18px 20px 22px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 32px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s; }
+    .card:hover { border-color: #5a4b78; }
+    .card .shot { display: block; background: var(--bg-2); }
+    .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; object-position: center; display: block; }
+    .card .body { padding: 18px 22px 22px; display: flex; flex-direction: column; flex: 1; }
     .card .where { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
-    .card h2 { font: 700 22px "Archivo", sans-serif; margin: 0 0 6px; }
+    .card h2 { font: 700 24px "Archivo", sans-serif; margin: 0 0 6px; }
+    .card h2 a { text-decoration: none; }
+    .card h2 a:hover { text-decoration: underline; text-underline-offset: 4px; }
     .card p { margin: 0; color: var(--ink-2); font-size: 16px; }
-    .tag { display: inline-block; margin-top: 12px; font-size: 13px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); }
-    .tag.live { border-color: #3f7d5e; color: #8fe3b8; }
+    .card .price { margin-top: 10px; font-size: 15px; color: var(--ink); }
+    .actions { margin-top: auto; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .btn { display: inline-block; font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 10px; text-decoration: none; border: 1px solid var(--line); }
+    .btn.store { background: var(--accent); color: #1d1426; border-color: var(--accent); }
+    .btn.store:hover { background: #ffe08f; }
+    .btn.more:hover { border-color: #5a4b78; }
+    .status { font-size: 14px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); }
+    .soon { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; border: 1px dashed #5a4b78; border-radius: 16px; padding: 22px 24px; margin-bottom: 64px; }
+    .soon .hat { width: 56px; height: 56px; }
+    .soon h2 { font: 700 20px "Archivo", sans-serif; margin: 0 0 4px; }
+    .soon p { margin: 0; color: var(--ink-2); font-size: 16px; }
     .about { border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .about h3 { font: 700 20px "Archivo", sans-serif; margin: 0 0 8px; }
     .about p { margin: 0; color: var(--ink-2); }
     footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--ink-3); font-size: 15px; }
     footer nav { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; }
-    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .door { max-width: 160px; justify-self: start; order: -1; } .grid { grid-template-columns: 1fr; } .about { grid-template-columns: 1fr; } .hero { padding: 36px 0 40px; } }
-    @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding: 28px 0 36px; }
+      .door { max-width: 140px; justify-self: start; order: -1; }
+      .grid { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      header nav { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <a class="brand" href="/"><img src="/assets/dortus-door-512.png" alt="" />Dortus</a>
+      <nav aria-label="Main"><a href="#products">Products</a><a href="/support.html">Support</a><a href="mailto:thijs@dortus.com">Contact</a></nav>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
       <div>
-      <h1>Small tools that fill a <em>real gap.</em></h1>
-      <p>Dortus makes focused plugins that each do one thing well, look good, and say plainly what is free and what is paid. Our first small game is on the way.</p>
+        <h1>Small tools that fill a <em>real gap.</em></h1>
+        <p>Dortus makes small apps and plugins that each do one thing well, look good, and say plainly what is free and what is paid. Our first small game is on the way.</p>
       </div>
       <img class="door" src="/assets/dortus-door.svg" alt="The Dortus D: a door standing ajar with warm light behind it" />
     </section>
 
-    <section class="grid" aria-label="Products">
-      <a class="card" href="/rollwright/">
-        <img src="/rollwright/poster-1200.jpg" alt="Rollwright: dice rolls in an Obsidian note, a natural 20 in gold" />
+    <section class="grid" id="products" aria-label="Products">
+      <article class="card">
+        <a class="shot" href="/ebb/" tabindex="-1" aria-hidden="true"><img src="/ebb/og-1200.jpg" alt="" loading="lazy" /></a>
         <div class="body">
-          <p class="where">Obsidian plugin</p>
-          <h2>Rollwright</h2>
-          <p>Roll dice right in your notes. Click to roll again, roll on your own tables, keep a roll log.</p>
-          <span class="tag live">Available · free, optional paid skins</span>
+          <p class="where">Garmin watches</p>
+          <h2><a href="/ebb/">Ebb for Garmin</a></h2>
+          <p>Breath hold rounds and calm 4-7-8 breathing on your watch, drawn as a small sea that rises and falls with your breath.</p>
+          <p class="price">$4.99 once, no subscription</p>
+          <div class="actions">
+            <a class="btn store" href="https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641">Get it on Connect IQ</a>
+            <a class="btn more" href="/ebb/">More about Ebb</a>
+          </div>
         </div>
-      </a>
-      <a class="card" href="/bison-flex/">
-        <img src="/bison-flex/poster-v2.jpg" alt="Bison &amp; Flex: a grammar and a scanner connected in a JetBrains IDE" />
-        <div class="body">
-          <p class="where">JetBrains IDEs</p>
-          <h2>Bison &amp; Flex</h2>
-          <p>Bison/Yacc grammars and Flex/Lex scanners as real languages: colors, errors, structure, rename.</p>
-          <span class="tag">Coming soon to JetBrains Marketplace</span>
-        </div>
-      </a>
-      <a class="card" href="/click-joints/">
-        <img src="/click-joints/poster-1200.jpg" alt="Click Joints: a ball joint in Blender with the measured bend range" />
+      </article>
+
+      <article class="card">
+        <a class="shot" href="/click-joints/" tabindex="-1" aria-hidden="true"><img src="/click-joints/poster-1200.jpg" alt="" loading="lazy" /></a>
         <div class="body">
           <p class="where">Blender add-on</p>
-          <h2>Click Joints</h2>
-          <p>Ball and pin joints for 3D printed figures, with the bend range measured before you print.</p>
-          <span class="tag">In review at Blender Extensions</span>
+          <h2><a href="/click-joints/">Click Joints</a></h2>
+          <p>Ball and pin joints for 3D printed figures, with the bend range measured on the model before you print.</p>
+          <p class="price">Free</p>
+          <div class="actions">
+            <a class="btn store" href="https://extensions.blender.org/add-ons/click-joints/">Get it on Blender Extensions</a>
+            <a class="btn more" href="/click-joints/">More</a>
+          </div>
         </div>
-      </a>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="/rollwright/" tabindex="-1" aria-hidden="true"><img src="/rollwright/poster-1200.jpg" alt="" loading="lazy" /></a>
+        <div class="body">
+          <p class="where">Obsidian plugin</p>
+          <h2><a href="/rollwright/">Rollwright</a></h2>
+          <p>Roll dice right in your notes. Click to roll again, roll on your own tables, keep a roll log.</p>
+          <p class="price">Free, two optional skins $6</p>
+          <div class="actions">
+            <a class="btn store" href="https://obsidian.md/plugins?id=rollwright">Get it in Obsidian</a>
+            <a class="btn more" href="/rollwright/">More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="/bison-flex/" tabindex="-1" aria-hidden="true"><img src="/bison-flex/poster-v2.jpg" alt="" loading="lazy" /></a>
+        <div class="body">
+          <p class="where">JetBrains IDEs</p>
+          <h2><a href="/bison-flex/">Bison &amp; Flex</a></h2>
+          <p>Bison/Yacc grammars and Flex/Lex scanners as real languages: colors, errors, structure, rename.</p>
+          <div class="actions">
+            <span class="status">Coming to JetBrains Marketplace</span>
+            <a class="btn more" href="/bison-flex/">More</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="soon" aria-label="On the way">
+      <svg class="hat" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 L46 40 H18 Z" fill="#a58cff"/><ellipse cx="32" cy="42" rx="26" ry="8" fill="#7b62d6"/><circle cx="32" cy="6" r="4" fill="#ffd25c"/><rect x="20" y="34" width="24" height="5" rx="2" fill="#ffd25c"/></svg>
+      <div>
+        <h2>On the way: Hats of the Fallen</h2>
+        <p>Our first small game, a tiny dungeon on your taskbar. It is not in any store yet; we will put it here when it is.</p>
+      </div>
     </section>
 
     <section class="about">

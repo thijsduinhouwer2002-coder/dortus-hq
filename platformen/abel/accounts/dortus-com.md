@@ -33,3 +33,11 @@ Thijs zei ja, de nieuwe pagina staat live (curl toont de nieuwe titel), en Daan 
 - Titel, beschrijving en og-titel van `index.html` op dezelfde manier: eerst de tools, het spel "on the way". Voorbeelden opnieuw gemaakt en bekeken (desktop 1280 en telefoon 390).
 - Stand: wacht op het ja van Thijs (lijst-thijs, punt van 01:25). Is Hats of the Fallen later "coming soon" op Steam, dan mag de og terug naar Mila's gewone v2.
 - Deur-D op de pagina en in de balk nu avatar v2 (akkoord Daan, keuring 4): `assets/dortus-door.svg` is `merk/avatar-v2.svg` zonder achtergrondvlak, `assets/dortus-door-512.png` is `merk/avatar-512-v2.png`. Favicon blijft Mila's kleine tekening. Voorbeelden opnieuw bekeken.
+
+## Versie 3, 15 nov 2026 (opdracht hoofdchat 16:40)
+- Live nog steeds Confluence (curl 17:25 NL: titel "Dortus: Mermaid and LaTeX editors for Confluence Cloud").
+- Concept op tak `claude/abel-home-2026-11` in repo dortus. Alleen `index.html` vervangen, plus nieuwe bestanden `assets/dortus-door.svg`, `assets/dortus-door-small.svg`, `assets/dortus-door-512.png`, `assets/og-dortus-home.png`. Het bestaande `assets/og-home.png` (Confluence) blijft staan, want bestaande bestanden wijzigen mag niet.
+- Kaarten (alle links gecheckt met curl, 200): Ebb for Garmin (Connect IQ-winkel en /ebb/, $4,99), Click Joints (extensions.blender.org, gratis), Rollwright (obsidian.md/plugins?id=rollwright, staat in community-plugins.json), Bison & Flex (geen winkellink, JetBrains gaf 404, "Coming to JetBrains Marketplace"). Hats of the Fallen als "on the way", zonder Steam. Ebb Calm niet (Garmin-API: "not approved"). Click Joints Pro niet (nog niet te koop).
+- Contact overal thijs@dortus.com (regels sinds 7 nov).
+- Voorbeelden `dortus-com/voorbeeld-breed.png` en `voorbeeld-telefoon.png`, bekeken met Read: niets loopt buiten beeld (scrollbreedte 1280 en 390). Keuring 7 gevraagd aan Daan.
+- Komt Ebb Calm live: kaart erbij (gratis, winkellink) en zin bij Ebb aanpassen.

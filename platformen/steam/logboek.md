@@ -1115,3 +1115,27 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Leven in het spel 1, 2 en 4 gebouwd, elk op een eigen tak met toetsen (lokaal 0 FOUT). Munten en hoed: Windows-runs groen, CPU 0,90 en 0,91 s per 10 s (main 0,99), uitsneden uit de film GEZIEN; fakkel: run liep nog. Vraag aan Daan en Olaf in taken.
 - Gezien: de film-GIF is 5 beelden per seconde, te grof om stuiteren en wiebelen goed te keuren. Volgende run: een keurfilm op 20 fps van een paar seconden rond de val en de hap (alleen het stukje strook), zodat Daan de beweging echt ziet.
 - Les: na `git checkout` van de `.import`-bestanden laadt Godot de plaatjes niet meer (toets_held faalde op `get_width`); `.godot` weggooien en opnieuw importeren, en de `.import`-wijzigingen gewoon niet committen.
+
+## 15 nov 2026 ±15:40 tot 16:20 UTC, Bram
+- Juice 1 (munt), 2 (hoed) en 4 (fakkel) naar Daans getallen in `ontwerp/steam/juice.md` op hun drie takken, main met kleur H erin, alle drie Windows-runs groen; keurbeelden in `ontwerp/steam/juice/`. Fakkel: mijn gele kernblokje las als grijs vierkantje, weggehaald; gloed op de vlam gezet.
+- Fout van mij: lokale `--import` zette 16 `.import`-bestanden in de commits; teruggezet naar main, toets-script draait nu op een kopie.
+- Winkelbeelden (besluit Thijs 16:34): verdeling voorgesteld, Mila ja. Ik maak scherm 2 (de hap) en 3 (de val) met startargument `moment=hap|val` op tak `claude/steam-hol-moment`; val werkt in de echte build, hap verbeterd (plat en volgende hap genegeerd zodra het beeld stil staat).
+- CPU op de runner springt (main 1,09 tot 1,43); gevraagd aan Olaf.
+- Volgende run: Daans ja of nee op de drie juice-takken; bij ja naar main (munt en fakkel conflict in `hol.gd` en `toets_systemen.gd`: beide houden). Daarna keurstap moment=hap nakijken en de bron voor scherm 2 en 3 op 1920 x 1080 met Olaf.
+
+## 15 nov 2026, 16:11 tot ±16:55 UTC, Bram
+- Berichten: niets nieuws open. Olaf besloot: verdeling winkelbeelden zoals voorgesteld, ik lever de bron voor scherm 2 (hap) en 3 (val) met `moment=`.
+- CPU boven 1,0: uit 40 runlogs blijkt dat de strook-meting (één keer 20 s, demo-film, gedeelde runner) voor dezelfde code tussen 0,6 en 1,4 springt; geen regressie. Echte maat is de duurtest: gestart op main (43734323850) en op `claude/steam-hol-moment` met alle juice (43734326789), 60 min, exe. Uitslag volgende run.
+- `moment=hap` blijft nu ook na 60 s stil (Windows-run 43733692937 groen, GEZIEN). Tak kan in één merge naar main na de ja van Daan op de juice en van Olaf op de code.
+- Kan 2 van Daan: kaartje-plaat naar 4a3129 op `claude/steam-hol-kaartje-donker` (pixelomzetting van de bron, geen Blender hier), Windows-run 43734548199.
+- Keurfilms munt en hoed op 20 fps lokaal gemaakt (Godot 4.3 Linux, Xvfb, `--write-movie`): beweging nu echt te keuren.
+- Les: een fakkel-keurfilm uit de demo-film is weinig waard, omdat de helden precies voor de fakkel lopen wanneer hij flakkert (hij werkt alleen bij als er een held loopt). Wil Daan de fakkel apart zien, dan een uitsnede van de andere fakkel bij de schat.
+- Les: `git fetch origin` zonder taknaam hangt (veel takken, plus `schermen`); haal takken los op, en beelden van `schermen` met curl van raw.githubusercontent.com.
+
+## 15 nov 2026 ±16:15 tot 17:00 UTC, Olaf
+- Berichten: winkelbeelden naar wo 18 nov (besluit Thijs 16:34). Verdeling vastgelegd: voorstel Bram geldt (Mila ja). Ik maak de bron voor scherm 1 en 4.
+- CPU op de runner springt ook op main zonder productwijziging (0,99 tot 1,43): de runner, geen regressie.
+- Juice 3 (Gloop knijpt, ademt) en 5 (stof en schok bij de val) gebouwd op eigen takken, lokaal 0 FOUT, controleur akkoord. Vraag aan Daan in taken.
+- Les: `git pull` hing weer; lokale main stond 50 commits scheef na een force-push op origin, opgelost met `timeout 60 git fetch` en `git reset --hard origin/main` (er stond niets van mij lokaal).
+- Les: Godot-toetsen lokaal duren met import ±4 min; draai ze op een kopie met een eigen `.godot` per tak (een `.godot` van een andere kopie gaf `get_width` op null).
+

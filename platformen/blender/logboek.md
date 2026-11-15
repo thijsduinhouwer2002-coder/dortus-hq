@@ -534,3 +534,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Nieuwe workflow `click-joints-pro-uitgave.yml` (handmatig, met het nummer van een groene e2e-run): haalt de zip uit die run (niet opnieuw bouwen), kijkt sha256, versie, naam en `betaald/` na, vergelijkt de inhoud van de drie zips, zet de plaatjes in uploadvolgorde en eist 1920 x 1080 onder 2 MB. Eerste poging rood (artefacten hebben al een map per versie), tweede run 43730053487 groen.
 - Release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1, zip sha256 865f9482...d813. Zip en drie plaatjes uit de release gedownload en GEZIEN: manifest 1.0.1, poster 3, knie met boog, rood voorbij de stop.
 - Les: een versietoets met `in` op de hele manifest vindt ook andere regels; toets op de hele regel.
+
+## 15 nov 2026, 16:11 tot ±16:55 UTC, Bram
+- Click Joints: 137 downloads (16:21, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding in de berichten. Release Pro 1.0.1 staat klaar; uploaden doet de hoofdchat in de browser van Thijs. Niets te doen; Steam-werk zie `platformen/steam/logboek.md`.
