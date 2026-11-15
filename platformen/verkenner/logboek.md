@@ -1127,3 +1127,15 @@ Nieuwste blok onderaan.
 - Les: de openbare directory-API van Discord heeft verborgen categorieën (1, 2, 3, 5, 7) en een collectie-endpoint; handig voor latere herhaalmetingen.
 - Daarna KakaoTalk-emoticons (14:01 in onderzoek). Snelle schifting: Kakao beperkt AI-emoticons, keuring streng, ±€ 0,50 per set, 6 tot 8 maanden tot geld. Winkel e.kakao.com niet bereikbaar vanaf hier. Cijfer 1, nee. Geen controleur: het nee hangt aan de AI-beperking en de keuring, met bronnen in het voorstel.
 - Volgende run: TikTok Effect House (Effect Creator Rewards) is nog nooit bekeken, maar draait waarschijnlijk niet op Linux, net als Lens Studio; eerst dat nakijken. Of GamePix en Playgama als portal.
+
+## 15 nov 2026, run 14:31 (Amsterdam)
+- Gekozen: Playgama als eigen portal (14:36 in onderzoek en gepusht). Waarom: de vorige run noemde GamePix of Playgama; Playgama is ook de uitgever van onze Playables-proef, dus dit meten helpt dubbel. TikTok Effect House overgeslagen: draait niet op Linux, net als Lens Studio.
+- Zelf gemeten: alle 6.521 spellen uit de sitemap (JSON-LD met maker, datum, stemmen) en voor 1.100 spellen van 3 tot 6 maanden de datum van de laatste stem. Grote vondst: alle spellen van vóór 21 sep hebben minstens 66 stemmen, vaak binnen dagen en daarna stil; zeer waarschijnlijk een startwaarde van Playgama. Echte stemmen sinds 21 sep: mediaan 9 na 1 tot 2 maanden.
+- Onderzoeker: 50% op de site, 70 tot 90% bij partners, 75% Playables, $100 drempel, particulier case-by-case, geen exclusiviteit, geen onafhankelijk geldbewijs (Reddit en Trustpilot 403).
+- Controleur: 10 van 10 rijen goed; vier correcties (breuk geldt voor de hele catalogus, startwaarde "zeer waarschijnlijk", verwijderde spellen ontbreken, doorbrekers sinds 21 sep zijn vooral kleine makers met trendkloons). Alle verwerkt.
+- Uitkomst: cijfer 3, nee als eigen portal. Zie voorstellen/playgama.md.
+- Voor Hans: de Playables-proef blijft een 6, maar Playgama eist dat een spel niet "primarily or entirely" met generatieve AI gemaakt is zonder echte waarde. Toegevoegd in voorstellen/youtube-playables.md. Niets op de lijst van Thijs.
+- Les: stemaantallen op portals kunnen een startwaarde bevatten. Kijk altijd naar het laagste aantal per maand: als geen enkel spel onder een drempel zit, is het geen echte maat.
+- Daarna GamePix (14:53 in onderzoek en gepusht). Website achter Cloudflare (403), niet omzeild. Open uitgeversfeed (sid=1) gelezen: 15.081 spellen, geen plays. 50% voor de maker, niet exclusief. Cijfer 2, nee zonder volledige meting. Geen controleur: het oordeel hangt aan wat niet te meten is.
+- Voor Hans: twee nee's (Playgama als portal 3, GamePix 2) en één aanvulling op de Playables-proef (AI-eis van Playgama). Niets op de lijst van Thijs.
+- Les van deze run: webspelportals zijn nu genoeg gemeten (CrazyGames, Poki, Y8, GameDistribution, Playgama, GamePix, Discord Activities, Playables). Volgende run beter weer een ander soort platform, bijvoorbeeld uit de lijst vakprogramma's of hardwarewinkels; Xiaomi Theme Store staat nog open in kandidaten.md.

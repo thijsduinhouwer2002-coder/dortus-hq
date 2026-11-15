@@ -1077,3 +1077,23 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: `git fetch` van de tak `schermen` duurt te lang (grote tak); beelden haal je sneller los met curl via raw.githubusercontent.com.
 - 12:40: Daan ja op ronde 2 (12:45), op main d4ce04b zonder keurstap, laars start op x 6 (kan Daan). Gloop is helemaal 3D. Windows-run op main 43714389288 groen.
 - 12:45: antwoord aan Olaf over leesbaar op 120 px (punt 2 Thijs): ja op keurstroken met figuur 1,0 / 1,15 / 1,3; bladen hebben 4 px per spelpixel, bij een factor boven 1 render ik helden en Gloop op px 5 voor 160.
+
+## 15 nov 2026, Bram (run ±13:10)
+- Berichten: niets open. Blender: 136 downloads, 0 open issues en PR in click-joints, listing live.
+- Kaartje warm (Daan 13:05, punt 1 Thijs) opgepakt en geclaimd in taken; Olaf doet `figuur=`. Tak `claude/steam-hol-kaartje-warm`: plaat warm donkerbruin, knop terracotta. bpy 5.2.4 lokaal via pip, render 384 px 64 samples. Windows-run 43718141237 groen, keurbeeld GEZIEN; vraag aan Daan in taken.
+
+## 15 nov 2026 13:17 UTC, Olaf
+- Berichten: geen nieuw open bericht; punt 2 van de hoofdchat (leesbaar op 120) in behandeling. Rollwright: 0 open issues, niets dringends.
+- Kaartje warm donkerbruin (vraag Daan 13:05): zelf gebouwd en lokaal bekeken, maar Bram bleek tegelijk hetzelfde te doen op dezelfde taknaam (opgepakt 13:20). Mijn versie weggegooid, niet gepusht; Daan gaf Bram ja. Les: eerst `git ls-remote` op de taknaam en taken.md op main verversen voor ik een klus uit "Olaf of Bram" pak.
+- `figuur=<factor>` (ja Daan 13:05): gebouwd op tak `claude/steam-hol-figuur`, controleur akkoord na twee rondes (punten verwerkt), Windows-run 43719210551 groen, 9 keurstroken GEZIEN. Besluit: alleen de schaal van de Node2D zetten, omdat de oorsprong al het voetpunt is; zo schalen toren, laars en tekens vanzelf mee en blijft het hol gelijk. Vraag om ja op 1,15 in taken.md.
+- Les: na `git checkout -- kunst` (om de .import-bestanden terug te zetten) eerst opnieuw `--import` voor toetsen of xvfb, anders hangt toets_held of blijft het hol leeg.
+
+## 15 nov 2026, Bram (run ±14:11)
+- Berichten: niets open. Blender: 136 downloads, 0 open issues en 0 open PR in click-joints (gh search met is:issue en is:pull-request; zonder die woorden geeft de zoek-API nu fout 422).
+- Kaartje warm naar main (ja Daan 13:50), met kan 1 (knop lichter) en kan 2 (pixelterugval warm). Godot staat niet in deze werkplek; alleen kleuren veranderd, de Windows-run op main toetst.
+- `figuur` 1,15: tak `claude/steam-hol-px5` met px 5 voor figuren en hoeden, op Olafs figuur-tak, zodat 160 scherp blijft. Pijplijn rendert.
+
+## 15 nov 2026, Olaf (run ±14:13)
+- Berichten: niets nieuws open. Obsidian: 0 open issues in rollwright, 40 downloads in de statistiek van Obsidian (0.3.5: 16).
+- `figuur`: koopmuntje boven Gloop schaalt mee (652ac4a op `claude/steam-hol-figuur`, 2 toetsen, lokaal 0 FOUT). Godot 4.3 voor Linux in de werkplek gehaald om lokaal te toetsen. Wacht op kleur H van Mila en het eindoordeel van Daan.
+- Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.

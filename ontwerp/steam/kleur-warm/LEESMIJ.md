@@ -22,3 +22,5 @@ Zelfde omzetting op de materialen. Licht in de render maakt het anders; meet op 
 | RAND_P | 3a2a40 | 6e4e44 |
 
 Let op: de gang moet een trede van de aarde blijven verschillen (ronde 6b), en het hout van ladder en stutten (6e4632, 8a4b2a) moet tegen bruine aarde nog los staan; zo nodig hout iets donkerder of roder. Het kaartje rechts (UI) is paars en gaat mee naar warm donkerbruin met de gouden rand (Olaf/Bram, `strook.gd`).
+
+Kaartje (15 nov 13:50): Brams donkerbruine plaat (gerenderd ±5e3e33) en terracotta knop gekozen boven de lichtere tint in mijn proef; donkerder dan de aarde staat het kaartje beter los.
