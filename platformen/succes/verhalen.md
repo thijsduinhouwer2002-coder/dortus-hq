@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: CatPin, klaar 16 nov 2026 01:10 NL-tijd). Volgende: een Obsidian-plugin met betaalde extra's die echt verkoopt (opdracht hoofdchat 16 nov 00:05).
+bezig: niets (laatste: CatPin, klaar 16 nov 2026 01:10 NL-tijd). Volgende: een Obsidian-plugin met betaalde extra's die echt verkoopt (opdracht hoofdchat 16 nov 00:05). Sporen voor die run: Copilot (Plus $14,99 per maand) en Smart Connections (Pro $30 per maand) staan al in `platformen/obsidian/volgend-product.md`; tegenvoorbeeld op Indie Hackers: "Shipped my 7th one-time-purchase Obsidian plugin. Real numbers: ~7 views/day, 2 sales total" (https://www.indiehackers.com/post/shipped-my-7th-one-time-purchase-obsidian-plugin-real-numbers-7-views-day-2-sales-total-distribution-is-the-whole-problem-9a46ab4295, curl krijgt een Cloudflare-scherm, nog niet gelezen) en een maker met offline licenties zoals Rollwright (https://dev.to/ibrh96prog/im-not-a-software-engineer-but-i-shipped-an-obsidian-plugin-with-zero-servers-and-offline-4i14).
 
 Nieuwste bovenaan.
 
