@@ -108,7 +108,7 @@ jobs:
           # (de film hierboven speelde er al ±90 s op door), en elke 15 s een schermafbeelding van het hele scherm.
           # Olaf 14 nov 21:40 (wens Mila 20:55, kan Daan 20:50): 1280 x 720 in plaats van 1920 x 1080, zodat de strook
           # van 160 px 22% van het beeld is en op een kleine winkelplaat leest; Mila vergroot zelf naar 1920 x 1080.
-          # Kladblok klein linksboven (520 x 300) en de snelkoppelingen van de runner (R, Unity Hub) van het bureaublad.
+          # Kladblok klein linksboven (420 x 170, kan Mila 15 nov 02:50: trok op 600 breed meer aandacht dan het spel) en de snelkoppelingen van de runner (R, Unity Hub) van het bureaublad.
           Add-Type @"
           using System; using System.Runtime.InteropServices;
           public class Scherm {
@@ -160,10 +160,10 @@ jobs:
           $h = [IntPtr]::Zero
           for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
           [Scherm]::ShowWindow($h, 9) | Out-Null
-          $gezet = [Scherm]::MoveWindow($h, 110, 24, 520, 300, $true)
+          $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 170, $true)
           # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan: dicht (run 43642948819)
           for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
-          Write-Output "Kladblok 520 x 300 linksboven (naast de prullenbak): $gezet"
+          Write-Output "Kladblok 420 x 170 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
