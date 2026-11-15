@@ -534,3 +534,4 @@
 - Moets kijker: held is op 600 breed een kluwen (kies in de definitieve opname het duidelijkste beeld), Kladblok trekt te veel aandacht (kan aan Olaf: kleiner).
 - GEZIEN met Read: heldstroken, sheets A en B, uitsneden 3x, scherm 1 (twee versies), scherm 2 met uitsnede, vergelijking 600 breed met Rusty's.
 - Volgende: definitieve snede uit Daans opname, ladderhoek en vloer met contrast nakijken, dan scherm 1 en 2 vervangen.
+- (03:05) Weekopname op main run 43669325828 (na 8bfefd8) was al gestart door een ander; mijn dubbele start geannuleerd. Andere helden dan om 01:25, dus opnieuw gekozen met dezelfde snedes. **Besluit scherm 1: Lotte duikt** (beeld 955, "Lotte read about you in a tavern."), **scherm 2: Tibbe aan de put** (`held-1-b`, "Tibbe limps back to the Spike Pit."). Onder de oude bestandsnamen gezet, overzicht vernieuwd. Ladderhoek met contrast GEZIEN: schoon. Volgende: scherm 3 tot 5 (nog veel avondlucht) uit deze opname vernieuwen.
