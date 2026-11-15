@@ -12,4 +12,6 @@ GEZIEN met Read, lokale render (Blender 5.2.4, 16 samples, 1920x320, zelfde came
 - `H-ware-grootte-120.png`: H verkleind naar 720x120. Gloop springt eruit, de gang blijft een trede lichter dan de aarde, de stekels in de zwarte put lezen.
 - `H-kamer-hout-uitsnede.png`: kamer met het donkere hout.
 
-Wat ik zie dat nog kan: de schatkamer is met het warme licht erg licht geel geworden (de gouden berg valt minder op tegen de wand dan bij pruim). Eerst keurt Daan op 96, 120 en 160 uit de Windows-build; is de schat te zwak, dan maak ik de schatkamerwand een trede donkerder.
+Eerst gezien: de schatkamer is met het warme licht erg licht geel geworden (de gouden berg valt minder op tegen de wand dan bij pruim). Eerst keurt Daan op 96, 120 en 160 uit de Windows-build; is de schat te zwak, dan maak ik de schatkamerwand een trede donkerder.
+
+**Daarna (15 nov ±15:05): schatkamerwand 9e6a56 in plaats van b88168.** Lokaal gerenderd en blind voorgelegd aan een frisse kijker (`schatkamer-links-9e6a56-rechts-b88168.png`, plus beide op 720x120): 9e6a56 eruit springen 7, rijk en warm 9 (samen 16); b88168 8 en 6 (samen 14, "bleker en wat poederig"). Gekozen: 9e6a56. De wand blijft het lichtste vlak door de gloed achter Gloop.

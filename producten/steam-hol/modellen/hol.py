@@ -325,7 +325,7 @@ cil("beker_kom", (1.55, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
 
 # achterwand van de schatkamer een trede lichter en warmer, met een gloed achter Gloop:
 # hij moet het lichtste vlak van de strook zijn (frisse kijker ronde 1: "figuur te klein voor de drukke strook")
-KAMERWAND = g.mat("kamerwand", "b88168", rough=0.8, spec=0.15)
+KAMERWAND = g.mat("kamerwand", "9e6a56", rough=0.8, spec=0.15)   # Mila 15 nov: H was b88168; een trede donkerder zodat goud en kroon eruit springen (blinde kijker 16 tegen 14)
 blok("kamerwand", (0, 1.3, 1.3), (KX1 - KX0, 0.05, 2.9), KAMERWAND)
 gg = bpy.data.lights.new("gloopgloed", "POINT"); gg.color = (1.0, 0.8, 0.55); gg.energy = 90; gg.shadow_soft_size = 1.0
 ggo = bpy.data.objects.new("gloopgloed", gg); ggo.location = (-0.3, 1.15, 1.2); sc.collection.objects.link(ggo)
