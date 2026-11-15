@@ -77,6 +77,7 @@ var klappen := 0
 var t := 0.0
 var geraakt_tot := 0.0
 var val_t := 0.0
+var val_x := -1.0            # in een val: midden van de putkolom, daar schuift hij heen voor hij zakt (moet Daan 15 nov 17:50)
 var pas_klok := PAS / 4.0    # tijd sinds de laatste stap; start een kwart stap voor de beeldgrens, zodat beelden die
                              # een paar ms te vroeg of te laat komen niet afwisselend 0 en 2 pixels geven (controleur 13 nov)
 var pas_rest := 0.0          # niet meer gebruikt sinds keus b van Daan (13 nov 19:45, altijd hele pixels per stap); blijft voor oude saves
@@ -292,6 +293,9 @@ func stap(delta: float) -> void:
 				klaar.emit(self, "ontsnapt", info)
 				queue_free()
 		"vallen":
+			if val_x >= 0.0 and position.x != val_x:   # binnen de schrik (0,2 s) naar het midden van de put, hele spelpixels
+				var deel := minf(echt / maxf(VAL_SCHRIK - val_t, echt), 1.0)
+				position.x = move_toward(position.x, val_x, maxf(ceilf(absf(val_x - position.x) * deel), 1.0))
 			val_t += echt
 			if val_t >= VAL_S:
 				staat = "weg"
@@ -369,6 +373,8 @@ func _onderweg() -> void:
 		info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand
 		val_teken = teken_nu()
 		staat = "vallen"
+		if soort != "":
+			val_x = round(hol.cel_naar_pos(cel).x)
 		if b != null and b.has_method("raak"):
 			# hoedentoren: zijn hoed gaat naar de bewoner; een aartsvijand pas naar de wand als die te zien is (WAND_ER)
 			var naar_wand := WAND_ER and is_aartsvijand()
