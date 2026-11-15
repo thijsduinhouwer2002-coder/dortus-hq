@@ -230,9 +230,16 @@ jobs:
             }
           }
           function Dicht-Melding($wat) {
+            # Olaf 15 nov 05:35 (run 43680490584): de melding is het proces SystemPropertiesPerformance. WM_CLOSE sloot
+            # "System Properties", maar hetzelfde proces liet daarna "Performance Options" zien (achter Kladblok in beeld).
+            # Dus eerst elk proces SystemProperties* stoppen; het is een los hulpprogramma, nooit explorer.
+            foreach ($sp in @(Get-Process -Name "SystemProperties*" -ErrorAction SilentlyContinue)) {
+              Stop-Process -Id $sp.Id -Force -ErrorAction SilentlyContinue
+              Write-Output "melding ($wat): proces $($sp.ProcessName) ($($sp.Id)) gestopt"
+            }
             foreach ($v in [Scherm]::Zichtbaar()) {
               $t = [Scherm]::Titel($v)
-              if ($t -notlike "*System Properties*" -and $t -notlike "*Systeemeigenschappen*") { continue }
+              if ($t -notlike "*System Properties*" -and $t -notlike "*Systeemeigenschappen*" -and $t -notlike "*Performance Options*" -and $t -notlike "*Virtual Memory*") { continue }
               $pv = [Scherm]::Proces($v); $pn = (Get-Process -Id $pv -ErrorAction SilentlyContinue).ProcessName
               [Scherm]::PostMessage($v, 0x0111, [IntPtr]1, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "IDOK"
               if ([Scherm]::IsWindowVisible($v)) { [Scherm]::PostMessage($v, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep -Milliseconds 500; $hoe = "WM_CLOSE" }
