@@ -74,22 +74,6 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
-      - name: Keurstrook figuur groter (alleen op tak claude/steam-hol-figuur, voor Daan; weg voor main)
-        shell: pwsh
-        run: |
-          $uit = "producten/steam-hol/e2e/screenshots"
-          foreach ($f in @("1.0", "1.15", "1.3")) {
-            foreach ($h in @(96, 120, 160)) {
-              $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/figuur-$f-$h.log"
-              $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-                -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=30 figuur=$f log=$log" -PassThru
-              Start-Sleep 22
-              & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-figuur-$f-$h.png"
-              Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
-              Write-Output "===== log figuur $f hoogte $h"; Get-Content $log -ErrorAction SilentlyContinue
-              Start-Sleep 2
-            }
-          }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |
