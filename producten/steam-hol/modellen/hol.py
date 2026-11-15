@@ -5,7 +5,7 @@ Draai:  <venv>/bin/python hol.py <uit.png> <breedte> <hoogte> <samples> [gloop_v
   Groot om te bekijken:             hol.py groot.png 1440 240 32 2 2
 
 Wat erin zit: een doorsnede van de grond zoals een mierenbak. Bovenop gras met sprietjes,
-daaronder pruim (geen bruin, zie ontwerp/steam/mila/stijl.md), uitgehold: links een gang,
+daaronder warme oker-terracotta aarde (tot 15 nov pruim; kleur H, zie ontwerp/steam/kleur-warm/), uitgehold: links een gang,
 in het midden de schatkamer met een gouden berg, een kist en twee fakkels die warm licht op de
 pruim gooien. Gloop (Daans gloop.py, ongewijzigd) staat in de kamer.
 Camera en licht komen uit gedeeld.py (regel 1 van 3d-stijl.md); de fakkels geven extra licht.
@@ -136,10 +136,12 @@ def aardemat(naam, donker, licht, schaal=1.6):
     return m
 
 
-PRUIM = aardemat("pruim", "35203c", "4e3158")
-PRUIM_L = g.mat("pruim_l", "5e3d68", rough=0.8, spec=0.2)
-PRUIM_D = g.mat("pruim_d", "2a1832", rough=0.9, spec=0.1)
-STEEN = g.mat("steen", "7a5d86", rough=0.6, spec=0.3)
+# Mila 15 nov (punt 1 Thijs 13:30, voorstel H van Daan, ontwerp/steam/kleur-warm/): warme oker-terracotta aarde,
+# lichter, in plaats van pruim. De namen PRUIM blijven, zodat de rest van de code niet verschuift.
+PRUIM = aardemat("pruim", "684033", "8e5949")
+PRUIM_L = g.mat("pruim_l", "a26a58", rough=0.8, spec=0.2)
+PRUIM_D = g.mat("pruim_d", "5a3227", rough=0.9, spec=0.1)
+STEEN = g.mat("steen", "c69383", rough=0.6, spec=0.3)
 GRAS = g.mat("gras", "5bbf4a", rough=0.95, spec=0.03)
 GRAS_D = g.mat("gras_d", "3b8f3a", rough=0.95, spec=0.03)
 GOUD = g.mat("goud", "goud", rough=0.18, spec=0.9, metaal=0.85, emis=0.06)
@@ -179,7 +181,7 @@ uithollen(aarde, gang)
 # Bram 15 nov (moet Daan 00:50): de zijvlakken van de schacht, de inhammen en de ronde hoeken lagen in eigen schaduw en
 # werden bijna zwart (lezen als gaten). Die snijvlakken krijgen nu een eigen wandkleur met een vleugje eigen licht,
 # zodat ze de toon van de wand houden met wat schaduw, maar nooit zwart worden. De rest van de aarde blijft PRUIM.
-SCHACHT_WAND = g.mat("schacht_wand", "4a2d55", rough=0.9, spec=0.1, emis=SCHACHT_GLOED)
+SCHACHT_WAND = g.mat("schacht_wand", "8a5342", rough=0.9, spec=0.1, emis=SCHACHT_GLOED)
 schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2), SCHACHT_WAND)
 uithollen(aarde, schacht, True)
 # Bram 15 nov 00:30 (Daan 23:35: geen tanden): de schacht had harde rechte randen in de rots. Langs elke wand twee
@@ -296,7 +298,7 @@ for x in (-8.6, -3.9, 6.2, 8.4):
             rot=(0, random.uniform(-0.3, 0.3), 0), verts=6, r2=0.008)
 
 # ---------- vloer van kamer en gangen ----------
-VLOER = g.mat("vloer", "8a5a8e", rough=0.8, spec=0.2)
+VLOER = g.mat("vloer", "d0947c", rough=0.8, spec=0.2)
 vloer = blok("vloer", ((XP0 + XP1) / 2, 0.7, -0.03), (XP1 - XP0, 1.5, 0.1), VLOER)
 
 # ---------- de schat: een gouden berg rechts in de kamer ----------
@@ -323,7 +325,7 @@ cil("beker_kom", (1.55, 0.7, 1.22), 0.1, 0.24, GOUD, verts=24, r2=0.2)
 
 # achterwand van de schatkamer een trede lichter en warmer, met een gloed achter Gloop:
 # hij moet het lichtste vlak van de strook zijn (frisse kijker ronde 1: "figuur te klein voor de drukke strook")
-KAMERWAND = g.mat("kamerwand", "7a4a78", rough=0.8, spec=0.15)
+KAMERWAND = g.mat("kamerwand", "9e6a56", rough=0.8, spec=0.15)   # Mila 15 nov: H was b88168; een trede donkerder zodat goud en kroon eruit springen (blinde kijker 16 tegen 14)
 blok("kamerwand", (0, 1.3, 1.3), (KX1 - KX0, 0.05, 2.9), KAMERWAND)
 gg = bpy.data.lights.new("gloopgloed", "POINT"); gg.color = (1.0, 0.8, 0.55); gg.energy = 90; gg.shadow_soft_size = 1.0
 ggo = bpy.data.objects.new("gloopgloed", gg); ggo.location = (-0.3, 1.15, 1.2); sc.collection.objects.link(ggo)
@@ -405,7 +407,7 @@ for _ex in (BREDE[0], BREDE[1]):
         _p.use_smooth = False   # cil() zet glad; op een platte schijf geeft dat zwarte vlekken
 blok("kamervloer", (LOS, 0.8, KZ - 0.6), (1.2, 1.2, 0.06), VLOER)
 fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
-STUT = g.mat("stut", "6e4632", rough=0.75)       # een tint donkerder en minder oranje dan Daans proef
+STUT = g.mat("stut", "34180e", rough=0.75)       # Mila 15 nov kleur H: donkerder en roder (was 6e4632), anders verdwijnt het hout in de lichte warme kamerwand
 BAND = g.mat("band", "d9a441", rough=0.4, spec=0.5)
 for dx in (-0.55, 0.55):
     blok("stut", (MID_A + dx, 0.5, KZ - 0.05), (0.16, 0.16, 2 * KH - 0.1), STUT)
@@ -481,7 +483,7 @@ else:
             blok("put_wand", (PUT_X + dx, 0.6, -0.35), (0.04, 1.6, 0.62), ZWART)
         blok("put_wand", (PUT_X, 1.35, -0.35), (1.55, 0.04, 0.62), ZWART)
         blok("put_mond", (PUT_X, 0.45, 0.004), (1.72, 0.9, 0.01), ZWART)
-        RAND_P = g.mat("putrand_d", "3a2a40", rough=0.85)
+        RAND_P = g.mat("putrand_d", "6e4e44", rough=0.85)
         BAND = g.mat("band", "c23a2a", rough=0.6, emis=0.1)
         for dx in (-0.84, 0.84):
             blok("putrand", (PUT_X + dx, 0.25, 0.08), (0.12, 0.5, 0.16), RAND_P)

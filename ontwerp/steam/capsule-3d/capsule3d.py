@@ -60,9 +60,19 @@ def ruismat(naam, donker, licht, schaal=1.2, bump=0.35):
 
 GOUD = g.mat("goud", "goud", rough=0.2, spec=0.9, metaal=0.85, emis=0.05)
 GOUD_D = g.mat("goud_d", "goud_d", rough=0.3, spec=0.7, metaal=0.8)
-WAND = ruismat("wand", "35203c", "5a3a66", 1.1)
-VLOER = ruismat("vloer", "2c1a33", "4a2e52", 2.0, 0.2)
-STEEN = g.mat("steen", "7a5d86", rough=0.6, spec=0.3)
+# Mila 15 nov: kleur H ook in de capsule (punt 1 Thijs: minder paars en donker; het spel is sinds kleur H warm,
+# dus een paarse capsule zou niet meer eerlijk zijn). CAPSULE_KLEUR=pruim geeft de oude kleuren terug.
+KLEUR_H = os.environ.get("CAPSULE_KLEUR", "H") == "H"
+if KLEUR_H:
+    WAND = ruismat("wand", os.environ.get("CAP_WAND1", "5e3a30"), os.environ.get("CAP_WAND2", "7e5244"), 1.1)
+    VLOER = ruismat("vloer", "4a2a20", "6e4033", 2.0, 0.2)
+    STEEN = g.mat("steen", "c69383", rough=0.6, spec=0.3)
+    VOETROTS = ["684033", "8e5949", "5a3227"]; KIEZEL = "5a3227"; TITELRAND = "2a120c"; LUCHT = (0.045, 0.025, 0.02, 1)
+else:
+    WAND = ruismat("wand", "35203c", "5a3a66", 1.1)
+    VLOER = ruismat("vloer", "2c1a33", "4a2e52", 2.0, 0.2)
+    STEEN = g.mat("steen", "7a5d86", rough=0.6, spec=0.3)
+    VOETROTS = ["4e3158", "5a3a66", "432a4c"]; KIEZEL = "4e3158"; TITELRAND = "1d1026"; LUCHT = (0.03, 0.02, 0.045, 1)
 HOUT_F = g.mat("hout_f", "6e4632", rough=0.75, spec=0.2)
 DOEK = g.mat("doek", "3a2418", rough=0.9)
 IJZER = g.mat("ijzer", "3b3640", rough=0.45, metaal=0.8)
@@ -88,13 +98,13 @@ o.scale = (30, 14, 1); kies(o, VLOER)
 for i in range(40):
     x = -7.5 + i * 0.4 + random.uniform(-0.1, 0.1)
     bol("voetrots", (x, 3.0, random.uniform(-0.05, 0.1)), (random.uniform(0.3, 0.5), 0.35, random.uniform(0.18, 0.4)),
-        g.mat("vr", random.choice(["4e3158", "5a3a66", "432a4c"]), rough=0.8), 16)
+        g.mat("vr", random.choice(VOETROTS), rough=0.8), 16)
 # losse kiezels in de wand
 for i in range(26):
     x = random.uniform(-7, 7); z = random.uniform(0.3, 6.5)
     if abs(x - GX) < 3.4 and z < 4.2:
         continue
-    bol("kiezel", (x, 3.15, z), (random.uniform(0.08, 0.2), 0.1, random.uniform(0.06, 0.14)), g.mat("kz", "4e3158", rough=0.8), 12)
+    bol("kiezel", (x, 3.15, z), (random.uniform(0.08, 0.2), 0.1, random.uniform(0.06, 0.14)), g.mat("kz", KIEZEL, rough=0.8), 12)
 
 # ---------- fakkels aan de wand ----------
 def druppel(naam, loc, r, hoog, m, scheef=0.0):
@@ -122,7 +132,7 @@ if not KLEIN:   # ronde 4: klein zonder fakkels, minder dingen
     fakkel(GX - 3.4 + 0.2, 3.1)   # ronde 5 (Daan kan 4): iets naar rechts, weg van de S van HATS
     fakkel(GX + 3.4, 3.1)
 else:
-    lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = 500
+    lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = float(os.environ.get("CAP_WANDLAMP", "350" if KLEUR_H else "500"))
     lk = bpy.data.objects.new("wandwarm", lamp_k); lk.location = (GX, 2.0, 3.5); sc.collection.objects.link(lk)
 
 # ---------- de schat: een berg munten onder en rond Gloop ----------
@@ -258,7 +268,7 @@ if KLEIN and os.environ.get("KLEIN_ACHTER", "0") == "1":
     hoeden.bouw(1, plek=(p0.x + 0.75, p0.y + 0.9, p0.z + 0.45), schaal=float(os.environ.get("ACHTER_S", "1.6")), kantel=-28, draai=0)
 
 # ---------- titel ----------
-def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0):
+def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0, rand=0.07):
     cu = bpy.data.curves.new("titel", "FONT"); cu.body = woord
     cu.font = bpy.data.fonts.load(FONT); cu.size = maat; cu.align_x = uitlijn; cu.align_y = "BOTTOM"
     cu.extrude = 0.09 * maat; cu.bevel_depth = 0.025 * maat; cu.bevel_resolution = 3
@@ -266,18 +276,19 @@ def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0):
     o.location = loc; o.rotation_euler = (math.radians(90 - 6), math.radians(kantel), 0)
     o.data.materials.append(g.mat("titelgoud", "ffc93a", rough=0.25, spec=0.8, metaal=0.6, emis=0.12))
     # rand: zelfde tekst, dikker (offset) en erachter, donker pruim
-    cu2 = cu.copy(); cu2.offset = 0.0; cu2.extrude = 0.06 * maat; cu2.bevel_depth = 0.07 * maat; cu2.bevel_resolution = 2
+    cu2 = cu.copy(); cu2.offset = 0.0; cu2.extrude = 0.06 * maat; cu2.bevel_depth = rand * maat; cu2.bevel_resolution = 2
     o2 = bpy.data.objects.new("titelrand", cu2); sc.collection.objects.link(o2)
     o2.location = (loc[0], loc[1] + 0.14 * maat, loc[2] - 0.02 * maat); o2.rotation_euler = o.rotation_euler
-    cu2.materials.clear(); cu2.materials.append(g.mat("titelrand", "1d1026", rough=0.6))
+    cu2.materials.clear(); cu2.materials.append(g.mat("titelrand", TITELRAND, rough=0.6))
     return o
 
 if KLEIN:
     tekst("HATS", (-4.75, -0.6, 1.85), 2.0, kantel=-3)
-    tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3)
+    tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 else:
     tekst("HATS", (-4.55, -0.6, 2.55), 1.75, kantel=-3)
-    tekst("OF THE FALLEN", (-4.45, -0.6, 1.72), 0.7, kantel=-3)
+    # Mila 15 nov (blinde kijker bij kleur H): op warm verdween OF THE FALLEN half; iets groter en een dikkere donkere rand
+    tekst("OF THE FALLEN", (-4.6 if KLEUR_H else -4.45, -0.6, 1.70 if KLEUR_H else 1.72), 0.72 if KLEUR_H else 0.7, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 
 # ---------- licht ----------
 def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
@@ -296,7 +307,7 @@ lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0,
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
 lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900)   # warme gloed op de muur achter Gloop
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
-sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = (0.03, 0.02, 0.045, 1)
+sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = LUCHT
 
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.lens = 42; cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36
