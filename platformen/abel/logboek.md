@@ -133,3 +133,6 @@ Alleen aanvullen, nooit weghalen.
 
 ## Run 13, 15 nov 2026 ±21:25 NL
 - Niets nieuws voor mij: geen nieuw bericht na KLAAR VOOR THIJS, geen keuring of besluit voor mij. Click Joints Pro nog Pending bij Superhive, dus geen kaart. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat op 43bbd8c; main van dortus (81a848a) zit erin, geen botsing. Afgesloten na 5 minuten.
+
+## Run 14, 15 nov 2026 ±22:25 NL
+- Niets nieuws voor mij: geen nieuw bericht na KLAAR VOOR THIJS, geen besluit voor mij. Click Joints Pro nog niet te koop (Chris wacht op goedkeuring Superhive), dus geen kaart. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat op 43bbd8c en botst niet met main (81a848a) of met de tak van Chris (`claude/chris-click-joints-pro`, raakt alleen `click-joints/`). Afgesloten na 5 minuten.
