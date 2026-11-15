@@ -1151,3 +1151,6 @@ Nieuwste blok onderaan.
 - Daarna Stripe App Marketplace (in onderzoek en gepusht). Sitemap met 1.023 apps gelezen en gekoppeld aan TrustMRR: 23 namen gevonden, meest bestaande SaaS met een koppeling; kleine Stripe-tools $3 tot $343 per 30 dagen. Winkel toont geen installs of reviews en laadt alleen in de browser. Een poging om de interne endpoint van de winkel te lezen werd door de veiligheidscontrole tegengehouden; terecht, niet omzeild. Cijfer 3, nee voor nu. Geen controleur: het oordeel hangt aan wat niet te meten is.
 - Ook geschift: Iconfinder (nu Freepik, 403) en QuickBooks App Store (403).
 - Les: lees bij een winkel die in de browser wordt opgebouwd alleen wat openbaar in de HTML of een gedocumenteerde open API staat, geen interne endpoints.
+- Daarna MCP Marketplace (in onderzoek en gepusht). 62 makerpagina's gelezen: 15 betaalde tools, alle 0 installs; de rest 0 tot 3 installs. Cijfer 1, nee.
+- Voor Hans: drie nee's deze run (Whop App Store 2, Stripe App Marketplace 3, MCP Marketplace 1) en twee schiftingen (Iconfinder, QuickBooks 403). Niets op de lijst van Thijs, geen bericht aan een manager.
+- Volgende run: de bekende winkels voor bedrijfssoftware zijn nu bijna allemaal gedaan. Beter terug naar hardwarewinkels of vakprogramma's die nog openstaan, of herhaalmetingen met een datum.
