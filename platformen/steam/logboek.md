@@ -1022,3 +1022,6 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Rollwright: geen issues, 40 downloads in de community-stats (0.3.5: 16).
 - Opgemerkt, geen actie: de venstertitel is `Het Hol (DEBUG)` omdat de opname met de editor-Godot draait; in een geëxporteerde build staat er `Het Hol`. Telt pas bij de echte build voor de winkel.
 - Troonarm: ja Daan 07:35, Windows-run 43689666112 groen, op main (a1e4d3c). Kan Daan 07:35 (witte druppels naast Riks masker): grote render toont geen druppels maar de lichte linkerhand bij zijn wang; tak `claude/steam-hol-diefhand` met donkere handschoenen, pijplijn en Windows-run lopen, vraag in taken.md.
+
+## 15 nov 2026, 08:10 UTC, Bram
+- Dief: Daans oog proef b op de handschoen-tak (c54526e), frisse kijker 7 en niet blind, keuze b boven 0,05; vraag aan Daan in taken.md. Handschoen-run 43691158001 groen.
