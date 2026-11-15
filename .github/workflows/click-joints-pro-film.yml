@@ -5,7 +5,7 @@ name: Click Joints Pro demofilm (echte Blender)
 on:
   push:
     branches: [main, "claude/blender-*"]
-    paths: ["producten/blender-gewrichten/e2e/film_pro.py", "producten/blender-gewrichten/e2e/maak_film.sh", ".github/workflows/click-joints-pro-film.yml"]
+    paths: ["producten/blender-gewrichten/e2e/film_pro.py", "producten/blender-gewrichten/e2e/maak_film.sh", "producten/blender-gewrichten/e2e/maak_staand.sh", ".github/workflows/click-joints-pro-film.yml"]
   workflow_dispatch:
     inputs:
       staand:
