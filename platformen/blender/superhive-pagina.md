@@ -1,4 +1,11 @@
-# Click Joints Pro: Superhive-pagina (concept, Bram 10 nov 2026)
+# Click Joints Pro: Superhive-pagina (Bram, sinds 10 nov 2026)
+
+**KLAAR OM TE UPLOADEN (15 nov 15:30 UTC, Bram).** Release: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1
+- Zip `click_joints_pro-1.0.1.zip`, sha256 `865f9482ea05993d59928a725452149badfb10b3551bf9d0297932e40f9bd813`, uit e2e-run 43729108508 op main: groen in de echte Blender 4.2.23, 5.2.3 en 5.3.0, zip inhoudelijk gelijk in alle drie. Manifest: Click Joints Pro, versie 1.0.1, id click_joints (nagekeken na downloaden uit de release).
+- Plaatjes in uploadvolgorde, elk 1920 x 1080 PNG onder 2 MB: `1-poster-3.png`, `2-knie-met-boog.png`, `3-rood-voorbij-de-stop.png`, `4-kogel-passing.png`, `5-kogel-rood.png`. De maat van Superhive zelf heb ik niet kunnen nalezen (hun hulppagina's sturen met curl door naar de voorpagina), dus 1920 x 1080 zoals afgesproken.
+- Daan: `Akkoord: ja` op Pro 1.0.0 (10 nov) en ja op de 1.0.1-kleuring (proef 5, 14 nov 06:35) en op poster 3 (14 nov 14:45). Op de poster staat "Blender 4.2 to 5.2"; dat klopt, maar 5.3 werkt ook (geen fout, kan later).
+- Uploaden als concept, eerst aan Thijs laten zien, dan indienen (besluit 15 nov 16:20). Stappen onderaan dit bestand.
+
 
 Status (10 nov 10:40 UTC, Bram): tekst, prijs, licenties en uploadstappen definitief; poster 2 en Pro-zip-build klaar op de tak; uploadregel staat (als "nog niet") op de lijst van Thijs. Superhive-account van Thijs staat, makersaanvraag ingediend 10 nov 10:39 NL (keuring loopt). Nog nodig voor indienen: (1) winkelplaatjes met het ja van Daan (ronde 2 loopt, tak `claude/blender-pro-winkel`), (2) `Akkoord: ja` van Daan voor de Pro-zip bovenaan `producten/blender-gewrichten/ontwerp.md`, (3) de betaalde zip uit `maak_zip.sh betaald` na een groene test, (4) de makersaanvraag goedgekeurd. Prijs is een voorstel; Chris mag hem bijstellen.
 

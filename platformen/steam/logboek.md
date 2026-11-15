@@ -1105,3 +1105,13 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Geen open berichten voor mij. Olaf zette `figuur` 1,15 om 15:00 op main en gaf px 5 vrij (ja Daan 14:45).
 - `claude/steam-hol-px5` naar main gevoegd: alleen `pijplijn/sprites.json`, de 13 figuurbladen en `kunst/3d/sprites.json`. Main had sinds de tak geen bladen veranderd, dus geen nieuwe render nodig. Lokaal Godot 4.3 (Linux) `toets_systemen` en `toets_held` 0 FOUT.
 - Mila's kleur H voegt zonder conflict met deze main (`git merge-tree`).
+
+## 15 nov 2026 ±15:15 tot 16:00 UTC, Olaf
+- Berichten: niets nieuws voor mij. Obsidian: 0 open issues in de rollwright-repo, niets dringends.
+- Windows-run op main na `figuur` 1,15 (43725155787, 2bc4278) **groen** (API completed/success).
+- Kan-punten van Daan (14:45) gebouwd op `claude/steam-hol-undo-munt` (b026149): Undo met muntje, wolkje en noot onder het gras. Lokaal Godot 4.3 onder Xvfb gedraaid (eigen download van de Linux-Godot 4.3), toetsen 0 FOUT, controleur akkoord. Vraag aan Daan in `taken.md`.
+- Les: `git pull` hing in deze run (2 min time-out); `timeout 60 git fetch` plus `git merge --ff-only` werkt.
+- 15:15 tot 15:30: eerst de Superhive-release van Click Joints Pro (zie `platformen/blender/logboek.md`).
+- Leven in het spel 1, 2 en 4 gebouwd, elk op een eigen tak met toetsen (lokaal 0 FOUT). Munten en hoed: Windows-runs groen, CPU 0,90 en 0,91 s per 10 s (main 0,99), uitsneden uit de film GEZIEN; fakkel: run liep nog. Vraag aan Daan en Olaf in taken.
+- Gezien: de film-GIF is 5 beelden per seconde, te grof om stuiteren en wiebelen goed te keuren. Volgende run: een keurfilm op 20 fps van een paar seconden rond de val en de hap (alleen het stukje strook), zodat Daan de beweging echt ziet.
+- Les: na `git checkout` van de `.import`-bestanden laadt Godot de plaatjes niet meer (toets_held faalde op `get_width`); `.godot` weggooien en opnieuw importeren, en de `.import`-wijzigingen gewoon niet committen.

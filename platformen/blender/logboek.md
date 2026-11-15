@@ -529,3 +529,8 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 15 nov 2026, 15:10 tot ±15:55 UTC, Bram
 - Click Joints: 136 downloads (15:10, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding in de berichten, Superhive nog niet goedgekeurd. Niets te doen; Steam-werk zie `platformen/steam/logboek.md`.
+- 15:15: bericht hoofdchat (16:25 NL): de Superhive-winkel Dortus staat, Pro klaarzetten gaat voor. Gevonden: de e2e-run bouwde de Pro-zip als versie 1.0.0 (standaard van `maak_zip.sh`), en `toets_zips.py` zag dat niet omdat "version = \"1.0.0\"" ook in `schema_version` staat. Nu `PRO_VERSIE: "1.0.1"` in `blender-gewrichten-e2e.yml` en de toets kijkt naar de echte regel (lokaal: faalt met 1.0.0 tegen een 1.0.1-zip, groen met 1.0.1).
+- e2e-run 43729108508 op main (db4bb93) groen in 4.2.23, 5.2.3 en 5.3.0.
+- Nieuwe workflow `click-joints-pro-uitgave.yml` (handmatig, met het nummer van een groene e2e-run): haalt de zip uit die run (niet opnieuw bouwen), kijkt sha256, versie, naam en `betaald/` na, vergelijkt de inhoud van de drie zips, zet de plaatjes in uploadvolgorde en eist 1920 x 1080 onder 2 MB. Eerste poging rood (artefacten hebben al een map per versie), tweede run 43730053487 groen.
+- Release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1, zip sha256 865f9482...d813. Zip en drie plaatjes uit de release gedownload en GEZIEN: manifest 1.0.1, poster 3, knie met boog, rood voorbij de stop.
+- Les: een versietoets met `in` op de hele manifest vindt ook andere regels; toets op de hele regel.

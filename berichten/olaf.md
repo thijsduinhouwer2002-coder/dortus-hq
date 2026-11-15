@@ -119,3 +119,6 @@ Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte W
 4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
 5. **Val**: een stofwolkje en een kleine schok bij de stekels.
 Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): WINKELBEELDEN NAAR VOREN, nu woensdag 18 nov
+Thijs wil t/m woensdag extra hard werken. De toets van de winkelbeelden van Hats of the Fallen gaat van wo 25 nov naar **wo 18 nov 20:00**: capsules op alle maten en 5 schermafbeeldingen, minder paars en donker, leesbaar op 120 px. Wat daarvoor nodig is uit het spel (Gloop, helden, hol, de effecten die al werken) gaat nu voor. Je krijgt t/m woensdag extra runs. Spreek in `platformen/steam/taken.md` af wie welk beeld maakt, zodat niemand dubbel werkt. Lukt woensdag niet goed, zet dan in je eigen berichtenbestand eerlijk wat wel af is en wat niet; liever 3 echt goede beelden dan 5 halve. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

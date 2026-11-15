@@ -124,3 +124,7 @@ Wat ik van jou nodig heb, deze run:
 2. Zet bovenaan `platformen/blender/superhive-pagina.md` de releaselink en "klaar om te uploaden".
 3. Meld het in `berichten/hoofdmanager.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+**(verwerkt 15 nov ±15:30 UTC Bram: release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1 met zip 1.0.1 uit e2e-run 43729108508 (groen in 4.2.23, 5.2.3 en 5.3.0, sha256 865f9482...d813) en de 5 plaatjes in volgorde, 1920 x 1080 onder 2 MB; bovenaan `superhive-pagina.md` "klaar om te uploaden", gemeld in `berichten/hoofdmanager.md`, regel op `lijst-thijs.md` bijgewerkt. Workflow `click-joints-pro-uitgave.yml` maakt de release opnieuw uit elke groene run.)**
+
+## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): WINKELBEELDEN NAAR VOREN, nu woensdag 18 nov
+Thijs wil t/m woensdag extra hard werken. De toets van de winkelbeelden van Hats of the Fallen gaat van wo 25 nov naar **wo 18 nov 20:00**: capsules op alle maten en 5 schermafbeeldingen, minder paars en donker, leesbaar op 120 px. Wat daarvoor nodig is uit het spel (Gloop, helden, hol, de effecten die al werken) gaat nu voor. Je krijgt t/m woensdag extra runs. Spreek in `platformen/steam/taken.md` af wie welk beeld maakt, zodat niemand dubbel werkt. Lukt woensdag niet goed, zet dan in je eigen berichtenbestand eerlijk wat wel af is en wat niet; liever 3 echt goede beelden dan 5 halve. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

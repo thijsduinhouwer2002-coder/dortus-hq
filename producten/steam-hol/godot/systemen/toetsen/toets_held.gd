@@ -948,7 +948,11 @@ func _init() -> void:
 	HB3.held3d = tb
 	doek_t.position = Vector2(10, 5)
 	ok(HB3.teken_onder_min(doek_t) == 1 + 8 - 5, "teken-rand: bovenkant van het teken 1 spelpixel onder de bovenrand (%d)" % HB3.teken_onder_min(doek_t))
-	ok(HB3.noot_y_min(doek_t) == 1 + 1 - 5, "noot-rand: noot minstens 1 spelpixel onder de bovenrand (%d)" % HB3.noot_y_min(doek_t))
+	ok(HB3.noot_y_min(doek_t) == 9 + 1 - 5, "noot-rand: noot blijft onder het gras (rij 9) (%d)" % HB3.noot_y_min(doek_t))
+	ok(HB3.teken_onder_gras(doek_t) == 9 + 8 - 5, "teken-gras: bovenkant van het teken op de eerste rij aarde (%d)" % HB3.teken_onder_gras(doek_t))
+	doek_t.scale = Vector2(1.15, 1.15)
+	ok(HB3.noot_y_min(doek_t) == int(ceil(4.0 / 1.15)) + 1, "noot-rand bij figuur 1,15: gedeeld door de schaal (%d)" % HB3.noot_y_min(doek_t))
+	doek_t.scale = Vector2.ONE
 	ok(HB3.teken_vak_3d(doek_t, "bestaat_niet", Vector2.ZERO) == false, "3D-noot: onbekend frame geeft false, dan pixels")
 	if HB3.held3d.has("tekens") and (HB3.held3d["tekens"][1]["frames"] as Array).has("noot"):
 		ok((HB3.held3d["tekens"][1]["frames"] as Array).find("noot") == 5, "3D-noot: 6e frame in het blad")
