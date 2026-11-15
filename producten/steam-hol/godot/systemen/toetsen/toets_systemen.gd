@@ -768,19 +768,28 @@ func _init() -> void:
 	ok(is_equal_approx(HS.munt_duur({"van": 0.0, "naar": 9.0, "t": 0.0}), HS.MUNT_S), "munt naar gekocht ding: stuitert niet")
 	mv.t = HS.MUNT_S
 	var ml: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
-	ok(is_equal_approx(ml.x, 98.5) and is_equal_approx(ml.y, 44.0), "munt landt half op dx naast het midden op de vloer: %s" % str(ml))
+	ok(is_equal_approx(ml.x, 99.0) and is_equal_approx(ml.y, 44.0), "munt landt half op dx naast het midden op de vloer, hele spelpixel: %s" % str(ml))
 	var hoogst := 0.0
-	var tweede := 0.0
+	var omhoog := 0
+	var vorig := 44.0
+	var heel := true
 	for i in 41:
 		mv.t = HS.MUNT_S + HS.STUIT_S * i / 40.0
 		var q: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
 		if q.y > 44.0 + 0.0001:
 			ok(false, "munt stuitert nooit door de vloer (%s)" % str(q))
-		if i < 24:
-			hoogst = maxf(hoogst, 44.0 - q.y)
-		else:
-			tweede = maxf(tweede, 44.0 - q.y)
-	ok(hoogst > 2.5 and hoogst <= 3.0 and tweede > 0.5 and tweede <= 1.0, "munt stuitert twee keer, 3 en 1 hoog: %.2f en %.2f" % [hoogst, tweede])
+		hoogst = maxf(hoogst, 44.0 - q.y)
+		if q.y < vorig and vorig >= 44.0:
+			omhoog += 1
+		vorig = q.y
+		if not is_equal_approx(q.x, round(q.x)) or not is_equal_approx(q.y, round(q.y)):
+			heel = false
+	ok(is_equal_approx(hoogst, 3.0) and omhoog == 1, "munt stuitert één keer, 3 spelpixels hoog (Daan: 30%%): %.2f, %d keer" % [hoogst, omhoog])
+	ok(heel, "munt stuitert op hele spelpixels")
+	mv.t = HS.MUNT_S + 0.02
+	ok(HS.munt_glinstert(mv), "munt glinstert bij de landing")
+	mv.t = HS.MUNT_S + 0.1
+	ok(not HS.munt_glinstert(mv) and not HS.munt_glinstert({"van": 0.0, "naar": 9.0, "t": HS.MUNT_S + 0.02}), "glinster maar één beeld, en niet bij kopen")
 	mv.t = HS.MUNT_S + HS.STUIT_S
 	var me: Vector3 = HS.munt_plek(mv, 100.0, 50.0)
 	ok(is_equal_approx(me.x, 97.0) and is_equal_approx(me.y, 44.0) and is_equal_approx(me.z, 0.3), "munt ligt aan het eind op dx en op zijn kant: %s" % str(me))

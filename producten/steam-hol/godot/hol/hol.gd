@@ -49,7 +49,9 @@ var munten: Array = []        # vliegende muntjes van een val naar de schat: {va
 # alles op niveau 0 verandert niets. Kopen komt met het kaartje (features.md feature 5, Olaf).
 var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
-const STUIT_S := 0.45         # daarna stuitert een muntje dat op de schat valt nog twee keer (leven in het spel, punt 1)
+const STUIT_S := 0.25         # daarna stuitert een muntje dat op de schat valt één keer (leven in het spel, punt 1; Daan juice.md)
+const STUIT_H := 3.0          # stuiter 30% van de valhoogte (boog 12 hoog bij de schat: 3 spelpixels, hele pixels)
+const GLINSTER_S := 0.05      # bij de landing één beeld een wit puntje (Daan)
 const MUNT_DX := [-3.0, 2.0, -1.0, 4.0, 0.0, -4.0]   # elk muntje landt op een eigen plek op de stapel (vast, zodat de keurstrook gelijk blijft)
 var koop_munt: Array = []     # kolommen met een klein muntje erboven: hier kun je iets kopen (kern/kaartje.gd)
 var koop_munt_y := {}         # kolom -> bovenkant van wat daar staat (Gloop met hoeden); het muntje komt 3 erboven
@@ -438,6 +440,8 @@ func _draw() -> void:
 		if met_3d:
 			# 3D-stijl (Daan 06:40): rond en glanzend zoals het paneelmuntje, draait in de vlucht
 			munt_3d(Vector2(x + 0.5, y + 0.5), 1.6, mp.z)
+			if munt_glinstert(m):
+				draw_rect(Rect2(x + 1, y - 1, 1, 1), Color.WHITE)
 			continue
 		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
@@ -506,10 +510,14 @@ static func munt_plek(m: Dictionary, doel: float, vloer: float) -> Vector3:
 	var t: float = float(m.t)
 	if t <= MUNT_S or m.has("naar"):
 		var f: float = clampf(t / MUNT_S, 0.0, 1.0)
-		return Vector3(lerpf(float(m.van), naar + dx * 0.5, f), vloer - 6 - sin(f * PI) * 12, munt_draai(f * 3.0))
+		return Vector3(round(lerpf(float(m.van), naar + dx * 0.5, f)), round(vloer - 6 - sin(f * PI) * 12), munt_draai(f * 3.0))
 	var p: float = clampf((t - MUNT_S) / STUIT_S, 0.0, 1.0)
-	var h: float = 3.0 * sin(p / 0.6 * PI) if p < 0.6 else 1.0 * sin((p - 0.6) / 0.4 * PI)
-	return Vector3(naar + dx * (0.5 + 0.5 * p), vloer - 6 - h, lerpf(munt_draai(3.0 + p * 1.5), 0.3, p * p))
+	var h: float = round(STUIT_H * sin(p * PI))
+	return Vector3(round(naar + dx * (0.5 + 0.5 * p)), vloer - 6 - h, lerpf(munt_draai(3.0 + p * 1.5), 0.3, p * p))
+
+# glinster: het eerste beeld na de landing op de schat (alleen muntjes die op de stapel vallen)
+static func munt_glinstert(m: Dictionary) -> bool:
+	return not m.has("naar") and float(m.t) > MUNT_S and float(m.t) <= MUNT_S + GLINSTER_S
 
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
