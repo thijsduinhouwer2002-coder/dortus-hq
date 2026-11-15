@@ -260,6 +260,16 @@ jobs:
           Start-Sleep 1
           Dicht-Melding "start 2"
           Get-Process SystemProperties* -ErrorAction SilentlyContinue | ForEach-Object { Write-Output "proces $($_.ProcessName) ($($_.Id)) nog over, gestopt"; Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue }
+          # Olaf 15 nov 07:40 (kan Daan 06:45): het venster van de runner zelf (WindowsTerminal met hosted-compute-agent,
+          # run 43684845585) stond als knop met streepje in de taakbalk. Alleen verbergen (SW_HIDE), nooit stoppen:
+          # dat proces is de runner. Een verborgen venster heeft geen taakbalkknop meer.
+          foreach ($v in [Scherm]::Zichtbaar()) {
+            $pv = [Scherm]::Proces($v); $pn = (Get-Process -Id $pv -ErrorAction SilentlyContinue).ProcessName
+            if ($pn -eq "WindowsTerminal" -or [Scherm]::Klasse($v) -eq "CASCADIA_HOSTING_WINDOW_CLASS" -or [Scherm]::Klasse($v) -eq "ConsoleWindowClass") {
+              [Scherm]::ShowWindow($v, 0) | Out-Null
+              Write-Output "runnervenster verborgen: '$([Scherm]::Titel($v))' proces $pn, nog zichtbaar: $([Scherm]::IsWindowVisible($v))"
+            }
+          }
           Write-Output "Kladblok 420 x 196 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
