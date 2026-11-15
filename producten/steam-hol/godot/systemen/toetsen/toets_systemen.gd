@@ -108,6 +108,15 @@ func _init() -> void:
 	ok(V.verhaal(V.reken(t0, t0 + 10, 1, 1, 42), hd, [], 42).is_empty(), "niemand kwam: geen verhaal")
 	var zonder: Array = V.verhaal(vu, {}, ["Gloop the Slime"], 42)
 	ok(zonder.size() >= 1 and zonder[-1].contains("gold"), "zonder bekende helden toch een regel met goud: " + zonder[-1])
+	# een val aan het begin van de zin krijgt een hoofdletter (Daan 15 nov: "the Spike Pit had a busy shift.")
+	var alleen_val: Array = V.verhaal(vu, {}, ["the Spike Pit"], 42)
+	ok(alleen_val.size() >= 1 and alleen_val[0] == "The Spike Pit had a busy shift.", "val vooraan met hoofdletter: " + str(alleen_val))
+	var klein := 0
+	for r_ in vh + zonder + alleen_val:
+		var c0: String = String(r_).substr(0, 1)
+		if c0 != c0.to_upper():
+			klein += 1
+	ok(klein == 0, "elke regel van het verhaal begint met een hoofdletter of cijfer")
 	# goud weg = goud in het spel (balans.md): 6 per val bij de start, meer met gangen en faam
 	ok(V.goud_per_val(0, 0) == 6 and V.goud_per_val(6, 0) == 7 and V.goud_per_val(40, 0) == 12 and V.goud_per_val(40, 10) == 24, "goud per val volgt balans.md")
 	var veel: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 30, 0)

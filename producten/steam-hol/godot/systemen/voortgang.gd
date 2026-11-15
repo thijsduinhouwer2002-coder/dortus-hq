@@ -121,7 +121,7 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 		uit.append(_kort("%s got %d new hat%s." % [_bewoner(vijand_namen), hoeden, "" if hoeden == 1 else "s"]))
 	elif not vijand_namen.is_empty() and int(uitkomst.get("gevallen", 0)) > 0:
 		var v: String = vijand_namen[rng.randi_range(0, vijand_namen.size() - 1)]
-		uit.append(_kort("%s had a busy shift." % v))
+		uit.append(_kort("%s had a busy shift." % (v.substr(0, 1).to_upper() + v.substr(1))))   # "The Spike Pit" aan het begin van de zin (Daan 15 nov)
 	# 3. aartsvijand: ongeveer 0,5 per uur (sim/), dus na een paar uur vaak wel, na tien minuten zelden
 	if not aarts.is_empty() and rng.randf() < clampf(uren * 0.5, 0.0, 0.9):
 		var a: String = aarts[rng.randi_range(0, aarts.size() - 1)]
