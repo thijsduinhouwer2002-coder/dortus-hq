@@ -181,7 +181,13 @@ jobs:
           Set-Service w32time -StartupType Disabled -ErrorAction SilentlyContinue
           Stop-Service w32time -Force -ErrorAction SilentlyContinue
           $voor = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
-          Set-Date -Date (Get-Date).Date.AddHours(10).AddMinutes(40) | Out-Null
+          # Olaf 15 nov 11:30: alleen vooruit zetten. Na 10:40 (run 43708302242, 12:21 daar) zette dit de klok 6075 s
+          # terug; de host zette hem daarna weer op de echte tijd (taakbalk 12:23 PM), terwijl de save wel terug was
+          # geschoven, dus 6127 s "weg geweest", meer goud en andere helden met hetzelfde zaad. Nu: is het al na 10:40,
+          # dan 10:40 van morgen. Vooruit zetten bleef in eerdere runs gewoon staan (klok 10:42 in de beelden).
+          $doel = (Get-Date).Date.AddHours(10).AddMinutes(40)
+          if ($doel -le (Get-Date)) { $doel = $doel.AddDays(1) }
+          Set-Date -Date $doel | Out-Null
           $schuif = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds() - $voor
           Write-Output "klok gezet: $(Get-Date -Format 'yyyy-MM-dd HH:mm') ($((Get-TimeZone).Id)), verschoven $schuif s"
           # de save (kern/opslag.gd, sleutel "tijd") schuift even ver mee, anders telt het spel de sprong als weg geweest
