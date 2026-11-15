@@ -511,7 +511,7 @@ func _init() -> void:
 	ok(hvast.vast.keer == 2, "hol_vast: put klapt open, opnieuw (stuk put wordt gang)")
 	# leven in het spel 5 (Olaf 15 nov, getallen Daan juice.md): stofwolkje en schok bij de klap
 	var st0: Array = hvast.stof_stofjes(put_k)
-	ok(st0.size() >= 4 and st0.size() <= 6, "val: 4 tot 6 stofjes bij de klap (%d)" % st0.size())
+	ok(st0.size() >= 6 and st0.size() <= 8, "val: 6 tot 8 stofjes bij de klap (%d)" % st0.size())
 	ok(hvast.put_schok(put_k) == 1, "val: de put zakt 1 spelpixel bij de klap")
 	ok(hvast.stof_stofjes(put_k + 1).is_empty() and hvast.put_schok(put_k + 1) == 0, "val: alleen bij die put")
 	hvast._process(0.12)

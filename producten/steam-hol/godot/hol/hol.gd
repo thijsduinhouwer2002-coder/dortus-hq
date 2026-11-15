@@ -269,10 +269,11 @@ func put_koop() -> void:
 # omlaag en terug in 2 beelden (0,1 s). Geen schok van de strook; alles in hele spelpixels.
 const STOF_S := 0.35
 const SCHOK_S := 0.1
-const STOF_KLEUR := Color("#c98a6a")
+const STOF_KLEUR := Color("#dda486")   # een trede lichter dan c98a6a (kan Daan 15 nov 17:50: stof was nauwelijks te zien)
 # per stofje: [start x, start y, verschuiving x, verschuiving y over 0,35 s, maat]; x ten opzichte van het midden van de put,
 # y ten opzichte van de bovenste vloerrij
-const STOF := [[-4, 0, -5, -3, 2], [-2, -1, -3, -6, 1], [0, -1, 0, -5, 1], [2, -1, 3, -6, 1], [3, 0, 5, -3, 2]]
+# 7 stofjes (was 5, kan Daan 15 nov 17:50): links en rechts een extra stofje dat verder naar buiten waait
+const STOF := [[-4, 0, -5, -3, 2], [-3, -1, -6, -5, 1], [-2, -1, -3, -6, 1], [0, -1, 0, -5, 1], [2, -1, 3, -6, 1], [3, -1, 6, -5, 1], [3, 0, 5, -3, 2]]
 var val_stof := {}             # kolom -> tijd sinds de klap
 func stof_stofjes(kol: int) -> Array:
 	var uit := []
@@ -454,7 +455,7 @@ func _draw() -> void:
 	for k in val_stof:
 		for st in stof_stofjes(k):
 			var c := STOF_KLEUR
-			c.a = 0.9 * float(st[2])
+			c.a = float(st[2])   # begint helemaal dekkend (was 0,9)
 			draw_rect(Rect2(Vector2(st[0]), Vector2(st[1], st[1])), c)
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
