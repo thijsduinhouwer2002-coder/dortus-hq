@@ -74,6 +74,21 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
+      - name: Keurstrook spugen in 3D (alleen op tak claude/steam-hol-spuug3d, voor Daan; weg voor main)
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/screenshots"
+          foreach ($n in @(1, 2, 3)) {
+            foreach ($h in @(120, 160)) {
+              $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/spuug-$n-$h.log"
+              $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+                -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=30 spuug_proef=$n log=$log" -PassThru
+              Start-Sleep 14
+              & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-spuug-$n-$h.png"
+              Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+              Start-Sleep 2
+            }
+          }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |

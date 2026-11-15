@@ -173,6 +173,22 @@ func zet_laars_proef() -> void:
 	laars_op_vloer = true
 	queue_redraw()
 
+# Keurstrook spugen (Bram 15 nov, spuug_proef=<1-3> in strook.gd, wens Daan "zo wil ik hem in de echte strook zien"):
+# hij blijft in één spuugmoment staan, 1 = kneep (0,1 s), 2 = spuug met de laars achter het lijf (0,65 s),
+# 3 = spuug met de laars midden in de boog. De tijd loopt gewoon door (een hap of plat gaat voor), alleen
+# leven_van schuift mee zodat het moment blijft. Nooit in het echte spel.
+const SPUUG_PROEF_S := [0.1, 0.65, 0.6 + BOOG_S * 0.5]
+var spuug_vast := -1.0
+
+func zet_spuug_proef(n: int) -> void:
+	spuug_vast = SPUUG_PROEF_S[clampi(n, 1, 3) - 1]
+	laars_kant = 1
+	laars_op_vloer = false
+	leven = "spugen"
+	leven_van = t - spuug_vast
+	set_process(true)
+	queue_redraw()
+
 # Waar de laars is (onder-midden, ten opzichte van Gloop), in hele pixels: boogje van 12 px opzij in 0,3 s, landt op 15.
 func laars_pos() -> Vector2i:
 	if leven != "spugen":
@@ -321,6 +337,9 @@ func _process(delta: float) -> void:
 
 func stap(delta: float) -> void:
 	t += delta
+	if spuug_vast >= 0.0:
+		leven = "spugen"
+		leven_van = t - spuug_vast   # keurstrook: het moment blijft staan
 	if leven == "slapen" and (t > leven_van + SLAAP_S or _held_in_de_buurt() or is_plat()):
 		leven = ""             # een held komt binnen: wakker
 	elif leven == "spugen" and t > leven_van + 0.6 + BOOG_S:
