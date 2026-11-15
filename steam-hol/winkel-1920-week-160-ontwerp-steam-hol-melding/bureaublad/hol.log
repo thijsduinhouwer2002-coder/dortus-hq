@@ -1,40 +1,41 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 58 s (klok terug: false): goud voor 1637, helden 1, erbij 7
+HOL weg geweest 60 s (klok terug: false): goud voor 1649, helden 1, erbij 7
 HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 1644 goud
+HOL opslag geladen: 0 terugkomers, 1656 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
 HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL held binnen: Lotte
-HOL kroniek 5.2 (wacht 1.1): Lotte says this is a quick one.
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL meting t=20 beelden=101 helden=1 hol_vast=1
-HOL kroniek 25.1 (wacht 0.0): Lotte escaped with a limp.
-HOL kroniek 27.7 (wacht 2.6): New page: the Hero. He got away.
-HOL meting t=30 beelden=53 helden=0 hol_vast=1
-HOL meting t=40 beelden=4 helden=0 hol_vast=1
-HOL meting t=50 beelden=2 helden=0 hol_vast=1
-HOL meting t=60 beelden=14 helden=0 hol_vast=1
-HOL kroniek 64.1 (wacht 0.0): Wout knocks first. Polite.
-HOL held binnen: Wout
-HOL kroniek 69.6 (wacht 0.0): Wout fell to the Spike Pit. +6
-HOL meting t=70 beelden=85 helden=0 hol_vast=2
-HOL kroniek 72.1 (wacht 2.5): New stamp for the Hero. The pit got him.
-HOL meting t=80 beelden=17 helden=0 hol_vast=3
-HOL meting t=90 beelden=5 helden=0 hol_vast=3
-HOL meting t=100 beelden=4 helden=0 hol_vast=3
-HOL meting t=110 beelden=4 helden=0 hol_vast=3
-HOL kroniek 110.7 (wacht 0.0): Joost the Wizard sniffs for traps.
-HOL held binnen: Joost
-HOL meting t=120 beelden=101 helden=1 hol_vast=3
-HOL meting t=130 beelden=101 helden=1 hol_vast=3
-HOL kroniek 131.7 (wacht 0.0): Joost left. Took nothing. Angry.
-HOL kroniek 134.3 (wacht 2.6): Booked: the Wizard. Ran off. Counts.
-HOL meting t=140 beelden=12 helden=0 hol_vast=3
-HOL meting t=150 beelden=11 helden=0 hol_vast=3
-HOL meting t=161 beelden=3 helden=0 hol_vast=3
-HOL kroniek 161.7 (wacht 0.0): Bram is here for your gold.
 HOL held binnen: Bram
-HOL meting t=171 beelden=95 helden=1 hol_vast=3
-HOL kroniek 175.2 (wacht 0.0): Bram stays forever. +6
-HOL meting t=181 beelden=78 helden=0 hol_vast=5
+HOL kroniek 5.1 (wacht 1.0): Bram climbs into your hole.
+HOL kroniek 9.6 (wacht 0.0): Bram fell to the Spike Pit. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=2
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL meting t=50 beelden=2 helden=0 hol_vast=3
+HOL kroniek 52.0 (wacht 0.0): Wout is here for a story.
+HOL held binnen: Wout
+HOL kroniek 57.5 (wacht 0.0): Wout will not be leaving. +6
+HOL kroniek 60.1 (wacht 2.6): Page for the Bard. The pit got him.
+HOL meting t=60 beelden=95 helden=0 hol_vast=5
+HOL meting t=70 beelden=2 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL meting t=100 beelden=4 helden=0 hol_vast=5
+HOL kroniek 108.0 (wacht 0.0): Tibbe brought a torch. And hope.
+HOL held binnen: Tibbe
+HOL meting t=110 beelden=27 helden=1 hol_vast=5
+HOL meting t=120 beelden=100 helden=1 hol_vast=5
+HOL kroniek 129.0 (wacht 0.0): Tibbe ran. Swore revenge.
+HOL meting t=130 beelden=86 helden=0 hol_vast=5
+HOL kroniek 131.6 (wacht 2.6): New stamp for the Hero. He got away.
+HOL meting t=140 beelden=5 helden=0 hol_vast=5
+HOL meting t=150 beelden=9 helden=0 hol_vast=5
+HOL kroniek 155.5 (wacht 0.0): Pim the Bard tunes his lute.
+HOL held binnen: Pim
+HOL meting t=160 beelden=55 helden=1 hol_vast=5
+HOL meting t=170 beelden=101 helden=1 hol_vast=5
+HOL kroniek 176.5 (wacht 0.0): Pim left. Took nothing. Angry.
+HOL kroniek 179.1 (wacht 2.6): New stamp for the Bard. Ran off. Counts.
+HOL meting t=181 beelden=60 helden=0 hol_vast=5
+HOL kroniek 181.7 (wacht 5.2): A song about you! Heroes on the way.
