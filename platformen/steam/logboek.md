@@ -1177,3 +1177,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Hap komt in een week-hol niet voor (lokaal 200 s nagespeeld), dus scherm 2 uit `demo` met `moment=hap`; werkt (run 43752188849).
 - Les: in een workflow-stap met pwsh stopt `Select-String` op een bestand dat nog niet bestaat de hele stap, ook met `-ErrorAction SilentlyContinue`; `Get-Content ... -ErrorAction SilentlyContinue` niet.
 - Les: lokaal een week-save nabootsen kan: `~/.local/share/Dortus/Het Hol/hol.json` (custom user dir) en de JSON uit de workflowstap.
+
+## 15 nov 2026 20:20 UTC, Olaf
+- `kern/strook.gd` was 552 regels (regel Codekwaliteit 4: onder ±400). Opgesplitst zonder gedragsverandering: `kern/muisvlak.gd` (muisvlak en bult boven Gloop), `kern/proef.gd` (startargumenten, proeven, winkelmomenten), `kern/ritme.gd` (wanneer de volgende held komt, graven in de demo-film), `begin_stap` naar `binnenkomst.gd`. strook.gd nu 404 regels. Waarom nu: Bram, Daan en Mila zetten er steeds proefargumenten bij; los houdt dat strook.gd leesbaar.
+- Bewijs lokaal (Godot 4.3 Linux, Xvfb), main tegen tak: demo-film 1200 beelden film.log gelijk (56 regels), `moment=val` demo op 160 gelijk (moment vast t=11,8 op beide), vrij spel `zaad=4242` op 96 px 2400 beelden gelijk (33 regels); toetsen 0 FOUT op beide; controleur akkoord zonder punten.
+- Les: een nieuw proefargument hoort voortaan in `kern/proef.gd` (`lees_argumenten`, `na_slijm` of `na_laad`), niet in `strook.gd`.
+- Obsidian: Rollwright 40 downloads (gelijk), 0 open issues, niets te doen.
