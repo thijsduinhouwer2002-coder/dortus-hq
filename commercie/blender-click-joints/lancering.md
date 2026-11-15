@@ -378,3 +378,72 @@ Akkoord mits. Moet: het beeld was verkeerd beschreven; vervangen door een beter 
 
 ### Wat dit deel zou veranderen
 Komt het BlenderNation-bericht er niet door (na 7 dagen niet op de site), dan geen tweede inzending; dan telt alleen r/blender en awesome-blender. Komt er een vraag van BlenderNation over "commercial" omdat er later een Pro komt: niet beantwoorden zonder Thijs, op zijn lijst.
+
+## Run 44 (Chris, 15 nov ±20:45 tot 21:30 UTC): lancering van Click Joints Pro klaar voor de dag dat Superhive hem goedkeurt
+
+Dit deel gaat voor op alles hierboven waar het verschilt. Aanleiding: bericht van de hoofdchat 15 nov 19:55 (Pro ingediend bij Superhive, status Pending, keuring 3 tot 5 dagen).
+
+### Stand (GEZIEN 15 nov 20:46 tot 20:55 UTC)
+- **Superhive vanuit mijn run niet te lezen:** `curl https://superhivemarket.com/products/click-joints-pro` geeft **403**, ook de voorpagina. Dat is de beveiliging van Superhive tegen de cloud, niet een teken dat de pagina er niet is. Ik heb het niet omzeild. Of Pro live is, zie ik dus niet zelf; Superhive bericht Thijs in de Superhive-inbox. Daarom op lijst-thijs: de hoofdchat zet "Pro live" in `berichten/chris.md` zodra die mail er is. Ik probeer de curl elke run opnieuw.
+- Gratis Click Joints op extensions.blender.org: **140 downloads** (was 115 op 14 nov 14:50), 0 reviews, versie 0.1.0. Nog steeds geen enkel lanceerbericht; de vraag "Click Joints lancering ja" (run 37) staat nog open op lijst-thijs.
+- dortus.com/click-joints/ zegt live nog "On its way to Blender Extensions" (tak `claude/chris-click-joints-live` is nooit op main gezet).
+
+### Pagina dortus.com/click-joints/ met Pro (klaar op een tak, NIET online)
+Repo dortus, tak **`claude/chris-click-joints-pro`** (commits d3212e4 en 8172d32). Die tak bevat ook de knop van run 37 (3044979), dus één samenvoeging doet beide. Wat er verandert:
+- Bovenaan verandert niets ten opzichte van run 37: de gratis versie en de knoppen **"Get it on Blender Extensions"** en "How to install". Pro staat bewust niet in de knoppen bovenaan en niet in het menu (zie de regels hieronder).
+- Nieuw blok `#pro` ná Install: kop "Hinges that click and stop at 115°.", poster 3 van Pro (Daan ja 14 nov) als `pro.jpg`, de zes punten uit de ingediende Superhive-tekst (`platformen/blender/superhive-pagina.md`), de prijzen **$12 personal, $45 studio tot 5 personen, 12 maanden updates**, dat gratis en Pro niet tegelijk aan kunnen, en de knop **"Get Click Joints Pro on Superhive"** naar https://superhivemarket.com/products/click-joints-pro.
+- Lokaal getest op 1280 en 390 px: geen zijwaarts scrollen, één link naar Superhive (GEZIEN).
+- **Waarom ná Install en niet bovenaan:** de pagina is ook de "Website" op de gratis listing. De regels van extensions.blender.org (GEZIEN vandaag, https://extensions.blender.org/terms-of-service/) verbieden reclame voor betaalde versies in Blender zelf (6.1, 6.3) en in de beschrijving en plaatjes op hun site (6.2). 6.1 noemt ook "links to commercial ... websites" in Blender, en de controleur wees erop dat de website van een extensie in Blender als link te zien kan zijn. Daarom gaat de pagina bovenaan alleen over de gratis add-on, zonder knop of menu naar Pro, en staat Pro alleen als apart blok onderaan. Een eigen website noemen de regels verder niet.
+- **De lanceerprijs van $9** staat bewust niet op de pagina: die loopt maar 14 dagen en moet dan weer weg. Op Superhive ziet de koper de echte prijs.
+- **Pas samenvoegen als Pro live is** (anders is de knop naar Superhive een dode link) en Thijs ja zei.
+
+### BlenderNation: Pro kost geld
+Regels opnieuw letterlijk gelezen (GEZIEN 15 nov 20:50, https://www.blendernation.com/submit-news/): "Commercial promotions require a 'Commercial Blender User' membership on our Patreon ... If you'd rather do a one-off post, we'll charge you EUR 25 per post." Een bericht dat Pro noemt, is commercieel. **Dus: een BlenderNation-bericht met Pro kost € 25, en geld uitgeven beslist Thijs.** Twee berichten kort na elkaar (eerst gratis, dan Pro) stuur ik niet in; dat is dubbel werk voor de redactie en kan als herhaling gezien worden. Daarom één van deze twee:
+
+- **Keuze A, C44 (met Pro, € 25 eenmalig, Thijs betaalt):** tekst hieronder. Vraag "Is your post about a commercial product or service?": **Yes**. Patreon: **No**, dus de eenmalige € 25.
+- **Keuze B, C37 (alleen gratis, € 0):** de tekst uit run 37, ongewijzigd, maar zonder de regel "Video and more images: https://dortus.com/click-joints/" zodra de Pro-pagina op main staat. Anders linkt een bericht dat "niet commercieel" heet naar een pagina met een koopknop, en dat is niet eerlijk tegenover BlenderNation. Vraag commercieel: **No**.
+
+**Mijn advies: A, in de 14 dagen van de lanceerprijs.** Reden: Thijs gaf 9 nov 22:56 ruimte voor kleine bedragen als dat tijd wint, en een nieuwsbericht helpt het meest in de eerste weken. Terugverdienen: bij $9 houdt Dortus per verkoop ±$5,81 over (70% min $0,49, zelfde som als `superhive-pagina.md`), dus € 25 is ±5 verkopen (GOK; het bereik van één BlenderNation-bericht heb ik niet kunnen meten). Zegt Thijs nee tegen de € 25: B, zonder kosten.
+
+### BlenderNation, versie C44 (letterlijk plakken, alleen na ja van Thijs op € 25 en als Pro live is)
+**Post Title:** `Click Joints: printable ball joints for free, and click hinges that stop at 115° in Pro`
+
+**Post Category:** Development, Add-ons
+
+**Post Image:** `commercie/blender-click-joints/blendernation-pro-1456x672.jpg` (nieuw, 1456 x 672: het gebogen been met het groene scharnier uit het schone Pro-scherm 13, zonder tekst of logo, onderwerp in het midden; eigen beeld)
+
+**Post Body:**
+> I made Click Joints, a Blender extension that cuts joints into a mesh for 3D printing, with the clearance you set in millimetres.
+>
+> The free version cuts a ball and socket or a pin joint. For a ball joint it measures how far it bends in 8 directions before the parts collide, and shows that range on the model; bend it further and the spot that collides turns red. A ring on the cut shows whether the wall is thick enough. Export to STL or 3MF, one file per part.
+>
+> Click Joints Pro adds a click hinge for knees and elbows. It bends from 0° to 115° and stops there, instead of flopping backwards. A pose slider shows the bend in the viewport, the spots that collide past the stop turn red on both parts, and hinges and ball joints placed too close together are refused with a clear message. Personal license $12 (launch price $9 for the first two weeks), studio license for up to 5 people $45, with 12 months of updates.
+>
+> I haven't printed a joint with it yet; fit and bend are measured in Blender. The image is a screenshot from Blender of a hinge the add-on placed.
+>
+> The code is written by AI agents that my small studio Dortus runs; I direct the work, and every version is tested automatically in real Blender. The free version works in Blender 4.2 and newer, Pro is tested on Blender 4.2 to 5.3.
+>
+> Free, on Blender Extensions: https://extensions.blender.org/add-ons/click-joints/
+>
+> Pro, on Superhive: https://superhivemarket.com/products/click-joints-pro
+>
+> Video and more images: https://dortus.com/click-joints/
+>
+> Made by Thijs at Dortus
+
+- **Lanceerprijs:** staat de $9 op het moment van insturen niet (meer) op Superhive, haal dan "(launch price $9 for the first two weeks)" weg. Niets anders veranderen.
+- Velden: Your name `Thijs (Dortus)`, Your email thijs@dortus.com. Video niet insluiten, alleen de link.
+- Bewering voor bewering: gratis deel gelijk aan C37 (nagelegd op 14 nov tegen de live listing); Pro-deel uit de ingediende Superhive-tekst; prijzen $12 en $45 en 12 maanden uit `superhive-pagina.md` (concept compleet 15 nov 19:35); "4.2 and newer" voor gratis: `blender_version_min` 4.2.0 (API, GEZIEN vandaag); Pro "4.2 to 5.3": getest in 4.2.23, 5.2.3 en 5.3.0, zoals op Superhive.
+
+### Dag 0 van Pro (wie, wat)
+1. **Hoofdchat** zet "Pro live" met tijd in `berichten/chris.md` en bovenaan lijst-thijs "Click Joints Pro LIVE" (dat vroeg de hoofdchat mij, maar ik zie de pagina niet door de 403; daarom ligt de eerste melding bij wie de mail ziet). Daarna stelt de hoofdchat de lanceerprijs $9 in (besluit Bram, `superhive-pagina.md`).
+2. **Na ja van Thijs:** de hoofdchat (of ik in de volgende run) zet tak `claude/chris-click-joints-pro` van repo dortus op main. Ik kijk daarna met curl of de pagina en `pro.jpg` 200 geven.
+3. **BlenderNation:** A of B, zie boven. Plaatsen doet de hoofdchat.
+4. **Meten:** verkopen ziet alleen Thijs in Superhive; ik vraag ze via de lijst op dag 7 en dag 14. Downloads van de gratis versie meet ik zelf.
+
+### Wat dit deel zou veranderen
+- Keurt Superhive Pro af of vraagt om wijzigingen: de tak blijft staan, niets naar main.
+- Vindt een moderator van extensions.blender.org de Pro-knop op dortus.com toch reclame: Pro-blok naar een eigen pagina dortus.com/click-joints/pro/ en de listing blijft naar de gratis pagina wijzen. Dat is één verplaatsing van het blok.
+
+### Controleur
+Akkoord mits. Moet 1: de lezing van regel 6 was te ruim en Pro stond al in de tweede knop en het menu; verwerkt, Pro alleen nog als blok onderaan (8172d32). Moet 2: "Both versions work in Blender 4.2 and newer" was voor Pro niet getoetst; verwerkt naar "Pro is tested on Blender 4.2 to 5.3". Kan 1: onderschrift van pro.jpg is nu "Poster with a screenshot", verwerkt. Kan 2 (stop ook op 90 of 135 graden noemen): niet gedaan, de ingediende Superhive-tekst noemt alleen 115 en de pagina moet gelijk blijven aan de winkel. Kan 3: bij keuze B linkt de gratis listing nog steeds naar dortus.com met het Pro-blok; geen regelbreuk, genoteerd.

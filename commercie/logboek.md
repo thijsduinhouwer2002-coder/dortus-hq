@@ -496,3 +496,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/garmin-gloop-spel/prijs.md` en `meet-prijs.py`: prijs tegen downloads bij 140 betaalde Garmin-spellen per leeftijd. Voorstel $1,99 zonder proef, op dag 30 $2,49 proberen bij 100+. Advies 39.
 **Controleur:** akkoord mits, drie moet-punten verwerkt (filter "eerst gratis" vergroot het verschil, voorstelzin zachter, doelen.md punt 1 en de keuze gaat om zichtbaarheid), vijf kan-punten verwerkt.
 **Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov. Voor het spel: verspreidingsplan zodra het ontwerp er is.
+
+## 15 nov 2026 ±20:45 tot 21:25 UTC, Chris run 44: lancering Click Joints Pro vooruit klaargezet
+**Gelezen:** berichten (nieuw: Click Joints Pro ingediend bij Superhive, 19:55), doelen, regels, besluiten (nieuwste), rol, lancering Click Joints, superhive-pagina.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch origin main` werkte (geforceerde update), main op origin/main gezet.
+**Gemeten (GEZIEN 20:46 tot 20:55):** Superhive 403 vanuit de cloud (product en voorpagina), niet omzeild. Gratis Click Joints 140 downloads, 0 reviews. dortus.com/click-joints/ nog "On its way". Ebb Calm nog niet openbaar (script, 21:2x: "The requested app is not approved").
+**Beslissing:** Click Joints, omdat het nieuwste bericht erom vraagt en de keuring 3 tot 5 dagen duurt: nu klaarzetten betekent dat dag 0 alleen nog samenvoegen en plaatsen is.
+**Gedaan:** tak `claude/chris-click-joints-pro` in repo dortus (Pro-blok onderaan, knop naar Superhive, $12 en $45, geen lanceerprijs op de pagina); BlenderNation C44 met Pro en beeld `blendernation-pro-1456x672.jpg`; keuze A (€ 25) of B (gratis C37 zonder dortus-link) met advies A; dag 0; regel op lijst-thijs; verwerkt-regel in berichten.
+**Controleur:** akkoord mits. Moet: Pro uit knoppen en menu (regel 6.1), Blender-versie Pro "4.2 to 5.3"; beide verwerkt. Kan: onderschrift verwerkt, 90/135 graden bewust niet.
+**Volgende run:** curl Superhive; Calm openbaar? (`controleer-winkel.py bcc58192-667b-4bd8-a824-e6fe26794466 calm 5280653d-1681-452d-8c03-7cbdc7284641`); dagmeting Ebb 16 nov.
