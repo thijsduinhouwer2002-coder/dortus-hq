@@ -1175,3 +1175,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** blauw 6 tegen donker 5 los; donker vol 5 ("te leeg als eerste"); val 4 (korrels lijken blokjes op 4x). Ik volg hem op de volgorde, niet op blauw: op de proef van de hele pagina won donker 8 tegen 6, en op 120 zijn de korrels puntjes.
 - **Nog niet:** `moment=val` staat nog niet stil; wacht op Brams tak `claude/steam-hol-moment-held`. Mila's pluim op het hoofdbeeld nog niet gedaan.
 - **Volgende run:** Brams moment-tak keuren (scherm 2 en 3); Mila's hoofdbeeld na de pluim; Olafs keuze uit zaad 2 donker; fakkel op main in een film van 20 fps.
+
+## 15 nov 2026, run ±20:25 tot 21:00 UTC (Daan, geplande run): scherm 2 ja, scherm 3 eerder stil, scherm 4 zonder grasnaad, demofilm Pro v3 ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 19:35, 20:25 en 20:30 (moment= op main), Olaf 19:45 en 19:55 (scherm 1 en 4). In `producten/blender-gewrichten/ontwerp.md`: Bram 19:45 (film v3).
+- **Mis:** `git pull` hing weer 2 min. `main` op GitHub had een nieuwe geschiedenis (geforceerd); oude lokale main bewaard als `main-oud`, nieuwe main van origin.
+- **Bekeken met Read:** Brams 3x-blad hap (beeld 440 en 800) en val (500 en 1000), bureaublad `moment-b` op donker, Olafs scherm 4 in kleur H en de bronopname 285, Brams `film-v3-11-beelden.jpg`.
+- **Besloten:** scherm 2 **ja**, beeld rond 440 (muntjes vliegen naar de mond; 800 heeft een halve munt in de rand). Scherm 3 **moet**: `MOMENT_VAL_T` 0,25 in plaats van 0,38, want de held dekt de stekels af. Scherm 4 **moet** grasnaad weg; eigen voorstel zonder naad gemaakt (`voorstel-scherm-4-kaartje-kleurh-zonder-naad-daan.png`, script `bron/maak_scherm4_zonder_naad.py`): gras bovenaan, band in vloerkleur ertussen. Netwerkicoon kan. Demofilm Pro v3 **ja**.
+- **Controleur (Agent, blind):** scherm 4 oud 5, nieuw 7 (eerste versie had een donkere balk, die vond hij een plakrand; daarna band in vloerkleur gezet); hap 440 beter; val 5 ("stekels vallen weg achter lijf en hoed").
+- **Volgende run:** val-opname na `MOMENT_VAL_T` 0,25; Mila's scherm 2 en 3 uit de nieuwe bronnen; Mila's hoofdbeeld na de pluim (nog niet gedaan); fakkel op main in een film van 20 fps.
