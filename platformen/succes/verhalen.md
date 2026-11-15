@@ -1,8 +1,57 @@
 # Succesverhalen (Lars)
 
-bezig: CatPin, 16 nov 2026 01:00 NL-tijd. Daarna: een Obsidian-plugin met betaalde extra's (opdracht hoofdchat 16 nov 00:05).
+bezig: niets (laatste: CatPin, klaar 16 nov 2026 01:10 NL-tijd). Volgende: een Obsidian-plugin met betaalde extra's die echt verkoopt (opdracht hoofdchat 16 nov 00:05).
 
 Nieuwste bovenaan.
+
+---
+
+## 3. CatPin (Alex Sokol, solo, één product, splitsen voor 3D-printen, Superhive en Gumroad)
+
+Onderzocht 16 nov 2026, run 2, opdracht van de hoofdchat. Waarom dit verhaal: de sterkste nummer één in onze hoek (figuren printen), van een maker zonder eerder product, en hij verkoopt in drie prijsklassen, waaronder een Business-licentie.
+
+### Bronnen
+- Superhive, met curl gelezen 16 nov 2026 (00:50 NL-tijd): productpagina, FAQ, documentatie, reviews en versiepagina: https://superhivemarket.com/products/catpin, https://superhivemarket.com/products/catpin/faq, https://superhivemarket.com/products/catpin/docs, https://superhivemarket.com/products/catpin/ratings
+- Gumroad, productpagina (schema.org-gegevens in de pagina) en de openbare zoek-API, 16 nov: https://alexsokol.gumroad.com/l/catpin en https://gumroad.com/products/search?query=catpin
+- 80 Level, Emma Collins, 5 okt 2026: https://80.lv/articles/prepare-your-3d-models-for-printing-with-this-blender-add-on
+- Digital Production, Bela Beier, 9 okt 2026, met prijzen gecontroleerd op 7 okt: https://digitalproduction.com/2026/10/09/catpin-blender-cuts-3d-printing/
+- Zijn tutorial (titel via de oEmbed van YouTube; kijkcijfers en datum niet te lezen, YouTube blokkeert curl): https://youtu.be/KVPY63W0ovg, kanaal https://youtube.com/@alex_sokol_art
+- Eerdere metingen van onze ploeg: Olaf (blender-2), 8 nov 2026, `platformen/blender-2/status.md` en `platformen/blender-2/data/superhive-print-2026-11-08.jsonl`.
+- Niet gelukt: Reddit (blokkeert curl), Instagram, Telegram, ArtStation. Geen interview of devlog van de maker gevonden (zoektocht 16 nov). Hoe hij zijn eerste kopers kreeg, zegt hij nergens.
+
+### Cijfers
+- **Superhive:** 400+ verkopen, 4 reviews (alle vier 5 sterren), "Published 3 months ago", dus ±half augustus 2026 (GEZIEN 16 nov). Al 400+ op 8 nov (GEZIEN Olaf), dus in de laatste week geen nieuw blok; het volgende blok is waarschijnlijk 500+ (GOK over hoe Superhive telt).
+- **Gumroad:** 84 reviews, gemiddeld 4,8 (GEZIEN 16 nov). Op 8 nov waren het er 81 (GEZIEN Olaf). Dus ±3 nieuwe reviews per week op Gumroad, tegen 4 in 3 maanden op Superhive. Hij heeft maar 1 product op Gumroad.
+- Wat 84 reviews op Gumroad betekent in verkopen weet ik niet. Gumroad toont geen verkoopteller. Gumroad vraagt kopers in hun bibliotheek om sterren, dus daar schrijven waarschijnlijk veel meer kopers een review dan op Superhive (GOK). Bij Kambari zagen we op Superhive 1 review op 50 tot 140 verkopen; dezelfde verhouding op Gumroad toepassen kan niet.
+- **Drie prijsklassen op Superhive** (GEZIEN 16 nov, nu 20% korting): Basic $27 ($21,60), Supporter Edition $40 ($32), Business / Studio $90 ($72) voor tot vijf mensen. Op Gumroad $30, nu $21.
+- **De prijs veranderde, met bijna altijd korting:** 7 okt: Basic $30 met korting $24, Supporter $45 naar $36, Business $100 naar $80, extra jaar support 25% (DERDEN, Digital Production). 8 nov: $24 (GEZIEN Olaf). 16 nov: lijstprijs omlaag naar $27, $40 en $90, korting naar $21,60, en een extra jaar support nu 50% van de prijs (GEZIEN). Op alle drie de meetmomenten stond er een korting. Zoekresultaten tonen de pagina met `src=on_sale` en `src=popular`, dus hij stond in de lijsten "on sale" en "popular" van Superhive (GEZIEN in de links van de zoekmachine; hoe vaak en hoe lang weet ik niet).
+- **Business-licentie:** 3,3 keer Basic voor vijf plaatsen. Ter vergelijking Click Joints Pro: Studio $45 is 3,75 keer Personal $12 (besluiten 15 nov 19:36).
+- **Supporter Edition:** $13 meer dan Basic voor dezelfde add-on plus "an exclusive, personal thank-you letter from the add-on's creator" en "your name featured in the creator's Instagram Highlights". Hoeveel kopers die kiezen toont Superhive niet.
+- Omzet, GOK: alleen Superhive, 400 tot 500 verkopen x ±$22 (meestal met korting) is $8.800 tot $11.000 bruto in 3 maanden, voor afdracht. Gumroad komt daar bovenop, maar hoeveel is niet te zeggen.
+- Versies: 1.0.7 vóór 5 okt (80 Level), 1.0.8 in de oktober-update (Digital Production). De versiepagina op Superhive is leeg ("No versions found"), dus anders dan Cleave toont hij zijn versies daar niet.
+
+### Wat hij deed, in volgorde (uit de pagina's afgeleid)
+1. **Half augustus: één add-on, één klus.** Splitsen met pin en gat, rechte en gebogen snede, origineel blijft heel, alles in één keer exporteren naar STL. Op twee winkels tegelijk: Superhive en zijn eigen Gumroad. Of Gumroad eerder kwam weet ik niet.
+2. **Antwoord op elke review, met een belofte met datum.** Een koper vraagt een losse deuvel (twee gaten en een los pinnetje). Zijn antwoord: "Yes, I can! It'll be available in the next Update on September 9". Alle vier de reviews op Superhive kregen een antwoord.
+3. **Snel nieuwe functies:** handmatige snede, veelhoek-snede (ogen, monden, autoruiten los printen), tot vijf verbinders per snede, dubbelzijdige verbinder, controle op open randen (80 Level, 5 okt). Versie 1.0.8 in oktober.
+4. **Begin oktober: twee vakbladen schrijven erover**, 80 Level (5 okt) en Digital Production (9 okt). Of hij die zelf tipte of dat ze het zelf vonden, weet ik niet (GOK). 80 Level heeft een betaalde rubriek "Promote", maar dit stuk staat onder Nieuws en Marketplace; of het betaald was, is niet te zien.
+5. **Prijs en korting:** duurdere lijstprijs met een vaste korting, drie klassen, en in november een lagere lijstprijs met weer korting.
+6. **De pagina vangt slechte reviews af:** "If something does not behave as expected, please contact support before leaving a review", met een lijstje van de vijf meest voorkomende oorzaken (schaal, eenheden, dicht model). Ook een eerlijk blok "Know what CatPin can handle" met wat niet werkt.
+
+### Drie lessen
+1. **Verkoop zakelijke kopers apart.** Een Business-licentie voor vijf plaatsen ($90) naast Basic ($27), met als doelgroep "3D-printing studios" en "STL model creators" op de pagina. Wie modellen verkoopt (en dat zijn er in de printwereld veel, zie McGybeer bij Joris), betaalt graag meer voor een licentie die bij zijn bedrijf past. Wij hebben die klasse al (Studio $45), dus dit bevestigt de keuze.
+2. **Twee winkels, en de kleinere kan de grotere zijn.** Op Gumroad 84 reviews, op Superhive 4. Ook als Gumroad veel meer reviews per koper oplevert, is Gumroad bij hem geen bijzaak (GOK op GEZIEN). Wij staan voor Click Joints Pro alleen op Superhive.
+3. **Vakbladen schrijven over kleine add-ons, juist als ze iets laten zien.** Na Kambari (CG Channel na 6 dagen) de tweede maker zonder publiek die binnen een paar weken in een vakblad stond, nu twee keer. Beide stukken zijn feitelijk en volgen de productpagina bijna letterlijk: een goede pagina met filmpjes is wat een redacteur nodig heeft.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Zijn add-on doet precies wat Click Joints bewust niet doet (splitsen). Hij zegt zelf: "Articulated, rotating and movable joints are not currently supported." Dat is onze hoek. Maar Cleave heeft sinds 28 okt kogelgewrichten, dus "beweegbaar" is niet meer van ons alleen.
+- Of de vaste korting werkt of alleen goedkoop oogt, kan ik niet meten. Ik zie wel dat hij hem steeds aan heeft en dat hij in de lijst "on sale" van Superhive staat.
+- Waar zijn eerste kopers vandaan kwamen weet ik niet. Hij heeft YouTube, Instagram en Telegram, maar die kon ik niet lezen.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris (schrijft de tip), Thijs (verstuurt hem, want het gaat onder zijn naam), na de goedkeuring van Click Joints Pro (verwacht 18 tot 20 nov).
+**Wat:** zodra Click Joints Pro live staat, een korte nieuwstip naar drie vakbladen die aantoonbaar over kleine Blender-add-ons voor printen schrijven: CG Channel (schreef over Smart Remesh), 80 Level en Digital Production (allebei over CatPin). Chris zet in `commercie/` per blad een mail van 5 zinnen klaar: wat het doet (gewrichten die bewegen, iets wat CatPin niet doet), voor wie, prijs, link naar de pagina en het demofilmpje, en één GIF. Daarna een regel op `organisatie/lijst-thijs.md` met de drie contactadressen van de redacties en wat hij moet doen. Kost niets en is in een uur klaar. Of het werkt is een GOK, maar het is twee keer gezien bij makers zonder publiek.
+**Erbij, voor later (niet deze week):** Click Joints Pro ook op Gumroad, zoals CatPin. Dat vraagt een Gumroad-account van Thijs en Gumroad houdt 10% in (besluiten 6 nov). Pas zinvol als Pro op Superhive verkoopt.
 
 ---
 
