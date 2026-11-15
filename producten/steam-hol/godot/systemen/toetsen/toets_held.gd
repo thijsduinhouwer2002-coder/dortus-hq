@@ -938,6 +938,8 @@ func _init() -> void:
 	ok(HB3.met_3d == true, "3D-held: schakelaar staat aan (hoeden A, akkoord Daan 13 nov 20:50)")
 	ok(HB3.stand_3d("lopen", 0) == "stap1" and HB3.stand_3d("lopen", 1) == "rust" and HB3.stand_3d("lopen", 2) == "stap2", "3D-held: lopen stap1, rust, stap2")
 	ok(HB3.stand_3d("vallen", 3) == "vallen" and HB3.stand_3d("klimmen", 2) == "rust", "3D-held: vallen en anders rust")
+	ok(HB3.stand_3d("vallen", 3, 0.05) == "schrik" and HB3.stand_3d("vallen", 3, HB3.VAL_RECHT) == "vallen", "3D-held: eerste deel van de val de stand schrik (rechtop), daarna de valstand")
+	ok(ceilf(load("res://kern/proef.gd").MOMENT_VAL_T * 15.0) / 15.0 < HB3.VAL_RECHT, "moment=val staat op 15 fps stil terwijl de held nog rechtop staat")
 	HB3._laad_3d()
 	if FileAccess.file_exists("res://kunst/3d/ridder.png"):
 		ok(HB3.held3d.has("ridder") and HB3.held3d["ridder"][0].texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS, "3D-held: ridder-blad geladen, filter lineair")

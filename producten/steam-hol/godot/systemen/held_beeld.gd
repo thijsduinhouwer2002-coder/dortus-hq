@@ -222,9 +222,13 @@ static func _laad_3d() -> void:
 		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
 
 # Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
-static func stand_3d(staat: String, frame: int) -> String:
+# Vallen: de eerste VAL_RECHT s staat hij nog rechtop in de stand "schrik" uit het blad (mond open), met het "!" erboven
+# en de hoed die loskomt; daarna de valstand (Olaf 15 nov, voorstel aan Daan: de valstand ligt ondersteboven en leest op
+# 160 px als klodder). 0,2 = gelijk aan VAL_SCHRIK in held.gd: rechtop zolang hij opwipt (moet Daan 15 nov 22:55).
+const VAL_RECHT := 0.2
+static func stand_3d(staat: String, frame: int, vt: float = 9.0) -> String:
 	if staat == "vallen":
-		return "vallen"
+		return "schrik" if vt < VAL_RECHT else "vallen"
 	if staat in ["lopen", "vluchten"]:
 		return ["stap1", "rust", "stap2", "rust"][frame % 4]
 	return "rust"
@@ -242,7 +246,7 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 		return NIET_3D
 	var ct: CanvasTexture = held3d[naam][0]
 	var info: Dictionary = held3d[naam][1]
-	var stand := stand_3d(staat, frame)
+	var stand := stand_3d(staat, frame, float(h.val_t) if staat == "vallen" else 9.0)
 	var i: int = info["frames"].find(stand)
 	if i < 0:
 		i = maxi(0, info["frames"].find("rust"))
