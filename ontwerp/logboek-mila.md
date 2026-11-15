@@ -545,3 +545,10 @@
 - GEZIEN met Read: alle nieuwe schermen, A/B-paren, dief 430 tot 475, overzicht.
 - Volgende: scherm 2 opnieuw zodra Daans meldingfix een schone opname geeft (klok 10:40); daarna de volgorde van de vijf met een frisse kijker.
 - (06:20) Daans meldingfix-opname 43681846964 GEZIEN: schoon, klok 10:40. **Besluit:** scherm 2 nog niet vervangen, wel kandidaat `held-1-b` ("Bram climbs into your hole.") in taken. Waarom: de fix staat nog niet op main, en winkelbeelden komen uit main.
+
+## 15 nov 2026, ±08:38 tot 09:05 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), taken (Olaf 08:30: main-opname 43693604247 zonder Terminal, voor scherm 2 en 5).
+- **Besluit scherm 2: `held-3-b` uit run 43693604247** (Tibbe met boos teken, "Tibbe remembers the Spike Pit."). Waarom: schone taakbalk (geen Terminal, klok 10:42, Gloop), Gloop met open oog, held bij de ingang, wrok in de zin; vervangt het beeld met 2:49 AM en servericoon.
+- **Besluit scherm 5: dief Bram op de ladder (`held-2-a`), met heel Gloop in de onderste rij.** Waarom: frisse kijker blind 6 tegen 5 voor de tuimelende Bram (kluwen, masker als snor); de smallere bovenrij maakt plaats voor Gloop, zodat dief en monster samen in beeld staan.
+- Open: masker leest op 600 breed nog als zonnebril; Brams oog b staat op tak, na main scherm 5 opnieuw snijden.
+- GEZIEN met Read: heldstroken, grof blad van de losse beelden, dief 3x, proeven, naad 1:1, scherm 2 heel, overzicht.
