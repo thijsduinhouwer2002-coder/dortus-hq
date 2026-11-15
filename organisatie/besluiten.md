@@ -367,3 +367,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 15 nov 19:25: ruwe speeltest op za 21 nov
 - 15 nov 2026 19:25 | Thijs | **Ja op een ruwe speeltest van Hats of the Fallen op za 21 nov** (de test van 4 dec blijft). Build en speelinstructie vr 20 nov 20:00 klaar (Olaf). Gaat voor de winkelbeelden van wo 18 nov als die botsen. | YouTube-onderzoek: eerst leuk, dan mooi; AI kan niet zien of iets leuk is. | Niet leuk op 21 nov: kern van het spel aanpassen vóór meer beeldwerk.
+
+## 15 nov 19:36: Click Joints Pro ingediend bij Superhive
+- 15 nov 2026 19:36 | Thijs | **Click Joints Pro ingediend** (Personal $12, Studio $45, 12 maanden updates). Status Pending, keuring 3 tot 5 dagen. | Snelste kans op de eerste euro; 136+ gebruikers van de gratis versie. | Afgekeurd: punten verwerken en opnieuw indienen.
