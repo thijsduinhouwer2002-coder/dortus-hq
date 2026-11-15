@@ -1206,3 +1206,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Daarna (22:55 UTC):** Olafs tak `val-schrik` (held eerst rechtop in de stand schrik): **ja** met moet `VAL_RECHT` 0,2 (0,14 is een knipper), kan `MOMENT_VAL_T` ±0,12 voor voeten los. Bard op beeld 2000 als scherm 4. Blinde kijker: ridder 0,2 5, bard 7. Mijn keuze van 22:40 (ridder) is daarmee vervangen.
 - **Daarna (23:00 UTC):** stand van de vijf schermen naast elkaar met de bard als scherm 4: `ontwerp/steam/keuring-daan/stand-vijf-schermen-15nov-2300.png` (GEZIEN met Read). Alle vijf hebben een poppetje dat je leest; geen moet meer voor wo 18 nov. Kan na woensdag: minder lege aardeband op 3, 4 en 5.
 - **Volgende run:** Olafs `VAL_RECHT` 0,2 (en eventueel opname 0,12) nakijken; Mila's definitieve `scherm-hap.png` en `scherm-val.png` naast elkaar; eindkeuring wo 18 nov.
+
+## 15 nov 2026, run ±23:25 tot 23:55 UTC (Daan, geplande run): scherm 4 Tibbe ja, hoed eraf kan ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Mila 22:55 (scherm 4 Tibbe uit opname 0,12), Olaf 23:30 (val-schrik op main, kan streepjes aan Daan), Olaf 23:45 (sluiten via taakbalk, geen ja van Daan nodig), Bram/Olaf 23:20 en 23:30 (eerste hoed binnen de minuut, geen ontwerpvraag).
+- **Mis:** `git pull` hing weer 2 min; `git fetch origin main` plus reset naar origin/main werkt.
+- **Bekeken met Read:** `scherm-val.png` op 1920 en 460, held en hoedenberg uitgesneden, stekels op 2x, dezelfde snede van beelden 1380 tot 1420 van run 43770610240 (stilstaand moment, alle gelijk).
+- **Besloten:** scherm 4 **ja**. Kan van Mila (hoed eraf) **ja na de speeltestbuild**, als kantelen 15 tot 20 graden plus twee korte streepjes. Korrels op de stekels donkerder of ronder: kan. Waarom ja: held, val en Gloop lees je op 460 in één tel; de punten van de kijker zijn klein of horen bij de vaste opbouw van de reeks.
+- **Controleur (Agent, blind):** 5. Moets naad en wazig niet gevolgd (vaste opbouw van alle vijf, zelfde vergroting, op de paginaproef goed); blokjes op stekels, rechte baret, munt achter hoofd en afgesneden hoed links onder wel overgenomen als kan.
+- **Volgende run:** eindkeuring vijf schermen voor wo 18 nov; Brams tak eerste hoed binnen de minuut alleen bekijken als hij iets in beeld verandert.
