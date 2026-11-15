@@ -3,7 +3,7 @@ name: Het Hol winkelbeelden (1920 breed, Mila)
 # Mila, 10 nov 2026. Opnames voor de schermafbeeldingen en de trailer op de winkelpagina (Daan keuring 6, moet 1):
 # de strook over de hele breedte van een scherm van 1920 x 1080, zoals een koper hem krijgt.
 # Raakt de gewone test van Olaf (steam-hol.yml) niet. Losse PNG's (met doorzichtige lucht) op de tak schermen,
-# map steam-hol/winkel-1920-<soort>-<hoogte>/ (demo of week); met een zaad -zaad<zaad>-run<runnummer> erachter.
+# map steam-hol/winkel-1920-<soort>-<hoogte>/ (demo of week); met een zaad -zaad<zaad>-run<run-id> erachter.
 on:
   workflow_dispatch:
     inputs:
@@ -328,7 +328,7 @@ jobs:
           D_REL="steam-hol/winkel-1920-$SOORT-$HOOGTE"
           [ "$GITHUB_REF_NAME" = main ] || D_REL="$D_REL-$(echo "$GITHUB_REF_NAME" | tr / -)"
           # Olaf 15 nov: met een vast zaad een eigen map, zodat runs naast elkaar elkaars beelden niet overschrijven.
-          # Olaf 15 nov (wens Mila 11:50): met een zaad ook het runnummer erbij, zodat een gekozen bron nooit meer
+          # Olaf 15 nov (wens Mila 11:50): met een zaad ook het run-id erbij, zodat een gekozen bron nooit meer
           # overschreven wordt door een latere opname met hetzelfde zaad. Zonder zaad blijft de vaste map (nieuwste).
           [ -z "$ZAAD" ] || D_REL="$D_REL-zaad$ZAAD-run$GITHUB_RUN_ID"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
