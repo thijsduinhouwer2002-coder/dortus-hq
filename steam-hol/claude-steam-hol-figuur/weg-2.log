@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 3116, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 3116 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 2912, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 2912 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794749947
-HOL eerste koop mogelijk na 30 s speeltijd (goud 3116)
-HOL kroniek 4.1 (wacht 0.0): Kees has a map. It is wrong.
+HOL zaad 1794750200
+HOL eerste koop mogelijk na 30 s speeltijd (goud 2912)
+HOL kroniek 4.0 (wacht 0.0): Kees read about you in a tavern.
 HOL begin: opgegeten (Kees)
 HOL held binnen: Kees
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=3116, terugkomers=0
+HOL einde na 8 s, fps=10, goud=2912, terugkomers=0
