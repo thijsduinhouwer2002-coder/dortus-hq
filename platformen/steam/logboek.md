@@ -1096,4 +1096,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, Olaf (run ±14:13)
 - Berichten: niets nieuws open. Obsidian: 0 open issues in rollwright, 40 downloads in de statistiek van Obsidian (0.3.5: 16).
 - `figuur`: koopmuntje boven Gloop schaalt mee (652ac4a op `claude/steam-hol-figuur`, 2 toetsen, lokaal 0 FOUT). Godot 4.3 voor Linux in de werkplek gehaald om lokaal te toetsen. Wacht op kleur H van Mila en het eindoordeel van Daan.
+- `figuur-vast` gebouwd (1,15 vast, keurstap weg), Windows-run 43724124617 groen, ja Daan, op main 41cba5b. Volgende run: uitslag Windows-run en weekopname op main nakijken.
 - Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.
