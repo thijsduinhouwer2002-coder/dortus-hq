@@ -10,7 +10,7 @@ var hoogte := 120.0
 var schaal := 3
 const PANEEL := preload("res://kunst/paneel.png")   # Daan: 12 x 12, 9-slice rand 4 (kunst.json)
 const R := 4
-# Paneel in de 3D-stijl (Daan 14 nov, ontwerp/steam/paneel-3d/LEESMIJ.md ronde 2): pruimhouten plaat met zachte gouden rand
+# Paneel in de 3D-stijl (Daan 14 nov, ontwerp/steam/paneel-3d/LEESMIJ.md ronde 2): warm donkerbruine plaat met zachte gouden rand (15 nov, was pruim)
 # als 9-slice (bron 384 px, rand 128), letter Fredoka (SIL OFL, kunst/letters/), ronde knop en rond muntje.
 # Uit = het pixelpaneel van voor 14 nov (alleen een terugvalschakelaar).
 static var met_3d := true
@@ -39,22 +39,22 @@ func _doos(naam: String) -> StyleBoxFlat:
 	var sb := StyleBoxFlat.new()
 	match naam:
 		"paneel_schaduw":
-			sb.bg_color = Color(0.09, 0.03, 0.11, 0.0)
-			sb.shadow_color = Color(0.09, 0.03, 0.11, 0.55)
+			sb.bg_color = Color(0.10, 0.05, 0.03, 0.0)
+			sb.shadow_color = Color(0.10, 0.05, 0.03, 0.55)
 			sb.shadow_size = 3
 			sb.shadow_offset = Vector2(1, 3)   # bijna niets links of boven: Windows tekent niets buiten het muisvlak (controleur 14 nov)
 		"knop_schaduw":
-			sb.bg_color = Color(0.08, 0.02, 0.09, 0.0)
-			sb.shadow_color = Color(0.08, 0.02, 0.09, 0.5)
+			sb.bg_color = Color(0.09, 0.04, 0.02, 0.0)
+			sb.shadow_color = Color(0.09, 0.04, 0.02, 0.5)
 			sb.shadow_size = 2
 			sb.shadow_offset = Vector2(0, 2)
 		"knop":
-			sb.bg_color = Color("#7a426c")
+			sb.bg_color = Color("#9a5434")   # warm terracotta (Daan 15 nov, punt 1 Thijs; was pruim 7a426c)
 			sb.border_color = Color("#e8b040")
 			sb.set_border_width_all(2)
 			sb.anti_aliasing = true
 		"knop_glans":
-			sb.bg_color = Color("#925880")
+			sb.bg_color = Color("#b4704a")
 		_:
 			push_error("tekst.gd: onbekende doos " + naam)
 	dozen[naam] = sb
@@ -63,7 +63,7 @@ func _doos(naam: String) -> StyleBoxFlat:
 # tekst met een zachte donkere schaduw van 1 px eronder (Daan ronde 2: titel en getal)
 func _tekst(font: Font, p: Vector2, t: String, breed: float, maat: int, kleur: Color, schaduw := true) -> void:
 	if schaduw and met_3d:
-		draw_string(font, p + Vector2(0, 1), t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, Color(0.08, 0.02, 0.09, 0.65))
+		draw_string(font, p + Vector2(0, 1), t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, Color(0.09, 0.04, 0.02, 0.65))
 	draw_string(font, p, t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, kleur)
 # Het kaartje voor upgrades (kern/kaartje.gd): als dit niet leeg is, toont het paneel het kaartje in plaats van de kroniek.
 var kaart := {}
@@ -108,7 +108,7 @@ func _munt(p: Vector2, f := 1.0) -> void:
 		var c := p + Vector2(2, 2) * schaal * f
 		var rr := 2.4 * schaal * f
 		# gladde rand (Mila 14 nov 23:50): om elke cirkel een antialiased boog van 1 schermpixel, zie hol.gd munt_3d
-		_munt_laag(c + Vector2(0.5, 1.5), rr, Color(0.12, 0.04, 0.12, 0.45))
+		_munt_laag(c + Vector2(0.5, 1.5), rr, Color(0.12, 0.06, 0.03, 0.45))
 		_munt_laag(c, rr, Color("#aa691e"))
 		_munt_laag(c + Vector2(-0.3, -0.3), rr - 1.2, Color("#f2b632"))
 		_munt_laag(c + Vector2(-0.8, -0.9) * schaal * f, 0.6 * schaal * f, Color("#fff0aa"))
@@ -178,7 +178,7 @@ func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) 
 	var w := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal
 	var r := Rect2(x, y, w, h)
 	if met_3d:
-		# ronde pil (Daan ronde 2): gouden rand, warm pruimroze, glansstrook bovenin, zachte schaduw eronder
+		# ronde pil (Daan ronde 2): gouden rand, warm terracotta, glansstrook bovenin, zachte schaduw eronder
 		var sch := _doos("knop_schaduw")
 		sch.set_corner_radius_all(int(h / 2.0))
 		draw_style_box(sch, r)
@@ -236,7 +236,7 @@ func _draw_kaart() -> void:
 		else:
 			var grijs := "%d  (%d more gold)" % [int(kaart.kost), int(kaart.tekort)]
 			_munt(Vector2(kx, ky + kh / 2.0 - 2 * schaal))
-			draw_string(font, Vector2(kx + 5 * schaal + 2, ky + kh / 2.0 + maat * 0.35), grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#9a8a9a"))
+			draw_string(font, Vector2(kx + 5 * schaal + 2, ky + kh / 2.0 + maat * 0.35), grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#a8968a"))
 			kx += 5 * schaal + 2 + font.get_string_size(grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
 	if int(kaart.terug) > 0:
 		knop_undo = _knop(kx, ky, kh, "Undo  +%d" % int(kaart.terug), int(M.knop2), vet)
