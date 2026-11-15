@@ -123,3 +123,12 @@ Script: `staand3d.py` leest `capsule3d.py` (zelfde aanpak als Daans `winkel3d.py
 - **Frisse kijker** (blind, alleen A/B/C): A 8, B 6, C 6. De koele paarse wand steekt juist af tegen de lichte, warme buren, en het gele HATS heeft daar het meeste contrast; op warm vloeit het geel weg.
 - **Besluit: ronde 2 blijft**, `ST_WARM` staat standaard uit, zodat `bibliotheek-600x900.png` en `staand-748x896.png` niet veranderen. Waarom: Daan vroeg "houd alleen wat wint", en de warme wand won niet.
 - Kan van de kijker: "OF THE FALLEN" is op tegelformaat net leesbaar; mogelijk later iets dikker.
+
+## 15 nov ±15:40 tot 16:05 UTC (Mila): capsules in kleur H (punt 1 Thijs: minder paars en donker)
+Het spel is sinds vandaag warm (kleur H op main). Een paarse capsule zou dus niet meer laten zien wat er in het spel zit. Daarom staat `capsule3d.py` nu standaard op kleur H (`CAPSULE_KLEUR=pruim` geeft de oude kleuren terug).
+- **Wand** ruis 5e3a30 tot 7e5244 (warm bruin, iets donkerder dan de kamerwand van het spel, zodat goud, Gloop en de gele titel loskomen), vloer 4a2a20 tot 6e4033, voetrotsen en kiezels uit de aardekleuren van H, titelrand donkerbruin 2a120c in plaats van pruim, lucht warm donker. Warme lamp achter Gloop 500 werd 350: op de lichtere wand gaf 500 een feloranje vlek waarin het goud wegviel.
+- Drie wanden geprobeerd op 920x430 (GEZIEN met Read): kamerwand 7a4a3a/9e6a56 met lamp 500 (te fel, goud valt weg), aarde 684033/8e5949 met lamp 280 (zalmroze), en 5e3a30/7e5244 met lamp 350 (gekozen: leest als warme grot, zoals de strook).
+- **Blinde kijker** (Agent, rij met Rusty's, Tiny Pasture, Bongo Cat en Ropuka, oud paars A tegen warm B): A 19, B 20, kiest B ("de schat ziet er echt uit als goud, oogt rijker"). Zijn moet: OF THE FALLEN verdween half in het warme. Daarom die regel 0,70 werd 0,72, iets naar links (anders raakte de N de pluim van de ridder) en een dikkere donkere rand (0,07 werd 0,11 van de lettermaat). GEZIEN met Read.
+- Eerlijk: paars viel in de rij iets meer op omdat geen buur paars is (kijker 7 tegen 6). Warm wint op rijkdom en is wat het spel nu is.
+- Vol formaat met `maak_alles.sh` (2x gerenderd, verkleind): header, klein en hoofdbeeld GEZIEN met Read; voor en na: `voor-na-pruim-kleur-h.png` (links oud, rechts H, onder klein).
+- Nog open (kan, volgende run): figuren groter in het vak (kijker: Gloop met toren 20 tot 30% groter; nu nog veel muur), en bibliotheek en staand (`staand3d.py`) in kleur H.
