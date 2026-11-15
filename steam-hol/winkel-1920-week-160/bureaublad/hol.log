@@ -1,43 +1,40 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 51 s (klok terug: false): goud voor 1619, helden 1, erbij 7
+HOL weg geweest 51 s (klok terug: false): goud voor 1595, helden 1, erbij 7
 HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
-HOL opslag geladen: 0 terugkomers, 1626 goud
+HOL opslag geladen: 0 terugkomers, 1602 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 1794735613
 HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL held binnen: Rik
-HOL kroniek 5.0 (wacht 1.0): Rik signs autographs. Nobody asked.
-HOL kroniek 9.6 (wacht 0.0): Rik left gold and one boot. +6
+HOL held binnen: Joost
+HOL kroniek 5.0 (wacht 1.0): Joost signs autographs. Nobody asked.
+HOL kroniek 9.6 (wacht 0.0): Joost left gold and one boot. +6
 HOL meting t=10 beelden=76 helden=0 hol_vast=2
-HOL kroniek 12.1 (wacht 2.6): Page for the Hero. The pit got him.
-HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=20 beelden=17 helden=0 hol_vast=3
 HOL meting t=30 beelden=12 helden=0 hol_vast=3
 HOL meting t=40 beelden=4 helden=0 hol_vast=3
 HOL kroniek 47.1 (wacht 0.0): Wout the Wizard sniffs for traps.
 HOL held binnen: Wout
-HOL meting t=50 beelden=33 helden=1 hol_vast=3
+HOL meting t=50 beelden=31 helden=1 hol_vast=3
 HOL meting t=60 beelden=101 helden=1 hol_vast=3
 HOL kroniek 68.1 (wacht 0.0): Wout escaped with a limp.
-HOL meting t=70 beelden=79 helden=0 hol_vast=3
-HOL kroniek 70.7 (wacht 2.6): Booked: the Wizard. He got away.
+HOL meting t=70 beelden=81 helden=0 hol_vast=3
+HOL kroniek 70.7 (wacht 2.6): Page for the Wizard. He got away.
 HOL meting t=80 beelden=12 helden=0 hol_vast=3
 HOL meting t=90 beelden=5 helden=0 hol_vast=3
-HOL kroniek 92.0 (wacht 0.0): Joost casts Light. It is a candle.
-HOL held binnen: Joost
-HOL meting t=100 beelden=87 helden=1 hol_vast=3
-HOL kroniek 105.6 (wacht 0.0): Joost stays forever. +6
-HOL kroniek 108.1 (wacht 2.6): New stamp for the Wizard. Spikes: one.
-HOL meting t=110 beelden=86 helden=0 hol_vast=5
-HOL meting t=120 beelden=11 helden=0 hol_vast=5
-HOL meting t=130 beelden=3 helden=0 hol_vast=5
-HOL meting t=141 beelden=4 helden=0 hol_vast=5
-HOL kroniek 142.4 (wacht 0.0): Lotte has a map. It is wrong.
-HOL held binnen: Lotte
-HOL kroniek 148.0 (wacht 0.0): Lotte found the Spike Pit. Hard. +6
-HOL meting t=151 beelden=91 helden=0 hol_vast=7
-HOL meting t=161 beelden=9 helden=0 hol_vast=7
-HOL meting t=171 beelden=4 helden=0 hol_vast=7
-HOL meting t=181 beelden=11 helden=0 hol_vast=7
-HOL kroniek 184.1 (wacht 0.0): Sir Gerda clanks in.
-HOL held binnen: Gerda
-HOL kroniek 189.6 (wacht 0.0): Gerda will not be leaving. +6
+HOL kroniek 92.0 (wacht 0.0): Fenna casts Light. It is a candle.
+HOL held binnen: Fenna
+HOL meting t=100 beelden=83 helden=1 hol_vast=3
+HOL meting t=110 beelden=100 helden=1 hol_vast=3
+HOL kroniek 113.0 (wacht 0.0): Fenna fled. Grudge: the Spike Pit.
+HOL meting t=120 beelden=39 helden=0 hol_vast=3
+HOL meting t=130 beelden=3 helden=0 hol_vast=3
+HOL meting t=140 beelden=4 helden=0 hol_vast=3
+HOL kroniek 142.4 (wacht 0.0): Tibbe picks the lock. It was open.
+HOL held binnen: Tibbe
+HOL meting t=150 beelden=83 helden=1 hol_vast=3
+HOL meting t=160 beelden=101 helden=1 hol_vast=3
+HOL kroniek 163.4 (wacht 0.0): Tibbe fled, crying a little.
+HOL kroniek 166.0 (wacht 2.6): New page: the Thief. Ran off. Counts.
+HOL meting t=170 beelden=30 helden=0 hol_vast=3
+HOL meting t=181 beelden=4 helden=0 hol_vast=3
