@@ -169,7 +169,8 @@ jobs:
             -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
           # Olaf 15 nov (wens Mila 23:50 voor scherm 2): in run 43653516628 was de gang in alle 6 beelden leeg, want een held
           # is in ±7 s binnen en weer weg en de beelden vielen ertussen. Nu: elke 0,5 s de log lezen; bij elke nieuwe regel
-          # "HOL held binnen" een beeld na 2,5 s en na 5 s (bureaublad-held-<nr>-a/b.png), naast de 6 vaste beelden
+          # "HOL held binnen" een beeld na 2,5, 3,7 en 5 s (bureaublad-held-<nr>-a/b/c.png; run 43657940940: op 2,5 s op de
+          # ladder, op 5 s vaak al in de put naast de ingang, dus 3,7 erbij), naast de 6 vaste beelden
           # (bureaublad-1 tot 6, elke 15 s vanaf 35 s). Echt moment uit het spel, niets nagemaakt. Hooguit 6 helden.
           function Dicht-Melding($wat) {
             for ($w = 0; $w -lt 5; $w++) { $m = [Scherm]::FindWindow($null, "System Properties"); if ($m -eq [IntPtr]::Zero) { break }; Write-Output "melding System Properties dicht ($wat)"; [Scherm]::PostMessage($m, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null; Start-Sleep 1 }
@@ -182,7 +183,7 @@ jobs:
             $binnen = @(Get-Content $log -ErrorAction SilentlyContinue | Where-Object { $_ -like "HOL held binnen*" })
             while ($gezien -lt $binnen.Count) {
               $gezien++
-              if ($nr -lt 6) { $nr++; Write-Output ("{0,6:N1} s  {1}" -f $nu, $binnen[$gezien - 1]); $wacht += @(@{ t = $nu + 2.5; naam = "held-$nr-a" }, @{ t = $nu + 5; naam = "held-$nr-b" }) }
+              if ($nr -lt 6) { $nr++; Write-Output ("{0,6:N1} s  {1}" -f $nu, $binnen[$gezien - 1]); $wacht += @(@{ t = $nu + 2.5; naam = "held-$nr-a" }, @{ t = $nu + 3.7; naam = "held-$nr-b" }, @{ t = $nu + 5; naam = "held-$nr-c" }) }
             }
             if ($vi -lt $vast.Count -and $nu -ge $vast[$vi]) { $vi++; $wacht += @(@{ t = $nu; naam = "$vi" }) }
             $klaar = @($wacht | Where-Object { $_.t -le $nu }); $wacht = @($wacht | Where-Object { $_.t -gt $nu })
