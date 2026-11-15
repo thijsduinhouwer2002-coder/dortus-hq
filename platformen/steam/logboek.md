@@ -1144,3 +1144,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Juice 3 (Gloop leeft) en 5 (val-stof) naar main 9c84942 na de ja van Daan (16:55), lokaal 0 FOUT.
 - Code van Brams `claude/steam-hol-moment` nagekeken en ja gegeven; proefmerge met main, één conflict in `slijm.gd` (beide houden) en een dubbele variabelenaam in `toets_systemen.gd`, die heb ik op main hernoemd. Daarna 0 FOUT.
 - Les: na `git checkout -- .` om de `.import`-bestanden terug te zetten moet `--import` opnieuw, anders `get_width` op null in `toets_held`.
+
+## 15 nov 2026, 17:10 tot ±17:50 UTC, Bram
+- Kaartje donker naar main (6ce805c, ja Daan). Fakkel naar Daans getallen (alfa 0,18 tot 0,32, kring 12) op de moment-tak, toets mee.
+- Na Olafs code-ja: `claude/steam-hol-moment` op main (a4bfdb6) met juice 3 en 5, conflict in `slijm.gd` opgelost, keurstap weg, lokaal 0 FOUT. Winkel-workflow gestart met `moment=hap` en `moment=val` (week, 160).
+- Duurtest 60 min: main 0,69 en moment-tak 0,73 s CPU per 10 s, geen oploop.
+- Click Joints Pro demofilm v1 gemaakt (zie `platformen/blender/logboek.md`), omdat mijn deel van de winkelbeelden op Olaf wachtte.
+- Les: Godot 4.3 Linux en Blender 5.3.0 downloaden duurt elk ±1 min in deze werkplek; de toetsen lokaal draaien is dan sneller dan op een Windows-run wachten.
