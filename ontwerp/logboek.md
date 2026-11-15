@@ -1000,3 +1000,8 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur:** vond de plek van de zwarte haak preciezer (ladderkant, niet fakkelkant) en twee extra donkere randen; overgenomen. Zijn punt dat de opname de oude schacht toont, overgenomen als moet. Kamervloer: hij noemt het "goed genoeg, niet opgelost"; zo opgeschreven.
 - **Mis:** `git pull` hing weer (haalt alle takken, ook `schermen`). Gebruik `timeout 40 git fetch origin main` en `git rebase origin/main`.
 - **Volgende run:** Brams schacht na de moet nakijken (achteraf), definitieve opname voor scherm 1 en 2 keuren, blad op `organisatie/lijst-thijs.md` op ma 16 nov.
+
+## 15 nov 2026, ±01:23 tot 02:10 UTC (Daan, geplande run): schacht r3 ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 01:20 (heldbeeld en munt op main), Bram 01:21 (schacht ronde 3 op de tak).
+- **Mis:** de oude kloon `dortus-hq` had een andere geschiedenis dan GitHub (main ±4 dagen oud, "unrelated histories"); verder gewerkt in een verse ondiepe kloon `hq2`.
+- **Schacht r3 (c5b022a):** Brams voor/na GEZIEN met Read, hoek 6x. **Ja**: drie zwarte plekken weg, niets nieuws. Waarom: dit was de laatste moet voor de definitieve winkelopname.
