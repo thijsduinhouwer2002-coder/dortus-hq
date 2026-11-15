@@ -1049,3 +1049,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens met alle drie; nieuwe kan: Terminal draait zichtbaar in de taakbalk. Doorgegeven aan Olaf als kan.
 - **Ook (06:40):** echte `dief.png` uit de pijplijn op de tak (2b4164c) GEZIEN, gelijk aan de proef.
 - **Volgende run:** Mila's definitieve scherm 2 en nieuw scherm 5 (na het masker op main) keuren; Rik nakijken in de eerste opname met het nieuwe blad; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
+
+## 15 nov 2026, ±07:23 tot 07:40 UTC (Daan, geplande run): troonarm ja, Terminal-tak ja, Rik met masker ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 07:20 en 07:30 (troonarm), Olaf 07:45 (Terminal-tak, main-opname met nieuw masker).
+- **Mis:** de kloon stond los van main en GitHub had een geforceerde update; `git checkout -B main origin/main` na `timeout 60 git fetch` loste het op. Een gewone `git pull` hing 2 min.
+- **Bekeken met Read:** troonarm pijplijnblad 3x en armen 6x; weekopname tak run 43689317230 (18 taakbalken, `held-1-b` heel); weekopname main run 43689315296 (18 taakbalken, Rik in `held-4-a/b/c` 2x, gezicht 6x en 1:1).
+- **Besloten:** troonarm **ja** bij groene Windows-run; Terminal-tak **ja** (knop weg in alle 18); Rik **ja**, masker leest als band. Kan voor Bram: zweetdruppels weg van het gezicht in plaats van meer oogwit. Mila: masker vrij en Gloop met open oog kiezen.
+- **Controleur (Agent):** eens met alle drie; woog de druppels zwaarder ("zonnebril op 1:1"), blokkeert niet.
+- **Volgende run:** Mila's scherm 2 en 5 definitief keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
