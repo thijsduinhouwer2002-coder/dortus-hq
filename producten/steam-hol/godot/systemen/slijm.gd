@@ -69,10 +69,11 @@ const BLIJ_S := 1.2
 # Leven in het spel, punt 2 (hoofdchat 15 nov): de hoed van de held die hij at vliegt in een boog van de held naar de top
 # van de toren en wiebelt daar even na. Alleen met de 3D-toren. Tijden vanaf de hap (hap_van).
 const VLUCHT_VAN := 0.35      # na de beet
-const VLUCHT_S := 0.45        # zo lang vliegt de hoed
+const VLUCHT_S := 0.5         # zo lang vliegt de hoed (Daan juice.md: boog 0,5 s, uitlopend)
 const VLUCHT_BOOG := 8.0      # zoveel spelpixels hoger dan de rechte lijn, halverwege
-const WIEBEL_S := 0.6         # zo lang wiebelt hij na op de toren
-const WIEBEL_HOEK := 0.35     # eerste uitslag in radialen (±20 graden), dooft uit
+const PLAT_S := 0.05          # bij de landing één beeld plat (90% hoog, Daan)
+const WIEBEL_S := 0.4         # zo lang wiebelt hij na op de toren: 3 slagen die uitdempen (Daan)
+const WIEBEL_GRAAD := 8.0     # eerste uitslag ±8 graden, in stapjes van 4 graden
 var knipper_tot := -10.0
 var blij_tot := -10.0
 var rng_oog := RandomNumberGenerator.new()   # eigen dobbelsteen, zodat de leven-wekker gelijk blijft
@@ -635,16 +636,22 @@ func _teken_hoed_3d(h: int, x: float, nul: float, hap: bool) -> void:
 # draai naar de toren, dan wiebelen om zijn nulpunt met een uitslag die uitdooft. Daarna gewoon op zijn plek.
 func hoed_vlucht(doel_x: float, doel_nul: float) -> Array:
 	var s := t - hoed_vlucht_van - VLUCHT_VAN
+	# [zichtbaar, x, nul, hoek, hoogte]; x en nul op hele spelpixels (Daan: geen halve pixels), hoek in stapjes
 	if s < -VLUCHT_VAN or s >= VLUCHT_S + WIEBEL_S or is_plat():
-		return [true, doel_x, doel_nul, 0.0]
+		return [true, doel_x, doel_nul, 0.0, 1.0]
 	if s < 0.0:
-		return [false, doel_x, doel_nul, 0.0]
+		return [false, doel_x, doel_nul, 0.0, 1.0]
 	if s < VLUCHT_S:
 		var f := s / VLUCHT_S
 		var g := f * (2.0 - f)   # snel weg, zacht neer
-		return [true, lerpf(hoed_van.x, doel_x, g), lerpf(hoed_van.y, doel_nul, g) - sin(f * PI) * VLUCHT_BOOG, -PI * (1.0 - g)]
-	var p := (s - VLUCHT_S) / WIEBEL_S
-	return [true, doel_x, doel_nul, WIEBEL_HOEK * (1.0 - p) * (1.0 - p) * sin(p * 3.0 * TAU / 2.0)]
+		var hoek := snappedf(-PI * (1.0 - g), PI / 8.0)
+		return [true, round(lerpf(hoed_van.x, doel_x, g)), round(lerpf(hoed_van.y, doel_nul, g) - sin(f * PI) * VLUCHT_BOOG), hoek, 1.0]
+	var w := s - VLUCHT_S
+	if w < PLAT_S:
+		return [true, doel_x, doel_nul, 0.0, 0.9]
+	var p := (w - PLAT_S) / (WIEBEL_S - PLAT_S)
+	var graad := snappedf(WIEBEL_GRAAD * (1.0 - p) * sin(p * 3.0 * PI), 4.0)
+	return [true, doel_x, doel_nul, deg_to_rad(graad), 1.0]
 
 func hoed_vliegt() -> bool:
 	var s := t - hoed_vlucht_van
@@ -743,7 +750,7 @@ func _draw() -> void:
 			if boven and hoed_vliegt():
 				var v := hoed_vlucht(float(h3[1]), float(h3[2]))   # de nieuwe hoed vliegt erop (leven in het spel, punt 2)
 				if v[0]:
-					draw_set_transform(Vector2(float(v[1]), float(v[2])), float(v[3]), Vector2.ONE)
+					draw_set_transform(Vector2(float(v[1]), float(v[2])), float(v[3]), Vector2(1.0, float(v[4])))
 					_teken_hoed_3d(int(h3[0]), 0.0, 0.0, not is_plat())
 					draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				continue

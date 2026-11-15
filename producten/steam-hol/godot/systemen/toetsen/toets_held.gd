@@ -1016,7 +1016,19 @@ func _init() -> void:
 	for i in 20:
 		gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S * i / 20.0
 		grootst = maxf(grootst, absf(float(gv.hoed_vlucht(0.0, -20.0)[3])))
-	ok(grootst > 0.1 and grootst <= gv.WIEBEL_HOEK, "hoedvlucht: wiebelt na, hooguit %.2f rad (%.2f)" % [gv.WIEBEL_HOEK, grootst])
+	ok(is_equal_approx(grootst, deg_to_rad(gv.WIEBEL_GRAAD)), "hoedvlucht: wiebelt na, eerste uitslag 8 graden (Daan) (%.1f)" % rad_to_deg(grootst))
+	var stapjes := true
+	for i in 40:
+		gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S * i / 40.0
+		var gr := rad_to_deg(float(gv.hoed_vlucht(0.0, -20.0)[3]))
+		if absf(gr - snappedf(gr, 4.0)) > 0.01:
+			stapjes = false
+	ok(stapjes, "hoedvlucht: wiebel in stapjes van 4 graden")
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + 0.02
+	ok(is_equal_approx(float(gv.hoed_vlucht(0.0, -20.0)[4]), 0.9), "hoedvlucht: bij de landing één beeld plat, 90% hoog")
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S * 0.37
+	var vh: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(is_equal_approx(float(vh[1]), round(float(vh[1]))) and is_equal_approx(float(vh[2]), round(float(vh[2]))), "hoedvlucht: op hele spelpixels (%s)" % str(vh))
 	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S + 0.01
 	var v4: Array = gv.hoed_vlucht(0.0, -20.0)
 	ok(not gv.hoed_vliegt() and v4[0] and is_equal_approx(float(v4[3]), 0.0), "hoedvlucht: daarna stil op de toren")
