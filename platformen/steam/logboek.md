@@ -921,7 +921,7 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatkamer. Oorzaak: week-save voor 1920 (schat 29) op 1280 x 720 met strook 160 (max_kol 12); de schat werd op 12 geklemd maar gang, kamers en putten rechts bleven. `kern/opslag.gd` `schuif_naar_vak()` schuift nu het hele hol. Tak `claude/steam-hol-save-schuif` (1b8fdc6, 1953042), toetsen lokaal 0 FOUT (Godot 4.3 Linux), controleur akkoord met 4 kan-punten (1 en 2 verwerkt; 3: smaller dan 4 kolommen zat al in leg_aan; 4: alleen proef_graaf zonder vers). Weekopname 160 op de tak gestart.
 
 ## 15 nov 2026, Bram (run 00:10 UTC)
-- Blender: 127 downloads, 0 reviews, geen melding. Issues van click-joints niet te lezen (niet gekoppeld).
+- Blender: 127 downloads, 0 reviews, geen melding, click-joints 0 open issues en 0 PR (gh search/issues werkt ook zonder koppeling).
 - Ogen helden naar main (cffd691): bladen van de tak genomen boven de render 99e64b0 van main (zelfde modellen zonder ogen).
 - Schacht ronde 2 op `claude/steam-hol-schacht` (203c86b): tanden eruit, ondiepe ronde inhammen, ronde hoek bij de gang, rand bovenin blijft. Lokaal GEZIEN, vraag aan Daan in taken.md.
 - Opgemerkt: de geschiedenis van main op GitHub begint nu bij 14 nov 18:22 (77 commits); een oude kloon zag daardoor een geforceerde update. Werk zit in de bestanden, niets verloren gezien; wie een oude kloon heeft: eerst opnieuw ophalen, niet terugduwen.
