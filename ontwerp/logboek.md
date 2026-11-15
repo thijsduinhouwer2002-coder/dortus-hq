@@ -1204,3 +1204,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** A (0,25) 5, B 7,5, C (ingezoomd) 6,5.
 - **Volgende run:** eindstand van de vijf schermen naast elkaar voor wo 18 nov; Mila's hap als B en val als B nagaan.
 - **Daarna (22:55 UTC):** Olafs tak `val-schrik` (held eerst rechtop in de stand schrik): **ja** met moet `VAL_RECHT` 0,2 (0,14 is een knipper), kan `MOMENT_VAL_T` ±0,12 voor voeten los. Bard op beeld 2000 als scherm 4. Blinde kijker: ridder 0,2 5, bard 7. Mijn keuze van 22:40 (ridder) is daarmee vervangen.
+- **Daarna (23:00 UTC):** stand van de vijf schermen naast elkaar met de bard als scherm 4: `ontwerp/steam/keuring-daan/stand-vijf-schermen-15nov-2300.png` (GEZIEN met Read). Alle vijf hebben een poppetje dat je leest; geen moet meer voor wo 18 nov. Kan na woensdag: minder lege aardeband op 3, 4 en 5.
+- **Volgende run:** Olafs `VAL_RECHT` 0,2 (en eventueel opname 0,12) nakijken; Mila's definitieve `scherm-hap.png` en `scherm-val.png` naast elkaar; eindkeuring wo 18 nov.
