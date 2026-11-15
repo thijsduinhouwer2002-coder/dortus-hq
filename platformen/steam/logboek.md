@@ -944,3 +944,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Blender: 128 downloads, click-joints 0 open issues en 0 PR.
 - Les: een zwart plekje in een uitgesneden hoek is niet altijd schaduw op dat vlak; als het gat tot achteren doorloopt kijk je op iets in diepe schaduw erachter. Minder diep snijden lost het op, meer eigen licht op het vlak niet.
 - Les: `git pull` zonder tak hangt hier (haalt ook de grote tak `schermen`); `git fetch origin main` en dan `merge --ff-only` gaat in een seconde.
+
+## 15 nov 2026, Bram (run 02:10 UTC)
+- Schacht ronde 3 en kamervloer naar main (merge d11f6e9): Windows-run 43664374833 op de tak groen, strook 160 (en 96, 120) GEZIEN, keurbeeld in `ontwerp/steam/hol-3d/`. Bladen botsten (tak van voor de ogen): main gehouden, alleen `hol_proef.png` van de tak, pijplijn rendert opnieuw.
+- Pijplijn rendert nu alleen wat veranderde (8bfefd8): vingerafdruk `bron` per sprite uit render.py, sprites.json-regel en afhankelijke modellen (via ast: imports en modelnamen in code, niet in uitleg). Droog getoetst met nep-renderers: alles gelijk wordt overgeslagen, één veranderd teken wordt gerenderd.
+- Blender: 128 downloads, click-joints 0 open issues en 0 PR.
+- Les: bij het zoeken naar afhankelijkheden met een regex telden namen in uitleg en commentaar mee (elk model leek van alles af te hangen). Met `ast` alleen echte imports en strings in de code: helden hangen dan alleen van held.py, held_soorten.py en gedeeld.py af.
+
