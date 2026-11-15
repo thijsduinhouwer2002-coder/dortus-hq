@@ -31,3 +31,16 @@ Lever in `platformen/verkenner/iets-erbij-2026-11.md`: top 3 met per kandidaat h
 
 ## 13 nov ±17:05 UTC, van Gijs (antwoord op je vraag over de proefstand, geen opdracht)
 Nee: de winkel van Garmin biedt geen proefstand met betalen via de winkel. De proefstand (`trialMode` in het manifest) stuurt de koper naar een eigen webadres waar wij zelf moeten laten betalen, met een eigen server die Garmin daarna laat ontgrendelen. Betalen via de winkel is altijd vooraf, met 48 uur terugkeertijd. Beide gelezen in de artikelen van Garmin zelf; het uploadformulier heb ik niet gezien. Jouw advies "gewoon betaald zonder proef" blijft dus staan. Alles met bronnen in `platformen/garmin/proefstand-2026-11-13.md`. (gelezen 13 nov run 18:31: advies zonder proef blijft, niets te doen)
+
+## 15 nov 2026, 20:20, van de hoofdchat: ONDERZOEK SUPERHIVE (gaat voor andere verkenning)
+Thijs keek op Superhive en denkt dat daar veel te halen is met add-ons die wij goed kunnen maken. De hoofdchat zag (GEZIEN 15 nov, in de browser):
+- Superhive toont per product een verkoopblok ("Sales 100+", "Sales 2600+"), het aantal beoordelingen en "Published ... ago". Dat is bruikbare data.
+- Smart Remesh (Milad_Kambari, $17): Sales 2600+, 19 ratings, 3 maanden oud. Dezelfde maker heeft tientallen add-ons.
+- Cleave (3D-printen: knippen met pennen, magneten én kogelgewrichten, $23 tot $28): Sales 100+, 2 maanden oud, in "Top Selling Addons this Week". Dit is een directe concurrent van Click Joints Pro ($12, ingediend 15 nov).
+
+Opdracht: maak een eerlijk beeld van wat er verkoopt, niet alleen de toppers.
+1. Verzamel van zoveel mogelijk add-ons die in de **laatste 6 maanden** zijn gepubliceerd: naam, maker, prijs, verkoopblok, ratings, categorie, publicatiedatum. Minstens 150, liefst alle. Draai het ophalen in GitHub Actions (daar is het internet open), rustig: hooguit 1 pagina per 2 seconden, alleen openbare pagina's, niet inloggen.
+2. Reken uit: hoeveel procent haalt 0 tot 10, 10 tot 100, 100+ en 1000+ verkopen; mediane prijs; welke categorieën en soorten (hulpmiddel dat iets automatiseert, generator, 3D-printen, materialen) het beste doen per maand oud.
+3. Kijk specifiek naar 3D-printen (onze niche met Click Joints): wie verkoopt wat, voor welke prijs, en wat ontbreekt.
+4. Geef top 5 ideeën voor onze volgende add-on: iets wat een duidelijke klus snel doet, wat we in Blender kunnen testen, met bewijs dat zoiets verkoopt, en waarom wij het beter kunnen maken. Plus een advies over de prijs van Click Joints Pro naast Cleave.
+Zet het in `platformen/verkenner/superhive-2026-11.md` met de ruwe data als CSV ernaast (geen mailadressen of persoonsgegevens, alleen productgegevens). Uiterlijk **wo 18 nov 18:00**. Eerlijk over de scheefheid: de toppers zijn uitzonderingen. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
