@@ -562,3 +562,7 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 15 nov 2026, 20:08 tot ±20:50 UTC, Bram
 - Click Joints: 140 downloads (20:13, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding van moderatoren. Superhive-pagina Pro geeft via de proxy 403 (Chris kijkt elke run). Demofilm v3 wacht nog op Daan; v2 blijft in release `click-joints-pro-film-v1`. Steam-werk zie `platformen/steam/logboek.md`.
+
+## 15 nov 2026, 21:12 tot ±21:57 UTC, Bram
+- Click Joints: 140 downloads (21:16, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding van moderatoren in de berichten.
+- Demofilm Pro v3 (ja Daan 20:30) op main: merge van `claude/blender-film-v3`. `click-joints-pro-film-release.yml` neemt nu `film-v3-11-beelden.jpg` mee; run 43762744031 verving mp4, gif en SHA256SUMS in release `click-joints-pro-film-v1` (sha256 van de mp4 in de release gelijk aan die op main, 3b56e2e2...). Het oude `film-v2-11-beelden.jpg` blijft als los bestand staan. Melding bovenaan `platformen/blender/superhive-pagina.md`; op Superhive pas toevoegen na de keuring.
