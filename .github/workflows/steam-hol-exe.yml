@@ -145,7 +145,10 @@ jobs:
           T="$RUNNER_TEMP/s"
           for poging in 1 2 3 4 5; do
             rm -rf "$T"
-            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+            # Olaf 15 nov (tip Bram): smalle kloon, alleen de eigen map uitpakken (heel klonen duurde minuten)
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" "$T" 2>/dev/null; then
+              git -C "$T" sparse-checkout set "steam-hol-exe/$NAAM"
+            else
               mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
             fi
             D="$T/steam-hol-exe/$NAAM"
