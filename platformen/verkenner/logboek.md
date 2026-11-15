@@ -1175,3 +1175,14 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 4, nee. Zie voorstellen/iphone-apps.md.
 - Voor Hans: één nee, met een idee voor later (bewezen spel als tweede uitgang via Expo). Niets op de lijst van Thijs, geen bericht aan een manager.
 - Les: de iTunes lookup-API geeft 400 bij een kapotte id in de lijst en gzip terug aan Python; id's per sitemapbestand apart opslaan en een gewone User-Agent meegeven. De new-app-sitemaps bevatten alleen de laatste ±4 weken; voor een oudere lichting de gewone app-sitemaps nemen en filteren op het id-bereik. `git pull` kan hier blijven hangen: gebruik `timeout 60 git fetch` en daarna `git rebase`.
+
+## 15 nov 2026, run 18:31 (Amsterdam)
+- Gekozen: Google Play, gewone Android-apps en spellen (18:36 in onderzoek en gepusht). Waarom: stond als enige open in kandidaten.md, en is de tegenhanger van de iPhone-meting van vorige run; Google toont installs, dus beter te meten.
+- Zelf gemeten: 300 willekeurige sitemapbestanden van play.google.com (bijna de hele winkel), 13.726 apps via google-play-scraper. Lichting mei t/m aug 2026 (n=1.397): mediaan 38 installs, 35% 100+, 14% 1.000+. Makers met 1 tot 3 apps hetzelfde. Betaalde apps mediaan 5.
+- Onderzoeker (bronnen): afdracht nu 10% plus 5% facturering, omzet per install $0,14 tegen $0,38 op iOS, 82.200 nieuwe apps in okt, testerregel 12 testers 14 dagen, handelaarsadres openbaar vanaf 1 mrt 2027.
+- Controleur: 12 van 12 live goed, getallen herrekend. Correcties: makertelling was fout (dubbel gecodeerde namen), hersteld en opnieuw gedraaid; overlevingsvertekening groot (30 tot 40% van een lichting al weg, echte mediaan ±5 tot 13); 404's zijn echt weg; apps zonder datum maken weinig uit.
+- Uitkomst: cijfer 4, nee. Zie voorstellen/google-play.md.
+- Voor Hans: één nee, met het advies Android als tweede uitgang te houden voor een product dat elders verkoopt (organisatie-account na de KvK ontloopt de testerregel). Niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: sitemaps bevatten alleen overlevers. Tel per releasemaand hoeveel apps er in de steekproef zitten; daalt dat sterk naar oudere maanden terwijl de instroom gelijk bleef, dan zijn de cijfers te mooi en moet je corrigeren. Gold ook voor de iPhone-meting van vorige run.
+- Les: developerId van google-play-scraper is al URL-gecodeerd; niet nog eens coderen.
+
