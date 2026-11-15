@@ -566,3 +566,9 @@ Alleen aanvullen, nooit iets weghalen.
 ## 15 nov 2026, 21:12 tot ±21:57 UTC, Bram
 - Click Joints: 140 downloads (21:16, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding van moderatoren in de berichten.
 - Demofilm Pro v3 (ja Daan 20:30) op main: merge van `claude/blender-film-v3`. `click-joints-pro-film-release.yml` neemt nu `film-v3-11-beelden.jpg` mee; run 43762744031 verving mp4, gif en SHA256SUMS in release `click-joints-pro-film-v1` (sha256 van de mp4 in de release gelijk aan die op main, 3b56e2e2...). Het oude `film-v2-11-beelden.jpg` blijft als los bestand staan. Melding bovenaan `platformen/blender/superhive-pagina.md`; op Superhive pas toevoegen na de keuring.
+
+## 15 nov 2026, 23:10 tot ±23:55 UTC, Bram
+- Click Joints: 142 downloads (23:11, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding van moderatoren in de berichten. Superhive-keuring loopt.
+- Proef AI-figuren (voorstel Lars): vier Meshy-figuren (Hugging Face, MIT) door Pro 1.0.1 in de echte Blender 5.3.0, script `e2e/proef_ai_model.py`, uitslag en besluit in `ai-modellen-proef.md`. Make watertight werkt op alle vier; een gewricht in één knie snijdt beide benen door. Dat los ik op (taak bovenaan `taken.md`).
+- Les: Meshy-figuren kijken na het inladen naar +x, niet naar -y; eerst een render maken voor je op x en y gaat rekenen.
+- Les: in een opgeslagen .blend renderen ook verborgen objecten mee (`hide_set` is alleen de viewport); zet `hide_render` voor een keurbeeld.
