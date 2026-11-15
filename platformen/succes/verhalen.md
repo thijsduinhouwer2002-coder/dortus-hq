@@ -1,8 +1,54 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: Milad Kambari, klaar 16 nov 2026 00:15). Volgende: maker van Cleave (3D-printen), daarna vrij.
+bezig: niets (laatste: Cleave, klaar 16 nov 2026 00:05 NL-tijd). Volgende: een kleine Garmin-maker, maar Garmin hoort bij Joris; ik kijk eerst of hij die al deed, anders CatPin of een Obsidian- of JetBrains-plugin.
 
 Nieuwste bovenaan.
+
+---
+
+## 2. Cleave (V4SS3UR, solo, één product, 3D-printen op Superhive)
+
+Onderzocht 15 nov 2026, run 1, opdracht van de hoofdchat. Waarom dit verhaal: een nieuwkomer zonder publiek, in precies onze hoek (figuren printen, gewrichten), in een drukke categorie. Onze ploeg kent Cleave al als concurrent van Click Joints (`producten/blender-gewrichten/ontwerp.md`); hier gaat het om hoe hij het aanpakte.
+
+### Bronnen
+- Productpagina, versiegeschiedenis en reviews, met curl gelezen 15 nov 2026: https://superhivemarket.com/products/cleave, https://superhivemarket.com/products/cleave/versions, https://superhivemarket.com/products/cleave/ratings
+- Zijn YouTube-filmpjes (titels via de openbare oEmbed van YouTube; kijkcijfers niet te lezen, YouTube gaf 429): kanaal https://www.youtube.com/@V4SS3UR
+- Concurrenten in dezelfde categorie, productpagina's Superhive 15 nov: catpin, split-3dprint, printsplitter, easy-print, split-it, cutandkey, print-forge, dovetail-key.
+- Geen interview, devlog of Reddit-post van de maker gevonden (zoektocht 15 nov).
+
+### Cijfers (GEZIEN 15 nov 2026, tenzij anders vermeld)
+- 100+ verkopen, 3 reviews (alle drie 5 sterren), "about 2 months ago" gepubliceerd. Versie 1.0.0 op 23 sep 2026, dus ±7,5 weken.
+- Prijs $23, plus een tweede keuze "Support the developer" van $28: dezelfde download, $5 extra "to help fund future updates". Nu een coupon van 10% voor een week.
+- De maker heeft maar 1 product in de winkel: geen eerder publiek op Superhive.
+- **12 versies in 6 weken:** 1.0.0 (23 sep), 1.1.0 (24 sep), 1.2.0 (4 okt), 1.2.1 (6 okt), 1.3.0 (10 okt), 1.4.0 (11 okt), 1.5.0 (20 okt), 1.5.1 (21 okt), 1.6.0 (28 okt, kogelgewrichten), 1.6.1 (2 nov).
+- Omzet, GOK: 100 tot 200 verkopen x $23 is $2.300 tot $4.600 bruto in 7,5 weken, voor afdracht en coupons.
+- De categorie "model splitsen voor printen" is druk: Dovetail Key (Kambari, met publiek) 800+, CatPin 400+, Split 3D Print 400+ (teller telt ook gratis downloads), Cleave 100+, Split It 10+, Easy Print 10, Printsplitter, Cut and Key en PrintForge geen blok (onder 10). Cleave is de enige nieuwkomer van de laatste 2 maanden boven de 10+.
+
+### Wat hij deed, in volgorde
+1. **Versie 1.0 met één heldere belofte:** "Too big to print? Split it." Splitsen waar het model buigt (nek, schouders, knieën), verbinders in echte millimeters, controle tegen je printer.
+2. **Daarna bijna elke week een versie**, steeds iets wat kopers vragen of nodig hebben: Make Manifold, printerlijst (120+ modellen) en 3MF-export, dowels en staafkanalen, een "Simple mode" omdat het paneel te vol werd, en op 28 okt kogelgewrichten voor beweegbare figuren. Elke versie staat met datum op de pagina, dus een koper ziet dat het product leeft.
+3. **Hij beantwoordt elke review zelf, binnen een paar dagen**, bedankt, en vraagt om Blender-versie, besturingssysteem en een voorbeeldbestand bij een crash. Op de klacht "te veel menu's" antwoordt hij dat hij eraan werkt; in 1.5.0 kwam de "Simple mode".
+4. **Uitleg op de plek waar mensen zoeken:** vier YouTube-filmpjes met titels die mensen intypen ("Cleave 01 (Beginner): Split a Model for 3D Printing in Blender", "Ball Joints for 3D Printed Figures (Blender)"). Op de pagina: "Your first split, step by step, in under four minutes."
+5. **De pagina beantwoordt de gratis vervanger:** een blok "Why not just bisect it by hand?" ("You can. ... find out the fit was wrong after a six hour print"), en een eerlijk blok wat het niet doet ("Slicing, hollowing and supports stay in your slicer").
+6. **Een eigen blok voor AI-modellen:** "Made for Meshy, Tripo and the like. Generators fuse arms, armour and props into one shell." Met een controle vooraf of het model dicht is en Make Manifold.
+
+### Drie lessen
+1. **Zichtbaar en snel bijwerken verkoopt, juist zonder publiek.** 12 versies in 6 weken, elk met datum op de pagina, en reviews die zeggen "in its early stages ... it can only get better" en "Didn't expect it to be so good yet". Een koper vergeeft ruwe randjes als hij ziet dat er elke week iets bijkomt. Dit is de tweede keer na Kambari (versie 2 na 6 dagen).
+2. **AI-modellen zijn een eigen doelgroep, en ook hier staat het op de pagina.** Na Kambari ("Tame the mess AI leaves behind") de tweede maker die er een apart blok aan wijdt. Mensen die met Meshy of Tripo een figuur maken en het willen printen, hebben precies het probleem dat splitsen en gewrichten oplost.
+3. **Elke review beantwoorden en een duurdere steunkeuze met dezelfde download.** Kost niets, maakt de pagina warmer, en de $28-keuze vangt kopers die meer willen geven. Hoeveel mensen die kiezen weet ik niet (geen cijfer, Superhive toont het niet).
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- 100+ in 7,5 weken is een nette start, geen grote treffer. CatPin haalde 400+ in 3 maanden.
+- Of hij buiten Superhive iets deed (Reddit, Discord, forums) heb ik niet gevonden. De verkoop kan ook uit de nieuwlijst en zoekfunctie van Superhive komen (GOK).
+- Zijn productpagina is lang en heel goed, met filmpjes en voor-en-na-beelden; dat is werk dat wij voor Click Joints Pro deels al deden (demofilm, `platformen/blender/superhive-pagina.md`).
+
+### Voorstel voor Dortus deze week
+**Wie:** Bram (bouwer Blender) en Chris (winkeltekst), na de goedkeuring van Click Joints Pro door Superhive.
+**Wat, drie kleine dingen die samen de les van Cleave en Kambari overnemen:**
+1. **Een vast ritme: de eerste 6 weken elke week een kleine versie** (fout weg, of één wens van een koper), met datum in de versiegeschiedenis van Superhive. Past binnen de regel van hooguit één versie per week via Thijs (besluit Hans, 9 nov 20:44).
+2. **Een blok "Made for AI-generated figures (Meshy, Tripo)"** op de Superhive-pagina, maar pas als Bram een AI-model door Click Joints Pro heeft gehaald en het werkt (eerst testen, niets beloven wat we niet zagen).
+3. **Een tweede prijskeuze "Support the developer"**, $5 boven de gewone prijs, zelfde download. Chris zet het in `commercie/`; Thijs of de hoofdchat zet het in de winkel.
+Plus: elke review binnen 2 dagen beantwoorden. Dat moet Thijs doen (bericht onder zijn naam), dus Chris zet per review een antwoord klaar op de lijst.
 
 ---
 
@@ -61,3 +107,5 @@ Superhive toont verkopen in blokken ("2600+"). Alles GEZIEN op 15 nov 2026 tenzi
 **Wie:** Bram (bouwer Blender), met een ja van Hans; Chris voor de lanceertekst.
 **Wat:** Click Joints is één schot. Maak er een reeks van voor dezelfde kopers (3D-printers die figuren maken), en kies het tweede product op de golf van AI-modellen: een add-on die een AI-model (uit Meshy, TRELLIS, Hunyuan of Image to 3D) in één klik printbaar maakt (dicht maken, wanddikte, opdelen in delen die met Click Joints scharnieren), gebouwd op een bewezen open-source motor met een vrije licentie. Bram kijkt deze week eerst 1 uur in Superhive en op extensions.blender.org of zoiets al bestaat en hoe het verkoopt (zoeken op "printable", "3D print", "AI mesh"). Of de vraag er is, is nog een GOK; de golf zelf is GEZIEN (Image to 3D 1200+ in 16 dagen, reviews die AI-modellen noemen).
 **Klein en meteen, na de goedkeuring van Click Joints Pro:** binnen een week na de lancering een versie 1.1 met de eerste wensen van kopers, en dat in de changelog zeggen. Lanceerprijs laag laten (de $9 van Chris klopt met dit verhaal) en na de eerste goede reviews verhogen, zoals Kambari van $15 naar $17.
+
+**Aanvulling na verhaal 2 (Cleave, zelfde run):** het idee "AI-model in één klik printbaar maken en opdelen" is voor een deel al bezet. Cleave heeft een blok voor Meshy en Tripo, een controle of het model dicht is en Make Manifold, en splitst in delen met verbinders en kogelgewrichten (GEZIEN). Bram zoekt dus niet of het bestaat, maar wat Cleave en de rest niet doen. Het voorstel blijft staan als richting (reeks voor dezelfde kopers), het precieze product is nog open.
