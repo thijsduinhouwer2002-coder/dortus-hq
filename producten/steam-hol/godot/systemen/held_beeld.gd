@@ -76,7 +76,11 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	if tk == "poef":
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
+	var eigen := onder
 	onder = maxi(onder, teken_onder_min(h))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
+	# Daan 15 nov 14:45 (kan): bij figuur 1,15 raakte het wolkje de grasrand. Liefst onder het maaiveld, maar hooguit
+	# 2 spelpixels lager dan zijn eigen plek, zodat het bij een held hoog op de ladder niet over zijn gezicht valt.
+	onder = maxi(onder, mini(teken_onder_gras(h), eigen + 2))
 	if teken_3d(h, tk, 0.0, float(onder)):
 		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
@@ -91,10 +95,18 @@ const TEKENS3D := "tekens"
 # zakt het teken dan iets naar zijn hoofd toe.
 const TEKEN_RAND := 1
 # Hoogste y (linkerbovenhoek van het 5x5-nootje) zodat de noot, ook de 3D-noot die 1 rij hoger begint, minstens TEKEN_RAND onder de rand blijft.
+# Daan 15 nov 14:45 (kan): de noot stak bij figuur 1,15 in het gras. Nu vervaagt hij onder het maaiveld (GRAS_RAND)
+# in plaats van onder de bovenrand van het venster; daarboven is hij al weg (zie _noot, Daan 03:50).
+const GRAS_RAND := 9   # maaiveld OPP (8, hol/hol.gd) plus 1: eerste rij aarde onder het gras
 static func noot_y_min(h) -> int:
 	if not (h is Node2D):
 		return -100000
-	return _gedeeld(TEKEN_RAND - int(floor((h as Node2D).position.y)), h) + 1
+	return _gedeeld(GRAS_RAND - int(floor((h as Node2D).position.y)), h) + 1
+# Laagste onderkant van een teken van 8 hoog met de bovenkant op de eerste rij aarde onder het gras.
+static func teken_onder_gras(h) -> int:
+	if not (h is Node2D):
+		return -100000
+	return _gedeeld(GRAS_RAND - int(floor((h as Node2D).position.y)), h) + 8
 # Eén frame uit het blad tekens met de linkerbovenhoek van zijn vak op `hoek` (spelpixels). false = geen blad of frame.
 static func teken_vak_3d(doek: CanvasItem, naam: String, hoek: Vector2, kleur := Color.WHITE) -> bool:
 	if not met_3d:
@@ -355,7 +367,7 @@ static func noot_alfa(u: float) -> float:
 # Nootje van 5 x 5 in pixels (achtste noot met vlag), tot Mila er een tekening voor heeft (tekens.png, 2 beelden).
 const NOOT_PIX := ["..##.", "..#.#", "..#..", "###..", "###.."]
 static func _noot(h, x: int, y: int, alfa: float) -> void:
-	var y_min := noot_y_min(h)   # Daan 14 nov 02:45: ook de noot minstens 1 spelpixel onder de bovenrand
+	var y_min := noot_y_min(h)   # Daan 14 nov 02:45, 15 nov 14:45: de noot blijft onder het gras
 	if y < y_min:   # Daan 03:50: wil hij hoger dan mag, dan vervaagt hij daar in 3 spelpixels in plaats van te blijven hangen
 		alfa *= clampf(1.0 - float(y_min - y) / 3.0, 0.0, 1.0)
 		y = y_min
