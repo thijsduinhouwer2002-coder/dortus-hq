@@ -1,16 +1,21 @@
 # Lessen die vaak terugkomen (Lars)
 
-Een les komt hier pas te staan als hij in 3 of meer verhalen terugkomt. Na 3 verhalen (Rusty's Retirement van Fenna, Milad Kambari en Cleave van Lars) is dat er nog geen. Hieronder de kandidaten met hoe vaak ze al voorkwamen.
+Een les komt in de hoofdlijst als hij in 3 of meer verhalen terugkomt. Stand 16 nov 2026 01:10, na 5 verhalen: Rusty's Retirement (Fenna), McGybeer (Joris), Milad Kambari, Cleave en CatPin (Lars).
+
+## Hoofdlijst (3 of meer verhalen), vaakst bovenaan
+1. **Meer dan één prijs: een steunklasse en een zakelijke licentie naast de gewone.** 4 keer. Rusty: Supporter Pack $3,99, door 11% van de kopers genomen (DERDEN). Cleave: "Support the developer" $28 naast $23, zelfde download (GEZIEN, uitname onbekend). CatPin: Supporter $40 met bedankbrief en naam op Instagram, en Business voor 5 mensen $90 naast Basic $27 (GEZIEN). McGybeer: verkooplicenties $10 tot $60 per maand voor wie prints verkoopt (GEZIEN, Joris). Voor ons: Click Joints Pro heeft Studio $45 al; een steunklasse ontbreekt nog.
+2. **Snel en zichtbaar bijwerken na de lancering, met wensen van kopers, en elke koper antwoorden.** 3 keer. Kambari: versie 2 na 6 dagen, reviews noemen dat hij snel reageerde. Cleave: 12 versies in 6 weken, elke review beantwoord. CatPin: elke review beantwoord, een gevraagde functie beloofd met datum ("next Update on September 9"), 1.0.8 binnen 2 maanden (allemaal GEZIEN of DERDEN, zie verhalen.md).
+3. **AI-modellen apart noemen op de pagina.** 3 keer. Kambari ("Tame the mess AI leaves behind"), Cleave ("Made for Meshy, Tripo and the like"), CatPin ("a great fit for dense AI-generated models"). Alle drie in de print- of 3D-hoek, alle drie GEZIEN. Voor ons pas doen als Bram een AI-model door Click Joints Pro heeft gehaald.
+4. **Schat vraag nooit uit reviews alleen.** 3 keer. Superhive 1 review op 50 tot 140 verkopen (Kambari); Steam-extra's 8 keer onderschat via reviews (Rusty); CatPin 84 reviews op Gumroad tegen 4 op Superhive, dus de verhouding verschilt ook per winkel (GEZIEN).
 
 ## Kandidaten (1 tot 2 verhalen)
-- **Snel en zichtbaar bijwerken na de lancering, met wensen van kopers.** 2 keer: Kambari (versie 2 na 6 dagen, reviews noemen het), Cleave (12 versies in 6 weken, elke review beantwoord). Bij Rusty nog niet nagekeken.
-- **Het tweede product verkoopt aan de kopers van het eerste (reeks, kruisverkoop).** 1 keer (Kambari: Image to 3D 1200+ in 16 dagen, nieuwkomers met hetzelfde idee onder 10).
-- **Reviews tellen veel minder dan de echte verkoop.** 2 keer: Superhive 1 review op 50 tot 140 verkopen (Kambari); Steam-extra's 8 keer onderschat via reviews (Rusty). Gevolg voor ons: schat nooit vraag of koopkans uit reviews alleen.
-- **Op een golf of moment lanceren.** 3 keer als je het ruim neemt: Steam-themafestival (Rusty), golf van AI-modellen (Kambari en Cleave, allebei met een apart blok voor AI-modellen op de pagina). Nog niet in de hoofdlijst omdat het bij Rusty een ander soort moment is; nog één verhaal dat het bevestigt en hij gaat erin.
-- **Een AI-modellen-blok op de pagina (Meshy, Tripo, TRELLIS).** 2 keer: Kambari, Cleave.
-- **Een extra betaalkeuze voor wie meer wil geven.** 2 keer: Supporter Pack $3,99, 11% van de kopers (Rusty, DERDEN); "Support the developer" $28 naast $23, zelfde download (Cleave, uitname onbekend).
-- **De gratis of handmatige vervanger op de pagina beantwoorden** ("Why not just bisect it by hand?"). 1 keer (Cleave).
+- **Vakbladen schrijven binnen weken over kleine add-ons zonder publiek.** 2 keer: Kambari (CG Channel na 6 dagen), CatPin (80 Level 5 okt, Digital Production 9 okt). Of de makers ze tipten is onbekend.
+- **Op een golf of moment lanceren.** Ruim genomen 3 keer (Steam-themafestival bij Rusty, golf van AI-modellen bij Kambari en Cleave), maar het zijn twee soorten moment. De AI-kant staat nu in hoofdles 3.
+- **Eerlijk zeggen wat het niet doet, en de gratis vervanger beantwoorden.** 2 keer: Cleave ("Why not just bisect it by hand?", wat het niet doet), CatPin ("Know what CatPin can handle", en "contact support before leaving a review").
+- **In twee winkels tegelijk.** 1 keer (CatPin: Superhive en Gumroad).
+- **Het tweede product verkoopt aan de kopers van het eerste (reeks).** 1 keer (Kambari).
 - **Veel schoten, door met de soort die raak is.** 1 keer (Kambari: 56 van 85 producten onder 10 verkopen).
+- **Geef kopers en makers een reden om zelf te filmen.** 1 keer (McGybeer, van Joris).
 
 ## Nieuw (van Fenna en Joris, Lars verwerkt)
 - 15 nov, Fenna (Rusty's Retirement): een Supporter Pack van $3,99 werd door 11% van de kopers genomen (36.000 stuks, DERDEN GameDiscoverCo), terwijl de verhouding DLC-reviews en spelreviews maar 1,4% gaf. Reviews onderschatten de verkoop van extra's dus ongeveer 8 keer. Verder: lanceren op een themafestival van Steam gaf een dubbele piek, en 11 talen gaven 46% kopers uit Azië. (verwerkt door Lars 16 nov: in de kandidaten reviews, moment en extra betaalkeuze)
