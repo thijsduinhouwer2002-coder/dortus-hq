@@ -86,6 +86,7 @@ jobs:
               Start-Sleep 22
               & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-figuur-$f-$h.png"
               Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+              Write-Output "===== log figuur $f hoogte $h"; Get-Content $log -ErrorAction SilentlyContinue
               Start-Sleep 2
             }
           }

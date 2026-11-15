@@ -478,13 +478,15 @@ func gloop_bult() -> Vector3i:
 	if slijm == null or hol == null or not slijm.has_method("hoogste_punt_rust"):
 		return Vector3i(-1, -1, -1)
 	var boven := vangt_y - HOL.OPP * schaal
-	var rel := float(slijm.hoogste_punt_rust()) * proef_figuur
+	var rel := float(slijm.hoogste_punt_rust())   # in Gloop-pixels; figuur=<factor> pas hieronder (controleur 15 nov)
 	# slaapt hij, dan staat de zzz 9 boven de toren, nooit hoger dan 1 onder de bovenrand (slijm.gd; controleur kan 1)
 	if "leven" in slijm and slijm.leven == "slapen" and slijm.has_method("teken_rand_y"):
 		rel = maxf(minf(rel - 9.0, -25.0), ceilf(slijm.teken_rand_y()))
+	rel *= proef_figuur
 	var top := int(floor((slijm.position.y + rel - 1.0) * schaal)) + boven
 	var x := int(hol.position.x + slijm.position.x * schaal)
-	return Vector3i(x - 11 * schaal, x + 11 * schaal, clampi(top, 0, vangt_y))
+	var halve := int(ceil(11 * schaal * proef_figuur))   # bij figuur > 1 is de toren breder
+	return Vector3i(x - halve, x + halve, clampi(top, 0, vangt_y))
 
 # hol_vast.gd heeft de bovenrand opnieuw gemeten
 func rand_veranderd() -> void:
