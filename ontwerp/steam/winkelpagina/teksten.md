@@ -45,7 +45,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > [h2]Small, quiet and fair[/h2]
 > [list]
 > [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160).
-> [*]Light on your PC: it only redraws what moves, about 10 times a second.
+> [*]Light on your PC: it only redraws when something moves, about 10 times a second.
 > [*]Silent: no sound at all, so it never talks over your call.
 > [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.
 > [*]The whole game for one price. No shop inside the game, no marketplace, nothing that makes you faster.
@@ -72,6 +72,11 @@ Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door de lucht (zie
 **Aanvulling Olaf, 14 nov 10:20 UTC (main 21fc6ea):**
 7. Kan van Daan (09:35) overgenomen: "it draws 10 frames a second, and only what moves" wordt "it only redraws what moves, about 10 times a second" (zelfde feit, gewone woorden; "about" dekt de 20 per s tijdens een moment).
 8. Correctie op mijn eigen check van 09:40: "Clicks pass straight through the sky and the grass" klopt sinds 14 nov 02:35 niet meer. Bram liet het muisvlak het 3D-gras en de plantjes meenemen (`hol_vast.gd` `rand`, `strook.gd` `muis_vlak_punten()`), anders tekende Windows ze niet. Een klik op het gras komt dus in het spel. Op 120 en 160 vult het 3D-gras de hele strook (demolijst 5), dus op de standaardhoogte gaat er geen klik meer door; alleen op 96 is er lucht (stap "Klikken door de lucht" in `steam-hol.yml`). Daarom is de zin over klikken weg. Daan of Mila: wil je hem terug, dan moet het gras op 120 eerst lucht laten, en dat is een ontwerpkeuze, geen tekstkeuze.
+
+**Aanvulling Olaf, 15 nov 11:35 UTC (main 51f4cb6, duurtest met de echte release-.exe, run 43703433905, log GEZIEN):**
+9. "it only redraws what moves" wordt "it only redraws when something moves". Reden: het hele venster wordt bij elk beeld opnieuw getekend (logboek 14 nov), dus "alleen wat beweegt" klopt niet letterlijk. Wat wel klopt en gemeten is: met een held in beeld 100 tot 108 beelden per 10 s (10 per s), zonder held 2 tot 10 beelden per 10 s (`HOL meting` in `hol.log`). Het spel tekent dus alleen als er iets beweegt.
+10. Systeemeisen: "Uses about 120 MB" wordt "about 50 to 120 MB". De 116 MB (14 nov) is gemeten vlak na de start; dezelfde echte .exe zit na 10 min op 50 MB en na 15 min op 49 MB (zelfde maat, `WorkingSet64`, in `steam-hol-exe.yml` en `steam-hol-duur.yml`). Beide getallen eerlijk, dus allebei genoemd.
+11. Ter info, niet veranderd: tag 14 "2D". Het spel is een zijaanzicht dat niet schuift, met 3D gerenderde plaatjes. Dat is in spel 2D; Mila kiest of de tag blijft.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
 Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
@@ -108,7 +113,7 @@ Alleen minimum, alleen Windows (de enige build). Engels zoals het in Steamworks 
 > Memory: 2 GB RAM
 > Graphics: OpenGL 3.3 or DirectX 11 (integrated graphics are fine)
 > Storage: 200 MB available space
-> Additional Notes: Sits above the taskbar. Uses about 120 MB of RAM while running.
+> Additional Notes: Sits above the taskbar. Uses about 50 to 120 MB of RAM while running.
 
 Waar het op steunt:
 - Engine Godot 4.3 met de Compatibility-renderer (`project.godot`: `gl_compatibility`). Godot noemt daarvoor als minimum OpenGL 3.3, een x86_64-CPU, 2 GB RAM en Windows 7 (DERDEN: docs.godotengine.org/en/4.3/about/system_requirements.html, met curl gelezen 14 nov). Windows 10 omdat Steam zelf sinds 2024 alleen nog Windows 10 en nieuwer ondersteunt (DERDEN, eigen kennis, niet opnieuw nagelezen) en omdat doorklikken en doorzichtig venster alleen op de Windows-runner (Server 2022) getoetst zijn.
