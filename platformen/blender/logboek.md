@@ -496,3 +496,12 @@ Alleen aanvullen, nooit iets weghalen.
 - 14 nov 14:10 (Bram): 113 downloads, 0 issues en 0 PR in click-joints. Wacht nog op de Superhive-makersaanvraag.
 - 14 nov 17:12 (Bram): 117 downloads. Superhive-makersaanvraag nog niet goedgekeurd (geen regel van Thijs), Pro 1.0.1 wacht. Issues in click-joints niet gelezen deze run (repo niet gekoppeld, openbare API weigerde); vorige run 0.
 - 14 nov 21:11 (Bram): 122 downloads, 0 reviews. Superhive-makersaanvraag nog niet goedgekeurd (geen regel van Thijs), Pro 1.0.1 wacht.
+
+## 15 nov 2026, 04:10 tot ±04:55 UTC, Bram
+- Click Joints: 130 downloads (04:11), 0 open issues en 0 PR in click-joints, geen melding in de berichten. Geen open berichten voor mij; Steam-ploeg heeft niets voor mij open staan.
+- Gevonden: Blender 5.3.0 staat sinds 10 nov op download.blender.org, en de Superhive-pagina beloofde "5.3 erbij zodra die uit is". 5.3.0 toegevoegd aan de testmatrix van `blender-gewrichten-e2e.yml` (tak `claude/blender-53`).
+- Run 43675776843: zip geldig (`extension validate`) en achtergrondtest groen in 5.3.0, interfacetest rood: "TABBLAD NIET GELUKT". GEZIEN in `1-paneel-x.png`: Blender 5.3 probeert eerst Vulkan, kan dat op de runner niet en zet een melding "Failed to load using Vulkan, using OpenGL instead" midden in het venster, die het wieltje op de tabbladen tegenhoudt. Geen fout in de add-on (bij een gebruiker met een videokaart komt de melding niet).
+- Oplossing: de drie interface-starts met `--gpu-backend opengl`. Run 43676633084 op 742a00a: 5.3.0 helemaal groen (alle stappen, ook Pro-zip, scharnier en winkelplaatjes 13 en 14), 4.2.23 en 5.2.3 alle teststappen groen (alleen het openbaar zetten van de schermen liep nog). GEZIEN uit 5.3.0: `1-paneel-x.png` (paneel Click Joints, geen melding), `8-winkel-x.png` (groene band, boog 20°), `13-pro-knie-x.png` (houten knie, Bends 0° to 115°).
+- Ter vergelijking nagekeken: de trage weigering "exact zelf aan" (136 s in 5.3.0) is hetzelfde gedrag als in 4.2.23 (80 s, ook geweigerd); geen nieuw probleem.
+- Op main (merge 06be70e). Superhive-pagina: Blender 4.2 LTS tot 5.3. De gratis listing hoeft niets: de manifest heeft alleen `blender_version_min = 4.2.0`, dus 5.3 valt er al onder.
+- Les: een nieuwe Blender-versie meteen in de matrix zetten; de eerste rode run zat in de runner, niet in de add-on, en dat zie je alleen op het schermbeeld.

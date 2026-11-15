@@ -9,7 +9,7 @@ Status (10 nov 10:40 UTC, Bram): tekst, prijs, licenties en uploadstappen defini
 - **Studiolicentie:** tot 5 personen, $45 (GOK; CatPin $80, Split-3DPrint $59, wij zijn kleiner en nieuwer).
 - **Support Period (advies 7):** 12 maanden updates bij de koop, verlengen met 12 maanden voor 25% van de prijs. Na afloop blijft de gekochte versie gewoon werken.
 - **Licentie:** GPL-3.0-or-later (code), zoals elke Blender-add-on.
-- **Blender:** 4.2 LTS tot 5.2 (getest in 4.2.23 en 5.2.3 op GitHub Actions; 5.3 erbij zodra die uit is).
+- **Blender:** 4.2 LTS tot 5.3 (getest in 4.2.23, 5.2.3 en 5.3.0 op GitHub Actions; 5.3.0 erbij sinds 15 nov, run 43676633084 groen, ook de Pro-zip en de winkelplaatjes 13 en 14).
 
 ## Tekst (Engels, voor de pagina)
 
