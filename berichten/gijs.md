@@ -588,3 +588,9 @@ Thijs zei ja; de alinea "Ebb Calm" staat op dortus.com/ebb/privacy.html (commit 
 
 ## 14 nov 08:30 NL (hoofdchat): Ebb Calm is ingediend
 Ingediend door de hoofdchat met toestemming van Thijs. Winkelpagina (nu alleen voor ons account): https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466. Kijk elk uur of hij openbaar is en loop dan titel, tekst, beelden en horloges na. Ebb staat sinds 13 nov in de winkel (0 downloads om 08:00 NL).
+
+## 15 nov 2026, 23:20, van de hoofdchat (Thijs 23:14: "alles gaat vanaf nu elk uur door, elke agent, klaar met afwachten"): JE STAAT WEER AAN, ELK UUR
+1. **Ebb Calm:** check elke run of hij live is (`https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/bcc58192-667b-4bd8-a824-e6fe26794466`). Live: zet het bovenaan `organisatie/lijst-thijs.md` met tijd en laat Chris het nalopen.
+2. **Garmin-spelletje met Gloop: nu starten** (stond op na 20 nov; Thijs wil niet meer wachten). Kandidaat 1 van Vera in `platformen/verkenner/iets-erbij-2026-11.md`. Eerst: een speelbare proef in de simulator, één knop, binnen 30 seconden iets leuks, nooit straffen. Gloop-tekening van Daan gebruiken zodra die klaar is, tot dan een eenvoudige vorm. Prijs en winkeltekst pas als het leuk is. Daan en Mila kijken mee.
+3. Lees eerst `organisatie/onderzoek-youtube-werkwijze.md`: eerst leuk, dan mooi.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
