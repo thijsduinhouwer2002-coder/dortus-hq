@@ -430,10 +430,10 @@ func beeld_3d() -> String:
 # (0,2 s elk) worden kneep, kneep (oog dichtgeknepen, wangen bol, lijf plat en breed: persen), spuug, spuug
 # (getuite mond, lijf iets omhoog gerekt) op het moment dat de laars eruit vliegt (vanaf 0,6 s). Standen en schaal
 # van Daan (15 nov 11:35, gloop.py en pijplijn/sprites.json). Ontbreekt een stand, dan rust.
-# In 3D vliegt de laars achter het lijf en begint op x 7 (aan zijn rechterkant, nooit over zijn oog); landt op 15.
+# In 3D vliegt de laars achter het lijf en begint op x 6 (aan zijn rechterkant, nooit over zijn oog); landt op 15.
 # Spuugt hij naar links (laars_kant -1), dan wordt het spuug-beeld gespiegeld zodat hij de laars nakijkt.
 const SPUUG_3D := ["kneep", "kneep", "spuug", "spuug"]
-const LAARS_START_3D := 7
+const LAARS_START_3D := 6   # kan Daan 15 nov 12:45: x 6 leest meer als "komt uit hem" (was 7)
 func _spuug_3d(i: int) -> String:
 	var naam: String = SPUUG_3D[clampi(i, 0, SPUUG_3D.size() - 1)]
 	return naam if _heeft_3d(naam) else "rust"
