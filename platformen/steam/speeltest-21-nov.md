@@ -13,6 +13,14 @@ Build: _volgt vr 20 nov_ (workflow `steam-hol-exe.yml` op main, zip 14 dagen bew
 
 Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
 
+## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC)
+Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
+- 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
+- 16 s: hij valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
+- ±45 s: tweede held, die ontsnapt mank. ±100 s: Gloop eet de derde held en zijn hoed gaat op de toren.
+- Na 150 s 41 goud, nog geen eerste koop; eerder op Windows gemeten: eerste koop na 211 s (demolijst 3).
+Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt pas na ±100 s; als Thijs zegt dat de eerste minuut saai is, is dat het eerste dat we naar voren halen.
+
 ## Wat je doet (15 tot 30 min)
 - Start het spel en **werk gewoon door** op je pc (mail, browser). Het hol ligt onderaan, boven de taakbalk.
 - Klik als je zin hebt: graven, een put zetten, op Gloop klikken om iets te kopen. Lees geen uitleg verder dan het briefje; wat je niet snapt, is precies wat we willen weten.
