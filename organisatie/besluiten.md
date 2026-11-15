@@ -352,3 +352,15 @@ Thijs zag `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` (winkelpl
 
 ## 15 nov 15:30: Garmin-spelletje met Gloop, na 20 nov
 Thijs: "ja laten we het doen" op het advies: kandidaat 1 van Vera (klein betaald Garmin-spelletje met Gloop, 3D-renders) bouwen, maar pas beginnen rond 20 nov, als Ebb een week in de winkel staat. Tot dan gaat alle bouwkracht naar Hats of the Fallen (werknaam Het Hol).
+
+## 15 nov 15:42: speeltest door Thijs op 4 dec
+Thijs speelt Hats of the Fallen zelf rond vr 4 dec, 15 minuten, en zegt wat saai, onduidelijk of kapot is. Staat in `platformen/steam/planning-fest-2027.md`. Aanleiding: reacties onder een TikTok over een AI-gemaakt spel ("geen spel, hooguit een techdemo"; "10 minuten testen met vrienden gaf 30 verbeterpunten").
+
+## 15 nov 15:55: leven in het spel (hoofdchat, op vraag van Thijs)
+Thijs vroeg of onze werkwijze goed genoeg is naast een AI-gemaakt 3D-spel op TikTok dat mooier oogt. Oordeel hoofdchat: de plaatjes zijn niet het gat, het gat is beweging en effecten in het spel. Bram en Olaf maken een vaste lijst van 5 effecten (munten, vallende hoed, squash and stretch, fakkellicht, stofwolk bij de val) binnen de CPU-grens, elk met een film als bewijs (`berichten/bram.md`, `berichten/olaf.md`).
+
+## 15 nov 16:20: Superhive-winkel Dortus aangemaakt
+De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf aangemaakt (akkoord voorwaarden en "Create my shop" door Thijs) en de uitbetalingen ingesteld op zijn Revolut-rekening (gegevens staan bij Thijs). Geen goedkeuring vooraf nodig: het eerste product wordt gekeurd. Bram zet Click Joints Pro 1.0.1 als release klaar; de hoofdchat uploadt het als concept en laat het Thijs zien vóór het indienen.
+
+## 15 nov 16:34: t/m woensdag extra hard werken
+- 15 nov 2026 16:34 | Thijs | **T/m woensdag 18 nov extra hard werken (A, B en C).** A: Click Joints Pro meteen op Superhive (Bram nu gestart, niet om 17:07). B: ombouw hoofdpagina dortus.com naar voren (was eind november); Abel weer aan, elk uur 07:19 tot 23:19 t/m wo 18 nov, werkt op een tak, niets op main zonder ja van Thijs. C: toets winkelbeelden Hats of the Fallen van wo 25 nov naar wo 18 nov 20:00, extra runs voor Olaf, Mila en Bram. D (Gijs aan voor het Garmin-spelletje) niet. | Thijs zet zijn wekelijkse reset nu in. dortus.com toont nog Confluence terwijl alles ernaar linkt. | Wo 18 nov: Pro te koop of in keuring, nieuwe hoofdpagina klaar voor Thijs, winkelbeelden bij Thijs.

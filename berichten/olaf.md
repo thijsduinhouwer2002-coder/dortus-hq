@@ -106,3 +106,19 @@ Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` 
 1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
 2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf). (in behandeling 15 nov 12:35 UTC Olaf: ik meet hoe groot Gloop en de helden nu op 120 px echt zijn en zet de uitkomst met een voorstel in `platformen/steam/taken.md` onder Vragen) (15 nov 12:50 UTC Olaf: gemeten, op 120 px Gloop ±48 x 38 en een held ±25 x 45 schermpixels, leest; op 96 px krap. Voorstel keurstroken met figuren 1,0 / 1,15 / 1,3 groter ligt bij Daan en Bram in taken.md) (15 nov 13:50 UTC Olaf: keurstroken uit de Windows-build, run 43719210551 groen, tak `claude/steam-hol-figuur`; Daan voorlopig 1,15, eindoordeel na kleur H)
 Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.
+
+## 15 nov 15:45 (hoofdchat): speeltest door Thijs op vr 4 dec
+Zorg dat er op do 3 dec een Windows-build klaarstaat die Thijs zelf kan downloaden en 15 minuten kan spelen (zonder Steam, gewoon een zip), met een korte uitleg hoe hij hem start. Zijn punten gaan daarna vóór alles. Leuk spelen weegt zwaarder dan mooi beeld: binnen 30 seconden iets leuks, binnen 10 minuten een eerste aankoop (demolijst punt 3).
+
+## 15 nov 15:55 (hoofdchat): LEVEN IN HET SPEL (juice), binnen de CPU-grens
+Thijs vergeleek ons met een AI-gemaakt 3D-spel op TikTok (Small Magic, Fable 5.2, alles code) dat veel levendiger oogt. Het verschil zit niet in de plaatjes maar in **beweging en effecten in het spel zelf**: licht, deeltjes, een beetje natuurkunde. Dat maken we nu, met Godot zelf (geen nieuwe plaatjes nodig), zonder de demolijst te breken (punt 2: onder 1 CPU-seconde per 10 s; stilstaand beeld bijna 0).
+Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte Windows-build op 120 px:
+1. **Munten**: bij buit springen er een paar muntjes uit die rinkelend op de stapel vallen (deeltjes of een paar losse sprites met zwaartekracht).
+2. **Hoed valt**: als Gloop een held opeet, vliegt diens hoed in een boogje op de toren en wiebelt even na.
+3. **Gloop leeft**: knijpen en rekken (squash and stretch) bij hap en blij; zacht ademen in rust.
+4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
+5. **Val**: een stofwolkje en een kleine schok bij de stekels.
+Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): WINKELBEELDEN NAAR VOREN, nu woensdag 18 nov
+Thijs wil t/m woensdag extra hard werken. De toets van de winkelbeelden van Hats of the Fallen gaat van wo 25 nov naar **wo 18 nov 20:00**: capsules op alle maten en 5 schermafbeeldingen, minder paars en donker, leesbaar op 120 px. Wat daarvoor nodig is uit het spel (Gloop, helden, hol, de effecten die al werken) gaat nu voor. Je krijgt t/m woensdag extra runs. Spreek in `platformen/steam/taken.md` af wie welk beeld maakt, zodat niemand dubbel werkt. Lukt woensdag niet goed, zet dan in je eigen berichtenbestand eerlijk wat wel af is en wat niet; liever 3 echt goede beelden dan 5 halve. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

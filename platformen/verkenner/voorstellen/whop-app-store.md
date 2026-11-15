@@ -1,0 +1,29 @@
+# Whop App Store (whop.com/apps)
+
+Onderzocht door Vera, 15 nov 2026 run 15:31 (Amsterdam). Eigen meting van alle 194 live apps via de openbare API van Whop (`api.whop.com/api/v1/apps`, werkt zonder sleutel, header `Api-Version-Date: 2026-11-14-1`) plus alle 194 app-pagina's op whop.com (reviews met datum, genoemde prijzen). Nagekeken door een controleur die alles zelf opnieuw ophaalde: alle 9 punten klopten, twee kanttekeningen (zie onder), verwerkt. Data: `data/whop-apps-api-2026-11-15.json`, `data/whop-apps-pagina-2026-11-15.json`, scripts ernaast.
+
+## Wat het is
+Whop is een groot platform waar makers betaalde communities, cursussen, abonnementen en digitale producten verkopen. Sinds juni 2025 kunnen ontwikkelaars apps bouwen die een Whop-bedrijf in zijn community zet (chat, cursussen, trading-hulpmiddelen, analyse, e-mail). Whop zegt "tens of thousands of businesses" (GEZIEN, docs.whop.com/whop-apps/what-are-whop-apps, eigen bewering). De derde partij whoptrends.com schat voor heel Whop 477.596 producten en ±$97M omzet per maand (DERDEN, whoptrends.com/blog/whop-q3-2026-platform-report, 2 okt 2026).
+
+## Cijfers
+- **Aanbod:** 194 live apps, 48 voor het bedrijf (b2b) en 146 voor de leden (b2c). 17 zijn van Whop zelf. De 177 apps van derden komen van 120 makers (GEZIEN, API). Na bijna anderhalf jaar is dat heel weinig; Whop noemt in de hulp "hundreds of apps". Daarnaast 456 "websites" die niet in de winkel staan.
+- **Bereik:** installaantallen zijn nergens openbaar, niet in de API en niet op de pagina's. De velden `businesses_created_count` en `businesses_with_recent_sales_count` staan bij alle 194 apps op 0 (GEZIEN). Wel te meten: reviews. Van de 177 apps van derden hebben er 66 minstens één review, 2 hebben er 10 of meer, **mediaan 0** (GEZIEN). De twee grootste: Content Rewards (43) en Digital Products AI (39). Content Rewards is volgens de maker zelf "built in just two weeks with the Whop team" (DERDEN, thebrettway.beehiiv.com, 1 jul 2025), dus geen gewone kleine maker.
+- **Hoe de winkel leeft (reviews per maand, alleen de 10 nieuwste per app zichtbaar, dus oude maanden te laag geteld):** aug 2025 15, sep 16, okt 23, nov 32, dec 26, jan 2026 31, feb 19, mrt 4, apr 11, mei 11, jun 9, jul 10, aug 17, sep 8, okt 8, nov (half) 3. Slechts **10 van de 194 apps** kregen een review na 15 aug 2026, waarvan 4 van Whop zelf (GEZIEN). Beeld: een start met veel aandacht in 2025, daarna stil.
+- **Drukte:** laag, 194 live in totaal. Hoeveel er per maand bijkomen is niet te zien (geen datum in de API), maar de reviewdata wijzen niet op groei.
+- **Vindbaarheid:** in de winkel binnen Whop, met tabbladen Nieuwste, Trending en Most Addicting; de eigen apps van Whop (Chat, Forums, Courses, Files) staan bovenaan bij installs (GEZIEN, volgorde `total_installs_last_30_days`). Daarnaast verkoop door makers direct te benaderen.
+- **Geld, hoe het kan (GEZIEN):** een app laat betalen via `inAppPurchase` in de iframe-SDK (docs.whop.com/developer/guides/iframe.md), dus met de gewone Whop-checkout. Geen aparte winkelafdracht gevonden; het gewone tarief is 2,7% + $0,30 per binnenlandse kaart, buitenlandse kaart +1,5%, valuta +1%, uitbetalen vanaf $2,50 (docs.whop.com/payments-and-billing/fees/fees.md, controleur, 15 nov). Dat is gunstig. Whop zelf noemt als verdienmodellen een installatieprijs ($500 tot $2.000), 10 tot 30% omzetdeel of een prijs per lid (DERDEN maar van Whop, blog 12 sep 2025).
+- **Geld, wat er gevraagd wordt:** 17 van de 194 pagina's noemen een prijs, meestal $5 tot $29 per maand, uitschieters $49 en $79 per maand of eenmalig $149 tot $297 (GEZIEN).
+- **Geld, bewijs dat kleine makers verdienen:** **niet gevonden.** In 12.304 TrustMRR-profielen (8 nov) gebruiken er 112 Whop als betaalmiddel, maar geen enkel is aantoonbaar een app uit de winkel. Het enige omzetverhaal ("$70K in 60 days" met de app Q&A, 3 reviews) komt van een maker die een cursus over Whop-apps verkoopt, zonder bewijs (controleur). Content Rewards claimt $100k per maand, eigen bewering, en is mede door Whop gebouwd.
+- **Whop als geheel (voor de volledigheid, geen apps):** volgens whoptrends verdient 7,9% van de producten iets, mediaan van wie verdient $80 per maand; bovenaan staan coaching, trading, sportweddenschappen, dropshipping en immigratiediensten (DERDEN, schattingen). Dat publiek past slecht bij Dortus.
+
+## Voor en tegen
+- Voor: open API en goede documentatie (zelfs een CLI en hosting die voor Claude bedoeld zijn), lage afdracht, betalen is ingebouwd, weinig concurrentie in de winkel, kopers zijn bedrijven die al geld verdienen.
+- Tegen: geen enkel bewijs dat makers van apps verdienen, bereik niet te meten en de reviews wijzen op weinig gebruik, de winkel is na de start van 2025 stilgevallen, de eigen apps van Whop nemen de bovenste plekken in, en het publiek van Whop is sterk gericht op trading, gokken en "snel rijk"-coaching. Voor ons merk en voor de regels van Thijs is dat een slechte buurt.
+
+## Idee (als het ooit verandert)
+Een eenvoudige b2b-app voor makers op Whop, bijvoorbeeld een overzicht van opzeggingen en mislukte betalingen. Maar daar zitten al 5 tot 6 apps (Retain, Save Queue, Rejoin, Automated Churn Recovery, DisputeIQ), allemaal met 0 tot 1 review. Dat zegt vooral dat de vraag klein is.
+
+## Advies
+**Cijfer 2. Nee.** Bereik niet aantoonbaar (geen installs, mediaan 0 reviews, winkel stil sinds begin 2026) en geld niet aantoonbaar (geen enkele kleine maker met een bewezen bedrag uit de winkel). Opnieuw kijken alleen als Whop installaantallen of uitbetalingen aan ontwikkelaars openbaar maakt, of als TrustMRR makers van Whop-apps met echte omzet laat zien.
+
+Les voor later: de API van Whop is open en geeft voor elke app reviews, categorie en maker; met `order=total_installs_last_30_days` ook de volgorde naar installs (zonder aantallen). Handig voor een herhaalmeting.

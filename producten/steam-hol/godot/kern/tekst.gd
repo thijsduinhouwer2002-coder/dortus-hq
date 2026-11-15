@@ -174,9 +174,17 @@ func hover_vak() -> Rect2:
 	return Rect2(links, top, breedte - links, hoogte - top)
 
 # Een knop in het paneel: donker vlak, gouden rand van één spelpixel, tekst in het midden. Geeft het vak terug.
-func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) -> Rect2:
-	var w := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal
+# getal (Daan 15 nov 14:45, kan): achter de tekst een muntje en dan het getal, zodat "Undo" plus muntje "+45" in een
+# blik zegt dat je goud terugkrijgt. Leeg = alleen de tekst, zoals voorheen.
+func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font, getal := "") -> Rect2:
+	var tw := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+	var mw := 0.0   # muntje plus getal
+	if getal != "":
+		mw = 2 * schaal + 5 * schaal + font.get_string_size(getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+	var w := tw + mw + 6 * schaal
 	var r := Rect2(x, y, w, h)
+	var tx := x + 3 * schaal
+	var kleur := Color("#f3e2c0")
 	if met_3d:
 		# ronde pil (Daan ronde 2): gouden rand, warm terracotta, glansstrook bovenin, zachte schaduw eronder
 		var sch := _doos("knop_schaduw")
@@ -188,15 +196,24 @@ func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) 
 		var gl := _doos("knop_glans")
 		gl.set_corner_radius_all(int(h * 0.15))
 		draw_style_box(gl, Rect2(x + 4, y + 3, w - 8, h * 0.27))
-		var tw := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
-		_tekst(font, Vector2(x + (w - tw) / 2.0, y + h / 2.0 + maat * 0.35), tekst_, -1, maat, Color("#ffe8a0"))
-		return r
-	draw_rect(r, Color("#f2c14e"))
-	draw_rect(r.grow(-schaal), Color("#5e3e33"))   # pixelterugval warm (kan 2 Daan 15 nov, was pruim 503856)
-	draw_string(font, Vector2(x + 3 * schaal, y + h / 2.0 + maat * 0.35), tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#f3e2c0"))
+		tx = x + (w - tw - mw) / 2.0
+		kleur = Color("#ffe8a0")
+		_tekst(font, Vector2(tx, y + h / 2.0 + maat * 0.35), tekst_, -1, maat, kleur)
+	else:
+		draw_rect(r, Color("#f2c14e"))
+		draw_rect(r.grow(-schaal), Color("#5e3e33"))   # pixelterugval warm (kan 2 Daan 15 nov, was pruim 503856)
+		draw_string(font, Vector2(tx, y + h / 2.0 + maat * 0.35), tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, kleur)
+	if getal != "":
+		var mx := tx + tw + 2 * schaal
+		_munt(Vector2(mx, y + h / 2.0 - 2 * schaal))
+		var gp := Vector2(mx + 5 * schaal, y + h / 2.0 + maat * 0.35)
+		if met_3d:
+			_tekst(font, gp, getal, -1, maat, kleur)
+		else:
+			draw_string(font, gp, getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, kleur)
 	return r
 
-# Het kaartje (Sanne, features.md feature 5): naam, uitleg, kost met muntje, "Buy" of "x more gold", en "Undo +45".
+# Het kaartje (Sanne, features.md feature 5): naam, uitleg, kost met muntje, "Buy" of "x more gold", en "Undo" met muntje "+45".
 # Zelfde vak als het paneel bij hover (hover_vak), dus ook op 96 px past het en vangt strook.gd daar de muis.
 func _draw_kaart() -> void:
 	var font := _letter(450)
@@ -239,7 +256,7 @@ func _draw_kaart() -> void:
 			draw_string(font, Vector2(kx + 5 * schaal + 2, ky + kh / 2.0 + maat * 0.35), grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#a8968a"))
 			kx += 5 * schaal + 2 + font.get_string_size(grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
 	if int(kaart.terug) > 0:
-		knop_undo = _knop(kx, ky, kh, "Undo  +%d" % int(kaart.terug), int(M.knop2), vet)
+		knop_undo = _knop(kx, ky, kh, "Undo", int(M.knop2), vet, "+%d" % int(kaart.terug))
 		kx = knop_undo.end.x + 4 * schaal
 	if bool(kaart.get("weg", false)):
 		knop_weg = _knop(kx, ky, kh, "Remove", int(M.knop2), vet)

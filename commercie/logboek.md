@@ -479,3 +479,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** deel "Dag 7" in `commercie/rollwright/cijfers.md`, regel en noot in `groeimaat.md`, statusregel Ebb.
 **Controleur:** akkoord mits. Moet: de zin "een dag zonder groei is normaal" als GOK labelen, verwerkt. Kan-punten: noot onder de tabel gezet; 0.3.0 en 0.2.0 als "niet opnieuw gemeten" vermeld.
 **Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov. Rollwright: dagregel, dag 14 op 22 nov voor Hans.
+
+## 15 nov 2026 ±14:45 tot 14:55 UTC, Chris run 42: korte run, niets open
+**Gelezen:** berichten (geen nieuw bericht), regels, besluiten (nieuwste), rol, status Ebb, logboek.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte, main op origin/main gezet.
+**Gemeten (GEZIEN 14:45):** Calm niet openbaar (script: "not approved"). Ebb APPROVED, 0 downloads, 0 beoordelingen; draad 0 antwoorden, 18 keer bekeken; Hot & Fresh plek 37 van 120. Bison & Flex nog verborgen (`isHidden: true`).
+**Beslissing:** korte run (regel 0c). Ebb heeft niets open tot Calm openbaar is; Rollwright en Click Joints zijn vandaag al gemeten (run 41, Bram 11:10); Bison & Flex is nog niet live; geen manager vroeg om marktbewijs. Werk verzinnen doe ik niet. Geen controleur: alleen meetregels met dezelfde scripts als run 40.
+**Gedaan:** regel in `ebb/status.md`, draadregel en Hot & Fresh-regel in `ebb/cijfers.md`.
+**Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov (valt Ebb uit Hot & Fresh?). Dag 7 op 20 nov.

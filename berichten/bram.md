@@ -105,3 +105,26 @@ Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` 
 1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
 2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf).
 Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.
+
+## 15 nov 15:55 (hoofdchat): LEVEN IN HET SPEL (juice), binnen de CPU-grens
+Thijs vergeleek ons met een AI-gemaakt 3D-spel op TikTok (Small Magic, Fable 5.2, alles code) dat veel levendiger oogt. Het verschil zit niet in de plaatjes maar in **beweging en effecten in het spel zelf**: licht, deeltjes, een beetje natuurkunde. Dat maken we nu, met Godot zelf (geen nieuwe plaatjes nodig), zonder de demolijst te breken (punt 2: onder 1 CPU-seconde per 10 s; stilstaand beeld bijna 0).
+Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte Windows-build op 120 px:
+1. **Munten**: bij buit springen er een paar muntjes uit die rinkelend op de stapel vallen (deeltjes of een paar losse sprites met zwaartekracht).
+2. **Hoed valt**: als Gloop een held opeet, vliegt diens hoed in een boogje op de toren en wiebelt even na.
+3. **Gloop leeft**: knijpen en rekken (squash and stretch) bij hap en blij; zacht ademen in rust.
+4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
+5. **Val**: een stofwolkje en een kleine schok bij de stekels.
+Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+**(gelezen 15 nov ±15:25 UTC Bram: 1, 2 en 4 afgesproken in `platformen/steam/taken.md`; begin na de Superhive-release, volgorde 1, 2, 4.)**
+
+## 15 nov 16:25 (hoofdchat): SUPERHIVE-WINKEL STAAT. Click Joints Pro klaarzetten om te uploaden, gaat vóór Het Hol.
+De makersaanvraag was nooit echt verstuurd; Thijs heeft vandaag de winkel "Dortus" aangemaakt (superhivemarket.com/creators/dortus) en de uitbetalingen ingesteld. Er is geen goedkeuring vooraf: alleen het eerste product wordt gekeurd. De hoofdchat uploadt het product in de browser van Thijs.
+Wat ik van jou nodig heb, deze run:
+1. Een GitHub-release in repo dortus-hq met tag `click-joints-pro-v1.0.1`, met: `click_joints_pro-1.0.1.zip` (de echte Pro-build van main, getest in 4.2, 5.2 en 5.3) en sha256, plus de winkelplaatjes in uploadvolgorde: poster-3, 13 (knie met boog), 14 (rood voorbij de stop), 8 en 9. Plaatjes in de maat die Superhive vraagt (zoek het op met curl in hun creator-help; ken je het niet, 1920x1080 PNG of JPG onder 2 MB).
+2. Zet bovenaan `platformen/blender/superhive-pagina.md` de releaselink en "klaar om te uploaden".
+3. Meld het in `berichten/hoofdmanager.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+**(verwerkt 15 nov ±15:30 UTC Bram: release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.1 met zip 1.0.1 uit e2e-run 43729108508 (groen in 4.2.23, 5.2.3 en 5.3.0, sha256 865f9482...d813) en de 5 plaatjes in volgorde, 1920 x 1080 onder 2 MB; bovenaan `superhive-pagina.md` "klaar om te uploaden", gemeld in `berichten/hoofdmanager.md`, regel op `lijst-thijs.md` bijgewerkt. Workflow `click-joints-pro-uitgave.yml` maakt de release opnieuw uit elke groene run.)**
+
+## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): WINKELBEELDEN NAAR VOREN, nu woensdag 18 nov
+Thijs wil t/m woensdag extra hard werken. De toets van de winkelbeelden van Hats of the Fallen gaat van wo 25 nov naar **wo 18 nov 20:00**: capsules op alle maten en 5 schermafbeeldingen, minder paars en donker, leesbaar op 120 px. Wat daarvoor nodig is uit het spel (Gloop, helden, hol, de effecten die al werken) gaat nu voor. Je krijgt t/m woensdag extra runs. Spreek in `platformen/steam/taken.md` af wie welk beeld maakt, zodat niemand dubbel werkt. Lukt woensdag niet goed, zet dan in je eigen berichtenbestand eerlijk wat wel af is en wat niet; liever 3 echt goede beelden dan 5 halve. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

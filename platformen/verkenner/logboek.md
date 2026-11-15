@@ -1139,3 +1139,18 @@ Nieuwste blok onderaan.
 - Daarna GamePix (14:53 in onderzoek en gepusht). Website achter Cloudflare (403), niet omzeild. Open uitgeversfeed (sid=1) gelezen: 15.081 spellen, geen plays. 50% voor de maker, niet exclusief. Cijfer 2, nee zonder volledige meting. Geen controleur: het oordeel hangt aan wat niet te meten is.
 - Voor Hans: twee nee's (Playgama als portal 3, GamePix 2) en één aanvulling op de Playables-proef (AI-eis van Playgama). Niets op de lijst van Thijs.
 - Les van deze run: webspelportals zijn nu genoeg gemeten (CrazyGames, Poki, Y8, GameDistribution, Playgama, GamePix, Discord Activities, Playables). Volgende run beter weer een ander soort platform, bijvoorbeeld uit de lijst vakprogramma's of hardwarewinkels; Xiaomi Theme Store staat nog open in kandidaten.md.
+
+## 15 nov 2026, run 15:31 (Amsterdam)
+- Gekozen: Whop App Store (15:35 in onderzoek en gepusht). Waarom: nooit bekeken, een echte appwinkel van een groot betaalplatform, robots.txt staat lezen toe, en de vorige run raadde een ander soort platform aan dan webspelportals.
+- Zelf gemeten: de openbare API van Whop werkt zonder sleutel en geeft alle 194 live apps (48 b2b, 146 b2c, 17 van Whop). Alle 194 app-pagina's gelezen voor reviews met datum en prijzen. Mediaan 0 reviews bij derden, 2 apps met 10+, maar 10 apps kregen een review na 15 aug. Installs nergens openbaar.
+- Geld: betalen via de gewone Whop-checkout (2,7% + $0,30), 17 apps noemen een prijs van meestal $5 tot $29 per maand. Geen bewijs van verdienende makers in TrustMRR of op het web.
+- Controleur: alle 9 punten klopten. Kanttekeningen: 120 makers bij derden (niet 124), de grootste app van derden is mede door Whop gebouwd. Verwerkt.
+- Uitkomst: cijfer 2, nee. Zie voorstellen/whop-app-store.md.
+- Voor Hans: één nee. Niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: een winkel met een open API maar zonder installcijfers is te meten via reviews met datum; kijk dan vooral naar de laatste drie maanden om te zien of de winkel nog leeft.
+- Daarna Stripe App Marketplace (in onderzoek en gepusht). Sitemap met 1.023 apps gelezen en gekoppeld aan TrustMRR: 23 namen gevonden, meest bestaande SaaS met een koppeling; kleine Stripe-tools $3 tot $343 per 30 dagen. Winkel toont geen installs of reviews en laadt alleen in de browser. Een poging om de interne endpoint van de winkel te lezen werd door de veiligheidscontrole tegengehouden; terecht, niet omzeild. Cijfer 3, nee voor nu. Geen controleur: het oordeel hangt aan wat niet te meten is.
+- Ook geschift: Iconfinder (nu Freepik, 403) en QuickBooks App Store (403).
+- Les: lees bij een winkel die in de browser wordt opgebouwd alleen wat openbaar in de HTML of een gedocumenteerde open API staat, geen interne endpoints.
+- Daarna MCP Marketplace (in onderzoek en gepusht). 62 makerpagina's gelezen: 15 betaalde tools, alle 0 installs; de rest 0 tot 3 installs. Cijfer 1, nee.
+- Voor Hans: drie nee's deze run (Whop App Store 2, Stripe App Marketplace 3, MCP Marketplace 1) en twee schiftingen (Iconfinder, QuickBooks 403). Niets op de lijst van Thijs, geen bericht aan een manager.
+- Volgende run: de bekende winkels voor bedrijfssoftware zijn nu bijna allemaal gedaan. Beter terug naar hardwarewinkels of vakprogramma's die nog openstaan, of herhaalmetingen met een datum.
