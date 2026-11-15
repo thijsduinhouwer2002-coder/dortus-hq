@@ -1088,7 +1088,7 @@ Nieuwste blok onderaan.
 
 ## 15 nov run 10:31 (Amsterdam)
 - Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. Lokale main stond weer los; vanaf origin/main gezet, geen eigen werk kwijt.
-- Eerst de vakprogramma's uit de vorige run geprobeerd: ArcGIS Marketplace bestaat niet meer (doorverwijzing naar partners). Archicad en Vectorworks alleen robots.txt gelezen, nog open.
+- Eerst de vakprogramma's uit de vorige run geprobeerd: ArcGIS Marketplace bestaat niet meer (doorverwijzing naar partners). Archicad en Vectorworks daarna snel geschift: geen winkel met kassa of teller, nee (1).
 - Gekozen: bladmuziek van kleine arrangeurs, Musicnotes Marketplace en ArrangeMe (10:36 in onderzoek en gepusht). Waarom: nooit bekeken, groot betalend publiek, notenschrift kunnen we met code maken.
 - Zelf gemeten: 222 Marketplace-pagina's van 4 tot 7 maanden oud, plus 67 over alle jaren voor de datering. ±3.500 tot 4.500 nieuwe arrangementen per maand. Reviews overal 0, ook bij officiële uitgaven, dus verkopen zijn niet te zien. Sheet Music Direct toont ook niets, Sheet Music Plus geeft 403 (niet omzeild). Helpcentrum van Musicnotes 403.
 - Commissie ArrangeMe 10% op pop-arrangementen (GEZIEN), ±$0,50 per verkoop. Kleine makers die zichtbaar verdienen halen kopers via YouTube.

@@ -47,4 +47,4 @@ Wat het zou kunnen omdraaien: verkoopcijfers per maker (bijvoorbeeld als Arrange
 
 ## Ook bekeken deze run
 - **ArcGIS Marketplace (Esri):** bestaat niet meer. Het oude adres stuurt door naar de partnerlijst van Esri (GEZIEN 15 nov). Nee (1).
-- **Archicad en Vectorworks:** alleen robots.txt gelezen, nog niet echt bekeken. Blijven open voor een volgende run.
+- **Archicad en Vectorworks:** snelle schifting, nee (1). Archicad heeft geen add-on-winkel (staat als idee op de roadmap van Graphisoft). Vectorworks toont partnerproducten in het programma, maar betalen gaat bij de maker en verkopen zijn niet zichtbaar. Zie onderzocht.md.
