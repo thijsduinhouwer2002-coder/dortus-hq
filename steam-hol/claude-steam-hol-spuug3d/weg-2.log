@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 2780, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 2780 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 2966, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 2966 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794743469
-HOL eerste koop mogelijk na 30 s speeltijd (goud 2780)
-HOL kroniek 4.1 (wacht 0.0): Mara knocks first. Polite.
-HOL begin: opgegeten (Mara)
-HOL held binnen: Mara
+HOL zaad 1794745332
+HOL eerste koop mogelijk na 30 s speeltijd (goud 2966)
+HOL kroniek 4.0 (wacht 0.0): Wout is here for your gold.
+HOL begin: opgegeten (Wout)
+HOL held binnen: Wout
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=2780, terugkomers=0
+HOL einde na 8 s, fps=10, goud=2966, terugkomers=0
