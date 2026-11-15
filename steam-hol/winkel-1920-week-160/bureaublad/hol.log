@@ -1,40 +1,43 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 48 s (klok terug: false): goud voor 1595, helden 1, erbij 1
-HOL kroniek 0.0 (wacht 0.0): Tibbe vs the Spike Pit: fled again.
-HOL opslag geladen: 1 terugkomers, 1596 goud
+HOL weg geweest 51 s (klok terug: false): goud voor 1619, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1626 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL kroniek 2.5 (wacht 2.5): 1 came, 0 fell. +1 gold.
+HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL held binnen: Lotte
-HOL kroniek 5.1 (wacht 1.1): Lotte the Sleepy shuffles in.
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL kroniek 17.5 (wacht 0.0): Lotte found the Spike Pit. Hard. +6
-HOL meting t=20 beelden=109 helden=0 hol_vast=3
-HOL kroniek 20.1 (wacht 2.6): New page: the Hero. The pit got him.
-HOL meting t=30 beelden=13 helden=0 hol_vast=3
+HOL held binnen: Rik
+HOL kroniek 5.0 (wacht 1.0): Rik signs autographs. Nobody asked.
+HOL kroniek 9.6 (wacht 0.0): Rik left gold and one boot. +6
+HOL meting t=10 beelden=76 helden=0 hol_vast=2
+HOL kroniek 12.1 (wacht 2.6): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=18 helden=0 hol_vast=3
+HOL meting t=30 beelden=12 helden=0 hol_vast=3
 HOL meting t=40 beelden=4 helden=0 hol_vast=3
-HOL meting t=50 beelden=2 helden=0 hol_vast=3
-HOL kroniek 53.0 (wacht 0.0): Bram the Thief tiptoes in.
-HOL held binnen: Bram
-HOL kroniek 58.5 (wacht 0.0): Bram fell to the Spike Pit. +6
-HOL meting t=60 beelden=97 helden=0 hol_vast=5
-HOL kroniek 61.1 (wacht 2.6): Booked: the Thief. Spikes: one.
-HOL meting t=70 beelden=4 helden=0 hol_vast=5
-HOL meting t=80 beelden=11 helden=0 hol_vast=5
-HOL meting t=90 beelden=5 helden=0 hol_vast=5
-HOL meting t=100 beelden=4 helden=0 hol_vast=5
-HOL kroniek 109.4 (wacht 0.0): Tibbe remembers the Spike Pit.
-HOL held binnen: Tibbe
-HOL meting t=110 beelden=21 helden=1 hol_vast=5
-HOL kroniek 114.9 (wacht 0.0): The Spike Pit won. Grudge settled. +9
-HOL kroniek 117.5 (wacht 2.6): New stamp for the Wizard. The pit got him.
-HOL meting t=120 beelden=82 helden=0 hol_vast=7
-HOL meting t=130 beelden=2 helden=0 hol_vast=7
-HOL meting t=140 beelden=4 helden=0 hol_vast=7
-HOL meting t=150 beelden=11 helden=0 hol_vast=7
-HOL kroniek 151.7 (wacht 0.0): Gerda casts Light. It is a candle.
+HOL kroniek 47.1 (wacht 0.0): Wout the Wizard sniffs for traps.
+HOL held binnen: Wout
+HOL meting t=50 beelden=33 helden=1 hol_vast=3
+HOL meting t=60 beelden=101 helden=1 hol_vast=3
+HOL kroniek 68.1 (wacht 0.0): Wout escaped with a limp.
+HOL meting t=70 beelden=79 helden=0 hol_vast=3
+HOL kroniek 70.7 (wacht 2.6): Booked: the Wizard. He got away.
+HOL meting t=80 beelden=12 helden=0 hol_vast=3
+HOL meting t=90 beelden=5 helden=0 hol_vast=3
+HOL kroniek 92.0 (wacht 0.0): Joost casts Light. It is a candle.
+HOL held binnen: Joost
+HOL meting t=100 beelden=87 helden=1 hol_vast=3
+HOL kroniek 105.6 (wacht 0.0): Joost stays forever. +6
+HOL kroniek 108.1 (wacht 2.6): New stamp for the Wizard. Spikes: one.
+HOL meting t=110 beelden=86 helden=0 hol_vast=5
+HOL meting t=120 beelden=11 helden=0 hol_vast=5
+HOL meting t=130 beelden=3 helden=0 hol_vast=5
+HOL meting t=141 beelden=4 helden=0 hol_vast=5
+HOL kroniek 142.4 (wacht 0.0): Lotte has a map. It is wrong.
+HOL held binnen: Lotte
+HOL kroniek 148.0 (wacht 0.0): Lotte found the Spike Pit. Hard. +6
+HOL meting t=151 beelden=91 helden=0 hol_vast=7
+HOL meting t=161 beelden=9 helden=0 hol_vast=7
+HOL meting t=171 beelden=4 helden=0 hol_vast=7
+HOL meting t=181 beelden=11 helden=0 hol_vast=7
+HOL kroniek 184.1 (wacht 0.0): Sir Gerda clanks in.
 HOL held binnen: Gerda
-HOL meting t=161 beelden=93 helden=1 hol_vast=7
-HOL meting t=171 beelden=100 helden=1 hol_vast=7
-HOL kroniek 172.7 (wacht 0.0): Gerda ran. Swore revenge.
-HOL meting t=181 beelden=27 helden=0 hol_vast=7
+HOL kroniek 189.6 (wacht 0.0): Gerda will not be leaving. +6
