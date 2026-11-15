@@ -1,56 +1,102 @@
 # Superhive: wat verkoopt er echt aan add-ons (opdracht hoofdchat 15 nov 20:20)
 
-Vera, verkenner. Uiterlijk wo 18 nov 18:00. **Stand: tweede tussenstand, run 15 nov 21:31.** De meting in GitHub Actions (run 43753540741) loopt nog: om 21:23 (Amsterdam) 820 van ±2.589 add-ons binnen, klaar rond 23:00. De top 5 en het prijsadvies hieronder zijn voorlopig, op de meting van 9 nov plus de eerste 820; de volgende run na 23:00 rekent ze na met de volle CSV en laat een controleur kijken.
+Vera, verkenner. Deadline wo 18 nov 18:00. **Stand: af, run 15 nov 22:31 (Amsterdam), nagekeken door een controleur.** Ruwe data: `data/superhive-addons-6mnd-2026-11-15.csv` (2.355 add-ons, alleen productgegevens). Uitkomst van de analyse: `data/superhive-6mnd-analyse-uitkomst-2026-11-15.txt`.
+
+## In het kort
+- **De toppers zijn uitzonderingen.** Van 2.296 betaalde add-ons uit de laatste 6 maanden haalt **80% geen 10 verkopen**, 17% 10 tot 99, 2,7% 100 tot 999 en 0,2% (5 stuks) 1000+.
+- Wie 2 tot 6 maanden de tijd krijgt doet het iets beter: 61 tot 79% onder 10, 3 tot 6% 100+.
+- **De vloed groeit:** 747 nieuwe add-ons in de laatste maand, tegen ±200 tot 400 per maand daarvoor. Eén printmaker (Hanru Croucamp) bracht er in een maand 36 uit, geen enkele haalt 10.
+- **Geld zit bij weinig makers:** de top 10 makers hebben 57% van de omzet (ondergrens), Milad Kambari alleen 14%, en in de jongste maand zelfs 47%.
+- Mediane prijs $12. Duurder verkoopt niet slechter: vanaf $15 haalt ±34 tot 44% 10+, onder $10 ±20%.
+- **3D-printen** loopt het best per add-on (van 32 betaalde van 2 tot 6 maanden: 34% 10+, 16% 100+), maar wat verkoopt is splitsen met verbinders, en die hoek is nu vol.
+- **Advies volgende add-on:** gewichten en skinning herstellen (nummer 1), zachte fysica (2). Schroefdraad en inzetstukken zakt naar plek 5: vorige maand kwamen er ±10 nieuwe bij en geen verkoopt.
+- **Click Joints Pro:** $15 is te verdedigen, maar laat de keuring op $12 doorlopen; naast Cleave neerzetten, niet ertegen. Verwachting eerlijk: 0 tot 30 verkopen in 3 maanden (GOK).
 
 ## Hoe gemeten
-- Workflow `.github/workflows/verkenner-superhive.yml` draait `data/superhive-6mnd-script.py`: de lijst van alle add-ons op datum (nieuwste eerst), daarna elke productpagina. Rustig: 1 pagina per 2 seconden, alleen openbare pagina's, niet ingelogd. Per add-on: naam, maker, prijs, verkoopblok, ratings, categorie, "Published ... ago", Blender-versie, korte beschrijving. Stopt na 40 add-ons op rij die 7 maanden of ouder zijn.
-- De CSV komt op de tak `verkenner-data` (`superhive/addons-6mnd.csv`), tussentijds elke 15 minuten. De volgende run zet hem ook hier als `data/superhive-addons-6mnd-2026-11-15.csv`.
-- Analyse: `data/superhive-6mnd-analyse.py` (verdeling 0 tot 10, 10 tot 100, 100+ en 1000+, per leeftijd, mediane prijs, per soort en per Superhive-categorie, prijsklassen, makers, 3D-printen).
-- Let op bij het lezen: Superhive toont het verkoopblok pas vanaf 10 verkopen ("10+", "100+", "2600+"). Geen blok betekent 0 tot 9. Het blok is een ondergrens, dus omzet die we eruit rekenen is ook een ondergrens. "Published" is grof (in maanden), dus leeftijd is ±een halve maand.
+- Workflow `.github/workflows/verkenner-superhive.yml` draaide `data/superhive-6mnd-script.py` in GitHub Actions (run 43753540741, 15 nov 19:38 tot 21:54 UTC): de lijst van alle add-ons op datum (nieuwste eerst), daarna elke productpagina op superhivemarket.com. Rustig: 1 pagina per 2 seconden, alleen openbare pagina's, niet ingelogd. Per add-on: naam, maker, prijs, verkoopblok, ratings, categorie, "Published ... ago", Blender-versie, korte beschrijving.
+- Analyse: `data/superhive-6mnd-analyse.py` (python3 -I, CSV als argument).
+- **Hoe je het verkoopblok leest (GEZIEN, ook door de controleur):** in de HTML staat `Sales` met `1200+` enzovoort. Superhive toont het pas vanaf 10 verkopen. Geen blok betekent 0 tot 9. Het blok is een ondergrens, dus alle omzet hieronder is een ondergrens. De prijs in de CSV is de kortingsprijs als er korting loopt, dat drukt de omzet nog iets.
+- **Leeftijd is grof:** Superhive rondt af. "about 1 month" is 30 tot 45 dagen, "6 months" ±165 tot 195 dagen. "2 tot 6 maanden" in dit stuk is dus ±45 tot 195 dagen. De meting stopt halverwege "7 months" (±6,5 maand terug).
+- **Gaten:** 12 add-ons uit de meting van 9 nov ontbreken, hoewel ze nog bestaan (±0,5%). Geen dubbele rijen, geen maand die ontbreekt, de instroom per maand komt overeen met 9 nov.
 
-## Voorproef uit de meting van 9 nov (GEZIEN, `data/superhive-nieuwe-addons-2026-11-09.jsonl`, wordt vervangen)
-Dezelfde analyse op de 2.955 add-ons van de meting van 9 nov, alles van 0 tot 6 maanden oud (2.154 betaald, 829 makers):
-- Betaald: **79,5% onder 10 verkopen**, 17,5% 10 tot 99, 2,9% 100 tot 999, 0,2% 1000+ (4 add-ons).
-- Na 2 tot 6 maanden is het iets beter: 57 tot 77% onder 10, 3 tot 6% 100+.
-- Mediane prijs $12 (kwartielen $8 en $20). Duurder verkoopt niet slechter: $15 tot $30 haalt 37 tot 41% 10+ en 9 tot 10% 100+, onder $10 maar 20 tot 23% en 0,5%.
-- Scheef: de top 10 makers hebben ±56% van alle verkopen (ondergrens in dollars). Milad Kambari alleen al 12%.
-- 3D-printen is klein maar loopt het best per add-on: van 31 betaalde add-ons van 2 tot 6 maanden haalt 16% 100+ (gemiddeld 4 tot 5%).
+## 1. Verdeling (GEZIEN, CSV 15 nov)
+Betaalde add-ons, 0 tot 6 maanden oud, n=2.296, 845 makers:
 
-## 3D-printen: Cleave naast Click Joints Pro (GEZIEN, productpagina 15 nov)
-- **Cleave** (V4SS3UR, enige product van deze maker): $23, of $28 als steunversie. Sales 100+, 3 ratings, ±2 maanden oud. Het is vooral een **splitser**: grote STL's in printbare delen knippen langs natuurlijke naden, met per naad een pen (4 profielen, ook zwaluwstaart), deuvel, staafkanaal, magneetgaten of, sinds versie 1.6, een **kogelgewricht** (één kant of dubbel, passing Resin, FDM of eigen, met een "ghost" die laat zien waar het deel heen zwaait). Verder: 120+ printers ingebouwd met "past of past niet" per deel, platen inpakken, 3MF per plaat, Exploded View en Reassemble, reparatie van AI-modellen (Meshy, Tripo). Sterk en breed product.
-- **Wat Cleave niet heeft (gelezen op de pagina):** geen bereik in graden, geen scharnier met eindstop, geen testkaartje voor de speling per printer. Precies de punten van Click Joints Pro.
-- Andere print-add-ons van de laatste 6 maanden (meting 9 nov): Dovetail Key $18 800+ (Milad Kambari), CatPin $27 400+ (nu met korting $21,60; ook Business-licentie $90), Split-3DPrint $28 400+, JointLab $65 20+, Cut Flex $34,99 10+, SPLIT IT! $12 10+, Oryx CAD $14,99 10+, en een golf van één maker (Hanru Croucamp, 6 nieuwe add-ons van $3 tot $17 in twee dagen). Splitsen met verbinders is de print-klus die verkoopt; gewrichten alleen (JointLab $65) verkoopt veel minder.
+| Leeftijd | n | 0 tot 9 | 10 tot 99 | 100 tot 999 | 1000+ |
+|---|---|---|---|---|---|
+| jonger dan 1 mnd | 744 | 93,3% | 5,9% | 0,7% | 1 |
+| ±1 mnd | 267 | 87,3% | 11,2% | 1,5% | 0 |
+| 2 mnd | 390 | 79,2% | 17,9% | 2,6% | 1 |
+| 3 mnd | 268 | 70,9% | 24,3% | 4,5% | 1 |
+| 4 mnd | 213 | 69,5% | 23,9% | 5,6% | 2 |
+| 5 mnd | 218 | 69,3% | 26,1% | 4,6% | 0 |
+| 6 mnd | 196 | 60,7% | 35,2% | 4,1% | 0 |
+| **alles** | **2.296** | **80,3%** | **16,8%** | **2,7%** | **5 (0,2%)** |
 
-## Aanzet ideeën (nog niet gewogen, uit de printmeting van 8 nov, `platformen/blender-2/data/superhive-print-2026-11-08.jsonl`, GEZIEN)
-- **Wat verkoopt in de printhoek, ook oud:** reliëf en dieptekaart (True Depth $25 6.900+ in ±2 jaar, AI Depth Modeller $25 600+, Bildeform $19,60 500+, ZForm $8 1.100+), meshreparatie (InstantClean $13 5.000+), splitsen met verbinders (zie boven), schroefdraad en tandwielen (Precision Gears $24 500+, Precision Bolts $24 200+, beide ±4 jaar oud).
-- **Wat net nieuw is en (nog) niet verkoopt:** een golf kleine printtools van oktober en november, $7 tot $19, allemaal onder 10: holle modellen met afvoergaten voor resin, lithofaan, sleutelhanger, koekjesvorm, gridfinity, miniatuurvoet, passingtest, bedmaat-splitser. Drukte in kleine printklusjes is dus hoog, met nog geen bewijs van verkoop.
-- **Groot signaal buiten printen:** Image to 3D van Milad Kambari ($18) 900+ in 9 dagen (meting 9 nov), op 15 nov 1.200+ in 16 dagen met 22 ratings (GEZIEN, productpagina). Nog na te gaan: gebruikt het een betaalde AI-dienst van buiten. Zijn reeks (Smart Remesh, Auto Unwrap, Smart Segmention, Dovetail Key) zijn allemaal "één klik doet een vervelende klus".
+- Gratis add-ons zijn zeldzaam op Superhive (19 in 6 maanden).
+- Prijs: mediaan $12, kwartielen $7,99 en $19,99.
+- Makers met maar 1 add-on in deze 6 maanden (500 van 845) doen het net zo: van hun add-ons van 2 tot 6 maanden haalt 28% 10+ en 6% 100+. Let op: een deel van hen heeft oudere add-ons en dus al een naam (bijvoorbeeld Physical Addons, Jessy Leite, Ingo Clemens).
+- Grove omzet, ondergrens: alle 2.296 samen ±$810.000 over 6 maanden, waarvan 57% bij 10 makers. Een gewone nieuwe add-on brengt in zijn eerste maanden $0 tot ±$100 op.
 
-## Eerste 820 van de nieuwe meting (GEZIEN, tussentijdse CSV op tak verkenner-data, 15 nov 21:23)
-- De eerste 820 rijen gaan maar tot ±1 maand oud: **744 betaalde add-ons in de laatste maand**, tegen 160 tot 350 per maand in mei tot september (meting 9 nov). De vloed van nieuwe add-ons gaat dus door en is nog groter dan op 9 nov.
-- Van die 744 jonge betaalde add-ons: 93,3% onder 10 verkopen, 5,9% 10 tot 99, 0,7% 100+, één 1000+ (Image to 3D, Milad Kambari, nu 1.200+). Dat is hetzelfde beeld als de jongste maand op 9 nov (93,1%).
-- Milad Kambari heeft 42% van alle verkopen (ondergrens in dollars) in deze jongste groep. Wie geen naam heeft, begint bijna altijd onder 10.
-- 3D-printen in deze maand: 36 nieuwe add-ons, waarvan 24 van één maker (Hanru Croucamp, $1 tot $139, ook bundels). Alleen Cut Flex ($34,99) haalt 10+. Alle andere, ook vier nieuwe splitsers (FigureCut, Mesh Split, Ninja Cut, Easy Slice), staan onder 10.
+**De vijf met 1000+:** Smart Remesh 2.600+ ($17), Image to 3D 1.200+ in 16 dagen ($18), Auto Unwrap 1.200+ ($18), alle drie Milad Kambari; MotionGen 1.300+ (maar $1); Physical Atmosphere² 1.000+ ($84, Physical Addons, bekende naam). Image to 3D draait plaatselijk open AI-modellen (TRELLIS.2, Hunyuan 2.1, TripoSR), geen betaalde dienst van buiten (beschrijving in de CSV).
 
-## Voorlopige top 5 ideeën voor de volgende add-on (run 21:31, nog na te rekenen)
-Lat: een duidelijke klus die snel gaat, te testen in Blender zonder scherm (geometrie meten in onze toetsen), bewijs dat zoiets verkoopt, en een reden waarom wij het beter kunnen. Bewijs uit de meting van 9 nov (`data/superhive-nieuwe-addons-2026-11-09.jsonl`) en de printmeting van 8 nov (`platformen/blender-2/data/superhive-print-2026-11-08.jsonl`), GEZIEN tenzij anders vermeld.
+## 2. Wat doet het best: prijs, soort, categorie (betaald, 2 tot 6 maanden)
 
-1. **Schroefdraad, inzetstukken en passende gaten voor printen, met speling per printer.** Klus: "dit deel moet vast met een M3-schroef of een inzetmoer" in één klik, met gaten en draad die echt passen. Bewijs: Precision Gears $24 500+ en Precision Bolts $24 200+ (beide ±4 jaar oud, zelfde maker), Quick Screws 100+ (±4 jaar). Nieuwkomers Thread Helix en Precision Holes & Inserts (Hanru) staan nog onder 10. Waarom wij: de leiders zijn oud; onze toetsen meten maten al tot op de tiende millimeter (Click Joints), en het testkaartje voor de speling is precies wat hier ontbreekt. Past bij Click Joints Pro als tweede printtool. GOK 10 tot 100 verkopen in 6 maanden.
-2. **Zachte fysica in één klik voor animatie** (wiebelen, inveren, botten die nazwaaien). Bewijs: SquishyFX $20 300+ in 3 maanden, SpringFX $20 100+, GanzoFX 100+ (alle drie Aaron Thompson), Flex $65 70+, Jiggle Studio 40+. Fysica en rigging scoren het best van alle soorten: Superhive-categorie rigging 43% 10+ en 8,1% 100+ na 2 tot 6 maanden (alle betaalde samen 30% en 4,5%). Waarom wij: past bij ons simulatorgereedschap, uitkomst is te meten (beweging per frame). Nadeel: Aaron Thompson is actief en goed.
-3. **Gewichten en skinning opknappen** (gladde gewichten, kapotte vervormingen bij knieën en ellebogen herstellen). Bewijs: Adaptive Auto Skinning $35 800+ in 4 maanden, Smooth Weights $17,99 400+, WeightForge $30 20+. Waarom wij: vervorming is in Blender zonder scherm te meten (hoek en volume per gewricht), en het sluit aan op wat we leerden over gewrichten. Nadeel: technisch zwaarder, 2 weken is krap.
-4. **Reliëf en naambordjes om te printen uit een afbeelding of tekst.** Bewijs: True Depth $25 6.900+ in ±2 jaar, zForm 1.100+, AI Depth Modeller 600+, Bildeform $19,60 500+, Bas-Relief Sculpt 300+. Nieuwe pogingen (DepthCraft AI 10+, Milad's Depth Map 20+, Lithophane Maker onder 10) komen niet ver. Gat: de leiders maken reliëf voor beeld, niet een dicht printbaar stuk met muurdikte, maximale hoogte en bedmaat. Nadeel: True Depth is sterk en Lewis Martin brengt nieuwe dingen uit (PocketCam 100+ in 26 dagen). Volgens de harde regel twijfelgeval.
-5. **Mallen maken om te gieten** (tweedelige mal met gietkanaal en luchtgaten uit elk model). Bewijs klein maar echt: Molding Gen 100+ (±3 jaar), MouldCast Studio 60+ in 8 maanden. Waarom wij: zelfde soort geometrie als splitsen en pennen (Click Joints), goed te toetsen. Nadeel: kleine markt, GOK onder 50 verkopen per jaar.
+**Prijs** (ondergrens inclusief, door de controleur hersteld):
 
-Wat ik bewust niet voorstel: nog een splitser met pennen (in 3 tot 4 maanden 4 winnaars van 400 tot 800, daarna 10 nieuwe die onder 10 blijven, en Cleave dekt bijna alles), "één klik"-hulpmiddelen voor modelleren en UV (Milad Kambari heeft dat in handen), kleine printklusjes van $9 tot $15 (Hanru Croucamp maakt er tientallen, geen enkele verkoopt), meerkleuren-3MF (4 add-ons, alle onder 10).
+| Prijs | n | 10+ | 100+ |
+|---|---|---|---|
+| $0 tot 5 | 178 | 21,9% | 0,6% |
+| $5 tot 10 | 343 | 20,4% | 1,2% |
+| $10 tot 15 | 236 | 26,7% | 4,7% |
+| $15 tot 20 | 182 | 34,1% | 6,0% |
+| $20 tot 30 | 187 | 34,2% | 8,6% |
+| $30 en meer | 159 | 44,0% | 8,2% |
 
-## Voorlopig prijsadvies Click Joints Pro naast Cleave
-- **Advies: $15 in plaats van $12.** Waarom: in de meting van 9 nov haalt $10 tot $15 na 2 tot 6 maanden 28% 10+ en 4,3% 100+, $15 tot $20 41% en 8,7% (GEZIEN). Dat is samenhang, geen bewijs dat de prijs het doet (betere add-ons vragen ook meer), maar onder $15 verkoopt niet beter. $15 blijft duidelijk onder Cleave ($23 en $28) en ver onder JointLab ($65, 20+).
-- **Niet als concurrent van Cleave neerzetten, maar ernaast:** Cleave knipt en verbindt, Click Joints Pro maakt een deel beweegbaar met een bereik in graden, een scharnier met eindstop en een testkaartje voor de speling. Die drie heeft Cleave niet (pagina 15 nov). Zin voor de pagina: "Works on parts from any splitter, including Cleave." Alleen schrijven als het getoetst is op een STL die met een splitser is geknipt.
-- Eerlijk: Click Joints Pro valt in de groep die het meest voorkomt, een nieuwe maker zonder naam in een volle hoek. Verwachting (GOK): 0 tot 30 verkopen in de eerste 3 maanden. De gratis Click Joints (138 downloads op 15 nov) is de beste weg naar kopers; zet in de gratis versie een duidelijke verwijzing naar Pro.
-- Beslissing over de prijs ligt bij Hans en Bram; dit is advies.
+Samenhang, geen bewijs dat de prijs het doet: goede add-ons vragen ook meer. Maar goedkoop helpt niet.
 
-## Nog te doen (volgende run)
-1. Volledige CSV binnenhalen en in de repo zetten, analyse draaien, cijfers hierboven vervangen.
-2. 3D-printen: lijst compleet maken met de nieuwe data (wie, prijs, verkopen per maand, wat ontbreekt).
-3. Top 5 en prijsadvies hierboven narekenen met de volle CSV (per soort na 2 tot 6 maanden, prijsklassen, de genoemde add-ons), en definitief maken.
-4. Controleur (agent) laat 10 rijen live nakijken en de analyse herrekenen.
+**Soort** (eigen indeling op titel en beschrijving, eerste treffer telt):
+
+| Soort | n | 10+ | 100+ | mediane prijs | omzet-ondergrens |
+|---|---|---|---|---|---|
+| 3D-printen | 32 | 34% | 15,6% | $18,50 | $39.000 |
+| modelleren | 173 | 36% | 5,8% | $10,50 | $96.000 |
+| generator | 346 | 28% | 5,2% | $14,99 | $267.000 |
+| animatie en rig | 197 | 35% | 4,6% | $12,99 | $129.000 |
+| materialen | 250 | 24% | 3,6% | $10 | $53.000 |
+| werkstroom en interface | 111 | 20% | 1,8% | $10 | $12.000 |
+| render, licht, camera | 156 | 26% | 1,3% | $10 | $54.000 |
+
+"Generator" bevat Milad Kambari's één-klik-hulpmiddelen; zonder hem is het gemiddeld.
+
+**Superhive-categorie:** rigging het best (99 stuks, 40% 10+, 9,1% 100+), dan modeling (370, 35%, 6,5%). Asset management het slechtst (72, 10%, 1,4%), daarna themes en video.
+
+**Wat de doorbrekers gemeen hebben** (100+ in 2 tot 6 maanden, makers met 1 of 2 add-ons in die tijd): ze doen één vervelende klus in een bekende werkstroom en tonen dat in een filmpje. Voorbeelden: Adaptive Auto Skinning $29,75 900+, CatPin $24 400+, Nitro Retopo $25 300+, Seamless CAD $14,90 300+, BWrap $29,99 200+, PaintBridge Krita $9,59 200+, Sculpt Rewind $14,50 100+, Lens Optics $29 100+, Cleave $23 100+.
+
+## 3. 3D-printen (onze niche met Click Joints)
+- 77 betaalde print-add-ons in 6 maanden, 41 makers. Per maand: 36 in de laatste maand, daarvoor 2 tot 12 per maand. **26 van de 77 zijn van Hanru Croucamp** (in totaal 39 add-ons, 36 in de laatste maand, $1 tot $139 met bundels, alle onder 10).
+- **Wat verkoopt (2 tot 6 maanden, 11 van 32 haalt 10+, 5 haalt 100+):** Dovetail Key $18 800+ (Milad Kambari), CatPin $24 400+, Split-3DPrint $22 400+, Cleave $23 100+, SDF.R $14,90 100+. Vier van die vijf zijn **splitsen met verbinders**. Daaronder: JointLab $65 20+, MeshSmith $15 20+, Rego Kit Card $24 10+, Oryx CAD $13,49 10+, FormArmorPro $49 10+, ARTICULATOR (figuur met gewrichten, $1) 30+.
+- **In de laatste ±45 dagen:** alleen Cut Flex ($34,99) en SPLIT IT! ($8,40) haalden 10+. Vier nieuwe splitsers (FigureCut, Mesh Split, Ninja Cut, Easy Slice) en ±10 add-ons voor schroefdraad, inzetstukken en gaten (Precision Holes & Inserts, Insert & Nut Pocket Maker, Thread Helix, Fastener Generator, Printwright, Knurl & Knob Maker) staan alle onder 10.
+- **Gewrichten en print-in-place:** JointLab 20+ voor $65, ARTICULATOR 30+ voor $1, LayerMechanic (controle print-in-place, $25) en Pose to Print ($18) onder 10. Er is vraag, maar klein; de meeste kopers willen eerst knippen.
+- **Cleave naast Click Joints Pro (GEZIEN, productpagina 15 nov):** Cleave (V4SS3UR, $23, steunversie $28, 100+, 3 ratings, ±2 maanden) is vooral een splitser met pennen, deuvels, magneetgaten en sinds 1.6 kogelgewrichten, plus 120+ printers, platen inpakken en 3MF. Wat Cleave niet heeft: een bereik in graden, een scharnier met eindstop en een testkaartje voor de speling. Precies wat Click Joints Pro doet.
+- **Wat ontbreekt:** een eerlijke passingstest per printer (speling meten en onthouden) die andere add-ons gebruiken; gewrichten met een vast bewegingsbereik voor figuren; mallen om te gieten (geen nieuwe in 6 maanden, oud: Molding Gen 100+, MouldCast Studio 60+). Of dat verkoopt is niet bewezen: kleine printklusjes van $9 tot $19 verkopen nu niet, door de vloed.
+
+## 4. Top 5 ideeën voor de volgende add-on
+Lat: een duidelijke klus die snel gaat, te testen in Blender zonder scherm (geometrie en vervorming meten in onze toetsen), bewijs dat zoiets verkoopt, en een reden waarom wij het beter kunnen. Volgorde is herzien met de volle meting. Overal geldt: wij zijn een nieuwe maker zonder naam, dus de onderkant is 0 tot 9 verkopen.
+
+1. **Gewichten en skinning herstellen** (kapotte vervorming bij knieën, ellebogen en schouders opsporen en glad maken, met een rapport per gewricht). Bewijs: van 28 betaalde gewicht-add-ons van 2 tot 6 maanden haalt 13 10+ (46%) en 3 100+: Adaptive Auto Skinning $29,75 900+, Smooth Weights $17,99 400+, RadFit $14,25 100+; Voxel weight transfer (Jessy Leite) 10+ in 7 dagen. Rigging is de best verkopende categorie. Waarom wij: vervorming is zonder scherm te meten (volume en hoek per gewricht in verschillende poses), dat is wat de meeste concurrenten alleen beloven. Gevaar: 20 nieuwe in de laatste maand (Meshwright, Mykola Piatkov, WeightMend), 4 daarvan al 10+. Druk maar met echte kopers. GOK 10 tot 60 verkopen in 6 maanden bij $15 tot $20.
+2. **Zachte fysica in één klik** (wiebelen, inveren, botten die nazwaaien). Bewijs: van 11 van 2 tot 6 maanden haalt 6 10+ en 2 100+ (SquishyFX $15 300+, SpringFX $15 100+, beide Aaron Thompson); Flex $64,99 70+, Marrow $26,25 30+. Waarom wij: past bij ons simulatorgereedschap, beweging per frame is te toetsen. Gevaar: Aaron Thompson is sterk en actief (ook ShapeKeyFX); 13 nieuwe in de laatste maand, nog geen 10+. GOK 0 tot 40.
+3. **Click Joints Pro uitbreiden in plaats van een nieuwe add-on:** figuur uit een rig in één klik printbaar maken met gewrichten met vast bereik (zoals ARTICULATOR en Pose to Print, maar met eindstop en speling per printer). Bewijs: klein (ARTICULATOR 30+ voor $1, JointLab 20+ voor $65). Waarom: geen nieuwe winkelpagina, gebruikt wat we al hebben, maakt Pro sterker naast Cleave. GOK een paar extra verkopen per maand, geen grote stap.
+4. **Printbaar reliëf uit een afbeelding of tekst** (dicht stuk met muurdikte, maximale hoogte en bedmaat). Bewijs: oud en sterk (True Depth $25 6.900+ in ±2 jaar, zForm 1.100+, Bildeform 500+). Nieuw doet niets: 10 nieuwe in 6 maanden, geen 10+ (Hanru's Lithophane Maker, Emboss & Deboss). Lewis Martin (True Depth) is actief. Volgens de harde regel twijfelgeval; alleen als we iets duidelijk beters hebben.
+5. **Schroefdraad, inzetstukken en passende gaten met speling per printer.** Bewijs van vraag oud (Precision Gears $24 500+, Precision Bolts $24 200+, beide ±4 jaar), maar in de laatste maand ±10 nieuwe, alle onder 10. Gezakt van 1 naar 5. Alleen zinvol als onderdeel van een groter printpakket.
+
+Afgevallen: nog een splitser (vol, Cleave dekt bijna alles); mallen (klein en geen beweging); één-klik-modelleren en UV (Milad Kambari); kleine printklusjes van $9 tot $15 (Hanru); meerkleuren-3MF (alle onder 10).
+
+## 5. Prijsadvies Click Joints Pro naast Cleave
+- **Advies: $15 is beter dan $12, maar haal Pro niet uit de keuring.** In de meting haalt $10 tot $15 na 2 tot 6 maanden 27% 10+ en 4,7% 100+, $15 tot $20 34% en 6,0% (GEZIEN, hersteld). Samenhang, geen bewijs. Voorstel: keuring op $12 laten lopen (ingediend 15 nov 19:36), en na goedkeuring naar $15 als Hans en Bram dat willen. Studio $45 laten staan.
+- **Naast Cleave, niet ertegen:** Cleave knipt en verbindt, Click Joints Pro maakt een deel beweegbaar met bereik in graden, een scharnier met eindstop en een testkaartje voor de speling. Zin voor de pagina: "Works on parts from any splitter, including Cleave." Alleen schrijven als het getoetst is op een STL die met een splitser is geknipt.
+- **Eerlijk:** Pro valt in de grootste groep: nieuwe maker zonder naam in een volle hoek. GOK 0 tot 30 verkopen in de eerste 3 maanden. De gratis Click Joints (138 downloads op 15 nov) is de beste weg naar kopers: zet in de gratis versie een duidelijke verwijzing naar Pro.
+- Beslissing over prijs en volgende add-on ligt bij Hans en Bram; dit is advies.
+
+## Controle
+Controleur (agent, 15 nov 22:10 UTC): 12 willekeurige rijen live op superhivemarket.com nagekeken, alle 12 goed (verkoopblok, ratings, maker, datum; twee prijzen zijn kortingsprijs, goed in de CSV). Verdeling en mediane prijs zelf herrekend, gelijk. Gecorrigeerd: prijsklassen (prijzen van precies $5, $10, $15 vielen in de klasse eronder, nu hersteld in het script), aandeel top 10 (57%, niet 56%), Milad in de jongste maand (47%, niet 42%), Hanru (36 in de laatste maand, niet 24), schroefdraad (±10 nieuwe, niet 24), afronding van leeftijden en de 0,5% die ontbreekt staan nu in de tekst.

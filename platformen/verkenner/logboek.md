@@ -1213,3 +1213,12 @@ Nieuwste blok onderaan.
 - Eerste 820 rijen geanalyseerd: 744 betaalde add-ons in de laatste maand (de vloed groeit), 93% onder 10, Milad Kambari 42% van de verkopen; 3D-printen 36 nieuw, 24 van Hanru Croucamp, alleen Cut Flex 10+.
 - Voorlopige top 5 geschreven op de meting van 9 nov en de printmeting van 8 nov: 1) schroefdraad en inzetstukken met speling per printer, 2) zachte fysica in één klik, 3) gewichten en skinning opknappen, 4) printbaar reliëf, 5) gietmallen. Voorlopig prijsadvies Click Joints Pro $15, naast Cleave neerzetten, niet ertegen.
 - Volgende run (na 23:00): volle CSV van tak verkenner-data naar data/superhive-addons-6mnd-2026-11-15.csv, analyse draaien, top 5 en prijsadvies narekenen, controleur (10 rijen live via Actions of de CSV, analyse herrekenen), daarna definitief en een regel aan Bram en Hans.
+
+## 15 nov 2026, run 22:31 (Amsterdam)
+- Superhive afgemaakt. In onderzoek gezet om 22:36 en gepusht. Meting in Actions (run 43753540741) klaar om 22:54: 2.355 add-ons, CSV in data/superhive-addons-6mnd-2026-11-15.csv.
+- Uitkomst: 2.296 betaalde add-ons van 6 maanden, 80,3% onder 10, 16,8% 10 tot 99, 2,7% 100 tot 999, 5 stuks 1000+. Mediaan $12. Top 10 makers 57% van de omzet-ondergrens. 747 nieuwe in de laatste maand.
+- Top 5 herzien met de volle data: schroefdraad zakt van 1 naar 5 (±10 nieuwe vorige maand, alle onder 10). Nu 1) gewichten en skinning herstellen, 2) zachte fysica, 3) Click Joints Pro uitbreiden met printbare figuren, 4) printbaar reliëf, 5) schroefdraad.
+- Controleur: 12 van 12 live goed. Correcties verwerkt: prijsklassen in het script (prijzen van precies $5, $10, $15 vielen in de klasse eronder), top 10 57%, Milad 47% in de jongste maand, Hanru 36 in een maand, afronding leeftijden, 0,5% ontbreekt.
+- Voor Hans en Bram: advies Click Joints Pro keuring op $12 laten lopen en na goedkeuring naar $15; naast Cleave neerzetten ("Works on parts from any splitter, including Cleave", pas na een toets). Volgende add-on: gewichten en skinning, als Hans dat wil. Niets op de lijst van Thijs.
+- Les: superhivemarket.com is vanaf hier wel bereikbaar met curl (superhive.com niet, proxy). De productpagina zet het verkoopblok in `product-info-label` Sales / `product-info-data`. Prijsklassen altijd met ondergrens inclusief en bovengrens exclusief.
+- Volgende run: kandidaten.md heeft geen open platform; eerst nieuwe namen zoeken of herhaalmetingen in taken.md.

@@ -75,8 +75,9 @@ for naam, g in sorted(per.items(), key=lambda x: -len(x[1]))[:15]:
     print(f'  {naam:22} n={n:4}  10+ {100*t10/n:5.1f}%  100+ {100*t100/n:5.1f}%')
 
 print('\nPrijsklassen (betaald, 2 tot 6 mnd):')
-for lo, hi in [(0.01, 5), (5.01, 10), (10.01, 15), (15.01, 20), (20.01, 30), (30.01, 1000)]:
-    g = [r for r in oud if lo <= r['p'] <= hi]
+# controleur 15 nov: ondergrens inclusief, bovengrens exclusief (een prijs van precies $15 hoort bij $15-20)
+for lo, hi in [(0, 5), (5, 10), (10, 15), (15, 20), (20, 30), (30, 100000)]:
+    g = [r for r in oud if lo <= r['p'] < hi]
     if g: print(f'  ${lo:.0f}-{hi:.0f}: n={len(g)}  10+ {100*sum(r["v"]>=10 for r in g)/len(g):.1f}%  100+ {100*sum(r["v"]>=100 for r in g)/len(g):.1f}%')
 
 print('\nMakers: aandeel van alle verkopen (ondergrens) bij de top 10 makers, betaald 0 tot 6 mnd:')
