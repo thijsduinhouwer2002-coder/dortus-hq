@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: Cleave, klaar 16 nov 2026 00:05 NL-tijd). Volgende: een kleine Garmin-maker, maar Garmin hoort bij Joris; ik kijk eerst of hij die al deed, anders CatPin of een Obsidian- of JetBrains-plugin.
+bezig: CatPin, 16 nov 2026 01:00 NL-tijd. Daarna: een Obsidian-plugin met betaalde extra's (opdracht hoofdchat 16 nov 00:05).
 
 Nieuwste bovenaan.
 
