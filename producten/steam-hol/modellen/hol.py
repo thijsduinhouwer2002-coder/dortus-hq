@@ -361,7 +361,15 @@ fakkel(5.0, 0.95, 90, gang=True)   # verder van het rustige stuk rechts, zodat d
 # Begin: fakkel laag op de linkerwand. Midden a: stut met schoren. Midden b: houweel en tonnetje. Eind: kistje.
 # Ronde 6 (Daan kan a): de vloer begint 0,2 achter de voorkant. Eerst stak hij tot y = 0 en voorbij de ronde
 # einden door, en las de voorrand als een donker plankje onder de kamer.
-blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.8, KZ - 0.6), (BREDE[1] - BREDE[0] + 1.2, 1.2, 0.06), VLOER)
+blok("kamervloer", ((BREDE[0] + BREDE[1]) / 2, 0.8, KZ - 0.6), (BREDE[1] - BREDE[0], 1.2, 0.06), VLOER)
+# Bram 15 nov (kan Daan 22:50): de vloer hield links en rechts op met een rechte lijn (een rechte plaat tegen de ronde
+# wand, van boven gezien een lijn naar achteren, dus in beeld verticaal). Nu een halve schijf aan elk eind: midden
+# diep loopt de vloer het verst door, voor en achter minder, zodat de rand meebuigt met de ronde kant.
+for _ex in (BREDE[0], BREDE[1]):
+    _vs = cil("kamervloer_eind", (_ex, 0.8, KZ - 0.606), 1.0, 0.06, VLOER, verts=48)   # net onder de plaat: geen dubbel vlak
+    _vs.scale = (0.36, 0.6, 1)
+    for _p in _vs.data.polygons:
+        _p.use_smooth = False   # cil() zet glad; op een platte schijf geeft dat zwarte vlekken
 blok("kamervloer", (LOS, 0.8, KZ - 0.6), (1.2, 1.2, 0.06), VLOER)
 fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
 STUT = g.mat("stut", "6e4632", rough=0.75)       # een tint donkerder en minder oranje dan Daans proef
