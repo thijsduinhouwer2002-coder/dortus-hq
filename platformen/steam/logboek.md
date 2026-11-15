@@ -983,3 +983,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Duurtest-paar uitgelezen: oud 0e1b840 0,542 tegen nu 863bdcb 0,593 (+9%, onder 20%). De 0,941 van de 60-min-run was de runner. Niets veranderd.
 - Moet Daan 03:45 (klok en systeemvak scherm 2) gebouwd op tak `claude/steam-hol-kladblok-klein` 3a60e6c, save schuift mee met de klok. Weekopname 160 run 43676289503 loopt.
 - Mis: de oude kloon had een main met een andere geschiedenis (Gijs, Ebb, 10 en 11 nov); origin/main is herschreven (110 commits). `git pull` bleef hangen; `git fetch` plus `git reset --hard origin/main` werkt (werkboom was schoon).
+- 04:40 UTC: weekopname op de tak run 43676696086 groen, klok 10:40 AM GEZIEN, save schoof mee (weg 53 s). Netwerk- en volume-icoon blijven (Windows 11 negeert de verberg-regels), staat als kan bij Daan. Wacht op zijn ja voor main.
