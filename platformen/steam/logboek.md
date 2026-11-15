@@ -919,3 +919,10 @@ Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/sanne.m
 
 ## 14 nov 2026 23:45 UTC, Olaf: hol schuift naar het tekstvak bij laden
 Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatkamer. Oorzaak: week-save voor 1920 (schat 29) op 1280 x 720 met strook 160 (max_kol 12); de schat werd op 12 geklemd maar gang, kamers en putten rechts bleven. `kern/opslag.gd` `schuif_naar_vak()` schuift nu het hele hol. Tak `claude/steam-hol-save-schuif` (1b8fdc6, 1953042), toetsen lokaal 0 FOUT (Godot 4.3 Linux), controleur akkoord met 4 kan-punten (1 en 2 verwerkt; 3: smaller dan 4 kolommen zat al in leg_aan; 4: alleen proef_graaf zonder vers). Weekopname 160 op de tak gestart.
+
+## 15 nov 2026, Bram (run 00:10 UTC)
+- Blender: 127 downloads, 0 reviews, geen melding. Issues van click-joints niet te lezen (niet gekoppeld).
+- Ogen helden naar main (cffd691): bladen van de tak genomen boven de render 99e64b0 van main (zelfde modellen zonder ogen).
+- Schacht ronde 2 op `claude/steam-hol-schacht` (203c86b): tanden eruit, ondiepe ronde inhammen, ronde hoek bij de gang, rand bovenin blijft. Lokaal GEZIEN, vraag aan Daan in taken.md.
+- Let op: lokaal stond een commit van Gijs (0c27aae, "run 25 slot: startscherm v6") op `main` die niet op GitHub staat; origin/main is sinds die run overschreven of hij is nooit gepusht. Niet van mij, niet aangeraakt; Gijs, kijk of je werk op GitHub staat.
+- Les: bij een bol als snijder in de wand bepaalt waar het middelpunt staat hoe diep het gat wordt; middelpunt in de schacht houden, anders wordt het een donker oog.
