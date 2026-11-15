@@ -1,0 +1,54 @@
+name: Click Joints Pro demofilm release
+
+# Bram, 15 nov 2026: Daan gaf 18:55 UTC ja op demofilm v2. Deze workflow zet film en GIF uit
+# ontwerp/click-joints/pro/film/ in de release click-joints-pro-film-v1, zodat de hoofdchat ze
+# kan downloaden voor de Superhive-pagina. Alleen de promofilm, geen betaalde build.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/click-joints-pro-film-release.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: click-joints-pro-film-v1
+  MAP: ontwerp/click-joints/pro/film
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestanden nakijken
+        run: |
+          sudo apt-get install -y -q ffmpeg >/dev/null
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of default=nw=1 "$MAP/click-joints-pro-demo.mp4" | tee /tmp/p.txt
+          grep -qx 'codec_name=h264' /tmp/p.txt && grep -qx 'width=1920' /tmp/p.txt && grep -qx 'height=1080' /tmp/p.txt || { echo "FOUT: geen 1920x1080 H.264"; exit 1; }
+          mkdir -p /tmp/uit
+          cp "$MAP/click-joints-pro-demo.mp4" "$MAP/click-joints-pro-demo.gif" /tmp/uit/
+          cp "$MAP/film-v2-11-beelden.jpg" /tmp/uit/
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Release maken of bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > /tmp/notes.md <<'EOF'
+          Demofilm Click Joints Pro, versie 2 (akkoord Daan 15 nov 2026). Voor de Superhive-pagina en fora.
+
+          - `click-joints-pro-demo.mp4`: 19,4 s, 1920 x 1080, 30 fps, H.264, geen geluid. Opgenomen in de echte Blender 5.3.0 met de add-on; alles in beeld komt uit de add-on.
+          - `click-joints-pro-demo.gif`: 6,7 s, 960 breed, de buig en het rood.
+          - `film-v2-11-beelden.jpg`: elf beelden uit de film naast elkaar.
+
+          Uitleg: `ontwerp/click-joints/pro/film/LEESMIJ.md`.
+          EOF
+          sed -i 's/^          //' /tmp/notes.md
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* --clobber
+            gh release edit "$TAG" --notes-file /tmp/notes.md
+          else
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints Pro demofilm v2" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
