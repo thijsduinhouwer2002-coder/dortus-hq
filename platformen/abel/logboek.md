@@ -141,3 +141,6 @@ Alleen aanvullen, nooit weghalen.
 - Hoofdpagina staat live (ja Thijs 22:42, bericht ONLINE in berichten/abel.md). Nieuwe taak tot wo 18 nov: kaart erbij zodra Ebb Calm of Click Joints Pro live is.
 - Fout in mijn eerdere checks: ik keek naar "not approved" op een pagina, maar Calm heeft in de winkel een eigen id. Goede manier (uit `platformen/garmin/taken.md`): de lijst van de ontwikkelaar in de Garmin-API tellen. Nu: 1 app (alleen Ebb), dus Calm nog niet live. Pro: geen melding van de hoofdchat dat hij live is.
 - Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Niets te doen; afgesloten na 5 minuten.
+
+## Run 16, 16 nov 2026 ±00:25 NL
+- Niets nieuws voor mij: geen bericht na ONLINE, geen besluit voor mij. Ebb Calm nog niet live (Garmin-API, lijst van de ontwikkelaar: 1 app). Click Joints Pro: geen melding dat hij te koop is. Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Afgesloten na 5 minuten.
