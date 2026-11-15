@@ -17,6 +17,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **ma 30 nov** | **Winkelpagina klaar**: tekst, tags (Desktop Companion, Idler eerst), beelden, prijs. Thijs zegt ja. | Thijs |
 | **di 1 dec** | Thijs dient de winkelpagina in bij Steam (hij klikt zelf). | |
 | **±8 dec** | Pagina live als "binnenkort", verlanglijsten beginnen. | |
+| **vr 4 dec** | **Speeltest door Thijs**: een speelbare Windows-build die hij zelf 15 minuten speelt. Hij zegt wat saai, onduidelijk of kapot is; dat gaat vóór alles. Les uit TikTok-reacties (15 nov): echte spelers vinden in 10 minuten tientallen punten die agents missen. | Thijs |
 | **vr 18 dec** | **Demo af** volgens de vaste lijst hieronder. Thijs speelt hem zelf 15 minuten en zegt ja. | Thijs |
 | **ma 21 dec** | Thijs dient de demo in (3 weken vóór het fest, met de feestdagen ertussen). | |
 | **8 jan** | Eigen bericht met de asset kit van Valve. | |

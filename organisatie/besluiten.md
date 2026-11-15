@@ -352,3 +352,6 @@ Thijs zag `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` (winkelpl
 
 ## 15 nov 15:30: Garmin-spelletje met Gloop, na 20 nov
 Thijs: "ja laten we het doen" op het advies: kandidaat 1 van Vera (klein betaald Garmin-spelletje met Gloop, 3D-renders) bouwen, maar pas beginnen rond 20 nov, als Ebb een week in de winkel staat. Tot dan gaat alle bouwkracht naar Hats of the Fallen (werknaam Het Hol).
+
+## 15 nov 15:42: speeltest door Thijs op 4 dec
+Thijs speelt Hats of the Fallen zelf rond vr 4 dec, 15 minuten, en zegt wat saai, onduidelijk of kapot is. Staat in `platformen/steam/planning-fest-2027.md`. Aanleiding: reacties onder een TikTok over een AI-gemaakt spel ("geen spel, hooguit een techdemo"; "10 minuten testen met vrienden gaf 30 verbeterpunten").
