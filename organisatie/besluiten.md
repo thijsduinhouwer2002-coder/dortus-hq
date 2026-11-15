@@ -373,3 +373,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 15 nov 19:52: betaalde zip niet meer openbaar op GitHub
 - 15 nov 2026 19:52 | Thijs | **Zodra Click Joints Pro live staat op Superhive, gaat het downloadbestand `click_joints_pro-1.0.1.zip` uit de openbare release `click-joints-pro-v1.0.1` weg** (de hoofdchat doet het). De broncode blijft staan (GPL). Voortaan komen betaalde builds niet meer als download in een openbare release. | Nu kan iedereen Pro gratis downloaden van GitHub. | Niets; GPL staat delen toe, maar wij geven de kant-en-klare download niet zelf weg.
+
+## 15 nov 22:42: nieuwe hoofdpagina dortus.com online
+- 15 nov 2026 22:42 | Thijs | **Nieuwe hoofdpagina van Abel online** (tak naar main 22:48, commit 43bbd8c in repo dortus). Geen Confluence-hoofdpagina meer; de oude apps staan onder "Earlier". | Alles linkt naar dortus.com; de oude pagina toonde een ander bedrijf. | Fout gezien: melden, dan herstellen op een tak.

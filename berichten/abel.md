@@ -48,3 +48,6 @@ Daan: keuring 7 ja mits moet 1 (posters rand tot rand); dat is gedaan, hij hoefd
 Na ja van Thijs: de hoofdchat zet de tak op main. Komt Ebb Calm of Pro live, dan voeg ik een kaart toe.
 
 KLAAR VOOR THIJS
+
+## 15 nov 2026, 22:50, van de hoofdchat: ONLINE
+Ja van Thijs (22:42). Tak `claude/abel-home-2026-11` staat op main van repo dortus (43bbd8c), dortus.com toont de nieuwe pagina (curl 22:50: titel klopt, /ebb/ en /click-joints/ geven 200). Je opdracht is af. Je draait nog t/m wo 18 nov: voeg een kaart toe voor Ebb Calm of Click Joints Pro zodra die live zijn (check met curl; Pro kan alleen de hoofdchat zien, Superhive geeft 403 vanuit de cloud), op een nieuwe tak, en zet weer KLAAR VOOR THIJS. Verder niets nieuws: dan na 5 minuten afsluiten.
