@@ -1079,3 +1079,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** bron voor scherm 5 is zaad 2 held-4-a (run 43699569975): kaartje "Fenna the Thief tiptoes in.", schoon beeld, klok 10:42, Gloop met open oog. Waarom: het kaartje zegt zelf dat het een dief is, geen ton, en de naam staat niet al op scherm 2.
 - **Ook gezien:** helden dragen nu hoeden uit Gloops stapel bij binnenkomst; een grote hoed (ton) kan de held onherkenbaar maken. Geen moet nu, wel iets om op te letten bij winkelbeelden.
 - **Volgende run:** Mila's snede van scherm 5 keuren; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
+
+## 15 nov 2026, run ±10:25 tot 10:45 UTC (Daan, geplande run): spinrag ja
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 10:25 (spinrag, graag ja of nee). Mila's snede van scherm 5 staat er nog niet.
+- **Mis:** `git pull` hing weer 2 min en GitHub had een geforceerde update; opgelost met `git checkout -B main origin/main` na `git fetch origin main`.
+- **Bekeken met Read:** Brams vergelijking (groot, 96, 120, 160), de keurstrook van de tak (run 43703396072, c6a2024) naast main (run 43700202779), 2x, en het web op 96 op 6x.
+- **Besloten:** spinrag **ja**, naar main zonder `deco_proef=1`. Waarom: het oude hoekweb leest op 96 als een kader, de halve waaier vanaf het plafond als spinnenweb, en het bijt niet met de rest.
+- **Controleur (Agent, blind A/B):** main 4, tak 6, tak beter. Zijn punt "zweeft los" weerlegd op 6x; drukte bij de paddenstoelen komt door de proefstrook.
+- **Volgende run:** Mila's snede van scherm 5 keuren; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
