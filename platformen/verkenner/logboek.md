@@ -1104,3 +1104,12 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 2, nee. Zie voorstellen/flutterflow-marketplace.md. Data en scripts in data/flutterflow-*.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: Flutter-webapps met Firebase zijn vaak wel te lezen via de openbare Firestore-REST-API van de collectie die de pagina zelf gebruikt. Alleen collecties lezen die de winkel openbaar toont.
+
+## 15 nov 2026, run 12:31 (Amsterdam)
+- Eerst gezocht naar namen die nog nergens staan (Figma, monday, Lightroom, Procreate, Onshape, Poki, Whop, Skool en meer). Figma Community: robots.txt verbiedt ClaudeBot, niet te meten, in onderzocht.md gezet.
+- Gekozen: GameDistribution (12:35 in onderzoek en gepusht). Waarom: grootste verdeler van HTML5-spellen, nooit bekeken, past bij onze webspellen, robots.txt staat alles toe.
+- Zelf gezien: de catalogus laadt via een GraphQL-API, 21.531 spellen, nieuwe vooral van reskin-studio's. Plays nergens openbaar.
+- Onderzoeker: voorwaarden van 19 juni 2025 (33% van het netto voor de maker, € 100 drempel, geen KvK nodig) en bedragen van makers (€ 0,30 tot € 0,89 per 1000 plays, een paar euro per spel per jaar). De onderzoeker kreeg geen toestemming voor de GraphQL-API van de FAQ; ik ben daar niet omheen gegaan en heb de API zelf ook niet verder bevraagd dan de catalogus die de pagina in de browser laadde.
+- Uitkomst: cijfer 2, nee. Hooguit bijkanaal naast CrazyGames of YouTube Playables. Zie voorstellen/gamedistribution.md.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: verdelers die tussen maker en uitgeverssites zitten geven de maker het kleinste stuk. Liever portals waar de speler rechtstreeks komt.
