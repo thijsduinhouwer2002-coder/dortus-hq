@@ -544,3 +544,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Drie rondes lokaal, elke keer GEZIEN met Read: (1) been te klein en de kogelscène kwam in de volle Blender-interface (tweede `screen_full_area` zet het volle scherm weer uit); (2) goed, maar de kogel op afstand 40 toonde het hoofd van de pop ervoor; (3) afstand 28, goed genoeg voor Daan.
 - Les: de pose-schuif mag in een film nooit boven `cj_bereik_graden` komen (115,0 tegen 114,96 is al voorbij de stop); afronden naar beneden.
 - Les: bij een nieuwe opname de hele voorkeurenmap weggooien, niet alleen de extensiemap; anders denkt Blender dat de add-on al aan staat en laadt hij hem niet.
+
+## 15 nov 2026, 18:10 tot ±18:55 UTC, Bram
+- Click Joints: 139 downloads (18:28, meet_downloads.sh), 0 open issues en 0 open PR in click-joints, geen melding van moderatoren.
+- Demofilm Pro v2 na Daans nee (17:45, vier moet-punten): `film_pro.py` opent met de knie die buigt (deel `haak`), thema-verloop als achtergrond, camera afstand 100 en hoogte 8°, rood 7° voorbij met 1,5 s stil, kogel in hetzelfde been. `maak_film.sh`: vergrote knop bij Place hinge, eindbeeld met poster 3. Workflow eist nu ook `FILM OK haak`.
+- Drie proefrondes met `FILM_SNEL=8` (alleen elk 8e beeld, ±3,5 min), elke keer GEZIEN met Read: afstand 58 veel te dichtbij (been liep uit beeld), 82 nog te groot, 100 geeft ±60%. Daarna de volle opname (491 beelden) en de film, 11 beelden GEZIEN.
+- Les: `view_location` +x schuift het been naar links in beeld bij deze kijkrichting; de zijbalk rechts vraagt dus een positieve x.
+- Les: xdotool zit niet standaard in een nieuwe container; eerst `apt-get update`.

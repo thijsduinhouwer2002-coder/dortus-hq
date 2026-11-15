@@ -40,7 +40,7 @@ jobs:
           timeout 900 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
             /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/film_pro.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
           grep "\[cj-scherm\] FILM" /tmp/film.log || true
-          for d in plaats buig rood kogel; do grep -q "FILM OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
+          for d in haak plaats buig rood kogel; do grep -q "FILM OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
       - name: Film in elkaar zetten
         run: bash e2e/maak_film.sh /tmp/filmuit /tmp/filmklaar
       - uses: actions/upload-artifact@v4
