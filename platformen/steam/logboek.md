@@ -1075,4 +1075,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Berichten: niets open. Blender: 136 downloads, 0 reviews, 0 open issues en PR in click-joints.
 - Spugen ronde 2: Windows-run 43710362207 op 09c3316 groen, blad gelijk aan Daans doelreeks. Daan wilde hem in de echte strook zien, dus keurstand `spuug_proef=1-3` (Gloop blijft in kneep, spuug of boog staan) plus een keurstap in `steam-hol.yml` alleen op de tak. Run 43712736230 groen, uitsnede GEZIEN: lijf voor de laars, zoals gevraagd. Vraag aan Daan in taken.
 - Les: `git fetch` van de tak `schermen` duurt te lang (grote tak); beelden haal je sneller los met curl via raw.githubusercontent.com.
-- 12:40: Daan ja op ronde 2 (12:45), op main d4ce04b zonder keurstap, laars start op x 6 (kan Daan). Gloop is helemaal 3D.
+- 12:40: Daan ja op ronde 2 (12:45), op main d4ce04b zonder keurstap, laars start op x 6 (kan Daan). Gloop is helemaal 3D. Windows-run op main 43714389288 groen.
+- 12:45: antwoord aan Olaf over leesbaar op 120 px (punt 2 Thijs): ja op keurstroken met figuur 1,0 / 1,15 / 1,3; bladen hebben 4 px per spelpixel, bij een factor boven 1 render ik helden en Gloop op px 5 voor 160.
