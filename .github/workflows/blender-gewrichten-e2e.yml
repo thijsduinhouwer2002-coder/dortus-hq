@@ -51,7 +51,7 @@ jobs:
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
           ls -la /tmp/bu/config || true
           timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
+            /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
           ls -la e2e/screenshots/${{ matrix.blender }} || true
           # Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
           grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
@@ -93,7 +93,7 @@ jobs:
           [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_b.blend')"
           timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            /tmp/blender/blender /tmp/start_b.blend --python e2e/scherm_scharnier.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/scharnier.log || true
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_b.blend --python e2e/scherm_scharnier.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/scharnier.log || true
           grep -q "SCHARNIER OK pose" /tmp/scharnier.log || { echo "FOUT: plaatje 11 niet goed"; exit 1; }
           grep -q "SCHARNIER OK rood" /tmp/scharnier.log || { echo "FOUT: plaatje 12 niet goed"; exit 1; }
           for f in 11-scharnier-x.png 12-scharnier-rood-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
@@ -109,7 +109,7 @@ jobs:
           [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_p.blend')"
           timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            /tmp/blender/blender /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
           grep "\[cj-scherm\] PRO" /tmp/pro.log || true
           grep -q "PRO OK schoon" /tmp/pro.log || { echo "FOUT: plaatje 13 schoon niet goed"; exit 1; }
           grep -q "PRO OK dicht" /tmp/pro.log || { echo "FOUT: plaatje 13d dichtbij niet goed"; exit 1; }
