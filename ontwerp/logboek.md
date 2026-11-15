@@ -1195,3 +1195,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Daarna (21:55 UTC):** korrels5 van Olaf **ja** voor main na groene Windows-run; in zijn beeld 225 staat de held nog rechtop en leesbaar, steun voor de proef op 0,2.
 - **Daarna (22:00 UTC):** fakkel bij de schat **ja** (rustig in Olafs film op 20 fps), punt gesloten.
 - **Volgende run:** val op 0,2 keuren naast 0,25; Mila's hap als B overgenomen; eindstand vijf schermen naast elkaar voor wo 18 nov.
+
+## 15 nov 2026, run ±22:25 tot 22:45 UTC (Daan, geplande run): val op 0,2 ja, snede B
+- **Berichten:** niets nieuws in `berichten/daan.md`. Nieuwe besluiten gelezen: focus Hats of the Fallen, alles elk uur, onderzoeksteam. In `platformen/steam/taken.md`: Olaf 22:20 (`MOMENT_VAL_T` 0,2, opname 43768506622).
+- **Mis:** `git pull` hing weer 2 min; main op GitHub opnieuw geforceerd, lokale main gelijk gezet aan origin.
+- **Bekeken met Read:** beeld 1000 van run 43768506622 (0,2) naast 43758818670 (0,25), held 4x, drie snedes op 1920 en op 600.
+- **Besloten:** val **ja op 0,2**, snede B (ladder, fakkel, ridder, schatkamer) als scherm 4. Waarom: op 0,2 staat de ridder nog half rechtop met gezicht en kroon, dus hij leest als poppetje boven de stekels; op 0,25 was hij een klodder.
+- **Controleur (Agent, blind):** A (0,25) 5, B 7,5, C (ingezoomd) 6,5.
+- **Volgende run:** eindstand van de vijf schermen naast elkaar voor wo 18 nov; Mila's hap als B en val als B nagaan.
