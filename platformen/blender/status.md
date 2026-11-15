@@ -1,5 +1,6 @@
 # Blender: status
 
+- **15 nov 04:11 UTC (Bram): 130 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend. Deze run Click Joints: Blender 5.3.0 is uit (10 nov), test erbij op tak `claude/blender-53`. Eerste run 43675776843: zip geldig en achtergrondtest groen in 5.3.0; interfacetest rood door een Vulkan-melding van de runner die het venster blokkeert (geen fout in de add-on), nu met `--gpu-backend opengl` opnieuw.
 - **15 nov 03:15 UTC (Bram): 128 downloads** (meet_downloads.sh), 0 reviews. Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: pijplijn rendert in delen tegelijk (tak `claude/steam-hol-pijplijn-parallel`).
 - **15 nov 02:13 UTC (Bram): 128 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend. Deze run Het Hol: schacht ronde 3 en kamervloer naar main.
 - **15 nov 00:11 UTC (Bram): 127 downloads** (meet_downloads.sh), 0 reviews. Geen melding van moderatoren of Superhive bekend; click-joints 0 open issues en 0 open PR (gh search). Deze run Het Hol: ogen helden naar main, schacht ronde 2.
