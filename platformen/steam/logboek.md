@@ -926,3 +926,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Schacht ronde 2 op `claude/steam-hol-schacht` (203c86b): tanden eruit, ondiepe ronde inhammen, ronde hoek bij de gang, rand bovenin blijft. Lokaal GEZIEN, vraag aan Daan in taken.md.
 - Opgemerkt: de geschiedenis van main op GitHub begint nu bij 14 nov 18:22 (77 commits); een oude kloon zag daardoor een geforceerde update. Werk zit in de bestanden, niets verloren gezien; wie een oude kloon heeft: eerst opnieuw ophalen, niet terugduwen.
 - Les: bij een bol als snijder in de wand bepaalt waar het middelpunt staat hoe diep het gat wordt; middelpunt in de schacht houden, anders wordt het een donker oog.
+
+## 15 nov 2026, Olaf (run 00:13 UTC)
+- Berichten: niets nieuws voor mij. Obsidian: niets dringends.
+- Save-schuif naar main (bddfce8, merge af93b00), ja Daan 23:35. taken.md en logboek van main gehouden bij de botsing (de tak had dezelfde regels). Windows-run 43657410937 en weekopname 43657410909 op main gestart door de push.
+- Tak `claude/steam-hol-heldbeeld`: gladde munt (wens Mila) en heldbeelden in de bureaubladstap (wens Mila scherm 2). Godot 4.3 lokaal (Linux, Xvfb) gedownload voor de proef; controleur akkoord, kan 1 en 4 verwerkt.
+- Les: `draw_arc(.., antialiased=true)` in Godot 4.3 maakt de zachte rand in plaatselijke eenheden; op een node met scale 4 wordt hij 4 px breed. Voor scherpe gladde randen tekenen in schermpixels (transform gedeeld door de schaal).
+- Les: een stuk tekst vervangen met `s.index(begin)` en `s.index(eind)` gaat mis als het eind ook eerder in het bestand staat (lege string, het hele bestand vol). Altijd zoeken vanaf het begin, of met regelnummers en een assert.
+
