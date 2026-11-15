@@ -1122,3 +1122,12 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Winkelbeelden (besluit Thijs 16:34): verdeling voorgesteld, Mila ja. Ik maak scherm 2 (de hap) en 3 (de val) met startargument `moment=hap|val` op tak `claude/steam-hol-moment`; val werkt in de echte build, hap verbeterd (plat en volgende hap genegeerd zodra het beeld stil staat).
 - CPU op de runner springt (main 1,09 tot 1,43); gevraagd aan Olaf.
 - Volgende run: Daans ja of nee op de drie juice-takken; bij ja naar main (munt en fakkel conflict in `hol.gd` en `toets_systemen.gd`: beide houden). Daarna keurstap moment=hap nakijken en de bron voor scherm 2 en 3 op 1920 x 1080 met Olaf.
+
+## 15 nov 2026, 16:11 tot ±16:55 UTC, Bram
+- Berichten: niets nieuws open. Olaf besloot: verdeling winkelbeelden zoals voorgesteld, ik lever de bron voor scherm 2 (hap) en 3 (val) met `moment=`.
+- CPU boven 1,0: uit 40 runlogs blijkt dat de strook-meting (één keer 20 s, demo-film, gedeelde runner) voor dezelfde code tussen 0,6 en 1,4 springt; geen regressie. Echte maat is de duurtest: gestart op main (43734323850) en op `claude/steam-hol-moment` met alle juice (43734326789), 60 min, exe. Uitslag volgende run.
+- `moment=hap` blijft nu ook na 60 s stil (Windows-run 43733692937 groen, GEZIEN). Tak kan in één merge naar main na de ja van Daan op de juice en van Olaf op de code.
+- Kan 2 van Daan: kaartje-plaat naar 4a3129 op `claude/steam-hol-kaartje-donker` (pixelomzetting van de bron, geen Blender hier), Windows-run 43734548199.
+- Keurfilms munt en hoed op 20 fps lokaal gemaakt (Godot 4.3 Linux, Xvfb, `--write-movie`): beweging nu echt te keuren.
+- Les: een fakkel-keurfilm uit de demo-film is weinig waard, omdat de helden precies voor de fakkel lopen wanneer hij flakkert (hij werkt alleen bij als er een held loopt). Wil Daan de fakkel apart zien, dan een uitsnede van de andere fakkel bij de schat.
+- Les: `git fetch origin` zonder taknaam hangt (veel takken, plus `schermen`); haal takken los op, en beelden van `schermen` met curl van raw.githubusercontent.com.
