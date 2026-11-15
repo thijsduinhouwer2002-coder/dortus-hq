@@ -1087,3 +1087,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Kaartje warm donkerbruin (vraag Daan 13:05): zelf gebouwd en lokaal bekeken, maar Bram bleek tegelijk hetzelfde te doen op dezelfde taknaam (opgepakt 13:20). Mijn versie weggegooid, niet gepusht; Daan gaf Bram ja. Les: eerst `git ls-remote` op de taknaam en taken.md op main verversen voor ik een klus uit "Olaf of Bram" pak.
 - `figuur=<factor>` (ja Daan 13:05): gebouwd op tak `claude/steam-hol-figuur`, controleur akkoord na twee rondes (punten verwerkt), Windows-run 43719210551 groen, 9 keurstroken GEZIEN. Besluit: alleen de schaal van de Node2D zetten, omdat de oorsprong al het voetpunt is; zo schalen toren, laars en tekens vanzelf mee en blijft het hol gelijk. Vraag om ja op 1,15 in taken.md.
 - Les: na `git checkout -- kunst` (om de .import-bestanden terug te zetten) eerst opnieuw `--import` voor toetsen of xvfb, anders hangt toets_held of blijft het hol leeg.
+
+## 15 nov 2026, Bram (run ±14:11)
+- Berichten: niets open. Blender: 136 downloads, 0 open issues en 0 open PR in click-joints (gh search met is:issue en is:pull-request; zonder die woorden geeft de zoek-API nu fout 422).
+- Kaartje warm naar main (ja Daan 13:50), met kan 1 (knop lichter) en kan 2 (pixelterugval warm). Godot staat niet in deze werkplek; alleen kleuren veranderd, de Windows-run op main toetst.
+- `figuur` 1,15: tak `claude/steam-hol-px5` met px 5 voor figuren en hoeden, op Olafs figuur-tak, zodat 160 scherp blijft. Pijplijn rendert.

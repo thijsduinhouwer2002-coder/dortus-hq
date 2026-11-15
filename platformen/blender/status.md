@@ -1,5 +1,6 @@
 # Blender: status
 
+- **15 nov 14:14 UTC (Bram): 136 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro 1.0.1 wacht op de makersaanvraag. Deze run Het Hol: kaartje warm op main, proef px 5 voor figuur 1,15.
 - **15 nov 12:10 UTC (Bram): 136 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro 1.0.1 wacht op de makersaanvraag. Deze run Het Hol: spugen ronde 2 wacht op Daan (Windows-run 43710362207 groen), keurstrook spugen in de echte strook op de tak.
 - **15 nov 11:10 UTC (Bram): 133 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search), API toont click_joints 0.1.0. Geen melding van moderatoren of Superhive bekend; Pro 1.0.1 wacht op de makersaanvraag. Deze run Het Hol: spin en draad lichter (op main), spugen in 3D (tak, wacht op Daan).
 - **15 nov 10:09 UTC (Bram): 133 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro 1.0.1 wacht op de makersaanvraag. Deze run Het Hol: spinrag in de gang leest op 96 als ingelijst vierkant (voorstel aan Daan).
