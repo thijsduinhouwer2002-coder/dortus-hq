@@ -20,6 +20,7 @@ Methode: 120 willekeurige bestanden uit de app-sitemaps van apps.apple.com (robo
 - Per maand stabiel: mei 36% met 1+, aug 30%.
 - De bovenkant bestaat uit spelstudio's met reclamebudget (Food Hunt 59.321 ratings, Frost Valley 11.539) en een paar Vietnamese makers van snelle spelletjes met reclame (Dung Tran Phi 3.089, Phi Trinh 847).
 - Van ratings naar downloads (GOK met drie ijkpunten): Habit Doom had 726 installs in mei en nu 24 VS-ratings, InfoDrizzle 1.300 downloads en 32 ratings, Stampa 20.000+ downloads en 83 ratings. Dus ruwweg 1 rating per 40 tot 250 downloads. Dan haalt de middelste nieuwe app minder dan ±40 downloads, en zo'n 15 tot 20% haalt 100+.
+- Aanvulling 15 nov run 18:31 (les uit de Google Play-meting): de sitemaps van Apple bevatten alleen apps die er nog staan. Bij Google Play was van een lichting na 3 tot 6 maanden 30 tot 40% al verdwenen, vooral apps zonder gebruikers. Bij Apple is dat waarschijnlijk vergelijkbaar (GOK), dus de echte cijfers voor een nieuwe app liggen nog lager dan in de tabel. Het cijfer 4 blijft; het oordeel wordt er alleen sterker door.
 - Beperking: alleen apps die in de VS te koop zijn (88% van de steekproef) en alleen VS-ratings. Downloads zelf toont Apple niet.
 
 ## Drukte (zelf gemeten, GEZIEN, en DERDEN)
