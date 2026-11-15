@@ -13,21 +13,22 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 14 nov 11:50 (Chris, run 36, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
 | 14 nov 17:50 (Chris, run 38) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (zoeken op "ebb calm": alleen Ebb, plek 1) |
 | 14 nov 20:47 (Chris, run 39, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
+| 15 nov 08:44 (Chris, run 40) | 2 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved"; makerlijst Dortus: 1 app) |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 
 ## Vindbaarheid in de winkelzoeker (plek in de eerste 30, mostRelevant)
 
-| Zoekwoord | 13 nov 22:15 (Gijs) | 14 nov 08:45 (Chris) | 14 nov 11:55 (Chris, run 36) | 14 nov 17:50 (Chris, run 38) |
-|---|---|---|---|---|
-| ebb | 1 | 1 | niet gemeten | 1 (87 treffers) |
-| breath hold | 4 | 4 | 4 | 4 |
-| breathing exercises | niet gemeten | 4 | 4 | 4 |
-| breathing | niet in de eerste 30 | 30 (controleur even later: 29, plekken schuiven) | 29 | 30 |
-| breathwork | niet in de eerste 30 | niet in de eerste 30 | 30 bij de eerste vraag, een minuut later niet in de eerste 30 (wisselt op de rand) | niet in de eerste 30 |
-| box breathing | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
-| calm | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
-| apnea | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten |
+| Zoekwoord | 13 nov 22:15 (Gijs) | 14 nov 08:45 (Chris) | 14 nov 11:55 (Chris, run 36) | 14 nov 17:50 (Chris, run 38) | 15 nov 08:45 (Chris, run 40) |
+|---|---|---|---|---|---|
+| ebb | 1 | 1 | niet gemeten | 1 (87 treffers) | 1 |
+| breath hold | 4 | 4 | 4 | 4 | 4 |
+| breathing exercises | niet gemeten | 4 | 4 | 4 | 4 |
+| breathing | niet in de eerste 30 | 30 (controleur even later: 29, plekken schuiven) | 29 | 30 | 30 |
+| breathwork | niet in de eerste 30 | niet in de eerste 30 | 30 bij de eerste vraag, een minuut later niet in de eerste 30 (wisselt op de rand) | niet in de eerste 30 | niet in de eerste 30 |
+| box breathing | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten | niet gemeten |
+| calm | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten | niet gemeten |
+| apnea | niet gemeten | niet in de eerste 30 | niet gemeten | niet gemeten | niet gemeten |
 | 4-7-8 | niet gemeten | zoeker geeft 0 treffers | niet gemeten | niet gemeten |
 
 "Breathing" en "breathing exercises" staan in de titel, "breathwork" alleen in de tekst en de tags. Na een week kijken of de plek op "breathwork" verandert; zo niet, dan is dat een punt voor een volgende versie van de titel (advies, niet nu: de titel is net gekeurd).
@@ -48,6 +49,7 @@ GEZIEN met curl op dezelfde winkel-API, met `commercie/ebb/meet-lijsten.py`. De 
 - **Hoe lang nog:** Garmin keurt in groepen op werkdagen. Nieuw goedgekeurde watch-apps per dag (afgeleid uit de lijst "New and Updated", `firstApprovalDate`): 9 nov 134, 10 nov 49, 11 nov 62, 12 nov 48, 13 nov 38; op za 7 nov 2 en zo 8 nov 0. Na ±85 nieuwe watch-apps valt Ebb uit de 120 (plek 36 van een lijst die bij 120 stopt; controleur: pagina 5 en verder geven niets). **Verwachting (GOK op GEZIEN): Ebb staat het weekend nog in Hot & Fresh en valt eruit bij de goedkeuringen van ma 16 of di 17 nov, uiterlijk wo 18 nov.** Na het vorige weekend kwamen er op ma 9 nov in één keer 134 bij; gebeurt dat weer, dan is het maandag al.
 - **"New and Updated Apps" (`mostRecent`):** gesorteerd op `changedDate`; in de API oplopend vanaf ±7 nov, Ebb op plek 744 van 1.350. Hoe de site die lijst toont, is NIET GEZIEN. Een nieuwe versie zet `changedDate` opnieuw (GOK, niet getest).
 - **"Trending Apps":** Ebb staat niet in de eerste 118.
+- **15 nov 08:45 UTC (run 40, GEZIEN):** Ebb nog op plek 36 van 120 in Hot & Fresh (watch-apps); de oudste app in de lijst (plek 120) is nog van 11 nov 16:55 (API-tijd), dus in het weekend schoof er niets. Niet in de eerste 60 van Trending. Past bij de verwachting: uitvallen bij de goedkeuringen van ma 16 of di 17 nov.
 
 **Is 0 downloads normaal? Ja, voor een betaalde nieuwkomer (GEZIEN, zelfde lijst, 14 nov 20:45 UTC).** Van de 111 nieuwe watch-apps zijn er 24 betaald in de winkel ($1,99 tot $4,99, geen enkele met proef). Na 1 tot 3 dagen staan er 13 op "1" (1 tot 9 downloads) en 11 op 0; **geen enkele haalde 10+**. Bij de 87 gratis nieuwkomers staan er 28 op 10+ en 1 op 100+. Eén maker bracht op 13 nov drie apps van $4,99 tegelijk uit (Racketday, Catchday, Huntday), alle drie 0. Ebb wijkt dus niet af. AFGELEID: de winkel brengt een betaalde app in de eerste dagen bijna niets; kopers moeten van buiten komen (forumdraad, persoonlijke berichtjes uit `proberen.md`) of later uit de zoeker.
 
@@ -64,6 +66,9 @@ GEZIEN met curl op dezelfde winkel-API, met `commercie/ebb/meet-lijsten.py`. De 
 - Supportadres thijs@dortus.com, rechten Fit, FitContributor, Sensor.
 - dortus.com/ebb/ geeft 200 en linkt naar deze winkelpagina. De hoofdpagina dortus.com noemt Ebb nog niet (geen pagina van mij).
 
+## Winkelpagina in drie talen nagelopen met een script (15 nov 08:50 UTC, run 40, GEZIEN)
+Nieuw script `commercie/ebb/controleer-winkel.py` legt titel, lange beschrijving en "wat is nieuw" in en, de en nl uit de API naast de grijze blokken in `platformen/garmin/upload/<app>-<taal>.md` (witruimte gelijkgetrokken, de regel Tags mag ontbreken), en meldt prijs, aantal beelden, icoon en horloges. Uitkomst voor Ebb: **alle drie de talen woord voor woord gelijk**, $4.99, 5 beelden, icoon, 40 artikelnummers. Run 35 had alleen het Engels met de hand nagekeken; nu ook het Duits en Nederlands. Proef op een fout: Ebb tegen de Calm-teksten geeft netjes "ANDERS" en "FOUT: Calm hoort gratis te zijn". Voor Calm geeft het script nu "NIET OPENBAAR".
+
 ## Volgende metingen
 - Dag 7: 20 nov. Dag 30: 13 dec. Tussendoor bij elke run één regel als er iets verandert.
 - Wat ik verwacht (GOK): zonder forumbericht en persoonlijke berichtjes bijna niets, want Ebb staat op de grote zoekwoorden niet of laag in de eerste 30. Het plan (`commercie/ebb/proberen.md`) mikt op 10 mensen die het een week proberen; het weekverslag met kopers is van Gijs (plan dag 7 in `platformen/garmin/gebruikers-krijgen-2026-11-13.md`).
@@ -77,6 +82,7 @@ Geplaatst door de hoofdchat op 14 nov ±07:35 UTC, eerst "Content Under Review".
 | 14 nov 11:50 (Chris, run 36) | nee (niet in de lijst, niet te vinden) | | | | |
 | 14 nov 17:47 (Chris, run 38) | ja, pagina 200 met de volledige tekst | 0 | 1 | 5 | 3 (na de vaste README-draad op 1 en één andere draad) |
 | 14 nov 20:46 (Chris, run 39) | ja | 0 | 4 | 5 | niet gemeten |
+| 15 nov 08:45 (Chris, run 40) | ja | 0 | 15 | 5 | niet gemeten |
 
 GEZIEN met curl. "Bekeken" is de teller van het forum zelf; of die bezoekers zonder inlog telt, is NIET GEZIEN. De 5 volgers zijn waarschijnlijk vaste abonnees van nieuwe draden of de maker zelf (GOK).
 

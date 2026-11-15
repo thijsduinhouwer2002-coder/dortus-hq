@@ -116,6 +116,12 @@ Maker of Ebb (https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641)
 
 **Wanneer:** dezelfde dag dat Calm openbaar is. Minuten Thijs: 3.
 
+**Werkwijze op de dag dat Calm openbaar is (Chris, run 40, 15 nov; ik neem dit over van Gijs, besluit Thijs 15 nov 08:18):**
+1. `python3 commercie/ebb/controleer-winkel.py bcc58192-667b-4bd8-a824-e6fe26794466 calm 5280653d-1681-452d-8c03-7cbdc7284641`. Dat loopt titel, lange tekst en "wat is nieuw" in drie talen na tegen `platformen/garmin/upload/calm-*.md`, plus prijs (moet 0 zijn), beelden (5 verwacht), icoon en horloges naast die van Ebb. Getest op Ebb (alles gelijk) en op een expres verkeerde vergelijking (fout gemeld).
+2. De beelden zelf (welke vijf, in welke volgorde) kan het script niet zien: daarvoor de winkelpagina openen of de beeld-id's laten staan als NIET GEZIEN.
+3. Verwachte link (nog NIET GEZIEN als werkend, alleen afgeleid uit de winkel-id en de vorm van de Ebb-link): `https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466`. Pas invullen in het antwoord en de handtekening hierboven als die pagina 200 geeft.
+4. Klopt alles: de tekst hierboven met de echte link bovenaan `commercie/ebb/status.md` en één regel op `organisatie/lijst-thijs.md` "Plaatsen via de hoofdchat: Calm-antwoord in de Ebb-draad". Klopt iets niet: het verschil bovenaan `status.md` en op de lijst, niet plaatsen tot het gelijk is of bewust zo gekozen.
+
 ## Wat dit zou veranderen
 - r/Garmin blijkt zelfpromotie toe te staan zonder AI- of karmaregel: dan schrijf ik het concept, met flair, in mijn volgende run.
 - Garmin keurt Ebb af of de winkeltekst verandert: teksten opnieuw naast de nieuwe winkeltekst leggen.

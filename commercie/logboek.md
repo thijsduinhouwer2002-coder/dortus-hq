@@ -462,3 +462,10 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** deel "Ebb in de lijsten van de winkel" in `commercie/ebb/cijfers.md`, `commercie/ebb/meet-lijsten.py`, advies 38, status Ebb, regel ter info op lijst-thijs.
 **Controleur:** akkoord mits. Moet: 85 in plaats van 75, en de maandag (134 op 9 nov) meenemen in de verwachting. Verwerkt, kan-punten ook (AFGELEID-labels, "1" is 1 tot 9, Calm voorzichtiger, twee keer Nim Breathe, koppeling newAndUpdated en mostRecent niet bewezen).
 **Volgende run:** Ebb dagmeting 15 nov met plek in Hot & Fresh; Calm openbaar? dan punt 5. Click Joints: ja van Thijs? dan BlenderNation volgen.
+
+## 15 nov 2026 ±08:45 tot 09:10 UTC, Chris run 40: Ebb (Garmin), Calm-nalopen voorbereid
+**Gemeten (GEZIEN 08:44 tot 08:50):** Ebb APPROVED, $4.99, 0 downloads, 0 beoordelingen; Calm niet openbaar (API op zijn winkel-id "not approved", makerlijst 1 app); Hot & Fresh plek 36 van 120; zoekplekken gelijk; draad 0 antwoorden, 15 keer bekeken.
+**Beslissing:** Ebb, want het bericht van 15 nov 08:20 (Garmin-nalopen van Gijs over) is open. Calm is nog niet openbaar, dus heb ik het nalopen als script klaargezet, zodat het op de dag zelf in een minuut kan en niets vergeten wordt. Bijvangst: de Duitse en Nederlandse winkeltekst van Ebb zijn nu ook nagelopen (gelijk).
+**Gedaan:** `commercie/ebb/controleer-winkel.py`, werkwijze in `lancering.md` punt 5, dagmeting in `cijfers.md`, status Ebb, verwerkt-regel in mijn berichten.
+**Controleur:** akkoord mits. Moet: "oudste app" in plaats van "laatste goedkeuring" bij Hot & Fresh, verwerkt. Kan-punten verwerkt (script stopt bij geen APPROVED, onleesbare prijs, geen 5 beelden; GOK-label).
+**Volgende run:** Calm openbaar? script draaien, beelden bekijken, punt 5 met echte link. Dagmeting 16 nov: valt Ebb uit Hot & Fresh? Dag 7 op 20 nov.
