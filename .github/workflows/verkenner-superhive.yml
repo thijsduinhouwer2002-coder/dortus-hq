@@ -1,0 +1,59 @@
+name: Verkenner Superhive add-ons (6 maanden)
+
+# Vera, 15 nov 2026. Opdracht hoofdchat 15 nov 20:20: alle add-ons van Superhive van de laatste
+# 6 maanden met verkoopblok, prijs, ratings en datum. Rustig: 1 pagina per 2 seconden, alleen
+# openbare pagina's, niet inloggen. De CSV gaat naar de tak `verkenner-data` (map superhive/),
+# elke 15 minuten tussentijds en aan het eind. Te lezen als
+# https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/verkenner-data/superhive/addons-6mnd.csv
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/verkenner-superhive.yml", "platformen/verkenner/data/superhive-6mnd-script.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verkenner-superhive
+  cancel-in-progress: true
+
+jobs:
+  haal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ophalen en tussentijds opslaan
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          bewaar() {
+            for poging in 1 2 3 4 5; do
+              rm -rf /tmp/s
+              if git clone -q --depth 1 --branch verkenner-data "$URL" /tmp/s 2>/dev/null; then :; else
+                mkdir /tmp/s && (cd /tmp/s && git init -q -b verkenner-data && git remote add origin "$URL")
+              fi
+              mkdir -p /tmp/s/superhive
+              cp addons-6mnd.csv /tmp/s/superhive/addons-6mnd.csv 2>/dev/null || return 0
+              cp log.txt /tmp/s/superhive/log.txt
+              echo "run ${GITHUB_RUN_ID}, $(date -u +%FT%TZ), $1" > /tmp/s/superhive/RUN.txt
+              (cd /tmp/s && git add -A && git commit -q -m "Superhive add-ons 6 maanden ($1) run ${GITHUB_RUN_ID}") || return 0
+              (cd /tmp/s && git push -q origin verkenner-data) && return 0
+              sleep $((poging * 3))
+            done
+          }
+          python3 -I platformen/verkenner/data/superhive-6mnd-script.py addons-6mnd.csv 200 > log.txt 2>&1 &
+          PID=$!
+          while kill -0 $PID 2>/dev/null; do
+            sleep 900
+            tail -2 log.txt
+            bewaar tussentijds
+          done
+          wait $PID || true
+          tail -5 log.txt
+          wc -l addons-6mnd.csv
+          bewaar klaar
