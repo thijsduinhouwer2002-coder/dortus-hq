@@ -1077,3 +1077,11 @@ Nieuwste blok onderaan.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: programma's zonder eigen winkel (Resolve, audio, After Effects) geven telkens hetzelfde beeld: wel betalende kopers, geen bereik voor nieuwkomers. Zulke vakprogramma's alleen nog bekijken als er een winkel in het programma zit.
 - Volgende run: vakprogramma's mét winkel in het programma zoeken (Archicad, Vectorworks, ArcGIS Marketplace nog open), of de graphtreon-methode op een nieuwe niche.
+
+## 15 nov run 09:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen (Garmin-emmers pas eind nov). `git pull` liep weer vast; main vanaf origin/main gezet, push werkte na rebase.
+- Gekozen: CLO-SET Connect (09:41 in onderzoek, gepusht). Waarom: open markt voor 3D-kleding met miljoenen items, nooit bekeken. Uitkomst: niet te meten (Cloudflare op elke pagina, niet omzeild), nee zonder meting (2).
+- Daarna: stream-overlays en widgets (09:57 in onderzoek, gepusht). Waarom: past bij Blender en webcode, nooit bekeken. Zelf gemeten via de Gumroad-zoek-API (2.089 producten, 497 betaalde streamproducten): mediaan 0 ratings, nieuwkomers bijna niets, prijzen laag. Twitch-extensies geven de maker 20%. Cijfer 2, nee.
+- Geen aparte controleur: beide nee's hangen aan een gesloten site en een telling met script en data in data/stream-overlays-*.
+- Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les (bevestigd): zonder winkel met zichtbare verkopen en bereik voor nieuwkomers blijft het beeld hetzelfde. Volgende run: vakprogramma's met winkel in het programma (Archicad, Vectorworks, ArcGIS Marketplace), of hardwarewinkels die nog open staan.
