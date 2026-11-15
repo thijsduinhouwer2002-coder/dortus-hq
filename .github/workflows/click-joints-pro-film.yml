@@ -7,6 +7,11 @@ on:
     branches: [main, "claude/blender-*"]
     paths: ["producten/blender-gewrichten/e2e/film_pro.py", "producten/blender-gewrichten/e2e/maak_film.sh", ".github/workflows/click-joints-pro-film.yml"]
   workflow_dispatch:
+    inputs:
+      staand:
+        description: "Staande opnames 1080x1920 per deel voor de korte filmpjes (Bram 15 nov)"
+        type: boolean
+        default: false
 
 jobs:
   film:
@@ -35,14 +40,20 @@ jobs:
           BLENDER_USER_RESOURCES: /tmp/cj_film
           BLENDER_USER_CONFIG: /tmp/cj_film/config
           BLENDER_USER_EXTENSIONS: /tmp/cj_film/extensions
+          FILM_STAAND: ${{ inputs.staand && '1' || '0' }}
+          SCHERM: ${{ inputs.staand && '1080x1920' || '1920x1080' }}
         run: |
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
-          timeout 900 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+          timeout 900 xvfb-run --auto-servernum --server-args="-screen 0 ${SCHERM}x24" \
             /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/film_pro.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
           grep "\[cj-scherm\] FILM" /tmp/film.log || true
           for d in haak plaats buig rood kogel; do grep -q "FILM OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
       - name: Film in elkaar zetten
+        if: ${{ !inputs.staand }}
         run: bash e2e/maak_film.sh /tmp/filmuit /tmp/filmklaar
+      - name: Staande opnames knippen
+        if: ${{ inputs.staand }}
+        run: bash e2e/maak_staand.sh /tmp/filmuit /tmp/filmklaar
       - uses: actions/upload-artifact@v4
         with:
           name: click-joints-pro-film

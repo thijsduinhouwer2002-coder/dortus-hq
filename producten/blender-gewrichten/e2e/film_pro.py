@@ -9,7 +9,10 @@ Delen:
   2 buig     de Bend-schuif van 0° naar 115° met de gradenboog aan
   3 rood     iets voorbij de stop (bereik + 3°): de botsende delen worden rood
   4 kogel    de kogel van Place joint met de groene pasband (gratis deel van de add-on, zit ook in Pro)
-Regels "FILM OK <deel>" zijn wat de workflow eist."""
+Regels "FILM OK <deel>" zijn wat de workflow eist.
+Staande stand (FILM_STAAND=1, opdracht hoofdchat 15 nov 23:00, voor de korte filmpjes van Chris): zelfde verloop, maar
+op een X-scherm van 1080x1920, zonder zijbalk en met de camera dichter op de knie. maak_staand.sh knipt er losse
+opnames van per deel uit (zonder tekst; Chris zet de onderschriften)."""
 import json
 import math
 import os
@@ -29,6 +32,9 @@ FPS = 30
 UI_SCHAAL = 1.35
 AFSTAND = float(os.environ.get("FILM_AFSTAND", "100"))   # v2 (Daan M1): been ±60% van de breedte (v1: 95 gaf ±35%)
 HOOGTE = 8.0     # v2: camera iets lager dan v1 (15)
+STAAND = os.environ.get("FILM_STAAND") == "1"
+if STAAND:
+    AFSTAND = float(os.environ.get("FILM_AFSTAND", "68"))
 SNEL = int(os.environ.get("FILM_SNEL", "1"))   # proef: alleen elk n-de beeld echt opnemen (sneller kijken)
 # Thema-achtergrond als zachte verloop zoals de poster (Daan M1); de add-on zelf blijft ongemoeid.
 BOVEN, ONDER = (0x2B / 255, 0x2F / 255, 0x38 / 255), (0x1D / 255, 0x20 / 255, 0x27 / 255)
@@ -150,9 +156,12 @@ def verloop():
         yield 0.5
     _, _, regio = zijbalk()
     log(f"FILM tabblad {'OK' if regio and regio.active_panel_category == scherm_basis.DOEL else 'NIET GELUKT'}")
+    if STAAND:
+        zijbalk_aan(False)   # staand: geen zijbalk, het gewricht vult de breedte
+        yield 0.5
     h, buig, lidas = Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0))
     # Midden van het beeld: iets links van de knie (de zijbalk ligt rechts) en iets omhoog voor de gebogen scheen.
-    midden = Vector((8.0, 0, 10.0))
+    midden = Vector((8.0, 0, 10.0)) if not STAAND else MIDDEN_STAAND
     kijk_buig = kijkrot(h, lidas, buig, 20, HOOGTE)
     # 0 haak (Daan M4): eerst de knie die door zijn bereik buigt met de boog, zoals de poster (±1,6 s)
     deel("haak")
@@ -261,6 +270,12 @@ ROOD_PLEK = Vector((-3.0, 0, 2.0))              # beeldmidden iets links van de 
 KOGEL_AFSTAND = float(os.environ.get("FILM_KOGEL_AFSTAND", "60"))
 KOGEL_ZIJ, KOGEL_HOOGTE = 25.0, 15.0
 KOGEL_PLEK = Vector((6.0, 0, 0))
+MIDDEN_STAAND = Vector([float(x) for x in os.environ.get("FILM_MIDDEN", "-4,0,14").split(",")])
+if STAAND:   # geen zijbalk rechts, dus niets naar links schuiven; het rood en de kogel iets dichterbij
+    ROOD_PLEK = Vector((5.0, 0, 3.0))   # gradenboog loopt naar rechts: beeldmidden iets rechts van de knie
+    ROOD_AFSTAND = float(os.environ.get("FILM_ROOD_AFSTAND", "46"))
+    KOGEL_PLEK = Vector((0.0, 0, 0))
+    KOGEL_AFSTAND = float(os.environ.get("FILM_KOGEL_AFSTAND", "45"))
 
 
 gang = verloop()
