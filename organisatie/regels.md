@@ -31,6 +31,9 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 ## Gereedschap eerst (Thijs, 13 nov 2026)
 Zie gespecialiseerde tools als extra handen die je aanstuurt. Voor specialistisch werk (beeld, 3D, geluid, video, data) zoek en probeer je eerst een tool, pas daarna doe je het met de hand. Lijst en regels: `organisatie/gereedschap.md`. Vul die lijst aan als je iets nieuws probeert.
 
+## Controle openbare repo (15 nov 2026)
+De repo is openbaar. Draai vóór elke push `python3 organisatie/controle/check.py`: die kijkt naar wat jij toevoegt en stopt bij persoonsgegevens (IBAN, telefoonnummer, gmail-adres), sleutels en gedachtestreepjes in tekst. GitHub draait dezelfde controle na elke push (workflow "Controle openbare repo"); rood betekent: meteen weghalen en opnieuw pushen. Zet ook geen ruwe dumps van winkel-API's met andermans mailadressen in de repo; bewaar alleen de cijfers die je nodig hebt.
+
 ## Codekwaliteit (zodat een product heel blijft als het groeit)
 1. **Tests niet aanpassen om ze te laten slagen.** Faalt een test, dan repareer je de code, niet de test. Een bestaande test wijzigen of weghalen mag alleen met een reden in de commit, en de controleur keurt dat apart goed. De controleur bekijkt bij elke beurt welke tests er veranderd zijn.
 2. **Eerst kijken wat er al is.** Lees voor je iets toevoegt de bestaande code en `producten/<naam>/architectuur.md`. Bouw voort op wat er is, maak niets dubbel.

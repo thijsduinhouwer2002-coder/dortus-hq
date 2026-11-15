@@ -1,0 +1,27 @@
+name: Controle openbare repo
+
+# Kijkt bij elke push naar de toegevoegde regels: geen persoonsgegevens, geen sleutels, geen gedachtestreepjes.
+# Rood = iets weghalen. Zie organisatie/controle/check.py.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Controle
+        env:
+          VAN: ${{ github.event.before }}
+          TOT: ${{ github.sha }}
+        run: |
+          if [ -z "$VAN" ] || [ "$VAN" = "0000000000000000000000000000000000000000" ]; then VAN="$TOT~1"; fi
+          python3 organisatie/controle/check.py "$VAN" "$TOT"
