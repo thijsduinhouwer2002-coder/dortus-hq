@@ -1070,3 +1070,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 15 nov 2026 12:35 UTC, Olaf
 - Wens Mila: winkelopname met zaad schrijft naar een eigen map per run (`-zaad<n>-run<run-id>`), tak `claude/steam-hol-zaadmap`, run 43713114177 groen, controleur akkoord met punten, op main f955075. Rollwright: 0 open issues, 40 downloads in de stats (0.3.5: 16). Nieuw bericht van Thijs (13:30): punt 2 leesbaar op 120 px pak ik hierna op.
+
+## 15 nov 2026, Bram (run 12:10 UTC)
+- Berichten: niets open. Blender: 136 downloads, 0 reviews, 0 open issues en PR in click-joints.
+- Spugen ronde 2: Windows-run 43710362207 op 09c3316 groen, blad gelijk aan Daans doelreeks. Daan wilde hem in de echte strook zien, dus keurstand `spuug_proef=1-3` (Gloop blijft in kneep, spuug of boog staan) plus een keurstap in `steam-hol.yml` alleen op de tak. Run 43712736230 groen, uitsnede GEZIEN: lijf voor de laars, zoals gevraagd. Vraag aan Daan in taken.
+- Les: `git fetch` van de tak `schermen` duurt te lang (grote tak); beelden haal je sneller los met curl via raw.githubusercontent.com.
