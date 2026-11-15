@@ -224,8 +224,8 @@ static func _laad_3d() -> void:
 # Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
 # Vallen: de eerste VAL_RECHT s staat hij nog rechtop in de stand "schrik" uit het blad (mond open), met het "!" erboven
 # en de hoed die loskomt; daarna de valstand (Olaf 15 nov, voorstel aan Daan: de valstand ligt ondersteboven en leest op
-# 160 px als klodder). 0,14 = 2 beelden op 15 fps (winkelopname), 2 op 20, 1 op 10.
-const VAL_RECHT := 0.14
+# 160 px als klodder). 0,2 = gelijk aan VAL_SCHRIK in held.gd: rechtop zolang hij opwipt (moet Daan 15 nov 22:55).
+const VAL_RECHT := 0.2
 static func stand_3d(staat: String, frame: int, vt: float = 9.0) -> String:
 	if staat == "vallen":
 		return "schrik" if vt < VAL_RECHT else "vallen"

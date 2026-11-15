@@ -5,7 +5,7 @@ extends RefCounted
 
 # moment=val (Bram 15 nov 19:30): de held staat stil boven de stekels, met het uitroepteken, net voor hij wegzakt.
 # De munten komen pas na de hele val (afloop.gd), dus held en munten samen in één beeld bestaat niet in het spel.
-const MOMENT_VAL_T := 0.05   # tak val-schrik: stil op 15 fps bij 0,067, held nog in de stand schrik (held_beeld VAL_RECHT 0,14); main had 0,2. Daan 15 nov 21:45: proef op 0,2 (op 0,25 leest de held als klodder; 0,38 dekte de stekels af)
+const MOMENT_VAL_T := 0.12   # kan Daan 15 nov 22:55: bovenin de wip, voeten los, held in de stand schrik (held_beeld VAL_RECHT 0,2); op 15 fps stil bij 0,133. Daan 15 nov 21:45: proef op 0,2 (op 0,25 leest de held als klodder; 0,38 dekte de stekels af)
 
 # Argumenten van de workflow (na `--`) gaan voor de bewaarde instelling.
 static func lees_argumenten(s) -> void:
