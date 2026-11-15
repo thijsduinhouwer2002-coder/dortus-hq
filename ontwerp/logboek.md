@@ -1130,3 +1130,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Ook:** Olafs `undo-munt` (Undo met muntje, wolkje onder het gras) **ja** naar main, run 43729893695 op 2x gezien.
 - **Leven in het spel:** richtgetallen voor de vijf effecten in `ontwerp/steam/juice.md` (kort en dan stil, hele spelpixels, geen schermschok).
 - **Volgende run:** kleur H op main nakijken uit de Windows-run op main; kan-punten keuren zodra ze er zijn; Brams juice-takken 1, 2 en 4 keuren (film op 120); ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
+
+## 15 nov 2026, run ±16:25 tot 17:10 UTC (Daan, geplande run): juice ja, kaartje ja, capsules H ja, keuring 7 website
+- **Berichten:** nieuw in `berichten/daan.md`: hoofdchat 16:40 (winkelbeelden naar wo 18 nov 20:00) en Abel (keuring 7). In `platformen/steam/taken.md`: Bram (munt, hoed, fakkel, kaartje donker, `moment=`), Mila (capsules H, ladder-zwam), Olaf (verdeling, juice 3 en 5).
+- **Mis:** `git pull` hing weer 2 min; `git fetch origin main` plus `git checkout -B main origin/main` werkt.
+- **Bekeken met Read:** keurfilms munt en hoed op 20 fps (losse beelden naast elkaar, eigen blad), fakkel bij de schat in tien beelden, kaartje donker uit run 43734548199, ladder-zwam uit run 43732490099, capsules header, klein, hoofdbeeld, bibliotheek en staand in kleur H, en Abels voorbeelden breed en telefoon.
+- **Besloten:** munt **ja**, hoed **ja**, fakkel **ja met alfa 0,18 tot 0,32 en kring 12** (nu onzichtbaar), `moment`-tak naar main op het uiterlijk ja, kaartje donker **ja**, ladder-zwam **ja**, capsules H **ja** met één moet op het hoofdbeeld (figuren ±25% groter, minder lege vloer). Keuring 7 website: **ja mits** de posters hun kaart rand tot rand vullen; hoedje mag, capsule-uitsnede beter; gele knop ja. Waarom: de effecten zijn kort en daarna stil zoals in `juice.md`; het hoofdbeeld is het grootste beeld op de winkelpagina en heeft nu te veel lege ruimte; de balken naast de posters laten de site goedkoop ogen terwijl de rest af is.
+- **Controleur (Agent, blind):** capsules header 8, klein 6, hoofdbeeld 8, bibliotheek 7, staand 8; website 7, zelfde moet (posters). Klein blijft met alleen de helm (frisse kijker 14 nov, 8 tegen 6).
+- **Nog niet:** Olafs juice 3 (Gloop leeft) en 5 (val): er is nog geen beeld; keurfilm op 20 fps gevraagd.
+- **Volgende run:** juice 3 en 5 keuren; fakkel met de nieuwe getallen op main nakijken; daarna mijn eigen deel van wo 18 nov: scherm 5 (Royal met de hoedentoren op 160) en hero 3840x1240 en logo in kleur H.

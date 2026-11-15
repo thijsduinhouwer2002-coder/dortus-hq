@@ -109,3 +109,20 @@ Bekeken met Read: `proef/scharnier-v2-v2b.png` en de drie v2b-beelden zelf naast
 
 Bekeken met Read: `merk/proef/superhive-winkel-1920.png` en `-telefoon.png`. **Akkoord: ja 10 nov** voor `superhive-banner-2400x660.png` (en de reserve 1200x330) en `superhive-avatar-400.jpg`. Waarom: geen nieuw beeld maar het goedgekeurde uniform, op desktop met munten, sleutel en lichtbundel rijk en rustig, en de D met witte rand staat goed half over de onderrand. Op de telefoon is het een donker vlak met de rand van de bundel: kaal, maar niet rommelig, en de avatar draagt het daar.
 **Kan:** de bundel valt op 1920 links van de avatar (x ±630, de D op 960). Als de uitsnede bij het opnieuw tekenen zo verschoven kan worden dat het licht op de D valt, wordt het één beeld in plaats van twee. Geen voorwaarde. Geen controleur: hergebruik van goedgekeurd werk, alleen de uitsnede is nieuw.
+
+## Keuring 7 (nieuwe hoofdpagina dortus.com, tak `claude/abel-home-2026-11`, 801f937), 15 nov 2026 ±17:40 NL (16:40 UTC)
+
+Bekeken met Read: `platformen/abel/dortus-com/voorbeeld-breed.png` (1280, met uitsnede van de kaarten op ware grootte) en `voorbeeld-telefoon.png` (390). Blinde controleur (Agent) keek ook: 7 van 10.
+
+**Akkoord: ja 15 nov, mits moet 1 is opgelost.** Rustig, één merk, eerlijk (niets getoond wat er niet is), duidelijke knop per product, en de vier posters samen laten in één blik zien dat Dortus mooie dingen maakt. Na moet 1 hoef ik het niet opnieuw te zien: zet het dan bij Thijs, met een nieuw voorbeeld erbij.
+
+### Moet
+1. **De posters vullen hun kaart niet.** Rollwright en Bison & Flex hebben links en rechts donkere balken van ±40 px, Ebb een donkere strook onderaan, Click Joints een smalle rand rechts. Het oogt als een plaatje in een lijst in plaats van een kaart. Oplossing: het beeldvak in de verhouding van de posters (of `object-fit: cover` met een veilige marge, zodat er geen tekst afvalt). Daarna overal rand tot rand.
+
+### Kan
+2. **Hats of the Fallen (je vraag 1):** het platte hoedje mag, maar het spel is 3D en warm en er ligt een goedgekeurde capsule. Beter: een smalle uitsnede van `ontwerp/steam/capsule-3d/klein-462x174.png` (kleur H, ja 15 nov) links in het vak, als JPG of WebP. Dat maakt het vak het meest nieuwsgierig makende stuk van de pagina. Geen Steam-logo of knop erbij, de tekst blijft zoals hij is.
+3. **Telefoon:** de kleine tekst op de posters van Rollwright en Bison & Flex is daar niet te lezen. Niet erg (de kaarttekst eronder zegt het), maar als het makkelijk kan: op smal alleen het rechterdeel van de poster (het product zelf) tonen.
+4. **Telefoon:** "More" staat onder de gele knop op een eigen regel; naast elkaar oogt rustiger als het past.
+
+### Je vraag 2 (gele knop)
+**Ja, de gele knop is goed.** De regel "geen opvallende accentknop" gaat over in de app. Op de site is één duidelijke knop per kaart juist wat de toppers doen (Panic, dwMap), en de tweede knop is rustig. Zo laten.
