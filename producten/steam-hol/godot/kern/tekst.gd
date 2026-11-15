@@ -49,12 +49,12 @@ func _doos(naam: String) -> StyleBoxFlat:
 			sb.shadow_size = 2
 			sb.shadow_offset = Vector2(0, 2)
 		"knop":
-			sb.bg_color = Color("#9a5434")   # warm terracotta (Daan 15 nov, punt 1 Thijs; was pruim 7a426c)
+			sb.bg_color = Color("#a65c38")   # warm terracotta (Daan 15 nov, punt 1 Thijs; was pruim 7a426c; 14:20 een tikje lichter, kan 1 Daan)
 			sb.border_color = Color("#e8b040")
 			sb.set_border_width_all(2)
 			sb.anti_aliasing = true
 		"knop_glans":
-			sb.bg_color = Color("#b4704a")
+			sb.bg_color = Color("#c4825a")
 		_:
 			push_error("tekst.gd: onbekende doos " + naam)
 	dozen[naam] = sb
@@ -192,7 +192,7 @@ func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) 
 		_tekst(font, Vector2(x + (w - tw) / 2.0, y + h / 2.0 + maat * 0.35), tekst_, -1, maat, Color("#ffe8a0"))
 		return r
 	draw_rect(r, Color("#f2c14e"))
-	draw_rect(r.grow(-schaal), Color("#503856"))
+	draw_rect(r.grow(-schaal), Color("#5e3e33"))   # pixelterugval warm (kan 2 Daan 15 nov, was pruim 503856)
 	draw_string(font, Vector2(x + 3 * schaal, y + h / 2.0 + maat * 0.35), tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#f3e2c0"))
 	return r
 
