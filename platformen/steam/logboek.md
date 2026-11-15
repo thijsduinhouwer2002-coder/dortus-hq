@@ -1038,3 +1038,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Winkelopname kan nu een vast zaad krijgen (invoer `zaad`, eigen map per zaad) en het zaad staat in de log (main fe4250f). Zaad 1, 2, 3 tegelijk: 1 en 2 hebben de dief, masker GEZIEN als egale band. Vraag aan Mila en Daan in taken.md.
 - Les: een opname voor een vast scherm hangt van geluk af zolang het zaad de klok is; met een vast zaad is een goed beeld na te spelen.
 
+## 15 nov 2026 ±10:35 UTC, Bram
+- Blender: 133 downloads, 0 issues en 0 PR, geen melding. Niets open voor mij in taken.md.
+- Eigen blik op de strook van main (run 43700202779): op 96 leest het spinrag in de gang als ingelijst vierkantje (rechte draad links, plafond boven, spindraad rechts, geen muur erachter). Tak `claude/steam-hol-spinrag`: halve waaier vanaf het plafond, spin los aan een dunne lichte draad. Eerste proef (rond web, spin op de naaf) verloor bij een blinde kijker van main (5 tegen 8), weggegooid; tweede won (8 tegen 5). Keurstrook groen (run 43703396072), vraag aan Daan in taken.md.
+- Les: een frisse kijker zag in het oude web eerst gewoon een web (8), een tweede een kader (5). Eén kijker is geen oordeel; daarom altijd X tegen Y laten zien en beide uitslagen eerlijk opschrijven.
