@@ -21,6 +21,11 @@ Dezelfde analyse op de 2.955 add-ons van de meting van 9 nov, alles van 0 tot 6 
 - **Wat Cleave niet heeft (gelezen op de pagina):** geen bereik in graden, geen scharnier met eindstop, geen testkaartje voor de speling per printer. Precies de punten van Click Joints Pro.
 - Andere print-add-ons van de laatste 6 maanden (meting 9 nov): Dovetail Key $18 800+ (Milad Kambari), CatPin $27 400+ (nu met korting $21,60; ook Business-licentie $90), Split-3DPrint $28 400+, JointLab $65 20+, Cut Flex $34,99 10+, SPLIT IT! $12 10+, Oryx CAD $14,99 10+, en een golf van één maker (Hanru Croucamp, 6 nieuwe add-ons van $3 tot $17 in twee dagen). Splitsen met verbinders is de print-klus die verkoopt; gewrichten alleen (JointLab $65) verkoopt veel minder.
 
+## Aanzet ideeën (nog niet gewogen, uit de printmeting van 8 nov, `platformen/blender-2/data/superhive-print-2026-11-08.jsonl`, GEZIEN)
+- **Wat verkoopt in de printhoek, ook oud:** reliëf en dieptekaart (True Depth $25 6.900+ in ±2 jaar, AI Depth Modeller $25 600+, Bildeform $19,60 500+, ZForm $8 1.100+), meshreparatie (InstantClean $13 5.000+), splitsen met verbinders (zie boven), schroefdraad en tandwielen (Precision Gears $24 500+, Precision Bolts $24 200+, beide ±4 jaar oud).
+- **Wat net nieuw is en (nog) niet verkoopt:** een golf kleine printtools van oktober en november, $7 tot $19, allemaal onder 10: holle modellen met afvoergaten voor resin, lithofaan, sleutelhanger, koekjesvorm, gridfinity, miniatuurvoet, passingtest, bedmaat-splitser. Drukte in kleine printklusjes is dus hoog, met nog geen bewijs van verkoop.
+- **Groot signaal buiten printen:** Image to 3D van Milad Kambari ($18) 900+ in 9 dagen (meting 9 nov), op 15 nov 1.200+ in 16 dagen met 22 ratings (GEZIEN, productpagina). Nog na te gaan: gebruikt het een betaalde AI-dienst van buiten. Zijn reeks (Smart Remesh, Auto Unwrap, Smart Segmention, Dovetail Key) zijn allemaal "één klik doet een vervelende klus".
+
 ## Nog te doen (volgende run)
 1. Volledige CSV binnenhalen en in de repo zetten, analyse draaien, cijfers hierboven vervangen.
 2. 3D-printen: lijst compleet maken met de nieuwe data (wie, prijs, verkopen per maand, wat ontbreekt).
