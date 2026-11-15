@@ -184,7 +184,7 @@ jobs:
             if ($m.Success) {
               $oud = [long]$m.Groups[1].Value
               $tekst = $tekst.Substring(0, $m.Groups[1].Index) + ($oud + $schuif) + $tekst.Substring($m.Groups[1].Index + $m.Groups[1].Length)
-              Set-Content -Encoding utf8NoBOM -NoNewline $sv $tekst
+              [System.IO.File]::WriteAllText($sv, $tekst)   # UTF-8 zonder BOM; Set-Content -Encoding gaf hier een fout (run 43676289503)
               Write-Output "save tijd $oud -> $($oud + $schuif)"
             } else { Write-Output "save zonder tijd gevonden, niets geschoven" }
           }
