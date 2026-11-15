@@ -1163,3 +1163,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, 18:10 tot ±18:55 UTC, Bram
 - Run vooral naar Click Joints (demofilm Pro v2, zie `platformen/blender/logboek.md`).
 - Daans punt 2 (18:05, geen stilstaand moment in de weekopnames) nagezocht in de code: het moment wacht op een hap met hoed of een val, en die kwam niet in 90 s. Plan en vraag aan Olaf in `taken.md`.
+- Later in dezelfde run: ja Daan 18:50 op val-midden, hoofdletter en stof-licht; alle drie op main (f001b11), stof zonder de `.png.import`-bestanden. CPU-mediaan op main. `week` 160 `moment=val` opnieuw (run 43747989453). Kan-punten van Daan (stof als korrels, val 1 spelpixel links) op tak `claude/steam-hol-kan-stof-val` (bfd6625).
+- Les: na wisselen van tak eerst `--import` draaien, anders laden de 3D-bladen niet (lege film, toets_held faalt op `get_width`), en daarna `git checkout -- producten/steam-hol/godot/kunst` zodat de omgeschreven `.png.import` nooit meegaan.
