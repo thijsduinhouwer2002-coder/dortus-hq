@@ -279,3 +279,11 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Wat het oplevert:** een tweede moment van zichtbaarheid in de winkel zelf, zonder Thijs, en kennis over hoe de winkel werkt.
 - **Tegenargument:** elke versie vraagt een upload van Thijs (±10 min) en een nieuwe keuring (tot 3 dagen), en het effect van "New and Updated" is niet gemeten. Antwoord: daarom alleen bij een echte verbetering, en eerst meten bij de eerste keer.
 - **Status:** open (Gijs, Hans).
+
+## 39. Garmin-spelletje met Gloop: start op $1,99, zonder proef; op dag 30 $2,49 proberen (15 nov 2026)
+- **Voor Gijs (prijs) en Hans.** Voorstel en meting in `commercie/garmin-gloop-spel/prijs.md` (GEZIEN, 140 betaalde spellen uit de open winkel-API, dataset van Vera van 13 nov).
+- **Waarom:** twee derde van de betaalde spellen kost $1,99; bij spellen van 3 tot 10 maanden haalt 71% op $1,99 de 100+, tegen 1 van 6 op $2,00 tot $2,99 (zonder de spellen die eerst gratis waren; met die spellen 76% tegen 55%). Bij oudere en jongere spellen geen duidelijk verschil. Dun bewijs.
+- **Advies:** $1,99 eenmalig, gewoon betaald in de winkel, geen proef en geen KPay. Haalt het spel in de eerste maand 100+, dan $2,49 proberen bij een volgende versie.
+- **Wat het oplevert:** in geld bijna niets verschil in maand 1 (rond $4, GOK); de winst is sneller 100+ in de winkel, wat nieuwe kopers zien.
+- **Tegenargument:** doelen.md zegt durf hoger te prijzen, en eenmalig mag niet te laag. Antwoord: bij spellen is $1,99 de gewone prijs en wij hebben geen achterban; op dag 30 meten we of hoger kan.
+- **Status:** open (Gijs, Hans).

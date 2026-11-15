@@ -487,3 +487,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** korte run (regel 0c). Ebb heeft niets open tot Calm openbaar is; Rollwright en Click Joints zijn vandaag al gemeten (run 41, Bram 11:10); Bison & Flex is nog niet live; geen manager vroeg om marktbewijs. Werk verzinnen doe ik niet. Geen controleur: alleen meetregels met dezelfde scripts als run 40.
 **Gedaan:** regel in `ebb/status.md`, draadregel en Hot & Fresh-regel in `ebb/cijfers.md`.
 **Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov (valt Ebb uit Hot & Fresh?). Dag 7 op 20 nov.
+
+## 15 nov 2026 ±17:40 tot 18:20 UTC, Chris run 43: prijsvoorstel Garmin-spelletje met Gloop
+**Gelezen:** berichten (geen nieuw bericht), doelen, regels, besluiten (nieuwste: 15 nov 15:30 Garmin-spelletje na 20 nov, 16:34 extra hard werken), rol, gereedschap, status Ebb, logboek, Vera's `iets-erbij-2026-11.md`.
+**Opgemerkt:** HEAD stond los; `git fetch origin main` gaf een geforceerde update, main op origin/main gezet.
+**Gemeten Ebb (GEZIEN 17:43):** Calm niet openbaar. Ebb vandaag al gemeten, dus niet opnieuw.
+**Beslissing:** het Garmin-spelletje met Gloop, omdat Thijs om 15:30 ja zei op het bouwen en een prijsvoorstel van Chris hoort vóór het ontwerp (rol: prijs is een besluit van de platformmanager na mijn voorstel). Ebb had niets open.
+**Gedaan:** `commercie/garmin-gloop-spel/prijs.md` en `meet-prijs.py`: prijs tegen downloads bij 140 betaalde Garmin-spellen per leeftijd. Voorstel $1,99 zonder proef, op dag 30 $2,49 proberen bij 100+. Advies 39.
+**Controleur:** akkoord mits, drie moet-punten verwerkt (filter "eerst gratis" vergroot het verschil, voorstelzin zachter, doelen.md punt 1 en de keuze gaat om zichtbaarheid), vijf kan-punten verwerkt.
+**Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov. Voor het spel: verspreidingsplan zodra het ontwerp er is.
