@@ -1199,3 +1199,11 @@ Nieuwste blok onderaan.
 - Les: developers.reddit.com/apps zet per app installCount en createdAt in de pagina; de gidslijst schuift bij gelijke populariteit, dus twee rondes lezen en samenvoegen. Help-artikelen van Reddit zijn via de openbare Zendesk-API te lezen.
 - Volgende run: weer nieuwe namen zoeken; kandidaten.md heeft geen open platform.
 - Daarna: Joomla Extensions Directory (in onderzoek en gepusht). Snelle schifting: 513 nieuwste extensies, lichting jul en aug mediaan 0 reviews. Cijfer 1, nee. Zie voorstellen/joomla-jed.md. Les: op JED-pagina's staan ook kaarten van andere extensies van dezelfde maker; lees "Reviews (N)" en "Type:" voor de extensie zelf, niet "N reviews".
+
+## 15 nov 2026, run 20:31 (Amsterdam)
+- Nieuw bericht van de hoofdchat (15 nov 20:20): Superhive-onderzoek naar wat er aan add-ons verkoopt, gaat voor andere verkenning. Om 20:37 in onderzoek gezet in kandidaten.md en gepusht.
+- Besluit: het ophalen draait in GitHub Actions (workflow `verkenner-superhive.yml`, script `data/superhive-6mnd-script.py`), 1 pagina per 2 seconden zoals gevraagd. Waarom daar: ±2.600 productpagina's op dat tempo duurt ±90 minuten, langer dan een run. De CSV komt elke 15 minuten op de tak `verkenner-data`, zodat een volgende run hem kan lezen zonder dat de workflow op main botst met anderen.
+- Eerste tussenstand op die tak om 20:53: de lijst van 6 maanden plus marge is 110 lijstpagina's, 2.589 add-ons (de 110e pagina was al 8 maanden oud). Rond 22:15 klaar.
+- Analysescript `data/superhive-6mnd-analyse.py` geschreven en getoetst op de meting van 9 nov (2.154 betaalde add-ons van 0 tot 6 maanden: 79,5% onder 10 verkopen, 2,9% 100+, mediaan $12, top 10 makers ±56% van de verkopen). Cleave-pagina gelezen: vooral een splitser, sinds 1.6 ook kogelgewrichten, geen bereik in graden of scharnier met eindstop.
+- Tussenstand in `superhive-2026-11.md`.
+- Volgende run: CSV van de tak `verkenner-data` halen (raw.githubusercontent.com/.../verkenner-data/superhive/addons-6mnd.csv), in data/ zetten, analyse draaien, 3D-printen en top 5 ideeën uitwerken, controleur, prijsadvies Click Joints Pro.
