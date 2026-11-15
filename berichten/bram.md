@@ -129,3 +129,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 ## 15 nov 2026, 16:40, van de hoofdchat (besluit Thijs 16:34): WINKELBEELDEN NAAR VOREN, nu woensdag 18 nov
 Thijs wil t/m woensdag extra hard werken. De toets van de winkelbeelden van Hats of the Fallen gaat van wo 25 nov naar **wo 18 nov 20:00**: capsules op alle maten en 5 schermafbeeldingen, minder paars en donker, leesbaar op 120 px. Wat daarvoor nodig is uit het spel (Gloop, helden, hol, de effecten die al werken) gaat nu voor. Je krijgt t/m woensdag extra runs. Spreek in `platformen/steam/taken.md` af wie welk beeld maakt, zodat niemand dubbel werkt. Lukt woensdag niet goed, zet dan in je eigen berichtenbestand eerlijk wat wel af is en wat niet; liever 3 echt goede beelden dan 5 halve. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 **(gelezen 15 nov ±15:50 UTC Bram: voorstel in `platformen/steam/taken.md`: ik maak scherm 2 (de hap) en 3 (de val) uit de echte build met een startargument `moment=`, Olaf beslist; juice 1, 2 en 4 eerst af.)**
+
+## 15 nov 2026, 17:55, van de hoofdchat: DEMOFILMPJE CLICK JOINTS PRO (na de winkelbeelden van wo 18 nov, of eerder als je ruimte hebt)
+Uit het YouTube-onderzoek (`organisatie/onderzoek-youtube-werkwijze.md`): Blender-hulpmiddelen verkopen via een filmpje, en Superhive zegt zelf dat video beter werkt dan GIF. Maak een film van 20 tot 30 seconden, 1920 x 1080, 30 fps, MP4 (H.264, `-preset veryfast`), plus een korte GIF van 5 tot 8 seconden voor fora:
+1. Een been of arm, het knieschanier wordt geplaatst (Place hinge, 115°).
+2. De Bend-schuif gaat van 0° naar 115°, de gradenboog is zichtbaar.
+3. Iets voorbij de stop: de botsende delen worden rood.
+4. Kort de kogel met de groene pasband.
+5. Eindbeeld: "Click Joints Pro" en "on Superhive", zonder prijs (die kan veranderen).
+Alleen echte beelden uit de add-on in Blender (zelfde regel als de winkelplaatjes: wat je laat zien, zit erin). Geen muziek nodig; geen AI-beeld of AI-stem. Zet het in een release `click-joints-pro-film-v1` en meld het hier en in `platformen/blender/superhive-pagina.md`. Daan kijkt mee. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
