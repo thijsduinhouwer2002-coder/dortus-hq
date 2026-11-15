@@ -51,20 +51,29 @@ func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> 
 	var trek: String = held.trek
 	var stappen := 0
 	var val_stappen := 0
+	var x_val := [-1.0, -1.0]   # x bij het begin van de val en na 4 beelden (0,27 s)
 	while uitkomst == "" and stappen < 20000:
 		held.stap(1.0 / 15.0)
 		stappen += 1
 		if held.staat in ["vallen", "weg"]:
 			val_stappen += 1
+			if val_stappen == 1:
+				x_val[0] = held.position.x
+			if val_stappen == 4:
+				x_val[1] = held.position.x
 	var r := {"uitkomst": uitkomst, "info": uit_info, "eerste_doel": eerste_doel, "trek": trek, "tijd": stappen / 15.0,
 		"slijm_plat": slijm != null and not slijm.kan_vechten(), "slijm_gegeten": slijm.gegeten if slijm != null else 0,
 		"slijm_bestaat": slijm != null and is_instance_valid(slijm),
 		"slijm_hoeden": slijm.hoeden.duplicate() if slijm != null else [],
-		"val_teken": held.val_teken, "val_tijd": val_stappen / 15.0}
+		"val_teken": held.val_teken, "val_tijd": val_stappen / 15.0, "x_val": x_val}
 	hol.free()
 	return r
 
 func _init() -> void:
+	# 0. een held die in de put valt, schuift binnen de schrik naar het midden van de putkolom (moet Daan 15 nov 17:50)
+	var rp := speel({"naam": "Kees", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1}, true, false)
+	ok(rp.uitkomst == "gevallen" and is_equal_approx(float(rp.x_val[1]), 9 * 16 + 8.0), "val: na 0,27 s midden in de put (x %s, kolom 9 = 152)" % [rp.x_val])
+	ok(is_equal_approx(float(rp.x_val[1]), round(float(rp.x_val[1]))), "val: hele spelpixels")
 	# 1. de eerste held van een nieuw spel valt altijd, bij de eerste verdediging
 	var r := speel({"naam": "Odo", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1})
 	ok(r.uitkomst == "gevallen" and r.info.laatst_geraakt == "Gloop the Slime", "eerste held valt bij de slijm (%s, %s)" % [r.uitkomst, r.info.get("wat", "")])
