@@ -509,15 +509,55 @@ def bron_hash(naam, s, index=None):
     return h.hexdigest()[:16]
 
 
+def plan(alles, namen, index):
+    """Bram 15 nov: voor de workflow in delen (steam-hol-modellen.yml). Geeft twee rondes terug:
+    "a": wat zeker gerenderd wordt en van geen andere sprite in die ronde afhangt; elk krijgt een eigen job.
+    "b": sprites met "schaal_van" naar een sprite in ronde a, plus wat zelf veranderde en van zo'n sprite afhangt.
+    Ronde b draait na a met de nieuwe maten van a, en rendert alleen als de bron dan echt anders is (--kan),
+    precies zoals de oude volgorde in één job deed."""
+    onbekend = [n for n in namen if n not in alles]
+    if onbekend:
+        raise SystemExit(f"FOUT: plan: onbekende sprite {onbekend} (staat niet in pijplijn/sprites.json)")
+    if namen:
+        kies = list(namen)
+    elif os.environ.get("HOL_ALLES") == "1":
+        kies = list(alles)
+    else:
+        kies = [n for n in alles if not ((index.get(n) or {}).get("bron") == bron_hash(n, alles[n], index)
+                                         and os.path.exists(os.path.join(DOEL, f"{n}.png")))]
+    bron_van = {n: (alles[n].get("schaal_van") or {}).get("sprite") for n in alles}
+    a = [n for n in kies if bron_van[n] not in kies]
+    b = [n for n in alles if n not in a and bron_van[n] in a]
+    rest = [n for n in kies if n not in a and n not in b]
+    if rest:   # een keten van drie (a -> b -> c) kent de workflow niet; dan liever hard falen dan fout renderen
+        raise SystemExit(f"FOUT: plan: {rest} hangen af van een sprite in ronde b; dat kan de workflow niet")
+    for n in b:
+        if bron_van[bron_van[n]]:
+            raise SystemExit(f"FOUT: plan: {n} -> {bron_van[n]} -> {bron_van[bron_van[n]]}: keten te lang")
+    return {"a": a, "b": b}
+
+
 def main():
     with open(os.path.join(HIER, "sprites.json")) as f:
         alles = json.load(f)["sprites"]
-    kies = sys.argv[1:] or list(alles)
+    pad = os.path.join(DOEL, "sprites.json")
+    if sys.argv[1:2] == ["--plan"]:
+        index = json.load(open(pad)) if os.path.exists(pad) else {}
+        p = plan(alles, sys.argv[2:], index)
+        print(json.dumps(p))
+        if os.environ.get("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                f.write(f"a={json.dumps(p['a'])}\nb={json.dumps(p['b'])}\n")
+                f.write(f"iets={'ja' if p['a'] or p['b'] else 'nee'}\n")
+        return
+    # --kan naam ...: die namen, maar alleen als hun bron veranderde (ronde b van de workflow in delen)
+    kan = sys.argv[1:2] == ["--kan"]
+    args = sys.argv[2:] if kan else sys.argv[1:]
+    kies = args or list(alles)
     # met namen of HOL_ALLES=1 altijd renderen; anders alleen wat veranderde
-    overslaan_mag = not sys.argv[1:] and os.environ.get("HOL_ALLES") != "1"
+    overslaan_mag = kan or (not args and os.environ.get("HOL_ALLES") != "1")
     bpy_python = os.environ.get("BPY_PYTHON", "python3")
     snel = os.environ.get("HOL_SNEL") == "1"
-    pad = os.path.join(DOEL, "sprites.json")
     index = json.load(open(pad)) if os.path.exists(pad) else {}
     for naam in kies:
         s = alles[naam]

@@ -6,6 +6,9 @@ name: Het Hol 3D-modellen (Blender naar Godot)
 # verkleind en als blad met import-instellingen (lineair, mipmaps) in producten/steam-hol/godot/kunst/3d/ gezet.
 # Veranderd blad: commit terug op dezelfde tak en start daarna de Windows-run (steam-hol.yml), want een push
 # met GITHUB_TOKEN start zelf geen nieuwe runs. Zo komt een nieuw model vanzelf in de echte Windows-build.
+# Bram 15 nov: in delen. Een plan-job kiest wat opnieuw moet (vingerafdruk `bron`), elke sprite rendert in een eigen
+# job tegelijk (ronde a), daarna de sprites die de maat van een ander nemen (ronde b, schaal_van), en de job `samen`
+# zet alle bladen in een map en sprites.json, maakt het graafblad en commit. Was ±28 min na elkaar voor alles.
 on:
   push:
     branches: [main, "claude/steam-*"]
@@ -26,24 +29,109 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  render:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      a: ${{ steps.plan.outputs.a }}
+      b: ${{ steps.plan.outputs.b }}
+      iets: ${{ steps.plan.outputs.iets }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Wat moet opnieuw (render.py --plan)
+        id: plan
+        run: |
+          python -m pip install --quiet pillow
+          cd producten/steam-hol/pijplijn
+          python render.py --plan ${{ github.event.inputs.sprites }}
+
+  a:
+    needs: plan
+    if: needs.plan.outputs.a != '[]' && needs.plan.outputs.a != ''
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: true
+      matrix:
+        naam: ${{ fromJSON(needs.plan.outputs.a) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - name: Blender als Python-pakket (bpy 5.2.4)
-        run: |
-          python -m pip install --quiet bpy==5.2.4 pillow numpy
-          python -c "import bpy; print('Blender', bpy.app.version_string)"
-      - name: Renderen
+        run: python -m pip install --quiet bpy==5.2.4 pillow numpy
+      - name: Renderen ${{ matrix.naam }}
         run: |
           cd producten/steam-hol/pijplijn
-          BPY_PYTHON=python python render.py ${{ github.event.inputs.sprites }} 2>&1 | tee /tmp/render.log
-          grep -E "gerenderd|blad" /tmp/render.log || true
-          cat ../godot/kunst/3d/sprites.json
+          BPY_PYTHON=python python render.py ${{ matrix.naam }}
+          python samen.py pak ${{ matrix.naam }} /tmp/deel
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deel-${{ matrix.naam }}
+          path: /tmp/deel/
+          retention-days: 3
+
+  b:
+    needs: [plan, a]
+    if: always() && needs.plan.outputs.b != '[]' && needs.plan.outputs.b != '' && (needs.a.result == 'success' || needs.a.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: true
+      matrix:
+        naam: ${{ fromJSON(needs.plan.outputs.b) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Bladen van ronde a
+        uses: actions/download-artifact@v4
+        with:
+          pattern: deel-*
+          path: /tmp/a
+      - name: Blender als Python-pakket (bpy 5.2.4)
+        run: python -m pip install --quiet bpy==5.2.4 pillow numpy
+      - name: Renderen ${{ matrix.naam }} (alleen als de bron veranderde)
+        run: |
+          cd producten/steam-hol/pijplijn
+          # de nieuwe maten van ronde a (bv. eenheid_px van de ridder) eerst in sprites.json, dan pas de vingerafdruk
+          if ls /tmp/a/*/ >/dev/null 2>&1; then python samen.py zet /tmp/a/*/; fi
+          BPY_PYTHON=python python render.py --kan ${{ matrix.naam }}
+          python samen.py pak ${{ matrix.naam }} /tmp/deel
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deelb-${{ matrix.naam }}
+          path: /tmp/deel/
+          retention-days: 3
+
+  samen:
+    needs: [plan, a, b]
+    if: always() && needs.plan.outputs.iets == 'ja' && (needs.a.result == 'success' || needs.a.result == 'skipped') && (needs.b.result == 'success' || needs.b.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Alle delen
+        uses: actions/download-artifact@v4
+        with:
+          pattern: deel*
+          path: /tmp/delen
+      - name: Bladen en sprites.json bij elkaar
+        run: |
+          python -m pip install --quiet pillow numpy
+          cd producten/steam-hol/pijplijn
+          # eerst ronde a, dan b (b kan dezelfde naam niet hebben, maar zo is de volgorde vast)
+          A=$(ls -d /tmp/delen/deel-*/ 2>/dev/null || true); B=$(ls -d /tmp/delen/deelb-*/ 2>/dev/null || true)
+          python samen.py zet $A $B
+          cat ../godot/kunst/3d/sprites.json | head -c 4000
       - name: Graafmoment uit het nieuwe hol (Daan 14 nov, maak_graaf.py)
         run: |
           # Bram 14 nov: kunst/3d/graaf_3d.png komt uit het 3D-stuk aarde van hol_proef.png, dus na elke hol-render opnieuw
