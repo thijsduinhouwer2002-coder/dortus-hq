@@ -1066,3 +1066,14 @@ Nieuwste blok onderaan.
 - Voor Hans: twee nee's. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Volgende run: graphtreon-methode toepassen op andere modgemeenschappen die nog niet bekeken zijn (Euro Truck Simulator 2, Stardew Valley, Cities: Skylines, Kenshi), of vakprogramma's (Archicad, Vectorworks, ArcGIS).
 - Na het opslaan nog een snelle schifting met de graphtreon-methode: Euro Truck Simulator, Stardew Valley, Cities: Skylines, RimWorld, Kenshi en Factorio (34 makers op naam). Middelste ±$11 per maand, niemand boven $500. Nee (1), in onderzocht.md. Afgesloten om ±08:20.
+
+## 15 nov run 08:31 (Amsterdam)
+- Geen nieuw bericht van Thijs, geen herhaalmeting verlopen. `git pull` liep weer vast; main vanaf origin/main gezet (remote weer geforceerd bijgewerkt, geen eigen werk kwijt).
+- Gekozen: DaVinci Resolve (08:40 in onderzoek en gepusht). Waarom: groot vakprogramma, nooit bekeken, makers verkopen code (Fuses, DCTL) die wij kunnen schrijven.
+- Zelf gemeten via de Gumroad-zoek-API: 1.447 Resolve-producten van 508 makers, 1.165 betaald. 2,1% met 20+ ratings, 0,2% met 50+. Nieuwkomers (hot and new, 234): mediaan 0, beste echte Resolve-tool 14 ratings. Patreon (graphtreon) bijna overal onder $30 per maand.
+- Nieuw feit: Resolve 21.1 (sep 2026) zet externe scripts en scripts met een venster achter Studio, en krijgt een MCP-server. Slecht voor hulpprogramma's voor gratis gebruikers.
+- Uitkomst: cijfer 3, nee voor nu. Geen winkel, dus bereik alleen via YouTube; zelfde vorm als audio-plugins.
+- Geen aparte controleur: het nee hangt aan tellingen met script en data in data/davinci-gumroad-*.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: programma's zonder eigen winkel (Resolve, audio, After Effects) geven telkens hetzelfde beeld: wel betalende kopers, geen bereik voor nieuwkomers. Zulke vakprogramma's alleen nog bekijken als er een winkel in het programma zit.
+- Volgende run: vakprogramma's mét winkel in het programma zoeken (Archicad, Vectorworks, ArcGIS Marketplace nog open), of de graphtreon-methode op een nieuwe niche.

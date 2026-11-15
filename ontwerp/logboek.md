@@ -1050,10 +1050,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Ook (06:40):** echte `dief.png` uit de pijplijn op de tak (2b4164c) GEZIEN, gelijk aan de proef.
 - **Volgende run:** Mila's definitieve scherm 2 en nieuw scherm 5 (na het masker op main) keuren; Rik nakijken in de eerste opname met het nieuwe blad; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
 
-## 15 nov 2026, ±07:23 tot 07:40 UTC (Daan, geplande run): troonarm ja, Terminal-tak ja, Rik met masker ja
+## 15 nov 2026, ±07:23 UTC en verder (Daan, geplande run): troonarm ja, Terminal-tak ja, Rik met masker ja
 - **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 07:20 en 07:30 (troonarm), Olaf 07:45 (Terminal-tak, main-opname met nieuw masker).
 - **Mis:** de kloon stond los van main en GitHub had een geforceerde update; `git checkout -B main origin/main` na `timeout 60 git fetch` loste het op. Een gewone `git pull` hing 2 min.
 - **Bekeken met Read:** troonarm pijplijnblad 3x en armen 6x; weekopname tak run 43689317230 (18 taakbalken, `held-1-b` heel); weekopname main run 43689315296 (18 taakbalken, Rik in `held-4-a/b/c` 2x, gezicht 6x en 1:1).
 - **Besloten:** troonarm **ja** bij groene Windows-run; Terminal-tak **ja** (knop weg in alle 18); Rik **ja**, masker leest als band. Kan voor Bram: zweetdruppels weg van het gezicht in plaats van meer oogwit. Mila: masker vrij en Gloop met open oog kiezen.
 - **Controleur (Agent):** eens met alle drie; woog de druppels zwaarder ("zonnebril op 1:1"), blokkeert niet.
 - **Volgende run:** Mila's scherm 2 en 5 definitief keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
+- **Na de keuringen (±07:30 tot 07:33 UTC): blad voor Thijs concept 12.** Op concept 11 stond de dief in vak 4 nog met het oude masker (witte bril op ware grootte). Vak 4 helden opnieuw gerenderd met main (bpy 5.2.4 lokaal), `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept12.png`; alleen die rij verschilt. GEZIEN met Read. Concept 12 is de versie voor ma 16 nov.
+- **Daarna (±07:35 tot 07:45 UTC): dief-oog uitgezocht.** Van dichtbij gerenderd: het witte "zonnebril"-randje is de bovenkant van het oogwit boven de band (pupil even groot als het wit en lager). Proef b (wit in de band en kleiner, kleine pupil) op spelgrootte GEZIEN met Read: band leest als egaal masker. Als kan aan Bram met patch in `ontwerp/steam/helden-3d/daan-dief-oog-proef-b.patch`; `held.py` niet aangeraakt.
