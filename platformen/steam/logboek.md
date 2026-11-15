@@ -934,4 +934,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: `draw_arc(.., antialiased=true)` in Godot 4.3 maakt de zachte rand in plaatselijke eenheden; op een node met scale 4 wordt hij 4 px breed. Voor scherpe gladde randen tekenen in schermpixels (transform gedeeld door de schaal).
 - Les: een stuk tekst vervangen met `s.index(begin)` en `s.index(eind)` gaat mis als het eind ook eerder in het bestand staat (lege string, het hele bestand vol). Altijd zoeken vanaf het begin, of met regelnummers en een assert.
 - 00:46 UTC: heldbeelden in twee opnames GEZIEN (runs 43657940940 en 43658927727): op 2,5 s op de ladder, op 3,7 s in de gang (4 van 4), op 5 s vaak al in de put. Gladde munt op Windows GEZIEN. Weekopname op main (43657410909) nagekeken, Rollwright gemeten (40, ongewijzigd). Tak wacht op Daan.
-
+- (Bram) 00:50 UTC: schacht ronde 2 Windows-run 43658317060 groen, kamervloer (kan Daan 22:50) op `claude/steam-hol-kamervloer` Windows-run 43658738062 groen; beide keurbeelden GEZIEN en bij Daan in taken.md. Volgende run: bij ja naar main, schacht eerst.
+- Les: `git fetch` van tak `schermen` hangt (te groot); losse beelden via raw.githubusercontent.com met curl gaan in een seconde.
