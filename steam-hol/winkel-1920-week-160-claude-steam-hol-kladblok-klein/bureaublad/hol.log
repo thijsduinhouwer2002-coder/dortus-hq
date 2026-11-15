@@ -1,0 +1,36 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 38 s (klok terug: false): goud voor 1625, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 1625 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL kroniek 4.0 (wacht 0.0): Fenna says this is a quick one.
+HOL held binnen: Fenna
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL kroniek 17.5 (wacht 0.0): Fenna found the Spike Pit. Hard. +6
+HOL meting t=20 beelden=110 helden=0 hol_vast=3
+HOL kroniek 20.1 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=30 beelden=13 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL kroniek 49.8 (wacht 0.0): Wout knocks first. Polite.
+HOL held binnen: Wout
+HOL meting t=50 beelden=5 helden=1 hol_vast=3
+HOL kroniek 55.3 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL meting t=60 beelden=87 helden=0 hol_vast=5
+HOL meting t=70 beelden=4 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL kroniek 94.8 (wacht 0.0): Tibbe holds grudges. Hard.
+HOL held binnen: Tibbe
+HOL meting t=100 beelden=67 helden=1 hol_vast=6
+HOL kroniek 100.3 (wacht 0.0): Tibbe stays forever. +6
+HOL meting t=110 beelden=29 helden=0 hol_vast=7
+HOL meting t=120 beelden=11 helden=0 hol_vast=7
+HOL meting t=130 beelden=3 helden=0 hol_vast=7
+HOL meting t=140 beelden=4 helden=0 hol_vast=7
+HOL kroniek 141.5 (wacht 0.0): Rik signs autographs. Nobody asked.
+HOL held binnen: Rik
+HOL meting t=150 beelden=91 helden=1 hol_vast=7
+HOL meting t=160 beelden=101 helden=1 hol_vast=7
+HOL kroniek 162.5 (wacht 0.0): Rik left. Took nothing. Angry.
+HOL meting t=170 beelden=21 helden=0 hol_vast=7
+HOL meting t=180 beelden=4 helden=0 hol_vast=7
