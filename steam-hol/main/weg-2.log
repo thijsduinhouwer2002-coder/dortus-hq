@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 3074, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 3074 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 3068, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 3068 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794778817
-HOL eerste koop mogelijk na 30 s speeltijd (goud 3074)
+HOL zaad 1794781501
+HOL eerste koop mogelijk na 30 s speeltijd (goud 3068)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Wout climbs into your hole.
-HOL begin: opgegeten (Wout)
-HOL held binnen: Wout
-HOL einde na 8 s, fps=10, goud=3074, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Tibbe knocks first. Polite.
+HOL begin: opgegeten (Tibbe)
+HOL held binnen: Tibbe
+HOL einde na 8 s, fps=10, goud=3068, terugkomers=0
