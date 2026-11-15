@@ -83,10 +83,15 @@ ROBIJN = g.mat("robijn", "rood", rough=0.08, spec=1.0, emis=0.4)
 SAFIER = g.mat("safier", "4fa3ff", rough=0.08, spec=1.0, emis=0.4)
 
 KLEIN = VARIANT == "klein"
-GX = 2.35 if not KLEIN else 3.3         # Gloop rechts van het midden
-RX = float(os.environ.get("HEADER_RX", "-0.1")) if not KLEIN else 1.15       # ridder
+# Mila 15 nov (Daan moet hoofdbeeld 16:40): het hoofdbeeld 1232x706 is hoger dan de header, dus met dezelfde camera
+# kwam er veel lege muur en vloer bij. Variant "hoofd": groep dichter op elkaar, camera dichterbij. E = omgevingsgetal.
+HOOFD = VARIANT == "hoofd"
+def E(naam, gewoon):
+    return float(os.environ.get(naam, gewoon))
+GX = (2.35 if not HOOFD else E("HF_GX", "1.8")) if not KLEIN else 3.3         # Gloop rechts van het midden
+RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.6"))) if not KLEIN else 1.15       # ridder
 RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else -1.35   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
-RS = 1.2 if not KLEIN else 1.5
+RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else 1.5
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
@@ -219,7 +224,7 @@ for o in list(sc.objects):
         mw = o.matrix_world.copy(); o.parent = anker; o.matrix_world = mw
 anker.rotation_euler = (0, 0, math.radians(-12))
 # ronde 4: Gloop met toren groter, hij is de ster (via het anker: GS hierboven telt niet mee, matrix_world is daar nog oud)
-GROOT = 1.1 if not KLEIN else 1.3
+GROOT = (1.1 if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else 1.3
 anker.scale = (GROOT, GROOT, GROOT)
 
 # ronde 5 (Daan kan 3): kroon minder munt: strakkere, smallere punten, kleinere bolletjes, minder glans
@@ -285,6 +290,10 @@ def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0, rand=0.07):
 if KLEIN:
     tekst("HATS", (-4.75, -0.6, 1.85), 2.0, kantel=-3)
     tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
+elif HOOFD:
+    tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.32")
+    tekst("HATS", (tx, -0.6, 2.55 + tz), 1.75, kantel=-3)
+    tekst("OF THE FALLEN", (tx - 0.05, -0.6, 1.70 + tz), 0.72, kantel=-3, rand=0.11)
 else:
     tekst("HATS", (-4.55, -0.6, 2.55), 1.75, kantel=-3)
     # Mila 15 nov (blinde kijker bij kleur H): op warm verdween OF THE FALLEN half; iets groter en een dikkere donkere rand
@@ -317,6 +326,10 @@ co.location = (0.3, -13.5, 3.6) if not KLEIN else (0.45, -13.5, 3.5)
 co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 if KLEIN:
     cam.lens = 37
+if HOOFD:
+    cam.lens = E("HF_LENS", "47")
+    doel = Vector((E("HF_CX", "0.3"), 0.6, E("HF_CZ", "1.8"))); co.location = (E("HF_CX", "0.3"), -13.5, E("HF_CZ", "1.8") + 1.65)
+    co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 
 sc.render.engine = "CYCLES"; sc.cycles.samples = SAMPLES; sc.cycles.device = "CPU"; sc.cycles.use_denoising = True
 sc.render.resolution_x = W; sc.render.resolution_y = H; sc.render.resolution_percentage = 100

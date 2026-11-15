@@ -34,10 +34,10 @@ vervang("for i in range(26):\n    x = random.uniform(-7, 7); z = random.uniform(
 # fakkels: links een hogere boven de ridder, rechts zoals in de header
 vervang("    fakkel(GX - 3.4 + 0.2, 3.1)", "    fakkel(GX - 3.4 + 0.2, " + os.environ.get("ST_FAKKEL_L", "3.6") + ")")
 # Gloop iets groter: hij is staand de hele onderkant
-vervang("GROOT = 1.1 if not KLEIN else 1.3", "GROOT = " + os.environ.get("ST_GROOT", "1.28"))
+vervang('GROOT = (1.1 if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else 1.3', "GROOT = " + os.environ.get("ST_GROOT", "1.28"))
 # ridder: dichter bij Gloop, zodat beide in de smalle beeldbreedte passen
-vervang('RX = float(os.environ.get("HEADER_RX", "-0.1"))', 'RX = float(os.environ.get("ST_RX", "0.15"))')
-vervang("RS = 1.2 if not KLEIN else 1.5", 'RS = float(os.environ.get("ST_RS", "1.45"))')   # ronde 2 (frisse kijker moet): ridder groter
+vervang('RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.6")))', 'RX = float(os.environ.get("ST_RX", "0.4"))')
+vervang('RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else 1.5', 'RS = float(os.environ.get("ST_RS", "1.45"))')   # ronde 2 (frisse kijker moet): ridder groter
 vervang('RY = float(os.environ.get("HEADER_RY", "-1.95"))', 'RY = float(os.environ.get("ST_RY", "-2.3"))')
 # hoedenberg rechts naast Gloop zoals in het spel (zelfde berg als Daans hero)
 vervang("BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]",
@@ -53,7 +53,7 @@ if WARM:
 titel_begin = src.index("if KLEIN:\n    tekst(\"HATS\"")
 titel_eind = src.rindex("# ---------- licht")
 src = src[:titel_begin] + '''# ---------- titel staand: gecentreerd bovenaan, met een hoed op elke letter (zoals Daans logo) ----------
-CX = float(os.environ.get("ST_CX", "1.55")); TZ = float(os.environ.get("ST_TZ", "6.05"))
+CX = float(os.environ.get("ST_CX", "1.55")); TZ = float(os.environ.get("ST_TZ", "5.8"))
 def midden_op(o, cx):
     bpy.context.view_layer.update()
     xs = [v[0] for v in o.bound_box]
@@ -88,6 +88,24 @@ if os.environ.get("ST_LETTERHOEDEN", "1") == "1":
 vervang('lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))',
         'lamp("titellamp", "AREA", (CX, -4.5, TZ + 1.5), (1.0, 0.95, 0.85), 550, 4.0, (CX, -0.6, TZ))')
 
+# Mila 15 nov (moet blinde kijker 16:20, kan Daan 16:40): meer contrast achter de titel in kleur H. Een donker vlak
+# vlak voor de wand dat naar de rand toe doorzichtig wordt, zodat het als schaduw leest en niet als bord. ST_SCHADUW=0 zet uit.
+if os.environ.get("ST_SCHADUW", "1") == "1":
+    vervang("# ---------- camera ----------", """bpy.ops.mesh.primitive_plane_add(size=1, location=(CX, 3.0, TZ - 0.35)); sv = bpy.context.object; sv.name = "titelschaduw"
+sv.scale = (""" + os.environ.get("ST_SV_B", "7.5") + """, """ + os.environ.get("ST_SV_H", "3.6") + """, 1); sv.rotation_euler = (math.radians(90), 0, 0); sv.visible_shadow = False
+svm = bpy.data.materials.new("titelschaduw"); svm.use_nodes = True; nt = svm.node_tree; bs = nt.nodes["Principled BSDF"]
+bs.inputs["Base Color"].default_value = (*g.hex2("1e0d08"), 1); bs.inputs["Roughness"].default_value = 1.0
+tc = nt.nodes.new("ShaderNodeTexCoord"); mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Location"].default_value = (-1.0, -1.0, 0)
+mp.inputs["Scale"].default_value = (2.0, 2.0, 0.0)   # z 0: een plat vlak heeft geen diepte in Generated
+gr = nt.nodes.new("ShaderNodeTexGradient"); gr.gradient_type = "SPHERICAL"
+cr = nt.nodes.new("ShaderNodeValToRGB"); cr.color_ramp.elements[0].position = 0.0; cr.color_ramp.elements[0].color = (0, 0, 0, 1)
+cr.color_ramp.elements[1].position = 0.75; cr.color_ramp.elements[1].color = (""" + os.environ.get("ST_SV_A", "0.85") + """,) * 3 + (1,)
+nt.links.new(tc.outputs["Generated"], mp.inputs["Vector"])
+nt.links.new(mp.outputs["Vector"], gr.inputs["Vector"]); nt.links.new(gr.outputs["Fac"], cr.inputs["Fac"])
+nt.links.new(cr.outputs["Color"], bs.inputs["Alpha"])
+sv.data.materials.append(svm)
+# ---------- camera ----------""")
+
 if WARM:   # fakkelgloed op de wand achter de titel: een warm lampje vlak voor de wand, zelf onzichtbaar
     vervang("# ---------- camera ----------", """gl = bpy.data.lights.new("titelgloed", "POINT"); gl.color = (1.0, 0.62, 0.32)
 gl.energy = """ + os.environ.get("ST_GLOED", "900") + """; gl.shadow_soft_size = 2.0
@@ -99,7 +117,7 @@ cam_eind = src.rindex("sc.render.engine")
 src = src[:cam_begin] + '''# ---------- camera staand ----------
 cam = bpy.data.cameras.new("cam"); cam.lens = float(os.environ.get("ST_LENS", "52")); cam.sensor_fit = "VERTICAL"; cam.sensor_height = 36; cam.sensor_width = 36
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-doel = Vector((CX, 0.6, float(os.environ.get("ST_Z", "3.75"))))
+doel = Vector((CX, 0.6, float(os.environ.get("ST_Z", "3.55"))))
 co.location = (CX, -14.5, float(os.environ.get("ST_CAMZ", "3.3")))
 co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 ''' + src[cam_eind:]
