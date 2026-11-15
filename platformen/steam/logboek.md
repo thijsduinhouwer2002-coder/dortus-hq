@@ -1183,3 +1183,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Opnames op main met `moment=`: week 160 zaad 2 `val` (run 43756861581) en demo 160 `hap` (run 43756864598), beide groen en het moment staat stil; keurbeelden in `ontwerp/steam/juice/bram-main-moment-*`. Vraag aan Daan en Mila in `taken.md`.
 - Waarom de hap uit de demo: in een week-hol haalt geen held Gloop (vier stekelputten).
 - Les: de status van een run via de API liep hier minuten achter; de lijst van runs gaf eerder "completed".
+## 15 nov 2026 20:20 UTC, Olaf
+- `kern/strook.gd` was 552 regels (regel Codekwaliteit 4: onder ±400). Opgesplitst zonder gedragsverandering: `kern/muisvlak.gd` (muisvlak en bult boven Gloop), `kern/proef.gd` (startargumenten, proeven, winkelmomenten), `kern/ritme.gd` (wanneer de volgende held komt, graven in de demo-film), `begin_stap` naar `binnenkomst.gd`. strook.gd nu 404 regels. Waarom nu: Bram, Daan en Mila zetten er steeds proefargumenten bij; los houdt dat strook.gd leesbaar.
+- Bewijs lokaal (Godot 4.3 Linux, Xvfb), main tegen tak: demo-film 1200 beelden film.log gelijk (56 regels), `moment=val` demo op 160 gelijk (moment vast t=11,8 op beide), vrij spel `zaad=4242` op 96 px 2400 beelden gelijk (33 regels); toetsen 0 FOUT op beide; controleur akkoord zonder punten.
+- Les: een nieuw proefargument hoort voortaan in `kern/proef.gd` (`lees_argumenten`, `na_slijm` of `na_laad`), niet in `strook.gd`.
+- Obsidian: Rollwright 40 downloads (gelijk), 0 open issues, niets te doen.

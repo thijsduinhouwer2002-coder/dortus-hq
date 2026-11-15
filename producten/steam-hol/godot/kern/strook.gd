@@ -13,9 +13,12 @@ const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
 const BEELDTEMPO := preload("res://kern/beeldtempo.gd")
+const RITME := preload("res://kern/ritme.gd")   # wanneer de volgende held komt; graven in de demo-film
 const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of terugkomer binnen laten
 const KAARTJE := preload("res://kern/kaartje.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
+const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
+const MUISVLAK := preload("res://kern/muisvlak.gd")   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
@@ -45,9 +48,6 @@ var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), all
 var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
 var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
-# moment=val (Bram 15 nov 19:30): de held staat stil boven de stekels, met het uitroepteken, net voor hij wegzakt.
-# De munten komen pas na de hele val (afloop.gd), dus held en munten samen in één beeld bestaat niet in het spel.
-const MOMENT_VAL_T := 0.38
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
@@ -121,31 +121,7 @@ func _ready() -> void:
 		var inst = JSON.parse_string(FileAccess.get_file_as_string(INSTELLING))
 		if inst is Dictionary and inst.has("hoogte"):
 			hoogte = clampi(int(inst.hoogte), 96, 160)
-	for a in OS.get_cmdline_user_args():   # argumenten (workflow) gaan voor de instelling
-		var kv := a.split("=", true, 1)
-		if kv.size() < 2:
-			continue
-		match kv[0]:
-			"hoogte": hoogte = clampi(int(kv[1]), 96, 160)
-			"duur": duur = float(kv[1])
-			"log": logpad = kv[1]
-			"demo": demo = kv[1] == "1"
-			"film": film = kv[1] == "1"
-			"vers": vers = kv[1] == "1"
-			"demo_einde": demo_grens = maxf(1.0, float(kv[1]))
-			"fps":
-				proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
-				fps_vast = true
-			"zaad": proef_zaad = int(kv[1])
-			"deco_proef": proef_deco = kv[1] == "1"
-			"royal_proef": proef_royal = kv[1] == "1"
-			"graaf_proef": proef_graaf = kv[1] == "1"
-			"laars_proef": proef_laars = kv[1] == "1"
-			"spuug_proef": proef_spuug = clampi(int(kv[1]), 0, 3)
-			"moment": proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
-			"put_proef": proef_put = clampi(int(kv[1]), 0, 3)
-			"figuur": proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
-			"uit3d": proef_uit3d = kv[1].split(",", false)
+	PROEF.lees_argumenten(self)   # alle startargumenten (hoogte, duur, log, proeven): kern/proef.gd
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
@@ -191,16 +167,7 @@ func _ready() -> void:
 	if "slijm" in proef_uit3d and "met_3d" in slijm:
 		slijm.met_3d = false
 	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
-	if proef_laars and slijm.has_method("zet_laars_proef"):
-		slijm.zet_laars_proef()
-	if proef_spuug > 0 and slijm.has_method("zet_spuug_proef"):
-		slijm.zet_spuug_proef(proef_spuug)
-	if proef_moment == "hap" and "moment_hap" in slijm:
-		slijm.moment_hap = true
-	if proef_moment == "val" and "moment_val" in hol:
-		hol.moment_val = true
-	if proef_moment == "munt" and "moment_munt" in hol:
-		hol.moment_munt = true
+	PROEF.na_slijm(self)
 	if demo:
 		volgende_held = 0.5
 	if demo and "plat_s" in slijm:
@@ -225,13 +192,7 @@ func _ready() -> void:
 	hol.goud = KAARTJE.START_GOUD   # nieuw spel; laad() zet het goud uit de save
 	if not vers:
 		laad()
-	if proef_put > 0 and hol.upgrades != null:
-		hol.upgrades.niveaus["stekelput"] = proef_put
-		hol.queue_redraw()
-	if proef_royal and hol.upgrades != null and slijm.has_method("upgrade_veranderd"):
-		hol.upgrades.niveaus["slijm"] = 3
-		slijm.upgrade_veranderd()
-		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
+	PROEF.na_laad(self)
 	if demo:
 		hol.goud = KAARTJE.DEMO_GOUD
 	if kroniek.is_empty():
@@ -276,22 +237,7 @@ func _begin_lijst() -> Array:
 	return BEGIN_DEMO if demo else BEGIN
 
 func _begin_stap() -> String:
-	var wacht := false
-	for stap in _begin_lijst():
-		if begin_gedaan.has(stap):
-			continue
-		if stap == "terug" and _terugkomer_i(begin_vlucht) < 0:
-			wacht = true       # hij is nog in het hol; eerst een andere stap
-			continue
-		if stap == "terug" and demo and t - vlucht_t < 4.0:
-			return "wacht"     # demo: niet meteen na zijn vlucht terug, anders komen vier regels in 2 s (film run 42721290569)
-		if stap == "doorlopen" and demo and t - opgegeten_t < 10.0:
-			return "wacht"     # demo: Hoard-Toucher 4 s later dan voorheen, de drukke stap rond 30 s (Sanne toets 6, punt 3)
-		if stap.begins_with("opgegeten") and slijm.has_method("kan_vechten") and not slijm.kan_vechten():
-			wacht = true       # Gloop ligt plat; wacht tot hij weer op is
-			continue
-		return stap
-	return "wacht" if wacht else ""
+	return BINNENKOMST.begin_stap(self)
 
 func _kroniek_bewaar() -> Array[String]:
 	return WACHTRIJ.kroniek_bewaar(self)
@@ -359,20 +305,7 @@ func _process(delta: float) -> void:
 		tekst.zet(kroniek, hol.goud)
 		if kaart_soort != "":
 			KAARTJE.ververs(self)
-	if t >= volgende_held and helden < 3:
-		var begin := _begin_stap() != ""
-		if _nieuwe_held():
-			# ritme: gemiddeld een held per ±50 s (balans.md), in de eerste tien minuten ±40 s;
-			# in de demo sneller zodat de film van een minuut iets laat zien
-			volgende_held = t + ((rng.randf_range(5.0, 7.0) if begin else rng.randf_range(6.0, 9.0)) if demo else (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0)))
-			# na het lied van een bard: de volgende helden komen 8 tot 20 s na elkaar (Bram 02:30); in de demo blijft het
-			# eigen snelle ritme staan (dat is al korter), alleen de teller loopt af
-			if lied_helden > 0:
-				lied_helden -= 1
-				if lied_helden > 0 and not demo:
-					volgende_held = t + rng.randf_range(8.0, 20.0)
-		else:
-			volgende_held = t + 2.0   # een vaste stap moet nog even wachten
+	RITME.tik_held(self, helden)
 	# fakkels en schat bewegen alleen als er toch al getekend wordt (er loopt een held): 6 beeldjes per seconde
 	if helden > 0:
 		anim_t += delta
@@ -385,24 +318,10 @@ func _process(delta: float) -> void:
 			var k: int = hol.pos_naar_cel(w.position).x
 			if hol.vallen.has(k) and not hol.put_open.has(k):
 				hol.put_klap(k)
-			if hol.moment_val and not hol.moment_val_vast and float(w.get("val_t")) >= MOMENT_VAL_T:
-				moment_val_zet(w)
-	if proef_moment != "" and not moment_gemeld and moment_staat_stil():
-		moment_gemeld = true
-		log_regel("HOL moment vast %s t=%.1f" % [proef_moment, t])
-	if demo and t >= volgende_graaf:
-		# demo: om en om een stuk gang erbij en een kamer boven de gang, zodat de film graven laat zien
-		volgende_graaf = t + 9.0
-		var k: int = hol.ingang_kol - 1
-		if DEMO_EINDE.weiger(self, "graven (film)"):
-			pass
-		elif int(t / 9.0) % 2 == 0 and k >= 1:
-			hol.klik(hol.cel_naar_pos(Vector2i(k, 0)) - Vector2(0, 6))
-		else:
-			for kk in range(hol.ingang_kol + 2, hol.schat_kol - 1):
-				if not hol.boven[kk] and not hol.vallen.has(kk):
-					hol.klik(Vector2(kk * HOL.KOL + 8, HOL.OPP + 6))
-					break
+			PROEF.kijk_val(self, w)   # winkelbeeld moment=val (alleen met het startargument)
+	PROEF.tik(self)
+	if demo:
+		RITME.tik_demo_graaf(self)
 	if t >= volgende_opslag:
 		volgende_opslag = t + 30.0
 		bewaar()
@@ -437,74 +356,19 @@ func _notification(what: int) -> void:
 		KAARTJE.dicht(self)   # een wachtende koopregel komt eerst in de kroniek, dan bewaren (controleur kan-punt 1)
 		bewaar()
 
-# Welk deel van het venster de muis vangt. Normaal het hol plus wat erboven getekend staat; bij hover ook het paneel
-# met drie regels, want dat reikt bij 96 px tot boven het maaiveld en zou anders meteen weer dichtklappen
-# (controleur 00:30). Lege lucht laat klikken altijd door naar het venster erachter.
-# Let op (Bram 14 nov 02:35, Godot 4.3 DisplayServer.xml): op Windows tekent het venster NIETS buiten dit vlak. Daarom
-# volgt het vlak de bovenrand van gras, plantjes en ingang (hol_vast.gd `rand`, één keer gemeten na elk nieuw vast
-# beeld) en een bult boven Gloop met zijn hoedentoren (rust-hoogte, zodat het vlak niet bij elke wip verandert).
-# Besluit Olaf 14 nov 03:30: gras en toren zichtbaar, de paar spelpixels gras vangen dan ook de muis.
+# Welk deel van het venster de muis vangt: kern/muisvlak.gd (uitleg staat daar). Hier alleen de toestand.
 var vangt_y := 0
 var vlak_paneel := false
 var vlak_gloop := Vector3i(-1, -1, -1)   # x links, x rechts, bovenkant (venster-pixels) van de bult boven Gloop
 var lucht_gemeld := false
 func _muis_vlak(paneel: bool) -> void:
-	vlak_paneel = paneel
-	DisplayServer.window_set_mouse_passthrough(muis_vlak_punten(paneel))
+	MUISVLAK.zet(self, paneel)
 
-# De punten van het vlak (los, voor de toetsen). Per pixelkolom een bovenkant, gelijke stukken samengevoegd.
 func muis_vlak_punten(paneel: bool) -> PackedVector2Array:
-	var w := DisplayServer.window_get_size()
-	var tops := PackedInt32Array()
-	tops.resize(w.x)
-	tops.fill(vangt_y)
-	var boven := vangt_y - HOL.OPP * schaal
-	var r: PackedInt32Array = hol.vast.rand if hol != null and hol.vast != null else PackedInt32Array()
-	var hx := int(hol.position.x) if hol != null else 0   # nu altijd 0, maar zelfde som als gloop_bult (controleur kan 3)
-	for x in r.size():
-		if x + hx >= 0 and x + hx < w.x:
-			tops[x + hx] = mini(tops[x + hx], boven + r[x])
-	vlak_gloop = gloop_bult()
-	for x in range(maxi(0, vlak_gloop.x), mini(w.x, vlak_gloop.y)):
-		tops[x] = mini(tops[x], vlak_gloop.z)
-	if paneel and tekst and tekst.has_method("hover_vak"):
-		var pr: Rect2 = tekst.hover_vak()
-		var top := int(clampf(pr.position.y, 0.0, float(vangt_y)))
-		for x in range(int(clampf(pr.position.x, 0.0, float(w.x))), w.x):
-			tops[x] = mini(tops[x], top)
-	var vlak := PackedVector2Array([Vector2(0, w.y)])
-	var x0 := 0
-	for x in range(1, w.x + 1):
-		if x == w.x or tops[x] != tops[x0]:
-			vlak.append(Vector2(x0, tops[x0]))
-			vlak.append(Vector2(x, tops[x0]))
-			x0 = x
-	vlak.append(Vector2(w.x, w.y))
-	if not lucht_gemeld and r.size() > 0:
-		lucht_gemeld = true
-		# voor de Windows-stap "Klikken door de lucht": een plek waar echt lucht is (4 px onder de bovenrand)
-		var vrij := -1
-		for x in range(200, mini(w.x, r.size())):
-			if tops[x] > 4 + 2 * schaal:
-				vrij = x
-				break
-		log_regel("HOL muisvlak %d punten, lucht vrij op x=%d" % [vlak.size(), vrij])
-	return vlak
+	return MUISVLAK.punten(self, paneel)
 
-# Bult boven Gloop: van de bovenkant van zijn toren (in rust) tot het maaiveld, zo breed als hij met hoeden is.
 func gloop_bult() -> Vector3i:
-	if slijm == null or hol == null or not slijm.has_method("hoogste_punt_rust"):
-		return Vector3i(-1, -1, -1)
-	var boven := vangt_y - HOL.OPP * schaal
-	var rel := float(slijm.hoogste_punt_rust())   # in Gloop-pixels; figuur=<factor> pas hieronder (controleur 15 nov)
-	# slaapt hij, dan staat de zzz 9 boven de toren, nooit hoger dan 1 onder de bovenrand (slijm.gd; controleur kan 1)
-	if "leven" in slijm and slijm.leven == "slapen" and slijm.has_method("teken_rand_y"):
-		rel = maxf(minf(rel - 9.0, -25.0), ceilf(slijm.teken_rand_y()))
-	rel *= proef_figuur
-	var top := int(floor((slijm.position.y + rel - 1.0) * schaal)) + boven
-	var x := int(hol.position.x + slijm.position.x * schaal)
-	var halve := int(ceil(11 * schaal * proef_figuur))   # bij figuur > 1 is de toren breder
-	return Vector3i(x - halve, x + halve, clampi(top, 0, vangt_y))
+	return MUISVLAK.gloop_bult(self)
 
 # hol_vast.gd heeft de bovenrand opnieuw gemeten
 func rand_veranderd() -> void:
@@ -538,15 +402,3 @@ func _icoon_zetten() -> void:
 	const ICO := "res://kunst/icoon.ico"
 	if FileAccess.file_exists(ICO):
 		DisplayServer.set_native_icon(ICO)
-
-# Winkelbeeld moment=val: de vallende held en het hol staan vanaf nu stil (alleen met het startargument).
-func moment_val_zet(w: Node) -> void:
-	w.process_mode = Node.PROCESS_MODE_DISABLED
-	hol.moment_val_vast = true
-	hol.queue_redraw()
-
-func moment_staat_stil() -> bool:
-	match proef_moment:
-		"val", "munt": return bool(hol.moment_val_vast)
-		"hap": return "moment_vast" in slijm and float(slijm.moment_vast) >= 0.0 and float(slijm.t) >= float(slijm.moment_vast)
-	return false
