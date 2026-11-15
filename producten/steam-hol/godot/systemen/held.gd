@@ -374,7 +374,9 @@ func _onderweg() -> void:
 			var naar_wand := WAND_ER and is_aartsvijand()
 			var n = null
 			if b.has_method("hoeden_op_hoofd"):   # slijm.gd met hoedentoren
-				n = b.raak(-1 if naar_wand else hoed_nr)
+				# de hoed vliegt vanaf zijn hoofd naar de toren (leven in het spel, punt 2); Gloop-coordinaten, y omhoog negatief
+				var van := Vector2(clampf(position.x - b.position.x, -16.0, 16.0), -10.0) if b is Node2D else Vector2(-12, -10)
+				n = b.raak(-1 if naar_wand else hoed_nr, van)
 			else:
 				b.raak()          # stand-in van Olaf (kern/standin_slijm.gd) kent geen hoeden
 			if b.has_method("hoeden_op_hoofd") or naar_wand:

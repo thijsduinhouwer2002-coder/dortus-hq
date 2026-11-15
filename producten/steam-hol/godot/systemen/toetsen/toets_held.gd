@@ -992,5 +992,31 @@ func _init() -> void:
 			xt = ht.position.x
 		ok(stappen_t.keys() == [geval[2]], "pas b: %s %s elke stap %d pixel (%s)" % [geval[0], geval[1], int(geval[2]), str(stappen_t.keys())])
 		hol_t.free()
+	# leven in het spel, punt 2 (hoofdchat 15 nov): de hoed vliegt van de held in een boog naar de toren en wiebelt na
+	var gv = Node2D.new()
+	gv.set_script(load("res://systemen/slijm.gd"))
+	gv.raak(3, Vector2(14, -10))
+	ok(gv.hoed_van == Vector2(14, -10) and gv.hoed_vliegt(), "hoedvlucht: begint bij de hap, vanaf het hoofd van de held")
+	var v0: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(v0[0] == false, "hoedvlucht: voor de beet nog niet te zien (de held heeft hem op)")
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + 0.0001
+	var v1: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(v1[0] and absf(float(v1[1]) - 14.0) < 0.1 and absf(float(v1[2]) + 10.0) < 0.1, "hoedvlucht: start op het hoofd van de held (%s)" % str(v1))
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S * 0.5
+	var v2: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(float(v2[2]) < -20.0 and float(v2[1]) > 0.0 and float(v2[1]) < 14.0, "hoedvlucht: halverwege boven de rechte lijn, tussen held en toren (%s)" % str(v2))
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + 0.0001
+	var v3: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(is_equal_approx(float(v3[1]), 0.0) and is_equal_approx(float(v3[2]), -20.0), "hoedvlucht: landt precies op zijn plek op de toren")
+	var grootst := 0.0
+	for i in 20:
+		gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S * i / 20.0
+		grootst = maxf(grootst, absf(float(gv.hoed_vlucht(0.0, -20.0)[3])))
+	ok(grootst > 0.1 and grootst <= gv.WIEBEL_HOEK, "hoedvlucht: wiebelt na, hooguit %.2f rad (%.2f)" % [gv.WIEBEL_HOEK, grootst])
+	gv.t = gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S + 0.01
+	var v4: Array = gv.hoed_vlucht(0.0, -20.0)
+	ok(not gv.hoed_vliegt() and v4[0] and is_equal_approx(float(v4[3]), 0.0), "hoedvlucht: daarna stil op de toren")
+	ok(gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S <= gv.hoed_vlucht_van + gv.HAP_S + gv.BLIJ_S, "hoedvlucht: klaar binnen de blije tijd (process loopt nog)")
+	gv.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

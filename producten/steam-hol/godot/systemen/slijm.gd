@@ -66,6 +66,13 @@ const KNIPPER_MIN_S := 4.0
 const KNIPPER_MAX_S := 7.0
 const KNIPPER_S := 0.2
 const BLIJ_S := 1.2
+# Leven in het spel, punt 2 (hoofdchat 15 nov): de hoed van de held die hij at vliegt in een boog van de held naar de top
+# van de toren en wiebelt daar even na. Alleen met de 3D-toren. Tijden vanaf de hap (hap_van).
+const VLUCHT_VAN := 0.35      # na de beet
+const VLUCHT_S := 0.45        # zo lang vliegt de hoed
+const VLUCHT_BOOG := 8.0      # zoveel spelpixels hoger dan de rechte lijn, halverwege
+const WIEBEL_S := 0.6         # zo lang wiebelt hij na op de toren
+const WIEBEL_HOEK := 0.35     # eerste uitslag in radialen (±20 graden), dooft uit
 var knipper_tot := -10.0
 var blij_tot := -10.0
 var rng_oog := RandomNumberGenerator.new()   # eigen dobbelsteen, zodat de leven-wekker gelijk blijft
@@ -78,6 +85,8 @@ var gegeten := 0            # helden die hij kreeg ("Gloop has eaten 12 heroes")
 var hoeden: Array[int] = [] # elke hoed die hij kreeg, oudste eerst. Een hoed gaat er nooit meer af (Sanne).
 var keer_plat := 0
 var t := 0.0
+var hoed_vlucht_van := -99.0  # tijd van de hap met een nieuwe hoed (leven in het spel, punt 2)
+var hoed_van := Vector2(-12, -10)   # waar de hoed vandaan vliegt (hoofd van de held), Gloop-coordinaten
 var hap_van := -10.0
 var leven := ""            # "", "slapen" of "spugen"
 var leven_van := -10.0
@@ -261,11 +270,13 @@ func is_plat() -> bool:
 
 # Hij at een held. hoed = index in held_hoeden.png, of -1 als de hoed niet naar hem gaat
 # (later: een afgerekende aartsvijand naar de wand, zodra die te zien is; tot dan krijgt de bewoner ook zijn hoed, Sanne 22:55). Geeft het aantal hoeden terug.
-func raak(hoed := -1) -> int:
+func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 	gegeten += 1
 	hap_van = t
 	if hoed >= 0:
 		hoeden.append(hoed % HOED_SOORTEN)
+		hoed_vlucht_van = t
+		hoed_van = van
 		blij_tot = t + HAP_S + BLIJ_S     # na de hap even blij om de nieuwe hoed
 	set_process(true)
 	return hoeden.size()
@@ -355,7 +366,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), beeld_3d(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat()]
+	var nu := [frame_nu(), beeld_3d(), wip_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
@@ -619,6 +630,26 @@ func _teken_hoed_3d(h: int, x: float, nul: float, hap: bool) -> void:
 	var ny: float = float(hi["nul_y"][h]) if hi.has("nul_y") else ch / px
 	draw_texture_rect_region(ct, Rect2(x - float(hi["anker_x"]) / px, nul - ny, cw / px, ch / px), Rect2(h * cw, 0, cw, ch))
 
+# Vlucht van de nieuwe bovenste hoed (leven in het spel, punt 2): [zichtbaar, x, nul, hoek] voor een hoed die op de toren
+# op (doel_x, doel_nul) hoort. Voor de vlucht nog niet te zien (de held heeft hem nog op), dan een boog met een halve
+# draai naar de toren, dan wiebelen om zijn nulpunt met een uitslag die uitdooft. Daarna gewoon op zijn plek.
+func hoed_vlucht(doel_x: float, doel_nul: float) -> Array:
+	var s := t - hoed_vlucht_van - VLUCHT_VAN
+	if s < -VLUCHT_VAN or s >= VLUCHT_S + WIEBEL_S or is_plat():
+		return [true, doel_x, doel_nul, 0.0]
+	if s < 0.0:
+		return [false, doel_x, doel_nul, 0.0]
+	if s < VLUCHT_S:
+		var f := s / VLUCHT_S
+		var g := f * (2.0 - f)   # snel weg, zacht neer
+		return [true, lerpf(hoed_van.x, doel_x, g), lerpf(hoed_van.y, doel_nul, g) - sin(f * PI) * VLUCHT_BOOG, -PI * (1.0 - g)]
+	var p := (s - VLUCHT_S) / WIEBEL_S
+	return [true, doel_x, doel_nul, WIEBEL_HOEK * (1.0 - p) * (1.0 - p) * sin(p * 3.0 * TAU / 2.0)]
+
+func hoed_vliegt() -> bool:
+	var s := t - hoed_vlucht_van
+	return s >= 0.0 and s < VLUCHT_VAN + VLUCHT_S + WIEBEL_S
+
 # Hoedenberg links naast hem: een piramide van hoeden, groter per maat. [hoed, x, y].
 func berg() -> Array:
 	var uit := []
@@ -708,7 +739,15 @@ func _draw() -> void:
 	else:
 		for i in t3.size():
 			var h3: Array = t3[i]
-			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), i == t3.size() - 1 and not is_plat())   # bovenste hoed met hap
+			var boven := i == t3.size() - 1
+			if boven and hoed_vliegt():
+				var v := hoed_vlucht(float(h3[1]), float(h3[2]))   # de nieuwe hoed vliegt erop (leven in het spel, punt 2)
+				if v[0]:
+					draw_set_transform(Vector2(float(v[1]), float(v[2])), float(v[3]), Vector2.ONE)
+					_teken_hoed_3d(int(h3[0]), 0.0, 0.0, not is_plat())
+					draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+				continue
+			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), boven and not is_plat())   # bovenste hoed met hap
 	if ster_aan(b3):
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
