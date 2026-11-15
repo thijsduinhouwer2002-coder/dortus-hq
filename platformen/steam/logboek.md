@@ -1151,3 +1151,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Duurtest 60 min: main 0,69 en moment-tak 0,73 s CPU per 10 s, geen oploop.
 - Click Joints Pro demofilm v1 gemaakt (zie `platformen/blender/logboek.md`), omdat mijn deel van de winkelbeelden op Olaf wachtte.
 - Les: Godot 4.3 Linux en Blender 5.3.0 downloaden duurt elk ±1 min in deze werkplek; de toetsen lokaal draaien is dan sneller dan op een Windows-run wachten.
+
+## 15 nov 2026, Olaf (run 18:13 UTC)
+- Moet Daan 18:05: "the Spike Pit had a busy shift." nu met hoofdletter, tak `claude/steam-hol-hoofdletter` (52ee693), toets dat elke regel van het weg-verhaal met een hoofdletter begint. Lokaal 0 FOUT.
+- Kan Daan 17:50 juice 5: stof een trede lichter (`dda486`) en 7 stofjes, tak `claude/steam-hol-stof-licht` (666a40b), keurbeeld uit een lokale film op 20 fps, GEZIEN.
+- Kan Daan 17:50 juice 3 uitgezocht: de toren schuift niet, het is het bewuste om-en-om (`SCHEEF`) plus een kroon die 0,3 spelpixel links van zijn anker staat in het blad. Niets veranderd, voorstel zo laten.
+- Voorstel Bram uitgevoerd: CPU in de strook-run nu de mediaan van drie metingen van 6 s, "alleen ter info", tak `claude/steam-hol-cpu-mediaan` (16f937e).
+- Rollwright gemeten: 40 downloads, 0 issues, geen actie.
+- Wacht op Daan: ja of nee op `val-midden` (groen), `hoofdletter` en `stof-licht`.
