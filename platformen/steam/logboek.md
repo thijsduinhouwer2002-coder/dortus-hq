@@ -973,3 +973,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Tak `claude/steam-hol-kladblok-klein`: vensterlog met EnumWindows en sluiten op vier manieren (94e78c5), briefje op 4 regels; run 43671848393 groen, beelden GEZIEN, op die runner geen melding. Kladblok 186 hoog tegen de schuifbalk (9cbd396), run 43672652053 loopt.
 - Duurtest 43669306069 (60 min, 1920, 03feaea) liep nog om 03:35; uitlezen zodra klaar.
 - Let op voor iedereen: `git checkout origin/main -- <pad>` zonder pad zet je hele werkmap op origin/main. Ik deed dat per ongeluk; niets verloren, maar check altijd `git status` voor je commit.
+- 03:35 UTC: op main (merge ea0572f). Proef met alleen `ridder` (run 43672257876): ronde b sloeg de 9 helden en hoeden over (1 s per job, maat gelijk), totaal 3,5 min. Windows-run 43672029536 op de bladen uit de delen groen. Pijplijn op main na de merge (run 43672868442): plan vond niets, klaar in 28 s, geen commit. Click-joints 0 open issues en 0 PR.
+- Kan later: een job in ronde b die overslaat kost nog ±40 s voor checkout en bpy; pas iets aan als dat ooit telt.
