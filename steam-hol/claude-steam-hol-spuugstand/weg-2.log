@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 3074, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 3074 goud
+HOL weg geweest 0 s (klok terug: true): goud voor 3002, helden 0, erbij 0
+HOL opslag geladen: 0 terugkomers, 3002 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794743235
-HOL eerste koop mogelijk na 30 s speeltijd (goud 3074)
-HOL kroniek 4.1 (wacht 0.0): Lotte brought a torch. And hope.
-HOL begin: opgegeten (Lotte)
-HOL held binnen: Lotte
+HOL zaad 1794743793
+HOL eerste koop mogelijk na 30 s speeltijd (goud 3002)
+HOL kroniek 4.0 (wacht 0.0): Mara climbs into your hole.
+HOL begin: opgegeten (Mara)
+HOL held binnen: Mara
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL einde na 8 s, fps=10, goud=3074, terugkomers=0
+HOL einde na 8 s, fps=10, goud=3002, terugkomers=0
