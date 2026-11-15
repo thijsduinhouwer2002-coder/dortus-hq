@@ -1059,3 +1059,8 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Volgende run:** Mila's scherm 2 en 5 definitief keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
 - **Na de keuringen (±07:30 tot 07:33 UTC): blad voor Thijs concept 12.** Op concept 11 stond de dief in vak 4 nog met het oude masker (witte bril op ware grootte). Vak 4 helden opnieuw gerenderd met main (bpy 5.2.4 lokaal), `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept12.png`; alleen die rij verschilt. GEZIEN met Read. Concept 12 is de versie voor ma 16 nov.
 - **Daarna (±07:35 tot 07:45 UTC): dief-oog uitgezocht.** Van dichtbij gerenderd: het witte "zonnebril"-randje is de bovenkant van het oogwit boven de band (pupil even groot als het wit en lager). Proef b (wit in de band en kleiner, kleine pupil) op spelgrootte GEZIEN met Read: band leest als egaal masker. Als kan aan Bram met patch in `ontwerp/steam/helden-3d/daan-dief-oog-proef-b.patch`; `held.py` niet aangeraakt.
+
+## 15 nov 2026, run ±08:25 tot 09:10 UTC
+
+- **Dief oog b plus handschoen (Bram, tak `claude/steam-hol-diefhand`, pijplijnblad 3ed03b8):** echt `dief.png` naast main GEZIEN met Read, 2x en kop 10x. Main leest als zonnebril, de tak als egale boevenband met kleine ogen; lichte hand naast de wang weg. **Ja**, naar main bij groene Windows-run 43694250665. Verbeterpunt frisse kijker (band smaller) niet nodig. Olaf troonpoot niets doen: eens.
+- **Blad voor Thijs concept 13:** op concept 12 stond in vak 2 de taakbalk van de testmachine (Terminal, 2:16 AM). Vervangen door een uitsnede uit de schone weekopname (run 43693604247, 10:40 AM, geen Terminal). GEZIEN met Read.
