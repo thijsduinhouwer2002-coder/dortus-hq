@@ -797,6 +797,23 @@ func _init() -> void:
 	for d in HS.MUNT_DX.slice(0, 3):
 		dxs[d] = true
 	ok(dxs.size() == 3, "de drie muntjes van een val landen op drie plekken")
+	# leven in het spel, punt 4 (hoofdchat 15 nov): de fakkelgloed flakkert zacht, de twee fakkels niet gelijk
+	var fl_min := 1.0
+	var fl_max := 0.0
+	var gelijk := 0
+	for a in 14:
+		var f0: Vector2 = HS.fakkel_flakker(a, 0)
+		fl_min = minf(fl_min, f0.x)
+		fl_max = maxf(fl_max, f0.x)
+		if is_equal_approx(f0.x, HS.fakkel_flakker(a, 1).x):
+			gelijk += 1
+	ok(fl_min >= 0.10 - 0.0001 and fl_max <= 0.20 + 0.0001 and fl_max - fl_min > 0.08, "fakkel flakkert tussen 0,10 en 0,20 alfa (%.2f tot %.2f)" % [fl_min, fl_max])
+	var sprong := 0.0
+	for a in 24:
+		sprong = maxf(sprong, absf(HS.fakkel_flakker(a + 1, 0).y - HS.fakkel_flakker(a, 0).y))
+	ok(sprong <= 0.15 * 0.36, "fakkel: zachte overgang, maat springt per beeld hooguit een derde van 0,85 tot 1 (%.3f)" % sprong)
+	ok(is_equal_approx(HS.fakkel_flakker(7, 0).y, 0.85) and is_equal_approx(HS.fakkel_flakker(3, 0).y, 1.0), "fakkel: sterkte tussen 0,85 en 1 (Daan juice.md)")
+	ok(gelijk == 0, "de twee fakkels flakkeren niet gelijk")
 	var hm = Node2D.new()
 	hm.set_script(HS)
 	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")

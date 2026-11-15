@@ -419,8 +419,17 @@ func _draw() -> void:
 			draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
 		# 3D-fakkel uit het deco-blad (vast beeld, het licht zit in de 3D-gang); hoogte uit de render (`uit`), anders gelijk met de pixelfakkel
 		var fm := HOL3D.deco_maat("fakkel")
+		var fy := HOL3D.deco_y("fakkel", GANG_BOVEN + 13 - fm.y)
 		if met_3d and HOL3D.heeft("gang") and fm != Vector2.ZERO and HOL3D.teken_deco(self, "fakkel",
-				Vector2(fx + 4 - floor(fm.x / 2.0), HOL3D.deco_y("fakkel", GANG_BOVEN + 13 - fm.y))):
+				Vector2(fx + 4 - floor(fm.x / 2.0), fy)):
+			# leven in het spel, punt 4: een kleine flakkerende gloed om de vlam (bovenste 4 van de 12 spelpixels). Rond en
+			# klein, zodat hij niet als vierkant op de celrand stopt (Daan 13 nov 19:35); verandert alleen met anim (tik()).
+			# Daan (juice.md): gloedkring ±10 spelpixels, laag doorzicht, sterkte 0,85 tot 1. Midden op de vlam (5 spelpixels
+			# onder de bovenkant van het blad, nagemeten in de film van run 43731281126). Geen apart kernblokje: dat las als
+			# een grijs vierkantje boven de vlam; de vlam in het blad is zelf al geel.
+			var fl := fakkel_flakker(anim, i)
+			var r := 10.0 * fl.y
+			draw_texture_rect_region(GLOED, Rect2(fx + 4 - r, fy + 5.0 - r, 2.0 * r, 2.0 * r), Rect2(0, 0, 52, 52), Color(1.0, 0.8, 0.45, fl.x))
 			continue
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
@@ -518,6 +527,13 @@ static func munt_plek(m: Dictionary, doel: float, vloer: float) -> Vector3:
 # glinster: het eerste beeld na de landing op de schat (alleen muntjes die op de stapel vallen)
 static func munt_glinstert(m: Dictionary) -> bool:
 	return not m.has("naar") and float(m.t) > MUNT_S and float(m.t) <= MUNT_S + GLINSTER_S
+# flakkeren van fakkel i bij beeld a: (alfa van de gloed, maat 0,85 tot 1). Vast patroon van 7 standen, de twee fakkels
+# lopen niet gelijk. Alleen een nieuw beeld als er toch getekend wordt (tik()), dus stil beeld kost niets extra.
+# Zachte overgang (Daan): buren in het patroon liggen dicht bij elkaar, geen sprong van donker naar fel.
+const FLAKKER := [0.2, 0.45, 0.75, 1.0, 0.8, 0.55, 0.3, 0.0, 0.25, 0.55, 0.7, 0.45]
+static func fakkel_flakker(a: int, i: int) -> Vector2:
+	var f: float = FLAKKER[(a + i * 5) % FLAKKER.size()]
+	return Vector2(0.10 + 0.10 * f, 0.85 + 0.15 * f)
 
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
