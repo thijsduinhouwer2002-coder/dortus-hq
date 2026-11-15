@@ -165,9 +165,10 @@ def _troon():
         bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.15, location=(sx * W2, Y - 0.05, H0 + 0.12))
         o = bpy.context.object; o.name = "troon_knop"; o.data.materials.append(goud); bpy.ops.object.shade_smooth()
         # armleuning: rood kussen op een gouden steun, steekt naast hem naar voren
-        bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, 0.0, 0.64))
-        a = bpy.context.object; a.name = "troon_arm"; a.scale = (0.3, 1.5, 0.2)
-        bv = a.modifiers.new("rond", "BEVEL"); bv.width = 0.09; bv.segments = 6   # 7c: ronder (kijker: blokken)
+        # 7e (kan Daan 14 nov 10:45, Bram 15 nov): rol in plaats van blok. Het blok gaf van voren een harde rechte
+        # buitenrand; een langwerpig bol kussen heeft overal een ronde omtrek, ook schuin van boven.
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=24, radius=1.0, location=(sx * 1.24, -0.02, 0.66))
+        a = bpy.context.object; a.name = "troon_arm"; a.scale = (0.18, 0.8, 0.15)
         a.data.materials.append(fluweel); bpy.ops.object.shade_smooth()
         bpy.ops.mesh.primitive_cube_add(size=1, location=(sx * 1.24, 0.0, 0.52))   # gouden rand onder het kussen
         r = bpy.context.object; r.name = "troon_armrand"; r.scale = (0.34, 1.54, 0.06)
