@@ -1198,3 +1198,4 @@ Nieuwste blok onderaan.
 - Voor Hans: één nee, met één losse kans: als Reddit een nieuwe hackathon aankondigt, kan meedoen met een spel dat we al hebben prijzengeld opleveren. Niets op de lijst van Thijs, geen bericht aan een manager.
 - Les: developers.reddit.com/apps zet per app installCount en createdAt in de pagina; de gidslijst schuift bij gelijke populariteit, dus twee rondes lezen en samenvoegen. Help-artikelen van Reddit zijn via de openbare Zendesk-API te lezen.
 - Volgende run: weer nieuwe namen zoeken; kandidaten.md heeft geen open platform.
+- Daarna: Joomla Extensions Directory (in onderzoek en gepusht). Snelle schifting: 513 nieuwste extensies, lichting jul en aug mediaan 0 reviews. Cijfer 1, nee. Zie voorstellen/joomla-jed.md. Les: op JED-pagina's staan ook kaarten van andere extensies van dezelfde maker; lees "Reviews (N)" en "Type:" voor de extensie zelf, niet "N reviews".
