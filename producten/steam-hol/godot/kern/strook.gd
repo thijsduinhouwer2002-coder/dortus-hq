@@ -149,6 +149,8 @@ func _ready() -> void:
 	var spel_h := int(hoogte / schaal)
 	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))
 	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - hoogte))
+	_icoon_zetten()
+	get_tree().create_timer(1.0).timeout.connect(_icoon_zetten)
 	var boven := (spel_h - HOL.H) * schaal   # lege (doorzichtige) rand bovenaan bij 96 px
 	# klikken gaan door de lucht en het gras heen naar het venster erachter; alleen het hol zelf (onder het maaiveld)
 	# vangt de muis (graven, hover op het paneel). Zo blokkeert de strook nooit meer dan de rijen van het hol.
@@ -495,3 +497,15 @@ func bewaar() -> void:
 
 func laad() -> void:
 	OPSLAG_M.laad(self, BEGIN)
+
+
+# Olaf 15 nov (Daan 05:50, run 43681846964): los gestart met --path toonde de taakbalk tot ±35 s een gewoon
+# vensterpictogram in plaats van Gloop. Godot zet het icoon bij het opstarten al, maar de taakbalkknop bestaat dan
+# nog niet altijd. Daarom het icoon nog een keer zetten zodra het venster zijn maat heeft, en na 1 s nog eens.
+# Alleen op Windows; het geexporteerde spel heeft het icoon ook in de exe.
+func _icoon_zetten() -> void:
+	if OS.get_name() != "Windows":
+		return
+	const ICO := "res://kunst/icoon.ico"
+	if FileAccess.file_exists(ICO):
+		DisplayServer.set_native_icon(ICO)
