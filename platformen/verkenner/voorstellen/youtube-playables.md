@@ -51,7 +51,7 @@ In de Playables-hoek van YouTube (lijsten, genres, nieuw), aanbevolen tussen vid
 - **Onze troeven:** Gloop en de Blender-renders uit Het Hol als plaatjes; het Garmin-arcadespel uit `iets-erbij-2026-11.md` zou in een webversie hetzelfde idee kunnen zijn. Eén spel kan via de Bridge SDK van Playgama ook naar andere portalen (MSN Games, CrazyGames en meer), dus één bouw, meerdere winkels (DERDEN, Playgama).
 - **Wat Thijs moet doen:** een account bij Playgama (of Mediacube) aanmaken, voorwaarden accepteren en uitbetaalgegevens invullen. Geen YouTube-kanaal nodig als de uitgever publiceert (GOK, de uitgever heeft de kanaaltoegang; na te vragen).
 - **Kinderen:** een deel van het publiek is jong. Alleen reclame die YouTube zelf toont, geen kopen in het spel (bestaat nog niet). Er is een leeftijdsclassificatie per spel nodig (GEZIEN, stap "Get an age rating" in het Developer Portal).
-- **AI-regels:** de Playables-eisen noemen AI niet, ze eisen eigen of gelicenseerde inhoud (DERDEN, portalready.world). Niet verstoppen; Blender-renders zijn eigen werk.
+- **AI-regels:** de Playables-eisen noemen AI niet (aanvulling 15 nov: de eisen van Playgama zelf sluiten spellen uit die "primarily or entirely" met generatieve AI gemaakt zijn zonder echte waarde voor de speler, zie voorstellen/playgama.md), ze eisen eigen of gelicenseerde inhoud (DERDEN, portalready.world). Niet verstoppen; Blender-renders zijn eigen werk.
 
 ## Voor en tegen
 Voor:
