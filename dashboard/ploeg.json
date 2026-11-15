@@ -177,12 +177,32 @@
     },
     {
       "naam": "Lars",
-      "rol": "succesonderzoeker",
-      "team": "",
-      "schema": "",
+      "rol": "Succesonderzoeker (teamleider)",
+      "team": "Onderzoek",
+      "schema": "elk uur",
       "actief": true,
       "sleutels": [
         "Lars"
+      ]
+    },
+    {
+      "naam": "Fenna",
+      "rol": "Succesonderzoeker",
+      "team": "Onderzoek",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Fenna"
+      ]
+    },
+    {
+      "naam": "Joris",
+      "rol": "Succesonderzoeker",
+      "team": "Onderzoek",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Joris"
       ]
     }
   ],
