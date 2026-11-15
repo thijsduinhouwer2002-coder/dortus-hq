@@ -799,6 +799,21 @@ func _init() -> void:
 		g3.stap(0.01)
 		ok(not g3.is_processing(), "3D: na knipperen geen _process meer (zuinig)")
 		g3.hap_van = -100.0
+		# Spugen in 3D (Bram 15 nov): knipper, knipper, hap, hap; nooit meer het pixelbeeld zolang er een 3D-blad is
+		g3.leven = "spugen"
+		g3.leven_van = g3.t
+		var sp_ok := true
+		var sp_zag := []
+		for i in 4:
+			g3.t = g3.leven_van + 0.2 * i + 0.05
+			var verwacht: String = g3.SPUUG_3D[i] if standen.has(g3.SPUUG_3D[i]) else "rust"
+			sp_zag.append(g3.beeld_3d())
+			sp_ok = sp_ok and g3.beeld_3d() == verwacht
+		ok(sp_ok, "3D: spugen als knipper, knipper, hap, hap (%s)" % ", ".join(sp_zag))
+		g3.t = g3.leven_van + 0.6 + g3.BOOG_S + 0.01
+		g3.stap(0.0)
+		ok(g3.leven == "" and g3.beeld_3d() == "rust" and g3.laars_ligt(), "3D: na het spugen weer rust, laars ligt")
+		g3.laars_weg()
 		g3.met_3d = false
 		ok(g3.beeld_3d() == "", "3D uit: de oude pixel-Gloop")
 	else:

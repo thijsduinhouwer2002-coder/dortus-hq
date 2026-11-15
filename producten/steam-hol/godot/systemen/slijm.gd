@@ -45,8 +45,8 @@ const BERG_MAAT := [5, 25, 100, 300, 1000, 3000]   # vanaf zoveel hoeden wordt d
 const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
 const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
 # 3D-lijf (Bram 13 nov, besluit Thijs 13:35, ontwerp/steam/3d-stijl.md): gerenderd door producten/steam-hol/pijplijn/.
-# Staat kunst/3d/gloop.png er, dan tekent hij dat lijf voor rust, slapen, plat, opstaan, hap, blij en knipper;
-# spugen blijft voorlopig het pixelbeeld tot Daan die in 3D heeft. Filter lineair alleen voor dit lijf (CanvasTexture), de
+# Staat kunst/3d/gloop.png er, dan tekent hij dat lijf voor rust, slapen, plat, opstaan, hap, blij en knipper,
+# en sinds 15 nov ook voor spugen (met knipper en hap, zie _spuug_3d). Filter lineair alleen voor dit lijf (CanvasTexture), de
 # pixelhoeden blijven scherp. Klein lijf = 0,8 x het grote (zelfde verhouding als 16 en 20 breed).
 const LIJF3D_JSON := "res://kunst/3d/sprites.json"
 static var lijf3d: CanvasTexture = null
@@ -381,7 +381,7 @@ static func _laad_3d() -> void:
 	lijf3d.diffuse_texture = load(str(lijf3d_info["blad"]))
 	lijf3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 
-# Welk 3D-beeld nu (rust, plat, hap, blij, knipper), of "" als het pixelbeeld moet (spugen, of geen 3D).
+# Welk 3D-beeld nu (rust, plat, hap, blij, knipper), of "" als het pixelbeeld moet (geen 3D).
 func beeld_3d() -> String:
 	if not met_3d:
 		return ""
@@ -395,6 +395,8 @@ func beeld_3d() -> String:
 		return "hap" if _heeft_3d("hap") else ""
 	if f[0] == LEVEN and (f[1] == PLAT):
 		return "plat"
+	if f[0] == LEVEN and leven == "spugen" and SPUGEN.has(f[1]):
+		return _spuug_3d(SPUGEN.find(f[1]))
 	if f[0] == RUST or (f[0] == LEVEN and (f[1] == OPSTAAN or SLAPEN.has(f[1]))):
 		if f[0] == RUST and t < blij_tot and _heeft_3d("blij"):
 			return "blij"
@@ -402,6 +404,14 @@ func beeld_3d() -> String:
 			return "knipper"     # slapen = ogen dicht
 		return "rust"
 	return ""
+
+# Spugen in 3D (Bram 15 nov, laatste pixelmoment van Gloop): geen eigen stand nodig, de vier spuug-beelden
+# (0,2 s elk) worden ogen dicht, ogen dicht (hij knijpt en werkt de laars omhoog), mond wijd open op het moment
+# dat de laars eruit vliegt (beeld 2 en 3, de laars vliegt vanaf 0,6 s). Ontbreekt een stand, dan rust.
+const SPUUG_3D := ["knipper", "knipper", "hap", "hap"]
+func _spuug_3d(i: int) -> String:
+	var naam: String = SPUUG_3D[clampi(i, 0, SPUUG_3D.size() - 1)]
+	return naam if _heeft_3d(naam) else "rust"
 
 static func _laad_royal() -> void:
 	if royal3d_gezocht:
