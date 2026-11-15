@@ -536,4 +536,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Les: een versietoets met `in` op de hele manifest vindt ook andere regels; toets op de hele regel.
 
 ## 15 nov 2026, 16:11 tot ±16:55 UTC, Bram
-- Click Joints: 136 downloads (16:25, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding in de berichten. Release Pro 1.0.1 staat klaar; uploaden doet de hoofdchat in de browser van Thijs. Niets te doen; Steam-werk zie `platformen/steam/logboek.md`.
+- Click Joints: 137 downloads (16:21, meet_downloads.sh), 0 open issues en 0 open PR in click-joints (gh search), geen melding in de berichten. Release Pro 1.0.1 staat klaar; uploaden doet de hoofdchat in de browser van Thijs. Niets te doen; Steam-werk zie `platformen/steam/logboek.md`.
