@@ -148,6 +148,7 @@ GOUD = g.mat("goud", "goud", rough=0.18, spec=0.9, metaal=0.85, emis=0.06)
 GOUD_D = g.mat("goud_d", "goud_d", rough=0.3, spec=0.7, metaal=0.8)
 HOUT = g.mat("hout", "8a4b2a", rough=0.7, spec=0.2)
 HOUT_D = g.mat("hout_d", "5a2e1c", rough=0.75)
+LADDER_SPORT = g.mat("ladder_sport", "7a4a2c", rough=0.75)   # Mila 15 nov: lichter dan HOUT_D, leest tegen kleur H
 VLAM = g.mat("vlam", "ffb347", emis=9.0)
 VLAM_K = g.mat("vlamkern", "fff1b0", emis=14.0)
 # Daan 13 nov 23:40: vlam in drie lagen met lage emissie. Emissie 9 en 14 knipt met view transform Standard naar
@@ -338,7 +339,8 @@ go = bpy.data.objects.new("goudgloed", gd); go.location = (2.0, 0.2, 1.3); sc.co
 for kant in (-0.35, 0.35):
     cil("ladder_paal", (-11.0 + kant, 0.6, 1.6), 0.05, 3.4, HOUT_F, verts=8)  # Daan 23:45: kamerhout, minder oranje
 for k in range(8):
-    cil("ladder_sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, HOUT_D, rot=(0, math.radians(90), 0), verts=8)
+    # Mila 15 nov (kan 1 van Daan bij kleur H): sporten een trede lichter en geler, anders bruin op bruin
+    cil("ladder_sport", (-11.0, 0.6, 0.25 + k * 0.4), 0.035, 0.7, LADDER_SPORT, rot=(0, math.radians(90), 0), verts=8)
 
 # ---------- kist links in de kamer, open, goud puilt eruit ----------
 kist = blok("kist", (-2.05, 0.75, 0.32), (0.85, 0.6, 0.62), HOUT); afronden(kist, 0.05, 2)
@@ -430,10 +432,10 @@ klo.rotation_euler = (math.radians(90), 0, 0); sc.collection.objects.link(klo)
 # losse kamer: twee lichtgevende zwammetjes op de vloer, warm lila licht van binnen
 for dx, s_ in ((-0.3, 1.0), (-0.08, 0.7)):
     cil("steel", (LOS + dx, 0.6, KZ - 0.48), 0.035 * s_, 0.18 * s_, g.mat("zsteel", "efe4d8", rough=0.6))
-    bol("hoedje", (LOS + dx, 0.6, KZ - 0.39 + 0.05 * s_), (0.11 * s_, 0.11 * s_, 0.06 * s_), g.mat("zwam", "7fe3d0", rough=0.5, emis=1.2), 16)
+    bol("hoedje", (LOS + dx, 0.6, KZ - 0.39 + 0.05 * s_), (0.11 * s_, 0.11 * s_, 0.06 * s_), g.mat("zwam", "9ff0e0", rough=0.5, emis=2.0), 16)
 ll = bpy.data.lights.new("loslicht", "AREA"); ll.size = 0.9; ll.color = (1.0, 0.8, 0.7); ll.energy = 25
 llo = bpy.data.objects.new("loslicht", ll); llo.location = (LOS, 0.05, KZ); llo.rotation_euler = (math.radians(90), 0, 0); sc.collection.objects.link(llo)
-zl = bpy.data.lights.new("zwamlicht", "POINT"); zl.color = (0.55, 1.0, 0.9); zl.energy = 25; zl.shadow_soft_size = 0.3
+zl = bpy.data.lights.new("zwamlicht", "POINT"); zl.color = (0.55, 1.0, 0.9); zl.energy = 40; zl.shadow_soft_size = 0.3
 zlo = bpy.data.objects.new("zwamlicht", zl); zlo.location = (LOS - 0.2, 0.2, KZ - 0.2); sc.collection.objects.link(zlo)
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")

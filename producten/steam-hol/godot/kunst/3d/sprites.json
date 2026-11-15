@@ -63,8 +63,8 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "ea1c075863e7e883",
-  "bytes": 49675,
+  "bron": "0675c1677223c062",
+  "bytes": 49781,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1052,8 +1052,8 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "72dbda592461ca00",
-  "bytes": 132895,
+  "bron": "6381ba62a27663e0",
+  "bytes": 133180,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
