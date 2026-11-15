@@ -536,3 +536,11 @@
 - Volgende: definitieve snede uit Daans opname, ladderhoek en vloer met contrast nakijken, dan scherm 1 en 2 vervangen.
 - (03:05) Weekopname op main run 43669325828 (na 8bfefd8) was al gestart door een ander; mijn dubbele start geannuleerd. Andere helden dan om 01:25, dus opnieuw gekozen met dezelfde snedes. **Besluit scherm 1: Lotte duikt** (beeld 955, "Lotte read about you in a tavern."), **scherm 2: Tibbe aan de put** (`held-1-b`, "Tibbe limps back to the Spike Pit."). Onder de oude bestandsnamen gezet, overzicht vernieuwd. Ladderhoek met contrast GEZIEN: schoon. Volgende: scherm 3 tot 5 (nog veel avondlucht) uit deze opname vernieuwen.
 - (03:15) Demo-opname op main gestart en gehaald (run 43670384724). Proef scherm 3 tot 5 in twee rijen GEZIEN en niet gekozen (de held van de grap wordt klein). Plan in LEESMIJ schermen-3d. Volgende run: die snede, daarna keuring Daan op scherm 1 en 2 verwerken.
+
+## 15 nov 2026, ±05:40 tot 06:10 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), besluiten (niets nieuws voor mij), taken (Daan 05:50: main-opname 43680432181 niet voor scherm 2, melding Performance Options).
+- **Besluit: scherm 3 tot 5 zonder avondlucht, in twee rijen met een gesneden bovenrij** (`bron/maak_scherm_rijen_y.py`). Waarom: frisse kijker blind 7 tegen 4, 7 tegen 3 en 7 tegen 4 voor de nieuwe.
+- **Besluit: scherm 5 wordt de dief** ("Rik sneaks in. Nobody saw. You saw.", week run 43680432181 beeld 450). Waarom: moet van de kijker, de oude 5 was bijna een kopie van 3; de dief laat een ander deel van het hol en een andere grap zien.
+- Scherm 4 met Gloop in beeld en een groot winkelkaartje. Waarom: de zin gaat over zijn mond, en zo oogt 4 als winkelscherm en niet als nog een hol.
+- GEZIEN met Read: alle nieuwe schermen, A/B-paren, dief 430 tot 475, overzicht.
+- Volgende: scherm 2 opnieuw zodra Daans meldingfix een schone opname geeft (klok 10:40); daarna de volgorde van de vijf met een frisse kijker.
