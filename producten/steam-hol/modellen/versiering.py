@@ -161,7 +161,7 @@ def bouw(naam, x, z, y=0.35):
         bpy.context.scene.collection.objects.link(lo)
     elif naam == "spinrag":
         web = m("web", "9a95a3", rough=0.7)  # grijzer en dikker: was op ware grootte een wit krasje; 14 nov nog een tikje grijzer (Daan kan 1)
-        zw = m("spin", "2a1832", rough=0.6)
+        zw = m("spin", "3a2a4c", rough=0.3, spec=0.8)  # Bram 15 nov (kan Daan 10:40): iets lichter met glans op de rug, was 2a1832 mat
         oog = m("spinoog", "ff6a5a", rough=0.3, emis=1.0)
         # Bram 15 nov: het oude hoekweb (waaier uit de linkerbovenhoek, rechte draad omlaag links en de spin aan een rechte
         # draad rechts) hing midden in de gang zonder muur erachter en las op 96 als een ingelijst vierkant. Nu een web dat
@@ -188,9 +188,9 @@ def bouw(naam, x, z, y=0.35):
                 qm = punt((a1 + a2) / 2, rr * 0.86)
                 draad(q1, qm, 0.21)
                 draad(qm, q2, 0.21)
-        draad_l = m("draad_l", "c9c3d2", rough=0.6)  # lichter dan het web, zodat de spin zichtbaar ergens aan hangt
+        draad_l = m("draad_l", "ddd8e6", rough=0.6)  # lichter dan het web, zodat de spin zichtbaar ergens aan hangt
         sx0, sz0 = 5.0 * s, -7.4 * s  # iets los van de rand van het web (frisse kijker: draad las als paal)
-        cil(ouder, p + "_hangdraad", (sx0, -0.1, sz0 / 2), 0.15 * s, -sz0, draad_l, verts=6)
+        cil(ouder, p + "_hangdraad", (sx0, -0.1, sz0 / 2), 0.22 * s, -sz0, draad_l, verts=6)
         bol(ouder, p + "_lijf", (sx0, -0.12, sz0 - 0.4 * s), (1.5 * s, 1.2 * s, 1.5 * s), zw, 16)
         for sx in (-1, 1):
             bol(ouder, p + "_oog", (sx0 + sx * 0.55 * s, -0.12 - 1.15 * s, sz0 - 0.4 * s), (0.35 * s,) * 3, oog, 8)

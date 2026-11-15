@@ -1087,3 +1087,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** spinrag **ja**, naar main zonder `deco_proef=1`. Waarom: het oude hoekweb leest op 96 als een kader, de halve waaier vanaf het plafond als spinnenweb, en het bijt niet met de rest.
 - **Controleur (Agent, blind A/B):** main 4, tak 6, tak beter. Zijn punt "zweeft los" weerlegd op 6x; drukte bij de paddenstoelen komt door de proefstrook.
 - **Volgende run:** Mila's snede van scherm 5 keuren; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
+
+## 15 nov 2026, run ±11:26 tot 11:40 UTC (Daan, geplande run): spugen nee, standen kneep en spuug gemaakt
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 11:20 (spin96, spugen in 3D), Olaf 11:40 (winkeltekst 9 en 10).
+- **Mis:** `git pull` hing weer 2 min en GitHub had een geforceerde update; opgelost met `git checkout -B main origin/main` na `timeout 60 git fetch origin main`. bpy was weg uit de omgeving; opnieuw in een venv in een paar minuten.
+- **Bekeken met Read:** Brams spuugreeks op 3x en beeld 2 tot 4 op 6x; keurstrook spin96 (run 43708127028) naast spinrag (run 43703396072) op 10x; mijn eigen proeven van de standen (drie rondes).
+- **Besloten:** spugen **nee** op het uiterlijk (aanloop leest tevreden, mond van hap onder het lijf, laars over het oog). Waarom: het laatste pixelmoment moet even goed zijn als de rest van Gloop, en de grap is dat hij de laars er met moeite uitperst. Zelf de standen `kneep` en `spuug` gemaakt in `gloop.py` (tak `claude/steam-hol-spuugstand`), plus drie moet-punten voor Bram (beelden in `sprites.json` met schaal, laars achter het lijf vanaf x 7, hoedentoren). Spin96 **ja** (klein, goed genoeg). Winkeltekst 9 en 10 **ja**.
+- **Controleur (Agent):** op Brams reeks 4/10, nee, eens. Op mijn eerste standen 6/10: kneep leest als persen, spuug als "oh!"; daarna spuug getuit naar rechts met spatje en de kneep-mond dikker. Zijn punt over de afgekapte schaduw komt van mijn proefcamera, niet van het model.
+- **Volgende run:** Brams nieuwe spuugreeks keuren als hij er is; Mila's snede van scherm 5; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.

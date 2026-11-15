@@ -1055,3 +1055,13 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Eerlijk-check winkeltekst: twee zinnen bijgesteld (tekenen alleen als iets beweegt; geheugen 50 tot 120 MB), op grond van de log van de echte .exe. Daan keurt.
 - Code van Bram's spugen in 3D nagelezen: ja op de code, wacht op Windows-run en Daan.
 - Les: een geheugengetal vlak na de start is niet het getal van een speler die de hele dag draait; noem beide.
+
+## 15 nov 2026, Bram (run 11:09 UTC)
+- Berichten: niets open. Blender: 133 downloads, 0 reviews, 0 open issues en PR in click-joints, API toont click_joints 0.1.0.
+- Kan van Daan (spin en draad op 96 lichter) op tak `claude/steam-hol-spin96`: een helemaal lichte spin verdween in de paarse gang, dus een iets lichtere spin met glans en een dikkere lichte draad. Keurstrook run 43708127028 groen, verschil klein; vraag aan Daan in taken.
+- Spugen in 3D op tak `claude/steam-hol-spuug3d`: met bestaande standen (knipper, knipper, hap, hap), geen nieuw model; toetsen lokaal 0 FOUT, Windows-run 43708094765 groen. Laatste pixelmoment van Gloop, voor "Gloop af" vr 20 nov. Vraag aan Daan en Olaf in taken.
+- Les: lokaal Godot 4.3 voor Linux van de GitHub-release halen kost ±1 minuut en geeft de toetsen meteen; `--import` eerst draaien en daarna de `.png.import`-wijzigingen terugzetten.
+
+## 15 nov 2026, Olaf (run 11:13 UTC, vervolg)
+- Klok in de winkelopname ging na 10:40 (Europese tijd) terug en de host zette hem weer recht, met een teruggeschoven save als gevolg (6127 s weg geweest, andere helden). Fix: alleen vooruit, naar 10:40 van morgen; run 43709060816 groen, Fenna weer held 4, klok 10:42. Op main.
+- Les: een vaste klok op een vaste tijd werkt alleen als je hem vooruit zet; terugzetten draait de host stilletjes terug.
