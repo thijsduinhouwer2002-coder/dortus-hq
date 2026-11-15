@@ -52,6 +52,20 @@
             1.0,
             1.0
           ]
+        },
+        "kneep": {
+          "stand": "kneep",
+          "schaal": [
+            1.1,
+            0.9
+          ]
+        },
+        "spuug": {
+          "stand": "spuug",
+          "schaal": [
+            0.96,
+            1.06
+          ]
         }
       }
     },

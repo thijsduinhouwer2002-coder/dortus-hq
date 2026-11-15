@@ -6,7 +6,9 @@ Draai:  <venv>/bin/python gloop.py <uit.png> <versie> <hoeden> <breedte> <hoogte
   versie 3 = Schatbuik (doorschijnend lijf met munten en belletjes erin)
   hoeden  = 0 tot 4 (helm, kroon, heksenhoed, rode muts), scheef op elkaar
   stand   = (optioneel, 7e woord) rust (standaard), knipper (oog dicht), blij (oog als boogje omhoog,
-            grotere lach), hap (mond wijd open). Voor de pijplijn van Bram: elke stand een eigen beeld.
+            grotere lach), hap (mond wijd open), kneep (oog dichtgeknepen als >, mond dicht, wangen bol) en
+            spuug (kleine open O binnen het lijf, oog open en kijkt naar rechts, waar de laars heen vliegt).
+            Kneep en spuug zijn voor het spugen (Daan 15 nov). Voor de pijplijn van Bram: elke stand een eigen beeld.
 
 Lessen uit de pixelrondes (kijkers 1 tot 7): oog met veel wit en een ronde pupil met één glimstip,
 een open lach (geen streepje), hoeden echt óp het hoofd, kroon zonder donkere binnenkant
@@ -45,6 +47,9 @@ lijf = bpy.data.objects.new("lijf", mb); sc.collection.objects.link(lijf)
 for (x, y, z, r) in [(0, 0, 0.55, 1.2), (0.08, 0, 0.85, 0.8), (-0.65, 0, 0.3, 0.72),
                      (0.68, 0, 0.3, 0.68), (0, -0.2, 0.25, 0.95)]:
     e = mb.elements.new(); e.co = (x, y, z); e.radius = r
+if globals().get("STAND", "rust") == "kneep":   # wangen bol: twee kleine bollen voor op het lijf, onder het oog
+    for (x, y, z, r) in [(-0.48, -0.42, 0.5, 0.62), (0.62, -0.38, 0.5, 0.58)]:
+        e = mb.elements.new(); e.co = (x, y, z); e.radius = r
 if VERSIE == 3:
     lijfmat = g.mat("lijf", "munt", rough=0.08, spec=0.7, glas=0.55, sss=0.15)
 else:
@@ -68,10 +73,19 @@ if _stand in ("knipper", "blij"):
     sn_o.scale = (1.0, 0.5, 0.6); sn_o.hide_render = True; sn_o.hide_viewport = True
     mo = ooglid.modifiers.new("snij", "BOOLEAN"); mo.object = sn_o; mo.operation = "DIFFERENCE"
     ooglid.scale = (1.0, 0.4 if _stand == "knipper" else 0.85, 1.0)   # lokaal y is na het kantelen de hoogte
+elif _stand == "kneep":
+    # oog dichtgeknepen: twee korte donkere staafjes als > (moeite doen, niet tevreden)
+    pm = g.mat("pupil", "pupil", rough=0.35, spec=0.2)
+    for dz, hoek in ((0.1, -28), (-0.1, 28)):
+        bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=0.06, depth=0.5, location=(OX, -1.08, OZ + dz),
+                                            rotation=(0, math.radians(90 + hoek), 0))
+        bpy.ops.object.shade_smooth(); bpy.context.object.data.materials.append(pm)
 else:
-    bol("oogwit", (OX, -0.98, OZ), (0.44, 0.22, 0.46), g.mat("oogwit", "oogwit", rough=0.18, spec=0.5))
-    bol("pupil", (OX + 0.07, -1.17, OZ - 0.02), (0.21, 0.07, 0.23), g.mat("pupil", "pupil", rough=0.35, spec=0.2))
-    bol("glim", (OX + 0.15, -1.235, OZ + 0.09), (0.07, 0.03, 0.07), g.mat("glim", "oogwit", emis=4.0))
+    oy = 0.0 if _stand != "spuug" else 0.06   # spuug: oog iets hoger, zodat de open mond eronder past
+    bol("oogwit", (OX, -0.98, OZ + oy), (0.44, 0.22, 0.46), g.mat("oogwit", "oogwit", rough=0.18, spec=0.5))
+    px = 0.07 if _stand != "spuug" else 0.17   # spuug: kijkt naar rechts, de laars na
+    bol("pupil", (OX + px, -1.17, OZ - 0.02 + oy), (0.21, 0.07, 0.23), g.mat("pupil", "pupil", rough=0.35, spec=0.2))
+    bol("glim", (OX + px + 0.08, -1.235, OZ + 0.09 + oy), (0.07, 0.03, 0.07), g.mat("glim", "oogwit", emis=4.0))
 # open lach: halve schijf (mond), tong, één tand, scheef
 bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.26, depth=0.12, location=(0.02, -1.0, 0.46),
                                     rotation=(math.radians(90), math.radians(-10), 0))
@@ -87,15 +101,33 @@ if _stand == "hap":
     # (frisse kijker); nu een hele ovaal, lager, met de tand aan de bovenlip.
     mond.modifiers.remove(m1)
     mond.location = (0.04, -1.0, 0.24); mond.scale = (1.5, 1.0, 1.12)
-bol("tong", (0.0, -1.03 if _stand != "hap" else -1.07, 0.37 if _stand != "hap" else 0.07), (0.15, 0.06, 0.07) if _stand != "hap" else (0.24, 0.07, 0.09), g.mat("tong", "tong", rough=0.4))
+if _stand == "spuug":
+    # kleine open O, helemaal binnen het lijf (de O van hap hangt onder de onderrand)
+    mond.modifiers.remove(m1)
+    mond.location = (0.2, -1.0, 0.36); mond.scale = (0.78, 1.0, 0.82)
+    mond.rotation_euler = (math.radians(90), math.radians(-25), math.radians(-18))   # getuit, wijst naar rechts (de laars na)
+    bol("spat", (0.52, -0.98, 0.3), (0.09, 0.07, 0.07), lijfmat)   # klein slijmdruppeltje bij de mondhoek
+    bol("spat2", (0.66, -0.9, 0.36), (0.055, 0.05, 0.05), lijfmat)
+if _stand == "kneep":
+    # mond dicht: een kort donker streepje, iets scheef, de lippen op elkaar
+    mond.modifiers.remove(m1); mond.rotation_euler = (math.radians(90), 0, 0)
+    mond.location = (0.04, -1.04, 0.44); mond.scale = (0.62, 0.26, 1.0)   # lokaal y is na het kantelen de hoogte
+_tong = bol("tong", (0.0, -1.03 if _stand != "hap" else -1.07, 0.37 if _stand != "hap" else 0.07), (0.15, 0.06, 0.07) if _stand != "hap" else (0.24, 0.07, 0.09), g.mat("tong", "tong", rough=0.4))
 bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565) if _stand != "hap" else (0.10, -1.12, 0.49)); tand = bpy.context.object
 tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
 bev = tand.modifiers.new("rond", "BEVEL"); bev.width = 0.02; bev.segments = 3
 tand.data.materials.append(g.mat("tand", "tand", rough=0.3))
+if _stand == "kneep":   # mond dicht: geen tong en geen tand (lazen als vuil, controleur 15 nov)
+    _tong.hide_render = True; tand.hide_render = True
+if _stand == "spuug":   # tong achter in de O, tand weg (de laars komt eruit)
+    _tong.location = (0.2, -1.05, 0.27); _tong.scale = (0.17, 0.06, 0.06); tand.hide_render = True
 # blosjes
 blos = g.mat("blos", "blos", rough=0.7)
 bol("blos_l", (-0.48, -0.93, 0.62), (0.13, 0.04, 0.07), blos, rot=(0, 0, math.radians(-25)))
 bol("blos_r", (0.70, -0.86, 0.62), (0.12, 0.04, 0.065), blos, rot=(0, 0, math.radians(30)))
+if _stand == "kneep":   # bolle wangen: blosjes groter, op de bollen
+    for o in (sc.objects["blos_l"], sc.objects["blos_r"]):
+        o.scale = (o.scale[0] * 1.5, o.scale[1], o.scale[2] * 1.5); o.location.y -= 0.12
 
 # ---------- eigen trek ----------
 goud = g.mat("goud", "goud", rough=0.18, spec=1.0, metaal=0.9, emis=0.12)

@@ -186,6 +186,17 @@ func _init() -> void:
 	sl.zet_laars_proef()   # keurstrook laars_proef=1 (Bram 14 nov)
 	ok(sl.laars_ligt() and sl.laars_pos() == Vector2i(15, 0) and sl.leven == "", "laars_proef: laars ligt vast rechts naast hem op de vloer")
 	sl.laars_weg()
+	sl.zet_spuug_proef(2)   # keurstrook spuug_proef=2 (Bram 15 nov)
+	var lp: Vector2i = sl.laars_pos()
+	sl.stap(5.0)
+	ok(sl.leven == "spugen" and sl.frame_nu()[1] == sl.SPUGEN[3] and sl.laars_pos() == lp, "spuug_proef 2: na 5 s nog steeds hetzelfde spuugbeeld, laars op dezelfde plek")
+	sl.zet_spuug_proef(1)
+	sl.stap(1.0)
+	ok(sl.frame_nu()[1] == sl.SPUGEN[0], "spuug_proef 1: blijft in kneep")
+	sl.spuug_vast = -1.0
+	sl.stap(1.0)
+	ok(sl.leven == "" and sl.laars_ligt(), "na de proef gaat spugen gewoon af: laars ligt")
+	sl.laars_weg()
 	var hd3 := Node2D.new()
 	hd3.set_script(load("res://systemen/held.gd"))
 	hol3.add_child(hd3)
@@ -799,6 +810,27 @@ func _init() -> void:
 		g3.stap(0.01)
 		ok(not g3.is_processing(), "3D: na knipperen geen _process meer (zuinig)")
 		g3.hap_van = -100.0
+		# Spugen in 3D (Bram 15 nov): knipper, knipper, hap, hap; nooit meer het pixelbeeld zolang er een 3D-blad is
+		g3.leven = "spugen"
+		g3.leven_van = g3.t
+		var sp_ok := true
+		var sp_zag := []
+		for i in 4:
+			g3.t = g3.leven_van + 0.2 * i + 0.05
+			var verwacht: String = g3.SPUUG_3D[i] if standen.has(g3.SPUUG_3D[i]) else "rust"
+			sp_zag.append(g3.beeld_3d())
+			sp_ok = sp_ok and g3.beeld_3d() == verwacht
+		ok(sp_ok, "3D: spugen als kneep, kneep, spuug, spuug (%s)" % ", ".join(sp_zag))
+		g3.laars_kant = 1
+		g3.t = g3.leven_van + 0.6
+		var lp0: Vector2i = g3.laars_pos()
+		g3.t = g3.leven_van + 0.6 + g3.BOOG_S
+		var lp1: Vector2i = g3.laars_pos()
+		ok(lp0.x == g3.LAARS_START_3D and lp1.x == 15, "3D: laars begint achter het lijf op x 6 en landt op 15 (%d, %d)" % [lp0.x, lp1.x])
+		g3.t = g3.leven_van + 0.6 + g3.BOOG_S + 0.01
+		g3.stap(0.0)
+		ok(g3.leven == "" and g3.beeld_3d() == "rust" and g3.laars_ligt(), "3D: na het spugen weer rust, laars ligt")
+		g3.laars_weg()
 		g3.met_3d = false
 		ok(g3.beeld_3d() == "", "3D uit: de oude pixel-Gloop")
 	else:
