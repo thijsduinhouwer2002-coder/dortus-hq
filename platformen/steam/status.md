@@ -2,6 +2,8 @@
 
 - **13 nov 13:45 (hoofdchat): DE HELE APP WORDT 3D** (besluit Thijs 13:35, `ontwerp/steam/3d-stijl.md`). Ploeg: Olaf spel, Bram 3D-pijplijn, Daan Gloop en helden, Mila hol en winkelbeelden, elk uur. Ma 16 nov drie bladen/beelden voor Thijs: Gloop 3D, stukje hol 3D, Gloop in de echte build.
 
+- **15 nov 21:45 UTC (Olaf):** speeltest za 21 nov: eigen proef met een vers spel, de eerste held valt na 16 s in de put (iets leuks binnen 30 s klopt), Gloop eet pas na ±100 s. Het netwerkicoon in de bureaubladbeelden bleek het gewone kabelicoon, geen foutmelding; niets aan veranderd. **Bij Thijs ligt nu niets; vr 20 nov de speeltest-link.**
+
 - **15 nov 19:40 UTC (Olaf):** speeltest za 21 nov voorbereid: de Windows-build maakt nu een eigen zip met het volle spel en een korte uitleg (`platformen/steam/speeltest-21-nov.md`); vr 20 nov zet ik de definitieve link klaar. Winkelopname heeft nu een rustige donkere achtergrond (gezien); bureaublad (plek 2) gekozen door Daan; scherm 4 (kaartje) opnieuw in warme kleuren, ligt bij Daan. **Bij Thijs ligt nu niets; vr 20 nov de speeltest-link.**
 
 - **15 nov 13:50 UTC (Olaf):** punt 2 van Thijs (leesbaar op 120): keurstroken met Gloop en helden 1,0 / 1,15 / 1,3 keer zo groot uit de echte Windows-build liggen bij Daan; voorlopige keus 1,15. Het kaartje is warm bruin (Bram, ja Daan). **Bij Thijs ligt niets.**
