@@ -508,10 +508,10 @@ func _init() -> void:
 	hvast._process(0.12)
 	ok(hvast.put_schok(put_k) == 0, "val: na 2 beelden staat de put weer")
 	var st1: Array = hvast.stof_stofjes(put_k)
-	var omhoog := st1.size() == st0.size()
+	var stof_omhoog := st1.size() == st0.size()
 	for i in mini(st0.size(), st1.size()):
-		omhoog = omhoog and (st1[i][0] as Vector2i).y <= (st0[i][0] as Vector2i).y and float(st1[i][2]) < float(st0[i][2])
-	ok(omhoog, "val: stofjes gaan omhoog en vervagen")
+		stof_omhoog = stof_omhoog and (st1[i][0] as Vector2i).y <= (st0[i][0] as Vector2i).y and float(st1[i][2]) < float(st0[i][2])
+	ok(stof_omhoog, "val: stofjes gaan omhoog en vervagen")
 	ok((st1[0][0] as Vector2i).x < (st0[0][0] as Vector2i).x and (st1[-1][0] as Vector2i).x > (st0[-1][0] as Vector2i).x, "val: stofjes gaan naar buiten")
 	hvast._process(0.25)
 	ok(hvast.stof_stofjes(put_k).is_empty() and hvast.val_stof.is_empty(), "val: na 0,35 s geen stof meer")
