@@ -193,7 +193,10 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         hz = arm_z - 0.22 * math.cos(a)
         _cil(ouder, ((kant * 0.29 + hx) / 2, hy / 2, (arm_z + hz) / 2), 0.055, 0.24, kleed,
              rot=(math.atan2(-hy, 0.24) if hy < -0.05 else 0, kant * a, 0))
-        _bol(ouder, (hx, hy, hz), (0.085, 0.085, 0.085), huid, segs=16)
+        # Bram 15 nov (kan Daan 07:35): de dief draagt donkere handschoenen. De lichte linkerhand bij zijn wang
+        # las op ware grootte als witte druppels naast het masker, zodat de band een witte rand leek te krijgen.
+        hand_mat = g.mat("handschoen", "3a2e34", rough=0.7, spec=0.2) if soort == "dief" else huid
+        _bol(ouder, (hx, hy, hz), (0.085, 0.085, 0.085), hand_mat, segs=16)
         handen[kant] = (hx, hz)
 
     # spullen
