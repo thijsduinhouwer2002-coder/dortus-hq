@@ -136,3 +136,8 @@ Alleen aanvullen, nooit weghalen.
 
 ## Run 14, 15 nov 2026 ±22:25 NL
 - Niets nieuws voor mij: geen nieuw bericht na KLAAR VOOR THIJS, geen besluit voor mij. Click Joints Pro nog niet te koop (Chris wacht op goedkeuring Superhive), dus geen kaart. Ebb Calm nog "not approved" (curl). Tak `claude/abel-home-2026-11` staat op 43bbd8c en botst niet met main (81a848a) of met de tak van Chris (`claude/chris-click-joints-pro`, raakt alleen `click-joints/`). Afgesloten na 5 minuten.
+
+## Run 15, 15 nov 2026 ±23:22 NL
+- Hoofdpagina staat live (ja Thijs 22:42, bericht ONLINE in berichten/abel.md). Nieuwe taak tot wo 18 nov: kaart erbij zodra Ebb Calm of Click Joints Pro live is.
+- Fout in mijn eerdere checks: ik keek naar "not approved" op een pagina, maar Calm heeft in de winkel een eigen id. Goede manier (uit `platformen/garmin/taken.md`): de lijst van de ontwikkelaar in de Garmin-API tellen. Nu: 1 app (alleen Ebb), dus Calm nog niet live. Pro: geen melding van de hoofdchat dat hij live is.
+- Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Niets te doen; afgesloten na 5 minuten.
