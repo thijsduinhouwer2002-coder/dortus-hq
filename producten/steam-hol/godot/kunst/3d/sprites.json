@@ -63,7 +63,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "589f3eaa61fd7352",
+  "bron": "ae26b167553a0a4b",
   "bytes": 47779,
   "model": "hol.py",
   "px": 4,
@@ -445,8 +445,8 @@
  "gloop": {
   "anker_x": 52,
   "blad": "res://kunst/3d/gloop.png",
-  "bron": "1a17988753171274",
-  "bytes": 28100,
+  "bron": "7a7194bd784ac671",
+  "bytes": 28095,
   "cel_px": [
    105,
    64
@@ -1038,8 +1038,8 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "46496d82311c8a30",
-  "bytes": 130081,
+  "bron": "8aa0309d2db4a15c",
+  "bytes": 136959,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1379,8 +1379,8 @@
  "royal": {
   "anker_x": 74,
   "blad": "res://kunst/3d/royal.png",
-  "bron": "a1ea8be6d4bb36a7",
-  "bytes": 14144,
+  "bron": "49d953ed57e09961",
+  "bytes": 14105,
   "cel_px": [
    148,
    88
@@ -1396,7 +1396,7 @@
     0.0
    ],
    [
-    -2.5,
+    -2.62,
     9.0
    ]
   ],
