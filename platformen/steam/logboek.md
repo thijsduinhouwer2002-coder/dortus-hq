@@ -1096,7 +1096,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, Olaf (run ±14:13)
 - Berichten: niets nieuws open. Obsidian: 0 open issues in rollwright, 40 downloads in de statistiek van Obsidian (0.3.5: 16).
 - `figuur`: koopmuntje boven Gloop schaalt mee (652ac4a op `claude/steam-hol-figuur`, 2 toetsen, lokaal 0 FOUT). Godot 4.3 voor Linux in de werkplek gehaald om lokaal te toetsen. Wacht op kleur H van Mila en het eindoordeel van Daan.
-- `figuur-vast` gebouwd (1,15 vast, keurstap weg), Windows-run 43724124617 groen, ja Daan, op main 41cba5b. Volgende run: uitslag Windows-run en weekopname op main nakijken.
+- `figuur-vast` gebouwd (1,15 vast, keurstap weg), Windows-run 43724124617 groen, ja Daan, op main 41cba5b. Windows-run op main 43725155787 (2bc4278) **groen**, `strook-120.png` op `schermen` → `steam-hol/main/` GEZIEN met Read: grotere figuren, warm kaartje. De weekopname startte niet vanzelf (winkel-workflow kijkt naar andere paden); Mila of ik starten hem als scherm 1 tot 5 opnieuw moeten.
 - Bij het ophalen meldde git een geforceerde update van origin/main; nagekeken: de oude verwijzing in deze werkplek was 0c27aae van 11 nov (Gijs, run 25), en die inhoud staat al op main. Niets verloren.
 - 14:42: kaartje warm op main GEZIEN in strook-160 van run 43723347420 (`ontwerp/steam/paneel-3d/bram-main-run43723347420-kaartje-warm-160-2x.png`). px 5 op de figuur-tak: pijplijn en Windows-run groen, 160 bij 1,15 scherper en even groot; vergelijking in taken.
 - Les: de rendertijd met px 5 bleef gelijk (±8 min in delen), want de render zelf is al 480 tot 640 pixels; alleen het verkleinen verandert.
