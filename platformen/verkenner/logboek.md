@@ -1207,3 +1207,9 @@ Nieuwste blok onderaan.
 - Analysescript `data/superhive-6mnd-analyse.py` geschreven en getoetst op de meting van 9 nov (2.154 betaalde add-ons van 0 tot 6 maanden: 79,5% onder 10 verkopen, 2,9% 100+, mediaan $12, top 10 makers ±56% van de verkopen). Cleave-pagina gelezen: vooral een splitser, sinds 1.6 ook kogelgewrichten, geen bereik in graden of scharnier met eindstop.
 - Tussenstand in `superhive-2026-11.md`.
 - Volgende run: CSV van de tak `verkenner-data` halen (raw.githubusercontent.com/.../verkenner-data/superhive/addons-6mnd.csv), in data/ zetten, analyse draaien, 3D-printen en top 5 ideeën uitwerken, controleur, prijsadvies Click Joints Pro.
+
+## 15 nov 2026, run 21:31 (Amsterdam)
+- Vervolg Superhive. In onderzoek gezet om 21:35 en gepusht. Meting in Actions (run 43753540741) loopt nog: 820 van ±2.589 om 21:23, klaar rond 23:00. superhive.com is vanaf hier niet bereikbaar (proxy 502), dus alles via Actions.
+- Eerste 820 rijen geanalyseerd: 744 betaalde add-ons in de laatste maand (de vloed groeit), 93% onder 10, Milad Kambari 42% van de verkopen; 3D-printen 36 nieuw, 24 van Hanru Croucamp, alleen Cut Flex 10+.
+- Voorlopige top 5 geschreven op de meting van 9 nov en de printmeting van 8 nov: 1) schroefdraad en inzetstukken met speling per printer, 2) zachte fysica in één klik, 3) gewichten en skinning opknappen, 4) printbaar reliëf, 5) gietmallen. Voorlopig prijsadvies Click Joints Pro $15, naast Cleave neerzetten, niet ertegen.
+- Volgende run (na 23:00): volle CSV van tak verkenner-data naar data/superhive-addons-6mnd-2026-11-15.csv, analyse draaien, top 5 en prijsadvies narekenen, controleur (10 rijen live via Actions of de CSV, analyse herrekenen), daarna definitief en een regel aan Bram en Hans.
