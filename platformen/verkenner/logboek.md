@@ -1125,3 +1125,5 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 4, nee voor nu, hooguit bijkanaal voor een Poki-spel. Controleur akkoord met 8 correcties (vooral: servers is voor Activities een te lage maat, de vlag telt ook bots, groei 4 keer in een half jaar), alle verwerkt.
 - Voor Hans: één nee met een bijkanaal-idee bij de Poki-proef. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: de openbare directory-API van Discord heeft verborgen categorieën (1, 2, 3, 5, 7) en een collectie-endpoint; handig voor latere herhaalmetingen.
+- Daarna KakaoTalk-emoticons (14:01 in onderzoek). Snelle schifting: Kakao beperkt AI-emoticons, keuring streng, ±€ 0,50 per set, 6 tot 8 maanden tot geld. Winkel e.kakao.com niet bereikbaar vanaf hier. Cijfer 1, nee. Geen controleur: het nee hangt aan de AI-beperking en de keuring, met bronnen in het voorstel.
+- Volgende run: TikTok Effect House (Effect Creator Rewards) is nog nooit bekeken, maar draait waarschijnlijk niet op Linux, net als Lens Studio; eerst dat nakijken. Of GamePix en Playgama als portal.

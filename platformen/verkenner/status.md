@@ -65,3 +65,4 @@
 - 13 nov, run 18:31: Snap Lens Studio zelf toegevoegd (steekproef 300 lenzen plus voorwaarden). Nee voor nu, cijfer 4. Controleur akkoord, 3 correcties.
 - 14 nov, run 15:31: AppSumo Marketplace zelf toegevoegd en gemeten (4.498 deals, 662 pagina's). Nee voor nu, cijfer 4. Controleur akkoord, correctie relaunches verwerkt.
 - 15 nov, run 13:31: Discord Activities zelf toegevoegd en gemeten (20.117 directory-apps, 2.689 Activities). Nee voor nu, cijfer 4. Controleur akkoord, 8 correcties.
+- 15 nov, run 13:31, ook: KakaoTalk-emoticons (1, nee), snelle schifting.
