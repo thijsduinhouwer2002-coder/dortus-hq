@@ -89,7 +89,7 @@ HOOFD = VARIANT == "hoofd"
 def E(naam, gewoon):
     return float(os.environ.get(naam, gewoon))
 GX = (2.35 if not HOOFD else E("HF_GX", "1.8")) if not KLEIN else 3.3         # Gloop rechts van het midden
-RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.6"))) if not KLEIN else 1.15       # ridder
+RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.25"))) if not KLEIN else 1.15       # ridder
 RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else -1.35   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
 RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else 1.5
 
@@ -295,7 +295,7 @@ if KLEIN:
     tekst("HATS", (-4.75, -0.6, 1.85), 2.0, kantel=-3)
     tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 elif HOOFD:
-    tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.32")
+    tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.40")
     tekst("HATS", (tx, -0.6, 2.55 + tz), 1.75, kantel=-3)
     tekst("OF THE FALLEN", (tx - 0.05, -0.6, 1.70 + tz), 0.72, kantel=-3, rand=0.11)
 else:

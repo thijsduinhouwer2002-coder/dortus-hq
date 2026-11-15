@@ -147,3 +147,8 @@ Het spel is sinds vandaag warm (kleur H op main). Een paarse capsule zou dus nie
 - **Bibliotheek en staand (`staand3d.py`):** zachte donkere vlek op de wand achter de titel (vlak dat naar de rand doorzichtig wordt, `ST_SCHADUW`, sterkte `ST_SV_A` 0,85), titel 0,25 lager (minder gat naar de toren), camera iets lager gericht zodat de figuren omhoog komen, ridder naar binnen (ST_RX 0,15 werd 0,4, schild weg van de rand). Sterkte 0,6 en 0,85 naast elkaar GEZIEN; 0,6 zag je bijna niet.
 - **Blinde kijker** (200x300): oud 7, nieuw 7, kiest nieuw ("rustiger, titel en slijm lezen schoner"). Klein verschil, maar het lost Daans kan en de moet van 16:20 op zonder iets te verliezen.
 - Les: een plat vlak heeft in Blender geen diepte in `Generated`; een bolvormig verloop moet de z dan op 0 zetten, anders is het overal 0.
+
+## 15 nov ±20:40 tot 20:55 UTC (Mila): moet hoofdbeeld, pluim vrij van de N (keuring Daan 18:50)
+- Titel 0,08 hoger (`HF_TZ` 0,32 werd 0,40) en ridder iets naar rechts (`HF_RX` -0,6 werd -0,25). Alleen titel hoger lukte niet: HATS staat al bijna tegen de bovenrand, en 12 px hoger raakte de pluim nog steeds. Ridder kleiner (`HF_RS` 1,2) gaf ook vrij, maar dan wordt de held weer klein; dat wilde ik niet.
+- Vijf proeven (a tot e) GEZIEN met Read; `d` gekozen. Nu zit er ±15 px lucht tussen de punt van de pluim en de N, de ridder staat nog los van Gloop. Header, klein, bibliotheek en staand veranderen niet.
+- Voor en na (links oud, rechts nieuw, uitsnede van de titel): `voor-na-pluim-15nov.png`, GEZIEN met Read.
