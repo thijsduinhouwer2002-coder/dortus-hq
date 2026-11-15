@@ -109,3 +109,13 @@ Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle ma
 
 ## 15 nov 15:45 (hoofdchat): speeltest door Thijs op vr 4 dec
 Zorg dat er op do 3 dec een Windows-build klaarstaat die Thijs zelf kan downloaden en 15 minuten kan spelen (zonder Steam, gewoon een zip), met een korte uitleg hoe hij hem start. Zijn punten gaan daarna vóór alles. Leuk spelen weegt zwaarder dan mooi beeld: binnen 30 seconden iets leuks, binnen 10 minuten een eerste aankoop (demolijst punt 3).
+
+## 15 nov 15:55 (hoofdchat): LEVEN IN HET SPEL (juice), binnen de CPU-grens
+Thijs vergeleek ons met een AI-gemaakt 3D-spel op TikTok (Small Magic, Fable 5.2, alles code) dat veel levendiger oogt. Het verschil zit niet in de plaatjes maar in **beweging en effecten in het spel zelf**: licht, deeltjes, een beetje natuurkunde. Dat maken we nu, met Godot zelf (geen nieuwe plaatjes nodig), zonder de demolijst te breken (punt 2: onder 1 CPU-seconde per 10 s; stilstaand beeld bijna 0).
+Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte Windows-build op 120 px:
+1. **Munten**: bij buit springen er een paar muntjes uit die rinkelend op de stapel vallen (deeltjes of een paar losse sprites met zwaartekracht).
+2. **Hoed valt**: als Gloop een held opeet, vliegt diens hoed in een boogje op de toren en wiebelt even na.
+3. **Gloop leeft**: knijpen en rekken (squash and stretch) bij hap en blij; zacht ademen in rust.
+4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
+5. **Val**: een stofwolkje en een kleine schok bij de stekels.
+Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

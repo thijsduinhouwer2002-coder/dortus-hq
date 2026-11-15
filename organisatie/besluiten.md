@@ -355,3 +355,6 @@ Thijs: "ja laten we het doen" op het advies: kandidaat 1 van Vera (klein betaald
 
 ## 15 nov 15:42: speeltest door Thijs op 4 dec
 Thijs speelt Hats of the Fallen zelf rond vr 4 dec, 15 minuten, en zegt wat saai, onduidelijk of kapot is. Staat in `platformen/steam/planning-fest-2027.md`. Aanleiding: reacties onder een TikTok over een AI-gemaakt spel ("geen spel, hooguit een techdemo"; "10 minuten testen met vrienden gaf 30 verbeterpunten").
+
+## 15 nov 15:55: leven in het spel (hoofdchat, op vraag van Thijs)
+Thijs vroeg of onze werkwijze goed genoeg is naast een AI-gemaakt 3D-spel op TikTok dat mooier oogt. Oordeel hoofdchat: de plaatjes zijn niet het gat, het gat is beweging en effecten in het spel. Bram en Olaf maken een vaste lijst van 5 effecten (munten, vallende hoed, squash and stretch, fakkellicht, stofwolk bij de val) binnen de CPU-grens, elk met een film als bewijs (`berichten/bram.md`, `berichten/olaf.md`).
