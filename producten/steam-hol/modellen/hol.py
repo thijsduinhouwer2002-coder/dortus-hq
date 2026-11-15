@@ -42,6 +42,7 @@ KOL = 16 * SPX                    # één kolom van hol.gd
 LINKS = -BREED / 2                # x van spelpixel 0
 TEGEL_X = LINKS + 13 * KOL        # kolom 13 en 14 (spelpixel 208 tot 240): rustig stuk voor herhalende tegels
 TEGEL_LICHT = float(os.environ.get("HOL_TEGEL_LICHT", "300"))
+SCHACHT_GLOED = float(os.environ.get("HOL_SCHACHT_GLOED", "0.35"))   # eigen licht van de schachtwanden (Bram 15 nov)
 X0, X1 = -BREED / 2 - 0.5, BREED / 2 + 0.5
 # Ronde 7 (Daan kan): de platen (aarde, achterwand, vloer, gras, gang rechts) lopen nu 6 eenheden voorbij de rand.
 # Ze hielden 0,5 voorbij het beeld op, en door het open einde viel er licht in de gang: in kolom 14 liep de wand
@@ -80,9 +81,12 @@ def afronden(o, breedte=0.12, seg=3):
     b = o.modifiers.new("rond", "BEVEL"); b.width = breedte; b.segments = seg; b.limit_method = "NONE"
 
 
-def uithollen(doel, gat):
+def uithollen(doel, gat, eigen_mat=False):
     mod = doel.modifiers.new("hol", "BOOLEAN"); mod.operation = "DIFFERENCE"; mod.object = gat
     mod.solver = "EXACT"
+    # Bram 15 nov: eigen_mat=True geeft de snijvlakken het materiaal van het gat (alleen de schacht gebruikt dit)
+    if eigen_mat:
+        mod.material_mode = "TRANSFER"
     gat.hide_render = True; gat.display_type = "WIRE"
 
 
@@ -172,8 +176,32 @@ uithollen(aarde, boog)
 # gang naar links, één rij hoog, met een schacht omhoog naar het gras
 gang = blok("gang_gat", ((-11.8 + KX0) / 2, 0.2, GANG_TOP / 2), (KX0 - (-11.8) + 0.6, 2.4, GANG_TOP))
 uithollen(aarde, gang)
-schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2))
-uithollen(aarde, schacht)
+# Bram 15 nov (moet Daan 00:50): de zijvlakken van de schacht, de inhammen en de ronde hoeken lagen in eigen schaduw en
+# werden bijna zwart (lezen als gaten). Die snijvlakken krijgen nu een eigen wandkleur met een vleugje eigen licht,
+# zodat ze de toon van de wand houden met wat schaduw, maar nooit zwart worden. De rest van de aarde blijft PRUIM.
+SCHACHT_WAND = g.mat("schacht_wand", "4a2d55", rough=0.9, spec=0.1, emis=SCHACHT_GLOED)
+schacht = blok("schacht_gat", (-11.0, 0.2, 2.0), (1.2, 2.4, 3.2), SCHACHT_WAND)
+uithollen(aarde, schacht, True)
+# Bram 15 nov 00:30 (Daan 23:35: geen tanden): de schacht had harde rechte randen in de rots. Langs elke wand twee
+# ondiepe ronde inhammen (bol die door de plaat steekt, hooguit 0,1 de wand in), zodat het een gegraven gat wordt zonder scherpe punten.
+# Eigen random, zodat de rest van het hol gelijk blijft.
+_rs = random.Random(11)
+for _kant in (-1, 1):
+    for _i in range(2):
+        _z = GANG_TOP + 0.55 + _i * 0.85 + _rs.uniform(-0.1, 0.1) + (0.3 if _kant > 0 else 0.0)
+        _r = _rs.uniform(0.15, 0.2)
+        uithollen(aarde, bol("schacht_brok", (-11.0 + _kant * (0.6 - _r * 0.45), 0.2, _z), (_r, 1.3, _r * 2.2), SCHACHT_WAND, 24), True)
+# Daans kan: waar de schacht op de gang uitkomt geen harde rechte hoek meer, maar een ronde overgang.
+# Snijder = vierkantje in de hoek min een cilinder, dus de rots loopt in een boog de gang in.
+for _kant in (-1, 1):
+    _rr = 0.28
+    _x = -11.0 + _kant * 0.6
+    # Bram 15 nov: niet meer door de hele aarde snijden (tot y 0,6, niet 1,4): door een gat tot achteren keek je op de
+    # achterwand in diepe schaduw, een zwart haakje. Nu kijk je in de hoek op een vlak dat naar de camera kijkt.
+    _snij = blok("schacht_hoek", (_x + _kant * _rr / 2, -0.2, GANG_TOP + _rr / 2), (_rr, 1.6, _rr), SCHACHT_WAND)
+    _cil = cil("schacht_hoek_rond", (_x + _kant * _rr, -0.2, GANG_TOP + _rr), _rr, 1.8, SCHACHT_WAND, rot=(math.radians(90), 0, 0), verts=32)
+    uithollen(_snij, _cil, True)
+    uithollen(aarde, _snij, True)
 # gang naar rechts, met een kleine voorraadkamer
 # loopt door tot voorbij de rand: het rustige stuk (kolom 13 en 14) is een gang die herhaalt
 gang_r = blok("gangr_gat", ((KX1 + XP1 + 1) / 2, 0.2, GANG_TOP / 2), (XP1 + 1 - KX1 + 0.6, 2.4, GANG_TOP))
@@ -200,6 +228,11 @@ for o in (aarde,):
 
 # achterwand donkerder dan de voorkant, zodat de kamer diepte heeft
 blok("achterwand", (0, 1.35, 1.2), (XP1 - XP0, 0.1, 4.0), PRUIM_L)
+# Bram 14 nov 23:30 (kan Daan): zachte donkere rand bovenin de schacht, op de achterwand onder het gras.
+# Platte donkere bollen die naar beneden kleiner worden: het licht van boven komt er niet bij, dus een gegraven gat.
+for _dx, _dz, _sx, _sz in [(-0.42, -0.22, 0.34, 0.26), (0.0, -0.18, 0.42, 0.24), (0.42, -0.22, 0.34, 0.26),
+                           (-0.25, -0.5, 0.24, 0.16), (0.27, -0.48, 0.22, 0.15)]:
+    bol("schacht_rand", (-11.0 + _dx, 1.29, MAAIVELD + _dz), (_sx, 0.03, _sz), PRUIM_D, 16)
 
 # ---------- lagen en stenen in de voorkant ----------
 for i in range(70):
