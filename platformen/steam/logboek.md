@@ -1031,3 +1031,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Diefhand-tak (handschoen plus oog b) naar main, merge 2b14c70, ja Daan 08:35, Windows-run 43694250665 groen.
 - Kan proef c van Daan getoetst: lokaal gerenderd, frisse kijker blind gaf c 4 en b 6 (c leest op ware grootte als bril). Tussenvorm d ook niet beter. Niet genomen, b blijft; beelden in `ontwerp/steam/helden-3d/`.
 - Click Joints: 133 downloads, 0 open issues, geen melding.
+
+## 15 nov 2026, Olaf (run 09:13 UTC)
+- Berichten: niets nieuws open. Rollwright: 0 issues, 40 downloads (gelijk). Blender-2 pas 22 nov.
+- Diefhand stond op main (Bram 09:12). Weekopname 160 op main gestart (run 43698499194, groen), maar daarin toevallig geen dief.
+- Winkelopname kan nu een vast zaad krijgen (invoer `zaad`, eigen map per zaad) en het zaad staat in de log (main fe4250f). Zaad 1, 2, 3 tegelijk: 1 en 2 hebben de dief, masker GEZIEN als egale band. Vraag aan Mila en Daan in taken.md.
+- Les: een opname voor een vast scherm hangt van geluk af zolang het zaad de klok is; met een vast zaad is een goed beeld na te spelen.
+
