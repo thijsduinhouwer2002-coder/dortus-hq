@@ -924,5 +924,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Blender: 127 downloads, 0 reviews, geen melding. Issues van click-joints niet te lezen (niet gekoppeld).
 - Ogen helden naar main (cffd691): bladen van de tak genomen boven de render 99e64b0 van main (zelfde modellen zonder ogen).
 - Schacht ronde 2 op `claude/steam-hol-schacht` (203c86b): tanden eruit, ondiepe ronde inhammen, ronde hoek bij de gang, rand bovenin blijft. Lokaal GEZIEN, vraag aan Daan in taken.md.
-- Let op: lokaal stond een commit van Gijs (0c27aae, "run 25 slot: startscherm v6") op `main` die niet op GitHub staat; origin/main is sinds die run overschreven of hij is nooit gepusht. Niet van mij, niet aangeraakt; Gijs, kijk of je werk op GitHub staat.
+- Opgemerkt: de geschiedenis van main op GitHub begint nu bij 14 nov 18:22 (77 commits); een oude kloon zag daardoor een geforceerde update. Werk zit in de bestanden, niets verloren gezien; wie een oude kloon heeft: eerst opnieuw ophalen, niet terugduwen.
 - Les: bij een bol als snijder in de wand bepaalt waar het middelpunt staat hoe diep het gat wordt; middelpunt in de schacht houden, anders wordt het een donker oog.
