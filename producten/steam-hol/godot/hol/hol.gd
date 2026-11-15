@@ -87,6 +87,8 @@ func leg_aan(s: int, lengte := 10) -> void:
 
 # drie muntjes vliegen van kolom k naar de schat (Sanne toets 2, punt 2: goud zie je binnenkomen)
 func munt_regen(k: int, n := 3) -> void:
+	if moment_val_vast:
+		return   # winkelbeeld staat stil: geen nieuwe muntjes die blijven hangen
 	for i in n:
 		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i, "dx": MUNT_DX[i % MUNT_DX.size()]})
 	set_process(true)
@@ -299,9 +301,11 @@ func put_klap(kol: int) -> void:
 	set_process(true)
 	queue_redraw()
 
-# Winkelbeeld "de val" (Bram 15 nov, moment=val in strook.gd): bij de eerste val blijven de muntjes midden in hun boog
-# hangen en de stekels omhoog staan, zodat de opname van het winkelscherm het moment pakt. Nooit in het echte spel.
+# Winkelbeelden (Bram 15 nov, strook.gd), nooit in het echte spel:
+# moment=val: strook.gd zet de vallende held boven de stekels stil en daarna moment_val_vast; de stekels blijven omhoog.
+# moment=munt: bij de eerste val blijven de muntjes midden in hun boog hangen.
 var moment_val := false
+var moment_munt := false
 var moment_val_vast := false
 const MOMENT_VAL_F := 0.5     # muntjes op de helft van hun vlucht (hoogste punt van de boog)
 
@@ -333,7 +337,7 @@ func _process(delta: float) -> void:
 		queue_redraw()
 	for m in munten:
 		m.t += delta
-	if moment_val and not munten.is_empty() and munten.all(func(m): return m.has("naar") == false):
+	if moment_munt and not munten.is_empty() and munten.all(func(m): return m.has("naar") == false):
 		var laatste: float = munten.map(func(m): return float(m.t)).min()
 		if laatste >= MUNT_S * MOMENT_VAL_F:
 			# de laatste munt is op de helft, de eerdere 0,15 en 0,3 s verder: drie muntjes verspreid in de boog

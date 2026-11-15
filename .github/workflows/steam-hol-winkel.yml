@@ -17,7 +17,7 @@ on:
         description: "vast zaad voor de volgorde van heldsoorten in het echte bureaublad (leeg = de klok); Olaf 15 nov"
         default: ""
       moment:
-        description: "leeg, hap of val: het spel staat stil op het winkelmoment (Brams moment=, scherm 2 en 3; Olaf 15 nov). Werkt pas als claude/steam-hol-moment op main staat"
+        description: "leeg, hap, val of munt: het spel staat stil op het winkelmoment (Brams moment=, scherm 2 en 3; Olaf 15 nov). Werkt pas als claude/steam-hol-moment op main staat"
         default: ""
   push:
     branches: [main]
@@ -103,14 +103,17 @@ jobs:
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=$env:HOOGTE $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log $(if ($env:MOMENT) { "moment=$env:MOMENT" })" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:MOMENT) { 2700 } elseif ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=$env:HOOGTE $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log $(if ($env:MOMENT) { "moment=$env:MOMENT" })" -PassThru
           if (-not $p.WaitForExit(900000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           $alle = Get-ChildItem $film -Filter "f*.png" | Sort-Object Name
           Write-Output "beelden: $($alle.Count)"
           New-Item -ItemType Directory -Force "$uit/los" | Out-Null
           $i = 0
-          foreach ($b in $alle) { if ($i % 5 -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
+          # Bram 15 nov: met moment= 180 s film (de eerste val of hap met hoed komt in een week-hol vaak pas na 90 s),
+          # dan elk 10e beeld, zodat er even veel beelden op de tak komen als nu.
+          $stap = $(if ($env:MOMENT) { 10 } else { 5 })
+          foreach ($b in $alle) { if ($i % $stap -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
           Remove-Item $film -Recurse -Force
       - name: Echt bureaublad op 1280 x 720 met de echte taakbalk (alleen bij week)
         if: env.SOORT == 'week'
@@ -312,12 +315,19 @@ jobs:
           $begin = Get-Date
           $vast = @(35, 50, 65, 80, 95, 110); $vi = 0
           $gezien = 0; $nr = 0; $wacht = @()
+          # Bram 15 nov: met moment= staat het spel stil zodra "HOL moment vast" in de log staat; dan drie beelden
+          # (bureaublad-moment-a/b/c.png na 0,5, 2 en 4 s), en niet stoppen voordat het moment er was.
+          $moment_gezien = $false
           while (((Get-Date) - $begin).TotalSeconds -lt 190 -and -not $p.HasExited) {
             $nu = ((Get-Date) - $begin).TotalSeconds
             $binnen = @(Get-Content $log -ErrorAction SilentlyContinue | Where-Object { $_ -like "HOL held binnen*" })
             while ($gezien -lt $binnen.Count) {
               $gezien++
               if ($nr -lt 6) { $nr++; Write-Output ("{0,6:N1} s  {1}" -f $nu, $binnen[$gezien - 1]); $wacht += @(@{ t = $nu + 2.5; naam = "held-$nr-a" }, @{ t = $nu + 3.7; naam = "held-$nr-b" }, @{ t = $nu + 5; naam = "held-$nr-c" }) }
+            }
+            if ($env:MOMENT -and -not $moment_gezien -and (@(Get-Content $log -ErrorAction SilentlyContinue | Where-Object { $_ -like "HOL moment vast*" }).Count -gt 0)) {
+              $moment_gezien = $true; Write-Output ("{0,6:N1} s  HOL moment vast" -f $nu)
+              $wacht += @(@{ t = $nu + 0.5; naam = "moment-a" }, @{ t = $nu + 2; naam = "moment-b" }, @{ t = $nu + 4; naam = "moment-c" })
             }
             if ($vi -lt $vast.Count -and $nu -ge $vast[$vi]) { $vi++; $wacht += @(@{ t = $nu; naam = "$vi" }) }
             $klaar = @($wacht | Where-Object { $_.t -le $nu }); $wacht = @($wacht | Where-Object { $_.t -gt $nu })
@@ -327,7 +337,7 @@ jobs:
               & producten/steam-hol/e2e/scherm.ps1 "$vol/bureaublad-$($k.naam).png"
               Write-Output ("{0,6:N1} s  beeld bureaublad-{1}.png" -f ((Get-Date) - $begin).TotalSeconds, $k.naam)
             }
-            if ($vi -ge $vast.Count -and $nr -ge 6 -and $wacht.Count -eq 0) { break }
+            if ($vi -ge $vast.Count -and $nr -ge 6 -and $wacht.Count -eq 0 -and ($moment_gezien -or -not $env:MOMENT)) { break }
             Start-Sleep -Milliseconds 500
           }
           Write-Output "helden binnen gezien: $gezien, heldbeelden van $nr helden"

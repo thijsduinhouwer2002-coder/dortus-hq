@@ -43,7 +43,11 @@ var moment_tot := -1.0
 var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van het graafmoment, om op te keuren (Daan 14 nov)
 var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), alleen om Royal in 3D te keuren (Bram 14 nov)
 var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
-var proef_moment := ""       # moment=hap|val: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
+var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
+var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
+# moment=val (Bram 15 nov 19:30): de held staat stil boven de stekels, met het uitroepteken, net voor hij wegzakt.
+# De munten komen pas na de hele val (afloop.gd), dus held en munten samen in één beeld bestaat niet in het spel.
+const MOMENT_VAL_T := 0.38
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
@@ -138,7 +142,7 @@ func _ready() -> void:
 			"graaf_proef": proef_graaf = kv[1] == "1"
 			"laars_proef": proef_laars = kv[1] == "1"
 			"spuug_proef": proef_spuug = clampi(int(kv[1]), 0, 3)
-			"moment": proef_moment = kv[1] if kv[1] in ["hap", "val"] else ""
+			"moment": proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
 			"put_proef": proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": proef_uit3d = kv[1].split(",", false)
@@ -195,6 +199,8 @@ func _ready() -> void:
 		slijm.moment_hap = true
 	if proef_moment == "val" and "moment_val" in hol:
 		hol.moment_val = true
+	if proef_moment == "munt" and "moment_munt" in hol:
+		hol.moment_munt = true
 	if demo:
 		volgende_held = 0.5
 	if demo and "plat_s" in slijm:
@@ -379,6 +385,11 @@ func _process(delta: float) -> void:
 			var k: int = hol.pos_naar_cel(w.position).x
 			if hol.vallen.has(k) and not hol.put_open.has(k):
 				hol.put_klap(k)
+			if hol.moment_val and not hol.moment_val_vast and float(w.get("val_t")) >= MOMENT_VAL_T:
+				moment_val_zet(w)
+	if proef_moment != "" and not moment_gemeld and moment_staat_stil():
+		moment_gemeld = true
+		log_regel("HOL moment vast %s t=%.1f" % [proef_moment, t])
 	if demo and t >= volgende_graaf:
 		# demo: om en om een stuk gang erbij en een kamer boven de gang, zodat de film graven laat zien
 		volgende_graaf = t + 9.0
@@ -527,3 +538,15 @@ func _icoon_zetten() -> void:
 	const ICO := "res://kunst/icoon.ico"
 	if FileAccess.file_exists(ICO):
 		DisplayServer.set_native_icon(ICO)
+
+# Winkelbeeld moment=val: de vallende held en het hol staan vanaf nu stil (alleen met het startargument).
+func moment_val_zet(w: Node) -> void:
+	w.process_mode = Node.PROCESS_MODE_DISABLED
+	hol.moment_val_vast = true
+	hol.queue_redraw()
+
+func moment_staat_stil() -> bool:
+	match proef_moment:
+		"val", "munt": return bool(hol.moment_val_vast)
+		"hap": return "moment_vast" in slijm and float(slijm.moment_vast) >= 0.0 and float(slijm.t) >= float(slijm.moment_vast)
+	return false

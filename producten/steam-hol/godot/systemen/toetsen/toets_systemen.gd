@@ -841,12 +841,14 @@ func _init() -> void:
 	# winkelbeeld moment=val (Bram 15 nov): bij de eerste val blijven de muntjes in hun boog hangen
 	var hmv = Node2D.new()
 	hmv.set_script(HS)
-	hmv.moment_val = true
+	hmv.moment_munt = true
 	hmv.munt_regen(2)
 	for i in 40:
 		hmv._process(0.05)
 	var tm: Array = hmv.munten.map(func(m): return float(m.t))
-	ok(hmv.moment_val_vast and hmv.munten.size() == 3 and tm.min() >= HS.MUNT_S * 0.5 - 0.0001 and tm.max() < HS.MUNT_S, "moment=val: na 2 s hangen drie muntjes in de lucht (%s)" % str(tm))
+	ok(hmv.moment_val_vast and hmv.munten.size() == 3 and tm.min() >= HS.MUNT_S * 0.5 - 0.0001 and tm.max() < HS.MUNT_S, "moment=munt: na 2 s hangen drie muntjes in de lucht (%s)" % str(tm))
+	hmv.munt_regen(5)
+	ok(hmv.munten.size() == 3, "moment staat stil: geen nieuwe muntjes meer")
 	hmv.free()
 	var hm = Node2D.new()
 	hm.set_script(HS)
