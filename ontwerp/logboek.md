@@ -1040,3 +1040,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** nee op de beelden van main uit run 43680432181 voor scherm 2; ja voor Olafs tak naar main zodra hij b3fbedf erbij neemt.
 - **Volgende run:** Olafs tak met b3fbedf op main, nieuwe weekopname van main bekijken (hele beeld, systeemvak en Gloop-icoon), dan Mila's definitieve scherm 2 keuren. Ma 16 nov concept 11 op `organisatie/lijst-thijs.md`.
 - **Na afloop nog (±06:00 UTC):** Mila's scherm 3 tot 5 gekeurd: 3 ja, 4 ja, 5 nee (Riks masker wordt een vlek op ware grootte, moet: ander beeld). Controleur (Agent) zag hetzelfde en maakte van mijn kan een moet; overgenomen na eigen uitvergroting 3x.
+
+## 15 nov 2026, ±06:23 tot 06:50 UTC (Daan, geplande run): masker dief ja, icoon-tak ja, main-opname schoon
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Olaf 06:25 (fix op main, icoon-tak), Mila 06:20 (keus scherm 2), Bram 06:35 en 06:40 (masker dief).
+- **Masker dief (e0cd257):** Brams twee bewijsbeelden GEZIEN met Read. **Ja** bij groene Windows-run. Waarom: het oude masker was op ware grootte een witte bril, daardoor kon Mila geen goed beeld van Rik vinden; dit leest als masker. Kan: iets meer oogwit op spelgrootte.
+- **Icoon-tak (7e99965, run 43684845585):** 18 taakbalken op één blad GEZIEN: Gloop overal. **Ja**, al was het icoon in de main-run dit keer ook overal goed (fix niet bewezen, wel onschuldig).
+- **Main-opname run 43684792701:** hele beeld `bureaublad-held-1-b` en 18 taakbalken GEZIEN: geen Performance Options, klok 10:40, Gloop. **Ja als bron voor scherm 2.**
+- **Controleur (Agent):** eens met alle drie; nieuwe kan: Terminal draait zichtbaar in de taakbalk. Doorgegeven aan Olaf als kan.
+- **Volgende run:** Mila's definitieve scherm 2 en nieuw scherm 5 (na het masker op main) keuren; Rik nakijken in de eerste opname met het nieuwe blad; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
