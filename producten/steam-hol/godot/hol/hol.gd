@@ -276,7 +276,7 @@ func stof_stofjes(kol: int) -> Array:
 		return uit
 	var d := clampf(float(val_stof[kol]) / STOF_S, 0.0, 1.0)
 	var u := 1.0 - (1.0 - d) * (1.0 - d)   # uitlopend: snel weg, dan zacht
-	var mx := kol * KOL + KOL / 2
+	var mx := kol * KOL + int(KOL / 2.0)
 	var vy := GANG_ONDER - 1
 	for st in STOF:
 		var x := mx + int(st[0]) + int(round(float(st[2]) * u))
