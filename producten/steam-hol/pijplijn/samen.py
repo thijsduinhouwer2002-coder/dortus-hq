@@ -3,6 +3,8 @@
   python3 samen.py pak <naam> <map>    na het renderen van één sprite: <naam>.png, .png.import, de kijkbeelden
                                        en de regel uit godot/kunst/3d/sprites.json (<naam>.regel.json) in <map>
   python3 samen.py zet <map> ...       alles uit die mappen terug in godot/kunst/3d/ en de regels in sprites.json
+  python3 samen.py nodig <naam>        "ja" als render.py --kan <naam> zou renderen, anders "nee" (zonder Blender);
+                                       ronde b slaat bij "nee" de installatie van bpy over (±40 s per job)
 
 Waarom: elke sprite rendert in een eigen job tegelijk met de rest (was alles na elkaar, ±28 min voor alles).
 Elke job ziet alleen zijn eigen blad; deze stap zet ze weer in één map en één sprites.json.
@@ -56,9 +58,28 @@ def zet(mappen):
     print(f"gezet: {', '.join(namen) or 'niets'}")
 
 
+def nodig(naam):
+    """Bram 15 nov: dezelfde toets als render.py --kan, maar zonder bpy. Staat hier en niet in render.py,
+    want render.py zit in elke vingerafdruk: een wijziging daar rendert alles opnieuw."""
+    sys.path.insert(0, HIER)
+    import render
+    alles = json.load(open(os.path.join(HIER, "sprites.json")))["sprites"]
+    if naam not in alles:
+        raise SystemExit(f"FOUT: {naam} staat niet in pijplijn/sprites.json")
+    index = lees_index()
+    ja = not ((index.get(naam) or {}).get("bron") == render.bron_hash(naam, alles[naam], index)
+              and os.path.exists(os.path.join(DOEL, f"{naam}.png")))
+    print(f"{naam}: nodig={'ja' if ja else 'nee'}")
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            f.write(f"nodig={'ja' if ja else 'nee'}\n")
+
+
 if __name__ == "__main__":
     if sys.argv[1:2] == ["pak"] and len(sys.argv) == 4:
         pak(sys.argv[2], sys.argv[3])
+    elif sys.argv[1:2] == ["nodig"] and len(sys.argv) == 3:
+        nodig(sys.argv[2])
     elif sys.argv[1:2] == ["zet"] and len(sys.argv) >= 3:
         zet(sys.argv[2:])
     else:
