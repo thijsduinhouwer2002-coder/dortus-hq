@@ -103,3 +103,4 @@ Bron: demo 160 `moment=hap`, run 43756864598 op main 04bd669 (`schermen` → `st
 - Ook geprobeerd: snede 470 tot 1030 (held in het midden, zonder munt en hoedenberg). Leger. Beide op 600: `vergelijk-val-V1-V2-600.png`.
 - Eerlijk: de held is op 1920 een beetje een kluwen (lijf, hoed en schild op elkaar); op 600 lees je wel ondersteboven plus "!". Rechts dekt zijn lijf de stekels half af, zoals Olaf schreef.
 - Alle vijf in mijn volgorde: `volgorde-vijf-schermen-15nov-mila.png`, GEZIEN met Read.
+- **Open (eigen oordeel na het overzicht, GEZIEN):** scherm 3, 4 en 5 hebben nu dezelfde opbouw (hol boven, groot kaartje onder). Naast elkaar oogt dat herhalend, en in de hap is Gloop vrij klein. Volgende run: de hap anders opbouwen (Gloop groter, kaartje kleiner of in de rij zelf), zodat elk scherm een eigen vorm heeft.
