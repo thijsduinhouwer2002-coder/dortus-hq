@@ -260,9 +260,37 @@ func put_koop() -> void:
 	set_process(true)
 	queue_redraw()
 
+# Leven in het spel 5 (hoofdchat 15 nov 15:55, getallen Daan in ontwerp/steam/juice.md): bij de klap van de val een
+# stofwolkje van 5 stofjes in een lichte aardetint, naar buiten en omhoog, 0,35 s en vervagend, en de put zelf 1 spelpixel
+# omlaag en terug in 2 beelden (0,1 s). Geen schok van de strook; alles in hele spelpixels.
+const STOF_S := 0.35
+const SCHOK_S := 0.1
+const STOF_KLEUR := Color("#c98a6a")
+# per stofje: [start x, start y, verschuiving x, verschuiving y over 0,35 s, maat]; x ten opzichte van het midden van de put,
+# y ten opzichte van de bovenste vloerrij
+const STOF := [[-4, 0, -5, -3, 2], [-2, -1, -3, -6, 1], [0, -1, 0, -5, 1], [2, -1, 3, -6, 1], [3, 0, 5, -3, 2]]
+var val_stof := {}             # kolom -> tijd sinds de klap
+func stof_stofjes(kol: int) -> Array:
+	var uit := []
+	if not val_stof.has(kol):
+		return uit
+	var d := clampf(float(val_stof[kol]) / STOF_S, 0.0, 1.0)
+	var u := 1.0 - (1.0 - d) * (1.0 - d)   # uitlopend: snel weg, dan zacht
+	var mx := kol * KOL + int(KOL / 2.0)
+	var vy := GANG_ONDER - 1
+	for st in STOF:
+		var x := mx + int(st[0]) + int(round(float(st[2]) * u))
+		var y := vy + int(st[1]) + int(round(float(st[3]) * u))
+		uit.append([Vector2i(x, y), int(st[4]), 1.0 - d])
+	return uit
+
+func put_schok(kol: int) -> int:
+	return 1 if val_stof.has(kol) and float(val_stof[kol]) < SCHOK_S else 0
+
 # een put klapt even open als er een held op komt (alleen uiterlijk)
 func put_klap(kol: int) -> void:
 	put_open[kol] = 2.0   # stekels blijven langer omhoog, zodat de val van de terugkomer een moment is (Sanne toets 7, punt 2)
+	val_stof[kol] = 0.0
 	set_process(true)
 	queue_redraw()
 
@@ -274,6 +302,11 @@ func _process(delta: float) -> void:
 			queue_redraw()
 	if put_schud > 0.0:
 		put_schud = maxf(0.0, put_schud - delta)
+		queue_redraw()
+	for k in val_stof.keys():
+		val_stof[k] += delta
+		if val_stof[k] >= STOF_S:
+			val_stof.erase(k)
 		queue_redraw()
 	for c in brokkel.keys():
 		if graaf_stil.has(c):
@@ -290,7 +323,7 @@ func _process(delta: float) -> void:
 	munten = munten.filter(func(m): return m.t < MUNT_S)
 	if not munten.is_empty():
 		queue_redraw()
-	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and brokkel.size() <= graaf_stil.size() and ingang_schuif <= 0.0:
+	if put_open.is_empty() and munten.is_empty() and val_stof.is_empty() and put_schud <= 0.0 and brokkel.size() <= graaf_stil.size() and ingang_schuif <= 0.0:
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
@@ -380,23 +413,30 @@ func _draw() -> void:
 		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
+		var sy := put_schok(k)
 		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
 			continue   # deze dichte put zit al in het 3D-stuk
 		# open (na een klap) en gekochte stappen: het 3D-stuk over de 3D-gang, met het schudden van de koop (Olaf 14 nov)
 		var ps := HOL3D.put_in_schatkamer(self, k, schat_3d)
 		if ps == "weg":
 			continue   # in de 3D-schatkamer: dicht of Trick Lid dicht, de vloer is daar al dicht (Daan 14 nov 13:50)
-		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN), PUT_VLOER_Y, 1):
+		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN + sy), PUT_VLOER_Y, 1):
 			continue   # open of met gekochte stappen: alleen de vloerstrook, de rode koepel blijft erachter
 		var p3 := "" if schat_3d and k >= schat_kol - 2 and k <= schat_kol else HOL3D.put_stuk(self, k)
 		if p3 == "vast" or p3 == "gang" and sx == 0:
 			continue
-		if p3 != "" and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN)):
+		if p3 != "" and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN + sy)):
 			continue
 		if put_niv > 0:
-			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
+			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
-			draw_texture_rect_region(PUT, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
+			draw_texture_rect_region(PUT, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
+	# stofwolkje van de val, voor de put (Olaf 15 nov, juice 5)
+	for k in val_stof:
+		for st in stof_stofjes(k):
+			var c := STOF_KLEUR
+			c.a = 0.9 * float(st[2])
+			draw_rect(Rect2(Vector2(st[0]), Vector2(st[1], st[1])), c)
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
