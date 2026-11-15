@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: Rusty's Retirement, klaar 15 nov 2026 23:55)
+bezig: AI-vertalen en de AI-melding van Steam, plus kosten menselijke vertaling (opdracht Thijs 16 nov), Fenna 15 nov 23:35
 
 Nieuwste bovenaan.
 
