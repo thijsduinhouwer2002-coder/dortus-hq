@@ -343,3 +343,6 @@ Thijs: "doe maar a en b". Chris zet de lancering van Ebb klaar (plaatst niets; T
 
 ## 14 nov 08:06: hoofdchat mag uploaden, posten en de productpagina zetten
 Thijs: "1, 2 en 3 mag je allemaal zelf doen, je hebt toestemming" en 08:16 "je hebt overal waar jij denkt dat het goed is toestemming voor". Gedaan: dortus.com/ebb/ online (concept van Chris), Ebb Calm ingediend bij Garmin (in behandeling, winkel-id bcc58192-667b-4bd8-a824-e6fe26794466). Forumbericht: het Garmin-forum vraagt eerst akkoord met nieuwe voorwaarden; dat juridische akkoord vraagt de hoofdchat apart aan Thijs. Thijs kiest het .iq-bestand zelf in stap 1 (te groot voor het uploadgereedschap).
+
+## 15 nov 08:18: Gijs uit tot Ebb Calm is goedgekeurd
+Gijs liep sinds 14 nov 08:52 vast op de gebruikslimiet van zijn model (Fable). Thijs koos B: uitzetten tot Ebb Calm is goedgekeurd. Chris neemt het nalopen van Ebb Calm over (titel, tekst, beelden, horloges, gratis) zodra de winkelpagina openbaar is, plus de dagmeting van Ebb.
