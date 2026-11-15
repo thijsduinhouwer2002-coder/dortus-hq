@@ -1,5 +1,6 @@
 # Blender: status
 
+- **15 nov 22:11 UTC (Bram): 141 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Superhive-pagina Pro nog niet openbaar (403 vanuit de cloud, keuring loopt). Deze run: verwijzing gratis naar Pro uitgezocht; in Blender mag het niet (regel 6.1 en 6.3), wel via dortus.com/click-joints/, zie `verwijzing-pro.md`.
 - **15 nov 18:28 UTC (Bram): 139 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro staat als concept op Superhive. Deze run: demofilm Pro v2 (Daans vier moet-punten) ter keuring bij Daan.
 - **15 nov 17:10 UTC (Bram): 138 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro staat als concept op Superhive. Deze run: demofilm Click Joints Pro v1 klaar ter keuring bij Daan.
 - **15 nov 15:10 UTC (Bram): 136 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive bekend; Pro 1.0.1 wacht op de makersaanvraag. Deze run Het Hol: px 5 voor de figuren op main.
