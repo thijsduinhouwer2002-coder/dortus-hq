@@ -807,7 +807,7 @@ func _init() -> void:
 		fl_max = maxf(fl_max, f0.x)
 		if is_equal_approx(f0.x, HS.fakkel_flakker(a, 1).x):
 			gelijk += 1
-	ok(fl_min >= 0.10 - 0.0001 and fl_max <= 0.20 + 0.0001 and fl_max - fl_min > 0.08, "fakkel flakkert tussen 0,10 en 0,20 alfa (%.2f tot %.2f)" % [fl_min, fl_max])
+	ok(fl_min >= 0.18 - 0.0001 and fl_max <= 0.32 + 0.0001 and fl_max - fl_min > 0.11, "fakkel flakkert tussen 0,18 en 0,32 alfa (Daan 15 nov 16:40) (%.2f tot %.2f)" % [fl_min, fl_max])
 	var sprong := 0.0
 	for a in 24:
 		sprong = maxf(sprong, absf(HS.fakkel_flakker(a + 1, 0).y - HS.fakkel_flakker(a, 0).y))
