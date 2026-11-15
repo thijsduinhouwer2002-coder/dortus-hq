@@ -163,29 +163,40 @@ def bouw(naam, x, z, y=0.35):
         web = m("web", "9a95a3", rough=0.7)  # grijzer en dikker: was op ware grootte een wit krasje; 14 nov nog een tikje grijzer (Daan kan 1)
         zw = m("spin", "2a1832", rough=0.6)
         oog = m("spinoog", "ff6a5a", rough=0.3, emis=1.0)
-        # waaier van draden vanuit de linkerbovenhoek, met twee bogen dwars
-        mid = (-6.5 * s, -0.1, 0)
-        for k in range(5):
-            a = math.radians(-90 + k * 22.5)
-            lang = 7.5 * s
-            cil(ouder, p + "_draad", (mid[0] + math.cos(a) * lang / 2 + lang / 2 * 0, mid[1], mid[2] + math.sin(a) * lang / 2 * 0.9),
-                0.28 * s, lang, web, rot=(0, -a + math.pi / 2, 0), verts=6)
-        for rr in (3.0, 5.6):
-            for k in range(4):
-                a1, a2 = math.radians(-90 + k * 22.5), math.radians(-90 + (k + 1) * 22.5)
-                x1, z1 = math.cos(a1) * rr * s, math.sin(a1) * rr * s * 0.9
-                x2, z2 = math.cos(a2) * rr * s, math.sin(a2) * rr * s * 0.9
-                dx, dz = x2 - x1, z2 - z1
-                cil(ouder, p + "_boog", (mid[0] + (x1 + x2) / 2, mid[1], (z1 + z2) / 2), 0.22 * s, math.hypot(dx, dz) * 1.1,
-                    web, rot=(0, math.atan2(dx, dz), 0), verts=6)
-        # spin aan een draadje
-        cil(ouder, p + "_hangdraad", (1.5 * s, -0.1, -3.2 * s), 0.12 * s, 6.4 * s, web, verts=6)
-        bol(ouder, p + "_lijf", (1.5 * s, -0.12, -7.0 * s), (1.5 * s, 1.2 * s, 1.5 * s), zw, 16)
+        # Bram 15 nov: het oude hoekweb (waaier uit de linkerbovenhoek, rechte draad omlaag links en de spin aan een rechte
+        # draad rechts) hing midden in de gang zonder muur erachter en las op 96 als een ingelijst vierkant. Nu een web dat
+        # aan het plafond hangt: een rond web dat door het plafond wordt afgesneden, naaf onder het plafond, drie spaken
+        # omhoog, vijf omlaag, doorhangende ringen, en een kleine spin rechtsonder op het web. Geen rechte rand meer.
+        def draad(a, b, r):
+            dx, dz = b[0] - a[0], b[1] - a[1]
+            cil(ouder, p + "_draad", ((a[0] + b[0]) / 2, -0.1, (a[1] + b[1]) / 2), r * s, math.hypot(dx, dz) * 1.04,
+                web, rot=(0, math.atan2(dx, dz), 0), verts=6)
+        # Ronde 2 (frisse kijker op het ronde web: 5 tegen 8 voor het oude, "zweeft als los stempel, spin valt erin weg"):
+        # een halve waaier die vanaf het plafond omlaag hangt (naaf op het plafond, geen rechte paal), en de spin weer los
+        # aan een eigen draad ernaast, met een eigen silhouet; de draad lichter en dikker.
+        R = 5.6
+        spaken = [196, 228, 260, 292, 324, 352]
+
+        def punt(a, r):
+            return (-1.2 * s + math.cos(math.radians(a)) * r * s, math.sin(math.radians(a)) * r * s * 1.35)  # dieper: de camera kijkt schuin
+        draad(punt(180, 0.6), punt(0, 4.6), 0.3)  # plafondlijn waar het web aan vast zit
+        for a in spaken:
+            draad(punt(a, 0), punt(a, R), 0.26)
+        for rr in (2.0, 3.8, R):
+            for a1, a2 in zip(spaken, spaken[1:]):
+                q1, q2 = punt(a1, rr), punt(a2, rr)
+                qm = punt((a1 + a2) / 2, rr * 0.86)
+                draad(q1, qm, 0.21)
+                draad(qm, q2, 0.21)
+        draad_l = m("draad_l", "c9c3d2", rough=0.6)  # lichter dan het web, zodat de spin zichtbaar ergens aan hangt
+        sx0, sz0 = 5.0 * s, -7.4 * s  # iets los van de rand van het web (frisse kijker: draad las als paal)
+        cil(ouder, p + "_hangdraad", (sx0, -0.1, sz0 / 2), 0.15 * s, -sz0, draad_l, verts=6)
+        bol(ouder, p + "_lijf", (sx0, -0.12, sz0 - 0.4 * s), (1.5 * s, 1.2 * s, 1.5 * s), zw, 16)
         for sx in (-1, 1):
-            bol(ouder, p + "_oog", (1.5 * s + sx * 0.55 * s, -0.12 - 1.15 * s, -7.0 * s), (0.35 * s,) * 3, oog, 8)
-            for k in range(3):
-                a = math.radians(-30 + k * 30)
-                cil(ouder, p + "_poot", (1.5 * s + sx * 1.9 * s, -0.12, -7.0 * s + math.sin(a) * 1.2 * s),
+            bol(ouder, p + "_oog", (sx0 + sx * 0.55 * s, -0.12 - 1.15 * s, sz0 - 0.4 * s), (0.35 * s,) * 3, oog, 8)
+            for j in range(3):
+                a = math.radians(-30 + j * 30)
+                cil(ouder, p + "_poot", (sx0 + sx * 1.9 * s, -0.12, sz0 - 0.4 * s + math.sin(a) * 1.2 * s),
                     0.2 * s, 2.4 * s, zw, rot=(0, sx * (math.pi / 2 - a * 0.6), 0), verts=6)
     elif naam == "stut":
         # twee palen tot op de vloer en een balk eronder tegen het plafond; hangpunt = midden bovenkant
