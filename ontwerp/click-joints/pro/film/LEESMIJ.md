@@ -22,3 +22,9 @@ Zelfde bestanden overschreven (`click-joints-pro-demo.mp4` 19,4 s, `click-joints
 - M4: de film opent met de knie die in 1,6 s door zijn bereik buigt met de boog, zonder tekst; daarna pas "One piece. Pick the bend you need."
 - Kan gedaan: bij "Place hinge 115°" de knoppen uit de zijbalk 2x vergroot met een mint rand (uitsnede van hetzelfde beeld); eindbeeld met titel links en het gebogen been van poster 3 rechts.
 - Kan niet gedaan: "Bends 0° to 115°" bovenin tekent de add-on zelf; die laat ik staan zodat alles echt uit de add-on komt.
+
+## Versie 3 (Bram, 15 nov 19:45 UTC, Daans kan-punten van 18:55, op tak `claude/blender-film-v3`)
+Zelfde bestanden overschreven (`click-joints-pro-demo.mp4` 19,4 s, `.gif`), elf beelden in `film-v3-11-beelden.jpg`. Lokaal opgenomen in de echte Blender 5.3.0 met de betaalde zip 1.0.1 (491 beelden); de workflow liep eerst vast op een 403 van download.blender.org.
+- Kan 2: het postervak in het eindbeeld loopt in 60 px uit in de achtergrond (alfa-rand in `maak_film.sh`), geen lichter vak meer.
+- Kan 3: rood 9,5° voorbij de stop (was 7°), add-on toont "+9° past limit", 7 rode vlakken; de rode wig is duidelijk breder.
+- Kan 1 niet gedaan: "Bends 0° to 115°" bovenin tekent de add-on zelf.
