@@ -933,4 +933,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Tak `claude/steam-hol-heldbeeld`: gladde munt (wens Mila) en heldbeelden in de bureaubladstap (wens Mila scherm 2). Godot 4.3 lokaal (Linux, Xvfb) gedownload voor de proef; controleur akkoord, kan 1 en 4 verwerkt.
 - Les: `draw_arc(.., antialiased=true)` in Godot 4.3 maakt de zachte rand in plaatselijke eenheden; op een node met scale 4 wordt hij 4 px breed. Voor scherpe gladde randen tekenen in schermpixels (transform gedeeld door de schaal).
 - Les: een stuk tekst vervangen met `s.index(begin)` en `s.index(eind)` gaat mis als het eind ook eerder in het bestand staat (lege string, het hele bestand vol). Altijd zoeken vanaf het begin, of met regelnummers en een assert.
+- 00:46 UTC: heldbeelden in twee opnames GEZIEN (runs 43657940940 en 43658927727): op 2,5 s op de ladder, op 3,7 s in de gang (4 van 4), op 5 s vaak al in de put. Gladde munt op Windows GEZIEN. Weekopname op main (43657410909) nagekeken, Rollwright gemeten (40, ongewijzigd). Tak wacht op Daan.
 
