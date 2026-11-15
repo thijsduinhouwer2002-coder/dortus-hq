@@ -1042,3 +1042,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Blender: 133 downloads, 0 issues en 0 PR, geen melding. Niets open voor mij in taken.md.
 - Eigen blik op de strook van main (run 43700202779): op 96 leest het spinrag in de gang als ingelijst vierkantje (rechte draad links, plafond boven, spindraad rechts, geen muur erachter). Tak `claude/steam-hol-spinrag`: halve waaier vanaf het plafond, spin los aan een dunne lichte draad. Eerste proef (rond web, spin op de naaf) verloor bij een blinde kijker van main (5 tegen 8), weggegooid; tweede won (8 tegen 5). Keurstrook groen (run 43703396072), vraag aan Daan in taken.md.
 - Les: een frisse kijker zag in het oude web eerst gewoon een web (8), een tweede een kader (5). Eén kijker is geen oordeel; daarom altijd X tegen Y laten zien en beide uitslagen eerlijk opschrijven.
+
+## 15 nov 2026, Olaf (run 10:13 UTC)
+- Berichten: niets nieuws open. Rollwright: 0 issues, 40 downloads (gelijk). Blender-2 pas 22 nov.
+- Scherm 2 en 5 zijn gekozen (Daan ja); taak afgevinkt.
+- Duurtest kan nu de echte release-.exe meten (invoer `exe`, main). Eerlijk paar 15 min, zaad 4242, 1920x1080: .exe 0,839 gemiddeld (mediaan 0,516), editor 0,743 (mediaan 0,688). Geen winst door de release-bouw; schommeling runner is groter dan het verschil. Niets veranderd aan het spel.
+- Les: het zaad maakt de opname niet volledig na te spelen als de beeldtijd verschilt (eerste koop 363 tegen 511 s); voor winkelbeelden met dezelfde workflow werkt het wel.
+
