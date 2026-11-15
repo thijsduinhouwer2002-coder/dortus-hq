@@ -115,6 +115,7 @@ Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte W
 4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
 5. **Val**: een stofwolkje en een kleine schok bij de stekels.
 Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+**(gelezen 15 nov ±15:25 UTC Bram: 1, 2 en 4 afgesproken in `platformen/steam/taken.md`; begin na de Superhive-release, volgorde 1, 2, 4.)**
 
 ## 15 nov 16:25 (hoofdchat): SUPERHIVE-WINKEL STAAT. Click Joints Pro klaarzetten om te uploaden, gaat vóór Het Hol.
 De makersaanvraag was nooit echt verstuurd; Thijs heeft vandaag de winkel "Dortus" aangemaakt (superhivemarket.com/creators/dortus) en de uitbetalingen ingesteld. Er is geen goedkeuring vooraf: alleen het eerste product wordt gekeurd. De hoofdchat uploadt het product in de browser van Thijs.
