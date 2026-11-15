@@ -1,13 +1,13 @@
-HOL weg geweest 28803 s (klok terug: false): goud voor 20, helden 606, erbij 3006
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2946
 HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
-HOL opslag geladen: 0 terugkomers, 3026 goud
+HOL opslag geladen: 0 terugkomers, 2966 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794759964
-HOL eerste koop mogelijk na 15 s speeltijd (goud 3026)
-HOL kroniek 2.5 (wacht 2.5): 606 came, 400 fell. +3006 gold.
+HOL zaad 1794760529
+HOL eerste koop mogelijk na 15 s speeltijd (goud 2966)
+HOL kroniek 2.5 (wacht 2.5): 606 came, 390 fell. +2946 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL begin: vluchten (Fenna)
-HOL held binnen: Fenna
-HOL kroniek 5.0 (wacht 1.0): Fenna brought a torch. And hope.
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
+HOL kroniek 5.0 (wacht 1.0): Joost read about you in a tavern.
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=3026, terugkomers=0
+HOL einde na 15 s, fps=10, goud=2966, terugkomers=0
