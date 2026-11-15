@@ -1010,3 +1010,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Weekopname main run 43684792701 groen: log zegt `melding (start): proces SystemPropertiesPerformance (7904) gestopt`, alle 18 beelden schoon, Gloop in de taakbalk.
 - Late taakbalkicoon (Daan 05:50): tak `claude/steam-hol-icoon-vroeg` 7e99965, `kern/strook.gd` zet het icoon opnieuw na de venstermaat en na 1 s. Toetsrun 43684837991 groen, weekopnames 43684845585 en 43685506283 groen, Gloop in alle 36 beelden. Maar main zonder fix was deze keer ook goed, dus niet bewezen dat het helpt; ter keuze aan Daan.
 - Rollwright: niets dringends in `platformen/obsidian/taken.md`. Blender-2 meting pas 22 nov.
+
+## 15 nov 2026, Bram (run 07:10 UTC)
+- Masker dief naar main (merge badc75a, ja Daan 06:45, Windows-run 43686039342 op 2b4164c groen). Andere heldenbladen op de tak nagemeten tegen main: alleen Cycles-ruis (hooguit 4 tot 11 grijswaarden, hol_proef 2 pixels boven 20), dus hele tak mee, dan rendert main niet nog eens.
+- Kan van Daan bij Royal (14 nov 10:45, rode armleuning met harde rechte rand) opgepakt: tak `claude/steam-hol-troonarm` (72dbb71), armleuning als bol kussen. Eerst een liggende rol geprobeerd: blijft van schuin boven recht, want hij loopt naar achteren door. Voor en na lokaal GEZIEN (`ontwerp/steam/royal-3d/bram-troonarm-voor-links-na-rechts-lokaal-4x.png`). Pijplijn 43689193114 en Windows-run lopen.
+- CPU-pieken (demolijst 2) bekeken als mogelijk werk: de runner tekent zonder grafische kaart, dat staat al in het logboek (regel over ANGLE); niets nieuws te winnen zonder echte pc, dus niet opgepakt.
