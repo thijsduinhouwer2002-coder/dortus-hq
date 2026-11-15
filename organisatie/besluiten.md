@@ -358,3 +358,6 @@ Thijs speelt Hats of the Fallen zelf rond vr 4 dec, 15 minuten, en zegt wat saai
 
 ## 15 nov 15:55: leven in het spel (hoofdchat, op vraag van Thijs)
 Thijs vroeg of onze werkwijze goed genoeg is naast een AI-gemaakt 3D-spel op TikTok dat mooier oogt. Oordeel hoofdchat: de plaatjes zijn niet het gat, het gat is beweging en effecten in het spel. Bram en Olaf maken een vaste lijst van 5 effecten (munten, vallende hoed, squash and stretch, fakkellicht, stofwolk bij de val) binnen de CPU-grens, elk met een film als bewijs (`berichten/bram.md`, `berichten/olaf.md`).
+
+## 15 nov 16:20: Superhive-winkel Dortus aangemaakt
+De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf aangemaakt (akkoord voorwaarden en "Create my shop" door Thijs) en de uitbetalingen ingesteld op zijn Revolut-rekening (gegevens staan bij Thijs). Geen goedkeuring vooraf nodig: het eerste product wordt gekeurd. Bram zet Click Joints Pro 1.0.1 als release klaar; de hoofdchat uploadt het als concept en laat het Thijs zien vóór het indienen.

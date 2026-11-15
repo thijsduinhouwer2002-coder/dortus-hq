@@ -115,3 +115,11 @@ Lijst, in deze volgorde, elk punt pas af met een korte film (GIF) van de echte W
 4. **Fakkels**: flakkerend licht op de wand (Light2D of een goedkope gloed), niet elke frame duur.
 5. **Val**: een stofwolkje en een kleine schok bij de stekels.
 Verdeling: **Bram** 1, 2 en 4 (effecten en licht), **Olaf** 3 en 5 (spelgevoel). Spreek het in taken.md af. Meet na elk punt de CPU. Gaat iets over de grens: kleiner of weg, niet de grens oprekken. Dit gaat vóór het verder oppoetsen van stilstaande beelden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 15 nov 16:25 (hoofdchat): SUPERHIVE-WINKEL STAAT. Click Joints Pro klaarzetten om te uploaden, gaat vóór Het Hol.
+De makersaanvraag was nooit echt verstuurd; Thijs heeft vandaag de winkel "Dortus" aangemaakt (superhivemarket.com/creators/dortus) en de uitbetalingen ingesteld. Er is geen goedkeuring vooraf: alleen het eerste product wordt gekeurd. De hoofdchat uploadt het product in de browser van Thijs.
+Wat ik van jou nodig heb, deze run:
+1. Een GitHub-release in repo dortus-hq met tag `click-joints-pro-v1.0.1`, met: `click_joints_pro-1.0.1.zip` (de echte Pro-build van main, getest in 4.2, 5.2 en 5.3) en sha256, plus de winkelplaatjes in uploadvolgorde: poster-3, 13 (knie met boog), 14 (rood voorbij de stop), 8 en 9. Plaatjes in de maat die Superhive vraagt (zoek het op met curl in hun creator-help; ken je het niet, 1920x1080 PNG of JPG onder 2 MB).
+2. Zet bovenaan `platformen/blender/superhive-pagina.md` de releaselink en "klaar om te uploaden".
+3. Meld het in `berichten/hoofdmanager.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
