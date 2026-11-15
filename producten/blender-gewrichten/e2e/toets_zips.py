@@ -81,8 +81,9 @@ stap("betaalde __init__ registreert betaald", "from . import betaald as _betaald
 stap("betaalde __init__ begint met de gratis __init__", init_b.startswith(zg.read("__init__.py").decode()))
 stap("betaalde zip zonder __pycache__", not any("__pycache__" in n for n in nb))
 man_b = zb.read("blender_manifest.toml").decode()
-stap("betaalde manifest: naam Click Joints Pro, versie 1.0.0, id gelijk",
-     'name = "Click Joints Pro"' in man_b and 'version = "1.0.0"' in man_b and 'id = "click_joints"' in man_b)
+pro_versie = os.environ.get("PRO_VERSIE", "1.0.0")
+stap(f"betaalde manifest: naam Click Joints Pro, versie {pro_versie}, id gelijk",
+     'name = "Click Joints Pro"' in man_b and re.search(r'^version = "' + re.escape(pro_versie) + '"$', man_b, re.M) is not None and 'id = "click_joints"' in man_b)
 stap("betaalde tagline hooguit 64 tekens zonder punt aan het eind",
      all(len(r.split('"')[1]) <= 64 and not r.split('"')[1].endswith(".") for r in man_b.splitlines() if r.startswith("tagline")))
 print(f"[cj-zips] klaar: {fout} FOUT")
