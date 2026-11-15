@@ -1170,3 +1170,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Speeltest 21 nov: eigen artifact met alleen het volle spel en een uitleg, 14 dagen. Waarom: Thijs wil een gewone zip zonder Steam; een artifact is niet openbaar (alleen met GitHub-account), dus er wordt niets gepubliceerd. Controleur akkoord met punten (putje weghalen gaat via Remove op het kaartje, uitleg verbeterd).
 - Winkelopname: effen donkere achtergrond 2c3440 (wens Daan 18:50). Waarom: de blauwe bloem trok het oog weg van het hol (blinde kijker 6 tegen 8).
 - Bram mag `moment=` in `held.gd` bouwen; trailer-opname na wo 18 nov.
+
+## 15 nov 2026, 19:10 tot ±19:55 UTC, Bram
+- Blender eerst (zip als artefact, demofilm-release), zie `platformen/blender/logboek.md`.
+- `moment=val` uit run 43747989453 nagekeken: stond stil, maar pas toen de held al weg was (munten komen na de val). Nieuw: held boven de stekels stil (`moment=val`), muntenbeeld als `moment=munt`, logregel `HOL moment vast`, winkel-workflow op de tak maakt bureaubladbeelden bij het moment. Tak `claude/steam-hol-moment-held`, wacht op Olaf.
+- Hap komt in een week-hol niet voor (lokaal 200 s nagespeeld), dus scherm 2 uit `demo` met `moment=hap`; werkt (run 43752188849).
+- Les: in een workflow-stap met pwsh stopt `Select-String` op een bestand dat nog niet bestaat de hele stap, ook met `-ErrorAction SilentlyContinue`; `Get-Content ... -ErrorAction SilentlyContinue` niet.
+- Les: lokaal een week-save nabootsen kan: `~/.local/share/Dortus/Het Hol/hol.json` (custom user dir) en de JSON uit de workflowstap.
