@@ -376,3 +376,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 15 nov 22:42: nieuwe hoofdpagina dortus.com online
 - 15 nov 2026 22:42 | Thijs | **Nieuwe hoofdpagina van Abel online** (tak naar main 22:48, commit 43bbd8c in repo dortus). Geen Confluence-hoofdpagina meer; de oude apps staan onder "Earlier". | Alles linkt naar dortus.com; de oude pagina toonde een ander bedrijf. | Fout gezien: melden, dan herstellen op een tak.
+
+## 15 nov 22:53: gratis marketing met korte filmpjes
+- 15 nov 2026 22:53 | Thijs | **Eerst geld verdienen met gratis marketing: elke dag een kort filmpje op TikTok, YouTube Shorts en Reels**, eerst Click Joints, dan Ebb. Chris kijkt eerst hoe anderen het doen en maakt di 17 nov de eerste 3; Thijs maakt de accounts. **Geen AI-gezicht of nep-persoon** (hoofdchat: misleidt kijkers, TikTok eist een label bij realistische AI-mensen); wel persoonlijke stijl, eerste persoon, echte beelden, en eventueel Gloop als mascotte. | Niemand weet dat onze producten bestaan; filmpjes zijn volgens het YouTube-onderzoek de sterkste gratis hefboom. | Na 20 tot 30 filmpjes (±4 weken) kijken of views en downloads stijgen; zo niet, ander format of kanaal.
