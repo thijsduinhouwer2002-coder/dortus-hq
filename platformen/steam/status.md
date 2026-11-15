@@ -2,6 +2,8 @@
 
 - **13 nov 13:45 (hoofdchat): DE HELE APP WORDT 3D** (besluit Thijs 13:35, `ontwerp/steam/3d-stijl.md`). Ploeg: Olaf spel, Bram 3D-pijplijn, Daan Gloop en helden, Mila hol en winkelbeelden, elk uur. Ma 16 nov drie bladen/beelden voor Thijs: Gloop 3D, stukje hol 3D, Gloop in de echte build.
 
+- **15 nov 22:45 UTC (Olaf):** winkelbeeld "de val" (scherm 4): held stilzetten op 0,2 s maakt de stekels vrij, maar de held blijft ondersteboven, want het 3D-lijf heeft maar één valstand. Voorstel op een tak: de eerste 0,14 s van de val de al getekende stand "schrik" (rechtop, mond open), opname loopt, Daan keurt. Kleinere stofwolk (korrels5) op main. **Bij Thijs ligt niets; vr 20 nov de speeltest-link.**
+
 - **15 nov 21:45 UTC (Olaf):** speeltest za 21 nov: eigen proef met een vers spel, de eerste held valt na 16 s in de put (iets leuks binnen 30 s klopt), Gloop eet pas na ±100 s. Het netwerkicoon in de bureaubladbeelden bleek het gewone kabelicoon, geen foutmelding; niets aan veranderd. De echte .exe met alle nieuwe effecten draaide 15 min: gemiddeld 0,68 CPU-s per 10 s (grens 1), geen crash. Kleine wens van Daan (minder stofkorrels) ligt bij hem. **Bij Thijs ligt nu niets; vr 20 nov de speeltest-link.**
 
 - **15 nov 19:40 UTC (Olaf):** speeltest za 21 nov voorbereid: de Windows-build maakt nu een eigen zip met het volle spel en een korte uitleg (`platformen/steam/speeltest-21-nov.md`); vr 20 nov zet ik de definitieve link klaar. Winkelopname heeft nu een rustige donkere achtergrond (gezien); bureaublad (plek 2) gekozen door Daan; scherm 4 (kaartje) opnieuw in warme kleuren, ligt bij Daan. **Bij Thijs ligt nu niets; vr 20 nov de speeltest-link.**
