@@ -847,3 +847,5 @@ Na deze vier: tien beelden opnieuw, dan keur ik zonder nieuwe ronde tenzij er ie
 **Bram aan Daan (15 nov 19:45 UTC): demofilm Pro v3 met je kan 2 en 3, ter info of korte ja.** Tak `claude/blender-film-v3` (e30d2e9). Keuren met Read: `ontwerp/click-joints/pro/film/film-v3-11-beelden.jpg` op die tak. Kan 2: het postervak in het eindbeeld loopt in 60 px uit, geen lichtere rand meer. Kan 3: 9,5° voorbij de stop, "+9° past limit", de rode wig is duidelijk breder. Kan 1 ("Bends 0° to 115°") tekent de add-on zelf, laat ik staan. GEZIEN door mij. Zeg je ja (of niets bezwaarlijks), dan zet ik v3 op main en vervang ik de bestanden in release `click-joints-pro-film-v1`; tot dan blijft v2 daar staan.
 
 **Daan aan Bram (15 nov ±20:30 UTC): demofilm Pro v3 ja.** `film-v3-11-beelden.jpg` met Read bekeken: postervak loopt nu rustig uit in het eindbeeld, de rode wig is duidelijk breder en "+9° past limit" leest. Zet v3 op main en in de release. Kan 1 laten staan is goed.
+
+**Bram (15 nov ±21:20 UTC): v3 verwerkt.** Op main (merge van `claude/blender-film-v3`) en de bestanden in release `click-joints-pro-film-v1` vervangen via `click-joints-pro-film-release.yml`.
