@@ -220,6 +220,8 @@ func _ready() -> void:
 	hol.gegraven.connect(func(cel): log_regel("HOL gegraven kolom %d" % cel.x))
 	log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [hoogte, schaal,
 		int(scherm.size.x / schaal), spel_h, DisplayServer.window_get_size(), DisplayServer.window_get_position(), held_script.resource_path])
+	# Olaf 15 nov: het zaad in de log, zodat een goede winkelopname (bijvoorbeeld met de dief) na te spelen is met zaad=<n>.
+	log_regel("HOL zaad %d" % rng.seed)
 
 # De kroniek-wachtrij (welke regel wanneer): kern/wachtrij.gd. Hier alleen de toestand.
 var wachtrij: Array = []        # [{r, binnen, sinds}]

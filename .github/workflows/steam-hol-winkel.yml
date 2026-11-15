@@ -13,6 +13,9 @@ on:
       hoogte:
         description: "hoogte van de strook in px (96 tot 160)"
         default: "120"
+      zaad:
+        description: "vast zaad voor de volgorde van heldsoorten in het echte bureaublad (leeg = de klok); Olaf 15 nov"
+        default: ""
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -27,6 +30,7 @@ jobs:
     env:
       SOORT: ${{ inputs.soort || 'week' }}
       HOOGTE: ${{ inputs.hoogte || '160' }}
+      ZAAD: ${{ inputs.zaad || '' }}
     steps:
       - uses: actions/checkout@v4
       # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
@@ -273,7 +277,7 @@ jobs:
           Write-Output "Kladblok 420 x 196 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log $(if ($env:ZAAD) { "zaad=$env:ZAAD" })" -PassThru
           # Olaf 15 nov (wens Mila 23:50 voor scherm 2): in run 43653516628 was de gang in alle 6 beelden leeg, want een held
           # is in ±7 s binnen en weer weg en de beelden vielen ertussen. Nu: elke 0,5 s de log lezen; bij elke nieuwe regel
           # "HOL held binnen" een beeld na 2,5, 3,7 en 5 s (bureaublad-held-<nr>-a/b/c.png; run 43657940940: op 2,5 s op de
@@ -317,6 +321,8 @@ jobs:
           T="$RUNNER_TEMP/s"
           D_REL="steam-hol/winkel-1920-$SOORT-$HOOGTE"
           [ "$GITHUB_REF_NAME" = main ] || D_REL="$D_REL-$(echo "$GITHUB_REF_NAME" | tr / -)"
+          # Olaf 15 nov: met een vast zaad een eigen map, zodat runs naast elkaar elkaars beelden niet overschrijven.
+          [ -z "$ZAAD" ] || D_REL="$D_REL-zaad$ZAAD"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
           # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0
