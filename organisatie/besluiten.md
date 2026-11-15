@@ -349,3 +349,6 @@ Gijs liep sinds 14 nov 08:52 vast op de gebruikslimiet van zijn model (Fable). T
 
 ## 15 nov 13:24: ja op de 3D-richting van Het Hol, naam "Hats of the Fallen" akkoord
 Thijs zag `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` (winkelplaatje, spel in de taakbalk, Gloop, helden met hoeden) en zei: "ja vindt het wel prima" (gelezen als ja op de richting én op de naam). De stijl ligt vast; geen nieuwe stijlrondes. Open verbeterpunten die de hoofdchat meegaf: minder paars en donker (warmer, lichter, ook naast de toppers in de bibliotheek) en leesbaarheid op ware grootte in de strook. Volgende toets voor Thijs: wo 25 nov (winkelbeelden af), daarna de winkelpagina op ma 30 nov.
+
+## 15 nov 15:30: Garmin-spelletje met Gloop, na 20 nov
+Thijs: "ja laten we het doen" op het advies: kandidaat 1 van Vera (klein betaald Garmin-spelletje met Gloop, 3D-renders) bouwen, maar pas beginnen rond 20 nov, als Ebb een week in de winkel staat. Tot dan gaat alle bouwkracht naar Hats of the Fallen (werknaam Het Hol).
