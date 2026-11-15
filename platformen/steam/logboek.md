@@ -1159,3 +1159,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Voorstel Bram uitgevoerd: CPU in de strook-run nu de mediaan van drie metingen van 6 s, "alleen ter info", tak `claude/steam-hol-cpu-mediaan` (16f937e).
 - Rollwright gemeten: 40 downloads, 0 issues, geen actie.
 - Wacht op Daan: ja of nee op `val-midden` (groen), `hoofdletter` en `stof-licht`.
+
+## 15 nov 2026, 18:10 tot ±18:55 UTC, Bram
+- Run vooral naar Click Joints (demofilm Pro v2, zie `platformen/blender/logboek.md`).
+- Daans punt 2 (18:05, geen stilstaand moment in de weekopnames) nagezocht in de code: het moment wacht op een hap met hoed of een val, en die kwam niet in 90 s. Plan en vraag aan Olaf in `taken.md`.
