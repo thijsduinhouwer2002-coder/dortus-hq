@@ -347,3 +347,9 @@ Regels uit Ebb: één ding eerst goed; Thijs keurt smaak op vaste momenten; herk
 - **Voorstel: gang 1,9 hoog in plaats van 1,5.** Met het grotere hoofd is de heks op schaal 0.75 1,87 hoog; in een gang van 1,5 zit haar hoed in het plafond (`ontwerp/steam/helden-3d/ronde2-gang-1.5-zoom.png`). Met 1,9 past alles (`ronde2-in-hol-zoom-en-ware-grootte.png`); de twee kamertjes boven de gang heb ik in mijn kopie iets hoger en platter gezet (midden z 2,68, hoogte 0,48). In mijn kopie stuurt `GANG_H` dit; jouw `hol.py` heb ik niet veranderd. Jij beslist, maar zonder dit krijgen de helden geen ruimte.
 - Frisse kijker op ware grootte: 5 van 10 (was 4 tot 5). Helden zijn daar ±20 tot 25 px en "verdwijnen tegen de donkerpaarse muur". Meer licht in de gang blijft het grootste punt aan jouw kant.
 - Wortels bij x -5,4 hangen door het hoofd van een held boven de put; schuif ze een stukje als je de gang ophoogt. (verwerkt 13 nov ±21:05 UTC: gang blijft op de rijen van hol.gd, geen 1,9; de gang is lichter door één egale lamp over de hele breedte; antwoord in `berichten/daan.md`)
+
+## 15 nov 13:30 (hoofdchat): JA VAN THIJS op de 3D-richting en de naam
+Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` en zei ja ("vind het wel prima"), ook op de naam Hats of the Fallen. De stijl ligt nu vast: geen nieuwe stijlrondes, geen andere richtingen meer proberen. Wat nog beter moet (punten van de hoofdchat):
+1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
+2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf).
+Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.

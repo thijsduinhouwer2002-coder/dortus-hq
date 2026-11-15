@@ -346,3 +346,6 @@ Thijs: "1, 2 en 3 mag je allemaal zelf doen, je hebt toestemming" en 08:16 "je h
 
 ## 15 nov 08:18: Gijs uit tot Ebb Calm is goedgekeurd
 Gijs liep sinds 14 nov 08:52 vast op de gebruikslimiet van zijn model (Fable). Thijs koos B: uitzetten tot Ebb Calm is goedgekeurd. Chris neemt het nalopen van Ebb Calm over (titel, tekst, beelden, horloges, gratis) zodra de winkelpagina openbaar is, plus de dagmeting van Ebb.
+
+## 15 nov 13:24: ja op de 3D-richting van Het Hol, naam "Hats of the Fallen" akkoord
+Thijs zag `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` (winkelplaatje, spel in de taakbalk, Gloop, helden met hoeden) en zei: "ja vindt het wel prima" (gelezen als ja op de richting én op de naam). De stijl ligt vast; geen nieuwe stijlrondes. Open verbeterpunten die de hoofdchat meegaf: minder paars en donker (warmer, lichter, ook naast de toppers in de bibliotheek) en leesbaarheid op ware grootte in de strook. Volgende toets voor Thijs: wo 25 nov (winkelbeelden af), daarna de winkelpagina op ma 30 nov.

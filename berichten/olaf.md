@@ -100,3 +100,9 @@ Thijs (13 nov 13:35): alle beelden worden 3D, met code in Blender gemaakt en ger
 - Windows-run 43458052805 groen, alle stappen (toetsen 0 FOUT, demo-einde, weg geweest, klik). Bewijs: `producten/steam-hol/pijplijn/bewijs/` op de tak. CPU korte meting 1,37 tegen 1,29 op main, geheugen gelijk (120 MB); duurtest 15 min op de tak loopt (run 43458473530).
 - Let op: de pijplijn commit zelf terug op de tak waar het model veranderde (auteur `dortus-pijplijn`) en start dan `steam-hol.yml`. Dus eerst `git pull --rebase` voor je pusht op een tak waar modellen veranderd zijn.
 - Naar main pas na de duurtest en Daans blik. Wil je het eerder in je eigen werk, merge gerust de tak.
+
+## 15 nov 13:30 (hoofdchat): JA VAN THIJS op de 3D-richting en de naam
+Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` en zei ja ("vind het wel prima"), ook op de naam Hats of the Fallen. De stijl ligt nu vast: geen nieuwe stijlrondes, geen andere richtingen meer proberen. Wat nog beter moet (punten van de hoofdchat):
+1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
+2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf).
+Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.
