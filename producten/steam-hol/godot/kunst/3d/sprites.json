@@ -2,8 +2,8 @@
  "bard": {
   "anker_x": 44,
   "blad": "res://kunst/3d/bard.png",
-  "bron": "8703d63b4314d98a",
-  "bytes": 16070,
+  "bron": "63c5a02a33f860e0",
+  "bytes": 16635,
   "cel_px": [
    87,
    56
@@ -63,8 +63,8 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "932b6268341eee57",
-  "bytes": 47775,
+  "bron": "2b69a1fb1f2a6134",
+  "bytes": 47780,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -387,8 +387,8 @@
  "dief": {
   "anker_x": 44,
   "blad": "res://kunst/3d/dief.png",
-  "bron": "859f1f4ef6a34fcb",
-  "bytes": 17656,
+  "bron": "1f4feb03adaa8e8c",
+  "bytes": 17536,
   "cel_px": [
    87,
    58
@@ -502,8 +502,8 @@
  "heks": {
   "anker_x": 26,
   "blad": "res://kunst/3d/heks.png",
-  "bron": "e9fa729a3d86852e",
-  "bytes": 11366,
+  "bron": "bb17779e8dca28e1",
+  "bytes": 11354,
   "cel_px": [
    52,
    56
@@ -559,8 +559,8 @@
  "held0": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held0.png",
-  "bron": "1024fb3259785b7d",
-  "bytes": 18447,
+  "bron": "ae68b619093e70a3",
+  "bytes": 18449,
   "cel_px": [
    87,
    56
@@ -617,8 +617,8 @@
  "held1": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held1.png",
-  "bron": "9993d1407192e17c",
-  "bytes": 18820,
+  "bron": "04c107f5ee70eaa9",
+  "bytes": 18797,
   "cel_px": [
    87,
    56
@@ -675,8 +675,8 @@
  "held2": {
   "anker_x": 43,
   "blad": "res://kunst/3d/held2.png",
-  "bron": "5d5bc18c46d2ba15",
-  "bytes": 18378,
+  "bron": "3edcf3f6cb94d90e",
+  "bytes": 18490,
   "cel_px": [
    86,
    56
@@ -733,8 +733,8 @@
  "held3": {
   "anker_x": 44,
   "blad": "res://kunst/3d/held3.png",
-  "bron": "fe3ed6fe31412ba5",
-  "bytes": 18398,
+  "bron": "b8318694ed244bc6",
+  "bytes": 18535,
   "cel_px": [
    87,
    56
@@ -791,8 +791,8 @@
  "held4": {
   "anker_x": 42,
   "blad": "res://kunst/3d/held4.png",
-  "bron": "2295fd09819daffd",
-  "bytes": 18107,
+  "bron": "2b6eeedb54b250ba",
+  "bytes": 17996,
   "cel_px": [
    85,
    56
@@ -1038,8 +1038,8 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "5d438d8003c36ec4",
-  "bytes": 130027,
+  "bron": "95b36d15254df8b7",
+  "bytes": 129997,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1322,8 +1322,8 @@
  "ridder": {
   "anker_x": 30,
   "blad": "res://kunst/3d/ridder.png",
-  "bron": "e8ae9994128bd24e",
-  "bytes": 16851,
+  "bron": "695a966841961fff",
+  "bytes": 16400,
   "cel_px": [
    59,
    62
