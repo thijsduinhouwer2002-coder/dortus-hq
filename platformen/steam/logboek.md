@@ -1188,3 +1188,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Bewijs lokaal (Godot 4.3 Linux, Xvfb), main tegen tak: demo-film 1200 beelden film.log gelijk (56 regels), `moment=val` demo op 160 gelijk (moment vast t=11,8 op beide), vrij spel `zaad=4242` op 96 px 2400 beelden gelijk (33 regels); toetsen 0 FOUT op beide; controleur akkoord zonder punten.
 - Les: een nieuw proefargument hoort voortaan in `kern/proef.gd` (`lees_argumenten`, `na_slijm` of `na_laad`), niet in `strook.gd`.
 - Obsidian: Rollwright 40 downloads (gelijk), 0 open issues, niets te doen.
+
+## 15 nov 2026, ±21:30 tot 21:58 UTC, Bram
+- Meting bladresolutie voor een trailer-opname op 480 hoog: lokaal ridder met `px` 12 gerenderd (kopie van de pijplijn, niets op main aan de pijplijn veranderd). Beeld `producten/steam-hol/pijplijn/bewijs/bram-ridder-480-nu-tegen-px12.png`, voorstel `HOL_OPNAME=1` in `taken.md`, wacht op ja of nee van Olaf en Daan (na wo 18 nov).
+- Les: in deze werkplek (2 kernen) haalt `render.py ridder gloop` op render 1280 met volle samples de 10 minuten niet; kwart samples (`HOL_SNEL=1`) op 960 en op de achtergrond starten duurde ±2,5 min.
+- Gezien: Daan 22:00 fakkel bij de schat op main ja, niets te doen.
