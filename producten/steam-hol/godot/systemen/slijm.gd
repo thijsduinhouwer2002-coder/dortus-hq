@@ -178,8 +178,10 @@ func laars_pos() -> Vector2i:
 	if leven != "spugen":
 		return Vector2i(15 * laars_kant, 0)   # geland: blijft liggen, ook als hij daarna slaapt (15: een spelpixel lucht naar de goudberg, Daan 14 nov)
 	var u := clampf((t - (leven_van + 0.6)) / BOOG_S, 0.0, 1.0)   # vliegt na spugen-frame 3 (index 3 = 0,6 s)
-	var x := int(round(12.0 * u)) * laars_kant
 	var y := -int(round(8.0 * u * (1.0 - u) * 4.0 / 2.0))
+	if beeld_3d() != "":   # 3D (Daan 15 nov): begint achter het lijf op x 7, landt ook op 15
+		return Vector2i((LAARS_START_3D + int(round(float(15 - LAARS_START_3D) * u))) * laars_kant, y)
+	var x := int(round(12.0 * u)) * laars_kant
 	return Vector2i(x + 3 * laars_kant, y)
 
 # Welke upgrade-stap Gloop heeft (0 tot 3), uit hol.upgrades (systemen/upgrades.gd). Zonder upgrades 0.
@@ -406,9 +408,13 @@ func beeld_3d() -> String:
 	return ""
 
 # Spugen in 3D (Bram 15 nov, laatste pixelmoment van Gloop): geen eigen stand nodig, de vier spuug-beelden
-# (0,2 s elk) worden ogen dicht, ogen dicht (hij knijpt en werkt de laars omhoog), mond wijd open op het moment
-# dat de laars eruit vliegt (beeld 2 en 3, de laars vliegt vanaf 0,6 s). Ontbreekt een stand, dan rust.
-const SPUUG_3D := ["knipper", "knipper", "hap", "hap"]
+# (0,2 s elk) worden kneep, kneep (oog dichtgeknepen, wangen bol, lijf plat en breed: persen), spuug, spuug
+# (getuite mond, lijf iets omhoog gerekt) op het moment dat de laars eruit vliegt (vanaf 0,6 s). Standen en schaal
+# van Daan (15 nov 11:35, gloop.py en pijplijn/sprites.json). Ontbreekt een stand, dan rust.
+# In 3D vliegt de laars achter het lijf en begint op x 7 (aan zijn rechterkant, nooit over zijn oog); landt op 15.
+# Spuugt hij naar links (laars_kant -1), dan wordt het spuug-beeld gespiegeld zodat hij de laars nakijkt.
+const SPUUG_3D := ["kneep", "kneep", "spuug", "spuug"]
+const LAARS_START_3D := 7
 func _spuug_3d(i: int) -> String:
 	var naam: String = SPUUG_3D[clampi(i, 0, SPUUG_3D.size() - 1)]
 	return naam if _heeft_3d(naam) else "rust"
@@ -474,7 +480,12 @@ func _teken_3d(naam: String, wip: int) -> void:
 	var w := cw / px * k
 	var h := ch / px * k
 	var x := -float(lijf3d_info["anker_x"]) / px * k
+	var spiegel := naam == "spuug" and laars_kant < 0
+	if spiegel:
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1, 1))
 	draw_texture_rect_region(lijf3d, Rect2(x, -h + wip, w, h), Rect2(i * cw, 0, cw, ch))
+	if spiegel:
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 # Bovenkant van Gloop in het huidige frame (de toren volgt hem: hap, spugen, opstaan).
 func top_nu() -> int:
@@ -658,6 +669,9 @@ func _draw() -> void:
 		_teken_royal("achter", wip)   # Royal in 3D: mantel en scepter achter hem
 	elif n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
+	var laars_achter := leven == "spugen" and b3 != ""
+	if laars_achter and t >= leven_van + 0.6:
+		_teken_laars()   # 3D: de laars vliegt achter het lijf vandaan (Daan 15 nov, moet 2)
 	if b3 != "":
 		_teken_3d(b3, wip)
 	elif f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
@@ -691,9 +705,12 @@ func _draw() -> void:
 		zy = maxi(zy, int(ceil(teken_rand_y())))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
 		if not HELD_BEELD.teken_3d(self, "zzz", 0.0, float(zy + 8)):   # 3D-wolkje uit het blad tekens, anders pixels
 			draw_texture_rect_region(TEKENS, Rect2(-4, zy, 8, 8), Rect2(3 * 8, 0, 8, 8))   # zzz
-	if (leven == "spugen" and t >= leven_van + 0.6) or laars_ligt():
-		var p := laars_pos()
-		# 3D-laars uit het tekens-blad zodra daar een beeld "laars" in staat (Daan 06:40, volgorde 3; Olaf 14 nov),
-		# zelfde voetpunt (onder-midden); anders de pixel-laars zoals altijd
-		if not (met_3d and HB.teken_3d(self, "laars", float(p.x), float(p.y))):
-			draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))
+	if not laars_achter and ((leven == "spugen" and t >= leven_van + 0.6) or laars_ligt()):
+		_teken_laars()
+
+func _teken_laars() -> void:
+	var p := laars_pos()
+	# 3D-laars uit het tekens-blad zodra daar een beeld "laars" in staat (Daan 06:40, volgorde 3; Olaf 14 nov),
+	# zelfde voetpunt (onder-midden); anders de pixel-laars zoals altijd
+	if not (met_3d and HB.teken_3d(self, "laars", float(p.x), float(p.y))):
+		draw_texture_rect_region(LAARS, Rect2(p.x - 4, p.y - 8, 8, 8), Rect2(0, 0, 8, 8))

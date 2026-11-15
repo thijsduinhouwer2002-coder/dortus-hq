@@ -809,7 +809,13 @@ func _init() -> void:
 			var verwacht: String = g3.SPUUG_3D[i] if standen.has(g3.SPUUG_3D[i]) else "rust"
 			sp_zag.append(g3.beeld_3d())
 			sp_ok = sp_ok and g3.beeld_3d() == verwacht
-		ok(sp_ok, "3D: spugen als knipper, knipper, hap, hap (%s)" % ", ".join(sp_zag))
+		ok(sp_ok, "3D: spugen als kneep, kneep, spuug, spuug (%s)" % ", ".join(sp_zag))
+		g3.laars_kant = 1
+		g3.t = g3.leven_van + 0.6
+		var lp0: Vector2i = g3.laars_pos()
+		g3.t = g3.leven_van + 0.6 + g3.BOOG_S
+		var lp1: Vector2i = g3.laars_pos()
+		ok(lp0.x == g3.LAARS_START_3D and lp1.x == 15, "3D: laars begint achter het lijf op x 7 en landt op 15 (%d, %d)" % [lp0.x, lp1.x])
 		g3.t = g3.leven_van + 0.6 + g3.BOOG_S + 0.01
 		g3.stap(0.0)
 		ok(g3.leven == "" and g3.beeld_3d() == "rust" and g3.laars_ligt(), "3D: na het spugen weer rust, laars ligt")
