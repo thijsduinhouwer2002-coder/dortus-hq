@@ -187,6 +187,13 @@ func zet_laars_proef() -> void:
 # hij blijft in één spuugmoment staan, 1 = kneep (0,1 s), 2 = spuug met de laars achter het lijf (0,65 s),
 # 3 = spuug met de laars midden in de boog. De tijd loopt gewoon door (een hap of plat gaat voor), alleen
 # leven_van schuift mee zodat het moment blijft. Nooit in het echte spel.
+# Winkelbeeld "de hap" (Bram 15 nov, moment=hap in strook.gd, winkelschermen wo 18 nov): bij de eerste hap met een
+# nieuwe hoed blijft Gloop staan op het mooiste moment: de hoed bijna bovenaan zijn boog boven hem, Gloop nog in de hap.
+# Zijn eigen tijd staat dan stil (de helden en het hol lopen door); tekenen kost niets meer. Nooit in het echte spel.
+const MOMENT_HAP_S := VLUCHT_VAN + VLUCHT_S * 0.45
+var moment_hap := false
+var moment_vast := -1.0
+
 const SPUUG_PROEF_S := [0.1, 0.65, 0.6 + BOOG_S * 0.5]
 var spuug_vast := -1.0
 
@@ -278,6 +285,8 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 		hoeden.append(hoed % HOED_SOORTEN)
 		hoed_vlucht_van = t
 		hoed_van = van
+		if moment_hap and moment_vast < 0.0:
+			moment_vast = t + MOMENT_HAP_S
 		blij_tot = t + HAP_S + BLIJ_S     # na de hap even blij om de nieuwe hoed
 	set_process(true)
 	return hoeden.size()
@@ -349,6 +358,8 @@ func _process(delta: float) -> void:
 
 func stap(delta: float) -> void:
 	t += delta
+	if moment_vast >= 0.0 and t > moment_vast:
+		t = moment_vast   # winkelbeeld moment=hap: Gloop en de vliegende hoed blijven staan
 	if spuug_vast >= 0.0:
 		leven = "spugen"
 		leven_van = t - spuug_vast   # keurstrook: het moment blijft staan

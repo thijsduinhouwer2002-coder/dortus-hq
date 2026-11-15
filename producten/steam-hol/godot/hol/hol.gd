@@ -270,7 +270,15 @@ func put_klap(kol: int) -> void:
 	set_process(true)
 	queue_redraw()
 
+# Winkelbeeld "de val" (Bram 15 nov, moment=val in strook.gd): bij de eerste val blijven de muntjes midden in hun boog
+# hangen en de stekels omhoog staan, zodat de opname van het winkelscherm het moment pakt. Nooit in het echte spel.
+var moment_val := false
+var moment_val_vast := false
+const MOMENT_VAL_F := 0.5     # muntjes op de helft van hun vlucht (hoogste punt van de boog)
+
 func _process(delta: float) -> void:
+	if moment_val_vast:
+		return   # alles staat stil, er hoeft niets meer getekend te worden
 	for k in put_open.keys():
 		put_open[k] -= delta
 		if put_open[k] <= 0.0:
@@ -291,6 +299,13 @@ func _process(delta: float) -> void:
 		queue_redraw()
 	for m in munten:
 		m.t += delta
+	if moment_val and not munten.is_empty() and munten.all(func(m): return m.has("naar") == false):
+		var laatste: float = munten.map(func(m): return float(m.t)).min()
+		if laatste >= MUNT_S * MOMENT_VAL_F:
+			# de laatste munt is op de helft, de eerdere 0,15 en 0,3 s verder: drie muntjes verspreid in de boog
+			moment_val_vast = true
+			queue_redraw()
+			return
 	munten = munten.filter(func(m): return m.t < munt_duur(m))
 	if not munten.is_empty():
 		queue_redraw()

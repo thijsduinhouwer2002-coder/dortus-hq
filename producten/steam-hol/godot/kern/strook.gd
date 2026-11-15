@@ -43,6 +43,7 @@ var moment_tot := -1.0
 var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van het graafmoment, om op te keuren (Daan 14 nov)
 var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), alleen om Royal in 3D te keuren (Bram 14 nov)
 var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
+var proef_moment := ""       # moment=hap|val: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
@@ -137,6 +138,7 @@ func _ready() -> void:
 			"graaf_proef": proef_graaf = kv[1] == "1"
 			"laars_proef": proef_laars = kv[1] == "1"
 			"spuug_proef": proef_spuug = clampi(int(kv[1]), 0, 3)
+			"moment": proef_moment = kv[1] if kv[1] in ["hap", "val"] else ""
 			"put_proef": proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": proef_uit3d = kv[1].split(",", false)
@@ -189,6 +191,10 @@ func _ready() -> void:
 		slijm.zet_laars_proef()
 	if proef_spuug > 0 and slijm.has_method("zet_spuug_proef"):
 		slijm.zet_spuug_proef(proef_spuug)
+	if proef_moment == "hap" and "moment_hap" in slijm:
+		slijm.moment_hap = true
+	if proef_moment == "val" and "moment_val" in hol:
+		hol.moment_val = true
 	if demo:
 		volgende_held = 0.5
 	if demo and "plat_s" in slijm:

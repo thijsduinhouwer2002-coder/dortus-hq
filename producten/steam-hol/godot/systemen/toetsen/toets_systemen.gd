@@ -814,6 +814,16 @@ func _init() -> void:
 	ok(sprong <= 0.15 * 0.36, "fakkel: zachte overgang, maat springt per beeld hooguit een derde van 0,85 tot 1 (%.3f)" % sprong)
 	ok(is_equal_approx(HS.fakkel_flakker(7, 0).y, 0.85) and is_equal_approx(HS.fakkel_flakker(3, 0).y, 1.0), "fakkel: sterkte tussen 0,85 en 1 (Daan juice.md)")
 	ok(gelijk == 0, "de twee fakkels flakkeren niet gelijk")
+	# winkelbeeld moment=val (Bram 15 nov): bij de eerste val blijven de muntjes in hun boog hangen
+	var hmv = Node2D.new()
+	hmv.set_script(HS)
+	hmv.moment_val = true
+	hmv.munt_regen(2)
+	for i in 40:
+		hmv._process(0.05)
+	var tm: Array = hmv.munten.map(func(m): return float(m.t))
+	ok(hmv.moment_val_vast and hmv.munten.size() == 3 and tm.min() >= HS.MUNT_S * 0.5 - 0.0001 and tm.max() < HS.MUNT_S, "moment=val: na 2 s hangen drie muntjes in de lucht (%s)" % str(tm))
+	hmv.free()
 	var hm = Node2D.new()
 	hm.set_script(HS)
 	ok(hm.met_3d == true and hm.has_method("munt_3d"), "munt 3D: hol tekent munten rond als met_3d aan staat")

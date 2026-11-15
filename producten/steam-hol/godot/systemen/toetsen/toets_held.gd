@@ -1034,5 +1034,18 @@ func _init() -> void:
 	ok(not gv.hoed_vliegt() and v4[0] and is_equal_approx(float(v4[3]), 0.0), "hoedvlucht: daarna stil op de toren")
 	ok(gv.hoed_vlucht_van + gv.VLUCHT_VAN + gv.VLUCHT_S + gv.WIEBEL_S <= gv.hoed_vlucht_van + gv.HAP_S + gv.BLIJ_S, "hoedvlucht: klaar binnen de blije tijd (process loopt nog)")
 	gv.free()
+	# winkelbeeld moment=hap (Bram 15 nov): bij de eerste hap met hoed blijft Gloop staan met de hoed hoog in de boog
+	var gm = Node2D.new()
+	gm.set_script(load("res://systemen/slijm.gd"))
+	gm.moment_hap = true
+	gm.raak(-1)
+	ok(gm.moment_vast < 0.0, "moment=hap: een hap zonder hoed zet niets stil")
+	gm.raak(2, Vector2(14, -10))
+	for i in 60:
+		gm.stap(0.05)
+	var vm: Array = gm.hoed_vlucht(0.0, -20.0)
+	ok(is_equal_approx(gm.t, gm.moment_vast) and gm.hoed_vliegt() and vm[0] and float(vm[2]) < -20.0, "moment=hap: na 3 s hangt de hoed nog boven de rechte lijn (%s)" % str(vm))
+	ok(gm.frame_nu()[1] in gm.HAP, "moment=hap: Gloop staat stil in de hap (%s)" % str(gm.frame_nu()))
+	gm.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
