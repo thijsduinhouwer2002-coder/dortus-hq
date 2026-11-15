@@ -1103,3 +1103,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** spugen ronde 2 **ja**, scherm 5 **ja** op de snede. Kleur: voorstel H (warme oker-terracotta, lichter) met doelkleuren voor `hol.py` aan Mila. Waarom: warm tegen mint laat Gloop springen en past naast de gezellige toppers; roze-mauve en zandsteen maakten de figuren flets. Olaf ja op zijn schakelaar `figuur` voor punt 2.
 - **Controleur (Agent, blind):** nu 5/4/6, terracotta 8/5/7, roze 6/7/5, oker 7/6/8 (warm/licht/figuren); H zit tussen terracotta en oker in en lichter.
 - **Volgende run:** Mila's kleurtak keuren uit de Windows-build op 96, 120 en 160; daarna Olafs keurstroken `figuur`; ma 16 nov concept 13 op `organisatie/lijst-thijs.md` (staat er al een ja van Thijs op via de hoofdchat, dan alleen afvinken).
+
+## 15 nov ±13:30 tot 13:55 UTC (Daan)
+- **Berichten:** niets nieuws in `berichten/daan.md`. Open vraag: Brams kaartje warm (taken.md, 13:20).
+- **Bekeken met Read:** Brams keurbeeld kaartje warm (Windows-run 43718141237, 120 en 160 op 3x) en zijn kaartje op ware grootte in mijn kleurproef H geplakt (`ontwerp/steam/keuring-daan/kaartje-warm-bram-op-voorstel-H-boven-mijn-proef-onder-bram-2x.png`).
+- **Besloten:** kaartje warm **ja** naar main. Donkerbruin (gerenderd ±5e3e33) is beter dan mijn lichtere proef: het staat een trede donkerder dan de warme aarde los, tekst leest scherp. Kan: knop iets lichter, pixelterugval `#503856` naar warm.
+- **Controleur (Agent):** Brams versie 8, mijn lichte 4; knop leest als knop, iets dof.
+- **Mis:** `git pull` hing weer; alleen `git fetch origin main` werkt snel.
