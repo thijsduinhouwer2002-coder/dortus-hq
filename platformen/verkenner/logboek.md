@@ -1104,3 +1104,16 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 2, nee. Zie voorstellen/flutterflow-marketplace.md. Data en scripts in data/flutterflow-*.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: Flutter-webapps met Firebase zijn vaak wel te lezen via de openbare Firestore-REST-API van de collectie die de pagina zelf gebruikt. Alleen collecties lezen die de winkel openbaar toont.
+
+## 15 nov 2026, run 12:31 (Amsterdam)
+- Eerst gezocht naar namen die nog nergens staan (Figma, monday, Lightroom, Procreate, Onshape, Poki, Whop, Skool en meer). Figma Community: robots.txt verbiedt ClaudeBot, niet te meten, in onderzocht.md gezet.
+- Gekozen: GameDistribution (12:35 in onderzoek en gepusht). Waarom: grootste verdeler van HTML5-spellen, nooit bekeken, past bij onze webspellen, robots.txt staat alles toe.
+- Zelf gezien: de catalogus laadt via een GraphQL-API, 21.531 spellen, nieuwe vooral van reskin-studio's. Plays nergens openbaar.
+- Onderzoeker: voorwaarden van 19 juni 2025 (33% van het netto voor de maker, € 100 drempel, geen KvK nodig) en bedragen van makers (€ 0,30 tot € 0,89 per 1000 plays, een paar euro per spel per jaar). De onderzoeker kreeg geen toestemming voor de GraphQL-API van de FAQ; ik ben daar niet omheen gegaan en heb de API zelf ook niet verder bevraagd dan de catalogus die de pagina in de browser laadde.
+- Uitkomst: cijfer 2, nee. Hooguit bijkanaal naast CrazyGames of YouTube Playables. Zie voorstellen/gamedistribution.md.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: verdelers die tussen maker en uitgeverssites zitten geven de maker het kleinste stuk. Liever portals waar de speler rechtstreeks komt.
+- Daarna Poki (12:46 in onderzoek). Alle 1.513 spelpagina's gehaald, JSON-LD met maker, datum en stemmen. Onderzoeker las de voorwaarden en keek 10 willekeurige rijen na: 10 van 10 goed. Spellen van 3 tot 6 maanden mediaan 16.721 stemmen, maker krijgt 50%, maar alleen overlevers zichtbaar en 5 jaar web-exclusief. Cijfer 6, ja als kleine proef, eerst Poki en dan pas Playgama of CrazyGames met hetzelfde spel.
+- Voor Hans: Poki is een 6 en botst met de Playables-proef als het om hetzelfde spel gaat. Mijn advies staat in voorstellen/poki.md. Niets op de lijst van Thijs (pas bij een contract).
+- Daarna Y8 (12:57 in onderzoek). Steekproef van 600 spelpagina's: na 3 tot 6 maanden mediaan 2.804 plays. Kassa zonder KvK, percentage niet openbaar. Cijfer 2, nee.
+- Les van deze run: bij webspellen beslist de portal alles. Poki en CrazyGames geven echt bereik, verdelers (GameDistribution) en oude portals (Y8) niet. Volgende run kan GamePix of Playgama als portal zelf meten, of Kongregate en Armor Games schiften.

@@ -552,3 +552,10 @@
 - **Besluit scherm 5: dief Bram op de ladder (`held-2-a`), met heel Gloop in de onderste rij.** Waarom: frisse kijker blind 6 tegen 5 voor de tuimelende Bram (kluwen, masker als snor); de smallere bovenrij maakt plaats voor Gloop, zodat dief en monster samen in beeld staan.
 - Open: masker leest op 600 breed nog als zonnebril; Brams oog b staat op tak, na main scherm 5 opnieuw snijden.
 - GEZIEN met Read: heldstroken, grof blad van de losse beelden, dief 3x, proeven, naad 1:1, scherm 2 heel, overzicht.
+
+## 15 nov 2026, ±11:40 tot 11:55 UTC (Mila)
+- Gelezen: berichten (open: bron scherm 5 van Daan 10:00), besluiten (Mila aan sinds 13 nov 13:45, niets nieuws), taken (Daan 11:45: scherm 5 blijft uit run 43699569975).
+- De map op `schermen` was overschreven door run 43708302242; Fenna-beeld gehaald uit commit e93c1ff en in `bron/opnames/` gezet.
+- **Besluit: scherm 5 = Fenna op de ladder, snede `22,393,28,160 1280`.** Waarom: Daans bron; 2 px smaller dan de vorige snede zet de hoedenberg heel in beeld zonder stekels aan de rand (drie randen naast elkaar GEZIEN).
+- GEZIEN met Read: scherm 5 op 1920 en 600, overzicht. Masker leest nu als masker.
+- Volgende: keuring Daan op de snede verwerken.

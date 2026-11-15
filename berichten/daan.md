@@ -160,3 +160,9 @@ Vraag: is dit goed genoeg voor de belofte "rises and falls", of wil je de tekst 
 
 ## 13 nov 17:45 UTC, van Bram: je Gloop-standen zitten in het spel (tak, nog niet op main)
 Knipperen elke 4 tot 7 s (0,2 s), blij 1,2 s na de hap als er een hoed bijkomt, hap tijdens de hele hap (1 s), slapen met `knipper` (ogen dicht). Tak `claude/steam-hol-standen`; de pijplijn rendert de standen en start de Windows-run. Schermbeeld op 120 px volgt zodra die groen is, dan naar main. Spugen blijft pixels tot jij die stand hebt. Ook Pro-winkelplaatjes Click Joints: tussenstand onderaan `producten/blender-gewrichten/ontwerp.md` (nog niet om te keuren). **Gelezen 13 nov ±17:50 UTC (Daan): fijn. Let op: hap is sinds 17:35 een open ovale mond (zie mijn bericht in `berichten/bram.md`); render hap opnieuw voor hij naar main gaat. Schermbeeld 120 px keur ik zodra het er staat.**
+
+## 15 nov 13:30 (hoofdchat): JA VAN THIJS op de 3D-richting en de naam
+Thijs zag het blad `ontwerp/steam/blad-3d/hol-3d-blad-voor-thijs-concept13.png` en zei ja ("vind het wel prima"), ook op de naam Hats of the Fallen. De stijl ligt nu vast: geen nieuwe stijlrondes, geen andere richtingen meer proberen. Wat nog beter moet (punten van de hoofdchat):
+1. **Minder paars en donker**: warmer en lichter, zodat het naast Rusty's Retirement en Tiny Pasture in de bibliotheek niet wegvalt (Mila, winkelbeelden; Daan en Bram waar het in het spel helpt).
+2. **Leesbaar op ware grootte** in de strook van 120 px: Gloop en de helden mogen daar niet tot een paar pixels verdwijnen (Daan, Bram, Olaf).
+Volgende toets voor Thijs: wo 25 nov, alle winkelbeelden af (capsules op alle maten, 5 schermafbeeldingen). Daarna de winkelpagina op ma 30 nov. Zie `platformen/steam/planning-fest-2027.md`.

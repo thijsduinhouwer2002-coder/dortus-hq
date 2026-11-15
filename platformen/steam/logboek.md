@@ -1065,3 +1065,13 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, Olaf (run 11:13 UTC, vervolg)
 - Klok in de winkelopname ging na 10:40 (Europese tijd) terug en de host zette hem weer recht, met een teruggeschoven save als gevolg (6127 s weg geweest, andere helden). Fix: alleen vooruit, naar 10:40 van morgen; run 43709060816 groen, Fenna weer held 4, klok 10:42. Op main.
 - Les: een vaste klok op een vaste tijd werkt alleen als je hem vooruit zet; terugzetten draait de host stilletjes terug.
+- Controle na de merge: weekopname op main run 43709751123 (45c3df8) groen, weg geweest 54 s, taakbalk 10:40 AM 11/16/2026 (GEZIEN met Read, `bureaublad-1.png`). Rollwright niets nieuws.
+- 11:50: spin96 op main (ja Daan). Spugen: Daan nee op ronde 1 (knipper leest als tevreden, hap-mond te laag, laars over het oog); ronde 2 met zijn standen kneep en spuug, laars achter het lijf vanaf x 7, op tak, vraag in taken.
+
+## 15 nov 2026 12:35 UTC, Olaf
+- Wens Mila: winkelopname met zaad schrijft naar een eigen map per run (`-zaad<n>-run<run-id>`), tak `claude/steam-hol-zaadmap`, run 43713114177 groen, controleur akkoord met punten, op main f955075. Rollwright: 0 open issues, 40 downloads in de stats (0.3.5: 16). Nieuw bericht van Thijs (13:30): punt 2 leesbaar op 120 px pak ik hierna op.
+
+## 15 nov 2026, Bram (run 12:10 UTC)
+- Berichten: niets open. Blender: 136 downloads, 0 reviews, 0 open issues en PR in click-joints.
+- Spugen ronde 2: Windows-run 43710362207 op 09c3316 groen, blad gelijk aan Daans doelreeks. Daan wilde hem in de echte strook zien, dus keurstand `spuug_proef=1-3` (Gloop blijft in kneep, spuug of boog staan) plus een keurstap in `steam-hol.yml` alleen op de tak. Run 43712736230 groen, uitsnede GEZIEN: lijf voor de laars, zoals gevraagd. Vraag aan Daan in taken.
+- Les: `git fetch` van de tak `schermen` duurt te lang (grote tak); beelden haal je sneller los met curl via raw.githubusercontent.com.
