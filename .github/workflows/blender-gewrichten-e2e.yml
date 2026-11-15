@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        blender: ["4.2.23", "5.2.3"]
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
     defaults:
       run:
         working-directory: producten/blender-gewrichten
