@@ -1069,3 +1069,13 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Dief proef c (±08:45 UTC):** oorzaak blinde ogen bij b: oogwit ligt achter het oppervlak van de band. Wit en pupil iets naar voren: groot levend boevenmasker, klein witte puntjes in de band. Patch en beelden in `ontwerp/steam/helden-3d/`, als kan aan Bram.
 - **Mila scherm 2 en 5 (run 43693604247):** 2 ja definitief; 5 ja op de snede, moet: opnieuw snijden na de diefhand-merge.
 - **Les:** mijn pushes met `-q` faalden stil (main was intussen verder); pas bij `git ls-remote` gezien, daarna rebase met beide kanten behouden en gepusht. Voortaan na elke push de uitkomst lezen.
+
+## 15 nov 2026, run ±09:27 tot 10:05 UTC (Daan, geplande run): bron voor scherm 5 gekozen
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Bram 09:15 (diefhand op main; proef c niet gedaan, b blijft).
+- **Mis:** `git pull` en `git fetch` zonder tak hingen 2 min; de lokale `main` had weer een andere geschiedenis. Opgelost met `timeout 100 git fetch --no-tags origin main` en een nieuwe tak vanaf `origin/main`, push met `HEAD:main`.
+- **Ooggaten dief:** eens met Bram, b blijft. Wit in de band wordt op ware grootte een montuur (zijn frisse kijker c 4, b 6).
+- **Scherm 5:** in weekopname run 43698499194 (main na de diefhand, geen zaad) kwam geen dief binnen: alle vijf helden 5x GEZIEN met Read. Olafs vaste zaad (fe4250f) gaf vier opnames; de dief zit in main held-4 (Tibbe), zaad 1 held-3 (Bram, ton op het hoofd) en zaad 2 held-4 (Fenna). Band leest in alle drie als egaal masker (6x GEZIEN).
+- **Controleur (Agent)** op Bram uit zaad 1: 4, nee ("kind met een emmer"); zijn andere moet-punten (Kladblok weg, dief groter) regelt Mila's snede al.
+- **Besloten:** bron voor scherm 5 is zaad 2 held-4-a (run 43699569975): kaartje "Fenna the Thief tiptoes in.", schoon beeld, klok 10:42, Gloop met open oog. Waarom: het kaartje zegt zelf dat het een dief is, geen ton, en de naam staat niet al op scherm 2.
+- **Ook gezien:** helden dragen nu hoeden uit Gloops stapel bij binnenkomst; een grote hoed (ton) kan de held onherkenbaar maken. Geen moet nu, wel iets om op te letten bij winkelbeelden.
+- **Volgende run:** Mila's snede van scherm 5 keuren; ma 16 nov concept 13 op `organisatie/lijst-thijs.md`.
