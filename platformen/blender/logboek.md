@@ -508,3 +508,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Nagekeken: de gratis listing komt mee in de API-lijst voor `blender_version=5.3.0` (versie 0.1.0, min 4.2.0, geen max), dus 5.3-gebruikers vinden hem.
 - Tweede ding gezien in run 43676633084: het openbaar zetten van de schermen kloonde de hele tak `schermen` (alle Steam-beelden) en duurde 4 tot 15+ minuten per job. Nu een smalle kloon (`--filter=blob:none --sparse`, alleen `blender-gewrichten/<tak>/<versie>`): run 43677486081 op ae12d3a groen in alle drie, openbaar zetten 2 tot 3 s, 44 bestanden voor 5.3.0 staan op `schermen` (RUN.txt nagekeken). Op main.
 - Tip voor Olaf (zijn workflows, niet aangeraakt): dezelfde smalle kloon kan in de Steam-workflows die naar `schermen` schrijven.
+
+## 15 nov 2026, 05:10 tot ±05:45 UTC, Bram
+- Click Joints: 130 downloads (05:11), geen melding in de berichten, Superhive nog niet goedgekeurd.

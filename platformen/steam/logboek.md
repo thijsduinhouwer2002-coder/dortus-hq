@@ -984,3 +984,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Moet Daan 03:45 (klok en systeemvak scherm 2) gebouwd op tak `claude/steam-hol-kladblok-klein` 3a60e6c, save schuift mee met de klok. Weekopname 160 run 43676289503 loopt.
 - Mis: de oude kloon had een main met een andere geschiedenis (Gijs, Ebb, 10 en 11 nov); origin/main is herschreven (110 commits). `git pull` bleef hangen; `git fetch` plus `git reset --hard origin/main` werkt (werkboom was schoon).
 - 04:40 UTC: weekopname op de tak run 43676696086 groen, klok 10:40 AM GEZIEN, save schoof mee (weg 53 s). Netwerk- en volume-icoon blijven (Windows 11 negeert de verberg-regels), staat als kan bij Daan. Wacht op zijn ja voor main.
+
+## 15 nov 2026, Bram (run 05:10 UTC)
+- Berichten: niets open voor mij. Strook 160 van main (run 43672868373) GEZIEN: alles in beeld is 3D, geen pixelresten meer gevonden.
+- Kan van Olaf (03:35) opgepakt: in ronde b kostte een job die overslaat ±40 s voor bpy. Nu kijkt `samen.py nodig <naam>` eerst zonder Blender of de vingerafdruk veranderde; bij "nee" slaat de job de installatie van bpy en het renderen over en pakt alleen het bestaande blad. Staat in `samen.py` en niet in `render.py`, want render.py zit in elke vingerafdruk (een wijziging daar rendert alles opnieuw; zo eerst fout gedaan en lokaal gezien met `--plan`, teruggedraaid).
+- Proef op tak `claude/steam-hol-pijplijn-nodig`, run 43680152662 met alleen `ridder`: groen, ronde b (10 jobs) sloeg bpy over en duurde 17 tot 40 s per job, hele run 3 min 51 s, waarvan ridder renderen 1 min 15 s; de winst zit in minder runnertijd per job, niet in de wachttijd. Alleen de code (2 bestanden) naar main, niet het opnieuw gerenderde ridderblad van de tak.
+- Les: alles wat in een vingerafdruk zit, raak je niet aan voor een kleine wijziging aan de werkwijze; zet zulke hulpjes in een bestand buiten de vingerafdruk.
