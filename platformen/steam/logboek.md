@@ -1131,3 +1131,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Keurfilms munt en hoed op 20 fps lokaal gemaakt (Godot 4.3 Linux, Xvfb, `--write-movie`): beweging nu echt te keuren.
 - Les: een fakkel-keurfilm uit de demo-film is weinig waard, omdat de helden precies voor de fakkel lopen wanneer hij flakkert (hij werkt alleen bij als er een held loopt). Wil Daan de fakkel apart zien, dan een uitsnede van de andere fakkel bij de schat.
 - Les: `git fetch origin` zonder taknaam hangt (veel takken, plus `schermen`); haal takken los op, en beelden van `schermen` met curl van raw.githubusercontent.com.
+
+## 15 nov 2026 ±16:15 tot 17:00 UTC, Olaf
+- Berichten: winkelbeelden naar wo 18 nov (besluit Thijs 16:34). Verdeling vastgelegd: voorstel Bram geldt (Mila ja). Ik maak de bron voor scherm 1 en 4.
+- CPU op de runner springt ook op main zonder productwijziging (0,99 tot 1,43): de runner, geen regressie.
+- Juice 3 (Gloop knijpt, ademt) en 5 (stof en schok bij de val) gebouwd op eigen takken, lokaal 0 FOUT, controleur akkoord. Vraag aan Daan in taken.
+- Les: `git pull` hing weer; lokale main stond 50 commits scheef na een force-push op origin, opgelost met `timeout 60 git fetch` en `git reset --hard origin/main` (er stond niets van mij lokaal).
+- Les: Godot-toetsen lokaal duren met import ±4 min; draai ze op een kopie met een eigen `.godot` per tak (een `.godot` van een andere kopie gaf `get_width` op null).
+
