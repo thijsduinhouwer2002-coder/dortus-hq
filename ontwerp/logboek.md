@@ -1192,4 +1192,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Gemaakt:** hap snede B (boven 4x, onder kaartje met smalle strook aarde), `schermen-3d/voorstel-scherm-hap-snede-b-daan.png`. Val ingezoomd geprobeerd en verworpen (klodder alleen groter, halve kroon rechts).
 - **Besloten:** hoofdbeeld **ja**; hap **ja met snede B**; val **ja als terugval, moet één proef op 0,2**; volgorde **ja**; herhaling van opbouw voor woensdag geen moet. Waarom: Gloop is het sterkste dat we hebben en moet groot; de held in de val is op ±20 px ondersteboven niet te lezen, dus eerst een vroeger moment proberen waar hij nog rechtop staat.
 - **Controleur (Agent, blind):** hap A 6, B 6,5; val A 5, B 5 tot 5,5 ("klodder"); hoofdbeeld 8, niets raakt de titel.
+- **Daarna (21:55 UTC):** korrels5 van Olaf **ja** voor main na groene Windows-run; in zijn beeld 225 staat de held nog rechtop en leesbaar, steun voor de proef op 0,2.
 - **Volgende run:** val op 0,2 keuren naast 0,25; Mila's hap als B overgenomen; fakkel op main in een film van 20 fps; eindstand vijf schermen naast elkaar voor wo 18 nov.
