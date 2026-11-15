@@ -1113,3 +1113,5 @@ Nieuwste blok onderaan.
 - Uitkomst: cijfer 2, nee. Hooguit bijkanaal naast CrazyGames of YouTube Playables. Zie voorstellen/gamedistribution.md.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: verdelers die tussen maker en uitgeverssites zitten geven de maker het kleinste stuk. Liever portals waar de speler rechtstreeks komt.
+- Daarna Poki (12:46 in onderzoek). Alle 1.513 spelpagina's gehaald, JSON-LD met maker, datum en stemmen. Onderzoeker las de voorwaarden en keek 10 willekeurige rijen na: 10 van 10 goed. Spellen van 3 tot 6 maanden mediaan 16.721 stemmen, maker krijgt 50%, maar alleen overlevers zichtbaar en 5 jaar web-exclusief. Cijfer 6, ja als kleine proef, eerst Poki en dan pas Playgama of CrazyGames met hetzelfde spel.
+- Voor Hans: Poki is een 6 en botst met de Playables-proef als het om hetzelfde spel gaat. Mijn advies staat in voorstellen/poki.md. Niets op de lijst van Thijs (pas bij een contract).
