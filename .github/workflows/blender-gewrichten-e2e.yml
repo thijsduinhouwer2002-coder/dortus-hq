@@ -137,7 +137,10 @@ jobs:
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           for poging in 1 2 3 4 5; do
             rm -rf /tmp/s
-            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+            # Alleen onze eigen map uitpakken: de tak schermen is groot (alle Steam-beelden), heel klonen duurde minuten.
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" /tmp/s 2>/dev/null; then
+              git -C /tmp/s sparse-checkout set "blender-gewrichten/$NAAM/${{ matrix.blender }}"
+            else
               mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
             fi
             D="/tmp/s/blender-gewrichten/$NAAM/${{ matrix.blender }}"
