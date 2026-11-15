@@ -998,3 +998,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - **Tak `claude/steam-hol-winkel-klein` naar main** (1c301ea): virtuele geluidskaart (Scream) werkt; melding System Properties is het proces `SystemPropertiesPerformance` en wordt nu gestopt; smalle kloon naar `schermen` in alle vier Steam-workflows (±8 s). Runs groen: winkel 43680490584 en 43681337248, steam-hol 43680559881, exe 43680559820, duur 43680559502. GEZIEN met Read: systeemvak 4x, Kladblok met Performance Options 2x, schoon `bureaublad-1.png`.
 - **Niet gelukt:** de schuifbalk in Kladblok blijft, ook op 196 hoog (Windows 11 Kladblok toont hem altijd).
 - **Volgende run:** de weekopname op main na 1c301ea nakijken (melding weg op elke runner?), Mila en Daan de map geven voor scherm 2.
+
+## 15 nov 2026, Bram (run 06:10 UTC)
+- Berichten: niets open voor mij. Blender: 130 downloads (06:10), 0 open issues in click-joints, Superhive nog niet goedgekeurd.
+- Moet van Daan op scherm 5 (masker Rik is een vlek) nagezocht: het zit in het blad zelf, alle vijf standen; het masker zat op het voorhoofd en de grote ogen erover. Proef met drie varianten lokaal (bpy 5.2.4, 9 s per render), gekozen: band op ooghoogte en kleiner oogwit. Frisse kijker 4 naar 6,5. Tak `claude/steam-hol-diefmasker`, keuring bij Daan.
+- Les: als een keurder zegt "kies een ander beeld", kijk eerst of het probleem in elk beeld zit; dan helpt kiezen niet.
+
