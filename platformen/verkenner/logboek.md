@@ -1096,3 +1096,11 @@ Nieuwste blok onderaan.
 - Niet gedaan: geprobeerd de zoeksleutel van Algolia uit de pagina te halen voor een volledige lijst; dat werd geweigerd en ik ben er niet omheen gegaan. Was ook niet nodig, de pagina's zelf geven de datum.
 - Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
 - Les: weer hetzelfde beeld als Resolve en stream-overlays. Markten zonder zichtbare verkopen en met bereik via YouTube niet meer pakken.
+
+## 15 nov 2026, run 11:31 (Amsterdam)
+- Keuze: FlutterFlow Marketplace, het enige open punt in kandidaten.md met een bekende nieuwe ingang ("nog open voor een run met een andere ingang"). Eerst ±15 nieuwe namen nagelopen (LaMetric, Divoom, Ulanzi, Character.AI, Wallpaper Engine, Setapp, Grafana, Godot en andere): bijna alles was al bekeken. LaMetric: geen betaalde apps voor makers, de winkel verkoopt alleen het apparaat (GEZIEN op apps.lametric.com), nee zonder meting (1). Godot Asset Store nog steeds alleen gratis.
+- Ingang: in Playwright gekeken welke verzoeken de winkel doet. Hij leest de openbare Firestore-collectie marketplace_items. Alle 3.228 items opgehaald, alleen velden die de winkel toont. Een poging om ook de collectie met aankopen te bekijken werd geweigerd; terecht, dat zijn gegevens van kopers. Niet omzeild en niet nodig.
+- Valkuil gevonden: de teller "keer toegevoegd" bevat ook toevoegingen uit de tijd van een andere prijs (685 van 1.405 betaalde items later geprijsd). Daarom streng en ruim geteld; de controleur gaf de bandbreedte 2 tot 10% van de nieuwe betaalde items haalt 10 verkopen, mediaan 0. Hij vond ook een fout in mijn telscript (ratings dubbel) en verbeterde mijn uitleg over één maker met 104 items in 2 dagen (eerder nep-aankopen dan opnieuw gezette datums).
+- Uitkomst: cijfer 2, nee. Zie voorstellen/flutterflow-marketplace.md. Data en scripts in data/flutterflow-*.
+- Voor Hans: één nee. Geen bericht aan een manager, niets op de lijst van Thijs.
+- Les: Flutter-webapps met Firebase zijn vaak wel te lezen via de openbare Firestore-REST-API van de collectie die de pagina zelf gebruikt. Alleen collecties lezen die de winkel openbaar toont.
