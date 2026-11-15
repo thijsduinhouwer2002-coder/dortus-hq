@@ -937,3 +937,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - (Bram) 00:50 UTC: schacht ronde 2 Windows-run 43658317060 groen, kamervloer (kan Daan 22:50) op `claude/steam-hol-kamervloer` Windows-run 43658738062 groen; beide keurbeelden GEZIEN en bij Daan in taken.md. Volgende run: bij ja naar main, schacht eerst.
 - Les: `git fetch` van tak `schermen` hangt (te groot); losse beelden via raw.githubusercontent.com met curl gaan in een seconde.
 - 01:31 UTC (Olaf): heldbeeld en gladde munt naar main (merge 937a3c6, ja Daan 00:55, Windows-run 43658114715 op 1a1aeaf groen). Op main 7451a2e: Windows-run 43662443392 **groen**, weekopname 43662443394 **groen**; `bureaublad-held-1-b` tot `4-b` in `schermen` → `steam-hol/winkel-1920-week-160/bureaublad/` GEZIEN (alle vier een held bij de eerste put, gladde munten): `producten/steam-hol/bewijs-winkel3d/heldbeeld/main-run43662443394-stroken-held-b.png`. Rollwright: 0 open issues. Definitieve opname scherm 1 en 2 wacht op schacht ronde 2 van Bram (moet Daan).
+
+## 15 nov 2026, Bram (run 01:10 UTC)
+- Oude lokale kloon zag weer een geforceerde update; lokaal main op origin/main gezet (oude stand bewaard als tak `oud-lokaal-main`, alleen lokaal). Niets van mij ging verloren.
+- Schacht moet Daan 00:50: drie zwarte plekken weg (c5b022a), lokaal GEZIEN, ja Daan 01:35. Kamervloer-tak met schacht erin (b7c77c0). Pijplijn rendert nog aan het eind van de run, dus nog niet op main.
+- Blender: 128 downloads, click-joints 0 open issues en 0 PR.
+- Les: een zwart plekje in een uitgesneden hoek is niet altijd schaduw op dat vlak; als het gat tot achteren doorloopt kijk je op iets in diepe schaduw erachter. Minder diep snijden lost het op, meer eigen licht op het vlak niet.
+- Les: `git pull` zonder tak hangt hier (haalt ook de grote tak `schermen`); `git fetch origin main` en dan `merge --ff-only` gaat in een seconde.
