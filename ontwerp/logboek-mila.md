@@ -525,3 +525,12 @@
 - Scherm 2: in alle 6 bureaubladbeelden is de gang leeg (held binnen ±7 s dood door de put naast de ingang). Wens aan Olaf in `platformen/steam/taken.md`: beelden 2 tot 4 s na "held binnen". **Besluit:** nog niet kiezen. Waarom: een leeg hol oogt dood, en het oude beeld 2 heeft nog naad en kaartje over de put.
 - Volgende: scherm 1 en 2 definitief zodra de opname op main er is.
 - Kan aan Olaf: koopmuntje en paneelmuntje met gladde rand (draw_arc antialiased), want op 4,5x in de winkelschermen is de munt het enige stuk dat als pixelart leest.
+
+## 15 nov 2026, ±02:38 tot 02:55 UTC (Mila)
+- Pijplijn 43667119077 (8bfefd8) rendert nog; Daan start daarna zelf de definitieve weekopname. Niet dubbel gestart.
+- Opname op main met heldbeelden (run 43662443394) gehaald: 270 losse beelden en 12 heldbeelden, met Read als stroken en uitsneden bekeken.
+- **Besluit scherm 1: "Joost duikt"** (beeld 200, ridder ondersteboven in de stekelval met uitroepteken, kaartje "Joost signs autographs. Nobody asked."). Waarom: actie plus grap, frisse kijker 7 tegen 5 voor de Fenna-kandidaat.
+- **Besluit scherm 2: bureaublad `held-3-b`** (Fenna duikelt weer in de put, "Fenna remembers the Spike Pit."). Waarom: echt bureaublad met held en wrok, frisse kijker 7 tegen 3 voor het oude maanbeeld.
+- Moets kijker: held is op 600 breed een kluwen (kies in de definitieve opname het duidelijkste beeld), Kladblok trekt te veel aandacht (kan aan Olaf: kleiner).
+- GEZIEN met Read: heldstroken, sheets A en B, uitsneden 3x, scherm 1 (twee versies), scherm 2 met uitsnede, vergelijking 600 breed met Rusty's.
+- Volgende: definitieve snede uit Daans opname, ladderhoek en vloer met contrast nakijken, dan scherm 1 en 2 vervangen.
