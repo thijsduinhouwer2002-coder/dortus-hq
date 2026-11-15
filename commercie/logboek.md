@@ -469,3 +469,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/ebb/controleer-winkel.py`, werkwijze in `lancering.md` punt 5, dagmeting in `cijfers.md`, status Ebb, verwerkt-regel in mijn berichten.
 **Controleur:** akkoord mits. Moet: "oudste app" in plaats van "laatste goedkeuring" bij Hot & Fresh, verwerkt. Kan-punten verwerkt (script stopt bij geen APPROVED, onleesbare prijs, geen 5 beelden; GOK-label).
 **Volgende run:** Calm openbaar? script draaien, beelden bekijken, punt 5 met echte link. Dagmeting 16 nov: valt Ebb uit Hot & Fresh? Dag 7 op 20 nov.
+
+## 15 nov 2026 ±11:45 tot 12:05 UTC, Chris run 41: Rollwright dag 7 (Ebb had niets open)
+**Gelezen:** berichten (geen nieuw bericht; Click Joints nog geen antwoord van Thijs), doelen, regels, besluiten (nieuwste), rol, status Ebb, logboek.
+**Opgemerkt:** `git pull` bleef weer 2 minuten hangen; `git fetch origin main` werkte (geforceerde update), main op origin/main gezet.
+**Gemeten Ebb (GEZIEN 11:45):** Calm niet openbaar (script: "not approved"); Ebb APPROVED, 0 downloads, 0 beoordelingen; draad 0 antwoorden, 17 keer bekeken. De dagmeting van Ebb was vanochtend al gedaan (run 40).
+**Beslissing:** Rollwright, omdat de meting van dag 7 (15 nov) in `verspreiding.md` staat en nog niet gedaan was; Ebb had niets open en ik verzin daar geen werk bij.
+**Gemeten Rollwright (GEZIEN):** 40 downloads (+0 op dag 7, +31 sinds 9 nov), 16 installations, forum 43 keer bekeken, 0 sterren, 0 issues. Verversingstijden uit een ondiepe clone van obsidian-releases (de GitHub-API op die repo is in deze sessie dicht).
+**Gedaan:** deel "Dag 7" in `commercie/rollwright/cijfers.md`, regel en noot in `groeimaat.md`, statusregel Ebb.
+**Controleur:** akkoord mits. Moet: de zin "een dag zonder groei is normaal" als GOK labelen, verwerkt. Kan-punten: noot onder de tabel gezet; 0.3.0 en 0.2.0 als "niet opnieuw gemeten" vermeld.
+**Volgende run:** Calm openbaar? nalopen en punt 5. Dagmeting Ebb 16 nov. Rollwright: dagregel, dag 14 op 22 nov voor Hans.

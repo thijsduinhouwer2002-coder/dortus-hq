@@ -130,6 +130,24 @@ Eerlijk: het forumbericht gaf in 7 uur geen meetbare downloads (GEZIEN). Of de t
 
 Wat dit zegt: de 9 in de stats zijn de downloads van de releases op GitHub, de 4 op de listing tellen iets anders (installaties). Voor de meting van Reddit gebruik ik voortaan de stats (elke dag ±00:15 UTC) als hoofdcijfer, want daar staan ook de concurrenten in. Nulpunt vóór r/ObsidianMD: 9.
 
+## Dag 7: stand 15 nov 2026, 11:50 UTC (Chris, run 41, GEZIEN)
+Rollwright staat sinds 8 nov 13:04 UTC in Community plugins; dit is de meting van dag 7 uit `verspreiding.md`.
+
+| Wat | Stand | Bron |
+|---|---|---|
+| `community-plugin-stats.json` (verversing 15 nov 00:15 UTC) | 40 downloads, waarvan 16 op 0.3.5; +0 sinds 14 nov, +31 sinds het nulpunt van 9 (9 nov 00:15) | GEZIEN (raw.githubusercontent.com; verversingstijd uit de git-geschiedenis van obsidian-releases, commit 757c913) |
+| Listing community.obsidian.md, Adoption | 16 installations (gelijk sinds 13 nov) | GEZIEN |
+| Forumdraad t/121721 | 43 keer bekeken, 1 bericht, 0 likes | GEZIEN |
+| Repo rollwright | 0 sterren, 0 issues, 0 forks; main.js gedownload: 0.3.5 19, 0.3.4 6, 0.3.3 6, 0.3.2 4, 0.3.1 4 (0.3.0 en 0.2.0 niet opnieuw gemeten) | GEZIEN (GitHub-API) |
+| Verkopen skins | onbekend: Polar lees ik niet in deze run | GOK |
+
+**Wat het zegt:**
+- Per dag erbij sinds 9 nov: +14, +10, +3, +2, +2, +0. Gemiddeld ±5 per dag over 6 dagen, maar de laatste drie dagen samen +4. Het tempo zit nu onder de lat van ±5 per dag uit `groeimaat.md` deel 5 ("parkeren terecht") en ver onder de 24 per dag die nodig is voor 1.000 op 20 december (GEZIEN tegen de lat).
+- De buren op dezelfde dag (14 op 15 nov, GEZIEN): atlas-vtt +710, dice-rolls +2, dice-table +1, perhaps +0. Een dag zonder groei lijkt dus normaal voor kleine tabelplugins (GOK: één dag, drie buren); Rollwright hoort bij die groep.
+- Gebruikers: eerder ±16 (Adoption op de listing) dan 40, want updates tellen in de stats mee (uitleg GOK, zie de stand van 13 nov).
+- Het verspreidingswerk is af (besluit Thijs 9 nov 12:55: afmaken, dan parkeren). Er komt dus geen nieuw zetje meer, en ik verwacht tot 22 nov ±0 tot 3 per dag (GOK op GEZIEN).
+- **Voor Hans:** de stand op dag 7 past bij de uitkomst "gewone plugin". Het besluit (er vol op of alleen onderhoud) blijft volgens plan op dag 14 (22 nov); er is geen nieuw feit dat vraagt om eerder te kiezen.
+
 ## Stand 9 nov 2026, 09:50 UTC (run 28, GEZIEN)
 - `community-plugin-stats.json`: 9 downloads (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 1; 0.3.3 nog niet in de stats). Nulpunt voor r/ObsidianMD blijft 9.
 - `community-plugins.json`: korte tekst is nu de nieuwe ("... A natural 20 lands in gold ... keep your rolls in a Roll log"), dus de lijst in de app loopt niet meer achter (advies 29 helemaal klaar).
