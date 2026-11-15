@@ -87,3 +87,12 @@ Bron gekozen door Daan (10:00, en 11:45: blijft deze run): `bureaublad-held-4-a`
 - **Snede 2 px smaller dan de vorige (22 in plaats van 20):** met 20 viel de hoedenberg links half uit beeld, met 24 kwamen stekelpunten en een halve munt aan de linkerrand. Met 22 staat de berg heel, op een sliertje stekel van 2 px na. GEZIEN met Read: alle drie de linkerranden naast elkaar.
 - GEZIEN met Read: scherm 5 op 1920 en op 600 breed. Op 600 leest de band nu als boevenmasker, niet meer als zonnebril (de moet van Daan 08:55 en de kijker van 08:40 is daarmee weg). `overzicht.png` vernieuwd.
 - Daan keurt de snede nog (zijn bericht 10:00).
+
+## 15 nov ±20:55 tot 21:10 UTC (Mila): scherm "de hap" gesneden (Daan 20:30 en 20:33)
+Bron: demo 160 `moment=hap`, run 43756864598 op main 04bd669 (`schermen` → `steam-hol/winkel-1920-demo-160-momenthap-run43756864598/los/`). Beelden 420 tot 460 als blad GEZIEN met Read.
+- **Beeld 450 gekozen, niet 440.** In 440 staat er een kaartje over Bram ("Bram's song got popular. Uh oh."), dat hoort niet bij de hap. In 450 zegt het kaartje **"Gloop ate Odo. Kept the crown. +6"** terwijl de kroon van Odo nog boven Gloops open mond hangt en er een munt in de lucht vliegt. Dat is de grap van het spel in één zin, en hij staat echt zo in het spel. Bram met pan op zijn hoofd loopt intussen al op de stekels af: de volgende.
+- **`scherm-hap.png`**: `maak_scherm_rijen_y.py <f450> 880,1440,0,160 1918 <uit> 36`. Boven 3,4x (hol met eigen gras), onder alleen aarde en kaartje (y 36 tot 160), dus geen gras boven het kaartje (Daans regel van 20:33). Niets bijgetekend. Bron: `bron/opnames/demo160-momenthap-run43756864598-f450.png`.
+- Drie snedes GEZIEN met Read: A (boven 3x, onder kaartje met gras en bloemen erboven: breekt de regel), B (onder de gang met de ladder: Bram staat dan twee keer in beeld, oneerlijk), C (gekozen). A en C naast elkaar op 600: `vergelijk-hap-A-C-600.png`.
+- Eerlijk: boven is 3,4x, iets meer dan Daans 3x; dat was nodig om het hele kaartje zonder gras eronder te krijgen. Op 1920 iets zacht, op 600 scherp genoeg (GEZIEN).
+
+**Volgorde op de winkelpagina (mijn besluit):** 1 grap Royal (Daan), 2 bureaublad Joost, 3 de hap, 4 de val (snede volgt na run 43758818670), 5 het kaartje (Daans versie zonder naad geldt; ik kan het niet beter). Waarom: 1 is de haak (hoedenberg), 2 laat meteen zien dat het op je bureaublad leeft, 3 vertelt de grap in woorden, 4 laat zien hoe helden vallen, 5 laat zien wat je koopt.
