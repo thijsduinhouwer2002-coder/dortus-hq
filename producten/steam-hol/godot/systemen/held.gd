@@ -374,7 +374,7 @@ func _onderweg() -> void:
 		val_teken = teken_nu()
 		staat = "vallen"
 		if soort != "":
-			val_x = round(hol.cel_naar_pos(cel).x)
+			val_x = round(hol.cel_naar_pos(cel).x) - 1.0   # 1 spelpixel links van het midden: het lijf steekt anders rechts buiten de stekels (kan Daan 18:50)
 		if b != null and b.has_method("raak"):
 			# hoedentoren: zijn hoed gaat naar de bewoner; een aartsvijand pas naar de wand als die te zien is (WAND_ER)
 			var naar_wand := WAND_ER and is_aartsvijand()

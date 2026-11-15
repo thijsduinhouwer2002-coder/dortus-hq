@@ -72,7 +72,7 @@ func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> 
 func _init() -> void:
 	# 0. een held die in de put valt, schuift binnen de schrik naar het midden van de putkolom (moet Daan 15 nov 17:50)
 	var rp := speel({"naam": "Kees", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1}, true, false)
-	ok(rp.uitkomst == "gevallen" and is_equal_approx(float(rp.x_val[1]), 9 * 16 + 8.0), "val: na 0,27 s midden in de put (x %s, kolom 9 = 152)" % [rp.x_val])
+	ok(rp.uitkomst == "gevallen" and is_equal_approx(float(rp.x_val[1]), 9 * 16 + 7.0), "val: na 0,27 s in de put, 1 spelpixel links van het midden (x %s, kolom 9 = 151)" % [rp.x_val])
 	ok(is_equal_approx(float(rp.x_val[1]), round(float(rp.x_val[1]))), "val: hele spelpixels")
 	# 1. de eerste held van een nieuw spel valt altijd, bij de eerste verdediging
 	var r := speel({"naam": "Odo", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1})
