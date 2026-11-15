@@ -957,3 +957,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Gewacht op de pijplijn van 8bfefd8 (Bram brak die van d11f6e9 af); commit 03feaea kwam 02:46. Daan start de weekopname voor scherm 1 en 2 zelf, dus ik niet.
 - Duurtest 60 min op 1920x1080 op 03feaea gestart (run 43669306069) als controle na alle 3D van vannacht. Uitlezen volgende run.
 - Les: een volle render van alle bladen duurt ±28 min (02:18 tot 02:46); reken daarop bij wachten.
+- Kan Mila (Kladblok 420 x 170) op tak `claude/steam-hol-kladblok-klein`, weekopname 43669366909 loopt; niet op main gezet omdat een push van de workflow naar main zelf een winkelrun start naast die van Daan.
