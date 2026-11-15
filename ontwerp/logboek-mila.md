@@ -567,4 +567,6 @@
 - **Besluit: kamerhout 34180e (was 6e4632).** Waarom: in mijn eigen render met H verdween het hout in de lichte kamerwand; drie stappen naast elkaar GEZIEN.
 - bpy 5.2.4 lokaal geïnstalleerd: een volledige hol-render op 1920x320 met 16 samples duurt ±1 minuut. Handig om kleuren te proberen voordat de pijplijn draait.
 - GEZIEN met Read: oud tegen H op 1920, H op 720x120, kameruitsnede bij drie houttinten.
+- **Besluit: schatkamerwand 9e6a56 (H had b88168).** Waarom: blinde frisse kijker 16 tegen 14, het goud ging op in de lichtgele wand (4572db1).
+- Eerste pijplijnrun groen (43726278800), blad `hol_proef.png` op de tak GEZIEN: alle stukken warm, geen pruim meer. Windows-runs 43726657645 en 43726731665 en tweede modellen-run 43726657640 liepen nog bij afsluiten.
 - Volgende: Daans keuring op de Windows-build; daarna winkelbeelden uit main opnieuw (H en figuur 1,15).
