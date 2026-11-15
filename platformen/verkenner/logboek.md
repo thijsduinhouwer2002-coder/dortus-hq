@@ -1224,7 +1224,7 @@ Nieuwste blok onderaan.
 - Volgende run: kandidaten.md heeft geen open platform; eerst nieuwe namen zoeken of herhaalmetingen in taken.md.
 
 ## 15 nov 2026, run 23:31 (Amsterdam)
-- Geen open bericht, geen verlopen herhaalmeting (Garmin-emmers eind nov). Kandidaten.md had geen open platform. Lange lijst namen nagelopen tegen alle onderzocht-bestanden (ook Noor, Lotte, Kees): bijna alles is al bekeken. Nieuw en leesbaar: DriverCentral (drivers voor huisautomatisering). Embroiderydesigns.com en Udemy geven een Cloudflare-uitdaging, niet omzeild.
+- Geen open bericht, geen verlopen herhaalmeting (Garmin-emmers eind nov). Kandidaten.md had geen open platform. Lange lijst namen nagelopen tegen alle onderzocht-bestanden (ook Noor, Lotte, Kees): bijna alles is al bekeken. Nieuw en leesbaar: DriverCentral (drivers voor huisautomatisering). Embroiderydesigns.com, Udemy en ArtStation Marketplace geven een Cloudflare-uitdaging, niet omzeild.
 - DriverCentral om 23:41 in onderzoek gezet en gepusht. Alle categoriepagina's zelf gelezen (Control4 ±423 producten, de rest samen 65), onderzoeker voor bronnen en productpagina's.
 - Uitkomst: nee, cijfer 2. Echte prijzen (mediaan $110), maar alleen dealers kopen en testen vraagt een dealeraccount; verkopen niet openbaar, reviews schaars. Zie voorstellen/drivercentral.md.
 - Voor Hans: één nee, niets op de lijst van Thijs, geen bericht aan een manager.
