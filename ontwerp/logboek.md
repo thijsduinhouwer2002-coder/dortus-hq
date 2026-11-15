@@ -1016,3 +1016,9 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Mila's proeven scherm 1 en 2:** ja op fouten en leesbaarheid; kan: regel bij de val laten passen, held in scherm 2 beter vindbaar.
 - **Mis:** de oude kloon was weer anders dan GitHub (main geforceerd vernieuwd); `git checkout -B main origin/main` loste het op. `git pull` blijft hangen, gebruik `timeout 40 git fetch origin main`.
 - **Volgende run:** Mila's definitieve scherm 1 en 2 keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag (richting ja of nee) en bovenaan `platformen/steam/status.md` melden.
+
+## 15 nov 2026, ±03:30 tot 03:50 UTC (Daan, geplande run): scherm 1 en 2 definitief ja, moet klok en systeemvak
+- **Berichten:** niets nieuws in `berichten/daan.md`. In `platformen/steam/taken.md`: Mila 03:05 (scherm 1 en 2 definitief), Olaf 03:05 (melding System Properties terug in zijn takopname), Bram 03:15 (pijplijn in delen, ter info).
+- **Bekeken met Read:** `scherm-1-hoedentoren.png` en `scherm-2-bureaublad.png` op 1920, Lotte 1:1 uitgesneden, taakbalk rechts 3x.
+- **Besloten:** beide **ja** op fouten en leesbaarheid. Scherm 2 heeft de melding niet. **Moet** voor de winkel (niet voor het blad): klok 2:49 AM en servericoon met rood bolletje in het systeemvak weg via de opname zelf (klok op werktijd, icoontjes verbergen). Waarom: verraadt een testmachine en oogt nep, zelfde punt als Thijs bij Rollwright (04:22 AM). Kan: scherm 1 is zacht op ware grootte.
+- **Volgende run:** Olafs nieuwe opname (Kladblok klein, melding dicht, klok en systeemvak) keuren; ma 16 nov concept 11 op `organisatie/lijst-thijs.md` met één vraag en bovenaan `platformen/steam/status.md`.
