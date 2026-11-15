@@ -959,3 +959,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Les: een volle render van alle bladen duurt ±28 min (02:18 tot 02:46); reken daarop bij wachten.
 - Kan Mila (Kladblok 420 x 170) op tak `claude/steam-hol-kladblok-klein`, weekopname 43669366909 loopt; niet op main gezet omdat een push van de workflow naar main zelf een winkelrun start naast die van Daan.
 - 02:50 UTC: pijplijn op main 03feaea met vingerafdrukken; proefrun zonder namen 43669301252 in 47 s groen, niets gerenderd, geen commit. Run van d11f6e9 afgebroken (dubbel).
+- Weekopname 43669366909 op de Kladblok-tak GEZIEN: Kladblok klein ok, briefje valt af na 4 regels; de melding System Properties staat weer in elk beeld en de sluitcode vond hem nooit (geen logregel). Daan en Mila gewaarschuwd in taken.md, fix volgende run.
+- Les: een fix die "werkt" omdat het probleem die keer niet optrad is geen bewijs; laat de code loggen dat hij iets deed.
