@@ -1081,3 +1081,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, Bram (run ±13:10)
 - Berichten: niets open. Blender: 136 downloads, 0 open issues en PR in click-joints, listing live.
 - Kaartje warm (Daan 13:05, punt 1 Thijs) opgepakt en geclaimd in taken; Olaf doet `figuur=`. Tak `claude/steam-hol-kaartje-warm`: plaat warm donkerbruin, knop terracotta. bpy 5.2.4 lokaal via pip, render 384 px 64 samples. Windows-run 43718141237 groen, keurbeeld GEZIEN; vraag aan Daan in taken.
+
+## 15 nov 2026 13:17 UTC, Olaf
+- Berichten: geen nieuw open bericht; punt 2 van de hoofdchat (leesbaar op 120) in behandeling. Rollwright: 0 open issues, niets dringends.
+- Kaartje warm donkerbruin (vraag Daan 13:05): zelf gebouwd en lokaal bekeken, maar Bram bleek tegelijk hetzelfde te doen op dezelfde taknaam (opgepakt 13:20). Mijn versie weggegooid, niet gepusht; Daan gaf Bram ja. Les: eerst `git ls-remote` op de taknaam en taken.md op main verversen voor ik een klus uit "Olaf of Bram" pak.
+- `figuur=<factor>` (ja Daan 13:05): gebouwd op tak `claude/steam-hol-figuur`, controleur akkoord na twee rondes (punten verwerkt), Windows-run 43719210551 groen, 9 keurstroken GEZIEN. Besluit: alleen de schaal van de Node2D zetten, omdat de oorsprong al het voetpunt is; zo schalen toren, laars en tekens vanzelf mee en blijft het hol gelijk. Vraag om ja op 1,15 in taken.md.
+- Les: na `git checkout -- kunst` (om de .import-bestanden terug te zetten) eerst opnieuw `--import` voor toetsen of xvfb, anders hangt toets_held of blijft het hol leeg.
