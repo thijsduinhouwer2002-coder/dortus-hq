@@ -85,7 +85,19 @@ Zelfde ritme, met de demo uit de verbeterweek. Tweede meetlat, hoger omdat Next 
 - **Thijs (lijst):** Discord-server vóór 4 jan, verlanglijstjes aflezen op vr 15 en za 16 jan, aankondigingen plaatsen. Staat op de lijst zodra de hoofdchat dit plan heeft gezien.
 
 ## Nulmeting: spelers tegelijk in demo's van aangekondigde bureaubladspellen, gewone maandag (GEZIEN 16 nov)
-Zie onder, toegevoegd na de meting.
+Meting ma 16 nov 12:38 tot 12:45 UTC, buiten elk fest dat over bureaubladspellen gaat. Alle 245 aangekondigde spellen uit Vera's kaart die een demo hebben (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`), demo-appid via appdetails, spelers tegelijk via `GetNumberOfCurrentPlayers`. Script `data/demo-spelers.py`, uitkomst `data/demo-spelers-2026-11-16.csv`. Eén moment op één dag (Europese middag, Amerikaanse ochtend), dus een momentopname.
+| | aantal demo's | deel |
+|---|---|---|
+| 0 spelers | 170 | 69% |
+| 1 of meer | 75 | 31% |
+| 5 of meer | 24 | 10% |
+| 20 of meer | 10 | 4% |
+| 100 of meer | 5 | 2% |
+- Bovenaan: Character House (12.052, een uitschieter), Keyboard Farm 396, Desktop Dreampair 271, Widget Idle 122, Hamster Time 109.
+- De 48 demo's die het meest op Hats lijken (Vera's score 2 of 3, kerker of gevecht): de beste heeft 19 (Idle Agency), dan 15, 12, 10; **36 van de 48 hebben 0 spelers**, ook Don't Rob My Dungeon.
+- Ter vergelijking: Desktop Defender, uitgebracht en een jaar oud, had op hetzelfde moment 44.
+
+**Wat dit zegt over de meetlat:** buiten een fest is 20 tegelijk al de top 4% en 100 de top 2%. De grenzen 20 en 100 zijn dus niet te laag. Ze zijn ook niet te hoog voor een fest: in Next Fest ging Desktop Defender van 3 naar 1.548. Wat ik nog niet weet is hoeveel een **thema-fest** optilt; dat meet ik bij het Auto-Battler RPG Fest dat nu loopt (zie Open). Als daar de mediaan van de demo's tijdens het fest onder de 20 blijft, zet ik de grens "gewoon" lager en meld ik dat hier.
 
 ## Open
 - Hoe het Auto-Battler RPG Fest (16 tot 23 nov, nu bezig, GEZIEN in de Steamworks-lijst) uitpakt voor de demo's erin: dat is een thema-fest zoals het onze. Meten op dag 1 en dag 3 geeft de eerste echte cijfers voor een thema-fest in plaats van Next Fest. Volgende run.
