@@ -1343,3 +1343,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Sanne 17:00: Postcard ±1,5 tot 2 bouwdagen, na demolijst en speeltestfixes (week van 21 dec); Iris' regel voor helden uit de optocht en Sannes nieuwe namen in `taken.md`.
 - 17:31 UTC: Windows-run 43917745675 groen, beeld kaartje GEZIEN; bordje-tak op main (8c7ee7f), kaartje op main uit (dfba42d) tot Daans ja. `.import`-bestanden uit een lokale import per ongeluk mee, teruggezet.
 - 17:55 UTC: ja Daan op het kaartje, `KAART_AAN` aan op main; moet Daan: regel "Your hole worked at quarter speed." uit (kwart snelheid blijft). Clips-run 43919470964 op main: geen hap in 95 s, dus geen clip; `clips.py` verbeterd (dd3402f), nieuwe run met 150 s.
+- 17:58 UTC: Windows-run 43922147293 op main e8d7964 **groen** (kaartje aan, quarter-regel uit, workflow eist dat). Clips-run met 150 s loopt; uitkomst volgende run.
