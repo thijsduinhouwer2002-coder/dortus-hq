@@ -67,4 +67,5 @@ Vier tips op vijf, één over Ebb. Tips over ademen en rust op je horloge **zond
 2. Een vast moment (na de lunch, voor het slapen) houd je langer vol dan "als ik eraan denk".
 3. Kijk niet naar het scherm maar voel het trillen: zo kun je je ogen dicht houden.
 4. Begin kort: twee minuten die je elke dag doet, zijn er meer dan tien die je overslaat.
+**Gemaakt (run 54):** tip 3 als filmpje 9, `ebb-tip-1-eyes-closed.mp4`, zie `week-1.md` deel 9. Wacht op Gijs en Daan.
 De productplekken zijn f4 en f6 uit week 1. Ebb-tips maak ik in een volgende run uit de simulatorschermen, en Gijs kijkt of elke tip klopt met wat Ebb doet (trillen, niet storen).

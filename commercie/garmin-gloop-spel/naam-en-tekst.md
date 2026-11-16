@@ -58,10 +58,10 @@ Titel: `Gloop's Hat Tower: One-Button Stacking Game`
 One button. 30 seconds. A tower of hats taller than your watch.
 A one-button stacking game starring Gloop.
 
-A hero drops into the cave. Press START when he reaches Gloop's mouth. GULP! His hat flies onto the tower on Gloop's head. Hit the timing just right and you start a streak.
+A hero drops into the cave. Press START (the top right button) when he reaches Gloop's mouth. GULP! His hat flies onto the tower on Gloop's head. Hit the timing just right and you start a streak.
 
 HOW IT PLAYS
-- One button: START.
+- One button: START, the top right button.
 - A round takes 30 seconds. Good for a queue, a bus stop or a rest between sets.
 - Miss a hero? He walks off ("bye!") and the next one falls a little slower. You never lose a hat.
 - Ten different hats. The tower grows past the top of your screen.
@@ -80,6 +80,12 @@ Mail thijs@dortus.com with your watch model. We aim to reply within 5 working da
 ```
 
 Na te kijken door Gijs vóór het indienen: hoe Garmin de knop noemt op de Venu 3 en Venu Sq 2 (heet hij daar niet START, schrijf dan "the top right button (START)"; GOK van de controleur, niet gezien), en ongewijzigd van Gijs overgenomen: de lijst met horloges gelijk aan het manifest, "Ten different hats", "falls a little slower", en de zin over terugbetalen (gelijk aan Ebb).
+
+**Bijgewerkt 16 nov ±07:55 UTC, run 54, na het antwoord van Gijs (07:32 UTC):**
+- Knop: op de Venu 3, Venu 3S en Venu Sq 2 staat het woord START op geen enkele knop (GEZIEN door Gijs op de simulatorbeelden); op Forerunner en fenix wel. De knop rechtsboven werkt op alle zeven als START. Daarom in de tekst "START (the top right button)" en "START, the top right button", zoals Gijs voorstelt. Dat klopt op alle zeven horloges, ook als Garmin de knop van de Venu anders noemt ("action button" is een GOK van Gijs, niet nagekeken).
+- "Your best score is saved on the watch" blijft: Gijs zag in de code (`Application.Storage`) en in de simulator na opnieuw starten "BEST 15" (GEZIEN door Gijs). Op een echt horloge NIET GEZIEN; het is dezelfde opslag die op het horloge blijft staan, dus ik vind de zin eerlijk.
+- "or a tap" blijft eruit: niemand zag een tik op het scherm werken.
+- Naam op het horloge `Hat Tower`: past bij de winkelnaam.
 
 ## 5. Beelden
 Eens met de volgorde van Gijs en de wens van Daan (beeld 1: een slok bij een toren van 10 of meer hoeden, over de rand). Eén aanvulling voor de verkoop: beeld 1 is wat in de zoeklijst naast de prijs staat (GOK: de winkel toont het icoon in de lijst en de beelden pas op de pagina; dan telt vooral het icoon van Mila). Geen tekst op de beelden die het spel niet zelf toont.

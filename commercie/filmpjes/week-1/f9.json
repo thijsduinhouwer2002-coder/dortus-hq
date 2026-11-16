@@ -1,0 +1,113 @@
+{
+ "uit": "ebb-tip-1-eyes-closed.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/e6-krab-in-nacht.png",
+   "dur": 2.0,
+   "rond": [
+    357,
+    459,
+    224
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 380,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-krab-uit-nacht.png",
+   "dur": 2.0,
+   "rond": [
+    357,
+    459,
+    224
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 380,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-krab-in-nacht.png",
+   "dur": 2.0,
+   "rond": [
+    357,
+    459,
+    224
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 380,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-krab-uit-nacht.png",
+   "dur": 2.0,
+   "rond": [
+    357,
+    459,
+    224
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 380,
+   "marge": 1.12
+  },
+  {
+   "bron": "bron/e6-krab-calm-nacht.png",
+   "dur": 3.0,
+   "rond": [
+    357,
+    459,
+    224
+   ],
+   "zoom": 0.04,
+   "h": 1080,
+   "y": 380,
+   "marge": 1.12
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 3.6,
+   "regels": [
+    "Breathing exercise",
+    "*on your watch?*"
+   ],
+   "y": 235,
+   "grootte": 66
+  },
+  {
+   "van": 3.6,
+   "tot": 8.0,
+   "regels": [
+    "Don't stare at the screen.",
+    "*Close your eyes* and",
+    "follow the buzz"
+   ],
+   "y": 225,
+   "grootte": 56
+  },
+  {
+   "van": 8.0,
+   "tot": 11.0,
+   "regels": [
+    "My app Ebb gives every",
+    "phase *its own buzz*"
+   ],
+   "y": 235,
+   "grootte": 62
+  },
+  {
+   "van": 0,
+   "tot": 11.0,
+   "regels": [
+    "Screens from the Garmin simulator"
+   ],
+   "grootte": 36,
+   "y": 1450,
+   "licht": true
+  }
+ ]
+}

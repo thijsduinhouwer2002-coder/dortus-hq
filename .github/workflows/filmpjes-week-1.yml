@@ -51,6 +51,9 @@ jobs:
           sealog-8 sealog-1
           sealog-24 sealog-3-alle25
           menu menu-krab
+          krab-in-nacht krab2-in-nacht
+          krab-uit-nacht krab2-uit-nacht
+          krab-calm-nacht krab2-calm-nacht
           LIJST
           sha256sum -c bronnen.sha256
       - name: Filmpjes bouwen en controleren
