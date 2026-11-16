@@ -159,7 +159,7 @@ jobs:
       matrix:
         # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges: FR255 (MIP 260),
         # fenix 8 47 mm (AMOLED 454) en Venu 3S (AMOLED 390, het kleinste AMOLED-scherm). De bouwtak draait ze alle dertien.
-        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
+        horloge: ${{ fromJSON(contains(github.ref_name, 'instinct3-proef') && '["instinct3amoled45mm","instinct3amoled50mm"]' || contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105

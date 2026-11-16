@@ -59,6 +59,8 @@
             <iq:product id="fenix7spro"/>
             <iq:product id="fr265s"/>
             <iq:product id="venu2s"/>
+            <iq:product id="instinct3amoled45mm"/>
+            <iq:product id="instinct3amoled50mm"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="Fit"/>

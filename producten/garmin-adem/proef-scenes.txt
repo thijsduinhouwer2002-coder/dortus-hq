@@ -3,11 +3,26 @@
 # Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
 # Leeg bestand: alle proefscènes vanaf 51 (lang).
 # Run 72: de dolfijn met de lichte luchtband (KrabV2Basis.lucht), Calm in de wereld, eindscherm op het thuiswater.
-sessie-basis-in-dag
-sessie-basis-uit-dag
-sessie-basis-hold-dag
-sessie-basis-in-nacht
+# Run 121, proef Instinct 3 AMOLED (390 en 416): de schermen waar een knopnaam op staat, plus een greep uit de rest.
+inhouden-0-30
+start
+uitleg
+startcheck
+veilig-1
+veilig-2
+veilig-3
+menu-leeg
+sealog-1
+today
+8weeks
+ademen-in
 rustig
 calm-45s
 einde-6b
-uitleg
+settings-1
+sessie-basis-in-dag
+sessie-basis-hold-dag
+sessie-basis-in-nacht
+sessie-krab-hold-nacht
+thuis-menu-dag
+thuis-pauze-nacht
