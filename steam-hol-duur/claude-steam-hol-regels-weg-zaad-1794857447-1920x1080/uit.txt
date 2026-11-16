@@ -1,0 +1,56 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API OpenGL ES 3.0.0 (ANGLE 2.1.1 git hash: 468fcbe033fa) - Compatibility - Using Device: Google Inc. (Microsoft) - ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.33648)
+
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(0, 912) held=res://systemen/held.gd
+HOL zaad 1794857447
+HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Fenna is here for your gold.
+HOL begin: vallen (Fenna)
+HOL held binnen: Fenna
+HOL zicht 4.2 1
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL kroniek 10.6 (wacht 0.0): Pim climbs into your hole.
+HOL begin: opgegeten (Pim)
+HOL held binnen: Pim
+HOL kroniek 16.0 (wacht 0.0): Fenna left gold and one boot. +6
+HOL kroniek 18.6 (wacht 2.6): New page: the Hero. The pit got him.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL kroniek 27.3 (wacht 0.0): Gloop ate Pim. Kept the crown. +6
+HOL zicht 27.3 0
+HOL kroniek 29.8 (wacht 2.5): New stamp for the Hero. Gloop got him.
+HOL meting t=30 beelden=112 helden=0 hol_vast=4
+HOL begin: vluchten (Odo)
+HOL held binnen: Odo
+HOL zicht 31.7 1
+HOL kroniek 32.3 (wacht 0.7): Odo brought a torch. And hope.
+HOL meting t=40 beelden=85 helden=1 hol_vast=4
+HOL meting t=50 beelden=100 helden=1 hol_vast=4
+HOL kroniek 50.2 (wacht 0.0): Odo ran. Swore revenge.
+HOL zicht 50.3 0
+HOL kroniek 52.7 (wacht 2.5): New stamp for the Hero. He got away.
+HOL meting t=60 beelden=19 helden=0 hol_vast=4
+HOL kroniek 60.6 (wacht 0.0): Odo limps back to the Spike Pit.
+HOL begin: terug (Odo)
+HOL held binnen: Odo
+HOL zicht 60.7 1
+HOL meting t=70 beelden=98 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 72.5)
+HOL kroniek 72.5 (wacht 0.0): Odo came back. The Spike Pit won. +9
+HOL zicht 72.6 0
+HOL bordje wip niveau 2
+HOL meting t=80 beelden=84 helden=0 hol_vast=6
+HOL meting t=90 beelden=14 helden=0 hol_vast=6
+HOL kroniek 91.4 (wacht 0.0): Wout knocks first. Polite.
+HOL begin: doorlopen (Wout)
+HOL held binnen: Wout
+HOL zicht 91.5 1
+HOL meting t=100 beelden=91 helden=1 hol_vast=6
+HOL kroniek 107.1 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=110 beelden=101 helden=1 hol_vast=6
+HOL kroniek 111.1 (wacht 0.0): Wout touched your hoard!
+HOL meting t=120 beelden=101 helden=1 hol_vast=6
+HOL kroniek 123.1 (wacht 0.0): Rik has a map. It is wrong.
+HOL held binnen: Rik
+HOL kroniek 124.2 (wacht 1.0): Wout ran. Hands smell of gold.
