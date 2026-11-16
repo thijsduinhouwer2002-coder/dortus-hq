@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: verhaal 3 Idler Fest 2025 en Bao Bao's Cozy Laundromat, klaar 16 nov 2026; volgende run: een vierde verhaal, bijvoorbeeld hoe een taakbalkspel YouTubers en streamers kreeg)
+bezig: verhaal 4, hoe taakbalkspellen op YouTube kwamen (welke kanalen, welke soort video, wat de makers deden), Fenna, 16 nov 2026
 
 Nieuwste bovenaan.
 
