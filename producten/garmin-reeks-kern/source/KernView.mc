@@ -96,8 +96,8 @@ class KernView extends WatchUi.WatchFace {
         }
         var nu = System.getClockTime();
         var tekst = nu.hour.format("%02d") + ":" + nu.min.format("%02d");
-        // De simulator zet de slaapstand niet vanzelf aan: na 14 s tonen we het slaapbeeld zelf.
-        if (slaap || System.getTimer() - start >= 14000) {
+        // De simulator zet de slaapstand niet vanzelf aan: 6 s na het eerste beeld tonen we het slaapbeeld zelf.
+        if (slaap || System.getTimer() - start >= 6000) {
             var ts = System.getTimer();
             tekenSlaap(dc, tekst);
             if (tik < 40) {

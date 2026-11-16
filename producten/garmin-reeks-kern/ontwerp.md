@@ -7,7 +7,7 @@
 
 **Open vragen, zelf beantwoord:**
 - Past het plaatje niet in het geheugen, dan stopt de app. Dat is ook een uitslag; daarom worden de letters eerst gemeten en staat er een regel `KERN PLAATJE laden` voor het laden.
-- De slaapstand zet de simulator niet vanzelf aan vanaf de opdrachtregel (GOK, niet gevonden hoe). Daarom tekent de proef na 14 s zelf het slaapbeeld. `echt=true` in het log zou betekenen dat de simulator het wel deed.
+- De slaapstand zet de simulator niet vanzelf aan vanaf de opdrachtregel (GOK, niet gevonden hoe). Daarom tekent de proef 6 s na het eerste beeld zelf het slaapbeeld (14 s bleek te laat voor de schermafbeelding). `echt=true` in het log zou betekenen dat de simulator het wel deed.
 - De regels van Garmin voor inbranden (hoeveel pixels aan) meet deze proef niet; hij print alleen of het horloge er om vraagt (`inbrand=`).
 
 **Aanpakken:** (1) alleen rekenen uit de pixelmaat: snel, maar zegt niets over of plaatjes op nieuwe horloges buiten het geheugen van de app vallen. (2) Laden en het geheugen ervoor en erna printen: klein en geeft het echte getal van de simulator. (3) Vier thema's laden en wisselen: zegt meer, maar is tekenwerk van Mila dat er nog niet is. **Gekozen: 2.** Eén plaatje is genoeg om te weten of het idee kan.
