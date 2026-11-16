@@ -50,4 +50,4 @@ print("PROBE", r, [fig.regel(x) for x in alle])
 print("PROBE overgeslagen", next((o.get("cj_rig_overgeslagen") for o in bpy.context.scene.objects if o.get("cj_deel")), None))
 ges = importlib.import_module("bl_ext.user_default.click_joints.gesloten")
 delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "held" and o.visible_get() and o.type == "MESH"]
-print("PROBE delen", len(delen), "open", [o.name for o in delen if not ges.is_gesloten(o)])
+print("PROBE delen", len(delen), "open", [o.name for o in delen if not ges.is_gesloten(o)[0]])

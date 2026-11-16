@@ -137,7 +137,7 @@ def main():
         mis = [n for n in namen if n not in per]
         log(f"BEKEND 4.2: niet geplaatst {mis}")
         check(len(mis) <= 2 and all(f"{n} (" in over for n in mis), f"4.2: minstens 6 van 8, elk met reden ({over})")
-        check(all(ges_ok for ges_ok in [mod("gesloten").is_gesloten(o) for o in delen]), "4.2: alle delen gesloten")
+        check(all(ges_ok for ges_ok in [mod("gesloten").is_gesloten(o)[0] for o in delen]), "4.2: alle delen gesloten")
         check("Left elbow" in per and per["Left elbow"].get("herkomst") == "from rig", "4.2: Left elbow from rig")
     else:
         check(all(n in per for n in namen), f"alle acht gewrichten ({sorted(per)})")
@@ -156,7 +156,7 @@ def main():
     r, per, delen, over, fig = uitvoeren()
     check("Left shoulder" in per and "Right shoulder" in per, "korte figuur: schouders lukken")
     check("Left hip" not in per and "Left hip (too close" in over, f"korte figuur: heup eerlijk overgeslagen ({over})")
-    check(all(mod("gesloten").is_gesloten(o) for o in delen), f"korte figuur: alle {len(delen)} delen gesloten")
+    check(all(mod("gesloten").is_gesloten(o)[0] for o in delen), f"korte figuur: alle {len(delen)} delen gesloten")
     log(f"KLAAR {len(FOUT)} FOUT")
 
 
@@ -170,7 +170,7 @@ def streng(per, delen, fig, namen):
           f"Left elbow from rig 140: {le}")
     check(len(delen) == 9, f"9 delen ({len(delen)})")
     ges = mod("gesloten")
-    check(all(ges.is_gesloten(o) for o in delen), "alle delen gesloten")
+    check(all(ges.is_gesloten(o)[0] for o in delen), "alle delen gesloten")
     tekst = fig.samenvatting(list(per.values()))
     re_ = per.get("Right elbow", {})  # spiegelen: forearm.R heeft geen grens, dus het bereik van links
     check(re_.get("herkomst") == "mirrored" and re_.get("graden") is not None and 135.0 <= re_["graden"] <= 140.2,

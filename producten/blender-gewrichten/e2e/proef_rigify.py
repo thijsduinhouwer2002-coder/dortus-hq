@@ -5,6 +5,8 @@ overgeslagen: de sleuf van de elleboog (135 graden reikt ±20 mm) laat op een bo
 Eerder met dij r 9 en onderarm r 5: ellebogen Tight (te dun) en de benen raakten elkaar. Werkpunten in ontwerp-1.1.md.
     blender -b --factory-startup --python e2e/proef_rigify.py -- <betaalde zip>
 Met CJ_ALLEEN=hip,knee (stukjes van de gewone namen) alleen die gewrichten, om uit te zoeken welke elkaar storen.
+CJ_HOOK=<pad> voert dat Python-bestand uit vlak voor de knop (bijvoorbeeld om plaats_gewricht te omhullen en maten te
+printen), CJ_NA=<pad> vlak erna. De echte toets met eisen is e2e/toetsen_rigify.py (run 11).
 """
 import sys, math, importlib, addon_utils, bpy, bmesh
 from mathutils import Matrix, Vector
@@ -48,14 +50,16 @@ if _alleen:
     _rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
     _g = _rigm.gewrichten
     _rigm.gewrichten = lambda a, meer=False: [x for x in _g(a, meer) if any(w in x[2].lower() for w in _alleen.split(","))]
+if os.environ.get("CJ_HOOK"): exec(open(os.environ["CJ_HOOK"]).read())
 try:
     r = bpy.ops.click_joints.figuur_uit_rig()
 except RuntimeError as e:
     r = f"fout {e}"
+if os.environ.get("CJ_NA"): exec(open(os.environ["CJ_NA"]).read())
 fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
 alle = fig.figuur_gewrichten(bpy.context.scene.objects, "held")
 print("PROBE", r, [fig.regel(x) for x in alle])
 print("PROBE overgeslagen", next((o.get("cj_rig_overgeslagen") for o in bpy.context.scene.objects if o.get("cj_deel")), None))
 ges = importlib.import_module("bl_ext.user_default.click_joints.gesloten")
 delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "held" and o.visible_get() and o.type == "MESH"]
-print("PROBE delen", len(delen), "open", [o.name for o in delen if not ges.is_gesloten(o)])
+print("PROBE delen", len(delen), "open", [o.name for o in delen if not ges.is_gesloten(o)[0]])

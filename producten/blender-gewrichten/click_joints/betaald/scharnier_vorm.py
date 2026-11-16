@@ -145,7 +145,7 @@ def maten(bvh, frame, s, stand, u):
         theta_s = s / t
         alfa = (math.radians(stand - MARGE) - theta_s) / 2
     r_lip = zij[3] - e                # van H tot de achterkant van het lid (raakpunt achterstop)
-    return {"s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
+    return {"t_reik": vlak_reik(bvh, frame, e, s, alfa, wx, rn + s), "s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten, "t_vlak": t}, ""
 
 
@@ -153,6 +153,39 @@ def reik(m):
     """Hoe ver het scharnier langs L van de snede reikt, naar beide kanten (Blender-eenheden): de stopvlakken
     lopen op hoek a tot de huid (t_vlak sin a), de wangen tot Rn, de zaagsnede tot lip onder H; plus s."""
     return max(m["t_vlak"] * math.sin(m["alfa"]), m["rn"], m["lip"]) + m["s"]
+
+
+def snede_reik(m):
+    """Pro 1.1 (16 nov run 11): hoe ver de snede van het scharnier het lid echt in gaat (Blender-eenheden). De
+    stopvlakken lopen door tot de huid of tot de grens van een_lid (scharnier.py: 1,2 keer de reik plus s), wat het
+    eerst komt. reik(m) rekent met min(t_A, t_B), de lengte die de stop bepaalt; bij een lid dat schuin staat of
+    boven het scharnier dikker is loopt het langste vlak verder. Gezien op de Rigify-metarig: knie met reik 19,6 mm,
+    de voorkant van de dij was weg tot 22,3 mm boven de knie, de kom van de heup kwam erin en de heup bewoog 0 graden.
+    Dit getal staat als cj_reik en in cj_scharnieren, dus de afstandsregels (kogel en scharnier) rekenen ermee.
+    Op een recht lid is het gelijk aan reik(m)."""
+    r = reik(m)
+    t = m.get("t_reik")
+    if t is None:
+        return r
+    return min(max(r, t * math.sin(m["alfa"]) + m["s"]), 1.2 * r + m["s"])
+
+
+def vlak_reik(bvh, frame, e, s, alfa, wx, t_min):
+    """Pro 1.1 (run 11): de langste treffer van beide stopvlakken over vijf doorsneden langs H, of None. Alleen
+    vanaf een voet binnen de huid: anders is de eerste treffer een intreden (ander lid, romp). Voor snede_reik."""
+    ca, sa = math.cos(alfa), math.sin(alfa)
+    beste = None
+    for x in (0.0, -0.4 * wx, 0.4 * wx, -0.8 * wx, 0.8 * wx):
+        for start, richting in (((x, -e - s / 2 * sa, -s / 2 * ca), (0, ca, -sa)),
+                                ((x, -e - s / 2 * sa, s / 2 * ca), (0, ca, sa))):
+            o = frame @ Vector(start)
+            if _buiten(bvh, o):
+                continue
+            w = (frame.to_3x3() @ Vector(richting)).normalized()
+            hit = bvh.ray_cast(o, w)
+            if hit[0] is not None and hit[3] >= t_min:
+                beste = hit[3] if beste is None else max(beste, hit[3])
+    return beste
 
 
 def _buiten(bvh, q):
@@ -203,7 +236,7 @@ def te_dicht(bron, punt, m, u, bvh=None):
     - Naast de kogel of pen waarvan het deel komt: van snijpunt tot kogelmidden minstens de reik van het scharnier
       plus de reik van de kogel naar het scharnier toe (afstand.kogel_van met punt, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
-    eigen = reik(m)
+    eigen = snede_reik(m)  # 1.1 (run 11): hoe ver de snede echt gaat, niet alleen de rekensom
     paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, k in afstand.scharnieren(bron)
              if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
     kogel = afstand.kogel_van(bron, u, punt)  # 1.1: aan de komkant alleen de kom (afstand.py)

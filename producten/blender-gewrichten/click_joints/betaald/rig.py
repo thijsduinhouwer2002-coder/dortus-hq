@@ -240,15 +240,48 @@ def kogel_schuif(context, doel, m, lengte):
         f.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
         return passing.grootste_straal(bvh, f, (0.0,), n=24)
 
+    t_vrij = schuif_uit_romp(straal_op, lengte, 0.5 * u, naad_vrij=True)
+    t_oud = schuif_uit_romp(straal_op, lengte, 0.5 * u, naad_vrij=False)
+    # Run 11: ook de plekken daartussen, per halve mm terug naar de romp. Op de Rigify-metarig is de plek met de
+    # bolnaad vrij net te dicht bij de knie en botst de oude plek met de romp; ergens ertussen kan het passen.
+    stappen = [t_vrij]
+    t = t_vrij - 0.5 * u
+    while t > t_oud + 1e-6 and len(stappen) < 8:
+        stappen.append(t)
+        t -= 0.5 * u
+    stappen.append(t_oud)
     uit = []
-    for vrij in (True, False):
-        t = schuif_uit_romp(straal_op, lengte, 0.5 * u, naad_vrij=vrij)
+    for t in stappen:
         if any(abs(t / u - mm) < 1e-6 for _m, mm in uit):
             continue
         k = m.copy()
         k.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
         uit.append((k, t / u))
     return uit
+
+
+def kogel_vast(nieuw):
+    """Pro 1.1 vangnet: True als een net geplaatste kogel volgens de beweegproef (vrijwel) niet kan bewegen
+    (paneel "±0° (blocked)"). Zonder gemeten delen: False (dan beslist de rest, zoals voorheen)."""
+    from .figuur import graden
+    for d in nieuw or []:
+        if d.get("cj_deel") in ("A", "B") and d.get("cj_soort", "KOGEL") == "KOGEL":
+            _s, g = graden(d)
+            return g is not None and g < 1.0
+    return False
+
+
+def draai_terug(context, bron, voor):
+    """Haal alles weg wat de laatste snede maakte (objecten die niet in `voor` stonden) en zet de bron terug."""
+    for ob in [o for o in bpy.data.objects if o.name not in voor]:
+        me = ob.data if ob.type == "MESH" else None
+        bpy.data.objects.remove(ob, do_unlink=True)
+        if me is not None and me.users == 0:
+            bpy.data.meshes.remove(me)
+    bron.hide_set(False)
+    bron.pop("cj_te_dicht_mm", None)
+    bron.pop("cj_weigering", None)
+    context.view_layer.update()
 
 
 def deel_met(context, kandidaten, punt):
@@ -319,6 +352,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
                 kandidaten = kogel_schuif(context, doel, m, lengte)
+            geblokkeerd = False
             for i, (m, _mm) in enumerate(kandidaten):
                 for o in context.view_layer.objects:
                     o.select_set(False)
@@ -326,9 +360,18 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 context.view_layer.objects.active = doel
                 cursor.rotation_mode = "QUATERNION"
                 cursor.matrix = m
-                ok, melding, _d = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                voor = {o.name for o in bpy.data.objects}
+                ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                if ok and soort != "HINGE" and kogel_vast(nieuw):
+                    # Vangnet (16 nov run 11): een kogel die volgens de beweegproef niet beweegt is een kapot
+                    # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.
+                    draai_terug(context, doel, voor)
+                    ok, melding, geblokkeerd = False, None, True
+                    continue
                 if ok or i == len(kandidaten) - 1 or "too close" not in (melding or "").lower():
                     break
+            if not ok and geblokkeerd and not melding:
+                melding = "no room for a ball joint that can move here (it would be blocked)"
             if ok:
                 gelukt.append(naam)
             else:
