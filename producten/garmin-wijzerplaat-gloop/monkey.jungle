@@ -5,3 +5,5 @@ fenix7.resourcePath = $(fenix7.resourcePath);res-260
 fr255.resourcePath = $(fr255.resourcePath);res-260
 venusq2.resourcePath = $(venusq2.resourcePath);res-320
 venu3s.resourcePath = $(venu3s.resourcePath);res-390
+fr265.resourcePath = $(fr265.resourcePath);res-416
+venu3.resourcePath = $(venu3.resourcePath);res-454

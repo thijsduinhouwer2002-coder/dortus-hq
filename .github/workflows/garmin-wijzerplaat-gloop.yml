@@ -50,7 +50,7 @@ jobs:
           done
           sed -i 's/const AUTO = false;/const AUTO = true;/' source/Bouw.mc
           grep -q 'const AUTO = true;' source/Bouw.mc || exit 1
-          for d in fr255 fenix7 venu3s venusq2; do
+          for d in fr255 fenix7 venu3s venusq2 fr265 venu3; do
             monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || exit 1
             ls -l "bin/app-$d.prg"
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
