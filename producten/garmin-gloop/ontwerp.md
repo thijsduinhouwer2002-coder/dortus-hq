@@ -43,6 +43,7 @@ Daan en Mila kozen allebei (c): de toren staat op de kop van Gloop, de held komt
 - De kreet ("GULP! x7") houdt altijd minstens 8 px lucht tot de toren. Past hij niet op één regel, dan staat de reeks op een tweede regel, in het grotere font als "GULP!" daarin past (260 en 280), anders klein.
 - Staat de teller rechts naast een hoge toren, dan vliegt de helm links om (kan van Daan), zodat hij niet over het kroontje gaat.
 - Op AMOLED heeft de lichtbaan een zachte rand; op MIP is hij effen.
+- De regel onderaan ("START = GULP", "START = AGAIN") schuift op ronde schermen omhoog tot hij tussen de randen past (op de Venu 3S viel "START = AGAIN" links en rechts buiten beeld, gezien in run 43813600332).
 - Nog niet: Instinct (zwart-wit, vraagt eigen plaatjes van Mila), een titelplaatje in plaats van het dunne systeemfont op AMOLED, naam, prijs en winkeltekst (voorstel staat sinds run 108 in `platformen/garmin/gloop-winkel-voorstel.md` op main, wacht op Daan en Chris).
 
 ## Open vragen (voor na de proef)

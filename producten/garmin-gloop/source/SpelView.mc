@@ -1,6 +1,7 @@
 import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.Timer;
 import Toybox.WatchUi;
@@ -172,7 +173,7 @@ class SpelView extends WatchUi.View {
 
         if (spel.toestand == Regel.KLAAR) {
             tekst(dc, cx, (h * 0.07).toNumber(), Graphics.FONT_MEDIUM, "GLOOP", midden, 0xFFFFFF);
-            tekst(dc, cx, (h * 0.895).toNumber(), Graphics.FONT_XTINY, "START = GULP", midden, 0xFFFFFF);
+            tekenOnderregel(dc, w, h, "START = GULP");
             tekenKnopHint(dc, w, h);
         } else if (spel.toestand == Regel.EINDE) {
             dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
@@ -182,7 +183,7 @@ class SpelView extends WatchUi.View {
             dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
             var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
             dc.drawText(cx, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
-            tekst(dc, cx, (h * 0.895).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden, 0xFFFFFF);
+            tekenOnderregel(dc, w, h, "START = AGAIN");
         } else {
             tekenTeller(dc, w, h, top);
             if (spel.toestand == Regel.SLOK) {
@@ -220,6 +221,29 @@ class SpelView extends WatchUi.View {
                 tekenKnopHint(dc, w, h);
             }
         }
+    }
+
+    // De regel onderaan ("START = GULP", "START = AGAIN"). Op een rond scherm is het onderaan smal:
+    // past de regel daar niet tussen de randen (gezien op de Venu 3S: "START = AGAIN" viel links en
+    // rechts buiten beeld), dan schuift hij omhoog tot hij past, hooguit tot 0,80 van de hoogte.
+    function tekenOnderregel(dc as Graphics.Dc, w as Number, h as Number, s as String) as Void {
+        var font = Graphics.FONT_XTINY;
+        var y = (h * 0.895).toNumber();
+        if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
+            var nodig = dc.getTextWidthInPixels(s, font) + 16;
+            var fh = dc.getFontHeight(font);
+            var r = h / 2;
+            var grens = (h * 0.80).toNumber();
+            while (y > grens) {
+                var dy = y + fh - r;
+                var kwadraat = r * r - dy * dy;
+                if (kwadraat > 0 && 2.0 * Math.sqrt(kwadraat) >= nodig) {
+                    break;
+                }
+                y -= 2;
+            }
+        }
+        tekst(dc, w / 2, y, font, s, Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
     }
 
     // Tekst met een zwarte rand, zodat hij op elke ondergrond te lezen is.
