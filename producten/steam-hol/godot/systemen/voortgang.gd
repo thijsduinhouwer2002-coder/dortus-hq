@@ -83,7 +83,7 @@ static func samenvatting(weg: int, helden: int, gevallen: int, goud: int) -> Str
 	return "While you were away (%s): %d heroes came, %d fell, %d fled. +%d gold." % [tijd, helden, gevallen, helden - gevallen, goud]
 
 # Drie korte regels met namen voor terwijl je weg was (Sanne 9 nov 19:00): niet alleen "+X gold", maar wie er terug was,
-# welke wrok speelde en of er een aartsvijand kwam. helden = Kroniek.helden (naam -> {gevlucht, wrok, ...}).
+# welke wrok speelde en of er een aartsvijand kwam. helden = naam -> {gevlucht, wrok, ...}, zoals strook.gd ze bijhoudt.
 # vijand_namen = namen van wat er staat ("Gloop the Slime", "the Spike Pit"). Vast zaad: zelfde save, zelfde verhaal.
 # Er gaat niets verloren: een aartsvijand die kwam, vluchtte weer (of viel en werd afgerekend), nooit iets van jou weg.
 static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Array, zaad: int) -> Array[String]:
