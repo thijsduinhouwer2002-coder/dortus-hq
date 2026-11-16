@@ -1,8 +1,68 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 12, de eerste 30 TikToks van kleine spelmakers met devlogs (voor @hatsofthefallen), gestart 16 nov 2026 ±11:00 UTC. Vorige: verhaal 11, klaar 16 nov ±10:55 UTC.
+bezig: niets (laatste: verhaal 12, Conradical Games en TikTok voor kleine spelmakers, klaar 16 nov 2026 ±11:20 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
 
 Nieuwste bovenaan.
+
+---
+
+## 12. TikTok voor kleine spelmakers: Conradical Games (Desktop Defender, Desktop Detective, Screen Stocks) zette 203 TikToks naast zijn Steam-cijfers. Wat leverden views op, en wat niet?
+
+Onderzocht 16 nov 2026, run 12. Waarom: Thijs zet @hatsofthefallen om naar een TikTok-account voor het spel (besluit 16 nov 09:40), 3 keer per week. Fenna beschreef Desktop Defender al vanuit Steam (`verhalen-spellen.md` verhaal 5), maar niet wat TikTok deed. Conradical Games maakt precies onze soort spel (bureaubladhoek, idle, $4,99) en plaatst zelf TikToks, met de naam van het spel in elke kop. Daardoor kun je views per spel naast reviews per week leggen. Ter vergelijking twee makers die hun TikTok-cijfers zelf beschrijven (The Matriarch, Duck Detective) en vijf andere spelaccounts.
+
+### Bronnen
+- TikTok via yt-dlp 2026.10.26, openbare profielen, niet ingelogd, GEZIEN 16 nov ±11:05 UTC: @conradicalgames (203 filmpjes, 5 feb 2021 tot 12 nov 2026), @thematriarchgame (78), @mochitoki (Loddlenaut, 74), @spiritcitylofi (75), @moonlightpeaks (186), @toukana_interactive (Dorfromantik, 224), @unpackinggame (113). Per filmpje datum, views, lengte en het spel uit de kop: `platformen/succes/data/tiktok-spelmakers-2026-11-16.csv`.
+- Steam: `appdetails` en `appreviewhistogram/<appid>` (reviews per week of maand), GEZIEN 16 nov. Het totaal uit het histogram ligt vlak bij het getal van Fenna (Desktop Defender 1.830 tegen 1.788).
+- Eigen verhalen van makers (EIGEN OPGAVE, niet na te rekenen): [The Matriarch op Game Developer](https://www.gamedeveloper.com/game-platforms/from-400-to-20-000-wishlists-with-1-video-how-tiktok-can-make-your-game-go-viral), [Duck Detective (All The Bees)](https://allthebees.bearblog.dev/we-got-over-60k-wishlists-in-6-months-this-is-how/), [Control Yourself (squigalug)](https://squigalug.itch.io/control-yourself/devlog/910174/youtube-vs-tiktok-raising-your-games-profile).
+- Geprobeerd en niet leesbaar of te klein: @hatsofthefallen en @dortusstudio (geen openbare lijst), @deskrawl (4 filmpjes), @workfromdungeon (2), @ropukagame (7). Kleine bureaubladspellen zitten nauwelijks op TikTok met een eigen account.
+
+### Conradical Games: TikTok-views per spel naast Steam
+| Spel (kop "Game is called ...") | TikToks | Views samen | Beste filmpje | Reviews nu | Views per review | Label |
+|---|---|---|---|---|---|---|
+| Desktop Defender (nov 2025) | 11 | 725.000 | 409.000 (14 okt 2025, dag 2 van Next Fest) | 1.830 | ±400 | GEZIEN |
+| Desktop Detective (aug 2026) | 24 | **2.555.000** | 1.500.000 (28 aug 2026, 9 dagen na de lancering) | **187** | ±13.700 | GEZIEN |
+| Screen Stocks (okt 2026) | 24 | 479.000 | 210.900 (19 okt 2026) | 244 | ±2.000 | GEZIEN |
+| Card Corner (mrt 2026) | 19 | 179.000 | 116.200 | 81 | ±2.200 | GEZIEN |
+| Little Laps (aug 2025) | 10 | 22.000 | 6.400 | 14 | ±1.600 | GEZIEN |
+| Wanted Shadows: Unchained (jun 2026) | 7 | 9.000 | 2.200 | 11 | ±850 | GEZIEN |
+
+**Desktop Detective per week (reviews):** lanceerweek 19 aug: 69; week van 26 aug (met de TikToks van 866.000 en 1.500.000 views op 22 en 28 aug): **42**; daarna 21, 14, 6, 4 (GEZIEN, histogram). De twee grootste filmpjes die hij ooit maakte gaven geen zichtbare bult in de reviews. Kanttekening: views tellen op sinds het plaatsen, een deel kan later gekomen zijn; maar ook later is er geen bult.
+
+### Wat hij in welke volgorde deed
+1. **2021: devlog met gezicht en grappen** ("A day in the life of a game developer", "Balancing ain't always easy"). De eerste 30 filmpjes in 30 dagen, mediaan 2.492 views, één van 243.100 (nr. 7). Dat was TikTok in 2021: toen gaf het platform veel meer bereik aan nieuwe accounts (ook @mochitoki en @thematriarchgame begonnen toen met 20.000 tot 800.000 per filmpje). GEZIEN.
+2. **2022 tot 2024: los en weinig**, filmpjes over zijn grote spel en Switch-uitgaven, 1.100 tot 15.000 views. GEZIEN.
+3. **Vanaf jun 2025: één vaste vorm.** Elke kop is "Game is called "X", wishlist it on Steam now!", gameplay van 20 tot 50 seconden, in reeksen van 10 tot 24 filmpjes vlak voor en na een moment (Next Fest, lancering, demo). Hetzelfde account, dezelfde vorm, zeven spellen: de spellen in de bureaubladhoek (Desktop Defender, Desktop Detective, Screen Stocks) halen tonnen, de gewone spellen (Little Laps, Wanted Shadows, Synth Beasts) blijven op 800 tot 2.500 per filmpje. GEZIEN.
+4. **Desktop Defender:** één TikTok in juli 2025 (1.879 views), daarna niets tot de eerste dag van Next Fest (13 okt). Toen 9 filmpjes in 7 dagen: 43.300, **409.000**, 146.400, 48.000 ... Dat valt samen met de demo, die 1.548 gelijktijdige spelers haalde (verhaal 5 van Fenna). Welk deel van de 50.000 verlanglijstjes van TikTok kwam, zegt hij nergens. GEZIEN voor de views, onbekend voor de verdeling.
+5. **Desktop Detective:** 13 filmpjes tijdens Next Fest juni 2026 (411 tot 13.500 views), 4 vlak voor de lancering, en daarna de twee grootste filmpjes van het account. Het spel bleef op 187 reviews, met klachten dat het te veel op Desktop Defender lijkt en "far from an idler" is (Fenna). GEZIEN.
+
+### Ter vergelijking
+- **The Matriarch** (Chewa, solo, $4,99): na 3 maanden winkelpagina onder de 500 verlanglijstjes; dezelfde trailer, sneller geknipt, haalde op TikTok 1 miljoen views in een nacht en volgens de maker "+1500 in ONE day", daarna +3.500 en +2.500, samen met Next Fest 23.000 verlanglijstjes (EIGEN OPGAVE). In onze lijst: filmpje 6, 8,9 miljoen views (5 feb 2022, GEZIEN). Uitgebracht sep 2022: **792 reviews, 76%** (GEZIEN). Veel verlanglijstjes, matige uitkomst.
+- **Duck Detective** (Happy Broccoli Games): "we've failed to have any traction on TikTok for years before this", tot één TikTok van 1 miljoen views met "close to 1000 wishlists a day for a few days"; gameplay met een grappig onderschrift, geen gezicht, geen stem (EIGEN OPGAVE). Nu 6.273 reviews, 94% (GEZIEN). De grootste stappen kwamen volgens hen van showcases en Next Fest.
+- **Loddlenaut** (Moon Lagoon, twee makers): eerste TikTok "I'm making a cute video game with my boyfriend" 581.600 views (feb 2021), uitschieter 2,3 miljoen; laatste 30 filmpjes mediaan 1.769. Spel ($19,99, nov 2023): 4.057 reviews, 98% (GEZIEN).
+- **Grote spellen met een klein TikTok-account:** Dorfromantik (28.516 reviews) haalt mediaan ±900 views per TikTok over 224 filmpjes; Spirit City: Lofi Sessions, een spel dat naast je werk draait (16.165 reviews), mediaan ±900 over 75 filmpjes (GEZIEN). Hun succes kwam niet van hun eigen TikTok.
+- **Control Yourself** (squigalug, solo): Shorts en TikToks van dezelfde clips, "around 250 views on TikTok and 500 on YouTube", niets viraal (EIGEN OPGAVE). Dat is de vloer die we in verhaal 10 en 11 ook maten.
+
+### Wat ik zag
+1. **TikTok-views en kopers lopen los van elkaar.** Bij hetzelfde account en dezelfde vorm kostte een review ±400 views (Desktop Defender) tot ±13.700 (Desktop Detective). Het verschil zat in het spel en het moment, niet in het filmpje.
+2. **Het onderwerp "spel dat in de hoek van je scherm leeft" werkt op TikTok.** Bij één maker met één vorm haalden alleen de bureaubladspellen 100.000+; zijn racer en schietspel bleven op ±1.000. Goed nieuws voor @hatsofthefallen: het idee zelf trekt kijkers.
+3. **Een TikTok-hit na de lancering redde een zwak spel niet** (Desktop Detective: 2,5 miljoen views in de 10 dagen na de lancering, reviews daalden). Een hit vóór of tijdens een moment met een demo of verlanglijst-knop deed wel iets (The Matriarch, Duck Detective, Desktop Defender), maar steeds samen met Next Fest of een showcase.
+4. **De vorm is simpel en zonder gezicht:** gameplay van 20 tot 50 seconden, de naam van het spel in de kop, een vraag of grap bovenin, en reeksen rond een moment in plaats van een gelijkmatige stroom. The Matriarch: dezelfde video sneller geknipt en opnieuw geplaatst ging van 10.000 naar 7 miljoen (EIGEN OPGAVE).
+5. **2021 is geen meetlat.** Accounts die toen begonnen, kregen tienduizenden views per filmpje. Voor een nieuw account nu: 250 tot 1.000 (squigalug, verhaal 11, Conradicals gewone spellen).
+
+### Drie lessen
+1. **Meet TikTok in verlanglijstjes, niet in views.** Een miljoen views kan 1.500 verlanglijstjes geven (The Matriarch) of bijna niets (Desktop Detective). Zet bij elk filmpje de verlanglijstjes van die dag en de dag erna ernaast.
+2. **Plaats in reeksen rond een moment met een knop.** Conradical plaatste 9 tot 24 filmpjes in de dagen rond Next Fest, een demo of de lancering, en bijna niets daartussen. Een hit zonder pagina, demo of fest om naartoe te gaan, verdampt.
+3. **TikTok versterkt een goed spel, het maakt geen goed spel.** De hit met de meeste views hoorde bij het spel met de slechtste reviews. Het werk aan de diepte (Fenna: uur 10 beslist) blijft belangrijker dan het filmpje.
+
+### Eerlijk: wat deze meting niet zegt
+- Eén maker met zeven spellen, plus twee eigen verhalen. Conradical had uitgevers bij de bureaubladspellen; wat die zelf deden, weet ik niet.
+- Ik zie geen verlanglijstjes, alleen reviews. Reviews volgen kopers ongeveer, maar niet per dag.
+- Views tellen op sinds het plaatsen; welk deel in de eerste dagen kwam, weet ik niet.
+- De kop "Game is called ..." heb ik met een patroon uitgelezen; filmpjes met een andere kop zijn niet aan een spel toegewezen.
+- Het account had in 2025 al volgers uit 2021 (aantal onbekend). Een nieuw account haalt waarschijnlijk minder (GOK).
+
+### Voorstel voor Dortus deze week
+**Chris (met Olaf of Mila voor de clips): plan de TikToks van @hatsofthefallen in reeksen rond momenten, niet als gelijkmatige stroom.** Nu: 3 per week om het account op te warmen en de vorm te zoeken (de grap "He wears their hats." in de eerste seconde, gameplay 15 tot 40 s, naam van het spel in de kop, geen gezicht nodig). De echte reeks van ±10 filmpjes in 10 dagen pas als de Steam-pagina met verlanglijst-knop live is, en opnieuw rond het Desktop Companion Fest (14 tot 18 januari). Hou per filmpje bij: datum, views na 48 uur, en de verlanglijstjes van die dag en de dag erna (Steamworks, via de hoofdchat). Schiet er één uit, plaats hem nog eens sneller geknipt (The Matriarch). Waarom: bij Conradical kwamen de grote aantallen alleen in reeksen rond een moment, en alleen voor bureaubladspellen; een hit zonder knop om op te drukken leverde niets op.
 
 ---
 
