@@ -1,5 +1,14 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±14:15 UTC, run 116. Ebb 1.0.1 (voorrang van de hoofdchat, 15:00 NL): van 28 naar 56 horloges gebouwd op tak `claude/garmin-ebb-101`, nieuwe naam voorgesteld. Nog niets gekeurd, nog niets klaargezet voor Thijs. Het Gloop-spel ligt stil tot Thijs kiest; het uploadblok blijft staan.**
+  - **Gebouwd en gezien (run 43881391618, commit f41b258, job bouw groen):** het winkelbestand bouwt met negen horloges erbij (37), ondertekend met de echte sleutel ("Ondertekend met GARMIN_DEV_KEY" in het log), 5.409.995 bytes. Er is geen release gemaakt. Dezelfde run gaf de lijst van alle 173 horloges in de SDK met schermmaat, startpictogram en geheugen.
+  - **Fout van mij, zelf gevonden in die lijst en gerepareerd:** ik had MARQ (Gen 2) de plaatjes van 416 px gegeven; het scherm is 390. Staat goed in 1aebd69.
+  - **Gebouwd, uitslag nog niet gezien (commit 1aebd69, runs 43882501055 en 43882501327):** 22 broertjes met een maat die er al was (onder meer fēnix 9, fēnix E, epix Gen 2, Enduro 3, Venu 2 Plus, Forerunner 255 Music, 170 en 70, MARQ Gen 2, D2 Mach 1 en 2) en 6 kleine horloges met een nieuwe maat (Forerunner 255S en 255S Music 218 px, fēnix 7S en 7S Pro 240 px, Forerunner 265S en Venu 2S 360 px) met eigen letters en cijfers. De regelhoogtes van de letters op de nieuwe maten zijn een schatting; de plaatjesrun meet de echte (regel LETTERHOOGTE).
+  - **Bewust niet meegenomen:** Descent (duikhorloges), Instinct en Approach (knop heet daar niet START), en de oudere horloges onder Connect IQ 5 (stap 3).
+  - **Naam (voorstel, ligt bij Chris):** `Ebb Breathing & Breath Hold`, `Ebb Atmung & Atem anhalten`, `Ebb Ademhaling & Adem inhouden`. Risico: "Calm" valt uit de naam, terwijl Ebb op "calm" plek 3 staat. Alles in `platformen/garmin/upload/ebb-1.0.1.md`.
+  - **In de bouwstraat veranderd:** de telling eist 56 horloges, de toetsrun draait op 16 horloges (was 9) en de plaatjesrun op 20 (was 13), tijdslimiet 80 minuten. Het script `bron/maak_letters.py` liet de wereldcijfers uit `fonts.xml` vallen; gerepareerd voor ik het gebruikte.
+  - **Open:** uitslag van de twee runs bekijken, letters gelijkzetten, beelden van 218, 240 en 360 naar Mila en Daan, naam door Chris, dan pas het uploadblok. Prijs en navragen van Ebb Calm liggen bij de hoofdchat.
+  - **Ebb Calm:** nog niet openbaar (API 404 om 14:00 UTC).
 - **16 nov ±13:30 UTC, run 115. Gloop's Hat Tower (spel) moet uiterlijk wo 18 nov klaar zijn om te uploaden (besluit Thijs 13:58 NL). Stand: het spel is af op het akkoord van Daan na; het winkelbestand en de beelden zijn er nog niet.**
   - **Gebouwd en gezien:** het tandje hangt aan de mond (moet van Daan), ade4867, run 43872061198 groen, eindscherm gezien op vijf horloges.
   - **Gebouwd, niet gezien:** zwarte balk tot de bovenrand op het eindscherm, proefpakket .iq en de releasejobs (ac6a005). De release is niet gestart.
