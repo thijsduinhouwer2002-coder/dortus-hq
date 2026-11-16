@@ -1375,3 +1375,13 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Open: tijd nog klein (het kleinste cijferfont wordt gekozen omdat de fonts veel lucht hebben), zwevende kroon half uit beeld, plaatjes van Mila.
 - Les: `raw.githubusercontent.com/.../schermen/...` loopt na een nieuwe run minuten achter, ook met een vraagteken erachter. Haal de commit met `git ls-remote origin schermen` en zet die in de link, dan heb je de nieuwe beelden meteen.
 - Les: de fonthoogte van Garmins cijferfonts zegt weinig over de cijferhoogte (minder dan de helft). Reken met gemeten cijfers of eigen plaatjes.
+
+## Run 114, 16 nov 2026, ±11:56 tot 12:30 UTC
+- Gelezen: berichten (kit van Mila 11:00 UTC, concept 2 Ebb Porthole 11:10 UTC), taken, status. Ebb Calm 404 om 11:59 UTC.
+- Wijzerplaat Gloop: de kit van Mila ingebouwd. 72ac193 (run 43863152183: toetsen groen, gewone standen goed, slaapstand crasht op Venu 3S en Venu Sq 2) en 5e87138 (eigen grijze cijfers; run 43864748623 bouw groen).
+- Gezien: FR255 16 beelden, fenix 7, Venu 3S en Venu Sq 2 gewone standen (run 43863152183); Venu 3S en Venu Sq 2 alle 16 met de slaapstand (run 43864748623): geen crash meer, grijze cijfers waren dichte vlekken. 80b6e34: grijs alleen uit de witte vulling, run niet meer gezien.
+- Les: de job `schermen` deed er zeven minuten over (12:19 tot 12:26 UTC); wacht op `RUN.txt` met het goede runnummer voordat je beelden bekijkt.
+- Berichten aan Mila (drie vragen) en Daan (beelden om te keuren).
+- Les: `dc.drawBitmap2` met `tintColor` laat de wijzerplaat crashen in de simulator op Venu 3S en Venu Sq 2. Maak grijze plaatjes vooraf.
+- Les: de lokale kloon is ondiep en `main` liep achter met een andere geschiedenis; `git reset --hard` mag niet. Maak een nieuwe tak vanaf `origin/main` (`git switch -c <naam> origin/main`) en push met `git push origin HEAD:main`.
+- Les: het bouwlog lees je met `gh api repos/<eigenaar>/dortus-hq/actions/jobs/<job-id>/logs`; het eind van `/tmp/do-<horloge>.log` staat erin en noemt de regel van de crash.
