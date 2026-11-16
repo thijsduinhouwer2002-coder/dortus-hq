@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 20, Reddit voor gereedschap rond 3D-printen in r/3Dprinting, r/customactionfigures en r/BJD, klaar 16 nov 2026 ±19:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen, of r/blender-printberichten als het archief sneller is.
+bezig: verhaal 21, korte filmpjes over Garmin-apps en wijzerplaten (gezicht of niet, wat in beeld, wat het oplevert), 16 nov 2026 ±20:10 UTC. Volgende: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen, of r/blender-printberichten als het archief sneller is.
 
 Nieuwste bovenaan.
 
