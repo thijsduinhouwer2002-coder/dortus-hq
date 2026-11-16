@@ -117,3 +117,6 @@ Thijs (16:31): "voor mijn gevoel zeg jij soms dat ze langer bezig zijn dan het e
 - Geef een datum als **aantal runs** plus klok ("±6 runs, ma 22:00"), niet als werkdagen.
 - Reken eerlijk met wat echt wacht: CI-runs, keuring door Daan of Iris, antwoorden van anderen, en vooral wachten op externe keuringen (Superhive, Garmin, JetBrains) en op Thijs. Noem die apart.
 - De hoofdchat zet een deadline op de vroegste haalbare tijd en vergelijkt die met eerdere levertijden.
+
+## Plaatsen op Reddit en andere communities (16 nov 2026)
+Alleen de hoofdchat plaatst, op het eigen account van Thijs, en alleen na zijn ja op de precieze tekst en het beeld. Agents schrijven en zoeken de regels van elke community uit (zelfpromotie, dag, flair), plaatsen nooit zelf. Eén product per community per keer, geen dubbele posts, reageren op vragen doet de hoofdchat met Thijs. Beelden en filmpjes komen uit het echte product; een render staat er als render bij.

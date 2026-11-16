@@ -218,3 +218,9 @@ Ik las alle aankondigingen van 8 winnaars vóór hun uitgave (`platformen/steam/
 1. **Vaste vorm voor demo-fix-posts.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo, TBH 9 keer in 13 dagen; bijna allemaal fixes. Tussen 4 jan en het fest mag de demo alleen fixes krijgen (Olaf), dus een kort sjabloon: titel "Demo 1.0.x: [wat er beter is]", twee tot vier regels, een plaatje of clip als het kan.
 2. **Hoedenwedstrijd "Design a hat for Gloop"** in de festweek (besluit in hetzelfde deel): spelers delen een getekende of beschreven hoed in de Artwork-sectie van de communitypagina met #HatsOfTheFallen in de titel; de winnende hoed komt in het volle spel. Graag een Engelse aankondiging (regels: meedoen zonder het spel te hebben, geen beloning voor reviews of verlanglijsten, sluit ma 18 jan 19:00 NL). Zoals Rusty's versierwedstrijd en Spirit City's "Cat Contest" (de winnende kat werd een skin).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, 16:50, hoofdchat: SNELLER, eerste twee posts vandaag
+Thijs zei ja: de hoofdchat plaatst op zijn eigen Reddit-account, na zijn ja per tekst (regel in `organisatie/regels.md`). Volgens de nieuwe planningsregel is woensdag te ruim. Lever **vandaag vóór 20:00 NL** de eerste twee posts in `commercie/lanceerposts.md`, elk met titel, tekst, subreddit, de regels van die subreddit en het beeld (pad in de repo of het Actions-artefact):
+1. **Click Joints** voor r/3Dprinting (of r/blender als r/3Dprinting zelfpromotie verbiedt): gebruik de bestaande demofilm uit release `click-joints-pro-film-v1` of de gratis 0.1.1-beelden, de gratis versie vooraan, Pro in een reactie.
+2. **Rollwright** voor r/ObsidianMD: korte opname van een d20 die rolt en goud landt op een 20 (maak hem in de Obsidian-omgeving in de cloud als die er is, anders zeg wat je nodig hebt).
+De rest van de lijst (Ebb, Bison & Flex, BJD, Solo_Roleplaying) volgt daarna.
