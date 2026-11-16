@@ -79,3 +79,6 @@ Alleen Thijs kan inloggen; dit gaat als één regel op `organisatie/lijst-thijs.
 
 ## Gumroad (tweede winkel), 16 nov 2026 10:05, hoofdchat (ja Thijs 09:51)
 Concept aangemaakt in het Gumroad-account van Thijs: "Click Joints Pro for Blender", $12, digitale download `click_joints_pro-1.0.2.zip` (al met de kniefout opgelost), beschrijving (zelfde als Superhive, plus "built with the help of AI tools"), samenvatting, miniatuur 600 x 600 (uitsnede poster) en 2 omslagen (poster, knie met boog). Nog niet te koop: Gumroad publiceert pas als Thijs een uitbetaalmethode koppelt (bankgegevens, dat doet alleen hij). De winkelnaam is nog de standaard van Gumroad; voorstel: Dortus. Studio-licentie en lanceerkorting volgen na publicatie.
+
+## Gumroad LIVE (16 nov 2026 15:02 NL, hoofdchat)
+Thijs koppelde de uitbetaalmethode; de hoofdchat publiceerde Click Joints Pro op Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro, $12, zip 1.0.2 (GEZIEN: status Published, pagina geeft 200). Superhive-keuring loopt nog.
