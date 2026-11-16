@@ -38,7 +38,7 @@ Wat dat zegt:
 - De beelden kunnen blijven: kogel en kom uit elkaar, het paneel met Clearance 0.20 en "(measured)", de arm die buigt laat juist zien wat de speling geeft.
 
 ## Staande opname voor dag 9
-Nog niet gemaakt. Plan voor een volgende run: drie korte staafjes naast elkaar met speling 0,1, 0,2 en 0,3 mm, elk met het paneel "Clearance ... (measured)", staand 1080 x 1920, met `film_pro.py`/`maak_staand.sh` zoals opname 5. Alleen de gratis kogel in beeld.
+Gemaakt (16 nov ±05:30 UTC): `ontwerp/click-joints/pro/film/staand/click-joints-staand-6-proefje-spelingen.mp4`, 13,0 s, 1080 x 1920, drie staafjes met speling 0,1 / 0,2 / 0,3 mm uit de gratis versie 0.1.1, tijden in de LEESMIJ daar. Het verschil in speling zie je op dit formaat niet, dus de spelingen als tekst erbij. Script `e2e/film_proefje.py`.
 
 ## Les
 - Een tip over speling moet zeggen of het per kant of op de diameter is; in de add-on is het per kant.
