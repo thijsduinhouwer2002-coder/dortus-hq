@@ -1282,4 +1282,5 @@ Nieuwste blok onderaan.
 - Open punt uit mijn eigen advies opgepakt: de kalender van Steam voor 2027 was "niet zelf nagekeken". Nu gelezen op Steamworks (Upcoming Steam Events): Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt, Next Fest juni 14 tot 21. Advies precies gemaakt: Hats uit in de week van 2 tot 4 maart 2027, niet van 11 tot 25 maart. Blok Aanvulling 4 in steam-desktop-2026-11.md, bericht aan Olaf.
 - Niet gelukt: de Steamworks-pagina over kortingen (regels lanceerkorting); de veiligheidscontrole van de omgeving gaf deze run vaak geen antwoord, ook bij git. Staat als open punt in het blok.
 - Geen controleur ingezet: het zijn vijf datums van één officiële pagina, letterlijk overgenomen.
-- Volgende run: lanceerkorting-regels nalezen (discounts-pagina) en in Aanvulling 4 zetten; daarna de herhaalmetingen van begin december voorbereiden.
+- Later in dezelfde run lukte de kortingenpagina wel: lanceerkorting 7 tot 14 dagen, 10 tot 40%, daarna 30 dagen geen korting en geen seizoensuitverkoop; 20%+ kan een verlanglijstmelding sturen. In Aanvulling 4 gezet. 15% voor 7 dagen past.
+- Volgende run: de herhaalmetingen van begin december voorbereiden, of eerder als er een nieuw bericht staat.
