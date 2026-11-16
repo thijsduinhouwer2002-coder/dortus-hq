@@ -131,7 +131,11 @@ static func laad(s, begin) -> void:
 	var faam_voor: int = s.faam
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
-		AFLOOP.faam_erbij(s, int(weg.get("faam", 0)))   # faam ook als je weg was, kwart snelheid (Sanne 16 nov 14:05)
+		# faam ook als je weg was, op weg-snelheid, maar hooguit 2 hol-niveaus per keer weg (Sanne 16 nov 22:00)
+		var wf: int = HOL_NIVEAU.weg_faam(s.faam, int(weg.get("faam", 0)))
+		if wf < int(weg.get("faam", 0)):
+			s.log_regel("HOL weg faam afgekapt %d van %d (hooguit %d niveaus)" % [wf, int(weg.get("faam", 0)), HOL_NIVEAU.WEG_NIVEAUS])
+		AFLOOP.faam_erbij(s, wf)
 		# hoeden ook terwijl je weg was, op hetzelfde kwart tempo (Sanne 16 nov 14:05); geef_hoeden zet hoeden_gegeven,
 		# zodat het verhaal ze pas noemt als ze echt op Gloop staan
 		if s.slijm != null:

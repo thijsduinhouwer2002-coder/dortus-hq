@@ -27,6 +27,15 @@ static func niveau(faam: int) -> int:
 			n = i + 1
 	return mini(n, DEMO_MAX)
 
+# Faam uit één keer weg: hooguit tot net de drempel van huidig niveau + 2 (Sanne 16 nov 22:00, balans.md punt 2).
+# Goud, hoeden en het verhaal van de nacht veranderen niet; alleen de faam boven die drempel telt niet.
+const WEG_NIVEAUS := 2
+static func weg_faam(faam_voor: int, n: int) -> int:
+	var doel := niveau(faam_voor) + WEG_NIVEAUS   # niveau L begint op DREMPEL[L - 1]
+	if doel - 1 >= DREMPEL.size():
+		return maxi(0, n)
+	return clampi(n, 0, maxi(0, int(DREMPEL[doel - 1]) - faam_voor))
+
 # Hoeveel helden nog tot het volgende niveau; 0 als het laatste niveau van deze versie bereikt is.
 static func nog(faam: int) -> int:
 	var n := niveau(faam)
