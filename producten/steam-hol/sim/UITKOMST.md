@@ -1,5 +1,19 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+
+## 16 nov 2026 (Bram): sim volgt nu het ritme en het begin van het spel (`python3 sim.py begin`)
+De sim rekende nog met een held per 25 tot 75 s en alleen "eerste held valt" (bij Gloop, dus een te vroege hap op 21 s). Nu, zoals `kern/ritme.gd` en `BEGIN` in `kern/strook.gd` sinds 16 nov 07:31 UTC: eerste held op 4 s, vaste stappen vallen (put), opgegeten (Gloop), vluchten (met wrok tegen de put), terug (die vluchter naar zijn vijand), doorlopen (Hoard-Toucher), gaten 5 tot 7, 18 tot 22, dan 35 tot 45 s, na het begin 40 tot 60 s. `SIM_OUD=1` geeft de oude sim. Opdracht: Fenna (`platformen/succes/onderscheid-hats.md` punt 3, "Bram: sim en toets"). 40 zaden, GEZIEN:
+
+| Wat | Sim nu | Sim oud | Echte spel (log, Godot 4.3, 16 nov) |
+|---|---|---|---|
+| Eerste hap met hoed op de toren | 26 tot 28 s (aankomst plus 17 s lopen) | 21 s (kunstmatig) | 26,3 tot 27,8 s |
+| Vluchter terug en afgerekend | 64 tot 76 s, mediaan 69 | komt niet vast | ±63 tot 75 s |
+| Eerste upgrade als je niet graaft | 140 tot 508 s, gemiddeld 210, mediaan 163 | 102 tot 499 s, gemiddeld 264, mediaan 250 | eerste koop gemiddeld 196 s (was 245) |
+| Hoeden op Gloop in de eerste 10 min | 1 tot 8, mediaan 3 | 1 tot 10, mediaan 4 | |
+| Hoeden op Gloop in uur 1 | 11 tot 29, mediaan 21 | 9 tot 33, mediaan 26 | |
+
+Wat het zegt: de sim en het spel lopen weer gelijk voor de eerste minuten (hap, wrok, eerste koop). Prijs: in uur 1 iets minder hoeden op Gloop (mediaan 21 tegen 26), want drie van de vijf vaste helden gaan niet naar Gloop (put, vluchter, Hoard-Toucher) en het gemiddelde gat blijft 50 s. Geen probleem voor de berg: maat 25 komt in de 10-uursrun nog rond 1,0 tot 1,5 u. Niets aan de balans veranderd.
+
 `sim.py` speelt het spel na met dezelfde regels als `godot/systemen/held.gd` (wrok kiest het doel, roekeloos tegen je vijand, Hoard-Toucher brutaler, slijm 60 s plat, eerste held valt) en de kosten en het goud van `platformen/steam/balans.md` (Sanne). De speler koopt steeds het goedkoopste. Draaien: `python3 sim.py 10 8` (10 uur open tijd, 8 zaden). Uitvoer van deze stand: `uitkomst-10u.txt`.
 
 ## Wat er met de startgetallen gebeurde (GEZIEN, 5 zaden, 10 uur)

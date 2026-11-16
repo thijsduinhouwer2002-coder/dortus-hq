@@ -24,6 +24,15 @@ BLIJFT_KANS = 0.6      # kans dat een gevluchte held ooit terugkomt (anders gaat
 START_GOUD = 20        # Olaf 13 nov: nieuw spel begint met 20 goud (kern/kaartje.gd START_GOUD, demolijst 3)
 UPG_BASIS = 45         # Sanne 10 nov 01:50 (balans.md): 45, 126, 353 (45 x 2,8^n); was 60
 GRAAF_DREMPEL = 12     # Sanne 10 nov 01:50: graven 5 + 1,2 x gangen, plus 3 per gang boven de 12
+# Ritme en begin zoals het spel sinds 16 nov (kern/ritme.gd, kern/strook.gd BEGIN, kern/binnenkomst.gd). Bram 16 nov:
+# de sim rekende nog met een held per 25 tot 75 s en alleen "eerste held valt". Nu: eerste held op 4 s, de vijf vaste
+# stappen van een nieuw spel (vallen in de put, opgegeten door Gloop, vluchten met wrok, die vluchter terug naar zijn
+# vijand, Hoard-Toucher), gaten 5 tot 7 s, 18 tot 22 s, dan 35 tot 45 s in het begin en 40 tot 60 s daarna.
+# RITME_SPEL = False geeft de oude sim (python3 sim.py ... met omgeving SIM_OUD=1).
+import os
+RITME_SPEL = os.environ.get("SIM_OUD", "") != "1"
+BEGIN = ["vallen", "opgegeten", "vluchten", "terug", "doorlopen"]
+LOOP_HAP_S = 17.0      # zoveel s loopt een held van de ingang tot Gloop (log echte spel 16 nov: binnen ±10 s, hap 26,3 tot 27,8)
 
 def graaf_prijs(gangen):
     return 5 + 1.2 * gangen + 3 * max(0, gangen - GRAAF_DREMPEL)
@@ -57,6 +66,8 @@ def speel(uren, zaad):
     st["soort_tel"] = {}
     volgende = 4.0
     eind = uren * 3600
+    begin_i = 0           # zoveel vaste stappen van BEGIN zijn gedaan (alleen met RITME_SPEL)
+    begin_vlucht = None   # de held van stap "vluchten", die komt bij stap "terug" terug
 
     def koop_lijst():
         k = []
@@ -75,12 +86,27 @@ def speel(uren, zaad):
 
     while t < eind:
         t = volgende
-        volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
+        stap = BEGIN[begin_i] if RITME_SPEL and begin_i < len(BEGIN) else ""
+        if RITME_SPEL:
+            if stap:
+                begin_i += 1
+                gat = (5, 7) if begin_i == 1 else (18, 22) if begin_i == 2 else (35, 45)
+            else:
+                gat = (40, 60)
+            volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(*gat))
+        else:
+            volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
         lied_extra = max(0, lied_extra - 1)
         helden += 1
         faam = helden // 60
         # wie komt er?
-        if terug and rng.random() < TERUG_KANS:
+        if stap == "terug" and begin_vlucht is not None:
+            if begin_vlucht in terug:
+                terug.remove(begin_vlucht)
+            h = begin_vlucht
+        elif stap:
+            h = None
+        elif terug and rng.random() < TERUG_KANS:
             i = rng.randrange(len(terug))
             if terug[i]["gevlucht"] < 3 or (t >= AARTS_NA and nieuw_nr >= AARTS_NA_HELDEN and rng.random() < AARTS_KANS):
                 h = terug.pop(i)
@@ -104,7 +130,10 @@ def speel(uren, zaad):
             if st.get("eerste_aarts") is None:
                 st["eerste_aarts"] = t
         st["soort_tel"][h.get("soort", "")] = st["soort_tel"].get(h.get("soort", ""), 0) + 1
-        moet_vallen = helden == 1
+        moet_vallen = helden == 1 and not RITME_SPEL
+        # vaste stap: waar hij heen moet ("put", "slijm"), of vluchten na een klap van de put, of de schat aanraken
+        dwing = {"vallen": "put", "opgegeten": "slijm", "vluchten": "vlucht", "doorlopen": "hoard",
+                 "terug": h["wrok"] or "put"}.get(stap, "")
         # pad: verdediging in volgorde van de gang (slijm en put om en om, zoals je ze neerzet)
         vijand = h["wrok"] if h["wrok"] in ("slijm", "put") and aantal[h["wrok"]] > 0 else ""
         if vijand:
@@ -112,7 +141,23 @@ def speel(uren, zaad):
         klappen = 0
         uit = None
         geraakt_door = ""
-        for i, v in enumerate(verd):
+        if dwing in ("put", "slijm"):
+            v = next(x for x in verd if x["soort"] == dwing)
+            uit = "gevallen"
+            if dwing == "slijm":
+                st["hap_slijm"] += 1
+                if v is verd[0]:
+                    st["hap_tijden"].append(t)
+                if st.get("eerste_hap") is None:
+                    st["eerste_hap"] = t + LOOP_HAP_S
+            if h["gevlucht"] > 0 and dwing == h["wrok"]:
+                st["afgerekend"] += 1
+                st.setdefault("eerste_wrok_af", t)
+        elif dwing == "vlucht":
+            uit = "gevlucht"
+            geraakt_door = "put"
+            begin_vlucht = h
+        for i, v in enumerate(verd if not dwing else []):
             if v["soort"] == "slijm" and t < v["plat_tot"]:
                 continue
             # soortfactor alleen op de basiskans, zoals held.gd (controleur 10 nov): upgrade en ROEKELOOS komen erbij
@@ -150,6 +195,8 @@ def speel(uren, zaad):
             uit = "gevlucht"
             h["hoard"] = True
             st["hoard"] += 1
+        if uit == "gevallen" and st.get("eerste_hap") is None and geraakt_door == "" and not dwing and st["hap_slijm"] > 0:
+            st["eerste_hap"] = t + LOOP_HAP_S
         if uit == "gevallen":
             st["gevallen"] += 1
             goud += 6 * (1 + 0.1 * faam) * (1 + gangen / 40) + GOUD_PER_BEZOEK * h["bezoeken"]
@@ -164,7 +211,7 @@ def speel(uren, zaad):
             h["bezoeken"] += 1
             if geraakt_door:
                 h["wrok"] = geraakt_door
-            if rng.random() < BLIJFT_KANS or h["gevlucht"] >= 3:
+            if rng.random() < BLIJFT_KANS or h["gevlucht"] >= 3 or h is begin_vlucht:
                 terug.append(h)
         # kopen: steeds het goedkoopste wat kan
         while True:
@@ -249,6 +296,29 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "aarts":
             print("soorten %s, aartsvijand pas na %d s / %d nieuwe helden:" % (sr, na, nh), end=" ")
             aarts()
     sys.exit(0)
+
+# Bram 16 nov: de eerste minuten van een nieuw spel naast de echte spel-log (Olaf, eisen 16 nov 07:20 in taken.md):
+# hap uiterlijk ±35 s, vluchter terug binnen 300 s, eerste koop niet later dan ±245 s, daarna 35 tot 45 s.
+def begin(zaden=40):
+    rij = []
+    for z in range(1, zaden + 1):
+        s = speel(1, z)
+        a = s["aankopen"]
+        tien = sum(1 for x in s["hap_tijden"] if x + LOOP_HAP_S <= 600)
+        global STRATEGIE
+        STRATEGIE = "spaar"   # eerste upgrade als je niet graaft (zoals ritme()); de rest met "goedkoopst"
+        upg1 = speel(1, z).get("eerste_upg", 9999)
+        STRATEGIE = "goedkoopst"
+        rij.append((s.get("eerste_hap") or 9999, s.get("eerste_wrok_af") or 9999, upg1, tien, len(s["hap_tijden"])))
+    k = lambda i: sorted(r[i] for r in rij)
+    for naam, i, f in (("eerste hap (aankomst + %g s lopen)" % LOOP_HAP_S, 0, "%.0f s"), ("vluchter terug en afgerekend", 1, "%.0f s"),
+                       ("eerste upgrade (spaar, niet graven)", 2, "%.0f s"), ("hoeden op Gloop in de eerste 10 min", 3, "%d"), ("hoeden op Gloop in uur 1", 4, "%d")):
+        v = k(i)
+        print(("%-40s min " + f + ", mediaan " + f + ", gemiddeld %.1f, max " + f) % (naam, v[0], v[len(v) // 2], sum(v) / len(v), v[-1]))
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "begin":
+    begin()
+    sys.exit()
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "ritme":
     ritme()
