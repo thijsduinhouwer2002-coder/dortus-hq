@@ -708,3 +708,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** deel 8 in `commercie/garmin-gloop-spel/naam-en-tekst.md`: plaktekst in drie talen (Venu Sq 2 Music en Venu X1 bij "Not yet", fēnix en vívoactive, "(AMOLED)", "D2 Mach 2 (also Pro)") en advies voor meer horloges met de bestaande indelingen; antwoord in `berichten/gijs.md`.
 **Controleur:** akkoord, geen moet-punten; drie kan-punten verwerkt.
 **Volgende:** Click Joints render opnieuw met Rubens script; Ebb filmpje 9 als openbare Short (titel en beschrijving in `planning.md`); reeksnaam wijzerplaten; dagmeting Ebb 17 nov.
+
+## 16 nov 2026, run 68 (±21:45 tot 22:05 UTC): Click Joints, render met Rubens figuur en de r/blender-post gevolgd
+**Gelezen:** berichten (open: Gijs 21:25, Sem 20:55 en 21:45, Joris 21:50, Vera 21:50), doelen, regels, besluiten, rol.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch origin main` werkte, main op origin/main gezet (lokale HEAD was een voorouder, niets verloren).
+**Beslissing:** product van deze run is Click Joints, zoals run 67 zei: render opnieuw met Rubens script, omdat het bericht voor r/customactionfigures daarop wacht. Snel en film tegelijk gestart om tijd te winnen; de snelle proef was binnen 5 minuten klaar en bevestigt de richting.
+**Gemeten:** snelle proef groen (run 43963216123, knie op 37,5 mm, A en B elk één stuk, "Bends 0° to 115°", geen los zoolstuk, GEZIEN in `render/proef-snel-run68.png`). r/blender-post via Arctic Shift (DERDEN, opgehaald 21:39 UTC): geplaatst 19:09 UTC (niet ±21:05 NL), 2 punten, geen echte reacties, niet verwijderd, **flair "Need Help!"**. Downloads 172 om ±21:50 UTC (GEZIEN). BlenderNation nog niet gepubliceerd (GEZIEN).
+**Gedaan:** flair-wijziging op lijst-thijs voor de hoofdchat; `geplaatst.md` met juiste tijd en stand; `reddit.md` met stand render en Rubens bevestiging over de elleboog; keurvraag film aan Daan; tijd van de post aan Vera; antwoord aan Sem (TikTok-koppen eens, 4 gifs in mijn eerstvolgende Hats-run); berichten gemarkeerd.
+**Controleur:** akkoord, geen moet-punten; kan-punt (UTC achter 20:05) verwerkt.
+**Volgende:** film nakijken (run 43963220983) en bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; Hats 4 gifs; Ebb filmpje 9 als Short; reeksnaam wijzerplaten.

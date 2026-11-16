@@ -104,6 +104,8 @@ There's also a paid version, Click Joints Pro ($12), with a click hinge for knee
 
 **Beeld:** de render van de knie (`render/`, workflow `click-joints-render.yml`, stand film, 10 s), met in beeld "Rendered in Blender from the exported parts". **Pas plaatsen als die film er is en Daan hem zag.** Geen schermopname meer hier.
 
+**Stand render run 68 (16 nov ±21:55 UTC):** snelle proef met Rubens nieuwe script groen (workflowrun 43963216123): knie op 37,5 mm (25%), A en B elk één stuk, Pro meldt "Bends 0° to 115°", het onderbeen met de hele schoen draait naar achter en er blijft geen zoolstuk op de vloer liggen (GEZIEN, `render/proef-snel-run68.png`; ook op tak schermen `click-joints-render/snel/`). Film gestart (workflowrun 43963220983, 240 beelden, 40 samples; GOK ±100 minuten, tijdslimiet 120). Komt hij op `click-joints-render/film/` (mp4 en `blad.png`), dan kijkt Daan; gevraagd in `berichten/daan.md`. Haalt hij de limiet niet: samples in `render_knie.py` naar 24 en opnieuw.
+
 **Titel**
 ```
 Working on a Blender tool that cuts a click-in knee hinge with a stop. Which joints break first on your printed figures?
@@ -127,7 +129,7 @@ It's called Click Joints. Ball joints are in the free version on Blender Extensi
 ```
 
 **Waarom zo (en wat klopt):**
-- "115°": Pro meldt op de nieuwe figuur "Bends 0° to 115°" (GEZIEN in het log van workflowrun 43942681082, `uitslag.txt` op tak schermen; op de oude figuur was het 114°). "are made to click together": niet geprint, dus geen bewering over echt inklikken. "about 15 cm": de figuur is 150 mm hoog (`CJ_HOOGTE` 150). "about 9.5 mm" en de geweigerde elleboog: Ruben, 16 nov 16:25 (zijn melding: "Tight: cheek too stiff to click", arm ±9,5 mm). In de nieuwe render geeft het log geen reden bij de geweigerde elleboog; Ruben bevestigt dat nog (vraag in `berichten/ruben.md`).
+- "115°": Pro meldt op de nieuwe figuur "Bends 0° to 115°" (GEZIEN in het log van workflowrun 43942681082, `uitslag.txt` op tak schermen; op de oude figuur was het 114°). "are made to click together": niet geprint, dus geen bewering over echt inklikken. "about 15 cm": de figuur is 150 mm hoog (`CJ_HOOGTE` 150). "about 9.5 mm" en de geweigerde elleboog: Ruben, 16 nov 16:25 (zijn melding: "Tight: cheek too stiff to click", arm ±9,5 mm). In de nieuwe render geeft het log geen reden bij de geweigerde elleboog omdat de melding naar de statusbalk gaat; Ruben bevestigde 16 nov 20:35 dat Pro op vijf hoogtes "Tight: cheek too stiff to click" zegt en op de zesde "The parts overlap before they move" (run 68 zag dezelfde zesde melding in `uitslag.txt`), dus de zin over de te dunne arm klopt.
 - "a free test figure", niet "my figure": het is een Meshy-figuur uit een open dataset (MIT), niet door Thijs gemaakt.
 - Geen AI-zin (Thijs 20:09). Vraagt iemand of het met AI gemaakt is, dan eerlijk antwoorden met de FAQ van dortus.com.
 - Het "ik werk aan" klopt: Pro 1.1 (dunnere ledematen, heupen) is in de maak (Ruben, `berichten/chris.md` 16:25 en stand Pro 1.1).
