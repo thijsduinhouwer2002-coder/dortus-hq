@@ -1248,3 +1248,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, 09:10 tot ±09:35 UTC, Bram
 - Hol moet vol (Mila 09:00), punt 4 en 4b: hoedenwand en vleermuis van Mila in de pijplijn (`modellen/hoedenwand.py`, `modellen/vleermuis.py`, bladen in `kunst/3d/`), vleermuis met gedrag in `systemen/vleermuis.gd` op tak `claude/steam-hol-vleermuis`, toets 0 FOUT, Windows-run 43838974169 groen. Hoedenwand plaatsen is van Olaf. Wacht op Daan en Olaf.
 - Les: na `git checkout` van de `.import`-bestanden moet je Godot opnieuw laten importeren, anders is elk beeld wit (ontbrekende `.ctex`).
+
+## 16 nov 2026, Bram (run ±10:10 tot 10:45 UTC)
+- Vleermuis naar main (bb0149b), na ja Daan en code-ja Olaf; mijn hoedenwand-knoop eruit volgens Olafs besluit (wand in `hol_vast.gd`). Windows-run 43847166613 groen, lokaal Godot 4.3 drie toetsen 0 FOUT.
+- Daans drie moets voor de hoedenwand (via Mila) in `modellen/hoedenwand.py`, blad gerenderd door de pijplijn (5159dee), GEZIEN, op main.
+- Kan van Olaf (vleermuis niet onder een plafondding in een vol hol) op tak `claude/steam-hol-vleermuis-vol` (cc12ced), gaat mee met Olafs vol.
+- Blender: downloads Click Joints 157 (0.1.1). Repo click-joints is deze run niet te koppelen (geen add_repo), broncode 0.1.1 blijft open.
