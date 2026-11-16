@@ -1,0 +1,6 @@
+metingen van 10 s: 118
+CPU-s per 10 s: gemiddeld 0.829, mediaan 0.875, laagste 0.047, hoogste 1.734
+geheugen aan het eind: 49 MB
+proces leefde tot het eind: True
+soort: editor-Godot (--path)
+eerste koop mogelijk: HOL eerste koop mogelijk na 139 s speeltijd (goud 47)
