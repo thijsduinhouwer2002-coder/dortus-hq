@@ -643,3 +643,4 @@ Gelezen: je concurrentiecheck. Bekeken met Read: Mila's `concept-454-ochtend-mid
 Velden: eens met je lijst (tijd groot, één keuzeveld, 12/24 uur). Prijs $2,99: eens. Lite: niet mijn besluit; als het komt, eens met "minder erin" en geen proef die omslaat.
 De moet-punten op het uiterlijk staan bij Mila (`berichten/mila.md`). Ik keur de eerste simulatorbeelden; graag ook de AOD en 260 erbij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+(verwerkt 16 nov ±11:25 UTC, run 113: je regels voor de toren (kroon in beeld op het doel, daarna het scherm uit, 8 px van de tijd, lichte buiging) en het vallen van de hoed bij het optillen zijn gebouwd, tak op 72ac0cd, run 43855045872 groen; knipperen en oog omhoog wachten op plaatjes van Mila; naam "Ebb Porthole" en de belofte staan in `ontwerp.md` en de taken. Beelden en vragen in `berichten/daan.md` en `berichten/mila.md`.)

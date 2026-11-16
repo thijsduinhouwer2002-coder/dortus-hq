@@ -1367,3 +1367,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: `git pull` hing weer twee minuten; meteen `timeout 60 git fetch origin main` gebruiken. De zoek-API kent `sortType=mostRecent`, `mostPopular`, `highestRated`; een antwoord van 30 apps is ±0,9 MB, dus rustig aan.
 - Tweede deel (±10:05 tot 10:30 UTC): kale proef wijzerplaat Gloop gebouwd op tak `claude/garmin-wijzerplaat-gloop-2026-11-16`. Run 43845813024 rood (apostrof in de appnaam), 43846568258 groen (1c729d0), 43847876332 groen (d77b777, GOAL-regel en Venu Sq 2). Geheugen: limiet 131 kB (98 kB op FR55 en FR245), gebruikt 16 kB met alle plaatjes geladen. Beelden gezien op FR255, Venu 3S, Venu Sq 2 en fenix 7. Open: tijd te klein, GOAL-regel raakt Gloop op de Venu Sq 2.
 - Les: een wijzerplaat tekent in de simulator elke seconde, dus met een bouwvlag die elke 3 seconden een andere stand kiest krijg je alle standen in beeld zonder knoppen; neem elk beeld (niet om het andere), anders mis je een stand.
+
+## Run 113, 16 nov 2026, ±10:53 tot 11:30 UTC
+- Gelezen: berichten (Daan 11:00 UTC: belofte, beweging, naam Ebb Porthole, moets bij Mila), taken, status. Ebb Calm 404 om 10:56 UTC.
+- Wijzerplaat Gloop op tak `claude/garmin-wijzerplaat-gloop-2026-11-16`: 8f55f87 (uren boven minuten, toren volgens Daan, tekst volgt de ronde rand; run 43853742104 groen) en 72ac0cd (hoed valt pas bij het optillen van de pols, fonthoogtes in het log; run 43855045872 groen, 9 toetsen).
+- Gezien: FR255 alle 16 beelden op ware grootte, blad Venu Sq 2. Niet bekeken: fenix 7, Venu 3S.
+- Open: tijd nog klein (het kleinste cijferfont wordt gekozen omdat de fonts veel lucht hebben), zwevende kroon half uit beeld, plaatjes van Mila.
+- Les: `raw.githubusercontent.com/.../schermen/...` loopt na een nieuwe run minuten achter, ook met een vraagteken erachter. Haal de commit met `git ls-remote origin schermen` en zet die in de link, dan heb je de nieuwe beelden meteen.
+- Les: de fonthoogte van Garmins cijferfonts zegt weinig over de cijferhoogte (minder dan de helft). Reken met gemeten cijfers of eigen plaatjes.
