@@ -56,7 +56,7 @@ Onderwerp: `A dungeon on your taskbar: [X] players in 48 hours in the Desktop Co
 >
 > Thijs, Dortus
 
-Regels voor deze mail: alleen getallen die we zelf gemeten hebben (meetscript en Steamworks), geen "viral" of "hit" als het dat niet is, en de zin over hoe het spel gemaakt wordt volgt het besluit over de AI-melding dat bij de hoofdchat ligt (zie `logboek.md` run 2). Nergens "human-made". Chris kijkt de toon na; Thijs verstuurt.
+Regels voor deze mail: alleen getallen die we zelf gemeten hebben (meetscript en Steamworks), geen "viral" of "hit" als het dat niet is, en er komt geen zin over AI in (besluit Thijs 16 nov 21:05: geen AI-melding, Thijs schrijft de spelerstekst; als een blad ernaar vraagt, antwoordt Thijs eerlijk zelf). Nergens "human-made". Chris kijkt de toon na; Thijs verstuurt.
 
 ## Wat ik niet deed en waarom
 - **Reddit:** Reddit vraagt nu een inlog, ook voor gewone lezen via de JSON-route (GEZIEN 16 nov, doorverwijzing naar login), en een archief-route mocht in deze omgeving niet. Ik heb dus geen eigen telling van Reddit-posts van deze spellen. Wel gezien: Survival Idle (een idle-verdediging in de stijl van Desktop Defender) haalde 1.000 spelers in 24 uur op itch na posts op Reddit, Bluesky, X en incrementaldb, met een webversie (eigen devlog van de maker, 9 nov 2025, DERDEN). Of dat voor een Steam-demo zonder webversie ook werkt, weet ik niet (GOK). Voorstel: de hoofdchat neemt Hats mee in de Reddit-aanpak van besluit 16 nov 16:44, met één post op de dag dat de demo openbaar is (4 jan), niet eerder.
