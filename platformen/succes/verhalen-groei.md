@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 23, één kanaal met Click Joints en Ebb door elkaar, klaar 16 nov 2026 ±22:30 UTC). Volgende: Ebb en Ebb Calm als paar meten zodra Calm openbaar is (16 nov 22:00 UTC nog niet: de makerslijst toont 1 app, Ebb 0 downloads, GEZIEN), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 24, Chrome Web Store: hoeveel gebruikers krijgt een nieuwe extensie van een kleine maker uit de winkel zelf (lanceerberichten op r/chrome_extensions naast de winkelpagina), 16 nov 2026 23:10 UTC. Daarna: Ebb en Ebb Calm als paar meten (Calm staat sinds 16 nov in de winkel, eerst een week laten lopen), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov).
 
 Nieuwste bovenaan.
 
