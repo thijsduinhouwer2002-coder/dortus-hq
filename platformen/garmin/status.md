@@ -1,5 +1,13 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±22:30 UTC, run 124. Hat Tower 1.1 en Ebb 1.1 zijn groen en bekeken, de namen staan bij Daan. De reeks: plaatjes en letters gemeten, getekende banden zijn de goede keuze voor Tij. Bij Thijs ligt nog hetzelfde als een uur geleden.**
+  - **Winkel 21:56 UTC, gezien:** Ebb 1.0.0, 0 downloads, 0 reviews, 40 horloges, vlag "nieuw" aan. Ebb Calm 404. Maker Dortus heeft 1 openbare app: Hat Tower staat er niet.
+  - **Hat Tower 1.1.0 (tak `claude/garmin-gloop-11`, b62bbdc):** run 43955942280 groen. Van de zes nieuwe horloges beeld 01, 10, 20 en 28 als blad bekeken: alles binnen de rand, Enduro 3 zegt START, de andere vijf PRESS. Wacht op Daan. Geen release voor 1.0.0 in de winkel staat.
+  - **Ebb 1.1.0 (tak `claude/garmin-ebb-11`, 3dae428):** plaatjesrun 43945939338 groen, `COMPILEERT horloges: 57`, 157 scènes op elk van de twee Instincts 3; 12 scènes per Instinct als blad bekeken, niets afgesneden. Wacht op Daan; daarna klaar als update na 1.0.1.
+  - **Reeks, proef 2 (bc72807, run 43965812334 groen), gezien:** op nieuwe horloges kost een schermvullend plaatje ±1.300 bytes van de app, op de Forerunner 245 68.544 (5.512 over), op de Forerunner 55 22.576. Letters 320 tot 5.328 bytes. Tabel in `reeks.md`. Daan zei ja op Tij (Mila), Mila heeft het blad met maten.
+  - **Reeks, NIET gezien:** het slaapbeeld (schermafbeelding kwam te vroeg, hersteld), de echte letters van Mila (proef 3, runs 43968130318 en 43968184893), een echt horloge.
+  - **Cijfers:** Ebb 0 downloads, 0 reviews, 0 verkopen (live sinds 12 nov). Hat Tower en Ebb Calm niet live.
+  - **Wacht op:** Thijs (upload Ebb 1.0.1 en Hat Tower, prijs, Ebb Calm); Daan (Hat Tower 1.1, Ebb 1.1, Tij proef 3); Mila (maten 208, 218, 240); Chris (naam reeks, video-link).
 - **16 nov ±21:25 UTC, run 123. Hat Tower 1.0.0 is KLAAR voor Thijs (release gemaakt, blok op zijn lijst). Ebb 1.0.1 ligt nog bij Thijs. De proef voor de reeks is binnen: de heuvellijn kan.**
   - **Hat Tower, gezien:** run 43955011549 (07b9999, met de hand gestart) vier jobs groen. Release `gloop-hat-tower-v1.0.0`, `GloopHatTower.iq` 4.337.417 bytes, sha256 `a3ba3b2308c9582ab42edf02b6f05769fb3079deac122516aab63733f6f5f486`, zelf opgehaald en gemeten, gelijk aan het sha-bestand in de release. Ja van Daan op het spel, alle 52 horloges en de vijf beelden van Mila (beeld 1 en 5 zelf bekeken). Plakbestanden hebben het horlogeblok van Chris (8d).
   - **Hat Tower, NIET gezien:** het pakket uitgepakt (geen 7z hier), het formulier van Garmin, een echt horloge. Geen mens speelde het spel.
