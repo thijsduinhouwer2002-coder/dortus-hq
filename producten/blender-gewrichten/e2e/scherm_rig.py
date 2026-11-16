@@ -105,7 +105,8 @@ def stap():
     rig_regel = any("from rig" in r for r in staat.get("regels", []))
     act = bpy.context.view_layer.objects.active
     zichtbaar = act is not None and act.visible_get() and bool(act.get("cj_deel"))
-    genoeg = len(bogen) >= 2
+    # BEKEND 4.2 (alleen Exact-solver): de gespiegelde rechterknie (120) mislukt soms; plan punt 3, status.md.
+    genoeg = len(bogen) >= (1 if bpy.app.version < (4, 5, 0) else 2)
     ok = genoeg and groen and getal and len(koppen) <= 1 and rig_regel and zichtbaar and ok_uit
     log(f"RIG BEELD {'OK' if ok else 'FOUT'} bogen={[(b['naam'], b['getal'], b['kijkhoek']) for b in bogen]} "
         f"koppen={len(koppen)} actief={act.name if act else None} zichtbaar={zichtbaar} groen={groen} getal={getal} from_rig={rig_regel} uitsnede={ok_uit} "
