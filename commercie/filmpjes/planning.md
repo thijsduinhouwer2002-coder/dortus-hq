@@ -13,9 +13,9 @@ Door Chris, 16 nov 2026, run 66. Opdracht: hoofdchat 16 nov 19:55 (`berichten/ch
 
 | # | Bestand | Kanaal | Daan | Thijs | Volgorde |
 |---|---|---|---|---|---|
-| 7 | `click-joints-7-tip-day-1-clearance.mp4` (12,5 s) | YT @Dortusapps, TikTok @dortusstudio | ja (16 nov 05:31, moet verwerkt run 52) | nog niet | 1 |
-| 9 | `ebb-tip-1-eyes-closed.mp4` (11 s) | YT @Dortusapps, TikTok @dortusstudio | ja (16 nov 09:50) | nog niet | 2 |
-| 2 | `click-joints-2-satisfying-bend.mp4` (10,2 s) | YT, TikTok @dortusstudio | ja | nog niet | 3 |
+| 7 | `click-joints-7-tip-day-1-clearance.mp4` (12,5 s) | YT @Dortusapps, TikTok @dortusstudio | ja (16 nov 05:31, moet verwerkt run 52) | **INGEPLAND YouTube di 17 nov 16:00 NL** (Metricool, hoofdchat 16 nov 21:16; TikTok volgt na hernoemen screencuts.co) | 1 |
+| 9 | `ebb-tip-1-eyes-closed.mp4` (11 s) | YT @Dortusapps, TikTok @dortusstudio | ja (16 nov 09:50) | **INGEPLAND YouTube wo 18 nov 16:00 NL** (Metricool, hoofdchat 16 nov 21:16; TikTok volgt na hernoemen screencuts.co) | 2 |
+| 2 | `click-joints-2-satisfying-bend.mp4` (10,2 s) | YT, TikTok @dortusstudio | ja | **INGEPLAND YouTube do 19 nov 16:00 NL** (Metricool, hoofdchat 16 nov 21:16; TikTok volgt na hernoemen screencuts.co) | 3 |
 | 5 | `click-joints-5-pro-hinge-stops.mp4` (14,7 s) | YT, TikTok @dortusstudio | ja met moet, verwerkt run 49; laatste blik Daan open | nog niet | 4 (mag nu, Pro staat op Gumroad, hoofdchat 18:50) |
 | 4 | `ebb-4-sea-rises.mp4` (14,3 s) | YT, TikTok @dortusstudio | nee tot rond op donker, verwerkt run 49; laatste blik Daan open | nog niet | 5 |
 | 1 | `click-joints-1-bend-far-enough.mp4` (16,8 s) | YT, TikTok @dortusstudio | ja met moet, verwerkt run 49; laatste blik Daan open | nog niet | 6 |
@@ -75,3 +75,6 @@ Waarom deze volgorde: de tips eerst (hoofdchat 16 nov 05:00: vier op vijf filmpj
 ## Nog niet in deze lijst
 - De render van de Pro-knie (klus hoofdchat 16:40): staat in `commercie/blender-click-joints/render/`, komt erbij na Daan.
 - Filmpjes 10 tot 12 (Hats): na Daan, alleen @hatsofthefallen.
+
+## Sinds 16 nov 21:12
+Thijs beslist alleen nog over geld. Wat Daan keurde, plant de hoofdchat zelf in (YouTube Short, 16:00 NL, één per dag). Op YouTube staat "link below" in plaats van "link in bio".
