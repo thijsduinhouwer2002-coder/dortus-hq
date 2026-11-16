@@ -29,7 +29,7 @@ def achter(N):
     gl = Image.new("L", (N, N), 0)
     ImageDraw.Draw(gl).ellipse([-0.25 * N, 0.25 * N, 1.1 * N, 1.5 * N], fill=255)
     gl = gl.filter(ImageFilter.GaussianBlur(N * 0.18))
-    mid, rand = ((90, 34, 10), (8, 4, 3)) if FEL else ((66, 34, 18), (16, 9, 6))
+    mid, rand = ((150, 60, 14), (10, 5, 3)) if FEL else ((66, 34, 18), (16, 9, 6))
     im = Image.composite(Image.new("RGBA", (N, N), mid + (255,)), Image.new("RGBA", (N, N), rand + (255,)), gl)
     # schuine lichtbundel van linksboven, zoals in het spel
     lam = Image.new("L", (N, N), 0); d = ImageDraw.Draw(lam)
@@ -40,7 +40,7 @@ def achter(N):
     if FEL:   # spotlicht: oranje bundel, met een witgele kern achter de toren
         im = Image.composite(Image.new("RGBA", (N, N), (255, 140, 40, 255)), im, lam.point(lambda v: min(255, int(v * 1.1))))
         kern = Image.new("L", (N, N), 0)
-        ImageDraw.Draw(kern).ellipse([N * 0.22, N * 0.02, N * 0.72, N * 0.62], fill=255)
+        ImageDraw.Draw(kern).ellipse([N * 0.14, -N * 0.05, N * 0.80, N * 0.70], fill=255)
         kern = kern.filter(ImageFilter.GaussianBlur(N * 0.10))
         im = Image.composite(Image.new("RGBA", (N, N), (255, 226, 150, 255)), im, kern.point(lambda v: int(v * 0.85)))
     else:
@@ -120,12 +120,13 @@ if __name__ == "__main__":
         fel.resize((n, n), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, f"launcher-{n}-r5-fel.png"))
     # variant D: kroon bovenop (zijn punten lezen als silhouet tegen het licht), hoge hoed balanceert op de punt van de puntmuts
     om, top = icoon(1000, gb=0.50, cx=0.44, hw=0.33, hoeken=(-6, 14, 30), schuif=(0.0, 0.0, 0.06), licht=0.008, voet=1.07, rij=(1, 7, 4))
-    print("top D", top)
     om.resize((500, 500), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, "icoon-500-r5-kroon-boven.png"))
+    # KEUS ronde 5 (variant F): zelfde toren, Gloop groter met heel gezicht (kijker 4: "slijmpje zie je bijna niet"),
+    # lichter spotlicht (kijkers 2, 3 en 5: "bruin is dof")
+    keus, top = icoon(1000, gb=0.62, cx=0.46, hw=0.28, hoeken=(-6, 14, 30), schuif=(0.0, 0.0, 0.06), licht=0.008, voet=1.02, rij=(1, 7, 4))
+    print("top keus", top)
+    keus.resize((500, 500), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, "icoon-500-keus.png"))
     for n in (40, 60, 80):
-        om.resize((n, n), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, f"launcher-{n}-r5-kroon-boven.png"))
-    strak = big   # hele icoon: met de grote Gloop leest het oog ook op 40 px, en de toren blijft heel
-    for n in (40, 60, 80):
-        strak.resize((n, n), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, f"launcher-{n}-r5.png"))
+        keus.resize((n, n), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, f"launcher-{n}-keus.png"))
     import shutil; shutil.rmtree(os.path.join(UIT, "_kit"), ignore_errors=True)
     print("klaar")

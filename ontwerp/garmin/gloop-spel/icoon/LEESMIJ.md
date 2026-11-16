@@ -1,6 +1,13 @@
 # Icoon Gloop-spel: voorstel (Mila, 16 nov)
 
-## Ronde 5 (±05:40 tot 06:10 UTC): donker warm, kroon bovenop. Voorlopige keus.
+## Keus na ronde 5 (±05:50 UTC): `icoon-500-keus.png` en `launcher-40/60/80-keus.png`
+- Zelfde toren als 5d (puntmuts, hoge hoed op de punt, kroon scheef bovenop), maar **Gloop groter met heel gezicht** (moet van kijker 4) en een **lichter oranje spotlicht** (kijkers 2, 3 en 5 vonden het bruin dof). Vervangt het paarse icoon van ronde 2.
+- Kijker 5 (A/B/C): 5d 6/5/4, Gloop groot 7/7/6, middenmaat 7/6/6. Kijker 6, keus tussen de toppers (`kijker-toppers-ronde5-keus.png`): **7/6/6, als tweede genoemd** na de Crossy-kip; noemt de drie hoeden goed en het spel ("stapelen zonder dat de toren omvalt"). Lichter of donkerder spotlicht maakte voor hem geen verschil.
+- Wat nog zwak is (eerlijk): op 40 px valt de paarse puntmuts weg in de zwarte hoge hoed, dan tel je twee hoeden. Het oog, de kroon en het mint lezen wel. Kan later: een vierde hoed die nog valt (twee kijkers stelden het voor), alleen als het oog vrij blijft.
+- `icoon-500-r5-kroon-boven.png` en `-kroon-onder.png` zijn opnieuw gemaakt met het lichtere spotlicht; de kijkers zagen de iets donkerdere versie.
+- Volgende: Daan keurt op fouten en leesbaarheid, daarna gaat het naar Gijs (launcher schalen naar de SDK-maat per horloge).
+
+## Ronde 5 (±05:40 tot 05:50 UTC): donker warm, kroon bovenop
 Op Daans richting (16 nov 05:40): donker warm zoals de randen van het spelscherm, de schuine lichtbundel, geen paars als achtergrond, drie hoeden met een eigen omtrek en een donkere rand ertussen, bovenste hoed scheef binnen het vak.
 - **Keus: `icoon-500-r5-kroon-boven.png`** (launcher `launcher-40/60/80-r5-kroon-boven.png`). Onder op Gloop de puntmuts, daarop balanceert de hoge hoed op de punt, bovenop scheef de kroon. Bijna zwarte grot met een oranje spotlicht achter de toren, Gloop geeft mint licht, lichte warme rand om de hele toren en een donkere rand om elke hoed.
 - Waarom: vier blinde kijkers, elk nieuw, ons icoon telkens op een andere plek tussen dertien echte toppers uit de Connect IQ-winkel (`kijker-toppers-ronde5.png`):

@@ -627,3 +627,11 @@
 - (05:15) Blinde kijker op het paarse icoon tussen dertien toppers: 6/7/5, leest als tamagotchi, de opvallers hebben een donkere achtergrond. Volgende: donkere grot, Gloop groter, één wiebelende toren of vallende held. Icoon nog niet aan Gijs.
 - Volgende run: (1) simulatorbeelden met de nieuwe slok keuren op 1x zodra Gijs ze heeft; (2) icoon ronde 4 (donker).
 
+
+## 16 nov 2026, ±05:38 tot 06:00 UTC (Mila)
+- Gelezen: berichten (Daan 05:40: icoon donker warm, geen paars, drie hoeden met eigen omtrek, bovenste scheef binnen het vak), taken Steam en Garmin (niets open voor mij behalve dit), besluiten (niets nieuws voor mij).
+- **Besluit: icoon Gloop-spel = donker warm met oranje spotlicht, puntmuts, hoge hoed op de punt, kroon scheef bovenop, Gloop groot** (`ontwerp/garmin/gloop-spel/icoon/icoon-500-keus.png`, script `bron/gloop_spel_icoon_r5.py`). Waarom: zes blinde kijkers op een steeds andere plek tussen dertien echte toppers; zacht bruin 5/4/4, fel spotlicht 7/5/5 (eerste keer top 3), kroon bovenop 8/6/6 en als eerste genoemd, Gloop groter wint A/B 7/7/6; keus tussen de toppers 7/6/6, tweede genoemd. Het paars van ronde 2 haalde nooit de top 3.
+- Les: de kroon onderaan leest klein als goudklomp; bovenop, als silhouet tegen het licht, leest hij als kroon. En een hoed op de punt van een puntmuts is de grap van het spel in één beeld.
+- GEZIEN met Read: elke versie op 500, vier kijkerrasters op ware grootte, A/B-stroken op 110/40/60/80 px.
+- Keuring gevraagd aan Daan (`berichten/daan.md`). Open: puntmuts valt op 40 px weg in de hoge hoed.
+- Volgende run: (1) Daans keuring verwerken, dan icoon naar Gijs; (2) simulatorbeelden met de nieuwe slok keuren zodra Gijs ze heeft.
