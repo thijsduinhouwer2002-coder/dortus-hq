@@ -41,15 +41,19 @@ staaf = obj_uit(M.primitive_cylinder_add, 'staaf', botm, radius=0.06, depth=0.56
 kn = [obj_uit(M.primitive_uv_sphere_add, f'kn{i}', botm, radius=0.095, location=(sx * 0.3, 0, sz * 0.07)) for i, (sx, sz) in enumerate(((-1, 1), (-1, -1), (1, 1), (1, -1)))]
 groep('bot', [staaf] + kn, (-0.5, 0, 0), (0, -25, 0))
 
-# 3 kistje: kist met bolle deksel en gouden slot, iets gekanteld
+# 3 kistje (proef 2): 20 procent groter, deksel op een kier met een glimp goud, zodat het "hier zit schat" zegt
 kist = obj_uit(M.primitive_cube_add, 'kist', houtm, size=1, location=(0, 0, 0))
 kist.scale = (0.44, 0.3, 0.26)
-dek = obj_uit(M.primitive_cylinder_add, 'deksel', houtm, radius=0.15, depth=0.44, location=(0, 0, 0.13), vertices=24, rotation=(0, math.radians(90), 0))
-dek.scale = (1, 1, 1); dek.scale[0] = 1
-bnd = [obj_uit(M.primitive_cube_add, f'beslag{i}', goudm, size=1, location=(x, 0, 0.06)) for i, x in enumerate((-0.16, 0.16))]
-for b in bnd: b.scale = (0.04, 0.32, 0.42)
-slot = obj_uit(M.primitive_cube_add, 'slot', goudm, size=1, location=(0, -0.16, 0.08)); slot.scale = (0.08, 0.04, 0.1)
-groep('kist', [kist, dek, slot] + bnd, (0.5, 0, -0.04), (0, 12, 0))
+bnd = [obj_uit(M.primitive_cube_add, f'beslag{i}', goudm, size=1, location=(x, 0, 0)) for i, x in enumerate((-0.16, 0.16))]
+for b in bnd: b.scale = (0.04, 0.31, 0.27)
+slot = obj_uit(M.primitive_cube_add, 'slot', goudm, size=1, location=(0, -0.16, 0.05)); slot.scale = (0.08, 0.04, 0.1)
+# schat binnenin: muntjes die net boven de rand uitsteken
+munt = [obj_uit(M.primitive_uv_sphere_add, f'munt{i}', goudm, radius=0.075, location=(x, -0.04 + 0.05 * (i % 2), 0.13 + 0.02 * (i % 3))) for i, x in enumerate((-0.15, -0.07, 0.0, 0.08, 0.15))]
+# deksel scharniert aan de achterkant en staat 32 graden open
+dek = obj_uit(M.primitive_cylinder_add, 'deksel', houtm, radius=0.15, depth=0.44, location=(0, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0))
+dekb = [obj_uit(M.primitive_cylinder_add, f'dekbeslag{i}', goudm, radius=0.155, depth=0.04, location=(x, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0)) for i, x in enumerate((-0.16, 0.16))]
+scharnier = groep('scharnier', [dek] + dekb, (0, 0.15, 0.13), (40, 0, 0))
+kg = groep('kist', [kist, slot, scharnier] + bnd + munt, (0.5, 0, -0.06), (-14, 10, 0)); kg.scale = (1.2, 1.2, 1.2)
 
 # 4 wortel: dikke oranje wortel met drie loofsprieten, met de punt naar beneden
 wort = obj_uit(M.primitive_cone_add, 'wortel', wortm, radius1=0.12, radius2=0.015, depth=0.62, location=(0, 0, 0), vertices=24, rotation=(math.radians(180), 0, 0))
