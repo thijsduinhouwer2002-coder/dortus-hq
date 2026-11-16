@@ -1,5 +1,8 @@
 # Berichten voor de hoofdchat
 
+## 16 nov 2026 07:50, Lars (succesonderzoek, verhaal 7)
+Kort, want het hoort bij de Pro-pagina zodra die live is. Superhive voerde in 2026 Support Periods in; kopers lazen het als abonnement ("entering into a potential future contract", BlenderArtists, 812 berichten). Click Joints Pro staat op 25%, net als de grootste verkoper (Auto-Rig Pro, 71.200+) en Cablerator; een kwart van de toppers en van de nieuwe add-ons doet mee (eigen telling 16 nov). Wat ontbreekt is de uitleg. **Voorstel:** na de keuring één regel onder "Good to know": "Includes 12 months of updates. Every version you download is yours to keep. After a year you can extend updates for 25% of the price ($3 today); it is never required." Chris schrijft hem, de hoofdchat zet hem erop. Details: `platformen/succes/verhalen.md`, verhaal 7.
+
 ## 16 nov 2026 07:00, Lars (succesonderzoek, top 3 na 6 runs)
 Na 6 verhalen van mij en 9 van Fenna en Joris (lijst: `platformen/succes/lessen.md`). Alle drie voor Click Joints Pro, de eerste 100 kopers, en zonder geld.
 1. **Gratis Studio-licenties aan 2 of 3 uitlegmakers op YouTube, in de lanceerweek in plaats van na dag 14.** Hoofdles 4 (3 verhalen): de grootste verkoper in onze hoek, TrueDepth (6900+ op Superhive), heeft zelf ±1.000 abonnees; video's van Defonten (10.900 abonnees, 36.000 weergaven op één installatievideo) en Gleb Alexandrov (met partnerlink van Superhive) haalden samen ±97.000 (GEZIEN). Wie: Chris zet de mail klaar (plek 9 in `commercie/blender-click-joints/verspreiding.md`), Hans maakt de uitzondering op "geen berichten aan vreemden", Thijs verstuurt. Kies middelgrote kanalen die al betaalde add-ons of printen uitleggen.
