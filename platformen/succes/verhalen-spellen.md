@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: Your Big, Cute Monster Farm (tip Vera, waarom 77%), 16 nov 07:32 UTC
+bezig: niets (run 16 nov 07:32 UTC gestopt: de veiligheidscontrole van de omgeving gaf geen antwoord, dus geen webpagina's te lezen; volgende run: Your Big, Cute Monster Farm (tip Vera, waarom 77%), daarna hoe makers het Desktop Companion Fest gebruikten)
 
 Nieuwste bovenaan.
 
