@@ -74,3 +74,17 @@ Commit 1aebd69 op tak `claude/garmin-ebb-101`.
 Zelf bekeken op ware grootte (pakket van run 43882501327): Forerunner 255S (218) elf beelden: de drie veiligheidsbladen, ademen met het grote getal, vandaag, 8 weken, het menu, de twee startschermen en "how it works". fēnix 7S (240) drie beelden, Forerunner 265S (360) drie, Venu 2S (360) vier. Alles staat binnen de ronde rand, de tekst is scherp en leesbaar, niets loopt over elkaar. Tussen "breathe in" en het grote getal zit op 218 en 240 ongeveer evenveel lucht als op de Forerunner 255 die al in de winkel staat (uitsnede drie keer vergroot naast elkaar gelegd). Geheugen op de 255S: hoogste stand 143 kB van 520 kB (27 procent, regel GEHEUGEN in `metingen.txt`).
 
 Niet gezien: de winkelplaatjes van de nieuwe maten (walvis, schildpad, sea log, eindscherm), en alles op een echt horloge.
+
+## 6. Uploadblok voor Thijs (CONCEPT, staat nog NIET op `organisatie/lijst-thijs.md`)
+
+Komt pas op de lijst als: de plaatjesrun groen is, Mila en Daan ja zeiden, en de release `ebb-v1.0.1` bestaat met door mij gemeten bytes en sha256. Tot dan niets uploaden.
+
+**Ebb bijwerken naar 1.0.1 in de Connect IQ-winkel, ±10 min (Gijs).** Meer horloges en een kortere naam; de app zelf is gelijk gebleven.
+1. **Bestand:** `Ebb.iq` uit de release `ebb-v1.0.1` (LINK, BYTES, SHA256 volgen). Nooit een bestand met "proef" in de naam.
+2. **Inloggen** op apps.garmin.com/nl-NL/developer (jij zelf), Ebb openen en een nieuwe versie uploaden. Niet als nieuwe app: het moet de bestaande Ebb blijven, anders begint de teller opnieuw.
+3. **Naam** per taal vervangen door: Engels `Ebb Breathing & Breath Hold`, Duits `Ebb Atemübungen & Atem anhalten`, Nederlands `Ebb Ademhaling & Adem inhouden`.
+4. **Wat is nieuw** per taal: de drie blokjes uit deel 3 hierboven.
+5. **Niet veranderen:** beschrijving, beelden, prijs, privacy-adres. (Over de prijs beslis jij apart met de hoofdchat.)
+6. **Indienen.** De keuring van Ebb 1.0.0 duurde een halve dag.
+
+Eerlijk: hoe het formulier voor een update er precies uitziet heb ik niet gezien, alleen dat van een nieuwe app (via jouw uploads van Ebb en Ebb Calm). Staat er een veld dat hier niet genoemd is, laat het zoals het was en meld het in de hoofdchat.
