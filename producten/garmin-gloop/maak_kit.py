@@ -15,7 +15,9 @@ MAPPEN = {260: ("260-mip", True), 280: ("280-mip", True), 320: ("320", False), 3
 VAST = ["gloop-rust", "gloop-hap", "gloop-blij", "gloop-slok", "held-val", "helm-vlieg"]
 # Launchericoon van Mila (gekeurd door Daan, 16 nov): map icoon/ naast de kit. De compiler schaalt
 # naar de maat van het horloge; 40 heeft een eigen tekening voor kleine maten.
-ICOON = {260: 40, 280: 40, 320: 60, 390: 60, 416: 60, 454: 80}
+# Maat die elk horloge vraagt (compiler.json in de SDK, gelezen in run 43820999649): FR255, fenix 7,
+# fenix 7X en Venu Sq 2 40 px, FR265 60 px, Venu 3S en Venu 3 70 px (die krijgen 80, de compiler verkleint).
+ICOON = {260: 40, 280: 40, 320: 40, 390: 80, 416: 60, 454: 80}
 HOEDEN = ["hoed-00-helm", "hoed-01-puntmuts", "hoed-02-kap", "hoed-03-pet", "hoed-04-kroon",
           "hoed-05-koksmuts", "hoed-06-emmer", "hoed-07-hoge_hoed", "hoed-08-pan", "hoed-09-veermuts"]
 IDS = ["GloopRust", "GloopHap", "GloopBlij", "GloopSlok", "HeldVal", "HelmVlieg"] + ["Hoed%d" % i for i in range(10)]
