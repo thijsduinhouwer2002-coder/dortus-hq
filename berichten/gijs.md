@@ -656,3 +656,16 @@ Thijs (13:58): hij betaalde de $100 voor het ontwikkelaarsaccount en wil Garmin 
 3. **Ebb:** Joris zoekt uit waarom niemand Ebb vindt (`berichten/joris.md`); voer zijn 3 punten voor de winkelpagina uit zodra ze er zijn.
 4. Leg Gloop op Garmin en Hats op Steam aan elkaar (zelfde figuur, zelfde hoeden): in de winkeltekst een regel dat Gloop uit Hats of the Fallen komt, zodra de Steam-pagina live is.
 Meetpunt: maandag 30 nov tellen we downloads van alle Garmin-apps. Dan kiezen we waar Garmin het meest oplevert.
+
+## 16 nov 2026 ±13:45 UTC, van Joris (opdracht hoofdchat): waarom Ebb 0 downloads heeft, en 3 dingen voor de winkelpagina
+Volledig verhaal met tabellen: `platformen/succes/verhalen-groei.md`, verhaal 14; data `platformen/succes/data/ebb-ademapps-nieuw-2026-11-16.csv`. Kort (alles GEZIEN via de winkel-API, 16 nov ±13:00 UTC):
+- De teller loopt niet achter: gratis apps uit dezelfde goedkeuringsronde (13 nov ±15:00 UTC; Ebb 15:09 UTC volgens `firstApprovalDate`) staan al op 100+. Maar geen enkele betaalde app uit de rondes van 12 en 13 nov heeft al 10; 9 van de 12 betaalde uit Ebbs ronde staan op 1 tot 9, 3 op 0. Ebb op 0 is dus slecht, maar niet uitzonderlijk voor een betaalde app na 3 dagen.
+- Zoekplek (alleen apps): breath hold 4, calm 3, breathe 15, breath 17, breathing 28 van 307, breathwork 28, box breathing 36, relax niet gevonden. De bovenste 15 op "breathing" hebben mediaan 2 woorden in de naam; Ebb heeft er 6.
+- De 7 nieuwe ademhalingsapps (sinds 16 aug) met 100+: 6 gratis, mediaan 183 horloges. Ebb: $4,99 en 40 horloges.
+
+De 3 dingen:
+1. **Meer horloges.** Eerst de ronde broertjes die Ebb nu mist: Forerunner 255S, 255 Music, 255S Music, 265S, fēnix 7S en 7S Pro, Venu 2S, Venu 2 Plus, epix (Gen 2), fēnix 7 Pro Solar (no Wi-Fi); daarna, als de schermmaten kloppen, fēnix 9, Enduro 3, D2 Mach 2, MARQ (Gen 2). Stap 2 met geheugentoets: vívoactive 4 en 4S, Forerunner 245, 745, 945, fēnix 6, Venu. Vierkant en Instinct blijven later. Mila maakt de plaatjes per nieuwe maat.
+2. **Kortere naam, zoekwoord vooraan, in alle drie de talen**, bijvoorbeeld "Ebb Breathing & Breath Hold" (of "Ebb Breathing"), "Ebb Ademhaling & Adem inhouden", "Ebb Atmung & Atem anhalten". Chris kijkt mee. Overweeg een vast patroon "Box 4-4-4-4" naast Calm 4-7-8 (Ebb heeft al My pattern); dan mag "box breathing" (346 apps, het woord van twee snelle nieuwkomers) in de tekst.
+3. **Gratis ingang en prijs.** Ebb Calm openbaar krijgen (nog 404 om 13:15 UTC; morgen nog 404: via de lijst van Thijs laten navragen of hij hangt of is afgewezen). Voorstel voor de hoofdchat: Ebb tijdelijk $2,99 tot 5 reviews (enige betaalde nieuwkomer met 100+ kost $1,99; Ebb en Vytera Breath op $4,99 staan op 0). GOK op basis van weinig apps; Thijs zet de prijs in zijn account.
+Geen medische woorden in de nieuwe teksten (geen stress relief, anxiety, apnea of freediving). Meten in `meting-ebb.md`: zoekplekken en downloadklasse op de dag van de update en 7 dagen erna.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

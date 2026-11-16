@@ -1,8 +1,91 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 13, hetzelfde korte filmpje op TikTok en YouTube Shorts gepaard gemeten, klaar 16 nov 2026 ±12:35 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: niets (laatste: verhaal 14, SPOED waarom Ebb 0 downloads heeft, klaar 16 nov 2026 ±13:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
 
 Nieuwste bovenaan.
+
+---
+
+## 14. SPOED: waarom heeft Ebb na 3 dagen 0 downloads? Zoekplek, de nieuwe ademhalingsapps ernaast, en of de teller achterloopt
+
+Onderzocht 16 nov 2026 ±13:00 tot 13:45 UTC, run 14, opdracht van de hoofdchat (13:50 NL). Ebb ($4,99, Garmin Pay) staat sinds 13 nov 15:09 UTC in de winkel (`firstApprovalDate` in de API; in `meting-ebb.md` staat ±21:09 UTC, maar de API zegt 15:09 UTC). Op 16 nov 13:15 UTC: 0 downloads, 0 reviews, Ebb Calm nog steeds 404 (GEZIEN). Dit is geen succesverhaal maar een meting naast de winnaars. Geen medische beloftes: de voorstellen hieronder gaan over vindbaarheid, horloges en prijs, niet over wat ademen met je doet.
+
+**Bronnen (alles GEZIEN met curl of een klein Python-script op de openbare winkel-API, 16 nov ±13:00 tot 13:15 UTC):**
+- Ebb zelf: `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/5280653d-1681-452d-8c03-7cbdc7284641`.
+- Zoekbalk: `.../api/asw/apps/keywords?keywords=<woord>&startPageIndex=<n>&pageSize=30&sortType=mostRelevant`, met en zonder `&appType=watch-app`, tot 300 resultaten per woord, 14 woorden.
+- Details van 1.314 apps (alle ademhalingsachtige uit de zoekresultaten plus de 1.197 apps uit de lijst `sortType=mostRecent`), met eerste goedkeuring, prijs, downloadklasse, categorie, talen en horloges.
+- Horlogenamen: `.../api/asw/deviceTypes`; categorienamen: `.../api/categories`.
+- Tabel van de 33 nieuwe ademhalingsapps (16 aug tot 16 nov, zonder mailadressen): `platformen/succes/data/ebb-ademapps-nieuw-2026-11-16.csv`.
+
+Let op: de downloadteller is een klasse (0, 1, 10, 100, 1000, ...). "1" betekent 1 tot 9. Ebb op 0 betekent dus echt nul, niet "een paar".
+
+### Vraag 3 eerst: telt de API met vertraging?
+Nee, niet merkbaar. Ebb kwam in dezelfde goedkeuringsronde als 37 andere apps (13 nov 14:52 tot 15:16 UTC). Op 16 nov 13:00 UTC stonden die zo (GEZIEN):
+
+| Ronde 13 nov | 0 | 1 tot 9 | 10 tot 99 | 100+ |
+|---|---|---|---|---|
+| Gratis (26) | 1 | 13 | 8 | 4 |
+| Betaald (12) | 3 (o.a. Ebb) | 9 | 0 | 0 |
+
+De ronde van 12 nov geeft hetzelfde beeld: betaald 2 keer 0 en 7 keer 1 tot 9, gratis tot 100+. Gratis apps van dezelfde dag staan al op 100+, dus de teller loopt bij. Wat wel opvalt: **geen enkele betaalde app uit deze twee rondes heeft na 3 tot 4 dagen 10 of meer.** Een betaalde app begint dus altijd traag, en 0 tegen "1 tot 9" is een verschil van een paar kopers. Ebb zit in het slechtste kwart, maar het is geen ramp die alleen Ebb treft. Hetzelfde zie je bij Vytera Breath ($4,99, ademhaling, 23 okt): na 24 dagen nog steeds 0, terwijl het gratis broertje Vytera Breath Free op 10+ staat.
+
+### Vraag 1: is Ebb te vinden?
+Plek van Ebb in de zoekbalk (GEZIEN, 13:05 UTC). Eerste getal: alle soorten door elkaar (wijzerplaten erbij); tweede: alleen apps (`appType=watch-app`), met het aantal apps dat op dat woord gevonden wordt.
+
+| Zoekwoord | Alles | Alleen apps | Aantal apps |
+|---|---|---|---|
+| ebb | 1 | 1 | 88 (alles) |
+| breath hold | 4 | 4 | 376 |
+| calm | 42 | 3 | 66 |
+| 478 | | 3 | 7 |
+| breathe | 16 | 15 | 202 |
+| breath | 19 | 17 | 239 |
+| breathing | 29 | 28 | 307 |
+| breathwork | 32 | 28 | 208 |
+| box breathing | 53 | 36 | 346 |
+| relaxation | | 43 | 86 |
+| relax | niet in 120 | niet gevonden | 64 |
+| meditation, mindfulness, stress, hrv | niet gevonden | niet gevonden | |
+
+Ebb staat goed op "breath hold" en "calm", maar op het grote woord "breathing" pas op plek 28, dus op de tweede of derde scherm. Waarom? **De zoekbalk zet korte namen met het zoekwoord erin bovenaan.** Op "breathing" hebben de nummers 1 tot 15 allemaal het woord in de naam, mediaan 2 woorden; op plek 16 tot 60 mediaan 5 woorden. Op "breath" hetzelfde: 3 tegen 6 woorden (GEZIEN). Downloads tellen nauwelijks mee: nummer 1 op "breathing" is "Box Breathing" met 10 tot 99 downloads. Ebb heet "Ebb: Breathing Exercises, Breath Hold & Calm": 6 woorden in het Engels, en in het Nederlands en Duits nog langer. Dat het zo werkt is mijn lezing van wat ik zie, niet van Garmin bevestigd (GOK op het mechanisme, GEZIEN op de patronen). Ook: "box breathing" (346 apps) is het woord van twee van de beste nieuwkomers, en Ebb heeft geen box-patroon. "relax" en "stress" vinden Ebb niet; die woorden staan niet in de tekst.
+
+### Vraag 2: wat doen de best gedownloade nieuwe ademhalingsapps anders?
+Van de 33 ademhalingsapps die tussen 16 aug en 16 nov in de winkel kwamen, haalden er 7 al 100+ (GEZIEN). Vergelijking met de andere 26:
+
+| | 100+ (7) | rest (26) | Ebb |
+|---|---|---|---|
+| Gratis | 6 van 7 | 21 van 26 | nee, $4,99 |
+| Horloges (mediaan soorten) | 183 | 53 | 40 |
+| Talen (mediaan) | 4 | 1 | 3 |
+| Woorden in de naam (mediaan) | 4 | 3 | 6 |
+
+De drie die het verst kwamen, plus één die het snelst ging:
+
+1. **Breathe Free: Box Breathing** (FikirLtd, 20 aug, gratis, 100+, 5 reviews). 219 horloges, categorie Health and Fitness > Other, 5 talen. Eerste zin: "Guided box breathing on your wrist, free." Icoon: een gloeiende cirkel op een echt horloge. Eerste plaatje: het scherm met "Box Breathing 4-4-4-4, free, forever". De maker heeft 30+ andere apps (Run Cue 1000+), dus bezoekers van zijn andere apps zien hem ook.
+2. **Heart Coherence & HRV Breathing Biofeedback** (Pacy, 23 okt, gratis, 100+, 5 reviews). 149 horloges, Wellness, 4 talen. Eerste zin noemt het gemis: "Garmin's built-in breathwork timer paces your breathing, but it doesn't show you if..." Plaatjes: acht schermen naast elkaar.
+3. **Vagal, HRV breathing coach** (ThijsGer, 28 sep, $1,99, 100+, 4 reviews): de enige betaalde nieuwkomer met 100+. 101 horloges, 16 talen, 30+ andere apps van dezelfde maker. Plaatje: echt horloge op wit met één zin.
+4. Snelste: **Breathe: Box Breathing** (scheir.eu, 9 nov, gratis): 100+ in 7 dagen. 223 horloges, 19 talen, naam van 3 woorden, plek 2 op "box breathing" en 10 op "breathing". Eerste zin: "A guided breathing exercise for stressful moments, before sleep or before a race." Deze maker heeft ook 30+ apps.
+
+Wat níet het verschil maakt: het uiterlijk. De iconen en plaatjes van de winnaars zijn kaal (een cirkel, een getal); die van Ebb zijn mooier en vertellen meer (patrijspoort met walvis, "Breathe. Make sea friends."). Ook niet de categorie: Wellness tegen Other geeft bij alle 83 ademhalingsapps met het woord in de naam 48% tegen 52% met 100+ (GEZIEN), te weinig verschil om op te sturen.
+
+### Wat ik concludeer
+1. **0 na 3 dagen is voor een betaalde app van $4,99 zonder reviews niet vreemd.** Geen betaalde app uit dezelfde rondes haalde al 10. Zonder verandering verwacht ik dat Ebb deze maand in de klasse 1 tot 9 komt (GOK, uit de tabel hierboven en verhaal 8: 46% van de betaalde apps haalt 100+, maar pas na maanden).
+2. **De grootste rem is het aantal horloges.** Ebb draait op 40 soorten, de winnaars op 150 tot 220. In de Connect IQ-app op de telefoon zie je alleen apps voor je eigen horloge (zo werkt de winkel, niet apart nagemeten), dus voor iemand met een Forerunner 255S, fēnix 7S, Venu 2S of vívoactive 4 bestaat Ebb niet. Ebb mist zelfs de kleine maten van horloges die het wel heeft: Forerunner 255S, 255 Music, 255S Music en 265S, fēnix 7S en 7S Pro, Venu 2S en Venu 2 Plus, epix (Gen 2), fēnix 7 Pro Solar zonder wifi (GEZIEN, lijst uit `deviceTypes`).
+3. **De naam is te lang voor de zoekbalk** en de prijs is hoog naast een veld waar 6 van de 7 snelle nieuwkomers gratis zijn. Ebb Calm, de gratis ingang, is na 2 dagen nog niet goedgekeurd.
+
+### De 3 dingen voor Gijs en Mila (ook in `berichten/gijs.md`)
+1. **Meer horloges, te beginnen met de ronde broertjes die Ebb al bijna heeft** (Gijs, met Mila voor de plaatjes per maat). Stap 1: Forerunner 255S, 255 Music, 255S Music, 265S, fēnix 7S, 7S Pro, Venu 2S, Venu 2 Plus, epix (Gen 2), fēnix 7 Pro Solar (no Wi-Fi), en de nieuwe fēnix 9-reeks, Enduro 3, D2 Mach 2 en MARQ (Gen 2) als die dezelfde schermmaten hebben als horloges die Ebb al heeft (GOK welke dat precies zijn; Gijs ziet het in de SDK). Stap 2, met een geheugentoets: vívoactive 4 en 4S, Forerunner 245, 745, 945, fēnix 6-reeks, Venu (1). Vierkant en Instinct blijven later, zoals in het ontwerp staat. Waarom eerst: de 7 nieuwkomers met 100+ zitten op mediaan 183 horloges, de rest op 53, Ebb op 40.
+2. **Kortere naam met het zoekwoord vooraan, in alle drie de talen** (Gijs past het aan bij de volgende upload; Chris kijkt de tekst na). Voorstel EN: "Ebb Breathing & Breath Hold" (5 woorden, beide sterke woorden erin) of korter "Ebb Breathing". NL en DE net zo kort ("Ebb Ademhaling & Adem inhouden", "Ebb Atmung & Atem anhalten"). Zet "relax" en "box breathing" alleen in de beschrijving als Ebb het echt doet: een vast patroon "Box 4-4-4-4" naast Calm 4-7-8 kost weinig (Ebb heeft al My pattern) en opent het woord met 346 apps. Meten: de plek op "breathing", "breath" en "box breathing" de dag na de update.
+3. **Een gratis ingang, en de prijs tijdelijk lager** (Gijs, met de hoofdchat; de prijs zet Thijs in zijn account). Ebb Calm openbaar krijgen is het belangrijkste; staat hij morgen nog op 404, dan via de lijst van Thijs navragen of hij in de keuring hangt of is afgewezen. Daarnaast voorstel: Ebb tijdelijk op $2,99 tot de eerste 5 reviews (de enige betaalde nieuwkomer met 100+ kost $1,99; Ebb en Vytera Breath op $4,99 staan allebei op 0). Dat is een GOK op basis van 6 betaalde nieuwkomers, dus de hoofdchat beslist. Geen medische woorden in de nieuwe tekst: geen "stress relief", "anxiety", "apnea training" of "freediving".
+
+**Voorstel voor Dortus deze week:** Gijs doet punt 1 en 2 in één update (versie 1.0.1 met meer horloges en de nieuwe naam), Mila maakt de plaatjes voor de nieuwe maten, de hoofdchat beslist over de prijs. Meten in `meting-ebb.md`: zoekplekken en downloadklasse op de dag van de update en 7 dagen erna. Doel: Ebb 1 tot 9 binnen een week na de update, Ebb Calm 10+ binnen een week na goedkeuring (GOK).
+
+**Wat ik niet weet:** hoeveel mensen op welk woord zoeken (de winkel geeft geen zoekvolumes); of de telefoon-app precies dezelfde volgorde geeft als de API; hoeveel mensen een horloge hebben dat Ebb mist (geen verkoopcijfers per model). De lijst `mostRecent` liep tot 13 nov 15:16 UTC; latere goedkeuringen zitten er niet in.
+
+### 3 lessen
+1. **Een betaalde Garmin-app zonder reviews begint altijd traag:** in de eerste 3 tot 4 dagen haalt geen enkele betaalde app uit twee rondes 10 downloads, gratis apps uit dezelfde ronde wel 100+. Beoordeel een betaalde app niet na 3 dagen.
+2. **Het aantal horloges is bij Garmin een groter knopje dan het plaatje.** Winnaars draaien op 150 tot 220 soorten, wij op 40; elk horloge dat ontbreekt is een klant die ons niet kan zien.
+3. **De zoekbalk beloont een korte naam met het zoekwoord erin.** Een lange naam vol zoekwoorden werkt bij Garmin juist tegen.
 
 ---
 
