@@ -258,34 +258,49 @@ static func is_vol(h) -> bool:
 	var g = h.get("gang")
 	return g != null and (g as Array).count(true) >= VOL_VANAF
 
-# Vloerding op gangkolom k in een vol hol: index in DECO_GANG, of -1. Nooit twee keer dezelfde soort naast elkaar.
+# Daan 16 nov 20:50 (Iris keuring 8): een vloerding op elke tegel oogde als behang. Nu hooguit op 1 van de 3 gangtegels
+# een los ding, gekozen uit alle stukken van DECO_GANG behalve de stut (vloer: paddenstoel, lichtzwam, ton, krat, schedel,
+# kristal; hangend: spinrag, vaandel), vast per kolomnummer en nooit twee keer hetzelfde na elkaar. Stutten blijven regelmatig.
+const LOS_SOORTEN := [0, 1, 2, 3, 4, 5, 6, 8]
+
+# Krijgt gangkolom k een los ding? Vast per kolom (hash), nooit twee kolommen naast elkaar, gemiddeld ±1 op 4.
+static func is_los(h, k: int) -> bool:
+	return _hh(h, k, 10) % 3 == 0 and _hh(h, k - 1, 10) % 3 != 0
+
+# Soort van het losse ding op kolom k (index in DECO_GANG), zonder regels voor de plek. Hangend of niet ligt vast per kolom.
+static func los_soort(h, k: int) -> int:
+	return LOS_SOORTEN[_hh(h, k, 12) % LOS_SOORTEN.size()]
+
+static func is_hangend(c: int) -> bool:
+	return c == 6 or c == 8
+
+# Vloerding op gangkolom k in een vol hol: index in DECO_GANG, of -1. Alleen op een losse kolom met een vloersoort.
+# vorige_soort = soort van het vorige losse ding: nooit twee keer dezelfde na elkaar.
 static func vol_vloer(h, k: int, vorige_soort: int) -> int:
 	if h.vallen.has(k) or k == h.ingang_kol + 1 or h.vallen.has(k - 1) or h.vallen.has(k + 1):
 		return -1
 	if k >= h.schat_kol - VOL_TROON:   # stapel hoeden en Gloop, plus één tegel vrij ervoor (Daan 16 nov, regel c)
 		return -1
-	var hh: int = _hh(h, k, 7)
+	if not is_los(h, k) or is_hangend(los_soort(h, k)):
+		return -1
+	var hh: int = _hh(h, k, 12)
 	var c: int = VLOER_SOORTEN[hh % VLOER_SOORTEN.size()]
 	if c == vorige_soort:
 		c = VLOER_SOORTEN[(hh + 1) % VLOER_SOORTEN.size()]
 	return c   # (lichtzwam bij Gloop kan hier niet: alles vanaf schat_kol - 4 valt al af)
 
-# Plafondding op gangkolom k in een vol hol, los van de vloer: 6 = spinrag, 7 = stut, 8 = vaandel, of -1.
+# Plafondding op gangkolom k in een vol hol: 7 = stut (regelmatig), of een los hangend ding (6 = spinrag, 8 = vaandel), of -1.
 # Alleen onder een dicht plafond (niet onder een kamer), niet bij de ingangsfakkel, niet boven de hoeden en Gloop,
-# niet direct naast het vorige plafondding (de stut is breder dan een tegel). Boven een val geen stut (zijn poten).
+# niet direct naast het vorige plafondding (de stut is breder dan een tegel). Op of naast een val geen stut (zijn poten).
+# Hangt alleen van de kolom en vorige_kol af (vleermuis.gd loopt dezelfde lus).
 static func vol_plafond(h, k: int, vorige_kol: int) -> int:
 	if h.boven[k] or k == h.ingang_kol + 1 or k >= h.schat_kol - VOL_TROON or k - vorige_kol < 2:
 		return -1
 	var bij_val: bool = h.vallen.has(k) or h.vallen.has(k - 1) or h.vallen.has(k + 1)
-	var hh: int = _hh(h, k, 8)
-	if hh < 24:
-		# de stut staat met zijn poten op de vloer: niet op of naast een val (Daan 16 nov, regel c); spinrag en vaandel
-		# hangen hooguit een derde van de gang (HANG_MAX), dus de val blijft vrij en mag er wel een hebben
-		return 6 if bij_val else 7
-	if hh < 44:
-		return 6
-	if hh < 58:
-		return 8
+	if _hh(h, k, 8) < 24 and not bij_val:
+		return 7
+	if is_los(h, k) and is_hangend(los_soort(h, k)):
+		return los_soort(h, k)   # spinrag en vaandel hangen hooguit een derde van de gang (HANG_MAX), dus ook bij een val
 	return -1
 
 static func _hh(h, k: int, y: int) -> int:
@@ -331,6 +346,11 @@ static func vol_rij(h) -> Array:
 		var p := vol_plafond(h, k, vorige_plafond)
 		if p == 7 and groot.has(k - 1):
 			p = 6
+		if p == 6 or p == 8:   # los hangend ding: niet twee keer hetzelfde na elkaar
+			if is_los(h, k) and p == vorige_soort:
+				p = 14 - p   # spinrag <-> vaandel
+			if is_los(h, k):
+				vorige_soort = p
 		if p >= 0:
 			uit.append([k, p, true])
 			vorige_plafond = k
@@ -342,8 +362,8 @@ static func vol_rij(h) -> Array:
 			c = KLEIN[hh % KLEIN.size()]
 			if c == vorige_soort:
 				c = KLEIN[(hh + 1) % KLEIN.size()]
-		vorige_soort = c
 		if c >= 0:
+			vorige_soort = c
 			uit.append([k, c, false])
 			if c in GROOT:
 				groot[k] = true
