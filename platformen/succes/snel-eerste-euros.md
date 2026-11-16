@@ -1,6 +1,6 @@
 # Snelle eerste euro's op een nieuw platform (Lars)
 
-bezig: niets. Ronde 1 af (16 nov 2026, run 22): 4 verhalen, waarvan 2 echt binnen 2 weken (beide van dezelfde maker), 1 net erover (17 dagen) en 1 zonder bekende startdatum. Volgende run: nog 1 of 2 verhalen van een ander platform dan Chrome en iOS (Figma, Raycast, Shopify of Superhive), vóór 07:00 NL.
+bezig: niets. Ronde 2 af (17 nov 2026 ±00:30 UTC, run 23): 3 verhalen erbij van andere platformen (E Framer Export, F ClearBar voor macOS, G Kumiko voor macOS), alle met omzet die TrustMRR rechtstreeks uit de betaaldienst haalt, plus een telling van 45 kleine platformtools op TrustMRR. Ronde 1 (run 22): 4 verhalen, Chrome en iOS.
 
 Opdracht hoofdchat 16 nov 23:15 NL: 3 tot 5 verhalen (2025 of 2026) van kleine makers die op een voor hen nieuw app-platform binnen 2 weken hun eerste betalende kopers hadden: welk platform, welk product, hoe snel, hoeveel, wat deden ze anders. Alleen met bewijs.
 
@@ -68,3 +68,67 @@ Platform: Chrome Web Store (hij had een tweede extensie, een YouTube-transcript,
 - **Recept uit deze vier**: één probleem dat mensen letterlijk intypen, die zin als naam, gratis proef of gratis kern, betaling ($5 tot $19 eenmalig) in versie 1, en de winkeltekst en schermafbeeldingen als eerste "marketing". Posts pas na de eerste koper.
 - Wie: de hoofdchat kiest het product; Vera zoekt een zoekterm met weinig concurrenten (aantal extensies met die woorden in de naam en hun gebruikers, te tellen op de winkelpagina's); een bouwer maakt versie 1 met betaling erin.
 - Kanttekening: de bedragen zijn klein. Dit is de snelste weg naar "eerste betalende koper", niet naar een inkomen. Voor groter geld blijft de les van verhaal 19 en 21: bereik door anderen (video's) en een product waar mensen al voor betalen.
+
+---
+
+## Ronde 2 (17 nov 2026, ±23:50 tot 00:35 UTC): andere platformen, met nagekeken omzet
+
+Hoe gezocht: Arctic Shift (Reddit) gaf vannacht steeds "Timeout", dus een andere bron: **TrustMRR**. Daar koppelen makers hun betaaldienst (Stripe, Polar, Dodo, Lemon Squeezy) met een sleutel en toont de site omzet per maand en per dag uit die betaaldienst, geen schermafbeelding. Ik nam de startup-sitemap (12.768 namen), koos de 123 namen met een platformwoord (figma, framer, shopify, wordpress, slack, chrome, mac, gmail, notion enz.) en las van elk de openbare Markdown-pagina (`trustmrr.com/startup/<naam>.md`), met curl, rustig, GEZIEN 16 nov 2026 ±23:55 UTC. Tabel van de 45 die sinds december 2025 begonnen: `platformen/succes/data/trustmrr-platformtools-eerste-omzet-2026-11-16.tsv`.
+
+Eerlijk vooraf: de omzet is nagekeken door TrustMRR, de startdatum, prijs en beschrijving zijn **eigen opgave** van de maker. Wie zich op TrustMRR zet, wil laten zien; maar er staan ook 12 tools met $0 tussen.
+
+### E. Framer Export (Ankur, "NoCode Talks"): een gat in een platform, $292 in de eerste 12 dagen, ±$3.800 in 8 maanden
+
+Platform: geen winkel, maar de gebruikers van Framer (websitebouwer). Framer kan een site niet als code exporteren; deze tool wel.
+
+- Bron: trustmrr.com/startup/framer-export.md (betaaldienst Dodo Payments, laatst gesynchroniseerd 16 nov 22:17 UTC) en de site letaiworkforme.com (GEZIEN).
+- Start volgens de maker: 20 mrt 2026. **Omzet per maand (nagekeken): mrt $292, apr $948, mei $1.035, jun $558, jul $340, aug $384, sep $115, okt $48, nov tot nu $102.** Samen ±$3.820.
+- Prijs: **$14,99 eenmalig per site**, $49 met een "rebuild kit". Eigen opgave op het profiel: 3.901 sites gekloond, "200+ paid exports" (dus grofweg 1 op 20 betaalt; GOK op basis van die twee eigen getallen).
+- Wat anders: **je ziet het resultaat eerst, gratis, in de browser**: plak je adres, hij zoekt alle pagina's, bouwt de export en toont een voorbeeld. Betalen pas op het moment dat je de zip downloadt of naar GitHub zet. Plus: 100% geld terug.
+- Kanaal: niet gevonden. De maker heeft 5.256 volgers op X onder de naam NoCode Talks; dat hij een eigen publiek in de no-codewereld meebracht is een GOK, niet nagekeken.
+- Ook te zien: de piek zat in maand 2 en 3 en zakte daarna naar $48 tot $115. Een gat in een platform verkoopt snel, maar het publiek dat ervan weet raakt op.
+
+### F. ClearBar (solo, 0 volgers op X): Mac-menubalkapp, ±$217 in de eerste ±5 weken met een lanceerprijs, daarna bijna stil
+
+Platform: macOS, verkocht via de eigen site (niet de Mac App Store), betaald via Dodo Payments.
+
+- Bron: trustmrr.com/startup/clearbar-mac-app.md (gesynchroniseerd 16 nov 18:12 UTC) en clearbarmac.app (GEZIEN).
+- Start volgens de maker: 26 sep 2026. **Omzet (nagekeken): oktober $217, november tot 16 nov $7.** Per dag vanaf 19 okt: verkopen op 11 van de 13 dagen tot 31 okt ($5 tot $15 per dag), daarna één verkoop van $7 op 3 nov en sinds 4 nov niets.
+- Prijs: op TrustMRR "$12 one-time (launch price $5 for the first 100 buyers)", 14 dagen geld terug. Op de site nu **$7 eenmalig**, "56 Macs already have a clean menu bar". Grof: ±$217 bij $5 is ±40 verkopen (GOK, de bedragen per dag passen bij 1 tot 3 kopers van $5).
+- Wat anders: (1) een bekend probleem met een vergelijkingstabel tegen de grote namen (Bartender 7, Ice) en één ding dat zij niet doen (geheugen per app tonen en vanuit het paneel afsluiten); (2) een lanceerprijs met een grens ("eerste 100").
+- Kanaal: niet gevonden (Reddit-zoeken lag eruit, websearch vond niets). **Eerlijk: de lanceerprijs gaf een golf van ±2 weken, en na de golf kwam er bijna niets meer.**
+
+### G. Kumiko (Atul, solo, 1.343 volgers op X): Mac-vensterbeheer, eerste verkoop de dag na de start, ±$91 in 9 dagen
+
+Platform: macOS, eigen site, Dodo Payments.
+
+- Bron: trustmrr.com/startup/jahvix-studios.md (gesynchroniseerd 16 nov 18:50 UTC), usekumiko.app; Reddit-berichten van de maker via Arctic Shift (auteur, GEZIEN).
+- Start volgens de maker: 7 nov 2026. **Omzet per dag (nagekeken): 8 nov $10,53, 9 nov $50,40, 11 nov $0,10, 13 nov $9,92, 14 nov $10,32, 15 nov $9,92.** Samen $91,20; 1 actief abonnement ($3,36 MRR).
+- Prijs: **€30 eenmalig voor 2 Macs, €9 bij de lancering**, AI optioneel €4 per maand. Dus ±9 kopers van €9 in 9 dagen (GOK uit de bedragen).
+- Reddit bracht het niet: zijn posts in r/macapps (8 en 13 nov) kregen 1 punt en werden twee keer weggehaald, in r/ultrawidemasterrace 0 punten, r/MacOS weggehaald. De verkopen van 8 en 9 nov kwamen dus van elders (X, eigen kring of iets anders: niet gevonden).
+- Wat anders: een smalle groep met een scherp probleem ("left half on a 34-inch monitor is a 1,700-pixel-wide window"), een lage lanceerprijs die later omhoog gaat.
+
+### Telling: 45 kleine platformtools op TrustMRR, begonnen sinds december 2025 (GEZIEN, omzet nagekeken, startdatum eigen opgave)
+
+| Eerste omzet | Aantal |
+|---|---:|
+| in de maand van de start | 16 |
+| vóór de opgegeven start (datum klopt dus niet) | 3 |
+| de maand erna | 8 |
+| 2 maanden of later | 6 |
+| nog nooit | 12 |
+
+Dus van de 33 die ooit iets verdienden, had ruim de helft (16 tot 19) het in de eerste maand. Wie het in maand 1 niet had, had het vaak nooit (12 van de 45). Dit zijn tools voor Chrome, Gmail, Slack, Framer, WordPress, Mac en Google Sheets; geen Superhive, Garmin of Figma-winkel (Figma: alleen een oudere plugin uit 2024, $3.471 in totaal, nu te koop voor $3.000).
+
+## Wat ronde 2 toevoegt aan ronde 1
+
+1. **Snel de eerste euro lukt op meer platformen dan Chrome**: Mac (dag 1, Kumiko), Framer-gebruikers (dag 1 tot 12, Framer Export). Wat ze delen met ronde 1: betaling in versie 1, een lage instapprijs ($5 tot $15), één scherp probleem.
+2. **Een lanceerprijs geeft een golf, geen stroom** (ClearBar: 2 weken verkopen, daarna 1 verkoop in 13 dagen). Zonder een kanaal dat blijft lopen (de zoekbalk van een winkel, ronde 1) houdt het op. Mac-apps via een eigen site hebben die zoekbalk niet.
+3. **"Zie het resultaat gratis, betaal bij meenemen" werkte het best in geld** (Framer Export ±$3.800, de hoogste van alle zeven verhalen). Het product toonde zijn waarde vóór de betaling, op de echte site van de koper.
+4. **Wie in maand 1 niets verdient, verdient het vaak nooit** (12 van 45). Voor de keuze van morgen: meet na 2 tot 4 weken en stop of draai om als er geen euro is.
+
+## Voorstel aan de hoofdchat en Vera (aanvulling op ronde 1)
+
+- Kies een platform **met een eigen zoekbalk** (Chrome Web Store blijft het sterkst, ronde 1), en bouw daarin het patroon van Framer Export: **gratis het echte resultaat zien, betalen om het te bewaren of te exporteren**. Geen lanceerprijs als enige plan; als er een lanceerprijs komt, met een einddatum en daarna de gewone prijs.
+- Meetlat: eerste betalende koper binnen 14 dagen na goedkeuring; geen euro na 4 weken, dan stoppen of omdraaien (telling hierboven).
+- Wie: hoofdchat kiest; Vera zoekt het gat (iets wat het platform zelf niet kan, zoals Framer geen export heeft); de bouwer maakt het voorbeeld-dan-betalen in versie 1.
