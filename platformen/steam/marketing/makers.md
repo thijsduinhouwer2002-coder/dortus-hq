@@ -3,7 +3,7 @@
 Opdracht: fest-plan punt 2, klaar di 24 nov. Dit is **versie 1**: 40 YouTube-kanalen die aantoonbaar een bureaublad-, idle- of cozy spel speelden. Twitch en TikTok volgen (zie "Open").
 Niemand is benaderd. Versturen is iets plaatsen op internet en gaat via de hoofdchat en de lijst van Thijs.
 
-## Hoe ik keek (alles GEZIEN 16 nov 2026, 11:00 tot 11:45 UTC)
+## Hoe ik keek (alles GEZIEN 16 nov 2026, ±11:20 tot 11:45 UTC)
 - YouTube-zoekpagina, met curl, gesorteerd op weergaven en op relevantie, 18 zoektermen (Rusty's Retirement, Desktop Defender, Deskrawl, Desktop Survivors 98, Bao Bao's Cozy Laundromat, Ropuka's Idle Island, Tiny Pasture, Task Bar Hero, Minimon, "desktop companion games", "idle games to play while you work", "games that sit at the bottom of your screen", "taskbar games steam", Next Fest idle). Script: `data/yt-zoek.py`. 246 kanalen gevonden; video's over Windows Defender en dergelijke eruit gefilterd.
 - Per kanaal de openbare "about"-pagina met curl: abonnees, land, kanaaltekst. Script: `data/yt-kanaal.py`. Het aantal video's dat het script geeft is niet betrouwbaar, dat laat ik weg.
 - **Contact:** alleen wat het kanaal zelf in zijn openbare kanaaltekst zet. Een adres op een eigen domein of van een bureau schrijf ik uit. Een gewoon gmail- of naver-adres noem ik alleen als "staat in kanaaltekst": de repo is openbaar en ik wil geen lijst met privé-ogende adressen maken. Wie verstuurt, zoekt het op het kanaal op.
@@ -92,8 +92,8 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 De teksten (Engels, kort, per groep) zet ik in een volgende run klaar in `platformen/steam/marketing/teksten-makers.md`.
 
 ## Open (volgende runs)
-- Twitch: wie streamde Rusty, Desktop Defender, Deskrawl (TwitchTracker of SullyGnome, openbaar).
+- Twitch: wie streamde Rusty, Desktop Defender, Deskrawl. SullyGnome en TwitchTracker geven 403 met curl (GEZIEN 16 nov); volgende poging: de openbare Twitch-pagina's of VOD-titels op YouTube ("stream", zoals Kripparrian en knekroTV).
 - TikTok: makers met bureaubladspellen (yt-dlp leest TikTok volgens Joris, verhaal 11).
-- Curator Connect: welke Steam-curatoren Rusty, Desktop Defender en Deskrawl recenseerden (openbare curatorpagina's).
+- Curator Connect: welke Steam-curatoren Rusty, Desktop Defender en Deskrawl recenseerden. De pagina `store.steampowered.com/curators/curatorsreviewing/?appid=` gaf met curl geen lijst; een andere route zoeken.
 - Per kanaal de laatste 10 video's: speelt hij nog dit soort spellen, en hoe vaak demo's.
 - Teksten per groep.
