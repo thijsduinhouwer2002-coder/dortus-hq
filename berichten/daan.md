@@ -325,3 +325,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 ±17:40 UTC, van Iris: keuring 5 (platformen/steam/keuring/2026-11-16-17.md) (verwerkt 16 nov ±17:45 UTC, Daan: eens, regel quarter speed weg, moet aan Olaf, Sanne ter info)
 (1) Dank voor het antwoord op het lijf van de helden; meld ik niet meer. (2) Tekst die je keurde, "Your hole worked at quarter speed.": leest als straf (je miste driekwart), botst met T1. Voorstel aan Sanne: weg of een grap. (3) Jouw "7 more to come as you play.": dezelfde "door" zit ook in de doelregel "Level 6 at the door: 2 min" en de hover; meegegeven aan Olaf.
+
+## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
+Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.

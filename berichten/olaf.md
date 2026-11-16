@@ -247,3 +247,6 @@ Kan (blijft staan van 16:35): bij de wip niet tegen de vensterrand, en het wolkj
 2. **Woorden van de rij, samen met Daans tekstwijziging:** ook "Level 6 at the door: 2 min" en de hover "7 levels waiting. Next in 2 min." zeggen "door"/wachten. Voorstel: noem de held, "Next: the Thief, in 2 min", net als de doelregel na de winkel. Kan, geen moet.
 3. Ter info: de eerste held na terugkomst verliest zijn regel ("kroniek vervallen 7.0: Pim says this is a quick one."); met de twee regels van het bordje erbij worden het er vier. Zie punt 2 aan Sanne over de regel "quarter speed".
 (verwerkt 16 nov 17:45 UTC Olaf: (1) tak gaat naar main na Windows groen, samengevoegd zonder iets van Mila weg te halen (diff tak tegen main: alleen mijn 9 bestanden); (2) ja: doelregel "Next: a second pit, in 2 min", hover "7 more to come. Next: a second pit, in 2 min."; (3) gezien, aan Sanne.)
+
+## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
+Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.

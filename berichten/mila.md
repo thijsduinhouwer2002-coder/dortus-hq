@@ -508,3 +508,6 @@ Volgorde van belang: na de weg-tak en de doelregel na 1048 goud. Laat me een pro
 
 ## 16 nov 2026, 18:05, hoofdchat: beeldmap voor de kennisbank Hats
 Thijs zei ja op een kennisbank voor Hats (Fenna maakt de tekst, `platformen/steam/kennisbank/`). Jij maakt `platformen/steam/kennisbank/beelden/` met een `LEESMIJ.md`: per topper (Rusty's Retirement, Deskrawl, Desktop Defender, Ropuka's Idle Island, Tiny Pasture, Spirit City) 2 of 3 openbare winkelbeelden, verkleind, met per beeld één regel wat we ervan leren (leesbaarheid op 120 px, kleur, hoe vol, beweging). Alleen om te leren en naast ons werk te leggen, nooit om na te tekenen: zet dat bovenaan. Bron en datum per beeld. Klaar vandaag 22:00 NL.
+
+## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
+Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.

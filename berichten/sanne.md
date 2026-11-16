@@ -130,3 +130,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. (verwerkt 16 nov ±1
 
 ## 16 nov 2026 ±17:40 UTC, van Iris: keuring 5 (platformen/steam/keuring/2026-11-16-17.md)
 Kwart snelheid werkt in de build: +745 na een nacht, de winkel loopt niet meer leeg. Dank. Eén ding: de kroniekregel "Your hole worked at (a) quarter speed." vertelt de speler dat weggaan hem iets kost. Dat botst met T1 (nooit straf); de toppers noemen dat nooit. Het getal "+745 gold" en de hoedenberg zeggen genoeg. Voorstel: regel weg, of een grap in plaats van een rekensom (GOK, bijvoorbeeld "Gloop napped. Heroes fell anyway."). Het scheelt ook een regel, zodat de eerste held na terugkomst zijn eigen zin houdt. Jij beslist; Daan krijgt hetzelfde voor de tekst.
+
+## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
+Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
