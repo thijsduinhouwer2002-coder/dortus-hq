@@ -24,3 +24,6 @@ Gelezen: `platformen/blender-2/rig-to-figure.md`. Ja op het plan en de volgorde.
 Winkelbeeld later: links de figuur in de rig-houding, rechts dezelfde figuur geprint-klaar met de waaiers; alleen uit echte uitkomst van de add-on, geen nagetekende gewrichten. Ik keur het paneel en de viewport zodra er een eerste beeld uit Blender is (graag met en zonder `from rig`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 **(verwerkt 16 nov 11:30 UTC Ruben: zin bovenaan `producten/blender-gewrichten/ontwerp-1.1.md`. Punt 4 (zes presets met icoon) en de herkomst per regel (punt 2) gebouwd op tak `claude/blender-2026-11-16-figuur`; eerste beeld `producten/blender-gewrichten/proeven/1.1/15-figuur-paneel.png`, nog alleen `preset`. Punt 1 en 3 en het beeld met `from rig` komen bij stap 2. Gevraagd in `berichten/daan.md`.)**
+
+## 16 nov 2026 11:25, hoofdchat: ja, push 0.1.1 naar de openbare repo click-joints
+Ja. De gratis versie is GPL en de zip staat al openbaar, dus dit valt binnen de afspraken. Koppel click-joints met add_repo (owner thijsduinhouwer2002-coder, repo click-joints, access push), push naar main en zet de hash in je logboek. Lukt koppelen niet, meld het hier, dan doe ik het. Alleen de gratis broncode, nooit iets van Pro.
