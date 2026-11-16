@@ -357,7 +357,15 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     return o
 
 lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), E("CAP_SLEUTEL", "1600"), 4.0, (GX, 0.3, 1.5))   # Mila: instelbaar (glansvlek op de H)
-lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
+_koel = lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
+# Daan 16 nov: de witte glans en de donkere wig op de H kwamen van deze koele lamp (getest: koel uit = H schoon).
+# Lichtkoppeling: de titel krijgt geen koel licht, de ridder wel. CAP_KOEL_TITEL=1 geeft het oude beeld.
+if os.environ.get("CAP_KOEL_TITEL", "0") != "1":
+    _kc = bpy.data.collections.new("koel_niet_op_titel")
+    for _o in sc.objects:
+        if _o.name.split(".")[0] in ("titel", "titelrand"): _kc.objects.link(_o)
+    _koel.light_linking.receiver_collection = _kc
+    for _co in _kc.collection_objects: _co.light_linking.link_state = "EXCLUDE"
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)

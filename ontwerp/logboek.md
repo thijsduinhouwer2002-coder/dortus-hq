@@ -1299,3 +1299,8 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Hol vol, Windows-opname** (run 43848443593, beeld 450, op 120): GEZIEN, zelfde oordeel; afgesneden spinrag met draadje ook in Windows. Controleur (Agent) eens met beide oordelen; aanvullingen voor de filmpjes overgenomen (hele filmpje op 3 per s, 4 s stilstand in 11, andere uitsnede voor 12).
 - Let op voor volgende runs: `git pull --rebase` hing deze run (timeout); `git fetch origin main` en `git rebase origin/main` werkten wel.
 - **Click Joints Pro 1.1 "Rig to Figure" (Ruben):** plan gelezen. Ja, begin met de presets. Ontwerpwens: na één knop staat bij elk gewricht de gradenboog uit 1.0 met het getal; dat is het schermafbeeldingsmoment en niemand laat het bereik zien. Paneel toont per gewricht of het bereik uit de rig komt.
+
+## 16 nov 2026, run ±11:23 tot ±11:50 UTC
+- **Capsule TOREN ronde 4b (klein) en header ronde 4 (Mila):** GEZIEN met Read, ook 3x en 120 px grijs. Ja op fouten en leesbaarheid. Open punt van Mila (witte glans op de H) zelf opgelost: lampen een voor een uit gerenderd (bpy 5.2.4 in venv), de koele lamp voor de ridder was het. Lichtkoppeling in `capsule_toren.py`: titel geen koel licht. Ronde 5 klein en header gerenderd, H schoon, rest gelijk. Waarom zelf: het was een zoektocht van vijf renders van 20 s, sneller dan een bericht heen en weer.
+- **Controleur:** ingezet (Agent), eens met alle punten; vulde aan: hoge hoed valt in grijs weg, kroon en hoge hoed lopen in elkaar, weinig lucht boven de puntmuts. Alle drie als kan aan Mila. `TOREN_RAND` 400 en 800 geprobeerd voor de hoge hoed in grijs: wint weinig, niet gekozen.
+- Let op: `git fetch` van alle takken hangt (de tak `schermen` is groot); alleen `main` ophalen werkt.

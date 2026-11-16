@@ -165,3 +165,5 @@ Eerder:
 - Nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar; kleine dingen mogen wel. Naast valkuilen en de troon blijft één tegel vrij, zodat het belangrijke blijft lezen.
 - Dingen in de wand (hoedenwand) nooit in een vast ritme met de kamers; wissel hoogte en afstand, anders leest het als een plank.
 - Eén kleur per soort beestje: twee paarse bollen met ogen aan hetzelfde plafond (spin en vleermuis) lezen als hetzelfde.
+
+- **Glans op 3D-tekst (16 nov):** een rare vlek op een letter komt meestal van een lamp die voor iets anders staat. Zoek hem door lampen een voor een uit te zetten, en houd hem dan met lichtkoppeling van de titel af in plaats van hem zwakker te zetten (dan verliest de rest zijn licht).
