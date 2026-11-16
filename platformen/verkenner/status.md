@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 05:31: volgers van de concurrenten van Hats (88 van 127 gemeten): Don't Rob My Dungeon 8, mediaan 10, 100+ volgers op het fest is al top 10%. Zie blok Aanvulling in steam-desktop-2026-11.md.
 - 16 nov, run 04:31: kaart van de Steam-markt voor Hats of the Fallen (opdracht hoofdchat) af en nagekeken, zie steam-desktop-2026-11.md. Belangrijkst: bijna-kopie Don't Rob My Dungeon (5376930) en een vloed van nieuwe apps.
 - 16 nov, run 03:31: LG webOS en Samsung tv-apps (1, nee) en Society6 (1, nee), zie voorstellen.
 - 15 nov, run 22:31: Superhive-onderzoek (opdracht hoofdchat) af en nagekeken, zie superhive-2026-11.md.

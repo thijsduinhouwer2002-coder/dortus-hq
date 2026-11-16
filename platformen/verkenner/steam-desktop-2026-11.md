@@ -107,3 +107,21 @@ Rusty's Retirement, Deskrawl en Desktop Heroes heeft Fenna al. Nieuw:
 - Apps zonder label en zonder de zoektermen kunnen ontbreken. Het label is de kern (988 van 1.714).
 - "Positief" is het Engelse percentage; voor gratis apps is het totaal vaak alleen Engels.
 - Soort en "lijkt op Hats" zijn trefwoordtellingen, met fouten.
+
+## Aanvulling 16 nov, run 05:31: volgers (hoe groot is het publiek van de concurrenten?)
+Vraag: is Don't Rob My Dungeon echt een gevaar, en hoeveel publiek hebben de spellen die rond het fest uitkomen? Gemeten met het aantal volgers: de leden van de officiële spelgroep op Steam, openbaar in `steamcommunity.com/games/<appid>/memberslistxml/?xml=1` (GEZIEN 16 nov, 04:40 tot 05:07 UTC). Ruwe data: `data/steam-volgers-2026-11-16.jsonl`, scripts `data/steam-volgers-script.py`, `data/steam-volgers-curl.sh`, analyse `data/steam-volgers-analyse-script.py`.
+
+**Grens:** Steam geeft na ±45 verzoeken een tijdelijke blokkade (429). Die heb ik gerespecteerd: niet omzeild, gestopt. Daardoor zijn 88 van de 127 aangekondigde apps die het meest op Hats lijken (2 of 3 punten) gemeten, niet alle, en de willekeurige steekproef van de rest nog niet. Volgende run: de overige 39 en de steekproef, 1 verzoek per 6 tot 10 seconden.
+
+**Uitkomst (GEZIEN):**
+- **Don't Rob My Dungeon heeft 8 volgers.** De andere kerkerspellen die eraan komen ook weinig: There is no HERO 7, Work From Dungeon 4 (komt 19 nov uit), Loafing Dungeon 19, Corner Dungeon 59, Task Bar Dungeons 55. Buiten de kaart: Dungeon Architect: Idle 10, Grave Ambition 8, The Throne Below 6.
+- **88 aangekondigde apps die op Hats lijken:** mediaan 10 volgers; 50% onder 10, 40% 10 tot 99, 10% 100 tot 999, geen enkele 1.000+. Met demo mediaan 22, zonder demo 7. De grootste: Bondoq: Desktop Gunners 460 (Q1 2027, demo), Fish Tankfully 255 (25 jan 2027), Traymon World: Taskbar Monster RPG 215 (25 nov 2026, demo, monsters verzamelen en ruilen), Birza 200, Occult Office 169, Dwarfspire 103 (9 dec 2026).
+- **Uitgebrachte spellen die op Hats lijken, nu:** Deskrawl 8.897 volgers bij 3.631 reviews, Desktop Raid 4.673 bij 703, Desktop Survivors 98 4.020 bij 1.352, Desktop Defender 3.573 bij 1.788, Your Big, Cute Monster Farm 3.381 bij 1.232, Book of Fei 399 bij 358, TBH 45.688 bij 8.860 (gratis). Dat is meestal 2 tot 3 volgers per review. Tap Tap Loot (177.264 volgers bij 872 reviews) is een uitschieter die ik niet kan verklaren; niet meegeteld.
+
+**Wat volgers betekenen (DERDEN):** GameDiscoverCo (Simon Carless, juni 2023, via Game World Observer) meet dat verlanglijsten bij nog niet uitgebrachte spellen 7 tot 20 keer de volgers zijn, gemiddeld ±12, bij ontspannen spellen hoger (±15). En de verkoop in de eerste week is mediaan 0,2 keer de verlanglijsten bij de lancering (GameDiscoverCo, peiling 2024). Grof: elke volger is bij de lancering ±2 tot 3 verkopen in de eerste week (GOK op basis van die twee medianen, met grote spreiding).
+
+**Wat dit betekent voor Hats (GOK met onderbouwing):**
+1. **Don't Rob My Dungeon is een idee-gevaar, geen publieks-gevaar.** Met 8 volgers heeft het ±100 verlanglijsten (bandbreedte ±55 tot 160). De belofte blijft dus te winnen; het gaat erom wie het als eerste goed laat zien. Het advies uit de kaart blijft: één zin waarom Hats anders is.
+2. **De lat rond het fest is laag.** De helft van de concurrenten die eraan komen heeft minder dan 10 volgers. Wie op het fest (14 tot 18 jan) **100+ volgers** heeft, hoort bij de beste 10% van de aangekondigde spellen in deze hoek; 300+ zou Hats bovenaan zetten (alleen Bondoq zit nu hoger). Dat zijn ±1.200 tot 3.600 verlanglijsten.
+3. **Meten wordt makkelijk:** zodra de winkelpagina van Hats op 1 dec live staat, kan elke run met één verzoek de volgers van Hats naast deze lijst zetten. Voorstel: vanaf 1 dec wekelijks Hats, Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully meten.
+4. **Twee proeven vóór ons fest om te volgen:** Work From Dungeon (19 nov, 4 volgers, 99 monsters verzamelen) en Traymon World (25 nov, 215 volgers, demo). Hun reviews na 1 en 4 weken laten zien wat een klein of middelgroot publiek bij de lancering in deze hoek oplevert. Staat in `taken.md`.

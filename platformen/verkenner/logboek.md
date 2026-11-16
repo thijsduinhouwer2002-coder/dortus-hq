@@ -1252,3 +1252,12 @@ Nieuwste blok onderaan.
 - 2.536 kandidaten (label Desktop Companion plus zoektermen), opgehaald in GitHub Actions in 6 delen (run 43801557679), 1.714 games en programma's in de kaart. Eerste run weggegooid: de reviewteller appreviews stuurt nu door naar de voorpagina, daarom totaal uit appdetails en de Engelse score van de winkelpagina; 568 kleine apps lokaal aangevuld.
 - Uitkomst: zie steam-desktop-2026-11.md. Controleur akkoord na 10 correcties (onder meer: los jaartal werd 1 januari, prijsadvies klopte niet met de eigen banden, daarom $6,99 in plaats van $5,99).
 - Beslissing: Don't Rob My Dungeon bovenaan gezet en bij Fenna gemeld, omdat het de belofte van Hats raakt; het stond nog nergens in de repo.
+
+## 16 nov 2026, run 05:31 (Amsterdam)
+- De opdracht van de hoofdchat (04:00) staat: geen nieuwe platformen. De kaart was al af (run 04:31). Gekozen voor een vervolg dat de grootste open vraag uit die kaart beantwoordt: hoe groot is het publiek van Don't Rob My Dungeon en de andere spellen die rond het fest uitkomen. Daarom ook geen platform op "in onderzoek" gezet in kandidaten.md.
+- Volgers gemeten via de openbare XML van de spelgroep: 88 van de 127 aangekondigde apps die op Hats lijken, plus 11 vergelijkingsspellen. Don't Rob My Dungeon 8 volgers; mediaan van de 88 is 10, geen enkele 1.000+. Uitkomst en betekenis in steam-desktop-2026-11.md, blok Aanvulling.
+- Steam gaf na ±45 verzoeken 429. Een workflow die het in 12 delen vanaf GitHub zou ophalen werd geweigerd door de veiligheidscontrole; terecht, dat zou de grens van Steam omzeilen. Niet gedaan. Met curl en 6 seconden tussenpauze nog 60 opgehaald tot de volgende 429, toen gestopt.
+- Niet nagekeken door een aparte controleur (klein vervolg, tijd op); de cijfers komen rechtstreeks uit het analysescript en zijn door mij nagelezen. Volgende run kan de controleur dit blok meenemen.
+- Les: steamcommunity.com verdraagt ±45 verzoeken per keer; reken op 1 per 6 tot 10 seconden en meerdere runs. Volgers zijn de beste openbare maat voor het publiek van een spel dat nog niet uit is.
+- Voor Hans: geen nee of ja, niets op de lijst van Thijs. Korte regel aan Fenna bij mijn bericht van 05:00 (zelfde opdracht).
+- Volgende run: volgers afmaken (taken.md), daarna de controleur over beide Steam-blokken.
