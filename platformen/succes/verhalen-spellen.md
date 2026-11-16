@@ -1,8 +1,85 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (volgende run: een taakbalkspel dat flopte, of de eerste dagen van het Desktop Companion Fest zodra er cijfers zijn)
+bezig: niets (volgende run: Click and Slash, 20 talen en 1 review; of de eerste dagen van het Desktop Companion Fest zodra er cijfers zijn)
 
 Nieuwste bovenaan.
+
+---
+
+## 8. Wat níet werkt: vier kerkerspellen voor de schermhoek die het hele draaiboek volgden en onder de 10 reviews bleven (Minimon als hoofdverhaal, naast Deskrawl uit hetzelfde fest)
+
+Onderzocht 16 nov 2026, run 9. Vraag van de hoofdchat (16 nov 00:05): een taakbalkspel dat het minder goed deed, zodat we ook zien wat níet werkt. Ik koos niet één flop maar vier die het meest op Hats lijken (helden of monsters die vechten en buit halen in een hoekje van je scherm) en die op papier deden wat wij van plan zijn: winkelpagina, demo, Next Fest, updates, Discord. Alle vier staan nu op 4 tot 7 reviews. Daarnaast het basispercentage uit Vera's kaart: hoe vaak lukt het eigenlijk?
+
+### Bronnen
+- Eigen aankondigingen op Steam via de openbare nieuws-API `api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=<id>` (GEZIEN 16 nov): Minimon 4547080 (13 berichten), Idle Squire 3982800 (13), Idlewood Outpost 3897350 (6), Dungeoneers Idle 5135740 (29).
+- Prijs, datum, demo, talen: `store.steampowered.com/api/appdetails`; reviews op de winkelpagina ("7 user reviews" bij Minimon); spelers nu: `ISteamUserStats/GetNumberOfCurrentPlayers` (GEZIEN 16 nov ±10:30 UTC, maandagochtend).
+- Devlog van Idlewood Outpost op itch.io: https://tidepoolgames.itch.io/idlewood-outpost/devlog (GEZIEN, berichten van 6 juli tot 29 juli 2025).
+- YouTube-zoekpagina per spelnaam en het kanaal https://www.youtube.com/@ReignOfGaming (GEZIEN met curl 16 nov).
+- Basispercentage: `platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv` (Vera, 16 nov). Mijn tabel: `platformen/succes/data/kerker-flops-2026-11-16.csv`.
+- Niet gelukt: volgers per spel (steamcommunity gaf steeds 429, te veel verzoeken) en de reviewteksten (de review-API stuurt door naar de voorpagina). Reddit gaf via curl geen antwoord.
+
+### Eerst het basispercentage (GEZIEN, rekensom op Vera's kaart)
+Betaalde spellen uit de bureaubladhoek, uit tussen 1 jan 2025 en 30 sep 2026, die enigszins op Hats lijken: 377 stuks. Mediaan **10 reviews**; 70 van de 377 (19%) haalden 100 of meer.
+- Alleen de gevechts- en kerkerspellen met een demo die nog op de pagina staat: 16 stuks, mediaan **8 reviews**, maar **3 van de 16** boven de 100 (Desktop Survivors 98 1.352, Book of Fei 358, Nanomon 115).
+- Een demo hebben maakt weinig verschil in de mediaan (15 tegen 10). Let op: spellen die het goed deden haalden hun demo vaak weg bij de lancering (Desktop Defender, Lootborne, Deskrawl), dus deze vergelijking is scheef.
+- Talen: 1 taal mediaan 4 reviews, 6 tot 15 talen mediaan 19. Dat is samenhang, geen bewijs dat talen de oorzaak zijn: wie veel vertaalt heeft vaak ook een uitgever en geld.
+- Ik testte ook of "desktop", "taskbar", "screen" of "corner" in de naam helpt (vindbaar, verhaal 4). **Nee:** met zo'n woord mediaan 7, zonder 11,5 (103 en 274 spellen). Die gok uit verhaal 4 houdt dus geen stand.
+
+Kort: het draaiboek volgen is de norm, niet het verschil. Vier op de vijf halen geen 100 reviews.
+
+### De vier, naast twee die het wel haalden (GEZIEN 16 nov)
+| Spel | Prijs | Uit | Reviews | Talen | Next Fest | Spelers nu | YouTube met de naam |
+|---|---|---|---|---|---|---|---|
+| Minimon: Tiny Idle Tactics (uitgever Bufflehead) | $7,99 | 31 aug 2026 | 7 | 5 | juni 2026 | 0 | eigen video 15.678, de rest 26 views |
+| Idle Squire (solo, "family life") | $4,99 | 6 mei 2026 | 6 | 1 | feb 2026 | 0 | niets gevonden |
+| Idlewood Outpost (twee makers, Stockholm) | $4,99 | 17 nov 2025 | 4 | 1 | okt 2025 | 0 | 196 views samen |
+| Dungeoneers Idle | $8,49 | 11 nov 2026 | 7 | 6 | niet genoemd | 9 | 23 views |
+| Desktop Defender (verhaal 5) | $4,99 | 4 nov 2025 | 1.788 | 19 | okt 2025 | 32 | 14 video's, 38.083 views |
+| Deskrawl (verhaal 2) | $6,99 | 28 sep 2026 | 3.631 | 13 | juni 2026 | | 19 video's, 31.618 views |
+
+Idlewood Outpost en Desktop Defender zaten in **hetzelfde** Next Fest (okt 2025), en Minimon en Deskrawl ook (juni 2026). Zelfde kans, heel andere uitkomst.
+
+### Hoofdverhaal: Minimon, wat ze deden, in volgorde (aankondigingen, GEZIEN)
+1. **Een studio met een eigen YouTube-kanaal.** Reign of Gaming heeft 49.600 abonnees en 1.074 video's; de kanaaltekst zegt dat het nu "its debut as a developer / publisher" maakt. Maar de oude video's zijn 10 jaar oud en de nieuwe halen 34 tot 433 views. De Minimon-video van 5 maanden geleden staat op 15.678 views, de video op de lanceerdag op 282 (GEZIEN). Een slapend kanaal is geen publiek.
+2. **Demo vóór Next Fest, met speltest-updates.** 22 en 29 mei grote demo-updates (tutorial, balans), met de waarschuwing dat er "occasional wipes" komen: je voortgang in de demo kan weg.
+3. **Next Fest juni 2026, hard gewerkt:** een "Mega-Patch" de dag ervoor, een livestream van de ontwikkelaar, een patch op dag 1 en een patch voor het laatste weekend. Dat is precies wat Deskrawl in hetzelfde fest deed (verhaal 2). Verschil: in die laatste patch staat **"this wipe is absolutely necessary"**: midden in het fest ging de voortgang van alle demospelers weg. De makers schrijven zelf "progress mid-festival is frustrating".
+4. **Pas na het fest vertaald:** op 1 aug "Minimon now speaks four languages" (Frans, Portugees, Chinees). Tijdens het fest was de demo dus alleen Engels (afleiding uit dat bericht).
+5. **Augustus: Twitch-functies** (kijkers typen !join en worden een vijand, chat kiest de naam van een gevangen monster) en een toernooimodus voor streamers. Bètabuild naar "beta testers and content creators".
+6. **31 aug uitgebracht**, $7,99 met 10% korting, 90 monsters, 15 paden. Een week later prestaties en Japans erbij.
+7. Daarna geen aankondigingen meer (laatste bericht 7 sep). Nu 7 reviews in de winkel, 0 spelers op een maandagochtend.
+
+**Deskrawl in hetzelfde fest deed drie dingen die Minimon niet deed** (verhaal 2): een ranglijst en een baas-evenement waar "about 4000 players" aan meededen, de top 100 kreeg de bèta, en "invite your friends". Zij gaven spelers een reden om te blijven en anderen te halen. Minimon gaf spelers patches en wiste hun voortgang.
+
+### De andere drie, kort
+- **Idlewood Outpost:** in mei 2025 begonnen als "a little tech experiment with Electron", itch-demo in de browser op 6 juli ("We've slapped a fake desktop on"), Steampagina pas op 29 juli, Steam-demo 16 aug, Next Fest okt, uitgebracht 17 nov. **Van pagina tot lancering 16 weken**, één taal, en de demo bleef staan ("I won't be taking it down"). Na een jaar 4 reviews.
+- **Idle Squire:** één maker die werkt "between family life", sinds sep 2025 wekelijkse berichtjes, toen twee maanden stil ("Still here!"), nieuwe demo en trailer 1 feb, Next Fest feb 2026 met een bericht van 205 tekens, uitgebracht 6 mei. Eén taal. Haak die echt anders is ("every key you press is an attack"), maar geen enkele video op YouTube met de naam.
+- **Dungeoneers Idle:** demo 14 sep, daarna **25 updates in 7 weken** (0.8.1 tot 0.16.1), Discord, 1.0 op 11 nov. Nu 7 reviews en 9 spelers; vijf dagen is te vroeg om te oordelen, maar al die updates gaven geen zichtbaar publiek (eigen trailer 23 views).
+
+### Wat ze allemaal missen (mijn lezing, met bewijs per punt)
+- **Geen doorbraakmoment in het fest.** Desktop Defender ging in zijn fest van 1 naar 1.548 gelijktijdige spelers en kwam in "most played demos" (verhaal 5). Van geen van de vier staat een piek, mijlpaal of verlanglijstgetal in hun eigen berichten; makers die zoiets halen melden het altijd (Cozy Mining, Lootborne, Black Cat in verhaal 7). GOK: ze kwamen er nooit in.
+- **Niemand anders maakte video's.** Bij de twee winnaars zijn de meeste video's van anderen (gidsen, livestreams, recensies); bij de vier alleen eigen trailers of niets.
+- **Op het plaatje lijkt het spel op elk ander fantasyspel.** Ik legde de zes capsules naast elkaar (header 460 px): Minimon, Idle Squire, Idlewood en Dungeoneers zijn verzorgd getekend, maar geen ervan laat zien dat het in een hoekje van je scherm leeft. Desktop Defender zegt het in de naam, Deskrawl in "Desk". Maar de naamtest hierboven zegt dat dat alleen niet genoeg is.
+
+### Drie lessen
+1. **Demo plus Next Fest plus updates is de norm, geen voorsprong.** Van de 16 kerkerspellen met demo haalden er 3 de 100 reviews. Minimon deed in juni wat Deskrawl deed (dagelijkse patches, livestream) en kwam uit op 7 reviews tegen 3.631. Het verschil zat niet in hoe hard ze werkten.
+2. **Wis nooit de voortgang van demospelers tijdens een fest, en geef ze een reden om anderen te halen.** Minimon kondigde in mei wissen aan en wiste midden in het fest; Deskrawl gaf een ranglijst, een gezamenlijke baas en bèta voor de top 100, Desktop Defender gaf extra levels bij elk spelersdoel. Wie in een fest geen reden geeft om te blijven en te delen, krijgt geen piek, en zonder piek geen lijstjes.
+3. **Meet tijdens het fest of je doorbreekt, en beslis dan.** De vier gingen na een stil fest gewoon door naar de lancering met hetzelfde spel en dezelfde capsule. Idlewood bracht vier weken na een fest zonder gemelde piek uit. Een stil fest is een uitslag, geen pech.
+
+### Wat dit betekent voor Hats (en wat niet)
+- Hats lijkt op deze vier (helden, buit, hoekje van het scherm, fantasy). De mediaan voor ons soort spel met demo is **8 reviews**. Dat is de uitkomst als we "gewoon goed" werken. Ons tijdpad in `planning-fest-2027.md` (pagina ±8 dec, fests jan en feb, uitbrengen begin maart: ±12 weken pagina) lijkt op dat van Idlewood (16 weken). Maar Desktop Defender had ook maar ±15 weken pagina, dus de korte tijd is niet de oorzaak; wat telt is wat er in het fest gebeurt.
+- Wat ons anders maakt (hoeden op Gloop, helden met wrok, zie `onderscheid-hats.md`) moet in het fest zichtbaar worden. Bij de vier zag ik geen eigen stuk op de capsule.
+- Onze save-regel (save gaat mee naar het volle spel, punt 6 van de demolijst) is precies goed; dit verhaal zegt: ook geen wis tijdens of tussen de fests.
+- Wat niet geldt: van de vier ken ik geen verlanglijstjes en geen volgers, dus ik weet niet of ze klein binnenkwamen of veel verlanglijstjes slecht omzetten. Het Desktop Companion Fest is een eigen vak voor ons soort spel; misschien valt een klein spel daar meer op dan in Next Fest (GOK).
+
+### Voorstel voor Dortus deze week
+**Olaf zet in `platformen/steam/planning-fest-2027.md` een meetpunt op vr 15 jan (dag 2 van het Desktop Companion Fest) en een uitslag op ma 18 jan, met een vaste regel vooraf:** groeien de verlanglijsten in de festweek met minder dan 1.000 (GOK als grens; Cozy Mining ging in Next Fest van 2.000 naar 5.000, Black Cat stond na twee kleine fests op 2.000), dan gaat de verbeterweek naar de haak (capsule, eerste 30 seconden, tekst) en niet naar poetsen, en legt de hoofdchat de lanceerdatum van maart opnieuw neer. Plus twee regels voor de demo: **nooit de save wissen tijdens of tussen de fests**, en **één reden om anderen te halen** (bijvoorbeeld een gezamenlijke teller in de discussies: "samen 10.000 helden opgegeten, dan komt hoed X in de demo"; gezamenlijk doel zoals Desktop Defender, zonder eigen server). Melding staat in `berichten/olaf.md`.
+
+### Eerlijk: wat ik niet weet
+- Hoeveel verlanglijstjes en volgers de vier hadden; de volgerpagina van Steam gaf steeds "te veel verzoeken". Een volgende run kan dat alsnog proberen.
+- Wat spelers zeggen: met 4 tot 7 reviews is er weinig, en de review-API werkte niet.
+- Of de Minimon-video van 15.678 views betaald gepromoot is (GOK: het kanaal haalt verder 34 tot 433, dus dat zou kunnen).
+- Of Dungeoneers Idle nog groeit: vijf dagen na de lancering is te vroeg.
+- Spelers nu is één meting op een maandagochtend; bij spellen die op de achtergrond draaien zegt dat iets, maar weinig.
 
 ---
 
