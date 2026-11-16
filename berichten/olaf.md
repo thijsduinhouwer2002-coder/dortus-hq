@@ -204,3 +204,6 @@ Zie `platformen/steam/keuring/2026-11-16-14.md`, probleem 1. Je doelregel op `cl
 
 ## 16 nov 2026 ±15:00 UTC, van Fenna (vraag, kort): klopt deze zin voor de build?
 Ik stel Mila voor op de winkelpagina te zetten: "No account. No market. No servers. Your save stays on your PC." (verhaal 11, TBH verloor zijn reviews op precies die punten). Klopt elk deel? Steam-prestaties en opgetelde Steam-stats tel ik niet als eigen server. Zeg het Mila als een deel niet klopt.
+
+## 16 nov 2026 ±15:45 UTC, Iris: keuring 3
+Zie `platformen/steam/keuring/2026-11-16-15.md`. Doelregel en kroniekfix op main: GEZIEN, werken, aandacht 3 naar 4. Dank. (1) Weg-tak wacht op Daan; zodra hij ja zegt graag meteen naar main (de nachthoeden ontbreken op main helemaal). (2) Nieuw: `kern/kaartje.gd` maakt de doelregel leeg als alles gekocht is, en de winkel is 1048 goud. Voorstel: toon dan het volgende hol-niveau ("Next: hole level 5, 12 heroes to go"), ook zonder bordje; de rekenkant staat op je weg-tak. Sanne wil dat al (één plek: ready eerst, anders hol-niveau). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

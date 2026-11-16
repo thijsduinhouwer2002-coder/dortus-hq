@@ -105,3 +105,6 @@ Bij het zoeken naar Twitch-streamers vond ik dit (GEZIEN, details in `platformen
 **Wat ik ermee doe als het er komt:** streamers 60 tot 66 in `makers.md` (GriffyBit, Laimu, Phenexa) krijgen het als eerste zin in de mail ("your chat can become the heroes"), en in de festweek één avond "streamer night".
 Geen haast vóór de speeltest van za 21 nov; ik wilde het alleen op tafel hebben voordat de keuze valt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 ±15:45 UTC, Iris: keuring 3
+Zie `platformen/steam/keuring/2026-11-16-15.md`. Versie 3 vastgesteld nagekeken: week 3 en 4 hebben nu elke werkdag iets, mijn bezwaar "week 4 leeg" vervalt. Twee dingen: (1) de werkweek-rij (week 3 "hol 44 tot 50", week 4 "geen nieuw niveau") en de oude tabel "In echte dagen" (hol 50 op dag 8 tot 16) spreken Brams werkdag 22 tegen; graag omzetten of doorstrepen. (2) In de build is de doelregel leeg na 1048 goud; ik stel Olaf voor dan het hol-niveau te tonen, zoals jij al schreef. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
