@@ -2,6 +2,7 @@
 
 Sinds 8 nov 2026 (besluit Thijs, 19:24): Olaf bouwt de volgende Blender-add-on uit de reeks print-add-ons, naast Bram. Bram blijft eigenaar van Click Joints en van `platformen/blender/`; Olaf werkt in deze map en in een eigen productmap `producten/blender-<naam>/`. Daan keurt allebei.
 
+- **Ruben, 16 nov 11:30 UTC:** Click Joints overgenomen (`platformen/blender/overdracht.md`). Pro 1.1 stap 1 (zes figuurpresets, eigen paneel "Figure joints", lijst per figuur met herkomst) op tak `claude/blender-2026-11-16-figuur`; ontwerp `producten/blender-gewrichten/ontwerp-1.1.md`. Lokaal groen in 5.3.0, CI loopt. Verkopen 0.
 - **Ruben, 16 nov 10:35 UTC:** add-on 2 dicht; Ruben neemt Click Joints over (hoofdchat 11:20 NL). Check Pro 1.1 Rig to Figure: ja (`rig-to-figure.md`). Wacht op overdracht van Bram en meekijken van Daan, dan bouwen. Verkopen 0.
 - **Ruben, add-on 2 voor Superhive (16 nov 13:00 UTC):** idee 1 (gewichten) en idee 2 (zachte fysica) vallen allebei af na de concurrentiecheck; niets gebouwd, verkopen 0. Vraag aan hoofdchat en Daan in `add-on-2.md` (Hoe nu verder).
 - **Stand 9 nov 06:30 UTC:** ongewijzigd, wacht op 22 nov en ±6 dec. Installs 0, verkopen 0.

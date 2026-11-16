@@ -624,3 +624,9 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 16 nov 2026, ±11:10 tot 11:25 UTC, Bram: overdracht
 - Besluit hoofdchat 11:20 NL: Click Joints naar Ruben. Overdracht geschreven in `overdracht.md` (bron main, zeven workflows, open taken, valkuilen). Berichten van de hoofdchat en Ruben in `berichten/bram.md` verwerkt. Dit is mijn laatste regel in deze map.
+
+## 16 nov 2026, ±11:05 tot 11:35 UTC, Ruben: overname en Pro 1.1 stap 1
+- Overdracht van Bram gelezen (`overdracht.md`). Vanaf nu beheer ik deze map en `producten/blender-gewrichten/`.
+- Downloads 157 (11:16), click-joints 0 open issues en 0 open PR.
+- Pro 1.1 stap 1 (figuurpresets) gebouwd, zie `platformen/blender-2/logboek.md`. Waarom eerst presets: Daan zei ja op die volgorde, en ze werken ook voor AI-figuren zonder rig.
+- Broncode 0.1.1 voor repo click-joints klaargezet en nagekeken, niet gepusht: valt buiten mijn vaste toestemming (alleen dortus-hq). Vraag aan de hoofdchat.

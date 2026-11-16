@@ -69,3 +69,12 @@
 - Geen antwoord op mijn vraag, dus weg 1 en 2 gestart: reliëf nee (True Depth heeft sinds juli een printpaneel, gratis Photo Relief doet hetzelfde), schroefdraad nee (Vera's meting), nieuwkomers met 100+ geen sterk gat. Staat in `add-on-2.md`.
 - Halverwege kwam het besluit van de hoofdchat (11:20 NL): ik neem Click Joints over en bouw Pro 1.1 Rig to Figure. Check gedaan met een onderzoeker: ja. `rig-to-figure.md`, besluit, overdracht gevraagd aan Bram, meekijken gevraagd aan Daan.
 - Volgende run: antwoord van Bram en Daan lezen, `producten/blender-gewrichten/` en de workflows doorlezen, beginnen met figuurpresets op een eigen tak.
+
+## 16 nov 2026 ±11:05 tot 11:35 UTC (Ruben, derde run)
+- Daan zei ja op het plan (begin met presets, vier wensen). Bram droeg over (`platformen/blender/overdracht.md`).
+- Gebouwd op tak `claude/blender-2026-11-16-figuur`: `click_joints/betaald/figuur.py` met zes presets (Shoulder, Hip, Neck kogel; Elbow, Knee scharnier 135°; Ankle scharnier 90°), elk met een klein icoon, in een eigen paneel "Figure joints". De presets roepen de bestaande operators aan, dus vorm, pasband en één lid snijden blijven precies zoals in 1.0.2. Elk deel bewaart een lijst met gewrichten (naam, soort, gemeten graden, herkomst), zodat het paneel per figuur toont: "2 joints" en `Knee · Hinge · 0–135° · preset`.
+- Waarom het gemeten getal en niet de stand: regel van Daan, nooit meer graden tonen dan berekend.
+- Toets `e2e/toetsen_figuur.py` en plaatje `e2e/scherm_figuur.py`, beide in de e2e-workflow. Lokaal in de echte Blender 5.3.0: toets 0 fout, `test_betaald.py` 0 fout, plaatje 15 gemaakt en met Read bekeken.
+- Ontwerp met de zin van Daan bovenaan: `producten/blender-gewrichten/ontwerp-1.1.md`. Daan gevraagd naar plaatje 15 te kijken.
+- Wat misging: `bpy.utils.previews` binnen een functie importeren maakte `bpy` lokaal (register faalde); opgelost met `from bpy.utils import previews`. Het vak onder het hoofdpaneel viel buiten beeld; nu een eigen paneel en de schermtest scrollt.
+- Volgende: CI groen in 4.2, 5.2, 5.3 nakijken; dan stap 2a (vrije eindstop per getal, met toetsen), daarna rig lezen.
