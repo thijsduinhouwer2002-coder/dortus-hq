@@ -73,6 +73,30 @@ Alleen na een **doorbraak** volgens de meetlat (`festplan.md`): grote kanalen ma
 Korte tekst bij een sleutel via Curator Connect (veld is kort, GOK ±300 tekens; nakijken in Steamworks):
 > Every hero who falls into Gloop's dungeon leaves a hat on his head; the ones who get away come back with a grudge. A silent idle dungeon on top of your taskbar. Free demo in the Desktop Companion Fest, Jan 14 to 18.
 
+## Showcase: Insider Gaming "New Year, New Games 2027" (inzenden vóór wo 25 nov)
+**Gevonden run 3 (GEZIEN 16 nov met curl):** https://insider-gaming.com/new-year-new-games-2027-showcase/ en het formulier https://forms.gle/4isLK4gz6rC18Tg57.
+- Uitzending **do 14 jan 2027, 20:00 GMT (21:00 NL)**: dezelfde avond als de start van het Desktop Companion Fest (19:00 NL). 60 tot 90 minuten trailers, op YouTube en sociale kanalen, met co-streamers; daarna artikelen, nieuwsbrief en interviews.
+- Alleen spellen die in 2027 uitkomen (Hats: maart 2027, planning). Inzenden t/m **25 nov 2026**, gesprekken t/m 11 dec, **alle materiaal (trailer, beelden, one-pager) uiterlijk ma 4 jan**.
+- Het formulier vraagt het Steam-appid "for inclusion in a Steam event around the showcase": er komt dus ook een Steam-pagina bij de show (GEZIEN in het formulier).
+- Kosten: nergens genoemd op de pagina of in het formulier (GEZIEN). GOK: gratis; staat er toch een prijs in de reactie, dan eerst Thijs.
+- Verplichtingen bij selectie (vinkje "Agree"): trailer, misschien een interview, beelden en een one-pager; en een NDA (niet melden dat je meedoet tot de show).
+- Kans: GOK laag tot middel. Insider Gaming is groot (algemene gamepers), Hats is klein. Maar het kost ±10 minuten en de datum valt precies op ons doorbraakmoment.
+
+**Ingevulde antwoorden (Thijs plakt, eigen naam en adres vult hij zelf in):**
+- Game Name: Hats of the Fallen
+- Developer: Dortus · Publisher: Dortus (self)
+- Platforms: PC
+- Short Game Synopsis: *Hats of the Fallen is an idle dungeon that lives on top of your Windows taskbar. Heroes climb in to steal Gloop the slime's gold. Every hero who falls into your traps leaves a hat on Gloop's head, and the ones who get away come back later with a bandage, a nickname and a grudge. It runs silently while you work and never punishes you for looking away.*
+- Has the game been announced? No (tenzij de winkelpagina dan al live is; dan Yes)
+- Release window: March 2027
+- Inclusion: **Exclusive Look**, details: *First look at the free demo, which launches into Steam's Desktop Companion Fest the same evening (Jan 14 to 18), including the community hat goals all players unlock together.* (De zin over hoedendoelen alleen als Thijs op 21 nov optie A kiest; anders weglaten.)
+- Steam page / appID: invullen als de pagina er is; anders leeg laten en in "other details" zetten: *Steam page goes live in December 2026.*
+- Pitch deck: leeg (of de winkelpagina zodra die er is)
+- Other details: *Made by Dortus, a small studio that builds with AI tools (code, 3D scenes built with scripts, in-game text) and is open about it.* (Alleen als de hoofdchat met Thijs de AI-melding zo vastlegt; anders weglaten. Niet verzwijgen als ernaar gevraagd wordt.)
+- Agree + NDA: Thijs zelf.
+
+**Afhankelijk van:** een trailer van 30 tot 60 s vóór 4 jan (Olaf en Chris; er zijn al kandidaat-openingen uit de spelfilm, `platformen/steam/logboek.md` 10 nov) en een one-pager (maak ik, als we geselecteerd worden). Gemeld aan Chris.
+
 ## Trailer-plekken (Wholesome Games, PC Gamer Cozy Corner)
 Nog niet. Wholesome Games werkt met eigen showcases en de oude inzendpagina bestaat niet meer (Fenna). Volgende run: uitzoeken welke showcases in december en januari inzendingen openen en wat ze vragen.
 
