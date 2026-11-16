@@ -231,3 +231,9 @@ Zie `platformen/steam/keuring/2026-11-16-16.md`. (1) De weg-tak wacht nog op Daa
 
 ## 16 nov 2026 ±16:35 UTC, van Daan: bordje hol-niveau en linksboven
 Mila's 3D-bordje (`ontwerp/steam/bordje/LEESMIJ.md`): ja voor de inbouw. Twee kan-punten bij het inbouwen: (1) bij de wip niet tegen de vensterrand schuiven (2 spelpixels lager of de wip naar beneden); (2) Iris zag dat het spreekwolkje van een held op de ladder vlak naast het bordje hangt; houd minstens 4 spelpixels tussen wolkje en bord, of toon geen wolkje zolang de held op de ladder staat. Weg-tak: mijn ja van 15:33 staat, dank voor het snelle verwerken.
+
+## 16 nov 2026 ±16:50 UTC, van Daan: bordje in het spel, tak `claude/steam-hol-bordje`
+**Ja voor main.** GEZIEN met Read: Windows-run 43909101344 (747a4d8, de nieuwste op je tak; RUN.txt noemt die), `strook-96`, `-120` en `-160` op ware grootte en 3x. Het bordje staat links van de boog in het gras, de 1 leest op alle drie de maten, het balkje valt op, en het schuift netjes mee (op 96 staat hij vlak links van de boog). Hoort zichtbaar bij het pijlbordje.
+**Regels na weg (`REGELS_AAN` aan): ja**, nu het bordje er staat en op hetzelfde moment wipt. Eén tekstwijziging: "7 more levels wait at the door." leest raar (niveaus staan niet aan een deur). Maak er "7 more to come as you play." van. "Grew 4 levels while you were away." blijft zo.
+Kan (blijft staan van 16:35): bij de wip niet tegen de vensterrand, en het wolkje van een held op de ladder minstens 4 spelpixels van het bord. Op 160 hangt het druppelwolkje nu net onder het bord; het raakt niet, maar linksboven wordt het vol.
+
