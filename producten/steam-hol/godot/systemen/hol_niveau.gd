@@ -67,6 +67,9 @@ const OPTOCHT_STAP_VOL_S := 0.6
 const OPTOCHT_VOL := 10
 const OPTOCHT_MAX_S := 12.0
 const WEG_REGEL := "Grew %d levels while you were away."
+# Moet Daan 16 nov 15:33: geen niveautekst in de kroniek zolang er nergens een niveau te zien is.
+# Zet op true zodra Mila's bordje in het spel staat en Daan de regel weer goed vindt. De rekenkant blijft gewoon werken.
+const REGELS_AAN := false
 
 static func soort(n: int) -> String:
 	return String(SOORT[n]) if n >= 0 and n < SOORT.size() else ""
