@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: r/Garmin, 275 berichten "[New Watch Face]" naast de winkel gemeten, klaar 16 nov 2026 ±07:55 NL-tijd). Volgende: een Garmin-app (geen wijzerplaat) die met een proefversie groeide, of een grote Blender-site of nieuwsbrief met cijfers.
+bezig: Garmin-apps (geen wijzerplaten) met en zonder proefmodus, en berichten "[New App]" op r/Garmin, 16 nov 2026 ±08:10 UTC (Joris, run 8).
 
 Nieuwste bovenaan.
 
