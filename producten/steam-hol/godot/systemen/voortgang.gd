@@ -13,7 +13,7 @@ const PLAFOND_S := 12 * 3600
 # een kwart van het tempo van spelen, met het plafond van 12 uur. Een nacht telt zo als 2 tot 3 uur spelen, niet als 8,
 # zodat de winkel niet na één nacht leeg is (Iris keuring 1) en het hol een paar weken leuk blijft (lat Thijs).
 const SNELHEID := 0.25
-const TEMPO_REGEL := "Your hole worked at a quarter speed."
+const TEMPO_REGEL := "Your hole worked at quarter speed."
 const TEMPO_REGEL_NA_S := 30 * 60
 const HELD_ELKE_S := 47.5          # gemiddeld, zelfde orde als in het spel (25 tot 70 s)
 
