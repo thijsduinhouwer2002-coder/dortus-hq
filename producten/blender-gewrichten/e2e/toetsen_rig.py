@@ -142,13 +142,10 @@ def main():
           and lk["graden"] is not None and 118.0 <= lk["graden"] <= 120.2, f"Left knee uit de rig: {lk}")
     overgeslagen = next((o.get("cj_rig_overgeslagen", "") for o in bpy.context.scene.objects
                          if o.get("cj_figuur") == "pop" and o.get("cj_deel")), "")
-    if rk is None and bpy.app.version < (4, 5, 0) and "Right knee (The cut gave no watertight parts" in overgeslagen:
-        # BEKEND (ontwerp-1.1.md): in 4.2 (alleen de Exact-solver) geeft de tweede knie op hetzelfde deel open
-        # randen; de add-on weigert dan eerlijk en laat de mesh heel. Vanaf 4.5 (Manifold) moet hij lukken.
-        log("BEKEND 4.2: tweede knie eerlijk geweigerd (Exact-solver), mesh heel")
-    else:
-        check(rk is not None and rk["soort"] == "HINGE" and rk["herkomst"] == "preset"
-              and rk["graden"] is not None and 120.0 <= rk["graden"] <= 135.2, f"Right knee preset: {rk}")
+    # Was BEKEND in 4.2 (Exact-solver: open randen bij de tweede knie); sinds de herkansing met een verschoven
+    # snijvlak (scharnier.py, 16 nov run 4) moet hij in alle versies lukken.
+    check(rk is not None and rk["soort"] == "HINGE" and rk["herkomst"] == "preset"
+          and rk["graden"] is not None and 120.0 <= rk["graden"] <= 135.2, f"Right knee preset: {rk} ({overgeslagen})")
     delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "pop" and o.get("cj_deel")
              and o.visible_get()]
     check(all(gesloten(o) for o in delen), f"alle {len(delen)} delen gesloten")

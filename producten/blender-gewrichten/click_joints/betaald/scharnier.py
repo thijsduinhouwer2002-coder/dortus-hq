@@ -16,7 +16,7 @@ import time
 import bmesh
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty, IntProperty
-from mathutils import Vector
+from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 from ..eigenschappen import eenheid_per_mm
@@ -143,31 +143,51 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bron["cj_te_dicht_mm"] = nodig
             self.report({"WARNING"}, f"Too close to another joint (keep {nodig} mm apart).")
             return {"CANCELLED"}
-        hulp = bpy.data.collections.new("cj_hulp")
-        context.scene.collection.children.link(hulp)
-        werk = bpy.data.objects.new("cj_werk", me)
-        hulp.objects.link(werk)
         solver = solver_naam()
-        # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
-        ok_lid, melding = een_lid.bereid(werk, frame, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
-        if not ok_lid:
+        # 1.1: met alleen de Exact-solver (Blender voor 4.5) gaf een tweede knie op hetzelfde deel soms open randen
+        # (samenvallende vlakken met de eerste snede). Dan nog twee keer, het snijvlak een honderdste mm verschoven
+        # langs het lid; dat verschil is niet te printen en niet te meten in het bereik.
+        pogingen = (0.0, 0.013, -0.017) if solver == "EXACT" else (0.0,)
+        me_bron = me
+        laatste = len(pogingen) - 1
+        for i, eps in enumerate(pogingen):
+            frame_i = (Matrix.Translation(Vector(lid) * (eps * u)) @ frame) if eps else frame
+            hulp = bpy.data.collections.new("cj_hulp")
+            context.scene.collection.children.link(hulp)
+            werk = bpy.data.objects.new("cj_werk", me_bron.copy())
+            hulp.objects.link(werk)
+            # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
+            ok_lid, melding = een_lid.bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver,
+                                             hulp)
+            if not ok_lid:
+                ruim_op(hulp)
+                bpy.data.meshes.remove(me_bron)
+                self.report({"WARNING"}, melding)
+                return {"CANCELLED"}
+            try:
+                deel_a, deel_b = vorm.snij(hulp, werk, frame_i, maat, solver)
+            except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
+                ruim_op(hulp)
+                if i < laatste:
+                    continue
+                bpy.data.meshes.remove(me_bron)
+                self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
+                return {"CANCELLED"}
+            finally:
+                een_lid.reset()
+            uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
+            if all(ok for ok, _ in uitslag):
+                break
             ruim_op(hulp)
-            self.report({"WARNING"}, melding)
-            return {"CANCELLED"}
-        try:
-            deel_a, deel_b = vorm.snij(hulp, werk, frame, maat, solver)
-        except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
-            ruim_op(hulp)
-            self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
-            return {"CANCELLED"}
-        finally:
-            een_lid.reset()
-        uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
-        if not all(ok for ok, _ in uitslag):
-            ruim_op(hulp)
-            self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
-                                   f"{uitslag[0][1]}, part B {uitslag[1][1]}); the mesh is unchanged.")
-            return {"CANCELLED"}
+            if i == laatste:
+                bpy.data.meshes.remove(me_bron)
+                self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
+                                       f"{uitslag[0][1]}, part B {uitslag[1][1]}); the mesh is unchanged.")
+                return {"CANCELLED"}
+        bpy.data.meshes.remove(me_bron)
+        if eps:
+            frame = frame_i
+            punt = Vector(punt) + Vector(lid) * (eps * u)
         draaipunt = frame @ Vector((0, -maat["e"], 0))
         gegevens = {"cj_bron": bron.name, "cj_soort": "SCHARNIER", "cj_speling_mm": inst.speling_mm,
                     "cj_as": list(lid), "cj_scharnier_as": list(h), "cj_buigkant": list(buig),

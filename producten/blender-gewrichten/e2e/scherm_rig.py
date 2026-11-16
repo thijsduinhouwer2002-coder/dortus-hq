@@ -4,8 +4,8 @@ Figuur en rig uit toetsen_rig.py (twee benen, knie links met Limit Rotation 0 to
 Na de knop staan de bogen vanzelf aan (rig.py). Kijkrichting schuin van voren, zodat beide knieën een waaier
 met getal tonen. Hele venster plus een uitsnede van de zijbalk (de lijst met `from rig` en `preset`).
 Regel "RIG BEELD OK" als minstens één boog van een figuur in de passingkleur met getal getekend is, de kopregel
-hooguit één keer staat, en de lijst `from rig` bevat. Onder 4.5 weigert de tweede knie eerlijk (bekend), dan
-is één boog genoeg.
+hooguit één keer staat, en de lijst `from rig` bevat. Twee bogen in alle versies (ook 4.2, sinds de herkansing
+met verschoven snijvlak).
     blender --python e2e/scherm_rig.py -- <map> <betaalde zip>
 """
 import importlib
@@ -105,7 +105,7 @@ def stap():
     rig_regel = any("from rig" in r for r in staat.get("regels", []))
     act = bpy.context.view_layer.objects.active
     zichtbaar = act is not None and act.visible_get() and bool(act.get("cj_deel"))
-    genoeg = len(bogen) >= (2 if bpy.app.version >= (4, 5, 0) else 1)
+    genoeg = len(bogen) >= 2
     ok = genoeg and groen and getal and len(koppen) <= 1 and rig_regel and zichtbaar and ok_uit
     log(f"RIG BEELD {'OK' if ok else 'FOUT'} bogen={[(b['naam'], b['getal'], b['kijkhoek']) for b in bogen]} "
         f"koppen={len(koppen)} actief={act.name if act else None} zichtbaar={zichtbaar} groen={groen} getal={getal} from_rig={rig_regel} uitsnede={ok_uit} "
