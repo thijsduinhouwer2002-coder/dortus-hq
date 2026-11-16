@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Verhaal 21 af (16 nov ±22:15 UTC, Nomad Sculpt: gratis SculptGL vooraf, $19,99 zonder abonnement, zes jaar gratis updates, video's van anderen met het versienummer). Volgende: Model Splitter volgen (Pro en Kickstarter), late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Verhaal 21 af (16 nov ±22:15 UTC, Nomad Sculpt: gratis SculptGL vooraf, $19,99 zonder abonnement, zes jaar gratis updates, video's van anderen met het versienummer). Model Splitter nagekeken 16 nov ±22:10 UTC (site en RSS, GEZIEN): nog steeds gratis openbare bèta, nog geen Pro of Kickstarter live; de kogelgewrichtvideo van 16 nov staat op 142 weergaven, nog steeds geen scharnier met eindstop. Volgende: Model Splitter blijven volgen, late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
 
