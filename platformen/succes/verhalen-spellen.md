@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: onderscheid van Hats (opdracht hoofdchat 07:10), 16 nov 2026 06:35 UTC
+bezig: niets (laatste: onderscheid van Hats, `platformen/succes/onderscheid-hats.md`, klaar 16 nov 07:25 UTC; volgende run: Your Big, Cute Monster Farm (tip Vera, waarom 77%), daarna hoe makers het Desktop Companion Fest gebruikten)
 
 Nieuwste bovenaan.
 
