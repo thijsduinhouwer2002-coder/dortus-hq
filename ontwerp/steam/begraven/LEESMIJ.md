@@ -20,3 +20,16 @@ Vraag van Daan (16 nov 20:50, voor de demo van 18 dec, geen haast): op 1920 is i
 - `proef2-echt-1x.png` (ware grootte), `proef2-echt-3x.png`, `proef2-stukken-1x-4x.png` (elk stuk uit de 1x, 4x vergroot), `proef2-blad-1x.png` (boven A met alle vier, onder B).
 - **GEZIEN met Read op 1x en 4x van de 1x:** alle vier lezen op ware grootte (paarse hoed, bot, kistje met goud, wortel), ook naast de steentjes van het spel: die zijn even licht maar rond en kleurloos, de stukken hebben kleur en vorm. Eerlijk minder: met de lichte rand liggen ze iets meer óp de aarde dan in proef 1; het holletje maakt dat goed op de hoed en het kistje, de wortel zit door zijn schuine punt het best in de grond.
 - **Eerlijkheid (moet):** variant B (`proef2-echt-B-1x.png`) heeft alleen bot en wortel, als gewone vondst. Hoed en kistje alleen als graven ze echt oplevert; dat vraag ik aan Sanne en Olaf (bericht 23:20).
+
+## Proef 3 (16 nov ±23:50 UTC): moet Daan (23:30), half IN de aarde
+- `leg_in_echt3.py`, uit: `proef3-echt-1x.png` (ware grootte), `proef3-echt-3x.png`, `proef3-stukken-1x-4x.png`, `proef3-voor-na-4x.png` (boven proef 2, onder proef 3).
+- **Moet gedaan:** het onderste derde van elk stuk zit onder de aarde. De aarde ervoor is de echte grond van die plek, met een bultige rand, een zachte lichte lip (de kleur van de bovenrand van de gang), een schaduwrandje van 1 px op het stuk vlak boven de aarde en een paar kluitjes op het stuk. Eerst geprobeerd: een eigen hoopje verse aarde, lichter dan de grond. GEZIEN, las als een licht blok met een stippellijn erom; weggegooid.
+- **Holletje** van 70 naar 15 procent, en alleen om het zichtbare deel (eerst zat er een spookschaduw van het begraven deel onder, GEZIEN en weg).
+- **Kan gedaan:** bot 12 procent minder wit.
+- GEZIEN met Read op 1x (2x vergroot) en 4x van de 1x: alle vier lezen op ware grootte en zitten erin in plaats van erop. Eerlijk minder: van het bot is één knobbel begraven, het leest nog als bot; de lip is op 1x maar een zweem, het werk doet vooral de afgesneden vorm.
+
+## Spelblad voor Olaf (16 nov ±23:50 UTC, vraag Olaf 23:40)
+- `producten/steam-hol/godot/kunst/3d/begraven.png` (320 x 64) met `begraven.png.import` en `begraven.json`. Vijf cellen van 64 x 64 bladpixels = 16 x 16 spelpixels bij px 4, zoals `holbord`. Cel linksboven = linksboven van de spelcel. Volgorde: `hoed`, `bot`, `kist`, `wortel`, `kist_open`.
+- Demping en begraven zitten er al in: het onderste derde is in de cel **doorzichtig** (met lip en schaduwrandje erop), dus de echte aarde van het spel komt er doorheen, waar het ook ligt. Holletje 15 procent zit in de alfa.
+- `kist_open`: dezelfde kist na het doorgraven, deksel naar achteren open, leeg en donker van binnen, niet begraven (die cel is dan gang), zachte schaduw eronder. Eerlijk: op 4x leest het als open kist; het rechtopstaande deksel kan op 1x ook als tweede kist lezen. Vind Daan dat, dan maak ik het deksel platter.
+- Gemaakt met: `BLAD=1 <bpy-python> begraven.py stukken3-blad-4x.png` en daarna `python3 maak_blad.py <strook-10min.png>`. Proef in de echte opname: `blad-echt-1x.png` en `blad-proef.png` (boven 4x uit de 1x, de vijfde = na het doorgraven; onder het blad zelf).

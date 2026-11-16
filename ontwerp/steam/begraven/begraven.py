@@ -60,6 +60,24 @@ wort = obj_uit(M.primitive_cone_add, 'wortel', wortm, radius1=0.12, radius2=0.01
 loof = [obj_uit(M.primitive_cone_add, f'loof{i}', loofm, radius1=0.035, radius2=0.0, depth=0.28, location=(math.sin(a) * 0.06, 0, 0.42), rotation=(0, a, 0), vertices=10) for i, a in enumerate((-0.45, 0, 0.45))]
 groep("wortel", [wort] + loof, (1.5, 0, -0.08), (0, -30, 0))
 
-g.camera(hoogte_midden=0.0, schaal=4.0)
-g.licht()
-g.render(sys.argv[-1], 256, 64, samples=48, doorzichtig=True)
+# 5 (alleen met BLAD=1, voor het spelblad van Olaf): hetzelfde kistje na het doorgraven, deksel ver open, leeg.
+if os.environ.get('BLAD') == '1':
+    for o in list(bpy.data.objects):
+        if o.parent is None and o.type == 'EMPTY': o.location.x -= 0.5      # de vier groepen een cel naar links
+    kist5 = obj_uit(M.primitive_cube_add, 'kist5', houtm, size=1, location=(0, 0, 0)); kist5.scale = (0.44, 0.3, 0.26)
+    binnen = obj_uit(M.primitive_cube_add, 'binnen5', g.mat('binnen', g.hex2('3a2214'), rough=0.9), size=1, location=(0, 0, 0.132))
+    binnen.scale = (0.4, 0.26, 0.01)                                   # donker leeg vlak bovenin: hier zat het goud
+    bnd5 = [obj_uit(M.primitive_cube_add, f'beslag5{i}', goudm, size=1, location=(x, 0, 0)) for i, x in enumerate((-0.16, 0.16))]
+    for b5 in bnd5: b5.scale = (0.04, 0.31, 0.27)
+    slot5 = obj_uit(M.primitive_cube_add, 'slot5', goudm, size=1, location=(0, -0.16, 0.05)); slot5.scale = (0.08, 0.04, 0.1)
+    dek5 = obj_uit(M.primitive_cylinder_add, 'deksel5', houtm, radius=0.15, depth=0.44, location=(0, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0))
+    dekb5 = [obj_uit(M.primitive_cylinder_add, f'dekbeslag5{i}', goudm, radius=0.155, depth=0.04, location=(x, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0)) for i, x in enumerate((-0.16, 0.16))]
+    sch5 = groep('scharnier5', [dek5] + dekb5, (0, 0.15, 0.13), (-140, 0, 0))   # ver open, naar achteren gekanteld
+    kg5 = groep('kist_open', [kist5, binnen, slot5, sch5] + bnd5, (2.0, 0, -0.16), (22, 10, 0)); kg5.scale = (0.9, 0.9, 0.9)
+    g.camera(hoogte_midden=0.0, schaal=5.0)
+    g.licht()
+    g.render(sys.argv[-1], 320, 64, samples=48, doorzichtig=True)
+else:
+    g.camera(hoogte_midden=0.0, schaal=4.0)
+    g.licht()
+    g.render(sys.argv[-1], 256, 64, samples=48, doorzichtig=True)
