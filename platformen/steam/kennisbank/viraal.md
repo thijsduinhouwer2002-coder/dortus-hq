@@ -33,5 +33,8 @@ Terug naar [LEESMIJ](LEESMIJ.md). Het plan van Hats staat in [fest-plan.md](../f
 10. **Na de lancering: blijven veranderen en luisteren.** Mini Cozy Room kreeg 92% van zijn reviews na de eerste maand: binnen een week een routekaart met vinkjes, elke 1 tot 3 weken een update, en elke piek een uitverkoop met een update ernaast. Sem toetste: winnaars posten de routekaart pas na de uitgave (0 van 13 ervoor).
     Bron: [verhaal 12](../../succes/verhalen-spellen.md), [routekaart.md](../marketing/routekaart.md). GEZIEN.
 
+11. **Bundels met andere bureaubladspellen: zichtbaarheid rond de lancering, geen golf.** Rusty maakte de groepsbundel Bottom-Of-Your-Screen op de lanceerdag van My Little Life en zei het in zijn update; 15 van de 17 leden stapten in binnen drie maanden na hun uitgave, ook spellen met 29 reviews. Wie later instapte kreeg geen zichtbare sprong. Het effect zit in de aankondiging naar elkaars volgers (Hero Town bij Mini Cozy Room, Nanomon "Bundles!"). Let op: niet elke "X x Y"-bundel is een samenwerking (Tiny Pasture en Deskrawl x Monster Farm zijn één uitgever), en een bundel kan pas als alle spellen uit zijn, dus voor Hats op zijn vroegst de lanceerdag.
+    Bron: [verhaal 14 en 15](../../succes/verhalen-spellen.md), [bundels.md](../marketing/bundels.md) (Sem). GEZIEN (archief, nieuws-API, Steamworks-docs).
+
 ## Niet doen
 Beloningen voor reviews of voor "verlanglijst en volg" (Nugem deed het; Valve verbiedt beloningen voor reviews). Een stil fest is een uitslag, geen pech: meet op dag 2 en beslis ([verhaal 8](../../succes/verhalen-spellen.md)).

@@ -1,8 +1,93 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 14 af 16 nov ±19:55 UTC; volgende run: wanneer kwamen spellen in Bottom-Of-Your-Screen en groeiden ze daarna, of Little Writer meten na 6 jan)
+bezig: niets (verhaal 15 af 16 nov ±20:20 UTC; volgende run: Little Writer meten na 6 jan, of een bureaubladspel met een crossover-update naast een ander spel (Not Monday Cafe x Lakeside Bar) meten)
 
 Nieuwste bovenaan.
+
+---
+
+## 15. Bottom-Of-Your-Screen van binnen: Rusty maakte de bundel op de lanceerdag van een ander spel, en daarna kwam bijna iedereen erin rond zijn eigen lancering (17 spellen, 37 archiefversies)
+
+Onderzocht 16 nov 2026, run 16. Vervolg op verhaal 14, waar ik niet wist wie de groepsbundel begon, wanneer elk spel erin kwam en of het iemand iets opleverde. Sem schreef in `platformen/steam/marketing/bundels.md` "GOK eigenaar" bij Mister Morris Games; dat kan ik nu met een bron invullen.
+
+### Bronnen
+- **37 archiefversies van de bundelpagina** in het Internet Archive, van 31 jan 2025 tot 18 okt 2026 (lijst: `web.archive.org/cdx/search/cdx?url=store.steampowered.com/bundle/48558*`), per versie de spellen erin geteld (GEZIEN, 16 nov ±19:35 UTC). Een spel kwam erin tussen de laatste versie zonder en de eerste versie met; de vensters zijn 1 tot 10 weken breed.
+- Aankondiging van Rusty's Retirement van 31 jan 2025, "Steam trading cards and more!", via de nieuws-API: `api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=2666510` (GEZIEN). Ook alle aankondigingen van de 17 andere spellen doorzocht op "bottom of your screen" en de bundellink.
+- Reviews per week van alle 18 spellen uit de grafiek van de winkel: `store.steampowered.com/appreviewhistogram/<appid>?l=english&review_score_preference=0` (GEZIEN; de totalen kloppen precies met de winkel, dus alle talen). Deze route werkt wel, waar `appreviews` doorstuurt naar de voorpagina.
+- Welke bundels nu op de winkelpagina van elk spel staan (GEZIEN, 16 nov, `store.steampowered.com/app/<appid>/`).
+- Alles per spel in `platformen/succes/data/bottom-of-your-screen-instap-2026-11-16.csv`.
+
+### Wie begon hem, en hoe (GEZIEN)
+Rusty's maker zette op **31 jan 2025** onderaan een gewone update over ruilkaarten: "we have our first "bottom-of-your-screen" game to release after Rusty! My Little Life ... We've bundled together so you can get an additional -20% off My Little Life if you already own Rusty's Retirement!" met de link naar de bundel. Die dag kwam My Little Life (9FingerGames) uit. De bundel begon dus als **twee spellen op de lanceerdag van het kleinste**, en de aankondiging ging naar iedereen die Rusty volgt. Daarna is hij nooit meer genoemd in een aankondiging van Rusty, en ook niet in die van de 16 anderen (0 treffers).
+
+Het mechaniek is "Complete the set": wie Rusty al heeft, betaalt voor de rest 20% minder. Voor de bundel staan nu 17 spellen, $97,83 voor $78,23 (GEZIEN).
+
+### Wanneer kwam elk spel erin (GEZIEN, archief)
+| Spel | Uit | Erin, gerekend vanaf de uitgave | Reviews nu |
+|---|---|---|---|
+| My Little Life | 31 jan 2025 | dag 0 (bundel gemaakt) | 1.089 |
+| Tiny Pasture | 17 feb 2025 | dag -10 tot 2; **weer eruit** tussen 29 mei en 30 jun 2025 | 7.366 |
+| Desktop Cat Cafe | 6 mrt 2025 | dag -15 tot 17 | 90 |
+| Cornerpond | 21 apr 2025 | dag -14 tot 7 | 2.674 |
+| Maltese's Fluffy Onsen | 13 mei 2025 | dag -15 tot 11 | 2.938 |
+| Nanomon | 24 jun 2025 | dag -26 tot 6 | 117 |
+| My Little Spider | 7 nov 2025 | dag -3 tot 36 | 419 |
+| Emberlands | 20 jan 2026 | dag -20 tot 18 | 29 |
+| Not Monday Cafe | 22 jun 2025 | dag 8 tot 31 | 573 |
+| Ropuka's Idle Island | 29 jan 2025 | dag 21 tot 53 | 4.204 |
+| Spacenap | 10 okt 2025 | dag 25 tot 64 | 43 |
+| Milly's Meadow | 3 jul 2025 | dag 28 tot 66 | 52 |
+| Sin Slayers: Meat & Greed | 25 sep 2025 | dag 40 tot 79 | 61 |
+| Fish to Dish | 16 jun 2025 | dag 45 tot 83 | 2.738 |
+| Idle Waters | 12 jun 2025 | dag 49 tot 87 | 364 |
+| Card Corner | 9 mrt 2026 | dag 104 tot 173 | 81 |
+| Desktop Defender | 4 nov 2025 | dag 229 tot 298 | 1.830 |
+
+- **Geen enkel spel stond erin vóór zijn uitgave.** Dat past bij wat Sem in de Steamworks-docs las: een bundel kan pas als alle spellen uit zijn.
+- **8 van de 17 kwamen erin in hun lanceerweken** (het venster begint vóór of op de uitgavedag en eindigt hooguit 5 weken erna), 7 in de eerste drie maanden, en alleen de twee spellen van Conradical Games (Desktop Defender en Card Corner) veel later, samen in de zomer van 2026. Instappen is dus vooral een **lanceerding**, en een spel met 29 reviews (Emberlands) of 43 (Spacenap) mocht ook mee. Er is geen drempel te zien.
+- Tiny Pasture (uitgever Gamersky) ging er na ±3 maanden weer uit en heeft nu drie eigen Gamersky-bundels op zijn pagina. Waarom, staat nergens (GOK: hun eigen bundels gingen voor, want een pagina toont er hooguit drie).
+
+### Leverde instappen iets op?
+Bij wie later instapte, kan ik voor en na vergelijken: reviews in de 4 weken vóór het venster tegen de 4 weken erna (GEZIEN, weekgrafiek).
+
+| Spel | 4 weken voor | 4 weken na |
+|---|---|---|
+| Ropuka's Idle Island | 703 | 227 |
+| Not Monday Cafe | 127 | 48 |
+| Fish to Dish | 166 | 109 |
+| Idle Waters | 41 | 18 |
+| Spacenap | 24 | 3 |
+| Sin Slayers | 8 | 3 |
+| Milly's Meadow | 4 | 3 |
+| Card Corner | 2 | 5 |
+| Desktop Defender | 22 | 29 |
+
+**Bij geen enkel spel zie je een sprong.** De meeste zakken gewoon verder na hun lancering; de twee kleine stijgingen (Card Corner +3, Desktop Defender +7) vallen binnen wat een week schommelt. Eerlijk: dit is een grove meting. De vensters zijn weken breed, de daling na een lancering is groot, en een klein effect (een paar kopers per week) zie ik hier niet. Wat ik wel kan zeggen: instappen in Bottom-Of-Your-Screen gaf **niemand een golf**.
+
+En bij wie in de lanceerweken instapte, liep het van 19 tot 2.618 reviews in de eerste 4 weken na de uitgave (Emberlands 19, Desktop Cat Cafe 34, Nanomon 80, My Little Life 558, Cornerpond 798, Maltese 821, Tiny Pasture 2.618; alle 17 in de CSV). De bundel bepaalt de lancering niet; het spel zelf wel.
+
+### Waar de bundel staat (GEZIEN, 16 nov)
+De bundel staat op de winkelpagina van **11 van de 17 leden**: Rusty, Ropuka, My Little Life, Not Monday Cafe, My Little Spider, Idle Waters, Nanomon, Desktop Cat Cafe, Sin Slayers, Milly's Meadow en Spacenap. **Niet** op Cornerpond, Maltese's Fluffy Onsen, Fish to Dish, Desktop Defender, Card Corner en Emberlands: juist de grotere leden na Rusty en Ropuka tonen liever hun eigen paren (Cornerpond en Card Corner delen bundel 69746, Desktop Defender en Card Corner bundel 46375 van één maker). De zichtbaarheid zit dus bij Rusty (14.460 reviews) en Ropuka (4.204); de rest geeft vooral kleintjes door aan elkaar.
+
+### Wat makers wél deden rond hun lancering (GEZIEN, aankondigingen)
+- **Nanomon** zette de dag na zijn lancering "Bundles! Bundles! Bundles!": paren met Bugaboo Pocket, Ropuka, Maltese's Fluffy Onsen, Spirit City en Rain World, elk met één zin waarom ze bij elkaar passen ("Maybe there are some Nanomon who would help out by eating the grass?").
+- **Not Monday Cafe** deed een bundel en daarna een crossover met Lakeside Bar (31 jul en 7 nov 2025); **Maltese's Fluffy Onsen** maakte vier paren in een jaar (met Tiny Pasture, Volcano Princess, Cat God Ranch, Tap Tap Loot), elk met een eigen aankondiging.
+- **Emberlands** gaf op 16 jun 2026 een "Shoutout" aan een ander bureaubladspel (Tiny Capsule Collector), zonder bundel. Rusty deed iets vergelijkbaars in 2024 voor Outcore, een gratis bureaubladspel waarvan de maker hem hielp met een fout.
+- Patroon: de bundel zelf doet stil zijn werk op een pagina; **de aankondiging** is het moment dat het andere publiek het hoort.
+
+### Drie lessen
+1. **Bottom-Of-Your-Screen is een lanceerclub, geen groeimotor.** Rusty maakte hem voor de lanceerdag van een ander spel, 15 van de 17 stapten in binnen drie maanden na hun uitgave, en bij wie later instapte zie je geen sprong. Instappen is goed voor een plek op de pagina van Rusty, niet voor een golf.
+2. **Kleine spellen zijn welkom.** Emberlands (29 reviews), Spacenap (43) en Milly's Meadow (52) staan erin. De drempel is "uit en een bureaubladspel", niet een aantal reviews. Wachten tot we festcijfers hebben om indruk te maken is dus niet nodig; het ging steeds om het moment van uitkomen.
+3. **Het effect zit in de aankondiging, niet in de bundel.** De enige keer dat Rusty zijn volgers erover vertelde, was op de lanceerdag van My Little Life (558 reviews in de eerste 4 weken, plek 6 van de 17 leden; Tiny Pasture had er 2.618 zonder zo'n post, dus de post maakte geen wonder). Paren die werken zoals bij Hero Town (verhaal 14) en Nanomon gaan samen met een aankondiging naar beide publieken.
+
+### Voorstel voor Dortus deze week
+**Sem past in `platformen/steam/marketing/bundels.md` twee dingen aan: (1) eigenaar Bottom-Of-Your-Screen is Mister Morris Games (GEZIEN, hun eigen aankondiging van 31 jan 2025), en de vraag gaat het best ±2 weken vóór de lanceerdatum weg, zodat Hats er op dag 1 in staat zoals Cornerpond en Maltese; festcijfers zijn welkom maar geen voorwaarde (Emberlands mocht met 29 reviews). (2) De echte hefboom is een aankondiging: vraag Mister Morris niet alleen om de bundel, maar of Rusty een regel over Hats in zijn eerstvolgende update wil zetten, zoals hij voor My Little Life deed; en zet in onze eigen lanceerweek één post "Bundles!" zoals Nanomon, met per paar één zin waarom het past.** Thijs verstuurt de vraag (al op het plan van Sem). Kanttekening: of Rusty dat nog doet weet ik niet; hij deed het één keer in 21 maanden.
+
+### Eerlijk: wat ik niet weet
+- Of instappen een klein effect gaf (een paar kopers per week); mijn meting ziet alleen golven.
+- Waarom Tiny Pasture eruit ging, en of Mister Morris ooit iemand weigerde.
+- Of Valve het verkeer via een bundel op andermans pagina ergens laat zien; dat staat alleen in de cijfers van de makers zelf.
+- Welk deel van de 558 reviews van My Little Life door de post van Rusty kwam.
 
 ---
 
