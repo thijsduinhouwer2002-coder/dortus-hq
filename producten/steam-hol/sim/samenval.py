@@ -42,3 +42,31 @@ for naam, dr in [("nu 3/6/10/12/20", {}), ("Sanne 3/4/8/12/17", {3: 4, 4: 8, 6: 
         gaten.append(max(b - a for a, b in zip([60] + t, t)) / 60)
     print("   %-18s %s | gat mediaan %.1f ergste %.1f min" % (naam, "  ".join("hol%d %d/%d" % (k, v[1], v[0]) for k, v in sorted(per.items()) if k <= 6),
                                                          S.median(gaten), max(gaten)))
+
+# 3. de speeltestbuild van vr 20 nov: graven is gratis, alleen upgrades 45 / 126 / 353 per soort (upgrades.gd, START_GOUD 20).
+#    Benadering: geen spec-economie (graven_kost uit), gangen blijven 6 (in het spel graaf je gratis, dus eerder iets meer goud).
+print("3. speeltestbuild (graven gratis, upgrades 45/126/353): vangst bij koop n en samenvallen")
+def spec_build(dr):
+    s = spec_met(dr); s["graven"] = False; s["upg_prijs"] = [45, 126, 353, 99999, 99999, 99999]
+    return s
+tel = [collections.Counter() for _ in range(6)]
+for z in ZADEN:
+    st = sim.speel(0.6, z, spec_build({}))
+    for i, a in enumerate(st["aankopen"][:6]):
+        tel[i][max([r[2] for r in st["reeks"] if r[0] <= a[0] + 1e-6] or [0])] += 1
+for i, c in enumerate(tel):
+    print("   koop %d: %s" % (i + 1, dict(sorted(c.items()))))
+for naam, dr in [("nu 3/6/10/12/20", {}), ("Sanne 3/4/8/12/17", {3: 4, 4: 8, 6: 17}), ("3/4/7/12/16", {3: 4, 4: 7, 6: 16}),
+                 ("3/5/7/12/17", {3: 5, 4: 7, 6: 17}), ("3/5/9/12/17", {3: 5, 4: 9, 6: 17})]:
+    spec = spec_build(dr); per = {}; gaten = []
+    for z in ZADEN:
+        st = sim.speel(0.6, z, spec)
+        kt = set(round(a[0], 3) for a in st["aankopen"])
+        for a in st.get("ontgrendeld", []):
+            if a[1] == "hol-niveau" and a[0] <= 1500:
+                p = per.setdefault(a[2], [0, 0]); p[0] += 1; p[1] += round(a[0], 3) in kt
+        t = sorted([a[0] for a in st.get("ontgrendeld", [])] + [a[0] for a in st["aankopen"]])
+        t = [x for x in t if 30 < x <= 1200] + [1200]
+        gaten.append(max(b - a for a, b in zip([60] + t, t)) / 60)
+    print("   %-18s %s | gat mediaan %.1f ergste %.1f min" % (naam, "  ".join("hol%d %d/%d" % (k, v[1], v[0]) for k, v in sorted(per.items()) if k <= 6),
+                                                         S.median(gaten), max(gaten)))

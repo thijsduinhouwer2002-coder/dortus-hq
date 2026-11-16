@@ -12,3 +12,15 @@
    Sanne 3/4/8/12/17  hol2 40/40  hol3 0/40  hol4 22/40  hol5 6/40  hol6 7/24 | gat mediaan 5.0 ergste 10.9 min
    3/4/7/12/16        hol2 40/40  hol3 0/40  hol4 2/40  hol5 6/40  hol6 2/29 | gat mediaan 5.0 ergste 8.4 min
    3/4/7/12/17        hol2 40/40  hol3 0/40  hol4 2/40  hol5 6/40  hol6 7/24 | gat mediaan 5.0 ergste 8.4 min
+3. speeltestbuild (graven gratis, upgrades 45/126/353): vangst bij koop n en samenvallen
+   koop 1: {4: 40}
+   koop 2: {9: 1, 10: 8, 11: 28, 12: 3}
+   koop 3: {28: 2, 29: 4, 30: 2, 31: 7, 32: 2}
+   koop 4: {}
+   koop 5: {}
+   koop 6: {}
+   nu 3/6/10/12/20    hol2 0/40  hol3 0/40  hol4 8/40  hol5 3/40  hol6 0/18 | gat mediaan 7.0 ergste 11.8 min
+   Sanne 3/4/8/12/17  hol2 0/40  hol3 40/40  hol4 0/40  hol5 3/40  hol6 0/33 | gat mediaan 6.8 ergste 14.2 min
+   3/4/7/12/16        hol2 0/40  hol3 40/40  hol4 0/40  hol5 3/40  hol6 0/38 | gat mediaan 5.7 ergste 10.7 min
+   3/5/7/12/17        hol2 0/40  hol3 0/40  hol4 0/40  hol5 3/40  hol6 0/33 | gat mediaan 6.1 ergste 10.7 min
+   3/5/9/12/17        hol2 0/40  hol3 0/40  hol4 1/40  hol5 3/40  hol6 0/33 | gat mediaan 6.3 ergste 12.8 min
