@@ -1,0 +1,136 @@
+LIMIET d2airx10 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.0.0"
+LIMIET d2mach1 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET d2mach2 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET d2mach2pro {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.0"
+LIMIET epix2 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET epix2pro42mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET epix2pro47mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET epix2pro51mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7pro {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7pronowifi {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7spro {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7x {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7xpro {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix7xpronowifi {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fenix843mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fenix847mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fenix8pro47mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fenix8solar47mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fenix8solar51mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fenix943mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenix947mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenix9pro43mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenix9pro47mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenix9prosolar47mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenix9prosolar51mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.3"
+LIMIET fenixe {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fr165 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr165m {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr170 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.0"
+LIMIET fr170m {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.0"
+LIMIET fr255 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr255m {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr265 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr57042mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fr57047mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fr70 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.0"
+LIMIET fr955 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr965 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr970 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET marq2 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET marq2aviator {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET venu2 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.0.0"
+LIMIET venu2plus {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.0.0"
+LIMIET venu3 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET venu3s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET venu441mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET venu445mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET venusq2 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.0.0"
+LIMIET vivoactive5 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET vivoactive6 {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+LIMIET fr55 {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.4.6"
+LIMIET fr245 {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.3.6"
+LIMIET instinct2 {"memoryLimit":65536,"type":"watchFace"} "connectIQVersion":"3.4.2"
+LIMIET fenix6 {"memoryLimit":114688,"type":"watchFace"} "connectIQVersion":"3.4.5"
+LIMIET vivoactive4 {"memoryLimit":524288,"type":"watchFace"} "connectIQVersion":"3.3.6"
+LIMIET venu2s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.0.0"
+LIMIET fr255s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr265s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.0"
+LIMIET fr945 {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.3.6"
+LIMIET venusq {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.3.6"
+LIMIET instinct3amoled45mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
+IQ_PROEF ja, horloges in manifest: 63, 625069 bytes, waarschuwingen: 64
+BOUW fr255 ja, 94092 bytes
+fr255 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+fr255 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+fr255 KERN WEER uren=12 COMPLICATIES=ja
+fr255 KERN GEHEUGEN gebruikt=9032 totaal=126792 vrij=117760
+fr255 KERN TEKEN tik=0 ms=1
+fr255 KERN TEKEN tik=1 ms=2
+fr255 KERN TEKEN tik=2 ms=1
+fr255 KERN TEKEN tik=3 ms=1
+BOUW fenix847mm ja, 102892 bytes
+fenix847mm KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+fenix847mm KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+fenix847mm KERN WEER uren=12 COMPLICATIES=ja
+fenix847mm KERN GEHEUGEN gebruikt=9168 totaal=126792 vrij=117624
+fenix847mm KERN TEKEN tik=0 ms=15
+fenix847mm KERN TEKEN tik=1 ms=10
+fenix847mm KERN TEKEN tik=2 ms=9
+fenix847mm KERN TEKEN tik=3 ms=10
+BOUW venu3s ja, 103692 bytes
+venu3s KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+venu3s KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+venu3s KERN WEER uren=12 COMPLICATIES=ja
+venu3s KERN GEHEUGEN gebruikt=9104 totaal=126792 vrij=117688
+venu3s KERN TEKEN tik=0 ms=9
+venu3s KERN TEKEN tik=1 ms=7
+venu3s KERN TEKEN tik=2 ms=8
+venu3s KERN TEKEN tik=3 ms=7
+BOUW vivoactive5 ja, 98764 bytes
+vivoactive5 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+vivoactive5 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+vivoactive5 KERN WEER uren=12 COMPLICATIES=ja
+vivoactive5 KERN GEHEUGEN gebruikt=9104 totaal=126792 vrij=117688
+vivoactive5 KERN TEKEN tik=0 ms=2
+vivoactive5 KERN TEKEN tik=1 ms=1
+vivoactive5 KERN TEKEN tik=2 ms=1
+vivoactive5 KERN TEKEN tik=3 ms=1
+BOUW fr55 ja, 93820 bytes
+fr55 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+fr55 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+fr55 KERN WEER uren=12 COMPLICATIES=nee
+fr55 KERN GEHEUGEN gebruikt=9832 totaal=94024 vrij=84192
+fr55 KERN TEKEN tik=0 ms=3
+fr55 KERN TEKEN tik=1 ms=1
+fr55 KERN TEKEN tik=2 ms=1
+fr55 KERN TEKEN tik=3 ms=1
+BOUW fr245 ja, 94716 bytes
+fr245 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+fr245 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+fr245 KERN WEER uren=12 COMPLICATIES=nee
+fr245 KERN GEHEUGEN gebruikt=9824 totaal=94024 vrij=84200
+fr245 KERN TEKEN tik=0 ms=2
+fr245 KERN TEKEN tik=1 ms=1
+fr245 KERN TEKEN tik=2 ms=2
+fr245 KERN TEKEN tik=3 ms=2
+BOUW instinct2 ja, 94108 bytes
+instinct2 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+instinct2 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+instinct2 KERN WEER uren=12 COMPLICATIES=nee
+instinct2 KERN GEHEUGEN gebruikt=9848 totaal=61256 vrij=51408
+instinct2 KERN TEKEN tik=0 ms=1
+instinct2 KERN TEKEN tik=1 ms=1
+instinct2 KERN TEKEN tik=2 ms=1
+instinct2 KERN TEKEN tik=3 ms=1
+BOUW venusq2 ja, 95692 bytes
+venusq2 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
+venusq2 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
+venusq2 KERN WEER uren=12 COMPLICATIES=ja
+venusq2 KERN GEHEUGEN gebruikt=9056 totaal=126792 vrij=117736
+venusq2 KERN TEKEN tik=0 ms=2
+venusq2 KERN TEKEN tik=1 ms=1
+venusq2 KERN TEKEN tik=2 ms=1
+venusq2 KERN TEKEN tik=3 ms=2
