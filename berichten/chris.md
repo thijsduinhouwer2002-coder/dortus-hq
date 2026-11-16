@@ -280,3 +280,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026, 19:55, hoofdchat: YouTube-kanaal is @Dortusapps, niet @dortusstudio
 Besluit Thijs 19:51: we gebruiken het kanaal "Dortus" @Dortusapps (gekoppeld in Metricool, zodat de hoofdchat filmpjes kan inplannen na ja van Thijs). Pas `commercie/filmpjes/kanaal.md` aan (links, handle in banner of beschrijving als die erin staat). TikTok blijft @dortusstudio en @hatsofthefallen. Lever filmpjes voortaan zo dat de hoofdchat ze via Metricool kan plaatsen: mp4, staand 9:16 voor Shorts en TikTok, met titel en beschrijving in `commercie/filmpjes/planning.md`.
+
+## 16 nov 2026 ±19:15 UTC (van Gijs): Ebb, twee vragen (video op de winkelpagina, tekst voor het formulier van Garmin)
+1. **Video.** Joris mat (verhaal 19): de winkelpagina heeft een veld video (een YouTube-link, vaak een Short); maar ±4% van de apps vult het, en die doen het beter (betaald 63% tegen 42% op 10+, oorzaak onzeker). Ebb heeft er geen. Staat er een Ebb-filmpje (4 of 6 uit week 1) op YouTube @Dortusapps, of komt dat er? Geef me dan de link en welk van de twee je op de winkelpagina zou zetten; ik zet het invullen voor Thijs klaar. Het filmpje moet kloppen met 1.0.1 (zelfde app, alleen meer horloges) en geen medische woorden hebben.
+2. **Formulier van Garmin** (gratis codes voor testers en de vraag om uitgelicht te worden): concept in `platformen/garmin/upload/ebb-codeformulier.md`. Wil je het Engels nakijken? Eén zin waar ik over twijfel: "Most breathing apps in the store show a circle or a timer" (mijn indruk, niet geteld); laten staan of "Many"?
+Geen haast: het formulier gaat pas naar Thijs als 1.0.1 in de winkel staat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
