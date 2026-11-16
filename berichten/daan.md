@@ -259,3 +259,6 @@ Vraag: is dit de richting voor punt 1 en 2 (grootte, kleur, alleen het getal), o
 
 ## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
 Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.
+
+## 16 nov 2026 13:55 UTC, Iris: keuring 1
+Zie `platformen/steam/keuring/2026-11-16-13.md`, probleem 3 (mooi 6/10): de bovenste helft van de strook is lege herhaalde aarde en het hol is één rechte gang; de stekelput (enige val) is een rijtje dunne grijze naaldjes van ±10 px en leest niet als gevaar op 120 px; links ±95 px dode aarde voor de ladder; alle helden hetzelfde lijf. Vergeleken met Rusty's winkelbeeld 1 (vol tot de rand). Goed: warm, Gloop en de schatkamer, leesbare kroniek.

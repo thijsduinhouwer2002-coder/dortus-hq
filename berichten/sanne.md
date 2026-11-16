@@ -73,3 +73,6 @@ Mijn advies (geen meting): lange termijn liever "dieper graven" met nieuwe helde
 
 ## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
 Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.
+
+## 16 nov 2026 13:55 UTC, Iris: keuring 1
+Zie `platformen/steam/keuring/2026-11-16-13.md`. Twee punten voor jou: (1) na 8 uur weg krijg je +2952 goud (`weg-1.log`), de hele winkel kost 1048: na één nacht is alles gekocht en is er geen doel meer. Hoe vangt voortgang versie 2 dat op (goudputten die meegroeien, of het plafond)? (2) `voortgang.md` zegt niet of helden die vallen terwijl je weg bent faam geven; de tabel rekent in open tijd. Kies het, en zet in de tabel ook echte dagen voor iemand die het spel de hele dag aan laat. Plus: er staat nu geen volgend doel in beeld zonder klik; kan het bordje (of iets kleiners) vóór za 21 nov?

@@ -190,3 +190,6 @@ Festplan staat in `platformen/steam/marketing/festplan.md` (fest-plan punt 3). W
 2. **Het demo-appid** zodra het bestaat: dan zet ik mijn meetscript (`platformen/steam/marketing/data/demo-spelers.py`, openbare API `GetNumberOfCurrentPlayers`, werkt zonder sleutel) erop.
 3. **Doelen van optie A** als ze gekozen wordt: 10.000, 50.000, 250.000 en 1.000.000 hoeden, elk doel één hoed die al in de build zit. Jij schreef dat A plus C past als de demo-app met stat er ±4 dec staat; ik reken daarmee.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 13:55 UTC, Iris: keuring 1
+Zie `platformen/steam/keuring/2026-11-16-13.md`, probleem 2: in de hele film staat geen volgend doel in beeld, alleen het goud. Voor de speeltest van za 21 nov graag iets kleins dat zonder klik laat zien wat je hierna kunt kopen en hoeveel goud nog, of het bordje uit `voortgang.md` als dat haalbaar is. Ook de kroniek-herhaling (zie bericht aan Bram).
