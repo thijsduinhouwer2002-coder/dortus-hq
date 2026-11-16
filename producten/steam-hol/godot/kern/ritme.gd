@@ -6,8 +6,9 @@ extends RefCounted
 
 const HOL := preload("res://hol/hol.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")
-const BEGIN_VLOT := 2                       # zoveel vaste stappen van BEGIN krijgen een kort gat erna (vallen, vluchten)
+const BEGIN_VLOT := 2                       # zoveel vaste stappen van BEGIN krijgen een kort gat erna (vallen, opgegeten)
 const BEGIN_VLOT_S := Vector2(18.0, 22.0)   # seconden tot de volgende held in die gaten (was 35 tot 45)
+const BEGIN_HOED_S := Vector2(5.0, 7.0)     # na de eerste held (vallen): zo snel komt de held die Gloop opeet (Bram 16 nov)
 
 static func tik_held(s, helden: int) -> void:
 	if s.t < s.volgende_held or helden >= 3:
@@ -25,7 +26,10 @@ static func tik_held(s, helden: int) -> void:
 		# Bram 15 nov (ja Olaf 23:30): de eerste hoed op de toren binnen de minuut, ook in het volle spel. Na de held
 		# van "vallen" en die van "vluchten" komt de volgende sneller, dus "opgegeten" rond 45 s en de hap rond 60 s
 		# (was ±96 s). Zelfde aantal rng-trekkingen als hiervoor; daarna weer 35 tot 45 s en buiten het begin 40 tot 60.
-		s.volgende_held = s.t + rng.randf_range(BEGIN_VLOT_S.x, BEGIN_VLOT_S.y)
+		# Bram 16 nov: "opgegeten" staat nu tweede in BEGIN en komt 5 tot 7 s na de eerste held, dus de hap rond 27 s
+		# (hij loopt ±17 s naar Gloop) in plaats van rond 60 s. Daarna 18 tot 22 s tot "vluchten".
+		var gat: Vector2 = BEGIN_HOED_S if s.begin_gedaan.size() <= 1 else BEGIN_VLOT_S
+		s.volgende_held = s.t + rng.randf_range(gat.x, gat.y)
 	else:
 		s.volgende_held = s.t + (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0))
 	# na het lied van een bard: de volgende helden komen 8 tot 20 s na elkaar (Bram 02:30); in de demo blijft het

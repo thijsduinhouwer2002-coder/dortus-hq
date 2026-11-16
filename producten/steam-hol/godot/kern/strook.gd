@@ -77,7 +77,9 @@ var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altij
 # De eerste tien minuten van een nieuw spel (features.md; Sanne toets 2 punt 9, toets 3 punt 1): vijf vaste uitkomsten,
 # elk eenmalig, zodat je in een paar minuten een val, een vlucht met wrok, die terugkomer, een Hoard-Toucher en de
 # eerste hoed op Gloop ziet. Daarna is alles weer kans. Vlaggen in held.gd (Bram).
-const BEGIN := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
+# Bram 16 nov (Fenna, onderscheid van Hats; hoofdchat 08:05 NL): "opgegeten" vóór "vluchten", zodat je in de eerste
+# 30 s zowel de stekels als de eerste hoed op de toren ziet (dat heeft de concurrent niet). Kort gat erna: kern/ritme.gd.
+const BEGIN := ["vallen", "opgegeten", "vluchten", "terug", "doorlopen"]
 # In de demo (film van een minuut) de Hoard-Toucher vóór de terugkomer, zodat hij rond 35 tot 40 s de schat raakt en nog
 # wegrent, en daarna nog één keer opgegeten, zodat je de toren ziet groeien (Sanne toets 4, punten 4 en 6). De Hoard-Toucher
 # slaat Gloop plat, dus hij komt pas na de held die opgegeten moet worden (anders loopt die langs een platte Gloop).
