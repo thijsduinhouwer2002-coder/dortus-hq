@@ -2,7 +2,7 @@
 
 Gebruik: python3 cpu_wissel.py <map met cpu-per-10s.txt en hol.log> [...]
 Het spel zet het vlak in oneven minuten (t 60-120, 180-240, ...) uit. Elke meting `HOL meting t=` beslaat de 10 s
-ervoor; metingen die over een minuutgrens lopen tellen niet mee. De CPU-reeks van de workflow wordt op de metingen
+ervoor; alleen metingen midden in een minuut (t%60 van 20 tot 50) tellen mee. De CPU-reeks van de workflow wordt op de metingen
 gelegd met de verschuiving (-3 tot 3) waarbij CPU en beelden het best samengaan, zoals cpu_per_beeld.py.
 """
 import re, sys, statistics as S
@@ -10,7 +10,10 @@ import re, sys, statistics as S
 
 def cor(a, b):
     n = min(len(a), len(b))
-    return S.correlation(a[:n], b[:n]) if n > 3 else 0
+    try:
+        return S.correlation(a[:n], b[:n]) if n > 3 else 0
+    except S.StatisticsError:   # een reeks zonder spreiding
+        return 0
 
 
 for d in sys.argv[1:]:
@@ -25,9 +28,11 @@ for d in sys.argv[1:]:
     n = min(len(c), len(mm))
     groep = {'aan': [], 'uit': []}
     for (t, b, h), x in zip(mm[:n], c[:n]):
-        if (t - 10) // 60 != (t - 1) // 60:
-            continue   # over een minuutgrens
-        staat = 'uit' if ((t - 1) // 60) % 2 == 1 else 'aan'
+        # t is int(t): de meting beslaat ±(t-10, t+1]. Alleen het midden van elke minuut telt (t%60 tussen 20 en 50),
+        # want de CPU-blokken van de workflow liggen tot 10 s anders dan de metingen (keurder 16 nov, 3a en 3b).
+        if not (20 <= t % 60 <= 50):
+            continue
+        staat = 'uit' if (t // 60) % 2 == 1 else 'aan'
         groep[staat].append((x, b, h))
     print(f"{d}  verschuiving {L}, wissels in log {wissels}")
     for staat, rij in groep.items():
