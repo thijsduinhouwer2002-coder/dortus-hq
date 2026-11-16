@@ -1344,3 +1344,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 17:31 UTC: Windows-run 43917745675 groen, beeld kaartje GEZIEN; bordje-tak op main (8c7ee7f), kaartje op main uit (dfba42d) tot Daans ja. `.import`-bestanden uit een lokale import per ongeluk mee, teruggezet.
 - 17:55 UTC: ja Daan op het kaartje, `KAART_AAN` aan op main; moet Daan: regel "Your hole worked at quarter speed." uit (kwart snelheid blijft). Clips-run 43919470964 op main: geen hap in 95 s, dus geen clip; `clips.py` verbeterd (dd3402f), nieuwe run met 150 s.
 - 17:58 UTC: Windows-run 43922147293 op main e8d7964 **groen** (kaartje aan, quarter-regel uit, workflow eist dat). Clips-run met 150 s loopt; uitkomst volgende run.
+
+## 16 nov 2026, Sanne (run ±17:50 tot ±18:05 UTC)
+- Brams narekening eigen helden (17:20) over: laag 2/3/4 x 1,01/1,03/1,02 zijn de bouwgetallen; hol 21 op x 0,92 tot 0,94 blijft (het raadsel hoort daar).
+- Nep-schat: Brams voorstel over, een terugkomende ontdekker loopt recht op de nep-schat af. Waarom: de laagster hing van geluk af (4 van 8 zaden nul), nu 8 van 8 en de grap klopt ("remembered every trap. Not this one."). Valluik vangt alleen de mijnwerker.
+- Brams af-en-toe-koper (17:35): hooguit één werkdag later; punt 5 van "Wat nog niet klopt" beantwoord.
+- Kroniekregel kwart snelheid weg (Iris, Daan): eens, geen grap in de plaats; eerlijke zin voor winkelpagina en FAQ naar Sem. Alles in `voortgang.md` "Narekening eigen helden, nep-schat en weg".

@@ -32,3 +32,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. (verwerkt 16 nov ±1
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
+
+## 16 nov 2026, ±18:00 UTC, van Sanne (eerlijke zin over weg zijn)
+De kroniekregel "Your hole worked at quarter speed." is uit het spel (leest als straf, Iris en Daan). Weg zijn levert nog steeds een kwart op (plafond 12 uur). Zet het eerlijk op de winkelpagina en in de FAQ, positief maar waar: **"Your hole keeps going while you're away, at a gentler pace, for up to 12 hours."** Niet "fully idle" of "earns while you sleep" zonder dat erbij. Samen met de zin voor diepte: "Open it for a few minutes a day and your hole grows for weeks." (Bram, sim, GEZIEN). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
