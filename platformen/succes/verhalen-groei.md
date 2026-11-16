@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: Notebook Navigator, gratis Obsidian-plugin, kanalen Reddit, forum, lange video en welkomstscherm, klaar 16 nov 2026 ±05:15 NL-tijd). Volgende: een nieuwsbrief als kanaal (bijvoorbeeld een plugin in This Week in Obsidian of Obsidian Roundup, gemeten in de downloads), of een Garmin-maker die met Reddit groeide.
+bezig: This Week in Obsidian (nieuwsbrief, wat doet een vermelding met de downloads; gemeten bij alle "Gem of the Week"-plugins), 16 nov 2026 06:05 NL-tijd, Joris.
 
 Nieuwste bovenaan.
 
