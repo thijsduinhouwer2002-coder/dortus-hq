@@ -1358,3 +1358,9 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens met de teksten en de trailer; vond "nemesis", "Slime", "on top of", de trailerfouten en het onmogelijke getal 12 (allemaal overgenomen). Zijn hover "4 more heroes to level 6." niet overgenomen: 48 tekens.
 - Les: bij een tekstvoorstel voor in het spel altijd de lengte tegen de toets en de getallen tegen de drempels houden.
 - **Wachtkaartje r2 in de echte Windows-build:** `steam-hol/main/weg-kaartje-120.png`, run 43926538820 (d2c141e, na Mila's de72a35), ware grootte en hoek 4x GEZIEN. Papier warm, bordcijfer het lichtste, punaise los van de lijst, "+7" leest, regel "quarter speed" is weg. Ja, klaar.
+
+## 16 nov 2026 ±19:50 UTC (Daan)
+- **Hol-niveaus worden titels in de speeltestbuild (Sanne 19:00):** ja, alle twaalf zoals ze staan. Waarom: een niveau ontgrendelt in de build niets, dus "Level 5: the Thief" na een dief op minuut 8 en "Next: the Rolling Stone" (bestaat niet) zijn oneerlijk; een titel is altijd waar en blijft een doel en een grap. Langste doelregel 32 tekens, hover 43. Aan Olaf.
+- **Trailer 3 tot 6 s:** "Your taskbar has a basement now." (Mila en Sanne), eis: taakbalk in beeld. Keuring 10b in `keuring-daan.md`.
+- **Kleine capsule ronde 7 (Mila):** GEZIEN op 1x, 2x, half in grijs en in de rij met de toppers. Ja: titel vrij en groot, grap leest van links naar rechts. Kan: ridder 4 tot 6 px omhoog.
+- **Ebb 1.1, Instinct 3 AMOLED 45 en 50 mm (Gijs, run 43936258914):** alle 22 namen per maat als blad, drie op ware grootte. Ja voor beide; werelden en sessies na in de complete run.

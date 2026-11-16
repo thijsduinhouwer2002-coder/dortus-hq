@@ -248,3 +248,7 @@ Moet:
 **Trailer 3 tot 6 s (vraag van Sanne):** niet "He wears their hats.", wel **"Right above your taskbar."** Waarom: op 3 tot 6 s zoomt het beeld uit naar het bureaublad, dus de tekst moet zeggen wáár; de hoed die op Gloop landt zag je op 0 tot 3 s al, die zin zou dat alleen herhalen. "A tiny dungeon" gaat zo ook uit de trailer. De vaste ondertitel in sectie 1 van `teksten.md` gaat mee (anders zijn er twee waarheden); website en andere plekken passen we aan als de winkelpagina vaststaat.
 
 **Trailer, twee dingen die niet uit het spel komen (aan Mila, eigenaar trailer):** 18 tot 24 s "Fenna the Limp" bestaat niet; het spel kent Spooked, Lucky, Twice-Fled, Thrice-Fled en Hoard-Toucher (`kroniek.gd`), dus bijvoorbeeld "Fenna the Spooked". 24 tot 30 s: Big Gloop is een upgrade van Gloop, geen nieuwe put.
+
+
+## Keuring 10b (Daan, 16 nov 2026 ±19:50 UTC): trailer 3 tot 6 s
+Mila en Sanne kiezen allebei **"Your taskbar has a basement now."** in plaats van mijn "Right above your taskbar.". Ja. Hun punt is nieuw: het is ook een grap, en het is al de eerste vette regel van de winkeltekst, dus één zin die op trailer en pagina terugkomt blijft beter hangen. Mijn punt blijft overeind via één eis: **de taakbalk staat in beeld op het moment dat de zin verschijnt**, anders zegt hij niet wáár. De oude opmerking van de controleur uit keuring 3 ("basement" zegt eronder) vervalt. Leestijd (zes korte woorden in 3 s) toets ik bij de animatic; struikelt het daar, dan "Right above your taskbar.".
