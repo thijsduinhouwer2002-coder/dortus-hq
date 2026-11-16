@@ -5,6 +5,7 @@ HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
+HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
 HOL begin: vluchten (Bram)
@@ -45,7 +46,7 @@ HOL begin: opgegeten2 (Joost)
 HOL held binnen: Joost
 HOL kroniek 42.7 (wacht 0.7): Joost came for the gold in the song.
 HOL gegraven kolom 3
-HOL hol-niveau 2 (faam 3)
+HOL hol-niveau 2 (faam 3, t 45.1)
 HOL bordje wip niveau 2
 HOL kroniek 45.3 (wacht 2.1): Tibbe the Hoard-Toucher ran.
 HOL held binnen: Fenna
