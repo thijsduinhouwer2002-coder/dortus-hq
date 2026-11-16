@@ -151,9 +151,11 @@ jobs:
             touch /tmp/demo-$d
             monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
             MD=$!
-            sleep 7
+            # Run 118 (moet Daan 16 nov): op 7 s stond het horloge nog niet in beeld (demo-a overal grijs). Nu op 10 s;
+            # demo-b blijft op 11 s na de start, dus de latere beelden schuiven niet.
+            sleep 10
             import -window root "schermen/$d-demo-a.png"
-            sleep 4
+            sleep 1
             import -window root "schermen/$d-demo-b.png"
             sleep 17
             import -window root "schermen/$d-demo-c.png"

@@ -222,6 +222,18 @@ jobs:
               # Bouw 3: de naam volgt de scène die de app zelf meldt ("PLAATJE scene k"), niet de teller van de lus;
               # een overgeslagen start schoof anders alle namen op (inhouden-krab toonde een eindscherm).
               s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$k.log" | tail -1 | awk '{print $3}')
+              # Run 118: op de Enduro 3 gaf de simulator vanaf start 62 geen antwoord meer (run 43882501055: 95 lege
+              # beelden en toch groen). Meldt de app geen scène, dan de simulator opnieuw starten en deze start één keer
+              # overdoen. Lukt het dan nog niet, dan wordt de run rood (regel "GEEN SCENE" in CRASH-<horloge>.txt).
+              if [ -z "$s" ]; then
+                echo "GEEN SCENE bij start $k, simulator opnieuw en nog een keer"
+                kill "$MD" 2>/dev/null || true; pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
+                monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
+                MD=$!
+                case "$d" in fr255|fenix7|fenix7xpro) sleep 12 ;; *) sleep 20 ;; esac
+                s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$k.log" | tail -1 | awk '{print $3}')
+                [ -n "$s" ] || echo "GEEN SCENE bij start $k op $d, ook na een nieuwe simulator" >> /tmp/geen-scene.txt
+              fi
               if [ -n "$s" ]; then import -window root "plaatjes/$d-scene$s.png"; else echo "GEEN SCENE bij start $k"; import -window root "plaatjes/$d-mis$k.png"; fi
               kill "$MD" 2>/dev/null || true; sleep 3
               cat "/tmp/plaatje-$d-$k.log"
@@ -236,6 +248,7 @@ jobs:
           # terugval licht blijft, niet de echte snelheid.
           # Run 71: alleen op de fr255, anders staat er op de andere horloges een regel "TERUGVAL fr255: 0 metingen".
           if [ "$D" = fr255 ]; then grep -h "KRABV2 wereld.*DIRECT" /tmp/plaatje-fr255-*.log 2>/dev/null | awk '{for (i = 1; i < NF - 1; i++) if ($i == "traagste" && $(i+1) == "beurt") { n++; if ($(i+2) + 0 > 60) print "TERUGVAL TRAAG (grens 60 ms): " $0 } } END { print "TERUGVAL fr255: " n + 0 " metingen, grens 60 ms" > "/dev/stderr" }' >> plaatjes/CRASH-$D.txt; fi
+          if [ -s /tmp/geen-scene.txt ]; then cat /tmp/geen-scene.txt >> plaatjes/CRASH-$D.txt; fi
           [ -s plaatjes/CRASH-$D.txt ] || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           mkdir -p plaatjes/namen
