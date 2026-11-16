@@ -72,8 +72,8 @@ if os.environ.get('BLAD') == '1':
     slot5 = obj_uit(M.primitive_cube_add, 'slot5', goudm, size=1, location=(0, -0.16, 0.05)); slot5.scale = (0.08, 0.04, 0.1)
     dek5 = obj_uit(M.primitive_cylinder_add, 'deksel5', houtm, radius=0.15, depth=0.44, location=(0, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0))
     dekb5 = [obj_uit(M.primitive_cylinder_add, f'dekbeslag5{i}', goudm, radius=0.155, depth=0.04, location=(x, -0.15, 0), vertices=24, rotation=(0, math.radians(90), 0)) for i, x in enumerate((-0.16, 0.16))]
-    sch5 = groep('scharnier5', [dek5] + dekb5, (0, 0.15, 0.13), (-140, 0, 0))   # ver open, naar achteren gekanteld
-    kg5 = groep('kist_open', [kist5, binnen, slot5, sch5] + bnd5, (2.0, 0, -0.16), (22, 10, 0)); kg5.scale = (0.9, 0.9, 0.9)
+    sch5 = groep('scharnier5', [dek5] + dekb5, (0, 0.15, 0.13), (-165, 0, 0))   # helemaal open, plat naar achteren
+    kg5 = groep('kist_open', [kist5, binnen, slot5, sch5] + bnd5, (2.0, 0, -0.12), (38, 10, 0)); kg5.scale = (1.1, 1.1, 1.1)
     g.camera(hoogte_midden=0.0, schaal=5.0)
     g.licht()
     g.render(sys.argv[-1], 320, 64, samples=48, doorzichtig=True)
