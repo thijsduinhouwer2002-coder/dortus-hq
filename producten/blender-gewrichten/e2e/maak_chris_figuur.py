@@ -3,7 +3,8 @@
 Leent laad, lussen en installeer uit proef_ai_model.py (zonder zijn main). Anders dan die proef bepaalt dit script
 eerst hoe de figuur staat: links-rechts is de richting waarin de schouders het breedst zijn, voor is de kant waar
 de tenen voorbij de enkel steken. Dan: Pro-scharnier met eindstop 115 in één knie (buigt naar achter) en in de
-elleboog aan dezelfde kant (buigt naar voor), scharnieras links-rechts. Bewaart <uit>/<naam>-knie-elleboog.blend.
+elleboog aan dezelfde kant (buigt naar voor), scharnieras links-rechts. Lidas omhoog: deel B is het bovenste deel en
+kantelt naar cj_buigkant, dus het onderste deel (scheen, onderarm) draait ten opzichte van B naar min cj_buigkant. Bewaart <uit>/<naam>-knie-elleboog.blend.
 Gebruik: blender -b --factory-startup --python e2e/maak_chris_figuur.py -- <betaalde zip> <uitmap> <model.glb>
 """
 import os
@@ -103,12 +104,15 @@ kant = 1
 gelukt = []
 for pct in (27, 25, 29, 24, 31):
     l = lid_lus(zij, pct / 100 * H, kant)
-    if l and scharnier(l[0], l[2], omhoog, -voor, "KNIE"):
+    # Lidas omhoog, dus deel B is het bovenbeen en B kantelt naar de buigkant. Een knie buigt de scheen naar achter,
+    # dus kantelt het bovenbeen ten opzichte van de scheen naar voor: buigkant +voor (16 nov run 11, Chris zag de
+    # scheen naar de tenen gaan met -voor). Bij de elleboog net andersom.
+    if l and scharnier(l[0], l[2], omhoog, voor, "KNIE"):
         gelukt.append("knie")
         break
 for pct in (59, 57, 61, 55, 63, 53):
     l = lid_lus(zij, pct / 100 * H, kant, 22.0)
-    if l and scharnier(l[0], l[2], omhoog, voor, "ELLEBOOG"):
+    if l and scharnier(l[0], l[2], omhoog, -voor, "ELLEBOOG"):
         gelukt.append("elleboog")
         break
 for o in zichtbaar():
