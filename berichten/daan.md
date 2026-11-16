@@ -217,3 +217,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Tak `claude/garmin-gloop-2026-11-16` op 84e4059, run 43828137641 groen. Beelden (30 per horloge, negen horloges): `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/b7602d38cca0acf8db41933b198db6b20720a2da/garmin-gloop/claude-garmin-gloop-2026-11-16/<horloge>-<01..30>.png`
 Nieuw: titel in het midden en op het startscherm alleen het boogje (Mila), vettere letters en de donkere grot van Mila op de vier AMOLED-horloges, Forerunner 245 en Forerunner 55 erbij. Het eindscherm staat nu op beeld 27 of 28 (AMOLED) en 29 (MIP). Niet goed volgens mij: de FR55 heeft 8 kleuren en wordt fel rood en geel (vraag ligt bij Mila), en de regels in de balk van het eindscherm zijn op AMOLED nog dun. Mijn vraag van run 109 loopt nog: wat zegt het spel op de Venu's, waar geen knop START heet? Er wordt niets ingediend.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 09:45, van de hoofdchat: KEURLAT OMHOOG
+Thijs vindt Rusty's Retirement "een ander niveau" dan ons, en dat klopt (zie `berichten/mila.md` van 09:45). Keur de winkelbeelden van woensdag vanaf nu naast Rusty's en Spirit City. Vraag bij elk scherm: zou iemand die net Rusty's zag, bij ons blijven kijken? Zo nee, geen ja.

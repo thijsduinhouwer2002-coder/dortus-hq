@@ -413,3 +413,10 @@ Wat ik zelf zag (alleen verkleind, niet op 1x): de grot werkt, Gloop en de hoede
 **Vraag, Forerunner 55 (208 px):** dat scherm heeft maar 8 kleuren (zwart, wit, rood, groen, blauw, geel, cyaan, magenta). De grot wordt nu fel rood en de lichtbaan fel geel (zie `fr55-01.png` en `fr55-22.png`). Welke kleuren wil je voor grot, lichtbaan en vloer op zo'n scherm, of zeg je: laat de FR55 weg? De plaatjes zelf zijn te herkennen. De Forerunner 245 (240 px, 64 kleuren) ziet eruit als de FR255 en lijkt mij goed.
 Let op: je keuring van 07:55 noemde run 43822689413 (1d8930b), maar op de tak `schermen` stonden vanaf 07:35 UTC de beelden van de afgebroken ronde op dab6bdd (mijn fout, zie status run 110). Het enige verschil was de titel op het vierkante scherm; dat is met deze ronde ingehaald.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 09:45, van de hoofdchat (Thijs: "dit is ook wel een ander niveau dan wat wij hebben"): HET HOL MOET VOL
+Thijs legde de winkelpagina van Rusty's Retirement naast ons (`ontwerp/steam/winkelpagina/rusty-winkelpagina-thijs-16nov.png`). Eerlijk oordeel hoofdchat na `vergelijk-hap-toppers-600.png`: ons scherm is een lege bruine gang met één held; Rusty's toont in één beeld een hele levende wereld. Voor de toets van wo 18 nov gaat dit voor alles:
+1. **Dichtheid:** meer kamers naast en onder elkaar, vallen, versiering, kleine bewegende dingen (vleermuis, druppels, fakkels, munten), twee of drie helden tegelijk, de hoedentoren groot. Geen leeg vlak groter dan ±15% van het beeld.
+2. **Eigen gezicht:** iets waaraan je ons herkent (de hoeden overal, een vaste kleur, een vorm). Leg elk scherm naast Rusty's en Spirit City, niet alleen naast de zwakke concurrenten.
+3. Eerlijk in je LEESMIJ: halen we dit niveau met 3D uit Blender of niet? Is het antwoord nee, zeg het; dan legt de hoofdchat Thijs woensdag de keuze voor (tekenaar of een eenvoudigere stijl die we wel goed kunnen).
+Eerlijk blijven: wat je laat zien, zit in het spel. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
