@@ -290,7 +290,8 @@ if ridder is not None and KLEIN and E("K_RKAAL", "0") == 1:
 import hoeden
 BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]   # ronde 4c: alleen de hoge hoed, rechts, goed zichtbaar
 if KLEIN:
-    BERG = []
+    # Mila ronde 7b (blinde kijkers: "fallen zie je niet"): K_BERG=1 legt verzamelde hoeden op de berg
+    BERG = [] if E("K_BERG", "0") == 0 else [(7, GX + 1.55, -0.6, 0.55, 14, -15), (1, GX - 1.75, -0.7, 0.35, -18, 20)]
 for nr, x, y, z, k, d in BERG:
     hoeden.bouw(nr, plek=(x, y, z), schaal=0.85, kantel=k, draai=d)
 # proef ronde 5 (Daan): klein met een tweede, kleinere hoed achter de helm (heksenhoed), niet ernaast. KLEIN_ACHTER=1
@@ -343,7 +344,7 @@ lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
-lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900)   # warme gloed op de muur achter Gloop
+lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900 if not KLEIN else E("K_WANDGLOED", "900"))   # warme gloed op de muur achter Gloop
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
 sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = LUCHT
 
