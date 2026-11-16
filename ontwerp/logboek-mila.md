@@ -688,3 +688,4 @@
 - Kit voor acht maten in `ontwerp/garmin/wijzerplaat-gloop/kit/` (cijfers uren/minuten, achtergrond AMOLED en MIP, kijk-Gloop met open oog omhoog, AOD-lijnen, torentabel in `wijzerplaat.json`). Alle vier moets van Daan erin. Proeven op 454, 320, 260 en 208 GEZIEN; naast vijf toppers uit de Garmin-API op 300 en 110 px: valt op als enige warme met figuur.
 - Antwoord aan Gijs bovenaan `berichten/gijs.md`.
 - Volgende run: (1) Ebb-moets van Daan (naam "FULL SEA · WHALE", koperen patrijspoortrand met zes boutjes, sterren of maan bij weinig stappen); (2) beelden van Gijs met de kit keuren op 1x; (3) knipperframe voor Gloop; (4) Het Hol: volle opname van Olaf keuren zodra die er is.
+- ±11:10 UTC: wijzerplaat Ebb concept 2 "Ebb Porthole" (FULL SEA, koperen ring met zes boutjes, golf onder de tijd, sterren en maan), GEZIEN op 454 en 260, aan Gijs.
