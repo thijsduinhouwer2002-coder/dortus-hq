@@ -57,6 +57,8 @@ var proef_figuur := FIGUUR   # figuur=<factor> blijft als startargument om ander
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_uit3d: PackedStringArray = []   # uit3d=helden,hol,slijm: dat deel zonder 3D, alleen voor de CPU-proef (demolijst 2, Olaf 14 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
+var proef_koper := false     # koper=1: koopt elke upgrade zodra het kan en graaft zoals de demo, voor de bovengrens (Iris keuring 7, Olaf 16 nov)
+var volgende_koop := 3.0
 var proef_drukte := false    # drukte=1: helden elke 5 tot 8 s (hooguit 3 tegelijk), alleen voor de winkelopname week (Mila 16 nov, punt 3)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
@@ -358,8 +360,10 @@ func _process(delta: float) -> void:
 				hol.put_klap(k)
 			PROEF.kijk_val(self, w)   # winkelbeeld moment=val (alleen met het startargument)
 	PROEF.tik(self)
-	if demo:
+	if demo or proef_koper:
 		RITME.tik_demo_graaf(self)
+	if proef_koper:
+		RITME.tik_koper(self)
 	if t >= volgende_opslag:
 		volgende_opslag = t + 30.0
 		bewaar()

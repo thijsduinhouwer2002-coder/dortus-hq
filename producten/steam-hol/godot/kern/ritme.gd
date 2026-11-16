@@ -6,6 +6,8 @@ extends RefCounted
 
 const HOL := preload("res://hol/hol.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")
+const KAARTJE := preload("res://kern/kaartje.gd")
+const UPG := preload("res://systemen/upgrades.gd")
 const BEGIN_VLOT := 2                       # zoveel vaste stappen van BEGIN krijgen een kort gat erna (vallen, opgegeten)
 const BEGIN_VLOT_S := Vector2(18.0, 22.0)   # seconden tot de volgende held in die gaten (was 35 tot 45)
 const BEGIN_HOED_S := Vector2(5.0, 7.0)     # na de eerste held (vallen): zo snel komt de held die Gloop opeet (Bram 16 nov)
@@ -59,3 +61,16 @@ static func tik_demo_graaf(s) -> void:
 		if not hol.boven[kk] and not hol.vallen.has(kk):
 			hol.klik(Vector2(kk * HOL.KOL + 8, HOL.OPP + 6))
 			break
+
+# koper=1 (Iris keuring 7, alleen met het startargument): een speler die elke upgrade koopt zodra het goud er is,
+# via hetzelfde kaartje als een klik (open, Buy). Elke 3 s kijken, niet als er al een kaartje open staat.
+static func tik_koper(s) -> void:
+	if s.t < s.volgende_koop or s.kaart_soort != "":
+		return
+	s.volgende_koop = s.t + 3.0
+	var up = s.hol.upgrades
+	for soort in UPG.SOORTEN:
+		if up.kan_kopen(soort, s.hol.goud):
+			KAARTJE.open(s, soort)
+			KAARTJE.koop(s)
+			return
