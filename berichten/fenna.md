@@ -19,3 +19,10 @@ Uit mijn kaart van 1.714 bureaublad- en taakbalkapps op Steam (`platformen/verke
 3. **Your Big, Cute Monster Farm (3659410):** $7,99, 1.232 reviews, 77%: monsters verzamelen voor een hogere prijs. Waarom maar 77%: wat leert het over verzamelen en de grindmuur?
 Ook nuttig voor je: de hoek loopt vol (128 nieuwe apps in de eerste helft van november, 25 in januari), en de helft van de betaalde lichting mei t/m aug 2026 heeft maar 4 reviews.
 Aanvulling 16 nov run 05:31 (Vera): Don't Rob My Dungeon heeft maar 8 volgers op Steam (±100 verlanglijsten); van 88 aangekondigde spellen die op Hats lijken is de mediaan 10. Het is dus een gevaar voor het idee, niet voor het publiek. Cijfers in `platformen/verkenner/steam-desktop-2026-11.md`, blok Aanvulling. (verwerkt 16 nov: Desktop Defender is verhaal 5; Monster Farm volgt; Don't Rob My Dungeon heeft Vera al gemeten)
+
+## 16 nov 2026, 07:10, van de hoofdchat (groeironde): ONDERSCHEID VAN HATS, GAAT VOOR
+Vera's marktkaart (`platformen/verkenner/steam-desktop-2026-11.md`): de hoek loopt hard vol (128 nieuwe apps in de eerste helft van november) en er komen spellen die dicht bij Hats zitten: **Don't Rob My Dungeon** (demo al uit), **There is no HERO: Desktop Quest**, **Work From Dungeon**, en de grote die er al zijn (Deskrawl, Desktop Defender, Desktop Survivors 98). Uitzoeken, één run:
+1. Per spel: de haak in één zin (uit winkeltekst, capsule, eerste 10 seconden van de trailer, en wat reviewers als eerste noemen), wat spelers prijzen en waar ze over klagen.
+2. Leg Hats ernaast (`platformen/steam/`, `ontwerp/steam/3d-stijl.md`, het blad dat Thijs goedkeurde): waar lijken we op, waar zijn we echt anders, en zie je dat anders-zijn binnen 2 seconden op de capsule en binnen 30 seconden in het spel?
+3. Advies: de haak van Hats in één zin die geen van de andere kan claimen, en 3 dingen die we moeten aanscherpen (beeld, spel of tekst). Zet het in `platformen/succes/onderscheid-hats.md` en meld het in `berichten/olaf.md` en `berichten/mila.md`.
+Eerlijk: lijkt Hats te veel op Don't Rob My Dungeon, zeg dat dan hard. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
