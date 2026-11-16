@@ -33,12 +33,13 @@ static func laad() -> void:
 		deco_blad.diffuse_texture = load(str(d["deco"]["blad"]))
 		deco_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		deco = d["deco"]["stukken"]
-	if d.has("hoedenwand") and typeof(d["hoedenwand"]) == TYPE_DICTIONARY and typeof(d["hoedenwand"].get("stukken")) == TYPE_DICTIONARY \
-			and ResourceLoader.exists(str(d["hoedenwand"].get("blad", ""))):
-		wand_blad = CanvasTexture.new()
-		wand_blad.diffuse_texture = load(str(d["hoedenwand"]["blad"]))
-		wand_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-		wand = d["hoedenwand"]["stukken"]
+	if d.has("hoedenwand") and typeof(d["hoedenwand"]) == TYPE_DICTIONARY and ResourceLoader.exists(str(d["hoedenwand"].get("blad", ""))):
+		var hw: Dictionary = d["hoedenwand"]
+		wand = _wand_stukken(hw)
+		if wand.size() > 0:
+			wand_blad = CanvasTexture.new()
+			wand_blad.diffuse_texture = load(str(hw["blad"]))
+			wand_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	if not d.has("hol_proef"):
 		return
 	var info: Dictionary = d["hol_proef"]
@@ -239,6 +240,23 @@ static func schatkamer_aan(h) -> bool:
 	if not h.met_3d or h.schat_kol - 2 <= h.ingang_kol or not heeft("schatkamer"):
 		return false
 	return h.boven[h.schat_kol] and h.boven[h.schat_kol - 1] and h.boven[h.schat_kol - 2]
+
+# Twee vormen van het blad: Mila's ontwerpblad (`stukken` met `vak_px`, `maat`, `midden`) en Brams pijplijnblad
+# (`frames` wand-0 tot wand-9 naast elkaar in cellen van `cel_px`, `px` bladpixels per spelpixel, onderkant cel =
+# onderkant aardrand, Bram 16 nov 09:21). Beide worden stukken met vak_px, maat en midden (midden van de cel).
+static func _wand_stukken(hw: Dictionary) -> Dictionary:
+	if typeof(hw.get("stukken")) == TYPE_DICTIONARY:
+		return hw["stukken"]
+	if typeof(hw.get("frames")) != TYPE_ARRAY or typeof(hw.get("cel_px")) != TYPE_ARRAY or hw["cel_px"].size() != 2:
+		return {}
+	var cw: float = float(hw["cel_px"][0])
+	var ch: float = float(hw["cel_px"][1])
+	var px: float = maxf(1.0, float(hw.get("px", 4)))
+	var uit := {}
+	for i in hw["frames"].size():
+		uit[str(hw["frames"][i])] = {"vak_px": [i * cw, 0, cw, ch], "maat": [cw / px, ch / px],
+			"midden": [float(hw.get("anker_x", cw / 2.0)) / px, ch / px / 2.0]}
+	return uit
 
 # Hoed nr (index zoals held.gd hoed_nr, 0 tot 9) half in de aardwand, met zijn `midden` op `punt` (spelpixels).
 # false = het blad of die hoed ontbreekt (dan tekent de wand niets: er is geen pixelvorm van).
