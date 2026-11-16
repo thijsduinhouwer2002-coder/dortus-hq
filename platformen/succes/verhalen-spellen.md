@@ -1,8 +1,66 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (volgende run: hoe makers het Desktop Companion Fest gebruikten, of een taakbalkspel dat flopte)
+bezig: niets (volgende run: een taakbalkspel dat flopte, of de eerste dagen van het Desktop Companion Fest zodra er cijfers zijn)
 
 Nieuwste bovenaan.
+
+---
+
+## 7. Elf bureaubladspellen uit een vol festival: wat Next Fest juni 2026 deed voor de spellen die PC Gamer koos (proef voor ons eerste Desktop Companion Fest)
+
+Onderzocht 16 nov 2026, run 8. Vraag van de hoofdchat: hoe gebruikten makers het Desktop Companion Fest? Dat kan niet: het fest van 14 tot 18 jan 2027 is het **eerste** (de lijst met fests in de Steamworks-docs kent geen eerdere, GEZIEN 16 nov; de pagina van het fest zelf gaf bij curl "Sorry, an error occurred"). De beste proef is daarom een fest waar al honderden bureaubladspellen naast elkaar stonden: Steam Next Fest juni 2026 (15 tot 22 juni, GEZIEN uit de aankondigingen van Lootborne en Cozy Mining). PC Gamer schreef op 17 juni 2026 dat er "nearly 500 idlers" in zaten, startte er 45 tegelijk op, sloot alles wat haar niet "more than a few seconds" boeide en hield er 11 over. Ik heb die 11 gevolgd tot vandaag. Dat is precies onze situatie in januari: een vak vol lijkende spellen, en een kijker die in seconden kiest.
+
+### Bronnen
+- PC Gamer, 17 juni 2026 (schrijver: Andrea; achternaam stond niet in de tekst die ik las): https://www.pcgamer.com/games/i-ran-45-idle-game-demos-from-steam-next-fest-all-at-once-for-a-desktop-companion-battle-royale/ (GEZIEN met curl)
+- Eigen aankondigingen van de makers op Steam, via de openbare nieuws-API `api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=<id>` (GEZIEN 16 nov): Black Cat Book Club 3972410, Cozy Mining 4283650, Lootborne 4335620, Duelist: Idle Expedition 4282780.
+- Prijs, datum, demo: `store.steampowered.com/api/appdetails`; volgers: `steamcommunity.com/games/<appid>/memberslistxml/?xml=1` (GEZIEN 16 nov ±09:35 UTC). Reviews en talen uit Vera's kaart van 16 nov (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`; de review-API van Steam stuurt nu door naar de voorpagina).
+- Alles bij elkaar: `platformen/succes/data/nextfest-juni-2026-pcgamer-11.csv`.
+- Niet gebruikt: een blog van gamineai.com over het Desktop Companion Fest; leest als automatisch geschreven en noemt geen bronnen.
+
+### Cijfers: de 11 die de pers koos, vijf maanden later (GEZIEN 16 nov, tenzij anders)
+| Spel | Prijs | Uit | Reviews | % | Volgers | Verlanglijsten (eigen melding) |
+|---|---|---|---|---|---|---|
+| Duelist: Idle Expedition (uitgever Infini Fun) | $8,99 | 8 okt | 744 | 76 | 3.822 | onbekend; 20.000 verkocht in 6 dagen |
+| Lootborne | $1,99 | 21 sep | 478 | 57 | 1.843 | 10.000 na Next Fest, 20.000 bij lancering |
+| Idyll Isle | $3,99 | 14 jul | 91 | 89 | 213 | |
+| Black Cat Book Club (solo) | $4,99 | 25 sep | 76 | 100 | 1.158 | 2.000 dec 2025, 10.000 aug 2026 |
+| PawMart Tiny Market | $5,99 | 15 sep | 42 | 90 | 441 | |
+| Cozy Mining | $6,99 | 26 jun | 41 | 75 | 409 | 2.000 → 5.000 in het fest, 10.000 bij lancering |
+| Grandpa's Bee Haven | $6,99 | 10 sep | 19 | 84 | 205 | |
+| Idle Bookstore | $5,99 | 14 sep | 19 | 78 | 279 | |
+| Succulent Break | $1,99 | 10 aug | minder dan 10 | | 11 | |
+| Tiny Farmie | $4,99 | 16 sep | 4 | | 74 | |
+| DeskFarm: Idle Garden | | nog niet uit | | | 18 | |
+
+Mediaan: 42 reviews. Ter vergelijking (verhaal 5): Desktop Defender haalde na één Next Fest 652 reviews in de eerste week.
+
+### Wat ze deden, in volgorde (de vier met eigen cijfers)
+**Cozy Mining (kleine Japanse studio):** demo in Next Fest, op dag 2 al 2.000 verlanglijsten ("we honestly didn't expect this milestone so fast"), aan het eind van het fest 5.000, **drie dagen na het fest uitgebracht** met 10.000 (aankondigingen 17, 22 en 26 juni). Daarna bijna elke dag een update. Vijf maanden later: 41 reviews. Vier talen.
+
+**Lootborne:** winkelpagina in mei, Discord en demo twee dagen vóór het fest (13 juni), tijdens het fest een "Demo Bonus Event" met een baas (Bifidus) en patches. Na het fest 10.000 verlanglijsten. Ze zouden de demo weghalen maar hielden hem aan "after seeing your support". Demo eraf in augustus, met twee badges in het volle spel voor wie de demo speelde en voor wie de baas versloeg. Bij lancering 20.000 verlanglijsten, prijs $1,99. Nu 478 reviews, maar 57%.
+
+**Black Cat Book Club (één maker met "two cats helping me"; in Europa, GOK: de lanceringstijd staat eerst in CEST):** winkelpagina al in 2025, deed mee aan twee kleine festivals van anderen (Midwinter Spirits Festival en "Taskbar Treasure Week", "a festival focused on incremental idle games with cozy vibes") en stond op 9 dec 2025 op **2.000** verlanglijsten. Speeltest mei, demo op 12 juni vlak voor Next Fest. Daarna, met de feedback uit het fest, de kern omgebouwd: "like a proper desktop companion game, now the cat automatically studies the glyphs, but you can still help by clicking" (24 juli). In augustus **10.000** verlanglijsten, lancering 25 sep met 10% korting. Nu 76 reviews, 100% positief.
+
+**Duelist: Idle Expedition (Chinese studio met uitgever):** speeltest maart, demo 8 mei, nieuwe demo met grote functie ("Deploy Three Teams at Once") speciaal voor Next Fest, lancering 8 okt in 31 talen met een aftelreeks van aankondigingen (7, 5, 3 dagen). 10.000 verkocht na 3 dagen, 20.000 na 6. Hun eigen bericht na 3 dagen geeft de klacht toe: "progression blockers and tedious operations".
+
+### Drie lessen
+1. **Het fest geeft verlanglijsten, maar die zeggen weinig over wat er daarna gebeurt.** Cozy Mining en Black Cat haalden allebei ±10.000 verlanglijsten en staan nu op 41 en 76 reviews; Lootborne op 20.000 en 478. Grof per verlanglijst: Cozy Mining 0,004 reviews, Black Cat ±0,006, Lootborne 0,024 (GEZIEN in hun eigen meldingen en de reviews; de verlanglijsten bij de lancering van Black Cat ken ik niet, dus "±"). Wat Lootborne anders heeft: $1,99 en een spel met vechten en buit; Duelist ook vechten, met uitgever en 31 talen. GOK: goedkope prijs en vechtspel zetten verlanglijsten beter om dan "cozy", maar vier spellen is te weinig om dat hard te zeggen.
+2. **Uitgekozen worden door de pers is geen succes.** Vier van de elf (Tiny Farmie, Succulent Break, DeskFarm, Idle Bookstore) staan op minder dan 20 reviews of zijn nog niet uit. DeskFarm had in juni een demo, haalde PC Gamer en heeft vijf maanden later 18 volgers. Wat in het fest in een paar seconden boeit, is de toegang; wat daarna komt (vertalen, uitbrengen, diepte) beslist.
+3. **De winnaars gebruikten de tijd na het fest om het spel te veranderen, niet alleen om te poetsen.** Black Cat maakte van een klikspel een spel dat zichzelf speelt en kreeg 100%. Lootborne hield de demo aan zolang hij klopte en beloonde demospelers met badges. Cozy Mining bracht drie dagen na het fest uit en had geen tijd voor zo'n ronde (75%). Bao Bao (verhaal 3) deed hetzelfde en kreeg "niets te doen" (82%).
+
+### Wat dit betekent voor Hats (en wat niet)
+- Ons plan is Black Cat in het klein: eerst een klein fest (Desktop Companion, januari), dan Next Fest (februari), dan uitbrengen (maart). Black Cat liet zien dat de kleine fests een begin geven (2.000), en Next Fest plus een betere demo de groei.
+- Tussen ons fest (18 jan) en de inzending voor Next Fest (1 feb) zitten precies **twee weken**. Dat is onze enige verbeterronde met echte spelers vóór het grote fest. Die moet gepland zijn, anders gaat hij op aan kleine fouten.
+- Wat niet geldt: Next Fest is veel groter dan een themafest (8.000+ demo's in oktober, PC Gamer), en wij staan in januari in een vak met honderden Desktop Companion-spellen; hoe een eerste fest uitpakt, weet nog niemand.
+
+### Voorstel voor Dortus deze week
+**Olaf:** zet in `platformen/steam/planning-fest-2027.md` de weken 18 jan tot 1 feb vast als "verbeterweek demo": één verandering op basis van wat fest-spelers zeggen (zoals Black Cat), geen nieuwe inhoud. Bouw daarvoor nu in de demo één knop of regel naar de Steam-discussies ("Tell us what bored you"), zodat we in vijf dagen genoeg reacties hebben. En geef demospelers iets mee naar het volle spel (een hoed voor Gloop, zoals de badges bij Lootborne en de hoeden bij Bongo Cat in verhaal 3). Melding staat in `berichten/olaf.md`.
+
+### Eerlijk: wat ik niet weet
+- De verlanglijsten van de andere zeven: ze meldden geen getallen. Ik weet dus niet of het fest hun weinig gaf of dat ze daarna weinig omzetten.
+- Wie "Taskbar Treasure Week" organiseerde en hoeveel het Black Cat gaf: de aankondiging noemt geen link en zoeken gaf niets.
+- Waarom Cozy Mining zo weinig reviews per verlanglijst heeft. Japanse en Chinese kopers schrijven mogelijk minder reviews (GOK); de verdeling van kopers per land is niet openbaar.
+- Verkopen uit reviews schatten (de bekende vuistregel 30 tot 60 kopers per review) heb ik niet gedaan: bij zulke kleine aantallen is de spreiding te groot.
 
 ---
 
