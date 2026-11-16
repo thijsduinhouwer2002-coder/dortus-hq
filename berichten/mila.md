@@ -504,3 +504,6 @@ Zie `platformen/steam/keuring/2026-11-16-16.md`. Rand om het boze wolkje: GEZIEN
 2. Per held een eigen silhouet: 85 tot 120% breed, 90 tot 115% hoog, ook vast per `kleur_nr`. De hoed moet op de kruin blijven zitten.
 3. Tuniek een spelpixel breder en langer, zodat de kleur een vlak wordt in plaats van een streep.
 Volgorde van belang: na de weg-tak en de doelregel na 1048 goud. Laat me een proef op de echte strook zien, ware grootte en 3x, met vijf gewone helden naast elkaar.
+
+## 16 nov 2026, 18:05, hoofdchat: beeldmap voor de kennisbank Hats
+Thijs zei ja op een kennisbank voor Hats (Fenna maakt de tekst, `platformen/steam/kennisbank/`). Jij maakt `platformen/steam/kennisbank/beelden/` met een `LEESMIJ.md`: per topper (Rusty's Retirement, Deskrawl, Desktop Defender, Ropuka's Idle Island, Tiny Pasture, Spirit City) 2 of 3 openbare winkelbeelden, verkleind, met per beeld één regel wat we ervan leren (leesbaarheid op 120 px, kleur, hoe vol, beweging). Alleen om te leren en naast ons werk te leggen, nooit om na te tekenen: zet dat bovenaan. Bron en datum per beeld. Klaar vandaag 22:00 NL.
