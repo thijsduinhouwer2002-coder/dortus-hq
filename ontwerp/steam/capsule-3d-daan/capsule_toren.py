@@ -315,6 +315,9 @@ if km:   # Daan toren: wit brandde uit tegen de warme muur; in de capsule iets r
 pm = bpy.data.materials.get("paars")
 if pm and os.environ.get("TOREN_PAARS"):   # Mila: lichtere puntmuts, zodat hij in grijs los komt van de hoge hoed
     pm.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*g.hex2(os.environ["TOREN_PAARS"]), 1)
+hh = bpy.data.materials.get("hogehoed")
+if hh and os.environ.get("TOREN_HOGEHOED"):   # Mila ronde 6: hoge hoed iets lichter antraciet, zodat hij in grijs niet in de muur verdwijnt
+    hh.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*g.hex2(os.environ["TOREN_HOGEHOED"]), 1)
 print("toren top", top)
 
 # ---------- titel ----------
@@ -366,6 +369,16 @@ if os.environ.get("CAP_KOEL_TITEL", "0") != "1":
         if _o.name.split(".")[0] in ("titel", "titelrand"): _kc.objects.link(_o)
     _koel.light_linking.receiver_collection = _kc
     for _co in _kc.collection_objects: _co.light_linking.link_state = "EXCLUDE"
+# Mila ronde 6 (Daan kan 1): warm randlicht van achter-boven alleen op de hoge hoed (lichtkoppeling, INCLUDE),
+# zodat zijn omtrek los komt van de donkere muur zonder dat de muur lichter wordt. TOREN_HOEDLICHT=0 = uit.
+if E("TOREN_HOEDLICHT", "0") > 0:
+    _hl = lamp("hoedrand", "AREA", (GX + 1.5, 1.4, 6.5), (1.0, 0.8, 0.55), E("TOREN_HOEDLICHT", "0"), 1.5, (GX - 0.3, 0.0, 4.2))
+    _hc = bpy.data.collections.new("alleen_hoge_hoed")
+    _ho = bpy.data.objects.get("hoed_hoge_hoed")
+    for _o in (_ho.children_recursive if _ho else []):
+        if _o.type == "MESH": _hc.objects.link(_o)
+    _hl.light_linking.receiver_collection = _hc
+    for _co in _hc.collection_objects: _co.light_linking.link_state = "INCLUDE"
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)

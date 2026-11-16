@@ -692,3 +692,8 @@
 - ±11:05 UTC: capsule TOREN klein ronde 4 en 4b op Daans ronde 3 (Gloop 1,6, drie hoeden heel in beeld, puntmuts b89cf0). Lokaal gerenderd met bpy 4.2 in een eigen venv (±17 s per beeld op 924x348). GEZIEN op 462 en 120 px in kleur en grijs. Keuring gevraagd aan Daan. **Besluit: drie hoeden, niet vier.** Waarom: met Gloop groter loopt een vierde hoed boven uit beeld, en een toren zonder top leest niet als toren.
 - ±11:10 UTC: header 920x430 ronde 4 in dezelfde richting, GEZIEN, in de LEESMIJ-toren.
 - Volgende run: (1) antwoord Daan op ronde 4b en header; (2) glans op de H; (3) hoofdbeeld, bibliotheek en staand in de toren-richting; (4) wijzerplaat: beelden van Gijs met de kit keuren.
+
+## 16 nov ±11:50 UTC: capsule TOREN ronde 6
+- Daans drie kan-punten op ronde 5 gedaan: randlicht alleen op de hoge hoed (lichtkoppeling, `TOREN_HOEDLICHT`) en lichter antraciet, hoed minder diep in de kroon (kroon los, robijn vóór), klein camera iets terug en hoeden 0,78. Klein en header, GEZIEN groot en op 120 naast vier toppers uit de Steam-API. Keuring gevraagd aan Daan.
+- Waarom niet lens 21: dan komt de muurrand rechts in beeld.
+- Gezien naast de toppers: wij zijn de enige donkere capsule. Volgende stap om te proberen: warmere, lichtere muur achter de titel.
