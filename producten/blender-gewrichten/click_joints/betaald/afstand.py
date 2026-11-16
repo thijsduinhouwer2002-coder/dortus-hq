@@ -116,7 +116,12 @@ def markeer_kogel(ob, kleur, gegevens, maat=None, u=1.0):
     lijst = scharnieren(bron) if bron is not None else []
     vlak, as_ = Vector(gegevens["cj_snijpunt"]), Vector(gegevens["cj_as"])
     boven = ob.get("cj_deel") == "B"
-    eigen = [e for e in lijst if ((e[0] - vlak).dot(as_) >= 0) == boven]
+    bij = _bij_deel(ob, u)
+    # Pro 1.1 (run 9): bij een figuur liggen scharnieren op andere ledematen (rechterknie bij de linkerheup). Het
+    # teken alleen gaf die aan het verkeerde deel (de rechterknie ging met het linkerbeen mee), dus zag de rechterheup
+    # daarna de rechterknie niet meer. Nu: een scharnier hoort bij dit deel als het erin of vlak bij ligt; zonder
+    # mesh het oude teken.
+    eigen = [e for e in lijst if (bij(e) if bij is not None else ((e[0] - vlak).dot(as_) >= 0) == boven)]
     if eigen:
         ob["cj_scharnieren"] = plat(eigen)
 
@@ -139,3 +144,23 @@ def unregister(gewricht):
         if gewricht.markeer is markeer_kogel:
             gewricht.markeer = _oud_markeer[0]
         _oud_markeer[0] = None
+
+
+def _bij_deel(ob, u):
+    """Functie (punt, reik, knokkel_r) -> ligt het snijpunt in het deel of binnen knokkel_r + 1 mm van zijn huid?
+    None als het deel geen vlakken heeft."""
+    from mathutils.bvhtree import BVHTree
+    from ..uit_elkaar import echte_matrix
+    me = ob.data
+    if me is None or not len(me.polygons):
+        return None
+    mw = echte_matrix(ob)
+    bvh = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(p.vertices) for p in me.polygons])
+
+    def bij(e):
+        punt, _reik, k = e
+        plek, normaal, _i, afst = bvh.find_nearest(punt)
+        if plek is None:
+            return False
+        return (punt - plek).dot(normaal) < 0 or afst <= k + 1.0 * u
+    return bij

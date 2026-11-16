@@ -143,6 +143,14 @@ def main():
         check(all(n in per for n in namen), f"alle acht gewrichten ({sorted(per)})")
     if not oud:
         streng(per, delen, fig, namen)
+    # Run 9: elk deel draagt alleen scharnieren die in of tegen dat deel liggen (eerst ging de rechterknie met het
+    # linkerbeen mee, dan zag de rechterheup de knie niet en negeerde hij de afstandsregel).
+    af = mod("betaald.afstand")
+    fout_bij = []
+    for o in delen:
+        bij = af._bij_deel(o, 1.0)
+        fout_bij += [f"{o.name} {tuple(round(c) for c in e[0])}" for e in af.scharnieren(o) if bij and not bij(e)]
+    check(not fout_bij, f"scharnieren bij het juiste deel ({fout_bij})")
 
     figuur(70.0)
     r, per, delen, over, fig = uitvoeren()
