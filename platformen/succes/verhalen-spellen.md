@@ -1,8 +1,84 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 10 af 16 nov ±14:15 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of een spel dat golft door één Chinese video)
+bezig: niets (verhaal 11 af 16 nov ±15:00 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of Mini Cozy Room: Lo-Fi van dezelfde maker als TBH, zonder markt en wel overweldigend positief)
 
 Nieuwste bovenaan.
+
+---
+
+## 11. TBH: Task Bar Hero (Nugem Studio, Korea): 546.000 spelers tegelijk in de taakbalk, en wat de Steam-markt ervoor terugnam
+
+Onderzocht 16 nov 2026, run 12. Het grootste taakbalkspel ooit, en tegelijk het duidelijkste voorbeeld van wat er gebeurt als buit geld waard is. Nog niet eerder bij ons uitgezocht; Deskrawl en andere spellen liften er al op mee ("The next Task Bar Hero!? New game with Steam Market", zie `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv`).
+
+### Bronnen
+- Alle 116 eigen aankondigingen van okt 2025 tot 12 nov 2026, via de openbare nieuws-API: https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=3678970&count=200&maxlength=0&feeds=steam_community_announcements (GEZIEN). Gelezen: lanceerdatum (30 jan), uitstel (11 mrt, 16 apr), speeltest (16 tot 27 apr), prijzen (8 mei), lancering (27 mei), markt en itemreset (30 mei tot 1 jun), excuses en compensatie (30 jun), routekaart (10 jul), datalek (12 nov).
+- Steam appdetails 3678970 en de winkelpagina's van het spel en de 8 DLC's, met curl, 16 nov 2026 (GEZIEN). Reviews per taal uit de winkelpagina per taal: `platformen/succes/data/tbh-reviews-per-taal-2026-11-16.csv`.
+- Spelers tegelijk per maand: https://steamcharts.com/app/3678970 en de Steam-API GetNumberOfCurrentPlayers (GEZIEN 16 nov).
+- 80 prestaties met percentage (Steam-API) en beschrijving (communitypagina): `platformen/succes/data/tbh-prestaties-2026-11-16.csv` (GEZIEN).
+- De meest behulpzame reviews in het Engels, Braziliaans Portugees en Vereenvoudigd Chinees, 10 per taal, met speeltijd van de schrijver: https://steamcommunity.com/app/3678970/reviews/?browsefilter=toprated (GEZIEN).
+- Website van de maker: https://www.nugemstudio.com/en/about (GEZIEN): opgericht mrt 2023 in Seoul, eerder een mobiel idle-RPG met live-service, op Steam Mini Cozy Room: Lo-Fi (mrt 2025) en PANOPTYCA (nov 2025). Zoekt nu personeel. Dus geen solomaker: een klein bedrijf met ervaring in idle-spellen.
+- Pers (DERDEN): Inven Global 1 jun 2026 (https://labs.invenglobal.com/articles/22394) en 8 jun 2026 (https://labs.invenglobal.com/articles/22636); allthings.how (https://allthings.how/task-bar-hero-tops-526000-concurrent-steam-players-amid-mixed-reviews/); Notebookcheck 17 jun 2026; MeinMMO 6 jun 2026; In Game News jun 2026 (https://www.ingamenews.com/2026/06/tbh-task-bar-hero-is-dominating-steam.html); persbericht Nugem (https://www.nugemstudio.com/en/news/tbh-peak-concurrent).
+- Niet gelukt: de review-API van Steam stuurde deze run door naar de voorpagina (302), dus geen weekoverzicht van de reviews. De demo (appid 3804790) is verwijderd; steamcharts gaf voor de demo een serverfout. Bilibili kon ik niet lezen.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Prijs | gratis; Priest-klasse gratis DLC; betaald: Hunter en Slayer $4,99, Supporter Pack (3 huisdieren met buitbonus) $3,99, extra opslag $2,99, later Material Stash en Trade Ship Pack $4,99, soundtrack | GEZIEN (winkel; aankondiging 8 mei) |
+| Demo | live in okt 2025 (Next Fest okt 2025), 20 updates tot 24 mrt 2026, opgeheven 21 apr 2026, alle voortgang gewist | GEZIEN (aankondigingen) |
+| Uitstel | lancering aangekondigd voor 1 apr, toen 15 apr, toen "april", toen 27 mei 2026 | GEZIEN (aankondigingen) |
+| Open speeltest | 22 tot ±28 apr 2026, voor iedereen, ook met de betaalde klassen; daarna ook gewist | GEZIEN |
+| Spelers tegelijk | 10.594 op de lanceerdag, 143.000 op 1 jun, 415.374 op 8 jun, **546.130 piek** (eigen persbericht; steamcharts: 545.349 in juni) | DERDEN (allthings.how, Inven) en GEZIEN (steamcharts) |
+| Gemiddeld tegelijk per maand | juni 434.627, juli 288.455, aug 107.511, sep 76.465, okt 59.947, laatste 30 dagen 59.614; nu 66.133 | GEZIEN (steamcharts, Steam-API 16 nov) |
+| Reviews | **48.731, 53% positief**; laatste 30 dagen 1.197, 56% | GEZIEN (winkelpagina) |
+| Per taal | Vereenvoudigd Chinees 10.338 (25%), Braziliaans 9.097 (81%), Engels 8.862 (62%), Turks 4.438 (65%), Russisch 3.400 (47%), Japans 2.703 (41%), Koreaans 1.746 (26%) | GEZIEN |
+| Reviews per piekspeler | 48.731 / 546.130 = 0,09 | rekensom |
+| DLC | Supporter Pack 408 reviews (41%), Hunter 128 (45%), Trade Ship 118 (25%), Slayer 86 (25%) | GEZIEN |
+| Speeltijd | SteamSpy: mediaan 202 uur sinds de lancering, laatste 2 weken mediaan 81 uur (±5,8 uur per dag). Het eigenaarsveld van SteamSpy is kapot (0 tot 20.000), dus met korrel zout | DERDEN |
+| Inhoud | 3 aktes, 4 moeilijkheden (Normal, Nightmare, Hell, Torment), 500+ voorwerpen, 10 zeldzaamheden van Common tot Cosmic, Cube voor samensmelten en versieren; sinds sep 2026 Plaguelands, sinds okt relikwieën | GEZIEN (winkeltekst, aankondigingen) |
+
+### Wat ze deden, in volgorde
+1. **Okt 2025: demo met echte buit.** Al in de demo kon je kisten krijgen ("Reward Item Distribution Function Restored", 14 okt 2025). Daarna 20 demo-updates in 5 maanden, vooral balans per klasse (GEZIEN).
+2. **30 jan 2026: datum en verdienmodel bekend.** Gratis spel, betaalde klassen en huisdieren, 13 talen, en het "Trading Ship system (marketplace)" bij de lancering (GEZIEN).
+3. **Mrt en apr: twee keer uitstel met excuses**, dan een open speeltest via de knop op de winkelpagina, met een loting onder wie een enquête invulde via Discord (10 sleutels). De demo werd opgeheven en alle voortgang gewist (GEZIEN).
+4. **27 mei: lancering** (nu 16 talen in de winkel; in januari waren er 13 beloofd), 20% korting op de betaalde DLC voor twee weken, en een actie: deel je indruk "on Steam, SNS, Community" en win een Steam-tegoedbon tot ±$66 (GEZIEN). Let op: Valve verbiedt beloningen voor Steam-reviews; de actie noemt Steam erbij. Dat is mijn lezing, niet nagelezen in de regels deze run.
+5. **Dag 3 tot 6: de markt breekt het spel.** 30 mei: de itemserver van Steam kan het niet aan, goud en voorwerpen verdwijnen. 31 mei: "Steam has confirmed that, because we failed to properly meet their server usage guidelines, the game was sending excessive server requests" (eigen aankondiging, GEZIEN). Spelers moesten binnen een dag hun spullen van de markt halen; 1 juni werden hele soorten uitrusting gewist en alleen Legendary en hoger bleef verhandelbaar, pas vanaf Cube-niveau 10 (GEZIEN).
+6. **Juni en juli: bots, verbanningen en verborgen aanpassingen.** Inven (DERDEN): goudboeren met cheats overspoelden het spel; wie twee keer werd betrapt, verloor de markt voorgoed, en onschuldige spelers kregen een ban. Meerdere aankondigingen over sancties tegen valsspelers (GEZIEN). Spelers in drie talen schrijven dat de kans op kisten stil werd verlaagd. Excuses en compensatie op 30 juni; "practical limitations given our current development resources" (GEZIEN).
+7. **Juni: nieuwe voorwaarden en verplichte gegevensverzameling** (aankondiging 12 jun, GEZIEN). Twee van de tien meest behulpzame Engelse reviews gaan alleen daarover.
+8. **Daarna: echte inhoud en een routekaart.** 10 jul routekaart, sep Plaguelands, okt relikwieën en Halloween. Het gemiddelde zakte toch van 434.627 naar ±60.000 (GEZIEN).
+9. **12 nov 2026: datalek.** Via de beheertool van hun externe serverdienst haalde iemand van 17 okt tot 8 nov Steam-ID's, IP-adressen en computergegevens van alle spelers op (eigen aankondiging, GEZIEN).
+
+### Wat de spelers zeggen (meest behulpzame reviews, GEZIEN)
+- **Engels: 10 van 10 negatief**, en geen enkele over het spel zelf als saai. Onterechte bans die als "Game Ban" voorgoed op je Steam-profiel staan (3 keer, onder wie iemand met een account van 18 jaar), verplichte gegevensverzameling (4 keer), stil verlaagde buit ("they punish their most engaged players and paying customers by silently nerfing the drop rates"). Eén schrijver met 895 uur rekent het eindspel na: één Cosmic-voorwerp kost gemiddeld ±65,7 miljoen Immortal-voorwerpen; "the numbers in the late game have inflated to an absolutely ridiculous degree".
+- **Vereenvoudigd Chinees: 8 van 10 negatief**, met 35 tot 1.917 uur. Vooral: kisten vallen veel minder sinds de markt-ingreep, het Supporter Pack werkt niet meer ("如果你玩的免费本体请继续，不要买DLC" = speel je het gratis spel, ga door, koop geen DLC), en de schuld werd op Steam geschoven. Eén review noemt het "Steam's Most Successful Digital Begging Simulator".
+- **Braziliaans: 8 van 10 positief**, maar vaak als grap of over geld ("Virginia falou que TBH era renda extra, mas o mercado fechou": iemand zei dat TBH extra inkomen was, maar de markt ging dicht). De serieuze negatieve: "o jogo entrega pouco" na 882 uur, en "tudo foi feito para prolongar o seu tempo de jogo, não para te recompensar".
+- **Wat wel geprezen wordt:** Inven noemt karakterontwerp, afwerking en balans, en dat je niets hoeft te kopen om verder te komen. Spelers delen bouwplannen en tips: een "echt spel" met keuzes, anders dan de Banana-spellen.
+
+### Hoe ver spelers komen (prestaties, GEZIEN, met een grote kanttekening)
+Held niveau 10: 100%. Normal uitgespeeld: 78%. Nightmare: 71%. Hell: 60%. Held niveau 50: 59%. Niveau 80: 39%. Vier helden op 50: 18%. Hell 3-10 alleen: 11%. Eerste Plaguelands-zone (sinds sep): 8%. Alle 2/2/2 versieringen op alle uitrusting: 0,5%.
+Kanttekening: zes prestaties op precies 100% en 59% op niveau 50 is veel hoger dan bij elk spel in `diepte-toppers.md` (daar haalt 17% de 100 uur). Ik denk dat de noemer bij dit gratis spel vooral accounts bevat die blijven draaien, ook boeraccounts (GOK). Deze getallen zijn dus niet bruikbaar als meetlat voor Hats, wel als teken dat de lijst gevuld is met accounts die nooit stoppen.
+
+### Drie lessen
+1. **Buit die geld waard is koopt spelers tegelijk, maar geen fans.** 546.130 tegelijk en toch 53% positief, 25% in het Chinees, en 0,09 reviews per piekspeler. Het spel zelf werd geprezen; wat de reviews sloopte kwam allemaal uit de markt: serverlast, gewiste spullen, cheats, bans, verlaagde buit, verplichte gegevens. Inven trekt de lijn naar de Banana-spellen: piek ±910.000, nu ±20.000 (DERDEN).
+2. **Met een markt wordt elke balansverandering een geldkwestie.** Wie de kans op kisten verlaagt, pakt kopers van het Supporter Pack iets af; dat is precies waar de Chinese en Engelse reviews het hardst zijn. De DLC die meer buit belooft heeft 41% (Supporter Pack) en 25% (Trade Ship); de eerlijke gratis klasse heeft 92% in de laatste 30 dagen.
+3. **Exponentieel samensmelten maakt van "honderd uur" een muur.** De spelers die het langst blijven (500 tot 900 uur) klagen niet over te weinig te doen maar over dat niets meer iets oplevert. Dezelfde les als Monster Farm (verhaal 6), nu met een rekensom van een speler erbij.
+
+### Wat dit betekent voor Hats (en wat niet)
+- Hats heeft geen markt en geen drops, dat staat al in `platformen/steam/verdienmodel.md` (Sanne). Dit verhaal is het bewijs bij dat besluit; er hoeft niets te veranderen.
+- **Maar het is ook een kans.** Er zijn honderdduizenden spelers die een taakbalk-RPG met level ups willen en boos zijn op server, bans, gegevens en gewiste voortgang. Hats kan alles wat zij missen in één regel beloven, als het waar is: geen account, geen markt, alles op je eigen pc. Geen van de spellen in `onderscheid-hats.md` zegt dat op de winkelpagina (Don't Rob My Dungeon heeft juist Twitch-koppeling).
+- Niet overnemen: gratis met betaalde klassen (wij zijn betaald, $4,99), een open speeltest die daarna gewist wordt (wij wissen nooit voortgang, fest-plan), beloningen voor posts "on Steam".
+- Niet zomaar vergelijkbaar: Nugem is een bedrijf met eerdere idle-spellen en personeel; de grootte kwam van de markt, niet van de taakbalk alleen.
+
+### Voorstel voor Dortus deze week
+**Mila en Daan zetten in de lange winkeltekst van Hats (en in de laatste seconden van de trailer) één belofte: "No account. No market. No servers. Your save stays on your PC.", nadat Olaf bevestigt dat elke zin klopt voor de build.** Waarom: de grootste taakbalk-RPG verloor zijn reviews op precies die vier punten (bans, gewiste en verdwenen spullen, servers, verplichte gegevens), terwijl het spel zelf geprezen werd. Het kost een regel tekst en geen bouwwerk. Let op: Steam-prestaties en de opgetelde Steam-stats (Olaf, `berichten/olaf.md`) zijn geen eigen server, maar zeg dan niet "works fully offline" als we nog niets offline getest hebben. Wie: Olaf (klopt het), Mila en Daan (tekst en trailer), Sem (noemt het in mails aan makers die over TBH filmden).
+
+Tweede punt voor Sanne (geen actie deze week, past bij haar versie 3): zet in `platformen/steam/voortgang.md` een plafond op elke stap van samensmelten of sparen (bijvoorbeeld hooguit 10 keer de vorige stap) en reken het eindspel na zoals de TBH-speler deed: hoeveel van het vorige ding kost het laatste ding?
+
+### Eerlijk: wat ik niet weet
+- Hoeveel echte mensen er bij de 546.130 zaten. Pers en spelers zeggen bots en boeraccounts, maar niemand geeft een cijfer.
+- Hoeveel verlanglijsten en demospelers TBH vóór de lancering had. MeinMMO zegt alleen "eine solide Spielerzahl" vóór de release; de demo-pagina is weg.
+- Hoeveel de DLC opbracht. Met de verhouding van Rusty's (36.000 kopers op 94 DLC-reviews) zou 408 reviews op ±150.000 Supporter Packs wijzen, maar boze kopers schrijven vaker; dus ergens tussen 40.000 en 150.000 (GOK, wijd).
+- Of de stille verlaging van de buit echt gebeurde. De makers schrijven over vertraging en serverlast; spelers zeggen dat het meer is. Ik heb alleen de reviews en de aankondigingen, geen meting.
+- Of de beloningsactie bij de lancering tegen de regels van Valve was; niet nagelezen.
 
 ---
 
