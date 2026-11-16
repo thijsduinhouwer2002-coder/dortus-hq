@@ -1,0 +1,44 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 53 s (klok terug: false): goud voor 1517, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1524 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Pim
+HOL kroniek 5.1 (wacht 1.0): Pim the Thief tiptoes in.
+HOL meting t=10 beelden=62 helden=1 hol_vast=1
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Pim fled. Grudge: the Spike Pit.
+HOL kroniek 27.6 (wacht 2.5): New page: the Thief. He got away.
+HOL meting t=30 beelden=54 helden=0 hol_vast=1
+HOL meting t=40 beelden=4 helden=0 hol_vast=1
+HOL kroniek 44.6 (wacht 0.0): Gerda casts Light. It is a candle.
+HOL held binnen: Gerda
+HOL meting t=50 beelden=58 helden=1 hol_vast=1
+HOL meting t=60 beelden=100 helden=1 hol_vast=1
+HOL kroniek 65.6 (wacht 0.0): Gerda left. Took nothing. Angry.
+HOL kroniek 68.2 (wacht 2.6): Page for the Wizard. Ran off. Counts.
+HOL meting t=70 beelden=56 helden=0 hol_vast=1
+HOL meting t=80 beelden=4 helden=0 hol_vast=1
+HOL meting t=90 beelden=11 helden=0 hol_vast=1
+HOL meting t=100 beelden=5 helden=0 hol_vast=1
+HOL kroniek 102.2 (wacht 0.0): Tibbe the Sleepy shuffles in.
+HOL held binnen: Tibbe
+HOL meting t=110 beelden=87 helden=1 hol_vast=1
+HOL meting t=120 beelden=101 helden=1 hol_vast=1
+HOL kroniek 123.2 (wacht 0.0): Tibbe ran. Swore revenge.
+HOL meting t=131 beelden=25 helden=0 hol_vast=1
+HOL meting t=141 beelden=4 helden=0 hol_vast=1
+HOL meting t=151 beelden=11 helden=0 hol_vast=1
+HOL kroniek 151.6 (wacht 0.0): Wout is here for a story.
+HOL held binnen: Wout
+HOL meting t=161 beelden=98 helden=1 hol_vast=1
+HOL meting t=171 beelden=101 helden=1 hol_vast=1
+HOL kroniek 172.6 (wacht 0.0): Wout escaped with a limp.
+HOL kroniek 175.2 (wacht 2.6): New page: the Bard. He got away.
+HOL kroniek 177.8 (wacht 5.2): Wout's song got popular. Uh oh.
+HOL meting t=181 beelden=17 helden=0 hol_vast=1
+HOL kroniek 187.8 (wacht 0.0): Fenna hums the song. Off-key.
+HOL held binnen: Fenna
