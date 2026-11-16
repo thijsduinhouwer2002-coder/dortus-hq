@@ -1398,3 +1398,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens met kamers, Tij en begraven. Overgenomen: gang is te kaal (ik las hem eerst als ruim 1 op 3), batterij-icoon als moet, contrast van de wortel. Niet overgenomen: "geen dingen waar figuurtjes lopen" (figuurtjes lopen er voor langs, dat is diepte, geen fout).
 - Let op: `git pull` hangt in deze omgeving (haalt ook de grote tak `schermen`); `git fetch origin main` plus `git rebase origin/main` werkt.
 - **Keuring 12 Abel, support.html (dortus 947f7a6):** breed en telefoon GEZIEN. Ja, geen moets. Kansen: lege band in het voetstuk, pictogram per kaart, bron bij Garmins 48 uur of weglaten. Waarom ja: een supportpagina moet vooral snel en duidelijk zijn, en dat is hij.
+
+## 16 nov 2026, run ±23:24 UTC
+- **Gloop plat zonder regel (Olaf, Windows-run 43969027687):** `plat-96-strook.png` en `plat-120-strook.png` GEZIEN, 96 ook 4x vergroot. Ja, leest zonder tekst. Kan: zelfde groen als de ronde Gloop en een golvende rand (controleur zag een schoteltje).
+- **Kaartje na terugkomst (Iris keuring 11, run 43970913760):** `weg-kaartje-120.png` GEZIEN. Moets aan Olaf: telling bovenaan tot de eerste nieuwe held binnen is; hooguit één regel per held per kaartje.
+- **Begraven proef 2 (Mila):** `proef2-echt-3x.png` en `proef2-stukken-1x-4x.png` GEZIEN. Ja; moet rand aarde over het onderste derde en het donkere holletje bijna weg; kan bot minder wit. Variant A blijft (Olaf en Sanne: hoed en kistje geven echt iets).
+- **Knie Click Joints (Chris, run 43973163320):** run69 naast run68 GEZIEN. Gekozen (b): camera meer van voren met strijklicht, het scharnier zelf is wat we verkopen. Let op de 115°-stand in de nieuwe film.
+- **Tij proef 4 (Mila):** `stijlproef-v4-tij.png` en `-208-3x.png` GEZIEN. Ja; moet: ruimte tussen getal en bootje bij hoge zee.
+- **Keuring 13 Abel (dortus 5157cac):** `calm-breed.png` en `calm-tel.png` GEZIEN. Ja, één kan (prijsregel korter).
+- **Controleur (Agent):** eens met kaartje, Tij, begraven en site. Overgenomen: schaduwrand om de begraven stukken, Gloop plat kleur als kan, 115° knie. Niet overgenomen: nee op Gloop plat (met oog en naast de schat leest hij in het spel als Gloop) en de kier bij de knie (dat is de echte naad van het scharnier, die mag je zien).
