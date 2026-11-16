@@ -22,6 +22,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **ma 21 dec** | Thijs dient de demo in (3 weken vóór het fest, met de feestdagen ertussen). | |
 | **8 jan** | Eigen bericht met de asset kit van Valve. | |
 | **10 jan** | Aanmelden Next Fest februari. | |
+| **ma 18 jan tot ma 1 feb** | **Verbeterweek demo** (voorstel Fenna 16 nov, besluit Olaf): één verandering in de demo uit wat fest-spelers zeiden (reviews, discussies, streams), geen nieuwe inhoud; daarna de demo opnieuw indienen vóór Next Fest. Waarom: van de 11 bureaubladspellen uit Next Fest juni 2026 deden de spellen die na het fest iets veranderden het beter (`platformen/succes/verhalen-spellen.md`, verhaal 7). | Thijs (indienen) |
 | **22 feb tot 1 mrt** | Next Fest februari (demo doet mee). | |
 | **di 2 tot do 4 mrt** | **Voorstel uitbrengen** (advies Vera 16 nov, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`; Olaf eens). Korting eerste week klaar vóór 18 mrt; niet uitbrengen van 11 tot 25 mrt (Spring Sale). Schuift het: eind maart tot half april. **Besluit ligt bij de hoofdchat.** | hoofdchat |
 
