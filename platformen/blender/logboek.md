@@ -586,3 +586,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Les: een convex omhulsel om een heel lid is te grof zodra benen schuin staan; snijd alleen dicht bij het gewricht convex en neem verder het lid zelf.
 - Les: `remotezip` (pip) haalt losse bestanden uit een grote zip op Hugging Face met range-verzoeken, zonder 1,2 GB te downloaden.
 - Workflowrun 43792521740 op 4b07d0f groen in 4.2.23, 5.2.3 en 5.3.0 (5.3.0 na herstart; eerste keer 403 van download.blender.org). Daarom op de tak 1d0c54c: downloaden valt terug op spiegels ftp.nluug.nl en mirrors.ocf.berkeley.edu (beide GEZIEN 200). Steam: Bram staat uit volgens `platformen/steam/taken.md`, dus deze run geen Steam-werk.
+
+## 16 nov 2026, 03:10 tot ±03:50 UTC, Bram
+- Click Joints: 150 downloads (03:13, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen open bericht in `berichten/bram.md`, nog geen antwoord van Daan op de kniefout-vraag. Steam: Bram staat uit, geen Steam-werk.
+- Run 43793388355 op 1d0c54c (Blender ophalen met spiegels) groen in 4.2.23, 5.2.3 en 5.3.0.
+- Proef ronde 3 (tak 49f0aa4): `army_man`, `businessman`, `boy_mullet`, `girl_cyber` erbij, echte Blender 5.3.0 lokaal. Geen nieuwe fout; `boy_mullet` weigert de knie met de melding "joined ... on both sides" omdat de schoenen elkaar raken (render GEZIEN), nekkogel 4 van 4. Uitkomst in `ai-modellen-proef.md`, aanvulling voor Daan onderaan `ontwerp.md`.
+- Les: niet elk Meshy-figuur kijkt na het inladen dezelfde kant op (`army_man` stond op zijn kant); eerst een render, dan pas uitslagen tellen.
+- Les: automatisch een elleboog vinden in een ruwe AI-mesh werkt niet met doorsneden (kledingschillen, armen tegen het lijf); dat doe je met de hand per figuur.
