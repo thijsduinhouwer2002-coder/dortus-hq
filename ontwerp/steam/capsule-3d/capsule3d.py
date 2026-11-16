@@ -345,6 +345,21 @@ lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 if KLEIN and E("K_RLICHT", "700") > 0:   # Mila ronde 7c (Daan 19:50: ridder is in grijs een vlekje): eigen lichtje op de ridder
     lamp("ridderlicht", "AREA", (RX - 1.2, RY - 4.0, 3.2), (1.0, 0.93, 0.8), E("K_RLICHT", "700"), 2.0, (RX, RY, 1.0))
+if KLEIN and E("K_HALO", "0") > 0:   # Mila ronde 7d proef: tweede kleurvlak, een zachte gloed op de wand achter Gloop (geen ding, alleen licht)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(E("K_HALOX", str(GX)), 3.1, E("K_HALOZ", "2.0"))); hz = bpy.context.object
+    hz.scale = (E("K_HALOW", "7.0"), E("K_HALOW", "7.0"), 1); hz.rotation_euler = (math.radians(90), 0, 0)
+    hm = bpy.data.materials.new("halo"); hm.use_nodes = True; nt = hm.node_tree; nt.nodes.clear()
+    tc = nt.nodes.new("ShaderNodeTexCoord"); mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Location"].default_value = (-1, -1, 0)
+    mp.inputs["Scale"].default_value = (2, 2, 2)
+    gr = nt.nodes.new("ShaderNodeTexGradient"); gr.gradient_type = "SPHERICAL"
+    cr = nt.nodes.new("ShaderNodeValToRGB"); cr.color_ramp.elements[0].position = 0.0; cr.color_ramp.elements[1].position = 0.75
+    em = nt.nodes.new("ShaderNodeEmission"); hk = os.environ.get("K_HALOKLEUR", "5fe08a")
+    em.inputs["Color"].default_value = tuple(int(hk[i:i+2], 16) / 255 for i in (0, 2, 4)) + (1,); em.inputs["Strength"].default_value = E("K_HALO", "0")
+    tr = nt.nodes.new("ShaderNodeBsdfTransparent"); mx = nt.nodes.new("ShaderNodeMixShader"); out = nt.nodes.new("ShaderNodeOutputMaterial")
+    nt.links.new(tc.outputs["UV"], mp.inputs["Vector"]); nt.links.new(mp.outputs["Vector"], gr.inputs["Vector"])
+    nt.links.new(gr.outputs["Fac"], cr.inputs["Fac"]); nt.links.new(cr.outputs["Color"], mx.inputs["Fac"])
+    nt.links.new(tr.outputs[0], mx.inputs[1]); nt.links.new(em.outputs[0], mx.inputs[2]); nt.links.new(mx.outputs[0], out.inputs["Surface"])
+    hz.data.materials.append(hm); hz.visible_shadow = False
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
 lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900 if not KLEIN else E("K_WANDGLOED", "900"))   # warme gloed op de muur achter Gloop
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
