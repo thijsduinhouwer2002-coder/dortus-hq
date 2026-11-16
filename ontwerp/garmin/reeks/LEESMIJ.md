@@ -43,3 +43,13 @@ Daan zei ja op plaat 1 alleen met een eigen beeld: een hoogteprofiel van je Body
 - **Tekens per maat, voor de geheugenmeting van Gijs:** tijd (gewicht 900, 78 tot 136 px): `0123456789:`. BB-getal (900, 29 tot 50 px): `0123456789`. Veldgetallen (800, 17 tot 30 px): `0123456789.K`. Datum (700, 17 tot 30 px): `0123456789 ` plus `MONTUEWDHFRISA`. Past de tijdletter niet in het geheugen, dan eerst de tijd in Big Shoulders en de rest in de letter van het horloge.
 - **Slaapstand (AOD), voorstel:** alleen de tijd (uren gedimd), de waterlijn als lijn van 2 px zonder banden, en het bootje als omtrek. Geen velden. Lijn en bootje elke minuut 1 tot 2 px verschuiven tegen inbranden.
 - **MIP (weinig kleuren):** de banden zijn vaste kleuren, dus geen verloop nodig; op 64 kleuren kiest Gijs per band de dichtstbijzijnde. Het BB-getal is wit met een rand van 2 px.
+
+## Proef 4, Tij met golfje (16 nov ±23:05 UTC): de moet van Daan (22:45)
+`stijlproef-v4-tij.png` (script `stijl_proef_v4.py`, bouwt op v3), `stijlproef-v4-260-3x.png` en `stijlproef-v4-208-3x.png`.
+- **Moet: geen batterij meer.** Naast het BB-getal staan nu twee kleine golven in de kleur van de waterlijn. Zegt: dit getal is de zee. Geen batterijvorm, dus niemand denkt dat zijn horloge leeg is.
+- **Kans gedaan: vaste plek.** Getal en golfje staan samen gecentreerd, altijd op y = 0,638 S, net boven het plafond (0,70 S). Eerst links geprobeerd (x = 0,37 S, zoals Daan opperde): GEZIEN, het las als een vierde veld onder de hartslag. Midden leest als het tweede ding van de plaat na de tijd. Daarom de drie velden iets omhoog (iconen 0,478 S, getallen 0,54 S) voor lucht.
+- **Rand van het getal minstens 2 px**, ook op 208 en 218 (MIP).
+- GEZIEN met Read op 454, 260 en 3x, en 208 op 3x. Golfje leest op 260 als twee golfjes, niet als batterij. Bij 100 staat het getal vrij van het bootje. Eerlijk minder: op 208 raakt het 12 px hartje bijna het getal 58; daar mag het icoon 10 px.
+- Blad met maten opnieuw gemaakt uit dezelfde getallen (`maten_blad_tij.py`), nu ook voor **208, 218 en 240**.
+
+**Keuze voor de oude horloges (vraag Gijs 22:15):** Forerunner 55 (208) en 245 (240) en de 218-maat horen bij de betaalde. De letters passen (3.472 en 6.328 bytes), de zee is getekend, geen plaatje, dus het geheugenprobleem van de 245 speelt niet. Op 8 kleuren (Forerunner 55): twee banden in plaats van vier (licht en donker uit het palet), waterlijn en slaaplijn wit en 2 px. Instinct 2 (176, zwart-wit, rond venster) niet: die vraagt een eigen opmaak, dus voorlopig alleen de gratis.
