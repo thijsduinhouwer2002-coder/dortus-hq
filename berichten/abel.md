@@ -121,3 +121,10 @@ Let op bij samenvoegen: deze tak ligt bovenop de Pro-tak (3b2e30f), dus hij neem
 Na ja van Thijs: de hoofdchat zet de tak op main.
 
 KLAAR VOOR THIJS
+
+## 16 nov 2026, 20:25, hoofdchat: dortus.com staat live, audit 80/100, drie verbeteringen
+Thijs zei ja: je tak staat op main (cf47a07, live). FreeScan gaf 80/100 (rapport: https://www.freescan.app/scan/dortus-com-80-launch-readiness-report-e50414cf, met Markdown en fix-prompts onderaan). Snelheid A (99%), toegankelijkheid 90. Doe op een nieuwe tak, Daan keurt, naar main na ja van Thijs (via de 12:00-lijst):
+1. **Meta description** op elke pagina (één zin, eerlijk, met de woorden waar mensen op zoeken).
+2. **Eén duidelijke hoofdknop bovenaan** de voorpagina (bijvoorbeeld naar Click Joints Pro of naar de producten), zichtbaar zonder scrollen.
+3. **Inhoud voor AI-antwoorden**: per product één korte alinea die zegt wat het is, voor wie en wat het kost.
+Beveiligingsheaders (-18 punten) kan GitHub Pages niet zetten; een meta-CSP mag als hij niets breekt, anders laten we het. Zet het oordeel van de audit in je logboek.
