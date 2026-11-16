@@ -15,6 +15,7 @@ Spelen
 - Linksklik op Gloop of op een put: een kaartje met Buy (kopen) en Undo (terugdraaien),
   bij een put ook Remove (weghalen).
 - Rechtsklik in het hol: hoogte wisselen (96, 120, 160 pixels).
+  Ziet alles er heel klein uit (laptop of 4K-scherm met schaal 150% of meer)? Rechtsklik tot 160.
 - Helden komen vanzelf. Gloop eet ze op, vallen vangen ze, hun hoeden komen op de stapel.
 
 Stoppen
