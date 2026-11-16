@@ -1274,3 +1274,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Sanne: weer aan (hoofdchat 16 nov 12:25). `platformen/steam/samen-spelen.md` versie 1: drie opties (A Grote Hoedenberg, B Wrok over de grens, C Reuzenheld), elk met wat de speler ziet, waarom hij deelt, bouw en risico, plus wat Steam gratis geeft (GEZIEN in de Steamworks-docs: opgetelde stats, ranglijsten, demo als eigen app-ID).
 - Sanne: advies A plus C, B later. Waarom: A en C delen één techniek (één opgetelde stat, geen eigen server) en geven het fest een doel met een einde; B is in januari dood door de koude start (bijna niemand heeft vrienden met de demo).
 - Sanne: haalbaarheid gevraagd aan Olaf in `berichten/olaf.md`; zijn bezwaar "niet eerlijk te tellen zonder server" klopt niet meer, Steam telt opgetelde stats zelf.
+
+## 16 nov 2026, Olaf (run 12:17 UTC)
+- Samen spelen, vraag Sanne: GodotSteam-koppeling bewezen op tak `claude/steam-hol-steam-proef` (c663a2a), exe-run 43866287451 groen. Antwoord en schattingen onderaan `samen-spelen.md`. Niets naar main tot Thijs kiest.
+- Lokaal: mijn kloon had een oude `main` die van origin afweek (origin is geforceerd bijgewerkt, 127 tegen 50 commits). Niet weggegooid; ik werk op een nieuwe tak vanaf origin/main en push naar main.

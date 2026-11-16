@@ -117,3 +117,39 @@ Let op bij B: Steam-namen zijn tot 32 tekens lang. Vriendennamen afkappen op 8 t
 - Haalbaarheid en bouwtijd per optie: Olaf (gevraagd 16 nov).
 - Hoe snel Steam een opgeteld totaal bijwerkt: testen zodra de demo-app er is.
 - Bij de speeltest van 21 nov kijken of spelers het hol na een paar minuten nog open laten staan; zo niet, dan helpt geen enkele samen-functie en gaat de kern voor.
+
+---
+
+## Antwoord Olaf op de drie vragen (16 nov 2026, ±12:40 UTC)
+
+Kort: **het kan, de koppeling is vandaag bewezen in onze echte .exe, en A plus C past vóór de demo van 18 dec.** Het echte risico zit niet in de code maar in twee dingen buiten ons: de demo-app in Steamworks (stap voor Thijs) en dat het pad *met* Steam alleen door Thijs getest kan worden.
+
+### 1. GodotSteam in de build, met terugval
+- **Welke versie.** De nieuwste GodotSteam GDExtension (4.24, 7 nov 2026) is gebouwd voor Godot 4.4 en hoger; wij zitten op 4.3. De laatste build voor Godot 4.1 tot 4.3 is **4.15** (release `v4.15-gde`, 23 aug 2025, Steamworks SDK 1.62, MIT), GEZIEN in de releases op codeberg.org/godotsteam/godotsteam. Voor opgetelde stats en ranglijsten is 4.15 genoeg; die functies bestaan al lang. Godot naar 4.4 zetten doen we niet voor dit: dat raakt de hele 3D-pijplijn en alle toetsen.
+- **Proef, op tak `claude/steam-hol-steam-proef` (c663a2a), niet op main.** Alleen de Windows 64-bit bestanden in `godot/addons/godotsteam/` (5,9 MB in de repo), een klein script `kern/steam_koppeling.gd` (noemt `Steam` nergens bij naam, dus het laadt ook zonder de extensie) en 8 regels in `strook.gd`. APP_ID staat op 0: zo start Steam nooit, ook niet als Thijs bij de speeltest Steam open heeft.
+- **Uitslag (GEZIEN in de log van exe-run 43866287451, groen, exe-toetsen 0 FOUT):**
+  - volle .exe: `HOL steam uit: geen app-ID (GodotSteam 4.15 geladen)`; de extensie laadt dus in de geëxporteerde exe.
+  - demo-.exe met `steam_app=480` (de testapp van Valve) op een runner zonder Steam: `HOL steam uit: status 1 Could not determine Steam client install directory.`; de echte `steamInitEx` draait, faalt netjes, en het spel speelt de hele toets uit (demo-einde, kopen geweigerd, nette stop).
+  - geen SCRIPT ERROR; `steam_api64.dll` (0,3 MB) en `libgodotsteam...dll` (2,4 MB) staan vanzelf naast de exe, niets in `export_presets.cfg` nodig.
+  - CPU volledig 2,84 tegen 2,28 op main vanochtend (run 43823198006), demo 1,47 tegen 1,45; geheugen +6 MB. Dat valt binnen wat de runner schommelt; zonder Steam draait er geen `_process`. Met Steam roep ik `run_callbacks` straks één keer per seconde aan met een timer in plaats van elk beeld (demolijst 2).
+- **Wat er nog bij moet voor echt gebruik:** een laagje "stats" dat happen telt in de save, elke 10 minuten uploadt (`storeStats`), het totaal leest (`requestGlobalStats`, `getGlobalStatInt`) en het laatste totaal bewaart, zodat het bordje offline het oude getal toont of verdwijnt. Plus een nep-Steam in de toetsen, zodat de logica van het bordje en de doelen op Actions getest wordt. **Schatting: 1 tot 1,5 dag**, waarvan de helft de nep-Steam en de toetsen.
+- **Wat Actions niet kan:** het pad mét Steam. Daar is een ingelogde Steam-client en onze eigen demo-app voor nodig. Dat is één keer ±10 minuten voor Thijs: de demo via Steam starten en kijken of het bordje een getal toont. Pas dan weten we ook hoe snel Steam het totaal bijwerkt (jouw open punt).
+- **Past het vóór 18 dec?** Ja, als de demo-app en de stat uiterlijk ±4 dec in Steamworks staan (demo-app maken, stat `hoeden_samen` met Aggregated, increment only, max change, en de wijziging publiceren). Of de demo-app al gemaakt kan worden terwijl de ID-controle van Valve nog loopt (tot 30 werkdagen vanaf 9 nov) weet ik niet (GOK); dat is de grootste onzekerheid in de planning, niet de code.
+
+### 2. Bouwtijd bovenop de koppeling (alleen code en toetsen, beeld apart)
+| Optie | Code | Beeld (Mila, Bram, Daan) | Totaal | Jouw gok |
+|---|---|---|---|---|
+| A Hoedenberg | 1,5 tot 2 dagen: bordje tekenen in `hol_vast.gd` (vast beeld, kost niets per beeld), klik met één regel, doelen, 3 hoeden ontgrendelen via de gewone `HOED_SOORTEN`, save, kroniekregels | bordje plus 3 hoeden door de pijplijn | ±2,5 tot 3 dagen | 2 tot 3, eens |
+| C Reuzenheld | 2 dagen: start op datum, bezoek met alleen laars en hoed in de gang, leven uit dezelfde opgetelde stat (tweede stat `reus_happen`), vangnet na het fest, toets met nep-datum | laars, reuzenhoed, Gloop eronder: ±2 dagen | ±4 dagen | 3 tot 4, iets meer |
+| B Wrok over de grens | 4 tot 6 dagen: ranglijst op Friends met details (een rij getallen per held), ophalen, binnenkomst via de wachtrij, kroniek aan twee kanten, save, randgevallen (oude versie, onbekende soort, lange namen) | niets nieuws | ±1 week | een week, eens |
+
+A plus C samen met de koppeling: **±8 werkdagen**. Met elk uur een run is dat haalbaar tussen de speeltest (21 nov) en 18 dec, náást de vertaaltabel (±1 dag) en wat er uit de speeltest komt, maar dan schuift de rest van de demolijst niet meer. Als het krap wordt: alleen A (±4 dagen met koppeling), C kan dan in de verbeterweek van 18 jan tot 1 feb, want het fest begint pas daarna. Dat vind ik zelfs een goede volgorde: C hoeft pas in het fest te werken.
+
+### 3. Redenen waarom het bij ons niet zou kunnen
+Geen harde. Wel vier dingen om te weten:
+1. **Demo-app en ID-controle** (zie boven): zonder demo-app geen stat, en zonder stat blijft het bordje leeg. De code wacht daar niet op; de echte test wel.
+2. **Wij blijven op GodotSteam 4.15** zolang we op Godot 4.3 zitten. Geen probleem voor stats; wel krijgen we geen nieuwe GodotSteam-fixes meer. Gaan we later naar Godot 4.4 of hoger, dan nemen we de nieuwste mee.
+3. **Eigen app-ID voor de demo**: eens, geen probleem. Wel: het getal van de demo telt niet door in het volle spel. Jouw oplossing (het eindgetal van de demo als begin) is één vast getal in de code van het volle spel.
+4. **De speeltest-zip zonder Steam** (zoals Thijs hem za 21 nov krijgt) heeft geen bordje. Dat is precies de terugval; niemand mist iets.
+
+Ik bouw niets verder tot Thijs kiest. De tak blijft staan als bewijs; na de keuze gaat de koppeling met de stats-laag in één keer naar main.
