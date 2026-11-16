@@ -56,3 +56,8 @@ Open punt uit `teksten-makers.md` ("Trailer-plekken"). Bronnen: wholesomegames.c
 >
 > Thank you for all the lists, they're how we found half the games we love.
 > {afzender}, Dortus
+
+## Cozy After Dark (gevonden run 13, 16 nov)
+- Eerste editie 12 okt 2026: showcase van Dames 4 Games, Draknek & Friends en CONTINUE met 50+ trailers, plus een Steam-evenement 12 tot 19 okt met demo's, kortingen en spellen "to wishlist" (gematsu.com, 16 sep 2026, GEZIEN met curl). Thema: cozy met iets donkers of vreemds. IGN zond het uit ("Cozy After Dark 2026 | Cozy Games With a Dark Side", 84.281 weergaven, GEZIEN op YouTube).
+- Past bij Hats (je bent de kerker, Gloop eet hoeden van gevallen helden). Volgende editie: GOK oktober 2027, aanmelden in de zomer; Hats is dan uit, dus meedoen met een update of korting. **Besluit: op de lijst voor juni 2027, niets nu.** Aanmeldpagina niet gevonden; in juni opnieuw zoeken.
+- Zelfde hoek op YouTube (zoekpagina, GEZIEN 16 nov): Kaganath "5 Cozy Games Where You Can Be EVIL" 339.731, Sloth Vibes "Cozy Games Where Being the Villain Is The Whole Point" 17.318 en "I Ranked Cozy Villain Games" 16.222 (bij 3,65K abonnees). Daarom staat "cozy waarin je de slechterik bent" nu in de mails aan Kaganath en Sloth Vibes (`teksten-makers.md`).
