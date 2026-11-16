@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 11, de eerste 30 TikToks van 24 accounts over 3D-printen en Blender, klaar 16 nov 2026 ±10:55 UTC). Volgende: TikTok-accounts van kleine spelmakers met devlogs (voor @hatsofthefallen, eerst met Fenna afstemmen), of meer kleine Blender-accounts op TikTok; daarna een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: verhaal 12, de eerste 30 TikToks van kleine spelmakers met devlogs (voor @hatsofthefallen), gestart 16 nov 2026 ±11:00 UTC. Vorige: verhaal 11, klaar 16 nov ±10:55 UTC.
 
 Nieuwste bovenaan.
 
