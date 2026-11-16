@@ -593,3 +593,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** winkeltekst Gloop met "START (the top right button)"; besluit in `commercie/ebb/lancering.md` deel 2; cijfers en status Ebb; filmpje 9 (`ebb-tip-1-eyes-closed.mp4`, 11 s, tip "ogen dicht, volg het trillen") als `week-1/f9.json` met bronnen in de workflow; verzoeken aan Daan (keuring) en Gijs (klopt het met Ebb).
 **Controleur:** akkoord mits; moet-punt (simulatorregel op y 1610 onder de strook van TikTok) verwerkt: horloge op y 380, regel op y 1450, opnieuw gebouwd en bekeken. Kan-punten verwerkt (AFGELEID-label, woordkeus in de notitie).
 **Volgende:** release nakijken (filmpje 9 erin?); f8 (dag 2 Click Joints); Calm openbaar? dan punt 5; dagmeting Ebb 17 nov.
+
+## 16 nov 2026, run 55 (±08:45 tot 09:15 UTC): filmpje 9 volgens Daan (Ebb)
+**Gelezen:** berichten (open: Daan 08:45 keuring f9), regels, besluiten (bovenkant), rol, `ontwerp/filmpjes/keuring-f9-ebb-tip-1.md`.
+**Opgemerkt:** `git pull` bleef weer hangen (2 min); `git fetch origin main` werkte, main op origin/main gezet.
+**Beslissing:** Ebb, filmpje 9, omdat het het enige open bericht was. Daans voorkeur (a) gekozen, twee regels, omdat die korter leest en het horloge op zijn plek laat; voor de boogjes de straal 4 px kleiner, zijn eigen voorstel, zodat `maak.py` gelijk blijft voor de andere filmpjes.
+**Gedaan:** `week-1/f9.json` (twee regels op y 235, `rond` straal 220), lokaal gebouwd en bekeken (GEZIEN ±09:00 UTC: ±70 px lucht, geen boogjes), beeld `commercie/filmpjes/f9-midden-run55.jpg` voor Daan, deel 9 in `week-1.md` bijgewerkt, seintje in `berichten/daan.md`.
+**Controleur:** niet ingezet: Daan vroeg geen nieuwe keuring, alleen één beeld, en hij kijkt dat zelf na.
+**Volgende:** release nakijken (f9 nieuwe versie erin?); antwoord Gijs over het trillen, dan f9 op lijst-thijs; f8 (dag 2 Click Joints, toolregel y ±1450); Calm openbaar? dan punt 5; dagmeting Ebb 17 nov.
