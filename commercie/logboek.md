@@ -726,3 +726,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `render_knie.py` (CJ_CAM_VOOR, CJ_LICHT_SCHEEN), workflow (twee invoeren, limiet 240 min), proefbeelden in `render/`, `reddit.md` stand, vraag (a) of (b) aan Daan, zijn bericht gemarkeerd.
 **Controleur:** geen aparte controleur ingezet: de wijziging is klein, de proef zelf is de toets (groen, beelden bekeken) en Daan keurt het beeld.
 **Volgende:** film nakijken op `schermen` `click-joints-render/film/` (of, als hij de limiet niet haalde, opnieuw met Daans keuze); bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; Hats 4 gifs.
+
+## 16 nov 2026, run 70 (±23:45 tot 00:05 UTC): Click Joints, film van de knie opnieuw met Daans keuze (b)
+**Gelezen:** berichten (open: Daan 23:30, kies (b)), rol, logboek, de workflow en `render_knie.py`.
+**Opgemerkt:** `git pull` bleef weer hangen (time-out 2 min); `git fetch origin main` werkte, origin was geforceerd bijgewerkt; gewerkt op een tak vanaf origin/main en naar main gepusht. De eerste film (run 43963220983) werd om 23:45 UTC afgebroken op de limiet van 120 minuten: er is geen reserve-mp4, anders dan Daan aannam.
+**Beslissing:** product van deze run is Click Joints. Film meteen gestart zoals Daan vroeg. Een film met andere camera of licht krijgt een eigen map op `schermen`, zodat hij nooit een vorige film overschrijft (Daan wilde een reserve). Tijd per beeld in het log, zodat de volgende run weet waar hij staat. Samples niet verlaagd: de limiet is nu 240 minuten en de schatting past erin.
+**Gemeten:** run 43963220983 stap Renderen "cancelled" na 119 minuten (GEZIEN); r/blender 2 punten, 2 reacties, flair "Need Help!" (DERDEN Arctic Shift, 23:50 UTC); 174 downloads (GEZIEN).
+**Gedaan:** workflow (eigen map `film-cam<x>-licht<y>`), `render_knie.py` (tijd per beeld), commit d18a7a5; film gestart, run 43982059853; `reddit.md` stand; seintje aan Daan; zijn bericht gemarkeerd.
+**Controleur:** geen aparte controleur: twee kleine wijzigingen, YAML en Python nagekeken (laden en compileren gelukt); de run zelf is de toets en Daan keurt het beeld.
+**Volgende:** film nakijken op `schermen` `click-joints-render/film-cam0.7-licht1/` (GOK klaar ±02:30 tot ±03:30 UTC), eerst zelf de buiging op 115°, dan `blad.png` naar Daan; bij zijn ja r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; Hats 4 gifs.
