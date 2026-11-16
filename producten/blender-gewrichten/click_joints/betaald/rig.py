@@ -213,12 +213,20 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
         cursor.matrix = oud_cursor
         alle = figuur.figuur_gewrichten(context.scene.objects, fig)
         tekst = figuur.samenvatting(alle) if alle else "No joints placed"
-        mesh_of_deel = next((o for o in context.scene.objects if o.get("cj_figuur") == fig and o.get("cj_deel")), None)
+        # Een zichtbaar deel actief maken: de eerste met cj_deel kan een al weer gesneden, verborgen tussendeel zijn
+        # (dan staan de knoppen grijs en is de lijst leeg; gezien op plaatje 16).
+        mesh_of_deel = next((o for o in context.scene.objects if o.get("cj_figuur") == fig and o.get("cj_deel")
+                             and o.visible_get()), None)
         for o in context.scene.objects:
             if o.get("cj_figuur") == fig and o.get("cj_deel"):
                 o["cj_rig_overgeslagen"] = "; ".join(overgeslagen)
         if mesh_of_deel is not None:
             context.view_layer.objects.active = mesh_of_deel
+        if gelukt:
+            # Daan punt 1: na de knop de hele figuur met zijn bereiken in beeld (scharnierbogen en kogelwaaiers).
+            context.scene.click_joints.toon_bereik = True
+            if hasattr(context.window_manager, "cj_scharnier_boog"):
+                context.window_manager.cj_scharnier_boog = True
         if overgeslagen:
             self.report({"WARNING"}, f"{tekst}. Skipped: {'; '.join(overgeslagen)}")
         else:

@@ -129,6 +129,21 @@ jobs:
             /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/scherm_figuur.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/figuur_s.log || true
           grep -q "FIGUUR OK" /tmp/figuur_s.log || { echo "FOUT: plaatje 15 figuurpresets"; exit 1; }
           for f in 15-figuur-x.png 15-figuur-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_rig_s
+          BLENDER_USER_CONFIG: /tmp/cj_rig_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_rig_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_r.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_r.blend --python e2e/scherm_rig.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig_s.log || true
+          grep -q "RIG BEELD OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16 Figure from rig"; exit 1; }
+          for f in 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - name: Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12)
         # Eis 8 van het scharnier: eigen stap en eigen lege mappen, zodat de gratis schermtest gelijk blijft.
         env:
