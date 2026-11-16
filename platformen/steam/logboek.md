@@ -1254,3 +1254,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Daans drie moets voor de hoedenwand (via Mila) in `modellen/hoedenwand.py`, blad gerenderd door de pijplijn (5159dee), GEZIEN, op main.
 - Kan van Olaf (vleermuis niet onder een plafondding in een vol hol) op tak `claude/steam-hol-vleermuis-vol` (cc12ced), gaat mee met Olafs vol.
 - Blender: downloads Click Joints 157 (0.1.1). Repo click-joints is deze run niet te koppelen (geen add_repo), broncode 0.1.1 blijft open.
+
+## 16 nov 2026, ±10:20 tot 10:45 UTC, Olaf
+- Hol vol volgens Daans regels (stijlregels "Een vol hol", 16 nov) op tak `claude/steam-hol-vol` (9df725f): spinrag en vaandel hooguit 6 spelpixels onder het plafond (spin valt weg), nooit twee grote dingen naast elkaar (`vol_rij` in `hol/hol_vast.gd`), tegel vrij voor de troon, geen stut bij een val, hoedenwand zonder vast ritme. Windows-run 43848418101 en weekopname 43848443593 groen, beeld GEZIEN. Main erin (5387466), Windows-run 43850308668 loopt. Wacht op de ja van Daan.
+- Verbeterweek demo 18 jan tot 1 feb in `planning-fest-2027.md` (voorstel Fenna). Chris' drie mp4's na de speeltestbuild.
+- Rollwright: 0 open issues, niets te doen.
