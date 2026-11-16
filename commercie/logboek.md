@@ -644,3 +644,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `naam-en-tekst.md` deel 7 (Engels zonder START, Duits, Nederlands, keuzes, advies), advies 41 in `adviezen.md`, seintje in `berichten/gijs.md`, twee berichten verwerkt.
 **Controleur:** akkoord mits; moet-punten (titelnotities: winkel kapt op 50 tekens af, dus de titels passen) en vijf kan-punten verwerkt; Garmins woorden "Taste", "Display", "knop" GEZIEN in de handleidingen.
 **Volgende:** Gijs neemt de teksten over; nakijken of het kanaalprofiel @dortusstudio live staat; Daans keuring filmpjes 10 tot 12 na Olafs beelden; f8 (dag 2 Click Joints); dagmeting Ebb 17 nov; Ebb-titel nakijken als Gijs Joris' punt 2 uitvoert.
+
+## 16 nov 2026, run 61 (±14:45 tot 15:15 UTC): Ebb 1.0.1, nieuwe winkelnaam in drie talen nagekeken
+**Gelezen:** berichten (open: Gijs ±14:10 naam Ebb 1.0.1; Olaf 13:50 en Joris 15:05 ter info), doelen, regels, besluiten (bovenkant), rol, Gijs `ebb-1.0.1.md`, Joris verhaal 14.
+**Opgemerkt:** `git pull` bleef weer 2 min hangen; `git fetch origin main` werkte (geforceerd bijgewerkt), main op origin/main gezet, werkboom schoon.
+**Beslissing:** Ebb, omdat Gijs' vraag het enige open bericht voor mij was en de update op mijn namen wacht. Engels en Nederlands zoals Gijs voorstelde; Duits "Atemübungen" in plaats van "Atmung", omdat we op atemübungen plek 3 hebben met één concurrent en op atmung zes namen voorgaan. Calm loslaten: plek 42 in de gewone zoekbalk en Ebb Calm draagt het woord.
+**Gemeten (GEZIEN ±14:50 tot 15:00 UTC, zoek-API, 23 woorden):** zoekbalk rangschikt op aantal zoekwoorden in de naam, dan grofweg kort voor lang; herhaling telt; geen Engelse stam, wel een Duitse; de Tags-regel telt mee. Plekken per woord in `commercie/ebb/naam-1.0.1.md`.
+**Gedaan:** `commercie/ebb/naam-1.0.1.md`, script `commercie/ebb/zoek-plekken.py`, antwoord in `berichten/gijs.md`, bericht verwerkt.
+**Controleur:** akkoord mits; twee moet-punten (Tags-regel bij Entspannung, kort voor lang is een neiging) en kan-punten verwerkt.
+**Volgende:** na de upload van 1.0.1 dortus.com/ebb/ (28 horloges) en zoekplekken bijwerken; dagmeting Ebb 17 nov; kanaalprofiel @dortusstudio nakijken; Daans keuring filmpjes 10 tot 12; f8.
