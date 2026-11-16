@@ -311,6 +311,10 @@ func _draw() -> void:
 func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Font) -> void:
 	if doel == "":
 		return
+	var klaar := doel.contains("ready")
+	# kan Daan 16 nov: "ready" in dezelfde vette goudletter als het getal (kleur was al gelijk, #ffe07a), dan leest het als uitnodiging
+	if klaar:
+		font = _letter(600)
 	var gw := _letter(600).get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
 	var vrij := bw - (5 * schaal * f + 2 + gw) - 3 * schaal - (6 if met_3d else 0)
 	var m := int(maten().uitleg)
@@ -319,6 +323,5 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 	var w := font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x
 	if w > vrij:
 		return
-	var klaar := doel.contains("ready")
 	var kleur := Color("#ffe07a") if klaar else Color("#cdb48f")
 	_tekst(font, Vector2(x + bw - w - (6 if met_3d else 0), basis), doel, -1, m, kleur)
