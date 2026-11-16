@@ -1,14 +1,15 @@
 """Bram 16 nov ±21:45 UTC, vraag Sanne 21:00: welke goudregel per val gold in de v3-runs, en wat doet elke vorm met versie 3?
 Antwoord uit de code: sim.py lagen_run zet SPEL_ECONOMIE aan, dus vast 6 (+3 per bezoek, +1 vanaf Edelman op hol 10).
 Dit script draait voortgang-v3-eind-bram.json (graven kost goud, 4 lagen) met drie vormen van het goud per val.
-graafbonus: per laag geteld (een nieuwe laag begint met 6 gangen), +1 per 8 zelf gegraven gangen, hooguit +3.
+graafbonus: per laag geteld (een nieuwe laag begint met 6 gangen), +1 per 8 zelf gegraven gangen, hooguit +3;
+"over alle lagen": wie laag 2 opent heeft de +3 al (34 cellen in laag 1), dus vanaf laag 2 vast +3.
 Draai: python3 -I platformen/steam/data/sim-v3-goud/v3goud.py producten/steam-hol/sim 30 100"""
 import os, sys, json, time, statistics as S
 SIM = sys.argv[1]; ZADEN = int(sys.argv[2]); UREN = float(sys.argv[3])
 src = open(os.path.join(SIM, "sim.py")).read()
 OUD = 'erbij = ((6 if SPEL_ECONOMIE else'
 assert OUD in src
-VORM = {"vast 6": "6", "6 + graafbonus (1/8, max 3)": "6 + min(3, max(0, gangen - 6) // 8)", "6 x (1 + gangen/40)": "6 * (1 + gangen / 40)"}
+VORM = {"vast 6": "6", "6 + graafbonus (1/8, max 3)": "6 + min(3, max(0, gangen - 6) // 8)", "6 + graafbonus over alle lagen": "6 + (3 if len(laag_info) > 1 else min(3, max(0, gangen - 6) // 8))", "6 x (1 + gangen/40)": "6 * (1 + gangen / 40)"}
 spec = json.load(open(os.path.join(SIM, "voortgang-v3-eind-bram.json")))
 for naam, f in VORM.items():
     ns = {"__file__": os.path.join(SIM, "sim.py"), "__name__": "simv3"}; sys.path.insert(0, SIM)
