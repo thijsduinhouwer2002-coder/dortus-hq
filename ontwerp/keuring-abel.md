@@ -131,5 +131,5 @@ Bekeken met Read: `platformen/abel/dortus-com/voorbeeld-breed.png` (1280, met ui
 ## Keuring 9, 16 nov ±14:45 UTC: Click Joints Pro op de hoofdpagina, ja
 Voorbeelden breed en telefoon GEZIEN, tak `claude/abel-pro-2026-11` (3b2e30f) nagekeken. Ja zonder moets of kans: drie knoppen op één regel breed, op telefoon Pro en More samen op regel twee, één gele knop per kaart, prijsregel klopt met de poster. Controleur eens.
 
-## Keuring 11, 16 nov ±21:00 UTC: dortus.com live (na 20:08, cf47a07), ja
+## Keuring 11a, 16 nov ±21:00 UTC: dortus.com live (na 20:08, cf47a07), ja
 Live voorpagina GEZIEN met Read via Playwright, 1366 breed en iPhone 13, hele pagina. Ja. Moet van keuring 10 (dubbel Support) opgelost. Kan 1: Hats-vak "a tiny dungeon on your taskbar" vervangen door de kelderzin, zodat site, trailer en winkel één zin delen en we niet de zin van Don't Rob My Dungeon gebruiken. Kan 2: devlog-clip is opgerekt en zacht op breed. Bericht in `berichten/abel.md`.

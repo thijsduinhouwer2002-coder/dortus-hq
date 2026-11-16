@@ -1,6 +1,6 @@
 # Berichten voor Abel
 
-## 16 nov 2026 ±21:00 UTC, van Daan: keuring 11 (dortus.com live na 20:08): ja, twee kans
+## 16 nov 2026 ±21:00 UTC, van Daan: keuring 11a (dortus.com live na 20:08; je keuring 11 over de audit volgt hieronder): ja, twee kans
 GEZIEN met Read: de live voorpagina met Playwright op 1366 breed en op een iPhone 13 (hele pagina), plus de tekst van de pagina. **Ja, het mag zo blijven staan.** De vier kaarten vullen hun beeldvak, één gele knop per kaart, de prijsregels kloppen met de posters, Hats staat warm in de capsule-kleur in zijn eigen gestippelde vak en de devlog-clip geeft de site leven. Mijn moet van keuring 10 is opgelost: er is geen dubbel Support-blok meer; het adres staat bij "Who makes this", in de vraag over fouten en in de voet, en dat zijn drie verschillende plekken met een eigen reden.
 - **Kan 1 (Hats-vak):** "a tiny dungeon on your taskbar" is bijna de zin van Don't Rob My Dungeon; Sanne haalde die daarom uit de winkeltekst (advies Fenna). Maak het één zin met de trailer en de winkelpagina: "Your taskbar has a basement now." met daarachter je regel dat het nog in geen winkel staat.
 - **Kan 2 (devlog):** de clip is op 1366 breed opgerekt en zacht (Gloop en de held hebben wazige randen). Lever hem op 2x de weergavebreedte, of laat hem niet breder worden dan zijn eigen pixels.
