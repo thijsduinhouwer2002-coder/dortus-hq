@@ -1,8 +1,81 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 5, Desktop Defender (appid 3772810, tip van Vera), 16 nov 2026 05:30 UTC
+bezig: niets (laatste: verhaal 5, Desktop Defender, klaar 16 nov 2026; volgende run: Your Big, Cute Monster Farm (tip Vera, waarom 77%), daarna hoe makers het Desktop Companion Fest gebruikten)
 
 Nieuwste bovenaan.
+
+---
+
+## 5. Desktop Defender (Conradical Games, Zwitserland): van 200 naar bijna 50.000 verlanglijstjes in drie weken, door één Next Fest
+
+Onderzocht 16 nov 2026, run 6. Tip van Vera: het dichtst bij ons spelgevoel dat al verkoopt (idle auto-battler in de hoek van het scherm, $4,99). Vraag: hoe kwamen ze aan hun publiek? Ik heb er een tweede vraag bij gezocht, omdat de maker daarna nog drie zulke spellen uitbracht: werkt het trucje twee keer?
+
+### Bronnen
+- Alle 48 aankondigingen van Desktop Defender via de nieuws-API van Steam (`ISteamNews/GetNewsForApp`, appid 3772810), gelezen 16 nov 2026. Allemaal geschreven door "Conrad, Lead Developer".
+- Steam appdetails en winkelpagina's (16 nov 2026) van alle 13 spellen van Conradical Games; reviews per week via `store.steampowered.com/appreviewhistogram/<appid>`; volgers via `steamcommunity.com/games/<appid>/memberslistxml`. Alles GEZIEN.
+- Interview door Chris Zukowski (How To Market A Game, 4 nov 2025): https://howtomarketagame.com/2025/11/04/the-optimistic-case-that-indie-games-are-in-a-golden-age-right-now/
+- Persberichten van de uitgever Poysky Productions op Games Press: aankondiging 23 jul 2025 (https://www.gamespress.com/Desktop-Defender---Rustys-Retirement-meets-Tower-Defense) en na Next Fest (https://www.gamespress.com/The-Game-That-Went-From-3-to-1548-Concurrent-Players-in-One-Week---Des).
+- Nieuws: GamesRadar 21 okt 2025 (https://www.gamesradar.com/platforms/pc-gaming/1-week-ago-we-had-3-players-steam-notifies-surprised-dev-their-demo-was-one-of-the-most-played-during-steam-next-fest), Mein-MMO 21 okt 2025 (https://mein-mmo.de/en/desktop-defender-steam-next-fest-erfolg,1532985), Automaton 22 okt 2025 (https://automaton-media.com/articles/newsjp/desktop-defender-20251022-362475/).
+- Negatieve en positieve reviews (top, Engels) via steamcommunity.com, gelezen 16 nov 2026.
+- Niet gelukt: SteamDB en Gamalytic (blokkade of betaalde sleutel), de JSON-reviews van Steam (gaf een inlogpagina). Verkoopcijfers zijn dus GOK.
+
+### De maker
+Conradical Games is een kleine studio in Zwitserland (Games Press, Mein-MMO). Sinds 2020 tien spellen op Steam, bijna allemaal zonder succes: Lootbox Lyfe 32 reviews, Girabox 25, The Outbound Ghost ($19,99, het grote spel) 226 reviews met 67%, Wanted Shadows 52, Soul Stalker 77, Little Laps 14 (GEZIEN). Desktop Defender is het eerste dat het haalde. Een ervaren maker dus, met jaren aan pogingen ervoor, geen beginner met geluk.
+
+### Wat ze deden, in volgorde
+| Wanneer | Wat | Bron |
+|---|---|---|
+| ±jul 2025 | Gebouwd in **ongeveer 2 weken**, "probably being 1 month total" tot de lancering. Onderdeel van een plan: "6 games in 12 months. 1 is a bigger one, the others are smaller ones a la Desktop Defender. Do the big ones for prestige/deals/etc. and the small ones to fill in the gaps revenue wise" | Zukowski, DERDEN |
+| 23 jul 2025 | Winkelpagina en trailer bekend, met persbericht van uitgever Poysky ("Rusty's Retirement meets Tower Defense") | Games Press, DERDEN |
+| 13 aug 2025 | Gesloten bèta, aanmelden via een formulier | aankondiging, GEZIEN |
+| tot 13 okt 2025 | **Ongeveer 200 verlanglijstjes.** Bijna drie maanden pagina plus persbericht gaven dus vrijwel niets | Conrad zelf: "Went from 200 wishlists, to almost 50,000" (3 nov), GEZIEN |
+| 13 okt 2025 | Demo live op de eerste dag van Next Fest, 10 levels. "It started with just 1 player for a few hours" | aankondiging 15 okt, GEZIEN |
+| 14 en 15 okt | Discord geopend. Daar beloofde hij: boven 100 gelijktijdige spelers 10 levels erbij. Na 2 uur gehaald, demo naar 20 levels; doel 200, naar 25; doel 400, naar 30; doel 1.000 een verrassing. **Bij elke stap een aankondiging op Steam** | aankondigingen 14 en 15 okt, GEZIEN |
+| 18 okt | Piek **1.548 gelijktijdige spelers** in de demo; top 5 tot top 10 meest gespeelde demo's van het fest; 280.000 uur gespeeld; demo 99% positief bij ±200 reviews | Mein-MMO, Automaton, persbericht, DERDEN |
+| 20 okt | Mail van Valve: één van de populairste demo's, komt in het overzicht "most played demos", en het advies de demo te laten staan | GamesRadar, DERDEN |
+| 4 nov 2025 | Uitgebracht, **drie weken na het fest**, $4,99 met 15% lanceerkorting en eigen lagere prijzen per land, 19 talen. Demo een paar uur ervoor weggehaald. Oproep: "Try to reach 50 reviews in the first 24h" | aankondigingen 3 en 4 nov, GEZIEN |
+| 4 tot 18 nov | **14 dagen achter elkaar een patch**, elk met een eigen aankondiging en de zin "if you're enjoying the game, I would REALLY appreciate it if you reviewed it" | 15 aankondigingen, GEZIEN |
+| 11 nov | Na een week: "Overwhelmingly Positive", 2.694 gelijktijdige spelers, top 5 meest gespeelde nieuwe spellen, 27 updates | aankondiging, GEZIEN |
+| dec 2025 tot nu | Grote gratis updates elke 1 tot 3 maanden (Rebirth, Skins, Critical, Forge), steeds eerst op een bètatak. 9 mrt 2026: Daily Deal van Steam (30% korting) | aankondigingen, GEZIEN |
+| 2026 | Drie opvolgers in dezelfde soort, elk met een andere uitgever, alle drie $4,99, met bundelkorting en een gratis skin over en weer | appdetails, aankondigingen, GEZIEN |
+
+### Cijfers (GEZIEN 16 nov 2026, tenzij anders)
+- **Desktop Defender:** 1.830 reviews in de weekoverzichten (winkel toont 1.788), 92% positief, 3.573 volgers. Eerste week **652 reviews**, eerste vier weken 1.205 (66% van alles). Daarna 10 tot 30 per week; de Daily Deal-week in maart gaf weer 79. Nu 0 tot 8 per week, 34 spelers op een maandagochtend.
+- Verkopen: 1.830 x 30 tot 60 = **55.000 tot 110.000 stuks** (GOK met de vuistregel uit de rol). Na korting, regioprijzen, Steam-deel en uitgever blijft er per stuk veel minder dan $4,99 over; omzet voor de studio GOK in de orde van een ton.
+- Speeltijd zegt weinig: SteamSpy meldt een mediaan van 279 uur, maar het spel draait op de achtergrond en heeft prestaties voor 50 en 100 uur spelen. Een reviewer: "You'll finish the game long before both of them."
+
+### Werkt het een tweede keer? De opvolgers
+| Spel | Uit | Uitgever | Reviews | Positief | Eerste week | Volgers |
+|---|---|---|---|---|---|---|
+| Desktop Defender | 4 nov 2025 | Poysky, Level Up Gaming | 1.788 | 92% | 652 | 3.573 |
+| Card Corner (idle poker) | 9 mrt 2026 | Assemble Entertainment | 77 | 74% | 41 | 258 |
+| Desktop Detective | 19 aug 2026 | Playsaurus | 183 | 85% (laatste 30 dagen 53%) | 69 | 1.277 |
+| Screen Stocks (online handel) | 27 okt 2026 | Oro Interactive | 239 | 92% | 180 | 505 |
+
+Alles GEZIEN. Zelfde maker, zelfde vorm, zelfde prijs, een eigen publiek van duizenden kopers die hij in aankondigingen bereikt, telkens een uitgever erbij, en toch maar **4 tot 13 procent** van de reviews van de eerste. Wat de reviews zeggen:
+- Card Corner: "Way too repetitive and grindy"; "Gambling or poker doesn't really work (for me) if you have no active interaction"; "They updated the game for a week and then gave up".
+- Desktop Detective: "requires near constant babysitting and menuing"; "far from an idler"; "Nothing really happens on the screen so you don't feel like you are progressing"; en twee keer: het lijkt te veel op Desktop Defender ("both games feel almost identical").
+- Ook bij Desktop Defender zelf gaan de slechte reviews over hetzelfde: "not NEARLY idle enough", te veel klikken met Shift, onduidelijke uitleg, "a little too cpu intensive".
+
+### Drie lessen
+1. **Het publiek kwam niet van de pagina, de uitgever of de pers, maar van de demo in Next Fest.** Drie maanden pagina met persbericht: ±200 verlanglijstjes. Eén week Next Fest met demo: van 3 naar 1.548 spelers, en drie weken later bijna 50.000 verlanglijstjes. Een bureaubladspel heeft daar een eigen voordeel (GOK, mijn uitleg): het draait op de achtergrond, dus spelers laten het uren aan staan, en dat telt mee als "meest gespeeld". Iemand die 100 uur in een demo zit (Automaton zag zulke reviews) is één gelijktijdige speler, de hele dag.
+2. **Van de demo een evenement maken, met elke stap een bericht.** De doelen (100, 200, 400, 1.000 spelers) gaven spelers een reden om vrienden te halen en gaven Steam vier aankondigingen in twee dagen. Na de lancering hetzelfde: 14 dagen elke dag een patch met bericht en een vraag om een review; week één 652 reviews. Dit is dezelfde les als Deskrawl in verhaal 2 (demo bijna dagelijks bijgewerkt tijdens Next Fest), nu bij een tweede spel.
+3. **Een klein spel kan het halen, maar herhalen is geen recept.** Desktop Defender kostte ±2 weken bouwen en was het goedkoopste van tien spellen. Drie opvolgers in dezelfde vorm, met uitgevers en een eigen publiek, haalden 77 tot 239 reviews, en de klachten waren "niet idle genoeg" en "lijkt op de vorige". Wat het verschil maakte zie ik niet hard; de reviews wijzen op twee dingen die wij al op onze lijst hebben: echt doorgaan zonder jou, en op het scherm zien dat je vooruitgaat.
+
+### Wat doen wij anders?
+- Wij bouwen Hats of the Fallen al weken met een ploeg en 3D, naar één fest toe. Conrad bouwde in 2 weken en liet het fest beslissen. Wij zetten ook alles op een fest (Desktop Companion Fest 14 tot 18 jan, Next Fest februari), dus dat deel klopt; maar ons plan heeft geen idee voor wat er tijdens die week gebeurt.
+- Onze demo stopt na ±2 uur speeltijd (vaste lijst punt 6, het spel blijft draaien). Bij Desktop Defender was de grens een aantal levels die tijdens het fest groter werd, en spelers bleven honderden uren. Hoe langer een bureaubladdemo aan staat, hoe meer hij meetelt.
+- Wij hebben geen plek waar spelers samenkomen (geen Discord). Conrad opende zijn Discord op dag twee van het fest; daar kwamen de doelen, een wiki en mods vandaan.
+- CPU: één van de klachten bij Desktop Defender. Onze grens (onder 1 CPU-seconde per 10 seconden) is een echte troef; zet het op de winkelpagina.
+
+### Voorstel voor Dortus deze week
+**Een fest-plan voor de demo, met een inhoudsgrens in plaats van een tijdgrens en twee vooraf gebouwde uitbreidingen die tijdens het Desktop Companion Fest vrijkomen bij doelen voor gelijktijdige spelers.** Concreet: (1) Olaf toetst of punt 6 van de demolijst kan worden: de demo stopt bij een vaste plek in het hol (bijvoorbeeld 10 gangen of een held van niveau X) in plaats van na 2 uur, en het spel blijft daarna gewoon draaien en goud tellen. (2) Olaf bouwt vóór 18 dec twee kleine extra stukken (bijvoorbeeld 5 gangen meer en één nieuwe hoed), al in de demo maar op slot; de vrijgave is een nieuwe build die Thijs in Steamworks met één klik live zet (zelf inloggen kan niemand anders). Zo blijft "niets nieuws na 18 dec" overeind. (3) De hoofdchat zet op de lijst van Thijs: een Discord-server vóór 14 jan (aanmaken kan alleen hij), en Chris schrijft vier korte Steam-aankondigingen klaar ("100 spelers: 5 gangen erbij"). Kosten: een dag of twee voor Olaf; risico: de doelen worden niet gehaald, dan zetten we ze lager (bij Conrad was het eerste doel 100). Wie: Olaf (demo), Chris (teksten), hoofdchat (lijst Thijs). Waarom nu: de demo-inhoud ligt op 18 dec vast, dus later kan het niet meer.
+
+### Eerlijk: wat ik niet weet
+- Hoe de demo in de eerste dagen werd gevonden. Conrad schrijft alleen "1 player for a few hours", daarna de groei. Of dat kwam door de lijsten van Next Fest, een streamer (Vinesauce deed een Next Fest-stream met 40.008 weergaven, GEZIEN, maar ik weet niet of het spel erin zat en wanneer) of door de tag Idler, weet ik niet.
+- Wat Poysky en Level Up Gaming precies deden. Er staan twee persberichten van Poysky; meer heb ik niet gevonden.
+- Verkoop en omzet: alleen de grove vuistregel. SteamDB en Gamalytic waren niet bereikbaar.
+- Of mijn uitleg bij les 1 klopt (achtergrondspel telt zwaarder in "meest gespeeld") is een GOK; Valve zegt niet hoe die lijst wordt berekend.
 
 ---
 
