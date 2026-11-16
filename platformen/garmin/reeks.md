@@ -75,9 +75,25 @@ Proef: zelfde tak, commit bc72807, run 43965812334 groen (toetsen, pakket voor 6
 - **Tekenen op de fēnix 8:** het schermvullende plaatje 9 tot 12 ms, de tijd in de eigen letter 2 tot 3 ms, alles samen 13 tot 17 ms. Op de schermen met weinig kleuren 0 tot 1 ms.
 - **Inbranden:** `inbrand=true` op fēnix 8, Venu 3S, vívoactive 5 en Venu Sq 2; `false` op Forerunner 255, 55, 245 en Instinct 2. Op de eerste groep gelden dus de regels van Garmin voor de slaapstand.
 - **Beeld (GEZIEN met Read, blad van 8 beelden, ±390 px breed):** de eigen letter staat er op alle horloges. Het kleurverloop is glad op AMOLED, korrelig op de Forerunner 255 en 245 en grof gestippeld op de Forerunner 55 (8 kleuren). Op Venu 3S vult het plaatje van 260 het scherm van 390 niet: per schermmaat is een eigen plaatje nodig.
-- **NIET GEZIEN:** het slaapbeeld. De proef tekende het pas na 14 s en de laatste schermafbeelding was toen al gemaakt (`KERN SLAAPBEELD` staat wel in het log, `echt=false`: de simulator zet de slaapstand niet zelf aan). Hersteld in 2999205 (na 6 s); die run liep nog toen ik stopte.
+- **NIET GEZIEN:** het slaapbeeld. De proef tekende het pas na 14 s en de laatste schermafbeelding was toen al gemaakt (`KERN SLAAPBEELD` staat wel in het log, `echt=false`: de simulator zet de slaapstand niet zelf aan). Hersteld in 2999205 (na 6 s), zie proef 3.
 
-**Antwoord voor Tij (Mila):** getekende banden in plaats van een plaatje is de goede keuze, want dat werkt ook op de oude horloges en op elk scherm. De vier letters kunnen overal. Proef 3 (commits a216c39 en 2999205, zelfde tak) meet haar echte letters: Big Shoulders Display, tijd 78 en 136 px, BB-getal 29 en 50, veldgetal 17 en 30, datum 17 en 30, en op 208 px alles maal 0,8. Uitslag: volgende run.
+### Uitslag van proef 3 (run 124, 16 nov ±22:26 UTC): de vier letters van Tij passen overal
+Proef: zelfde tak, commit 2999205, run 43968184893 groen. De vier letters van Mila (Big Shoulders Display): tijd gewicht 900 met `0123456789:`, BB-getal 900 met de cijfers, veldgetal 800 met `0123456789.K`, datum 700 met cijfers, spatie en de letters van de weekdagen. Maten uit `ontwerp/garmin/reeks/maten-tij-tabel.md`: op 260 px 78, 29, 17 en 17; op 454 px 136, 50, 30 en 30; op 208 px maal 0,8 (mijn keuze, staat niet in haar tabel). Horloges met een andere maat kregen in deze proef de letters van 260.
+
+**GEZIEN in `uitslag.txt` (simulator, bytes van het geheugen van de app):**
+
+| Horloge | Tijd | BB-getal | Veld | Datum | Samen | Vrij daarna (zonder plaatje) |
+|---|---|---|---|---|---|---|
+| Forerunner 255, fēnix 8, Venu 3S, vívoactive 5, Venu Sq 2 | 592 | 320 | 320 | 320 | 1.552 | ±114.000 |
+| Forerunner 55 (maten van 208) | 1.952 | 512 | 344 | 664 | 3.472 | 78.056 |
+| Forerunner 245 (maten van 260) | 3.808 | 1.024 | 552 | 944 | 6.328 | 75.208 |
+| Instinct 2 (maten van 260) | 2.856 | 568 | 392 | 664 | 4.480 | 44.264 |
+
+- **Beeld (GEZIEN met Read, blad van 6 beelden, ±520 px breed: Forerunner 255, fēnix 8 47 mm en Forerunner 55, wakker en slaap):** de tijd, de datum "MON 16", drie veldgetallen ("61", "8.4K", "23") en het BB-getal staan er in de letter van Mila, scherp op alle drie. Het BB-getal valt in deze proef achter de heuvel: dat is mijn plaatsing, geen fout van de letter.
+- **Slaapbeeld, nu wel GEZIEN:** zwart, de tijd in grijs en een dunne lijn van Body Battery. De proef tekent het zelf na 6 s (`echt=false`); de echte slaapstand van het horloge en de regels tegen inbranden zijn daarmee NIET getoetst. Op de Forerunner 55 is de dunne grijze lijn niet te zien (8 kleuren): daar moet de lijn wit en 2 px zijn.
+- **Wat dit betekent:** de letters zijn geen zorg voor het geheugen, ook niet op de oudste horloges. Het pakket voor 63 horloges is 2.462.549 bytes.
+
+**Antwoord voor Tij (Mila):** getekende banden in plaats van een plaatje is de goede keuze, want dat werkt ook op de oude horloges en op elk scherm. De vier letters kunnen overal (proef 3 hierboven).
 
 **Wat dit betekent voor het ontwerp:** weinig plaatjes, veel tekenen met lijnen en vlakken; een eigen cijferletter voor de tijd kost geheugen en moet gemeten worden voor Mila hem uitwerkt; de golf en de heuvellijn als veelhoek zijn goedkoop genoeg om elke seconde te tekenen als het horloge wakker is.
 
