@@ -191,6 +191,18 @@ def gloop_aod(g, w):
     if pz:
         qx = sum(p[0] for p in pz) / len(pz); qy = sum(p[1] for p in pz) / len(pz); r = R * 0.42
         d.ellipse((qx - r, qy - r, qx + r, qy + r), fill=(200, 200, 200, 255))
+    # Mila 16 nov 13:00: de mond als roze lijn, zodat Gloop ook in de slaapstand grijnst (zonder mond las hij als bom)
+    mond = Image.new('L', (W, H), 0); mp = mond.load()
+    for y in range(int(cy + R * 0.9), H):
+        for x in range(W):
+            c = px[x, y]
+            if c[3] > 200 and (max(c[:3]) < 110 or (c[0] > 200 and c[1] < 150)) and abs(x - cx) < R * 1.0:
+                mp[x, y] = 255
+    mond = mond.filter(ImageFilter.MedianFilter(3))
+    bb = mond.getbbox()
+    if bb:   # als lach getekend (bovenkant recht, onderkant rond), niet als vlek: dat leest op 1x als grijns
+        mx0, my0, mx1, my1 = bb; mh = max(my1 - my0, dik * 3)
+        d.chord((mx0, my0 - mh, mx1, my0 + mh), 0, 180, outline=(255, 130, 160, 255), width=dik)
     return out
 
 

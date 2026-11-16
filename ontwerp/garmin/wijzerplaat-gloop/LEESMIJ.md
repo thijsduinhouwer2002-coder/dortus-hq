@@ -24,3 +24,6 @@ Antwoord op Gijs' vijf vragen na de kale proef en op Daans vier moets. `python3 
 - **Fout:** in de eerste kit zocht `gloop_kijk` het oogwit als "alle witte pixels"; de glans linksboven en het tandje telden mee, dus de schijf werd twee keer te groot en er lag een witte ring over het halve gezicht (op 454 goed te zien op 3x). Ook `gloop-aod.png` had daardoor een te grote, verschoven oogring. Nu zoekt `oog()` de grootste samenhangende witte vlek. `gloop-kijk.png` (alle acht maten) en `gloop-aod.png` (AMOLED) opnieuw gemaakt; de rest van de kit is niet veranderd.
 - **Nieuw:** `<maat>/gloop-dicht.png`, het knipperframe: zelfde maat en voet als `gloop-kijk.png`, oog dicht (ooglid in lijfkleur met een donkere sluitlijn). Voor één frame van ±150 ms, bijvoorbeeld elke paar seconden of bij het optillen van de pols.
 - Proef: `proef-kijk-dicht-aod.png` (454 op 1,5x, 320, 260-mip en 208-mip op 2x), GEZIEN met Read.
+
+## 16 nov ±13:00 UTC (Mila): lach in de AOD-Gloop
+`gloop-aod.png` (320, 390, 416, 454) heeft nu een roze lach: de mond uit de kijk-Gloop als lachvorm (bovenkant recht, onderkant rond), niet als vlek, want een vlek las op 1x als klodder. Zonder mond las de lijn-Gloop in de simulator als een bom met een hoedje. GEZIEN op 2x en in `proef-454.png`. Maat en `aod_rand` zijn gelijk gebleven.
