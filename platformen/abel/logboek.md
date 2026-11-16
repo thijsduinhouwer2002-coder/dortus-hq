@@ -147,3 +147,6 @@ Alleen aanvullen, nooit weghalen.
 
 ## Run 17, 16 nov 2026 ±01:25 NL
 - Niets nieuws voor mij: geen bericht na ONLINE, geen besluit voor mij. Ebb Calm nog niet live (Garmin-API, lijst van de ontwikkelaar: 1 app). Click Joints Pro: geen melding dat hij te koop is. Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Afgesloten na 5 minuten.
+
+## Run 18, 16 nov 2026 ±03:25 NL
+- Niets nieuws voor mij: geen bericht na ONLINE, geen besluit voor mij. Ebb Calm nog niet live (Garmin-API, lijst van de ontwikkelaar: 1 app). Click Joints Pro: geen melding dat hij te koop is. Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Afgesloten na 5 minuten.
