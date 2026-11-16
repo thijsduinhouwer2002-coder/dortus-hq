@@ -646,3 +646,8 @@
 - Winkelbeelden concept 1: "Feed him. Keep the hat.", "A tower of hats taller than your watch." (toren loopt buiten de kast door), "Same Gloop. Older watch.". Waarom deze koppen: elk is een grap of belofte in één regel, en de toren buiten de kast laat de haak zien zonder iets te tonen wat niet in het spel zit.
 - GEZIEN met Read: op 800 en 200 px. Zwak: slok klein op 200 px, oranje scherm tegen bruine grot.
 - Volgende run: titelplaatje GLOOP / HAT TOWER per maat, kit 208-mip en 240-mip.
+
+## 16 nov ±07:10 UTC: titelplaatje Gloop in de kit
+- `titel.png` per kitmaat: GLOOP in mint met stripletterrand, kroon uit het spel scheef op de O, HAT TOWER in geel. Breedte 0,48 van het scherm zodat de GULP-boog vrij blijft. Waarom de kroon: dan zegt het logo al "hoeden op Gloop", zoals het icoon.
+- GEZIEN met Read: op Venu 3 en FR255 op 1x in een proef, en MIP 3x vergroot.
+- Volgende run: kit 208-mip en 240-mip; winkelbeelden opnieuw zodra Gijs de slok bij 11 tot 13 hoeden en het nieuwe eindscherm heeft.

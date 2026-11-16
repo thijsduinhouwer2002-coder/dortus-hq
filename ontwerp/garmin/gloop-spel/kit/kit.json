@@ -74,8 +74,13 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   128,
+   71
+  ]
  },
  "280-mip": {
   "gloop-rust": [
@@ -152,8 +157,13 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   138,
+   77
+  ]
  },
  "320": {
   "gloop-rust": [
@@ -230,8 +240,13 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   158,
+   88
+  ]
  },
  "390": {
   "gloop-rust": [
@@ -308,8 +323,13 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   193,
+   108
+  ]
  },
  "416": {
   "gloop-rust": [
@@ -386,8 +406,13 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   205,
+   115
+  ]
  },
  "454": {
   "gloop-rust": [
@@ -464,7 +489,12 @@
     0,
     0
    ],
-   "gloop_voet_y_deel_van_scherm": 0.9
-  }
+   "gloop_voet_y_deel_van_scherm": 0.9,
+   "titel_boven_y_deel_van_scherm": 0.08
+  },
+  "titel": [
+   224,
+   125
+  ]
  }
 }
