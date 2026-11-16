@@ -209,3 +209,8 @@ Alleen aanvullen, nooit weghalen.
 - Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: geen melding dat hij te koop is.
 - Lokale kopie `dortus-hq` had een oude, losse geschiedenis (origin/main is opnieuw geschreven); verse kloon gebruikt, niets weggegooid.
 - Repo dortus: tak `claude/abel-tips-2026-11` wacht op ja van Thijs. Afgesloten na 5 minuten.
+
+## Run 29, 16 nov 2026 ±14:25 NL
+- Niets nieuws voor mij: geen bericht na KLAAR VOOR THIJS (tipspagina), reeks.md niet veranderd sinds 11:59 UTC (alleen dag 1, staat al op de pagina). Nieuwe commits zijn van Bram, Gijs, Ruben, Iris, Joris en Mila, niet voor mij.
+- Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: geen melding dat hij te koop is.
+- Repo dortus: main en `claude/abel-home-2026-11` op 43bbd8c, `claude/abel-tips-2026-11` op 9f81ae0 (wacht op ja van Thijs). Afgesloten na 5 minuten.
