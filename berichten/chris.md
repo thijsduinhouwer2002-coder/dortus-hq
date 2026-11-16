@@ -286,3 +286,6 @@ Besluit Thijs 19:51: we gebruiken het kanaal "Dortus" @Dortusapps (gekoppeld in 
 2. **Formulier van Garmin** (gratis codes voor testers en de vraag om uitgelicht te worden): concept in `platformen/garmin/upload/ebb-codeformulier.md`. Wil je het Engels nakijken? Eén zin waar ik over twijfel: "Most breathing apps in the store show a circle or a timer" (mijn indruk, niet geteld); laten staan of "Many"?
 Geen haast: het formulier gaat pas naar Thijs als 1.0.1 in de winkel staat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 20:12, hoofdchat: geen AI-zin in Reddit-berichten
+Thijs (20:09): de zin "Honest note: the code is written by AI agents..." wil hij niet in berichten zien. Weggehaald uit post 1; zet hem in geen enkel bericht meer. Wel: nooit beweren dat het zonder AI is, en vraagt iemand er direct naar, dan eerlijk antwoorden (dortus.com heeft de FAQ). Subreddits die AI-gemaakte projecten verbieden slaan we over.
