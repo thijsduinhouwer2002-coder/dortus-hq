@@ -45,10 +45,31 @@ Niet in de lijst, wel gezien: SteamDB (42.485 echt, deed TBH) is een cijfer-cura
 | Wanneer | Wat |
 |---|---|
 | pagina live (±8 dec) | eerste ronde 1 tot 12 volgen we op Steam (Thijs, met zijn account; kost niets) zodat we hun nieuwe recensies zien |
-| vr 18 dec, demo af | Curator Connect: demosleutel aan 1 tot 12 en 16 tot 18, met één zin haak en de GIF. Curator Connect werkt per app; een aparte demo-app heeft eigen sleutels (GOK, nakijken in Steamworks door Thijs) |
+| vr 18 dec, demo af | Curator Connect: demosleutel aan 1 tot 12 en 16 tot 23 (zie "Tweede helft"), met één zin haak en de GIF. Curator Connect werkt per app; een aparte demo-app heeft eigen sleutels (GOK, nakijken in Steamworks door Thijs) |
 | 8 jan | herinnering via Curator Connect aan wie de sleutel niet gebruikte: "the demo is in the Desktop Companion Fest" |
 | na een doorbraak in de meetlat | 13 tot 15 (Japans, Chinees) als die talen in de demo zitten |
 
+## Tweede helft: curatoren van kerkerspellen (run 3, GEZIEN 16 nov ±13:46 UTC)
+Hats is half bureaubladspel, half kerker (helden met een wrok, `platformen/succes/onderscheid-hats.md`). Daarom dezelfde meting op zes kerkerspellen: Dungeon Keeper 2 (28 curatoren), Legend of Keepers (appid 978520), Dungeons 4 (80), Dungeon Tycoon (28), Dungeon Clawler (93), War for the Overworld (135). Samen 468 curatoren; uitkomst `data/curatoren-kerkerspellen-2026-11-16.csv`.
+
+**70 curatoren deden spellen uit beide helften.** Dat zijn de beste kandidaten, want ze kennen allebei de werelden die Hats samenbrengt. Actief en echt:
+| Curator | Echte volgers (van totaal) | Kerker | Bureaublad | Laatste |
+|---|---|---|---|---|
+| Is The Price Polished? (staat al als #6) | 3.947 (3.761) | Dungeon Clawler, War for the Overworld | 4 | 16 nov |
+| Is The Price Polished: Part 2 | 739 (711) | Dungeon Tycoon, Dungeons 4, Legend of Keepers | Deskrawl, Desktop Defender | 16 nov |
+| Hidden Gems Review (staat al als #7) | 1.754 (2.469) | Dungeon Clawler, Legend of Keepers | 3 | 12 nov |
+| Hype or Yikes | 4.411 (4.342) | Dungeon Clawler | Rusty, Spirit City | 15 nov |
+| Eliani Plays (staat al als #4) | 573 (595) | Dungeon Clawler | 6 | 15 nov |
+| Big Boss Battle | 792 (1.057) | Dungeons 4, Legend of Keepers | Rusty | 30 okt |
+| Pirate Loot | 321 (422) | Dungeon Keeper 2, Dungeon Tycoon | Rusty, Spirit City | 5 nov |
+| Yee or Nee | 134 (141) | Dungeon Clawler, Dungeon Tycoon | Desktop Defender, Rusty | 12 nov |
+| Tchii's gameplay, Higher Plain Games (staan al als #10, #11) | | Dungeon Clawler | 3 | nov |
+
+**Groot en echt, alleen kerker** (lage kans, want ze doen vooral bekende spellen; wel één sleutel waard na een doorbraak): Just Good PC Games 372.549 echt (van 604.185), Original Curators Group 81.396 (163.465), Yah or Nah 53.830 (61.210), Gaming Masterpieces 26.097 (31.880), TechRaptor 23.046 (34.108, ook een nieuwssite).
+
+**Wat dit toevoegt aan de eerste ronde:** Hype or Yikes, Is The Price Polished: Part 2, Big Boss Battle, Pirate Loot en Yee or Nee erbij (nummers 19 tot 23). De eerste ronde wordt daarmee **23 curatoren**. En de regel blijft: Is The Price Polished, Hidden Gems Review en Eliani Plays doen beide helften, dus die drie eerst.
+
 ## Open
 - Hoeveel curatoren van de 12 spellen een gratis sleutel kregen: het veld `received_for_free` geeft Steam alleen voor de laatste paar recensies per curator, dus mijn telling (kolom `gratis_gekregen`) is te laag en zegt niets. Niet gebruiken.
-- Curatoren van de kerkerspellen (Dungeon Keeper-soort) zijn nog niet bekeken; dat is de tweede helft van ons publiek (helden met een wrok). Volgende run: dezelfde meting op 5 tot 8 kerker- en "ontwerp je eigen kerker"-spellen.
+- ~~Curatoren van de kerkerspellen.~~ Gedaan, zie "Tweede helft" hierboven.
+- Of de curatoren een mailadres of Curator Connect-instellingen openbaar hebben (sommigen schrijven "send keys via Curator Connect only"): per curator de pagina lezen vóór 18 dec.

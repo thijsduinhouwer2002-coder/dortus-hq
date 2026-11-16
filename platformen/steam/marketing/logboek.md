@@ -27,3 +27,4 @@
 - Rekensom (GOK) in `makers.md`: makers samen geven 50 tot 6.000 bezoekers, genoeg om in het vak te stijgen, niet om door te breken. Het fest blijft het moment.
 - Auto-Battler RPG Fest: begint pas 18:00 UTC, meting dag 1 kan nog niet. Volgende run die na 18:00 UTC valt: de 112 demo's meten (`data/demo-spelers-lijst.py` met cache).
 - Volgende run: (1) Auto-Battler dag 1 (na 18:00 UTC), (2) curatoren van de kerkerspellen, (3) Twitch, (4) mail aan Conkbot en Maybe Sarisa als eerste in `teksten-makers.md` klaarzetten.
+- (run 3, vervolg ±13:46 UTC) **Curatoren van kerkerspellen** gemeten (6 spellen, 468 curatoren, `data/curatoren-kerkerspellen-2026-11-16.csv`): 70 deden beide helften. Vijf erbij in de eerste ronde (Hype or Yikes, Is The Price Polished: Part 2, Big Boss Battle, Pirate Loot, Yee or Nee), die wordt 23. Besluit: Is The Price Polished, Hidden Gems Review en Eliani Plays eerst, omdat ze kerker én bureaublad doen, precies wat Hats samenbrengt.
