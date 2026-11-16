@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: Garmin-apps en betaalmodel, 6.627 apps gemeten, klaar 16 nov 2026 ±07:30 UTC). Volgende: Reddit-berichten "[New App]" van augustus en oktober afmaken, of een Blender- of printmaker met een nieuwsbrief.
+bezig: verhaal 9, r/blender en gratis add-ons op extensions.blender.org: wat levert een Reddit-post op in downloads (16 nov 2026, ±09:00 UTC).
 
 Nieuwste bovenaan.
 
