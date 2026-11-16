@@ -240,6 +240,28 @@ if KLEIN and E("K_HELM", "1.1") != 1.0:
     for o in list(sc.objects):
         if o.name.startswith(("gloop_helm", "gloop_pluim")):
             o.matrix_world = M @ o.matrix_world
+# Mila ronde 7f proef (blinde kijkers: "de helm leest als serveerkoepel"): K_HELMRIDDER=1 geeft de helm ridderkenmerken:
+# een donkere band met klinknagels boven de rand en een gouden kam over de bol; K_HELMRAND=0 haalt de platte rand (het cloche-bord) weg.
+if KLEIN and (E("K_HELMRIDDER", "0") > 0 or E("K_HELMRAND", "1") == 0):
+    bpy.context.view_layer.update()
+    hr = bpy.data.objects.get("gloop_helmrand"); hm = max([o for o in sc.objects if o.name.startswith("gloop_") and o.type == "MESH" and "snij" in o.modifiers and o.data.materials and o.data.materials[0].name.startswith("staal")], key=lambda o: o.matrix_world.translation.z)
+    if E("K_HELMRAND", "1") == 0:
+        hr.hide_render = True
+    if E("K_HELMRIDDER", "0") > 0:
+        bb = [hm.matrix_world @ Vector(c) for c in hm.bound_box]
+        mnx = min(v.x for v in bb); mxx = max(v.x for v in bb); mny = min(v.y for v in bb); mxy = max(v.y for v in bb)
+        mnz = min(v.z for v in bb); mxz = max(v.z for v in bb)
+        cx, cy = (mnx + mxx) / 2, (mny + mxy) / 2; rx = (mxx - mnx) / 2
+        mnz = hr.matrix_world.translation.z + 0.02   # de bol is onder afgesneden: de voet is de rand, niet de bounding box
+        donker = g.mat("helmband", "3a3a44", rough=0.4, metaal=0.6); kamgoud = g.mat("helmkam", "goud", rough=0.25, metaal=0.85)
+        bpy.ops.mesh.primitive_torus_add(major_radius=rx * 0.98, minor_radius=rx * 0.09, location=(cx, cy, mnz + rx * 0.16))
+        t = bpy.context.object; t.data.materials.append(donker); bpy.ops.object.shade_smooth()
+        for i in range(10):
+            a = i / 10 * 2 * math.pi
+            bol("klinknagel", (cx + math.cos(a) * rx * 1.04, cy + math.sin(a) * rx * 1.04, mnz + rx * 0.16), (rx * 0.07,) * 3, kamgoud, 12)
+        bpy.ops.mesh.primitive_torus_add(major_radius=rx * 0.86, minor_radius=rx * 0.07, location=(cx, cy, mnz))
+        k = bpy.context.object; k.rotation_euler = (0, math.radians(90), 0); k.scale = ((mxz - mnz) / (rx * 0.86), 1.0, 1.0)   # ring van voor naar achter, als kam
+        k.data.materials.append(kamgoud); bpy.ops.object.shade_smooth()
 # Mila ronde 7: meer groen van Gloop in klein (minder goud op bruin, weg van Don't Rob My Dungeon)
 if KLEIN and E("K_GROEN", "0") > 0:
     lg = bpy.data.lights.new("gloopgroen", "POINT"); lg.color = (0.45, 1.0, 0.35); lg.energy = E("K_GROEN", "0"); lg.shadow_soft_size = 1.5
