@@ -2,6 +2,10 @@
 
 Bijgehouden door de strateeg. Nieuwste bovenaan. Eén regel per signaal: datum, kans of bedreiging, wat, label, link.
 
+## 16 nov 2026 (run 2 als strateeg van de hoofdchat)
+- 16 nov | bedreiging | Model Splitter (modelsplitter.com) zet sinds 16 nov gratis in de browser kogelgewrichten in elk STL-model ("Ball joint cut", "no settings to get right"); Pro komt via Kickstarter. Geen scharnier met eindstop, geen bereik in graden, geen rig gezien (Lars). Het gratis deel van Click Joints krijgt zo een concurrent buiten Blender; wat alleen wij hebben moet vooraan. | GEZIEN (pagina met Kickstarter-balk en knop "Ball joint cut", curl 16 nov) | https://modelsplitter.com
+- 16 nov | kans | Een printer is goedkoop geworden: Bambu Lab A1 mini $199 in de Amerikaanse winkel; printdienst JLC3DP vanaf $0,30 per deel. Een echte print opent r/3Dprinting, r/BJD, Thangs en de STL-lijn. | GEZIEN (prijs op de pagina's), EU-prijs en verzending GOK | https://eu.store.bambulab.com/products/a1-mini (gaf de Amerikaanse winkel) , https://jlc3dp.com/3d-printing-quote
+
 ## 9 nov 2026 (derde run)
 - 9 nov | kans | Superhive Support Periods (sinds april 2026): de koper krijgt 12 maanden updates, daarna verlengt hij vrijwillig met korting; geen abonnement. CatPin (400+ verkopen) doet mee: verlengen +12 maanden kost 25% van de prijs, en heeft naast $24 een Business/Studio-licentie van $80 voor 5 personen. JointLab doet ook mee. Producten zonder Support Period staan als "as is" op de pagina. Een terugkerende inkomst uit dezelfde kopers, zonder nieuwe kopers te hoeven vinden. | GEZIEN | https://superhivemarket.com/posts/support-periods-a-sustainable-path-forward-for-blender-creators, https://superhivemarket.com/products/catpin
 - 9 nov | info | Superhive: het populairste nieuwe product van 2026 was een cursus, geen add-on; Blender Studio verkoopt nu ook een cursus daar. | DERDEN (onderzoeker) | https://superhivemarket.com/posts/still-here-still-learning
