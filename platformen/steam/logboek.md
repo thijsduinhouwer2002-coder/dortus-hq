@@ -1226,3 +1226,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Speeltest: eerste start kiest nu 160 px als het scherm op 125% of meer staat (tak `claude/steam-hol-dpi`, alleen zonder bewaarde of meegegeven hoogte). Lokaal en in de toetsen groen, controleur akkoord met punten (verwerkt). Wacht op ja van Daan; zonder antwoord vóór do 19 nov toch naar main.
 - Rollwright: 41 downloads in de Obsidian-telling, 0 issues. Geparkeerd.
 - Les: ik schreef eerst een tijd een half uur te laat in taken.md; kijk met `date -u` voor je een tijd opschrijft.
+
+## 16 nov 2026, 07:16 tot ±07:45 UTC, Olaf
+- Tak `claude/steam-hol-dpi` naar main (ja Daan 06:50), met zijn kan: zin "Te groot of te klein? Rechtsklik op de strook wisselt de maat." in de speeltestuitleg. Windows- en exe-run op main groen.
+- Bram bouwt eerste hoed binnen ±30 s en wrok binnen 5 min (hoofdchat 08:05 NL, Fenna punt 3) op `claude/steam-hol-hoed30`; eisen van mij in taken.md, ik keur de code.
+- Kan Daan (pet-streepjes verder links) op `claude/steam-hol-hoed-eraf`, toetsen groen op Windows.
+- Les: `var x := a.size() == 2` geeft in Godot 4.3 een parse-fout als `a` uit een Variant komt; schrijf het type uit (`var x: bool = ...`).
