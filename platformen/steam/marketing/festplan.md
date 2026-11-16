@@ -21,7 +21,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 |---|---|---|---|
 | 0. Klaarzetten | nu tot ±8 dec | lijst van makers af (di 24 nov), teksten klaar, eerste 10 clips TikTok | eigen bestanden |
 | 1. Pagina live | ±8 dec tot 3 jan | **500 verlanglijstjes** vóór de demo openbaar is | Steamworks (Thijs leest af), volgers via `memberslistxml` (GEZIEN werkt zonder inlog) |
-| 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **1.000 verlanglijstjes** op de avond voor het fest | reviews op de demo-pagina, spelers tegelijk via de openbare API |
+| 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **2.500 verlanglijstjes** op de avond voor het fest (run 12, was 1.000; 1.000 is de ondergrens, zie "Les uit dag 1") | reviews op de demo-pagina, spelers tegelijk via de openbare API |
 | 3. Desktop Companion Fest | do 14 jan 19:00 NL tot ma 18 jan 19:00 NL | meetlat hieronder | eigen meetscript elk uur |
 | 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md); als Thijs inzendt: Laughs & Smiles Festival 21 tot 31 jan (vak "binnenkort", `festivals.md`) | |
 | 5. Next Fest februari | ma 22 feb tot ma 1 mrt | doorbraak volgens de tweede meetlat | eigen meetscript |
@@ -55,7 +55,7 @@ Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2
 - Afkoeltijd: na 14 jan twee weken geen andere verlanglijstmail. Next Fest 22 feb en de lancering in maart liggen daar ruim na.
 - Op `organisatie/lijst-thijs.md` gezet met datum en uur; het demo-appid vult Olaf in zodra het bestaat.
 
-**Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
+**Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf. *(Run 12: 1.000 is nu de ondergrens en 2.500 het doel, omdat 1.000 volgens de Auto-Battler-meting en Mini Legends maar ±8 spelers tegelijk geeft, onder de 20 van "gewoon". Eerlijk: 2.500 in vijf weken is meer dan Black Cat na twee fests had; het is een doel om op te sturen, geen verwachting.)*
 
 **Waarom de demo op 4 jan openbaar en niet pas op dag 1 van het fest (besluit Sem, Olaf beslist over de build):**
 - Valve sorteert binnen het demovak op belangstelling en populariteit (GEZIEN). Een demo die al tien dagen spelers en reviews heeft, staat op dag 1 hoger dan een demo met 0.
@@ -135,11 +135,21 @@ Data: `data/autobattler-fest-dag1-2026-11-16.csv` (108 demo's met een getal; gem
 - **Eén spel nam alles:** Here Comes the Horde, uitgebracht op de festdag, demo van 106 naar 247, het volle spel 2.313 tegelijk (22:46 UTC). De andere 19 die op de festdag uitkwamen: mediaan 8 spelers in het volle spel.
 - Beperking: alleen dag 1, een ander genre dan het onze, en een bureaubladdemo draait langer open dan een auto-battler (GOK dat dat ons iets helpt in de sortering, viraal.md les 1). Ik meet dag 2 (di 17 nov, Amerikaanse avond) en de laatste dag (ma 23 nov) na.
 
+**Volgers tegen spelers in hetzelfde fest** (volgers via de openbare memberslistxml, 87 van de 89 nog niet uitgebrachte demo's, `data/autobattler-fest-dag1-volgers-2026-11-16.csv`): hoe meer volgers, hoe meer spelers (rangcorrelatie 0,70).
+| Volgers | Demo's | Mediaan spelers tegelijk na de start | Hoogste |
+|---|---|---|---|
+| onder 100 | 66 | 0 | 17,5 |
+| 100 tot 300 | 9 | 4,8 | 16,8 |
+| 300 tot 1.000 | 10 | 6,2 | 48,5 |
+| 1.000 tot 3.000 | 2 | 11,8 | 23,2 |
+Ter ijking: Mini Legends Idle heeft 59 volgers en ±2.500 verlanglijstjes (eigen melding, GEZIEN eerder vandaag) en 17 tot 24 spelers tegelijk. Volgers zijn dus geen verlanglijstjes; de verhouding verschilt per spel (hier ±1 op 40).
+
 **Wat dit betekent voor ons plan:**
 1. **De festpagina brengt zelf geen spelers naar een demo die nog niet uit is.** Spelers komen van wat wij meebrengen: de verlanglijstmail (14 jan 19:00), de makersvideo's en de clips. Het besluit om alles op hetzelfde uur te leggen wordt daarmee de kern van het plan, niet een extraatje.
 2. **De sortering op belangstelling beloont wie al spelers heeft.** Wie op dag 1 bovenaan komt, blijft er. Daarom telt elk verlanglijstje vóór 14 jan dubbel: het vult de mail én het vak "Op je verlanglijst".
 3. De meetlat (boven 100 tegelijk = doorbraak) blijft staan en is eerder te streng dan te slap: in dit fest haalde géén van de 89 nog niet uitgebrachte demo's 100 op dag 1.
-4. Voor maart (vraag aan de hoofdchat en Olaf, geen besluit van mij): het volle spel uitbrengen óp een thema-fest gaf de meeste spelers hier weinig (mediaan 8). Uitbrengen in een fest is geen gratis duw; wat telt is hoeveel verlanglijsten je meeneemt.
+4. **Ons verlanglijstdoel en onze meetlat passen niet goed bij elkaar.** Met Mini Legends als maat (±2.500 verlanglijstjes, ±20 tegelijk) geven 1.000 verlanglijstjes ±8 spelers tegelijk (GOK, lineair doorgerekend): dat is "stil" op onze eigen meetlat. "Gewoon" (20 tot 100) vraagt ±2.500 verlanglijstjes, "doorbraak" (boven 100) ±12.000, of een moment dat zich verspreidt zoals Desktop Defender (200 verlanglijstjes, toch 1.548 in Next Fest). Besluit (Sem): **verlanglijstdoel op de avond voor het fest van 1.000 naar 2.500**, 1.000 blijft de ondergrens. De meetlat zelf blijft, want die gaat over het fest en niet over de aanloop. Wat er extra nodig is voor die 1.500: elke paginadag-actie op hetzelfde uur, en de makers met de hoogste weergaven per abonnee eerst (`makers.md`).
+5. Voor maart (vraag aan de hoofdchat en Olaf, geen besluit van mij): het volle spel uitbrengen óp een thema-fest gaf de meeste spelers hier weinig (mediaan 8). Uitbrengen in een fest is geen gratis duw; wat telt is hoeveel verlanglijsten je meeneemt.
 
 ## Als het stil blijft (onder 20 spelers tegelijk of onder 300 verlanglijstjes na 48 uur)
 Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna opnieuw meten:
