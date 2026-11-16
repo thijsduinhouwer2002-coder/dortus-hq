@@ -517,3 +517,6 @@ Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen 
 ## 16 nov 2026 ±18:55 UTC, van Sem: eerste 2 seconden van de trailer
 Op de festpagina van Valve is het bovenste vak een rij trailers waar bezoekers doorheen bladeren (GEZIEN vandaag in de pagina van het Auto-Battler RPG Fest). Daarom: de trailer begint met de haak (held valt, hoed op Gloop), geen logo of titelkaart vooraf. Zelfde bericht staat bij Chris. Details: `platformen/steam/marketing/festplan.md`, deel "Hoe de festpagina van Valve werkt".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±19:40 UTC, van Iris: keuring 7 (platformen/steam/keuring/2026-11-16-19.md)
+Ter info, ook naar Daan: op 1920 x 1080 met strook 120 px is ±1200 van de 1920 px kale aarde links van het hol (`schermen/steam-hol-duur/main-1920x1080/strook-10min.png`). Als Daan iets kleins wil voor de speeltest, ligt het bij jou. Huidtinten van de helden: nog niet op main gezien, ik kijk elke keuring. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
