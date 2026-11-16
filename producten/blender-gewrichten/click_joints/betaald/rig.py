@@ -142,7 +142,7 @@ def cursor_matrix(armature, pose_bot, kant=1):
     return uit
 
 
-def schuif_uit_romp(straal_op, lengte, stap):
+def schuif_uit_romp(straal_op, lengte, stap, naad_vrij=True):
     """Pro 1.1: hoe ver het snijvlak van een kogel langs het bot moet schuiven (vanaf de botkop) om uit de romp te
     komen. Riggers zetten de kop van dij en bovenarm in het bekken en de borst; een kogel daar krijgt een bolnaad zo
     groot als de romp (proef met armen: naad 31 mm in een been van 8 mm) en botst met alles. straal_op(t) geeft de
@@ -161,10 +161,28 @@ def schuif_uit_romp(straal_op, lengte, stap):
     t = 0.0
     while t <= lengte / 2:
         a, b = straal_op(t), straal_op(t + 0.84 * lid)
-        if a is not None and b is not None and a <= grens and b <= grens:
+        if a is not None and b is not None and a <= grens and b <= grens and (
+                not naad_vrij or _naad_vrij(straal_op, t, lid, a, b, grens, stap)):
             return t
         t += stap
     return 0.0
+
+
+def _naad_vrij(straal_op, t, lid, a, b, grens, stap):
+    """Pro 1.1 (run 9): de bolnaad (straal: lidstraal plus marge, zie maat.zet_naad) mag niet in de romp steken.
+    Anders laat `een_lid` de romp heel en houdt deel A een plat stuk romp binnen de naad, waar het lid na een paar
+    graden tegenaan komt (toetsfiguur: heup ±14 in plaats van ±30, romp 7,5 mm boven het kogelmidden, naad 9,1).
+    Toets twee punten terug vanaf het kogelmidden (richting botkop): halverwege en net voorbij de naad. Buiten de
+    mesh (None) is vrij."""
+    midden = t + 0.84 * lid
+    naad = max(a, b) + 2 * stap  # 2 stappen = 1 mm: naadmarge 0,5 + speling 0,2 + halve speling + wat ruimte
+    for terug in (0.5 * naad, naad + stap):
+        if midden - terug < 0:
+            continue  # voor de botkop: de kern meet daar zelf
+        g = straal_op(midden - terug)
+        if g is not None and g > grens:
+            return False
+    return True
 
 
 # ---------- Operator "Figure from rig" (bpy alleen hieronder, zodat de naamregels zonder Blender te toetsen zijn) ----------
@@ -209,7 +227,9 @@ def bvh_van(ob, dg):
 
 
 def kogel_schuif(context, doel, m, lengte):
-    """De cursor-matrix m van een kogel, met de oorsprong langs de lidas (kolom 2) uit de romp geschoven."""
+    """Kandidaten voor de cursor-matrix m van een kogel, met de oorsprong langs de lidas (kolom 2) uit de romp
+    geschoven: eerst zo ver dat ook de bolnaad buiten de romp blijft (vol bereik), dan alleen vlak en kogelmidden
+    buiten de romp (kleiner bereik, maar meer ruimte tot de knie). Lijst van (matrix, mm), zonder dubbele."""
     from .. import passing
     bvh = bvh_van(doel, context.evaluated_depsgraph_get())
     from ..eigenschappen import eenheid_per_mm
@@ -220,10 +240,15 @@ def kogel_schuif(context, doel, m, lengte):
         f.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
         return passing.grootste_straal(bvh, f, (0.0,), n=24)
 
-    t = schuif_uit_romp(straal_op, lengte, 0.5 * u)
-    uit = m.copy()
-    uit.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
-    return uit, t / u
+    uit = []
+    for vrij in (True, False):
+        t = schuif_uit_romp(straal_op, lengte, 0.5 * u, naad_vrij=vrij)
+        if any(abs(t / u - mm) < 1e-6 for _m, mm in uit):
+            continue
+        k = m.copy()
+        k.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
+        uit.append((k, t / u))
+    return uit
 
 
 def deel_met(context, kandidaten, punt):
@@ -287,17 +312,23 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             if doel is None:
                 overgeslagen.append(f"{naam} (joint outside the mesh)")
                 continue
+            kandidaten = [(m, 0.0)]
             if soort != "HINGE":
                 # Kogel: uit de romp schuiven (de botkop van dij en bovenarm ligt meestal in bekken of borst).
+                # Eerst met de hele bolnaad buiten de romp (vol bereik); is het daar te dicht bij de knie, dan de
+                # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
-                m, _mm = kogel_schuif(context, doel, m, lengte)
-            for o in context.view_layer.objects:
-                o.select_set(False)
-            doel.select_set(True)
-            context.view_layer.objects.active = doel
-            cursor.rotation_mode = "QUATERNION"
-            cursor.matrix = m
-            ok, melding, _d = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                kandidaten = kogel_schuif(context, doel, m, lengte)
+            for i, (m, _mm) in enumerate(kandidaten):
+                for o in context.view_layer.objects:
+                    o.select_set(False)
+                doel.select_set(True)
+                context.view_layer.objects.active = doel
+                cursor.rotation_mode = "QUATERNION"
+                cursor.matrix = m
+                ok, melding, _d = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                if ok or i == len(kandidaten) - 1 or "too close" not in (melding or "").lower():
+                    break
             if ok:
                 gelukt.append(naam)
             else:

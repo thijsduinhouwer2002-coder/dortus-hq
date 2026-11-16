@@ -116,8 +116,11 @@ def rekenregel():
     check(abs(pen - 4.7) < 1e-6, f"pen overal 1,5 r + s = {pen:.2f}")
     rig = mod("betaald.rig")
     # straal 30 (romp) tot t = 6, daarna 8 (been): schuif tot het vlak en het kogelmidden (t + 6,72) in het been liggen
-    t = rig.schuif_uit_romp(lambda t: 30.0 if t < 6.0 else 8.0, 40.0, 0.5)
+    t = rig.schuif_uit_romp(lambda t: 30.0 if t < 6.0 else 8.0, 40.0, 0.5, naad_vrij=False)
     check(abs(t - 6.0) < 1e-6, f"schuif uit romp {t}")
+    # Run 9: ook de bolnaad (8 + 1 mm, plus een stap) buiten de romp: kogelmidden t + 6,72 minstens 9,5 voorbij t = 6
+    t = rig.schuif_uit_romp(lambda t: 30.0 if t < 6.0 else 8.0, 40.0, 0.5)
+    check(abs(t - 9.0) < 1e-6, f"schuif uit romp met naad vrij {t}")
     check(rig.schuif_uit_romp(lambda t: 8.0, 40.0, 0.5) == 0.0, "geen romp: niet schuiven")
 
 
