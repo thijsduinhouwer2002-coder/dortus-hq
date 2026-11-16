@@ -119,3 +119,4 @@
 
 ## Run 12, 16 nov ±22:37 UTC
 - Twee berichten verwerkt. **Fenna verhaal 17 (mailknop demo):** docs zelf nagelezen met curl. Demo uitbrengen verschoven van ma 4 jan 18:00 naar 19:15 NL (Winter Sale tot 19:00 NL), zonder verlanglijstmail; mailknop op do 14 jan 19:00 samen met de feststart. In `festplan.md`, `teksten-thijs.md` (A2) en `organisatie/lijst-thijs.md` (twee knoppen met uur). Chris: gifs komen, niets te doen.
+- (run 12, vervolg ±22:50 UTC) **Auto-Battler RPG Fest dag 1 ontleed** (108 demo's, 4 metingen vóór en 4 na de start, uitgavedatum per spel uit de winkel-API): demo's die nog niet uit zijn gingen samen van 318 naar 256 (min 20%), 4 van 89 stegen met 2 of meer; alle winst zat bij één spel dat op de festdag uitkwam (Here Comes the Horde, 2.313 tegelijk). Les in `festplan.md`: het fest brengt zelf geen spelers, wat wij meebrengen op 14 jan 19:00 is het plan. Olaf ingelicht (demo-uur, en ter info over uitbrengen in een fest).

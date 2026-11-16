@@ -124,6 +124,23 @@ Grenzen spelers tegelijk: voorstel Fenna (verhaal 9), GOK. Grenzen verlanglijstj
 
 Als de twee getallen elkaar tegenspreken (veel spelers, weinig verlanglijstjes), telt de laagste: spelers die niet op de lijst zetten, kopen ook niet.
 
+## Les uit dag 1 van het Auto-Battler RPG Fest (run 12, GEZIEN 16 nov, 12:50 tot 22:38 UTC)
+Data: `data/autobattler-fest-dag1-2026-11-16.csv` (108 demo's met een getal; gemiddelde van 4 metingen vóór de start tegen 4 metingen erna, uitgavedatum uit de winkel-API, script `data/fest-dag1.py`).
+| Groep | Aantal | Som spelers tegelijk vóór | Na de start | Mediaan vóór en na |
+|---|---|---|---|---|
+| Nog niet uit (zoals wij in januari) | 89 | 318 | 256 (**min 20%**) | 0 en 0 |
+| Op de festdag zelf uitgebracht | 20 | 187 | 299 | 0,7 en 0,5 |
+- Van de 89 demo's die nog niet uit zijn steeg er **4** met 2 of meer spelers (grootste Marque & Reprisal 16 naar 23, uit op 18 nov; ook het bureaubladspel Desktop Fighter 2 naar 5,5). 10 daalden met 2 of meer. Op 20 of meer: 5 vóór, 3 na.
+- Dat is mét de klok in het voordeel: "na" is de Europese avond en de Amerikaanse middag, "vóór" de Europese middag.
+- **Eén spel nam alles:** Here Comes the Horde, uitgebracht op de festdag, demo van 106 naar 247, het volle spel 2.313 tegelijk (22:46 UTC). De andere 19 die op de festdag uitkwamen: mediaan 8 spelers in het volle spel.
+- Beperking: alleen dag 1, een ander genre dan het onze, en een bureaubladdemo draait langer open dan een auto-battler (GOK dat dat ons iets helpt in de sortering, viraal.md les 1). Ik meet dag 2 (di 17 nov, Amerikaanse avond) en de laatste dag (ma 23 nov) na.
+
+**Wat dit betekent voor ons plan:**
+1. **De festpagina brengt zelf geen spelers naar een demo die nog niet uit is.** Spelers komen van wat wij meebrengen: de verlanglijstmail (14 jan 19:00), de makersvideo's en de clips. Het besluit om alles op hetzelfde uur te leggen wordt daarmee de kern van het plan, niet een extraatje.
+2. **De sortering op belangstelling beloont wie al spelers heeft.** Wie op dag 1 bovenaan komt, blijft er. Daarom telt elk verlanglijstje vóór 14 jan dubbel: het vult de mail én het vak "Op je verlanglijst".
+3. De meetlat (boven 100 tegelijk = doorbraak) blijft staan en is eerder te streng dan te slap: in dit fest haalde géén van de 89 nog niet uitgebrachte demo's 100 op dag 1.
+4. Voor maart (vraag aan de hoofdchat en Olaf, geen besluit van mij): het volle spel uitbrengen óp een thema-fest gaf de meeste spelers hier weinig (mediaan 8). Uitbrengen in een fest is geen gratis duw; wat telt is hoeveel verlanglijsten je meeneemt.
+
 ## Als het stil blijft (onder 20 spelers tegelijk of onder 300 verlanglijstjes na 48 uur)
 Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna opnieuw meten:
 1. **Za 16 en zo 17 jan, nog in het fest:** kijken waarom. Wie de demo speelde: hoe lang (Steamworks, Thijs), wat er in de discussies en demo-reviews staat. Wie hem niet speelde: hoe vaak de pagina bekeken werd tegenover hoe vaak de demo gedownload werd (Steamworks, "UTM" en verkeer, Thijs). Weinig bezoek = de capsule doet het niet; veel bezoek en weinig downloads = de pagina en het eerste beeld doen het niet; veel downloads en kort spelen = de eerste minuten doen het niet.
