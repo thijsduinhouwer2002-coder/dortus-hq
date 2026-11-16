@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 771, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 771 goud, faam 100
+HOL weg geweest 0 s (klok terug: true): goud voor 753, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 753 goud, faam 97
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794850705
-HOL eerste koop mogelijk na 30 s speeltijd (goud 771)
+HOL zaad 1794850742
+HOL eerste koop mogelijk na 30 s speeltijd (goud 753)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Pim knocks first. Polite.
-HOL begin: doorlopen (Pim)
-HOL held binnen: Pim
-HOL einde na 8 s, fps=10, goud=771, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Wout says this is a quick one.
+HOL begin: doorlopen (Wout)
+HOL held binnen: Wout
+HOL einde na 8 s, fps=10, goud=753, terugkomers=0

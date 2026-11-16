@@ -1,12 +1,12 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794850672
+HOL zaad 1794850709
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Pim read about you in a tavern.
-HOL begin: vallen (Pim)
-HOL held binnen: Pim
+HOL kroniek 4.0 (wacht 0.0): Tibbe knocks first. Polite.
+HOL begin: vallen (Tibbe)
+HOL held binnen: Tibbe
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL kroniek 10.6 (wacht 0.0): Wout says this is a quick one.
-HOL begin: opgegeten (Wout)
-HOL held binnen: Wout
+HOL kroniek 10.1 (wacht 0.0): Bram says this is a quick one.
+HOL begin: opgegeten (Bram)
+HOL held binnen: Bram
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
