@@ -1,0 +1,94 @@
+name: Het Hol clips voor Chris (mp4, Olaf)
+
+# Olaf 16 nov 2026, wens Chris (berichten/olaf.md 10:00 UTC): echte mp4's voor het TikTok-account in plaats van
+# losse beelden op 3 per s. Nieuw spel (vers=1) op 1920 breed, 30 beelden per s, opgenomen met Movie Maker zoals de
+# film in steam-hol.yml. Knippen met e2e/clips.py. Uitkomst op tak schermen, map steam-hol/clips-<tak>/.
+# Raakt de speeltestbuild en de gewone toets niet.
+on:
+  workflow_dispatch:
+    inputs:
+      hoogte:
+        description: "hoogte van de strook (96 tot 160)"
+        default: "160"
+      seconden:
+        description: "hoe lang opnemen (de terugkomer komt rond 63 tot 75 s)"
+        default: "95"
+  push:
+    branches: ["claude/steam-hol-clips"]
+    paths: [".github/workflows/steam-hol-clips.yml", "producten/steam-hol/e2e/clips.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  clips:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    env:
+      HOOGTE: ${{ inputs.hoogte || '160' }}
+      SECONDEN: ${{ inputs.seconden || '95' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scherm op 1920 x 1080
+        shell: pwsh
+        run: |
+          try { Set-DisplayResolution -Width 1920 -Height 1080 -Force } catch { Write-Output "Set-DisplayResolution: $_" }
+          Start-Sleep 3
+      - name: Godot 4.3 downloaden en importeren
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(600000)) { Stop-Process -Id $p.Id -Force }
+      - name: Opnemen (Movie Maker, 30 fps, nieuw spel)
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/clips"
+          New-Item -ItemType Directory -Force "$uit/f" | Out-Null
+          $f = (Resolve-Path "$uit/f").Path
+          $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/film.log"
+          $n = [int]$env:SECONDEN * 30
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$f/f.png`" --fixed-fps 30 --quit-after $n -- hoogte=$env:HOOGTE vers=1 log=$log" -PassThru
+          if (-not $p.WaitForExit(1800000)) { Stop-Process -Id $p.Id -Force }
+          Get-Content $log -ErrorAction SilentlyContinue | Select-String "kroniek"
+          (Get-ChildItem $f -Filter *.png).Count
+      - name: Knippen naar mp4
+        shell: pwsh
+        run: |
+          python -m pip install --quiet imageio-ffmpeg
+          $uit = "producten/steam-hol/e2e/clips"
+          New-Item -ItemType Directory -Force "$uit/mp4" | Out-Null
+          python producten/steam-hol/e2e/clips.py "$uit/f" "$uit/film.log" "$uit/mp4" 30 | Tee-Object "$uit/mp4/uitleg.txt"
+          Copy-Item "$uit/f/f00000900.png" "$uit/mp4/beeld-30s.png" -ErrorAction SilentlyContinue
+          Copy-Item "$uit/film.log" "$uit/mp4/film.log"
+      - name: Op tak schermen zetten
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/clips/mp4"
+          [ -d "$SRC" ] || { echo "geen clips"; exit 0; }
+          NAAM="clips-$(echo "$TAK" | tr '/' '-')-$HOOGTE"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" "$T" 2>/dev/null; then
+              git -C "$T" sparse-checkout set "steam-hol/$NAAM"
+            else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-hol/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Clips steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol/$NAAM"
