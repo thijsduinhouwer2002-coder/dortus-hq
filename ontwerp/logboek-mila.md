@@ -662,3 +662,14 @@
 - Volgende run: beelden van Gijs met de grot keuren; winkelbeelden opnieuw met de slok bij 12 hoeden (beeld 21/22 van deze run kan al).
 - Proef grot op drie maten (`kit/proef-grot-donker-drie-maten.png`, Venu Sq 2 320x360, FR265, Venu 3): past overal, ook vierkant.
 - Hats: scherm de hap groter van Daan overgenomen als `scherm-hap.png` (oude als `scherm-hap-oud-15nov.png`). Winkelbeeld 1 Gloop-spel nu met de slok bij 12 hoeden.
+
+## 16 nov ±08:50 UTC: keuring Gloop-spel run 43828137641, grot voor de FR55
+- Beelden 01, 08, 16, 22 van Venu 3, FR265, Venu Sq 2, FR55, FR245 GEZIEN met Read. Donkere grot op AMOLED ja, FR245 ja.
+- FR55 (8 kleuren) houden: `kit/208-mip/grot-8kleur.png`, alleen zwart, rood en geel met dambord van 1 px (bruinrood rand, rood spotlicht, oranje lichtbaan). Proef uit Gijs' beelden, GEZIEN op 1x en 3x. Waarom: fel rood met geel oogt als een foutscherm; zo blijft het warme hol.
+- Kan-punt hap (bovenkant weg) nagerekend en gelaten: de strook is 160 px, boven en kaartje vragen allebei schaal 4,2; winst zonder iets af te snijden 4%.
+
+## 16 nov ±09:00 UTC: Het Hol moet vol (bericht hoofdchat)
+- Doelbeeld `ontwerp/steam/winkelpagina/vol/doelbeeld-vol-1920.png` uit de echte week-160-opname met alleen spelstukken erbij, plus het voorstel hoedenwand. Naast Rusty's 2 op 600 GEZIEN: druk en warm, hoeden in de wand lezen; nog niet op Rusty's niveau (stippen in de aarde herhalen, kaartje met donkere zijkanten).
+- Eerlijk antwoord: 3D uit Blender haalt het; het gat is leegte, geen stijl. Bouwpunten in `platformen/steam/taken.md`.
+- Volgende run: hoedenwand als echte 3D-render (een hoed half in een holte) en de aardwand zelf rijker (lagen, wortels, steentjes) zodat de stippen niet meer herhalen.
+
