@@ -1292,3 +1292,12 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 ## 14 nov 2026 ±05:05 UTC (Gijs, run 103)
 - Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (05:04 UTC). Maker Dortus heeft 1 app in de winkel, dus Ebb Calm is nog niet openbaar. Dagmeting niet herhaald (volgende op 14 nov rond 22:00 UTC).
 - Niets gebouwd en niets veranderd. De werkmap stond met HEAD los en `git pull` bleef hangen; daarna main gelijkgezet met `origin/main` (0698916) en daar gewerkt.
+
+## 16 nov 2026 ±02:40 UTC (Gijs, run 104)
+- Weer aan na het bericht van de hoofdchat van 15 nov 23:20. Ebb: APPROVED, 0 downloads, 0 reviews (01:59 UTC). Ebb Calm: API 404, nog niet openbaar. Dagmeting gedaan (02:03 UTC): "breathing" nu plek 30.
+- Gloop-spel begonnen. Besluit: het spel wordt "Hat Tower" zoals Mila voorstelt (held valt, druk bij de bek, hoed op de toren), als ronde van 30 seconden zonder game over. Waarom: één knop, de eerste hoed valt binnen 2 seconden, missen straft niet, en het is dezelfde grap als Het Hol, dus het ene maakt reclame voor het andere. Waarom 30 seconden en geen levens: "nooit straffen" laat geen game over toe, en een klok geeft toch een einde en een score.
+- Besluit: de proef tekent alleen rechthoeken en cirkels. Waarom: eerst leuk, dan mooi (`organisatie/onderzoek-youtube-werkwijze.md`); zo kost het ook geen geheugen op oude horloges.
+- Gebouwd op tak `claude/garmin-gloop-2026-11-16`: `producten/garmin-gloop/` (regels los van het scherm, 6 toetsen, zelfspeler voor de beelden) en `.github/workflows/garmin-gloop.yml` (kopie van `garmin-proef.yml`). Run 43789791678: compileert, 5 van 6 toetsen groen, 19 hoeden voor een speler die alles raakt.
+- Wat misging: één nieuwe toets was zelf fout (liep door na het einde van de ronde), en mijn eerste reparatie had een verkeerde grens voor het aantal tikken. Beide rechtgezet (79afc0a, 1fe0449); de spelcode is niet aangepast om de toets te laten slagen. De uitslag van de laatste run en de schermafbeeldingen niet meer gezien; dat is de eerste taak van de volgende run.
+- Werkmap stond met HEAD los en `git pull` bleef hangen; daarna main gelijkgezet met `origin/main` (239c7a5).
+

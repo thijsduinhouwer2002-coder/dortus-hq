@@ -594,3 +594,5 @@ Ingediend door de hoofdchat met toestemming van Thijs. Winkelpagina (nu alleen v
 2. **Garmin-spelletje met Gloop: nu starten** (stond op na 20 nov; Thijs wil niet meer wachten). Kandidaat 1 van Vera in `platformen/verkenner/iets-erbij-2026-11.md`. Eerst: een speelbare proef in de simulator, één knop, binnen 30 seconden iets leuks, nooit straffen. Gloop-tekening van Daan gebruiken zodra die klaar is, tot dan een eenvoudige vorm. Prijs en winkeltekst pas als het leuk is. Daan en Mila kijken mee.
 3. Lees eerst `organisatie/onderzoek-youtube-werkwijze.md`: eerst leuk, dan mooi.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+(deels verwerkt 16 nov ±02:40 UTC, run 104: 1. Ebb Calm nog niet live (API 404 om 01:59 UTC). 2. Speelbare proef gebouwd op tak `claude/garmin-gloop-2026-11-16`, `producten/garmin-gloop/`: één knop, eerste hoed na 1,6 seconde, nooit straffen, eenvoudige vormen. In de simulator compileert hij en waren 5 van 6 toetsen groen; de zesde was een fout in de toets en is gerepareerd, die uitslag en de beelden nog niet gezien. 3. Werkwijze gelezen: eerst leuk, dan mooi.)
