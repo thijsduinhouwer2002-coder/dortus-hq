@@ -1,8 +1,79 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: CatPin, klaar 16 nov 2026 01:10 NL-tijd). Volgende: een Obsidian-plugin met betaalde extra's die echt verkoopt (opdracht hoofdchat 16 nov 00:05). Sporen voor die run: Copilot (Plus $14,99 per maand) en Smart Connections (Pro $30 per maand) staan al in `platformen/obsidian/volgend-product.md`; tegenvoorbeeld op Indie Hackers: "Shipped my 7th one-time-purchase Obsidian plugin. Real numbers: ~7 views/day, 2 sales total" (https://www.indiehackers.com/post/shipped-my-7th-one-time-purchase-obsidian-plugin-real-numbers-7-views-day-2-sales-total-distribution-is-the-whole-problem-9a46ab4295, curl krijgt een Cloudflare-scherm, nog niet gelezen) en een maker met offline licenties zoals Rollwright (https://dev.to/ibrh96prog/im-not-a-software-engineer-but-i-shipped-an-obsidian-plugin-with-zero-servers-and-offline-4i14).
+bezig: niets (laatste: Copilot for Obsidian, klaar 16 nov 2026 04:05 NL-tijd). Volgende: een JetBrains-plugin met betaalde versie van een kleine maker (JetBrains is ons eerste betaalde doel voor 6 dec), of een Gumroad-verkoper van Blender-add-ons met openbare cijfers. Spoor voor later: TrustMRR toont meer makers met omzet uit Stripe, zoek daar naar plugins en add-ons (bijvoorbeeld "3D-AGENT AI for Blender", $7,3k in 30 dagen, gezien in de lijst bij Brevilabs, nog niet nagekeken).
 
 Nieuwste bovenaan.
+
+---
+
+## 4. Copilot for Obsidian (Logan Yang, Brevilabs, twee vaste bouwers, AI-plugin met abonnement en levenslange licentie)
+
+Onderzocht 16 nov 2026, run 3, opdracht van de hoofdchat ("een Obsidian-plugin met betaalde extra's die echt verkoopt, zodat we zien wat Rollwright mist"). Waarom dit verhaal: de enige betaalde Obsidian-plugin waarvan de omzet openbaar en gecontroleerd is, maand voor maand. Geen cursusverkoper: de cijfers komen rechtstreeks uit Stripe.
+
+### Bronnen
+- TrustMRR, profiel Brevilabs, met curl gelezen 16 nov 2026 (03:20 NL-tijd), ook de machineleesbare versie: https://trustmrr.com/startup/brevilabs en https://trustmrr.com/startup/brevilabs.md. TrustMRR haalt de omzet zelf op met een Stripe-sleutel van de maker ("Revenue is verified with Stripe API key", laatst bijgewerkt 15 nov 2026 20:51 UTC). De tekst over het bedrijf op die pagina is wel door de maker of TrustMRR zelf geschreven en niet gecontroleerd.
+- Prijspagina, 16 nov: https://www.obsidiancopilot.com/en/pricing
+- Bedrijfssite, 16 nov: https://brevilabs.com/
+- De openbare code en de hele geschiedenis (git clone zonder bestanden, 16 nov): https://github.com/logancyang/obsidian-copilot. Daaruit de data van commits, tags en wie wat schreef.
+- Downloads: `community-plugin-stats.json`, eerder gemeten door Olaf in `platformen/obsidian/volgend-product.md` (Copilot 3.340.702 in totaal).
+- Tegenvoorbeeld: een maker met een eenmalige, offline Pro-licentie zoals Rollwright, DEV 19 jun 2026 (0 reacties): https://dev.to/ibrh96prog/im-not-a-software-engineer-but-i-shipped-an-obsidian-plugin-with-zero-servers-and-offline-4i14. Op Indie Hackers staat een bericht met de titel "Shipped my 7th one-time-purchase Obsidian plugin. Real numbers: ~7 views/day, 2 sales total" (https://www.indiehackers.com/post/shipped-my-7th-one-time-purchase-obsidian-plugin-real-numbers-7-views-day-2-sales-total-distribution-is-the-whole-problem-9a46ab4295). Alleen de titel gezien (Cloudflare blokkeert curl), dus wie het schreef en wat erin staat weet ik niet.
+- Niet gevonden: een interview of blog van Logan Yang over hoe hij de eerste betalers kreeg (zoektocht 16 nov). FirstMRR heeft een stuk over Brevilabs, maar die site lag eruit (503).
+
+### Cijfers
+**Omzet, GEZIEN via TrustMRR (Stripe), alle bedragen bruto in dollars:**
+
+| Periode | Omzet |
+|---|---|
+| Alles sinds de start | $926.038 |
+| Laatste 12 maanden | $468.348 |
+| Laatste 6 maanden | $177.538 |
+| Laatste 3 maanden | $78.331 |
+| Laatste 30 dagen | $19.286 (-17,3%) |
+
+Per maand: dec 2025 $53.160, jan 2026 $55.789, **feb 2026 $66.646 (top)**, mrt $35.096, apr $34.309, mei $38.223, jun $36.054, jul $29.259, aug $33.873, sep $32.590, **okt $18.994**, nov tot en met de 15e $10.084.
+- MRR (vaste maandomzet uit abonnementen) $17.600, **1.336 actieve abonnementen**, winstmarge 95% (GEZIEN, TrustMRR).
+- Vóór december 2025 (jan tot nov 2025): $926.038 min $468.348 is **±$458.000 in ±11 maanden**, gemiddeld ±$42.000 per maand (rekensom op GEZIEN).
+- **Let op:** het is de hele Stripe van Brevilabs, niet alleen Copilot. Brevilabs verkoopt ook advieswerk ("a four-week, $45k AI product sprint", GEZIEN op brevilabs.com) en twee nieuwere producten (Miyo en OpenArtifacts). Hoeveel daarvan in de omzet zit, is niet te zien. Copilot is wel het oudste en grootste product (GOK dat het meeste van Copilot komt).
+
+**Prijzen nu (GEZIEN 16 nov):** Free $0 (eigen API-sleutel, lokale modellen, je eigen Claude- of ChatGPT-abonnement, zonder account). Plus $14,99 per maand of $139,99 per jaar (gehoste modellen, betere webzoeker, meerdere agents tegelijk). **Supporter $349,99 eenmalig**, doorgestreept van $499,96: twee jaar Plus, levenslang Miyo en OpenArtifacts, levenslang zelf hosten, vroege toegang, 15% extra tegoed. Terugbetalen binnen 14 dagen.
+
+**Downloads:** 3.340.702 in totaal (Olaf, community-plugin-stats). De prijspagina zegt zelf "2.5M". Downloads tellen ook updates mee, dus het aantal echte gebruikers is veel lager (GOK, hoeveel weet niemand buiten Obsidian).
+
+**Rekensom die ertoe doet (GOK op GEZIEN):** 1.336 abonnementen op 3,34 miljoen downloads is **0,04% per download**. ±$20.000 per maand op 3,34 miljoen downloads is ±$0,006 per download per maand. Neem je aan dat 1 op de 10 downloads een echte, actieve gebruiker is (GOK), dan betaalt 0,4% van de gebruikers een abonnement. Dat is 5 tot 12 keer minder dan de 2 tot 5% in het rekenvoorbeeld van `organisatie/doelen.md`. En dit is de meest gedownloade AI-plugin van Obsidian, met een betaalde laag die echt iets levert.
+
+### Wat ze deden, in volgorde (uit de code en de pagina's)
+1. **Maart 2023: gratis en open source, met je eigen OpenAI-sleutel.** Eerste commit 30 maart 2023, vier maanden na ChatGPT. 119 commits in april 2023. Hij zat vanaf dag één op de golf.
+2. **Twintig maanden alleen gratis.** Van maart 2023 tot november 2024 geen betaalde laag. In die tijd werd het de grootste AI-plugin van Obsidian.
+3. **Oktober 2024: een tweede vaste bouwer** (Zero Liu, eerste commit 26 okt 2024). Sinds half april 2026 schrijft die het meeste: 568 commits tegen 93 van Logan Yang (GEZIEN in de git-geschiedenis). Dit is dus geen solomaker meer.
+4. **21 nov 2024: Copilot Plus als alfa voor testers. 15 jan 2025: bèta voor iedereen.** Brevilabs is opgericht in januari 2025 (TrustMRR). De betaalde laag verkoopt wat de gebruiker niet zelf heeft: gehoste modellen en eigen zoek- en embeddingmodellen ("copilot-plus-small", "copilot-plus-large", "copilot-plus-flash"), webzoeken, plaatjes in de chat. Gratis blijft alles wat met je eigen sleutel kan.
+5. **5 feb 2025: een "believer"-klasse** met een eigen model alleen voor hen (commit "Add believer exclusive model"). Dat is de voorloper van de huidige Supporter van $349,99 eenmalig. De ±$42.000 per maand in 2025 met nu maar $17.600 MRR wijst erop dat een groot deel van het geld uit eenmalige levenslange licenties kwam (GOK, de verdeling toont TrustMRR alleen na inloggen).
+6. **Aug 2025: Plus uit de bèta, met een agent.** Daarna versie 3 (aug 2025) en elke maand tientallen commits.
+7. **Feb 2026: de top, daarna gehalveerd.** Van $66.646 in februari naar $35.096 in maart. Waarom zegt niemand. Mijn GOK: jaarabonnementen van de bèta-kopers van jan en feb 2025 verlengden in jan en feb 2026, en een deel stopte daarna.
+8. **2026: de golf keert.** Gratis plugins die Claude Code en Codex in de kluis zetten groeien het hardst (Claudian 300.668 downloads in 30 dagen, Agent Client 34.048, gemeten door Olaf, `volgend-product.md`). Copilot volgt: **versie 4.0 op 11 aug 2026 met OpenCode, Claude Code en Codex**, en op de prijspagina staat nu bij Free "Use your Claude or ChatGPT subscription". Dat haalt een reden weg om Plus te kopen. Twee maanden later, in oktober, zakt de omzet van $32.590 naar $18.994. Of dat oorzaak en gevolg is, weet ik niet (GOK).
+9. **Nu: breder dan één plugin.** Brevilabs zet Miyo (lokale contextdienst) en OpenArtifacts naast Copilot, stopt die in de Supporter-licentie, en verkoopt advieswerk. In de README vraagt Copilot alle gratis gebruikers om een gratis account en de Discord ("Sign up free and join our Discord"): een lijst van gebruikers die ze later iets kunnen aanbieden.
+
+### Drie lessen
+1. **Eerst groot gratis, pas daarna betalen, en dan alleen voor wat de gebruiker zelf niet heeft.** Twintig maanden gratis tot het de grootste AI-plugin was, daarna een betaalde laag met gehoste modellen. Zelfs dan betaalt maar 0,04% per download een abonnement. Bij Rollwright (40 downloads, skins van $6) is de verwachte verkoop met die verhouding nul. Dat ligt dus niet aan de skins of de betaalweg, maar aan het bereik.
+2. **Eén dure eenmalige klasse brengt veel geld.** Supporter $349,99 (eerst "believer") naast $14,99 per maand. Dit past in hoofdles 1 (meer dan één prijs). Het verschil met Cleave en CatPin: hier is de duurste klasse 23 keer de maandprijs, niet $5 tot $13 extra. De top van $66.646 in één maand haal je niet met abonnementen van $14,99 alleen (GOK: dat zijn ±4.400 maandabonnementen, terwijl er nu 1.336 zijn).
+3. **Een betaalde laag die AI doorverkoopt kan snel leeglopen.** Toen gebruikers hun eigen Claude- of ChatGPT-abonnement konden gebruiken (gratis plugins, en daarna Copilot zelf), viel de omzet van ±$42.000 per maand in 2025 naar ±$20.000 nu. Ook de grootste maker moest volgen en zijn gratis deel ruimer maken. Wat je verkoopt moet iets zijn wat een abonnement elders niet ook al geeft.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Copilot is een AI-product in de drukste hoek. Mensen betalen voor AI meer en vaker dan voor dobbelstenen (GOK). De verhouding 0,04% is voor Rollwright eerder te gunstig dan te streng.
+- De omzet is van heel Brevilabs, inclusief advieswerk dat $45.000 per opdracht vraagt. Eén opdracht zou al een maand vertekenen. Ik zie geen pieken van die grootte per dag (hoogste dag in de laatste 30: $1.562), maar voor eerdere maanden kan ik het niet uitsluiten.
+- Downloads zijn geen gebruikers. De 0,4% per gebruiker is een GOK op een GOK.
+- Twee vaste bouwers sinds eind 2024, ex-Google en ex-Uber (zegt de eigen site). Dat is meer menskracht dan een solomaker.
+
+### Wat Rollwright mist (de vraag van de hoofdchat)
+Niet de betaalweg en niet de skins zelf: die zijn er en werken (Polar, $6, offline na de controle). Wat mist, in volgorde:
+1. **Bereik.** Copilot had miljoenen downloads voor het iets vroeg. Rollwright heeft er 40 (Olaf, 15 nov). Met de verhouding van Copilot zijn voor €350 per maand ±60.000 tot 70.000 downloads nodig (GOK: $400 / $0,006). Met eenmalige skins van $6 eerder meer.
+2. **Een betaalde kant die iets doet wat gratis niet kan.** Copilot verkoopt rekenkracht en modellen. Skins zijn uiterlijk; dat werkt in spellen (Rusty's Supporter Pack, 11% bij Fenna), maar daar is het spel zelf al gekocht of gespeeld door tienduizenden.
+3. **Een lijst van gratis gebruikers.** Copilot vraagt elke gebruiker om een gratis account en Discord. Rollwright heeft niets waarmee we gebruikers later kunnen bereiken, behalve de forumdraad (19 keer bekeken).
+4. **Een dure eenmalige klasse.** Kan erbij, maar heeft pas zin met bereik.
+
+### Voorstel voor Dortus deze week
+**Wie:** Olaf (Obsidian-manager), in `platformen/obsidian/volgend-product.md`; Hans kijkt het na bij de volgende weekkeuze.
+**Wat:** een vaste verdientoets voor elk kandidaat-product op Obsidian, vóór er gebouwd wordt, met de enige gecontroleerde verhouding die we hebben: **±$0,006 omzet per download per maand, 0,04% abonnees per download** (Copilot, Stripe via TrustMRR, 16 nov 2026). Per kandidaat drie regels: (a) hoeveel downloads haalt de beste plugin in die hoek per maand (GEZIEN in de stats), (b) wat levert dat op met die verhouding, (c) wat zit in de betaalde laag dat de gebruiker niet al gratis of via een eigen abonnement heeft. Komt (b) voor de hele hoek onder €350 per maand, dan geen betaald product in die hoek. Kost Olaf een halfuur, en voorkomt een tweede Rollwright. Voor Rollwright zelf: geen werk meer aan betaalde skins tot er minstens een paar duizend downloads zijn; die tijd naar bereik of naar een ander product.
+**Voor de hoofdchat, ter info:** het rekenvoorbeeld in `organisatie/doelen.md` gaat uit van 2 tot 5% betalende gebruikers. De grootste betaalde Obsidian-plugin zit op ±0,4% (GOK op GEZIEN). Dat is een vraag voor Thijs, niet voor mij, want doelen.md is van hem.
 
 ---
 
