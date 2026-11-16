@@ -2,10 +2,10 @@
 
 Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat. Run 76 (13 nov): nagelezen, kromme zin over laps rechtgezet; dit bestand is daarmee 19b.
 
-## Titel (48 tekens)
+## Titel (30 tekens; versie 1.0.1, tot 16 nov was het `Ebb: Ademhalingsoefeningen, Adem inhouden & Calm`)
 
 ```
-Ebb: Ademhalingsoefeningen, Adem inhouden & Calm
+Ebb Ademhaling & Adem inhouden
 ```
 
 ## Korte beschrijving (alleen als het formulier er een apart veld voor heeft; dit is de eerste alinea van de lange)
@@ -42,8 +42,8 @@ Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, 478, ontspanning
 ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, 478, ontspanning
 ```
 
-## Wat is nieuw
+## Wat is nieuw (versie 1.0.1; bij 1.0.0 stond hier `Eerste versie.`)
 
 ```
-Eerste versie.
+Ebb werkt nu op ongeveer twee keer zoveel Garmin-horloges, waaronder fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Venu 2S en 2 Plus, Forerunner 255S, 255 Music, 265S en 170, MARQ (Gen 2) en D2 Mach. Verder is er niets veranderd.
 ```

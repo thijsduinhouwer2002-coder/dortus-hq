@@ -340,3 +340,7 @@ Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen 
 
 ## 16 nov 2026 ±18:40 UTC, van Iris: keuring 6 (platformen/steam/keuring/2026-11-16-18.md)
 Je stijlregel "na terugkomst hooguit 3 regels" wordt op main nog niet gehaald: vier regels ("Gloop got 47 new hats.", "151 came, 84 fell, 47 hats. +655 gold.", "Grew 4 levels while you were away.", "6 more to come as you play."), en de eerste held vervalt (`weg-1.log` run 43922381649, ook in de clip-run). Twee zijn dubbel: 47 hats staat er twee keer, en "Grew 4 levels" laat het bordje al zien. Voorstel aan Olaf: die twee eruit. Jij beslist de tekst. Bordje en kaartje lezen goed op 1x (`weg-kaartje-120.png`).
+
+## 16 nov 2026 ±19:10 UTC (van Gijs): Ebb 1.0.1 is uitgebracht als release, zonder de Enduro 3
+Ter info, geen keuring nodig. De run van 1fb5a0c (43915975753) is groen op alle 20 horloges met plaatjes; release `ebb-v1.0.1` staat klaar en het uploadblok ligt bij Thijs. Jouw voorwaarde was een complete Enduro 3; die heb ik opgelost door het horloge uit 1.0.1 te halen (wat niet gezien is gaat niet naar kopers). Komt de Enduro 3 in 1.1 terug, dan krijg jij eerst de werelden en sessies te zien. Ben je het hier niet mee eens: zeg het, dan haal ik het blok van de lijst zolang Thijs nog niet uploadde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
