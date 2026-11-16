@@ -102,6 +102,43 @@ Alleen na een **doorbraak** volgens de meetlat (`festplan.md`): grote kanalen ma
 >
 > {afzender}, Dortus
 
+## E. Lijsten van komende spellen (68 tot 74, run 4)
+Doel: in een "upcoming" of "wishlist these"-lijst komen tussen pagina live (±8 dec) en demo (4 jan). Regel 4 (persoonlijke zin) geldt ook hier.
+
+**I Dream of Indie Games (#68), adres op eigen domein in kanaaltekst. Wanneer: dag dat de pagina live is.**
+Onderwerp: For a future "new indie games" roundup
+> Hi,
+>
+> I watch your weekly "70 NEW Indie Games You Should Grab This Week" lists, so here's one for the pile.
+>
+> Hats of the Fallen is an idle dungeon that sits on top of your taskbar. Every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Silent, light on CPU, made to run while you work.
+>
+> {GIF}
+> Steam page: {link}
+> Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
+>
+> Happy to send a press kit or a key. No strings attached.
+>
+> {afzender}, Dortus
+
+**Cozy With Toxi (#69), adres op eigen domein in kanaaltekst. Wanneer: dag dat de pagina live is.**
+Onderwerp: A slime for your next upcoming cozy list
+> Hi Toxi,
+>
+> Saw "20 HUGE Upcoming Cozy Games Worth Waiting For!" and thought this one might fit a future list.
+>
+> Hats of the Fallen is a small idle dungeon on top of your taskbar. Heroes wander in, fall into your traps, and Gloop the slime wears their hats. The ones who escape come back with a grudge. Silent by default.
+>
+> {GIF}
+> Steam page: {link}
+> Free demo January 4.
+>
+> {afzender}, Dortus
+
+**NextBigGames (#70), adres op eigen domein in kanaaltekst. Wanneer: dag dat de pagina live is.** Kort, want het is een lijst van 100+ spellen: alleen naam, één zin haak, link, demo-datum, genre "idle / desktop companion". Zij volgen markten; een vermelding helpt vooral dat andere makers en uitgevers ons zien.
+
+**Rusty Champaign (#71), geen adres in tekst.** Na 18 dec via de reactie of het adres dat hij dan noemt: dezelfde tekst als groep A, met zijn video "A Cozy Idle Game About Turning a Desert Into an Oasis!" als persoonlijke zin.
+
 ## Curator Connect (Steamworks, Thijs)
 Korte tekst bij een sleutel via Curator Connect (veld is kort, GOK ±300 tekens; nakijken in Steamworks):
 > Every hero who falls into Gloop's dungeon leaves a hat on his head; the ones who get away come back with a grudge. A silent idle dungeon on top of your taskbar. Free demo in the Desktop Companion Fest, Jan 14 to 18.
