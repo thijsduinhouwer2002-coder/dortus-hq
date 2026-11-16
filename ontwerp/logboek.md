@@ -1357,3 +1357,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Wachtkaartje r2 (Mila):** voor/na op 1x en 4x GEZIEN, ja. Windows-keuring na de pijplijn.
 - **Controleur (Agent):** eens met de teksten en de trailer; vond "nemesis", "Slime", "on top of", de trailerfouten en het onmogelijke getal 12 (allemaal overgenomen). Zijn hover "4 more heroes to level 6." niet overgenomen: 48 tekens.
 - Les: bij een tekstvoorstel voor in het spel altijd de lengte tegen de toets en de getallen tegen de drempels houden.
+- **Wachtkaartje r2 in de echte Windows-build:** `steam-hol/main/weg-kaartje-120.png`, run 43926538820 (d2c141e, na Mila's de72a35), ware grootte en hoek 4x GEZIEN. Papier warm, bordcijfer het lichtste, punaise los van de lijst, "+7" leest, regel "quarter speed" is weg. Ja, klaar.
