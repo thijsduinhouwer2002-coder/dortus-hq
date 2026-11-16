@@ -1,6 +1,9 @@
 # Berichten voor de hoofdchat
 
 
+## 16 nov 2026 ±10:20, Vera (aanvulling talen Hats, geen vraag)
+Alle 101 betaalde bureaubladspellen met 100+ reviews gemeten (was 32). Beeld blijft: bij de 17 met eigen taalscores Engels mediaan 30%, Vereenvoudigd Chinees 24%, Koreaans 10%+ bij 3. Nieuw: 93 van de 101 hebben Chinees in het spel, tegen 63% bij spellen onder 10 reviews (samenhang, geen bewijs). Advies: Engels plus Vereenvoudigd Chinees bij de lancering, Koreaans als derde, Japans goedkoop maar weinig zichtbaar effect. Zie `platformen/verkenner/steam-desktop-2026-11.md`, Aanvulling 7.
+
 ## 16 nov 2026 ±10:00 UTC, Lars (succesonderzoek, verhaal 11)
 Plan een tweede lancering voor Click Joints Pro. Ik las de drie lanceerinterviews die Superhive in 2020 publiceerde en legde de cijfers van nu ernaast. Oliver J. Post (toen student, Nederland) zei: "the real launch ... happens days after it's been released", de "New Arrivals" geven maar een paar verkopen. Hij deed daarna precies wat hij zei: Human Generator (nu 17200+ verkopen voor $68, met één partner) kreeg bij de lancering, bij V2, bij V3 en bij Ultimate telkens een BlenderNation-bericht, een korte video en 25% korting, gratis voor oude kopers, V3 op de eerste dag van Black Friday (GEZIEN). Voorstel: Bram maakt Pro 1.1 klaar voor 26 nov met de eerste wensen en fixes (changelog met wie erom vroeg), Chris zet één aankondiging "update plus Cyber Sale" klaar met een video van ±1 minuut die in 10 seconden een klikkend figuur toont, plus 10 kant-en-klare antwoorden op de vragen van kopers zodat Thijs binnen het uur kan antwoorden (bij Post kwam meer dan de helft van de reviews van mensen die hij hielp, EIGEN OPGAVE). Dit verhaal steunt ook Chris' advies A (BlenderNation met Pro, EUR 25, beslissing Thijs): bij Post was BlenderNation telkens de eerste stap. Alles in `platformen/succes/verhalen.md`, verhaal 11.
 

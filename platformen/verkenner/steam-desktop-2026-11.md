@@ -219,3 +219,23 @@ Vraag voor Hats: hoeveel volgers levert een thema-fest van Steam op? Dat bepaalt
 **Wat het betekent voor Hats (advies):** als de hoofdchat één extra taal kiest naast Engels, dan Vereenvoudigd Chinees; dat is in deze hoek met afstand de tweede markt. Daarna pas Traditioneel Chinees, Koreaans en Braziliaans-Portugees; Duits, Frans en Japans laten deze cijfers niet zien als prioriteit. Let op: de grappen en namen in Hats (wrok, bijnamen) moeten in het Chinees echt goed zijn, anders zakt juist daar de score. Hoe we vertalen (met AI en de AI-melding van Steam) zoekt Fenna uit.
 
 **Volgende stap (open):** de overige 69 spellen meten met hetzelfde script (het gaat verder waar het stopte); voor kleine spellen onder de drempel werkt deze methode niet. Daarvoor zou de nieuwste reviewlijst per taal op steamcommunity.com kunnen (datum van de 10e review per taal geeft een tempo), maar die site geeft na ±45 verzoeken een 429, dus dat is werk voor meerdere runs.
+
+## Aanvulling 7, 16 nov run 10:31: talen afgemaakt (alle 101 gemeten)
+
+**Wat er bij kwam (GEZIEN, 16 nov):** de overige 69 betaalde bureaubladspellen met 100+ reviews gemeten met hetzelfde script (`data/steam-talen-script.py`), 546 pagina's erbij, 0 fouten, geen 429. Ruwe data aangevuld in `data/steam-talen-2026-11-16.jsonl` (nu 820 regels, 101 spellen). Steekproef met de hand nagekeken: Mini Cozy Room Koreaans 1.023, Cornerpond Chinees 211, beide opnieuw opgehaald en gelijk.
+
+**Grens blijft:** Steam toont een eigen taalscore pas vanaf ±200 reviews in die taal. Van de 101 spellen hebben er nu **17** minstens één eigen taalscore (samen 94.925 reviews); de andere 84, allemaal onder ±2.000 reviews, tonen geen enkele taal apart. Erbij gekomen: Mini Cozy Room: Lo-Fi, The NOexistenceN of Lilith, Ithya: Magic Studies, en Cornerpond is nu compleet (stond in run 09:31 half).
+
+**Uitkomst bij de 17 (mediaan per spel, niet getoond telt als 0):**
+- Engels 30%, 10%+ bij 16 van de 17.
+- Vereenvoudigd Chinees 24% (met Traditioneel 29%), 10%+ bij 13 van de 17, en bij 8 van de 17 groter dan Engels.
+- Koreaans 10%+ bij 3 (nieuw: Mini Cozy Room 28%, meer dan Engels 21%), Russisch bij 2 (nieuw: Lilith 13%), Braziliaans bij 1. Japans en Duits bij geen enkel spel boven 5%.
+- Het beeld van run 09:31 blijft dus staan: Chinees is de tweede markt, Koreaans een duidelijke derde.
+
+**Nieuw, over oorzaak en gevolg (GEZIEN, kaart van 1.714 apps, betaalde spellen):** Vereenvoudigd Chinees in het spel hebben 63% van de spellen met 0 tot 9 reviews, 75% bij 10 tot 99, 92% bij 100 tot 999 en 93% bij 1.000+. Voor Koreaans 42%, 56%, 77%, 89%; voor Japans 55%, 70%, 88%, 89%. Bij de 101 met 100+ reviews hebben er 93 Chinees. Dat is samenhang, geen bewijs dat vertalen verkoopt: grotere makers vertalen ook meer. Wel één tegenvoorbeeld dat iets zegt: **Cornerpond** is alleen in het Engels (appdetails, nagekeken) en haalt toch 8% Chinese reviews; spellen met Chinees halen mediaan 24%. Chinese kopers komen dus ook zonder vertaling, maar met vertaling ±3 keer zoveel (één spel, GOK hoe algemeen).
+
+**Japans, eerlijk:** bijna elk succesvol spel heeft Japans (88%), maar Japanse reviews halen bij geen enkel spel de drempel. Of Japanse kopers minder reviews schrijven of weinig kopen, zegt deze meting niet (GOK: allebei een beetje).
+
+**Advies voor Hats (aangescherpt):** Engels plus Vereenvoudigd Chinees bij de lancering, dat is de norm bij 93 van de 101 spellen die 100+ reviews haalden. Koreaans als derde taal (77 tot 89% van de succesvolle spellen, en bij 3 van de 17 een eigen markt van 10%+). Japans is goedkoop mee te nemen als de tabel toch vertaald wordt, maar levert in deze cijfers weinig zichtbaars op. Duits, Frans, Russisch en Braziliaans pas later.
+
+**Wat nu nog niet gemeten is:** talen bij kleine spellen (onder de drempel). Dat kan alleen via de reviewlijst per taal op steamcommunity.com, die na ±45 verzoeken een 429 geeft; werk voor meerdere runs en voor de keuze van Hats niet nodig, want de grote spellen laten het al duidelijk zien.
