@@ -13,6 +13,7 @@ stand: "snel" (drie stilstaande beelden, lage kwaliteit, om de buigrichting na t
 import math
 import os
 import sys
+import time
 
 import bpy
 from mathutils import Matrix, Quaternion, Vector
@@ -219,6 +220,7 @@ else:
     sc.cycles.samples = 40
     sc.render.fps = 24
     os.makedirs(os.path.join(uit, "beelden"), exist_ok=True)
+    t0 = time.time()
     for f in range(1, 241):
         voet_bij(hoek_op(f) * teken)
         zet_camera(-6.0 + 12.0 * (f - 1) / 239)
@@ -226,5 +228,5 @@ else:
         sc.render.filepath = os.path.join(uit, "beelden", f"{f:04d}.png")
         bpy.ops.render.render(write_still=True)
         if f % 20 == 0:
-            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}")
+            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}, {(time.time() - t0) / f:.1f} s per beeld")
 log(f"KLAAR bereik {bereik:.2f}")

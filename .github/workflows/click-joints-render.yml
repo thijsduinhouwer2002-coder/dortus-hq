@@ -84,11 +84,16 @@ jobs:
           for poging in 1 2 3 4 5; do
             rm -rf /tmp/s
             git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
-            D="/tmp/s/click-joints-render/$STAND"
+            # Chris run 70: een film met andere camera of licht krijgt een eigen map, zodat de vorige film (reserve) blijft staan
+            MAP="$STAND"
+            if [ "$STAND" = "film" ] && { [ "${CJ_CAM_VOOR:-0.35}" != "0.35" ] || [ "${CJ_LICHT_SCHEEN:-0}" = "1" ]; }; then
+              MAP="film-cam${CJ_CAM_VOOR:-0.35}-licht${CJ_LICHT_SCHEEN:-0}"
+            fi
+            D="/tmp/s/click-joints-render/$MAP"
             rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
-            cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$STAND run ${GITHUB_RUN_ID}" || exit 0
+            cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$MAP run ${GITHUB_RUN_ID}" || exit 0
             if git push -q origin schermen; then break; fi
             cd /; sleep $((poging * 3))
           done
-          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/click-joints-render/$STAND"
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/click-joints-render/$MAP"
