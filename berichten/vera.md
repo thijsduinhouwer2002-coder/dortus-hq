@@ -72,3 +72,6 @@ Thijs wil per product in één blik zien hoe het gaat. Volgorde (regel "Planning
 
 ## 16 nov 2026, 20:30, hoofdchat: bezoekcijfers dortus.com in het scorebord (zodra de sleutel er is)
 Amami draait op dortus.com (gratis plan, 100K gebeurtenissen, website-id staat in de html). Zodra Thijs een API-sleutel als GitHub-secret `AMAMI_API_KEY` heeft gezet, voeg je bezoekers per dag (totaal en per productpagina) toe aan `scorebord.py`. Amami bewaart cijfers maar 7 dagen, dus de dagelijkse workflow moet ze in `scorebord-data.csv` vastleggen. Zoek nu alvast de API-docs op (curl) en zet de aanroep klaar.
+
+## 16 nov 2026, 20:35, hoofdchat: AMAMI_API_KEY staat
+Thijs heeft het GitHub-secret `AMAMI_API_KEY` gezet (20:23). Voeg de bezoekcijfers van dortus.com (per dag, totaal en per productpagina) nu toe aan `scorebord.py` en de dagelijkse workflow (sleutel alleen via `secrets.AMAMI_API_KEY`, nooit printen of opslaan). Test met een handmatige run van de workflow.
