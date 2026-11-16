@@ -69,7 +69,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				s.volgende_held = minf(s.volgende_held, s.t + s.rng.randf_range(8.0, 20.0))
 	else:
 		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
-		var buit := 6 + 3 * int(info.get("bezoeken", 0))
+		# plus graafbonus: +1 per 8 zelf gegraven cellen, hooguit +3 (Sanne 16 nov 21:00, balans.md)
+		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven))
 		s.hol.goud += buit
 		faam_erbij(s, 1)
 		var naam: String = String(info.naam)

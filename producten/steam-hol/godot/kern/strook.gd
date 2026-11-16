@@ -20,6 +20,7 @@ const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: n
 const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
 const MUISVLAK := preload("res://kern/muisvlak.gd")   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
+const VOORTGANG := preload("res://systemen/voortgang.gd")   # graafbonus (Sanne 16 nov 21:00)
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
 const INSTELLING := "user://instellingen.json"
@@ -108,6 +109,7 @@ var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
 var slijm_plat := false
+var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
 var plat_keer := 0           # hoe vaak "flat" deze speelbeurt in de rij ging (hooguit WACHTRIJ.PLAT_KEER, Daan 16 nov 20:35)
 var plat_gemeld := false     # staat (of wacht) er een "flat" voor de huidige keer plat; alleen dan komt "up again"
 var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort
@@ -228,7 +230,9 @@ func _ready() -> void:
 	if kroniek.is_empty():
 		_kroniek("Your hole is open. Heroes will come.")
 	DEMO_EINDE.bij_start(self)
-	hol.gegraven.connect(func(cel): log_regel("HOL gegraven kolom %d" % cel.x))
+	hol.gegraven.connect(func(cel):
+		zelf_gegraven += 1   # graafbonus (Sanne 16 nov 21:00): alleen wat de speler graaft, de begingang telt niet
+		log_regel("HOL gegraven kolom %d (zelf %d, graafbonus %d)" % [cel.x, zelf_gegraven, VOORTGANG.graafbonus(zelf_gegraven)]))
 	log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [hoogte, schaal,
 		int(scherm.size.x / schaal), spel_h, DisplayServer.window_get_size(), DisplayServer.window_get_position(), held_script.resource_path])
 	# Olaf 15 nov: het zaad in de log, zodat een goede winkelopname (bijvoorbeeld met de dief) na te spelen is met zaad=<n>.
