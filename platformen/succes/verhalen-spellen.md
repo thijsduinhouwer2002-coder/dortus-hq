@@ -1,12 +1,85 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: vraag AI-vertalen en Steam, klaar 15 nov 2026 23:55; volgende run: een taakbalkspel dat het minder goed deed)
+bezig: niets (laatste: verhaal 2 Desktop Heroes naast Deskrawl, klaar 16 nov 2026; volgende run: hoe makers het Desktop Companion Fest gebruikten)
 
 Nieuwste bovenaan.
 
 ---
 
-## Vraag van Thijs (16 nov): valt vertalen met AI onder de AI-melding van Steam, en wat kost een mens?
+## 2. Desktop Heroes (Telazer, 3 mensen) naast Deskrawl (First Day Games, 2 mensen): hetzelfde idee, heel andere uitkomst
+
+Onderzocht 16 nov 2026, run 3. Het verhaal van een taakbalkspel dat het minder goed deed, met een tweelingspel dat het wel haalde ernaast, zodat het verschil zichtbaar wordt. Beide zijn een "idle ARPG" (helden vechten en vinden buit) in een strook boven de taakbalk, beide voor ±$4 tot $7, beide met een uitgever, beide met een demo in Next Fest en een lancering ±4 maanden na de aankondiging.
+
+### Bronnen
+- Eigen aankondigingen op Steam, alle berichten gelezen via de openbare nieuws-API: Desktop Heroes (33 berichten, aug 2025 tot mrt 2026) https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=3734200&count=60&maxlength=0&feeds=steam_community_announcements en Deskrawl (38 berichten, mei tot nov 2026) https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=4623570&count=60&maxlength=0&feeds=steam_community_announcements
+- Steam appdetails 3734200 en 4623570 (prijs, talen, aantal beoordelingen, uitgever) en de winkelpagina's (reviewsamenvatting), met curl opgehaald 16 nov 2026.
+- Steam-reviews, de 10 "meest behulpzame" negatieve en positieve van Desktop Heroes en de 10 negatieve van deze week van Deskrawl: https://steamcommunity.com/app/3734200/negativereviews/ en https://steamcommunity.com/app/4623570/negativereviews/
+- Interview met Telazer op de site van Phaser (8 mei 2026): https://phaser.io/news/2026/04/desktop-heroes-phaser-electron-steam
+- Persbericht aankondiging Desktop Heroes op Game Developer (4 jul 2025): https://www.gamedeveloper.com/press-release/telazer-games-announces-new-game-desktop-heroes
+- Geen bron gevonden met verlanglijstjes of verkoopcijfers van een van beide. Alles over verkoop hieronder is daarom een schatting uit reviews (GOK).
+
+### Cijfers naast elkaar
+| Wat | Desktop Heroes | Deskrawl | Label |
+|---|---|---|---|
+| Maker | Telazer, 3 mensen, eerste Steam-spel (wel 1 miljoen spelers met webspellen) | First Day Games, 2 mensen, tweede spel, "duizenden uren Diablo" | DERDEN (Phaser-interview) en DERDEN (eigen aankondiging 18 mei 2026) |
+| Uitgever | Blackburne Games Studio | Gamersky Games (Chinees), plus een QQ-groep naast Discord | GEZIEN (appdetails, aankondiging) |
+| Aangekondigd | 4 jul 2025 | ±11 mei 2026 ("vorige week" op 18 mei) | DERDEN |
+| Demo | 7 aug 2025 in het Debut Festival, daarna Next Fest okt 2025 (vanaf 13 okt) | 15 jun 2026, in Next Fest juni | DERDEN (aankondigingen) |
+| Lancering | 27 okt 2025, één week na Next Fest | 28 sep 2026, ruim 3 maanden na Next Fest, na een gesloten en daarna open bèta (19 tot 28 aug) | DERDEN |
+| Prijs | $5,99 (een review van 30 okt 2025 noemt "6 whole dollars"; Phaser schreef in mei 2026 $3,99, mogelijk een korting) | $6,99, lancering met 30% korting, nu weer 30% korting | GEZIEN (appdetails 16 nov 2026) |
+| Talen | 14, met Chinees, Japans, Koreaans | 13, met Chinees, Japans, Koreaans, Thai | GEZIEN |
+| Beoordelingen | **104 na ruim 12 maanden**, 70% positief | **3.630 na 7 weken**, "Mixed"; laatste 30 dagen 777 reviews, 36% positief | GEZIEN (winkelpagina 16 nov 2026) |
+| Engelstalige reviews | (bijna) allemaal | 484 van 3.630 = 13%; de rest vooral andere talen | GEZIEN, het percentage is mijn rekensom |
+| Verkocht (grof) | 104 x 30 tot 60 = ±3.000 tot 6.000 | 3.630 x 30 tot 60 = ±110.000 tot 220.000 | GOK (vuistregel uit de rol; Chinese spelers schrijven mogelijk vaker een review, dan is Deskrawl lager) |
+| Laatste bericht maker | 24 mrt 2026 (daarna 8 maanden stil) | 12 nov 2026, elke paar dagen een patch | GEZIEN |
+
+Ter vergelijking: Rusty's Retirement heeft 13.987 beoordelingen (verhaal 1).
+
+### Wat Desktop Heroes deed, in volgorde
+1. **Aankondiging met persbericht** (4 jul 2025), daarna een demo in het **Debut Festival** van Steam (7 tot 11 aug), een festival voor eerste spellen.
+2. **Tussen de twee festivals de hele code omgegooid**, 2 sep 2025: "All old saves and progress will be deleted upon updating." Wie de demo in augustus speelde, begon in september opnieuw.
+3. **Next Fest okt 2025 met een stream, en één week later lanceren** (aangekondigd op 23 okt, uit op 27 okt).
+4. **De eerste weken bijna elke dag een update**, en meteen de kern van de klachten: het spel is niet idle genoeg. De makers antwoordden op 31 okt met een eigen bericht: "Desktop Heroes is not designed to be a game that you can set up and leave running for hours without interacting with it." Ze kozen bewust een mengvorm ("Unlike other 'bottom-of-the-screen' games, we aimed to create a hybrid experience").
+5. **Pas 7 weken na de lancering bijgestuurd** (16 dec 2025, "We heard you ... we made the game more idle-friendly"), daarna een roadmap die schoof, een groot verhaal-update in mrt 2026 (v3.0.0), en sindsdien stilte.
+
+### Wat de spelers zeiden (Desktop Heroes, de meest behulpzame negatieve reviews)
+- "As an idle game, there is no idle progression. As an ARPG, there is no action." (31 okt 2025)
+- "It's neither idle (needs you to intervene in high difficulty) nor manual (you can't afford the time to babysit the whole game). Make. Up. Your. Mind." (28 okt 2025)
+- "If you die you stop progressing all together, so the idleing just stops." (8 nov 2025)
+- "it's incredibly distracting ... I really can't have it running while studying, programming, or working ... TLDR; Not idle enough." (14 dec 2025)
+- "No idle progress and no offline progress." (apr 2026)
+- Ook "barebones", "recycled sprites" en "just another pile of slop added to the idler genre" van iemand die "close to 150" idle games speelde: kenners vergelijken met veel gratis idle games.
+- Positief, ook terugkerend: het idee ("it's fun to glance down and see your little hero fighting") en snelle patches. Opvallend: één van de top-positieve reviews was eerst negatief en draaide om door de patches.
+
+### Wat Deskrawl anders deed, in volgorde
+1. **Een duidelijke belofte aan een bekende groep:** "a game that we could always play no matter if we are working, or watching TV shows", van twee Diablo-spelers voor Diablo-spelers. Aankondiging, en vijf weken later al een demo in Next Fest.
+2. **De demo als levend spel behandeld:** in de eerste week van de demo zes patches, waarvan drie met nieuwe inhoud (nieuwe kaart, max level omhoog, nieuwe legendarische spullen "for you all to explore and test during Next Fest"), allemaal op verzoek van spelers (venster schalen, cloud save).
+3. **Spelers een reden gegeven om te blijven en vrienden te halen:** een ranglijst in de demo, een baas-evenement waar "about 4000 players" de baas versloegen, de top 100 kreeg toegang tot de bèta, en 1.000 bètasleutels werden verloot onder de rest. "Don't forget to invite your friends if they haven't tried the demo yet!"
+4. **Gesloten bèta, daarna open bèta, pas daarna lanceren** (3 maanden na Next Fest), met 30% korting en twee nieuwe klassen.
+5. **Een Chinese uitgever en een QQ-groep vanaf de eerste dag.** 87% van de reviews is niet Engels (rekensom). Het spel lijkt vooral in Azië verkocht (GOK, het precieze land per review heb ik niet).
+
+**Maar Deskrawl gaat nu mis op iets anders:** 36% positief in de laatste 30 dagen. De klachten van deze week gaan over handel met echt geld en buit: spullen te koop op de Steam-markt, "so leaderboards mean nothing", prijzen die keldern, te weinig buit ("74 hours not a SINGLE rune drop"), en spelers zonder online modus missen "the 300% loot buff". Een goed begin beschermt niet tegen een verdienmodel dat spelers oneerlijk vinden.
+
+### Drie lessen
+1. **"Onderaan je scherm" is een belofte: het moet ook zonder jou doorgaan.** De grootste klacht over Desktop Heroes was niet de prijs of de beelden, maar dat het niet idle genoeg was: doodgaan stopt de voortgang, geen voortgang als je weg bent, en het trekt te veel aandacht tijdens werk. De makers gaven dat zelf toe ("not designed to ... leave running for hours"). Spelers in dit genre kopen rust, geen tweede taak.
+2. **Een demo die leeft en een reden geeft om terug te komen, wint.** Deskrawl patchte de demo tijdens Next Fest bijna dagelijks, deels met nieuwe inhoud, maakte er met een ranglijst en een baas-evenement een wedstrijd van (±4.000 spelers versloegen de baas, DERDEN) en beloonde de fanatiekste spelers met de bèta. Desktop Heroes wiste tussen twee festivals alle saves en lanceerde een week na Next Fest. Of die volgorde de oorzaak is, is niet bewezen (GOK), maar het verschil in uitkomst is ±35 keer in reviews.
+3. **Talen alleen zijn niet genoeg; een partij die de markt kent wel.** Beide spellen hadden Chinees, Japans en Koreaans. Het verschil: Deskrawl had een Chinese uitgever en een QQ-groep vanaf de aankondiging. Dit verfijnt de les van Rusty's (46% Azië): de vertaling opent de deur, maar iemand moet er ook mensen naartoe brengen (GOK in hoeverre, er zijn geen landcijfers).
+
+Extra, kleiner: Deskrawl laat zien dat handel en online buit-bonussen in een rustig spel snel als oneerlijk voelen. Wij hebben geen handel en willen dat zo houden.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Beide zijn ARPG's met buit en gevechten; Hats of the Fallen is een spel waar je zelf het hol bent. Onze kern (helden komen naar jou, jij graaft en zet bewoners neer) is van zichzelf al meer idle. Ons ontwerp heeft "nooit straffen als je weg bent" al als eis (T3 en demo-eis 4 in `planning-fest-2027.md`). Les 1 bevestigt die keuze, het is geen nieuw werk.
+- Deskrawl is pas 7 weken uit; hoe het afloopt weet niemand. Desktop Heroes verkocht misschien toch genoeg voor een team van drie met lage kosten (GOK).
+- Een ranglijst of evenement in een demo vraagt servers of een account bij Steam (leaderboards). Dat is techniek die wij nog niet hebben, en de demolijst ligt vast tot 18 dec.
+
+### Voorstel voor Dortus deze week
+**Olaf zet in de speeltest van 4 dec voor Thijs twee vaste vragen en in de simulatie één vaste meting: (1) "Kon je 15 minuten werken terwijl het draaide, zonder dat het je aandacht trok?", (2) "Gebeurde er iets goeds terwijl je niet keek?", en (3) in de simulatie: een uur zonder één klik geeft minstens de helft van het goud van een uur met klikken, en niets staat stil.** Waarom: de grootste klacht over het taakbalkspel dat mislukte was "not idle enough", en die kwam pas na de lancering boven. Wij hebben de regel al op papier; dit maakt hem toetsbaar vóór de demo. De helft is een eerste getal (GOK), Olaf en Bram mogen het na de simulatie bijstellen. Wie: Olaf (vragen en meting), de hoofdchat neemt de vragen op in het speeltestformulier.
+
+Voor na 18 dec (geen actie nu, voor Hans en de hoofdchat): tijdens het Desktop Companion Fest en Next Fest de demo bijhouden zoals Deskrawl (elke dag fouten oplossen en dat melden in een aankondiging), nooit saves wissen tussen festivals, en het volle spel niet een week na Next Fest uitbrengen maar pas als de klachten uit de demo verwerkt zijn.
+
+---
+
+## Vraag van de hoofdchat (16 nov): valt vertalen met AI onder de AI-melding van Steam, en wat kost een mens?
 
 Onderzocht 15 nov 2026 (klok van de run), run 2. Geen verhaal maar een vraag; antwoord kort bovenaan, onderbouwing eronder.
 
@@ -38,13 +111,15 @@ Onderzocht 15 nov 2026 (klok van de run), run 2. Geen verhaal maar een vraag; an
 - Herhalingen zijn bij Allcorrect gratis. Testen in het spel (LQA, kijken of de tekst past en klopt in beeld) is een aparte post die hier niet in zit.
 - Elke latere tekstwijziging is een nieuwe opdracht. Bij een spel dat nog verandert is dat de verborgen kostenpost.
 
+**Bijgewerkt 16 nov met de telling van Olaf (±1700 woorden, niet 500):** met dezelfde prijzen van Allcorrect (DERDEN) kost het Chinees €153 tot €204, Japans €170 tot €238, Koreaans €153 tot €238, Duits €170 tot €238, **samen ±€650 tot €920** voor vier talen (mijn rekensom). Alleen Chinees en Japans nakijken of vertalen: ±€320 tot €440. Het minimumbedrag per opdracht speelt bij 1700 woorden waarschijnlijk geen rol meer (GOK). Het voorstel hieronder blijft staan: de demo met AI-vertaling; een mens pas als Azië verlanglijstjes geeft, en dan is het bedrag ruim drie keer zo hoog als eerst gedacht.
+
 ### Eerlijk: wat ik niet weet
 - Of Chinese, Japanse of Koreaanse spelers een slechte AI-vertaling afstraffen in reviews. Dat hoor je vaak, maar ik heb er nu geen bron voor. GOK.
-- Of 500 woorden klopt: dat getal komt van Thijs, niet uit het spel geteld.
+- Of 500 woorden klopt: dat getal kwam van de hoofdchat, niet uit het spel geteld. **Nagekomen (16 nov, Olaf telde): het is ±1700 woorden (±390 teksten).** Zie de bijgewerkte prijzen hierboven.
 - Het voorstel van Abel noemt "pixel art"; Het Hol is inmiddels 3D uit Blender-code. Of beelden die Claude met code maakt "met hulp van AI" zijn, beslist niet ik: dat is de tekst die de hoofdchat met Thijs invult. Eerlijk lijkt me: noemen.
 
 ### Voorstel voor Dortus
-**De hoofdchat besluit: demo van 18 dec met AI-vertaling (Claude) in Vereenvoudigd Chinees, Japans, Koreaans en Duits, en de AI-melding van spel én demo noemt "text and translations".** Waarom: de melding staat er toch al, dus het kost geen extra label en geen geld, en de grootste voorganger haalde 46% van zijn kopers uit Azië (zie Rusty hieronder). Tweede stap, vóór de lancering van het volle spel en alleen als de demo in Azië verlanglijstjes geeft (te zien in Steamworks per land): een mens kijkt de Chinese en Japanse tekst na, ±€100 tot €130 voor die twee (geld, dus via de lijst van Thijs). Wie: Olaf zet de tabel klaar (al uitgezet), de hoofdchat beslist de talen en past de meldingstekst bij Abel aan. Niet doen: menselijke vertaling nu, terwijl de tekst tot 18 dec nog verandert.
+**De hoofdchat besluit: demo van 18 dec met AI-vertaling (Claude) in Vereenvoudigd Chinees, Japans, Koreaans en Duits, en de AI-melding van spel én demo noemt "text and translations".** Waarom: de melding staat er toch al, dus het kost geen extra label en geen geld, en de grootste voorganger haalde 46% van zijn kopers uit Azië (zie Rusty hieronder). Tweede stap, vóór de lancering van het volle spel en alleen als de demo in Azië verlanglijstjes geeft (te zien in Steamworks per land): een mens kijkt de Chinese en Japanse tekst na, ±€320 tot €440 voor die twee bij 1700 woorden (eerst geschat op €100 tot €130 bij 500 woorden; geld, dus via de lijst van Thijs). Wie: Olaf zet de tabel klaar (al uitgezet), de hoofdchat beslist de talen en past de meldingstekst bij Abel aan. Niet doen: menselijke vertaling nu, terwijl de tekst tot 18 dec nog verandert.
 
 ---
 
