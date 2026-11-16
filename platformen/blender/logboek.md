@@ -604,3 +604,9 @@ Alleen aanvullen, nooit iets weghalen.
 - e2e op main (run 43804760150, 3ec22b7) groen in drie versies. `click-joints-pro-uitgave.yml` naar 1.0.2, run 43805511917 groen: artefact `click-joints-pro-zip-1.0.2` (sha256 c6d0d7bf...1ab1, lokaal nagerekend en manifest Click Joints Pro 1.0.2 GEZIEN), release `click-joints-pro-v1.0.2` met plaatjes en SHA256SUMS zonder zip.
 - Gratis 0.1.1: zip gebouwd met `maak_zip.sh` op main (geen betaald/, een_lid.py erin, versie 0.1.1), sha256 d1643ba5...0fe3d, in `uitgave/`; `click-joints-uitgave.yml` met versie-variabele, spiegels en alleen zip plus SHA256SUMS (run 43805624917).
 - Gemeld in `berichten/hoofdmanager.md`, 1.0.2 KLAAR in `berichten/bram.md`, regel op lijst-thijs.
+
+## 16 nov 2026, 05:10 tot ±05:30 UTC, Bram
+- Click Joints: 152 downloads (05:15, meet_downloads.sh). Open bericht van Chris (05:15): klopt de tip van filmpje 7 en de andere tips van de reeks?
+- Alle tips nagedaan in de echte Blender 5.3.0 met Click Joints 0.1.1 (script `producten/blender-gewrichten/proef/tips_nakijken.py`), uitkomst in `tips-nagekeken.md`. Dag 1 moet anders: de speling is per kant en maakt het inklikken niet makkelijker (klem 0,375 mm bij speling 0,05, 0,2 en 0,4; gemeten speling 0,0499, 0,1996, 0,3993). Dag 2, 4 en 7 met een kleine aanpassing, dag 3, 6, 8 en 9 kloppen. Antwoord onder Chris' vraag in `berichten/bram.md` en een verwijzing bovenaan `berichten/chris.md`; reeks.md niet aangeraakt (map van Chris).
+- Les: een tip nadoen met getallen naast elkaar vindt meer dan de code lezen; speling en klikopening staan los van elkaar.
+- Werkplek: lokale main was achter (origin was geforceerd bijgewerkt); verder vanaf origin/main zonder lokale main te resetten.
