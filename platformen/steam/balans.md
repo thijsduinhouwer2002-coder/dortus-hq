@@ -3,6 +3,18 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±23:55 UTC: CPU-grens voor de tak en de speeltest (Sanne, na keuring Iris 23:00 punt 1)
+**Wat er ligt (GEZIEN in keuring 11 en Brams `data/cpu-duur/LEESMIJ.md`):** gewoon spel, zelfde zaad 1794860558: main 0,844, controle 0,948, tak 1,281 (liep naast drie andere runs), proef 1,357. Bram draaide dezelfde .exe drie keer: 0,71 tot 0,86. CPU tussen runs zegt op deze runners dus vooral iets over de machine, niet over het spel. De 0,8 was mijn wens; hij hoort bij de demo, niet bij de speeltest.
+
+**Besluit (Sanne, het getal is van mij):**
+1. **De grens van 1,0 in de workflow blijft staan.** Niet oprekken.
+2. **Een rode run die naast andere duurtests liep telt niet als oordeel over het spel.** De tak `claude/steam-hol-regels-weg` mag naar main als één herhaling van de gewone duurtest **alleen** (geen andere duurtest tegelijk) onder 1,0 blijft, of als Brams proef binnen één run (`wissel`) laat zien dat de tak per getekend beeld niet meer dan 20% duurder is dan main. Eén van de twee is genoeg; Olaf kiest wat het eerst klaar is.
+3. **Blijft de tak ook alleen boven 1,0:** niet naar main voor de speeltest, eerst uitzoeken wat duurder werd (deco in gang en kamers is het enige nieuwe dat de hele tijd in beeld staat).
+4. **0,8 is de eis voor de demo van 18 dec, gemeten op Thijs' eigen pc** (CPU staat in de speeltestlog). Daar beslist het echte getal, niet de runner.
+5. **Is het te zwaar op Thijs' pc, dan leveren we in deze volgorde in:** eerst de momenten op 20 beelden per s terug naar 10, dan deeltjes en licht (juice) kleiner, pas als laatste het ritme. Held in beeld onder 45% kost meer plezier dan een paar beelden per seconde, want op 120 px ziet bijna niemand het verschil tussen 10 en 20.
+
+Waarom zo: Iris heeft gelijk dat "rood maar toch naar main" niet kan. Maar de grens verzetten op ruis is net zo fout. Een losse herhaling kost één run en geen bouw.
+
 ## Stand 16 nov ±22:50 UTC: graaftoets gelezen, graafbonus blijft ook als je weg bent (Sanne, na Olaf 22:40)
 **Uitslag (GEZIEN door Olaf, tak `schermen`, `steam-hol-duur/claude-steam-hol-regels-weg-koper-{1,2}-zaad-1794857447-1920x1080/`, 20 min, zelfde zaad):** graver verdient **234**, alleen kopen **117**, dus +100%. Mijn eis was minstens +15%: ruim gehaald. Per val +45% (±9,4 tegen ±6,5): dat is precies de graafbonus op zijn hoogst (+3 op 6, plus wat terugkomers), dus zo bedoeld. De rest komt van meer vangsten (61% tegen 41%); de helden lopen niet gelijk, dus dat deel is geluk en tel ik niet als effect van graven. Iris (keuring 10) zag ook valregels van +9 tot +15 en geen zin vaker dan 3 keer.
 
