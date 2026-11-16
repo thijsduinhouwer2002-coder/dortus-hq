@@ -1,28 +1,28 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1134, hoeden 79
-HOL hol-niveau 2 (faam 149, t 0.0)
-HOL hol-niveau 3 (faam 149, t 0.0)
-HOL hol-niveau 4 (faam 149, t 0.0)
-HOL hol-niveau 5 (faam 149, t 0.0)
-HOL hol-niveau 6 (faam 149, t 0.0)
-HOL hol-niveau 7 (faam 149, t 0.0)
-HOL hol-niveau 8 (faam 149, t 0.0)
-HOL hol-niveau 9 (faam 149, t 0.0)
-HOL hol-niveau 10 (faam 149, t 0.0)
-HOL hol-niveau 11 (faam 149, t 0.0)
-HOL hol-niveau 12 (faam 149, t 0.0)
-HOL kroniek 0.0 (wacht 0.0): 240 came, 149 fell, 79 hats. +1134 gold.
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 240, erbij 1314, hoeden 107
+HOL hol-niveau 2 (faam 179, t 0.0)
+HOL hol-niveau 3 (faam 179, t 0.0)
+HOL hol-niveau 4 (faam 179, t 0.0)
+HOL hol-niveau 5 (faam 179, t 0.0)
+HOL hol-niveau 6 (faam 179, t 0.0)
+HOL hol-niveau 7 (faam 179, t 0.0)
+HOL hol-niveau 8 (faam 179, t 0.0)
+HOL hol-niveau 9 (faam 179, t 0.0)
+HOL hol-niveau 10 (faam 179, t 0.0)
+HOL hol-niveau 11 (faam 179, t 0.0)
+HOL hol-niveau 12 (faam 179, t 0.0)
+HOL kroniek 0.0 (wacht 0.0): 240 came, 179 fell, 107 hats. +1314 gold.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1154 goud, faam 149
+HOL opslag geladen: 0 terugkomers, 1334 goud, faam 179
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794864444
-HOL eerste koop mogelijk na 15 s speeltijd (goud 1154)
+HOL zaad 1794864610
+HOL eerste koop mogelijk na 15 s speeltijd (goud 1334)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL kroniek 2.5 (wacht 2.5): 7 more to come as you play.
-HOL begin: vluchten (Odo)
-HOL held binnen: Odo
+HOL begin: vluchten (Lotte)
+HOL held binnen: Lotte
 HOL zicht 4.1 1
-HOL kroniek 5.1 (wacht 1.1): Odo read about you in a tavern.
+HOL kroniek 5.1 (wacht 1.1): Lotte read about you in a tavern.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=1154, terugkomers=0
+HOL einde na 15 s, fps=10, goud=1334, terugkomers=0
