@@ -261,3 +261,12 @@ Alleen aanvullen, nooit weghalen.
 - scrollWidth gelijk aan schermbreedte (1280 en 390). Voorbeelden met Read bekeken: `dortus-com/audit-home-breed.png`, `audit-home-tel.png` (knop zichtbaar zonder scrollen), `audit-cj-kort-breed.png`, `audit-rw-kort-breed.png`, `audit-ebb-kort-tel.png`.
 - Daan gevraagd (keuring 11). Opgemerkt, niet gedaan: support.html (link "Support" bovenaan de voorpagina) gaat alleen over de oude Atlassian-apps.
 - Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR THIJS.
+
+## Run 36, 16 nov 2026 ±21:20 tot 21:40 NL
+- Nieuw: besluit 21:12 (Thijs beslist alleen nog over geld; Daan keurt, hoofdchat zet live). Nog geen antwoord van Daan op keuring 11.
+- Main van dortus liep verder (4e1e3e6: Pro-blok onderaan Click Joints, Pro alleen onderaan vanwege regel 6.1 Blender Extensions). Main in mijn tak `claude/abel-audit-2026-11` samengevoegd, geen botsing, commit 114f341, gepusht.
+- Aanpassing: "In short" op Click Joints linkte naar Gumroad bovenaan de pagina; dat botst met de afspraak "Pro alleen onderaan". Nu link naar #pro op dezelfde pagina, prijs blijft in de zin. Pro staat nog in het schema (onzichtbaar, geen knop).
+- Gecontroleerd in Chromium: scrollWidth gelijk aan schermbreedte (1280 en 390), geen CSP-meldingen, pro.jpg laadt. Bekeken met Read: `dortus-com/audit-cj-kort-breed-2.png` en het Pro-blok op 390.
+- Daan bijgepraat (aanvulling keuring 11 in berichten/daan.md).
+- Niet gedaan: support.html. De link "Support" bovenaan de voorpagina gaat naar een pagina die alleen de oude Atlassian-apps noemt en support@dortus.com gebruikt, terwijl de productpagina's thijs@dortus.com noemen. Voorgelegd aan de hoofdchat; niet zelf veranderd omdat het ook de Atlassian-pagina's raakt.
+- Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR DE HOOFDCHAT (regel 21:12: geen ja van Thijs meer nodig).
