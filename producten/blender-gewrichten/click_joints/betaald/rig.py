@@ -301,6 +301,55 @@ def kogel_vast(nieuw):
     return False
 
 
+def stukken(ob):
+    """Aantal losse stukken (via gedeelde randen) van een mesh-object."""
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    gezien, n = set(), 0
+    for v in bm.verts:
+        if v.index in gezien:
+            continue
+        n += 1
+        rij = [v]
+        gezien.add(v.index)
+        while rij:
+            w = rij.pop()
+            for e in w.link_edges:
+                o = e.other_vert(w)
+                if o.index not in gezien:
+                    gezien.add(o.index)
+                    rij.append(o)
+    bm.free()
+    return n
+
+
+def kogel_fout(context, armature, naam, nieuw):
+    """Pro 1.1 vangnet (run 14, echte Meshy-figuren): een kogel die meer dan zijn eigen lid meeneemt of een los stuk
+    achterlaat is kapot, ook als de delen gesloten zijn. Gezien op knight_yellow: de heupkogel nam beide benen mee (de
+    tuniek verbindt ze) en liet een blokje van 5 mm in het kruis achter. Geeft een melding, of None als het goed is.
+    Meer dan zijn lid: deel B (het lid voorbij het gewricht) bevat de kop van een herkend bot van de andere kant."""
+    delen = [d for d in nieuw or [] if d.get("cj_deel") in ("A", "B") and d.type == "MESH"]
+    for d in delen:
+        if stukken(d) > 1:
+            return "the cut left a loose piece here, place it by hand"
+    b = next((d for d in delen if d.get("cj_deel") == "B"), None)
+    ander = ander_kant(naam)
+    if b is None or ander is None:
+        return None
+    andere_kant = ander.split()[0]  # "Left" of "Right"
+    dg = context.evaluated_depsgraph_get()
+    for pb in armature.pose.bones:
+        h = herken(pb.name)
+        if h is None or not h[1].startswith(andere_kant + " "):
+            continue
+        ok, _a = binnen(b, armature.matrix_world @ pb.head, dg)
+        if ok:
+            limb = "legs" if h[0] in ("HIP", "KNEE", "ANKLE") else "arms"
+            return f"the cut would take both {limb} (they touch here), place it by hand"
+    return None
+
+
 def draai_terug(context, bron, voor):
     """Haal alles weg wat de laatste snede maakte (objecten die niet in `voor` stonden) en zet de bron terug."""
     for ob in [o for o in bpy.data.objects if o.name not in voor]:
@@ -383,7 +432,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # Eerst met de hele bolnaad buiten de romp (vol bereik); is het daar te dicht bij de knie, dan de
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 kandidaten = kogel_schuif(context, doel, m, lengte)
-            geblokkeerd = False
+            geblokkeerd, vangnet = False, None
             for i, (m, _mm) in enumerate(kandidaten):
                 for o in context.view_layer.objects:
                     o.select_set(False)
@@ -399,8 +448,15 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     draai_terug(context, doel, voor)
                     ok, melding, geblokkeerd = False, None, True
                     continue
+                fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
+                if fout:
+                    draai_terug(context, doel, voor)
+                    ok, melding, vangnet = False, fout, fout
+                    continue
                 if ok or i == len(kandidaten) - 1 or "too close" not in (melding or "").lower():
                     break
+            if not ok and vangnet:
+                melding = vangnet  # de echte reden; latere plekken zeggen vaak alleen "nothing was cut"
             if not ok and soort != "HINGE":
                 melding = geen_ruimte(melding, naam, lengte / eenheid_per_mm(context.scene)) or melding
             if not ok and geblokkeerd and not melding:
