@@ -1,5 +1,9 @@
 # Icoon Gloop-spel: voorstel (Mila, 16 nov)
 
+## Ronde 3 blind gekeurd (±05:15 UTC): nog niet goed genoeg
+- Nieuwe kijker, ons icoon (vak 3) tussen dertien toppers: `kijker-toppers-ronde4.png`. Cijfers 6/7/5. Hij verwacht "een tamagotchi", niet een stapelspel; de drie die opvallen hebben allemaal een **donkere achtergrond** (raket, Fruit Spider, Simon).
+- **Volgende ronde (Mila):** donkere grot (bijna zwart met warme gloed), Gloop groter en lichtgevend, één nette hoge toren van 3 hoeden die duidelijk wiebelt (of een vallende held erboven met "!", dan zie je de spelactie). Dit icoon nog niet aan Gijs geven.
+
 ## Ronde 2 (±05:10 UTC): tussen de toppers
 - Elf echte iconen van de populairste spellen in de Connect IQ-winkel (Crossy Road 3D, Stack, Step Farmer, Flappy Bird, Floppy Bird, Simon, Fruit Spider, ZigZag, Dino, Timberman, AstroBlast; via de winkel-API) naast de onze op 110 px: `kijker-toppers-ronde1.png`, `kijker-toppers-ronde3.png`.
 - Ronde 1 (Gloop klein, toren van zeven hoeden, bruine grot) viel weg: modderig oranje, Gloop klein. Daarna Gloop groter, felle achtergrond in twee kleuren.
