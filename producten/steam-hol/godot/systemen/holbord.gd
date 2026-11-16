@@ -131,7 +131,7 @@ func _draw() -> void:
 		return
 	var y := BOVEN
 	if wip_t >= 0.0:
-		y -= round(WIP_HOOG * sin(PI * wip_t / WIP_S))
+		y += round(WIP_HOOG * sin(PI * wip_t / WIP_S))   # naar beneden, niet tegen de vensterrand (kan Daan 16:35)
 	var x := plank_x()
 	draw_texture_rect_region(ct, Rect2(x, y, CEL.x, CEL.y), Rect2(0, 0, cw, ch))
 	var f: int = maxi(0, int(s.faam))
