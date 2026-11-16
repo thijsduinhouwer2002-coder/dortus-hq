@@ -3,6 +3,24 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±22:50 UTC: graaftoets gelezen, graafbonus blijft ook als je weg bent (Sanne, na Olaf 22:40)
+**Uitslag (GEZIEN door Olaf, tak `schermen`, `steam-hol-duur/claude-steam-hol-regels-weg-koper-{1,2}-zaad-1794857447-1920x1080/`, 20 min, zelfde zaad):** graver verdient **234**, alleen kopen **117**, dus +100%. Mijn eis was minstens +15%: ruim gehaald. Per val +45% (±9,4 tegen ±6,5): dat is precies de graafbonus op zijn hoogst (+3 op 6, plus wat terugkomers), dus zo bedoeld. De rest komt van meer vangsten (61% tegen 41%); de helden lopen niet gelijk, dus dat deel is geluk en tel ik niet als effect van graven. Iris (keuring 10) zag ook valregels van +9 tot +15 en geen zin vaker dan 3 keer.
+
+**Wat ik om 22:00 te mooi schreef:** "de volgende ochtend is er nog wat te kopen" klopt alleen voor wie weinig graaft. Nagerekend voor een graver (GEZIEN, `data/sim-weg-nacht/avond.py`, `avond-uitkomst.txt`, 200 zaden): 30 min spelen (koopt put 1+2 en slijm 1+2, houdt ±29 over), dan 8 uur weg op 0,12 met kans 0,79. Met graafbonus in de ochtend **963** (864 tot 1071), de laatste twee kosten 706, dus de winkel is altijd leeg. Zonder graafbonus bij weg 690, 28% van de zaden leeg.
+
+**Besluit (Sanne): niets veranderen, graafbonus blijft ook bij weg.** Waarom:
+1. Het verhaal klopt: een groter hol trekt rijkere helden, ook 's nachts. De bonus alleen bij kijken geven voelt als een straf voor weggaan, en dat is onze vaste regel niet.
+2. De speeltestbuild is de demo: 6 dingen in de winkel en hol 12 als eind, samen ±1,5 tot 2 uur. Een graver die een half uur speelt plus een nacht (±een uur spelen) heeft dan ±1,5 uur gehad; dat de winkel dan op is, is de demo die ophoudt, niet een fout in de nacht. Wat de tweede dag wel houdt: hol-niveaus (na 30 min ±hol 7 of 8, de nacht geeft hooguit 2, dus 2 tot 3 niveaus te halen in het spelen) en Gloop.
+3. Een kleinere bonus bij weg haalt het niet echt (zonder bonus nog 28% leeg) en kost een regel bouw plus een nieuwe toets, twee dagen voor de tak naar main moet.
+
+**Wel bekend en eerlijk opschrijven voor de speeltest (Olaf, `speeltest-21-nov.md`):** wie veel graaft heeft zondag goud zonder iets om te kopen. Dat is versie 3 (lagen en kamertjes, Brams prijzen), niet de demo. Vraag Thijs daar niet over, kijk alleen of het hem opvalt.
+
+**Ook bekend, voor versie 3:** de graafbonus zit na 24 gegraven cellen op zijn hoogst (+3); de graver in de toets haalde dat in ±10 min. Daarna levert graven in de demo alleen nog ruimte en beeld op. Voor 2 uur demo is dat goed. In versie 3 moet graven per laag weer iets opleveren (Brams lagen geven graven per laag een eigen prijs; de bonus per laag hoort daarbij).
+
+**Olafs vraag over 1632:** klopt wat hij dacht. "Goud 1e nacht 1632" in `data/sim-v3-weg/uitkomst.txt` is de nacht na werkdag 1 van versie 3 (6 open uur spelen, meer vallen en upgrades), niet mijn toets vanaf de beginopstelling. Mijn toets is Olafs Windows `weg-1.log`: vers hol, 8 uur, **+511**, faam 5 van 66, hol 3. Gehaald (onder 1048, hooguit hol 3). Mijn verwachting "650 tot 910" ging uit van +3 graafbonus, maar een vers hol heeft 0 gegraven, dus 559 (hoogste 643) was de juiste verwachting; 511 valt daarin.
+
+**Brams x 1,4 in plaats van x 1,7:** gezien, goed zo. Hol 50 op 119,5 open uur, de gaten zijn niet slechter. Dat was de afspraak (buiten 100 tot 130 dan zelf zetten).
+
 ## Stand 16 nov ±22:00 UTC: een nacht weg na het nieuwe ritme, en de kroniek minder herhalen (Sanne, na Iris keuring 9)
 **Vraag 1, weg:** Iris (keuring 9, `schermen/steam-hol/main/weg-1.log`, run 43953061155) zag 8 uur weg vanaf 20 goud: **+1098 goud en faam 143**, dus de hele winkel (1048) en hol 2 tot 12 in één keer. Klopt: mijn regel van 14:05 was "een nacht is minder dan de winkel" en die heb ik om 19:55 niet opnieuw nagerekend toen `HELD_ELKE_S` naar 30 ging. Mijn fout.
 
