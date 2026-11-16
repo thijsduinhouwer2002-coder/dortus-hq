@@ -1,8 +1,76 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 3, hoe makers het Desktop Companion Fest (of eerdere themafestivals voor idle en taakbalk) gebruikten, Fenna 16 nov 2026
+bezig: niets (laatste: verhaal 3 Idler Fest 2025 en Bao Bao's Cozy Laundromat, klaar 16 nov 2026; volgende run: een vierde verhaal, bijvoorbeeld hoe een taakbalkspel YouTubers en streamers kreeg)
 
 Nieuwste bovenaan.
+
+---
+
+## 3. Hoe makers het themafestival voor idle-spellen gebruikten: Idler Fest 2025, met Bao Bao's Cozy Laundromat als hoofdverhaal
+
+Onderzocht 16 nov 2026, run 4. Vraag van de hoofdchat: hoe gebruikten makers het Desktop Companion Fest? **Eerlijk vooraf: dat fest bestaat nog niet.** Januari 2027 is de eerste keer; in de lijst van Valve met alle fests van 2026 staat het niet (GamingOnLinux, lijst van Valve, jan 2026). De beste voorganger is het **Steam Idler Fest van 3 tot 10 februari 2025**, het enige eerdere fest voor idle- en bureaubladspellen. Daar keek ik naar: wie deed mee, wat deden ze, en wat leverde het op.
+
+Hoofdverhaal: **Bao Bao's Cozy Laundromat** (Destroyer Doggo, één maker met een pixelartiest), omdat die precies ons pad liep: demo, themafest als "binnenkort", Next Fest in februari, uitbrengen in maart. Naast hem drie andere makers op hetzelfde fest, die het elk anders gebruikten.
+
+### Bronnen
+- Lijst van alle 337 spellen met de tag Desktop Companion (tag-id 1320952), via de zoek-API van Steam, 16 nov 2026. Van de bovenste 120 alle aankondigingen doorzocht op "Idler Fest" via de openbare nieuws-API (`api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=<id>&count=100&maxlength=0&feeds=steam_community_announcements`). Zes spellen noemden het fest: Bongo Cat, Rusty's Retirement, Ropuka's Idle Island, Chonkers, Bao Bao's Cozy Laundromat, Soggy Beans.
+- Alle 17 aankondigingen van Bao Bao (appid 3194550), dec 2024 tot okt 2026: https://store.steampowered.com/news/app/3194550
+- Reviews per week uit het reviewhistogram van Steam (`store.steampowered.com/appreviewhistogram/<appid>`, alle talen; het totaal klopt met de winkelpagina), en de 10 meest behulpzame negatieve reviews van Bao Bao: https://steamcommunity.com/app/3194550/negativereviews/
+- Appdetails (prijs, datum, talen, demo) en winkelpagina's (tags, reviewsamenvatting), 16 nov 2026.
+- Bongo Cat: aankondigingen (appid 3419430) en het interview van Eurogamer met Marcel Zurawka (Irox Games), samengevat door PC Gamer, 26 jun 2025: https://www.pcgamer.com/gaming-industry/game-development/top-10-steam-game-bongo-cat-is-actually-losing-us-money-says-dev-which-is-fine-because-its-been-great-for-business-before-we-knocked-on-50-doors-now-they-are-coming-to-us
+- Lijst van fests 2026: https://www.gamingonlinux.com/2026/01/valve-reveal-all-the-steam-events-scheduled-for-2026
+- Niet gelukt: een eigen nabeschouwing van een maker met verlanglijstjes per dag tijdens het Idler Fest. Reddit is vanuit onze omgeving niet te lezen. Wat hieronder over verlanglijstjes staat, komt uit de eigen aankondigingen van de makers.
+
+### Cijfers
+| | Bao Bao's Cozy Laundromat | Bongo Cat | Soggy Beans | Ropuka's Idle Island | Chonkers |
+|---|---|---|---|---|---|
+| Rol in het Idler Fest | binnenkort, demo al 3 weken uit | binnenkort, demo uitgebracht op dag 1 van het fest | binnenkort, demo uitgebracht op dag 1 | net uit (29 jan 2025) | uit sinds dec 2024, 20% korting |
+| Prijs | $3,99 | gratis (cosmetica, winkel met extra's) | $10,99 | $3,99 | $4,99 |
+| Uitgebracht | 6 mrt 2025, 3 dagen na Next Fest | 5 mrt 2025, 2 dagen na Next Fest | 21 sep 2026, 19 maanden na de demo | 29 jan 2025 | 11 dec 2024 |
+| Verlanglijstjes bij uitbrengen | **25.000** (DERDEN, eigen aankondiging 6 mrt 2025) | onbekend | onbekend | onbekend | onbekend |
+| Daarna | 5.000 spelers na 3 weken; **15.000 verkocht na 9 maanden** (DERDEN, eigen aankondigingen 29 mrt en 27 nov 2025) | 150.000 spelers na 6 dagen, 500.000 na 4 weken (DERDEN, eigen aankondigingen); later ±$3.000 per maand omzet (DERDEN, Eurogamer via PC Gamer) | **23 reviews** na 8 weken (GEZIEN) | | |
+| Reviews nu | 414, 82% positief (GEZIEN) | 31.301 Engelse, 96% (GEZIEN) | 23, 100% (GEZIEN) | 2.410 Engelse, 95% (GEZIEN) | 526, 87% (GEZIEN) |
+
+Wat het fest deed met spellen die al uit waren (reviews per week, GEZIEN in het histogram):
+- **Chonkers**: 4 tot 6 per week in januari, **30 en 28** in de twee weken van het fest (week vanaf 5 en 12 feb). Zes keer zoveel, met 20% korting als enige actie.
+- **Ropuka's Idle Island**: 218 in de lanceerweek, **304** in de week van het fest, dus het fest gaf meer dan de lancering zelf.
+- **Rusty's Retirement**: 394 in januari, 650 in februari 2025 (had ook een Daily Deal van Steam in dezelfde dagen, dus niet alleen het fest).
+- Bao Bao: 15.000 verkocht op 349 reviews tot 27 nov 2025 = **±43 verkopen per review** (rekensom, DERDEN en GEZIEN). Dat past binnen de vuistregel x30 tot x60 uit onze rol.
+- Bruto omzet Bao Bao in 9 maanden: 15.000 keer ±$3,50 (met kortingen) is ±$50.000; na het deel van Steam ±$35.000 (GOK, geen bron voor de echte omzet).
+
+### Wat Bao Bao deed, in volgorde
+1. **19 dec 2024:** "development is finally complete". Pas toen het spel af was, kondigde hij de demo aan, met de reden: eerst nog testen tot er geen grote fouten meer in zitten. In de demo zat een koppeling met Twitch-chat voor streamers.
+2. **15 jan 2025:** demo uit. YouTubers maakten er filmpjes over (hij noemt QC Done en GameTout bij naam).
+3. **30 jan:** lanceerdatum bekend (6 maart), vóór het fest, zodat bezoekers van het fest een datum zagen.
+4. **3 tot 10 feb: Idler Fest** als "binnenkort" met demo. Bericht op dag 2: "It's been 17 days since I launched the demo, and the response has been absolutely incredible."
+5. **8 feb, midden in het fest:** de Gouden Panda aangekondigd, een zeldzame versiering **alleen in de demo**, voor wie 100.000 goud verdient, en alleen te halen van 3 tot 6 maart (de dagen vlak voor de lancering). Een reden om de demo te blijven spelen tot de koopdag.
+6. **19 feb:** aankondiging Next Fest (24 feb tot 3 mrt 2025), met dezelfde demo.
+7. **6 mrt:** uitgebracht voor $3,99, "less than the price of a coffee", met 25.000 verlanglijstjes. 20 talen.
+8. **Maart:** St. Patrick's-evenement en een focustimer die een speler vroeg. Daarna kortingen in themafests ("Minimal & Chill", april), een tweede Bao Bao-spel (aug 2025), en een pauze "due to burnout" tot de kerstupdate van nov 2025.
+
+### Wat de spelers van Bao Bao zeiden (meest behulpzame negatieve reviews)
+Bijna allemaal hetzelfde: mooi, maar er is niets te doen. "There is absolutely nothing here mechanically." "It feels more like a proof of concept than a fully fleshed out game." "I excitedly bought at full price when it launched ... because I loved the art style so much." Verder: uitleg bij voorwerpen ontbreekt, voortgang heel traag, panda's lopen vast. Een speler had het spel in zijn top 5 van meest verwachte spellen. **De beelden en het fest haalden de verlanglijstjes; de diepte bepaalde de reviews (82%, tegen 96% bij Bongo Cat en 87% bij Chonkers).**
+
+### Wat de anderen deden op hetzelfde fest
+- **Bongo Cat** bracht de demo uit op de avond dat het fest begon, en zette de volgende dag al een update met wensen uit reviews en Discord (kat verschuiven, naar een ander scherm, knop in de taakbalk verbergen). Wie de demo 30 minuten speelde, kreeg in het volle spel twee exclusieve hoeden. Next Fest 3 weken later, uitbrengen 2 dagen na Next Fest. Let op: Bongo Cat was al een bekende meme sinds 2018 en is gratis; het succes komt grotendeels daarvandaan, niet van het fest. De maker zegt zelf dat het spel ±$3.000 per maand oplevert en "actually losing us money", maar dat het als reclame voor hun volgende spel werkt: "before, we knocked on 50 doors; now, they are coming to us."
+- **Ropuka's Idle Island** kwam 5 dagen vóór het fest uit, en zette midden in het fest een **Idler Fest-stickerverzameling** in het spel als bedankje ("We're midway through Idler Fest and we are thrilled to see how many new people discovered our little frog").
+- **Soggy Beans** (aquarium op het bureaublad) bracht een vroege demo uit voor het fest, alleen in het Engels, en deed daarna mee met Next Fest juni 2025, een Back to School-viering, Animal Fest, Ocean Fest en Anime Fest. De demo-saves werden twee keer gewist. Het spel kwam pas 19 maanden na de demo uit, voor $10,99, en heeft na 8 weken 23 reviews. De demo zelf heeft 21 reviews, 10 daarvan in de eerste week.
+
+### Drie lessen
+1. **Een themafest werkt het best als de lancering er vlak achter zit.** Bao Bao en Bongo Cat brachten uit binnen 5 weken na het fest en 2 tot 3 dagen na Next Fest; Soggy Beans liet 19 maanden tussen demo en lancering en kwam op 23 reviews. Oorzaak en gevolg zijn niet zeker (prijs en spel verschillen), maar de volgorde demo, themafest, Next Fest, meteen uitbrengen hoort bij de twee die het haalden. Ons plan (fest 14 jan, Next Fest 22 feb, uitbrengen maart) is precies het pad van Bao Bao.
+2. **Geef demospelers een reden om tot de koopdag te blijven, en iets wat ze meenemen.** Bao Bao: een Gouden Panda alleen in de demo, alleen te halen in de dagen vóór de lancering. Bongo Cat: twee exclusieve hoeden voor wie 30 minuten de demo speelde. Ropuka: stickers met het fest als thema. Alle drie kosten weinig en geven een reden om terug te komen en erover te praten.
+3. **Beelden en een fest halen verlanglijstjes, maar alleen diepte houdt reviews hoog.** Bao Bao haalde met een lief uiterlijk 25.000 verlanglijstjes en 15.000 verkopen, maar de klacht in vrijwel elke negatieve review is "niets te doen", en de maker brandde op. Dit is dezelfde les als "not idle enough" bij Desktop Heroes (verhaal 2), van de andere kant: daar te veel aandacht nodig, hier te weinig om naar te streven.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Het Desktop Companion Fest is nieuw. Het Idler Fest had een bredere groep (alle idle-spellen, ook boerderijen en klikspellen); ons fest is smaller, dus minder bezoekers maar wel precies onze kopers (GOK).
+- De 25.000 verlanglijstjes zijn een eigen opgave van de maker, niet nagekeken. Hoeveel daarvan door het Idler Fest kwamen, weet ik niet; hij had ook YouTubers, Next Fest en een demo van 7 weken.
+- Bongo Cat is een bekende figuur en gratis. Niet als maatstaf gebruiken.
+- Ropuka en Chonkers laten zien dat het fest ook spellen helpt die al uit zijn. Voor ons is dat pas in een volgende editie (2028) van belang.
+
+### Voorstel voor Dortus deze week
+**De hoofdchat besluit vóór 18 dec: in de demo komt één fest-hoed voor Gloop, die je krijgt als je de demo speelt tijdens het Desktop Companion Fest (14 tot 18 jan) of Next Fest, en die via de save meegaat naar het volle spel.** Waarom: drie van de vier makers die het Idler Fest goed gebruikten, gaven demospelers iets exclusiefs (Gouden Panda, twee hoeden, fest-stickers), en ons spel gaat over hoeden: een "Fest Hat" is het meest logische cadeau dat er is. Onze save gaat al mee naar het volle spel (Bongo Cat kon dat niet door de regels van Steam-voorwerpen; wij gebruiken een gewone save, dus dat probleem hebben wij niet, GOK tot Olaf het bevestigt). Wie: de hoofdchat beslist (de demolijst is vast, dit is een kleine toevoeging), Olaf bouwt het (één hoed, een datumcheck of een vlag "demo gespeeld"), Daan maakt de hoed in de 3D-stijl, Chris zet hem in het bericht van 8 januari ("play the demo during the fest and keep the Fest Hat forever").
+
+Voor Hans en Chris (geen actie nu): houd de lanceerdatum in maart zo dicht mogelijk na Next Fest (Bao Bao en Bongo Cat: 2 tot 3 dagen erna), en zet de datum al vóór het Desktop Companion Fest op de pagina, zoals Bao Bao deed op 30 januari.
 
 ---
 
