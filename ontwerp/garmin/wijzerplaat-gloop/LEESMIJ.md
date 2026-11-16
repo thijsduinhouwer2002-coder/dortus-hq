@@ -1,0 +1,9 @@
+# Wijzerplaat "Gloop's Hat Tower" (Mila, 16 nov 2026, concept 1)
+Opdracht hoofdchat 16 nov 09:55 NL: twee betaalde wijzerplaten, deze met Gloop en zijn hoedentoren (reclame voor Hats en het Gloop-spel). De concurrentiecheck doet Gijs eerst; dit is alleen de look, zodat hij weet waar hij naartoe bouwt.
+
+**Haak:** elke 1.000 stappen krijgt Gloop een hoed op zijn toren. Haal je je stapdoel, dan komt de kroon er bovenop. Je wijzerplaat laat dus de hele dag zien hoe ver je bent, zonder een balkje: je kijkt naar een toren die groeit. Om 10 uur twee hoeden, om 19 uur een wankele toren met kroon. Dat is de grap van het spel, maar dan met je eigen benen.
+
+- `concept-454-ochtend-middag-doel-aod.png`: 454 px (Venu 3), ochtend (3.420 stappen, 3 hoeden), middag (7.612, 7 hoeden), doel gehaald (10.230, 9 hoeden plus kroon), en AOD (zwart, alleen tijd en Gloop als mint lijn, weinig pixels aan voor de batterij). Gemaakt met `maak_concept.py`, alleen uit de spelkit (`gloop-spel/kit/454`: donkere grot, gloop-blij, de 10 hoeden), dus hetzelfde figuur als het spel en het icoon.
+- Indeling: tijd groot links (Poppins Bold met donkere rand, zoals de stripletter van het spel), datum geel erboven, stappen mint en "x/10 HATS" eronder, hartslag en batterij klein linksonder. Gloop rechts onderin, de toren groeit langs de rechterkant omhoog en raakt de tijd niet.
+- GEZIEN met Read op 454. Werkt: Gloop en de toren zijn het eerste wat je ziet, de tijd leest meteen. Zwak: in de middagstand komt de bovenste hoed tegen de 7 van de tijd; de kroon bij het doel valt net in de rand (kan juist grappig zijn, maar dan bewust). Tijd 2 px meer naar links of de toren 0,02 naar rechts.
+- Nog niet: MIP-versie (260/280, effen grot zoals het spel), en of Garmin genoeg geheugen geeft voor 10 hoedplaatjes op een wijzerplaat (Gijs weet dat).
