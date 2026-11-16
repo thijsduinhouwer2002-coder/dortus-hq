@@ -1,8 +1,61 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 12, Craftsman Cabinet Creator, vakman met cursus plus bouwer, klaar 16 nov 2026 ±11:30 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een "Sascha" voor geprinte figuren: een maker of docent die figuren met gewrichten ontwerpt en een publiek heeft. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 13, Nikko Industries en STL Buddy, klaar 16 nov 2026 ±12:25 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of de andere flexi-gereedschappen naast elkaar (PrintPal Flexi, SlicerJoint Pro, Riggable, 3DAI Studio, Flexi Cutter van STL Buddy): wie gebruikt ze en wat kosten ze. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 13. Nikko Industries en STL Buddy (Nikko Industries, klein bedrijf uit Californië, YouTube sinds 2017, STL-winkel, abonnement en sinds 2025 een webgereedschapskist voor 3D-printen): de flexi-hoek kiest voor "zonder Blender", en elk gereedschap krijgt een eigen "How to make X"-filmpje
+
+Onderzocht 16 nov 2026, run 13. Waarom dit verhaal: de opdracht was een "Sascha" voor geprinte figuren (verhaal 12): iemand met een publiek van mensen die beweegbare prints maken. Bij het zoeken naar uitlegvideo's over flexi in Blender (Joris noemde er een in `verhalen-groei.md`, 38.163 views) bleek de maker van die video niet alleen uitlegger maar ook een **concurrent**: hij verkoopt een webgereedschap dat flexi-gewrichten in een STL zet. Dat is precies wat Click Joints in Blender doet, maar dan in de browser en als abonnement. Let op: hij verkoopt ook een cursus ("School", "masterclass"). Ik neem daar niets van over; alles hieronder komt uit winkelpagina's, prijzen en tellers die ik zelf zag. Omzet en ledenaantallen staan nergens openbaar.
+
+### Bronnen (alle met curl of yt-dlp, GEZIEN 16 nov 2026)
+- YouTube-kanaal, video's en Shorts: https://www.youtube.com/@NikkoIndustries (kanaalpagina, lijst van 60 recente video's en 96 Shorts met weergaven).
+- De flexi-video: https://www.youtube.com/watch?v=Sml8ecHkhPg (datum, weergaven, likes en beschrijving via yt-dlp). Daarna blokkeerde YouTube verdere vragen ("Sign in to confirm you're not a bot"); reacties onder de video heb ik dus NIET gelezen.
+- STL Buddy, prijzen en voorwaarden: https://stlbuddy.com/pricing, https://stlbuddy.com/terms ("STL Buddy is operated by Nikko Industries"), https://stlbuddy.com/affiliates, de gereedschapspagina's https://stlbuddy.com/flexi-cutter en https://stlbuddy.com/flexi.
+- Domeinregistratie stlbuddy.com via RDAP (openbaar register van Verisign).
+- STL-winkel https://www.nikkoindustries.com en abonnement https://nikkoindustriesmembership.com.
+- Niet te lezen: Patreon (403), de "School" (niet gevonden op Skool onder zijn naam).
+
+### Cijfers
+- **Kanaal: 23,1K abonnees, 1.174 video's, 13.923.302 weergaven, sinds 2 sep 2017** (GEZIEN). Onderwerpen eerst cosplay-helmen en harnassen, nu vooral "how to make X for 3D printing".
+- **Flexi in Blender, 5 dec 2025: 38.202 weergaven, 675 likes, 13,5 minuten** ("How to Make Your Own Flexi STL Files (Free FlexiMaker Tutorial Using Blender + STL Buddy)"). Werkwijze volgens de beschrijving: plaatje maken met ChatGPT, plaatje naar STL met STL Buddy, in Blender de "FlexiMaker cutter" erover. Onderaan een betaalde vervolgcursus met o.a. "How to sell your Flexi files & prints online".
+- **Flexi zonder Blender, 15 mei 2026: 771 weergaven** ("How to Make Your Own Flexi STLs Without 3D Modeling", 6,7 min). Zelfde onderwerp, nu in zijn eigen webgereedschap: 50 keer minder.
+- Ter vergelijking, zijn andere lange video's in de lijst: meestal 300 tot 5.000; de uitschieters zijn uitleg over een slicer ("How to Cut Large Files in Bambu Studio" 21.000, "How to Paint in BambuLab Studio Slicer" 19.000) en de flexi-video.
+- **Shorts: allemaal "How to make X #3dprinting", één gereedschap per filmpje.** Hoogste: "How to make a hinged box" 255.574 weergaven en 7.050 likes, geplaatst 9 nov 2026, dus in één week (GEZIEN). Daarna "how to make life size figures" 37.000, "how to make modular storage" 13.000, "How to split your models" 12.000. De scharnierdoos hoort bij het gratis gereedschap "Hinged Box Maker" van STL Buddy.
+- **STL Buddy, domein geregistreerd 6 aug 2025** (RDAP). 94 betaalde plus 24 gratis gereedschappen, elk voor één ding (scharnierdoos, sleutelhanger, opbergla, onderzetter, splitsen, flexi). Prijzen (GEZIEN):
+  - Free $0 (24 gereedschappen), Tinkerer $10 per maand (43, met **Flexi Cutter: "Add adjustable flexi joints to your STL model"**), Maker $20 per maand (87, "articulated models", met **Flexi Maker: "Build cute articulated flexi critters"**), Inventor $32 per maand (94, met Model Splitter).
+  - Zonder abonnement losse credits: 40 voor $10 of 100 voor $20; een download uit Tinkerer kost 5 credits, dus een Flexi Cutter-bestand kost $1 tot $1,25 (eigen rekensom).
+  - "Free to design": ontwerpen en voorbeeld zien is gratis, pas het downloaden kost geld.
+  - Daarnaast "Image to STL" met eigen creditplannen van $10 tot $99 per maand, en een Etsy-tekstmaker en een foto-opknapper voor verkopers.
+  - Partnerprogramma: 20% van elke abonnementsbetaling zolang de klant blijft, "There's no 12-month limit"; het staat nog in de testfase ("Automatic payouts are not enabled yet").
+- **Abonnement op zijn eigen modellen: $20 per maand**, onbeperkt downloaden; op de voorpagina 19 keer "Flexi" (flexi-draken in thema's van Kerst en Halloween). Veel van zijn modellen zijn fan-art van bekende merken (Halo, Star Wars, Marvel, Pokémon); dat nemen we niet over.
+- Niet gezien: hoeveel leden, abonnees op STL Buddy of kopers. Of het geld oplevert weet ik dus NIET.
+
+### Wat hij in welke volgorde deed (uit de tellers en datums, geen eigen verhaal van hem gelezen)
+1. Vanaf 2017 video's over cosplay printen, een STL-winkel met helmen ($20 tot $125) en later een abonnement van $20 per maand op zijn modellen.
+2. Video's over geld verdienen met een printer ("5 Ways to Make Money with 3d Printing", "5 Places to Sell Your 3d Prints", "Is the New Thangs Print on Demand Worth It?"). Zijn publiek wordt zo: mensen die prints verkopen op Etsy en markten.
+3. Aug 2025 STL Buddy: een website met kleine generatoren, elk voor één product dat je kunt verkopen.
+4. Dec 2025 de flexi-video met Blender plus zijn eigen AI-stap, met een gratis cutter en een betaalde cursus. Zijn grootste lange video in die periode.
+5. Daarna zette hij flexi als gereedschap in de site (Flexi Cutter in de $10-laag, Flexi Maker in de $20-laag) en maakte in mei 2026 een video zonder Blender, die bijna niet bekeken werd.
+6. Sinds 2026 vooral Shorts in één vaste vorm, "How to make X", elk met één gereedschap van de site. Nov 2026 de scharnierdoos met 255.000 in een week.
+
+### Drie lessen
+1. **Onze directe concurrent in de flexi-hoek is geen Blender-add-on maar een website voor $10 per maand, gemaakt door iemand met 23K abonnees die verkopers bedient.** Wie flexi wil zonder te modelleren, gaat naar STL Buddy, PrintPal Flexi of Riggable (Ruben noemde die laatste twee al in `platformen/blender-2/rig-to-figure.md`). Click Joints moet dus niet vechten om "flexi in drie klikken", maar om wat een website niet doet: gewrichten met speling in mm, een scharnier met eindstop, nakijken waar het botst, in je eigen Blender-model. Dat zegt de mail aan de makers al ("for jointed figures rather than chain-link flexi"); deze les bevestigt dat die keuze klopt. Past bij hoofdles 7 (zeg waarom je beter bent dan de andere weg).
+2. **"In Blender" in de titel kostte hem geen kijkers, eerder het omgekeerde.** Dezelfde maker, hetzelfde onderwerp: met Blender 38.202, zonder Blender 771. Waarom precies weet ik niet (GOK: het woord "Free", de lengte, of dat YouTube de eerste beter testte). Maar het laat zien dat er een groep is die flexi in Blender wil leren, en dat is onze koper. Dezelfde groep zag Joris (lange Blender-uitleg over beweegbare prints 38.000 tot 143.000).
+3. **Eén gereedschap, één concreet ding, één "How to make X"-filmpje.** Zijn grootste Short is een scharnierdoos (255.574 in een week), niet het merk en niet de site. Elke generator is een filmpje over iets wat de kijker wil printen. Bevestigt hoofdles 3 (filmpjes rond de vraag van de gebruiker) en Joris' meting van de vaste kopvorm. Voor ons ligt het voor de hand: een scharnier dat stopt op 90 graden is precies wat Click Joints Pro doet.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Hij had acht jaar kanaal en een publiek van verkopers vóór STL Buddy. Zijn Shorts komen bij een kanaal met 23K abonnees; onze eerste Shorts beginnen bij nul (Joris: 300 tot 900 views is normaal).
+- Ik weet niet of STL Buddy loont; er staat nergens een omzet of ledental. Het partnerprogramma zit nog in de test. Het kan een groot aanbod zijn met weinig kopers.
+- De 255.000 voor de scharnierdoos kan ook komen doordat het een ding voor iedereen is (een doosje), niet een gewricht voor figuurmakers. Een filmpje over ons scharnier haalt dat niet vanzelf (GOK).
+- Nikko is een concurrent met een eigen flexi-gereedschap. Hem een gratis Pro aanbieden als bespreker heeft weinig kans, en het hoort niet op de makerslijst.
+- YouTube blokkeerde na een paar vragen; reacties en de video's van zijn cursus heb ik niet gezien.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris (filmpjes), Ruben levert een schermopname uit Blender en, als het kan, een foto of filmpje van een print.
+**Wat:** één van de eerste Shorts precies in Nikko's vorm: kop **"How to make a hinge that stops at 90° #3dprinting"** (of "How to make a print-in-place ball joint #3dprinting" met de gratis versie zolang Pro nog in de keuring zit). In de eerste seconde het onderdeel dat buigt en stopt, dan in 20 tot 30 seconden de stappen in Blender, aan het eind de print in de hand. Geen merk in de kop, Click Joints alleen in beeld en in de beschrijving. Het past in Joris' advies (vaste kopvorm, 15 filmpjes) en geeft die vorm een begin: "How to make <iets wat beweegt> #3dprinting". Meten zoals afgesproken: views na 48 uur en downloads die dag; bij 3 keer de mediaan de volgende vijf in dezelfde vorm (deur van een doosje, kaak van een figuur, vleugel, knie).
 
 ---
 
