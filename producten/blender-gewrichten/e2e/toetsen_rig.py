@@ -4,7 +4,7 @@ Figuur zoals toetsen_een_lid (benen r 7 mm, 18 mm uit elkaar, romp), Armature-mo
 thigh.L/R en shin.L/R (knie op z = 30). Op shin.L Limit Rotation X 0 tot 120 graden, op shin.R niets.
 Heupen staan in de rig maar liggen in de romp-overgang: die mogen eerlijk overgeslagen worden of lukken; de toets
 eist alleen de knieën. Eisen:
-- naamregels: Mixamo, Rigify en gewone namen herkend, Hips/Spine/LeftHand niet;
+- naamregels: Mixamo, Rigify, Unreal, Character Creator, VRoid, Biped, Daz en gewone namen herkend, Hips/Spine/LeftHand niet;
 - Left knee: scharnier met eindstop 120 (stand 120), label "from rig", buigkant = +Z van het bot;
 - Right knee: shin.R heeft alleen een grens in wereldruimte (telt niet), dus spiegelen: hetzelfde bereik als links
   (120), label "mirrored" (hoofdchat 16 nov, spiegelen); spiegel_stops los getoetst (eigen grens gaat voor,
@@ -105,7 +105,12 @@ def main():
     log(f"Blender {bpy.app.version_string}")
     verwacht = {"mixamorig:LeftForeArm": "ELBOW", "mixamorig:RightUpLeg": "HIP", "mixamorig:RightLeg": "KNEE",
                 "mixamorig:Neck": "NECK", "upper_arm.L": "SHOULDER", "DEF-shin.R": "KNEE", "spine.004": "NECK",
-                "Calf_L": "KNEE", "Hips": None, "Spine": None, "mixamorig:LeftHand": None, "Leg": None}
+                "Calf_L": "KNEE", "Hips": None, "Spine": None, "mixamorig:LeftHand": None, "Leg": None,
+                # 16 nov run 13: Unreal, Character Creator, VRoid, 3ds Max Biped, Daz
+                "upperarm_l": "SHOULDER", "neck_01": "NECK", "CC_Base_L_Forearm": "ELBOW", "CC_Base_R_Calf": "KNEE",
+                "J_Bip_L_UpperLeg": "HIP", "J_Bip_C_Neck": "NECK", "Bip01 L Thigh": "HIP", "Bip01 R Calf": "KNEE",
+                "lShldrBend": "SHOULDER", "rForearmBend": "ELBOW", "lShin": "KNEE", "lHand": None,
+                "clavicle_l": None, "CC_Base_L_Hand": None}
     for naam, sleutel in verwacht.items():
         h = rigm.herken(naam)
         check((h[0] if h else None) == sleutel, f"naam {naam} -> {h}")

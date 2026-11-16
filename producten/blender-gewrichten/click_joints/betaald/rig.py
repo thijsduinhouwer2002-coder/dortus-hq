@@ -21,14 +21,17 @@ STANDAARD = ("SHOULDER", "ELBOW", "HIP", "KNEE", "NECK")
 NAMEN = {"SHOULDER": "shoulder", "ELBOW": "elbow", "HIP": "hip", "KNEE": "knee", "ANKLE": "ankle", "NECK": "neck"}
 # Kern van de botnaam (kleine letters, zonder kant en voorvoegsel) -> preset
 KERNEN = {
-    "SHOULDER": ("upper_arm", "upperarm", "arm", "upper arm"),
-    "ELBOW": ("forearm", "lowerarm", "lower_arm", "fore_arm", "lower arm"),
-    "HIP": ("thigh", "upleg", "upperleg", "upper_leg", "up_leg", "upper leg"),
+    "SHOULDER": ("upper_arm", "upperarm", "arm", "upper arm", "shldrbend", "shldr"),
+    "ELBOW": ("forearm", "lowerarm", "lower_arm", "fore_arm", "lower arm", "forearmbend"),
+    "HIP": ("thigh", "upleg", "upperleg", "upper_leg", "up_leg", "upper leg", "thighbend"),
     "KNEE": ("shin", "calf", "leg", "lowerleg", "lower_leg", "lower leg"),
     "ANKLE": ("foot",),
-    "NECK": ("neck", "spine.004", "spine_004"),
+    "NECK": ("neck", "spine.004", "spine_004", "neck_01", "neck01", "necktwist01", "neck1"),
 }
-VOORVOEGSELS = ("def-", "org-", "mch-", "mixamorig:", "mixamorig1:", "mixamorig2:", "bip01 ", "bip ")
+VOORVOEGSELS = ("def-", "org-", "mch-", "mixamorig:", "mixamorig1:", "mixamorig2:", "bip01 ", "bip ",
+                "cc_base_", "j_bip_")
+# 16 nov run 13: ook Unreal (upperarm_l, calf_l, neck_01), Character Creator (CC_Base_L_Upperarm), VRoid
+# (J_Bip_L_UpperArm), 3ds Max Biped (Bip01 L Thigh) en Daz (lShldrBend, lForearmBend, lThighBend, lShin).
 
 
 def kant_en_kern(botnaam):
@@ -38,6 +41,11 @@ def kant_en_kern(botnaam):
         if n.startswith(v):
             n = n[len(v):]
     kant = ""
+    m = re.match(r"^([lrc])[._ ]", n)  # kant vooraan: "l_upperarm" (CC, VRoid), "l thigh" (Biped); c = midden
+    if m:
+        return ("" if m.group(1) == "c" else m.group(1).upper()), n[m.end():].strip("._ ")
+    if n not in _alle_kernen() and len(n) > 1 and n[0] in "lr" and n[1:] in _alle_kernen():
+        return n[0].upper(), n[1:]  # Daz: kant vast aan de naam ("lshin", "rthighbend")
     m = re.search(r"[._ ]([lr])(\.\d+)?$", n)
     if m:
         kant, n = m.group(1).upper(), n[:m.start()] + (m.group(2) or "")
@@ -46,6 +54,10 @@ def kant_en_kern(botnaam):
         if m:
             kant, n = ("L" if m.group(1) == "left" else "R"), n[m.end():]
     return kant, n.strip("._ ")
+
+
+def _alle_kernen():
+    return {k for kernen in KERNEN.values() for k in kernen}
 
 
 def herken(botnaam):
