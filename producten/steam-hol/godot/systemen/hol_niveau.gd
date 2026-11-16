@@ -91,7 +91,10 @@ static func weg_regel(oud_faam: int, nieuw_faam: int) -> String:
 # Het plan van de optocht. Uit: {"wip": bool, "poef": [{niveau, wat, t, munt}], "helden": [niveau, ...], "duur": s}.
 # t = seconden na de wip. Leeg (wip false) als er geen niveau bijkwam.
 static func optocht(oud_faam: int, nieuw_faam: int) -> Dictionary:
-	var bij := erbij(oud_faam, nieuw_faam)
+	return plan(erbij(oud_faam, nieuw_faam))
+
+# Het plan voor een rij niveaus (oplopend).
+static func plan(bij: Array[int]) -> Dictionary:
 	var poef: Array = []
 	var helden: Array[int] = []
 	for n in bij:
@@ -108,3 +111,44 @@ static func optocht(oud_faam: int, nieuw_faam: int) -> Dictionary:
 		poef[i].munt = i == 0 or i == poef.size() - 1
 	var duur: float = poef[-1].t if not poef.is_empty() else 0.0
 	return {"wip": not bij.is_empty(), "poef": poef, "helden": helden, "duur": duur}
+
+# --- Rij bij de ingang (Sanne 16 nov 16:00, voortgang.md "Versie 3 definitief" punt 5) ---------------------------
+# Per keer weg hooguit WEG_MEETEN hol-niveaus meteen (in de optocht); de rest wacht in de rij. Faam blijft helemaal binnen.
+# Elk volgend niveau uit de rij komt na RIJ_S seconden open spelen (de rij wacht als de app dicht is).
+# Zichtbaar niveau = niveau(faam) - rij: eigen vangsten tellen gewoon door.
+const WEG_MEETEN := 4
+const RIJ_S := 180.0
+const RIJ_REGEL := "%d more levels wait at the door."
+
+static func zichtbaar(faam: int, rij: int) -> int:
+	return maxi(1, niveau(faam) - maxi(0, rij))
+
+# Na weg zijn. Uit: {"meteen": [niveaus], "rij": nieuwe rij, "regels": [kroniekregels], "optocht": plan}.
+static func weg(oud_faam: int, nieuw_faam: int, rij_voor: int) -> Dictionary:
+	var van := zichtbaar(oud_faam, rij_voor)
+	var tot := niveau(nieuw_faam)
+	var meteen: Array[int] = []
+	for n in range(van + 1, mini(tot, van + WEG_MEETEN) + 1):
+		meteen.append(n)
+	var rij := maxi(0, tot - van - meteen.size())
+	var regels: Array[String] = []
+	if meteen.size() == 1:
+		regels.append(niveau_regel(meteen[0]))
+	elif meteen.size() > 1:
+		regels.append(WEG_REGEL % meteen.size())
+	if rij > 0:
+		regels.append(rij_regel(rij))
+	return {"meteen": meteen, "rij": rij, "regels": regels, "optocht": plan(meteen)}
+
+static func rij_regel(rij: int) -> String:
+	return "1 more level waits at the door." if rij == 1 else RIJ_REGEL % rij
+
+# Hover op het bordje met iets in de rij: "7 levels waiting. Next in 2 min."
+static func rij_hover(rij: int, rij_t: float) -> String:
+	var min_ := maxi(1, ceili((RIJ_S - rij_t) / 60.0))
+	return "%d level%s waiting. Next in %d min." % [rij, "" if rij == 1 else "s", min_]
+
+# Doelregel (d): "Level 6 at the door: 2 min"
+static func rij_doel(faam: int, rij: int, rij_t: float) -> String:
+	var min_ := maxi(1, ceili((RIJ_S - rij_t) / 60.0))
+	return "Level %d at the door: %d min" % [zichtbaar(faam, rij) + 1, min_]

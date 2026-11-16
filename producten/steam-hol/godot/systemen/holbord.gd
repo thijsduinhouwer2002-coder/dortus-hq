@@ -30,6 +30,8 @@ var _kijk_t := 0.0
 var _faam := -1
 var _x := -999.0
 var _eerste := true
+var _niv := 1
+var _niv_nu := 1
 
 func zet(strook, h) -> void:
 	s = strook
@@ -69,7 +71,17 @@ func wip() -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
-	if ct == null or s == null:
+	if s == null:
+		return
+	# rij bij de ingang (Sanne 16 nov 16:00): elke RIJ_S open seconden komt er één niveau uit de rij, met de wip
+	if int(s.rij) > 0:
+		s.rij_t += delta
+		if s.rij_t >= HN.RIJ_S:
+			s.rij_t = 0.0
+			s.rij = int(s.rij) - 1
+			s.log_regel("HOL rij: niveau %d uit de rij, nog %d" % [HN.zichtbaar(int(s.faam), int(s.rij)), int(s.rij)])
+			_faam = -2   # opnieuw kijken: wip en tekenen
+	if ct == null:
 		return
 	if wip_t >= 0.0:
 		wip_t += delta
@@ -83,18 +95,20 @@ func _process(delta: float) -> void:
 	var f: int = int(s.faam)
 	var x := plank_x()
 	if f != _faam or x != _x:
-		var oud_niv: int = HN.niveau(_faam) if _faam >= 0 else -1
+		_niv_nu = HN.zichtbaar(f, int(s.rij))
+		var oud_niv: int = _niv
 		_faam = f
 		_x = x
+		_niv = _niv_nu
 		if _eerste:
 			_eerste = false
 			# na weg zijn wipt het bordje één keer (Sanne 14:50); de optocht zelf komt later
 			if typeof(s.optocht) == TYPE_DICTIONARY and bool(s.optocht.get("wip", false)):
 				wip()
-				s.log_regel("HOL bordje wip na weg (niveau %d)" % HN.niveau(f))
-		elif HN.niveau(f) > oud_niv:
+				s.log_regel("HOL bordje wip na weg (niveau %d)" % _niv)
+		elif _niv > oud_niv:
 			wip()
-			s.log_regel("HOL bordje wip niveau %d" % HN.niveau(f))
+			s.log_regel("HOL bordje wip niveau %d" % _niv)
 		queue_redraw()
 
 static func cijfers(n: int) -> Array:
@@ -112,11 +126,13 @@ func _draw() -> void:
 	var x := plank_x()
 	draw_texture_rect_region(ct, Rect2(x, y, CEL.x, CEL.y), Rect2(0, 0, cw, ch))
 	var f: int = maxi(0, int(s.faam))
-	for c in cijfers(HN.niveau(f)):
+	var rij: int = int(s.rij)
+	for c in cijfers(HN.zichtbaar(f, rij)):
 		draw_texture_rect_region(ct, Rect2(x + float(c[1]), y, CEL.x, CEL.y), Rect2((1 + int(c[0])) * cw, 0, cw, ch))
 	var mid := x + CEL.x / 2.0
 	var by := y + BALK_RIJ
 	draw_rect(Rect2(mid - BALK_HALF, by, 2.0 * BALK_HALF, 1.0), LEEG_KLEUR)
-	var vol: float = round(2.0 * BALK_HALF * HN.deel(f) * 3.0) / 3.0   # op schermpixels bij schaal 3
+	var d := 1.0 if rij > 0 else HN.deel(f)   # met iets in de rij staat het balkje vol
+	var vol: float = round(2.0 * BALK_HALF * d * 3.0) / 3.0   # op schermpixels bij schaal 3
 	if vol > 0.0:
 		draw_rect(Rect2(mid - BALK_HALF, by, vol, 1.0), VOL_KLEUR)

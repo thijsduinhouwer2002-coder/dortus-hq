@@ -129,6 +129,18 @@ func _init() -> void:
 	ok(absf(float(op.poef[0].t) - 1.2) < 0.01 and absf(float(op.poef[2].t) - 3.6) < 0.01 and float(op.duur) <= 12.0, "1,2 s na elkaar, hooguit 12 s")
 	ok(bool(op.poef[0].munt) and not bool(op.poef[1].munt) and bool(op.poef[2].munt), "muntjes alleen bij eerste en laatste ding")
 	ok(not bool(HN.optocht(5, 5).wip) and HN.optocht(10, 12).poef.is_empty(), "geen optocht zonder niveau; dief alleen als bezoeker")
+	# rij bij de ingang (Sanne 16 nov 16:00): hooguit 4 meteen, rest wacht; zichtbaar = niveau - rij
+	var rq: Dictionary = HN.weg(0, 136, 0)
+	ok(rq.meteen == [2, 3, 4, 5] and int(rq.rij) == 7, "eerste nacht: hol 5 meteen, 7 in de rij (%s, %d)" % [str(rq.meteen), int(rq.rij)])
+	ok(rq.regels == ["Grew 4 levels while you were away.", "7 more levels wait at the door."], "regels na weg met rij: " + str(rq.regels))
+	ok(HN.zichtbaar(136, 7) == 5 and HN.zichtbaar(136, 0) == 12, "zichtbaar niveau = niveau min rij")
+	var op4: Dictionary = rq.optocht
+	ok(op4.helden == [3, 5] and op4.poef.size() == 1 and float(op4.duur) <= 5.0, "optocht met 4 niveaus: ridder, dief, vleermuis, kort")
+	var rq2: Dictionary = HN.weg(136, 140, 7)
+	ok(rq2.meteen == [6, 7, 8, 9] and int(rq2.rij) == 3, "tweede nacht met rij: weer hooguit 4 (%s, %d)" % [str(rq2.meteen), int(rq2.rij)])
+	ok(HN.weg(10, 12, 0).rij == 0 and HN.weg(10, 12, 0).regels == ["Hole level 5: the Thief."], "één niveau: geen rij, gewone regel")
+	ok(HN.rij_regel(1) == "1 more level waits at the door." and HN.rij_hover(7, 60.0) == "7 levels waiting. Next in 2 min.", "rij-regel en hover")
+	ok(HN.rij_doel(136, 7, 60.0) == "Level 6 at the door: 2 min", "doelregel met rij: " + HN.rij_doel(136, 7, 60.0))
 	var lang_n := 0
 	for n_ in range(2, 13):
 		if HN.niveau_regel(n_).length() > 42:

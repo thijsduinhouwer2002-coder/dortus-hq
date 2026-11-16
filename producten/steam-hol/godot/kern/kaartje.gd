@@ -63,6 +63,8 @@ static func doel_regel(s) -> String:
 	if d.is_empty():
 		# niets meer te kopen: het volgende hol-niveau (Sanne 16 nov 16:10, punt 6c); alleen met het bordje in beeld (moet Daan 15:33)
 		if s.holbord != null and s.holbord.actief():
+			if int(s.rij) > 0:
+				return HOL_NIVEAU.rij_doel(int(s.faam), int(s.rij), float(s.rij_t))   # punt 6d
 			return niveau_doel(int(s.faam))
 		return ""
 	var bew: String = s._bewoner()
