@@ -4,10 +4,3 @@ ERROR: WASAPI: init_output_device error.
    at: (drivers/wasapi/audio_driver_wasapi.cpp:542)
 WARNING: All audio drivers failed, falling back to the dummy driver.
      at: initialize (servers/audio_server.cpp:247)
-ERROR: BUG: Unreferenced static string to 0: Variant
-   at: unref (core/string/string_name.cpp:127)
-WARNING: A Thread object is being destroyed without its completion having been realized.
-Please call wait_to_finish() on it to ensure correct cleanup.
-     at: ~Thread (core/os/thread.cpp:105)
-ERROR: Pages in use exist at exit in PagedAllocator: N7Variant5Pools11BucketLargeE
-   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
