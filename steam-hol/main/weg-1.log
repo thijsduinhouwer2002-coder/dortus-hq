@@ -1,30 +1,30 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1206, hoeden 89
-HOL hol-niveau 2 (faam 161, t 0.0)
-HOL hol-niveau 3 (faam 161, t 0.0)
-HOL hol-niveau 4 (faam 161, t 0.0)
-HOL hol-niveau 5 (faam 161, t 0.0)
-HOL hol-niveau 6 (faam 161, t 0.0)
-HOL hol-niveau 7 (faam 161, t 0.0)
-HOL hol-niveau 8 (faam 161, t 0.0)
-HOL hol-niveau 9 (faam 161, t 0.0)
-HOL hol-niveau 10 (faam 161, t 0.0)
-HOL hol-niveau 11 (faam 161, t 0.0)
-HOL hol-niveau 12 (faam 161, t 0.0)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 89 new hats.
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1194, hoeden 91
+HOL hol-niveau 2 (faam 159, t 0.0)
+HOL hol-niveau 3 (faam 159, t 0.0)
+HOL hol-niveau 4 (faam 159, t 0.0)
+HOL hol-niveau 5 (faam 159, t 0.0)
+HOL hol-niveau 6 (faam 159, t 0.0)
+HOL hol-niveau 7 (faam 159, t 0.0)
+HOL hol-niveau 8 (faam 159, t 0.0)
+HOL hol-niveau 9 (faam 159, t 0.0)
+HOL hol-niveau 10 (faam 159, t 0.0)
+HOL hol-niveau 11 (faam 159, t 0.0)
+HOL hol-niveau 12 (faam 159, t 0.0)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 91 new hats.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1226 goud, faam 161
+HOL opslag geladen: 0 terugkomers, 1214 goud, faam 159
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794860916
-HOL eerste koop mogelijk na 15 s speeltijd (goud 1226)
+HOL zaad 1794861835
+HOL eerste koop mogelijk na 15 s speeltijd (goud 1214)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 240 came, 161 fell, 89 hats. +1206 gold.
-HOL begin: vluchten (Lotte)
-HOL held binnen: Lotte
+HOL kroniek 2.5 (wacht 2.5): 240 came, 159 fell, 91 hats. +1194 gold.
+HOL begin: vluchten (Gerda)
+HOL held binnen: Gerda
 HOL zicht 4.1 1
 HOL kroniek 5.1 (wacht 5.1): Grew 4 levels while you were away.
-HOL kroniek vervallen 7.1: Lotte knocks first. Polite.
+HOL kroniek vervallen 7.1: Gerda is here for your gold.
 HOL kroniek 7.7 (wacht 7.7): 7 more to come as you play.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=1226, terugkomers=0
+HOL einde na 15 s, fps=10, goud=1214, terugkomers=0
