@@ -23,3 +23,23 @@ Volgende stap: Daan zegt ja of nee op de richting; daarna maak ik het blad met m
 
 ## Samen met Daans zin van 21:05 (hoogteprofiel)
 Daan zei ja op plaat 1 alleen met een eigen beeld: een hoogteprofiel van je Body Battery van de laatste uren, zoals op de fietscomputer. Dat past precies in Tij: **de waterlijn ís het profiel**. Links is het water zoals je batterij uren geleden stond, rechts is nu, en het bootje ligt op het nu. Zo is de zee geen versiering maar je gegevens, en zie je in één blik of het tij stijgt of zakt. Volgende run proef ik dat (proef 3). Zelfde voorwaarde als Daan: de geschiedenis van Body Battery moet op de meeste horloges te lezen zijn (Gijs); zo niet, dan blijft de vlakke zee van proef 2 met alleen het nu.
+
+## Proef 3, Tij met de waterlijn als verloop (16 nov ±22:00 UTC): de moets van Daan (21:45)
+`stijlproef-v3-tij.png` (script `stijl_proef_v3.py`): zes standen op 454, daaronder op 260 ware grootte. `stijlproef-v3-260-3x.png`: drie op 260, 3x vergroot zonder verzachten, om iconen en randen te keuren.
+- **Waterlijn = verloop.** Links is toen, bij het bootje is nu, rechts van het bootje ligt de zee vlak op het nu. De tijd wordt over de breedte uitgerekt, dus 1,5 uur (Tide 35) of 6 uur (Dusk 72) vult allebei de breedte. Met 0 of 1 meting: de golvende zee van proef 2. Hooguit 49 punten voor de lijn plus 6 voor de vlakke zee, onder de 64 van Gijs.
+- **(1) Icoontjes:** hart (in de themakleur), bliksem, twee voetzolen. Op 260 zijn ze 12 px hoog, niet 4 tot 5. BODY BATT als woord is weg: een batterij-icoon naast het getal, dat zich vult.
+- **(2) Bootje binnen de cirkel:** het nu begint op x = 0,70 S en schuift per 1 procent naar links tot romp, zeil en mast binnen straal 0,475 S vallen. Getoetst bij 2 (Night): het ligt nu binnen de rand.
+- **(3) Plafond en kleinste zee:** water bij 100 op y = 0,70 S (mast eindigt 8 px onder 8.4K op 260, zie Kelp 100), bij 0 op y = 0,895 S, nog een zichtbare strook.
+- **(4) Weinig gegevens:** zie boven; Tide 35 met 3 metingen staat goed, de helling is klein maar eerlijk.
+- **(5) Pijltje weg.** De lijn zegt al of het tij stijgt of zakt; zonder geschiedenis weten we het niet, dus dan ook geen pijl.
+- **Kan, gedaan:** het BB-getal heeft altijd een donkere rand (in de donkerste zeekleur); de zee is 4 getekende banden die de waterlijn volgen (0, 3,5, 8 en 14 procent van S eronder), geen plaatje. Dat geeft vanzelf het hoogteprofiel als lagen, zoals op een kaart.
+- **Grap erbij:** onder 10 ligt het bootje 22 graden scheef aan de grond (Night 2). Elke ochtend na een goede nacht vaart het weer recht.
+- GEZIEN met Read op 454, 260 en 3x. Tegen de lat: **stopt scrollen** ja (Dusk 72 met de lagen is het beste beeld, warmer dan alle zes toppers); **herkenbaar** ja; **grap** ja (scheef bootje); **klein** ja, iconen lezen op 260. Eerlijk minder: bij Tide 35 met 1,5 uur is de lijn bijna vlak, dus het winkelbeeld moet een nacht laten zien (Dusk 72), dat is ook echt wat je na een nacht ziet.
+- Eigen fouten onderweg: bliksem en voet waren op 9 px een streepje en een vlek; nu breder, 12 px, en de voet als twee losse zolen.
+
+## Blad met maten voor Gijs (16 nov ±22:05 UTC)
+`maten-tij-tabel.md` (alle maten in px voor 260, 280, 390, 416, 454 en de kleuren per thema in hex) en `maten-tij-454.png` (hulplijnen op 454, 2x). Gemaakt door `maten_blad_tij.py` uit dezelfde getallen als de proef, dus ze lopen niet uit elkaar.
+- Letter: Big Shoulders Display (OFL, `BigShouldersDisplay.ttf` hier). "letter px" in de tabel is de lettergrootte (em); de cijfers zelf zijn ongeveer 0,7 daarvan hoog.
+- **Tekens per maat, voor de geheugenmeting van Gijs:** tijd (gewicht 900, 78 tot 136 px): `0123456789:`. BB-getal (900, 29 tot 50 px): `0123456789`. Veldgetallen (800, 17 tot 30 px): `0123456789.K`. Datum (700, 17 tot 30 px): `0123456789 ` plus `MONTUEWDHFRISA`. Past de tijdletter niet in het geheugen, dan eerst de tijd in Big Shoulders en de rest in de letter van het horloge.
+- **Slaapstand (AOD), voorstel:** alleen de tijd (uren gedimd), de waterlijn als lijn van 2 px zonder banden, en het bootje als omtrek. Geen velden. Lijn en bootje elke minuut 1 tot 2 px verschuiven tegen inbranden.
+- **MIP (weinig kleuren):** de banden zijn vaste kleuren, dus geen verloop nodig; op 64 kleuren kiest Gijs per band de dichtstbijzijnde. Het BB-getal is wit met een rand van 2 px.

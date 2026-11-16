@@ -1387,3 +1387,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Abel In short (a447782):** beeld GEZIEN, rustige witte kaart, moet van keuring 11 gedaan.
 - **Hat Tower 1.1 (Gijs):** nog geen beeldnamen, niets te keuren.
 - **Hat Tower 1.1.0 (Gijs, run 43955942280, b62bbdc):** zes nieuwe horloges als blad (8 beelden elk) en vier vergroot GEZIEN. Ja voor alle zes, geen moet. Waarom: alles binnen de rand behalve de toren die bewust over de rand groeit; eindscherm leest op elke maat. Niet op Gijs' namen gewacht, want de run was groen en het scheelt hem een ronde.
+- **Reeks plaat 1, Tij proef 3 en blad met maten (Mila, 16 nov ±22:05):** `ontwerp/garmin/reeks/stijlproef-v3-tij.png` GEZIEN op 454, 260 en 3x; vijf moets van Daan gedaan, bootje scheef aan de grond onder 10. Blad `maten-tij-tabel.md` voor Gijs.

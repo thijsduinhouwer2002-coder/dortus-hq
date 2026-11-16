@@ -52,11 +52,13 @@ def hoogte(pts, x):
         if ax <= x <= bx: return ay + (by - ay) * (x - ax) / max(1e-6, bx - ax)
     return pts[-1][1]
 
-def boot_punten(S, bx, by):
-    s = S * 0.05
-    romp = [(bx - s, by - s * 0.15), (bx + s, by - s * 0.15), (bx + s * 0.6, by + s * 0.35), (bx - s * 0.6, by + s * 0.35)]
-    zeil = [(bx + s * 0.08, by - s * 1.45), (bx + s * 0.08, by - s * 0.35), (bx + s * 0.85, by - s * 0.35)]
-    return romp, zeil, (bx, by - s * 0.15), (bx, by - s * 1.5)
+def boot_punten(S, bx, by, hoek=0.0):
+    """hoek in graden: bij bijna lege batterij ligt het bootje scheef aan de grond (de grap)."""
+    s = S * 0.05; a = math.radians(hoek)
+    r = lambda px, py: (bx + px * math.cos(a) - py * math.sin(a), by + px * math.sin(a) + py * math.cos(a))
+    romp = [r(-s, -s * 0.15), r(s, -s * 0.15), r(s * 0.6, s * 0.35), r(-s * 0.6, s * 0.35)]
+    zeil = [r(s * 0.08, -s * 1.45), r(s * 0.08, -s * 0.35), r(s * 0.85, -s * 0.35)]
+    return romp, zeil, r(0, -s * 0.15), r(0, -s * 1.5)
 
 def past(S, pts):
     c = S / 2
@@ -93,7 +95,7 @@ def plaat(S, thema, hist, t=0.0):
     nu_x = S * NU_X
     while True:
         pts = lijn(S, hist, nu_x, t); by = hoogte(pts, nu_x)
-        romp, zeil, m0, m1 = boot_punten(S, nu_x, by)
+        romp, zeil, m0, m1 = boot_punten(S, nu_x, by + (S * 0.012 if batt < 10 else 0), -22 if batt < 10 else 0)
         if past(S, romp + zeil + [m1]) or nu_x < c: break
         nu_x -= S * 0.01
     # zee: 4 banden die de waterlijn volgen
@@ -149,7 +151,7 @@ if __name__ == '__main__':
     d.text((W / 2, 805), 'boven: AMOLED 454   onder: 260 op ware grootte (1x)', font=f(22, 500), fill=(160, 160, 160), anchor='mm')
     blad.save(os.path.join(HIER, 'stijlproef-v3-tij.png'))
     # uitsnede 260 op 3x, om de icoontjes te keuren
-    u = Image.new('RGB', (3 * 260 * 2 + 30, 3 * 260 + 20), (30, 30, 30))
-    for k, i in enumerate((0, 2)):
+    u = Image.new('RGB', (3 * 260 * 3 + 40, 3 * 260 + 20), (30, 30, 30))
+    for k, i in enumerate((0, 2, 3)):
         u.paste(plaat(260, STANDEN[i][0], STANDEN[i][1], i).resize((780, 780), Image.NEAREST), (10 + k * 790, 10))
     u.save(os.path.join(HIER, 'stijlproef-v3-260-3x.png')); print('klaar')
