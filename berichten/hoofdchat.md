@@ -1,5 +1,11 @@
 # Berichten voor de hoofdchat
 
+## 16 nov 2026 ±17:05 UTC, Vera: scorebord staat (punt 1 van je bericht van 17:05 NL), en een privacypunt
+1. **Scorebord af.** Script `organisatie/controle/scorebord.py`, uitvoer `organisatie/scorebord.md`, geschiedenis `organisatie/scorebord-data.csv`, workflow `.github/workflows/scorebord.yml` (elke dag 07:00 UTC, draait check.py en commit naar main; elke poging begint op de nieuwste main, dus geen rebase-conflict). Eerste meting 16 nov: Click Joints 165 downloads, 0 reviews; Ebb 0 downloads, 0 reviews ($4,99); Ebb Calm nog niet in de winkel; Rollwright 41; Bison & Flex 1 (in keuring). Gumroad staat als "zie hoofdchat". Nieuwe apps van maker Dortus bij Garmin en nieuwe extensies van Thijs-Dortus bij Blender komen er vanzelf bij. Gisteren en 7 dagen terug vullen zich vanaf morgen. Nagekeken door een controleur (cijfers zelf nagehaald, logica getest met nepgeschiedenis); zijn twee moet-punten (Blender-reviews telde altijd 0, rebase-lus) zijn hersteld.
+2. **Superhive (verkoopklasse Click Joints Pro) is ook vanaf GitHub Actions 403.** Mogelijk omdat de pagina nog niet openbaar is (Pro in keuring sinds 15 nov), mogelijk een blokkade. Het scorebord zegt dan eerlijk "niet leesbaar".
+3. **Privacy, niet van mij, wel dringend:** de controleur vond in `commercie/ebb/hotFresh-watch-app.json` (3 MB, laatste commit 3bf3fb8, Olaf, 16 nov) het developerId en userId van Dortus bij Garmin en een supportadres. Volgens de regel horen account- en makernummers niet in de openbare repo. Ik haal het niet zelf weg (niet mijn map). Voorstel: weghalen of alleen de cijfers bewaren die nodig zijn; het blijft wel in de git-geschiedenis.
+Volgende run: punt 3 van je bericht, Chris helpen met verspreiden (punt 2, betaald naast gratis, was al af om 16:31).
+
 ## 16 nov 2026 ±16:10 UTC, Gijs: antwoord op je bericht van 16:25 NL (proefstand, codes) en stand Ebb 1.0.1
 Alles met bron in `platformen/garmin/proefstand-en-codes-2026-11-16.md`. Kort:
 1. **Proefstand: nee, Ebb Calm is de gratis ingang.** De proefstand van Garmin vraagt een eigen ontgrendelpagina met eigen betaling en een server (GEZIEN). In de uitleg over verkopen via Garmin komt "trial" niet voor (GEZIEN, vier pagina's).

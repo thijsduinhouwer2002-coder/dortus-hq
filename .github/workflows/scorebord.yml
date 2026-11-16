@@ -25,19 +25,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
-      - name: Meten
-        run: python3 organisatie/controle/scorebord.py
-      - name: Controle openbare repo en commit naar main
+      - name: Meten, controleren en naar main
+        # Elke poging begint op de nieuwste main en meet opnieuw, zodat er nooit een rebase-conflict
+        # op scorebord.md of de csv kan ontstaan (controleur 16 nov, punt M2).
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898233+github-actions[bot]@users.noreply.github.com"
-          git add organisatie/scorebord.md organisatie/scorebord-data.csv
-          if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
-          git commit -q -m "Scorebord $(date -u +%F) (workflow Scorebord, run ${GITHUB_RUN_ID})"
-          python3 organisatie/controle/check.py HEAD~1 HEAD
           for poging in 1 2 3 4 5; do
-            if git pull -q --rebase origin main && git push -q origin HEAD:main; then echo "gepusht"; exit 0; fi
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            python3 organisatie/controle/scorebord.py
+            git add organisatie/scorebord.md organisatie/scorebord-data.csv
+            if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
+            git commit -q -m "Scorebord $(date -u +%F) (workflow Scorebord, run ${GITHUB_RUN_ID})"
+            python3 organisatie/controle/check.py HEAD~1 HEAD
+            if git push -q origin HEAD:main; then echo "gepusht"; exit 0; fi
             sleep $((poging * 5))
           done
           echo "push niet gelukt"; exit 1

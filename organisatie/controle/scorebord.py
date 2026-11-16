@@ -41,6 +41,7 @@ BLENDER_MAKER = "Thijs-Dortus"
 SUPERHIVE = {"Click Joints Pro": "https://superhivemarket.com/products/click-joints-pro"}
 OBSIDIAN = {"Rollwright": "rollwright"}
 JETBRAINS = {"Bison & Flex": 35901}
+GARMIN_NAMEN = {EBB_WINKEL_ID: "Ebb"}  # vaste naam per winkel-id, zodat de geschiedenis niet breekt bij een nieuwe titel
 VERWACHT_GARMIN = ["Ebb Calm"]  # staat hij er nog niet, dan een regel "nog niet in de winkel"
 GARMIN_API = "https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps"
 
@@ -56,6 +57,20 @@ def haal(url, json_=True, pogingen=3):
             fout = e
             time.sleep(2 * (p + 1))
     print(f"  niet gelukt: {url} ({fout})", file=sys.stderr)
+    return None
+
+
+def haal_curl(url):
+    """Superhive weigert urllib maar liet curl op GitHub Actions toe (meting 15 nov, 2.296 pagina's)."""
+    import subprocess
+    for p in range(3):
+        r = subprocess.run(["curl", "-sL", "--max-time", "40", "-A", "Mozilla/5.0 (dortus-verkenner; alleen lezen)",
+                            "-w", "\n%{http_code}", url], capture_output=True, text=True, errors="replace")
+        body, _, code = r.stdout.rpartition("\n")
+        if code == "200":
+            return body
+        time.sleep(3 * (p + 1))
+    print(f"  niet gelukt: {url} (curl {code})", file=sys.stderr)
     return None
 
 
@@ -93,13 +108,15 @@ def blender():
         tekst = re.sub(r"\s+", " ", pagina)
         m = re.search(r"<dt>\s*Downloads\s*</dt>\s*<dd>\s*([\d,.]+)\s*</dd>", tekst)
         meet(naam, "Blender", "downloads", getal(m.group(1)) if m else None, toel)
-        m = re.search(r"([\d,.]+)\s+(?:ratings?|reviews?)\b", tekst, re.I)
-        meet(naam, "Blender", "beoordelingen", getal(m.group(1)) if m else 0, "")
+        # het getal tussen haakjes na <dt>Rating</dt>, bijv. "(65)"; zonder review staat er "Leave a review"
+        blok = re.search(r"<dt>\s*Rating\s*</dt>(.{0,1500}?)</dd>", tekst)
+        m = re.search(r"\(\s*([\d,]+)\s*\)", blok.group(1)) if blok else None
+        meet(naam, "Blender", "beoordelingen", getal(m.group(1)) if m else (0 if blok else None), "")
 
 
 def superhive():
     for naam, url in SUPERHIVE.items():
-        t = haal(url, json_=False)
+        t = haal_curl(url)
         if not t:
             meet(naam, "Superhive", "verkoopklasse", None, "niet leesbaar (Superhive weigert dit adres soms)")
             continue
@@ -128,7 +145,7 @@ def garmin():
         d = haal(f"{GARMIN_API}/{a.get('id')}") if a.get("id") != EBB_WINKEL_ID else ebb
         d = d if isinstance(d, dict) else a
         loc = {l.get("locale"): l.get("name") for l in d.get("appLocalizations") or []}
-        naam = (loc.get("en") or next(iter(loc.values()), None) or d.get("id", "?")[:8]).split(":")[0].strip()
+        naam = GARMIN_NAMEN.get(d.get("id")) or (loc.get("en") or next(iter(loc.values()), None) or d.get("id", "?")[:8]).split(":")[0].strip()
         namen.append(naam)
         prijs = ((d.get("pricing") or {}).get("salePrice") or {}).get("formattedPrice", "gratis")
         soort = {"1": "wijzerplaat", "2": "app", "3": "widget", "4": "dataveld", "5": "muziek"}.get(str(d.get("typeId")), "")
@@ -172,7 +189,7 @@ def waarde_op(rijen, product, maat, dag):
     """Laatste meting op of vóór die dag, met de datum erbij."""
     best = None
     for r in rijen:
-        if r["product"] == product and r["maat"] == maat and r["datum"] <= dag:
+        if r["product"] == product and r["maat"] == maat and r["datum"] <= dag and r["waarde"] != "":
             if best is None or r["datum"] > best["datum"]:
                 best = r
     return (best["waarde"], best["datum"]) if best else (None, None)
@@ -233,6 +250,10 @@ def main():
     md = "\n".join(regels) + "\n"
 
     print(md)
+    gemeten = [w for _, _, _, w, _ in METINGEN if w not in (None, "")]
+    if len(gemeten) < 3:
+        print("Bijna alle bronnen mislukt, niets opgeslagen.", file=sys.stderr)
+        return 1
     if droog:
         return 0
     with open(DATA, "w", newline="", encoding="utf-8") as f:

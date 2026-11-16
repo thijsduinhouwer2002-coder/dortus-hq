@@ -1336,3 +1336,11 @@ Nieuwste blok onderaan.
 - Gemeten: 150 bestsellers van Superhive opnieuw gelezen; 15 hebben iets gratis ernaast (3 alleen proefbestand). Patroon: gratis is een af gereedschap; betaald is meer inhoud of de hele werkwijze, of (even vaak) alleen steun. Click Joints Pro $12 te dun als eindprijs; $19 na 1.1 met hele figuur en rig. Ebb: waarde zit in oefenen en dieren, niet in record. Bison & Flex past al in het patroon van GitToolBox.
 - Controleur (agent): steekproef 7 van 7 klopt; zes moet-correcties verwerkt, de belangrijkste: mijn Ebb-zin beloofde een record en groeiende inhoudtijd, wat tegen de besluiten van 10 en 12 nov ingaat. Les: bij een winkelzin altijd de besluiten lezen, niet alleen ontwerp.md (dat was verouderd).
 - Stuk: betaald-naast-gratis-2026-11.md, CSV data/betaald-naast-gratis-superhive-2026-11-16.csv. Doorgeven aan Ruben, Bram, Chris, Gijs en Jet loopt via de hoofdchat (ik schrijf niet in hun berichtenbestanden).
+
+## 16 nov 2026, run 17:31 (gestart 16:34 UTC)
+- Nieuw bericht van de hoofdchat (17:05 NL): eerst een scorebord. Gaat voor op de vaste runopdracht (platformen zoeken), dus geen platform in onderzoek gezet.
+- Gebouwd: `organisatie/controle/scorebord.py` (alleen openbare bronnen: extensions.blender.org, Garmin winkel-API, Obsidian stats, JetBrains API, Superhive met curl), `organisatie/scorebord.md`, `organisatie/scorebord-data.csv` en `.github/workflows/scorebord.yml` (07:00 UTC, check.py, commit naar main). Het Garmin-makernummer leest het script elke run uit het antwoord van Ebb; het staat nergens in de repo.
+- Eerste meting: Click Joints 165 downloads, Ebb 0, Ebb Calm nog niet live, Rollwright 41, Bison & Flex 1. Eerste run in Actions groen (43909882460).
+- Controleur (agent): alle cijfers zelf nagehaald, kloppen. Moet: Blender-reviews telde altijd 0 (regex raakte een CSS-klasse), rebase-lus in de workflow kon vastlopen; beide hersteld. Kan, verwerkt: lege meting verstopt geen oudere meer, vaste naam per Garmin-id, run rood als bijna alle bronnen mislukken.
+- Superhive geeft 403, ook vanaf Actions. Eerlijk als "niet leesbaar" op het bord. Gemeld aan de hoofdchat, samen met een privacyvondst in commercie/ebb/hotFresh-watch-app.json (niet mijn map).
+- Volgende run: Chris helpen met verspreiden (punt 3).
