@@ -2,12 +2,12 @@
 
 Versie 2, 16 nov 2026 ±13:55 UTC (versie 1 ±13:30). Versie 2 verwerkt Brams narekening met lagen (`producten/steam-hol/sim/LAGEN.md`), Iris' keuring 1 (`keuring/2026-11-16-13.md`) en Olafs bouwfeiten van 13:38. Opdracht hoofdchat 16 nov 13:10 (Thijs 13:01: "een diepgaand spel ... level ups enzo om een reden te hebben om te spelen"). Eerste versie gevraagd wo 18 nov 12:00.
 Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (versie 1, GEZIEN, 8 zaden); versie 2 en het voorstel voor versie 3 in `data/sim-v2/` (GEZIEN, 8 zaden).
-Status: **versie 3 vastgesteld 16 nov ±14:50 UTC (zie "Versie 3 vastgesteld"), daaronder ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
+Status: **versie 3 definitief 16 nov ±16:00 UTC na Brams laatste run (zie "Versie 3 definitief", dit zijn de bouwgetallen; nieuw: de rij bij de ingang), vastgesteld ±14:50 UTC, daaronder ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
 
 ## In het kort
 1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: iets kleins elke paar minuten, iets middelgroots elk uur of elke paar uur, en iets groots): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
 2. **De lange termijn is dieper graven, geen reset.** Op hol-niveau 20, 30 en 40 graaf je een trap naar een nieuwe laag (Kristalader, Verzonken Crypte, Gloophart) met eigen helden, bewoner en val. De nieuwe laag begint leeg, dus je hebt opnieuw de leukste fase (bouwen), maar **er gaat niets weg**: de lagen erboven draaien door en hun goud stroomt mee. Dat is Olafs "opnieuw beginnen met winst" zonder de klacht over rebirth (26 negatieve reviews bij Desktop Defender, Fenna).
-3. **Sim met lagen (Bram, GEZIEN, 8 zaden, drempels geijkt):** hol-niveau 9 na 57 min, 12 na 2,0 u (einde demo), 20 na 10,6 u, 30 na 29,8 u, 40 na 57,7 u, 50 na 95,5 u. Langste gat zonder iets nieuws (niveaus en aankopen samen), run versie 2 met de aankleding erbij: tot 20 uur 56 min, 20 tot 40 uur 1,0 u, 40 tot 70 uur 1,5 u, 70 tot 100 uur nog 5,7 u. Na niveau 50 houdt het op.
+3. **Versie 3 definitief (Bram, GEZIEN, 8 zaden):** hol 12 na 2,0 u (einde demo), 20 na 10,5 u, 30 na 37,4 u, 40 na 76,2 u, **50 na 127,8 open uur = werkdag 22 (week 5)**; in week 3 nog 13 niveaus en 50 aankopen. Langste gat per week 1,7 / 1,9 / 2,7 / 2,8 / 6,0 u. Hieronder de oude versie 2-cijfers: hol-niveau 9 na 57 min, 12 na 2,0 u (einde demo), 20 na 10,6 u, 30 na 29,8 u, 40 na 57,7 u, 50 na 95,5 u. Langste gat zonder iets nieuws (niveaus en aankopen samen), run versie 2 met de aankleding erbij: tot 20 uur 56 min, 20 tot 40 uur 1,0 u, 40 tot 70 uur 1,5 u, 70 tot 100 uur nog 5,7 u. Na niveau 50 houdt het op.
 4. **Versie 2 in vijf keuzes:** (a) Brams prijzen en drempels over; (b) weg zijn levert alles op halve snelheid, ook faam, plafond 12 uur; (c) 15 niveaus geven iets met een prijs en na laag 2 komt aankleding voor goud in de lege bovenste aarde, zodat goud altijd een doel heeft; (d) twee doelen in beeld: het bordje toont het volgende hol-niveau, de kopregel het volgende goud-doel; (e) een tabel in echte dagen. Details in "Versie 2: keuzes".
 5. **Demo = hol-niveau 1 tot 12 in ±2 uur**, bijna helemaal met wat al gebouwd is (ridder, dief, magiër, bard, vleermuis, hoedenwand, vaandel komen nu één voor één in plaats van allemaal tegelijk), plus de twee nieuwe dingen die Olaf noemde (één val, één held). Daarna een grijze kaart: "Level 13 and 37 more in the full game".
 
@@ -16,6 +16,31 @@ Status: **versie 3 vastgesteld 16 nov ±14:50 UTC (zie "Versie 3 vastgesteld"), 
 - **Levels zonder nieuws zijn grind** (Spirit City na level 15). Daarom heeft elk hol-niveau een ding met een naam dat je in de strook ziet, en houdt het op bij 50. Geen niveau 51 tot 999 met alleen een getal.
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
+
+## Versie 3 definitief (16 nov ±16:00 UTC)
+Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-eind-uitkomst.txt`, 8 zaden, 165 open uur, GEZIEN door mij). Ik neem alles over. **Dit zijn de getallen voor de bouw; de tabellen van versie 2 verderop zijn geschiedenis.**
+1. **Wat er ten opzichte van "Versie 3 vastgesteld" verandert (Bram):**
+   - **De kamertjes van laag 3 komen vrij zodra laag 3 gebouwd is** (±56 u), niet pas bij het luik naar laag 4. Dan koop je ze verspreid tussen hol 36 en 40 en staat er bij het luik geen berg goud.
+   - **Stap 4 tot 6 in laag 3 x 1,85** (was 2,0). Stap 6 in laag 3 kost nu 2.960 in plaats van 3.200.
+   - **Drempels hol 36 tot 40:** 11.884 / 13.345 / 14.823 / 15.668 / 17.131 gevangen helden (35 en 41 blijven 10.990 en 18.926).
+   - **Kamertje 4 en 5 van laag 4 pas vrij op hol 47 en 49**, prijs uit het goud per uur van dat moment. Geen stap 7.
+2. **Wanneer wat komt (open uren, mediaan van 8 zaden):**
+   - hol 2: 1 min, 3: 7 min, 4: 13 min, 5: 14 min, 6: 27 min, 7: 34 min, 8: 44 min, 9: 57 min, 10: 1,2 u, 11: 1,6 u, **12: 2,0 u (einde demo)**
+   - hol 13 tot 20: 2,8 / 3,5 / 4,4 / 5,4 / 6,5 / 7,6 / 9,1 / **10,5 u**
+   - hol 21 tot 30: 12,5 / 14,8 / 17,2 / 19,7 / 22,3 / 25,2 / 28,1 / 31,2 / 34,2 / **37,4 u**
+   - hol 31 tot 40: 40,9 / 44,9 / 48,0 / 52,0 / 55,8 / 60,0 / 64,0 / 68,2 / 72,0 / **76,2 u**
+   - hol 41 tot 50: 80,4 / 85,1 / 89,9 / 94,8 / 99,8 / 104,9 / 109,9 / 115,6 / 121,4 / **127,8 u**
+   - Gloop 2 tot 10: 12 min / 1,1 / 2,4 / 3,8 / 6,0 / 7,0 / 12,0 / 18,7 / 49,0 u
+   - laag 2 gekocht 12,7 u, gebouwd 23,0 u; laag 3 gekocht 37,4 u, gebouwd 56,1 u; laag 4 gekocht 76,8 u, gebouwd 100,9 u.
+3. **In werkdagen** (6 uur open per werkdag, weg x 0,25, plafond 12 uur): hol 12 en 15 werkdag 1, hol 20 werkdag 2, laag 2 open werkdag 3, hol 30 en laag 3 werkdag 7 (week 2), **hol 40 en laag 4 werkdag 13 (week 3 dag 3), hol 50 werkdag 22 (week 5 dag 2)**. Per week: 42 niveaus en 96 aankopen / 15 en 54 / **13 en 50** / 8 en 18 / 4 en 2 / week 6 niets meer. Een nacht weg geeft ±1.260 goud na dag 1 en ±3.000 na dag 10.
+4. **Langste gat zonder iets nieuws (open uren, mediaan / ergste):** week 1 1,7 / 1,9; week 2 1,9 / 3,7; **week 3 2,7 / 2,9 (was 4,2 / 5,1)**; week 4 2,8 / 3,2; week 5 6,0 / 6,0. **Mijn eis van hooguit 2,5 uur is in week 3 net niet gehaald.** Ik accepteer 2,7: wat er over is, is sparen voor de drie duurste dingen van laag 3 (kamertje 5, stap 6, het luik), en het doel staat dan in de kopregel met een balkje dat je ziet vollopen. Dat is geen leeg wachten. Goedkoper maken schuift het gat naar week 4 en maakt het daar 4 tot 6 uur (Bram probeerde het). Week 5 houdt gaten van een werkdag; zie "Versie 3 vastgesteld" punt 4.
+5. **Nieuw besluit: de rij bij de ingang (antwoord op Brams extra van 15:50).** Bram rekende uit dat een eerste nacht het hol al na **1 minuut** spelen naar hol 16 tilt (8 van 8 zaden), en in Olafs spel zelfs na 0 minuten (±135 gevangen per nacht, hol 12 is 88). Mijn besluit van 14:50 (alles telt, één optocht) laat dan de hele leerfase in 12 seconden voorbijflitsen: ridder, dief, magiër, bard en edelman komen tegelijk, terwijl elke nieuwe held juist één ding leert ("Weak to: Gloop"). Wie de demo opent, kort speelt en de volgende dag terugkomt, mist zo het beste uur van het spel en staat meteen voor de grijze kaart. Daarom:
+   - **Per keer weg komen er hooguit 4 hol-niveaus meteen bij**, in de optocht van 14:50 (bordje wipt één keer, dingen 1,2 s na elkaar, dus nooit meer dan ±5 s; het geval "meer dan 10 dingen, 0,6 s" vervalt).
+   - **De rest staat in de rij bij de ingang:** de faam is binnen en blijft binnen (het balkje staat vol, met een getal erbij), maar elk volgend niveau komt pas **na 3 minuten open spelen**, met zijn eigen gewone feestje van 1,5 s. Eigen vangsten tellen gewoon door; haalt je eigen faam de rij in, dan komt het niveau meteen.
+   - **Kroniek** na "Grew 4 levels while you were away.": **"7 more levels wait at the door."** (31 tekens, getal past zich aan). Hover op het bordje: "7 levels waiting. Next in 2 min."
+   - **Waarom zo en niet minder faam geven:** er gaat niets af van wat je verdiende (Iris: alles korten voelt als diefstal), het is alleen de volgorde. Een terugkomer na 1 minuut spelen heeft na ±35 minuten open de hele demo gezien, met elk feestje apart, in plaats van in 2 uur (wie speelt) of 12 seconden (zonder rij). Boven hol 12 liggen de niveaus 1 uur of meer uit elkaar, dus een nacht geeft daar bijna altijd 4 of minder en merk je de rij niet.
+   - **Toets:** T1 ja (je komt terug en er staat iets klaar), T3 ja (niets weg, geen timer die je dwingt: de rij wacht ook als je de app weer dicht doet), T4 ja.
+   - Olaf: dit verandert `optocht()` en `weg_regel()` op `claude/steam-hol-weg`, zie `berichten/olaf.md`. Bram: zet de rij in de sim als het kan (hoeveel open minuten tot hol 12 voor wie 1, 5, 15 minuten speelt en dan een nacht weg is).
 
 ## Versie 3 vastgesteld (16 nov ±14:50 UTC)
 Bram rekende het voorstel hieronder na met weg als echte werkdagen (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-uitkomst.txt`, 8 zaden, GEZIEN). Ik neem alles over. Daarmee is versie 3 de richting; de tabellen van versie 2 verderop blijven staan als geschiedenis tot Bram de laatste run (punt 4) heeft gedaan.
@@ -104,6 +129,8 @@ Staat bij de tabel per uur hieronder.
 **Waarop:** faam = gevangen helden (1 per held), plus een klein beetje voor verhalen: +5 voor een nieuwe bladzijde in het Heldenboek, +25 voor een afgerekende aartsvijand (zit nog niet in de sim, maakt het hooguit iets sneller). Faam gaat nooit omlaag (T3). Helden die je in een oude laag vangt, tellen mee.
 **Wat je ziet:** boven de ingang een klein bordje met het niveau en daaronder een balkje van 1 spelpixel hoog. Bij hover: "Level 5: the Thief. 12 more heroes." Het volgende doel staat dus altijd in beeld, zonder venster.
 **Het feestje (klein, standaard zonder geluid):** het bordje wipt, een handvol muntjes springt uit de schat, het nieuwe ding verschijnt met een poef (zelfde soort als bij graven), en één regel in de kroniek ("Hole level 4: a bat moves in."). 1,5 seconde, binnen de strook, niets knippert buiten de strook. Uiterlijk: Mila, keuring Daan.
+
+Kolom "Sim" is versie 2; de uren van versie 3 staan in "Versie 3 definitief" punt 2.
 
 | Niv. | Wat er bijkomt | Laag | Nu al gebouwd? | Sim (mediaan) |
 |---|---|---|---|---|
@@ -196,6 +223,7 @@ Per laag drie doelen met een hint in het Heldenboek, bijvoorbeeld "Catch a Miner
 - **DLC blijft los** (T4): holthema's zijn uiterlijk voor elke laag; een DLC voegt nooit een laag toe die je voor het hol-niveau nodig hebt. Het basisspel is 100% vol te krijgen.
 
 ## Tabel per uur (open tijd), met de meetlat van Fenna en echte dagen
+**Let op: deze tabel is versie 2 (geschiedenis).** De bouwgetallen staan in "Versie 3 definitief" punt 2 en 3; wat er per niveau bijkomt in spoor 1 en "Versie 3 vastgesteld" punt 3 blijft gelden, alleen de uren in de kolom "Sim" zijn verschoven.
 Percentage = hoeveel spelers dit punt halen bij Desktop Defender (GEZIEN bij 1, 5, 10, 20, 50 en 100 uur; Rusty's loopt bijna gelijk bij 1, 24 en 48 uur). 2, 40 en 70 uur zijn tussengerekend (GOK). Of Hats net zo afhaakt is een GOK. Let op: Fenna's percentages zijn Steam-speeltijd, en die telt ook als het spel open staat terwijl je werkt. "Open tijd" hier is dus hetzelfde als Steam-speeltijd.
 Tijden uit Brams sim met lagen en geijkte drempels (GEZIEN, `producten/steam-hol/sim/voortgang-lagen-uitkomst.txt`).
 | Uur | Spelers | Wat je dan hebt (sim) | Wat is nieuw rond dit uur | Het volgende doel dat je ziet |
