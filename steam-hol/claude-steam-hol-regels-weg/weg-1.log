@@ -1,28 +1,28 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 240, erbij 1314, hoeden 107
-HOL hol-niveau 2 (faam 179, t 0.0)
-HOL hol-niveau 3 (faam 179, t 0.0)
-HOL hol-niveau 4 (faam 179, t 0.0)
-HOL hol-niveau 5 (faam 179, t 0.0)
-HOL hol-niveau 6 (faam 179, t 0.0)
-HOL hol-niveau 7 (faam 179, t 0.0)
-HOL hol-niveau 8 (faam 179, t 0.0)
-HOL hol-niveau 9 (faam 179, t 0.0)
-HOL hol-niveau 10 (faam 179, t 0.0)
-HOL hol-niveau 11 (faam 179, t 0.0)
-HOL hol-niveau 12 (faam 179, t 0.0)
-HOL kroniek 0.0 (wacht 0.0): 240 came, 179 fell, 107 hats. +1314 gold.
+HOL weg geweest 28809 s (klok terug: false): goud voor 20, helden 240, erbij 1146, hoeden 72
+HOL hol-niveau 2 (faam 151, t 0.0)
+HOL hol-niveau 3 (faam 151, t 0.0)
+HOL hol-niveau 4 (faam 151, t 0.0)
+HOL hol-niveau 5 (faam 151, t 0.0)
+HOL hol-niveau 6 (faam 151, t 0.0)
+HOL hol-niveau 7 (faam 151, t 0.0)
+HOL hol-niveau 8 (faam 151, t 0.0)
+HOL hol-niveau 9 (faam 151, t 0.0)
+HOL hol-niveau 10 (faam 151, t 0.0)
+HOL hol-niveau 11 (faam 151, t 0.0)
+HOL hol-niveau 12 (faam 151, t 0.0)
+HOL kroniek 0.0 (wacht 0.0): 240 came, 151 fell, 72 hats. +1146 gold.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1334 goud, faam 179
+HOL opslag geladen: 0 terugkomers, 1166 goud, faam 151
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794864610
-HOL eerste koop mogelijk na 15 s speeltijd (goud 1334)
+HOL zaad 1794864958
+HOL eerste koop mogelijk na 15 s speeltijd (goud 1166)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL kroniek 2.5 (wacht 2.5): 7 more to come as you play.
-HOL begin: vluchten (Lotte)
-HOL held binnen: Lotte
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
 HOL zicht 4.1 1
-HOL kroniek 5.1 (wacht 1.1): Lotte read about you in a tavern.
-HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=1334, terugkomers=0
+HOL kroniek 5.0 (wacht 1.0): Fenna is here for your gold.
+HOL meting t=10 beelden=72 helden=1 hol_vast=1
+HOL einde na 15 s, fps=10, goud=1166, terugkomers=0
