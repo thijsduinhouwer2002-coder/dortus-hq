@@ -162,6 +162,10 @@ def streng(per, delen, fig, namen):
     check(all(ges.is_gesloten(o) for o in delen), "alle delen gesloten")
     tekst = fig.samenvatting(list(per.values()))
     check(tekst == "8 joints, 1 range from your rig", f"samenvatting '{tekst}'")
+    # run 7: snippers van de veersleuf in het verkeerde deel lieten de heupen 0 graden bewegen
+    for n in ("Left hip", "Right hip"):
+        g = per.get(n, {}).get("graden")
+        check(g is not None and g >= 5.0, f"{n} beweegt (±{g}°, niet geblokkeerd)")
     heup = [o for o in delen if o.get("cj_naam") == "Left hip" and o.get("cj_deel") == "B"]
     if heup:
         h = heup[0]

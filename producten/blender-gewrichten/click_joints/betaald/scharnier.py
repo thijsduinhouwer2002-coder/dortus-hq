@@ -168,6 +168,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                 return {"CANCELLED"}
             try:
                 deel_a, deel_b = vorm.snij(hulp, werk, frame_i, maat, solver)
+                if een_lid.actief():  # 1.1: dunne losse snippers van de snede met H weg
+                    for d in (deel_a, deel_b):
+                        d["cj_snippers"] = een_lid.ruim_snippers(d, u)
             except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
                 ruim_op(hulp)
                 if i < laatste:
