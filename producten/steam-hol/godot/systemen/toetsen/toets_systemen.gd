@@ -882,5 +882,52 @@ func _init() -> void:
 	ok(sl.vallen.size() == 1 and sl.vallen.has(6), "save schuift: alle vallen weg, dan één terug zoals leg_aan (%s)" % [sl.vallen])
 	var sk: Dictionary = OP.schuif_naar_vak(wg, wb, {}, 29, 2, 25, 30)
 	ok(not sk.boven[0], "save schuift: geen kamer op kolom 0")
+	# eerste hoed binnen de minuut in het volle spel (Bram 15 nov, ja Olaf 23:30, eis 1 en 2): kern/ritme.gd met een
+	# nagebootste strook. Echte spel (Linux, vers=1, 5 zaden, 15 nov): hap 59 tot 62 s, de held loopt ±17 s van de
+	# ingang naar Gloop; dus aankomst van de held van "opgegeten" uiterlijk 52 s houdt de hap onder 75 s.
+	var RI = load("res://kern/ritme.gd")
+	var nep := GDScript.new()
+	nep.source_code = """extends RefCounted
+var t := 0.0
+var volgende_held := 4.0
+var demo := false
+var lied_helden := 0
+var rng := RandomNumberGenerator.new()
+var begin_gedaan: Array = []
+var aankomst := {}
+const LIJST := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
+func _begin_stap() -> String:
+	for st in LIJST:
+		if not begin_gedaan.has(st):
+			return st
+	return ""
+func _nieuwe_held() -> bool:
+	var st := _begin_stap()
+	aankomst[st if st != "" else "vrij%d" % aankomst.size()] = t
+	if st != "":
+		begin_gedaan.append(st)
+	return true
+"""
+	nep.reload()
+	var laatst_opgegeten := 0.0
+	var gat_na_opgegeten_ok := true
+	for zaad in 40:
+		var ns = nep.new()
+		ns.rng.seed = zaad
+		while ns.t < 200.0:
+			RI.tik_held(ns, 0)
+			ns.t += 0.25
+		laatst_opgegeten = maxf(laatst_opgegeten, float(ns.aankomst.get("opgegeten", 999.0)))
+		var gat: float = float(ns.aankomst.get("terug", 0.0)) - float(ns.aankomst.get("opgegeten", 0.0))
+		gat_na_opgegeten_ok = gat_na_opgegeten_ok and gat >= 35.0 and gat <= 45.5
+	ok(laatst_opgegeten <= 52.0, "eerste hoed: held van 'opgegeten' uiterlijk 52 s binnen in 40 zaden (laatste %.1f s), hap onder 75 s" % laatst_opgegeten)
+	ok(gat_na_opgegeten_ok, "eerste hoed: na 'opgegeten' weer 35 tot 45 s tot de volgende held (eis 1 Olaf)")
+	var nd = nep.new()
+	nd.demo = true
+	nd.rng.seed = 3
+	while nd.t < 30.0:
+		RI.tik_held(nd, 0)
+		nd.t += 0.25
+	ok(float(nd.aankomst.get("opgegeten", 999.0)) <= 4.0 + 3 * 7.25, "eerste hoed: demo houdt zijn eigen ritme van 5 tot 7 s")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
