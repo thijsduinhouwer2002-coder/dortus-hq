@@ -7,9 +7,11 @@ class_name HolNiveau
 # (ridder op 3, vleermuis op 4, ...) wordt pas aangesloten als Sanne en Daan dat voor de demo vastzetten.
 
 # DREMPEL[i] = faam die nodig is voor niveau i + 1 (niveau 1 bij 0 faam)
-# Hol 3, 4 en 6 omlaag naar 4 / 7 / 16 (Olaf 16 nov 18:30, voorstel Sanne 18:10, nagerekend Bram 18:35 over 40 zaden:
-# geen drempel op 6, 8, 11, 14 of 17 want daar valt een koop op dezelfde vangst; ergste gat minuut 1 tot 20 van 11,8 naar 8,4 min).
-const DREMPEL := [0, 3, 4, 7, 12, 16, 25, 31, 39, 53, 69, 88]
+# Hol 3, 4 en 6 omlaag naar 5 / 7 / 17 (Olaf 16 nov 18:35, voorstel Sanne 18:10, advies Bram 18:50 voor de speeltestbuild:
+# graven gratis, upgrades 45/126/353, de eerste upgrade valt op vangst 4, dus geen drempel op 4; niets valt meer samen
+# behalve hol 5 soms (3 van 40), ergste gat minuut 1 tot 20 van 11,8 naar 10,7 min, mediaan 7,0 naar 6,1; sim/samenval.py deel 3).
+# Bij de v3-economie (graven kost goud) opnieuw kijken: daar gaf Bram 3/4/7/12/16.
+const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 53, 69, 88]
 const DEMO_MAX := 12
 # Hover-tekst per niveau ("Level 5: the Thief. 12 more heroes."), Engels (winkeltaal)
 const WAT := ["", "Gloop and the pit", "the Hero Book", "the Knight", "a bat moves in", "the Thief",

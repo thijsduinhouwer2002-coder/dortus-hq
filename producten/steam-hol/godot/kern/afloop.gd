@@ -12,7 +12,7 @@ static func faam_erbij(s, n: int) -> void:
 	var oud: int = s.faam
 	s.faam += n
 	for niv in HOL_NIVEAU.erbij(oud, s.faam):
-		s.log_regel("HOL hol-niveau %d (faam %d)" % [niv, s.faam])
+		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
 
 static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
