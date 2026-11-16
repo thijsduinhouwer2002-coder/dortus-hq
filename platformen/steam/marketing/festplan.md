@@ -58,6 +58,28 @@ Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2
 - Voorwaarde: de demo is op 21 dec ingediend (planning) en voor 4 jan goedgekeurd. Lukt dat niet, dan op de dag van goedkeuring, uiterlijk 11 jan.
 - **Antwoord Olaf (16 nov 13:32 UTC, `berichten/sem.md`): van de build uit kan 4 jan.** Demo af vr 18 dec, demo-einde na ±2 uur werkt, save wordt nooit gewist. Afspraken: build én demopagina zo vroeg mogelijk na 18 dec indienen (keuring in de feestdagen is trager, GOK Olaf), de knop "uitbrengen" op 4 jan door Thijs (lijst-thijs), en tussen 4 jan en het fest alleen fixes, niets nieuws, zodat makers hetzelfde spelen als festbezoekers. Demo-appid komt pas als Thijs de demo in Steamworks aanmaakt; dan zet Olaf hem in `planning-fest-2027.md` en bouw ik het meetscript om. Lukt de demo-app met hoeden-stat niet ±4 dec, dan schuiven de hoedendoelen naar Next Fest en tellen we in januari spelers tegelijk buiten het spel.
 
+## Hoe de festpagina van Valve werkt (run 8, GEZIEN 16 nov ±18:45 UTC)
+Bron: de broncode van twee Steampagina's met curl gelezen (het blok `data-partnereventstore` met de indeling per vak). (1) **`store.steampowered.com/category/auto_battler_rpg/`**, de pagina van het Auto-Battler RPG Fest dat vandaag om 18:00 UTC begon, aangemaakt vandaag 09:48 PST. (2) **`store.steampowered.com/category/desktop_companion/`**: die bestaat al, vaste Steampagina sinds 27 okt 2021, laatst bijgewerkt 8 okt 2026. Daar komt ons fest vrijwel zeker op (GOK, zelfde soort adres als Auto-Battler; nakijken op 14 jan). Beide hebben `ch_force_optin: true`: alleen spellen die zich aanmelden staan erin.
+
+**Wat een bezoeker ziet, van boven naar onder:**
+| Vak | Fest Auto-Battler (vandaag) | Desktop Companion (nu, vaste pagina) | Wat het voor ons betekent |
+|---|---|---|---|
+| Trailers | bovenaan, "Browse Trailers", **als demo** (`show_as_demos`), gekozen op speeltijd van de bezoeker | (komt in de festversie) | De trailer is het eerste wat festbezoekers zien. De eerste 2 seconden moeten de haak zijn (hoed op Gloop), niet een logo. Naar Chris en Mila. |
+| Op je verlanglijst | 2e vak | ja | Wie ons vóór het fest op de verlanglijst zet, ziet ons bovenaan. Elke verlanglijst vóór 14 jan is een plek in dit vak. |
+| Persoonlijk aanbevolen | 2 rijen | 3 tot 5 rijen | op tags en speeltijd van de bezoeker: tags moeten kloppen (idle, desktop, dungeon) |
+| **Trending op verlanglijsten** | (tab binnenkort) | ja, tab binnenkort, als demo | Trending is groei, niet totaal (GOK, naam). Een kleine pagina kan hier staan als de verlanglijsten in korte tijd stijgen. Daarom alles op paginadag op hetzelfde uur, niet uitgesmeerd. |
+| Meest op verlanglijst | tab binnenkort, 6 rijen | ja | het totaal telt; hier helpen de 500 tot 1.000 |
+| **Meest gespeelde demo's** | in de bladerlijst | eigen vak, als demo | Spelers tegelijk in de demo bepalen de plek. Een bureaubladdemo draait de hele dag, dat telt hier (GOK, viraal.md les 1). Reden te meer voor de demo op 4 jan. |
+| **Recente aankondigingen** | ja, van 3 weken terug tot 5 weken vooruit | ja, 3 weken | Onze Steam-aankondigingen van de deelnemers komen op de festpagina. De demodag-post van 4 jan valt binnen de 3 weken vóór 14 jan, en elke festpost ook. Gewoon blijven posten (Deskrawl: 14 posts in 20 dagen). |
+
+**Wat ik aanpas:**
+1. Paginadag: alle verlanglijst-acties in hetzelfde uur (trailer, clip, aankondiging, mails), doel "trending" in het vak binnenkort van de Desktop Companion-pagina. Dat stond al zo, nu met reden.
+2. Demodag-post en elke fix-post zijn ook festpagina-reclame (aankondigingsvak, 3 weken). Daarom de demodag-post niet vóór 24 dec (dan valt hij op 14 jan buiten het venster), en in de festweek elke dag een post.
+3. Na de aanmelding moet Hats ook op de vaste pagina `/category/desktop_companion/` staan, niet alleen in het fest. Of dat een apart vinkje is, kan ik niet zien zonder inlog: vraag voor Thijs als de app bestaat (bij de stap in `lijst-thijs.md` over `optin/sale/desktop_companion_2027`).
+4. Wie er precies in het Auto-Battler-fest zitten, staat niet in de pagina zelf (wordt na het laden opgehaald). Mijn meting telt daarom 108 demo's met de tag, niet alleen deelnemers. Eerlijke kanttekening bij de cijfers hieronder.
+
+**Auto-Battler RPG Fest, eerste uur (GEZIEN, `data/autobattler-fest-2026-11.csv`):** som van 108 demo's 485 (15:49 UTC), 515, 521 (18:01, start), 492 (18:08), 498 (18:36). Geen optilling in het eerste half uur. Grootste stijger Here Comes the Horde, 91 naar 150. De echte toets: avond in Amerika en dag 2 (di 17 nov).
+
 ## Dag voor dag in de festweek
 Tijden NL. Het fest begint do 14 jan 19:00 (10:00 PST, GEZIEN in fest.md). Elke dag hetzelfde ritme: één Steam-aankondiging (Chris schrijft, Thijs plaatst), één clip (TikTok, Shorts, Reels), meetscript elk uur, en alleen een patch als iets kapot is (nooit de save raken).
 
