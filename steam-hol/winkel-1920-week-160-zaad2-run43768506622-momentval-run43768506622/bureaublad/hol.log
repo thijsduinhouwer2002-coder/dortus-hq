@@ -1,0 +1,40 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 57 s (klok terug: false): goud voor 1601, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1608 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Gerda
+HOL kroniek 5.1 (wacht 1.0): Gerda the Thief tiptoes in.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 20.7 (wacht 0.0): Gerda fled. Grudge: the Spike Pit.
+HOL kroniek 23.2 (wacht 2.5): New page: the Thief. He got away.
+HOL meting t=30 beelden=18 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL kroniek 44.6 (wacht 0.0): Pim casts Light. It is a candle.
+HOL held binnen: Pim
+HOL meting t=50 beelden=59 helden=1 hol_vast=1
+HOL meting t=60 beelden=100 helden=1 hol_vast=1
+HOL kroniek 65.6 (wacht 0.0): Pim left. Took nothing. Angry.
+HOL kroniek 68.2 (wacht 2.6): Booked: the Wizard. Ran off. Counts.
+HOL meting t=70 beelden=59 helden=0 hol_vast=1
+HOL meting t=80 beelden=10 helden=0 hol_vast=1
+HOL meting t=90 beelden=16 helden=0 hol_vast=1
+HOL meting t=100 beelden=9 helden=0 hol_vast=1
+HOL kroniek 102.2 (wacht 0.0): Bram the Sleepy shuffles in.
+HOL held binnen: Bram
+HOL moment vast val t=106.9
+HOL meting t=110 beelden=73 helden=1 hol_vast=2
+HOL meting t=120 beelden=57 helden=1 hol_vast=2
+HOL meting t=130 beelden=55 helden=1 hol_vast=2
+HOL meting t=140 beelden=57 helden=1 hol_vast=2
+HOL meting t=150 beelden=59 helden=1 hol_vast=2
+HOL kroniek 151.6 (wacht 0.0): Sir Fenna clanks in.
+HOL held binnen: Fenna
+HOL kroniek 157.1 (wacht 0.0): Fenna stays forever. +6
+HOL meting t=160 beelden=134 helden=1 hol_vast=2
+HOL meting t=170 beelden=56 helden=1 hol_vast=2
+HOL meting t=180 beelden=57 helden=1 hol_vast=2
