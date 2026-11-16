@@ -743,3 +743,4 @@
 ## 16 nov ±18:45 tot 19:00 UTC
 - Kleine capsule ronde 7 (uit de beeldmap): **besluit** nieuwe `klein-462x174.png` met grotere titel, ridder rechts, donkerdere wand. Waarom: de blinde kijker koos hem (6 tegen 5) en de titel vult nu ±60% van de breedte zoals bij de toppers. Twee andere proeven (enorme helm; ridder kop eerst in de munten) verloren van de oude en zijn niet gekozen. Keuring bij Daan.
 - Volgende: achtergrond van de capsules minder vlak bruin, en "fallen" zichtbaar maken (stapel hoeden), eerst op klein proeven.
+- Ronde 7b: hoeden op de berg en een donkerdere wand geprobeerd, geen van beide zichtbaar op 231 px; niet gekozen. Het bruin zit in het palet, niet in het licht. Volgende run: een tweede kleurvlak achter de figuren proeven, naast de toppers.
