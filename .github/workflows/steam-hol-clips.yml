@@ -16,6 +16,9 @@ on:
       weg_uur:
         description: "0 = nieuw spel; meer dan 0 = eerst kort spelen, save zoveel uur terug, dan opnemen (clip 3: toren met nachthoeden)"
         default: "0"
+      voorspel:
+        description: "alleen bij weg_uur: hoe lang eerst spelen in s (het begin-script moet klaar zijn, log 'begin:' laatste stap, ±3 min)"
+        default: "220"
   push:
     branches: ["claude/steam-hol-clips"]
     paths: [".github/workflows/steam-hol-clips.yml", "producten/steam-hol/e2e/clips.py"]
@@ -31,6 +34,7 @@ jobs:
       HOOGTE: ${{ inputs.hoogte || '160' }}
       SECONDEN: ${{ inputs.seconden || '95' }}
       WEG_UUR: ${{ inputs.weg_uur || '0' }}
+      VOORSPEL: ${{ inputs.voorspel || '220' }}
     steps:
       - uses: actions/checkout@v4
       - name: Scherm op 1920 x 1080
@@ -55,10 +59,10 @@ jobs:
           $n = [int]$env:SECONDEN * 30
           $vers = "vers=1"
           if ([int]$env:WEG_UUR -gt 0) {
-            # clip 3 (Olaf 16 nov): eerst 100 s gewoon spelen (begin met vluchten en terug klaar), dan de save WEG_UUR terug, zodat Gloop bij openen de nachthoeden krijgt
+            # clip 3 (Olaf 16 nov): eerst VOORSPEL s gewoon spelen (proef 2: 100 s was te kort, het begin liep nog) (begin met vluchten en terug klaar), dan de save WEG_UUR terug, zodat Gloop bij openen de nachthoeden krijgt
             $p0 = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE vers=1 duur=100" -PassThru
-            if (-not $p0.WaitForExit(200000)) { Stop-Process -Id $p0.Id -Force }
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE vers=1 duur=$env:VOORSPEL" -PassThru
+            if (-not $p0.WaitForExit(([int]$env:VOORSPEL + 60) * 1000)) { Stop-Process -Id $p0.Id -Force }
             $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
             python producten/steam-hol/e2e/save_terug.py $save ([int]$env:WEG_UUR * 3600)
             $vers = ""
