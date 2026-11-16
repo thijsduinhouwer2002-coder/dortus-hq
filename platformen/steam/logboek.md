@@ -1205,3 +1205,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Hoed eraf: streepjes stonden op het haar (run 43779885248), verplaatst naar links van de hoed; stofjes rond (cirkel werkte niet, kruis wel). Drie winkelopnames en drie toetsruns op de tak groen, bewijs in `producten/steam-hol/bewijs-hoed-eraf/`, ja of nee aan Daan. Blijft op de tak tot na de speeltestbuild.
 - Vertaaltabel geteld: ±390 teksten, ±1700 woorden; na de speeltestbuild. Woordtelling ook aan Fenna.
 
+## 16 nov 2026, 03:15 tot 04:05 UTC, Olaf
+- Dagmeting Rollwright: 41 downloads, 0 open issues (platformen/obsidian/status.md).
+- Windows-run op main (3b50758, run 43779647247) en exe-run (43779647337) groen: eerste hoed en sluiten zitten erin.
+- Daan gaf ja op `claude/steam-hol-hoed-eraf`; naar main na de speeltestbuild van vr 20 nov.
+- Speeltest: hint voor kleine weergave in LEES-MIJ-EERST.txt en vraag naar schermmaat en schaal in speeltest-21-nov.md.
+- Grote schermen gemeten met proef `breed=` op tak: 3840 0,88, 1920 0,90, 2560 0,70 CPU-s per 10 s; breedte maakt niet uit. IJkpunt 0,90 is hoog, volgende run herhalen op main.
+
