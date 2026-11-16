@@ -12,15 +12,23 @@ const BEGIN_VLOT := 2                       # zoveel vaste stappen van BEGIN kri
 const BEGIN_VLOT_S := Vector2(18.0, 22.0)   # seconden tot de volgende held in die gaten (was 35 tot 45)
 const BEGIN_HOED_S := Vector2(5.0, 7.0)     # na de eerste held (vallen): zo snel komt de held die Gloop opeet (Bram 16 nov)
 
+const HELD_S := Vector2(28.0, 38.0)          # buiten de demo, na BEGIN-stap 3 en buiten het begin (Sanne 16 nov 20:00, was 35-45 en 40-60)
+const PAAR_KANS := 0.15                       # zo vaak komt de volgende held kort na de vorige (Sanne 16 nov 20:00)
+const PAAR_S := Vector2(6.0, 10.0)            # gat bij zo'n paar
+const MAX_TEGELIJK := 2                       # gewoon spel: hooguit 2 helden tegelijk (Sanne 16 nov 20:10, was 3); demo en drukte 3
+
+static func max_tegelijk(s) -> int:
+	return 3 if (s.demo or s.get("proef_drukte") == true) else MAX_TEGELIJK
+
 static func tik_held(s, helden: int) -> void:
-	if s.t < s.volgende_held or helden >= 3:
+	if s.t < s.volgende_held or helden >= max_tegelijk(s):
 		return
 	var begin: bool = s._begin_stap() != ""
 	if not s._nieuwe_held():
 		s.volgende_held = s.t + 2.0   # een vaste stap moet nog even wachten
 		return
 	var rng: RandomNumberGenerator = s.rng
-	# ritme: gemiddeld een held per ±50 s (balans.md), in de eerste tien minuten ±40 s;
+	# ritme: gemiddeld een held per ±30 s (Sanne 16 nov 20:00, balans.md);
 	# in de demo sneller zodat de film van een minuut iets laat zien
 	if s.demo:
 		s.volgende_held = s.t + (rng.randf_range(5.0, 7.0) if begin else rng.randf_range(6.0, 9.0))
@@ -33,7 +41,11 @@ static func tik_held(s, helden: int) -> void:
 		var gat: Vector2 = BEGIN_HOED_S if s.begin_gedaan.size() <= 1 else BEGIN_VLOT_S
 		s.volgende_held = s.t + rng.randf_range(gat.x, gat.y)
 	else:
-		s.volgende_held = s.t + (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0))
+		# Sanne 16 nov 20:00: 28 tot 38 s, en buiten een BEGIN-stap 15% kans op een paar (6 tot 10 s). De extra trekking
+		# zit alleen in deze tak (niet in de demo), dus de demo-film blijft gelijk.
+		s.volgende_held = s.t + rng.randf_range(HELD_S.x, HELD_S.y)
+		if not begin and s.lied_helden <= 0 and rng.randf() < PAAR_KANS:
+			s.volgende_held = s.t + rng.randf_range(PAAR_S.x, PAAR_S.y)
 	# na het lied van een bard: de volgende helden komen 8 tot 20 s na elkaar (Bram 02:30); in de demo blijft het
 	# eigen snelle ritme staan (dat is al korter), alleen de teller loopt af
 	if s.lied_helden > 0:

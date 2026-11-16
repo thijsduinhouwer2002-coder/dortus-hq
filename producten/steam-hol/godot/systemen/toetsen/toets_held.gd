@@ -451,7 +451,7 @@ func _init() -> void:
 	hol_b.add_child(sl_b)
 	sl_b.zet(hol_b, 6)
 	sl_b.plat()
-	ok(absf(sl_b.plat_tot - sl_b.t - 40.0) < 0.01, "Bouncy Gloop: plat 40 s in plaats van 60 (%.1f)" % (sl_b.plat_tot - sl_b.t))
+	ok(absf(sl_b.plat_tot - sl_b.t - 20.0) < 0.01, "Bouncy Gloop: plat 20 s in plaats van 30 (%.1f)" % (sl_b.plat_tot - sl_b.t))
 	hol_b.free()
 
 	# Sanne toets 7 punt 2: de val duurt ±1 s en je ziet hem wegzakken (niet één beeld half doorzichtig)

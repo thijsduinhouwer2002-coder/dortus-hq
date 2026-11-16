@@ -15,7 +15,7 @@ const PLAFOND_S := 12 * 3600
 const SNELHEID := 0.25
 const TEMPO_REGEL := "Your hole worked at quarter speed."
 const TEMPO_REGEL_NA_S := 30 * 60
-const HELD_ELKE_S := 47.5          # gemiddeld, zelfde orde als in het spel (25 tot 70 s)
+const HELD_ELKE_S := 30.0          # gemiddeld, zelfde orde als in het spel (28 tot 38 s plus paren; Sanne 16 nov 20:00, was 47,5), weg blijft een kwart van spelen
 
 # vallen: aantal vallen, bewoners: aantal bewoners. Meer verdediging = meer helden vallen.
 # gangen en faam (optioneel) maken het goud gelijk aan het spel en sim/ (balans.md): per val

@@ -11,7 +11,7 @@ extends RefCounted
 # Wat het spel ermee doet:
 # - held.gd vraagt de kans erbij via het hol: als hol een eigenschap "upgrades" heeft (dit object), telt
 #   kans_erbij(soort) mee. Zonder die eigenschap verandert er niets (ook niet in de oude films).
-# - slijm.gd rekent bij plat() zelf plat_s x 2/3 vanaf Bouncy Gloop (40 s in het spel, ook korter in de demo).
+# - slijm.gd rekent bij plat() zelf plat_s x 2/3 vanaf Bouncy Gloop (20 s in het spel, ook korter in de demo).
 # - de tekening van elke stap is van Mila (kunst/slijm_groot2.png, slijm_upgrades2.png, stekelput_upgrades.png);
 #   slijm.gd tekent Gloop per stap, hol.gd (Olaf) de put.
 # - opslaan: naar_dict() en van_dict() (in de save van strook.gd).

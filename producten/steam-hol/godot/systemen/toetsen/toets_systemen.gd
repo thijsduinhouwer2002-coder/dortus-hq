@@ -80,10 +80,12 @@ func _init() -> void:
 
 	var t0 := 1_800_000_000
 	var r: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
-	ok(r["helden"] == 18 and r["goud"] >= r["helden"], "een uur weg op kwart snelheid: 18 helden, goud >= helden (%s)" % r["regel"])
+	ok(r["helden"] == 30 and r["goud"] >= r["helden"], "een uur weg op kwart snelheid: 30 helden (HELD_ELKE_S 30, Sanne 16 nov 20:00), goud >= helden (%s)" % r["regel"])
 	ok(r["faam"] == r["gevallen"], "faam weg = gevangen helden")
 	var acht: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42)
-	ok(acht["helden"] == 151 and acht["goud"] < 1048, "8 uur weg: 151 helden, minder goud dan de hele winkel (%d)" % acht["goud"])
+	# Sanne 16 nov 20:00: weg blijft een kwart van spelen, maar het spel is sneller, dus een nacht levert ±1,6 keer zoveel;
+	# de grens "minder dan de hele winkel" (1048) gaat daarom naar anderhalve winkel (1572)
+	ok(acht["helden"] == 240 and acht["goud"] < 1572, "8 uur weg: 240 helden, minder goud dan anderhalve winkel (%d)" % acht["goud"])
 	ok(V.tempo_regel(acht) == "" and V.TEMPO_REGEL.length() <= 42, "regel kwart snelheid uit (moet Daan 17:45), tekst blijft kort")
 	ok(V.tempo_regel(V.reken(t0, t0 + 600, 1, 1, 42)) == "", "geen regel kwart snelheid na 10 min weg")
 	# hol-niveau (Sanne voortgang.md spoor 1, drempels Bram): faam = gevangen helden
@@ -1109,12 +1111,46 @@ func _nieuwe_held() -> bool:
 		var gat: float = float(ns.aankomst.get("vluchten", 0.0)) - float(ns.aankomst.get("opgegeten", 0.0))
 		gat_na_opgegeten_ok = gat_na_opgegeten_ok and gat >= 18.0 and gat <= 22.5
 		var gat2: float = float(ns.aankomst.get("terug", 0.0)) - float(ns.aankomst.get("vluchten", 0.0))
-		gat_na_vluchten_ok = gat_na_vluchten_ok and gat2 >= 35.0 and gat2 <= 45.5
+		gat_na_vluchten_ok = gat_na_vluchten_ok and gat2 >= 28.0 and gat2 <= 38.5
 	# Bram 16 nov (hoofdchat, Fenna): "opgegeten" is nu de tweede held, 5 tot 7 s na de eerste. Echte spel (Linux, vers=1,
 	# zaden 1 tot 3): hap op 26,3 tot 27,8 s. Aankomst uiterlijk 13 s houdt de hap rond 30 s.
 	ok(laatst_opgegeten <= 13.0, "eerste hoed: held van 'opgegeten' uiterlijk 13 s binnen in 40 zaden (laatste %.1f s), hap rond 30 s" % laatst_opgegeten)
 	ok(gat_na_opgegeten_ok, "eerste hoed: na 'opgegeten' 18 tot 22 s tot 'vluchten'")
-	ok(gat_na_vluchten_ok, "eerste hoed: na 'vluchten' weer 35 tot 45 s tot de volgende held (eis 1 Olaf)")
+	ok(gat_na_vluchten_ok, "eerste hoed: na 'vluchten' weer 28 tot 38 s tot de volgende held (Sanne 16 nov 20:00, was 35 tot 45)")
+	# Sanne 16 nov 20:00 en 20:10: na het begin 28 tot 38 s, ±15% kans op een paar (6 tot 10 s), hooguit 2 helden tegelijk
+	var gaten_ok := true
+	var paren := 0
+	var vrij_gaten := 0
+	for zaad in range(1, 41):
+		var nr = nep.new()
+		nr.rng.seed = zaad
+		while nr.t < 900.0:
+			RI.tik_held(nr, 0)
+			nr.t += 0.25
+		var tijden: Array = []
+		for sl_ in nr.aankomst:
+			if String(sl_).begins_with("vrij"):
+				tijden.append(float(nr.aankomst[sl_]))
+		tijden.sort()
+		tijden.push_front(float(nr.aankomst.get("doorlopen", 0.0)))
+		for i in range(1, tijden.size()):
+			var g: float = tijden[i] - tijden[i - 1]
+			vrij_gaten += 1
+			if g >= 6.0 and g <= 10.5:
+				paren += 1
+			elif g < 28.0 or g > 38.5:
+				gaten_ok = false
+	var paar_deel := float(paren) / maxf(1.0, float(vrij_gaten))
+	ok(gaten_ok, "ritme na het begin: elk gat 28 tot 38 s of een paar van 6 tot 10 s")
+	ok(paar_deel > 0.10 and paar_deel < 0.20, "ritme: ±15%% van de gaten is een paar (%.1f%% van %d)" % [paar_deel * 100.0, vrij_gaten])
+	var nv = nep.new()
+	nv.t = 999.0
+	nv.volgende_held = 0.0
+	RI.tik_held(nv, 2)
+	ok(nv.volgende_held == 0.0, "gewoon spel: met 2 helden in beeld komt er geen derde (Sanne 16 nov 20:10)")
+	nv.demo = true
+	RI.tik_held(nv, 2)
+	ok(nv.volgende_held > 999.0, "demo: met 2 helden mag er nog een derde komen")
 	var nd = nep.new()
 	nd.demo = true
 	nd.rng.seed = 3

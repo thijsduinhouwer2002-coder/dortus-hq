@@ -96,7 +96,7 @@ var _knijp := Vector2.ONE                     # de schaal waarmee nu getekend wo
 var hol
 var soort := "slijm"
 var bijnaam_naam := "Gloop"
-var plat_s := 60.0          # in het spel 60 s; strook.gd mag dit in de demo versnellen (Sanne toets 2, punt 1: ±9 s)
+var plat_s := 30.0          # in het spel 30 s (Sanne 16 nov 20:00, was 60); strook.gd mag dit in de demo versnellen (Sanne toets 2, punt 1: ±9 s)
 var gegeten := 0            # helden die hij kreeg ("Gloop has eaten 12 heroes")
 var hoeden: Array[int] = [] # elke hoed die hij kreeg, oudste eerst. Een hoed gaat er nooit meer af (Sanne).
 var keer_plat := 0
@@ -423,7 +423,7 @@ func plat() -> void:
 	keer_plat += 1
 	var duur := plat_s
 	if hol != null and "upgrades" in hol and hol.get("upgrades") != null:
-		duur = plat_s * hol.get("upgrades").plat_factor()   # Bouncy Gloop (systemen/upgrades.gd): 40 s in plaats van 60
+		duur = plat_s * hol.get("upgrades").plat_factor()   # Bouncy Gloop (systemen/upgrades.gd): 20 s in plaats van 30
 	plat_tot = t + duur
 	set_process(true)
 
