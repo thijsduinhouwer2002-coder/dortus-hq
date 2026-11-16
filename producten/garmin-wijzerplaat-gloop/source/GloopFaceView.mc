@@ -130,8 +130,12 @@ class GloopFaceView extends WatchUi.WatchFace {
         tekst(dc, x0 + (w * 0.04).toNumber(), ty - kh + (fh * 0.10).toNumber(), klein, nu.day_of_week + " " + nu.day, 0xFFFF00);
         var sy = ty + fh - (fh * 0.08).toNumber();
         tekst(dc, x0, sy, klein, stappen.toString(), 0x55FFAA);
-        var totaal = n + (kroon ? 1 : 0);
-        tekst(dc, x0, sy + kh - 2, klein, totaal + "/" + Regel.hoedenBijDoel(doel) + " HATS", 0xFFFFFF);
+        // Onder de stappen: hoeveel hoeden van het doel, en na het doel "GOAL!" met het aantal.
+        // Past de regel niet links van Gloop, dan een maat kleiner (Venu Sq 2).
+        var vrij = gx - m[0] / 2 - x0 - 6;
+        var regel = kroon ? "GOAL! " + n + " HATS" : n + "/" + Regel.hoedenBijDoel(doel) + " HATS";
+        var rf = dc.getTextWidthInPixels(regel, klein) <= vrij ? klein : Graphics.FONT_XTINY;
+        tekst(dc, x0, sy + kh - 2, rf, regel, kroon ? 0xFFFF00 : 0xFFFFFF);
 
         // Hartslag en batterij, klein linksonder.
         var hs = "--";
@@ -140,7 +144,7 @@ class GloopFaceView extends WatchUi.WatchFace {
             hs = (act.currentHeartRate as Number).toString();
         }
         var bat = System.getSystemStats().battery.toNumber();
-        tekst(dc, (w * 0.14).toNumber(), sy + 2 * kh - 4, Graphics.FONT_XTINY, "HR " + hs + "  " + bat + "%", 0xFFAAAA);
+        tekst(dc, x0 + (w * 0.04).toNumber(), sy + 2 * kh - 4, Graphics.FONT_XTINY, "HR " + hs + " " + bat + "%", 0xFFAAAA);
     }
 
     // Stapelt n hoeden op de kruin en zet bij het doel de kroon erop. Elke hoed staat 0,56 keer zijn
