@@ -4,6 +4,7 @@ Uitkomst 16 nov in 5.3.0: zeven gewrichten (ellebogen, knieën, heupen, nek), 8 
 overgeslagen: de sleuf van de elleboog (135 graden reikt ±20 mm) laat op een bovenarm van 29 mm geen plek voor de kom.
 Eerder met dij r 9 en onderarm r 5: ellebogen Tight (te dun) en de benen raakten elkaar. Werkpunten in ontwerp-1.1.md.
     blender -b --factory-startup --python e2e/proef_rigify.py -- <betaalde zip>
+Met CJ_ALLEEN=hip,knee (stukjes van de gewone namen) alleen die gewrichten, om uit te zoeken welke elkaar storen.
 """
 import sys, math, importlib, addon_utils, bpy, bmesh
 from mathutils import Matrix, Vector
@@ -41,6 +42,12 @@ print("PROBE hoogte", round(max((v.co.z for v in me2.vertices)), 1), "botten", [
 bpy.context.view_layer.update()
 for o in bpy.context.scene.objects: o.select_set(False)
 mesh.select_set(True); bpy.context.view_layer.objects.active = mesh
+import os
+_alleen = os.environ.get("CJ_ALLEEN", "")
+if _alleen:
+    _rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+    _g = _rigm.gewrichten
+    _rigm.gewrichten = lambda a, meer=False: [x for x in _g(a, meer) if any(w in x[2].lower() for w in _alleen.split(","))]
 try:
     r = bpy.ops.click_joints.figuur_uit_rig()
 except RuntimeError as e:
