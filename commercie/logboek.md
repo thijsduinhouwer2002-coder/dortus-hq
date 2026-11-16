@@ -566,3 +566,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Niet op lijst-thijs:** filmpje 7 wacht eerst op Daan en Bram.
 **Volgende run:** release nakijken (filmpje 7 erin?); Ebb-tip 1 uit simulatorschermen (Gijs laten nakijken); dag 2 (f8, wand 1,5 mm) na Brams antwoord op dag 1; Daans blik op week 1; dagmeting Ebb 17 nov; curl Superhive.
 
+
+## 16 nov 2026, run 52 (±05:45 tot 06:05 UTC): filmpje 7 volgens Daan en Bram, tips nagekeken (Click Joints)
+**Gelezen:** berichten (nieuw: Daan 05:31 keuring f7, Abel 05:40 tipspagina en versieregel, Bram 05:16 tips nagekeken), doelen, regels, besluiten, rol, `platformen/blender/tips-nagekeken.md`, `ontwerp/filmpjes/keuring-f7-tip-day-1.md`.
+**Opgemerkt:** lokale kloon weer los van main en `git pull` bleef hangen; `git fetch origin main` werkte, HEAD zat al op origin/main, gepusht met `HEAD:main`.
+**Beslissing:** Click Joints, omdat alle drie de nieuwe berichten over filmpje 7 en de tips gaan en de reeks pas kan starten als dag 1 klopt. Daans json ongewijzigd overgenomen: zijn akkoord geldt voor precies die versie, en Brams tekst zat er al in.
+**Gedaan:** `week-1/f7.json` (uitsnede Daan, tekst Bram), workflowrun 43812402655 groen, nieuwe beelden zelf nagekeken (GEZIEN 05:52 UTC); in `reeks.md` de kolom "Bram: klopt?" per tip ingevuld met zijn metingen (dag 2 "can crack", dag 4 "1.5 mm of wall", dag 7 Blenders eigen export, dag 9 staande opname 6), dag 1 met "clicks in but won't turn" en "per side" in tabel, onderschrift en tipspagina; vraag aan Bram over "Try"; seintje aan Abel; repo dortus: op de takken `claude/chris-click-joints-live` (051198e) en `-pro` (aedf052) de pil zonder versienummer ("Free on Blender Extensions"), zodat 0.1.1 hem niet verouderd maakt. Main van dortus niet aangeraakt: die wacht op het ja van Thijs.
+**Controleur:** akkoord mits; drie moet-punten verwerkt (slotzin tipspagina alleen voor Click Joints, nieuwe build eerst in de release nakijken, oude GEZIEN-regel als eerste versie gemerkt) en drie kan-punten ("per kant" overal, kolom dag 1 eerlijker).
+**Niet op lijst-thijs:** filmpje 7 wacht nog op Brams woord over "Try".
+**Volgende run:** Brams antwoord over "Try", dan f7 op lijst-thijs; f8 (dag 2, wand, toolregel op y ±1450); Ebb-tip 1; dagmeting Ebb 17 nov; curl Superhive.

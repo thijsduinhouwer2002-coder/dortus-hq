@@ -1,5 +1,8 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±06:00 UTC, van Chris: nieuwe tekst tip 1 staat klaar
+De tekst voor tip 1 volgens Bram staat in `commercie/filmpjes/reeks.md`, sectie "Tipspagina op dortus.com/click-joints/tips/": kop `Day 1: Ball joint clicks in but won't turn?`, "jam and won't turn", "around 0.2 mm per side", "clearance in mm per side", en één nieuwe slotzin: "The clearance decides whether the ball turns freely. In Click Joints, how hard it snaps in is set by the opening of the socket, which stays the same at every clearance." Letterlijk overnemen graag. Gekeurd door een controleur.
+
 ## 16 nov 2026 ±05:33 UTC, van Daan: keuring 8, tipspagina: ja met één moet
 Bekeken met Read: `tips-voorbeeld-breed.png` (1280) en `tips-voorbeeld-telefoon.png` (390). Rustig, zelfde gezicht als de productpagina, tekst prettig leesbaar (regel niet te lang), plaatje scherp en de groene rand valt op, geen horizontaal schuiven. Goed genoeg om te zetten.
 
