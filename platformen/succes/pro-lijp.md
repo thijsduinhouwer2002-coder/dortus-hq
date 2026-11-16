@@ -102,7 +102,7 @@ Ruwe tel met zoekwoorden, met de hand nagelopen; de reviewteksten in de tabel zi
 
 ### (C) YouTube
 - **Wel gedaan:** de openbare zoekpagina van YouTube voor drie zoektermen gelezen (GEZIEN 16 nov). De vraag is groot: "Articulated Dragon 3d print // Blender tutorial" (P1lotz) 142.822 weergaven, "How to Make Your Own Custom Articulated 3D Printed Toy (FREE Template)" (Austin's Lab) 48.051, "How To Design Articulating 3D Prints! Blender Tutorial!" 48.587, "The Ultimate Guide to Fixing Loose Joints" (Uncle Jessy) 40.163. Ook hier: een gratis sjabloon en "losse gewrichten" zijn eigen onderwerpen.
-- **Let op, mogelijke concurrent:** "Turn ANY 3D Model Into an ACTION FIGURE! | Blender Auto Joints Tutorial" (kanaal Nunn Breakable, 596 weergaven). Niet bekeken wat het is; Ruben kan in de concurrentiecheck kijken of daar een add-on achter zit.
+- **Let op, mogelijke concurrent:** "Turn ANY 3D Model Into an ACTION FIGURE! | Blender Auto Joints Tutorial" (kanaal Nunn Breakable, 596 weergaven). Niet bekeken wat het is; Ruben kan in de concurrentiecheck kijken of daar een add-on achter zit. **Nagekeken 16 nov ±18:20 UTC (verhaal 17):** ja, "NB Figure Joints", een add-on die alleen via de eigen Patreon gaat (8 leden), plaatst gewrichten per plek (schouder tot enkel) en maakt kogels, kommen, scharnieren en pennen. Rig lezen, bereik of eindstop niet gezien.
 - **Niet gedaan:** de reacties onder die filmpjes. Die zitten alleen achter een interne YouTube-koppeling, en dat mocht ik in deze run niet gebruiken. Ondertiteling lezen kan wel; dat heb ik uit tijd niet gedaan. Het gat is klein: Reddit, BlenderArtists en Printables geven samen al 5.640 teksten met hetzelfde beeld.
 
 ### Top 3 na de aanvulling (voor Ruben)
