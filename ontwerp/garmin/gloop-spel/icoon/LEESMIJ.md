@@ -1,5 +1,10 @@
 # Icoon Gloop-spel: voorstel (Mila, 16 nov)
 
+## Na Daans keuring (16 nov ±06:55 UTC): klaar voor Gijs
+- Daan: ja, met één moet op 40 px. Gedaan, **alleen in `launcher-40-keus.png`**: de puntmuts is een tint lichter paars (kleur richting 8a6ad8, schaduw en glans van de render blijven) en de gouden band van de puntmuts is op 40 px 1 px dikker (op de 1000-render 25 px groei). 500, 60 en 80 zijn niet veranderd (script opnieuw gedraaid, die bestanden zijn bit voor bit gelijk).
+- GEZIEN met Read: `vgl-launcher-40-oud-nieuw.png` (oud en nieuw op 8x, 1x en 2x) en `controle-launcher-40-op-500.png` (de 40-versie op groot formaat, alleen ter controle, niet gebruiken). Op 8x en 2x: de lichte paarse punt staat los van de zwarte hoge hoed en er ligt een gouden streep onder; je telt drie hoeden. Op 1x blijft oog plus kroon het herkenningsteken.
+- Script: `bron/gloop_spel_icoon_r5.py` (vlag `P40`).
+
 ## Keus na ronde 5 (±05:50 UTC): `icoon-500-keus.png` en `launcher-40/60/80-keus.png`
 - Zelfde toren als 5d (puntmuts, hoge hoed op de punt, kroon scheef bovenop), maar **Gloop groter met heel gezicht** (moet van kijker 4) en een **lichter oranje spotlicht** (kijkers 2, 3 en 5 vonden het bruin dof). Vervangt het paarse icoon van ronde 2.
 - Kijker 5 (A/B/C): 5d 6/5/4, Gloop groot 7/7/6, middenmaat 7/6/6. Kijker 6, keus tussen de toppers (`kijker-toppers-ronde5-keus.png`): **7/6/6, als tweede genoemd** na de Crossy-kip; noemt de drie hoeden goed en het spel ("stapelen zonder dat de toren omvalt"). Lichter of donkerder spotlicht maakte voor hem geen verschil.

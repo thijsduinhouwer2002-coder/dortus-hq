@@ -1,8 +1,118 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: This Week in Obsidian, meting van een kleine nieuwsbrief bij 34 plugins, klaar 16 nov 2026 ±06:30 NL-tijd). Volgende: een Garmin-maker die met Reddit of een grote site groeide, of een maker die een grote nieuwsbrief of site met cijfers beschrijft.
+bezig: verhaal 9, r/blender en gratis add-ons op extensions.blender.org: wat levert een Reddit-post op in downloads (16 nov 2026, ±09:00 UTC).
 
 Nieuwste bovenaan.
+
+---
+
+## 8. Garmin-apps (geen wijzerplaten): betaald via Garmin, gratis met proef buiten Garmin, of gratis? 6.627 apps, widgets en datavelden gemeten, plus 116 berichten "[New App]"
+
+Onderzocht 16 nov 2026, run 8. Open vraag uit run 7: een Garmin-app die met een proefversie groeide. Daarbij een correctie op mijn eigen voorstel van run 7.
+
+### Eerst de correctie op run 7
+In run 7 noemde ik Ahead ("gratis te installeren met 7 dagen proef, daarna $3,99") als voorbeeld en stelde ik voor dat Gijs voor Ebb een proefmodus aanzet. Dat kan niet zoals ik het schreef. In de winkel-API staat Ahead als gratis app (geen prijs, `hasTrialMode: false`) met een eigen PayPal-betaallink in het veld `hardwareProductUrl` (GEZIEN 16 nov). De proef en de ontgrendeling lopen dus buiten Garmin om. Garmin Pay, het systeem van Ebb, kent geen proeftijd, alleen 48 uur geld terug (forum Garmin, al vastgelegd door Gijs in `platformen/garmin/concurrenten-2026-11-13.md`; nu opnieuw gelezen, de draad staat nog op "Not Answered"). Een proef via een eigen betaalsysteem breekt de belofte van Ebb "no unlock code". Het voorstel van run 7 vervalt dus in die vorm; zie het nieuwe voorstel onderaan.
+
+### Bronnen
+- Winkel: de lijst `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps?startPageIndex=<n>&pageSize=30&sortType=mostRecent&appType=<watch-app|widget|datafield>`, met curl doorgelopen tot het einde (16 nov). 4.195 apps, 645 widgets en 1.787 datavelden, samen 6.627 (GEZIEN). Per app: prijs, downloadklasse, reviews, eerste goedkeuring, beschrijving, en de vlag `paymentModel`.
+- Wat `paymentModel` betekent heb ik afgeleid, niet in een handleiding gelezen: 0 = gewoon, 1 = "heeft iets buiten de winkel nodig". Van de 322 gratis apps met vlag 1 noemen er 284 een proef, code, licentie, abonnement of account (GEZIEN). Betaald via Garmin Pay herken ik aan een prijs.
+- Indeling (eigen regels op de beschrijving, kan bij enkele fout zijn, GOK): A betaald via Garmin Pay; B gratis in de winkel met proef of betaalmuur buiten Garmin (woorden als trial, unlock code, KiezelPay, licentie, of een PayPal- of Gumroad-link); X gratis maar account of apparaat nodig; E gratis.
+- Tabel: `platformen/succes/data/garmin-apps-betaalmodel-2026-11-16.csv` (zonder mailadressen en beschrijvingen).
+- Reddit: archief Arctic Shift, r/Garmin, alle berichten per dag van 1 jul tot 4 aug en van 1 sep tot 28 sep 2026 (de rest liep vast op de snelheid van het archief), daaruit 116 berichten met "[New App]" of "[New Data Field]" (GEZIEN).
+- Forum Garmin, met curl: "I Monetized My Ski App, Here's What Happened" (Charlie, ±feb 2026, https://forums.garmin.com/developer/connect-iq/f/showcase/430838/i-monetized-my-ski-app-here-s-what-happened) en "Connect IQ Monetization System vs own payment system" (±dec 2025, https://forums.garmin.com/developer/connect-iq/f/discussion/426202/connect-iq-monetization-system-vs-own-payment-system---increase-in-sales).
+
+### Cijfers: hoe ver komen nieuwe apps (eerste goedkeuring jan tot jul 2026, dus 3,5 tot 10 maanden oud)
+| Soort en model | Aantal | 100+ downloads | 1000+ | Mediaan reviews |
+|---|---|---|---|---|
+| App, betaald via Garmin Pay | 160 | 46% | 11% | 3 |
+| App, gratis met proef of betaalmuur buiten Garmin | 80 | 80% | 24% | 3 |
+| App, gratis | 520 | 76% | 24% | 3 |
+| Dataveld, betaald | 36 | 28% | 3% | 1 |
+| Dataveld, gratis met proef buiten Garmin | 32 | 62% | 31% | 2 |
+| Widget, betaald | 29 | 72% | 10% | 10 |
+Alles GEZIEN, eigen telling uit de API. Downloadklassen: "100" betekent 100 tot 999.
+
+Andere metingen:
+| Wat | Cijfer | Label |
+|---|---|---|
+| Betaalde app naast een gratis broertje met dezelfde naam (Lite, Free, Demo), 74 paren | betaalde versie mediaan 0,1 keer de downloadklasse van de gratis versie | GEZIEN |
+| Nieuwe apps, widgets en datavelden met eerste goedkeuring 1 tot 16 nov 2026 | 951, waarvan 208 betaald | GEZIEN |
+| Aandeel betaald onder de nieuwe, per maand jan tot nov 2026 | steeds 12 tot 22% | GEZIEN |
+| Berichten "[New App]" op r/Garmin, upvotes mediaan | 1 | GEZIEN |
+| Ski Pin (dataveld, $4, later $4,99): verkopen eerste maand | 68 | DERDEN, de maker op het forum |
+| Ski Pin nu in de winkel | klasse 100, 5 reviews | GEZIEN |
+| Ebb op 16 nov ±07:10 UTC | 0 downloads, 0 reviews | GEZIEN |
+
+### Wat ik zag, in volgorde
+1. **Betaald via Garmin is een hogere drempel, maar geen muur.** Iets minder dan de helft van de betaalde apps haalt binnen een paar maanden de klasse 100, tegen driekwart van de gratis apps. Bij een betaalde app is een download een verkoop: Ski Pin verkocht in januari 68 keer en staat nu in klasse 100 met 5 reviews. Een betaalde app in klasse 100 heeft dus minstens 100 kopers. Bij $4,99 is dat na 15% voor Garmin ±$424 (GOK: aanname 100 kopers, vóór btw en de jaarlijkse $100).
+2. **Gratis met proef buiten Garmin haalt evenveel downloads als gratis, maar hoeveel er betalen is onbekend.** Geen enkele maker in de forumdraden noemt een omrekening van proef naar betaald voor Garmin. Wat er wel staat: een Nederlandse maker (beva) schrijft dat veel Nederlanders met een Garmin hun bankpas niet kunnen toevoegen voor aankopen in de winkel, omdat Garmin een creditcard vraagt (DERDEN, één stem, niet nagekeken). Dat pleit voor een eigen betaalweg, maar alleen voor die groep.
+3. **Een gratis broertje haalt ongeveer tien keer zoveel downloads als de betaalde versie.** Mediaan 0,1 bij 74 paren. Voorbeelden: Reminders Lite 1000+ en Reminders Pro ($4,99) 100+ met 31 reviews; Breath Training Tool 1000+ en de PRO ($6,25) 100+; OnPace gratis 1000+ en OnPace+ ($5,99) 1+. Er zijn uitzonderingen: Atmos Air Quality ($2,49) staat op 10000+ met 1.086 reviews, terwijl het gratis Atmos Weather in dit paar op 100+ staat. Dit klopt met hoofdles 5 van Lars (betaald 4 tot 10% van gratis).
+4. **Een vergelijking met en zonder broertje zegt weinig.** Betaalde apps met een gratis app van dezelfde maker: 51% haalt 100+, zonder: 45% (GEZIEN, losse naamkoppeling, klein verschil). Het broertje maakt de betaalde versie dus niet duidelijk groter; het vergroot vooral het bereik van de maker.
+5. **De winkel wordt drukker.** In de eerste 16 dagen van november kwamen er 951 nieuwe apps, widgets en datavelden bij, 208 betaald (GEZIEN). Bij de apps van augustus tot november haalt nog geen enkele betaalde app 1000+, maar die zijn ook nog jong. Of de winkel echt harder groeit dan eerder kan ik niet zeggen: de lijst van de API stopt rond 5.000 regels en mist oudere apps, dus de aantallen per maand zijn scheef. Het aandeel betaald is wel stabiel rond een vijfde.
+6. **Op Reddit winnen gratis apps met een eigen probleem in de eerste zin.** De vijf best scorende "[New App]"-berichten (176, 121, 42, 38 en 27 upvotes) waren alle vijf gratis of gratis te proberen en begonnen met een eigen ergernis: "I got tired of calling the minute to the late joiners" (Synchrono), "checking my glucose meant pulling out my phone" (GGlance), een vriend die onwel werd zonder dat iemand zijn medicijnen wist (Medical ID Wallet), een boot in Nederland zonder logboek (Deadreckon). GGlance staat nu op 1000+ met 22 reviews, Medical ID Wallet op 1000+ (GEZIEN). Een betaalde app die een week gratis was bij de lancering (Toma, nu $2,49) kreeg 8 upvotes en staat op 10+ (GEZIEN). Dat bevestigt run 7: een post is een klein lot, en een gratis app met een eerlijk verhaal heeft de beste kans.
+
+### Drie lessen
+1. **Een betaalde Garmin-app moet het met 100 tot 1000 kopers doen, en dat is haalbaar.** De helft van de betaalde apps haalt 100+ in een paar maanden; Ski Pin deed 68 in de eerste maand met een duidelijk probleem voor een vaste groep. Reken voor Ebb niet met duizenden, maar met de eerste 100.
+2. **Bereik komt van gratis, geld van betaald, en ze verhouden zich ongeveer 10 op 1.** Wie bereik wil voor filmpjes, Reddit en reviews heeft een gratis versie nodig; de betaalde versie haalt een tiende daarvan.
+3. **Proberen kan bij Garmin Pay alleen via een gratis broertje of een tijdelijk lagere prijs, niet via een proefmodus.** Een proef buiten Garmin werkt voor downloads, maar dat vraagt een ontgrendelcode, en hoeveel mensen dan betalen weet niemand openbaar.
+
+### Eerlijk: wat deze meting niet zegt
+- Downloads in klassen; reviews zijn maar een klein deel van de kopers (bij Ski Pin minstens 68 kopers in januari, 5 reviews nu).
+- Voor gratis apps met proef zie ik downloads, niet de betalers. Mijn indeling op woorden kan apps verkeerd plaatsen.
+- De lijst van de API stopt rond 5.000 regels. Apps die lang niet zijn bijgewerkt kunnen ontbreken; dat maakt de vergelijking per model niet scheef zolang het voor alle modellen geldt, maar zeker weten doe ik dat niet (GOK).
+- Reddit: alleen juli en september gelezen.
+
+### Voorstel voor Dortus deze week
+**Gijs: geen proefmodus voor Ebb (kan niet bij Garmin Pay); het gratis broertje Ebb Calm is de weg, en die is al ingediend (winkel-API 16 nov ±07:20 UTC: "not approved", dus nog in behandeling, GEZIEN). Doe twee dingen zodra hij goedgekeurd is. (1) Kijk of de eerste regel van de beschrijving van Ebb Calm een gemis noemt, geen naam ("Breathe for one minute without reaching for your phone" of iets dergelijks), met één regel en een link naar Ebb. (2) Zet één bericht "[New App] - Ebb Calm" voor r/Garmin klaar op `organisatie/lijst-thijs.md`, met de opbouw van de vijf beste berichten: een eerlijke eigen aanleiding in de eerste zin, "free", wat het doet, en dat de maker vragen beantwoordt. Thijs plaatst het en antwoordt op de dag zelf.** Waarom: Ebb staat na 3 dagen op 0; een gratis versie haalt volgens 74 paren ongeveer tien keer het bereik van een betaalde, en de best scorende posts waren gratis met een eigen verhaal. Meten: Gijs telt in `meting-ebb.md` de downloadklasse en reviews van Ebb en Ebb Calm op de dag van het bericht en 7 en 30 dagen erna; doel na 30 dagen: Ebb Calm 100+, Ebb 10+ (GOK, afgeleid uit de tabel).
+
+---
+
+## 7. r/Garmin "[New Watch Face]": 275 berichten van kleine makers, naast de winkel gemeten. Wat levert een Reddit-post op voor een Garmin-wijzerplaat?
+
+Onderzocht 16 nov 2026, run 7. Open vraag uit run 6: een Garmin-maker die met Reddit groeide. Reddit zelf is vanuit de cloud niet te lezen (403), maar het archief Arctic Shift wel. Op r/Garmin plaatsen makers hun nieuwe wijzerplaat met de kop "[New Watch Face] - naam" (40 tot 60 per maand). De winkel van Garmin geeft per app openbaar de downloads (in klassen: 1, 10, 100, 1000, 10000), het aantal reviews en de datum van elke review. Zo kon ik per bericht zien wat er in de winkel gebeurde, en in welke week. Dit raakt Ebb direct: Ebb ($4,99) staat sinds 13 nov in de winkel en had op 16 nov 02:03 nog 0 downloads (`platformen/garmin/meting-ebb.md`).
+
+### Bronnen
+- Berichten: Arctic Shift (https://arctic-shift.photon-reddit.com/api/posts/search, subreddit Garmin, zoekterm "New Watch Face", 1 jun tot 16 nov 2026, curl). 275 berichten met die kop, met upvotes, reacties en tekst (GEZIEN).
+- Winkel: `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/<id>` (downloadCount, reviewCount, averageRating, firstApprovalDate) en `.../apps/<id>/reviews` (datum per review), curl, 16 nov (GEZIEN). 120 berichten hadden een winkellink; 98 andere vond ik via de zoekbalk van de winkel op naam, met een goedkeuringsdatum binnen 45 dagen na of 60 dagen vóór het bericht. 218 van 275 gekoppeld. De naamkoppeling kan bij een paar fout zijn (GOK, niet elk nagekeken).
+- De ruwe tabel: `platformen/succes/data/rgarmin-wijzerplaten-2026-11-16.csv`.
+- Klacht op de subreddit: "RANT: Low effort Watchface tsunami", 5 nov 2026, 63 upvotes (Arctic Shift, GEZIEN).
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Upvotes per bericht, mediaan | **1** (75% heeft 1 of minder, 90% heeft 10 of minder, hoogste 331) | GEZIEN |
+| Samenhang upvotes en downloadklasse (Spearman, berichten vóór okt) | 0,13; met reviews 0,22 | GEZIEN, eigen berekening |
+| Wijzerplaten met 0 tot 4 upvotes die toch 1000+ downloads haalden | 34 van 123 (vóór okt) | GEZIEN |
+| Dagen tussen goedkeuring en bericht, mediaan | 3 | GEZIEN |
+| Reviews in de week na het bericht, mediaan, 22 berichten met 20+ upvotes | 5 | GEZIEN, eigen telling |
+| Hetzelfde, 20 willekeurige berichten met 0 tot 4 upvotes (met minstens 5 reviews) | 2 | GEZIEN; deze groep is gekozen op 5+ reviews, dus eerder te hoog |
+
+### Wat ik zag, in volgorde
+1. **Een bericht verdwijnt bijna altijd.** De helft krijgt 1 upvote. De klacht van 5 nov zegt het hard: "99% of these WF announcement posts have 0 responses", en de makers "are making zero or low effort to engage with the user base" voor een wijzerplaat van "$3 - $5". Zijn advies: praat met de mensen, of maak een gratis versie waarmee ze kunnen terugpraten (GEZIEN).
+2. **De winkel doet het meeste, niet Reddit.** Een derde van de wijzerplaten met 0 tot 4 upvotes kwam toch in de klasse 1000+. Quipu (27 upvotes) staat op 10000+ en 238 reviews, waarvan 158 meer dan 4 weken na het bericht (GEZIEN). Bij de meeste kwamen de reviews gelijkmatig binnen, ook zonder Reddit.
+3. **Veel upvotes is niet veel installaties.** Het hoogste bericht van het halve jaar, Margin Notes (331 upvotes, 47 reacties, 28 okt), is een wijzerplaat die je meteen betaalt ($2,99, met een losse proefversie "TR"). Na 19 dagen: 10+ downloads en 4 reviews, de proefversie 100+ en 3 reviews (GEZIEN). Mensen vonden het plaatje mooi; installeren deden ze niet.
+4. **Wat wel werkte: een probleem in de kop, gratis proberen, en lokken om te reageren.** Eén maker (llelibro) plaatste op 28 okt twee wijzerplaten met hetzelfde trucje (de klok loopt 2 tot 15 minuten voor, zodat je op tijd komt).
+   - Telex, kop "retro, feature-packed. free install": 0 upvotes, 1 reactie (GEZIEN).
+   - Ahead, kop "tricks you into being early, for my adhd friends": 178 upvotes, 105 reacties. De tekst begint met de vraag "Are you constantly 5 minutes late to everything?", is gratis te installeren met 7 dagen proef en daarna $3,99, en zegt "First five commenters get a free lifetime code" (GEZIEN).
+   Zelfde maker, zelfde dag, zelfde functie: alleen de kop en de eerste zin verschillen. Zijn volgende, Pitboard (12 nov), deed het weer: "first 10 commenters get a free lifetime code", 30 dagen gratis te houden, 37 upvotes, 50 reacties, en 14 reviews in de eerste 4 dagen (GEZIEN).
+5. **Maar ook bij Ahead kwam het meeste niet van Reddit.** Ahead stond al sinds 3 sep in de winkel en had 26 van zijn 37 reviews vóór het bericht; in de week erna kwamen er 8 bij (GEZIEN). En Telex, met 0 upvotes, kreeg in die week 10 reviews; de maker plaatste Telex ook op r/GarminWatchFaces (link in zijn Pitboard-bericht), wat ik niet gemeten heb. Reddit geeft dus een duw van enkele reviews, geen lancering.
+6. **De twee echte doorbraken hadden iets wat de rest niet had.** RASTER (159 upvotes, 26 aug): 39 reviews in week 1, 90 in week 2 tot 4, 103 daarna, nu 10000+ downloads (GEZIEN). Meridian (183 upvotes, 15 jun): 17 reviews in week 1, nu 1000+. Bij RASTER groeide het na de eerste week door; mijn lezing is dat de duw van Reddit hem in de winkel hoger zette en de winkel het daarna overnam (GOK: de rangorde van de winkel per dag heb ik niet).
+
+### Drie lessen
+1. **Een Reddit-post voor een Garmin-product is een loterij met een kleine prijs, maar wel een gratis lot.** Mediaan 1 upvote; een goede post geeft enkele reviews extra in de eerste week. Reken er niet op als lancering. Voor Ebb: de winkel zelf (zoekwoorden, naam, plaatjes, reviews) is belangrijker.
+2. **Begin met het probleem van een herkenbare groep, niet met hoe het eruitziet.** "Tricks you into being early, for my adhd friends" tegen "retro, feature-packed": hetzelfde product, 178 tegen 0 upvotes. Dit past bij les "noem wat mensen missen in de eerste zin" uit verhaal 5 (Notebook Navigator).
+3. **Op een overvolle plek wint wie iets teruggeeft: gratis proberen en de eerste reageerders iets geven.** Meteen betalen haalde zelfs met 331 upvotes bijna niets. Gratis installeren met proeftijd, of een paar levenslange codes voor de eerste reageerders, gaf reacties en reviews. Dat sluit aan bij de klacht op de subreddit zelf.
+
+### Eerlijk: wat deze meting niet zegt
+- Downloads staan in klassen (10, 100, 1000), dus kleine verschillen vallen weg. Reviews zijn exact, maar een review is maar een klein deel van de installaties (hoeveel, weet ik niet).
+- Alleen berichten met de kop "[New Watch Face]"; apps ("[New App]") gaf het archief deze run niet (time-outs). Ebb is een app, geen wijzerplaat.
+- Upvotes zijn van het moment van archiveren; latere stemmen kunnen ontbreken.
+- De paar verhalen (Ahead, Telex, Margin Notes) zijn klein in aantal. Het verschil Ahead tegen Telex is sterk, maar het blijft één maker.
+
+### Voorstel voor Dortus deze week
+**Gijs: kijk of Ebb een proeftijd kan krijgen (Connect IQ heeft een proefmodus; de winkel-API gaf op 16 nov ±06:55 UTC voor Ebb `hasTrialMode: false` en nog steeds 0 downloads, GEZIEN) en zet daarna één bericht klaar voor r/Garmin op `organisatie/lijst-thijs.md`, met de kop als probleem ("[New App] - Ebb: ..., for people who ..."), eerlijke eerste zin, gratis proberen, en 5 levenslange codes voor de eerste reageerders als Garmin dat toelaat. Thijs plaatst het zelf en beantwoordt de reacties op de dag zelf.** Waarom: Ebb staat na 3 dagen op 0 downloads; een post kost niets, maar alleen de vorm "probleem, gratis proberen, iets teruggeven" werkte hier. Meten: Gijs telt in `meting-ebb.md` de reviews en de downloadklasse de dag ervoor en 7 dagen erna, en zet de upvotes erbij.
+
+**Correctie 16 nov (run 8):** het deel "proefmodus voor Ebb" vervalt. Garmin Pay kent geen proeftijd en Ahead verkoopt via een eigen PayPal-link. Zie het voorstel bij verhaal 8.
 
 ---
 

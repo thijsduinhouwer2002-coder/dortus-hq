@@ -1261,3 +1261,27 @@ Nieuwste blok onderaan.
 - Les: steamcommunity.com verdraagt ±45 verzoeken per keer; reken op 1 per 6 tot 10 seconden en meerdere runs. Volgers zijn de beste openbare maat voor het publiek van een spel dat nog niet uit is.
 - Voor Hans: geen nee of ja, niets op de lijst van Thijs. Korte regel aan Fenna bij mijn bericht van 05:00 (zelfde opdracht).
 - Volgende run: volgers afmaken (taken.md), daarna de controleur over beide Steam-blokken.
+
+## 16 nov 2026, run 06:31 (Amsterdam)
+- Geen nieuw platform: de opdracht van de hoofdchat (16 nov 04:00) zegt stoppen met nieuwe platformen en focus op Hats. Vervolg uit taken.md gedaan: volgers afmaken.
+- 151 apps erbij gemeten (curl, 1 per 10 s, twee keer 5 minuten gewacht na 429). Alle 127 lookalikes klaar: mediaan 9. Steekproef rest: mediaan 7. Demo 22 tegen 6.
+- Correctie op run 05:31: kleine spellen hebben ±4 tot 6 volgers per review, niet 2 tot 3. Staat in Aanvulling 2.
+- steam-volgers-script.py (Python) kreeg hier geen antwoord; curl wel.
+- Volgende run: kijk eerst of er een nieuw bericht in berichten/vera.md staat. Work From Dungeon komt 19 nov uit, meten op 26 nov.
+
+## 16 nov 2026, run 07:31 (Amsterdam)
+- Geen nieuw bericht. De opdracht van de hoofdchat (16 nov 04:00) staat nog: geen nieuwe platformen, focus Hats. Daarom het open punt uit run 05:31 gedaan: een aparte controleur over beide volgersblokken, en de steekproef afgemaakt.
+- Controleur: akkoord met correcties (lijst grootste, aantallen 251 apps en 44 in plaats van 38, bandbreedte 3 tot 6 paste niet bij de sommen, "bovenaan" alleen binnen de lookalikes, oud script filterde niet op jaar). Alles verwerkt in Aanvulling 3; de oude blokken laat ik staan.
+- 84 apps erbij gemeten (1 per 10 s, één 429, 5 minuten gewacht). Uitkomst: ±5 volgers per review (n=46, band 2,6 tot 9,5), dus ±500 volgers na de lancering voor 100 reviews. Twee grote bureaubladhuisdieren gevonden die eraan komen (Character House 9.732, Amarillo's Desktop Pets 5.822).
+- Les: met de hand gekozen voorbeelden en een willekeurige steekproef nooit in één getal mengen; markeer ze in de data (hier op meettijd).
+- Voor Hans: geen ja of nee, niets op de lijst van Thijs, geen bericht aan een manager.
+- Volgende run: kijk eerst naar berichten/vera.md. Staat de opdracht van 04:00 nog, dan is het Hats-werk af tot de metingen van 26 nov; dan kan ik de herhaalmetingen van begin december voorbereiden.
+
+## 16 nov, run 08:31 (gestart 07:34 UTC)
+- Berichten gelezen: geen nieuwe opdracht. De nieuwste (04:00) zegt geen nieuwe platformen scannen; die gaat voor op de vaste runopdracht. Daarom geen platform in onderzoek gezet.
+- Open punt uit mijn eigen advies opgepakt: de kalender van Steam voor 2027 was "niet zelf nagekeken". Nu gelezen op Steamworks (Upcoming Steam Events): Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt, Next Fest juni 14 tot 21. Advies precies gemaakt: Hats uit in de week van 2 tot 4 maart 2027, niet van 11 tot 25 maart. Blok Aanvulling 4 in steam-desktop-2026-11.md, bericht aan Olaf.
+- Niet gelukt: de Steamworks-pagina over kortingen (regels lanceerkorting); de veiligheidscontrole van de omgeving gaf deze run vaak geen antwoord, ook bij git. Staat als open punt in het blok.
+- Geen controleur ingezet: het zijn vijf datums van één officiële pagina, letterlijk overgenomen.
+- Later in dezelfde run lukte de kortingenpagina wel: lanceerkorting 7 tot 14 dagen, 10 tot 40%, daarna 30 dagen geen korting en geen seizoensuitverkoop; 20%+ kan een verlanglijstmelding sturen. In Aanvulling 4 gezet. 15% voor 7 dagen past.
+- Daarna: nulmeting voor een fest-proef. Het Auto-Battler RPG Fest begint vandaag 18:00 UTC; alle 144 bureaubladapps met dat label hebben nu een volgersmeting van vóór de start (96 deze run, 0 fouten, drie keer een 429 met 5 minuten wachten). Op 24 nov en 1 dec opnieuw meten tegen 284 apps zonder het label. Script `data/steam-fest-effect-script.py`, Aanvulling 5.
+- Volgende run: geen nieuw werk tot 24 nov tenzij er een bericht staat; dan de nameting. Eventueel op 17 nov de deelnemers van de festpagina proberen te halen.

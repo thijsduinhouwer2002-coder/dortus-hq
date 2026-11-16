@@ -15,6 +15,7 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 14 nov 20:47 (Chris, run 39, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
 | 15 nov 08:44 (Chris, run 40) | 2 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved"; makerlijst Dortus: 1 app) |
 | 16 nov 02:45 (Chris, run 49) | 3 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved") |
+| 16 nov 07:47 (Chris, run 54, tussencheck) | 3 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved") |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 
@@ -53,6 +54,8 @@ GEZIEN met curl op dezelfde winkel-API, met `commercie/ebb/meet-lijsten.py`. De 
 - **15 nov 08:45 UTC (run 40, GEZIEN):** Ebb nog op plek 36 van 120 in Hot & Fresh (watch-apps); de oudste app in de lijst (plek 120) is nog van 11 nov 16:55 (API-tijd), dus in het weekend schoof er niets. Niet in de eerste 60 van Trending. Past bij de verwachting: uitvallen bij de goedkeuringen van ma 16 of di 17 nov.
 - **15 nov 14:46 UTC (run 42, GEZIEN):** Ebb op plek 37 van 120 in Hot & Fresh (watch-apps), één plek gezakt; de oudste app in de lijst is nog van 11 nov 16:31 (API-tijd). Ebb 0 downloads, 0 beoordelingen. Calm nog niet openbaar.
 
+- **16 nov 07:50 UTC (run 54, GEZIEN):** Ebb nog op plek 37 van 120 in Hot & Fresh (watch-apps); de oudste app in de lijst is nog van 11 nov 16:31 (API-tijd). Er zijn op maandag nog geen nieuwe apps goedgekeurd (AFGELEID uit de oudste app die gelijk bleef; in Amerika is het nacht). Verwachting blijft: uitvallen bij de goedkeuringen van vandaag of morgen.
+
 **Is 0 downloads normaal? Ja, voor een betaalde nieuwkomer (GEZIEN, zelfde lijst, 14 nov 20:45 UTC).** Van de 111 nieuwe watch-apps zijn er 24 betaald in de winkel ($1,99 tot $4,99, geen enkele met proef). Na 1 tot 3 dagen staan er 13 op "1" (1 tot 9 downloads) en 11 op 0; **geen enkele haalde 10+**. Bij de 87 gratis nieuwkomers staan er 28 op 10+ en 1 op 100+. Eén maker bracht op 13 nov drie apps van $4,99 tegelijk uit (Racketday, Catchday, Huntday), alle drie 0. Ebb wijkt dus niet af. AFGELEID: de winkel brengt een betaalde app in de eerste dagen bijna niets; kopers moeten van buiten komen (forumdraad, persoonlijke berichtjes uit `proberen.md`) of later uit de zoeker.
 
 **Wat dit betekent:**
@@ -86,6 +89,7 @@ Geplaatst door de hoofdchat op 14 nov ±07:35 UTC, eerst "Content Under Review".
 | 14 nov 20:46 (Chris, run 39) | ja | 0 | 4 | 5 | niet gemeten |
 | 15 nov 08:45 (Chris, run 40) | ja | 0 | 15 | 5 | niet gemeten |
 | 15 nov 14:46 (Chris, run 42) | ja | 0 | 18 | 5 | niet gemeten |
+| 16 nov 07:50 (Chris, run 54) | ja | 0 | 30 | niet gemeten | niet gemeten |
 
 GEZIEN met curl. "Bekeken" is de teller van het forum zelf; of die bezoekers zonder inlog telt, is NIET GEZIEN. De 5 volgers zijn waarschijnlijk vaste abonnees van nieuwe draden of de maker zelf (GOK).
 

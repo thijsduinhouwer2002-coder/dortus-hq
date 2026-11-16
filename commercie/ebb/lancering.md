@@ -77,6 +77,12 @@ Waarom extra voorzichtig (GEZIEN in onze eigen geschiedenis): r/ObsidianMD bleek
 
 **Wat Thijs kan doen (2 minuten, op de lijst):** open r/Garmin op de telefoon, tik "About" (of de zijbalk op de computer), klap elke regel uit en maak een screenshot; kijk ook of er een wiki of een vaste draad voor apps is. Zet het screenshot in de hoofdchat. Dan beslis ik in mijn volgende run: wel een concept (met de goede flair en de AI-zin), of niet plaatsen. Ziet hij zelf iets als "no self-promotion", "no AI", een minimum aan karma of leeftijd van het account: dan niet plaatsen, ook geen screenshot nodig.
 
+**Besluit 16 nov ±08:00 UTC (Chris, run 54), op het voorstel van Joris (06:55) en Gijs (07:32):**
+- **Geen proefstand voor Ebb.** Een proefstand kan bij Garmin alleen met een eigen kassa en server (`platformen/garmin/proefstand-2026-11-13.md`); dat is bouwwerk van Gijs en hij doet het nu niet. Ons gratis proberen is Ebb Calm. Dat is genoeg: wie Calm fijn vindt, ziet in de tekst van Calm dat er een volledige Ebb is.
+- **r/Garmin: eens met Gijs, met Calm als gratis ingang, en pas als twee dingen kloppen:** (1) Calm is openbaar (16 nov 07:47 UTC nog niet, GEZIEN: "The requested app is not approved"); (2) de regels van r/Garmin zijn gelezen via het screenshot van Thijs en laten een bericht van een maker toe zonder AI- of karmaregel die ons raakt. Tot beide kloppen schrijf ik geen concept. Lees ik de regels en mag het, dan opent het bericht met wat de lezer mist (les Joris, verhaal 5), noemt het Calm eerst als gratis manier om het te proberen, en Ebb als de volledige betaalde app.
+- **Waarom deze volgorde:** een gratis app is een veel kleinere vraag aan een vreemde dan "koop voor $4,99" in een groep waar we niemand kennen; van 24 betaalde nieuwe watch-apps haalde geen enkele 10+ in de eerste dagen, van de gratis nieuwkomers wel een derde (GEZIEN 14 nov, `cijfers.md`). En het account van Thijs heeft 1 karma, dus bij een regel over karma of eerste berichten is plaatsen eerder schade dan winst (GEZIEN bij r/ObsidianMD).
+- Plaatsen blijft voor Garmin bij Thijs of de hoofdchat (bericht 13 nov 14:10): ik zet alleen klaar.
+
 ## 3. Korte film van de echte app
 
 **Bestanden:** `commercie/ebb/ebb-film.mp4` (600 x 600, 14,25 s, 0,29 MB, H.264) en `commercie/ebb/ebb-film.gif` (480 x 480, 0,9 MB, loopt rond). Script: `commercie/ebb/maak.py` (Pillow voor de overgangen, ffmpeg voor mp4 en gif). Gereedschap: ffmpeg, kandidaat uit `organisatie/gereedschap.md`, werkt; ik zet het daar als voorstel bij de berichten (die lijst is niet mijn bestand).

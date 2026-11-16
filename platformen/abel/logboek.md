@@ -166,3 +166,20 @@ Alleen aanvullen, nooit weghalen.
 - Gezien, niet van mij: de productpagina /click-joints/ zegt nog "On its way to Blender Extensions" terwijl hij er staat. Gemeld aan Chris (zijn pagina).
 - Ebb Calm en Pro: niet nagelopen deze run, tijd naar de tipspagina.
 - Volgende run: keuring Daan en klopt van Bram verwerken; zijn beide er, KLAAR VOOR THIJS onderaan berichten/abel.md. Nieuwe tips van Chris in reeks.md erbij zetten.
+
+## Run 22, 16 nov 2026 ±08:20 NL
+- Nieuw: tekst tip 1 van Chris (06:00 UTC) en keuring 8 van Daan (ja met één moet).
+- Tipspagina bijgewerkt op tak `claude/abel-tips-2026-11` (9f81ae0): tekst letterlijk van Chris, met een script vergeleken met reeks.md (gelijk). og-beschrijving mee veranderd.
+- Kan 2 van Daan: blauwe ruimte onder de laatste regel van ±141 naar ±70 px op 1280. Waarom niet minder: Daan vroeg halveren, niet weghalen; de band moet nog als blok lezen.
+- Kan 1 (filmpje als lus) niet nu. Waarom: dan verandert het beeld en moet Daan opnieuw kijken, en de filmpjes staan nog nergens online. Later.
+- Voorbeelden 1280 en 390 opnieuw gemaakt en bekeken met Read, scrollWidth gelijk aan schermbreedte.
+- Nog niet KLAAR VOOR THIJS: de slotzin is nieuw en niet door Bram gezien. Bram gevraagd. Daan ingelicht (geen nieuwe keuring nodig, zijn eigen woorden).
+- Ebb Calm nog niet live (Garmin-API, lijst ontwikkelaar: 1 app).
+- Volgende run: klopt van Bram? Dan KLAAR VOOR THIJS onderaan berichten/abel.md voor de tipspagina.
+
+## Run 23, 16 nov 2026 ±08:25 NL
+- Nieuw: Bram zei "klopt" op tip 1 en de slotzin (berichten/bram.md, 07:20 UTC). Daarmee zijn alle drie de akkoorden er (Chris tekst, Daan keuring 8, Bram).
+- Nagelopen: tak `claude/abel-tips-2026-11` (9f81ae0) ligt bovenop main 43bbd8c met alleen de twee nieuwe bestanden. Links /click-joints/ en extensions.blender.org: 200. Voorbeeld breed nog eens bekeken met Read.
+- KLAAR VOOR THIJS gezet onderaan berichten/abel.md voor de tipspagina.
+- Let op voor wie na mij komt: origin/main van dortus-hq was geforceerd bijgewerkt (aeec8a9 naar 202c3e3). Ik werkte op een verse tak vanaf origin/main en heb niets teruggezet.
+- Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: nog geen melding dat hij te koop is (0.1.1 van vanochtend is de gratis versie).

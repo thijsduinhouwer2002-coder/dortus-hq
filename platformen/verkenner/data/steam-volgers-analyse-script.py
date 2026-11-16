@@ -1,4 +1,5 @@
 # Vera 16 nov 2026: analyse volgers bureaublad-apps. Gebruik: python3 -I steam-volgers-analyse-script.py kaart.csv volgers.jsonl
+# Let op (controleur 16 nov 07:31): het blok "UIT 2026" hieronder filtert niet op jaar en telt de met de hand gekozen spellen mee. Gebruik steam-volgers-analyse3-script.py voor de zuivere steekproef.
 import csv, json, sys, statistics as st
 kaart = {r['appid']: r for r in csv.DictReader(open(sys.argv[1]))}
 v = {}

@@ -714,7 +714,7 @@ var lied_helden := 0
 var rng := RandomNumberGenerator.new()
 var begin_gedaan: Array = []
 var aankomst := {}
-const LIJST := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
+const LIJST := ["vallen", "opgegeten", "vluchten", "terug", "doorlopen"]
 func _begin_stap() -> String:
 	for st in LIJST:
 		if not begin_gedaan.has(st):
@@ -730,6 +730,7 @@ func _nieuwe_held() -> bool:
 	nep.reload()
 	var laatst_opgegeten := 0.0
 	var gat_na_opgegeten_ok := true
+	var gat_na_vluchten_ok := true
 	for zaad in 40:
 		var ns = nep.new()
 		ns.rng.seed = zaad
@@ -737,10 +738,15 @@ func _nieuwe_held() -> bool:
 			RI.tik_held(ns, 0)
 			ns.t += 0.25
 		laatst_opgegeten = maxf(laatst_opgegeten, float(ns.aankomst.get("opgegeten", 999.0)))
-		var gat: float = float(ns.aankomst.get("terug", 0.0)) - float(ns.aankomst.get("opgegeten", 0.0))
-		gat_na_opgegeten_ok = gat_na_opgegeten_ok and gat >= 35.0 and gat <= 45.5
-	ok(laatst_opgegeten <= 52.0, "eerste hoed: held van 'opgegeten' uiterlijk 52 s binnen in 40 zaden (laatste %.1f s), hap onder 75 s" % laatst_opgegeten)
-	ok(gat_na_opgegeten_ok, "eerste hoed: na 'opgegeten' weer 35 tot 45 s tot de volgende held (eis 1 Olaf)")
+		var gat: float = float(ns.aankomst.get("vluchten", 0.0)) - float(ns.aankomst.get("opgegeten", 0.0))
+		gat_na_opgegeten_ok = gat_na_opgegeten_ok and gat >= 18.0 and gat <= 22.5
+		var gat2: float = float(ns.aankomst.get("terug", 0.0)) - float(ns.aankomst.get("vluchten", 0.0))
+		gat_na_vluchten_ok = gat_na_vluchten_ok and gat2 >= 35.0 and gat2 <= 45.5
+	# Bram 16 nov (hoofdchat, Fenna): "opgegeten" is nu de tweede held, 5 tot 7 s na de eerste. Echte spel (Linux, vers=1,
+	# zaden 1 tot 3): hap op 26,3 tot 27,8 s. Aankomst uiterlijk 13 s houdt de hap rond 30 s.
+	ok(laatst_opgegeten <= 13.0, "eerste hoed: held van 'opgegeten' uiterlijk 13 s binnen in 40 zaden (laatste %.1f s), hap rond 30 s" % laatst_opgegeten)
+	ok(gat_na_opgegeten_ok, "eerste hoed: na 'opgegeten' 18 tot 22 s tot 'vluchten'")
+	ok(gat_na_vluchten_ok, "eerste hoed: na 'vluchten' weer 35 tot 45 s tot de volgende held (eis 1 Olaf)")
 	var nd = nep.new()
 	nd.demo = true
 	nd.rng.seed = 3

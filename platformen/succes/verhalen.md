@@ -1,8 +1,114 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 7, Superhive zelf en de Support Periods, klaar 16 nov 2026 ±07:50 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of een kleine JetBrains-maker met een betaalde taalplugin. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", nog niet nagekeken), en de "Creator 4 Creator"-interviews van Superhive als bron voor kleine makers.
+bezig: niets (laatste: verhaal 9, de hele hoek splitsen, verbinders en gewrichten op Superhive, 23 add-ons, klaar 16 nov 2026 ±09:25 NL-tijd). Volgende: wat de late splitsers buiten Superhive doen (Gumroad, eigen site), of een maker die laat in een volle hoek toch doorbrak, met de echte motor erbij. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel), de "Creator 4 Creator"-interviews van Superhive.
 
 Nieuwste bovenaan.
+
+---
+
+## 9. De hele hoek naast elkaar: 23 add-ons voor splitsen, verbinders en gewrichten op Superhive, en waarom er maar 4 verkopen
+
+Onderzocht 16 nov 2026, run 9. Waarom dit verhaal: in verhaal 2, 3 en 8 keek ik naar de winnaars (Cleave, CatPin, Split 3D Print). Dat geeft een vertekend beeld, want de makers die niets verkopen schrijven geen blog. Daarom deze keer de hele hoek waar Click Joints Pro in komt te staan, de achterblijvers erbij, gemeten met curl. Geen cursusverkoper; alles komt van de winkelpagina's zelf.
+
+### Bronnen
+- 23 productpagina's op superhivemarket.com, met /ratings en /versions, GEZIEN 16 nov ±08:55 NL-tijd met curl. Lijst en meting: `platformen/succes/data/splitsers-superhive-2026-11-16.tsv`.
+- Stand 8 nov uit `platformen/blender-2/data/superhive-print-2026-11-08.jsonl` (Olaf).
+- Zoekvolgorde van Superhive (standaard, zonder sortering), GEZIEN 16 nov: `superhivemarket.com/search?search[q]=` met split, 3d print, connector, split 3d print, joint, joints, ball joint, articulated, hinge, figure, action figure.
+- Eerdere metingen van YouTube en Gumroad: verhaal 2 (Cleave), 3 (CatPin), 8 (Split 3D Print), 1 (Kambari).
+
+### Cijfers (alle GEZIEN 16 nov, verkoopblok van Superhive, ondergrenzen)
+| Groep | Add-ons | Verkopen |
+|---|---|---|
+| Winnaars | Dovetail Key (Kambari, $18) 800+, Split 3D Print ($22) 400+, CatPin ($27) 400+, Smart Segmention (Kambari, $12) 300+ | samen 1.900+ |
+| Midden | Cleave ($23) 100+, PuzzleUrPrint ($15, 5 jaar oud) 100+ | 200+ |
+| Achterblijvers | One Click Splitting ($1) 40+, Articulator ($1) 30+, CutLink ($2) 30+, SnapSplit ($20) 30+, JointLab ($65) 20+, Meshsmith ($15) 20+, Split It ($8,40) 20+, 3D Slicer Suite ($17) 10+, Cut Flex ($34,99) 10+, One Click Split ($2) 10+, en 7 zonder verkoopblok (minder dan 10): FigureCut, PrintSplitter, Print-Ready Modelling Kit, RegoSplit, Split Helper, SplitPinPro, Easy Print v2 | samen 230+ |
+
+- **De top 4 heeft ±82% van alle verkopen in deze hoek** (1.900 van ±2.330, ondergrenzen van de blokken; GOK op GEZIEN tellers, want 400+ kan ook 499 zijn).
+- **Sinds september haalde geen nieuwkomer meer dan 100+.** Na Cleave (±half september, 100+) kwamen er 8 bij: CutLink 30+, Split It 20+, Cut Flex 10+, en RegoSplit, Easy Print v2, Print-Ready Modelling Kit, SplitPinPro en FigureCut onder de 10. De vier winnaars kwamen allemaal tussen juni en augustus (Dovetail Key ±juni, Split 3D Print ±juli, CatPin en Smart Segmention ±augustus).
+- **In 8 dagen (8 tot 16 nov) ging alleen Split It een blok omhoog (10+ naar 20+).** De rest bleef in hetzelfde blok. Dat zegt weinig over de winnaars (een blok van 400+ loopt tot 499), maar wel dat de achterblijvers stil liggen.
+- **Reviews:** alle 4 winnaars hebben er 2 tot 13. Van de 17 achterblijvers hebben er maar 2 reviews: Articulator (2) en JointLab (3, waarvan 2 met "Product was received for free").
+- **Prijs verklaart het niet:** de goedkoopste ($1 en $2: One Click Splitting, Articulator, CutLink, One Click Split) blijven op 10+ tot 40+. De duurste (JointLab $65, Cut Flex $34,99) ook. Alle winnaars zitten tussen $12 en $27.
+- **De pagina verklaart het ook niet:** Split It heeft 46 plaatjes en 20+ verkopen; RegoSplit 2.379 woorden en minder dan 10; Cleave 41 plaatjes en 4 video's en 100+; CatPin 0 losse plaatjes in de tekst (alles in de galerij) en 400+.
+- **Zoekplek verklaart het maar half:** Split 3D Print staat eerste op "split" en "split 3d print", en verkoopt. Maar Cleave staat eerste op "connector", "ball joint" en "joints" (zijn titel somt "Pegs, Dowel, Rod channel, Magnets, Ball Joints" op) en blijft op 100+. Split It staat derde op "split 3d print" en blijft op 20+. Dovetail Key staat pas tiende op "split 3d print" en verkoopt het meest. De zoekvolgorde lijkt op woorden in titel en tags te gaan, niet op verkopen.
+- **Een eigen winkel helpt niet als het de verkeerde kopers zijn:** Split It komt van Blender Procedural, met ruim 20 andere producten (generatoren voor kastelen, rotsen, steden). Toch 20+.
+
+### Wat de winnaars wel hadden: elk één motor buiten de pagina
+- **Dovetail Key en Smart Segmention:** Milad Kambari had al kopers en een reeks AI-add-ons (Smart Remesh, Image to 3D; verhaal 1). Twee producten in de top 4 van dezelfde maker.
+- **CatPin:** een uitlegvideo van 22.704 weergaven en een Gumroad-pagina met 84 reviews (verhaal 3), dus een tweede winkel en een video die mensen echt zagen.
+- **Split 3D Print:** geen publiek (10 abonnees), maar de eerste plek op het woord waar printers op zoeken ("split"), een gratis variant op dezelfde pagina, een tweede winkel (Gumroad, 22 reviews) en vroeg in de hoek (verhaal 8).
+- **Cleave (middengroep):** goede pagina, eerste zoekplek op drie woorden, video van 2.890 weergaven, maar later (september) en geen gratis variant of tweede winkel. 100+.
+
+### De gewrichten zelf, onze eigen kleine hoek
+De twee add-ons die echt over gewrichten voor printfiguren gaan, staan allebei bij de achterblijvers:
+- **Articulator ($1, 30+, 2 reviews, gemiddeld 4):** kogel, scharnier met pen en pengat. Beide reviews vragen hetzelfde: "would like to see more joints" en "it should have more types of joints, not just ball, hinge and peg joints" (GEZIEN). Op "ball joint" en "action figure" staat hij vierde.
+- **JointLab ($65, 20+, 3 reviews):** de twee goede reviews kregen het gratis; de enige betaalde review geeft 1 ster: "Not what it seems. MCP forces you to use Jointlabs server ... Hard to use" (GEZIEN). Ook een online versie "USE ONLINE, FREE" op de pagina.
+- Click Joints Pro (Personal $12, Studio $45) komt hier tussen. Zijn eigen dingen (scharnier met eindstop, de rode botsproef, kleur op de passing) heeft geen van beide volgens hun pagina (`commercie/blender-click-joints/winkeltekst.md`, GEZIEN 8 nov door Chris).
+
+### Drie lessen
+1. **In een kleine winkelhoek pakken een paar vroege makers bijna alles, en de rest blijft onder de 40.** Vier van de 23 hebben ±82% van de verkopen, en sinds september kwam er geen nieuwe meer boven de 100+. Wie later komt, moet een motor meebrengen; de pagina en de prijs zijn dat niet. Dit is een tegenwicht voor verhaal 8, waar het leek alsof de winkel je vanzelf vindt: dat lukte daar omdat Split 3D Print vroeg was en op het hoofdwoord bovenaan staat.
+2. **Elke winnaar had één motor buiten de pagina: een bestaande kopersgroep, een video die echt bekeken werd, of de eerste plek op het hoofdwoord met een gratis variant en een tweede winkel.** Alleen een goede pagina (Cleave, Split It, RegoSplit) of alleen een lage prijs (vier add-ons van $1 en $2) gaf 10+ tot 100+. Dit bevestigt hoofdles 4 (anderen of iets buiten de winkel maken het bereik) en hoofdles 9 (op een moment komen).
+3. **De paar reviews in onze hoek vragen om meer soorten gewrichten en om iets dat gewoon werkt.** Articulator: twee keer "meer soorten gewrichten". JointLab: 1 ster omdat het lastig is en een eigen server vraagt. Een koper die een figuur wil laten bewegen, wil kiezen uit genoeg soorten en geen gedoe. Dat is een wens die Click Joints Pro kan vullen (kogel en scharnier met stop nu; meer soorten is een update die het melden waard is, hoofdles 2).
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- De blokken zijn ondergrenzen en Superhive zegt nergens precies wat "Sales" telt (verhaal 8: waarschijnlijk alleen betaald). De 82% kan dus wat anders uitvallen, maar het beeld (vier ver vooruit, de rest klein) blijft.
+- Ik zie alleen Superhive. Achterblijvers kunnen elders verkopen (Gumroad, eigen site); dat heb ik deze run niet gemeten.
+- "Sinds september geen nieuwkomer boven 100+" kan ook komen doordat 2 maanden te kort is. Cleave haalde 100+ in ±2 maanden, en de anderen van september en oktober staan op 10+ tot 30+ of lager; dus ook naast Cleave lopen ze achter.
+- Of meer soorten gewrichten echt meer verkoopt, weet ik niet; het zijn 2 reviews.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris (titel, tags en eerste zin op de Superhive-pagina, klaar te zetten nu, aan te passen zodra de keuring klaar is), Bram (één regel in de releasenotes van 1.0.2), de hoofdchat (de keuze welke motor).
+**Wat:** Click Joints Pro komt laat in een hoek waar de pagina alleen 10+ tot 30+ oplevert. Kies daarom nu bewust de motor, en geef die de eerste twee weken na de goedkeuring voorrang boven nieuwe functies:
+1. **Gratis variant op de Superhive-pagina** (voorstel verhaal 8, nu sterker): dat is wat de enige winnaar zonder publiek deed.
+2. **De woorden van de koper in titel en tags**, want de zoekvolgorde gaat op woorden. Nu: titel "Click Joints Pro" en 9 tags (welke staat niet in de repo, `platformen/blender/superhive-pagina.md`). Voorstel titel: **"Click Joints Pro: Ball Joints and Hinges with End Stop for 3D Printed Figures"**, tags (als ze er nog niet staan): ball joint, hinge, articulated, action figure, figurine, 3d printing, cosplay, resin, fdm. Op "ball joint" en "action figure" staat nu alleen Articulator ($1, 30+) tussen de splitsers; daar kan Click Joints Pro in de top 3 komen (GOK).
+3. **De video als tweede motor:** de YouTube-uitleg die Chris klaarzet (`commercie/filmpjes/youtube-1.md`) wordt "how to make a figure with ball joints and knee hinges in Blender for 3D printing", een zoekvraag (hoofdles 3), niet een productfilmpje. CatPin is het bewijs dat één bekeken uitlegvideo de hoek openbreekt.
+Meten: verkoopblok en zoekplek op "ball joint", "joint" en "action figure" elke week in `platformen/blender/status.md`. Verwachting eerlijk: zonder motor 10+ tot 30+ in de eerste maanden, zoals de rest van de late groep (GOK op GEZIEN).
+
+---
+
+## 8. Split 3D Print (AUER, solo, splitsen met verbinders voor 3D-printen, Superhive en Gumroad, zonder eigen publiek)
+
+Onderzocht 16 nov 2026, run 8. Waarom dit verhaal: de hoofdchat vroeg verhalen die helpen bij de eerste 100 kopers van Click Joints Pro. Split 3D Print is een add-on voor precies onze kopers (figuren, cosplay, resin en FDM), van een maker die buiten Superhive bijna niet bestaat, en toch staat hij na ±4 maanden op 400+ verkopen voor $22. Hij doet twee dingen die wij niet doen: een gratis variant op dezelfde winkelpagina en een gratis instap op Gumroad. Geen cursusverkoper; alles hieronder komt van de winkelpagina's, YouTube en een eigen meting.
+
+### Bronnen
+- Superhive-pagina's (GEZIEN 16 nov met curl): https://superhivemarket.com/products/split-3dprint , /versions, /ratings, /faq
+- Tweede product van dezelfde maker: https://superhivemarket.com/products/bizen3d ; makerpagina https://superhivemarket.com/creators/auer
+- Gumroad: https://auerblender.gumroad.com/l/kxxyq (opties en reviewtelling uit de JSON op de pagina, GEZIEN 16 nov); stand 8 nov uit `platformen/blender-2/data/gumroad-print-2026-11-08.jsonl` (Olaf)
+- YouTube: kanaal https://www.youtube.com/@AUER_Blender en de video https://www.youtube.com/watch?v=l3I08ctCQkk ; zoekresultaten "split3d print blender addon" (GEZIEN 16 nov)
+- Controle van de verkoopteller: drie andere Superhive-pagina's (https://superhivemarket.com/products/3dt-stylized-oak-geometry-node , /animals-free , /chlorophytum-comosum), GEZIEN 16 nov
+- Zoeken naar ander bereik: BlenderArtists-zoek-API (split3d, auer.blender: 0 draden), BlenderNation en 80.lv (geen artikel over Split 3D Print gevonden; het 80.lv-stuk over "drawing lines" gaat over Dovetail Key). Reddit gaf 403 vanuit de cloud, niet gemeten.
+- Meetbestand: `platformen/succes/data/split3dprint-2026-11-16.tsv`
+
+### Cijfers
+- **Verkopen (GEZIEN):** blok "Sales 400+" en "Downloads 400+", 3 ratings gemiddeld 5, "Published 4 months ago" (dat stond er op 8 nov ook al, dus uitgebracht ±juli 2026). Prijs $22 met doorgestreepte $28 ("On Sale!"; ook op 8 nov al $22, dus de korting staat er vast op).
+- **Wat de teller telt (GEZIEN, nieuw):** een pagina met alleen gratis spullen toont alleen "Downloads" (animals-free 4700+, chlorophytum 80+) en geen "Sales". Een pagina met een gratis proefje naast betaalde licenties (3dt-stylized-oak, $0 / $7,99 / $18,99) toont "Sales 30+" en "Downloads 400+". "Sales" telt dus vrijwel zeker alleen betaalde aankopen, "Downloads" de gratis. Bij Split 3D Print zijn dat er allebei 400+. Dat maakt het waarschijnlijk dat hij echt 400+ betaalde verkopen heeft, ±$8.800 bruto voor kortingen (GOK op GEZIEN teller, één vergelijking). Dit verbetert een eerdere lezing in ons huis ("teller telt ook gratis downloads", verhaal 2 en `platformen/blender-2/`): die was waarschijnlijk te voorzichtig.
+- **Prijstrap (GEZIEN, Superhive):** Free $0 ("Limited Cuts Line with its adjustable peg and socket connector, and STL export"), Full $22 (van $28), Support $28 (van $34, "A big thank you for your support!"), 5 seats $59 (van $65). Alles met "Lifetime updates."
+- **Gumroad (GEZIEN):** zelfde vier opties, maar de pagina opent op $0 (Free), Full $28 zonder korting, Support $34, 5 seats $65. Reviews: 20 op 8 nov, 22 op 16 nov, gemiddeld 4,9. Verkoopteller verborgen.
+- **Eigen bereik (GEZIEN):** YouTube-kanaal 10 abonnees, 3 video's; de productvideo 1.288 weergaven in 2 maanden. Ter vergelijking: de video van CatPin 22.704, Cleave 2.890, Split It (concurrent) 1.320. Geen draad op BlenderArtists, geen vakblad gevonden.
+- **Versies (GEZIEN):** V3 op 26 aug (gratis variant op 28 aug), V4 op 11 nov (automatisch opdelen met een AI-model, 865 MB eenmalig te downloaden), daarna 4.0.1 op 12 nov (toetsen voor wie de Industry Compatible keymap gebruikt) en 4.0.2 op 13 nov (Windows-fout "DLL load failed" opgelost). Oudere versies staan niet meer in de lijst.
+- **Reviews en antwoorden (GEZIEN):** op alle 3 reviews antwoordt hij, ook op de lange kritische van iemand die de gratis versie gebruikte ("Product was received for free"); die koper schreef dat hij eerst wilde vergelijken "before buying". De maker legt uit, wijst naar de video en naar de nieuwe Repair-functie, en nodigt uit om contact op te nemen. Een andere koper bedankt hem voor een wens die in V3 zat (verbinders plaatsen zonder te snijden).
+- **Tweede product (GEZIEN):** Bizen3D (AI-modellen in Blender), 9 dagen oud, zelfde trap ($20 van $24, Support $26, 5 seats $60), nog geen verkoopblok. De pagina van Split 3D Print verwijst onderaan naar Bizen3D ("ALSO FROM ME"), andersom niet.
+- **Vindbaar in de winkel (GEZIEN):** op de tagpagina "figurine" staat hij als zesde, na FigureCut, Cleave en CatPin. Zijn tags: cut, split, print, magnets, connector, 3d print, resin, fdm, cosplay, figurine.
+
+### Wat hij deed, in volgorde (zover de bronnen het tonen)
+1. ±Juli 2026: op Superhive, $22 met doorgestreepte $28, met steunklasse en 5 plaatsen. Zelfde product op Gumroad.
+2. Eind augustus: grote V3 (snelle en expertmodus, bewerkbare sneden, reparatie, verbinders zonder snijden) en meteen een gratis variant met één soort snede en STL-export, op Superhive én Gumroad.
+3. September: één productvideo op een leeg kanaal. Verder geen bereik buiten de winkels dat ik kon vinden.
+4. November: V4 met automatisch opdelen (AI), twee herstelversies in twee dagen, en een tweede product dat op de eerste pagina wordt aangeprezen.
+
+### Drie lessen
+1. **Een gratis variant op dezelfde winkelpagina laat de winkel zelf je proefversie uitdelen, en de verkoopteller blijft eerlijk.** Bezoekers van Superhive zien naast $22 ook $0. Gratis gebruikers mogen reviewen (1 van zijn 3 reviews), krijgen de updates in hun Superhive-bibliotheek, en tellen niet mee in "Sales", dus de teller die nieuwe kopers zien blijft over betaalde verkopen gaan. Op Gumroad opent de pagina zelfs op $0, wat in zoeklijsten "gratis" laat zien. Click Joints heeft de gratis versie alleen op extensions.blender.org (152 downloads), waar we niet naar Pro mogen verwijzen (besluit Bram 15 nov 23:20). Een gratis variant op de Superhive-pagina is de omgekeerde route: de koper die al op Superhive zoekt, kan eerst proberen en ziet Pro ernaast.
+2. **Zonder eigen publiek kan het, maar dan moet de winkel je vinden.** 10 abonnees, één video van 1.288 weergaven, geen forum en geen pers, en toch 400+ (waarschijnlijk betaald). Wat hij wel had: de woorden waar printers op zoeken als tags (figurine, cosplay, resin, fdm, magnets), een pagina die per functie zegt "Where to find it", printers bij naam (18 voorinstellingen: Bambu Lab, Prusa, Creality en meer), en een vaste korting met doorgestreepte prijs. Dit is een tegenvoorbeeld voor hoofdles 4 (anderen maken het bereik): in de printhoek van Superhive is er genoeg verkeer van binnen, zolang je in die hoek vindbaar bent. Waarom precies hij en niet Split It (10+) kan ik niet zien; GOK: eerder in de winkel, meer functies en de gratis variant.
+3. **Grote gratis updates en snelle herstelversies, met elke review beantwoord.** Twee grote versies in ±4 maanden en twee fixes binnen twee dagen na V4, plus "I listen to every request from the community". Dat is hoofdles 2 nog een keer. Hij belooft wel "Lifetime updates" terwijl Superhive dat afraadt (verhaal 7); net als TrueDepth gebruikt hij het als verkoopargument.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Dat "Sales" alleen betaalde aankopen telt, rust op één pagina met beide soorten en twee gratis pagina's. Superhive schrijft het nergens op. Het blijft dus een sterke aanwijzing, geen zekerheid.
+- Splitsen is een grotere klus met meer kopers dan gewrichten met een eindstop (verhaal 2 en `platformen/verkenner/superhive-2026-11.md`: gewrichten 20+ tot 30+). 400+ is geen verwachting voor Click Joints Pro.
+- Of de gratis variant de verkoop deed stijgen weet ik niet: de teller toonde op 8 nov al 400+ en ik heb geen oudere standen (archief gaf geen antwoord).
+- Of een nieuwe variant op een goedgekeurde pagina een nieuwe keuring vraagt, weet ik niet (GOK: kleine wijzigingen niet, maar de keuring van 1.0.1 loopt nu nog).
+
+### Voorstel voor Dortus deze week
+**Wie:** Bram maakt de gratis zip klaar als variant (de bestaande gratis build 0.1.1, al getest), de hoofdchat zet hem op de Superhive-pagina zodra Click Joints Pro is goedgekeurd, Chris schrijft de ene regel.
+**Wat:** op de Superhive-pagina van Click Joints Pro een derde variant naast Personal $12 en Studio $45: **"Click Joints Free, $0: the ball joint with print clearance, same as on extensions.blender.org. Pro adds the click hinge with the 115° end stop and the red collision check."** Waarom: zo deelt Superhive zelf onze proefversie uit aan mensen die al naar print-add-ons zoeken, gratis gebruikers kunnen reviewen, en de verkoopteller van Pro blijft alleen over betaalde aankopen gaan. Het raakt de regels van extensions.blender.org niet (de verwijzing staat op Superhive, niet in de gratis listing). Meten: Downloads- en Sales-blok van de pagina wekelijks noteren in `platformen/blender/status.md`; na 4 weken kijken of Sales sneller groeit dan in de weken zonder gratis variant.
 
 ---
 
@@ -294,7 +400,7 @@ Onderzocht 15 nov 2026, run 1, opdracht van de hoofdchat. Waarom dit verhaal: ee
 - De maker heeft maar 1 product in de winkel: geen eerder publiek op Superhive.
 - **12 versies in 6 weken:** 1.0.0 (23 sep), 1.1.0 (24 sep), 1.2.0 (4 okt), 1.2.1 (6 okt), 1.3.0 (10 okt), 1.4.0 (11 okt), 1.5.0 (20 okt), 1.5.1 (21 okt), 1.6.0 (28 okt, kogelgewrichten), 1.6.1 (2 nov).
 - Omzet, GOK: 100 tot 200 verkopen x $23 is $2.300 tot $4.600 bruto in 7,5 weken, voor afdracht en coupons.
-- De categorie "model splitsen voor printen" is druk: Dovetail Key (Kambari, met publiek) 800+, CatPin 400+, Split 3D Print 400+ (teller telt ook gratis downloads), Cleave 100+, Split It 10+, Easy Print 10, Printsplitter, Cut and Key en PrintForge geen blok (onder 10). Cleave is de enige nieuwkomer van de laatste 2 maanden boven de 10+.
+- De categorie "model splitsen voor printen" is druk: Dovetail Key (Kambari, met publiek) 800+, CatPin 400+, Split 3D Print 400+ (teller telt ook gratis downloads; bijgesteld in verhaal 8: "Sales" telt waarschijnlijk alleen betaald), Cleave 100+, Split It 10+, Easy Print 10, Printsplitter, Cut and Key en PrintForge geen blok (onder 10). Cleave is de enige nieuwkomer van de laatste 2 maanden boven de 10+.
 
 ### Wat hij deed, in volgorde
 1. **Versie 1.0 met één heldere belofte:** "Too big to print? Split it." Splitsen waar het model buigt (nek, schouders, knieën), verbinders in echte millimeters, controle tegen je printer.

@@ -575,3 +575,21 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Controleur:** akkoord mits; drie moet-punten verwerkt (slotzin tipspagina alleen voor Click Joints, nieuwe build eerst in de release nakijken, oude GEZIEN-regel als eerste versie gemerkt) en drie kan-punten ("per kant" overal, kolom dag 1 eerlijker).
 **Niet op lijst-thijs:** filmpje 7 wacht nog op Brams woord over "Try".
 **Volgende run:** Brams antwoord over "Try", dan f7 op lijst-thijs; f8 (dag 2, wand, toolregel op y ±1450); Ebb-tip 1; dagmeting Ebb 17 nov; curl Superhive.
+
+## 16 nov 2026, run 53 (±06:45 tot 07:15 UTC): Gloop-spel, naam, prijs en winkeltekst (Garmin)
+**Gelezen:** berichten (open: Gijs 06:10 met drie vragen; Bram 06:20 "Try klopt" in `berichten/bram.md`), doelen, regels, besluiten, rol, middelen, voorstel van Gijs, Daans punten van 06:45 in `berichten/gijs.md`.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch origin main` werkte, main op origin/main gezet.
+**Beslissing:** het Gloop-spel, omdat het het enige open bericht was en Gijs op de winkelkant wacht. Filmpje 7 alleen afgerond met een zin op lijst-thijs (Daan ja, Bram klopt).
+**Gemeten (GEZIEN 06:50 UTC, zoek-API Garmin):** bij "tower game" en "stacking game" staan apps met die woorden in de naam op plek 1 tot 3; bij "hat" alleen wijzerplaten; geen app met "Gloop" of "Hat Tower". Drie nieuwe gratis stapelspellen (sep tot nov, 100+), Prism Spire $1,99 en 100+.
+**Gedaan:** `commercie/garmin-gloop-spel/naam-en-tekst.md`: naam `Gloop's Hat Tower: One-Button Stacking Game` (terugval `Gloop: Hat Tower`), prijs eens met $1,99, regel over Hats of the Fallen niet in versie 1 en later als laatste zin van de winkeltekst, winkeltekst versie Chris met Daans punten. Antwoord in `berichten/gijs.md`.
+**Controleur:** akkoord mits; drie moet-punten verwerkt (Maze Game-bewijs voor zoeken in de beschrijving klopte niet, data van de stapelspellen via `firstApprovalDate`, keuringsregels uit `platformen/garmin/upload-en-keuringsregels-2026-11-11.md` genoemd) en vier kan-punten (Stack telt half, titellengte, knopnaam Venu, twee gevallen voor de Steam-zin).
+**Volgende run:** f8 (dag 2, wand 1,5 mm, toolregel y ±1450); Daans blik op de release van week 1; Ebb-tip 1; dagmeting Ebb 17 nov; Ebb Calm openbaar?; curl Superhive.
+
+## 16 nov 2026, run 54 (±07:40 tot 08:15 UTC): antwoord Gijs, besluit r/Garmin, eerste Ebb-tip (Garmin)
+**Gelezen:** berichten (open: Gijs 07:32 met antwoord op mijn vragen over het Gloop-spel en het voorstel van Joris voor Ebb), doelen, regels, besluiten, rol.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch --depth=50 origin main` werkte, main op origin/main gezet.
+**Beslissing:** Garmin, omdat het enige open bericht over Garmin ging. Proefstand voor Ebb nee (vraagt eigen kassa en server, Calm is ons gratis proberen); r/Garmin pas met Calm openbaar als gratis ingang en na het screenshot van de regels, want een gratis app is een kleinere vraag aan vreemden en het account van Thijs heeft 1 karma.
+**Gemeten (GEZIEN 07:47 tot 07:50 UTC):** Calm nog niet openbaar; Ebb 0 downloads, 0 beoordelingen; draad 0 antwoorden, 30 keer bekeken; Hot & Fresh plek 37 van 120. Superhive 403 (niet omzeild).
+**Gedaan:** winkeltekst Gloop met "START (the top right button)"; besluit in `commercie/ebb/lancering.md` deel 2; cijfers en status Ebb; filmpje 9 (`ebb-tip-1-eyes-closed.mp4`, 11 s, tip "ogen dicht, volg het trillen") als `week-1/f9.json` met bronnen in de workflow; verzoeken aan Daan (keuring) en Gijs (klopt het met Ebb).
+**Controleur:** akkoord mits; moet-punt (simulatorregel op y 1610 onder de strook van TikTok) verwerkt: horloge op y 380, regel op y 1450, opnieuw gebouwd en bekeken. Kan-punten verwerkt (AFGELEID-label, woordkeus in de notitie).
+**Volgende:** release nakijken (filmpje 9 erin?); f8 (dag 2 Click Joints); Calm openbaar? dan punt 5; dagmeting Ebb 17 nov.

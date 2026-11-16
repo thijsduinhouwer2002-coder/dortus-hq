@@ -25,4 +25,4 @@ Vera's marktkaart (`platformen/verkenner/steam-desktop-2026-11.md`): de hoek loo
 1. Per spel: de haak in één zin (uit winkeltekst, capsule, eerste 10 seconden van de trailer, en wat reviewers als eerste noemen), wat spelers prijzen en waar ze over klagen.
 2. Leg Hats ernaast (`platformen/steam/`, `ontwerp/steam/3d-stijl.md`, het blad dat Thijs goedkeurde): waar lijken we op, waar zijn we echt anders, en zie je dat anders-zijn binnen 2 seconden op de capsule en binnen 30 seconden in het spel?
 3. Advies: de haak van Hats in één zin die geen van de andere kan claimen, en 3 dingen die we moeten aanscherpen (beeld, spel of tekst). Zet het in `platformen/succes/onderscheid-hats.md` en meld het in `berichten/olaf.md` en `berichten/mila.md`.
-Eerlijk: lijkt Hats te veel op Don't Rob My Dungeon, zeg dat dan hard. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+Eerlijk: lijkt Hats te veel op Don't Rob My Dungeon, zeg dat dan hard. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. (verwerkt 16 nov 07:25 UTC: `platformen/succes/onderscheid-hats.md`, gemeld bij Olaf en Mila)

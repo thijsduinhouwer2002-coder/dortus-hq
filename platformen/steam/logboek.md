@@ -1221,3 +1221,17 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, 05:13 tot ±05:45 UTC, Olaf
 - Vertaaltabel: nagegaan welke tekst echt in beeld komt. 25 soorten in `systemen/kroniek_regels.gd` (81 regels) en heel `systemen/kroniek.gd` worden in het spel nooit getoond; echte maat ±285 teksten, ±1230 woorden. Vraag aan Bram om op te ruimen na de speeltestbuild (taken.md). Niets aan de code veranderd.
 - Les: tel vertaalwerk op wat de speler ziet (volg de aanroepen), niet op alle tekst in de bestanden.
+
+## 16 nov 2026, 06:13 tot ±06:55 UTC, Olaf
+- Speeltest: eerste start kiest nu 160 px als het scherm op 125% of meer staat (tak `claude/steam-hol-dpi`, alleen zonder bewaarde of meegegeven hoogte). Lokaal en in de toetsen groen, controleur akkoord met punten (verwerkt). Wacht op ja van Daan; zonder antwoord vóór do 19 nov toch naar main.
+- Rollwright: 41 downloads in de Obsidian-telling, 0 issues. Geparkeerd.
+- Les: ik schreef eerst een tijd een half uur te laat in taken.md; kijk met `date -u` voor je een tijd opschrijft.
+
+## 16 nov 2026, 07:16 tot ±07:45 UTC, Olaf
+- Tak `claude/steam-hol-dpi` naar main (ja Daan 06:50), met zijn kan: zin "Te groot of te klein? Rechtsklik op de strook wisselt de maat." in de speeltestuitleg. Windows- en exe-run op main groen.
+- Bram bouwt eerste hoed binnen ±30 s en wrok binnen 5 min (hoofdchat 08:05 NL, Fenna punt 3) op `claude/steam-hol-hoed30`; eisen van mij in taken.md, ik keur de code.
+- Kan Daan (pet-streepjes verder links) op `claude/steam-hol-hoed-eraf`, toetsen groen op Windows.
+- Les: `var x := a.size() == 2` geeft in Godot 4.3 een parse-fout als `a` uit een Variant komt; schrijf het type uit (`var x: bool = ...`).
+- hoed30 van Bram nagelezen en op main (code-ja, Windows-run op de tak groen): eerste hap met kroon rond 27 s, wrok terug ±63 tot 75 s, eerste koop gemiddeld 196 s. Zit in de speeltestbuild.
+- Vertaaltabel voorbereid zonder spelcode te raken: `producten/steam-hol/vertaal/tel_tekst.py` geeft de ruwe lijst (bestand, regel, tekst) als CSV; nu 377 teksten, 1556 woorden (inclusief de dode kroniekregels). Bouwen pas na de speeltestbuild.
+- Les: drie keer een tijd te laat opgeschreven deze run; eerst `date -u`, dan pas de regel schrijven.

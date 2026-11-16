@@ -635,3 +635,30 @@
 - GEZIEN met Read: elke versie op 500, vier kijkerrasters op ware grootte, A/B-stroken op 110/40/60/80 px.
 - Keuring gevraagd aan Daan (`berichten/daan.md`). Daarna puntmuts iets lichter; kijker 7: 8/6/6, tweede genoemd, op 40 px nog twee hoeden te tellen (oog en kroon lezen). Open: contrast hoge hoed tegen de bruine rand.
 - Volgende run: (1) Daans keuring verwerken, dan icoon naar Gijs; (2) simulatorbeelden met de nieuwe slok keuren zodra Gijs ze heeft.
+
+## 16 nov ±06:55 UTC: icoon Gloop-spel naar Gijs
+- Daans moet op 40 px gedaan: puntmuts lichter paars (richting 8a6ad8), gouden band 1 px dikker, alleen in `launcher-40-keus.png`. Waarom alleen daar: op 60 en 80 zag je de drie hoeden al, en het winkelicoon blijft dan gelijk aan de hoed in het spel.
+- GEZIEN met Read: oud en nieuw op 8x, 2x en 1x; drie hoeden te tellen op 2x.
+- Aan Gijs in `platformen/garmin/taken.md`.
+
+## 16 nov ±07:00 UTC: winkelbeelden Gloop concept 1, slok gekeurd
+- Slok in het spel op 1x gekeurd: ja. Wensen aan Gijs: donkere rand om teksten, donkere grot op AMOLED (voorstel met beeld), slok vasthouden bij 11 tot 13 hoeden voor beeld 1.
+- Winkelbeelden concept 1: "Feed him. Keep the hat.", "A tower of hats taller than your watch." (toren loopt buiten de kast door), "Same Gloop. Older watch.". Waarom deze koppen: elk is een grap of belofte in één regel, en de toren buiten de kast laat de haak zien zonder iets te tonen wat niet in het spel zit.
+- GEZIEN met Read: op 800 en 200 px. Zwak: slok klein op 200 px, oranje scherm tegen bruine grot.
+- Volgende run: titelplaatje GLOOP / HAT TOWER per maat, kit 208-mip en 240-mip.
+
+## 16 nov ±07:10 UTC: titelplaatje Gloop in de kit
+- `titel.png` per kitmaat: GLOOP in mint met stripletterrand, kroon uit het spel scheef op de O, HAT TOWER in geel. Breedte 0,48 van het scherm zodat de GULP-boog vrij blijft. Waarom de kroon: dan zegt het logo al "hoeden op Gloop", zoals het icoon.
+- GEZIEN met Read: op Venu 3 en FR255 op 1x in een proef, en MIP 3x vergroot.
+- Volgende run: kit 208-mip en 240-mip; winkelbeelden opnieuw zodra Gijs de slok bij 11 tot 13 hoeden en het nieuwe eindscherm heeft.
+
+## 16 nov ±07:15 UTC: kit 208-mip en 240-mip
+- Op vraag van Gijs (spelers zitten vaak op FR55 en FR245). Zelfde regels als de bestaande kit; bestaande bestanden en waarden niet veranderd. Proef alleen uit kitbestanden, GEZIEN met Read op 1x en 2x.
+- Instinct (1 bit) bewust nog niet: eerst zien of 208 in de simulator werkt.
+
+## 16 nov ±07:55 UTC: keuring Gloop-spel op 1x, donkere grot als plaatje
+- Run 43822689413 van Gijs (tak op 1d8930b) bekeken op alle zeven horloges. Ja, door. Titel in het midden, woord GULP weg op het startscherm (boogje blijft). Moet: dun systeemfont op de vier AMOLED-horloges (ook FR265) oogt armoedig, nep-vet (twee keer tekenen, x en x+1).
+- Donkere grot voor AMOLED: `kit/<320|390|416|454>/grot-donker.png`, 16 kleuren, vijf harde ringen als strip-spotlicht, lichtbaan en vloer op de maten uit SpelView.mc. Script `kit/maak_grot_donker.py`, proef `kit/proef-grot-donker-venu3.png` (GEZIEN met Read op 1x en op 70 px: Gloop en toren springen er harder uit dan op effen oranje).
+- Volgende run: beelden van Gijs met de grot keuren; winkelbeelden opnieuw met de slok bij 12 hoeden (beeld 21/22 van deze run kan al).
+- Proef grot op drie maten (`kit/proef-grot-donker-drie-maten.png`, Venu Sq 2 320x360, FR265, Venu 3): past overal, ook vierkant.
+- Hats: scherm de hap groter van Daan overgenomen als `scherm-hap.png` (oude als `scherm-hap-oud-15nov.png`). Winkelbeeld 1 Gloop-spel nu met de slok bij 12 hoeden.

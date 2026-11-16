@@ -125,3 +125,78 @@ Vraag: is Don't Rob My Dungeon echt een gevaar, en hoeveel publiek hebben de spe
 2. **De lat rond het fest is laag.** De helft van de concurrenten die eraan komen heeft minder dan 10 volgers. Wie op het fest (14 tot 18 jan) **100+ volgers** heeft, hoort bij de beste 10% van de aangekondigde spellen in deze hoek; 300+ zou Hats bovenaan zetten (alleen Bondoq zit nu hoger). Dat zijn ±1.200 tot 3.600 verlanglijsten.
 3. **Meten wordt makkelijk:** zodra de winkelpagina van Hats op 1 dec live staat, kan elke run met één verzoek de volgers van Hats naast deze lijst zetten. Voorstel: vanaf 1 dec wekelijks Hats, Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully meten.
 4. **Twee proeven vóór ons fest om te volgen:** Work From Dungeon (19 nov, 4 volgers, 99 monsters verzamelen) en Traymon World (25 nov, 215 volgers, demo). Hun reviews na 1 en 4 weken laten zien wat een klein of middelgroot publiek bij de lancering in deze hoek oplevert. Staat in `taken.md`.
+
+## Aanvulling 2, 16 nov run 06:31: volgers afgemaakt plus steekproef
+Gemeten 06:38 tot 07:14 (Amsterdam), zelfde openbare XML, 1 verzoek per 10 seconden, bij een 429 vijf minuten gewacht (twee keer gebeurd), niets omzeild. 151 apps erbij, samen nu 255 metingen in `data/steam-volgers-2026-11-16.jsonl`. Het oude Python-script (`steam-volgers-script.py`) kreeg vanaf hier geen antwoord; de curl-versie werkte wel.
+
+**Wat er nu gemeten is (GEZIEN):**
+- **Alle 127 aangekondigde apps die op Hats lijken (2 of 3 punten):** mediaan 9 volgers; 50% onder 10, 40% 10 tot 99, 9% 100 tot 999, geen enkele 1.000+. Het beeld van run 05:31 (88 apps, mediaan 10) blijft staan.
+- **Willekeurige steekproef van de andere aangekondigde apps (69 van 608, zaad 16):** mediaan 7, 55% onder 10, 12% 100 tot 999, 1% 1.000+. Lijken op Hats maakt dus weinig uit: de hele hoek heeft weinig volgers vóór de lancering.
+- **Demo:** aangekondigd met demo mediaan 22 volgers (n=69), zonder 6 (n=127). Een demo hoort bij ongeveer drie keer zoveel volgers; dat is samenhang, geen bewezen oorzaak.
+- **Grootste aangekondigde apps in de hele hoek:** Meowniverse 1.435 (demo, Superjoy), Smug Ally 558, Pet.Net 530, Bondoq 460, Tiny Harbor 272, Your Momo 271, Fish Tankfully 255, Traymon World 215.
+- **Uitgebracht in 2026, betaald, nu gemeten (n=48, waarvan 38 uit de willekeurige steekproef van 561):** wie nu 10 tot 99 volgers heeft, heeft mediaan 2 reviews (n=22); 100 tot 999 volgers mediaan 34,5 reviews (n=12, 6 tot 358); 1.000+ volgers mediaan 872 (n=5). Bij spellen met 5+ reviews zijn het mediaan **4 volgers per review** (n=24, middelste helft 2,6 tot 9,5).
+
+**Wat dit verandert (GOK met onderbouwing):**
+1. In run 05:31 schreef ik 2 tot 3 volgers per review; dat kwam van de grote spellen. Voor kleine spellen zijn het eerder **3 tot 6 volgers per review** (mediaan 4 bij 5+ reviews, 3,3 bij 10+ reviews over alle jaren (n=22), en 0,17 reviews per volger bij spellen met 20+ volgers, dus ±6). Let op: dit zijn volgers ná de lancering, die groeien door; het is geen voorspelling vanaf de volgers op het fest.
+2. Ruwe vertaling voor Hats: 300 volgers ruim na de lancering past bij ±50 tot 75 reviews, dus ±1.500 tot 2.250 verkopen tegen ±30 verkopen per review (bandbreedte groot). Om bij de 100+ reviews van de kaart te horen heeft Hats na de lancering ±400 tot 600 volgers nodig.
+3. De doelen uit run 05:31 blijven: op het fest 100+ volgers is top 10% van wat eraan komt, 300+ is bovenaan. En een demo vóór het fest is het duidelijkste verschil dat ik in de data zie.
+
+**Niet gemeten:** 22 van de 150 geplande aangekondigde apps en 62 van de 100 geplande uitgebrachte apps uit de steekproef (tijd). Kan met `data/steam-volgers-curl.sh`, met een pauze bij 429.
+
+## Aanvulling 3, 16 nov run 07:31: controleur over beide volgersblokken, steekproef afgemaakt
+Een aparte controleur heeft de twee blokken hierboven nagerekend tegen de data: **akkoord met correcties**. Daarna heb ik de steekproef afgemaakt: 84 apps erbij (06:35 tot 07:00 UTC, 1 verzoek per 10 seconden, één 429 waarbij ik 5 minuten wachtte, niets omzeild), samen 339 regels voor 332 apps op de kaart. Nieuwe analyse zonder de met de hand gekozen spellen: `data/steam-volgers-analyse3-script.py` (het oude script filterde ten onrechte niet op jaar; dat staat er nu bij).
+
+**Correcties op de blokken hierboven:**
+- Run 05:31, grootste aangekondigde lookalikes: na Birza 200 komen Boing Boing Animals 176, Occult Office 169 en MonsterGirl 3:Wukong 152. Dwarfspire (103) hoort er niet bij.
+- Aanvulling 2: "255 metingen" waren 251 apps (3 dubbel, 1 regel met een 429). De steekproef was 68 willekeurig uit 609 plus Corner Dungeon (met de hand), niet 69 uit 608. Uitgebracht in 2026 waren 44 apps in run 06:31 gemeten, niet 38. In de lijst grootste aangekondigde ontbrak Travelling Home: Ever After (222, demo).
+- "2 tot 3 volgers per review" (run 05:31) gold voor zeven grote, met de hand gekozen spellen (spreiding 1,1 tot 6,6), deels uit 2025. "3 tot 6" (Aanvulling 2) paste niet bij de sommen, die met 4 tot 6 rekenden. Beide vervangen door het getal hieronder.
+- "300+ zet Hats bovenaan" geldt alleen voor de 127 spellen die op Hats lijken, niet voor de hele hoek (zie hieronder).
+
+**Nieuwe cijfers, alleen willekeurig gekozen apps (GEZIEN):**
+- **Uitgebracht in 2026, betaald (106 van 565):** mediaan 19,5 volgers; 25% onder 10, 51% 10 tot 99, 19% 100 tot 999, 5% 1.000+. Wie 10 tot 99 volgers heeft, heeft mediaan 3 reviews (n=54); 100 tot 999 volgers mediaan 29 reviews (n=20, 6 tot 174).
+- **Volgers per review:** mediaan **5** bij 5+ reviews (n=46, middelste helft 2,6 tot 9,5), 5,1 bij 10+ (n=36), 5,3 bij 20+ (n=25). Andersom, bij 20+ volgers: mediaan 0,13 reviews per volger (n=53), dus ±8 volgers per review. De spreiding is groot.
+- **Aangekondigd, lijkt niet op Hats (90 van 609):** mediaan 7 volgers, 59% onder 10, 9% 100 tot 999, 3% 1.000+. Er zitten 5 van de 90 boven de 300; omgerekend ±30 tot 35 aangekondigde apps in de hele hoek. De grootste zijn bureaubladhuisdieren: Character House -Desktop Companion- 9.732 en Amarillo's Desktop Pets 5.822 (beide met demo), daarna Meowniverse 1.435.
+- **Demo:** lookalikes met demo mediaan 22 tegen 7 zonder (48 tegen 79); bij de rest 15 tegen 6 (27 tegen 63). Twee tot drie keer zoveel. Samenhang, geen bewezen oorzaak: grotere makers met een uitgever doen vaker een demo.
+
+**Wat dit verandert voor Hats (GOK met onderbouwing):**
+1. Reken met **±5 volgers per review** ruim na de lancering, maar met een brede band (±3 tot 10). 300 volgers past dan bij ±60 reviews, eerlijk gezegd ergens tussen 30 en 110. Om bij de 100+ reviews van de kaart te horen heeft Hats na de lancering ±500 volgers nodig (300 tot 1.000). Met ±30 verkopen per review is 60 reviews ±1.800 verkopen; ook die factor is onzeker, dus lees dit als orde van grootte.
+2. De lat op het fest: binnen de spellen die op Hats lijken is 100+ volgers top 10% en 300+ bovenaan (alleen Bondoq 460 zit hoger). In de hele bureaubladhoek staan er ±30 aangekondigde apps boven de 300, vooral huisdieren en companions; die spelen in een andere hoek van het fest, maar trekken wel dezelfde bezoekers.
+3. Het advies blijft: een demo vóór het fest, en de winkelpagina vanaf 1 dec wekelijks meten naast Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully.
+
+## Aanvulling 4, 16 nov run 08:31: de kalender van Steam voor 2027 (maandadvies precies gemaakt)
+In het advies stond "niet in de week van een grote uitverkoop, niet zelf nagekeken voor maart 2027". Nu wel: de Steamworks-pagina Upcoming Steam Events (`partner.steamgames.com/doc/marketing/upcoming_events`, GEZIEN 16 nov 07:45 UTC) noemt:
+
+| wanneer (2027) | wat | wat het voor Hats betekent |
+|---|---|---|
+| 14 tot 18 jan | Desktop Companion Fest | wij doen mee als "binnenkort" met demo (staat al in `platformen/steam/planning-fest-2027.md`) |
+| 25 jan tot 1 feb | Shop Keeper Fest | niet onze hoek |
+| **22 feb tot 1 mrt** | **Next Fest februari** | alleen voor spellen die nog niet uit zijn, met speelbare demo; aanmelden uiterlijk 10 jan (planning) |
+| 8 tot 15 mrt | Rhythm Fest | niet onze hoek, kleine drukte |
+| **18 tot 25 mrt** | **Spring Sale** (seizoensuitverkoop) | meedoen kan alleen als het spel 30 dagen vóór de start uit is, dus uiterlijk 16 feb; dat botst met Next Fest, dus Hats doet niet mee |
+| 14 tot 21 jun | Next Fest juni | reserve als we februari missen |
+| 24 jun tot 8 jul | Summer Sale | |
+
+Ook gezien: Winter Sale 17 dec 2026 tot 4 jan 2027, en Black Friday 26 tot 30 nov 2026 als thema op de kortingspagina (geen eigen fest).
+
+**Advies, nu met data (GOK met onderbouwing):**
+- **Uitbrengen in de week van di 2 tot do 4 maart 2027**, direct na Next Fest. Wie op het fest de demo speelde en het spel op de verlanglijst zette, krijgt dan meteen de melding "nu te koop", terwijl het spel nog vers in het geheugen zit.
+- De **korting van de eerste week** (15%) loopt dan af rond 9 tot 11 maart, ruim vóór de Spring Sale van 18 maart. Dan staat ons spel niet met een kleine korting tussen duizenden spellen met grote kortingen.
+- **Niet uitbrengen van 11 tot 25 maart**: de week vóór en tijdens de Spring Sale gaat de aandacht van kopers naar kortingen, en wij mogen niet meedoen.
+- **Schuift het?** Dan eerst ma 29 mrt tot half april (na de Spring Sale, februari en maart scoorden in de kaart het best, april nog redelijk met 26% 100+). Schuift het verder, dan Next Fest juni met uitbrengen na de Summer Sale, maar juli en augustus scoorden slecht (augustus 10% 100+), dus dat is de zwakste keuze.
+- **Regels voor de lanceerkorting** (Steamworks-pagina Discounting, `partner.steamgames.com/doc/marketing/discounts`, GEZIEN 16 nov 07:40 UTC): de lanceerkorting begint bij het uitbrengen, loopt 7 tot 14 dagen, minimaal 10% en maximaal 40%; Valve raadt zelf ±10 tot 15% aan. Je stelt hem in naast de releasedatum op de app-pagina, niet in het gewone kortingenscherm. Daarna geldt een wachttijd: 30 dagen na het uitbrengen mag er geen andere korting, en een spel in die wachttijd mag niet meedoen aan een seizoensuitverkoop. Een korting van 20% of meer kan een melding sturen aan wie het spel op de verlanglijst heeft. Gevolg voor Hats: 15% gedurende 7 dagen past precies binnen de regels en loopt bij uitbrengen op 2 tot 4 maart af vóór 18 maart; de eerste gewone korting kan pas begin april. Of we 20% nemen om die extra verlanglijstmelding te krijgen, is een keuze voor Olaf en de hoofdchat; de melding "nu te koop" bij het uitbrengen gaat waarschijnlijk hoe dan ook naar de verlanglijsten (GOK uit algemene kennis, niet nagekeken; staat op de Steamworks-pagina Wishlists).
+
+Doorgegeven aan Fenna (berichten/fenna.md), zodat de lanceerdatum in de planning komt.
+
+## Aanvulling 5, 16 nov run 08:31: nulmeting voor een proef "wat doet een fest met volgers?"
+Vraag voor Hats: hoeveel volgers levert een thema-fest van Steam op? Dat bepaalt wat we van het Desktop Companion Fest (14 tot 18 jan) mogen verwachten. Er loopt nu een fest dat op onze hoek lijkt: het **Auto-Battler RPG Fest, 16 nov 18:00 UTC tot 23 nov 2026** (Steamworks, GEZIEN). Desktop Defender en een deel van de kerkerspellen op de kaart hebben het label Auto Battler.
+
+**Nulmeting, vóór de start (GEZIEN 16 nov, 04:40 tot 08:15 UTC, openbare volgers-XML, 1 verzoek per 10 s, bij 429 vijf minuten gewacht, niets omzeild):** van de 144 bureaubladapps met het label Auto Battler zijn er nu 144 gemeten (48 al eerder vandaag, de rest deze run), plus 284 apps zonder dat label als controle. Ruwe data: `data/steam-volgers-autobattler-2026-11-16.jsonl` naast `data/steam-volgers-2026-11-16.jsonl`.
+
+| groep (16 nov, vóór het fest) | aantal | mediaan volgers |
+|---|---|---|
+| Auto Battler, binnenkort | 82 | 9 |
+| Auto Battler, uit | 62 | 73,5 |
+| controle, binnenkort | 177 | 8 |
+| controle, uit | 107 | 20 |
+
+**Plan:** op 24 nov (dag na het fest) en op 1 dec dezelfde apps opnieuw meten en de groei van de Auto Battler-groep vergelijken met de controle, met `data/steam-fest-effect-script.py`. Wie echt meedeed is nu nog niet te zien (de festpagina is pas na de start gevuld); op 17 nov of later de deelnemers van de festpagina halen als dat lukt, anders blijft het label de grove maat. Eerlijk: niet elke app met het label doet mee, en de controlegroep doet soms aan andere acties mee; dit wordt een grove orde van grootte, geen bewijs.

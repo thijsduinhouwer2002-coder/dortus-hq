@@ -34,6 +34,8 @@ const KLEUREN := ["#3f6fb5", "#8a4fb0", "#3f9a6a", "#c07a2a", "#6a6a7a", "#b0404
 const HOEDEN := ["#b33a3a", "#e0b040", "#2a5aa0", "#3a7a3a", "#7a3a8a", "#d06a2a"]
 
 var hoogte := 120
+var hoogte_gekozen := false   # bewaard of hoogte=<n>; anders kiest kern/proef.gd de stand bij de schaal
+var proef_dpi := 0            # dpi=<n>: doen alsof het scherm n dpi heeft (alleen om de eerste start te toetsen)
 var schaal := 3
 var duur := 0.0
 var logpad := ""
@@ -77,7 +79,9 @@ var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altij
 # De eerste tien minuten van een nieuw spel (features.md; Sanne toets 2 punt 9, toets 3 punt 1): vijf vaste uitkomsten,
 # elk eenmalig, zodat je in een paar minuten een val, een vlucht met wrok, die terugkomer, een Hoard-Toucher en de
 # eerste hoed op Gloop ziet. Daarna is alles weer kans. Vlaggen in held.gd (Bram).
-const BEGIN := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
+# Bram 16 nov (Fenna, onderscheid van Hats; hoofdchat 08:05 NL): "opgegeten" vóór "vluchten", zodat je in de eerste
+# 30 s zowel de stekels als de eerste hoed op de toren ziet (dat heeft de concurrent niet). Kort gat erna: kern/ritme.gd.
+const BEGIN := ["vallen", "opgegeten", "vluchten", "terug", "doorlopen"]
 # In de demo (film van een minuut) de Hoard-Toucher vóór de terugkomer, zodat hij rond 35 tot 40 s de schat raakt en nog
 # wegrent, en daarna nog één keer opgegeten, zodat je de toren ziet groeien (Sanne toets 4, punten 4 en 6). De Hoard-Toucher
 # slaat Gloop plat, dus hij komt pas na de held die opgegeten moet worden (anders loopt die langs een platte Gloop).
@@ -121,7 +125,9 @@ func _ready() -> void:
 		var inst = JSON.parse_string(FileAccess.get_file_as_string(INSTELLING))
 		if inst is Dictionary and inst.has("hoogte"):
 			hoogte = clampi(int(inst.hoogte), 96, 160)
+			hoogte_gekozen = true
 	PROEF.lees_argumenten(self)   # alle startargumenten (hoogte, duur, log, proeven): kern/proef.gd
+	PROEF.kies_begin_hoogte(self)   # niets gekozen: hoogte naar de schaal van het scherm (kern/proef.gd)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
