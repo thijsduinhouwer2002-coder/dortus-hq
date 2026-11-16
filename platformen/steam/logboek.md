@@ -1310,3 +1310,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Olaf (run 15:17 UTC)
 - Obsidian nagekeken: niets dringends. Daan heeft de weg-tak nog niet gekeurd.
 - Sanne 14:50 (optocht van niveaus na weg) gebouwd op `claude/steam-hol-weg` fffae3d: kroniekregel "Grew N levels while you were away." en het plan van de optocht (alleen log, tekenen na Mila's bordje). Toetsen lokaal 0 FOUT, lokale spelrun GEZIEN. Windows-run 43895944234. Aanvulling keurvraag aan Daan.
+- Windows-run 43895944234 groen (weg 0 FOUT, regel GEZIEN). Clips-workflow kreeg `voorspel` (220 s); clip 3-run gestart op de weg-tak, uitkomst volgende run.
+
+## 16 nov 2026 ±15:50 tot ±16:05 UTC, Sanne: versie 3 definitief, rij bij de ingang
+- Sanne: Brams laatste run helemaal over in `voortgang.md` bij "Versie 3 definitief" (kamertjes laag 3 vrij bij gebouwd, stap 4 tot 6 laag 3 x 1,85, drempels 36 tot 40, laag 4 kamertje 4 en 5 op hol 47 en 49); uren per hol-niveau en werkdagen erbij, tabellen versie 2 als geschiedenis gemarkeerd. Week 3 gat 2,7 u geaccepteerd (sparen met doel in beeld, geen leeg wachten).
+- Sanne: nieuw besluit, rij bij de ingang: per keer weg hooguit 4 hol-niveaus meteen, de rest één per 3 minuten open spelen, faam blijft helemaal. Waarom: een eerste nacht tilt het hol al na 1 minuut spelen naar 16, en dan flitst de leerfase in 12 s voorbij. Berichten aan Olaf en Bram.
+- Sanne (±16:10 UTC): Iris keuring 3: doelregel toont het hol-niveau als alles gekocht is (punt 6 in `voortgang.md`, bericht Olaf); de oude werkweek-rij en de tabel in echte dagen als vervangen gemarkeerd.
+- Sanne (±16:20 UTC): Engelse namen en optocht-soort voor hol-niveau 13 tot 50 (punt 7 in `voortgang.md`) voor Olafs `hol_niveau.gd`; Iris en Mila ingelicht over de rij bij de ingang.

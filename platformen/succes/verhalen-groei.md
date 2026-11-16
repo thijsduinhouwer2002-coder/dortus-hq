@@ -1,10 +1,73 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 16, hoe de snelste nieuwe add-ons van extensions.blender.org bekend werden, met een correctie op verhaal 15, klaar 16 nov 2026 ±15:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
+bezig: niets (laatste: verhaal 17, lanceerplatforms Smol Launch, DevHunt en TinyLaunch naast Product Hunt, klaar 16 nov 2026 ±16:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
 
 Nieuwste bovenaan.
 
 ---
+
+## 17. Lanceerplatforms: Smol Launch, DevHunt en TinyLaunch naast Product Hunt. Wat leveren ze een klein gereedschap echt op, wat kost het, en past een van onze producten?
+
+Onderzocht 16 nov 2026 ±16:00 tot 16:40 UTC, run 17. Opdracht hoofdchat 17:00: Thijs vond via Google Smol Launch, DevHunt en TinyLaunch als rustigere alternatieven voor Product Hunt. Vraag: wat leveren ze op (bezoekers, upvotes, aanmeldingen), wat kost het, en welk product past waar (Click Joints, Rollwright, Bison & Flex). Product Hunt als ijkpunt.
+
+### Bronnen en werkwijze
+- De drie sites zelf met curl (16 nov ±16:00 UTC, GEZIEN): prijspagina's, de open cijfers van DevHunt (`devhunt.org/stats`, `devhunt.org/faq`, de open data-API `devhunt.org/api/open-data/v1/changes` en `/tools-per-month`), het rapport "State of Indie Launches 2026" van Smol Launch (`smollaunch.com/state-of-indie-launches`), en de openbare lijst met lanceerweken van TinyLaunch (`tinylaunch.com/api/v1/launch-dates`, geen inlog nodig).
+- DevHunt, de 30 meest gestemde lanceringen van oktober 2026 (`devhunt.org/best/2026/10`): per toolpagina upvotes en impressies gelezen (GEZIEN). Tabel: `platformen/succes/data/devhunt-top30-okt-2026-11-16.csv`.
+- De zoekfunctie van Smol Launch op "obsidian", "blender" en "jetbrains" (GEZIEN).
+- Makers die hun uitslag delen: Reddit via het archief Arctic Shift (zoekwoorden devhunt, tinylaunch, smollaunch, "smol launch" in 8 subreddits voor makers, 74 berichten, GEZIEN), plus blogs gevonden met zoeken: Focal (TinyLaunch, juli 2026), Nimply (Product Hunt, sept 2026), Alex van FrontStat (80 lijsten, sept 2026), TrustMRR (omzet TinyLaunch).
+- Niet gelukt: Product Hunt zelf (Cloudflare-blokpagina, niet omzeild), Indie Hackers (alleen een lege pagina via curl).
+- Let op bij de bronnen: bijna alle "vergelijkingen" van lanceerplatforms op internet zijn geschreven door een ander lanceerplatform of een bureau dat inschrijvingen verkoopt (Smol Launch heeft zelf een pagina "Smol Launch vs TinyLaunch", Noonlaunch, Launchbuff, Launchdirectories, Shno). Die gebruik ik niet als bewijs. Ook een Reddit-bericht met "data van 1.500 DevHunt-lanceringen" (nov 2025) laat ik weg: het noemt verzonnen ogende gebruikersnamen en ronde percentages zonder bron.
+
+### Wat elk platform is en kost (GEZIEN 16 nov, tenzij anders)
+
+| | Smol Launch | DevHunt | TinyLaunch | Product Hunt (ijkpunt) |
+|---|---|---|---|---|
+| Ritme | per week, ±122 lanceringen per week (mediaan laatste 8 weken) | per week, ±80 per week (340 lanceringen in okt) | per week, 100 gratis plekken per week | per dag |
+| Voor wie | alles, vooral SaaS en AI | alleen gereedschap voor ontwikkelaars; de rest krijgt het stempel "not a dev tool" en een eigen rij | alles, vooral SaaS en AI | alles |
+| Gratis | ja, maar: hun badge op je homepage, eerst op 5 anderen stemmen, alleen de eerste lancering. **Eerstvolgende gratis week: 15 feb 2027, 650 voor je in de rij** | alleen een vaste pagina (link nofollow), **geen lancering**. Sinds een test van 28 sep 2026 krijgen nieuwe tools alleen betaalde weken (daarvoor 15 gratis plekken per week) | ja, **eerstvolgende gratis week: 21 dec 2026** (23 nov tot 14 dec vol) | ja, maar de redactie kiest welke lanceringen op de voorpagina komen ("Featured") |
+| Betaald | $19 per lancering (geen rij), $39 met uitlichting en nieuwsbrief, uitlichting los vanaf $19 per week | $49 (kies week, nieuwsbrief, link telt mee), $19 als "basic" (de prijs schuift: in nov twee keer een test), extra plek bovenaan $99 tot $199 | $39 (geen rij, vaak tussen plek 3 en 4), uitlichting $15 tot $30 per week | gratis, betaalde advertenties los |
+| Account | inloggen | inloggen met GitHub of Google | inloggen met mailcode | inloggen |
+
+Alle vier vragen een account: dat doet alleen Thijs (regels).
+
+### Wat het oplevert: wat de platforms zelf zeggen
+- **DevHunt** is het enige dat open cijfers geeft (DERDEN, eigen meting van DevHunt, zonder cookies, bots eruit): 184.700 bezoekers en 357.600 tool-impressies in de laatste 30 dagen, 59,5% uit de VS. Hun eigen belofte: "A launch week on the home page gets a median of **822 impressions**". Een impressie is dat je kaartje in beeld kwam, geen klik naar je site.
+- Mijn telling van de **top 30 van oktober** (de 30 meest gestemde van 340 lanceringen, GEZIEN): mediaan **3.140 impressies** (1.126 tot 6.851) en mediaan **33 upvotes** (16 tot 91). De weekwinnaars van oktober hadden 46 tot 91 upvotes. Klikken naar de site toont DevHunt niet. GOK: als 2 tot 4% van de impressies klikt, is dat voor een gewone lancering 15 tot 35 bezoekers, en voor de top 30 van de maand 60 tot 125.
+- **Smol Launch** geeft geen bezoekers, alleen een "Rank score" (stemmen plus bonuspunten): mediaan **6**, 90% haalt hooguit 13, de hoogste ooit 140, over 4.056 lanceringen (DERDEN, hun rapport, stand 8 nov 2026). Wie gratis lanceert moet eerst op 5 anderen stemmen: de stemmen komen dus grotendeels van andere makers die zelf lanceren.
+- **TinyLaunch** geeft geen bezoekers. Op de voorpagina hadden de winnaars van vorige week 82, 64 en 30 stemmen, de leiders van deze week 15, 14 en 13 (GEZIEN 16 nov ±16:00). TinyLaunch verdiende sinds dec 2024 **$110.866** (DERDEN, TrustMRR, gecontroleerd via Stripe): het geld komt van makers die betalen om sneller of hoger te staan. Dat is geen bewijs dat het niets oplevert, wel dat het verdienmodel de maker is, niet de bezoeker.
+
+### Wat het oplevert: wat makers zelf zeggen
+| Maker | Platform, wanneer | Uitslag | Label |
+|---|---|---|---|
+| mailsign.online | Uneed (zelfde soort als TinyLaunch), ±dec 2025 | plek 4, ±50 upvotes, **6 bezoekers** naar de site. Hij stemde zelf 10 keer met extra accounts om te testen of het kan ("I'm not the only one doing it") | EIGEN OPGAVE, Reddit r/SaaS 1pdsv8s |
+| Focal (YouTube-samenvatter, extensie) | TinyLaunch, 6 juli 2026 | plek 3, "highest single-day" verkeer tot dan (bijna 3 keer het gewone aantal dagelijkse gebruikers), **6 aanmeldingen, 0 betalend** | EIGEN OPGAVE, usefocal.xyz/blog/focal-tinylaunch-third-place |
+| Onbekende SaaS (launch 10515) | TinyLaunch, feb 2026 | plek 1, maar "majority of traffic + upvotes came directly from" zijn eigen X-bericht (±2.000 views) en ±50 persoonlijke DM's | EIGEN OPGAVE, r/SaaS 1r0utrq |
+| Alex (FrontStat, twee producten, ±20 lijsten) | o.a. DevHunt, Uneed, Microlaunch, sept 2026 | "the best one sent 7 engaged visits" in 3 maanden; één bericht op X gaf 48. Alleen Product Hunt en Show HN sturen "real visitors on the day" | EIGEN OPGAVE, dev.to/alexcommitter (let op: hij verkoopt zelf een meetdienst) |
+| Nimply | Product Hunt, 23 sept 2026, niet Featured | 31 punten, geen plek op de ranglijst, ±290 aanmeldingen, maar die kwamen van eigen LinkedIn- en Facebookberichten: "The Product Hunt page was the destination we pointed people at, not the source" | EIGEN OPGAVE, nimply.io/blog/product-hunt-launch-case-study |
+| Cliptude | Microlaunch, Uneed, TinyLaunch betaald ($108) plus 3 betaalde X-makers ($150) | 153 gebruikers, niet uitgesplitst per kanaal | EIGEN OPGAVE, r/SaaS 1rrk8de; niet te gebruiken als bewijs voor de platforms |
+
+Product Hunt als ijkpunt: volgens een verzamelpagina krijgt sinds 2024 nog maar ±10% van de lanceringen de status Featured (was 60 tot 98% in 2020 tot 2023), en zonder die status kom je niet op de ranglijst (DERDEN zwak, shno.co die Tetriz.io aanhaalt; Nimply bevestigt het tweede deel uit eigen ervaring).
+
+Geen enkele maker die ik vond, gaf een hoger getal dan een paar dozijn bezoekers uit een van de drie kleine platforms zelf. Waar een lancering wel goed liep, kwamen de bezoekers en stemmen van het eigen bereik van de maker (X, DM's, LinkedIn).
+
+### Past een van onze producten?
+- Op Smol Launch staan bij "obsidian" 2 producten (geen van beide een plugin, hoogste Rank score 8), bij "blender" 2 (AI-3D en mocap, geen add-on), bij "jetbrains" 0 (GEZIEN). Onze kopers (3D-printers met Blender, Obsidian-schrijvers, C-ontwikkelaars met CLion) zitten daar niet.
+- **Click Joints (gratis en Pro):** geen gereedschap voor ontwikkelaars, dus op DevHunt in de aparte rij "not a dev tool". Smol Launch en TinyLaunch nemen het aan, maar het publiek is makers van SaaS. Verhaal 15 en 16 lieten zien dat de winkel van Blender zelf de motor is (mediaan 11,5 downloads per dag voor een nieuwe add-on, Click Joints ±20) en dat één Reddit-post met een winkellink 1 tot 3 punten haalde. Een lanceerplatform voegt hier volgens alle cijfers hierboven minder toe dan één dag winkel.
+- **Bison & Flex:** het enige product dat bij DevHunt past (IDE-plugin voor C-ontwikkelaars). Maar het staat nog verborgen in de keuring van JetBrains (bord: 0 installs, sinds 8 nov). Lanceren kan pas als het zichtbaar is, en kost dan $19 of $49.
+- **Rollwright:** geparkeerd (bord). Geen gereedschap voor ontwikkelaars; de Obsidian-gebruikers zitten op het forum en r/ObsidianMD (verhaal 5), niet hier.
+
+### Wat ze in welke volgorde doen (de makers die er iets aan hadden)
+1. Eerst eigen bereik opbouwen of klaarzetten (X-bericht met demo, DM's, LinkedIn).
+2. Lanceren op een platform als landingsplek, en dat bereik ernaartoe sturen.
+3. Achteraf: de link (backlink) en het badge houden, voor zoekmachines en AI-assistenten. Dat is het enige wat ook zonder eigen bereik blijft, en daarvoor hoef je niet hoog te eindigen.
+
+### 3 lessen
+1. **Een klein lanceerplatform geeft geen publiek, het vraagt publiek.** De stemmen komen van andere makers (Smol Launch eist het zelfs) en van wat je zelf meebrengt; de enige gedeelde bezoekerscijfers zijn 6 en 7. DevHunt is het enige met een echt publiek en open cijfers, en ook daar is de gewone lancering 822 impressies, geen bezoekers.
+2. **Gratis is bijna verdwenen of zit achter een rij van maanden.** Smol Launch gratis: feb 2027. DevHunt gratis lanceren: gestopt in sep 2026, prijzen veranderden 6 keer in 2 maanden. TinyLaunch gratis: 21 dec. Het verdienmodel is de maker die betaalt (TinyLaunch $110.866).
+3. **Wat telt is waar je kopers al zijn.** Bij ons zijn dat de winkels zelf (extensions.blender.org, Garmin, JetBrains Marketplace) en de communities per programma (r/blender, r/3Dprinting, Obsidian-forum). Geen van onze drie producten heeft zijn publiek op Smol Launch of TinyLaunch.
+
+### Voorstel voor Dortus deze week
+**Geen geld en geen tijd van Thijs in Smol Launch, TinyLaunch of Product Hunt voor Click Joints of Rollwright.** De verspreiding blijft bij het plan van 16 nov 16:44 (Reddit waar de gebruikers zitten) en de dagelijkse filmpjes van Chris. Eén uitzondering om klaar te leggen: **Bison & Flex op DevHunt**, pas als JetBrains het zichtbaar maakt, en alleen als Jet toch een lanceerdag plant. Dan eerst de gratis vaste pagina (kost alleen een account van Thijs), en de betaalde lancering ($19 tot $49) alleen als Thijs dat wil, met een eigen link (`?ref=devhunt`) zodat we de klikken zelf tellen. Wie: Jet zet het klaar zodra Bison & Flex zichtbaar is; Thijs beslist over het geld. Wat zou dit veranderen: een maker in onze hoek (Blender, Obsidian, JetBrains) die met cijfers laat zien dat een van deze platforms installs gaf.
 
 ## 16. Hoe werden de snelste nieuwe add-ons van extensions.blender.org bekend? YouTube gezocht bij 40 toppers en 40 gewone add-ons, de zoekplek van Click Joints gemeten, en een correctie op verhaal 15
 

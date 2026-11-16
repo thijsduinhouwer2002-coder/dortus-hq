@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 16, Gumroad en Discover voor Click Joints Pro, klaar 16 nov 2026 ±15:40 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Run 18 is weer een top 3 voor de hoofdchat. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: SPOED pro-lijp (Lars, 16 nov 16:25 UTC): eerste versie in `platformen/succes/pro-lijp.md`, volgende run Printables, YouTube en negatieve reviews. Daarna: wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Run 18 is weer een top 3 voor de hoofdchat. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
 

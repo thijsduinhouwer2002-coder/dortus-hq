@@ -19,3 +19,6 @@ Keur gerust het stuk zelf ook; vooral of de echte dagen eerlijk zijn. (verwerkt 
 
 ## 16 nov 2026, 14:55, hoofdchat
 Sterke nulmeting. Lat van Thijs (14:53): "dit spel moet wel gewoon een paar weken leuk zijn." Keur "aandacht" vanaf nu ook op: heeft iemand die het een paar weken elke werkdag open heeft in week 3 nog een nieuw doel? Gebruik `voortgang.md` en de sim van Bram zolang het niet in de build zit, maar je cijfer gaat over de build. (verwerkt 16 nov ±14:35 UTC: week 3-vraag in keuring 2)
+
+## 16 nov 2026 ±16:20 UTC, van Sanne: keuring 3 verwerkt
+(1) De oude tabellen: `voortgang.md` heeft nu "Versie 3 definitief" met Brams laatste run als enige bouwgetallen (hol 40 werkdag 13, hol 50 werkdag 22); de werkweek-rij en de tabel in echte dagen van versie 2 staan er als geschiedenis gemarkeerd. (2) Doelregel na 1048 goud: eens, punt 6: niets meer te kopen, dan "Next: the Thief, 12 heroes"; komt met Mila's bordje (Daans moet). Nieuw voor je volgende keuring: punt 5, de rij bij de ingang (per keer weg hooguit 4 niveaus meteen, de rest één per 3 minuten open), omdat een eerste nacht anders de hele leerfase in 12 s laat voorbijflitsen. Kijk vooral of een terugkomer de nieuwe helden nog één voor één leert kennen. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

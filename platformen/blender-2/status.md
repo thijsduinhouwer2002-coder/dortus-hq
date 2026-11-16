@@ -1,5 +1,18 @@
 # Blender, tweede bouwer (Olaf)
 
+- **Ruben, 16 nov ±16:20 UTC: PLAN PRO 1.1 IN RUNS (vraag hoofdchat 16:35 NL: kan de volledige 1.1 wo 18 nov 22:00 NL?). Antwoord: ja, alle vier punten, niets weglaten.** Mijn eigen werk is ±15 runs; ik draai elk uur, dus klaar voor Daan **di 17 nov ±18:00 NL**, klaar om te uploaden **wo 18 nov ±14:00 NL** (CI groen in 4.2, 5.2, 5.3, ja van Daan, Pro-zip als Actions-artefact). Dat laat 8 uur ruimte voor 22:00.
+  Stand nu: tak `claude/blender-2026-11-16-figuur` op bad0661. Heupen bewegen weer; spiegelen gebouwd (zie onder). CI van de vorige stap was rood op de zip-toets (gratis deel mag niet veranderen), opgelost door de opruimstap naar Pro te verhuizen, lokaal groen in 5.3.0, CI loopt.
+  | Punt | Runs | Wacht op iets anders dan mijn werk |
+  |---|---|---|
+  | Heup haalt ±14 waar de schouder ±30 haalt (oorzaak, oplossen) | 1 tot 2 | CI ±10 min per push, past binnen een run |
+  | Echte figuren: Rigify-mens, Mixamo-botnamen, de vier Meshy-figuren (MIT, Hugging Face), schouders bij een korte bovenarm, nek | 6 tot 7 | niets. Eerlijk: een echt Mixamo-bestand kan ik niet halen (Adobe-account); ik toets Mixamo-botnamen op een vrije figuur en schrijf in de winkel "Mixamo bone names", niet "tested on Mixamo characters" |
+  | Blender 4.2: 1 of 2 van 8 gewrichten mislukken (Exact-solver) | 2 tot 3 | niets. Lukt het niet in 3 runs, dan eerlijk in de tekst ("4.2: soms een gewricht met de hand") en door, geen wachttijd |
+  | Winkelbeelden uit echte uitkomst, tekst (met spiegelen), versie 1.1.0, tak naar main | 3 | **Daan**: twee keuringen (paneel en eindbeeld op een echte figuur, dan lijstplaatjes en tekst), ±1 tot 3 uur per ronde op zijn tempo vandaag. Dat is de enige echte wachttijd |
+  | Wat makers missen (Lars) en wat naast gratis verkoopt (Vera) | 0 tot 1 | Lars en Vera, vóór wo. Komt het later dan di 18:00 NL, dan neem ik alleen kleine punten mee |
+  Niet in mijn handen: de upload zelf (hoofdchat na ja van Daan) en de keuring bij Superhive en Gumroad daarna.
+  **Spiegelen (hoofdchat 16:35 NL):** "Figure from rig" deed al links en rechts in één keer (elk bot apart), maar een kant zonder grens in de rig kreeg het preset. Nu neemt die kant het bereik van de andere kant over, label `mirrored` (groen bolletje, zoals `from rig`), een eigen grens gaat voor. Samenvatting bijvoorbeeld "8 joints, 2 ranges from your rig (1 mirrored)". Getoetst in de echte Blender 5.3.0, in de CI erbij. Gaat mee in de winkeltekst.
+  **Chris (render met knie die bij 115° stopt):** geleverd als Actions-artefact (workflow `blender-chris-figuur.yml`, army_man, knie 0 tot 114 gemeten). Elleboog weigert op deze AI-figuur (arm ±9,5 mm, "Tight"): mee in punt 2 van het plan (dunne armen).
+
 - **Ruben, 16 nov 15:15 UTC: DATUM PRO 1.1 "Rig to Figure" (vraag hoofdchat 15:40 NL).** Klaar om te uploaden (CI groen in 4.2, 5.2 en 5.3, ja van Daan op paneel en winkelbeelden, Pro-zip als Actions-artefact): **donderdag 19 nov 2026, eind van de dag (UTC)**. Al gebouwd en groen op tak `claude/blender-2026-11-16-figuur` (b18df89, run 43884477657): één knop maakt van een gerigde figuur een printbare figuur met acht gewrichten, scharnieren met de eindstop uit de rig (`from rig`) of een preset, bereik per gewricht in beeld en in de lijst, zes presets met icoon. Wat er nog moet, op volgorde:
   1. 17 nov: de heupen (kogels) bewegen op de toetsfiguur 0 graden (onze eigen beweegproef zegt het, de lijst zegt het eerlijk). Oorzaak vinden en oplossen; figuren uit AI-modellen hebben dezelfde losse schillen.
   2. 17 tot 18 nov: echte figuren in plaats van buizen: Rigify-mens, een Mixamo-figuur, de vier Meshy-figuren. Daarbij schouders bij een korte bovenarm ("no room between shoulder and elbow" met een eerlijke uitweg) en de nek.

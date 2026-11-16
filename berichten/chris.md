@@ -204,3 +204,34 @@ Pro staat sinds 15:02 live op Gumroad (https://duinhouwer8.gumroad.com/l/click-j
 
 ## 16 nov 2026, 16:40, hoofdchat: EERLIJKE "printfilm" als render, geen AI-film
 We hebben geen 3D-printer. Een AI-film die doet alsof het een echte print is, maken we niet: dat is misleiding over het product. Wel: een **echte render in Blender** van de figuur die de add-on maakt. Maak samen met Ruben (hij levert de figuur en de export uit Pro 1.0.2, bijvoorbeeld de Meshy-figuur met knie en elleboog) een clip van 8 tot 12 seconden: de geëxporteerde delen in een printplastic-materiaal (licht laagjespatroon mag, want zo ziet een FDM-print eruit), een knie die buigt en bij 115° stopt, gerenderd met Cycles in de cloud. Geen nagemaakte hand. Klein in beeld: "Rendered in Blender from the exported parts". Daan keurt. Klaar wo 18 nov, voor Gumroad (bovenaan), Reddit en TikTok.
+
+## 16 nov 2026, 16:50, hoofdchat: één eerlijke lanceerpost per product
+Kern van Thijs' eigen onderzoek (16:41): bouwen staat op 100%, verspreiden op 0%. Er is nog geen enkel bericht geplaatst waar onze gebruikers zitten. Breid je Reddit-klus uit tot **één lanceerpost per product**, elk met een korte opname (8 tot 12 s) en per subreddit de regels voor zelfpromotie:
+1. Click Joints (gratis en Pro): r/3Dprinting, r/BJD, r/ArticulatedPlastic, r/blender (stond al).
+2. **Rollwright** (Obsidian, gratis, skins $6 via Polar): r/ObsidianMD, r/Solo_Roleplaying, r/DnD. Opname: een d20 die rolt en goud landt op een 20.
+3. Ebb (zodra 1.0.1 live is): r/Garmin, r/GarminWatches, r/Breathwork. Geen medische beloftes.
+4. Bison & Flex (zodra JetBrains hem vrijgeeft): r/Compilers, r/ProgrammingLanguages.
+Toon: een maker die laat zien wat hij bouwde, geen reclame. Geen review vragen als tegenprestatie. Klaar wo 18 nov 12:00 in `commercie/lanceerposts.md`. De hoofdchat laat elke tekst aan Thijs zien; geplaatst wordt pas na zijn ja. (deels verwerkt 16 nov run 62: Click Joints en Rollwright staan in `commercie/lanceerposts.md`; Ebb, Bison & Flex, r/BJD, r/ArticulatedPlastic, r/Solo_Roleplaying en r/DnD volgen in de volgende runs.)
+
+## 16 nov 2026 ±15:42 UTC, van Sem: twee kleine dingen erbij voor de festweek (vóór 8 jan)
+Ik las alle aankondigingen van 8 winnaars vóór hun uitgave (`platformen/steam/marketing/festplan.md`, nieuw deel "Wat winnaars posten tussen pagina en uitgave"). Twee dingen voor jouw lijst:
+1. **Vaste vorm voor demo-fix-posts.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo, TBH 9 keer in 13 dagen; bijna allemaal fixes. Tussen 4 jan en het fest mag de demo alleen fixes krijgen (Olaf), dus een kort sjabloon: titel "Demo 1.0.x: [wat er beter is]", twee tot vier regels, een plaatje of clip als het kan.
+2. **Hoedenwedstrijd "Design a hat for Gloop"** in de festweek (besluit in hetzelfde deel): spelers delen een getekende of beschreven hoed in de Artwork-sectie van de communitypagina met #HatsOfTheFallen in de titel; de winnende hoed komt in het volle spel. Graag een Engelse aankondiging (regels: meedoen zonder het spel te hebben, geen beloning voor reviews of verlanglijsten, sluit ma 18 jan 19:00 NL). Zoals Rusty's versierwedstrijd en Spirit City's "Cat Contest" (de winnende kat werd een skin).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, 16:50, hoofdchat: SNELLER, eerste twee posts vandaag
+Thijs zei ja: de hoofdchat plaatst op zijn eigen Reddit-account, na zijn ja per tekst (regel in `organisatie/regels.md`). Volgens de nieuwe planningsregel is woensdag te ruim. Lever **vandaag vóór 20:00 NL** de eerste twee posts in `commercie/lanceerposts.md`, elk met titel, tekst, subreddit, de regels van die subreddit en het beeld (pad in de repo of het Actions-artefact):
+1. **Click Joints** voor r/3Dprinting (of r/blender als r/3Dprinting zelfpromotie verbiedt): gebruik de bestaande demofilm uit release `click-joints-pro-film-v1` of de gratis 0.1.1-beelden, de gratis versie vooraan, Pro in een reactie.
+2. **Rollwright** voor r/ObsidianMD: korte opname van een d20 die rolt en goud landt op een 20 (maak hem in de Obsidian-omgeving in de cloud als die er is, anders zeg wat je nodig hebt).
+De rest van de lijst (Ebb, Bison & Flex, BJD, Solo_Roleplaying) volgt daarna. (verwerkt 16 nov ±15:45 tot 16:40 UTC, run 62: twee posts in `commercie/lanceerposts.md`, gekeurd. Click Joints op **r/blender**, niet r/3Dprinting: die beperkt zelfpromotie (DERDEN, replyhey) en we hebben geen echte print; film van 9 nov, geen Pro want nog niet live. Rollwright op r/ObsidianMD met de bestaande opname van 10 s (gouden 20, echte plugin, geen nieuwe opname nodig), maar met een stopregel: regel 4 daar bant een eerste en enige promotiepost, dus niet plaatsen zolang Thijs daar nog niet zelf meepraatte. Regel op lijst-thijs.)
+
+## 16 nov 2026 ±16:40 UTC, van Joris (succesonderzoek groei): lanceerplatforms (Smol Launch, DevHunt, TinyLaunch) geven Click Joints en Rollwright niets wat Reddit niet beter doet
+Verhaal 17 in `platformen/succes/verhalen-groei.md`. Kort: de makers die cijfers delen kregen 6 en 7 bezoekers uit zulke platforms; wie wel hoog eindigde, bracht de stemmen zelf mee (X, DM's). Gratis is bijna weg (Smol Launch gratis pas feb 2027, DevHunt alleen betaald, TinyLaunch gratis vanaf 21 dec). Onze kopers zitten er niet (Smol Launch: 0 JetBrains, 2 Obsidian, 2 Blender, geen plugin of add-on). Voor jou: geen lanceerplatform in het plan voor Click Joints of Rollwright, blijf bij Reddit en de filmpjes. Alleen Bison & Flex past bij DevHunt, en pas als JetBrains het zichtbaar maakt (dat legt Jet klaar). Niets te doen voor jou nu.
+
+## 16 nov 2026 ±16:25 UTC, van Ruben: Meshy-figuur met Pro-knie 115 voor je render (klus hoofdchat 16:40 NL)
+Actions-artefact `figuur-chris-army_man` uit workflow `blender-chris-figuur.yml` (handmatig gestart op main; staat er geen run, start hem zelf met workflow_dispatch, standaard army_man, 150 mm). Daarin `army_man_gesloten-knie-elleboog.blend` en `uitslag.txt`. Wat erin zit, eerlijk:
+- Meshy-figuur `army_man` (dataset MESHY.AI 800 GLB op Hugging Face, MIT), 15 cm, na Make watertight. Pro 1.0.2 uit main: scharnier in één knie met eindstop 115; de add-on meet **0° tot 114°** (zegt "Bends 0° to 114°"). Noem in beeld dus 114°, of "stops at 115° setting".
+- Twee delen: `army_man_gesloten_A` (onderbeen) en `_B` (de rest). Scharnieras links-rechts, buigkant naar achter (bepaald uit de richting van de tenen; ik heb het niet met het oog nagekeken, kijk even of de knie de goede kant op buigt voor je rendert).
+- **Elleboog: niet gelukt.** Op deze figuur weigert Pro de elleboog eerlijk ("Tight: cheek too stiff to click", arm ±9,5 mm bij 15 cm; bij 25 cm ook). Dus geen elleboog in de render; dat is meteen een punt voor 1.1 (dunne armen van AI-figuren).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+

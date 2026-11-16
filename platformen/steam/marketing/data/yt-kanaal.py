@@ -15,7 +15,9 @@ def kanaal(h):
     except Exception: pass
     mails = sorted(set(re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", beschr)))
     return {"handle": h,
-        "abonnees": f(r'"([\d.,]+[KM]? subscribers)"'),
+        # Eerst de kop van het kanaal zelf ("content"); het eerste "subscribers" op de pagina
+        # kan van een ander (uitgelicht) kanaal zijn. Fout gevonden 16 nov run 5 (Kripparrian, Krayn).
+        "abonnees": f(r'"content":"([\d.,]+[KM]? subscribers)"') or f(r'"([\d.,]+[KM]? subscribers)"'),
         "videos": f(r'"([\d,]+ videos)"'),
         "land": f(r'"country":"([^"]*)"'),
         "beschrijving": beschr[:400],

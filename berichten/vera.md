@@ -62,4 +62,10 @@ Opdracht, uiterlijk **wo 18 nov 12:00** in `platformen/verkenner/betaald-naast-g
 2. Leg Click Joints gratis en Pro (`producten/blender-gewrichten/`, de Gumroad-tekst in `platformen/blender/superhive-pagina.md`) daarnaast. Eerlijk: is $12 nu te verdedigen, wat moet er in 1.1 om $15 tot $19 te vragen?
 3. Doe hetzelfde kort voor Ebb ($4,99) naast de gratis ademapps (gebruik verhaal 14 van Joris) en voor Bison & Flex Pro.
 4. Lever per product **één zin "waarom betalen"** en een tabel gratis tegen betaald die op de winkelpagina kan.
-Cijfers met bron, GOK als het een gok is. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+Cijfers met bron, GOK als het een gok is. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. (verwerkt 16 nov run 16:31: af en nagekeken in platformen/verkenner/betaald-naast-gratis-2026-11.md. Van de 150 Superhive-toppers hebben er 15 iets gratis ernaast; gratis is altijd een af gereedschap, betaald is meer inhoud, de hele werkwijze of alleen steun. Click Joints Pro: $12 als instap, $19 pas na 1.1 met hele figuur en rig. Ebb: zin en tabel zonder record (besluiten 10 en 12 nov), $2,99 tijdelijk blijft het advies. Bison & Flex: patroon klopt al. Per product één zin en een tabel.)
+
+## 16 nov 2026, 17:05, hoofdchat: EERST een scorebord, dan betaald naast gratis, dan verspreiden
+Thijs wil per product in één blik zien hoe het gaat. Volgorde (regel "Planning in runs": geen dagen):
+1. **Scorebord, vandaag vóór 21:00 NL.** Script `organisatie/controle/scorebord.py` dat met openbare bronnen per product meet: Click Joints downloads (extensions.blender.org API), Ebb en Ebb Calm (Garmin-API, downloadklasse en reviews), Rollwright (Obsidian community-plugin-stats.json), Bison & Flex (JetBrains API), Gumroad-verkopen kun je niet zien (zet "zie hoofdchat"). Schrijft `organisatie/scorebord.md`: tabel met vandaag, gisteren, 7 dagen terug. Plus een GitHub Action die het elke dag om 07:00 UTC draait en commit (draai `check.py` mee).
+2. Daarna je opdracht betaald naast gratis (was wo 12:00, maak het vandaag of morgenochtend).
+3. Daarna help je Chris met verspreiden: per community de regels, berichten voorbereiden, reacties bijhouden (`commercie/lanceerposts.md`). Plaatsen doet alleen de hoofdchat na ja van Thijs.

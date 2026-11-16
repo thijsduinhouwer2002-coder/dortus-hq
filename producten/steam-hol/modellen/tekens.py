@@ -30,6 +30,7 @@ ZWEET_GROOT = float(os.environ.get("TEKEN_ZWEET_GROOT", "1.3"))  # was 1.0
 ZWEET_KLEUR = os.environ.get("TEKEN_ZWEET_KLEUR", "3a86d8")    # was 5aa8e8
 BOOS_VORM = os.environ.get("TEKEN_BOOS_VORM", "wolk")      # "wolk" (rood met frons) of "ader" (vier bogen)
 BOOS_SCHUIN = float(os.environ.get("TEKEN_BOOS_SCHUIN", "32"))
+BOOS_RAND = os.environ.get("TEKEN_BOOS_RAND", "1") == "1"   # Mila 16 nov (Daan 15:32): lichte rand om het rode wolkje
 SCHUIF = -0.095 # laars naar links, zodat hij in het midden van de cel staat en de cel 8 breed blijft
 
 
@@ -63,7 +64,15 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
         ouder.scale = (schaal, schaal, schaal)
         return ouder
     room = g.mat(f"teken_room_{naam}", "fbf3df", rough=0.55, spec=0.3)
-    if naam == "boos" and BOOS_VORM == "wolk":
+    if naam == "boos" and BOOS_VORM == "wolk" and BOOS_RAND:
+        # Mila 16 nov (Daan 15:32, kans 1): op ware grootte zakte het rode wolkje weg in de roodbruine aarde. Nu blijft
+        # het buitenste wolkje en het staartje room, zoals bij de andere tekens, en ligt er een kleiner rood wolkje
+        # voor: een lichte rand van ±0,8 spelpixel. Zelfde buitenmaat, dus de cel en de schaal van alle tekens blijven.
+        rood = g.mat("teken_rood_wolk", "d8423b", rough=0.45, spec=0.35)
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(0, -0.03, 0.635))
+        b = _obj(bpy.context.object, "teken_boos_binnen", rood, ouder)
+        b.scale = (0.335, 0.14, 0.295); bpy.ops.object.shade_smooth()
+    elif naam == "boos" and BOOS_VORM == "wolk":
         # Mila 16 nov: Daan's tweede voorstel. Een rood wolkje (boos = rood, ook als je de vorm niet ziet) met
         # twee dikke donkere gefronste wenkbrauwen \ / erop. Leest op 8 x 8 als kwaad gezicht.
         room = g.mat("teken_rood_wolk", "d8423b", rough=0.45, spec=0.35)
@@ -82,7 +91,7 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
             # binnenkant laag, buitenkant hoog: \ / (draaien om y met min, want +y draait rechts omlaag)
             o = _blok(ouder, f"teken_boos_frons_{kant}", donker, (0.0, 0.0, 0.0), (0.12, 0.04, 0.048), rond=0.03)
             o.rotation_euler = (0, math.radians(-BOOS_SCHUIN * kant), 0)
-            o.location = (0.15 * kant, voor - 0.02, 0.66)
+            o.location = (0.13 * kant, voor - 0.04, 0.66)
     elif naam == "boos":
         rood = g.mat("teken_rood", "d8423b", rough=0.4)
         # vier bogen, elk in een eigen hoek en bol naar het midden (de bekende boze ader)

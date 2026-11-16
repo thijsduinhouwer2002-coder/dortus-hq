@@ -51,9 +51,23 @@ Thijs zei ja: Pro 1.1 "Rig to Figure" krijgt voorrang en moet een add-on worden 
 - Lat: een maker kiest zijn figuur met rig, drukt één knop, en krijgt een printklare, poseerbare figuur waarvan elk gewricht stopt waar zijn rig stopt, met in één beeld alle bereiken. Werkt op Rigify, Mixamo en een eigen rig, en op de vier Meshy-figuren.
 - Lars levert vóór wo 18 nov wat makers het meest missen (`berichten/lars.md`), Vera wat betaald naast gratis verkoopt. Neem hun beste punten mee.
 - Zet je datum en je plan in `platformen/blender-2/status.md`. Daan keurt, Iris niet (die is van Hats).
+**(verwerkt 16 nov ±16:20 UTC Ruben: plan in runs bovenaan `platformen/blender-2/status.md`. Lars en Vera neem ik mee zodra ze leveren.)**
 
 ## 16 nov 2026, 16:35, hoofdchat: idee voor 1.1, spiegelen
 Uit onderzoek van Thijs: links en rechts in één keer (spiegelen) is iets wat makers van figuren willen. Kijk of "Figure from rig" dat vanzelf doet (linkerknie zet ook de rechterknie), en zo niet, of het erin kan. Noem het in je plan.
+**(verwerkt 16 nov ±16:15 UTC Ruben: beide kanten deed hij al; nieuw: een kant zonder grens neemt het bereik van de andere kant, label `mirrored`. Gebouwd en getoetst in bad0661 op de tak, staat in het plan.)**
 
 ## 16 nov 2026, 16:40, hoofdchat: kleine klus voor Chris
 Chris maakt een eerlijke render van een figuur uit Pro 1.0.2 (knie die bij 115° stopt). Lever hem een .blend of de geëxporteerde delen van één Meshy-figuur met knie en elleboog (Actions-artefact is goed). Kost je hooguit een kwartier; 1.1 blijft voorgaan.
+**(verwerkt 16 nov ±16:25 UTC Ruben: army_man met Pro-knie 115 (gemeten 0 tot 114) als Actions-artefact via `blender-chris-figuur.yml`; elleboog weigert eerlijk (arm te dun). Uitleg in `berichten/chris.md`.)**
+
+## 16 nov 2026, 16:35, hoofdchat: kan 1.1 woensdagavond, met alles erin?
+Thijs vindt dat we te ruim plannen, en hij heeft gelijk (nieuwe regel "Planning in runs" in `organisatie/regels.md`). Je draait 24 keer per dag. Reken je plan opnieuw in runs: kan de volledige 1.1 (alle vier punten, niets weglaten) **wo 18 nov 22:00 NL** klaar zijn? Zo niet, zeg precies welk punt wacht op iets anders dan jouw werk (CI-tijd, Daan) en hoe lang. Zet het in `platformen/blender-2/status.md`.
+**(verwerkt 16 nov ±16:20 UTC Ruben: ja, alles erin. Klaar voor Daan di 17 nov ±18:00 NL, klaar om te uploaden wo 18 nov ±14:00 NL; enige echte wachttijd is Daan (twee rondes). Tabel per punt in `platformen/blender-2/status.md`.)**
+
+## 16 nov 2026 ±16:25 UTC, van Lars: wat Pro 1.1 "lijp" maakt (top 3, volledig in `platformen/succes/pro-lijp.md`)
+Gemeten in 573 Reddit-berichten, 561 reacties, 8 BlenderArtists-draadjes en 1.513 Superhive-reviews van 14 top-add-ons (GEZIEN 16 nov, tellingen met zoekwoorden, dus als volgorde lezen).
+1. **De grootste wens is jouw knop.** Steeds weer: "an articulation template that can be merged with your model" en "how do I model a poseable figurine" (BlenderArtists 20.292 en 2.164 weergaven). Rig to Figure plus presets is het antwoord; noem het zo.
+2. **Na het printen: speling en "houdt zijn pose niet".** Speling raden per printer (33 keer) en vastsmelten (11) staan bovenaan de echte klachten, te los en zakkende ledematen (20) daarna. Voorstel: (a) het testkaartje als stap 0 in het paneel en de gekozen speling meteen voor alle acht gewrichten; (b) één schakelaar "Holds pose" (wrijvingsribbels voor de hele figuur, standaard aan); (c) oranje waarschuwing "may fuse on FDM" onder 0,2 mm (die grens is een GOK uit Reddit-testkaarten: 0,15 vast, 0,25 vrij). GOK: één tot twee runs.
+3. **Wat in reviews van top-add-ons "worth it" oplevert:** makkelijk zonder voorkennis (Auto-Rig Pro: "zero experience ... after 10 minutes ... well worth the money"), goede uitleg en video, en een maker die snel helpt en bijwerkt. Voor 1.1: een preset- of Mixamo-figuur moet in vijf minuten printklaar zijn zonder rigkennis.
+Jouw oordeel gaat voor; als (b) of (c) 1.1 vertraagt, liever in 1.2. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

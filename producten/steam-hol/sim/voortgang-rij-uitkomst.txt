@@ -1,0 +1,18 @@
+Bram 16 nov, de rij bij de ingang (Sanne 16:00). Gemaakt met: python3 voortgang_rij.py   (8 zaden, spec voortgang-v3-eind-bram.json, rij {'meteen': 4, 'elke_s': 180})
+
+1. X minuten spelen, dan één nacht weg (12 u x 0,25 = 3 u tempo; bij 0 min het tempo van het spel: 1 held per 47,5 s, 60% gevangen).
+   hol 12 = 88 gevangen helden. Mediaan van 8 zaden (min tot max tussen haakjes).
+   X      | hol meteen na de nacht | niveaus in de rij  | open min na nacht tot hol 12 | open min tot de rij leeg | zonder rij: hol 12 na 
+   0 min  | 5 (5 tot 5)            | 8 (8 tot 8)        | 21.6 (21.3 tot 21.7)       | 24.3 (24.1 tot 24.6)     | 0 (0 tot 0)           
+   1 min  | 5 (5 tot 5)            | 9 (9 tot 9)        | 21.2 (21 tot 21.7)         | 27.3 (27 tot 27.7)       | 0 (0 tot 0)           
+   5 min  | 6 (6 tot 6)            | 7 (6 tot 7)        | 18.3 (18 tot 18.7)         | 21.4 (18.1 tot 21.7)     | 0 (0 tot 0)           
+   15 min | 9 (7 tot 9)            | 5 (4 tot 5)        | 9.8 (9.1 tot 15.8)         | 15.3 (12.1 tot 15.8)     | 0 (0 tot 5.4)         
+   60 min | 13 (12 tot 13)         | 1 (0 tot 1)        | 0 (0 tot 0)                | 3.3 (0 tot 3.5)          | 0 (0 tot 0)           
+
+2. De hele voortgang (165 open uur, 6 uur open per werkdag, weekend dicht), 8 zaden:
+   zonder rij: hol 12 / 20 / 30 / 40 / 50 op 2.0 / 10.5 / 37.4 / 76.2 / 127.8 open uur
+               langste gat per week 1 tot 5 (mediaan / ergste, open uren): 1.7 / 1.9; 1.9 / 3.7; 2.7 / 2.9; 2.8 / 3.2; 6.0 / 6.0
+   met rij   : hol 12 / 20 / 30 / 40 / 50 op 2.0 / 10.5 / 37.4 / 76.2 / 127.8 open uur
+               langste gat per week 1 tot 5 (mediaan / ergste, open uren): 1.7 / 1.9; 1.9 / 3.7; 2.7 / 2.9; 2.8 / 3.2; 6.0 / 6.0
+               niveaus in de rij na een nacht, per week (hoogste van alle nachten en zaden; nachten met iets in de rij / alle nachten): week 1: 0 (0/32); week 2: 0 (0/40); week 3: 0 (0/40); week 4: 0 (0/40); week 5: 0 (0/40)
+   grootste verschil in de mediane tijd van een hol-niveau (2 tot 50): 0.0 open minuten
