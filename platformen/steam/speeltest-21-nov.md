@@ -45,4 +45,5 @@ Je punten gaan vóór alles (ook vóór de winkelbeelden). Olaf zet ze bovenaan 
 ## Eerlijk vooraf
 - De naam in het bestand is nog Het Hol; het spel heet Hats of the Fallen.
 - Geluid kan uit staan of kaal zijn; de beelden zijn deels nog oud of paars.
+- Bekend en niet nodig om te melden (keuring Iris 16 nov): de winkel is klein (zes stappen, samen 1048 goud). Laat je het spel een nacht aan, dan koop je de volgende ochtend alles in één keer. De diepe voortgang van ±100 uur (Sanne, `voortgang.md`) zit er nog niet in.
 - Niets hiervan is gepubliceerd: de zip staat alleen als bijlage bij een testrun.
