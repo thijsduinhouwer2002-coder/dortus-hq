@@ -39,3 +39,6 @@ Bijgehouden door de strateeg. Nieuwste bovenaan. Eén regel per signaal: datum, 
 - 7 nov | kans | Shopify opent nieuwe plekken: Sidekick (AI-assistent) kan app-intents aanroepen (28 sep), theme app add-ons (28 okt). Nieuw en nog leeg, dus vroege makers hebben voorsprong (GOK). | GEZIEN (titels) | https://shopify.dev/changelog
 - 7 nov | bedreiging | AI-winkels betalen kleine makers niet: ChatGPT-plugins mogen geen digitale producten of abonnementen verkopen; MCP-register heeft geen betaalsysteem; Claude-directory zonder omzetdeling gevonden. Alleen bereik. | GEZIEN (OpenAI, MCP-register), DERDEN (Claude) | https://developers.openai.com/apps-sdk/app-submission-guidelines, https://registry.modelcontextprotocol.io/v0/servers
 - 7 nov | bedreiging | Figma neemt in de praktijk geen nieuwe betaalde makers aan. | DERDEN | https://forum.figma.com/ask-the-community-7/how-do-i-actually-apply-to-sell-a-paid-plugin-support-chat-pointed-to-a-page-with-no-application-58465
+
+## 16 nov 2026 (Stijn)
+- Geen nieuw signaal van buiten gezocht deze run; de tijd ging naar de achterstand van 7 dagen. Superhive (Pro-pagina en de Cyber Sale-pagina) is vanaf hier niet te lezen (403 en 301), net als Cults3D en Printables (403). Volgende run: de Cyber Sale-datum bevestigen via een andere bron.

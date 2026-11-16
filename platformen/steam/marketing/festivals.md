@@ -17,3 +17,8 @@ Bekeken en niet gekozen (open, maar past niet): The Medieval Festival (middeleeu
 
 ## Regel
 Alleen festivals die gratis zijn en waar Hats echt in past; inzenden is een stap voor Thijs (formulier met zijn naam). Betaalde festivals niet zonder besluit.
+
+## Nagelopen 16 nov ±17:00 UTC (run 6)
+Lijst opnieuw gelezen (howtomarketagame.com/festivals, GEZIEN). Bureaubladfestivals van IndieLab en Mister Morris: "Companion Falls for You" (september 2026, aanmelden tot 16 sep) is voorbij; er staat geen nieuwe ronde. Open met een deadline na vandaag: Laughs & Smiles (20 nov, staat al klaar), Yuri, The Medieval Festival (23 nov, december), En Live Game Jam Showcase, American Worlds Roadshow, Dead of Winter, Spring into Love, Rainbow Games, Rocks and Rolls, Rogue Bots, Capital Creative.
+- **Geen enkele past behalve Laughs & Smiles.** The Medieval Festival gaat over "life in medieval Europe" en de geschiedenis (eigen tekst), Hats is fantasie in een kerker; En Live Game Jam neemt alleen spellen "without using AI during all the development process" (eigen formulier, GEZIEN), dus nee, en het zou ook oneerlijk zijn om het te proberen; de rest heeft een thema dat niet klopt (yuri, Amerika, horror, liefde, LGBTQ+, rotsen, robots).
+- Volgende keer nalopen: begin december, voor festivals in februari en maart.

@@ -12,7 +12,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 - Wat ons eigen is: de hoeden op Gloop en de helden met een wrok (`platformen/succes/onderscheid-hats.md`). Alles wat we in het fest laten zien, toont die twee.
 
 ## Het idee in drie zinnen
-1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
+1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** *(Bijgesteld run 6: Character House brak door op de dag van zijn demo, buiten een fest, met 100.000 verlanglijstjes in een week, `character-house.md`. Daarom krijgt de demo van ma 4 jan dezelfde voorbereiding als dag 1 van het fest: aankondiging, makers in de mail, meten vanaf het eerste uur. Het fest blijft het grote moment waar we op mikken.)* Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
 2. **Van de demo een evenement maken met doelen voor alle spelers samen**, zoals Desktop Defender. Bij ons zijn dat hoeden: "alle Glooppen samen" (Sanne optie A in `platformen/steam/samen-spelen.md`). Elk doel is een aankondiging, een clip en een reden om een vriend te halen.
 3. **Na dag 2 kijken we en beslissen we**, met grenzen die nu al vastliggen. Een stil fest is een uitslag, geen pech.
 
@@ -26,11 +26,22 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 | 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md); als Thijs inzendt: Laughs & Smiles Festival 21 tot 31 jan (vak "binnenkort", `festivals.md`) | |
 | 5. Next Fest februari | ma 22 feb tot ma 1 mrt | doorbraak volgens de tweede meetlat | eigen meetscript |
 
+**Demodag ma 4 jan (toegevoegd run 6, na Character House):** behandelen als dag 1 van het fest, want een demo-lancering kan zelf het moment zijn (`character-house.md`). Tijden NL.
+| Wanneer | Wat | Wie |
+|---|---|---|
+| vóór 4 jan | demosleutels naar de makers met "demo af" in de eerste ronde (`makers.md`), met de vraag de video op of na 4 jan te zetten | Sem zet klaar, Thijs verstuurt |
+| ma 4 jan 18:00 | Thijs drukt "uitbrengen" (lijst-thijs); 18:00 NL is 9:00 in Californië en de middag voor de Amerikaanse oostkust, GOK beste moment | Thijs |
+| ma 4 jan 18:00 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
+| ma 4 jan 18:00 | mail aan de rest van de eerste ronde: de demo is er, link | Thijs |
+| ma 4 jan vanaf 18:00 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
+| di 5 tot wo 13 jan | elke demo-fix een korte post (zie onder) | Olaf meldt, Chris schrijft |
+Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2.500 verlanglijstjes 23 tegelijk in zijn demo (GEZIEN 16 nov), Desktop Defender met 200 verlanglijstjes "hoped for maybe 20" en haalde 36 vóór Next Fest (Kotaku, DERDEN).
+
 **Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
 
 **Waarom de demo op 4 jan openbaar en niet pas op dag 1 van het fest (besluit Sem, Olaf beslist over de build):**
 - Valve sorteert binnen het demovak op belangstelling en populariteit (GEZIEN). Een demo die al tien dagen spelers en reviews heeft, staat op dag 1 hoger dan een demo met 0.
-- Makers kunnen de openbare demo zelf downloaden: geen sleutels nodig, geen gedoe met sleutels voor een aparte demo-app. Wie een video wil maken heeft tien dagen.
+- Makers kunnen de openbare demo zelf downloaden: geen sleutels nodig, geen gedoe met sleutels voor een aparte demo-app. Wie een video wil maken heeft tien dagen. *(Run 6: sleutels voor een demo-app bestaan wel, "request keys for your demo", Steamworks-pagina Demos, GEZIEN 16 nov. Makers uit de eerste ronde die "demo af (18 dec)" hebben, kunnen dus vóór 4 jan een demosleutel krijgen zodra Valve de demo heeft goedgekeurd; stap voor Thijs, sleutels aanvragen.)*
 - Fouten vinden we bij een paar honderd spelers in plaats van bij duizenden in het fest.
 - Wat we opgeven: de "van 1 naar 1.548"-film van Desktop Defender. Maar die groei kwam uit de festweek zelf, niet uit het nieuw zijn van de demo; Valve eist ook geen nieuwe demo voor Next Fest ("We do not require exclusivity or newness", GEZIEN door Sanne).
 - Voorwaarde: de demo is op 21 dec ingediend (planning) en voor 4 jan goedgekeurd. Lukt dat niet, dan op de dag van goedkeuring, uiterlijk 11 jan.
@@ -62,7 +73,7 @@ Twee getallen, allebei voor ons zelf te meten:
 
 | Uitslag | Spelers tegelijk (piek, eerste 48 u) | Verlanglijstjes (eerste 48 u) | Wat we doen |
 |---|---|---|---|
-| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf |
+| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf; dezelfde avond een post met het getal en een schermafbeelding (Thijs) en de klaargezette persmail naar 10 bladen plus Games Press (`pers.md`, run 6: na de tweet "1 week ago we had 3 players" schreven 6 bladen in 4 talen over Desktop Defender) |
 | **Gewoon** | 20 tot 100 | 300 tot 1.000 | het plan afmaken; in de verbeterweek één ding aan de haak (eerste hoed binnen 30 s, capsule), daarna Next Fest |
 | **Stil** | onder 20 | onder 300 | zie "Als het stil blijft" |
 

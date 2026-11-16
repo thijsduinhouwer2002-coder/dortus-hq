@@ -40,7 +40,11 @@ def graaf_prijs(gangen):
 # Heldensoorten (versie 1, godot/systemen/heldensoort.gd): zelfde getallen. Aan met: python3 sim.py soorten
 SOORTEN = False
 SOORT_DATA = {"ridder": ({"slijm": 0.7, "put": 1.4}, True), "dief": ({"slijm": 1.15, "put": 0.5}, False),
-              "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.1, "put": 1.1}, False)}  # ridder en bard: Sanne 10 nov 03:05 (balans.md)
+              "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.1, "put": 1.1}, False),
+              # Bram 16 nov (Sanne 17:00): eigen helden per laag, alleen met "laag_helden" in de spec. De ontdekker rekent
+              # zelf (put x 1,2 eerste bezoek, x 0,3 op vallen die hem raakten); de mijnwerker slaat zijn eerste val over.
+              "mijnwerker": ({"slijm": 1.2}, False), "ontdekker": ({}, False), "heks": ({}, False),
+              "hoedenjager": ({"slijm": 0.7, "put": 0.7}, False)}  # ridder en bard: Sanne 10 nov 03:05 (balans.md)
 SOORT_GEWICHT = {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
 LIED_HELDEN = 2
 TRICK_MAGIER = 1.0   # None = uit; 1.0 = Trick Lid zet de factor van de magier voor de put op 1,0 (meting 10 nov 03:30)
@@ -97,6 +101,13 @@ def speel(uren, zaad, spec=None):
     # niet in de sim. "laag_vang": [1, 0.9, 0.8, 0.8] = vangkans x dit getal in de laag die je ziet, als gevoeligheid
     # (hoeveel mogen ze kosten), geen ontwerp. Zonder de sleutel: x 1.
     laag_vang = sp_.get("laag_vang")
+    # Bram 16 nov ±18:00 UTC (Sanne 17:00, voortgang.md "Eigen helden per laag"): de eigen helden per laag en hun tegenzet.
+    # {"helden": {"mijnwerker": {"hol": 21, "laag": 2, "gewicht": 20}, ...}, "tegen": {"valluik": {"hol": 22, "prijs_u": 1.0,
+    #  "kans": 0.8}, "nephoard": {"hol": 32, ...}, "lokker": {"hol": 41, ...}}}. Een tegenzet koop je één keer (prijs_u x goud
+    # per uur van dat moment) en hij zit daarna in elke laag. Zonder de sleutel: niets anders (zelfde rng-volgorde).
+    lh = sp_.get("laag_helden")
+    tegen = set()         # gekochte tegenzetten
+    tegen_koop = []       # [(naam, prijs)] te koop, op volgorde van vrijkomen
     rij_cap = None        # hoogste hol-niveau dat nu mag komen; None = er staat niets in de rij
     rij_weg = 0.0         # gevangen helden van weg die nog in de rij zitten
     rij_volgende = None   # open tijd waarop het volgende niveau uit de rij mag
@@ -138,6 +149,8 @@ def speel(uren, zaad, spec=None):
             k.append(("ding", d))   # één tegelijk, op volgorde van vrijkomen
         for d in decor[:1]:
             k.append(("kamertje", d))
+        for n_, p_ in tegen_koop[:1]:
+            k.append(("tegen_" + n_, p_))
         for i, L in enumerate(lagen):
             if L["open"] and L["gekocht"] is None and i == len(laag_info) - 1:
                 k.append(("luik", L["prijs"]))
@@ -150,7 +163,7 @@ def speel(uren, zaad, spec=None):
                 k.append(("upg_" + s, (upg_prijs[upg[s]] if upg_prijs else UPG_BASIS * 2.8 ** upg[s])
                           * (laag_factor if upg[s] < 3 else laag_factor_hoog)[min(len(laag_info), len(laag_factor)) - 1]))
         if STRATEGIE == "spaar" or SPEL_ECONOMIE:
-            k = [x for x in k if x[0].startswith("upg_") or x[0] in ("luik", "ding", "kamertje") or (graven_kost and x[0] == "graaf")]
+            k = [x for x in k if x[0].startswith("upg_") or x[0] in ("luik", "ding", "kamertje") or x[0].startswith("tegen_") or (graven_kost and x[0] == "graaf")]
         return k
 
     while t < eind:
@@ -225,10 +238,18 @@ def speel(uren, zaad, spec=None):
             h = {"naam": "%s%d" % (rng.choice(NAMEN), nieuw_nr), "gevlucht": 0, "wrok": "", "hoard": False,
                  "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0, "soort": ""}
             if SOORTEN and nieuw_nr > 10:
-                h["soort"] = rng.choices(list(SOORT_GEWICHT), weights=list(SOORT_GEWICHT.values()))[0]
+                gw = dict(SOORT_GEWICHT)
+                if lh:
+                    for n_, d_ in lh["helden"].items():
+                        if hol_hoogst >= d_["hol"] and len(laag_info) >= d_["laag"]:
+                            gw[n_] = d_["gewicht"]
+                h["soort"] = rng.choices(list(gw), weights=list(gw.values()))[0]
                 if rng.random() < 0.2:   # heldensoort.kies_trek: slaapkop, wraakzuchtig, opschepper (gedragen zich verder als hebzuchtig)
                     h["trek"] = rng.choice(["slaapkop", "wraakzuchtig", "opschepper"])
         sd = SOORT_DATA.get(h.get("soort", ""), ({}, False))
+        hs_ = h.get("soort", "")
+        eerste_val = True     # mijnwerker: de eerste val die hij tegenkomt in dit bezoek
+        h.setdefault("geraakt_i", set())
         if h["gevlucht"] >= 3:
             st["aartsvijand_bezoek"] += 1
             if st.get("eerste_aarts") is None:
@@ -266,6 +287,13 @@ def speel(uren, zaad, spec=None):
                 continue
             # soortfactor alleen op de basiskans, zoals held.gd (controleur 10 nov): upgrade en ROEKELOOS komen erbij
             fs = sd[0].get(v["soort"], 1.0)
+            if hs_ == "ontdekker":
+                if h["bezoeken"] == 0:
+                    fs = 1.2 if v["soort"] == "put" else 1.0
+                else:
+                    fs = 0.3 if i in h["geraakt_i"] else 1.0
+            if hs_ == "hoedenjager" and eerste_val and "lokker" in tegen:
+                fs *= 2   # hoed aan een hengel voor de eerste val
             if TRICK_MAGIER is not None and h.get("soort", "") == "magier" and v["soort"] == "put" and upg["put"] >= 3:
                 fs = TRICK_MAGIER   # Trick Lid: de put ziet eruit als vloer, de magier ziet hem niet (idee Sanne 10 nov 03:10)
             kans = (KANS[v["soort"]] * fs + UPGRADE * upg[v["soort"]] + eff["kans"].get(v["soort"], 0.0)) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
@@ -277,6 +305,17 @@ def speel(uren, zaad, spec=None):
                 kans *= BRUTAAL
             if laag_vang:
                 kans *= laag_vang[min(len(laag_info), len(laag_vang)) - 1]
+            if hs_ == "hoedenjager" and eerste_val and "lokker" in tegen:
+                kans = min(kans, 0.95)
+            if hs_ == "mijnwerker" and eerste_val:
+                eerste_val = False
+                # graaft om de eerste val heen (kans 0, geen klap); met het valluik graaft hij erin
+                if "valluik" in tegen and rng.random() < lh["tegen"]["valluik"]["kans"]:
+                    uit = "gevallen"
+                    st["tegen_vang"] = st.get("tegen_vang", 0) + 1
+                    break
+                continue
+            eerste_val = False
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
                 if v["soort"] == "slijm":
@@ -288,6 +327,8 @@ def speel(uren, zaad, spec=None):
                 break
             klappen += 1
             geraakt_door = v["soort"]
+            if lh:
+                h["geraakt_i"].add(i)
             if v["soort"] == "slijm":
                 # Bouncy Gloop (godot/systemen/upgrades.gd, stap 2): plat 2/3 van de tijd
                 v["plat_tot"] = t + PLAT_S * (2 / 3 if upg["slijm"] >= 2 else 1)
@@ -297,10 +338,19 @@ def speel(uren, zaad, spec=None):
             if (h["trek"] == "schijterig" and not diep and not (sd[1] and klappen < 2) and rng.random() < SCHIJT_OM) or klappen >= 2:
                 uit = "gevlucht"
                 break
+        if uit is None and lh and "nephoard" in tegen:
+            # de nep-schat voor de echte: geen val, dus de ontdekker onthoudt hem niet (verschuift na elke vangst)
+            nk = lh["tegen"]["nephoard"]
+            k_ = nk["kans"] if hs_ == "ontdekker" else nk["schijterig"] if h["trek"] == "schijterig" else nk["hebzuchtig"]
+            if rng.random() < k_:
+                uit = "gevallen"
+                st["tegen_vang"] = st.get("tegen_vang", 0) + 1
         if uit is None:
             uit = "gevlucht"
             h["hoard"] = True
             st["hoard"] += 1
+        if lh:
+            st.setdefault("vang_log", []).append((t, len(laag_info), hol_hoogst, hs_, uit == "gevallen"))
         if uit == "gevallen" and st.get("eerste_hap") is None and geraakt_door == "" and not dwing and st["hap_slijm"] > 0:
             st["eerste_hap"] = t + LOOP_HAP_S
         if uit == "gevallen":
@@ -350,6 +400,11 @@ def speel(uren, zaad, spec=None):
                     dingen.append(e["koop"])
                 if sp["naam"] == "hol-niveau":
                     hol_hoogst = max(hol_hoogst, nv.get("niveau") or 0)
+                    if lh:
+                        for n_, d_ in lh.get("tegen", {}).items():
+                            if d_["hol"] == nv.get("niveau") and n_ not in tegen and all(n_ != x[0] for x in tegen_koop):
+                                gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
+                                tegen_koop.append((n_, round(d_.get("prijs_u", 1.0) * gpu, -1)))
                     for w_ in [w_ for w_ in decor_wacht if w_[0] <= hol_hoogst]:
                         decor_wacht.remove(w_)
                         gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
@@ -406,7 +461,10 @@ def speel(uren, zaad, spec=None):
             st.setdefault("uitgaven", []).append((t, prijs))
             if wat.startswith("upg_") and "eerste_upg" not in st:
                 st["eerste_upg"] = t
-            if wat == "ding":
+            if wat.startswith("tegen_"):
+                tegen.add(wat[6:])
+                tegen_koop.pop(0)
+            elif wat == "ding":
                 dingen.pop(0)
             elif wat == "kamertje":
                 decor.pop(0)

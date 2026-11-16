@@ -30,6 +30,7 @@ Hoe dit bestand werkt:
 ### Stand (GEZIEN 16 nov ±16:00 UTC)
 - extensions.blender.org: `click_joints` versie 0.1.1, Blender vanaf 4.2 (API). 157 downloads om 11:16 UTC (Ruben, `platformen/blender/status.md`). Nog geen enkel Reddit-bericht.
 - **Pro is nog niet live** (Superhive-keuring van 1.0.1 loopt). Daarom staat Pro **niet** in de post en ook nog niet in een reactie. De reactie over Pro hieronder pas gebruiken als de Superhive-pagina van Pro openbaar is.
+- **Bijgewerkt 16 nov run 63:** Pro staat sinds 16 nov 15:02 live op Gumroad ($12). Gebruik voor Pro de reactie **2b in `commercie/blender-click-joints/reddit.md`** (Gumroad-link); die vervangt de Pro-reactie hieronder.
 
 ### Niet plaatsen als (check in de browser, ±2 min)
 1. De zijbalk of regels zeggen: geen AI-gemaakte projecten of software, of zelfpromotie alleen in een vaste draad of op een vaste dag, of een minimum aan karma of accountleeftijd die Thijs niet haalt.
@@ -79,7 +80,7 @@ Controleur (16 nov run 62, los van mij, bronnen, beelden en sha256 zelf nagekeke
 - **"How is this different from other joint cutters?"** `Most tools cut the joint; this one also measures how far the ball joint bends before the parts collide and shows the collision in red, so you can check it before printing.` (Geen namen van anderen.)
 - **"Have you printed it?"** `Not yet, that's why I said so in the post. The clearance is per side; around 0.2 mm per side is a common start on FDM, but test on your own printer first.` (Brams nakijk van tip 1, `platformen/blender/tips-nagekeken.md`.)
 - **"AI-written, no thanks."** `Fair point. It's tested automatically in real Blender on every change, and it's free, so you can judge the result yourself.` Daarna niet meer reageren.
-- **Pro, alleen als de Superhive-pagina van Pro openbaar is** (en liefst pas als iemand vraagt naar scharnieren of meer): `There's also a paid version, Click Joints Pro, with a hinge joint that has a hard stop (90, 115 or 135 degrees): <link Superhive>. The free version stays free.` Prijs en link vul ik in zodra Pro live is.
+- **Pro: vervangen door reactie 2b in `commercie/blender-click-joints/reddit.md` (Gumroad live 16 nov). Oude tekst:** alleen als de Superhive-pagina van Pro openbaar is (en liefst pas als iemand vraagt naar scharnieren of meer): `There's also a paid version, Click Joints Pro, with a hinge joint that has a hard stop (90, 115 or 135 degrees): <link Superhive>. The free version stays free.` Prijs en link vul ik in zodra Pro live is.
 - Vragen over geld, terugbetalen, privacy of juridisch: niet beantwoorden, bovenaan lijst-thijs.
 
 ---

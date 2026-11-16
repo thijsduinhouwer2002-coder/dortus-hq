@@ -174,3 +174,6 @@ Eerder:
 - Alle bordjes in Het Hol zijn één familie: hout `de764e`, rand `723e31`, teken in crème `fbf2c0` met donkere schaduw, paaltje `a76654`. Zo leest een nieuw bordje meteen als "van het spel" en niet als een knop van Windows. Goud alleen voor wat je verdient (munt, balkje vol).
 - Een getal of regel die de speler ziet, moet ergens in beeld bij horen. "Grew 11 levels" zonder bordje is een los getal; dan liever de regel later.
 - Keur tekens in spreekwolkjes altijd ook op ware grootte (1x), niet alleen vergroot; op 1x mist een donker wolkje zonder lichte rand de achtergrond.
+- **Kleine figuren onderscheid je met het grootste vlak (16 nov):** bij een held van ±25 px is de kop het grootste deel. Andere kleur kleding zie je nauwelijks; een andere huidtint en een ander silhouet wel. Huid nooit bijna wit: dan wordt elke kop een witte bol.
+- **Eén keer zeggen (16 nov):** op een pagina staat een adres of een oproep één keer per blok. Twee zinnen die hetzelfde zeggen onder elkaar ogen als een vergeten plakfout.
+- **Rand van een rond scherm (16 nov):** het mooiste element (bij Gloop de hoedentoren) blijft minstens 4 px binnen de cirkel, ook in de hoogste stand. Afgesneden door de rand oogt kapot.

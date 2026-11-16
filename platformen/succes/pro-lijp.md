@@ -73,6 +73,40 @@ In de 78 reviews die letterlijk "worth it / worth every penny / worth the money"
 ## Voorstel voor deze week
 **Ruben zet in 1.1 de schakelaar "Holds pose" (wrijvingsribbels voor de hele figuur, standaard aan) en de oranje waarschuwing onder 0,2 mm erbij, en maakt het testkaartje stap 0 in het paneel.** Waarom: "te los" en "speling raden" zijn de klachten na het printen; zonder die twee werkt een mooi gerigde figuur in het echt niet, en dan komt de eerste review daarover. Kost GOK één tot twee runs. Daarnaast (Chris, na 1.1): het filmpje van 60 seconden en de "first figure in 5 minutes"-pagina, want dat is wat in "het waard"-reviews het vaakst meekomt.
 
-## Open, volgt vóór wo 18 nov 09:00
-- Printables-reacties onder de populairste flexi- en actiefiguren (wat mislukt bij printers?) en YouTube-reacties onder 2 of 3 "how to make articulated figure in Blender"-filmpjes.
-- Negatieve reviews (76 met 1 of 2 sterren) van de toppers: wat kost sterren.
+## Aanvulling 16 nov ±17:30 UTC: Printables en negatieve reviews
+
+### (A) Printables: wat makers zeggen onder de populairste figuren (GEZIEN, curl op de openbare GraphQL van Printables, `https://api.printables.com/graphql/`)
+- 11 zoektermen ("articulated action figure", "poseable figure", "flexi", "ball joint", "dummy 13" en meer): **835 modellen** (tabel: `platformen/succes/data/printables-figuren-modellen-2026-11-16.tsv`, alleen modelnaam en tellers). Van de 60 modellen met de meeste reacties las ik de nieuwste 100 reacties per model: **4.460 reacties** (teksten niet opgeslagen, wel geteld).
+- **Belangrijkste les: makers maken zelden zelf een gewrichtfiguur, ze kleden een bestaand skelet aan.** Dummy 13 (gratis poseerbaar skelet) is veruit het grootste: 111 van de 835 modellen hebben "Dummy" in de naam, samen **1,3 miljoen downloads** (de twee hoofdversies 331.108 en 225.320). 26 daarvan zijn kostuums, harnassen en hoofden voor dat skelet (Halo Spartan 11.113, Terminator 10.104, middeleeuwse ridder 12.913, samen 150.931 downloads). Wie een eigen personage poseerbaar wil, ontwerpt dus een pantser over andermans gewrichten. Dat is precies het gat dat Rig to Figure vult: jouw figuur, je eigen gewrichten, zonder de vorm van Dummy 13.
+- **De meeste reacties zijn printverslagen, geen klachten.** 616 van 4.460 (14%) bevatten een probleemwoord (fail, broke, stuck, loose, problem). De rest zegt "printed in PLA at 0,2 mm, works great". Ruwe tel per onderwerp (een reactie kan in meer groepen): materiaal 906, schaal of speling 571, slicerinstellingen 381, steun of eerste laag 283, breken 144, in elkaar zetten 142, te los 72, lijm 49, vast 46.
+- **Nieuwe ergernis die niet in de eerste tien stond: verschalen.** 513 reacties noemen een schaal (50% tot 500%). Mensen schalen het bestand om het op hun bed te laten passen of steviger te maken, en dan klopt de speling niet meer: 110 van die 513 melden een probleem, en bij verkleinen is het 46 van 187 (25%). Voorbeelden: "Scaling Down to 80% caused weak & fused joints"; "At 90% I couldn't get the feet loose"; "Printed at 200% scale. The tolerances are super tight"; "Default size was too small (tail broke) so I scaled it up to 253%". Dit komt doordat een spleet in het bestand meeschaalt, terwijl de printer een vaste spleet in mm nodig heeft.
+- **Bevestigd uit de eerste versie:** te los na het printen ("The head is limp", "the individual segments do not hold and the snail falls apart"), breken bij te dunne delen ("the joints between each section is flimsy ... each one has broke", drie keer geprint), en materiaal (PETG voor het skelet, PLA voor het pantser komt telkens terug bij Dummy 13).
+- **Wat dit betekent voor Pro 1.1 (voorstel, oordeel Ruben gaat voor):** de grootte van de figuur vastleggen vóór de export, en de speling in vaste mm maken (niet meeschalend). Bij export een regel: "Made for 100% scale. Rescale in Blender, not in your slicer." Dan kan Click Joints iets wat geen enkel STL-bestand op Printables kan: elke grootte met de juiste spleet. Dat is een goed verkooppunt ("any size, joints still click") en kost GOK een halve run.
+
+### (B) Negatieve reviews van de toppers: wat kost sterren (GEZIEN, dezelfde 1.513 Superhive-reviews, de 76 met 1 of 2 sterren)
+Ruwe tel met zoekwoorden, met de hand nagelopen; de reviewteksten in de tabel zijn afgekapt op 200 tekens, dus het telt aan de lage kant:
+
+| Wat | Aantal van 76 | Voorbeeld |
+|---|---|---|
+| Crasht, fouten, werkt niet | ±32 | "Experiencing frequent annoying crashes"; "unusable... crashes about 2 minutes in" |
+| Kapot na een nieuwe Blender-versie of een slechtere nieuwe versie | ±20 | "Every time Blender updates, it feels like rolling the dice"; "Why it doesn't work with blender 4.5???" |
+| Geen of trage hulp, geen terugbetaling | 12 | "I am yet to receive assistance from the developers after 5 days"; "The Seller refuses to refund or respond" |
+| Niet de prijs waard, overschat | 11 | "Yes it has a few trick but not for 39.99 dollars" |
+| Moeilijk, onlogisch | 9 | "Cumbersome, confusing, unintuitive, frustrating." |
+| Opnieuw betalen voor updates of oude versie kwijt | 7 | "I no longer have access to the old file that I already paid for"; "every update requires a new purchase" |
+| Uitleg slecht of verouderd | 6 | "The video tutorial is very out of date"; "one minute video" |
+| Installeren lukt niet | 6 | "Uh......How do you even install it?" |
+| Kocht het voor iets anders (bakken, spellen, 3D-printen) | 5 | "I mainly bought it to speed up my work flow for slicing stuff for 3d printing" (BoxCutter) |
+
+**De les:** sterren gaan vooral verloren aan stabiliteit en aan stilte, niet aan te weinig functies. Het spiegelbeeld van (3): wie snel antwoordt en blijft bijwerken krijgt "worth every penny", wie crasht of zwijgt krijgt 1 ster. Voor Pro: (1) elke nieuwe Blender-versie (5.1, 5.2) dezelfde dag testen en dat in de changelog zetten, (2) nooit opnieuw laten betalen voor wat al gekocht is (1.1 gratis voor Pro-kopers past daar precies bij, besluit 16 nov 16:09), (3) op de pagina eerlijk zeggen wat het niet doet ("no supports, no slicing"), zodat niemand het voor iets anders koopt.
+
+### (C) YouTube
+- **Wel gedaan:** de openbare zoekpagina van YouTube voor drie zoektermen gelezen (GEZIEN 16 nov). De vraag is groot: "Articulated Dragon 3d print // Blender tutorial" (P1lotz) 142.822 weergaven, "How to Make Your Own Custom Articulated 3D Printed Toy (FREE Template)" (Austin's Lab) 48.051, "How To Design Articulating 3D Prints! Blender Tutorial!" 48.587, "The Ultimate Guide to Fixing Loose Joints" (Uncle Jessy) 40.163. Ook hier: een gratis sjabloon en "losse gewrichten" zijn eigen onderwerpen.
+- **Let op, mogelijke concurrent:** "Turn ANY 3D Model Into an ACTION FIGURE! | Blender Auto Joints Tutorial" (kanaal Nunn Breakable, 596 weergaven). Niet bekeken wat het is; Ruben kan in de concurrentiecheck kijken of daar een add-on achter zit.
+- **Niet gedaan:** de reacties onder die filmpjes. Die zitten alleen achter een interne YouTube-koppeling, en dat mocht ik in deze run niet gebruiken. Ondertiteling lezen kan wel; dat heb ik uit tijd niet gedaan. Het gat is klein: Reddit, BlenderArtists en Printables geven samen al 5.640 teksten met hetzelfde beeld.
+
+### Top 3 na de aanvulling (voor Ruben)
+1. **Rig to Figure zelf** (eigen figuur poseerbaar maken). Printables bevestigt het: 150.931 downloads aan kostuums voor andermans skelet, omdat eigen gewrichten te moeilijk zijn.
+2. **Speling die werkt op elke printer en elke grootte:** testkaartje als stap 0, waarschuwing onder 0,2 mm, en nieuw: speling in vaste mm, schaal vastleggen vóór export.
+3. **Houdt zijn pose:** wrijvingsribbels standaard aan voor de hele figuur, plus de materiaalregel (PETG voor gewrichten).
+Daarnaast voor de verkoop (Chris): stabiel bij elke Blender-versie en snel antwoorden, want daar gaan in reviews de sterren heen of vandaan.

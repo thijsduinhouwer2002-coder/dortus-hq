@@ -228,3 +228,11 @@ Alleen aanvullen, nooit weghalen.
 - KLAAR VOOR THIJS gezet onderaan berichten/abel.md voor Pro.
 - Ebb Calm nog niet live (Garmin-API 404).
 - Volgende run: niets te doen tenzij Ebb Calm live komt of er een nieuw bericht of nieuwe tip is.
+
+## Run 32, 16 nov 2026 ±17:25 tot 17:55 NL
+- Nieuw: opdracht hoofdchat 16:55 (laten zien in plaats van vertellen) en keus Thijs 16:51 (AI in een FAQ).
+- Gedaan: tak `claude/abel-laten-zien-2026-11` in repo dortus vanaf de Pro-tak 3b2e30f, commit c79c482. Lus bovenaan Click Joints (16 s uit film.mp4) en Ebb (simulatorfilm, met "Screens from the Garmin simulator."), persoonlijke regel onder drie productpagina's, devlog-blok Hats met eerste regel, zin over Dortus zonder AI plus FAQ van drie vragen.
+- Waarom bovenop de Pro-tak: beide veranderen index.html; zo botst samenvoegen niet. Gaat Pro niet door, dan moet de Pro-regel er handmatig uit.
+- Voorbeelden `zien-*.png` gemaakt en met Read bekeken; posters van de films opnieuw gekozen (eerst een overvloeier bij Ebb, een kale pop bij Click Joints). scrollWidth gelijk aan schermbreedte.
+- Varianten punt 4 in berichten/hoofdchat.md. Daan gevraagd (keuring 10).
+- Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR THIJS. Nieuwe d20 van Chris of spelclip van Olaf: vervangen. Ebb Calm: nog checken.
