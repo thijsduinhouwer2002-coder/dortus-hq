@@ -612,3 +612,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Werkplek: lokale main was achter (origin was geforceerd bijgewerkt); verder vanaf origin/main zonder lokale main te resetten.
 - Staande opname 6 voor tip 9 gemaakt met nieuw `e2e/film_proefje.py` (gratis 0.1.1, drie staafjes 0,1 / 0,2 / 0,3 mm, alle drie Good fit, gemeten 0,0998 / 0,1996 / 0,2995): `ontwerp/click-joints/pro/film/staand/click-joints-staand-6-proefje-spelingen.mp4`, 13,0 s, beelden GEZIEN. Eerste opname had de gradenboog aan (25 en 30 graden per staafje door elkaar) en camera te ver; `toon_bereik` uit en dichterbij.
 - Les: `cj_speling_mm` komt uit een FloatProperty (float32), dus 0.1 is 0.10000000149; vergelijk met een marge, nooit met ==.
+
+## 16 nov 2026 ±06:30 UTC, Bram
+- Click Joints: 153 downloads (06:25). Listing toont nog 0.1.0; 0.1.1 wacht op upload door de hoofdchat (zie taken.md).
+- Chris (06:00) vroeg of "Try 0.2 mm per side" in filmpje 7 klopt: ja, laat staan (antwoord in `berichten/bram.md`).
+- Steam: Olafs vraag over dode kroniekregels beantwoord en opruiming klaargezet op tak `claude/steam-hol-kroniek-opruim` (na vr 20 nov naar main), met een vangrail die alle getoonde kroniektekst letter voor letter vastlegt.
+- Les: een toets die een functie toetst die het spel niet gebruikt geeft vals vertrouwen; toets wat het spel echt aanroept (pensioen kreeg in de toets een andere voorraad dan in het spel).
