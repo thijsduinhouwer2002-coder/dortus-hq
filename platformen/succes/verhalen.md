@@ -1,8 +1,59 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 14, PrintPal en de flexi-webdiensten, klaar 16 nov 2026 ±13:20 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een maker van beweegbare figuren die zelf Blender gebruikt (de koper van Click Joints Pro, niet de concurrent). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 15, de flexi-ontwerpers op Patreon als kopers van Click Joints Pro, klaar 16 nov 2026 ±14:20 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken (filmpjes van hun werkwijze). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 15. De kopers van Click Joints Pro: flexi-ontwerpers op Patreon (Flexi Factory, MatMire Makes, Cinderwing3D, McGybeer, Valeria & Mattia), hoeveel het er zijn en hoe ze werken
+
+Waarom dit verhaal: tot nu keek ik naar makers van gereedschap (de concurrent). Dit keer naar de koper: wie ontwerpt beweegbare printfiguren voor geld, hoeveel zijn het er, en hoe maken ze hun gewrichten.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±14:00 UTC)
+- Graphtreon, de openbare lijst van alle Patreon-makers in de soort 3D Printing, via de eigen databron van de pagina: https://graphtreon.com/api/creators/3d-printing (3155 makers). Mijn uittreksel: `platformen/succes/data/patreon-3dprint-flexi-2026-11-16.tsv` (de 72 makers met flexi, articulated, print-in-place of jointed in naam of beschrijving).
+- Graphtreon per maker: https://graphtreon.com/creator/FlexiFactory , https://graphtreon.com/creator/matmire_makes , https://graphtreon.com/creator/cinderwing3d , https://graphtreon.com/creator/SEREV3d , en de top 50: https://graphtreon.com/top-patreon-creators/3d-printing
+- Interview met Javier Rodríguez (McGybeer, de beweegbare draak), Snapmaker-blog, 24 feb 2022: https://www.snapmaker.com/blog/3d-printed-articulated-dragon-model-designer-javier-rodriguez/
+- Thangs-blog over Valeria en Mattia (Cute Flexi Maker), 2 jul 2026: https://thangs.com/resources/blog/behind-the-designs-valeria-momo-of-cute-flexi-maker , en hun productpagina op Thangs: https://thangs.com/m/1546372
+- Niet te lezen vanuit de cloud: Patreon zelf, Cults3D, MakerWorld en Printables (403). De ledenaantallen komen dus van Graphtreon (DERDEN, zij lezen Patreon dagelijks), de omzet is hun schatting (DERDEN, ruwe band).
+
+### Cijfers
+| Maker | Betaalde leden Patreon | Schatting omzet per maand (Graphtreon) | Op Patreon sinds | Plaats in 3D Printing |
+|---|---|---|---|---|
+| Flexi Factory ("Creating Flexi models") | 7.306 | $21K tot $63K | mrt 2022 | 2 |
+| Cinderwing3D (beweegbare draken) | 6.345 | $19K tot $55K | jan 2022 | 5 |
+| MatMire Makes ("Flexi Articulated STL Models") | 5.053 | $15K tot $44K | jun 2022 | 7 |
+| Valeria Momo & Mattia 3D (Cute Flexi) | 1.408 | niet gelezen | | 25 |
+| SEREV3d ("flexi designs, fidgets") | 1.085 | $3K tot $9K | sep 2024 | 35 |
+
+(GEZIEN op de pagina's per maker; de top 50 en de databron verschillen een paar procent, die worden niet op hetzelfde moment bijgewerkt.)
+
+De hele soort, uit de databron (GEZIEN, eigen telling):
+- 2306 makers met minstens 1 betaald lid, samen ±240.000 betaalde leden.
+- **72 makers noemen flexi of articulated zelf in naam of beschrijving, samen 18.854 betaalde leden** (±8% van de soort). Dat is een ondergrens: Cinderwing3D en Valeria & Mattia zeggen het niet in hun regel en tellen niet mee.
+- Van de 40 makers met 1000+ betaalde leden doen er minstens 5 vooral beweegbare figuren (Flexi Factory, Cinderwing3D, MatMire, Valeria & Mattia, SEREV3d).
+- Nieuwkomers per jaar in de flexi-groep: 2022: 4 (mediaan 2.639 leden), 2023: 4 (mediaan 195), 2024: 23 (mediaan 34), 2025: 25 (mediaan 8), 2026 tot nu: 15 (mediaan 11). **Er komen er dus elk jaar ±20 tot 25 bij, en de meesten blijven klein.** Wel haalt 17% van de flexi-nieuwkomers sinds 2024 de 100 betaalde leden (11 van 63), tegen ±8% van alle 3D-printmakers die toen begonnen (138 van 1723). Flexi verkoopt dus beter dan gemiddeld, maar de vroege drie houden het grootste deel.
+
+### Hoe ze werken (wat de bronnen zelf zeggen)
+- **McGybeer (Javier Rodríguez, elektronica-ingenieur, Valencia):** "Usually, I do the articulations first, as they are the key and the rest of the model depends on them. I model in Blender, but sometimes I use other CAD software for quick tests and concepts" (GEZIEN, interview). Voor de draak: "I designed a bunch of prototypes, tested them, modified them, and went back to the test." Hij stopte met zijn baan door de draak, want hij was 2 tot 3 uur per dag kwijt aan berichten beantwoorden (EIGEN OPGAVE).
+- **Valeria en Mattia:** kopers vroegen steeds om varianten (andere dieren, kerstmutsen, namen); ze waren "spending more time creating variations of existing designs than creating entirely new ones" en bouwden daarom in ±6 maanden een eigen webgereedschap, Cute Flexi Maker (live 25 feb 2026). Elk model daaruit is "designed to print without supports" (GEZIEN, Thangs-blog). Ze verkopen het niet los: een model plus 5 downloads uit de webtool kost $5,87 eenmalig, lidmaatschap vanaf $9,99, en een commerciële licentie (prints mogen verkopen) loopt via Patreon, Thangs en MyMiniFactory (GEZIEN, productpagina; welke trede $39 is: GOK, waarschijnlijk die licentie).
+- Een pijnpunt dat ik in de zoekresultaten zag maar niet kon openen: een gratis "Flow Calibration Tool ... Fix Fused Joints On Flexi Prints" op Printables en Thangs. Dat gewrichten vastsmelten is dus een bekend probleem bij printers van flexi (titel GEZIEN, aantallen niet).
+
+### 3 lessen
+1. **De koper bestaat en groeit: ±70 tot 80 flexi-ontwerpers op Patreon alleen, ±20 tot 25 nieuwe per jaar.** Dat zijn mensen die van hun gewrichten leven. Click Joints Pro hoeft geen hobbyist te overtuigen die één keer een figuur maakt; de kleine nieuwkomers (mediaan 8 tot 34 leden) zijn precies wie tijd wil winnen en $20 tot $45 kan uitgeven (GOK, geen koper gesproken).
+2. **De beste ontwerper begint bij het gewricht, niet bij het figuur.** McGybeer maakt eerst de gewrichten, test ze in prints, en bouwt het dier eromheen, in Blender. Click Joints Pro doet het omgekeerde: een af figuur krijgt gewrichten. Voor AI-figuren en hobbyisten klopt onze volgorde; voor de professionele ontwerper is de waarde vooral dat hij snel een gewricht kan proefprinten met verschillende spelingen. Dat zeggen wij nu nergens.
+3. **Ontwerpers met succes bouwen zelf gereedschap om varianten sneller te maken, en verdienen aan licenties.** Valeria en Mattia hadden geen tijd meer voor nieuwe ontwerpen door variantwerk; hun antwoord was een eigen tool. Wat zij verkopen naast het model is de commerciële licentie (ook bij McGybeer, verhaal 1 van Joris). Onze koper verdient dus aan snelheid: elke variant die hij sneller maakt is geld. Dat is de zin die bij hem werkt, niet "makkelijk".
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Ik heb niet gezien welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Alleen McGybeer zegt Blender. Een deel van deze groep werkt in ZBrush, Fusion of Nomad (GOK); die kopen geen Blender-add-on.
+- Patreon-leden zijn printers die modellen downloaden, niet ontwerpers. De koper van Pro is de maker zelf, één per Patreon-pagina. Het getal dat telt is dus ±70 tot 80 (plus wie op Cults3D, MakerWorld en Thangs zit), niet 18.854.
+- De omzetbanden van Graphtreon zijn schattingen met een factor 3 ertussen.
+
+### Wat doen wij anders
+Onze pagina, filmpjes en makersmails spreken de hobbyist en de AI-figuurmaker aan ("ball joints for your figure"). De professionele flexi-ontwerper, die al geld verdient en snel wil testen, spreken we nergens aan. En we hebben geen knop voor een proefprint van alleen het gewricht, terwijl vastgesmolten gewrichten een bekend probleem zijn.
+
+### Voorstel voor Dortus deze week
+**Ruben (eigenaar Pro 1.1) kijkt of een knop "Clearance test" in 1.1 past: hetzelfde gewricht drie keer naast elkaar exporteren bij 0,1, 0,2 en 0,3 mm speling, als één klein printbestand.** Bram heeft die drie spelingen al gemeten (0,0998, 0,1996 en 0,2995 mm, GEZIEN in `platformen/blender/status.md`, 8 nov), dus het is weinig nieuw werk (GOK). Chris kan er daarna één Short mee maken in de "connect"-vorm van verhaal 14: "Flexi joints fusing? Print this test first", met de drie printjes in beeld. Meetlat: haalt die Short meer dan de mediaan van onze eerste vijf, dan houden we de vorm. Tweede, kleiner: Chris voegt bij de makersmails twee of drie kleine flexi-ontwerpers op Patreon toe (100 tot 1.200 leden, uit het data-bestand), met een gratis Studio-licentie, want zij leven van gewrichten en hebben een publiek dat zelf print. Thijs verstuurt, net als de andere mails.
 
 ---
 

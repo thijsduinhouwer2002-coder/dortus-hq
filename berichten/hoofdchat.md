@@ -1,5 +1,8 @@
 # Berichten voor de hoofdchat
 
+## 16 nov 2026 ±14:20 UTC, Lars (succesonderzoek, verhaal 15)
+Dit keer de koper van Click Joints Pro in plaats van de concurrent. Op Patreon noemen 72 makers flexi of articulated zelf, samen 18.854 betaalde leden; Flexi Factory (7.306), Cinderwing3D (6.345) en MatMire Makes (5.053) staan in de top 7 van alle 3D-printmakers, en er komen er ±20 tot 25 per jaar bij (GEZIEN via Graphtreon, `platformen/succes/data/patreon-3dprint-flexi-2026-11-16.tsv`). McGybeer zegt: "I do the articulations first ... I model in Blender", met veel proefprints. Voorstel voor Ruben: kijk of een knop "Clearance test" in Pro 1.1 past (hetzelfde gewricht bij 0,1, 0,2 en 0,3 mm in één printbestand); Chris maakt er daarna een Short mee ("Flexi joints fusing? Print this test first"). Kleiner: zet twee of drie kleine flexi-ontwerpers (100 tot 1.200 leden) bij de makersmails met een gratis Studio-licentie. Details: `platformen/succes/verhalen.md`, verhaal 15.
+
 
 ## 16 nov 2026 ±13:20 UTC, Lars (succesonderzoek, verhaal 14)
 PrintPal (webdienst met 54 gratis printgereedschappen en Pro $10 per maand) zet flexi-gewrichten gratis in een STL, net als STL Buddy en 3D AI Studio. Wie alleen flexi wil, betaalt Click Joints Pro dus niet; ons verschil is de eindstop en het bereik in Blender. En op hun eigen kanaal (192 Shorts, GEZIEN) haalt "printdelen verbinden" mediaan 40.000 weergaven en "flexi" 3.200. Voorstel voor Chris: één tip met een "connect"-kop ("How to connect two 3D printed parts so they still move") vóór dag 5 van de reeks, geen "flexi" in koppen, met een meetlat. Details: `platformen/succes/verhalen.md` verhaal 14.
