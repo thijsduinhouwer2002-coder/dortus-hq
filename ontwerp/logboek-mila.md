@@ -683,3 +683,8 @@
 - FR55 met grot in drie kleuren: ja. Lichtbaan mengt op 1x tot oranje; Gloop wit met cyaan is op 8 kleuren het hardste contrast, dus laten.
 - Wijzerplaat Ebb concept 1 (`ontwerp/garmin/wijzerplaat-ebb/`): stappen zijn het tij, elk uur een ander Ebb-dier, walvis met fontein bij vloed. GEZIEN op 454 en 260. Aan Gijs.
 - Volgende run: (1) Bram en Olaf: hoedenwand in de pijplijn en het volle hol op 1x keuren zodra er een opname is; (2) beide wijzerplaten naast de toppers na Gijs' concurrentiecheck; (3) lucht van de Ebb-wijzerplaat bij laag tij (sterren of maanstand); (4) aardwand rijker.
+
+## 16 nov ±11:00 UTC: kit wijzerplaat Gloop voor Gijs
+- Kit voor acht maten in `ontwerp/garmin/wijzerplaat-gloop/kit/` (cijfers uren/minuten, achtergrond AMOLED en MIP, kijk-Gloop met open oog omhoog, AOD-lijnen, torentabel in `wijzerplaat.json`). Alle vier moets van Daan erin. Proeven op 454, 320, 260 en 208 GEZIEN; naast vijf toppers uit de Garmin-API op 300 en 110 px: valt op als enige warme met figuur.
+- Antwoord aan Gijs bovenaan `berichten/gijs.md`.
+- Volgende run: (1) Ebb-moets van Daan (naam "FULL SEA · WHALE", koperen patrijspoortrand met zes boutjes, sterren of maan bij weinig stappen); (2) beelden van Gijs met de kit keuren op 1x; (3) knipperframe voor Gloop; (4) Het Hol: volle opname van Olaf keuren zodra die er is.
