@@ -55,6 +55,30 @@ Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-ker
 - Het kleurverloop als vast plaatje per thema (vraag van Mila): niet geprobeerd. Met 131.072 bytes voor alles is een schermvullend plaatje per thema de eerste zorg; op nieuwere horloges tellen plaatjes mogelijk niet mee in dat geheugen (GOK, eerst meten).
 - De slaapstand op AMOLED en instellingen in Garmin Connect.
 
+### Uitslag van proef 2 (run 124, 16 nov ±22:10 UTC): plaatjes en letters kosten op nieuwe horloges bijna niets, op oude veel
+Proef: zelfde tak, commit bc72807, run 43965812334 groen (toetsen, pakket voor 63 horloges, 8 horloges in de simulator). De proef laadt een eigen cijferletter op twee maten (Poppins, 56 en 110 px, alleen `0123456789:`) en één schermvullend kleurverloop, en print het geheugen ervoor en erna. Ontwerp van de proef: `producten/garmin-reeks-kern/ontwerp.md` op de tak.
+
+**GEZIEN in `uitslag.txt` (simulator, bytes van het geheugen van de app):**
+
+| Horloge | Scherm | Geheugen totaal | Kale proef | Letter 56 px | Letter 110 px | Schermvullend plaatje | Vrij daarna |
+|---|---|---|---|---|---|---|---|
+| Forerunner 255 | 260 | 126.792 | 10.632 | 568 | 320 | 1.192 | 113.984 |
+| fēnix 8 47 mm | 454 | 126.792 | 10.768 | 568 | 320 | 1.296 | 113.744 |
+| Venu 3S, vívoactive 5 | 390 | 126.792 | 10.704 | 568 | 320 | 1.296 (plaatje van 260) | 113.808 |
+| Venu Sq 2 | 320x360 | 126.792 | 10.656 | 568 | 320 | 1.168 (plaatje van 260) | 113.984 |
+| Forerunner 55 | 208 | 94.024 | 11.792 | 2.120 | 4.208 | 22.576 | 53.248 |
+| Forerunner 245 | 240 | 94.024 | 11.784 | 2.776 | 5.328 | 68.544 (plaatje van 260) | 5.512 |
+| Instinct 2 | 176 | 61.256 | 11.808 | 2.120 | 4.208 | 18.624 (plaatje van 260) | 24.416 |
+
+- **Nieuwe horloges (de vijf met `pool=ja`):** een plaatje of een letter telt bijna niet mee in het geheugen van de app, ±1.300 bytes voor een heel scherm. Het beeld zelf staat in een apart geheugen van het horloge. Hoe groot dat aparte geheugen op een echt horloge is: NIET GEZIEN, de simulator klaagt niet.
+- **Oude horloges (Forerunner 55, 245, Instinct 2, `pool=nee`):** het plaatje telt volledig mee. Op de Forerunner 245 blijft na één schermvullend plaatje 5.512 bytes over: dat past dus niet naast een echte wijzerplaat. Letters kosten daar 2.000 tot 5.500 bytes per stuk, dat kan.
+- **Tekenen op de fēnix 8:** het schermvullende plaatje 9 tot 12 ms, de tijd in de eigen letter 2 tot 3 ms, alles samen 13 tot 17 ms. Op de schermen met weinig kleuren 0 tot 1 ms.
+- **Inbranden:** `inbrand=true` op fēnix 8, Venu 3S, vívoactive 5 en Venu Sq 2; `false` op Forerunner 255, 55, 245 en Instinct 2. Op de eerste groep gelden dus de regels van Garmin voor de slaapstand.
+- **Beeld (GEZIEN met Read, blad van 8 beelden, ±390 px breed):** de eigen letter staat er op alle horloges. Het kleurverloop is glad op AMOLED, korrelig op de Forerunner 255 en 245 en grof gestippeld op de Forerunner 55 (8 kleuren). Op Venu 3S vult het plaatje van 260 het scherm van 390 niet: per schermmaat is een eigen plaatje nodig.
+- **NIET GEZIEN:** het slaapbeeld. De proef tekende het pas na 14 s en de laatste schermafbeelding was toen al gemaakt (`KERN SLAAPBEELD` staat wel in het log, `echt=false`: de simulator zet de slaapstand niet zelf aan). Hersteld in 2999205 (na 6 s); die run liep nog toen ik stopte.
+
+**Antwoord voor Tij (Mila):** getekende banden in plaats van een plaatje is de goede keuze, want dat werkt ook op de oude horloges en op elk scherm. De vier letters kunnen overal. Proef 3 (commits a216c39 en 2999205, zelfde tak) meet haar echte letters: Big Shoulders Display, tijd 78 en 136 px, BB-getal 29 en 50, veldgetal 17 en 30, datum 17 en 30, en op 208 px alles maal 0,8. Uitslag: volgende run.
+
 **Wat dit betekent voor het ontwerp:** weinig plaatjes, veel tekenen met lijnen en vlakken; een eigen cijferletter voor de tijd kost geheugen en moet gemeten worden voor Mila hem uitwerkt; de golf en de heuvellijn als veelhoek zijn goedkoop genoeg om elke seconde te tekenen als het horloge wakker is.
 
 ## De kern (één keer bouwen, in elke plaat)
