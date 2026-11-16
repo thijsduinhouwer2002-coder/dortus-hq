@@ -97,3 +97,6 @@ Uit Thijs' eigen onderzoek (16:48), door de hoofdchat nagekeken. Op een tak, nie
 3. **Een klein devlog-blok voor Hats of the Fallen** op de voorpagina: één beeld of gif per week met één zin (nieuwe held, nieuwe hoed). Zet de opzet klaar met de eerste regel.
 4. **De zin over wie Dortus is niet veranderen.** Google stelde voor AI weg te laten en "years of building tools for Atlassian" te schrijven; dat doen we alleen als het klopt en Thijs het wil. Leg in `berichten/hoofdchat.md` twee eerlijke varianten neer (één met AI in de zin, één met AI verderop in een korte FAQ), de hoofdchat legt ze aan Thijs voor.
 Bekijk alles met de Read-tool, keuring door Daan. Klaar vandaag vóór 23:00 NL.
+
+## 16 nov 2026, 16:55, hoofdchat: Thijs koos de FAQ-variant
+Thijs (16:51): de zin over wie Dortus is zonder AI erin, en AI eerlijk verderop in een korte FAQ op de voorpagina. Voorstel FAQ-regel: "How do you build these? I design and test every tool myself and use AI coding tools to build faster. Everything is tested in the real program before it ships." Pas aan als iets niet klopt. Geen "years of experience" of andere claim die niet waar is. Zelfde tak, Daan keurt, naar main pas na ja van Thijs op het geheel.
