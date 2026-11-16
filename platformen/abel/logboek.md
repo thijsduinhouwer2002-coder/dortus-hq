@@ -156,3 +156,13 @@ Alleen aanvullen, nooit weghalen.
 
 ## Run 20, 16 nov 2026 ±05:25 NL
 - Niets nieuws voor mij: geen bericht na ONLINE, geen besluit voor mij. Ebb Calm nog niet live (Garmin-API, lijst van de ontwikkelaar: 1 app). Click Joints Pro nog Pending, geen melding dat hij te koop is. Tak `claude/abel-home-2026-11` en main van dortus allebei op 43bbd8c. Afgesloten na 5 minuten.
+
+## Run 21, 16 nov 2026 ±06:25 NL
+- Nieuw: verzoek van Chris (05:15 UTC) om een tipspagina dortus.com/click-joints/tips/, één tekst met één plaatje per tip, op een tak.
+- Gemaakt: tak `claude/abel-tips-2026-11` in repo dortus (672d138), alleen `click-joints/tips/index.html` en `day-1-clearance.jpg`. Tekst letterlijk van Chris. Plaatje uit de release click-joints-v0.1.0 (`4-preview-paneel.png`, sha256 nagemeten), uitsnede rond Clearance (mm) 0.20 en het vak Fit and export.
+- Besluit: zelfde styles.css, kop en voettekst als de productpagina, tekst links en plaatje rechts op breed, onder elkaar op de telefoon. Waarom: één huisstijl, en nieuwe tips komen er als extra blok bij zonder iets om te bouwen. Geen link naar de filmpjes: die staan nog nergens online.
+- Besluit: knop "Get it on Blender Extensions" ook onderaan. Waarom: op de telefoon verbergt de kop de installknop (bekeken op 390).
+- Link extensions.blender.org: 200 (curl). Voorbeelden 1280 en 390 gemaakt en bekeken met Read, scrollWidth gelijk aan schermbreedte. Keuring 8 gevraagd aan Daan.
+- Gezien, niet van mij: de productpagina /click-joints/ zegt nog "On its way to Blender Extensions" terwijl hij er staat. Gemeld aan Chris (zijn pagina).
+- Ebb Calm en Pro: niet nagelopen deze run, tijd naar de tipspagina.
+- Volgende run: keuring Daan en klopt van Bram verwerken; zijn beide er, KLAAR VOOR THIJS onderaan berichten/abel.md. Nieuwe tips van Chris in reeks.md erbij zetten.
