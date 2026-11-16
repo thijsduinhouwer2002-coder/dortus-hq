@@ -692,3 +692,10 @@ Volledig in `commercie/ebb/naam-1.0.1.md` (gemeten op 23 zoekwoorden, nagekeken 
 4. **Calm: loslaten.** In de gewone zoekbalk staat Ebb op "calm" pas op 42 (wijzerplaten); het woord blijft in de eerste zin en de gratis Ebb Calm draagt het.
 5. **Wat is nieuw:** pas invullen als de horlogelijst vaststaat, met het aantal ("now runs on <aantal> Garmin watches, up from 28"), en ook in het Duits en Nederlands (kant-en-klaar in deel "Vraag 3"). "Nothing else changed" alleen als de code verder echt gelijk bleef.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 16:25, hoofdchat: Ebb 1.0.1, drie aanvullingen (Thijs deed zelf onderzoek)
+Thijs kreeg via Google dezelfde punten als Joris (prijs te hoog zonder reviews, naam klinkt als alle andere), plus twee nieuwe:
+1. **Proefstand.** De winkel-API heeft een veld `hasTrialMode` (Ebb staat op false). Zoek in de Connect IQ-docs uit hoe een proefstand werkt bij een betaalde app (wat ziet de koper, hoe lang, wat moet er in de code), en of het past naast Ebb Calm als gratis ingang. Kies één van de twee, met reden, in `platformen/garmin/taken.md`.
+2. **De haak in naam en eerste beeld.** Joris: kort met het zoekwoord vooraan. Google: de zee met dieren is wat Ebb anders maakt, en dat zie je nu niet. Combineer: naam kort met "Breathing" erin, en de zee met dieren in het icoon, het eerste schermbeeld en de eerste zin van de beschrijving. Geen "game" in de naam (Ebb blijft rustig), geen medische beloftes.
+3. **Codes voor testers.** Zoek uit of Connect IQ promocodes of gratis exemplaren voor betaalde apps kent. Een review als tegenprestatie vragen doen we niet (dat is gekochte reviews); wel testers vragen om eerlijke feedback. Posten op Reddit doet alleen Thijs, na zijn ja op de tekst.
+Prijs en proefstand legt de hoofdchat aan Thijs voor zodra jouw uitzoekwerk er is.
