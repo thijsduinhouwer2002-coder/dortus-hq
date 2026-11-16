@@ -1,22 +1,24 @@
-/tmp/fig.log:[cj-chris] zij (0.0, 1.0, 0.0), voor (1.0, 0.0, 0.0)
 /tmp/fig.log:[cj-chris] KNIE op (-0.3, 15.4, 40.5): {'FINISHED'}, delen [('army_man_gesloten_A', 115.0), ('army_man_gesloten_B', 115.0)], melding Hinge placed. Bends 0° to 115°.
+/tmp/fig.log:[cj-chris] KNIE op 27%: delen niet heel ([('army_man_gesloten_A', 1), ('army_man_gesloten_B', 2)]), opnieuw op de volgende hoogte
+/tmp/fig.log:[cj-chris] KNIE op (1.1, 15.6, 37.5): {'FINISHED'}, delen [('army_man_gesloten_A', 114.96), ('army_man_gesloten_B', 114.96)], melding Hinge placed. Bends 0° to 115°.
+/tmp/fig.log:[cj-chris] zij (0.0, 1.0, 0.0), voor (-1.0, -0.0, -0.0)
 /tmp/fig.log:[cj-chris] ELLEBOOG op (-1.8, 38.7, 88.5): {'CANCELLED'}, delen [], melding None
 /tmp/fig.log:[cj-chris] ELLEBOOG op (-3.5, 39.8, 85.5): {'CANCELLED'}, delen [], melding None
 /tmp/fig.log:[cj-chris] ELLEBOOG op (-0.4, 37.0, 91.5): {'CANCELLED'}, delen [], melding None
 /tmp/fig.log:[cj-chris] ELLEBOOG op (-5.2, 40.9, 82.5): {'CANCELLED'}, delen [], melding None
 /tmp/fig.log:[cj-chris] ELLEBOOG op (1.4, 35.1, 94.5): {'CANCELLED'}, delen [], melding None
-/tmp/fig.log:[cj-chris] ELLEBOOG op (-5.4, 42.8, 79.5): {'CANCELLED'}, delen [], melding None
-/tmp/fig.log:[cj-chris] deel army_man_gesloten_A stand=115 bereik=115.0 passing=None
-/tmp/fig.log:[cj-chris] deel army_man_gesloten_B stand=115 bereik=115.0 passing=None
+/tmp/fig.log:[cj-chris] ELLEBOOG op (-5.4, 42.8, 79.5): fout Error: The parts overlap before they move; the mesh is unchanged.
+/tmp/fig.log:[cj-chris] deel army_man_gesloten_A stand=115 bereik=114.96 passing=None stukken=1
+/tmp/fig.log:[cj-chris] deel army_man_gesloten_B stand=115 bereik=114.96 passing=None stukken=1
 /tmp/fig.log:[cj-chris] gelukt: ['knie']
 /tmp/fig.log:[cj-chris] KLAAR
 /tmp/render.log:[cj-render] add-on geladen: True
-/tmp/render.log:[cj-render] A army_man_gesloten_A, B army_man_gesloten_B, bereik 115.00, punt (-4.17, 15.44, 40.5), lidas (0.0, -0.0, 1.0), buigkant (1.0, -0.0, -0.0)
-/tmp/render.log:[cj-render] export {'FINISHED'}: /tmp/uit/stl/army_man_gesloten_A.stl (1236384 B), /tmp/uit/stl/army_man_gesloten_B.stl (11652884 B)
-/tmp/render.log:[cj-render] A terug uit STL: van (-19.17, 3.92, 7.72) tot (14.71, 28.15, 47.64), verschil met de add-on 0.000 mm
-/tmp/render.log:[cj-render] B terug uit STL: van (-20.84, -45.75, 0.02) tot (20.82, 45.76, 149.97), verschil met de add-on 0.000 mm
-/tmp/render.log:[cj-render] teken -1: voet gaat bij +30 graden 0.42 mm naar de buigkant
-/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.221
-/tmp/render.log:[cj-render] stil 57.5 graden geschreven, gemiddelde helderheid 0.227
-/tmp/render.log:[cj-render] stil 115.0 graden geschreven, gemiddelde helderheid 0.224
-/tmp/render.log:[cj-render] KLAAR bereik 115.00
+/tmp/render.log:[cj-render] A army_man_gesloten_A, B army_man_gesloten_B, bereik 114.96, punt (-2.83, 15.57, 37.5), lidas (0.0, -0.0, 1.0), buigkant (1.0, -0.0, -0.0)
+/tmp/render.log:[cj-render] export {'FINISHED'}: /tmp/uit/stl/army_man_gesloten_A.stl (1777284 B), /tmp/uit/stl/army_man_gesloten_B.stl (11080584 B)
+/tmp/render.log:[cj-render] A terug uit STL: van (-20.84, 3.92, 0.19) tot (17.42, 28.15, 44.78), verschil met de add-on 0.000 mm
+/tmp/render.log:[cj-render] B terug uit STL: van (-15.69, -45.75, 0.02) tot (20.82, 45.76, 149.97), verschil met de add-on 0.000 mm
+/tmp/render.log:[cj-render] teken -1: voet gaat bij +30 graden 2.94 mm naar de buigkant
+/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.222
+/tmp/render.log:[cj-render] stil 57.5 graden geschreven, gemiddelde helderheid 0.224
+/tmp/render.log:[cj-render] stil 115.0 graden geschreven, gemiddelde helderheid 0.222
+/tmp/render.log:[cj-render] KLAAR bereik 114.96
