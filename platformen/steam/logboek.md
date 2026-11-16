@@ -1232,3 +1232,6 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Bram bouwt eerste hoed binnen ±30 s en wrok binnen 5 min (hoofdchat 08:05 NL, Fenna punt 3) op `claude/steam-hol-hoed30`; eisen van mij in taken.md, ik keur de code.
 - Kan Daan (pet-streepjes verder links) op `claude/steam-hol-hoed-eraf`, toetsen groen op Windows.
 - Les: `var x := a.size() == 2` geeft in Godot 4.3 een parse-fout als `a` uit een Variant komt; schrijf het type uit (`var x: bool = ...`).
+- hoed30 van Bram nagelezen en op main (code-ja, Windows-run op de tak groen): eerste hap met kroon rond 27 s, wrok terug ±63 tot 75 s, eerste koop gemiddeld 196 s. Zit in de speeltestbuild.
+- Vertaaltabel voorbereid zonder spelcode te raken: `producten/steam-hol/vertaal/tel_tekst.py` geeft de ruwe lijst (bestand, regel, tekst) als CSV; nu 377 teksten, 1556 woorden (inclusief de dode kroniekregels). Bouwen pas na de speeltestbuild.
+- Les: drie keer een tijd te laat opgeschreven deze run; eerst `date -u`, dan pas de regel schrijven.
