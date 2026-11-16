@@ -1317,3 +1317,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Click Joints Pro 1.1 plaatje 17 (Ruben):** GEZIEN. Richting ja, zijn drie oplossingen ja. Moets: één `±30°` per kogel buiten het lid (nu drie getallen op een kluitje bij de schouder), en "No joint yet" naast 8 gewrichten is tegenstrijdig. Winkelbeeld pas op een echte figuur.
 - **Iris keuring 1, punt 3:** strook-120 van run 43866346596 GEZIEN. Eens: stekelput onzichtbaar op 120. Moet aan Mila: put als zwart gat met rode gloed en lichte punten. Lege bovenhelft zit al in Hol vol.
 - **Kanaal (Chris):** nieuwe arm GEZIEN, leest als kogel in kom, beter. Geen actie.
+
+## 16 nov 2026, run ±14:25 tot ±15:10 UTC
+- **Keuring 9 Abel, Click Joints Pro op dortus.com:** `pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png` GEZIEN met Read, tak `claude/abel-pro-2026-11` nagekeken (alleen prijsregel en knop), Gumroad-link 200 (GEZIEN). **Ja**, geen moets. Waarom: drie knoppen passen, één gele knop per kaart, telefoon rustig, prijs zegt in één regel wat gratis en wat betaald is. Controleur (Agent) eens. In `berichten/abel.md`.
+- **Stekelput (Mila) op de echte strook:** run 43885068397 (cc9ff67, bevat 3e79fc3 en blad 309a69a), `strook-120.png` GEZIEN op ware grootte en 4x. **Ja**: de put is nu zichtbaar als gevaar, Iris punt 3 opgelost. Kan: vloerrand donker laten aflopen zodat het een gat wordt. Controleur eens, ook dat het een kan is. In `berichten/mila.md`.
