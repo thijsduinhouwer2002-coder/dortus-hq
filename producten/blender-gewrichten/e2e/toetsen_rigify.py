@@ -52,8 +52,9 @@ for kant in ("Left", "Right"):
     eis((r is not None and g is not None and int(g.group(1)) > 10) or (oud and r is None),
         f"{kant} hip beweegt meer dan 10 graden ({r})")
 over = next((o.get("cj_rig_overgeslagen") for o in bpy.context.scene.objects if o.get("cj_deel")), "") or ""
-for stuk in [s for s in over.split("; ") if s]:
-    eis("(" in stuk and not stuk.endswith("()"), f"overgeslagen met reden: {stuk}")
+# Niet splitsen op "; ": de melding van de kern bevat die zelf ("...; the mesh is unchanged.", 4.2, CI run 43938727030).
+for wie, reden in re.findall(r"((?:Left|Right) (?:hip|knee|elbow|shoulder|ankle)|Neck) \(([^;)]*)", over):
+    eis(len(reden.strip()) > 3, f"overgeslagen met reden: {wie} ({reden})")
 ges = importlib.import_module("bl_ext.user_default.click_joints.gesloten")
 delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "held" and o.visible_get() and o.type == "MESH"]
 eis(len(delen) >= len(alle) + 1 and all(ges.is_gesloten(o)[0] for o in delen),
