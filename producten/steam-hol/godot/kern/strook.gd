@@ -96,6 +96,7 @@ var vlucht_tijd := {}          # demo: naam -> wanneer hij vluchtte (niet bewaar
 const DEMO_TERUG_NA := 8.0     # Sanne toets 7, punt 3: Tibbe klom de ladder op en meteen weer af, dat leest als een fout
 var anim_t := 0.0
 var pensioen_namen: Array = []   # wie vluchtte en nooit terugkomt (hooguit 5, oudste voor); bij openen een grapje (Bram 04:35)
+var holbord: Node2D = null   # systemen/holbord.gd, het bordje met het hol-niveau
 var optocht := {}   # plan van de optocht na weg zijn (hol_niveau.gd optocht), niet bewaard
 var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_niveau.gd, Sanne voortgang.md spoor 1)
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
@@ -172,8 +173,14 @@ func _ready() -> void:
 	vleermuis.set_script(load("res://systemen/vleermuis.gd"))
 	vleermuis.name = "Vleermuis"
 	hol.add_child(vleermuis)
+	# bordje met het hol-niveau (Mila 16 nov 16:20, plek Daan keus A), ook vóór Wezens; zonder blad doet het niets
+	holbord = Node2D.new()
+	holbord.set_script(load("res://systemen/holbord.gd"))
+	holbord.name = "Holbord"
+	hol.add_child(holbord)
 	hol.add_child(wezens)
 	vleermuis.zet(hol, wezens)
+	holbord.zet(self, hol)
 	# Brams slijm (Gloop, gaat nooit dood) als die er is, anders de stand-in
 	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))

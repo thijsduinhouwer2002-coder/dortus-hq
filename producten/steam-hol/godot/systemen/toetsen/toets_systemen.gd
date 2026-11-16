@@ -94,6 +94,14 @@ func _init() -> void:
 	ok(HN.hover(11) == "Level 4: a bat moves in. 1 more hero.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
 	ok(absf(HN.deel(8) - 0.5) < 0.01, "balkje halverwege tussen 6 en 10")
+	# bordje (Mila 16 nov 16:20): één cijfer in het midden, twee cijfers -2,5 en +2,5; blad met 11 cellen
+	var HB = load("res://systemen/holbord.gd")
+	ok(HB.cijfers(5) == [[5, 0.0]] and HB.cijfers(12) == [[1, -2.5], [2, 2.5]], "bordje: cijfers en hun plek")
+	var sp = JSON.parse_string(FileAccess.get_file_as_string("res://kunst/3d/sprites.json"))
+	ok(sp.has("holbord") and sp["holbord"]["frames"].size() == 11 and ResourceLoader.exists(String(sp["holbord"]["blad"])), "bordje: blad holbord met leeg en c0 tot c9")
+	var hb = HB.new()
+	ok(not hb.actief() and hb.plank_x() == 4.0, "bordje zonder blad of hol doet niets")
+	hb.free()
 	var lang_h := 0
 	for f_ in [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]:
 		if HN.hover(f_).length() > 42:
