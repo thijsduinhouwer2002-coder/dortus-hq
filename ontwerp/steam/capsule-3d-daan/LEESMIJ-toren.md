@@ -61,3 +61,8 @@ GEZIEN met Read: `voor-na-ronde3-4-4b-mila-met-120.png`, `toren-klein-ronde4b-mi
 - Instellingen: ronde 6b plus `HF_LENS=32 HF_CZ=3.4 HF_GROOT=1.55 HF_RS=0.9 HF_TZ=1.5 HF_TM=1.4 HF_TX=-5.2 HF_GX=2.6 HF_RX=0.3`, `python capsule_toren.py uit.png 1232 706 16 hoofd`.
 - Wat ik zag: de hele toren in beeld met ruimte boven, titel groot links, de ridder klein ervoor kijkt omhoog naar de helm op Gloop (de grap). Op 308 in grijs leest HATS als lichtste vorm en de toren als drie hoeden. Geprobeerd: lens 40 (toren loopt boven uit beeld), titel 1,7 (S loopt achter de puntmuts).
 - Nog niet op de winkelpagina gezet: eerst Daans ja op ronde 6b, en het moet passen bij de schermen in de winkel. Volgende: bibliotheek 600x900 en staand 748x896 in dezelfde richting.
+
+## Bibliotheek 600x900 in de toren-richting (Mila, 16 nov ±12:10 UTC, half af)
+`proef-bibliotheek-toren-mila-300x450-2x.png` (twee proeven op 300x450, 10 samples). Script: nieuwe schakelaar `TOREN_TX` (titel in de header-variant opzij, standaard 0). Instellingen rechts: ronde 6b plus `TOREN_GROOT=1.5 TOREN_CX=2.25 TOREN_CZ=4.1 TOREN_LENS=46 TOREN_TX=4.3 TOREN_TZ=4.5 TOREN_TM=1.05 HEADER_RX=1.0 HEADER_RY=-1.3`, `python capsule_toren.py uit.png 600 900 16`.
+- GEZIEN: staand werkt, titel boven, toren in het midden, ridder klein ervoor. **Nog niet goed:** bovenaan staat een harde donkere band (de rand van de muur of het donker erachter), en de puntmuts raakt bijna OF THE FALLEN. Lens 20 geprobeerd: veel te wijd, je ziet de hele doos.
+- Volgende stap: muur hoger maken of de bovenkant laten weglopen in donker, titel iets kleiner en hoger, dan op 600x900 met 16 samples en naast de toppers.

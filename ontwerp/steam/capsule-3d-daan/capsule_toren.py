@@ -346,9 +346,9 @@ elif HOOFD:
     tekst("OF THE FALLEN", (tx - 0.05, -0.6, 1.70 + tz), 0.72 * HM, kantel=-3, rand=0.11)
 else:
     TT = E("TOREN_TZ", "0.0"); TM = E("TOREN_TM", "1.0")
-    tekst("HATS", (-4.55, -0.6, 2.55 + TT + 0.75 * (TM - 1)), 1.75 * TM, kantel=-3)
+    tekst("HATS", (-4.55 + E("TOREN_TX", "0"), -0.6, 2.55 + TT + 0.75 * (TM - 1)), 1.75 * TM, kantel=-3)
     # Mila 15 nov (blinde kijker bij kleur H): op warm verdween OF THE FALLEN half; iets groter en een dikkere donkere rand
-    tekst("OF THE FALLEN", (-4.6 if KLEUR_H else -4.45, -0.6, (1.70 if KLEUR_H else 1.72) + TT), (0.72 if KLEUR_H else 0.7) * TM, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
+    tekst("OF THE FALLEN", ((-4.6 if KLEUR_H else -4.45) + E("TOREN_TX", "0"), -0.6, (1.70 if KLEUR_H else 1.72) + TT), (0.72 if KLEUR_H else 0.7) * TM, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 
 # ---------- licht ----------
 def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
