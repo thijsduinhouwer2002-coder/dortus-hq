@@ -1,0 +1,62 @@
+{
+ "uit": "hats-3-heroes-come-back.mp4",
+ "segmenten": [
+  {
+   "beelden": "bron/hof-wrok",
+   "fps": 3,
+   "crop": [
+    450,
+    0,
+    640,
+    160
+   ],
+   "dur": 10.3,
+   "y": 720,
+   "pan": [
+    450,
+    820
+   ]
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 3.4,
+   "regels": [
+    "Tibbe touched the gold."
+   ],
+   "y": 340,
+   "grootte": 72
+  },
+  {
+   "van": 3.4,
+   "tot": 7.0,
+   "regels": [
+    "*Now he is back*",
+    "*for Gloop.*"
+   ],
+   "y": 300,
+   "grootte": 76
+  },
+  {
+   "van": 7.0,
+   "tot": 10.3,
+   "regels": [
+    "Heroes hold",
+    "*a grudge.*"
+   ],
+   "y": 300,
+   "grootte": 72
+  },
+  {
+   "regels": [
+    "Real footage, early build"
+   ],
+   "grootte": 36,
+   "y": 1450,
+   "licht": true,
+   "van": 0,
+   "tot": 10.3
+  }
+ ]
+}

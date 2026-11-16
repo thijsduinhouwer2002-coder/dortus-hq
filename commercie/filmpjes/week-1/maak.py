@@ -33,7 +33,13 @@ def tekstpng(pad,regels,grootte=78,y0=0,font=FB):
 def segment(i,s,map_):
     out=f'{map_}/seg{i}.mp4'; dur=s['dur']
     mh=s.get('h',1013); my=s.get('y',540)+s.get('dy',0)
-    if s['bron'].endswith('.mp4'):
+    if 'beelden' in s:  # map met losse PNG-beelden 0001.png, 0002.png ... (echte opname van Hats of the Fallen, doorzichtige lucht)
+        cx,cy,cw,ch=s['crop']
+        inp=['-framerate',str(s.get('fps',3)),'-i',f"{s['beelden']}/%04d.png",'-t',str(dur)]
+        if 'pan' in s:  # [x0,x1]: uitsnede schuift rustig van x0 naar x1 (volgt een held)
+            x0,x1=s['pan']; cx=f"'{x0}+({x1-x0})*min(t/{dur},1)'"
+        vf=f"fps=30,tpad=stop_mode=clone:stop_duration={dur},crop={cw}:{ch}:{cx}:{cy},scale=1080:-2:flags=lanczos"
+    elif s['bron'].endswith('.mp4'):
         cw=s.get('cw',1152); cx=s.get('cx',(1920-cw)//2)
         inp=['-ss',str(s['start']),'-t',str(dur),'-i',s['bron']]
         vf=s.get('vf') or f"crop={cw}:1080:{cx}:0,scale=1080:{mh}"

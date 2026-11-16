@@ -1,0 +1,58 @@
+{
+ "uit": "hats-1-he-wears-their-hats.mp4",
+ "segmenten": [
+  {
+   "beelden": "bron/hof-hap1",
+   "fps": 3,
+   "crop": [
+    985,
+    0,
+    480,
+    160
+   ],
+   "dur": 11.4,
+   "y": 720
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.7,
+   "regels": [
+    "A hero came",
+    "*for the gold.*"
+   ],
+   "y": 300,
+   "grootte": 72
+  },
+  {
+   "van": 2.7,
+   "tot": 7.6,
+   "regels": [
+    "*He wears their hats.*"
+   ],
+   "y": 340,
+   "grootte": 80
+  },
+  {
+   "van": 7.6,
+   "tot": 11.4,
+   "regels": [
+    "Hats of the Fallen",
+    "a tiny dungeon *on your desktop*"
+   ],
+   "y": 300,
+   "grootte": 64
+  },
+  {
+   "regels": [
+    "Real footage, early build"
+   ],
+   "grootte": 36,
+   "y": 1450,
+   "licht": true,
+   "van": 0,
+   "tot": 11.4
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "uit": "hats-2-the-tower-grows.mp4",
+ "segmenten": [
+  {
+   "beelden": "bron/hof-hap2",
+   "fps": 3,
+   "crop": [
+    985,
+    0,
+    480,
+    160
+   ],
+   "dur": 6.33,
+   "y": 720
+  },
+  {
+   "beelden": "bron/hof-week",
+   "fps": 3,
+   "crop": [
+    985,
+    0,
+    480,
+    160
+   ],
+   "dur": 5.0,
+   "y": 720
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.6,
+   "regels": [
+    "Gloop eats a hero."
+   ],
+   "y": 340,
+   "grootte": 72
+  },
+  {
+   "van": 2.6,
+   "tot": 6.33,
+   "regels": [
+    "*The hat stays.*"
+   ],
+   "y": 340,
+   "grootte": 80
+  },
+  {
+   "van": 6.33,
+   "tot": 11.33,
+   "regels": [
+    "Keep him fed",
+    "*and the pile grows.*"
+   ],
+   "y": 300,
+   "grootte": 72
+  },
+  {
+   "regels": [
+    "Real footage, early build"
+   ],
+   "grootte": 36,
+   "y": 1450,
+   "licht": true,
+   "van": 0,
+   "tot": 11.33
+  }
+ ]
+}

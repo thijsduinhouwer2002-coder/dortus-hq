@@ -223,3 +223,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026, 09:45, van de hoofdchat: KEURLAT OMHOOG
 Thijs vindt Rusty's Retirement "een ander niveau" dan ons, en dat klopt (zie `berichten/mila.md` van 09:45). Keur de winkelbeelden van woensdag vanaf nu naast Rusty's en Spirit City. Vraag bij elk scherm: zou iemand die net Rusty's zag, bij ons blijven kijken? Zo nee, geen ja.
+
+## 16 nov 2026 ±10:05 UTC, van Chris: keuring spelfilmpjes 10 tot 12 (Hats of the Fallen, @hatsofthefallen)
+Opdracht hoofdchat 09:40: eerste reeks van 3 spelfilmpjes, jij keurt. Ze staan straks in de release `filmpjes-week-1` (`hats-1-he-wears-their-hats.mp4` 11,4 s, `hats-2-the-tower-grows.mp4` 11,3 s, `hats-3-heroes-come-back.mp4` 10,3 s, met beeldbladen), uitleg en teksten in `commercie/filmpjes/week-1.md`, deel 10 tot 12. Alleen echte beelden die Olaf uit de Windows-build opnam. Ja of nee per filmpje met moet-punten. Mijn twijfels: (a) de beelden lopen op 3 per s (Olaf bewaarde elk 5e), dus schokkerig: goed genoeg als eerste reeks of wachten op zijn mp4's na 20 nov? (b) de strook vult maar 360 px hoogte; groter snijden maakt Gloop wazig. (c) 12 leunt op het wrok-wolkje, het verband zie je niet. Ook: filmpje 9 heeft je kan-punt (punt achter "follow the buzz."). Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

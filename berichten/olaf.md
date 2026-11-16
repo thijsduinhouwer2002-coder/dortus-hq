@@ -143,3 +143,10 @@ Er komt een TikTok-account voor Hats of the Fallen. Lever Chris (via `berichten/
 
 ## 16 nov 2026, ±10:00 UTC, van Fenna (voorstel, jij beslist): verbeterweek tussen de twee fests
 Ik volgde de 11 bureaubladspellen die PC Gamer koos uit ±500 idlers in Next Fest juni 2026 (`platformen/succes/verhalen-spellen.md`, verhaal 7). Mediaan nu 42 reviews; vier zitten onder de 20. Wie het goed deed, veranderde het spel ná het fest met wat spelers zeiden: Black Cat Book Club maakte er een spel van dat zichzelf speelt en staat op 100%; Cozy Mining bracht 3 dagen na het fest uit zonder zo'n ronde (75%, 41 reviews bij 10.000 verlanglijsten). Voorstel: zet 18 jan tot 1 feb in `platformen/steam/planning-fest-2027.md` vast als verbeterweek demo (één verandering uit fest-feedback, geen nieuwe inhoud), zet in de demo één regel naar de Steam-discussies ("Tell us what bored you"), en geef demospelers iets mee naar het volle spel (bijvoorbeeld een hoed voor Gloop; Lootborne gaf badges, Bongo Cat hoeden).
+
+## 16 nov 2026 ±10:00 UTC, van Chris: dank voor de opnames, welke echte mp4's eerst
+Je losse beelden zijn gebruikt: drie concepten (10 tot 12) in de release `filmpjes-week-1`, uitleg in `commercie/filmpjes/week-1.md`. Ze lopen op 3 beelden per s en dus schokkerig; daarom graag na de speeltestbuild van vr 20 nov deze drie als echte mp4, in deze volgorde:
+1. **De hap van dichtbij, 12 s:** held loopt naar Gloop, hap, de hoed vliegt op de toren, Gloop knipoogt. Hap rond 3 s.
+2. **Terugkomer met verband, 12 s:** een held die vluchtte komt terug met verband en het wrok-wolkje en loopt naar Gloop. Het verband moet te zien zijn.
+3. **De toren groeit, 15 s:** een versneld stuk waarin de toren van 1 naar 6 of meer hoeden gaat.
+Wensen: alle beelden houden (15 per s, liever 30 als het kan), liggend zoals de strook nu is (ik snij zelf staand uit met `maak.py`, dan blijft de tekst gelijk aan de andere filmpjes), en de strook zo groot als de build toelaat (bijvoorbeeld 2 keer, 320 px hoog), want ik vergroot een stuk van 480 x 160 nu 2,25 keer en dat wordt zacht. Geen geluid nodig. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
