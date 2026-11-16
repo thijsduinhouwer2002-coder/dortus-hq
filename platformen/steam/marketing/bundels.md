@@ -33,7 +33,7 @@ Op bijna elke winkelpagina van een winnaar staan bundels van **twee spellen**. M
 | Wanneer | Wat | Wie |
 |---|---|---|
 | nu | dit plan, conceptmail hieronder | Sem (klaar) |
-| ±16 feb (2 weken vóór de lancering; bijgesteld run 9) | mails aan Mister Morris Games (bundel plus vraag om een regel in een update van Rusty), tatsumaki games, CQ LABS, met de cijfers van het januarifest | Sem werkt bij, Thijs verstuurt (lijst-thijs, pas dan) |
+| ±16 feb (2 weken vóór de lancering; bijgesteld run 9) | mails aan Mister Morris Games (bundel plus vraag om een regel in een update van Rusty), tatsumaki games, CQ LABS, en Tiny Pasture (bundel plus gasthoed-ruil, run 11), met de cijfers van het januarifest | Sem werkt bij, Thijs verstuurt (lijst-thijs, pas dan) |
 | ±1 week voor lancering | bundels aanmaken in Steamworks, link delen, goedkeuren | Thijs |
 | lanceerdag | bundels live, regel in de lanceerpost | Thijs plaatst, Chris schrijft |
 
@@ -45,3 +45,26 @@ Op bijna elke winkelpagina van een winnaar staan bundels van **twee spellen**. M
 Alleen versturen met echte festcijfers op [numbers]; zonder getal geen mail (regel 2, eerlijk).
 
 **Extra zin voor de mail aan Mister Morris Games (run 9):** "If it fits, a single line about Hats in one of Rusty's updates on launch day would mean a lot to us, the way you did for My Little Life." Alleen samen met de vraag om de bundel, niet los.
+
+## Crossovers (Sem, run 11, 16 nov 2026, na Fenna verhaal 16)
+Bron: `platformen/succes/verhalen-spellen.md` verhaal 16 (23 crossovers gemeten), zelf nagekeken met de nieuws-API van Steam (curl, 16 nov ±21:45 UTC).
+
+**Nagekeken:**
+- Bongo Cat (appid 3419430), aankondiging 27 jun 2026: "We had to disable the incentivized rewards (f.e. collab with Nightwater or the wishlist ones) and moved them to owning the full game or removed them entirely, because it was against Steam Guidelines to incentivize this" (GEZIEN). Na die datum deed Bongo Cat nog één collab, met Nightwater op 18 sep 2026: "Getting the game will also grant you these four Bongo Cat items" (GEZIEN). Een beloning voor het **bezitten** van het volle spel bleef dus staan; een beloning voor demo spelen of verlanglijsten niet. Nightwater geven ze zelf uit, dus dit is geen bewijs dat Valve het bij twee vreemde makers ook goed vindt (GOK dat het mag).
+- **Nieuw, niet in verhaal 16: Bugtopia** (Nocturnal Games, uitgever GCORES, 888 reviews, 92%) deed in zijn lanceerweek precies wat ons festplan voor maart wil: dag 0 uitgave (21 mei 2025), dag 1 een crossover plus bundel met het veel grotere Tiny Pasture (7.140 reviews, andere uitgever: "Our cute little Guide will join the Tiny Pasture! ... the Magical Broom ... is sweeping its way into the Bugtopia"), een tweede bundel dezelfde dag, dag 2 de routekaart, elke dag een fix-post (1.0.1 tot 1.0.7), dag 7 nog een bundel, dag 9 een bouwwedstrijd (GEZIEN, 72 aankondigingen). Een nieuwkomer kan dus op zijn lanceerdag een ruil krijgen met een groot bureaubladspel, als het vooraf geregeld is. Wat het Bugtopia opleverde is niet te meten: er is geen "ervoor" (eerlijk). Kanttekening: beide zijn Chinese makers met Chinese uitgevers (GOK dat ze elkaar al kenden).
+
+**Drie vaste regels (besluit Sem, overgenomen van Fenna, met de nuance hierboven):**
+1. **Nooit een beloning voor het spelen van onze demo, een verlanglijstje of volgen, ook niet via een ander spel.** Biedt een groter spel ons dat aan ("speel 5 minuten de demo van Hats en krijg een hoed bij ons"), dan zeggen we nee en vragen we om een gastpersonage of een regel in hun update. Waarom: Bongo Cat moest het na een jaar stoppen; Valve: "Developers should not use advertising as a way to provide value to players" (`partner.steamgames.com/doc/marketing/advertising`). Ook voor optie A geldt: een gehaald hoeden-doel geeft de hoed aan **iedereen** in het spel, niet alleen aan wie de demo speelde (vraag aan Sanne en Olaf, run 11).
+2. **De grote crossover komt na de lancering, als update met iets nieuws om te spelen, en alleen met een spel dat veel groter is dan wij.** Twee kleine spellen samen gaven niets (Lakeside Bar x Not Monday Cafe, 1,05x en 0,95x). 3 van 9 crossovers met een groot spel gaven een sprong, alle drie met nieuw spel erbij (Fish to Dish 3.0, Rusty's Balatro-kaart).
+3. **Onze vorm is een gasthoed:** de hoed van een held uit het andere spel, door Mila in 3D in onze stijl gemaakt, voor iedereen, met de naam van het andere spel in het Heldenboek. Wij bouwen hem, de ander hoeft niets te doen behalve ja zeggen en eventueel Gloop of een hoed terug.
+
+**Plan (besluit Sem):**
+| Wanneer | Wat | Met wie | Waarom |
+|---|---|---|---|
+| ±16 feb, in dezelfde mail als de bundel | een ruil op de lanceerdag zoals Bugtopia x Tiny Pasture: hun held als gasthoed bij ons, Gloop of een hoed bij hen als ze willen, samen met de bundel | eerst **Tiny Pasture** (CaveLiquid, uitgever Gamersky; zes crossovers in een half jaar, twee op de dag na de lancering van het andere spel), reserve Cozy Mining | het is de enige vorm die een nieuwkomer op dag 1 kreeg; kost ons één hoed |
+| 4 tot 8 weken na de lancering | een grote crossover als update met een nieuwe kamer of regel, niet alleen een plaatje | **Rusty's Retirement** (Mister Morris Games; deed Vampire Survivors en Balatro, en we spreken ze al voor de bundel), reserve Spirit City | volgens verhaal 16 werkt het alleen met iets nieuws om te spelen; met lanceercijfers is de vraag sterker |
+| nooit | ruil van een plaatje met een even klein spel, of een beloning voor demo of verlanglijst | | regel 1 en 2 |
+
+Verwacht effect: klein en onzeker (GOK). 6 van 9 grote crossovers gaven niets meetbaars. Ik zet het in het plan omdat het weinig kost (één hoed van Mila) en omdat "de grote kiest" (Poncle speelde Rusty's en vroeg het zelf): hoe vaker grote makers Hats zien, hoe groter de kans dat het ooit van hun kant komt.
+
+**Extra zin voor de mail aan Tiny Pasture (concept, Engels, alleen samen met de bundelvraag):** "Bugtopia did a little swap with you on their launch day and we loved it. If you're open to it, we'd build one of your heroes as a guest hat in Hats of the Fallen (we make it, in our style, credited to Tiny Pasture), and Gloop would be happy to visit your pasture in return."
