@@ -42,6 +42,12 @@ for breedte, (naam, mip) in sorted(MAPPEN.items()):
         # De code laadt hem in de functie met (:amoled); monkey.jungle sluit die uit op MIP.
         shutil.copy(os.path.join(KIT, naam, "grot-donker.png"), os.path.join(doel, "grot_donker.png"))
         regels.append('    <bitmap id="Grot" filename="grot_donker.png"/>')
+    if breedte == 208:
+        # Forerunner 55 (8 kleuren): de grot van Mila in alleen zwart, rood en geel (16 nov 08:50),
+        # met een dambord van 1 pixel voor de tussentinten. Zelfde id als de donkere grot, zodat de
+        # code hem met dezelfde functie laadt; monkey.jungle zet de FR55 daarvoor bij (:amoled).
+        shutil.copy(os.path.join(KIT, naam, "grot-8kleur.png"), os.path.join(doel, "grot_8kleur.png"))
+        regels.append('    <bitmap id="Grot" filename="grot_8kleur.png" dithering="none"/>')
     shutil.copy(os.path.join(KIT, "..", "icoon", "launcher-%d-keus.png" % ICOON[breedte]),
                 os.path.join(doel, "launcher_icon.png"))
     regels.append('    <bitmap id="LauncherIcon" filename="launcher_icon.png"/>')

@@ -30,6 +30,24 @@ module Letters {
         }
     }
 
+    // Hoe de knop heet in de regel onderaan. Op de Venu 3, Venu 3S en Venu Sq 2 staat op geen knop
+    // START: daar zegt het spel PRESS (Daan, 16 nov 08:45). monkey.jungle sluit per horloge één van de twee uit.
+    (:metstart) function knop() as String {
+        return "START";
+    }
+
+    (:zonderstart) function knop() as String {
+        return "PRESS";
+    }
+
+    // Gewone tekst zonder rand, op AMOLED (320 en breder) twee keer naast elkaar: nep-vet.
+    function vet(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String) as Void {
+        dc.drawText(x, y, font, s, Graphics.TEXT_JUSTIFY_CENTER);
+        if (dc.getWidth() >= 320) {
+            dc.drawText(x + 1, y, font, s, Graphics.TEXT_JUSTIFY_CENTER);
+        }
+    }
+
     // De regel onderaan ("START = GULP", "START = AGAIN"). Op een rond scherm is het onderaan smal:
     // past de regel daar niet tussen de randen (gezien op de Venu 3S), dan schuift hij omhoog tot
     // hij past, hooguit tot 0,80 van de hoogte.
@@ -54,14 +72,16 @@ module Letters {
     }
 
     // Wit boogje naast de START-knop (rechtsboven, alleen op ronde schermen) en, tijdens het spel,
-    // het woord GULP erbij. Op het startscherm alleen het boogje.
+    // het woord GULP erbij. Op het startscherm alleen het boogje. Op een vierkant scherm is er geen
+    // boogje en dus ook geen woord: los in beeld wijst het nergens naar (gezien op de Venu Sq 2).
     function knopHint(dc as Graphics.Dc, w as Number, h as Number, metWoord as Boolean) as Void {
-        if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(5);
-            dc.drawArc(w / 2, h / 2, w / 2 - 13, Graphics.ARC_CLOCKWISE, 48, 22);
-            dc.setPenWidth(1);
+        if (System.getDeviceSettings().screenShape != System.SCREEN_SHAPE_ROUND) {
+            return;
         }
+        dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(5);
+        dc.drawArc(w / 2, h / 2, w / 2 - 13, Graphics.ARC_CLOCKWISE, 48, 22);
+        dc.setPenWidth(1);
         if (metWoord) {
             tekst(dc, (w * 0.79).toNumber(), (h * 0.27).toNumber(), Graphics.FONT_XTINY, "GULP", Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
         }
@@ -100,7 +120,6 @@ module Letters {
     // De regel staat in de zwarte balk onder "BEST 15", zodat het gezicht vrij blijft. Past dat niet
     // boven Gloop (de balk mag niet lager komen dan tot), dan de oude plek onderaan met de rand.
     function eindscherm(dc as Graphics.Dc, w as Number, h as Number, spel as Spel, tot as Number) as Void {
-        var midden = Graphics.TEXT_JUSTIFY_CENTER;
         var cx = w / 2;
         var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
         var y1 = (h * 0.17).toNumber();
@@ -115,14 +134,19 @@ module Letters {
         dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(0, balkBoven, w, balkOnder - balkBoven);
         dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, y1, Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
+        vet(dc, cx, y1, Graphics.FONT_MEDIUM, spel.hoeden + " HATS");
         dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, y2, Graphics.FONT_SMALL, regel, midden);
+        vet(dc, cx, y2, Graphics.FONT_SMALL, regel);
+        var opnieuw = knop() + " = AGAIN";
         if (inBalk) {
             dc.setColor(0xAAAAAA, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, y3, Graphics.FONT_XTINY, "START = AGAIN", midden);
+            vet(dc, cx, y3, Graphics.FONT_XTINY, opnieuw);
         } else {
-            onderregel(dc, w, h, "START = AGAIN");
+            onderregel(dc, w, h, opnieuw);
+        }
+        if (opnieuw.find("PRESS") != null) {
+            // Waar geen knop START heet, wijst het boogje ook op het eindscherm de knop aan.
+            knopHint(dc, w, h, false);
         }
     }
 }

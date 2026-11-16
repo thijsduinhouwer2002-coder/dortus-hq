@@ -16,5 +16,6 @@
     <bitmap id="Hoed8" filename="hoed_08_pan.png" dithering="none"/>
     <bitmap id="Hoed9" filename="hoed_09_veermuts.png" dithering="none"/>
     <bitmap id="Titel" filename="titel.png" dithering="none"/>
+    <bitmap id="Grot" filename="grot_8kleur.png" dithering="none"/>
     <bitmap id="LauncherIcon" filename="launcher_icon.png"/>
 </drawables>

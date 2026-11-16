@@ -27,8 +27,9 @@ class SpelView extends WatchUi.View {
     var pl as Array<Plaatje> = [] as Array<Plaatje>;
     // Maten en ankers van de plaatjes (zie Maten.mc).
     var m as Array<Number> = [] as Array<Number>;
-    // Donkere grot van Mila (alleen AMOLED, 320 en breder): een plaatje van het hele scherm met
-    // de lichtbaan en de vloer er al in. Op MIP is er geen plaatje en tekent het spel de effen grot.
+    // Grot van Mila als plaatje van het hele scherm, met de lichtbaan en de vloer er al in: de donkere
+    // grot op AMOLED (320 en breder) en de grot in zwart, rood en geel op de Forerunner 55 (8 kleuren).
+    // Op de andere MIP-horloges is er geen plaatje en tekent het spel de effen grot.
     var grot as Plaatje?;
     // Welke hoed op welke plek in de toren komt: begint met de kroon, zoals op het blad van Mila.
     const VOLGORDE = [4, 1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
@@ -62,6 +63,7 @@ class SpelView extends WatchUi.View {
         grot = laadGrot();
     }
 
+    // (:mip) betekent hier: zonder grotplaatje. (:amoled): met grotplaatje (ook de Forerunner 55).
     (:mip) function laadGrot() as Plaatje? {
         return null;
     }
@@ -170,7 +172,7 @@ class SpelView extends WatchUi.View {
             // Op het startscherm alleen het boogje bij de START-knop, zonder het woord GULP (Mila, 16 nov
             // 07:55): "START = GULP" onderaan zegt het al, en zo raakt de titel niets.
             dc.drawBitmap(cx - m[32] / 2, (h * 0.08).toNumber(), pl[16]);
-            Letters.onderregel(dc, w, h, "START = GULP");
+            Letters.onderregel(dc, w, h, Letters.knop() + " = GULP");
             Letters.knopHint(dc, w, h, false);
         } else if (spel.toestand == Regel.EINDE) {
             Letters.eindscherm(dc, w, h, spel, voet - m[3] - 4);

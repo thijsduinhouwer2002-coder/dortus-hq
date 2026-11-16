@@ -3,17 +3,21 @@ project.manifest = manifest.xml
 # Plaatjes per schermbreedte (spritekit van Mila, gemaakt met maak_kit.py).
 # MIP-horloges tekenen een effen grot; AMOLED-horloges hebben het plaatje van de donkere grot.
 # De code heeft daarvoor twee functies laadGrot(), met (:mip) en (:amoled): elk horloge sluit er één uit.
-base.excludeAnnotations = amoled
+# De Forerunner 55 (8 kleuren) heeft ook een grotplaatje (zwart, rood, geel) en sluit dus (:mip) uit.
+# Tweede paar: (:metstart) en (:zonderstart). Op de Venu 3, Venu 3S en Venu Sq 2 heet geen knop START:
+# daar zegt het spel PRESS. Een regel per horloge vervangt die van base, dus daar staan beide woorden.
+base.excludeAnnotations = amoled;zonderstart
 fr55.resourcePath = $(fr55.resourcePath);res-208
+fr55.excludeAnnotations = mip;zonderstart
 fr245.resourcePath = $(fr245.resourcePath);res-240
 fenix7.resourcePath = $(fenix7.resourcePath);res-260
 fr255.resourcePath = $(fr255.resourcePath);res-260
 fenix7x.resourcePath = $(fenix7x.resourcePath);res-280
 venusq2.resourcePath = $(venusq2.resourcePath);res-320
-venusq2.excludeAnnotations = mip
+venusq2.excludeAnnotations = mip;metstart
 venu3s.resourcePath = $(venu3s.resourcePath);res-390
-venu3s.excludeAnnotations = mip
+venu3s.excludeAnnotations = mip;metstart
 fr265.resourcePath = $(fr265.resourcePath);res-416
-fr265.excludeAnnotations = mip
+fr265.excludeAnnotations = mip;zonderstart
 venu3.resourcePath = $(venu3.resourcePath);res-454
-venu3.excludeAnnotations = mip
+venu3.excludeAnnotations = mip;metstart

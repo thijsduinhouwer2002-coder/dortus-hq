@@ -56,3 +56,9 @@ Daan en Mila kozen allebei (c): de toren staat op de kop van Gloop, de held komt
 - Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
 - Rechthoekige horloges (Venu Sq) en de zwart-witte Instinct: de proef tekent al naar verhouding, maar is daar niet bekeken.
 - Trilling bij een GULP (voelt goed, kost batterij): proberen in de volgende stap.
+
+## Stand 16 nov ±09:10 UTC (run 111): PRESS op de Venu's, vet eindscherm, grot op de Forerunner 55
+- Op de Venu 3, Venu 3S en Venu Sq 2 heet geen knop START. Daar zegt het spel `PRESS = GULP` en `PRESS = AGAIN` (Daan, 08:45). Op de ronde Venu's wijst het witte boogje de knop ook op het eindscherm aan. FR265, FR255, FR245, FR55 en fenix houden START.
+- Op een vierkant scherm staat tijdens het spel geen los woord GULP meer: zonder boogje wees het nergens naar.
+- Eindscherm: de drie regels in de zwarte balk staan op AMOLED ook twee keer naast elkaar (nep-vet).
+- Forerunner 55 (8 kleuren): de grot is een plaatje van Mila in alleen zwart, rood en geel, met een dambord van 1 pixel voor de tussentinten.
