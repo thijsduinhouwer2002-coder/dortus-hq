@@ -236,7 +236,15 @@ class GloopFaceView extends WatchUi.WatchFace {
         var links = p[2] - 2 * p[9] + p[11];
         var linksUit = Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER;
         tekst(dc, links, p[6], Graphics.FONT_TINY, Regel.punt(stappen), 0x55FFAA, linksUit);
-        tekst(dc, links, p[7] + (w < 320 ? 4 : 0), Graphics.FONT_XTINY, Regel.regel(stappen, doel), 0xFFAA00, linksUit);
+        // Raakt de regel de toren (Venu Sq 2), dan zonder het woord HATS (antwoord van Mila). Op AMOLED staat
+        // de regel 8 px lager, anders loopt hij door de stappen heen (gezien in run 43873269986).
+        var rg = Regel.regel(stappen, doel);
+        var grens = p[0] - m[0] / 2 + m[10] - m[12] / 2 - 6;
+        var eind = rg.find(" HATS");
+        if (eind != null && links + dc.getTextWidthInPixels(rg, Graphics.FONT_XTINY) + 2 > grens) {
+            rg = rg.substring(0, eind) as String;
+        }
+        tekst(dc, links, p[7] + (w < 320 ? 4 : 8), Graphics.FONT_XTINY, rg, 0xFFAA00, linksUit);
 
         // Vrij veld onderaan: nu de hartslag met een getekend hartje.
         // Zonder hartslag alleen het hartje (kan a van Daan); het hartje staat links van Gloops voet (Mila: 0,36).
