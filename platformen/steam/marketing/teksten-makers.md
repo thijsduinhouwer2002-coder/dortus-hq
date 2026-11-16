@@ -8,6 +8,7 @@ Bij `makers.md` en `festplan.md`. Engels, kort. **Niets is verstuurd.** Versture
 3. **Kort:** onderwerp onder 60 tekens, mail onder 120 woorden, één GIF van 5 seconden (Gloop zet een hoed op), één link. Geen bijlagen.
 4. **Persoonlijk:** één zin die laat zien dat we hun video zagen, met de echte titel uit `makers.md`. Zonder die zin niet versturen.
 5. **Geen druk:** "no strings attached", geen vraag om een review of score, geen betaling. Sleutels of demo zonder voorwaarden.
+6b. **Speelduur eerlijk (run 7):** "Open it for a few minutes a day and your hole grows for weeks." Bron: Sanne 16 nov 17:05, wie het tussendoor speelt doet 7 tot 9 weken over het hol (Bram, GEZIEN in de simulatie). Nooit "100 hours" of een getal dat de simulatie niet geeft.
 6. **Wat ze krijgen moet werken:** link naar de winkelpagina pas als die live is (±8 dec), demo pas als die openbaar is (4 jan, zie festplan).
 
 ## A. Speelt precies ons soort spel (nummers 1 tot 14, 41 tot 46)
@@ -19,9 +20,9 @@ Wanneer: zodra de winkelpagina live is (±8 dec), alleen wie een openbaar zakeli
 >
 > I watched your video "{titel}" and figured you might like what we're making.
 >
-> Hats of the Fallen is a little dungeon that sits on top of your taskbar. Heroes climb in to steal Gloop's gold. Every hero who falls in leaves a hat on Gloop's head, and the ones who get away come back later with a bandage, a nickname and a grudge.
+> Hats of the Fallen lives on top of your taskbar. Heroes climb into your dungeon to steal Gloop's gold. Every hero who falls in leaves a hat on Gloop's head, and the ones who get away come back later with a bandage, a nickname and a grudge.
 >
-> It runs on its own while you work, stays silent, uses almost no CPU, and never punishes you for looking away.
+> It runs on its own while you work, stays silent, uses almost no CPU, and never punishes you for looking away. Open it for a few minutes a day and your hole grows for weeks.
 >
 > {GIF}
 > Steam page: {link}
@@ -39,7 +40,7 @@ Wanneer: tweede week december (pagina live), en een herinnering op ma 11 jan voo
 >
 > Your "{titel}" is exactly the kind of list our game was made for, so a short note.
 >
-> Hats of the Fallen is a tiny dungeon on top of your taskbar. Heroes fall into your traps and Gloop the slime wears their hats; the ones who escape come back with a grudge. Silent, light on CPU, and it keeps going while you work.
+> In Hats of the Fallen, every hero who falls into your traps leaves a hat on Gloop the slime, and the ones who escape come back with a grudge. It lives on top of your taskbar: silent, light on CPU, and it keeps going while you work. A few minutes a day, and your hole grows for weeks.
 >
 > {GIF}
 > Steam page: {link}

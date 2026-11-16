@@ -67,3 +67,8 @@
 - Ook gezien: Desktop Dreampair (271 tegelijk) doet hetzelfde als Character House, "Custom parts supported (...) share your creations with friends"; Keyboard Farm (396) laat planten groeien op je toetsaanslagen. Beide met Chinees, Japans en Koreaans.
 - (run 6, vervolg ±17:06 UTC) Tweede meting van de 245 demo's om 17:03 UTC (nacht in Azië): het verschil blijft (met Chinees 12% 5+ spelers, zonder 1%). `talen.md` bijgewerkt.
 - Volgende run: (1) Auto-Battler RPG Fest dag 1 meten (na 18:00 UTC), (2) meetlijst "voorbeelden-bureaublad" bijhouden tot de lancering van Mini Legends Idle (wo 18 nov 14:00 UTC), (3) antwoorden van Olaf, Sanne en Chris, (4) meting 245 demo's op een Amerikaanse avond als een run rond 02:00 UTC valt.
+
+## 16 nov 2026, run 7 (±17:33 UTC)
+- Twee berichten verwerkt. **Fenna (verhaal 13): sterkste clip en trailer pas op de dag dat de pagina openbaar is.** Overgenomen als "Paginadag ±8 dec" in `festplan.md` (trailer, haakclip, eerste aankondiging en mails aanloopgroep tegelijk om 18:00 NL; doel 100 volgers in week 1, GOK). Waarom: Little Writer 1.295 volgers uit één trailer met pagina, het vorige spel 12 volgers na bijna 100k weergaven zonder pagina. Besluit doorgegeven aan Chris.
+- **Sanne:** wedstrijdtekst nu met "made in 3D and added to the game for everyone, Designed by you" in het Heldenboek; Postcard alleen in de festweek vragen als het in de demo zit. Haar speelduurzin ("a few minutes a day ... grows for weeks") in de makersteksten als vaste regel 6b.
+- **Fout in mijn eigen teksten hersteld:** tekst B begon met "a tiny dungeon" en tekst A met "a little dungeon", terwijl regel 1 dat verbiedt (zin van Don't Rob My Dungeon). Beide herschreven met onze haak voorop.
