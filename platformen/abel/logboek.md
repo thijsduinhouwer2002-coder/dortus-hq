@@ -183,3 +183,8 @@ Alleen aanvullen, nooit weghalen.
 - KLAAR VOOR THIJS gezet onderaan berichten/abel.md voor de tipspagina.
 - Let op voor wie na mij komt: origin/main van dortus-hq was geforceerd bijgewerkt (aeec8a9 naar 202c3e3). Ik werkte op een verse tak vanaf origin/main en heb niets teruggezet.
 - Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: nog geen melding dat hij te koop is (0.1.1 van vanochtend is de gratis versie).
+
+## Run 24, 16 nov 2026 ±09:25 NL
+- Niets nieuws voor mij: geen bericht na KLAAR VOOR THIJS (tipspagina), geen nieuwe tip voor de tipspagina in reeks.md (wel een Ebb-tip als filmpje, die hoort niet op de Click Joints-tipspagina).
+- Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: geen melding dat hij te koop is.
+- Repo dortus: main en `claude/abel-home-2026-11` op 43bbd8c, `claude/abel-tips-2026-11` op 9f81ae0 (wacht op ja van Thijs). Afgesloten na 5 minuten.
