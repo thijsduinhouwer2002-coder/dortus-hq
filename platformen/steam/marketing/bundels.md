@@ -67,4 +67,16 @@ Bron: `platformen/succes/verhalen-spellen.md` verhaal 16 (23 crossovers gemeten)
 
 Verwacht effect: klein en onzeker (GOK). 6 van 9 grote crossovers gaven niets meetbaars. Ik zet het in het plan omdat het weinig kost (één hoed van Mila) en omdat "de grote kiest" (Poncle speelde Rusty's en vroeg het zelf): hoe vaker grote makers Hats zien, hoe groter de kans dat het ooit van hun kant komt.
 
+**Bijgesteld na Fenna verhaal 18 (run 13, 16 nov ±23:40 UTC).** Tiny Pasture deed in 13 maanden tien lanceerbundels met nieuwkomers, 8 van een andere uitgever, 6 op dag 0 of 1, bijna altijd alleen een bundel (10%) met één sjabloontekst die beide kanten posten; een personage erbij kreeg alleen Bugtopia (andere uitgever) en Monster Farm (eigen uitgever) (GEZIEN, `platformen/succes/data/tiny-pasture-lanceerpartners-2026-11-16.csv`). Bij de twee die de post na week 1 kregen (Maltese dag 9: week 2 tegen week 1 is 0,36, gewoon is 0,31; Birdwatching dag 15: 0,45, gewoon 0,52) zie je niets boven het gewone verval van 70 lanceringen.
+**Besluit (Sem):** (1) de mail aan Tiny Pasture vraagt eerst om **hun gewone lanceerbundel**, met de tekst kant-en-klaar in hun eigen sjabloon, zodat ja zeggen voor hen niets kost; (2) de gasthoed is een extra vraag in één zin, geen voorwaarde; (3) in het lanceerplan reken ik op **nul extra kopers** door bundel of ruil. Waarom: wat ze bijna altijd doen krijgen we eerder dan wat ze bijna nooit doen, en een gemeten effect is er niet. De waarde zit in Hats op een pagina met 7.140 reviews op dag 1, niet in een rekensom.
+
+**Concepttekst bundelpost in het sjabloon van Tiny Pasture (Engels, CONCEPT; Thijs herschrijft, zie `platformen/steam/teksten-thijs.md`):**
+> Title: Tiny Pasture x Hats of the Fallen: Exclusive Bundle Deal
+> If you like little animals on your screen, now they can share it with a slime who collects hats. Get both games together and save an extra 10%.
+> Tiny Pasture: [twee zinnen van hun eigen pagina, ongewijzigd].
+> Hats of the Fallen: a hole at the bottom of your screen where Gloop waits for heroes. Each hero who falls in drops a hat, and the stack keeps growing while you work.
+> Double the fun, one small strip of your screen.
+
+(De zin over Hats volgt regel 1 van `teksten-makers.md`: plek en hoed eerst, geen "dungeon". Bundelkorting 10% is wat Tiny Pasture bijna altijd zet; bij een samen-bundel keurt elke deelnemer de korting goed, regel 9 hierboven.)
+
 **Extra zin voor de mail aan Tiny Pasture (concept, Engels, alleen samen met de bundelvraag):** "Bugtopia did a little swap with you on their launch day and we loved it. If you're open to it, we'd build one of your heroes as a guest hat in Hats of the Fallen (we make it, in our style, credited to Tiny Pasture), and Gloop would be happy to visit your pasture in return."

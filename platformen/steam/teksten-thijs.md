@@ -33,7 +33,7 @@ Vorm voor elke post: **een titel, één gif of clip, hooguit twee zinnen**. Waar
 | A6 | demo-fix tussen 4 en 13 jan | Titel: "Demo 1.0.[x]: [wat er gerepareerd is]" (zin van Olaf, Thijs in eigen woorden) | geen of een gif | ±8 | CONCEPT |
 | A7 | ma 18 jan, einde fest | Titel: "Thank you. The demo stays." Zin: "Your hats come with you to the full game." | schermafbeelding hoedenteller | 14 | CONCEPT |
 | A8 | lanceerweek, dag 3 tot 7 | "What's coming to Hats of the Fallen", 5 vakjes die we in dezelfde post afvinken; volledige concepttekst in `marketing/routekaart.md`, inhoud wacht op Olaf | geen | ±120 | CONCEPT |
-| A9 | lanceerweek | Titel: "Bundles!" per bundel één zin waarom hij past (vorm van Nanomon, `marketing/bundels.md`) | capsules van de bundels | ±40 | CONCEPT, tekst volgt als de bundels vaststaan (±16 feb) |
+| A9 | lanceerweek | Titel: "Bundles!" per bundel één zin waarom hij past (vorm van Nanomon, `marketing/bundels.md`) | capsules van de bundels | ±40 | CONCEPT, tekst volgt als de bundels vaststaan (±16 feb); concept voor de post met Tiny Pasture in hun eigen sjabloon staat in `marketing/bundels.md` (run 13) |
 
 ## Wedstrijd in de festweek (status CONCEPT)
 | Id | Wanneer | Voorstel (Engels) | Woorden | Status |
