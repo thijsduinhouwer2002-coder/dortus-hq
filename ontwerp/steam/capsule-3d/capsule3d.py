@@ -228,7 +228,7 @@ for o in list(sc.objects):
         mw = o.matrix_world.copy(); o.parent = anker; o.matrix_world = mw
 anker.rotation_euler = (0, 0, math.radians(-12))
 # ronde 4: Gloop met toren groter, hij is de ster (via het anker: GS hierboven telt niet mee, matrix_world is daar nog oud)
-GROOT = (1.1 if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else 1.3
+GROOT = (1.1 if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else E("K_GROOT", "1.3")
 anker.scale = (GROOT, GROOT, GROOT)
 
 # Mila 16 nov ronde 7 (beeldmap; standaard klein nu: titel groter, ridder rechts naast Gloop, wand donkerder): in klein is de helm op Gloop maar ±14 px breed; hij moet het grootste ding worden.
