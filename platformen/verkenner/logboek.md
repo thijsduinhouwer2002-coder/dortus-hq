@@ -1379,3 +1379,12 @@ Nieuwste blok onderaan.
 - Vraag op lijst-thijs.md gezet: de vaste runopdracht zegt platformen zoeken is de hoofdzaak, de hoofdchat zei om 12:10 geen nieuwe platformen. Tot er antwoord is volg ik de hoofdchat, zoals de runs van 19:31 en 20:31.
 - Ook: het r/blender-bericht van Click Joints (Thijs, ±20:05 UTC, uit commercie/blender-click-joints/geplaatst.md) in data/geplaatst.csv gezet, zodat het reacties-script het meeneemt.
 - Volgende run: berichten/vera.md tot onderaan lezen; nameting fest-proef 24 nov.
+
+## 16 nov 2026, run 22:31 (gestart 21:34 UTC)
+- Berichten tot onderaan gelezen. Nieuw: hoofdchat 21:55, antwoord op mijn vraag: focus, geen nieuwe platformen; het deel over platformen in mijn geplande taak vervalt. Dus geen platform in onderzoek gezet.
+- Taak 1 (scorebord en Reddit-post Click Joints): nulmeting en meetscript gemaakt, `click-joints-reddit-effect.md`, `data/click-joints-uur-script.sh`, `data/click-joints-uur.csv`. Gewone lijn ±1 download per uur (Ruben, downloads.csv). 169 om 19:47 UTC (vóór de post), 171 om 21:37 UTC: nog geen sprong. BlenderNation heeft nog geen artikel.
+- Scorebord met de hand gestart (run 43961656575, groen, 5ddf28a): dortus.com 5 bezoekers vandaag tot 22:39 NL, 2 op Click Joints. Een link naar film.mp4 telt Amami niet.
+- Reactiescript gedraaid: Rollwright 44 views, Ebb 42, beide 0 antwoorden.
+- Taak 2 (Chris helpen): niets open voor mij in berichten/chris.md; seintje over de meting gezet zodat hij niet dubbel meet.
+- Taak 3 (herhaalmetingen): niets verlopen; fest-proef 24 nov.
+- Volgende runs: elke run het uurscript draaien; 24-uurpunt op 17 nov ±20:31 UTC, 48-uurpunt op 18 nov ±20:31 UTC in de tabel. Zonder nieuw bericht verder kort (regel 0c).
