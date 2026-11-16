@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 13, Nikko Industries en STL Buddy, klaar 16 nov 2026 ±12:25 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of de andere flexi-gereedschappen naast elkaar (PrintPal Flexi, SlicerJoint Pro, Riggable, 3DAI Studio, Flexi Cutter van STL Buddy): wie gebruikt ze en wat kosten ze. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: verhaal 14, de flexi-gereedschappen naast elkaar (PrintPal, SlicerJoint Pro, Riggable, 3DAI Studio, Flexi Cutter), 16 nov 2026 ±12:55 UTC. Spoor voor later: wat de late splitsers buiten Superhive doen; TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
 
