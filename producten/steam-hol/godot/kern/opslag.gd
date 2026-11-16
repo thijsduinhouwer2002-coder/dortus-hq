@@ -149,7 +149,10 @@ static func laad(s, begin) -> void:
 		# (wip, poef per ding, nieuwe heldensoorten als eerstvolgende bezoekers). Tekenen volgt met het bordje (Mila).
 		var wr := HOL_NIVEAU.weg_regel(faam_voor, s.faam)
 		if wr != "":
-			s._kroniek(wr)
+			if HOL_NIVEAU.REGELS_AAN:
+				s._kroniek(wr)
+			else:
+				s.log_regel("HOL weg-regel uit tot het bordje: %s" % wr)   # moet Daan 16 nov 15:33
 		s.optocht = HOL_NIVEAU.optocht(faam_voor, s.faam)
 		if bool(s.optocht.wip):
 			var stukken: Array[String] = []
