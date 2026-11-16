@@ -32,7 +32,30 @@ Lees dit als voorbeelden, niet als telling: 30 reviews per wijzerplaat, vooral t
 
 ## Wat een wijzerplaat mag tonen
 GEZIEN in de uitleg van Garmin (`https://developer.garmin.com/connect-iq/api-docs/Toybox/Complications.html`, 16 nov): er bestaan kant-en-klare velden voor Body Battery, stress, slaapscore, hersteltijd, trainingsstatus, VO2max, hartslag, stappen, trappen, calorieën, intensiteitsminuten, ademhaling, zuurstof, meldingen, agenda, weer nu, temperatuur hoog en laag, verwachting 1 tot 3 dagen, zonsopgang en zonsondergang, hoogte, luchtdruk, weekafstand hardlopen en fietsen, wedstrijdvoorspelling. Training readiness en HRV-status staan **niet** in die lijst.
-NIET GEZIEN, eerst proeven in de simulator: of de geschiedenis van Body Battery en stress (voor een lijntje) op elk horloge te lezen is, het weer per uur, hoeveel geheugen een wijzerplaat per horloge krijgt, en de regels voor de slaapstand op AMOLED (hoeveel pixels aan mogen).
+Stond open tot run 123 (uitslag hieronder): of de geschiedenis van Body Battery en stress (voor een lijntje) op elk horloge te lezen is, het weer per uur, hoeveel geheugen een wijzerplaat per horloge krijgt, en de regels voor de slaapstand op AMOLED (hoeveel pixels aan mogen).
+
+### Uitslag van de proef (run 123, 16 nov ±21:15 UTC): de geschiedenis is er, het geheugen is krap
+Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-kern`, run 43956535066 groen (3 toetsen, pakket met 63 horloges bouwt). Een kale wijzerplaat die leest en tekent, niet voor de winkel. Alle regels staan in `uitslag.txt` op de tak `schermen`, map `garmin-reeks-kern/claude-garmin-reeks-kern/`.
+
+**GEZIEN in het log van de simulator, op 8 horloges** (Forerunner 255, fēnix 8 47 mm, Venu 3S, vívoactive 5, Venu Sq 2 en de oude Forerunner 55, Forerunner 245 en Instinct 2):
+- **Geschiedenis van Body Battery en van stress: op alle 8 te lezen** (`has ja`, 80 waarden elk, geen lege).
+- **Weer per uur: 12 uur vooruit, op alle 8.**
+- **Kant-en-klare velden van Garmin (Complications):** ja op de 5 nieuwere, nee op Forerunner 55, 245 en Instinct 2. Op oude horloges lezen we velden dus op de oude manier (stappen, hartslag en zo rechtstreeks).
+- **Tekenen:** tijd, twee heuvellijnen van 40 punten en een golf van 24 punten samen 1 tot 2 ms op de schermen met weinig kleuren, 7 tot 15 ms op AMOLED (fēnix 8: 9 tot 15 ms). Dat is de simulator op een server, geen horloge.
+- **Geheugen voor een wijzerplaat** (uit de bestanden van de SDK, 63 horloges): 131.072 bytes op 55 van de 63, ook op de nieuwste (fēnix 9, Venu 4, Forerunner 970). 98.304 op Forerunner 55, 245, 945 en Venu Sq; 114.688 op fēnix 6; 65.536 op Instinct 2; 524.288 op vívoactive 4. De kale proef gebruikt ±9.000 bytes. Een spel krijgt 786.432 bytes, een wijzerplaat dus een zesde.
+
+**GEZIEN in de uitleg van Garmin** (`https://developer.garmin.com/connect-iq/api-docs/Toybox/SensorHistory.html`, opgehaald met curl, 16 nov ±21:00 UTC): de lijst "Supported Devices" bij de geschiedenis van Body Battery telt 113 regels, bij stress 116. Erin: alle Forerunners vanaf de 55 en 245, fēnix 6 tot 9, epix, Enduro, Instinct 2 en 3, Venu (alle), vívoactive 4 tot 6, MARQ, Descent, Approach S50, S70 en S72, D2. Er niet in voor Body Battery: fēnix 5 Plus en D2 Air.
+
+**Antwoord op de voorwaarde van Daan (16 nov ±21:05 UTC):** ja, de heuvellijn van Body Battery of stress kan op het grootste deel van de 100+ horloges. Volgens de lijst van Garmin op 113 soorten, in de simulator gezien op 8 waaronder de drie oudste die we zouden meenemen.
+
+**NIET GEZIEN, en dat telt:**
+- Hoeveel uur geschiedenis een echt horloge geeft. De simulator geeft op elk horloge dezelfde 80 nepwaarden (laagste 5, hoogste 93), één per minuut, dus 79 minuten, ook al vroeg ik 4 uur. Garmin schrijft zelf dat de tijd tussen twee waarden per horloge verschilt. Pas een echt horloge zegt of de lijn 4 uur of een hele dag kan tonen.
+- De volgorde: ik vroeg "oudste eerst" en kreeg de nieuwste eerst (de tijd liep 4.740 seconden terug). Bij het bouwen de tijd van elke waarde gebruiken en niet de volgorde vertrouwen.
+- De schermbeelden zelf: ze stonden bij het schrijven nog niet op de tak `schermen`.
+- Het kleurverloop als vast plaatje per thema (vraag van Mila): niet geprobeerd. Met 131.072 bytes voor alles is een schermvullend plaatje per thema de eerste zorg; op nieuwere horloges tellen plaatjes mogelijk niet mee in dat geheugen (GOK, eerst meten).
+- De slaapstand op AMOLED en instellingen in Garmin Connect.
+
+**Wat dit betekent voor het ontwerp:** weinig plaatjes, veel tekenen met lijnen en vlakken; een eigen cijferletter voor de tijd kost geheugen en moet gemeten worden voor Mila hem uitwerkt; de golf en de heuvellijn als veelhoek zijn goedkoop genoeg om elke seconde te tekenen als het horloge wakker is.
 
 ## De kern (één keer bouwen, in elke plaat)
 1. **Velden kiezen** uit de lijst hierboven, in Garmin Connect en waar het kan op het horloge zelf. Bij de wijzerplaten met 100+ noemt 85% dit (Vera).
