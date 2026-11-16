@@ -151,6 +151,19 @@ Ter ijking: Mini Legends Idle heeft 59 volgers en ±2.500 verlanglijstjes (eigen
 4. **Ons verlanglijstdoel en onze meetlat passen niet goed bij elkaar.** Met Mini Legends als maat (±2.500 verlanglijstjes, ±20 tegelijk) geven 1.000 verlanglijstjes ±8 spelers tegelijk (GOK, lineair doorgerekend): dat is "stil" op onze eigen meetlat. "Gewoon" (20 tot 100) vraagt ±2.500 verlanglijstjes, "doorbraak" (boven 100) ±12.000, of een moment dat zich verspreidt zoals Desktop Defender (200 verlanglijstjes, toch 1.548 in Next Fest). Besluit (Sem): **verlanglijstdoel op de avond voor het fest van 1.000 naar 2.500**, 1.000 blijft de ondergrens. De meetlat zelf blijft, want die gaat over het fest en niet over de aanloop. Wat er extra nodig is voor die 1.500: elke paginadag-actie op hetzelfde uur, en de makers met de hoogste weergaven per abonnee eerst (`makers.md`).
 5. Voor maart (vraag aan de hoofdchat en Olaf, geen besluit van mij): het volle spel uitbrengen óp een thema-fest gaf de meeste spelers hier weinig (mediaan 8). Uitbrengen in een fest is geen gratis duw; wat telt is hoeveel verlanglijsten je meeneemt.
 
+## Verlanglijstbegroting: waar 2.500 vandaan moet komen (run 12)
+Verlanglijstjes ziet alleen Thijs in Steamworks. Wat ik zelf kan meten zijn **volgers** (memberslistxml) en **weergaven** van video's met onze Steamlink. Omrekening:
+| Stap | Getal | Bron |
+|---|---|---|
+| Verlanglijstjes per volger | 7 tot 20 (CleanFall ±10: 173 volgers, ±1.800 verlanglijstjes; Mini Legends Idle ±44, uitschieter door verlanglijstdoelen) | GameDiscoverCo via Vera (DERDEN), Fenna verhaal 9 en `character-house.md` (GEZIEN) |
+| 2.500 verlanglijstjes in volgers | **±125 tot 360 volgers op 13 jan** | rekensom |
+| Volgers per 1.000 weergaven | ±2,5 (alle video's van Little Writer samen, ±530.000 weergaven, 1.295 volgers) tot 3,4 (alleen zijn aankondigingstrailer) | Fenna verhaal 13, GEZIEN; dat het bij video's van anderen even goed omzet is een GOK |
+| Volgers in weergaven | **±40.000 tot 150.000 weergaven met onze Steamlink vóór 14 jan** | rekensom |
+| Vanzelf, zonder video's | mediaan aangekondigd bureaubladspel 9,5 volgers (±70 tot 190 verlanglijstjes) | `data/volgers-binnenkort-2026-11-16.csv`, GEZIEN |
+Wat de eerste makersronde eerlijk geeft: 4 tot 5 video's van 1.500 tot 30.000 weergaven (`makers.md`), dus ±10.000 tot 60.000. **De rest, ±30.000 tot 90.000, moet uit de trailer en de clips van Chris komen** (TikTok, Shorts, Reels). Een clip die aanslaat doet dat in één keer (@lemon.stones 318.900 voor Character House, `character-house.md`); zonder zo'n clip halen we 2.500 niet (GOK).
+Wat ik ermee doe: (1) vanaf de paginadag elke dag volgers tellen en naast deze lijn leggen (wekelijks doel: ±25 tot 70 volgers per week van 8 dec tot 13 jan); (2) Chris krijgt het getal "weergaven met Steamlink" als zijn maat voor Hats-clips; (3) liggen we op 1 jan onder de 60 volgers, dan halen we de 1.000 ondergrens waarschijnlijk niet en schuift alle makersmoeite naar de demodag in plaats van later.
+Niet doen: verlanglijstdoelen met een beloning zoals Mini Legends (iedereen goud bij 100 verlanglijstjes). Dat beloont verlanglijsten; Valve liet Bongo Cat precies zoiets stoppen (Fenna verhaal 16).
+
 ## Als het stil blijft (onder 20 spelers tegelijk of onder 300 verlanglijstjes na 48 uur)
 Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna opnieuw meten:
 1. **Za 16 en zo 17 jan, nog in het fest:** kijken waarom. Wie de demo speelde: hoe lang (Steamworks, Thijs), wat er in de discussies en demo-reviews staat. Wie hem niet speelde: hoe vaak de pagina bekeken werd tegenover hoe vaak de demo gedownload werd (Steamworks, "UTM" en verkeer, Thijs). Weinig bezoek = de capsule doet het niet; veel bezoek en weinig downloads = de pagina en het eerste beeld doen het niet; veel downloads en kort spelen = de eerste minuten doen het niet.
