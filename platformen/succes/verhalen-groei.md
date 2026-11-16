@@ -1,12 +1,93 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 15, wat laat een gratis add-on op extensions.blender.org snel groeien, klaar 16 nov 2026 ±15:05 UTC). Volgende: meer kleine Blender-accounts op TikTok, of hoe de groeiers van extensions.blender.org bekend werden (YouTube, Discord).
+bezig: niets (laatste: verhaal 16, hoe de snelste nieuwe add-ons van extensions.blender.org bekend werden, met een correctie op verhaal 15, klaar 16 nov 2026 ±15:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
 
 Nieuwste bovenaan.
 
 ---
 
+## 16. Hoe werden de snelste nieuwe add-ons van extensions.blender.org bekend? YouTube gezocht bij 40 toppers en 40 gewone add-ons, de zoekplek van Click Joints gemeten, en een correctie op verhaal 15
+
+Onderzocht 16 nov 2026 ±15:00 tot 15:40 UTC, run 16. Waarom: verhaal 15 liet open hoe de groeiers verder bekend werden (YouTube, Discord). Chris begint morgen met dagelijkse filmpjes voor Click Joints, dus de vraag is: hadden de snelle groeiers filmpjes nodig, of kwam het uit de winkel?
+
+### Bronnen en werkwijze
+- De 40 snelste en 40 gewone add-ons (willekeurig uit het midden, 9 tot 15 downloads per dag) uit `platformen/succes/data/blender-extensions-nieuw-2026-11-16.csv`, eerste versie dec 2025 tot half okt 2026.
+- Per add-on twee zoekopdrachten op YouTube met yt-dlp (`"<naam>" blender` en `<naam> blender addon`, 15 tot 20 uitslagen). Telt alleen als de naam van de add-on in de titel staat. Bij elke video met 10.000+ views heb ik gekeken of hij echt over deze add-on gaat. Datums kon ik maar voor een deel lezen: YouTube vroeg daarna om "bevestig dat je geen bot bent", en daar ben ik gestopt. Tabel: `platformen/succes/data/blender-groeiers-youtube-2026-11-16.csv`.
+- Van alle 40 toppers en de 25 add-ons met precies 15 versies de hoofdpagina gelezen voor de echte datum "Published" (GEZIEN).
+- Versiegeschiedenis van Loop Resample, Texture Wrangler, Collada Support, Mio3 Flex, Modern Primitive en Paint System (downloads per versie, GEZIEN).
+- De zoekfunctie van de website (`extensions.blender.org/search/?q=...`) voor 10 woorden waarop iemand Click Joints zou zoeken (GEZIEN 16 nov ±15:30 UTC).
+
+### Eerst een correctie op verhaal 15
+De pagina "Version History" toont hooguit 15 versies. Bij 25 van de 582 add-ons in mijn tabel stonden er precies 15, en dan is de oudste getoonde versie niet de eerste. Vijf van de "snelste nieuwe add-ons" zijn dus helemaal niet nieuw (datum Published, GEZIEN):
+
+| Add-on | Stond in verhaal 15 als | Echt gepubliceerd |
+|---|---|---|
+| VRM format | jul 2026, 736 per dag | 11 mei 2024 (totaal 341.535) |
+| Import Autodesk MAX | apr 2026, 341 per dag | 8 mei 2024 |
+| CloudRig | mrt 2026, 176 per dag | 23 mei 2024 |
+| Modern Primitive | dec 2025, 135 per dag | 18 dec 2024 |
+| Paint System | jan 2026, 150 per dag | 12 feb 2025 |
+
+Wat dat verandert: de mediaan van 11,5 per dag blijft vrijwel gelijk (25 van 582, en de meeste daarvan liggen dicht bij hun echte begin). Maar de top 8 van echt nieuwe add-ons van 2026 is: Collada Support 201, Wiggle Bones 200, Loop Resample 195, Wiggle 2: RTX Edition 168, Texture Wrangler 164, Retarget 136 (dec 2025), Dolly Zoom 125, Light It Up 118 per dag. Daarvan vullen er **3 van de 8** een gat dat Blender 5 of een verlaten add-on maakte (Collada en de twee Wiggle-vervangers), niet 5 van de 8. De les "bouw voor een gat waar mensen al naar zoeken" blijft het sterkste patroon in de top, maar is zwakker dan ik schreef. Formaten van andere programma's die wel echt nieuw zijn: CAD2Cube (DXF) 99 en KN5 Tools (Assetto Corsa) 62 per dag.
+
+### Cijfers YouTube (GEZIEN)
+| | Toppers (n=40) | Gewone add-ons (n=40) |
+|---|---|---|
+| Minstens één video met de naam in de titel | 16 | 13 |
+| Een video met 10.000+ views en de naam in de titel | 12 | 2 |
+| Waarvan na nakijken echt over deze add-on, en de add-on is van 2026 | **1** (Mio3 Flex) | **0** |
+
+Wat er achter die 12 zit:
+- **Oude add-on, niet nieuw** (4): VRM, CloudRig, Paint System, Modern Primitive. Dynamic Parent staat pas sinds mei 2026 in de winkel, maar de video's erover lijken ouder (GOK, datums niet gelezen).
+- **Naam botst met een gewoon woord** (4): Dolly Zoom (een camerakunstje, uitlegvideo uit 2023), Light It Up (een liedje), Dimensions (een video uit 2020 over iets anders), Retarget (algemene uitleg over animaties overzetten, niet nagekeken of het over deze add-on gaat).
+- **Video over de voorganger of het probleem** (2): Wiggle Bones (Joey C-quel, "Wiggle Bones 2 Blender addon and how to use it", 109.115 views, jan 2024, over de oude add-on die in Blender 5 kapot ging) en Collada Support (MorzBNG, "Blender ends COLLADA support with 5.0, what now?", 11.646 views, 24 nov 2025, acht maanden vóór de add-on).
+- **Echt** (1): Mio3 Flex, video van Blender Secrets (13.421 views, datum niet gelezen). De maker "mio" heeft ook Mio3 UV gemaakt (321.000 downloads, staat op de voorpagina van de winkel), dus zijn naam was al bekend.
+- Bij de gewone add-ons: eigen filmpjes van makers met 13 tot 411 views (EasyShelf, Bone Math, Keymap Visualizer, FBX Scale Report, Auto Paint Boundaries), en twee naambotsingen.
+
+**Zonder enige video met hun naam groeiden** onder meer Texture Wrangler (164 per dag), Wiggle 2: RTX Edition (eigen Koreaanse video 974 views), Loop Resample (eigen video 42 views), Bezier Curve Editor (116), Loopkut (113), CAD2Cube (99), EasySlice Print (89), Easy-Print (69) en Photo Relief (eigen video's 73 en 181 views).
+
+### Wat de versies laten zien (GEZIEN)
+| Add-on | Begin | Daarna |
+|---|---|---|
+| Loop Resample | 2.838 downloads in de eerste 14 dagen na de keuring (±203 per dag) | 204 tot 235 per dag, steeds gelijk |
+| Texture Wrangler | 4.204 in 27 dagen (±156 per dag) | 191 per dag |
+| Mio3 Flex | 3.183 in de eerste 9 dagen (±350 per dag) | 72 per dag: een golf bij de start, dan rustiger |
+| Collada Support | versie 1: 42 downloads in 30 dagen | versie 2: 267 per dag. Waarom versie 1 bijna niets deed, zie ik niet (GOK: verkeerde Blender-versies opgegeven) |
+
+Loop Resample en Texture Wrangler laten geen golf zien maar een vlakke stroom vanaf dag 1, zonder video en met een Reddit-bericht van 1 punt (verhaal 15). Dat past bij mensen die in de winkel of in Blender zelf zoeken.
+
+### Paint System: de andere route, met een eigen kanaal
+Paint System is de duidelijkste add-on waar YouTube wel meetelt, maar het is een add-on van 2025 en de video's zijn van de maker zelf: kanaal Tawan Sunflower (38.600 abonnees), "Turning Blender into Photoshop | Paint System addon Tutorial" 505.319 views (1 jan 2025, zes weken vóór de winkel), "Quickly explaining about Blender Paint System 2.0" 20.778 views (7 sep 2025, met link naar de winkel), en een derde van 52.039 (20 nov 2025). Daarna volgden anderen: BlenderHub 15.148 (jan 2025), Red-Sensei 41.384 (jun 2025), askNK 101.788 en Zha Art 141.582 (datums niet gelezen). Nu, bijna twee jaar later, nog ±150 downloads per dag. Mijn lezing: een lange eigen uitlegvideo met een sterke belofte in de titel kan een add-on dragen, maar het gaat om één geval met een maker die al een kanaal had.
+
+### Click Joints in de zoekfunctie van de website (GEZIEN 16 nov)
+| Zoekwoord | Plek Click Joints |
+|---|---|
+| joint, joints, ball joint, poseable | **1** |
+| figure | 16 |
+| 3d print, print | **niet in de eerste ±30** (wel EasySlice, Easy-Print, SnapSplit, MoldForge, 3D Print Toolbox) |
+| articulated, action figure, hinge | niet gevonden |
+
+De korte omschrijving is "Ball joints for 3D printed figures that show their bend range". De zoekfunctie lijkt op hele woorden te zoeken: "printed" telt niet als "print". De print-add-ons met "Print" in naam of omschrijving staan wel bovenaan. Let op: Blender zelf zoekt in het venster Get Extensions op een eigen manier; dat heb ik niet gemeten (GOK dat daar "print" in "printed" wel gevonden wordt).
+
+### Drie lessen
+1. **De snelle groeiers van 2026 werden niet bekend via YouTube of Reddit.** Van de echt nieuwe add-ons in de top 40 had er 1 een video van een ander met 10.000+ views; de rest groeide met eigen filmpjes van tientallen views of zonder filmpje, en met Reddit-berichten van 1 tot 3 punten. Het bereik komt uit de winkel en de zoekfunctie (klopt met verhaal 9 en 15).
+2. **Waar YouTube wel meetelt, is het een bekende naam of een lange eigen uitleg, niet een kort filmpje.** Mio3 Flex had de naam van Mio3 UV mee en een golf van ±350 per dag in de eerste week; Paint System groeide op de eigen tutorial van de maker (505.000 views). Dit sluit aan bij verhaal 5 (Notebook Navigator: lange uitlegvideo's 110.000 tot 118.000 views, korte 8.200 tot 16.000).
+3. **Gevonden worden op het woord dat mensen typen.** De vervangers dragen de naam die mensen al zoeken (Wiggle, Collada) en de print-add-ons hebben "Print" in naam of omschrijving. Click Joints staat op 1 voor "joint" maar is onvindbaar op "3d print", het woord waar de grootste groep (mediaan 20 per dag, verhaal 15) op zoekt.
+
+### Eerlijk: wat deze meting niet zegt
+- Zoeken op naam mist video's die de add-on noemen zonder naam in de titel (zoals "3 Painting Add-Ons in Blender"), en Discord, X, en sites in Japan en China heb ik niet kunnen meten.
+- Datums van video's ken ik maar voor 13 video's; voor de rest weet ik niet of de video vóór of na de groei kwam.
+- De zoekplek is één meting op één moment, op de website. Of mensen vooral op de site of in Blender zoeken, weet ik niet.
+- Een filmpje kan nog steeds mensen naar de winkel sturen zonder dat het in mijn tellingen zichtbaar is; mijn conclusie is dat de groeiers het niet nodig hadden, niet dat filmpjes niets doen.
+
+### Voorstel voor Dortus deze week
+**Bram: zet de woorden "3D print" letterlijk in de korte omschrijving van gratis Click Joints bij de volgende versie**, bijvoorbeeld "Ball joints for 3D print figures, with bend range" (onder de 64 tekens), en kijk of de tags Mesh en Modeling kunnen blijven. Meet daarna met dezelfde zoekopdracht (`/search/?q=3d%20print`) of Click Joints in de lijst komt, en volg de downloads per dag op de versiepagina (nu 20 per dag). Waarom: in de winkel komt het bereik uit zoeken; op "joint" staan we al op 1, maar op "3d print" zijn we onzichtbaar terwijl de print-add-ons die daar staan 3 tot 4 keer zoveel halen. Kost één regel tekst en past binnen de regels van extensions.blender.org (geen reclame voor Pro). **Chris:** blijf filmen voor de kijker (tips en vragen), maar reken niet op het filmpje voor de downloads van gratis Click Joints; die komen uit de winkel. Een langere uitlegvideo ("hoe maak je een printbaar figuur met gewrichten in Blender") is volgens Paint System en Notebook Navigator de vorm die een add-on draagt.
+
+---
+
 ## 15. Wat laat een gratis add-on op extensions.blender.org snel groeien? 470 nieuwe add-ons (dec 2025 tot okt 2026) gemeten, naast de 13 Reddit-berichten die rechtstreeks naar die winkel linken
+
+**Correctie 16 nov ±15:40 UTC (verhaal 16): VRM, Import Autodesk MAX, CloudRig, Modern Primitive en Paint System zijn niet nieuw (gepubliceerd 2024 en begin 2025); de versiepagina toont hooguit 15 versies. Van de echt nieuwe top 8 vullen 3, niet 5, een gat van Blender 5 of een verlaten add-on.**
 
 Onderzocht 16 nov 2026 ±14:05 tot 15:05 UTC, run 15. Waarom: in verhaal 9 bleek dat bijna niemand op r/blender naar extensions.blender.org linkt, dus het effect van een bericht op een gratis add-on bleef open. Tegelijk is die winkel ons grootste kanaal voor Click Joints (gratis, ±19 per dag zonder bericht). Vraag: waar komen de downloads van de snelle groeiers vandaan, en wat doen zij anders dan Click Joints?
 

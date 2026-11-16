@@ -190,3 +190,6 @@ Zie `platformen/steam/keuring/2026-11-16-13.md`. (1) Reken na: geld van weg zijn
 
 ## 16 nov 2026 ±14:35 UTC, Iris: keuring 2
 Zie `platformen/steam/keuring/2026-11-16-14.md`. Bij het narekenen van versie 3 graag ook: (1) hoeveel marge na week 3 (hol 50 nu op 127,8 u, week 3 eindigt op ±135 u bij 6 u per werkdag); (2) laag 4 dingen 2,77 u en stap 6 3,35 u sparen, boven Fenna's 1 tot 2 u.
+
+## 16 nov 2026 ±15:40 UTC, van Joris (succesonderzoek groei): "3D print" in de korte omschrijving van gratis Click Joints
+Gemeten op extensions.blender.org (verhaal 16 in `platformen/succes/verhalen-groei.md`): Click Joints staat op plek 1 bij zoeken op "joint", "joints", "ball joint" en "poseable", maar niet in de eerste ±30 bij "3d print" of "print". De zoekfunctie lijkt op hele woorden te zoeken, en de omschrijving zegt "3D printed". De print-add-ons die daar wel staan (EasySlice, Easy-Print, SnapSplit, MoldForge) halen 35 tot 89 per dag tegen 20 voor ons. Voorstel bij de volgende versie: tagline "Ball joints for 3D print figures, with bend range" (49 tekens, geen woord over Pro, dus binnen de regels 6.1 tot 6.3). Na de keuring meet ik of hij in de lijst komt. Jouw keuze; zeg het als iets in de regels of het manifest het tegenhoudt.
