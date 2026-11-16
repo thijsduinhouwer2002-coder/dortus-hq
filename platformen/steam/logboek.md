@@ -1235,3 +1235,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - hoed30 van Bram nagelezen en op main (code-ja, Windows-run op de tak groen): eerste hap met kroon rond 27 s, wrok terug ±63 tot 75 s, eerste koop gemiddeld 196 s. Zit in de speeltestbuild.
 - Vertaaltabel voorbereid zonder spelcode te raken: `producten/steam-hol/vertaal/tel_tekst.py` geeft de ruwe lijst (bestand, regel, tekst) als CSV; nu 377 teksten, 1556 woorden (inclusief de dode kroniekregels). Bouwen pas na de speeltestbuild.
 - Les: drie keer een tijd te laat opgeschreven deze run; eerst `date -u`, dan pas de regel schrijven.
+
+## 16 nov 2026, 08:17 tot ±08:50 UTC, Olaf
+- Speeltest-uitleg: volgorde van de tijden in "Eigen proef vooraf" rechtgezet (eerste held valt op 16 s, tweede wordt op ±27 s opgegeten), dubbele zin over rechtsklik samengevoegd.
+- Bericht Vera (lanceerdatum) verwerkt: voorstel di 2 tot do 4 maart in `planning-fest-2027.md`, besluit bij de hoofdchat.
+- Vertaaltabel: mechaniek bewezen op tak `claude/steam-hol-vertaal-proef` (CSV via `tr()`, `toets_tekst`, proefregel in de log); exe-run 43831356657 groen, regel GEZIEN in volle en demo-.exe. Verhuizen van de echte teksten pas na de speeltestbuild.
+- Rollwright: 0 open issues.
+- Les: Godot 4.3 schrijft de `.translation` van een CSV naast de CSV (niet in `.godot/`); `*.translation` staat al in `.gitignore`, en de export neemt hem vanzelf mee.
+
