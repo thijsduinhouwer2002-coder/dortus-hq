@@ -1,8 +1,61 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 22, het gratis broertje bij Garmin-wijzerplaten, 452 paren, klaar 16 nov 2026 ±21:50 UTC). Volgende: Ebb en Ebb Calm als paar meten zodra Calm openbaar is, Ebb-Short nameten 7 dagen na plaatsen, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 23, één kanaal met Click Joints en Ebb door elkaar, klaar 16 nov 2026 ±22:30 UTC). Volgende: Ebb en Ebb Calm als paar meten zodra Calm openbaar is (16 nov 22:00 UTC nog niet: de makerslijst toont 1 app, Ebb 0 downloads, GEZIEN), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 23. Eén kanaal, twee heel verschillende producten: kost het views als @Dortusapps Click Joints en Ebb door elkaar plaatst? Wat YouTube en TikTok zelf zeggen, en 552 Shorts van 5 gemengde kanalen gemeten
+
+Onderzocht 16 nov 2026 ±21:55 tot 22:30 UTC, run 23. Waarom: vanaf di 17 nov plaatst Chris elke dag een filmpje op YouTube @Dortusapps en TikTok @dortusstudio, en die wisselen af tussen Click Joints (Blender, 3D-printen) en Ebb (ademhalen op een Garmin) (`commercie/filmpjes/planning.md`: 7, 9, 2, 5, 4 ...). Dat zijn twee publieken die elkaar bijna niet raken. De vraag: straft YouTube of TikTok een kanaal dat zo wisselt, en moet Ebb een eigen kanaal krijgen (dat kan alleen Thijs aanmaken)?
+
+### Bronnen en werkwijze
+- **YouTube zelf** (DERDEN): Todd Beaupré, hoofd groei en ontdekken bij YouTube, in een video op het officiële kanaal Creator Insider (1 sep 2026, https://www.youtube.com/watch?v=rHLjxrbXmmY), geciteerd met tijdstippen door OutlierKit (https://outlierkit.com/resources/youtube-second-channel-or-same-channel/). De ondertiteling zelf kon ik niet lezen (YouTube weigerde de cloudomgeving, 403), dus de citaten zijn niet door mij nagelezen in de video.
+- **TikTok zelf** (DERDEN): "How TikTok recommends videos #ForYou", https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you (gelezen met curl).
+- **Meting** (GEZIEN, 16 nov ±22:00 UTC, yt-dlp, lijst Shorts per kanaal met views): 40 kleine makerskanalen bekeken (33 kanalen met 10+ Shorts uit de Garmin-winkelfilmpjes van verhaal 21 en zoekresultaten op Blender-add-ons en Garmin-apps; 21 waren te lezen). Daarvan wisselen er **5** echt van onderwerp, samen **552 Shorts**: Kevandram (Blender: kamerplanten, Final Fantasy-tarotkaarten, 3D-prints; 119.000 abonnees), Copperthumb (3D-print-lessen en een eigen winkel met D&D- en MTG-spullen; 1.430), Wim van VAW.BE (Garmin-tips en zijn eigen wijzerplaten; 2.390, ook verhaal 3), Presh Dineshkumar (gezondheidstips en zijn drie eigen apps; 712), white-bear developers (koud-water-livestreams in vier talen en een Garmin-app; 40). De andere 16 bleven bij één onderwerp (bijna allemaal "nieuwe wijzerplaat").
+- Onderwerp per Short ingedeeld op woorden in de titel (eigen regels per kanaal, enkele kunnen fout zijn). "Na een wissel" = de Short ervoor op het kanaal had een ander onderwerp. Geen datums in de lijst, alleen de volgorde.
+- Tabel: `platformen/succes/data/kanaal-gemengd-shorts-2026-11-16.csv` (kanaal, plek, id, onderwerp, views).
+
+### 1. YouTube en TikTok beoordelen elk filmpje apart (DERDEN)
+- YouTube, Beaupré: "The system isn't trying to find a single category for your content. In fact, we are very video-centric." Over een kijker die van één soort alleen het ene wil: "we will try to focus the recommendations on the things that they actually want to watch." En: "even if you do create a separate channel, we can figure out that people who watch this channel also watch this channel".
+- Maar zijn advies over kanalen gaat over **mensen, niet over straf**: "The advice that we give around channels is really to align channels with audiences. If you think it's going to be the same viewers of both topics, then you can try it on the same channel." En: "think about channels similar to brands, and make it easy for audiences to know whether they should expect the same thing or not."
+- TikTok: "neither follower count nor whether the account has had previous high-performing videos are direct factors in the recommendation system." Elke video wordt apart aan kijkers voorgelegd op grond van wat zij eerder deden.
+Kort: geen straf voor wisselen. Wel het advies om één kanaal voor één publiek te houden, zodat een abonnee weet wat hij krijgt.
+
+### 2. In de meting zie ik geen straf na een wissel (GEZIEN)
+| Kanaal | Onderwerp | Shorts | Mediaan views | Na hetzelfde onderwerp | Na een wissel |
+|---|---|---|---|---|---|
+| Kevandram | kamerplanten | 65 | 2.900 | 1.700 (18) | 3.300 (47) |
+| Kevandram | tarotkaarten | 30 | 1.800 | 851 (9) | 1.900 (21) |
+| Kevandram | 3D-prints | 22 | 2.700 | | |
+| Kevandram | de rest (Blender) | 162 | 2.850 | 3.100 (119) | 2.450 (42) |
+| Copperthumb | winkel, D&D | 59 | 1.100 | 1.000 (24) | 1.100 (34) |
+| Copperthumb | lessen | 78 | 1.100 | 1.100 (44) | 1.000 (34) |
+| Wim | eigen wijzerplaat | 11 | 1.400 | | 1.350 (8) |
+| Wim | tips | 37 | 1.500 | 1.950 (28) | 1.350 (8) |
+Een Short na een wissel doet het gemiddeld niet slechter; bij Kevandram doen de kamerplanten het na een wissel zelfs beter. De enige daling is bij de kern van een kanaal (Kevandram-rest en Wim-tips ±20 tot 30% lager na een wissel), op kleine aantallen. **Dit zijn 5 kanalen, geen bewijs voor elk kanaal**; wel klopt het met wat YouTube zegt.
+
+### 3. Wat wel views kost: reclame voor het product en hetzelfde filmpje in vier talen (GEZIEN)
+- **Productfilmpjes tegen tips.** Presh: Shorts over zijn eigen apps mediaan 404 views, zijn gezondheidstips 770; "Introducing SunSeek" haalde 48. Wim: zijn eigen wijzerplaten 1.400, tips 1.500, maar zijn vijf best bekeken (39.000 tot 13.000) gaan alle vijf over horloges van Garmin en anderen, niet over zijn eigen wijzerplaten ("Coros Pace 4 Pro vs Garmin Forerunner 570/970", "Is the Garmin Connect app terrible or awesome?"). Copperthumb zet de winkel in de tekst onder een les, en daar zie ik geen verschil (1.100 tegen 1.100). Dat klopt met verhaal 2 en 4: mensen volgen tips, de reclame rijdt mee.
+- **Eén clip in vier talen op één kanaal.** white-bear developers plaatst elke clip in het Engels, Duits, Spaans en Fins: mediaan 37, 62, 31 en 7 views. Vier keer zo veel werk, en elke versie concurreert met de andere op hetzelfde kanaal. Dat lijkt op het opdrijven met bijna gelijke clips uit verhaal 13.
+
+### 4. Waar Ebb en Click Joints anders zijn dan deze 5 kanalen
+De 5 kanalen wisselen tussen onderwerpen die nog in één wereld zitten (Blender, of Garmin, of gezondheid). Blender-printers en Garmin-ademhalers zijn verder uit elkaar dan wat ik vond; een kanaal met precies die mix vond ik niet. Volgens Beaupré is dat precies het geval voor "different viewers, second channel". Maar met 0 abonnees speelt dat nog niet: elk filmpje gaat apart naar kijkers die er iets mee hebben (punt 1). Het gaat pas wringen als er abonnees zijn: een Blender-abonnee ziet een ademfilmpje in zijn lijst en slaat het over (GOK, niet gemeten).
+
+### Drie lessen
+1. **Wisselen tussen producten wordt niet gestraft.** YouTube en TikTok kiezen per filmpje de kijkers, en in 552 Shorts van 5 gemengde kanalen doet een filmpje na een wissel het niet slechter. Een nieuw kanaal hoeft dus niet per se gesplitst te worden.
+2. **Kanaal = publiek, niet = onderwerp.** Splits pas als blijkt dat de kijkers van het ene product het andere niet willen. Meet dat in plaats van het te gokken.
+3. **Elk filmpje moet op zichzelf staan.** Omdat elk filmpje apart wordt beoordeeld, moet titel en eerste seconde zeggen voor wie het is (Blender, Garmin). Productreclame haalt minder dan een tip; een clip in meerdere talen op één kanaal haalt per versie bijna niets.
+
+### Voorstel voor Dortus deze week
+**Chris:** houd @Dortusapps en @dortusstudio zoals gepland (geen nieuw kanaal, dus niets voor Thijs). Drie kleine dingen: (1) elke titel begint met het platform, zodat het filmpje zonder kanaal te begrijpen is: "Blender tip: ..." en "Garmin: ..." (de titels van 7, 2 en 9 doen het al bijna); (2) maak op YouTube twee afspeellijsten, "Click Joints: printable joints in Blender" en "Ebb: breathing on Garmin", en zet elk filmpje in de goede; (3) geen vertaalde dubbele versies op hetzelfde kanaal. **Meetpunt** (Chris, na 10 filmpjes, rond di 1 dec): vergelijk in YouTube Studio per product de views en vooral de abonnees per filmpje. Halen de Ebb-filmpjes minder dan een derde van de Click Joints-filmpjes en komen er bijna geen abonnees bij Ebb (drempel is een GOK), dan zet de hoofdchat een tweede kanaal voor Garmin op de lijst van Thijs. Ik meet de eerste filmpjes na 7 dagen na (vanaf di 24 nov).
+
+### Wat ik niet weet
+- De citaten van YouTube heb ik niet zelf in de video gehoord (ondertiteling geweigerd); ze komen van een derde die ze met tijdstippen linkt.
+- Een klein kanaal met precies een Blender-product en een Garmin-product naast elkaar heb ik niet gevonden. De 5 kanalen liggen dichter bij elkaar.
+- Abonnees en terugkerende kijkers per filmpje staan niet openbaar; die ziet alleen de eigenaar in YouTube Studio. Daarom het meetpunt bij Chris.
+- TikTok heb ik niet zelf gemeten in deze run; daar geldt wat TikTok zelf schrijft.
 
 ---
 
