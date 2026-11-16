@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 759, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 759 goud, faam 98
+HOL weg geweest 0 s (klok terug: true): goud voor 657, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 657 goud, faam 81
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794851633
-HOL eerste koop mogelijk na 30 s speeltijd (goud 759)
+HOL zaad 1794851640
+HOL eerste koop mogelijk na 30 s speeltijd (goud 657)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Rik is here for your gold.
-HOL begin: doorlopen (Rik)
-HOL held binnen: Rik
-HOL einde na 8 s, fps=10, goud=759, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Gerda knocks first. Polite.
+HOL begin: doorlopen (Gerda)
+HOL held binnen: Gerda
+HOL einde na 8 s, fps=10, goud=657, terugkomers=0
