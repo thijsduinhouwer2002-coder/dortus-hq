@@ -15,9 +15,10 @@ from PIL import Image, ImageDraw, ImageFont
 LETTER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "barlow-condensed-latin-500-normal.woff")
 TEKENS = "".join(chr(c) for c in range(32, 127)) + "·"
 # Schermmaat uit de hoogte van de cijferletter (±31,5 procent van D).
-MAAT = {82: 260, 88: 280, 123: 390, 130: 416, 143: 454}
+MAAT = {69: 218, 76: 240, 82: 260, 88: 280, 113: 360, 123: 390, 130: 416, 143: 454}
 # Regelhoogte xtiny, small, medium per schermmaat (systeemletters, plaatjesrun c304861).
-REGEL = {260: (19, 32, 37), 280: (19, 34, 40), 390: (31, 46, 53), 416: (32, 48, 56), 454: (36, 51, 60)}
+# 218, 240 en 360 (Ebb 1.0.1, 16 nov): eerste schatting uit de namen van de systeemletters; na de plaatjesrun gelijkzetten met de regel LETTERHOOGTE.
+REGEL = {218: (19, 25, 29), 240: (19, 28, 32), 360: (28, 42, 48), 260: (19, 32, 37), 280: (19, 34, 40), 390: (31, 46, 53), 416: (32, 48, 56), 454: (36, 51, 60)}
 NAMEN = ("ebb_xtiny", "ebb_small", "ebb_medium")
 IDS = ("EbbXtiny", "EbbSmall", "EbbMedium")
 CAP = 0.52
@@ -83,13 +84,15 @@ def main(app):
             continue
         lh = int(re.search(r"lineHeight=(\d+)", open(cij).read()).group(1))
         maat = MAAT[lh]
-        groottes = [maak(r, fm, n, i, CAP_XTINY_GROOT if (n == "ebb_xtiny" and maat >= 390) else CAP) for r, n, i in zip(REGEL[maat], NAMEN, IDS)]
+        groottes = [maak(r, fm, n, i, CAP_XTINY_GROOT if (n == "ebb_xtiny" and maat >= 360) else CAP) for r, n, i in zip(REGEL[maat], NAMEN, IDS)]
         with open(os.path.join(fm, "fonts.xml"), "w") as uit:
             uit.write("<fonts>\n")
             uit.write("    <!-- Eigen cijferletter voor het grote getal (eis 11), gemaakt met bron/maak_cijfers.py. -->\n")
             uit.write('    <font id="EbbCijfers" filename="ebb_cijfers.fnt" filter="0123456789:" antialias="true"/>\n')
             uit.write("    <!-- Besluit 11 nov 09:30 punt 2: de tijd tijdens inhouden 80 procent, zodat het dier 90 x 70 (454) krijgt. -->\n")
             uit.write('    <font id="EbbCijfersKlein" filename="ebb_cijfers_klein.fnt" filter="0123456789:" antialias="true"/>\n')
+            uit.write("    <!-- Keuring 12 nov 04:05 NL: cijfers op de wereldschermen 85 procent van klein (56 van 260, zoals Mila's blad). -->\n")
+            uit.write('    <font id="EbbCijfersWereld" filename="ebb_cijfers_wereld.fnt" filter="0123456789:" antialias="true"/>\n')
             uit.write("    <!-- Keuring bouw 4 punt 4: Barlow Condensed voor alle tekst, gemaakt met bron/maak_letters.py. -->\n")
             for n, i in zip(NAMEN, IDS):
                 uit.write(f'    <font id="{i}" filename="{n}.fnt" antialias="true"/>\n')

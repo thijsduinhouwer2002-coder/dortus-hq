@@ -18,7 +18,7 @@ concurrency:
 jobs:
   bouw:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 80
     permissions:
       contents: read
     env:
@@ -58,7 +58,7 @@ jobs:
           # FR255 (MIP 260), fenix 8 47 mm (AMOLED 454) en vivoactive 5 (AMOLED 390, aanraakscherm). De bouwtak draait alles.
           case "$GITHUB_REF_NAME" in
             *proef*) ALLE="fr255 vivoactive5 fenix847mm"; MENU="fr255 fenix847mm"; VEEG="vivoactive5" ;;
-            *) ALLE="fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3 epix2 venu2plus enduro3"; MENU="fenix7 fr255 vivoactive5 fr265 fenix847mm"; VEEG="vivoactive5 venu2 venu3" ;;
+            *) ALLE="fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3 enduro3 marq2 fenix947mm fr255s fenix7s fr265s venu2s"; MENU="fenix7 fr255 vivoactive5 fr265 fenix847mm fr255s"; VEEG="vivoactive5 venu2 venu3 venu2s" ;;
           esac
           MIN=$(echo $ALLE | wc -w); echo "$MIN" > schermen/aantal-horloges.txt
           echo "HORLOGES deze ronde ($MIN): $ALLE"
