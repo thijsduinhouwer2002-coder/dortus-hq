@@ -100,9 +100,12 @@ def figuur_gewrichten(objecten, figuur):
 def samenvatting(lijst):
     """Korte regel bovenaan: "3 joints" of "6 joints, 4 ranges from your rig"."""
     n = len(lijst)
-    rig = sum(1 for r in lijst if r.get("herkomst") == "from rig")
+    rig = sum(1 for r in lijst if r.get("herkomst") in ("from rig", "mirrored"))
+    sp = sum(1 for r in lijst if r.get("herkomst") == "mirrored")
     kop = f"{n} joint" + ("" if n == 1 else "s")
-    return f"{kop}, {rig} range{'' if rig == 1 else 's'} from your rig" if rig else kop
+    if not rig:
+        return kop
+    return f"{kop}, {rig} range{'' if rig == 1 else 's'} from your rig" + (f" ({sp} mirrored)" if sp else "")
 
 
 def _snij(context, soort, stand, graden_vrij=0):
@@ -230,7 +233,7 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
                 # Daan (16 nov, kan): `from rig` valt op met een groen bolletje (groen zoals de bogen) in plaats van
                 # het lichaamsdeel-icoon. Een losse grijze kolom voor de herkomst paste niet in de zijbalk (het bereik
                 # viel weg, eigen beeld 14:35), en de hele regel grijs leest als uitgeschakeld.
-                if rec.get("herkomst") == "from rig":
+                if rec.get("herkomst") in ("from rig", "mirrored"):  # mirrored: bereik van de andere kant van je rig
                     kol.label(text=regel(rec), icon="COLLECTION_COLOR_04")
                 else:
                     kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)

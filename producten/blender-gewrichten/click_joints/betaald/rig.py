@@ -99,6 +99,34 @@ def eindstop(grens, lo=30, hi=150):
     return int(min(hi, max(lo, round(g)))), kant
 
 
+def ander_kant(naam):
+    """"Left knee" -> "Right knee" en andersom; None zonder kant (nek)."""
+    for a, b in (("Left ", "Right "), ("Right ", "Left ")):
+        if naam.startswith(a):
+            return b + naam[len(a):]
+    return None
+
+
+def spiegel_stops(stops):
+    """Spiegelen (hoofdchat 16 nov, onderzoek Thijs): {naam: stop of None} -> {naam: (stop, herkomst)}.
+
+    Heeft maar één kant een grens in de rig (veel rigs zetten Limit Rotation alleen links), dan neemt de andere
+    kant hetzelfde bereik, met herkomst "mirrored" in plaats van "preset". Een eigen grens gaat altijd voor; heeft
+    geen van beide kanten een grens, dan blijft het preset. Buigkant blijft gelijk: een gespiegelde rig (Rigify,
+    Mixamo, X-Axis Mirror) buigt aan beide kanten om dezelfde lokale X."""
+    uit = {}
+    for naam, stop in stops.items():
+        if stop is not None:
+            uit[naam] = (stop, "from rig")
+            continue
+        ander = ander_kant(naam)
+        if ander is not None and stops.get(ander) is not None:
+            uit[naam] = (stops[ander], "mirrored")
+        else:
+            uit[naam] = (None, "preset")
+    return uit
+
+
 def cursor_matrix(armature, pose_bot, kant=1):
     """Matrix voor de 3D-cursor: oorsprong op de botkop, X = scharnieras, Y = buigkant, Z = lidas (rechtshandig).
     Draaien om +X van het bot brengt de staart naar +Z, dus bij kant +1 is de buigkant +Z en de as -X."""
@@ -244,10 +272,14 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
         cursor = context.scene.cursor
         oud_cursor = cursor.matrix.copy()
         gelukt, overgeslagen = [], []
+        # Spiegelen: eerst alle grenzen lezen, dan krijgt een kant zonder grens die van de andere kant.
+        stops = {naam: (eindstop(grens_x(arm.pose.bones.get(b))) if figuur.PER_SLEUTEL[k][2] == "HINGE" else None)
+                 for b, k, naam in lijst}
+        per_naam = spiegel_stops(stops)
         for botnaam, sleutel, naam in lijst:
             pb = arm.pose.bones.get(botnaam)
             soort = figuur.PER_SLEUTEL[sleutel][2]
-            stop = eindstop(grens_x(pb)) if soort == "HINGE" else None
+            stop, herkomst = per_naam[naam]
             m = cursor_matrix(arm, pb, stop[1] if stop else 1)
             delen = [o for o in context.scene.objects if o.type == "MESH" and o.visible_get()
                      and (o is mesh or o.get("cj_figuur") == fig)]
@@ -265,8 +297,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             context.view_layer.objects.active = doel
             cursor.rotation_mode = "QUATERNION"
             cursor.matrix = m
-            ok, melding, _d = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0,
-                                                     "from rig" if stop else "preset")
+            ok, melding, _d = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
             if ok:
                 gelukt.append(naam)
             else:

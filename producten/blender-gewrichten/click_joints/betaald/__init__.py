@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog
+from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog, snippers
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
@@ -131,6 +131,7 @@ def register(eigen=None):
     if _oude_zet[0] is None:
         _oude_zet[0] = uit_elkaar.zet
         uit_elkaar.zet = _zet
+    snippers.register(gewricht)  # 1.1: losse snippers na een snede met één lid weg (gratis deel onveranderd)
     afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
@@ -157,6 +158,7 @@ def unregister():
         if uit_elkaar.zet is _zet:
             uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
+    snippers.unregister(gewricht)
     afstand.unregister(gewricht)
     if _oude_enable[0] is not None:
         if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven

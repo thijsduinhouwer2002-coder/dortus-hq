@@ -289,9 +289,6 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             return {"CANCELLED"}
         try:
             deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
-            if een_lid.actief():  # 1.1: dunne losse snippers van de snede met H weg (zie een_lid.ruim_snippers)
-                for d in (deel_a, deel_b):
-                    d["cj_snippers"] = een_lid.ruim_snippers(d, eenheid_per_mm(context.scene))
         finally:
             een_lid.reset()
         uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]

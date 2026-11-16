@@ -6,7 +6,9 @@ Heupen staan in de rig maar liggen in de romp-overgang: die mogen eerlijk overge
 eist alleen de knieën. Eisen:
 - naamregels: Mixamo, Rigify en gewone namen herkend, Hips/Spine/LeftHand niet;
 - Left knee: scharnier met eindstop 120 (stand 120), label "from rig", buigkant = +Z van het bot;
-- Right knee: scharnier 135 (preset), label "preset";
+- Right knee: shin.R heeft alleen een grens in wereldruimte (telt niet), dus spiegelen: hetzelfde bereik als links
+  (120), label "mirrored" (hoofdchat 16 nov, spiegelen); spiegel_stops los getoetst (eigen grens gaat voor,
+  zonder grens aan beide kanten blijft het preset, nek zonder kant blijft preset);
 - alle delen gesloten, het rechteronderbeen is een eigen deel (de linkerknie sneed niet door het rechterbeen);
 - samenvatting noemt "1 range from your rig" (of meer als een heup ook lukt, nooit meer dan het aantal scharnieren);
 - zonder rig: geweigerd met een melding.
@@ -107,6 +109,14 @@ def main():
     for naam, sleutel in verwacht.items():
         h = rigm.herken(naam)
         check((h[0] if h else None) == sleutel, f"naam {naam} -> {h}")
+    sp = rigm.spiegel_stops({"Left knee": (120, 1), "Right knee": None, "Left elbow": None, "Right elbow": None,
+                             "Left hip": None, "Neck": None})
+    check(sp["Right knee"] == ((120, 1), "mirrored") and sp["Left knee"] == ((120, 1), "from rig"),
+          f"spiegelen knie {sp['Right knee']}")
+    check(sp["Left elbow"] == (None, "preset") and sp["Right elbow"] == (None, "preset") and sp["Neck"] == (None, "preset"),
+          "zonder grens aan beide kanten blijft het preset")
+    sp2 = rigm.spiegel_stops({"Left knee": (120, 1), "Right knee": (100, 1)})
+    check(sp2["Right knee"] == ((100, 1), "from rig"), f"eigen grens gaat voor spiegelen {sp2}")
 
     leeg()
     inst = bpy.context.scene.click_joints
@@ -144,8 +154,8 @@ def main():
                          if o.get("cj_figuur") == "pop" and o.get("cj_deel")), "")
     # Was BEKEND in 4.2 (Exact-solver: open randen bij de tweede knie); sinds de herkansing met een verschoven
     # snijvlak (scharnier.py, 16 nov run 4) moet hij in alle versies lukken.
-    check(rk is not None and rk["soort"] == "HINGE" and rk["herkomst"] == "preset"
-          and rk["graden"] is not None and 120.0 <= rk["graden"] <= 135.2, f"Right knee preset: {rk} ({overgeslagen})")
+    check(rk is not None and rk["soort"] == "HINGE" and rk["herkomst"] == "mirrored"
+          and rk["graden"] is not None and 118.0 <= rk["graden"] <= 120.2, f"Right knee gespiegeld: {rk} ({overgeslagen})")
     delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "pop" and o.get("cj_deel")
              and o.visible_get()]
     check(all(gesloten(o) for o in delen), f"alle {len(delen)} delen gesloten")
@@ -164,9 +174,9 @@ def main():
         xs = [(rechts[0].matrix_world @ v.co).x for v in rechts[0].data.vertices]
         check(min(xs) > 0.0, f"rechteronderbeen alleen rechts (min x {min(xs):.2f})")
     tekst = fig.samenvatting(alle)
-    n_rig = sum(1 for x in alle if x["herkomst"] == "from rig")
+    n_rig = sum(1 for x in alle if x["herkomst"] in ("from rig", "mirrored"))
     log(f"samenvatting: {tekst}; overgeslagen: {delen[0].get('cj_rig_overgeslagen') if delen else None}")
-    check(n_rig >= 1 and n_rig <= sum(1 for x in alle if x["soort"] == "HINGE") and "from your rig" in tekst,
+    check(n_rig >= 1 and n_rig <= sum(1 for x in alle if x["soort"] == "HINGE") and "from your rig" in tekst and "mirrored" in tekst,
           f"samenvatting '{tekst}'")
     log(f"KLAAR {len(FOUT)} FOUT")
 

@@ -2,7 +2,7 @@
 
 Figuur en rig uit toetsen_rig.py (twee benen, knie links met Limit Rotation 0 tot 120 graden, rechts zonder).
 Na de knop staan de bogen vanzelf aan (rig.py). Kijkrichting schuin van voren, zodat beide knieën een waaier
-met getal tonen. Hele venster plus een uitsnede van de zijbalk (de lijst met `from rig` en `preset`).
+met getal tonen. Hele venster plus een uitsnede van de zijbalk (de lijst met `from rig` en, sinds spiegelen, `mirrored` op de rechterknie).
 Regel "RIG BEELD OK" als minstens één boog van een figuur in de passingkleur met getal getekend is, de kopregel
 hooguit één keer staat, en de lijst `from rig` bevat. Twee bogen in alle versies (ook 4.2, sinds de herkansing
 met verschoven snijvlak).

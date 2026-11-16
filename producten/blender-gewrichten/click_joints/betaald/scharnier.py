@@ -25,6 +25,7 @@ from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
+from . import snippers
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
 from . import scharnier_neus as neus
@@ -168,9 +169,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                 return {"CANCELLED"}
             try:
                 deel_a, deel_b = vorm.snij(hulp, werk, frame_i, maat, solver)
-                if een_lid.actief():  # 1.1: dunne losse snippers van de snede met H weg
+                if snippers.actief():  # 1.1: dunne losse snippers van de snede met H weg
                     for d in (deel_a, deel_b):
-                        d["cj_snippers"] = een_lid.ruim_snippers(d, u)
+                        d["cj_snippers"] = snippers.ruim_snippers(d, u)
             except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
                 ruim_op(hulp)
                 if i < laatste:
