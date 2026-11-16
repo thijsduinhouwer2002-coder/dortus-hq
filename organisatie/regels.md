@@ -120,3 +120,9 @@ Thijs (16:31): "voor mijn gevoel zeg jij soms dat ze langer bezig zijn dan het e
 
 ## Plaatsen op Reddit en andere communities (16 nov 2026)
 Alleen de hoofdchat plaatst, op het eigen account van Thijs, en alleen na zijn ja op de precieze tekst en het beeld. Agents schrijven en zoeken de regels van elke community uit (zelfpromotie, dag, flair), plaatsen nooit zelf. Eén product per community per keer, geen dubbele posts, reageren op vragen doet de hoofdchat met Thijs. Beelden en filmpjes komen uit het echte product; een render staat er als render bij.
+
+## Hoofdchat: een idee van Thijs eerst bruikbaar maken (16 nov 2026)
+Thijs (17:19): "jij schiet dit gelijk af, maar als ik dan een logische follow-up stel wil je het wel ... dat gebeurt structureel." Werkwijze voor de hoofdchat bij elk idee van Thijs:
+1. Zoek eerst de versie van het idee die wel werkt, en stel die zelf voor met de volgende stap (wie, wanneer).
+2. Wijs alleen het deel af dat niet klopt, met een reden. "Nee" is nooit het hele antwoord.
+3. Toegeven na een vervolgvraag mag alleen als de vervolgvraag echt iets nieuws toevoegt; zeg dan wat er nieuw aan is. Anders blijf je bij je oordeel.
