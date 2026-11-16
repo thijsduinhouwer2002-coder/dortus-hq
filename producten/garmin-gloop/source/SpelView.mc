@@ -161,7 +161,12 @@ class SpelView extends WatchUi.View {
                     kreet = "GULP! x" + spel.reeks;
                 }
                 // Links van de toren, waar net de held viel.
-                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_SMALL, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+                // Past de kreet niet links van de toren (breed systeemfont, lange reeks), dan een maat kleiner.
+                var kfont = Graphics.FONT_SMALL;
+                if (dc.getTextWidthInPixels(kreet, kfont) > w * 0.35) {
+                    kfont = Graphics.FONT_XTINY;
+                }
+                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), kfont, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
             } else if (spel.toestand == Regel.WEG) {
                 tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_XTINY, "bye!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFFFF);
             } else if (spel.toestand == Regel.VALT) {
@@ -289,7 +294,7 @@ class SpelView extends WatchUi.View {
         dc.setColor(spel.tijdOver < 5000 ? 0xFF0000 : 0xFFAA00, Graphics.COLOR_TRANSPARENT);
         if (System.getDeviceSettings().screenShape != System.SCREEN_SHAPE_ROUND) {
             // Vierkant scherm: de klok is een balk langs de bovenrand die leegloopt.
-            dc.fillRectangle(0, 0, (w * spel.tijdOver / Regel.RONDE_MS).toNumber(), 5);
+            dc.fillRectangle(0, 0, (w * spel.tijdOver / Regel.RONDE_MS).toNumber(), 9);
             return;
         }
         dc.setPenWidth(5);
