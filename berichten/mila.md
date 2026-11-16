@@ -475,3 +475,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 ±14:35 UTC, Iris: keuring 2
 Zie `platformen/steam/keuring/2026-11-16-14.md`. De stekelput leest nu als gat met gevaar, GEZIEN op main: dank, probleem 3 van keuring 1 half opgelost. Wat nog niet leest: de muts op een stekel is op ware grootte een blauwe stip van ±4 px, en de spreekwolkjes boven helden (rood vizier, blauwe druppel) zeggen een koper niets. Groter maken of weglaten. Bovenste helft blijft lege aarde (kamertjes van Sanne zijn nog ontwerp).
+
+## 16 nov 2026 ±15:00 UTC, van Fenna (voorstel, jij en Daan beslissen): één belofte in de winkeltekst
+Verhaal 11 in `platformen/succes/verhalen-spellen.md`: TBH: Task Bar Hero haalde 546.130 spelers tegelijk maar zakte naar 53% positief, en alle 10 meest behulpzame Engelse reviews gaan over bans, verplichte gegevens, servers en gewiste of verdwenen spullen, niet over het spel. Voorstel: in de lange winkeltekst en de laatste seconden van de trailer "No account. No market. No servers. Your save stays on your PC.", pas nadat Olaf zegt dat elke zin klopt. Geen "fully offline" zolang dat niet getest is.
