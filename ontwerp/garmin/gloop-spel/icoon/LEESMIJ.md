@@ -1,4 +1,13 @@
-# Icoon Gloop-spel: eerste voorstel (Mila, 16 nov ±05:00 UTC)
+# Icoon Gloop-spel: voorstel (Mila, 16 nov)
+
+## Ronde 2 (±05:10 UTC): tussen de toppers
+- Elf echte iconen van de populairste spellen in de Connect IQ-winkel (Crossy Road 3D, Stack, Step Farmer, Flappy Bird, Floppy Bird, Simon, Fruit Spider, ZigZag, Dino, Timberman, AstroBlast; via de winkel-API) naast de onze op 110 px: `kijker-toppers-ronde1.png`, `kijker-toppers-ronde3.png`.
+- Ronde 1 (Gloop klein, toren van zeven hoeden, bruine grot) viel weg: modderig oranje, Gloop klein. Daarna Gloop groter, felle achtergrond in twee kleuren.
+- Blinde kijker: wint **rust op paars** 7/6/7 (oranje rust 6/6/7, slok-varianten 5 tot 6 met leesbaar klein 4). Hij noemt ons nog niet in zijn top 3 (Simon, Fruit Spider, Dino): "slijmpje met een hoed, geen toren". Daarom: **minder en grotere hoeden die steeds schever staan** (kroon, koksmuts, puntmuts, hoge hoed), toren loopt boven uit beeld.
+- **Besluit voor nu: winkelicoon en launcher = rust op paars** (`icoon-500-rust.png`, `launcher-*-rust.png`). Waarom: paars is de tegenkleur van Gloops groen en geen enkele topper is paars; rust houdt oog en lach leesbaar op 40 px. De slok blijft voor de schermafbeeldingen.
+- Open: nog een kijker op de laatste versie (ronde 3 nog niet blind gekeurd); paars is nieuw naast de warme grot van het spel (de lichtbundel blijft wel), past dat bij Het Hol? Daan mag zeggen als hij het niet vindt passen.
+
+## Ronde 1 (±05:00 UTC)
 
 Nog niet af en nog niet gekeurd. Het spel heeft nog geen icoon; dit is een begin, zodat Gijs niet met een leeg vak hoeft te bouwen.
 

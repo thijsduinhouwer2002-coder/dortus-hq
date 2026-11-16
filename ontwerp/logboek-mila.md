@@ -623,4 +623,5 @@
 - Taak aan Gijs in `platformen/garmin/taken.md`.
 - Volgende: simulatorbeelden met de nieuwe slok keuren op 1x; open: held leest klein als "iets blauws", nog niet als ridder.
 - (05:00) Erbij: **eerste voorstel icoon Gloop-spel** (`ontwerp/garmin/gloop-spel/icoon/`), winkel 500 en launcher 40/60/80, in twee versies. Besluit voor nu: launcher = rust (slok leest klein als vlek). Nog niet aan Gijs: eerst kijker tussen de toppers.
+- (05:10) Icoon ronde 2: elf toppers uit de Connect IQ-winkel (API) ernaast op 110 px. **Besluit: icoon = Gloop rust op paars, grotere schuine hoeden.** Waarom: blinde kijker koos paars 7/6/7, bruin viel weg; zijn moet (toren leest als propje) met minder en grotere hoeden aangepakt, nog niet opnieuw blind gekeurd.
 
