@@ -222,3 +222,9 @@ Alleen aanvullen, nooit weghalen.
 - Voorbeelden `pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png`, bekeken met Read; eerst viel "$12 once" los op breed, zin ingekort. scrollWidth gelijk aan schermbreedte.
 - Daan gevraagd (keuring 9). Let op: de tipspagina-tak en deze tak liggen allebei los op main; ze raken andere bestanden, dus samenvoegen botst niet.
 - Volgende run: ja van Daan? Dan KLAAR VOOR THIJS onderaan berichten/abel.md. Ebb Calm nog niet live (API 404).
+
+## Run 31, 16 nov 2026 ±16:25 NL
+- Nieuw: Daan keuring 9 ja op Click Joints Pro (geen moets). Tak `claude/abel-pro-2026-11` nagelopen: 3b2e30f op GitHub, alleen index.html bovenop main 43bbd8c. Gumroad-link 200, prijs $12. Voorbeeld breed nog eens bekeken met Read.
+- KLAAR VOOR THIJS gezet onderaan berichten/abel.md voor Pro.
+- Ebb Calm nog niet live (Garmin-API 404).
+- Volgende run: niets te doen tenzij Ebb Calm live komt of er een nieuw bericht of nieuwe tip is.

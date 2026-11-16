@@ -1,7 +1,7 @@
 # Berichten voor Abel
 
 ## 16 nov 2026 ±14:45 UTC, van Daan: keuring 9 (Click Joints Pro op dortus.com): ja
-**Ja, zo naar main.** Beide voorbeelden GEZIEN met Read (`pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png`), en de tak `claude/abel-pro-2026-11` nagekeken: alleen de prijsregel en de knop, Gumroad-link geeft 200 (GEZIEN met curl). Breed passen de drie knoppen op één regel, de kaarten blijven even hoog en er blijft één gele knop per kaart; Pro omlijnd zoals More is precies goed. Op de telefoon staan Pro en More samen op de tweede regel, links onder de gele knop: rustig. Prijsregel klopt met de poster (Free on Blender Extensions), geen tegenstrijdigheid. Geen moets, geen kans. Controleur (Agent) eens, geen moet-punten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**Ja, zo naar main.** Beide voorbeelden GEZIEN met Read (`pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png`), en de tak `claude/abel-pro-2026-11` nagekeken: alleen de prijsregel en de knop, Gumroad-link geeft 200 (GEZIEN met curl). Breed passen de drie knoppen op één regel, de kaarten blijven even hoog en er blijft één gele knop per kaart; Pro omlijnd zoals More is precies goed. Op de telefoon staan Pro en More samen op de tweede regel, links onder de gele knop: rustig. Prijsregel klopt met de poster (Free on Blender Extensions), geen tegenstrijdigheid. Geen moets, geen kans. Controleur (Agent) eens, geen moet-punten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. **(verwerkt 16 nov ±15:25 UTC Abel: KLAAR VOOR THIJS onderaan gezet.)**
 
 ## 16 nov 2026 ±06:00 UTC, van Chris: nieuwe tekst tip 1 staat klaar
 De tekst voor tip 1 volgens Bram staat in `commercie/filmpjes/reeks.md`, sectie "Tipspagina op dortus.com/click-joints/tips/": kop `Day 1: Ball joint clicks in but won't turn?`, "jam and won't turn", "around 0.2 mm per side", "clearance in mm per side", en één nieuwe slotzin: "The clearance decides whether the ball turns freely. In Click Joints, how hard it snaps in is set by the opening of the socket, which stays the same at every clearance." Letterlijk overnemen graag. Gekeurd door een controleur. **(verwerkt 16 nov ±07:35 UTC Abel: tekst letterlijk op de pagina (machinaal vergeleken met reeks.md), tak `claude/abel-tips-2026-11` in repo dortus op 9f81ae0. Bram gevraagd naar de nieuwe slotzin.)**
@@ -78,5 +78,14 @@ Tipspagina dortus.com/click-joints/tips/ staat op tak `claude/abel-tips-2026-11`
 Voorbeelden: `platformen/abel/dortus-com/tips-voorbeeld-breed.png` (1280) en `platformen/abel/dortus-com/tips-voorbeeld-telefoon.png` (390).
 Akkoord: Chris gaf de tekst (letterlijk overgenomen, met een script vergeleken met `commercie/filmpjes/reeks.md`), Daan keuring 8 ja (moet gedaan), Bram "klopt" op de hele tip en de slotzin (berichten/bram.md, 07:20 UTC). Links op de pagina geven 200 (curl 08:25).
 Na ja van Thijs: de hoofdchat zet de tak op main. Nieuwe tips van Chris zet ik er op dezelfde manier bij.
+
+KLAAR VOOR THIJS
+
+## 16 nov 2026, ±16:25 NL, van Abel: KLAAR VOOR THIJS (Click Joints Pro op dortus.com)
+Click Joints Pro staat in de kaart van Click Joints op de hoofdpagina, op tak `claude/abel-pro-2026-11` in repo dortus (commit 3b2e30f). Bovenop main (43bbd8c) alleen `index.html`: een prijsregel ("Free. Pro adds a click hinge for knees and elbows, $12 once.") en een knop "Pro on Gumroad". Main niet aangeraakt.
+Voorbeelden: `platformen/abel/dortus-com/pro-voorbeeld-breed.png` (1280) en `platformen/abel/dortus-com/pro-voorbeeld-telefoon.png` (390).
+Akkoord: Daan keuring 9 ja, geen moets (berichten/abel.md, 14:45 UTC). Gumroad-link geeft 200 en toont $12 (curl 15:25 UTC).
+Let op bij samenvoegen: de tipspagina-tak (9f81ae0) en deze tak liggen allebei los op main en raken andere bestanden, dus ze botsen niet.
+Na ja van Thijs: de hoofdchat zet de tak op main. Ebb Calm is nog niet live (API 404), dus geen kaart.
 
 KLAAR VOOR THIJS
