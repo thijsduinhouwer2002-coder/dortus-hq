@@ -1,0 +1,41 @@
+name: Steam fest-meting (spelers tegelijk in demo's)
+
+# Sem, 16 nov 2026. Meet elk uur spelers tegelijk in de demo's van een fest, ook als er geen run van Sem valt.
+# Welke lijsten en wanneer: platformen/steam/marketing/data/meetlijsten.csv. Script: data/fest-meting.py.
+# Alleen de openbare Steam-API zonder sleutel. Uitkomst op de tak `fest-metingen`, één csv per lijst.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: steam-fest-meting
+  cancel-in-progress: false
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Meten en bewaren op tak fest-metingen
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/m
+            if git clone -q --depth 1 --branch fest-metingen "$URL" /tmp/m 2>/dev/null; then :; else
+              mkdir /tmp/m && cd /tmp/m && git init -q -b fest-metingen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            python3 platformen/steam/marketing/data/fest-meting.py platformen/steam/marketing/data/meetlijsten.csv /tmp/m
+            cd /tmp/m && git add -A && { git commit -q -m "Fest-meting $(date -u +%FT%H:%MZ)" || { echo "niets actief"; exit 0; }; }
+            if git push -q origin fest-metingen; then echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/fest-metingen"; exit 0; fi
+            cd - >/dev/null; sleep $((poging * 5))
+          done
+          exit 1
