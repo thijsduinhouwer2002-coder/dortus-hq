@@ -1,0 +1,7 @@
+project.manifest = manifest.xml
+
+# Plaatjes per schermbreedte, overgenomen uit de spritekit van het Gloop-spel (Mila).
+fenix7.resourcePath = $(fenix7.resourcePath);res-260
+fr255.resourcePath = $(fr255.resourcePath);res-260
+venusq2.resourcePath = $(venusq2.resourcePath);res-320
+venu3s.resourcePath = $(venu3s.resourcePath);res-390

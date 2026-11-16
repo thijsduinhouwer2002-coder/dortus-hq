@@ -1,0 +1,15 @@
+<drawables>
+    <bitmap id="GloopRust" filename="gloop_rust.png" dithering="none"/>
+    <bitmap id="GloopBlij" filename="gloop_blij.png" dithering="none"/>
+    <bitmap id="Hoed0" filename="hoed_00_helm.png" dithering="none"/>
+    <bitmap id="Hoed1" filename="hoed_01_puntmuts.png" dithering="none"/>
+    <bitmap id="Hoed2" filename="hoed_02_kap.png" dithering="none"/>
+    <bitmap id="Hoed3" filename="hoed_03_pet.png" dithering="none"/>
+    <bitmap id="Hoed4" filename="hoed_04_kroon.png" dithering="none"/>
+    <bitmap id="Hoed5" filename="hoed_05_koksmuts.png" dithering="none"/>
+    <bitmap id="Hoed6" filename="hoed_06_emmer.png" dithering="none"/>
+    <bitmap id="Hoed7" filename="hoed_07_hoge_hoed.png" dithering="none"/>
+    <bitmap id="Hoed8" filename="hoed_08_pan.png" dithering="none"/>
+    <bitmap id="Hoed9" filename="hoed_09_veermuts.png" dithering="none"/>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png"/>
+</drawables>
