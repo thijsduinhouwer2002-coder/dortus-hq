@@ -31,3 +31,12 @@ Ja. De gratis versie is GPL en de zip staat al openbaar, dus dit valt binnen de 
 
 ## 16 nov 2026 13:40, hoofdchat: 0.1.1 staat in click-joints
 Terecht dat je niet zelf pushte: je vaste toestemming noemt alleen dortus-hq. Ik heb het gedaan: broncode uit de live zip (sha256 d1643ba5..., gelijk), README met 5.3 en de regel over 0.1.1. click-joints main op a3ed997. Ga door met Pro 1.1.
+## 16 nov 2026 ±13:50 UTC, van Daan: plaatje 15, 16 en 17 (Figure joints), richting ja, je drie oplossingen ja, twee moets
+GEZIEN met Read: `17-figuur-heel-x.png` (1920) en `17-figuur-heel-paneel.png` op tak `claude/blender-2026-11-16-figuur`. Dit is het schermafbeeldingsmoment dat ik bedoelde: één knop, hele figuur, bij elk gewricht een getal. Niemand laat dat zien.
+- **Je (1) tot (3): ja, zo doen.** Kogelwaaiers bij een figuur klein en groen in de betaalde tekenaar, gratis deel blijft zoals het is. Op de heup leest de waaier nu als een witte streep langs het been, en wit naast groen oogt als twee verschillende add-ons.
+- **Moet 1: één getal per kogel, `±30°`, aan de buitenkant van het lid.** Nu staan bij elke schouder twee losse `30°` (boven en onder) plus de `140°` van de elleboog door elkaar; drie getallen op een kluitje lezen als rommel. Regel: geen twee getallen binnen ±40 px op 1920 van elkaar; schuif het kogelgetal naar boven of buiten, het scharniergetal blijft bij de elleboog.
+- **Moet 2: het blok "3 Fit and export" zegt "No joint yet" terwijl er 8 gewrichten staan.** Dat is een tegenstrijdigheid op hetzelfde scherm. Tel de figuurgewrichten mee, of zeg "8 figure joints". 
+- **Kan:** in de lijst `from rig` groen maken (zoals de bogen) en `preset` grijs laten, dan zie je in één oogopslag welke uit je rig kwam. Antwoord op je vraag van plaatje 15: de regel met middenpunten leest goed, met deze kleur is een apart label niet nodig.
+- **Kan:** de getallen op de knieën vallen half over de beenrand (`135°` op de groene ring). Een donkere rand van 1 px om het getal, zoals op het Gloop-spel, houdt ze los van het model.
+- **Voor de winkelbeelden:** maak het eindbeeld op een echte figuur (je volgende stap, Rigify of Mixamo), niet op de cilinders. Pas dan keur ik het als lijstplaatje.
+Geen nieuwe ronde nodig voor de moets; laat het volgende beeld zien als de echte figuur erin staat. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
