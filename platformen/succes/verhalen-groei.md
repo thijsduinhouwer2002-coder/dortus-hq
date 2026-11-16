@@ -1,8 +1,66 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 3 (maker die wel groeide met korte filmpjes), 16 nov 2026 03:05 NL-tijd.
+bezig: niets (laatste: VAW.BE, Garmin-wijzerplaten met dagelijkse filmpjes, klaar 16 nov 2026 ±03:45 NL-tijd). Volgende: een Blender- of 3D-print-maker die met tips-filmpjes (niet productfilmpjes) groeide, of Reddit en nieuwsbrieven als kanaal.
 
 Nieuwste bovenaan.
+
+---
+
+## 3. VAW.BE (Wim Van Aerschot, solo, Garmin-wijzerplaten): elke dag een kort filmpje, en de nummer 1 van de winkel
+
+Onderzocht 16 nov 2026, run 3. Open vraag uit run 1 en 2: een kleine maker van een tool of Garmin-app die WEL groeide met korte filmpjes. Waarom dit verhaal: dit is precies ons terrein. Een solo maker uit België verkoopt Garmin-wijzerplaten van $1,99 tot $4,99 (Ebb kost $4,99), maakt sinds februari 2025 korte filmpjes op TikTok, Instagram en YouTube, en zijn betaalde wijzerplaat Goals stond eind oktober 2026 bovenaan de wijzerplatenlijst van de Connect IQ Store. Hij schrijft bij elk filmpje een stuk op zijn eigen site ("Garmin School", nu dag 167), dus de onderwerpen van zijn reeks zijn van dag 1 af te lezen.
+
+### Bronnen
+- Zijn site: Garmin School, de lijst van alle 167 dagen met onderwerp en aantal keer gelezen (curl): https://garmin.vaw.be/en/community . Losse dagen: dag 1 Stride https://garmin.vaw.be/en/community/day-1-stride-watchface , dag 3 Goals https://garmin.vaw.be/en/community/day-3-goals-watchface-apple-rings-for-garmin , dag 5 Laziest https://garmin.vaw.be/en/community/day-5-laziest-watchface-ever-created , dag 101 Goals Pro https://garmin.vaw.be/en/community/day-101-goals-pro-garmin-watchface , over hem https://garmin.vaw.be/en/about
+- De openbare winkel-API van Garmin (dezelfde die Gijs gebruikt, zie `platformen/garmin/status.md`): al zijn 142 apps met downloads (in blokken), aantal reviews, prijs; en de datum van reviews, om te zien wanneer de groei kwam.
+- the5krunner, 2 nov 2026, Goals bovenaan de wijzerplatenlijst van oktober (geopend in een browser zonder inloggen, curl gaf een Cloudflare-scherm): https://the5krunner.com/2026/11/02/goals-tops-garmins-watch-face-chart-for-october
+- Tom's Guide, 13 aug 2025, een vaste Garmin-tester raadt Goals aan (curl): https://www.tomsguide.com/wellness/fitness-trackers/if-youre-moving-from-apple-to-garmin-youll-want-to-install-this-watch-face
+- Garmin-forum, zijn eigen bericht over Goals III, ruim 3 jaar geleden (curl): https://forums.garmin.com/developer/connect-iq/f/showcase/315890/watchface-goals-iii
+- Zijn kanalen, alleen de tellers: TikTok https://www.tiktok.com/@vaw.be (blok `__UNIVERSAL_DATA_FOR_REHYDRATION__`), Instagram https://www.instagram.com/vawbe/ (meta-omschrijving), YouTube https://www.youtube.com/@vawbe/shorts (views per Short staan in de pagina). Vier omslagen van Shorts bekeken (i.ytimg.com).
+- Niet gelukt: archive.org (verbinding viel weg), dus ik weet niet hoe zijn kanalen er in 2025 uitzagen. Zijn eigen TikTok- en Instagram-lijst met filmpjes en views is niet leesbaar zonder verborgen API, dus views per filmpje heb ik alleen van YouTube, en alleen van de nieuwste 48.
+
+### Cijfers
+Kanalen (GEZIEN 16 nov 2026):
+- TikTok @vaw.be: aangemaakt 9 feb 2025, 29.500 volgers, 251.500 likes, 301 filmpjes. Dat is ±3,4 filmpjes per week, 21 maanden lang.
+- Instagram @vawbe: 31.000 volgers, 369 berichten. Zijn site verwijst overal naar Instagram ("link in my bio"), dus dat is zijn hoofdkanaal.
+- YouTube @vawbe: 2.350 abonnees. De nieuwste 48 Shorts: meestal 750 tot 2.500 views. Uitschieters zijn geen productfilmpjes maar nieuws en vergelijkingen: "Coros Pace 4 Pro vs Garmin Forerunner 570/970" 39.000, "This is Garmin's new Marq 3" 19.000, "Is the Garmin Connect app terrible or awesome?" 18.000, "Your Garmin knows when your body is struggling" 13.000. Zijn eigen wijzerplaten: "This is the new Cockpit watchface" 3.200, "This is the new Cadence watchface" 2.500, "This is the Photo Time watchface" 751.
+- **Vorm: hij praat zelf in de camera**, met een microfoontje in de hand, ondertitels groot in beeld, één woord gekleurd, thuis voor een kast met planten. Geen gezichtloze schermopname.
+
+Winkel (GEZIEN 16 nov 2026, openbare API; downloads geeft Garmin alleen in blokken als "100.000+"):
+- 142 apps van VAW.BE, waarvan 48 betaald, samen 196.155 reviews.
+- Goals: $1,99, 100.000+ downloads, **32.206 reviews**, 4,9 sterren. Eerste review 4 apr 2025, dus twee maanden na zijn eerste TikTok. Sindsdien elke dag ±30 tot ±100 reviews (met pieken rond kerst 2025, ±99 per dag, en in juli 2025, ±86 per dag), nu ±40 per dag.
+- Goals Pro: $4,99, 10.000+ downloads, 903 reviews. Gratis "Seasons": 500.000+ downloads, 55.458 reviews (sinds dec 2023). "The Laziest Watchface Ever Created" (gratis, met AI-agents gebouwd): eerste review 6 feb 2026, nu 50.000+ downloads en 2.982 reviews.
+- Daily Sea Creature, een betaalde wijzerplaat met zeedieren voor $4,99, net als Ebb: 100+ downloads, 40 reviews. Niet elk onderwerp loopt, ook niet bij hem.
+- Werkwijze in de winkel: bijna elke betaalde wijzerplaat staat er twee of drie keer: betaald, "with trial" (gratis proberen), en "with trial & kpay" (betalen via een andere dienst). Goals betaald heeft 32.206 reviews, Goals "with trial" 8.423.
+
+Groei voor en na de filmpjes (GEZIEN: reviewdata van zijn 12 apps met de meeste reviews, samen 167.789; ik telde per periode hoeveel reviews er bijkwamen):
+- 16 nov 2024 tot 9 feb 2025 (voor zijn eerste TikTok): 9.020 reviews in 85 dagen, ±106 per dag (met kerst erin).
+- 9 feb 2025 tot 16 nov 2025: 50.392 in 280 dagen, ±180 per dag.
+- 16 nov 2025 tot 15 nov 2026: 74.991 in 364 dagen, ±206 per dag.
+- Dus na de start van de filmpjes ±1,7 tot 2 keer zoveel reviews per dag. Maar: Goals kwam er in april 2025 bij, er komen elk jaar meer Garmin-horloges, en Tom's Guide schreef in aug 2025 over Goals. Hoeveel van de groei door de filmpjes komt, is met deze cijfers NIET te scheiden.
+- Omzet: niet openbaar. GOK, heel grof: als de helft van de 100.000+ downloads van Goals betaald is, is dat ±$100.000 bruto vóór de afdracht aan Garmin, verspreid over 19 maanden. Dat de betaalde versie meer reviews heeft dan de proefversie, wijst erop dat veel mensen echt kopen, maar het blijft een gok.
+
+### Wat hij deed, in volgorde
+1. **Jaren eerst gewoon bouwen.** Op het Garmin-forum staat Goals III al "over 3 years ago"; Goals V heeft reviews sinds jan 2023, Seasons sinds dec 2023. In nov 2024 had hij al ±33.000 reviews in zijn top 12. De filmpjes kwamen dus bovenop een winkel die al liep.
+2. **Feb 2025: TikTok, Instagram en YouTube, zijn eigen gezicht.** ±3 tot 4 filmpjes per week. In april 2025 kwam Goals ("Apple Watch rings, maar voor Garmin"): een idee dat hij uit reacties haalde ("This is the most common thing I hear from people who switch to Garmin").
+3. **Kijkers laten meedoen.** Kijkers delen hun kleurencombinatie voor Goals in de reacties onder zijn Instagram-filmpjes, "the best ones get featured" (dag 3). Een openbaar ideeënbord: kijkers stemmen wat hij bouwt (dag 47, dag 53, dag 115), en hij maakt filmpjes over wijzerplaten die volgers vroegen ("One of my followers quit smoking...", "I created the Photo Time watchface based on Ward's idea", "Can I build your Garmin watchface?").
+4. **Feb 2026: een vaste reeks, "100-Day Garmin School".** Dag 1: "I made this Garmin watchface because my doctor told me I was going to die." Elke dag een filmpje en een stuk op zijn site met een nieuwsbrief. Na dag 100 ging hij door (nu dag 167).
+5. **De onderwerpen verschoven van eigen product naar vragen van alle Garmin-bezitters.** Dag 1 tot 5: alle vijf zijn eigen wijzerplaten (Stride, Daily Flowers, Goals, Hearts, Laziest). Dag 1 tot 30: ±9 van de 30 over zijn eigen apps, de rest tips (batterij, hartslagalarm, VO2max, "Why Garmin doesn't default to 10,000 steps"). Dag 31 tot 167: nog ±1 op 8 over eigen apps, de rest tips, vergelijkingen (Garmin tegen Apple Watch en Coros), nieuws (nieuwe horloges) en "Garmin met Claude". Op zijn site zijn de stukken over Claude en Garmin het meest gelezen (dag 43 vergelijkingstool 6.948 keer, dag 62 slaapscore met Claude 3.562, "Connect your Garmin to Claude" 3.189 en 3.118).
+6. **Elk filmpje wijst naar één plek**: de link in zijn Instagram-bio, waar al zijn apps, een bundel ("save up to 90%") en de nieuwsbrief staan.
+
+### Drie lessen
+1. **Bouw het kanaal rond de vragen van de bezitters, niet rond je product.** Zijn best bekeken Shorts zijn vergelijkingen en nieuws (13.000 tot 39.000), zijn productfilmpjes halen 750 tot 3.200. Na de eerste vijf dagen ging nog maar 1 op de 3 en later 1 op de 8 filmpjes over zijn eigen apps. De tips brengen volgers; de wijzerplaten liften mee via de bio. Bij VibeDesk (verhaal 2) ging elk filmpje over het product, en dat bleef steken op 39 tot 363 views.
+2. **Een echt persoon met een eigen verhaal is de haak.** Hij praat zelf, met een eerlijke reden ("my doctor told me I was going to die" bij Stride, "I always forget Valentine's Day" bij Hearts). Dit is het eerste verhaal in onze reeks met tienduizenden volgers via eigen korte filmpjes, en het is geen gezichtloos kanaal. Twee verhalen is weinig, maar het past: gezichtloos en alleen product (VibeDesk) bleef plat, gezicht en tips (VAW.BE) groeide. GOK: voor Garmin en Blender geldt hetzelfde.
+3. **Lang volhouden en kijkers laten kiezen.** 301 filmpjes in 21 maanden, en de groei in reviews kwam geleidelijk (±106 naar ±206 per dag), niet in één klap. Wat er wel in één klap kwam, waren ideeën die hij uit de reacties haalde: Goals (ringen zoals Apple) werd zijn grootste betaalde product. Het ideeënbord en "jouw kleuren worden uitgelicht" maken van kijkers meedenkers.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Hij had al jaren een lopende winkel (±33.000 reviews vóór zijn eerste filmpje) en 100+ apps. Wij hebben Ebb met 0 downloads. Zijn filmpjes konden naar een hele etalage wijzen; de onze naar één of twee producten.
+- Hij is een echte Garmin-gebruiker die test en zelf praat. Wij mogen geen AI-gezicht of nep-persoon gebruiken (besluit 15 nov 22:53), en terecht. Zijn vorm is dus alleen na te doen als Thijs zelf in beeld wil, of met een eigen stem zonder gezicht. Dat beslist Thijs, niet wij.
+- Wat de filmpjes precies opleverden, kan ik niet scheiden van Goals, Tom's Guide en de groei van Garmin zelf. Zijn eigen "top 5 wijzerplaten van 2026" (dag 79) zet twee van zijn eigen apps erin (Laziest op 2, Titan op 4); dat is reclame, geen onafhankelijke lijst.
+- Zijn eerste 30 filmpjes op TikTok (feb tot ±apr 2025) heb ik niet kunnen zien. Wat ik heb, zijn de eerste 30 dagen van zijn tweede start, de Garmin School van feb 2026.
+
+### Voorstel voor Dortus deze week
+**Draai de verhouding in het filmplan om: 4 van de 5 filmpjes beantwoorden een vraag die elke Blender-gebruiker (of Garmin-bezitter) heeft, 1 van de 5 laat ons product zien, en geef de reeks een vaste naam met een dagnummer.** Voor Click Joints bijvoorbeeld "Print-in-place in Blender, day 1": hoeveel speling een gewricht nodig heeft, waarom een print vastsmelt, welke laaghoogte, hoe je een figuur zo zet dat hij zonder steun print. Click Joints komt dan vanzelf in beeld als het gereedschap, en het onderschrift wijst naar dortus.com/click-joints/. Voor Ebb later hetzelfde met korte Garmin-tips (ademhaling, Body Battery, stress), zonder gezondheidsclaims. **Wie:** Chris schrijft de 10 eerste onderwerpen in `commercie/filmpjes/` en maakt ze met de opnames van Bram; Bram levert per tip een kort, echt Blender-beeld. **Eén vraag voor de hoofdchat aan Thijs** (geen haast, past in de groeironde): wil hij af en toe zelf 20 seconden praten (gezicht, of alleen zijn stem over de beelden)? Dit verhaal is het enige in onze reeks waarin korte filmpjes echt volgers gaven, en daar praat de maker zelf. Zegt hij nee, dan gaan we gezichtloos verder met de tips-verhouding, en kijken we na 20 tot 30 filmpjes eerlijk naar views en downloads, zoals besloten.
 
 ---
 
