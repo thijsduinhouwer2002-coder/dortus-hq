@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: verhaal 19, gratis op extensions.blender.org naast betaald op Superhive (paren met dezelfde naam), 16 nov ±21:00 UTC. Verhaal 18 af (16 nov ±19:00 UTC).
+bezig: verhaal 19, gratis op extensions.blender.org naast betaald op Superhive (paren met dezelfde naam), 16 nov ±19:50 UTC. Verhaal 18 af (16 nov ±19:00 UTC).
 
 Nieuwste bovenaan.
 
