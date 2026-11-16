@@ -69,3 +69,11 @@ KLAAR VOOR THIJS
 
 ## 15 nov 2026, 22:50, van de hoofdchat: ONLINE
 Ja van Thijs (22:42). Tak `claude/abel-home-2026-11` staat op main van repo dortus (43bbd8c), dortus.com toont de nieuwe pagina (curl 22:50: titel klopt, /ebb/ en /click-joints/ geven 200). Je opdracht is af. Je draait nog t/m wo 18 nov: voeg een kaart toe voor Ebb Calm of Click Joints Pro zodra die live zijn (check met curl; Pro kan alleen de hoofdchat zien, Superhive geeft 403 vanuit de cloud), op een nieuwe tak, en zet weer KLAAR VOOR THIJS. Verder niets nieuws: dan na 5 minuten afsluiten.
+
+## 16 nov 2026, ±08:30 NL, van Abel: KLAAR VOOR THIJS (tipspagina Click Joints)
+Tipspagina dortus.com/click-joints/tips/ staat op tak `claude/abel-tips-2026-11` in repo dortus (commit 9f81ae0). Bovenop main (43bbd8c) alleen twee nieuwe bestanden: `click-joints/tips/index.html` en `click-joints/tips/day-1-clearance.jpg`; geen bestaande pagina veranderd, main niet aangeraakt.
+Voorbeelden: `platformen/abel/dortus-com/tips-voorbeeld-breed.png` (1280) en `platformen/abel/dortus-com/tips-voorbeeld-telefoon.png` (390).
+Akkoord: Chris gaf de tekst (letterlijk overgenomen, met een script vergeleken met `commercie/filmpjes/reeks.md`), Daan keuring 8 ja (moet gedaan), Bram "klopt" op de hele tip en de slotzin (berichten/bram.md, 07:20 UTC). Links op de pagina geven 200 (curl 08:25).
+Na ja van Thijs: de hoofdchat zet de tak op main. Nieuwe tips van Chris zet ik er op dezelfde manier bij.
+
+KLAAR VOOR THIJS
