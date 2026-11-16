@@ -1,6 +1,38 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
 
+## 16 nov 2026 12:45 UTC (Bram): klaar om de voortgang van ±100 uur na te rekenen (besluit Thijs 13:01 NL)
+Sannes `platformen/steam/voortgang.md` is er nog niet (wo 18 nov). Wat er nu al staat, zodat het narekenen dan minuten kost:
+- `python3 sim.py diepte`: wat een speler bij uur 1, 2, 5, 10, 20, 40, 70 en 100 open tijd heeft verzameld. Dat zijn de bronnen waar een hol-niveau of een bewonersniveau op kan lopen. Uitvoer: `uitkomst-diepte.txt`.
+- `python3 sim.py drempels N uren p bron`: voorstel voor drempels, zodat niveau n valt op `uren x ((n-1)/(N-1))^p`. p groter = snel in het begin, trager aan het eind.
+- `python3 sim.py voortgang bestand.json`: rekent een voortgang na (meerdere sporen, de 6 winkelstappen tellen mee): wanneer valt elk niveau, ontgrendelingen en langste gat per blok, aantal muren (gat langer dan 2 u open tijd, het plafond uit features.md), laatste ontgrendeling, en hoeveel er na 24 u (3 werkdagen) nog komt. Voorbeeld: `voortgang-voorbeeld.json` (geen ontwerp, alleen om het te laten zien), uitvoer `uitkomst-voortgang-voorbeeld.txt`.
+
+**Eerst een fout in de sim zelf, nu hersteld voor deze drie stukken:** de sim rekende met goud `6 x (1 + 0,1 x faam) x (1 + gangen / 40)`, graven tegen betaling en extra bewoners te koop. Het spel doet dat niet: `kern/afloop.gd` geeft 6 + 3 per eerder bezoek, faam bestaat niet in het spel, graven is gratis, en de winkel is alleen de 6 stappen van `upgrades.gd` (45, 126, 353 per soort, samen 1048). `SPEL_ECONOMIE` rekent nu zoals het spel (met heldensoorten aan); `SIM_ECONOMIE=oud` geeft de oude. De oude commando's (`begin`, `ritme`, `10 8`) veranderen niet.
+
+**Wat het spel nu geeft (8 zaden, mediaan, GEZIEN):**
+
+| Open tijd | Helden binnen | Gevangen | Goud verdiend | Hoeden op Gloop | Winkelstappen |
+|---|---|---|---|---|---|
+| 1 u | 75 | 49 | 324 | 36 | 4 |
+| 2 u | 149 | 108 | 717 | 80 | 5 |
+| 5 u | 367 | 291 | 1.866 | 226 | 6 |
+| 10 u | 732 | 590 | 3.780 | 463 | 6 |
+| 20 u | 1.464 | 1.193 | 7.611 | 948 | 6 |
+| 40 u | 2.925 | 2.390 | 15.309 | 1.912 | 6 |
+| 70 u | 5.108 | 4.206 | 26.805 | 3.358 | 6 |
+| 100 u | 7.296 | 6.030 | 38.355 | 4.809 | 6 |
+
+Tempo na de winkel (20 tot 100 u): 73 helden, 60 gevangen, 384 goud en 48 hoeden per uur, en dat blijft gelijk.
+
+**Wat dat zegt voor het ontwerp (aan Sanne, geen besluit):**
+1. **De winkel is op na 2,8 u** (min 2,8, max 3,0), niet na ±7 u: die 7 u kwam uit de oude sim met graven en extra bewoners. Daarna staat er bij 100 u ±37.000 goud op de bank waar niets mee kan. Goud heeft nu geen bodem om in te zakken; een voortgang van 100 u heeft dus óf iets nodig om goud aan uit te geven (iets dat steeds duurder wordt), óf de niveaus lopen op iets anders dan goud.
+2. **Alles groeit na uur 3 recht evenredig met de tijd.** Er is niets dat sneller gaat naarmate je verder bent. Drempels die exponentieel oplopen (zoals de winkel, x 2,8) worden dus heel snel een muur. Drempels die als `n^2` of `n^1,5` oplopen passen beter.
+3. **Hoeveel ontgrendelingen zijn er nodig zonder muur?** Eén hol-niveau op gevangen helden over 100 u: 50 niveaus geeft 13 tot 19 muren (gat langer dan 2 u), wat de vorm ook is; 75 niveaus met p 1,5 nog 3; **100 niveaus met p 1,5 geen enkele, met 7 niveaus in de eerste 2 u (de demo) plus de 6 winkelstappen.** Hetzelfde kan met minder hol-niveaus als bewonersniveaus en lagen ertussen vallen: wat telt is ±100 ontgrendelingen in totaal, ±30 daarvan tussen uur 40 en 100.
+4. **Hoeden als bron voor de niveaus van Gloop** werken al: de zes maten van de hoedenberg vallen op 10 min, 43 min, 2,4 u, 6,6 u, 21 u en 63 u. Dat is een mooie lange lijn, maar alleen tussen 21 en 63 u is het gat 42 u, dus daar moet iets anders tussen.
+5. **Let op als de voortgang het tempo verandert** (nieuwe bewoners vangen meer, nieuwe lagen brengen meer helden): dan kloppen deze drempels niet meer. Zodra voortgang.md er is, zet ik die effecten eerst in `speel()` en reken ik daarna na.
+
+
+
 ## 16 nov 2026 (Bram): sim volgt nu het ritme en het begin van het spel (`python3 sim.py begin`)
 De sim rekende nog met een held per 25 tot 75 s en alleen "eerste held valt" (bij Gloop, dus een te vroege hap op 21 s). Nu, zoals `kern/ritme.gd` en `BEGIN` in `kern/strook.gd` sinds 16 nov 07:31 UTC: eerste held op 4 s, vaste stappen vallen (put), opgegeten (Gloop), vluchten (met wrok tegen de put), terug (die vluchter naar zijn vijand), doorlopen (Hoard-Toucher), gaten 5 tot 7, 18 tot 22, dan 35 tot 45 s, na het begin 40 tot 60 s. `SIM_OUD=1` geeft de oude sim. Opdracht: Fenna (`platformen/succes/onderscheid-hats.md` punt 3, "Bram: sim en toets"). 40 zaden, GEZIEN:
 

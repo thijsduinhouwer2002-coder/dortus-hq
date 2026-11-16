@@ -45,6 +45,11 @@ SOORT_GEWICHT = {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
 LIED_HELDEN = 2
 TRICK_MAGIER = 1.0   # None = uit; 1.0 = Trick Lid zet de factor van de magier voor de put op 1,0 (meting 10 nov 03:30)
 
+# Bram 16 nov: het spel zelf (kern/afloop.gd) geeft per val 6 + 3 per eerder bezoek, zonder faam en zonder gangfactor;
+# graven is gratis en er zijn geen extra bewoners te koop, dus de winkel is alleen de 6 stappen van upgrades.gd.
+# SPEL_ECONOMIE = True rekent zo (diepte, drempels en voortgang zetten het aan; SIM_ECONOMIE=oud geeft de oude sim).
+SPEL_ECONOMIE = False
+REEKS = False   # True: speel() bewaart na elke held de tellers in st["reeks"] (zie diepte() onderaan)
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 
@@ -80,7 +85,7 @@ def speel(uren, zaad):
                 k.append(("extra_" + s, 40 * 2.6 ** n))
             if upg[s] < 3:
                 k.append(("upg_" + s, UPG_BASIS * 2.8 ** upg[s]))
-        if STRATEGIE == "spaar":
+        if STRATEGIE == "spaar" or SPEL_ECONOMIE:
             k = [x for x in k if x[0].startswith("upg_")]
         return k
 
@@ -98,7 +103,7 @@ def speel(uren, zaad):
             volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
         lied_extra = max(0, lied_extra - 1)
         helden += 1
-        faam = helden // 60
+        faam = 0 if SPEL_ECONOMIE else helden // 60
         # wie komt er?
         if stap == "terug" and begin_vlucht is not None:
             if begin_vlucht in terug:
@@ -199,7 +204,9 @@ def speel(uren, zaad):
             st["eerste_hap"] = t + LOOP_HAP_S
         if uit == "gevallen":
             st["gevallen"] += 1
-            goud += 6 * (1 + 0.1 * faam) * (1 + gangen / 40) + GOUD_PER_BEZOEK * h["bezoeken"]
+            erbij = (6 if SPEL_ECONOMIE else 6 * (1 + 0.1 * faam) * (1 + gangen / 40)) + GOUD_PER_BEZOEK * h["bezoeken"]
+            goud += erbij
+            st["goud_totaal"] = st.get("goud_totaal", 0.0) + erbij
             if st["eerste_val"] is None:
                 st["eerste_val"] = t
         else:
@@ -213,6 +220,10 @@ def speel(uren, zaad):
                 h["wrok"] = geraakt_door
             if rng.random() < BLIJFT_KANS or h["gevlucht"] >= 3 or h is begin_vlucht:
                 terug.append(h)
+        if REEKS:
+            # tellers na elke held, voor de voortgang over ±100 uur (diepte(), voortgang(), drempels())
+            st.setdefault("reeks", []).append((t, helden, st["gevallen"], st.get("goud_totaal", 0.0),
+                                               len(st["hap_tijden"]), st["hap_slijm"], faam, len(st["aankopen"])))
         # kopen: steeds het goedkoopste wat kan
         while True:
             k = koop_lijst()
@@ -223,6 +234,7 @@ def speel(uren, zaad):
                 break
             goud -= prijs
             st["aankopen"].append((t, wat))
+            st.setdefault("uitgaven", []).append((t, prijs))
             if wat.startswith("upg_") and "eerste_upg" not in st:
                 st["eerste_upg"] = t
             if wat == "graaf":
@@ -318,6 +330,180 @@ def begin(zaden=40):
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "begin":
     begin()
+    sys.exit()
+
+# ---------------------------------------------------------------------------------------------------------------
+# Bram 16 nov: voortgang over ±100 uur (opdracht hoofdchat 13:10 NL, besluit Thijs 13:01: diep spel met level ups).
+# Sanne ontwerpt de niveaus in platformen/steam/voortgang.md; deze drie stukken rekenen ze na met de economie van nu.
+#   python3 sim.py diepte [zaden]            wat een speler bij uur 1, 2, 5 ... 100 heeft verzameld (bronnen voor niveaus)
+#   python3 sim.py drempels N uren p bron     drempels zodat niveau n valt op uren x ((n-1)/(N-1))^p (voorstel, geen besluit)
+#   python3 sim.py voortgang bestand.json     wanneer valt elke ontgrendeling, langste gat, muur, laatste ontgrendeling
+# Bronnen: helden (binnengekomen), gevallen (gevangen helden), goud (verdiend, opgeteld), hoeden_gloop (hoeden op de toren
+# van Gloop), hoeden (alle slijmen), uren (vaste open tijd). Let op: na ±7 uur is alles van de winkel gekocht, daarna
+# groeien de bronnen recht evenredig. Nieuwe inhoud uit voortgang.md (andere bewoners, lagen) verandert dat; zet die eerst
+# in speel() voor je de getallen als vast neemt.
+UUR_PUNTEN = [1, 2, 5, 10, 20, 40, 70, 100]
+BRON_KOLOM = {"helden": 1, "gevallen": 2, "goud": 3, "hoeden_gloop": 4, "hoeden": 5}
+MUUR_S = 2 * 3600       # features.md: nooit langer dan 2 uur open tijd zonder iets nieuws (zelfde plafond als de winkel)
+_reeks_cache = {}
+
+def reeksen(zaden, uren=100):
+    global REEKS, SPEL_ECONOMIE, SOORTEN
+    sleutel = (zaden, uren)
+    if sleutel not in _reeks_cache:
+        REEKS = True
+        if os.environ.get("SIM_ECONOMIE", "") != "oud":
+            SPEL_ECONOMIE, SOORTEN = True, True   # zoals het spel nu: heldensoorten aan (heldensoort.gd), goud 6 + 3 per bezoek
+        _reeks_cache[sleutel] = [speel(uren, z) for z in range(1, zaden + 1)]
+        REEKS = False
+    return _reeks_cache[sleutel]
+
+def waarde_op(st, bron, t):
+    """stand van een bron op open tijd t (s)"""
+    if bron == "uren":
+        return t / 3600
+    k = BRON_KOLOM[bron]
+    r = st["reeks"]
+    lo, hi = 0, len(r)
+    while lo < hi:
+        m = (lo + hi) // 2
+        if r[m][0] <= t:
+            lo = m + 1
+        else:
+            hi = m
+    return r[lo - 1][k] if lo else 0
+
+def tijd_van(st, bron, drempel):
+    """open tijd (s) waarop een bron de drempel haalt, of None"""
+    if bron == "uren":
+        return drempel * 3600
+    k = BRON_KOLOM[bron]
+    for rij in st["reeks"]:
+        if rij[k] >= drempel:
+            return rij[0]
+    return None
+
+def mediaan(v):
+    v = sorted(v)
+    return v[len(v) // 2]
+
+def diepte(zaden=8):
+    alle = reeksen(zaden)
+    print("diepte | %d zaden, economie %s, mediaan (min tot max) per open-uur" % (zaden, "van het spel nu" if SPEL_ECONOMIE else "oude sim (faam, gangen, graven)"))
+    print("%5s | %-18s | %-18s | %-22s | %-18s | %-16s | %4s | %s" % ("uur", "helden", "gevallen", "goud verdiend", "hoeden Gloop", "hoeden alle", "faam", "aankopen"))
+    for u in UUR_PUNTEN:
+        t = u * 3600
+        kol = []
+        for bron in ("helden", "gevallen", "goud", "hoeden_gloop", "hoeden"):
+            v = sorted(waarde_op(st, bron, t) for st in alle)
+            kol.append("%d (%d-%d)" % (mediaan(v), v[0], v[-1]))
+        faam = mediaan([next((r[6] for r in reversed(st["reeks"]) if r[0] <= t), 0) for st in alle])
+        aank = mediaan([sum(1 for a in st["aankopen"] if a[0] <= t) for st in alle])
+        print("%5d | %-18s | %-18s | %-22s | %-18s | %-16s | %4d | %d" % (u, kol[0], kol[1], kol[2], kol[3], kol[4], faam, aank))
+    ka = sorted(st["klaar_alles"] / 3600 if st["klaar_alles"] else 999 for st in alle)
+    print("winkel helemaal gekocht na: mediaan %.1f u (min %.1f, max %.1f); goud op de bank bij 100 u: mediaan %d" % (
+        mediaan(ka), ka[0], ka[-1], mediaan([START_GOUD + waarde_op(st, "goud", 360000) - sum(p for _, p in st.get("uitgaven", [])) for st in alle])))
+    # tempo na "alles gekocht": per uur tussen 20 en 100 uur
+    print("tempo per uur tussen 20 en 100 u (mediaan):", ", ".join(
+        "%s %.0f" % (b, mediaan([(waarde_op(st, b, 360000) - waarde_op(st, b, 72000)) / 80 for st in alle]))
+        for b in ("helden", "gevallen", "goud", "hoeden_gloop", "hoeden")))
+
+def mooi(x):
+    """rond een drempel af op een getal dat een speler kan onthouden"""
+    if x < 20:
+        return max(1, int(round(x)))
+    stap = 10 ** (len(str(int(x))) - 2)   # twee cijfers die tellen: 47, 480, 4800
+    return int(round(x / stap) * stap)
+
+def drempels(N=50, uren=100.0, p=2.0, bron="gevallen", zaden=8, toon=True):
+    """Voorstel: drempel voor niveau n = mediane stand van de bron op uren x ((n-1)/(N-1))^p. Niveau 1 = start."""
+    alle = reeksen(zaden, max(100, int(uren) + 1))
+    uit = []
+    for n in range(2, N + 1):
+        t = uren * 3600 * ((n - 1) / (N - 1)) ** p
+        uit.append((n, mooi(mediaan([waarde_op(st, bron, t) for st in alle])), t / 3600))
+    # dubbele drempels opschuiven, zodat elk niveau iets kost
+    for i in range(1, len(uit)):
+        if uit[i][1] <= uit[i - 1][1]:
+            uit[i] = (uit[i][0], uit[i - 1][1] + 1, uit[i][2])
+    if toon:
+        print("drempels | %d niveaus over %g u open tijd, vorm p=%g, bron %s, %d zaden" % (N, uren, p, bron, zaden))
+        print("niveau: drempel (gemikt op uur)")
+        print("  " + "  ".join("%d: %d (%.2f)" % x for x in uit))
+    return [{"niveau": n, "drempel": d} for n, d, _ in uit]
+
+def voortgang(pad, zaden=8):
+    """Rekent een voortgang na. JSON: {"sporen": [{"naam": "hol-niveau", "bron": "gevallen",
+    "niveaus": [{"niveau": 2, "drempel": 5, "wat": "..."}, ...]}, ...]}. Alle sporen samen tellen voor gaten en muren."""
+    import json
+    spec = json.load(open(pad))
+    uren = max(100, int(spec.get("uren", 100)))
+    alle = reeksen(zaden, uren)
+    per_zaad = []
+    for st in alle:
+        ev = []
+        for sp in spec["sporen"]:
+            for nv in sp["niveaus"]:
+                tt = tijd_van(st, sp["bron"], nv["drempel"])
+                ev.append((tt, sp["naam"], nv.get("niveau"), nv.get("wat", "")))
+        if spec.get("winkel", True):
+            # de 6 upgrades van de winkel (upgrades.gd) zijn ook ontgrendelingen; "winkel": false laat ze weg
+            ev += [(a[0], "winkel", i + 1, a[1]) for i, a in enumerate(st["aankopen"])]
+        per_zaad.append(ev)
+    eind = uren * 3600
+    print("voortgang | %s | %d zaden, %d u open tijd, muur = gat langer dan %.0f u zonder ontgrendeling, winkel %s" % (
+        pad, zaden, uren, MUUR_S / 3600, "telt mee" if spec.get("winkel", True) else "telt niet mee"))
+    # per spoor: mediane tijd per niveau
+    for sp in spec["sporen"]:
+        regels = []
+        for nv in sp["niveaus"]:
+            ts = [tijd_van(st, sp["bron"], nv["drempel"]) for st in alle]
+            ok = [x for x in ts if x is not None]
+            if len(ok) * 2 > len(ts):
+                regels.append("%s:%s" % (nv.get("niveau"), uur_tekst(mediaan([x if x is not None else 9e9 for x in ts]))))
+            else:
+                regels.append("%s:niet binnen %d u" % (nv.get("niveau"), uren))
+        print("  %s (%s): %s" % (sp["naam"], sp["bron"], "  ".join(regels)))
+    # samen: gaten per uurblok, muren, laatste ontgrendeling, aantal per blok
+    blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100)]
+    print("  samen per blok (mediaan over zaden): ontgrendelingen | langste gat")
+    rij = []
+    for a, b in blokken:
+        aant, gat = [], []
+        for ev in per_zaad:
+            ts = sorted(x[0] for x in ev if x[0] is not None and x[0] <= eind)
+            aant.append(sum(1 for x in ts if a * 3600 < x <= b * 3600))
+            # langste gat dat in dit blok eindigt (van de ontgrendeling ervoor, ook als die in een eerder blok viel);
+            # in het laatste blok telt ook het gat van de laatste ontgrendeling tot het eind
+            alle_ts = [0.0] + ts + ([eind] if b * 3600 >= eind else [])
+            g = max([y - x for x, y in zip(alle_ts, alle_ts[1:]) if a * 3600 < y <= b * 3600] + [0.0])
+            gat.append(g)
+        rij.append("%d-%d u: %d | %s" % (a, b, mediaan(aant), uur_tekst(mediaan(gat))))
+    print("    " + "\n    ".join(rij))
+    muren, laatst = [], []
+    for ev in per_zaad:
+        ts = [0.0] + sorted(x[0] for x in ev if x[0] is not None and x[0] <= eind)
+        laatst.append(ts[-1])
+        muren.append(sum(1 for x, y in zip(ts, ts[1:]) if y - x > MUUR_S))
+    print("  muren (gaten > %.0f u, tot de laatste ontgrendeling): mediaan %d, max %d" % (MUUR_S / 3600, mediaan(muren), max(muren)))
+    print("  laatste ontgrendeling: mediaan %s (min %s, max %s)" % (uur_tekst(mediaan(laatst)), uur_tekst(min(laatst)), uur_tekst(max(laatst))))
+    na24 = mediaan([sum(1 for x in ev if x[0] is not None and x[0] > 24 * 3600) for ev in per_zaad])
+    print("  ontgrendelingen na 24 u open tijd (3 werkdagen van 8 u): mediaan %d" % na24)
+
+def uur_tekst(s):
+    return "%.0f min" % (s / 60) if s < 3600 else "%.1f u" % (s / 3600)
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "diepte":
+    diepte(int(sys.argv[2]) if len(sys.argv) > 2 else 8)
+    sys.exit()
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "drempels":
+    a = sys.argv[2:]
+    drempels(int(a[0]) if a else 50, float(a[1]) if len(a) > 1 else 100, float(a[2]) if len(a) > 2 else 2.0, a[3] if len(a) > 3 else "gevallen")
+    sys.exit()
+
+if __name__ == "__main__" and len(sys.argv) > 2 and sys.argv[1] == "voortgang":
+    voortgang(sys.argv[2])
     sys.exit()
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "ritme":

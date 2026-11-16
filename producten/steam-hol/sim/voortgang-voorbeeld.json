@@ -1,0 +1,238 @@
+{
+ "_uitleg": "VOORBEELD van Bram (16 nov), geen ontwerp. Laat zien hoe sim.py voortgang een voortgang leest. Hol-niveau: 50 niveaus op gevangen helden, vorm p=2 over 100 u (python3 sim.py drempels 50 100 2 gevallen). Gloop: de zes maten van de hoedenberg (BERG_MAAT) als niveaus. Sanne vervangt dit door voortgang.md.",
+ "uren": 100,
+ "sporen": [
+  {
+   "naam": "hol-niveau",
+   "bron": "gevallen",
+   "niveaus": [
+    {
+     "niveau": 2,
+     "drempel": 3
+    },
+    {
+     "niveau": 3,
+     "drempel": 9
+    },
+    {
+     "niveau": 4,
+     "drempel": 19
+    },
+    {
+     "niveau": 5,
+     "drempel": 34
+    },
+    {
+     "niveau": 6,
+     "drempel": 52
+    },
+    {
+     "niveau": 7,
+     "drempel": 79
+    },
+    {
+     "niveau": 8,
+     "drempel": 110
+    },
+    {
+     "niveau": 9,
+     "drempel": 150
+    },
+    {
+     "niveau": 10,
+     "drempel": 190
+    },
+    {
+     "niveau": 11,
+     "drempel": 240
+    },
+    {
+     "niveau": 12,
+     "drempel": 290
+    },
+    {
+     "niveau": 13,
+     "drempel": 350
+    },
+    {
+     "niveau": 14,
+     "drempel": 410
+    },
+    {
+     "niveau": 15,
+     "drempel": 480
+    },
+    {
+     "niveau": 16,
+     "drempel": 550
+    },
+    {
+     "niveau": 17,
+     "drempel": 630
+    },
+    {
+     "niveau": 18,
+     "drempel": 710
+    },
+    {
+     "niveau": 19,
+     "drempel": 800
+    },
+    {
+     "niveau": 20,
+     "drempel": 890
+    },
+    {
+     "niveau": 21,
+     "drempel": 990
+    },
+    {
+     "niveau": 22,
+     "drempel": 1100
+    },
+    {
+     "niveau": 23,
+     "drempel": 1200
+    },
+    {
+     "niveau": 24,
+     "drempel": 1300
+    },
+    {
+     "niveau": 25,
+     "drempel": 1400
+    },
+    {
+     "niveau": 26,
+     "drempel": 1500
+    },
+    {
+     "niveau": 27,
+     "drempel": 1700
+    },
+    {
+     "niveau": 28,
+     "drempel": 1800
+    },
+    {
+     "niveau": 29,
+     "drempel": 1900
+    },
+    {
+     "niveau": 30,
+     "drempel": 2100
+    },
+    {
+     "niveau": 31,
+     "drempel": 2200
+    },
+    {
+     "niveau": 32,
+     "drempel": 2400
+    },
+    {
+     "niveau": 33,
+     "drempel": 2600
+    },
+    {
+     "niveau": 34,
+     "drempel": 2700
+    },
+    {
+     "niveau": 35,
+     "drempel": 2900
+    },
+    {
+     "niveau": 36,
+     "drempel": 3100
+    },
+    {
+     "niveau": 37,
+     "drempel": 3200
+    },
+    {
+     "niveau": 38,
+     "drempel": 3400
+    },
+    {
+     "niveau": 39,
+     "drempel": 3600
+    },
+    {
+     "niveau": 40,
+     "drempel": 3800
+    },
+    {
+     "niveau": 41,
+     "drempel": 4000
+    },
+    {
+     "niveau": 42,
+     "drempel": 4200
+    },
+    {
+     "niveau": 43,
+     "drempel": 4400
+    },
+    {
+     "niveau": 44,
+     "drempel": 4600
+    },
+    {
+     "niveau": 45,
+     "drempel": 4900
+    },
+    {
+     "niveau": 46,
+     "drempel": 5100
+    },
+    {
+     "niveau": 47,
+     "drempel": 5300
+    },
+    {
+     "niveau": 48,
+     "drempel": 5500
+    },
+    {
+     "niveau": 49,
+     "drempel": 5800
+    },
+    {
+     "niveau": 50,
+     "drempel": 6000
+    }
+   ]
+  },
+  {
+   "naam": "Gloop",
+   "bron": "hoeden_gloop",
+   "niveaus": [
+    {
+     "niveau": 2,
+     "drempel": 5
+    },
+    {
+     "niveau": 3,
+     "drempel": 25
+    },
+    {
+     "niveau": 4,
+     "drempel": 100
+    },
+    {
+     "niveau": 5,
+     "drempel": 300
+    },
+    {
+     "niveau": 6,
+     "drempel": 1000
+    },
+    {
+     "niveau": 7,
+     "drempel": 3000
+    }
+   ]
+  }
+ ]
+}
