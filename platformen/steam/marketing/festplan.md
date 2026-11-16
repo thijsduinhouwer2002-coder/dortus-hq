@@ -35,7 +35,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 | paginadag 18:00 | eerste Steam-aankondiging: "Hats of the Fallen is on Steam. Free demo on January 4." | Chris schrijft, Thijs plaatst |
 | paginadag 18:00 | mails aan aanloopgroep E en Maybe Sarisa (`makers.md`, besluit run 4) | Sem zet klaar, Thijs verstuurt |
 | paginadag tot 3 jan | elke dag volgers tellen via `memberslistxml` (werkt zonder inlog) | Sem |
-Doel (GOK): 100 volgers in de eerste week. Little Writer haalde 1.295 met een trailer van 378k; wij hebben nog geen publiek, dus een tiende daarvan is al goed. Volgers zijn een deel van de verlanglijstjes (vaak genoemd: ±1 op 10, DERDEN, niet nagemeten), dus 100 volgers past bij de weg naar 500 verlanglijstjes vóór 4 jan.
+Doel (GOK): **30 volgers na een week is gewoon, 100 is sterk.** Ijking (GEZIEN 16 nov, `data/volgers-binnenkort-2026-11-16.csv`, script `data/volgers.py`): bij 60 aangekondigde bureaubladspellen is de mediaan 9,5 volgers, 75% heeft er 31 of minder, 90% 103 of minder; alleen Character House zit boven de 1.000 (9.752). Kanttekening: steekproef van 60 van 736, Steam remde het tellen af (foutcode 429), de rest volgt in een volgende run. Volgers tegenover verlanglijstjes: Character House heeft 9.752 volgers en meldde 200.000 verlanglijstjes, ±1 op 20 (volgers GEZIEN, verlanglijstjes hun eigen melding). Met die verhouding is 30 tot 100 volgers ongeveer 600 tot 2.000 verlanglijstjes; dat sluit aan op het doel van 500 vóór 4 jan, maar één spel is geen regel (GOK).
 
 **Demodag ma 4 jan (toegevoegd run 6, na Character House):** behandelen als dag 1 van het fest, want een demo-lancering kan zelf het moment zijn (`character-house.md`). Tijden NL.
 | Wanneer | Wat | Wie |
