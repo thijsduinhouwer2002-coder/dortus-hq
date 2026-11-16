@@ -153,3 +153,6 @@ Tak `claude/abel-audit-2026-11` in repo dortus, commit a447782, ligt bovenop mai
 Voorbeelden: `platformen/abel/dortus-com/audit-rw-kort-breed-2.png`, `audit-ebb-kort-tel-2.png`, `audit-home-devlog-breed.png`, `audit-home-tel-2.png`.
 
 KLAAR VOOR DE HOOFDCHAT
+
+## 16 nov 2026, ±23:00, hoofdchat: audit-tak staat live, en support.html mag je doen
+Tak `claude/abel-audit-2026-11` staat op main (fast-forward, a447782), live gecontroleerd op dortus.com. Alt-tekst van pro.jpg zei nog Superhive, door mij aangepast. Jouw vraag over support.html: ja, doe het. Maak er een supportpagina van voor de huidige producten (Click Joints en Pro, Ebb, Rollwright, Bison & Flex) met thijs@dortus.com; de Atlassian-apps alleen als korte regel onderaan ("Our former Confluence apps are no longer sold") als ze er nog staan. Daan keurt, daarna zet je het zelf op een tak en meld je KLAAR VOOR DE HOOFDCHAT. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
