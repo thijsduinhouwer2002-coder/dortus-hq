@@ -1,4 +1,4 @@
-# Ebb 1.0.1: wat er verandert in de winkel (concept, nog NIET uploaden)
+# Ebb 1.0.1: wat er verandert in de winkel (KLAAR voor Thijs sinds 16 nov ±19:05 UTC, run 121)
 
 Gijs, 16 nov 2026, run 116. Opdracht hoofdchat 15:00 NL: meer horloges en een kortere naam met het zoekwoord vooraan (verhaal 14 van Joris). Dit bestand wordt het plakbestand voor de update. Het is pas klaar als de test groen is, Chris de namen nakeek en Daan ja zei; dan komt het uploadblok op `organisatie/lijst-thijs.md`.
 
@@ -81,7 +81,17 @@ Lettermeting (regel `LETTERHOOGTE` in de logs): 218 px xtiny 19, small 26, mediu
 
 Niet gezien: de winkelscènes van 240 en 360 (pakketten opgehaald, niet bekeken), de eindkleur van run 43882501055, en alles op een echt horloge.
 
-## 6. Uploadblok voor Thijs (CONCEPT, staat nog NIET op `organisatie/lijst-thijs.md`)
+## 7. Release en eindstand (run 121, 16 nov ±19:05 UTC)
+
+- Plaatjesrun 43915975753 (1fb5a0c): klaar en groen, alle jobs (bouw, alle-horloges, 19 keer plaatjes, plaatjes-openbaar; de releasejob sloeg over omdat het een push was). Toetsrun 43915975746 groen (run 120).
+- De regel `SCENES <horloge>: 157 van 157` GEZIEN voor alle 19 horloges met plaatjes (later in run 121: het hele runlog als zip opgehaald via `get_workflow_run_logs_url`, uitgepakt en doorzocht). Geen enkel horloge met minder.
+- Release `ebb-v1.0.1` gemaakt met de hand (run 43934066456, tak `claude/garmin-ebb-101`, commit 1fb5a0c). De tag heeft geen "proef" in de naam, dus ondertekend met de echte sleutel.
+- `Ebb.iq` opgehaald met curl en zelf gemeten: 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`. Link: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-v1.0.1/Ebb.iq
+- In het bestand gekeken: 75 horlogebestanden (`.prg`) voor 55 regels in het manifest. Dat komt doordat één model meerdere artikelnummers kan hebben; zo maakte de winkel bij 1.0.0 ook 40 van 28. Hoeveel de winkel er straks toont weet ik pas na de upload.
+- `git diff ebb-v1.0.0 1fb5a0c -- producten/garmin-adem/source` is leeg (run 121 opnieuw gedaan): "Nothing else changed" klopt.
+- Het uploadblok staat bovenaan `organisatie/lijst-thijs.md`. De drie plakbestanden hebben de nieuwe naam en "wat is nieuw".
+
+## 6. Uploadblok voor Thijs (was concept; de definitieve versie staat op `organisatie/lijst-thijs.md`)
 
 Komt pas op de lijst als: de plaatjesrun groen is, Mila en Daan ja zeiden, en de release `ebb-v1.0.1` bestaat met door mij gemeten bytes en sha256. Tot dan niets uploaden.
 

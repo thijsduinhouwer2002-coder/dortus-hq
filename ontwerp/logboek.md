@@ -1349,3 +1349,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Wijzerplaat Gloop, toren binnen de rand (Gijs, run 43915541840, f1dab61):** venu3s, fenix7, venu3 als blad, 14.800 en 7.612 vergroot, GEZIEN. **Ja**, kroon blijft boven de toren, niets afgesneden. Moet: op 260 px en kleiner evenveel hoeden als het getal zegt (nu 8 bij 9/10). Gevraagd: duizendtal met punt nakijken (leest Engels als kommagetal). Ebb 1.0.1 zonder Enduro 3: eens.
 - **Controleur (Agent):** eens met alle drie. Vond de raking kaartje tegen de gouden balk (overgenomen als kan) en het duizendtal (overgenomen als vraag aan Gijs). Korte en lange vorm van de regel per horloge is bewust (eerder gekeurd), laat ik staan.
 - Les: een tekst die ik als kan voorstelde ("at quarter speed") ook op toon toetsen, niet alleen op lengte.
+
+## 16 nov 2026, run ±18:24 tot ±18:45 UTC
+- **Winkelteksten versie 3 (Sanne):** Akkoord ja met drie woord-moets ("Gloop the Slime", "right above your taskbar", "A hero who flees three times becomes your nemesis."). Waarom: de opening noemt nu de hoeden, niet bijna de zin van Don't Rob My Dungeon; het spel zegt "nemesis", dus de winkel ook. Keuring 10 in `ontwerp/steam/winkelpagina/keuring-daan.md`.
+- **Trailer 3 tot 6 s:** "Right above your taskbar." Niet "He wears their hats.", want op dat moment zoomt het beeld uit naar het bureaublad en de hoed zag je al op 0 tot 3 s. Twee trailerregels die niet uit het spel komen ("Fenna the Limp", Big Gloop als put) aan Mila.
+- **Hover bordje:** "Level 5: the Thief. 4 heroes to go." in plaats van Sannes "Catch 12 more heroes.". Waarom: de speler vangt niet zelf, "Catch" werd 48 tekens (toets zegt 42), en het voorbeeld met 12 kan op niveau 5 niet (hooguit 4). Langste geval 43 tekens; Olaf toetst op 43 en laat het op 96 px zien.
+- **Wachtkaartje r2 (Mila):** voor/na op 1x en 4x GEZIEN, ja. Windows-keuring na de pijplijn.
+- **Controleur (Agent):** eens met de teksten en de trailer; vond "nemesis", "Slime", "on top of", de trailerfouten en het onmogelijke getal 12 (allemaal overgenomen). Zijn hover "4 more heroes to level 6." niet overgenomen: 48 tekens.
+- Les: bij een tekstvoorstel voor in het spel altijd de lengte tegen de toets en de getallen tegen de drempels houden.
+- **Wachtkaartje r2 in de echte Windows-build:** `steam-hol/main/weg-kaartje-120.png`, run 43926538820 (d2c141e, na Mila's de72a35), ware grootte en hoek 4x GEZIEN. Papier warm, bordcijfer het lichtste, punaise los van de lijst, "+7" leest, regel "quarter speed" is weg. Ja, klaar.

@@ -7,6 +7,7 @@ Eén regel per dag, steeds op dezelfde manier gemeten. Bron: de API van de winke
 | 13 nov 22:08 | 0 | 0 | 0 | 1 | geen | 4 | geen | Dag van goedkeuring (±21:09 UTC), run 96 |
 | 16 nov 02:03 | 0 | 0 | 0 | 1 | 30 | 4 | geen | Run 104. Op 14 en 15 nov niet gemeten (ik stond uit). "breathing" voor het eerst in de eerste 30 |
 | 16 nov 14:58 | 0 | 0 | 0 | 1 | 29 | 4 | 32 | Run 117, nulmeting vóór 1.0.1. Nu de eerste 90 bekeken, daarom een plek voor "breathwork" (stond eerder als "geen", dat was buiten de eerste 30). Versie in de winkel 1.0.0, 40 horloges |
+| 16 nov 18:56 | 0 | 0 | 0 | | | | | Run 121, alleen de tellers gemeten (zoekplekken niet). Versie 1.0.0, 40 horloges; 1.0.1 staat klaar voor Thijs |
 
 ## Nulmeting vóór de update naar 1.0.1 (16 nov 14:58 UTC, run 117)
 

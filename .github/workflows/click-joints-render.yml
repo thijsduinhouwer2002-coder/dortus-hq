@@ -1,0 +1,86 @@
+name: Click Joints render (knie uit Pro, Cycles)
+
+# Chris, klus hoofdchat 16 nov 16:40: eerlijke render van de delen die Pro 1.0.2 exporteert, geen AI-film.
+# Maakt de figuur opnieuw met Rubens script, exporteert met de add-on, rendert de STL-delen met Cycles.
+# Uitslag openbaar op de tak schermen, map click-joints-render/<stand>/.
+on:
+  workflow_dispatch:
+    inputs:
+      stand:
+        description: "snel (3 stilstaande beelden) of film (10 s, 240 beelden)"
+        default: "snel"
+      model:
+        description: "Meshy-figuur uit people/ (MIT, Hugging Face), zonder .glb"
+        default: "army_man"
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CJ_HOOGTE: "150"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en ffmpeg ophalen
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Meshy-figuur ophalen
+        run: |
+          pip install -q remotezip
+          mkdir -p /tmp/meshy && cd /tmp/meshy
+          python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/${{ github.event.inputs.model }}.glb', '.')"
+      - name: Figuur met Pro-knie maken (script van Ruben)
+        working-directory: producten/blender-gewrichten
+        run: |
+          bash e2e/maak_zip.sh betaald
+          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/fig "/tmp/meshy/MESHY_GLB/people/${{ github.event.inputs.model }}.glb" 2>&1 | tee /tmp/fig.log | grep "\[cj-chris\]"
+          grep -q "gelukt: \[.*knie" /tmp/fig.log || { echo "FOUT: knie niet gelukt"; exit 1; }
+      - name: Renderen
+        run: |
+          BLEND=$(ls /tmp/fig/*.blend | head -1)
+          mkdir -p /tmp/uit
+          /tmp/blender/blender -b --factory-startup --python commercie/blender-click-joints/render/render_knie.py -- /tmp/click_joints_betaald.zip "$BLEND" /tmp/uit "${{ github.event.inputs.stand }}" 2>&1 | tee /tmp/render.log | grep "\[cj-render\]\|Error\|Traceback"
+          grep -q "KLAAR" /tmp/render.log || { tail -40 /tmp/render.log; exit 1; }
+          grep "\[cj-render\]\|\[cj-chris\]" /tmp/fig.log /tmp/render.log > /tmp/uit/uitslag.txt
+          rm -rf /tmp/uit/stl
+      - name: Film maken met onderschrift
+        if: github.event.inputs.stand == 'film'
+        run: |
+          F=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+          ffmpeg -y -loglevel error -framerate 24 -i /tmp/uit/beelden/%04d.png \
+            -vf "drawtext=fontfile=$F:text='Rendered in Blender from the exported parts':fontsize=30:fontcolor=white@0.75:x=(w-text_w)/2:y=h-70" \
+            -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart /tmp/uit/click-joints-pro-knie-render.mp4
+          ffmpeg -y -loglevel error -i /tmp/uit/click-joints-pro-knie-render.mp4 -vf "select='eq(n\,0)+eq(n\,72)+eq(n\,144)',scale=360:-1,tile=3x1" -frames:v 1 /tmp/uit/blad.png
+          rm -rf /tmp/uit/beelden
+          ls -la /tmp/uit
+      - name: Openbaar zetten (tak schermen)
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          STAND: ${{ github.event.inputs.stand }}
+        run: |
+          [ -d /tmp/uit ] && [ -n "$(ls -A /tmp/uit)" ] || { echo "niets om te zetten"; exit 0; }
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            D="/tmp/s/click-joints-render/$STAND"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$STAND run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then break; fi
+            cd /; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/click-joints-render/$STAND"

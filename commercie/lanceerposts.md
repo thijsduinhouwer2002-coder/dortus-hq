@@ -65,7 +65,6 @@ https://extensions.blender.org/add-ons/click-joints/
 
 Free and open source (GPL-3.0-or-later). Code and bug reports: https://github.com/thijsduinhouwer2002-coder/click-joints
 
-Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work and test it.
 
 Made by Thijs at Dortus
 ```

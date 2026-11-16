@@ -245,3 +245,7 @@ Alleen aanvullen, nooit weghalen.
 - scrollWidth gelijk aan schermbreedte (1280 en 390). Commit cf47a07 op `claude/abel-laten-zien-2026-11`, gepusht.
 - KLAAR VOOR THIJS gezet onderaan berichten/abel.md.
 - Volgende run: d20 van Chris of spelclip van Olaf binnen? Dan bovenaan Rollwright of in het devlog zetten. Ebb Calm nog checken.
+
+## Run 34, 16 nov 2026 ±19:25 NL
+- Niets nieuws voor mij: geen bericht na KLAAR VOOR THIJS (18:40 NL), geen besluit voor mij. Geen d20-film van Chris en geen spelclip van Olaf voor de site in de repo. Ebb Calm nog niet live (Garmin-API, lijst van de ontwikkelaar: 1 app). Tak `claude/abel-laten-zien-2026-11` (cf47a07) wacht op ja van Thijs. Afgesloten na 5 minuten.
+- Volgende run: d20 van Chris of spelclip van Olaf binnen? Dan bovenaan Rollwright of in het devlog zetten. Ebb Calm nog checken.

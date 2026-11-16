@@ -2,6 +2,24 @@
 
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
+
+## Stand 16 nov 18:55 UTC: het gat tussen minuut 5 en 20 in de speeltestbuild (Sanne, na Bram 18:50)
+**Vraag:** Bram zegt dat het gat in minuut 5 tot 20 (ergste 10,7 min zonder koop of nieuw hol-niveau) niet met drempels op te lossen is. Lukt het met prijzen, of met drempels voor hol 5 tot 7? Gerekend met Brams sim, zelfde opzet als `sim/samenval.py` deel 3 (graven gratis, 40 zaden). Scripts en aanpak: `platformen/steam/data/sim-prijzen/` (`prijsladder.py`, `zoek.py`, `drempels.py`, `lang.py`).
+
+**Uitkomst (GEZIEN):**
+1. **Prijzen helpen bijna niet.** Het gat komt van het inkomen (±6 tot 7 goud per minuut in het begin), niet van de ladder. 45/90/180, 45/75/200, 45 x 1,8 en de rest: ergste gat blijft 10,7 min. Beste van 105 ladders (35/50/x of 40/x/x): 9,3 min, maar dan is de winkel na ±90 min op in plaats van ±150. Niet doen.
+2. **Hol 5 en 6 eerder (3/5/7/9/14) maakt minuut 1 tot 20 beter** (ergste 8,2, mediaan 5,5, bijna nooit samen met een koop), **maar schuift het gat naar later**: over minuut 1 tot 40 wordt het ergste gat 15,7 tot 20,5 min (nu 13,4), over 1 tot 60 18,2 tot 20,5 (nu 14,1).
+
+| Reeks hol 2 tot 7 | min 1 tot 20 ergste / mediaan | min 1 tot 40 | min 1 tot 60 |
+|---|---|---|---|
+| **nu 3/5/7/12/17/25** | 10,7 / 6,1 | 13,4 / 9,1 | 14,1 / 11,2 |
+| 3/5/7/9/14/25 | 8,2 / 5,5 | 20,5 / 13,1 | 20,5 / 13,3 |
+| 3/5/7/9/14/21 | 8,2 / 5,5 | 15,7 / 10,8 | 18,2 / 12,0 |
+
+**Besluit: 3/5/7/12/17 blijft (Olafs keus), prijzen blijven 45/126/353 voor de speeltest.** Waarom: de build heeft in het eerste uur gewoon te weinig dingen om te krijgen; met getallen schuif je het gat alleen heen en weer, en het eerste uur als geheel is nu het best. Wat het echt oplost is de v3-economie (kamertjes en dingen met een prijs van ±1 uur goud, daar is het ergste gat 8,4 min), en dat komt na de speeltest.
+
+**Wat dit gat niet meet:** de vrije momenten die geen koop zijn (eerste wrok rond 63 tot 75 s, het lied van de bard, een nieuwe bladzijde in het heldenboek, hoeden op de toren). Of minuut 5 tot 20 saai voelt, zegt dus niet deze tabel maar (a) Olafs `e2e/ritme_meting.py` op de Windows-duurtest (langste stuk zonder held en zonder kroniekregel) en (b) Thijs zelf bij vraag 1 van de speeltest ("wanneer verveelde je je"). Zegt hij "rond minuut 10", dan is dit de oorzaak en is de eerste fix na de speeltest een ding van ±60 goud dat je rond minuut 8 tot 12 kunt kopen (het eerste kamertje uit v3), geen nieuwe drempels.
+
 ## Stand 10 nov 03:05 UTC: heldensoorten, elke soort een eigen zwakte (Sanne, antwoord op Bram 02:30)
 **Probleem met de eerste getallen (Bram, GOK):** drie van de vier soorten zijn zwakker tegen Gloop en sterker tegen de put, de ridder is overal gewoon. Dan is het antwoord op elke soort "meer Gloop", en voegen de soorten geen keuze toe (gat 1 uit `toppers.md`). Gemeten met Brams sim (`data/soorten-keuze.py`, 8 zaden, 10 uur, GEZIEN): de put vangt bij elke soort minder dan bij een gewone held, ook bij de ridder (25% put tegen 39% slijm).
 

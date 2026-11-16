@@ -7,9 +7,13 @@ class_name HolNiveau
 # (ridder op 3, vleermuis op 4, ...) wordt pas aangesloten als Sanne en Daan dat voor de demo vastzetten.
 
 # DREMPEL[i] = faam die nodig is voor niveau i + 1 (niveau 1 bij 0 faam)
-const DREMPEL := [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]
+# Hol 3, 4 en 6 omlaag naar 5 / 7 / 17 (Olaf 16 nov 18:35, voorstel Sanne 18:10, advies Bram 18:50 voor de speeltestbuild:
+# graven gratis, upgrades 45/126/353, de eerste upgrade valt op vangst 4, dus geen drempel op 4; niets valt meer samen
+# behalve hol 5 soms (3 van 40), ergste gat minuut 1 tot 20 van 11,8 naar 10,7 min, mediaan 7,0 naar 6,1; sim/samenval.py deel 3).
+# Bij de v3-economie (graven kost goud) opnieuw kijken: daar gaf Bram 3/4/7/12/16.
+const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 53, 69, 88]
 const DEMO_MAX := 12
-# Hover-tekst per niveau ("Level 5: the Thief. 12 more heroes."), Engels (winkeltaal)
+# Hover-tekst per niveau ("Level 5: the Thief. 4 heroes to go."), Engels (winkeltaal)
 const WAT := ["", "Gloop and the pit", "the Hero Book", "the Knight", "a bat moves in", "the Thief",
 	"a second pit", "the Rolling Stone", "the Mage", "your banner", "the Noble", "the Bard", "the Hat Wall"]
 
@@ -36,14 +40,16 @@ static func deel(faam: int) -> float:
 	var tot := int(DREMPEL[n])
 	return clampf(float(faam - van) / float(tot - van), 0.0, 1.0)
 
-# "Level 5: the Thief. 12 more heroes." (hover op het bordje); op het laatste niveau zonder "more".
+# "Level 5: the Thief. 4 heroes to go." (hover op het bordje, Daan 16 nov 18:40); op het laatste niveau zonder staart.
+# Langste geval: "Level 7: the Rolling Stone. 6 heroes to go." (43 tekens).
+const HOVER_MAX := 43
 static func hover(faam: int) -> String:
 	var n := niveau(faam)
 	var naam: String = WAT[n] if n < WAT.size() else ""
 	var r := "Level %d: %s." % [n, naam]
 	var rest := nog(faam)
 	if rest > 0:
-		r += " %d more hero%s." % [rest, "" if rest == 1 else "es"]
+		r += " %d hero%s to go." % [rest, "" if rest == 1 else "es"]
 	return r
 
 # Niveaus die erbij kwamen als faam van `oud` naar `nieuw` gaat (voor het feestje en de log), oplopend.

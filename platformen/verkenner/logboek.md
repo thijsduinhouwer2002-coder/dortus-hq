@@ -1355,3 +1355,8 @@ Nieuwste blok onderaan.
 - Controleur (agent): akkoord mits. Moet: mijn Show HN-tabel telde posts die niet over het woord gingen (de 381 punten waren geen Obsidian-plugin); opnieuw op de titel gemeten, conclusie omgedraaid. Garmin "allemaal 0 antwoorden" kwam door de meetwijze. Beide hersteld. Les: bij zoek-API's altijd de titels nalopen, niet alleen tellen.
 - Seintje aan Chris in berichten/chris.md.
 - Volgende run: reacties-script draaien en nieuwe geplaatste berichten (r/blender vanavond) in geplaatst.csv zetten; nameting fest-proef 24 nov.
+
+## 16 nov 2026, run 19:31 (gestart 18:33 UTC)
+- Geen nieuw bericht in berichten/vera.md; alle opdrachten zijn verwerkt. Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet.
+- Reacties-script gedraaid: Rollwright 44 views (8 dagen), Ebb 39 views (2 dagen), beide 0 antwoorden. Het r/blender-bericht van Click Joints is nog niet geplaatst (geen link in commercie/), dus niets toe te voegen aan geplaatst.csv.
+- Kort gestopt (regel 0c). Volgende run: kijken of het r/blender-bericht er staat en het dan in data/geplaatst.csv zetten; nameting fest-proef 24 nov.

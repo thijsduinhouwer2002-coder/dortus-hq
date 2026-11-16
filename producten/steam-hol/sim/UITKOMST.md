@@ -1,5 +1,18 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 16 nov 2026 ±19:30 UTC (Bram): sim tegen het echte spel, duurtest 20 min zonder klikken
+Windows-duurtest run 43931188663 (main 07c48f9, 1920x1080, drempels 3/5/7/12/17, niemand koopt; `hol.log` GEZIEN op tak `schermen`, map `steam-hol-duur/main-1920x1080/`) naast de sim zonder kopen (40 zaden). Script `duur_vergelijk.py`, uitvoer `duur-vergelijk-uitkomst.txt`.
+
+| hol | drempel | spel (s) | sim mediaan (s) | sim 10% tot 90% | sim haalt het in 20 min |
+|---|---|---|---|---|---|
+| 2 | 3 | 86 | 69 | 65 tot 75 | 40/40 |
+| 3 | 5 | 366 | 302 | 193 tot 523 | 40/40 |
+| 4 | 7 | 531 | 484 | 338 tot 784 | 40/40 |
+| 5 | 12 | 860 | 854 | 727 tot 1117 | 34/40 |
+| 6 | 17 | 1137 | 1106 | 1016 tot 1158 | 12/40 |
+
+Helden binnen in 20 min: spel 28, sim 27 (25 tot 29). Hol 3 tot 6 vallen binnen de band van de sim; het spel had iets geluk met vangsten (17 bij 1137 s, sim mediaan 15 in 20 min). **Eén afwijking:** hol 2 (de derde vangst, de vluchter Rik die terugkomt) is in het spel 86 s, in de sim 65 tot 75. In de log komt Rik terug op 74,3 s en valt hij op 86,2 s: 12 s lopen. Op 16 nov 08:20 viel dat nog samen (63 tot 75 s); mogelijk de bredere gang op 1920 of het nieuwe loopritme. Klein, alleen het eerste niveau; de sim blijft bruikbaar voor de speeltest. Eén run, dus geen harde uitspraak over de spreiding.
+
 ## 16 nov 2026 ±17:35 UTC (Bram): de speler die niet meteen koopt (voortgang.md "Wat nog niet klopt" punt 5)
 Uitvoer `voortgang-kijken-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_kijken.py`, nieuwe sleutel `"koop_elke_s"` in `sim.py` (de speler kijkt hooguit elke X open seconden in de winkel, en altijd meteen als hij het spel weer opent). Spec versie 3 definitief met de eigen helden en hun tegenzet. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` byte voor byte gelijk).
 

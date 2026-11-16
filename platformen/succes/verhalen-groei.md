@@ -1,8 +1,86 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 18, de zoekplek van Click Joints in Blender zelf: broncode van Blender en de winkel gelezen, klaar 16 nov 2026 ±17:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of nameten van de plek in Blender na een nieuwe tagline of eerste review.
+bezig: verhaal 20, Reddit-berichten over gereedschap voor 3D-printen (welke subreddit, welke vorm, wat wordt weggehaald), 16 nov 2026 ±20:15 UTC. Volgende daarna: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 19. Wat geeft de Garmin-winkel een nieuwe app zonder reclame, en wanneer? 3.578 nieuwe apps en wijzerplaten tien dagen na elkaar gemeten
+
+Onderzocht 16 nov 2026 ±18:00 tot 18:45 UTC, run 19. Waarom: Ebb staat op 0, Ebb Calm komt eraan en Gloop's Hat Tower gaat deze week naar de keuring. Verhaal 14 was één foto van één dag. De vraag nu: hoe loopt de teller van een nieuwe Garmin-app in de eerste weken, wanneer stopt de winkel met geven, en wat hebben de apps die wel groeien? Arctic Shift (Reddit-archief) gaf deze run alleen fouten (502), dus Reddit bleef buiten beeld.
+
+### Bronnen en werkwijze
+- **Stand van 6 nov** (GEZIEN door Vera, `platformen/verkenner/data/garmin-nieuw-sinds-jun2025-2026-11-06.json`): 27.935 apps met downloadklasse en datum van eerste goedkeuring.
+- **Stand van 16 nov ±18:05 UTC** (GEZIEN, open winkel-API `.../api/asw/apps/<id>`, per app opgehaald): alle 2.405 apps, widgets en datavelden (geen wijzerplaten) van 1 aug tot 5 nov, plus een willekeurige steekproef van 1.200 wijzerplaten van 20 okt tot 5 nov. 27 waren verdwenen, 3.578 bleven over. Per app: downloadklasse, prijs, aantal horloges, video ja of nee, aantal plaatjes, talen, en de vlag `markedAsNew`.
+- **Horlogenamen**: `.../api/asw/deviceTypes` (345 soorten). Ter controle de 605 spellen van Vera (`garmin-spellen-details-2026-11-13.jsonl`), ook met horlogelijst.
+- **Manifest van Hat Tower**: `producten/garmin-gloop/manifest.xml` op tak `claude/garmin-gloop-2026-11-16` (commit ee2c75cf), 9 horloges.
+- Tabel zonder mailadressen: `platformen/succes/data/garmin-groei-eerste-weken-2026-11-16.csv`.
+- Let op: de teller is een klasse (0, 1 tot 9, 10 tot 99, 100+). "Omhoog" betekent een klasse hoger, dus ik zie grote stappen, geen kleine.
+
+### 1. De vlag "nieuw" duurt precies 14 dagen (GEZIEN)
+Alle apps tot 13,4 dagen oud hebben `markedAsNew: true`, geen enkele van 14,05 dagen of ouder. De grens ligt tussen 13,4 en 14,05 dagen na de eerste goedkeuring. Een update zet de vlag niet terug: 0 van de 2.519 apps ouder dan 14 dagen heeft hem, ook niet als ze net een nieuwe versie kregen. Dat de winkel apps met die vlag ergens extra laat zien (een lijst of label "nieuw") is mijn lezing, niet door Garmin bevestigd (GOK op het mechanisme). Maar de tellers hieronder laten zien dat juist in die 14 dagen het werk gebeurt.
+
+### 2. Na de eerste twee weken beweegt bijna niets meer (GEZIEN)
+Apps, widgets en datavelden, klasse op 6 nov naast 16 nov, naar leeftijd op 6 nov:
+
+| Leeftijd op 6 nov | Gratis: klasse omhoog in 10 dagen | Betaald: klasse omhoog |
+|---|---|---|
+| 0 tot 4 dagen (nu 10 tot 15) | 163 van 337 (48%) | 39 van 101 (38%) |
+| 5 tot 11 dagen (nu 15 tot 21) | 36 van 253 (14%) | 6 van 49 (12%) |
+| 12 tot 30 dagen | 22 van 220 (10%) | 6 van 55 (10%) |
+| 31 tot 60 dagen | 21 van 718 (2%) | 9 van 160 (5%) |
+| 61 tot 100 dagen | 12 van 396 (3%) | 2 van 99 (2%) |
+
+Wijzerplaten precies zo: gratis 47% omhoog in de eerste twee weken, daarna 6 tot 8%; betaald 26%, daarna 4 tot 13%. **Waar een app na 14 dagen staat, daar blijft hij grotendeels.** Van de gratis apps die op 6 nov 0 tot 4 dagen oud waren, staan er nu 26 van 337 op 100+; van de betaalde 5 van 101.
+
+Voor betaalde apps in de eerste twee weken (de groep die op 6 nov 0 tot 4 dagen oud was): op dag 0 tot 4 stond 56% op 0, nu op dag 10 tot 15 nog 26% op 0, 62% op 1 tot 9, 7% op 10 tot 99, 5% op 100+. **Ebb op 0 na 3 dagen is dus gewoon; Ebb op 0 na 14 dagen is het slechtste kwart.**
+
+### 3. Wat de groeiers hebben: vooral meer horloges (GEZIEN)
+Apps die nu 10 tot 21 dagen oud zijn. Gratis: aandeel met 100+; betaald: aandeel met 10+ en aandeel nog op 0.
+
+| Horloges | Gratis, 100+ (n) | Betaald, 10+ (n) | Betaald, nog op 0 |
+|---|---|---|---|
+| 0 tot 40 | 2% (153) | 0% (13) | 30% |
+| 41 tot 80 | 7% (160) | 15% (53) | 20% |
+| 81 tot 130 | 16% (92) | 19% (84) | 19% |
+| 131 tot 180 | 26% (52) | kan niet, zie punt 4 | |
+| 181+ | 29% (133) | kan niet | |
+
+Betaalde wijzerplaten hetzelfde: met 0 tot 40 horloges haalt 3% de 10+ en staat 61% nog op 0 (n=88); met 81 tot 130 is dat 20% en 18% (n=155).
+
+Is dat niet gewoon "grote makers ondersteunen meer horloges"? Daarom ook gemeten binnen dezelfde maker: twee apps van dezelfde maker, zelfde prijsvorm, hooguit 14 dagen leeftijdsverschil, de ene minstens 2 keer en 20 horloges meer. Per maker de meeste uitslagen geteld: bij **27 makers wint de app met meer horloges, bij 8 de app met minder, bij 16 gelijk.** Bij wijzerplaten 13 tegen 5 (3 gelijk). Het verband blijft dus binnen één maker staan. Logisch ook: wie een horloge heeft dat niet in de lijst staat, ziet de app niet eens.
+
+Twee kleinere verbanden, zwakker bewijs:
+- **Video op de winkelpagina** (het veld `videoUrl`, vaak een YouTube Short): maar ±4% van de apps heeft er een. Apps van 10 tot 100 dagen oud: gratis met video 46 van 80 op 100+ (58%), zonder 487 van 1.788 (27%); betaald met video 32 van 51 op 10+ (63%), zonder 169 van 401 (42%). Ook bij makers met hooguit 3 apps (gratis 7 van 12 tegen 30 van 343). Of de video het doet of dat makers met een video gewoon serieuzer zijn, kan ik niet scheiden (GOK op oorzaak). Ebb heeft geen video.
+- **Meer dan één taal**: gratis 19% tegen 8%, betaald 23% tegen 9%. Ook hier kan het de maker zijn.
+
+### 4. Nieuwe vondst: betaalde apps staan nooit op oudere horloges (GEZIEN)
+De 900 betaalde apps in mijn set gebruiken samen maar **107 soorten horloges**, de gratis 332. Bij Vera's 605 spellen hetzelfde: 107 soorten bij de betaalde. Horloges die bij gratis apps veel voorkomen maar bij **geen enkele** betaalde app: Forerunner 55 (in 22% van de gratis), Forerunner 245 en 245 Music, Forerunner 945 en 745, fēnix 6 en 5 Plus, vívoactive 4 en 3 Music, Venu en Venu Sq (de eerste), MARQ (eerste generatie). Bij de 187 betaalde spellen staat de Forerunner 55 bij 0 en de Forerunner 245 bij 0; bij de 418 gratis spellen bij 185 en 198.
+
+Wat dat betekent: betalen via de Garmin-winkel werkt kennelijk alleen op de nieuwere horloges. De pagina's van Garmin over verkopen (developer.garmin.com/connect-iq/monetization/) gaven met curl alleen het menu, geen tekst, dus de officiële regel heb ik niet gezien (GOK op de reden, GEZIEN op het patroon).
+
+**Gevolg voor Hat Tower:** het manifest noemt de Forerunner 55 en 245, en de winkeltekst ook ("Forerunner 55, 245, 255 and 265 ..."). Een betaalde app met die twee horloges komt in 900 betaalde apps en 187 betaalde spellen niet één keer voor. Of het portaal ze weigert, weglaat of de app op die horloges onzichtbaar maakt, weet ik niet. Zeker is: wie een Forerunner 55 of 245 heeft, kan hem bij de anderen niet kopen, dus de zin in de winkeltekst klopt waarschijnlijk niet. En het andere deel van punt 3 telt zwaarder: Hat Tower heeft 9 horloges, Ebb 40, de mediaan van een betaalde app is 84 van de 107 mogelijke.
+
+Wat de betaalde apps die al 10+ haalden bijna altijd hebben (GEZIEN, 211 apps): Forerunner 265, 965, 970, 570 en 165, fēnix 7 en 8, epix (Gen 2) en epix Pro, Venu 3, Venu 3S en Venu 4, vívoactive 5 en 6, Enduro 2 en 3, Instinct 3 AMOLED: elk bij 90% of meer van deze apps. Hat Tower heeft daarvan alleen de Forerunner 265, fēnix 7 en 7X en Venu 3 en 3S. Venu Sq 2 staat bij 64%.
+
+### Hoe dit past bij wat we eerder zagen
+- Verhaal 14: de snelle nieuwe ademhalingsapps draaiden op mediaan 183 horloges, Ebb op 40. Nu blijkt dat ook binnen één maker meer horloges meer downloads geven, en dat het venster maar 14 dagen is.
+- Verhaal 15 (Blender): daar is de winkel ook de motor, maar die blijft geven (mediaan 11,5 per dag). Bij Garmin is de motor kort: twee weken.
+- Vera (spellen): spelers noemen vaak Venu Sq, Forerunner 55 en 245. Die oudere horloges kunnen dus wel gratis spellen halen maar geen betaalde. Een gratis Gloop-spel zou die groep wel bereiken.
+
+### Drie lessen
+1. **De Garmin-winkel geeft een nieuwe app 14 dagen.** Daarna stijgt nog maar 2 tot 14% van de apps een klasse in 10 dagen. Alles wat we voor een Garmin-app doen (post, filmpje, gratis ingang, codes) moet in die 14 dagen vallen, niet erna.
+2. **Meer horloges is de grootste knop die we zelf in de hand hebben,** ook binnen dezelfde maker (27 tegen 8). Onder de 40 horloges haalt bijna geen betaalde app de 10+.
+3. **Betaald sluit de oudere horloges uit.** Een betaalde app kan alleen op de ±107 nieuwere soorten; de goedkope oudere horloges (Forerunner 55 en 245, Venu Sq) bereik je alleen gratis.
+
+### Voorstel voor Dortus deze week
+**Gijs (met Mila voor de plaatjes): dien Hat Tower pas in als hij op de gangbare nieuwere horloges draait, en haal de Forerunner 55 en 245 uit de tekst of zoek in het portaal na of een betaalde app die mag hebben.** Concreet: (1) voeg vóór het indienen toe wat bij 90%+ van de betaalde toppers staat (vraag Mila welke schermmaten al in haar kit zitten; Forerunner 165, 965, 570 en 970, fēnix 8, epix Pro, Venu 4, vívoactive 5 en 6); het venster van 14 dagen begint pas bij de goedkeuring, dus een paar dagen later met de goede horloges is beter dan nu met 9. (2) Plan de lancering zo dat het filmpje van Chris, de Reddit-tekst en de video op de winkelpagina binnen die 14 dagen vallen. (3) Voor Ebb: het venster loopt tot ±27 nov 15:00 UTC; 1.0.1 met meer horloges en een video-link vóór die datum doet meer dan erna. Wie: Gijs en Mila, Chris voor het filmpje. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+### Wat ik niet weet
+- De officiële lijst van horloges waarop betalen kan (pagina niet leesbaar met curl). Gijs kan het in het portaal zien bij het uploaden.
+- Waar de winkel "nieuw" laat zien en hoe zwaar dat weegt tegen zoeken.
+- Downloads binnen een klasse (een app van 11 en een van 95 tellen hetzelfde).
 
 ---
 

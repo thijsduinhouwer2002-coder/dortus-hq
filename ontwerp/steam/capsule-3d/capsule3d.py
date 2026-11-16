@@ -19,7 +19,7 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 MOD = os.path.normpath(os.path.join(HIER, "..", "..", "..", "producten", "steam-hol", "modellen"))
 sys.path.insert(0, MOD)
 import bpy
-from mathutils import Vector
+from mathutils import Vector, Matrix
 import gedeeld as g
 
 uit = sys.argv[1]
@@ -88,10 +88,10 @@ KLEIN = VARIANT == "klein"
 HOOFD = VARIANT == "hoofd"
 def E(naam, gewoon):
     return float(os.environ.get(naam, gewoon))
-GX = (2.35 if not HOOFD else E("HF_GX", "1.8")) if not KLEIN else 3.3         # Gloop rechts van het midden
-RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.25"))) if not KLEIN else 1.15       # ridder
-RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else -1.35   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
-RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else 1.5
+GX = (2.35 if not HOOFD else E("HF_GX", "1.8")) if not KLEIN else E("K_GX", "2.75")         # Gloop rechts van het midden
+RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.25"))) if not KLEIN else E("K_RX", "5.05")       # ridder
+RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else E("K_RY", "-0.9")   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
+RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else E("K_RS", "1.35")
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
@@ -141,7 +141,7 @@ if not KLEIN:   # ronde 4: klein zonder fakkels, minder dingen
         lo = bpy.data.objects.new("fakkellicht", lf); lo.location = (GX - 3.2, 2.3, 3.9); sc.collection.objects.link(lo)
     fakkel(GX + 3.4, 3.1)
 else:
-    lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = float(os.environ.get("CAP_WANDLAMP", "350" if KLEUR_H else "500"))
+    lamp_k = bpy.data.lights.new("wandwarm", "POINT"); lamp_k.color = (1.0, 0.6, 0.28); lamp_k.energy = float(os.environ.get("CAP_WANDLAMP", "180" if KLEUR_H else "500"))
     lk = bpy.data.objects.new("wandwarm", lamp_k); lk.location = (GX, 2.0, 3.5); sc.collection.objects.link(lk)
 
 # ---------- de schat: een berg munten onder en rond Gloop ----------
@@ -231,6 +231,20 @@ anker.rotation_euler = (0, 0, math.radians(-12))
 GROOT = (1.1 if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else 1.3
 anker.scale = (GROOT, GROOT, GROOT)
 
+# Mila 16 nov ronde 7 (beeldmap; standaard klein nu: titel groter, ridder rechts naast Gloop, wand donkerder): in klein is de helm op Gloop maar ±14 px breed; hij moet het grootste ding worden.
+# K_HELM schaalt helm, rand, punt en pluim om de voet van de helm (alleen klein, standaard 1 = zoals het was).
+if KLEIN and E("K_HELM", "1.1") != 1.0:
+    bpy.context.view_layer.update()
+    hr = bpy.data.objects.get("gloop_helmrand"); voet = hr.matrix_world.translation.copy(); k = E("K_HELM", "1.1")
+    M = Matrix.Translation(voet) @ Matrix.Scale(k, 4) @ Matrix.Translation(-voet)
+    for o in list(sc.objects):
+        if o.name.startswith(("gloop_helm", "gloop_pluim")):
+            o.matrix_world = M @ o.matrix_world
+# Mila ronde 7: meer groen van Gloop in klein (minder goud op bruin, weg van Don't Rob My Dungeon)
+if KLEIN and E("K_GROEN", "0") > 0:
+    lg = bpy.data.lights.new("gloopgroen", "POINT"); lg.color = (0.45, 1.0, 0.35); lg.energy = E("K_GROEN", "0"); lg.shadow_soft_size = 1.5
+    lgo = bpy.data.objects.new("gloopgroen", lg); lgo.location = (GX, 1.6, 2.2); sc.collection.objects.link(lgo); lgo.visible_camera = False
+
 # ronde 5 (Daan kan 3): kroon minder munt: strakkere, smallere punten, kleinere bolletjes, minder glans
 for o in list(sc.objects):
     if o.name.startswith("gloop_kroon") or (o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("kroon")):
@@ -251,22 +265,33 @@ import held
 # ronde 5b (frisse kijker: "lijkt eroverheen geplakt, kijkt de kijker aan en niet het monster"): minder randlicht,
 # meer naar Gloop gedraaid. Oud: draai 38, rand 60 (RIDDER_DRAAI, RIDDER_RAND)
 # ronde 6 (Daan moet 1): hoger draaide hem juist weg; -40 kijkt hij naar de helm op Gloop (ridder-draai-reeks.png)
-ridder = held.bouw("ridder", "schrik", plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40")), schaal=RS,
+RIDDER_AAN = not (KLEIN and E("K_RIDDER", "1") == 0)   # Mila ronde 7: klein mag zonder ridder, dan past de grote titel
+R_STAND = os.environ.get("K_RSTAND", "schrik") if KLEIN else "schrik"
+ridder = None if not RIDDER_AAN else held.bouw("ridder", R_STAND, plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40" if not KLEIN else os.environ.get("K_RDRAAI", "55"))), schaal=RS,
                    gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))
 # ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
 SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))
-schild = [o for o in ridder.children if o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("schild")]
+schild = [] if ridder is None else [o for o in ridder.children if o.type == "MESH" and o.data.materials and o.data.materials[0].name.startswith("schild")]
 if schild and SCHILD_ZAK:
     s0 = schild[0].location.copy()
     for o in ridder.children:
         if abs(o.location.x - s0.x) < 0.03 and abs(o.location.z - s0.z) < 0.02:
             o.location.z -= SCHILD_ZAK; o.location.x -= 0.12
 
+# Mila ronde 7 (blinde kijker: "de ridder staat er levend en vrolijk naast, er is niets fallen te zien"):
+# in klein duikt hij kop eerst in de muntenberg (de valhouding uit het spel), zonder helm: die staat op Gloop.
+if ridder is not None and KLEIN and E("K_RKAAL", "0") == 1:
+    for o in list(sc.objects):
+        if o.name.startswith("hoed_helm"):
+            o.hide_render = True
+    ridder.location.z -= E("K_RZAK", "0")   # kop iets de munten in
+    # het schild vliegt los, zoals in de valhouding van het spel (held.py); bewust laten staan
 # ---------- de hoedenberg: in het spel draagt Gloop er 4, de rest ligt op de berg (toets_held.gd) ----------
 import hoeden
 BERG = [(7, GX + 2.2, -0.3, 0.62, 12, -20)]   # ronde 4c: alleen de hoge hoed, rechts, goed zichtbaar
 if KLEIN:
-    BERG = []
+    # Mila ronde 7b (blinde kijkers: "fallen zie je niet"): K_BERG=1 legt verzamelde hoeden op de berg
+    BERG = [] if E("K_BERG", "0") == 0 else [(7, GX + 1.55, -0.6, 0.55, 14, -15), (1, GX - 1.75, -0.7, 0.35, -18, 20)]
 for nr, x, y, z, k, d in BERG:
     hoeden.bouw(nr, plek=(x, y, z), schaal=0.85, kantel=k, draai=d)
 # proef ronde 5 (Daan): klein met een tweede, kleinere hoed achter de helm (heksenhoed), niet ernaast. KLEIN_ACHTER=1
@@ -293,8 +318,8 @@ def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0, rand=0.07):
 
 if KLEIN:
     # Mila 16 nov (beeldmap): bij de toppers vult de titel 60 tot 80% van de breedte; K_HATS en K_OTF om groter te proeven
-    tekst("HATS", (E("K_TX", "-4.75"), -0.6, E("K_HZ", "1.85")), E("K_HATS", "2.0"), kantel=-3)
-    tekst("OF THE FALLEN", (E("K_TX", "-4.75") + 0.05, -0.6, E("K_OZ", "0.98")), E("K_OTF", "0.86"), kantel=-3, rand=0.11 if KLEUR_H else 0.07)
+    tekst("HATS", (E("K_TX", "-4.75"), -0.6, E("K_HZ", "1.85")), E("K_HATS", "2.45"), kantel=-3)
+    tekst("OF THE FALLEN", (E("K_TX", "-4.75") + 0.05, -0.6, E("K_OZ", "0.98")), E("K_OTF", "1.08"), kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 elif HOOFD:
     tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.40")
     tekst("HATS", (tx, -0.6, 2.55 + tz), 1.75, kantel=-3)
@@ -319,14 +344,14 @@ lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
-lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900)   # warme gloed op de muur achter Gloop
+lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900 if not KLEIN else E("K_WANDGLOED", "900"))   # warme gloed op de muur achter Gloop
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
 sc.world.node_tree.nodes["Background"].inputs["Color"].default_value = LUCHT
 
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.lens = 42; cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-doel = Vector((0.3, 0.6, 1.95)) if not KLEIN else Vector((0.45, 0.6, 2.1))
+doel = Vector((0.3, 0.6, 1.95)) if not KLEIN else Vector((0.45, 0.6, E("K_CZ", "2.25")))
 co.location = (0.3, -13.5, 3.6) if not KLEIN else (0.45, -13.5, 3.5)
 co.rotation_euler = (doel - Vector(co.location)).to_track_quat("-Z", "Y").to_euler()
 if KLEIN:

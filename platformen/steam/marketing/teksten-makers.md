@@ -9,6 +9,7 @@ Bij `makers.md` en `festplan.md`. Engels, kort. **Niets is verstuurd.** Versture
 4. **Persoonlijk:** één zin die laat zien dat we hun video zagen, met de echte titel uit `makers.md`. Zonder die zin niet versturen.
 5. **Geen druk:** "no strings attached", geen vraag om een review of score, geen betaling. Sleutels of demo zonder voorwaarden.
 6b. **Speelduur eerlijk (run 7):** "Open it for a few minutes a day and your hole grows for weeks." Bron: Sanne 16 nov 17:05, wie het tussendoor speelt doet 7 tot 9 weken over het hol (Bram, GEZIEN in de simulatie). Nooit "100 hours" of een getal dat de simulatie niet geeft.
+6c. **Weg zijn eerlijk (run 8):** "Your hole keeps going while you're away, at a gentler pace, for up to 12 hours." Bron: Sanne 16 nov ±18:00, weg zijn levert een kwart op, met een plafond van 12 uur. Nooit "fully idle", "earns while you sleep" of "runs forever" zonder dat erbij. "Keeps going while you work" mag wel: dan staat de computer aan en loopt het hol op volle snelheid. Alle teksten in dit bestand nagelopen (run 8): geen zin in strijd hiermee.
 6. **Wat ze krijgen moet werken:** link naar de winkelpagina pas als die live is (±8 dec), demo pas als die openbaar is (4 jan, zie festplan).
 
 ## A. Speelt precies ons soort spel (nummers 1 tot 14, 41 tot 46)

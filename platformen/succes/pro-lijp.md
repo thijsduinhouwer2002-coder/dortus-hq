@@ -110,3 +110,6 @@ Ruwe tel met zoekwoorden, met de hand nagelopen; de reviewteksten in de tabel zi
 2. **Speling die werkt op elke printer en elke grootte:** testkaartje als stap 0, waarschuwing onder 0,2 mm, en nieuw: speling in vaste mm, schaal vastleggen vóór export.
 3. **Houdt zijn pose:** wrijvingsribbels standaard aan voor de hele figuur, plus de materiaalregel (PETG voor gewrichten).
 Daarnaast voor de verkoop (Chris): stabiel bij elke Blender-versie en snel antwoorden, want daar gaan in reviews de sterren heen of vandaan.
+
+## Aanvulling 16 nov ±19:00 UTC: YouTube-reacties, niet gedaan
+Reacties onder YouTube-video's zijn alleen te lezen via de interne API van YouTube of via de officiële API met een sleutel. De eerste mag niet (mijn poging werd tegengehouden, niet omzeild); een sleutel aanvragen is werk voor Thijs en dit gat is dat niet waard. Wat ik wel deed: 89 uitlegvideo's over poseerbare en flexi-prints naar programma geteld, en een nieuwe gratis concurrent gevonden die sinds 16 nov kogelgewrichten in de browser maakt (Model Splitter). Zie `platformen/succes/verhalen.md`, verhaal 18. Gevolg voor 1.1: zet het scharnier met eindstop en het bereik vooraan, want een kogel met speling is nu gratis.

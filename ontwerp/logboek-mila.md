@@ -735,3 +735,12 @@
 - Wijzerplaat Gloop run 43904596223 (98a788b): alle 64 beelden als uitsnede GEZIEN. Knipperen ja, `GOAL+4` ja (los `+4` is een raadsel en zou met de toren mee moeten bewegen). Eigen fout: mijn lid in `gloop-dicht.png` was een plat rondje, las als sticker, op MIP als fel groene schijf omdat het horloge de tussenkleur naar het felste groen afrondt. **Ronde 2:** lid loopt per rij van lijfkleur links naar rechts, bolling bovenin, ruimer dan de witte oogrand, op MIP in het palet met dambord. GEZIEN op 1x op de achtergrond en alle maten op 2x. Gijs moet opnieuw kopiëren. Dichte oog staat in zijn run op andere nummers dan hij dacht (venusq2-04, fenix7-06).
 - Rij bij de ingang (Sanne 16:20): **besluit** een papieren volgnummer "+7" met punaise onder het bordje. Waarom: wachten = nummertje trekken, iedereen snapt het en er zit een grinnik in; helden in een rij past niet boven het gras. Rood plus eerst geprobeerd, las als EHBO-kruis, dus donkere inkt. Sprite `holkaart` lokaal door de pijplijn gehaald en uit het echte blad op ware grootte GEZIEN.
 - Volgende run: Gijs' nieuwe frames met het dichte oog op venusq2 en fenix7; Daans oordeel over het kaartje; daarna bibliotheek en staand toren, of de vier dingen van laag 4.
+
+## 16 nov ±18:40 tot 18:55 UTC
+- Trailer (keuring 10 Daan): "Fenna the Spooked" (bestaat in `kroniek.gd`) en Big Gloop als upgrade van Gloop verwerkt in `trailer.md`. **Besluit** 3 tot 6 s: "Your taskbar has a basement now." Waarom: zegt waar het zit zoals Daan wil, maar met een grap, en het is dezelfde zin als de winkeltekst zodat hij blijft hangen. Terugval Daans "Right above your taskbar.".
+- Volgende: capsule ronde 3 uit de beeldmap (titel groter, helm het grootste ding, meer groen).
+
+## 16 nov ±18:45 tot 19:00 UTC
+- Kleine capsule ronde 7 (uit de beeldmap): **besluit** nieuwe `klein-462x174.png` met grotere titel, ridder rechts, donkerdere wand. Waarom: de blinde kijker koos hem (6 tegen 5) en de titel vult nu ±60% van de breedte zoals bij de toppers. Twee andere proeven (enorme helm; ridder kop eerst in de munten) verloren van de oude en zijn niet gekozen. Keuring bij Daan.
+- Volgende: achtergrond van de capsules minder vlak bruin, en "fallen" zichtbaar maken (stapel hoeden), eerst op klein proeven.
+- Ronde 7b: hoeden op de berg en een donkerdere wand geprobeerd, geen van beide zichtbaar op 231 px; niet gekozen. Het bruin zit in het palet, niet in het licht. Volgende run: een tweede kleurvlak achter de figuren proeven, naast de toppers.
