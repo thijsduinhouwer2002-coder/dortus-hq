@@ -1,12 +1,12 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794853909
+HOL zaad 1794853942
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Mara knocks first. Polite.
-HOL begin: vallen (Mara)
-HOL held binnen: Mara
-HOL kroniek 9.6 (wacht 0.0): Gerda is here for your gold.
-HOL begin: opgegeten (Gerda)
-HOL held binnen: Gerda
+HOL kroniek 4.1 (wacht 0.0): Lotte says this is a quick one.
+HOL begin: vallen (Lotte)
+HOL held binnen: Lotte
+HOL kroniek 9.7 (wacht 0.0): Odo knocks first. Polite.
+HOL begin: opgegeten (Odo)
+HOL held binnen: Odo
 HOL meting t=10 beelden=63 helden=2 hol_vast=1
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
