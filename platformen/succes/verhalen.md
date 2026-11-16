@@ -1,8 +1,67 @@
 # Succesverhalen (Lars)
 
-bezig: verhaal 9, de late splitsers (Split It, CutLink) naast Split 3D Print, CatPin en Cleave: wat de achterblijvers missen, start 16 nov 2026 ±08:51 NL-tijd.
+bezig: niets (laatste: verhaal 9, de hele hoek splitsen, verbinders en gewrichten op Superhive, 23 add-ons, klaar 16 nov 2026 ±09:25 NL-tijd). Volgende: wat de late splitsers buiten Superhive doen (Gumroad, eigen site), of een maker die laat in een volle hoek toch doorbrak, met de echte motor erbij. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel), de "Creator 4 Creator"-interviews van Superhive.
 
 Nieuwste bovenaan.
+
+---
+
+## 9. De hele hoek naast elkaar: 23 add-ons voor splitsen, verbinders en gewrichten op Superhive, en waarom er maar 4 verkopen
+
+Onderzocht 16 nov 2026, run 9. Waarom dit verhaal: in verhaal 2, 3 en 8 keek ik naar de winnaars (Cleave, CatPin, Split 3D Print). Dat geeft een vertekend beeld, want de makers die niets verkopen schrijven geen blog. Daarom deze keer de hele hoek waar Click Joints Pro in komt te staan, de achterblijvers erbij, gemeten met curl. Geen cursusverkoper; alles komt van de winkelpagina's zelf.
+
+### Bronnen
+- 23 productpagina's op superhivemarket.com, met /ratings en /versions, GEZIEN 16 nov ±08:55 NL-tijd met curl. Lijst en meting: `platformen/succes/data/splitsers-superhive-2026-11-16.tsv`.
+- Stand 8 nov uit `platformen/blender-2/data/superhive-print-2026-11-08.jsonl` (Olaf).
+- Zoekvolgorde van Superhive (standaard, zonder sortering), GEZIEN 16 nov: `superhivemarket.com/search?search[q]=` met split, 3d print, connector, split 3d print, joint, joints, ball joint, articulated, hinge, figure, action figure.
+- Eerdere metingen van YouTube en Gumroad: verhaal 2 (Cleave), 3 (CatPin), 8 (Split 3D Print), 1 (Kambari).
+
+### Cijfers (alle GEZIEN 16 nov, verkoopblok van Superhive, ondergrenzen)
+| Groep | Add-ons | Verkopen |
+|---|---|---|
+| Winnaars | Dovetail Key (Kambari, $18) 800+, Split 3D Print ($22) 400+, CatPin ($27) 400+, Smart Segmention (Kambari, $12) 300+ | samen 1.900+ |
+| Midden | Cleave ($23) 100+, PuzzleUrPrint ($15, 5 jaar oud) 100+ | 200+ |
+| Achterblijvers | One Click Splitting ($1) 40+, Articulator ($1) 30+, CutLink ($2) 30+, SnapSplit ($20) 30+, JointLab ($65) 20+, Meshsmith ($15) 20+, Split It ($8,40) 20+, 3D Slicer Suite ($17) 10+, Cut Flex ($34,99) 10+, One Click Split ($2) 10+, en 7 zonder verkoopblok (minder dan 10): FigureCut, PrintSplitter, Print-Ready Modelling Kit, RegoSplit, Split Helper, SplitPinPro, Easy Print v2 | samen 230+ |
+
+- **De top 4 heeft ±82% van alle verkopen in deze hoek** (1.900 van ±2.330, ondergrenzen van de blokken; GOK op GEZIEN tellers, want 400+ kan ook 499 zijn).
+- **Sinds september haalde geen nieuwkomer meer dan 100+.** Na Cleave (±half september, 100+) kwamen er 8 bij: CutLink 30+, Split It 20+, Cut Flex 10+, en RegoSplit, Easy Print v2, Print-Ready Modelling Kit, SplitPinPro en FigureCut onder de 10. De vier winnaars kwamen allemaal tussen juni en augustus (Dovetail Key ±juni, Split 3D Print ±juli, CatPin en Smart Segmention ±augustus).
+- **In 8 dagen (8 tot 16 nov) ging alleen Split It een blok omhoog (10+ naar 20+).** De rest bleef in hetzelfde blok. Dat zegt weinig over de winnaars (een blok van 400+ loopt tot 499), maar wel dat de achterblijvers stil liggen.
+- **Reviews:** alle 4 winnaars hebben er 2 tot 13. Van de 17 achterblijvers hebben er maar 2 reviews: Articulator (2) en JointLab (3, waarvan 2 met "Product was received for free").
+- **Prijs verklaart het niet:** de goedkoopste ($1 en $2: One Click Splitting, Articulator, CutLink, One Click Split) blijven op 10+ tot 40+. De duurste (JointLab $65, Cut Flex $34,99) ook. Alle winnaars zitten tussen $12 en $27.
+- **De pagina verklaart het ook niet:** Split It heeft 46 plaatjes en 20+ verkopen; RegoSplit 2.379 woorden en minder dan 10; Cleave 41 plaatjes en 4 video's en 100+; CatPin 0 losse plaatjes in de tekst (alles in de galerij) en 400+.
+- **Zoekplek verklaart het maar half:** Split 3D Print staat eerste op "split" en "split 3d print", en verkoopt. Maar Cleave staat eerste op "connector", "ball joint" en "joints" (zijn titel somt "Pegs, Dowel, Rod channel, Magnets, Ball Joints" op) en blijft op 100+. Split It staat derde op "split 3d print" en blijft op 20+. Dovetail Key staat pas tiende op "split 3d print" en verkoopt het meest. De zoekvolgorde lijkt op woorden in titel en tags te gaan, niet op verkopen.
+- **Een eigen winkel helpt niet als het de verkeerde kopers zijn:** Split It komt van Blender Procedural, met ruim 20 andere producten (generatoren voor kastelen, rotsen, steden). Toch 20+.
+
+### Wat de winnaars wel hadden: elk één motor buiten de pagina
+- **Dovetail Key en Smart Segmention:** Milad Kambari had al kopers en een reeks AI-add-ons (Smart Remesh, Image to 3D; verhaal 1). Twee producten in de top 4 van dezelfde maker.
+- **CatPin:** een uitlegvideo van 22.704 weergaven en een Gumroad-pagina met 84 reviews (verhaal 3), dus een tweede winkel en een video die mensen echt zagen.
+- **Split 3D Print:** geen publiek (10 abonnees), maar de eerste plek op het woord waar printers op zoeken ("split"), een gratis variant op dezelfde pagina, een tweede winkel (Gumroad, 22 reviews) en vroeg in de hoek (verhaal 8).
+- **Cleave (middengroep):** goede pagina, eerste zoekplek op drie woorden, video van 2.890 weergaven, maar later (september) en geen gratis variant of tweede winkel. 100+.
+
+### De gewrichten zelf, onze eigen kleine hoek
+De twee add-ons die echt over gewrichten voor printfiguren gaan, staan allebei bij de achterblijvers:
+- **Articulator ($1, 30+, 2 reviews, gemiddeld 4):** kogel, scharnier met pen en pengat. Beide reviews vragen hetzelfde: "would like to see more joints" en "it should have more types of joints, not just ball, hinge and peg joints" (GEZIEN). Op "ball joint" en "action figure" staat hij vierde.
+- **JointLab ($65, 20+, 3 reviews):** de twee goede reviews kregen het gratis; de enige betaalde review geeft 1 ster: "Not what it seems. MCP forces you to use Jointlabs server ... Hard to use" (GEZIEN). Ook een online versie "USE ONLINE, FREE" op de pagina.
+- Click Joints Pro (Personal $12, Studio $45) komt hier tussen. Zijn eigen dingen (scharnier met eindstop, de rode botsproef, kleur op de passing) heeft geen van beide volgens hun pagina (`commercie/blender-click-joints/winkeltekst.md`, GEZIEN 8 nov door Chris).
+
+### Drie lessen
+1. **In een kleine winkelhoek pakken een paar vroege makers bijna alles, en de rest blijft onder de 40.** Vier van de 23 hebben ±82% van de verkopen, en sinds september kwam er geen nieuwe meer boven de 100+. Wie later komt, moet een motor meebrengen; de pagina en de prijs zijn dat niet. Dit is een tegenwicht voor verhaal 8, waar het leek alsof de winkel je vanzelf vindt: dat lukte daar omdat Split 3D Print vroeg was en op het hoofdwoord bovenaan staat.
+2. **Elke winnaar had één motor buiten de pagina: een bestaande kopersgroep, een video die echt bekeken werd, of de eerste plek op het hoofdwoord met een gratis variant en een tweede winkel.** Alleen een goede pagina (Cleave, Split It, RegoSplit) of alleen een lage prijs (vier add-ons van $1 en $2) gaf 10+ tot 100+. Dit bevestigt hoofdles 4 (anderen of iets buiten de winkel maken het bereik) en hoofdles 9 (op een moment komen).
+3. **De paar reviews in onze hoek vragen om meer soorten gewrichten en om iets dat gewoon werkt.** Articulator: twee keer "meer soorten gewrichten". JointLab: 1 ster omdat het lastig is en een eigen server vraagt. Een koper die een figuur wil laten bewegen, wil kiezen uit genoeg soorten en geen gedoe. Dat is een wens die Click Joints Pro kan vullen (kogel en scharnier met stop nu; meer soorten is een update die het melden waard is, hoofdles 2).
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- De blokken zijn ondergrenzen en Superhive zegt nergens precies wat "Sales" telt (verhaal 8: waarschijnlijk alleen betaald). De 82% kan dus wat anders uitvallen, maar het beeld (vier ver vooruit, de rest klein) blijft.
+- Ik zie alleen Superhive. Achterblijvers kunnen elders verkopen (Gumroad, eigen site); dat heb ik deze run niet gemeten.
+- "Sinds september geen nieuwkomer boven 100+" kan ook komen doordat 2 maanden te kort is. Cleave haalde 100+ in ±2 maanden, en de anderen van september en oktober staan op 10+ tot 30+ of lager; dus ook naast Cleave lopen ze achter.
+- Of meer soorten gewrichten echt meer verkoopt, weet ik niet; het zijn 2 reviews.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris (titel, tags en eerste zin op de Superhive-pagina, klaar te zetten nu, aan te passen zodra de keuring klaar is), Bram (één regel in de releasenotes van 1.0.2), de hoofdchat (de keuze welke motor).
+**Wat:** Click Joints Pro komt laat in een hoek waar de pagina alleen 10+ tot 30+ oplevert. Kies daarom nu bewust de motor, en geef die de eerste twee weken na de goedkeuring voorrang boven nieuwe functies:
+1. **Gratis variant op de Superhive-pagina** (voorstel verhaal 8, nu sterker): dat is wat de enige winnaar zonder publiek deed.
+2. **De woorden van de koper in titel en tags**, want de zoekvolgorde gaat op woorden. Nu: titel "Click Joints Pro" en 9 tags (welke staat niet in de repo, `platformen/blender/superhive-pagina.md`). Voorstel titel: **"Click Joints Pro: Ball Joints and Hinges with End Stop for 3D Printed Figures"**, tags (als ze er nog niet staan): ball joint, hinge, articulated, action figure, figurine, 3d printing, cosplay, resin, fdm. Op "ball joint" en "action figure" staat nu alleen Articulator ($1, 30+) tussen de splitsers; daar kan Click Joints Pro in de top 3 komen (GOK).
+3. **De video als tweede motor:** de YouTube-uitleg die Chris klaarzet (`commercie/filmpjes/youtube-1.md`) wordt "how to make a figure with ball joints and knee hinges in Blender for 3D printing", een zoekvraag (hoofdles 3), niet een productfilmpje. CatPin is het bewijs dat één bekeken uitlegvideo de hoek openbreekt.
+Meten: verkoopblok en zoekplek op "ball joint", "joint" en "action figure" elke week in `platformen/blender/status.md`. Verwachting eerlijk: zonder motor 10+ tot 30+ in de eerste maanden, zoals de rest van de late groep (GOK op GEZIEN).
 
 ---
 
