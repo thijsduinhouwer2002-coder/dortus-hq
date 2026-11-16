@@ -136,7 +136,7 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 # 40% van wie vlucht komt nooit terug (sim/UITKOMST.md) en strook.gd laat ze nu stil verdwijnen. Bewaar hun namen
 # (oudste voorop, hooguit PENSIOEN_MAX) en vraag bij openen deze regel: alleen als je minstens PENSIOEN_NA_S weg was,
 # zodat het klopt dat hij intussen iets anders is gaan doen. Geeft {"naam", "regel"} (haal die naam uit je lijst) of {}.
-# regels: systemen/kroniek_regels.gd (zelfde voorraad als de kroniek, dus geen regel uit de laatste 10).
+# regels: kern/regels.gd zoals de strook hem heeft (pensioen staat in systemen/kroniek_regels.gd, kies() valt daarop terug).
 const PENSIOEN_NA_S := 30 * 60
 const PENSIOEN_MAX := 5
 static func pensioen(namen: Array, uitkomst: Dictionary, regels) -> Dictionary:

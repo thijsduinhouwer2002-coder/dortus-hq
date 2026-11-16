@@ -1,0 +1,181 @@
+{
+	"_uitleg": "Alle kroniektekst die het spel kan tonen (Bram 16 nov): per soort de lijst die kern/regels.gd kies() gebruikt (eigen VOORRAAD, anders die van systemen/kroniek_regels.gd), plus HOED_KORT. toets_systemen vergelijkt het spel hiermee letter voor letter. Verander je bewust een regel, werk dit bestand dan mee bij.",
+	"_HOED_KORT": [
+		"helmet",
+		"pointy hat",
+		"hood",
+		"cap",
+		"crown",
+		"chef's hat",
+		"bucket",
+		"top hat",
+		"pan",
+		"feather cap"
+	],
+	"aartsvijand": [
+		"Your nemesis {naam} has arrived.",
+		"{naam} again. Of course.",
+		"{naam} trained all week for this."
+	],
+	"afgerekend": [
+		"Grudge settled. {naam} rests.",
+		"{naam} came back once too often."
+	],
+	"afgerekend_aarts": [
+		"Nemesis {naam}: finally stays.",
+		"Grudge settled. {naam} rests."
+	],
+	"afgerekend_val": [
+		"{naam} came back. {Val} won.",
+		"{Val} won. Grudge settled.",
+		"{Val} wins round two."
+	],
+	"binnen": [
+		"{naam} climbs into your hole.",
+		"{naam} is here for your gold.",
+		"{naam} brought a torch. And hope.",
+		"{naam} read about you in a tavern.",
+		"{naam} has a map. It is wrong.",
+		"{naam} knocks first. Polite.",
+		"{naam} says this is a quick one."
+	],
+	"binnen_bard": [
+		"{naam} the Bard tunes his lute.",
+		"{naam} hums on the way in.",
+		"{naam} is here for a story."
+	],
+	"binnen_dief": [
+		"{naam} the Thief tiptoes in.",
+		"{naam} sneaks in. Nobody saw. You saw.",
+		"{naam} picks the lock. It was open."
+	],
+	"binnen_lied": [
+		"{naam} heard the song. Came to see.",
+		"{naam} hums the song. Off-key.",
+		"{naam} knows all the words. Sadly.",
+		"{naam} came for the gold in the song.",
+		"{naam} asks if this is the song hole."
+	],
+	"binnen_magier": [
+		"{naam} the Wizard sniffs for traps.",
+		"{naam} casts Light. It is a candle.",
+		"{naam} knows every trap. Almost."
+	],
+	"binnen_opschepper": [
+		"{naam} tells everyone he slew a dragon.",
+		"{naam} the Boastful struts in.",
+		"{naam} signs autographs. Nobody asked."
+	],
+	"binnen_ridder": [
+		"Sir {naam} clanks in.",
+		"Sir {naam} polished his armor for this.",
+		"Sir {naam} is very slow. Very sure."
+	],
+	"binnen_slaapkop": [
+		"{naam} yawns. Long walk.",
+		"{naam} brought a pillow.",
+		"{naam} the Sleepy shuffles in."
+	],
+	"binnen_wraakzuchtig": [
+		"{naam} holds grudges. Hard.",
+		"{naam} the Spiteful is here.",
+		"{naam} keeps a list of names."
+	],
+	"dutje": [
+		"{naam} took a nap in your hole.",
+		"{naam} snored. Gloop watched.",
+		"{naam} slept. Rude."
+	],
+	"hap_hoed": [
+		"{bewoner} ate {naam}. Kept the {hoed}.",
+		"{bewoner} ate {naam}. The {hoed} fits.",
+		"{bewoner} ate {naam}. Wears the {hoed} now.",
+		"{naam} is gone. The {hoed} stays.",
+		"{bewoner} ate {naam}, saved the {hoed}."
+	],
+	"hap_hoed_eerste": [
+		"{bewoner} ate {naam}. Kept the {hoed}."
+	],
+	"hoed": [
+		"{bewoner} tries on {naam}'s hat. Fits.",
+		"{bewoner} adds {naam}'s hat to the pile.",
+		"{bewoner}'s hat pile is taller than him."
+	],
+	"hoed_bijnaam": [
+		"{bewoner} is now known as the {bijnaam}."
+	],
+	"hoed_eerste": [
+		"{bewoner} wears {naam}'s hat now."
+	],
+	"hoed_klein": [
+		"{bewoner} tries on {naam}'s hat. Fits.",
+		"{bewoner} adds {naam}'s hat to the pile."
+	],
+	"lied": [
+		"{naam} sang about your hole. More came.",
+		"{naam}'s song got popular. Uh oh.",
+		"A song about you! Heroes on the way."
+	],
+	"naamgenoot": [
+		"{naam} climbs in. Family business.",
+		"{naam}. {oud} fell here once.",
+		"{naam} wants dad's boot back."
+	],
+	"op": [
+		"{bewoner} is up again. Wobbly."
+	],
+	"pensioen": [
+		"{naam} retired. Opened a bakery.",
+		"{naam} retired. Tells tall tales now.",
+		"{naam} quit heroing. Sells maps.",
+		"{naam} won't be back. Too scared."
+	],
+	"plat": [
+		"{bewoner} is flat. Back soon."
+	],
+	"schat": [
+		"{naam} touched your hoard!",
+		"{naam} tried to lift it. Too heavy.",
+		"{naam} licked a coin and ran.",
+		"{naam} is now the Hoard-Toucher."
+	],
+	"schat_weg": [
+		"{naam} the Hoard-Toucher ran.",
+		"{naam} ran. Hands smell of gold.",
+		"{naam} ran off, giggling."
+	],
+	"terug": [
+		"{held} is back.",
+		"{naam} came back. Bigger sword.",
+		"{naam} is back. Still limping."
+	],
+	"terug_bewoner": [
+		"{naam} is back for {bewoner}.",
+		"{held} is back. Grudge: {bewoner}",
+		"{naam} wrote a song about {bewoner}."
+	],
+	"terug_val": [
+		"{naam} remembers {val}.",
+		"{naam} is back for {val}.",
+		"{naam} limps back to {val}."
+	],
+	"val": [
+		"{naam} fell to {val}.",
+		"{naam} found {val}. Hard.",
+		"{naam} stays forever.",
+		"{naam} left gold and one boot.",
+		"{naam} will not be leaving."
+	],
+	"val_bewoner": [
+		"{bewoner} ate {naam}. Burp.",
+		"{bewoner} says thanks for the snack.",
+		"{naam} stays forever."
+	],
+	"vlucht": [
+		"{naam} fled. Grudge: {bewoner}.",
+		"{naam} ran. Swore revenge.",
+		"{naam} escaped with a limp.",
+		"{naam} left. Took nothing. Angry.",
+		"{naam} fled, crying a little."
+	]
+}
