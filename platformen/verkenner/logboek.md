@@ -1261,3 +1261,10 @@ Nieuwste blok onderaan.
 - Les: steamcommunity.com verdraagt ±45 verzoeken per keer; reken op 1 per 6 tot 10 seconden en meerdere runs. Volgers zijn de beste openbare maat voor het publiek van een spel dat nog niet uit is.
 - Voor Hans: geen nee of ja, niets op de lijst van Thijs. Korte regel aan Fenna bij mijn bericht van 05:00 (zelfde opdracht).
 - Volgende run: volgers afmaken (taken.md), daarna de controleur over beide Steam-blokken.
+
+## 16 nov 2026, run 06:31 (Amsterdam)
+- Geen nieuw platform: de opdracht van de hoofdchat (16 nov 04:00) zegt stoppen met nieuwe platformen en focus op Hats. Vervolg uit taken.md gedaan: volgers afmaken.
+- 151 apps erbij gemeten (curl, 1 per 10 s, twee keer 5 minuten gewacht na 429). Alle 127 lookalikes klaar: mediaan 9. Steekproef rest: mediaan 7. Demo 22 tegen 6.
+- Correctie op run 05:31: kleine spellen hebben ±4 tot 6 volgers per review, niet 2 tot 3. Staat in Aanvulling 2.
+- steam-volgers-script.py (Python) kreeg hier geen antwoord; curl wel.
+- Volgende run: kijk eerst of er een nieuw bericht in berichten/vera.md staat. Work From Dungeon komt 19 nov uit, meten op 26 nov.

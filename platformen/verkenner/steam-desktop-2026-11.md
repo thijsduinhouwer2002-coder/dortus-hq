@@ -125,3 +125,20 @@ Vraag: is Don't Rob My Dungeon echt een gevaar, en hoeveel publiek hebben de spe
 2. **De lat rond het fest is laag.** De helft van de concurrenten die eraan komen heeft minder dan 10 volgers. Wie op het fest (14 tot 18 jan) **100+ volgers** heeft, hoort bij de beste 10% van de aangekondigde spellen in deze hoek; 300+ zou Hats bovenaan zetten (alleen Bondoq zit nu hoger). Dat zijn ±1.200 tot 3.600 verlanglijsten.
 3. **Meten wordt makkelijk:** zodra de winkelpagina van Hats op 1 dec live staat, kan elke run met één verzoek de volgers van Hats naast deze lijst zetten. Voorstel: vanaf 1 dec wekelijks Hats, Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully meten.
 4. **Twee proeven vóór ons fest om te volgen:** Work From Dungeon (19 nov, 4 volgers, 99 monsters verzamelen) en Traymon World (25 nov, 215 volgers, demo). Hun reviews na 1 en 4 weken laten zien wat een klein of middelgroot publiek bij de lancering in deze hoek oplevert. Staat in `taken.md`.
+
+## Aanvulling 2, 16 nov run 06:31: volgers afgemaakt plus steekproef
+Gemeten 06:38 tot 07:14 (Amsterdam), zelfde openbare XML, 1 verzoek per 10 seconden, bij een 429 vijf minuten gewacht (twee keer gebeurd), niets omzeild. 151 apps erbij, samen nu 255 metingen in `data/steam-volgers-2026-11-16.jsonl`. Het oude Python-script (`steam-volgers-script.py`) kreeg vanaf hier geen antwoord; de curl-versie werkte wel.
+
+**Wat er nu gemeten is (GEZIEN):**
+- **Alle 127 aangekondigde apps die op Hats lijken (2 of 3 punten):** mediaan 9 volgers; 50% onder 10, 40% 10 tot 99, 9% 100 tot 999, geen enkele 1.000+. Het beeld van run 05:31 (88 apps, mediaan 10) blijft staan.
+- **Willekeurige steekproef van de andere aangekondigde apps (69 van 608, zaad 16):** mediaan 7, 55% onder 10, 12% 100 tot 999, 1% 1.000+. Lijken op Hats maakt dus weinig uit: de hele hoek heeft weinig volgers vóór de lancering.
+- **Demo:** aangekondigd met demo mediaan 22 volgers (n=69), zonder 6 (n=127). Een demo hoort bij ongeveer drie keer zoveel volgers; dat is samenhang, geen bewezen oorzaak.
+- **Grootste aangekondigde apps in de hele hoek:** Meowniverse 1.435 (demo, Superjoy), Smug Ally 558, Pet.Net 530, Bondoq 460, Tiny Harbor 272, Your Momo 271, Fish Tankfully 255, Traymon World 215.
+- **Uitgebracht in 2026, betaald, nu gemeten (n=48, waarvan 38 uit de willekeurige steekproef van 561):** wie nu 10 tot 99 volgers heeft, heeft mediaan 2 reviews (n=22); 100 tot 999 volgers mediaan 34,5 reviews (n=12, 6 tot 358); 1.000+ volgers mediaan 872 (n=5). Bij spellen met 5+ reviews zijn het mediaan **4 volgers per review** (n=24, middelste helft 2,6 tot 9,5).
+
+**Wat dit verandert (GOK met onderbouwing):**
+1. In run 05:31 schreef ik 2 tot 3 volgers per review; dat kwam van de grote spellen. Voor kleine spellen zijn het eerder **3 tot 6 volgers per review** (mediaan 4 bij 5+ reviews, 3,3 bij 10+ reviews over alle jaren (n=22), en 0,17 reviews per volger bij spellen met 20+ volgers, dus ±6). Let op: dit zijn volgers ná de lancering, die groeien door; het is geen voorspelling vanaf de volgers op het fest.
+2. Ruwe vertaling voor Hats: 300 volgers ruim na de lancering past bij ±50 tot 75 reviews, dus ±1.500 tot 2.250 verkopen tegen ±30 verkopen per review (bandbreedte groot). Om bij de 100+ reviews van de kaart te horen heeft Hats na de lancering ±400 tot 600 volgers nodig.
+3. De doelen uit run 05:31 blijven: op het fest 100+ volgers is top 10% van wat eraan komt, 300+ is bovenaan. En een demo vóór het fest is het duidelijkste verschil dat ik in de data zie.
+
+**Niet gemeten:** 22 van de 150 geplande aangekondigde apps en 62 van de 100 geplande uitgebrachte apps uit de steekproef (tijd). Kan met `data/steam-volgers-curl.sh`, met een pauze bij 429.
