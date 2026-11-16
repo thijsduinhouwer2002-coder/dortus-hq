@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 12 af 16 nov ±16:45 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of wie Mini Cozy Room in Korea en China groot maakte)
+bezig: verhaal 13, Little Writer Desktop Companion (JSLegendDev), vanaf 16 nov ±17:10 UTC
 
 Nieuwste bovenaan.
 
