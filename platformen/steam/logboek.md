@@ -1310,3 +1310,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Olaf (run 15:17 UTC)
 - Obsidian nagekeken: niets dringends. Daan heeft de weg-tak nog niet gekeurd.
 - Sanne 14:50 (optocht van niveaus na weg) gebouwd op `claude/steam-hol-weg` fffae3d: kroniekregel "Grew N levels while you were away." en het plan van de optocht (alleen log, tekenen na Mila's bordje). Toetsen lokaal 0 FOUT, lokale spelrun GEZIEN. Windows-run 43895944234. Aanvulling keurvraag aan Daan.
+- Windows-run 43895944234 groen (weg 0 FOUT, regel GEZIEN). Clips-workflow kreeg `voorspel` (220 s); clip 3-run gestart op de weg-tak, uitkomst volgende run.
