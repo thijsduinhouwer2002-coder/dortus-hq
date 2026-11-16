@@ -1,6 +1,6 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-16 om 16:42 UTC met `organisatie/controle/scorebord.py`, alleen openbare bronnen. Draait elke dag om 07:00 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-16 om 16:47 UTC met `organisatie/controle/scorebord.py`, alleen openbare bronnen. Draait elke dag om 07:00 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand |
 |---|---|---|---|---|---|---|---|
