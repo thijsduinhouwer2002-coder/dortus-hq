@@ -1,5 +1,10 @@
 # Logboek Mila
 
+## 16 nov 2026, run ±17:40 tot 18:25 UTC
+- Daan 17:45: wachtkaartje ronde 2. Papier `c9b78e` (oud brandde door tot wit), kaartje 1 spelpixel lager, toets Olaf naar 13,34. Lokaal gerenderd met bpy, voor/na GEZIEN op 1x en 4x.
+- Besluit Thijs 17:59: beeldmap van de toppers voor de kennisbank Hats, zie `platformen/steam/kennisbank/beeldmap.md`. Zeven toppers met Read bekeken (header, capsule 231 x 87, vier schermbeelden). Grootste les: Bongo Cat verkoopt ook hoeden en toont ze enorm.
+- Capsule klein, proef titel groter: botst met de ridder, niet gekozen; volgende stap in `capsule-3d/LEESMIJ.md`.
+
 ## 16 nov 2026, run ±14:40 tot 15:25 UTC
 - Daan 14:55 (Iris keuring 2, probleem 3): tekens boos en zweet. Zweet 1,3x en `3a86d8`. Boos: dikke bogen in drie maten geprobeerd, op ware grootte een rood bloemetje; gekozen voor rood wolkje met gefronste wenkbrauwen (Daans tweede voorstel). Blad opnieuw gerenderd met de pijplijn, maten gelijk. Voor/na in `ontwerp/steam/tekens-3d/`, GEZIEN op 4x en ware grootte.
 - Sanne 13:55: kamertjes ja, maat 12 x 9 spelpixels, één ding van max 8 x 8, warme gloed, 6 spelpixels ruimte. Antwoord in `berichten/sanne.md`.

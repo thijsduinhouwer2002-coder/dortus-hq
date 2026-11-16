@@ -2,6 +2,14 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Voorspelling voor de speeltest van Thijs, za 21 nov (Sanne, 16 nov ±18:35 UTC)
+Opgeschreven vóór de test, zodat we daarna zien waar ik als ontwerper naast zat (zoals bij Iris, besluit 16 nov 13:39). Geen wijzigingen achteraf; na de test zet ik ernaast wat Thijs echt zei.
+1. **Eerste glimlach:** rond 0:30, de kroon op Gloop (hap ±27 s), of bij de eerste "is back for ..." (1:05 tot 1:15). **Eerste verveling:** tussen minuut 2 en 8, als de eerste wrok voorbij is en er nog niets te kopen valt (sim: in sommige zaden tot 12 min niets nieuws; voorstel drempels aan Olaf). Na minuut 15 eerder rustig dan saai, omdat hij dan aan het werk is.
+2. **Niet gesnapt:** (a) wat het bordje met het getal is (hol-niveau) en waarom het omhoog gaat; (b) waar je klikt om te graven; (c) dat rechtsklik de maat wisselt, als hij het briefje niet leest.
+3. **Morgen weer aan?** "Misschien": de hoeden en de namen vindt hij leuk, maar na 15 minuten heeft hij de meeste grappen gezien en ziet hij de diepte nog niet (de build heeft één laag en hol 1 tot 12).
+4. **Leesbaarheid:** op een laptop met schaal 125% of meer start het op 160 en is het goed; op 1920 x 1080 met 100% vindt hij 120 aan de kleine kant.
+Wat ik zou doen als het klopt: punt 1 met de drempels (al voorgesteld), punt 2a met één regel in de hover van het bordje ("Catch heroes to grow your hole"), punt 3 is waar de diepte van `voortgang.md` voor is.
+
 ## Toets 11: nootjes, grote Gloop, plat op tijd, 10 nov 2026 (run 42763072420, commit 52e0005, main)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit bed6b09 "Schermen steam-hol/main run 42763072420", 05:40 UTC, 1024 x 120, 298 beelden, 60 s), beelden op 0 tot 59,6 s (31 stuks), ingezoomd op de linkerkant van 15,4 tot 17,8 s en van 35,8 tot 36,8 s per 0,2 s, `film/film.log`, `cpu.txt` (1,16 CPU-s per 10 s, 118 MB).
 

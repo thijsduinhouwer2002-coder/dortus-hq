@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 13 af 16 nov ±16:50 UTC; volgende run: wie Mini Cozy Room in Korea en China groot maakte, of Little Writer meten na 6 jan)
+bezig: niets (kennisbank Hats af 16 nov ±18:10 UTC; volgende run: wie Mini Cozy Room in Korea en China groot maakte, of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
 

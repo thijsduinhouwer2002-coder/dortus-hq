@@ -1,0 +1,14 @@
+1. aantal gevangen helden op het moment van koop n (40 zaden)
+   koop 1: {1: 40}
+   koop 2: {1: 40}
+   koop 3: {3: 40}
+   koop 4: {5: 9, 6: 31}
+   koop 5: {7: 2, 8: 22, 9: 16}
+   koop 6: {9: 1, 10: 7, 11: 26, 12: 6}
+   koop 7: {11: 1, 13: 6, 14: 21, 15: 12}
+   koop 8: {15: 1, 16: 3, 17: 13, 18: 16, 19: 7}
+2. hol n samen met een koop (x van de keren dat hol n binnen 25 min kwam) en langste gat minuut 1 tot 20
+   nu 3/6/10/12/20    hol2 40/40  hol3 31/40  hol4 7/40  hol5 6/40  hol6 2/15 | gat mediaan 5.5 ergste 11.8 min
+   Sanne 3/4/8/12/17  hol2 40/40  hol3 0/40  hol4 22/40  hol5 6/40  hol6 7/24 | gat mediaan 5.0 ergste 10.9 min
+   3/4/7/12/16        hol2 40/40  hol3 0/40  hol4 2/40  hol5 6/40  hol6 2/29 | gat mediaan 5.0 ergste 8.4 min
+   3/4/7/12/17        hol2 40/40  hol3 0/40  hol4 2/40  hol5 6/40  hol6 7/24 | gat mediaan 5.0 ergste 8.4 min

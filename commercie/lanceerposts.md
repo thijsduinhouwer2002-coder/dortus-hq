@@ -29,8 +29,7 @@ Hoe dit bestand werkt:
 
 ### Stand (GEZIEN 16 nov ±16:00 UTC)
 - extensions.blender.org: `click_joints` versie 0.1.1, Blender vanaf 4.2 (API). 157 downloads om 11:16 UTC (Ruben, `platformen/blender/status.md`). Nog geen enkel Reddit-bericht.
-- **Pro is nog niet live** (Superhive-keuring van 1.0.1 loopt). Daarom staat Pro **niet** in de post en ook nog niet in een reactie. De reactie over Pro hieronder pas gebruiken als de Superhive-pagina van Pro openbaar is.
-- **Bijgewerkt 16 nov run 63:** Pro staat sinds 16 nov 15:02 live op Gumroad ($12). Gebruik voor Pro de reactie **2b in `commercie/blender-click-joints/reddit.md`** (Gumroad-link); die vervangt de Pro-reactie hieronder.
+- **Pro staat sinds 16 nov 15:02 NL live op Gumroad** ($12, https://duinhouwer8.gumroad.com/l/click-joints-pro, pagina 200 GEZIEN 16 nov ±18:05 UTC). Superhive keurt nog (403 vanuit mijn run, ±18:05 UTC). Pro staat bewust **niet** in de post zelf: post 1 gaat over de gratis versie. Pro komt alleen als reactie in de eigen draad, op een vraag, met de Gumroad-link (tekst hieronder, gelijk aan 2b in `commercie/blender-click-joints/reddit.md`). Bijgewerkt 16 nov run 64 op het bericht van de hoofdchat van 18:50 NL.
 
 ### Niet plaatsen als (check in de browser, ±2 min)
 1. De zijbalk of regels zeggen: geen AI-gemaakte projecten of software, of zelfpromotie alleen in een vaste draad of op een vaste dag, of een minimum aan karma of accountleeftijd die Thijs niet haalt.
@@ -80,7 +79,8 @@ Controleur (16 nov run 62, los van mij, bronnen, beelden en sha256 zelf nagekeke
 - **"How is this different from other joint cutters?"** `Most tools cut the joint; this one also measures how far the ball joint bends before the parts collide and shows the collision in red, so you can check it before printing.` (Geen namen van anderen.)
 - **"Have you printed it?"** `Not yet, that's why I said so in the post. The clearance is per side; around 0.2 mm per side is a common start on FDM, but test on your own printer first.` (Brams nakijk van tip 1, `platformen/blender/tips-nagekeken.md`.)
 - **"AI-written, no thanks."** `Fair point. It's tested automatically in real Blender on every change, and it's free, so you can judge the result yourself.` Daarna niet meer reageren.
-- **Pro: vervangen door reactie 2b in `commercie/blender-click-joints/reddit.md` (Gumroad live 16 nov). Oude tekst:** alleen als de Superhive-pagina van Pro openbaar is (en liefst pas als iemand vraagt naar scharnieren of meer): `There's also a paid version, Click Joints Pro, with a hinge joint that has a hard stop (90, 115 or 135 degrees): <link Superhive>. The free version stays free.` Prijs en link vul ik in zodra Pro live is.
+- **Pro (alleen als iemand vraagt naar knieën, ellebogen, scharnieren of iets betaalds):** `There's also a paid version, Click Joints Pro ($12), with a click hinge for knees and elbows that stops at 90, 115 or 135 degrees: https://duinhouwer8.gumroad.com/l/click-joints-pro . The free version stays free.` Prijs op de dag zelf nakijken: in de lanceerweken of de Cyber Sale kan het $9 zijn (lancering.md run 64 punt 4). Komt Pro live op Superhive, dan mag de Superhive-link erachter: `Also on Superhive: https://superhivemarket.com/products/click-joints-pro`. (Was tot run 64: alleen met Superhive. Vervangen op het bericht van de hoofdchat 18:50 NL.)
+- **"Where do I get the free one?"** `Inside Blender: Edit > Preferences > Get Extensions, search "joints". Or https://extensions.blender.org/add-ons/click-joints/` (Joris 16 nov 17:45 UTC: Click Joints staat in Blender op plek 1 voor "joints", DERDEN, `platformen/succes/verhalen-groei.md` verhaal 18.)
 - Vragen over geld, terugbetalen, privacy of juridisch: niet beantwoorden, bovenaan lijst-thijs.
 
 ---
@@ -152,6 +152,6 @@ Verschil met de gekeurde tekst van run 26: de alinea over perkament en effecten 
 
 ## Wat dit zou veranderen
 - Komt er een echte print van een Click Joints-gewricht: dan r/3Dprinting met versie A30, minstens een dag na r/blender, na de regels in de browser.
-- Gaat Pro live op Superhive: de Pro-reactie onder post 1 kan, met link en prijs.
+- Gaat Pro live op Superhive: in de Pro-reactie onder post 1 de Superhive-link naast Gumroad (zin staat erbij). De Gumroad-reactie mag nu al (hoofdchat 16 nov 18:50 NL).
 - Valt post 1 weg door een filter (niet zichtbaar uitgelogd): geen nieuwe posts met dit account tot Thijs zelf een tijd heeft meegepraat; dan eerst plekken zonder karma (BlenderNation, versie C37, ligt klaar).
 - De rest van de lijst (Ebb, Bison & Flex, r/BJD, r/ArticulatedPlastic, r/Solo_Roleplaying, r/DnD) volgt in de volgende runs in dit bestand, klaar wo 18 nov 12:00 of eerder.

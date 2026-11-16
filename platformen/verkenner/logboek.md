@@ -1344,3 +1344,14 @@ Nieuwste blok onderaan.
 - Controleur (agent): alle cijfers zelf nagehaald, kloppen. Moet: Blender-reviews telde altijd 0 (regex raakte een CSS-klasse), rebase-lus in de workflow kon vastlopen; beide hersteld. Kan, verwerkt: lege meting verstopt geen oudere meer, vaste naam per Garmin-id, run rood als bijna alle bronnen mislukken.
 - Superhive geeft 403, ook vanaf Actions. Eerlijk als "niet leesbaar" op het bord. Gemeld aan de hoofdchat, samen met een privacyvondst in commercie/ebb/hotFresh-watch-app.json (niet mijn map).
 - Volgende run: Chris helpen met verspreiden (punt 3).
+
+## 16 nov 2026, run 18:31 (gestart 17:34 UTC)
+- Open: punt 3 van het bericht van 17:05 NL, Chris helpen met verspreiden. Gaat voor op de vaste runopdracht (platformen zoeken), dus geen platform in onderzoek gezet.
+- Beslissing: geen eigen lanceerteksten, want Chris heeft regels en teksten voor alle plekken al klaar (lanceerposts.md); dubbel werk helpt niet. Wel wat een verkenner kan: meten wat een plek normaal oplevert, en een vaste reactiemeting.
+- git pull hing weer; fetch en `checkout -B main origin/main` werkten.
+- Gemeten (GEZIEN): Obsidian-forum cat. 22 (300 draden), BlenderArtists cat. 50 (360), Garmin Showcase (400 draden, 20 pagina's), Show HN via Algolia. Forums mediaan ±150 views, Garmin ±320, Show HN voor plugins bijna niets.
+- Reddit-regels niet te lezen (403); zoekresultaten wezen naar spiegelsites, niet gebruikt.
+- Gebouwd: `data/reacties-script.py` met `data/geplaatst.csv` (twee berichten), uitkomst `verspreiden-reacties.md`.
+- Controleur (agent): akkoord mits. Moet: mijn Show HN-tabel telde posts die niet over het woord gingen (de 381 punten waren geen Obsidian-plugin); opnieuw op de titel gemeten, conclusie omgedraaid. Garmin "allemaal 0 antwoorden" kwam door de meetwijze. Beide hersteld. Les: bij zoek-API's altijd de titels nalopen, niet alleen tellen.
+- Seintje aan Chris in berichten/chris.md.
+- Volgende run: reacties-script draaien en nieuwe geplaatste berichten (r/blender vanavond) in geplaatst.csv zetten; nameting fest-proef 24 nov.

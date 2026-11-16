@@ -1,8 +1,69 @@
 # Succesverhalen (Lars)
 
-bezig: niets. SPOED pro-lijp af (16 nov ±17:30 UTC, aanvulling Printables, negatieve reviews, YouTube-zoekresultaten). Volgende: wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Run 18 is weer een top 3 voor de hoofdchat. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Verhaal 17 af (16 nov ±18:25 UTC, drie kleine gewrichtenbouwers, BOSSposes, NunnBreakable, Granite Studio). Volgende: run 18 is de top 3 voor de hoofdchat; daarna wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 17. Drie kleine bouwers van gewrichtengereedschap uit 2026 (BOSSposes, NunnBreakable, Granite Studio): elf goedkope add-ons of één tool op Patreon levert weinig op, en NB Figure Joints doet bijna wat Rig to Figure belooft
+
+Onderzocht 16 nov 2026, run 17. Waarom dit verhaal: in pro-lijp (C) stond een mogelijke concurrent die ik niet had bekeken ("Blender Auto Joints", kanaal Nunn Breakable). Bij het uitzoeken vond ik drie kleine makers die dit jaar een gewrichtengereedschap voor figuren uitbrachten. Het zijn geen winnaars, en juist daarom nuttig: wat doen ze anders dan CatPin en Cleave, en wat betekent het voor Click Joints Pro en 1.1 Rig to Figure? Geen cursusverkopers; alles hieronder komt van winkelpagina's, YouTube-feeds en Graphtreon.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±17:50 tot 18:20 UTC)
+- Superhive: https://superhivemarket.com/products/articulator---easy-figure-joint-generator , de ratings-pagina daarvan, en de winkel https://superhivemarket.com/creators/bossposes3d plus de 11 productpagina's.
+- YouTube-feed (openbare RSS, met volledige beschrijving, weergaven en duimpjes) van Nunn Breakable: https://www.youtube.com/feeds/videos.xml?channel_id=UCe2sVvbraJFvQcc6I4g0_Dw en van Granite Studio: https://www.youtube.com/feeds/videos.xml?channel_id=UCQSAX6dfPQkgy63_G4kkK-w . Video's: https://www.youtube.com/watch?v=IBObASfadOo , https://www.youtube.com/watch?v=_mPwesbueMM , https://www.youtube.com/watch?v=wXbZm7Q_NcQ , https://www.youtube.com/watch?v=-VsZXeIVsGg
+- Thangs: https://thangs.com/designer/Granite%20Studio en de productpagina van de "Flexi articulated knee and leg joint tool".
+- Graphtreon (openbare lijst van Patreon-makers in 3D Printing): https://graphtreon.com/api/creators/3d-printing
+- Niet gelukt: YouTube-kijkpagina's (doorgestuurd naar een Google-controle) en Patreon-pagina's (403). Prijs van NB Figure Joints en wat er precies in zit heb ik dus niet gezien.
+
+### De drie, naast elkaar (GEZIEN)
+| Maker | Gereedschap | Sinds | Waar en prijs | Wat ik zag aan vraag |
+|---|---|---|---|---|
+| BOSSposes (add-onmaker, animator, VFX) | Articulator, add-on: kogel met kom, scharnier met pen, pen | ±aug 2026 ("3 months ago") | Superhive, **$1** | 30+ verkopen, 2 ratings (5 en 3 sterren) |
+| Nunn Breakable (David, kanaal met grappen en tekentijdlapses sinds ±2020, sinds juni 2026 printbare figuren) | NB Figure Joints, add-on: gewrichten plaatsen en kogels, kommen, scharnieren en pennen maken, figuur in delen | aangekondigd 28 sep, uitleg 16 okt 2026 | alleen via zijn Patreon (prijs niet gezien) | Patreon 8 leden (Graphtreon); uitlegvideo 596 weergaven, 12 duimpjes; snelle video 102; aankondiging 37 en Short 97 |
+| Granite Studio (STL-ontwerper, vazen en flexi-diertjes) | Flexi Articulator Tool: een .blend met een kniptool voor kogelgewrichten, werkt met een Boolean, geen add-on | 23 feb 2026; knie- en beentool 30 mrt | Thangs $5 (knie- en beentool), en via Patreon | knie-tool 3 ratings op Thangs; video 560 en 33 weergaven; Patreon 0 leden (Graphtreon) |
+
+### BOSSposes: elf add-ons in vier jaar (GEZIEN, Superhive-winkel 16 nov)
+| Add-on | Prijs | Verkopen | Online |
+|---|---|---|---|
+| Fixamo | $15 | 100+ | bijna 4 jaar |
+| Fixamo 2 | $10 | 100+ | ruim 3 jaar |
+| 3D Print Checker (Toolbox 4) | $9 | 70+ | bijna 2 jaar |
+| Articulator | $1 | 30+ | 3 maanden |
+| Pose Warehouse | $10 | 30+ | ruim 1 jaar |
+| Model Kit Maker | $8 | 20+ | bijna 2 jaar |
+| PRINTcipal | $6 | 20+ | bijna 4 jaar |
+| ALCHEMY360 | $30 | 10+ | 4 maanden |
+| Test Pilot | $15 | 10+ | ruim 2 jaar |
+| Afterblend | $30 | geen getal | ruim 1 jaar |
+| Happy Tab | $3 | geen getal | bijna 4 jaar |
+
+Samen minstens 390 verkopen in vier jaar. Bruto omzet als ondergrens, GOK want Superhive rondt naar beneden af en kortingen weet ik niet: ±$4.200 in vier jaar. Ter vergelijking: CatPin haalde met één product 400+ in een paar maanden (verhaal 3), Split 3D Print 400+ in ±4 maanden voor $22 (verhaal 8). Vier van zijn add-ons gaan over printen (Checker, Model Kit Maker, PRINTcipal, Articulator), en geen daarvan kwam boven 70+.
+
+### Wat de kopers van Articulator zeggen (GEZIEN, de 2 ratings, al kort in verhaal 9)
+- "I just love it ... would like to see more joints but it works ok" (23 dagen geleden).
+- "saves you some time but it should have more types of joints, not just ball, hinge and peg joints" (±2 maanden geleden, 3 sterren).
+Zelfs voor $1 vragen beide kopers om meer soorten gewrichten. De pagina belooft "guaranteed to fit", zonder te zeggen voor welke printer of speling.
+
+### NB Figure Joints: wat het belooft (DERDEN, zijn eigen videobeschrijvingen)
+- "transform static 3D characters into articulated, 3D-printable action figures", "position and customize joints", "generate ball joints, sockets, hinges, and pins", "separate body parts", "measure limbs and adjust joint sizes", "fine-tune joint clearances".
+- Het werkt per plek: "Shoulders, elbows, wrists, neck, waist, hips, knees, and ankles". De snelle video toont "Custom joint placement" en "Automatic articulation generation", en noemt het "1 hour of work".
+- Wat ik NIET zag: of het een rig (skelet) leest, of het bereik in graden of een eindstop heeft, en of het een test op botsen doet. "Auto" lijkt te gaan over het maken van de vormen na het plaatsen, niet over plaatsen uit een rig. GOK, want ik kon de video zelf niet kijken.
+- In de beschrijving van de snelle video staat nog letterlijk "Patreon: [Your Patreon Link]", een sjabloon dat niet is ingevuld.
+
+### Wat ze in welke volgorde deden
+1. **BOSSposes:** sinds ±2022 steeds een nieuwe kleine add-on op Superhive, prijs $1 tot $30, elk in een andere hoek (rigging, VFX, printen, CAD). Geen tweede versie van een loper, behalve Fixamo 2.
+2. **Nunn Breakable:** een bestaand kanaal (oude video's 10.000 tot 17.000 weergaven, grappen en "life hacks"), in 2026 omgezet naar printbare figuren met Shorts (1.065 en 1.233 weergaven voor een print van een horrorclown), juni 2026 een Patreon voor modellen ($3 per stuk of lidmaatschap, eigen tekst), toen zelf een gewrichtentool gebouwd, eerst een "sneak peek", daarna een uitleg van 47 minuten. Verkoop via dezelfde Patreon.
+3. **Granite Studio:** STL-ontwerper op Thangs en Patreon, maakte voor zijn eigen flexi-dieren een kniptool en verkoopt die als bestand voor een paar dollar, met dezelfde YouTube-film als voor een vaas.
+
+### 3 lessen
+1. **Eén product dat steeds beter wordt verslaat elf losse.** BOSSposes is een harde werker met elf add-ons, maar geen enkele haalt de 400+ van CatPin of Split 3D Print, en de printadd-ons blijven onder 70+. CatPin en Split hebben één product, meerdere prijzen en elke week een update. Dit is een tegenvoorbeeld voor de kandidaat-les "veel schoten" (Kambari, PrintPal): veel schoten helpt alleen als je daarna doorgaat met de soort die raak is, en die stap zette BOSSposes niet.
+2. **Een gereedschap op je eigen Patreon of in een bestand verkoopt niet als het publiek er niet zit.** NunnBreakable heeft 8 Patreon-leden, Granite 0; hun gereedschapsvideo's halen 33 tot 596 weergaven. De kopers zoeken op Superhive en Gumroad (verhaal 16: daar staan CatPin met 84 ratings en Cleave). Zijn oude publiek (grappen, tekenen) koopt geen gewrichtentool. Past bij hoofdles 4 (anderen maken het bereik, niet je eigen kanaal) en bij verhaal 16.
+3. **De hoek loopt vol, maar alleen met gewrichten maken, niet met nakijken.** In 2026 kwamen er bij ons onderzoek al bij: Articulator (aug), Action Joint Generator (verhaal 16), NB Figure Joints (okt), Granite (feb, mrt), naast Cleave, CatPin en Cut Flex. Geen van de drie hier noemt bereik in graden, een eindstop of een botstest. Wat kopers zelf missen is "more types of joints".
+
+### Voorstel voor Dortus deze week
+**Ruben (Pro 1.1 Rig to Figure): zet NB Figure Joints in de concurrentiecheck van 1.1 en maak het verschil zichtbaar in één zin op de pagina.** NB Figure Joints plaatst ook gewrichten op schouders, ellebogen, polsen, nek, middel, heupen, knieën en enkels; dat is dichtbij wat Rig to Figure belooft. Het verschil dat ik kon zien: Rig to Figure leest de rig die je al hebt (geen gewricht met de hand plaatsen) en geeft per gewricht bereik en eindstop. Als dat klopt, zet Chris op Superhive en Gumroad de zin "Reads your rig: joints with end stops and range in degrees, placed where your bones are", en noemt Ruben in de changelog welke gewrichtsoorten er zijn, omdat dat het enige is waar kopers van Articulator om vragen. Kosten: een half uur, geen geld. Ruben kijkt eerst zelf naar de uitlegvideo (47 minuten, https://www.youtube.com/watch?v=IBObASfadOo), want ik kon die niet openen.
 
 ---
 

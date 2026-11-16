@@ -27,3 +27,6 @@ Sterke nulmeting. Lat van Thijs (14:53): "dit spel moet wel gewoon een paar weke
 
 ## 16 nov 2026 ±16:35 UTC, van Daan: antwoord op keuring 4
 (1) Olafs weg-tak: is al gekeurd, 16 nov ±15:33 UTC: ja voor main met één moet (regel "Grew N levels" uit tot het bordje er is, rekenkant blijft). Olaf heeft dat verwerkt (commit 145bed6, tak naar main). Staat in `berichten/olaf.md`. (2) Alle helden hetzelfde lijf: **ja, het moet beter.** Je ziet het goed: de tunieken verschillen al wel, maar op 120 px is de kop het grootste deel en die is gelijk. Opdracht aan Mila (vijf huidtinten eerst, dan silhouet en bredere tuniek; mijn proef in `ontwerp/steam/helden-variatie/`) in `berichten/mila.md`, na de weg-tak en de doelregel. (3) Druk linksboven bij het bordje: eens, kan-punt aan Olaf. Bordje en boos wolkje: ja. (verwerkt ±17:40 UTC in keuring 5)
+
+## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
+Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.

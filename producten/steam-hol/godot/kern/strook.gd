@@ -96,6 +96,9 @@ var vlucht_tijd := {}          # demo: naam -> wanneer hij vluchtte (niet bewaar
 const DEMO_TERUG_NA := 8.0     # Sanne toets 7, punt 3: Tibbe klom de ladder op en meteen weer af, dat leest als een fout
 var anim_t := 0.0
 var pensioen_namen: Array = []   # wie vluchtte en nooit terugkomt (hooguit 5, oudste voor); bij openen een grapje (Bram 04:35)
+var holbord: Node2D = null   # systemen/holbord.gd, het bordje met het hol-niveau
+var rij := 0   # hol-niveaus die bij de ingang wachten (hol_niveau.gd weg)
+var rij_t := 0.0   # open seconden sinds het laatste niveau uit de rij
 var optocht := {}   # plan van de optocht na weg zijn (hol_niveau.gd optocht), niet bewaard
 var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_niveau.gd, Sanne voortgang.md spoor 1)
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
@@ -172,8 +175,14 @@ func _ready() -> void:
 	vleermuis.set_script(load("res://systemen/vleermuis.gd"))
 	vleermuis.name = "Vleermuis"
 	hol.add_child(vleermuis)
+	# bordje met het hol-niveau (Mila 16 nov 16:20, plek Daan keus A), ook vóór Wezens; zonder blad doet het niets
+	holbord = Node2D.new()
+	holbord.set_script(load("res://systemen/holbord.gd"))
+	holbord.name = "Holbord"
+	hol.add_child(holbord)
 	hol.add_child(wezens)
 	vleermuis.zet(hol, wezens)
+	holbord.zet(self, hol)
 	# Brams slijm (Gloop, gaat nooit dood) als die er is, anders de stand-in
 	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
@@ -323,6 +332,8 @@ func _process(delta: float) -> void:
 	if demo:
 		KAARTJE.demo_stap(self)
 	var doel := KAARTJE.doel_regel(self)   # Iris 16 nov: volgend doel zonder klik; alleen opnieuw tekenen als het verandert
+	if holbord != null and holbord.hover:
+		doel = holbord.hover_tekst()   # muis op het bordje: de hover van het hol-niveau in de kopregel (Sanne spoor 1)
 	if tekst.goud != hol.goud or tekst.doel != doel:
 		tekst.doel = doel
 		tekst.zet(kroniek, hol.goud)
@@ -365,13 +376,22 @@ func _input(event: InputEvent) -> void:
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
-	elif event is InputEventMouseMotion and not tekst.hover:
+	if event is InputEventMouseMotion and holbord != null and holbord.actief():
+		var pb: Vector2 = (event.position - hol.position) / schaal
+		var op_bord: bool = holbord.vlak().has_point(pb)
+		if op_bord != holbord.hover:
+			holbord.hover = op_bord
+			if op_bord:
+				log_regel("HOL hover bordje: %s" % holbord.hover_tekst())
+	if event is InputEventMouseMotion and not tekst.hover:
 		tekst.hover = true
 		tekst.queue_redraw()
 		_muis_vlak(true)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
+		if holbord != null:
+			holbord.hover = false
 		tekst.hover = false
 		tekst.queue_redraw()
 		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen

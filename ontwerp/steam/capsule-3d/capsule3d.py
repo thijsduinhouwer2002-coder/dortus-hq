@@ -292,8 +292,9 @@ def tekst(woord, loc, maat, uitlijn="LEFT", kantel=0, rand=0.07):
     return o
 
 if KLEIN:
-    tekst("HATS", (-4.75, -0.6, 1.85), 2.0, kantel=-3)
-    tekst("OF THE FALLEN", (-4.7, -0.6, 0.98), 0.86, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
+    # Mila 16 nov (beeldmap): bij de toppers vult de titel 60 tot 80% van de breedte; K_HATS en K_OTF om groter te proeven
+    tekst("HATS", (E("K_TX", "-4.75"), -0.6, E("K_HZ", "1.85")), E("K_HATS", "2.0"), kantel=-3)
+    tekst("OF THE FALLEN", (E("K_TX", "-4.75") + 0.05, -0.6, E("K_OZ", "0.98")), E("K_OTF", "0.86"), kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 elif HOOFD:
     tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.40")
     tekst("HATS", (tx, -0.6, 2.55 + tz), 1.75, kantel=-3)

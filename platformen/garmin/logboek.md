@@ -1432,3 +1432,12 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: een herstart van de simulator wist de opslag van de app. Een teller in `Application.Storage` begint dan opnieuw; tel daarom altijd de uitkomst na in plaats van te vertrouwen op "er kwam een antwoord".
 - Les: de strenge toets met de rechthoek van een plaatje keurt te veel af (de kroon zou op het doel al wegvallen). Reken met de echte pixels van het plaatje.
 - Les: de releasejob van Ebb hangt alleen aan de job bouw. Het woord release tussen rechte haken in een commit geeft dus een release na vier minuten, vóór de toetsen klaar zijn. Eerst groen zien, dan de werkstroom met de hand starten.
+
+
+## Run 120, 16 nov 2026 ±17:50 tot 18:35 UTC
+- Gelezen: berichten (niets nieuws sinds Daan 16:35 UTC), taken, status. De kloon stond weer op een losse HEAD en de eerste opdracht hing twee minuten; `git fetch origin main`, `git checkout main` en `git merge --ff-only origin/main` werkte.
+- Ebb in de winkel 17:56 UTC: 0 downloads, 0 reviews, versie 1.0.0, 40 horloges.
+- Ebb 1.0.1, runs van 1fb5a0c: toetsrun 43915975746 groen. Plaatjesrun 43915975753: job bouw groen, job alle-horloges groen; pakket `ebb-alle-horloges` opgehaald en `uitslag.txt` gelezen: `COMPILEERT horloges: 55`, 55 regels met drie keer ja, 55 horloges in het manifest.
+- Wijzerplaat Gloop: runs 43915387736 (03591ab) en 43915541840 (f1dab61) groen. De 32 beelden van Venu Sq 2 en FR255 van tak `schermen` gehaald (RUN.txt noemt f1dab61) en als blad bekeken: goed.
+- Les: de tak `schermen` is te groot om met git op te halen (ook ondiep hing het 100 seconden). De repo is openbaar: haal losse beelden met curl van `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/<map>/<bestand>`.
+- Les: het pakket van de job alle-horloges heeft een bestand `uitslag.txt` met de telling; dat is sneller dan het log lezen (actions_get, download_workflow_run_artifact, dan curl en unzip).

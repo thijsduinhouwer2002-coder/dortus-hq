@@ -15,7 +15,7 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
-		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam,
+		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -92,7 +92,9 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
-	s.faam = maxi(0, int(data.get("faam", 0)))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
+	s.faam = maxi(0, int(data.get("faam", 0)))
+	s.rij = maxi(0, int(data.get("rij", 0)))   # rij bij de ingang (Sanne 16 nov 16:00); oude saves 0
+	s.rij_t = float(data.get("rij_t", 0.0))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3
 	s.pensioen_namen = []
 	var pn = data.get("pensioen_namen", [])
@@ -147,13 +149,17 @@ static func laad(s, begin) -> void:
 			s._kroniek(tr)
 		# optocht van de niveaus van weg (Sanne 16 nov 14:50): één kroniekregel na de kwart-regel, en het plan
 		# (wip, poef per ding, nieuwe heldensoorten als eerstvolgende bezoekers). Tekenen volgt met het bordje (Mila).
-		var wr := HOL_NIVEAU.weg_regel(faam_voor, s.faam)
-		if wr != "":
+		# rij bij de ingang (Sanne 16 nov 16:00): hooguit 4 niveaus meteen, de rest wacht
+		var wg: Dictionary = HOL_NIVEAU.weg(faam_voor, s.faam, s.rij)
+		s.rij = int(wg.rij)
+		if s.rij > 0:
+			s.log_regel("HOL rij bij de ingang %d (meteen %s)" % [s.rij, str(wg.meteen)])
+		for wr in wg.regels:
 			if HOL_NIVEAU.REGELS_AAN:
-				s._kroniek(wr)
+				s._kroniek(String(wr))
 			else:
 				s.log_regel("HOL weg-regel uit tot het bordje: %s" % wr)   # moet Daan 16 nov 15:33
-		s.optocht = HOL_NIVEAU.optocht(faam_voor, s.faam)
+		s.optocht = wg.optocht
 		if bool(s.optocht.wip):
 			var stukken: Array[String] = []
 			for po in s.optocht.poef:

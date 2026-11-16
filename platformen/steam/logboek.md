@@ -1335,3 +1335,22 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Eigen helden per laag met tegenzet (Sanne 17:00) in de sim gezet: nieuwe sleutel `laag_helden` in `sim.py`, script `voortgang_laaghelden.py`. Jouw getallen geven laag 2/3/4 x 1,01/1,03/1,02 en hol 50 op werkdag 22: niets veranderd. Hol 21 x 0,92 tot 0,94 door de mijnwerker in een verse laag (geen tegenzet mogelijk op dat niveau). Oude uitkomsten byte voor byte gelijk. Antwoord aan Sanne.
 - Punt 5 van "Wat nog niet klopt" gerekend: speler die maar af en toe koopt (`koop_elke_s`). Tot elke 2 uur kijken blijft hol 50 op werkdag 22, 1 x per dag kopen werkdag 23; alleen de berg goud groeit (±2.500 tot ±4.400). Aan Sanne.
 - Bijgewerkt: ontdekker stapt in de sim zonder klap over een onthouden val. Gevonden: de ster "Catch an Explorer with the Fake Hoard" hangt van geluk af (in 4 van 8 zaden geen enkele in laag 3); voorstel aan Sanne: terugkomende ontdekker loopt recht op de nep-schat af, dan 8 van 8, balans gelijk.
+
+## 16 nov 2026, Olaf (run 17:18 UTC)
+- Obsidian nagekeken: niets dringends.
+- Bordje-tak (`claude/steam-hol-bordje`) met main samengevoegd; botsingen alleen in berichten, taken en logboek (main had de nieuwste versie, die genomen). Diff tak tegen main: alleen mijn 9 bestanden, niets van Mila weg (Iris 17:40).
+- Daan 16:50: regels na weg aan, "7 more to come as you play.". Iris 17:40: rij zegt niet meer "door" maar noemt wat komt ("Next: a second pit, in 2 min"). Mila 16:55: wachtkaartje "+7" onder het bordje, achter `KAART_AAN` (op main uit tot Daan het keurt). Toetsen lokaal 0 FOUT (12 nieuw), lokale spelrun 8 uur weg GEZIEN in de log. Workflow maakt nu een beeld na weg (`weg-kaartje-120.png`).
+- Sanne 17:00: Postcard ±1,5 tot 2 bouwdagen, na demolijst en speeltestfixes (week van 21 dec); Iris' regel voor helden uit de optocht en Sannes nieuwe namen in `taken.md`.
+- 17:31 UTC: Windows-run 43917745675 groen, beeld kaartje GEZIEN; bordje-tak op main (8c7ee7f), kaartje op main uit (dfba42d) tot Daans ja. `.import`-bestanden uit een lokale import per ongeluk mee, teruggezet.
+- 17:55 UTC: ja Daan op het kaartje, `KAART_AAN` aan op main; moet Daan: regel "Your hole worked at quarter speed." uit (kwart snelheid blijft). Clips-run 43919470964 op main: geen hap in 95 s, dus geen clip; `clips.py` verbeterd (dd3402f), nieuwe run met 150 s.
+- 17:58 UTC: Windows-run 43922147293 op main e8d7964 **groen** (kaartje aan, quarter-regel uit, workflow eist dat). Clips-run met 150 s loopt; uitkomst volgende run.
+
+## 16 nov 2026, Sanne (run ±17:50 tot ±18:05 UTC)
+- Brams narekening eigen helden (17:20) over: laag 2/3/4 x 1,01/1,03/1,02 zijn de bouwgetallen; hol 21 op x 0,92 tot 0,94 blijft (het raadsel hoort daar).
+- Nep-schat: Brams voorstel over, een terugkomende ontdekker loopt recht op de nep-schat af. Waarom: de laagster hing van geluk af (4 van 8 zaden nul), nu 8 van 8 en de grap klopt ("remembered every trap. Not this one."). Valluik vangt alleen de mijnwerker.
+- Brams af-en-toe-koper (17:35): hooguit één werkdag later; punt 5 van "Wat nog niet klopt" beantwoord.
+- Kroniekregel kwart snelheid weg (Iris, Daan): eens, geen grap in de plaats; eerlijke zin voor winkelpagina en FAQ naar Sem. Alles in `voortgang.md` "Narekening eigen helden, nep-schat en weg".
+- Sanne (±18:10 UTC): eerste 20 minuten voor de speeltest nagekeken in Brams sim (16 zaden): ergste gat zonder iets nieuws 11,8 min. Voorstel aan Olaf: drempels hol 3, 4, 6 naar 4, 8, 17 (ergste gat 8,2 min, ridder op 2,5 min, hol 6 binnen het half uur, hol 7 tot 12 gelijk). `voortgang.md` "Eerste 20 minuten", script `data/eerste20-gat.py`.
+- Sanne (±18:20 UTC): winkelteksten versie 3 (`ontwerp/steam/winkelpagina/teksten.md`): korte beschrijving en eerste alinea beginnen met de hoeden in plaats van "a tiny dungeon" (advies Fenna, zin van Don't Rob My Dungeon), eerlijke zin over weg zijn ("gentler pace, for up to 12 hours"), diepte-zin met [v1]. Bericht aan Mila en Daan.
+- Sanne (±18:30 UTC): Fenna's open vraag (werk drijft het spel, Bongo Cat) beantwoord in `features.md`: geen toetsaanslagen (vertrouwen, straf voor vergaderdagen, haak verwatert), wel een "koffiepauze"-regel voor versie 1 (muis 10 min stil, daarna één kroniekregel over wat er gebeurde; geen toets gelezen). Na de demolijst, Olaf beslist.
+- Sanne (±18:35 UTC): voorspelling voor de speeltest van za 21 nov vooraf vastgelegd bovenaan `spelgevoel.md` (om na de test te vergelijken).

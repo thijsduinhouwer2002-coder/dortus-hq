@@ -27,10 +27,15 @@ Proefscript dat precies dit doet: `mila_proef.py` (hier ernaast).
 Voor Sanne's rij (`platformen/steam/voortgang.md`, Versie 3 definitief punt 5): staan er niveaus in de rij, dan hangt er onder de plank een papieren volgnummer zoals bij de bakker ("trek een nummertje"), met een rode punaise in het paaltje: **"+7"**. Het balkje staat dan vol, zoals Sanne vroeg. Is de rij leeg, dan is het kaartje weg.
 - Model: `holbord.py`, standen `kaart1` (9 breed, plus en één cijfer), `kaart2` (13 breed, twee cijfers) en `k0` tot `k9` (donkere cijfers 3 x 5). Zelfde x = 0 en z = 0 als het bordje.
 - Blad: `godot/kunst/3d/holkaart.png` (sprite `holkaart`, zelfde eenheid als `holbord` via `schaal_van`), 12 cellen.
-- **Zo tekent het spel hem:** kaartcel links = bordcel links + (anker_x bord - anker_x kaart) / px spelpixels; boven = bordcel boven + (nul_y bord - nul_y kaart) spelpixels (nu -6,25 en +12,33). Cijfer `k<n>` op dezelfde plek als de kaartcel; bij twee cijfers de eenheden 4 spelpixels naar rechts. Wip bij het feestje: kaartje wipt mee. Komt er een niveau uit de rij binnen, dan telt het getal één omlaag tegelijk met het gewone feestje.
+- **Zo tekent het spel hem:** kaartcel links = bordcel links + (anker_x bord - anker_x kaart) / px spelpixels; boven = bordcel boven + (nul_y bord - nul_y kaart) spelpixels (nu -6,25 en +13,34, sinds ronde 2). Cijfer `k<n>` op dezelfde plek als de kaartcel; bij twee cijfers de eenheden 4 spelpixels naar rechts. Wip bij het feestje: kaartje wipt mee. Komt er een niveau uit de rij binnen, dan telt het getal één omlaag tegelijk met het gewone feestje.
 - Proefscript dat precies dit doet uit de twee bladen: `mila_proef_kaart.py`. GEZIEN met Read: `mila-kaartje-1x.png` (12 met +7, 16 met +10, 6 met +1, 9 zonder rij) en `mila-kaartje-4x.png`.
 
 **Waarom zo:**
 - Wachten in de rij = een volgnummer trekken: iedereen kent het, er zit een grinnik in, en het zegt meteen "er komt nog wat" zonder uitleg. Wachtende helden bij de boog tekenen kan niet: boven het gras is geen ruimte (de strook begint bij de vensterrand) en een held is 13 spelpixels hoog.
 - Plusje in donkere inkt, niet rood: een rood plus op wit papier las als EHBO-kruis ("+7 leven").
 - Room papier op donkere aarde springt eruit op ware grootte, maar is kleiner dan het bord en hangt eronder, dus het bord blijft de baas.
+
+## Wachtkaartje ronde 2 (Mila 16 nov ±18:30 UTC, kan-punten van Daan 17:45)
+- **Papier een tint donkerder:** `PAPIER` van `f2e4c2` naar `c9b78e`. Het warme tegellicht maakt papier ±1,2x lichter; de oude kleur brandde in het blad door tot bijna wit (255 255 220), net zo licht als het cijfer op het bord. Nu komt het papier in het blad uit op ±255 222 166: oud papier, warm, en het witte cijfer van het bord blijft de baas.
+- **1 spelpixel lucht:** het kaartje hangt 1 spelpixel lager (`KAART_TOP = PAAL - 1,5`). De punaise raakt de lijst van het bord niet meer. Het spel rekent de plek zelf uit `nul_y` (nu 4,37 in plaats van 5,38), dus in `holbord.gd` hoeft niets; alleen de toets in `toets_systemen.gd` verwacht nu 13,34.
+- GEZIEN met Read: `mila-kaartje-r2-voor-na-4x.png` en `-1x.png` (boven oud, onder nieuw) en `mila-kaartje-r2-1x.png`. Op ware grootte lezen +7, +10 en +1 nog, het kaartje is nu duidelijk papier en geen tweede wit bordje.
