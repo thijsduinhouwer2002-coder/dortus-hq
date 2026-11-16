@@ -271,7 +271,7 @@ func put_koop() -> void:
 # omlaag en terug in 2 beelden (0,1 s). Geen schok van de strook; alles in hele spelpixels.
 const STOF_S := 0.35
 const SCHOK_S := 0.1
-const STOF_R := 0.55             # straal van een stofje, keer zijn maat (16 nov: rond)
+const STOF_HOEK := 0.25          # zoveel van een stofje valt per hoek weg, keer zijn maat (16 nov: rond)
 const STOF_KLEUR := Color("#ecc3a4")   # nog een trede lichter (kan Daan 15 nov 18:50: dan lezen ze als korrels)
 # per stofje: [start x, start y, verschuiving x, verschuiving y over 0,35 s, maat]; x ten opzichte van het midden van de put,
 # y ten opzichte van de bovenste vloerrij
@@ -462,9 +462,15 @@ func _draw() -> void:
 			var c := STOF_KLEUR
 			c.a = float(st[2])   # begint helemaal dekkend (was 0,9)
 			# rond in plaats van een vierkant (kan Daan 15 nov 23:50 punt 2: op 4,5x lazen de vierkantjes als beige blokjes,
-			# "kapotte textuur"); zelfde plek en maat: middelpunt in het midden van de spelpixel, doorsnede 1,1 spelpixel
-			var m: float = float(st[1])
-			draw_circle(Vector2(st[0]) + Vector2(m, m) * 0.5, m * STOF_R, c)
+			# "kapotte textuur"); zelfde plek en maat, maar de hoeken eraf: een kruis van twee rechthoeken. Op 160 px
+			# (schaal 4) valt per hoek 1 schermpixel weg. 16 nov: draw_circle geprobeerd (run 43792240523), zonder
+			# antialias in Godot 4.3 bleef dat op 4 schermpixels een vierkant.
+			var sp := Vector2(st[0])
+			var sm: float = float(st[1])
+			var sr := sm * STOF_HOEK
+			draw_rect(Rect2(sp + Vector2(sr, 0), Vector2(sm - 2.0 * sr, sm)), c)
+			draw_rect(Rect2(sp + Vector2(0, sr), Vector2(sr, sm - 2.0 * sr)), c)
+			draw_rect(Rect2(sp + Vector2(sm - sr, sr), Vector2(sr, sm - 2.0 * sr)), c)
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
