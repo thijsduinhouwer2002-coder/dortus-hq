@@ -184,7 +184,26 @@ Onderwerp: For your [maand] releases list
 >
 > {afzender}, Dortus
 
-**Kaganath (#75), GameGen (#76), Get To It (#77), Sloth Vibes (#78). Wanneer: dag dat de pagina live is. (run 13)** Zelfde tekst als OKtrix hierboven, met hun eigen titel als eerste zin: Kaganath "5 Upcoming Cozy Games That ARE NOT Farm Sims" (zin erbij: "It's not a farm sim either."), GameGen "Top 16 Upcoming Cozy Games 2026", Get To It "The Most Wishlisted Steam Games", Sloth Vibes "10 Cozy Idle Games You Need to Try!" (haar regel "Cozy isn't a genre. It's a feeling." past bij een slijm die hoeden eet; niet citeren, wel de toon licht houden).
+**Kaganath (#75), geen adres in de kanaaltekst (Thijs: knop "View email address" op het kanaal). Wanneer: dag dat de pagina live is. Eerste mail van de paginadag. (run 13)**
+Waarom deze hoek: zijn grootste video's gaan over cozy spellen waarin je de slechterik bent of die "refuse to be kind": "5 Cozy Games Where You Can Be EVIL" 339.000, "Grimshire: The 'Cozy' Game That Refuses to Be Kind" 377.000, "5 Upcoming Cozy Games with a Dark Twist" 103.000 (GEZIEN 16 nov). In Hats speel je de kerker en eet Gloop de hoeden van gevallen helden: dat is precies zijn plank. Eerlijk: hij maakt maar een paar lijsten per jaar (3 "upcoming" in 11 maanden); de kans zit in de volgende.
+Onderwerp: A cozy game where you're the dungeon
+> Hi Kaganath,
+>
+> "5 Cozy Games Where You Can Be EVIL" is why I'm writing. We're making one for that shelf.
+>
+> Hats of the Fallen is an idle game that sits on top of your taskbar while you work. You are the dungeon: heroes climb in for your gold, fall into your traps, and Gloop the slime wears their hats. The ones who get away come back later with a bandage and a grudge.
+>
+> {GIF}
+> Steam page: {link}
+> Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
+>
+> Happy to send a key whenever it suits you. No strings attached.
+>
+> {afzender}, Dortus
+
+(±95 woorden. "Bandage and a grudge" staat al in tekst A en klopt met het spel: de terugkomer met verband is gif 3 van Chris uit de demofilm, `berichten/sem.md` 16 nov ±22:00.)
+
+**GameGen (#76), Get To It (#77), Sloth Vibes (#78). Wanneer: dag dat de pagina live is. (run 13)** Zelfde tekst als OKtrix hierboven, met hun eigen titel als eerste zin: GameGen "Top 16 Upcoming Cozy Games 2026", Get To It "The Most Wishlisted Steam Games", Sloth Vibes "10 Cozy Idle Games You Need to Try!" (haar regel "Cozy isn't a genre. It's a feeling." past bij een slijm die hoeden eet; niet citeren, wel de toon licht houden).
 
 **NextBigGames (#70), adres op eigen domein in kanaaltekst. Wanneer: dag dat de pagina live is.** Kort, want het is een lijst van 100+ spellen: alleen naam, één zin haak, link, demo-datum, genre "idle / desktop companion". Zij volgen markten; een vermelding helpt vooral dat andere makers en uitgevers ons zien.
 
