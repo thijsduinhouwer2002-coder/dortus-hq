@@ -2,6 +2,13 @@
 
 Opdracht hoofdchat 15 nov 23:20: Garmin-spelletje met Gloop nu starten, één knop, binnen 30 s iets leuks, nooit straffen; Daan en Mila kijken mee. Ik ben eigenaar van stijl en wow op Garmin. Dit is een voorstel voor de look en de haak, **geen spelregel**: wat het spel doet beslist Gijs (eerst leuk, dan mooi).
 
+## v3 (16 nov ±02:45 UTC, na Daans keuring van v2)
+- **Nieuw beeld 2: de slok.** De held duikt ondersteboven in Gloops mond, benen en blauwe buik steken eruit (donkere rand eromheen), de helm schiet naar de toren. Gloop is in dit beeld groter (0,42 van de breedte): hij zwelt op bij het slikken. Bestanden `v3-amoled-454-slok.png`, `v3-mip-260-slok.png`.
+- **Beeld 1 en 3: toren hoger op de kruin** (0,13 in plaats van 0,30), zodat de eerste hoed niet meer over het oog zakt; in beeld 3 is de blije oogboog dikker overgetrokken. `v3-*-beeld1/3.png`, blad `blad-gloop-spel-v3.png`.
+- Script `ontwerp/garmin/bron/gloop_spel_v3.py <rendermap> <uitmap>` (gebruikt v2).
+- Blinde kijker (A/B willekeurig): oud beeld 2 5/4/7 (scrollen, grap, klein), **slok 8/8/6**, kiest de slok als eerste winkelplaatje ("hij eet ridders en houdt hun hoed"). Moet van de kijker: held klein een blauwe vlek in het groen; gedaan met een donkere rand, op 1x GEZIEN. Beeld 3 oud tegen nieuw: geen verschil gezien, 7/6/7 allebei; kan: toren schever, Gloop zenuwachtig omhoog laten kijken.
+- **Eerlijk:** de slok zit nog niet in het spel. Wil Gijs hem gebruiken als winkelplaatje, dan moet er in het spel een slokframe komen (held ondersteboven half in de mond, ±0,3 s). Zonder dat frame blijft beeld 2 van v2 het winkelplaatje.
+
 ## Het idee in drie beelden ("Hat Tower")
 1. Een held valt door de schacht in het hol, met "!". Boog bij de START-knop: "GULP".
 2. Druk: **GULP!** Gloop slokt de held op, zijn hoed schiet omhoog en landt op de toren, "+1".

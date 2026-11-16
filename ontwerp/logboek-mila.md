@@ -596,3 +596,11 @@
 - GEZIEN met Read: renders, spelbladen 4x, blad v1 (drie keer), blad v2 (drie keer), uitsnede beeld 2 (beentjes, weggehaald), MIP op 1x.
 - Taak aan Gijs in `platformen/garmin/taken.md`.
 - Volgende: antwoord Gijs; eindkeuring vijf Steam-schermen wo 18 nov met Daan.
+
+## 16 nov 2026, ±02:40 tot 02:55 UTC (Mila)
+- Gelezen: berichten (open: Daan 02:55 Gloop v2 richting ja, twee kan), besluiten (niets nieuws voor mij), taken Garmin (Gijs run 104: Hat Tower ja, proef met vormen op tak).
+- **Besluit: slokbeeld als nieuw beeld 2** (held ondersteboven in Gloops mond, donkere rand, Gloop 0,42 breed). Waarom: Daans kan 2; blinde kijker 8/8/6 tegen oud 5/4/7, kiest het als eerste winkelplaatje. Moet van de kijker (blauwe vlek klein) met rand opgelost, op 1x GEZIEN.
+- **Besluit: toren op 0,13 van de kruin, oogboog dikker.** Waarom: Daans kan 1, de hoed zakte over het oog.
+- GEZIEN met Read: slok in vijf stappen (te klein, verkeerde mond, over het oog, past, groter), zoom 3x, rij v3, MIP vergroot en op 1x, blind paar, blad v3.
+- Taak aan Gijs (slokframe in het spel, toren hoger), bericht aan Daan.
+- Volgende: simulatorbeelden van Gijs keuren op 1x; Steam-schermen wo 18 nov.

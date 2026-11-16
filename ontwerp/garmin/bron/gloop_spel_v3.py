@@ -64,6 +64,10 @@ def slok(N):
     # de knip (onderkant) valt in de bovenste helft van de mond
     hx = int(gx + mcx - hb.width * 0.5)
     hy = int(gy + m0y + (m1y - m0y) * 0.60 - hb.height)
+    # donkere rand om de held (blinde kijker: klein was hij een blauwe vlek in het groene slijm)
+    rand = hb.getchannel("A").point(lambda a: 255 if a > 100 else 0).filter(ImageFilter.MaxFilter(RAND))
+    schim = Image.new("RGBA", hb.size, (40, 22, 34, 255)); schim.putalpha(rand)
+    im.alpha_composite(schim, (hx, hy))
     im.alpha_composite(hb, (hx, hy))
     # onderlip en tong van Gloop eroverheen: de held zit echt IN de mond
     lip = Image.new("L", g.size, 0)
@@ -83,6 +87,7 @@ def slok(N):
     return v2.rond(im, N)
 
 
+RAND = 5
 KRUIN = 0.13   # v2 had 0.30: de eerste hoed zakte over Gloops oog (Daan, beeld 3)
 
 
