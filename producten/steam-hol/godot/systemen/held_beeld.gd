@@ -312,15 +312,36 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	var c := Color(kleur.r, kleur.g, kleur.b, kleur.a * alfa)
 	h.draw_texture_rect_region(ct, Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), c)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+	if staat == "vallen":
+		for st in hoed_streepjes(float(h.val_t)):
+			var x: float = plek.x * sx + float(st.x) * sx * f
+			h.draw_line(Vector2(x, plek.y + float(st.y)), Vector2(x, plek.y + float(st.z)), Color(1, 1, 1, STREEP_ALFA * alfa * kleur.a), 0.5)
 	var tops: Array = hi.get("top", [])
 	return int(floor(plek.y + (-ny + (float(tops[nr]) if nr < tops.size() else 0.0)) * f))
 
 # Baan van de losse hoed bij vallen, tijd vt sinds de val: [dx, dy, draai in radialen]. Eerst 0,2 s omhoog (los van het
 # hoofd), dan zakt hij de put in (begint hoger dan het lijf, dus blijft los te zien) en draait een derde slag weg. Los zodat de toets hem kan nakijken.
+# Kan Daan 15 nov 23:50 ("hoed eraf"): de kijker zag de rechte zwevende baret als verkeerd geplaatst. Daarom kantelt hij nu
+# in de eerste HOED_KANTEL_S al HOED_KANTEL rad (±17 graden) en schuift 2 spelpixels opzij; daarna draait hij door tot
+# dezelfde -2,2 rad op 1 s als voorheen.
+const HOED_KANTEL := 0.3
+const HOED_KANTEL_S := 0.12
 static func hoed_tuimel(vt: float) -> Vector3:
 	var op := -3.0 * sin(clampf(vt / 0.4, 0.0, 1.0) * PI)            # wipt 3 spelpixels op en komt terug
 	var zak := 16.0 * pow(clampf((vt - 0.25) / 0.7, 0.0, 1.0), 2.0)   # daarna de put in; voor VAL_WEG (1 s) is hij onder de vloer
-	return Vector3(2.5 * clampf(vt / 0.6, 0.0, 1.0), op + zak, -2.2 * clampf(vt / 1.0, 0.0, 1.0))
+	var dx := 2.0 * clampf(vt / 0.15, 0.0, 1.0) + 1.0 * clampf((vt - 0.15) / 0.45, 0.0, 1.0)
+	var draai := -HOED_KANTEL * clampf(vt / HOED_KANTEL_S, 0.0, 1.0) \
+		- (2.2 - HOED_KANTEL) * clampf((vt - HOED_KANTEL_S) / (1.0 - HOED_KANTEL_S), 0.0, 1.0)
+	return Vector3(dx, op + zak, draai)
+
+# Twee korte witte streepjes onder de loskomende hoed (kan Daan 15 nov 23:50): dun, ±60% dekking, alleen de eerste
+# STREEP_S. Geeft per streepje [x, y_boven, y_onder] in spelpixels tegenover het nulpunt van de hoed (plek), of [] daarna.
+const STREEP_S := 0.2
+const STREEP_ALFA := 0.6
+static func hoed_streepjes(vt: float) -> Array:
+	if vt < 0.0 or vt >= STREEP_S:
+		return []
+	return [Vector3(-1.5, 1.5, 3.5), Vector3(0.5, 2.0, 4.0)]
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
 static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:

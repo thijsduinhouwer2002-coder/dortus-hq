@@ -1007,6 +1007,11 @@ func _init() -> void:
 	var t2: Vector3 = HB3.hoed_tuimel(1.4)
 	ok(t0.length() < 0.001, "3D-hoed: tuimelen begint op de kruin")
 	ok(t1.y < -1.0 and t2.y > 6.0 and absf(t2.z) > 1.5, "3D-hoed: wipt eerst op (%.1f), zakt daarna de put in (%.1f) en draait weg (%.1f)" % [t1.y, t2.y, t2.z])
+	# hoed eraf (kan Daan 15 nov 23:50): op het winkelmoment (15 fps, stil bij 0,133) gekanteld 15 tot 20 graden en opzij, met streepjes
+	var tm: Vector3 = HB3.hoed_tuimel(ceilf(load("res://kern/proef.gd").MOMENT_VAL_T * 15.0) / 15.0)
+	ok(rad_to_deg(absf(tm.z)) >= 15.0 and rad_to_deg(absf(tm.z)) <= 20.0 and tm.x >= 1.5, "hoed eraf: op het moment %.1f graden gekanteld en %.1f opzij" % [rad_to_deg(absf(tm.z)), tm.x])
+	ok(absf(HB3.hoed_tuimel(1.0).z - 2.2) < 0.001 or absf(HB3.hoed_tuimel(1.0).z + 2.2) < 0.001, "hoed eraf: op 1 s dezelfde draai als voorheen (2,2 rad)")
+	ok(HB3.hoed_streepjes(0.1).size() == 2 and HB3.hoed_streepjes(0.2).is_empty() and HB3.hoed_streepjes(0.5).is_empty(), "hoed eraf: twee streepjes alleen de eerste 0,2 s")
 	if HB3.held3d.has("hoeden") and HB3.held3d.has("ridder"):
 		var hi: Dictionary = HB3.held3d["hoeden"][1]
 		var ri: Dictionary = HB3.held3d["ridder"][1]
