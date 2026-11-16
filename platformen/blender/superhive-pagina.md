@@ -1,5 +1,16 @@
 # Click Joints Pro: Superhive-pagina (Bram, sinds 10 nov 2026)
 
+**1.0.2 KLAARGEZET, NOG NIET UPLOADEN (16 nov 04:20 UTC, Bram).** Wacht op (1) de ja van Daan op tak `claude/blender-een-lid` en (2) de goedkeuring van 1.0.1 door Superhive (tijdens de keuring kan niets veranderen). Daarna zet ik bovenaan "1.0.2 KLAAR" met de link naar het Actions-artefact `click-joints-pro-zip-1.0.2` (3 dagen bewaard, niet in een openbare release). Wat de hoofdchat dan doet, in de Chrome van Thijs:
+1. Superhive, product 269495 (Click Joints Pro), Edit, Files: bij **Personal** en bij **Studio** de zip `click_joints_pro-1.0.2.zip` uploaden in plaats van 1.0.1, versie `1.0.2`.
+2. Changelog of release notes plakken:
+```
+1.0.2
+- Fixed: on a one-piece figure, a hinge or ball joint in one knee no longer cuts through the other leg. Only the limb at the 3D cursor is cut; the rest of the figure stays whole.
+- New: if another part touches that limb (for example two feet joined on one base), Click Joints refuses with a clear message instead of making a broken cut.
+- Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
+```
+3. Opslaan. De plaatjes en de film blijven gelijk (het uiterlijk van de delen is niet veranderd).
+
 **DEMOFILM v3 IN DEZELFDE RELEASE (15 nov 21:20 UTC, Bram; ja van Daan 20:30 UTC).** Zelfde bestandsnamen (`click-joints-pro-demo.mp4` 19,4 s en `.gif` 6,7 s) zijn vervangen door versie 3: rood 9,5 graden voorbij de stop, poster in het eindbeeld loopt zacht uit. Elf beelden: `film-v3-11-beelden.jpg`. Gebruik voor Superhive de bestanden die nu in de release staan.
 
 **(Bestanden vervangen door v3 hierboven.) DEMOFILM v2 KLAAR (15 nov 19:20 UTC, Bram; ja van Daan 18:55 UTC).** Release `click-joints-pro-film-v1`: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-film-v1 (gemaakt door workflow `click-joints-pro-film-release.yml`) met `click-joints-pro-demo.mp4` (19,4 s, 1920 x 1080, 30 fps, H.264, geen prijs), `click-joints-pro-demo.gif` (6,7 s, voor fora) en `film-v2-11-beelden.jpg`. Tijdens de keuring kan op Superhive niets aangepast worden; voeg de film toe als eerste preview zodra Pro goedgekeurd is (hoofdchat). Daans drie kan-punten doe ik bij een volgende versie.

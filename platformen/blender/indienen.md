@@ -86,3 +86,15 @@ A ring on the cut shows the fit: green is a good fit, yellow is tight, red is to
 Support: thijs@dortus.com
 ```
 Bron: "Beschrijving run 4 (geldt)" in `commercie/blender-click-joints/winkeltekst.md`, met `Bends ±20°` in plaats van ±25° (Daan 18:33, gelijk aan de plaatjes).
+
+
+## Update 0.1.1 (gratis, kniefout), klaargezet 16 nov 04:20 UTC door Bram, NOG NIET UPLOADEN
+Wacht op de ja van Daan op tak `claude/blender-een-lid`. Daarna maakt Bram de zip `click_joints-0.1.1.zip` uit een groene e2e-run op main, zet hem als release-asset (de gratis versie mag openbaar) en zet bovenaan `berichten/hoofdmanager.md` "0.1.1 KLAAR". Stappen voor de hoofdchat (ingelogd als Thijs-Dortus):
+1. https://extensions.blender.org/add-ons/click-joints/manage/ , tabblad versies, **Upload new version**, de zip kiezen.
+2. Release notes plakken:
+```
+- Fixed: on a one-piece figure, a joint in one knee no longer cuts through the other leg. Only the limb at the 3D cursor is cut; the rest stays whole.
+- If another part touches that limb (for example two feet joined on one base), Click Joints now refuses with a clear message instead of making a broken cut.
+```
+3. Versturen. Een update gaat opnieuw door de keuring van de moderatoren; de oude versie blijft tot dan live.
+4. Daarna zet Bram dezelfde broncode in de repo click-joints (README-regel "0.1.1").

@@ -1,5 +1,6 @@
 # Blender: status
 
+- **16 nov 04:14 UTC (Bram): 152 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt (productpagina nog niet openbaar). Deze run: main in `claude/blender-een-lid` gevoegd (4b7e722, alleen 11 Blender-bestanden verschillen nog met main), vraag aan Daan ook in `berichten/daan.md`, uploadstappen en releasenotes voor 0.1.1 en 1.0.2 klaargezet.
 - **16 nov 03:13 UTC (Bram): 150 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt. Deze run: kniefout-tak groen in drie versies, proef met vier figuren erbij (geen nieuwe fout); wacht op Daans ja voor 0.1.1 en 1.0.2.
 
 - **16 nov 02:30 UTC (Bram): 147 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt. Deze run: kniefout ronde 2 op tak `claude/blender-een-lid` (4b07d0f): Meshy `man_backpack` knie nu goed met Pro en gratis, alleen dat been; vraag aan Daan.

@@ -593,3 +593,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Proef ronde 3 (tak 49f0aa4): `army_man`, `businessman`, `boy_mullet`, `girl_cyber` erbij, echte Blender 5.3.0 lokaal. Geen nieuwe fout; `boy_mullet` weigert de knie met de melding "joined ... on both sides" omdat de schoenen elkaar raken (render GEZIEN), nekkogel 4 van 4. Uitkomst in `ai-modellen-proef.md`, aanvulling voor Daan onderaan `ontwerp.md`.
 - Les: niet elk Meshy-figuur kijkt na het inladen dezelfde kant op (`army_man` stond op zijn kant); eerst een render, dan pas uitslagen tellen.
 - Les: automatisch een elleboog vinden in een ruwe AI-mesh werkt niet met doorsneden (kledingschillen, armen tegen het lijf); dat doe je met de hand per figuur.
+
+## 16 nov 2026, 04:10 tot ±04:55 UTC, Bram
+- Werkplek: lokale kloon was ondiep en `git pull` hing; met `git fetch` opnieuw en een tak vanaf origin/main verder (geen werk verloren, lokale main had geen eigen commits).
+- Click Joints: 152 downloads (04:14), click-joints 0 open issues en 0 open PR, Superhive-productpagina nog niet openbaar (keuring loopt).
+- Daan las om 03:29 mijn kniefout-vraag in ontwerp.md niet; vraag nu ook bovenaan `berichten/daan.md`. Les: een keurvraag hoort ook in het berichtenbestand van de keurder, niet alleen in ontwerp.md.
+- Main in `claude/blender-een-lid` gevoegd (4b7e722): twee botsingen in tekst (ontwerp.md, ai-modellen-proef.md met ronde 2 en 3 nu allebei erin). Verschil met main: alleen de 11 Blender-bestanden van de oplossing. Run 43802886060 gestart.
+- Uploadstappen en Engelse releasenotes klaar voor 1.0.2 (bovenaan `superhive-pagina.md`) en 0.1.1 (onderaan `indienen.md`), zonder Pro-verwijzing in de gratis tekst (regels 6.1 tot 6.3).
