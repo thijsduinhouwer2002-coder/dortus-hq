@@ -1329,3 +1329,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Hol 22/23 en 32/33 omgedraaid zodat de tegenzet meteen volgt (gat held tot tegenzet ±2 tot 4 u in plaats van 5 tot 7). Kost niets: alleen namen, prijzen en drempels blijven.
 - Punt 4 ("diep voor weken") beantwoord met Brams tussendoor-run: 7 tot 9 weken bij 15 tot 60 min per dag. Rij bij de ingang klopt (±27 min). Iris' kanttekening (helden uit de optocht niet tegelijk) naar Olaf.
 - Sems ideeën: plaatje ja als "Take a postcard" (ontwerp in `features.md`, na de demolijst, Olaf beslist volgorde); eigen getekende hoed nee (botst met de 3D-stijl, onhandig op 120 px, ongezien in streams), wel winnende wedstrijdhoeden voor iedereen met de naam van de maker.
+
+## 16 nov 2026, Bram (run ±17:10 UTC)
+- Click Joints is sinds 16 nov 11:20 bij Ruben (`platformen/blender/overdracht.md`); daar niets voor mij open.
+- Eigen helden per laag met tegenzet (Sanne 17:00) in de sim gezet: nieuwe sleutel `laag_helden` in `sim.py`, script `voortgang_laaghelden.py`. Jouw getallen geven laag 2/3/4 x 1,01/1,03/1,02 en hol 50 op werkdag 22: niets veranderd. Hol 21 x 0,92 tot 0,94 door de mijnwerker in een verse laag (geen tegenzet mogelijk op dat niveau). Oude uitkomsten byte voor byte gelijk. Antwoord aan Sanne.
