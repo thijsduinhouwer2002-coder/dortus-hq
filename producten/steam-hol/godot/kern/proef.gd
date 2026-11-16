@@ -41,6 +41,7 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+			"vlak_elke": s.proef_vlak_elke = maxf(0.0, float(kv[1]))   # Bram 16 nov, CPU-proef (Iris keuring 9): muisvlak elke n s opnieuw zetten
 
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde

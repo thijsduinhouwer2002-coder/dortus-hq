@@ -56,6 +56,7 @@ const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voe
 var proef_figuur := FIGUUR   # figuur=<factor> blijft als startargument om andere maten te keuren; 1.0 is de oude maat
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_uit3d: PackedStringArray = []   # uit3d=helden,hol,slijm: dat deel zonder 3D, alleen voor de CPU-proef (demolijst 2, Olaf 14 nov)
+var proef_vlak_elke := 0.0   # vlak_elke=<s>: muisvlak elke s seconden opnieuw zetten, alleen voor de CPU-proef (Bram 16 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var proef_koper_graaf := true   # koper=2: koopt wel, graaft niet, om graven en kopen uit elkaar te halen (Sanne 16 nov 20:10)
 var proef_koper := false     # koper=1: koopt elke upgrade zodra het kan en graaft zoals de demo, voor de bovengrens (Iris keuring 7, Olaf 16 nov)
@@ -286,6 +287,8 @@ func _process(delta: float) -> void:
 	t += delta
 	# Gloop groeit, krijgt een hoed of loopt: de bult in het muisvlak mee laten gaan (alleen als hij echt verandert)
 	if slijm and hol and int(t * 2.0) != int((t - delta) * 2.0) and gloop_bult() != vlak_gloop:
+		_muis_vlak(vlak_paneel)
+	elif proef_vlak_elke > 0.0 and int(t / proef_vlak_elke) != int((t - delta) / proef_vlak_elke):
 		_muis_vlak(vlak_paneel)
 	DEMO_EINDE.tik(self, delta)
 	BEELDTEMPO.tik(self)
