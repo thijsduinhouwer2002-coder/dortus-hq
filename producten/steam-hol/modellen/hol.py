@@ -440,14 +440,52 @@ zlo = bpy.data.objects.new("zwamlicht", zl); zlo.location = (LOS - 0.2, 0.2, KZ 
 
 # stekelput in de linker gang (zit in het spel: hol.gd, vallen = "stekelput")
 PUT_X = LINKS + 4.5 * KOL   # midden van kolom 4 (spelpixel 64 tot 80), zoals hol.gd een put in één kolom tekent
-uithollen(vloer, blok("put_gat_v", (PUT_X, 0.4, -0.2), (1.55, 2.0, 0.6)))
-uithollen(aarde, blok("put_gat_a", (PUT_X, 0.4, -0.25), (1.55, 2.0, 0.7)))
-blok("put_bodem", (PUT_X, 0.7, -0.52), (1.55, 1.5, 0.06), PRUIM_D)
+# Mila 16 nov (moet Daan 13:58, Iris punt 3): de put moet op 120 px als GAT lezen, niet als rijtje naaldjes op de vloer.
+# Zwarte schacht (snijvlakken zwart via eigen_mat), donkerrode gloed van onderen, botwitte stekels met donkere rand,
+# een hoed op een stekel als grap en een schedeltje. PUT_OUD=1 = de put van vóór 16 nov.
+PUT_OUD = os.environ.get("PUT_OUD") == "1"
+PUT_ZWART = g.mat("put_zwart", "0a0608", rough=1.0, spec=0.0)
+_gv = blok("put_gat_v", (PUT_X, 0.4, -0.2), (1.55, 2.0, 0.6)); _gv.data.materials.append(PUT_ZWART)
+_ga = blok("put_gat_a", (PUT_X, 0.4, -0.25), (1.55, 2.0, 0.7)); _ga.data.materials.append(PUT_ZWART)
+uithollen(vloer, _gv, eigen_mat=not PUT_OUD)
+uithollen(aarde, _ga, eigen_mat=not PUT_OUD)
+if PUT_OUD:
+    blok("put_bodem", (PUT_X, 0.7, -0.52), (1.55, 1.5, 0.06), PRUIM_D)
+else:
+    # gloeiende bodem en rood licht van onderen: kleurt de stekels van onder en de gangmuur boven de put rood
+    blok("put_bodem", (PUT_X, 0.7, -0.52), (1.55, 1.5, 0.06), g.mat("put_gloed", "a01a0a", rough=1.0, emis=1.4))
+    rl = bpy.data.lights.new("putlicht", "POINT"); rl.color = (1.0, 0.16, 0.05); rl.energy = 18; rl.shadow_soft_size = 0.4
+    rlo = bpy.data.objects.new("putlicht", rl); rlo.location = (PUT_X, 0.45, -0.38); sc.collection.objects.link(rlo)
+    for dx in (-0.78, 0.78):   # donkere lip: de vloer houdt scherp op
+        blok("put_lip", (PUT_X + dx, 0.5, 0.0), (0.03, 2.0, 0.04), PUT_ZWART)
 STAAL = g.mat("staal", "staal", rough=0.25, spec=0.8, metaal=0.9)
 # Ronde 4: de stekels steken boven de vloer uit (zoals hol.gd de put tekent: 8 spelpixels vanaf de vloer),
 # want onder de vloer is maar 2,6 spelpixel beeld over. Lichter staal met een glimpje, zodat ze op 120 px lezen.
 STAAL_L = g.mat("staal_l", "d8dce8", rough=0.2, spec=0.9, metaal=0.7, emis=0.15)
-if PUT_STAP == 0:
+if PUT_STAP == 0 and not PUT_OUD:
+    BOT = g.mat("put_bot", "f4eee2", rough=0.35, spec=0.6, emis=0.12)
+    RAND_D = g.mat("put_randd", "1a0a0a", rough=1.0, spec=0.0)
+    # voorste rij: 5 dikke botwitte stekels, wisselend hoog, met een donkere kegel er net achter als rand
+    hoogtes = (0.62, 0.86, 0.7, 0.92, 0.66)
+    for i, hoog in enumerate(hoogtes):
+        x = PUT_X - 0.56 + i * 0.28
+        cil("stekel", (x, 0.12, -0.3 + hoog / 2), 0.1, hoog, BOT, verts=10, r2=0.0)
+        cil("stekelrand", (x, 0.2, -0.3 + (hoog + 0.08) / 2), 0.135, hoog + 0.08, RAND_D, verts=10, r2=0.0)
+    # achterste rij lager en tussen de voorste in, alleen van onder rood aangelicht
+    for i in range(4):
+        x = PUT_X - 0.42 + i * 0.28
+        cil("stekel", (x, 0.7, -0.3 + 0.28), 0.09, 0.56, BOT, verts=10, r2=0.0)
+    # de grap: een blauwe puntmuts van een held die het niet haalde, doorgeprikt op de hoogste stekel
+    HX = PUT_X - 0.56 + 3 * 0.28
+    MUTS = g.mat("put_muts", "3d6fe0", rough=0.6)
+    cil("puthoed_rand", (HX, 0.1, 0.38), 0.2, 0.035, MUTS, rot=(0, math.radians(-10), 0), verts=20)
+    cil("puthoed", (HX + 0.02, 0.1, 0.5), 0.15, 0.26, MUTS, rot=(0, math.radians(-10), 0), verts=20, r2=0.0)
+    cil("puthoed_band", (HX, 0.1, 0.41), 0.152, 0.04, g.mat("put_band", "f2c230", rough=0.5), rot=(0, math.radians(-10), 0), verts=20)
+    # schedeltje vooraan op de bodem, half in het rood
+    bol("putschedel", (PUT_X - 0.34, 0.02, -0.17), (0.13, 0.11, 0.12), BOT, 16)
+    for ox in (-0.045, 0.045):
+        bol("putschedel_oog", (PUT_X - 0.34 + ox, -0.09, -0.15), (0.03, 0.02, 0.035), PUT_ZWART, 10)
+elif PUT_STAP == 0:
     for i in range(6):
         for j in range(3):
             hoog = 0.62 if (i + j) % 2 == 0 else 0.5

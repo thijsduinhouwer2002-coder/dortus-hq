@@ -13,3 +13,9 @@ Ontwerp:
 Frisse kijker op ronde b: 6 op ware grootte ("1 springt eruit, 2 lijkt op 0"); ronde c verwerkt beide punten. Volgende stap: Mila neemt de stukken over in `hol.py` (of leest dit script in) en de pijplijn knipt `put_1` en `put_2` uit, zoals `put`. Daarna wil ik een keurstrook op 120 en 160 zien.
 
 Ronde d (±13:50 UTC): frisse kijker op ronde c gaf 6,5 ("1 leest nu als oud roestig staal, goed; silhouet verdwijnt tegen de put; zwart van 2 heeft geen contrast"). Verwerkt: lichte stalen punt op elke roestige stekel, zwarte opening breder (1,72). Een lichte stenen lip voor de opening geprobeerd en weer uit: op 4x een streep dwars door de stekels, leest als een hekje. Besluit: dit is het voorstel; het echte oordeel volgt op de keurstrook in het spel.
+
+## Mila 16 nov ±14:20 UTC: put stap 0 moet als gat lezen (moet Daan 13:58, Iris punt 3)
+- In `producten/steam-hol/modellen/hol.py`, alleen stap 0 (stap 1 en 2 houden hun stekels, krijgen wel de zwarte snijvlakken en de gloeibodem). `PUT_OUD=1` geeft de oude put.
+- Zwarte schacht (snijvlakken via `eigen_mat`), gloeiende rode bodem en een zwak rood puntlicht in de schacht, 5 dikke botwitte stekels met een donkere kegel erachter als rand, 4 lagere achteraan, een blauwe puntmuts doorgeprikt op de hoogste stekel en een schedeltje vooraan. Namen beginnen niet met `buit`, dus ze blijven in het putstuk.
+- Geen gloed op de gangmuur: het stuk is één kolom, dus een rode vlek wordt in het spel een rood vierkant naast gewone gangtegels.
+- `put-gat-mila-voor-na-120-4x.png`: boven oud, onder nieuw, op 120 en 4x, plus het knipvak op 3x. GEZIEN met Read.
