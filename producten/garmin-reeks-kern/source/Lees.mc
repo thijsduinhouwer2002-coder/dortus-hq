@@ -9,14 +9,14 @@ module Lees {
     const UREN = 4;
 
     // soort 0 = Body Battery, 1 = stress. Geeft de waarden van de laatste UREN uur, oudste eerst.
-    function hist(soort) {
+    function hist(soort as Number) as Array<Number> {
         var w = [] as Array<Number>;
         var naam = (soort == 0) ? "BB" : "STRESS";
         if (!(Toybox has :SensorHistory)) {
             System.println("KERN " + naam + " module nee");
             return w;
         }
-        var it = null;
+        var it = null as SensorHistory.SensorHistoryIterator?;
         try {
             var opt = { :period => new Time.Duration(UREN * 3600), :order => SensorHistory.ORDER_OLDEST_FIRST };
             if (soort == 0) {
@@ -29,7 +29,7 @@ module Lees {
                 }
             }
         } catch (e) {
-            System.println("KERN " + naam + " fout " + e.getErrorMessage());
+            System.println("KERN " + naam + " fout bij lezen");
             return w;
         }
         if (it == null) {
@@ -40,6 +40,8 @@ module Lees {
         var laatste = 0;
         var leeg = 0;
         var n = 0;
+        var laag = 100;
+        var hoog = 0;
         var s = it.next();
         while (s != null && n < 600) {
             n++;
@@ -50,19 +52,26 @@ module Lees {
                     eerste = t;
                 }
                 laatste = t;
-                w.add(d.toNumber());
+                var v = d.toNumber();
+                if (v < laag) {
+                    laag = v;
+                }
+                if (v > hoog) {
+                    hoog = v;
+                }
+                w.add(v);
             } else {
                 leeg++;
             }
             s = it.next();
         }
         System.println("KERN " + naam + " has ja, waarden=" + w.size() + " leeg=" + leeg
-            + " span_s=" + (laatste - eerste) + " min=" + it.getMin() + " max=" + it.getMax());
+            + " span_s=" + (laatste - eerste) + " min=" + laag + " max=" + hoog);
         return w;
     }
 
     // Aantal uren weersverwachting: -1 geen module, 0 geen gegevens, -3 fout.
-    function weerUren() {
+    function weerUren() as Number {
         if (!(Toybox has :Weather)) {
             return -1;
         }
