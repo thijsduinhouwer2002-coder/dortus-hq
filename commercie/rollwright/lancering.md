@@ -243,7 +243,7 @@ It uses the same `dice:` notation as the Dice Roller plugin, so notes you alread
 - Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
 - Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
 
-All rolling is free. There are optional paid skins, which is how we hope to keep working on it. No account and no telemetry. The code is written by AI agents that our small studio, Dortus, runs; I direct and test it. Every release is tested in the real Obsidian app.
+All rolling is free. There are optional paid skins, which is how we hope to keep working on it. No account and no telemetry. Every release is tested in the real Obsidian app.
 
 Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -259,7 +259,7 @@ Happy to answer questions here.
 
 **Tekst:**
 ```
-Rollwright is now in the community directory: roll dice and random tables inside your notes. Click a result to roll again, a natural 20 lands in gold, and every roll you click goes into a Roll log by note and session. Uses the `dice:` notation, rolls on your tables, lists, sections and tags, reads numbers from frontmatter. All rolling is free, with optional paid skins. Code written by AI agents at our studio Dortus, tested in the real Obsidian app.
+Rollwright is now in the community directory: roll dice and random tables inside your notes. Click a result to roll again, a natural 20 lands in gold, and every roll you click goes into a Roll log by note and session. Uses the `dice:` notation, rolls on your tables, lists, sections and tags, reads numbers from frontmatter. All rolling is free, with optional paid skins. Tested in the real Obsidian app.
 https://community.obsidian.md/plugins/rollwright
 ```
 (Plak de GIF erbij als dat in het kanaal mag.)
@@ -354,7 +354,7 @@ It uses the same `dice:` notation as the Dice Roller plugin, so notes you alread
 
 All rolling is free. There are optional paid skins (a one-time purchase), which is how I hope to keep working on it. No account and no telemetry. Open source (MIT).
 
-To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
 
 Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -398,7 +398,7 @@ It is not an oracle or a GM emulator itself: it rolls dice and your own tables. 
 
 All rolling is free. There are optional paid skins (a one-time purchase) that only change the look. No account and no telemetry. Open source (MIT).
 
-To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
 
 Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -538,7 +538,7 @@ It uses the same `dice:` notation as the Dice Roller plugin, so notes you alread
 
 All rolling is free. There are optional paid skins (a one-time purchase), which is how I hope to keep working on it. No account and no telemetry. Open source (MIT).
 
-To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
 
 Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -566,7 +566,7 @@ Haak "NAT 20" met de kaart Perception 22 en stralen; titel "ROLLWRIGHT, Dice tha
 - **"Can I get the CSS snippet?"** `It's a quick snippet I made for the video, not something I've polished for sharing yet. If more people want it I'll look at cleaning it up for the repo.` (Niets beloven met een datum. Wil Thijs hem delen, dan maakt de ploeg hem netjes; de iconen zijn CC BY 3.0 (Lorc), dus alleen met naamsvermelding.)
 - **"So the free version doesn't look like this?"** `The rolls, the gold natural 20, the red natural 1 and the Roll log are all free. In the video they sit on my parchment CSS snippet; in your vault the free look takes your theme's colours and fonts. Parchment and Arcane, shown at the end, are the two paid skins.`
 - **"Why not just use Dice Roller?"** `Dice Roller is great and Rollwright reads the same dice: notation. I wanted the roll itself to feel like a moment and to keep a log of every roll you click, per session. If Dice Roller does what you need, stick with it.`
-- **"AI-written, no thanks."** Niet in discussie gaan. Hooguit: `Fair enough. I wanted to be upfront about it. The source and the tests are public if you want to judge the code.`
+- **"AI-written, no thanks."** Niet in discussie gaan. Hooguit: `Fair enough. The source and the tests are public if you want to judge the code.`
 - Vragen over geld, terugbetalen, privacy of juridisch: niet beantwoorden, bovenaan lijst-thijs (regel 5).
 
 ### Na het plaatsen
@@ -604,7 +604,7 @@ I made Rollwright, a dice roller for people who run or play tabletop games in Ob
 
 It reads the same `dice:` notation as Dice Roller, rolls on your own tables, lists, sections and tagged notes, and uses numbers from your frontmatter. All rolling is free; there are two optional paid skins (a one-time purchase). No account, no telemetry, open source (MIT).
 
-To be upfront: the code is written by AI agents at my small studio, Dortus. I direct and test the work, and every release is tested in the real Obsidian app.
+Every release is tested in the real Obsidian app.
 
 Install: https://community.obsidian.md/plugins/rollwright
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -669,7 +669,7 @@ A dice roller for people who run or play tabletop games (D&D, solo RPGs, OSR) in
 
 All rolling is free; two optional skins are a one-time purchase and only change the look. No account, no telemetry, open source (MIT): https://github.com/thijsduinhouwer2002-coder/rollwright
 
-To be upfront: I made it with AI agents at my small studio, Dortus. The code is written by those agents; I direct and test the work, and every release is tested in the real Obsidian app.
+Every release is tested in the real Obsidian app.
 
 Made by Thijs at Dortus
 ```

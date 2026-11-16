@@ -17,7 +17,7 @@ Door Chris, 8 nov 2026 (run 13), op opdracht van Thijs (8 nov 18:33). Gemeten me
 **Niets plaatsen voordat:** de listing op extensions.blender.org live is (link met curl gezien) en Daan `Akkoord: ja` zette. Voor printplekken (r/3Dprinting, r/PrintedMinis, Printables) ook een foto van een echt geprint gewricht dat buigt.
 
 ## Drie vaste regels voor alle plekken
-1. **AI eerlijk melden.** Elke tekst zegt dat AI-agents van Dortus de code schrijven en Thijs het werk stuurt. Een plek die door AI gemaakte projecten weert, slaan we over.
+1. **AI: geen AI-zin meer in de berichten** (16 nov run 66: geen AI-zin meer in berichten, besluit Thijs 16 nov 20:09; nooit beweren dat het zonder AI is, en op een directe vraag eerlijk antwoorden; een plek die door AI gemaakte projecten weert, slaan we over.)
 2. **Geen beloftes over printen die we niet zelf zagen.** Zolang er geen echte print is, staat er "not printed yet" of we kiezen een plek waar het om Blender gaat, niet om printen.
 3. **Geen verwijzing naar de betaalde versie** op extensions.blender.org en in berichten die naar die listing linken (voorwaarden van de site, zie `platformen/blender/kandidaten-2026-11-07.md` sectie 18). Superhive pas noemen als het betaalde deel er is, en dan alleen op plekken die commercieel toestaan.
 
@@ -72,7 +72,7 @@ Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is 
 > It cuts a ball joint (or a pin) into a sculpted figure for 3D printing, with the clearance you set in mm, and right after the cut it shows how far the joint bends before the parts collide ("Bends ±20°"); past that limit the collision turns red. Export is STL or 3MF, one file per part. Blender 4.2 LTS and 5.2 LTS.
 > Images: <link naar poster en winkelplaatjes op dortus.com/click-joints/>
 > I haven't printed a joint with it yet; fit and bend are measured in Blender. (Weglaten zodra er een echte print is, en dan de foto meesturen.)
-> Honest note: the code is written by AI agents that my small studio Dortus runs; I direct the work and every version is tested automatically in real Blender.
+> Every version is tested automatically in real Blender.
 > Thijs Duinhouwer, Dortus, https://dortus.com/click-joints/
 
 ### 7. BlenderNation

@@ -14,7 +14,7 @@ Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichte
 ## Alleen echte beelden
 - Film v2 van Bram (`click-joints-filmisch-v2.mp4`, gerenderd in de echte Blender met de add-on, Thijs zei 9 nov "film Click Joints ja"; sha256 `f6d54416…`).
 - De twee previews van de gratis versie 0.1.0 op extensions.blender.org (`3-preview-buigen.png`, `4-preview-paneel.png`, schermen uit de echte add-on).
-- Geen gezicht, geen stem, geen nep-persoon, geen AI-beeld. "I made" in de eerste persoon klopt: Thijs maakt het met hulp van AI, en dat staat ook in het onderschrift.
+- Geen gezicht, geen stem, geen nep-persoon, geen AI-beeld. "I made" in de eerste persoon klopt: Thijs maakt het met AI-agents; de AI-zin staat niet meer in het onderschrift (besluit Thijs 16 nov 20:09).
 - Alleen de **gratis** versie. Pro staat er niet in, want Pro is nog niet te koop (Superhive keurt nog). Een Pro-filmpje komt na de goedkeuring.
 
 ## De drie filmpjes
@@ -28,12 +28,12 @@ Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichte
 | 10,8 tot 13,8 s | arm buigt verder | Green ring = **good fit**, in mm |
 | 13,8 tot 16,8 s | pop vervaagt in de eindkaart uit film v2 | Free on Blender Extensions, link in bio |
 
-**Onderschrift:** `I made a free Blender add-on that shows how far a joint bends before you 3D print it. Place a joint, drag the bend, check the fit in mm, export STL or 3MF. Click Joints, free on Blender Extensions (link in bio). Built with help from AI. #blender #3dprinting #b3d #blenderaddon #articulated`
+**Onderschrift:** `I made a free Blender add-on that shows how far a joint bends before you 3D print it. Place a joint, drag the bend, check the fit in mm, export STL or 3MF. Click Joints, free on Blender Extensions (link in bio). #blender #3dprinting #b3d #blenderaddon #articulated`
 
 ### 2. `click-joints-2-satisfying-bend.mp4` (10,2 s), format 1: één vaste regel, loopt rond
 Ring gloeit (0,5 s), arm buigt (3,9 s), arm buigt verder met de ring (5,8 s). Vaste tekst: "See how far a joint **bends**, before you print." en klein onderaan "Click Joints, a free Blender add-on". Dit is de winkelzin van de listing, dus overal hetzelfde.
 
-**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). Built with help from AI. #blender #3dprinting #articulated #blenderaddon`
+**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). #blender #3dprinting #articulated #blenderaddon`
 
 ### 3. `click-joints-3-three-checks.mp4` (16,7 s), format 4: lijstje zonder gezicht
 | tijd | beeld | tekst in beeld |
@@ -44,7 +44,7 @@ Ring gloeit (0,5 s), arm buigt (3,9 s), arm buigt verder met de ring (5,8 s). Va
 | 11 tot 13,7 s | ring, kogel en kom gaan in de arm uit elkaar en weer terug (bron 10,2 tot 12,9 s; de rode close-up is eruit, moet M2) | 3. Exploded view, then one STL or 3MF per part |
 | 13,7 tot 16,7 s | eindkaart | Free on Blender Extensions, link in bio |
 
-**Onderschrift:** `3 things my free Blender add-on checks before you 3D print a poseable figure: how far each joint bends, the fit in mm (wall and clearance), and clean parts as STL or 3MF. Click Joints, link in bio. Built with help from AI. #blender #3dprinting #b3d #blenderaddon #3dprint`
+**Onderschrift:** `3 things my free Blender add-on checks before you 3D print a poseable figure: how far each joint bends, the fit in mm (wall and clearance), and clean parts as STL or 3MF. Click Joints, link in bio. #blender #3dprinting #b3d #blenderaddon #3dprint`
 
 Elke bewering komt uit de listing of de previews: "Drag the bend. Red means too far", "Good fit, measured in mm", "One STL or 3MF per part, in mm", "Exploded view" (winkeltekst en previews 0.1.0, GEZIEN).
 
@@ -59,7 +59,7 @@ Extra gemaakt in run 46 (extra run van Thijs, 15 nov 23:00), zodat de dagelijkse
 | 12 tot 14,3 s | sea log | Ebb, on the Connect IQ Store, link in bio |
 Sinds run 49: horloge rond uitgesneden op de donkere achtergrond (zoals filmpje 6), horloge op y 490. De hele tijd klein, direct onder de tekst op y 425: "Screens from the Garmin simulator" (eerlijk: geen opname van een echt horloge, en het water is een overvloeier tussen twee schermen).
 
-**Onderschrift:** `I made a breathing app for Garmin watches: the sea rises and falls with your breath, and when you hold, you go under water. Sea creatures join your sea log as you keep coming back. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #breathwork #garminwatch`
+**Onderschrift:** `I made a breathing app for Garmin watches: the sea rises and falls with your breath, and when you hold, you go under water. Sea creatures join your sea log as you keep coming back. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. #garmin #connectiq #breathwork #garminwatch`
 
 Bewust niet: geen gezondheidsclaim (geen "calmer", "better sleep", "lung capacity"), geen freediving, geen "every session a new animal" (dieren komen door sessies en weken op rij). Alle beweringen staan in de winkeltekst (stijgen en zakken, onder water bij inhouden, 24 dieren, $4,99 eenmalig zonder abonnement). Ebb Calm (gratis) noem ik niet: nog niet openbaar. Link in bio voor dit filmpje: de winkellink van Ebb uit `commercie/ebb/lancering.md`; één link in het profiel kan maar één product tonen, dus wissel hem mee of gebruik later één pagina op dortus.com met beide.
 Nagekeken door een controleur (run 46): filmpje en workflow ja; tekst eerst nee ("as you keep going" las alsof langer inhouden dieren oplevert, en de vaste zin over alleen op het droge ontbrak), beide verwerkt, plus de precieze AI-zin uit `lancering.md`.
@@ -76,10 +76,10 @@ Voor Daan (vraag d): beantwoord in zijn keuring, ja rond op donker; verwerkt in 
 | 11,4 tot 14,7 s | deel 5: kogel en kom uit elkaar (gratis versie) | Ball joints: **free**. Click hinges: **Pro**. Link in bio |
 Klein, de hele tijd: "Click Joints Pro, a Blender add-on" op y 1380 en "Link in bio" op y 1290, boven de strook van ±420 px onderaan waar de apps naam en onderschrift zetten (moet-punt controleur). Het woord red staat in wit: de groene nadruk zou hier verwarren.
 
-**Onderschrift:** `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Superhive (link in bio). Measured in Blender, not printed yet. AI agents write the code, I direct and test. #blender #3dprinting #b3d #blenderaddon #articulated`
+**Onderschrift:** `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Gumroad (link in bio). Measured in Blender, not printed yet. #blender #3dprinting #b3d #blenderaddon #articulated`
 
 Elke bewering komt uit de ingediende Superhive-tekst en BlenderNation C44 (`commercie/blender-click-joints/lancering.md`): click hinge voor knieën en ellebogen, 0° tot 115° en daar stoppen "instead of flopping backwards", rood voorbij de stop (in beeld: het stuk van de gradenboog voorbij 115° en "+9° past limit"), kogel en kom gratis. Geen prijs in beeld of onderschrift, want de lanceerprijs van $9 duurt maar twee weken. "Not printed yet" staat erbij, net als in C44 ("I haven't printed a joint with it yet").
-**Link in bio voor dit filmpje:** https://superhivemarket.com/products/click-joints-pro (pas als die pagina openbaar is), of dortus.com/click-joints/ zodra het Pro-blok daar op main staat; die pagina linkt naar gratis en Pro samen.
+**Link in bio voor dit filmpje (run 66):** https://duinhouwer8.gumroad.com/l/click-joints-pro (Pro staat daar sinds 16 nov); later Superhive https://superhivemarket.com/products/click-joints-pro als die pagina openbaar is, of dortus.com/click-joints/ zodra het Pro-blok daar op main staat; die pagina linkt naar gratis en Pro samen.
 Let op: het bestand staat al in de openbare prerelease `filmpjes-week-1`, net als de rest een concept. Dat breekt geen regel; plaatsen op TikTok, Shorts en Reels pas na Pro live.
 Nagekeken door een controleur (run 47): techniek, beweringen, echte beelden en workflow ja; moet-punt (onderste regels in de strook van de apps) verwerkt; kan-punten verwerkt: red niet groen, "overshoot shows in red" in plaats van "parts turn red" (in beeld zie je alleen de boog rood), de precieze AI-zin zoals bij filmpje 4.
 
@@ -95,7 +95,7 @@ Gemaakt in run 48 (15 nov ±23:50 tot 16 nov ±00:30 UTC), het tweede Ebb-filmpj
 | 12 tot 14,4 s | menu met de krab | Ebb, on the Connect IQ Store, link in bio |
 Sinds run 49 staat de tekst op y 240 (zoals 1 tot 4), want op y 110 viel de eerste regel onder de bovenbalk van TikTok en Shorts. Klein, de hele tijd, op y 425: "Screens from the Garmin simulator". Horloge op y 470, marge 1,2, onderkant ±1470.
 
-**Onderschrift:** `I made a breathing app for Garmin watches with 24 sea animals to collect. You earn them with sessions and weeks in a row, never by holding your breath longer, and your streak counts the weeks you hit your goal, so rest days never break it. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #garminwatch #breathwork`
+**Onderschrift:** `I made a breathing app for Garmin watches with 24 sea animals to collect. You earn them with sessions and weeks in a row, never by holding your breath longer, and your streak counts the weeks you hit your goal, so rest days never break it. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. #garmin #connectiq #garminwatch #breathwork`
 
 Elke bewering staat letterlijk in de winkeltekst 19a (`platformen/garmin/upload/ebb-en.md`, deel COLLECT SEA ANIMALS BY SHOWING UP): "24 sea animals, earned with sessions and weeks in a row, never by holding longer", "Your streak counts weeks ... so rest days never break it", "Pick the one that swims with you", "plus one bonus animal" (daarom "24 of 24 + bonus" in beeld), $4,99 eenmalig zonder abonnement. Bewust niet: geen gezondheidsclaim, geen freediving, niet "every session a new animal". De hold-schermen tonen allemaal 1:45 en 61 bpm: dat is één testscène met steeds een ander dier, geen echte sessies; daarom geen tijd of hartslag in de tekst. Ebb Calm noem ik niet (nog niet openbaar, API 15 nov 23:4x UTC "not approved").
 **Link in bio:** de winkellink van Ebb, zoals bij filmpje 4.

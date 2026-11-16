@@ -10,7 +10,7 @@ Door Chris, 8 nov 2026 (run 12), op opdracht van Thijs (8 nov 18:33). Gemeten me
 `approve: false`, 0 downloads, `pricingModel: FREE`, proef 30 dagen. Nog in moderatie. **Niets plaatsen voordat alle drie kloppen:** versie goedgekeurd, Hidden uit, prijs zichtbaar op de pagina. **Let op (run 22, 9 nov):** het veld `approve` van de plugin zelf is géén teken van goedkeuring; het staat ook bij live plugins op `false`. Kijk naar het seintje in `lancering.md`, deel run 22.
 
 ## Twee vaste regels voor alle plekken
-1. **AI eerlijk melden.** De code is door AI-agents geschreven. Steeds meer programmeerplekken weren AI-projecten of door AI geschreven tekst (Stack Overflow, r/ProgrammingLanguages, r/opensource, Lobsters, dev.to voor promotie, zie onder). Elke tekst zegt het daarom, en een plek die het verbiedt slaan we over.
+1. **AI eerlijk melden.** De code is door AI-agents geschreven. Steeds meer programmeerplekken weren AI-projecten of door AI geschreven tekst (Stack Overflow, r/ProgrammingLanguages, r/opensource, Lobsters, dev.to voor promotie, zie onder). Een plek die het verbiedt slaan we over. Elke tekst zei het; dat vervalt (16 nov run 66: geen AI-zin meer in berichten, besluit Thijs 16 nov 20:09; nooit beweren dat het zonder AI is, en op een directe vraag eerlijk antwoorden; een plek die door AI gemaakte projecten weert, slaan we over.)
 2. **Thijs kan geen diepe technische vragen beantwoorden.** Plekken waar de reacties vooral technisch zijn, kiezen we alleen als de ploeg antwoorden als concept kan klaarzetten in `berichten-geplaatst.md` en de plek dat (door AI geschreven antwoorden) toestaat.
 
 ## De plekken, in volgorde
@@ -53,7 +53,7 @@ I made a plugin for Bison/Yacc (.y, .yy) and Flex/Lex (.l, .ll) files. The JetBr
 Free: highlighting (including the C code in actions and $$/$1), syntax errors, folding, the Structure view, and go to definition, find usages and rename within one file (renaming a token the scanner also uses is Pro).
 Pro (30-day free trial): jump from a token in the scanner to its %token in the grammar, rename a token in both files at once, and warnings for undefined and unused symbols.
 
-To be upfront: the code was written by AI agents that my small studio, Dortus, runs. It's tested in CLion and IntelliJ IDEA. Feedback on what's missing is very welcome.
+It's tested in CLion and IntelliJ IDEA. Feedback on what's missing is very welcome.
 
 https://plugins.jetbrains.com/plugin/35901-bison--flex
 
@@ -75,7 +75,7 @@ Title: Suggestion: Bison & Flex (Additional file types support)
 Suggestion for "Additional file types support" (or "C/C++", whichever you prefer): Bison & Flex, https://plugins.jetbrains.com/plugin/35901-bison--flex
 Support for Bison/Yacc (.y, .yy) and Flex/Lex (.l, .ll) files: highlighting, syntax errors, Structure view and navigation within a file for free; a paid Pro tier adds navigation and rename across grammar and scanner.
 
-Disclosure: I made it (Thijs, Dortus). The code is written by AI agents my studio runs; there are no AI features in the plugin itself.
+Disclosure: I made it (Thijs, Dortus). There are no AI features in the plugin itself.
 
 Made by Thijs at Dortus
 ```

@@ -50,7 +50,6 @@ I made Rollwright, a dice roller plugin for tabletop games in Obsidian. Write a 
 
 It uses the same `dice:` notation as Dice Roller, rolls on your own tables, lists and tagged notes, and reads numbers from frontmatter. All rolling is free; optional skins only change the look and are a one-time purchase. Open source (MIT), no account, no telemetry.
 
-To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work.
 
 https://community.obsidian.md/plugins/rollwright
 
@@ -72,7 +71,7 @@ Made by Thijs at Dortus
 - Regels (GEZIEN, https://raw.githubusercontent.com/flamableconcrete/awesome-dnd/main/CONTRIBUTING.md): "Disclose your connection to the resource. Self-promotion is welcome; as long as it is made clear." "Recommend something you've actually tried." "AI-powered/AI-created links are eligible to be added to the list. Describe any AI features readers will encounter on the requested link in the pull request." Eén bron per pull request.
 - Nog geen enkele Obsidian-plugin op de lijst (GEZIEN, README). Past onder "Desktop Applications" (Obsidian is een app om te installeren), tweede keuze "Campaign Tracking"; dat laten we in de pull request aan de beheerder.
 - Regel voor in de lijst: `- [Rollwright](https://community.obsidian.md/plugins/rollwright) - Open source Obsidian plugin that rolls dice and random tables inside your campaign notes and logs every roll you click; all rolling is free, optional paid skins.` (niet "Free": het forum zegt bij "completely free?" No; niet "every roll": rollen die vanzelf gebeuren bij het openen van een notitie komen niet in het log, README.)
-- In de pull request: "I made this (Thijs, Dortus). The code is written by AI agents my studio runs; I direct and test it. There are no AI features in the plugin itself. Optional paid skins only change the look."
+- In de pull request: "I made this (Thijs, Dortus). There are no AI features in the plugin itself. Optional paid skins only change the look."
 - Waarom niet zonder besluit: een pull request staat openbaar onder het GitHub-account van Thijs, dus het is een bericht onder zijn naam op een plek die niet in zijn lijst staat. Tegenstelling: `organisatie/doelen.md` (koers punt 2) zegt dat de ploeg "vermelding op lijsten via een pull request" zelf doet, maar mijn opdracht zegt "andere plekken alleen na een besluit van Hans". Ik kies het voorzichtige: Hans beslist (advies 24, gevraagd 8 nov).
 
 ### 7. Josh Plunkett

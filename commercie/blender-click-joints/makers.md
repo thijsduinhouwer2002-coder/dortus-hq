@@ -53,7 +53,7 @@ Abonnees en laatste upload: GEZIEN 16 nov ±11:30 UTC (kanaalpagina en RSS-feed 
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). No strings: you don't have to post, review or mention it. If you do try it, I'd value your honest opinion, good or bad. It measures the shape, not your printer, so I can't promise every joint clicks first time. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender 4.2 and 5.x.
+> Every version is tested in real Blender 4.2 and 5.x.
 >
 > Thanks for your tutorials either way.
 > Thijs
@@ -72,7 +72,7 @@ Abonnees en laatste upload: GEZIEN 16 nov ±11:30 UTC (kanaalpagina en RSS-feed 
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). No strings: no post, review or mention needed. If you try it, I'd like to hear what you really think. And if you don't use Blender, sorry for the noise. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -93,7 +93,7 @@ Aanhef "LeHa team": op hun kanaal stellen ze zich voor als "Designer-Duo" zonder
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). This is not a paid collaboration and there is nothing you have to do in return: no post, no review, no mention. If you try it, I'd like your honest opinion. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -112,7 +112,7 @@ Aanhef "LeHa team": op hun kanaal stellen ze zich voor als "Designer-Duo" zonder
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). No strings: no post, review or mention needed. If you try it, I'd like your honest opinion. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -133,7 +133,7 @@ Aanhef "Timo": die naam staat openbaar in het Impressum in zijn eigen kanaalbesc
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). It's not a paid collaboration and you don't owe anything back: no post, review or mention. If you try it, I'd like your honest opinion, good or bad. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -152,7 +152,7 @@ Aanhef "Timo": die naam staat openbaar in het Impressum in zijn eigen kanaalbesc
 >
 > No strings: you don't have to make a video, and if you do, say what you really think. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -171,7 +171,7 @@ Aanhef "Timo": die naam staat openbaar in het Impressum in zijn eigen kanaalbesc
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). No strings: no post, review or mention needed. If you try it, I'd like your honest opinion. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs
@@ -192,7 +192,7 @@ Aanhef "Isabelle": zo stelt ze zich voor in haar eigen kanaalbeschrijving.
 >
 > Here is a free Pro licence: <CODE> (<LINK PRO>). No strings: no post, review or mention needed. If you try it, I'd like your honest opinion. If you ever do show it, just mention you got the licence for free.
 >
-> Honest note: the code is written by AI agents my studio runs; I direct the work, and every version is tested in real Blender.
+> Every version is tested in real Blender.
 >
 > Best,
 > Thijs

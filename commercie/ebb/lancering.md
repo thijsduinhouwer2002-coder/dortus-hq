@@ -6,7 +6,7 @@ Chris, run 32, 13 nov 2026 ±15:15 tot 16:00 UTC. Opdracht: `berichten/chris.md`
 
 Bronnen die ik naast elkaar legde: winkeltekst `platformen/garmin/upload/ebb-en.md` (versie 19a, de ingediende tekst), `calm-en.md` (versie 1.1), de concepten in `platformen/garmin/gebruikers-krijgen-2026-11-13.md` en de plekken in `kanalen-2026-11-13.md`.
 
-Vaste randen voor elke tekst (uit die stukken): alleen op het droge, zitten of liggen; nergens freediving, apnea, Wim Hof, record of "best time"; geen beloftes over stress, slaap of gezondheid; dieren komen door terugkomen, nooit door langer inhouden; eerlijk zeggen dat Thijs de maker is en dat AI-agents bij Dortus de code schrijven (harde eis van Thijs sinds 9 nov, zie `berichten/chris.md` 11:45); geen oproep tot beoordelen in een forum.
+Vaste randen voor elke tekst (uit die stukken): alleen op het droge, zitten of liggen; nergens freediving, apnea, Wim Hof, record of "best time"; geen beloftes over stress, slaap of gezondheid; dieren komen door terugkomen, nooit door langer inhouden; eerlijk zeggen dat Thijs de maker is; de AI-zin vervalt (16 nov run 66: geen AI-zin meer in berichten, besluit Thijs 16 nov 20:09; nooit beweren dat het zonder AI is, en op een directe vraag eerlijk antwoorden; een plek die door AI gemaakte projecten weert, slaan we over.); geen oproep tot beoordelen in een forum.
 
 ## 1. Garmin-forum, Connect IQ Showcase
 
@@ -40,7 +40,7 @@ A small fish swims with you from the first session. 24 sea animals join as you k
 
 Sessions save to Garmin Connect as a breathing activity with heart rate. $4.99 once in the Garmin store: no subscription, no unlock code, no extra account, no phone app. For practice on land only: sit or lie down.
 
-How it's made: Ebb comes from Dortus, my small studio, where AI agents write the code. I direct and test the work. This version was compiled for all 28 supported watches and tested in the Connect IQ simulator; it has not been tested on every watch model.
+How it's tested: this version was compiled for all 28 supported watches and tested in the Connect IQ simulator; it has not been tested on every watch model.
 
 A free calm-only version, Ebb Calm, is waiting for Garmin's review; I'll post it in this thread when it's in the store.
 

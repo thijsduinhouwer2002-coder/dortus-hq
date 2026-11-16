@@ -46,9 +46,9 @@ Elke bewering in de tabel komt uit ons eigen ontwerp en de metingen in `producte
 - Geen rode close-up (moet M1 van Daan), geen ring en pop als begin (kan-punt van Daan: elk filmpje een ander begin). Alleen de gratis versie: staande opname 5 is de kogel, die ook gratis zit (LEESMIJ van Bram).
 - 1080 x 1920, H.264, geen geluid, 12,5 s. Eerste versie (run 51, oude haak) lokaal gebouwd met `maak.py` en beeld voor beeld bekeken (GEZIEN 16 nov ±04:55 UTC): de tekst staat onder de bovenbalk (y 240 en lager, zoals Daan voor filmpje 6 vroeg), het paneel valt in het vlak van y 640 tot 1540, beide regels met de speling blijven tijdens de zoom in beeld.
 
-**Onderschrift (run 52, volgens Bram en Daan):** `Printable joints in Blender, day 1: ball joint clicks in but won't turn? Without a gap between ball and socket, the parts jam and won't turn. Start around 0.2 mm clearance per side on FDM, then test on your own printer. Tool in the video: Click Joints, a free Blender add-on (link in bio). AI agents write the code, I direct and test. Made something with Click Joints? Tag me, I'd love to see it. #blender #3dprinting #b3d #articulated`
+**Onderschrift (run 52, volgens Bram en Daan):** `Printable joints in Blender, day 1: ball joint clicks in but won't turn? Without a gap between ball and socket, the parts jam and won't turn. Start around 0.2 mm clearance per side on FDM, then test on your own printer. Tool in the video: Click Joints, a free Blender add-on (link in bio). Made something with Click Joints? Tag me, I'd love to see it. #blender #3dprinting #b3d #articulated`
 
-De AI-zin is `AI agents write the code, I direct and test.` (zoals in het door Daan gekeurde onderschrift van filmpje 4) en niet "Built with help from AI" uit week 1, want die maakt de rol van AI kleiner dan in de winkeltekst (gezien in run 50). Voorstel: deze zin in alle nieuwe onderschriften.
+Geen AI-zin meer in onderschriften (Thijs 16 nov 20:09, via de hoofdchat 20:12; weggehaald in run 66). Wel: nooit beweren dat het zonder AI gemaakt is, en vraagt iemand ernaar, dan eerlijk antwoorden (de FAQ op dortus.com).
 
 **Tijd:** zoals week 1, rond 16:00 NL op werkdagen.
 

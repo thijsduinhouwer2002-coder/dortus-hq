@@ -80,7 +80,7 @@ The video is a screen recording of the real add-on in Blender 5.3. I haven't pri
 
 Blender 4.2 LTS to 5.3. $12 one time, updates for 1.x included. The free version keeps the ball joints and stays free.
 
-Honest note: the code is written by AI agents at my small studio, Dortus. It's tested automatically in real Blender (4.2 to 5.3) on every change.
+It's tested automatically in real Blender (4.2 to 5.3) on every change.
 
 Link in the comments.
 
@@ -97,33 +97,41 @@ There's also a paid version, Click Joints Pro ($12), with a click hinge for knee
 
 ---
 
-### r/customactionfigures (±21k leden, DERDEN gummysearch, getal van jan 2025)
-**Regels (DERDEN):** zijbalk letterlijk: "This is for anything vaguely related to custom action figures. Post pictures or videos of custom action figures you like, or even ones you've made yourself. Also, this is a good place to find someone to make a custom figure for you. [...] And making a figure from scratch counts too, probably." (https://gummysearch.com/r/customactionfigures/). Er wordt over 3D-printers gepraat. Of een link naar je eigen betaalde product mag, weten we niet; geen regellijst, flairs of AI-regel gevonden.
+### r/customactionfigures (13.170 leden, DERDEN Arctic Shift, opgehaald jan 2025)
+**Vorm aangepast in run 66 (16 nov ±20:20 UTC), voorstel Joris 19:45 (verhaal 20, GEZIEN via Arctic Shift):** een productvideo met "free download" kreeg daar 0 reacties; "Joint Generator tool for blender" ($12 op Gumroad, bijna gelijk aan ons) haalde 88 punten en 13 reacties met: ik werk aan een tool voor gewrichten, hier een gewricht dat ik ermee maakte, welke gewrichten breken bij jullie, en geen link in het bericht. Dat doen we hier ook. De oude tekst (productbericht met de schermopname) vervalt.
 
-**Waarom toch op de lijst:** het is de enige van de kleine subs waar zelf figuren maken, ook vanaf nul, uitdrukkelijk welkom is.
+**Regels (DERDEN, Arctic Shift, `api/subreddits/rules` en `api/subreddits/search`, stand jan 2025; reddit.com zelf geeft 403):** één regel, "don't be evil" (niet lachen om beginners). Zijbalk letterlijk: "Post pictures/videos of custom figures you like, or that you made, or that you're selling. Also let's talk about different ways to make them. And like tools and materials or whatever. [...] if you're unsure if something counts, the answer is probably yeah." Gereedschap en verkopen zijn dus uitdrukkelijk welkom; geen AI-regel, geen flair verplicht (submission type "any"). De regels kunnen sinds jan 2025 veranderd zijn: Thijs kijkt bij het plaatsen even naar de regels rechts op de pagina. Staat er iets over AI, zelfpromotie of renders: niet plaatsen.
 
-**Niet plaatsen als:** de regels zelfpromotie, verkopen of links naar eigen producten verbieden of naar een vaste draad sturen; als renders of schermopnames zonder echte figuur niet mogen; of als er een AI-regel staat. Dan op lijst-thijs met wat er staat.
-
-**Beeld:** dezelfde clip van 11,0 s.
+**Beeld:** de render van de knie (`render/`, workflow `click-joints-render.yml`, stand film, 10 s), met in beeld "Rendered in Blender from the exported parts". **Pas plaatsen als die film er is en Daan hem zag.** Geen schermopname meer hier.
 
 **Titel**
 ```
-I made a Blender add-on that cuts a click hinge into a figure's knee or elbow so the print stops at 115° instead of flopping
+Working on a Blender tool that cuts a click-in knee hinge with a stop. Which joints break first on your printed figures?
 ```
 
 **Tekst**
 ```
-For anyone who designs their own figures in Blender before printing: I made Click Joints Pro. You put the cursor on a knee or elbow and it cuts the limb into two parts with a click hinge that stops at 115° (or 90° or 135°). A degree arc shows the range, and if the parts would collide past the stop, that spot turns red. Ball joints are in the free version.
+I've been working on a Blender add-on for printable joints. This is a knee hinge it cut into a free test figure (about 15 cm tall): the two parts are made to click together, and the knee bends to 115° and then stops, instead of flopping backwards.
 
-The video is a screen recording in Blender. I haven't printed one myself yet, so if anyone here tries it on a real figure I'd love to see how the fit works on your printer. Start with one small test joint; 0.2 mm clearance is the default.
+To be clear: this is rendered in Blender from the exported parts. I haven't printed this figure yet, so I can't tell you how it holds up after a hundred bends.
 
-It's paid ($12) with a free version for ball joints. Very thin arms can be refused; it tells you why. The code is written by AI agents at my small studio, Dortus, and tested automatically in real Blender on every change. Link in the comments.
+Thin limbs are where it struggles. On this figure it refused the elbow, because the arm (about 9.5 mm) was too thin for a hinge that still clicks.
+
+So a question for people here who print or customize figures: which joints break or wear out first on yours? And which joint would you most want a tool to cut for you: shoulders, hips, wrists, something else?
 
 Made by Thijs at Dortus
 ```
-**Eerste reactie:** zelfde als onder 2a.
+**Geen link in het bericht.** Alleen als iemand vraagt welke tool het is, deze reactie:
+```
+It's called Click Joints. Ball joints are in the free version on Blender Extensions: https://extensions.blender.org/add-ons/click-joints/ . The knee hinge with the stop is in Pro ($12): https://duinhouwer8.gumroad.com/l/click-joints-pro
+```
 
----
+**Waarom zo (en wat klopt):**
+- "115°": Pro meldt op de nieuwe figuur "Bends 0° to 115°" (GEZIEN in het log van workflowrun 43942681082, `uitslag.txt` op tak schermen; op de oude figuur was het 114°). "are made to click together": niet geprint, dus geen bewering over echt inklikken. "about 15 cm": de figuur is 150 mm hoog (`CJ_HOOGTE` 150). "about 9.5 mm" en de geweigerde elleboog: Ruben, 16 nov 16:25 (zijn melding: "Tight: cheek too stiff to click", arm ±9,5 mm). In de nieuwe render geeft het log geen reden bij de geweigerde elleboog; Ruben bevestigt dat nog (vraag in `berichten/ruben.md`).
+- "a free test figure", niet "my figure": het is een Meshy-figuur uit een open dataset (MIT), niet door Thijs gemaakt.
+- Geen AI-zin (Thijs 20:09). Vraagt iemand of het met AI gemaakt is, dan eerlijk antwoorden met de FAQ van dortus.com.
+- Het "ik werk aan" klopt: Pro 1.1 (dunnere ledematen, heupen) is in de maak (Ruben, `berichten/chris.md` 16:25 en stand Pro 1.1).
+- De vraag is echt: de antwoorden gaan naar Ruben en Bram voor 1.1. Zet ze in `berichten-geplaatst.md`.
 
 ### r/BJD (±39k leden, DERDEN gummysearch): niet nu
 **Regels (DERDEN):** zijbalk letterlijk: "Post anything related to ball-jointed dolls, including ABJDs, porcelain and paper-clay BJDs, businesses, or new products. NO recasts please! Please read the Wiki and pinned threads." (https://gummysearch.com/r/BJD/, 7 nov 2026). Flairs: DOLLSHARE, QUESTIONS, SCULPTING, DISCUSSION en meer. Zelfgemaakte poppen van ander materiaal komen voor (een roestvrijstalen BJD onder SCULPTING).

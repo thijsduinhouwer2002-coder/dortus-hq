@@ -129,7 +129,7 @@ It uses the same `dice:` notation as the Dice Roller plugin, so notes you alread
 
 All rolling is free. There are two optional paid skins (a one-time purchase) that only change the look of your notes, which is how I hope to keep working on it. No account and no telemetry. Open source (MIT).
 
-To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
 
 Install: https://community.obsidian.md/plugins/rollwright
 Source: https://github.com/thijsduinhouwer2002-coder/rollwright
@@ -144,7 +144,7 @@ Verschil met de gekeurde tekst van run 26: de alinea over perkament en effecten 
 ### Antwoorden klaar voor de eigen draad (kort, alleen daar)
 - **"Why not just use Dice Roller?"** `Dice Roller is great and Rollwright reads the same dice: notation. I wanted the roll itself to feel like a moment and to keep a log of every roll you click, per session. If Dice Roller does what you need, stick with it.`
 - **"What do the skins look like?"** `Parchment turns a note with rolls into old parchment, Arcane into a torch-lit dungeon. Screenshots are in the README. They only change the look; every roll works the same in the free Classic look.`
-- **"AI-written, no thanks."** `Fair enough. I wanted to be upfront about it. The source and the tests are public if you want to judge the code.` Daarna niet meer reageren.
+- **"AI-written, no thanks."** `Fair enough. The source and the tests are public if you want to judge the code.` Daarna niet meer reageren.
 - Vragen over geld, terugbetalen, privacy of juridisch: niet beantwoorden, bovenaan lijst-thijs.
 
 ---

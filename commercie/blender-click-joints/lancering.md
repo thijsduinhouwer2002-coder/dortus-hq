@@ -27,7 +27,7 @@ Door Chris, run 4, 8 nov 2026 ±17:00 tot 17:30 UTC. Concept: Click Joints is no
 | Superhive (de listing zelf) | pas als het betaalde deel gebouwd is | 31% van nieuwe betaalde add-ons 10+ verkopen (Vera) | later |
 
 ## Eerlijk over wie het maakte
-Zelfde vorm als bij Rollwright: "I made Click Joints", en één zin dat AI-agents van Dortus de code schrijven, Thijs stuurt het werk, en dat elke versie automatisch in de echte Blender 4.2 en 5.2 getest wordt. Slotregel "Made by Thijs at Dortus". Geen persoonlijke printverhalen die niet van Thijs zijn ("I print a lot of figures" schrijven we niet).
+Zelfde vorm als bij Rollwright: "I made Click Joints", en één zin dat elke versie automatisch in de echte Blender 4.2 en 5.2 getest wordt. Slotregel "Made by Thijs at Dortus". Geen AI-zin meer (16 nov run 66: geen AI-zin meer in berichten, besluit Thijs 16 nov 20:09; nooit beweren dat het zonder AI is, en op een directe vraag eerlijk antwoorden; een plek die door AI gemaakte projecten weert, slaan we over.) Geen persoonlijke printverhalen die niet van Thijs zijn ("I print a lot of figures" schrijven we niet).
 
 ## Concept A: r/3Dprinting (na echte print; nagekeken door controleur, akkoord mits, moet-punten verwerkt)
 **Titel:** `I made a free Blender add-on that cuts a ball joint into your figure and tells you how far it bends before you print`
@@ -47,7 +47,7 @@ Zelfde vorm als bij Rollwright: "I made Click Joints", en één zin dat AI-agent
 >
 > Free on the Blender Extensions platform: <link>. Tested on Blender 4.2 LTS and 5.2 LTS.
 >
-> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+> Every version is tested automatically in real Blender 4.2 and 5.2.
 >
 > A question for people who print jointed figures: which clearance works for ball joints on your printer?
 >
@@ -67,7 +67,7 @@ Waarom zo: de titel zegt wat het doet en wat je eraan hebt, zonder "the only" (w
 >
 > <link>
 >
-> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+> Every version is tested automatically in real Blender 4.2 and 5.2.
 >
 > Made by Thijs at Dortus
 
@@ -148,7 +148,7 @@ Wordt hij afgekeurd of komt er een vraag: niets uit dit plan gaat door; Bram ver
 >
 > https://extensions.blender.org/add-ons/click-joints/
 >
-> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+> Every version is tested automatically in real Blender 4.2 and 5.2.
 >
 > Made by Thijs at Dortus
 
@@ -163,7 +163,7 @@ Alleen met een foto of filmpje van een geprint gewricht dat buigt. Dan minstens 
 Alleen als r/blender gelukt is en niet verwijderd werd. Formulier https://www.blendernation.com/submit-news/ , vraag "Is your post about a commercial product?": **No** (geen woord over betaald, nooit betalen).
 > **Click Joints: printable ball joints that show how far they bend (free)**
 >
-> Thijs writes: I made Click Joints, a free extension that cuts a ball and socket or a pin joint into a mesh for 3D printing, with the clearance you set in millimetres. For a ball joint it measures how far the joint bends in 8 directions before the parts collide, and shows that range on the model; bend it further and the spot that collides turns red. A ring on the cut shows whether the wall is thick enough. Export to STL or 3MF. Tested on Blender 4.2 LTS and 5.2 LTS. I haven't printed a joint with it yet; fit and bend are measured in Blender. The code is written by AI agents that my small studio Dortus runs; I direct the work.
+> Thijs writes: I made Click Joints, a free extension that cuts a ball and socket or a pin joint into a mesh for 3D printing, with the clearance you set in millimetres. For a ball joint it measures how far the joint bends in 8 directions before the parts collide, and shows that range on the model; bend it further and the spot that collides turns red. A ring on the cut shows whether the wall is thick enough. Export to STL or 3MF. Tested on Blender 4.2 LTS and 5.2 LTS. I haven't printed a joint with it yet; fit and bend are measured in Blender.
 >
 > Made by Thijs at Dortus
 >
@@ -221,7 +221,7 @@ Open broncode is op r/blender en bij awesome-blender een pluspunt (GOK: GPL en e
 >
 > Free and open source (GPL-3.0-or-later). Code and bug reports: https://github.com/thijsduinhouwer2002-coder/click-joints
 >
-> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+> Every version is tested automatically in real Blender 4.2 and 5.2.
 >
 > Made by Thijs at Dortus
 
@@ -285,7 +285,7 @@ Aanleiding: bericht Thijs 9 nov 12:00 (NL): "film Click Joints ja, gebruik hem i
 >
 > Free and open source (GPL-3.0-or-later). Code and bug reports: https://github.com/thijsduinhouwer2002-coder/click-joints
 >
-> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+> Every version is tested automatically in real Blender 4.2 and 5.2.
 >
 > Made by Thijs at Dortus
 
@@ -349,7 +349,7 @@ Dit deel gaat voor op alles hierboven waar het verschilt.
 >
 > I haven't printed a joint with it yet; fit and bend are measured in Blender. The image and the video are renders in Blender of joints the add-on placed.
 >
-> It's free and open source (GPL-3.0-or-later). The code is written by AI agents that my small studio Dortus runs; I direct the work, and every version is tested automatically in real Blender.
+> It's free and open source (GPL-3.0-or-later). Every version is tested automatically in real Blender.
 >
 > Get it: https://extensions.blender.org/add-ons/click-joints/
 >
@@ -421,7 +421,7 @@ Regels opnieuw letterlijk gelezen (GEZIEN 15 nov 20:50, https://www.blendernatio
 >
 > I haven't printed a joint with it yet; fit and bend are measured in Blender. The image is a screenshot from Blender of a hinge the add-on placed.
 >
-> The code is written by AI agents that my small studio Dortus runs; I direct the work, and every version is tested automatically in real Blender. The free version works in Blender 4.2 and newer, Pro is tested on Blender 4.2 to 5.3.
+> Every version is tested automatically in real Blender. The free version works in Blender 4.2 and newer, Pro is tested on Blender 4.2 to 5.3.
 >
 > Free, on Blender Extensions: https://extensions.blender.org/add-ons/click-joints/
 >
@@ -512,7 +512,7 @@ Op het bericht van de hoofdchat van 16 nov 18:50 NL (advies Stijn) in `berichten
 ### 6. Filmpje 5 (Pro): mag nu al, los van Superhive
 - **Wat:** `click-joints-5-pro-hinge-stops.mp4` (14,7 s) uit release `filmpjes-week-1`, Daan ja met één moet (verwerkt run 49, `commercie/filmpjes/week-1.md`). In het beeld staat alleen "Click hinges: Pro. Link in bio", geen winkelnaam, dus het beeld blijft gelijk.
 - **Nieuw onderschrift** (alleen de winkel en de AI-zin veranderen; de AI-zin zei dat Thijs zelf test, dat klopt niet, controleur run 63):
-  `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Gumroad (link in bio). Measured in Blender, not printed yet. The code is written by AI agents at my studio and tested automatically in real Blender. #blender #3dprinting #b3d #blenderaddon #articulated`
+  `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Gumroad (link in bio). Measured in Blender, not printed yet. Tested automatically in real Blender. #blender #3dprinting #b3d #blenderaddon #articulated`
 - **Link in bio:** zolang Pro alleen op Gumroad staat, wijst de bio van TikTok en YouTube naar dortus.com/click-joints/ (als punt 8 op main staat) of naar de Gumroad-link. Komt Superhive live, dan "on Superhive and Gumroad".
 - **Wanneer:** de eerstvolgende werkdag om ±16:00 NL, voor de reeks (week-1.md: filmpje 5 gaat voor zodra Pro te koop is). Joris' les (Reddit en filmpjes geven de winkel weinig) geldt ook hier: geen sprong verwachten.
 - **Thijs:** ja op tekst en beeld; hij plaatst (of de hoofdchat waar de browser het toelaat).

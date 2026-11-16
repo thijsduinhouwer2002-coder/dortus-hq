@@ -68,7 +68,7 @@ Regels voor het beeld: elke zin staat minstens 3 seconden in beeld; muis rustig,
 > 2:15 Exploded view
 > 2:35 Export STL or 3MF
 >
-> I direct the work; Claude (an AI) writes and tests the code. Printed a figure with it? Tag #clickjoints, I'd love to see it.
+> Printed a figure with it? Tag #clickjoints, I'd love to see it.
 > Made by Thijs at Dortus. dortus.com/click-joints
 
 Tags: blender, 3d printing, ball joint, articulated, action figure, blender add-on.
