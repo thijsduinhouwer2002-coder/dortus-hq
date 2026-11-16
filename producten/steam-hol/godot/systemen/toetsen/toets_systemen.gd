@@ -704,7 +704,7 @@ func _init() -> void:
 	for i in range(0, vkd.size(), 2):
 		if vkd[i][0] == vkd[i + 1][0] or vkd[i][1].y != HV.KAMER_VLOER or vkd[i][0] == "lichtzwam":
 			vkok = false
-	ok(vkok and vkd[0][1] == Vector2(4 * 16 + 10, HV.KAMER_VLOER) and vkd[1][1] == Vector2(5 * 16 + 2, HV.KAMER_VLOER),
+	ok(vkok and vkd[0][1] == Vector2(4 * 16 + 10, HV.KAMER_VLOER) and vkd[1][1] == Vector2(5 * 16, HV.KAMER_VLOER),
 		"vol: rechts van de fakkel en links van het kistje, twee verschillende, op de kamervloer: " + str(vkd.slice(0, 2)))
 	var vlos := vbk.duplicate()
 	vlos[5] = false

@@ -235,7 +235,7 @@ static func deco_hh(h, k: int, hh: int, vorige: int) -> int:
 # Een vol hol (Mila 16 nov, "het hol moet vol", voor de winkelbeelden): vanaf VOL_VANAF gangtegels geldt de uitdunning
 # van 14 nov niet meer. Daan dunde uit omdat een frisse kijker een LEEG hol druk vond; in een groot hol is het juist kaal.
 # Alleen op de 3D-gang (de pixelgang houdt de oude regels). Wat blijft: geen vloerding waar helden stilstaan of vallen
-# (eerste tegel na de schacht, naast een val), geen lichtzwam bij Gloop, niets bij de stapel hoeden en Gloop.
+# (eerste tegel na de schacht, naast een val), en niets bij de stapel hoeden en Gloop (dus ook geen lichtzwam bij Gloop).
 const VOL_VANAF := 20
 const VLOER_SOORTEN := [0, 1, 2, 3, 4, 5]      # DECO_GANG: paddenstoel, lichtzwam, ton, krat, schedel, kristal
 const KAMER_SOORTEN := [4, 2, 3, 0, 5]         # in de kamers: schedel, ton, krat, paddenstoel, kristal (geen lichtzwam)
@@ -258,9 +258,7 @@ static func vol_vloer(h, k: int, vorige_soort: int) -> int:
 	var c: int = VLOER_SOORTEN[hh % VLOER_SOORTEN.size()]
 	if c == vorige_soort:
 		c = VLOER_SOORTEN[(hh + 1) % VLOER_SOORTEN.size()]
-	if c == 1 and absi(k - (h.schat_kol - 2)) <= 2:
-		c = 0   # lichtzwam bij Gloop wordt paddenstoel
-	return c
+	return c   # (lichtzwam bij Gloop kan hier niet: alles vanaf schat_kol - 4 valt al af)
 
 # Plafondding op gangkolom k in een vol hol, los van de vloer: 6 = spinrag, 7 = stut, 8 = vaandel, of -1.
 # Alleen onder een dicht plafond (niet onder een kamer), niet bij de ingangsfakkel, niet boven de hoeden en Gloop,
@@ -304,7 +302,7 @@ static func kamer_dingen(h, schat_3d: bool) -> Array:
 		var s1: int = KAMER_SOORTEN[hh % KAMER_SOORTEN.size()]
 		var s2: int = KAMER_SOORTEN[(hh + 1 + int(hh / 7.0) % (KAMER_SOORTEN.size() - 1)) % KAMER_SOORTEN.size()]
 		uit.append([HOL3D.DECO_GANG[s1], Vector2(a * KOL + 10, KAMER_VLOER)])
-		uit.append([HOL3D.DECO_GANG[s2], Vector2(b * KOL + 2, KAMER_VLOER)])
+		uit.append([HOL3D.DECO_GANG[s2], Vector2(b * KOL, KAMER_VLOER)])
 	return uit
 
 func _teken_vol(d: CanvasItem, vloer: int) -> void:
