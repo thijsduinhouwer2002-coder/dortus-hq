@@ -66,3 +66,10 @@ GEZIEN met Read: `voor-na-ronde3-4-4b-mila-met-120.png`, `toren-klein-ronde4b-mi
 `proef-bibliotheek-toren-mila-300x450-2x.png` (twee proeven op 300x450, 10 samples). Script: nieuwe schakelaar `TOREN_TX` (titel in de header-variant opzij, standaard 0). Instellingen rechts: ronde 6b plus `TOREN_GROOT=1.5 TOREN_CX=2.25 TOREN_CZ=4.1 TOREN_LENS=46 TOREN_TX=4.3 TOREN_TZ=4.5 TOREN_TM=1.05 HEADER_RX=1.0 HEADER_RY=-1.3`, `python capsule_toren.py uit.png 600 900 16`.
 - GEZIEN: staand werkt, titel boven, toren in het midden, ridder klein ervoor. **Nog niet goed:** bovenaan staat een harde donkere band (de rand van de muur of het donker erachter), en de puntmuts raakt bijna OF THE FALLEN. Lens 20 geprobeerd: veel te wijd, je ziet de hele doos.
 - Volgende stap: muur hoger maken of de bovenkant laten weglopen in donker, titel iets kleiner en hoger, dan op 600x900 met 16 samples en naast de toppers.
+
+## Hoofdbeeld ronde 7 (Mila, 16 nov ±12:50 UTC): Daans twee kan-punten
+`toren-hoofd-ronde7-mila-1232x706.png`, naast ronde 6b op 616 en op 308 in kleur en grijs: `voor-na-hoofdbeeld-6b-7.png`. GEZIEN met Read, ook de toren en de voet van de muur op 3x.
+- **Kan 1, rand hoge hoed als stokje:** de hoge hoed kantelde 12 graden, waardoor de rand bijna van opzij als dun grijs stokje links uitstak. Nu 4 graden (`TOREN_KANTEL=6,4,24`): de rand ligt vlak en leest als hoedrand. De toren blijft scheef door de kroon (6) en de puntmuts (24).
+- **Kan 2, worst aan de voet van de muur:** nieuwe schakelaar `TOREN_VOETROTS=los` (standaard `rij` = oud beeld). Ruim de helft van de 40 rotsen valt weg, de rest wordt kleiner en wisselender. De gewone random-reeks loopt gelijk door, dus kiezels, munten en alles daarna blijven op hun plek. Leest nu als losse stenen langs de wand.
+- Instellingen: precies als het hoofdbeeld 6b plus `TOREN_KANTEL=6,4,24 TOREN_VOETROTS=los`, 1232x706 met 16 samples.
+- Niet in klein en header doorgevoerd: daar staat de hoge hoed kleiner en leest de rand al goed, en de voetrotsen vallen buiten beeld of achter de titel.

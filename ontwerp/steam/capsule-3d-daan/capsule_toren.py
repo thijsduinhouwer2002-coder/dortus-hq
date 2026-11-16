@@ -105,10 +105,17 @@ bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0, 0)); o = bpy.context.ob
 o.scale = (30, 14, 1); kies(o, VLOER)
 # ronde 4: stenen boog weg (las als los roze confetti, geen boog)
 # rotsen langs de voet van de wand (geen harde lijn tussen vloer en wand)
+# Mila 16 nov (kan-punt Daan): de rij van 40 las als een worst; TOREN_VOETROTS=los geeft losse stenen met gaten.
+# De gewone random-reeks loopt gelijk door, zodat kiezels en de rest op hun plek blijven.
+VR_LOS = os.environ.get("TOREN_VOETROTS", "rij") == "los"; vr_rng = random.Random(7)
 for i in range(40):
     x = -7.5 + i * 0.4 + random.uniform(-0.1, 0.1)
-    bol("voetrots", (x, 3.0, random.uniform(-0.05, 0.1)), (random.uniform(0.3, 0.5), 0.35, random.uniform(0.18, 0.4)),
-        g.mat("vr", random.choice(VOETROTS), rough=0.8), 16)
+    z = random.uniform(-0.05, 0.1); sx = random.uniform(0.3, 0.5); sz = random.uniform(0.18, 0.4); kl = random.choice(VOETROTS)
+    if VR_LOS:
+        if vr_rng.random() < 0.55:
+            continue
+        sx *= vr_rng.uniform(0.45, 0.9); sz *= vr_rng.uniform(0.6, 1.1); x += vr_rng.uniform(-0.12, 0.12)
+    bol("voetrots", (x, 3.0, z), (sx, 0.35, sz), g.mat("vr", kl, rough=0.8), 16)
 # losse kiezels in de wand
 for i in range(26):
     x = random.uniform(-7, 7); z = random.uniform(0.3, 6.5)
