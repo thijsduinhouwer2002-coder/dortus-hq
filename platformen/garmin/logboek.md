@@ -1394,3 +1394,4 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Besluit: het tandje zelf opgelost in `maak_kit.py` in plaats van te wachten op een nieuw plaatje van Mila, omdat het woensdag de winkel in moet; gemeld aan Mila, haar kit is niet aangeraakt.
 - Les: de bouw van de wijzerplaat duurt ±6 minuten, die van het spel ±19 (13 bouw plus 6 openbaar zetten). Begin een run met de push naar de speltak en doe het schrijfwerk tijdens het wachten.
 - Les: beeld 30 van het spel is op de meeste horloges al het nieuwe potje; het eindscherm staat op 28 en 29.
+- Nagekomen ±13:32 UTC: run 43874724363 (35c5f03) groen en GEZIEN (zes beelden op ware grootte). Goed: regel los van de stappen, "7/10" zonder HATS op de Venu Sq 2. Zwak: op de Venu 3S raakt "7/10 HATS" Gloops schouder; de grens rekent alleen met de toren, niet met het lijf van Gloop.
