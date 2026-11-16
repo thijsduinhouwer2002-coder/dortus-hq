@@ -154,7 +154,7 @@ class SpelView extends WatchUi.View {
             dc.drawText(cx, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
             tekst(dc, cx, (h * 0.895).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden, 0xFFFFFF);
         } else {
-            tekenTeller(dc, w, h);
+            tekenTeller(dc, w, h, top);
             if (spel.toestand == Regel.SLOK) {
                 var kreet = spel.raak ? "GULP!" : "gulp";
                 if (spel.raak && spel.reeks >= 3) {
@@ -251,14 +251,16 @@ class SpelView extends WatchUi.View {
     }
 
     // Teller bovenaan: de kroon en het aantal hoeden.
-    function tekenTeller(dc as Graphics.Dc, w as Number, h as Number) as Void {
+    // Komt de toren zo hoog dat hij de teller raakt, dan wijkt de teller uit naar rechts in het midden.
+    function tekenTeller(dc as Graphics.Dc, w as Number, h as Number, top as Number) as Void {
+        var hoog = (top < h * 0.24);
         var s = spel.hoeden.toString();
         var font = Graphics.FONT_MEDIUM;
         var tb = dc.getTextWidthInPixels(s, font);
         var kb = m[20];
         var kh = m[21];
-        var x0 = (w - tb - kb - 4) / 2;
-        var my = (h * 0.12).toNumber();
+        var x0 = (hoog ? (w * 0.78).toNumber() : w / 2) - (tb + kb + 4) / 2;
+        var my = (h * (hoog ? 0.50 : 0.12)).toNumber();
         dc.drawBitmap(x0, my - kh / 2, pl[10]);
         tekst(dc, x0 + kb + 4, my - dc.getFontHeight(font) / 2, font, s, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF55);
     }
