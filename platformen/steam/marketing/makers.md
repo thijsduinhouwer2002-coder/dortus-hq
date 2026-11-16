@@ -22,14 +22,14 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 ### A. Speelt precies ons soort spel (14)
 | # | Kanaal | Land | Abonnees | Bewijs (video, weergaven) | Speelt klein? | Contact openbaar | Kans |
 |---|---|---|---|---|---|---|---|
-| 1 | Buckeye Bunny (@BuckeyeBunny) | VS | 19,1K | "Rusty's Retirement Review", 66.642; "31 FREE Chill & Cozy Games, Next Fest Feb 2025" 17.410 (met Bao Bao) | ja, cozy nieuws en reviews | nee in tekst | hoog |
+| 1 | Buckeye Bunny (@BuckeyeBunny) | VS | 19,1K | "Rusty's Retirement Review", 66.642; "31 FREE Chill & Cozy Games, Next Fest Feb 2025" 17.410 (met Bao Bao) | ja, cozy nieuws en reviews | nee in tekst | ~~hoog~~ **laag: laatste video ±1 jaar oud** (run 3) |
 | 2 | Olexa (@OlexaYT) | VS | 11,2K | "This New Idle Farming Game is Pure Genius" 66.436, twee Rusty-video's (27.164, 11.574) | ja, indie | nee | hoog |
 | 3 | Orbital Potato (@orbitalpotato) | VK | 197K | "The ULTIMATE Idle Distraction Game!? Rusty's Retirement" 29.153 | ja, management en kolonie | nee in tekst | middel |
 | 4 | Higher Plain Games (@HigherPlainGames) | VK | 29 (klein) | reviews van Desktop Defender 2.612 en Tiny Pasture 3.861 ("Bottom Screen Idler") | ja, niche | nee | hoog (klein, maar recenseert precies dit) |
 | 5 | SpiritAnden (@SpiritAnden) | Zweden | 1,53K | "Time to Game While Gaming! Desktop Defender Review" 1.738 | ja, "as many games as I can, mostly indie" | nee | hoog |
 | 6 | RinKa Plays (@RinKaPlays) | VS | 4,45K | Ropuka 11.818, Tiny Pasture 2.040 ("Let's Try") | ja, "indie games you might otherwise miss" | staat in kanaaltekst | hoog |
 | 7 | Kosh Idle (@KoshIdle) | VS | 17,4K | "IDLE SCREENSAVER // ROPUKA'S IDLE ISLAND" 4.161 | ja, alleen idle en incremental | nee | hoog |
-| 8 | W A R D E N (@n.warden97) | VK | 24,7K | "TINY PASTURE, little desk buddies!" 3.543 | ja | staat in kanaaltekst ("Contact me") | hoog |
+| 8 | W A R D E N (@n.warden97) | VK | 24,7K | "TINY PASTURE, little desk buddies!" 3.543 | ja | staat in kanaaltekst ("Contact me") | ~~hoog~~ middel (run 3: 1 video in 30 dagen) |
 | 9 | Tchii (@Tchii) | België | 10,7K | "Tiny Pasture, another must-have super cute idle" 1.499 | ja, indie | staat in kanaaltekst | hoog |
 | 10 | Gohjoe (@Gohjoe) | ? | 201K | "This Roguelite Controls Your PC to Survive" (Desktop Survivors 98) 82.126 | ja, "indies/roguelites daily" | gohjoebusiness (gmail, "all business inquiries") | middel |
 | 11 | Dex (@DexTag) | Duitsland | 316K | "Windows 98 Horde Survivor is CRAZY" 23.762; maakt incrementals | ja | staat in kanaaltekst | middel |
@@ -108,6 +108,37 @@ Bron: `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv` (Fenna, G
 
 **Wat ik meeneem uit Fenna:** de echte doorbraken kregen hun grote video's ná het succes (TBH, GameStar, Hadomancer). Die kanalen zijn dus voor de week ná een doorbraak in de meetlat (`festplan.md`), niet voor de aanloop. Voor de aanloop tellen de kleine lijstjesmakers met veel weergaven per abonnee (The Indie Brew 4x, JGigs 9x, Maybe Sarisa, Indie Signal, Conkbot).
 
+## Nog actief? Laatste 30 video's per kanaal (run 3, GEZIEN 16 nov ±13:40 UTC)
+Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang geleden de laatste, hoeveel in de laatste 30 dagen, mediaan weergaven, en hoeveel titels over idle, desktop, taakbalk, cozy, demo of fest gaan. Script `data/yt-recent.py`, uitkomst `data/yt-recent-makers-2026-11-16.csv`. "30" bij "laatste 30 dagen" betekent 30 of meer. Leeftijd is afgerond zoals YouTube hem toont ("1 year ago").
+
+**Gevallen af of lager (niet meer actief):**
+- #1 Buckeye Bunny: laatste video ±1 jaar oud. Van hoog naar laag.
+- #34 FineByMeh: laatste ±3 maanden, mediaan 275. Laag.
+- #43 Indie Signal (YouTube): 11 video's, laatste ±7 maanden. Laag. (Hun Steam-curatorpagina heeft 23.659 volgers waarvan 1% echt, zie `curatoren.md`.)
+- #8 W A R D E N: 1 video in 30 dagen, geen enkele titel in ons soort. Van hoog naar middel.
+- #27 uzuhama, #59 Alex Baena, #48 Mattastic ASMR: 1 tot 2 video's in 30 dagen. Blijven laag.
+
+**Sterker dan gedacht (actief én ons soort, dit zijn de eerste mails):**
+| # | Kanaal | Video's laatste 30 dagen | Mediaan weergaven | Titels in ons soort (van 30) | Wat opvalt |
+|---|---|---|---|---|---|
+| 42 | Maybe Sarisa | 14 | 225 | 2 | maakte "Cozy Idle Desktop Companion Taskbar Games You've Missed" en "Steam Next Fest October 2026 Tiny Game List": precies onze plank, eigen domein-adres |
+| 16 | Conkbot | 10 | 55 | 15 | maakt **maandlijsten** ("15 Cozy, Creative & Co-op Games Coming in November 2026"): de lijst voor januari 2027 is ons doel, mail begin december |
+| 7 | Kosh Idle | 18 | 1.600 | 14 | alleen idle, elke dag |
+| 19 | CozyAriGames | 14 | 1.050 | 12 | "First Look"-video's van demo's; ook Steam-curator (6 van onze 12 spellen) |
+| 11 | Dex | 30+ | 129.500 | 10 | groot en elke dag incrementals |
+| 44 | Idle cub | 30+ | 199.500 | 15 | groot en half zijn titels zijn idle; van middel naar middel-hoog |
+| 18 | Best Indie Games (ClemmyGames) | 23 | 28.000 | 7 | wekelijks "Indie Gaming This Week" en "100 Next Fest Demos": fest-overzicht |
+| 25 | Fleurs | 20 | 17.500 | 11 | cozy, vaak vooruitblik |
+| 13 | Starker MMOs | 6 | 3.000 | 29 | bijna alles idle-gidsen; gidsen komen pas na de lancering |
+| 3 | Orbital Potato | 30+ | 59.000 | 3 | groot, speelt "idlers"; middel |
+| 14 | Wanderbots | 30+ | 27.000 | 5 | speelt demo's ("[Demo]" in titels); blijft laag om de AI-reden |
+
+**Fest-overzichten (actief, voor 14 tot 18 jan):** Nookrium (30+, mediaan 17.000, "The Best Games from Next Fest"), Gaming In The Wild (5, 12.500, Next Fest-lijsten), Easily Distracted Games (10, 61.000), Dekaff (2, mediaan 238.000, "Wildest Demos on Steam"), Best Indie Games.
+
+**Kleine kanalen met heel lage mediaan** (Higher Plain Games 222, SpiritAnden 224, The Indie Brew 214, RinKa Plays 20, Tchii 109): een video daar brengt weinig kijkers. Ze blijven op de lijst omdat ze precies ons soort spellen recenseren en vaak ook een Steam-curatorpagina hebben (Higher Plain Games, Tchii, The Indie Brew, zie `curatoren.md`): één sleutel geeft dan een video plus een curatorrecensie.
+
+**Eerlijke rekensom (GOK):** de mediaan per video van de 11 kanalen hierboven loopt van 55 (Conkbot) tot 199.500 (Idle cub). Als 4 van de 11 een video maken met hun mediaan, is dat grofweg 5.000 tot 200.000 weergaven, en met een klikratio naar Steam van 1 tot 3% (GOK) 50 tot 6.000 bezoekers. Dat is genoeg om in het vak te stijgen, niet om alleen daarmee door te breken. Makers zijn de aanloop; het fest zelf blijft het moment (`festplan.md`).
+
 ## Wat ik eruit haal (eerste lezing)
 1. **De kanalen die precies ons soort spel speelden zijn klein**: 14 kanalen in A, mediaan ±11K abonnees, en de video over het bureaubladspel haalde meestal 1.500 tot 30.000 weergaven. Dat is het eerlijke plafond per video: geen doorbraak uit één mail.
 2. **Drie zeggen zelf dat je spellen mag sturen** (The Indie Brew, MaxPalaro, Gohjoe "all business inquiries") en vier hebben een bureau-adres (Gaming In The Wild, Easily Distracted, Dekaff, foxranch). Daar beginnen.
@@ -127,6 +158,6 @@ De teksten (Engels, kort, per groep) zet ik in een volgende run klaar in `platfo
 ## Open (volgende runs)
 - Twitch: wie streamde Rusty, Desktop Defender, Deskrawl. SullyGnome en TwitchTracker geven 403 met curl (GEZIEN 16 nov); volgende poging: de openbare Twitch-pagina's of VOD-titels op YouTube ("stream", zoals Kripparrian en knekroTV).
 - TikTok: makers met bureaubladspellen (yt-dlp leest TikTok volgens Joris, verhaal 11).
-- Curator Connect: welke Steam-curatoren Rusty, Desktop Defender en Deskrawl recenseerden. De pagina `store.steampowered.com/curators/curatorsreviewing/?appid=` gaf met curl geen lijst; een andere route zoeken.
-- Per kanaal de laatste 10 video's: speelt hij nog dit soort spellen, en hoe vaak demo's.
+- ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
+- ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - Teksten per groep.
