@@ -200,3 +200,22 @@ Vraag voor Hats: hoeveel volgers levert een thema-fest van Steam op? Dat bepaalt
 | controle, uit | 107 | 20 |
 
 **Plan:** op 24 nov (dag na het fest) en op 1 dec dezelfde apps opnieuw meten en de groei van de Auto Battler-groep vergelijken met de controle, met `data/steam-fest-effect-script.py`. Wie echt meedeed is nu nog niet te zien (de festpagina is pas na de start gevuld); op 17 nov of later de deelnemers van de festpagina halen als dat lukt, anders blijft het label de grove maat. Eerlijk: niet elke app met het label doet mee, en de controlegroep doet soms aan andere acties mee; dit wordt een grove orde van grootte, geen bewijs.
+
+## Aanvulling 6, 16 nov run 09:31: welke talen? Reviews per taal bij de grote bureaubladspellen
+
+**Vraag:** de hoofdchat kiest later de eerste vertaaltalen voor Hats (Olaf maakt de vertaaltabel na de speeltest van 20 nov). Waar komen de reviews van de bureaubladspellen vandaan?
+
+**Hoe gemeten (GEZIEN, 16 nov):** de winkelpagina van Steam met `?l=<taal>` geeft in `itemprop="reviewCount"` het aantal reviews in die taal, maar alleen als Steam voor dat spel een eigen score per taal toont ("When there are enough reviews written in a particular language", Valve, aug 2025 volgens PC Gamer en heise). Anders valt de pagina terug op alle talen; dat herken ik aan de zin "for this game" (per taal vertaald) of aan een getal gelijk aan het totaal. De gewone review-API (`appreviews`) stuurt vanaf hier door naar de voorpagina, ook met andere opties geprobeerd. 8 talen per spel, 1 verzoek per ±2,5 s, 274 pagina's, 0 fouten, geen 429. Script `data/steam-talen-script.py`, analyse `data/steam-talen-analyse-script.py`, ruwe data `data/steam-talen-2026-11-16.jsonl`.
+
+**Grens, eerlijk:** gepland waren alle 101 betaalde bureaubladspellen met 100+ reviews; 32 zijn gemeten (eerst de spellen die het meest op Hats lijken, daarna de grootste), de tijd van de run was op. En Steam toont een eigen taalscore pas vanaf ±200 reviews in die taal (laagste die ik zag: 205), en niet bij elk spel (Burgie's Cozy Kitchen, 1.662 reviews, heeft er geen). Bij 19 van de 32, allemaal onder 2.100 reviews, toont Steam geen enkele taal apart. Dus: dit zegt iets over de **13 grootste**, niet over kleine spellen, en "niet getoond" betekent "onder de drempel", niet nul.
+
+**Uitkomst bij de 13 spellen met taalscores (samen 83.508 reviews, GEZIEN):**
+- **Vereenvoudigd Chinees is bijna zo groot als Engels.** Mediaan per spel: Engels 30%, Vereenvoudigd Chinees 26% (samen met Traditioneel 29%). Chinees is 10%+ bij 10 van de 13, Engels bij 12 van de 13. Bij 4 spellen is Chinees de grootste taal (Tiny Pasture 64%, Deskrawl 57%, Maltese's Fluffy Onsen 51%, Fish to Dish 45%), To Be or Not to Be 97%.
+- **Rusty's Retirement:** Engels 47%, Chinees 26% + 4%, Koreaans 6%, Japans 3%, Braziliaans 3%, Duits 2%. Past bij de 46% uit Azië in `platformen/succes/verhalen-spellen.md`.
+- **Daarna een lange staart:** Koreaans 10%+ bij 2 spellen (Crusaders Quest 27%, Maltese 13%), Russisch bij 1 (Your Mother 40%, een Russische maker), Braziliaans bij 1 (How to Train Your Cock 57%). Duits en Japans kwamen nergens boven 5%.
+- **Chinese kopers zijn strenger, maar weinig:** bij de meeste is de score in het Chinees gelijk of één tiende lager dan in het Engels (Cast n Chill 10 tegen 9, Tiny Aquarium 10 tegen 9).
+- Alle 13 hebben Vereenvoudigd Chinees in het spel. Of het vertalen de Chinese kopers bracht of andersom, zegt deze meting niet (samenhang).
+
+**Wat het betekent voor Hats (advies):** als de hoofdchat één extra taal kiest naast Engels, dan Vereenvoudigd Chinees; dat is in deze hoek met afstand de tweede markt. Daarna pas Traditioneel Chinees, Koreaans en Braziliaans-Portugees; Duits, Frans en Japans laten deze cijfers niet zien als prioriteit. Let op: de grappen en namen in Hats (wrok, bijnamen) moeten in het Chinees echt goed zijn, anders zakt juist daar de score. Hoe we vertalen (met AI en de AI-melding van Steam) zoekt Fenna uit.
+
+**Volgende stap (open):** de overige 69 spellen meten met hetzelfde script (het gaat verder waar het stopte); voor kleine spellen onder de drempel werkt deze methode niet. Daarvoor zou de nieuwste reviewlijst per taal op steamcommunity.com kunnen (datum van de 10e review per taal geeft een tempo), maar die site geeft na ±45 verzoeken een 429, dus dat is werk voor meerdere runs.

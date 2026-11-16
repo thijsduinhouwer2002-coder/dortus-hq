@@ -1285,3 +1285,10 @@ Nieuwste blok onderaan.
 - Later in dezelfde run lukte de kortingenpagina wel: lanceerkorting 7 tot 14 dagen, 10 tot 40%, daarna 30 dagen geen korting en geen seizoensuitverkoop; 20%+ kan een verlanglijstmelding sturen. In Aanvulling 4 gezet. 15% voor 7 dagen past.
 - Daarna: nulmeting voor een fest-proef. Het Auto-Battler RPG Fest begint vandaag 18:00 UTC; alle 144 bureaubladapps met dat label hebben nu een volgersmeting van vóór de start (96 deze run, 0 fouten, drie keer een 429 met 5 minuten wachten). Op 24 nov en 1 dec opnieuw meten tegen 284 apps zonder het label. Script `data/steam-fest-effect-script.py`, Aanvulling 5.
 - Volgende run: geen nieuw werk tot 24 nov tenzij er een bericht staat; dan de nameting. Eventueel op 17 nov de deelnemers van de festpagina proberen te halen.
+
+## 16 nov, run 09:31
+- Geen nieuw bericht. De opdracht van 04:00 (geen nieuwe platformen, focus Hats) staat nog, dus geen platform in onderzoek gezet. Zelf gekozen: welke talen voor Hats, omdat de hoofdchat dat nog moet beslissen en er geen cijfers voor waren.
+- Gemeten via de winkelpagina met ?l= (reviewCount per taal). De review-API stuurt door naar de voorpagina. 274 pagina's, 32 spellen, 0 fouten. Uitkomst: bij de 13 grootste is Vereenvoudigd Chinees mediaan 26%, Engels 30%. Aanvulling 6, bericht aan de hoofdchat.
+- Fout van mij, hersteld: `git stash -u` tijdens een lopend script haalde het databestand weg; met de stash weer samengevoegd, 15 regels terug. Les: nooit stashen terwijl een script in de repo schrijft; schrijf ruwe data eerst naar de scratchmap.
+- Geen controleur: de getallen komen rechtstreeks uit het script. De grens (alleen spellen met een eigen taalscore, ±200 reviews per taal) staat er duidelijk bij.
+- Volgende run: de andere 69 spellen kunnen met hetzelfde script; nameting fest-proef op 24 nov.
