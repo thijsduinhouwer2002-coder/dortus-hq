@@ -41,8 +41,9 @@ Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-ker
 - **Geschiedenis van Body Battery en van stress: op alle 8 te lezen** (`has ja`, 80 waarden elk, geen lege).
 - **Weer per uur: 12 uur vooruit, op alle 8.**
 - **Kant-en-klare velden van Garmin (Complications):** ja op de 5 nieuwere, nee op Forerunner 55, 245 en Instinct 2. Op oude horloges lezen we velden dus op de oude manier (stappen, hartslag en zo rechtstreeks).
+- **Beeld (GEZIEN met Read, blad van fr255, fenix847mm, instinct2, venusq2 en fr55, ±420 px hoog):** de tijd, de blauwe heuvellijn van Body Battery, de oranje van stress en de groene golf staan er op alle vijf; onderaan `BB80 ST80 W12`. Op de Instinct 2 is alles zwart-wit en valt de laatste cijfer van de tijd achter het ronde venstertje rechtsboven: dat horloge vraagt een eigen opmaak.
 - **Tekenen:** tijd, twee heuvellijnen van 40 punten en een golf van 24 punten samen 1 tot 2 ms op de schermen met weinig kleuren, 7 tot 15 ms op AMOLED (fēnix 8: 9 tot 15 ms). Dat is de simulator op een server, geen horloge.
-- **Geheugen voor een wijzerplaat** (uit de bestanden van de SDK; ik las 36 van de 63 regels in het log, de rest staat in `uitslag.txt`): 131.072 bytes op 29 van die 36, ook op de nieuwste (Venu 4, Forerunner 970, vívoactive 6). 98.304 op Forerunner 55, 245, 945 en Venu Sq; 114.688 op fēnix 6; 65.536 op Instinct 2; 524.288 op vívoactive 4. De kale proef gebruikt ±9.000 bytes. Een spel krijgt 786.432 bytes, een wijzerplaat dus een zesde.
+- **Geheugen voor een wijzerplaat** (uit de bestanden van de SDK, alle 63 regels geteld in `uitslag.txt`): 131.072 bytes op 56 van de 63, ook op de nieuwste (Venu 4, Forerunner 970, vívoactive 6). 98.304 op Forerunner 55, 245, 945 en Venu Sq; 114.688 op fēnix 6; 65.536 op Instinct 2; 524.288 op vívoactive 4. De kale proef gebruikt ±9.000 bytes. Een spel krijgt 786.432 bytes, een wijzerplaat dus een zesde.
 
 **GEZIEN in de uitleg van Garmin** (`https://developer.garmin.com/connect-iq/api-docs/Toybox/SensorHistory.html`, opgehaald met curl, 16 nov ±21:00 UTC): de lijst "Supported Devices" bij de geschiedenis van Body Battery telt 113 regels, bij stress 116. Erin: alle Forerunners vanaf de 55 en 245, fēnix 6 tot 9, epix, Enduro, Instinct 2 en 3, Venu (alle), vívoactive 4 tot 6, MARQ, Descent, Approach S50, S70 en S72, D2. Er niet in voor Body Battery: fēnix 5 Plus en D2 Air.
 
@@ -51,7 +52,6 @@ Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-ker
 **NIET GEZIEN, en dat telt:**
 - Hoeveel uur geschiedenis een echt horloge geeft. De simulator geeft op elk horloge dezelfde 80 nepwaarden (laagste 5, hoogste 93), één per minuut, dus 79 minuten, ook al vroeg ik 4 uur. Garmin schrijft zelf dat de tijd tussen twee waarden per horloge verschilt. Pas een echt horloge zegt of de lijn 4 uur of een hele dag kan tonen.
 - De volgorde: ik vroeg "oudste eerst" en kreeg de nieuwste eerst (de tijd liep 4.740 seconden terug). Bij het bouwen de tijd van elke waarde gebruiken en niet de volgorde vertrouwen.
-- De schermbeelden zelf: ze stonden bij het schrijven nog niet op de tak `schermen`.
 - Het kleurverloop als vast plaatje per thema (vraag van Mila): niet geprobeerd. Met 131.072 bytes voor alles is een schermvullend plaatje per thema de eerste zorg; op nieuwere horloges tellen plaatjes mogelijk niet mee in dat geheugen (GOK, eerst meten).
 - De slaapstand op AMOLED en instellingen in Garmin Connect.
 
