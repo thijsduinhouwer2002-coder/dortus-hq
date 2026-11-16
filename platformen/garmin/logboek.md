@@ -1412,7 +1412,8 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Gevonden: plaatjesjob van de Enduro 3 was groen met 95 lege beelden (simulator gaf vanaf start 62 geen antwoord, geen crashregel in het log). Bouwstraat aangepast in 79d2a6b: gemiste scène één keer overdoen met een nieuwe simulator, anders rood. Eerste demobeeld op 10 s in plaats van 7 s (moet van Daan). Alle jobs van run 43882501055 waren groen (23 gelezen).
 - REGEL in `maak_letters.py` niet veranderd: Daan keurde de schermen zoals ze zijn, een andere regelhoogte verschuift alles.
 - Uitgezocht voor de hoofdchat: proefstand (nee), codes (bestaan, formulier), prijspunten ($2,99 bestaat niet), lijst van horloges voor betaalde apps. In `proefstand-en-codes-2026-11-16.md`.
-- Ebb Calm: 404 om 16:00 UTC.
+- Ebb Calm: 16:03 UTC nog niet goedgekeurd (API 404, "The requested app is not approved"). Eerst las ik per ongeluk een verkeerd adres (`/api/asw/apps/...` zonder `appsLibraryExternalServices`); dat geeft altijd 404, ook voor Ebb. Het goede adres staat in `meting-ebb.md`.
+- Ebb in de winkel: 0 downloads, 0 reviews, 40 horloges. Icoon en vijf beelden opgehaald en bekeken (`winkel-nu-2026-11-16.png`): punt 2 van de hoofdchat staat er al.
 - Les: een groene job zegt niet dat alle beelden er zijn. Tel na een run de bestanden `*-mis*` op tak `schermen`; de bouwstraat doet dat nu zelf.
 - Les: de uitleg van Garmin is een Gatsby-site; de pagina zelf is een lege schil. De tekst staat in `https://developer.garmin.com/connect-iq/articles/<map>/<Naam>.html` (de naam vind je in `/page-data/connect-iq/<pad>/page-data.json`, veld `fileName`).
 - Les: de lokale kloon was ondiep en liep 50 commits achter met een losse HEAD; `git pull` bleef hangen. `git fetch origin main` en dan `git reset --hard origin/main` werkte meteen.

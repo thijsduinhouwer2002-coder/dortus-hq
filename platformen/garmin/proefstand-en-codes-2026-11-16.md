@@ -7,7 +7,7 @@ Vraag van de hoofdchat (16 nov 16:25 NL, Thijs deed zelf onderzoek): hoe werkt e
 - GEZIEN (`https://developer.garmin.com/connect-iq/articles/core-topics/Trial_Apps.html`, run 117): de proefstand werkt met een eigen ontgrendelpagina. De koper wordt vanuit de winkel naar onze webpagina gestuurd, wij regelen daar zelf het betalen en melden het daarna met een ondertekend verzoek aan Garmin. Dat vraagt een server en een eigen betaalstroom.
 - GEZIEN (de vier pagina's onder Monetization: `App_Sales.html`, `Merchant_Onboarding.html`, `Account_Management.html`, `Price_Points.html` in `https://developer.garmin.com/connect-iq/articles/monetization/`): het woord "trial" komt er niet in voor. De betaling van Garmin, waarmee Ebb verkocht wordt, kent dus geen proefstand in de uitleg.
 - Besluit: geen proefstand. Ebb Calm (gratis, al ingediend) is de ingang. Dit hoeft niet meer opnieuw gewogen te worden, tenzij Garmin de uitleg verandert.
-- Ebb Calm stond om 16:00 UTC nog niet in de winkel (API geeft 404).
+- Ebb Calm stond om 16:03 UTC nog niet in de winkel (de winkel-API antwoordt 404, "The requested app is not approved").
 
 ## 2. Codes voor testers: ze bestaan, je vraagt ze aan met een formulier
 
