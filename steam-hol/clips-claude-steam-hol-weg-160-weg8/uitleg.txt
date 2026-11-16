@@ -1,3 +1,2 @@
-3-toren: niet gevonden in de log
-1-hap: niet gevonden in de log
-2-terug: niet gevonden in de log
+1-hap: t=20.7 s, beelden 531 tot 891, 12.0 s, 307914 bytes, regel: Gloop ate Kees. Burp. +6
+2-terug: t=47.4 s, beelden 1362 tot 1722, 12.0 s, 339813 bytes, regel: Mara remembers the Spike Pit.
