@@ -198,3 +198,8 @@ Alleen aanvullen, nooit weghalen.
 - Niets nieuws voor mij: geen bericht na KLAAR VOOR THIJS (tipspagina), geen nieuwe Click Joints-tip in reeks.md (alleen dag 1, die staat al op de pagina). De groeironde van 11:20 gaat over Ruben en Bram, niet over mij.
 - Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: geen melding dat hij te koop is.
 - Repo dortus: main en `claude/abel-home-2026-11` op 43bbd8c, `claude/abel-tips-2026-11` op 9f81ae0 (wacht op ja van Thijs). Afgesloten na 5 minuten.
+
+## Run 27, 16 nov 2026 ±12:25 NL
+- Niets nieuws voor mij: geen bericht na KLAAR VOOR THIJS (tipspagina), geen nieuwe Click Joints-tip in reeks.md (alleen dag 1, staat al op de pagina).
+- Ebb Calm nog niet live (Garmin-API voor de winkel-ID: 404). Click Joints Pro: nog niet te koop (Ruben meldt Pro 1.1 stap 1, Gumroad wacht op uitbetaalmethode van Thijs).
+- Repo dortus: tak `claude/abel-tips-2026-11` op 9f81ae0 wacht op ja van Thijs. Afgesloten na 5 minuten.
