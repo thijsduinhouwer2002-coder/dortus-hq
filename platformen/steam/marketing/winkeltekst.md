@@ -30,3 +30,15 @@ Script `data/winkeltekst.py`, uitkomst `data/winkeltekst-2026-11-16.csv` (GEZIEN
 - **Zin 2:** de haak: held valt, hoed op Gloop, wie ontsnapt komt terug met wrok.
 - **Zin 3 (mag weg):** de belofte voor wie het laat draaien, eerlijk (Z1 of Z2).
 - Samen ±35 woorden, net als de mediaan van de winnaars. Geen "dungeon" als eerste zelfstandig naamwoord, geen "tiny dungeon".
+
+## Lange beschrijving (run 10, vervolg)
+Script `data/winkeltekst_lang.py`, uitkomst `data/winkeltekst-lang-2026-11-16.csv` (GEZIEN 16 nov ±20:50 UTC, dezelfde 47 spellen). "Bewegend" telt gifs en filmpjes in de tekst.
+
+| | Winnaars (13) | Kerkerflops (4) | Demo 20+ (10) | Demo 0, lijkt (20) |
+|---|---|---|---|---|
+| Woorden (mediaan) | **207** | 296 | 246 | 235 |
+| Met bewegende beelden in de tekst | 12 | 4 | 9 | 17 |
+| Bewegende beelden (mediaan) | 3 | 3,5 | 5 | 4 |
+| Kopjes (mediaan) | 4 | 6,5 | 3 | 4 |
+
+Lezing: bewegende beelden in de tekst doet bijna iedereen, dus dat is de norm. Winnaars schrijven iets korter (mediaan 207 woorden; Cornerpond 105, Desktop Defender 134, Black Cat 144). Kopjes zijn korte daden ("Cut grass", "Level up and unlock", "Unlock New Species"), geen verhaal. **Recept: ±200 woorden, 3 tot 5 gifs, 4 korte kopjes, elk kopje een gif en twee zinnen.** Dat past bij wat Thijs wil (minder tekst, meer beeld) en scheelt hem schrijfwerk. De gifs vraag ik aan Chris en Mila.
