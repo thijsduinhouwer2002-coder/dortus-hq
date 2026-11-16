@@ -777,22 +777,12 @@ func _init() -> void:
 	ok(HV.vol_vloer(vvh, 2, -1) == -1, "vol: geen vloerding op de eerste tegel na de schacht")
 	ok(HV.vol_vloer(vvh, 6, -1) == -1 and HV.vol_vloer(vvh, 7, -1) == -1 and HV.vol_vloer(vvh, 8, -1) == -1, "vol: niets op of naast een val")
 	ok(HV.vol_vloer(vvh, 24, -1) == -1 and HV.vol_vloer(vvh, 27, -1) == -1, "vol: niets bij de hoeden en Gloop, en één tegel vrij ervoor")
-	var vvrij := 0
-	var vgevuld := 0
-	var vzelfde := 0
+	# Daan 16 nov 20:50 (Iris keuring 8): geen behang meer. Los ding (alles behalve de stut) hooguit op 1 van de 3 tegels,
+	# nooit twee losse kolommen naast elkaar, nooit twee keer dezelfde soort na elkaar; stutten mogen regelmatig blijven.
 	var vplafond := 0
 	var vnaast := 0
-	var vvs := -1
 	var vvp := -99
 	for kk in range(2, 28):
-		var c: int = HV.vol_vloer(vvh, kk, vvs)
-		if c >= 0 and c == vvs:
-			vzelfde += 1
-		vvs = c
-		if not (kk == 2 or vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1) or kk >= 24):
-			vvrij += 1
-			if c >= 0:
-				vgevuld += 1
 		var p: int = HV.vol_plafond(vvh, kk, vvp)
 		if p >= 0:
 			if kk - vvp < 2 or vbk[kk]:
@@ -801,23 +791,50 @@ func _init() -> void:
 				vnaast += 1   # geen stut op of naast een val, één tegel vrij voor de troon (Daan 16 nov, regel c)
 			vplafond += 1
 			vvp = kk
-	ok(vvrij > 0 and vgevuld == vvrij, "vol: elke vrije gangtegel een vloerding (%d van %d)" % [vgevuld, vvrij])
-	ok(vzelfde == 0, "vol: nooit twee keer dezelfde soort naast elkaar (%d)" % vzelfde)
-	ok(vplafond > 0 and vnaast == 0, "vol: plafond los van de vloer, nooit naast elkaar of onder een kamer (%d stuks, %d fout)" % [vplafond, vnaast])
-	# Daan 16 nov regel b: nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar of op dezelfde tegel
+		if HV.vol_vloer(vvh, kk, -1) >= 0 and not HV.is_los(vvh, kk):
+			vnaast += 1
+	ok(vplafond > 0 and vnaast == 0, "vol: plafond nooit naast elkaar of onder een kamer, vloer alleen op losse kolommen (%d stuks, %d fout)" % [vplafond, vnaast])
 	var vrij: Array = HV.vol_rij(vvh)
 	var vgroot := {}
 	var vgfout := 0
-	var vvloer := 0
+	var vlos_k := []
+	var vlos_s := []
+	var vstut := 0
 	for dd in vrij:
 		if dd[1] in HV.GROOT:
 			if vgroot.has(dd[0] - 1) or vgroot.has(dd[0]) or vgroot.has(dd[0] + 1):
 				vgfout += 1
 			vgroot[dd[0]] = true
-		if not dd[2]:
-			vvloer += 1
-	ok(vgroot.size() > 0 and vgfout == 0, "vol: %d grote dingen, %d naast of op een ander groot ding" % [vgroot.size(), vgfout])
-	ok(vvloer == vgevuld, "vol: na regel b nog steeds elke vrije tegel een vloerding (%d van %d)" % [vvloer, vgevuld])
+		if dd[1] == 7:
+			vstut += 1
+		elif HV.is_los(vvh, dd[0]):
+			vlos_k.append(dd[0])
+			vlos_s.append(dd[1])
+	ok(vgfout == 0, "vol: %d grote dingen, %d naast of op een ander groot ding" % [vgroot.size(), vgfout])
+	var vlfout := 0
+	for i in range(1, vlos_k.size()):
+		if vlos_k[i] - vlos_k[i - 1] < 2 or vlos_s[i] == vlos_s[i - 1]:
+			vlfout += 1
+	ok(vlos_k.size() > 0 and vlos_k.size() * 3 <= 26 + 2 and vlfout == 0, "vol: %d losse dingen op 26 tegels, %d fout (naast elkaar of zelfde soort): %s" % [vlos_k.size(), vlfout, str(vlos_s)])
+	# over veel holen: gemiddeld hooguit 1 op 3 tegels een los ding
+	var vtl := 0
+	var vtk := 0
+	for z in 40:
+		var hz := {"ingang_kol": 1 + z, "schat_kol": 60 + z, "vallen": {}, "gang": [], "boven": []}
+		for kk in range(hz.ingang_kol + 1, hz.schat_kol - 1):
+			vtk += 1
+			if HV.is_los(hz, kk):
+				vtl += 1
+	ok(vtl * 3 <= vtk, "vol: gemiddeld hooguit 1 op 3 kolommen los (%d van %d)" % [vtl, vtk])
+	var hs := {"ingang_kol": 1, "schat_kol": 40, "vallen": {}, "gang": [], "boven": []}
+	for kk in 42:
+		hs.gang.append(kk >= 1 and kk <= 40)
+		hs.boven.append(false)
+	var vst := 0
+	for dd in HV.vol_rij(hs):
+		if dd[1] == 7:
+			vst += 1
+	ok(vst >= 3, "vol: stutten blijven regelmatig in een hol zonder kamers (%d op 38 tegels)" % vst)
 	var vkd: Array = HV.kamer_dingen(vvh, false)
 	ok(vkd.size() == 8, "vol: vier kamers van twee kolommen, elk twee dingen (%d)" % vkd.size())
 	var vkok := true
