@@ -106,12 +106,12 @@ class SpelView extends WatchUi.View {
             dc.drawText(w / 2, (h * 0.84).toNumber(), Graphics.FONT_XTINY, "START = GULP", midden);
         } else if (spel.toestand == Regel.EINDE) {
             dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-            dc.fillRectangle(0, (h * 0.30).toNumber(), w, (h * 0.34).toNumber());
+            dc.fillRectangle(0, (h * 0.16).toNumber(), w, (h * 0.34).toNumber());
             dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (h * 0.31).toNumber(), Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
+            dc.drawText(w / 2, (h * 0.17).toNumber(), Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
             dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
             var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
-            dc.drawText(w / 2, (h * 0.48).toNumber(), Graphics.FONT_SMALL, regel, midden);
+            dc.drawText(w / 2, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
             dc.drawText(w / 2, (h * 0.84).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden);
         } else {
             dc.drawText(w / 2, (h * 0.81).toNumber(), Graphics.FONT_SMALL, spel.hoeden.toString(), midden);
@@ -260,8 +260,13 @@ class SpelView extends WatchUi.View {
             return;
         }
         var r = ((w < h) ? w : h) / 2 - 4;
-        dc.setPenWidth(5);
         dc.setColor(spel.tijdOver < 5000 ? 0xFF0000 : 0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+        if (System.getDeviceSettings().screenShape != System.SCREEN_SHAPE_ROUND) {
+            // Vierkant scherm: de klok is een balk langs de bovenrand die leegloopt.
+            dc.fillRectangle(0, 0, (w * spel.tijdOver / Regel.RONDE_MS).toNumber(), 5);
+            return;
+        }
+        dc.setPenWidth(5);
         if (graden >= 360) {
             dc.drawCircle(w / 2, h / 2, r);
         } else {
