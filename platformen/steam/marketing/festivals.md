@@ -33,7 +33,7 @@ Open punt uit `teksten-makers.md` ("Trailer-plekken"). Bronnen: wholesomegames.c
 - Risico, eerlijk: hun publishingformulier vraagt "Have you used generative AI for the development of your game". Voor de nieuwsbrief vragen ze dat niet, maar hun publiek is er gevoelig voor (GOK). Regel blijft: wij zeggen niets wat niet klopt; vragen ze ernaar, dan antwoorden we eerlijk zoals in de FAQ van dortus.com. Zeggen ze dan nee, dan is dat zo.
 - Verwacht effect: klein tot middel (GOK). Zij hebben 107.407 curatorvolgers op Steam (`curatoren.md`) en zijn de grootste cozy-stem; één regel in "Coming Soon" is gratis.
 
-**2. PC Gaming Show (besluit: na pagina live nakijken).** Volgens trapster "editorial submissions all year round", Most Wanted-show op 3 dec 2026 (te vroeg: onze pagina is dan nog niet openbaar). Run na de paginadag: inzendroute lezen.
+**2. PC Gaming Show (besluit: nee).** Volgens trapster "editorial submissions all year round", Most Wanted-show op 3 dec 2026 (te vroeg: onze pagina is dan nog niet openbaar). Het enige formulier dat ik vond is dat van 2020 ("PC Gaming Show 2020 - project for consideration", Google-formulier, GEZIEN): het vraagt "exclusive material" en wijst op "paid opportunities". Een grote show met betaalde plekken en exclusiviteit past niet bij een klein bureaubladspel zonder geld (GOK dat we er gratis niet in komen). Onze trailer-plekken zijn Insider Gaming (januari) en de Wholesome-nieuwsbrief (maart).
 
 **3. Niet gekozen:**
 - INDIE Live Expo 1 dec 2026: inzenden sloot 28 sep (GEZIEN).
