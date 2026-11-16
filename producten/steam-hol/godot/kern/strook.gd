@@ -164,11 +164,6 @@ func _ready() -> void:
 	hol.maak(int(scherm.size.x / schaal))
 	wezens = Node2D.new()
 	wezens.name = "Wezens"
-	# hoedenwand (Bram 16 nov, Mila punt 4): hoeden van opgegeten helden in de aarde boven de gang, achter alles
-	var hoedenwand := Node2D.new()
-	hoedenwand.set_script(load("res://systemen/hoedenwand.gd"))
-	hoedenwand.name = "Hoedenwand"
-	hol.add_child(hoedenwand)
 	# vleermuis (Bram 16 nov, Mila punt 4b) vóór Wezens: de helden lopen voor hem langs; zonder blad doet hij niets
 	var vleermuis := Node2D.new()
 	vleermuis.set_script(load("res://systemen/vleermuis.gd"))
@@ -184,7 +179,6 @@ func _ready() -> void:
 	if "slijm" in proef_uit3d and "met_3d" in slijm:
 		slijm.met_3d = false
 	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
-	hoedenwand.zet(hol, slijm)
 	PROEF.na_slijm(self)
 	if demo:
 		volgende_held = 0.5
