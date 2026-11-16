@@ -372,7 +372,7 @@ Doel (Fenna): 4 tot 6 kleine feestjes in het eerste half uur tot uur, en na 2 uu
 | 13 min | vleermuis komt wonen (hol 4) | ja |
 | 14 min | dief (hol 5); het boek laat zien "Weak to: Gloop" na zijn eerste vangst | ja |
 | 27 min | tweede put of slijm te koop (hol 6): nu kies je waar | ja |
-| 34 min | rolsteen (hol 7), goed tegen de ridder | ja |
+| 34 min | rolsteen (hol 7), goed tegen de dief, pakt soms twee in één keer (`features.md`, 17 nov) | ja |
 | 44 min | magiër (hol 8) | ja |
 | 57 min | vaandel met de naam van je hol (hol 9) | ja |
 | 1,1 u | Gloop 3: spuugt een hoed op de berg | klein |
