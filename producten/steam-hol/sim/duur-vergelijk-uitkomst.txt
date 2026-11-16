@@ -1,0 +1,8 @@
+hol  drempel  spel(s)   sim mediaan  sim 10%-90%      in 20 min gehaald (sim)
+  2        3       86            69            65-75  40/40
+  3        5      366           302          193-523  40/40
+  4        7      531           484          338-784  40/40
+  5       12      860           854         727-1117  34/40
+  6       17     1137          1106        1016-1158  12/40
+helden in 20 min: spel 28 binnen, sim mediaan 27 (25-29)
+vangsten in 20 min: spel 17+ (hol 6 op 1137 s), sim mediaan 15 (9-20)
