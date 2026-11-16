@@ -146,10 +146,16 @@ Eerder:
 ## Schermafbeeldingen uit de strook (Daan, 15 nov)
 - Een rij die het hol toont, begint met zijn eigen gras; een rij met alleen een kaartje of bediening krijgt geen gras erboven. Nooit gras midden in een beeld boven een kaartje: dat leest als een tweede wereld (blinde kijker 5 tegen 7).
 - Geen samengestelde beelden die iets tonen wat het spel niet heeft, zoals een tweede verdieping onder het hol.
-- Inzoomen hooguit 3x uit de opname van 160 px; daarboven wordt het zacht.
+- Inzoomen liefst hooguit 3x uit de opname van 160 px; daarboven wordt het zacht. Tot ±4x alleen als het beeld op 600 breed duidelijk wint (groter figuur, minder lege grond), en bekijk het dan ook op 1920 (16 nov, de hap op 4,2x).
 
 ## Kleine schermen en winkelbeelden (Daan, 16 nov)
 - Op een horloge leest het moment waar het om draait (de slok, de vangst) alleen als het oog van de held of het monster vrij blijft. Liggen drie dingen over één gezicht, dan laat je liever iets weg dan dat het een kluwen wordt.
 - Tekst naast een figuur houdt minstens 8 px lucht op ware grootte; raakt het, dan leest het als een fout.
 - Wil je een moment zwaarder laten voelen zonder het spel trager te maken: een stilstand van ±0,08 s (alles bevriest), niet een langere animatie.
 - Beelden van AI-figuren uit proeven (rafelige randen, holle koppen) zijn bewijs dat iets werkt, geen winkelplaatje. In de winkel alleen figuren die er verzorgd uitzien.
+
+## Korte tipfilmpjes (Daan, 16 nov)
+- Een uitsnede van het paneel begint en eindigt tussen twee rijen. Een halve regel tekst aan de rand oogt slordig, juist op het beeld waar je naar moet kijken.
+- Eén gedachte per beeld, het getal of woord dat telt in groen, verder wit. Elk filmpje een ander begin, zodat wie er één zag niet doorscrolt.
+- Bij een tip is de toolregel de enige plek waar het product in beeld staat: zet hem boven de strook van de app (y ±1450 op 1920 hoog) en laat het beeld daarboven eindigen.
+- Een tip moet kloppen in het echte programma, tot op het woord ("per side"). Het beeld volgt de tekst die nagemeten is, niet andersom.
