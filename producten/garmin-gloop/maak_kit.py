@@ -22,6 +22,48 @@ HOEDEN = ["hoed-00-helm", "hoed-01-puntmuts", "hoed-02-kap", "hoed-03-pet", "hoe
           "hoed-05-koksmuts", "hoed-06-emmer", "hoed-07-hoge_hoed", "hoed-08-pan", "hoed-09-veermuts"]
 IDS = ["GloopRust", "GloopHap", "GloopBlij", "GloopSlok", "HeldVal", "HelmVlieg"] + ["Hoed%d" % i for i in range(10)]
 
+from PIL import Image
+
+
+def tand_vast(im):
+    """Daan, 16 nov 09:50 UTC: het losse tandje boven de mond leest met het oogboogje als een vraagteken.
+    Zet het tandje vast aan de bovenrand van de mond: weg boven de mond, wit in de mond eronder."""
+    im = im.convert("RGBA"); W, H = im.size; p = im.load()
+    def mond(c): return c[3] > 200 and c[0] < 180 and c[1] < 100 and c[2] < 110
+    def wit(c): return c[3] > 200 and min(c[:3]) > 200
+    top = {}
+    for x in range(W):
+        for y in range(H // 2, H):
+            if mond(p[x, y]) and mond(p[x, min(y + 2, H - 1)]):
+                top[x] = y; break
+    bereik = max(5, H // 7)
+    over = set((x, y) for x in top for y in range(top[x] - bereik, top[x]) if wit(p[x, y]))
+    beste = None
+    while over:                                   # losse witte vlekken; het tandje is de vlek die
+        stapel = [over.pop()]; vlek = []          # ongeveer vierkant is en het dichtst op de mond zit
+        while stapel:
+            x, y = stapel.pop(); vlek.append((x, y))
+            for q in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if q in over: over.remove(q); stapel.append(q)
+        xs = [x for x, y in vlek]; ys = [y for x, y in vlek]
+        b, h = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
+        gat = min(top[x] for x in set(xs)) - max(ys)
+        if len(vlek) >= 4 and h <= 1.6 * b and (beste is None or gat < beste[0]):
+            beste = (gat, min(xs), max(xs), min(ys), max(ys))
+    if beste is None: raise SystemExit("geen tandje gevonden")
+    gat, x0, x1, y0, y1 = beste
+    hoog = y1 - y0 + 1
+    k = (x1 - x0 + 4) // 2 * 2                    # even stap naar links: het dambord op MIP blijft kloppen
+    for x in range(x0 - 1, x1 + 2):
+        for y in range(y0 - 1, top.get(x, y1 + 2)):
+            p[x, y] = p[x - k, y]
+    for x in range(x0, x1 + 1):
+        if x in top:
+            for y in range(top[x], top[x] + hoog):
+                p[x, y] = (255, 255, 255, 255)
+    return im
+
+
 kit = json.load(open(os.path.join(KIT, "kit.json")))
 takken = []
 for breedte, (naam, mip) in sorted(MAPPEN.items()):
@@ -32,6 +74,9 @@ for breedte, (naam, mip) in sorted(MAPPEN.items()):
     for ident, stuk in zip(IDS, VAST + HOEDEN):
         bestand = stuk.replace("-", "_") + ".png"
         shutil.copy(os.path.join(KIT, naam, stuk + ".png"), os.path.join(doel, bestand))
+        if stuk == "gloop-blij":
+            # Moet van Daan (16 nov 09:50 UTC): tandje vast aan de mond. Gemeld aan Mila voor haar kit.
+            tand_vast(Image.open(os.path.join(doel, bestand))).save(os.path.join(doel, bestand))
         extra = ' dithering="none"' if mip else ""
         regels.append('    <bitmap id="%s" filename="%s"%s/>' % (ident, bestand, extra))
     # Titelplaatje "GLOOP / HAT TOWER" voor het startscherm en het launchericoon.
