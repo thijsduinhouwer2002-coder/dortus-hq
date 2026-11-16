@@ -7,7 +7,7 @@ Eén lijst met alles wat op een ja of nee van Thijs wacht. De hoofdchat stuurt h
 | 16 nov | Betaalde zip 1.0.1 uit openbare release halen (1 min, alleen Thijs) | Pro staat te koop op Gumroad | hoofdchat |
 | 16 nov | Garmin: Gloop-spel uploaden (optie 2) of niet | Thijs denkt erover na | Gijs |
 | 16 nov | dortus.com: nieuwe pagina's (bewegend beeld, persoonlijke regel, devlog, FAQ over AI) naar main | Abel, Daan keurt | Abel |
-| 16 nov | YouTube-profiel van Chris op @Dortusapps zetten en de 4 oude Atlassian-video's verbergen | besluit 19:51: @Dortusapps is ons kanaal | Chris, hoofdchat |
+| 16 nov | YouTube-profiel van Chris op @Dortusapps zetten en de 4 oude Atlassian-video's verbergen | besluit 19:51: @Dortusapps is ons kanaal | Chris, hoofdchat | **KLAAR 16 nov ±21:00 NL** (ja Thijs 20:04): banner, profielfoto, watermerk, beschrijving zonder AI-zin, links Click Joints en dortus.com, contact thijs@dortus.com; 4 Atlassian-video's op Privé; GEZIEN op youtube.com/@Dortusapps |
 | 17 nov | Eerste Reddit-posts (Click Joints, Rollwright) | Verspreiden staat op 0 | Chris |
 | na 1.1 | 10 mails aan makers | Pro 1.1 klaar | Chris |
 | 16 nov | Amami-account voor bezoekcijfers dortus.com (gratis, 5 min, alleen Thijs) | dortus.com meet nu niets | doorzoeker |
