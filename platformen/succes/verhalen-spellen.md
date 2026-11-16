@@ -1,8 +1,80 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 16 af 16 nov ±22:10 UTC; volgende run: Little Writer meten na 6 jan, of de grootste bureaubladspellen die zelf crossovers doen (Tiny Pasture) van dichtbij: hoe vraag je erom)
+bezig: niets (verhaal 17 af 16 nov ±22:15 UTC; volgende run: de pagina van het Desktop Companion Fest opnieuw lezen (eisen aan de demo), daarna Little Writer meten na 6 jan of Tiny Pasture: hoe vraag je om een crossover)
 
 Nieuwste bovenaan.
+
+---
+
+## 17. Wanneer zet je de demo live, en wanneer druk je op de mailknop? De ene e-mail die Steam stuurt bij een demo moet binnen 14 dagen na de demo, en ons plan (demo ma 4 jan) valt op de laatste dag van de Winter Sale; in 449 demo's van bureaubladspellen zie ik geen beste dag
+
+**Vraag:** in het festplan van Sem gaat de demo van Hats op **ma 4 jan** openbaar, tien dagen vóór het Desktop Companion Fest (14 tot 18 jan), met dezelfde voorbereiding als dag 1 van het fest. Niemand in de repo had uitgezocht wat Steam op de dag van de demo doet met de verlanglijsten, en of de dag van de demo ertoe doet. Dat is nu uit te zoeken en het kost niets om het plan nog te verschuiven.
+
+### Bronnen en hoe ik keek (16 nov, ±21:30 tot 22:15 UTC)
+- Steamworks-docs, gelezen met curl op 16 nov: `partner.steamgames.com/doc/store/application/demos` (kopje "Triggering release notifications"), `doc/marketing/wishlist` (kopje "Wishlist Notifications"), `doc/marketing/upcoming_events/nextfest` (vragen over de demo) en `doc/marketing/upcoming_events/2026_winter_sale` (datum).
+- Chris Zukowski, "What Steam's big demo update means for your marketing strategy", 31 jul 2024: https://howtomarketagame.com/2024/07/31/what-steams-big-demo-update-means-for-your-marketing-strategy/ (DERDEN).
+- Eigen meting: alle 451 bureaubladspellen met een demo uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`). Per spel de demo-appid via `store.steampowered.com/api/appdetails`, en van die demo de datum waarop hij speelbaar werd (449 gelukt). Die datum gelegd naast de eerstvolgende Next Fest (feb, jun en okt van 2024 tot 2026). Uitkomst bij uitgebrachte spellen: reviews (uit de kaart); bij aangekondigde spellen: volgers (Vera's en Sems metingen van 16 nov, 127 van de 241). Data: `platformen/succes/data/demo-timing-bureaublad-2026-11-16.csv`, scripts `demo-timing-haal.py` en `demo-timing-analyse.py` in dezelfde map.
+
+### Wat Valve zegt (GEZIEN, Steamworks-docs, 16 nov)
+1. **Eén mail, alleen in de eerste 14 dagen.** Bij de demo: "This action is available on your demo app landing page for two weeks following the initial launch of your demo. You can only take this action once." Wie de knop niet indrukt, stuurt niets; wie de demo eerder uitbrengt, verliest de knop na twee weken.
+2. **Wij kiezen het uur.** "The timing of this notification is under your control up to two weeks following the release of your demo." De mail hoeft dus niet op de dag van de demo.
+3. **Hooguit één mail per twee weken per spel, en in drukke weken langer.** "Customers who have been notified about an appID within the last 2 weeks (...) will be on e-mail cooldown", en: "This period may be extended in periods of high notification traffic (such as Steam seasonal sales)." Plus: "if an email is held up for over a week for whatever reason, we will stop trying to send that email."
+4. **De Winter Sale loopt van 17 december 2026 tot 4 januari 2027, 10:00 Pacific** (19:00 in Nederland). Onze demodag ma 4 jan valt dus nog in de uitverkoop, precies de drukke tijd waar Valve voor waarschuwt.
+5. **De dag van de demo maakt Valve niet uit.** Next Fest-docs: "Our only requirement is that it is before the start of the event", "We do not require exclusivity or newness for your demo." Demo eerder, op de dag zelf of vlak ervoor noemt Valve "all valid strategies". Een fest stuurt zelf geen mail naar verlanglijsten (niet genoemd in de docs).
+6. **Een demo kan vooraf een eigen "binnenkort"-pagina krijgen** en staat dan in de lijst met aankomende demo's (demos-docs, "Releasing for 'upcoming' visibility").
+
+### Wat een maker erover zegt (DERDEN, Zukowski, jul 2024)
+- Zijn advies sinds de mailknop er is: "Time the festival / streamer / wishlist email to occur on the same day and hour", zodat zoveel mogelijk mensen tegelijk de demo spelen en hij in New & Trending komt.
+- Zijn voorbeeld CleanFall: 173 volgers en ±1.800 verlanglijsten vóór de demo, demo uit op 26 jul 2024, de dag erna in New & Trending, daarna van 1.800 naar 6.000 verlanglijsten. Een YouTuber (Olexa, 166K) speelde de demo meteen; hij zegt zelf dat niet te zien is wat het deed, de YouTuber of de mail.
+- Hij raadt af de demo uit te brengen zolang je weinig verlanglijsten hebt, omdat je de mail maar één keer krijgt, en noemt de Steam-playtest als manier om vreemden eerst te laten spelen: "Playtests and Betas are NOT counted as a 'Demo Release'".
+- Kanttekening: dit is 2024. Hoe druk New & Trending voor demo's nu is, weet ik niet.
+
+### Wat de data zegt: geen beste dag (GEZIEN, 449 demo's)
+Uitgebrachte spellen (demo na 31 jul 2024, minstens 2 maanden uit), reviews nu, naar dagen tussen demo en de eerstvolgende Next Fest:
+
+| Demo vóór het fest | n | Mediaan reviews | Aandeel 100+ reviews |
+|---|---|---|---|
+| 0 tot 3 dagen (op of vlak voor dag 1) | 4 | 38,5 | 1 van 4 (Cornerpond, 2.602) |
+| 4 tot 21 dagen | 28 | 14,5 | 11% |
+| 22 tot 90 dagen | 42 | 19,5 | 24% |
+| 91+ dagen | 6 | 104,5 | 3 van 6 |
+| geen Next Fest tussen demo en uitgave | 28 | 6 | 18% |
+
+Aangekondigde spellen (nu "binnenkort"), volgers op 16 nov:
+
+| Demo vóór het fest | n | Mediaan volgers | Aandeel 100+ volgers |
+|---|---|---|---|
+| 0 tot 3 dagen | 24 | 15 | 17% |
+| 4 tot 21 dagen | 36 | 46 | 33% |
+| 22 tot 90 dagen | 39 | 22 | 13% |
+| nog geen fest gehad (demo na 19 okt) | 22 | 5 | 0% |
+
+**Het patroon draait om.** Bij de uitgebrachte spellen doet "4 tot 21 dagen vóór het fest" (dat is ons plan) het slechtst, bij de aangekondigde het best. Het verschil bij de uitgebrachte is ook niet hard (Mann-Whitney p = 0,37; 3 van 28 tegen 13 van 48 met 100+ reviews, Fisher p = 0,14). Conclusie: **in deze hoek bepaalt de dag van de demo de uitkomst niet zichtbaar.** Wat wel overal terugkomt: wie geen fest had tussen demo en uitgave, bleef laag (mediaan 6 reviews, 5 volgers), wat past bij verhaal 3 en 7.
+
+De winnaars uit eerdere verhalen deden ook beide: Desktop Defender, Bongo Cat en Cornerpond zetten de demo live op dag 1 van een fest; Bao Bao 19 dagen vóór het Idler Fest en Character House een maand vóór Next Fest, buiten elk fest (verhaal 3 en 5, `marketing/character-house.md`).
+
+Eerlijk over de meting: ik weet niet of elk spel echt meedeed aan het fest dat ik toeken (Valve geeft geen openbare deelnemerslijst van oude fests); spellen die hun demo bij de uitgave weghaalden ontbreken (bij de winnaars gebeurt dat vaak, verhaal 8); en of en wanneer iemand op de mailknop drukte, is van buiten niet te zien.
+
+### Drie lessen
+1. **De mail is het enige moment dat Steam zelf iedereen met Hats op de verlanglijst roept, en het venster is 14 dagen na de eerste demodag.** Wie de demo eerder dan 31 dec uitbrengt, kan de mail niet meer op 14 jan sturen.
+2. **Mail niet in een seizoensuitverkoop.** Valve zegt zelf dat mails dan later gaan en na een week vervallen. Ma 4 jan vóór 19:00 Nederlandse tijd is nog Winter Sale.
+3. **De dag van de demo is geen hefboom, het fest wel.** In 449 demo's is er geen beste afstand tot het fest; het verschil zit tussen wél en géén fest. Dus: de demo vroeg genoeg om fouten te vangen, en de klap (mail, makers, aankondiging) op één uur samen met het fest.
+
+### Wat dit betekent voor Hats
+Het plan van Sem (demo ma 4 jan, fest do 14 jan) past binnen het venster, met één aanpassing en één grens:
+- **Demo live op ma 4 jan ná 19:00 Nederlandse tijd (einde Winter Sale) of di 5 jan, zonder mail.** Rustige dagen met echte spelers om fouten te vangen, zoals Sem wil (10+ demo-reviews).
+- **Mailknop op do 14 jan om 19:00 Nederlandse tijd**, het uur dat het fest begint, samen met de aankondiging en de makers die de demo spelen. Dat is dag 9 of 10 van de 14, dus binnen het venster (laatste dag ±18 jan).
+- **Grens: de demo niet vóór 31 dec openbaar**, anders sluit het venster vóór het fest. Schuift de demo naar voren (bijvoorbeeld 22 dec, direct na de keuring), dan valt de mail in de Winter Sale of vóór het fest. Liever een Steam-playtest voor vroege spelers en makers: die telt niet als demo (Zukowski, DERDEN).
+- Next Fest in februari heeft geen eigen mail meer; daar trekt alleen het fest zelf. De lanceermail in maart staat los (die gaat bij uitbrengen, meer dan twee weken na januari).
+- Wat ik niet weet: of een demo die 10 dagen oud is in het fest lager staat dan een nieuwe. Valve sorteert in een themafest op "player interest and popularity" (verhaal 9, Sem); nieuw zijn wordt niet genoemd.
+
+### Voorstel voor Dortus deze week
+**Sem past in `marketing/festplan.md` fase 2 en 3 aan: demo openbaar ma 4 jan na 19:00 NL (of di 5 jan) zonder mail, de mailknop op do 14 jan 19:00 NL, en de regel "demo niet vóór 31 dec openbaar". Olaf zet dezelfde grens in `planning-fest-2027.md` bij 21 dec (indienen is vroeg genoeg, openbaar maken pas 4 jan). Thijs drukt de knop zelf (hij beheert Steamworks): Sem zet hem met datum en uur op `organisatie/lijst-thijs.md` zodra de demo een appid heeft.** Kost niets, voorkomt dat we de enige mail in de Winter Sale of vóór het fest verspelen.
+
+### Eerlijk: wat ik niet weet
+- Hoeveel van de mensen met een spel op hun verlanglijst de demomail openen of de demo starten: Valve geeft geen cijfer, ik vond geen maker met een getal voor deze hoek.
+- Of New & Trending voor demo's in 2026 nog werkt zoals bij CleanFall in 2024.
+- Of het Desktop Companion Fest eigen eisen aan de demo stelt: de pagina van Valve voor dit fest gaf op 16 nov een foutmelding ("Sorry, an error occurred"). Volgende run opnieuw proberen.
 
 ---
 

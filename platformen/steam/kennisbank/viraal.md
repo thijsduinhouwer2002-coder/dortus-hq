@@ -39,5 +39,8 @@ Terug naar [LEESMIJ](LEESMIJ.md). Het plan van Hats staat in [fest-plan.md](../f
 12. **Crossover (gastpersonage, voor Hats een gasthoed): alleen als update, met een veel groter spel, na de lancering.** Van 9 crossovers met een groot spel gaven er 3 een sprong in reviews (Fish to Dish x Dave the Diver 3,6x samen met update 3.0), 6 niets; twee kleine spellen samen (Lakeside Bar x Not Monday Cafe) niets. Rusty kreeg Vampire Survivors omdat Poncle zijn spel speelde en het zelf vroeg.
     Bron: [verhaal 16](../../succes/verhalen-spellen.md). GEZIEN.
 
+13. **De enige Steam-mail naar alle verlanglijsten bij een demo: één keer, binnen 14 dagen na de demo, op een uur dat wij kiezen.** Niet in een uitverkoop (mails gaan later en vervallen na een week). Voor Hats: demo ma 4 jan na 19:00 NL zonder mail, knop op do 14 jan 19:00 NL, demo nooit vóór 31 dec openbaar. De dag van de demo zelf maakt in 449 demo's geen zichtbaar verschil; een fest wel.
+    Bron: [verhaal 17](../../succes/verhalen-spellen.md). GEZIEN (Steamworks-docs, 16 nov).
+
 ## Niet doen
 Beloningen voor reviews of voor "verlanglijst en volg" (Nugem deed het; Valve verbiedt beloningen voor reviews), ook niet via een ander spel: Bongo Cat moest in juni 2026 stoppen met hoeden voor "speel 5 minuten deze demo" ([verhaal 16](../../succes/verhalen-spellen.md)). Een stil fest is een uitslag, geen pech: meet op dag 2 en beslis ([verhaal 8](../../succes/verhalen-spellen.md)).
