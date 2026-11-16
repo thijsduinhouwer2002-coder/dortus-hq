@@ -155,7 +155,20 @@ def reik(m):
     return max(m["t_vlak"] * math.sin(m["alfa"]), m["rn"], m["lip"]) + m["s"]
 
 
-def te_dicht(bron, punt, m, u):
+def ander_lid(bvh, punt, p):
+    """Pro 1.1: ligt het oude gewricht p op een ander lid dan punt? Ja als de rechte lijn ertussen de huid
+    verlaat (bijvoorbeeld van de ene knie naar de andere door de lucht tussen de benen). Dan kunnen hun
+    stopvlakken elkaar niet raken en telt de afstand niet."""
+    if bvh is None:
+        return False
+    d = Vector(p) - Vector(punt)
+    if d.length < 1e-9:
+        return False
+    hit = bvh.ray_cast(Vector(punt), d.normalized(), d.length)
+    return hit[0] is not None
+
+
+def te_dicht(bron, punt, m, u, bvh=None):
     """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een gewricht op
     `bron` ligt, anders None.
     - Naast elk scharnier op het deel (afstand.scharnieren: alle, niet alleen het laatste): afstand tussen de
@@ -166,7 +179,8 @@ def te_dicht(bron, punt, m, u):
       plus de reik van de kogel (afstand.kogel_reik, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
     eigen = reik(m)
-    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, _k in afstand.scharnieren(bron) if r >= 0]
+    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, _k in afstand.scharnieren(bron)
+             if r >= 0 and not ander_lid(bvh, punt, p)]
     kogel = afstand.kogel_van(bron, u)
     if kogel is not None:
         paren.append(((Vector(punt) - kogel[0]).length, eigen + kogel[1]))

@@ -97,6 +97,62 @@ def samenvatting(lijst):
     return f"{kop}, {rig} range{'' if rig == 1 else 's'} from your rig" if rig else kop
 
 
+def _snij(context, soort, stand, graden_vrij=0):
+    inst = context.scene.click_joints
+    if soort == "HINGE":
+        flip = bool(getattr(context.window_manager, "cj_flip_bend", False)) if not graden_vrij else False
+        return bpy.ops.click_joints.plaats_scharnier(stand=str(stand), flip_bend=flip, graden=int(graden_vrij))
+    oud_soort = inst.soort
+    inst.soort = "KOGEL"
+    try:
+        return bpy.ops.click_joints.plaats()
+    finally:
+        if inst.soort != oud_soort:
+            inst.soort = oud_soort
+
+
+def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset"):
+    """Snijdt het actieve object op de 3D-cursor met het gewricht van dit preset en schrijft het record.
+
+    graden_vrij > 0: eindstop van het scharnier op dat getal (stap 2, uit de rig). Geeft (ok, melding, delen);
+    bij een weigering is de melding die van de onderliggende operator (die stond al in de statusbalk) of None."""
+    _s, preset_naam, soort, stand = PER_SLEUTEL[sleutel]
+    naam = naam or preset_naam
+    bron = context.active_object
+    oude = lees(bron)
+    fig = figuur_naam(bron)
+    voor = {o.name for o in bpy.data.objects}
+    bron.pop("cj_te_dicht_mm", None)
+    try:
+        uitslag = _snij(context, soort, stand, graden_vrij)
+    except RuntimeError as e:  # een ERROR-melding van de onderliggende operator komt hier als fout binnen
+        return False, str(e).replace("Error: ", "").strip(), []
+    if "FINISHED" not in uitslag:
+        if "cj_te_dicht_mm" in bron:
+            return False, f"too close to another joint, keep {bron['cj_te_dicht_mm']} mm apart", []
+        return False, None, []
+    nieuw = [o for o in bpy.data.objects if o.name not in voor and o.get("cj_deel") in ("A", "B")]
+    if not nieuw:
+        # De kogel geeft FINISHED met alleen een rood draadteken als het te dun is (niets gesneden).
+        dun = any(o.name not in voor and o.name.endswith("_joint_too_thin") for o in bpy.data.objects)
+        return False, ("too thin here for a ball joint" if dun else "nothing was cut"), []
+    if len(nieuw) != 2:
+        return True, f"{naam}: joint placed, but its parts were not found for the joint list.", nieuw
+    soort_echt, g = graden(nieuw[0])
+    nr = 1 + max([r.get("nr", 0) for o in bpy.data.objects if o.get("cj_figuur") == fig for r in lees(o)]
+                 + [r.get("nr", 0) for r in oude] + [0])
+    rec = {"nr": nr, "naam": naam, "preset": sleutel, "soort": soort_echt, "graden": g,
+           "herkomst": herkomst, "punt": [round(c, 4) for c in nieuw[0]["cj_snijpunt"]]}
+    for d in nieuw:
+        # Elk deel erft de oude gewrichten van het gesneden deel; een gewricht dat aan de andere kant lag,
+        # blijft ook op een ander deel van de figuur staan, dus de lijst per figuur raakt niets kwijt.
+        d["cj_gewrichten"] = json.dumps(oude + [rec])
+        d["cj_naam"] = naam
+        d["cj_figuur"] = fig
+        d["cj_herkomst"] = herkomst
+    return True, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.", nieuw
+
+
 class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):
     bl_idname = "click_joints.plaats_preset"
     bl_label = "Place figure joint"
@@ -109,51 +165,13 @@ class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):
     def poll(cls, context):
         return context.active_object is not None and context.active_object.type == "MESH"
 
-    @staticmethod
-    def _snij(context, inst, soort, stand):
-        if soort == "HINGE":
-            flip = bool(getattr(context.window_manager, "cj_flip_bend", False))
-            return bpy.ops.click_joints.plaats_scharnier(stand=str(stand), flip_bend=flip)
-        oud_soort = inst.soort
-        inst.soort = "KOGEL"
-        try:
-            return bpy.ops.click_joints.plaats()
-        finally:
-            if inst.soort != oud_soort:
-                inst.soort = oud_soort
-
     def execute(self, context):
-        _sleutel, naam, soort, stand = PER_SLEUTEL[self.deel]
-        bron = context.active_object
-        oude = lees(bron)
-        fig = figuur_naam(bron)
-        voor = {o.name for o in bpy.data.objects}
-        inst = context.scene.click_joints
-        try:
-            uitslag = self._snij(context, inst, soort, stand)
-        except RuntimeError as e:  # een ERROR-melding van de onderliggende operator komt hier als fout binnen
-            self.report({"ERROR"}, str(e).replace("Error: ", "").strip())
-            return {"CANCELLED"}
-        if "FINISHED" not in uitslag:
-            # De onderliggende operator gaf zijn eigen melding al (te dun, te dichtbij, niet gesloten ...).
-            return {"CANCELLED"}
-        nieuw = [o for o in bpy.data.objects if o.name not in voor and o.get("cj_deel") in ("A", "B")]
-        if len(nieuw) != 2:
-            self.report({"WARNING"}, f"{naam}: joint placed, but its parts were not found for the joint list.")
-            return {"FINISHED"}
-        soort_echt, g = graden(nieuw[0])
-        nr = 1 + max([r.get("nr", 0) for o in bpy.data.objects if o.get("cj_figuur") == fig for r in lees(o)]
-                     + [r.get("nr", 0) for r in oude] + [0])
-        rec = {"nr": nr, "naam": naam, "preset": self.deel, "soort": soort_echt, "graden": g,
-               "herkomst": "preset", "punt": [round(c, 4) for c in nieuw[0]["cj_snijpunt"]]}
-        for d in nieuw:
-            # Elk deel erft de oude gewrichten van het gesneden deel; een gewricht dat aan de andere kant lag,
-            # blijft ook op een ander deel van de figuur staan, dus de lijst per figuur raakt niets kwijt.
-            d["cj_gewrichten"] = json.dumps(oude + [rec])
-            d["cj_naam"] = naam
-            d["cj_figuur"] = fig
-            d["cj_herkomst"] = "preset"
-        self.report({"INFO"}, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.")
+        ok, melding, _delen = plaats_gewricht(context, self.deel)
+        if not ok:
+            if melding:
+                self.report({"ERROR"}, melding)
+            return {"CANCELLED"}  # anders gaf de onderliggende operator zijn eigen melding al
+        self.report({"INFO"}, melding)
         return {"FINISHED"}
 
 
@@ -171,7 +189,15 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
     def draw(self, context):
         ob = context.active_object
         layout = self.layout
-        layout.label(text="Put the 3D cursor on the joint, then:")
+        from . import rig
+        arm = rig.zoek_armature(ob) if ob is not None and ob.type == "MESH" else None
+        if arm is not None:
+            kol = layout.column(align=True)
+            kol.scale_y = 1.4
+            kol.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, icon="ARMATURE_DATA").meer = False
+            layout.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, text="More bones (ankles too)").meer = True
+            layout.separator()
+        layout.label(text="Or put the 3D cursor on a joint, then:")
         rooster = layout.grid_flow(row_major=True, columns=2, even_columns=True, align=True)
         for sleutel, naam, _soort, _stand in PRESETS:
             ic = icoon(sleutel)
@@ -190,7 +216,10 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
 
 
 def register():
+    from . import rig
     bpy.utils.register_class(CLICK_JOINTS_OT_plaats_preset)
+    for k in rig.KLASSEN:
+        bpy.utils.register_class(k)
     try:
         import os
         from bpy.utils import previews
@@ -213,5 +242,8 @@ def unregister():
         from bpy.utils import previews
         previews.remove(_iconen[0])
         _iconen[0] = None
+    from . import rig
+    for k in reversed(rig.KLASSEN):
+        bpy.utils.unregister_class(k)
     bpy.utils.unregister_class(CLICK_JOINTS_OT_plaats_preset)
 

@@ -137,7 +137,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bpy.data.meshes.remove(me)
             self.report({"WARNING"}, reden)
             return {"CANCELLED"}
-        nodig = vorm.te_dicht(bron, punt, maat, u)  # eis 6: zelfde melding als bij de kogel
+        nodig = vorm.te_dicht(bron, punt, maat, u, bvh)  # 1.1: een scharnier op een ander lid telt niet  # eis 6: zelfde melding als bij de kogel
         if nodig is not None:
             bpy.data.meshes.remove(me)
             bron["cj_te_dicht_mm"] = nodig
