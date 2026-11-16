@@ -68,8 +68,8 @@ const OPTOCHT_VOL := 10
 const OPTOCHT_MAX_S := 12.0
 const WEG_REGEL := "Grew %d levels while you were away."
 # Moet Daan 16 nov 15:33: geen niveautekst in de kroniek zolang er nergens een niveau te zien is.
-# Zet op true zodra Mila's bordje in het spel staat en Daan de regel weer goed vindt. De rekenkant blijft gewoon werken.
-const REGELS_AAN := false
+# Daan 16 nov 16:50: het bordje staat, de regels mogen aan.
+const REGELS_AAN := true
 
 static func soort(n: int) -> String:
 	return String(SOORT[n]) if n >= 0 and n < SOORT.size() else ""
@@ -91,7 +91,10 @@ static func weg_regel(oud_faam: int, nieuw_faam: int) -> String:
 # Het plan van de optocht. Uit: {"wip": bool, "poef": [{niveau, wat, t, munt}], "helden": [niveau, ...], "duur": s}.
 # t = seconden na de wip. Leeg (wip false) als er geen niveau bijkwam.
 static func optocht(oud_faam: int, nieuw_faam: int) -> Dictionary:
-	var bij := erbij(oud_faam, nieuw_faam)
+	return plan(erbij(oud_faam, nieuw_faam))
+
+# Het plan voor een rij niveaus (oplopend).
+static func plan(bij: Array[int]) -> Dictionary:
 	var poef: Array = []
 	var helden: Array[int] = []
 	for n in bij:
@@ -108,3 +111,54 @@ static func optocht(oud_faam: int, nieuw_faam: int) -> Dictionary:
 		poef[i].munt = i == 0 or i == poef.size() - 1
 	var duur: float = poef[-1].t if not poef.is_empty() else 0.0
 	return {"wip": not bij.is_empty(), "poef": poef, "helden": helden, "duur": duur}
+
+# --- Rij bij de ingang (Sanne 16 nov 16:00, voortgang.md "Versie 3 definitief" punt 5) ---------------------------
+# Per keer weg hooguit WEG_MEETEN hol-niveaus meteen (in de optocht); de rest wacht in de rij. Faam blijft helemaal binnen.
+# Elk volgend niveau uit de rij komt na RIJ_S seconden open spelen (de rij wacht als de app dicht is).
+# Zichtbaar niveau = niveau(faam) - rij: eigen vangsten tellen gewoon door.
+const WEG_MEETEN := 4
+const RIJ_S := 180.0
+const RIJ_REGEL := "%d more to come as you play."   # Daan 16:50 (niveaus staan niet aan een deur)
+const NAAM_MAX := 34   # gelijk aan kaartje.gd DOEL_MAX
+
+static func zichtbaar(faam: int, rij: int) -> int:
+	return maxi(1, niveau(faam) - maxi(0, rij))
+
+# Na weg zijn. Uit: {"meteen": [niveaus], "rij": nieuwe rij, "regels": [kroniekregels], "optocht": plan}.
+static func weg(oud_faam: int, nieuw_faam: int, rij_voor: int) -> Dictionary:
+	var van := zichtbaar(oud_faam, rij_voor)
+	var tot := niveau(nieuw_faam)
+	var meteen: Array[int] = []
+	for n in range(van + 1, mini(tot, van + WEG_MEETEN) + 1):
+		meteen.append(n)
+	var rij := maxi(0, tot - van - meteen.size())
+	var regels: Array[String] = []
+	if meteen.size() == 1:
+		regels.append(niveau_regel(meteen[0]))
+	elif meteen.size() > 1:
+		regels.append(WEG_REGEL % meteen.size())
+	if rij > 0:
+		regels.append(rij_regel(rij))
+	return {"meteen": meteen, "rij": rij, "regels": regels, "optocht": plan(meteen)}
+
+static func rij_regel(rij: int) -> String:
+	return RIJ_REGEL % rij
+
+# Naam van het volgende niveau uit de rij met de wachttijd (Iris 17:40: noem wat er komt, geen "door"):
+# "Next: the Thief, in 2 min"; past het niet in NAAM_MAX, dan "Next: level 13, in 2 min".
+static func rij_volgende(faam: int, rij: int, rij_t: float) -> String:
+	var min_ := maxi(1, ceili((RIJ_S - rij_t) / 60.0))
+	var n := zichtbaar(faam, rij) + 1
+	var naam: String = String(WAT[n]) if n < WAT.size() else ""
+	var r := "Next: %s, in %d min" % [naam, min_]
+	if naam == "" or r.length() > NAAM_MAX:
+		r = "Next: level %d, in %d min" % [n, min_]
+	return r
+
+# Hover op het bordje met iets in de rij: "7 more to come. Next: a second pit, in 2 min."
+static func rij_hover(faam: int, rij: int, rij_t: float) -> String:
+	return "%d more to come. %s." % [rij, rij_volgende(faam, rij, rij_t)]
+
+# Doelregel (d): "Next: a second pit, in 2 min"
+static func rij_doel(faam: int, rij: int, rij_t: float) -> String:
+	return rij_volgende(faam, rij, rij_t)
