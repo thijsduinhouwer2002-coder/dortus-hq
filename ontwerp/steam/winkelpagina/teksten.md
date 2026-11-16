@@ -1,11 +1,11 @@
 # Hats of the Fallen: teksten voor de winkelpagina (Sanne)
 
-**Versie 3, 16 nov 2026 ±18:20 UTC:** korte beschrijving en eerste alinea beginnen nu met de hoeden in plaats van "a tiny dungeon" (Fenna, `platformen/succes/onderscheid-hats.md` advies 1: dat is bijna de zin van Don't Rob My Dungeon), eerlijke zin over weg zijn (kwart snelheid, plafond 12 uur, zonder strafwoord) en een zin over diepte met **[v1]**. De oude korte beschrijving staat eronder als archief. De ondertitel *a tiny dungeon on your taskbar* blijft voorlopig in de trailer tot Mila en Daan kiezen; mijn advies: "He wears their hats." (Fenna). **Versie 2, 10 nov 2026** (keuring 1 van Daan verwerkt: naam overal Hats of the Fallen, één verhaal over de hoogte, "No microtransactions" weg, punt 11; prijs volgt `platformen/steam/verdienmodel.md`). Eerste versie 9 nov 2026, 23:05 UTC. Opdracht Thijs 9 nov 23:45 NL: Sanne schrijft de teksten mee, Mila is eigenaar van de wow, Daan keurt, Olaf levert de beelden. De winkel is Engelstalig; de uitleg eromheen is Nederlands.
+**Versie 3a, 16 nov 2026 ±19:00 UTC:** drie woord-moets van Daan (keuring 10) verwerkt: "Gloop the Slime" met hoofdletter, korte beschrijving "right above your taskbar" (280 tekens), "A hero who flees three times becomes your nemesis." Vaste ondertitel weg (sectie 1). **Mijn stem voor trailer 3 tot 6 s: Mila's kelderzin**, als Daan de oude opmerking van de controleur (keuring 3: "basement" zegt eronder, wij zeggen nooit under) laat vallen. Waarom: hij zegt waar en grinnikt, en hij is de eerste vette regel van "About this game", dus één zin op trailer en pagina. Houdt Daan vast aan "above", dan zijn zin; dan blijft de kelderzin ook op de pagina staan (daar staat "right above your taskbar" er direct onder, dus geen verwarring). **Versie 3, 16 nov 2026 ±18:20 UTC:** korte beschrijving en eerste alinea beginnen nu met de hoeden in plaats van "a tiny dungeon" (Fenna, `platformen/succes/onderscheid-hats.md` advies 1: dat is bijna de zin van Don't Rob My Dungeon), eerlijke zin over weg zijn (kwart snelheid, plafond 12 uur, zonder strafwoord) en een zin over diepte met **[v1]**. De oude korte beschrijving staat eronder als archief. De ondertitel *a tiny dungeon on your taskbar* blijft voorlopig in de trailer tot Mila en Daan kiezen; mijn advies: "He wears their hats." (Fenna). **Versie 2, 10 nov 2026** (keuring 1 van Daan verwerkt: naam overal Hats of the Fallen, één verhaal over de hoogte, "No microtransactions" weg, punt 11; prijs volgt `platformen/steam/verdienmodel.md`). Eerste versie 9 nov 2026, 23:05 UTC. Opdracht Thijs 9 nov 23:45 NL: Sanne schrijft de teksten mee, Mila is eigenaar van de wow, Daan keurt, Olaf levert de beelden. De winkel is Engelstalig; de uitleg eromheen is Nederlands.
 
 **Eerlijk-regel voor deze pagina:** elke zin beschrijft iets dat bij het uitbrengen in het spel zit. Zinnen met **[v1]** gaan over features uit versie 1 (`platformen/steam/features.md`) die nog niet gebouwd zijn. Zit zo'n feature er bij het indienen van de binnenkort-pagina (±1 december) nog niet in, dan blijft de zin staan alleen als Olaf bevestigt dat het bij het uitbrengen erin zit; anders gaat hij eruit. Niets over skins of DLC op de pagina tot ze bestaan.
 
 ## 1. Naam
-**Definitief: Hats of the Fallen** (Daan en Mila, 9 nov 23:45 UTC, `taken.md`). Vaste ondertitel *a tiny dungeon on your taskbar*, alleen in tekst en trailer, niet op de capsules. Hieronder mijn eerdere afweging, ter archief.
+**Definitief: Hats of the Fallen** (Daan en Mila, 9 nov 23:45 UTC, `taken.md`). ~~Vaste ondertitel *a tiny dungeon on your taskbar*~~: **weg sinds 16 nov ±19:00 UTC** (Daan en Mila keuring 10: lijkt op Don't Rob My Dungeon). Er is geen vaste ondertitel meer. De zin op trailer 3 tot 6 s kiest Daan (zijn voorstel "Right above your taskbar.", Mila liever "Your taskbar has a basement now.", zie `trailer.md`); mijn stem staat in versie 3a hieronder. Niet op de capsules. Hieronder mijn eerdere afweging, ter archief.
 
 ### Eerdere afweging (9 nov)
 "Het Hol" is een werknaam en zegt een Engelse koper niets. Gezocht in de winkel van Steam (GEZIEN, `store.steampowered.com/api/storesearch`, 9 nov):
@@ -19,7 +19,7 @@
 Mijn advies was Hat Hoard; Daan koos Hats of the Fallen omdat Hat Hoard als verzamelspel klinkt en de grap mist. Akkoord.
 
 ## 2. Korte beschrijving (Steam-veld ±300 tekens, DERDEN/GOK: Valve noemt "a few hundred characters"; deze heeft 277)
-> Gloop the slime eats the heroes who fall into your dungeon and wears their hats. The ones who flee come back with scars, nicknames and a grudge. It all happens in a thin strip on top of your taskbar. Dig, upgrade and laugh between tasks. You're never punished for looking away.
+> Gloop the Slime eats the heroes who fall into your dungeon and wears their hats. The ones who flee come back with scars, nicknames and a grudge. It all happens in a thin strip right above your taskbar. Dig, upgrade and laugh between tasks. You're never punished for looking away.
 
 Waarom versie 3: de eerste woorden zijn nu wat alleen wij hebben (hoeden op Gloop, wrok), "taskbar" blijft erin voor de Desktop Companion-keuring. Alles is waar in de build van main (hap en hoed op ±27 s, wrok binnen 63 tot 75 s, graven, upgrades met Undo).
 
@@ -38,7 +38,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks. Spend your gold on him and he grows.
 >
 > [h2]Heroes hold grudges[/h2]
-> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy.
+> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. A hero who flees three times becomes your nemesis.
 >
 > [h2]Glance, smile, get back to work[/h2]
 > [list]
@@ -66,7 +66,7 @@ Te controleren voor het indienen (Olaf, Bram):
 - "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN). (14 nov Olaf: niet in de bouw, zinnen aangepast, zie eerlijk-check hieronder.)
 - "A crown, a chef's hat, a bucket, a frying pan": zitten in Mila's 10 hoeden en in de code (Bram 22:40). Klopt.
 - "hats pile up next to him ... for weeks": hoedenberg in zes maten, 3000 hoeden na ±110 u open tijd (Bram, sim). Klopt.
-- Archenemy na drie keer vluchten: `kroniek.gd`. De zoon **[v1]**.
+- Nemesis na drie keer vluchten: `kroniek_regels.gd` en `boek.gd` zeggen "nemesis" (Daan keuring 10). De zoon **[v1]**.
 
 **Eerlijk-check Olaf, 14 nov 2026 09:40 UTC (code op main f89cac7 nagelezen):** de tekst hierboven is op zes plekken aangepast, omdat de oude zin niet klopte met wat er in het spel zit. Daan keurt; zegt hij nee, dan staat de oude zin hieronder.
 1. "a tiny **pixel** dungeon": sinds het besluit van Thijs (13 nov 13:35) is de hele app 3D, gerenderd uit Blender. Nu "a tiny dungeon". Om dezelfde reden tag 3 Pixel Graphics naar Stylized.

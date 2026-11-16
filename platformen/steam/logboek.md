@@ -1360,3 +1360,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Meting gewone spel voor Iris: log `HOL zicht` in `strook.gd`, `e2e/ritme_meting.py`, `HOL hol-niveau` met tijd. Windows-duurtest 20 min op 1920x1080 gestart. Lokale headless speelruns weggegooid: venster 0 breed, scriptfouten in `hol.gd` 105/496, niet eerlijk.
 - Hover bordje "N heroes to go." (Daan 18:40), toets 43 tekens.
 - Clips-run 43922157155 (groen): alleen 2-terug, hap en toren niet in 150 s. Beeld 30 s GEZIEN (bordje 6, kaartje +6).
+- 16 nov ±18:50 tot ±19:00 UTC, Sanne: keuring 10 van Daan verwerkt in `teksten.md` (versie 3a: Gloop the Slime, right above your taskbar, nemesis), vaste ondertitel weg; stem voor Mila's kelderzin op trailer 3 tot 6 s, Daan kiest. Berichten van Olaf, Bram, Mila en Daan verwerkt. Drempels 3/5/7/12/17 akkoord.
