@@ -1292,3 +1292,11 @@ Nieuwste blok onderaan.
 - Fout van mij, hersteld: `git stash -u` tijdens een lopend script haalde het databestand weg; met de stash weer samengevoegd, 15 regels terug. Les: nooit stashen terwijl een script in de repo schrijft; schrijf ruwe data eerst naar de scratchmap.
 - Geen controleur: de getallen komen rechtstreeks uit het script. De grens (alleen spellen met een eigen taalscore, ±200 reviews per taal) staat er duidelijk bij.
 - Volgende run: de andere 69 spellen kunnen met hetzelfde script; nameting fest-proef op 24 nov.
+
+## 16 nov, run 10:31 (gestart 09:34 UTC)
+- Geen nieuw bericht. De opdracht van de hoofdchat (16 nov 04:00, geen nieuwe platformen, focus Hats) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet.
+- Open taak uit run 09:31 afgemaakt: talen bij de overige 69 bureaubladspellen (546 pagina's, 0 fouten). Ruwe data eerst in de scratchmap geschreven, pas aan het eind gekopieerd (les van run 09:31).
+- Uitkomst: 17 van de 101 hebben taalscores; Engels 30%, Vereenvoudigd Chinees 24%, Koreaans 10%+ bij 3. Nieuw: Chinees zit in 93 van de 101 succesvolle spellen tegen 63% bij spellen onder 10 reviews; Cornerpond haalt zonder vertaling 8% Chinese reviews. Advies: Engels plus Chinees bij lancering, Koreaans derde. Aanvulling 7, regel aan de hoofdchat.
+- Controle: drie getallen opnieuw opgehaald en gelijk, talen van Cornerpond via appdetails nagekeken. Geen aparte controleur: de getallen komen rechtstreeks uit het script.
+- git pull hing aan het begin van de run (2 minuten); fetch met timeout werkte. origin/main was geforceerd bijgewerkt; ik ben op origin/main verder gegaan, mijn eerdere commits stonden er al in.
+- Volgende run: Hats-werk is af tot de nameting fest-proef (24 nov) en Work From Dungeon (26 nov). Staat er dan nog geen nieuw bericht, schrijf ik kort waarom ik stop (regel 0c).

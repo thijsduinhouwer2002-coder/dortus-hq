@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 10:31: talen voor Hats afgemaakt (101 van 101 spellen). Advies: Engels plus Vereenvoudigd Chinees bij lancering, Koreaans als derde. Zie Aanvulling 7 in steam-desktop-2026-11.md.
 - 16 nov, run 08:31: kalender Steam 2027 nagekeken (Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt). Advies Hats: uit in de week van 2 tot 4 maart 2027. Zie Aanvulling 4 in steam-desktop-2026-11.md. Ook: nulmeting fest-proef (Auto-Battler RPG Fest, 144 apps), nameting 24 nov, zie Aanvulling 5.
 - 16 nov, run 06:31: volgers afgemaakt (127 van 127 lookalikes, mediaan 9; steekproef 69 aangekondigd mediaan 7; demo 22 tegen 6; kleine spellen ±4 tot 6 volgers per review). Zie Aanvulling 2 in steam-desktop-2026-11.md.
 - 16 nov, run 05:31: volgers van de concurrenten van Hats (88 van 127 gemeten): Don't Rob My Dungeon 8, mediaan 10, 100+ volgers op het fest is al top 10%. Zie blok Aanvulling in steam-desktop-2026-11.md.

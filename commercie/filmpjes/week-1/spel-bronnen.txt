@@ -1,0 +1,6 @@
+# Losse beelden uit de echte Windows-build van Hats of the Fallen (Olaf, tak schermen, vast op commit 453aac1).
+# doelmap  map-op-schermen  eerste-nummer  laatste-nummer  (bestand f<nummer*5, 8 cijfers>.png; 3 beelden per s)
+hof-hap1  winkel-1920-demo-160  147  180
+hof-hap2  winkel-1920-demo-160  196  214
+hof-week  winkel-1920-week-160-claude-steam-hol-vol  0  14
+hof-wrok  winkel-1920-demo-160  176  198
