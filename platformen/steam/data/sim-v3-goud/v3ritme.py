@@ -1,4 +1,4 @@
-"""Bram 16 nov ±21:30 UTC: versie 3 (voortgang-v3-eind-bram.json, 4 lagen, graven kost goud) met het nieuwe ritme van
+"""Bram 16 nov ±21:17 UTC: versie 3 (voortgang-v3-eind-bram.json, 4 lagen, graven kost goud) met het nieuwe ritme van
 Sanne (op main sinds 16 nov 20:50: 28 tot 38 s, 15% paar van 6 tot 10 s, Gloop 30 s plat, geen 40 tot 60 meer).
 De v3-tijden in voortgang.md zijn met het oude ritme (35 tot 45, daarna 40 tot 60, plat 60) gemaakt.
 Zelfde vervanging in de bron als Sannes sim-graafbonus/graafbonus.py. Goud: vast 6, of met graafbonus.

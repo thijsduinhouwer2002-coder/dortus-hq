@@ -1,4 +1,4 @@
-"""Bram 16 nov ±21:45 UTC, vraag Sanne 21:00: welke goudregel per val gold in de v3-runs, en wat doet elke vorm met versie 3?
+"""Bram 16 nov ±21:12 UTC, vraag Sanne 21:00: welke goudregel per val gold in de v3-runs, en wat doet elke vorm met versie 3?
 Antwoord uit de code: sim.py lagen_run zet SPEL_ECONOMIE aan, dus vast 6 (+3 per bezoek, +1 vanaf Edelman op hol 10).
 Dit script draait voortgang-v3-eind-bram.json (graven kost goud, 4 lagen) met drie vormen van het goud per val.
 graafbonus: per laag geteld (een nieuwe laag begint met 6 gangen), +1 per 8 zelf gegraven gangen, hooguit +3;
