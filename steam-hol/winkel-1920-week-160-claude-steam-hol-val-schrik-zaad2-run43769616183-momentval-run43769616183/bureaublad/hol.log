@@ -1,0 +1,41 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 57 s (klok terug: false): goud voor 1601, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Gerda vs the Spike Pit: fled again.
+HOL opslag geladen: 1 terugkomers, 1608 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Tibbe
+HOL kroniek 5.1 (wacht 1.0): Tibbe has a map. It is wrong.
+HOL moment vast val t=8.6
+HOL meting t=10 beelden=59 helden=1 hol_vast=2
+HOL meting t=20 beelden=56 helden=1 hol_vast=2
+HOL meting t=30 beelden=57 helden=1 hol_vast=2
+HOL meting t=40 beelden=56 helden=1 hol_vast=2
+HOL meting t=50 beelden=58 helden=1 hol_vast=2
+HOL kroniek 55.0 (wacht 0.0): Wout knocks first. Polite.
+HOL held binnen: Wout
+HOL meting t=60 beelden=130 helden=2 hol_vast=2
+HOL kroniek 68.5 (wacht 0.0): Wout will not be leaving. +6
+HOL meting t=70 beelden=177 helden=1 hol_vast=3
+HOL kroniek 71.0 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=80 beelden=57 helden=1 hol_vast=3
+HOL meting t=90 beelden=57 helden=1 hol_vast=3
+HOL meting t=100 beelden=55 helden=1 hol_vast=3
+HOL kroniek 107.5 (wacht 0.0): Joost picks the lock. It was open.
+HOL held binnen: Joost
+HOL meting t=110 beelden=95 helden=2 hol_vast=3
+HOL kroniek 116.6 (wacht 0.0): Joost found the Spike Pit. Hard. +6
+HOL kroniek 119.1 (wacht 2.5): New page: the Thief. Spikes: one.
+HOL meting t=120 beelden=152 helden=1 hol_vast=3
+HOL meting t=130 beelden=54 helden=1 hol_vast=3
+HOL meting t=140 beelden=54 helden=1 hol_vast=3
+HOL meting t=150 beelden=58 helden=1 hol_vast=3
+HOL kroniek 150.7 (wacht 0.0): Sir Fenna clanks in.
+HOL held binnen: Fenna
+HOL meting t=160 beelden=190 helden=2 hol_vast=3
+HOL kroniek 164.2 (wacht 0.0): Fenna fell to the Spike Pit. +6
+HOL kroniek 166.7 (wacht 2.5): Booked: the Knight. The pit got him.
+HOL meting t=170 beelden=115 helden=1 hol_vast=3
+HOL meting t=180 beelden=58 helden=1 hol_vast=3
