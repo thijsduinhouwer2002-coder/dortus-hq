@@ -1,43 +1,49 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 41, helden 151, erbij 715, hoeden 52
-HOL hol-niveau 3 (faam 97)
-HOL hol-niveau 4 (faam 97)
-HOL hol-niveau 5 (faam 97)
-HOL hol-niveau 6 (faam 97)
-HOL hol-niveau 7 (faam 97)
-HOL hol-niveau 8 (faam 97)
-HOL hol-niveau 9 (faam 97)
-HOL hol-niveau 10 (faam 97)
-HOL hol-niveau 11 (faam 97)
-HOL hol-niveau 12 (faam 97)
-HOL kroniek 0.0 (wacht 0.0): Pim vs Gloop the Slime: settled.
+HOL weg geweest 28802 s (klok terug: false): goud voor 47, helden 151, erbij 715, hoeden 48
+HOL hol-niveau 3 (faam 98)
+HOL hol-niveau 4 (faam 98)
+HOL hol-niveau 5 (faam 98)
+HOL hol-niveau 6 (faam 98)
+HOL hol-niveau 7 (faam 98)
+HOL hol-niveau 8 (faam 98)
+HOL hol-niveau 9 (faam 98)
+HOL hol-niveau 10 (faam 98)
+HOL hol-niveau 11 (faam 98)
+HOL hol-niveau 12 (faam 98)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 48 new hats.
 HOL rij bij de ingang 6 (meteen [3, 4, 5, 6])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 1 terugkomers, 756 goud, faam 97
+HOL opslag geladen: 0 terugkomers, 762 goud, faam 98
 HOL start hoogte=160 schaal=4 spelpixels=480x40 venster=(1920, 160) pos=(0, 872) held=res://systemen/held.gd
-HOL zaad 1794850632
-HOL eerste koop mogelijk na 220 s speeltijd (goud 756)
+HOL zaad 1794851550
+HOL eerste koop mogelijk na 220 s speeltijd (goud 762)
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL bordje wip na weg (niveau 6)
-HOL kroniek 2.5 (wacht 2.5): 151 came, 94 fell, 52 hats. +715 gold.
-HOL held binnen: Gerda
-HOL kroniek 5.1 (wacht 5.1): Your hole worked at quarter speed.
-HOL kroniek vervallen 7.1: Gerda brought a torch. And hope.
-HOL kroniek 7.6 (wacht 7.6): Grew 4 levels while you were away.
+HOL kroniek 2.5 (wacht 2.5): 151 came, 94 fell, 48 hats. +715 gold.
+HOL held binnen: Fenna
+HOL kroniek 5.1 (wacht 5.1): Grew 4 levels while you were away.
+HOL kroniek vervallen 7.1: Fenna says this is a quick one.
+HOL kroniek 7.6 (wacht 7.6): 6 more to come as you play.
 HOL meting t=10 beelden=300 helden=1 hol_vast=1
-HOL kroniek 10.1 (wacht 10.1): 6 more to come as you play.
-HOL kroniek 12.7 (wacht 12.7): Bram retired. Tells tall tales now.
+HOL kroniek 10.1 (wacht 10.1): Tibbe retired. Tells tall tales now.
 HOL kroniek 19.7 (wacht 0.0): Gloop is flat. Back soon.
 HOL meting t=20 beelden=301 helden=1 hol_vast=1
-HOL kroniek 29.8 (wacht 0.0): Gerda escaped with a limp.
+HOL kroniek 29.8 (wacht 0.0): Fenna ran. Swore revenge.
 HOL meting t=30 beelden=301 helden=0 hol_vast=1
 HOL meting t=40 beelden=301 helden=0 hol_vast=1
-HOL meting t=50 beelden=301 helden=0 hol_vast=1
-HOL kroniek 52.3 (wacht 0.0): Gerda wrote a song about Gloop.
+HOL kroniek 48.9 (wacht 0.0): Gerda knocks first. Polite.
 HOL held binnen: Gerda
-HOL meting t=60 beelden=301 helden=1 hol_vast=1
-HOL meting t=70 beelden=301 helden=1 hol_vast=1
-HOL kroniek 72.0 (wacht 0.0): Gerda touched your hoard!
+HOL meting t=50 beelden=301 helden=1 hol_vast=1
+HOL meting t=60 beelden=301 helden=1 hol_vast=2
+HOL kroniek 60.8 (wacht 0.0): Gerda stays forever. +6
+HOL meting t=70 beelden=301 helden=0 hol_vast=3
 HOL kroniek 79.7 (wacht 0.0): Gloop is up again. Wobbly.
-HOL meting t=80 beelden=301 helden=1 hol_vast=1
-HOL kroniek 84.1 (wacht 0.0): Gerda ran. Hands smell of gold.
-HOL meting t=90 beelden=301 helden=0 hol_vast=1
+HOL meting t=80 beelden=301 helden=0 hol_vast=3
+HOL meting t=90 beelden=301 helden=0 hol_vast=3
+HOL kroniek 99.0 (wacht 0.0): Fenna the Once-Fled is back. Grudge: Gloop
+HOL held binnen: Fenna
+HOL meting t=100 beelden=301 helden=1 hol_vast=3
+HOL meting t=110 beelden=301 helden=1 hol_vast=4
+HOL kroniek 110.9 (wacht 0.0): Fenna found the Spike Pit. Hard. +9
+HOL meting t=120 beelden=301 helden=0 hol_vast=5
+HOL meting t=130 beelden=301 helden=0 hol_vast=5
+HOL meting t=140 beelden=301 helden=0 hol_vast=5

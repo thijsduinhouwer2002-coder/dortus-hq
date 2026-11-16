@@ -1,2 +1,3 @@
+3-toren: niet gevonden in de log
 1-hap: niet gevonden in de log
-2-terug: niet gevonden in de log
+2-terug: t=99.0 s, beelden 2910 tot 3270, 12.0 s, 334113 bytes, regel: Fenna the Once-Fled is back. Grudge: Gloop
