@@ -231,11 +231,16 @@ class GloopFaceView extends WatchUi.WatchFace {
         var midden = Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER;
         var nu = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         tekst(dc, p[2], p[3], Graphics.FONT_XTINY, (nu.day_of_week as String).toUpper() + " " + nu.day, 0xFFAA00, midden);
-        tekst(dc, p[2], p[6], Graphics.FONT_TINY, Regel.punt(stappen), 0x55FFAA, midden);
-        tekst(dc, p[2], p[7], Graphics.FONT_XTINY, Regel.regel(stappen, doel), 0xFFAA00, midden);
+        // Stappen en regel links uitgelijnd op de linkerrand van de tijd (moet 4 van Daan, 16 nov 12:55 UTC):
+        // het blok hoort bij de tijd en blijft zo vrij van Gloop en de toren. Op MIP de regel 4 px lager (Mila).
+        var links = p[2] - 2 * p[9] + p[11];
+        var linksUit = Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER;
+        tekst(dc, links, p[6], Graphics.FONT_TINY, Regel.punt(stappen), 0x55FFAA, linksUit);
+        tekst(dc, links, p[7] + (w < 320 ? 4 : 0), Graphics.FONT_XTINY, Regel.regel(stappen, doel), 0xFFAA00, linksUit);
 
         // Vrij veld onderaan: nu de hartslag met een getekend hartje.
-        var hs = "--";
+        // Zonder hartslag alleen het hartje (kan a van Daan); het hartje staat links van Gloops voet (Mila: 0,36).
+        var hs = "";
         var act = Activity.getActivityInfo();
         if (act != null && act.currentHeartRate != null) {
             hs = (act.currentHeartRate as Number).toString();
@@ -244,7 +249,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         if (r < 3) {
             r = 3;
         }
-        var hx = (w * 0.45).toNumber();
+        var hx = (w * 0.36).toNumber();
         var hy = p[8];
         dc.setColor(0xFF5555, Graphics.COLOR_TRANSPARENT);
         dc.fillCircle(hx - r, hy - r / 2, r);
@@ -325,7 +330,15 @@ class GloopFaceView extends WatchUi.WatchFace {
         dc.drawText(x + 1, y, font, s, uitlijning);
         dc.drawText(x, y - 1, font, s, uitlijning);
         dc.drawText(x, y + 1, font, s, uitlijning);
+        // Nep-vet op AMOLED (moet 2 van Daan): de systeemletter is daar dun naast de dikke cijferplaatjes.
+        var vet = (dc.getWidth() >= 320);
+        if (vet) {
+            dc.drawText(x + 2, y, font, s, uitlijning);
+        }
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, font, s, uitlijning);
+        if (vet) {
+            dc.drawText(x + 1, y, font, s, uitlijning);
+        }
     }
 }
