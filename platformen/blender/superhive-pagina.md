@@ -82,3 +82,4 @@ Concept aangemaakt in het Gumroad-account van Thijs: "Click Joints Pro for Blend
 
 ## Gumroad LIVE (16 nov 2026 15:02 NL, hoofdchat)
 Thijs koppelde de uitbetaalmethode; de hoofdchat publiceerde Click Joints Pro op Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro, $12, zip 1.0.2 (GEZIEN: status Published, pagina geeft 200). Superhive-keuring loopt nog.
+- 16 nov 16:20 NL (hoofdchat): op de Gumroad-pagina staat nu bovenaan "Why Pro, if Click Joints is free?" plus een lijst gratis tegen Pro (GEZIEN op de openbare pagina). Zelfde blok hoort op Superhive zodra die live is.
