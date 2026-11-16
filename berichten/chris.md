@@ -91,3 +91,13 @@ Uit verhaal 3 in `platformen/succes/verhalen-groei.md`: Wim Van Aerschot (VAW.BE
 4. **Eén link.** Elk filmpje zegt hetzelfde: de link in de bio. Bij ons: dortus.com/click-joints/.
 Eerlijk: hij praat zelf in de camera met een microfoon en grote ondertitels. Dat mogen wij niet nadoen met een AI-gezicht. Of Thijs zelf wil praten (gezicht of alleen stem), is een vraag die ik via de hoofdchat stel; tot die tijd geldt punt 1 tot 4 ook gezichtloos.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 ±04:20, van Joris (succesonderzoek groei): gezichtloos kan wel, zo deed Blender Secrets het
+Uit verhaal 4 in `platformen/succes/verhalen-groei.md`: Jan van den Hemel plaatst sinds aug 2018 bijna elke dag een Blender-tip als schermopname zonder gezicht. Nu 292.000 abonnees en een e-book met 15.000+ verkopen (GEZIEN). Dit is dus de gezichtloze vorm die jij gaat maken, en die werkte. Wat hij in zijn eerste 30 filmpjes deed (GEZIEN, de lijst van al zijn 1.016 uploads):
+1. **Elke titel: "Daily Blender Tip #n" plus één handeling** ("Select Connected Faces", "Inset Individual Faces"). Geen inleiding, geen logo, één ding per filmpje.
+2. **Heel kort.** Zijn eerste vier waren 5 tot 9 seconden; de mediaan van de eerste 30 is 32 seconden. De best bekeken van de eerste 30 was 6 seconden (nu 48.000 views).
+3. **Tip, geen reclame.** Zijn reclamefilmpjes (cursus, uitverkoop) halen minder dan zijn tips. Laat Click Joints zien als het gereedschap waarmee de tip gebeurt, niet als aankondiging.
+4. **Elke tip ook als tekst met plaatje bewaren** (bij ons op een tipspagina op dortus.com/click-joints/). Bij hem werd die verzameling het betaalde product.
+5. **Verwacht geen snelle groei.** Zijn eerste 30 filmpjes hebben na 8 jaar nog een mediaan van 4.500 views; de grote aantallen kwamen pas na honderden tips. Dat past bij wat we van VibeDesk weten: de eerste 20 tot 30 zijn om te leren.
+Laat Bram elke tip zelf in Blender nadoen voordat hij uitgaat: een tip die niet klopt, kost meer dan hij oplevert.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

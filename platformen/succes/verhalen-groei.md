@@ -1,8 +1,66 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: VAW.BE, Garmin-wijzerplaten met dagelijkse filmpjes, klaar 16 nov 2026 ±03:45 NL-tijd). Volgende: een Blender- of 3D-print-maker die met tips-filmpjes (niet productfilmpjes) groeide, of Reddit en nieuwsbrieven als kanaal.
+bezig: niets (laatste: Blender Secrets, gezichtloze Blender-tips van één minuut, klaar 16 nov 2026 ±04:20 NL-tijd). Volgende: Reddit of nieuwsbrieven als kanaal voor een kleine tool, of een 3D-print-maker die met tips groeide.
 
 Nieuwste bovenaan.
+
+---
+
+## 4. Blender Secrets (Jan van den Hemel, solo, Gent): elke dag een Blender-tip van een minuut zonder gezicht, en een e-book van $52 met 15.000+ verkopen
+
+Onderzocht 16 nov 2026, run 4. Open vraag uit run 3: een Blender- of printmaker die groeide met tips-filmpjes, niet met productfilmpjes. Waarom dit verhaal: dit is het tegenvoorbeeld van mijn les uit verhaal 3 ("een echt persoon is de haak"). Jan van den Hemel maakt sinds aug 2018 bijna elke dag een schermopname van één Blender-handeling, zonder gezicht, met een nummer erbij ("Daily Blender Tip #1"). Daarmee bouwde hij een kanaal van 292.000 abonnees en verkoopt hij de verzamelde tips als e-book. Hij werd er fulltime maker door.
+
+### Bronnen
+- Interview met hem (Subkit / Collabs.io Mag, ±2022, curl): https://gosolo.subkit.com/blender-secrets
+- Gumroad, productpagina met verkoopteller in de pagina (`sales_count`, curl): https://blendersecrets.gumroad.com/l/IxofeY
+- Superhive, productpagina met "Sales 2000+" (curl): https://superhivemarket.com/products/blender-secrets
+- YouTube-kanaal @blendersecrets (tellers op de pagina, curl) en de volledige lijst van alle 1.016 uploads met views en lengte (yt-dlp, alleen de openbare lijst, `--flat-playlist`): https://www.youtube.com/@blendersecrets
+- BlenderNation: zijn auteurspagina's met elke dagtip als bericht, en datums (curl): https://www.blendernation.com/author/jan-van-den-hemel/page/50/ (tip 145 op 22 jan 2019), page/45 (tip 210 op 30 mrt 2019). Eerste e-book, 30 mrt 2019: https://www.blendernation.com/2019/03/30/100-amazing-blender-tips-vol-1-e-book/ . Update okt 2020: https://www.blendernation.com/2020/10/04/blender-secrets-e-book-update-promoted/ . 2000 pagina's, jul 2024: https://www.blendernation.com/2024/07/02/blender-secrets-e-book-now-2000-pages-promoted/
+- TikTok @blendersecrets (blok in de pagina, curl) en Bluesky (openbare API).
+- Niet gelukt: zijn eigen site blendersecrets.org en 3dsecrets.com (Cloudflare blokkeert curl), archive.org (geen antwoord), Instagram (inloggen gevraagd), uploaddatum per YouTube-filmpje (YouTube vraagt inloggen). Datums haal ik dus uit BlenderNation, niet uit YouTube.
+
+### Cijfers
+- YouTube (GEZIEN 16 nov 2026): 292.000 abonnees, 35,2 miljoen views, 1.016 openbare uploads. TikTok: 11.800 volgers, 111 filmpjes, 100.700 likes. Bluesky: 4.033 volgers. Instagram is volgens hemzelf zijn startkanaal, maar de teller kon ik niet lezen.
+- E-book "Blender Secrets", $52 (GEZIEN): op Gumroad **13.408 verkopen** en 1.751 beoordelingen (97% vijf sterren); op Superhive "2000+" verkopen en 25 beoordelingen, gepubliceerd "over 7 years ago". Samen dus minstens ±15.400 verkopen.
+- Omzet: niet openbaar. GOK, grof: de prijs was vroeger lager (hij begon met 335 pagina's), en de Gumroad-teller telt kortingen mee. Bij gemiddeld $20 tot $35 per verkoop is dat ±$300.000 tot ±$540.000 bruto in ruim 7,5 jaar, vóór afdrachten. Dat hij zijn freelancewerk kon stoppen "since the e-book took off" (EIGEN OPGAVE, interview) past daarbij.
+- Datums (GEZIEN op BlenderNation, één bericht per dagtip): tip 145 op 22 jan 2019, tip 210 op 30 mrt 2019, tip 246 op 5 mei 2019, tip 286 op 14 jun 2019. Dat is echt elke dag één, dus tip 1 viel rond eind aug 2018.
+- Views per deel van de reeks (GEZIEN, views van nu, dus opgeteld over alle jaren; oude filmpjes hadden langer de tijd):
+
+| Filmpjes | Mediaan views | Mediaan lengte |
+|---|---|---|
+| 1 tot 30 | 4.500 | 32 sec |
+| 31 tot 100 | 2.350 | 95 sec |
+| 101 tot 300 | 6.000 | 56 sec |
+| 301 tot 600 | 17.500 | 52 sec |
+| 601 tot 800 | 44.000 | 62 sec |
+| 801 tot 1016 | 20.000 | 66 sec |
+
+- Zijn eerste 30 filmpjes (GEZIEN): allemaal "Daily Blender Tip #n" met één handeling in de titel: "Select Connected Faces" (7 sec), "Hide Everything Except Selected" (5 sec), "Copy Animation From One Object To Another" (9 sec, nu 29.000 views), "Inset Individual Faces" (6 sec, nu 48.000, de beste van de 30). De kortste (5 tot 9 sec) doen het in de eerste 30 het best; vanaf tip 8 worden ze 20 tot 60 sec.
+- Best bekeken ooit (GEZIEN): "The easiest modeling technique?" 560.000 (47 sec), "Hand Topology Animation" 397.000, "Texturing a face" 362.000, "Turn vertices into Holes" 328.000. Allemaal een tip, geen reclame.
+- Zijn reclamefilmpjes (cursussen, e-book, uitverkoop, 7 stuks) hebben een mediaan van 10.000 views, tegen 16.000 voor het hele kanaal.
+
+### Wat hij deed, in volgorde
+1. **Een gat gezien dat hij zelf voelde.** "The tutorials on YouTube were all overly long, and it took me forever to find the info I really needed. So I started making those one-minute tutorials as it seemed nobody else was doing it" (interview). Hij was toen freelance motion designer en deed het "for fun in my spare time".
+2. **Aug 2018: elke dag één tip, met nummer.** Schermopname, geen gezicht, geen stem nodig, één handeling per filmpje. Elke tip ging naar Instagram, YouTube, Twitter en als los bericht naar BlenderNation, de grote nieuwssite voor Blender waar iedereen berichten kan insturen. Zo stond hij elke dag op de voorpagina van de plek waar Blender-gebruikers nieuws lezen.
+3. **Mrt 2019, na ±210 tips: het eerste e-book.** "100 Amazing Blender Tips: Vol. 1", 335 pagina's, op Gumroad, met de belofte "receive Volume 2 for free when it comes out". Het boek is de tips op papier, met extra stappen die niet in het filmpje pasten, en elk hoofdstuk linkt naar zijn filmpje. Zelf zegt hij: "I spent about a year doing daily videos on Instagram before I started using it to advertise my e-book."
+4. **Vroeg verkopen, daarna laten groeien.** "Don't hide behind perfection. Get it out there and start selling it as soon as possible. I started selling my e-book when it was just a couple hundred pages." Updates gratis voor kopers; kopers stuurden wensen (okt 2020: één groot PDF en ordening per thema, "as per popular request"). Nu 2000+ pagina's en 600+ onderwerpen.
+5. **Twee winkels, plus betaalde berichten.** Gumroad en Blender Market (nu Superhive). Bij grote updates een "promoted" (betaald) bericht op BlenderNation (okt 2020, jul 2024). Later cursussen op een eigen site (3DSecrets) en samenwerking met CG Boost.
+6. **Gewoon doorgaan.** 1.016 uploads in ruim 7 jaar. De views per filmpje kwamen pas na honderden filmpjes op een hoger niveau (mediaan 2.350 bij 31 tot 100, 44.000 bij 601 tot 800).
+
+### Drie lessen
+1. **Gezichtloos kan wel, als elk filmpje iemand tijd bespaart.** Dit is de grootste gezichtloze groei in onze reeks: 292.000 abonnees met schermopnames zonder persoon. Het verschil met VibeDesk (verhaal 2, ook gezichtloos, bleef op 39 tot 363 views) zit niet in het gezicht maar in het onderwerp: VibeDesk liet zijn eigen product zien, Jan beantwoordt een vraag die elke Blender-gebruiker heeft. Dat bevestigt les 1 uit verhaal 3 en zwakt les 2 af: de haak is nut, een gezicht is een plus, geen eis.
+2. **Het product is de verzameling van de gratis filmpjes, plus wat er niet in paste.** Kijkers kregen elke dag gratis een tip; wie alles bij elkaar wil, met extra stappen en zoekbaar, betaalt $52. Zijn reclamefilmpjes doen het slechter dan zijn tips (mediaan 10.000 tegen 16.000), dus de verkoop loopt via de naam en de link, niet via reclame in de feed.
+3. **Elke dag, met een nummer, en op meer plekken tegelijk, jarenlang.** Zijn eerste 30 filmpjes hebben nu nog maar een mediaan van 4.500 views, na 8 jaar. De groei kwam na honderden tips. Elke tip ging ook als bericht naar BlenderNation, een gratis plek waar zijn kopers al kwamen. En hij verkocht al na ±7 maanden, met een half boek.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Hij begon in 2018, vlak voor Blender 2.8 (2019), toen heel veel nieuwe gebruikers instroomden en er nog bijna geen korte Blender-tips waren. Nu zijn er veel meer. Dat speelt mee, en is niet te meten.
+- Hij is een ervaren Blender-professional die zelf elke dag iets nieuws leert en laat zien. Onze tips moeten echt kloppen; Bram en Chris moeten elke tip zelf in Blender nadoen voor hij uitgaat.
+- Zijn product is kennis (een boek), het onze is gereedschap (een add-on). Bij hem is de stap van filmpje naar product heel klein. Bij ons moet de tip vanzelf naar Click Joints leiden, dus tips over print-in-place en gewrichten, niet over alles in Blender.
+- Views van nu zeggen weinig over views in de eerste weken. Hoe zijn kanaal er in 2018 en 2019 uitzag, kon ik niet zien (archive.org gaf geen antwoord). Verkoopcijfers per jaar zijn niet openbaar.
+- Plaatsen op BlenderNation of andere sites doen wij niet zelf: dat is plaatsen op internet, dus dat doet Thijs. BlenderNation plaatst nog steeds tutorials van gebruikers (GEZIEN: in de rubriek Tutorials 8 nieuwe tussen 31 okt en 15 nov 2026, en Jan zelf nog op 20 jan en 3 mrt 2026), maar de regels voor insturen kon ik niet lezen: de pagina Submit News toont zonder JavaScript geen tekst. Thijs leest die dus eerst zelf.
+
+### Voorstel voor Dortus deze week
+**Maak van de tips-reeks voor Click Joints een genummerde reeks van één handeling per filmpje, zo kort als het kan (de eerste 10 onder 15 seconden), en houd bij elke tip een korte tekst met plaatje bij op dortus.com/click-joints/ (een tipspagina).** Voorbeelden: "Print-in-place tip #1: waarom een gewricht vastsmelt (te weinig speling)", "#2: zet het gewricht plat op het bed", "#3: hoe test je eerst één gewricht". Die tipspagina wordt na 20 tot 30 tips een gratis gids, en later kan de Pro-versie of een gids in de winkel daar op voortbouwen, zoals zijn e-book. **Wie:** Chris maakt de reeks (tekst in beeld, geen gezicht nodig), Bram doet elke tip echt na in Blender en levert het beeld. **Voor Thijs, op `organisatie/lijst-thijs.md` via de hoofdchat, geen haast:** de tips ook als bericht insturen bij BlenderNation (gratis, één keer per week, alleen tips en geen reclame), want dat deed Jan bij elke tip. Na 30 tips eerlijk kijken naar views en downloads, zoals besloten.
 
 ---
 
