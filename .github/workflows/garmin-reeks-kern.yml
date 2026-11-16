@@ -1,0 +1,123 @@
+name: Garmin reeks kern proef (Connect IQ simulator)
+
+# Bouwstraat voor de kale proef van de reeks datawijzerplaten (Gijs, 16 nov 2026), kopie van
+# garmin-wijzerplaat-gloop.yml: compileren, Run No Evil-tests en schermafbeeldingen in de echte Connect IQ-simulator.
+# De proef schrijft regels "KERN ..." in het log: wat het horloge geeft aan geschiedenis van Body Battery en
+# stress, weer per uur, geheugen en tekentijd. Die regels komen in uitslag.txt naast de beelden.
+# De image draait alleen in de bouw-job zonder schrijfrechten; alleen de job "schermen" mag pushen.
+
+on:
+  push:
+    branches: ["claude/garmin-reeks*"]
+    paths: ["producten/garmin-reeks-kern/**", ".github/workflows/garmin-reeks-kern.yml"]
+  workflow_dispatch:
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      APP: producten/garmin-reeks-kern
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen (tot drie pogingen)
+        run: |
+          for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Tests in de simulator (fenix7)
+        run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fenix7
+      - name: Schermafbeeldingen en uitslag per horloge
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/$APP/schermen"
+          cat > /tmp/schermen.sh <<'SH'
+          set -x
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          simulator > /tmp/sim.log 2>&1 &
+          sleep 8
+          U=schermen/uitslag.txt
+          : > "$U"
+          # Hoeveel geheugen geeft elk horloge uit het manifest aan een wijzerplaat, en welke Connect IQ-versie?
+          for d in $(grep -o 'product id="[^"]*"' manifest.xml | cut -d'"' -f2); do
+            f=$(find / -path "*Devices/$d/compiler.json" 2>/dev/null | head -1)
+            echo "LIMIET $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '{[^{}]*"watchFace"[^{}]*}') $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"connectIQVersion":"[^"]*"' | sort -u | tail -1)" >> "$U" || true
+          done
+          # Bouwt het pakket voor alle horloges uit het manifest? (wegwerpsleutel, niet voor de winkel)
+          mkdir -p /tmp/prg
+          if monkeyc -e -r -w -f monkey.jungle -y /tmp/key.der -o /tmp/prg/proef.iq > /tmp/iq-proef.log 2>&1; then
+            echo "IQ_PROEF ja, horloges in manifest: $(grep -c 'iq:product id' manifest.xml), $(stat -c %s /tmp/prg/proef.iq) bytes, waarschuwingen: $(grep -ci warning /tmp/iq-proef.log || true)" >> "$U"
+          else
+            echo "IQ_PROEF nee" >> "$U"; tail -40 /tmp/iq-proef.log
+          fi
+          for d in fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2; do
+            monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
+            echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
+            monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
+            MD=$!
+            sleep 12
+            for n in 1 2 3; do
+              import -window root "schermen/$d-$n.png"
+              sleep 1.5
+            done
+            kill "$MD" 2>/dev/null || true
+            grep -a "^KERN" "/tmp/do-$d.log" | head -12 | sed "s/^/$d /" >> "$U" || true
+            grep -a -i "error\|exception" "/tmp/do-$d.log" | head -5 | sed "s/^/$d LOG /" >> "$U" || true
+            tail -5 "/tmp/do-$d.log"
+            sleep 2
+          done
+          mogrify -fuzz 2% -trim +repage schermen/*.png
+          cat "$U"
+          ls -la schermen
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: garmin-reeks-kern-schermen
+          path: producten/garmin-reeks-kern/schermen
+          if-no-files-found: warn
+
+  schermen:
+    needs: bouw
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: garmin-reeks-kern-schermen
+          path: schermen
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$PWD/schermen"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/garmin-reeks-kern/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen garmin-reeks-kern/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/garmin-reeks-kern/$NAAM"
