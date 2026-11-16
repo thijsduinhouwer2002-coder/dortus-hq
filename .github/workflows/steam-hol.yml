@@ -81,6 +81,26 @@ jobs:
             Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
+      - name: Gloop plat zonder regel op 96 en 120 px (Daan 16 nov 20:35)
+        shell: pwsh
+        run: |
+          # plat_proef=1: de twee "flat"-regels van deze speelbeurt zijn al op, Gloop gaat meteen plat en blijft plat.
+          # Beeld om te keuren of hij zonder tekst leest; de log moet "HOL plat zonder regel" hebben en geen "flat"-regel.
+          $uit = "producten/steam-hol/e2e/screenshots"
+          $fout = 0
+          foreach ($h in @(96, 120)) {
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/plat-$h.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h vers=1 plat_proef=1 duur=24 log=$log" -PassThru
+            Start-Sleep 16
+            & producten/steam-hol/e2e/scherm.ps1 "$uit/plat-$h.png"
+            $p.WaitForExit(30000) | Out-Null
+            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+            Write-Output "===== log plat $h"; Get-Content $log -ErrorAction SilentlyContinue
+            if (-not (Select-String -Path $log -Pattern "HOL plat zonder regel" -Quiet)) { Write-Output "FOUT: geen plat zonder regel op $h"; $fout++ }
+            if (Select-String -Path $log -Pattern "HOL kroniek.*(flat|up again)" -Quiet) { Write-Output "FOUT: toch een plat-regel op $h"; $fout++ }
+          }
+          if ($fout -gt 0) { exit 1 }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |

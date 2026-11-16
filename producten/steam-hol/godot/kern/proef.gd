@@ -36,6 +36,7 @@ static func lees_argumenten(s) -> void:
 			"royal_proef": s.proef_royal = kv[1] == "1"
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
+			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
 			"spuug_proef": s.proef_spuug = clampi(int(kv[1]), 0, 3)
 			"moment": s.proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
@@ -73,6 +74,10 @@ static func na_slijm(s) -> void:
 # Na het laden van de save: put en Royal meteen op hun stap.
 static func na_laad(s) -> void:
 	var hol = s.hol
+	# plat_proef=1: de twee regels van deze speelbeurt zijn al op, Gloop gaat meteen plat en blijft plat (Daan 16 nov 20:35)
+	if s.proef_plat and "plat_tot" in s.slijm:
+		s.plat_keer = preload("res://kern/wachtrij.gd").PLAT_KEER
+		s.slijm.plat_tot = float(s.slijm.t) + 9999.0
 	if s.proef_put > 0 and hol.upgrades != null:
 		hol.upgrades.niveaus["stekelput"] = s.proef_put
 		hol.queue_redraw()
