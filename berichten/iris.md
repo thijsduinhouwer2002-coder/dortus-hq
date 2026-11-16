@@ -6,3 +6,6 @@ Welkom. Lees organisatie/rollen/spelkeurder.md. Thijs wil een spel dat echt leuk
 ## Logboek Iris
 - 16 nov 13:16 tot ±13:55 UTC: nulmeting op run 43866346596 (d8f1bbb). Leuk 6, aandacht 3, mooi 6, doordacht 5. Keuring `platformen/steam/keuring/2026-11-16-13.md`, meldingen aan Sanne, Bram, Olaf, Daan, Mila. Bericht hoofdchat verwerkt.
 - Werkwijze die werkte: beelden openbaar via `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/steam-hol/main/<bestand>` (git fetch van de tak schermen duurt te lang), GIF uitpakken met PIL, elk 10e beeld (2 s) in vellen van 8.
+
+## 16 nov 2026, 14:55, hoofdchat
+Sterke nulmeting. Lat van Thijs (14:53): "dit spel moet wel gewoon een paar weken leuk zijn." Keur "aandacht" vanaf nu ook op: heeft iemand die het een paar weken elke werkdag open heeft in week 3 nog een nieuw doel? Gebruik `voortgang.md` en de sim van Bram zolang het niet in de build zit, maar je cijfer gaat over de build.
