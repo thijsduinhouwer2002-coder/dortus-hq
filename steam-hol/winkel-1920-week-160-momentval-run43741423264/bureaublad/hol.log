@@ -1,0 +1,44 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 56 s (klok terug: false): goud voor 1601, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): the Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1608 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 1794822015
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Rik
+HOL kroniek 5.2 (wacht 1.1): Rik has a map. It is wrong.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=101 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Rik ran. Swore revenge.
+HOL kroniek 27.6 (wacht 2.5): New page: the Hero. He got away.
+HOL meting t=30 beelden=56 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL meting t=50 beelden=8 helden=0 hol_vast=1
+HOL kroniek 57.0 (wacht 0.0): Sir Wout polished his armor for this.
+HOL held binnen: Wout
+HOL meting t=60 beelden=49 helden=1 hol_vast=1
+HOL kroniek 62.5 (wacht 0.0): Wout stays forever. +6
+HOL kroniek 65.0 (wacht 2.5): New stamp for the Knight. The pit got him.
+HOL meting t=70 beelden=54 helden=0 hol_vast=2
+HOL meting t=80 beelden=19 helden=0 hol_vast=2
+HOL meting t=90 beelden=10 helden=0 hol_vast=2
+HOL meting t=100 beelden=8 helden=0 hol_vast=2
+HOL kroniek 101.5 (wacht 0.0): Lotte the Wizard sniffs for traps.
+HOL held binnen: Lotte
+HOL meting t=110 beelden=182 helden=1 hol_vast=2
+HOL meting t=120 beelden=200 helden=1 hol_vast=2
+HOL kroniek 122.5 (wacht 0.0): Lotte fled, crying a little.
+HOL kroniek 125.1 (wacht 2.5): Page for the Wizard. Ran off. Counts.
+HOL meting t=130 beelden=48 helden=0 hol_vast=2
+HOL meting t=140 beelden=10 helden=0 hol_vast=2
+HOL kroniek 143.7 (wacht 0.0): Tibbe climbs into your hole.
+HOL held binnen: Tibbe
+HOL kroniek 149.2 (wacht 0.0): Tibbe found the Spike Pit. Hard. +6
+HOL meting t=150 beelden=114 helden=0 hol_vast=2
+HOL kroniek 151.7 (wacht 2.5): New stamp for the Hero. Spikes: one.
+HOL meting t=160 beelden=9 helden=0 hol_vast=2
+HOL meting t=170 beelden=8 helden=0 hol_vast=2
+HOL meting t=180 beelden=10 helden=0 hol_vast=2
+HOL kroniek 189.0 (wacht 0.0): Gerda is here for your gold.
+HOL held binnen: Gerda
