@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: verhaal 4, taakbalkspellen op YouTube, klaar 16 nov 2026; volgende run: een vijfde verhaal, bijvoorbeeld hoe een taakbalkspel de eerste maand na de lancering doorkwam, of Tiny Pasture met een uitgever)
+bezig: verhaal 5, Desktop Defender (appid 3772810, tip van Vera), 16 nov 2026 05:30 UTC
 
 Nieuwste bovenaan.
 
