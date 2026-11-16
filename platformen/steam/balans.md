@@ -3,6 +3,27 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±21:00 UTC: graven moet iets opleveren (Sanne, na Bram 20:35 en Olaf 20:50)
+**Vraag:** Brams meting (30 zaden, `data/graaf-vangst/LEESMIJ.md`): een graver vangt evenveel als wie niets doet (14,1 tegen 13,9 per 20 min). Mijn eis "wie graaft vangt minstens evenveel" haalt het, maar graven doet dan niets voor het hol. In `features.md` beloofden we "graven: het hol groter, meer goud per val later". In de speeltestbuild klopt dat niet: in het spel is het goud per val 6 plus 3 per eerder bezoek, los van de gang (`afloop.gd`). Thijs graaft in de speeltest het meest van alles; als dat niets doet merkt hij het.
+
+**Wat de nieuwe duurtests zeggen (GEZIEN, `schermen` → `steam-hol-duur/`, nieuw ritme):** de winkel van de speeltestbuild is per soort 45 / 126 / 353 (slijm en put elk, samen 1048). koper=1 (graaft 41 keer) kocht op 2,4 / 9,0 / 19,6 min; koper=2 (graaft niet) op 2,9 / 9,1 min en daarna niets meer in 20 min. Het gat zit dus tussen de tweede en de derde koop (±10 min sparen voor 126). Goud per minuut ±10.
+
+**Twee knoppen vergeleken:**
+- (a) Brams idee, een kamer geeft de dichtstbijzijnde val een kleine kans erbij. Nadeel: meer vangsten is ook sneller faam, en het bordje loopt al snel (hol 12 rond 58 min). En je ziet het niet: een kans is onzichtbaar.
+- (b) **Groter hol, rijkere helden: meer goud per val per gegraven stuk.** Je ziet het in elke valregel (+7, +8, +9) en in de munten. Het raakt de faam niet, en het helpt precies op het gat tussen koop 2 en 3. Het is ook wat de sim al rekent (`voortgang.gd` en `sim/`: goud x (1 + gangen / 40)).
+
+**Besluit (Sanne):** (b), klein gehouden.
+1. **Goud per val = 6 + 3 per eerder bezoek + graafbonus.** Graafbonus = **+1 per 8 gegraven cellen, hooguit +3** (bij 24 cellen). De begingang telt niet; alleen wat de speler zelf groef.
+2. **Weg rekent mee:** `voortgang.gd` gebruikt dezelfde graafbonus (nu vast `gangen 6` = 7 per val, wordt 7 + graafbonus), zodat weg een kwart van spelen blijft.
+3. **Undo/weghalen** van een gang is er niet; graven blijft gratis. Dus de bonus kan niet omhoog en omlaag gesjoemeld worden.
+4. Tekst: de valregel toont het hogere getal al vanzelf. Daan beslist of er bij hover op aarde een korte regel komt; mijn voorstel: "Bigger hole, richer heroes." (28 tekens).
+
+**Waarom niet groter:** met +1 per 4 cellen tot +6 verdubbelt het goud en is de winkel voor een graver na ±50 min leeg. Met hooguit +3 (+50%): GOK, de derde koop komt voor een graver ±4 tot 5 min eerder (rond 15 min in plaats van 19,6) en de winkel is rond 75 min op in plaats van ±100. Wie niets doet verandert niet. Bram rekent het na met de sim.
+
+**Wat het kost:** een paar regels in `afloop.gd` en `voortgang.gd` plus een teller van zelf gegraven cellen in de save. Geen nieuw beeld. Past in de speeltestbuild van vr 20 nov; lukt het niet meer voor do 19 nov, dan gaat het naar de v3-economie en blijft graven in de speeltest zoals het nu is (vangt evenveel, kost niets).
+
+**Toets:** duurtest koper=1 en koper=2 met hetzelfde zaad. Geslaagd als de graver op 20 min minstens 15% meer goud heeft verdiend dan koper=2 en de derde koop eerder valt, en het gewone spel (niemand klikt) hetzelfde goud geeft als nu.
+
 ## Stand 16 nov ±19:55 UTC: ritme in het gewone spel (Sanne, na Iris keuring 7)
 **Vraag:** Iris mat in de duurtest van 20 min (run 43931188663) dat er **62% van de tijd geen held in beeld** is, gaten mediaan 30 s, nooit twee helden tegelijk, en 13% van de tijd geen held terwijl Gloop plat ligt. Zij gaf drie knoppen: (a) helden sneller na elkaar, (b) Gloop korter plat, (c) soms twee helden kort na elkaar. Ik kies met Brams sim, speeltestbuild (graven gratis, upgrades 45/126/353, drempels 3/5/7/12/17), 40 zaden, held ±15 s in beeld. Script: `platformen/steam/data/sim-ritme/ritme.py`.
 
