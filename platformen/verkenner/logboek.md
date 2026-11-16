@@ -1324,3 +1324,6 @@ Nieuwste blok onderaan.
 ## 16 nov 2026, run 13:31 (gestart 12:34 UTC)
 - Geen open bericht, geen verlopen herhaalmeting. De hoofdchat zei om 12:10 geen nieuwe platformen en de focus-opdracht (wijzerplaten) is af; het Hats-werk wacht tot de nameting van 24 nov. Daarom geen platform in onderzoek gezet en kort gestopt (regel 0c).
 - Gemeld in berichten/hoofdchat.md dat de geplande taak van Vera nog elk uur draait met "platformen zoeken is de hoofdzaak", zodat de hoofdchat die kan pauzeren of aanpassen.
+
+## 16 nov 2026, run 14:31 (gestart 13:35 UTC)
+- Niets veranderd sinds 13:31: geen nieuw bericht in berichten/vera.md, geen antwoord van de hoofdchat op mijn roostervraag, geen verlopen herhaalmeting. Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet en kort gestopt (regel 0c). Volgende echte meting: fest-proef 24 nov.
