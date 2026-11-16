@@ -265,25 +265,39 @@ def _samen(hb, lb, frame, hulp, lid_dicht):
         lb.to_mesh(me_l)
         lo = bpy.data.objects.new("cj_een_lid_l", me_l)
         hulp.objects.link(lo)
-        m = h.modifiers.new("samen", "BOOLEAN")
-        m.operation, m.object, m.solver = "UNION", lo, "EXACT"
-        dg = bpy.context.evaluated_depsgraph_get()
-        ev = h.evaluated_get(dg)
-        nm = bpy.data.meshes.new_from_object(ev)
-        h.modifiers.remove(m)
-        bpy.data.objects.remove(lo)
-        bm2 = bmesh.new()
-        bm2.from_mesh(nm)
-        goed = len(bm2.faces) > 0 and all(len(e.link_faces) == 2 for e in bm2.edges)
-        bm2.free()
-        if goed:
-            oud = h.data
-            h.data = nm
-            bpy.data.meshes.remove(oud)
-            LAATSTE["h_soort"] = "samen"
-        else:
+        # 0.1.2 (Chris, army_man 16 nov): Exact UNION gaf soms alleen het omhulsel terug en liet het lid weg (gesloten,
+        # dus "goed"). Dan bleef alles van het lid buiten het omhulsel (de zool van de schoen) in deel B liggen. Nu
+        # telt de uitkomst alleen als hij het lid echt bevat: volume en kader minstens die van omhulsel en lid. Anders
+        # nog eens met Self Intersection, en lukt ook dat niet, de terugval "los".
+        doel_vol = max(_volume(hb), _volume(lb))
+        doel_kader = _kader(lb)
+        for zelf in (False, True):
+            m = h.modifiers.new("samen", "BOOLEAN")
+            m.operation, m.object, m.solver = "UNION", lo, "EXACT"
+            m.use_self = zelf
+            dg = bpy.context.evaluated_depsgraph_get()
+            ev = h.evaluated_get(dg)
+            nm = bpy.data.meshes.new_from_object(ev)
+            h.modifiers.remove(m)
+            bm2 = bmesh.new()
+            bm2.from_mesh(nm)
+            goed = len(bm2.faces) > 0 and all(len(e.link_faces) == 2 for e in bm2.edges)
+            vol = _volume(bm2) if goed else 0.0
+            kader = _kader(bm2) if goed else None
+            bm2.free()
+            tol = 0.02 * max(b - a for a, b in zip(*doel_kader))
+            bevat = goed and vol >= 0.98 * doel_vol and all(
+                kader[0][i] <= doel_kader[0][i] + tol and kader[1][i] >= doel_kader[1][i] - tol for i in range(3))
+            LAATSTE.setdefault("h_pogingen", []).append((zelf, round(vol, 1), round(doel_vol, 1), bevat))
+            if bevat:
+                oud = h.data
+                h.data = nm
+                bpy.data.meshes.remove(oud)
+                LAATSTE["h_soort"] = "samen_zelf" if zelf else "samen"
+                break
             bpy.data.meshes.remove(nm)
-    if LAATSTE.get("h_soort") != "samen":
+        bpy.data.objects.remove(lo)
+    if not str(LAATSTE.get("h_soort", "")).startswith("samen"):
         # terugval: beide vormen los in één mesh; de booleans rekenen dan met Self Intersection
         alle = bmesh.new()
         alle.from_mesh(h.data)
@@ -330,3 +344,12 @@ def voor_boolean(doel, gereedschap, actie):
     kant = STAND["bronnen"].get(doel.name)
     if kant is not None and kant != STAND["kant"]:
         _snijd_met_h(gereedschap)
+
+
+def _volume(b):
+    return abs(b.calc_volume(signed=True))
+
+
+def _kader(b):
+    """(min, max) van de punten in wereldmaat (na hb/lb.transform(frame) is dat bij beide hetzelfde)."""
+    return ([min(v.co[i] for v in b.verts) for i in range(3)], [max(v.co[i] for v in b.verts) for i in range(3)])

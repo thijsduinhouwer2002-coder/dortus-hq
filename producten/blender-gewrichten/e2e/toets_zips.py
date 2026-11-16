@@ -52,6 +52,7 @@ for n in namen:
 # Controleur eis 6: het gratis deel is gekeurd op 014172e; elke verandering moet opvallen (lijst dan bewust bijwerken).
 # Bewust bijgewerkt 16 nov (Bram): 0.1.1, een_lid.py nieuw, gewricht.py en manifest veranderd (kniefout).
 # Opnieuw 16 nov ±02:20 (Bram): een_lid.py ronde 2 (H = omhulsel rond het vlak plus het lid zelf; Meshy man_backpack).
+# Opnieuw 16 nov ±20:30 (Ruben): een_lid.py voetfout (UNION liet het lid weg, zool los in B; Chris army_man). Gaat mee in gratis 0.1.2.
 GEKEURD = {
     "__init__.py": "437490cf374b88f1b7b5ef68c5b42cad514fd6c182aad2ed0af2905bae51a4b4",
     "beweeg.py": "f7d9f2f26d2e780984b3b94e4e21ec983557f79e6d54f6f406b1ff83517219c6",
@@ -60,7 +61,7 @@ GEKEURD = {
     "eigenschappen.py": "677238f80391b6ddc7db3831ed074ea663b9a918100da1110d95414ec0117101",
     "exporteer.py": "d0e8b467db37c190b4173cbb8ce7bb075f2520b53a0b59325a8c233f7e3bd03f",
     "gesloten.py": "b1ef9a537c311735387be2b0c9a7eaac18f0d518de3a83b9aab393df17d65902",
-    "een_lid.py": "ed7df9a3e551779d95b54dc75070a1b0ac10523808318157feef454cb41ce9a6",
+    "een_lid.py": "354b26d7ddf7e4fc3b44e95e1f8498bf7861700123bba5d34f9841d24d0f1f2a",
     "gewricht.py": "4762e9be3bda78faf36794fca1207798a47723829e7c9ec13d1c07444d202ce5",
     "gradenboog.py": "159a503b3621da1073c8c29ee026454c9146a9b46a90d0028fec97096612e251",
     "kleur.py": "9f98ca165bfbe06d5c5737185bd4eee973accb8818563dbec0c794c2e5c9e1c4",
