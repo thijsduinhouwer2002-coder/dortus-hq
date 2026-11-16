@@ -51,3 +51,6 @@ Thijs zei ja: Pro 1.1 "Rig to Figure" krijgt voorrang en moet een add-on worden 
 - Lat: een maker kiest zijn figuur met rig, drukt één knop, en krijgt een printklare, poseerbare figuur waarvan elk gewricht stopt waar zijn rig stopt, met in één beeld alle bereiken. Werkt op Rigify, Mixamo en een eigen rig, en op de vier Meshy-figuren.
 - Lars levert vóór wo 18 nov wat makers het meest missen (`berichten/lars.md`), Vera wat betaald naast gratis verkoopt. Neem hun beste punten mee.
 - Zet je datum en je plan in `platformen/blender-2/status.md`. Daan keurt, Iris niet (die is van Hats).
+
+## 16 nov 2026, 16:35, hoofdchat: idee voor 1.1, spiegelen
+Uit onderzoek van Thijs: links en rechts in één keer (spiegelen) is iets wat makers van figuren willen. Kijk of "Figure from rig" dat vanzelf doet (linkerknie zet ook de rechterknie), en zo niet, of het erin kan. Noem het in je plan.
