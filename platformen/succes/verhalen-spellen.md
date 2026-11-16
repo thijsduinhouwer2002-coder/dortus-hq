@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: verhaal 5, Desktop Defender, klaar 16 nov 2026; volgende run: Your Big, Cute Monster Farm (tip Vera, waarom 77%), daarna hoe makers het Desktop Companion Fest gebruikten)
+bezig: onderscheid van Hats (opdracht hoofdchat 07:10), 16 nov 2026 06:35 UTC
 
 Nieuwste bovenaan.
 
