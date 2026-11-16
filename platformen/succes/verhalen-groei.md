@@ -1,8 +1,55 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: This Week in Obsidian, meting van een kleine nieuwsbrief bij 34 plugins, klaar 16 nov 2026 ±06:30 NL-tijd). Volgende: een Garmin-maker die met Reddit of een grote site groeide, of een maker die een grote nieuwsbrief of site met cijfers beschrijft.
+bezig: niets (laatste: r/Garmin, 275 berichten "[New Watch Face]" naast de winkel gemeten, klaar 16 nov 2026 ±07:55 NL-tijd). Volgende: een Garmin-app (geen wijzerplaat) die met een proefversie groeide, of een grote Blender-site of nieuwsbrief met cijfers.
 
 Nieuwste bovenaan.
+
+---
+
+## 7. r/Garmin "[New Watch Face]": 275 berichten van kleine makers, naast de winkel gemeten. Wat levert een Reddit-post op voor een Garmin-wijzerplaat?
+
+Onderzocht 16 nov 2026, run 7. Open vraag uit run 6: een Garmin-maker die met Reddit groeide. Reddit zelf is vanuit de cloud niet te lezen (403), maar het archief Arctic Shift wel. Op r/Garmin plaatsen makers hun nieuwe wijzerplaat met de kop "[New Watch Face] - naam" (40 tot 60 per maand). De winkel van Garmin geeft per app openbaar de downloads (in klassen: 1, 10, 100, 1000, 10000), het aantal reviews en de datum van elke review. Zo kon ik per bericht zien wat er in de winkel gebeurde, en in welke week. Dit raakt Ebb direct: Ebb ($4,99) staat sinds 13 nov in de winkel en had op 16 nov 02:03 nog 0 downloads (`platformen/garmin/meting-ebb.md`).
+
+### Bronnen
+- Berichten: Arctic Shift (https://arctic-shift.photon-reddit.com/api/posts/search, subreddit Garmin, zoekterm "New Watch Face", 1 jun tot 16 nov 2026, curl). 275 berichten met die kop, met upvotes, reacties en tekst (GEZIEN).
+- Winkel: `https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/<id>` (downloadCount, reviewCount, averageRating, firstApprovalDate) en `.../apps/<id>/reviews` (datum per review), curl, 16 nov (GEZIEN). 120 berichten hadden een winkellink; 98 andere vond ik via de zoekbalk van de winkel op naam, met een goedkeuringsdatum binnen 45 dagen na of 60 dagen vóór het bericht. 218 van 275 gekoppeld. De naamkoppeling kan bij een paar fout zijn (GOK, niet elk nagekeken).
+- De ruwe tabel: `platformen/succes/data/rgarmin-wijzerplaten-2026-11-16.csv`.
+- Klacht op de subreddit: "RANT: Low effort Watchface tsunami", 5 nov 2026, 63 upvotes (Arctic Shift, GEZIEN).
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Upvotes per bericht, mediaan | **1** (75% heeft 1 of minder, 90% heeft 10 of minder, hoogste 331) | GEZIEN |
+| Samenhang upvotes en downloadklasse (Spearman, berichten vóór okt) | 0,13; met reviews 0,22 | GEZIEN, eigen berekening |
+| Wijzerplaten met 0 tot 4 upvotes die toch 1000+ downloads haalden | 34 van 123 (vóór okt) | GEZIEN |
+| Dagen tussen goedkeuring en bericht, mediaan | 3 | GEZIEN |
+| Reviews in de week na het bericht, mediaan, 22 berichten met 20+ upvotes | 5 | GEZIEN, eigen telling |
+| Hetzelfde, 20 willekeurige berichten met 0 tot 4 upvotes (met minstens 5 reviews) | 2 | GEZIEN; deze groep is gekozen op 5+ reviews, dus eerder te hoog |
+
+### Wat ik zag, in volgorde
+1. **Een bericht verdwijnt bijna altijd.** De helft krijgt 1 upvote. De klacht van 5 nov zegt het hard: "99% of these WF announcement posts have 0 responses", en de makers "are making zero or low effort to engage with the user base" voor een wijzerplaat van "$3 - $5". Zijn advies: praat met de mensen, of maak een gratis versie waarmee ze kunnen terugpraten (GEZIEN).
+2. **De winkel doet het meeste, niet Reddit.** Een derde van de wijzerplaten met 0 tot 4 upvotes kwam toch in de klasse 1000+. Quipu (27 upvotes) staat op 10000+ en 238 reviews, waarvan 158 meer dan 4 weken na het bericht (GEZIEN). Bij de meeste kwamen de reviews gelijkmatig binnen, ook zonder Reddit.
+3. **Veel upvotes is niet veel installaties.** Het hoogste bericht van het halve jaar, Margin Notes (331 upvotes, 47 reacties, 28 okt), is een wijzerplaat die je meteen betaalt ($2,99, met een losse proefversie "TR"). Na 19 dagen: 10+ downloads en 4 reviews, de proefversie 100+ en 3 reviews (GEZIEN). Mensen vonden het plaatje mooi; installeren deden ze niet.
+4. **Wat wel werkte: een probleem in de kop, gratis proberen, en lokken om te reageren.** Eén maker (llelibro) plaatste op 28 okt twee wijzerplaten met hetzelfde trucje (de klok loopt 2 tot 15 minuten voor, zodat je op tijd komt).
+   - Telex, kop "retro, feature-packed. free install": 0 upvotes, 1 reactie (GEZIEN).
+   - Ahead, kop "tricks you into being early, for my adhd friends": 178 upvotes, 105 reacties. De tekst begint met de vraag "Are you constantly 5 minutes late to everything?", is gratis te installeren met 7 dagen proef en daarna $3,99, en zegt "First five commenters get a free lifetime code" (GEZIEN).
+   Zelfde maker, zelfde dag, zelfde functie: alleen de kop en de eerste zin verschillen. Zijn volgende, Pitboard (12 nov), deed het weer: "first 10 commenters get a free lifetime code", 30 dagen gratis te houden, 37 upvotes, 50 reacties, en 14 reviews in de eerste 4 dagen (GEZIEN).
+5. **Maar ook bij Ahead kwam het meeste niet van Reddit.** Ahead stond al sinds 3 sep in de winkel en had 26 van zijn 37 reviews vóór het bericht; in de week erna kwamen er 8 bij (GEZIEN). En Telex, met 0 upvotes, kreeg in die week 10 reviews; de maker plaatste Telex ook op r/GarminWatchFaces (link in zijn Pitboard-bericht), wat ik niet gemeten heb. Reddit geeft dus een duw van enkele reviews, geen lancering.
+6. **De twee echte doorbraken hadden iets wat de rest niet had.** RASTER (159 upvotes, 26 aug): 39 reviews in week 1, 90 in week 2 tot 4, 103 daarna, nu 10000+ downloads (GEZIEN). Meridian (183 upvotes, 15 jun): 17 reviews in week 1, nu 1000+. Bij RASTER groeide het na de eerste week door; mijn lezing is dat de duw van Reddit hem in de winkel hoger zette en de winkel het daarna overnam (GOK: de rangorde van de winkel per dag heb ik niet).
+
+### Drie lessen
+1. **Een Reddit-post voor een Garmin-product is een loterij met een kleine prijs, maar wel een gratis lot.** Mediaan 1 upvote; een goede post geeft enkele reviews extra in de eerste week. Reken er niet op als lancering. Voor Ebb: de winkel zelf (zoekwoorden, naam, plaatjes, reviews) is belangrijker.
+2. **Begin met het probleem van een herkenbare groep, niet met hoe het eruitziet.** "Tricks you into being early, for my adhd friends" tegen "retro, feature-packed": hetzelfde product, 178 tegen 0 upvotes. Dit past bij les "noem wat mensen missen in de eerste zin" uit verhaal 5 (Notebook Navigator).
+3. **Op een overvolle plek wint wie iets teruggeeft: gratis proberen en de eerste reageerders iets geven.** Meteen betalen haalde zelfs met 331 upvotes bijna niets. Gratis installeren met proeftijd, of een paar levenslange codes voor de eerste reageerders, gaf reacties en reviews. Dat sluit aan bij de klacht op de subreddit zelf.
+
+### Eerlijk: wat deze meting niet zegt
+- Downloads staan in klassen (10, 100, 1000), dus kleine verschillen vallen weg. Reviews zijn exact, maar een review is maar een klein deel van de installaties (hoeveel, weet ik niet).
+- Alleen berichten met de kop "[New Watch Face]"; apps ("[New App]") gaf het archief deze run niet (time-outs). Ebb is een app, geen wijzerplaat.
+- Upvotes zijn van het moment van archiveren; latere stemmen kunnen ontbreken.
+- De paar verhalen (Ahead, Telex, Margin Notes) zijn klein in aantal. Het verschil Ahead tegen Telex is sterk, maar het blijft één maker.
+
+### Voorstel voor Dortus deze week
+**Gijs: kijk of Ebb een proeftijd kan krijgen (Connect IQ heeft een proefmodus; de winkel-API gaf op 16 nov ±06:55 UTC voor Ebb `hasTrialMode: false` en nog steeds 0 downloads, GEZIEN) en zet daarna één bericht klaar voor r/Garmin op `organisatie/lijst-thijs.md`, met de kop als probleem ("[New App] - Ebb: ..., for people who ..."), eerlijke eerste zin, gratis proberen, en 5 levenslange codes voor de eerste reageerders als Garmin dat toelaat. Thijs plaatst het zelf en beantwoordt de reacties op de dag zelf.** Waarom: Ebb staat na 3 dagen op 0 downloads; een post kost niets, maar alleen de vorm "probleem, gratis proberen, iets teruggeven" werkte hier. Meten: Gijs telt in `meting-ebb.md` de reviews en de downloadklasse de dag ervoor en 7 dagen erna, en zet de upvotes erbij.
 
 ---
 
