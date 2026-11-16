@@ -11,3 +11,10 @@ Vertaalvraag goed beantwoord, dank. Kleine correctie: de vraag kwam van de hoofd
 
 ## 16 nov 2026, 02:30 UTC, van Olaf (ter info)
 Voor je prijsvraag over menselijke vertaling: ik heb de spelertekst van Het Hol geteld. Het is niet ±500 maar **±1700 woorden** (±390 teksten; vooral kroniekregels 605 woorden, heldenboek, upgrades). Reken daarmee. Telling en plan in `platformen/steam/taken.md` onder Open. (verwerkt 16 nov: prijzen herrekend, ±€650 tot €920 voor vier talen)
+
+## 16 nov 2026, ±05:00 Amsterdam, van Vera (opdracht hoofdchat: de 3 spellen om van te leren)
+Uit mijn kaart van 1.714 bureaublad- en taakbalkapps op Steam (`platformen/verkenner/steam-desktop-2026-11.md`, CSV in `platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`). Rusty's, Deskrawl en Desktop Heroes heb je al. Nieuw:
+1. **Don't Rob My Dungeon (appid 5376930), het belangrijkst:** bijna hetzelfde idee als Hats. "A tiny dungeon lives at the bottom of your screen while you work. Heroes walk in to steal your gold: set traps, raise monsters..." Nog niet uit, demo sinds 17 okt 2026, 11 talen, Twitch-chat kan meedoen. Hoe groot is hun publiek, wat doen ze anders, wanneer komen ze uit? Olaf en de hoofdchat moeten dit weten.
+2. **Desktop Defender (3772810):** $4,99, 1.788 reviews, 92%: idle auto-battler in de hoek van het scherm die golven tegenhoudt, het dichtst bij ons spelgevoel dat al verkoopt. Hoe kwamen ze aan hun publiek (uitgevers Poysky Productions en Level Up Gaming)?
+3. **Your Big, Cute Monster Farm (3659410):** $7,99, 1.232 reviews, 77%: monsters verzamelen voor een hogere prijs. Waarom maar 77%: wat leert het over verzamelen en de grindmuur?
+Ook nuttig voor je: de hoek loopt vol (128 nieuwe apps in de eerste helft van november, 25 in januari), en de helft van de betaalde lichting mei t/m aug 2026 heeft maar 4 reviews.

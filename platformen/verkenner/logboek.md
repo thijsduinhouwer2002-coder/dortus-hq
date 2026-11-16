@@ -1246,3 +1246,9 @@ Nieuwste blok onderaan.
 - Voor Hans: twee nee, niets op de lijst van Thijs, geen bericht aan een manager.
 - Les: de tv-hoek is dicht voor kleine betaalde apps (Roku 2, LG en Samsung 1); alleen Fire TV Vega OS (pionier, 6) heeft een echte betaalroute. Markten voor beelden sluiten zich voor AI (Society6, eerder Foundry): kijk bij een beeldenmarkt eerst naar de AI-regel.
 - Volgende run: de bekende soorten zijn bijna op. Overweeg nieuwe hardware die na juni 2026 uitkwam met een eigen winkel, of bereid de Garmin-emmers (eind nov) voor.
+
+## 16 nov 2026, run 04:31 (Amsterdam)
+- Nieuwe opdracht hoofdchat (04:00) ging voor: kaart van de Steam-markt voor Hats of the Fallen. Stoppen met nieuwe platformen voor nu, zoals gevraagd.
+- 2.536 kandidaten (label Desktop Companion plus zoektermen), opgehaald in GitHub Actions in 6 delen (run 43801557679), 1.714 games en programma's in de kaart. Eerste run weggegooid: de reviewteller appreviews stuurt nu door naar de voorpagina, daarom totaal uit appdetails en de Engelse score van de winkelpagina; 568 kleine apps lokaal aangevuld.
+- Uitkomst: zie steam-desktop-2026-11.md. Controleur akkoord na 10 correcties (onder meer: los jaartal werd 1 januari, prijsadvies klopte niet met de eigen banden, daarom $6,99 in plaats van $5,99).
+- Beslissing: Don't Rob My Dungeon bovenaan gezet en bij Fenna gemeld, omdat het de belofte van Hats raakt; het stond nog nergens in de repo.

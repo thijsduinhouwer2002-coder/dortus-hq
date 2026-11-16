@@ -8,11 +8,16 @@ recs = {}
 for p in glob.glob(sys.argv[1] + '/details-*.jsonl'):
     for l in open(p):
         r = json.loads(l); recs[r['appid']] = r
+import os
+if os.path.exists(sys.argv[1] + '/aanvul.jsonl'):
+    for l in open(sys.argv[1] + '/aanvul.jsonl'):
+        x = json.loads(l)
+        if x['appid'] in recs: recs[x['appid']].update({k: v for k, v in x.items() if k != 'err'})
 KW = re.compile(r'taskbar|task bar|bottom of (your|the) (screen|desktop|monitor)|desktop (pet|companion|buddy|mate|idle|widget)|'
                 r'(on|across|of) your desktop|edge of your screen|corner of your screen|always[- ]on[- ]top|transparent (window|overlay|background)|'
                 r'while you (work|study|browse|code)|in the background while', re.I)
 def datum(s):
-    for f in ('%b %d, %Y', '%d %b, %Y', '%B %d, %Y', '%b %Y', '%B %Y', '%Y'):
+    for f in ('%b %d, %Y', '%d %b, %Y', '%B %d, %Y', '%b %Y', '%B %Y'):  # los jaartal blijft tekst
         try: return datetime.datetime.strptime((s or '').strip(), f).date()
         except Exception: pass
     return None
