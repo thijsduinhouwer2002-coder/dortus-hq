@@ -39,7 +39,7 @@ Bijgehouden door Stijn (strateeg). Elk advies binnen een dag: eigenaar en tijd, 
 | 16 nov 17:55 | Stijn | Eén Superhive-lanceerdaglijst met alle open Pro-adviezen | nieuw | hoofdchat, Chris |
 | 16 nov 17:55 | Stijn | Hats-besluiten talen en AI-melding in één keer | nieuw | hoofdchat, Thijs |
 | 16 nov 17:55 | Stijn | Studio $45 ook op Gumroad | nieuw | hoofdchat |
-| 16 nov 17:55 | Stijn | Gumroad: categorie, reviews aan, 6 tags (zonder "print in place", dat klopt niet voor losse delen) en Studio $45 als tweede versie | ja, hoofdchat; geblokkeerd: Gumroad alleen ingelogd op de werklaptop (Browser 2), die is offline | hoofdchat, zodra Browser 2 terug is |
+| 16 nov 17:55 | Stijn | Gumroad: categorie, reviews aan, 6 tags (zonder "print in place", dat klopt niet voor losse delen) en Studio $45 als tweede versie | gedaan 16 nov 19:05 (categorie, 8 tags, sterren aan, Studio $45) | hoofdchat |
 | 16 nov 17:55 | Stijn | Om 20:00 blok Verspreiden bovenaan, Hats-talen en AI-melding in één keer | ja | hoofdchat, 20:00 |
 | 16 nov 17:55 | Stijn | Lijst voor de dag dat Superhive goedkeurt | ja | Chris volgende run, hoofdchat ja/nee |
 | 16 nov 17:55 | Vera | Ruwe Garmin-dump met account-ID's uit de repo | gedaan 18:50 (blijft in de geschiedenis) | hoofdchat |
