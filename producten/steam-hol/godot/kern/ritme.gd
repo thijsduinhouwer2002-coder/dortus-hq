@@ -38,6 +38,10 @@ static func tik_held(s, helden: int) -> void:
 		s.lied_helden -= 1
 		if s.lied_helden > 0 and not s.demo:
 			s.volgende_held = s.t + rng.randf_range(8.0, 20.0)
+	# drukte=1 (winkelopname week, Mila 16 nov punt 3): drie helden tegelijk in beeld. Een held loopt ±17 s door de gang,
+	# dus elke 5 tot 8 s een nieuwe geeft er meestal drie (tik_held laat er nooit meer dan 3 toe). Alleen met het argument.
+	if s.get("proef_drukte") == true and not s.demo:
+		s.volgende_held = s.t + rng.randf_range(5.0, 8.0)
 
 # demo: om en om een stuk gang erbij en een kamer boven de gang, zodat de film graven laat zien
 static func tik_demo_graaf(s) -> void:

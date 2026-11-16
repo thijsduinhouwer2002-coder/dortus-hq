@@ -14,6 +14,9 @@ static var gezocht := false
 # losse versiering op een doorzichtig blad (Bram 13 nov 23:30, Daan 22:55): fakkel, ladder; zelfde schaal en licht
 static var deco_blad: CanvasTexture = null
 static var deco := {}
+# de hoedenwand (Mila 16 nov, blad van Bram ontwerp/steam/hoedenwand/blad/): per hoed wand-0 tot wand-9, half in de aarde
+static var wand_blad: CanvasTexture = null
+static var wand := {}
 
 static func laad() -> void:
 	if gezocht:
@@ -30,6 +33,13 @@ static func laad() -> void:
 		deco_blad.diffuse_texture = load(str(d["deco"]["blad"]))
 		deco_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		deco = d["deco"]["stukken"]
+	if d.has("hoedenwand") and typeof(d["hoedenwand"]) == TYPE_DICTIONARY and ResourceLoader.exists(str(d["hoedenwand"].get("blad", ""))):
+		var hw: Dictionary = d["hoedenwand"]
+		wand = _wand_stukken(hw)
+		if wand.size() > 0:
+			wand_blad = CanvasTexture.new()
+			wand_blad.diffuse_texture = load(str(hw["blad"]))
+			wand_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	if not d.has("hol_proef"):
 		return
 	var info: Dictionary = d["hol_proef"]
@@ -116,13 +126,13 @@ static func put_in_schatkamer(h, k: int, schat_3d: bool) -> String:
 	return put_stuk(h, k)
 
 # Versiering uit het deco-blad met de linkerbovenhoek op `plek`, op zijn eigen maat. false = niet getekend (dan pixels).
-static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
+static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2, schaal: float = 1.0) -> bool:
 	laad()
 	if deco_blad == null or not deco.has(naam):
 		return false
 	var v: Array = deco[naam]["vak_px"]
 	var m: Array = deco[naam]["maat"]
-	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
+	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1]) * schaal), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
 # bovenkant van het stuk in spelpixels zoals de render hem zette (`uit`, beeld = spel), of `anders` als die er niet is
@@ -149,7 +159,7 @@ const DECO_MAAIVELD := ["bloemen", "struik", "steen", "bordje", "vliegenzwam"]
 # of `hang` [x, y]). `uit` (plek in de render) telt hier niet: deze dingen staan op plekken die het spel kiest, dus voor
 # de pijplijn tellen alleen `maat`, `voet` en `hang`. Hele spelpixels, zoals de rest van het hol. Vector2.INF als het stuk
 # niet in het blad staat.
-static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
+static func deco_plek(naam: String, punt: Vector2, hangend: bool, schaal: float = 1.0) -> Vector2:
 	var m := deco_maat(naam)
 	if m == Vector2.ZERO or deco_blad == null:
 		return Vector2.INF
@@ -158,14 +168,14 @@ static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
 	var s: Dictionary = deco[naam]
 	if s.has(sleutel) and typeof(s[sleutel]) == TYPE_ARRAY and s[sleutel].size() == 2:
 		a = Vector2(float(s[sleutel][0]), float(s[sleutel][1]))
-	return (punt - a).floor()
+	return (punt - a * schaal).floor()
 
 # Teken versiering met het ankerpunt op `punt`; false = niet in het blad (dan tekent de aanroeper de pixels).
-static func teken_deco_op(doek: CanvasItem, naam: String, punt: Vector2, hangend: bool) -> bool:
-	var plek := deco_plek(naam, punt, hangend)
+static func teken_deco_op(doek: CanvasItem, naam: String, punt: Vector2, hangend: bool, schaal: float = 1.0) -> bool:
+	var plek := deco_plek(naam, punt, hangend, schaal)
 	if plek == Vector2.INF:
 		return false
-	return teken_deco(doek, naam, plek)
+	return teken_deco(doek, naam, plek, schaal)
 
 # 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
 # (de schacht houdt de pixeltegel als het 3D-stuk ingang ontbreekt; een open put of een put met gekochte stappen krijgt de
@@ -230,3 +240,40 @@ static func schatkamer_aan(h) -> bool:
 	if not h.met_3d or h.schat_kol - 2 <= h.ingang_kol or not heeft("schatkamer"):
 		return false
 	return h.boven[h.schat_kol] and h.boven[h.schat_kol - 1] and h.boven[h.schat_kol - 2]
+
+# Twee vormen van het blad: Mila's ontwerpblad (`stukken` met `vak_px`, `maat`, `midden`) en Brams pijplijnblad
+# (`frames` wand-0 tot wand-9 naast elkaar in cellen van `cel_px`, `px` bladpixels per spelpixel, onderkant cel =
+# onderkant aardrand, Bram 16 nov 09:21). Beide worden stukken met vak_px, maat en midden (midden van de cel).
+static func _wand_stukken(hw: Dictionary) -> Dictionary:
+	if typeof(hw.get("stukken")) == TYPE_DICTIONARY:
+		return hw["stukken"]
+	if typeof(hw.get("frames")) != TYPE_ARRAY or typeof(hw.get("cel_px")) != TYPE_ARRAY or hw["cel_px"].size() != 2:
+		return {}
+	var cw: float = float(hw["cel_px"][0])
+	var ch: float = float(hw["cel_px"][1])
+	var px: float = maxf(1.0, float(hw.get("px", 4)))
+	var uit := {}
+	for i in hw["frames"].size():
+		uit[str(hw["frames"][i])] = {"vak_px": [i * cw, 0, cw, ch], "maat": [cw / px, ch / px],
+			"midden": [float(hw.get("anker_x", cw / 2.0)) / px, ch / px / 2.0]}
+	return uit
+
+# Hoed nr (index zoals held.gd hoed_nr, 0 tot 9) half in de aardwand, met zijn `midden` op `punt` (spelpixels).
+# false = het blad of die hoed ontbreekt (dan tekent de wand niets: er is geen pixelvorm van).
+static func heeft_wand() -> bool:
+	laad()
+	return wand_blad != null and wand.size() > 0
+
+static func teken_wand(doek: CanvasItem, nr: int, punt: Vector2) -> bool:
+	laad()
+	var naam := "wand-%d" % nr
+	if wand_blad == null or not wand.has(naam):
+		return false
+	var s: Dictionary = wand[naam]
+	var v: Array = s["vak_px"]
+	var m: Array = s["maat"]
+	var a := Vector2(m[0] / 2.0, m[1] / 2.0)
+	if s.has("midden") and typeof(s["midden"]) == TYPE_ARRAY and s["midden"].size() == 2:
+		a = Vector2(float(s["midden"][0]), float(s["midden"][1]))
+	doek.draw_texture_rect_region(wand_blad, Rect2((punt - a).floor(), Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
+	return true

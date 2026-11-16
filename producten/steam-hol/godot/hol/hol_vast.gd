@@ -79,8 +79,8 @@ func _sleutel() -> String:
 	v.sort()
 	var o: Array = h.put_open.keys()
 	o.sort()
-	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
-		h._ingang_x(), h.max_kol, h.met_3d]
+	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
+		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX)]
 
 # hol.gd roept dit aan het begin van elke _draw aan; kost alleen het maken van de sleutel
 func ververs() -> void:
@@ -180,6 +180,12 @@ func teken(d: CanvasItem) -> void:
 		HOL3D.teken(d, "ingang_boog", Vector2(ix, 0))
 	elif not (h.met_3d and HOL3D.teken(d, "ingang", Vector2(ix, 0))):
 		d.draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
+	# de hoedenwand (Mila 16 nov): de hoeden van opgegeten helden half in de aarde boven de gang
+	if h.met_3d and HOL3D.heeft_wand():
+		var wh: Array = wand_hoeden()
+		var wp: Array = wand_plekken(h, HOL3D.schatkamer_aan(h))
+		for i in mini(wh.size(), wp.size()):
+			HOL3D.teken_wand(d, int(wh[i]), wp[i])
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
 	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
@@ -189,6 +195,9 @@ func teken(d: CanvasItem) -> void:
 	var gang_3d: bool = h.met_3d and HOL3D.heeft("gang")
 	var midden: float = KOL / 2.0
 	var vorige := -99   # kolom van het laatste stuk: hooguit één stuk per twee gangtegels (Daan 14 nov 02:50)
+	if gang_3d and is_vol(h):
+		_teken_vol(d, vloer)
+		return
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
 		if h.deco_proef:   # keurstrook: vaste rij, paddenstoel, stut, ton, schedel, (put), kristal, spinrag, lichtzwam (99 = niets)
@@ -229,6 +238,170 @@ static func deco_hh(h, k: int, hh: int, vorige: int) -> int:
 			return hh - 1   # soorten[hh % 5]: 1 = lichtzwam, 0 = paddenstoel
 	return hh
 
+# Een vol hol (Mila 16 nov, "het hol moet vol", voor de winkelbeelden): vanaf VOL_VANAF gangtegels geldt de uitdunning
+# van 14 nov niet meer. Daan dunde uit omdat een frisse kijker een LEEG hol druk vond; in een groot hol is het juist kaal.
+# Alleen op de 3D-gang (de pixelgang houdt de oude regels). Wat blijft: geen vloerding waar helden stilstaan of vallen
+# (eerste tegel na de schacht, naast een val), en niets bij de stapel hoeden en Gloop (dus ook geen lichtzwam bij Gloop).
+const VOL_VANAF := 20
+const VLOER_SOORTEN := [0, 1, 2, 3, 4, 5]      # DECO_GANG: paddenstoel, lichtzwam, ton, krat, schedel, kristal
+const KAMER_SOORTEN := [4, 2, 3, 0, 5]         # in de kamers: schedel, ton, krat, paddenstoel, kristal (geen lichtzwam)
+const KAMER_SCHAAL := 0.8                      # kamers liggen achter de gang: iets kleiner leest als diepte (doelbeeld Mila)
+const KAMER_VLOER := 22                        # vloer van een kamer in de bovenste rij (gemeten in kamer_begin/_eind)
+const VOL_TROON := 5                           # vanaf schat_kol - 5 niets: hoedenhoop en Gloop, en één tegel vrij ervoor
+const GROOT := [2, 3, 7]                       # ton, krat, stut: nooit twee op tegels naast elkaar (Daan 16 nov, regel b)
+const KLEIN := [0, 1, 4, 5]                    # paddenstoel, lichtzwam, schedel, kristal: mogen wel naast een groot ding
+const HANG_MAX := 6.0                          # spinrag en vaandel hooguit een derde van de gang (±18 spelpixels) onder het plafond
+
+static func is_vol(h) -> bool:
+	if h.get("deco_proef") == true:
+		return false
+	var g = h.get("gang")
+	return g != null and (g as Array).count(true) >= VOL_VANAF
+
+# Vloerding op gangkolom k in een vol hol: index in DECO_GANG, of -1. Nooit twee keer dezelfde soort naast elkaar.
+static func vol_vloer(h, k: int, vorige_soort: int) -> int:
+	if h.vallen.has(k) or k == h.ingang_kol + 1 or h.vallen.has(k - 1) or h.vallen.has(k + 1):
+		return -1
+	if k >= h.schat_kol - VOL_TROON:   # stapel hoeden en Gloop, plus één tegel vrij ervoor (Daan 16 nov, regel c)
+		return -1
+	var hh: int = _hh(h, k, 7)
+	var c: int = VLOER_SOORTEN[hh % VLOER_SOORTEN.size()]
+	if c == vorige_soort:
+		c = VLOER_SOORTEN[(hh + 1) % VLOER_SOORTEN.size()]
+	return c   # (lichtzwam bij Gloop kan hier niet: alles vanaf schat_kol - 4 valt al af)
+
+# Plafondding op gangkolom k in een vol hol, los van de vloer: 6 = spinrag, 7 = stut, 8 = vaandel, of -1.
+# Alleen onder een dicht plafond (niet onder een kamer), niet bij de ingangsfakkel, niet boven de hoeden en Gloop,
+# niet direct naast het vorige plafondding (de stut is breder dan een tegel). Boven een val geen stut (zijn poten).
+static func vol_plafond(h, k: int, vorige_kol: int) -> int:
+	if h.boven[k] or k == h.ingang_kol + 1 or k >= h.schat_kol - VOL_TROON or k - vorige_kol < 2:
+		return -1
+	var bij_val: bool = h.vallen.has(k) or h.vallen.has(k - 1) or h.vallen.has(k + 1)
+	var hh: int = _hh(h, k, 8)
+	if hh < 24:
+		# de stut staat met zijn poten op de vloer: niet op of naast een val (Daan 16 nov, regel c); spinrag en vaandel
+		# hangen hooguit een derde van de gang (HANG_MAX), dus de val blijft vrij en mag er wel een hebben
+		return 6 if bij_val else 7
+	if hh < 44:
+		return 6
+	if hh < 58:
+		return 8
+	return -1
+
+static func _hh(h, k: int, y: int) -> int:
+	if h is Dictionary:
+		return int(abs(sin(k * 12.9898 + y * 78.233) * 43758.5453)) % 97   # zelfde som hol.gd _hash (toetsen)
+	return h._hash(k, y)
+
+# Twee dingen in elke kamer boven de gang, naast het kistje (Mila 16 nov, punt 2): een rij open kamers (minstens twee
+# kolommen; kamer_los heeft zijn eigen paddenstoelen) krijgt er een rechts van de fakkel in kamer_begin en een links
+# van het kistje in kamer_eind. Geeft [naam, voetpunt] in spelpixels.
+static func kamer_dingen(h, schat_3d: bool) -> Array:
+	var uit := []
+	var boven: Array = h.boven
+	var k := 0
+	while k < boven.size():
+		if not HOL3D._kamer_open(boven, k, h.ingang_kol, h.schat_kol, schat_3d):
+			k += 1
+			continue
+		var a := k
+		while k + 1 < boven.size() and HOL3D._kamer_open(boven, k + 1, h.ingang_kol, h.schat_kol, schat_3d):
+			k += 1
+		var b := k
+		k += 1
+		if b == a:
+			continue
+		var hh: int = _hh(h, a, 11)
+		var s1: int = KAMER_SOORTEN[hh % KAMER_SOORTEN.size()]
+		var s2: int = KAMER_SOORTEN[(hh + 1 + int(hh / 7.0) % (KAMER_SOORTEN.size() - 1)) % KAMER_SOORTEN.size()]
+		uit.append([HOL3D.DECO_GANG[s1], Vector2(a * KOL + 10, KAMER_VLOER)])
+		uit.append([HOL3D.DECO_GANG[s2], Vector2(b * KOL, KAMER_VLOER)])
+	return uit
+
+# Het hele volle gangstuk als lijst [kolom, index in DECO_GANG, hangend], van links naar rechts (Daan 16 nov, "een vol hol"):
+# (a) spinrag en vaandel hangen hooguit HANG_MAX onder het plafond (zie _teken_hangend; de stut staat op de vloer, open in
+# het midden, de held loopt erdoor); (b) nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar of op dezelfde
+# tegel: dan een stut wordt spinrag, een ton of krat wordt een klein ding; (c) één tegel vrij naast een val en voor de troon.
+static func vol_rij(h) -> Array:
+	var uit := []
+	var groot := {}
+	var vorige_soort := -1
+	var vorige_plafond := -99
+	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
+		var p := vol_plafond(h, k, vorige_plafond)
+		if p == 7 and groot.has(k - 1):
+			p = 6
+		if p >= 0:
+			uit.append([k, p, true])
+			vorige_plafond = k
+			if p in GROOT:
+				groot[k] = true
+		var c := vol_vloer(h, k, vorige_soort)
+		if c in GROOT and (groot.has(k - 1) or groot.has(k)):
+			var hh: int = _hh(h, k, 9)
+			c = KLEIN[hh % KLEIN.size()]
+			if c == vorige_soort:
+				c = KLEIN[(hh + 1) % KLEIN.size()]
+		vorige_soort = c
+		if c >= 0:
+			uit.append([k, c, false])
+			if c in GROOT:
+				groot[k] = true
+	return uit
+
+func _teken_vol(d: CanvasItem, vloer: int) -> void:
+	var midden: float = KOL / 2.0
+	var schat_3d: bool = HOL3D.schatkamer_aan(h)
+	for kd in kamer_dingen(h, schat_3d):
+		HOL3D.teken_deco_op(d, kd[0], kd[1], false, KAMER_SCHAAL)
+	for ding in vol_rij(h):
+		var naam: String = HOL3D.DECO_GANG[ding[1]]
+		if not ding[2]:
+			HOL3D.teken_deco_op(d, naam, Vector2(ding[0] * KOL + midden, vloer + 1), false)
+		elif naam == "stut":
+			HOL3D.teken_deco_op(d, naam, Vector2(ding[0] * KOL + midden, GANG_BOVEN), true)
+		else:
+			_teken_hangend(d, naam, Vector2(ding[0] * KOL + midden, GANG_BOVEN))
+
+# Hangend ding hooguit HANG_MAX onder het hangpunt (Daan 16 nov, regel a: "een ding door het hoofd van een held leest als
+# een fout"). Het vaandel kleiner tot het past, want een half vaandel leest als kapot. Het spinrag heel en kleiner
+# (SPIN_SCHAAL) en zonder de draad en de paarse spin rechts ervan: Daan 16 nov 10:50, moet, "onderaan recht afgesneden met
+# een los draadje ernaast leest als een kapot plaatje"; de spin leek ook op de vleermuis (één kleur per soort beestje).
+const SPIN_SCHAAL := 0.6
+# Alleen het web uit het vak van het spinrag, in bladpixels binnen `vak_px` [x, y, b, h]: de draad staat vanaf x 57, de
+# spin rechtsonder vanaf x 44 (onder y 34) en x 49 (onder y 31). Nagemeten op kunst/3d/deco.png, vak 80 x 56.
+const SPIN_WEB := [Rect2(0, 0, 56, 31), Rect2(0, 31, 49, 3), Rect2(0, 34, 44, 12)]
+
+static func hang_schaal(naam: String) -> float:
+	var m := HOL3D.deco_maat(naam)
+	if m == Vector2.ZERO:
+		return 1.0
+	if naam == "spinrag":
+		return SPIN_SCHAAL
+	var hy: float = 2.2
+	var s: Dictionary = HOL3D.deco[naam]
+	if s.has("hang") and typeof(s["hang"]) == TYPE_ARRAY and s["hang"].size() == 2:
+		hy = float(s["hang"][1])
+	return minf(1.0, HANG_MAX / maxf(1.0, m.y - hy))
+
+func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
+	var sc := hang_schaal(naam)
+	var plek := HOL3D.deco_plek(naam, punt, true, sc)
+	if plek == Vector2.INF:
+		return
+	var m := HOL3D.deco_maat(naam) * sc
+	var v: Array = HOL3D.deco[naam]["vak_px"]
+	if naam == "spinrag":
+		var f := Vector2(m.x / float(v[2]), m.y / float(v[3]))   # spelpixels per bladpixel
+		for r in SPIN_WEB:
+			var w: Rect2 = r
+			d.draw_texture_rect_region(HOL3D.deco_blad, Rect2(plek + w.position * f, w.size * f),
+				Rect2(Vector2(v[0], v[1]) + w.position, w.size))
+		return
+	var hoog: float = minf(m.y, punt.y + HANG_MAX - plek.y)   # alles daaronder valt weg
+	var bron_h: float = float(v[3]) * hoog / m.y
+	d.draw_texture_rect_region(HOL3D.deco_blad, Rect2(plek, Vector2(m.x, hoog)), Rect2(v[0], v[1], v[2], bron_h))
+
 func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -> void:
 	var stuk: String = HOL3D.stuk(h, r, k, schat_3d)
 	if stuk != "" and HOL3D.teken(d, stuk, Vector2(x, y)):
@@ -247,3 +420,56 @@ func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -
 	else:
 		var v: int = h._hash(k, r) % 8
 		d.draw_texture_rect_region(TEGELS, Rect2(x, y, KOL, KOL), Rect2(v * KOL, 0, KOL, KOL))
+
+# De hoedenwand (Mila 16 nov, punt 4, "de wand is het logboek van wie Gloop at"): elke opgegeten held laat zijn hoed
+# achter, scheef half in de aardwand boven de gang (blad van Bram, wand-0 tot wand-9, met holte en aarderand erin).
+# Plekken: dichte cellen in de bovenste rij boven een gegraven gang, niet bij de stapel en de schatkamer, niet bij de schacht;
+# in een vaste volgorde (hash), zonder vast ritme (zie onder). De oudste hoed krijgt de eerste plek, dus de wand groeit en
+# wat er hangt verschuift niet als er een hoed bij komt (tot er gegraven wordt). Midden van de hoed rond rij 16.
+const WAND_MAX := 64       # meer plekken dan dit heeft geen scherm; houdt de sleutel klein
+const WAND_Y_MIN := 14     # midden van de hoed; 14 tot 19 blijft in de aarde boven de gang
+const WAND_Y_MAX := 19
+
+static func wand_plekken(h, schat_3d: bool) -> Array:
+	var kand := []
+	var eind: int = h.schat_kol - (4 if schat_3d else 1)   # 3D: niet achter de stapel hoeden, Gloop en de schatkamer
+	for k in range(h.ingang_kol + 2, eind):
+		if not h.boven[k] and h.gang[k] and k <= h.max_kol:
+			kand.append(k)
+	kand.sort_custom(func(a, b): return _hh(h, a, 13) < _hh(h, b, 13) or (_hh(h, a, 13) == _hh(h, b, 13) and a < b))
+	# Niet in een vast ritme (Daan 16 nov: "anders leest het als een plank"): ±1 op 4 plekken blijft leeg, soms zitten er
+	# twee naast elkaar (dan op duidelijk andere hoogte), en de hoogte wisselt over WAND_Y_MIN tot WAND_Y_MAX.
+	var gekozen := {}
+	var uit := []
+	for k in kand:
+		if _hh(h, k, 15) % 4 == 0:
+			continue
+		var buur: int = k - 1 if gekozen.has(k - 1) else (k + 1 if gekozen.has(k + 1) else -1)
+		if buur >= 0 and (_hh(h, k, 16) % 2 != 0 or gekozen.has(buur - 1) or gekozen.has(buur + 1)
+				or gekozen.has(k - 1) and gekozen.has(k + 1)):
+			continue
+		var hh: int = _hh(h, k, 14)
+		var y: int = WAND_Y_MIN + hh % (WAND_Y_MAX - WAND_Y_MIN + 1)
+		var dx: int = (hh % 5) - 2
+		if buur >= 0:
+			var yb: int = int(gekozen[buur].y)
+			if absi(y - yb) < 3:
+				y = yb + 3 if yb + 3 <= WAND_Y_MAX else yb - 3
+			dx = 2 if buur < k else -2   # een paar: iets uit elkaar, de hoeden raken elkaar net niet
+		var plek := Vector2(k * KOL + 8 + dx, y)
+		gekozen[k] = plek
+		uit.append(plek)
+		if uit.size() >= WAND_MAX:
+			break
+	return uit
+
+# De hoeden van Gloop, oudste eerst (slijm.gd `hoeden`), via de strook; leeg in de toetsen zonder strook.
+func wand_hoeden() -> Array:
+	if h == null:
+		return []
+	var s = h.get_parent()
+	var sl = s.get("slijm") if s != null else null
+	if sl == null:
+		return []
+	var hd = sl.get("hoeden")
+	return hd if hd is Array else []

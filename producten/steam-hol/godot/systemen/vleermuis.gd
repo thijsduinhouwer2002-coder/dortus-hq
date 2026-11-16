@@ -61,9 +61,32 @@ static func mag_hangen(h, k: int) -> bool:
 
 static func plekken(h) -> Array:
 	var uit: Array = []
+	var bezet := vol_plafond_kols(h)
 	for k in h.gang.size():
-		if mag_hangen(h, k):
+		if mag_hangen(h, k) and not bezet.has(k):
 			uit.append(k)
+	return uit
+
+# In een vol hol (Olaf, hol_vast.gd) hangt aan veel plafondtegels al een stut, spinrag of vaandel: daar hangt
+# geen vleermuis (kan Olaf 16 nov 09:45). Zelfde loop als hol_vast.gd _teken_vol(), zodat de kolommen precies kloppen.
+# Zonder is_vol/vol_plafond in hol_vast.gd (oudere versie) geeft dit niets terug.
+static func vol_plafond_kols(h) -> Dictionary:
+	var uit := {}
+	var HV = load("res://hol/hol_vast.gd")
+	if HV == null:
+		return uit
+	var namen := {}
+	for m in HV.get_script_method_list():
+		namen[m["name"]] = true
+	if not (namen.has("is_vol") and namen.has("vol_plafond")) or not HV.is_vol(h):
+		return uit
+	var vorige := -99
+	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
+		if k >= h.boven.size():
+			break
+		if HV.vol_plafond(h, k, vorige) >= 0:
+			uit[k] = true
+			vorige = k
 	return uit
 
 # Vaste keuze per hol (hash zoals de versiering), minstens 3 kolommen uit elkaar.
