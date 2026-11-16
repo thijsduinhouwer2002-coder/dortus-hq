@@ -1275,3 +1275,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (blinde kijker, Agent):** nu 4, toren r1 5; toren te smal, lichte hoeden in de lichtvlek, lege muur. Overgenomen in ronde 2 (donkere muur, minder en grotere hoeden, donkere hoge hoed ertussen): op 120 lees je nu hoeden.
 - **Besloten:** richting en lessen aan Mila (eigenaar capsule), `LEESMIJ-toren.md`. Korte tekst van Fenna: ja, kan om met de hoed te beginnen. In `berichten/mila.md`.
 - **Volgende run:** Mila's capsule op de toetsen nakijken; eindkeuring vijf Steam-schermen voor wo 18 nov 20:00; Gijs' rand onder "START = AGAIN".
+
+## 16 nov 2026, run ±08:23 tot 09:05
+
+- **Bekeken:** Gloop-spel run 43828137641 (84e4059, RUN.txt nagekeken): beelden 01, 26 en 30 van Venu 3, Venu Sq 2, FR265, Venu 3S en FR255, eindscherm Venu 3 en FR255 op ware grootte. Filmpje 9 (`ebb-tip-1-eyes-closed.mp4`, release `filmpjes-week-1`): acht beelden en het middelste stuk op ware grootte.
+- **Gevonden:** startscherm Gloop goed (titel midden, geen GULP). Eindscherm goed van opbouw, maar op AMOLED nog dun Roboto in de balk. Op de Venu's zegt het spel START terwijl geen knop zo heet. Filmpje 9: middelste tekstblok ±30 px van het horloge, twee grijze resten van de simulatorrand boven het scherm.
+- **Besloten:** Gloop: moet nep-vet in de eindbalk; Venu's krijgen `PRESS = GULP` en `PRESS = AGAIN` met het boogje, omdat START daar naar een knop wijst die niet bestaat. Nog geen akkoord voor indienen (moet en een mens die speelt). Filmpje 9: ja met twee moets (lucht boven het horloge, randresten weg); harde wissels blijven, want een overvloeier met twee getallen leest rommelig.
+- **Niet gedaan:** rij naast de toppers op 600 voor de hap (Mila, voor wo 18 nov). Controleur niet ingezet: twee korte keuringen met duidelijke meetpunten, tijd ging naar kijken.
