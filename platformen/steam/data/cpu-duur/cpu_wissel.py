@@ -20,7 +20,7 @@ for d in sys.argv[1:]:
     cpu = [float(x) for x in open(d + '/cpu-per-10s.txt').read().split()]
     log = open(d + '/hol.log').read()
     m = [(int(a), int(b), int(c)) for a, b, c in re.findall(r'meting t=(\d+) beelden=(\d+) helden=(\d+)', log)]
-    wissels = len(re.findall(r'HOL wissel vlak', log))
+    wissels = len(re.findall(r'HOL wissel [a-z]*', log))
     bl = [x[1] for x in m]
     L = max(range(-3, 4), key=lambda L: cor(cpu[max(0, L):], bl[max(0, -L):]))
     c = cpu[max(0, L):]
