@@ -1,0 +1,41 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 57 s (klok terug: false): goud voor 1667, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Tibbe vs the Spike Pit: fled again.
+HOL opslag geladen: 1 terugkomers, 1674 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Gerda
+HOL kroniek 5.1 (wacht 1.0): Gerda has a map. It is wrong.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Gerda escaped with a limp.
+HOL kroniek 27.6 (wacht 2.5): New page: the Hero. He got away.
+HOL meting t=30 beelden=57 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL meting t=50 beelden=7 helden=0 hol_vast=1
+HOL kroniek 55.0 (wacht 0.0): Bram climbs into your hole.
+HOL held binnen: Bram
+HOL meting t=60 beelden=71 helden=1 hol_vast=2
+HOL kroniek 60.5 (wacht 0.0): Bram stays forever. +6
+HOL kroniek 63.0 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=70 beelden=43 helden=0 hol_vast=3
+HOL meting t=80 beelden=17 helden=0 hol_vast=3
+HOL meting t=90 beelden=11 helden=0 hol_vast=3
+HOL meting t=100 beelden=8 helden=0 hol_vast=3
+HOL kroniek 100.8 (wacht 0.0): Fenna the Sleepy shuffles in.
+HOL held binnen: Fenna
+HOL meting t=110 beelden=97 helden=1 hol_vast=3
+HOL meting t=120 beelden=100 helden=1 hol_vast=3
+HOL kroniek 121.8 (wacht 0.0): Fenna left. Took nothing. Angry.
+HOL meting t=130 beelden=22 helden=0 hol_vast=3
+HOL meting t=140 beelden=10 helden=0 hol_vast=3
+HOL kroniek 150.2 (wacht 0.0): Wout is here for a story.
+HOL held binnen: Wout
+HOL meting t=150 beelden=21 helden=1 hol_vast=3
+HOL kroniek 155.7 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 158.3 (wacht 2.6): Page for the Bard. Spikes: one.
+HOL meting t=160 beelden=92 helden=0 hol_vast=5
+HOL meting t=170 beelden=8 helden=0 hol_vast=5
+HOL meting t=181 beelden=9 helden=0 hol_vast=5
