@@ -50,20 +50,22 @@ jobs:
             f=$(find / -path "*Devices/$d/compiler.json" 2>/dev/null | head -1)
             echo "LAUNCHER $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"launcherIcon":{[^}]*}')" || true
           done
-          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3; do
-            monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || exit 1
+          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fr55 fr245; do
+            monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || { case "$d" in fr55|fr245) echo "MISLUKT_KLEIN prg $d"; continue;; *) exit 1;; esac; }
             cp "/tmp/prg/gloop-proef-$d.prg" schermen/
           done
+          # fr55 (208 px) en fr245 (240 px) zijn nieuw (run 110): mislukt het bouwen daar, dan gaat de rest door.
+          # 30 beelden per horloge (was 26), zodat het eindscherm er altijd op staat.
           # Het potje speelt zichzelf: start na 6 s (zodat het startscherm op het eerste beeld staat), ronde van 30 s, daarna het eindscherm.
           sed -i 's/const AUTO = false;/const AUTO = true;/' source/Bouw.mc
           grep -q 'const AUTO = true;' source/Bouw.mc || exit 1
-          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3; do
-            monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || exit 1
+          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fr55 fr245; do
+            monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { case "$d" in fr55|fr245) echo "MISLUKT_KLEIN auto $d"; continue;; *) exit 1;; esac; }
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             # 12 s wachten: bij 8 s stond op het eerste beeld soms nog het vorige horloge (gezien door Daan).
             sleep 12
-            for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26; do
+            for n in $(seq -w 1 30); do
               import -window root "schermen/$d-$n.png"
               sleep 1.5
             done

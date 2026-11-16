@@ -27,6 +27,9 @@ class SpelView extends WatchUi.View {
     var pl as Array<Plaatje> = [] as Array<Plaatje>;
     // Maten en ankers van de plaatjes (zie Maten.mc).
     var m as Array<Number> = [] as Array<Number>;
+    // Donkere grot van Mila (alleen AMOLED, 320 en breder): een plaatje van het hele scherm met
+    // de lichtbaan en de vloer er al in. Op MIP is er geen plaatje en tekent het spel de effen grot.
+    var grot as Plaatje?;
     // Welke hoed op welke plek in de toren komt: begint met de kroon, zoals op het blad van Mila.
     const VOLGORDE = [4, 1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
 
@@ -56,6 +59,15 @@ class SpelView extends WatchUi.View {
             WatchUi.loadResource(Rez.Drawables.Hoed9) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Titel) as Plaatje
         ] as Array<Plaatje>;
+        grot = laadGrot();
+    }
+
+    (:mip) function laadGrot() as Plaatje? {
+        return null;
+    }
+
+    (:amoled) function laadGrot() as Plaatje? {
+        return WatchUi.loadResource(Rez.Drawables.Grot) as Plaatje;
     }
 
     function onShow() as Void {
@@ -131,32 +143,13 @@ class SpelView extends WatchUi.View {
         var h = dc.getHeight();
         var cx = w / 2;
         var voet = (h * 0.90).toNumber();
-        var midden = Graphics.TEXT_JUSTIFY_CENTER;
 
-        // Grot, lichtbaan van linksboven naar de bek, vloer. Effen kleuren uit het MIP-palet.
-        dc.setColor(0xAA5500, 0xAA5500);
-        dc.clear();
-        var d = (w * 0.11).toNumber();
-        var ax = (w * -0.03).toNumber();
-        var ay = (h * -0.10).toNumber();
-        var bx = (w * 0.38).toNumber();
-        var by = (h * 0.74).toNumber();
-        if (w >= 320) {
-            // AMOLED: zachtere kleur en een rand in twee stappen (kan van Daan, maat van Mila: 226,162,92).
-            var r2 = (d * 1.24).toNumber();
-            var r1 = (d * 1.12).toNumber();
-            dc.setColor(0xBD6F1F, Graphics.COLOR_TRANSPARENT);
-            dc.fillPolygon([[ax - r2, ay], [ax + r2, ay], [bx + r2, by], [bx - r2, by]] as Array<Graphics.Point2D>);
-            dc.setColor(0xCF883D, Graphics.COLOR_TRANSPARENT);
-            dc.fillPolygon([[ax - r1, ay], [ax + r1, ay], [bx + r1, by], [bx - r1, by]] as Array<Graphics.Point2D>);
-            dc.setColor(0xE2A25C, Graphics.COLOR_TRANSPARENT);
+        var g = grot;
+        if (g != null) {
+            dc.drawBitmap(0, 0, g);
         } else {
-            // MIP: effen, geen tussenkleuren.
-            dc.setColor(0xFFAA55, Graphics.COLOR_TRANSPARENT);
+            tekenGrotEffen(dc, w, h, cx);
         }
-        dc.fillPolygon([[ax - d, ay], [ax + d, ay], [bx + d, by], [bx - d, by]] as Array<Graphics.Point2D>);
-        dc.setColor(0x550000, Graphics.COLOR_TRANSPARENT);
-        dc.fillEllipse(cx, h, (w * 0.80).toNumber(), (h * 0.16).toNumber());
 
         // De toren begint op de kruin van Gloop (anker uit de kit).
         var torenX = cx - m[0] / 2 + m[10];
@@ -173,115 +166,40 @@ class SpelView extends WatchUi.View {
         tekenTijd(dc, w, h);
 
         if (spel.toestand == Regel.KLAAR) {
-            // Titelplaatje van Mila ("GLOOP / HAT TOWER") in plaats van het dunne systeemfont:
-            // bovenkant op 0,08 van de hoogte (anker uit de kit), en 0,07 van de breedte naar links:
-            // in het midden raakte "HAT TOWER" het woord GULP van de knophint (gezien op FR255,
-            // Venu 3S en Venu Sq 2, run 43820999649).
-            var tx = cx - m[32] / 2 - (w * 0.07).toNumber();
-            dc.drawBitmap(tx, (h * 0.08).toNumber(), pl[16]);
-            tekenOnderregel(dc, w, h, "START = GULP");
-            tekenKnopHint(dc, w, h);
+            // Titelplaatje van Mila ("GLOOP / HAT TOWER"), bovenkant op 0,08 van de hoogte, in het midden.
+            // Op het startscherm alleen het boogje bij de START-knop, zonder het woord GULP (Mila, 16 nov
+            // 07:55): "START = GULP" onderaan zegt het al, en zo raakt de titel niets.
+            dc.drawBitmap(cx - m[32] / 2, (h * 0.08).toNumber(), pl[16]);
+            Letters.onderregel(dc, w, h, "START = GULP");
+            Letters.knopHint(dc, w, h, false);
         } else if (spel.toestand == Regel.EINDE) {
-            // Eindscherm. Moet van Daan (16 nov 06:45): "START = AGAIN" stond over het gezicht van Gloop.
-            // De regel staat nu in de zwarte balk onder "BEST 15", zodat het gezicht vrij blijft.
-            // Past dat niet boven Gloop (balk zou over zijn kop komen), dan de oude plek onderaan,
-            // met de donkere rand van 2 px.
-            var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
-            var y1 = (h * 0.17).toNumber();
-            var y2 = y1 + (dc.getFontHeight(Graphics.FONT_MEDIUM) * 0.85).toNumber();
-            var y3 = y2 + (dc.getFontHeight(Graphics.FONT_SMALL) * 0.90).toNumber();
-            var balkOnder = y3 + dc.getFontHeight(Graphics.FONT_XTINY) + 2;
-            var inBalk = (balkOnder <= voet - m[3] - 4);
-            if (!inBalk) {
-                balkOnder = (h * 0.50).toNumber();
-            }
-            var balkBoven = (h * 0.16).toNumber();
-            dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-            dc.fillRectangle(0, balkBoven, w, balkOnder - balkBoven);
-            dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, y1, Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, y2, Graphics.FONT_SMALL, regel, midden);
-            if (inBalk) {
-                dc.setColor(0xAAAAAA, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(cx, y3, Graphics.FONT_XTINY, "START = AGAIN", midden);
-            } else {
-                tekenOnderregel(dc, w, h, "START = AGAIN");
-            }
+            Letters.eindscherm(dc, w, h, spel, voet - m[3] - 4);
         } else {
             tekenTeller(dc, w, h, top);
             if (spel.toestand == Regel.SLOK) {
-                var kreet = spel.raak ? "GULP!" : "gulp";
-                if (spel.raak && spel.reeks >= 3) {
-                    kreet = "GULP! x" + spel.reeks;
-                }
-                // Links van de toren, waar net de held viel.
-                // Past de kreet niet links van de toren (breed systeemfont, lange reeks), dan een maat kleiner.
-                // Moet van Daan: altijd minstens 8 px lucht tussen de kreet en de toren. Past hij ook
-                // klein niet op één regel, dan staat de reeks ("x7") op een tweede regel.
-                var kx = (w * 0.05).toNumber();
-                var ky = (h * 0.40).toNumber();
-                var ruimte = torenX - m[12] / 2 - 2 - 8 - kx - 1;
-                var kfont = Graphics.FONT_SMALL;
-                var tweeRegels = false;
-                if (dc.getTextWidthInPixels(kreet, kfont) > ruimte) {
-                    if (spel.raak && spel.reeks >= 3 && dc.getTextWidthInPixels("GULP!", kfont) <= ruimte) {
-                        // Liever twee regels in het grotere font dan één regel piepklein (260 en 280).
-                        tweeRegels = true;
-                    } else {
-                        kfont = Graphics.FONT_XTINY;
-                        tweeRegels = (dc.getTextWidthInPixels(kreet, kfont) > ruimte && spel.raak && spel.reeks >= 3);
-                    }
-                }
-                if (tweeRegels) {
-                    tekst(dc, kx, ky - dc.getFontHeight(kfont) / 2, kfont, "GULP!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
-                    tekst(dc, kx, ky + dc.getFontHeight(kfont) / 2, kfont, "x" + spel.reeks, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
-                } else {
-                    tekst(dc, kx, ky, kfont, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
-                }
+                // Ruimte links van de toren, met 8 px lucht (moet van Daan).
+                Letters.kreet(dc, w, h, spel, torenX - m[12] / 2 - 2 - 8 - (w * 0.05).toNumber() - 1);
             } else if (spel.toestand == Regel.WEG) {
-                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_XTINY, "bye!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFFFF);
+                Letters.tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_XTINY, "bye!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFFFF);
             } else if (spel.toestand == Regel.VALT) {
-                tekenKnopHint(dc, w, h);
+                Letters.knopHint(dc, w, h, true);
             }
         }
     }
 
-    // De regel onderaan ("START = GULP", "START = AGAIN"). Op een rond scherm is het onderaan smal:
-    // past de regel daar niet tussen de randen (gezien op de Venu 3S: "START = AGAIN" viel links en
-    // rechts buiten beeld), dan schuift hij omhoog tot hij past, hooguit tot 0,80 van de hoogte.
-    function tekenOnderregel(dc as Graphics.Dc, w as Number, h as Number, s as String) as Void {
-        var font = Graphics.FONT_XTINY;
-        var y = (h * 0.895).toNumber();
-        if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
-            var nodig = dc.getTextWidthInPixels(s, font) + 16;
-            var fh = dc.getFontHeight(font);
-            var r = h / 2;
-            var grens = (h * 0.80).toNumber();
-            while (y > grens) {
-                var dy = y + fh - r;
-                var kwadraat = r * r - dy * dy;
-                if (kwadraat > 0 && 2.0 * Math.sqrt(kwadraat) >= nodig) {
-                    break;
-                }
-                y -= 2;
-            }
-        }
-        tekst(dc, w / 2, y, font, s, Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
-    }
-
-    // Tekst met een zwarte rand van 2 px (stripletter), zodat hij op elke ondergrond te lezen is:
-    // moet van Daan voor "START = AGAIN" en wens van Mila voor alle teksten op het speelveld
-    // ("GULP! x3" viel weg in de lichtbaan). Twaalf keer zwart rondom, dan de kleur erop.
-    const RAND = [-2, 0, 2, 0, 0, -2, 0, 2, -2, -1, -2, 1, 2, -1, 2, 1, -1, -2, 1, -2, -1, 2, 1, 2] as Array<Number>;
-
-    function tekst(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String, uitlijning as Graphics.TextJustification, kleur as Number) as Void {
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        for (var i = 0; i < 24; i += 2) {
-            dc.drawText(x + RAND[i], y + RAND[i + 1], font, s, uitlijning);
-        }
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, font, s, uitlijning);
+    // Effen grot voor MIP: lichtbaan van linksboven naar de bek en de vloer, kleuren uit het MIP-palet.
+    function tekenGrotEffen(dc as Graphics.Dc, w as Number, h as Number, cx as Number) as Void {
+        dc.setColor(0xAA5500, 0xAA5500);
+        dc.clear();
+        var d = (w * 0.11).toNumber();
+        var ax = (w * -0.03).toNumber();
+        var ay = (h * -0.10).toNumber();
+        var bx = (w * 0.38).toNumber();
+        var by = (h * 0.74).toNumber();
+        dc.setColor(0xFFAA55, Graphics.COLOR_TRANSPARENT);
+        dc.fillPolygon([[ax - d, ay], [ax + d, ay], [bx + d, by], [bx - d, by]] as Array<Graphics.Point2D>);
+        dc.setColor(0x550000, Graphics.COLOR_TRANSPARENT);
+        dc.fillEllipse(cx, h, (w * 0.80).toNumber(), (h * 0.16).toNumber());
     }
 
     // Gloop staat met zijn voet op 0,90 van het scherm; elk plaatje hangt aan die voet.
@@ -326,7 +244,7 @@ class SpelView extends WatchUi.View {
             var hy = (h * 0.72 * t).toNumber();
             dc.drawBitmap(hx - m[6] / 2, hy - m[7] / 2, pl[4]);
             if (spel.inVangzone() && spel.hapDicht == 0) {
-                tekst(dc, hx - m[6] / 2, hy - m[7] / 2 - 4, Graphics.FONT_MEDIUM, "!", Graphics.TEXT_JUSTIFY_RIGHT, 0xFFFF00);
+                Letters.tekst(dc, hx - m[6] / 2, hy - m[7] / 2 - 4, Graphics.FONT_MEDIUM, "!", Graphics.TEXT_JUSTIFY_RIGHT, 0xFFFF00);
             }
         } else if (spel.toestand == Regel.WEG) {
             // Gemist: hij glijdt langs Gloop naar links het beeld uit.
@@ -370,18 +288,7 @@ class SpelView extends WatchUi.View {
         var x0 = (hoog ? (w * 0.78).toNumber() : w / 2) - (tb + kb + 4) / 2;
         var my = (h * (hoog ? 0.50 : 0.12)).toNumber();
         dc.drawBitmap(x0, my - kh / 2, pl[10]);
-        tekst(dc, x0 + kb + 4, my - dc.getFontHeight(font) / 2, font, s, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF55);
-    }
-
-    // Boogje en het woord GULP naast de START-knop (rechtsboven). Op vierkante schermen alleen het woord.
-    function tekenKnopHint(dc as Graphics.Dc, w as Number, h as Number) as Void {
-        if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(5);
-            dc.drawArc(w / 2, h / 2, w / 2 - 13, Graphics.ARC_CLOCKWISE, 48, 22);
-            dc.setPenWidth(1);
-        }
-        tekst(dc, (w * 0.79).toNumber(), (h * 0.27).toNumber(), Graphics.FONT_XTINY, "GULP", Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
+        Letters.tekst(dc, x0 + kb + 4, my - dc.getFontHeight(font) / 2, font, s, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF55);
     }
 
     function tekenTijd(dc as Graphics.Dc, w as Number, h as Number) as Void {

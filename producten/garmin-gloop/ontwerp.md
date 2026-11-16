@@ -46,6 +46,12 @@ Daan en Mila kozen allebei (c): de toren staat op de kop van Gloop, de held komt
 - De regel onderaan ("START = GULP", "START = AGAIN") schuift op ronde schermen omhoog tot hij tussen de randen past (op de Venu 3S viel "START = AGAIN" links en rechts buiten beeld, gezien in run 43813600332).
 - Nog niet: Instinct (zwart-wit, vraagt eigen plaatjes van Mila), een titelplaatje in plaats van het dunne systeemfont op AMOLED, naam, prijs en winkeltekst (voorstel staat sinds run 108 in `platformen/garmin/gloop-winkel-voorstel.md` op main, wacht op Daan en Chris).
 
+## Stand 16 nov ±08:25 UTC (run 110): startscherm, vette letters, donkere grot, kleine horloges
+- Startscherm (Mila, 07:55): de titel staat weer in het midden; het woord GULP is daar weg, alleen het witte boogje wijst de START-knop aan. Tijdens het spel staat het woord er wel.
+- Op AMOLED (320 en breder) staat elke letter twee keer, één pixel naast elkaar, zodat het dunne systeemfont vetter oogt.
+- Op AMOLED is de achtergrond het plaatje van de donkere grot van Mila (warm achter Gloop, bijna zwart aan de rand). MIP blijft effen.
+- Erbij: Forerunner 55 (208 px) en Forerunner 245 (240 px), beide MIP. Of ze bouwen en hoe ze eruitzien staat in `platformen/garmin/status.md` op main, niet hier.
+
 ## Open vragen (voor na de proef)
 - Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
 - Rechthoekige horloges (Venu Sq) en de zwart-witte Instinct: de proef tekent al naar verhouding, maar is daar niet bekeken.

@@ -9,6 +9,8 @@
             <iq:product id="fenix7x"/>
             <iq:product id="fr265"/>
             <iq:product id="venu3"/>
+            <iq:product id="fr55"/>
+            <iq:product id="fr245"/>
         </iq:products>
         <iq:permissions/>
         <iq:languages>
