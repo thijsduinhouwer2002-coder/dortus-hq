@@ -9,6 +9,8 @@ Een held valt door de schacht. Druk op START (of tik) als hij bij de bek van Glo
 
 Wat het spel spannend moet maken: precies in het midden van de bek drukken geeft "GULP!" en een reeks ("GULP! x3"); elke vangst laat de volgende held 6 procent sneller vallen; de helden komen met een onregelmatige pauze, zodat je moet kijken en niet op ritme kunt drukken.
 
+Sinds 16 nov ±03:00 UTC (commit bd04a60) ook: **de slok** (voorstel Mila v3: de held steekt 0,3 seconde ondersteboven uit de open bek en zakt weg, nog met eenvoudige vormen), **een korte trilling bij elke vangst** (steviger bij een voltreffer, alleen op horloges die kunnen trillen), het cijfer onderaan in het midden, en de Venu Sq 2 (vierkant scherm) in het manifest.
+
 ## Wat het bewust niet doet
 - **Nooit straffen.** Missen kost geen hoed en geen leven: de held loopt weg ("bye!") en de volgende valt 15 procent langzamer. Te vroeg drukken: Gloop hapt in de lucht en heeft een kwart seconde zijn bek dicht. Er is geen game over, alleen de klok.
 - Geen plaatjes in de proef: alles is getekend met rechthoeken en cirkels. Eerst leuk, dan mooi (`organisatie/onderzoek-youtube-werkwijze.md`). De echte Gloop, held en hoeden komen pas als de regel leuk blijkt.
@@ -23,6 +25,13 @@ Wat het spel spannend moet maken: precies in het midden van de bek drukken geeft
 2. Eerste hoed binnen 2,5 seconde na de start (toets), en een speler die alles raakt haalt 15 of meer hoeden, dus de toren gaat over de bovenrand (13 passen op het scherm).
 3. Beelden uit de simulator op FR255 (MIP 260), fenix 7 (MIP 260) en Venu 3S (AMOLED 390): startscherm, vallende held, GULP met vliegende hoed, eindscherm. Gijs heeft ze bekeken.
 4. Daan en Mila hebben de beelden gezien en gezegd wat anders moet. Of het leuk is kan alleen een mens zeggen: Thijs speelt de proef op zijn horloge of in de simulator (komt op zijn lijst zodra 1 tot 3 groen zijn).
+
+## Stand van de proef (16 nov ±03:10 UTC, run 43795386009 op bd04a60, groen)
+- Punt 1 en 2 gehaald: toetsen groen; de zelfspeler (vangt alles, laat één held lopen) haalt in de simulator 15 hoeden en de toren komt op de FR255 tot de bovenrand.
+- Punt 3 gehaald op vier horloges (FR255, fenix 7, Venu 3S, Venu Sq 2): start, vallen, "bye!", GULP met reeks, toren, eindscherm "15 HATS / NEW BEST!", opnieuw. Vier overzichtsbladen van 26 beelden bekeken, vier beelden uitvergroot.
+- Niet goed: op de vierkante Venu Sq 2 is de klok een cirkel midden in beeld die door de toren loopt (moet een balk of de schermrand worden). Het eindscherm dekt Gloop half af. De slok is alleen aan het eind van het wegzakken in beeld gezien, niet het begin.
+- Punt 4 open: niemand heeft het gespeeld. Er is nog geen bestand dat Thijs op een horloge kan zetten.
+- Uitgezocht: het verschil tussen 8 hoeden (simulator) en 19 (toets) kwam niet door de klok. De oude zelfspeler liet één soort held lopen en die viel toevallig drie keer vroeg; elke misser kost tijd en maakt de volgende 15 procent trager. Nagerekend in Python met hetzelfde toevalsgetal: 10 hoeden bij tikken van 50 ms, 8 bij 200 ms. Wel een les: bij tikken van 150 ms of trager springt een snelle held in één stap over de bek heen.
 
 ## Open vragen (voor na de proef)
 - Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
