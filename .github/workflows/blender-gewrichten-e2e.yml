@@ -18,7 +18,7 @@ jobs:
       matrix:
         blender: ["4.2.23", "5.2.3", "5.3.0"]
     env:
-      PRO_VERSIE: "1.0.1"
+      PRO_VERSIE: "1.0.2"
     defaults:
       run:
         working-directory: producten/blender-gewrichten
@@ -31,7 +31,14 @@ jobs:
       - name: Blender ${{ matrix.blender }} ophalen
         run: |
           V="${{ matrix.blender }}"; KORT="${V%.*}"
-          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          # download.blender.org geeft vanuit Actions soms 403 (16 nov, run 43792521740); --retry probeert 403 niet
+          # opnieuw, dus dan een spiegel (zelfde bestand, GEZIEN 200 en 407 MB voor 5.3.0).
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
           /tmp/blender/blender --version | head -1
       - name: Add-on inpakken
@@ -84,6 +91,15 @@ jobs:
           mkdir -p "e2e/screenshots/${{ matrix.blender }}"
           cp /tmp/click_joints_betaald.zip "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.zip"
           sha256sum /tmp/click_joints_betaald.zip | tee "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.sha256"
+      - name: Eén lid snijden (0.1.1 en 1.0.2, figuur met twee benen uit één stuk)
+        # Fout uit de proef met Meshy-figuren (15 nov): een gewricht in één knie sneed beide benen door.
+        run: |
+          for z in click_joints click_joints_betaald; do
+            d="/tmp/cj_lid_$z"
+            BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+              /tmp/blender/blender -b --factory-startup --python e2e/toetsen_een_lid.py -- "/tmp/$z.zip" 2>&1 | tee "/tmp/lid_$z.log"
+            grep -q "KLAAR 0 FOUT" "/tmp/lid_$z.log" || { echo "FOUT: een lid ($z)"; exit 1; }
+          done
       - name: Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12)
         # Eis 8 van het scharnier: eigen stap en eigen lege mappen, zodat de gratis schermtest gelijk blijft.
         env:

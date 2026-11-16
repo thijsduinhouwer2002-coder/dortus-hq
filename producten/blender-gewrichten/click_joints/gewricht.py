@@ -12,7 +12,7 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-from . import beweeg, kleur as kleuren, passing, uit_elkaar, vormen
+from . import beweeg, een_lid, kleur as kleuren, passing, uit_elkaar, vormen
 from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
@@ -61,6 +61,7 @@ def as_en_punt(context, inst):
 
 
 def boolean(doel, gereedschap, actie, solver):
+    een_lid.voor_boolean(doel, gereedschap, actie)  # 0.1.1: wat de andere kant afhaalt alleen binnen het lid
     m = doel.modifiers.new(f"{actie}_{gereedschap.name}", "BOOLEAN")
     m.operation = actie
     m.object = gereedschap
@@ -77,6 +78,7 @@ def bak(ob, naam, collectie):
     me.name = naam
     uit = bpy.data.objects.new(naam, me)
     collectie.objects.link(uit)
+    een_lid.na_bak(naam, uit)  # 0.1.1: de kopie aan de kant van het lid eerst binnen het lid
     return uit
 
 
@@ -273,7 +275,22 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                                          "or a smaller diameter." + auto_noot)
             return {"FINISHED"}
 
-        deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+        # 0.1.1: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
+        vlak_z = maat["schuif"] + (maat["midden_z"] if inst.soort == "KOGEL" and "naad_r" in maat else 0.0)
+        # Hoe ver kom, bolnaad en trechter van het snijvlak reiken (naar beide kanten), plus wat speling.
+        if inst.soort == "KOGEL" and "naad_r" in maat:  # vlak door het kogelmidden; trechter reikt het verst
+            diepte = maat["naad_r"] + 0.5 * maat["r"] + 2 * maat["s"] + abs(maat["schuif"])
+        else:  # vlak bij de cursor; kogel of pen steekt tot midden_z + r of top_z uit
+            diepte = max(abs(maat["midden_z"]) + maat["r"], abs(maat.get("top_z", 0.0))) + 2 * maat["s"]
+        ok_lid, melding = een_lid.bereid(werk, frame, vlak_z, diepte, maat["s"], solver, hulp)
+        if not ok_lid:
+            ruim_op(hulp)
+            self.report({"WARNING"}, melding)
+            return {"CANCELLED"}
+        try:
+            deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+        finally:
+            een_lid.reset()
         uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
         if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)

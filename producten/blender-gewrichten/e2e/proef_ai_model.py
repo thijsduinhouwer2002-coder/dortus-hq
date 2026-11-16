@@ -236,6 +236,123 @@ def nek(ob_naam):
         f"kogel_mm={inst.kogel_mm:.1f} nieuwe_delen={gesloten(nieuw)}")
 
 
+def knie_kogel(ob_naam):
+    """Gratis kogel in de linkerknie (16 nov, na de kniefout): op een verse kopie van het dichte figuur, as omhoog.
+    Telt of deel A alleen het linkerbeen is (x < 0) en uit één stuk bestaat."""
+    bron = bpy.data.objects.get(ob_naam)
+    if bron is None:
+        return
+    for pct in (27, 25, 29, 24, 31, 32):
+        c, breed = doorsnede(bron, pct / 100.0 * HOOGTE_MM, -1)
+        if c is None:
+            continue
+        kopie = bron.copy()
+        kopie.data = bron.data.copy()
+        kopie.name = ob_naam + "_kk"
+        for k in list(kopie.keys()):
+            if k.startswith("cj_"):
+                del kopie[k]
+        bpy.context.scene.collection.objects.link(kopie)
+        cur = bpy.context.scene.cursor
+        cur.location = c
+        cur.rotation_mode = "QUATERNION"
+        cur.rotation_quaternion = Vector((0, 0, 1)).to_track_quat("Z", "Y")
+        inst = bpy.context.scene.click_joints
+        inst.soort, inst.as_bron, inst.kogel_auto = "KOGEL", "CURSOR", True
+        voor = set(o.name for o in bpy.context.scene.objects)
+        actief(kopie)
+        try:
+            uitslag = bpy.ops.click_joints.plaats()
+        except RuntimeError as fout:
+            uitslag = f"fout: {str(fout).strip()[:200]}"
+        nieuw = [o for o in bpy.context.scene.objects if o.name not in voor and o.get("cj_deel")]
+        info = []
+        for d in nieuw:
+            xs = [(d.matrix_world @ v.co).x for v in d.data.vertices]
+            info.append((d.get("cj_deel"), round(min(xs), 1), round(max(xs), 1)))
+        log(f"{ob_naam} KNIE-KOGEL op ({c.x:.1f}, {c.y:.1f}, {c.z:.1f}): uitslag={uitslag} kogel_mm={inst.kogel_mm:.1f} "
+            f"delen={gesloten(nieuw)} x-bereik={info}")
+        if nieuw:
+            return
+        bpy.data.objects.remove(kopie)
+
+
+def arm_lus(ob, z):
+    """Linkerarm die langs het lijf hangt op hoogte z: de lus het verst naar links (x<0), 5 tot 25 mm breed,
+    die niet het lijf is (het lijf is de lus het dichtst bij x=0). None als de arm niet hangt (bijvoorbeeld T-houding)."""
+    alle = lussen(ob, z)
+    if len(alle) < 2:
+        return None
+    lijf = min(alle, key=lambda l: abs(l[0].x))
+    kand = [l for l in alle if l is not lijf and l[0].x < lijf[0].x - 5.0 and 5.0 <= l[1] <= 25.0 and 5.0 <= l[2] <= 25.0]
+    if not kand:
+        return None
+    return min(kand, key=lambda l: l[0].x)
+
+
+def elleboog(ob_naam, soort):
+    """Gewricht in de linkerelleboog (16 nov, na de kniefout): de arm hangt vlak naast het lijf, dus dit is de
+    zwaarste toets voor "alleen het lid". soort KOGEL (gratis) of SCHARNIER (Pro, buigkant voor, -y).
+    Telt of deel A alleen de onderarm is (rechts van A nergens voorbij de linkerrand van het lijf)."""
+    bron = bpy.data.objects.get(ob_naam)
+    if bron is None:
+        return
+    for pct in (60, 58, 62, 56, 64):
+        z = pct / 100.0 * HOOGTE_MM
+        lus = arm_lus(bron, z)
+        if lus is None:
+            continue
+        c = lus[0]
+        lijf = min(lussen(bron, z), key=lambda l: abs(l[0].x))
+        lijf_links = lijf[0].x - lijf[1] / 2
+        kopie = bron.copy()
+        kopie.data = bron.data.copy()
+        kopie.name = ob_naam + ("_ek" if soort == "KOGEL" else "_es")
+        for k in list(kopie.keys()):
+            if k.startswith("cj_"):
+                del kopie[k]
+        bpy.context.scene.collection.objects.link(kopie)
+        cur = bpy.context.scene.cursor
+        cur.rotation_mode = "QUATERNION"
+        inst = bpy.context.scene.click_joints
+        voor = set(o.name for o in bpy.context.scene.objects)
+        actief(kopie)
+        try:
+            if soort == "KOGEL":
+                cur.location = c
+                cur.rotation_quaternion = Vector((0, 0, 1)).to_track_quat("Z", "Y")
+                inst.soort, inst.as_bron, inst.kogel_auto = "KOGEL", "CURSOR", True
+                uitslag = bpy.ops.click_joints.plaats()
+            else:
+                m = Matrix.Identity(4)
+                for i, v in enumerate((Vector((1, 0, 0)), Vector((0, -1, 0)), Vector((0, 0, 1)))):
+                    m.col[i][:3] = v
+                m.col[3][:3] = c
+                cur.matrix = m
+                inst.as_bron, inst.uit_elkaar = "CURSOR", False
+                uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115")
+        except RuntimeError as fout:
+            uitslag = f"fout: {str(fout).strip()[:200]}"
+        nieuw = [o for o in bpy.context.scene.objects if o.name not in voor and o.get("cj_deel")]
+        if soort != "KOGEL":
+            nieuw = [o for o in bpy.context.scene.objects if o.get("cj_deel") and o.name.startswith(kopie.name)]
+        info, alleen_arm = [], None
+        for d in nieuw:
+            ps = [d.matrix_world @ v.co for v in d.data.vertices]
+            xs = [q.x for q in ps]
+            zs = [q.z for q in ps]
+            info.append((d.get("cj_deel"), round(min(xs), 1), round(max(xs), 1), round(min(zs), 1), round(max(zs), 1)))
+            if d.get("cj_deel") == "A":
+                alleen_arm = max(xs) < lijf_links + 1.0 and max(zs) < z + 30.0
+        log(f"{ob_naam} ELLEBOOG-{soort} op ({c.x:.1f}, {c.y:.1f}, {c.z:.1f}) armbreedte {lus[1]:.1f} lijf-links "
+            f"{lijf_links:.1f}: uitslag={uitslag} delen={gesloten(nieuw)} bereik(deel,x,z)={info} "
+            f"A_alleen_onderarm={alleen_arm} melding={next((d.get('cj_melding') for d in nieuw if d.get('cj_melding')), None)}")
+        if nieuw:
+            return
+        bpy.data.objects.remove(kopie)
+    log(f"{ob_naam} ELLEBOOG-{soort}: geen hangende linkerarm gevonden")
+
+
 def main():
     args = sys.argv[sys.argv.index("--") + 1:]
     zip_pad, uit = args[0], args[1]
@@ -260,6 +377,10 @@ def main():
             if nieuw is not ob:
                 ob = nieuw
         naam = ob.name
+        if os.environ.get("CJ_ELLEBOOG"):
+            elleboog(naam, "KOGEL")
+            elleboog(naam, "SCHARNIER")
+        knie_kogel(naam)
         knie(ob)
         nek(naam)
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uit, naam + ".blend"))

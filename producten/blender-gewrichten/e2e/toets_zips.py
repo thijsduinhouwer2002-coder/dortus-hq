@@ -50,15 +50,18 @@ for n in namen:
             stap(f"gratis zip gelijk aan bron: {n}", False)
 
 # Controleur eis 6: het gratis deel is gekeurd op 014172e; elke verandering moet opvallen (lijst dan bewust bijwerken).
+# Bewust bijgewerkt 16 nov (Bram): 0.1.1, een_lid.py nieuw, gewricht.py en manifest veranderd (kniefout).
+# Opnieuw 16 nov ±02:20 (Bram): een_lid.py ronde 2 (H = omhulsel rond het vlak plus het lid zelf; Meshy man_backpack).
 GEKEURD = {
     "__init__.py": "437490cf374b88f1b7b5ef68c5b42cad514fd6c182aad2ed0af2905bae51a4b4",
     "beweeg.py": "f7d9f2f26d2e780984b3b94e4e21ec983557f79e6d54f6f406b1ff83517219c6",
-    "blender_manifest.toml": "8733e6c4200caa66bc369a07fdf7a17b2d47f5a71b0a628dca5b416ece308427",
+    "blender_manifest.toml": "549981612a4be6a5fe997a06c83c4769ff3241868e149164eb6a1ed7cdeb9851",
     "drie_mf.py": "2cf1603e681bb5c4d1fb9a3f6fb46d73b7c264800ee6adf566a65d0f73f4f1f3",
     "eigenschappen.py": "677238f80391b6ddc7db3831ed074ea663b9a918100da1110d95414ec0117101",
     "exporteer.py": "d0e8b467db37c190b4173cbb8ce7bb075f2520b53a0b59325a8c233f7e3bd03f",
     "gesloten.py": "b1ef9a537c311735387be2b0c9a7eaac18f0d518de3a83b9aab393df17d65902",
-    "gewricht.py": "588d614292f1bb541a819dcd3d310b300c5d3fe9ee28bbeeb1504aeb32c13e77",
+    "een_lid.py": "ed7df9a3e551779d95b54dc75070a1b0ac10523808318157feef454cb41ce9a6",
+    "gewricht.py": "4762e9be3bda78faf36794fca1207798a47723829e7c9ec13d1c07444d202ce5",
     "gradenboog.py": "159a503b3621da1073c8c29ee026454c9146a9b46a90d0028fec97096612e251",
     "kleur.py": "9f98ca165bfbe06d5c5737185bd4eee973accb8818563dbec0c794c2e5c9e1c4",
     "maat.py": "db5be6fea8bf18b478ba699a5cf68f564aeb7f33e7923f226b4cff108d2c9a9f",

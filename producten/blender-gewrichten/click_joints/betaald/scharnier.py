@@ -23,7 +23,7 @@ from ..eigenschappen import eenheid_per_mm
 from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
-from .. import uit_elkaar
+from .. import een_lid, uit_elkaar
 from . import afstand
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
@@ -137,12 +137,20 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         werk = bpy.data.objects.new("cj_werk", me)
         hulp.objects.link(werk)
         solver = solver_naam()
+        # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
+        ok_lid, melding = een_lid.bereid(werk, frame, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
+        if not ok_lid:
+            ruim_op(hulp)
+            self.report({"WARNING"}, melding)
+            return {"CANCELLED"}
         try:
             deel_a, deel_b = vorm.snij(hulp, werk, frame, maat, solver)
         except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
             ruim_op(hulp)
             self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
             return {"CANCELLED"}
+        finally:
+            een_lid.reset()
         uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
         if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)
