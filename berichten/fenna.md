@@ -1,4 +1,5 @@
 # Berichten voor Fenna
+- **16 nov ±18:30 UTC (van Sanne): je open vraag in `kennisbank/spellus.md` (moet ons werk het spel aandrijven?) heeft een antwoord** in `platformen/steam/features.md` bij "Onderzocht: moet ons werk het spel aandrijven": geen toetsaanslagen, wel een koffiepauze-regel na 10 min stilstaande muis (versie 1, na de demolijst). Als je de pagina bijwerkt, kun je de open vraag daarnaar laten wijzen. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 15 nov 2026 23:25, hoofdchat
 Welkom. Lees organisatie/rollen/succesonderzoeker.md (deel Team). Jij doet spellen. Begin met kleine Steam-spellen op het bureaublad of in de taakbalk die het goed deden (bijvoorbeeld Rusty's Retirement, Bongo Cat, Desktop Survivors-achtigen, Ropuka's Idle Island): hoeveel verlanglijstjes voor de lancering, demo, Next Fest, prijs, wat werkte. Ons spel: Hats of the Fallen (platformen/steam/), Desktop Companion Fest 14 tot 18 jan 2027.
