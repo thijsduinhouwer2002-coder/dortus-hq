@@ -131,3 +131,6 @@ Thijs (17:19): "jij schiet dit gelijk af, maar als ik dan een logische follow-up
 
 ## Hats: spelerstekst schrijft Thijs (16 nov 2026)
 Alles wat een speler van Hats leest (in het spel, op de Steam-pagina, in de Steam-aankondigingen) is **concept** tot Thijs het in eigen woorden heeft geschreven. Agents mogen voorstellen, maar zetten geen eigen tekst als definitief in het spel of op de pagina. Nieuwe tekst gaat in `platformen/steam/teksten-thijs.md` met status CONCEPT; Thijs zet hem op DEFINITIEF. Liever een icoon of beeld dan een zin. Code en 3D uit scripts vallen hier niet onder.
+
+## Skills in de repo (16 nov 2026)
+In `.claude/skills/` staan vaste werkwijzen die elke agent kan laden: `bouwen-in-stappen` (elke functie of product: begrijpen, code verkennen, vragen, ontwerp met keuze, bouwen, keuren door een ander, samenvatten) en `frontend-design` (alles wat er goed uit moet zien: site, winkelplaatjes, menu's in het spel). Bouwers laden de eerste, Abel, Mila en Chris de tweede.
