@@ -1,29 +1,29 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 151, erbij 637, hoeden 55
-HOL hol-niveau 2 (faam 81)
-HOL hol-niveau 3 (faam 81)
-HOL hol-niveau 4 (faam 81)
-HOL hol-niveau 5 (faam 81)
-HOL hol-niveau 6 (faam 81)
-HOL hol-niveau 7 (faam 81)
-HOL hol-niveau 8 (faam 81)
-HOL hol-niveau 9 (faam 81)
-HOL hol-niveau 10 (faam 81)
-HOL hol-niveau 11 (faam 81)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 55 new hats.
-HOL rij bij de ingang 6 (meteen [2, 3, 4, 5])
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 727, hoeden 60
+HOL hol-niveau 2 (faam 96)
+HOL hol-niveau 3 (faam 96)
+HOL hol-niveau 4 (faam 96)
+HOL hol-niveau 5 (faam 96)
+HOL hol-niveau 6 (faam 96)
+HOL hol-niveau 7 (faam 96)
+HOL hol-niveau 8 (faam 96)
+HOL hol-niveau 9 (faam 96)
+HOL hol-niveau 10 (faam 96)
+HOL hol-niveau 11 (faam 96)
+HOL hol-niveau 12 (faam 96)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 60 new hats.
+HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 657 goud, faam 81
+HOL opslag geladen: 0 terugkomers, 747 goud, faam 96
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794851624
-HOL eerste koop mogelijk na 15 s speeltijd (goud 657)
+HOL zaad 1794851696
+HOL eerste koop mogelijk na 15 s speeltijd (goud 747)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 81 fell, 55 hats. +637 gold.
-HOL begin: vluchten (Joost)
-HOL held binnen: Joost
-HOL kroniek 5.0 (wacht 5.0): Your hole worked at quarter speed.
-HOL kroniek vervallen 7.1: Joost has a map. It is wrong.
-HOL kroniek 7.5 (wacht 7.5): Grew 4 levels while you were away.
+HOL kroniek 2.5 (wacht 2.5): 151 came, 96 fell, 60 hats. +727 gold.
+HOL begin: vluchten (Pim)
+HOL held binnen: Pim
+HOL kroniek 5.0 (wacht 5.0): Grew 4 levels while you were away.
+HOL kroniek vervallen 7.0: Pim has a map. It is wrong.
+HOL kroniek 7.6 (wacht 7.6): 7 more to come as you play.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL kroniek 10.0 (wacht 10.0): 6 more to come as you play.
-HOL einde na 15 s, fps=10, goud=657, terugkomers=0
+HOL einde na 15 s, fps=10, goud=747, terugkomers=0
