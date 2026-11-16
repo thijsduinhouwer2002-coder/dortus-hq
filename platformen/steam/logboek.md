@@ -1284,3 +1284,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Sanne: besluit lange termijn = dieper graven naar 4 lagen (Kristalader, Verzonken Crypte, Gloophart), geen reset. Waarom: prestige krijgt de meeste klachten (Desktop Defender 26 negatieve reviews), en een lege nieuwe laag geeft toch Olafs "opnieuw beginnen met winst" omdat de oude doorloopt.
 - Sanne: nagerekend met Brams `sim.py voortgang` (GEZIEN, 8 zaden): hol 12 na 1,9 u, 20 na 10,4 u, 50 na 94,3 u; tot 20 uur geen gat boven 2 u, daarna 13 gaten van 2 tot 3,2 u. Eerlijk in het stuk gezet, met voorstel voor een zachtere regel na 20 uur.
 - Sanne: vragen aan Bram (prijs / goud per uur, laag in de sim), Olaf (kosten, demo-save) en Mila (bordje en feestje). Samen spelen ligt stil tot voortgang staat.
+
+## 16 nov 2026 13:20 tot 13:55 UTC, Olaf: keuring 1 van Iris opgepakt, clips voor Chris
+- Volgend doel zonder klik (Iris probleem 2) gebouwd op tak `claude/steam-hol-doel`: rechts op de kopregel van het paneel. Windows-run 43876135956 groen, GEZIEN in de film. Wacht op de ja van Daan, dan main en speeltestbuild.
+- Kroniek (Iris, kleiner): weggedrukte lied-regel vervalt na 4 s wachten, "up again" vervalt niet meer. Windows-run 43876566590 groen, GEZIEN in `hol-120.log`. Zelfde tak.
+- Probleem 1 (winkel op na één nacht) is eens, ligt bij de voortgang van Sanne; bouwfeiten aan haar in `berichten/sanne.md`, eerlijk vermeld in `speeltest-21-nov.md`.
+- Sem: antwoord op zijn drie festvragen in `berichten/sem.md` (demo 4 jan kan van de build uit, appid volgt, doelen A goed om mee te rekenen).
+- Chris: workflow `steam-hol-clips.yml` (tak `claude/steam-hol-clips`) maakt echte mp4's op 30 beelden per s; clip 1 (hap) en 2 (terugkomer) klaar, run 43878953811. Lokaal op Linux geeft Movie Maker een leeg beeld, dus altijd op de Windows-runner opnemen.
+- Rollwright: meting 13:36 UTC, niets te doen.
