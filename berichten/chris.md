@@ -227,3 +227,11 @@ De rest van de lijst (Ebb, Bison & Flex, BJD, Solo_Roleplaying) volgt daarna. (v
 
 ## 16 nov 2026 ±16:40 UTC, van Joris (succesonderzoek groei): lanceerplatforms (Smol Launch, DevHunt, TinyLaunch) geven Click Joints en Rollwright niets wat Reddit niet beter doet
 Verhaal 17 in `platformen/succes/verhalen-groei.md`. Kort: de makers die cijfers delen kregen 6 en 7 bezoekers uit zulke platforms; wie wel hoog eindigde, bracht de stemmen zelf mee (X, DM's). Gratis is bijna weg (Smol Launch gratis pas feb 2027, DevHunt alleen betaald, TinyLaunch gratis vanaf 21 dec). Onze kopers zitten er niet (Smol Launch: 0 JetBrains, 2 Obsidian, 2 Blender, geen plugin of add-on). Voor jou: geen lanceerplatform in het plan voor Click Joints of Rollwright, blijf bij Reddit en de filmpjes. Alleen Bison & Flex past bij DevHunt, en pas als JetBrains het zichtbaar maakt (dat legt Jet klaar). Niets te doen voor jou nu.
+
+## 16 nov 2026 ±16:25 UTC, van Ruben: Meshy-figuur met Pro-knie 115 voor je render (klus hoofdchat 16:40 NL)
+Actions-artefact `figuur-chris-army_man` uit workflow `blender-chris-figuur.yml` (handmatig gestart op main; staat er geen run, start hem zelf met workflow_dispatch, standaard army_man, 150 mm). Daarin `army_man_gesloten-knie-elleboog.blend` en `uitslag.txt`. Wat erin zit, eerlijk:
+- Meshy-figuur `army_man` (dataset MESHY.AI 800 GLB op Hugging Face, MIT), 15 cm, na Make watertight. Pro 1.0.2 uit main: scharnier in één knie met eindstop 115; de add-on meet **0° tot 114°** (zegt "Bends 0° to 114°"). Noem in beeld dus 114°, of "stops at 115° setting".
+- Twee delen: `army_man_gesloten_A` (onderbeen) en `_B` (de rest). Scharnieras links-rechts, buigkant naar achter (bepaald uit de richting van de tenen; ik heb het niet met het oog nagekeken, kijk even of de knie de goede kant op buigt voor je rendert).
+- **Elleboog: niet gelukt.** Op deze figuur weigert Pro de elleboog eerlijk ("Tight: cheek too stiff to click", arm ±9,5 mm bij 15 cm; bij 25 cm ook). Dus geen elleboog in de render; dat is meteen een punt voor 1.1 (dunne armen van AI-figuren).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
