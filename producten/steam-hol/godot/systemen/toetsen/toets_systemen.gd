@@ -93,7 +93,8 @@ func _init() -> void:
 	ok(HN.hover(0) == "Level 1: Gloop and the pit. 3 more heroes.", "hover niveau 1: " + HN.hover(0))
 	ok(HN.hover(11) == "Level 4: a bat moves in. 1 more hero.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
-	ok(absf(HN.deel(8) - 0.5) < 0.01, "balkje halverwege tussen 6 en 10")
+	ok(absf(HN.deel(14) - 0.5) < 0.01, "balkje halverwege tussen 12 en 16")
+	ok(HN.niveau(4) == 3 and HN.niveau(7) == 4 and HN.niveau(15) == 5 and HN.niveau(16) == 6, "drempels hol 3, 4 en 6 op 4 / 7 / 16 (Bram 18:35)")
 	# bordje (Mila 16 nov 16:20): één cijfer in het midden, twee cijfers -2,5 en +2,5; blad met 11 cellen
 	var HB = load("res://systemen/holbord.gd")
 	ok(HB.cijfers(5) == [[5, 0.0]] and HB.cijfers(12) == [[1, -2.5], [2, 2.5]], "bordje: cijfers en hun plek")
@@ -110,7 +111,7 @@ func _init() -> void:
 	hb.free()
 	# doelregel als alles gekocht is (Sanne 16 nov 16:10, punt 6c)
 	var KA = load("res://kern/kaartje.gd")
-	ok(KA.niveau_doel(12) == "Next: a second pit, 8 heroes", "doelregel volgend niveau: " + KA.niveau_doel(12))
+	ok(KA.niveau_doel(12) == "Next: a second pit, 4 heroes", "doelregel volgend niveau: " + KA.niveau_doel(12))
 	ok(KA.niveau_doel(11) == "Next: the Thief, 1 hero", "doelregel enkelvoud: " + KA.niveau_doel(11))
 	ok(KA.niveau_doel(100000) == "", "doelregel leeg op het laatste niveau")
 	var lang_d := 0
@@ -119,7 +120,7 @@ func _init() -> void:
 			lang_d += 1
 	ok(lang_d == 0, "doelregel altijd binnen 34 tekens")
 	var lang_h := 0
-	for f_ in [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]:
+	for f_ in HN.DREMPEL:
 		if HN.hover(f_).length() > 42:
 			lang_h += 1
 	ok(lang_h == 0, "hover hooguit 42 tekens")

@@ -7,7 +7,9 @@ class_name HolNiveau
 # (ridder op 3, vleermuis op 4, ...) wordt pas aangesloten als Sanne en Daan dat voor de demo vastzetten.
 
 # DREMPEL[i] = faam die nodig is voor niveau i + 1 (niveau 1 bij 0 faam)
-const DREMPEL := [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]
+# Hol 3, 4 en 6 omlaag naar 4 / 7 / 16 (Olaf 16 nov 18:30, voorstel Sanne 18:10, nagerekend Bram 18:35 over 40 zaden:
+# geen drempel op 6, 8, 11, 14 of 17 want daar valt een koop op dezelfde vangst; ergste gat minuut 1 tot 20 van 11,8 naar 8,4 min).
+const DREMPEL := [0, 3, 4, 7, 12, 16, 25, 31, 39, 53, 69, 88]
 const DEMO_MAX := 12
 # Hover-tekst per niveau ("Level 5: the Thief. 12 more heroes."), Engels (winkeltaal)
 const WAT := ["", "Gloop and the pit", "the Hero Book", "the Knight", "a bat moves in", "the Thief",
