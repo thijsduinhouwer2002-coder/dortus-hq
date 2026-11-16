@@ -23,7 +23,7 @@ class SpelView extends WatchUi.View {
     var stilstand as Number = 0;
     var vorigeToestand as Number = Regel.KLAAR;
 
-    // Plaatjes: 0 rust, 1 hap, 2 blij, 3 slok, 4 held, 5 vliegende helm, 6 tot 15 de tien hoeden.
+    // Plaatjes: 0 rust, 1 hap, 2 blij, 3 slok, 4 held, 5 vliegende helm, 6 tot 15 de tien hoeden, 16 de titel.
     var pl as Array<Plaatje> = [] as Array<Plaatje>;
     // Maten en ankers van de plaatjes (zie Maten.mc).
     var m as Array<Number> = [] as Array<Number>;
@@ -53,7 +53,8 @@ class SpelView extends WatchUi.View {
             WatchUi.loadResource(Rez.Drawables.Hoed6) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Hoed7) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Hoed8) as Plaatje,
-            WatchUi.loadResource(Rez.Drawables.Hoed9) as Plaatje
+            WatchUi.loadResource(Rez.Drawables.Hoed9) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Titel) as Plaatje
         ] as Array<Plaatje>;
     }
 
@@ -92,7 +93,7 @@ class SpelView extends WatchUi.View {
         }
         if (spel.toestand == Regel.SLOK && vorigeToestand != Regel.SLOK) {
             stilstand = STILSTAND_MS;
-            if (Bouw.AUTO && (spel.hoeden == 3 || spel.hoeden == 8)) {
+            if (Bouw.AUTO && (spel.hoeden == 3 || spel.hoeden == 8 || spel.hoeden == 12)) {
                 // Alleen in de bouwstraat: hetzelfde slokbeeld langer vasthouden, zodat de camera
                 // (één foto per 1,5 s) het zeker pakt. In het echte spel is het 0,08 s.
                 stilstand = 1700;
@@ -123,7 +124,7 @@ class SpelView extends WatchUi.View {
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
-        if (pl.size() < 16) {
+        if (pl.size() < 17) {
             return;
         }
         var w = dc.getWidth();
@@ -172,18 +173,38 @@ class SpelView extends WatchUi.View {
         tekenTijd(dc, w, h);
 
         if (spel.toestand == Regel.KLAAR) {
-            tekst(dc, cx, (h * 0.07).toNumber(), Graphics.FONT_MEDIUM, "GLOOP", midden, 0xFFFFFF);
+            // Titelplaatje van Mila ("GLOOP / HAT TOWER") in plaats van het dunne systeemfont:
+            // bovenkant op 0,08 van de hoogte, in het midden (anker uit de kit).
+            dc.drawBitmap(cx - m[32] / 2, (h * 0.08).toNumber(), pl[16]);
             tekenOnderregel(dc, w, h, "START = GULP");
             tekenKnopHint(dc, w, h);
         } else if (spel.toestand == Regel.EINDE) {
-            dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-            dc.fillRectangle(0, (h * 0.16).toNumber(), w, (h * 0.34).toNumber());
-            dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, (h * 0.17).toNumber(), Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            // Eindscherm. Moet van Daan (16 nov 06:45): "START = AGAIN" stond over het gezicht van Gloop.
+            // De regel staat nu in de zwarte balk onder "BEST 15", zodat het gezicht vrij blijft.
+            // Past dat niet boven Gloop (balk zou over zijn kop komen), dan de oude plek onderaan,
+            // met de donkere rand van 2 px.
             var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
-            dc.drawText(cx, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
-            tekenOnderregel(dc, w, h, "START = AGAIN");
+            var y1 = (h * 0.17).toNumber();
+            var y2 = y1 + (dc.getFontHeight(Graphics.FONT_MEDIUM) * 0.85).toNumber();
+            var y3 = y2 + (dc.getFontHeight(Graphics.FONT_SMALL) * 0.90).toNumber();
+            var balkOnder = y3 + dc.getFontHeight(Graphics.FONT_XTINY) + 2;
+            var inBalk = (balkOnder <= voet - m[3] - 4);
+            if (!inBalk) {
+                balkOnder = (h * 0.50).toNumber();
+            }
+            var balkBoven = (h * 0.16).toNumber();
+            dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+            dc.fillRectangle(0, balkBoven, w, balkOnder - balkBoven);
+            dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, y1, Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
+            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, y2, Graphics.FONT_SMALL, regel, midden);
+            if (inBalk) {
+                dc.setColor(0xAAAAAA, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(cx, y3, Graphics.FONT_XTINY, "START = AGAIN", midden);
+            } else {
+                tekenOnderregel(dc, w, h, "START = AGAIN");
+            }
         } else {
             tekenTeller(dc, w, h, top);
             if (spel.toestand == Regel.SLOK) {
@@ -246,13 +267,16 @@ class SpelView extends WatchUi.View {
         tekst(dc, w / 2, y, font, s, Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
     }
 
-    // Tekst met een zwarte rand, zodat hij op elke ondergrond te lezen is.
+    // Tekst met een zwarte rand van 2 px (stripletter), zodat hij op elke ondergrond te lezen is:
+    // moet van Daan voor "START = AGAIN" en wens van Mila voor alle teksten op het speelveld
+    // ("GULP! x3" viel weg in de lichtbaan). Twaalf keer zwart rondom, dan de kleur erop.
+    const RAND = [-2, 0, 2, 0, 0, -2, 0, 2, -2, -1, -2, 1, 2, -1, 2, 1, -1, -2, 1, -2, -1, 2, 1, 2] as Array<Number>;
+
     function tekst(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String, uitlijning as Graphics.TextJustification, kleur as Number) as Void {
         dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x - 1, y - 1, font, s, uitlijning);
-        dc.drawText(x + 1, y - 1, font, s, uitlijning);
-        dc.drawText(x - 1, y + 1, font, s, uitlijning);
-        dc.drawText(x + 1, y + 1, font, s, uitlijning);
+        for (var i = 0; i < 24; i += 2) {
+            dc.drawText(x + RAND[i], y + RAND[i + 1], font, s, uitlijning);
+        }
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, font, s, uitlijning);
     }

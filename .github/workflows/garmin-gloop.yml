@@ -45,6 +45,11 @@ jobs:
           # Speelbare proef voor een echt horloge (AUTO = false), komt naast de beelden op de tak schermen.
           # Ondertekend met een wegwerpsleutel: alleen om via de kabel in GARMIN/APPS te zetten, niet voor de winkel.
           grep -q 'const AUTO = false;' source/Bouw.mc || exit 1
+          # Welke maat launchericoon wil elk horloge? (alleen voor het logboek, mag mislukken)
+          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fr55 fr245; do
+            f=$(find / -path "*Devices/$d/compiler.json" 2>/dev/null | head -1)
+            echo "LAUNCHER $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"launcherIcon":{[^}]*}')" || true
+          done
           for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3; do
             monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || exit 1
             cp "/tmp/prg/gloop-proef-$d.prg" schermen/

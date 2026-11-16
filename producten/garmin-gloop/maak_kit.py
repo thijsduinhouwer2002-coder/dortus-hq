@@ -13,6 +13,9 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 MAPPEN = {260: ("260-mip", True), 280: ("280-mip", True), 320: ("320", False), 390: ("390", False),
           416: ("416", False), 454: ("454", False)}
 VAST = ["gloop-rust", "gloop-hap", "gloop-blij", "gloop-slok", "held-val", "helm-vlieg"]
+# Launchericoon van Mila (gekeurd door Daan, 16 nov): map icoon/ naast de kit. De compiler schaalt
+# naar de maat van het horloge; 40 heeft een eigen tekening voor kleine maten.
+ICOON = {260: 40, 280: 40, 320: 60, 390: 60, 416: 60, 454: 80}
 HOEDEN = ["hoed-00-helm", "hoed-01-puntmuts", "hoed-02-kap", "hoed-03-pet", "hoed-04-kroon",
           "hoed-05-koksmuts", "hoed-06-emmer", "hoed-07-hoge_hoed", "hoed-08-pan", "hoed-09-veermuts"]
 IDS = ["GloopRust", "GloopHap", "GloopBlij", "GloopSlok", "HeldVal", "HelmVlieg"] + ["Hoed%d" % i for i in range(10)]
@@ -29,6 +32,12 @@ for breedte, (naam, mip) in sorted(MAPPEN.items()):
         shutil.copy(os.path.join(KIT, naam, stuk + ".png"), os.path.join(doel, bestand))
         extra = ' dithering="none"' if mip else ""
         regels.append('    <bitmap id="%s" filename="%s"%s/>' % (ident, bestand, extra))
+    # Titelplaatje "GLOOP / HAT TOWER" voor het startscherm en het launchericoon.
+    shutil.copy(os.path.join(KIT, naam, "titel.png"), os.path.join(doel, "titel.png"))
+    regels.append('    <bitmap id="Titel" filename="titel.png"%s/>' % (' dithering="none"' if mip else ""))
+    shutil.copy(os.path.join(KIT, "..", "icoon", "launcher-%d-keus.png" % ICOON[breedte]),
+                os.path.join(doel, "launcher_icon.png"))
+    regels.append('    <bitmap id="LauncherIcon" filename="launcher_icon.png"/>')
     regels.append("</drawables>")
     open(os.path.join(doel, "kit.xml"), "w").write("\n".join(regels) + "\n")
     m = kit[naam]
@@ -38,13 +47,16 @@ for breedte, (naam, mip) in sorted(MAPPEN.items()):
            m["helm-vlieg"][0], m["helm-vlieg"][1], a["toren_voet"][0], a["toren_voet"][1]]
     for hd in HOEDEN:
         rij += m[hd]
+    from PIL import Image
+    rij += list(Image.open(os.path.join(KIT, naam, "titel.png")).size)
     takken.append((breedte, rij))
 
 uit = ["import Toybox.Lang;", "",
        "// GEMAAKT DOOR maak_kit.py uit ontwerp/garmin/gloop-spel/kit/kit.json. Niet met de hand aanpassen.",
        "// Volgorde: 0 Gloop breed, 1 rust hoog, 2 hap hoog, 3 blij hoog, 4 slok breed, 5 slok hoog,",
        "// 6 held breed, 7 held hoog, 8 helm breed, 9 helm hoog, 10 en 11 voet van de toren (px in de",
-       "// rustsprite), daarna per hoed breed en hoog (12 en 13 voor hoed 0, tot 30 en 31 voor hoed 9).",
+       "// rustsprite), daarna per hoed breed en hoog (12 en 13 voor hoed 0, tot 30 en 31 voor hoed 9),",
+       "// 32 en 33 de titel breed en hoog.",
        "module Maten {",
        "    function voor(breedte as Number) as Array<Number> {"]
 for breedte, rij in sorted(takken, reverse=True):
