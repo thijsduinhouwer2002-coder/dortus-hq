@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 11 af 16 nov ±15:00 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of Mini Cozy Room: Lo-Fi van dezelfde maker als TBH, zonder markt en wel overweldigend positief)
+bezig: Mini Cozy Room: Lo-Fi (verhaal 12), Fenna, 16 nov ±16:10 UTC
 
 Nieuwste bovenaan.
 
