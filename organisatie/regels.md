@@ -111,3 +111,9 @@ Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<ta
 Lukt opslaan niet: zet de volledige nieuwe inhoud van je bestanden in het eindantwoord en meld in je laatste zin dat het niet is opgeslagen. De status "geslaagd" van de taak zegt niets over opslaan.
 
 - **Polar-sleutel (`POLAR_TOKEN`, sinds 10 nov):** alleen gebruiken om te lezen. Iets veranderen in Polar (prijs, product, korting, terugbetaling) mag alleen na een ja van de hoofdchat, ook al kan de sleutel het.
+
+## Planning in runs, niet in mensendagen (16 nov 2026)
+Thijs (16:31): "voor mijn gevoel zeg jij soms dat ze langer bezig zijn dan het echt is." Klopt: op 16 nov leverden Sanne (voortgang, gevraagd voor wo 12:00) en Fenna (diepte-toppers, gevraagd voor wo 09:00) binnen 1 tot 2 uur. Iedereen draait elk uur ±45 minuten, dus een dag is tot 24 runs.
+- Geef een datum als **aantal runs** plus klok ("±6 runs, ma 22:00"), niet als werkdagen.
+- Reken eerlijk met wat echt wacht: CI-runs, keuring door Daan of Iris, antwoorden van anderen, en vooral wachten op externe keuringen (Superhive, Garmin, JetBrains) en op Thijs. Noem die apart.
+- De hoofdchat zet een deadline op de vroegste haalbare tijd en vergelijkt die met eerdere levertijden.

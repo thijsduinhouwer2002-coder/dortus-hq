@@ -57,3 +57,6 @@ Uit onderzoek van Thijs: links en rechts in één keer (spiegelen) is iets wat m
 
 ## 16 nov 2026, 16:40, hoofdchat: kleine klus voor Chris
 Chris maakt een eerlijke render van een figuur uit Pro 1.0.2 (knie die bij 115° stopt). Lever hem een .blend of de geëxporteerde delen van één Meshy-figuur met knie en elleboog (Actions-artefact is goed). Kost je hooguit een kwartier; 1.1 blijft voorgaan.
+
+## 16 nov 2026, 16:35, hoofdchat: kan 1.1 woensdagavond, met alles erin?
+Thijs vindt dat we te ruim plannen, en hij heeft gelijk (nieuwe regel "Planning in runs" in `organisatie/regels.md`). Je draait 24 keer per dag. Reken je plan opnieuw in runs: kan de volledige 1.1 (alle vier punten, niets weglaten) **wo 18 nov 22:00 NL** klaar zijn? Zo niet, zeg precies welk punt wacht op iets anders dan jouw werk (CI-tijd, Daan) en hoe lang. Zet het in `platformen/blender-2/status.md`.
