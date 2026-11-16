@@ -24,6 +24,12 @@ import gedeeld as g
 NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars"]
 GROOT = 0.86  # maat van de laars (Daan 08:55)
 TIL = 0.08    # laars omhoog zodat de onderkant van de rug gelijk ligt met de punt van de staartjes
+BOOS_AF = float(os.environ.get("TEKEN_BOOS_AF", "0.16"))     # was 0.21 (Mila 16 nov)
+BOOS_DIK = float(os.environ.get("TEKEN_BOOS_DIK", "0.07"))   # was 0.04
+ZWEET_GROOT = float(os.environ.get("TEKEN_ZWEET_GROOT", "1.3"))  # was 1.0
+ZWEET_KLEUR = os.environ.get("TEKEN_ZWEET_KLEUR", "3a86d8")    # was 5aa8e8
+BOOS_VORM = os.environ.get("TEKEN_BOOS_VORM", "wolk")      # "wolk" (rood met frons) of "ader" (vier bogen)
+BOOS_SCHUIN = float(os.environ.get("TEKEN_BOOS_SCHUIN", "32"))
 SCHUIF = -0.095 # laars naar links, zodat hij in het midden van de cel staat en de cel 8 breed blijft
 
 
@@ -57,6 +63,10 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
         ouder.scale = (schaal, schaal, schaal)
         return ouder
     room = g.mat(f"teken_room_{naam}", "fbf3df", rough=0.55, spec=0.3)
+    if naam == "boos" and BOOS_VORM == "wolk":
+        # Mila 16 nov: Daan's tweede voorstel. Een rood wolkje (boos = rood, ook als je de vorm niet ziet) met
+        # twee dikke donkere gefronste wenkbrauwen \ / erop. Leest op 8 x 8 als kwaad gezicht.
+        room = g.mat("teken_rood_wolk", "d8423b", rough=0.45, spec=0.35)
     # wolkje: platte bol met staartje, net iets naar de camera
     bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=(0, 0.02, 0.62))
     w = _obj(bpy.context.object, f"teken_{naam}_wolk", room, ouder)
@@ -66,13 +76,22 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     t = _obj(bpy.context.object, f"teken_{naam}_staart", room, ouder)
     t.scale = (1, 0.6, 1); bpy.ops.object.shade_smooth()
     voor = -0.16  # symbool op de voorkant van het wolkje
-    if naam == "boos":
+    if naam == "boos" and BOOS_VORM == "wolk":
+        donker = g.mat("teken_frons", "2a1810", rough=0.6)
+        for kant in (1, -1):
+            # binnenkant laag, buitenkant hoog: \ / (draaien om y met min, want +y draait rechts omlaag)
+            o = _blok(ouder, f"teken_boos_frons_{kant}", donker, (0.0, 0.0, 0.0), (0.12, 0.04, 0.048), rond=0.03)
+            o.rotation_euler = (0, math.radians(-BOOS_SCHUIN * kant), 0)
+            o.location = (0.15 * kant, voor - 0.02, 0.66)
+    elif naam == "boos":
         rood = g.mat("teken_rood", "d8423b", rough=0.4)
         # vier bogen, elk in een eigen hoek en bol naar het midden (de bekende boze ader)
         import bmesh
         for i, (sx, sz) in enumerate(((1, 1), (-1, 1), (-1, -1), (1, -1))):
-            cx, cz = 0.21 * sx, 0.21 * sz
-            bpy.ops.mesh.primitive_torus_add(major_radius=0.14, minor_radius=0.04, major_segments=48,
+            # Mila 16 nov (Daan, Iris keuring 2): dikker en dichter bij het midden, zodat het op 8 x 8 één rode
+            # knoop leest in plaats van een vizier (was 0.21 en 0.04)
+            cx, cz = BOOS_AF * sx, BOOS_AF * sz
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.14, minor_radius=BOOS_DIK, major_segments=48,
                                              minor_segments=12, location=(cx, voor, 0.62 + cz),
                                              rotation=(math.radians(90), 0, 0))
             o = _obj(bpy.context.object, f"teken_boos_{i}", rood, ouder)
@@ -87,17 +106,21 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
         oranje = g.mat("teken_oranje", "e8742a", rough=0.4)
         _tekst("!", (0, voor, 0.62), 0.62, oranje, "teken_uitroep_teken", ouder, dik=0.05)
     elif naam == "zweet":
-        blauw = g.mat("teken_blauw", "5aa8e8", rough=0.25, spec=0.6)
-        bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, location=(0, voor, 0.56))
-        d = _obj(bpy.context.object, "teken_zweet_bol", blauw, ouder); d.scale = (0.15, 0.06, 0.15)
+        # Mila 16 nov (Daan, Iris keuring 2): druppel 1,3x groter en donkerder blauw (was 5aa8e8), want de
+        # lichtblauwe stip viel op ware grootte weg in het room. Midden van de druppel blijft op z 0.62.
+        Z = ZWEET_GROOT
+        blauw = g.mat("teken_blauw", ZWEET_KLEUR, rough=0.25, spec=0.6)
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, location=(0, voor, 0.62 - 0.06 * Z))
+        d = _obj(bpy.context.object, "teken_zweet_bol", blauw, ouder); d.scale = (0.15 * Z, 0.06, 0.15 * Z)
         bpy.ops.object.shade_smooth()
-        bpy.ops.mesh.primitive_cone_add(vertices=32, radius1=0.142, radius2=0.0, depth=0.26,
-                                        location=(0, voor, 0.70))
+        bpy.ops.mesh.primitive_cone_add(vertices=32, radius1=0.142 * Z, radius2=0.0, depth=0.26 * Z,
+                                        location=(0, voor, 0.62 + 0.08 * Z))
         k = _obj(bpy.context.object, "teken_zweet_punt", blauw, ouder); k.scale = (1, 0.42, 1)
         bpy.ops.object.shade_smooth()
-        bpy.ops.mesh.primitive_uv_sphere_add(segments=16, ring_count=8, location=(-0.05, voor - 0.05, 0.6))
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=16, ring_count=8,
+                                             location=(-0.05 * Z, voor - 0.05, 0.62 - 0.02 * Z))
         gl = _obj(bpy.context.object, "teken_zweet_glans", g.mat("teken_glans", "ffffff", rough=0.2, emis=0.6), ouder)
-        gl.scale = (0.03, 0.01, 0.045)
+        gl.scale = (0.03 * Z, 0.01, 0.045 * Z)
     elif naam == "zzz":
         paars = g.mat("teken_paars", "6b4fbf", rough=0.4)
         _tekst("Z", (-0.12, voor, 0.54), 0.36, paars, "teken_zzz_1", ouder, dik=0.04)
