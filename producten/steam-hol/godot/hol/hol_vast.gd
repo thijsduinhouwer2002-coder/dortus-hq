@@ -250,7 +250,6 @@ const KAMER_VLOER := 22                        # vloer van een kamer in de boven
 const VOL_TROON := 5                           # vanaf schat_kol - 5 niets: hoedenhoop en Gloop, en één tegel vrij ervoor
 const GROOT := [2, 3, 7]                       # ton, krat, stut: nooit twee op tegels naast elkaar (Daan 16 nov, regel b)
 const KLEIN := [0, 1, 4, 5]                    # paddenstoel, lichtzwam, schedel, kristal: mogen wel naast een groot ding
-const HANG_SPIN := 4.5                        # het spinrag: daaronder begint de spin
 const HANG_MAX := 6.0                          # spinrag en vaandel hooguit een derde van de gang (±18 spelpixels) onder het plafond
 
 static func is_vol(h) -> bool:
@@ -365,18 +364,24 @@ func _teken_vol(d: CanvasItem, vloer: int) -> void:
 			_teken_hangend(d, naam, Vector2(ding[0] * KOL + midden, GANG_BOVEN))
 
 # Hangend ding hooguit HANG_MAX onder het hangpunt (Daan 16 nov, regel a: "een ding door het hoofd van een held leest als
-# een fout"). Het spinrag op 0,75 en de onderkant eraf (dan valt ook de paarse spin weg, die leek op de vleermuis: regel
-# "één kleur per soort beestje"); het vaandel kleiner tot het past, want een half vaandel leest als kapot.
+# een fout"). Het vaandel kleiner tot het past, want een half vaandel leest als kapot. Het spinrag heel en kleiner
+# (SPIN_SCHAAL) en zonder de draad en de paarse spin rechts ervan: Daan 16 nov 10:50, moet, "onderaan recht afgesneden met
+# een los draadje ernaast leest als een kapot plaatje"; de spin leek ook op de vleermuis (één kleur per soort beestje).
+const SPIN_SCHAAL := 0.6
+# Alleen het web uit het vak van het spinrag, in bladpixels binnen `vak_px` [x, y, b, h]: de draad staat vanaf x 57, de
+# spin rechtsonder vanaf x 44 (onder y 34) en x 49 (onder y 31). Nagemeten op kunst/3d/deco.png, vak 80 x 56.
+const SPIN_WEB := [Rect2(0, 0, 56, 31), Rect2(0, 31, 49, 3), Rect2(0, 34, 44, 12)]
+
 static func hang_schaal(naam: String) -> float:
 	var m := HOL3D.deco_maat(naam)
 	if m == Vector2.ZERO:
 		return 1.0
+	if naam == "spinrag":
+		return SPIN_SCHAAL
 	var hy: float = 2.2
 	var s: Dictionary = HOL3D.deco[naam]
 	if s.has("hang") and typeof(s["hang"]) == TYPE_ARRAY and s["hang"].size() == 2:
 		hy = float(s["hang"][1])
-	if naam == "spinrag":
-		return 0.75
 	return minf(1.0, HANG_MAX / maxf(1.0, m.y - hy))
 
 func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
@@ -386,8 +391,14 @@ func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
 		return
 	var m := HOL3D.deco_maat(naam) * sc
 	var v: Array = HOL3D.deco[naam]["vak_px"]
-	var tot: float = HANG_SPIN if naam == "spinrag" else HANG_MAX   # spinrag iets hoger af: geen stukje spin over
-	var hoog: float = minf(m.y, punt.y + tot - plek.y)   # alles daaronder valt weg
+	if naam == "spinrag":
+		var f := Vector2(m.x / float(v[2]), m.y / float(v[3]))   # spelpixels per bladpixel
+		for r in SPIN_WEB:
+			var w: Rect2 = r
+			d.draw_texture_rect_region(HOL3D.deco_blad, Rect2(plek + w.position * f, w.size * f),
+				Rect2(Vector2(v[0], v[1]) + w.position, w.size))
+		return
+	var hoog: float = minf(m.y, punt.y + HANG_MAX - plek.y)   # alles daaronder valt weg
 	var bron_h: float = float(v[3]) * hoog / m.y
 	d.draw_texture_rect_region(HOL3D.deco_blad, Rect2(plek, Vector2(m.x, hoog)), Rect2(v[0], v[1], v[2], bron_h))
 
