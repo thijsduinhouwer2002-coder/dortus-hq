@@ -16,7 +16,7 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 1. **Goud per val = 6 + 3 per eerder bezoek + graafbonus.** Graafbonus = **+1 per 8 gegraven cellen, hooguit +3** (bij 24 cellen). De begingang telt niet; alleen wat de speler zelf groef.
 2. **Weg rekent mee:** `voortgang.gd` gebruikt dezelfde graafbonus (nu vast `gangen 6` = 7 per val, wordt 7 + graafbonus), zodat weg een kwart van spelen blijft.
 3. **Undo/weghalen** van een gang is er niet; graven blijft gratis. Dus de bonus kan niet omhoog en omlaag gesjoemeld worden.
-4. Tekst: de valregel toont het hogere getal al vanzelf. Daan beslist of er bij hover op aarde een korte regel komt; mijn voorstel: "Bigger hole, richer heroes." (28 tekens).
+4. Tekst: geen nieuwe zin. De valregel toont het hogere getal al vanzelf (+7, +8, +9), en volgens het besluit van Thijs van 16 nov 21:05 is alle speltekst concept tot hij hem schrijft en liever beeld dan zin. (Mijn eerdere hoverzin "Bigger hole, richer heroes." trek ik in.)
 
 **Nagerekend (GEZIEN, ±20:55 UTC, Brams sim, speeltestbuild met het nieuwe ritme, 40 zaden, graver 41 cellen per 20 min; `data/sim-graafbonus/graafbonus.py`, `uitkomst.txt`), koop 1 tot 6 in min, mediaan (ergste):**
 
