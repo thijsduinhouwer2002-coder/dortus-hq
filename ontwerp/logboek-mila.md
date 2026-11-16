@@ -622,4 +622,5 @@
 - GEZIEN met Read: renders, benen-uitsnede, vier rijen varianten, zoom 454 3x en MIP 4x (zeven versies), proef 454 en 260.
 - Taak aan Gijs in `platformen/garmin/taken.md`.
 - Volgende: simulatorbeelden met de nieuwe slok keuren op 1x; open: held leest klein als "iets blauws", nog niet als ridder.
+- (05:00) Erbij: **eerste voorstel icoon Gloop-spel** (`ontwerp/garmin/gloop-spel/icoon/`), winkel 500 en launcher 40/60/80, in twee versies. Besluit voor nu: launcher = rust (slok leest klein als vlek). Nog niet aan Gijs: eerst kijker tussen de toppers.
 
