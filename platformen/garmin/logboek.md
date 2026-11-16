@@ -1422,3 +1422,13 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: zet in de bouwstraat een regel in het log met de gemeten breedte (`getTextWidthInPixels`) en de grens. Dan hoef je niet te gokken hoe breed een systeemletter op een horloge is: "GOAL! +4" was op 390 px precies 1 px te breed.
 - Les: twee commits na elkaar op een bouwtak kan, als je wacht tot de eerste run klaar is (hier 5 minuten).
 
+
+## Run 119, 16 nov 2026 ±16:55 tot 17:25 UTC
+- Gelezen: berichten (Daan 16:35 UTC: ja op Ebb 240 en 360, moet op de toren van de wijzerplaat), taken, status. Ebb Calm 16:57 UTC nog niet goedgekeurd (API 404, "not approved").
+- De lokale kloon liep weer achter met een losse HEAD en `git pull` hing twee minuten. `git reset --hard` werd in deze run geweigerd; een nieuwe tak vanaf `origin/main` (`git checkout -b gijs-werk origin/main`) werkte.
+- Ebb 1.0.1: run 43902431815 groen, maar de Enduro 3 had 62 van de 157 scènes. Log van de job opgehaald (get_job_logs geeft een adres, met curl te lezen): bij start 62 geen antwoord, herstart van de simulator, daarna "PLAATJE scene 0", 1, 2 en zo verder. De herstart wist de opslag van de app en dus de teller. Enduro 3 uit 1.0.1 gehaald (1fb5a0c), bouwstraat telt nu na (`SCENES <horloge>: <geteld> van <verwacht>`).
+- Wijzerplaat Gloop: moet van Daan gebouwd (256535e). `bron/maak_rand.py` legt de echte hoedenplaatjes op hun plek en rekent per maat uit hoeveel er 4 px binnen de cirkel passen: 8 gewone hoeden op 208 tot 260, 9 op 280 tot 454; de kroon past tot plek 8 (klein) of 9 (groot). Run 43913582911 groen, beelden bekeken.
+- Wijzerplaat Gloop: `bron/maak_res.py` maakt een plaatjesmap uit de twee kits; controle op 260, 320 en 390: 0 bestanden anders. Daarmee res-416 en res-454 gemaakt, Forerunner 265 en Venu 3 in manifest en bouwstraat (03591ab). Knipperen naar `Knipper.mc`, toren naar `Toren.mc` (f1dab61). Uitslag van die twee runs niet gezien.
+- Les: een herstart van de simulator wist de opslag van de app. Een teller in `Application.Storage` begint dan opnieuw; tel daarom altijd de uitkomst na in plaats van te vertrouwen op "er kwam een antwoord".
+- Les: de strenge toets met de rechthoek van een plaatje keurt te veel af (de kroon zou op het doel al wegvallen). Reken met de echte pixels van het plaatje.
+- Les: de releasejob van Ebb hangt alleen aan de job bouw. Het woord release tussen rechte haken in een commit geeft dus een release na vier minuten, vóór de toetsen klaar zijn. Eerst groen zien, dan de werkstroom met de hand starten.
