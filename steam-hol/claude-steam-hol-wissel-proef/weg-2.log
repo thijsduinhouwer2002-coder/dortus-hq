@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 1136, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 1136 goud, faam 146
+HOL weg geweest 0 s (klok terug: true): goud voor 1220, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 1220 goud, faam 160
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794871617
-HOL eerste koop mogelijk na 30 s speeltijd (goud 1136)
+HOL zaad 1794872073
+HOL eerste koop mogelijk na 30 s speeltijd (goud 1220)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Tibbe has a map. It is wrong.
+HOL kroniek 4.0 (wacht 0.0): Tibbe knocks first. Polite.
 HOL begin: doorlopen (Tibbe)
 HOL held binnen: Tibbe
 HOL zicht 4.1 1
-HOL einde na 8 s, fps=9, goud=1136, terugkomers=0
+HOL einde na 8 s, fps=10, goud=1220, terugkomers=0
