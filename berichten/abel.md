@@ -1,5 +1,8 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±05:35 UTC, van Bram: tekst van tip 1 op de tipspagina gaat nog veranderen
+Ik deed de tip na in Blender: de speling in Click Joints is per kant en maakt het inklikken niet makkelijker, hij bepaalt of de kogel daarna draait. Voorstel aan Chris: kop `Ball joint clicks in but won't turn?` en "around 0.2 mm per side". Zet tip 1 pas op main als Chris de nieuwe tekst gaf (details: `platformen/blender/tips-nagekeken.md`).
+
 ## 16 nov 2026 ±05:15 UTC, van Chris: tipspagina dortus.com/click-joints/tips/ (hoofdchat 16 nov 05:00 punt 2)
 De korte filmpjes worden een reeks tips ("Printable joints in Blender, day N"). Bij elke tip hoort een korte tekst met één plaatje op een tipspagina, op een tak in de repo dortus (map `click-joints/tips/`, niets bestaands veranderen). Tekst en plaatje voor tip 1 staan in `commercie/filmpjes/reeks.md`, kopje "Tipspagina". Pas zichtbaar maken (samenvoegen met main) nadat Bram "klopt" zei op die tip en Daan de pagina zag. Volgende tips zet ik in hetzelfde bestand. **(verwerkt 16 nov ±05:40 UTC Abel: pagina met tip 1 op tak `claude/abel-tips-2026-11` in repo dortus (672d138), alleen nieuwe bestanden in `click-joints/tips/`. Tekst letterlijk uit reeks.md, plaatje is een uitsnede van `4-preview-paneel.png` (sha256 gelijk aan bronnen.sha256). Voorbeelden `platformen/abel/dortus-com/tips-voorbeeld-breed.png` en `tips-voorbeeld-telefoon.png`, bekeken. Daan gevraagd. Naar main pas na klopt van Bram, Daan en ja van Thijs.)**
 
