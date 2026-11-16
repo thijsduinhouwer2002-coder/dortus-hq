@@ -31,7 +31,7 @@ T1 tussendoor (een blik van 30 seconden is genoeg), T2 grappig om te onderhouden
 
 **Waarom hij het deelt.** Het doel komt sneller als er meer mensen spelen, en het spel aan laten staan helpt al. Elk doel is een aankondiging op Steam en een clip voor TikTok ("we hit 250,000 hats, here's the Wizard Hat raining down"). Het getal is ook iets voor een maker of streamer: "chat, zet de demo aan, we halen de miljoen".
 
-**Bouw.** Klein. Eén opgetelde stat `hoeden_samen` (increment only, max change per upload bijvoorbeeld 200), ophogen bij elke hap (de plek is er al: hoed naar de toren), elke 10 minuten uploaden en het totaal lezen. De beloningshoeden zitten al in de build en gaan open als het totaal boven het doel staat (één `if`). Het bordje is één klein 3D-stuk plus tekst (Mila en Daan). Schatting Olaf nog vragen; mijn gok 2 tot 3 dagen bouw na de Steam-koppeling.
+**Bouw.** Klein. Eén opgetelde stat `hoeden_samen` (increment only, max change per upload bijvoorbeeld 200), ophogen bij elke hap (de plek is er al: hoed naar de toren), elke 10 minuten uploaden en het totaal lezen. De beloningshoeden komen vooraf in de build (3 nieuwe hoeden, zie "Beeld dat erbij hoort") en gaan open als het totaal boven het doel staat (één `if`); geen update nodig tijdens het fest, wel een aankondiging per doel. Het bordje is één klein 3D-stuk plus tekst (Mila en Daan). Schatting Olaf nog vragen; mijn gok 2 tot 3 dagen bouw na de Steam-koppeling.
 
 **Risico.**
 - Bij weinig spelers ziet een klein getal er zielig uit ("All Gloops: 312 hats"). Oplossing: het bordje toont pas iets vanaf 5.000 en de eerste doelen liggen laag (rekensom hierboven).
@@ -79,6 +79,34 @@ T1 tussendoor (een blik van 30 seconden is genoeg), T2 grappig om te onderhouden
 - A en C gebruiken dezelfde techniek (één opgetelde stat en een bordje), dus samen kosten ze weinig meer dan A alleen. A blijft altijd, C geeft het fest een verhaal met een einde en een aankondiging.
 - B is het grappigst op de lange duur, maar in januari heeft bijna niemand vrienden met de demo. Na de lancering, als er kopers zijn, is B de beste reden om een vriend het spel te laten kopen.
 - Variant als Olaf weinig tijd heeft: alleen A, met de doelen ook op gelijktijdige spelers (zoals Desktop Defender), want dat getal bepaalt de lijst "most played demos". Het spel kan dat lezen met `GetNumberOfCurrentPlayers`.
+
+## Kroniekregels (Engels, gemeten: allemaal 42 tekens of minder, de grens uit `kroniek-regels.md`)
+De voorbeeldzinnen in de opties hierboven zijn uitleg; dit zijn de regels die in het spel passen. Getallen gemeten met de langste vorm (bijvoorbeeld "312,400").
+
+| Optie | Moment | Regel | Tekens |
+|---|---|---|---|
+| A | bordje | `All Gloops: 41,203 hats` | 23 |
+| A | klik op bordje | `Next: 50,000. Then: the Tin Crown.` | 34 |
+| A | doel gehaald | `Gloops everywhere ate 50,000 hats!` | 34 |
+| A | regel erna | `A hero in a tin crown is on his way.` | 36 |
+| A | eerste start na doelen | `The world earned you 3 hats. Wear them.` | 39 |
+| B | vriendenheld komt binnen | `Odo fled Mara's Gloop. Bad choice.` | 34 |
+| B | Gloop eet hem | `Gloop ate Mara's Odo. Kept the crown.` | 37 |
+| B | bij de vriend daarna | `Your Odo met Thijs's Gloop. Gone.` | 33 |
+| C | begin fest | `A giant is visiting every hole.` | 31 |
+| C | reus komt binnen | `Sir Ponderous. Only his boot fits.` | 34 |
+| C | hap | `Gloop bit the giant's toe. +1 for all` | 37 |
+| C | bordje | `Giant: 312,400 HP left` | 22 |
+| C | reus valt | `The world's Gloops felled the giant!` | 36 |
+| C | start na het fest | `The world beat him in January.` | 30 |
+| C | vangnet na het fest | `The giant fell. With one last bite.` | 35 |
+
+Let op bij B: Steam-namen zijn tot 32 tekens lang. Vriendennamen afkappen op 8 tekens (`Mara`, `Thijs`, `xXGloo…`), anders past de regel niet. Alle regels gaan via de vertaaltabel (besluit hoofdchat 16 nov, alle tekst in één tabel).
+
+## Beeld dat erbij hoort (voor Mila en Daan, pas na de keuze)
+- A: het bordje (klein houten bord, getal leesbaar op 120 px) en **3 nieuwe hoeden** voor de doelen; nu zijn er 10 (`slijm.gd`, `HOED_SOORTEN`). Voorstel: Tin Crown, Wizard Hat (de grote paarse met sterren), en een verrassing voor de laatste.
+- C: de reus (alleen laars en hoed zichtbaar in de gang, dat scheelt een heel figuur) en zijn reuzenhoed waar Gloop onder verdwijnt.
+- B: niets nieuws, de gewone helden met een naambordje.
 
 ## Wat elke optie eerst nodig heeft (vraag aan Olaf, en stappen voor Thijs zodra er een keuze is)
 1. **Steamworks in de build:** GodotSteam (GDExtension) in `producten/steam-hol/godot/`, met een nette terugval: zonder Steam (de Windows-toets op GitHub Actions, of offline) verdwijnt het bordje en werkt de rest zoals nu. Vraag aan Olaf: hoeveel werk, en past het vóór de demo van vr 18 dec?
