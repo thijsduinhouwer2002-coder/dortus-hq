@@ -100,3 +100,10 @@
 - Daarna: proef op de echte Rigify-metarig (`e2e/proef_rigify.py`): zeven gewrichten; echte reden bij een overgeslagen scharnier, lidstraal robuuster (edea5fc). Schouders nog niet (werkpunt a in ontwerp-1.1.md).
 - CI van c1bf7d7 rood in 4.2.23 alleen: boolean van één knie en één heup op de lange figuur. Lokaal nagespeeld in 4.2.23, niet opgelost; toets in 4.2 tijdelijk 6 van 8 met reden, openlijk in ontwerp-1.1.md (8cbbe5c). Lokaal 4.2 en 5.3 groen, plaatje 17 in beide.
 - Volgende run: CI van 8cbbe5c nakijken, de 4.2-boolean uitzoeken (een_lid?), schouders op de metarig, antwoord van Daan.
+
+## 16 nov 2026 15:05 tot 16:05 UTC (Ruben, run 7)
+- Vraag van de hoofdchat beantwoord: Pro 1.1 klaar om te uploaden op donderdag 19 nov, sneller op woensdag 18 nov als 4.2-herstel, Mixamo, nek en enkels eruit gaan (`status.md` bovenaan).
+- CI van b18df89 groen in drie versies.
+- Heupen die 0 graden bewogen: oorzaak gevonden. Na de knie had de heup-snede losse plaatjes van 0,1 mm van de veersleufwanden in het verkeerde deel achtergelaten (H van `een_lid` schuift de wanden door elkaar). Opgeruimd met `een_lid.ruim_snippers`; heupen nu ±8 en ±14. Lokaal in Blender 5.3.0 0 fout in `toetsen_rig_armen`, `toetsen_figuur`, `toetsen_rig`, `toetsen_een_lid` (gratis en Pro) en `test_betaald`. Tak `claude/blender-2026-11-16-figuur` op 8cece6b, CI loopt.
+- Raakt ook gratis code (`een_lid.py`): gaat pas mee met een volgende gratis versie, niet los uitgebracht.
+- Volgende run: CI nakijken, waarom de heupkogel in vrije richtingen maar ±14 haalt (schouder ±30), dan de echte Rigify-figuur.
