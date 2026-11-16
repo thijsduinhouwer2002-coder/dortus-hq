@@ -87,7 +87,8 @@ func _init() -> void:
 	# hoedenwand (zelfde nep-hol): oudste hoeden eerst, één per kolom zonder kamer, niet bij schacht en schat
 	var W = load("res://systemen/hoedenwand.gd")
 	var pw: Array = W.plekken(h)
-	ok(not pw.has(14) and not pw.has(2) and not pw.has(29) and pw.has(10) and pw.has(28), "hoedenwand: plekken zonder kamer, ook boven een val: " + str(pw))
+	ok(not pw.has(14) and not pw.has(2) and not pw.has(29), "hoedenwand: geen plek onder een kamer, bij de schacht of de schat: " + str(pw))
+	ok(pw.size() >= 12 and pw.size() <= 22, "hoedenwand: een deel van de kolommen blijft leeg, geen plank (%d van 25)" % pw.size())
 	ok(W.plekken(h) == pw, "hoedenwand: vaste volgorde")
 	var ind: Array = W.indeling(h, [4, 8, 6])
 	ok(ind.size() == 3 and ind[0]["nr"] == 4 and ind[2]["nr"] == 6 and ind[0]["k"] == pw[0], "hoedenwand: drie hoeden, oudste op de eerste plek")
@@ -98,7 +99,7 @@ func _init() -> void:
 	var ks := {}
 	for d2 in ind:
 		ks[d2["k"]] = true
-		ok(d2["y"] >= 14 and d2["y"] <= 19, "hoedenwand: hoed %d in de aarde (y %d)" % [d2["k"], d2["y"]]) if d2["y"] < 14 or d2["y"] > 19 else null
+		ok(d2["y"] >= 13 and d2["y"] <= 19, "hoedenwand: hoed %d in de aarde (y %d)" % [d2["k"], d2["y"]]) if d2["y"] < 13 or d2["y"] > 19 else null
 	ok(ind.size() == pw.size() and ks.size() == pw.size(), "hoedenwand: volle wand, één hoed per plek (%d)" % ind.size())
 	var hw := Node2D.new()
 	hw.set_script(W)

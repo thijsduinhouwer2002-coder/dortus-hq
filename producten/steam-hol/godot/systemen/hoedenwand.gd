@@ -9,7 +9,9 @@ extends Node2D
 const BLAD_JSON := "res://kunst/3d/sprites.json"
 const NAAM := "hoedenwand"
 const KOL := 16
-const MIDDEN_Y := [14, 15, 16, 17, 18, 19]   # midden van de hoed in spelpixels (gras tot 8, gang vanaf 24)
+const MIDDEN_Y := [13, 16, 19, 14, 18, 15, 13, 17]   # midden van de hoed in spelpixels (gras tot 8, gang vanaf 24)
+# Daan 16 nov (stijl.md "Een vol hol"): nooit in een vast ritme, anders leest het als een plank. Daarom blijft ±1 op 4
+# kolommen leeg (hash), wisselt de hoogte over 8 standen en schuift elke hoed tot 2 spelpixels opzij.
 
 var hol = null
 var slijm = null
@@ -39,8 +41,8 @@ func zet(h, s) -> void:
 # de schatkamer (daar staan Gloop en zijn toren). Volgorde: vaste hash, zodat de wand elke start gelijk vult.
 static func plekken(h) -> Array:
 	var uit: Array = []
-	for k in range(h.ingang_kol + 1, mini(h.schat_kol - 1, h.gang.size())):
-		if h.gang[k] and not h.boven[k]:
+	for k in range(h.ingang_kol + 1, mini(h.schat_kol - 2, h.gang.size())):   # niet tegen de hoedenberg aan
+		if h.gang[k] and not h.boven[k] and h._hash(k, 37) % 4 != 0:
 			uit.append(k)
 	uit.sort_custom(func(a, b): return h._hash(a, 23) > h._hash(b, 23) or (h._hash(a, 23) == h._hash(b, 23) and a < b))
 	return uit
@@ -51,7 +53,7 @@ static func indeling(h, hoeden: Array) -> Array:
 	var uit: Array = []
 	for i in mini(p.size(), hoeden.size()):
 		var k: int = p[i]
-		uit.append({"k": k, "nr": int(hoeden[i]) % 10, "y": MIDDEN_Y[h._hash(k, 29) % MIDDEN_Y.size()], "dx": h._hash(k, 31) % 3 - 1})
+		uit.append({"k": k, "nr": int(hoeden[i]) % 10, "y": MIDDEN_Y[h._hash(k, 29) % MIDDEN_Y.size()], "dx": h._hash(k, 31) % 5 - 2})
 	return uit
 
 func _hoeden() -> Array:
