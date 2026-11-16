@@ -185,7 +185,7 @@ Antwoorden (Thijs vult zelf naam en adres in):
 Waarom wel: een tweede moment in beeld een week na ons fest, voor een kleine kans op extra verlanglijsten, en het kost 5 minuten. Waarom het niet groot is (eerlijk): het is vooral een uitverkoop van spellen die al uit zijn; "binnenkort" is een apart vak dat ze nog "plannen". GOK: tientallen tot een paar honderd bezoekers.
 
 ## Trailer-plekken (Wholesome Games, PC Gamer Cozy Corner)
-~~Nog niet.~~ **Uitgezocht run 11** (`festivals.md`, kopje Showcases en nieuwsbrieven): december en januari hebben geen open showcase meer (INDIE Live Expo en Wholesome Snack sloten in september, Insider Gaming staat al klaar). Wel: Wholesome Games-nieuwsbrief "Coming Soon" voor maart, mail ±1 feb (conceptmail daar). PC Gaming Show nakijken na de paginadag.
+~~Nog niet.~~ **Uitgezocht run 11** (`festivals.md`, kopje Showcases en nieuwsbrieven): december en januari hebben geen open showcase meer (INDIE Live Expo en Wholesome Snack sloten in september, Insider Gaming staat al klaar). Wel: Wholesome Games-nieuwsbrief "Coming Soon" voor maart, mail ±1 feb (conceptmail daar). PC Gaming Show: nee (run 11).
 
 ## Wat Thijs straks precies doet (komt op `organisatie/lijst-thijs.md` zodra de pagina live is)
 Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 8 tot 10 mails (groep A en B met een openbaar adres).
