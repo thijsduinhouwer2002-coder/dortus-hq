@@ -1,0 +1,40 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 58 s (klok terug: false): goud voor 1649, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1656 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Fenna
+HOL kroniek 5.1 (wacht 1.0): Fenna the Thief tiptoes in.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=101 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Fenna fled. Grudge: the Spike Pit.
+HOL kroniek 27.6 (wacht 2.5): New page: the Thief. He got away.
+HOL meting t=30 beelden=56 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL kroniek 44.6 (wacht 0.0): Joost casts Light. It is a candle.
+HOL held binnen: Joost
+HOL moment vast val t=49.4
+HOL meting t=50 beelden=62 helden=1 hol_vast=2
+HOL meting t=60 beelden=59 helden=1 hol_vast=2
+HOL meting t=70 beelden=55 helden=1 hol_vast=2
+HOL meting t=80 beelden=57 helden=1 hol_vast=2
+HOL meting t=90 beelden=56 helden=1 hol_vast=2
+HOL meting t=100 beelden=55 helden=1 hol_vast=2
+HOL kroniek 102.1 (wacht 0.0): Rik sneaks in. Nobody saw. You saw.
+HOL held binnen: Rik
+HOL kroniek 107.6 (wacht 0.0): Rik found the Spike Pit. Hard. +6
+HOL kroniek 110.2 (wacht 2.5): New stamp for the Thief. The pit got him.
+HOL meting t=110 beelden=136 helden=1 hol_vast=2
+HOL meting t=120 beelden=56 helden=1 hol_vast=2
+HOL meting t=130 beelden=55 helden=1 hol_vast=2
+HOL meting t=140 beelden=55 helden=1 hol_vast=2
+HOL kroniek 145.4 (wacht 0.0): Sir Tibbe clanks in.
+HOL held binnen: Tibbe
+HOL meting t=150 beelden=126 helden=2 hol_vast=2
+HOL kroniek 158.9 (wacht 0.0): Tibbe will not be leaving. +6
+HOL meting t=160 beelden=180 helden=1 hol_vast=3
+HOL meting t=170 beelden=52 helden=1 hol_vast=3
+HOL meting t=180 beelden=59 helden=1 hol_vast=3
