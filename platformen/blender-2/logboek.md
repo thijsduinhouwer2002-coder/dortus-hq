@@ -97,4 +97,6 @@
 - Plaatje 17 (hele figuur, acht gewrichten) gemaakt en zelf bekeken; Daan gevraagd in `berichten/daan.md`.
 - Commits op de tak: c1bf7d7, f4c5984, 4fb7387.
 - Wat misging: bij het opruimen van `__pycache__` ging ook een bijgehouden .pyc van steam-hol mee in mijn commit; meteen teruggezet (f4c5984). Les: alleen in mijn eigen map opruimen. Vier toetsen tegelijk draaien in dezelfde Blender-gebruikersmap geeft een slotfout; na elkaar draaien.
-- Volgende run: CI van 4fb7387 nakijken, antwoord van Daan, een echte Rigify-figuur (metarig) als toets.
+- Daarna: proef op de echte Rigify-metarig (`e2e/proef_rigify.py`): zeven gewrichten; echte reden bij een overgeslagen scharnier, lidstraal robuuster (edea5fc). Schouders nog niet (werkpunt a in ontwerp-1.1.md).
+- CI van c1bf7d7 rood in 4.2.23 alleen: boolean van één knie en één heup op de lange figuur. Lokaal nagespeeld in 4.2.23, niet opgelost; toets in 4.2 tijdelijk 6 van 8 met reden, openlijk in ontwerp-1.1.md (8cbbe5c). Lokaal 4.2 en 5.3 groen, plaatje 17 in beide.
+- Volgende run: CI van 8cbbe5c nakijken, de 4.2-boolean uitzoeken (een_lid?), schouders op de metarig, antwoord van Daan.
