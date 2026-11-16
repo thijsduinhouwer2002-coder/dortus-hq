@@ -54,3 +54,9 @@ function testRandVolgtDeCirkel(logger as Test.Logger) as Boolean {
         && Regel.randBoven(130, 260, 260, true, 2) == 2 && Regel.randBoven(208, 260, 260, true, 2) > 20
         && Regel.randBoven(300, 320, 360, false, 2) == 2;
 }
+
+(:test)
+function testHoedWachtTotJeKijkt(logger as Test.Logger) as Boolean {
+    return Regel.wachtend(7, 6) == 6 && Regel.wachtend(7, 7) == 7 && Regel.wachtend(0, 9) == 0
+        && Regel.wachtend(5, -1) == 5 && Regel.wachtend(11, 8) == 8;
+}

@@ -18,12 +18,17 @@ class GloopFaceView extends WatchUi.WatchFace {
     var m as Array<Number> = [] as Array<Number>;
     var slaap as Boolean = false;
     var gemeld as Boolean = false;
+    // Kijken wordt beloond (regel van Daan): komt er een hoed bij terwijl je niet kijkt, dan valt hij
+    // pas op de toren als je de pols optilt. `gezien` is het aantal hoeden (met kroon) dat de drager
+    // al heeft zien landen, `wek` staat aan in de eerste seconde na het optillen.
+    var gezien as Number = -1;
+    var wek as Boolean = false;
     // Volgorde van de gewone hoeden in de toren. De kroon (hoed 4) komt alleen bij het stapdoel.
     const VOLGORDE = [1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
     const KROON = 4;
     // Afstand van de urenregel tot de minutenregel, als deel van de fonthoogte (cijferfonts hebben
     // lucht boven en onder de cijfers).
-    const PITCH = 0.80;
+    const PITCH = 0.74;
     // Standen voor de bouwstraat (Bouw.AUTO): stappen per stand; de laatste stand is de slaapstand.
     const PROEF = [0, 3420, 7612, 10000, 14800, 7612] as Array<Number>;
 
@@ -56,6 +61,7 @@ class GloopFaceView extends WatchUi.WatchFace {
 
     function onExitSleep() as Void {
         slaap = false;
+        wek = true;
         WatchUi.requestUpdate();
     }
 
@@ -85,15 +91,32 @@ class GloopFaceView extends WatchUi.WatchFace {
         var minuten = klok.min.format("%02d");
         var rond = System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND;
 
+        // Hoeveel hoeden nu getekend worden en of de bovenste nog boven de toren zweeft.
+        var aantal = Regel.hoeden(stappen) + (Regel.kroon(stappen, doel) ? 1 : 0);
+        var toon = aantal;
+        var zweef = false;
+        if (Bouw.AUTO) {
+            var sn = (System.getTimer() / 3000) % 6;
+            var vorige = sn > 0 ? Regel.hoeden(PROEF[sn - 1]) + (Regel.kroon(PROEF[sn - 1], doel) ? 1 : 0) : aantal;
+            zweef = (System.getTimer() / 1000) % 3 == 0 && aantal > vorige;
+        } else if (slaap) {
+            toon = Regel.wachtend(aantal, gezien);
+        } else {
+            zweef = wek && gezien >= 0 && aantal > gezien;
+            wek = false;
+            gezien = aantal;
+        }
+
         if (slaapt && amoled) {
             tekenSlaap(dc, w, h, uren, minuten, klok.min, rond);
         } else {
-            tekenVol(dc, w, h, uren, minuten, stappen, doel, amoled, rond);
+            tekenVol(dc, w, h, uren, minuten, stappen, doel, amoled, rond, toon, zweef);
         }
         if (!gemeld) {
             gemeld = true;
             var st = System.getSystemStats();
             System.println("GEHEUGEN " + w + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " vrij " + st.freeMemory);
+            System.println("FONTS " + w + " mild " + dc.getFontHeight(Graphics.FONT_NUMBER_MILD) + " medium " + dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM) + " hot " + dc.getFontHeight(Graphics.FONT_NUMBER_HOT) + " thai " + dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT) + " tiny " + dc.getFontHeight(Graphics.FONT_TINY) + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY));
         }
     }
 
@@ -103,14 +126,14 @@ class GloopFaceView extends WatchUi.WatchFace {
         var fonts = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
         for (var i = 0; i < fonts.size(); i += 1) {
             var fh = dc.getFontHeight(fonts[i]);
-            if (dc.getTextWidthInPixels("00", fonts[i]) <= breed && fh * (PITCH + 0.80) <= hoog) {
+            if (dc.getTextWidthInPixels("00", fonts[i]) <= breed && fh * (PITCH + 0.74) <= hoog) {
                 return fonts[i];
             }
         }
         return Graphics.FONT_NUMBER_MILD;
     }
 
-    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, stappen as Number, doel as Number, amoled as Boolean, rond as Boolean) as Void {
+    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, stappen as Number, doel as Number, amoled as Boolean, rond as Boolean, toon as Number, zweef as Boolean) as Void {
         var achter = amoled ? 0x000000 : 0xAA5500;
         dc.setColor(achter, achter);
         dc.clear();
@@ -120,10 +143,12 @@ class GloopFaceView extends WatchUi.WatchFace {
         var kroon = Regel.kroon(stappen, doel);
         var gx = (w * 0.70).toNumber();
         var voet = (h * 0.86).toNumber();
-        dc.drawBitmap(gx - m[0] / 2, voet - (kroon ? m[3] : m[1]), kroon ? pl[1] : pl[0]);
+        // Gloop is pas blij als de kroon geland is.
+        var blij = kroon && toon > n && !zweef;
+        dc.drawBitmap(gx - m[0] / 2, voet - (blij ? m[3] : m[1]), blij ? pl[1] : pl[0]);
         var torenX = gx - m[0] / 2 + m[10];
         var kruinY = voet - m[1] + m[11];
-        tekenToren(dc, w, h, rond, torenX, kruinY, n, kroon, Regel.hoedenBijDoel(doel));
+        tekenToren(dc, w, h, rond, torenX, kruinY, n, kroon, Regel.hoedenBijDoel(doel), toon, zweef);
 
         // Links: datum, uren boven minuten, stappen, hoeden, hartslag en batterij.
         var klein = Graphics.FONT_TINY;
@@ -133,7 +158,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         var gloopLinks = gx - m[0] / 2 - 6;
         var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
         var onder = (h * 0.93).toNumber();
-        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), onder - boven - 3 * kh - xh + 12);
+        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), onder - boven - 3 * kh - xh + 10);
         var fh = dc.getFontHeight(font);
         var pitch = (fh * PITCH).toNumber();
         var uy = boven + kh - (fh * 0.12).toNumber();
@@ -147,7 +172,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         tekst(dc, tx, uy, font, uren, 0xFFFFFF);
         tekst(dc, tx, my, font, minuten, 0xFFFFFF);
 
-        var sy = my + (fh * 0.90).toNumber();
+        var sy = my + (fh * 0.86).toNumber();
         tekst(dc, max(tx, Regel.randLinks(sy, sy + kh, w, h, rond, 6)), sy, klein, stappen.toString(), 0x55FFAA);
         // Onder de stappen: hoeveel hoeden van het doel; na het doel het aantal in geel.
         var hy = sy + kh - 2;
@@ -180,7 +205,7 @@ class GloopFaceView extends WatchUi.WatchFace {
     // zo gekozen dat de kroon op het moment van het doel helemaal in beeld staat (ook binnen de ronde
     // rand). Daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
     // De toren buigt licht naar rechts, weg van de tijd.
-    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, torenX as Number, kruinY as Number, n as Number, kroon as Boolean, nDoel as Number) as Void {
+    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, torenX as Number, kruinY as Number, n as Number, kroon as Boolean, nDoel as Number, toon as Number, zweef as Boolean) as Void {
         var buig = (w * 0.03).toNumber();
         var som = 0;
         for (var i = 0; i < nDoel; i += 1) {
@@ -191,12 +216,15 @@ class GloopFaceView extends WatchUi.WatchFace {
         var bovenrand = Regel.randBoven(torenX + buig + kb / 2 + 2, w, h, rond, 3);
         var stap = Regel.stap(som, kruinY - bovenrand - (khoog * 0.78).toNumber());
         var y = kruinY.toFloat();
-        var aantal = kroon ? n + 1 : n;
-        for (var i = 0; i < aantal; i += 1) {
+        // `toon` hoeden worden getekend; bij `zweef` hangt de bovenste nog een hoedhoogte boven de toren.
+        for (var i = 0; i < toon; i += 1) {
             var k = (kroon && i == n) ? KROON : VOLGORDE[i % 9];
             var hb = m[12 + 2 * k];
             var hh = m[13 + 2 * k];
             var top = (y - hh * 0.78).toNumber();
+            if (zweef && i == toon - 1) {
+                top -= hh;
+            }
             if (top + hh < 0) {
                 break;
             }
@@ -216,7 +244,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         var xh = dc.getFontHeight(Graphics.FONT_XTINY);
         var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
         var torenLinks = (w * 0.70).toNumber() - m[0] / 2 + m[10] - m[12] / 2 - 2;
-        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), (h * 0.93).toNumber() - boven - 3 * kh - xh + 12);
+        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), (h * 0.93).toNumber() - boven - 3 * kh - xh + 10);
         var fh = dc.getFontHeight(font);
         var uy = boven + kh - (fh * 0.12).toNumber() + (minuut % 3) * 2;
         var x = (w * 0.10).toNumber() + (minuut % 5) * 2;

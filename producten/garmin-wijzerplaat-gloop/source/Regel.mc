@@ -91,4 +91,13 @@ module Regel {
         }
         return h / 2 - Math.sqrt(r * r - d * d).toNumber() + marge;
     }
+
+    // In de slaapstand (pols omlaag) komt er geen hoed bij: de toren toont wat de drager al zag
+    // landen. Na middernacht (minder hoeden dan gezien) of bij de eerste keer gewoon het echte aantal.
+    function wachtend(aantal as Number, gezien as Number) as Number {
+        if (gezien >= 0 && gezien < aantal) {
+            return gezien;
+        }
+        return aantal;
+    }
 }

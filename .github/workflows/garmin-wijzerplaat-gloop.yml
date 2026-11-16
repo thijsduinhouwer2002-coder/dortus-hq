@@ -61,7 +61,7 @@ jobs:
               sleep 1.5
             done
             kill "$MD" 2>/dev/null || true
-            grep -a "GEHEUGEN" "/tmp/do-$d.log" | head -2 | sed "s/^/$d /" || true
+            grep -a "GEHEUGEN\|FONTS" "/tmp/do-$d.log" | head -3 | sed "s/^/$d /" || true
             tail -5 "/tmp/do-$d.log"
             sleep 2
           done
