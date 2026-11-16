@@ -85,10 +85,10 @@ def getal(ouder, txt, zm):
 # net onder de plank. Erop een donker plusje en het aantal niveaus dat nog in de rij staat: "+7". Zelfde x = 0 en z = 0
 # als het bordje, dus het spel legt het kaartje met hetzelfde anker en dezelfde nul_y op het bordje.
 # kaart1: 9 breed (plus en één cijfer), kaart2: 13 breed (plus en twee cijfers). Kaartje links op x = -1 spelpixel.
-PAPIER = "f2e4c2"
+PAPIER = "c9b78e"   # Daan 17:45: een tint donkerder dan het cijfer op het bord (fbf2c0), zodat het bord de baas blijft; het licht maakt hem ±1,2x lichter, in het blad wordt dit ±efe0b0
 INKT = "3a1e14"
 PLUS_ROOD = "c8382a"
-KAART_X0, KAART_TOP, KAART_H = -1.0, PAAL - 0.5, 7
+KAART_X0, KAART_TOP, KAART_H = -1.0, PAAL - 1.5, 7   # 1 spelpixel lucht tussen punaise en de lijst van het bord (Daan 17:45)
 F3 = {"0": ["010", "101", "101", "101", "010"], "1": ["010", "110", "010", "010", "111"],
       "2": ["110", "001", "010", "100", "111"], "3": ["110", "001", "010", "001", "110"],
       "4": ["101", "101", "111", "001", "001"], "5": ["111", "100", "110", "001", "110"],

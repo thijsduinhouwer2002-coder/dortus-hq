@@ -104,7 +104,7 @@ func _init() -> void:
 	ok(sp.has("holbord") and sp["holbord"]["frames"].size() == 11 and ResourceLoader.exists(String(sp["holbord"]["blad"])), "bordje: blad holbord met leeg en c0 tot c9")
 	ok(sp.has("holkaart") and sp["holkaart"]["frames"].size() == 12 and ResourceLoader.exists(String(sp["holkaart"]["blad"])), "kaartje: blad holkaart met kaart1, kaart2, k0 tot k9")
 	var kp: Vector2 = HB.kaart_plek(sp["holbord"], sp["holkaart"])
-	ok(absf(kp.x - (-6.25)) < 0.01 and absf(kp.y - 12.33) < 0.01, "kaartje: plek uit anker_x en nul_y (%s)" % str(kp))
+	ok(absf(kp.x - (-6.25)) < 0.01 and absf(kp.y - 13.34) < 0.01, "kaartje: plek uit anker_x en nul_y (%s)" % str(kp))
 	var hb = HB.new()
 	ok(not hb.actief() and hb.plank_x() == 4.0, "bordje zonder blad of hol doet niets")
 	hb.free()
