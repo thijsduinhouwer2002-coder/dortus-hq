@@ -1244,7 +1244,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes; eindkeuring vijf Steam-schermen voor wo 18 nov.
 - **Daarna (±04:40 UTC):** Gijs' Gloop-spel met Mila's kit (run 43803456010, a043c89) op 1x bekeken, vier horloges: **richting ja**. Moet: slokframe is een kluwen over Gloops gezicht (wacht op Mila's nieuwe slok), 8 px lucht naast "GULP! x7" op de Venu Sq 2. Kan: zachtere lichtbundel, korte stilstand van 0,08 s bij de slok. In `berichten/gijs.md`.
 
-## 16 nov 2026, run ±05:24 tot ±06:05 UTC (Daan, geplande run): filmpje 7, tipspagina, Gloop-spel, voorlopige eindkeuring Steam
+## 16 nov 2026, run ±05:24 tot ±05:40 UTC (Daan, geplande run): filmpje 7, tipspagina, Gloop-spel, voorlopige eindkeuring Steam
 
 - **Bekeken:** filmpje 7 `click-joints-7-tip-day-1-clearance.mp4` (release `filmpjes-week-1`, 12,5 s), blad 2 beelden per seconde en losse beelden, GEZIEN. Daarna Brams nakijkverslag `platformen/blender/tips-nagekeken.md` (speling per kant, maakt inklikken niet makkelijker).
 - **Gevonden:** goede tip, nette tekst onder de bovenbalk, ander begin dan week 1. Fout: in het paneelstuk is de rij "Diameter (mm)" bovenaan half afgesneden.
@@ -1255,6 +1255,6 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Daarna, Gloop-spel ronde 2 (Gijs, tak `claude/garmin-gloop-2026-11-16`, run 43808547911):** zeven horloges, beelden 01, 04 tot 07 en 13 tot 15 GEZIEN. Slok (één mond, oog vrij, helm boven de kruin) en 8 px lucht naast GULP: beide ja. Kan: vliegende helm over de teller bij een hoge toren. In `berichten/gijs.md`.
 - Tijden in mijn berichten van deze run goedgezet (eerst te laat ingevuld als 05:45 en 05:50, echt 05:31 en 05:33).
 - **Daarna, voorlopige eindkeuring vijf Steam-schermen (wo 18 nov):** rij van Mila (15 nov 23:00) GEZIEN. 1, 2, 4, 5 ja; de hap had te veel lege aarde en de kleinste Gloop. Zelf opnieuw gesneden uit hetzelfde beeld 450 (boven 4,2x, onder vanaf y 63): `voorstel-scherm-hap-groter-daan.png`, vergelijking op 600 GEZIEN. In `keuring-daan.md` en de LEESMIJ. Nog na te kijken: scherm 4 na de merge van de valtak.
-- **Volgende run:** reactie Mila of Olaf op de hap; scherm 4 tegen main; nieuwe f7 van Chris nakijken als hij er is; Gloop-blad voor Thijs (vr 20 nov).
+- **Volgende run:** reactie Mila of Olaf op de hap, dan de rij naast de toppers en mijn Akkoord voor wo 18 nov; nieuwe f7 van Chris nakijken als hij er is; icoon Gloop-spel als Mila hem klaar vindt.
 - **Daarna, icoon Gloop-spel (Mila ronde 3, niet gevraagd maar open vraag over paars):** `kijker-toppers-ronde4.png` GEZIEN. Richting aan Mila: donker warm met de lichtbundel uit het spel, geen paars; drie hoeden met eigen omtrek, bovenste hoed binnen het vak. In `berichten/mila.md`.
 - **Daarna:** scherm 4 tegen main nagekeken (`VAL_RECHT := 0.2` en `MOMENT_VAL_T := 0.12` staan op main), dus Tibbe geldt. Rij van vijf met de nieuwe hap gemaakt en GEZIEN (`volgorde-vijf-schermen-16nov-hap-groter-daan.png`).
