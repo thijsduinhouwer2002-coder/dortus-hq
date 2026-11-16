@@ -1,8 +1,62 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 9, de hele hoek splitsen, verbinders en gewrichten op Superhive, 23 add-ons, klaar 16 nov 2026 ±09:25 NL-tijd). Volgende: wat de late splitsers buiten Superhive doen (Gumroad, eigen site), of een maker die laat in een volle hoek toch doorbrak, met de echte motor erbij. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel), de "Creator 4 Creator"-interviews van Superhive.
+bezig: niets (laatste: verhaal 10, Lens Sim en de Cyber Sale van Superhive, klaar 16 nov 2026 ±11:00 NL-tijd). Volgende: de "anatomy of a successful product launch"-interviews op de Superhive-blog (Serpens, Kit Ops, Instamat), of wat de late splitsers buiten Superhive doen. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 10. Lens Sim (Håvard Dalen, "Heinzelnisse", solo, echte cameralenzen in Cycles, Superhive): lanceren vlak voor de Cyber Sale, plus wat de Cyber Sale echt doet
+
+Onderzocht 16 nov 2026, run 10. Waarom dit verhaal: Click Joints Pro zit in de keuring (ingediend 15 nov, 3 tot 5 dagen) en de Cyber Sale van Superhive begint rond Black Friday, vr 27 nov 2026 (GOK op het vaste patroon; de pagina `superhivemarket.com/page/2026-cyber-sale` bestaat sinds kort, op 8 nov nog niet, maar de inhoud laadt alleen met JavaScript, GEZIEN 16 nov). Superhive noemt zelf één kleine maker als uitschieter van de Cyber Sale 2024: Lens Sim, "published just prior to Cyber". Dat is precies de stand van Pro. Chris heeft de Cyber Sale al in `commercie/blender-click-joints/prijs.md` (punt 2, korting 25%); dit verhaal voegt de maker toe die het zo deed, en nieuwe cijfers van Superhive zelf. Geen cursusverkoper: bronnen zijn de forumdraden van de maker en de blog en hulppagina's van Superhive.
+
+### Bronnen
+- Werkdraad van de maker op Blender Artists, "Lens simulation", vanaf 8 mei 2024: https://blenderartists.org/t/lens-simulation/1528999 (GEZIEN met curl, pagina 1 en 2).
+- Lanceerdraad "Lens Sim" in Released Add-ons, vanaf 8 nov 2024: https://blenderartists.org/t/lens-sim/1557203 (GEZIEN).
+- Productpagina en versies: https://superhivemarket.com/products/lens-sim (GEZIEN 16 nov).
+- Superhive, Cyber Sale 2024: https://superhivemarket.com/posts/blender-market-2024-cyber-sale-recap en 2023: https://superhivemarket.com/posts/2023-cyber-sale-recap (DERDEN, cijfers van de winkel zelf).
+- Superhive, "Do People Only Buy During Sales?" (Kyle Maurer, 5 mrt 2026): https://superhivemarket.com/posts/do-people-only-buy-during-sales-here-s-what-the-data-says (DERDEN).
+- Hulppagina's: meedoen met sitebrede sales https://support.superhivemarket.com/article/300-participating-in-site-wide-sales, eigen campagnes .../article/315-creator-sale-campaigns, uitgelicht worden .../article/242-how-to-get-your-product-featured, partners (affiliates) .../article/238-how-to-select-an-affiliate-percentage en .../article/385-using-the-affiliate-directory (DERDEN).
+- Eigen meting splitshoek, korting en coupons: `platformen/succes/data/splitsers-korting-2026-11-16.tsv` (GEZIEN).
+
+### Wat hij deed, in volgorde
+1. **8 mei 2024: werk laten zien, nog geen product.** Na een tutorial over de nieuwe "Ray Portal BSDF"-shader van Blender opent hij een draad met renders door echte lenzen uit patenten (Canon 85mm, Kodak Petzval, Minolta Fisheye). 47 likes op de eerste post; de derde reactie: "I could definitely see this as an addon" (GEZIEN). Zijn antwoord: "Haven't yet decided what to do with it". Hij rijdt op een nieuwe techniek waar mensen net naar zoeken (hoofdles 9).
+2. **17 juni 2024: plan hardop.** "I'm planning to make it into a add-on on BlenderMarket ... I think I will add a free version ... I'll might also add a light version" (GEZIEN). En een dag later: "if I'm going to sell it I need to be transparent of what I sell" (GEZIEN). De prijstrap gratis, lite, volledig staat dus al een half jaar voor de lancering vast.
+3. **Zomer en najaar 2024: bètatesters.** In de lanceerdraad: "feedback from beta testers has also helped a lot with discovering missing features" (GEZIEN). Superhive schrijft erover: "thorough beta testing with some of the best in the business" (DERDEN).
+4. **8 nov 2024: de lanceerdraad staat er drie weken vóór het product.** Op 26 nov: "Lens Sim will be out this week on time for the Black Friday sale" (GEZIEN).
+5. **Rond 28 nov 2024: uitbrengen, één dag voor de Cyber Sale, en meteen in de sale.** 29 nov: "my addon is marked for the sale ... a 30% off marking" (GEZIEN). Dezelfde ochtend zet Bart Veldhuizen (BlenderNation) zijn YouTube-video bovenaan de draad: "I'll post it on BlenderNation too" (GEZIEN). Op dag één kopers met renders in de draad, en de maker antwoordt binnen een uur op elke vraag (GEZIEN, posts 6 tot 18).
+6. **Daarna: Superhive noemt hem in het jaaroverzicht.** "The most impressive showing during Cyber 2024 was Lens Sim ... published just prior to Cyber and really took off ... utilized some genuine Affiliate marketing" (DERDEN).
+7. **Twee jaar later:** 7500+ verkopen, volledige versie $40, Lite $15, demo $0 (upgrade: de Lite-prijs gaat eraf), 72 beoordelingen, versie 4.0.1 van 22 okt 2026, "I have opted in for all future Blender Market sales", een Discord met 452 leden, en een bundel met CinePack van een andere maker (GEZIEN). Omzet GOK: 7500 keer gemiddeld ±$30 (mix van korting en Lite) is grofweg $200.000 bruto; niet na te gaan.
+
+### Cijfers van Superhive over de Cyber Sale (alle DERDEN, de winkel zelf)
+| | Cyber 2023 (4 dagen, 30%) | Cyber 2024 (5 dagen) |
+|---|---|---|
+| Omzet (bruto) | $789.720 | $713.400 |
+| Verkochte producten (betaald) | 35.918 | 33.691 |
+| Verschillende producten met minstens één verkoop | 3.592 | 4.952 |
+| Makers uitbetaald | (niet genoemd) | 1.442, gemiddeld $375 |
+- Een gewone maand zonder sale was in 2024 gemiddeld $881k; de 5 Cyber-dagen waren dus ±80% van een maand.
+- Per dag: Cyber 2023 was 8 keer de 60 dagen ervoor, het hoogste ooit; de October Blend Fest 2025 maar 1,2 keer. De klap van sitebrede sales wordt langzaam kleiner (Maurer).
+- Meer dan 75% van alle aankopen is tegen de volle prijs; maar 0,4% van de vaste kopers koopt alleen in de sale. Kopers wachten de week vóór Cyber niet af: in 6 van de 7 jaar lag de omzet die week boven het jaargemiddelde (Maurer).
+- Hoe meedoen: in het makersdashboard, Sale Campaigns, Sitewide Sale Settings, vinkje "Opt-in to all sitewide sales", of het product apart aan één campagne toevoegen. Alleen gepubliceerde producten. Meestal 25% korting. Een eigen campagne werkt niet zolang een sitebrede sale loopt (hulppagina's 300 en 315).
+- "Popular Creations this week" zijn de 8 producten met de meeste verkopen van de afgelopen 7 dagen; "New Arrivals" toont de 8 nieuwste goedgekeurde producten (hulppagina 242).
+- Hele winkel: ±14 reviews per dag, meestal binnen een dag na de aankoop (Superhive, Blend Fest-overzicht 29 okt 2025).
+
+### Eigen meting: korting in de splitshoek nu (GEZIEN 16 nov ±10:45)
+Alle vier winnaars van verhaal 9 doen mee aan korting: CatPin 20% via een eigen campagne ($21,60 in plaats van $27), Split 3D Print ($22 in plaats van $28), Kambari met publieke coupon "lunch25" (25%) op Dovetail Key en Smart Segmention. Cleave (100+) heeft een coupon van 10% "voor één week". Van de 17 achterblijvers doen er 3 mee (Split-it 30%, Easy Print 45%, RegoSplit met twee coupons). Korting maakt dus geen winnaar (achterblijvers geven zelfs meer), maar geen enkele winnaar staat erbuiten. Oorzaak en gevolg zijn niet te scheiden; GOK: winnaars gebruiken korting als moment, achterblijvers als noodgreep.
+
+### Drie lessen
+1. **Breng uit vlak vóór de grootste week van de winkel, en doe mee aan de sale.** Lens Sim kwam een dag voor Cyber 2024 uit, met 30% korting, en werd de uitschieter van de week. Het werkt omdat een sale volgens Superhive "attention" samenbalt: kopers lopen bladwijzers en nieuwe dingen af. Een nieuw product staat dan ook nog in New Arrivals. Wel nuchter: 4.952 verschillende producten verkochten iets in Cyber 2024; erin staan is geen garantie, en de sales slaan minder hard aan dan vroeger.
+2. **Laat het werk maanden vooraf in het openbaar zien, met echte uitkomsten, en laat de vraag "maak er een add-on van" van anderen komen.** De werkdraad van mei gaf hem publiek, bètatesters en de lanceerdraad die er drie weken voor de lancering al stond. BlenderNation pakte het op uit die draad, niet uit een persbericht. Past bij hoofdles 4 (anderen maken het bereik).
+3. **Een trap van gratis demo, Lite en volledig, met de upgrade verrekend.** De demo laat je eerst zien of het op jouw computer werkt ("Try the demo to verify compatibility before purchasing"), de Lite is de goedkope instap. Past bij hoofdles 1 en de kandidaat gratis variant.
+
+### Wat doen wij anders
+- Pro komt waarschijnlijk 18 tot 20 nov uit de keuring, dus net als Lens Sim een week vóór Cyber. Maar meedoen is een vinkje in het dashboard, achter de inlog van Thijs, en het staat niet op zijn lijst. Zonder dat vinkje heeft Pro in de drukste week de volle prijs naast concurrenten met 25% korting.
+- Wij hebben geen draad met werk in uitvoering gehad; Pro komt uit zonder dat iemand erom vroeg. De gratis Click Joints (154 downloads) is ons publiek, maar we mogen in de add-on niet naar Pro wijzen (besluit Bram 15 nov 23:20).
+- Wij hebben gratis (extensions.blender.org) en Pro $12 en Studio $45; dat lijkt op de trap van Lens Sim, alleen in twee winkels.
+
+### Voorstel voor Dortus deze week
+**Click Joints Pro meteen na goedkeuring in de Cyber Sale zetten, en een lanceerdraad op Blender Artists klaarzetten.** (a) Thijs (of de hoofdchat in zijn browser, zoals bij de upload) zet in het Superhive-dashboard onder Sale Campaigns, Sitewide Sale Settings het vinkje "Opt-in to all sitewide sales", of voegt Pro apart toe aan de Cyber-campagne, zodra Pro gepubliceerd is en vóór vr 27 nov. ±2 min. Prijsgevolg staat al bij Chris: $12 min 25% is $9, Dortus houdt ±$5,81 (`commercie/blender-click-joints/prijs.md`). (b) Chris schrijft een draad voor "Released Add-ons and Extensions" op Blender Artists (demofilm van Pro bovenaan, wat gratis en wat betaald is, link naar Superhive), Thijs plaatst hem op de dag dat Pro live staat. Wie: hoofdchat zet (a) op de lijst van Thijs (ik heb er een regel voor gezet), Chris (b). Waarom nu: de Cyber Sale is ±80% van een maand omzet in 5 dagen, en het enige kleine voorbeeld dat Superhive zelf noemt deed precies dit.
 
 ---
 

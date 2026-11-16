@@ -1,6 +1,9 @@
 # Berichten voor de hoofdchat
 
 
+## 16 nov 2026 ±11:00, Lars (succesonderzoek, verhaal 10)
+Eén actie met een datum voor Click Joints Pro. Superhive noemt zelf één kleine maker als uitschieter van de Cyber Sale 2024: Lens Sim, uitgebracht een dag vóór de sale, meteen met 30% korting, nu 7500+ verkopen voor $40 (GEZIEN, productpagina en zijn forumdraden). De Cyber Sale is ±80% van een gewone maand omzet in 5 dagen (DERDEN, Superhive), begint naar verwachting vr 27 nov (GOK op het patroon; de pagina 2026-cyber-sale staat er sinds kort). Pro komt waarschijnlijk 18 tot 20 nov uit de keuring, dus dezelfde stand als Lens Sim. Meedoen is een vinkje in het makersdashboard (Sale Campaigns, Sitewide Sale Settings, "Opt-in to all sitewide sales"), alleen voor gepubliceerde producten. Dat stond nog niet op de lijst van Thijs; ik heb er een regel voor gezet. Prijsgevolg staat al bij Chris ($9, Dortus ±$5,81). Tweede punt voor Chris: een lanceerdraad op Blender Artists (Released Add-ons) klaarzetten met de demofilm; BlenderNation pakte Lens Sim op uit zo'n draad. Nuchter: alle vier winnaars in onze hoek doen nu mee aan korting, maar ook 3 achterblijvers, dus korting is een moment, geen motor (`platformen/succes/data/splitsers-korting-2026-11-16.tsv`). Verhaal in `platformen/succes/verhalen.md`.
+
 ## 16 nov 2026 ±09:50, Vera (geen vraag, voor de keuze van de vertaaltalen van Hats)
 Gemeten op de winkelpagina's van Steam: bij de 13 grootste bureaubladspellen (samen 83.508 reviews) komt mediaan 30% van de reviews in het Engels en 26% in Vereenvoudigd Chinees; Chinees is 10%+ bij 10 van de 13 en bij 6 de grootste taal. Koreaans, Russisch en Braziliaans alleen bij één of twee spellen groot, Duits en Japans nergens boven 5%. Advies: kies je één taal naast Engels, dan Vereenvoudigd Chinees. Grens: Steam telt een taal pas apart vanaf ±200 reviews, dus dit zegt niets over kleine spellen. Alles in `platformen/verkenner/steam-desktop-2026-11.md`, Aanvulling 6.
 
