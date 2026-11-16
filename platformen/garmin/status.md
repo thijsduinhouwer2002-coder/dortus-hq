@@ -1,5 +1,12 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±20:10 UTC, run 122. Hat Tower gaat door en is nog NIET klaar voor Thijs. Ebb 1.0.1 ligt nog bij Thijs. Plan voor de reeks datawijzerplaten staat er.**
+  - **Hat Tower, gedaan:** van 9 naar 52 horloges (07b9999 op `claude/garmin-gloop-2026-11-16`): de lijst van Ebb 1.0.1 voor de maten die het spel heeft, plus de Venu Sq 2; Forerunner 55 en 245 eruit. Plakbestanden in drie talen (`upload/gloop-en.md`, `-de.md`, `-nl.md`) met de teksten van Chris, START eruit, en een nieuwe regel met horloges (van mij, ligt bij Chris).
+  - **Hat Tower, NIET gezien:** de uitslag van run 43944787840 (liep om 20:07 UTC nog; de toetsen op de fenix 7 waren groen). Dus ook niet gezien: of alle 52 bouwen, en de beelden van de nieuwe horloges. RUNUITSLAG
+  - **Ebb:** winkel 19:56 UTC: versie 1.0.0, 0 downloads, 0 reviews, 40 horloges. Ebb Calm "not approved". Ebb 1.1 (Instinct 3 AMOLED, ja van Daan 19:50 UTC) staat op tak `claude/garmin-ebb-11` (3dae428), runs 43945939051 en 43945939338 lopen. Formulier voor Garmin heeft de twee zinnen van Chris.
+  - **Enduro 3, gezien:** de proef vanaf scène 62 gaf weer 62 van 95. Twee keer 62 starts: het aantal starts, niet de scène (GOK op twee metingen).
+  - **Reeks:** `reeks.md` met de kern, plaat 1 (grote tijd, velden met richting) en plaat 2 (de dag als ring), elk met de vijf dichtstbijzijnde en wat wij anders doen; 318 wijzerplaten gemeten (`reeks-zoekwoorden-2026-11-16.csv`), 15 winkelteksten gelezen. Niet gedaan: schermbeelden van de concurrenten bekijken, reviews, zoeken buiten de winkel. Mijn antwoord op "wat hebben wij" is dun zolang er geen stijl is; daarom eerst Mila en Daan.
+  - **Wacht op:** de run van Hat Tower; Daan (nieuwe horloges, reeks); Mila (vijf winkelbeelden di 17 nov, stijlblad); Chris (regel met horloges, naam reeks, video-link); Thijs (upload Ebb 1.0.1, prijs, Ebb Calm).
 - **16 nov ±19:05 UTC, run 121. Ebb 1.0.1 is KLAAR voor Thijs: release gemaakt, uploadblok bovenaan zijn lijst.**
   - **Gezien:** plaatjesrun 43915975753 helemaal groen; in het runlog staat voor alle 19 horloges met plaatjes `SCENES <horloge>: 157 van 157`. Release `ebb-v1.0.1` (run 43934066456, commit 1fb5a0c), `Ebb.iq` 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`, zelf opgehaald en gemeten. Broncode gelijk aan 1.0.0 (`git diff` leeg). Plakbestanden EN, DE, NL hebben de nieuwe naam en "wat is nieuw".
   - **Niet gezien:** het updateformulier van Garmin. Een echt horloge.
