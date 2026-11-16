@@ -2,6 +2,8 @@
 
 Door Chris, 16 nov 2026, run 58. Opdracht: hoofdchat 16 nov 09:25 (`berichten/chris.md`). Daan keurt de beelden; daarna zet de hoofdchat alles erop in YouTube Studio. Niets hiervan vraagt een login van mij.
 
+**Stand 16 nov ±13:10 UTC (run 59): Daan zei ja (16 nov ±12:45 UTC, `berichten/chris.md`), klaar voor de hoofdchat.** Zijn kan-punt over de arm is verwerkt (zie deel 4), het watermerk blijft het donkere vierkant (zijn keuze). Brams klopt op "Try" bij dag 1 kwam al op 16 nov 06:20 (`berichten/bram.md`).
+
 **Stand (GEZIEN 16 nov ±11:50 UTC, curl op https://www.youtube.com/@dortusstudio):** kanaal heet "Dortus", beschrijving leeg, geen video's.
 
 ## Wat het kanaal is (keuze, met reden)
@@ -48,10 +50,10 @@ Alle bestanden in `commercie/filmpjes/kanaal/`, gemaakt met `maak_kanaal.py` op 
 | Bestand | Maat | Eis van YouTube (DERDEN: https://support.google.com/youtube/answer/10456525) | Uitkomst (GEZIEN) |
 |---|---|---|---|
 | `profielfoto-800.png` | 800 x 800 | JPG/GIF/BMP/PNG, max 15 MB, wordt getoond op 98 x 98 | 61 KB. De avatar v2 die Daan op 10 nov goedkeurde (`ontwerp/keuring-abel.md`), niet veranderd, alleen op 800 gezet. Rond op 176, 98, 48 en 24 px op wit en op zwart: `proef-profielfoto-rond.png`. |
-| `banner-2560x1440.png` | 2560 x 1440 | aanbevolen 2560 x 1440, min 2048 x 1152, 16:9, max 6 MB, geen rand of schaduw om het beeld; veilige zone 1235 x 338 op 2048, dus ±1544 x 423 op 2560 (gangbaar sjabloongetal 1546 x 423) | 0,4 MB (378 KB). Woordmerk, regels en spullen allemaal binnen 1546 x 423. Op computer, tablet, telefoon en tv: `proef-banner-overal.png` (groen = veilige zone/telefoon, blauw = tablet, rood = computer). |
-| `watermerk-300.png` | 300 x 300 | vierkant, min 150 x 150, onder 1 MB | 13 KB. De kleine D (`merkteken-klein.svg`), die leest beter op klein formaat. Instelling: "End of video" (laatste 15 s), zodat hij niet door de tips heen staat. |
+| `banner-2560x1440.png` | 2560 x 1440 | aanbevolen 2560 x 1440, min 2048 x 1152, 16:9, max 6 MB, geen rand of schaduw om het beeld; veilige zone 1235 x 338 op 2048, dus ±1544 x 423 op 2560 (gangbaar sjabloongetal 1546 x 423) | 0,4 MB. Woordmerk, regels en spullen allemaal binnen 1546 x 423. Op computer, tablet, telefoon en tv: `proef-banner-overal.png` (groen = veilige zone/telefoon, blauw = tablet, rood = computer). |
+| `watermerk-300.png` | 300 x 300 | vierkant, min 150 x 150, onder 1 MB | 13 KB. De kleine D (`merkteken-klein.svg`) op het donkere vierkant, die leest beter op klein formaat. Daan koos het donkere vierkant boven doorzichtig: Blender is grijs, een doorzichtige paarse D valt daarop weg; het vierkant geeft overal hetzelfde contrast en is hetzelfde vlak als de profielfoto. Instelling: "End of video" (laatste 15 s), zodat hij niet door de tips heen staat. |
 
-**De banner in woorden:** links het woordmerk Dortus; uit de deur-D valt warm licht naar rechts over de vloer, en daarin liggen accolades, een kroontje, een dobbelsteen en een geprinte arm met een kogelgewricht die omhoog buigt. Onder het woordmerk: **Blender tips for 3D printing**, met kleiner eronder *Focused tools today, small games on the way* (de goedgekeurde regel van het uniform; geen "we", geen spel als belofte van nu). Beide regels in Inter Medium (uniform). Geen tweede grote D naast het woordmerk (les uit Daans keuring 6 van de Steam-kop: twee keer dezelfde D).
+**De banner in woorden:** links het woordmerk Dortus; uit de deur-D valt warm licht naar rechts over de vloer, en daarin liggen accolades, een kroontje, een dobbelsteen en een geprinte arm met een kogelgewricht die omhoog buigt. **Arm aangepast in run 59** (kan-punt Daan: op banner-grootte las hij als hendel of lucifer): de kom is nu een grote lila C die de witte kogel half omsluit, open naar de bovenarm, en beide delen zijn even dik; geen tweede kogel aan het eind (dat wordt een halter). Voor en na: `arm-voor-na-run59.png` (links oud, rechts nieuw). Proefblad opnieuw gemaakt van de nieuwe banner. GEZIEN met Read: op telefoongrootte (±390 px breed) leest het als een scharnier. Onder het woordmerk: **Blender tips for 3D printing**, met kleiner eronder *Focused tools today, small games on the way* (de goedgekeurde regel van het uniform; geen "we", geen spel als belofte van nu). Beide regels in Inter Medium (uniform). Geen tweede grote D naast het woordmerk (les uit Daans keuring 6 van de Steam-kop: twee keer dezelfde D).
 
 ## 5. Overige instellingen (Studio > Settings > Channel)
 - **Land:** Nederland.
@@ -67,8 +69,7 @@ Blender tips for 3D printing. Free add-on Click Joints. Made by Thijs, NL
 De AI-zin past niet in 80 tekens; daarom staat `AI agents write the code, I direct and test.` in elk onderschrift (`reeks.md`). Link in bio (als TikTok die toestaat; vaak pas vanaf 1.000 volgers, GOK): https://extensions.blender.org/add-ons/click-joints/
 
 ## Nog open vóór het live zetten
-- Brams klopt op "Try" bij tip dag 1 (`reeks.md`): pas daarna klopt "Every tip is checked in Blender itself" helemaal.
-- Watermerk: donker vierkant achter de D (mag volgens het uniform) of doorzichtig; Daan kiest.
+Niets. (Brams klopt op "Try": gekomen 16 nov 06:20. Watermerk: donker vierkant, Daan 16 nov 12:45.)
 
 ## Voor de hoofdchat
-Na Daans ja: profielfoto, banner, beschrijving, links en contact uit dit bestand in YouTube Studio zetten, en profielfoto en bio op TikTok @dortusstudio. Daan geeft zijn oordeel in `berichten/chris.md`.
+Daan zei ja (16 nov ±12:45 UTC). Zet profielfoto, banner, beschrijving, links en contact uit dit bestand in YouTube Studio, en zet profielfoto en bio op TikTok @dortusstudio. Watermerk: Studio > Customization > Branding > Video watermark, `watermerk-300.png`, "End of video". Zet daarna één regel op `organisatie/lijst-thijs.md` dat het staat; Chris kijkt met curl na of de beschrijving zichtbaar is.
