@@ -1046,5 +1046,44 @@ func _nieuwe_held() -> bool:
 		RI.tik_held(nd, 0)
 		nd.t += 0.25
 	ok(float(nd.aankomst.get("opgegeten", 999.0)) <= 4.0 + 3 * 7.25, "eerste hoed: demo houdt zijn eigen ritme van 5 tot 7 s")
+	# kroniek (Iris keuring 1, 16 nov): een weggedrukte lied-regel komt alleen terug binnen 4 s; "op" vervalt niet
+	var WR = load("res://kern/wachtrij.gd")
+	var nep_k := GDScript.new()
+	nep_k.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar t := 0.0\nvar regel_sinds := -99.0\nvar regel_binnen := false\nvar regel_nu := {}\nvar kroniek: Array[String] = []\nvar log: Array[String] = []\nvar tekst = null\nvar hol = null\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
+	nep_k.reload()
+	var nep_tekst := GDScript.new()
+	nep_tekst.source_code = "extends RefCounted\nfunc zet(_r, _g) -> void:\n\tpass\n"
+	nep_tekst.reload()
+	var nk = nep_k.new()
+	nk.tekst = nep_tekst.new()
+	nk.hol = {"goud": 0}
+	nk.wachtrij.append({"r": "SONG", "binnen": true, "sinds": 0.0, "soort": "lied"})
+	WR.toon(nk)
+	nk.t = 1.0
+	nk.wachtrij.append({"r": "EVENT1", "binnen": false, "sinds": 1.0, "soort": ""})
+	WR.toon(nk)   # lied stond 1 s, wordt weggedrukt en komt terug
+	# daarna een rij gebeurtenissen van 10 s: de terugkomer moet vervallen in plaats van op 11 s terug te komen
+	for i in 4:
+		nk.t = 1.0 + 2.5 * (i + 1)
+		nk.wachtrij.append({"r": "EVENT%d" % (i + 2), "binnen": false, "sinds": nk.t, "soort": ""})
+		WR.toon(nk)
+	nk.t = 14.0
+	WR.toon(nk)
+	ok(nk.log.filter(func(r): return r.ends_with("): SONG")).size() == 1 and not nk.wachtrij.any(func(w): return w.r == "SONG"), "kroniek: lied na 10 s wachten komt niet terug (Iris)")
+	var nk2 = nep_k.new()
+	nk2.tekst = nep_tekst.new()
+	nk2.hol = {"goud": 0}
+	nk2.wachtrij.append({"r": "OP", "binnen": true, "sinds": 0.0, "soort": "op"})
+	nk2.regel_sinds = 0.0
+	nk2.regel_nu = {"r": "X"}
+	for i in 3:
+		nk2.t = 1.0 + 2.5 * i
+		nk2.wachtrij.append({"r": "E%d" % i, "binnen": false, "sinds": nk2.t, "soort": ""})
+		WR.toon(nk2)
+	nk2.t = 12.0
+	WR.toon(nk2)
+	nk2.t = 15.0
+	WR.toon(nk2)
+	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

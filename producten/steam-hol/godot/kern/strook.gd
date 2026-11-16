@@ -280,12 +280,18 @@ func _process(delta: float) -> void:
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
 			# laag: toestand, geen gebeurtenis. Wacht "plat" nog als hij al weer op is, dan geen van beide (controleur ronde 3)
+			# en andersom: wacht "op" nog als hij alweer plat gaat, dan ook geen van beide ("op" vervalt niet meer, Iris 16 nov)
 			var oud_plat := -1
+			var oud_op := -1
 			for i in wachtrij.size():
 				if String(wachtrij[i].soort) == "plat":
 					oud_plat = i
+				elif String(wachtrij[i].soort) == "op":
+					oud_op = i
 			if not nu_plat and oud_plat >= 0:
 				wachtrij.remove_at(oud_plat)
+			elif nu_plat and oud_op >= 0:
+				wachtrij.remove_at(oud_op)
 			else:
 				_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}), true, "plat" if nu_plat else "op")
 	var helden := 0
