@@ -177,3 +177,6 @@ Eerder:
 - **Kleine figuren onderscheid je met het grootste vlak (16 nov):** bij een held van ±25 px is de kop het grootste deel. Andere kleur kleding zie je nauwelijks; een andere huidtint en een ander silhouet wel. Huid nooit bijna wit: dan wordt elke kop een witte bol.
 - **Eén keer zeggen (16 nov):** op een pagina staat een adres of een oproep één keer per blok. Twee zinnen die hetzelfde zeggen onder elkaar ogen als een vergeten plakfout.
 - **Rand van een rond scherm (16 nov):** het mooiste element (bij Gloop de hoedentoren) blijft minstens 4 px binnen de cirkel, ook in de hoogste stand. Afgesneden door de rand oogt kapot.
+- **Nooit een tekst die straft (16 nov):** een regel na terugkomst of na een fout vertelt wat er gebeurde en wat er nu kan, nooit wat de speler miste of kwijt is ("worked at quarter speed" leest als "je miste driekwart"). Rekenregels van het spel horen niet in de kroniek; het resultaat (goud, hoeden) zegt genoeg.
+- **Na terugkomst hooguit 3 regels (16 nov):** de kroniek houdt maar een paar regels; een vierde duwt de eerste held eruit. Wat meer is, hoort in beeld (bordje, kaartje), niet in tekst.
+- **Wat een teller zegt, staat er (16 nov):** `9/10` betekent negen hoeden in beeld. Past het niet, dan kleiner of dichter tekenen, nooit stil iets weglaten.
