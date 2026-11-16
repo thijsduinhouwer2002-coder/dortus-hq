@@ -52,6 +52,7 @@ var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, allee
 var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
+var proef_plat := false      # plat_proef=1: Gloop plat zonder regel (twee keer al gemeld), alleen om te keuren (Daan 16 nov 20:35)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
 var proef_figuur := FIGUUR   # figuur=<factor> blijft als startargument om andere maten te keuren; 1.0 is de oude maat
