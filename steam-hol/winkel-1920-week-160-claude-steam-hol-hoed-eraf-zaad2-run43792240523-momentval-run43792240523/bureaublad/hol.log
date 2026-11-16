@@ -1,0 +1,41 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 48 s (klok terug: false): goud voor 1613, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1620 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Pim
+HOL kroniek 5.0 (wacht 1.0): Pim the Thief tiptoes in.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=100 helden=1 hol_vast=1
+HOL kroniek 25.0 (wacht 0.0): Pim fled. Grudge: the Spike Pit.
+HOL kroniek 27.5 (wacht 2.5): New page: the Thief. He got away.
+HOL meting t=30 beelden=57 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL kroniek 44.5 (wacht 0.0): Rik casts Light. It is a candle.
+HOL held binnen: Rik
+HOL meting t=50 beelden=60 helden=1 hol_vast=1
+HOL meting t=60 beelden=101 helden=1 hol_vast=1
+HOL kroniek 65.5 (wacht 0.0): Rik left. Took nothing. Angry.
+HOL kroniek 68.1 (wacht 2.6): Booked: the Wizard. Ran off. Counts.
+HOL meting t=70 beelden=57 helden=0 hol_vast=1
+HOL meting t=80 beelden=10 helden=0 hol_vast=1
+HOL meting t=90 beelden=16 helden=0 hol_vast=1
+HOL meting t=100 beelden=8 helden=0 hol_vast=1
+HOL kroniek 102.1 (wacht 0.0): Bram the Sleepy shuffles in.
+HOL held binnen: Bram
+HOL meting t=110 beelden=90 helden=1 hol_vast=1
+HOL meting t=121 beelden=101 helden=1 hol_vast=1
+HOL kroniek 123.1 (wacht 0.0): Bram ran. Swore revenge.
+HOL kroniek 125.7 (wacht 2.6): New stamp for the Hero. He got away.
+HOL meting t=131 beelden=29 helden=0 hol_vast=1
+HOL meting t=141 beelden=10 helden=0 hol_vast=1
+HOL meting t=151 beelden=17 helden=0 hol_vast=1
+HOL kroniek 151.5 (wacht 0.0): Lotte is here for a story.
+HOL held binnen: Lotte
+HOL meting t=161 beelden=99 helden=1 hol_vast=1
+HOL moment vast val t=164.1
+HOL meting t=171 beelden=69 helden=1 hol_vast=2
+HOL meting t=181 beelden=56 helden=1 hol_vast=2
