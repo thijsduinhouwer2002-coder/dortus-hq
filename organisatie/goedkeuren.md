@@ -1,6 +1,6 @@
 # Wacht op Thijs
 
-Eén lijst met alles wat op een ja of nee van Thijs wacht. De hoofdchat stuurt hem om 12:00 en 20:00 (NL) in één bericht, per punt ja of nee. Nieuwste onderaan.
+**Sinds 16 nov 21:12 alleen nog: geld uitgeven, en stappen die alleen Thijs kan doen (inloggen, account, sleutel, eigen gegevens, Reddit).** De rest beslist de ploeg (zie `organisatie/regels.md`). Eén lijst met alles wat op Thijs wacht. De hoofdchat stuurt hem om 12:00 en 20:00 (NL) in één bericht, per punt ja of nee. Nieuwste onderaan.
 
 | Sinds | Wat | Waarom | Wie zette klaar |
 |---|---|---|---|

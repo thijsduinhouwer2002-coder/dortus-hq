@@ -7,12 +7,13 @@
 - Vraag Thijs alleen in nood (zie onder).
 - Open blik: bouw wat op een platform ontbreekt, niet wat we toevallig al hebben.
 
-## Wanneer Thijs vragen
-- Er moet geld uitgegeven worden.
-- Iets is niet terug te draaien: definitief verwijderen, een live product uit een winkel halen.
-- Risico voor zijn accounts of juridisch.
-- Een taak lukt twee runs op rij niet.
-- Een stap die alleen Thijs kan doen: inloggen, een account aanmaken, betalen, voorwaarden accepteren, een sleutel (token) aanmaken. Ook berichten onder zijn naam (forum, Reddit, Discord, reviews): schrijf ze uit en zet ze klaar.
+## Wanneer Thijs vragen (aangescherpt 16 nov 2026 21:12)
+Thijs: "alleen over 1, de rest vertrouw ik jou mee en heb geen tijd om continu te doen". Hij beslist alleen nog over:
+- **Geld uitgeven.** Elke euro of dollar: wat, hoeveel, waarom.
+
+Daarnaast blijven de stappen die alleen hij **kan** doen (geen keuze, maar zijn handen): inloggen met zijn wachtwoord, een account aanmaken, betalen, voorwaarden accepteren, een sleutel (token) of secret aanmaken, eigen gegevens invullen, plaatsen onder zijn naam op plekken die voor ons geblokkeerd zijn (Reddit). Zet die klaar zodat het hem zo min mogelijk tijd kost.
+
+Al het andere beslist de ploeg zelf: Daan keurt (Iris bij Hats), de hoofdchat zet het live en meldt het in de samenvatting van 08:00 of 20:00. Dat geldt ook voor de site, filmpjes, winkelteksten, uploads van gekeurde versies, nieuwe kanalen en wat lastig terug te draaien is; daar beslist de hoofdchat met extra zorg en schrijft het waarom in `organisatie/besluiten.md`. Vaste afspraken van Thijs blijven gelden (Hats-spelerstekst schrijft hij zelf, geen AI-zin in posts, Ebb geen medische claims, geen AI-beeld of -geluid op Steam, privacyregels van de openbare repo).
 
 Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
 
@@ -54,7 +55,7 @@ Les van Hats of the Fallen: *Don't Rob My Dungeon* stond al sinds oktober als "b
 - Een product gaat pas naar indienen als de test in de echte app groen is **en** de ontwerper (Daan) akkoord heeft gegeven: bovenaan `producten/<product>/ontwerp.md` staat `Akkoord: ja` voor de huidige versie. Zie `organisatie/rollen/ontwerper.md`.
 - De test zet zijn schermafbeeldingen openbaar op de tak `schermen` (map `<product>/<taknaam>/`). Zet die stap in elke nieuwe workflow, kopieer hem uit `.github/workflows/rollwright-e2e.yml`.
 - Een product is voor de helft wat het doet en voor de helft hoe het eruitziet en voelt. Het moet **opvallen, speciaal zijn en mooi**; "netjes en geen fouten" is niet genoeg (besluit Thijs 7 nov 22:05). Denk vanaf het begin na over uiterlijk en gevoel, samen met Daan, niet pas aan het eind. Zie `organisatie/rollen/ontwerper.md`.
-- De eerste lancering van elk product: Thijs ziet de lijstplaatjes en de README eerst (Daan zet ze op zijn lijst) en zegt ja of nee. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
+- De eerste lancering van elk product: Daan keurt de lijstplaatjes en de README; de hoofdchat zet het live en laat het Thijs zien in de samenvatting (aangepast 16 nov 21:12, was: ja van Thijs). Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
 
 ## Elk product: perfect, onderscheidend en een duidelijke belofte (Thijs, 8 nov 2026)
 Dit geldt voor iedereen, bij elk product, vanaf het eerste ontwerp tot de winkelpagina:
