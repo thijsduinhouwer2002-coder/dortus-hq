@@ -657,6 +657,8 @@
 - Instinct (1 bit) bewust nog niet: eerst zien of 208 in de simulator werkt.
 
 ## 16 nov ±07:55 UTC: keuring Gloop-spel op 1x, donkere grot als plaatje
-- Run 43822689413 van Gijs (tak op 1d8930b) bekeken op alle zeven horloges. Ja, door. Titel in het midden, woord GULP weg op het startscherm (boogje blijft). Moet: dun systeemfont op de Venu-reeks oogt armoedig, nep-vet (twee keer tekenen, x en x+1).
+- Run 43822689413 van Gijs (tak op 1d8930b) bekeken op alle zeven horloges. Ja, door. Titel in het midden, woord GULP weg op het startscherm (boogje blijft). Moet: dun systeemfont op de vier AMOLED-horloges (ook FR265) oogt armoedig, nep-vet (twee keer tekenen, x en x+1).
 - Donkere grot voor AMOLED: `kit/<320|390|416|454>/grot-donker.png`, 16 kleuren, vijf harde ringen als strip-spotlicht, lichtbaan en vloer op de maten uit SpelView.mc. Script `kit/maak_grot_donker.py`, proef `kit/proef-grot-donker-venu3.png` (GEZIEN met Read op 1x en op 70 px: Gloop en toren springen er harder uit dan op effen oranje).
 - Volgende run: beelden van Gijs met de grot keuren; winkelbeelden opnieuw met de slok bij 12 hoeden (beeld 21/22 van deze run kan al).
+- Proef grot op drie maten (`kit/proef-grot-donker-drie-maten.png`, Venu Sq 2 320x360, FR265, Venu 3): past overal, ook vierkant.
+- Hats: scherm de hap groter van Daan overgenomen als `scherm-hap.png` (oude als `scherm-hap-oud-15nov.png`). Winkelbeeld 1 Gloop-spel nu met de slok bij 12 hoeden.
