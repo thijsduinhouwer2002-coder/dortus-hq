@@ -1,8 +1,62 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 9, r/blender, 208 add-on-berichten naast extensions.blender.org en Superhive, klaar 16 nov 2026 ±08:55 UTC). Volgende: oktober en "add-on"/"extension" in de kop erbij als het archief meewerkt, of een gratis add-on op extensions.blender.org die wel een bericht plaatste, met de downloads per versie.
+bezig: niets (laatste: verhaal 10, de eerste 30 Shorts van 34 Blender-kanalen, klaar 16 nov 2026 ±09:35 UTC). Volgende: hetzelfde voor 3D-print-kanalen op YouTube, of datums per filmpje als een andere bron die geeft; daarna een gratis add-on op extensions.blender.org die wel een bericht plaatste.
 
 Nieuwste bovenaan.
+
+---
+
+## 10. De eerste 30 Shorts van 34 Blender-kanalen gemeten: wat haalt een begin, wanneer komt de eerste uitschieter, en welk soort filmpje werkt?
+
+Onderzocht 16 nov 2026, run 10. Waarom: dit was de eerste vraag aan mij ("wat deden ze in de eerste 30 filmpjes?") en die stond nog open. Chris begint morgen, di 17 nov, met dagelijkse filmpjes op @dortusstudio. Na 20 tot 30 filmpjes wordt beslist of het werkt (besluit 15 nov 22:53). Dan moet vooraf bekend zijn wat normaal is.
+
+### Bronnen
+- YouTube, via yt-dlp in de cloud (alleen openbare lijsten lezen, GEZIEN): 5 zoekopdrachten van 60 treffers ("blender addon shorts", "blender add-on #shorts", "blender tip #shorts", "free blender addon #shorts", "blender extension shorts") gaven 99 kanalen. Van elk kanaal de Shorts-lijst met views per filmpje, en de eerste pagina van de gewone video's (hooguit 60) om te zien of het kanaal al lange video's had.
+- Bruikbaar: **34 kanalen** met 30+ Shorts en een volledige lijst. Een lijst is volledig als het aantal geen veelvoud van 48 is: YouTube geeft per keer 48 Shorts en weigerde de cloud vaak de volgende pagina (HTTP 403), dan stopt de lijst precies op 48, 96 of 144. Die kanalen (onder meer Blender Secrets, BlenderVitals, CGDive) heb ik weggelaten.
+- Tabel per kanaal: `platformen/succes/data/blender-shorts-eerste30-2026-11-16.csv` (openbare kanaalnamen, geen persoonsgegevens).
+- Niet gelukt: de datum per filmpje (YouTube vraagt de cloud om in te loggen, niet omzeild). Ik weet dus de volgorde, niet wanneer.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Views van de eerste 10 Shorts, mediaan per kanaal, mediaan over 34 kanalen | 3.900 (maar sterk afhankelijk van de abonnees die het kanaal al had) | GEZIEN |
+| Kleine kanalen (onder 20.000 abonnees, n=10): mediaan van de eerste 10 Shorts | 161 tot 2.250, meestal **300 tot 900** | GEZIEN |
+| Kanalen met een uitschieter (10 keer hun eigen mediaan) binnen de eerste 30 | **27 van 34**; die uitschieter kwam mediaan bij filmpje **10** | GEZIEN |
+| Kanalen waar de laatste 30 Shorts beter doen dan de eerste 30 | **17 van 34** (de helft) | GEZIEN |
+| Samenhang mediaan eerste 30 en mediaan laatste 30 (Spearman) | 0,80: het begin voorspelt het vervolg sterk | GEZIEN |
+| Aandeel van de 3 beste Shorts in alle Shorts-views van een kanaal, mediaan | 33% (Wimpythekat 90%: één filmpje met 10 miljoen) | GEZIEN |
+| Alle 1.020 eerste Shorts, views gedeeld door de mediaan van het eigen kanaal: kop met uitleg of tip ("how to", "tip", "fix", "free", "fast") | n=245, mediaan 1,09; 24% haalt 3 keer de mediaan | GEZIEN, ruwe indeling met een woordenlijst |
+| Idem, kop met iets laten zien (render, animatie, film) | n=711, mediaan 0,98; 17% haalt 3 keer | GEZIEN |
+| Idem, eigen reclame, dagboek of oproep ("Day #", Discord, live, trailer, "I'm a 3D artist") | n=64, mediaan 0,82; 17% haalt 3 keer | GEZIEN |
+
+### Vijf kanalen die het verschil laten zien (eerste 30 Shorts)
+1. **Blender Tips** (99.400 abonnees, maar 34 Shorts, weinig lange video's): na twee andere filmpjes vanaf nummer 3 steeds dezelfde vorm, "Blender Tip: <één handeling>" ("Fast Stairs", "Connect Faces", "Fix Bevel"). Geen enkele van de 27 tips onder 16.000 views; nummer 14 haalde 1,3 miljoen en nummer 26 5,6 miljoen. GEZIEN.
+2. **Simon Zhang** (50.400): filmpje 1 tot 9 lieten mooie renders zien ("Stage of History, made in Blender"): 1.700 tot 5.300 views. Vanaf 10 en 11 wisselde hij naar "How I made this ... in Blender" en "The new Scatter Modifier in Blender 5.0 is amazing!": daarna vooral 30.000 tot 131.000. De renders die hij tussendoor bleef plaatsen bleven op 4.000 tot 10.000. GEZIEN.
+3. **Wimpythekat** (32.400): losse tips 700 tot 9.400; vanaf 16 een vaste reeks "How a Pro vs a Beginner 3D Artist ..." met 29.000 tot 59.000; nummer 22 "Satisfying Soft Body Simulation" haalde 10 miljoen. GEZIEN.
+4. **Daily-3D** (1.890, 202 Shorts): koppen als "Day #9 - Squid Game Wallpaper": meestal 50 tot 900 views. Het beste van de eerste 30 was een reeks schaakstukken "idea from Polyfjord" (tot 4.300). De laatste 30 Shorts zitten op mediaan 1.750, dus na 200 filmpjes wel iets gegroeid. GEZIEN.
+5. **MEDICCI** (4.220, 200 Shorts, maakt ook een add-on): veel oproepen ("Envianos tu modelo 3D y lo vemos en VIVO", Discord) en filmpjes over de eigen retopo-add-on: 50 tot 700 views. Eén gewone vraag, "How to fix normals in Blender", haalde 30.000. Na 200 Shorts is de mediaan van de laatste 30 nog 285. GEZIEN.
+
+### Wat ik zag
+1. **Een nieuw klein kanaal begint bij honderden views per Short, niet bij duizenden.** De grote getallen in de tabel komen van kanalen die al abonnees hadden van lange video's (Grant Abbitt, CG Boost, Blender Studio). @dortusstudio begint bij 0 abonnees, dus de rij van de kleine kanalen is onze meetlat: 300 tot 900 views per filmpje is normaal in het begin.
+2. **De eerste uitschieter komt meestal in de eerste 30, rond filmpje 10.** Bij 27 van 34 kanalen zat er een filmpje tussen met 10 keer de eigen mediaan. Vaak was dat het moment dat de maker een vorm vond en die bleef herhalen (Simon Zhang, Wimpythekat, Blender Tips).
+3. **Meer van hetzelfde maakt een kanaal niet vanzelf groter.** Bij de helft doen de laatste 30 Shorts het niet beter dan de eerste 30, en het begin voorspelt het vervolg sterk (0,80). MEDICCI en Daily-3D plaatsten 200 filmpjes en bleven klein. Groeien kwam bij wie van vorm wisselde naar wat werkte, niet bij wie gewoon doorging.
+4. **Per filmpje is het verschil tussen een uitleg-kop en een show-kop kleiner dan de verhalen doen denken** (mediaan 1,09 tegen 0,98 binnen hetzelfde kanaal). Het grote verschil zit tussen kanalen: wie ALLES in één duidelijke vorm doet (Blender Tips) staat ver boven wie afwisselt. Eigen reclame, oproepen en "dag 12"-dagboeken doen het slechtst.
+5. **Een add-on-maker die zijn add-on aanprijst, haalt weinig; dezelfde maker met een gewone vraag haalt veel.** MEDICCI: filmpjes over de eigen add-on 141 tot 2.500, "How to fix normals" 30.000. Dit past bij Blender Secrets (verhaal 4) en VibeDesk (verhaal 2).
+
+### Drie lessen
+1. **Verwacht 300 tot 900 views per filmpje in het begin en beslis niet op één filmpje.** De drie beste filmpjes leveren een derde van alle views.
+2. **Kies binnen 10 tot 15 filmpjes één vaste vorm en herhaal die.** De kanalen die groeiden hadden een vaste kop ("Blender Tip: ...", "How I made ...", "Pro vs Beginner ...") en hielden het daarbij zodra er één uitschoot.
+3. **Het product hoort in beeld, niet in de kop.** De kop is een handeling of probleem dat de kijker zelf heeft; de add-on is het gereedschap dat je ziet werken.
+
+### Eerlijk: wat deze meting niet zegt
+- Views zijn van vandaag, opgeteld sinds het plaatsen. Oude filmpjes hebben langer kunnen groeien; zonder datums kan ik dat niet rechtzetten.
+- De kanalen komen uit YouTube-zoekresultaten: dat zijn kanalen die YouTube nu laat zien, dus gestopte kanalen met 5 filmpjes zitten er nauwelijks in. Het echte begin van een gemiddeld nieuw kanaal is waarschijnlijk lager dan wat hier staat (GOK).
+- Views zijn afgerond door YouTube (11.000). De indeling van de koppen is met een woordenlijst gedaan en dus ruw.
+- Of een kanaal "al abonnees had" heb ik afgeleid uit het aantal lange video's (eerste pagina, hooguit 60), niet uit datums.
+- Over TikTok zegt dit niets; alleen YouTube Shorts.
+
+### Voorstel voor Dortus deze week
+**Chris: gebruik voor de eerste 15 filmpjes op @dortusstudio één vaste kopvorm voor een probleem van de kijker, bijvoorbeeld "Blender 3D print tip: <handeling>" ("make a joint that moves after printing", "fix a part that fuses to the base"), met Click Joints alleen in beeld als het gereedschap. Geen filmpjes "wie zijn wij", geen "dag 3", geen "nu op Superhive" in de eerste 15.** Houd na elk filmpje in `commercie/filmpjes/` één regel bij: nummer, kop, views na 48 uur. Meetlat: 300 tot 900 views na een paar dagen is normaal. Haalt één filmpje 3 keer de mediaan van de rest, maak dan de volgende 5 in precies die vorm. Pas bij filmpje 30 beslissen (zoals het besluit van 15 nov al zegt), en alleen als er geen enkel filmpje boven 3 keer de mediaan kwam, van vorm wisselen. Waarom: bij 27 van 34 kanalen kwam de eerste uitschieter in de eerste 30, en groei kwam van wie daarna een vorm herhaalde.
 
 ---
 
