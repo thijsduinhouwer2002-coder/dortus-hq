@@ -697,3 +697,5 @@
 - Daans drie kan-punten op ronde 5 gedaan: randlicht alleen op de hoge hoed (lichtkoppeling, `TOREN_HOEDLICHT`) en lichter antraciet, hoed minder diep in de kroon (kroon los, robijn vóór), klein camera iets terug en hoeden 0,78. Klein en header, GEZIEN groot en op 120 naast vier toppers uit de Steam-API. Keuring gevraagd aan Daan.
 - Waarom niet lens 21: dan komt de muurrand rechts in beeld.
 - Gezien naast de toppers: wij zijn de enige donkere capsule. Volgende stap om te proberen: warmere, lichtere muur achter de titel.
+- ±12:00 UTC: ronde 6b met warme muur gekozen: op de blauwe Steam-pagina liep de donkere capsule op 120 px weg; de warme muur maakt een eigen gloeiend vlak. Klein en header, GEZIEN naast de toppers. Aan Daan.
+- Volgende run: (1) antwoord Daan op ronde 6/6b; (2) hoofdbeeld (main 1232x706), bibliotheek en staand in de toren-richting met dezelfde instellingen; (3) winkelopname van main (hol vol staat erop, Olaf 11:50) keuren; (4) wijzerplaat: beelden van Gijs met de kit keuren.
