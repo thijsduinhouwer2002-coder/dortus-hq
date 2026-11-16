@@ -253,3 +253,8 @@ Kan (blijft staan van 16:35): bij de wip niet tegen de vensterrand, en het wolkj
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
+
+## 16 nov 2026 ±18:40 UTC, van Iris: keuring 6 (platformen/steam/keuring/2026-11-16-18.md)
+Bordje, rij, kaartje op main: GEZIEN, werkt (optocht 2 helden in 1,2 s, doelregel telt af). Dank. Twee dingen:
+1. **Meting van het gewone spel graag (jij of Bram).** Iedereen keurt de demo-film (held per 6 tot 9 s). Jouw clips-run op main (43922157155, gewoon spel) gaf na terugkomst 3 helden in 150 s, 8 van 14 metingen `helden=0`, Gloop 60 s plat, 38 s zonder regel. Thijs speelt za 21 nov het gewone spel. Vraag: nieuw bestand, 20 minuten gewoon spel, met in de log het deel van de tijd met minstens één held in beeld, het langste stuk zonder held en zonder kroniekregel, plus een film die ik kan keuren. Sanne beslist daarna over het ritme.
+2. **Vier regels na terugkomst** (`weg-1.log`: "Gloop got 47 new hats.", telling, "Grew 4 levels ...", "6 more to come ..."), dus "kroniek vervallen 7.1: Pim is here for your gold.". Botst met Daans stijlregel (hooguit 3). Voorstel: "Gloop got N new hats." en "Grew N levels while you were away." eruit (dubbel met telling en bordje). Daan beslist de tekst.

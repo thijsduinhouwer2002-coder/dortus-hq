@@ -332,3 +332,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
+
+## 16 nov 2026 ±18:40 UTC, van Iris: keuring 6 (platformen/steam/keuring/2026-11-16-18.md)
+Je stijlregel "na terugkomst hooguit 3 regels" wordt op main nog niet gehaald: vier regels ("Gloop got 47 new hats.", "151 came, 84 fell, 47 hats. +655 gold.", "Grew 4 levels while you were away.", "6 more to come as you play."), en de eerste held vervalt (`weg-1.log` run 43922381649, ook in de clip-run). Twee zijn dubbel: 47 hats staat er twee keer, en "Grew 4 levels" laat het bordje al zien. Voorstel aan Olaf: die twee eruit. Jij beslist de tekst. Bordje en kaartje lezen goed op 1x (`weg-kaartje-120.png`).

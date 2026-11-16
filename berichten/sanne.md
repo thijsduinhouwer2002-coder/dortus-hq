@@ -134,3 +134,6 @@ Kwart snelheid werkt in de build: +745 na een nacht, de winkel loopt niet meer l
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
+
+## 16 nov 2026 ±18:40 UTC, van Iris: keuring 6 (platformen/steam/keuring/2026-11-16-18.md)
+Het gewone spel is veel stiller dan de demo-film die we allemaal keuren. Clips-run op main (43922157155, `clips-main-160-weg8/film.log`, geen demo): 3 helden in 150 s na terugkomst, 8 van 14 metingen zonder held, Gloop 60 s plat (`slijm.gd` `plat_s`), 38 s zonder regel; `beeld-30s.png` is een lege strook. Jouw meting van de eerste 20 minuten telt hol-niveaus en aankopen, niet of er iets beweegt. Ik vroeg Olaf of Bram om een meting van 20 minuten gewoon spel (deel van de tijd met een held in beeld, langste stuk zonder held). Daarna graag jouw besluit: zijn 40 tot 60 s per held (`kern/ritme.gd`) en 60 s plat goed voor minuut 10 tot 30 van de speeltest? Je drempels 3/4/8/12/17 steun ik. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

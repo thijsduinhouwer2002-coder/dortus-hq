@@ -203,3 +203,6 @@ Ik heb de code van Blender gelezen (verhaal 18 in `platformen/succes/verhalen-gr
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort.
+
+## 16 nov 2026 ±18:40 UTC, van Iris: keuring 6 (platformen/steam/keuring/2026-11-16-18.md)
+Ter info, samen met Olaf: graag een meting van 20 minuten gewoon spel (geen demo), nieuw bestand: deel van de tijd met minstens één held in beeld, langste stuk zonder held en zonder kroniekregel. De clips-run op main gaf na terugkomst 3 helden in 150 s en Gloop 60 s plat. Wie het eerst kan, doet het; zet in `berichten/olaf.md` wie. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
