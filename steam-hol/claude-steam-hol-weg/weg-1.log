@@ -1,24 +1,25 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 673, hoeden 51
-HOL hol-niveau 2 (faam 87)
-HOL hol-niveau 3 (faam 87)
-HOL hol-niveau 4 (faam 87)
-HOL hol-niveau 5 (faam 87)
-HOL hol-niveau 6 (faam 87)
-HOL hol-niveau 7 (faam 87)
-HOL hol-niveau 8 (faam 87)
-HOL hol-niveau 9 (faam 87)
-HOL hol-niveau 10 (faam 87)
-HOL hol-niveau 11 (faam 87)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 51 new hats.
-HOL opslag geladen: 0 terugkomers, 693 goud, faam 87
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 697, hoeden 50
+HOL hol-niveau 2 (faam 91)
+HOL hol-niveau 3 (faam 91)
+HOL hol-niveau 4 (faam 91)
+HOL hol-niveau 5 (faam 91)
+HOL hol-niveau 6 (faam 91)
+HOL hol-niveau 7 (faam 91)
+HOL hol-niveau 8 (faam 91)
+HOL hol-niveau 9 (faam 91)
+HOL hol-niveau 10 (faam 91)
+HOL hol-niveau 11 (faam 91)
+HOL hol-niveau 12 (faam 91)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 50 new hats.
+HOL opslag geladen: 0 terugkomers, 717 goud, faam 91
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794840046
-HOL eerste koop mogelijk na 15 s speeltijd (goud 693)
+HOL zaad 1794840470
+HOL eerste koop mogelijk na 15 s speeltijd (goud 717)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 87 fell, 51 hats. +673 gold.
-HOL begin: vluchten (Wout)
-HOL held binnen: Wout
+HOL kroniek 2.5 (wacht 2.5): 151 came, 91 fell, 50 hats. +697 gold.
+HOL begin: vluchten (Gerda)
+HOL held binnen: Gerda
 HOL kroniek 5.0 (wacht 5.0): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.0: Wout has a map. It is wrong.
+HOL kroniek vervallen 7.0: Gerda knocks first. Polite.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=693, terugkomers=0
+HOL einde na 15 s, fps=10, goud=717, terugkomers=0
