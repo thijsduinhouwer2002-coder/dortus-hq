@@ -1,28 +1,30 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 151, erbij 697, hoeden 44
-HOL hol-niveau 2 (faam 91)
-HOL hol-niveau 3 (faam 91)
-HOL hol-niveau 4 (faam 91)
-HOL hol-niveau 5 (faam 91)
-HOL hol-niveau 6 (faam 91)
-HOL hol-niveau 7 (faam 91)
-HOL hol-niveau 8 (faam 91)
-HOL hol-niveau 9 (faam 91)
-HOL hol-niveau 10 (faam 91)
-HOL hol-niveau 11 (faam 91)
-HOL hol-niveau 12 (faam 91)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 44 new hats.
-HOL weg-regel uit tot het bordje: Grew 11 levels while you were away.
-HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
-HOL opslag geladen: 0 terugkomers, 717 goud, faam 91
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 739, hoeden 57
+HOL hol-niveau 2 (faam 98)
+HOL hol-niveau 3 (faam 98)
+HOL hol-niveau 4 (faam 98)
+HOL hol-niveau 5 (faam 98)
+HOL hol-niveau 6 (faam 98)
+HOL hol-niveau 7 (faam 98)
+HOL hol-niveau 8 (faam 98)
+HOL hol-niveau 9 (faam 98)
+HOL hol-niveau 10 (faam 98)
+HOL hol-niveau 11 (faam 98)
+HOL hol-niveau 12 (faam 98)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 57 new hats.
+HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
+HOL weg-regel uit tot het bordje: Grew 4 levels while you were away.
+HOL weg-regel uit tot het bordje: 7 more levels wait at the door.
+HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
+HOL opslag geladen: 0 terugkomers, 759 goud, faam 98
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794846958
-HOL eerste koop mogelijk na 15 s speeltijd (goud 717)
-HOL bordje wip na weg (niveau 12)
+HOL zaad 1794847124
+HOL eerste koop mogelijk na 15 s speeltijd (goud 759)
+HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.6 (wacht 2.6): 151 came, 91 fell, 44 hats. +697 gold.
-HOL begin: vluchten (Tibbe)
-HOL held binnen: Tibbe
+HOL kroniek 2.6 (wacht 2.6): 151 came, 98 fell, 57 hats. +739 gold.
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
 HOL kroniek 5.1 (wacht 5.1): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.1: Tibbe is here for your gold.
+HOL kroniek vervallen 7.2: Joost says this is a quick one.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=717, terugkomers=0
+HOL einde na 15 s, fps=10, goud=759, terugkomers=0
