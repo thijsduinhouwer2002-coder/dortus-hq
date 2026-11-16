@@ -135,6 +135,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             maat = None if reden else maat
         if maat is None:
             bpy.data.meshes.remove(me)
+            bron["cj_weigering"] = reden  # 1.1: Figure from rig zet de reden in "Skipped: ..."
             self.report({"WARNING"}, reden)
             return {"CANCELLED"}
         nodig = vorm.te_dicht(bron, punt, maat, u, bvh)  # 1.1: een scharnier op een ander lid telt niet  # eis 6: zelfde melding als bij de kogel
@@ -162,6 +163,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             if not ok_lid:
                 ruim_op(hulp)
                 bpy.data.meshes.remove(me_bron)
+                bron["cj_weigering"] = melding
                 self.report({"WARNING"}, melding)
                 return {"CANCELLED"}
             try:

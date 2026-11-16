@@ -123,6 +123,7 @@ def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset
     fig = figuur_naam(bron)
     voor = {o.name for o in bpy.data.objects}
     bron.pop("cj_te_dicht_mm", None)
+    bron.pop("cj_weigering", None)
     try:
         uitslag = _snij(context, soort, stand, graden_vrij)
     except RuntimeError as e:  # een ERROR-melding van de onderliggende operator komt hier als fout binnen
@@ -130,6 +131,8 @@ def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset
     if "FINISHED" not in uitslag:
         if "cj_te_dicht_mm" in bron:
             return False, f"too close to another joint, keep {bron['cj_te_dicht_mm']} mm apart", []
+        if bron.get("cj_weigering"):  # de reden van het scharnier (bijvoorbeeld Tight), in plaats van "not placed"
+            return False, str(bron.pop("cj_weigering")).rstrip(". "), []
         return False, None, []
     nieuw = [o for o in bpy.data.objects if o.name not in voor and o.get("cj_deel") in ("A", "B")]
     if not nieuw:

@@ -118,13 +118,17 @@ def schuif_uit_romp(straal_op, lengte, stap):
     """Pro 1.1: hoe ver het snijvlak van een kogel langs het bot moet schuiven (vanaf de botkop) om uit de romp te
     komen. Riggers zetten de kop van dij en bovenarm in het bekken en de borst; een kogel daar krijgt een bolnaad zo
     groot als de romp (proef met armen: naad 31 mm in een been van 8 mm) en botst met alles. straal_op(t) geeft de
-    grootste afstand van de botas tot de huid op t langs het bot (None buiten de mesh). Grens: 1,3 keer de straal
-    halverwege het bot plus een stap. Geeft de eerste t waar het vlak en het kogelmidden (t + 0,84 keer de
+    grootste afstand van de botas tot de huid op t langs het bot (None buiten de mesh). Grens: 1,3 keer de kleinste
+    straal op de eerste helft van het bot plus een stap. Geeft de eerste t waar het vlak en het kogelmidden (t + 0,84 keer de
     lidstraal, het midden ligt 1,4 r verder en r is 0,6 keer de lidstraal) allebei binnen de grens liggen; zoekt tot
     de helft van het bot, anders 0 (niets gevonden: dan zegt de kern zelf wat er misgaat)."""
-    lid = straal_op(lengte / 2)
-    if lid is None or lid <= 0:
+    # Lidstraal: de kleinste gemeten straal op de eerste helft van het bot. Niet alleen halverwege: daar kan al de
+    # sleuf van het scharnier verderop liggen (geen treffer; gezien op de Rigify-metarig, bovenarm van 29 mm).
+    metingen = [straal_op(lengte * i / 20) for i in range(11)]
+    metingen = [g for g in metingen if g is not None and g > 0]
+    if not metingen:
         return 0.0
+    lid = min(metingen)
     grens = 1.3 * lid + stap
     t = 0.0
     while t <= lengte / 2:
