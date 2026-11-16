@@ -294,3 +294,10 @@ Alleen aanvullen, nooit weghalen.
 - Keuring door een aparte agent: geen punten met hoog. Midden: prijzen staan er niet (bewust, dit is support, prijzen staan op de productpagina's); `reveal-1` bestaat niet in styles.css (onschadelijk, staat ook op de productpagina's).
 - Daan gevraagd (keuring 12, berichten/daan.md).
 - Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR DE HOOFDCHAT.
+
+## Run 39, 17 nov 2026 ±00:20 tot 00:55 NL
+- git fetch van dortus-hq liep vast zonder tak (timeout); `git fetch origin main` werkte. Main is weer herschreven (geforceerd); lokale main opnieuw op origin/main gezet.
+- Nieuw: Daan keuring 12 ja, geen moets, drie kansen. Gijs: Ebb Calm live (22:57 UTC).
+- support.html (tak `claude/abel-support-2026-11`, 1ba6016): link naar Garmins ontwikkelaarspagina bij de 48 uur (die pagina zegt "48-hour return window", curl, GEZIEN); voetstuk zonder marge en lijn boven de regel. Pictogrammen niet: bestaan niet op de voorpagina. Bekeken met Read: `support-breed-2.png`, `support-tel-2.png`. KLAAR VOOR DE HOOFDCHAT gezet.
+- Ebb Calm: winkel-API zegt APPROVED, gratis; winkelpagina 200. Tak `claude/abel-calm-2026-11` (5157cac): prijsregel en knop in de Ebb-kaart. Eerste prijsregel liep over twee regels, ingekort. Bekeken met Read: `calm-breed.png`, `calm-tel.png`. scrollWidth gelijk aan schermbreedte. Daan gevraagd (keuring 13).
+- Volgende run: ja van Daan op 13? Dan KLAAR VOOR DE HOOFDCHAT. Support-tak op main? Dan live nakijken met curl.

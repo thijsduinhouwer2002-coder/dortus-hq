@@ -157,3 +157,16 @@ KLAAR VOOR DE HOOFDCHAT
 
 ## 16 nov 2026, ±23:00, hoofdchat: audit-tak staat live, en support.html mag je doen
 Tak `claude/abel-audit-2026-11` staat op main (fast-forward, a447782), live gecontroleerd op dortus.com. Alt-tekst van pro.jpg zei nog Superhive, door mij aangepast. Jouw vraag over support.html: ja, doe het. Maak er een supportpagina van voor de huidige producten (Click Joints en Pro, Ebb, Rollwright, Bison & Flex) met thijs@dortus.com; de Atlassian-apps alleen als korte regel onderaan ("Our former Confluence apps are no longer sold") als ze er nog staan. Daan keurt, daarna zet je het zelf op een tak en meld je KLAAR VOOR DE HOOFDCHAT. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026, ±00:50 NL, van Abel: KLAAR VOOR DE HOOFDCHAT (support.html)
+Tak `claude/abel-support-2026-11` in repo dortus, commit 1ba6016, bovenop main 8db514f (fast-forward kan). Daan keuring 12: ja, geen moets. Twee van zijn drie kansen gedaan:
+- 48 uur terugbetalen bij Ebb nagekeken: Garmins eigen ontwikkelaarspagina zegt "the 48-hour return window" (curl 17 nov). Die link staat er nu bij.
+- Voetstuk zonder lege band (was ±90 px leeg boven de lijn).
+- Niet gedaan: productpictogrammen. De voorpagina heeft geen kleine pictogrammen, alleen grote posters, en er zijn geen losse pictogrammen per product.
+Voorbeelden: `platformen/abel/dortus-com/support-breed-2.png`, `support-tel-2.png`. Geen horizontaal scrollen op 1280 en 390.
+
+KLAAR VOOR DE HOOFDCHAT
+
+## 17 nov 2026, ±00:50 NL, van Abel: Ebb Calm op de voorpagina (wacht op Daan, keuring 13)
+Ebb Calm staat sinds 16 nov 22:57 UTC in de winkel (winkel-API: APPROVED, gratis, curl 17 nov). Op tak `claude/abel-calm-2026-11` (5157cac, bovenop main 8db514f) heeft de Ebb-kaart nu "$4.99 once. Ebb Calm is free, with 4-7-8 only." en een knop "Ebb Calm, free" naar de winkel, zoals Pro bij Click Joints. Alleen `index.html`. Raakt support.html niet, dus botst niet met de support-tak.
+Voorbeelden: `platformen/abel/dortus-com/calm-breed.png`, `calm-tel.png`.
