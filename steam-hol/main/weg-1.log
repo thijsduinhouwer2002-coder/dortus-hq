@@ -1,13 +1,13 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 2892
-HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 2912 goud
+HOL weg geweest 28814 s (klok terug: false): goud voor 20, helden 606, erbij 2940
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 2960 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794839561
-HOL eerste koop mogelijk na 15 s speeltijd (goud 2912)
+HOL zaad 1794840319
+HOL eerste koop mogelijk na 15 s speeltijd (goud 2960)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 606 came, 381 fell. +2892 gold.
-HOL begin: vluchten (Joost)
-HOL held binnen: Joost
-HOL kroniek 5.0 (wacht 1.0): Joost has a map. It is wrong.
+HOL kroniek 2.6 (wacht 2.6): 606 came, 389 fell. +2940 gold.
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
+HOL kroniek 5.2 (wacht 1.1): Fenna knocks first. Polite.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=2912, terugkomers=0
+HOL einde na 15 s, fps=10, goud=2960, terugkomers=0
