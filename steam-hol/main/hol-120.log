@@ -31,7 +31,7 @@ HOL gegraven kolom 4
 HOL kroniek 28.9 (wacht 2.5): Bram's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Bram's song got popular. Uh oh.
 HOL kroniek 29.9 (wacht 0.8): Gloop ate Odo. Kept the crown. +6
-HOL meting t=30 beelden=137 helden=1 hol_vast=10
+HOL meting t=30 beelden=137 helden=1 hol_vast=11
 HOL begin: terug (Bram)
 HOL held binnen: Bram
 HOL kroniek 32.4 (wacht 0.5): Bram is back for the Spike Pit.
@@ -39,7 +39,7 @@ HOL kroniek 34.9 (wacht 0.0): Tibbe is now the Hoard-Toucher.
 HOL gegraven kolom 1
 HOL kroniek 37.4 (wacht 4.5): Gloop is flat. Back soon.
 HOL kroniek 39.9 (wacht 10.0): Bram's song got popular. Uh oh.
-HOL meting t=40 beelden=108 helden=2 hol_vast=15
+HOL meting t=40 beelden=108 helden=2 hol_vast=16
 HOL kroniek 42.2 (wacht 0.0): Joost came for the gold in the song.
 HOL begin: opgegeten2 (Joost)
 HOL held binnen: Joost
