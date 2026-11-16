@@ -18,6 +18,7 @@ Gemaakt door Fenna, 16 nov 2026 (opdracht hoofdchat 18:05, ja van Thijs 17:59). 
 | [strook-120px.md](strook-120px.md) | leesbaarheid, aandacht, niet storen, zuinig | Daan, Mila, Olaf |
 | [juice.md](juice.md) | kleine animaties, geluid, het gevoel | Mila, Daan, Olaf |
 | [winkelpagina.md](winkelpagina.md) | capsule, trailer, tekst, prijs, talen | Mila, Daan, Chris, Sem |
+| [beeldmap.md](beeldmap.md) | hoe de toppers eruitzien: capsule, schermbeelden, één les per spel (leren, nooit natekenen) | Mila, Daan, Chris, Sem |
 
 ## De grote bronnen (alleen openen als je meer nodig hebt)
 - [verhalen-spellen.md](../../succes/verhalen-spellen.md): 13 verhalen van bureaubladspellen (Fenna)
