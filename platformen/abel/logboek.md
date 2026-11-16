@@ -270,3 +270,14 @@ Alleen aanvullen, nooit weghalen.
 - Daan bijgepraat (aanvulling keuring 11 in berichten/daan.md).
 - Niet gedaan: support.html. De link "Support" bovenaan de voorpagina gaat naar een pagina die alleen de oude Atlassian-apps noemt en support@dortus.com gebruikt, terwijl de productpagina's thijs@dortus.com noemen. Voorgelegd aan de hoofdchat; niet zelf veranderd omdat het ook de Atlassian-pagina's raakt.
 - Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR DE HOOFDCHAT (regel 21:12: geen ja van Thijs meer nodig).
+
+## Run 37, 16 nov 2026 ±22:22 tot 22:45 NL
+- Nieuw: Daan keuring 11 ja met één moet (In short rustiger) en een kan (Click Joints eerste kaart); keuring 11a over de live site met twee kans (Hats-zin, devlog-clip zacht).
+- Gedaan op tak `claude/abel-audit-2026-11`, commit a447782, gepusht:
+  1. In short: van donkerblauwe band naar witte kaart met dunne rand (`.in-short` in styles.css), label IN SHORT klein in kapitalen, tekst gewone grootte, max 720 px, minder lucht. Op Click Joints, Rollwright en Ebb.
+  2. Click Joints eerste kaart op de voorpagina, Ebb tweede.
+  3. Hats-vak: "Your taskbar has a basement now. Our first small game is not in any store yet; we will put it here when it is."
+  4. Devlog-clip: de oude mp4 was 1120 x 240 uit een al zachte bron. Nieuw: Brams gif op ware grootte (560 x 120) 4x vergroot zonder vervaging naar 2240 x 480, h264 crf 16, 185 kB; poster opnieuw. image-rendering pixelated weggehaald, want bij verkleinen in de browser vallen dan lijnen weg. De tekeningen zelf zijn zacht getekend, dus scherper dan dit kan niet uit deze bron.
+- Gecontroleerd in Chromium: scrollWidth gelijk aan schermbreedte (1280, 1366, 390), alleen de bekende 403 van Amami via de proxy. Bekeken met Read: `audit-rw-kort-breed-2.png`, `audit-ebb-kort-tel-2.png`, click-joints breed, `audit-home-devlog-breed.png`, `audit-home-tel-2.png`.
+- KLAAR VOOR DE HOOFDCHAT gezet; Daan het beeld gestuurd; hoofdchat gemeld.
+- Volgende run: staat de tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
