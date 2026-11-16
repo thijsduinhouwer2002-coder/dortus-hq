@@ -90,8 +90,8 @@ func _init() -> void:
 	var HN = load("res://systemen/hol_niveau.gd")
 	ok(HN.niveau(0) == 1 and HN.niveau(2) == 1 and HN.niveau(3) == 2 and HN.niveau(12) == 5 and HN.niveau(88) == 12, "hol-niveau op de drempels")
 	ok(HN.niveau(100000) == 12 and HN.nog(100000) == 0, "demo stopt op hol-niveau 12")
-	ok(HN.hover(0) == "Level 1: Gloop and the pit. 3 heroes to go.", "hover niveau 1: " + HN.hover(0))
-	ok(HN.hover(11) == "Level 4: a bat moves in. 1 hero to go.", "hover enkelvoud: " + HN.hover(11))
+	ok(HN.hover(0) == "Level 1: a damp hole. 3 heroes to go.", "hover niveau 1: " + HN.hover(0))
+	ok(HN.hover(11) == "Level 4: a bad idea. 1 hero to go.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
 	ok(absf(HN.deel(6) - 0.5) < 0.01, "balkje halverwege tussen 5 en 7")
 	ok(HN.niveau(4) == 2 and HN.niveau(5) == 3 and HN.niveau(7) == 4 and HN.niveau(16) == 5 and HN.niveau(17) == 6, "drempels hol 3, 4 en 6 op 5 / 7 / 17 (Bram 18:50, speeltestbuild)")
@@ -111,8 +111,8 @@ func _init() -> void:
 	hb.free()
 	# doelregel als alles gekocht is (Sanne 16 nov 16:10, punt 6c)
 	var KA = load("res://kern/kaartje.gd")
-	ok(KA.niveau_doel(12) == "Next: a second pit, 5 heroes", "doelregel volgend niveau: " + KA.niveau_doel(12))
-	ok(KA.niveau_doel(11) == "Next: the Thief, 1 hero", "doelregel enkelvoud: " + KA.niveau_doel(11))
+	ok(KA.niveau_doel(12) == "Next: a hat museum, 5 heroes", "doelregel volgend niveau: " + KA.niveau_doel(12))
+	ok(KA.niveau_doel(11) == "Next: a tavern tale, 1 hero", "doelregel enkelvoud: " + KA.niveau_doel(11))
 	ok(KA.niveau_doel(100000) == "", "doelregel leeg op het laatste niveau")
 	var lang_d := 0
 	for f_ in range(0, 90):
@@ -124,10 +124,10 @@ func _init() -> void:
 		if HN.hover(f_).length() > HN.HOVER_MAX:
 			lang_h += 1
 	ok(lang_h == 0 and HN.HOVER_MAX == 43, "hover hooguit 43 tekens (Daan 18:40)")
-	ok(HN.hover(25) == "Level 7: the Rolling Stone. 6 heroes to go." and HN.hover(88) == "Level 12: the Hat Wall.", "hover langste geval en laatste niveau zonder staart")
+	ok(HN.hover(25) == "Level 7: a hero shortage. 6 heroes to go." and HN.hover(88) == "Level 12: Gloop's Empire.", "hover langste geval en laatste niveau zonder staart")
 	# optocht na weg zijn (Sanne 16 nov 14:50): 2 naar 12 is één optocht, geen tien feestjes
 	ok(HN.weg_regel(3, 88) == "Grew 10 levels while you were away." and HN.weg_regel(3, 88).length() == 35, "weg-regel 10 niveaus, 35 tekens")
-	ok(HN.weg_regel(10, 12) == "Hole level 5: the Thief." and HN.weg_regel(5, 5) == "", "weg-regel bij één niveau de gewone regel, bij geen niveau leeg")
+	ok(HN.weg_regel(10, 12) == "Hole level 5: a tavern tale." and HN.weg_regel(5, 5) == "", "weg-regel bij één niveau de gewone regel, bij geen niveau leeg")
 	var op: Dictionary = HN.optocht(3, 88)
 	var op_n: Array = []
 	for p_ in op.poef:
@@ -146,10 +146,10 @@ func _init() -> void:
 	ok(op4.helden == [3, 5] and op4.poef.size() == 1 and float(op4.duur) <= 5.0, "optocht met 4 niveaus: ridder, dief, vleermuis, kort")
 	var rq2: Dictionary = HN.weg(136, 140, 7)
 	ok(rq2.meteen == [6, 7, 8, 9] and int(rq2.rij) == 3, "tweede nacht met rij: weer hooguit 4 (%s, %d)" % [str(rq2.meteen), int(rq2.rij)])
-	ok(HN.weg(10, 12, 0).rij == 0 and HN.weg(10, 12, 0).regels == ["Hole level 5: the Thief."], "één niveau: geen rij, gewone regel")
-	ok(HN.rij_regel(1) == "1 more to come as you play." and HN.rij_hover(136, 7, 60.0) == "7 more to come. Next: a second pit, in 2 min.", "rij-regel en hover: " + HN.rij_hover(136, 7, 60.0))
-	ok(HN.rij_doel(136, 7, 60.0) == "Next: a second pit, in 2 min", "doelregel met rij noemt wat komt (Iris 17:40): " + HN.rij_doel(136, 7, 60.0))
-	ok(HN.rij_doel(136, 8, 179.0) == "Next: the Thief, in 1 min" and HN.REGELS_AAN, "doelregel rij: dief, 1 min; regels na weg aan (Daan 16:50)")
+	ok(HN.weg(10, 12, 0).rij == 0 and HN.weg(10, 12, 0).regels == ["Hole level 5: a tavern tale."], "één niveau: geen rij, gewone regel")
+	ok(HN.rij_regel(1) == "1 more to come as you play." and HN.rij_hover(136, 7, 60.0) == "7 more to come. Next: a hat museum, in 2 min.", "rij-regel en hover: " + HN.rij_hover(136, 7, 60.0))
+	ok(HN.rij_doel(136, 7, 60.0) == "Next: a hat museum, in 2 min", "doelregel met rij noemt wat komt (Iris 17:40): " + HN.rij_doel(136, 7, 60.0))
+	ok(HN.rij_doel(136, 8, 179.0) == "Next: a tavern tale, in 1 min" and HN.REGELS_AAN, "doelregel rij: dief, 1 min; regels na weg aan (Daan 16:50)")
 	for r_ in range(1, 12):
 		ok(HN.rij_doel(136, r_, 0.0).length() <= HN.NAAM_MAX, "doelregel rij past in 34 tekens (rij %d)" % r_)
 	var lang_n := 0

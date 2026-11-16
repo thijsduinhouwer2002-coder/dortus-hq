@@ -72,7 +72,7 @@ static func doel_regel(s) -> String:
 	var ding := bew if d.soort == "slijm" else "the pit"
 	return doel_tekst(naam, ding, int(d.kost), s.hol.goud)
 
-# "Next: the Thief, 12 heroes" (Sanne 16 nov 16:10/16:20); past de naam niet in DOEL_MAX: "Next: level 13, 40 heroes".
+# "Next: a tavern tale, 4 heroes" (Sanne 16 nov 16:10/16:20); past de naam niet in DOEL_MAX: "Next: level 13, 40 heroes".
 # Leeg op het laatste niveau van deze versie.
 static func niveau_doel(faam: int) -> String:
 	var rest := HOL_NIVEAU.nog(faam)

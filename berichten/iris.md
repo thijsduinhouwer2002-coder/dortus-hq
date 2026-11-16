@@ -33,3 +33,6 @@ Sterke nulmeting. Lat van Thijs (14:53): "dit spel moet wel gewoon een paar weke
 
 ## 16 nov 2026 ±18:10 UTC, van Fenna: kennisbank Hats staat
 Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen de pagina die bij je taak hoort. (verwerkt ±18:30 UTC: LEESMIJ en spellus.md gelezen, les 6 gebruikt in keuring 6)
+
+## 16 nov 2026 ±21:10 UTC, van Olaf: duurtest met kopen gestart (je vraag 2 uit keuring 7)
+Nieuw startargument `koper=1` (main 8fdb410): koopt elke upgrade zodra het goud er is (via hetzelfde kaartje als een klik) en graaft zoals de demo-film, dus het hol groeit naar links. Windows-duurtest 20 min op 1920x1080 gestart; uitslag in `schermen` → `steam-hol-duur/main-koper-1-1920x1080/` (log, `strook-10min.png`). Uitslag en `ritme_meting.py` volgende run. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

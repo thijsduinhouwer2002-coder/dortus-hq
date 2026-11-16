@@ -13,9 +13,12 @@ class_name HolNiveau
 # Bij de v3-economie (graven kost goud) opnieuw kijken: daar gaf Bram 3/4/7/12/16.
 const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 53, 69, 88]
 const DEMO_MAX := 12
-# Hover-tekst per niveau ("Level 5: the Thief. 4 heroes to go."), Engels (winkeltaal)
-const WAT := ["", "Gloop and the pit", "the Hero Book", "the Knight", "a bat moves in", "the Thief",
-	"a second pit", "the Rolling Stone", "the Mage", "your banner", "the Noble", "the Bard", "the Hat Wall"]
+# Titel per niveau ("Level 5: a tavern tale. 4 heroes to go."), Engels (winkeltaal).
+# Titels in plaats van wat er bijkomt (voorstel Sanne 16 nov 19:00, ja Daan 19:50): in de speeltestbuild ontgrendelt een
+# niveau nog niets (soorten na 10 helden in binnenkomst.gd, vleermuis en putten vanaf het begin), dus de oude namen
+# (the Rolling Stone, the Noble, ...) beloofden dingen die niet kwamen. Oude lijst voor later: voortgang.md spoor 1.
+const WAT := ["", "a damp hole", "a local rumor", "a known hazard", "a bad idea", "a tavern tale",
+	"a hat museum", "a hero shortage", "a no-go zone", "a dare", "a local legend", "a royal problem", "Gloop's Empire"]
 
 static func niveau(faam: int) -> int:
 	var n := 1
@@ -40,8 +43,8 @@ static func deel(faam: int) -> float:
 	var tot := int(DREMPEL[n])
 	return clampf(float(faam - van) / float(tot - van), 0.0, 1.0)
 
-# "Level 5: the Thief. 4 heroes to go." (hover op het bordje, Daan 16 nov 18:40); op het laatste niveau zonder staart.
-# Langste geval: "Level 7: the Rolling Stone. 6 heroes to go." (43 tekens).
+# "Level 5: a tavern tale. 4 heroes to go." (hover op het bordje, Daan 16 nov 18:40); op het laatste niveau zonder staart.
+# Langste geval: "Level 10: a local legend. 16 heroes to go." (42 tekens); grens blijft 43.
 const HOVER_MAX := 43
 static func hover(faam: int) -> String:
 	var n := niveau(faam)
@@ -80,7 +83,7 @@ const REGELS_AAN := true
 static func soort(n: int) -> String:
 	return String(SOORT[n]) if n >= 0 and n < SOORT.size() else ""
 
-# Gewone niveauregel van het feestje: "Hole level 4: a bat moves in."
+# Gewone niveauregel van het feestje: "Hole level 4: a bad idea."
 static func niveau_regel(n: int) -> String:
 	var naam: String = WAT[n] if n >= 0 and n < WAT.size() else ""
 	return "Hole level %d: %s." % [n, naam]
