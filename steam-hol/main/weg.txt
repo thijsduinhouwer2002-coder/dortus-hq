@@ -1,1 +1,1 @@
-weg: 2 FOUT
+weg: 0 FOUT
