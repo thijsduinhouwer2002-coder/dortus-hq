@@ -26,6 +26,10 @@ var info := {}
 var vm: Array = []        # per vleermuis: {"k": kolom, "naar": kolom, "t": tijd in de lucht of -1, "rust": s}
 var _sleutel := ""
 var _kijk_t := 0.0
+# vleermuis_proef=1 (alleen om op te keuren, leest de startargumenten zelf): elke vleermuis vliegt om de 4 s op,
+# ook zonder held eronder. In het echte spel nooit.
+var proef := "vleermuis_proef=1" in OS.get_cmdline_user_args()
+var _proef_t := 0.0
 
 func zet(h, w: Node) -> void:
 	hol = h
@@ -139,6 +143,11 @@ func _process(delta: float) -> void:
 			v["rust"] -= delta
 			continue
 		var held_x := _held_onder(int(v["k"]))
+		if proef and held_x < -1e8:
+			_proef_t += delta
+			if _proef_t >= 4.0:
+				_proef_t = 0.0
+				held_x = int(v["k"]) * KOL + 2.0
 		if held_x > -1e8:
 			var doel := vlucht_doel(hol, int(v["k"]), held_x, bezet)
 			if doel >= 0:
