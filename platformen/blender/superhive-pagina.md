@@ -76,3 +76,6 @@ Alleen Thijs kan inloggen; dit gaat als één regel op `organisatie/lijst-thijs.
 5. Bestand: `click_joints_pro-1.0.1.zip` uit de release (1.0.1: strakke kleuring, donkere veersleuf, gladde groene band; bijgewerkt 14 nov 08:35 Bram) op GitHub (sha256 staat in de release; de workflow bouwt hem en zet sha256 erbij).
 6. Plaatjes in deze volgorde: poster 3 (`ontwerp/click-joints/pro/poster-3.png` op main, Daan ja 07:40 met vergrootglas), 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
 7. Opslaan als concept, kijken, dan indienen. Duur ±10 min.
+
+## Gumroad (tweede winkel), 16 nov 2026 10:05, hoofdchat (ja Thijs 09:51)
+Concept aangemaakt in het Gumroad-account van Thijs: "Click Joints Pro for Blender", $12, digitale download `click_joints_pro-1.0.2.zip` (al met de kniefout opgelost), beschrijving (zelfde als Superhive, plus "built with the help of AI tools"), samenvatting, miniatuur 600 x 600 (uitsnede poster) en 2 omslagen (poster, knie met boog). Nog niet te koop: Gumroad publiceert pas als Thijs een uitbetaalmethode koppelt (bankgegevens, dat doet alleen hij). De winkelnaam is nog de standaard van Gumroad; voorstel: Dortus. Studio-licentie en lanceerkorting volgen na publicatie.
