@@ -16,7 +16,7 @@ Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer
 ## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC)
 Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
 - 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
-- ±10 s: tweede held. **±27 s: Gloop eet hem en zijn hoed (de kroon) gaat op de toren** (op main sinds 16 nov 07:40 UTC, tak `claude/steam-hol-hoed30` van Bram; zaden 4242, 777, 1, 2026, 99, 2 en 3: hap 26,3 tot 27,8 s; daarvoor 59 tot 62 s, en vóór 16 nov 00:35 UTC 96 tot 102 s).
+- ±10 s: tweede held. **±27 s: Gloop eet hem en zijn hoed (de kroon) gaat op de toren** (op main sinds 16 nov 07:31 UTC, tak `claude/steam-hol-hoed30` van Bram; zaden 4242, 777, 1, 2026, 99, 2 en 3: hap 26,3 tot 27,8 s; daarvoor 59 tot 62 s, en vóór 16 nov 00:35 UTC 96 tot 102 s).
 - 16 s: hij valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
 - ±31 s: derde held, die ontsnapt mank. **±63 tot 75 s: hij komt terug met zijn wrok** (bijnaam, "is back for ...").
 - Eerste koop mogelijk na 157 tot 227 s, gemiddeld 196 s (zelfde 5 zaden; met de stand van 16 nov 00:35 UTC gemiddeld 245 s, daarvoor 291 s); eerder op Windows gemeten: 211 s. Ruim onder de grens van 600 s (demolijst 3).
