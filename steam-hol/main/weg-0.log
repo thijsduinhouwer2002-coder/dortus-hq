@@ -1,12 +1,12 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794843135
+HOL zaad 1794844508
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Odo read about you in a tavern.
-HOL begin: vallen (Odo)
-HOL held binnen: Odo
-HOL kroniek 9.5 (wacht 0.0): Bram is here for your gold.
-HOL begin: opgegeten (Bram)
-HOL held binnen: Bram
-HOL meting t=10 beelden=63 helden=2 hol_vast=1
+HOL kroniek 4.1 (wacht 0.0): Fenna is here for your gold.
+HOL begin: vallen (Fenna)
+HOL held binnen: Fenna
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL kroniek 10.8 (wacht 0.0): Gerda brought a torch. And hope.
+HOL begin: opgegeten (Gerda)
+HOL held binnen: Gerda
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
