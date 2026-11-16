@@ -1,25 +1,27 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 745, hoeden 54
-HOL hol-niveau 2 (faam 99)
-HOL hol-niveau 3 (faam 99)
-HOL hol-niveau 4 (faam 99)
-HOL hol-niveau 5 (faam 99)
-HOL hol-niveau 6 (faam 99)
-HOL hol-niveau 7 (faam 99)
-HOL hol-niveau 8 (faam 99)
-HOL hol-niveau 9 (faam 99)
-HOL hol-niveau 10 (faam 99)
-HOL hol-niveau 11 (faam 99)
-HOL hol-niveau 12 (faam 99)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 54 new hats.
-HOL opslag geladen: 0 terugkomers, 765 goud, faam 99
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 151, erbij 697, hoeden 52
+HOL hol-niveau 2 (faam 91)
+HOL hol-niveau 3 (faam 91)
+HOL hol-niveau 4 (faam 91)
+HOL hol-niveau 5 (faam 91)
+HOL hol-niveau 6 (faam 91)
+HOL hol-niveau 7 (faam 91)
+HOL hol-niveau 8 (faam 91)
+HOL hol-niveau 9 (faam 91)
+HOL hol-niveau 10 (faam 91)
+HOL hol-niveau 11 (faam 91)
+HOL hol-niveau 12 (faam 91)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 52 new hats.
+HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
+HOL opslag geladen: 0 terugkomers, 717 goud, faam 91
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794840785
-HOL eerste koop mogelijk na 15 s speeltijd (goud 765)
+HOL zaad 1794843112
+HOL eerste koop mogelijk na 15 s speeltijd (goud 717)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 99 fell, 54 hats. +745 gold.
-HOL begin: vluchten (Bram)
-HOL held binnen: Bram
+HOL kroniek 2.5 (wacht 2.5): 151 came, 91 fell, 52 hats. +697 gold.
+HOL begin: vluchten (Rik)
+HOL held binnen: Rik
 HOL kroniek 5.0 (wacht 5.0): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.1: Bram knocks first. Polite.
+HOL kroniek vervallen 7.0: Rik knocks first. Polite.
+HOL kroniek 7.5 (wacht 7.5): Grew 11 levels while you were away.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=765, terugkomers=0
+HOL einde na 15 s, fps=10, goud=717, terugkomers=0
