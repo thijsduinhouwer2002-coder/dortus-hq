@@ -1,0 +1,43 @@
+name: Scorebord (elke dag 07:00 UTC)
+
+# Vera, 16 nov 2026, opdracht hoofdchat 16 nov 17:05. Meet per product de openbare cijfers met
+# organisatie/controle/scorebord.py, schrijft organisatie/scorebord.md en scorebord-data.csv,
+# draait de controle voor de openbare repo en commit naar main. Alleen openbare bronnen, niet inloggen.
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scorebord
+  cancel-in-progress: false
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Meten
+        run: python3 organisatie/controle/scorebord.py
+      - name: Controle openbare repo en commit naar main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          git add organisatie/scorebord.md organisatie/scorebord-data.csv
+          if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
+          git commit -q -m "Scorebord $(date -u +%F) (workflow Scorebord, run ${GITHUB_RUN_ID})"
+          python3 organisatie/controle/check.py HEAD~1 HEAD
+          for poging in 1 2 3 4 5; do
+            if git pull -q --rebase origin main && git push -q origin HEAD:main; then echo "gepusht"; exit 0; fi
+            sleep $((poging * 5))
+          done
+          echo "push niet gelukt"; exit 1
