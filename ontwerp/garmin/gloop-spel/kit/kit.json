@@ -1,0 +1,452 @@
+{
+ "260-mip": {
+  "gloop-rust": [
+   90,
+   66
+  ],
+  "gloop-hap": [
+   90,
+   70
+  ],
+  "gloop-blij": [
+   90,
+   66
+  ],
+  "gloop-slok": [
+   106,
+   92
+  ],
+  "held-val": [
+   72,
+   74
+  ],
+  "hoed-00-helm": [
+   46,
+   44
+  ],
+  "hoed-01-puntmuts": [
+   46,
+   36
+  ],
+  "hoed-02-kap": [
+   43,
+   25
+  ],
+  "hoed-03-pet": [
+   46,
+   23
+  ],
+  "hoed-04-kroon": [
+   36,
+   30
+  ],
+  "hoed-05-koksmuts": [
+   46,
+   40
+  ],
+  "hoed-06-emmer": [
+   46,
+   33
+  ],
+  "hoed-07-hoge_hoed": [
+   46,
+   32
+  ],
+  "hoed-08-pan": [
+   46,
+   21
+  ],
+  "hoed-09-veermuts": [
+   46,
+   39
+  ],
+  "helm-vlieg": [
+   60,
+   60
+  ],
+  "_ankers": {
+   "toren_voet": [
+    48,
+    9
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 10,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ },
+ "280-mip": {
+  "gloop-rust": [
+   97,
+   71
+  ],
+  "gloop-hap": [
+   97,
+   76
+  ],
+  "gloop-blij": [
+   97,
+   71
+  ],
+  "gloop-slok": [
+   114,
+   101
+  ],
+  "held-val": [
+   77,
+   80
+  ],
+  "hoed-00-helm": [
+   50,
+   47
+  ],
+  "hoed-01-puntmuts": [
+   50,
+   38
+  ],
+  "hoed-02-kap": [
+   47,
+   26
+  ],
+  "hoed-03-pet": [
+   50,
+   25
+  ],
+  "hoed-04-kroon": [
+   39,
+   32
+  ],
+  "hoed-05-koksmuts": [
+   50,
+   43
+  ],
+  "hoed-06-emmer": [
+   50,
+   35
+  ],
+  "hoed-07-hoge_hoed": [
+   50,
+   34
+  ],
+  "hoed-08-pan": [
+   50,
+   23
+  ],
+  "hoed-09-veermuts": [
+   50,
+   42
+  ],
+  "helm-vlieg": [
+   66,
+   63
+  ],
+  "_ankers": {
+   "toren_voet": [
+    51,
+    9
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 12,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ },
+ "320": {
+  "gloop-rust": [
+   109,
+   79
+  ],
+  "gloop-hap": [
+   109,
+   84
+  ],
+  "gloop-blij": [
+   109,
+   79
+  ],
+  "gloop-slok": [
+   128,
+   111
+  ],
+  "held-val": [
+   85,
+   88
+  ],
+  "hoed-00-helm": [
+   54,
+   52
+  ],
+  "hoed-01-puntmuts": [
+   54,
+   41
+  ],
+  "hoed-02-kap": [
+   50,
+   28
+  ],
+  "hoed-03-pet": [
+   54,
+   26
+  ],
+  "hoed-04-kroon": [
+   42,
+   35
+  ],
+  "hoed-05-koksmuts": [
+   54,
+   47
+  ],
+  "hoed-06-emmer": [
+   54,
+   38
+  ],
+  "hoed-07-hoge_hoed": [
+   54,
+   36
+  ],
+  "hoed-08-pan": [
+   54,
+   24
+  ],
+  "hoed-09-veermuts": [
+   54,
+   45
+  ],
+  "helm-vlieg": [
+   72,
+   70
+  ],
+  "_ankers": {
+   "toren_voet": [
+    58,
+    10
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 12,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ },
+ "390": {
+  "gloop-rust": [
+   133,
+   97
+  ],
+  "gloop-hap": [
+   133,
+   103
+  ],
+  "gloop-blij": [
+   133,
+   96
+  ],
+  "gloop-slok": [
+   156,
+   137
+  ],
+  "held-val": [
+   103,
+   107
+  ],
+  "hoed-00-helm": [
+   66,
+   63
+  ],
+  "hoed-01-puntmuts": [
+   66,
+   50
+  ],
+  "hoed-02-kap": [
+   61,
+   34
+  ],
+  "hoed-03-pet": [
+   66,
+   32
+  ],
+  "hoed-04-kroon": [
+   52,
+   42
+  ],
+  "hoed-05-koksmuts": [
+   66,
+   58
+  ],
+  "hoed-06-emmer": [
+   66,
+   46
+  ],
+  "hoed-07-hoge_hoed": [
+   66,
+   44
+  ],
+  "hoed-08-pan": [
+   66,
+   29
+  ],
+  "hoed-09-veermuts": [
+   66,
+   55
+  ],
+  "helm-vlieg": [
+   86,
+   85
+  ],
+  "_ankers": {
+   "toren_voet": [
+    70,
+    13
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 16,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ },
+ "416": {
+  "gloop-rust": [
+   141,
+   103
+  ],
+  "gloop-hap": [
+   141,
+   109
+  ],
+  "gloop-blij": [
+   141,
+   103
+  ],
+  "gloop-slok": [
+   166,
+   146
+  ],
+  "held-val": [
+   109,
+   113
+  ],
+  "hoed-00-helm": [
+   71,
+   67
+  ],
+  "hoed-01-puntmuts": [
+   71,
+   54
+  ],
+  "hoed-02-kap": [
+   66,
+   36
+  ],
+  "hoed-03-pet": [
+   71,
+   34
+  ],
+  "hoed-04-kroon": [
+   55,
+   45
+  ],
+  "hoed-05-koksmuts": [
+   71,
+   61
+  ],
+  "hoed-06-emmer": [
+   71,
+   49
+  ],
+  "hoed-07-hoge_hoed": [
+   71,
+   47
+  ],
+  "hoed-08-pan": [
+   71,
+   31
+  ],
+  "hoed-09-veermuts": [
+   71,
+   59
+  ],
+  "helm-vlieg": [
+   93,
+   91
+  ],
+  "_ankers": {
+   "toren_voet": [
+    75,
+    13
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 17,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ },
+ "454": {
+  "gloop-rust": [
+   154,
+   112
+  ],
+  "gloop-hap": [
+   154,
+   119
+  ],
+  "gloop-blij": [
+   154,
+   112
+  ],
+  "gloop-slok": [
+   182,
+   160
+  ],
+  "held-val": [
+   119,
+   124
+  ],
+  "hoed-00-helm": [
+   77,
+   74
+  ],
+  "hoed-01-puntmuts": [
+   77,
+   59
+  ],
+  "hoed-02-kap": [
+   72,
+   39
+  ],
+  "hoed-03-pet": [
+   77,
+   37
+  ],
+  "hoed-04-kroon": [
+   60,
+   49
+  ],
+  "hoed-05-koksmuts": [
+   77,
+   67
+  ],
+  "hoed-06-emmer": [
+   77,
+   54
+  ],
+  "hoed-07-hoge_hoed": [
+   77,
+   52
+  ],
+  "hoed-08-pan": [
+   77,
+   34
+  ],
+  "hoed-09-veermuts": [
+   77,
+   64
+  ],
+  "helm-vlieg": [
+   101,
+   100
+  ],
+  "_ankers": {
+   "toren_voet": [
+    82,
+    15
+   ],
+   "hoed_stap_deel_van_hoedhoogte": 0.56,
+   "slok_benen_boven_kop_px": 20,
+   "gloop_voet_y_deel_van_scherm": 0.9
+  }
+ }
+}

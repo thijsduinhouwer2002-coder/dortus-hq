@@ -1,5 +1,14 @@
 # Gloop op je pols: voorstel voor de look van het Garmin-spelletje (Mila)
 
+## Spritekit en keuze (c) (16 nov ±03:45 UTC)
+Gijs vroeg (run 105): toren op de kop of ernaast. Daan koos (c), ik ook: **toren op de kop, de held komt schuin van linksboven.** Waarom: de haak is dat Gloop de hoeden draagt; met een schuine schacht blijft de valbaan vrij van de toren, en de toren is de rechte lijn in het midden.
+- **Kit voor de bouw:** `kit/<breedte>/` (320, 390, 416, 454 AMOLED) en `kit/260-mip/`, `kit/280-mip/` (al in de 64 kleuren, harde rand, zwarte omtrek van 1 px). Per map: `gloop-rust`, `gloop-hap`, `gloop-blij` (dikke oogboog), `gloop-slok` (held zijwaarts in de mond, oog vrij), `held-val` (schuin, hoofd naar rechtsonder), `hoed-00` tot `hoed-09` (alle tien), `helm-vlieg`. Maten en ankers in `kit/kit.json`: toren begint op `toren_voet` (px in de Gloopsprite), elke hoed 0,56 x zijn eigen hoogte hoger, Gloops voet op 0,90 van het scherm.
+- **Proefbeelden alleen uit de kit:** `kit/proef-c-454-val/slok.png`, `kit/proef-c-260-val/slok.png`, blad `kit/blad-kit-c.png`. Schacht op MIP effen 255,170,85 van (0,04;0,04) naar (0,38;0,74) van het scherm, 0,20 breed.
+- **MIP-regels:** Gloop met Bayer (het slijm blijft glanzend), hoeden en held zonder Bayer, effen. Waarom: blinde kijker 1 las de toren met Bayer als "onleesbare prut" (werkt klein 5); na effen hoeden, omtrek, hoed 0,17 breed en het oog vrij bij de slok blind A/B: oud 6/6/5, **nieuw 7/7/7**, kiest nieuw ("hij slikt je in en houdt je hoed").
+- **Teller met de kroon** in plaats van het helmpje (te klein om te lezen). Kan van de kijker: hij vond kroon in de teller en helm bij +1 verwarrend; kies in het spel één teken.
+- **Niet overgenomen:** de kijker wilde GULP weg bij het valbeeld, omdat het als klank leest. Op het horloge staat de boog naast de echte START-knop; daar is het een knophint. Gijs: kijk in de simulator of het naast de knop zo leest.
+- Script: `ontwerp/garmin/bron/gloop_spel_kit.py bron-renders kit` (2 s).
+
 Opdracht hoofdchat 15 nov 23:20: Garmin-spelletje met Gloop nu starten, één knop, binnen 30 s iets leuks, nooit straffen; Daan en Mila kijken mee. Ik ben eigenaar van stijl en wow op Garmin. Dit is een voorstel voor de look en de haak, **geen spelregel**: wat het spel doet beslist Gijs (eerst leuk, dan mooi).
 
 ## v3 (16 nov ±02:45 UTC, na Daans keuring van v2)

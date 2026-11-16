@@ -604,3 +604,12 @@
 - GEZIEN met Read: slok in vijf stappen (te klein, verkeerde mond, over het oog, past, groter), zoom 3x, rij v3, MIP vergroot en op 1x, blind paar, blad v3.
 - Taak aan Gijs (slokframe in het spel, toren hoger), bericht aan Daan.
 - Volgende: simulatorbeelden van Gijs keuren op 1x; Steam-schermen wo 18 nov.
+
+## 16 nov 2026, ±03:40 tot 04:00 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), besluiten (niets nieuws voor mij), taken Garmin (Gijs run 105: proef met vormen, vraag toren op de kop of ernaast; Daan koos (c)).
+- Simulatorbeelden FR255 van run 43797596147 GEZIEN met Read: speelt, maar rechthoeken en cirkels; geen stijl om te keuren.
+- **Besluit: eens met (c), en een spritekit per horloge** (`ontwerp/garmin/gloop-spel/kit/`, script `bron/gloop_spel_kit.py`). Waarom: Gijs heeft echte plaatjes nodig; het Steam-spelblad is op MIP niet in de 64 kleuren en de toren werd prut.
+- **Besluit: hoeden en held op MIP effen met zwarte omtrek, hoed 0,17 breed, held bij de slok zijwaarts zodat het oog vrij blijft, kroon in de teller.** Waarom: blinde kijker 1 (7/7/5, moet: toren onleesbaar, oog weg), daarna blind A/B oud 6/6/5 tegen nieuw 7/7/7.
+- Niet gedaan: GULP-hint weg bij het valbeeld (kijker las het los als klank); op het horloge staat het naast de knop, Gijs kijkt in de simulator.
+- GEZIEN met Read: blad kit c drie keer, uitsnede 454 toren 2x (spikkels weg).
+- Volgende: simulatorbeelden met de kit keuren op 1x; Steam-schermen wo 18 nov.
