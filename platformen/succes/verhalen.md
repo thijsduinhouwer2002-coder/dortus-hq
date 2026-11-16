@@ -1,8 +1,86 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 10, Lens Sim en de Cyber Sale van Superhive, klaar 16 nov 2026 ±11:00 NL-tijd). Volgende: de "anatomy of a successful product launch"-interviews op de Superhive-blog (Serpens, Kit Ops, Instamat), of wat de late splitsers buiten Superhive doen. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 11, de drie lanceerinterviews van Superhive uit 2020 met de cijfers van nu, klaar 16 nov 2026 ±10:00 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een maker die een tweede lancering met een update deed in onze hoek. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 11. Drie lanceringen uitgelegd door de makers zelf (Superhive-blog 2020: Serpens, InstaMat, KIT OPS), en wat er zes jaar later van over is
+
+Onderzocht 16 nov 2026, run 11. Waarom dit verhaal: Click Joints Pro komt deze week uit de keuring. Superhive liet in okt en nov 2020 drie makers in eigen woorden uitleggen hoe zij een product lanceren. Dat zijn geen cursusverkopers: alle drie verkopen nog steeds op Superhive, en ik heb hun cijfers van nu ernaast gelegd. Eén van hen, Oliver J. Post, deed daarna precies wat hij beschreef, en dat is na te lopen op BlenderNation.
+
+### Bronnen
+- Serpens, Joshua Knauber (student, Duitsland, solo), 23 okt 2020: https://superhivemarket.com/posts/serpens-creator-joshua-knauber-the-anatomy-of-a-successful-product-launch (GEZIEN met curl, EIGEN OPGAVE van de maker).
+- InstaMat, Oliver J. Post (architectuurstudent, Nederland, solo), 28 okt 2020: https://superhivemarket.com/posts/instamat-creator-oliver-post-the-anatomy-of-a-successful-product-launch (GEZIEN, EIGEN OPGAVE).
+- KIT OPS, Chipp Walters (industrieel ontwerper, VS, klein team), 9 nov 2020: https://superhivemarket.com/posts/kit-ops-creator-chipp-walters-the-anatomy-of-a-successful-product-launch (GEZIEN, EIGEN OPGAVE).
+- Winkels nu (GEZIEN 16 nov 2026 met curl): https://superhivemarket.com/creators/joshua-knauber , https://superhivemarket.com/creators/oliver-j-post , productpagina's https://superhivemarket.com/products/serpens , .../layerpainter , .../humgen3d , .../kit-ops .
+- Alle berichten van Oliver Post op BlenderNation, 2020 tot 2023: https://www.blendernation.com/author/oliverjpost/ en de berichten zelf (teaser 28 jan 2021, lancering 15 mrt 2021, V2 15 jul 2021, V3 27 nov 2021; GEZIEN).
+- Superhive, totaalcijfers van de winkel: https://superhivemarket.com/market-stats (DERDEN, de winkel zelf, GEZIEN 16 nov).
+- Regels BlenderNation nu: https://www.blendernation.com/submit-news/ (GEZIEN 16 nov: een commercieel bericht kost EUR 25 of een Patreon-lidmaatschap).
+
+### Cijfers (GEZIEN 16 nov 2026 tenzij anders vermeld)
+| Maker | Product | Verkopen | Reviews | Prijs | Online |
+|---|---|---|---|---|---|
+| Joshua Knauber | Serpens 3 (visueel programmeren) | 2900+ | 59 | $20 | ±6 jaar |
+| Joshua Knauber | Layer Painter | 2400+ | 29 | $1 nu | ±8 jaar |
+| Oliver J. Post (met Alexander Lashko) | Human Generator Ultimate | 17200+ | 138 | $68, met plaatsen $128 | ±5,5 jaar (15 mrt 2021) |
+| Oliver J. Post | Nature Clicker (gratis) | 400+ | 0 | $0 | ±6,5 jaar |
+| Oliver J. Post | Water Shader, Flower Pack | 100+ elk | 0 tot 1 | $7 en $9 | ±6,5 jaar |
+| Chipp Walters | KIT OPS 4 | geen blok getoond | | $35 | |
+
+- Smudgr Pro en InstaMat, de twee add-ons waar Post in 2020 over vertelde, staan niet meer in zijn winkel (GEZIEN). Waarom niet, weet ik niet.
+- Human Generator: 17200+ x ±$60 (na kortingen, GOK) is ruwweg $1 miljoen bruto in 5,5 jaar, voor twee mensen. Ter vergelijking: Superhive betaalde in 12 jaar $53,5 miljoen uit aan 6.885 makers (DERDEN), gemiddeld ±$7.800 per maker, met een heel scheve verdeling (GOK).
+- Reviews tegen verkopen: Human Generator 138 op 17200 (0,8%), Serpens 59 op 2900 (2%). Weer dezelfde orde als bij Kambari en TrueDepth (hoofdles 5).
+- Eigen opgave Post (2020): zijn promovideo van Smudgr Pro kreeg toen nog 22 weergaven per dag zonder promotie, "with an average of more than 1 sale per 10 views". Niet na te meten, EIGEN OPGAVE.
+- Eigen opgave Post: 20 tot 40 minuten per week support, zonder bugs repareren; "More than half of the reviews on my product are from people I helped with customer support."
+- Eigen opgave Walters: "well over 40,000 folks who have downloaded my products on Gumroad" (zijn mailinglijst, vooral van gratis producten) en "over 400 patrons".
+
+### Wat Oliver Post deed, in volgorde (BlenderNation, GEZIEN)
+1. **mei 2020:** Smudgr & Scratchr op BlenderNation; een week later een gratis add-on (Nature Clicker) ook op BlenderNation.
+2. **30 jul 2020:** Smudgr Pro, "25% Launch Sale", weer een bericht.
+3. **24 sep 2020:** InstaMat, bericht op de dag van uitbrengen. De promovideo maakte hij terwijl Superhive de add-on keurde (interview).
+4. **23 nov 2020:** "Smudgr and InstaMat, Updates & Sale": een update samen met de Black Friday-actie als nieuw moment.
+5. **28 jan 2021:** teaser van een veel groter product, Human Generator, met Alexander Lashko: "subscribe to the developer diary ... get a 10% launch discount". Zes weken voor de lancering een lijst met wachtende kopers.
+6. **15 mrt 2021:** lancering Human Generator ("Half a year in the making"), 13 reacties onder het bericht.
+7. **15 jul 2021:** V2, "25% Sale and Huge Update", "much requested features like a face rig"; gratis voor wie V1 had.
+8. **27 nov 2021:** V3, "start the Black Friday sale early with 25% off", video van 56 seconden, Discord voor vragen.
+9. **27 aug 2023:** "Human Generator Ultimate, 25% off and huge new update".
+Zo is elke grote update een nieuwe lancering: video, bericht, 25% korting, en vaak vlak voor of in de grote sale van de winkel.
+
+### Wat ze in 2020 zelf zeiden (de kern, letterlijk waar het telt)
+- **Post: de lancering begint pas als jij promoot.** "for me, the real launch of the product happens days after it's been released on BlenderMarket. You might get some sales from the 'new' or 'staff picks' section, but the launch really begins when you start promoting." En: "most people don't look on Blender Market that often."
+- **Post: de video beslist.** Rond één minuut, "show something cool and attention-grabbing in the first 10 seconds", en beelden op de winkelpagina die naar de video wijzen. Eerst BlenderNation, "the YouTube views of the promotional video go through the roof after this news post". Daarna YouTubers als partner met een gratis exemplaar, een royaal percentage en de tutorial erbij, zodat ze niets verkeerd laten zien.
+- **Post: na de lancering is snel helpen het belangrijkste.** "Bad reviews just after launch are devastating"; meldingen aan op zijn telefoon, vaak binnen een uur antwoord; "never promise any features ... that I can't deliver within 1-2 weeks"; een formulier voor wensen, die hij één voor één uitbrengt en pas later samen promoot met een prijsverhoging ("people can now still buy it for the old price, before the price goes up forever").
+- **Knauber: documentatie en uitlegvideo's.** Bij zijn eerste add-on niet gedaan, "it was the biggest issue with that launch". Voor Serpens bouwde hij vóór het uitbrengen een Discord op, dat werd "the main place of communication". Stukjes laten zien terwijl je bouwt, om te horen wat mensen verwachten.
+- **Walters: 50% bouwen, 50% verkopen en marketing.** Per product een korte omschrijving WAT, voor WIE (en voor wie niet), WAAROM, WANNEER; daaruit komt de winkeltekst. Bètatesters in een Discord-kanaal, vooraf beelden op Twitter, een geschreven script voor de eerste minuten van de promovideo, en "Your existing customers are your best customers to sell new offerings to."
+
+### Drie lessen
+1. **Goedkeuring is niet de lancering. De lancering is het moment dat je overal tegelijk laat zien dat het er is, met een korte video die in 10 seconden pakt.** "New Arrivals" geeft een paar verkopen; het nieuwsbericht en de video van anderen geven de golf. Dat zegt Post, en Lens Sim (verhaal 10) en TrueDepth (verhaal 6) laten hetzelfde zien.
+2. **Elke grote update is een tweede lancering: video, bericht, 25% korting, liefst op het moment van de grote sale, en daarna de prijs omhoog.** Human Generator deed dat drie keer in 2,5 jaar (V2, V3 op Black Friday, Ultimate), en V1-kopers kregen alles gratis. Past bij hoofdles 2 en de kandidaat "grote gratis update rechtvaardigt hogere prijs" (nu 3 keer: TrueDepth, BashSupport Pro, Human Generator).
+3. **Support binnen het uur maakt de reviews.** Meer dan de helft van Posts reviews kwam van mensen die hij hielp (EIGEN OPGAVE), voor 20 tot 40 minuten per week. Past bij hoofdles 2.
+
+### Wat ook opvalt
+- Alle drie bouwden een eigen lijst of plek: Post een ontwikkeldagboek met korting, Knauber een Discord vóór de lancering, Walters 40.000 adressen via gratis producten op Gumroad. De kandidaat "lijst van gratis gebruikers" komt hiermee op 2 (Copilot, en nu deze drie samen als één verhaal).
+- De grote treffer kwam pas bij product vier van Post, en was veel groter van opzet ("something BIG", zegt hij zelf). Zijn kleine producten blijven op 100+. Zelfde beeld als Kambari (veel schoten, door met wat raakt).
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Dit is 2020. BlenderNation plaatste toen commerciële berichten gratis (Post steunde ze wel op Patreon); nu kost het EUR 25 per bericht of een lidmaatschap (GEZIEN). YouTube en Twitter werken nu anders.
+- Het zijn interviews op de blog van de winkel zelf, gekozen omdat het goed ging. Wat mislukte zien we niet, behalve dat twee van Posts add-ons uit zijn winkel verdwenen zijn.
+- "1 verkoop per 10 weergaven" en "meer dan de helft van de reviews" zijn eigen opgaven en niet na te meten.
+- Post en Walters zijn zelf 3D-gebruikers met een eigen publiek. Wij hebben 154 gebruikers van de gratis Click Joints (Bram, 16 nov 08:20) en mogen in die add-on niet naar Pro wijzen.
+
+### Wat doen wij anders
+- Chris heeft de lancering van Pro klaar (`commercie/blender-click-joints/lancering.md`), met als advies keuze A: een BlenderNation-bericht met Pro voor EUR 25, wat Thijs moet beslissen. Dit verhaal steunt dat advies: bij Post was BlenderNation telkens de eerste stap en de aanjager van de video.
+- Er is geen plan voor een tweede lancering. Pro gaat uit als 1.0.x en daarna niets gepland als moment.
+- Supportmail komt binnen bij thijs@dortus.com; geen agent kan die lezen. Snel antwoord hangt dus helemaal aan Thijs.
+
+### Voorstel voor Dortus deze week
+**Plan Pro 1.1 als tweede lancering op de eerste dag van de Cyber Sale (±27 nov, GOK op het vaste patroon), zoals Human Generator V3.**
+- **Bram:** Pro 1.1 klaar op 26 nov, met de eerste wensen en meldingen van kopers en gebruikers van de gratis versie (bijvoorbeeld de kniefout die nu op een tak staat), en een changelog met per punt wie erom vroeg. Niets beloven wat niet binnen 1 tot 2 weken kan.
+- **Chris:** één aankondiging "update plus Cyber Sale" klaarzetten voor dezelfde plekken als de lancering (Superhive-pagina, dortus.com, BlenderNation als Thijs ja zei op keuze A), met een video van ±1 minuut waarvan de eerste 10 seconden een figuur laten zien dat klikt en buigt (Daan keurt). Na de sale gaat de lanceerprijs weg (dat staat al in `prijs.md`).
+- **Klein erbij, Chris:** een lijst van 10 kant-en-klare antwoorden op de vragen die kopers waarschijnlijk stellen (installeren, welke Blender-versie, past het scharnier op mijn printer, verschil gratis en Pro), zodat Thijs een vraag op Superhive of per mail binnen een uur kan beantwoorden door te plakken. Bij Post kwam meer dan de helft van de reviews uit zulke antwoorden.
+- **Waarom dit beter is dan niets plannen:** een nieuw product zonder publiek heeft na "New Arrivals" geen tweede moment. De Cyber Sale is het grootste moment van het jaar op Superhive (verhaal 10), en een update geeft een eerlijke reden om er opnieuw over te berichten.
 
 ---
 

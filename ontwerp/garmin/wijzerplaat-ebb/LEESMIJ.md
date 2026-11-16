@@ -1,0 +1,12 @@
+# Wijzerplaat "Ebb Tide" (Mila, 16 nov 2026, concept 1)
+Opdracht hoofdchat 16 nov 09:55 NL: twee betaalde wijzerplaten; dit is de tweede, met de zee en de dieren van Ebb (reclame voor Ebb). De concurrentiecheck doet Gijs eerst; dit is alleen de look, zodat hij weet waar hij naartoe bouwt. Verander gerust wat de check zegt.
+
+**Haak 1, je stappen zijn het tij.** De wijzerplaat is de patrijspoort van Ebb. Het water stijgt met je stappen (nooit lager dan 30%, zodat er altijd iets zwemt); bij je stapdoel is het vloed. Geen balkje: je ziet de zee volstromen.
+**Haak 2, wie zwemt er nu?** Elk uur zwemt er een ander dier uit Ebb door het water (24 van de 25, onderaan staat "14:00 · SWORDFISH"). De walvis komt alleen bij vloed, en blaast dan een fontein. Iets om over te vertellen ("om drie uur zag ik de octopus"), en een reden om je doel te halen. Precies de dieren uit de app, dus eerlijk en herkenbaar.
+
+- `concept-454-ochtend-middag-vloed-aod.png`: Venu 3 (454): ochtend (2.140 stappen, kogelvis), middag (6.480, zwaardvis), vloed (10.412, walvis met fontein), AOD (zwart, tijd grijs, alleen het silhouet van het dier met blauwe rand, weinig pixels aan).
+- `concept-260-middag-vloed.png`: FR255 (260) op 1x. GEZIEN met Read: tijd, stappen en het dier lezen ook op 260.
+- Gemaakt met `maak_concept.py`, dieren uitgesneden uit `../dieren83/alle25-454.png` (in het echt tekent Gijs ze uit de punten in `../ebb-dieren-v83-data.json`, zoals in Ebb: geen plaatjes, weinig geheugen). Letter Barlow Condensed SemiBold zoals Ebb. Kleuren uit het MIP-palet (00FFFF, 00AAFF, 0055AA, 000055, koraal FF5555), dus het werkt ook op MIP zonder verloop.
+- Indeling: datum koraal bovenaan, tijd groot, stappen cyaan eronder, hartslag (getekend hartje, de letter kent er geen) links en batterij rechts op dezelfde hoogte, dier in het water, onderregel "uur · DIER" of "HIGH TIDE · WHALE".
+- GEZIEN met Read op 454 en 260. Werkt: het is meteen Ebb (zelfde patrijspoort, golf en dieren), de walvis bij vloed is de beloning. Zwak: bij vloed staat de tijd in het water, met de donkere rand leest hij nog; de fontein raakt de stappenregel net. Bij een kleine stand (ochtend) is de lucht een groot leeg nachtblauw vlak; een paar sterren of de maanstand uit `../werelden14/` kan daar.
+- Nog niet: naast de toppers in de winkel gelegd (eerst Gijs' check, dan weet ik welke toppers), MIP-proef op 260 en 280 in de simulator.

@@ -159,3 +159,9 @@ Eerder:
 - Eén gedachte per beeld, het getal of woord dat telt in groen, verder wit. Elk filmpje een ander begin, zodat wie er één zag niet doorscrolt.
 - Bij een tip is de toolregel de enige plek waar het product in beeld staat: zet hem boven de strook van de app (y ±1450 op 1920 hoog) en laat het beeld daarboven eindigen.
 - Een tip moet kloppen in het echte programma, tot op het woord ("per side"). Het beeld volgt de tekst die nagemeten is, niet andersom.
+
+## Een vol hol (Daan, 16 nov)
+- Plafonddingen (spinrag, vaandel, stut) hangen hooguit een derde van de ganghoogte: een ding door het hoofd van een held leest als een fout. Uitzondering is wat zelf wegvliegt (de vleermuis).
+- Nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar; kleine dingen mogen wel. Naast valkuilen en de troon blijft één tegel vrij, zodat het belangrijke blijft lezen.
+- Dingen in de wand (hoedenwand) nooit in een vast ritme met de kamers; wissel hoogte en afstand, anders leest het als een plank.
+- Eén kleur per soort beestje: twee paarse bollen met ogen aan hetzelfde plafond (spin en vleermuis) lezen als hetzelfde.

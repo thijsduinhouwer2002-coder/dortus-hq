@@ -1,8 +1,60 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 10, de eerste 30 Shorts van 34 Blender-kanalen, klaar 16 nov 2026 ±09:35 UTC). Volgende: hetzelfde voor 3D-print-kanalen op YouTube, of datums per filmpje als een andere bron die geeft; daarna een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: niets (laatste: verhaal 11, de eerste 30 TikToks van 24 accounts over 3D-printen en Blender, klaar 16 nov 2026 ±10:55 UTC). Volgende: TikTok-accounts van kleine spelmakers met devlogs (voor @hatsofthefallen, eerst met Fenna afstemmen), of meer kleine Blender-accounts op TikTok; daarna een gratis add-on op extensions.blender.org die wel een bericht plaatste.
 
 Nieuwste bovenaan.
+
+---
+
+## 11. De eerste 30 TikToks van 24 accounts over 3D-printen en Blender, nu mét datums: wat haalt een begin, wie brak door, en wat deden zij anders?
+
+Onderzocht 16 nov 2026, run 11. Waarom: Thijs zet twee TikTok-accounts om (@dortusstudio voor Blender en 3D-print-tips, @hatsofthefallen voor het spel, besluit 16 nov 09:40). Verhaal 10 ging alleen over YouTube Shorts en had geen datums. Nieuw feit deze run: yt-dlp leest in de cloud de volledige openbare filmpjeslijst van een TikTok-account, met datum, lengte en views per filmpje (GEZIEN; in run 1 lukte dat nog niet).
+
+### Bronnen
+- TikTok via yt-dlp 2026.10.26 (alleen openbare profielen lezen, niet ingelogd, GEZIEN 16 nov ±10:30 UTC). De lijst is volledig: het aantal filmpjes van yt-dlp is gelijk aan of vlak bij het `videoCount` op het profiel (bijvoorbeeld 299 tegen 301 bij VAW.BE, 187 tegen 187 bij McGybeer).
+- Welke accounts: TikTok-zoeken en hashtagpagina's zijn vanuit de cloud niet te lezen (yt-dlp meldt "broken"). Daarom 81 namen geprobeerd: de handles van YouTube-kanalen uit 8 zoekopdrachten naar Shorts over Blender en 3D-printen, de kanalen uit verhaal 10, en makers uit een lijst van E3D. 24 accounts bestaan op TikTok onder die naam, hebben 30+ filmpjes en gaan echt over 3D-printen, Blender of (als ijkpunt) Garmin.
+- Tabel per account: `platformen/succes/data/tiktok-eerste30-2026-11-16.csv` (openbare accountnamen, geen persoonsgegevens).
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Dagen tussen filmpje 1 en 30, mediaan | 100 dagen (van 6 tot 1.727) | GEZIEN |
+| Accounts die klein begonnen (mediaan eerste 10 onder 1.000, n=9): mediaan van de eerste 30 | **325 views** (164 tot 569) | GEZIEN |
+| Uitschieter (10 keer de eigen mediaan) binnen de eerste 30, alle 24 | 15 van 24, mediaan bij filmpje 11 | GEZIEN |
+| Idem, bij de 9 die klein begonnen | **2 van 9** | GEZIEN |
+| Laatste 30 beter dan de eerste 30 | 11 van 24; bij de kleine 5 van 9 | GEZIEN |
+| Accounts waar de laatste 30 minder dan de helft van de eerste 30 halen | o.a. McGybeer (4.968 naar 1.100), Slant3D, E3D, SouthernShotty, Mars Gizmo | GEZIEN |
+| Dezelfde maker op twee platformen, volgers | Blender Secrets YouTube 292.000, TikTok 11.800; SouthernShotty 321.000 en 4.700; Brock Creative 15.900 en 141.300; Blender Tips 99.400 en 129.900 (met 28 TikToks, zelfde maker niet zeker) | GEZIEN |
+
+### Vier accounts die het verschil laten zien
+1. **ali3design** (@ali3dprint, verkoopt STL-bestanden op Cults3D, 1.530 volgers): filmpje 1 tot 3 waren een Minecraft-sleutelhouder en een boekenlegger, 300 tot 570 views. Filmpje 4 (dag 3): een motorhelm als sleutelhouder waarvan het vizier vanzelf opengaat, **44.200 views**. Na een pauze van vier maanden kwamen drie varianten van hetzelfde mechaniek op 10.600 tot 11.400; filmpjes zonder bewegend onderdeel bleven op 280 tot 780. Zijn beste filmpje ooit (nr. 49, 99.800) is weer een mechaniek: een autolift op schaal. GEZIEN.
+2. **3D Print Dood** (15.000 volgers): na één los filmpje plaatste hij vanaf 31 okt 2024 twee tot vijf filmpjes per dag, 29 in 10 dagen, elk met een koopvraag als kop: "Best Filament for Bambu Lab A1 Mini" (190.100), "3D Printing for Beginners" (81.300), "Don't Buy the Bambu Lab A1 Mini" (11.500). Zijn beste ooit: "Best 3D Print Modeling Software for Beginners" (949.400). Na een jaar zakte hij naar ±3.000 per filmpje. GEZIEN.
+3. **Artinvader_** (Blender-tutorials uit Berlijn, 7.600 volgers): begon met "Hey ich bin Artinvader", Patreon en "STOP CLIMATE CHANGE": 150 tot 650 views. Groeide stap voor stap in 3,5 jaar en 300 filmpjes (blokken van 30: 325, 665, 3.389 ... 5.097, 5.511). De grote stap kwam in 2025 met een vaste reeks **"FREE Blender Addon – <wat het doet> with <naam>"**, waarin hij gratis add-ons van ánderen laat zien: 2.100 tot 30.200 views, zijn drie beste filmpjes ooit zijn alle drie zo'n add-on. GEZIEN.
+4. **ArwenPrints** (verkoopt muziekprints, 845 filmpjes): drie memes braken door (66.600, 70.300 en 1,2 miljoen), maar de mediaan per blok van 30 zakte daarna tot 11 en zit nu op 118 tot 330. Een uitschieter die niets met het product te maken heeft, bouwt niets op. GEZIEN.
+Ter vergelijking: **McGybeer** had zijn uitschieter bij filmpje 2 (de ratelslang, 7 miljoen) en daalt sindsdien per blok van 30; **Cinderwing3D** (dragons op Cults3D) zat 23 filmpjes op 2.000 tot 9.600 en brak door met een nieuw beweegbaar ontwerp (318.200, nr. 24); ook daarna geen blijvende stijging.
+
+### Wat ik zag
+1. **Een nieuw klein account op TikTok begint bij ±150 tot 600 views, iets lager dan op YouTube** (verhaal 10: 300 tot 900). Dat is de vloer die TikTok elk filmpje geeft; de eerste 30 zeggen weinig.
+2. **Een uitschieter in de eerste 30 is op TikTok voor een klein account zeldzaam** (2 van 9), anders dan op YouTube (27 van 34, maar dat waren vooral kanalen die al publiek hadden). Reken er voor @dortusstudio niet op binnen 30 filmpjes.
+3. **Wat doorbrak bij makers van spullen: iets wat beweegt dat je niet verwacht** (vizier dat opengaat, slang die kronkelt, draak die buigt). Bij uitleg-accounts: een koopvraag of beginnersvraag als kop. Memes en "ik ben ..." deden niets blijvends.
+4. **TikTok-uitschieters houden geen stand.** Bij de helft daalt het account daarna (McGybeer, Slant3D, E3D, 3D Print Dood na zijn piek). Wie bleef groeien (Artinvader_, KeycraftedStudio, Fat13Creations) deed dat langzaam, met een vaste reeks over 100+ filmpjes.
+5. **Hetzelfde filmpje werkt niet even goed op elk platform.** Blender Secrets en SouthernShotty zijn groot op YouTube en klein op TikTok; Brock Creative andersom. Eén filmpje op drie plekken plaatsen kost weinig, dus meet per platform en schuif de moeite naar waar het werkt.
+6. **Er bestaan TikTok-accounts die gratis Blender-add-ons van anderen laten zien, en dat doet het daar goed.** Voor Click Joints (gratis op extensions.blender.org) is zo'n account een gratis ingang naar Blender-gebruikers, net als bij McGybeer de filmpjes van anderen het groeimoment waren (verhaal 1).
+
+### Drie lessen
+1. **Op TikTok is 150 tot 600 views per filmpje in het begin normaal, en een doorbraak binnen 30 filmpjes uitzondering.** Beslis bij filmpje 30 op downloads en de trend, niet op of er al een hit was.
+2. **Laat in de eerste seconde iets bewegen wat de kijker niet verwacht**, en maak bij een uitschieter meteen varianten van precies dat mechaniek (ali3design).
+3. **Laat anderen je gratis gereedschap laten zien.** Er zijn accounts met een vaste reeks over gratis add-ons; dat is voor een kleine maker meer bereik dan het eigen kanaal in de eerste maanden.
+
+### Eerlijk: wat deze meting niet zegt
+- De accounts komen via YouTube-zoekresultaten en een lijst van een printermerk. Gestopte accounts met 5 filmpjes zitten er niet in; het echte begin is waarschijnlijk lager (GOK).
+- Views zijn opgeteld sinds het plaatsen en afgerond door TikTok. Oude filmpjes konden langer groeien.
+- Volgers bij de start weet ik niet; "klein begonnen" is afgeleid uit de eerste 10 filmpjes.
+- 24 accounts is weinig, 9 kleine nog minder. Of een handle op TikTok dezelfde maker is als op YouTube heb ik gecontroleerd aan naam en onderwerp; vier namen die iemand anders bleken (`osasart`, `piercing`, `stache_obj`, `blenderhub`) heb ik weggelaten. Bij Blender Tips is het niet zeker dat het TikTok-account dezelfde maker is (bio "Blender Expert", 28 filmpjes in 2024).
+- Ik meet views, geen verkoop of downloads.
+
+### Voorstel voor Dortus deze week
+**Chris: zet Artinvader_ (tiktok.com/@artinvader_) op `commercie/blender-click-joints/makers.md`**, met als reden zijn reeks "FREE Blender Addon – ..." (2.100 tot 30.200 views per add-on, GEZIEN). Click Joints is gratis en gekeurd op extensions.blender.org en past dus precies in zijn reeks; een gratis Pro erbij valt onder het ja van Thijs van 16 nov 09:51. Zoek zijn openbare contactadres zoals hij het zelf noemt (zijn TikTok-bio verwijst naar zijn tutorials; geen privégegevens zoeken); de hoofdchat verstuurt, zoals afgesproken. **Daarnaast voor @dortusstudio op TikTok:** in de eerste seconde het gewricht dat buigt, en meet TikTok apart van YouTube in de regel per filmpje, zodat we na 30 filmpjes zien welk platform het werk waard is. Waarom: bij kleine accounts kwam de eerste 30 filmpjes zelden een doorbraak (2 van 9), en wie doorbrak deed dat met iets wat bewoog of via een groter account.
 
 ---
 

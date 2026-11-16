@@ -1,6 +1,6 @@
 name: Filmpjes week 1
 
-# Chris, 15 nov 2026: bouwt de staande filmpjes van week 1 (vier Click Joints, twee Ebb; filmpje 5 uit de staande opnames van Bram, filmpje 6 uit Ebb-schermen op tak schermen) voor TikTok, YouTube Shorts en Reels
+# Chris, 15 nov 2026 (16 nov: ook drie spelfilmpjes van Hats of the Fallen, f10 tot f12): bouwt de staande filmpjes van week 1 (vier Click Joints, twee Ebb; filmpje 5 uit de staande opnames van Bram, filmpje 6 uit Ebb-schermen op tak schermen) voor TikTok, YouTube Shorts en Reels
 # uit echte beelden van Click Joints (film v2 van Bram en de twee previews van de gratis versie)
 # en zet ze in de release filmpjes-week-1. Zo staan er geen grote videobestanden in de repo.
 # Bron en uitleg: commercie/filmpjes/week-1/ en commercie/filmpjes/week-1.md.
@@ -55,6 +55,8 @@ jobs:
           krab-uit-nacht krab2-uit-nacht
           krab-calm-nacht krab2-calm-nacht
           LIJST
+          # filmpjes 10 tot 12 (Hats of the Fallen): losse beelden uit de echte Windows-build, zie spel-bronnen.txt
+          sh spel-bronnen.sh
           sha256sum -c bronnen.sha256
       - name: Filmpjes bouwen en controleren
         working-directory: ${{ env.MAP }}

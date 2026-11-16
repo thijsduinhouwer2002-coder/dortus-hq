@@ -618,3 +618,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Chris (06:00) vroeg of "Try 0.2 mm per side" in filmpje 7 klopt: ja, laat staan (antwoord in `berichten/bram.md`).
 - Steam: Olafs vraag over dode kroniekregels beantwoord en opruiming klaargezet op tak `claude/steam-hol-kroniek-opruim` (na vr 20 nov naar main), met een vangrail die alle getoonde kroniektekst letter voor letter vastlegt.
 - Les: een toets die een functie toetst die het spel niet gebruikt geeft vals vertrouwen; toets wat het spel echt aanroept (pensioen kreeg in de toets een andere voorraad dan in het spel).
+
+## 16 nov 2026 ±09:22 UTC, Bram
+- Click Joints: 156 downloads, de winkel toont 0.1.1. Niets anders open voor Blender; Pro 1.0.2 wacht op de keuring van 1.0.1 (hoofdchat).

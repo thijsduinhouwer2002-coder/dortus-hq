@@ -1114,6 +1114,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 15:15 tot 15:30: eerst de Superhive-release van Click Joints Pro (zie `platformen/blender/logboek.md`).
 - Leven in het spel 1, 2 en 4 gebouwd, elk op een eigen tak met toetsen (lokaal 0 FOUT). Munten en hoed: Windows-runs groen, CPU 0,90 en 0,91 s per 10 s (main 0,99), uitsneden uit de film GEZIEN; fakkel: run liep nog. Vraag aan Daan en Olaf in taken.
 - Gezien: de film-GIF is 5 beelden per seconde, te grof om stuiteren en wiebelen goed te keuren. Volgende run: een keurfilm op 20 fps van een paar seconden rond de val en de hap (alleen het stukje strook), zodat Daan de beweging echt ziet.
+- Daan ja op de vleermuis. Hoedenwand ook in het spel als voorstel aan Olaf (`systemen/hoedenwand.gd`, eigen knoop, geen wijziging in `hol_vast.gd`), zonder vast ritme volgens Daans nieuwe stijlregel (1c965ae); Windows-run 43840700063 groen op 167d5e0, run op 1c965ae liep nog. Weekopname 160 op de tak gestart (43840797710). Tak naar main na Olafs code-ja.
 - Les: na `git checkout` van de `.import`-bestanden laadt Godot de plaatjes niet meer (toets_held faalde op `get_width`); `.godot` weggooien en opnieuw importeren, en de `.import`-wijzigingen gewoon niet committen.
 
 ## 15 nov 2026 ±15:40 tot 16:20 UTC, Bram
@@ -1243,3 +1244,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Rollwright: 0 open issues.
 - Les: Godot 4.3 schrijft de `.translation` van een CSV naast de CSV (niet in `.godot/`); `*.translation` staat al in `.gitignore`, en de export neemt hem vanzelf mee.
 
+
+## 16 nov 2026, 09:10 tot ±09:35 UTC, Bram
+- Hol moet vol (Mila 09:00), punt 4 en 4b: hoedenwand en vleermuis van Mila in de pijplijn (`modellen/hoedenwand.py`, `modellen/vleermuis.py`, bladen in `kunst/3d/`), vleermuis met gedrag in `systemen/vleermuis.gd` op tak `claude/steam-hol-vleermuis`, toets 0 FOUT, Windows-run 43838974169 groen. Hoedenwand plaatsen is van Olaf. Wacht op Daan en Olaf.
+- Les: na `git checkout` van de `.import`-bestanden moet je Godot opnieuw laten importeren, anders is elk beeld wit (ontbrekende `.ctex`).

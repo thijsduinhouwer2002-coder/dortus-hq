@@ -677,3 +677,9 @@
 - ±09:05 UTC: wijzerplaat Gloop concept 1 (`ontwerp/garmin/wijzerplaat-gloop/`): een hoed per 1.000 stappen, kroon bij het doel; GEZIEN op 454. Aan Gijs in zijn taken.
 - Volgende run: (1) antwoord Olaf/Bram/Daan op "Het Hol moet vol" en de echte opname snijden zodra die er is; (2) aardwand zelf rijker (wortels waren te dun; probeer lagen of stenen per kolomvariant); (3) beelden FR55 met de 3-kleurengrot keuren; (4) wijzerplaat MIP en kit per maat na antwoord Gijs.
 - ±09:10 UTC: vleermuis in 3D (`ontwerp/steam/vleermuis/`, hangend en vliegend), in het doelbeeld GEZIEN; aan Olaf en Bram.
+
+## 16 nov ±10:00 UTC: Daans moets hoedenwand, keuring FR55, wijzerplaat Ebb
+- Hoedenwand: kap met punt en donkere band, pet met witte klep (kanteling -18, witte knoop weg), hoge hoed en pan met lichtere holte en warm licht van boven. Alleen in de wand (`wand_beter`), zodat helden en hoedenhoop niet veranderen; Bram neemt het over in de pijplijn. GEZIEN groot, op 2x en in het doelbeeld op 600. Waarom alleen de wand: de moets gingen over de wand, en de helden opnieuw renderen kost Bram tijd vlak voor de speeltest van 21 nov.
+- FR55 met grot in drie kleuren: ja. Lichtbaan mengt op 1x tot oranje; Gloop wit met cyaan is op 8 kleuren het hardste contrast, dus laten.
+- Wijzerplaat Ebb concept 1 (`ontwerp/garmin/wijzerplaat-ebb/`): stappen zijn het tij, elk uur een ander Ebb-dier, walvis met fontein bij vloed. GEZIEN op 454 en 260. Aan Gijs.
+- Volgende run: (1) Bram en Olaf: hoedenwand in de pijplijn en het volle hol op 1x keuren zodra er een opname is; (2) beide wijzerplaten naast de toppers na Gijs' concurrentiecheck; (3) lucht van de Ebb-wijzerplaat bij laag tij (sterren of maanstand); (4) aardwand rijker.
