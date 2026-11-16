@@ -1217,3 +1217,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - CPU op main herhaald met drie gelijke duurtests (exe, zaad 4242, 1920x1080): 0,86 / 0,71 / 0,77. Schommeling ±10%, gemiddeld +14% op 15 nov 21:55, onder 20%. Niets veranderen vóór de speeltestbuild. Pieken vallen samen met lopende helden.
 - Rollwright: 0 open issues (dagmeting al gedaan om 03:18).
 - Let op voor wie `git pull` doet: origin/main is geforceerd vervangen (Bram, een-lid-tak); oude hashes zoals 94371a0 bestaan niet meer. Werk met `git checkout -B main origin/main`.
+
+## 16 nov 2026, 05:13 tot ±05:45 UTC, Olaf
+- Vertaaltabel: nagegaan welke tekst echt in beeld komt. 25 soorten in `systemen/kroniek_regels.gd` (81 regels) en heel `systemen/kroniek.gd` worden in het spel nooit getoond; echte maat ±285 teksten, ±1230 woorden. Vraag aan Bram om op te ruimen na de speeltestbuild (taken.md). Niets aan de code veranderd.
+- Les: tel vertaalwerk op wat de speler ziet (volg de aanroepen), niet op alle tekst in de bestanden.
