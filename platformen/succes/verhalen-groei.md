@@ -1,8 +1,60 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 21, korte filmpjes over Garmin-apps en wijzerplaten (gezicht of niet, wat in beeld, wat het oplevert), 16 nov 2026 ±20:10 UTC. Volgende: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen, of r/blender-printberichten als het archief sneller is.
+bezig: niets (laatste: verhaal 21, het filmpje op een Garmin-winkelpagina, 539 YouTube-filmpjes naast de downloads, klaar 16 nov 2026 ±20:45 UTC). Volgende: Ebb-Short nameten 7 dagen na plaatsen, meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 21. Het filmpje op een Garmin-winkelpagina: 539 YouTube-filmpjes van kleine makers naast hun downloads gemeten. Wat staat erin, wie kijkt, en helpt een kanaal vol Shorts?
+
+Onderzocht 16 nov 2026 ±20:00 tot 20:45 UTC, run 21. Waarom: Chris begint morgen met filmpjes op @Dortusapps, Gijs wil een filmpje in het videoveld van Ebb (verhaal 19: maar ±4 tot 7% van de apps heeft er een), en Ebb, Ebb Calm en Hat Tower hebben elk 14 dagen "nieuw". De vraag: wat doen de filmpjes van kleine Garmin-makers echt? Zijn het reclamefilmpjes die bereik halen, of plaatjes voor de winkelpagina? En helpt een eigen kanaal met veel Shorts?
+
+### Bronnen en werkwijze
+- **Winkel** (GEZIEN 16 nov, open winkel-API `apps.garmin.com/.../api/asw/apps/<id>`, veld `videoUrl`): (A) de 3.578 nieuwe apps en wijzerplaten uit verhaal 19 (aug tot nov 2026), daarvan 235 met een filmpje (6,6%), 196 op YouTube; (B) de 5.701 betaalde wijzerplaten van Vera (`platformen/verkenner/data/garmin-wijzerplaten-betaald-2026-11-16.csv`), daarvan 409 met een filmpje (7,2%), 343 op YouTube; (C) de ±120 apps van de lijst "most popular", daarvan 18 met een filmpje (15%).
+- **YouTube** (GEZIEN 16 nov): per filmpje het kanaal via de officiële oEmbed-link, daarna per kanaal de openbare lijsten "videos" en "shorts" met yt-dlp (alleen lijsten, 142 kanalen). Zo krijg ik per filmpje de views, of het een Short is, en hoeveel filmpjes het kanaal heeft. Het volledig uitlezen van losse filmpjes blokkeert YouTube nu ("bevestig dat je geen bot bent"); dat heb ik niet omzeild. Duimnagels van 4 filmpjes zelf bekeken.
+- **Niet openbaar**: 139 van de 539 YouTube-links (A en B) staan in geen enkele openbare kanaallijst. Waarschijnlijk "niet vermeld" (unlisted) of privé; dat is mijn lezing (GOK op de reden, GEZIEN dat ze ontbreken).
+- **Zoeken**: 20 zoekopdrachten op YouTube (zoals "garmin watch face", "garmin breathing app"), korte filmpjes van makers eruit gehaald.
+- Tabel: `platformen/succes/data/garmin-video-youtube-2026-11-16.csv` (geen mailadressen). De teller van Garmin is een klasse (0, 1, 10, 100, 1000 ...).
+
+### 1. Het filmpje is vooral een plaatje voor de winkel: de helft haalt geen 100 views (GEZIEN)
+Mediaan views per filmpje: **106** (nieuwe apps, n=147 openbaar) en **109** (betaalde wijzerplaten, n=253). 197 van de 400 openbare filmpjes bleven onder de 100 views. Bij de populairste apps (C, 16 openbaar) is de mediaan 55.500, met Goals van Wim (94.000) en Maps4Garmin (313.000); dat zijn apps met 1.000 tot 1.000.000+ downloads.
+Views gaan op met de downloads: bij betaalde wijzerplaten mediaan 34 views bij klasse 1, 218 bij 10, 622 bij 100 en 2.650 bij 1.000. Van de 61 filmpjes met 1.000+ views hoort 82% bij een app met 100+ downloads; van de 197 onder de 100 views maar 8%. Wat oorzaak is en wat gevolg, zie ik niet: een filmpje dat in de winkel wordt afgespeeld telt ook als view, dus een drukke winkelpagina geeft vanzelf meer views (GOK op de richting).
+
+### 2. Openbaar zetten helpt, verstoppen niet: 32% tegen 10% op 100+ (GEZIEN)
+Van de 400 openbare filmpjes hoort 32% bij een app met 100+ downloads; van de 139 niet-openbare 10%. Ook dit kan komen doordat de serieuze makers ook hun kanaal bijhouden. Maar het betekent wel: een filmpje dat alleen voor de winkel bestaat en verder nergens staat, ziet geen enkele zoeker op YouTube.
+
+### 3. Een Short doet het beter dan een lang filmpje (GEZIEN)
+Openbaar en Short: 128 filmpjes, mediaan **222 views**, 38% van de apps op 100+. Lang: 272 filmpjes, mediaan **55 views**, 29% op 100+. Bij de 6 makers die allebei hebben, wint de Short bij 3 en verliest hij bij 3 (Kaamos Studio: 22 Shorts mediaan 31). Een Short is dus geen garantie, wel de betere vorm.
+
+### 4. Een kanaal vol filmpjes helpt niet vanzelf; één filmpje per variant al helemaal niet (GEZIEN)
+Per maker (112 makers met openbare filmpjes): bij kanalen met 0 tot 4 filmpjes heeft 19 van de 46 minstens één app op 100+, bij 5 tot 29 filmpjes 23 van de 42, bij 30 tot 99 8 van de 15, bij 100+ filmpjes 4 van de 9. Geen stijgende lijn. De kanalen van 30 tot 99 filmpjes zijn vooral makers die per wijzerplaat één filmpje uploaden (Frozen Duck, Kaamos, Reddice, Graticule): daar is de mediaan **28 views** en zit 8% van de apps op 100+.
+Ter vergelijking een gezichtloze maker die wel elke dag post: Monkey's Dream, 48 Shorts, mediaan 228 views, beste 789 (GEZIEN). Dat lijkt op VibeDesk (verhaal 2): gezichtloos en alleen het product blijft rond een paar honderd.
+
+### 5. Wat de uitschieters zonder gezicht in beeld zetten (GEZIEN, duimnagels bekeken)
+Geen van de vier best bekeken filmpjes van kleine makers heeft een gezicht:
+- **Atelier Studio**, Short "Atelier Clean Analog" **59.000 views** (kanaal mediaan 274): één rustige render van de wijzerplaat op zwart, als een luxe horloge. Hun tweede Short haalde 27.000. Hun vijf wijzerplaten in mijn set staan alle vijf op 1.000+.
+- **Nimble Wings**, Short "4.9★ From Thousands of Garmin Users. Here's Why" **41.000 views** (kanaal 48 Shorts, mediaan 539): de wijzerplaat met daaronder hun echte score uit de winkel (4,9 uit '4.61K ratings' volgens het beeld). Bewijs van andere gebruikers als haak.
+- **JS_ProDesign**, "RESISTANCE" **13.000 views**: de wijzerplaat op een echt horloge aan een stoer bandje, gemaakt samen met een bandjesmerk (BASE550). Wijzerplaat op 10.000+.
+- **EdgePro** (app voor de fietscomputer Edge, betaald, nieuw sinds september, 1.000+, 81 reviews 4,9): 45 seconden, **56.000 views** op een kanaal met 3 filmpjes. In beeld: twee Edge-schermen en de belofte in grote letters "One tap: power / speed". Op Reddit vond ik geen enkel bericht over EdgePro (Arctic Shift); waar die views vandaan komen weet ik niet, betaalde reclame is mogelijk (GOK).
+Wat ze delen: het echte scherm groot en scherp, één belofte of één bewijs, en de naam van het horloge of de Garmin-woorden in de titel. Wat ontbreekt: een gezicht, uitleg over de maker, "dag 12".
+
+### 6. Bij ademhalingsapps heeft niemand een filmpje (GEZIEN)
+Van de 33 nieuwe ademhalingsapps uit verhaal 14 heeft er **0** een filmpje op de winkelpagina. Twee kleine concurrenten posten wel Shorts op YouTube: "Breath Hold Coach: Garmin watch app" (Dial Forge, 23 views) en "Breath & Plunge" (white-bear developers, 48 views). Ebb zou in zijn hoek de enige zijn met een filmpje. Of dat downloads geeft, is niet gemeten; het patroon uit punt 1 tot 3 zegt alleen dat de apps met een openbare Short vaker op 100+ zitten.
+
+### Drie lessen
+1. **Het winkelfilmpje is een plaatje dat beweegt, geen reclamekanaal.** De helft haalt geen 100 views. Maak het voor de winkelbezoeker: het echte scherm groot, in de eerste seconde de belofte.
+2. **Zet het filmpje openbaar, als Short, op het eigen kanaal.** Openbare filmpjes 32% op 100+, verstopte 10%; Shorts mediaan 222 views tegen 55 voor lang. Eén filmpje werkt dan twee keer: in de winkel en in het zoeken op YouTube.
+3. **Niet per variant een filmpje uploaden.** Kanalen die dat doen halen mediaan 28 views. De uitschieters hebben één sterk beeld met één belofte of één bewijs (de score uit de winkel, een echt bandje, "one tap"). Dat klopt met verhaal 10 en 13: één vorm die werkt, herhalen.
+
+### Voorstel voor Dortus deze week
+**Chris** heeft voor het videoveld van Ebb al filmpje 9 gekozen (`ebb-tip-1-eyes-closed.mp4`, 11 s, ja van Daan; zie `berichten/gijs.md` 20:25). Mijn voorstel erbij: plaats het **openbaar als Short** op @Dortusapps, niet als "niet vermeld", met de Garmin-woorden en horlogenamen in de titel (bijvoorbeeld "Calm breathing on your Garmin: Forerunner, Venu, fēnix") en in de eerste seconde het echte scherm groot. Geen medische woorden. **Gijs** zet de link in het videoveld (vóór ±27 nov 15:00 UTC, het einde van "nieuw"). Voor de **reeks datawijzerplaten** (Thijs, optie 3): niet per wijzerplaat een filmpje, maar één Short per reeks met één belofte, en later, als de beoordelingen goed zijn (4+ sterren, minstens 10), een Short met de score in beeld zoals Nimble Wings. Na 7 dagen meet ik de views van de Ebb-Short naast de downloadklasse van Ebb.
+
+### Wat ik niet weet
+- Of het filmpje de downloads geeft, of de downloads het filmpje. Ik zie samenhang, geen oorzaak.
+- Hoeveel van de views uit de winkel komen en hoeveel uit YouTube zelf; YouTube laat dat alleen de eigenaar zien.
+- Waar de 56.000 views van EdgePro vandaan komen.
+- Vimeo-filmpjes (±105) heb ik niet gemeten.
 
 ---
 
