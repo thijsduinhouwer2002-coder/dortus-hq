@@ -2,16 +2,16 @@
 
 Versie 1, 16 nov 2026 ±13:30 UTC. Opdracht hoofdchat 16 nov 13:10 (Thijs 13:01: "een diepgaand spel ... level ups enzo om een reden te hebben om te spelen"). Eerste versie gevraagd wo 18 nov 12:00.
 Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (GEZIEN, 8 zaden).
-Status: **ontwerp, nog niet nagekeken.** Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
+Status: **ontwerp; controleur 16 nov ±13:45 UTC: 11 punten, verwerkt** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
 
 ## In het kort
-1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: klein elke paar minuten, middel elk uur, groot elke paar uur): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
+1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: iets kleins elke paar minuten, iets middelgroots elk uur of elke paar uur, en iets groots): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
 2. **De lange termijn is dieper graven, geen reset.** Op hol-niveau 20, 30 en 40 graaf je een trap naar een nieuwe laag (Kristalader, Verzonken Crypte, Gloophart) met eigen helden, bewoner en val. De nieuwe laag begint leeg, dus je hebt opnieuw de leukste fase (bouwen), maar **er gaat niets weg**: de lagen erboven draaien door en hun goud stroomt mee. Dat is Olafs "opnieuw beginnen met winst" zonder de klacht over rebirth (26 negatieve reviews bij Desktop Defender, Fenna).
-3. **Sim (GEZIEN, economie van nu plus de effecten van de niveaus):** hol-niveau 9 na 55 min, 12 na 1,9 u (einde demo), 20 na 10,4 u, 30 na 29,8 u, 40 na 57 u, 50 na 94,3 u. 14 ontgrendelingen in het eerste uur, langste gat tot 20 uur 1,7 u. Eerlijk: tussen 20 en 100 uur zijn er nog 13 gaten van 2 tot 3,2 uur (en 5,8 u op het eind); zie "Wat nog niet klopt".
+3. **Sim (GEZIEN, economie van nu plus de effecten van de niveaus):** hol-niveau 9 na 55 min, 12 na 1,9 u (einde demo), 20 na 10,4 u, 30 na 29,8 u, 40 na 57 u, 50 na 94,3 u. 14 ontgrendelingen in het eerste uur, langste gat tot 20 uur 1,7 u. Eerlijk: tussen 20 en 94 uur zijn er nog 12 tot 13 gaten van 2 tot ±4,3 uur (de langste tussen 70 en 92 uur), en na niveau 50 houdt het op; zie "Wat nog niet klopt".
 4. **Demo = hol-niveau 1 tot 12 in ±2 uur**, bijna helemaal met wat al gebouwd is (ridder, dief, magiër, bard, vleermuis, hoedenwand, vaandel komen nu één voor één in plaats van allemaal tegelijk), plus de twee nieuwe dingen die Olaf noemde (één val, één held). Daarna een grijze kaart: "Level 13 and 37 more in the full game".
 
 ## Waarom zo (wat de cijfers zeggen)
-- **De helft is weg rond 15 uur, 1 op 6 haalt 100 uur** (meetlat Desktop Defender en Rusty's, GEZIEN via Fenna). Dus het duurste en mooiste (nieuwe helden, bewoners, de eerste nieuwe laag) zit vóór 20 uur, en tot 40 uur komt er elk uur of twee iets.
+- **De helft is weg rond 15 uur, 1 op 6 haalt 100 uur** (meetlat Desktop Defender en Rusty's, GEZIEN via Fenna). Dus het duurste en mooiste (nieuwe helden, bewoners, de eerste nieuwe laag) zit vóór 20 uur, en tot 40 uur komt er ongeveer elke anderhalf uur iets (Fenna adviseert elk uur; dat halen we nog niet, zie "Wat nog niet klopt").
 - **Levels zonder nieuws zijn grind** (Spirit City na level 15). Daarom heeft elk hol-niveau een ding met een naam dat je in de strook ziet, en houdt het op bij 50. Geen niveau 51 tot 999 met alleen een getal.
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
@@ -70,11 +70,11 @@ Status: **ontwerp, nog niet nagekeken.** Bram rekent na, Olaf zegt do 19 nov wat
 | 45 | mimic van goud | 4 | nee | 74,0 u |
 | 46 | vleermuisfamilie | 4 | deels | 77,7 u |
 | 47 | trol met leesbril (leest de kroniek voor) | 4 | nee | 81,4 u |
-| 48 | zeldzame held: de Gekroonde (komt alleen als je alle lagen hebt) | 4 | nee | 85,4 u |
+| 48 | zeldzame held: de Gekroonde (komt zeker binnen ±1 uur na dit niveau en daarna af en toe; geen kans-spul) | 4 | nee | 85,4 u |
 | 49 | hoedentroon voor Gloop | 4 | nee | 89,6 u |
 | 50 | Hol van de Hoedenkoning: gouden vaandel, titel, prestatie | 4 | nee | 94,3 u |
 
-Samen: 11 heldensoorten (5 nu plus edelman, mijnwerker, archeoloog, heks, hoedenjager, en de Gekroonde als zeldzame), 6 vallen (stekelput, rolsteen, lijmplaat, valluik, nep-schat, gloopbron), 5 bewoners (Gloop, skelet, mimic, trol, Moeder Gloop), 4 lagen, ±40 hoeden in 5 pakketten. Dat is ongeveer de omvang die Olaf al rekende (±10 helden, ±6 vallen, ±40 hoeden, ±3 diepten).
+Samen: 11 heldensoorten (5 nu plus edelman, mijnwerker, archeoloog, heks, hoedenjager, en de Gekroonde als zeldzame), 6 vallen (stekelput, rolsteen, lijmplaat, valluik, nep-schat, gloopbron), 5 bewoners (Gloop, skelet, mimic, trol, Moeder Gloop; de vleermuis is aankleding, geen bewoner die vecht), 4 lagen, ±40 hoeden in 5 pakketten. Dat is ongeveer de omvang die Olaf al rekende (±10 helden, ±6 vallen, ±40 hoeden, ±3 diepten).
 
 ## Spoor 2: Gloop (1 tot 10), op de hoeden die hij at
 Dit is onze haak, dus Gloop krijgt het rijkste spoor. Hij stijgt op de hoeden op zijn toren (bron `hoeden_gloop`), en de drempels sluiten aan op de maten van de hoedenberg (`BERG_MAAT`).
@@ -112,17 +112,17 @@ Per laag drie doelen met een hint in het Heldenboek, bijvoorbeeld "Catch a Miner
 - **DLC blijft los** (T4): holthema's zijn uiterlijk voor elke laag; een DLC voegt nooit een laag toe die je voor het hol-niveau nodig hebt. Het basisspel is 100% vol te krijgen.
 
 ## Tabel per uur (open tijd), met de meetlat van Fenna
-Percentage = hoeveel spelers dit punt halen bij Desktop Defender en Rusty's (GEZIEN bij 1, 5, 10, 20, 50 en 100 uur; 2, 40 en 70 uur zijn tussengerekend, GOK). Of Hats net zo afhaakt is een GOK.
+Percentage = hoeveel spelers dit punt halen bij Desktop Defender (GEZIEN bij 1, 5, 10, 20, 50 en 100 uur; Rusty's loopt bijna gelijk bij 1, 24 en 48 uur). 2, 40 en 70 uur zijn tussengerekend (GOK). Of Hats net zo afhaakt is een GOK.
 | Uur | Spelers | Wat je dan hebt (sim) | Wat is nieuw rond dit uur | Het volgende doel dat je ziet |
 |---|---|---|---|---|
-| 1 | 83% | hol 9, Gloop 3, 4 heldensoorten, rolsteen, vleermuis, 2e bewoner, ±36 hoeden | vaandel met je holnaam, ridder, dief, magiër | "Level 10: the Noble" (±15 min) |
+| 1 | 83% | hol 9, Gloop 3, 4 heldensoorten, rolsteen, vleermuis, tweede put of slijm, ±36 hoeden | vaandel met je holnaam, ridder, dief, magiër | "Level 10: the Noble" (±15 min) |
 | 2 | ±78% | hol 12, Gloop 4, 6 van 11 heldensoorten | bard, hoedenwand, edelman | grijze kaart "Level 13: upgrades tier 4" en Grote Gloop (2,5 u); in de demo "and 37 more in the full game" |
 | 5 | 66% | hol 15, Gloop 6, skelet | slaapkop, hoedendans | slaapkamer (5,3 u), eerste laagster, Gloopje (6,4 u) |
 | 10 | 57% | hol 19 of 20, Gloop 7, 3 laagsterren | **trap naar de Kristalader** | mijnwerker en mimic, laag 2 inrichten |
 | 20 | 46% | hol 25, Gloop 8 of 9, laag 2 ingericht | upgrades stap 5, Gloops kroon | kinderen van aartsvijanden (20,9 u) |
-| 40 | ±35% | hol 34, laag 3 open, trol, 7 laagsterren | laatste upgradestap, nep-schat | heks (45,5 u), trap naar het Gloophart op niveau 40 |
-| 70 | ±23% | hol 44, laag 4, Moeder Gloop, Gloop 10 | hoedenpakket 5 (je oude aartsvijanden in goud) | mimic van goud, de Gekroonde (85 u) |
-| 100 | 17% | hol 50 (94 u), alle sporen af | Hol van de Hoedenkoning | geen nieuw niveau meer; wel aartsvijanden en hun kinderen, en de stempel bij 10.000 hoeden (±300 u) |
+| 40 | ±30 tot 35% | hol 34, laag 3 open, trol, 7 laagsterren | laatste upgradestap, nep-schat | heks (45,5 u), trap naar het Gloophart op niveau 40 |
+| 70 | ±24% | hol 43 (44 op 70,4 u), laag 4, Moeder Gloop, Gloop 10 | hoedenpakket 5 (je oude aartsvijanden in goud) | mimic van goud, de Gekroonde (85 u) |
+| 100 | 17% | hol 50 (94 u), alle sporen af | Hol van de Hoedenkoning | geen nieuw niveau meer; wel aartsvijanden en hun kinderen, en de stempel bij 10.000 hoeden (±200 u, GOK: ±48 hoeden per uur na Gloop 10) |
 
 ## De demo: de eerste 2 uur uitgewerkt
 Doel (Fenna): 4 tot 6 kleine feestjes in het eerste half uur tot uur, en na 2 uur zien dat het diep is (Olaf: dichte plekken laten zien). De eerste tien minuten blijven zoals in `features.md` (eerste val ±5 s, vlucht en terugkomer, eerste hoed op Gloop, Hoard-Toucher); de niveaus komen ertussen.
@@ -141,7 +141,7 @@ Doel (Fenna): 4 tot 6 kleine feestjes in het eerste half uur tot uur, en na 2 uu
 | 1,6 u | Gloop 4, kleverig | klein |
 | 1,9 u | hoedenwand (hol 12); daarna staat de grijze kaart in het bordje | ja |
 | 2,5 u | Grote Gloop (Gloop 5); in de demo kan Gloop wel door, het hol-niveau niet | |
-**Wat de demo laat zien zonder het te tekenen:** in het Heldenboek de lege vakjes ("6 of 11 heroes", "12 of 40 hats", "1 of 4 floors"), in de winkel grijze stappen 4 tot 6 met "Level 13", in de schatkamer een dicht luik met "Level 20". Zo ziet een speler de omvang (Olaf). De demo houdt niet op: helden blijven komen, Gloop groeit door, alleen het hol-niveau stopt bij 12.
+**Wat de demo laat zien zonder het te tekenen:** in het Heldenboek de lege vakjes ("6 of 11 heroes", "10 of 40 hats", "1 of 4 floors"), in de winkel grijze stappen 4 tot 6 met "Level 13", "Level 25" en "Level 34", in de schatkamer een dicht luik met "Level 20". Zo ziet een speler de omvang (Olaf). De demo houdt niet op: helden blijven komen, Gloop groeit door, alleen het hol-niveau stopt bij 12.
 **Save mee naar het volle spel:** wie de demo speelde, begint in het volle spel op zijn eigen niveau. Vraag aan Olaf of dat kan met een demo als eigen app-ID (zelfde map voor de save?).
 **Let op "armoedig":** dingen later laten komen mag het begin niet kaal maken (Thijs vond het eerste plaatje armoedig). Voorstel: de vaste aankleding van "een vol hol" (spinrag, stutten, wortels, Daans regels) staat er vanaf de eerste seconde; alleen wat leeft of een naam heeft (vleermuis, hoedenwand, vaandel) komt met een niveau. Daan en Mila beslissen.
 
@@ -155,7 +155,7 @@ Zes prestaties voor open tijd (1, 5, 10, 20, 50, 100 uur), net als Desktop Defen
 - **T4 niets te koop:** alle 50 niveaus, lagen en verdiende uiterlijken zitten in het basisspel; DLC is alleen uiterlijk en eigen hoofdstukken.
 
 ## Wat nog niet klopt (eerlijk)
-1. **Gaten na 20 uur.** De sim geeft 13 keer een gat van 2 tot 3,2 uur tussen 20 en 94 uur, en na niveau 50 houdt het op. Mijn regel uit `features.md` (nooit meer dan 2 uur zonder iets nieuws) haal ik dus alleen tot 20 uur. Voorstel: tot 20 uur hooguit 2 uur, van 20 tot 70 uur hooguit 3 uur, daarna mag het. Fenna's advies past daarbij ("na 40 uur goedkoper per uur, maar nooit leeg"), en wat de sim niet telt vult de gaten deels: aartsvijanden (±1 per dag), hun kinderen, nieuwe bladzijden in het boek.
+1. **Gaten na 20 uur.** De sim geeft per zaad 12 tot 13 gaten van 2 tot ±4,3 uur tussen 20 en 94 uur (bij 56 u al 3,1 tot 3,4 u; tussen 70 en 92 u 3,6 tot 4,3 u), en na niveau 50 houdt het op. Mijn regel uit `features.md` (nooit meer dan 2 uur zonder iets nieuws) haal ik dus alleen tot 20 uur. Voorstel: tot 20 uur hooguit 2 uur (gehaald), van 20 tot 70 uur hooguit 3 uur (nog niet gehaald: in versie 2 schuif ik bewonersniveaus en laagsterren in de gaten bij 56 u en zet ik er 4 tot 6 bij tussen 20 en 40 u), na 70 uur hooguit 4 uur. Fenna's advies past daarbij ("na 40 uur goedkoper per uur, maar nooit leeg"), en wat de sim niet telt vult de gaten deels: aartsvijanden (±1 per dag), hun kinderen, nieuwe bladzijden in het boek.
 2. **De sim kent de nieuwe inhoud niet.** Lagen, nieuwe helden en bewoners zitten nog niet in `speel()`; de sporen 3 en 4 zijn als drempel op gevangen helden gezet (GOK). Een nieuwe laag die leeg begint, haalt eerst minder helden binnen; dat kan de niveaus erna later maken. Bram, wil je de laag in de sim zetten?
 3. **Kost.** Dit is meer beeld dan Olafs eerste rekensom: 12 bewonersstreken en 4 lagen. Olaf rekent do 19 nov opnieuw. Als het niet past voor maart: **mijn voorstel is lancering met laag 1 tot 3 (hol 1 tot 39, ±54 uur, "50+ hours" op de winkelpagina) en laag 4 als gratis update in april**; op niveau 39 staat dan eerlijk "Floor 4 comes in a free update".
 
