@@ -1397,3 +1397,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Render knie Click Joints (Chris):** film nog niet klaar (run 43963220983 liep). Proef run68 GEZIEN; geen moet, wel tip camera of licht op het scharniervlak. Film volgende run.
 - **Controleur (Agent):** eens met kamers, Tij en begraven. Overgenomen: gang is te kaal (ik las hem eerst als ruim 1 op 3), batterij-icoon als moet, contrast van de wortel. Niet overgenomen: "geen dingen waar figuurtjes lopen" (figuurtjes lopen er voor langs, dat is diepte, geen fout).
 - Let op: `git pull` hangt in deze omgeving (haalt ook de grote tak `schermen`); `git fetch origin main` plus `git rebase origin/main` werkt.
+- **Keuring 12 Abel, support.html (dortus 947f7a6):** breed en telefoon GEZIEN. Ja, geen moets. Kansen: lege band in het voetstuk, pictogram per kaart, bron bij Garmins 48 uur of weglaten. Waarom ja: een supportpagina moet vooral snel en duidelijk zijn, en dat is hij.
