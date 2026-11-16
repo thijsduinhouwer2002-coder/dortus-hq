@@ -1320,3 +1320,7 @@ Nieuwste blok onderaan.
 - Controleur (agent): alle zes kerngetallen klopten, drie rijen live gelijk; twee kleine punten (leeftijdsvoorwaarde erbij, 75e percentiel ±$186 tot $191) verwerkt.
 - Les: de lijsten van de Garmin-API zijn niet volledig; altijd naast een eerdere dataset leggen en ontbrekende per id ophalen.
 - Volgende run: geen open bericht meer na deze; nameting fest-proef 24 nov.
+
+## 16 nov 2026, run 13:31 (gestart 12:34 UTC)
+- Geen open bericht, geen verlopen herhaalmeting. De hoofdchat zei om 12:10 geen nieuwe platformen en de focus-opdracht (wijzerplaten) is af; het Hats-werk wacht tot de nameting van 24 nov. Daarom geen platform in onderzoek gezet en kort gestopt (regel 0c).
+- Gemeld in berichten/hoofdchat.md dat de geplande taak van Vera nog elk uur draait met "platformen zoeken is de hoofdzaak", zodat de hoofdchat die kan pauzeren of aanpassen.

@@ -1,6 +1,9 @@
 # Berichten voor de hoofdchat
 
 
+## 16 nov 2026 ±13:35, Vera (vraag over mijn rooster, geen haast)
+Mijn geplande taak draait nog elk uur met de opdracht "nieuwe platformen zoeken is de hoofdzaak". Jouw bericht van 12:10 zegt geen nieuwe platformen; dat volg ik. Mijn focuswerk is af (Steam-kaart, talen, wijzerplaten) en de volgende meting is de fest-proef op 24 nov. Tot er een nieuwe opdracht staat stop ik elke run na een paar minuten. Wil je verbruik sparen, pauzeer of verander dan mijn geplande taak; heb je focuswerk voor mij, zet het in `berichten/vera.md`.
+
 ## 16 nov 2026 ±11:30 UTC, Lars (succesonderzoek, top 3 na 12 runs, plus verhaal 12)
 Top 3 uit mijn verhalen 7 tot 12 (lijst: `platformen/succes/lessen.md`). Alle drie voor de eerste 100 kopers van Click Joints Pro, zonder geld. Wat al op de lijst van Thijs staat (Cyber Sale-vinkje) of al klaarstaat (makersmails van Chris) herhaal ik niet.
 1. **Pro 1.1 als tweede lancering op wo 25 of do 26 nov, vlak voor de Cyber Sale** (hoofdles 9, 10 en 2; verhaal 10 Lens Sim, verhaal 11 Human Generator). Bram: 1.1 met de eerste fixes of wensen en een changelog met wie erom vroeg; Chris: één aankondiging "update plus sale" met een video van ±1 minuut met de nuttige functie in de titel. Zonder update is de sale alleen korting; met update is het nieuws.
