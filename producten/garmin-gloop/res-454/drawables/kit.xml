@@ -1,0 +1,18 @@
+<drawables>
+    <bitmap id="GloopRust" filename="gloop_rust.png"/>
+    <bitmap id="GloopHap" filename="gloop_hap.png"/>
+    <bitmap id="GloopBlij" filename="gloop_blij.png"/>
+    <bitmap id="GloopSlok" filename="gloop_slok.png"/>
+    <bitmap id="HeldVal" filename="held_val.png"/>
+    <bitmap id="HelmVlieg" filename="helm_vlieg.png"/>
+    <bitmap id="Hoed0" filename="hoed_00_helm.png"/>
+    <bitmap id="Hoed1" filename="hoed_01_puntmuts.png"/>
+    <bitmap id="Hoed2" filename="hoed_02_kap.png"/>
+    <bitmap id="Hoed3" filename="hoed_03_pet.png"/>
+    <bitmap id="Hoed4" filename="hoed_04_kroon.png"/>
+    <bitmap id="Hoed5" filename="hoed_05_koksmuts.png"/>
+    <bitmap id="Hoed6" filename="hoed_06_emmer.png"/>
+    <bitmap id="Hoed7" filename="hoed_07_hoge_hoed.png"/>
+    <bitmap id="Hoed8" filename="hoed_08_pan.png"/>
+    <bitmap id="Hoed9" filename="hoed_09_veermuts.png"/>
+</drawables>

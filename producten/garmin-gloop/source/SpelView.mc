@@ -109,7 +109,7 @@ class SpelView extends WatchUi.View {
     // Alleen voor de bouwstraat: drukt zelf, en laat expres één held lopen (bij 4 hoeden),
     // zodat "bye!" in beeld komt en de toren toch over de rand groeit.
     function speelZelf() as Void {
-        if (spel.toestand == Regel.KLAAR && spel.fase > 2500) {
+        if (spel.toestand == Regel.KLAAR && spel.fase > 6000) {
             lietLopen = false;
             spel.druk();
         } else if (spel.toestand == Regel.WEG) {

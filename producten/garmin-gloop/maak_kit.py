@@ -2,7 +2,7 @@
 """Zet de spritekit van Mila (ontwerp/garmin/gloop-spel/kit/) in de resources van het spel.
 
 Gebruik: python3 maak_kit.py <pad naar kit>   (de kit staat op main, dit product op een tak)
-Maakt res-260/, res-320/, res-390/ (plaatjes plus drawables.xml) en source/Maten.mc (maten en ankers
+Maakt res-260/ tot res-454/ (plaatjes plus drawables.xml) en source/Maten.mc (maten en ankers
 uit kit.json). Niets met de hand aanpassen in die mappen: draai dit script opnieuw als de kit verandert.
 """
 import json, os, shutil, sys
@@ -10,7 +10,8 @@ import json, os, shutil, sys
 KIT = sys.argv[1]
 HIER = os.path.dirname(os.path.abspath(__file__))
 # schermbreedte -> map in de kit, en of het een MIP-scherm is (64 kleuren, dithering uit)
-MAPPEN = {260: ("260-mip", True), 320: ("320", False), 390: ("390", False)}
+MAPPEN = {260: ("260-mip", True), 280: ("280-mip", True), 320: ("320", False), 390: ("390", False),
+          416: ("416", False), 454: ("454", False)}
 VAST = ["gloop-rust", "gloop-hap", "gloop-blij", "gloop-slok", "held-val", "helm-vlieg"]
 HOEDEN = ["hoed-00-helm", "hoed-01-puntmuts", "hoed-02-kap", "hoed-03-pet", "hoed-04-kroon",
           "hoed-05-koksmuts", "hoed-06-emmer", "hoed-07-hoge_hoed", "hoed-08-pan", "hoed-09-veermuts"]
