@@ -62,7 +62,9 @@ static func nieuwe_held(s) -> bool:
 			# (Sanne toets 9, punt 3). lied_helden telt pas af in _process als deze held er is.
 			info["lied_held"] = true
 			s._kroniek(s.regels.kies("binnen_lied", {"naam": naam}), false, "binnen_lied")
-		elif naam.ends_with(" II") or naam.ends_with(" III"):
+		elif (naam.ends_with(" II") or naam.ends_with(" III")) and not s.naamgenoot_gezien.has(naam.split(" ")[0]):
+			# één naamgenoot-regel per voornaam per speelbeurt (Sanne 16 nov 22:00, balans.md vraag 2); daarna de gewone regel
+			s.naamgenoot_gezien[naam.split(" ")[0]] = true
 			s._kroniek(s.regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		elif soort_h != "":
 			s._kroniek(s.regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")
