@@ -657,6 +657,58 @@ func _init() -> void:
 				vk = kk
 	ok(dicht == 0 and stukken > 0, "deco in een echt hol: %d stukken, %d tegen de regels (naast elkaar, looppad, lichtzwam bij Gloop)" % [stukken, dicht])
 	hdk.free()
+	# vol hol (Olaf 16 nov, Mila "het hol moet vol"): vanaf 20 gangtegels elke vrije tegel een vloerding, plafond los
+	var vgk := []
+	var vbk := []
+	for i in 40:
+		vgk.append(i >= 1 and i <= 29)
+		vbk.append(i in [4, 5, 9, 10, 15, 16, 21, 22])
+	var vvh := {"ingang_kol": 1, "schat_kol": 29, "vallen": {7: "stekelput", 13: "stekelput"}, "gang": vgk, "boven": vbk}
+	ok(HV.is_vol(vvh), "vol: 29 gangtegels is vol")
+	var vklein := {"gang": vgk.slice(0, 15), "deco_proef": false}
+	ok(not HV.is_vol(vklein), "vol: 14 gangtegels is niet vol (uitdunning van 14 nov blijft)")
+	ok(not HV.is_vol({"gang": vgk, "deco_proef": true}), "vol: keurstrook houdt de vaste rij")
+	ok(HV.vol_vloer(vvh, 2, -1) == -1, "vol: geen vloerding op de eerste tegel na de schacht")
+	ok(HV.vol_vloer(vvh, 6, -1) == -1 and HV.vol_vloer(vvh, 7, -1) == -1 and HV.vol_vloer(vvh, 8, -1) == -1, "vol: niets op of naast een val")
+	ok(HV.vol_vloer(vvh, 25, -1) == -1 and HV.vol_vloer(vvh, 27, -1) == -1, "vol: niets bij de hoeden en Gloop")
+	var vvrij := 0
+	var vgevuld := 0
+	var vzelfde := 0
+	var vplafond := 0
+	var vnaast := 0
+	var vvs := -1
+	var vvp := -99
+	for kk in range(2, 28):
+		var c: int = HV.vol_vloer(vvh, kk, vvs)
+		if c >= 0 and c == vvs:
+			vzelfde += 1
+		vvs = c
+		if not (kk == 2 or vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1) or kk >= 25):
+			vvrij += 1
+			if c >= 0:
+				vgevuld += 1
+		var p: int = HV.vol_plafond(vvh, kk, vvp)
+		if p >= 0:
+			if kk - vvp < 2 or vbk[kk]:
+				vnaast += 1
+			if p == 7 and vvh.vallen.has(kk):
+				vnaast += 1
+			vplafond += 1
+			vvp = kk
+	ok(vvrij > 0 and vgevuld == vvrij, "vol: elke vrije gangtegel een vloerding (%d van %d)" % [vgevuld, vvrij])
+	ok(vzelfde == 0, "vol: nooit twee keer dezelfde soort naast elkaar (%d)" % vzelfde)
+	ok(vplafond > 0 and vnaast == 0, "vol: plafond los van de vloer, nooit naast elkaar of onder een kamer (%d stuks, %d fout)" % [vplafond, vnaast])
+	var vkd: Array = HV.kamer_dingen(vvh, false)
+	ok(vkd.size() == 8, "vol: vier kamers van twee kolommen, elk twee dingen (%d)" % vkd.size())
+	var vkok := true
+	for i in range(0, vkd.size(), 2):
+		if vkd[i][0] == vkd[i + 1][0] or vkd[i][1].y != HV.KAMER_VLOER or vkd[i][0] == "lichtzwam":
+			vkok = false
+	ok(vkok and vkd[0][1] == Vector2(4 * 16 + 10, HV.KAMER_VLOER) and vkd[1][1] == Vector2(5 * 16 + 2, HV.KAMER_VLOER),
+		"vol: rechts van de fakkel en links van het kistje, twee verschillende, op de kamervloer: " + str(vkd.slice(0, 2)))
+	var vlos := vbk.duplicate()
+	vlos[5] = false
+	ok(HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false).size() == 6, "vol: een losse kamer (kamer_los) krijgt niets extra")
 	# graafmoment in 3D (Daan 14 nov): beeld 0 tot 3 over GRAAF_S, keurstrook zet vier kamers stil in elk beeld
 	var HG = load("res://hol/hol.gd")
 	ok(HG.graaf_beeld(0.0) == 0 and HG.graaf_beeld(HG.GRAAF_S * 0.3) == 1 and HG.graaf_beeld(HG.GRAAF_S * 0.6) == 2 \

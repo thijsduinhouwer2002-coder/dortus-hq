@@ -28,6 +28,7 @@ static func lees_argumenten(s) -> void:
 				s.proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
 				s.fps_vast = true
 			"zaad": s.proef_zaad = int(kv[1])
+			"drukte": s.proef_drukte = kv[1] == "1"   # Mila 16 nov: drie helden tegelijk in de winkelopname week
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"
 			"graaf_proef": s.proef_graaf = kv[1] == "1"

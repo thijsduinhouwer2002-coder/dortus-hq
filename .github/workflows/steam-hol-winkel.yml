@@ -16,6 +16,9 @@ on:
       zaad:
         description: "vast zaad voor de volgorde van heldsoorten in het echte bureaublad (leeg = de klok); Olaf 15 nov"
         default: ""
+      drukte:
+        description: "1 = bij week elke 5 tot 8 s een held, zodat er vaak drie tegelijk in beeld zijn (Mila 16 nov, punt 3); 0 = het gewone ritme"
+        default: "1"
       moment:
         description: "leeg, hap, val of munt: het spel staat stil op het winkelmoment (Brams moment=, scherm 2 en 3; Olaf 15 nov). Werkt pas als claude/steam-hol-moment op main staat"
         default: ""
@@ -35,6 +38,7 @@ jobs:
       HOOGTE: ${{ inputs.hoogte || '160' }}
       ZAAD: ${{ inputs.zaad || '' }}
       MOMENT: ${{ inputs.moment || '' }}
+      DRUKTE: ${{ inputs.drukte || '1' }}
     steps:
       - uses: actions/checkout@v4
       # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
@@ -103,7 +107,7 @@ jobs:
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:MOMENT) { 2700 } elseif ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=$env:HOOGTE $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log $(if ($env:MOMENT) { "moment=$env:MOMENT" })" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:MOMENT) { 2700 } elseif ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=$env:HOOGTE $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log $(if ($env:MOMENT) { "moment=$env:MOMENT" }) $(if ($env:SOORT -eq 'week' -and $env:DRUKTE -eq '1') { 'drukte=1' })" -PassThru
           if (-not $p.WaitForExit(900000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           $alle = Get-ChildItem $film -Filter "f*.png" | Sort-Object Name
@@ -306,7 +310,7 @@ jobs:
           Write-Output "Kladblok 420 x 196 linksboven (naast de prullenbak): $gezet"
           $log = ($vol -replace '\\','/') + "/hol.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log $(if ($env:ZAAD) { "zaad=$env:ZAAD" }) $(if ($env:MOMENT) { "moment=$env:MOMENT" })" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE demo=0 vers=0 duur=200 log=$log $(if ($env:ZAAD) { "zaad=$env:ZAAD" }) $(if ($env:MOMENT) { "moment=$env:MOMENT" }) $(if ($env:SOORT -eq 'week' -and $env:DRUKTE -eq '1') { 'drukte=1' })" -PassThru
           # Olaf 15 nov (wens Mila 23:50 voor scherm 2): in run 43653516628 was de gang in alle 6 beelden leeg, want een held
           # is in ±7 s binnen en weer weg en de beelden vielen ertussen. Nu: elke 0,5 s de log lezen; bij elke nieuwe regel
           # "HOL held binnen" een beeld na 2,5, 3,7 en 5 s (bureaublad-held-<nr>-a/b/c.png; run 43657940940: op 2,5 s op de

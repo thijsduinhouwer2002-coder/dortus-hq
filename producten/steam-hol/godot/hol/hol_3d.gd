@@ -116,13 +116,13 @@ static func put_in_schatkamer(h, k: int, schat_3d: bool) -> String:
 	return put_stuk(h, k)
 
 # Versiering uit het deco-blad met de linkerbovenhoek op `plek`, op zijn eigen maat. false = niet getekend (dan pixels).
-static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2) -> bool:
+static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2, schaal: float = 1.0) -> bool:
 	laad()
 	if deco_blad == null or not deco.has(naam):
 		return false
 	var v: Array = deco[naam]["vak_px"]
 	var m: Array = deco[naam]["maat"]
-	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
+	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1]) * schaal), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
 # bovenkant van het stuk in spelpixels zoals de render hem zette (`uit`, beeld = spel), of `anders` als die er niet is
@@ -149,7 +149,7 @@ const DECO_MAAIVELD := ["bloemen", "struik", "steen", "bordje", "vliegenzwam"]
 # of `hang` [x, y]). `uit` (plek in de render) telt hier niet: deze dingen staan op plekken die het spel kiest, dus voor
 # de pijplijn tellen alleen `maat`, `voet` en `hang`. Hele spelpixels, zoals de rest van het hol. Vector2.INF als het stuk
 # niet in het blad staat.
-static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
+static func deco_plek(naam: String, punt: Vector2, hangend: bool, schaal: float = 1.0) -> Vector2:
 	var m := deco_maat(naam)
 	if m == Vector2.ZERO or deco_blad == null:
 		return Vector2.INF
@@ -158,14 +158,14 @@ static func deco_plek(naam: String, punt: Vector2, hangend: bool) -> Vector2:
 	var s: Dictionary = deco[naam]
 	if s.has(sleutel) and typeof(s[sleutel]) == TYPE_ARRAY and s[sleutel].size() == 2:
 		a = Vector2(float(s[sleutel][0]), float(s[sleutel][1]))
-	return (punt - a).floor()
+	return (punt - a * schaal).floor()
 
 # Teken versiering met het ankerpunt op `punt`; false = niet in het blad (dan tekent de aanroeper de pixels).
-static func teken_deco_op(doek: CanvasItem, naam: String, punt: Vector2, hangend: bool) -> bool:
-	var plek := deco_plek(naam, punt, hangend)
+static func teken_deco_op(doek: CanvasItem, naam: String, punt: Vector2, hangend: bool, schaal: float = 1.0) -> bool:
+	var plek := deco_plek(naam, punt, hangend, schaal)
 	if plek == Vector2.INF:
 		return false
-	return teken_deco(doek, naam, plek)
+	return teken_deco(doek, naam, plek, schaal)
 
 # 3D-stuk voor cel (rij r, kolom k), of "" als die cel de pixeltegel houdt
 # (de schacht houdt de pixeltegel als het 3D-stuk ingang ontbreekt; een open put of een put met gekochte stappen krijgt de
