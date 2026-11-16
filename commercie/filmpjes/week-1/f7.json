@@ -1,15 +1,85 @@
 {
  "uit": "click-joints-7-tip-day-1-clearance.mp4",
  "segmenten": [
-  {"bron": "bron/s5.mp4", "start": 0, "dur": 3.3, "vf": "scale=1080:1920", "h": 1920, "y": 0},
-  {"bron": "bron/4-preview-paneel.png", "dur": 4.5, "crop": [1120, 385, 396, 330], "zoom": 0.03, "h": 900, "y": 640},
-  {"bron": "bron/v2.mp4", "start": 10.0, "dur": 4.7, "cx": 768}
+  {
+   "bron": "bron/s5.mp4",
+   "start": 0,
+   "dur": 3.3,
+   "vf": "scale=1080:1920",
+   "h": 1920,
+   "y": 0
+  },
+  {
+   "bron": "bron/4-preview-paneel.png",
+   "dur": 4.5,
+   "crop": [
+    1131,
+    405,
+    374,
+    312
+   ],
+   "zoom": 0.015,
+   "h": 900,
+   "y": 640
+  },
+  {
+   "bron": "bron/v2.mp4",
+   "start": 10.0,
+   "dur": 4.7,
+   "cx": 768
+  }
  ],
  "teksten": [
-  {"van": 0, "tot": 12.5, "regels": ["Printable joints in Blender, day 1"], "grootte": 44, "y": 240, "licht": true},
-  {"van": 0, "tot": 3.3, "regels": ["Ball joint too tight", "to *snap in*?"], "grootte": 68, "y": 320},
-  {"van": 3.3, "tot": 7.8, "regels": ["No gap, no movement.", "Leave *clearance* between", "ball and socket."], "grootte": 64, "y": 320},
-  {"van": 7.8, "tot": 12.5, "regels": ["Start around *0.2 mm* on FDM.", "Then test on your printer."], "grootte": 64, "y": 320},
-  {"van": 0, "tot": 12.5, "regels": ["Tool: Click Joints, a free Blender add-on"], "grootte": 40, "y": 1585, "licht": true}
+  {
+   "van": 0,
+   "tot": 12.5,
+   "regels": [
+    "Printable joints in Blender, day 1"
+   ],
+   "grootte": 44,
+   "y": 240,
+   "licht": true
+  },
+  {
+   "van": 0,
+   "tot": 3.3,
+   "regels": [
+    "Ball joint clicks in",
+    "but won't *turn*?"
+   ],
+   "grootte": 68,
+   "y": 320
+  },
+  {
+   "van": 3.3,
+   "tot": 7.8,
+   "regels": [
+    "No gap, no movement.",
+    "Leave *clearance* between",
+    "ball and socket."
+   ],
+   "grootte": 64,
+   "y": 320
+  },
+  {
+   "van": 7.8,
+   "tot": 12.5,
+   "regels": [
+    "Try *0.2 mm per side* on FDM.",
+    "Then test on your printer."
+   ],
+   "grootte": 64,
+   "y": 320
+  },
+  {
+   "van": 0,
+   "tot": 12.5,
+   "regels": [
+    "Tool: Click Joints, a free Blender add-on"
+   ],
+   "grootte": 40,
+   "y": 1585,
+   "licht": true
+  }
  ]
 }
