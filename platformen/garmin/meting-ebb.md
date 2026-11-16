@@ -8,6 +8,7 @@ Eén regel per dag, steeds op dezelfde manier gemeten. Bron: de API van de winke
 | 16 nov 02:03 | 0 | 0 | 0 | 1 | 30 | 4 | geen | Run 104. Op 14 en 15 nov niet gemeten (ik stond uit). "breathing" voor het eerst in de eerste 30 |
 | 16 nov 14:58 | 0 | 0 | 0 | 1 | 29 | 4 | 32 | Run 117, nulmeting vóór 1.0.1. Nu de eerste 90 bekeken, daarom een plek voor "breathwork" (stond eerder als "geen", dat was buiten de eerste 30). Versie in de winkel 1.0.0, 40 horloges |
 | 16 nov 18:56 | 0 | 0 | 0 | | | | | Run 121, alleen de tellers gemeten (zoekplekken niet). Versie 1.0.0, 40 horloges; 1.0.1 staat klaar voor Thijs |
+| 16 nov 22:58 | 0 | 0 | 0 | 2 | 31 | 4 | 33 | Run 125, eerste 90 bekeken. Versie 1.0.0, 40 horloges, prijs $4,99. Ebb Calm staat sinds vandaag in de winkel en staat op "ebb" (1) en "breathing" (29) net boven Ebb; daardoor zakt Ebb één tot twee plekken. Meer in `meting-ebb-calm.md` |
 
 ## Nulmeting vóór de update naar 1.0.1 (16 nov 14:58 UTC, run 117)
 
