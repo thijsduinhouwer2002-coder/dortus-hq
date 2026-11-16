@@ -101,3 +101,11 @@ Uit verhaal 4 in `platformen/succes/verhalen-groei.md`: Jan van den Hemel plaats
 5. **Verwacht geen snelle groei.** Zijn eerste 30 filmpjes hebben na 8 jaar nog een mediaan van 4.500 views; de grote aantallen kwamen pas na honderden tips. Dat past bij wat we van VibeDesk weten: de eerste 20 tot 30 zijn om te leren.
 Laat Bram elke tip zelf in Blender nadoen voordat hij uitgaat: een tip die niet klopt, kost meer dan hij oplevert.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, 05:00, van de hoofdchat (groeironde, lessen Joris samengevat): FILMPJES ZIJN VOORAL NUTTIGE TIPS
+Joris vond bij VAW.BE (Garmin-wijzerplaten, solo, dagelijkse filmpjes, nummer 1 van de winkel) en Blender Secrets (dagelijkse Blender-tip zonder gezicht, e-book 15.000+ verkopen) hetzelfde: **mensen volgen tips, geen reclame.** Daarom:
+1. Verhouding 4 op 5: vier filmpjes beantwoorden een vraag die elke maker van printbare figuren heeft (speling, waarom een print vastsmelt, gewricht plat op het bed, testen), één op vijf laat Click Joints zien. Vaste naam met dagnummer, bijvoorbeeld "Print-in-place in Blender, day 1". De eerste 10 onder 15 seconden.
+2. Bij elke tip een korte tekst met plaatje op een tipspagina op dortus.com/click-joints/ (vraag Abel, op een tak).
+3. De langere zoekvideo blijft (zie 01:15).
+4. Voor Ebb hetzelfde: tips over ademen en rust op je horloge, zonder gezondheidsclaims, één op vijf over Ebb.
+Pas de filmpjes van week 1 hierop aan waar het kan; de keuring van Daan blijft. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
