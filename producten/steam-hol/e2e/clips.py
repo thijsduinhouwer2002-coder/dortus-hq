@@ -18,7 +18,8 @@ n = len(list(bron.glob("f*.png")))
 ff = imageio_ffmpeg.get_ffmpeg_exe()
 knippen = [("1-hap", r" ate ", 3.0, 9.0), ("2-terug", r" is back| limps back | remembers ", 2.0, 10.0)]
 # 3 toren (15 s): alleen in een opname na weg zijn (workflow weg_uur): Gloop heeft de nachthoeden al, dan de eerste hap
-if any("new hats" in r for r in regels):
+# (de kroniekregel "new hats" kan wegvallen achter een andere regel; de logregel "weg geweest ... hoeden N" staat er altijd)
+if any("new hats" in r or re.search(r"HOL weg geweest .* hoeden [1-9]", r) for r in regels):
     knippen = [("3-toren", r" ate ", 4.0, 11.0)] + knippen
 for naam, patroon, voor, na in knippen:
     t, regel = eerste(patroon)
