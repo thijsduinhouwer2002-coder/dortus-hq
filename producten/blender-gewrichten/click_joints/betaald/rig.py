@@ -182,6 +182,10 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             self.report({"WARNING"}, f"No shoulders, elbows, hips, knees or neck found in the bone names of {arm.name}.")
             return {"CANCELLED"}
         context.view_layer.update()  # pose-matrices pas na een evaluatie betrouwbaar
+        # Scharnieren eerst (ellebogen, knieën, enkels), dan de kogels: het bereik uit de rig zit in de scharnieren.
+        # Liggen een schouder en een elleboog te dicht bij elkaar, dan valt zo de kogel af en niet het bereik
+        # (proef met armen 16 nov: andersom vielen beide ellebogen af). Binnen elke groep de volgorde van de rig.
+        lijst = sorted(lijst, key=lambda x: figuur.PER_SLEUTEL[x[1]][2] != "HINGE")
         fig = figuur.figuur_naam(mesh)
         mesh["cj_figuur"] = fig
         cursor = context.scene.cursor
