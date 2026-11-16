@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: McGybeer, klaar 16 nov 2026 00:15 NL-tijd). Volgende: een maker die zelf zijn eerste 30 korte filmpjes beschrijft (met kijkcijfers per filmpje), liefst Blender-add-on of Garmin.
+bezig: eerste 30 filmpjes van een maker die het zelf beschrijft, 16 nov 2026 00:30 UTC (Joris). Vorige: McGybeer.
 
 Nieuwste bovenaan.
 
