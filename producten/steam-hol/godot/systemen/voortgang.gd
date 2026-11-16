@@ -125,9 +125,9 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 				uit.append(_kort("%s vs %s: fled again." % [n, wrok]))
 		else:
 			uit.append(_kort("%s was back and left in a hurry." % n))
-	elif hoeden > 0 and _bewoner(vijand_namen) != "":
-		uit.append(_kort("%s got %d new hat%s." % [_bewoner(vijand_namen), hoeden, "" if hoeden == 1 else "s"]))
-	elif not vijand_namen.is_empty() and int(uitkomst.get("gevallen", 0)) > 0:
+	# "Gloop got N new hats." is eruit (Iris keuring 6 tot 8, ja Daan 16 nov 20:50): de telling hieronder noemt de hoeden al,
+	# en de regel van de eerste held moet binnen de regels na terugkomst passen. Met hoeden dus ook geen "busy shift".
+	elif hoeden == 0 and not vijand_namen.is_empty() and int(uitkomst.get("gevallen", 0)) > 0:
 		var v: String = vijand_namen[rng.randi_range(0, vijand_namen.size() - 1)]
 		uit.append(_kort("%s had a busy shift." % (v.substr(0, 1).to_upper() + v.substr(1))))   # "The Spike Pit" aan het begin van de zin (Daan 15 nov)
 	# 3. aartsvijand: ongeveer 0,5 per uur (sim/), dus na een paar uur vaak wel, na tien minuten zelden

@@ -38,6 +38,40 @@ const TERUG := ["lied"]
 # "nog even terug", daarna als herhaling.
 const TERUG_WACHT := 4.0
 
+# Gloop gaat plat of staat op. Geeft "plat", "op" of "" (geen regel). `s` heeft wachtrij, plat_keer, plat_gemeld, log_regel.
+# Wacht "plat" nog als hij al weer op is, dan geen van beide (controleur ronde 3), en andersom ("op" vervalt niet, Iris).
+# Daan 16 nov 20:35 (keus met Sanne): "flat" alleen de eerste PLAT_KEER keer per speelbeurt, daarna stil; "up again"
+# alleen als zijn "flat" getoond is of nog wacht. Na weg begint de telling opnieuw (nieuwe speelbeurt: nieuwe strook).
+const PLAT_KEER := 2
+static func plat_wissel(s, nu_plat: bool) -> String:
+	var oud_plat := -1
+	var oud_op := -1
+	for i in s.wachtrij.size():
+		if String(s.wachtrij[i].get("soort", "")) == "plat":
+			oud_plat = i
+		elif String(s.wachtrij[i].get("soort", "")) == "op":
+			oud_op = i
+	if not nu_plat and oud_plat >= 0:
+		s.wachtrij.remove_at(oud_plat)
+		s.plat_keer = maxi(0, int(s.plat_keer) - 1)   # nooit getoond, telt niet mee
+		s.plat_gemeld = false
+		return ""
+	if nu_plat and oud_op >= 0:
+		s.wachtrij.remove_at(oud_op)
+		s.plat_gemeld = true   # zijn "flat" van daarnet is het laatste wat de lezer zag
+		return ""
+	if nu_plat:
+		s.plat_gemeld = int(s.plat_keer) < PLAT_KEER
+		if s.plat_gemeld:
+			s.plat_keer = int(s.plat_keer) + 1
+			return "plat"
+		s.log_regel("HOL plat zonder regel (%d keer gemeld)" % int(s.plat_keer))
+		return ""
+	if bool(s.plat_gemeld):
+		s.plat_gemeld = false
+		return "op"
+	return ""
+
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
 	for i in range(s.wachtrij.size() - 1, -1, -1):
