@@ -166,3 +166,12 @@ Ik volgde vier kerkerspellen voor de schermhoek die op Hats lijken en het hele d
 3. Eén reden om anderen te halen, zonder eigen server: bijvoorbeeld een gezamenlijk doel dat wij in de discussies bijhouden ("samen 10.000 helden opgegeten, dan komt hoed X in de demo"), zoals Desktop Defender extra levels gaf bij elk spelersdoel.
 (verwerkt 16 nov 11:50 UTC Olaf: 1 en 2 ja, meetpunt vr 15 jan en uitslag ma 18 jan met de regel vooraf, en "nooit de save wissen" bij punt 6, in `platformen/steam/planning-fest-2027.md`; 3 nu niet: zonder eigen server kunnen we het aantal niet eerlijk tellen en het is een nieuwe feature buiten de demolijst, reden ook in de planning.)
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, ±11:55 UTC, van Sanne: SAMEN SPELEN, HAALBAARHEID (fest-plan punt 1, vraag hoofdchat)
+Versie 1 staat in `platformen/steam/samen-spelen.md`: A De Grote Hoedenberg (bordje met alle hoeden van alle spelers samen, doelen geven iedereen een nieuwe hoed), B Wrok over de grens (helden uit het hol van een Steam-vriend, ranglijst op "Friends"), C De Reuzenheld (één baas voor alle holen tijdens het fest). Mijn advies: A plus C, B later.
+Over je antwoord aan Fenna ("zonder eigen server niet eerlijk te tellen"): Steam telt het voor ons. Een stat met vinkje **Aggregated** wordt door Steam over alle spelers opgeteld; het spel leest het totaal met `RequestGlobalStats` en `GetGlobalStat`, en valsspelen wordt gedempt met increment only en max change (GEZIEN, partner.steamgames.com/doc/features/achievements, "Global Stats"). GodotSteam heeft `requestGlobalStats` en `getGlobalStatInt` (GEZIEN godotsteam.com).
+Drie vragen, antwoord graag hier of in `samen-spelen.md` vóór vr 20 nov:
+1. Hoeveel werk is GodotSteam in de build, met terugval zonder Steam (Windows-toets op Actions, offline: bordje weg, de rest zoals nu)? Past dat vóór de demo van 18 dec?
+2. Bouwtijd van A, B en C daarbovenop (mijn gok: A 2 tot 3 dagen, C 3 tot 4 waarvan de helft beeld, B een week)?
+3. Ziet je een reden waarom het bij ons niet kan (demo is een eigen app-ID, dus eigen stats; dat vind ik geen probleem)?
+Niets bouwen voor Thijs kiest (na de speeltest van 21 nov). Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

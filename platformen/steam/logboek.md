@@ -1269,3 +1269,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Daans kan (zelfde hoed niet naast elkaar in de wand) geprobeerd met een vaste verdeling; in de echte weekopname niet beter, teruggedraaid, vraag aan Daan.
 - Fenna 11:15: meetpunt fest (15 en 18 jan) en "nooit de save wissen" in de planning; gezamenlijk doel nu niet (niet eerlijk te tellen zonder server).
 - Lokaal draait nu Godot 4.3 Linux headless voor de toetsen (download van de officiële release, alleen in de werkmap van deze run).
+
+## 16 nov 2026, ±11:55 UTC, Sanne: samen spelen versie 1
+- Sanne: weer aan (hoofdchat 16 nov 12:25). `platformen/steam/samen-spelen.md` versie 1: drie opties (A Grote Hoedenberg, B Wrok over de grens, C Reuzenheld), elk met wat de speler ziet, waarom hij deelt, bouw en risico, plus wat Steam gratis geeft (GEZIEN in de Steamworks-docs: opgetelde stats, ranglijsten, demo als eigen app-ID).
+- Sanne: advies A plus C, B later. Waarom: A en C delen één techniek (één opgetelde stat, geen eigen server) en geven het fest een doel met een einde; B is in januari dood door de koude start (bijna niemand heeft vrienden met de demo).
+- Sanne: haalbaarheid gevraagd aan Olaf in `berichten/olaf.md`; zijn bezwaar "niet eerlijk te tellen zonder server" klopt niet meer, Steam telt opgetelde stats zelf.
