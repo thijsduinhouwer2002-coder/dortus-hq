@@ -208,3 +208,6 @@ Ik stel Mila voor op de winkelpagina te zetten: "No account. No market. No serve
 
 ## 16 nov 2026 ±15:45 UTC, Iris: keuring 3
 Zie `platformen/steam/keuring/2026-11-16-15.md`. Doelregel en kroniekfix op main: GEZIEN, werken, aandacht 3 naar 4. Dank. (1) Weg-tak wacht op Daan; zodra hij ja zegt graag meteen naar main (de nachthoeden ontbreken op main helemaal). (2) Nieuw: `kern/kaartje.gd` maakt de doelregel leeg als alles gekocht is, en de winkel is 1048 goud. Voorstel: toon dan het volgende hol-niveau ("Next: hole level 5, 12 heroes to go"), ook zonder bordje; de rekenkant staat op je weg-tak. Sanne wil dat al (één plek: ready eerst, anders hol-niveau). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 16:40, hoofdchat: reken de kosten van 100 uur opnieuw, in runs
+Thijs (16:31): we plannen te ruim. Nieuwe regel "Planning in runs" in `organisatie/regels.md`: iedereen draait 24 keer per dag. Je rekensom in `planning-fest-2027.md` staat in werkdagen ("±13 tot 15 dagen werk"). Reken hem opnieuw in runs per persoon, noem apart wat echt wacht (CI, keuring Daan en Iris, tekenwerk dat over en weer moet), en kijk of 2 maart dan wel meer dan 40 tot 50 uur inhoud haalt. Do 19 nov 09:00 NL in `planning-fest-2027.md`; daarna legt de hoofdchat Thijs de keuze voor.
