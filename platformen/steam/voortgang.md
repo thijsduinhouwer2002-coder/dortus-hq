@@ -2,7 +2,7 @@
 
 Versie 2, 16 nov 2026 ±13:55 UTC (versie 1 ±13:30). Versie 2 verwerkt Brams narekening met lagen (`producten/steam-hol/sim/LAGEN.md`), Iris' keuring 1 (`keuring/2026-11-16-13.md`) en Olafs bouwfeiten van 13:38. Opdracht hoofdchat 16 nov 13:10 (Thijs 13:01: "een diepgaand spel ... level ups enzo om een reden te hebben om te spelen"). Eerste versie gevraagd wo 18 nov 12:00.
 Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (versie 1, GEZIEN, 8 zaden); versie 2 en het voorstel voor versie 3 in `data/sim-v2/` (GEZIEN, 8 zaden).
-Status: **versie 3 definitief 16 nov ±16:00 UTC na Brams laatste run (zie "Versie 3 definitief", dit zijn de bouwgetallen; nieuw: de rij bij de ingang), vastgesteld ±14:50 UTC, daaronder ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
+Status: **eigen helden per laag ontworpen 16 nov ±17:00 UTC (met tegenzet, Bram rekent na); versie 3 definitief 16 nov ±16:00 UTC na Brams laatste run (zie "Versie 3 definitief", dit zijn de bouwgetallen; nieuw: de rij bij de ingang), vastgesteld ±14:50 UTC, daaronder ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
 
 ## In het kort
 1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: iets kleins elke paar minuten, iets middelgroots elk uur of elke paar uur, en iets groots): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
@@ -16,6 +16,27 @@ Status: **versie 3 definitief 16 nov ±16:00 UTC na Brams laatste run (zie "Vers
 - **Levels zonder nieuws zijn grind** (Spirit City na level 15). Daarom heeft elk hol-niveau een ding met een naam dat je in de strook ziet, en houdt het op bij 50. Geen niveau 51 tot 999 met alleen een getal.
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
+
+## Eigen helden per laag en hun tegenzet (16 nov ±17:00 UTC, antwoord op Bram 16:45)
+Bram rekende uit dat 10% minder vangen in laag 2 tot 4 al ±1 werkdag kost tot hol 50 en de gaten in week 2 tot 4 naar 4 tot 6 uur duwt (`producten/steam-hol/sim/UITKOMST.md`, `sim/voortgang-laagvang-uitkomst.txt`, GEZIEN door mij). Ik neem zijn voorstel over: **elke nieuwe held laat één ding van je oude opstelling falen, en de tegenzet komt op het volgende hol-niveau en vangt hem minstens zo vaak als een gewone held.** Zo is elke nieuwe held een klein raadsel (je bouwt anders) en geen rem op de voortgang.
+1. **Volgorde omgedraaid zodat de tegenzet meteen volgt:** hol 22 wordt **the Trapdoor** (was 23) en 23 **the Mimic** (was 22); hol 32 wordt **the Fake Hoard** (was 33) en 33 **the Troll** (was 32). Het gat tussen held en tegenzet is dan ±2,3 u (21 naar 22) en ±4 u (31 naar 32) in plaats van 4,7 en 7 u. De tabel in punt 7 hieronder is aangepast. Olaf had alleen 1 tot 12 in code, dus dit kost niets.
+2. **Wat elke held doet, in getallen voor de sim** (zelfde vorm als `SOORT_DATA`: factor op de basiskans per val; gewicht naast de 55 gewone, 15 ridders, 15 dieven, 10 magiërs en 5 barden; alleen in de laag waar hij hoort en dieper):
+   | Held (hol) | Laag | Gewicht | Zonder tegenzet | Tegenzet (hol) | Met tegenzet |
+   |---|---|---|---|---|---|
+   | the Miner (21) | 2+ | 20 | de **eerste val** in zijn bezoek: kans 0 (graaft eromheen, poppetje zakt de grond in en komt erachter weer op); slijm x 1,2 (traag met zijn houweel); rest x 1 | the Trapdoor (22) | graaft om de eerste val heen en **recht het valluik in**: daar kans 0,8 in plaats van 0 |
+   | the Explorer (31) | 3+ | 15 | eerste bezoek x 1 (put x 1,2: hij klimt naar beneden om te kijken); **als terugkomer** elke val die hem eerder raakte x 0,3 (stapt eroverheen en tikt tegen zijn hoed) | the Fake Hoard (32) | de nep-schat is geen val, dus hij onthoudt hem niet, en hij **verschuift na elke vangst** naar een andere plek: kans 0,75 tegen hem, 0,5 tegen hebzuchtig, 0,3 tegen schijterig |
+   | the Witch (36) | 3+ | 10 | x 1 op alles: haar streek is alleen beeld (Gloops hoeden worden een minuut kikkers die op de berg springen, daarna weer hoeden; tellers lopen gewoon door) | geen nodig | |
+   | the Hat Hunter (41) | 4 | 15 | rent langs alles naar de hoedenberg: alle vallen x 0,7; lukt het hem, dan pakt hij toch niets (berg is te hoog) en gaat hij met een wrok | hoedenlokker (41, zelfde niveau, te koop) | een hoed aan een hengel vóór één val: die val x 2 tegen hem (hooguit 0,95) |
+   | the Crowned (48) | 4 | eerste keer zeker binnen 1 u, daarna 2 | alle vallen x 0,5; betaalt 25 goud en laat een gouden hoed | geen | zeldzaam, telt niet mee in de balans |
+   Kinderen van aartsvijanden (26) volgen de regels van aartsvijanden en zijn verder gewone helden. Trek verdwaald (28) loopt soms de verkeerde trap af en duikt op in een andere laag; geen effect op de vangkans.
+3. **Het doel voor de sim:** per laag, met de tegenzet erbij, gemiddelde vangkans **x 1,0 tot 1,05** van de versie 3-getallen (niet hoger: x 1,1 gaf in week 4 een gat van 5,6 tot 6 uur). In het ene hol-niveau tussen held en tegenzet mag het zakken tot ±x 0,95. **Bram mag de getallen in de laatste kolom (0,8 / 0,75 / x 2) bijstellen tot dat klopt; wat de held doet blijft.** Lukt dat niet binnen die band, dan liever de tegenzet sterker dan de drempels 21 tot 50 opnieuw ijken.
+4. **Het valluik in de onderste laag:** een held die in het valluik valt is gevangen (goud, faam en zijn hoed zoals bij elke val). Is er een laag eronder, dan landt hij daar ook nog, boos, als terugkomer met een wrok ("Odo fell two floors. He is not happy."). Zo werkt het valluik in elke laag, ook in de onderste.
+5. **Laagsterren die hierbij horen** (spoor 4): laag 2 "Catch a Miner with the trapdoor", laag 3 "Catch an Explorer with the Fake Hoard", laag 4 "Lure the Hat Hunter 10 times". Kroniekregels (hooguit 42 tekens): "Pip dug around the spikes. Into the hole." (39), "Pip remembered every trap. Not this one." (40), "Brom chased a hat on a stick. Again." (35).
+6. **Toets:** T2 ja (elke held heeft een grap die je ziet), T3 ja (niets gaat weg, de tegenzet komt meteen en is niet duur: ±1 uur goud), T4 ja.
+
+## Wat de laatste twee runs van Bram zeggen (16 nov ±17:00 UTC)
+- **De rij bij de ingang werkt zoals bedoeld** (Bram 16:35, GEZIEN in `sim/voortgang-rij-uitkomst.txt`): wie 0 tot 5 minuten speelt en een nacht weg is, ziet hol 5 meteen en hol 12 na ±18 tot 22 open minuten, elk niveau met zijn eigen feestje; in week 1 tot 5 staat er nooit iets in de rij. Mijn "±35 minuten" was te ruim, het is ±27. Iris (keuring 16:40) zegt ja; haar kanttekening neem ik over: **de twee helden uit de optocht komen niet tegelijk binnen**, de tweede pas als de eerste in de gang loopt (naar Olaf).
+- **Diep voor weken: ja, voor wie tussendoor speelt** (Bram 16:30, GEZIEN in `sim/voortgang-tussendoor-uitkomst.txt`): elke dag 15 min open, hol 50 op dag 63; 30 min dag 57; 60 min dag 49. Wie werkt met het spel 6 uur open is in ±4,5 werkweek klaar, wie het tussendoor opent na 7 tot 9 weken. Dat is precies het spel dat Thijs op 9 nov vroeg ("leuk om eventjes tussendoor te doen ... niet tijdrovend"): hoe minder je speelt, hoe langer het meegaat, zonder dat je iets mist, want de nachten dragen het. Punt 4 van "Wat nog niet klopt" is daarmee beantwoord; voor de winkelpagina (Sem en Chris) is de eerlijke zin: "Open it for a few minutes a day and your hole grows for weeks."
 
 ## Versie 3 definitief (16 nov ±16:00 UTC)
 Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-eind-uitkomst.txt`, 8 zaden, 165 open uur, GEZIEN door mij). Ik neem alles over. **Dit zijn de getallen voor de bouw; de tabellen van versie 2 verderop zijn geschiedenis.**
@@ -47,8 +68,8 @@ Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `si
 7. **Namen in het spel en soort voor de optocht, niveau 13 tot 50** (vervolg op Olafs `WAT` en `SOORT` 1 tot 12 in `hol_niveau.gd`). Engels, zo kort mogelijk zodat "Next: <naam>, 999 heroes" in 34 tekens past (naam hooguit 14 tekens; langer mag in de hover, dan valt de doelregel terug op het nummer). Soort: "held" = nieuwe bezoeker of iets aan de helden, "poef" = iets nieuws in het hol dat gratis komt, "" = komt alleen in de winkel of is niet te zien.
    | Niv. | Naam | Soort | Niv. | Naam | Soort |
    |---|---|---|---|---|---|
-   | 13 | tier 4 upgrades | "" | 32 | the Troll | "" |
-   | 14 | the Skeleton | "" | 33 | the Fake Hoard | "" |
+   | 13 | tier 4 upgrades | "" | 32 | the Fake Hoard | "" |
+   | 14 | the Skeleton | "" | 33 | the Troll | "" |
    | 15 | the Sleepyhead | held | 34 | tier 6 upgrades | "" |
    | 16 | the Bedroom | "" | 35 | hat pack 4 | held |
    | 17 | the Glue Trap | "" | 36 | the Witch | held |
@@ -56,8 +77,8 @@ Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `si
    | 19 | the Show-off | held | 38 | Candle Room | "" |
    | 20 | Crystal Vein | poef | 39 | Skeleton armor | poef |
    | 21 | the Miner | held | 40 | Gloop Heart | poef |
-   | 22 | the Mimic | "" | 41 | the Hat Hunter | held |
-   | 23 | the Trapdoor | "" | 42 | Mother Gloop | "" |
+   | 22 | the Trapdoor | "" | 41 | the Hat Hunter | held |
+   | 23 | the Mimic | "" | 42 | Mother Gloop | "" |
    | 24 | the Kitchen | "" | 43 | Gloop Spring | "" |
    | 25 | tier 5 upgrades | "" | 44 | the Bat Tower | "" |
    | 26 | rivals' kids | held | 45 | the Gold Mimic | "" |
@@ -66,7 +87,7 @@ Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `si
    | 29 | Trophy Hall | "" | 48 | the Crowned | held |
    | 30 | Sunken Crypt | poef | 49 | the Hat Throne | "" |
    | 31 | the Explorer | held | 50 | the Hat King | poef |
-   Bij 20, 30 en 40 is de "poef" het dichte luik dat in de schatkamer verschijnt (te koop voor 750 / 1650 / 3000); de laag zelf koop je. Bij 41 komt ook de hoedenlokker in de winkel. De archeoloog heet in het spel "the Explorer" (korter, zelfde grap: hij onthoudt elke val).
+   (16 nov ±17:00 UTC: 22 en 23 en 32 en 33 omgedraaid, zie "Eigen helden per laag".) Bij 20, 30 en 40 is de "poef" het dichte luik dat in de schatkamer verschijnt (te koop voor 750 / 1650 / 3000); de laag zelf koop je. Bij 41 komt ook de hoedenlokker in de winkel. De archeoloog heet in het spel "the Explorer" (korter, zelfde grap: hij onthoudt elke val).
 
 ## Versie 3 vastgesteld (16 nov ±14:50 UTC)
 Bram rekende het voorstel hieronder na met weg als echte werkdagen (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-uitkomst.txt`, 8 zaden, GEZIEN). Ik neem alles over. Daarmee is versie 3 de richting; de tabellen van versie 2 verderop blijven staan als geschiedenis tot Bram de laatste run (punt 4) heeft gedaan.
@@ -181,8 +202,8 @@ Kolom "Sim" is versie 2; de uren van versie 3 staan in "Versie 3 definitief" pun
 | 19 | trek opschepper | 1 | nee | 9,0 u |
 | 20 | **trap naar laag 2: de Kristalader** | 2 | nee | 10,6 u |
 | 21 | mijnwerker (held laag 2: graaft om je eerste val heen) | 2 | nee | 12,0 u |
-| 22 | mimic (bewoner: speelt schatkist) *(te koop, ±1 u goud)* | 2 | nee | 13,6 u |
-| 23 | valluik: een held valt naar de laag eronder *(te koop, ±1 u goud)* | 2 | nee | 15,3 u |
+| 22 | valluik: een held valt erin, en naar de laag eronder als die er is; de tegenzet voor de mijnwerker *(te koop, ±1 u goud; was 23)* | 2 | nee | 13,6 u |
+| 23 | mimic (bewoner: speelt schatkist) *(te koop, ±1 u goud; was 22)* | 2 | nee | 15,3 u |
 | 24 | keuken (slijm groeit van laarzen) *(te koop, ±1 u goud)* | 2 | nee | 17,1 u |
 | 25 | upgrades stap 5 | 2 | nee | 19,0 u |
 | 26 | kinderen van aartsvijanden komen ("wants his father's hat back") | 2 | nee | 21,0 u |
@@ -191,8 +212,8 @@ Kolom "Sim" is versie 2; de uren van versie 3 staan in "Versie 3 definitief" pun
 | 29 | trofeeënzaal (aartsvijanden aan de wand) *(te koop, ±1 u goud)* | 2 | deels | 27,5 u |
 | 30 | **trap naar laag 3: de Verzonken Crypte** | 3 | nee | 29,8 u |
 | 31 | archeoloog (onthoudt elke val die hij zag) | 3 | nee | 32,2 u |
-| 32 | trol (bewoner: wordt alleen wakker voor aartsvijanden) *(te koop, ±1 u goud)* | 3 | nee | 34,9 u |
-| 33 | nep-schat (val, de tegenzet voor de archeoloog) *(te koop, ±1 u goud)* | 3 | nee | 37,4 u |
+| 32 | nep-schat (val, de tegenzet voor de archeoloog, verschuift na elke vangst) *(te koop, ±1 u goud; was 33)* | 3 | nee | 34,9 u |
+| 33 | trol (bewoner: wordt alleen wakker voor aartsvijanden) *(te koop, ±1 u goud; was 32)* | 3 | nee | 37,4 u |
 | 34 | upgrades stap 6 (laatste) | 3 | nee | 40,1 u |
 | 35 | hoedenpakket 4 (crypte) | 3 | pijplijn | 42,9 u |
 | 36 | heks (betovert Gloops hoeden een minuut tot kikkers, daarna weer hoeden) | 3 | nee | 45,9 u |
@@ -306,7 +327,7 @@ Zes prestaties voor open tijd (1, 5, 10, 20, 50, 100 uur), net als Desktop Defen
 - **T4 niets te koop:** alle 50 niveaus, lagen en verdiende uiterlijken zitten in het basisspel; DLC is alleen uiterlijk en eigen hoofdstukken.
 
 ## Wat nog niet klopt (eerlijk)
-**Stand versie 3 definitief (16 nov ±16:20 UTC):** punt 1 (gaten) en 4 (in ±4 dagen af) hieronder gaan over versie 2. Nu: langste gat per week 1,7 / 1,9 / 2,7 / 2,8 / 6,0 open uur; hol 50 op werkdag 22 bij 6 uur open per werkdag, en voor wie het spel dag en nacht laat draaien op ±128 / 24 = ±5,3 dagen. Nog open: (a) week 5 heeft gaten van een werkdag (bewust, geen grind); (b) de rij bij de ingang zit nog niet in de sim (gevraagd aan Bram); (c) eigen helden per laag zitten nog niet in de sim (punt 2); (d) kosten: Olaf rekent opnieuw in runs (punt 3).
+**Stand versie 3 definitief (16 nov ±16:20 UTC):** punt 1 (gaten) en 4 (in ±4 dagen af) hieronder gaan over versie 2. Nu: langste gat per week 1,7 / 1,9 / 2,7 / 2,8 / 6,0 open uur; hol 50 op werkdag 22 bij 6 uur open per werkdag, en voor wie het spel dag en nacht laat draaien op ±128 / 24 = ±5,3 dagen. Nog open: (a) week 5 heeft gaten van een werkdag (bewust, geen grind); (b) de rij bij de ingang zit nog niet in de sim (gevraagd aan Bram); (c) eigen helden per laag zitten nog niet in de sim (punt 2); (d) kosten: Olaf rekent opnieuw in runs (punt 3). **Stand 16 nov ±17:00 UTC:** (b) is gedaan en klopt; (c) ontworpen met tegenzet per held (zie "Eigen helden per laag"), Bram rekent na; punt 4 beantwoord: tussendoor spelen geeft 7 tot 9 weken.
 1. **Gaten.** Versie 2 nagerekend met Brams sim plus mijn 15 dingen met prijs, 20 kamertjes en lagere factor voor stap 4 tot 6 (GEZIEN, 8 zaden, `data/sim-v2/voortgang-v2-uitkomst.txt`): langste gat tot 20 uur 56 min, 20 tot 40 uur 1,0 u (was 1,6), 40 tot 70 uur 1,5 u (was 2,3), **70 tot 100 uur nog steeds 5,7 u**; bank bij 99 uur ±13.700 (was ±17.600). Hol-niveaus vallen op dezelfde uren (50 op 95,3 u). Mijn regel (tot 20 uur hooguit 2 uur, 20 tot 70 hooguit 3, daarna hooguit 4) is dus gehaald tot 70 uur, **na 70 uur niet** (5,7 u, regel hooguit 4). Waar het gat zit is niet uitgesplitst; na niveau 50 kan het niet helemaal zijn (100 min 95,3 is 4,7 u), dus het zit ook eerder (Bram splitst uit). Wil Thijs dat er ook na 95 uur iets te kopen is, dan moet er een goudput komen die niet opraakt; dat doe ik bewust niet (een eindeloze put zonder nieuws is precies Fenna patroon 2). Wat de sim niet telt vult de gaten nog deels: aartsvijanden (±1 per dag), hun kinderen, bladzijden in het boek, laagsterren.
 2. **De sim kent de eigen helden per laag nog niet** (mijnwerker, archeoloog, valluik); elke laag heeft daar dezelfde helden en vallen als laag 1. De sporen 3 en 4 staan als drempel op gevangen helden (GOK).
 3. **Kost.** Meer beeld dan Olafs eerste rekensom: 12 bewonersstreken, 4 lagen en nu ook 20 kamertjes aankleding. Olaf rekent do 19 nov opnieuw. Past het niet voor maart: **lancering met laag 1 tot 3 (hol 1 tot 39, ±55 uur, "50+ hours" op de winkelpagina) en laag 4 plus de aankleding van laag 3 en 4 als gratis update in april**; op niveau 39 staat dan eerlijk "Floor 4 comes in a free update".
