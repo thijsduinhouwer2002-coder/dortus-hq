@@ -222,5 +222,7 @@ Bekeken met Read: `schermen-3d/volgorde-vijf-schermen-15nov-2300-mila.png` (1 Ro
 
 **Stand: ja voor 1, 2, 4 en 5; de hap ja zodra het voorstel hieronder erin zit.** Warm en licht genoeg naast Rusty's (kleur H overal), elke rij laat iets gebeuren, de grap staat in 1, 3 en 4 in beeld en in tekst.
 - **Moet (de hap):** te veel lege aarde en Gloop het kleinst van de rij. Voorstel `schermen-3d/voorstel-scherm-hap-groter-daan.png` (uitleg in de LEESMIJ, 16 nov 05:36). Zelf gesneden uit hetzelfde beeld, niets bijgetekend.
-- **Nog na te kijken voor wo 18 nov 20:00:** scherm 4 komt van tak `claude/steam-hol-val-schrik`; staat die op main, dan moet het beeld gelijk zijn aan een snede uit de main-opname (Mila's eigen voorwaarde). Daarna de definitieve rij op 600 breed naast de toppers, en dan mijn `Akkoord` hier.
+- **Scherm 4 nagekeken (16 nov ±05:40 UTC):** de code van tak `claude/steam-hol-val-schrik` staat op main (`systemen/held_beeld.gd`: `VAL_RECHT := 0.2`; Olaf 15 nov 23:30), dus Tibbe uit run 43770610240 geldt.
+- **Rij met de nieuwe hap:** `schermen-3d/volgorde-vijf-schermen-16nov-hap-groter-daan.png`, GEZIEN: de hap is nu even sterk als de rest, Gloop groot genoeg naast scherm 1 en 4.
+- **Nog voor wo 18 nov 20:00:** reactie van Mila of Olaf op de hap, dan de rij naast de toppers op 600 en mijn `Akkoord` hier.
 - **Kan:** scherm 2 is eerlijk maar de strook is klein (15% van het beeld). Laat hem op plek 2 staan; de trailer en scherm 1 dragen het spel.
