@@ -68,8 +68,8 @@ const OPTOCHT_VOL := 10
 const OPTOCHT_MAX_S := 12.0
 const WEG_REGEL := "Grew %d levels while you were away."
 # Moet Daan 16 nov 15:33: geen niveautekst in de kroniek zolang er nergens een niveau te zien is.
-# Zet op true zodra Mila's bordje in het spel staat en Daan de regel weer goed vindt. De rekenkant blijft gewoon werken.
-const REGELS_AAN := false
+# Daan 16 nov 16:50: het bordje staat, de regels mogen aan.
+const REGELS_AAN := true
 
 static func soort(n: int) -> String:
 	return String(SOORT[n]) if n >= 0 and n < SOORT.size() else ""
@@ -118,7 +118,8 @@ static func plan(bij: Array[int]) -> Dictionary:
 # Zichtbaar niveau = niveau(faam) - rij: eigen vangsten tellen gewoon door.
 const WEG_MEETEN := 4
 const RIJ_S := 180.0
-const RIJ_REGEL := "%d more levels wait at the door."
+const RIJ_REGEL := "%d more to come as you play."   # Daan 16:50 (niveaus staan niet aan een deur)
+const NAAM_MAX := 34   # gelijk aan kaartje.gd DOEL_MAX
 
 static func zichtbaar(faam: int, rij: int) -> int:
 	return maxi(1, niveau(faam) - maxi(0, rij))
@@ -141,14 +142,23 @@ static func weg(oud_faam: int, nieuw_faam: int, rij_voor: int) -> Dictionary:
 	return {"meteen": meteen, "rij": rij, "regels": regels, "optocht": plan(meteen)}
 
 static func rij_regel(rij: int) -> String:
-	return "1 more level waits at the door." if rij == 1 else RIJ_REGEL % rij
+	return RIJ_REGEL % rij
 
-# Hover op het bordje met iets in de rij: "7 levels waiting. Next in 2 min."
-static func rij_hover(rij: int, rij_t: float) -> String:
+# Naam van het volgende niveau uit de rij met de wachttijd (Iris 17:40: noem wat er komt, geen "door"):
+# "Next: the Thief, in 2 min"; past het niet in NAAM_MAX, dan "Next: level 13, in 2 min".
+static func rij_volgende(faam: int, rij: int, rij_t: float) -> String:
 	var min_ := maxi(1, ceili((RIJ_S - rij_t) / 60.0))
-	return "%d level%s waiting. Next in %d min." % [rij, "" if rij == 1 else "s", min_]
+	var n := zichtbaar(faam, rij) + 1
+	var naam: String = String(WAT[n]) if n < WAT.size() else ""
+	var r := "Next: %s, in %d min" % [naam, min_]
+	if naam == "" or r.length() > NAAM_MAX:
+		r = "Next: level %d, in %d min" % [n, min_]
+	return r
 
-# Doelregel (d): "Level 6 at the door: 2 min"
+# Hover op het bordje met iets in de rij: "7 more to come. Next: a second pit, in 2 min."
+static func rij_hover(faam: int, rij: int, rij_t: float) -> String:
+	return "%d more to come. %s." % [rij, rij_volgende(faam, rij, rij_t)]
+
+# Doelregel (d): "Next: a second pit, in 2 min"
 static func rij_doel(faam: int, rij: int, rij_t: float) -> String:
-	var min_ := maxi(1, ceili((RIJ_S - rij_t) / 60.0))
-	return "Level %d at the door: %d min" % [zichtbaar(faam, rij) + 1, min_]
+	return rij_volgende(faam, rij, rij_t)

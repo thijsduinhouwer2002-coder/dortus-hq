@@ -198,9 +198,11 @@ jobs:
           # 2: zonder steamdemo geen regel en kopen werkt  3: herstart met dezelfde save: speeltijd loopt door, startregel
           # 4: hol.json staat in %APPDATA%/Dortus/Het Hol
           $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
-          function Speel($log, $args_) {
+          function Speel($log, $args_, $foto = "") {
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
               -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            # beeld na weg: bordje met het wachtkaartje (Mila 16 nov 16:55), na de optocht
+            if ($foto -ne "") { Start-Sleep 12; & producten/steam-hol/e2e/scherm.ps1 $foto }
             if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force }
             Get-Content $log -ErrorAction SilentlyContinue
           }
@@ -232,9 +234,11 @@ jobs:
           # 2: daarna de klok 1 uur vooruit in de save (klok terug op de pc): geen goud erbij en geen crash
           $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
           $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
-          function Speel($log, $args_) {
+          function Speel($log, $args_, $foto = "") {
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
               -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
+            # beeld na weg: bordje met het wachtkaartje (Mila 16 nov 16:55), na de optocht
+            if ($foto -ne "") { Start-Sleep 12; & producten/steam-hol/e2e/scherm.ps1 $foto }
             if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force }
             Get-Content $log -ErrorAction SilentlyContinue
           }
@@ -242,7 +246,7 @@ jobs:
           $null = Speel "$uit/weg-0.log" "vers=1 duur=15"
           $voor = python producten/steam-hol/e2e/save_terug.py $save 28800
           Write-Output "===== voor (8 uur terug): $voor"
-          $a = Speel "$uit/weg-1.log" "duur=15" | Out-String
+          $a = Speel "$uit/weg-1.log" "duur=15" "$uit/weg-kaartje-120.png" | Out-String
           Write-Output $a
           $na = python producten/steam-hol/e2e/save_terug.py $save 0
           Write-Output "===== na: $na"
@@ -269,6 +273,8 @@ jobs:
           if ($a -notmatch "HOL (kroniek [0-9.]+ \(wacht [0-9.]+\)|weg-regel uit tot het bordje): (Grew \d+ levels while you were away\.|Hole level \d+: )") { Write-Output "FOUT: geen regel 'Grew N levels while you were away.' na 8 uur weg"; $fout++ }
           # rij bij de ingang (Sanne 16 nov 16:00): een vers hol tilt na 8 uur weg hooguit 4 niveaus meteen, de rest wacht
           if ($a -notmatch "HOL rij bij de ingang \d+ \(meteen \[\d+, \d+, \d+, \d+\]\)") { Write-Output "FOUT: geen rij bij de ingang na 8 uur weg (verwacht 4 niveaus meteen)"; $fout++ }
+          # Daan 16 nov 16:50: regels na weg aan, tekst "N more to come as you play."
+          if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ more to come as you play\.") { Write-Output "FOUT: geen kroniekregel 'N more to come as you play.' na 8 uur weg"; $fout++ }
           if ($a -notmatch "HOL bordje wip na weg \(niveau \d+\)") { Write-Output "FOUT: het bordje wipte niet na weg (Mila 16 nov 16:20)"; $fout++ }
           if ($a -notmatch "HOL optocht wip, .*duur ([0-9.]+) s") { Write-Output "FOUT: geen optocht in de log"; $fout++ }
           elseif ([double]$Matches[1] -gt 12.0) { Write-Output "FOUT: optocht duurt $($Matches[1]) s, hooguit 12"; $fout++ }

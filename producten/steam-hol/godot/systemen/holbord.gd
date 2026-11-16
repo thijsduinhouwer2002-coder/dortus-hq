@@ -5,9 +5,16 @@ extends Node2D
 # Kind van het hol, vóór Wezens: het staat in spelpixels en de helden lopen ervoor langs.
 # Zuinig: kijkt 10 keer per seconde of faam of de plek van de boog veranderde, en tekent alleen dan opnieuw (of tijdens de wip).
 # Zonder blad doet het niets.
+# Wachtkaartje (Mila 16 nov 16:55): staan er niveaus in de rij, dan hangt onder het bord een papieren "+7" (sprite `holkaart`,
+# cel `kaart1` bij 1 tot 9, `kaart2` bij 10 of meer, cijfers `k0` tot `k9`). Plek uit anker_x en nul_y van beide bladen,
+# precies als `ontwerp/steam/bordje/mila_proef_kaart.py`. Wipt mee met het bord; zonder blad geen kaartje.
 
 const BLAD_JSON := "res://kunst/3d/sprites.json"
 const NAAM := "holbord"
+const KAART := "holkaart"
+# Kaartje aan of uit: op main uit tot Daan het kaartje keurde (keurvraag Mila 16:55 in berichten/daan.md).
+const KAART_AAN := true
+const KAART_EENHEDEN := 4.0           # spelpixels: tweede cijfer naar rechts
 const HN := preload("res://systemen/hol_niveau.gd")
 const CEL := Vector2(15, 18)          # spelpixels
 const LINKS_VAN_BOOG := 28.0          # Mila's proef: plank op spelpixel 4 bij de boog op 32 (ingang_kol 2)
@@ -33,6 +40,12 @@ var _eerste := true
 var hover := false   # muis op de plank (strook.gd _input)
 var _niv := 1
 var _niv_nu := 1
+var kt: CanvasTexture = null   # wachtkaartje
+var kw := 110
+var kh := 36
+var kpx := 4.0
+var kframes: Array = []
+var kaart_d := Vector2.ZERO   # kaartcel links-boven ten opzichte van de bordcel, spelpixels
 
 func zet(strook, h) -> void:
 	s = strook
@@ -51,6 +64,42 @@ func zet(strook, h) -> void:
 	ct = CanvasTexture.new()
 	ct.diffuse_texture = load(blad)
 	ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	zet_kaart(d)
+
+func zet_kaart(d: Dictionary) -> void:
+	if not d.has(KAART) or typeof(d[KAART]) != TYPE_DICTIONARY:
+		return
+	var k: Dictionary = d[KAART]
+	var b: Dictionary = d[NAAM]
+	var blad := str(k.get("blad", ""))
+	if not ResourceLoader.exists(blad):
+		return
+	var cp = k.get("cel_px", [110, 36])
+	kw = int(cp[0])
+	kh = int(cp[1])
+	kpx = float(k.get("px", 4))
+	kframes = k.get("frames", [])
+	kaart_d = kaart_plek(b, k)
+	kt = CanvasTexture.new()
+	kt.diffuse_texture = load(blad)
+	kt.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+
+# Mila: kaartcel links = bordcel links + (anker_x bord - anker_x kaart) / px, boven = bordcel boven + (nul_y bord - nul_y kaart).
+static func kaart_plek(b: Dictionary, k: Dictionary) -> Vector2:
+	var px := float(b.get("px", 4))
+	var nb: float = float(b.get("nul_y", [0.0])[0])
+	var nk: float = float(k.get("nul_y", [0.0])[0])
+	return Vector2((float(b.get("anker_x", 0)) - float(k.get("anker_x", 0))) / px, nb - nk)
+
+# Cellen voor het kaartje bij `wacht` niveaus in de rij: [[frame, dx], ...]; leeg als de rij leeg is.
+static func kaart_cellen(wacht: int) -> Array:
+	if wacht <= 0:
+		return []
+	var t := str(clampi(wacht, 1, 99))
+	var uit: Array = [["kaart1" if t.length() == 1 else "kaart2", 0.0]]
+	for i in t.length():
+		uit.append(["k" + t[i], KAART_EENHEDEN * float(i)])
+	return uit
 
 func actief() -> bool:
 	return ct != null
@@ -65,12 +114,12 @@ func plank_x() -> float:
 func vlak() -> Rect2:
 	return Rect2(plank_x(), BOVEN, CEL.x, CEL.y)
 
-# "Level 5: the Thief. 12 more heroes."; met iets in de rij "7 levels waiting. Next in 2 min." (Sanne 16:00)
+# "Level 5: the Thief. 12 more heroes."; met iets in de rij "7 more to come. Next: a second pit, in 2 min." (Sanne 16:00, Iris 17:40)
 func hover_tekst() -> String:
 	if s == null:
 		return ""
 	if int(s.rij) > 0:
-		return HN.rij_hover(int(s.rij), float(s.rij_t))
+		return HN.rij_hover(int(s.faam), int(s.rij), float(s.rij_t))
 	return HN.hover(int(s.faam))
 
 func wip() -> void:
@@ -145,3 +194,10 @@ func _draw() -> void:
 	var vol: float = round(2.0 * BALK_HALF * d * 3.0) / 3.0   # op schermpixels bij schaal 3
 	if vol > 0.0:
 		draw_rect(Rect2(mid - BALK_HALF, by, vol, 1.0), VOL_KLEUR)
+	if KAART_AAN and kt != null and rij > 0:
+		var kc := Vector2(kw, kh) / kpx
+		for c in kaart_cellen(rij):
+			var i := kframes.find(String(c[0]))
+			if i < 0:
+				continue
+			draw_texture_rect_region(kt, Rect2(x + kaart_d.x + float(c[1]), y + kaart_d.y, kc.x, kc.y), Rect2(i * kw, 0, kw, kh))

@@ -97,8 +97,14 @@ func _init() -> void:
 	# bordje (Mila 16 nov 16:20): één cijfer in het midden, twee cijfers -2,5 en +2,5; blad met 11 cellen
 	var HB = load("res://systemen/holbord.gd")
 	ok(HB.cijfers(5) == [[5, 0.0]] and HB.cijfers(12) == [[1, -2.5], [2, 2.5]], "bordje: cijfers en hun plek")
+	# wachtkaartje (Mila 16 nov 16:55)
+	ok(HB.kaart_cellen(0).is_empty() and HB.kaart_cellen(7) == [["kaart1", 0.0], ["k7", 0.0]], "kaartje: leeg zonder rij, +7 met kaart1")
+	ok(HB.kaart_cellen(10) == [["kaart2", 0.0], ["k1", 0.0], ["k0", 4.0]], "kaartje: +10 met kaart2, eenheden 4 spelpixels rechts")
 	var sp = JSON.parse_string(FileAccess.get_file_as_string("res://kunst/3d/sprites.json"))
 	ok(sp.has("holbord") and sp["holbord"]["frames"].size() == 11 and ResourceLoader.exists(String(sp["holbord"]["blad"])), "bordje: blad holbord met leeg en c0 tot c9")
+	ok(sp.has("holkaart") and sp["holkaart"]["frames"].size() == 12 and ResourceLoader.exists(String(sp["holkaart"]["blad"])), "kaartje: blad holkaart met kaart1, kaart2, k0 tot k9")
+	var kp: Vector2 = HB.kaart_plek(sp["holbord"], sp["holkaart"])
+	ok(absf(kp.x - (-6.25)) < 0.01 and absf(kp.y - 12.33) < 0.01, "kaartje: plek uit anker_x en nul_y (%s)" % str(kp))
 	var hb = HB.new()
 	ok(not hb.actief() and hb.plank_x() == 4.0, "bordje zonder blad of hol doet niets")
 	hb.free()
@@ -132,15 +138,18 @@ func _init() -> void:
 	# rij bij de ingang (Sanne 16 nov 16:00): hooguit 4 meteen, rest wacht; zichtbaar = niveau - rij
 	var rq: Dictionary = HN.weg(0, 136, 0)
 	ok(rq.meteen == [2, 3, 4, 5] and int(rq.rij) == 7, "eerste nacht: hol 5 meteen, 7 in de rij (%s, %d)" % [str(rq.meteen), int(rq.rij)])
-	ok(rq.regels == ["Grew 4 levels while you were away.", "7 more levels wait at the door."], "regels na weg met rij: " + str(rq.regels))
+	ok(rq.regels == ["Grew 4 levels while you were away.", "7 more to come as you play."], "regels na weg met rij (Daan 16:50): " + str(rq.regels))
 	ok(HN.zichtbaar(136, 7) == 5 and HN.zichtbaar(136, 0) == 12, "zichtbaar niveau = niveau min rij")
 	var op4: Dictionary = rq.optocht
 	ok(op4.helden == [3, 5] and op4.poef.size() == 1 and float(op4.duur) <= 5.0, "optocht met 4 niveaus: ridder, dief, vleermuis, kort")
 	var rq2: Dictionary = HN.weg(136, 140, 7)
 	ok(rq2.meteen == [6, 7, 8, 9] and int(rq2.rij) == 3, "tweede nacht met rij: weer hooguit 4 (%s, %d)" % [str(rq2.meteen), int(rq2.rij)])
 	ok(HN.weg(10, 12, 0).rij == 0 and HN.weg(10, 12, 0).regels == ["Hole level 5: the Thief."], "één niveau: geen rij, gewone regel")
-	ok(HN.rij_regel(1) == "1 more level waits at the door." and HN.rij_hover(7, 60.0) == "7 levels waiting. Next in 2 min.", "rij-regel en hover")
-	ok(HN.rij_doel(136, 7, 60.0) == "Level 6 at the door: 2 min", "doelregel met rij: " + HN.rij_doel(136, 7, 60.0))
+	ok(HN.rij_regel(1) == "1 more to come as you play." and HN.rij_hover(136, 7, 60.0) == "7 more to come. Next: a second pit, in 2 min.", "rij-regel en hover: " + HN.rij_hover(136, 7, 60.0))
+	ok(HN.rij_doel(136, 7, 60.0) == "Next: a second pit, in 2 min", "doelregel met rij noemt wat komt (Iris 17:40): " + HN.rij_doel(136, 7, 60.0))
+	ok(HN.rij_doel(136, 8, 179.0) == "Next: the Thief, in 1 min" and HN.REGELS_AAN, "doelregel rij: dief, 1 min; regels na weg aan (Daan 16:50)")
+	for r_ in range(1, 12):
+		ok(HN.rij_doel(136, r_, 0.0).length() <= HN.NAAM_MAX, "doelregel rij past in 34 tekens (rij %d)" % r_)
 	var lang_n := 0
 	for n_ in range(2, 13):
 		if HN.niveau_regel(n_).length() > 42:
