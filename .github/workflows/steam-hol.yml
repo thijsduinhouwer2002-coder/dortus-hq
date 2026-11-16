@@ -272,7 +272,10 @@ jobs:
           # moet Daan 16 nov 17:45: de regel "quarter speed" staat uit (leest als straf)
           if ($a -match "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Your hole worked at quarter speed") { Write-Output "FOUT: regel 'quarter speed' staat nog in de kroniek"; $fout++ }
           # optocht (Sanne 16 nov 14:50): een nieuw spel van 15 s staat op niveau 1 tot 2, 8 uur weg tilt het naar ±12 in één optocht
-          if ($a -notmatch "HOL (kroniek [0-9.]+ \(wacht [0-9.]+\)|weg-regel uit tot het bordje): (Grew \d+ levels while you were away\.|Hole level \d+: )") { Write-Output "FOUT: geen regel 'Grew N levels while you were away.' na 8 uur weg"; $fout++ }
+          # Daan 16 nov 20:50 (Iris keuring 6 tot 8): "Grew N levels while you were away." en "Gloop got N new hats." zijn eruit,
+          # en daardoor mag de regel van de eerste held na terugkomst niet meer vervallen (15 s spelen: geen enkele regel vervalt)
+          if ($a -match "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): (Grew \d+ levels while you were away\.|\S+ got \d+ new hats?\.)") { Write-Output "FOUT: regel 'Grew N levels' of 'new hats' staat nog in de kroniek"; $fout++ }
+          if ($a -match "HOL kroniek (terugkomer )?vervallen ([0-9.]+): (.*)") { Write-Output "FOUT: kroniekregel vervallen na terugkomst op $($Matches[2]) s: $($Matches[3])"; $fout++ }
           # rij bij de ingang (Sanne 16 nov 16:00): een vers hol tilt na 8 uur weg hooguit 4 niveaus meteen, de rest wacht
           if ($a -notmatch "HOL rij bij de ingang \d+ \(meteen \[\d+, \d+, \d+, \d+\]\)") { Write-Output "FOUT: geen rij bij de ingang na 8 uur weg (verwacht 4 niveaus meteen)"; $fout++ }
           # Daan 16 nov 16:50: regels na weg aan, tekst "N more to come as you play."
