@@ -1,8 +1,71 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (spoed diepte-toppers af 16 nov ±13:00 UTC, zie `platformen/succes/diepte-toppers.md`; volgende run: Click and Slash, 20 talen en 1 review; of wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan)
+bezig: niets (verhaal 10 af 16 nov ±14:15 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of een spel dat golft door één Chinese video)
 
 Nieuwste bovenaan.
+
+---
+
+## 10. Wat een vertaling echt oplevert: drie spellen die talen toevoegden na de lancering, gemeten in reviews per taal vóór en na (plus Click and Slash: 20 talen, 1 review)
+
+Onderzocht 16 nov 2026, run 11. Waarom nu: de hoofdchat beslist vóór 1 dec welke talen in de demo komen (`platformen/steam/fest-plan.md`, punt 6). Vera mat al welk deel van de reviews per taal binnenkomt bij de toppers (Chinees mediaan 26%, Aanvulling 6 en 7 in `platformen/verkenner/steam-desktop-2026-11.md`). Wat nog niemand had: **komen die kopers dóór de vertaling, of waren ze er toch al?** Dat zie je alleen bij een spel dat een taal later toevoegde: dan kun je vóór en na vergelijken.
+
+### Bronnen en werkwijze
+- Aankondigingen van 168 bureaubladspellen met 100+ reviews (uit Vera's kaart) via de nieuws-API van Steam, doorzocht op "Chinese", "translation", "localization", "new languages" (GEZIEN 16 nov). Zo vond ik de datum waarop een taal erbij kwam.
+- Reviews per taal per maand: de communitypagina van Steam (`steamcommunity.com/app/<appid>/homecontent/?browsefilter=mostrecent&filterLanguage=<taal>&appHubSubSection=10`, met de cursor van elke pagina), alle reviews in die taal vanaf de lancering, met datum (GEZIEN 16 nov). De review-API van de winkel stuurt ons door, deze pagina niet.
+- Alle reviews samen per week: `store.steampowered.com/appreviewhistogram/<appid>` (GEZIEN 16 nov).
+- Ruwe tellingen per maand en taal: `platformen/succes/data/talen-voor-na-2026-11-16.csv`.
+- Aankondigingen: [Ropuka JP/ZH/KO, 20 jun 2025](https://store.steampowered.com/news/app/3416070/view/1802893906762643), [Ropuka vijf Europese talen, 30 okt 2025](https://store.steampowered.com/news/app/3416070/view/1815034432856341), [Burgie's acht talen, 11 jun 2025](https://store.steampowered.com/news/app/3314340/view/1802261838710720), [Lowmoor vijf talen, 14 sep 2026](https://store.steampowered.com/news/app/4977360/view/1843481262701297), [Click and Slash release](https://store.steampowered.com/app/4598890/).
+
+### Spel 1: Ropuka's Idle Island ($3,99, lancering 29 jan 2025, 4.204 reviews in alle talen)
+Op 20 jun 2025 kwamen Japans, Vereenvoudigd Chinees en Koreaans erbij, op 30 okt 2025 Pools, Frans, Duits, Spaans en Braziliaans. Vertaald door een vertaalbureau (Kurono Studios) met namen van vertalers erbij, dus door mensen. Deel van alle reviews per taal (GEZIEN, mijn rekensom op de tellingen):
+
+| Taal | Vóór de vertaling | Na de vertaling | |
+|---|---|---|---|
+| Vereenvoudigd Chinees | 3,0% (59) | **8,5%** (187) | bijna 3 keer |
+| Koreaans | 0,8% (15) | 1,6% (35) | 2 keer |
+| Japans | 0,6% (12) | 1,1% (24) | bijna 2 keer |
+| Traditioneel Chinees, **níet vertaald** (controle) | 0,9% (24) | 0,6% (10) | omlaag |
+| Duits | 2,8% (72) | 2,4% (38) | niets |
+| Frans | 0,7% (19) | 0,7% (12) | niets |
+| Pools | 0,7% (18) | 1,6% (25) | 2 keer |
+| Spaans | 0,8% (20) | 1,6% (26) | 2 keer |
+| Braziliaans | 1,9% (50) | 2,9% (47) | anderhalf keer |
+
+"Vóór" is vanaf de lancering tot de week van de vertaling, "na" tot 16 nov 2026. Twee controles dat het de vertaling is en niet de tijd: Traditioneel Chinees (niet vertaald) zakte in dezelfde periode, en het Duits zakte van 3,7% in feb tot mei naar 1,5% in jun tot okt 2025 terwijl het Chinees in diezelfde maanden steeg.
+
+Rekensom (mijn rekensom, GOK in de laatste stap): na 20 jun 2025 kwamen er 2.202 reviews; met het oude aandeel van 3% waren dat ±66 Chinese geweest, het werden er 187. Dus **±120 reviews extra door het Chinees, ±3% van alle reviews van het spel.** Met reviews x 30 tot 60 (grove schatting uit de rol) zijn dat ±3.600 tot 7.200 kopers, maar in China ligt de prijs lager (GOK hoeveel). De vijf Europese talen samen: 148 reviews na, tegen ±111 met het oude aandeel, dus **±37 extra**, waarvan Duits en Frans niets.
+
+### Spel 2: Burgie's Cozy Kitchen ($6,99, solo, lancering 10 feb 2025, 1.704 reviews)
+De maker (Nau) voegde op 11 jun 2025 acht talen toe, zelf vertaald waar hij kon: "I did my best to translate everything well, but some languages are completely beyond what I can handle." Hij koos "the languages I've seen most in the community". Wat er gebeurde (GEZIEN):
+- **Het eerste jaar met Chinees: 7 Chinese reviews in 12 maanden** (±3% van 245). De vertaling alleen deed bijna niets.
+- **Vanaf de week van 15 juni 2026 golfde het spel:** van 4 tot 10 reviews per week naar 139 en 141, en 1.349 reviews van juni tot nu, 5,5 keer zoveel als de 245 in het hele jaar ervoor. **Van die golf was 38% Chinees (512 reviews).** In de piekweken bijna de helft (66 van 139, 61 van 141). Wat de golf startte weet ik niet: in de aankondigingen staat niets bijzonders vóór 15 juni (de 1.0 kwam pas op 13 juli, de zomeruitverkoop van Steam begon eind juni). Ook de niet-Chinese reviews gingen 5 tot 10 keer omhoog, dus het was geen puur Chinese golf.
+- **De andere zeven nieuwe talen samen: 28 reviews in 17 maanden** (Russisch 10, Duits 5, Koreaans 5, Pools 4, Japans 2, Turks 2). Ook tijdens de golf bijna niets.
+Mijn lezing: de vertaling bracht zelf geen kopers, maar toen er een golf kwam, kon ruim een derde ervan in het Chinees landen. Zonder Chinees was die derde er waarschijnlijk grotendeels niet geweest (GOK; Cornerpond haalt zonder vertaling 8% Chinees volgens Vera, Burgie's had vóór de vertaling 0).
+
+### Spel 3: Lowmoor Idle RPG (gratis, lancering 7 aug 2026, 126 reviews)
+Vijf talen op 14 sep 2026, vertaald door vier spelers uit de community. Daarna 1 tot 4 reviews per nieuwe taal (Chinees 4, Japans 3, Pools 3, Duits 1, Braziliaans 1). Klein spel, dus weinig te zien; wel een teken dat een vertaling zonder publiek niets doet. Na een week moest de maker het Japans al herzien ("repaired sentences assembled from translated parts").
+
+### Tegenvoorbeeld: Click and Slash (zebra3dev, Frankrijk, uitgever Sukuratchi)
+"A cute desktop monster that accompanies you every day." Bureaubladspel met gevechten, prestige en een "co-working system", $7,99, Early Access sinds 27 okt 2026, **20 talen** (van Arabisch tot Noors), demo, mee in Next Fest okt 2026 met een eigen livestream ("french or english only"). Na drie weken: **1 review** en **1 speler tegelijk** op 16 nov (GEZIEN, appdetails en GetNumberOfCurrentPlayers). De maker werkte er 6 maanden aan. Twintig talen konden geen publiek maken dat er niet was. Zelfde beeld op Vera's kaart: van de betaalde bureaubladspellen uit 2024 tot sep 2026 hebben spellen met 1 taal mediaan 3 reviews, met 10 tot 14 talen mediaan 20 (GEZIEN, mijn rekensom op `platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`); maar daar zitten grotere ploegen en uitgevers achter, dus dat zegt niet dat talen het verschil maken.
+
+### Drie lessen
+1. **Een vertaling is een vermenigvuldiger, geen motor.** Bij Burgie's deed het Chinees een jaar lang bijna niets en droeg het daarna 38% van de golf. Bij Click and Slash deden 20 talen niets omdat er geen golf kwam. Eerst het moment (fest, video, lijstje), de vertaling zorgt dat je er meer van houdt.
+2. **Alleen Chinees levert echt iets op; de rest is klein of nul.** Chinees bijna 3 keer (Ropuka) en 38% van een golf (Burgie's). Koreaans, Japans, Pools en Spaans verdubbelen, maar van ±1% naar ±1,6%. Duits en Frans gaven niets: wie Duits of Frans spreekt, speelde en schreef al in het Engels of in de eigen taal. Zeven talen bij Burgie's samen 28 reviews in 17 maanden.
+3. **Laat de spelers de volgende taal kiezen.** Ropuka vroeg "Let us know what other languages you want", Burgie's koos wat hij in de community zag. Dat is gratis te meten: de taal van reviews en discussies op de demo.
+
+### Wat dit betekent voor Hats (en wat niet)
+- Het bevestigt Vera's advies voor het Chinees met een oorzaak erbij, en het zwakt de rest af: Duits heeft geen bewijs, Koreaans en Japans zijn klein. Olaf telde ±1700 woorden; vier talen kosten ±€650 tot €920, het Chinees alleen €153 tot €204 (Allcorrect, DERDEN, zie de vertaalvraag hieronder).
+- Niet zomaar overnemen: drie spellen is weinig, en alle drie zijn rustige gezellige spellen of een gratis RPG, geen gevecht onderaan het scherm. Bij Burgie's ken ik de oorzaak van de golf niet; misschien was het een Chinese video die ook zonder vertaling was gekomen.
+
+### Voorstel voor Dortus deze week
+**Demo voor het fest in twee talen: Engels en Vereenvoudigd Chinees (door een mens), plus de korte winkeltekst en de tekst op de capsule in het Chinees. Geen Duits, Japans of Koreaans vóór het fest.** Na het fest een derde taal alleen als die taal minstens 5% van de reviews en discussies van de demo haalt (grens is GOK). Bespaart ±€500 tot €700 tegen vier talen en ±3 vertaalrondes in de drukke weken vóór 21 dec. Wie: de hoofdchat (besluit vóór 1 dec, punt 6 van het fest-plan), Olaf (vertaaltabel, één taal extra), Thijs alleen voor de betaling van de vertaler.
+
+### Eerlijk: wat ik niet weet
+- Of de reviews per taal ook de kopers per taal zijn. Chinese kopers schrijven misschien vaker of minder vaak een review; Vera zag dat ze strenger scoren.
+- Wat de golf van Burgie's in juni 2026 startte. Bilibili (waar Chinese spelers video's kijken) gaf ons geen zoekresultaten via curl.
+- De prijs in China en dus wat 120 extra Chinese reviews in geld waren.
+- Of de vertaling van de winkelpagina zelf al verschil maakt, los van het spel. Sill Cats meldde in juni 2026 dat de pagina in sommige talen Engels bleef terwijl het spel 30 talen had; dat heb ik niet gemeten.
 
 ---
 
