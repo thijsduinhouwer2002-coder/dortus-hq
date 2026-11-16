@@ -1,6 +1,4 @@
 <drawables>
-    <bitmap id="GloopRust" filename="gloop_rust.png" dithering="none"/>
-    <bitmap id="GloopBlij" filename="gloop_blij.png" dithering="none"/>
     <bitmap id="Hoed0" filename="hoed_00_helm.png" dithering="none"/>
     <bitmap id="Hoed1" filename="hoed_01_puntmuts.png" dithering="none"/>
     <bitmap id="Hoed2" filename="hoed_02_kap.png" dithering="none"/>
@@ -11,5 +9,38 @@
     <bitmap id="Hoed7" filename="hoed_07_hoge_hoed.png" dithering="none"/>
     <bitmap id="Hoed8" filename="hoed_08_pan.png" dithering="none"/>
     <bitmap id="Hoed9" filename="hoed_09_veermuts.png" dithering="none"/>
+    <bitmap id="Achter" filename="wp_achter.png"/>
+    <bitmap id="GloopKijk" filename="wp_gloop_kijk.png"/>
+    <bitmap id="Uur0" filename="wp_uur_0.png"/>
+    <bitmap id="Uur1" filename="wp_uur_1.png"/>
+    <bitmap id="Uur2" filename="wp_uur_2.png"/>
+    <bitmap id="Uur3" filename="wp_uur_3.png"/>
+    <bitmap id="Uur4" filename="wp_uur_4.png"/>
+    <bitmap id="Uur5" filename="wp_uur_5.png"/>
+    <bitmap id="Uur6" filename="wp_uur_6.png"/>
+    <bitmap id="Uur7" filename="wp_uur_7.png"/>
+    <bitmap id="Uur8" filename="wp_uur_8.png"/>
+    <bitmap id="Uur9" filename="wp_uur_9.png"/>
+    <bitmap id="Min0" filename="wp_min_0.png"/>
+    <bitmap id="Min1" filename="wp_min_1.png"/>
+    <bitmap id="Min2" filename="wp_min_2.png"/>
+    <bitmap id="Min3" filename="wp_min_3.png"/>
+    <bitmap id="Min4" filename="wp_min_4.png"/>
+    <bitmap id="Min5" filename="wp_min_5.png"/>
+    <bitmap id="Min6" filename="wp_min_6.png"/>
+    <bitmap id="Min7" filename="wp_min_7.png"/>
+    <bitmap id="Min8" filename="wp_min_8.png"/>
+    <bitmap id="Min9" filename="wp_min_9.png"/>
+    <bitmap id="GloopAod" filename="wp_gloop_aod.png"/>
+    <bitmap id="HoedAod0" filename="wp_hoed_0_aod.png"/>
+    <bitmap id="HoedAod1" filename="wp_hoed_1_aod.png"/>
+    <bitmap id="HoedAod2" filename="wp_hoed_2_aod.png"/>
+    <bitmap id="HoedAod3" filename="wp_hoed_3_aod.png"/>
+    <bitmap id="HoedAod4" filename="wp_hoed_4_aod.png"/>
+    <bitmap id="HoedAod5" filename="wp_hoed_5_aod.png"/>
+    <bitmap id="HoedAod6" filename="wp_hoed_6_aod.png"/>
+    <bitmap id="HoedAod7" filename="wp_hoed_7_aod.png"/>
+    <bitmap id="HoedAod8" filename="wp_hoed_8_aod.png"/>
+    <bitmap id="HoedAod9" filename="wp_hoed_9_aod.png"/>
     <bitmap id="LauncherIcon" filename="launcher_icon.png"/>
 </drawables>

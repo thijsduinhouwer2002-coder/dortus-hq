@@ -60,3 +60,22 @@ function testHoedWachtTotJeKijkt(logger as Test.Logger) as Boolean {
     return Regel.wachtend(7, 6) == 6 && Regel.wachtend(7, 7) == 7 && Regel.wachtend(0, 9) == 0
         && Regel.wachtend(5, -1) == 5 && Regel.wachtend(11, 8) == 8;
 }
+
+(:test)
+function testAantalMetKroon(logger as Test.Logger) as Boolean {
+    return Regel.aantal(3420, 10000) == 3 && Regel.aantal(10000, 10000) == 10 && Regel.aantal(14800, 10000) == 14
+        && Regel.aantal(600, 500) == 1 && Regel.aantal(0, 10000) == 0;
+}
+
+(:test)
+function testRegelOnderDeStappen(logger as Test.Logger) as Boolean {
+    return Regel.regel(7612, 10000).equals("7/10 HATS") && Regel.regel(10000, 10000).equals("GOAL!")
+        && Regel.regel(10999, 10000).equals("GOAL!") && Regel.regel(14800, 10000).equals("GOAL! +4")
+        && Regel.regel(7600, 7500).equals("GOAL!");
+}
+
+(:test)
+function testPuntBijDuizend(logger as Test.Logger) as Boolean {
+    return Regel.punt(0).equals("0") && Regel.punt(999).equals("999") && Regel.punt(7612).equals("7.612")
+        && Regel.punt(10005).equals("10.005") && Regel.punt(14800).equals("14.800");
+}

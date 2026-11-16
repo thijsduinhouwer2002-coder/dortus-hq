@@ -20,6 +20,39 @@ module Regel {
         return doel > 0 && stappen >= doel;
     }
 
+    // Hoeveel hoeden er in de toren staan, de kroon meegeteld. Tot het doel een hoed per 1.000 stappen;
+    // bij het doel is de bovenste hoed de kroon (Mila: 10.000 stappen is 9 hoeden plus de kroon). Is het
+    // doel kleiner dan 1.000 stappen, dan staat alleen de kroon er.
+    function aantal(stappen as Number, doel as Number) as Number {
+        var n = hoeden(stappen);
+        if (kroon(stappen, doel) && n < 1) {
+            return 1;
+        }
+        return n;
+    }
+
+    // De regel onder de stappen: voor het doel "7/10 HATS", bij het doel "GOAL!", daarna "GOAL! +4"
+    // (hele duizenden stappen boven het doel).
+    function regel(stappen as Number, doel as Number) as String {
+        var n = hoeden(stappen);
+        if (!kroon(stappen, doel)) {
+            return n + "/" + hoedenBijDoel(doel) + " HATS";
+        }
+        var meer = (stappen - doel) / 1000;
+        if (meer > MAX_HOEDEN) {
+            meer = MAX_HOEDEN;
+        }
+        return meer > 0 ? "GOAL! +" + meer : "GOAL!";
+    }
+
+    // Stappen met een punt bij de duizendtallen: 7612 wordt "7.612".
+    function punt(n as Number) as String {
+        if (n < 1000) {
+            return n.toString();
+        }
+        return (n / 1000).toString() + "." + (n % 1000).format("%03d");
+    }
+
     // Hoeveel hoeden bij dit doel horen (voor de regel "3/10 HATS").
     function hoedenBijDoel(doel as Number) as Number {
         if (doel <= 0) {

@@ -9,13 +9,23 @@ import Toybox.WatchUi;
 
 typedef Plaatje as WatchUi.BitmapResource or Graphics.BitmapReference;
 
-// De wijzerplaat: links de datum, uren boven minuten (groot), stappen, hoeden, hartslag en batterij.
-// Gloop staat rechts onderin en de toren groeit langs de rechterkant omhoog (concept 1 van Mila).
+// De wijzerplaat volgens de kit van Mila (ontwerp/garmin/wijzerplaat-gloop/kit): links de datum, uren
+// boven minuten als plaatjes (groot), stappen en de hoedenregel, rechts Gloop die omhoog kijkt naar zijn
+// toren, onderaan een vrij veld (nu hartslag). Alle plekken komen uit Plek.mc.
 class GloopFaceView extends WatchUi.WatchFace {
-    // Plaatjes: 0 rust, 1 blij, 2 tot 11 de tien hoeden.
+    // Plaatjes: 0 de achtergrond, 1 Gloop die omhoog kijkt, 2 tot 11 de tien hoeden.
     var pl as Array<Plaatje> = [] as Array<Plaatje>;
-    // Maten en ankers van de plaatjes (zie Maten.mc, uit de kit van het spel).
+    // Maten van Gloop en de hoeden (Maten.mc, uit de kit van het spel) en de plekken (Plek.mc).
     var m as Array<Number> = [] as Array<Number>;
+    var p as Array<Number> = [] as Array<Number>;
+    // De vier cijfers van de tijd. Alleen de cijfers die nu in beeld staan zijn geladen (0 tot 9 de
+    // witte uren, 10 tot 19 de mintkleurige minuten), dat spaart geheugen op oudere horloges.
+    var cij as Array<Plaatje?> = [null, null, null, null] as Array<Plaatje?>;
+    var cijNr as Array<Number> = [-1, -1, -1, -1] as Array<Number>;
+    // Lijnplaatjes voor de slaapstand (alleen AMOLED), pas geladen als ze nodig zijn.
+    var lijnGloop as Plaatje?;
+    var lijnHoed as Plaatje?;
+    var lijnHoedNr as Number = -1;
     var slaap as Boolean = false;
     var gemeld as Boolean = false;
     // Kijken wordt beloond (regel van Daan): komt er een hoed bij terwijl je niet kijkt, dan valt hij
@@ -23,12 +33,12 @@ class GloopFaceView extends WatchUi.WatchFace {
     // al heeft zien landen, `wek` staat aan in de eerste seconde na het optillen.
     var gezien as Number = -1;
     var wek as Boolean = false;
-    // Volgorde van de gewone hoeden in de toren. De kroon (hoed 4) komt alleen bij het stapdoel.
-    const VOLGORDE = [1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
+    // Volgorde van de gewone hoeden in de toren (Mila). De kroon (hoed 4) komt alleen bij het stapdoel
+    // en staat dan altijd bovenop.
+    const VOLGORDE = [0, 1, 2, 3, 5, 6, 7, 8, 9] as Array<Number>;
     const KROON = 4;
-    // Afstand van de urenregel tot de minutenregel, als deel van de fonthoogte (cijferfonts hebben
-    // lucht boven en onder de cijfers).
-    const PITCH = 0.74;
+    // Hoe ver elke hoed boven de vorige staat, als deel van zijn eigen hoogte (Mila: 0,46).
+    const HOED_STAP = 0.46;
     // Standen voor de bouwstraat (Bouw.AUTO): stappen per stand; de laatste stand is de slaapstand.
     const PROEF = [0, 3420, 7612, 10000, 14800, 7612] as Array<Number>;
 
@@ -38,9 +48,10 @@ class GloopFaceView extends WatchUi.WatchFace {
 
     function onLayout(dc as Graphics.Dc) as Void {
         m = Maten.voor(dc.getWidth());
+        p = Plek.voor(dc.getWidth());
         pl = [
-            WatchUi.loadResource(Rez.Drawables.GloopRust) as Plaatje,
-            WatchUi.loadResource(Rez.Drawables.GloopBlij) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Achter) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.GloopKijk) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Hoed0) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Hoed1) as Plaatje,
             WatchUi.loadResource(Rez.Drawables.Hoed2) as Plaatje,
@@ -65,6 +76,63 @@ class GloopFaceView extends WatchUi.WatchFace {
         WatchUi.requestUpdate();
     }
 
+    // Laadt het plaatje van een cijfer: nr 0 tot 9 is een uurcijfer (wit), 10 tot 19 een minuutcijfer (mint).
+    function laadCijfer(nr as Number) as Plaatje {
+        var r = Rez.Drawables.Uur0;
+        switch (nr) {
+            case 1: r = Rez.Drawables.Uur1; break;
+            case 2: r = Rez.Drawables.Uur2; break;
+            case 3: r = Rez.Drawables.Uur3; break;
+            case 4: r = Rez.Drawables.Uur4; break;
+            case 5: r = Rez.Drawables.Uur5; break;
+            case 6: r = Rez.Drawables.Uur6; break;
+            case 7: r = Rez.Drawables.Uur7; break;
+            case 8: r = Rez.Drawables.Uur8; break;
+            case 9: r = Rez.Drawables.Uur9; break;
+            case 10: r = Rez.Drawables.Min0; break;
+            case 11: r = Rez.Drawables.Min1; break;
+            case 12: r = Rez.Drawables.Min2; break;
+            case 13: r = Rez.Drawables.Min3; break;
+            case 14: r = Rez.Drawables.Min4; break;
+            case 15: r = Rez.Drawables.Min5; break;
+            case 16: r = Rez.Drawables.Min6; break;
+            case 17: r = Rez.Drawables.Min7; break;
+            case 18: r = Rez.Drawables.Min8; break;
+            case 19: r = Rez.Drawables.Min9; break;
+            default: break;
+        }
+        return WatchUi.loadResource(r) as Plaatje;
+    }
+
+    function laadLijnHoed(k as Number) as Plaatje {
+        var r = Rez.Drawables.HoedAod0;
+        switch (k) {
+            case 1: r = Rez.Drawables.HoedAod1; break;
+            case 2: r = Rez.Drawables.HoedAod2; break;
+            case 3: r = Rez.Drawables.HoedAod3; break;
+            case 4: r = Rez.Drawables.HoedAod4; break;
+            case 5: r = Rez.Drawables.HoedAod5; break;
+            case 6: r = Rez.Drawables.HoedAod6; break;
+            case 7: r = Rez.Drawables.HoedAod7; break;
+            case 8: r = Rez.Drawables.HoedAod8; break;
+            case 9: r = Rez.Drawables.HoedAod9; break;
+            default: break;
+        }
+        return WatchUi.loadResource(r) as Plaatje;
+    }
+
+    // Het cijfer op vak 0 tot 3 (tiental en eenheid van de uren, daarna van de minuten). Laadt alleen
+    // als het cijfer op dat vak veranderd is.
+    function cijfer(vak as Number, nr as Number) as Plaatje {
+        var c = cij[vak];
+        if (c == null || cijNr[vak] != nr) {
+            c = laadCijfer(nr);
+            cij[vak] = c;
+            cijNr[vak] = nr;
+        }
+        return c;
+    }
+
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
@@ -87,17 +155,16 @@ class GloopFaceView extends WatchUi.WatchFace {
         var amoled = (w >= 320);
         var klok = System.getClockTime();
         var is24 = System.getDeviceSettings().is24Hour;
-        var uren = Regel.uur(klok.hour, is24).format(is24 ? "%02d" : "%d");
-        var minuten = klok.min.format("%02d");
+        var uur = Regel.uur(klok.hour, is24);
         var rond = System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND;
 
-        // Hoeveel hoeden nu getekend worden en of de bovenste nog boven de toren zweeft.
-        var aantal = Regel.hoeden(stappen) + (Regel.kroon(stappen, doel) ? 1 : 0);
+        // Hoeveel hoeden nu getekend worden (de kroon telt mee) en of de bovenste nog boven de toren zweeft.
+        var aantal = Regel.aantal(stappen, doel);
         var toon = aantal;
         var zweef = false;
         if (Bouw.AUTO) {
             var sn = (System.getTimer() / 3000) % 6;
-            var vorige = sn > 0 ? Regel.hoeden(PROEF[sn - 1]) + (Regel.kroon(PROEF[sn - 1], doel) ? 1 : 0) : aantal;
+            var vorige = sn > 0 ? Regel.aantal(PROEF[sn - 1], doel) : aantal;
             zweef = (System.getTimer() / 1000) % 3 == 0 && aantal > vorige;
         } else if (slaap) {
             toon = Regel.wachtend(aantal, gezien);
@@ -106,161 +173,155 @@ class GloopFaceView extends WatchUi.WatchFace {
             wek = false;
             gezien = aantal;
         }
+        var kroon = Regel.kroon(stappen, doel);
 
         if (slaapt && amoled) {
-            tekenSlaap(dc, w, h, uren, minuten, klok.min, rond);
+            tekenSlaap(dc, uur, is24, klok.min, toon, kroon && toon == aantal);
         } else {
-            tekenVol(dc, w, h, uren, minuten, stappen, doel, amoled, rond, toon, zweef);
+            tekenVol(dc, w, h, uur, is24, klok.min, stappen, doel, rond, toon, kroon && toon == aantal, zweef);
         }
         if (!gemeld) {
             gemeld = true;
             var st = System.getSystemStats();
             System.println("GEHEUGEN " + w + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " vrij " + st.freeMemory);
-            System.println("FONTS " + w + " mild " + dc.getFontHeight(Graphics.FONT_NUMBER_MILD) + " medium " + dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM) + " hot " + dc.getFontHeight(Graphics.FONT_NUMBER_HOT) + " thai " + dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT) + " tiny " + dc.getFontHeight(Graphics.FONT_TINY) + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY));
         }
     }
 
-    // Grootste cijferfont waarbij uren boven minuten passen: twee cijfers breed binnen `breed` px
-    // en twee regels plus de kleine regels eromheen binnen `hoog` px.
-    function tijdFont(dc as Graphics.Dc, breed as Number, hoog as Number) as Graphics.FontDefinition {
-        var fonts = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
-        for (var i = 0; i < fonts.size(); i += 1) {
-            var fh = dc.getFontHeight(fonts[i]);
-            if (dc.getTextWidthInPixels("00", fonts[i]) <= breed && fh * (PITCH + 0.74) <= hoog) {
-                return fonts[i];
-            }
+    // De tijd: uren boven minuten, rechts uitgelijnd op de lijn van Mila. `dx` en `dy` verschuiven de
+    // tijd (slaapstand, tegen inbranden); `grijs` kleurt de cijfers grijs waar het horloge dat kan.
+    function tekenTijd(dc as Graphics.Dc, uur as Number, is24 as Boolean, minuut as Number, dx as Number, dy as Number, grijs as Boolean) as Void {
+        var cw = p[9];
+        var over = p[11];
+        var rechts = p[2] + dx;
+        var x1 = rechts - cw;
+        var x0 = x1 - cw + over;
+        if (is24 || uur >= 10) {
+            zetCijfer(dc, x0, p[4] + dy, cijfer(0, uur / 10), grijs);
         }
-        return Graphics.FONT_NUMBER_MILD;
+        zetCijfer(dc, x1, p[4] + dy, cijfer(1, uur % 10), grijs);
+        zetCijfer(dc, x0, p[5] + dy, cijfer(2, 10 + minuut / 10), grijs);
+        zetCijfer(dc, x1, p[5] + dy, cijfer(3, 10 + minuut % 10), grijs);
     }
 
-    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, stappen as Number, doel as Number, amoled as Boolean, rond as Boolean, toon as Number, zweef as Boolean) as Void {
-        var achter = amoled ? 0x000000 : 0xAA5500;
-        dc.setColor(achter, achter);
+    function zetCijfer(dc as Graphics.Dc, x as Number, y as Number, c as Plaatje, grijs as Boolean) as Void {
+        if (grijs && (dc has :drawBitmap2)) {
+            dc.drawBitmap2(x, y, c, { :tintColor => 0x999999 });
+        } else {
+            dc.drawBitmap(x, y, c);
+        }
+    }
+
+    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uur as Number, is24 as Boolean, minuut as Number, stappen as Number, doel as Number, rond as Boolean, toon as Number, kroonOp as Boolean, zweef as Boolean) as Void {
+        dc.setColor(0x000000, 0x000000);
         dc.clear();
+        dc.drawBitmap(0, 0, pl[0]);
 
         // Gloop en de toren, rechts.
-        var n = Regel.hoeden(stappen);
-        var kroon = Regel.kroon(stappen, doel);
-        var gx = (w * 0.70).toNumber();
-        var voet = (h * 0.86).toNumber();
-        // Gloop is pas blij als de kroon geland is.
-        var blij = kroon && toon > n && !zweef;
-        dc.drawBitmap(gx - m[0] / 2, voet - (blij ? m[3] : m[1]), blij ? pl[1] : pl[0]);
-        var torenX = gx - m[0] / 2 + m[10];
-        var kruinY = voet - m[1] + m[11];
-        tekenToren(dc, w, h, rond, torenX, kruinY, n, kroon, Regel.hoedenBijDoel(doel), toon, zweef);
+        var gx = p[0] - m[0] / 2;
+        var gy = p[1] - m[1];
+        dc.drawBitmap(gx, gy, pl[1]);
+        tekenToren(dc, w, h, rond, gx + m[10], gy + m[11], toon, kroonOp, zweef);
 
-        // Links: datum, uren boven minuten, stappen, hoeden, hartslag en batterij.
-        var klein = Graphics.FONT_TINY;
-        var kh = dc.getFontHeight(klein);
-        var xh = dc.getFontHeight(Graphics.FONT_XTINY);
-        var torenLinks = torenX - m[12] / 2 - 2;
-        var gloopLinks = gx - m[0] / 2 - 6;
-        var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
-        var onder = (h * 0.93).toNumber();
-        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), onder - boven - 3 * kh - xh + 10);
-        var fh = dc.getFontHeight(font);
-        var pitch = (fh * PITCH).toNumber();
-        var uy = boven + kh - (fh * 0.12).toNumber();
-        var my = uy + pitch;
-        var tx = Regel.randLinks(uy + fh / 5, my + fh * 4 / 5, w, h, rond, 6);
-        if (tx < (w * 0.07).toNumber()) {
-            tx = (w * 0.07).toNumber();
-        }
+        // Links, rechts uitgelijnd op de lijn van de tijd: datum, tijd, stappen en de hoedenregel.
+        tekenTijd(dc, uur, is24, minuut, 0, 0, false);
+        var midden = Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER;
         var nu = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-        tekst(dc, max(tx, Regel.randLinks(boven, boven + kh, w, h, rond, 6)), boven, klein, nu.day_of_week + " " + nu.day, 0xFFFF00);
-        tekst(dc, tx, uy, font, uren, 0xFFFFFF);
-        tekst(dc, tx, my, font, minuten, 0xFFFFFF);
+        tekst(dc, p[2], p[3], Graphics.FONT_XTINY, (nu.day_of_week as String).toUpper() + " " + nu.day, 0xFFAA00, midden);
+        tekst(dc, p[2], p[6], Graphics.FONT_TINY, Regel.punt(stappen), 0x55FFAA, midden);
+        tekst(dc, p[2], p[7], Graphics.FONT_XTINY, Regel.regel(stappen, doel), 0xFFAA00, midden);
 
-        var sy = my + (fh * 0.86).toNumber();
-        tekst(dc, max(tx, Regel.randLinks(sy, sy + kh, w, h, rond, 6)), sy, klein, stappen.toString(), 0x55FFAA);
-        // Onder de stappen: hoeveel hoeden van het doel; na het doel het aantal in geel.
-        var hy = sy + kh - 2;
-        var hx = max(tx, Regel.randLinks(hy, hy + kh, w, h, rond, 6));
-        var regel = kroon ? n + " HATS!" : n + "/" + Regel.hoedenBijDoel(doel) + " HATS";
-        var rf = dc.getTextWidthInPixels(regel, klein) <= gloopLinks - hx ? klein : Graphics.FONT_XTINY;
-        tekst(dc, hx, hy, rf, regel, kroon ? 0xFFFF00 : 0xFFFFFF);
-
-        // Hartslag en batterij; is er te weinig plek naast Gloop, dan alleen de hartslag.
+        // Vrij veld onderaan: nu de hartslag met een getekend hartje.
         var hs = "--";
         var act = Activity.getActivityInfo();
         if (act != null && act.currentHeartRate != null) {
             hs = (act.currentHeartRate as Number).toString();
         }
-        var bat = System.getSystemStats().battery.toNumber();
-        var by = hy + kh - 2;
-        var bx = max(tx, Regel.randLinks(by, by + xh, w, h, rond, 6));
-        var lang = "HR " + hs + "  " + bat + "%";
-        if (dc.getTextWidthInPixels(lang, Graphics.FONT_XTINY) > gloopLinks - bx) {
-            lang = "HR " + hs;
+        var r = (w * 0.014).toNumber();
+        if (r < 3) {
+            r = 3;
         }
-        tekst(dc, bx, by, Graphics.FONT_XTINY, lang, 0xFFAAAA);
+        var hx = (w * 0.45).toNumber();
+        var hy = p[8];
+        dc.setColor(0xFF5555, Graphics.COLOR_TRANSPARENT);
+        dc.fillCircle(hx - r, hy - r / 2, r);
+        dc.fillCircle(hx + r - 1, hy - r / 2, r);
+        dc.fillPolygon([[hx - 2 * r, hy - r / 4], [hx + 2 * r - 1, hy - r / 4], [hx, hy + 2 * r - 1]] as Array<Graphics.Point2D>);
+        tekst(dc, hx + 3 * r, hy, Graphics.FONT_XTINY, hs, 0xFFAAAA, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    function max(a as Number, b as Number) as Number {
-        return a > b ? a : b;
+    // Welke hoed op plek i (van onder) staat als er `toon` in de toren zitten.
+    function hoedOp(i as Number, toon as Number, kroonOp as Boolean) as Number {
+        return (kroonOp && i == toon - 1) ? KROON : VOLGORDE[i % 9];
     }
 
-    // Stapelt n hoeden op de kruin en zet bij het doel de kroon erop. De afstand tussen de hoeden is
-    // zo gekozen dat de kroon op het moment van het doel helemaal in beeld staat (ook binnen de ronde
-    // rand). Daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
-    // De toren buigt licht naar rechts, weg van de tijd.
-    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, torenX as Number, kruinY as Number, n as Number, kroon as Boolean, nDoel as Number, toon as Number, zweef as Boolean) as Void {
-        var buig = (w * 0.03).toNumber();
-        var som = 0;
-        for (var i = 0; i < nDoel; i += 1) {
-            som += m[13 + 2 * VOLGORDE[i % 9]];
-        }
-        var kb = m[12 + 2 * KROON];
-        var khoog = m[13 + 2 * KROON];
-        var bovenrand = Regel.randBoven(torenX + buig + kb / 2 + 2, w, h, rond, 3);
-        var stap = Regel.stap(som, kruinY - bovenrand - (khoog * 0.78).toNumber());
-        var y = kruinY.toFloat();
-        // `toon` hoeden worden getekend; bij `zweef` hangt de bovenste nog een hoedhoogte boven de toren.
+    // Stapelt `toon` hoeden op de kruin volgens de torentabel van Mila: tot 6 hoeden een wiebel, daarna
+    // buigt de toren naar rechtsboven, weg van de tijd. Bij het doel staat de kroon bovenop en in beeld;
+    // daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
+    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, voetX as Number, voetY as Number, toon as Number, kroonOp as Boolean, zweef as Boolean) as Void {
+        var y = voetY;
         for (var i = 0; i < toon; i += 1) {
-            var k = (kroon && i == n) ? KROON : VOLGORDE[i % 9];
+            var k = hoedOp(i, toon, kroonOp);
             var hb = m[12 + 2 * k];
             var hh = m[13 + 2 * k];
-            var top = (y - hh * 0.78).toNumber();
-            if (zweef && i == toon - 1) {
-                top -= hh;
-            }
+            var x = voetX + p[13 + (i < 24 ? i : 23)];
+            var top = y - hh;
             if (top + hh < 0) {
                 break;
             }
-            var dx = ((i * 7) % 5) - 2 + Regel.buiging(i, nDoel, buig);
-            dc.drawBitmap(torenX - hb / 2 + dx, top, pl[2 + k]);
-            y = y - hh * stap;
+            if (zweef && i == toon - 1) {
+                // De bovenste hoed hangt nog boven de toren, maar blijft in beeld (punt van Daan).
+                var rand = Regel.randBoven(x, w, h, rond, 3);
+                var hoog = top - hh;
+                if (hoog < rand) {
+                    hoog = rand;
+                }
+                if (hoog > top - hh / 3) {
+                    hoog = top - hh / 3;
+                }
+                top = hoog;
+            }
+            dc.drawBitmap(x - hb / 2, top, pl[2 + k]);
+            y = y - (hh * HOED_STAP + 0.5).toNumber();
         }
     }
 
-    // Slaapstand op AMOLED: zwart, alleen de tijd in grijs (uren boven minuten, zelfde plek), elke
-    // minuut een paar pixels verschoven tegen inbranden. Gloop als lijn komt erbij zodra Mila die
-    // tekening heeft.
-    function tekenSlaap(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, minuut as Number, rond as Boolean) as Void {
+    // Slaapstand op AMOLED: zwart, de tijd in grijs op dezelfde plek, Gloop als mint lijn met alleen de
+    // bovenste hoed als gouden lijn op zijn hoofd. Elke minuut een paar pixels verschoven tegen inbranden.
+    function tekenSlaap(dc as Graphics.Dc, uur as Number, is24 as Boolean, minuut as Number, toon as Number, kroonOp as Boolean) as Void {
         dc.setColor(0x000000, 0x000000);
         dc.clear();
-        var kh = dc.getFontHeight(Graphics.FONT_TINY);
-        var xh = dc.getFontHeight(Graphics.FONT_XTINY);
-        var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
-        var torenLinks = (w * 0.70).toNumber() - m[0] / 2 + m[10] - m[12] / 2 - 2;
-        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), (h * 0.93).toNumber() - boven - 3 * kh - xh + 10);
-        var fh = dc.getFontHeight(font);
-        var uy = boven + kh - (fh * 0.12).toNumber() + (minuut % 3) * 2;
-        var x = (w * 0.10).toNumber() + (minuut % 5) * 2;
-        dc.setColor(0xAAAAAA, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, uy, font, uren, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(x, uy + (fh * PITCH).toNumber(), font, minuten, Graphics.TEXT_JUSTIFY_LEFT);
+        var dx = (minuut % 5) * 2 - 4;
+        var dy = (minuut % 3) * 2 - 2;
+        tekenTijd(dc, uur, is24, minuut, dx, dy, true);
+        var rand = p[12];
+        var gx = p[0] - m[0] / 2 + dx;
+        var gy = p[1] - m[1] + dy;
+        if (toon > 0) {
+            var k = hoedOp(toon - 1, toon, kroonOp);
+            var lh = lijnHoed;
+            if (lh == null || lijnHoedNr != k) {
+                lh = laadLijnHoed(k);
+                lijnHoed = lh;
+                lijnHoedNr = k;
+            }
+            dc.drawBitmap(gx + m[10] - (m[12 + 2 * k] + 2 * rand) / 2, gy + m[11] - m[13 + 2 * k] - rand, lh);
+        }
+        var lg = lijnGloop;
+        if (lg == null) {
+            lg = WatchUi.loadResource(Rez.Drawables.GloopAod) as Plaatje;
+            lijnGloop = lg;
+        }
+        dc.drawBitmap(gx - rand, gy - rand, lg);
     }
 
-    // Tekst met een zwarte rand van 1 px, zodat hij ook op de bruine grot van MIP te lezen is.
-    function tekst(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String, kleur as Number) as Void {
+    // Tekst met een donkere rand van 1 px, zodat hij ook op de bruine grot van MIP te lezen is.
+    function tekst(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String, kleur as Number, uitlijning as Number) as Void {
         dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x - 1, y, font, s, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(x + 1, y, font, s, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(x, y - 1, font, s, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(x, y + 1, font, s, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x - 1, y, font, s, uitlijning);
+        dc.drawText(x + 1, y, font, s, uitlijning);
+        dc.drawText(x, y - 1, font, s, uitlijning);
+        dc.drawText(x, y + 1, font, s, uitlijning);
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, font, s, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, y, font, s, uitlijning);
     }
 }
