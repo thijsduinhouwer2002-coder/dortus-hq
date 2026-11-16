@@ -1,8 +1,85 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (run 16 nov 07:32 UTC gestopt: de veiligheidscontrole van de omgeving gaf geen antwoord, dus geen webpagina's te lezen; volgende run: Your Big, Cute Monster Farm (tip Vera, waarom 77%), daarna hoe makers het Desktop Companion Fest gebruikten)
+bezig: niets (volgende run: hoe makers het Desktop Companion Fest gebruikten, of een taakbalkspel dat flopte)
 
 Nieuwste bovenaan.
+
+---
+
+## 6. Your Big, Cute Monster Farm (KaiPlay Studio, China, eerste spel): waarom maar 77%, en wat hun tweede spel ons laat zien
+
+Onderzocht 16 nov 2026, run 7. Tip van Vera: monsters verzamelen voor een hogere prijs ($7,99), maar maar 77% positief. Vraag: waarom, en wat leert het over verzamelen en de grindmuur? Onderweg vond ik het tweede spel van dezelfde studio (Legend of Defenders, 2 nov 2026, een idle torenverdediging die op de achtergrond doorvecht). Dat maakt het een vergelijking: twee spellen, twee tegengestelde fouten, hetzelfde gevolg.
+
+### Bronnen
+- Steam appdetails, winkelpagina, weekoverzicht reviews (`store.steampowered.com/appreviewhistogram/3659410`) en volgers (`memberslistxml`), gelezen 16 nov 2026. GEZIEN.
+- Alle 37 aankondigingen via `ISteamNews/GetNewsForApp` (appid 3659410), van "nu op Steam" (26 jun 2025) tot 25 aug 2026. GEZIEN.
+- Engelse reviews op steamcommunity.com (negatief en positief, acht sorteringen: meest behulpzaam, nieuwste, trends per week tot jaar, grappig): 32 verschillende negatieve en 34 positieve. Door alle 32 negatieve heb ik zelf heen gelezen. De JSON-reviews van Steam gaven een doorverwijzing, dus meer kon ik niet ophalen.
+- Legend of Defenders (appid 4740930) en Tiny Pasture (3167550): appdetails, weekoverzicht, volgers, aankondigingen, top negatieve reviews. GEZIEN.
+- Onze eigen balanssim: `producten/steam-hol/sim/sim.py`, door mij gedraaid met `python3 sim.py 40 3`. GEZIEN.
+- Niet gelukt: SteamDB, verlanglijstcijfers, prijsgeschiedenis. Verkoop is dus GOK.
+
+### Cijfers (GEZIEN 16 nov 2026, tenzij anders)
+- Maker KaiPlay Studio, uitgever Gamersky Games (Chinees; ook uitgever of mede-uitgever van Tiny Pasture, Deskrawl en Desktop Raid). Uit 10 nov 2025, $7,99, 10 talen, Supporter Pack $2,99 op de lanceerdag. 71 prestaties.
+- **1.232 reviews, 77% positief** ("Mostly Positive"); laatste 30 dagen 70% van 86. 3.469 volgers.
+- Verkoop: 1.232 x 30 tot 60 = **37.000 tot 74.000 stuks** (GOK met de vuistregel). Dus ondanks 77% een echte verkoper, voor $7,99.
+- Het cijfer stond er **vanaf week twee**, niet later gezakt: week 1 245 positief en 40 negatief (86%), **week 2 73 tegen 34 (68%)**, week 3 111 tegen 26. Opgeteld 81% na drie weken, 80% na drie maanden, 78% nu (weekoverzicht). Drie balansupdates (grond goedkoper 30 nov 2025, meer kans op vaardigheden 21 apr 2026, meer en goedkopere grond 25 aug 2026) hebben het niet meer opgetild.
+
+### Wat ze deden, in volgorde
+| Wanneer | Wat | Bron |
+|---|---|---|
+| 26 jun 2025 | Winkelpagina live | aankondiging, GEZIEN |
+| 8 jul tot aug 2025 | Twee rondes Steam Playtest; ronde 2 met een herbouwde basis, saves van ronde 1 vervielen | aankondigingen, GEZIEN |
+| 19 sep 2025 | Demo, met de save van de playtest | aankondiging, GEZIEN |
+| 13 okt 2025 | Next Fest (hetzelfde fest als Desktop Defender in verhaal 5). In het festbericht: de **Fusion Lab** als "core feature currently in development" | aankondiging, GEZIEN |
+| 8 tot 10 nov | Aftellen: drie berichten "nog 3, 2, 1 dag" | aankondigingen, GEZIEN |
+| 10 nov 2025 | Uit, demosave gaat mee. Zelfde dag: samenwerking met Tiny Pasture (rode panda in het spel, bundel met korting). Melding dat de Duitse, Franse, Russische, Portugese en Spaanse tekst nog fouten heeft | aankondigingen, GEZIEN |
+| 12 tot 30 nov | 14 updates en berichten in drie weken; 30 nov: "this is our team's first time developing a game" en grond goedkoper | aankondigingen, GEZIEN |
+| dec 2025 tot aug 2026 | Kerst-, reuzengewas- en feestupdate, "biggest sale ever" (21 apr), daarna twee monsters en vier gewassen (14 aug) plus reclame voor hun nieuwe spel | aankondigingen, GEZIEN |
+| 2 nov 2026 | Tweede spel Legend of Defenders uit, $14 (nu $9,80 met 30% korting), 5 talen | appdetails, GEZIEN |
+
+### Waarom 77%: wat de negatieve reviews zeggen
+Van de 32 negatieve gaan er **ongeveer 20 over de economie**: prijzen die veel harder stijgen dan wat je verdient (mijn eigen telling, met de hand nagelezen; reviews kunnen in meer groepen vallen). **Ongeveer 10** zeggen dat er na een paar uur niets nieuws meer komt, **5** klagen over toeval bij uitbroeden en samensmelten, 3 over slechte uitleg. Bugs en zwaar voor de pc: bijna niet. Wat ze letterlijk schrijven:
+- De sprongen: "The land parcels go from 5,000 gold, to 50,000 gold, to 1,000,000 gold", terwijl een gewas van 10 naar hooguit 56 goud gaat (meest behulpzame negatieve review, 16,5 uur). Een ander: van 1 miljoen naar 10 miljoen voor de volgende uitbreiding.
+- Het moment: "after around 10-12 hours it's starting to feel extremly grindy"; "I enjoyed this game while unlocking the first 10 different crops"; "I stopped feeling any sense of progress after maybe a day".
+- Geen idle en geen actief spel: "If you leave it alone ... you gain nothing. But, if you keep playing it ... you'll spend your all gold and crystals in like 2 clicks" (191 uur).
+- Waarom onderaan het scherm? "it's so slow that you may as well have it hidden for hours ... It feels like a decision made because bottom of the screen games were trending lately".
+- Beloofd en niet geleverd: "I WANT THE FUSION LAB! ... an early access without saying it". Dat ding stond in het Next Fest-bericht.
+- Toeval: "Fusion and hatching can feel like gambling"; "Hatching many eggs in a row and only getting..."
+- Rusty's Retirement wordt drie keer genoemd als het spel dat het wel goed deed ("at least it was balanced").
+
+Opvallend: de helft van de negatieve schrijvers heeft **50 uur of meer** gespeeld (16 van 32, mediaan 57,5 uur). Ook van de positieve reviews noemen er 13 van 34 de grind of de prijzen ("this game has more money crisis than real life itself"). De mensen vonden het spel dus leuk genoeg om het weken aan te laten, en werden daarna boos. Speeltijd zegt bij een idlespel weinig over plezier.
+
+### Het tweede spel: de omgekeerde fout
+Legend of Defenders (zelfde studio en uitgever, uit 2 nov 2026): **713 reviews in twee weken, 80%**, 2.878 volgers (GEZIEN). Week 1 374 tegen 95, week 2 186 tegen 58. Het verkoopt dus sneller dan Monster Farm (eerste week 469 reviews tegen 285), voor een hogere prijs, met 5 talen in plaats van 10. Maar de klachten:
+- "I had the game running for 8 hours in the background ... my heroes were between lvl 2000 - 7000, i got billions of gold in an hour" (meest behulpzame negatieve review).
+- "Access to legitimately new systems dries up about a few hours in"; "After the first 10–12 hours..."; "after you've unlocked all 18 SSR units and upgraded your castle to max ... nothing left to do".
+
+Monster Farm was te duur, Legend of Defenders te makkelijk, en in **beide** haakten spelers af rond **10 tot 12 uur**, met hetzelfde woord: er komt niets nieuws meer. Het getal van de prijscurve is dus niet de kern; de kern is of er tussen uur 3 en uur 40 steeds iets nieuws te halen valt.
+
+### Wat goed ging (want 37.000 tot 74.000 kopers is niet niks)
+- **Het eerste uur.** Positieve reviews op de lanceerdag: "this is definitely the best idler I have played so far"; "It can be as hands on/off as you want". Week 1 was 86%.
+- **Een uitgever met een reeks.** Gamersky zette Tiny Pasture (7.140 reviews, 21.716 volgers) ernaast met een bundel en een gast-dier op de lanceerdag, en gebruikt nu Monster Farm om Legend of Defenders te verkopen ("add Legend of Defenders to your Wishlist" in twee aankondigingen). Het tweede spel kwam sneller op gang dan het eerste.
+- **Playtest, demo, fest, uitbrengen binnen een maand na het fest**, met de save mee. Zelfde ritme als Desktop Defender en Bao Bao.
+
+### Drie lessen
+1. **Het reviewcijfer van een idlespel ligt vast in de eerste drie weken, en wordt bepaald door uur 10, niet door uur 1.** Week 1 86%, week 2 68%, toen de eerste spelers de muur raakten; drie balansupdates daarna tilden het niet meer op (81% na drie weken, 78% nu). Wie de muur pas na de lancering repareert, is te laat.
+2. **Spelers haken af als er niets nieuws komt, of het nu te duur of te makkelijk is.** Dezelfde studio maakte twee keer de fout andersom (sprongen van 10 en 20 keer, en daarna miljarden goud per uur) en kreeg twee keer dezelfde klacht rond 10 tot 12 uur. Wat Rusty's anders deed volgens deze reviewers: "balanced"; volgens verhaal 1 had Rusty's zelf de klacht "na 3 dagen op".
+3. **Beloof in je festberichten alleen wat er bij de lancering in zit.** De Fusion Lab stond in het Next Fest-bericht als kernfunctie en ontbrak bij de lancering; dat werd "early access zonder het te zeggen" in een review. En toeval bij het verzamelen (eieren, samensmelten) gaf 5 van de 32 klachten: wie wil verzamelen, wil dat het lukt.
+
+### Wat doen wij anders? (met een meting)
+- Toeval: Hats heeft al "geen buit met kleine kans en geen eindgrind" en een Heldenboek dat 100% te halen is (`platformen/steam/features.md`, Bewust niet). Dat klopt met wat deze spelers vragen.
+- **De muur: Hats heeft nu het probleem van Legend of Defenders, niet dat van Monster Farm.** Ik draaide onze eigen sim 40 uur (`python3 sim.py 40 3`, GEZIEN): **alles wat te koop is, is gekocht na 7,4 tot 7,5 uur open tijd**; 46 aankopen in de eerste 10 uur, daarna niets meer. De langste wacht tussen twee aankopen tot uur 10 is 38 tot 45 minuten. De hoedenberg-stempels (1000 hoeden na ±28 uur) en de aartsvijanden lopen door, maar er is na uur 7,5 niets meer om op te sparen. `balans.md` zegt dat zelf ook: "versie 1 moet hier ±40 uur van maken". Dat is precies de plek waar beide KaiPlay-spellen hun spelers verloren.
+- De demo stopt na ±2 uur, dus op het fest merkt niemand dit. Maar het volle spel komt (voorstel) begin maart uit, en volgens les 1 beslissen de eerste drie weken daarna het cijfer.
+
+### Voorstel voor Dortus deze week
+**Een 40-uurstoets in de sim, met drie vaste getallen die groen moeten zijn vóór de lancering van het volle spel, zodat de inhoud van versie 1 erop gepland wordt.** (1) Laatste nieuwe aankoop of ontgrendeling: nu 7,4 uur, doel **minstens 35 uur** open tijd. (2) Langste wacht tussen twee nieuwe dingen tussen uur 3 en uur 40: doel **hooguit 45 minuten** open tijd (nu tot uur 10 al 38 tot 45, daarna oneindig). (3) Grootste prijssprong tussen twee stappen van hetzelfde ding: doel **hooguit 3 keer** (Monster Farm 10 en 20 keer; onze extra slijm of put is nu 2,6 keer, dat zit goed). Bram zet de drie getallen als regel onder elke run van `sim.py` (een uur werk, GOK); Olaf en Sanne plannen de stukken van versie 1 (4 soorten helden, 5 vallen, kamers, faam) zó dat ze over 40 uur verdeeld vrijkomen in plaats van in de eerste 7. Daarnaast voor Chris: in fest- en winkelteksten alleen noemen wat in de build zit die op dat moment uitkomt. Waarom deze week: het raakt de demo voor 18 dec niet, maar wel welke stukken van versie 1 er komen en wanneer; dat plan moet er zijn voordat er na het fest gebouwd wordt. Wie: Bram (toets), Olaf en Sanne (inhoud), Chris (teksten).
+
+### Eerlijk: wat ik niet weet
+- Hoeveel verlanglijstjes Monster Farm vóór de lancering had en wat Next Fest gaf. Er staat niets over in de aankondigingen, en SteamDB was niet bereikbaar.
+- De Chinese reviews heb ik niet gelezen. Het spel heeft Chinese steun en een Chinese uitgever; de 77% geldt voor alle talen samen, mijn klachtentelling alleen voor Engels.
+- Mijn telling van de klachten is met de hand en grof; één review kan in meer groepen vallen.
+- Onze sim is een sim: hij koopt steeds het goedkoopste en kent de stukken van versie 1 nog niet. De 7,4 uur geldt voor wat er nu in `balans.md` staat.
+- Of Legend of Defenders in een strook onderaan het scherm draait of in een klein venster, weet ik niet zeker. De winkeltekst noemt een venster dat je met één toets verbergt en vechten op de achtergrond; de studio noemt het zelf "a brand-new desktop companion experience". Voor Vera: een nieuwe, snelle verkoper in onze hoek (713 reviews in twee weken), nog niet in haar kaart.
 
 ---
 
