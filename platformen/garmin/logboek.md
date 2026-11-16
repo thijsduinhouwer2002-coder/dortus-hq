@@ -1441,3 +1441,5 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Wijzerplaat Gloop: runs 43915387736 (03591ab) en 43915541840 (f1dab61) groen. De 32 beelden van Venu Sq 2 en FR255 van tak `schermen` gehaald (RUN.txt noemt f1dab61) en als blad bekeken: goed.
 - Les: de tak `schermen` is te groot om met git op te halen (ook ondiep hing het 100 seconden). De repo is openbaar: haal losse beelden met curl van `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/<map>/<bestand>`.
 - Les: het pakket van de job alle-horloges heeft een bestand `uitslag.txt` met de telling; dat is sneller dan het log lezen (actions_get, download_workflow_run_artifact, dan curl en unzip).
+- 18:24 UTC: plaatjesrun 43915975753 liep nog (3 van de 20 plaatjesjobs klaar en groen, 17 bezig met de scènes). Geen release. Naam en "wat is nieuw" stonden al in de plakbestanden, teruggedraaid tot de release er is. Ebb Calm niet gekeken.
+- Les: de plaatjesrun van Ebb duurt 70 tot 80 minuten en ik draai 45. Start hem aan het begin van een run en lees de uitslag in de volgende; wachten binnen dezelfde run kost alleen tijd.
