@@ -54,6 +54,7 @@ const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voe
 var proef_figuur := FIGUUR   # figuur=<factor> blijft als startargument om andere maten te keuren; 1.0 is de oude maat
 var proef_deco := false      # deco_proef=1: vaste versiering in de gang (3 vloerstukken en hangstukken), alleen om op te keuren (Daan 14 nov)
 var proef_uit3d: PackedStringArray = []   # uit3d=helden,hol,slijm: dat deel zonder 3D, alleen voor de CPU-proef (demolijst 2, Olaf 14 nov)
+var proef_breed := 0          # breed=<n>: venster en hol zo breed als een scherm van n pixels (steekt rechts buiten het runnerscherm), alleen CPU-proef (Olaf 16 nov)
 var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (strook.rng); uitkomst per held blijft los (held.gd), dus ongeveer gelijk (proef)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
@@ -132,6 +133,8 @@ func _ready() -> void:
 	held_script = load("res://systemen/held.gd") if ResourceLoader.exists("res://systemen/held.gd") else load("res://kern/standin_held.gd")
 
 	var scherm := DisplayServer.screen_get_usable_rect()  # zonder taakbalk
+	if proef_breed > 0:
+		scherm.size.x = proef_breed
 	schaal = maxi(2, int(hoogte / 40.0))   # naar beneden afronden, anders valt de bovenkant van het hol weg
 	var spel_h := int(hoogte / schaal)
 	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))

@@ -34,6 +34,7 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+			"breed": s.proef_breed = clampi(int(kv[1]), 0, 7680)   # alleen CPU-proef: doen alsof het scherm zo breed is (runner kan geen 4K)
 
 # Na het neerzetten van Gloop: laars, spugen en de winkelmomenten aanzetten.
 static func na_slijm(s) -> void:
