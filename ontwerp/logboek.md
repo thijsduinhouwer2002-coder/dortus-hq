@@ -1330,3 +1330,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Tekens boos en zweet (Mila):** main-film run 43889684091 (8949abb) beeld 170, 185, 200 op 2x en 185 op 1x, GEZIEN. **Ja.** Kans: lichte rand om het boze wolkje, druppel echt blauw.
 - **Controleur:** ingezet (Agent). Eens met de kroniekmoet. Vond terecht dat de veiligheidsbladen op 240 en 360 niet in de run zaten (mijn "ja op alle drie" was te snel; overgenomen als moet). Bij de wolkjes strenger op 1x; ik houd ja (Iris ziet het ook als leesbaar), zijn punten als kans.
 - Les: controleer bij een keuring per maat of elk soort scherm in de run staat, niet alleen of wat er staat goed is.
+- **Bordje hol-niveau (gemaakt, ±15:50):** twee plekken op beeld 185 geschetst in spelpixels (`ontwerp/steam/bordje/`), GEZIEN op 3x. Keus A: plankje op paaltje links van de boog in het gras, in de stijl van het pijlbordje. Naar Mila om in 3D te maken. Dit maakt Olafs "Grew N levels" straks zinvol.
