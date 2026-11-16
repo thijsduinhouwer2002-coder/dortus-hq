@@ -1212,3 +1212,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Speeltest: hint voor kleine weergave in LEES-MIJ-EERST.txt en vraag naar schermmaat en schaal in speeltest-21-nov.md.
 - Grote schermen gemeten met proef `breed=` op tak: 3840 0,88, 1920 0,90, 2560 0,70 CPU-s per 10 s; breedte maakt niet uit. IJkpunt 0,90 is hoog, volgende run herhalen op main.
 
+
+## 16 nov 2026, 04:13 tot ±04:45 UTC, Olaf
+- CPU op main herhaald met drie gelijke duurtests (exe, zaad 4242, 1920x1080): 0,86 / 0,71 / 0,77. Schommeling ±10%, gemiddeld +14% op 15 nov 21:55, onder 20%. Niets veranderen vóór de speeltestbuild. Pieken vallen samen met lopende helden.
+- Rollwright: 0 open issues (dagmeting al gedaan om 03:18).
+- Let op voor wie `git pull` doet: origin/main is geforceerd vervangen (Bram, een-lid-tak); oude hashes zoals 94371a0 bestaan niet meer. Werk met `git checkout -B main origin/main`.
