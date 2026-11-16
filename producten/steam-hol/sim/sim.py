@@ -87,6 +87,16 @@ def speel(uren, zaad, spec=None):
     # goud, gevangen helden (faam, telt voor hol-niveau) en hoeden. De sim-tijd t blijft open tijd.
     weg = sp_.get("weg")
     weg_dag = 1
+    # Bram 16 nov (Sanne 16:00, voortgang.md "Versie 3 definitief" punt 5): de rij bij de ingang. {"meteen": 4, "elke_s": 180}
+    # Per keer weg komen er hooguit "meteen" hol-niveaus bij; de rest wacht en komt er één per "elke_s" open seconden bij.
+    # Eigen faam die de rij inhaalt: een niveau komt meteen als de faam zonder het weg-deel in de rij de drempel haalt.
+    # weg "keer": hooguit zoveel keer weg (voor de proef "X minuten spelen, één nacht weg"). "leeg_gevallen_s": tempo als
+    # er nog geen tempo te meten is (0 minuten gespeeld), zoals voortgang.gd: 1 held per 47,5 s, ±60% gevangen.
+    rij = sp_.get("rij")
+    rij_cap = None        # hoogste hol-niveau dat nu mag komen; None = er staat niets in de rij
+    rij_weg = 0.0         # gevangen helden van weg die nog in de rij zitten
+    rij_volgende = None   # open tijd waarop het volgende niveau uit de rij mag
+    rij_meet = False
     weg_hoeden_gloop = 0.0
     oud = {"goud": 0.0, "gevallen": 0.0, "hoeden": 0.0}      # per seconde, van de lagen die je niet ziet
     st_oud = {"gevallen": 0.0, "hoeden": 0.0}
@@ -149,18 +159,29 @@ def speel(uren, zaad, spec=None):
             st_oud["gevallen"] += oud["gevallen"] * dt
             st_oud["hoeden"] += oud["hoeden"] * dt
         t_vorig = t
-        if weg and t >= weg_dag * weg["open_u"] * 3600:
+        if weg and t >= weg_dag * weg["open_u"] * 3600 and weg_dag <= weg.get("keer", 10 ** 9):
             # spel dicht: tempo van het laatste uur (alle lagen samen voor goud; gevangen en hoeden van deze laag plus de oude)
             weg_dag += 1
+            x = weg["factor"] * min(weg.get("dicht_u", 18), weg["plafond_u"]) * 3600
+            if len(tot_hist) < 2:
+                # nog niets gespeeld: tempo zoals het spel het dan neemt (alleen helden, geen goud)
+                tot_hist = [(t, 0.0), (t, 0.0)]
+                laag_hist = [(t, 0.0, 0.0, 0.0), (t, 0.0, weg.get("leeg_gevallen_s", 0.6 / 47.5) * 60.0, 0.0)]
             a, b = tot_hist[0], tot_hist[-1]
             d = max(60.0, b[0] - a[0])
-            x = weg["factor"] * min(weg.get("dicht_u", 18), weg["plafond_u"]) * 3600
             la, lb = laag_hist[0], laag_hist[-1]
             dl = max(60.0, lb[0] - la[0])
             g = (b[1] - a[1]) / d * x
             goud += g
             st["goud_totaal"] = st.get("goud_totaal", 0.0) + g
-            st_oud["gevallen"] += ((lb[2] - la[2]) / dl + oud["gevallen"]) * x
+            erbij = ((lb[2] - la[2]) / dl + oud["gevallen"]) * x
+            st_oud["gevallen"] += erbij
+            if rij:
+                rij_cap = max(hol_hoogst, 1) + rij.get("meteen", 4)   # hol 1 is de start
+                rij_weg += erbij
+                rij_volgende = t + rij.get("elke_s", 180)
+                rij_meet = True
+                st.setdefault("terug_t", []).append(t)
             st_oud["hoeden"] += oud["hoeden"] * x
             weg_hoeden_gloop += (lb[3] - la[3]) / dl * x
             st["weg_goud"] = st.get("weg_goud", 0.0) + g
@@ -301,8 +322,17 @@ def speel(uren, zaad, spec=None):
             bron = {"helden": helden, "gevallen": st["gevallen"] + int(st_oud["gevallen"]), "goud": st.get("goud_totaal", 0.0),
                     "hoeden_gloop": len(st["hap_tijden"]) + int(weg_hoeden_gloop) + (int(st_oud["hoeden"]) if gloop_oud else 0), "hoeden": st["hap_slijm"] + int(st_oud["hoeden"]),
                     "uren": t / 3600}[sp["bron"]]
+            if rij and sp["naam"] == "hol-niveau" and rij_cap is not None:
+                while t >= rij_volgende:
+                    rij_cap += 1
+                    rij_volgende += rij.get("elke_s", 180)
             while sp["_i"] < len(sp["niveaus"]) and bron >= sp["niveaus"][sp["_i"]]["drempel"]:
                 nv = sp["niveaus"][sp["_i"]]
+                if rij and sp["naam"] == "hol-niveau" and rij_cap is not None and (nv.get("niveau") or 0) > rij_cap:
+                    if bron - rij_weg >= nv["drempel"]:
+                        rij_cap = nv.get("niveau") or 0    # eigen faam haalt de rij in
+                    else:
+                        break                              # wacht in de rij
                 sp["_i"] += 1
                 st.setdefault("ontgrendeld", []).append((t, sp["naam"], nv.get("niveau"), nv.get("wat", "")))
                 e = nv.get("effect", {})
@@ -327,6 +357,17 @@ def speel(uren, zaad, spec=None):
                 if e.get("bewoner") in ("slijm", "put"):
                     aantal[e["bewoner"]] += 1
                     verd.append({"soort": e["bewoner"], "plat_tot": -1})
+        if rij and rij_cap is not None:
+            hs = [sp for sp in sporen if sp["naam"] == "hol-niveau"]
+            if hs:
+                sp = hs[0]
+                bron = st["gevallen"] + int(st_oud["gevallen"])
+                wacht = sum(1 for nv in sp["niveaus"][sp["_i"]:] if bron >= nv["drempel"])
+                if rij_meet:
+                    st.setdefault("rij_na_weg", []).append((t, wacht))
+                    rij_meet = False
+                if wacht == 0:
+                    rij_cap, rij_weg, rij_volgende = None, 0.0, None
         if REEKS:
             # tellers na elke held, voor de voortgang over ±100 uur (diepte(), voortgang(), drempels())
             st.setdefault("reeks", []).append((t, helden, st["gevallen"], st.get("goud_totaal", 0.0),
