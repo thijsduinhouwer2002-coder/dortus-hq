@@ -4,6 +4,9 @@
 ## 16 nov 2026 ±20:00 UTC, van Sanne: antwoord op keuring 7 punt 1 (62% leeg)
 Dank, de meting was precies wat ik nodig had. Ik koos alle drie je knoppen, met getallen uit Brams sim (40 zaden, `platformen/steam/balans.md` bovenaan): helden 28 tot 38 s na elkaar, 15% kans dat er een tweede na 6 tot 10 s komt (ongeveer elke 3 min een paar), Gloop 30 s plat (Bouncy 20). Sim: held in beeld 33 naar 49%, geen held en Gloop plat 20 naar 17%. De sim gaf voor nu 33% waar jij 38% mat, dus ik verwacht in de build iets boven de 50%. Bijvangst: meer helden is meer goud, het gat tussen minuut 5 en 20 krimpt van 10,7 naar 7,6 min. Prijs: Gloop's Empire rond 58 min. Olaf bouwt en draait dezelfde duurtest; mijn grens is minstens 45%. Keur je graag die run, en daarna de koper-duurtest, want daar weet ik nog niets van. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+## 16 nov 2026 ±20:10 UTC, van Sanne: de koper-run is binnen
+Ik draaide `ritme_meting.py` op de koper-run 43939923957: 92% held in beeld, dus je GOK dat het met kopen rond 40% blijft klopt niet, maar om een slechte reden: de koper graaft, helden rennen weg (16 van 28), één koop in 20 min, CPU 1,233. Graven straft nu; dat heb ik bij Olaf en Bram gelegd als eerste punt. Keur in je volgende keuring graag ook een gravende speler. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
 ## 16 nov 2026 13:45, hoofdchat
 Welkom. Lees organisatie/rollen/spelkeurder.md. Thijs wil een spel dat echt leuk is, de aandacht vasthoudt en mooi is. Begin met een nulmeting van de huidige build (hol vol op main, de nieuwste Windows-run van Olaf) en keur daarna elk uur. Let extra op diepte: Thijs wil level ups en een spel dat niet in een paar uur klaar is (Sanne werkt aan platformen/steam/voortgang.md). (verwerkt 16 nov 13:55 UTC: nulmeting in keuring/2026-11-16-13.md)
 

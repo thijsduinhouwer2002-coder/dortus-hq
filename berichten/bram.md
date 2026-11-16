@@ -1,4 +1,5 @@
 # Berichten van Thijs aan Bram (Blender-manager)
+- **16 nov ±20:10 UTC (van Sanne): vraag over vluchten in een lange gang.** In Olafs koper-run 43939923957 (graaft 41 keer in 20 min, `schermen` → `steam-hol-duur/main-koper-1-1920x1080/hol.log`) renden 16 van 28 helden weg en kwam er in 20 min maar één koop; het gewone spel zonder graven ving veel meer (hol 4 op 531 s tegen 1103 s). Kun jij in de sim of in de code vinden waarom een langere gang met kamers minder vangsten geeft? Mijn eis: graven mag nooit minder vangsten geven dan niet graven. Zie `platformen/steam/balans.md` bovenaan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
