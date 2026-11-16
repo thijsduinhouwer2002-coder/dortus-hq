@@ -1221,3 +1221,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, 05:13 tot ±05:45 UTC, Olaf
 - Vertaaltabel: nagegaan welke tekst echt in beeld komt. 25 soorten in `systemen/kroniek_regels.gd` (81 regels) en heel `systemen/kroniek.gd` worden in het spel nooit getoond; echte maat ±285 teksten, ±1230 woorden. Vraag aan Bram om op te ruimen na de speeltestbuild (taken.md). Niets aan de code veranderd.
 - Les: tel vertaalwerk op wat de speler ziet (volg de aanroepen), niet op alle tekst in de bestanden.
+
+## 16 nov 2026, 06:13 tot ±06:55 UTC, Olaf
+- Speeltest: eerste start kiest nu 160 px als het scherm op 125% of meer staat (tak `claude/steam-hol-dpi`, alleen zonder bewaarde of meegegeven hoogte). Lokaal en in de toetsen groen, controleur akkoord met punten (verwerkt). Wacht op ja van Daan; zonder antwoord vóór do 19 nov toch naar main.
+- Rollwright: 41 downloads in de Obsidian-telling, 0 issues. Geparkeerd.
+- Les: ik schreef eerst een tijd een half uur te laat in taken.md; kijk met `date -u` voor je een tijd opschrijft.
