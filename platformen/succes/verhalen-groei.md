@@ -1,8 +1,68 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 13, hetzelfde korte filmpje op TikTok én YouTube Shorts gepaard gemeten (Joris, 16 nov ±12:30 UTC).
+bezig: niets (laatste: verhaal 13, hetzelfde korte filmpje op TikTok en YouTube Shorts gepaard gemeten, klaar 16 nov 2026 ±12:35 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
 
 Nieuwste bovenaan.
+
+---
+
+## 13. Hetzelfde korte filmpje op TikTok én YouTube Shorts: 317 paren bij 11 makers (3D-printen, Blender, maken) gepaard gemeten. Waar haalt dezelfde clip meer, en wat ging er mis bij een kleine maker die drie keer per dag plaatste?
+
+Onderzocht 16 nov 2026, run 13. Waarom: Chris begint di 17 nov met dagelijkse filmpjes op @dortusstudio, zowel op YouTube als op TikTok. In verhaal 10 en 11 maten we de twee los, bij verschillende kanalen. Dat zegt niet waar dezelfde clip het meest oplevert. Hier dezelfde maker, hetzelfde filmpje, op beide plekken: dan valt het verschil in maker en onderwerp weg.
+
+### Bronnen en werkwijze
+- yt-dlp 2026.10.26, openbare profielen, niet ingelogd, GEZIEN 16 nov ±11:55 tot 12:10 UTC. Per maker de volledige TikTok-lijst (kop, datum, lengte, views) en het tabblad Shorts op YouTube (kop, views). Voor elke kandidaat de echte YouTube-pagina gelezen (datum en precieze views).
+- Een paar telt alleen als de koppen sterk overeenkomen (75%+ van de woorden van de YouTube-kop staat in de TikTok-tekst) **en** de datums hooguit 7 dagen uit elkaar liggen. Steekproef van 3 per maker met de hand bekeken. Zonder de datumeis zaten er bij 5 makers foute paren in; met de eis bleven er 317 over. Alle paren: `platformen/succes/data/tiktok-vs-shorts-paren-2026-11-16.csv`.
+- Volgers: TikTok uit de openbare profielpagina (curl), YouTube uit yt-dlp, GEZIEN 16 nov.
+- 22 makers geprobeerd; 11 hadden een leesbare lijst op beide plekken met paren. Niet gevonden of niet leesbaar op YouTube: VAW.BE, Artinvader_, Fat13Creations, Ducky3D, Blender Tips. Ongeveer 70 YouTube-pagina's gaven een blokkade ("not a bot"); die paren vallen weg.
+- Hoe views geteld worden: YouTube telt sinds 31 maart 2025 elke start en herstart van een Short als view, eerder pas na een aantal seconden ([TechCrunch, 26 mrt 2025](https://techcrunch.com/2025/03/26/youtube-is-changing-how-youtube-shorts-views-are-counted/), DERDEN). Instagram maakt sinds 2021 Reels met een watermerk of logo van een andere app "less discoverable" (verklaring van Instagram, geciteerd door [XDA](https://www.xda-developers.com/psa-do-not-upload-tiktok-instagram-reels-without-removing-watermark/), DERDEN).
+
+### Uitkomst per maker (mediaan per paar, GEZIEN)
+| Maker | Paren | TikTok mediaan | Shorts mediaan | Shorts / TikTok | Shorts wint | Volgers TikTok | Abonnees YouTube |
+|---|---|---|---|---|---|---|---|
+| 3dprintdood (printtips) | 135 | 6.339 | 14.054 | 1,9 | 85 van 135 | 15.000 | 131.000 |
+| marsgizmo (printontwerpen) | 67 | 15.900 | 140.108 | 8,2 | 57 van 67 | 982.200 | 3.040.000 |
+| mixtapeprints (kleine printwinkel) | 49 | 103 | 106 | 1,75 | 29 van 49 | 106 | 46 |
+| kaivertigoh (drones, maken) | 19 | 2.858 | 25.978 | 3,6 | 18 van 19 | 171.300 | 260.000 |
+| Blender Secrets | 13 | 975 | 20.395 | 10,0 | 12 van 13 | 11.800 | 292.000 |
+| McGybeer (beweegbare prints) | 13 | 1.870 | 1.365 | 1,1 | 7 van 13 | 43.300 | 7.330 |
+| Emily the Engineer | 10 | 326.100 | 292.454 | 2,0 | 6 van 10 | 3.300.000 | 771.000 |
+| Brock Creative (Blender) | 4 | 22.850 | 5.579 | 0,22 | 0 van 4 | 141.300 | 15.900 |
+| SouthernShotty (Blender) | 3 | 1.054 | 15.834 | 8,9 | 3 van 3 | 4.729 | 321.000 |
+| ali3dprint (sleutelhouders) | 2 | 6.996 | 66.518 | 9,1 | 2 van 2 | 1.530 | 21.000 |
+| Cinderwing3d (printdraken) | 2 | 21.150 | 3.842 | 0,17 | 0 van 2 | 12.200 | 571 |
+| **Alles** | **317** | | | **2,85** | **219 van 317 (69%)** | | |
+
+### Wat ik zag
+1. **Dezelfde clip haalt op Shorts meestal meer: mediaan 2,85 keer, in 69% van de paren, bij 9 van de 11 makers** (GEZIEN). Het verschil is groter na de nieuwe telling van YouTube: paren van vóór april 2025 mediaan 1,9 keer, daarna 4,0 keer. Een deel van de voorsprong is dus telwijze, geen echte kijkers (de omvang daarvan is een GOK).
+2. **TikTok won alleen waar de maker daar al veel groter was.** Brock Creative (141.300 tegen 15.900) en Cinderwing3d (12.200 tegen 571): TikTok 4 tot 6 keer meer. Maar McGybeer heeft op TikTok 6 keer zoveel volgers en haalt op Shorts toch evenveel per clip, en Emily the Engineer heeft er 4 keer zoveel en haalt op Shorts toch 2 keer meer. Per volger gerekend gaf Shorts bij 7 van de 11 meer.
+3. **Voor een account dat bij nul begint, is het eerlijkste voorbeeld mixtapeprints** (106 en 46 volgers): ongeveer gelijk, Shorts iets hoger (106 tegen 103 mediaan, 29 van 49 paren). Zo klein beginnen geeft op beide plekken ±100 views. Dat klopt met de vloer uit verhaal 10 en 11 (300 tot 900 Shorts, 150 tot 600 TikTok) en met Control Yourself (250 TikTok, 500 YouTube, EIGEN OPGAVE, verhaal 12).
+4. **Een hit op de ene plek is vaak geen hit op de andere.** Bij 3dprintdood, marsgizmo en mixtapeprints hangt de rangorde van de views nauwelijks samen (Spearman 0,17, 0,16 en -0,07; GEZIEN). Bij Blender Secrets en kaivertigoh wel (0,65 en 0,88). In 69 paren haalde Shorts 10 keer meer dan TikTok, in 22 paren andersom. Twee plekken zijn dus twee loten: een filmpje dat op TikTok bij 200 blijft, kan op Shorts 20.000 halen.
+5. **Volgorde:** de meeste plaatsen beide op dezelfde dag (267 van 317). Kwam YouTube een paar dagen later, dan haalde Shorts niet meer dan TikTok (mediaan 0,9 tegen 3,4 op dezelfde dag; maar 23 paren, dus zwak).
+
+### Hoofdverhaal: mixtapeprints, een kleine printwinkel die drie keer per dag plaatste en vastliep
+Een kleine winkel met geprinte cadeaus ("Custom 3D printed gifts, novelty decor, and personalized keepsakes", eigen kanaaltekst). 329 TikToks en een stuk of 145 Shorts, okt 2025 tot 6 aug 2026. GEZIEN.
+1. **Jan tot mrt 2026: een paar filmpjes van 30 tot 40 seconden**, ±100 tot 340 views.
+2. **Vanaf apr 2026: overstap naar clips van 5 seconden**, steeds hetzelfde sjabloon: een product draait rond, een zin met een grap ("This worried corn hides your secrets better than it hid in the field"). Van 4 per maand naar 78, 87 en 91 per maand: bijna 3 per dag, op TikTok en YouTube tegelijk.
+3. **April en mei: mediaan ±300 views op TikTok** per clip, beste clips een naampuzzel (1.685) en een naambord met losse letters (1.089). Dat is de normale vloer, niet slechter.
+4. **Juni en juli: daling naar 140 tot 180** terwijl het aantal gelijk bleef. Dezelfde producten kwamen steeds terug ("Cathedral glass, but make it spicy", een week later "Stained glass, but make it spicy").
+5. **Week van 3 aug: 28 clips, mediaan 7,5 views op TikTok** (de clips staan er al 3 maanden, dus het ligt niet aan de leeftijd). Op Shorts in augustus mediaan 40, in juli nog 220. Na 6 augustus niets meer.
+Wat het precies veroorzaakte, zegt de maker nergens. Mijn uitleg is een GOK: veel bijna gelijke clips van 5 seconden met herhaalde producten zien eruit als massawerk, en beide platforms tonen ze dan aan bijna niemand meer. Het patroon (eerst normaal, dan dalen bij gelijke hoeveelheid, dan instorten) is GEZIEN.
+
+### Drie lessen
+1. **Zet elk filmpje op beide plekken, op dezelfde dag, als schoon bestand.** Shorts gaf bij dezelfde clip mediaan 2,85 keer zoveel views en won bij 9 van 11 makers; TikTok won alleen waar het publiek daar al was. Omdat een hit zelden op beide plekken tegelijk valt, verdubbelt dubbel plaatsen je kansen, niet alleen je views. Upload het origineel, niet de TikTok-download met watermerk (Instagram drukt dat bewust weg; voor YouTube weet ik het niet, GOK dat het niet helpt).
+2. **Beoordeel een vorm niet op één plek.** Bij drie makers hing de rangorde op TikTok en Shorts nauwelijks samen. Een kopvorm schrappen omdat hij op TikTok bij 150 bleef, kan een Shorts-hit kosten. Kijk na 48 uur naar de beste van de twee.
+3. **Meer is niet beter als het hetzelfde wordt.** mixtapeprints ging van 1 naar 3 per dag met clips van 5 seconden uit één sjabloon en herhaalde producten; views gingen van ±300 naar 7,5 en de maker stopte. Eén per dag met elke dag een nieuwe tip of nieuwe handeling (Blender Secrets: duizenden tips, geen herhaling) is veiliger dan veel van hetzelfde.
+
+### Eerlijk: wat deze meting niet zegt
+- 11 makers, vooral printen; maar twee echte Blender-tipmakers met genoeg paren (Blender Secrets en SouthernShotty), en die hebben een groot YouTube-kanaal. Voor Blender is de voorsprong van Shorts dus deels het bestaande publiek.
+- Views zijn geen mensen en geen kopers. YouTube telt herstarts mee; TikTok telt ook herhaald kijken (GOK hoe precies).
+- Alleen paren die ik kon koppelen; filmpjes die maar op één plek staan, ontbreken. Makers plaatsen misschien vooral hun beste clips dubbel.
+- De YouTube-cijfers zijn precies, de TikTok-cijfers afgerond (bijvoorbeeld 15.800).
+- Het verloop bij mixtapeprints is één geval; de oorzaak is een GOK.
+
+### Voorstel voor Dortus deze week
+**Chris: vanaf di 17 nov elk filmpje op dezelfde dag op YouTube Shorts én TikTok (@dortusstudio), als het schone mp4-bestand uit de release, niet de TikTok-download.** Houd per filmpje beide cijfers na 48 uur bij in `commercie/filmpjes/` (datum, kop, lengte, views TikTok, views Shorts), en beslis over een kopvorm pas op het beste van de twee na ±10 filmpjes. Blijf op één per dag met steeds een nieuwe tip; geen tweede of derde clip per dag uit hetzelfde sjabloon, en hetzelfde filmpje niet opnieuw plaatsen tenzij hij duidelijk anders geknipt is (The Matriarch, verhaal 12). Verwacht in het begin ±100 tot 900 views per plek; dat is normaal. Waarom: dezelfde clip haalde op Shorts mediaan 2,85 keer zoveel, hits vallen per plek anders, en de enige kleine maker die het aantal opdreef met bijna gelijke clips zakte naar 7,5 views.
 
 ---
 
