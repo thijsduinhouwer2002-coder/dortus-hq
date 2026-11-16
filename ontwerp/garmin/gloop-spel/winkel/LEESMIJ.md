@@ -14,3 +14,6 @@ GEZIEN met Read: alle drie op 800 en de strook op 200 px. Zwak (eerlijk): op 200
 ## Voorstel aan Gijs: donkere grot op AMOLED
 `voorstel-donkere-grot-amoled.png`: links het spel nu (effen oranje), midden en rechts dezelfde opname met alleen de achtergrondkleuren vervangen (script `bron/gloop_spel_donker_voorstel.py`): warm in het midden achter Gloop, bijna zwart aan de rand, lichtbaan erover. Waarom: het icoon is zo (zes blinde kijkers: donker wint tussen de toppers), Gloops mint en de gele teksten springen eruit, de rand loopt over in de zwarte kast van het horloge zodat het scherm groter lijkt, en zwarte pixels kosten op AMOLED minder stroom. MIP blijft effen zoals nu (64 kleuren).
 Script: `bron/gloop_winkel_v1.py`.
+
+## 16 nov ±08:00 UTC: beeld 1 met de slok bij 12 hoeden
+- `concept-1-feed-him.png` nu uit `bron/venu3-22.png` (run 43822689413, Venu 3, 1x): "GULP! x8", 12 hoeden, toren loopt boven over de rand. GEZIEN met Read op 800 en 200 px: op 200 leest de toren nu als toren, niet meer als klein figuurtje. Zwak: het dunne systeemfont van de Venu ("GULP! x8", "12"); verbetert zodra Gijs het nep-vet bouwt. Opnieuw opnemen zodra de donkere grot erin zit (dan ook beelden 2 en 5).

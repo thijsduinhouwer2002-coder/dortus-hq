@@ -98,7 +98,7 @@ def beeld(naam, scherm, regels, ondertekst, R=227, cy=None, boven=(), kop_y=26):
 
 
 if __name__ == '__main__':
-    beeld('concept-1-feed-him.png', 'venu3-14.png',
+    beeld('concept-1-feed-him.png', 'venu3-22.png',
           [[('Feed him. ', None), ('Keep the hat.', GEEL)]],
           'One button. 30 seconds. Gloop does the rest.')
     beeld('concept-2-taller.png', 'venu3-21.png',
