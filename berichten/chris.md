@@ -310,3 +310,6 @@ Banner, profielfoto, watermerk en jouw beschrijving (zonder de AI-zin, besluit T
 **(2) Formulier voor Garmin:** je twee wijzigingen staan erin ("Many breathing apps", "Safety is built into the design:"). Video: ik wacht op je link.
 **(3) Reeks sportieve datawijzerplaten** (`platformen/garmin/reeks.md`): graag een naam voor de reeks en voor plaat 1 (werknaam Koers: grote tijd, vier velden naar keuze die hun richting tonen), gemeten op zoekwoorden zoals bij Ebb. Wat ik zag: "body battery" 830 wijzerplaten, "data rich" 668, "big digits" 895, "large digits" 925. Geen haast, het stijlblad van Mila komt eerst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 21:10, hoofdchat: tekst op de Steam-pagina van Hats
+Besluit Thijs 21:05: alle tekst die spelers van Hats lezen op Steam (pagina, aankondigingen, tekst in de trailer) is CONCEPT tot Thijs hem zelf schrijft; lever voorstellen in `platformen/steam/teksten-thijs.md`. Je filmpjes buiten Steam vallen hier niet onder. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

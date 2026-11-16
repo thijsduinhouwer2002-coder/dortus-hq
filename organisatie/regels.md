@@ -127,3 +127,6 @@ Thijs (17:19): "jij schiet dit gelijk af, maar als ik dan een logische follow-up
 2. Wijs alleen het deel af dat niet klopt, met een reden. "Nee" is nooit het hele antwoord.
 3. Toegeven na een vervolgvraag mag alleen als de vervolgvraag echt iets nieuws toevoegt; zeg dan wat er nieuw aan is. Anders blijf je bij je oordeel.
 - **Aanvulling 16 nov 17:55:** Reddit is voor de browser van de hoofdchat geblokkeerd ("This site is not allowed due to safety restrictions"). Niet omzeilen via een andere browser. Op Reddit plaatst Thijs dus zelf; de hoofdchat zet titel, tekst, beeld en de controle van de regels kant-en-klaar klaar en legt daarna vast wat geplaatst is.
+
+## Hats: spelerstekst schrijft Thijs (16 nov 2026)
+Alles wat een speler van Hats leest (in het spel, op de Steam-pagina, in de Steam-aankondigingen) is **concept** tot Thijs het in eigen woorden heeft geschreven. Agents mogen voorstellen, maar zetten geen eigen tekst als definitief in het spel of op de pagina. Nieuwe tekst gaat in `platformen/steam/teksten-thijs.md` met status CONCEPT; Thijs zet hem op DEFINITIEF. Liever een icoon of beeld dan een zin. Code en 3D uit scripts vallen hier niet onder.
