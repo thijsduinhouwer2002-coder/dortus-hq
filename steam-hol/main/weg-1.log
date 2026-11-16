@@ -1,27 +1,27 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 685, hoeden 53
-HOL hol-niveau 2 (faam 89)
-HOL hol-niveau 3 (faam 89)
-HOL hol-niveau 4 (faam 89)
-HOL hol-niveau 5 (faam 89)
-HOL hol-niveau 6 (faam 89)
-HOL hol-niveau 7 (faam 89)
-HOL hol-niveau 8 (faam 89)
-HOL hol-niveau 9 (faam 89)
-HOL hol-niveau 10 (faam 89)
-HOL hol-niveau 11 (faam 89)
-HOL hol-niveau 12 (faam 89)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 53 new hats.
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 721, hoeden 55
+HOL hol-niveau 2 (faam 95)
+HOL hol-niveau 3 (faam 95)
+HOL hol-niveau 4 (faam 95)
+HOL hol-niveau 5 (faam 95)
+HOL hol-niveau 6 (faam 95)
+HOL hol-niveau 7 (faam 95)
+HOL hol-niveau 8 (faam 95)
+HOL hol-niveau 9 (faam 95)
+HOL hol-niveau 10 (faam 95)
+HOL hol-niveau 11 (faam 95)
+HOL hol-niveau 12 (faam 95)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 55 new hats.
 HOL weg-regel uit tot het bordje: Grew 11 levels while you were away.
 HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
-HOL opslag geladen: 0 terugkomers, 705 goud, faam 89
+HOL opslag geladen: 0 terugkomers, 741 goud, faam 95
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794846649
-HOL eerste koop mogelijk na 15 s speeltijd (goud 705)
+HOL zaad 1794848760
+HOL eerste koop mogelijk na 15 s speeltijd (goud 741)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 89 fell, 53 hats. +685 gold.
-HOL begin: vluchten (Tibbe)
-HOL held binnen: Tibbe
+HOL kroniek 2.5 (wacht 2.5): 151 came, 95 fell, 55 hats. +721 gold.
+HOL begin: vluchten (Lotte)
+HOL held binnen: Lotte
 HOL kroniek 5.0 (wacht 5.0): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.0: Tibbe is here for your gold.
+HOL kroniek vervallen 7.1: Lotte climbs into your hole.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=705, terugkomers=0
+HOL einde na 15 s, fps=10, goud=741, terugkomers=0
