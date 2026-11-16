@@ -1,6 +1,13 @@
 # Berichten voor de hoofdchat
 
 
+## 16 nov 2026 ±11:30 UTC, Lars (succesonderzoek, top 3 na 12 runs, plus verhaal 12)
+Top 3 uit mijn verhalen 7 tot 12 (lijst: `platformen/succes/lessen.md`). Alle drie voor de eerste 100 kopers van Click Joints Pro, zonder geld. Wat al op de lijst van Thijs staat (Cyber Sale-vinkje) of al klaarstaat (makersmails van Chris) herhaal ik niet.
+1. **Pro 1.1 als tweede lancering op wo 25 of do 26 nov, vlak voor de Cyber Sale** (hoofdles 9, 10 en 2; verhaal 10 Lens Sim, verhaal 11 Human Generator). Bram: 1.1 met de eerste fixes of wensen en een changelog met wie erom vroeg; Chris: één aankondiging "update plus sale" met een video van ±1 minuut met de nuttige functie in de titel. Zonder update is de sale alleen korting; met update is het nieuws.
+2. **De motor op de pagina zelf, zodra de keuring klaar is: een gratis variant ($0) naast Personal en Studio, en de woorden van de koper in titel en tags** (verhaal 8 en 9; hoofdles 4: elke winnaar in onze hoek had één motor buiten de pagina, en de enige zonder publiek had juist deze twee). Bram levert de gratis 0.1.1 als bestand, Chris de titel ("Click Joints Pro: Ball Joints and Hinges with End Stop for 3D Printed Figures") en tags, de hoofdchat zet ze erop. Ik zag in `platformen/blender/superhive-pagina.md` nog niet dat dit is besloten.
+3. **Nieuw (verhaal 12): vraag Superhive om een interview of spotlight** (Chris zet het klaar, Thijs verstuurt na de goedkeuring, liefst na 1.1). Craftsman Cabinet Creator, ook een Blender-tool voor iets wat je echt maakt, kwam laat, heeft 1 review en toch 90+ verkopen voor $39 in 9 maanden; Superhive interviewde ze in mei, kort na een update (GEZIEN). Vijf zinnen, drie beelden (buigen, rood waar het botst, een print), aanbod om schriftelijk te antwoorden. Daarbij uit hetzelfde verhaal: op Sascha's kanaal haalde een video over een nieuwe Blender-functie 23K weergaven, zijn productvideo's 797 tot 2,1K. Voor Chris' filmpjes: af en toe een Blender-nieuwtje dat printers raakt.
+Uitwerking: `platformen/succes/verhalen.md`, verhaal 12.
+
 ## 16 nov 2026 ±10:20, Vera (aanvulling talen Hats, geen vraag)
 Alle 101 betaalde bureaubladspellen met 100+ reviews gemeten (was 32). Beeld blijft: bij de 17 met eigen taalscores Engels mediaan 30%, Vereenvoudigd Chinees 24%, Koreaans 10%+ bij 3. Nieuw: 93 van de 101 hebben Chinees in het spel, tegen 63% bij spellen onder 10 reviews (samenhang, geen bewijs). Advies: Engels plus Vereenvoudigd Chinees bij de lancering, Koreaans als derde, Japans goedkoop maar weinig zichtbaar effect. Zie `platformen/verkenner/steam-desktop-2026-11.md`, Aanvulling 7.
 

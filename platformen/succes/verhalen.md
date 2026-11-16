@@ -1,8 +1,57 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 11, de drie lanceerinterviews van Superhive uit 2020 met de cijfers van nu, klaar 16 nov 2026 ±10:00 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een maker die een tweede lancering met een update deed in onze hoek. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 12, Craftsman Cabinet Creator, vakman met cursus plus bouwer, klaar 16 nov 2026 ±11:30 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een "Sascha" voor geprinte figuren: een maker of docent die figuren met gewrichten ontwerpt en een publiek heeft. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 12. Craftsman Cabinet Creator (Sascha Feider en Ahmad, twee mensen, kasten op maat in Blender met zaaglijst, Superhive): een vakman met een cursus plus een bouwer die zijn leerling was
+
+Onderzocht 16 nov 2026, run 12. Waarom dit verhaal: Click Joints Pro is net als deze add-on een Blender-hulpmiddel voor iets wat je echt gaat maken (printen tegenover zagen), komt laat in een hoek, en heeft geen eigen publiek. Craftsman Cabinet Creator (CCC) is ±9 maanden oud, kwam niet vroeg, en werd door Superhive zelf geïnterviewd. Geen cursusverkoper met beloftes: de cursus bestaat, maar alles hieronder komt van de winkelpagina's en het interview zelf.
+
+### Bronnen
+- Interview door Superhive (Wes Burke), 5 mei 2026: https://superhivemarket.com/posts/craftsman-cabinet-creator-interview-how-ccc-brings-parametric-cabinet-design-to-blender (GEZIEN met curl, EIGEN OPGAVE van de makers).
+- Productpagina, versies en reviews: https://superhivemarket.com/products/craftsman-cabinet-creator (GEZIEN 16 nov 2026).
+- De cursus van Sascha bij CG Cookie op Superhive: https://superhivemarket.com/products/craftsman--precision-modeling-with-blender-for-real-world-application (GEZIEN).
+- YouTube-kanaal van Sascha: https://www.youtube.com/@SFE-Viz/videos (GEZIEN 16 nov, kanaalpagina met curl; de losse videopagina's gaven een lege pagina, dus de beschrijvingen zijn NIET GEZIEN).
+- Bijlezen, ander Superhive-stuk met makersadvies (TrueVFX, Lens Sim, Mark Kingsnorth, SMOUSE), 22 jan 2025: https://superhivemarket.com/posts/the-business-of-blender-how-to-succeed-in-an-increasingly-competitive-market (GEZIEN, EIGEN OPGAVE van de makers).
+
+### Cijfers (GEZIEN 16 nov, verkoopblokken zijn ondergrenzen)
+- **CCC: 90+ verkopen voor $39, gepubliceerd "9 months ago"** (±feb 2026), 1 review (5 sterren). Ruwe omzet dus minstens ±$3.500 voor de winkel zijn deel neemt (GOK op GEZIEN blok en prijs).
+- **De cursus van Sascha (CG Cookie, $39,99): 300+ verkopen**, "over 1 year ago". De cursus kwam eerst, de add-on daarna.
+- **Kanaal SFE-Viz: 3,77K abonnees.** De laatste video's (weergaven, leeftijd):
+  - "Blender 5.3: Dimensions in Edit Mode Are Finally Here!" 23K, 1 maand
+  - "Blender 5.1 Face Snapping Is HERE But There's a CATCH!" 2,6K, 8 maanden
+  - "I tested Texture Caching in Blender 5.2" 2,1K, 4 maanden
+  - "Parametric Cabinets in Minutes - CCC Tutorial" 2,1K, 8 maanden
+  - "This Cutlist Feature is a Game-Changer for Professionals - CCC Update" 1,7K, 7 maanden
+  - "Built Right - Construction Logic For Interior ArchViz - BCON Austin 2026" 1,2K, 6 maanden
+  - "New Front-Style Controls ... Cabinet Workflow" 868, 1 maand
+  - "Craftsman Cabinet Creator - Blender Add-on Announcement" 797, 8 maanden
+- Versiegeschiedenis op Superhive: leeg ("No versions found"), terwijl kanaal en interview twee updates noemen (zaaglijst, voorkanten). De updates staan dus niet als versies op de pagina.
+
+### Wat ze in welke volgorde deden (uit het interview, EIGEN OPGAVE)
+1. Sascha is timmerman met "nearly 20 years in the trade" en gebruikt Blender in zijn eigen bedrijf. Hij maakte een cursus bij CG Cookie over kasten op maat modelleren.
+2. Ahmad, ontwikkelaar zonder timmerervaring, volgde die cursus: "watching how much manual effort goes into building cabinets traditionally was the spark". Hij bouwde een opzet in Geometry Nodes en benaderde Sascha. Sascha: "when Ahmad approached me with his Geometry Nodes setup, I jumped on it."
+3. Ze bouwden samen tot het op de millimeter klopte. Sascha toetste het door een oud klantproject na te bouwen: "basically a perfect copy".
+4. Aankondiging en uitlegvideo op Sascha's kanaal (±feb/mrt 2026), daarna een update met een video (zaaglijst), daarna het interview op de blog van Superhive (mei), een praatje op BCON Austin 2026, en een tweede update met video (voorkanten, okt).
+5. Hun eigen uitleg waarom het een productietool is en geen plaatjesmaker: de zaaglijst. Ahmad: "That's the bridge between a 3D model and something a workshop can actually build."
+
+### Drie lessen
+1. **Een vakman met een cursus plus een bouwer is een goede ploeg; de vakman brengt het vertrouwen en de kopers, de bouwer het product.** CCC heeft geen vroege plek en maar 1 review, en toch 90+ verkopen voor $39 in 9 maanden, wat boven elke late nieuwkomer in onze hoek ligt (verhaal 9: de beste nieuwkomer sinds september 30+). De bouwer vond de vakman via diens cursus. Dit is een nieuwe vorm van hoofdles 4 (anderen maken het bereik): niet iemand die je product bespreekt, maar iemand die je product mee maakt.
+2. **Op hetzelfde kanaal haalt een video over iets nieuws in Blender 10 keer zoveel als een productvideo.** 23K voor "Dimensions in Edit Mode" tegen 797 tot 2,1K voor de CCC-video's (GEZIEN). De nieuwsvideo's passen bij de vraag van zijn kijkers (precies modelleren), niet bij het product. Bevestigt hoofdles 3 (filmpjes rond de vraag van de gebruiker), nu bij een maker in de echte-wereld-hoek.
+3. **Elke update kreeg een eigen video met de nuttige functie in de titel ("Cutlist Feature"), en de winkel interviewde ze kort na die update.** Bevestigt hoofdles 2 en 10. Maar: de versies staan niet op de Superhive-pagina, dus wie daar kijkt ziet geen leven. En uit het bijgelezen stuk: SMOUSE deed diepe kortingen vlak voor een sitebrede sale om op de voorpagina te komen; "even if it works once ... It's always a race to the bottom" (EIGEN OPGAVE). Dat past bij de kandidaat over korting: meedoen ja, onderbieden nee.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Hoeveel van de 90+ uit Sascha's kanaal of cursus komt, zegt niemand. Het kan ook de interviewpagina of BCON zijn. Samenhang, geen bewijs.
+- CG Cookie en Superhive zijn van hetzelfde bedrijf (Autotroph). Een docent van CG Cookie krijgt dus makkelijker een interview dan wij. Dat het interview er kwam, zegt niet dat wij er een krijgen.
+- 90+ is een ondergrens; het kunnen er ook 99 zijn. En $39 is drie keer onze prijs.
+- Voor 3D-geprinte figuren heb ik deze run geen "Sascha" gezocht. Chris heeft al 10 makers op een lijst (`commercie/blender-click-joints/makers.md`), maar dat zijn bespreekkanalen, geen mede-makers.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris schrijft een korte vraag aan de blog van Superhive (klaarzetten, niet versturen), de hoofdchat zet het versturen op `organisatie/lijst-thijs.md` zodra Pro live is, Bram levert twee feiten en één schermopname.
+**Wat:** Superhive interviewt zelf makers (CCC mei 2026, "Inside the Hive", de lanceerreeks van 2020 uit verhaal 11). Dat is een bereik dat geen geld kost en dat de winkel zelf naar kopers stuurt. Vraag: "Interview or Creator Spotlight: how two-part ball joints and hinges with an end stop make 3D printed figures move, built in Blender." Vijf zinnen, drie beelden (het buigen met de schuif, rood waar het botst, een print), en het aanbod om de vragen schriftelijk te beantwoorden. Net als CCC: noem de brug naar de echte wereld (meten vóór het printen) als de reden dat het een werktool is. Versturen via het makerscontact van Superhive (de Creator Slack of het adres dat Superhive daarvoor noemt) door Thijs, na de goedkeuring en liefst na Pro 1.1, zodat er een update is om over te praten. Meten: of er binnen 4 weken een stuk komt, en het verkoopblok in de week erna.
 
 ---
 
