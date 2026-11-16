@@ -32,28 +32,86 @@ def gloops():
     return g
 
 
-def slok_sprite(W):
-    # zelfde opbouw als v3.slok, maar op een doorzichtig vlak: Gloop met de held ondersteboven in zijn mond
+SLOK_HOEK2 = 42   # 16 nov 05:00: benen wijzen schuin linksboven uit de mond, weg van het oog
+SLOK_MX, SLOK_MY = 0.40, 0.70  # knipkant van de held in de mond (deel van de mondbreedte/-hoogte)
+SLOK_MOND = (1.35, 1.12)   # grotere mond bij de slok: breedte, hoogte t.o.v. de hap-O
+SLOK_KEEL = 0.42           # vanaf hier (deel van de mondhoogte) is de keel donker over de held
+MOND_KL, RAND_KL, TONG_KL = (62, 22, 40, 255), (30, 60, 50, 255), (236, 110, 130, 255)
+MOND_E = None
+SLOK_HELD = 1.0  # breedte van de held (benen en buik, vóór draaien) t.o.v. de mondbreedte
+
+
+def alleen_benen():
+    # held-vallen ligt ondersteboven. Alleen benen, laarzen, riem en buik; zonder armen (de hand
+    # stak bij het oog en las als zwaaien) en zonder schild.
+    h = v3.held_benen()   # al zonder schild en vloerschaduw, geknipt onder de riem, bijgesneden
+    # rechterarm met hand zit in het rechter kwart: weg (gemeten: arm begint op 0,75 van de breedte)
+    h = h.crop((0, 0, int(h.width * 0.74), h.height))
+    return v2.bijsnijden(h)
+
+
+def slok_sprite(W, M=False):
+    # v2 van de slok (moet Daan 16 nov 04:40: geen kluwen, één mond, oog vrij).
+    # Gloop op dezelfde maat als rust/hap (de toren blijft dus op zijn plek), zijn eigen O-mond
+    # (de hap-render), en daarin alleen de benen en buik van de held, schuin naar linksboven.
+    # De onderlip wordt over de held heen getekend, zodat hij echt IN de mond zit.
     hap = v2.zonder_schaduw(Image.open(os.path.join(R, "gloop-hap-h0.png")).convert("RGBA"))
-    g = v2.schaal(hap, W * SLOK_B)
+    g = v2.schaal(hap, W * GLOOP_B)
     m0x, m0y, m1x, m1y = v3.mond(g)
-    ruw = v3.held_benen()
-    f = (m1x - m0x) * v3.HELD_B / 90
-    hb = v2.bijsnijden(ruw.resize((max(1, round(ruw.width * f)), max(1, round(ruw.height * f))), Image.LANCZOS)
-                       .rotate(SLOK_HOEK, expand=True, resample=Image.BICUBIC))
-    hx = int((m0x + m1x) / 2 - hb.width * 0.85)
-    hy = int(m0y + (m1y - m0y) * 0.60 - hb.height)
-    boven = max(0, -hy)
-    vlak = Image.new("RGBA", (g.width, g.height + boven), (0, 0, 0, 0))
-    vlak.alpha_composite(g, (0, boven))
-    rand = hb.getchannel("A").point(lambda a: 255 if a > 100 else 0).filter(ImageFilter.MaxFilter(max(3, round(W / 90)) | 1))
-    schim = Image.new("RGBA", hb.size, (40, 22, 34, 255)); schim.putalpha(rand)
-    vlak.alpha_composite(schim, (hx, hy + boven)); vlak.alpha_composite(hb, (hx, hy + boven))
-    lip = Image.new("L", g.size, 0)
-    ImageDraw.Draw(lip).rectangle([0, int(m0y + (m1y - m0y) * 0.50), g.width, g.height], fill=255)
-    laag = Image.new("RGBA", g.size, (0, 0, 0, 0)); laag.paste(g, (0, 0), lip)
-    vlak.alpha_composite(laag, (0, boven))
-    return vlak, boven   # boven = hoeveel px de benen boven de kop van Gloop uitsteken
+    if M:   # MIP: Gloop met Bayer, held effen met zwarte omtrek (moet Daan: effen blauw)
+        g = mip_sprite(g, bayer=True); m0x += 1; m0y += 1; m1x += 1; m1y += 1
+    # één grotere mond (blinde kijker 05:00: de O was onder de held weg, "gevallen, niet ingeslikt"):
+    # boven vast onder het oog, breder en dieper, de oude mond valt er helemaal binnen
+    global MOND_E
+    mb, mh = (m1x - m0x) * SLOK_MOND[0], (m1y - m0y) * SLOK_MOND[1]
+    mc = (m0x + m1x) / 2
+    MOND_E = (mc - mb / 2, m1y - mh, mc + mb / 2, m1y)   # onderkant gelijk (anders buiten de plaat)
+    global MOND_KL, RAND_KL, TONG_KL
+    if M:   # MIP: alleen paletkleuren
+        MOND_KL, RAND_KL, TONG_KL = (85, 0, 85, 255), (0, 0, 0, 255), (255, 85, 170, 255)
+    else:
+        MOND_KL, RAND_KL, TONG_KL = (62, 22, 40, 255), (30, 60, 50, 255), (236, 110, 130, 255)
+    gd = ImageDraw.Draw(g)
+    gd.ellipse([MOND_E[0] - 1, MOND_E[1] - 1, MOND_E[2] + 1, MOND_E[3] + 1], fill=RAND_KL)
+    gd.ellipse(MOND_E, fill=MOND_KL)
+    m0x, m1x = MOND_E[0], MOND_E[2]; m0y, m1y = MOND_E[1], MOND_E[3]
+    ruw = alleen_benen()
+    f = (m1x - m0x) * SLOK_HELD / ruw.width
+    hb = ruw.resize((max(1, round(ruw.width * f)), max(1, round(ruw.height * f))), Image.LANCZOS)
+    # knipkant (onderkant) midden = draaipunt: na draaien opnieuw zoeken via een merkpixel
+    vl = Image.new("RGBA", (hb.width * 3, hb.height * 3), (0, 0, 0, 0))
+    vl.alpha_composite(hb, (hb.width, hb.height))
+    hb = vl.rotate(SLOK_HOEK2, center=(hb.width * 1.5, hb.height * 2), resample=Image.BICUBIC)
+    ax, ay = hb.width / 2, hb.height * 2 / 3   # waar de knipkant nu zit
+    bb = hb.getbbox(); hb = hb.crop(bb); ax -= bb[0]; ay -= bb[1]
+    if M:   # held lichter vóór het afronden: anders wordt het blauw 0,0,170 en verdwijnt hij in de donkere mond
+        from PIL import ImageEnhance
+        a_ = hb.getchannel("A"); hb = ImageEnhance.Brightness(hb.convert("RGB")).enhance(1.15).convert("RGBA"); hb.putalpha(a_)
+        hb = mip_sprite(hb, bayer=False); ax += 1; ay += 1
+    # knipkant op het midden van de mond, iets onder het midden
+    mx, my = m0x + (m1x - m0x) * SLOK_MX, m0y + (m1y - m0y) * SLOK_MY
+    hx, hy = int(mx - ax), int(my - ay)
+    links, boven = max(0, -hx), max(0, -hy)
+    vlak = Image.new("RGBA", (g.width + links, g.height + boven), (0, 0, 0, 0))
+    vlak.alpha_composite(g, (links, boven))
+    if not M:   # donkere rand (op MIP heeft mip_sprite al een zwarte omtrek gegeven)
+        pad = Image.new("L", (hb.width + 8, hb.height + 8), 0)
+        pad.paste(hb.getchannel("A").point(lambda a: 255 if a > 100 else 0), (4, 4))
+        rand = pad.filter(ImageFilter.MaxFilter(3)).crop((4, 4, 4 + hb.width, 4 + hb.height))
+        schim = Image.new("RGBA", hb.size, (40, 22, 34, 255)); schim.putalpha(rand)
+        vlak.alpha_composite(schim, (hx + links, hy + boven))
+    vlak.alpha_composite(hb, (hx + links, hy + boven))
+    # keel: de onderste helft van de (grotere) mond weer donker over de held, met de tong erop;
+    # zo verdwijnt zijn buik in het donker en zie je de open mond rondom hem
+    d = ImageDraw.Draw(vlak)
+    ex0, ey0, ex1, ey1 = [v + o for v, o in zip(MOND_E, (links, boven, links, boven))]
+    keel = Image.new("L", vlak.size, 0); dk = ImageDraw.Draw(keel)
+    dk.ellipse([ex0, ey0, ex1, ey1], fill=255)
+    dk.rectangle([0, 0, vlak.width, int(ey0 + (ey1 - ey0) * SLOK_KEEL)], fill=0)
+    vlak.paste(Image.new("RGBA", vlak.size, MOND_KL), (0, 0), keel)
+    tb = (ex1 - ex0) * 0.5
+    d.ellipse([(ex0 + ex1) / 2 - tb / 2 + (ex1 - ex0) * 0.08, ey1 - (ey1 - ey0) * 0.30, (ex0 + ex1) / 2 + tb / 2 + (ex1 - ex0) * 0.08, ey1 - (ey1 - ey0) * 0.06], fill=TONG_KL)
+    return vlak, (links, boven)   # waar Gloops linkerbovenhoek in de slokplaat staat
 
 
 def held_val(W):
@@ -104,7 +162,8 @@ def kit(W, M):
     G = gloops()
     for s, im in G.items():
         stuks[f"gloop-{s}"] = v2.schaal(im, W * GLOOP_B)
-    sl, boven = slok_sprite(W); stuks["gloop-slok"] = sl
+    global SLOK_POS
+    sl, slok_pos = slok_sprite(W, M); stuks["gloop-slok"] = sl; SLOK_POS = slok_pos
     stuks["held-val"] = held_val(W)
     H = v2.hoeden()
     for i, h in enumerate(H):
@@ -112,9 +171,10 @@ def kit(W, M):
     stuks["helm-vlieg"] = v2.schaal(H[0], W * HOED_B).rotate(-24, expand=True, resample=Image.BICUBIC)
     info = {}
     for naam in list(stuks):
-        stuks[naam] = los_weg(stuks[naam])
+        if naam != "gloop-slok":   # niet bijsnijden: de plek van Gloop in de slokplaat moet kloppen
+            stuks[naam] = los_weg(stuks[naam])
     for naam, im in stuks.items():
-        if M:
+        if M and naam != "gloop-slok":   # slok is al op MIP gezet (held effen, Gloop met Bayer)
             im = mip_sprite(im, bayer=naam.startswith("gloop"))
         im.save(os.path.join(map_, naam + ".png"))
         stuks[naam] = im
@@ -123,7 +183,7 @@ def kit(W, M):
     info["_ankers"] = {
         "toren_voet": [round(g.width * 0.53), round(g.height * KRUIN)],
         "hoed_stap_deel_van_hoedhoogte": HOED_STAP,
-        "slok_benen_boven_kop_px": boven,
+        "slok_gloop_pos": list(slok_pos),  # teken gloop-slok op (gx - dx, gy - dy), gx,gy = waar gloop-rust staat
         "gloop_voet_y_deel_van_scherm": 0.90,
     }
     return stuks, info
@@ -158,9 +218,13 @@ def achtergrond_c(N, M):
 
 def toren_op(im, stuks, gnaam, cx, voet, rij, zaad, dy=0):
     g = stuks[gnaam]
-    gx, gy = int(cx - g.width / 2), int(voet - g.height)
-    im.alpha_composite(g, (gx, gy + dy))
     r = stuks["gloop-rust"]
+    gx, gy = int(cx - r.width / 2), int(voet - r.height)
+    if gnaam == "gloop-slok":   # slokplaat: Gloop (hap) staat erin op SLOK_POS, voet gelijk aan de hap
+        hy = int(voet - stuks["gloop-hap"].height)
+        im.alpha_composite(g, (gx - SLOK_POS[0], hy - SLOK_POS[1] + dy))
+    else:
+        im.alpha_composite(g, (gx, gy + dy))
     y = voet - r.height + r.height * KRUIN
     x = gx + r.width * 0.53
     rnd = random.Random(zaad)

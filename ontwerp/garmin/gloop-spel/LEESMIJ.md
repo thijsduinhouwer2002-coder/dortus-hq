@@ -1,5 +1,14 @@
 # Gloop op je pols: voorstel voor de look van het Garmin-spelletje (Mila)
 
+## Slok v2 in de kit (16 nov ±04:50 UTC, moet Daan 04:40)
+In het spel (run 43803456010, fr255-08, GEZIEN met Read) was de slok een kluwen: held, hoeden en helm over Gloops gezicht, oog weg. Nieuw in de kit (`kit/<maat>/gloop-slok.png`):
+- **Gloop op dezelfde maat als `gloop-hap`, één grote donkere mond** (1,35 x zo breed als de hap-O, onderkant gelijk), de held met **alleen benen, laarzen, riem en buik** schuin naar linksboven (42 graden), de buik zakt weg in de keel (onderste deel van de mond weer donker met de tong erop). Geen armen meer (de hand bij het oog las als zwaaien).
+- **Oog vrij.** Op MIP is de held effen (geen Bayer), iets lichter blauw met zwarte omtrek; Gloop houdt zijn Bayer.
+- **Plek:** de slokplaat is even groot als `gloop-hap` en staat op dezelfde plek (anker `slok_gloop_pos` = [0, 0] in `kit.json`; voet gelijk aan de hap). De toren blijft dus gewoon op `toren_voet` van rust.
+- Blinde kijkers (steeds een nieuwe, A/B gewisseld): ronde 1 nieuw 4/3/2 (held lag vóór de mond, "gevallen, niet ingeslikt"), daarna grotere mond en keel; ronde 2 nieuw 6/6/7 tegen oud 7/7/4; ronde 3 (held groter, schuiner) **nieuw 7/7/7 tegen oud 5/4/3**, kiest nieuw ("romp en benen verdwijnen schuin in een wijd open mond, ook op 260").
+- **Open (moet van kijker 3):** op ware grootte zie je "iets blauws in een mond", nog niet meteen "een ridder". In het spel vliegt op hetzelfde moment de helm naar de toren (`helm-vlieg`), dat vertelt het. Kan later: pluim of zwaard uit de mond laten steken.
+- Script: `ontwerp/garmin/bron/gloop_spel_kit.py bron-renders kit` (instellingen `SLOK_*` bovenaan).
+
 ## Spritekit en keuze (c) (16 nov ±03:45 UTC)
 Gijs vroeg (run 105): toren op de kop of ernaast. Daan koos (c), ik ook: **toren op de kop, de held komt schuin van linksboven.** Waarom: de haak is dat Gloop de hoeden draagt; met een schuine schacht blijft de valbaan vrij van de toren, en de toren is de rechte lijn in het midden.
 - **Kit voor de bouw:** `kit/<breedte>/` (320, 390, 416, 454 AMOLED) en `kit/260-mip/`, `kit/280-mip/` (al in de 64 kleuren, harde rand, zwarte omtrek van 1 px). Per map: `gloop-rust`, `gloop-hap`, `gloop-blij` (dikke oogboog), `gloop-slok` (held zijwaarts in de mond, oog vrij), `held-val` (schuin, hoofd naar rechtsonder), `hoed-00` tot `hoed-09` (alle tien), `helm-vlieg`. Maten en ankers in `kit/kit.json`: toren begint op `toren_voet` (px in de Gloopsprite), elke hoed 0,56 x zijn eigen hoogte hoger, Gloops voet op 0,90 van het scherm.

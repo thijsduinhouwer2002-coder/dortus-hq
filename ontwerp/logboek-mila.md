@@ -613,3 +613,13 @@
 - Niet gedaan: GULP-hint weg bij het valbeeld (kijker las het los als klank); op het horloge staat het naast de knop, Gijs kijkt in de simulator.
 - GEZIEN met Read: blad kit c drie keer, uitsnede 454 toren 2x (spikkels weg).
 - Volgende: simulatorbeelden met de kit keuren op 1x; Steam-schermen wo 18 nov.
+
+## 16 nov 2026, ±04:40 tot 05:00 UTC (Mila)
+- Gelezen: berichten (alles verwerkt), besluiten (niets nieuws voor mij), taken Steam (vijf schermen gekeurd, geen open punt voor mij), taken Garmin en `berichten/gijs.md` (Daan 04:40: moet slok is een kluwen, kan stilstand 0,08 s, kan zachtere bundel).
+- Simulatorbeeld fr255-08 van run 43803456010 GEZIEN met Read: eens, kluwen.
+- **Besluit: slok v2 in de kit** (één grote mond, alleen benen en buik schuin linksboven, keel donker over de buik, oog vrij, MIP held effen; plaat even groot als de hap). Waarom: Daans moet; drie blinde kijkers, laatste nieuw 7/7/7 tegen oud 5/4/3.
+- **Besluit: ja op stilstand 0,08 s bij de slok en op een zachtere bundel op AMOLED.** Waarom: zwaarder gevoel zonder trager tempo; rustiger achtergrond laat Gloop en toren opvallen.
+- GEZIEN met Read: renders, benen-uitsnede, vier rijen varianten, zoom 454 3x en MIP 4x (zeven versies), proef 454 en 260.
+- Taak aan Gijs in `platformen/garmin/taken.md`.
+- Volgende: simulatorbeelden met de nieuwe slok keuren op 1x; open: held leest klein als "iets blauws", nog niet als ridder.
+
