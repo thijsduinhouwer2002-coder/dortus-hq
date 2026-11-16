@@ -821,17 +821,27 @@ func _init() -> void:
 	for i in range(1, vlos_k.size()):
 		if vlos_k[i] - vlos_k[i - 1] < 2 or vlos_s[i] == vlos_s[i - 1]:
 			vlfout += 1
-	ok(vlos_k.size() > 0 and vlos_k.size() * 3 <= 26 + 2 and vlfout == 0, "vol: %d losse dingen op 26 tegels, %d fout (naast elkaar of zelfde soort): %s" % [vlos_k.size(), vlfout, str(vlos_s)])
-	# over veel holen: gemiddeld hooguit 1 op 3 tegels een los ding
-	var vtl := 0
-	var vtk := 0
+	ok(vlos_k.size() >= 6 and vlfout == 0, "vol: %d losse dingen op 26 tegels, mis (naast elkaar of zelfde soort): %d, %s" % [vlos_k.size(), vlfout, str(vlos_s)])
+	# Daan 16 nov 22:45 (moet): per drie tegels precies één los kolom, op wisselende plek, nooit twee naast elkaar
+	var vblok_fout := 0
+	var vnaast_los := 0
+	var vplekken := {}
 	for z in 40:
 		var hz := {"ingang_kol": 1 + z, "schat_kol": 60 + z, "vallen": {}, "gang": [], "boven": []}
-		for kk in range(hz.ingang_kol + 1, hz.schat_kol - 1):
-			vtk += 1
-			if HV.is_los(hz, kk):
-				vtl += 1
-	ok(vtl * 3 <= vtk, "vol: gemiddeld hooguit 1 op 3 kolommen los (%d van %d)" % [vtl, vtk])
+		var vorig_los := -99
+		for bb in 19:
+			var tel := 0
+			for j in 3:
+				var kk: int = hz.ingang_kol + 1 + bb * 3 + j
+				if HV.is_los(hz, kk):
+					tel += 1
+					vplekken[j] = true
+					if kk - vorig_los < 2:
+						vnaast_los += 1
+					vorig_los = kk
+			if tel != 1:
+				vblok_fout += 1
+	ok(vblok_fout == 0 and vnaast_los == 0 and vplekken.size() == 3, "vol: per drie tegels precies een los, nooit naast elkaar, alle drie plekken komen voor (%d blokken mis, %d naast elkaar)" % [vblok_fout, vnaast_los])
 	var hs := {"ingang_kol": 1, "schat_kol": 40, "vallen": {}, "gang": [], "boven": []}
 	for kk in 42:
 		hs.gang.append(kk >= 1 and kk <= 40)
@@ -841,17 +851,46 @@ func _init() -> void:
 		if dd[1] == 7:
 			vst += 1
 	ok(vst >= 3, "vol: stutten blijven regelmatig in een hol zonder kamers (%d op 38 tegels)" % vst)
+	# Daan 16 nov 22:45 (moet): kamers losser, 0, 1 of 2 dingen, ongeveer de helft leeg, nooit twee na elkaar gelijk
 	var vkd: Array = HV.kamer_dingen(vvh, false)
-	ok(vkd.size() == 8, "vol: vier kamers van twee kolommen, elk twee dingen (%d)" % vkd.size())
 	var vkok := true
-	for i in range(0, vkd.size(), 2):
-		if vkd[i][0] == vkd[i + 1][0] or vkd[i][1].y != HV.KAMER_VLOER or vkd[i][0] == "lichtzwam":
+	for kd in vkd:
+		if kd[1].y != HV.KAMER_VLOER or kd[0] == "lichtzwam":
 			vkok = false
-	ok(vkok and vkd[0][1] == Vector2(4 * 16 + 10, HV.KAMER_VLOER) and vkd[1][1] == Vector2(5 * 16, HV.KAMER_VLOER),
-		"vol: rechts van de fakkel en links van het kistje, twee verschillende, op de kamervloer: " + str(vkd.slice(0, 2)))
+	ok(vkd.size() <= 8 and vkok, "vol: hooguit twee dingen per kamer, op de kamervloer, geen lichtzwam (%d)" % vkd.size())
 	var vlos := vbk.duplicate()
 	vlos[5] = false
-	ok(HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false).size() == 6, "vol: een losse kamer (kamer_los) krijgt niets extra")
+	for kd in HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false):
+		if int(kd[1].x) / 16 == 4 or int(kd[1].x) / 16 == 5:
+			vkok = false
+	ok(vkok, "vol: een losse kamer (kamer_los) krijgt niets extra")
+	var vk_leeg := 0
+	var vk_tot := 0
+	var vk_gelijk := 0
+	for z in 30:
+		var kb := []
+		for kk in 66:
+			kb.append(kk >= 3 and kk < 60 and ((kk + z) % 3) != 2)   # kamers van twee kolommen, verschoven per z
+		var kh := {"boven": kb, "ingang_kol": 1, "schat_kol": 63}
+		var vk_per := {}
+		for kd in HV.kamer_dingen(kh, false):
+			var kol: int = int(kd[1].x) / 16
+			var start: int = kol if kb[kol + 1] and not kb[kol - 1] else kol - 1   # links: a * 16 + 10, rechts: b * 16
+			if not vk_per.has(start):
+				vk_per[start] = []
+			vk_per[start].append(kd[0] + ("L" if kol == start else "R"))
+		var vorige_i := "x"
+		for kk in range(4, 58):
+			if not (kb[kk] and kb[kk + 1] and not kb[kk - 1]):
+				continue
+			var inr: String = ",".join(vk_per.get(kk, []))
+			vk_tot += 1
+			if inr == "":
+				vk_leeg += 1
+			if inr == vorige_i:
+				vk_gelijk += 1
+			vorige_i = inr
+	ok(vk_gelijk == 0 and vk_leeg * 100 >= vk_tot * 30 and vk_leeg * 100 <= vk_tot * 55, "vol: kamers %d van %d leeg, %d keer twee na elkaar gelijk" % [vk_leeg, vk_tot, vk_gelijk])
 	# hoedenwand (Olaf 16 nov, Mila punt 4): vaste plekken boven de gang, nooit naast elkaar, niet bij schacht en stapel
 	var wvh := {"ingang_kol": 1, "schat_kol": 29, "max_kol": 9999, "gang": vgk, "boven": vbk}
 	var wp: Array = HV.wand_plekken(wvh, true)
