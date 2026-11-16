@@ -1310,3 +1310,28 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Olaf (run 15:17 UTC)
 - Obsidian nagekeken: niets dringends. Daan heeft de weg-tak nog niet gekeurd.
 - Sanne 14:50 (optocht van niveaus na weg) gebouwd op `claude/steam-hol-weg` fffae3d: kroniekregel "Grew N levels while you were away." en het plan van de optocht (alleen log, tekenen na Mila's bordje). Toetsen lokaal 0 FOUT, lokale spelrun GEZIEN. Windows-run 43895944234. Aanvulling keurvraag aan Daan.
+- Windows-run 43895944234 groen (weg 0 FOUT, regel GEZIEN). Clips-workflow kreeg `voorspel` (220 s); clip 3-run gestart op de weg-tak, uitkomst volgende run.
+
+## 16 nov 2026 ±15:50 tot ±16:05 UTC, Sanne: versie 3 definitief, rij bij de ingang
+- Sanne: Brams laatste run helemaal over in `voortgang.md` bij "Versie 3 definitief" (kamertjes laag 3 vrij bij gebouwd, stap 4 tot 6 laag 3 x 1,85, drempels 36 tot 40, laag 4 kamertje 4 en 5 op hol 47 en 49); uren per hol-niveau en werkdagen erbij, tabellen versie 2 als geschiedenis gemarkeerd. Week 3 gat 2,7 u geaccepteerd (sparen met doel in beeld, geen leeg wachten).
+- Sanne: nieuw besluit, rij bij de ingang: per keer weg hooguit 4 hol-niveaus meteen, de rest één per 3 minuten open spelen, faam blijft helemaal. Waarom: een eerste nacht tilt het hol al na 1 minuut spelen naar 16, en dan flitst de leerfase in 12 s voorbij. Berichten aan Olaf en Bram.
+- Sanne (±16:10 UTC): Iris keuring 3: doelregel toont het hol-niveau als alles gekocht is (punt 6 in `voortgang.md`, bericht Olaf); de oude werkweek-rij en de tabel in echte dagen als vervangen gemarkeerd.
+- Sanne (±16:20 UTC): Engelse namen en optocht-soort voor hol-niveau 13 tot 50 (punt 7 in `voortgang.md`) voor Olafs `hol_niveau.gd`; Iris en Mila ingelicht over de rij bij de ingang.
+- Bram (±16:10 tot 16:35 UTC): rij bij de ingang in `sim.py` (`"rij"`, script `voortgang_rij.py`): na een korte eerste sessie plus een nacht hol 5 meteen, 7 tot 9 in de rij, hol 12 na ±18 tot 22 open minuten; week 1 tot 5 precies gelijk (een nacht na een werkdag geeft hooguit 1 niveau). Extra: gevoeligheid vangkans per laag (`"laag_vang"`, x 0,9 kost ±1 werkdag tot hol 50, gaten springen al bij ±10%) en de tussendoor-speler (hol 50 op dag 49 tot 63 bij 60 tot 15 min per dag). Oude uitkomsten byte voor byte gelijk. Antwoorden in `berichten/sanne.md`, toetsgetallen voor Olaf in `taken.md`.
+
+## 16 nov 2026, Olaf (run 16:16 UTC)
+- Main was herschreven (Bram); mijn tak `claude/steam-hol-weg` voegde schoon samen met de nieuwe main.
+- Moet Daan 15:33: regels "Grew N levels" en "Hole level N" na weg uit (schakelaar `REGELS_AAN` in `hol_niveau.gd`, alleen nog in de log). Tak weg op main 6161faf, Windows-run 43906997424 groen.
+- Tak `claude/steam-hol-bordje`: Mila's bordje in het spel (`systemen/holbord.gd`, nieuw bestand in `systemen/`), rij bij de ingang (Sanne 16:00), doelregel (c) en (d) (Sanne 16:10), hover op het bordje in de kopregel, "at quarter speed" (kan Daan). Toetsen lokaal 0 FOUT (16 nieuw), lokale spelrun 8 uur weg GEZIEN in de log: hol 5 meteen, 7 in de rij, bordje wipt na weg. Linux kan de 3D-bladen niet laten zien in een opname, dus het beeld komt van de Windows-run. Keurvraag in `berichten/daan.md` 16:40.
+
+## 16 nov 2026, Sanne (run ±16:45 UTC)
+- Brams drie runs verwerkt. Eigen helden per laag ontworpen met een tegenzet per held (mijnwerker en valluik, archeoloog en nep-schat, hoedenjager en hoedenlokker; heks alleen beeld), met getallen voor de sim en doel x 1,0 tot 1,05 per laag (`voortgang.md` "Eigen helden per laag"). Waarom: Bram liet zien dat 10% minder vangen al een werkdag en gaten van 4 tot 6 uur kost; met een tegenzet is elke nieuwe held een raadsel in plaats van een rem.
+- Hol 22/23 en 32/33 omgedraaid zodat de tegenzet meteen volgt (gat held tot tegenzet ±2 tot 4 u in plaats van 5 tot 7). Kost niets: alleen namen, prijzen en drempels blijven.
+- Punt 4 ("diep voor weken") beantwoord met Brams tussendoor-run: 7 tot 9 weken bij 15 tot 60 min per dag. Rij bij de ingang klopt (±27 min). Iris' kanttekening (helden uit de optocht niet tegelijk) naar Olaf.
+- Sems ideeën: plaatje ja als "Take a postcard" (ontwerp in `features.md`, na de demolijst, Olaf beslist volgorde); eigen getekende hoed nee (botst met de 3D-stijl, onhandig op 120 px, ongezien in streams), wel winnende wedstrijdhoeden voor iedereen met de naam van de maker.
+
+## 16 nov 2026, Bram (run ±17:10 UTC)
+- Click Joints is sinds 16 nov 11:20 bij Ruben (`platformen/blender/overdracht.md`); daar niets voor mij open.
+- Eigen helden per laag met tegenzet (Sanne 17:00) in de sim gezet: nieuwe sleutel `laag_helden` in `sim.py`, script `voortgang_laaghelden.py`. Jouw getallen geven laag 2/3/4 x 1,01/1,03/1,02 en hol 50 op werkdag 22: niets veranderd. Hol 21 x 0,92 tot 0,94 door de mijnwerker in een verse laag (geen tegenzet mogelijk op dat niveau). Oude uitkomsten byte voor byte gelijk. Antwoord aan Sanne.
+- Punt 5 van "Wat nog niet klopt" gerekend: speler die maar af en toe koopt (`koop_elke_s`). Tot elke 2 uur kijken blijft hol 50 op werkdag 22, 1 x per dag kopen werkdag 23; alleen de berg goud groeit (±2.500 tot ±4.400). Aan Sanne.
+- Bijgewerkt: ontdekker stapt in de sim zonder klap over een onthouden val. Gevonden: de ster "Catch an Explorer with the Fake Hoard" hangt van geluk af (in 4 van 8 zaden geen enkele in laag 3); voorstel aan Sanne: terugkomende ontdekker loopt recht op de nep-schat af, dan 8 van 8, balans gelijk.

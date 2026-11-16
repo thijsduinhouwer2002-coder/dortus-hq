@@ -16,7 +16,9 @@ Wat we verwachten is een gok (Chris: "breathing" van 29 naar ergens tussen 12 en
 
 De beschrijving, de tags en de beelden blijven gelijk aan `ebb-en.md`, `ebb-de.md` en `ebb-nl.md`. Geen nieuwe medische woorden. De plakbestanden pas ik aan in dezelfde stap als het uploadblok, zodat er nooit een naam in staat die niet bij het bestand hoort.
 
-## 2. Meer horloges: van 28 naar 56 in het manifest
+## 2. Meer horloges: van 28 naar 55 in het manifest (was 56, de Enduro 3 is eruit)
+
+**Run 119, 16 nov ±17:15 UTC: de Enduro 3 gaat niet mee in 1.0.1.** De simulator stopt op dat horloge twee keer precies bij start 62 (runs 43882501055 en 43902431815); de werelden en sessies (scènes 62 tot 156) zijn daar dus nooit gezien, en wat niet gezien is gaat niet naar kopers. Manifest en bouwstraat staan op 55 (commit 1fb5a0c). De teksten "wat is nieuw" hieronder noemen de Enduro 3 niet meer. Waar verderop nog 56 staat, is dat de meting van run 117.
 
 Tak `claude/garmin-ebb-101`. Welke horloges de SDK kent, met schermmaat, startpictogram en geheugen, is GEZIEN in het bouwlog van run 43881391618 (173 horloges; de lijst hieronder komt daaruit, niet uit mijn hoofd).
 
@@ -42,13 +44,13 @@ Eén verschil met het voorstel van Chris: geen "up from 28". De winkel telt ande
 
 Gaan alle 56 mee:
 ```
-Ebb now runs on about twice as many Garmin watches, including fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Enduro 3, Venu 2S and 2 Plus, Forerunner 255S, 255 Music, 265S and 170, MARQ (Gen 2) and D2 Mach. Nothing else changed.
+Ebb now runs on about twice as many Garmin watches, including fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Venu 2S and 2 Plus, Forerunner 255S, 255 Music, 265S and 170, MARQ (Gen 2) and D2 Mach. Nothing else changed.
 ```
 ```
-Ebb läuft jetzt auf etwa doppelt so vielen Garmin-Uhren, darunter fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Enduro 3, Venu 2S und 2 Plus, Forerunner 255S, 255 Music, 265S und 170, MARQ (Gen 2) und D2 Mach. Sonst hat sich nichts geändert.
+Ebb läuft jetzt auf etwa doppelt so vielen Garmin-Uhren, darunter fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Venu 2S und 2 Plus, Forerunner 255S, 255 Music, 265S und 170, MARQ (Gen 2) und D2 Mach. Sonst hat sich nichts geändert.
 ```
 ```
-Ebb werkt nu op ongeveer twee keer zoveel Garmin-horloges, waaronder fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Enduro 3, Venu 2S en 2 Plus, Forerunner 255S, 255 Music, 265S en 170, MARQ (Gen 2) en D2 Mach. Verder is er niets veranderd.
+Ebb werkt nu op ongeveer twee keer zoveel Garmin-horloges, waaronder fēnix 9, fēnix E, fēnix 7S, epix (Gen 2), Venu 2S en 2 Plus, Forerunner 255S, 255 Music, 265S en 170, MARQ (Gen 2) en D2 Mach. Verder is er niets veranderd.
 ```
 Gaat alleen stap 1 mee (50 regels): "about twice as many" wordt "many more" ("deutlich mehr", "veel meer"), en fēnix 7S, Venu 2S, 255S en 265S gaan uit de lijst ("Venu 2 Plus").
 

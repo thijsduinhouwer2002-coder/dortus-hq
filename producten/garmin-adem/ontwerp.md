@@ -1,3 +1,5 @@
+Ebb 1.0.1 (tak `claude/garmin-ebb-101`, 1aebd69, alleen horloges, letters en pictogrammen erbij, app gelijk aan 1.0.0): Akkoord: ja 16 nov 2026 ±16:35 UTC voor 218, 240 en 360 px, ook voor veiligheid 1 tot 3 en how it works op 240 en 360 (plaatjesrun 43882501055, alle twaalf gezien). Voorwaarde blijft: release pas na een groene run waarin de Enduro 3 compleet is; die werelden en sessies keur ik nog na. Winkelplaatjes van de nieuwe maten apart. Waarom in `berichten/gijs.md` (16 nov 15:32 en 16:35).
+
 Ebb Calm 81a7637 (zee stijgt bij in, zakt bij uit): Akkoord: ja 13 nov 2026 ±16:25 UTC, ook voor de nieuwe release daarvan; tekst "rises and falls" blijft. Keuring 2 in `ontwerp/garmin/ebb-calm-keuring-daan.md`.
 
 Ebb Calm (gratis, eigen app-id, tak `claude/ebb-calm` 6151a97 plus eb23e97): Akkoord: ja 13 nov 2026 ±12:45 UTC voor indienen, app, plakteksten EN/DE/NL versie 1 en winkelbeelden en icoon versie 1. Geen moet-punten; kan-punten K1 tot K7 en het waarom in `ontwerp/garmin/ebb-calm-keuring-daan.md`. Niet eerder openbaar dan Ebb zelf.

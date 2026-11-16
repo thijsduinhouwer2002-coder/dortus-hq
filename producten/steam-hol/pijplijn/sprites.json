@@ -1460,6 +1460,218 @@
         }
       },
       "_uitleg": "Bram 16 nov (Mila 09:00, punt 4b): vleermuis van Mila (ontwerp/steam/vleermuis/). hang = ondersteboven aan het plafond, vlieg = vleugels open. Cel 8 x 8 spelpixels (in het doelbeeld 22 tot 34 px op strook 160, dus 6 tot 8 spelpixels). systemen/vleermuis.gd tekent hem."
+    },
+    "holbord": {
+      "model": "holbord.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        352,
+        352
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        14,
+        18
+      ],
+      "px": 4,
+      "frames": {
+        "leeg": {
+          "stand": "leeg",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c0": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c1": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c2": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c3": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c4": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c5": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c6": {
+          "stand": "6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c7": {
+          "stand": "7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c8": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "c9": {
+          "stand": "9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Mila 16 nov (Daan 15:35, Sanne c4/d): bordje met het hol-niveau, links naast de boog in het gras. Beeld leeg = plank op paaltje zonder cijfer, zelfde hout als het pijlbordje; c0 tot c9 = losse room cijfers 4 x 6 met schaduw, zelfde schaal. Plaatsing en balkje: ontwerp/steam/bordje/LEESMIJ.md."
+    },
+    "holkaart": {
+      "model": "holbord.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        440,
+        352
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        14,
+        9
+      ],
+      "px": 4,
+      "schaal_van": {
+        "sprite": "holbord",
+        "maal": 1.0
+      },
+      "frames": {
+        "kaart1": {
+          "stand": "kaart1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "kaart2": {
+          "stand": "kaart2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k0": {
+          "stand": "k0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k1": {
+          "stand": "k1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k2": {
+          "stand": "k2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k3": {
+          "stand": "k3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k4": {
+          "stand": "k4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k5": {
+          "stand": "k5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k6": {
+          "stand": "k6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k7": {
+          "stand": "k7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k8": {
+          "stand": "k8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "k9": {
+          "stand": "k9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      }
     }
   }
 }

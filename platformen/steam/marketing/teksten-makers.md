@@ -167,6 +167,21 @@ Korte tekst bij een sleutel via Curator Connect (veld is kort, GOK ±300 tekens;
 
 **Afhankelijk van:** een trailer van 30 tot 60 s vóór 4 jan (Olaf en Chris; er zijn al kandidaat-openingen uit de spelfilm, `platformen/steam/logboek.md` 10 nov) en een one-pager (maak ik, als we geselecteerd worden). Gemeld aan Chris.
 
+## Festival: Laughs & Smiles Festival 2027 (inzenden vóór do 20 nov)
+Gevonden run 5 (16 nov) in de lijst van Steam-festivals van howtomarketagame.com/festivals (GEZIEN 15:43 UTC). Organisator: Crunching Koalas (uitgever), derde editie. **Loopt 21 tot 31 jan 2027**, dus vlak na ons Desktop Companion Fest (14 tot 18 jan), in de verbeterweek. Formulier: https://forms.gle/baz8KiGEW3LqPemF6 (GEZIEN, vragen hieronder letterlijk overgenomen). Vorige editie: https://store.steampowered.com/developer/CrunchingKoalas/sale/laughsandsmilesfestival2026
+Wat het formulier zegt: humoristische en vrolijke spellen, vooral met korting, "but we're planning to include a 'Coming Soon' section as well, so feel free to submit an upcoming title". Tags die tellen: Funny, Parody, Comedy, Dark Comedy, Dark Humor, Satire, Cozy. Wij hebben Funny, Comedy en Cozy in de geplande tags (`ontwerp/steam/winkelpagina/teksten.md`, plek 4, 10 en 16). Kosten: geen (GEZIEN in de lijst: Free).
+Antwoorden (Thijs vult zelf naam en adres in):
+- Your email address: staat bij Thijs (zakelijk: het supportadres uit `organisatie/doelen.md` mag)
+- Your full name: staat bij Thijs
+- Your company and position in the company: Dortus, founder
+- Game title: Hats of the Fallen
+- Steam page URL: de link uit Steamworks (de pagina is nog niet openbaar; dat mag, zie de volgende vraag)
+- Video Game Steam AppID or Bundle ID: het appid uit Steamworks
+- Release status of the game: **"As of yet unannounced, but will be by the time the event starts"** (pagina live ±8 dec). Staat de pagina al live op het moment van invullen: "Coming soon".
+- If none of these tags applies...: niet nodig (Funny, Comedy, Cozy). Wil je toch iets kwijt: "A slime on your taskbar eats the heroes who raid its hole and wears their hats. Heroes who flee come back with a grudge, and the chronicle tells you all about it."
+- I confirm...: "Yes, as the Developer" (alleen Thijs).
+Waarom wel: een tweede moment in beeld een week na ons fest, voor een kleine kans op extra verlanglijsten, en het kost 5 minuten. Waarom het niet groot is (eerlijk): het is vooral een uitverkoop van spellen die al uit zijn; "binnenkort" is een apart vak dat ze nog "plannen". GOK: tientallen tot een paar honderd bezoekers.
+
 ## Trailer-plekken (Wholesome Games, PC Gamer Cozy Corner)
 Nog niet. Wholesome Games werkt met eigen showcases en de oude inzendpagina bestaat niet meer (Fenna). Volgende run: uitzoeken welke showcases in december en januari inzendingen openen en wat ze vragen.
 

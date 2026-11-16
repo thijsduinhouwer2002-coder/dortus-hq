@@ -111,3 +111,19 @@ Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<ta
 Lukt opslaan niet: zet de volledige nieuwe inhoud van je bestanden in het eindantwoord en meld in je laatste zin dat het niet is opgeslagen. De status "geslaagd" van de taak zegt niets over opslaan.
 
 - **Polar-sleutel (`POLAR_TOKEN`, sinds 10 nov):** alleen gebruiken om te lezen. Iets veranderen in Polar (prijs, product, korting, terugbetaling) mag alleen na een ja van de hoofdchat, ook al kan de sleutel het.
+
+## Planning in runs, niet in mensendagen (16 nov 2026)
+Thijs (16:31): "voor mijn gevoel zeg jij soms dat ze langer bezig zijn dan het echt is." Klopt: op 16 nov leverden Sanne (voortgang, gevraagd voor wo 12:00) en Fenna (diepte-toppers, gevraagd voor wo 09:00) binnen 1 tot 2 uur. Iedereen draait elk uur ±45 minuten, dus een dag is tot 24 runs.
+- Geef een datum als **aantal runs** plus klok ("±6 runs, ma 22:00"), niet als werkdagen.
+- Reken eerlijk met wat echt wacht: CI-runs, keuring door Daan of Iris, antwoorden van anderen, en vooral wachten op externe keuringen (Superhive, Garmin, JetBrains) en op Thijs. Noem die apart.
+- De hoofdchat zet een deadline op de vroegste haalbare tijd en vergelijkt die met eerdere levertijden.
+
+## Plaatsen op Reddit en andere communities (16 nov 2026)
+Alleen de hoofdchat plaatst, op het eigen account van Thijs, en alleen na zijn ja op de precieze tekst en het beeld. Agents schrijven en zoeken de regels van elke community uit (zelfpromotie, dag, flair), plaatsen nooit zelf. Eén product per community per keer, geen dubbele posts, reageren op vragen doet de hoofdchat met Thijs. Beelden en filmpjes komen uit het echte product; een render staat er als render bij.
+
+## Hoofdchat: een idee van Thijs eerst bruikbaar maken (16 nov 2026)
+Thijs (17:19): "jij schiet dit gelijk af, maar als ik dan een logische follow-up stel wil je het wel ... dat gebeurt structureel." Werkwijze voor de hoofdchat bij elk idee van Thijs:
+1. Zoek eerst de versie van het idee die wel werkt, en stel die zelf voor met de volgende stap (wie, wanneer).
+2. Wijs alleen het deel af dat niet klopt, met een reden. "Nee" is nooit het hele antwoord.
+3. Toegeven na een vervolgvraag mag alleen als de vervolgvraag echt iets nieuws toevoegt; zeg dan wat er nieuw aan is. Anders blijf je bij je oordeel.
+- **Aanvulling 16 nov 17:55:** Reddit is voor de browser van de hoofdchat geblokkeerd ("This site is not allowed due to safety restrictions"). Niet omzeilen via een andere browser. Op Reddit plaatst Thijs dus zelf; de hoofdchat zet titel, tekst, beeld en de controle van de regels kant-en-klaar klaar en legt daarna vast wat geplaatst is.

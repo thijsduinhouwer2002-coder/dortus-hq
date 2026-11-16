@@ -1,10 +1,143 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 16, hoe de snelste nieuwe add-ons van extensions.blender.org bekend werden, met een correctie op verhaal 15, klaar 16 nov 2026 ±15:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
+bezig: niets (laatste: verhaal 18, de zoekplek van Click Joints in Blender zelf: broncode van Blender en de winkel gelezen, klaar 16 nov 2026 ±17:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of nameten van de plek in Blender na een nieuwe tagline of eerste review.
 
 Nieuwste bovenaan.
 
 ---
+
+## 18. Hoe vindt iemand Click Joints in Blender zelf (Get Extensions)? De broncode gelezen: zoeken op stukjes woord in naam en korte omschrijving, en de volgorde komt van de sterren
+
+Onderzocht 16 nov 2026 ±17:00 tot 17:45 UTC, run 18. Waarom: verhaal 15 en 16 lieten zien dat de downloads van gratis Click Joints uit zoeken in de winkel komen, maar ik had alleen de website gemeten. In Blender zelf (Voorkeuren, Get Extensions) zoekt iemand op een andere manier, en dat had ik als GOK laten staan.
+
+### Bronnen en werkwijze
+- **De code van Blender zelf** (GEZIEN): `scripts/addons_core/bl_pkg/bl_extension_ui.py` en `bl_extension_ops.py` op de hoofdtak van github.com/blender/blender. Daarin staat hoe het venster Get Extensions zoekt en sorteert.
+- **De code van de winkel** (GEZIEN): `extensions/views/api.py`, `extensions/models.py` en `ratings/signals.py` van projects.blender.org/infrastructure/extensions-website. Daarin staat in welke volgorde de winkel de lijst aan Blender geeft.
+- **De lijst die Blender binnenhaalt** (GEZIEN 16 nov ±17:01 UTC): `extensions.blender.org/api/v1/extensions/?blender_version=5.0.0&platform=windows-x64`, 1.354 extensies, waarvan 1.122 add-ons.
+- **Sterren, aantal reviews en downloads** van alle 1.206 add-ons van de website-lijst (76 pagina's, GEZIEN), gekoppeld op naam. Tabel: `platformen/succes/data/blender-in-app-volgorde-2026-11-16.csv`.
+- **Twee meldingen in de winkel-repo** (GEZIEN): #145 (sorteren op sterren, 2024) en #258 ("5.0 rating seems incorrect", nog open), plus #414 (zoeken op de website, 2026).
+- Voor 13 nieuwe add-ons met precies één review: datum van die review en downloads per versie (GEZIEN), om te zien of de downloads na de eerste review veranderden.
+
+### Wat de code zegt (GEZIEN)
+1. **Zoeken in Blender is zoeken op een stukje tekst, alleen in de naam en de korte omschrijving (tagline).** De functie `pkg_info_check_exclude_filter_ex` kijkt of wat je typt (zonder hoofdletters) ergens in de naam of de tagline staat. Niet in de lange beschrijving, niet in de tags. "print" vindt dus ook "printed", en "3d print" vindt "3D printed". Dat is anders dan de website, die op hele woorden zoekt in meer tekst en maar 32 uitslagen toont (melding #414).
+2. **De volgorde van "Available" komt rechtstreeks van de winkel.** In de code staat bij die lijst: `NOTE: don't use A-Z here to prevent name manipulation`. Blender sorteert dus niet zelf en houdt de volgorde van de winkel aan.
+3. **De winkel sorteert die lijst op de mediaan van de sterren, daarna op nieuwste, daarna op naam** (`ordering = ['-average_score', '-date_created', 'name']`, en `average_score` is de mediaan van alle sterren, `ratings/signals.py`). De website zelf gebruikt sinds 2024 een slimmere sortering voor "Rating" (melding #145), maar de lijst voor Blender nog niet.
+4. Standaard toont Get Extensions alle soorten (add-ons, thema's, bibliotheken) en het blok "Available" staat open. Wie niets typt, ziet de hele lijst in deze volgorde.
+
+### Wat dat in de echte lijst betekent (GEZIEN 16 nov)
+| Groep in de lijst voor Blender | Aantal add-ons | Plekken |
+|---|---|---|
+| Mediaan 5 sterren (ook met maar 1 review) | 652 | 1 tot 653, nieuwste eerst |
+| Mediaan 1 tot 4,5 sterren | 93 | 654 tot 747 |
+| Geen enkele review | 377 | 748 tot 1.122, nieuwste eerst |
+
+- **Click Joints staat op plek 757 van 1.122 add-ons** (927 van 1.354 met thema's erbij): tiende in het blok zonder review. Zelfs een add-on met één ster (EasySlice Print, mediaan 1) staat erboven.
+- Bovenaan de hele lijst staat Texel Kit (1 review, gepubliceerd 9 nov). Met één eerlijke review van 5 sterren zou Click Joints (aangemaakt 8 nov) bij de eerste ±5 van de hele lijst staan (GOK op basis van de datums van de buren; de precieze aanmaakdatum staat niet in de lijst).
+- Een review komt vanzelf zelden: mediaan **0,29 reviews per 1.000 downloads** (845 add-ons met 2.000+ downloads). Op 20 per dag duurt de eerste review voor Click Joints dan ±5 maanden (GOK, uit die mediaan). 373 add-ons hebben geen review, met een mediaan van 1.326 downloads.
+
+### Click Joints op de zoekwoorden, in Blender zelf (nagebootst met de code, GEZIEN)
+| Zoekwoord | Treffers | Plek Click Joints | Wat erboven staat |
+|---|---|---|---|
+| joint, joints, ball joint, figure | 1 tot 3 | **1** | niets |
+| 3d print | 6 | 4 | 3D Print Toolbox (54 reviews), Easy-Print, EasySlice Print, alle drie met review |
+| print | 19 | 11 | 10 add-ons, allemaal met minstens één review |
+| 3d printing | 4 | niet gevonden ("3D printed" bevat geen "printing") | |
+| poseable, articulated, action figure, hinge, figurine, toy | 0 | niet gevonden | geen enkele add-on, dus wie dat typt ziet een lege lijst |
+
+Vergelijk de website (verhaal 16): daar staat Click Joints op 1 bij "poseable" (staat in de lange beschrijving) maar niet in de eerste ±30 bij "3d print". In Blender is het precies andersom. Mijn GOK uit verhaal 16 ("in Blender wordt print in printed wel gevonden") klopt dus.
+
+### Helpt de eerste review echt? 13 nieuwe add-ons met precies één review (GEZIEN, downloads per versie gedeeld door dagen)
+| Add-on | Eerste review | Per dag vóór | Per dag na |
+|---|---|---|---|
+| Papercraft Pro | 1 nov | 26,5 (28 okt tot 1 nov) | 76 tot 102 (1 tot 16 nov) |
+| Faster Scrubbing | 11 nov | 13,0 (5 tot 10 nov) | 55,3 (10 tot 16 nov) |
+| Croquis | 1 nov | 21 tot 46 (25 okt tot 1 nov) | 61 tot 96 (1 tot 16 nov): steeg al vóór de review |
+| Texture Wrangler | 20 okt | ±156 (al hoog vóór de review) | ±193 |
+| ID RenderFlo | 13 nov | 3,0 (20 okt tot 16 nov, niet te splitsen) | staat op plek 17 en blijft laag |
+
+De rest (KN5 Tools, Axonobox Lite, JCut, Black Hole Studio, NK Auto IK, CurioMesh, Easy Adjust, Texel Kit) had geen versie rond de reviewdatum, dus daar kan ik voor en na niet splitsen. Groepen nieuwe add-ons van okt en nov 2026 (zelfde leeftijd): **mediaan 5 sterren 61,6 per dag (n=23, mediaan plek 12), geen review 10,8 per dag (n=68, mediaan plek 782)**, 1 tot 4,5 sterren 12,4 (n=3).
+
+Eerlijk: dit is geen bewijs dat de plek de downloads maakt. Wie veel downloadt, krijgt eerder een review, dus de pijl wijst ook de andere kant op (Texture Wrangler was al groot vóór de review). Twee gevallen (Papercraft Pro ×3,5 en Faster Scrubbing ×4) springen wel omhoog binnen een dag rond de eerste review, en ID RenderFlo laat zien dat een hoge plek alleen niet genoeg is als niemand de add-on wil. Hoeveel mensen in Blender zoeken en hoeveel op de website, staat nergens openbaar (GOK).
+
+### Drie lessen
+1. **In Blender bepaalt de tagline wat gevonden wordt, niet de beschrijving of de tags.** Elk woord waar iemand op typt, moet als stukje in de naam of tagline staan. Click Joints mist "poseable" en "figurine"; op die woorden vindt Blender nu niemand, dus wie het als eerste in de tagline zet, staat er alleen.
+2. **Eén eerlijke review verplaatst een add-on van onderin naar bovenin de hele lijst in Blender.** De volgorde is mediaan van de sterren, dan nieuwste. Dat is groot voor een nieuwe add-on, en het is niet te koop: de enige weg is echte gebruikers die het goed vinden en het ook zeggen.
+3. **Een review komt niet vanzelf** (0,29 per 1.000 downloads). Wie wil dat gebruikers iets zeggen, moet het ze één keer vriendelijk vragen, op een plek die ze toch zien.
+
+### Wat dit niet zegt
+- Ik heb het venster niet in een echte Blender gezien (geen scherm in de cloud); ik heb de code gelezen en nagebootst. Blender kan de code in een nieuwe versie veranderen, en de winkel kan de lijst voor Blender ook op de slimmere sortering zetten (melding #145 en #258 laten zien dat ze erover nadenken). Dan weegt één review minder.
+- De datums van aanmaken (die de volgorde binnen een blok bepalen) staan niet in de lijst; de plek "±5 met één review" is een schatting.
+- Voor en na de eerste review heb ik maar bij 4 add-ons kunnen splitsen.
+
+### Voorstel voor Dortus deze week
+1. **Bram, bij de volgende versie van gratis Click Joints (vervangt mijn voorstel van 15:40):** tagline met de woorden die mensen in Blender typen, als stukjes tekst. Bijvoorbeeld `Ball joints for poseable 3D print figures, with bend range` (58 tekens, onder de 64). Dan vindt Blender hem op joint, ball joint, poseable, figure, print en 3d print; op "poseable" staat hij dan als enige. Geen woord over Pro, dus binnen de regels. Na de keuring meet ik de plekken opnieuw met dezelfde nabootsing.
+2. **Chris en de hoofdchat: één eerlijke vraag om een review, op plekken die gebruikers al zien.** Op de pagina dortus.com/click-joints/, in de README en in de onderschriften: "Free in Blender: Preferences > Get Extensions, search *joints*. If it helped, an honest rating on extensions.blender.org helps other makers find it." Nooit om 5 sterren vragen, nooit iets geven voor een review, niet zelf of via vrienden die het niet gebruikten. Kopers van Pro (Superhive, Gumroad) mogen dezelfde zin in de bedankmail krijgen. Een melding of knop in de add-on zelf doe ik bewust niet als voorstel: dat voelt als zeuren (zie de klacht over "zeurt om reviews" bij de leider van de ademapps, besluit Garmin 10 nov), en ik heb niet nagezocht of de regels van extensions.blender.org het toestaan.
+3. **Ik meet** de plek van Click Joints in de lijst voor Blender en de downloads per dag in elke run waarin ik toch in de winkel meet, zodat we zien wat de nieuwe tagline en een eerste review doen.
+
+---
+
+## 17. Lanceerplatforms: Smol Launch, DevHunt en TinyLaunch naast Product Hunt. Wat leveren ze een klein gereedschap echt op, wat kost het, en past een van onze producten?
+
+Onderzocht 16 nov 2026 ±16:00 tot 16:40 UTC, run 17. Opdracht hoofdchat 17:00: Thijs vond via Google Smol Launch, DevHunt en TinyLaunch als rustigere alternatieven voor Product Hunt. Vraag: wat leveren ze op (bezoekers, upvotes, aanmeldingen), wat kost het, en welk product past waar (Click Joints, Rollwright, Bison & Flex). Product Hunt als ijkpunt.
+
+### Bronnen en werkwijze
+- De drie sites zelf met curl (16 nov ±16:00 UTC, GEZIEN): prijspagina's, de open cijfers van DevHunt (`devhunt.org/stats`, `devhunt.org/faq`, de open data-API `devhunt.org/api/open-data/v1/changes` en `/tools-per-month`), het rapport "State of Indie Launches 2026" van Smol Launch (`smollaunch.com/state-of-indie-launches`), en de openbare lijst met lanceerweken van TinyLaunch (`tinylaunch.com/api/v1/launch-dates`, geen inlog nodig).
+- DevHunt, de 30 meest gestemde lanceringen van oktober 2026 (`devhunt.org/best/2026/10`): per toolpagina upvotes en impressies gelezen (GEZIEN). Tabel: `platformen/succes/data/devhunt-top30-okt-2026-11-16.csv`.
+- De zoekfunctie van Smol Launch op "obsidian", "blender" en "jetbrains" (GEZIEN).
+- Makers die hun uitslag delen: Reddit via het archief Arctic Shift (zoekwoorden devhunt, tinylaunch, smollaunch, "smol launch" in 8 subreddits voor makers, 74 berichten, GEZIEN), plus blogs gevonden met zoeken: Focal (TinyLaunch, juli 2026), Nimply (Product Hunt, sept 2026), Alex van FrontStat (80 lijsten, sept 2026), TrustMRR (omzet TinyLaunch).
+- Niet gelukt: Product Hunt zelf (Cloudflare-blokpagina, niet omzeild), Indie Hackers (alleen een lege pagina via curl).
+- Let op bij de bronnen: bijna alle "vergelijkingen" van lanceerplatforms op internet zijn geschreven door een ander lanceerplatform of een bureau dat inschrijvingen verkoopt (Smol Launch heeft zelf een pagina "Smol Launch vs TinyLaunch", Noonlaunch, Launchbuff, Launchdirectories, Shno). Die gebruik ik niet als bewijs. Ook een Reddit-bericht met "data van 1.500 DevHunt-lanceringen" (nov 2025) laat ik weg: het noemt verzonnen ogende gebruikersnamen en ronde percentages zonder bron.
+
+### Wat elk platform is en kost (GEZIEN 16 nov, tenzij anders)
+
+| | Smol Launch | DevHunt | TinyLaunch | Product Hunt (ijkpunt) |
+|---|---|---|---|---|
+| Ritme | per week, ±122 lanceringen per week (mediaan laatste 8 weken) | per week, ±80 per week (340 lanceringen in okt) | per week, 100 gratis plekken per week | per dag |
+| Voor wie | alles, vooral SaaS en AI | alleen gereedschap voor ontwikkelaars; de rest krijgt het stempel "not a dev tool" en een eigen rij | alles, vooral SaaS en AI | alles |
+| Gratis | ja, maar: hun badge op je homepage, eerst op 5 anderen stemmen, alleen de eerste lancering. **Eerstvolgende gratis week: 15 feb 2027, 650 voor je in de rij** | alleen een vaste pagina (link nofollow), **geen lancering**. Sinds een test van 28 sep 2026 krijgen nieuwe tools alleen betaalde weken (daarvoor 15 gratis plekken per week) | ja, **eerstvolgende gratis week: 21 dec 2026** (23 nov tot 14 dec vol) | ja, maar de redactie kiest welke lanceringen op de voorpagina komen ("Featured") |
+| Betaald | $19 per lancering (geen rij), $39 met uitlichting en nieuwsbrief, uitlichting los vanaf $19 per week | $49 (kies week, nieuwsbrief, link telt mee), $19 als "basic" (de prijs schuift: in nov twee keer een test), extra plek bovenaan $99 tot $199 | $39 (geen rij, vaak tussen plek 3 en 4), uitlichting $15 tot $30 per week | gratis, betaalde advertenties los |
+| Account | inloggen | inloggen met GitHub of Google | inloggen met mailcode | inloggen |
+
+Alle vier vragen een account: dat doet alleen Thijs (regels).
+
+### Wat het oplevert: wat de platforms zelf zeggen
+- **DevHunt** is het enige dat open cijfers geeft (DERDEN, eigen meting van DevHunt, zonder cookies, bots eruit): 184.700 bezoekers en 357.600 tool-impressies in de laatste 30 dagen, 59,5% uit de VS. Hun eigen belofte: "A launch week on the home page gets a median of **822 impressions**". Een impressie is dat je kaartje in beeld kwam, geen klik naar je site.
+- Mijn telling van de **top 30 van oktober** (de 30 meest gestemde van 340 lanceringen, GEZIEN): mediaan **3.140 impressies** (1.126 tot 6.851) en mediaan **33 upvotes** (16 tot 91). De weekwinnaars van oktober hadden 46 tot 91 upvotes. Klikken naar de site toont DevHunt niet. GOK: als 2 tot 4% van de impressies klikt, is dat voor een gewone lancering 15 tot 35 bezoekers, en voor de top 30 van de maand 60 tot 125.
+- **Smol Launch** geeft geen bezoekers, alleen een "Rank score" (stemmen plus bonuspunten): mediaan **6**, 90% haalt hooguit 13, de hoogste ooit 140, over 4.056 lanceringen (DERDEN, hun rapport, stand 8 nov 2026). Wie gratis lanceert moet eerst op 5 anderen stemmen: de stemmen komen dus grotendeels van andere makers die zelf lanceren.
+- **TinyLaunch** geeft geen bezoekers. Op de voorpagina hadden de winnaars van vorige week 82, 64 en 30 stemmen, de leiders van deze week 15, 14 en 13 (GEZIEN 16 nov ±16:00). TinyLaunch verdiende sinds dec 2024 **$110.866** (DERDEN, TrustMRR, gecontroleerd via Stripe): het geld komt van makers die betalen om sneller of hoger te staan. Dat is geen bewijs dat het niets oplevert, wel dat het verdienmodel de maker is, niet de bezoeker.
+
+### Wat het oplevert: wat makers zelf zeggen
+| Maker | Platform, wanneer | Uitslag | Label |
+|---|---|---|---|
+| mailsign.online | Uneed (zelfde soort als TinyLaunch), ±dec 2025 | plek 4, ±50 upvotes, **6 bezoekers** naar de site. Hij stemde zelf 10 keer met extra accounts om te testen of het kan ("I'm not the only one doing it") | EIGEN OPGAVE, Reddit r/SaaS 1pdsv8s |
+| Focal (YouTube-samenvatter, extensie) | TinyLaunch, 6 juli 2026 | plek 3, "highest single-day" verkeer tot dan (bijna 3 keer het gewone aantal dagelijkse gebruikers), **6 aanmeldingen, 0 betalend** | EIGEN OPGAVE, usefocal.xyz/blog/focal-tinylaunch-third-place |
+| Onbekende SaaS (launch 10515) | TinyLaunch, feb 2026 | plek 1, maar "majority of traffic + upvotes came directly from" zijn eigen X-bericht (±2.000 views) en ±50 persoonlijke DM's | EIGEN OPGAVE, r/SaaS 1r0utrq |
+| Alex (FrontStat, twee producten, ±20 lijsten) | o.a. DevHunt, Uneed, Microlaunch, sept 2026 | "the best one sent 7 engaged visits" in 3 maanden; één bericht op X gaf 48. Alleen Product Hunt en Show HN sturen "real visitors on the day" | EIGEN OPGAVE, dev.to/alexcommitter (let op: hij verkoopt zelf een meetdienst) |
+| Nimply | Product Hunt, 23 sept 2026, niet Featured | 31 punten, geen plek op de ranglijst, ±290 aanmeldingen, maar die kwamen van eigen LinkedIn- en Facebookberichten: "The Product Hunt page was the destination we pointed people at, not the source" | EIGEN OPGAVE, nimply.io/blog/product-hunt-launch-case-study |
+| Cliptude | Microlaunch, Uneed, TinyLaunch betaald ($108) plus 3 betaalde X-makers ($150) | 153 gebruikers, niet uitgesplitst per kanaal | EIGEN OPGAVE, r/SaaS 1rrk8de; niet te gebruiken als bewijs voor de platforms |
+
+Product Hunt als ijkpunt: volgens een verzamelpagina krijgt sinds 2024 nog maar ±10% van de lanceringen de status Featured (was 60 tot 98% in 2020 tot 2023), en zonder die status kom je niet op de ranglijst (DERDEN zwak, shno.co die Tetriz.io aanhaalt; Nimply bevestigt het tweede deel uit eigen ervaring).
+
+Geen enkele maker die ik vond, gaf een hoger getal dan een paar dozijn bezoekers uit een van de drie kleine platforms zelf. Waar een lancering wel goed liep, kwamen de bezoekers en stemmen van het eigen bereik van de maker (X, DM's, LinkedIn).
+
+### Past een van onze producten?
+- Op Smol Launch staan bij "obsidian" 2 producten (geen van beide een plugin, hoogste Rank score 8), bij "blender" 2 (AI-3D en mocap, geen add-on), bij "jetbrains" 0 (GEZIEN). Onze kopers (3D-printers met Blender, Obsidian-schrijvers, C-ontwikkelaars met CLion) zitten daar niet.
+- **Click Joints (gratis en Pro):** geen gereedschap voor ontwikkelaars, dus op DevHunt in de aparte rij "not a dev tool". Smol Launch en TinyLaunch nemen het aan, maar het publiek is makers van SaaS. Verhaal 15 en 16 lieten zien dat de winkel van Blender zelf de motor is (mediaan 11,5 downloads per dag voor een nieuwe add-on, Click Joints ±20) en dat één Reddit-post met een winkellink 1 tot 3 punten haalde. Een lanceerplatform voegt hier volgens alle cijfers hierboven minder toe dan één dag winkel.
+- **Bison & Flex:** het enige product dat bij DevHunt past (IDE-plugin voor C-ontwikkelaars). Maar het staat nog verborgen in de keuring van JetBrains (bord: 0 installs, sinds 8 nov). Lanceren kan pas als het zichtbaar is, en kost dan $19 of $49.
+- **Rollwright:** geparkeerd (bord). Geen gereedschap voor ontwikkelaars; de Obsidian-gebruikers zitten op het forum en r/ObsidianMD (verhaal 5), niet hier.
+
+### Wat ze in welke volgorde doen (de makers die er iets aan hadden)
+1. Eerst eigen bereik opbouwen of klaarzetten (X-bericht met demo, DM's, LinkedIn).
+2. Lanceren op een platform als landingsplek, en dat bereik ernaartoe sturen.
+3. Achteraf: de link (backlink) en het badge houden, voor zoekmachines en AI-assistenten. Dat is het enige wat ook zonder eigen bereik blijft, en daarvoor hoef je niet hoog te eindigen.
+
+### 3 lessen
+1. **Een klein lanceerplatform geeft geen publiek, het vraagt publiek.** De stemmen komen van andere makers (Smol Launch eist het zelfs) en van wat je zelf meebrengt; de enige gedeelde bezoekerscijfers zijn 6 en 7. DevHunt is het enige met een echt publiek en open cijfers, en ook daar is de gewone lancering 822 impressies, geen bezoekers.
+2. **Gratis is bijna verdwenen of zit achter een rij van maanden.** Smol Launch gratis: feb 2027. DevHunt gratis lanceren: gestopt in sep 2026, prijzen veranderden 6 keer in 2 maanden. TinyLaunch gratis: 21 dec. Het verdienmodel is de maker die betaalt (TinyLaunch $110.866).
+3. **Wat telt is waar je kopers al zijn.** Bij ons zijn dat de winkels zelf (extensions.blender.org, Garmin, JetBrains Marketplace) en de communities per programma (r/blender, r/3Dprinting, Obsidian-forum). Geen van onze drie producten heeft zijn publiek op Smol Launch of TinyLaunch.
+
+### Voorstel voor Dortus deze week
+**Geen geld en geen tijd van Thijs in Smol Launch, TinyLaunch of Product Hunt voor Click Joints of Rollwright.** De verspreiding blijft bij het plan van 16 nov 16:44 (Reddit waar de gebruikers zitten) en de dagelijkse filmpjes van Chris. Eén uitzondering om klaar te leggen: **Bison & Flex op DevHunt**, pas als JetBrains het zichtbaar maakt, en alleen als Jet toch een lanceerdag plant. Dan eerst de gratis vaste pagina (kost alleen een account van Thijs), en de betaalde lancering ($19 tot $49) alleen als Thijs dat wil, met een eigen link (`?ref=devhunt`) zodat we de klikken zelf tellen. Wie: Jet zet het klaar zodra Bison & Flex zichtbaar is; Thijs beslist over het geld. Wat zou dit veranderen: een maker in onze hoek (Blender, Obsidian, JetBrains) die met cijfers laat zien dat een van deze platforms installs gaf.
 
 ## 16. Hoe werden de snelste nieuwe add-ons van extensions.blender.org bekend? YouTube gezocht bij 40 toppers en 40 gewone add-ons, de zoekplek van Click Joints gemeten, en een correctie op verhaal 15
 

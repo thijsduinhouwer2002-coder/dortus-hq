@@ -1406,3 +1406,29 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: het pakket met beelden van een run is meteen op te halen via de Actions-koppeling (`download_workflow_run_artifact` geeft een tijdelijke link, daarna `curl`); dat is sneller dan wachten tot de stap "openbaar zetten" klaar is (die duurde 16 minuten).
 - Les: logs van een job die midden in een lange log iets drukt: vraag de link (`return_content` uit), haal op met `curl` en zoek met grep. De staart van 500 regels bevat het niet.
 - Les: de winkel-API toont in `compatibleDeviceTypeIds` meer horloges (40) dan er regels in het manifest staan (28). Noem in winkelteksten geen aantal uit het manifest.
+
+## 16 nov 2026 ±15:53 tot 16:25 UTC, run 118 (Gijs)
+- Ebb 1.0.1: Daan (15:32 UTC) zei ja op 218 px en wilde van 240 en 360 px de veiligheidsbladen en how it works zien. Die stonden al in plaatjesrun 43882501055 (scènes 13, 14, 15 en 11 van fenix7s, fr265s en venu2s). Alle twaalf bekeken: goed. Namen en vaste links aan Daan gegeven.
+- Gevonden: plaatjesjob van de Enduro 3 was groen met 95 lege beelden (simulator gaf vanaf start 62 geen antwoord, geen crashregel in het log). Bouwstraat aangepast in 79d2a6b: gemiste scène één keer overdoen met een nieuwe simulator, anders rood. Eerste demobeeld op 10 s in plaats van 7 s (moet van Daan). Alle jobs van run 43882501055 waren groen (23 gelezen).
+- REGEL in `maak_letters.py` niet veranderd: Daan keurde de schermen zoals ze zijn, een andere regelhoogte verschuift alles.
+- Uitgezocht voor de hoofdchat: proefstand (nee), codes (bestaan, formulier), prijspunten ($2,99 bestaat niet), lijst van horloges voor betaalde apps. In `proefstand-en-codes-2026-11-16.md`.
+- Ebb Calm: 16:03 UTC nog niet goedgekeurd (API 404, "The requested app is not approved"). Eerst las ik per ongeluk een verkeerd adres (`/api/asw/apps/...` zonder `appsLibraryExternalServices`); dat geeft altijd 404, ook voor Ebb. Het goede adres staat in `meting-ebb.md`.
+- Ebb in de winkel: 0 downloads, 0 reviews, 40 horloges. Icoon en vijf beelden opgehaald en bekeken (`winkel-nu-2026-11-16.png`): punt 2 van de hoofdchat staat er al.
+- Les: een groene job zegt niet dat alle beelden er zijn. Tel na een run de bestanden `*-mis*` op tak `schermen`; de bouwstraat doet dat nu zelf.
+- Les: de uitleg van Garmin is een Gatsby-site; de pagina zelf is een lege schil. De tekst staat in `https://developer.garmin.com/connect-iq/articles/<map>/<Naam>.html` (de naam vind je in `/page-data/connect-iq/<pad>/page-data.json`, veld `fileName`).
+- Les: de lokale kloon was ondiep en liep 50 commits achter met een losse HEAD; `git pull` bleef hangen. `git fetch origin main` en dan `git reset --hard origin/main` werkte meteen.
+- Wijzerplaat Gloop (terwijl de runs van Ebb liepen): korte regel als hij Gloop raakt (6bb0a0f, run 43903536943: 13 toetsen groen, breedtes gemeten in het log) en knipperen met het plaatje van Mila (98a788b, run 43904596223: toetsen groen, 64 beelden opgehaald, Venu 3S en FR255 bekeken). Keuring gevraagd aan Daan en Mila.
+- Stand runs van Ebb om 16:19 UTC: toetsrun 43902431831 was bij de schermafbeeldingen (toetsen op fenix7 en fr255 groen), plaatjesrun 43902431815 liep. Eindkleur niet gezien.
+- Les: zet in de bouwstraat een regel in het log met de gemeten breedte (`getTextWidthInPixels`) en de grens. Dan hoef je niet te gokken hoe breed een systeemletter op een horloge is: "GOAL! +4" was op 390 px precies 1 px te breed.
+- Les: twee commits na elkaar op een bouwtak kan, als je wacht tot de eerste run klaar is (hier 5 minuten).
+
+
+## Run 119, 16 nov 2026 ±16:55 tot 17:25 UTC
+- Gelezen: berichten (Daan 16:35 UTC: ja op Ebb 240 en 360, moet op de toren van de wijzerplaat), taken, status. Ebb Calm 16:57 UTC nog niet goedgekeurd (API 404, "not approved").
+- De lokale kloon liep weer achter met een losse HEAD en `git pull` hing twee minuten. `git reset --hard` werd in deze run geweigerd; een nieuwe tak vanaf `origin/main` (`git checkout -b gijs-werk origin/main`) werkte.
+- Ebb 1.0.1: run 43902431815 groen, maar de Enduro 3 had 62 van de 157 scènes. Log van de job opgehaald (get_job_logs geeft een adres, met curl te lezen): bij start 62 geen antwoord, herstart van de simulator, daarna "PLAATJE scene 0", 1, 2 en zo verder. De herstart wist de opslag van de app en dus de teller. Enduro 3 uit 1.0.1 gehaald (1fb5a0c), bouwstraat telt nu na (`SCENES <horloge>: <geteld> van <verwacht>`).
+- Wijzerplaat Gloop: moet van Daan gebouwd (256535e). `bron/maak_rand.py` legt de echte hoedenplaatjes op hun plek en rekent per maat uit hoeveel er 4 px binnen de cirkel passen: 8 gewone hoeden op 208 tot 260, 9 op 280 tot 454; de kroon past tot plek 8 (klein) of 9 (groot). Run 43913582911 groen, beelden bekeken.
+- Wijzerplaat Gloop: `bron/maak_res.py` maakt een plaatjesmap uit de twee kits; controle op 260, 320 en 390: 0 bestanden anders. Daarmee res-416 en res-454 gemaakt, Forerunner 265 en Venu 3 in manifest en bouwstraat (03591ab). Knipperen naar `Knipper.mc`, toren naar `Toren.mc` (f1dab61). Uitslag van die twee runs niet gezien.
+- Les: een herstart van de simulator wist de opslag van de app. Een teller in `Application.Storage` begint dan opnieuw; tel daarom altijd de uitkomst na in plaats van te vertrouwen op "er kwam een antwoord".
+- Les: de strenge toets met de rechthoek van een plaatje keurt te veel af (de kroon zou op het doel al wegvallen). Reken met de echte pixels van het plaatje.
+- Les: de releasejob van Ebb hangt alleen aan de job bouw. Het woord release tussen rechte haken in een commit geeft dus een release na vier minuten, vóór de toetsen klaar zijn. Eerst groen zien, dan de werkstroom met de hand starten.

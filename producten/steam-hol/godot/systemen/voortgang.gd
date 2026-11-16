@@ -9,6 +9,12 @@ class_name Voortgang
 # - Vast zaad: dezelfde save en dezelfde tijd geven dezelfde uitkomst (geen herladen om beter te gooien).
 
 const PLAFOND_S := 12 * 3600
+# Weg = kwart snelheid (Sanne, voortgang.md versie 3, 16 nov 14:05): goud, hoeden en faam komen terwijl je weg bent op
+# een kwart van het tempo van spelen, met het plafond van 12 uur. Een nacht telt zo als 2 tot 3 uur spelen, niet als 8,
+# zodat de winkel niet na één nacht leeg is (Iris keuring 1) en het hol een paar weken leuk blijft (lat Thijs).
+const SNELHEID := 0.25
+const TEMPO_REGEL := "Your hole worked at a quarter speed."
+const TEMPO_REGEL_NA_S := 30 * 60
 const HELD_ELKE_S := 47.5          # gemiddeld, zelfde orde als in het spel (25 tot 70 s)
 
 # vallen: aantal vallen, bewoners: aantal bewoners. Meer verdediging = meer helden vallen.
@@ -20,7 +26,7 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 	var weg := nu_unix - laatst_unix
 	var teruggezet := weg < 0
 	weg = clampi(weg, 0, PLAFOND_S)
-	var helden := int(floor(weg / HELD_ELKE_S))
+	var helden := int(floor(weg * SNELHEID / HELD_ELKE_S))
 	# zelfde kansen als held.gd en sim/ (put 35%, slijm 45%), met een plafond zodat er altijd verhalen blijven
 	var k_put: float = 0.35 + (upg.kans_erbij("stekelput") if upg != null else 0.0)
 	var k_slijm: float = 0.45 + (upg.kans_erbij("slijm") if upg != null else 0.0)
@@ -50,6 +56,8 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 	return {
 		"weg_s": weg, "helden": helden, "gevallen": gevallen, "gevlucht": helden - gevallen,
 		"goud": goud, "nieuwe_laatst": nieuwe_laatst, "teruggezet": teruggezet, "opgegeten": opgegeten,
+		# faam = gevangen helden (voortgang.md): het hol-niveau telt dit op zodra het bordje er is
+		"faam": gevallen,
 		"regel": samenvatting(weg, helden, gevallen, goud),
 	}
 
@@ -102,7 +110,7 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 			terug.append(naam)
 	terug.sort()
 	aarts.sort()
-	var uren := float(uitkomst.get("weg_s", 0)) / 3600.0
+	var uren := float(uitkomst.get("weg_s", 0)) * SNELHEID / 3600.0   # aartsvijand op hetzelfde kwart tempo
 	# hoeden alleen noemen als ze echt gegeven zijn (geef_hoeden), anders ziet de speler ze niet op Gloop
 	var hoeden := int(uitkomst.get("opgegeten", 0)) if bool(uitkomst.get("hoeden_gegeven", false)) else 0
 	# 1. wie er terug was
@@ -131,6 +139,13 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 	else:
 		uit.append(_kort("%d came, %d fell. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.goud)]))
 	return uit
+
+# Eén regel die de afspraak zegt (Sanne: "While you're away, your hole works at a quarter speed.", ingekort tot 42 tekens).
+# Alleen na minstens een half uur weg en als er iemand kwam; anders is het ruis.
+static func tempo_regel(uitkomst: Dictionary) -> String:
+	if int(uitkomst.get("helden", 0)) == 0 or int(uitkomst.get("weg_s", 0)) < TEMPO_REGEL_NA_S:
+		return ""
+	return TEMPO_REGEL
 
 # Met pensioen (Sanne kroniek-regels.md: bij openen, hooguit één per keer, geen straf maar een grapje).
 # 40% van wie vlucht komt nooit terug (sim/UITKOMST.md) en strook.gd laat ze nu stil verdwijnen. Bewaar hun namen

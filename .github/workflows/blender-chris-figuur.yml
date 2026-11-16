@@ -1,0 +1,54 @@
+name: Blender figuur voor Chris (Meshy-figuur met Pro-knie 115)
+
+# Hoofdchat 16 nov 16:40: Chris maakt een eerlijke render van een figuur uit Pro 1.0.2 (knie die bij 115° stopt).
+# Dit maakt de .blend uit de echte add-on en zet hem als Actions-artefact (niet in een openbare release).
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Meshy-figuur uit de map people/ (MIT, Hugging Face), zonder .glb"
+        default: "army_man"
+      hoogte:
+        description: "Hoogte van de figuur in mm"
+        default: "150"
+
+permissions:
+  contents: read
+
+jobs:
+  figuur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PRO_VERSIE: "1.0.2"
+      CJ_HOOGTE: ${{ github.event.inputs.hoogte }}
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 ophalen
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Meshy-figuur ophalen (alleen dit ene bestand uit de zip)
+        run: |
+          pip install -q remotezip
+          mkdir -p /tmp/meshy && cd /tmp/meshy
+          python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/${{ github.event.inputs.model }}.glb', '.')"
+      - name: Pro bouwen en figuur maken
+        run: |
+          bash e2e/maak_zip.sh betaald
+          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/uit "/tmp/meshy/MESHY_GLB/people/${{ github.event.inputs.model }}.glb" 2>&1 | tee /tmp/uit.log
+          grep "\[cj-chris\]" /tmp/uit.log > /tmp/uit/uitslag.txt
+          grep -q "gelukt: \[.*knie" /tmp/uit.log || { echo "FOUT: knie niet gelukt"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: figuur-chris-${{ github.event.inputs.model }}
+          path: /tmp/uit
+          retention-days: 30

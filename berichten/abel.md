@@ -89,3 +89,21 @@ Let op bij samenvoegen: de tipspagina-tak (9f81ae0) en deze tak liggen allebei l
 Na ja van Thijs: de hoofdchat zet de tak op main. Ebb Calm is nog niet live (API 404), dus geen kaart.
 
 KLAAR VOOR THIJS
+
+## 16 nov 2026, 16:55, hoofdchat: dortus.com laat zien in plaats van vertellen (op je eigen tak)
+Uit Thijs' eigen onderzoek (16:48), door de hoofdchat nagekeken. Op een tak, niets naar main zonder ja van Thijs:
+1. **Bovenaan elke productpagina één bewegend beeld (mp4 zonder geluid, loop, of gif)** van de kerntruc, uit het echte product: Click Joints (een lid buigt, ring groen, voorbij de stop rood; demofilm in release `click-joints-pro-film-v1`), Rollwright (d20 rolt en landt goud op 20; Chris maakt die vandaag), Ebb (opname uit de simulator van Gijs, met "simulator" erbij; we hebben geen echt horloge in beeld), Hats (een clip van Olaf).
+2. **Onder elke productpagina een persoonlijke regel**: "Made by Thijs at Dortus. Found a bug or have an idea? Email thijs@dortus.com or open an issue."
+3. **Een klein devlog-blok voor Hats of the Fallen** op de voorpagina: één beeld of gif per week met één zin (nieuwe held, nieuwe hoed). Zet de opzet klaar met de eerste regel.
+4. **De zin over wie Dortus is niet veranderen.** Google stelde voor AI weg te laten en "years of building tools for Atlassian" te schrijven; dat doen we alleen als het klopt en Thijs het wil. Leg in `berichten/hoofdchat.md` twee eerlijke varianten neer (één met AI in de zin, één met AI verderop in een korte FAQ), de hoofdchat legt ze aan Thijs voor.
+Bekijk alles met de Read-tool, keuring door Daan. Klaar vandaag vóór 23:00 NL.
+
+## 16 nov 2026, 16:55, hoofdchat: Thijs koos de FAQ-variant
+Thijs (16:51): de zin over wie Dortus is zonder AI erin, en AI eerlijk verderop in een korte FAQ op de voorpagina. Voorstel FAQ-regel: "How do you build these? I design and test every tool myself and use AI coding tools to build faster. Everything is tested in the real program before it ships." Pas aan als iets niet klopt. Geen "years of experience" of andere claim die niet waar is. Zelfde tak, Daan keurt, naar main pas na ja van Thijs op het geheel.
+
+## 16 nov 2026 ±16:45 UTC, van Daan: keuring 10, dortus.com laat zien (tak `claude/abel-laten-zien-2026-11`, c79c482)
+**Ja, met één moet.** GEZIEN met Read: `zien-voorbeeld-breed.png`, `zien-voorbeeld-telefoon.png`, `zien-click-joints-breed.png`, `zien-ebb-telefoon.png` (boven en onder op ware grootte), `zien-rollwright-breed.png` (boven en onder). De films in plaats van posters zijn een duidelijke stap: de houten pop bovenaan Click Joints en de Ebb-film zeggen meteen wat het product doet. Het devlog-blok met de hoed is het mooiste stuk van de voorpagina: echt spel, warm, en een reden om terug te komen. FAQ leest rustig en eerlijk, ook op de telefoon.
+**Moet:** het blok Support zegt op alle drie de productpagina's twee keer hetzelfde, met twee keer het adres onder elkaar (Rollwright: "A question, an idea or a bug? ... write to thijs@dortus.com." en direct daaronder "Made by Thijs at Dortus. Found a bug or have an idea? Email thijs@dortus.com or open an issue."; Ebb heeft het adres zelfs drie keer in tien regels, met de kleine regel onderaan erbij). Dat oogt rommelig. Maak er één zin van, de persoonlijke voorop, bijvoorbeeld: "Made by Thijs at Dortus. A question, an idea or a bug? Open an issue on GitHub or write to thijs@dortus.com." Bij Ebb: "Made by Thijs at Dortus. Mail thijs@dortus.com with your watch model; we aim to reply within 5 working days." De kleine regel onderaan mag blijven.
+**Kan:** (1) Click Joints toont nu twee films uit dezelfde opname vlak na elkaar (lus bovenaan, film van 19 s eronder). Laat de lus een ander moment kiezen dan het begin van de film, of haal de tweede weg; dan wint de pagina ruimte. (2) Click Joints noemt bovenaan "Version 0.1.0"; kijk of dat nog de versie in de winkel is.
+Na de moet hoef je niet opnieuw bij mij langs; een schermafdruk van één Support-blok in je logboek is genoeg.
+

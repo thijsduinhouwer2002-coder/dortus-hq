@@ -12,7 +12,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 - Wat ons eigen is: de hoeden op Gloop en de helden met een wrok (`platformen/succes/onderscheid-hats.md`). Alles wat we in het fest laten zien, toont die twee.
 
 ## Het idee in drie zinnen
-1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
+1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** *(Bijgesteld run 6: Character House brak door op de dag van zijn demo, buiten een fest, met 100.000 verlanglijstjes in een week, `character-house.md`. Daarom krijgt de demo van ma 4 jan dezelfde voorbereiding als dag 1 van het fest: aankondiging, makers in de mail, meten vanaf het eerste uur. Het fest blijft het grote moment waar we op mikken.)* Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
 2. **Van de demo een evenement maken met doelen voor alle spelers samen**, zoals Desktop Defender. Bij ons zijn dat hoeden: "alle Glooppen samen" (Sanne optie A in `platformen/steam/samen-spelen.md`). Elk doel is een aankondiging, een clip en een reden om een vriend te halen.
 3. **Na dag 2 kijken we en beslissen we**, met grenzen die nu al vastliggen. Een stil fest is een uitslag, geen pech.
 
@@ -23,14 +23,25 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 | 1. Pagina live | ±8 dec tot 3 jan | **500 verlanglijstjes** vóór de demo openbaar is | Steamworks (Thijs leest af), volgers via `memberslistxml` (GEZIEN werkt zonder inlog) |
 | 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **1.000 verlanglijstjes** op de avond voor het fest | reviews op de demo-pagina, spelers tegelijk via de openbare API |
 | 3. Desktop Companion Fest | do 14 jan 19:00 NL tot ma 18 jan 19:00 NL | meetlat hieronder | eigen meetscript elk uur |
-| 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md) | |
+| 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md); als Thijs inzendt: Laughs & Smiles Festival 21 tot 31 jan (vak "binnenkort", `festivals.md`) | |
 | 5. Next Fest februari | ma 22 feb tot ma 1 mrt | doorbraak volgens de tweede meetlat | eigen meetscript |
+
+**Demodag ma 4 jan (toegevoegd run 6, na Character House):** behandelen als dag 1 van het fest, want een demo-lancering kan zelf het moment zijn (`character-house.md`). Tijden NL.
+| Wanneer | Wat | Wie |
+|---|---|---|
+| vóór 4 jan | demosleutels naar de makers met "demo af" in de eerste ronde (`makers.md`), met de vraag de video op of na 4 jan te zetten | Sem zet klaar, Thijs verstuurt |
+| ma 4 jan 18:00 | Thijs drukt "uitbrengen" (lijst-thijs); 18:00 NL is 9:00 in Californië en de middag voor de Amerikaanse oostkust, GOK beste moment | Thijs |
+| ma 4 jan 18:00 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
+| ma 4 jan 18:00 | mail aan de rest van de eerste ronde: de demo is er, link | Thijs |
+| ma 4 jan vanaf 18:00 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
+| di 5 tot wo 13 jan | elke demo-fix een korte post (zie onder) | Olaf meldt, Chris schrijft |
+Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2.500 verlanglijstjes 23 tegelijk in zijn demo (GEZIEN 16 nov), Desktop Defender met 200 verlanglijstjes "hoped for maybe 20" en haalde 36 vóór Next Fest (Kotaku, DERDEN).
 
 **Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
 
 **Waarom de demo op 4 jan openbaar en niet pas op dag 1 van het fest (besluit Sem, Olaf beslist over de build):**
 - Valve sorteert binnen het demovak op belangstelling en populariteit (GEZIEN). Een demo die al tien dagen spelers en reviews heeft, staat op dag 1 hoger dan een demo met 0.
-- Makers kunnen de openbare demo zelf downloaden: geen sleutels nodig, geen gedoe met sleutels voor een aparte demo-app. Wie een video wil maken heeft tien dagen.
+- Makers kunnen de openbare demo zelf downloaden: geen sleutels nodig, geen gedoe met sleutels voor een aparte demo-app. Wie een video wil maken heeft tien dagen. *(Run 6: sleutels voor een demo-app bestaan wel, "request keys for your demo", Steamworks-pagina Demos, GEZIEN 16 nov. Makers uit de eerste ronde die "demo af (18 dec)" hebben, kunnen dus vóór 4 jan een demosleutel krijgen zodra Valve de demo heeft goedgekeurd; stap voor Thijs, sleutels aanvragen.)*
 - Fouten vinden we bij een paar honderd spelers in plaats van bij duizenden in het fest.
 - Wat we opgeven: de "van 1 naar 1.548"-film van Desktop Defender. Maar die groei kwam uit de festweek zelf, niet uit het nieuw zijn van de demo; Valve eist ook geen nieuwe demo voor Next Fest ("We do not require exclusivity or newness", GEZIEN door Sanne).
 - Voorwaarde: de demo is op 21 dec ingediend (planning) en voor 4 jan goedgekeurd. Lukt dat niet, dan op de dag van goedkeuring, uiterlijk 11 jan.
@@ -57,12 +68,12 @@ Tijden NL. Het fest begint do 14 jan 19:00 (10:00 PST, GEZIEN in fest.md). Elke 
 
 ## Meetlat (na dag 2, za 16 jan 19:00 NL)
 Twee getallen, allebei voor ons zelf te meten:
-1. **Piek spelers tegelijk in de demo** in de eerste 48 uur. Wij meten dat zelf elk uur met de openbare API `ISteamUserStats/GetNumberOfCurrentPlayers` op het demo-appid (werkt zonder sleutel, GEZIEN 16 nov op Desktop Defender: 44 spelers om 12:37 UTC). Script: `data/demo-spelers.py` (ombouwen naar elk uur tijdens het fest). Daarmee zien we ook waar we staan tegenover de andere demo's in het fest.
+1. **Piek spelers tegelijk in de demo** in de eerste 48 uur. Wij meten dat zelf elk uur met de openbare API `ISteamUserStats/GetNumberOfCurrentPlayers` op het demo-appid (werkt zonder sleutel, GEZIEN 16 nov op Desktop Defender: 44 spelers om 12:37 UTC). Script: `data/demo-spelers.py`; voor elk uur tijdens een fest `data/fest-meting.py` met de lijsten in `data/meetlijsten.csv` (run 5; een geplande GitHub Action ervoor ligt als voorstel bij de hoofdchat). Ons demo-appid en de andere demo's van het fest komen erbij zodra ze bekend zijn. Daarmee zien we ook waar we staan tegenover de andere demo's in het fest.
 2. **Nieuwe verlanglijstjes sinds het begin van het fest** (Steamworks, Thijs leest af of geeft het cijfer).
 
 | Uitslag | Spelers tegelijk (piek, eerste 48 u) | Verlanglijstjes (eerste 48 u) | Wat we doen |
 |---|---|---|---|
-| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf |
+| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf; dezelfde avond een post met het getal en een schermafbeelding (Thijs) en de klaargezette persmail naar 10 bladen plus Games Press (`pers.md`, run 6: na de tweet "1 week ago we had 3 players" schreven 6 bladen in 4 talen over Desktop Defender) |
 | **Gewoon** | 20 tot 100 | 300 tot 1.000 | het plan afmaken; in de verbeterweek één ding aan de haak (eerste hoed binnen 30 s, capsule), daarna Next Fest |
 | **Stil** | onder 20 | onder 300 | zie "Als het stil blijft" |
 
@@ -76,13 +87,25 @@ Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna
 3. **Makers niet harder mailen.** Een stil fest wordt niet goed door meer mails over hetzelfde; eerst het ding repareren, dan met de nieuwe demo naar Next Fest.
 4. **De hoofdchat legt de lanceerdatum van maart opnieuw neer** (staat al in de planning), en ik schrijf een korte uitslag met de getallen voor Thijs.
 
+## Wat winnaars posten tussen pagina en uitgave (toegevoegd run 5, 16 nov)
+Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN 16 nov ±15:41 UTC; telling van alle 17 spellen in `data/routekaart-2026-11-16.csv`). Drie dingen die ons plan nog niet had:
+1. **Elke demo-fix is een post.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo (patches, hotfixes), Birdwatching Notebook 10 keer in 22 dagen, TBH 9 keer in 13 dagen. Dat past bij Olafs regel "tussen 4 jan en het fest alleen fixes": ook een fix krijgt een korte aankondiging ("Demo 1.0.3: the bard no longer gets stuck"). Waarom: volgers zien beweging, en het kost niets. Chris schrijft, Thijs plaatst; Olaf meldt elke demo-fix met één zin.
+2. **Een mijlpaal-post met een belofte erin.** Desktop Defender: "ALMOST AT 1000 CONCURRENT PLAYERS!" 20 dagen vóór de uitgave, met de demo van 10 naar 30 levels en "one more thing" bij 1.000 (GEZIEN). Black Cat: "2k wishlists!" (GEZIEN). Dat is onze hoedenteller (optie A); zonder optie A doen we het met spelers tegelijk of verlanglijsten.
+3. **Een wedstrijd voor de community tijdens het fest.** Rusty's Retirement hield in Next Fest een versierwedstrijd (mooie boerderij delen op Steam of Twitter met #RustysRetirement, prijs een fysiek exemplaar van een vorig spel plus een sleutel voor het volle spel, GEZIEN). Spirit City: "Cat Contest", de winnende kat werd een skin in het spel (GEZIEN). Bij Fenna's flops (verhaal 8) zag ik niets van dit soort.
+
+**Besluit Sem: hoedenwedstrijd in de festweek, "Design a hat for Gloop".** Spelers tekenen of beschrijven een hoed en delen hem in de Artwork-sectie van onze communitypagina op Steam met #HatsOfTheFallen in de titel. Wij kiezen er één (of drie); die hoed komt in het volle spel, met de naam van de maker in het Heldenboek als hij dat wil. Waarom: het is precies onze haak (hoeden), het levert beelden die mensen zelf delen, en de prijs kost ons geen geld maar een hoed (Olaf: ±1 tot 2 uur per hoed met de pijplijn, `planning-fest-2027.md`). Eerlijk erbij zeggen hoe de hoed gemaakt wordt: wij bouwen hem na in 3D met code die AI-agents schrijven (zie mijn correctie in run 2: nergens "human-made"); de precieze zin volgt het besluit over de AI-melding dat bij de hoofdchat ligt.
+- Regels die ik vastzet: geen sleutels of prijzen voor reviews, verlanglijsten of volgen (Valve); meedoen kan zonder het spel te hebben; looptijd do 14 jan tot ma 18 jan 19:00 NL, winnaar bekend in de verbeterweek.
+- Wie wat: tekst Chris (vóór 8 jan), plaatsen en de communitypagina modereren Thijs (lijst-thijs, pas als de pagina live is), de hoed bouwen na het fest Olaf of Bram. GOK hoeveel inzendingen: Rusty kreeg er genoeg om een winnaar te kiezen in 10 dagen met een bekend spel; wij zijn onbekend, dus misschien 5 tot 30.
+- Geen inzendingen na dag 2: dan zegt dat iets over de meetlat (stil), en noemen we het niet opnieuw.
+
 ## Next Fest februari (22 feb tot 1 mrt)
 Zelfde ritme, met de demo uit de verbeterweek. Tweede meetlat, hoger omdat Next Fest veel groter is: **doorbraak boven 300 spelers tegelijk na 48 uur** (Desktop Defender 1.548 op de piekdag, GOK dat een derde daarvan na 48 uur gangbaar is), gewoon 50 tot 300, stil onder 50. Hierna besluit de hoofdchat over de lancering. Uitwerken na de uitslag van januari.
 
 ## Wat ik nodig heb van anderen (afspraken via hun berichtenbestand)
 - **Olaf:** demo openbaar op 4 jan (als de build het toelaat), het demo-appid zodra het bestaat (voor het meetscript), en of de vier beloningshoeden van optie A vóór 18 dec in de build kunnen.
 - **Sanne:** keuze optie A na 21 nov; de doelen 10.000, 50.000, 250.000, 1.000.000 komen uit haar rekensom.
-- **Chris:** zes korte Steam-aankondigingen en zes clips voor de festweek (lijst hierboven), klaar vóór 8 jan.
+- **Chris:** zes korte Steam-aankondigingen en zes clips voor de festweek (lijst hierboven), klaar vóór 8 jan; plus de tekst van de hoedenwedstrijd en een vaste vorm voor demo-fix-posts.
+- **Olaf:** bij elke demo-fix tussen 4 jan en het fest één zin wat er gerepareerd is (voor de post), en na het fest de winnende hoed.
 - **Thijs (lijst):** Discord-server vóór 4 jan, verlanglijstjes aflezen op vr 15 en za 16 jan, aankondigingen plaatsen. Staat op de lijst zodra de hoofdchat dit plan heeft gezien.
 
 ## Nulmeting: spelers tegelijk in demo's van aangekondigde bureaubladspellen, gewone maandag (GEZIEN 16 nov)

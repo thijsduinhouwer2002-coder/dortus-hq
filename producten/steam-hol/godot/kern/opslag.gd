@@ -2,6 +2,8 @@ extends RefCounted
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 const VOORTGANG := preload("res://systemen/voortgang.gd")
+const AFLOOP := preload("res://kern/afloop.gd")   # faam_erbij (hol-niveau)
+const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")   # weg_regel en optocht (Sanne 16 nov 14:50)
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
 # voortgang.gd belooft dat de bewaarde tijd nooit achteruit gaat (nieuwe_laatst). Stond de klok terug, dan blijft de
@@ -13,7 +15,7 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
-		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s,
+		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -90,6 +92,7 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
+	s.faam = maxi(0, int(data.get("faam", 0)))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3
 	s.pensioen_namen = []
 	var pn = data.get("pensioen_namen", [])
@@ -120,10 +123,16 @@ static func laad(s, begin) -> void:
 	if tijd_vloer > int(Time.get_unix_time_from_system()) + 3 * 86400:
 		tijd_vloer = 0
 	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
-	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d" % [int(weg.weg_s), str(weg.teruggezet),
-		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0])
+	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d, hoeden %d" % [int(weg.weg_s), str(weg.teruggezet),
+		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0, int(weg.opgegeten)])
+	var faam_voor: int = s.faam
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
+		AFLOOP.faam_erbij(s, int(weg.get("faam", 0)))   # faam ook als je weg was, kwart snelheid (Sanne 16 nov 14:05)
+		# hoeden ook terwijl je weg was, op hetzelfde kwart tempo (Sanne 16 nov 14:05); geef_hoeden zet hoeden_gegeven,
+		# zodat het verhaal ze pas noemt als ze echt op Gloop staan
+		if s.slijm != null:
+			VOORTGANG.geef_hoeden([s.slijm], weg, 7)
 		var helden_d := {}
 		for h in s.terugkomers:
 			helden_d[String(h.naam)] = {"gevlucht": int(h.bezoeken), "wrok": String(h.get("wrok", ""))}
@@ -133,6 +142,24 @@ static func laad(s, begin) -> void:
 		# via de wachtrij, zodat je ze bij openen een voor een ziet (controleur punt 4)
 		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
 			s._kroniek(String(r))
+		var tr := VOORTGANG.tempo_regel(weg)
+		if tr != "":
+			s._kroniek(tr)
+		# optocht van de niveaus van weg (Sanne 16 nov 14:50): één kroniekregel na de kwart-regel, en het plan
+		# (wip, poef per ding, nieuwe heldensoorten als eerstvolgende bezoekers). Tekenen volgt met het bordje (Mila).
+		var wr := HOL_NIVEAU.weg_regel(faam_voor, s.faam)
+		if wr != "":
+			if HOL_NIVEAU.REGELS_AAN:
+				s._kroniek(wr)
+			else:
+				s.log_regel("HOL weg-regel uit tot het bordje: %s" % wr)   # moet Daan 16 nov 15:33
+		s.optocht = HOL_NIVEAU.optocht(faam_voor, s.faam)
+		if bool(s.optocht.wip):
+			var stukken: Array[String] = []
+			for po in s.optocht.poef:
+				stukken.append("%.1f poef %d%s" % [float(po.t), int(po.niveau), " munt" if bool(po.munt) else ""])
+			s.log_regel("HOL optocht wip, %s; helden %s; duur %.1f s" % [", ".join(stukken) if not stukken.is_empty() else "geen poef",
+				str(s.optocht.helden), float(s.optocht.duur)])
 	# met pensioen (Bram 04:35, Sanne kroniek-regels.md): na minstens 30 min weg hooguit één held die nooit terugkwam
 	var p: Dictionary = VOORTGANG.pensioen(s.pensioen_namen, weg, s.regels)
 	if not p.is_empty():
@@ -140,4 +167,4 @@ static func laad(s, begin) -> void:
 		s.pensioen_namen.erase(p.naam)
 	s.hol.queue_redraw()
 	s.tekst.zet(s.kroniek, s.hol.goud)
-	s.log_regel("HOL opslag geladen: %d terugkomers, %d goud" % [s.terugkomers.size(), s.hol.goud])
+	s.log_regel("HOL opslag geladen: %d terugkomers, %d goud, faam %d" % [s.terugkomers.size(), s.hol.goud, s.faam])

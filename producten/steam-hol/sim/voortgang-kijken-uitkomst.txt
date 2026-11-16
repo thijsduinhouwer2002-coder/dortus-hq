@@ -1,0 +1,25 @@
+Bram 16 nov, de speler die niet meteen koopt. Gemaakt met: python3 voortgang_kijken.py   (8 zaden, spec voortgang-v3-eind-bram.json + eigen helden met tegenzet)
+Deel 1: werkdagen van 6 uur open (weg x 0,25, plafond 12 u). Hol in open uren (mediaan), werkdag van hol 50,
+langste gat per week 1 tot 5 (mediaan / ergste, open uren; een aankoop telt als iets nieuws), goud op de bank (mediaan uur 20 tot 120).
+
+koopt meteen (zoals tot nu)                hol 12 / 20 / 30 / 40 / 50: 2.0 / 10.5 / 37.7 / 76.1 / 128.1 u, hol 50 werkdag 22, bank 1025
+                                           gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 2.8/5.3; 6.0/6.0
+kijkt elke 10 min                          hol 12 / 20 / 30 / 40 / 50: 2.0 / 10.5 / 37.2 / 75.4 / 127.1 u, hol 50 werkdag 22, bank 1066
+                                           gaten 1.2/1.9; 1.9/2.9; 2.5/2.9; 2.9/5.7; 5.8/6.0
+kijkt elke 30 min                          hol 12 / 20 / 30 / 40 / 50: 2.0 / 10.5 / 37.3 / 75.3 / 127.0 u, hol 50 werkdag 22, bank 1419
+                                           gaten 1.4/1.6; 2.0/2.8; 2.5/2.5; 2.5/6.0; 5.8/5.9
+kijkt elk uur                              hol 12 / 20 / 30 / 40 / 50: 2.0 / 10.4 / 37.2 / 74.6 / 126.1 u, hol 50 werkdag 22, bank 1966
+                                           gaten 1.7/2.0; 2.0/2.6; 3.0/3.0; 3.0/5.7; 5.9/6.0
+kijkt elke 2 uur                           hol 12 / 20 / 30 / 40 / 50: 2.0 / 10.4 / 37.6 / 75.7 / 127.8 u, hol 50 werkdag 22, bank 2517
+                                           gaten 2.0/2.0; 2.0/3.2; 2.4/3.7; 3.0/5.7; 5.8/6.0
+kijkt alleen bij het openen (1 x per dag)  hol 12 / 20 / 30 / 40 / 50: 2.0 / 11.3 / 41.6 / 78.0 / 132.0 u, hol 50 werkdag 23, bank 4461
+                                           gaten 5.2/5.8; 5.7/5.8; 6.0/6.0; 6.0/6.0; 6.0/6.1
+
+Deel 2: de tussendoor-speler, elke dag M minuten open, rest dicht (ook weekend). Dag van hol 20 / 30 / 40 / 50.
+
+15 min per dag, koopt meteen                 hol 20 dag 6, hol 30 dag 20, hol 40 dag 38, hol 50 dag 63
+15 min per dag, kijkt alleen bij het openen  hol 20 dag 6, hol 30 dag 20, hol 40 dag 38, hol 50 dag 63
+30 min per dag, koopt meteen                 hol 20 dag 5, hol 30 dag 18, hol 40 dag 34, hol 50 dag 57
+30 min per dag, kijkt alleen bij het openen  hol 20 dag 5, hol 30 dag 18, hol 40 dag 34, hol 50 dag 57
+60 min per dag, koopt meteen                 hol 20 dag 5, hol 30 dag 15, hol 40 dag 30, hol 50 dag 49
+60 min per dag, kijkt alleen bij het openen  hol 20 dag 5, hol 30 dag 16, hol 40 dag 30, hol 50 dag 50

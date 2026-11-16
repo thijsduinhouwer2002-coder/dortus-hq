@@ -1,7 +1,18 @@
 extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram 04:35)
+const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
+
+# Faam erbij (een gevangen held, of wie er vielen terwijl je weg was). Faam gaat nooit omlaag.
+# Nog geen bordje of feestje (Mila), alleen de log zodat de toetsen en de duurtest het hol-niveau kunnen volgen.
+static func faam_erbij(s, n: int) -> void:
+	if n <= 0:
+		return
+	var oud: int = s.faam
+	s.faam += n
+	for niv in HOL_NIVEAU.erbij(oud, s.faam):
+		s.log_regel("HOL hol-niveau %d (faam %d)" % [niv, s.faam])
 
 static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
@@ -60,6 +71,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
 		var buit := 6 + 3 * int(info.get("bezoeken", 0))
 		s.hol.goud += buit
+		faam_erbij(s, 1)
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1

@@ -1,8 +1,161 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 11 af 16 nov ±15:00 UTC; volgende run: wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan, of Mini Cozy Room: Lo-Fi van dezelfde maker als TBH, zonder markt en wel overweldigend positief)
+bezig: niets (verhaal 13 af 16 nov ±16:50 UTC; volgende run: wie Mini Cozy Room in Korea en China groot maakte, of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 13. Little Writer Desktop Companion (JSLegendDev, solo): eerst de Steampagina, dan één video; 1.295 volgers zonder fest, terwijl zijn vorige spel met een even grote video op 12 bleef
+
+Onderzocht 16 nov 2026, run 14. Een concurrent in ons venster (uit 6 jan 2027, acht dagen vóór ons fest) en het mooiste natuurlijke experiment dat ik tot nu toe vond: dezelfde maker, hetzelfde YouTube-kanaal, twee spellen. Bij het eerste spel maakte hij een grote video zonder Steampagina, bij het tweede zette hij de pagina eerst live. Hij schreef zelf op wat er misging.
+
+### Bronnen
+- Zijn eigen stuk "My Biggest Gripe With YouTube", 30 mei 2026: https://jslegenddev.substack.com/p/my-biggest-gripe-with-youtube (GEZIEN, helemaal gelezen via de Substack-API).
+- Zijn spellenblog: https://jslegenddevgames.substack.com, drie posts (15 en 17 mei, 21 jun 2026) met de 10 reacties onder de aankondiging (GEZIEN).
+- YouTube-kanaal @JSLegendDev: abonnees en alle Shorts van het spel van de kanaalpagina's, weergaven per video uit de openbare feed https://www.youtube.com/feeds/videos.xml?channel_id=UCcDQenwAOcjJFyrJvjlrVVw (GEZIEN, 16 nov ±16:30 UTC). De videopagina's zelf gaven een blokkade van Google, dus lengte en reacties van de trailer heb ik niet.
+- Steam: appdetails van het spel (4672770), de demo (5236990) en zijn vorige spel Donovan's Demise (4393750); volgers via `steamcommunity.com/games/<appid>/memberslistxml/?xml=1`; nieuws-API; spelers tegelijk; reviewtelling van de demo op de winkelpagina (GEZIEN, 16 nov).
+- Volgers een dag eerder en de plek in de Top Wishlisted: https://www.indiespade.com/game/4672770 (DERDEN).
+- Ter vergelijking: Vera's volgers van 222 aangekondigde bureaubladapps (`platformen/verkenner/data/steam-volgers-2026-11-16.jsonl`) en Sems meting van 245 demo's (`platformen/steam/marketing/data/demo-spelers-2026-11-16.csv`).
+- Alle cijfers in `platformen/succes/data/little-writer-2026-11-16.csv`.
+- Niet gelezen: Reddit (gaf een blokpagina), X en Discord. Ik weet dus niet of hij de trailer ook buiten YouTube deelde.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Maker | JSLegendDev, solo; maakte 3 jaar lang JavaScript-lesvideo's | GEZIEN (eigen stuk) |
+| Kanaal | ±17.000 abonnees | GEZIEN |
+| Het spel | "Your little companion is an ambitious writer with very little discipline. Type, and they'll write too." Elke toetsaanslag van jou laat het figuurtje schrijven; boeken af, geld, sneller typen, betere kwaliteit, grotere projecten, nieuwe plekken en kleding | GEZIEN (winkeltekst) |
+| Steampagina live | uiterlijk 21 jun 2026 ("the Steam page is up!") | GEZIEN |
+| Aankondigingstrailer, 13 jul 2026 | **378.314 weergaven, 17.504 duimpjes**: 22 keer zijn aantal abonnees | GEZIEN |
+| Demo, 22 sep 2026 | demotrailer 91.393 weergaven; **97 reviews, 100% positief** (33 in de laatste 30 dagen); nu 81 spelers tegelijk, om 12:40 UTC 68: plek 6 van 245 demo's van aangekondigde bureaubladapps | GEZIEN |
+| Shorts over het spel | 14 stuks, meestal 1.000 tot 2.500 weergaven; uitschieters: "App Focus Feature" 21.220, de trailer als Short 19.141, "Why Does My Game Look Like That?" 9.262 | GEZIEN |
+| Releasedatum-video, 26 okt | 1.462 weergaven | GEZIEN |
+| **Volgers op Steam** | **1.295** (15 nov 1.248 volgens indiespade). Van de 222 aangekondigde bureaubladapps die Vera mat heeft alleen 3 er meer (Character House 9.732, Amarillo's Desktop Pets 5.822, Meowniverse 1.435). Mediaan van de 88 die op Hats lijken: 10 | GEZIEN, DERDEN |
+| Top Wishlisted op Steam | plek 1.848 | DERDEN |
+| Verlanglijsten | ±9.000 tot 26.000 (1.295 volgers keer 7 tot 20, de verhouding van GameDiscoverCo uit Vera's kaart) | GOK |
+| Aankondigingen op Steam | 1 (de releasedatum, 26 okt); geen routekaart, geen devlog op Steam | GEZIEN |
+| Talen | alleen Engels; Windows en Mac beloofd | GEZIEN |
+| Prijs | nog niet bekend | GEZIEN |
+| **Zijn vorige spel, Donovan's Demise** | video "Making a Small RPG" "barely below 100k views", toen zonder Steampagina; de volgende video erover "below 10k"; de pagina staat nu op "Coming soon" met **12 volgers**; het spel ligt stil ("currently on hold", 22 jun) | BRON (eigen stuk), GEZIEN |
+
+### Wat hij deed, in volgorde
+1. **2023 tot 2025: lesvideo's van 4 tot 10 uur**, die steeds minder gingen doen. Toen verhalende video's van 10 tot 15+ minuten, eerst als artikel geschreven: "How do Devs Make Levels Without Game Engines?" (30k+) en "You Can Now Make PS2 Games in JavaScript" (100k+). Zijn verklaring: het onderwerp moet "remarkable" zijn, het moet een verhaal zijn, en langer dan 10 minuten (BRON).
+2. **Eind 2025: "Making a Small RPG"**, het verhaal van hoe hij zijn eerste eigen spel ontwierp, bijna 100k weergaven. "I had made a big mistake by not setting up a Steam page to direct viewers to before publishing the video." De tweede video over hetzelfde spel: onder de 10k. "I had wasted my biggest marketing ammunition" (BRON). Dat spel heeft nu 12 volgers.
+3. **15 tot 17 mei 2026: eerst testen, dan pas Steam.** Een ander idee (HARVEST MOVE) zette hij als prototype in de browser op itch.io: "I think this would be a smarter choice rather than going immediately for Steam" (GEZIEN). Daar hoorde ik daarna niets meer van.
+4. **30 mei: zijn conclusie.** YouTube geeft bereik maar geen publiek: "I was building a sand castle". Nieuw plan: zelden een sterke video maken en de kijkers altijd naar iets sturen wat van jou is (zijn maillijst op Substack) (BRON).
+5. **Juni: Shorts over het maken, kort na of rond de Steampagina.** "I'm Making an Idle Productivity Game", "Why Does My Game Look Like That?" (21 jun, 9.262), hoe het figuurtje geld verdient, nieuwe werkplekken, kleding. Op 21 jun op zijn spellenblog: "Still in somewhat early development but the Steam page is up!" met de link (GEZIEN).
+6. **13 jul: één aankondigingstrailer op zijn eigen kanaal**, met als eerste regel "Wishlist here :" en de Steamlink. 378k weergaven (GEZIEN). Twee weken later dezelfde trailer als Short (19k).
+7. **Jul tot okt: elke paar weken een Short over één nieuwe functie** (kleding, met Professor Layton als voorbeeld, "App Focus", donkere modus, instellingen voor beeld, typemachinegeluid). Dit is zijn routekaart, maar dan op YouTube in plaats van op Steam. Op de blog vragen lezers om te mogen testen; een schrijfster krijgt een sleutel en toegang tot de Discord (12 sep, GEZIEN).
+8. **22 sep: demo**, met de zin "Your save data carries over to the full game!" en in de videotekst "Please also leave a review!" (vragen om een review, zonder beloning: dat mag). 97 reviews, alle 97 positief.
+9. **26 okt: releasedatum 6 jan 2027** als eerste en enige Steam-aankondiging. Geen Next Fest-post en geen fest-evenement gevonden.
+
+### Waarom ik denk dat het werkte (en wat ik niet weet)
+- **De haak past in één zin en bij een groep die zich herkent:** "Type, and they'll write too." Wat jij doet (typen voor je werk) is wat het spel aandrijft. Hij richt zich op schrijvers (#author, #novels, #writers, #booktube); de reacties komen ook van schrijvers ("As an author I'm OBSESSED with this!"). Hij zet de privacy bovenaan de winkeltekst: "What you type is not recorded and does not leave your device", precies de vraag die iemand heeft bij een spel dat je toetsen telt.
+- **De volgorde:** het verschil tussen 12 en 1.295 volgers komt overeen met zijn eigen uitleg (pagina eerst). Maar het zijn ook andere spellen (actie-RPG tegen een schrijfmaatje), dus de volgorde is niet de enige verklaring. Dit is één maker met twee spellen, geen meting.
+- **Hoe 17.000 abonnees 378.000 weergaven werden** weet ik niet zeker. Zijn eigen theorie is dat YouTube een opvallend onderwerp aan mensen buiten je kanaal laat zien; de lage weergaven van de Shorts (meestal 1.000 tot 2.500) laten zien dat het geen vast publiek is dat alles kijkt. Of de trailer ook via Reddit of X liep, heb ik niet kunnen nagaan.
+- **Wat er na 378k gebeurde:** zijn release-video haalde 1.462. Precies wat hij voorspelde: een vervolg doet het slecht. Zijn volgers op Steam blijven wel staan; dat is het verschil met de eerste keer.
+
+### Drie lessen
+1. **Een groot moment zonder plek om te landen is weg.** Bijna 100k weergaven zonder Steampagina leverde een spel met 12 volgers; 378k met de pagina erbij leverde er 1.295, de vierde plek van 222 aangekondigde bureaubladapps. De maker zegt het zelf: "I had wasted my biggest marketing ammunition."
+2. **Eén sterke video slaat honderd kleine.** 14 Shorts samen ±81.000 weergaven, de ene trailer 378.000. Wat hem bracht was één opvallend ding op het juiste moment, niet elke dag posten. De dagelijkse Shorts hielden de functies zichtbaar, maar brachten weinig.
+3. **Haak = wat de speler zelf al doet.** Bij Little Writer is dat typen; bij Bongo Cat ook (114.956 reviews volgens indiespade, DERDEN). Bij Hats is de vraag: wat doet de speler terwijl het hol loopt? Dat is werken, en het hol gaat door. Little Writer koppelt dat werk letterlijk aan de voortgang; wij niet.
+
+### Wat dit betekent voor Hats
+- **Little Writer is geen concurrent om het idee** (een schrijfmaatje, geen kerker) maar wel om de aandacht in dezelfde week: uit op 6 jan, wij in het fest van 14 jan. Met ±10.000 tot 25.000 verlanglijsten (GOK) staat het dan waarschijnlijk hoog bij "nieuw en populair" in de tag Desktop Companion (GOK). Dat is ook kans: wie in die week bureaubladmaatjes zoekt, komt bij de tag.
+- **Antwoord op Sems vraag:** nee, geen routekaart op Steam vóór de uitgave (1 aankondiging totaal). Wel een routekaart in de vorm van Shorts per functie op YouTube. Het is geen geval dat zijn regel uit `routekaart.md` omgooit.
+- **Ons risico is precies zijn eerste fout:** het fest-plan zet vanaf di 17 nov elke dag een TikTok-clip, terwijl de Steampagina pas rond 8 dec live gaat. Als een van die clips aanslaat, is er niets om op te klikken.
+- **Niet overnemen:** de hashtags en de schrijvers-niche zelf; Hats heeft geen beroepsgroep zoals schrijvers. Zijn aanpak om met een eigen kanaal van 17.000 te beginnen hebben wij niet.
+
+### Voorstel voor Dortus deze week
+**Chris en Sem houden vóór ±8 dec de sterkste clip (het eerste filmpje waar we het meest in geloven, de "haak" uit `onderscheid-hats.md`) achter, en posten tot dan alleen kleine maak-clips met een uitnodiging om het TikTok-account te volgen. De sterke clip en de trailer gaan pas uit op de dag dat de Steampagina live staat, met de Steamlink in de eerste regel of het profiel.** Waarom: JSLegendDev verloor bijna 100k weergaven omdat er geen pagina was (zijn vorige spel staat op 12 volgers) en kreeg er met de pagina 1.295 volgers uit een video van 378k. Het kost niets en vraagt alleen een andere volgorde. Wie: Chris (TikTok), Sem (festplan en trailerdatum); Thijs hoeft er niets extra voor te doen.
+
+Tweede punt voor Olaf (geen actie deze week, wel voor de winkeltekst van 30 nov): zet net als Little Writer in één zin wat het spel doet terwijl jij werkt, en wat het níet doet met je computer (Hats leest geen toetsen; als het iets van je bureaublad gebruikt, één regel over privacy bovenaan). Spellen in de taakbalk roepen die vraag op.
+
+### Eerlijk: wat ik niet weet
+- Het echte aantal verlanglijsten; de schatting is een GOK met factor 3 marge.
+- Of de trailer buiten YouTube werd gedeeld (Reddit, X, Discord niet gelezen), en hoe lang hij is.
+- Wanneer de Steampagina precies live ging; 21 jun is de eerste datum waarop hij het zegt.
+- Hoeveel van het verschil tussen 12 en 1.295 door de volgorde komt en hoeveel door het idee.
+- Hoe het na 6 jan gaat. Volgende stap: op 7, 13 en 20 jan volgers, reviews en spelers tegelijk meten (zelfde API's), naast ons fest.
+
+---
+
+## 12. Mini Cozy Room: Lo-Fi (Tesseract Studio met Nugem Studio, Korea): 3.830 reviews en 96%, waarvan maar 8% in de eerste maand; een spel dat na de lancering zes keer groter werd
+
+Onderzocht 16 nov 2026, run 13. Zelfde bedrijf als TBH (verhaal 11), maar het tegenovergestelde verhaal: betaald ($4,99), geen markt, overweldigend positief, en het groeit nog steeds. Het is een "productiviteitsspel" (lo-fi muziek, kamer inrichten, timer en takenlijst) en geen gevecht; daarom vooral nuttig voor de vraag hoe een bureaubladspel lang open blijft en na de lancering groeit.
+
+### Bronnen
+- Alle 59 eigen aankondigingen van 7 mrt 2025 tot 14 okt 2026, via de nieuws-API: https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=3511030&count=300&maxlength=0&feeds=steam_community_announcements (GEZIEN). Gelezen: de drie acties rond de lancering, beide routekaarten (5 apr en 26 jun 2025), de tussenstand na een jaar (31 mrt 2026), samen-werken (15 jan en 13 feb 2026), DLC's, Mac-speeltest (3 sep 2026).
+- Steam appdetails van het spel, de demo (3550820) en de 10 DLC's, met curl, 16 nov 2026 (GEZIEN). Winkelpagina: tags en of er een AI-melding staat (GEZIEN: geen).
+- Reviews per week sinds de lancering: https://store.steampowered.com/appreviewhistogram/3511030 (GEZIEN; 3.691 positief, 139 negatief). Reviews per taal uit de taalpagina's die Vera al ophaalde (`platformen/verkenner/data/steam-talen-2026-11-16.jsonl`).
+- Spelers per maand: https://steamcharts.com/app/3511030, nu: GetNumberOfCurrentPlayers (GEZIEN, 16 nov ±16:30 UTC). Demo: https://steamcharts.com/app/3550820 (GEZIEN).
+- 14 prestaties met percentage via de Steam-API (GEZIEN).
+- Meest behulpzame reviews in het Engels, Koreaans en Vereenvoudigd Chinees, 10 per taal, met speeltijd: https://steamcommunity.com/app/3511030/reviews/?browsefilter=toprated (GEZIEN).
+- Samenvatting van reviews door VaporLens (DERDEN, bijgewerkt 4 jun 2026): https://vaporlens.app/app/3511030/mini_cozy_room_lo_fi. Laagste prijs ooit $2,49 (DERDEN, https://www.dekudeals.com/items/mini-cozy-room-lofi).
+- Alle cijfers in `platformen/succes/data/mini-cozy-room-2026-11-16.csv`.
+- Niet gevonden: een interview of devlog met verlanglijstjes of verkoopcijfers (gezocht in het Engels en Koreaans). Gamalytic gaf 403, de review-API stuurde door (302). Wat ik hieronder over verkopen zeg is dus GOK.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Prijs | $4,99; laagste ooit $2,49 (-50%) | GEZIEN, DERDEN |
+| DLC | 10 betaalde: 5 muziek- en geluidspakketten van $2,99 (jun 2025), samenwerking met lo-fi muzikanten nawhij en Lo-Five, kapsels en Halloween, $3,99. Samen ±110 reviews (Ambient Pack 32, nawhij 20, de rest 3 tot 10) | GEZIEN |
+| Reviews | **3.830, 96% positief** | GEZIEN |
+| Waarvan in de eerste maand | 306 (8%); eerste jaar 2.263; tweede jaar tot nu (7,5 maand) 1.567 | GEZIEN (histogram) |
+| Per taal | Koreaans 1.023 (98%), Vereenvoudigd Chinees 890 (94%), Engels 766 (96%), Traditioneel Chinees 259 (98%), Russisch 238 (97%); Japans en de rest onder de ±200 | GEZIEN |
+| Talen | 11 bij de lancering, 16 sinds 13 feb 2026 (Pools, Turks, Oekraïens, Vietnamees, Thai erbij) | GEZIEN |
+| Spelers tegelijk, gemiddeld per maand | apr 2025 **414**, aug 2025 548, okt 2025 1.165, jan 2026 1.118, mrt 2026 2.031, **apr 2026 4.603** (piek 9.093), daarna jun tot okt 2026 steeds 2.427 tot 2.841; nu 3.152 | GEZIEN (steamcharts, Steam-API) |
+| Demo | live 19 mrt 2025, 11 dagen vóór de lancering; nooit meer dan 162 tegelijk, nu 27 | GEZIEN |
+| Speeltijd | SteamSpy: mediaan 47 uur, gemiddeld 63 uur (eigenaarsveld kapot, korrel zout). Behulpzame reviews: 100 tot 5.140 uur, één speler "挂到1030级" (niveau 1030) na 2.959 uur | DERDEN, GEZIEN |
+| Gemaakt door | Tesseract Studio en Nugem Studio als ontwikkelaar en uitgever; Nugem is het bedrijf van TBH (Seoul, sinds 2023) | GEZIEN |
+| Verkocht | ±75.000 tot 190.000 exemplaren (3.830 reviews keer 20 tot 50) | GOK |
+
+### Hoe ver spelers komen (prestaties, GEZIEN)
+Niveau 2: 94%. Eerste huisdier: 85%. 10 nummers gespeeld: 83%. Tweede kamer: 73%. **10 uur muziek: 58%.** Derde kamer: 56%. **Niveau 100: 40,5%.** **100 uur muziek: 28%.** 100 decoraties: 18%. Timer 10 keer afgemaakt: 13%. 100 taken afgevinkt: 6,9%.
+Vergelijk met de meetlat in `diepte-toppers.md`: bij Desktop Defender haalt 57% de 10 uur en **17%** de 100 uur. Hier haalt 28% 100 uur, en dat telt alleen de tijd dat er muziek speelt (wie alleen omgevingsgeluid of eigen muziek opzet telt niet mee, zegt een Chinese review). Dit is het langste open-houden dat ik bij een bureaubladspel heb gezien. Opvallend: de nuttige knoppen worden weinig gebruikt (timer 13%, taken 6,9%); mensen houden het open voor de muziek en de kamer, niet voor de werktools.
+
+### Wat ze deden, in volgorde
+1. **7 mrt 2025, drie weken vóór de lancering: actie voor volgers.** Laat een steunbericht en je mailadres achter onder de aankondiging; wie het spel op de verlanglijst zet en volgt "will increase your chances". 50 sleutels (GEZIEN).
+2. **19 mrt: demo, 11 dagen voor de lancering**, met weer een actie: speel de demo, deel je indruk "on Steam or SNS", stuur hem in via een Google-formulier, 50 sleutels (GEZIEN). Geen Next Fest. De demo trok nooit meer dan 162 spelers tegelijk.
+3. **30 mrt: lancering met een cadeaubonnen-actie** (1 keer $50, 2 keer $25, 9 keer $10, 30 sleutels) voor wie zijn indruk deelt (GEZIEN). Eerste maand 306 reviews en gemiddeld 414 spelers tegelijk: een nette maar kleine start.
+4. **5 apr, 6 dagen na de lancering: een routekaart met vinkjes.** "Upcoming Update List" met 5 punten (kleding, mini-modus, meubels, eigen muziekbestanden, YouTube en Spotify), die ze in dezelfde post afvinken zodra iets klaar is ("✅ (Update Complete)"); ze zetten er zelfs een eerlijke correctie bij toen YouTube en Spotify maar een snelkoppeling werd (GEZIEN). Op 26 jun: "The update plans we announced last time have all been completed!" en een tweede lijst van 8 punten.
+5. **Elke 1 tot 3 weken een update**, ook in het eerste jaar 30 hotfixes en kleine versies. Wat ze toevoegden kwam uit reviews: eigen muziek, mini-modus in de taakbalk, alleen in het systeemvak (tray), takenlijst en timer los op het bureaublad (29 aug 2025).
+6. **3 jun 2025: vijf DLC's** met muziek, achtergronden en kleding, plus een bundel met 20% extra korting (GEZIEN). Later samenwerkingen met lo-fi muzikanten die zelf een publiek hebben op Spotify en YouTube (okt 2025, feb 2026).
+7. **Feb 2026: samen werken (multiplayer) en 5 talen erbij.** Aangekondigd op 15 jan "Many of you have shared sincere feedback saying that it would be even better if you could play together with friends"; met een Focus-modus voor wie het stil wil en een cadeaudoos per vriend per 30 minuten (GEZIEN). In de tussenstand van 31 mrt: "not originally part of the second roadmap, this feature was prioritized due to strong community demand". Spelers per maand: jan 1.118, feb 1.233, mrt 2.031.
+8. **31 mrt 2026: "Biggest Sale Ever" op de verjaardag**, met de tussenstand van de routekaart en een lange lijst van wat nog komt (GEZIEN). April: gemiddeld 4.603 tegelijk, piek 9.093, 396 reviews in drie weken. Daarna bleef het op ±2.500, zes keer de eerste maand.
+9. **Sep en okt 2026: Mac-speeltest voor iedereen** (ook zonder het spel te kopen; "If you know any Mac users ... please share the news") en een grote update met kleuren en nieuwe kamers. Geen enkele update wiste voortgang; de Mac-test heeft wel een eigen save (GEZIEN).
+
+**Waar de reviews vandaan kwamen (GEZIEN, histogram per week):** lanceerweek en week erna 227; week van 12 tot 26 okt 2025 213 (update 1.04 en de nawhij-DLC); week van 23 nov tot 7 dec 2025 **334**, de grootste piek (valt samen met de herfstuitverkoop van Steam eind november; de korting zelf heb ik niet gezien, dus GOK dat het die was); na samen-werken 15 feb tot 22 mrt 2026 249; verjaardagsuitverkoop 396. Elke piek is een update of een uitverkoop, vaak allebei; nooit een fest.
+
+### Wat de spelers zeggen (meest behulpzame reviews, GEZIEN)
+- **Gezelschap en schuldgevoel werken.** "my productivity has skyrocketed all because of the guilt I get from seeing my lil dude working on his tablet and me not working" (Engels, 180 uur). "the worko buddy gives some sense of relief and companionship as someone who suffers from an anxiety disorder" (1.295 uur). Koreaans, 898 uur: wie voor muziek naar YouTube gaat, raakt afgeleid; dit start op met de pc en zet je meteen in de werkstand.
+- **De grootste wens in Koreaans en Chinees is dezelfde: meer figuurtjes die vanzelf bewegen.** De nummer 1 in beide talen vraagt om 2 of 3 figuren in je eigen kamer zonder multiplayer; drie andere Chinese reviews willen dat het figuurtje "自己动" (zelf beweegt), want nu "看起来没有灵魂" (lijkt het zielloos).
+- **Klachten:** geheugen (tot 9 GB genoemd, "smells like a memory leak"), opstarten bij het aanzetten van de pc terwijl dat uit staat, kick is meteen een blokkade in multiplayer, "you are basically buying a Demo 2" (DLC, 8 uur), en de meest behulpzame negatieve in het Chinees (130 mensen): je krijgt alleen ervaring als het geluid aanstaat. VaporLens telt als grootste klachten fouten en onstabiliteit (97), slechte bediening (79), te weinig meubels (61).
+- **Eén ernstige beschuldiging:** een Engelse review (43 behulpzaam) zegt dat de standaardmuziek als bundel van Envato komt, een site die ook AI-muziek verkoopt, en vermoedt AI-muziek. Er staat geen AI-melding op de winkelpagina. Dit is één bewering van één speler; ik heb het niet kunnen controleren.
+- **Einde van het spel:** na het leegkopen van de winkel is het geld "只是个数字" (maar een getal), schrijft de speler met 2.959 uur; hij vraagt om dingen met een tijdslimiet om geld aan uit te geven. De speler met 1.179 uur heeft alles en alle prestaties.
+
+### Drie lessen
+1. **Een bureaubladspel kan na de lancering groeien in plaats van zakken, als het blijft veranderen en luistert.** 92% van de reviews kwam na de eerste maand; de spelers tegelijk gingen van 414 naar ±2.500. Dat staat haaks op Desktop Defender (verhaal 5) en de spellen uit verhaal 8, waar bijna alles in de eerste weken gebeurde. Wat ze deden: binnen een week een routekaart met vinkjes, die echt afvinken, elke 1 tot 3 weken een update, en de grootste wens van spelers (samen werken) vóór hun eigen plan zetten.
+2. **Wat open blijft, wint de lange speeltijd.** 28% haalt 100 uur muziek, tegen 17% die 100 uur haalt bij Desktop Defender. Mensen houden het open omdat het iets doet terwijl ze werken (muziek, gezelschap), niet om het spel; de werktools zelf gebruikt maar 7 tot 13%. Voor Hats: het spel moet lekker blijven doorlopen als je er niet naar kijkt, met geluid en beweging die niet storen; dan stapelen de uren zich vanzelf.
+3. **Pieken komen van uitverkopen met een update ernaast, en van Azië.** Geen fest, geen grote YouTuber gevonden; wel de herfstuitverkoop, de verjaardagsuitverkoop en een update vlak ervoor. Koreaans en Chinees samen 57% van de reviews, Engels 21%. Dezelfde les als Rusty (grootste video Koreaans, verhaal 4) en Ropuka (verhaal 10).
+
+### Wat dit betekent voor Hats (en wat niet)
+- **Niet overnemen:** de acties "verlanglijst en volg voor meer kans" en "deel je indruk op Steam voor een sleutel of cadeaubon". Valve verbiedt beloningen voor reviews; Nugem deed het bij beide spellen (zie ook verhaal 11). Wij doen het niet.
+- **Niet zomaar vergelijkbaar:** Mini Cozy Room is geen spel met doel maar een werkplek; de 100 uur zijn deels muziek die aanstaat. Een spel met level ups zal die lijn niet halen, maar het laat zien dat de bovengrens bij bureaubladspellen hoger ligt dan 17%.
+- **Wel overnemen:** de routekaart met vinkjes als vaste post op de winkelpagina; nooit voortgang wissen (staat al in het fest-plan); figuren die vanzelf bewegen en iets doen als je niet kijkt (dat is de grootste wens bij dit spel en Gloop doet het al); een uitverkoop pas met een update ernaast.
+
+### Voorstel voor Dortus deze week
+**Sem zet nu een Engelse aankondiging klaar voor de dag dat de winkelpagina van Hats live gaat (±8 dec): "What's coming to Hats of the Fallen", een lijst van 5 punten met lege vakjes, alleen dingen die Olaf vóór de lancering in maart zeker kan leveren (bijvoorbeeld de talen, hol-niveaus, samen-spelen).** Elke keer dat iets in de demo komt, vinkt hij het af in dezelfde post en meldt het in een korte nieuwe post. Waarom: Mini Cozy Room deed precies dit 6 dagen na de lancering en vinkte alles af binnen drie maanden; daarna groeide het spel zes keer, met 92% van de reviews na de eerste maand. Het kost een tekst en geen bouwwerk. Wie: Sem schrijft, Olaf zegt welke 5 punten zeker zijn, Thijs plaatst (staat op zijn lijst als de pagina live is). Regel erbij: geen punt dat we niet kunnen halen; een niet gehaald vinkje is erger dan geen lijst.
+
+Tweede punt voor Sanne (`voortgang.md`, geen actie deze week): reken het lange eind niet alleen in "uren spelen" maar ook in "uren open". Bij Mini Cozy Room is het geld na het leegkopen van de winkel waardeloos; de speler met 2.959 uur vraagt om iets om het aan uit te geven. Een laag voor de lange termijn die geld blijft opnemen (bijvoorbeeld steeds duurdere hoeden of versieringen voor het hol, zonder einde) houdt de spelers die nooit afsluiten bezig.
+
+### Eerlijk: wat ik niet weet
+- Hoeveel verlanglijstjes en volgers ze vóór de lancering hadden; nergens gevonden.
+- Wat de piek van eind november 2025 echt veroorzaakte. Het past bij de herfstuitverkoop, maar ik heb de korting niet gezien en de spelers per maand stegen toen nauwelijks (1.165 naar 1.237).
+- Wie de spelers in Korea en China bracht (een streamer, een winkelplek, Nugem zelf?). Bilibili en Koreaanse sites heb ik niet gelezen.
+- Of de muziek met AI gemaakt is; alleen één review zegt dat.
+- Hoeveel het opbracht; de verkoopschatting hierboven is een GOK met een factor 2,5 marge.
 
 ---
 

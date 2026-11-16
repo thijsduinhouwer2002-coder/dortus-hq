@@ -254,11 +254,21 @@ jobs:
             if ($h -lt 1 -or $er -lt 1) { Write-Output "FOUT: 8 uur weg gaf geen helden of goud ($h, $er)"; $fout++ }
             $g1 = [regex]::Match($a, "HOL opslag geladen: \d+ terugkomers, (\d+) goud")
             if (-not $g1.Success -or [int]$g1.Groups[1].Value -ne $gv + $er) { Write-Output "FOUT: goud na laden is niet voor + erbij"; $fout++ }
-            Write-Output "8 uur weg: goud $gv -> $($gv + $er) (+$er), $h helden"
+            # kwart snelheid (Sanne 16 nov 14:05): 8 uur weg = 2 uur spelen, ±151 helden; nooit de hele winkel (1048) in één nacht
+            if ($h -lt 140 -or $h -gt 160) { Write-Output "FOUT: 8 uur weg gaf $h helden, verwacht ±151 (kwart snelheid)"; $fout++ }
+            if ($er -ge 1048) { Write-Output "FOUT: 8 uur weg gaf $er goud, meer dan de hele winkel (1048)"; $fout++ }
+            $hd = [regex]::Match($a, "erbij \d+, hoeden (\d+)")
+            if (-not $hd.Success) { Write-Output "FOUT: geen hoeden in de regel 'weg geweest'"; $fout++ }
+            Write-Output "8 uur weg: goud $gv -> $($gv + $er) (+$er), $h helden, hoeden $($hd.Groups[1].Value)"
           }
           $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
           if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
           if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ came, \d+ fell") { Write-Output "FOUT: geen verhaal-regel (came, fell) in de kroniek na terugkomen"; $fout++ }
+          if ($a -notmatch "quarter speed") { Write-Output "FOUT: geen regel 'Your hole worked at a quarter speed.' na 8 uur weg"; $fout++ }
+          # optocht (Sanne 16 nov 14:50): een nieuw spel van 15 s staat op niveau 1 tot 2, 8 uur weg tilt het naar ±12 in één optocht
+          if ($a -notmatch "HOL (kroniek [0-9.]+ \(wacht [0-9.]+\)|weg-regel uit tot het bordje): (Grew \d+ levels while you were away\.|Hole level \d+: )") { Write-Output "FOUT: geen regel 'Grew N levels while you were away.' na 8 uur weg"; $fout++ }
+          if ($a -notmatch "HOL optocht wip, .*duur ([0-9.]+) s") { Write-Output "FOUT: geen optocht in de log"; $fout++ }
+          elseif ([double]$Matches[1] -gt 12.0) { Write-Output "FOUT: optocht duurt $($Matches[1]) s, hooguit 12"; $fout++ }
           if ($a -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
           $vooruit = python producten/steam-hol/e2e/save_terug.py $save -3600
           $b = Speel "$uit/weg-2.log" "duur=8" | Out-String

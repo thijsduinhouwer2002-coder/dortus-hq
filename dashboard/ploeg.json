@@ -149,8 +149,8 @@
       "naam": "Stijn",
       "rol": "Strateeg",
       "team": "Advies",
-      "schema": "uit",
-      "actief": false,
+      "schema": "5 keer per dag",
+      "actief": true,
       "sleutels": [
         "Stijn"
       ]

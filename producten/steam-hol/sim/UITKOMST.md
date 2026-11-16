@@ -1,5 +1,93 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 16 nov 2026 ±17:35 UTC (Bram): de speler die niet meteen koopt (voortgang.md "Wat nog niet klopt" punt 5)
+Uitvoer `voortgang-kijken-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_kijken.py`, nieuwe sleutel `"koop_elke_s"` in `sim.py` (de speler kijkt hooguit elke X open seconden in de winkel, en altijd meteen als hij het spel weer opent). Spec versie 3 definitief met de eigen helden en hun tegenzet. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` byte voor byte gelijk).
+
+| speler (6 uur open per werkdag) | hol 20 / 30 / 40 / 50 (open uur) | hol 50 | goud op de bank (mediaan) |
+|---|---|---|---|
+| koopt meteen (de sim tot nu) | 10,5 / 37,7 / 76,1 / 128,1 | werkdag 22 | 1.025 |
+| kijkt elke 10 min | 10,5 / 37,2 / 75,4 / 127,1 | werkdag 22 | 1.066 |
+| kijkt elke 30 min | 10,5 / 37,3 / 75,3 / 127,0 | werkdag 22 | 1.419 |
+| kijkt elk uur | 10,4 / 37,2 / 74,6 / 126,1 | werkdag 22 | 1.966 |
+| kijkt elke 2 uur | 10,4 / 37,6 / 75,7 / 127,8 | werkdag 22 | 2.517 |
+| kijkt alleen bij het openen (1 x per dag) | 11,3 / 41,6 / 78,0 / 132,0 | werkdag 23 | 4.461 |
+
+Tussendoor-speler (15 / 30 / 60 min per dag, kijkt alleen bij het openen): hol 50 op dag 63 / 57 / 50, tegen 63 / 57 / 49 als hij meteen koopt.
+
+**Wat dit zegt:** (1) **later kopen maakt het spel bijna niet langzamer.** Tot "elke 2 uur kijken" blijft hol 50 op werkdag 22; zelfs wie maar één keer per dag koopt, is één werkdag later. Het hol-niveau komt van vangen, en een gang die al 80% vangt wordt van één val meer niet veel beter. De zorg in punt 5 ("een echte speler klikt minder, dus langzamer") klopt dus nauwelijks; de tabel in echte dagen kan blijven. (2) **Wat wel verandert is de berg goud:** wie elke 2 uur kijkt heeft er ±2.500 liggen, wie 1 x per dag kijkt ±4.400. Dat is precies waar de doelregel en het bordje voor zijn: laat zien wat er te koop is, dan klikt de speler vanzelf vaker. (3) De gaten van wie 1 x per dag koopt zijn natuurlijk een werkdag (de aankopen vallen dan allemaal op het openen); de hol-niveaus lopen gewoon door.
+
+
+## 16 nov 2026 ±17:20 UTC (Bram, bijgewerkt ±17:45): de eigen helden per laag met hun tegenzet nagerekend (vraag Sanne 17:00)
+Uitvoer `voortgang-laaghelden-uitkomst.txt` (8 zaden, GEZIEN; de krapste punten ook met 16), script `voortgang_laaghelden.py` (`ijk` geeft de varianten), spec versie 3 definitief plus de nieuwe sleutel `"laag_helden"` in `sim.py`. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
+
+**Hoe het in de sim zit:** mijnwerker (vanaf hol 21, laag 2+, gewicht 20) slaat de eerste val die hij tegenkomt over (kans 0, geen klap), slijm x 1,2; met het valluik valt hij daar met kans 0,8. Ontdekker (hol 31, laag 3+, gewicht 15): eerste bezoek put x 1,2; als terugkomer valt hij in een val die hem eerder raakte alleen met x 0,3, en anders stapt hij eroverheen zonder klap (hij schrikt niet). Nep-schat: wie de echte schat zou halen, valt erin met 0,75 (ontdekker), 0,5 (hebzuchtig) of 0,3 (schijterig). Heks (hol 36, laag 3+, gewicht 10) x 1. Hoedenjager (hol 41, laag 4, gewicht 15) alle vallen x 0,7, met de lokker de eerste val x 2 (hooguit 0,95). Gekroonde niet (telt niet mee). **Aannames die niet in jouw tekst staan:** een tegenzet koop je één keer voor ±1 uur goud en hij zit daarna in elke nieuwe laag; het valluik vangt alleen de mijnwerker (gewone helden lopen eroverheen). Vangkans = gevangen gedeeld door alle helden in de laag die je ziet.
+
+| | laag 2 heel | laag 3 heel | laag 4 heel | hol 21 (held, nog geen valluik) | hol 31 (held, nog geen nep-schat) | hol 30 / 40 / 50 (open uur) | hol 50 | langste gat week 4 (mediaan / ergste) |
+|---|---|---|---|---|---|---|---|---|
+| versie 3 | 0,808 | 0,813 | 0,891 | 0,534 | 0,591 | 37,4 / 76,2 / 127,8 | werkdag 22 | 2,8 / 3,2 |
+| helden zonder tegenzet | x 1,00 | x 0,98 | x 0,99 | x 0,92 | x 0,91 | 37,8 / 76,8 / 128,6 | werkdag 22 | 2,9 / 5,7 |
+| **jouw getallen (0,8 / 0,75-0,5-0,3 / x 2)** | **x 1,01** | **x 1,03** | **x 1,02** | **x 0,92** (16 zaden x 0,94) | x 1,06 | 37,7 / 76,1 / 128,1 | werkdag 22 | 2,8 / 5,3 |
+| idem, terugkomende ontdekker recht op de nep-schat af | x 1,01 | x 1,03 | x 1,02 | x 0,92 | x 1,06 | 37,7 / 76,1 / 128,0 | werkdag 22 | 2,8 / 5,1 |
+
+**Wat dit zegt:**
+1. **Jouw getallen kloppen voor de balans, ik verander ze niet.** Per laag x 1,01 / 1,03 / 1,02, binnen de band x 1,0 tot 1,05. Hol 50 blijft op werkdag 22.
+2. **Het krapste punt is hol 21, en dat ligt aan de held, niet aan de tegenzet:** x 0,92 (8 zaden) tot x 0,94 (16 zaden), net onder de ±0,95, ±2,3 open uur lang. Daar is laag 2 net gekocht en heeft hij maar Gloop en één put; slaat de mijnwerker er één over, dan blijft er weinig. Een sterker valluik helpt hier niet, want het is er nog niet. Wil je het toch boven 0,95: zet het valluik op hetzelfde niveau als de mijnwerker (zoals de lokker op 41), dan wordt hol 21 x 1,07 (proef 8 zaden). Mijn advies: zo laten, het kost niets aan de voortgang.
+3. **Wel een probleem: de ster "Catch an Explorer with the Fake Hoard" hangt van geluk af.** In een volle laag 3 komt bijna niemand bij de schat: wie niet valt, vlucht na twee klappen. De nep-schat ving in heel laag 3 (±48 tot 77 open uur) per zaad 0, 0, 0, 0, 1, 2, 3 en 3 ontdekkers; in de helft van de zaden haal je de ster dus niet in laag 3 (mediaan pas op 77,8 u, in laag 4). Een sterkere nep-schat (0,95) helpt niet, want hij komt er niet. **Voorstel:** de terugkomende ontdekker loopt recht op de (verschoven) nep-schat af, vóór de vallen: hij onthoudt elke val, dus hij gaat voor de schat, en juist die is verplaatst. Dan haal je de ster in 8 van 8 zaden binnen ±1,5 open uur na het kopen (mediaan 49,4 u, 5 tot 14 keer per laag), en de balans blijft gelijk (laatste rij). Dat past ook bij jouw regel "niets via geluk".
+4. **Hol 31 gaat omhoog (x 1,06), niet omlaag:** het valluik vangt ook de mijnwerkers in laag 3 al, en de ontdekker komt in zijn eerste bezoek gewoon x 1.
+5. **Zonder tegenzet gebeurt er per laag bijna niets** (x 0,98 tot 1,00): in een gang met 6 tot 8 vallen maakt één overgeslagen val weinig uit. De tegenzet is dus vooral voor het gevoel ("ik heb hem door"), en hij kan de balans niet stukmaken.
+6. **Prijs van de tegenzet:** met de koopregel "steeds het goedkoopste" koopt de sim het valluik ±5 open uur na hol 22 (19,6 u), de nep-schat op ±48 u, de lokker op ±90 u (hol 41 is 80 u). Bij 0,25 / 0,5 / 2 uur goud blijven de lagen x 1,01 tot 1,03 en hol 50 op werkdag 22. Het ergste gat in week 4 springt bij elke variant tussen 4,1 en 5,7 uur (versie 3: 3,2): hetzelfde schuiven van aankopen als bij de gevoeligheid van 16:45, de mediaan blijft 2,8 tot 4,1. Lokker weglaten maakt laag 4 x 1,01 in plaats van 1,02.
+7. **Laagsterren in de sim (mediaan open uur):** "Catch a Miner with the trapdoor" 20,0 u (vlak na het valluik), "Lure the Hat Hunter 10 times" ±92 u (vlak na de lokker). Mijnwerker gevangen 81% zonder en 95% met valluik; hoedenjager 82% zonder en 91% met lokker.
+
+
+## 16 nov 2026 ±16:30 UTC (Bram): de tussendoor-speler, elke dag kort open (met en zonder rij)
+Uitvoer `voortgang-tussendoor-uitkomst.txt` (8 zaden, 80 dagen, GEZIEN), script `voortgang_tussendoor.py`, spec versie 3 definitief. Elke dag M minuten open, de rest dicht (12 u x 0,25 = 3 u tempo erbij), ook in het weekend; dag n = de n-de keer open.
+
+| per dag open | hol 12 | hol 20 | hol 30 | hol 40 | hol 50 | langste rij |
+|---|---|---|---|---|---|---|
+| 15 min | dag 2 | dag 6 | dag 20 | dag 38 | **dag 63** | 5 (alleen dag 2) |
+| 30 min | dag 2 | dag 5 | dag 18 | dag 35 | **dag 57** (58 met rij) | 4 (alleen dag 2) |
+| 60 min | dag 2 | dag 5 | dag 15 | dag 30 | **dag 49** | 1 (alleen dag 2) |
+
+Twee dingen: (1) **voor wie het spel tussendoor speelt is het hol pas na 7 tot 9 weken af**, want de nachten dragen het (3 uur tempo per dag tegen 15 tot 60 minuten open). Dat is het "diep voor weken" dat Thijs misschien wil (`voortgang.md` "Wat nog niet klopt" punt 4): wie werkt met het spel 6 uur open is in ±4,5 werkweek klaar, wie het tussendoor even opent na ±2 maanden. (2) **De rij merk je alleen op dag 2** (de eerste terugkomst), daarna nooit meer, en hij stapelt niet op: elke dag is hij leeg voor je weer dichtdoet.
+
+
+## 16 nov 2026 ±16:45 UTC (Bram): hoeveel mogen de eigen helden per laag kosten? (voortgang.md "Wat nog niet klopt" punt 2)
+Uitvoer `voortgang-laagvang-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_laagvang.py`. Mijnwerker en archeoloog zijn nog niet uitgewerkt (hoe vaak ze komen, hoe goed valluik en nep-schat ertegen werken), dus geen GOK-model maar een gevoeligheid: nieuwe sleutel `"laag_vang": [1, f2, f3, f4]` in `sim.py`, de vangkans in de laag die je ziet x die factor. Zonder de sleutel verandert er niets (`voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
+
+| vangkans laag 2 tot 4 | hol 30 / 40 / 50 (open uur) | hol 50 op werkdag | langste gat week 2 / 3 / 4 (mediaan / ergste) |
+|---|---|---|---|
+| x 1 (versie 3 definitief) | 37,4 / 76,2 / 127,8 | 22 | 1,9/3,7; 2,7/2,9; 2,8/3,2 |
+| x 1,1 (tegenzet wint) | 36,5 / 73,3 / 125,9 | 21 | 1,9/2,6; 2,6/2,8; 5,6/6,0 |
+| x 0,9 | 39,1 / 78,6 / 135,8 | 23 | 3,1/4,2; 2,8/3,1; 4,4/5,7 |
+| laag 2 x 0,9, laag 3 en 4 x 0,8 | 39,1 / 80,1 / 138,0 | 24 | 3,1/4,2; 3,0/3,1; 2,9/5,3 |
+| x 0,8 | 40,6 / 81,2 / 138,3 | 24 | 3,0/4,0; 3,0/5,1; 3,0/4,3 |
+| x 0,7 | 41,8 / 84,0 / 145,2 | 25 | 2,7/2,9; 3,0/3,7; 2,8/3,1 |
+
+**Wat dit zegt:** (1) de hol-tijden zijn niet erg gevoelig: 10% minder vangen in laag 2 tot 4 kost ±1 werkdag tot hol 50, 20% ±2, 30% ±3 (helden die vluchten komen terug en worden later alsnog gevangen). (2) De gaten springen wel: al bij x 0,9 of x 1,1 komt er in week 2 of 4 een gat van 4 tot 6 uur (ergste), omdat aankopen en niveaus anders op elkaar vallen. Week 1 en hol 20 veranderen nergens (laag 2 opent pas op hol 20). (3) **Voorstel voor als mijnwerker en archeoloog ontworpen worden:** laat elke held zijn eigen tegenzet hebben die hem ongeveer even vaak terug vangt (valluik voor de mijnwerker, nep-schat voor de archeoloog), dan blijft het netto tussen x 0,95 en x 1,05 en kloppen de bouwgetallen. Wordt het netto lager, dan de drempels 21 tot 50 opnieuw ijken met `sim.ijken` (één run, zoals bij versie 3), niet de prijzen.
+
+
+## 16 nov 2026 ±16:35 UTC (Bram): de rij bij de ingang in de sim (vraag Sanne 16:00)
+Uitvoer `voortgang-rij-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_rij.py`, spec `voortgang-v3-eind-bram.json` (versie 3 definitief) met `"rij": {"meteen": 4, "elke_s": 180}`. Oude uitkomsten veranderen niet (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
+
+**Hoe de rij in `sim.py` zit:** na elke keer weg mag het hol hooguit 4 niveaus boven het niveau van vóór de nacht komen (hol 1 is de start, dus na een eerste nacht hooguit hol 5); elke 3 minuten open tijd daarna mag er één bij. Eigen faam die de rij inhaalt: een niveau komt meteen als de gevangen helden zonder het weg-deel dat nog in de rij zit de drempel halen. Is alles wat verdiend is getoond, dan is de rij weg. De sim kijkt na elke held (±40 tot 60 s), dus een niveau uit de rij valt tot ±1 held na zijn 3 minuten. Nieuw in de `weg`-spec: `keer` (hooguit zoveel nachten, voor deze proef 1) en `leeg_gevallen_s` (0 minuten gespeeld: tempo zoals `voortgang.gd`, 1 held per 47,5 s en 60% gevangen, geen goud).
+
+**1. Eerste keer X minuten spelen, dan één nacht weg (12 u x 0,25), mediaan van 8 zaden:**
+
+| gespeeld | hol meteen na de nacht | niveaus in de rij | open minuten na de nacht tot hol 12 | open minuten tot de rij leeg is | zonder rij |
+|---|---|---|---|---|---|
+| 0 min | 5 | 8 | **21,6** | 24,3 | hol 12 meteen |
+| 1 min | 5 | 9 | **21,2** | 27,3 | hol 12 meteen |
+| 5 min | 6 | 7 | **18,3** | 21,4 | hol 12 meteen |
+| 15 min | 9 | 5 | **9,8** (ergste 15,8) | 15,3 | hol 12 meteen (ergste 5,4 min) |
+| 60 min | 13 | 1 (0 tot 1) | **0** (hol 12 zit bij de 4 meteen) | 3,3 | hol 12 meteen |
+
+Dus: wie kort speelt en de volgende dag terugkomt, ziet hol 5 tot 12 in ±20 minuten, elk niveau met zijn eigen feestje, in plaats van in 12 seconden. Na 1 minuut spelen is de rij na ±27 minuten leeg (hol 14), iets sneller dan de ±35 minuten in Sannes tekst; de 4 meteen tellen vanaf hol 1, en na hol 12 haalt de eigen faam de rij al snel in.
+
+**2. Week 1 tot 5: de rij verandert niets** (zoals Sanne verwachtte). Met en zonder rij precies dezelfde uitkomst: hol 12 / 20 / 30 / 40 / 50 op 2,0 / 10,5 / 37,4 / 76,2 / 127,8 open uur, langste gat per week 1,7 / 1,9; 1,9 / 3,7; 2,7 / 2,9; 2,8 / 3,2; 6,0 / 6,0 (mediaan / ergste). In geen van de 192 nachten (8 zaden, week 1 tot 5) stond er iets in de rij: een nacht na een werkdag van 6 uur geeft in de sim hooguit **1** hol-niveau, want vanaf ±6 uur open liggen de niveaus verder uit elkaar dan de 3 uur tempo van een nacht.
+
+**Voor Olaf (code):** de rij grijpt dus alleen in bij korte eerste sessies (onder ±1 uur gespeeld). Een toets in het spel zou kunnen zijn: vers hol, 0 minuten spelen, 12 uur weg: hol 5 en "8 more levels wait at the door." (de sim zegt 8 als de nacht ±135 gevangen geeft; ±227 helden x 60%).
+
+
 
 ## 16 nov 2026 ±15:50 UTC (Bram): voortgang versie 3, laatste run (vraag Sanne 14:50)
 Uitvoer `voortgang-v3-eind-uitkomst.txt` (8 zaden, 165 open uur, GEZIEN), spec `voortgang-v3-eind-bram.json`, opnieuw draaien: `python3 voortgang_v3_eind.py`. Zelfde werkdagen als versie 3 (6 uur open, weg x 0,25, plafond 12 u). Oude uitkomsten veranderen niet (nagekeken met `diff`, `voortgang-v3-uitkomst.txt` en de json komen byte voor byte terug).

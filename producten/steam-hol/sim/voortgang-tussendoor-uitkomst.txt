@@ -1,0 +1,13 @@
+Bram 16 nov, de tussendoor-speler. Gemaakt met: python3 voortgang_tussendoor.py   (8 zaden, 80 dagen, spec voortgang-v3-eind-bram.json, rij {'meteen': 4, 'elke_s': 180})
+Elke dag M minuten open, daarna dicht (12 u x 0,25 = 3 u tempo van het laatste open uur, of minder als je minder dan een uur speelde).
+Dag n = de n-de keer open; hol aan het eind van die open tijd. Mediaan van 8 zaden.
+
+15 min per dag, zonder rij: hol 12 dag 2, hol 20 dag 6, hol 30 dag 20, hol 40 dag 38, hol 50 dag 63
+15 min per dag, met rij   : hol 12 dag 2, hol 20 dag 6, hol 30 dag 20, hol 40 dag 38, hol 50 dag 63
+                            rij bij het openen (mediaan per dag): dag 2: 5; langste rij 5
+30 min per dag, zonder rij: hol 12 dag 2, hol 20 dag 5, hol 30 dag 18, hol 40 dag 35, hol 50 dag 57
+30 min per dag, met rij   : hol 12 dag 2, hol 20 dag 5, hol 30 dag 18, hol 40 dag 35, hol 50 dag 58
+                            rij bij het openen (mediaan per dag): dag 2: 3; langste rij 4
+60 min per dag, zonder rij: hol 12 dag 2, hol 20 dag 5, hol 30 dag 15, hol 40 dag 30, hol 50 dag 49
+60 min per dag, met rij   : hol 12 dag 2, hol 20 dag 5, hol 30 dag 15, hol 40 dag 30, hol 50 dag 49
+                            rij bij het openen (mediaan per dag): dag 2: 1; langste rij 1
