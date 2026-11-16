@@ -142,3 +142,23 @@ Gemeten 06:38 tot 07:14 (Amsterdam), zelfde openbare XML, 1 verzoek per 10 secon
 3. De doelen uit run 05:31 blijven: op het fest 100+ volgers is top 10% van wat eraan komt, 300+ is bovenaan. En een demo vóór het fest is het duidelijkste verschil dat ik in de data zie.
 
 **Niet gemeten:** 22 van de 150 geplande aangekondigde apps en 62 van de 100 geplande uitgebrachte apps uit de steekproef (tijd). Kan met `data/steam-volgers-curl.sh`, met een pauze bij 429.
+
+## Aanvulling 3, 16 nov run 07:31: controleur over beide volgersblokken, steekproef afgemaakt
+Een aparte controleur heeft de twee blokken hierboven nagerekend tegen de data: **akkoord met correcties**. Daarna heb ik de steekproef afgemaakt: 84 apps erbij (06:35 tot 07:00 UTC, 1 verzoek per 10 seconden, één 429 waarbij ik 5 minuten wachtte, niets omzeild), samen 339 regels voor 332 apps op de kaart. Nieuwe analyse zonder de met de hand gekozen spellen: `data/steam-volgers-analyse3-script.py` (het oude script filterde ten onrechte niet op jaar; dat staat er nu bij).
+
+**Correcties op de blokken hierboven:**
+- Run 05:31, grootste aangekondigde lookalikes: na Birza 200 komen Boing Boing Animals 176, Occult Office 169 en MonsterGirl 3:Wukong 152. Dwarfspire (103) hoort er niet bij.
+- Aanvulling 2: "255 metingen" waren 251 apps (3 dubbel, 1 regel met een 429). De steekproef was 68 willekeurig uit 609 plus Corner Dungeon (met de hand), niet 69 uit 608. Uitgebracht in 2026 waren 44 apps in run 06:31 gemeten, niet 38. In de lijst grootste aangekondigde ontbrak Travelling Home: Ever After (222, demo).
+- "2 tot 3 volgers per review" (run 05:31) gold voor zeven grote, met de hand gekozen spellen (spreiding 1,1 tot 6,6), deels uit 2025. "3 tot 6" (Aanvulling 2) paste niet bij de sommen, die met 4 tot 6 rekenden. Beide vervangen door het getal hieronder.
+- "300+ zet Hats bovenaan" geldt alleen voor de 127 spellen die op Hats lijken, niet voor de hele hoek (zie hieronder).
+
+**Nieuwe cijfers, alleen willekeurig gekozen apps (GEZIEN):**
+- **Uitgebracht in 2026, betaald (106 van 565):** mediaan 19,5 volgers; 25% onder 10, 51% 10 tot 99, 19% 100 tot 999, 5% 1.000+. Wie 10 tot 99 volgers heeft, heeft mediaan 3 reviews (n=54); 100 tot 999 volgers mediaan 29 reviews (n=20, 6 tot 174).
+- **Volgers per review:** mediaan **5** bij 5+ reviews (n=46, middelste helft 2,6 tot 9,5), 5,1 bij 10+ (n=36), 5,3 bij 20+ (n=25). Andersom, bij 20+ volgers: mediaan 0,13 reviews per volger (n=53), dus ±8 volgers per review. De spreiding is groot.
+- **Aangekondigd, lijkt niet op Hats (90 van 609):** mediaan 7 volgers, 59% onder 10, 9% 100 tot 999, 3% 1.000+. Er zitten 5 van de 90 boven de 300; omgerekend ±30 tot 35 aangekondigde apps in de hele hoek. De grootste zijn bureaubladhuisdieren: Character House -Desktop Companion- 9.732 en Amarillo's Desktop Pets 5.822 (beide met demo), daarna Meowniverse 1.435.
+- **Demo:** lookalikes met demo mediaan 22 tegen 7 zonder (48 tegen 79); bij de rest 15 tegen 6 (27 tegen 63). Twee tot drie keer zoveel. Samenhang, geen bewezen oorzaak: grotere makers met een uitgever doen vaker een demo.
+
+**Wat dit verandert voor Hats (GOK met onderbouwing):**
+1. Reken met **±5 volgers per review** ruim na de lancering, maar met een brede band (±3 tot 10). 300 volgers past dan bij ±60 reviews, eerlijk gezegd ergens tussen 30 en 110. Om bij de 100+ reviews van de kaart te horen heeft Hats na de lancering ±500 volgers nodig (300 tot 1.000). Met ±30 verkopen per review is 60 reviews ±1.800 verkopen; ook die factor is onzeker, dus lees dit als orde van grootte.
+2. De lat op het fest: binnen de spellen die op Hats lijken is 100+ volgers top 10% en 300+ bovenaan (alleen Bondoq 460 zit hoger). In de hele bureaubladhoek staan er ±30 aangekondigde apps boven de 300, vooral huisdieren en companions; die spelen in een andere hoek van het fest, maar trekken wel dezelfde bezoekers.
+3. Het advies blijft: een demo vóór het fest, en de winkelpagina vanaf 1 dec wekelijks meten naast Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully.

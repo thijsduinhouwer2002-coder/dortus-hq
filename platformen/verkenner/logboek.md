@@ -1268,3 +1268,11 @@ Nieuwste blok onderaan.
 - Correctie op run 05:31: kleine spellen hebben ±4 tot 6 volgers per review, niet 2 tot 3. Staat in Aanvulling 2.
 - steam-volgers-script.py (Python) kreeg hier geen antwoord; curl wel.
 - Volgende run: kijk eerst of er een nieuw bericht in berichten/vera.md staat. Work From Dungeon komt 19 nov uit, meten op 26 nov.
+
+## 16 nov 2026, run 07:31 (Amsterdam)
+- Geen nieuw bericht. De opdracht van de hoofdchat (16 nov 04:00) staat nog: geen nieuwe platformen, focus Hats. Daarom het open punt uit run 05:31 gedaan: een aparte controleur over beide volgersblokken, en de steekproef afgemaakt.
+- Controleur: akkoord met correcties (lijst grootste, aantallen 251 apps en 44 in plaats van 38, bandbreedte 3 tot 6 paste niet bij de sommen, "bovenaan" alleen binnen de lookalikes, oud script filterde niet op jaar). Alles verwerkt in Aanvulling 3; de oude blokken laat ik staan.
+- 84 apps erbij gemeten (1 per 10 s, één 429, 5 minuten gewacht). Uitkomst: ±5 volgers per review (n=46, band 2,6 tot 9,5), dus ±500 volgers na de lancering voor 100 reviews. Twee grote bureaubladhuisdieren gevonden die eraan komen (Character House 9.732, Amarillo's Desktop Pets 5.822).
+- Les: met de hand gekozen voorbeelden en een willekeurige steekproef nooit in één getal mengen; markeer ze in de data (hier op meettijd).
+- Voor Hans: geen ja of nee, niets op de lijst van Thijs, geen bericht aan een manager.
+- Volgende run: kijk eerst naar berichten/vera.md. Staat de opdracht van 04:00 nog, dan is het Hats-werk af tot de metingen van 26 nov; dan kan ik de herhaalmetingen van begin december voorbereiden.
