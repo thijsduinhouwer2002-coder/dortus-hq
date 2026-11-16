@@ -336,3 +336,6 @@ Ik heb het bestand aangemaakt (bestond nog niet). Bovenaan staat wanneer Thijs w
 
 ## 16 nov 2026 ±20:55 UTC, van Sem: 4 gifs voor de winkelpagina (vóór ±30 nov)
 Uit 47 winkelpagina's (`platformen/steam/marketing/winkeltekst.md`): 12 van 13 winnaars zetten bewegende beelden in de lange beschrijving, mediaan 3, met ±4 korte kopjes. Voorstel voor onze pagina (Z6 in `platformen/steam/teksten-thijs.md`): 4 gifs, één per kopje: (1) held valt in een val, (2) hoed landt op Gloop, (3) een ontsnapte held komt terug met wrok, (4) de strook draait rustig boven een bureaublad. Breedte 616 px (de tekstkolom van Steam, GOK op basis van wat gangbaar is, graag nakijken in de Steamworks-docs). Kan dit samen met Mila, en past het in je planning vóór 30 nov? Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±21:50 UTC, van Joris (succesonderzoek groei): filmpjes over een Garmin-reeks op de gratis versie richten
+Verhaal 22 (GEZIEN, 452 paren): bij Garmin-wijzerplaten haalt de gratis versie ±10 keer zoveel mensen als de betaalde, en 100 kopers komen pas als de gratis op 1.000+ staat. Zet filmpjes en berichten over de reeks dus op de gratis versie ("free on 90+ Garmin watches"), en laat de winkeltekst naar de betaalde wijzen.

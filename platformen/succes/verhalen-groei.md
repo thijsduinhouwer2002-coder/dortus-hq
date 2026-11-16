@@ -1,8 +1,70 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 22, gratis broertje bij Garmin-wijzerplaten: welke verdeling tussen gratis en betaald laat de betaalde verkopen (Joris, 16 nov 2026 ±21:05 UTC). Daarna: Ebb-Short nameten 7 dagen na plaatsen, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 22, het gratis broertje bij Garmin-wijzerplaten, 452 paren, klaar 16 nov 2026 ±21:50 UTC). Volgende: Ebb en Ebb Calm als paar meten zodra Calm openbaar is, Ebb-Short nameten 7 dagen na plaatsen, of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 22. Het gratis broertje bij een Garmin-wijzerplaat: 452 paren gratis en betaald gemeten. Verkoopt de betaalde er meer door, welke soort broertje werkt, en hoeveel gratis downloads heb je nodig voor 100 kopers?
+
+Onderzocht 16 nov 2026 ±21:05 tot 21:50 UTC, run 22. Waarom: Gijs bouwt een reeks sportieve datawijzerplaten, "steeds een gratis versie en een betaalde" (`platformen/garmin/reeks.md`), en Ebb Calm wordt het gratis broertje van Ebb. In verhaal 8 mat ik paren bij apps (geen wijzerplaten): de betaalde haalt ±een tiende van de gratis. Nu de vragen die Gijs nodig heeft: maakt een broertje de betaalde wijzerplaat groter, welke opzet werkt (een proef die stopt, een sleutel buiten Garmin, of gratis met minder erin), wanneer zet je ze in de winkel, en wat zeggen kopers?
+
+### Bronnen en werkwijze
+- **Paren** (GEZIEN): uit de dataset van Vera (`platformen/verkenner/data/garmin-nieuw-sinds-jun2025-2026-11-06.json`, 23.893 wijzerplaten met eerste goedkeuring jun 2025 tot 5 nov 2026) per maker de betaalde en gratis wijzerplaten met dezelfde naam gekoppeld, na het weghalen van woorden als Pro, Premium, Plus, Lite, Free, Trial, Demo, Elite. **452 paren bij 86 makers.** Steekproef van 25 paren bekeken: allemaal echte broertjes. Wat ik mis: broertjes met een andere naam (Mission Zero en Mission Zero Elite vond ik wel, andere zoals "Goals" en "Goals ++" ook, maar een volledig andere naam niet) en gratis broertjes van vóór juni 2025.
+- **Stand nu** (GEZIEN 16 nov ±21:15 UTC, open winkel-API `apps/<id>`): voor alle 892 wijzerplaten in de paren de downloadklasse, reviews, prijs, horloges, eerste goedkeuring en de Engelse winkeltekst.
+- **Reviews** (GEZIEN, `apps/<id>/reviews`): de eerste 30 tot 60 van elke wijzerplaat met reviews, samen 4.785 (2.628 bij gratis, 2.157 bij betaald).
+- **Soort broertje**, ingedeeld op woorden in naam en tekst van het gratis broertje (eigen regels, enkele kunnen fout zijn, GOK): **A** proef die stopt (trial, demo, "72 hours"), **B** sleutel buiten Garmin (Ko-fi, KiezelPay, PayPal, "Pro key") naast een betaalde versie in de winkel, **C** blijft gratis met minder erin.
+- "Oud" = betaalde versie minstens 3 maanden in de winkel (eerste goedkeuring vóór 16 aug 2026): 149 paren. De teller is een klasse (0, 1, 10, 100, 1.000 ...).
+- Tabel: `platformen/succes/data/garmin-wijzerplaten-broertjes-2026-11-16.csv` (geen mailadressen, geen winkelteksten).
+
+### 1. De betaalde haalt ongeveer een tiende van de gratis (GEZIEN)
+Bij de 149 oude paren ligt de betaalde mediaan **één klasse lager** dan de gratis (verschil −3: 11, −2: 35, −1: 73, gelijk: 27, hoger: 3). Bij alle 452 ook mediaan één klasse lager. Dat is hetzelfde als bij de apps in verhaal 8.
+Wat dat betekent voor 100 kopers:
+
+| Gratis broertje na 3+ maanden | Paren | Betaalde op 100+ |
+|---|---|---|
+| klasse 10 | 25 | 1 (4%) |
+| klasse 100 | 54 | 9 (17%) |
+| klasse 1.000 | 65 | 37 (57%) |
+| klasse 10.000 | 5 | 5 (100%) |
+
+**Wie 100 kopers wil, heeft een gratis broertje op 1.000+ nodig.** Een broertje op 100 geeft meestal 1 tot 10 kopers.
+
+### 2. Het broertje maakt de betaalde niet groter (GEZIEN)
+Bij de 29 makers die oude betaalde wijzerplaten hebben met én zonder broertje: opgeteld haalt 36% van de betaalde met broertje 100+, tegen 14% zonder. Dat lijkt veel, maar het komt door twee fabrieken met 242 betaalde zonder broertje. **Per maker** is de betaalde met broertje bij 8 makers beter, bij 14 slechter en bij 7 gelijk. Bij kleine makers (hooguit 20 wijzerplaten in het jaar) precies gelijk: 12 van 25 met, 23 van 48 zonder (beide 48%). En makers die broertjes maken tegen makers die het nooit doen (fabrieken eruit): 29% tegen 31% op 100+.
+Ook dit klopt met verhaal 8 (51% tegen 45% bij apps). Het broertje is dus geen hefboom voor de verkoop van die ene wijzerplaat. Wat het wel doet: de gratis versie haalt tien keer zoveel mensen, en dat zijn de mensen die reviews schrijven, de maker leren kennen en later misschien iets anders kopen. Dat laatste kan ik met de winkel niet meten (GOK).
+
+### 3. Welke soort broertje: geen duidelijke winnaar, wel een duidelijke valkuil (GEZIEN)
+Per maker geteld (oude paren), omdat een paar makers hele rijen hebben:
+- **A, proef die stopt:** 13 makers, bij 5 minstens één betaalde op 100+. De drie grootste rijen (Design_Lichtenberger 20 paren, J-Dx 12, bikintulis.de 8) halen samen **0** betaalde op 100+, terwijl hun proeven vaak op 100 staan. Wie wel verkoopt met een proef, heeft al een naam (Nimble Wings, Stash.Digitale).
+- **B, sleutel buiten Garmin plus een versie in de winkel:** 17 makers, bij 9 een betaalde op 100+. Dit wordt gedragen door GreenBlack (15 van 16 betaalde op 100+). Hun gratis versies hebben alle functies achter een "Pro Key" via Ko-fi, en daarnaast een PRO in de winkel voor wie liever via Garmin betaalt. De winkelversie verkoopt dus ook als er een goedkopere weg naast staat.
+- **C, blijft gratis met minder erin:** 25 makers, bij 9 een betaalde op 100+. Binnen C: noemt het gratis broertje de betaalde met een link, dan 14 van 30 op 100+ (47%); noemt het hem niet, dan 0 van 12 (alle 12 van 4 makers, dus klein).
+**De valkuil:** een gratis wijzerplaat die later een proef wordt. Mission Zero van TitanicTurtle was een gratis "beta" (nu 100.000+ downloads, 4.685 reviews) en werd een proef toen de betaalde Elite ($2,99) op 23 okt verscheen. Het broertje heeft 37 reviews met 1 of 2 sterren, meer dan een derde van alle 103 lage reviews bij de gratis broertjes in mijn set van 2.628: "If it's free then it shouldn't have an expiry date", "Not free", "now it just shows a block that says Trial period ended". De Elite staat na 3,5 week op 1.000+ (74 reviews, 4,8), dus het verkoopt wel, maar met een naam van één van de grootste makers en ten koste van boze gebruikers.
+Gemiddelde sterren van de gratis broertjes: A 4,81, B 4,86, C 4,48. Zonder Mission Zero (die ik in C had staan, omdat de tekst het woord trial niet gebruikt) is C 4,69, met 4,3% reviews van 1 of 2 sterren (A 2,7%, B 1,8%); de rest van die lage reviews gaat vooral over fouten op het horloge, niet over betalen. Klachten over "alles zit in Pro" zijn zeldzaam: 1 in 2.628 ("everything is for pro", 4 sterren, Minimal Tactical FREE).
+
+### 4. Tegelijk of eerst gratis: maakt weinig uit (GEZIEN)
+Oude paren: gratis en betaald binnen 7 dagen van elkaar 96 keer, betaalde 34% op 100+; betaald eerst 44 keer, 34%; gratis eerst 9 keer, 4 op 100+. Te weinig "gratis eerst" om iets te zeggen, en tegelijk of later geeft hetzelfde.
+
+### 5. Het broertje draait op meer horloges (GEZIEN)
+Bij 372 van de 452 paren draait de gratis versie op meer horloges dan de betaalde: mediaan 93 tegen 76. Voorbeelden: Atelier Digital Clean 187 tegen 95, Daytona MB 211 tegen 100. Betalen via Garmin kan niet op elk horloge (verhaal 21: 107 soorten), dus het broertje reikt verder dan de betaalde ooit kan.
+
+### 6. Wat kopers zelf schrijven (GEZIEN, voorbeelden, geen telling)
+Van 2.157 reviews bij betaalde versies noemen er maar 5 dat ze eerst de gratis hadden: "I have tried the free version. Love it so much now I got the pro version" (Minimal Tactical PRO), "Raster (free) was already my favorite watchface by far. The pro version brings some really cool enhancements I'm glad I can send the developer a few bucks" (RASTER PRO), "I had it when it was free and I gladly forked the money over when it launched Paid" (Atelier Digital Clean Pro). Bij gratis versies: "It's great to be able to test it before paying for the PRO" (Ultra V2, GreenBlack), "it's a free trial but I bought it afterward" (Seamariner). De toon: kopen voelt als de maker steunen, niet als iets ontgrendelen wat werd afgepakt.
+
+### Drie lessen
+1. **Reken met 1 op 10: 100 kopers vraagt een gratis broertje op 1.000+.** Bij een broertje op 100 is de betaalde meestal 1 tot 10. Het doel van de eerste weken is dus de gratis versie naar 1.000, niet de betaalde pushen.
+2. **Een broertje verkoopt niet vanzelf; het vergroot het bereik.** Per maker gemeten verkoopt de betaalde met broertje niet beter dan zonder. Een broertje helpt alleen als hij zelf goed is en in één regel met een link naar de betaalde wijst (47% tegen 0%).
+3. **Een gratis wijzerplaat nooit achteraf op slot zetten.** Wat gratis was, moet gratis blijven werken; een proef die stopt geeft bij kleine makers geen betere verkoop en wel de boze reviews. Dat steunt de zin die Gijs al koos: "Pay once in the Connect IQ Store. The free version stays free."
+
+### Voorstel voor Dortus deze week
+**Gijs** houdt de opzet van `reeks.md` (gratis blijft gratis, betaald via Garmin, geen proef, geen code) en voegt drie dingen toe: (1) in de eerste regels van de gratis winkeltekst één zin met een link naar de betaalde, zoals de C-makers die verkopen ("The full version adds ...: <link>"), en in de betaalde tekst een zin naar de gratis voor wie eerst wil kijken; (2) de gratis versie op álle horloges waar hij draait, niet beperkt tot de lijst van de betaalde; (3) als meetlat in het meetbestand: de gratis op 1.000 is het doel, de betaalde volgt met ±een tiende. **Chris** zet filmpjes en berichten op de gratis versie, niet op de betaalde (bereik zit daar, verhaal 7 en 21). Voor **Ebb**: zodra Ebb Calm openbaar is, meet ik het paar mee (vandaag Ebb 0 downloads op 40 horloges, Ebb Calm nog niet openbaar, GEZIEN ±21:40 UTC).
+
+### Wat ik niet weet
+- Of het gratis broertje de maker later andere verkopen geeft (andere wijzerplaten). De winkel toont geen kopers per persoon.
+- Hoeveel mensen bij soort B via de sleutel buiten Garmin betalen; ik zie alleen de winkelversie.
+- Of het verschil 47% tegen 0% in groep C door de link komt of door het soort maker dat de link zet. Twaalf paren van vier makers is te klein.
+- Paren met een totaal andere naam heb ik gemist.
 
 ---
 
