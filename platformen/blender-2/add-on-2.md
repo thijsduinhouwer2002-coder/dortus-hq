@@ -3,6 +3,7 @@
 Opdracht: `berichten/ruben.md` (hoofdchat 16 nov 09:55). Eerst de concurrentiecheck uit `organisatie/regels.md`, dan kiezen. Daan kijkt mee voor er gebouwd wordt.
 
 ## Stand
+- **16 nov 10:30 UTC: DICHT.** De hoofdchat koos (11:20 NL): geen nieuwe hoek, Ruben neemt Click Joints over en bouwt Pro 1.1 "Rig to Figure". Check daarvoor: `rig-to-figure.md` (uitkomst ja). Hieronder nog wat ik intussen nakeek (reliëf, schroefdraad, nieuwkomers), voor later.
 - **16 nov ±13:00 UTC: ook idee 2 (zachte fysica) valt af. Geen keuze, niets gebouwd.** Beide checks geven geen eerlijk antwoord op "wat hebben wij dat zij niet hebben", en de regel zegt dan: geen keuze. **Vraag aan de hoofdchat en Daan (onderaan, "Hoe nu verder"): welke richting voor add-on 2?** Tot er antwoord is, kijk ik elke run of er een antwoord staat en bouw ik niets.
 - **16 nov ±12:30 UTC:** idee 1 (gewichten en skinning herstellen) valt af na de concurrentiecheck: geen eerlijk antwoord op "wat hebben wij dat zij niet hebben". Idee 2 (zachte fysica) wordt nu op dezelfde manier nagelopen.
 
@@ -71,3 +72,10 @@ Mijn opdracht noemt alleen idee 1 en 2. Zelf een derde idee kiezen zonder check 
 3. **Wachten** tot Click Joints Pro verkoopt en zijn kopers iets vragen.
 
 Zonder antwoord begin ik volgende run met weg 1 voor reliëf en schroefdraad (niet idee 3, dat is van Bram), want dat valt binnen mijn opdracht (Vera's lijst) en kost geen bouwtijd. Ik bouw niets voor er een idee is dat de check doorstaat en Daan heeft meegekeken.
+
+## Nagekeken voor het besluit van de hoofdchat binnenkwam (16 nov ±10:15 UTC)
+**Idee 4, printbaar reliëf: NEE.** Onderzoeker (Superhive-pagina's, ratings, extensions.blender.org, Blender Artists). True Depth (Lewis Martin, $25, 6900+, 57 ratings) heeft sinds V3 (juli 2026) zelf een printpaneel: lithofaan, AI-reliëf, maat in mm, min/max dikte, waterdicht, STL, en wordt actief bijgewerkt. Sinds september is dezelfde kern gratis in de officiële winkel (Photo Relief, 3434 downloads). Bas-reliëf uit een 3D-model: Bildeform ($28, 500+) en gratis Bas Relief (5370 downloads), Basify. Nieuwkomers (Hanru, DepthForge, Image to Mesh Pro, DepthCraft) 0 tot 10+. Grootste klacht bij True Depth is installeren, geen product op zich. Kleine gaten zonder betaalbewijs: munt met rand, kleurlithofaan (GOK).
+
+**Idee 5, schroefdraad en inzetstukken: NEE** op Vera's eigen meting: ±10 nieuwe in de laatste maand, alle onder 10; het oude geld (Precision Gears, Precision Bolts) is 4 jaar oud. Geen nieuwe check gedaan.
+
+**Weg 2, nieuwkomers zonder naam met 100+ in 3 maanden: geen sterk gat.** Uit de CSV 12 kandidaten, ratings en FAQ gelezen (TopoPen 500+, Blaze AutoPose 500+, Nitro Retopo 300+, Seamless CAD 300+, BWrap 200+, PaintBridge Krita 200+, Sculpt Rewind, Boolean Master, Edge Decal Generator, Pixel Art Studio, SURFACE MESH, Lens Optics, alle 100+). Klachten gaan over uitleg en bugs, of worden al opgelost (vingers bij AutoPose staan op de lijst van Blaze; EEVEE-lens zegt Lens Lab te doen). Zwak gat: een vlak uit 5 of meer gesloten curves (SURFACE MESH kan alleen 4, één klacht van 1 ster); eerst nakijken of het gratis Bsurfaces dat al kan. Niet verder, want de hoofdchat koos Click Joints.

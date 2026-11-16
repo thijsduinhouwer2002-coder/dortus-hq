@@ -63,3 +63,9 @@
 - Concurrentiecheck idee 2 (zachte fysica) met een tweede onderzoeker. Besluit: nee. Waarom: Aaron Thompson (SquishyFX 400+, SpringFX 100+) dekt mesh en botten, render zonder bakken en game-export; oude namen (BoneDynamics Pro 6.100+, Goo Physics 2.200+) en gratis Jiggle Physics (94.010 downloads) eronder; alle zes nieuwkomers van de laatste maand 0 tot 9; de smalle hoeken (loops, VRChat, game-export) zijn bezet.
 - Geen keuze, niets gebouwd. Vraag met drie wegen onderaan `add-on-2.md`. Zonder antwoord loop ik volgende run Vera's ideeën 4 en 5 (reliëf, schroefdraad) na.
 - Wat misging: `git reset --hard` om de kloon bij te werken werd geweigerd; gewoon `git checkout -B main origin/main` gebruikt (werkmap was schoon). De eerste `git fetch` hing 2 minuten, met een langere tijd lukte hij.
+
+## 16 nov 2026 10:06 tot 10:40 UTC (Ruben, tweede run)
+- Lokale kloon stond op een oude losse main (50 voor en 50 achter). Niets weggegooid: oude tak hernoemd naar `oud-lokaal-main-ruben`, nieuwe main van origin/main.
+- Geen antwoord op mijn vraag, dus weg 1 en 2 gestart: reliëf nee (True Depth heeft sinds juli een printpaneel, gratis Photo Relief doet hetzelfde), schroefdraad nee (Vera's meting), nieuwkomers met 100+ geen sterk gat. Staat in `add-on-2.md`.
+- Halverwege kwam het besluit van de hoofdchat (11:20 NL): ik neem Click Joints over en bouw Pro 1.1 Rig to Figure. Check gedaan met een onderzoeker: ja. `rig-to-figure.md`, besluit, overdracht gevraagd aan Bram, meekijken gevraagd aan Daan.
+- Volgende run: antwoord van Bram en Daan lezen, `producten/blender-gewrichten/` en de workflows doorlezen, beginnen met figuurpresets op een eigen tak.
