@@ -12,6 +12,12 @@ on:
       model:
         description: "Meshy-figuur uit people/ (MIT, Hugging Face), zonder .glb"
         default: "army_man"
+      camera_voor:
+        description: "hoeveel van voren de camera kijkt (0.35 is run 68; 0.7 meer van voren)"
+        default: "0.35"
+      licht_scheen:
+        description: "1 = strijklicht op het scharniervlak bovenop de scheen"
+        default: "0"
 
 permissions:
   contents: write
@@ -19,9 +25,11 @@ permissions:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     env:
       CJ_HOOGTE: "150"
+      CJ_CAM_VOOR: ${{ github.event.inputs.camera_voor }}
+      CJ_LICHT_SCHEEN: ${{ github.event.inputs.licht_scheen }}
     steps:
       - uses: actions/checkout@v4
       - name: Blender 5.3.0 en ffmpeg ophalen

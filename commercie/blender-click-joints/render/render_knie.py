@@ -168,7 +168,14 @@ s = hoogte / 150.0
 lamp("hoofd", zij * 1.0 + voor * 0.7 + Vector((0, 0, 1.1)), 2.5e6 * s * s, hoogte * 0.9)
 lamp("vul", -zij * 0.4 + voor * 1.0 + Vector((0, 0, 0.3)), 8.0e5 * s * s, hoogte * 1.2, (0.85, 0.9, 1.0))
 lamp("rand", -voor * 1.0 + zij * 0.3 + Vector((0, 0, 0.8)), 1.5e6 * s * s, hoogte * 0.6, (0.75, 0.65, 1.0))
+# keuze Daan 16 nov 22:45: een strijklicht van voren op het scharniervlak bovenop de scheen (CJ_LICHT_SCHEEN=1)
+if os.environ.get("CJ_LICHT_SCHEEN", "0") == "1":
+    lamp("scheen", voor * 1.0 + zij * 0.5 + Vector((0, 0, 0.9)), 6.0e5 * s * s, hoogte * 0.4)
+    log("strijklicht op het scharniervlak aan")
 
+# 0.35 is de stand van run 68; hoger kijkt meer van voren (keuze Daan 16 nov 22:45)
+CAM_VOOR = float(os.environ.get("CJ_CAM_VOOR") or "0.35")
+log(f"camera voor {CAM_VOOR:.2f}")
 cd = bpy.data.cameras.new("cam")
 cd.lens = 70
 cam = bpy.data.objects.new("cam", cd)
@@ -178,7 +185,7 @@ sc.camera = cam
 
 def zet_camera(hoek):
     r = Quaternion(Vector((0, 0, 1)), math.radians(hoek))
-    richting = r @ (zij * 1.0 + voor * 0.35 + Vector((0, 0, 0.18)))
+    richting = r @ (zij * 1.0 + voor * CAM_VOOR + Vector((0, 0, 0.18)))
     cam.location = midden + richting.normalized() * hoogte * 2.5
     cam.rotation_euler = (midden - cam.location).to_track_quat("-Z", "Y").to_euler()
 
