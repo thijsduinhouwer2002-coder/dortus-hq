@@ -9,9 +9,11 @@ class KernView extends WatchUi.WatchFace {
     var weer as Number = -2;
     var gelezen as Boolean = false;
     var tik as Number = 0;
-    // Proef 2 (run 124): eigen cijferletter op twee maten, een schermvullend plaatje, de slaapstand.
+    // Proef 2 (run 124): de vier letters van Tij (fontG tijd, fontK BB-getal, fontV veld, fontD datum), een schermvullend plaatje, de slaapstand.
     var fontK as WatchUi.FontResource? = null;
     var fontG as WatchUi.FontResource? = null;
+    var fontV as WatchUi.FontResource? = null;
+    var fontD as WatchUi.FontResource? = null;
     var achter as WatchUi.BitmapResource? = null;
     var slaap as Boolean = false;
     var start as Number = 0;
@@ -33,11 +35,16 @@ class KernView extends WatchUi.WatchFace {
     // laatste: past het niet, dan staan de regels van de letters al in het log.
     function meetBeelden() as Void {
         var m0 = System.getSystemStats().usedMemory;
-        fontK = WatchUi.loadResource(Rez.Fonts.CijfersKlein) as WatchUi.FontResource;
+        fontG = WatchUi.loadResource(Rez.Fonts.Tijd) as WatchUi.FontResource;
         var m1 = System.getSystemStats().usedMemory;
-        fontG = WatchUi.loadResource(Rez.Fonts.CijfersGroot) as WatchUi.FontResource;
+        fontK = WatchUi.loadResource(Rez.Fonts.Bb) as WatchUi.FontResource;
+        var m2a = System.getSystemStats().usedMemory;
+        fontV = WatchUi.loadResource(Rez.Fonts.Veld) as WatchUi.FontResource;
+        var m2b = System.getSystemStats().usedMemory;
+        fontD = WatchUi.loadResource(Rez.Fonts.Datum) as WatchUi.FontResource;
         var m2 = System.getSystemStats().usedMemory;
-        System.println("KERN FONT klein=" + (m1 - m0) + " groot=" + (m2 - m1) + " gebruikt=" + m2
+        System.println("KERN FONT tijd=" + (m1 - m0) + " bb=" + (m2a - m1) + " veld=" + (m2b - m2a)
+            + " datum=" + (m2 - m2b) + " samen=" + (m2 - m0) + " gebruikt=" + m2
             + " vrij=" + System.getSystemStats().freeMemory);
         var ds = System.getDeviceSettings();
         var inbrand = (ds has :requiresBurnInProtection) ? ds.requiresBurnInProtection : false;
@@ -70,8 +77,8 @@ class KernView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        if (fontK != null) {
-            dc.drawText(w / 2, h * 30 / 100, fontK as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
+        if (fontG != null) {
+            dc.drawText(w / 2, h * 14 / 100, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
         }
         var lijn = Teken.profiel(bb, w * 20 / 100, w * 80 / 100, h * 78 / 100, h * 64 / 100, 20);
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
@@ -109,9 +116,19 @@ class KernView extends WatchUi.WatchFace {
         }
         var msPlaat = System.getTimer() - t0;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        var f = (w >= 400) ? fontG : fontK;
-        if (f != null) {
-            dc.drawText(w / 2, h * 6 / 100, f as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
+        if (fontD != null) {
+            dc.drawText(w / 2, h * 9 / 100, fontD as WatchUi.FontResource, "MON 16", Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        if (fontG != null) {
+            dc.drawText(w / 2, h * 14 / 100, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        if (fontV != null) {
+            dc.drawText(w * 28 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "61", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w * 50 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "8.4K", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w * 72 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "23", Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        if (fontK != null) {
+            dc.drawText(w * 37 / 100, h * 60 / 100, fontK as WatchUi.FontResource, "72", Graphics.TEXT_JUSTIFY_CENTER);
         }
         var msTijd = System.getTimer() - t0 - msPlaat;
         var x0 = w * 14 / 100;
