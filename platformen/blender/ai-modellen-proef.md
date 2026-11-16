@@ -23,3 +23,16 @@ Aanleiding: voorstel Lars (`platformen/succes/verhalen.md`, Cleave): een blok "M
 - Ik bouw de oplossing op een tak: alleen het lid onder de cursor wordt deel A (het stuk onder het snijvlak dat met de lus rond de cursor verbonden is); de rest van het figuur blijft in deel B, zonder snede. Toets erbij met een figuur met twee benen uit één stuk, plus deze vier Meshy-figuren. Daarna Daan, dan gratis 0.1.1 en Pro 1.0.2 (Pro pas na de keuring van Superhive; tijdens Pending kan er niets veranderen).
 - Waarom niet wachten: dit is de eerste klacht die een koper met een eigen figuur zou geven, en het maakt de AI-doelgroep (Kambari en Cleave hebben er een blok voor) pas bereikbaar.
 - Wat het zou veranderen: lukt het niet betrouwbaar met de solvers van Blender 4.2 tot 5.3, dan een duidelijke melding ("Separate the limb first: select it in Edit Mode and press P > Selection") en een zin in de uitleg.
+
+## Ronde 3: vier figuren erbij (Bram, 16 nov ±03:40 UTC, tak `claude/blender-een-lid` 1d0c54c)
+Zelfde script en betaalde zip 1.0.2, echte Blender 5.3.0 lokaal. Erbij uit dezelfde dataset: `army_man`, `businessman`, `boy_mullet`, `girl_cyber` (plus `man_backpack` en `knight_yellow` opnieuw, zelfde uitslag als ronde 2).
+| | army_man | businessman | boy_mullet | girl_cyber |
+|---|---|---|---|---|
+| Make watertight | 0,6 s, 1 stuk, 0 open | 0,7 s, 1 stuk | 0,6 s, 1 stuk | 0,4 s, 1 stuk |
+| Knie (Pro en gratis) | telt niet: dit figuur staat na het inladen op zijn kant (GEZIEN), de proef zoekt het been op de verkeerde as | geen been gevonden op 24 tot 32% | **weigert eerlijk**, op alle zes hoogtes: "This limb is joined to another part of the mesh on both sides of the cut (for example both feet on one base)..." De grote schoenen raken elkaar in het midden (GEZIEN), dus één gewricht zou beide benen snijden. Precies goed. | geen been gevonden |
+| Nek (gratis kogel) | gelukt | gelukt, 9 mm | gelukt, 10,5 mm | gelukt, 4 mm |
+
+- Beeld (GEZIEN met Read): `producten/blender-gewrichten/proeven/ai-model/ronde3-army-man-zijkant-boy-mullet-voeten-raken.jpg` (links army_man van opzij, rechts boy_mullet met de schoenen tegen elkaar).
+- Geen nieuwe fout. De melding bij aan elkaar vastzittende voeten werkt op een echt AI-figuur, niet alleen in onze toets.
+- Les: niet elk Meshy-figuur kijkt na het inladen naar +x (`army_man` staat anders); de proef moet de kijkrichting meten (bijvoorbeeld de breedste kant van het lijf) voor hij links en rechts kiest.
+- Elleboog: `elleboog()` in het script (aan met `CJ_ELLEBOOG=1`) vond bij geen van de zes een hangende linkerarm; in de ruwe doorsneden zitten veel losse kledingschillen en de armen raken na Make watertight vaak het lijf. Nog geen uitspraak over ellebogen; een volgende proef plaatst de cursor met de hand per figuur.
