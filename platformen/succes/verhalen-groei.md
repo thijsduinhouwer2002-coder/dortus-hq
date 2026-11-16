@@ -1,8 +1,82 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 14, SPOED waarom Ebb 0 downloads heeft, klaar 16 nov 2026 ±13:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: niets (laatste: verhaal 15, wat laat een gratis add-on op extensions.blender.org snel groeien, klaar 16 nov 2026 ±15:05 UTC). Volgende: meer kleine Blender-accounts op TikTok, of hoe de groeiers van extensions.blender.org bekend werden (YouTube, Discord).
 
 Nieuwste bovenaan.
+
+---
+
+## 15. Wat laat een gratis add-on op extensions.blender.org snel groeien? 470 nieuwe add-ons (dec 2025 tot okt 2026) gemeten, naast de 13 Reddit-berichten die rechtstreeks naar die winkel linken
+
+Onderzocht 16 nov 2026 ±14:05 tot 15:05 UTC, run 15. Waarom: in verhaal 9 bleek dat bijna niemand op r/blender naar extensions.blender.org linkt, dus het effect van een bericht op een gratis add-on bleef open. Tegelijk is die winkel ons grootste kanaal voor Click Joints (gratis, ±19 per dag zonder bericht). Vraag: waar komen de downloads van de snelle groeiers vandaan, en wat doen zij anders dan Click Joints?
+
+### Bronnen en werkwijze
+- Lijst: `https://extensions.blender.org/api/v1/extensions/` (1.662 extensies, 1.359 add-ons, GEZIEN 16 nov).
+- Per add-on de pagina "Version History" (`/add-ons/<naam>/versions/`): elke versie met datum en downloads. 1.206 van de 1.359 pagina's gelezen, 1.190 bruikbaar (de rest had een andere webnaam dan de id). Daarna van alle 618 add-ons met een eerste versie vanaf 1 nov 2025 de hoofdpagina: plaatjes, video, beschrijving, website (GEZIEN, rustig, 4 tegelijk met pauze).
+- Maat: **downloads per dag** = alle downloads samen gedeeld door het aantal dagen sinds de eerste versie. Updates tellen mee (wie bijwerkt downloadt opnieuw), dus dit is een bovengrens voor nieuwe gebruikers. De eerste versie staat soms dagen in de keuring met bijna 0 downloads (Easy-Print: 14 op dag 1, daarna 2.710 met de tweede versie), dus voor heel jonge add-ons is het een ondergrens.
+- Reddit: Arctic Shift, alle berichten waarvan de link naar `https://extensions.blender.org` gaat, juni 2024 tot nu, alle subreddits (13 berichten, GEZIEN). Zoeken op naam in r/blender, r/3Dprinting en r/functionalprint gaf deze run vooral "Too many requests"; alleen voor Texture Wrangler kwam een antwoord.
+- Tabel zonder persoonsgegevens: `platformen/succes/data/blender-extensions-nieuw-2026-11-16.csv` (582 add-ons met eerste versie vanaf nov 2025).
+
+### Cijfers (GEZIEN tenzij anders vermeld)
+| Wat | Cijfer |
+|---|---|
+| Nieuwe add-ons, eerste versie 1 dec 2025 tot 15 okt 2026 (n=470): downloads per dag | p25 **5,6**, mediaan **11,5**, p75 **24,6**, p90 **53,9** |
+| Lichting jun 2025, nu ±17 maanden oud: mediaan totaal | 8.050 (±15 per dag, met updates) |
+| Lichting aug 2026, ±3 maanden oud: mediaan totaal | 1.038 (±11 per dag) |
+| Click Joints (8 nov): 162 in 8 dagen | **20 per dag**, plek 41 van 119 add-ons uit okt en nov |
+| Berichten op heel Reddit met een link rechtstreeks naar de winkel (jun 2024 tot nu) | **13**, score 1 tot 3 |
+| Texture Wrangler (11 okt): bericht op r/blender "I made a free add-on that renames and sorts your texture downloads..." | score **1**, en toch **156 tot 190 per dag** in de winkel |
+| Met video in de galerij tegen zonder (n=111 tegen 101) | mediaan 12,7 tegen 11,5 per dag |
+| Beschrijving 200+ woorden tegen minder dan 60 | mediaan 14,4 tegen 9,2 per dag |
+| Add-ons die een betaalde versie noemen (Superhive, Gumroad, Pro) | 9 stuks, mediaan 5,2 per dag (te weinig om iets te zeggen) |
+
+**De snelste groeiers van 2026** (downloads per dag sinds de eerste versie):
+
+| Add-on | Per dag | Wat het oplost |
+|---|---|---|
+| VRM format | 736 | import en export van een formaat voor avatars (VRoid, VTubers) |
+| Import Autodesk MAX (.max) | 341 | bestanden van 3ds Max openen |
+| Collada Support | 201 | "Restores COLLADA import and export for Blender 5 after native OpenCOLLADA support was removed" (eigen tekst, DERDEN) |
+| Wiggle Bones | 201 | "Refactor of Wiggle 2, fully fixed for Blender 5.0" |
+| Loop Resample | 195 | randen opnieuw verdelen; ±200 per dag vanaf de dag na de keuring |
+| CloudRig | 176 | gereedschap van Blender Studio zelf |
+| Wiggle 2: RTX Edition | 168 | een tweede vervanger van dezelfde verlaten add-on |
+| Texture Wrangler | 164 | texturen hernoemen en in mappen zetten |
+
+**3D-print-add-ons apart** (15 stuks met print, STL, 3MF of mal in naam of zin; mediaan **20 per dag**, dus bijna het dubbele van alle add-ons):
+
+| Add-on | Per dag | Wat het doet |
+|---|---|---|
+| EasySlice Print | 89 | groot model in stukken snijden met verbindingen |
+| Easy-Print | 69 | "Cut models and generate interlocking connectors" |
+| Papercraft Pro | 67 | uitvouwen tot papieren bouwplaat |
+| Photo Relief | 65 | foto naar reliëf of lithofaan |
+| MoldForge | 57 | siliconenmal uit een model |
+| SnapSplit | 35 | snijden met verbindingen |
+| EasyMold | 28 | mallen |
+| **Click Joints** | **20** | kogelgewricht in een figuur, met buigbereik |
+| Print Prep, Batch STL, Keychain Builder, Weathered Board, Polyshell, MiniSlicer | 7 tot 16 | |
+
+### Wat ik zag
+1. **De winkel zelf is de motor, niet het bericht.** Alle 13 berichten op Reddit met een link naar de winkel bleven op 1 tot 3 punten, en Texture Wrangler groeide naar ±160 per dag met een bericht van 1 punt. Een add-on die gekeurd is, krijgt in de winkel en in Blender zelf een vaste stroom, mediaan ±11 per dag, en die stroom houdt maanden aan (lichting juni 2025 nog ±15 per dag gemiddeld).
+2. **De grootste groeiers vullen een gat dat Blender zelf maakte of dat iemand anders liet liggen.** Collada verdween uit Blender 5 en een vervanger haalt 200 per dag; Wiggle 2 werkte niet meer en twee vervangers halen samen ±370 per dag; formaten van andere programma's (3ds Max, VRM, DXF met 99 per dag) staan bovenaan. Mijn lezing (GOK): mensen zoeken in de winkel naar een naam of een formaat dat ze al kennen. Niet alle toppers passen: Loop Resample en Texture Wrangler zijn gewoon handige klussen.
+3. **Het uiterlijk van de pagina maakt weinig verschil.** Met of zonder video, veel of weinig plaatjes: de medianen liggen binnen 1 tot 3 downloads per dag van elkaar. Een langere beschrijving gaat iets samen met meer downloads (14 tegen 9), maar dat kan ook komen doordat grotere add-ons meer te vertellen hebben.
+4. **Bij 3D-printen wint de brede klus.** De vijf snelste print-add-ons doen wat bijna elke printer een keer nodig heeft: een groot model in stukken met verbindingen, een mal, een lithofaan. Click Joints doet een smallere klus (gewrichten in figuren) en staat precies op de mediaan van de printgroep, boven de helft van alle nieuwe add-ons.
+5. **Wie vaak bijwerkt, telt meer downloads**, maar dat is grotendeels optelwerk: elke update laat bestaande gebruikers opnieuw downloaden. Of een update ook nieuwe mensen trekt, kan ik met deze cijfers niet scheiden.
+
+### Drie lessen
+1. **Op extensions.blender.org komt het bereik uit de winkel, niet uit Reddit.** Een bericht met een link naar de winkel scoort 1 tot 3 punten; de groeiers groeiden zonder. Dit klopt met verhaal 7, 8 en 9 (Garmin en r/blender): de winkel geeft meer dan de post.
+2. **Het snelst groeit een gratis add-on die een gat vult waar mensen al naar zoeken:** iets wat Blender net weghaalde, een populaire add-on die kapot ging, of een formaat van een ander programma. Bouw voor de zoekterm die al bestaat.
+3. **Poetsen aan de pagina levert weinig op; de klus die het oplost bepaalt de stroom.** Binnen 3D-printen doen de brede klussen (stukken met verbindingen, mallen, reliëf) 3 tot 4 keer zoveel als Click Joints.
+
+### Eerlijk: wat deze meting niet zegt
+- Downloads per dag zijn een gemiddelde over het hele leven, met updates erin; het verloop per week zie ik alleen per versie.
+- 153 add-ons konden niet gelezen worden (andere webnaam); de groep tot nov 2025 is daardoor iets kleiner, de nieuwe groep is volledig voor zover de lijst reikt.
+- Ik weet niet hoe de makers van de groeiers verder bekend werden (YouTube, Discord, sites in Japan of China). Reddit op naam zoeken lukte deze run niet door de grens van het archief; alleen Texture Wrangler is nagekeken.
+- "Gat dat Blender maakte" is mijn lezing van de namen en zinnen van de toppers (5 van de bovenste 8 passen erin: VRM, 3ds Max, Collada en de twee Wiggle-vervangers; CloudRig is een bekende naam van Blender Studio zelf; Loop Resample en Texture Wrangler passen er niet in). Het is een patroon in een top, geen proef.
+
+### Voorstel voor Dortus deze week
+**Ruben en Daan: kies de volgende gratis add-on (bereik, met een wegwijzer naar betaald werk via de website) met de vraag "welk gat heeft Blender 5 of een verlaten add-on net gemaakt in 3D-printen?"** Maak een lijst van 3D-print-add-ons die niet meer werken in Blender 5 (oude 3D-Print Toolbox-achtige gereedschappen, splitters, STL-gereedschap) en van functies die Blender 5 weghaalde, en zoek per kandidaat in de winkel of er al een vervanger is. Waarom: 5 van de 8 snelste groeiers van 2026 halen 170 tot 740 per dag met precies zo'n gat, een gewone nieuwe add-on 11. Ruben's twee eerdere kandidaten vielen af op de concurrentiecheck (besluit 16 nov 13:00); deze vraag geeft een nieuwe ingang die de check meteen meeneemt. Voor Chris: een Reddit-bericht voor Click Joints is de moeite als video (verhaal 9), maar verwacht er geen downloads in de winkel van; meet de winkel de dag ervoor en 3 dagen erna, zoals al gepland.
 
 ---
 
