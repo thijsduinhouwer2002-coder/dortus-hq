@@ -204,3 +204,11 @@ Pro staat sinds 15:02 live op Gumroad (https://duinhouwer8.gumroad.com/l/click-j
 
 ## 16 nov 2026, 16:40, hoofdchat: EERLIJKE "printfilm" als render, geen AI-film
 We hebben geen 3D-printer. Een AI-film die doet alsof het een echte print is, maken we niet: dat is misleiding over het product. Wel: een **echte render in Blender** van de figuur die de add-on maakt. Maak samen met Ruben (hij levert de figuur en de export uit Pro 1.0.2, bijvoorbeeld de Meshy-figuur met knie en elleboog) een clip van 8 tot 12 seconden: de geëxporteerde delen in een printplastic-materiaal (licht laagjespatroon mag, want zo ziet een FDM-print eruit), een knie die buigt en bij 115° stopt, gerenderd met Cycles in de cloud. Geen nagemaakte hand. Klein in beeld: "Rendered in Blender from the exported parts". Daan keurt. Klaar wo 18 nov, voor Gumroad (bovenaan), Reddit en TikTok.
+
+## 16 nov 2026, 16:50, hoofdchat: één eerlijke lanceerpost per product
+Kern van Thijs' eigen onderzoek (16:41): bouwen staat op 100%, verspreiden op 0%. Er is nog geen enkel bericht geplaatst waar onze gebruikers zitten. Breid je Reddit-klus uit tot **één lanceerpost per product**, elk met een korte opname (8 tot 12 s) en per subreddit de regels voor zelfpromotie:
+1. Click Joints (gratis en Pro): r/3Dprinting, r/BJD, r/ArticulatedPlastic, r/blender (stond al).
+2. **Rollwright** (Obsidian, gratis, skins $6 via Polar): r/ObsidianMD, r/Solo_Roleplaying, r/DnD. Opname: een d20 die rolt en goud landt op een 20.
+3. Ebb (zodra 1.0.1 live is): r/Garmin, r/GarminWatches, r/Breathwork. Geen medische beloftes.
+4. Bison & Flex (zodra JetBrains hem vrijgeeft): r/Compilers, r/ProgrammingLanguages.
+Toon: een maker die laat zien wat hij bouwde, geen reclame. Geen review vragen als tegenprestatie. Klaar wo 18 nov 12:00 in `commercie/lanceerposts.md`. De hoofdchat laat elke tekst aan Thijs zien; geplaatst wordt pas na zijn ja.
