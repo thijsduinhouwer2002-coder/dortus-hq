@@ -748,27 +748,6 @@ func _init() -> void:
 	var wvh2 := wvh.duplicate()
 	wvh2["max_kol"] = 12
 	ok(HV.wand_plekken(wvh2, true).size() < wp.size(), "wand: niet voorbij max_kol (onder het paneel)")
-	# zelfde hoed niet op naburige plekken (Daan 16 nov 11:15, kan); een nieuwe hoed verschuift niets
-	var wxs: Array = []
-	for p in wp:
-		wxs.append(p.x)
-	wxs.sort()
-	var wtel := func(paren: Array) -> int:
-		var n := 0
-		for i in paren.size():
-			for j in range(i + 1, paren.size()):
-				if paren[i][0] == paren[j][0] and absi(wxs.find(paren[i][1].x) - wxs.find(paren[j][1].x)) <= HV.WAND_BUUR:
-					n += 1
-		return n
-	var wh2 := [4, 4, 1, 2, 0, 3]   # twee kronen: moet altijd zonder buren kunnen
-	ok(wtel.call(HV.wand_verdeling(wh2, wp)) == 0, "wand: twee kronen nooit naast elkaar")
-	var wh7 := [4, 1, 4, 2, 4, 0, 3]   # drie kronen op 8 plekken: niet meer zelfde buren dan zonder verdeling
-	var wv: Array = HV.wand_verdeling(wh7, wp)
-	var wkaal := []
-	for i in wh7.size():
-		wkaal.append([wh7[i], wp[i]])
-	ok(wv.size() == 7 and wtel.call(wv) <= wtel.call(wkaal), "wand: niet meer zelfde buren (%d) dan zonder verdeling (%d)" % [wtel.call(wv), wtel.call(wkaal)])
-	ok(wv.slice(0, 6) == HV.wand_verdeling(wh7.slice(0, 6), wp), "wand: een nieuwe hoed verschuift niets dat al hangt")
 	# graafmoment in 3D (Daan 14 nov): beeld 0 tot 3 over GRAAF_S, keurstrook zet vier kamers stil in elk beeld
 	var HG = load("res://hol/hol.gd")
 	ok(HG.graaf_beeld(0.0) == 0 and HG.graaf_beeld(HG.GRAAF_S * 0.3) == 1 and HG.graaf_beeld(HG.GRAAF_S * 0.6) == 2 \

@@ -184,8 +184,8 @@ func teken(d: CanvasItem) -> void:
 	if h.met_3d and HOL3D.heeft_wand():
 		var wh: Array = wand_hoeden()
 		var wp: Array = wand_plekken(h, HOL3D.schatkamer_aan(h))
-		for hp in wand_verdeling(wh, wp):
-			HOL3D.teken_wand(d, int(hp[0]), hp[1])
+		for i in mini(wh.size(), wp.size()):
+			HOL3D.teken_wand(d, int(wh[i]), wp[i])
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
 	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
@@ -461,44 +461,6 @@ static func wand_plekken(h, schat_3d: bool) -> Array:
 		uit.append(plek)
 		if uit.size() >= WAND_MAX:
 			break
-	return uit
-
-# Welke hoed op welke plek (Daan 16 nov 11:15, kan: "drie kronen op een rij van vijf plekken; zet dezelfde hoed niet in
-# naburige plekken"). Naburig = hooguit WAND_BUUR plekken links of rechts op de wand (van links naar rechts geteld), dus
-# in elke vijf plekken op een rij geen hoed twee keer als het kan. Oudste hoed eerst, elk op de eerste vrije plek (in de
-# volgorde van wand_plekken) zonder zelfde buur; lukt dat nergens, dan de plek met de minste en verste zelfde buren. Een nieuwe hoed verschuift
-# niets dat al hangt.
-const WAND_BUUR := 2
-static func wand_verdeling(wh: Array, wp: Array) -> Array:
-	var xs: Array = []
-	for p in wp:
-		xs.append((p as Vector2).x)
-	xs.sort()
-	var rang := {}
-	for n in xs.size():
-		rang[xs[n]] = n
-	var uit := []
-	var bezet := {}   # rang -> hoed
-	var vrij: Array = wp.duplicate()
-	for hoed in wh:
-		if vrij.is_empty():
-			break
-		var keus: int = 0
-		var minst: int = 99
-		for j in vrij.size():
-			var r: int = rang[(vrij[j] as Vector2).x]
-			var botst: int = 0   # zelfde hoeden binnen WAND_BUUR, de dichtste telt zwaarder
-			for dr in range(-WAND_BUUR, WAND_BUUR + 1):
-				if dr != 0 and bezet.get(r + dr, -1) == int(hoed):
-					botst += WAND_BUUR + 1 - absi(dr)
-			if botst < minst:
-				minst = botst
-				keus = j
-				if botst == 0:
-					break
-		bezet[rang[(vrij[keus] as Vector2).x]] = int(hoed)
-		uit.append([hoed, vrij[keus]])
-		vrij.remove_at(keus)
 	return uit
 
 # De hoeden van Gloop, oudste eerst (slijm.gd `hoeden`), via de strook; leeg in de toetsen zonder strook.
