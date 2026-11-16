@@ -57,7 +57,7 @@ Tijden NL. Het fest begint do 14 jan 19:00 (10:00 PST, GEZIEN in fest.md). Elke 
 
 ## Meetlat (na dag 2, za 16 jan 19:00 NL)
 Twee getallen, allebei voor ons zelf te meten:
-1. **Piek spelers tegelijk in de demo** in de eerste 48 uur. Wij meten dat zelf elk uur met de openbare API `ISteamUserStats/GetNumberOfCurrentPlayers` op het demo-appid (werkt zonder sleutel, GEZIEN 16 nov op Desktop Defender: 44 spelers om 12:37 UTC). Script: `data/demo-spelers.py` (ombouwen naar elk uur tijdens het fest). Daarmee zien we ook waar we staan tegenover de andere demo's in het fest.
+1. **Piek spelers tegelijk in de demo** in de eerste 48 uur. Wij meten dat zelf elk uur met de openbare API `ISteamUserStats/GetNumberOfCurrentPlayers` op het demo-appid (werkt zonder sleutel, GEZIEN 16 nov op Desktop Defender: 44 spelers om 12:37 UTC). Script: `data/demo-spelers.py`; voor elk uur tijdens een fest `data/fest-meting.py` met de lijsten in `data/meetlijsten.csv` (run 5; een geplande GitHub Action ervoor ligt als voorstel bij de hoofdchat). Ons demo-appid en de andere demo's van het fest komen erbij zodra ze bekend zijn. Daarmee zien we ook waar we staan tegenover de andere demo's in het fest.
 2. **Nieuwe verlanglijstjes sinds het begin van het fest** (Steamworks, Thijs leest af of geeft het cijfer).
 
 | Uitslag | Spelers tegelijk (piek, eerste 48 u) | Verlanglijstjes (eerste 48 u) | Wat we doen |
