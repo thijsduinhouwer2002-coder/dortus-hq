@@ -1,39 +1,40 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 47 s (klok terug: false): goud voor 1685, helden 0, erbij 0
-HOL opslag geladen: 0 terugkomers, 1685 goud
+HOL weg geweest 56 s (klok terug: false): goud voor 1625, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1632 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL zaad 1794822018
+HOL zaad 1794822016
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Bram climbs into your hole.
-HOL held binnen: Bram
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
+HOL held binnen: Gerda
+HOL kroniek 5.2 (wacht 1.1): Gerda says this is a quick one.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
 HOL meting t=20 beelden=101 helden=1 hol_vast=1
-HOL kroniek 25.0 (wacht 0.0): Bram left. Took nothing. Angry.
-HOL kroniek 27.5 (wacht 2.5): New stamp for the Hero. He got away.
+HOL kroniek 25.1 (wacht 0.0): Gerda fled, crying a little.
+HOL kroniek 27.6 (wacht 2.5): Page for the Hero. He got away.
 HOL meting t=30 beelden=56 helden=0 hol_vast=1
 HOL meting t=40 beelden=10 helden=0 hol_vast=1
 HOL meting t=50 beelden=8 helden=0 hol_vast=1
-HOL kroniek 52.7 (wacht 0.0): Joost is here for your gold.
-HOL held binnen: Joost
-HOL meting t=60 beelden=86 helden=1 hol_vast=1
-HOL meting t=70 beelden=100 helden=1 hol_vast=1
-HOL kroniek 73.7 (wacht 0.0): Joost ran. Swore revenge.
-HOL meting t=80 beelden=47 helden=0 hol_vast=1
-HOL meting t=90 beelden=11 helden=0 hol_vast=1
-HOL kroniek 97.4 (wacht 0.0): Lotte the Thief tiptoes in.
-HOL held binnen: Lotte
-HOL meting t=100 beelden=37 helden=1 hol_vast=1
-HOL kroniek 103.0 (wacht 0.0): Lotte will not be leaving. +6
-HOL kroniek 105.5 (wacht 2.5): New page: the Thief. The pit got him.
-HOL meting t=110 beelden=69 helden=0 hol_vast=3
-HOL meting t=120 beelden=17 helden=0 hol_vast=3
-HOL meting t=130 beelden=9 helden=0 hol_vast=3
-HOL meting t=140 beelden=10 helden=0 hol_vast=3
-HOL meting t=150 beelden=15 helden=0 hol_vast=3
-HOL kroniek 151.5 (wacht 0.0): Sir Wout clanks in.
-HOL held binnen: Wout
-HOL meting t=161 beelden=97 helden=1 hol_vast=3
-HOL kroniek 165.0 (wacht 0.0): Wout stays forever. +6
-HOL kroniek 167.6 (wacht 2.6): Page for the Knight. Spikes: one.
-HOL meting t=171 beelden=84 helden=0 hol_vast=5
-HOL meting t=181 beelden=15 helden=0 hol_vast=5
+HOL kroniek 57.2 (wacht 0.0): Gerda is back for the Spike Pit.
+HOL held binnen: Gerda
+HOL meting t=60 beelden=47 helden=1 hol_vast=1
+HOL meting t=70 beelden=109 helden=1 hol_vast=2
+HOL kroniek 70.7 (wacht 0.0): Gerda stays forever. +9
+HOL kroniek 73.3 (wacht 2.6): New stamp for the Hero. The pit got him.
+HOL meting t=80 beelden=48 helden=0 hol_vast=3
+HOL meting t=90 beelden=11 helden=0 hol_vast=3
+HOL meting t=100 beelden=8 helden=0 hol_vast=3
+HOL kroniek 104.1 (wacht 0.0): Tibbe climbs into your hole.
+HOL held binnen: Tibbe
+HOL meting t=110 beelden=72 helden=1 hol_vast=3
+HOL kroniek 117.6 (wacht 0.0): Tibbe fell to the Spike Pit. +6
+HOL meting t=120 beelden=110 helden=0 hol_vast=5
+HOL meting t=130 beelden=8 helden=0 hol_vast=5
+HOL meting t=140 beelden=10 helden=0 hol_vast=5
+HOL kroniek 146.1 (wacht 0.0): Rik is here for your gold.
+HOL held binnen: Rik
+HOL meting t=150 beelden=52 helden=1 hol_vast=5
+HOL kroniek 159.7 (wacht 0.0): Rik found the Spike Pit. Hard. +6
+HOL meting t=160 beelden=124 helden=0 hol_vast=7
+HOL meting t=171 beelden=11 helden=0 hol_vast=7
+HOL meting t=181 beelden=9 helden=0 hol_vast=7
