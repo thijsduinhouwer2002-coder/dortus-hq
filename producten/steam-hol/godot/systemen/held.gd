@@ -30,7 +30,7 @@ extends Node2D
 #   Een bard die vlucht (ook als Hoard-Toucher) zet info["lied"] = 2; strook.gd moet dan 2 helden extra laten komen
 #   (nog aan te sluiten door Olaf, taken.md 10 nov). Zonder soort_held verandert er niets.
 #
-# Terug in info (voor strook.gd en kroniek.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
+# Terug in info (voor strook.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
 # "trek", "gezien_vijand". Uitkomst: "gevallen" of "ontsnapt".
 
 signal klaar(held, uitkomst: String, info: Dictionary)

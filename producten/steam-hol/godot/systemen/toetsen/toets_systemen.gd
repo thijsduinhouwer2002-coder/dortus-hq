@@ -10,73 +10,20 @@ func ok(voorwaarde: bool, wat: String) -> void:
 		print("[hol-toets] FOUT ", wat)
 
 func _init() -> void:
-	var K = load("res://systemen/kroniek.gd")
 	var V = load("res://systemen/voortgang.gd")
-	var k = K.new()
-	var i1: Dictionary = k.binnen("Bram")
-	ok(i1["bezoeken"] == 0 and i1["wrok"] == "", "eerste bezoek zonder wrok")
-	ok(k.laatste_soort.begins_with("binnen") and k.laatste().contains("Bram"), "regel binnenkomst: " + k.laatste())
-	k.gevlucht("Bram", "the Spike Pit")
-	ok(k.volle_naam("Bram") == "Bram the Spooked", "bijnaam na 1 keer vluchten: " + k.volle_naam("Bram"))
-	var i2: Dictionary = k.binnen("Bram")
-	ok(i2["bezoeken"] == 1 and i2["wrok"] == "the Spike Pit" and i2["littekens"] == 1, "terug met wrok en litteken")
-	ok(k.laatste_soort == "terug" and k.laatste().contains("Bram"), "regel terugkomst: " + k.laatste())
-	k.gevlucht("Bram", "Gloop the Slime")
-	k.binnen("Bram")
-	k.gevlucht("Bram", "")
-	ok(k.volle_naam("Bram") == "Bram the Thrice-Fled", "drie keer gevlucht: " + k.volle_naam("Bram"))
-	ok(k.held("Bram")["wrok"] == "Gloop the Slime", "wrok blijft bij vluchten zonder raak")
-	k.binnen("Bram")
-	k.gevallen("Bram", "Gloop the Slime", 7)
-	ok(k.laatste_soort == "afgerekend_aarts" and k.laatste().ends_with(" +7") and not k.laatste().contains("wall"),
-		"aartsvijand vereffend, eigen lijst (Sanne 21:50): " + k.laatste())
-	k.binnen("Wim")
-	k.gevlucht("Wim", "Gloop the Slime")
-	k.binnen("Wim")
-	k.gevallen("Wim", "Gloop the Slime", 5)
-	ok(k.laatste_soort == "afgerekend_bewoner" and k.laatste().ends_with(" +5") and not k.laatste().contains("wall")
-		and not k.laatste().contains("Nemesis"), "wrok vereffend, gewone held zonder wand of Nemesis: " + k.laatste())
-	# regels van Sanne: hooguit 42 tekens, goud in dezelfde regel, niet twee keer dezelfde achter elkaar
-	var k3 = K.new()
-	var te_lang := 0
-	var dubbel := 0
-	var vorige := ""
-	for z in 300:
-		var nm: String = ["Kees", "Gerda", "Joost", "Fenna", "Lotte"][z % 5]
-		k3.binnen(nm, "hebzuchtig" if z % 2 == 0 else "schijterig")
-		var r_: String = k3.laatste()
-		if z % 3 == 0:
-			r_ = k3.gevlucht(nm, "Gloop the Slime")
-		elif z % 3 == 1:
-			r_ = k3.gevallen(nm, "the Spike Pit", 15)
-		else:
-			r_ = k3.schat(nm)
-		for regel in k3.regels.slice(-2):
-			if regel.length() > 42:
-				te_lang += 1
-		if r_ == vorige:
-			dubbel += 1
-		vorige = r_
-	ok(te_lang == 0, "alle kroniekregels hooguit 42 tekens (%d te lang)" % te_lang)
-	ok(dubbel == 0, "niet twee keer dezelfde regel achter elkaar")
-	var k4 = K.new()
-	k4.binnen("Kees")
-	ok(k4.gevallen("Kees", "the Spike Pit", 7).ends_with(" +7") and not k4.laatste().contains("Gloop"), "val en goud in één regel, geen bewonersregel bij de put: " + k4.laatste())
-	ok(k4.vrije_naam("Kees") == "Kees II", "gevallen naam komt terug als Kees II")
-	k4.binnen("Kees II")
-	ok(k4.laatste_soort == "naamgenoot" and k4.laatste().begins_with("Kees II"), "naamgenoot-regel: " + k4.laatste())
-	k4.gevallen("Kees II", "Gloop the Slime", 6)
-	k4.binnen("Kees III")
-	k4.gevallen("Kees III", "Gloop the Slime", 6)
-	ok(k4.vrije_naam("Kees") == "", "na Kees III een andere naam")
-	k4.binnen("Mara")
-	ok(k4.schat("Mara") != "" and k4.held("Mara")["hoard_toucher"] and k4.laatste_soort == "schat", "schat aangeraakt: Hoard-Toucher-regel: " + k4.laatste())
-	ok(k4.volle_naam("Mara") == "Mara the Hoard-Toucher", "bijnaam na de schat: " + k4.volle_naam("Mara"))
-	ok(k4.pensioen("Mara").begins_with("Mara") and k4.held("Mara")["pensioen"], "pensioen-regel: " + k4.laatste())
-	ok(k4.gevallen("Odo", "Gloop the Slime", 6).find("Gloop the Slime") < 0, "bewoner kort als Gloop, nooit Gloop the Slime")
-	var k2 = K.new()
-	k2.van_dict(JSON.parse_string(JSON.stringify(k.naar_dict())))
-	ok(k2.volle_naam("Bram") == "Bram the Thrice-Fled" and k2.laatste() == k.laatste(), "kroniek opslaan en laden via JSON")
+	# Vangrail opruimen kroniek (Bram 16 nov, vraag Olaf 05:35): alle kroniektekst die het spel kan tonen blijft letter voor
+	# letter gelijk aan systemen/toetsen/kroniek_spel.json (lijst per soort zoals kern/regels.gd kies() hem pakt).
+	var R_spel = load("res://kern/regels.gd")
+	var B_spel = load("res://systemen/kroniek_regels.gd")
+	var vast: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://systemen/toetsen/kroniek_spel.json"))
+	var anders: Array[String] = []
+	for soort_v in vast:
+		if soort_v == "_uitleg":
+			continue
+		var nu_v: Array = B_spel.HOED_KORT if soort_v == "_HOED_KORT" else R_spel.VOORRAAD.get(soort_v, B_spel.VOORRAAD.get(soort_v, []))
+		if str(nu_v) != str(vast[soort_v]):
+			anders.append(soort_v)
+	ok(vast.size() > 30 and anders.is_empty(), "kroniektekst in het spel gelijk aan kroniek_spel.json (%d soorten, anders: %s)" % [vast.size() - 1, str(anders)])
 
 	var t0 := 1_800_000_000
 	var r: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
@@ -123,56 +70,6 @@ func _init() -> void:
 	ok(veel["goud"] > r["goud"], "meer gangen, meer goud terwijl je weg bent (%d tegen %d)" % [veel["goud"], r["goud"]])
 	var sterk: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 20)
 	ok(sterk["gevallen"] <= r["gevallen"] and sterk["goud"] > 0, "faam: helden sterker, nog steeds winst (%d tegen %d gevallen)" % [sterk["gevallen"], r["gevallen"]])
-	# toets 3 van Sanne: naamgenoot met wrok, laatste 4 overslaan, terugkomer noemt waarom, hoedregels
-	var k5 = K.new()
-	k5.binnen("Kees")
-	k5.gevallen("Kees", "Gloop the Slime", 6)
-	var ik: Dictionary = k5.binnen(k5.vrije_naam("Kees"))
-	ok(ik["naam"] == "Kees II" and ik["wrok"] == "Gloop the Slime", "Kees II komt met een wrok tegen Gloop (%s)" % ik["wrok"])
-	ok(k5.laatste_soort == "naamgenoot_hoed" and k5.laatste().begins_with("Kees II"), "naamgenoot-regel hoed: " + k5.laatste())
-	k5.binnen("Joep")
-	k5.gevallen("Joep", "the Spike Pit", 6)
-	var ij: Dictionary = k5.binnen("Joep II")
-	ok(ij["wrok"] == "" and k5.laatste_soort == "naamgenoot", "naamgenoot van een put-held: geen wrok (%s)" % k5.laatste())
-	k5.gevallen("Kees II", "Gloop the Slime", 6)
-	var ik3: Dictionary = k5.binnen("Kees III")
-	ok(ik3["wrok"] == "Gloop the Slime", "Kees III na Kees II door Gloop: ook een wrok")
-	var k6 = K.new()
-	var laatst: Array[String] = []
-	var herhaald := 0
-	for z in 200:
-		k6.binnen("Held%d" % z)
-		var rg: String = k6.laatste().replace("Held%d" % z, "X")
-		if laatst.has(rg):
-			herhaald += 1
-		laatst.append(rg)
-		if laatst.size() > 4:
-			laatst.pop_front()
-	ok(herhaald == 0, "binnenkomst: niet een van de laatste 4 regels opnieuw (%d keer)" % herhaald)
-	var zonder_waarom := 0
-	for z in 100:
-		var nm := "Terug%d" % z
-		k6.binnen(nm)
-		k6.gevlucht(nm, "Gloop the Slime" if z % 2 == 0 else "the Spike Pit")
-		k6.binnen(nm)
-		var rg: String = k6.laatste()
-		if not (rg.contains("Gloop") or rg.contains("Spike Pit") or rg.contains("Spooked")):
-			zonder_waarom += 1
-	ok(zonder_waarom == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder_waarom)
-	var k7 = K.new()
-	ok(k7.hoed("Kees", "Gloop the Slime", 1) == "Gloop wears Kees's hat now.", "eerste hoed: " + k7.laatste())
-	ok(k7.hoed("Pim", "Gloop the Slime", 25) == "Gloop is now known as the Hatted.", "25 hoeden: " + k7.laatste())
-	ok(k7.hoed("Pim", "Gloop the Slime", 0) == "", "aartsvijand naar de wand: geen hoedregel")
-	var vaak := 0
-	for z in 400:
-		if k7.hoed("Held%d" % z, "Gloop the Slime", 2 + z % 20) != "":
-			vaak += 1
-	ok(vaak > 60 and vaak < 140, "hoedregel hooguit een op de vier (%d van 400)" % vaak)
-	var te_lang2 := 0
-	for regel in k5.regels + k6.regels + k7.regels:
-		if regel.length() > 42:
-			te_lang2 += 1
-	ok(te_lang2 == 0, "nieuwe regels hooguit 42 tekens (%d te lang)" % te_lang2)
 
 	# hoeden terwijl je weg was (Mila: de toren groeit vanzelf terwijl je weg bent)
 	var hw: Dictionary = V.reken(t0, t0 + 3 * 3600, 1, 1, 42)
@@ -196,89 +93,41 @@ func _init() -> void:
 	sl1.free()
 	sl2.free()
 
-	# Sanne toets 5 punt 2: geen binnenkom-regel die in de laatste 10 regels van de kroniek al stond
-	var k8 = K.new()
-	var sjablonen: Array[String] = []
-	var dubbel10 := 0
-	for z in 300:
-		var nm := "Held%d" % z
-		k8.binnen(nm)
-		var sj: String = k8.laatste().replace(nm, "{naam}")
-		if k8.laatste_soort.begins_with("binnen") and sjablonen.slice(maxi(0, sjablonen.size() - 10)).has(sj):
-			dubbel10 += 1
-		sjablonen.append(sj)
-		# zoals in het spel: elke held heeft ook een afloop-regel (vallen of vluchten)
-		if z % 3 == 0:
-			k8.gevallen(nm, "the Spike Pit", 6)
-		else:
-			k8.gevlucht(nm, "Gloop the Slime")
-		sjablonen.append(k8.laatste().replace(nm, "{naam}"))
-	ok(dubbel10 == 0, "binnenkomst: geen regel die in de laatste 10 al stond (%d keer)" % dubbel10)
-	# demo-minuut: 7 binnenkom-regels op rij, alle 7 verschillend (eerst alle andere, dan pas een herhaling)
-	var k10 = K.new()
-	var zeven := {}
-	for z in 7:
-		k10.binnen("Demo%d" % z)
-		zeven[k10.laatste().replace("Demo%d" % z, "{naam}")] = true
-	ok(zeven.size() == 7, "7 helden op rij: 7 verschillende binnenkom-regels (%d)" % zeven.size())
 	# Olaf 22:35: één voorraad; kern/strook.gd kan dezelfde soorten en de getal-vorm van kies() gebruiken
-	var stem = load("res://systemen/kroniek_regels.gd").new()
-	var mist: Array[String] = []
-	for soort in ["binnen", "naamgenoot", "terug", "terug_bewoner", "terug_val", "aartsvijand", "val", "val_bewoner", "afgerekend",
-			"afgerekend_aarts", "vlucht", "schat", "plat", "op", "hoed_eerste", "hoed", "hoed_klein", "hoed_bijnaam"]:
-		if not stem.VOORRAAD.has(soort):
-			mist.append(soort)
-	ok(mist.is_empty(), "alle soorten van strook.gd staan in kroniek_regels.gd (mist: %s)" % str(mist))
-	# Sanne toets 9: hap en hoed in één regel, binnenkomst na het lied, voorrang in de wachtrij
-	var stem9 = load("res://systemen/kroniek_regels.gd").new()
-	ok(stem9.VOORRAAD.has("hap_hoed") and stem9.VOORRAAD.has("hap_hoed_eerste") and stem9.VOORRAAD.has("binnen_lied"), "soorten hap_hoed en binnen_lied staan erin")
+	# Sanne toets 9: hoednamen in de regels gelijk aan boek.gd, binnen_lied past met een lange naam
+	ok(B_spel.VOORRAAD.has("hap_hoed") and B_spel.VOORRAAD.has("hap_hoed_eerste") and B_spel.VOORRAAD.has("binnen_lied"), "soorten hap_hoed en binnen_lied staan erin")
 	var namen_boek: Array = load("res://systemen/boek.gd").HOED_NAMEN
-	var hoed_gelijk: bool = namen_boek.size() == stem9.HOED_KORT.size()
-	for hi in mini(namen_boek.size(), stem9.HOED_KORT.size()):
-		hoed_gelijk = hoed_gelijk and String(namen_boek[hi]).to_lower() == stem9.HOED_KORT[hi]
+	var hoed_gelijk: bool = namen_boek.size() == B_spel.HOED_KORT.size()
+	for hi in mini(namen_boek.size(), B_spel.HOED_KORT.size()):
+		hoed_gelijk = hoed_gelijk and String(namen_boek[hi]).to_lower() == B_spel.HOED_KORT[hi]
 	ok(hoed_gelijk, "hoednamen in de regels gelijk aan boek.gd (zelfde volgorde als held_hoeden.png)")
-	var r_eerste: String = stem9.hap_regel("Odo", "Gloop", 4, 1, 3)
-	ok(r_eerste == "Gloop ate Odo. Kept the crown." and not stem9.hoed_apart, "eerste hoed: vaste regel met de hoed erin (%s)" % r_eerste)
-	var hap_te_lang := 0
-	for sj in stem9.VOORRAAD["hap_hoed"] + stem9.VOORRAAD["hap_hoed_eerste"]:
-		for hn in stem9.HOED_KORT:
-			var vol9: String = stem9.vul(sj, {"naam": "Lotte", "bewoner": "Gloop", "hoed": hn}) + " +6"
-			if vol9.length() > 42 or vol9.contains("{"):
-				hap_te_lang += 1
-	ok(hap_te_lang <= 3, "hap-hoed-regels met Lotte en +6: bijna alle hoeden passen (%d niet, die kiest hap_regel dan niet)" % hap_te_lang)
-	var r_n: Array[String] = []
-	var hap_ok := true
-	for z in 12:
-		var rr: String = stem9.hap_regel("Lotte", "Gloop", z % 10, 2 + z, 3)
-		r_n.append(rr)
-		hap_ok = hap_ok and rr != "" and rr.length() + 3 <= 42 and not rr.contains("{") and rr.contains(stem9.HOED_KORT[z % 10]) and not stem9.hoed_apart
-	ok(hap_ok, "12 happen met hoed: altijd één regel met de hoed, past met +6 (%s)" % r_n[1])
-	var r_lang: String = stem9.hap_regel("Bartholomew the Unbudged", "Gloop", 9, 7, 3)
-	ok(r_lang != "" and stem9.hoed_apart and not r_lang.contains("feather"), "lange naam: gewone hap-regel en hoed_apart, de beller doet de hoed los (%s)" % r_lang)
-	var r_geen: String = stem9.hap_regel("Pim", "Gloop", -1, 0, 3)
-	ok(r_geen != "" and not stem9.hoed_apart and stem9.VOORRAAD["val_bewoner"].has(r_geen.replace("Pim", "{naam}").replace("Gloop", "{bewoner}")), "zonder hoed: gewone hap-regel (%s)" % r_geen)
 	var lied_lang := 0
-	for sj in stem9.VOORRAAD["binnen_lied"]:
-		if stem9.vul(sj, {"naam": "Bartholomew"}).length() > 42:
+	for sj in B_spel.VOORRAAD["binnen_lied"]:
+		if B_spel.vul(sj, {"naam": "Bartholomew"}).length() > 42:
 			lied_lang += 1
 	ok(lied_lang == 0, "binnen_lied: alle vijf passen met een lange naam (%d niet)" % lied_lang)
-	ok(stem9.vervalt_nooit("plat") and stem9.vervalt_nooit("binnen_lied") and not stem9.vervalt_nooit("binnen"), "plat en binnen_lied vervallen nooit, binnen wel")
-	ok(stem9.is_sfeer("lied") and not stem9.is_sfeer("plat"), "lied is een sfeerregel")
 	var soort_s = load("res://systemen/heldensoort.gd")
 	ok(soort_s.rij("ridder") == 0 and soort_s.rij("bard") == 3 and soort_s.rij("") == -1, "rij in held_soort.png volgt SOORTEN")
 	ok(not soort_s.aarts_mag(0) and not soort_s.aarts_mag(59) and soort_s.aarts_mag(60), "geen aartsvijand voor de 60e nieuwe held (±1 uur, sim.py aarts)")
 	# pensioen bij openen (Sanne kroniek-regels.md): hooguit één, alleen na 30 min weg
 	var Vp = load("res://systemen/voortgang.gd")
-	var rp = load("res://systemen/kroniek_regels.gd").new()
+	var rp = R_spel.new()   # zoals in het spel: s.regels = kern/regels.gd
+	rp.rng = RandomNumberGenerator.new()
 	var lijst_p: Array = []
 	for np in ["Kees", "Odo", "Mara", "Tibbe", "Pim", "Lotte", "Odo"]:
 		lijst_p = Vp.met_pensioen(lijst_p, np)
 	ok(lijst_p == ["Mara", "Tibbe", "Pim", "Lotte", "Odo"], "pensioenlijst: hooguit 5, oudste eraf, geen dubbele (%s)" % str(lijst_p))
 	ok(Vp.pensioen(lijst_p, {"weg_s": 600}, rp).is_empty() and Vp.pensioen([], {"weg_s": 7200}, rp).is_empty(), "pensioen: niet na 10 min weg, niet zonder namen")
 	var pp: Dictionary = Vp.pensioen(lijst_p, {"weg_s": 7200}, rp)
-	ok(pp.get("naam", "") == "Mara" and String(pp.regel).begins_with("Mara ") and String(pp.regel).length() <= 42 and rp.VOORRAAD["pensioen"].has(String(pp.regel).replace("Mara", "{naam}")), "pensioen na 2 uur: de oudste, regel uit de voorraad (%s)" % str(pp))
-	var pp2: Dictionary = Vp.pensioen(["Bartholomew the Unbudged"], {"weg_s": 7200}, rp)
-	ok(String(pp2.get("regel", "")).length() <= 42 and String(pp2.get("regel", "")) != "", "pensioen met lange naam past (%s)" % str(pp2))
+	ok(pp.get("naam", "") == "Mara" and String(pp.regel).begins_with("Mara ") and String(pp.regel).length() <= 42 and B_spel.VOORRAAD["pensioen"].has(String(pp.regel).replace("Mara", "{naam}")), "pensioen na 2 uur: de oudste, regel uit de voorraad (%s)" % str(pp))
+	# langste naam die het spel aan pensioen geeft is een voornaam met III (kern/namen.gd NAMEN, hooguit "Joost III");
+	# kern/regels.gd kies() geeft altijd een regel, dus elke pensioenregel moet daarmee passen
+	var pen_lang := 0
+	for sj in B_spel.VOORRAAD["pensioen"]:
+		if B_spel.vul(sj, {"naam": "Joost III"}).length() > 42:
+			pen_lang += 1
+	var pp2: Dictionary = Vp.pensioen(["Joost III"], {"weg_s": 7200}, rp)
+	ok(pen_lang == 0 and String(pp2.get("regel", "")).length() <= 42 and String(pp2.get("regel", "")) != "", "pensioen met de langste naam past (%d te lang, %s)" % [pen_lang, str(pp2)])
 	var kleding := Image.load_from_file("res://kunst/held_soort.png")
 	var rijen_vol: bool = kleding != null and kleding.get_width() == 64 and kleding.get_height() == 16 * soort_s.SOORTEN.size()
 	if rijen_vol:
@@ -291,34 +140,14 @@ func _init() -> void:
 							gevuld = true
 				rijen_vol = rijen_vol and gevuld
 	ok(rijen_vol, "held_soort.png: 4 beelden per soort, elk met kleding (de luit zelf: Sanne op de film)")
-	var rv: String = stem.kies("val", {"naam": "Bartholomew", "val": "the Spike Pit"}, 4)
-	ok(rv != "" and rv.length() <= 38 and not rv.contains("+"), "kies met getal: ruimte voor ' +12', niets erachter (%s)" % rv)
-	ok(stem.kies("plat", {"bewoner": "Gloop"}) == "Gloop is flat. Back soon.", "plat-regel uit dezelfde voorraad")
-	ok(stem.kies("val_bewoner", {"naam": "Maximiliaan-Theodoor", "bewoner": "Gloop"}, 30) != "", "kies met getal geeft nooit leeg")
-	var k9 = K.new()
-	k9.binnen("Kees")
-	k9.gevallen("Kees", "the Spike Pit", 6)
-	k9.binnen("Kees II")
-	ok(not k9.laatste().contains("II II") and not k9.laatste().contains("{") and k9.laatste().contains("Kees II"), "naamgenoot met {oud}: " + k9.laatste())
-	# Sanne toets 6 punt 1: de wrok krijgt een afloop, met een eigen regel die de vijand noemt
-	var k11 = K.new()
-	k11.binnen("Bram")
-	k11.gevlucht("Bram", "the Spike Pit")
-	k11.binnen("Bram")
-	k11.gevallen("Bram", "the Spike Pit", 9)
-	var ra: String = k11.laatste()
-	ok(k11.laatste_soort == "afgerekend_val" and ra.contains("The Spike Pit") and ra.ends_with(" +9") and ra.length() <= 42
-		and not ra.contains("{"), "wrok tegen de put: eigen afloop-regel met hoofdletter: " + ra)
+	# Sanne toets 6 punt 1: de afloop-regels passen met Bram en +12
 	var af_lang := 0
-	for soort in ["afgerekend_val", "afgerekend_bewoner"]:
-		for sj in stem.VOORRAAD[soort]:
-			var vol: String = stem.vul(sj, {"naam": "Bram", "val": "the Spike Pit", "bewoner": "Gloop"}) + " +12"
-			if vol.length() > 42 or vol.contains("{"):
-				af_lang += 1
-				print("  te lang of open: ", vol)
+	for sj in R_spel.VOORRAAD["afgerekend_val"] + R_spel.VOORRAAD["afgerekend"] + R_spel.VOORRAAD["afgerekend_aarts"]:
+		var vol: String = B_spel.vul(sj, {"naam": "Bram", "val": "the Spike Pit", "bewoner": "Gloop"}) + " +12"
+		if vol.length() > 42 or vol.contains("{"):
+			af_lang += 1
+			print("  te lang of open: ", vol)
 	ok(af_lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % af_lang)
-	ok(stem.kies("afgerekend_val", {"naam": "Bram", "val": ""}) == "", "afloop-regel met {Val} komt niet zonder val")
-	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
 	# upgrades (Bram 10 nov, feature 5, balans.md): 45, 126, 353 (Sanne 01:50), drie per soort, volle prijs terug, opslaan
 	var u = load("res://systemen/upgrades.gd").new()
 	ok(u.kost("slijm") == 45 and u.kost("stekelput") == 45 and u.kost("draak") == -1, "eerste upgrade kost 45")
@@ -394,21 +223,11 @@ func _init() -> void:
 	ok(vz.goud == vn.goud and vz.gevallen == vn.gevallen, "voortgang zonder upgrades gelijk aan voorheen")
 	ok(vm.gevallen >= vz6.gevallen and vm.goud >= vz6.goud, "voortgang met upgrades: minstens zoveel gevallen (%d tegen %d)" % [vm.gevallen, vz6.gevallen])
 
-	# heldensoorten in de kroniek (Bram 10 nov)
-	var ks = load("res://systemen/kroniek.gd").new()
-	var ib: Dictionary = ks.binnen("Odo", "hebzuchtig", "ridder")
-	ok(String(ib.soort_held) == "ridder" and ks.laatste().contains("Odo"), "ridder komt binnen met eigen regel: " + ks.laatste())
-	ks.gevlucht("Odo", "the Spike Pit")
-	var ib2: Dictionary = ks.binnen("Odo")
-	ok(String(ib2.soort_held) == "ridder", "terugkomer houdt zijn soort")
-	var lr: String = ks.lied("Fenna")
-	ok(lr != "" and lr.length() <= 42, "bard zingt: " + lr)
-	var dr: String = ks.dutje("Pim")
-	ok(dr != "" and dr.length() <= 42, "slaapkop dutje: " + dr)
+	# regels van de heldensoorten (Bram 10 nov): passen met een lange naam
 	var soort_lang := 0
 	for sj in ["binnen_ridder", "binnen_dief", "binnen_magier", "binnen_bard", "lied", "binnen_slaapkop", "binnen_wraakzuchtig", "binnen_opschepper", "dutje"]:
-		for rsj in ks.stem.VOORRAAD[sj]:
-			if ks.stem.vul(rsj, {"naam": "Joost III", "held": "Joost III", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
+		for rsj in B_spel.VOORRAAD[sj]:
+			if B_spel.vul(rsj, {"naam": "Joost III", "held": "Joost III", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
 				soort_lang += 1
 	ok(soort_lang == 0, "regels van de soorten passen met Joost III in 42 tekens (%d te lang)" % soort_lang)
 	# Heldenboek (systemen/boek.gd, Sanne features.md 10 nov 03:10)
