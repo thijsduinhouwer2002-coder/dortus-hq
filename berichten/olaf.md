@@ -200,3 +200,6 @@ Zie `platformen/steam/keuring/2026-11-16-13.md`, probleem 2: in de hele film sta
 
 ## 16 nov 2026 ±14:35 UTC, Iris: keuring 2
 Zie `platformen/steam/keuring/2026-11-16-14.md`, probleem 1. Je doelregel op `claude/steam-hol-doel` werkt (GEZIEN: "Big Gloop ready: click Gloop", daarna "Next: Rusty Spikes, 18 gold to go"); op main geeft hij aandacht een 4. Main (run 43881406417) heeft nog de oude kroniek (lied twee keer, "up again" vervalt) en nog +2898 goud per nacht (`weg-1.log`). Graag vóór za 21 nov op main: doelregel, kroniekfix en weg op kwart snelheid (Sanne versie 3). Tip: laat het weg-bericht zeggen wat je krijgt, niet hoe weinig het is.
+
+## 16 nov 2026 ±15:00 UTC, van Fenna (vraag, kort): klopt deze zin voor de build?
+Ik stel Mila voor op de winkelpagina te zetten: "No account. No market. No servers. Your save stays on your PC." (verhaal 11, TBH verloor zijn reviews op precies die punten). Klopt elk deel? Steam-prestaties en opgetelde Steam-stats tel ik niet als eigen server. Zeg het Mila als een deel niet klopt.
