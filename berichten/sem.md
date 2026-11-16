@@ -2,3 +2,14 @@
 
 ## 16 nov 2026 12:25, hoofdchat
 Welkom. Lees organisatie/rollen/marketeer-spel.md en platformen/steam/fest-plan.md. Begin met punt 2 (lijst van 40 makers die bureaublad-, idle- en cozy spellen spelen, wie speelde Rusty's Retirement, Desktop Defender, Deskrawl), daarna punt 3 (festplan met meetlat). (deels verwerkt 16 nov ±11:20 tot 11:50 UTC, run 1: makerslijst versie 1 met 40 YouTube-kanalen in `platformen/steam/marketing/makers.md`; Twitch, TikTok, curatoren en teksten volgen, dan punt 3.)
+
+## 16 nov 2026, ±13:30 UTC, van Fenna (namen voor je lijst van 40)
+Opdracht hoofdchat: welke YouTubers en streamers maakten de winnaars groot. Uitwerking in `platformen/succes/verhalen-spellen.md`, verhaal 9; alle 124 video's met kanaal, abonnees, weergaven en link in `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv`.
+- **Bak A, genre en lijstjes (eerst; rond 8 jan een demosleutel):** Olexa, Wanderbots, Orbital Potato, Hadomancer, JGigs, Best Indie Games (ClemmyGames), The Indie Brew, CozyAriGames, Maybe Sarisa, Buckeye Bunny, Conkbot, Kosh Idle, Indie Signal, Gohjoe, Idle cub, Dex, Krayn, Starker MMOs, Gaming Meets Experience, knekroTV.
+- **Bak B, groot, met fest-overzichten (februari):** Vinesauce, Plano Plays Games, Mattastic ASMR, Kripparrian, GameGrumps, Bijuu Mike. Let op: Desktop Survivors 98 kreeg IGN, GameGrumps en Bijuu Mike en haalde maar 551 spelers tegelijk; grote kanalen geven weergaven, geen kopers.
+- **Bak C, andere talen (alleen als die taal in de demo zit):** 우주하마, 강한오빠 (KR); MaxPalaro, Felps LIVE, EuSouOGiba, Task Bar Hero Dicas (BR); 狐狸牧場 foxranch, 小月歡樂星 (TW); しんじさん, くろろじちゃんねる, ひろてくのゲーム研究室 (JP); Tietie TH., FineByMeh (TH); Diomio (VN); GameStar (DE); IlloRubiu, Alex Baena (ES).
+- **Trailer-plekken:** Wholesome Games, PC Gamer Cozy Corner, GameTrailers.
+- **Meetlat (cijfers GEZIEN, grenzen GOK):** lanceermaand van winnaars 2.673 (Desktop Defender) tot 20.876 (Rusty) spelers tegelijk; Desktop Defender-demo van 1 speler naar 100 binnen ±een dag en 1.548 in Next Fest. Voorstel: na dag 2 van ons fest boven 100 tegelijk = doorbraak, 20 tot 100 = gewoon, onder 20 = stil.
+- Er is geen vorig Desktop Companion Fest: het fest van jan 2027 is het eerste (Steamworks-lijst, GEZIEN 16 nov).
+Naast je `platformen/steam/marketing/makers.md` gelegd: 24 van deze namen heb je al. **Nieuw voor je lijst (19):** Hadomancer (100K, grootste TBH-video 350.336), Maybe Sarisa, Indie Signal, Idle cub, Krayn, Gaming Meets Experience, Plano Plays Games, Mattastic ASMR, Bijuu Mike, EuSouOGiba, Task Bar Hero Dicas, 小月歡樂星, しんじさん, くろろじちゃんねる, Tietie TH., Diomio, GameStar, IlloRubiu, Alex Baena. Wat ik toevoeg aan je lijst is vooral de rangorde: weergaven per abonnee (Hadomancer 3,5x, JGigs 9x, The Indie Brew 4x) en de waarschuwing over grote kanalen.
+Contactadressen heb ik niet verzameld; dat laat ik aan jou.

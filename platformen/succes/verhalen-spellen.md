@@ -1,8 +1,77 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (volgende run: Click and Slash, 20 talen en 1 review; of de eerste dagen van het Desktop Companion Fest zodra er cijfers zijn)
+bezig: niets (volgende run: Click and Slash, 20 talen en 1 review; of wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 9. Wie maakte de winnaars groot: 124 video's over 9 bureaubladspellen, de kanalen erachter, en hoeveel spelers het opleverde (vraag van de hoofdchat: het Desktop Companion Fest en de YouTubers)
+
+Onderzocht 16 nov 2026, run 10. Vraag van de hoofdchat (16 nov 12:25): (1) welke spellen stonden de vorige keer in het Desktop Companion Fest en wie brak door, (2) welke YouTubers en streamers maakten de winnaars groot, met namen voor Sem.
+
+**Eerst (1): er is geen vorige keer.** De lijst met fests in de Steamworks-docs (`partner.steamgames.com/doc/marketing/upcoming_events`, GEZIEN 16 nov met curl) noemt alleen "Steam Desktop Companion Fest 2027", 14 tot 18 jan, "Games that sit on your desktop and keep you company while you do other things." Geen eerdere editie. De dichtste proeven heb ik al: Idler Fest 2025 (verhaal 3) en Next Fest juni 2026 met 11 bureaubladspellen (verhaal 7). Deze run gaat dus over vraag (2), met spelerscijfers erbij, zodat Sem een meetlat heeft.
+
+### Bronnen en werkwijze
+- YouTube-zoekpagina per spel, gesorteerd op weergaven, met curl gelezen op 16 nov (lijst uit `ytInitialData`), plus vier zoekopdrachten over het genre. Videopagina's zelf geeft YouTube ons niet (code 418), dus ik zie geen beschrijving en geen exacte datum, alleen "5mo ago". Kanaalpagina's wel: abonnees uit de kop van de kanaalpagina (GEZIEN 16 nov; afgerond zoals YouTube ze toont).
+- Spellen: TBH: Task Bar Hero (gratis), Rusty's Retirement, Tiny Pasture, Ropuka's Idle Island, Deskrawl, Desktop Defender, Desktop Survivors 98, Desktop Raid, Cornerpond. Na het weghalen van treffers over iets anders (paarden, Windows Defender, tekenfilm "Rusty's World") bleven 124 video's over: `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv` (spel, kanaal, abonnees, weergaven, titel, link).
+- Spelers tegelijk per maand: steamcharts.com/app/<appid> (GEZIEN 16 nov). Deskrawl staat daar niet in.
+- Eigen aankondigingen via de nieuws-API van Steam (Desktop Defender 48, TBH 116, Desktop Survivors 98 10, Deskrawl 38, Desktop Raid 41 berichten) doorzocht op namen van makers, YouTube, streamer, influencer en curator. Niet geprobeerd: Twitch-cijfers; sullygnome en twitchtracker geven 403.
+
+### Spelers tegelijk in de lanceermaand, naast de grootste video (GEZIEN 16 nov)
+| Spel | Prijs | Piek lanceermaand | Grootste video's (weergaven, kanaal, abonnees) |
+|---|---|---|---|
+| TBH: Task Bar Hero | gratis | **545.349** (jun 2026) | 350.336 Hadomancer (100K), 137.668 Task Bar Hero Dicas (13,4K, Braziliaans), gidsen van Sir Eat Alot, MyGamerAcademia, GameStar (1,59M, Duits) |
+| Rusty's Retirement | $6,99 | **20.876** (mei 2024) | 907.979 우주하마 (2,2M, Koreaans), 67.196 eigen trailer, 66.642 Buckeye Bunny, 66.434 Olexa (298K), 51.757 MaxPalaro (2,82M, Braziliaans) |
+| Tiny Pasture | $4,07 | **19.674** (feb 2025) | 14.392 PC Gamer Cozy Corner, 9.394 CaveLiquid, 6.036 CozyAriGames (lijstje) |
+| Ropuka's Idle Island | $3,99 | **3.850** (feb 2025) | 43.224 Best Indie Games (195K, lijstje), 26.846 Wholesome Games (trailer), 16.602 The Indie Brew (4K, lijstje) |
+| Desktop Raid | $8,99 | **3.001** (mrt 2026) | 23.940 Plano Plays Games (566K), 19.835 Tietie TH. (43,9K, Thais) |
+| Desktop Defender | $4,99 | **2.673** (nov 2025; demo in Next Fest 1.548) | 40.008 Vinesauce "Steam Next Fest: October 2025" (666K), 16.064 Conkbot (lijstje), 12.898 eigen trailer |
+| Desktop Survivors 98 | $4,99 | **551** (mei 2025) | 651.363 IGN (trailer), 270.087 GameGrumps (5,45M), 138.594 GameTrailers, 110.002 Mattastic ASMR, 82.126 Gohjoe (201K), 50.234 Vinesauce (demo), 38.967 Bijuu Mike (3,78M) |
+| Deskrawl | $6,99 | niet op steamcharts | 37.451 しんじさん (Japans, over de demo), 30.423 knekroTV (158K), 21.318 Kripparrian (901K, stream) |
+| Cornerpond | $2,99 | | niets boven 5.100 |
+
+Twee dingen springen eruit:
+- **Desktop Survivors 98 had de grootste kanalen en de kleinste piek.** IGN, GameGrumps, Bijuu Mike en Vinesauce samen ruim een miljoen weergaven, en dan 551 spelers tegelijk bij de lancering en nu 1.352 reviews. Desktop Defender had bijna geen grote video's (de grootste 40.008, en of die echt over Desktop Defender gaat kan ik niet zien, zie onder) en kwam op 2.673 spelers en 1.788 reviews. Let op: Desktop Survivors 98 is een actief spel met rondes, geen idlespel dat de hele dag aan staat, dus spelers tegelijk is daar per koper lager. Maar het reviewverschil is klein voor zo'n verschil in weergaven. Grote kanalen geven weergaven, geen kopers.
+- **Bij de echte doorbraken kwamen de grote video's ná het succes.** TBH is het duidelijkst: de grootste video heet "The game you don't even play is breaking Steam" en een tweede "Task Bar Hero Died in 30 Days | But Who Really Profited?"; GameStar maakte "#2 on Steam: TBH has more and more players every day". Die gingen over het succes, ze maakten het niet. De vele gidsen (Braziliaans, Turks, Engels, 60.000 tot 140.000 weergaven elk) komen pas als er al honderdduizenden spelers zijn. TBH is gratis en draait om spullen die je op de Steam-markt kunt verkopen; dat recept is niet het onze.
+
+### Welke kanalen het meest opleveren per abonnee (GEZIEN, weergaven gedeeld door abonnees)
+Een video die meer dan een vijfde van het aantal abonnees haalt, bereikte mensen buiten het eigen publiek; dat is een kanaal waar dit soort spel aanslaat:
+- Hadomancer: 350.336 op 100K (3,5x), idle- en TBH-video's
+- JGigs: 812.813 op 87,8K (9x), "I Played 20 Idle Games For 2 Hours Each To Find The Most Addictive One" (lijstje)
+- Task Bar Hero Dicas: 137.668 op 13,4K (10x), Braziliaans gidsenkanaal
+- The Indie Brew: 16.602 op 4K (4x), "The BEST Idle Games to play While You Work"
+- Gohjoe: 82.126 op 201K (0,4x), uzuhama 907.979 op 2,2M (0,4x), Mattastic ASMR 110.002 op 293K (0,4x), Diomio 98.806 op 180K (0,5x, Vietnamees, "everyone is playing AFK games now")
+- Olexa: 66.434 op 298K (0,2x), Best Indie Games 43.224 op 195K (0,2x), knekroTV 30.423 op 158K (0,2x)
+Kanalen die terugkomen bij twee of meer winnaars: Vinesauce (Desktop Survivors 98, Desktop Defender), Buckeye Bunny, Wholesome Games, Best Indie Games, The Indie Brew en Maybe Sarisa (Rusty en of Ropuka), PC Gamer (Ropuka en Tiny Pasture), CozyAriGames (Tiny Pasture, Cornerpond, lijstjes).
+
+### Wat de makers zelf zeggen
+Weer bijna niets. In 253 aankondigingen van vijf spellen geen enkele naam van een YouTuber of streamer. Desktop Defender schrijft over de eigen demo: "it started with just 1 player for a few hours, and it's now grown into this craziness" (15 okt 2025, GEZIEN), met doelen voor gelijktijdige spelers via Discord (verhaal 5). Desktop Raid had een demo "Made for Next Fest!" (26 feb 2026, GEZIEN). De groei kwam bij deze twee dus uit het fest zelf, en de video's die er zijn (Vinesauce, Plano Plays Games) zijn rond het fest gemaakt.
+
+### Drie lessen
+1. **Grote kanalen zijn niet het doel; kanalen waar het genre aanslaat wel.** Desktop Survivors 98 kreeg IGN, GameGrumps en Bijuu Mike en haalde 551 spelers tegelijk; de idle-winnaars kregen hun grootste niet-eigen video's van lijstjesmakers en genrekanalen met 4.000 tot 300.000 abonnees (Best Indie Games, The Indie Brew, JGigs, Olexa, Hadomancer, Buckeye Bunny). Die hebben kijkers die precies "iets voor naast het werk" zoeken.
+2. **Fest-overzichten zijn de deur bij grote streamers.** Vinesauce maakt video's als "Steam Next Fest: October 2025" en speelde de demo van Desktop Survivors 98; Buckeye Bunny maakt "31 FREE Chill & Cozy Games, Next Fest February 2025" (verhaal 4). Die makers spelen de demo's die op dat moment in een fest staan. Ons Desktop Companion Fest is precies zo'n lijst; GOK dat kanalen als CozyAriGames en The Indie Brew er een "games that sit on your screen"-video van maken, want dat is hun vaste vorm.
+3. **De grootste enkele video is vaak niet Engels.** Rusty: Koreaans 907.979, Braziliaans 51.757 en 46.681, Taiwanees 44.791. Deskrawl: Japans, Koreaans, Taiwanees. TBH: Braziliaans, Turks, Duits, Vietnamees. Talen in de demo bepalen welke kanalen we kunnen vragen; Portugees (Brazilië), Koreaans, Japans en Chinees (Taiwan) komen het vaakst voor in deze lijst.
+
+### Meetlat voor Sem (spelers tegelijk, GEZIEN uit steamcharts en eigen meldingen, grenzen zijn GOK)
+- Lanceermaand van winnaars in onze hoek: 2.673 (Desktop Defender) tot 20.876 (Rusty). Kleiner dan ±500 (Desktop Survivors 98) gaf nog steeds 1.352 reviews, maar dat is een ander soort spel.
+- Demo in een fest: Desktop Defender begon met 1 speler, haalde 100 tegelijk binnen ongeveer een dag en 1.548 op dag 6 van Next Fest (verhaal 5). Dat was Next Fest, met duizenden demo's; ons fest is kleiner en ons vak voller.
+- Voorstel voor de meetlat (GOK): na dag 2 van het Desktop Companion Fest boven 100 tegelijk in de demo = doorbraak, 20 tot 100 = gewoon, onder 20 = stil, dan de verbeterweek naar de haak (zoals in verhaal 8 voorgesteld).
+
+### Eerlijk: wat ik niet weet
+- Of de video's betaald, met een sleutel van de maker, of vanzelf kwamen. De beschrijvingen kon ik niet lezen.
+- Of de Vinesauce-video over Next Fest oktober 2025 Desktop Defender laat zien: YouTube gaf hem bij de zoekterm "Desktop Defender steam", maar de videopagina was dicht. GOK dat hij erin zit.
+- Exacte datums: "5mo ago" en "1y ago" zeggen niet of een video vóór of na de lancering kwam, behalve waar de titel het zegt (demo, Next Fest, "breaking Steam").
+- Twitch, TikTok en Bilibili tel ik niet. Abonneecijfers zijn afgerond en van één dag.
+- Contactgegevens heb ik niet verzameld; dat is Sems werk (punt 2 in `platformen/steam/fest-plan.md`).
+
+### Voorstel voor Dortus deze week
+**Sem begint zijn lijst van 40 met deze kanalen, in drie bakken** (alle cijfers in de CSV):
+- **Bak A, genre en lijstjes (eerst, rond 8 jan een demosleutel):** Olexa, Wanderbots (522K, incremental), Orbital Potato, Hadomancer, JGigs, Best Indie Games (ClemmyGames), The Indie Brew, CozyAriGames, Maybe Sarisa, Buckeye Bunny, Conkbot, Kosh Idle, Indie Signal, Gohjoe, Idle cub (203K), Dex (316K), Krayn (95K), Starker MMOs, Gaming Meets Experience, knekroTV.
+- **Bak B, grote kanalen met fest-overzichten (februari, voor Next Fest):** Vinesauce, Plano Plays Games, Mattastic ASMR, Kripparrian, GameGrumps, Bijuu Mike. Lage kans op antwoord, en dit verhaal zegt dat ze weergaven geven, geen kopers.
+- **Bak C, andere talen (alleen als die taal in de demo zit):** 우주하마 en 강한오빠 (Koreaans), MaxPalaro, Felps LIVE, EuSouOGiba en Task Bar Hero Dicas (Portugees), 狐狸牧場 foxranch en 小月歡樂星 (Taiwan), しんじさん, くろろじちゃんねる en ひろてくのゲーム研究室 (Japans), Tietie TH. en FineByMeh (Thai), Diomio (Vietnamees), GameStar (Duits), IlloRubiu en Alex Baena (Spaans).
+- **Trailer-plekken (via de hoofdchat, het insturen is iets plaatsen):** Wholesome Games, PC Gamer Cozy Corner, GameTrailers.
+Versturen gaat via de lijst van Thijs. Melding staat in `berichten/sem.md`.
 
 ---
 
