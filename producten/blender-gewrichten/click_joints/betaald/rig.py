@@ -260,6 +260,24 @@ def kogel_schuif(context, doel, m, lengte):
     return uit
 
 
+BUUR = {"shoulder": "elbow", "hip": "knee"}
+
+
+def geen_ruimte(melding, naam, bot_mm):
+    """Pro 1.1 (run 11): een eerlijke reden als een kogel "too close" krijgt omdat het bot te kort is. De kern zegt dan
+    "keep 99 mm apart" (Rigify-metarig: bovenarm 29 mm, de bolnaad van een kogel in de borst is zo groot als de romp),
+    en dat helpt een koper niet. Is de nodige afstand langer dan het bot, dan: geen plek op dit bot naast de elleboog
+    of knie. Anders None (de oude melding blijft)."""
+    import re
+    m = re.search(r"too close to another joint, keep (\d+) mm apart", melding or "")
+    if not m or int(m.group(1)) <= bot_mm:
+        return None
+    kern = naam.split()[-1].lower()
+    buur = BUUR.get(kern, "next joint")
+    return (f"no room on this {bot_mm:.0f} mm bone for a ball joint next to the {buur}, "
+            f"place it by hand or give the {buur} a smaller range")
+
+
 def kogel_vast(nieuw):
     """Pro 1.1 vangnet: True als een net geplaatste kogel volgens de beweegproef (vrijwel) niet kan bewegen
     (paneel "±0° (blocked)"). Zonder gemeten delen: False (dan beslist de rest, zoals voorheen)."""
@@ -311,6 +329,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
 
     def execute(self, context):
         from . import figuur
+        from ..eigenschappen import eenheid_per_mm
         mesh = context.active_object
         arm = zoek_armature(mesh)
         if arm is None:
@@ -346,11 +365,11 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 overgeslagen.append(f"{naam} (joint outside the mesh)")
                 continue
             kandidaten = [(m, 0.0)]
+            lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
             if soort != "HINGE":
                 # Kogel: uit de romp schuiven (de botkop van dij en bovenarm ligt meestal in bekken of borst).
                 # Eerst met de hele bolnaad buiten de romp (vol bereik); is het daar te dicht bij de knie, dan de
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
-                lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
                 kandidaten = kogel_schuif(context, doel, m, lengte)
             geblokkeerd = False
             for i, (m, _mm) in enumerate(kandidaten):
@@ -370,6 +389,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     continue
                 if ok or i == len(kandidaten) - 1 or "too close" not in (melding or "").lower():
                     break
+            if not ok and soort != "HINGE":
+                melding = geen_ruimte(melding, naam, lengte / eenheid_per_mm(context.scene)) or melding
             if not ok and geblokkeerd and not melding:
                 melding = "no room for a ball joint that can move here (it would be blocked)"
             if ok:
