@@ -10,7 +10,7 @@ Opdracht: hoofdchat 16 nov 20:10 NL (Thijs koos Garmin optie 2). Een reeks van 4
 5. **Eerlijk over de opbrengst:** in mijn steekproef van vandaag halen 12 van de 82 betaalde wijzerplaten 100+ (15%), 2 de 1.000+. Vera: mediaan ±$25 per wijzerplaat in de eerste maanden bij kleine makers, een kwart haalt ±$190 of meer. Een reeks is een optelsom van kleine bedragen met een kleine kans op een uitschieter.
 
 ## Hoe gemeten
-Zoekbalk van de winkel, alleen wijzerplaten, eerste 30 per woord, gesorteerd op "meest relevant": body battery, training readiness, data rich, sleep score, big digits, large digits, no glasses, hrv, 24h, hourly forecast, timeline. Samen 330 rijen, 318 verschillende wijzerplaten: `reeks-zoekwoorden-2026-11-16.csv`. Van 15 daarvan de hele winkeltekst gelezen. **Niet gedaan:** de schermbeelden bekijken (dat doet Mila, zie stappen), reviews lezen, en zoeken buiten de winkel (zie "Wat eraan komt").
+Zoekbalk van de winkel, alleen wijzerplaten, eerste 30 per woord, gesorteerd op "meest relevant": body battery, training readiness, data rich, sleep score, big digits, large digits, no glasses, hrv, 24h, hourly forecast, timeline. Samen 330 rijen, 318 verschillende wijzerplaten: `reeks-zoekwoorden-2026-11-16.csv`. Van 15 daarvan de hele winkeltekst gelezen. **Niet gedaan:** de schermbeelden bekijken (dat doet Mila, zie stappen), meer dan de eerste 30 reviews van vijf wijzerplaten lezen, en zoeken buiten de winkel (zie "Wat eraan komt").
 
 | Groep (318 wijzerplaten) | Aantal | 10+ | 100+ | 1.000+ | Mediaan horloges |
 |---|---|---|---|---|---|
@@ -20,6 +20,15 @@ Zoekbalk van de winkel, alleen wijzerplaten, eerste 30 per woord, gesorteerd op 
 Betaald naar aantal horloges: tot 60 horloges 3 van 20 op 100+, 61 tot 120 2 van 43, 121 en meer 7 van 19. De leeftijd van de wijzerplaten is hierin niet gelijk getrokken, dus lees het als richting; het past bij wat Joris mat (verhaal 19).
 
 **Let op bij "gratis":** een deel is niet gratis. *Rest: Body Battery & Stress* (Dialforge), *Health Dashboard* (Trudelta), *Weathergraph* en *Daylight Left* staan als gratis in de winkel en verkopen een code of PRO buiten Garmin om (eigen site, PayPal, KiezelPay); Daylight Left vraagt na 2 dagen om geld. Garmin ziet dat geld niet en de koper moet een horloge-ID overtypen. Wij doen dat niet: het mag niet van onze eigen regels (geen eigen betaling, geen server) en het is juist iets om ons mee te onderscheiden.
+
+## Wat kopers schrijven (eerste 30 reviews van vijf sterke datawijzerplaten, GEZIEN 16 nov ±20:08 UTC)
+Fenix 9 CAMO, Tactix8 Amoled PRO, Noctis PRO, Noctis (gratis) en Health Dashboard: 118 reviews gelezen, 104 met vijf sterren. Wat er naast de lof staat:
+- **Leesbaarheid:** "can't get the font large enough to read" en "the camo doesn't show up unless the brightness is way up" (3 sterren, Tactix8 PRO). Zelfde klacht als bij de figuur-wijzerplaten van run 112.
+- **Slaapstand:** "Amazing, but missing a better AoD mode" (Fenix 9 CAMO).
+- **Meer velden:** tijd tot zonsondergang, trend van de luchtdruk, weekafstand in plaats van de laatste 7 dagen.
+- **Kopen met een code gaat mis:** "I payed for pro-version, but not sent code for unlocked" (1 ster, Health Dashboard). Dat steunt de keuze voor kopen via Garmin.
+- "Paid for pro to get the segment time font" (Noctis): een mooier lettertype voor de tijd is voor iemand reden genoeg om te betalen.
+Lees dit als voorbeelden, niet als telling: 30 reviews per wijzerplaat, vooral tevreden kopers.
 
 ## Wat een wijzerplaat mag tonen
 GEZIEN in de uitleg van Garmin (`https://developer.garmin.com/connect-iq/api-docs/Toybox/Complications.html`, 16 nov): er bestaan kant-en-klare velden voor Body Battery, stress, slaapscore, hersteltijd, trainingsstatus, VO2max, hartslag, stappen, trappen, calorieën, intensiteitsminuten, ademhaling, zuurstof, meldingen, agenda, weer nu, temperatuur hoog en laag, verwachting 1 tot 3 dagen, zonsopgang en zonsondergang, hoogte, luchtdruk, weekafstand hardlopen en fietsen, wedstrijdvoorspelling. Training readiness en HRV-status staan **niet** in die lijst.
