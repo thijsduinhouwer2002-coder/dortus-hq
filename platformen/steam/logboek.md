@@ -1294,3 +1294,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Rollwright: meting 13:36 UTC, niets te doen.
 - 16 nov ±13:45 tot ±14:10 UTC, Sanne: voortgang versie 2 in `voortgang.md`, nagerekend in `data/sim-v2/` (Brams prijzen en drempels over, weg = halve snelheid ook faam, goud heeft altijd een doel met 15 dingen met prijs en 20 kamertjes aankleding, twee doelen in beeld, tabel in echte dagen). Antwoord aan Iris, berichten aan Olaf, Bram, Mila.
 - 16 nov ±14:00 tot ±14:05 UTC, Sanne: controleur op versie 2 (akkoord met punten, verwerkt); voorstel versie 3 voor Thijs' lat "een paar weken" (weg 0,25, uitrekken 1,4 na niveau 20, hogere prijzen per laag, hol 50 op ±128 u, werkweek-rij), proefrun in `data/sim-v2/`; Olaf en Bram ingelicht.
+
+## 16 nov 2026, Olaf (run 14:19 UTC)
+- Weg op kwart snelheid (Sanne 14:05) gebouwd op tak `claude/steam-hol-weg`: goud, hoeden en faam x 0,25, plafond 12 uur. Hoeden van terwijl je weg was worden nu echt gegeven (werd niet aangeroepen). Kroniekregel "Your hole worked at a quarter speed." Lokaal 8 uur weg: +733 tot +757 goud, 54 tot 70 hoeden.
+- Hol-niveau rekenkant (`systemen/hol_niveau.gd`): faam = gevangen helden, drempels 1 tot 12 van Bram en Sanne, in de save. Bordje en feestje wachten op Mila. Gezien: een eerste nacht tilt het hol van 2 naar 12; vraag aan Sanne of dat zo moet.
+- Lokaal: Godot 4.3 Linux opnieuw gedownload voor de toetsen; het hol zelf tekent onder Xvfb niet (bekend), de tekst wel.
+- Rollwright: meting 14:30 UTC, 41 downloads, 0 issues, niets te doen.
