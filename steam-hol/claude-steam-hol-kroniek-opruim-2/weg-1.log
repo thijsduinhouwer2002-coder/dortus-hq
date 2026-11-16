@@ -1,27 +1,29 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 679, hoeden 40
-HOL hol-niveau 2 (faam 88)
-HOL hol-niveau 3 (faam 88)
-HOL hol-niveau 4 (faam 88)
-HOL hol-niveau 5 (faam 88)
-HOL hol-niveau 6 (faam 88)
-HOL hol-niveau 7 (faam 88)
-HOL hol-niveau 8 (faam 88)
-HOL hol-niveau 9 (faam 88)
-HOL hol-niveau 10 (faam 88)
-HOL hol-niveau 11 (faam 88)
-HOL hol-niveau 12 (faam 88)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 40 new hats.
-HOL weg-regel uit tot het bordje: Grew 11 levels while you were away.
-HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
-HOL opslag geladen: 0 terugkomers, 699 goud, faam 88
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 151, erbij 709, hoeden 50
+HOL hol-niveau 2 (faam 93)
+HOL hol-niveau 3 (faam 93)
+HOL hol-niveau 4 (faam 93)
+HOL hol-niveau 5 (faam 93)
+HOL hol-niveau 6 (faam 93)
+HOL hol-niveau 7 (faam 93)
+HOL hol-niveau 8 (faam 93)
+HOL hol-niveau 9 (faam 93)
+HOL hol-niveau 10 (faam 93)
+HOL hol-niveau 11 (faam 93)
+HOL hol-niveau 12 (faam 93)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 50 new hats.
+HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
+HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
+HOL opslag geladen: 0 terugkomers, 729 goud, faam 93
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794850344
-HOL eerste koop mogelijk na 15 s speeltijd (goud 699)
+HOL zaad 1794853293
+HOL eerste koop mogelijk na 15 s speeltijd (goud 729)
+HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 88 fell, 40 hats. +679 gold.
-HOL begin: vluchten (Bram)
-HOL held binnen: Bram
-HOL kroniek 5.0 (wacht 5.0): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.0: Bram read about you in a tavern.
-HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=699, terugkomers=0
+HOL kroniek 2.5 (wacht 2.5): 151 came, 93 fell, 50 hats. +709 gold.
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
+HOL kroniek 5.0 (wacht 5.0): Grew 4 levels while you were away.
+HOL kroniek vervallen 7.1: Fenna is here for your gold.
+HOL kroniek 7.6 (wacht 7.6): 7 more to come as you play.
+HOL meting t=10 beelden=71 helden=1 hol_vast=1
+HOL einde na 15 s, fps=10, goud=729, terugkomers=0
