@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 15 af 16 nov ±20:20 UTC; volgende run: Little Writer meten na 6 jan, of een bureaubladspel met een crossover-update naast een ander spel (Not Monday Cafe x Lakeside Bar) meten)
+bezig: verhaal 16, crossovers tussen bureaubladspellen (Not Monday Cafe x Lakeside Bar en anderen), 16 nov ±21:20 UTC
 
 Nieuwste bovenaan.
 
