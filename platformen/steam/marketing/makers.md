@@ -7,22 +7,22 @@ Niemand is benaderd. Versturen is iets plaatsen op internet en gaat via de hoofd
 De 15 die als eerste een mail of sleutel krijgen, nu gekozen op **wat een video van ons soort op dat kanaal gewoonlijk haalt** (mediaan weergaven van zijn recente video's over idle, cozy, desktop, demo, fest of komende spellen; meting en grenzen in "Bereik per maker" hieronder). Run 4 koos op "maakt precies ons soort video" en pakte daardoor kanalen waar zo'n video ±200 weergaven haalt. Mediaan per kanaal: oude ronde 5.000, nieuwe ronde 45.000 (GEZIEN, `data/yt-bereik-2026-11-16.csv`).
 | # | Wie | Ons soort video haalt (mediaan) | Route | Wanneer |
 |---|---|---|---|---|
-| 23 | Easily Distracted Games | 89.000 (2,5x abonnees), lijsten "hidden gems" | bureau | paginadag (±8 dec), nog eens in de festweek |
-| 73 | OKtrix | 37.000, lijsten "upcoming ... you need on your wishlist" | gmail in kanaaltekst (Thijs kopieert) | paginadag |
-| 25 | Fleurs | 18.000, maandlijst "Best new cosy games coming in ..." | kanaaltekst | paginadag (lijst januari) |
-| 22 | Gaming In The Wild | 13.000, Next Fest-keuzes | bureau | paginadag, nog eens in de festweek |
+| 23 | Easily Distracted Games | 89.000 (2,5x abonnees); "16 Upcoming Management Games That Look Incredible" 119.000, "18 Upcoming ..." 243.000 | bureau | paginadag (±8 dec), voor hun volgende "upcoming"-lijst |
+| 73 | OKtrix | 37.000 alle soorten; "Top 25 Upcoming Cozy Games You Need to Wishlist Now" 10.000 | gmail in kanaaltekst (Thijs kopieert) | paginadag |
+| 25 | Fleurs | 18.000; maandlijst "All the COZY games releasing November 2026!" 31.000 | kanaaltekst | begin februari, voor haar lijst van de lanceermaand (alleen spellen die die maand uitkomen) |
+| 22 | Gaming In The Wild | 13.000 (0,8x); "The Indie Game Guide To November" 26.000, Next Fest-keuzes 23.000 tot 34.000 | bureau | paginadag kort, daarna begin februari voor de "Indie Game Guide" van de lanceermaand |
 | 68 | I Dream of Indie Games | 6.950, wekelijkse lijst | eigen domein | paginadag |
 | 69 | Cozy With Toxi | 4.300, "upcoming cozy" | eigen domein | paginadag |
 | 44 | Idle cub | 191.000 (0,9x), half zijn titels idle | YouTube-knop (komt op lijst-thijs bij demo af) | demo af (18 dec) |
 | 10 | Gohjoe | 156.000, roguelites en "controls your PC" | zakelijk gmail in kanaaltekst | demo af |
 | 11 | Dex | 129.000, incrementals | kanaaltekst | demo af |
-| 17 | JGigs | 427.500 (4,9x), "I played 20 idle games ..." | YouTube-knop (komt op lijst-thijs bij demo af, nieuw) | demo af, verwacht pas bij een verzamelvideo |
+| 17 | JGigs | 427.500 (4,9x); alleen "I Played 20 [soort] For 2 Hours Each" van uitgebrachte spellen (Tycoon 252.000, eerder idle 812.820) | YouTube-knop (nieuw) | na de lancering, met een sleutel van het volle spel; vóór die tijd niets |
 | 29 | MaxPalaro | 104.500 (0,04x, 2,82M abonnees, Portugees) | eigen domein | demo af, in het Engels |
 | 28 | 강한오빠 (strongbro) | 4.800 (0,9x), kantoorwerkers, speelde Deskrawl | kanaaltekst | demo af |
 | 71 | Rusty Champaign | 5.900, bijna elke dag een demo | via kanaal | demo af |
 | 20 | Nookrium | 45.000, "best from Next Fest" | via kanaal | festweek (14 jan) |
 | 39 | Dekaff (Dekaif) | 486.000 (2,5x), "unhinged games on Next Fest" | zakelijk adres in kanaaltekst | festweek (14 jan) |
-Eruit gehaald uit de eerste ronde (blijven op de lijst, naar Curator Connect bij demo af, geen eigen mail): The Indie Brew (mediaan 208; de 16.602 was een uitschieter), Maybe Sarisa (566, ook haar bureaubladvideo maar 927), Conkbot (27), NextBigGames (1.400), CozyAriGames (1.500), Kosh Idle (1.600), GriffyBit TV (5.000, streams). Waarom: een mail kost Thijs evenveel tijd bij 200 als bij 90.000 weergaven.
+Titels en timing nagekeken op hun laatste 12 video's (run 13, ±23:50 UTC): Fleurs en Gaming In The Wild maken lijsten van wat in een maand **uitkomt**, JGigs alleen van uitgebrachte spellen; daarom later. Eruit gehaald uit de eerste ronde (blijven op de lijst, naar Curator Connect bij demo af, geen eigen mail): The Indie Brew (mediaan 208; de 16.602 was een uitschieter), Maybe Sarisa (566, ook haar bureaubladvideo maar 927), Conkbot (27), NextBigGames (1.400), CozyAriGames (1.500), Kosh Idle (1.600), GriffyBit TV (5.000, streams). Waarom: een mail kost Thijs evenveel tijd bij 200 als bij 90.000 weergaven.
 Verwachting (GOK): het totaal aan weergaven van video's waarin Hats kan staan gaat omhoog, maar in een lijstvideo zijn we 1 van 15 tot 30 spellen en grote kanalen geven weergaven, geen kopers (Desktop Survivors 98, Fenna verhaal 9). De begroting in `festplan.md` (makers ±10.000 tot 60.000) laat ik staan tot de paginadag echte doorkliks laat zien.
 
 **Correctie run 5 (16 nov ±15:50 UTC): abonneegetallen van 19 kanalen waren fout.** Mijn script `data/yt-kanaal.py` nam het eerste "subscribers" op de pagina, en dat is vaak een ander, uitgelicht kanaal. Nu leest het de kop van het kanaal zelf (GEZIEN: bij Dekaif staat 192K naast zijn eigen zakelijke adres, de 705K hoorde bij een uitgelicht kanaal). Alle 67 kanalen opnieuw gemeten; wat meer dan 10% afweek staat nu in de tabellen als "nieuw (was oud)". Fenna had de goede getallen. Wat dit verandert aan de eerste ronde: **MaxPalaro is 2,82M, niet 22,7K** (blijft erin: zijn kanaaltekst vraagt zelf om sleutels, maar reken op minder kans op antwoord); Nookrium 191K en I Dream of Indie Games 64,3K zijn groter dan gedacht; GriffyBit TV 9,63K kleiner. Olexa (298K), Wanderbots (522K) en JGigs (87,8K) zijn ook groter. Kansen heb ik verder niet aangepast: die hingen aan wat ze maken en of ze actief zijn, niet aan de grootte (Fenna: grote kanalen geven weergaven, geen kopers).

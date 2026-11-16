@@ -10,6 +10,7 @@ Bij `makers.md` en `festplan.md`. Engels, kort. **Niets is verstuurd.** Versture
 5. **Geen druk:** "no strings attached", geen vraag om een review of score, geen betaling. Sleutels of demo zonder voorwaarden.
 6b. **Speelduur eerlijk (run 7):** "Open it for a few minutes a day and your hole grows for weeks." Bron: Sanne 16 nov 17:05, wie het tussendoor speelt doet 7 tot 9 weken over het hol (Bram, GEZIEN in de simulatie). Nooit "100 hours" of een getal dat de simulatie niet geeft.
 6c. **Weg zijn eerlijk (run 8):** "Your hole keeps going while you're away, at a gentler pace, for up to 12 hours." Bron: Sanne 16 nov ±18:00, weg zijn levert een kwart op, met een plafond van 12 uur. Nooit "fully idle", "earns while you sleep" of "runs forever" zonder dat erbij. "Keeps going while you work" mag wel: dan staat de computer aan en loopt het hol op volle snelheid. Alle teksten in dit bestand nagelopen (run 8): geen zin in strijd hiermee.
+6d. **Eerste zin: soort en plek, niet "dungeon" (run 13):** "an idle game that sits on top of your taskbar (while you work)", zoals Z5 in `platformen/steam/teksten-thijs.md`. Waarom: 10 van 13 winnaars noemen "idle" in de eerste zin en 8 van 13 de vorm "sits on [plek]"; "dungeon" bij 0 winnaars (`winkeltekst.md`). Vijf mails en de Curator Connect-tekst hierop aangepast. De inzending voor Insider Gaming (synopsis) heb ik laten staan omdat die al bij Thijs ligt; past hij hem nog aan, dan dezelfde eerste zin.
 6. **Wat ze krijgen moet werken:** link naar de winkelpagina pas als die live is (±8 dec), demo pas als die openbaar is (4 jan, zie festplan).
 
 ## A. Speelt precies ons soort spel (nummers 1 tot 14, 41 tot 46)
@@ -54,6 +55,7 @@ Wanneer: tweede week december (pagina live), en een herinnering op ma 11 jan voo
 > Hi {naam}, quick follow-up: the Hats of the Fallen demo is live now and in the Desktop Companion Fest from Thursday. {link}. Thanks either way!
 
 ## Eerste twee mails, uitgeschreven (run 3; pas versturen als de pagina live is)
+**Run 13: Maybe Sarisa en Conkbot zijn uit de eerste ronde** (mediaan 566 en 27 weergaven, `makers.md` "Bereik per maker"). De mails blijven als tweede lijn: alleen versturen als Thijs tijd over heeft, anders gaan ze via Curator Connect waar dat kan.
 Gekozen omdat ze nu actief zijn én precies onze plank maken (`makers.md`, "Nog actief?").
 
 **Maybe Sarisa (#42), adres op eigen domein (staat in `makers.md`). Wanneer: dag dat de pagina live is.**
@@ -62,7 +64,7 @@ Onderwerp: For your next taskbar games list
 >
 > Your "Cozy Idle Desktop Companion Taskbar Games You've Missed" is exactly the shelf we're building for, so a short note.
 >
-> Hats of the Fallen is an idle dungeon on top of your taskbar. Heroes fall into your traps and Gloop the slime wears their hats; the ones who escape come back with a grudge. Silent, light on CPU, and it keeps going while you work.
+> Hats of the Fallen is an idle game that sits on top of your taskbar while you work. Heroes fall into your traps and Gloop the slime wears their hats; the ones who escape come back with a grudge. Silent, light on CPU, and it keeps going while you work.
 >
 > {GIF}
 > Steam page: {link}
@@ -77,7 +79,7 @@ Onderwerp: For your "coming in January" list
 >
 > I saw "15 Cozy, Creative & Co-op Games Coming in November 2026" and wanted to put one on your radar for January.
 >
-> Hats of the Fallen is an idle dungeon on top of your taskbar: every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
+> Hats of the Fallen is an idle game that sits on top of your taskbar: every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
 >
 > {GIF}
 > Steam page: {link}
@@ -113,7 +115,7 @@ Onderwerp: For a future "new indie games" roundup
 >
 > I watch your weekly "70 NEW Indie Games You Should Grab This Week" lists, so here's one for the pile.
 >
-> Hats of the Fallen is an idle dungeon that sits on top of your taskbar. Every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Silent, light on CPU, made to run while you work.
+> Hats of the Fallen is an idle game that sits on top of your taskbar while you work. Every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Silent, light on CPU, made to run while you work.
 >
 > {GIF}
 > Steam page: {link}
@@ -129,11 +131,56 @@ Onderwerp: A slime for your next upcoming cozy list
 >
 > Saw "20 HUGE Upcoming Cozy Games Worth Waiting For!" and thought this one might fit a future list.
 >
-> Hats of the Fallen is a small idle dungeon on top of your taskbar. Heroes wander in, fall into your traps, and Gloop the slime wears their hats. The ones who escape come back with a grudge. Silent by default.
+> Hats of the Fallen is a small idle game that sits on top of your taskbar. Heroes wander in, fall into your traps, and Gloop the slime wears their hats. The ones who escape come back with a grudge. Silent by default.
 >
 > {GIF}
 > Steam page: {link}
 > Free demo January 4.
+>
+> {afzender}, Dortus
+
+**Easily Distracted Games (#23), bureau (adres staat in `makers.md`). Wanneer: dag dat de pagina live is. (run 13)**
+Onderwerp: For your next upcoming management list
+> Hi,
+>
+> We liked "16 Upcoming Management Games That Look Incredible", so here's a small one for a future list.
+>
+> Hats of the Fallen is an idle game that sits on top of your taskbar while you work. You set the traps, heroes fall in, and every one of them leaves a hat on Gloop the slime's head. The ones who get away come back with a grudge. Open it for a few minutes a day and your hole grows for weeks.
+>
+> {GIF}
+> Steam page: {link}
+> Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
+>
+> Happy to send a key or footage. No strings attached.
+>
+> {afzender}, Dortus
+
+**OKtrix (#73), gmail in de kanaaltekst (Thijs kopieert het daar, niet in de repo). Wanneer: dag dat de pagina live is. (run 13)**
+Onderwerp: For your next upcoming cozy games list
+> Hi,
+>
+> Saw "Top 25 Upcoming Cozy Games You Need to Wishlist Now" and thought this one could fit the next one.
+>
+> Hats of the Fallen is an idle game that sits on top of your taskbar. Every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Silent, and it keeps going while you work.
+>
+> {GIF}
+> Steam page: {link}
+> Free demo January 4.{ Full release in [maand] 2027, alleen als de datum vastligt.}
+>
+> {afzender}, Dortus
+
+(Let op: de lanceerdatum ligt nog niet vast, de hoofdchat bekijkt maart opnieuw (`planning-fest-2027.md`); zonder vaste datum die zin weg. Regel 2.)
+
+**Fleurs (#25) en Gaming In The Wild (#22). Wanneer: begin februari, zodra de lanceerdatum vastligt; beide maken een lijst van wat in een maand uitkomt** ("All the COZY games releasing November 2026!" 31.000; "The Indie Game Guide To November" 26.000). (run 13)
+Onderwerp: For your [maand] releases list
+> Hi {naam},
+>
+> I watched "{titel van hun laatste maandlijst}" and wanted to put one on your radar for [maand]: Hats of the Fallen comes out on [datum].
+>
+> It's an idle game that sits on top of your taskbar while you work. Every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. The demo was in the Desktop Companion Fest in January{, met een echt getal als we dat hebben}.
+>
+> {GIF}
+> Steam page: {link}
 >
 > {afzender}, Dortus
 
@@ -143,7 +190,7 @@ Onderwerp: A slime for your next upcoming cozy list
 
 ## Curator Connect (Steamworks, Thijs)
 Korte tekst bij een sleutel via Curator Connect (veld is kort, GOK ±300 tekens; nakijken in Steamworks):
-> Every hero who falls into Gloop's dungeon leaves a hat on his head; the ones who get away come back with a grudge. A silent idle dungeon on top of your taskbar. Free demo in the Desktop Companion Fest, Jan 14 to 18.
+> Every hero who falls into Gloop's dungeon leaves a hat on his head; the ones who get away come back with a grudge. A silent idle game on top of your taskbar. Free demo in the Desktop Companion Fest, Jan 14 to 18.
 
 ## Showcase: Insider Gaming "New Year, New Games 2027" (inzenden vóór wo 25 nov)
 **Gevonden run 3 (GEZIEN 16 nov met curl):** https://insider-gaming.com/new-year-new-games-2027-showcase/ en het formulier https://forms.gle/4isLK4gz6rC18Tg57.
