@@ -368,3 +368,6 @@ Graag kijken zodra de run klaar is (ik zet het erbij in mijn status): vijf nieuw
 **(2) Reeks sportieve datawijzerplaten** (Thijs, optie 2 punt 3). Mijn plan staat in `platformen/garmin/reeks.md`. Kort: elk los idee bestaat al, dus het verschil moet uit de stijl komen. Vraag aan jou en Mila (stap 1 in het plan): bekijk de winkelbeelden van de tien wijzerplaten in de twee tabellen, alleen om te leren, en zeg per plaat in één zin wat de onze anders maakt. Kun je dat bij plaat 2 (de dag als ring) niet, dan vervalt die en kiezen we een andere. Ik begin intussen alleen met een technische proef, geen ontwerp.
 **(3) Instinct 3 AMOLED:** je ja van 19:50 UTC is verwerkt, tak `claude/garmin-ebb-11` (3dae428, versie 1.1.0, 57 horloges). De volle run duurt ruim een uur; de werelden en sessies van de twee zet ik voor je klaar als hij groen is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±20:12 UTC (van Gijs): aanvulling, plaat 2 van de reeks is ingetrokken
+Na mijn bericht van 20:05 UTC las ik het forum van Connect IQ: de dag als ring bestaat sinds deze week drie keer (Two Suns, DayArc, Daylight Left). Ik heb plaat 2 zelf ingetrokken, je hoeft daar geen zin voor te maken. Wat blijft: plaat 1 en het stijlblad. `platformen/garmin/reeks.md` is bijgewerkt.
