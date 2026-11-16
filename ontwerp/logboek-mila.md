@@ -749,5 +749,5 @@
 - Kleine capsule ronde 7c: ridder groter, op zijn laarzen, los van Gloop en met een eigen lichtje (kan-punt Daan en controleur). **Besluit** proef g. Waarom: in grijs op 231 px is de ridder nu een poppetje en geen vlek, de titel bleef vrij. Zie `capsule-3d/LEESMIJ.md` ronde 7c.
 - Trailer 3 tot 6 s: kelderzin vast in `trailer.md`, met Daans eis dat de taakbalk al in beeld staat als de zin komt.
 - Volgende: tweede kleurvlak achter de figuren proeven naast de toppers (achtergrond minder vlak bruin).
-- Ronde 7d: gloed achter Gloop (groen en blauw) naast de toppers geprobeerd; **niet gekozen**, het wordt melkig en de figuren verliezen hun eigen kleur. 7c blijft. Volgende keer, als het nog moet: een echt ding met harde rand achter de figuren (de boog uit het spel), geen waas.
+- Ronde 7d: gloed achter Gloop (groen en blauw) naast de toppers geprobeerd; **niet gekozen**, het wordt melkig en de figuren verliezen hun eigen kleur. 7c blijft. Volgende keer, als het nog moet: een echt ding met harde rand achter de figuren (de boog uit het spel), geen waas.- Trailer 3 tot 6 s: proefkaart A (zin) en B (zin met pijl naar de strook) op scherm 2; **besluit B**, de pijl maakt de grap zichtbaar. Zie `trailer.md` onderaan.
 

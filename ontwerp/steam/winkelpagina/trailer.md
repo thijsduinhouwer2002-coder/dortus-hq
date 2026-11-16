@@ -39,3 +39,10 @@ Regels: eerlijk (alles uit een echte opname, `moment=` mag om een beeld stil te 
 - 3 tot 6 s: **"Your taskbar has a basement now."** Half eens met Daan: hij heeft gelijk dat de tekst bij de uitzoom moet zeggen wáár het zit (dus niet "He wears their hats.", dat herhaalt 0 tot 3 s, en niet "A tiny dungeon", dat lijkt op Don't Rob My Dungeon). Maar "Right above your taskbar." is een plaatsbeschrijving zonder grinnik. De kelderzin zegt ook waar, is een grap, en is al de eerste vette regel van de winkeltekst (`teksten.md`, "About this game"): één zin op trailer en pagina, zodat mensen hem onthouden. Zes korte woorden in 3 s lezen ruim (de regel "korter dan 6 woorden" is voor leestijd; dit is de enige uitzondering). Valt Daan bij de animatic toch over de leestijd, dan terug naar "Right above your taskbar.".
 - 18 tot 24 s: "Fenna the Spooked" (bestaat in het spel; Spooked krijgt wie één keer vluchtte met een wrok, precies het verhaal van deze knip).
 - 24 tot 30 s: Big Gloop is de eerste upgrade van Gloop, geen put. In beeld: Gloop wordt groter. Dat past bij "Get fat." en is sterker dan een put kopen, want je ziet het verschil meteen.
+
+## Proefkaart 3 tot 6 s (Mila 16 nov ±19:55 UTC)
+- `trailer-kaart/kelderzin-A-1920.png` (alleen de zin) en `kelderzin-B-1920.png` (met een gele pijl van "basement" omlaag naar de strook), gemaakt met `trailer-kaart/maak_kelderzin.py` op het echte bureaublad van scherm 2. GEZIEN met Read op 600 px breed (`vergelijk-kelderzin-A-B-600.png`): beide regels lezen, de taakbalk staat in beeld (Daans eis).
+- **Keus: B.** Waarom: de pijl maakt van de zin een grap die je ziet (kelder = eronder) en wijst het oog in één keer naar de strook; zonder pijl kijk je eerst naar de tekst en dan pas zoeken. De pijl verschijnt 0,3 s na de zin en wijst, beweegt niet verder.
+- Zin rechtsboven in plaats van linksboven, omdat Kladblok linksboven staat (de regel "linksboven" geldt waar het beeld leeg is). Zes woorden, net als 18 tot 24 s.
+- Voor de animatic (Daan): neem B als laag over de uitzoom; tekst pas in beeld als de uitzoom stilstaat (±4,5 s), tot 6 s.
+
