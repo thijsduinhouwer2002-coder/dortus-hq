@@ -28,6 +28,9 @@ sim.SPEL_ECONOMIE, sim.SOORTEN = True, True
 plain = [sim.speel(100, z, orig) for z in range(1, 9)]
 sim.SPEL_ECONOMIE, sim.SOORTEN = False, False
 doel = {sp["naam"]: {n: (t / 3600 if t else None) for n, t in sim.niveau_tijden(plain, sp["naam"]).items()} for sp in orig["sporen"]}
+REK = float(os.environ.get("REK", "1"))
+if REK != 1:
+    doel = {k: {n: (10.6 + (t - 10.6) * REK if (t and t > 10.6) else t) for n, t in d.items()} for k, d in doel.items()}
 spec = sim.lagen_spec(orig, luik, upg, False, factor, gloop_oud=False, dingen=dingen)
 spec["oud_goud"] = float(os.environ.get("OUD_GOUD", "1"))
 if os.environ.get("HOOG"): spec["laag_factor_hoog"] = [float(x) for x in os.environ["HOOG"].split(",")]

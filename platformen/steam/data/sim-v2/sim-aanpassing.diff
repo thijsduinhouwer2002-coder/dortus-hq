@@ -2,3 +2,11 @@
 <                           * laag_factor[min(len(laag_info), len(laag_factor)) - 1]))
 ---
 >                           * (laag_factor if upg[s] < 3 else sp_.get("laag_factor_hoog", laag_factor))[min(len(laag_info), len(laag_factor)) - 1]))
+638c638
+< def lagen_run(spec, zaden=8, uren=100):
+---
+> def lagen_run(spec, zaden=8, uren=int(__import__("os").environ.get("UREN", "100"))):
+707c707
+<     blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100)]
+---
+>     blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100), (100, 130), (130, 165)]

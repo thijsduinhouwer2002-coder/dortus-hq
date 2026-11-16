@@ -1,36 +1,57 @@
 # Hats of the Fallen: voortgang voor ±100 uur (Sanne, game-ontwerper)
 
 Versie 2, 16 nov 2026 ±13:55 UTC (versie 1 ±13:30). Versie 2 verwerkt Brams narekening met lagen (`producten/steam-hol/sim/LAGEN.md`), Iris' keuring 1 (`keuring/2026-11-16-13.md`) en Olafs bouwfeiten van 13:38. Opdracht hoofdchat 16 nov 13:10 (Thijs 13:01: "een diepgaand spel ... level ups enzo om een reden te hebben om te spelen"). Eerste versie gevraagd wo 18 nov 12:00.
-Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (GEZIEN, 8 zaden).
+Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (versie 1, GEZIEN, 8 zaden); versie 2 en het voorstel voor versie 3 in `data/sim-v2/` (GEZIEN, 8 zaden).
 Status: **ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
 
 ## In het kort
 1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: iets kleins elke paar minuten, iets middelgroots elk uur of elke paar uur, en iets groots): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
 2. **De lange termijn is dieper graven, geen reset.** Op hol-niveau 20, 30 en 40 graaf je een trap naar een nieuwe laag (Kristalader, Verzonken Crypte, Gloophart) met eigen helden, bewoner en val. De nieuwe laag begint leeg, dus je hebt opnieuw de leukste fase (bouwen), maar **er gaat niets weg**: de lagen erboven draaien door en hun goud stroomt mee. Dat is Olafs "opnieuw beginnen met winst" zonder de klacht over rebirth (26 negatieve reviews bij Desktop Defender, Fenna).
-3. **Sim met lagen (Bram, GEZIEN, 8 zaden, drempels geijkt):** hol-niveau 9 na 57 min, 12 na 2,0 u (einde demo), 20 na 10,6 u, 30 na 29,8 u, 40 na 57,7 u, 50 na 95,5 u. Langste gat zonder iets nieuws (niveaus en aankopen samen): tot 20 uur 1,0 u, 20 tot 40 uur 1,6 u, 40 tot 70 uur 2,3 u, 70 tot 100 uur nog 5,7 u (daar komt in versie 2 de aankleding bij, zie "Goud"). Na niveau 50 houdt het op.
+3. **Sim met lagen (Bram, GEZIEN, 8 zaden, drempels geijkt):** hol-niveau 9 na 57 min, 12 na 2,0 u (einde demo), 20 na 10,6 u, 30 na 29,8 u, 40 na 57,7 u, 50 na 95,5 u. Langste gat zonder iets nieuws (niveaus en aankopen samen), run versie 2 met de aankleding erbij: tot 20 uur 56 min, 20 tot 40 uur 1,0 u, 40 tot 70 uur 1,5 u, 70 tot 100 uur nog 5,7 u. Na niveau 50 houdt het op.
 4. **Versie 2 in vijf keuzes:** (a) Brams prijzen en drempels over; (b) weg zijn levert alles op halve snelheid, ook faam, plafond 12 uur; (c) 15 niveaus geven iets met een prijs en na laag 2 komt aankleding voor goud in de lege bovenste aarde, zodat goud altijd een doel heeft; (d) twee doelen in beeld: het bordje toont het volgende hol-niveau, de kopregel het volgende goud-doel; (e) een tabel in echte dagen. Details in "Versie 2: keuzes".
 5. **Demo = hol-niveau 1 tot 12 in ±2 uur**, bijna helemaal met wat al gebouwd is (ridder, dief, magiër, bard, vleermuis, hoedenwand, vaandel komen nu één voor één in plaats van allemaal tegelijk), plus de twee nieuwe dingen die Olaf noemde (één val, één held). Daarna een grijze kaart: "Level 13 and 37 more in the full game".
 
 ## Waarom zo (wat de cijfers zeggen)
-- **De helft is weg rond 15 uur, 1 op 6 haalt 100 uur** (meetlat Desktop Defender en Rusty's, GEZIEN via Fenna). Dus het duurste en mooiste (nieuwe helden, bewoners, de eerste nieuwe laag) zit vóór 20 uur, en tot 40 uur komt er ongeveer elke anderhalf uur iets (Fenna adviseert elk uur; dat halen we nog niet, zie "Wat nog niet klopt").
+- **De helft is weg rond 15 uur, 1 op 6 haalt 100 uur** (meetlat Desktop Defender en Rusty's, GEZIEN via Fenna). Dus het duurste en mooiste (nieuwe helden, bewoners, de eerste nieuwe laag) zit vóór 20 uur, en tot 40 uur komt er minstens elk uur iets (run versie 2: langste gat 1,0 u; Fenna adviseert elk uur).
 - **Levels zonder nieuws zijn grind** (Spirit City na level 15). Daarom heeft elk hol-niveau een ding met een naam dat je in de strook ziet, en houdt het op bij 50. Geen niveau 51 tot 999 met alleen een getal.
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
+
+## Voorstel versie 3 (16 nov ±14:15 UTC): een paar weken leuk
+**De lat van Thijs** (14:53, via de hoofdchat): "dit spel moet wel gewoon een paar weken leuk zijn." Rekenvoorbeeld: elke werkdag ±6 uur open, en in **week 3** nog een nieuw doel en iets nieuws.
+**Versie 2 haalt dat niet.** Met weg op halve snelheid telt elke nacht als 6 uur open, een werkweek dus als ±60 uur; dan sta je eind week 1 op hol 40 en is het hol halverwege week 2 af (95 u). Week 3 is leeg.
+**Wat ik nu kies (versie 3, richting staat, getallen fijnstellen door Bram):**
+1. **Weg = kwart snelheid** (factor 0,25 voor goud, hoeden en faam; plafond 12 uur blijft). Voor de speler: "While you're away, your hole works at a quarter speed." Waarom: (a) een nacht telt dan als 3 uur in plaats van 6, en (b) het lost ook Iris punt 1 op voor de speeltest van za 21 nov: 8 uur weg geeft in de build van nu ±740 goud in plaats van 2952, minder dan de winkel van 1048. Het blijft winst en geen straf (T3). Dit vervangt keuze b hieronder (0,5).
+2. **Na hol-niveau 20 komt alles 1,4 keer zo ver uit elkaar**, en de prijzen per laag gaan mee omhoog, zodat het goud niet weer gaat stapelen: graven en stap 1 tot 3 per laag x **1 / 1,5 / 3,5 / 5,5**, stap 4 tot 6 per laag x **1 / 1,3 / 2 / 2,6**, luik **500 / 1100 / 2000**, de dingen met prijs per laag ±450 / 1000 / 1800 / 2800 goud, kamertjes 1,25 keer dat. Alleen 1,4 keer uitrekken zonder hogere prijzen werkt niet: dan staat er bij laag 4 ±19.500 goud op de bank en is laag 4 in nul minuten gebouwd (GEZIEN in een proefrun).
+**Uitkomst (GEZIEN, 8 zaden, `data/sim-v2/voortgang-v3-voorstel-uitkomst.txt`; zelfde sim als versie 2 met `REK=1.4`, open tijd):** hol 20 op 10,6 u (gelijk), 30 op 37,5 u, 40 op 75,7 u, **50 op 127,8 u**; Gloop 10 op 66,4 u. Langste gat: 20 tot 40 u 1,6 u, 40 tot 70 u 2,1 u, 70 tot 100 u 2,2 u, 100 tot 130 u 2,8 u (beter dan versie 2 na 70 uur). Bank tot 99 u hooguit ±1.700. Bouwtijd laag 2 / 3 / 4: 7,5 / 14,4 / 17,1 u, dus het bouwen in een nieuwe laag duurt weer lang, en dat is de leukste fase. **Wat nog niet goed is:** de dingen met prijs in laag 4 kosten ±2,8 uur sparen en stap 6 in laag 4 ±3,4 uur; Fenna's regel is ±1 tot 2. Bram stelt dat fijn (lagere prijs per ding, maar dan meer dingen of kamertjes in laag 4).
+
+**Werkweek-rij** (Thijs' voorbeeld: elke werkdag 6 uur open, 's nachts en in het weekend dicht; een nacht of weekend weg telt met het plafond als 12 uur x de factor; GOK, de sim koopt alles meteen):
+| Moment | Uren (open + weg) | Versie 2 (weg 0,5) | **Versie 3 (weg 0,25)** | Wat er in versie 3 rond dit moment nieuw is | Goud van één nacht weg (versie 3, GOK: 3 x goud per uur van dat moment) |
+|---|---|---|---|---|---|
+| dag 1 | 6 | hol 16 | hol 16 | ridder tot slaapkamer, Grote Gloop | ±1.200 (laag 1 kost samen ±5.550) |
+| dag 3 | 24 tot 30 | hol 25 | hol 25 | laag 2 open en bouwen, mijnwerker, mimic | ±1.800 |
+| week 1 | 45 tot 60 | hol 40 | hol 32 | laag 3 (Verzonken Crypte) open, trol | ±2.200 |
+| week 2 | 90 tot 120 | **hol 50, af** | hol 43 | laag 4 (Gloophart) open, Moeder Gloop, Gloop 10 | ±3.600 |
+| week 3 | 135 | af, niets nieuws | **hol 44 tot 50**: hoedenpakket 5, mimic van goud, vleermuisfamilie, trol met leesbril, de Gekroonde, hoedentroon, Hol van de Hoedenkoning; laag 4 af bouwen | volgende doel staat elke dag in het bordje | ±3.700 |
+| week 4 | 180 | af | af | geen nieuw niveau; wel aartsvijanden en hun kinderen, kamertjes die je nog niet kocht, de stempel bij 10.000 hoeden | bank loopt op |
+Uren bij versie 2 en 3 verschillen omdat een nacht bij 0,25 als 3 uur telt en bij 0,5 als 6 uur. Wie het spel ook 's nachts laat draaien, is ±1,5 keer zo snel; wie het minder open heeft, langer bezig.
+**Toets T1 tot T4:** geen timers, geen plicht, weg levert altijd iets op (T3), niets te koop (T4). Langste gat tot 100 uur 2,2 uur. Eerlijk: wie het spel dag en nacht laat draaien, is na ±5 dagen klaar (128 / 24).
+**Wat de anderen nu moeten weten:** Olaf: factor 0,25 in plaats van 0,5 (het bericht van 13:55 is hiermee bijgesteld). Bram: zie "Vragen". De tabellen hieronder (versie 2) laat ik staan tot Bram versie 3 heeft nagerekend; daarna zet ik ze om.
 
 ## Versie 2: keuzes (16 nov ±13:55 UTC)
 
 ### a. Brams prijzen en drempels: over, met één aanpassing
 - **Upgrades stap 4, 5, 6: 600 / 1000 / 1600** (was 988 / 2766 / 7745; liep weg van het inkomen, Fenna patroon 1).
 - **Graven en upgrade stap 1 tot 3 kosten per laag x 1 / 1,2 / 2,2 / 3,2** (Bram). **Stap 4 tot 6 per laag x 1 / 1,2 / 1,5 / 1,8** (mijn aanpassing): met Brams factor kost stap 6 in laag 4 ±4 uur sparen; zo wordt dat ±2,3 uur (GOK uit Brams goud per uur: laag 3 stap 6 = 2400 / 1000 per uur = 2,4 u, laag 4 stap 6 = 2880 / 1260 = 2,3 u). Laatste stap van een laag mag iets meer kosten, maar niet vier uur. **Nagerekend (GEZIEN, 8 zaden, `data/sim-v2/`):** stap 6 in laag 4 = 2880 goud bij 1237 per uur = 2,3 u sparen; stap 4 en 5 in laag 3 en 4 tussen 0,9 en 1,5 u.
-- **Drempels hol-niveau na 20 hoger** (geijkt: 30 op ±2.900, 40 op ±8.300, 50 op ±18.600 gevangen helden). Alle helden blijven tellen, ook die van oude lagen; het bordje toont gewoon een groter getal. Eerlijk en simpel.
-- **Gloops toren telt alleen de hoeden die hij zelf at.** Gloopje (de oppas van een oude laag) legt zijn hoeden op de berg. Gloop 10 komt dan op ±65 u in plaats van ±31 u.
+- **Drempels hol-niveau na 20 hoger** (geijkt door Bram: 30 op ±2.900, 40 op ±8.300, 50 op ±18.600 gevangen helden; in de run van versie 2 opnieuw geijkt op 2.722 / 7.977 / 17.975. De uren in de tabellen zijn Brams run; die van versie 2 wijkt tot 0,3 u af). Alle helden blijven tellen, ook die van oude lagen; het bordje toont gewoon een groter getal. Eerlijk en simpel.
+- **Gloops toren telt alleen de hoeden die hij zelf at.** Gloopje (de oppas van een oude laag) legt zijn hoeden op de berg. Gloop 10 komt dan op ±69 u (run versie 2) in plaats van ±31 u.
 - **Luik 500 / 750 / 1000 goud** (= ±1 uur goud van dat moment).
 
 ### b. Weg zijn: alles op halve snelheid, ook faam (antwoord op Iris punt 2 en Olaf punt 2)
 Regel, voor de speler in één zin: **"While you're away, your hole works at half speed."** Als het spel dicht is, levert de tijd weg goud, hoeden en faam op de helft van het tempo van je laatste uur, met het plafond van 12 uur dat er al is. Een laag die je niet ziet maar die wel open staat, geeft de helft van zijn goud en al zijn faam (Gloopje vangt alles, maar steekt de helft van het goud in zijn eigen zak; dat is de grap in de kroniek).
 Waarom zo:
 - **Wel faam:** 391 gevangen helden zonder faam voelt als diefstal ("waarom telden die niet?"). Iris heeft gelijk dat het een keuze moet zijn.
-- **De helft, niet alles:** met alles telt elke nacht als 12 uur spelen, en dan is het hol voor wie elke avond afsluit op dag 7 af in plaats van dag 12 (GOK, avondspeler met 3 uur open per dag). Met de helft blijft de tabel in open tijd dicht bij de waarheid voor iedereen.
+- **De helft, niet alles:** met alles telt elke nacht als 12 uur spelen, en dan is het hol voor wie elke avond afsluit op dag 8 af in plaats van dag 12 (GOK, avondspeler met 3 uur open per dag). Met de helft blijft de tabel in open tijd dicht bij de waarheid voor iedereen.
 - **Geen straf (T3):** weg zijn levert altijd winst op en je mist niets. Het is alleen minder dan kijken, en dat is eerlijk: als je kijkt, koop je ook.
 - **Een plafond voor faam** zit er vanzelf in (Olaf: zelfde 12 uur).
 - **Bouw (Olaf, klein):** factor 0,5 op goud, hoeden en faam in `systemen/voortgang.gd`; het "weg geweest"-bericht zegt het gewoon: "While you were away: 303 came, 196 fell. +1476 gold, +196 fame (your hole works at half speed)."
@@ -38,9 +59,9 @@ Waarom zo:
 ### c. Goud heeft altijd een doel (antwoord op Iris punt 1 en Brams open punt)
 Iris rekende goed: in de build van nu is de hele winkel 1048 goud en een nacht weg geeft 2952. Dat lossen drie dingen samen op:
 1. **Halve snelheid weg** (b): een nacht wordt ±1.500 goud in de build van nu.
-2. **Veel meer om voor te sparen, en het groeit mee:** in versie 1 kost laag 1 alleen al samen ±4.300 goud (graven gang 6 tot 39 ±2.260 met Brams prijzen per gang 16 / 49 / 108, upgrades stap 1 tot 3 1.048, twee nieuwe dingen ±900), en daarna gaan stap 4 tot 6 (2 x 3.200) pas open op hol-niveau 13, 25 en 34. Een nacht weg na de eerste avond (hol ±12, ±335 goud per uur, dus ±2.000 goud) koopt een deel van wat open staat, niet alles, en het volgende doel komt van faam, niet van goud. Elke nieuwe laag kost meer (factor per laag), maar nooit meer dan ±1 tot 2,5 uur sparen.
+2. **Veel meer om voor te sparen, en het groeit mee:** in versie 2 kost laag 1 alleen al samen ±5.550 goud (graven gang 6 tot 39 ±2.260 met Brams prijzen per gang 16 / 49 / 108, upgrades stap 1 tot 3 1.048, vijf dingen met prijs op niveau 6, 7, 14, 16, 17 ±2.250), en daarna gaan stap 4 tot 6 (2 x 3.200) pas open op hol-niveau 13, 25 en 34. Een nacht weg na de eerste avond (hol ±12, ±335 goud per uur, dus ±2.000 goud) koopt een deel van wat open staat, niet alles, en het volgende doel komt van faam, niet van goud. Elke nieuwe laag kost meer (factor per laag), maar in de run meestal 1 tot 2,5 uur sparen (stap 6 in laag 3 werd in de run niet altijd gekocht, dus daar is het een GOK).
 3. **15 niveaus geven iets met een prijs van ±1 uur goud** (Brams GOK, ik neem hem over): hol-niveau 6, 7, 14, 16, 17, 22, 23, 24, 29, 32, 33, 38, 42, 43 en 45 (een kamer, val of bewoner; gemarkeerd "te koop" in de tabel hieronder). Het niveau maakt het ding zichtbaar met een grijze kaart en een prijs; kopen doe je zelf wanneer je wilt.
-4. **Nieuw: aankleding voor goud in de bovenste aarde** (nagerekend in `data/sim-v2/`: met dit en punt 3 gaat de bank bij 99 uur van ±17.600 naar ±13.700 en het langste gat tussen 40 en 70 uur van 2,3 naar 1,5 uur) (antwoord op Brams gat na 70 uur, en ook op Iris' "de bovenste helft is lege aarde"). Vanaf laag 2 kun je per laag **5 holkamertjes** uitgraven in de aarde boven de gang en inrichten: bijvoorbeeld in laag 1 een hoedenkast, een schilderij van je eerste aartsvijand, een fontein met slijm; in de Crypte een orgel; in het Gloophart een slijmbad. **20 stuks**, alleen uiterlijk plus een klein grapje (de fontein spuit soms een hoed), prijs ±1 tot 1,5 uur goud van dat moment, de 5 van laag 4 tussen ±70 en ±100 uur. Zo vult de strook zich met wat jij kocht, zoals bij Rusty's, en is er tot het einde iets om voor te sparen. Verdiend met goud, nooit te koop voor geld (T4); de DLC-holthema's blijven los (die veranderen het hele hol).
+4. **Nieuw: aankleding voor goud in de bovenste aarde** (nagerekend in `data/sim-v2/`: met dit en punt 3 gaat de bank bij 99 uur van ±17.600 naar ±13.700 en het langste gat tussen 40 en 70 uur van 2,3 naar 1,5 uur) (antwoord op Brams gat na 70 uur, en ook op Iris' "de bovenste helft is lege aarde"). Zodra je laag 2 opent, kun je in elke laag (ook laag 1) **5 holkamertjes** uitgraven in de aarde boven de gang en inrichten: bijvoorbeeld in laag 1 een hoedenkast, een schilderij van je eerste aartsvijand, een fontein met slijm; in de Crypte een orgel; in het Gloophart een slijmbad. **20 stuks**, alleen uiterlijk plus een klein grapje (de fontein spuit soms een hoed), prijs ±1 tot 1,5 uur goud van dat moment. Let op: de sim narekende een andere verdeling (de kamertjes aan hol-niveaus gehangen: 0 / 5 / 7 / 8 per laag, die van laag 4 vanaf ±57 u, zie `data/sim-v2/LEESMIJ.md`); Bram zet ze per laag in de sim. Zo vult de strook zich met wat jij kocht, zoals bij Rusty's, en is er tot het einde iets om voor te sparen. Verdiend met goud, nooit te koop voor geld (T4); de DLC-holthema's blijven los (die veranderen het hele hol).
    - **Kost:** 20 kleine tekeningen (Mila en Daan) en een plekje in de aarde per kamer. Kan in delen: de 5 van laag 1 eerst. Past het niet voor maart, dan eerst laag 1 en 2 (10 stuks) en de rest in de gratis update.
    - **Na niveau 50 en alle aankleding** is er niets meer te kopen; dan loopt de bank op. Dat is eerlijk: het hol is af. Je kunt nog helden en aartsvijanden kijken en de stempel bij 10.000 hoeden halen.
 
@@ -123,14 +144,14 @@ Dit is onze haak, dus Gloop krijgt het rijkste spoor. Hij stijgt op de hoeden op
 | 5 | 100 | Grote Gloop, toren van 5 hoeden | 3,8 u |
 | 6 | 200 | hoedendans: jongleert met een hoed als het stil is | 6,9 u |
 | 7 | 300 | Gloopje splitst af (kleine tweede slijm, wordt de oppas van een oude laag) | 9,0 u |
-| 8 | 600 | hoedenworp: gooit een hoed van de berg naar een vluchter | 16,9 u |
-| 9 | 1000 | Gloop the Hatted, kroon op de berg | 24,9 u |
-| 10 | 3000 | Gloop de Hoedenkoning, gouden slijm | 64,6 u |
+| 8 | 600 | hoedenworp: gooit een hoed van de berg naar een vluchter | 16,1 u |
+| 9 | 1000 | Gloop the Hatted, kroon op de berg | 25,5 u |
+| 10 | 3000 | Gloop de Hoedenkoning, gouden slijm | 68,8 u |
 Verlies je een gevecht, dan blijft alles staan (plat, "Back in a minute", T3). Gloop verhuist mee naar elke nieuwe laag, met zijn toren en berg; Gloopje past op de laag die je verlaat.
 
 ## Spoor 3: de andere bewoners (elk 3 niveaus)
 Ze stijgen op hun eigen teller (skelet: helden die hij bang maakte; mimic: helden die hem probeerden te openen; trol: aartsvijanden; Moeder Gloop: slijmpjes die ze opvoedde). Elk niveau een nieuwe streek, klein getekend (een animatie, geen nieuw figuur).
-| Bewoner | Niv. 2 | Niv. 3 | Niv. 4 | Sim (GOK, zie onder) |
+| Bewoner | Niv. 2 | Niv. 3 | Niv. 4 | Sim (GOK: drempel op gevangen helden) |
 |---|---|---|---|---|
 | skelet | rammelt helden bang | gooit zijn hoofd | draagt een hoed van de berg | 8 / 18,6 / 41,7 u |
 | mimic | likt zijn lippen | legt een valse munt neer | twee rijen tanden | 16,8 / 26,5 / 49,6 u |
@@ -144,7 +165,7 @@ Per laag drie doelen met een hint in het Heldenboek, bijvoorbeeld "Catch a Miner
 - **Openen:** op hol-niveau 20, 30 en 40 verschijnt in de schatkamer een luik. Het luik kost 500, 750 en 1000 goud (±1 uur goud van dat moment, Bram GEZIEN). Graven en upgrades in de nieuwe laag kosten meer per laag (zie Versie 2, a). Je kiest zelf wanneer; wachten kost niets.
 - **De strook toont één laag tegelijk.** Een klein trapje links in de strook wisselt van laag (één klik, gratis, altijd terug).
 - **De nieuwe laag begint leeg:** ingang, Gloop en een kale gang. Je graaft en richt opnieuw in. Dat is de winst van "opnieuw beginnen": de leukste uren komen terug, met nieuwe helden die alleen hier komen.
-- **De oude laag draait door,** met Gloopje als oppas. Om zuinig te blijven rekent het spel een laag die je niet ziet niet held voor held door, maar geeft het de faam van het laatste uur dat je er keek en **de helft van het goud** (zelfde aanpak als het "weg geweest"-bericht, `voortgang.gd`). Gloopjes hoeden gaan naar de berg, niet naar Gloops toren. Bouwtijd per laag (Bram, GEZIEN): laag 1 8,2 u, laag 2 6,1 u, laag 3 6,9 u, laag 4 7,0 u. Zo is elke laag weer ±6 tot 7 uur bouwen, in plaats van steeds korter (met al het goud werd laag 4 één uur).
+- **De oude laag draait door,** met Gloopje als oppas. Om zuinig te blijven rekent het spel een laag die je niet ziet niet held voor held door, maar geeft het de faam van het laatste uur dat je er keek en **de helft van het goud** (zelfde aanpak als het "weg geweest"-bericht, `voortgang.gd`). Gloopjes hoeden gaan naar de berg, niet naar Gloops toren. Bouwtijd per laag (run versie 2, GEZIEN, `data/sim-v2/voortgang-v2-uitkomst.txt`): laag 1 8,2 u, laag 2 6,4 u, laag 3 8,3 u, laag 4 10,2 u. Zo is elke laag weer 6 tot 10 uur bouwen, in plaats van steeds korter (met al het goud werd laag 4 één uur, Bram). Is het spel dicht, dan krijgt een laag die je niet ziet de helft van de weg-snelheid (dus 0,5 x de weg-factor).
 - **Lagen verbinden:** het valluik (niveau 23) laat een held uit laag 1 in laag 2 vallen. De kroniek vertelt het ("Odo fell two floors. He is not happy.").
 - **DLC blijft los** (T4): holthema's zijn uiterlijk voor elke laag; een DLC voegt nooit een laag toe die je voor het hol-niveau nodig hebt. Het basisspel is 100% vol te krijgen.
 
@@ -157,9 +178,9 @@ Tijden uit Brams sim met lagen en geijkte drempels (GEZIEN, `producten/steam-hol
 | 2 | ±78% | hol 12, Gloop 3, 6 van 11 heldensoorten | bard, hoedenwand, edelman | grijze kaart "Level 13: upgrades tier 4" (2,8 u) en Gloop 4 (2,4 u); in de demo "and 37 more in the full game" |
 | 5 | 66% | hol 15, Gloop 5 (Grote Gloop), skelet | slaapkop | slaapkamer (5,4 u), eerste laagster, hoedendans (6,9 u) |
 | 10 | 57% | hol 19, Gloop 7 (Gloopje), 3 laagsterren | Gloopje, laag 1 bijna af | **trap naar de Kristalader op niveau 20 (10,6 u)**, luik 500 goud |
-| 20 | 46% | hol 25, Gloop 8, laag 2 af (18,2 u) | upgrades stap 5, eerste aankleding te koop | kinderen van aartsvijanden (21 u), Gloops kroon (24,9 u) |
-| 40 | ±30 tot 35% | hol 33 (34 op 40,1 u), laag 3 af (36,6 u), trol, 7 laagsterren | nep-schat, laatste upgradestap | heks (45,9 u), trap naar het Gloophart op niveau 40 (57,7 u) |
-| 70 | ±24% | hol 43, laag 4 af (64,3 u), Moeder Gloop, Gloop 10 (64,6 u) | hoedenpakket 5 (71 u) | mimic van goud (75 u), aankleding van het Gloophart, de Gekroonde (86,5 u) |
+| 20 | 46% | hol 25, Gloop 8, laag 2 bijna af (20,4 u) | upgrades stap 5, eerste aankleding te koop | kinderen van aartsvijanden (21 u), Gloops kroon (25,5 u) |
+| 40 | ±30 tot 35% | hol 33 (34 op 40,1 u), laag 3 af (38,5 u), trol, 7 laagsterren | nep-schat, laatste upgradestap | heks (45,9 u), trap naar het Gloophart op niveau 40 (57,7 u) |
+| 70 | ±24% | hol 43, laag 4 bijna af (68,6 u), Moeder Gloop, Gloop 10 (68,8 u) | hoedenpakket 5 (71 u) | mimic van goud (75 u), aankleding van het Gloophart, de Gekroonde (86,5 u) |
 | 100 | 17% | hol 50 (95,5 u), alle sporen af | Hol van de Hoedenkoning | geen nieuw niveau meer; wel aartsvijanden en hun kinderen, en de stempel bij 10.000 hoeden (GOK ±200 u) |
 
 **In echte dagen** (GOK, zelf gerekend met de regel "weg = halve snelheid, plafond 12 uur", zie "Weg zijn"; een nacht dicht telt dan als 6 uur open). Dag waarop je het punt haalt:
@@ -169,8 +190,8 @@ Tijden uit Brams sim met lagen en geijkte drempels (GEZIEN, `producten/steam-hol
 | hol 15 (5 u) | dag 1 | dag 2 | dag 2 | dag 1 |
 | trap naar laag 2 (10,6 u) | dag 2 | dag 2 | dag 3 | dag 1 |
 | hol 25 (19 u) | dag 2 | dag 3 | dag 4 | dag 1 |
-| trap naar laag 3 (29,8 u) | dag 3 | dag 4 | dag 5 | dag 2 |
-| trap naar laag 4 (57,7 u) | dag 5 | dag 7 | dag 10 | dag 3 |
+| trap naar laag 3 (29,8 u) | dag 3 | dag 4 | dag 6 | dag 2 |
+| trap naar laag 4 (57,7 u) | dag 5 | dag 8 | dag 10 | dag 3 |
 | hol 50 (95,5 u) | dag 8 | dag 12 | dag 16 | dag 4 |
 Kanttekening: de sim koopt alles meteen. Wie het spel open laat zonder te klikken koopt niets, dus vangt niet meer en gaat langzamer; en een nacht dicht is waarschijnlijk iets minder waard dan 6 uur open, omdat er dan niets gekocht wordt. De echte dagen liggen dus eerder later dan deze tabel. Eerlijk: voor iemand die het spel dag en nacht laat draaien en vaak klikt, is het hol in ±4 dagen af. Zie "Wat nog niet klopt" punt 4.
 
@@ -178,13 +199,14 @@ Kanttekening: de sim koopt alles meteen. Wie het spel open laat zonder te klikke
 Doel (Fenna): 4 tot 6 kleine feestjes in het eerste half uur tot uur, en na 2 uur zien dat het diep is (Olaf: dichte plekken laten zien). De eerste tien minuten blijven zoals in `features.md` (eerste val ±5 s, vlucht en terugkomer, eerste hoed op Gloop, Hoard-Toucher); de niveaus komen ertussen.
 | Tijd (sim) | Wat er gebeurt | Feestje? |
 |---|---|---|
-| 0 tot 10 min | script van `features.md`; hol-niveau 2 (1 min): Heldenboek met grijze vakjes; ridder (7 min); Gloop 2 (10 min); eerste aankoop | ja: 3 kleine |
-| 11 min | vleermuis komt wonen (hol 4) | ja |
-| 16 min | dief (hol 5); het boek laat zien "Weak to: Gloop" na zijn eerste vangst | ja |
-| 25 min | tweede put of slijm te koop (hol 6): nu kies je waar | ja |
-| 33 min | rolsteen (hol 7), goed tegen de ridder | ja |
+| 0 tot 10 min | script van `features.md`; hol-niveau 2 (1 min): Heldenboek met grijze vakjes; ridder (7 min); eerste aankoop | ja: 2 kleine |
+| 12 min | Gloop 2: wiebeltoren | klein |
+| 13 min | vleermuis komt wonen (hol 4) | ja |
+| 14 min | dief (hol 5); het boek laat zien "Weak to: Gloop" na zijn eerste vangst | ja |
+| 27 min | tweede put of slijm te koop (hol 6): nu kies je waar | ja |
+| 34 min | rolsteen (hol 7), goed tegen de ridder | ja |
 | 44 min | magiër (hol 8) | ja |
-| 55 min | vaandel met de naam van je hol (hol 9) | ja |
+| 57 min | vaandel met de naam van je hol (hol 9) | ja |
 | 1,1 u | Gloop 3: spuugt een hoed op de berg | klein |
 | 1,2 u | edelman (hol 10); zijn hoge hoed is het pronkstuk op de toren | ja |
 | 1,6 u | bard en zijn lied (hol 11) | ja |
@@ -200,17 +222,18 @@ Zes prestaties voor open tijd (1, 5, 10, 20, 50, 100 uur), net als Desktop Defen
 ## Toets T1 tot T4
 - **T1 tussendoor:** het volgende doel staat altijd in het bordje; elk bezoek zie je hoe ver het balkje is. Ja.
 - **T2 grappig om te onderhouden:** de nieuwe dingen zijn figuren met een grap (heks met kikkers, trol met leesbril, hoedenjager die het nooit lukt). Ja.
-- **T3 nooit straf, geen grindmuur, geen plicht:** faam gaat nooit omlaag, geen reset, oude lagen draaien door, geen timers. Bijna: zie de gaten na 20 uur hieronder.
+- **T3 nooit straf, geen grindmuur, geen plicht:** faam gaat nooit omlaag, geen reset, oude lagen draaien door, geen timers. Bijna: zie het gat na 70 uur hieronder.
 - **T4 niets te koop:** alle 50 niveaus, lagen en verdiende uiterlijken zitten in het basisspel; DLC is alleen uiterlijk en eigen hoofdstukken.
 
 ## Wat nog niet klopt (eerlijk)
-1. **Gaten.** Versie 2 nagerekend met Brams sim plus mijn 15 dingen met prijs, 20 kamertjes en lagere factor voor stap 4 tot 6 (GEZIEN, 8 zaden, `data/sim-v2/voortgang-v2-uitkomst.txt`): langste gat tot 20 uur 56 min, 20 tot 40 uur 1,0 u (was 1,6), 40 tot 70 uur 1,5 u (was 2,3), **70 tot 100 uur nog steeds 5,7 u**; bank bij 99 uur ±13.700 (was ±17.600). Hol-niveaus vallen op dezelfde uren (50 op 95,3 u). Mijn regel (tot 20 uur hooguit 2 uur, 20 tot 70 hooguit 3, daarna hooguit 4) is dus gehaald tot 70 uur. Het gat van 5,7 uur zit waarschijnlijk na niveau 50 (95 u) tot het einde van de sim op 100 u (GOK, niet uitgesplitst): het hol is dan af. Wil Thijs dat er ook na 95 uur iets te kopen is, dan moet er een goudput komen die niet opraakt; dat doe ik bewust niet (een eindeloze put zonder nieuws is precies Fenna patroon 2). Wat de sim niet telt vult de gaten nog deels: aartsvijanden (±1 per dag), hun kinderen, bladzijden in het boek, laagsterren. Wat de sim niet telt vult de gaten deels: aartsvijanden (±1 per dag), hun kinderen, bladzijden in het boek, laagsterren.
+1. **Gaten.** Versie 2 nagerekend met Brams sim plus mijn 15 dingen met prijs, 20 kamertjes en lagere factor voor stap 4 tot 6 (GEZIEN, 8 zaden, `data/sim-v2/voortgang-v2-uitkomst.txt`): langste gat tot 20 uur 56 min, 20 tot 40 uur 1,0 u (was 1,6), 40 tot 70 uur 1,5 u (was 2,3), **70 tot 100 uur nog steeds 5,7 u**; bank bij 99 uur ±13.700 (was ±17.600). Hol-niveaus vallen op dezelfde uren (50 op 95,3 u). Mijn regel (tot 20 uur hooguit 2 uur, 20 tot 70 hooguit 3, daarna hooguit 4) is dus gehaald tot 70 uur, **na 70 uur niet** (5,7 u, regel hooguit 4). Waar het gat zit is niet uitgesplitst; na niveau 50 kan het niet helemaal zijn (100 min 95,3 is 4,7 u), dus het zit ook eerder (Bram splitst uit). Wil Thijs dat er ook na 95 uur iets te kopen is, dan moet er een goudput komen die niet opraakt; dat doe ik bewust niet (een eindeloze put zonder nieuws is precies Fenna patroon 2). Wat de sim niet telt vult de gaten nog deels: aartsvijanden (±1 per dag), hun kinderen, bladzijden in het boek, laagsterren.
 2. **De sim kent de eigen helden per laag nog niet** (mijnwerker, archeoloog, valluik); elke laag heeft daar dezelfde helden en vallen als laag 1. De sporen 3 en 4 staan als drempel op gevangen helden (GOK).
 3. **Kost.** Meer beeld dan Olafs eerste rekensom: 12 bewonersstreken, 4 lagen en nu ook 20 kamertjes aankleding. Olaf rekent do 19 nov opnieuw. Past het niet voor maart: **lancering met laag 1 tot 3 (hol 1 tot 39, ±55 uur, "50+ hours" op de winkelpagina) en laag 4 plus de aankleding van laag 3 en 4 als gratis update in april**; op niveau 39 staat dan eerlijk "Floor 4 comes in a free update".
 4. **Voor wie het spel dag en nacht laat draaien is het hol in ±4 dagen af** (tabel echte dagen). Dat is hoe dit soort spel werkt (Fenna's meetlat is Steam-speeltijd, ook als je werkt), en het is twee keer de hoofdinhoud van de toppers (±20 tot 50 uur). Toch is "diep" voor Thijs misschien weken. Hoger zetten kan alleen met hogere drempels, en dan wordt het tussen de niveaus grind (Fenna patroon 2). Ik laat het zo en kijk na de speeltest van za 21 nov wat Thijs ervan vindt.
 5. **Echte dagen zijn een GOK.** De sim koopt alles meteen; een echte speler klikt minder, dus het gaat eerder langzamer.
 
 ## Vragen aan de anderen (ook in hun berichtenbestand)
-- **Bram:** ik heb versie 2 zelf in een kopie van je sim gedraaid (`data/sim-v2/`, je bestanden zijn niet veranderd). Wil je (1) `laag_factor_hoog` en kamertjes per laag (in plaats van aan een hol-niveau) echt in `sim.py` zetten, (2) weg zijn op halve snelheid in de sim zetten, zodat de tabel in echte dagen geen GOK meer is, en (3) uitsplitsen waar het gat van 5,7 uur tussen 70 en 100 uur zit?
-- **Olaf:** (1) halve snelheid weg voor goud, hoeden en faam in `voortgang.gd` (factor 0,5, plafond 12 uur blijft); (2) je doelregel is goed, "ready" gaat voor als er maar één plek is; (3) hol-niveau 1 tot 12 met bordje vóór za 21 nov als het past; (4) kosten van alles hierboven do 19 nov, nu met 20 kamertjes; (5) kan de demo-save mee naar het volle spel?
+- **Bram (versie 3):** reken het voorstel versie 3 na en stel het fijn (weg 0,25 in de sim, uitrekken 1,4 na niveau 20, prijsfactoren per laag, en de dingen in laag 4 terug naar ±1 tot 2 uur sparen met meer dingen of kamertjes), zodat ik de tabellen kan omzetten. Mijn proefrun en het aangepaste script staan in `data/sim-v2/` (`REK` en `UREN` erbij).
+- **Bram (versie 2):** ik heb versie 2 zelf in een kopie van je sim gedraaid (`data/sim-v2/`, je bestanden zijn niet veranderd). Wil je (1) `laag_factor_hoog` en kamertjes per laag (in plaats van aan een hol-niveau) echt in `sim.py` zetten, (2) weg zijn op halve snelheid in de sim zetten, zodat de tabel in echte dagen geen GOK meer is, en (3) uitsplitsen waar het gat van 5,7 uur tussen 70 en 100 uur zit?
+- **Olaf:** (1) weg op **kwart snelheid** voor goud, hoeden en faam in `voortgang.gd` (factor 0,25, plafond 12 uur blijft; was 0,5 in versie 2); (2) je doelregel is goed, "ready" gaat voor als er maar één plek is; (3) hol-niveau 1 tot 12 met bordje vóór za 21 nov als het past; (4) kosten van alles hierboven do 19 nov, nu met 20 kamertjes; (5) kan de demo-save mee naar het volle spel?
 - **Mila en Daan:** het bordje met balkje boven de ingang, het feestje van 1,5 s, welke aankleding er vanaf seconde 1 staat, en de kamertjes in de bovenste aarde (past dat bij "de bovenste helft is lege aarde" van Iris?).
