@@ -75,6 +75,22 @@ func volgende(soort: String) -> Dictionary:
 	s["kost"] = kost(soort)
 	return s
 
+# Het volgende doel voor het paneel (Iris keuring 1, probleem 2: zonder klik zien wat je hierna kunt kopen):
+# de goedkoopste volgende stap van de soorten die er zijn, met wat er nog aan goud ontbreekt. {} als alles gekocht is.
+# Bij gelijke prijs wint de eerste soort in de lijst (Gloop staat er altijd, dus eerst "slijm").
+func doel(soorten: Array, goud: int) -> Dictionary:
+	var beste := {}
+	for soort in soorten:
+		var v := volgende(String(soort))
+		if v.is_empty():
+			continue
+		if beste.is_empty() or int(v.kost) < int(beste.kost):
+			beste = v
+			beste["soort"] = String(soort)
+	if not beste.is_empty():
+		beste["tekort"] = maxi(0, int(beste.kost) - goud)
+	return beste
+
 # Wat de held erbij telt (procentpunten als fractie): 0,07 per stap.
 func kans_erbij(soort: String) -> float:
 	return KANS_PER * niveau(soort)

@@ -42,6 +42,30 @@ static func soort_op(s, p: Vector2) -> String:
 		return "stekelput"
 	return ""
 
+# Eén korte regel voor de kopregel van het paneel als het kaartje dicht is (Iris keuring 1, probleem 2): wat je hierna
+# kunt kopen en hoeveel goud nog, of waar je moet klikken als het al kan. Leeg als alles gekocht is of de demo voorbij is.
+const DOEL_MAX := 34   # tekens; tekst.gd maakt hem kleiner als hij toch niet naast het goud past
+static func doel_tekst(naam: String, ding: String, kost: int, goud: int) -> String:
+	if kost < 0:
+		return ""
+	if goud >= kost:
+		return "%s ready: click %s" % [naam, ding]
+	return "Next: %s, %d gold to go" % [naam, kost - goud]
+
+static func doel_regel(s) -> String:
+	if not kan(s) or DEMO_EINDE.klaar(s):
+		return ""
+	var soorten := ["slijm"]
+	if not s.hol.vallen.is_empty():
+		soorten.append("stekelput")   # zonder put valt er aan de put niets te kopen
+	var d: Dictionary = s.hol.upgrades.doel(soorten, s.hol.goud)
+	if d.is_empty():
+		return ""
+	var bew: String = s._bewoner()
+	var naam := String(d.naam).replace("Gloop", bew) if d.soort == "slijm" else String(d.naam)
+	var ding := bew if d.soort == "slijm" else "the pit"
+	return doel_tekst(naam, ding, int(d.kost), s.hol.goud)
+
 # Wat het kaartje laat zien. Alles in het Engels zoals in het spel.
 static func beschrijving(s, soort: String) -> Dictionary:
 	var up = s.hol.upgrades

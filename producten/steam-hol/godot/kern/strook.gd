@@ -314,7 +314,9 @@ func _process(delta: float) -> void:
 	KAARTJE.tik(self)
 	if demo:
 		KAARTJE.demo_stap(self)
-	if tekst.goud != hol.goud:
+	var doel := KAARTJE.doel_regel(self)   # Iris 16 nov: volgend doel zonder klik; alleen opnieuw tekenen als het verandert
+	if tekst.goud != hol.goud or tekst.doel != doel:
+		tekst.doel = doel
 		tekst.zet(kroniek, hol.goud)
 		if kaart_soort != "":
 			KAARTJE.ververs(self)

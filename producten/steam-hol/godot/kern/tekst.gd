@@ -4,6 +4,7 @@ extends Node2D
 
 var regels: Array[String] = []
 var goud := 0
+var doel := ""   # kopregel rechts als het kaartje dicht is: volgend doel (kern/kaartje.gd doel_regel, Iris 16 nov)
 var hover := false
 var breedte := 1280.0
 var hoogte := 120.0
@@ -290,6 +291,7 @@ func _draw() -> void:
 	# vliegende muntjes in hol.gd, 4 x 4 spelpixels, op de schaal van de strook (scherpe pixels)
 	_munt(_munt_p(x, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(_letter(600), Vector2(x + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), bw, kop, Color("#ffe07a"))
+	_draw_doel(x, y0 + kop + int(M.kop_dy), bw, kop, f, font)
 	for i in toon.size():
 		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
 		var r: String = toon[i]
@@ -302,3 +304,21 @@ func _draw() -> void:
 				woorden.remove_at(woorden.size() - 1)
 			r = " ".join(woorden) + "..."
 		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#f3e2c0"))
+
+# Het volgende doel rechts op de kopregel, naast het goud (Iris keuring 1, probleem 2). Rechts uitgelijnd binnen het vak,
+# kleiner dan de kop; past hij niet naast het goud, dan kleiner tot 10 px, en anders niet tonen (nooit over het goud).
+# Kan het al: goudgeel, anders gedempt, zodat het een doel is en geen knop.
+func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Font) -> void:
+	if doel == "":
+		return
+	var gw := _letter(600).get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
+	var vrij := bw - (5 * schaal * f + 2 + gw) - 3 * schaal - (6 if met_3d else 0)
+	var m := int(maten().uitleg)
+	while m > 10 and font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > vrij:
+		m -= 1
+	var w := font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x
+	if w > vrij:
+		return
+	var klaar := doel.contains("ready")
+	var kleur := Color("#ffe07a") if klaar else Color("#cdb48f")
+	_tekst(font, Vector2(x + bw - w - (6 if met_3d else 0), basis), doel, -1, m, kleur)

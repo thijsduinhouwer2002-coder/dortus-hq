@@ -364,6 +364,26 @@ func _init() -> void:
 		terug_ok = terug_ok and u6.terug("stekelput") == kost_u6
 	ok(terug_ok and u6.terug("stekelput") == 353, "terug() is steeds de prijs van de bovenste stap (45, 126, 353)")
 	ok(u6.verkoop("stekelput") == 353 and u6.terug("stekelput") == 126, "na weghalen: terug() de prijs van de stap eronder")
+	# volgend doel in het paneel (Iris keuring 1, probleem 2)
+	var ud = load("res://systemen/upgrades.gd").new()
+	var d0: Dictionary = ud.doel(["slijm", "stekelput"], 20)
+	ok(d0.get("soort") == "slijm" and int(d0.get("kost")) == 45 and int(d0.get("tekort")) == 25, "doel: nieuw spel Big Gloop, 45, nog 25")
+	ok(ud.doel(["slijm"], 50).get("tekort") == 0, "doel: tekort 0 als het kan")
+	ud.koop("slijm", 1000)
+	ok(ud.doel(["slijm", "stekelput"], 0).get("soort") == "stekelput", "doel: goedkoopste wint (put 45 voor Bouncy 126)")
+	ok(ud.doel(["slijm"], 0).get("naam") == "Bouncy Gloop", "doel: zonder put alleen Gloop")
+	ud.koop("slijm", 1000)
+	ud.koop("slijm", 1000)
+	ok(ud.doel(["slijm"], 0).is_empty(), "doel: alles gekocht geeft niets")
+	var KJD = load("res://kern/kaartje.gd")
+	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 20) == "Next: Big Gloop, 25 gold to go", "doel_tekst: nog goud nodig")
+	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 45) == "Big Gloop ready: click Gloop", "doel_tekst: kan, zeg waar klikken")
+	ok(KJD.doel_tekst("x", "y", -1, 0) == "", "doel_tekst: alles gekocht leeg")
+	var langste := 0
+	for st in ["slijm", "stekelput"]:
+		for stap in load("res://systemen/upgrades.gd").STAPPEN[st]:
+			langste = maxi(langste, KJD.doel_tekst(String(stap.naam), "the pit", 353, 0).length())
+	ok(langste <= KJD.DOEL_MAX, "doel_tekst: hooguit %d tekens (langste %d)" % [KJD.DOEL_MAX, langste])
 	# voortgang telt upgrades mee; zonder upgrades precies als voorheen
 	var vz: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	var vn: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 0, null)
