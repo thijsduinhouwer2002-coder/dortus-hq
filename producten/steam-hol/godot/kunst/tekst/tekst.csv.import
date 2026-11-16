@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dlcsuuiejr2t5"
+
+[deps]
+
+files=["res://kunst/tekst/tekst.en.translation"]
+
+source_file="res://kunst/tekst/tekst.csv"
+dest_files=["res://kunst/tekst/tekst.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -29,3 +29,8 @@ window/energy_saving/keep_screen_on=false
 renderer/rendering_method="gl_compatibility"
 viewport/transparent_background=true
 textures/canvas_textures/default_texture_filter=0
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://kunst/tekst/tekst.en.translation")
+locale/fallback="en"

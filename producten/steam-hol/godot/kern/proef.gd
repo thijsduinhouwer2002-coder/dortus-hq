@@ -69,6 +69,7 @@ static func na_slijm(s) -> void:
 # Na het laden van de save: put en Royal meteen op hun stap.
 static func na_laad(s) -> void:
 	var hol = s.hol
+	s.log_regel("HOL tekst " + TranslationServer.translate("PROEF_VAL"))   # proef vertaaltabel (Olaf 16 nov, alleen tak): zit de CSV in de .exe?
 	if s.proef_put > 0 and hol.upgrades != null:
 		hol.upgrades.niveaus["stekelput"] = s.proef_put
 		hol.queue_redraw()
