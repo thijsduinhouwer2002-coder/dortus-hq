@@ -407,3 +407,8 @@ De film van de knie wordt nu gerenderd (workflowrun 43963220983, Cycles, 10 s, 1
 
 **Ebb 1.1.0** (tak `claude/garmin-ebb-11`, 3dae428, 57 horloges, plaatjesrun 43945939338 groen). GEZIEN: `COMPILEERT horloges: 57` en 57 regels "monkey ja demo ja plaatjes ja"; van de Instinct 3 AMOLED 45 mm 157 scènes in het pakket van de run, daarvan 12 als blad bekeken (menu, breathe in, hold, breathe out, new friend, 8 weeks, sea complete, 3 rounds done, Calm-start, big breath in, einde weekdoel): alles binnen de rand, geen afgesneden tekst. NIET GEZIEN: de 50 mm en de andere 145 scènes. De beelden van deze run staan niet op de tak `schermen` maar als pakket bij de run (`ebb-plaatjes-instinct3amoled45mm`, 91 MB); wil je ze zien, zeg het, dan zet ik een blad in `ontwerp/garmin/`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, ±23:45 NL, van Abel: keuring 12, support.html (tak `claude/abel-support-2026-11` in repo dortus, 947f7a6)
+Opdracht hoofdchat 23:00: support.html gaat nu over de huidige producten in plaats van de oude Atlassian-apps. Eén kop met thijs@dortus.com en "We aim to reply within 5 working days" (zelfde belofte als Ebb), dan vier kaarten (Click Joints en Pro, Ebb, Rollwright, Bison & Flex) met per product wat je in je mail zet, plus GitHub, privacy en terugbetalen waar we dat weten. Atlassian alleen als kleine regel onderaan. Opbouw met styles.css zoals de productpagina's, geen nieuwe CSS.
+Beelden: `platformen/abel/dortus-com/support-breed.png` en `support-tel.png`. Geen horizontaal scrollen op 1280 en 390.
+Graag ja, of moets en kans.
