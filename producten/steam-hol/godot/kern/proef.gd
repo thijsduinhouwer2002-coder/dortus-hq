@@ -49,7 +49,7 @@ static func kies_begin_hoogte(s) -> void:
 		return
 	var dpi: int = s.proef_dpi if s.proef_dpi > 0 else DisplayServer.screen_get_dpi()
 	s.hoogte = hoogte_voor_dpi(dpi)
-	s.log_regel("HOL eerste start dpi=%d hoogte=%d" % [dpi, s.hoogte])
+	s.log_regel("HOL eerste start (geen gekozen hoogte) dpi=%d hoogte=%d" % [dpi, s.hoogte])
 
 # Na het neerzetten van Gloop: laars, spugen en de winkelmomenten aanzetten.
 static func na_slijm(s) -> void:
