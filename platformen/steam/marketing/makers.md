@@ -208,6 +208,7 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 | zodra de winkelpagina live is (±8 dec) | groep A en B met openbaar adres (15, 22, 23, 29, 31 en wie in A een adres in tekst heeft), **plus Maybe Sarisa (42) en de aanloopgroep met eigen adres (68, 69, 70)** (run 4) | korte mail: één zin haak ("Every hero who falls in leaves a hat on Gloop's head"), GIF, link naar de pagina, "demo-sleutel vóór het fest als je wilt" |
 | vr 18 dec, demo af | wie ja zei | vroege demo-sleutel (Steam-sleutels via Steamworks, of Curator Connect) |
 | vr 18 dec, demo af (run 4) | streamers 61, 66 en 71 (GriffyBit, Phenexa, Rusty Champaign), via de route die ze zelf noemen | demosleutel; als chat-helden (optie D bij Sanne) er komt, is dat de eerste zin |
+| ±8 dec, 18 dec en lanceerdag (run 11) | TikTok: T3 en T4 bij pagina live, T1 en T5 bij demo af, T2 op de lanceerdag | zelfde korte mail; voor TikTok de zin "sits on top of your taskbar while you work" vooraan |
 | 8 jan (Valve-trailer, wij mogen melden) | alle 40, ook zonder adres via Curator Connect | herinnering: demo staat in het Desktop Companion Fest, Fest Hat |
 | 14 tot 18 jan | groep B (lijstjes) en Nookrium | fest-dag 1: "nieuw in het fest", onze GIF |
 
@@ -215,7 +216,7 @@ Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B,
 
 ## Open (volgende runs)
 - ~~Twitch: wie streamde Rusty, Desktop Defender, Deskrawl.~~ Gedaan run 4 via VOD-kanalen: 60 tot 67 hierboven. Live kijkers op Twitch blijven onbekend zonder Twitch-sleutel.
-- TikTok: makers met bureaubladspellen. yt-dlp mocht niet in deze omgeving (run 4); alleen nog via openbare pagina's met curl, anders aan Chris.
+- ~~TikTok: makers met bureaubladspellen.~~ Deels gedaan run 11: T1 tot T10 onderaan (zoekmachine plus openbaar profiel met curl). Open: Keymailer (prijs, voorwaarden), en idle-RPG-makers op TikTok.
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
@@ -229,3 +230,27 @@ Kanaaltekst van 22 kanalen opnieuw gelezen (`data/contact.py`, uitkomst `data/co
 | gratis adres in de kanaaltekst | 5 | Hadomancer (#41), Task Bar Hero Dicas (#51), Diomio (#56), Edouard_EMB (#65), Game Launch Central (#67) | Thijs kopieert het adres zelf van het kanaal (repo is openbaar, daarom hier niet) |
 | geen adres in de tekst | 15 | o.a. Idle cub, Krayn, GriffyBit TV, Phenexa, Rusty Champaign, Laimu | de knop "View email address" op YouTube (vraagt inlog en een captcha, dus stap voor Thijs), of Curator Connect zodra de pagina live is |
 **Gevolg voor de eerste ronde:** van de 15 namen in "Eerste ronde in één blik" hebben er nu 5 een eigen-domein-adres (Maybe Sarisa, I Dream of Indie Games, Cozy With Toxi, NextBigGames, plus GameStar alleen als pers) en 1 een gratis adres (Game Launch Central). Voor de anderen (GriffyBit TV, Rusty Champaign, Idle cub, Phenexa) is Curator Connect de route: geen adres nodig, en Valve laat zien wie de sleutel gebruikte. **Besluit Sem:** Thijs hoeft geen captcha's op te lossen voor kanalen onder de 10K; die gaan via Curator Connect. Alleen voor Idle cub (203K, half zijn titels idle; Hadomancer heeft al een adres in zijn tekst) zet ik de knop op de lijst van Thijs zodra de pagina live is. Waarom: een captcha per kanaal kost Thijs tijd, en bij kleine kanalen is de kans op een video klein (GOK) terwijl Curator Connect hetzelfde doet zonder adres. **Kanttekening (zelf gevonden, ±18:08 UTC):** Curator Connect bereikt alleen makers die bij Steam een curatorpagina hebben of hun kanaal daar gekoppeld hebben. Of deze kleine kanalen dat hebben, kon ik van buiten niet nakijken (de zoekfunctie van de curatorlijst negeert de zoekterm zonder inlog). Thijs ziet het in Curator Connect zelf als hij de naam intypt; wie er niet staat, krijgt op 4 jan een reactie onder een recente video met de demolink (door Thijs, klaargezette zin volgt), of valt af.
+
+## TikTok: makers die bureaublad- en idle-spellen lieten zien (run 11, GEZIEN 16 nov ±21:42 UTC, nummer T1 tot T10)
+**Hoe ik keek:** TikTok-zoek- en tagpagina's geven met curl geen video's (alles wordt pas in de browser geladen; 8 pagina's geprobeerd, 0 namen). Wel werkt: video's vinden met de zoekmachine (7 zoekopdrachten op tiktok.com naar Rusty's Retirement, Ropuka, Spirit City, Bongo Cat, "sits at the bottom of your screen", "games to play while working") en daarna het openbare profiel lezen met curl (volgers, aantal video's, bio). Zo is het "Open"-punt TikTok uit run 4 deels af. Adressen: alleen het soort; een adres op een bureau- of eigen domein staat in de bio en Thijs kopieert het daar zelf.
+
+| # | Account | Volgers | Bewijs (video over ons soort spel) | Contact in bio | Kans |
+|---|---|---|---|---|---|
+| T1 | @cozyteagames | 711.600 (597 video's) | Rusty's Retirement ("This shouldnt interfere with my productivity"), Ropuka twee keer, Feather Land ("Use this while you study/work"), Furry Company (gemarkeerd AD) | geen adres in bio | middel: groot en speelt precies onze plank telkens opnieuw; doet ook betaalde video's (AD), dus een gratis mail kan stil blijven |
+| T2 | @cozywithronnie | 123.900 (876) | Ropuka "sits anywhere on your desktop" op de lanceerdag | bureau-adres in bio (management) | middel tot hoog: post op de lanceerdag met prijs erbij, dat is ons lanceermoment |
+| T3 | @imjustjarrod | 53.200 (864) | Rusty "a cozy game that sits at the bottom of your screen while you work" | zakelijk adres in bio ("Business inquiries") | hoog: precies onze zin, nieuwe spellen, zakelijk adres |
+| T4 | @cozyreni | 58.600 (874) | "This cozy game boosts your productivity" | zakelijk adres in bio (eigen domein) | hoog: "I help you find YOUR next cozy game" |
+| T5 | @cozyboardgames | 146.400 (886) | Rusty-demo "lives at the bottom of your screen", vóór de uitgave | geen adres | middel: speelde een demo, ons moment van 4 jan |
+| T6 | @dailyalissa | 184.900 (1.061) | Spirit City als focushulp, "body doubling" | bureau-adres in bio | laag tot middel: productiviteit, geen kerker |
+| T7 | @zelinka21 | 16.600 (473) | Spirit City, sleutel via **Keymailer** (staat in de video) | gratis adres in bio | middel, alleen met Pools; wel een les: makers van TikTok krijgen sleutels via Keymailer |
+| T8 | @herrbanause | 35.500 (384) | "Der HYPE um die Bongo Cat" | gratis adres in bio | laag tot middel (Duits, "Geheimtipps") |
+| T9 | @theymakegames | 1.665 (261) | Ropuka "sits anywhere on your screen" | eigen domein in bio | laag bereik, maar zet makers in het licht en vraagt erom |
+| T10 | @rosy.ree | 4.641 (121) | Spirit City "always on my background while i work" | gratis adres in bio | laag |
+
+Ter vergelijking, geen makers maar wel meetpunten: @wholesomegames 364.600 (al trailer-plek), @mister.morris.games (maker Rusty) 12.900, @conradicalgames (maker Desktop Defender) 18.300.
+
+**Wat ik eruit haal:**
+1. Op TikTok is de taal "sits at the bottom of your screen while you work" en "productivity", niet "idle" of "dungeon". Dat past bij de korte winkeltekst (Z5: soort en plek eerst). Voor Chris: dezelfde woorden in de koppen van @hatsofthefallen (bericht in `berichten/chris.md`).
+2. Drie TikTok-makers (T2, T3, T4) hebben een zakelijk adres en posten over precies dit soort spel. **Besluit: T3 en T4 bij de mails op de dag dat de pagina live is (±8 dec), T2 op de lanceerdag in maart** (zij post op lanceerdagen), T1 en T5 met een demosleutel als de demo af is (18 dec). Waarom: zelfde regel als bij YouTube, eerst wie een openbaar zakelijk adres heeft en ons soort spel speelt.
+3. **Keymailer** is een tweede route naast Curator Connect: daar halen makers zelf sleutels (T7 kreeg Spirit City zo). Prijs en voorwaarden heb ik niet kunnen lezen (pagina gaf niets terug met curl); Keymailer vraagt een account, dus stap voor Thijs en pas als blijkt dat het gratis is. Op de lijst "open".
+4. Eerlijk: 7 zoekopdrachten zijn geen volledige lijst. Ik vond vooral cozy-makers, geen kerker- of idle-RPG-makers op TikTok; die zitten in deze zoektocht op YouTube (groep A).
