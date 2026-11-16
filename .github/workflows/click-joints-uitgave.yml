@@ -14,9 +14,12 @@ permissions:
   contents: write
 
 env:
-  TAG: click-joints-v0.1.0
-  ZIP: producten/blender-gewrichten/uitgave/click_joints-0.1.0.zip
-  SHA: 6798ce4eda07920c387487faeb38aad0e9718f5819815b9da8e3be5bdb61432a
+  # 0.1.1 (16 nov 2026, Bram): kniefout, Akkoord ja Daan 04:30 UTC; zip gebouwd met e2e/maak_zip.sh op main 3ec22b7,
+  # e2e-run 43804760150 op die commit groen in 4.2.23, 5.2.3 en 5.3.0. Plaatjes op de site blijven gelijk.
+  VERSIE: "0.1.1"
+  TAG: click-joints-v0.1.1
+  ZIP: producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip
+  SHA: d1643ba56f09540986a3a951d78fbc5046ad5744fd30c324730ae5b9f980fe3d
 
 jobs:
   uitgave:
@@ -31,37 +34,42 @@ jobs:
           if unzip -l "$ZIP" | grep -q 'betaald/'; then echo "FOUT: betaalde code in de gratis zip"; exit 1; fi
       - name: Blender 4.2.23 ophalen
         run: |
-          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz"
+          # download.blender.org geeft vanuit Actions soms 403 (16 nov); dan een spiegel, zoals in de e2e.
+          B="release/Blender4.2/blender-4.2.23-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
           /tmp/blender/blender --version | head -1
       - name: Zip valideren in de echte Blender
         run: /tmp/blender/blender --command extension validate "$ZIP"
+      - name: Versie in de zip nakijken
+        run: |
+          unzip -p "$ZIP" blender_manifest.toml | grep -qx "version = \"$VERSIE\"" || { echo "FOUT: versie"; exit 1; }
       - name: Bestanden voor de release klaarzetten
         run: |
           mkdir -p /tmp/uit
-          cp "$ZIP" /tmp/uit/click_joints-0.1.0.zip
-          cp ontwerp/click-joints/icoon.png /tmp/uit/1-icoon-256.png
-          cp ontwerp/click-joints/poster-1.png /tmp/uit/2-featured-image-1920x1080.png
-          cp ontwerp/click-joints/winkel-2-buigen.png /tmp/uit/3-preview-buigen.png
-          cp ontwerp/click-joints/winkel-3-paneel.png /tmp/uit/4-preview-paneel.png
+          cp "$ZIP" "/tmp/uit/click_joints-$VERSIE.zip"
           (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
       - name: Release maken of bijwerken
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cat > /tmp/notes.md <<'EOF'
-          Click Joints 0.1.0, gratis versie voor extensions.blender.org.
+          cat > /tmp/notes.md <<EOF
+          Click Joints $VERSIE, gratis versie voor extensions.blender.org.
 
-          - `click_joints-0.1.0.zip`: de extensie (gekeurd door Daan, e2e groen in Blender 4.2.23 en 5.2.3).
-          - `1-icoon-256.png`: icoon (256 x 256).
-          - `2-featured-image-1920x1080.png`: featured image.
-          - `3-preview-buigen.png` en `4-preview-paneel.png`: previews, in deze volgorde.
+          - \`click_joints-$VERSIE.zip\`: de extensie (Akkoord ja van Daan, e2e groen in de echte Blender 4.2.23, 5.2.3 en 5.3.0, gevalideerd met \`blender --command extension validate\`).
+          - Fixed: on a one-piece figure, a joint in one knee no longer cuts through the other leg. Only the limb at the 3D cursor is cut; if another part touches it, Click Joints refuses with a clear message.
+          - Icoon en plaatjes zijn niet veranderd; die staan in release click-joints-v0.1.0.
 
-          Stappen voor het indienen: `platformen/blender/indienen.md`.
+          Stappen voor de update: \`platformen/blender/indienen.md\`, onderaan.
           EOF
+          sed -i 's/^          //' /tmp/notes.md
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" /tmp/uit/* --clobber
           else
-            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints 0.1.0" --notes-file /tmp/notes.md
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints $VERSIE" --notes-file /tmp/notes.md
           fi
           gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
