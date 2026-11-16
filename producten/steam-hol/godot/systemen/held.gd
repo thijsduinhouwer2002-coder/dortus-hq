@@ -274,8 +274,17 @@ func stap(delta: float) -> void:
 				info["dutje"] = true
 				return
 			var tempo := 1.25 if trek == "hebzuchtig" else (0.8 if trek == "opschepper" else 1.0)
-			position.x = move_toward(position.x, doel.x, _px(tempo * f))
-			_onderweg()
+			# in stukjes van hooguit 8 pixels en na elk stukje kijken: na een hapering (één lang beeld) sprong hij
+			# anders in één keer over een hele kolom en dus over een val of Gloop heen (Bram 16 nov). Gewoon lopen
+			# (1 of 2 pixels per beeld) is één stukje, dus precies zoals hiervoor.
+			var rest := _px(tempo * f)
+			while true:
+				var stuk := minf(rest, 8.0)
+				position.x = move_toward(position.x, doel.x, stuk)
+				rest -= stuk
+				_onderweg()
+				if rest <= 0.0 or staat != "lopen" or absf(position.x - doel.x) < 0.5:
+					break
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
 		"dutten":
