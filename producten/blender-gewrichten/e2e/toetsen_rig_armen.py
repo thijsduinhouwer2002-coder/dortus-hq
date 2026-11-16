@@ -157,4 +157,5 @@ def main():
     log(f"KLAAR {len(FOUT)} FOUT")
 
 
-main()
+if __name__ == "__main__":  # scherm_rig_armen.py leent figuur() zonder de toets te draaien
+    main()
