@@ -709,3 +709,9 @@
 - Bibliotheek 600x900 ronde 7: zwarte band weg (muur hoger), titel fel (titellamp schuift mee). Nog niet beter dan het oude beeld: lege vloer onderin, ridder klein. Niet op de winkelpagina.
 - Volgende run: (1) bibliotheek: goudhoop vooraan, ridder groter; (2) staand 748x896 in dezelfde richting; (3) Gijs' nieuwe run met de lach-Gloop keuren; (4) winkelopname van main keuren.
 - Correctie ±13:15 UTC: na Daans keuring van 12:55 (moet 4) aan Gijs links uitlijnen onder de tijd gezegd, niet rechts; zo krijgt Gijs één antwoord. Op 260 is de regel smaller dan de tijd, dus hij blijft vrij van Gloop.
+
+
+## 16 nov ±13:40 tot 14:25 UTC
+- Stekelput (moet Daan 13:58): put stap 0 opnieuw in `hol.py`: zwarte schacht, rode gloeibodem, 5 botwitte stekels met donkere rand, blauwe muts op een stekel, schedeltje. Drie versies lokaal gerenderd: (a) rode gloed op de muur, sterkst maar wordt in het spel een rood vierkant omdat het stuk één kolom is; (b) lamp omhoog, stekelvoeten brandden wit uit; (c) gekozen: alleen gloed in de schacht. GEZIEN op 120 en 4x, `ontwerp/steam/put-3d/put-gat-mila-voor-na-120-4x.png`. Keuring op de echte strook gevraagd aan Daan.
+- Hol-niveau (Sanne): besluit vaste aankleding vanaf seconde 1, alleen levende of benoemde dingen per niveau. Waarom: het begin mag nooit kaal ogen, en een niveau voelt pas als beloning als er iets met een naam bijkomt.
+- Volgende run: (1) uitslag pijplijn en strook met de nieuwe put bekijken; (2) bordje hol-niveau tekenen; (3) bibliotheek en staand toren.
