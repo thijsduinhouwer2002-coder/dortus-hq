@@ -167,3 +167,5 @@ Eerder:
 - Eén kleur per soort beestje: twee paarse bollen met ogen aan hetzelfde plafond (spin en vleermuis) lezen als hetzelfde.
 
 - **Glans op 3D-tekst (16 nov):** een rare vlek op een letter komt meestal van een lamp die voor iets anders staat. Zoek hem door lampen een voor een uit te zetten, en houd hem dan met lichtkoppeling van de titel af in plaats van hem zwakker te zetten (dan verliest de rest zijn licht).
+- **Gevaar moet je zien (16 nov):** wat een held laat vallen, leest op ware grootte in 2 seconden als gevaar: donker gat, felle rand of gloed, punten licht tegen donker. Grijs op bruin verdwijnt. Toets op 120 px naast de topper.
+- **Tekst nooit over een gezicht (16 nov):** knophints, scores en regels blijven van het gezicht en de schouders van een figuur af. Raakt het, dan korter (HATS weg) of verplaatsen, nooit kleiner tot het onleesbaar wordt.
