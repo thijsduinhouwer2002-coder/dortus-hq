@@ -18,7 +18,16 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 3. **Undo/weghalen** van een gang is er niet; graven blijft gratis. Dus de bonus kan niet omhoog en omlaag gesjoemeld worden.
 4. Tekst: de valregel toont het hogere getal al vanzelf. Daan beslist of er bij hover op aarde een korte regel komt; mijn voorstel: "Bigger hole, richer heroes." (28 tekens).
 
-**Waarom niet groter:** met +1 per 4 cellen tot +6 verdubbelt het goud en is de winkel voor een graver na ±50 min leeg. Met hooguit +3 (+50%): GOK, de derde koop komt voor een graver ±4 tot 5 min eerder (rond 15 min in plaats van 19,6) en de winkel is rond 75 min op in plaats van ±100. Wie niets doet verandert niet. Bram rekent het na met de sim.
+**Nagerekend (GEZIEN, ±21:15 UTC, Brams sim, speeltestbuild met het nieuwe ritme, 40 zaden, graver 41 cellen per 20 min; `data/sim-graafbonus/graafbonus.py`, `uitkomst.txt`), koop 1 tot 6 in min, mediaan (ergste):**
+
+| Variant | koop 2 | koop 3 | koop 4 | koop 5 | winkel leeg |
+|---|---|---|---|---|---|
+| niet graven / graver zonder bonus (gelijk, zoals Bram mat) | 8,2 | 22,0 (27,0) | 34,5 | 62,8 | 89,8 (98,1) |
+| **graver +1 per 8, hooguit +3 (KEUS)** | 7,4 | **17,5** (21,4) | 26,4 | 47,3 | **66,1** (74,3) |
+| graver +1 per 8, hooguit +2 | 7,4 | 18,2 | 28,1 | 50,7 | 71,9 |
+| graver +1 per 4, hooguit +6 | 6,5 | 14,8 | 21,5 | 38,4 | 53,3 |
+
+**Waarom +3 en niet groter:** de derde koop komt voor een graver 4,5 min eerder, het gat waar het om ging (koop 2 naar 3) gaat van ±14 naar ±10 min. Met +6 is de winkel al na 53 min op. Eerlijk: ook met +3 is de winkel voor iemand die zo veel graaft na ±66 min op in plaats van ±90 (mijn GOK van 75 was te zonnig). Dat lege tweede uur bestond al; de echte oplossing blijft de v3-economie na de speeltest. +2 scheelt maar 6 min en voelt kleiner, dus +3. Wie niets doet verandert niet.
 
 **Wat het kost:** een paar regels in `afloop.gd` en `voortgang.gd` plus een teller van zelf gegraven cellen in de save. Geen nieuw beeld. Past in de speeltestbuild van vr 20 nov; lukt het niet meer voor do 19 nov, dan gaat het naar de v3-economie en blijft graven in de speeltest zoals het nu is (vangt evenveel, kost niets).
 
