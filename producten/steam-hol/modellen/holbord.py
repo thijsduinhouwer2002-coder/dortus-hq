@@ -80,6 +80,61 @@ def getal(ouder, txt, zm):
         cijfer(ouder, ch, x0 + k * 5 * s, z0)
 
 
+# ---------- Wachtkaartje: "de rij bij de ingang" (Mila 16 nov, Sanne voortgang.md Versie 3 definitief punt 5) ----------
+# Een papieren volgnummer zoals bij de bakker ("trek een nummertje"), met een rode punaise op het paaltje geprikt,
+# net onder de plank. Erop een donker plusje en het aantal niveaus dat nog in de rij staat: "+7". Zelfde x = 0 en z = 0
+# als het bordje, dus het spel legt het kaartje met hetzelfde anker en dezelfde nul_y op het bordje.
+# kaart1: 9 breed (plus en één cijfer), kaart2: 13 breed (plus en twee cijfers). Kaartje links op x = -1 spelpixel.
+PAPIER = "f2e4c2"
+INKT = "3a1e14"
+PLUS_ROOD = "c8382a"
+KAART_X0, KAART_TOP, KAART_H = -1.0, PAAL - 0.5, 7
+F3 = {"0": ["010", "101", "101", "101", "010"], "1": ["010", "110", "010", "010", "111"],
+      "2": ["110", "001", "010", "100", "111"], "3": ["110", "001", "010", "001", "110"],
+      "4": ["101", "101", "111", "001", "001"], "5": ["111", "100", "110", "001", "110"],
+      "6": ["011", "100", "110", "101", "010"], "7": ["111", "001", "010", "010", "010"],
+      "8": ["010", "101", "010", "101", "010"], "9": ["010", "101", "011", "001", "110"],
+      "+": ["000", "010", "111", "010", "000"]}
+
+
+def _klein(ouder, ch, kol, mat):
+    """Teken een 3 x 5 teken in kolom kol van het kaartje (kolom 0 = linkerrand van het papier), rij 1 tot 5."""
+    s = SPX
+    for r, rij in enumerate(F3[ch]):
+        for c, a in enumerate(rij):
+            if a == "1":
+                x = (KAART_X0 + kol + c + 0.5) * s
+                z = (KAART_TOP - 1 - r - 0.5) * s
+                v.blok(ouder, "kaart_inkt", (x, -1.62 * s, z), (1.0 * s, 0.25 * s, 1.0 * s), mat, rond=0.08 * s)
+
+
+def kaartje(ouder, breed):
+    s = SPX
+    papier = v.m("papier", PAPIER, rough=0.85, spec=0.1)
+    rand = v.m("papier_rand", "b89a72", rough=0.9, spec=0.05)
+    rood = v.m("plus_rood", PLUS_ROOD, rough=0.5, emis=0.05)
+    xm = (KAART_X0 + breed / 2) * s
+    zm = (KAART_TOP - KAART_H / 2) * s
+    # papier iets voor het paaltje, met een dun donker randje erachter zodat het loskomt van de aarde
+    v.blok(ouder, "kaart_rand", (xm, -1.2 * s, zm), ((breed + 0.5) * s, 0.2 * s, (KAART_H + 0.5) * s), rand, rond=0.15 * s)
+    v.blok(ouder, "kaart", (xm, -1.4 * s, zm), (breed * s, 0.25 * s, KAART_H * s), papier, rond=0.12 * s)
+    # afscheurrandje onderaan: drie kleine tandjes in de rand, het teken van een volgnummer
+    for k in range(1, int(breed) // 2):
+        v.blok(ouder, "kaart_tand", ((KAART_X0 + 2 * k) * s, -1.55 * s, (KAART_TOP - KAART_H + 0.25) * s),
+               (0.5 * s, 0.1 * s, 0.5 * s), rand, rond=0)
+    # rode punaise linksboven, in het paaltje geprikt
+    v.cil(ouder, "kaart_punaise", ((KAART_X0 + 1.0) * s, -1.8 * s, (KAART_TOP - 0.25) * s), 0.85 * s, 0.5 * s, rood,
+          rot=(math.radians(90), 0, 0), verts=14)
+    # plusje in dezelfde donkere inkt als het cijfer: een rood plus op wit las als EHBO-kruis ("+7 leven")
+    _klein(ouder, "+", 1, v.m("kaart_inkt", INKT, rough=0.8, spec=0.05))
+
+
+def kaart_cijfer(ouder, ch):
+    """Eén donker cijfer op plek A van het kaartje (kolom 5). Bij twee cijfers tekent het spel de eenheden 4 spelpixels
+    verder naar rechts."""
+    _klein(ouder, ch, 5, v.m("kaart_inkt", INKT, rough=0.8, spec=0.05))
+
+
 if __name__ == "__main__":
     uit = sys.argv[1]
     W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
@@ -88,12 +143,25 @@ if __name__ == "__main__":
     ouder = bpy.data.objects.new("holbord", None)
     bpy.context.scene.collection.objects.link(ouder)
     zm = PAAL * SPX + H_PL * SPX / 2
-    if stand == "leeg" or not stand.isdigit() or len(stand) > 1 or os.environ.get("BORD_HEEL"):
-        plank(ouder)
-    if stand.isdigit():
-        getal(ouder, stand, zm)
+    if stand in ("kaart1", "kaart2"):          # wachtkaartje zonder cijfer
+        kaartje(ouder, 9 if stand == "kaart1" else 13)
+    elif stand.startswith("k") and stand[1:].isdigit():   # k0 tot k9: cijfer voor het kaartje, los
+        kaart_cijfer(ouder, stand[1])
+    elif stand.startswith("proefkaart"):       # proefbeeld: bord + kaartje + getal, bv. "proefkaart12+7"
+        bord, wacht = stand[len("proefkaart"):].split("+")
+        plank(ouder); getal(ouder, bord, zm)
+        kaartje(ouder, 9 if len(wacht) == 1 else 13)
+        for i, ch in enumerate(wacht):
+            _klein(ouder, ch, 5 + 4 * i, v.m("kaart_inkt", INKT, rough=0.8, spec=0.05))
+    else:
+        if stand == "leeg" or not stand.isdigit() or len(stand) > 1 or os.environ.get("BORD_HEEL"):
+            plank(ouder)
+        if stand.isdigit():
+            getal(ouder, stand, zm)
     # zelfde camera en licht als versiering.py, op het bordje gericht; beeld 20 x 20 spelpixels
-    g.camera(hoogte_midden=zm, schaal=22 * SPX * max(1.0, W / H))
+    kaart = stand.startswith("k") or stand.startswith("proefkaart")
+    # kaartje hangt onder de plank: camera 4 spelpixels lager, zelfde schaal (alle standen van één blad delen hem)
+    g.camera(hoogte_midden=zm - (4 * SPX if kaart else 0), schaal=22 * SPX * max(1.0, W / H))
     g.licht()
     sc = bpy.context.scene
     tl = bpy.data.lights.new("tegellicht", "AREA"); tl.shape = "RECTANGLE"; tl.size = 40; tl.size_y = 3.0
