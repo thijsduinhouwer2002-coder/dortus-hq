@@ -18,7 +18,10 @@ const BINNEN_WIJK := 1.0
 # weg in strook.gd (samen met "op"). De lied-regel is een sfeerregel: laag (besluit 2a), maar hij vervalt ook niet
 # (afwijking, besluit Olaf 10 nov): in de film van fe3411e verviel hij en kwam daarna "Lotte hums the song" zonder dat
 # je ooit van een lied hoorde. Laag betekent dat hij nooit een gebeurtenis ophoudt, dus de kroniek loopt niet achter.
-const NOOIT_WEG := ["plat", "lied"]
+const NOOIT_WEG := ["plat", "lied", "op"]
+# "op" hoort bij "plat" (Iris keuring 1, 16 nov: in hol-120.log 45.0 verviel "Gloop is up again. Wobbly." terwijl je
+# "Gloop is flat" wel zag; dan staat hij voor de lezer nooit meer op). strook.gd haalt een wachtende "op" weg als hij
+# weer plat gaat, net zoals een wachtende "plat" als hij opstaat.
 # "Gloop is flat" drukt net als een gebeurtenis een getoonde lage regel (lied, binnenkomst) na 1 s weg (Sanne toets 10,
 # punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond).
 const DRINGEND := ["plat"]
@@ -30,10 +33,18 @@ const DRINGEND := ["plat"]
 # Alleen "lied", niet "plat" (controleur 10 nov 06:30): een plat die terugkomt terwijl Gloop al op is zegt iets anders
 # dan je ziet, en strook.gd haalt een wachtende plat weg als hij opstaat (dan zou "op" ontbreken).
 const TERUG := ["lied"]
+# Een terugkomer die zelf weer lang moet wachten, vervalt alsnog (Iris keuring 1, 16 nov: "Bram's song got popular. Uh oh."
+# op 28.9 en weer op 39.9 na 10 s wachten; een grap die na 11 s terugkomt is geen grap meer). Binnen 4 s leest hij als
+# "nog even terug", daarna als herhaling.
+const TERUG_WACHT := 4.0
 
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
 	for i in range(s.wachtrij.size() - 1, -1, -1):
+		if bool(s.wachtrij[i].get("terug", false)) and s.t - float(s.wachtrij[i].sinds) > TERUG_WACHT:
+			s.log_regel("HOL kroniek terugkomer vervallen %.1f: %s" % [s.t, s.wachtrij[i].r])
+			s.wachtrij.remove_at(i)
+			continue
 		if bool(s.wachtrij[i].binnen) and not bool(s.wachtrij[i].get("terug", false)) and not NOOIT_WEG.has(String(s.wachtrij[i].get("soort", ""))) and s.t - float(s.wachtrij[i].sinds) > BINNEN_WACHT:
 			s.log_regel("HOL kroniek vervallen %.1f: %s" % [s.t, s.wachtrij[i].r])
 			s.wachtrij.remove_at(i)

@@ -382,6 +382,26 @@ func _init() -> void:
 		terug_ok = terug_ok and u6.terug("stekelput") == kost_u6
 	ok(terug_ok and u6.terug("stekelput") == 353, "terug() is steeds de prijs van de bovenste stap (45, 126, 353)")
 	ok(u6.verkoop("stekelput") == 353 and u6.terug("stekelput") == 126, "na weghalen: terug() de prijs van de stap eronder")
+	# volgend doel in het paneel (Iris keuring 1, probleem 2)
+	var ud = load("res://systemen/upgrades.gd").new()
+	var d0: Dictionary = ud.doel(["slijm", "stekelput"], 20)
+	ok(d0.get("soort") == "slijm" and int(d0.get("kost")) == 45 and int(d0.get("tekort")) == 25, "doel: nieuw spel Big Gloop, 45, nog 25")
+	ok(ud.doel(["slijm"], 50).get("tekort") == 0, "doel: tekort 0 als het kan")
+	ud.koop("slijm", 1000)
+	ok(ud.doel(["slijm", "stekelput"], 0).get("soort") == "stekelput", "doel: goedkoopste wint (put 45 voor Bouncy 126)")
+	ok(ud.doel(["slijm"], 0).get("naam") == "Bouncy Gloop", "doel: zonder put alleen Gloop")
+	ud.koop("slijm", 1000)
+	ud.koop("slijm", 1000)
+	ok(ud.doel(["slijm"], 0).is_empty(), "doel: alles gekocht geeft niets")
+	var KJD = load("res://kern/kaartje.gd")
+	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 20) == "Next: Big Gloop, 25 gold to go", "doel_tekst: nog goud nodig")
+	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 45) == "Big Gloop ready: click Gloop", "doel_tekst: kan, zeg waar klikken")
+	ok(KJD.doel_tekst("x", "y", -1, 0) == "", "doel_tekst: alles gekocht leeg")
+	var langste := 0
+	for st in ["slijm", "stekelput"]:
+		for stap in load("res://systemen/upgrades.gd").STAPPEN[st]:
+			langste = maxi(langste, KJD.doel_tekst(String(stap.naam), "the pit", 353, 0).length())
+	ok(langste <= KJD.DOEL_MAX, "doel_tekst: hooguit %d tekens (langste %d)" % [KJD.DOEL_MAX, langste])
 	# voortgang telt upgrades mee; zonder upgrades precies als voorheen
 	var vz: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	var vn: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 0, null)
@@ -1044,5 +1064,44 @@ func _nieuwe_held() -> bool:
 		RI.tik_held(nd, 0)
 		nd.t += 0.25
 	ok(float(nd.aankomst.get("opgegeten", 999.0)) <= 4.0 + 3 * 7.25, "eerste hoed: demo houdt zijn eigen ritme van 5 tot 7 s")
+	# kroniek (Iris keuring 1, 16 nov): een weggedrukte lied-regel komt alleen terug binnen 4 s; "op" vervalt niet
+	var WR = load("res://kern/wachtrij.gd")
+	var nep_k := GDScript.new()
+	nep_k.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar t := 0.0\nvar regel_sinds := -99.0\nvar regel_binnen := false\nvar regel_nu := {}\nvar kroniek: Array[String] = []\nvar log: Array[String] = []\nvar tekst = null\nvar hol = null\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
+	nep_k.reload()
+	var nep_tekst := GDScript.new()
+	nep_tekst.source_code = "extends RefCounted\nfunc zet(_r, _g) -> void:\n\tpass\n"
+	nep_tekst.reload()
+	var nk = nep_k.new()
+	nk.tekst = nep_tekst.new()
+	nk.hol = {"goud": 0}
+	nk.wachtrij.append({"r": "SONG", "binnen": true, "sinds": 0.0, "soort": "lied"})
+	WR.toon(nk)
+	nk.t = 1.0
+	nk.wachtrij.append({"r": "EVENT1", "binnen": false, "sinds": 1.0, "soort": ""})
+	WR.toon(nk)   # lied stond 1 s, wordt weggedrukt en komt terug
+	# daarna een rij gebeurtenissen van 10 s: de terugkomer moet vervallen in plaats van op 11 s terug te komen
+	for i in 4:
+		nk.t = 1.0 + 2.5 * (i + 1)
+		nk.wachtrij.append({"r": "EVENT%d" % (i + 2), "binnen": false, "sinds": nk.t, "soort": ""})
+		WR.toon(nk)
+	nk.t = 14.0
+	WR.toon(nk)
+	ok(nk.log.filter(func(r): return r.ends_with("): SONG")).size() == 1 and not nk.wachtrij.any(func(w): return w.r == "SONG"), "kroniek: lied na 10 s wachten komt niet terug (Iris)")
+	var nk2 = nep_k.new()
+	nk2.tekst = nep_tekst.new()
+	nk2.hol = {"goud": 0}
+	nk2.wachtrij.append({"r": "OP", "binnen": true, "sinds": 0.0, "soort": "op"})
+	nk2.regel_sinds = 0.0
+	nk2.regel_nu = {"r": "X"}
+	for i in 3:
+		nk2.t = 1.0 + 2.5 * i
+		nk2.wachtrij.append({"r": "E%d" % i, "binnen": false, "sinds": nk2.t, "soort": ""})
+		WR.toon(nk2)
+	nk2.t = 12.0
+	WR.toon(nk2)
+	nk2.t = 15.0
+	WR.toon(nk2)
+	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

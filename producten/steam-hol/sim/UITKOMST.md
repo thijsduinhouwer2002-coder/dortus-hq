@@ -1,6 +1,49 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
 
+## 16 nov 2026 ±14:20 UTC (Bram): voortgang versie 3 nagerekend, met weg in echte dagen
+Vraag Sanne 14:05. Volledige uitvoer: `voortgang-v3-uitkomst.txt` (8 zaden, 165 open uur, GEZIEN), spec `voortgang-v3-bram.json`, het commando staat bovenaan de uitvoer.
+
+**Wat nu echt in `sim.py` zit** (alles uit zonder de sleutel in de spec, oude uitkomsten blijven gelijk; nagekeken: `voortgang-lagen-uitkomst.txt` komt byte voor byte terug):
+- `laag_factor_hoog`: eigen prijsfactor per laag voor upgrade stap 4 tot 6 (Sannes diff).
+- `decor`: kamertjes per laag, niet meer aan een hol-niveau. Die van laag n komen vrij als het luik naar laag n+1 gekocht is (laag 1 dus na het luik naar laag 2), die van laag 4 als laag 4 gebouwd is. Prijs = uren goud x het goud per uur op dat moment, één getal of oplopend per kamertje.
+- `weg`: echte werkdagen. Na elke 6 uur open is het spel dicht (nacht of weekend, allebei langer dan het plafond van 12 uur) en levert het 12 x 0,25 = 3 uur van het tempo van het laatste open uur op: goud, gevangen helden (faam, telt voor hol-niveau) en hoeden. Het weg-goud telt niet mee in het tempo zelf, anders groeit het vanzelf door.
+- `UREN`, `REK`, `DINGEN`, `GPU`, `HOOG`, `DECOR`, `WEG` in `voortgang_lagen.py` (uitleg bovenaan dat script), en een blok "in echte dagen" in het rapport: werkdag per hol-niveau en laag, goud van één nacht weg, en per week wat er nieuw is.
+
+**Grootste uitkomst: weg in echte dagen maakt elke werkdag 1,5 keer zoveel goud als de open uren alleen** (6 uur open plus 3 uur weg). Met Sannes prijzen van versie 3 en weg als echte dagen (eerste run) liep de bank op tot ±35.000 goud bij uur 99 en kwamen er gaten van 3 tot 5 uur, want alles was op. Daarom alle prijzen vanaf laag 2 x 1,5 (laag 1 blijft, want op de eerste dag is er nog geen nacht weg geweest):
+
+| | Versie 3 voorstel Sanne | **Bram na narekenen** |
+|---|---|---|
+| luik naar laag 2 / 3 / 4 | 500 / 1100 / 2000 | **750 / 1650 / 3000** |
+| prijsfactor per laag (graven, stap 1 tot 3) | 1 / 1,5 / 3,5 / 5,5 | **1 / 2,25 / 5,25 / 8,25** |
+| factor stap 4 tot 6 per laag | 1 / 1,3 / 2 / 2,6 | **1 / 1,95 / 2,0 / 2,25** |
+| ding met een prijs per laag | 450 / 1250 / 2250 / 3500 | **590 / 1410 / 1935 / 2430** |
+| dingen in laag 4 | 3 (42, 43, 45) | **7 (41, 42, 43, 44, 45, 47, 49)** |
+| kamertjes | 5 per laag, 1,25 uur goud | **5 per laag, oplopend 1,2 / 1,6 / 2,0 / 2,4 / 2,8 uur goud** (dan koop je ze verspreid, niet alle vijf op één avond) |
+| weg | 0,25, plafond 12 | 0,25, plafond 12 (zo gelaten) |
+
+**Laag 4 (vraag 2): nu 1 tot 2 uur sparen per aankoop in werkdag-tempo.** "Uren sparen" in het rapport is prijs / goud per open uur; met de nacht erbij spaar je 1,5 keer zo snel. Laag 4: dingen 1,96 (dus 1,3 in werkdag-tempo), kamertjes 1,90 (1,3), stap 3 2,36 (1,6), stap 4 1,09 (0,7), stap 5 1,80 (1,2), stap 6 2,83 (1,9). Duurste van het hele spel: stap 6 in laag 3, 3,17 (2,1).
+
+**In echte dagen (vraag 3), iemand met 6 uur open per werkdag, weekend dicht:**
+| | werkdag | week |
+|---|---|---|
+| hol 12 | 1 | 1 |
+| hol 20, laag 2 te koop | 2 | 1 |
+| laag 2 open | 3 | 1 |
+| hol 25 | 4 | 1 |
+| hol 30, laag 3 open | 7 | 2 dag 2 |
+| hol 35 | 10 | 2 dag 5 |
+| hol 40, laag 4 open | 13 | 3 dag 3 |
+| hol 45 | 17 | 4 dag 2 |
+| hol 50 | 22 | 5 dag 2 |
+
+Per week (mediaan): week 1 42 niveaus en 96 aankopen, week 2 15 en 54, **week 3 13 en 50 (laag 4 gaat open, Thijs' lat gehaald)**, week 4 8 en 19, week 5 4 en 1, week 6 niets meer. Goud van één nacht weg: 1.260 na werkdag 1, 2.000 na dag 3, ±3.000 na dag 10, ±3.850 vanaf dag 15. Hol 50 na 127,9 open uur.
+
+**Gaten (langste tijd zonder iets nieuws, open uren):** tot 40 u 1,9 u, 40 tot 70 u 2,0 u, 70 tot 100 u 4,2 u, 100 tot 130 u 6,0 u. Waar (3 zaden uitgeschreven): rond 67 tot 72 u tussen hol 38 en 39, vlak voor het luik naar laag 4 (in dagen een halve middag), en na ±110 u in week 4 en 5, als laag 4 af is en alleen hol 46 tot 50 nog komen. Grootste bank: ±2.650 bij uur 30 (wachten op hol 30 voor het luik naar laag 3). Voorstel als het eind beter moet: de laatste kamertjes van laag 4 pas vrij op hol 47 en 49, of een stap 7 voor één lijn; dat is een ontwerpkeuze voor Sanne.
+
+**Eerlijk, wat dit niet meet:** de sim koopt alles meteen; de werkdag is een vast patroon (6 uur open, dan dicht); een weekend telt net als een nacht één keer 12 uur (plafond); de nieuwe dingen in laag 4 (niveau 41, 44, 47, 49) zijn plekken voor iets met een prijs, wat het wordt is aan Sanne. Fenna's toets "prijs volgende ontgrendeling / goud per uur" staat al in elk lagenrapport (blok "verhouding"). In dat blok staat bij kamertjes de laag waarin je ze koopt: "laag 2 kamertje" zijn dus die van laag 1 (vrij na het luik naar laag 2), "laag 4 kamertje" die van laag 3 en 4 samen.
+
+
 ## 16 nov 2026 12:45 UTC (Bram): klaar om de voortgang van ±100 uur na te rekenen (besluit Thijs 13:01 NL)
 Sannes `platformen/steam/voortgang.md` is er nog niet (wo 18 nov). Wat er nu al staat, zodat het narekenen dan minuten kost:
 - `python3 sim.py diepte`: wat een speler bij uur 1, 2, 5, 10, 20, 40, 70 en 100 open tijd heeft verzameld. Dat zijn de bronnen waar een hol-niveau of een bewonersniveau op kan lopen. Uitvoer: `uitkomst-diepte.txt`.

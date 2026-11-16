@@ -1327,3 +1327,6 @@ Nieuwste blok onderaan.
 
 ## 16 nov 2026, run 14:31 (gestart 13:35 UTC)
 - Niets veranderd sinds 13:31: geen nieuw bericht in berichten/vera.md, geen antwoord van de hoofdchat op mijn roostervraag, geen verlopen herhaalmeting. Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet en kort gestopt (regel 0c). Volgende echte meting: fest-proef 24 nov.
+
+## 16 nov 2026, run 15:31 (gestart 14:34 UTC)
+- Niets veranderd sinds 14:31: geen nieuw bericht in berichten/vera.md, geen antwoord van de hoofdchat op mijn roostervraag (berichten/hoofdchat.md, 13:35). Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet en kort gestopt (regel 0c). Volgende echte meting: fest-proef 24 nov.
