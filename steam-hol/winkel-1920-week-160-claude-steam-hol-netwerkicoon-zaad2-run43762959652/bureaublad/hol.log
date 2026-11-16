@@ -1,0 +1,42 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 58 s (klok terug: false): goud voor 1667, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1674 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Gerda
+HOL kroniek 5.1 (wacht 1.0): Gerda the Thief tiptoes in.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL kroniek 13.2 (wacht 0.0): Gerda will not be leaving. +6
+HOL kroniek 15.8 (wacht 2.6): Page for the Thief. The pit got him.
+HOL meting t=20 beelden=76 helden=0 hol_vast=3
+HOL meting t=30 beelden=16 helden=0 hol_vast=3
+HOL meting t=40 beelden=10 helden=0 hol_vast=3
+HOL kroniek 44.6 (wacht 0.0): Pim the Boastful struts in.
+HOL held binnen: Pim
+HOL meting t=50 beelden=60 helden=1 hol_vast=3
+HOL kroniek 58.1 (wacht 0.0): Pim stays forever. +6
+HOL meting t=60 beelden=119 helden=0 hol_vast=5
+HOL kroniek 60.6 (wacht 2.5): New stamp for the Hero. Spikes: one.
+HOL meting t=70 beelden=8 helden=0 hol_vast=5
+HOL meting t=80 beelden=14 helden=0 hol_vast=5
+HOL meting t=90 beelden=10 helden=0 hol_vast=5
+HOL kroniek 96.6 (wacht 0.0): Rik knows every trap. Almost.
+HOL held binnen: Rik
+HOL meting t=100 beelden=44 helden=1 hol_vast=5
+HOL kroniek 102.1 (wacht 0.0): Rik fell to the Spike Pit. +6
+HOL kroniek 104.7 (wacht 2.5): New page: the Wizard. The pit got him.
+HOL meting t=110 beelden=61 helden=0 hol_vast=7
+HOL meting t=120 beelden=17 helden=0 hol_vast=7
+HOL meting t=130 beelden=8 helden=0 hol_vast=7
+HOL meting t=140 beelden=10 helden=0 hol_vast=7
+HOL meting t=150 beelden=10 helden=0 hol_vast=7
+HOL kroniek 151.6 (wacht 0.0): Bram picks the lock. It was open.
+HOL held binnen: Bram
+HOL meting t=160 beelden=98 helden=1 hol_vast=7
+HOL meting t=171 beelden=101 helden=1 hol_vast=7
+HOL kroniek 172.6 (wacht 0.0): Bram ran. Swore revenge.
+HOL kroniek 175.2 (wacht 2.6): New stamp for the Thief. He got away.
+HOL meting t=181 beelden=30 helden=0 hol_vast=7
