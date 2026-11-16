@@ -1310,3 +1310,4 @@ Nieuwste blok onderaan.
 - Tweede platform: Freshworks Marketplace, 11:53 in onderzoek en gepusht. Alle 1.749 pagina's gelezen (paginadata van Nuxt uitgepakt). Geen aanmaakdatum, dus leeftijd via extension_id; de controleur toetste dat op 430 apps op versie 1 (4,5% verkeerde volgorde) en vond 15 van 15 pagina's gelijk. Cijfer 2, nee.
 - Les: helpdeskwinkels (Zendesk, Freshworks) geven nieuwe apps nauwelijks bereik, het platform bouwt de AI-koppelingen zelf. Niet verder zoeken in helpdesk- en CRM-winkels.
 - Volgende run: nog geen nieuw platform in kandidaten.md. Op 17 nov of later de deelnemers van het Auto-Battler RPG Fest proberen te halen (taken.md, fest-proef).
+- Derde stuk: Toast en Lightspeed eCom (kassasystemen, les van Clover) kort geschift: beide niet openbaar te meten (Toast gesloten partnerproces, Lightspeed-appwinkel alleen in de backend). In kandidaten.md gezet, geen oordeel. Run afgesloten na ±40 minuten.
