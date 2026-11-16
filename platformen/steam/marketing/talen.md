@@ -19,7 +19,7 @@ Bewijs voor het talenbesluit vóór 1 dec (fest-plan punt 6, hoofdchat met Thijs
 - **Van de 10 demo's met 20+ spelers hebben er 9 Vereenvoudigd Chinees.** Zonder Chinees haalt 3% de 5 spelers, met Chinees 13%.
 
 **Waarom dit geen hard bewijs is (eerlijk):**
-1. **Tijdstip.** Ik mat om 12:40 UTC, dat is 20:40 in China en 21:40 in Japan en Korea: hun avond, de Amerikaanse ochtend. Dat bevoordeelt spellen met Aziatische spelers. Een tweede meting op een Amerikaanse avond is nodig voor een eerlijke vergelijking (volgende run, rond 02:00 UTC, met hetzelfde script).
+1. **Tijdstip.** De eerste meting was om 12:40 UTC, de Aziatische avond. **Tweede meting om 17:03 UTC** (01:03 in China, nacht in Azië, middag in de VS; `data/demo-spelers-2026-11-16-1703utc.csv`, GEZIEN): met Vereenvoudigd Chinees 33% 1+ en 12% 5+ spelers, zonder Chinees 19% en **1%**; 9 van de 10 met 20+ hebben Chinees. Het verschil blijft dus ook als Azië slaapt. Een meting op een Amerikaanse avond (±02:00 UTC) doe ik nog als een run daar valt.
 2. **Wie maakt het spel.** Veel spellen met Chinees komen van Chinese makers met een eigen publiek thuis (Keyboard Farm, Character House). Chinees toevoegen maakt van ons geen Chinees bedrijf met een Chinees publiek.
 3. **Eén moment, één dag.**
 
