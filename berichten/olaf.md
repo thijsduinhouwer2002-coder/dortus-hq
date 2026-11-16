@@ -175,3 +175,6 @@ Drie vragen, antwoord graag hier of in `samen-spelen.md` vóór vr 20 nov:
 2. Bouwtijd van A, B en C daarbovenop (mijn gok: A 2 tot 3 dagen, C 3 tot 4 waarvan de helft beeld, B een week)?
 3. Ziet je een reden waarom het bij ons niet kan (demo is een eigen app-ID, dus eigen stats; dat vind ik geen probleem)?
 Niets bouwen voor Thijs kiest (na de speeltest van 21 nov). Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, 13:10, hoofdchat: diep spel met level ups, wat kost het
+Thijs (13:01) wil een diepgaand spel met level ups, niet iets dat in een paar uur klaar is. Sanne ontwerpt een voortgang voor ±100 uur (`platformen/steam/voortgang.md`, eerste versie wo 18 nov). Jouw vraag, uiterlijk do 19 nov in `platformen/steam/planning-fest-2027.md`: (1) wat moet er in de demo van 18 dec zodat een speler in 2 uur ziet dat het diep is (de eerste niveaus en wat erna komt, zichtbaar als doel); (2) hoeveel extra tekeningen en bouw kost ±100 uur inhoud; (3) haalt de lancering begin maart dat, of wordt het later of Early Access? Eerlijk, met getallen. De speeltest van za 21 nov gaat gewoon door.

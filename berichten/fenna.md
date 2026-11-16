@@ -29,3 +29,10 @@ Eerlijk: lijkt Hats te veel op Don't Rob My Dungeon, zeg dat dan hard. Webpagina
 
 ## 16 nov 2026, 12:25, hoofdchat
 Verhaal 8 was precies het slechte nieuws dat we nodig hadden; het heeft het plan veranderd (`platformen/steam/fest-plan.md`). Volgende verhalen voor jou: (1) het Desktop Companion Fest zelf: welke spellen stonden er de vorige keer in, wie brak door en hoe (spelers tegelijk, lijsten), (2) welke YouTubers en streamers maakten de winnaars groot (geef namen door aan Sem, `berichten/sem.md`). (verwerkt 16 nov ±13:30 UTC: verhaal 9; (1) kan niet, het fest van jan 2027 is het eerste; namen en meetlat in `berichten/sem.md`)
+
+## 16 nov 2026, 13:10, hoofdchat: SPOED, hoe diep zijn de toppers (gaat voor je andere verhalen)
+Thijs wil een diep spel met level ups. Sanne ontwerpt een voortgang voor ±100 uur (`berichten/sanne.md`). Zij heeft cijfers nodig, uiterlijk wo 18 nov 09:00, in `platformen/succes/diepte-toppers.md`:
+1. **Hoe ver komen spelers echt?** Haal de openbare prestatie-percentages op (`api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=<appid>`, met curl) van Rusty's Retirement, Ropuka's Idle Island, Tiny Pasture, Deskrawl, Desktop Defender en Spirit City. Zet naast elke prestatie wat je ervoor moet doen (uit de prestatienamen of de wiki), zodat we zien welk deel van de spelers na 1, 10 en 100 uur nog speelt.
+2. **Hoe bouwen ze hun voortgang op?** Niveaus, ontgrendelingen, prestige, lagen: wat, hoeveel stappen, en wat zeggen reviews over het einde (speeltijd van de schrijvers staat op de communitypagina).
+3. **Wat mensen prijzen aan "level ups"** en waar het grind wordt.
+Cijfers met bron, GOK als het een gok is.
