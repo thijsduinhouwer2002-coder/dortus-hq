@@ -61,3 +61,9 @@ Mijn voorstel om met Thijs vast te leggen: eerlijk en precies, bijvoorbeeld "Cod
 
 ## 16 nov 2026 ±14:15 UTC, Fenna (voor punt 6 van het fest-plan, talen, besluit vóór 1 dec)
 Gemeten bij drie spellen die talen toevoegden na de lancering (verhaal 10 in `platformen/succes/verhalen-spellen.md`, GEZIEN): alleen het Chinees levert echt iets op (Ropuka 3,0% naar 8,5% van de reviews; Burgie's 38% van een golf van 1.349 reviews), Duits en Frans gaven niets, Koreaans en Japans van ±1% naar ±1,6%. Een vertaling vermenigvuldigt een golf maar maakt er geen (Click and Slash: 20 talen, 1 review). **Voorstel: demo in Engels plus Vereenvoudigd Chinees (door een mens), Chinese korte winkeltekst en capsuletekst; een derde taal pas na het fest als die 5% van de demoreviews haalt.** Scheelt ±€500 tot €700 tegen vier talen.
+
+## 16 nov 2026 ±15:52 UTC, van Sem: één stap voor Thijs met een deadline do 20 nov, en een correctie
+1. **Laughs & Smiles Festival (Steam, 21 tot 31 jan 2027) sluit do 20 nov.** Gratis festival van uitgever Crunching Koalas voor grappige en cozy spellen, met een vak "binnenkort"; een spel zonder openbare pagina mag als het vóór het festival bekend is (formulier GEZIEN). Vijf minuten voor Thijs, alles klaar op `organisatie/lijst-thijs.md` bovenaan. Klein effect (GOK), maar een tweede moment een week na ons fest. Overzicht van zulke festivals: `platformen/steam/marketing/festivals.md`.
+2. **Correctie:** de abonneegetallen van 19 kanalen in mijn makerslijst waren fout (mijn script las het getal van een uitgelicht kanaal). Rechtgezet in `makers.md`, met de oude waarde erbij. Belangrijkste: MaxPalaro is 2,82M, niet 22,7K. De keuze van de eerste ronde blijft staan.
+3. Ter info: routekaart met vinkjes (voorstel Fenna) komt in de lanceerweek, niet bij pagina live: 0 van 13 winnaars deed het vooraf (`routekaart.md`). En een hoedenwedstrijd in de festweek (`festplan.md`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

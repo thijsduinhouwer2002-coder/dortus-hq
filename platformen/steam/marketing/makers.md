@@ -12,7 +12,7 @@ De 15 die als eerste een mail of sleutel krijgen. Gekozen op: actief in de laats
 | 68 | I Dream of Indie Games | wekelijkse lijst nieuwe indies, mediaan 11.500 | eigen domein | pagina live |
 | 69 | Cozy With Toxi | "20 HUGE Upcoming Cozy Games" 19.063 | eigen domein | pagina live |
 | 70 | NextBigGames | maandlijst komende idle-spellen | eigen domein | pagina live |
-| 29 | MaxPalaro | Rusty "jogar enquanto trabalha" 51.757; "for keys" | eigen domein | pagina live, Engels of Portugees |
+| 29 | MaxPalaro | Rusty "jogar enquanto trabalha" 51.757; "for keys"; 2,82M abonnees (run 5) | eigen domein | pagina live, Engels of Portugees |
 | 22 | Gaming In The Wild | Next Fest-lijsten 42.114 | bureau | pagina live, nog eens in de festweek |
 | 23 | Easily Distracted Games | cozy-lijsten, mediaan 61.000 | bureau | pagina live, nog eens in de festweek |
 | 16 | Conkbot | maandlijst "Coming in ..." | via kanaal | begin december (lijst januari of maart) |
@@ -23,6 +23,8 @@ De 15 die als eerste een mail of sleutel krijgen. Gekozen op: actief in de laats
 | 44 | Idle cub | half zijn titels idle, mediaan 199.500 | via kanaal | demo af, zonder verwachting |
 | 20 | Nookrium | "best overlooked" uit fests, 97.186 | via kanaal | festweek (14 jan) |
 Verwachting (GOK, rekensom onder "Nog actief?"): als 4 tot 5 van deze 15 iets maken, tientallen tot enkele duizenden bezoekers. Aanloop, geen doorbraak.
+
+**Correctie run 5 (16 nov ±15:50 UTC): abonneegetallen van 19 kanalen waren fout.** Mijn script `data/yt-kanaal.py` nam het eerste "subscribers" op de pagina, en dat is vaak een ander, uitgelicht kanaal. Nu leest het de kop van het kanaal zelf (GEZIEN: bij Dekaif staat 192K naast zijn eigen zakelijke adres, de 705K hoorde bij een uitgelicht kanaal). Alle 67 kanalen opnieuw gemeten; wat meer dan 10% afweek staat nu in de tabellen als "nieuw (was oud)". Fenna had de goede getallen. Wat dit verandert aan de eerste ronde: **MaxPalaro is 2,82M, niet 22,7K** (blijft erin: zijn kanaaltekst vraagt zelf om sleutels, maar reken op minder kans op antwoord); Nookrium 191K en I Dream of Indie Games 64,3K zijn groter dan gedacht; GriffyBit TV 9,63K kleiner. Olexa (298K), Wanderbots (522K) en JGigs (87,8K) zijn ook groter. Kansen heb ik verder niet aangepast: die hingen aan wat ze maken en of ze actief zijn, niet aan de grootte (Fenna: grote kanalen geven weergaven, geen kopers).
 
 ## Hoe ik keek (alles GEZIEN 16 nov 2026, ±11:20 tot 11:45 UTC)
 - YouTube-zoekpagina, met curl, gesorteerd op weergaven en op relevantie, 18 zoektermen (Rusty's Retirement, Desktop Defender, Deskrawl, Desktop Survivors 98, Bao Bao's Cozy Laundromat, Ropuka's Idle Island, Tiny Pasture, Task Bar Hero, Minimon, "desktop companion games", "idle games to play while you work", "games that sit at the bottom of your screen", "taskbar games steam", Next Fest idle). Script: `data/yt-zoek.py`. 246 kanalen gevonden; video's over Windows Defender en dergelijke eruit gefilterd.
@@ -44,34 +46,34 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 | # | Kanaal | Land | Abonnees | Bewijs (video, weergaven) | Speelt klein? | Contact openbaar | Kans |
 |---|---|---|---|---|---|---|---|
 | 1 | Buckeye Bunny (@BuckeyeBunny) | VS | 19,1K | "Rusty's Retirement Review", 66.642; "31 FREE Chill & Cozy Games, Next Fest Feb 2025" 17.410 (met Bao Bao) | ja, cozy nieuws en reviews | nee in tekst | ~~hoog~~ **laag: laatste video ±1 jaar oud** (run 3) |
-| 2 | Olexa (@OlexaYT) | VS | 11,2K | "This New Idle Farming Game is Pure Genius" 66.436, twee Rusty-video's (27.164, 11.574) | ja, indie | nee | hoog |
+| 2 | Olexa (@OlexaYT) | VS | 298K (was 11,2K) | "This New Idle Farming Game is Pure Genius" 66.436, twee Rusty-video's (27.164, 11.574) | ja, indie | nee | hoog |
 | 3 | Orbital Potato (@orbitalpotato) | VK | 197K | "The ULTIMATE Idle Distraction Game!? Rusty's Retirement" 29.153 | ja, management en kolonie | nee in tekst | middel |
 | 4 | Higher Plain Games (@HigherPlainGames) | VK | 29 (klein) | reviews van Desktop Defender 2.612 en Tiny Pasture 3.861 ("Bottom Screen Idler") | ja, niche | nee | hoog (klein, maar recenseert precies dit) |
 | 5 | SpiritAnden (@SpiritAnden) | Zweden | 1,53K | "Time to Game While Gaming! Desktop Defender Review" 1.738 | ja, "as many games as I can, mostly indie" | nee | hoog |
 | 6 | RinKa Plays (@RinKaPlays) | VS | 4,45K | Ropuka 11.818, Tiny Pasture 2.040 ("Let's Try") | ja, "indie games you might otherwise miss" | staat in kanaaltekst | hoog |
-| 7 | Kosh Idle (@KoshIdle) | VS | 17,4K | "IDLE SCREENSAVER // ROPUKA'S IDLE ISLAND" 4.161 | ja, alleen idle en incremental | nee | hoog |
+| 7 | Kosh Idle (@KoshIdle) | VS | 12,9K (was 17,4K) | "IDLE SCREENSAVER // ROPUKA'S IDLE ISLAND" 4.161 | ja, alleen idle en incremental | nee | hoog |
 | 8 | W A R D E N (@n.warden97) | VK | 24,7K | "TINY PASTURE, little desk buddies!" 3.543 | ja | staat in kanaaltekst ("Contact me") | ~~hoog~~ middel (run 3: 1 video in 30 dagen) |
-| 9 | Tchii (@Tchii) | België | 10,7K | "Tiny Pasture, another must-have super cute idle" 1.499 | ja, indie | staat in kanaaltekst | hoog |
+| 9 | Tchii (@Tchii) | België | 2,59K (was 10,7K) | "Tiny Pasture, another must-have super cute idle" 1.499 | ja, indie | staat in kanaaltekst | hoog |
 | 10 | Gohjoe (@Gohjoe) | ? | 201K | "This Roguelite Controls Your PC to Survive" (Desktop Survivors 98) 82.126 | ja, "indies/roguelites daily" | gohjoebusiness (gmail, "all business inquiries") | middel |
 | 11 | Dex (@DexTag) | Duitsland | 316K | "Windows 98 Horde Survivor is CRAZY" 23.762; maakt incrementals | ja | staat in kanaaltekst | middel |
 | 12 | knekroTV (@knekroTV) | Spanje | 158K | "DESKRAWL is like DIABLO but AFK" 30.423 (stream) | ja, variëteit | nee | middel (Spaans) |
 | 13 | Starker MMOs (@StarkerMMOs) | Brazilië | 11,6K | "The next Task Bar Hero!?" over Deskrawl 8.752, TBH-gidsen 51.375 | ja | staat in kanaaltekst ("parcerias") | middel |
-| 14 | Wanderbots (@wanderbots) | VS | 10,5K | "Incremental Farm Sim To Play While Playing Other Incremental Games" (Rusty) 18.058 | ja, "100% human-made videogames" | nee | ~~hoog: hij zoekt bewust spellen zonder AI; Hats is zonder AI-beeld~~ **laag, niet als "zonder AI" benaderen** (correctie run 2: Hats wordt gemaakt door AI-agents, ook de code die de 3D-beelden maakt en de teksten in het spel; zie "Correctie" onder) |
+| 14 | Wanderbots (@wanderbots) | VS | 522K (was 10,5K) | "Incremental Farm Sim To Play While Playing Other Incremental Games" (Rusty) 18.058 | ja, "100% human-made videogames" | nee | ~~hoog: hij zoekt bewust spellen zonder AI; Hats is zonder AI-beeld~~ **laag, niet als "zonder AI" benaderen** (correctie run 2: Hats wordt gemaakt door AI-agents, ook de code die de 3D-beelden maakt en de teksten in het spel; zie "Correctie" onder) |
 
 ### B. Lijstjes en cozy-overzichten (12)
 | # | Kanaal | Land | Abonnees | Bewijs | Contact openbaar | Kans |
 |---|---|---|---|---|---|---|
 | 15 | The Indie Brew (@theindiebrew) | Australië | 3,98K | "The BEST Idle Games to play While You Work" 16.602 | **hello@theindiebrew.com.au** ("Want coverage for your indie game? Shoot us an email") | hoog |
 | 16 | Conkbot (@Conkbot) | Australië | 778 | "Cozy Idle Games You Can Run While You Study/Work (Tier List)" 16.064 | nee | hoog (lijst precies ons soort) |
-| 17 | JGigs (@JGigs) | VS | 4,15K | "I Played 20 Idle Games For 2 Hours Each" 812.820 en 316.348 | nee | middel (één uitschieter, maar wel ons publiek) |
+| 17 | JGigs (@JGigs) | VS | 87,8K (was 4,15K) | "I Played 20 Idle Games For 2 Hours Each" 812.820 en 316.348 | nee | middel (één uitschieter, maar wel ons publiek) |
 | 18 | Best Indie Games (@ClemmyGames) | Singapore | 195K | "MOST ADDICTIVE Incremental/Idle Games" 43.224 (met Ropuka) | nee in tekst | middel |
 | 19 | CozyAriGames (@CozyAriGames) | Canada | 4,03K | "Exclusive First Look at Tiny Pasture" 2.586 (vóór de lancering, dus via de maker) | nee | hoog (doet al "first look" voor kleine makers) |
-| 20 | Nookrium (@Nookrium) | VS | 3,23K | "Thousands of New Games This Week, Next Fest 2026" 97.186; "best overlooked" spellen, dagelijks | nee | hoog in de fest-week |
+| 20 | Nookrium (@Nookrium) | VS | 191K (was 3,23K) | "Thousands of New Games This Week, Next Fest 2026" 97.186; "best overlooked" spellen, dagelijks | nee | hoog in de fest-week |
 | 21 | Indie Games Hub (@IndieHub01) | Indonesië | 283K | "Top 30 Pixel Arts Games in Steam Next Fest October 2026" 45.452 | zegt "contact me via email below", adres stond niet in de gelezen tekst | middel |
-| 22 | Gaming In The Wild (@GamingInTheWild) | IJsland | 1,85K | "25 Next Fest Picks In Three Minutes, June 2026" 42.114 | **gaminginthewild@digitalfoxtalent.com** (bureau) | middel |
+| 22 | Gaming In The Wild (@GamingInTheWild) | IJsland | 15,5K (was 1,85K) | "25 Next Fest Picks In Three Minutes, June 2026" 42.114 | **gaminginthewild@digitalfoxtalent.com** (bureau) | middel |
 | 23 | Easily Distracted Games (@easilydistractedgames) | ? | 35,7K | "18 Best Cozy Management Games in 2026" 203.063 | **easilydistractedgames@puka.agency** (bureau) | middel |
 | 24 | Lex Play (@LexPlayy) | VS | 222K | "50 Cozy Games To Play This Year" 516.434 | nee | laag tot middel |
-| 25 | Fleurs (@Fleurs_) | VK | 3,61K | "TOP 20 highest rated Cozy Games of 2026 so far" 48.179 | staat in kanaaltekst | middel |
+| 25 | Fleurs (@Fleurs_) | VK | 120K (was 3,61K) | "TOP 20 highest rated Cozy Games of 2026 so far" 48.179 | staat in kanaaltekst | middel |
 | 26 | KultZ (@KultZz) | VS | 11,6K | "Top 5 Incremental Games You NEED to Play in 2026" 34.069 | nee | middel |
 
 ### C. Andere talen (9)
@@ -79,9 +81,9 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 |---|---|---|---|---|---|---|
 | 27 | 우주하마 (@uzuhama) | Koreaans | 2,2M | Rusty, "중독성 쩌는 방치형 게임" 907.979 (de grootste video over Rusty) | nee | laag, maar enorme hefboom; alleen met Koreaanse demo |
 | 28 | 강한오빠 (@strongbro) | Koreaans | 5,52K | Deskrawl, 17.001; maakt video's "vanuit kantoorwerkers" | staat in kanaaltekst | hoog (kantoor-invalshoek past precies) |
-| 29 | MaxPalaro (@MaxPalaro) | Portugees (BR) | 22,7K | "GAME PRA JOGAR ENQUANTO TRABALHA, Rusty's Retirement" 51.757 | **"For keys and gaming offers"**: adres op eigen domein maxpalaro.com.br in kanaaltekst | hoog (vraagt zelf om sleutels) |
+| 29 | MaxPalaro (@MaxPalaro) | Portugees (BR) | 2,82M (was 22,7K) | "GAME PRA JOGAR ENQUANTO TRABALHA, Rusty's Retirement" 51.757 | **"For keys and gaming offers"**: adres op eigen domein maxpalaro.com.br in kanaaltekst | hoog (vraagt zelf om sleutels) |
 | 30 | Felps LIVE (@FelpsLIVE) | Portugees (BR) | 758K | Rusty-reeks 46.681, 15.744, 13.787 | nee | laag tot middel |
-| 31 | 狐狸牧場 foxranch (@foxranch) | Chinees (TW) | 14,9K | Rusty "可以邊上班邊玩" 44.791 | **foxranch1216@mesports.tw** ("有要合作的也歡迎聯絡我") | hoog met Chinese demo |
+| 31 | 狐狸牧場 foxranch (@foxranch) | Chinees (TW) | 188K (was 14,9K) | Rusty "可以邊上班邊玩" 44.791 | **foxranch1216@mesports.tw** ("有要合作的也歡迎聯絡我") | hoog met Chinese demo |
 | 32 | 老頭Z (@LaotouZ_Gaming) | Chinees (TW) | 6,63K | "Desktop Diablo" (Deskrawl) 29.429 | nee | middel |
 | 33 | ひろてく (@hirotech-games) | Japans | 3,39K | Rusty 8 uur laten draaien, 19.442 | nee | middel |
 | 34 | FineByMeh (@FineByMeh) | Thai | 7,87K | Ropuka "เพื่อนแก้เหงาเวลาคุณทำงาน" 5.696 | nee | middel |
@@ -91,9 +93,9 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 | # | Kanaal | Abonnees | Bewijs | Contact | Kans |
 |---|---|---|---|---|---|
 | 36 | Vinesauce (Vinny, @vinesaucefullsauce, archief) | 1,25M | "Vinny, Desktop Survivors 98 (Demo)" 50.234: speelt fest-demo's | nee | laag, maar Fenna noemt zijn Next Fest-stream (40.008) |
-| 37 | GameGrumps (@GameGrumps) | 1,27M | Desktop Survivors 98, 270.087 | nee | laag |
-| 38 | Kripparrian (@Kripparrian, VOD-kanaal) | 33,4K hier (hoofdkanaal groter) | Deskrawl-stream 21.318 | nee | laag (ARPG-publiek, Hats is minder grind) |
-| 39 | Dekaff (@Dekaif) | 705K | "I Played 7 Unhinged Games on Steam Next Fest" 751.500 | **Partners@saltraiders.com** (zakelijk) | laag tot middel: "unhinged" past bij Gloop die hoeden eet |
+| 37 | GameGrumps (@GameGrumps) | 5,45M (was 1,27M) | Desktop Survivors 98, 270.087 | nee | laag |
+| 38 | Kripparrian (@Kripparrian, VOD-kanaal) | 901K (was 33,4K, verkeerd gelezen) | Deskrawl-stream 21.318 | nee | laag (ARPG-publiek, Hats is minder grind) |
+| 39 | Dekaff (@Dekaif) | 192K (was 705K) | "I Played 7 Unhinged Games on Steam Next Fest" 751.500 | **Partners@saltraiders.com** (zakelijk) | laag tot middel: "unhinged" past bij Gloop die hoeden eet |
 | 40 | Wholesome Games (@WholesomeGames) | 62,7K | trailers Ropuka 26.846, Rusty 20.242, Bao Bao 7.280 | via hun showcase (oude inzendpagina bestaat niet meer, Fenna) | middel als we een showcase halen |
 
 ## Aanvulling 16 nov, run 2: 19 kanalen uit Fenna's verhaal 9 (nummer 41 tot 59)
@@ -102,7 +104,7 @@ Bron: `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv` (Fenna, G
 |---|---|---|---|---|
 | 41 | Hadomancer (@Hadomancer) | 100K | TBH, "The game you don't even play is breaking Steam" 350.336 (3,5x abonnees) | A, middel: maakt video's over wat al groot is |
 | 42 | Maybe Sarisa (@MaybeSarisa) | 1,63K | Ropuka, "Cozy Idle Games Under $10 for Multitasking" 3.140 | A, hoog: klein, precies onze lijst |
-| 43 | Indie Signal (@IndieSignal) | ? | Ropuka, "10 Idle Games on Steam That Will Quietly Ruin Your Life" 7.233 | A, hoog (lijstje) |
+| 43 | Indie Signal (@IndieSignal) | 27 (run 5) | Ropuka, "10 Idle Games on Steam That Will Quietly Ruin Your Life" 7.233 | A, hoog (lijstje) |
 | 44 | Idle cub (@idlecub) | 203K | Desktop Survivors 98, 28.231 | A, middel |
 | 45 | Krayn (@Krayn) | 95K | Deskrawl, "THE PERFECT GAME TO PLAY WHILE DO(ing other things)" 7.547 | A, middel |
 | 46 | Gaming Meets Experience | 2,21K | Deskrawl, 6.478 | A, middel (vooral gidsen) |
@@ -164,11 +166,11 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 **Waarom zo:** SullyGnome, TwitchTracker en Streams Charts geven 403 met curl (GEZIEN, run 1 en nu), en de Twitch-API vraagt een sleutel van Thijs. Veel streamers zetten hun streams als "VOD" of "archive" op YouTube; die vind je met dezelfde zoekpagina. Zoektermen: "<spel> stream" en "<spel> twitch" voor Rusty's Retirement, Deskrawl, Desktop Defender, Task Bar Hero, Desktop Survivors 98, Tiny Pasture, plus "idle desktop game stream vod" (11 zoekopdrachten, video's langer dan een uur = stream). Activiteit uit `data/yt-recent-streamers-2026-11-16.csv` (laatste 30 video's).
 | # | Streamer (VOD-kanaal) | Twitch | VOD-kanaal abonnees | Bewijs (stream, weergaven van het archief) | Actief? (dagen sinds laatste VOD, mediaan) | Kans |
 |---|---|---|---|---|---|---|
-| 60 | Laimu (@LimeArchives) | ja, VTuber | 411K | "Idle Farm Game with Chat ~ Laimu plays Rusty's Retirement" 1.740, en Rusty na Heavy Rain 2.488 | 0 dagen, mediaan 8.600, speelt cozy | middel: speelde Rusty **met haar chat**, juist de functie hieronder |
-| 61 | GriffyBit TV (@GriffyBitTV) | ja | 43,5K | streams met "Some Other Idle Games" (1.528) en Idle Monster TD (2.565); vooral IdleOn | 10 dagen, mediaan 3.550, 21 van 30 titels idle | hoog: idle-streamer die nieuwe idle-spellen probeert |
+| 60 | Laimu (@LimeArchives) | ja, VTuber | 65,2K (was 411K) | "Idle Farm Game with Chat ~ Laimu plays Rusty's Retirement" 1.740, en Rusty na Heavy Rain 2.488 | 0 dagen, mediaan 8.600, speelt cozy | middel: speelde Rusty **met haar chat**, juist de functie hieronder |
+| 61 | GriffyBit TV (@GriffyBitTV) | ja | 9,63K (was 43,5K) | streams met "Some Other Idle Games" (1.528) en Idle Monster TD (2.565); vooral IdleOn | 10 dagen, mediaan 3.550, 21 van 30 titels idle | hoog: idle-streamer die nieuwe idle-spellen probeert |
 | 62 | Krayn (#45, @Krayn) | ja, krayn_live (staat in zijn kanaaltekst) | 16,6K (VOD-kanaal) | Deskrawl-stream 7.547 | 0 dagen, mediaan 9.500 | middel (Frans) |
-| 63 | Kripparrian (al in D) | ja | 33,4K (VOD-kanaal) | "VARIETY! Lootbound / Deskrawl!" 21.318 | dagelijks | laag tot middel: groot, speelt wel kleine ARPG-achtige spellen in variety-streams |
-| 64 | CallMeCarson (@CallMeCarsonVODS) | ja (groot) | 2,45M | "Every 5 Minutes, I add another Idle Game" 4.893 | 4 dagen, mediaan 11.000 | laag: één idle-stream, groot kanaal; alleen via Curator Connect of mail zonder verwachting |
+| 63 | Kripparrian (al in D) | ja | 901K (was 33,4K, verkeerd gelezen) | "VARIETY! Lootbound / Deskrawl!" 21.318 | dagelijks | laag tot middel: groot, speelt wel kleine ARPG-achtige spellen in variety-streams |
+| 64 | CallMeCarson (@CallMeCarsonVODS) | ja (groot) | 196K (was 2,45M) | "Every 5 Minutes, I add another Idle Game" 4.893 | 4 dagen, mediaan 11.000 | laag: één idle-stream, groot kanaal; alleen via Curator Connect of mail zonder verwachting |
 | 65 | Edouard_EMB (@edouard_emb) | ja (staat in kanaaltekst) | 347K | "Un jeu en BARRE DE TACHE ?!" (Rusty) 3.911 | 0 dagen, mediaan 28.000 | laag tot middel (Frans; bureau-adres staat in kanaaltekst, niet overgenomen) |
 | 66 | Phenexa (@Phenexa) | ja | 1,86K | Rusty 1.428, Tiny Pasture 230 | 6 dagen, klein | hoog voor een klein kanaal: speelt elk cozy spel als "First Look" |
 | 67 | Game Launch Central (@GameLaunchCentral) | nee, YouTube | 17,3K | "10 Upcoming Idle Games for Endless Fun..." 525; TBH-gidsen tot 11.732 | 0 dagen, 30 video's in 30 dagen | **hoog voor de aanloop**: maakt lijsten van *komende* idle-spellen, precies waar een spel met alleen een pagina in past (zakelijk adres in kanaaltekst, gmail, niet overgenomen) |
@@ -184,12 +186,12 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 **Waarom deze groep:** tussen de pagina live (±8 dec) en de demo (4 jan) hebben we alleen een pagina en een GIF. De makers in A spelen een spel; deze kanalen zetten een spel dat nog niet uit is in een lijst ("wishlist these"). Gevonden met 8 zoekopdrachten ("upcoming idle games 2026/2027", "upcoming cozy games 2027", "upcoming desktop games steam", "new idle games steam demo", "upcoming taskbar games", "best steam demos idle", "upcoming indie games january 2027"). Activiteit uit `data/yt-recent-aanloop-2026-11-16.csv`. Kanalen met alleen mobiele gacha-lijsten of AAA-lijsten weggelaten.
 | # | Kanaal | Abonnees | Bewijs (video, weergaven) | Actief (laatste video, video's in 30 dagen, mediaan) | Contact openbaar | Kans |
 |---|---|---|---|---|---|---|
-| 68 | I Dream of Indie Games (@IDreamofIndie) | 1,72K | "I Found 70 NEW Indie Games You Should Grab This Week!" 11.629 (8 dagen oud); is een eigen indie-mediasite | 1 dag, 30, 11.500 | adres op eigen domein in kanaaltekst | **hoog**: wekelijkse lijst, 7x abonnees per video, mediasite met eigen adres |
+| 68 | I Dream of Indie Games (@IDreamofIndie) | 64,3K (was 1,72K) | "I Found 70 NEW Indie Games You Should Grab This Week!" 11.629 (8 dagen oud); is een eigen indie-mediasite | 1 dag, 30, 11.500 | adres op eigen domein in kanaaltekst | **hoog**: wekelijkse lijst, 7x abonnees per video, mediasite met eigen adres |
 | 69 | Cozy With Toxi (@CozyWithToxi) | 9,71K | "20 HUGE Upcoming Cozy Games Worth Waiting For! (2026 & Beyond)" 19.063 | 4 dagen, 17, 10.500 | adres op eigen domein in kanaaltekst | **hoog**: cozy, komende spellen, eigen adres |
 | 70 | NextBigGames (@thenextbiggames) | 2,61K | "October 2026 Promising Idle Games: 106 Games + 12 Categories" 748 (5 dagen oud) | 1 dag, 18, 1.450 | adres op eigen domein in kanaaltekst | hoog voor zichtbaarheid bij makers en uitgevers: maandlijst van idle-spellen die nog komen; klein publiek |
-| 71 | Rusty Champaign (@RustyChampaign) | 4,83K | "A Cozy Idle Game About Turning a Desert Into an Oasis! (Quiet Bloom demo)" 4.486 | 0 dagen, 28, 5.750 | niet in tekst | hoog: speelt bijna elke dag een cozy of idle demo |
+| 71 | Rusty Champaign (@RustyChampaign) | 25,3K (was 4,83K) | "A Cozy Idle Game About Turning a Desert Into an Oasis! (Quiet Bloom demo)" 4.486 | 0 dagen, 28, 5.750 | niet in tekst | hoog: speelt bijna elke dag een cozy of idle demo |
 | 72 | Gameskeys (@Gameskeysnet) | 96,6K | "NEW Indie Games Coming in 2026 & 2027" 9.025 (6 video's in mijn zoektermen) | 1 dag, 30, 6.200 | niet in tekst | middel: grote lijsten, wij zijn er één van veel |
-| 73 | OKtrix (@OKtrix) | 9,65K | "28 NEW Upcoming Unique Simulation Games You Need on Your Wishlist" 58.836 | 1 dag, 30, 27.000 | zakelijk adres in kanaaltekst (gmail, niet overgenomen) | middel: veel weergaven per abonnee (±3x), lijsten op "unique" |
+| 73 | OKtrix (@OKtrix) | 46,3K (was 9,65K) | "28 NEW Upcoming Unique Simulation Games You Need on Your Wishlist" 58.836 | 1 dag, 30, 27.000 | zakelijk adres in kanaaltekst (gmail, niet overgenomen) | middel: veel weergaven per abonnee (±3x), lijsten op "unique" |
 | (74) | ~~Indie Games Hub~~ | | staat al als #21 in groep B; dubbel, geen nieuw nummer | | | |
 - **Wanneer:** de dag dat de pagina live is (±8 dec) een korte mail aan 68, 69 en 70 (eigen adres), met GIF en "free demo January 4, Desktop Companion Fest Jan 14 to 18". 71 krijgt een demosleutel zodra de demo af is (18 dec). 72 en 73 pas met een getal (verlanglijstjes of de festuitslag).
 - **Eerlijk:** de mediaan van deze kanalen is 1.450 tot 27.000 weergaven per video, maar wij staan in een lijst van 20 tot 106 spellen. Per vermelding zijn het eerder tientallen dan honderden bezoekers (GOK). Het telt omdat het in de weken vóór de demo de enige weg is naast onze eigen clips.
