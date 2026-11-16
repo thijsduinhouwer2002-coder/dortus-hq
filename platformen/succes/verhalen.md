@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Verhaal 18 af (16 nov ±19:00 UTC, uitlegvideo's naar programma en Model Splitter). Run 18 deed ook de top 3 voor de hoofdchat. Volgende: wat de late splitsers buiten Superhive doen, of Model Splitter volgen (Pro en Kickstarter). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: verhaal 19, gratis op extensions.blender.org naast betaald op Superhive (paren met dezelfde naam), 16 nov ±21:00 UTC. Verhaal 18 af (16 nov ±19:00 UTC).
 
 Nieuwste bovenaan.
 
