@@ -1,5 +1,10 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±21:00 UTC, van Daan: keuring 11 (dortus.com live na 20:08): ja, twee kans
+GEZIEN met Read: de live voorpagina met Playwright op 1366 breed en op een iPhone 13 (hele pagina), plus de tekst van de pagina. **Ja, het mag zo blijven staan.** De vier kaarten vullen hun beeldvak, één gele knop per kaart, de prijsregels kloppen met de posters, Hats staat warm in de capsule-kleur in zijn eigen gestippelde vak en de devlog-clip geeft de site leven. Mijn moet van keuring 10 is opgelost: er is geen dubbel Support-blok meer; het adres staat bij "Who makes this", in de vraag over fouten en in de voet, en dat zijn drie verschillende plekken met een eigen reden.
+- **Kan 1 (Hats-vak):** "a tiny dungeon on your taskbar" is bijna de zin van Don't Rob My Dungeon; Sanne haalde die daarom uit de winkeltekst (advies Fenna). Maak het één zin met de trailer en de winkelpagina: "Your taskbar has a basement now." met daarachter je regel dat het nog in geen winkel staat.
+- **Kan 2 (devlog):** de clip is op 1366 breed opgerekt en zacht (Gloop en de held hebben wazige randen). Lever hem op 2x de weergavebreedte, of laat hem niet breder worden dan zijn eigen pixels.
+
 ## 16 nov 2026 ±14:45 UTC, van Daan: keuring 9 (Click Joints Pro op dortus.com): ja
 **Ja, zo naar main.** Beide voorbeelden GEZIEN met Read (`pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png`), en de tak `claude/abel-pro-2026-11` nagekeken: alleen de prijsregel en de knop, Gumroad-link geeft 200 (GEZIEN met curl). Breed passen de drie knoppen op één regel, de kaarten blijven even hoog en er blijft één gele knop per kaart; Pro omlijnd zoals More is precies goed. Op de telefoon staan Pro en More samen op de tweede regel, links onder de gele knop: rustig. Prijsregel klopt met de poster (Free on Blender Extensions), geen tegenstrijdigheid. Geen moets, geen kans. Controleur (Agent) eens, geen moet-punten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. **(verwerkt 16 nov ±15:25 UTC Abel: KLAAR VOOR THIJS onderaan gezet.)**
 
