@@ -1,8 +1,60 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 9, r/blender en gratis add-ons op extensions.blender.org: wat levert een Reddit-post op in downloads (16 nov 2026, ±09:00 UTC).
+bezig: niets (laatste: verhaal 9, r/blender, 208 add-on-berichten naast extensions.blender.org en Superhive, klaar 16 nov 2026 ±08:55 UTC). Volgende: oktober en "add-on"/"extension" in de kop erbij als het archief meewerkt, of een gratis add-on op extensions.blender.org die wel een bericht plaatste, met de downloads per versie.
 
 Nieuwste bovenaan.
+
+---
+
+## 9. r/blender: 208 berichten over add-ons (aug, sep en nov 2026) naast de winkels gemeten. Wat levert een Reddit-post op, en wat geeft extensions.blender.org zonder post?
+
+Onderzocht 16 nov 2026, run 9. Waarom: het lanceerplan van Click Joints (`commercie/blender-click-joints/lancering.md`) zet r/blender als eerste Reddit-bericht, met in de tabel "geen eigen meting voor add-on-berichten (GOK)". Dit verhaal vult dat gat. Ook een vergelijking: Click Joints haalde 154 downloads in 8 dagen zonder enig bericht.
+
+### Bronnen
+- Berichten: Arctic Shift (`https://arctic-shift.photon-reddit.com/api/posts/search`, subreddit blender, "addon" in de kop), augustus, september en 1 tot 16 november 2026: 208 berichten met upvotes, reacties, flair en tekst (GEZIEN). Oktober en juni/juli gaf het archief deze run niet (time-outs, "slow down"). Tabel zonder gebruikersnamen: `platformen/succes/data/rblender-addon-berichten-2026-11-16.csv`.
+- Reacties van de maker onder de 14 best scorende berichten: Arctic Shift `comments/search` (GEZIEN), om te zien waar de link naartoe gaat.
+- Draad "My addon post keeps getting removed. What am I missing?" (r/blender, okt 2026, id 1x7mc42) met 18 reacties (GEZIEN, Arctic Shift).
+- extensions.blender.org: lijst via `https://extensions.blender.org/api/v1/extensions/` (1.654 extensies, 1.357 add-ons), daarna per add-on de pagina met "Published" en "Downloads" (curl, 954 van de 1.357 pagina's gelezen voor de tijd op was; GEZIEN).
+- Superhive: productpagina Motion Painter (curl, GEZIEN). GitHub-zoekfunctie voor Spider Walker (GEZIEN).
+- Niet gelukt: de regels van r/blender zelf (reddit.com geeft de cloud een blokpagina, niet omzeild); PullPush weigert agents (niet omzeild).
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Upvotes per add-on-bericht, mediaan | **1** (75% heeft 3 of minder, 90% heeft 16 of minder, hoogste 2.233) | GEZIEN |
+| Berichten met flair "Paid Product/Service Promotion" | 85, mediaan 1, 9 met 20+ | GEZIEN |
+| Berichten met flair "Free Tools & Assets" | 34, mediaan 1,5, 5 met 20+ | GEZIEN |
+| Berichten met een video (v.redd.it of YouTube) | 99, mediaan 2, **15 met 20+** | GEZIEN |
+| Berichten zonder video (plaatje, tekst, link) | 109, mediaan 1, **3 met 20+** | GEZIEN |
+| Berichten met een link naar extensions.blender.org in kop, link of tekst | **0 van 208** | GEZIEN |
+| Waar de makers van de 14 best scorende berichten naar linken (in hun eigen reactie of tekst) | Gumroad, Superhive, itch.io, GitHub, Discord; nergens extensions.blender.org | GEZIEN |
+| Nieuwe add-ons op extensions.blender.org, gepubliceerd 1 okt tot 8 nov (n=100 in mijn steekproef) | downloads nu: p25 199, **mediaan 370**, p75 608, p90 1.742; mediaan **13 per dag** | GEZIEN |
+| Hetzelfde, gepubliceerd aug en sep (n=51) | mediaan 1.205, p90 4.690; ook ±13 per dag | GEZIEN |
+| Click Joints, 8 nov tot 16 nov, zonder bericht | 154 downloads, ±19 per dag; 36% van de nieuwe add-ons van okt doet per dag meer | GEZIEN |
+| Motion Painter ($30, Superhive): drie berichten op r/blender (240, 161 en 70 upvotes, aug tot nov) | "Sales 50+" na ±3 maanden | GEZIEN |
+| Spider Walker (gratis, GitHub): één bericht, 417 upvotes, 19 aug | 66 sterren op GitHub (repo aangemaakt de dag ervoor) | GEZIEN |
+
+### Wat ik zag, in volgorde
+1. **Ook op r/blender verdwijnt het gewone add-on-bericht.** Mediaan 1 upvote, net als bij Garmin (verhaal 7). Gratis of betaald maakt voor de mediaan weinig uit.
+2. **Bewegend beeld is de grootste factor die ik kon meten.** Van de berichten met een video haalde 15% 20+ upvotes, van de rest 3%. Alle tien best scorende berichten waren video's van het gereedschap aan het werk (een schets die een pose wordt, een spin die loopt, beweging tekenen in de 3D-weergave), met een kop als "I made a Blender addon that turns any rough sketch into a 3D pose" of "Free addon for procedural spider walk": wat het doet, in gewone woorden.
+3. **De moderatoren en het publiek zijn wantrouwig tegenover snel gemaakte add-ons.** In de draad over verwijderde berichten krijgt de reactie met de meeste stemmen (31): "There's just a flood of simple vibe coded addons and people are getting tired of it." Een andere (3): "A lot of people are weary of ai built stuff because it's often a flash in the pan thing, gets launched enthusiastically but not maintained." Een derde (7) raadt aan juist via extensions.blender.org te gaan, "so people know its been approved and reviewed". De maker zelf had volgens eigen zeggen bijna 10.000 views en 100+ upvotes vóór zijn bericht werd verwijderd (DERDEN, één stem). Een vierde noemt de vuistregel van Reddit dat hooguit ±10% van wat je plaatst eigen werk mag zijn (DERDEN, niet nagekeken in de regels van Reddit).
+4. **Wat een goed bericht oplevert is klein in kopers.** Motion Painter kreeg drie keer aandacht (samen 471 upvotes) en staat na ±3 maanden op 50+ verkopen voor $30, en daar zitten ook andere kanalen in. Spider Walker, gratis en het vierde bericht van de drie maanden, kreeg 66 sterren. Hoeveel downloads daar achter zitten kon ik niet zien.
+5. **extensions.blender.org zelf geeft een vaste stroom, zonder bericht.** Een nieuwe add-on krijgt daar mediaan ±13 downloads per dag, ook na twee maanden nog. Click Joints doet met ±19 per dag al meer dan de mediaan, zonder één bericht. Gratis op die winkel is dus al een kanaal; Reddit komt daar bovenop, niet in de plaats van.
+
+### Drie lessen
+1. **Een bericht op r/blender is alleen de moeite met een video van het gereedschap aan het werk.** Zonder video haalde 3% de 20 upvotes; met video 15%. De kop zegt in gewone woorden wat je ziet gebeuren.
+2. **"Snel met AI gemaakt" is op r/blender nu een rode vlag.** Wie een add-on plaatst moet laten zien dat het blijft: een openbare repo, een plek voor fouten, een versiegeschiedenis, en de keuring van extensions.blender.org. Dit sluit aan op de klacht op r/Garmin (verhaal 7): makers die niet terugpraten.
+3. **De winkel geeft meer dan de post.** Net als bij Garmin (verhaal 7 en 8) komt het meeste bereik uit de winkel zelf. Een goed bericht is een extra duw van tientallen tot honderden mensen, geen lancering.
+
+### Eerlijk: wat deze meting niet zegt
+- Upvotes zijn van het moment van archiveren; latere stemmen en verwijderde berichten kunnen ontbreken. Verwijderde berichten zie ik niet als verwijderd.
+- Alleen berichten met "addon" in de kop (niet "add-on" of "extension"), en oktober ontbreekt. 208 berichten is genoeg voor de mediaan, niet voor kleine verschillen.
+- Geen enkel bericht linkte naar extensions.blender.org, dus ik kon een post niet naast de downloads van een gratis add-on op die winkel leggen. Waarom niet weet ik niet (GOK: makers met een gratis add-on op die winkel plaatsen weinig, of de link staat in een reactie die het archief mist).
+- De downloadcijfers van extensions.blender.org tellen ook updates mee (GOK, de site zegt het niet); 954 van 1.357 pagina's gelezen, de steekproef volgt de volgorde van de lijst.
+- De regels van r/blender zelf heb ik niet kunnen lezen.
+
+### Voorstel voor Dortus deze week
+**Chris: maak van het r/blender-bericht voor Click Joints (B16/B30 in `lancering.md`) een videobericht van 10 tot 20 seconden waarin een gewricht wordt gemaakt en buigt (filmpje 1, 2 of 7 uit de reeks, staand of liggend), met flair "Free Tools & Assets", een kop die zegt wat je ziet ("I made a free Blender add-on that cuts a printable ball joint into any limb" of iets dergelijks), en in de eerste regel van de tekst drie bewijzen dat het blijft: gekeurd op extensions.blender.org, open broncode op GitHub, en de lijst met fouten die al zijn opgelost (versie 0.1.1 van vandaag).** Geen woord over Pro in dat bericht. Thijs plaatst en antwoordt op de dag zelf. Waarom: video's haalden hier vijf keer zo vaak 20+ upvotes, en het grootste risico op r/blender is nu het stempel "vibe coded" en verwijdering. Meten: Bram zet in `downloads.csv` de teller de dag ervoor en 1, 3 en 7 dagen erna; zonder bericht doet Click Joints ±19 per dag, dus pas boven ±40 per dag in de week erna zeg ik dat het bericht iets gaf (GOK als grens).
 
 ---
 
