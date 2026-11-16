@@ -1,34 +1,40 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 151, erbij 691, hoeden 48
-HOL hol-niveau 2 (faam 91)
-HOL hol-niveau 3 (faam 91)
-HOL hol-niveau 4 (faam 91)
-HOL hol-niveau 5 (faam 91)
-HOL hol-niveau 6 (faam 91)
-HOL hol-niveau 7 (faam 91)
-HOL hol-niveau 8 (faam 91)
-HOL hol-niveau 9 (faam 91)
-HOL hol-niveau 10 (faam 91)
-HOL hol-niveau 11 (faam 91)
-HOL hol-niveau 12 (faam 91)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 48 new hats.
-HOL opslag geladen: 0 terugkomers, 717 goud, faam 91
+HOL weg geweest 28801 s (klok terug: false): goud voor 41, helden 151, erbij 721, hoeden 50
+HOL hol-niveau 3 (faam 98)
+HOL hol-niveau 4 (faam 98)
+HOL hol-niveau 5 (faam 98)
+HOL hol-niveau 6 (faam 98)
+HOL hol-niveau 7 (faam 98)
+HOL hol-niveau 8 (faam 98)
+HOL hol-niveau 9 (faam 98)
+HOL hol-niveau 10 (faam 98)
+HOL hol-niveau 11 (faam 98)
+HOL hol-niveau 12 (faam 98)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 50 new hats.
+HOL opslag geladen: 0 terugkomers, 762 goud, faam 98
 HOL start hoogte=160 schaal=4 spelpixels=480x40 venster=(1920, 160) pos=(0, 872) held=res://systemen/held.gd
-HOL zaad 1794840147
-HOL eerste koop mogelijk na 20 s speeltijd (goud 717)
+HOL zaad 1794840531
+HOL eerste koop mogelijk na 100 s speeltijd (goud 762)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 90 fell, 48 hats. +691 gold.
-HOL begin: vluchten (Pim)
-HOL held binnen: Pim
+HOL kroniek 2.5 (wacht 2.5): 151 came, 95 fell, 50 hats. +721 gold.
+HOL begin: doorlopen (Tibbe)
+HOL held binnen: Tibbe
 HOL kroniek 5.1 (wacht 5.1): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.1: Pim has a map. It is wrong.
+HOL kroniek vervallen 7.1: Tibbe climbs into your hole.
 HOL meting t=10 beelden=300 helden=1 hol_vast=1
+HOL kroniek 19.7 (wacht 0.0): Gloop is flat. Back soon.
 HOL meting t=20 beelden=301 helden=1 hol_vast=1
-HOL kroniek 22.6 (wacht 0.0): Pim left. Took nothing. Angry.
-HOL kroniek 25.1 (wacht 2.5): New stamp for the Hero. He got away.
-HOL meting t=30 beelden=301 helden=0 hol_vast=1
-HOL kroniek 39.2 (wacht 0.0): Pim remembers the Spike Pit.
-HOL begin: terug (Pim)
-HOL held binnen: Pim
-HOL meting t=40 beelden=301 helden=1 hol_vast=1
-HOL meting t=50 beelden=301 helden=1 hol_vast=2
-HOL kroniek 51.1 (wacht 0.0): The Spike Pit won. Grudge settled. +9
+HOL kroniek 23.7 (wacht 0.0): Tibbe is now the Hoard-Toucher.
+HOL meting t=30 beelden=301 helden=1 hol_vast=1
+HOL kroniek 35.8 (wacht 0.0): Tibbe ran off, giggling.
+HOL meting t=40 beelden=301 helden=0 hol_vast=1
+HOL kroniek 41.4 (wacht 0.0): Gerda read about you in a tavern.
+HOL held binnen: Gerda
+HOL meting t=50 beelden=301 helden=1 hol_vast=1
+HOL kroniek 53.3 (wacht 0.0): Gerda left gold and one boot. +6
+HOL meting t=60 beelden=301 helden=0 hol_vast=3
+HOL meting t=70 beelden=301 helden=0 hol_vast=3
+HOL kroniek 79.7 (wacht 0.0): Gloop is up again. Wobbly.
+HOL meting t=80 beelden=301 helden=0 hol_vast=3
+HOL kroniek 87.0 (wacht 0.0): Kees knocks first. Polite.
+HOL held binnen: Kees
+HOL meting t=90 beelden=301 helden=1 hol_vast=3
