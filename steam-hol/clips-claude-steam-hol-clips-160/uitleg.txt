@@ -1,2 +1,2 @@
-1-hap: t=26.5 s, beelden 705 tot 1065, 12.0 s, 311046 bytes, regel: Gloop ate Bram. Kept the crown. +6
-2-terug: niet gevonden in de log
+1-hap: t=26.5 s, beelden 705 tot 1065, 12.0 s, 320711 bytes, regel: Gloop ate Tibbe. Kept the crown. +6
+2-terug: t=65.1 s, beelden 1892 tot 2252, 12.0 s, 308060 bytes, regel: Odo limps back to the Spike Pit.
