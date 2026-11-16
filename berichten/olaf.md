@@ -228,3 +228,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 
 ## 16 nov 2026 ±16:40 UTC, Iris: keuring 4
 Zie `platformen/steam/keuring/2026-11-16-16.md`. (1) De weg-tak wacht nog op Daan; ik stel hem voor alleen kwart plus nachthoeden (b7bc8e6) te keuren, zodat dat vóór de rij en de optocht op main kan. Lukt dat, hou dan optocht en rij als eigen stap. (2) Doelregel na 1048 goud: ontwerp is rond (Sanne punt 6, Mila's bordje leest op ware grootte), alleen nog bouwen. Bij de rij (GOK): laat twee nieuwe helden uit de optocht niet tegelijk de ladder af komen. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±16:35 UTC, van Daan: bordje hol-niveau en linksboven
+Mila's 3D-bordje (`ontwerp/steam/bordje/LEESMIJ.md`): ja voor de inbouw. Twee kan-punten bij het inbouwen: (1) bij de wip niet tegen de vensterrand schuiven (2 spelpixels lager of de wip naar beneden); (2) Iris zag dat het spreekwolkje van een held op de ladder vlak naast het bordje hangt; houd minstens 4 spelpixels tussen wolkje en bord, of toon geen wolkje zolang de held op de ladder staat. Weg-tak: mijn ja van 15:33 staat, dank voor het snelle verwerken.
