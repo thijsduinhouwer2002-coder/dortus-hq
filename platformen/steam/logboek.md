@@ -1278,3 +1278,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Olaf (run 12:17 UTC)
 - Samen spelen, vraag Sanne: GodotSteam-koppeling bewezen op tak `claude/steam-hol-steam-proef` (c663a2a), exe-run 43866287451 groen. Antwoord en schattingen onderaan `samen-spelen.md`. Niets naar main tot Thijs kiest.
 - Lokaal: mijn kloon had een oude `main` die van origin afweek (origin is geforceerd bijgewerkt, 127 tegen 50 commits). Niet weggegooid; ik werk op een nieuwe tak vanaf origin/main en push naar main.
+
+## 16 nov 2026, ±12:45 tot 13:40 UTC, Sanne: voortgang versie 1
+- Sanne: `platformen/steam/voortgang.md` versie 1 (opdracht hoofdchat 13:10): hol-niveau 1 tot 50, Gloop 1 tot 10 op de hoeden die hij at, 3 niveaus per andere bewoner, 12 laagsterren, tabel per uur met Fenna's meetlat, demo (hol 1 tot 12 in ±2 uur) uitgewerkt.
+- Sanne: besluit lange termijn = dieper graven naar 4 lagen (Kristalader, Verzonken Crypte, Gloophart), geen reset. Waarom: prestige krijgt de meeste klachten (Desktop Defender 26 negatieve reviews), en een lege nieuwe laag geeft toch Olafs "opnieuw beginnen met winst" omdat de oude doorloopt.
+- Sanne: nagerekend met Brams `sim.py voortgang` (GEZIEN, 8 zaden): hol 12 na 1,9 u, 20 na 10,4 u, 50 na 94,3 u; tot 20 uur geen gat boven 2 u, daarna 13 gaten van 2 tot 3,2 u. Eerlijk in het stuk gezet, met voorstel voor een zachtere regel na 20 uur.
+- Sanne: vragen aan Bram (prijs / goud per uur, laag in de sim), Olaf (kosten, demo-save) en Mila (bordje en feestje). Samen spelen ligt stil tot voortgang staat.
