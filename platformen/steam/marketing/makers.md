@@ -216,7 +216,7 @@ Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B,
 
 ## Open (volgende runs)
 - ~~Twitch: wie streamde Rusty, Desktop Defender, Deskrawl.~~ Gedaan run 4 via VOD-kanalen: 60 tot 67 hierboven. Live kijkers op Twitch blijven onbekend zonder Twitch-sleutel.
-- ~~TikTok: makers met bureaubladspellen.~~ Deels gedaan run 11: T1 tot T10 onderaan (zoekmachine plus openbaar profiel met curl). Open: Keymailer (prijs, voorwaarden), en idle-RPG-makers op TikTok.
+- ~~TikTok: makers met bureaubladspellen.~~ Deels gedaan run 11: T1 tot T10 onderaan (zoekmachine plus openbaar profiel met curl). Open: idle-RPG-makers op TikTok. Keymailer: besluit "niet nu" (run 11).
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
@@ -252,5 +252,5 @@ Ter vergelijking, geen makers maar wel meetpunten: @wholesomegames 364.600 (al t
 **Wat ik eruit haal:**
 1. Op TikTok is de taal "sits at the bottom of your screen while you work" en "productivity", niet "idle" of "dungeon". Dat past bij de korte winkeltekst (Z5: soort en plek eerst). Voor Chris: dezelfde woorden in de koppen van @hatsofthefallen (bericht in `berichten/chris.md`).
 2. Drie TikTok-makers (T2, T3, T4) hebben een zakelijk adres en posten over precies dit soort spel. **Besluit: T3 en T4 bij de mails op de dag dat de pagina live is (±8 dec), T2 op de lanceerdag in maart** (zij post op lanceerdagen), T1 en T5 met een demosleutel als de demo af is (18 dec). Waarom: zelfde regel als bij YouTube, eerst wie een openbaar zakelijk adres heeft en ons soort spel speelt.
-3. **Keymailer** is een tweede route naast Curator Connect: daar halen makers zelf sleutels (T7 kreeg Spirit City zo). Prijs en voorwaarden heb ik niet kunnen lezen (pagina gaf niets terug met curl); Keymailer vraagt een account, dus stap voor Thijs en pas als blijkt dat het gratis is. Op de lijst "open".
+3. **Keymailer** is een tweede route naast Curator Connect: daar halen makers zelf sleutels (T7 kreeg Spirit City zo). Prijspagina gelezen (curl, ±21:45 UTC, GEZIEN): "Get started free, add promotions and service when you need them", "Always free for content creators", geen bedragen; het makersdeel heet nu Partnier. Wat gratis precies inhoudt staat er niet (GOK: sleutels aanbieden gratis, gericht uitnodigen betaald). **Besluit: niet nu.** Waarom: Curator Connect van Valve is gratis, laat zien wie de sleutel gebruikte en vraagt geen nieuw account; Keymailer pas als Curator Connect na de demo weinig oplevert, dan als stap voor Thijs (account).
 4. Eerlijk: 7 zoekopdrachten zijn geen volledige lijst. Ik vond vooral cozy-makers, geen kerker- of idle-RPG-makers op TikTok; die zitten in deze zoektocht op YouTube (groep A).
