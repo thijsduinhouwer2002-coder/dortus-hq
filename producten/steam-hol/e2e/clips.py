@@ -16,7 +16,7 @@ def eerste(patroon):
     return None, None
 n = len(list(bron.glob("f*.png")))
 ff = imageio_ffmpeg.get_ffmpeg_exe()
-for naam, patroon, voor, na in [("1-hap", r" ate ", 3.0, 9.0), ("2-terug", r" is back for ", 2.0, 10.0)]:
+for naam, patroon, voor, na in [("1-hap", r" ate ", 3.0, 9.0), ("2-terug", r" is back| limps back | remembers ", 2.0, 10.0)]:
     t, regel = eerste(patroon)
     if t is None:
         print(f"{naam}: niet gevonden in de log"); continue
