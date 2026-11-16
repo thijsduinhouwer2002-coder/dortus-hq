@@ -1,13 +1,27 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 3042
-HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
-HOL opslag geladen: 0 terugkomers, 3062 goud
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 679, hoeden 40
+HOL hol-niveau 2 (faam 88)
+HOL hol-niveau 3 (faam 88)
+HOL hol-niveau 4 (faam 88)
+HOL hol-niveau 5 (faam 88)
+HOL hol-niveau 6 (faam 88)
+HOL hol-niveau 7 (faam 88)
+HOL hol-niveau 8 (faam 88)
+HOL hol-niveau 9 (faam 88)
+HOL hol-niveau 10 (faam 88)
+HOL hol-niveau 11 (faam 88)
+HOL hol-niveau 12 (faam 88)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 40 new hats.
+HOL weg-regel uit tot het bordje: Grew 11 levels while you were away.
+HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
+HOL opslag geladen: 0 terugkomers, 699 goud, faam 88
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794843304
-HOL eerste koop mogelijk na 15 s speeltijd (goud 3062)
+HOL zaad 1794850344
+HOL eerste koop mogelijk na 15 s speeltijd (goud 699)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 606 came, 406 fell. +3042 gold.
-HOL begin: vluchten (Lotte)
-HOL held binnen: Lotte
-HOL kroniek 5.1 (wacht 1.1): Lotte has a map. It is wrong.
+HOL kroniek 2.5 (wacht 2.5): 151 came, 88 fell, 40 hats. +679 gold.
+HOL begin: vluchten (Bram)
+HOL held binnen: Bram
+HOL kroniek 5.0 (wacht 5.0): Your hole worked at a quarter speed.
+HOL kroniek vervallen 7.0: Bram read about you in a tavern.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=3062, terugkomers=0
+HOL einde na 15 s, fps=10, goud=699, terugkomers=0
