@@ -15,3 +15,11 @@ Wat het spel nu doet (alleen op de 3D-gang en vanaf 20 gangtegels, `hol/hol_vast
 3. In elke kamer van twee of meer kolommen twee dingen: rechts van de fakkel en links van het kistje, op 0,8 van de maat
    (kamers liggen achter de gang). Een losse kamer heeft zijn eigen paddenstoelen en krijgt niets.
 4. Kleiner hol (onder 20 gangtegels) en de pixelgang: de uitdunning van 14 nov blijft precies zoals hij was.
+
+## Hoedenwand (punt 4, zelfde tak, 16 nov ±09:50 UTC)
+- `hoedenwand-lokaal-160.png` en `hoedenwand-2x.png`: zelfde save en beeld, nu met de hoeden in de wand.
+- Blad van Bram (`ontwerp/steam/hoedenwand/blad/`) staat nu als `kunst/3d/hoedenwand.png`, stukken onder `hoedenwand` in `kunst/3d/sprites.json`.
+- `hol/hol_vast.gd` `wand_plekken()`: dichte cellen in de bovenste rij boven gegraven gang, niet bij de schacht, niet bij
+  de stapel en de schatkamer (`schat_kol - 4`), niet voorbij `max_kol`, vaste volgorde (hash), nooit twee naast elkaar.
+  De oudste hoed van Gloop (`slijm.hoeden`) krijgt de eerste plek. Het vaste beeld tekent opnieuw als er een hoed bij komt.
+- Alleen in 3D en alleen als het blad er is; zonder blad niets (er is geen pixelvorm).

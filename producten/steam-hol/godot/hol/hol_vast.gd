@@ -79,8 +79,8 @@ func _sleutel() -> String:
 	v.sort()
 	var o: Array = h.put_open.keys()
 	o.sort()
-	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
-		h._ingang_x(), h.max_kol, h.met_3d]
+	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
+		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX)]
 
 # hol.gd roept dit aan het begin van elke _draw aan; kost alleen het maken van de sleutel
 func ververs() -> void:
@@ -180,6 +180,12 @@ func teken(d: CanvasItem) -> void:
 		HOL3D.teken(d, "ingang_boog", Vector2(ix, 0))
 	elif not (h.met_3d and HOL3D.teken(d, "ingang", Vector2(ix, 0))):
 		d.draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
+	# de hoedenwand (Mila 16 nov): de hoeden van opgegeten helden half in de aarde boven de gang
+	if h.met_3d and HOL3D.heeft_wand():
+		var wh: Array = wand_hoeden()
+		var wp: Array = wand_plekken(h, HOL3D.schatkamer_aan(h))
+		for i in mini(wh.size(), wp.size()):
+			HOL3D.teken_wand(d, int(wh[i]), wp[i])
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
 	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
@@ -340,3 +346,40 @@ func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -
 	else:
 		var v: int = h._hash(k, r) % 8
 		d.draw_texture_rect_region(TEGELS, Rect2(x, y, KOL, KOL), Rect2(v * KOL, 0, KOL, KOL))
+
+# De hoedenwand (Mila 16 nov, punt 4, "de wand is het logboek van wie Gloop at"): elke opgegeten held laat zijn hoed
+# achter, scheef half in de aardwand boven de gang (blad van Bram, wand-0 tot wand-9, met holte en aarderand erin).
+# Plekken: dichte cellen in de bovenste rij boven een gegraven gang, niet bij de stapel en de schatkamer, niet bij de schacht;
+# in een vaste volgorde (hash), nooit twee naast elkaar. De oudste hoed krijgt de eerste plek, dus de wand groeit en
+# wat er hangt verschuift niet als er een hoed bij komt (tot er gegraven wordt). Midden van de hoed rond rij 16.
+const WAND_MAX := 64       # meer plekken dan dit heeft geen scherm; houdt de sleutel klein
+
+static func wand_plekken(h, schat_3d: bool) -> Array:
+	var kand := []
+	var eind: int = h.schat_kol - (4 if schat_3d else 1)   # 3D: niet achter de stapel hoeden, Gloop en de schatkamer
+	for k in range(h.ingang_kol + 2, eind):
+		if not h.boven[k] and h.gang[k] and k <= h.max_kol:
+			kand.append(k)
+	kand.sort_custom(func(a, b): return _hh(h, a, 13) < _hh(h, b, 13) or (_hh(h, a, 13) == _hh(h, b, 13) and a < b))
+	var gekozen := {}
+	var uit := []
+	for k in kand:
+		if gekozen.has(k - 1) or gekozen.has(k + 1):
+			continue
+		gekozen[k] = true
+		var hh: int = _hh(h, k, 14)
+		uit.append(Vector2(k * KOL + 8 + (hh % 5) - 2, 16 + (int(hh / 5.0) % 3) - 1))
+		if uit.size() >= WAND_MAX:
+			break
+	return uit
+
+# De hoeden van Gloop, oudste eerst (slijm.gd `hoeden`), via de strook; leeg in de toetsen zonder strook.
+func wand_hoeden() -> Array:
+	if h == null:
+		return []
+	var s = h.get_parent()
+	var sl = s.get("slijm") if s != null else null
+	if sl == null:
+		return []
+	var hd = sl.get("hoeden")
+	return hd if hd is Array else []

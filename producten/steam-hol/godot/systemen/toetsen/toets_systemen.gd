@@ -709,6 +709,21 @@ func _init() -> void:
 	var vlos := vbk.duplicate()
 	vlos[5] = false
 	ok(HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false).size() == 6, "vol: een losse kamer (kamer_los) krijgt niets extra")
+	# hoedenwand (Olaf 16 nov, Mila punt 4): vaste plekken boven de gang, nooit naast elkaar, niet bij schacht en stapel
+	var wvh := {"ingang_kol": 1, "schat_kol": 29, "max_kol": 9999, "gang": vgk, "boven": vbk}
+	var wp: Array = HV.wand_plekken(wvh, true)
+	var wkol := {}
+	var wfout := 0
+	for p in wp:
+		var kk: int = int(p.x) / 16
+		if wkol.has(kk - 1) or wkol.has(kk + 1) or vbk[kk] or kk <= 2 or kk >= 25 or p.y < 15 or p.y > 17:
+			wfout += 1
+		wkol[kk] = true
+	ok(wp.size() >= 5 and wfout == 0, "wand: %d plekken, %d tegen de regels (naast elkaar, kamer, schacht, stapel, hoogte)" % [wp.size(), wfout])
+	ok(HV.wand_plekken(wvh, true) == wp, "wand: zelfde plekken bij opnieuw tekenen (vast, groeit zonder verschuiven)")
+	var wvh2 := wvh.duplicate()
+	wvh2["max_kol"] = 12
+	ok(HV.wand_plekken(wvh2, true).size() < wp.size(), "wand: niet voorbij max_kol (onder het paneel)")
 	# graafmoment in 3D (Daan 14 nov): beeld 0 tot 3 over GRAAF_S, keurstrook zet vier kamers stil in elk beeld
 	var HG = load("res://hol/hol.gd")
 	ok(HG.graaf_beeld(0.0) == 0 and HG.graaf_beeld(HG.GRAAF_S * 0.3) == 1 and HG.graaf_beeld(HG.GRAAF_S * 0.6) == 2 \

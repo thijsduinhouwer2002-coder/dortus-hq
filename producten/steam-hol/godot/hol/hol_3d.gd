@@ -14,6 +14,9 @@ static var gezocht := false
 # losse versiering op een doorzichtig blad (Bram 13 nov 23:30, Daan 22:55): fakkel, ladder; zelfde schaal en licht
 static var deco_blad: CanvasTexture = null
 static var deco := {}
+# de hoedenwand (Mila 16 nov, blad van Bram ontwerp/steam/hoedenwand/blad/): per hoed wand-0 tot wand-9, half in de aarde
+static var wand_blad: CanvasTexture = null
+static var wand := {}
 
 static func laad() -> void:
 	if gezocht:
@@ -30,6 +33,12 @@ static func laad() -> void:
 		deco_blad.diffuse_texture = load(str(d["deco"]["blad"]))
 		deco_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		deco = d["deco"]["stukken"]
+	if d.has("hoedenwand") and typeof(d["hoedenwand"]) == TYPE_DICTIONARY and typeof(d["hoedenwand"].get("stukken")) == TYPE_DICTIONARY \
+			and ResourceLoader.exists(str(d["hoedenwand"].get("blad", ""))):
+		wand_blad = CanvasTexture.new()
+		wand_blad.diffuse_texture = load(str(d["hoedenwand"]["blad"]))
+		wand_blad.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		wand = d["hoedenwand"]["stukken"]
 	if not d.has("hol_proef"):
 		return
 	var info: Dictionary = d["hol_proef"]
@@ -230,3 +239,23 @@ static func schatkamer_aan(h) -> bool:
 	if not h.met_3d or h.schat_kol - 2 <= h.ingang_kol or not heeft("schatkamer"):
 		return false
 	return h.boven[h.schat_kol] and h.boven[h.schat_kol - 1] and h.boven[h.schat_kol - 2]
+
+# Hoed nr (index zoals held.gd hoed_nr, 0 tot 9) half in de aardwand, met zijn `midden` op `punt` (spelpixels).
+# false = het blad of die hoed ontbreekt (dan tekent de wand niets: er is geen pixelvorm van).
+static func heeft_wand() -> bool:
+	laad()
+	return wand_blad != null and wand.size() > 0
+
+static func teken_wand(doek: CanvasItem, nr: int, punt: Vector2) -> bool:
+	laad()
+	var naam := "wand-%d" % nr
+	if wand_blad == null or not wand.has(naam):
+		return false
+	var s: Dictionary = wand[naam]
+	var v: Array = s["vak_px"]
+	var m: Array = s["maat"]
+	var a := Vector2(m[0] / 2.0, m[1] / 2.0)
+	if s.has("midden") and typeof(s["midden"]) == TYPE_ARRAY and s["midden"].size() == 2:
+		a = Vector2(float(s["midden"][0]), float(s["midden"][1]))
+	doek.draw_texture_rect_region(wand_blad, Rect2((punt - a).floor(), Vector2(m[0], m[1])), Rect2(v[0], v[1], v[2], v[3]))
+	return true
