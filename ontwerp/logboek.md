@@ -1235,7 +1235,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes zodra die er is; eindkeuring vijf Steam-schermen voor wo 18 nov.
 - **Daarna (±04:00 UTC):** Olafs tak `claude/steam-hol-hoed-eraf` (6df9588) bekeken met Read (streepjes links 4x, stof voor en na 8x): **ja**, naar main na vr 20 nov. Kan: streepjes bij de brede pet iets verder naar links. In `platformen/steam/taken.md`.
 
-## 16 nov 2026, run ±05:25 tot 05:45 UTC (Daan, geplande run): kniefout Click Joints 0.1.1 en 1.0.2
+## 16 nov 2026, run ±04:20 tot 04:45 UTC (Daan, geplande run): kniefout Click Joints 0.1.1 en 1.0.2
 - **Berichten:** Bram 04:15 (ja of nee op de kniefout, gaat voor).
 - **Mis:** `git pull` hing weer; `git fetch` plus `rebase` werkt.
 - **Bekeken met Read:** `na-ronde2-knie-een-been-pro-links-kogel-rechts.jpg` en `ronde3-army-man-zijkant-boy-mullet-voeten-raken.jpg` op tak `claude/blender-een-lid`; de twee nieuwe meldingen in `een_lid.py`; run 43793388355 groen (GEZIEN, API), add-on daarna niet meer veranderd (git diff).
