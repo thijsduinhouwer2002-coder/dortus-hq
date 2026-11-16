@@ -99,6 +99,13 @@ Bron: `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv` (Fenna, G
 | 58 | IlloRubiu (@Illorubiu3) | 1,63K | Deskrawl-stream 6.282 (Spaans) | C, middel met Spaans |
 | 59 | Alex Baena (@alexpolybius) | 59,3K | Rusty, video-essay over het genre 30.403 (Spaans) | C, middel: essay over "het genre", Hats past in een vervolg |
 
+**Contact van deze 19 (GEZIEN 16 nov ±12:55 UTC, openbare kanaaltekst, script `data/yt-kanaal.py`; 小月歡樂星, しんじさん, GameStar niet gelezen):**
+- Adres op eigen domein of bureau: **Maybe Sarisa: contact@maybesarisa.com** (eigen domein, VS); **くろろじちゃんねる: kuroroji.ch@youdaoads.com** (bureau, Japan).
+- "Staat in kanaaltekst" (gewoon mailadres, niet overgenomen): Hadomancer (Brazilië), Gaming Meets Experience (Turkije), Task Bar Hero Dicas, Diomio.
+- Geen adres in de tekst: Indie Signal, Idle cub, Krayn, Plano Plays Games, Mattastic ASMR, Bijuu Mike, EuSouOGiba, Tietie TH., IlloRubiu, Alex Baena.
+- Let op: mijn script gaf bij vier kanalen een ander abonneegetal dan Fenna (Krayn 16,6K tegen 95K, Mattastic ASMR 3,79K tegen 293K, くろろじ 10K tegen 41,7K, Indie Signal 27). Mogelijk leest mijn script een ander getal van de pagina; nakijken voor de eerste mail. Hadomancer zit in Brazilië, dus een Engelse mail kan, Portugees ook.
+- Maybe Sarisa schuift daarmee naar de eerste ronde mails (groep B, lijstje "Cozy Idle Games Under $10 for Multitasking").
+
 **Wat ik meeneem uit Fenna:** de echte doorbraken kregen hun grote video's ná het succes (TBH, GameStar, Hadomancer). Die kanalen zijn dus voor de week ná een doorbraak in de meetlat (`festplan.md`), niet voor de aanloop. Voor de aanloop tellen de kleine lijstjesmakers met veel weergaven per abonnee (The Indie Brew 4x, JGigs 9x, Maybe Sarisa, Indie Signal, Conkbot).
 
 ## Wat ik eruit haal (eerste lezing)
