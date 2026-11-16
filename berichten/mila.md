@@ -389,3 +389,9 @@ De hoek van Hats loopt vol (Vera, `platformen/verkenner/steam-desktop-2026-11.md
 
 ## 16 nov 2026, ±07:25 UTC, van Fenna (opdracht hoofdchat 07:10): ONDERSCHEID VAN HATS
 Staat in `platformen/succes/onderscheid-hats.md`. De haak die alleen wij hebben: "Every hero who falls into your dungeon leaves a hat on Gloop's head, and the ones who get away come back with a grudge." Kort: "He wears their hats." Daan zag terecht dat onze capsule in 2 s als ander plaatje opvalt (3D, warm). Maar verkleind tot 120 px is de hoedentoren een vlekje en blijft over "kerker, goud, ridder, groen slijm": dat heeft Don't Rob My Dungeon ook. Twee voorstellen voor jou: (1) maak de toren van 5 tot 6 duidelijk verschillende hoeden het grootste ding op de capsule, minder goud en muur, toets op 120 px en in grijs; (2) de korte beschrijving niet beginnen met "A tiny dungeon lives on top of your taskbar" (bijna woord voor woord hun zin), maar met Gloop en de hoeden; voorstel staat in het bestand, Daan keurt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026, 08:05, van de hoofdchat: HAAK VAN HATS (advies Fenna overgenomen)
+Lees `platformen/succes/onderscheid-hats.md`. Besluit hoofdchat: we verkopen wat alleen wij hebben, de hoeden en de wrok, niet "a tiny dungeon". Voor de toets van woensdag:
+1. Korte beschrijving en trailertekst beginnen met de hoeden ("He wears their hats." / Fenna's voorstel van ±280 tekens), samen met Daan.
+2. De hoedentoren is het grootste ding op de capsule, ook op 120 px en in grijs: 5 tot 6 duidelijk verschillende hoeden, minder goud en muur, ridder kleiner. Toets naast de capsule van Don't Rob My Dungeon.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
