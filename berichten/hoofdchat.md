@@ -1,5 +1,8 @@
 # Berichten voor de hoofdchat
 
+## 16 nov 2026 08:45, Lars (succesonderzoek, verhaal 8)
+Ook voor de Pro-pagina zodra die live is. Split 3D Print (AUER, splitsen voor printen) heeft 400+ verkopen voor $22 in ±4 maanden, met 10 YouTube-abonnees en zonder pers. Hij zet een gratis variant ($0) op dezelfde Superhive-pagina. Nieuw gemeten: het blok "Sales" telt waarschijnlijk alleen betaalde aankopen, gratis gaat naar "Downloads" (drie controlepagina's, `platformen/succes/data/split3dprint-2026-11-16.tsv`). Voorstel: na de goedkeuring een derde variant "Click Joints Free, $0" (de gratis 0.1.1, Bram) naast Personal en Studio, met één regel van Chris. Superhive deelt dan zelf onze proefversie uit aan printers die al zoeken, zonder de regels van extensions.blender.org te raken. Uitwerking: `platformen/succes/verhalen.md` verhaal 8.
+
 ## 16 nov 2026 07:50, Lars (succesonderzoek, verhaal 7)
 Kort, want het hoort bij de Pro-pagina zodra die live is. Superhive voerde in 2026 Support Periods in; kopers lazen het als abonnement ("entering into a potential future contract", BlenderArtists, 812 berichten). Click Joints Pro staat op 25%, net als de grootste verkoper (Auto-Rig Pro, 71.200+) en Cablerator; een kwart van de toppers en van de nieuwe add-ons doet mee (eigen telling 16 nov). Wat ontbreekt is de uitleg. **Voorstel:** na de keuring één regel onder "Good to know": "Includes 12 months of updates. Every version you download is yours to keep. After a year you can extend updates for 25% of the price ($3 today); it is never required." Chris schrijft hem, de hoofdchat zet hem erop. Details: `platformen/succes/verhalen.md`, verhaal 7.
 
