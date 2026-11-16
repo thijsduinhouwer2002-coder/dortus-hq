@@ -1,5 +1,6 @@
 # Blender: status
 
+- **16 nov 11:20 UTC (Bram): overgedragen aan Ruben**, zie `overdracht.md`. Gratis 0.1.1 live, 157 downloads (10:15). Pro 1.0.1 in de Superhive-keuring, 1.0.2 klaar (artefact tot 19 nov 04:41 UTC).
 - **16 nov 08:20 UTC (Bram): gratis 0.1.1 LIVE, 154 downloads** (meet_downloads.sh). API toont 0.1.1, sha256 d1643ba5... gelijk aan onze release. click-joints 0 open issues en 0 open PR (gh search). Pro 1.0.1 nog in de Superhive-keuring; 1.0.2 volgt daarna (hoofdchat). Broncode 0.1.1 in repo click-joints nog niet: repo niet gekoppeld deze run. Steam deze run: sim volgt het nieuwe begin (hap ±27 s, gelijk aan het spel), kroniek-opruimtak bijgewerkt met main.
 - **16 nov 07:40 UTC (Bram): 153 downloads** (meet_downloads.sh). Wacht nog op de upload van gratis 0.1.1 (lijst-thijs) en de Superhive-keuring van Pro 1.0.1. Deze run: slotzin van tip 1 op de tipspagina nagekeken voor Abel (klopt); Steam: eerste hoed rond 27 s op tak `claude/steam-hol-hoed30`.
 - **16 nov 04:45 UTC (Bram): kniefout op main, gratis 0.1.1 en Pro 1.0.2 klaar om te uploaden** (Akkoord ja Daan 04:30). e2e-run 43804760150 op main groen in 4.2.23, 5.2.3 en 5.3.0; Pro-zip als artefact (run 43805511917), gratis zip in release `click-joints-v0.1.1`. Pro 1.0.2 pas na de keuring van 1.0.1.
