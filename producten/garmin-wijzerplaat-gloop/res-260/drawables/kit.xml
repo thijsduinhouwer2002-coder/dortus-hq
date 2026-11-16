@@ -42,5 +42,15 @@
     <bitmap id="HoedAod7" filename="wp_leeg.png"/>
     <bitmap id="HoedAod8" filename="wp_leeg.png"/>
     <bitmap id="HoedAod9" filename="wp_leeg.png"/>
+    <bitmap id="Grijs0" filename="wp_leeg.png"/>
+    <bitmap id="Grijs1" filename="wp_leeg.png"/>
+    <bitmap id="Grijs2" filename="wp_leeg.png"/>
+    <bitmap id="Grijs3" filename="wp_leeg.png"/>
+    <bitmap id="Grijs4" filename="wp_leeg.png"/>
+    <bitmap id="Grijs5" filename="wp_leeg.png"/>
+    <bitmap id="Grijs6" filename="wp_leeg.png"/>
+    <bitmap id="Grijs7" filename="wp_leeg.png"/>
+    <bitmap id="Grijs8" filename="wp_leeg.png"/>
+    <bitmap id="Grijs9" filename="wp_leeg.png"/>
     <bitmap id="LauncherIcon" filename="launcher_icon.png"/>
 </drawables>

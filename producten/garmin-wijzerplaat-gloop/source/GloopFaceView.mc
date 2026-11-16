@@ -19,7 +19,7 @@ class GloopFaceView extends WatchUi.WatchFace {
     var m as Array<Number> = [] as Array<Number>;
     var p as Array<Number> = [] as Array<Number>;
     // De vier cijfers van de tijd. Alleen de cijfers die nu in beeld staan zijn geladen (0 tot 9 de
-    // witte uren, 10 tot 19 de mintkleurige minuten), dat spaart geheugen op oudere horloges.
+    // witte uren, 10 tot 19 de mintkleurige minuten, 20 tot 29 grijs voor de slaapstand), dat spaart geheugen op oudere horloges.
     var cij as Array<Plaatje?> = [null, null, null, null] as Array<Plaatje?>;
     var cijNr as Array<Number> = [-1, -1, -1, -1] as Array<Number>;
     // Lijnplaatjes voor de slaapstand (alleen AMOLED), pas geladen als ze nodig zijn.
@@ -99,6 +99,16 @@ class GloopFaceView extends WatchUi.WatchFace {
             case 17: r = Rez.Drawables.Min7; break;
             case 18: r = Rez.Drawables.Min8; break;
             case 19: r = Rez.Drawables.Min9; break;
+            case 20: r = Rez.Drawables.Grijs0; break;
+            case 21: r = Rez.Drawables.Grijs1; break;
+            case 22: r = Rez.Drawables.Grijs2; break;
+            case 23: r = Rez.Drawables.Grijs3; break;
+            case 24: r = Rez.Drawables.Grijs4; break;
+            case 25: r = Rez.Drawables.Grijs5; break;
+            case 26: r = Rez.Drawables.Grijs6; break;
+            case 27: r = Rez.Drawables.Grijs7; break;
+            case 28: r = Rez.Drawables.Grijs8; break;
+            case 29: r = Rez.Drawables.Grijs9; break;
             default: break;
         }
         return WatchUi.loadResource(r) as Plaatje;
@@ -188,27 +198,21 @@ class GloopFaceView extends WatchUi.WatchFace {
     }
 
     // De tijd: uren boven minuten, rechts uitgelijnd op de lijn van Mila. `dx` en `dy` verschuiven de
-    // tijd (slaapstand, tegen inbranden); `grijs` kleurt de cijfers grijs waar het horloge dat kan.
+    // tijd (slaapstand, tegen inbranden); `grijs` kiest de grijze cijfers van de slaapstand.
     function tekenTijd(dc as Graphics.Dc, uur as Number, is24 as Boolean, minuut as Number, dx as Number, dy as Number, grijs as Boolean) as Void {
         var cw = p[9];
         var over = p[11];
         var rechts = p[2] + dx;
         var x1 = rechts - cw;
         var x0 = x1 - cw + over;
+        var u = grijs ? 20 : 0;
+        var mi = grijs ? 20 : 10;
         if (is24 || uur >= 10) {
-            zetCijfer(dc, x0, p[4] + dy, cijfer(0, uur / 10), grijs);
+            dc.drawBitmap(x0, p[4] + dy, cijfer(0, u + uur / 10));
         }
-        zetCijfer(dc, x1, p[4] + dy, cijfer(1, uur % 10), grijs);
-        zetCijfer(dc, x0, p[5] + dy, cijfer(2, 10 + minuut / 10), grijs);
-        zetCijfer(dc, x1, p[5] + dy, cijfer(3, 10 + minuut % 10), grijs);
-    }
-
-    function zetCijfer(dc as Graphics.Dc, x as Number, y as Number, c as Plaatje, grijs as Boolean) as Void {
-        if (grijs && (dc has :drawBitmap2)) {
-            dc.drawBitmap2(x, y, c, { :tintColor => 0x999999 });
-        } else {
-            dc.drawBitmap(x, y, c);
-        }
+        dc.drawBitmap(x1, p[4] + dy, cijfer(1, u + uur % 10));
+        dc.drawBitmap(x0, p[5] + dy, cijfer(2, mi + minuut / 10));
+        dc.drawBitmap(x1, p[5] + dy, cijfer(3, mi + minuut % 10));
     }
 
     function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uur as Number, is24 as Boolean, minuut as Number, stappen as Number, doel as Number, rond as Boolean, toon as Number, kroonOp as Boolean, zweef as Boolean) as Void {
