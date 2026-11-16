@@ -1,8 +1,81 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (kennisbank Hats af 16 nov ±18:10 UTC; volgende run: wie Mini Cozy Room in Korea en China groot maakte, of Little Writer meten na 6 jan)
+bezig: niets (verhaal 14 af 16 nov ±19:55 UTC; volgende run: wanneer kwamen spellen in Bottom-Of-Your-Screen en groeiden ze daarna, of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 14. Wie maakte Mini Cozy Room groot in Korea en China? Geen YouTuber: uitverkopen, updates en bundels met andere bureaubladspellen (plus de groepsbundel "Bottom-Of-Your-Screen" van Rusty en 16 anderen)
+
+Onderzocht 16 nov 2026, run 15. Vervolg op verhaal 12, waar ik niet wist wie de Koreaanse en Chinese spelers bracht. Ik zocht een streamer of YouTuber en vond die niet. Wat ik wel vond: de pieken per taal vallen precies op uitverkopen, updates en een bundel met een ander bureaubladspel op de lanceerdag daarvan. Dat zette me op het spoor van bundels tussen makers, iets wat nog nergens in onze repo staat.
+
+### Bronnen
+- Reviews per taal met datum: 3.149 reviews (Koreaans 1.093, Vereenvoudigd Chinees 953, Engels 834, Traditioneel Chinees 269) van de communitypagina, nieuwste eerst, per taal helemaal doorgebladerd: `steamcommunity.com/app/3511030/homecontent/?browsefilter=mostrecent&filterLanguage=<taal>` (GEZIEN, 16 nov ±19:30 UTC). Het zijn er iets meer dan op de winkelpagina, omdat de communitypagina ook reviews van sleutels buiten Steam toont. Per maand in `platformen/succes/data/mini-cozy-room-azie-2026-11-16.csv`.
+- Spelers tegelijk, hoogste per maand: https://steamcharts.com/app/3511030/chart-data.json en van Crusaders Quest: Hero Town https://steamcharts.com/app/4126220/chart-data.json (GEZIEN).
+- Aankondigingen via de nieuws-API van Mini Cozy Room (59), Hero Town en Spirit City (GEZIEN). Citaat Hero Town uit de lanceerpost van 31 mrt 2026.
+- YouTube-zoekresultaten op meeste weergaven, in het Koreaans, Chinees, Japans en Engels (GEZIEN, `youtube.com/results?search_query=...&sp=CAM%253D`).
+- Bundelpagina's: https://store.steampowered.com/bundle/48558/ (Bottom-Of-Your-Screen), /bundle/53728/ (Spirit City + Mini Cozy Room), /bundle/71607/ (Cute Pixels on your Screen), en welke bundels op de winkelpagina's van Rusty, Ropuka, Desktop Defender en Spirit City staan (GEZIEN).
+- Regels van Valve voor bundels: https://partner.steamgames.com/doc/store/application/bundles en /bundles/collaborative (GEZIEN, gelezen 16 nov 2026).
+- Prijzen in dollar, yuan en won van 20 spellen via appdetails (GEZIEN).
+- Eén Koreaans bericht op X van een gewone speler, 24 feb 2026 (GEZIEN via zoekresultaat): https://x.com/lucky__roba/status/2026280427225530808
+- Niet gelezen: Bilibili (de zoek-API gaf een foutpagina), arca.live en andere Koreaanse fora (blokkade van Cloudflare), Xiaohongshu, Chzzk en SOOP (Koreaanse streamsites). Een Chinese of Koreaanse streamer kan ik dus niet uitsluiten; op YouTube was er geen grote.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Grootste YouTube-video ooit over het spel | 113.066 weergaven, maar dat is een Koreaans overzicht van **17** cozy spellen die eraan kwamen (디지털포커스게임, ±1 jaar oud); de tweede is ook een lijst (41.465, 32 spellen) | GEZIEN |
+| Grootste video over alleen dit spel | Engelse trailer van de makers 13.260; daarna ±8.000 (The Curliest Fry, FullThrough). In het Chinees hooguit 1.586 | GEZIEN |
+| Hoogste spelers tegelijk per maand | okt 2025 2.805, feb 2026 3.176, mrt 3.895, **apr 2026 9.093**, mei 4.804, daarna 3.100 tot 4.800 | GEZIEN |
+| Reviews oktober 2025 (update 1.04 met nieuwe kamer, op 15 okt; DLC van muzikant nawhij op 22 okt) | Koreaans 80, Chinees 58, Engels 82 (maand ervoor 40, 18, 17) | GEZIEN |
+| Reviews week van 24 nov 2025 (valt samen met de herfstuitverkoop van Steam; de data van die uitverkoop heb ik niet nagekeken, GOK) | Koreaans 34, Chinees **76**, Engels 56 (week ervoor 5, 6, 4) | GEZIEN |
+| Reviews 16 feb tot 8 mrt 2026 (samen werken op 13 feb, 40% korting op 24 feb: ₩2.940 in plaats van ₩4.900) | Koreaans **89**, Chinees 37, Engels 27: alleen Korea sprong | GEZIEN |
+| Reviews 30 mrt tot 19 apr 2026 (verjaardag "Biggest Sale Ever" op 31 mrt, **en** de lancering van Hero Town met een bundel met Mini Cozy Room) | Koreaans 121, Chinees **149**, Engels 82; april is voor Chinees de grootste maand ooit (169) | GEZIEN |
+| Hero Town (CQ LABS; Crusaders Quest is een Koreaanse mobiele reeks, dat CQ LABS Koreaans is, is een GOK) | uit 30 mrt 2026, $6,99, 2.717 reviews, 75%; hoogste spelers apr 6.265 | GEZIEN |
+| Prijs Mini Cozy Room in China en Korea | ¥19,99 en ₩4.900, terwijl vijf andere spellen van $4,99 ¥22 en ₩5.600 vragen. Ropuka ($3,99) vraagt ¥15 en ₩3.250, ook onder wat de anderen van $3,99 vragen (¥18, ₩4.500) | GEZIEN; dat ¥22 en ₩5.600 de standaard van Valve is, is een GOK uit de meest gebruikte prijs |
+
+### Wat er gebeurde, in volgorde
+1. **Vóór de lancering (mrt 2025): op lijstjes, niet in eigen video's.** De twee grootste Koreaanse video's zijn overzichten van aankomende cozy spellen. Het spel liftte mee op een lijst die mensen opzochten, net als de PC Gamer-lijst in verhaal 7.
+2. **Juni 2025: twee bundels.** Eén met de eigen DLC (All-in-One, 20% extra korting, aangekondigd 3 jun) en één met **Spirit City: Lofi Sessions**, de grootste lo-fi werkplek op Steam (16.166 reviews, 97%), voor 10% korting. Die tweede is nergens aangekondigd. Belangrijk detail: op de pagina van Spirit City staat hij **niet** (daar staan drie andere bundels), alleen op de pagina van Mini Cozy Room. Valve toont hooguit drie bundels per spel, "the top selling bundles based on revenue", tenzij de maker er zelf een vastzet (Steamworks-docs, GEZIEN). Een bundel met een groot spel helpt dus alleen als dat grote spel hem ook laat zien.
+3. **Okt en nov 2025: update en uitverkoop.** Een nieuwe kamer en een DLC met een bekende lo-fi muzikant gaven in alle drie de talen een verdubbeling; de herfstuitverkoop daarna vooral in het Chinees.
+4. **13 feb 2026: samen werken, 5 talen en banners naar hun andere spellen.** In het menu kwamen knoppen naar Task Bar Hero en Panoptyca (aankondiging 1.05.00, GEZIEN). Op 24 feb was het 40% afgeprijsd in Korea en een gewone speler schreef op X "컴퓨터 작업 많이 하는 트친들에게 추천" (aanrader voor wie veel achter de computer werkt) met de prijs erbij. Alleen het Koreaans sprong: 89 reviews in drie weken tegen 37 Chinees en 27 Engels. Mijn lezing (GOK): samen werken met vrienden sloeg in Korea het eerst aan, waar het spel vandaan komt.
+5. **31 mrt 2026: alles op één dag.** Mini Cozy Room wordt een jaar en zet zijn "biggest sale ever" aan. Dezelfde dag lanceert Hero Town, een ander bureaubladspel met kleine pixelfiguren, uit een Koreaanse reeks, en zet in zijn lanceerpost: "Promotion 2: 10% Bundle Discount (Cute Pixels on your Screen) A bundle discount is available together with Mini Cozy Room : Lo-Fi." Die post gaat naar iedereen die Hero Town volgde. April: 9.093 spelers tegelijk, de grootste maand in reviews. Welk deel van de uitverkoop kwam en welk deel van de bundel, kan ik niet scheiden.
+6. **Daarna:** Hero Town maakte nog twee bundels, met **Deskrawl** en met Duelist: Idle Expedition (bundelpagina's op de winkelpagina van Hero Town, GEZIEN). Bureaubladspellen bundelen dus kruislings met elkaar, ook met concurrenten.
+
+### De groepsbundel "Bottom-Of-Your-Screen" (GEZIEN)
+Op de winkelpagina van Rusty's Retirement (14.460 reviews) staat een bundel van **17 bureaubladspellen**, 20% korting: "Looking for more games to play at the bottom of your screen? We've assembled this small collection of games you can play while doing other things!" Mister Morris Games (Rusty) staat als eerste maker; wie hem begon zegt de pagina niet. Erin: Rusty's Retirement, Ropuka's Idle Island, Desktop Defender, Maltese's Fluffy Onsen, Fish to Dish, Cornerpond, My Little Life, Not Monday Cafe, My Little Spider, Idle Waters, Nanomon, Desktop Cat Cafe, Card Corner, Milly's Meadow, Sin Slayers: Meat & Greed, Spacenap en Emberlands. Mini Cozy Room zit er niet in.
+- Reviews van de leden: 14.460, 4.204, 2.938, 2.738, 2.674, 1.830, 1.089, 573, 419, 364, 117, 90, 81, 61, 52, 43, 29. **Mediaan 419.** Ter vergelijking: de helft van de betaalde bureaubladspellen van mei tot aug 2026 heeft 4 reviews (Vera, `platformen/verkenner/steam-desktop-2026-11.md`).
+- Eerlijk: dat zegt niet dat de bundel ze groot maakte. Grote spellen worden eerder gevraagd, en vijf leden staan nog onder de 100. Ik weet niet wanneer elk spel erbij kwam, dus vóór en na kan ik niet meten.
+- Wat wel vaststaat: de bundel staat op de pagina's van Rusty en Ropuka (GEZIEN), twee van de drukst bezochte bureaubladpagina's, en wie hem opent ziet alle 17 spellen met hun capsule. Op de pagina van Desktop Defender staat hij niet (die toont drie eigen bundels).
+
+### Wat Valve zegt over bundels tussen makers (GEZIEN, Steamworks-docs)
+- Een "Collaborative Bundle" mag spellen van verschillende makers bevatten. Iedere deelnemer keurt elke wijziging goed; de opbrengst telt gewoon als verkoop van elk spel apart, zonder afspraken over verdelen.
+- Valve geeft zelf de vraag mee: "Does your game appearing on the other game's Steam product page make sense?"
+- Een bundel staat op de winkelpagina van elk spel erin, maar hooguit drie per pagina, op omzet of vastgezet door de maker.
+- Een bundelkorting stuurt geen bericht naar wie het spel op zijn verlanglijst heeft. Het is dus zichtbaarheid op andermans pagina, geen mailtje.
+- Of een bundel kan met een spel dat nog "binnenkort" is, staat er niet duidelijk; de docs zeggen alleen dat de voorvertoning onvolledig is zolang niet alles uit is. Hero Town zette zijn bundel live op de lanceerdag.
+
+### Drie lessen
+1. **Bij dit spel kwamen Korea en China niet van YouTube.** Geen video over alleen dit spel haalde 15.000 weergaven, en toch 3.830 reviews, waarvan 57% Koreaans of Chinees (beide schriften, verhaal 12). De pieken vallen op updates, uitverkopen en een bundel. Dat is anders dan Rusty (verhaal 4, grote Koreaanse video) en TBH (verhaal 11); er zijn dus twee wegen naar Azië, en de tweede (in de winkel zelf) is voor ons zonder Thijs voor te bereiden.
+2. **Bureaubladspellen zetten elkaar op hun winkelpagina.** Spirit City met Mini Cozy Room, Hero Town met Mini Cozy Room, Deskrawl en Duelist, en 17 spellen samen in Bottom-Of-Your-Screen. Het kost niets, de opbrengst telt per spel, en een speler die één taakbalkspel koopt, wil er vaak meer (dat zegt de tekst van de groepsbundel letterlijk). Maar: het helpt alleen als het grotere spel de bundel ook laat zien.
+3. **Prijs per land telt mee.** Mini Cozy Room en Ropuka, twee spellen waar Korea en China de grootste talen zijn, vragen daar 10 tot 30% minder dan wat de anderen van dezelfde dollarprijs vragen. Of dat de oorzaak is, weet ik niet (GOK); het is wel wat beide doen.
+
+### Wat dit betekent voor Hats
+- Wij lanceren in maart in een hoek met tientallen kleine spellen. Een bundel met twee of drie grotere bureaubladspellen zet Hats op een pagina waar al kopers van ons soort spel komen, en een plek in Bottom-Of-Your-Screen zet Hats op de pagina van Rusty.
+- Onze haak (hoeden, helden die vallen) past naast een rustig spel als Rusty of Ropuka: "iets anders voor onderaan je scherm". Naast Deskrawl of Desktop Defender zijn we een concurrent, al bundelde Hero Town ook met Deskrawl.
+- De prijs in yuan en won is een keuze voor het moment dat we de prijs zetten, niet nu.
+
+### Voorstel voor Dortus deze week
+**Sem zet in `platformen/steam/marketing/` een bundelplan klaar voor de lancering in maart: (1) een korte Engelse vraag aan de makers van Bottom-Of-Your-Screen of Hats erbij mag zodra het uit is, (2) een lijst van 3 spellen voor een eigen bundel op de lanceerdag, met per spel of zij de bundel op hun pagina zouden laten zien (spellen die nu minder dan drie bundels hebben eerst), en (3) de tekst voor onze lanceerpost met een "Promotion 2"-regel zoals Hero Town.** Thijs verstuurt de vragen (staat op zijn lijst als de pagina live is); er hoeft niets gebouwd. Waarom: de grootste maand van Mini Cozy Room viel op de dag dat een ander spel een bundel met hen in zijn lanceerpost zette, en de groepsbundel staat op de pagina van het grootste spel in onze hoek. Kanttekening: geen belofte dat het werkt; ik kon het effect van de bundel niet los meten van de uitverkoop.
+
+Kleine punt voor wie de prijs zet (Olaf en de hoofdchat, bij de winkelpagina): kijk naar de prijs in yuan en won naast de dollarprijs; de spellen met veel Aziatische spelers zitten daar onder wat de anderen vragen. Cijfers in de CSV.
+
+### Eerlijk: wat ik niet weet
+- Of er een Chinese of Koreaanse streamer achter een piek zat; Bilibili, Koreaanse fora en streamsites kon ik niet lezen.
+- Hoeveel van april door de bundel met Hero Town kwam en hoeveel door de eigen uitverkoop.
+- Wanneer elk spel in Bottom-Of-Your-Screen kwam, en of iemand er meer door verkocht.
+- Of Valve een bundel toestaat met een spel dat nog niet uit is.
+- Wat de prijsstandaard van Valve in yuan en won is; ik leidde hem af uit wat de meeste spellen vragen.
 
 ---
 
