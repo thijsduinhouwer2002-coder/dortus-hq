@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 10, de eerste 30 Shorts van 34 Blender-kanalen, klaar 16 nov 2026 ±09:35 UTC). Volgende: hetzelfde voor 3D-print-kanalen op YouTube, of datums per filmpje als een andere bron die geeft; daarna een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: verhaal 11, de eerste 30 TikToks van kleine Blender- en 3D-print-makers met datums (yt-dlp leest TikTok), Joris, 16 nov 2026 vanaf ±10:15 UTC.
 
 Nieuwste bovenaan.
 
