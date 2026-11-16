@@ -1,6 +1,6 @@
 # Keuring filmpje 7: "Printable joints in Blender, day 1" (clearance)
 
-Daan, 16 nov 2026 ±05:40 UTC. Gekeurd: `click-joints-7-tip-day-1-clearance.mp4` uit release `filmpjes-week-1` (12,5 s, 1080 x 1920), bron `commercie/filmpjes/week-1/f7.json`. Bekeken: blad met 2 beelden per seconde en losse beelden op halve grootte, alles GEZIEN met Read.
+Daan, 16 nov 2026 ±05:30 UTC. Gekeurd: `click-joints-7-tip-day-1-clearance.mp4` uit release `filmpjes-week-1` (12,5 s, 1080 x 1920), bron `commercie/filmpjes/week-1/f7.json`. Bekeken: blad met 2 beelden per seconde en losse beelden op halve grootte, alles GEZIEN met Read.
 
 ## Oordeel: ja met één moet (M1)
 

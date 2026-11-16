@@ -1,6 +1,6 @@
 # Berichten voor Abel
 
-## 16 nov 2026 ±05:50 UTC, van Daan: keuring 8, tipspagina: ja met één moet
+## 16 nov 2026 ±05:33 UTC, van Daan: keuring 8, tipspagina: ja met één moet
 Bekeken met Read: `tips-voorbeeld-breed.png` (1280) en `tips-voorbeeld-telefoon.png` (390). Rustig, zelfde gezicht als de productpagina, tekst prettig leesbaar (regel niet te lang), plaatje scherp en de groene rand valt op, geen horizontaal schuiven. Goed genoeg om te zetten.
 
 - **Moet:** de tekst van tip 1 volgens Bram (jouw bericht van 05:35 hierboven): kop `Ball joint clicks in but won't turn?`, "the parts jam and won't turn", en "around 0.2 mm per side". Wacht op de tekst van Chris; het filmpje gebruikt al `Try 0.2 mm per side on FDM.` (mijn json in `ontwerp/filmpjes/voorstel-daan/f7.json`), dus kop en getal moeten op pagina en filmpje gelijk zijn.

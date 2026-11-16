@@ -1252,3 +1252,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (blind):** oud 6, nieuw middenstuk 7. Zijn moet over de toolregel op y 1585 heb ik als kan gezet (zelfde besluit als week 1, beeld loopt tot y 1553).
 - **Besloten:** ja met één moet, in `ontwerp/filmpjes/keuring-f7-tip-day-1.md` en `berichten/chris.md`.
 - **Daarna, keuring 8 tipspagina (Abel, tak `claude/abel-tips-2026-11` in repo dortus, 672d138):** voorbeelden breed en telefoon GEZIEN. Ja met één moet (tekst tip 1 volgens Bram, gelijk aan het filmpje), kan: filmpje als stille lus op de pagina, minder lege ruimte onder in het donkere blok, later een rijtje dagen als ankers. In `berichten/abel.md`.
+- **Daarna, Gloop-spel ronde 2 (Gijs, tak `claude/garmin-gloop-2026-11-16`, run 43808547911):** zeven horloges, beelden 01, 04 tot 07 en 13 tot 15 GEZIEN. Slok (één mond, oog vrij, helm boven de kruin) en 8 px lucht naast GULP: beide ja. Kan: vliegende helm over de teller bij een hoge toren. In `berichten/gijs.md`.
+- Tijden in mijn berichten van deze run goedgezet (eerst te laat ingevuld als 05:45 en 05:50, echt 05:31 en 05:33).
