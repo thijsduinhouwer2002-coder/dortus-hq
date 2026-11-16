@@ -13,7 +13,7 @@ class_name HolNiveau
 # Bij de v3-economie (graven kost goud) opnieuw kijken: daar gaf Bram 3/4/7/12/16.
 const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 53, 69, 88]
 const DEMO_MAX := 12
-# Hover-tekst per niveau ("Level 5: the Thief. 12 more heroes."), Engels (winkeltaal)
+# Hover-tekst per niveau ("Level 5: the Thief. 4 heroes to go."), Engels (winkeltaal)
 const WAT := ["", "Gloop and the pit", "the Hero Book", "the Knight", "a bat moves in", "the Thief",
 	"a second pit", "the Rolling Stone", "the Mage", "your banner", "the Noble", "the Bard", "the Hat Wall"]
 
@@ -40,14 +40,16 @@ static func deel(faam: int) -> float:
 	var tot := int(DREMPEL[n])
 	return clampf(float(faam - van) / float(tot - van), 0.0, 1.0)
 
-# "Level 5: the Thief. 12 more heroes." (hover op het bordje); op het laatste niveau zonder "more".
+# "Level 5: the Thief. 4 heroes to go." (hover op het bordje, Daan 16 nov 18:40); op het laatste niveau zonder staart.
+# Langste geval: "Level 7: the Rolling Stone. 6 heroes to go." (43 tekens).
+const HOVER_MAX := 43
 static func hover(faam: int) -> String:
 	var n := niveau(faam)
 	var naam: String = WAT[n] if n < WAT.size() else ""
 	var r := "Level %d: %s." % [n, naam]
 	var rest := nog(faam)
 	if rest > 0:
-		r += " %d more hero%s." % [rest, "" if rest == 1 else "es"]
+		r += " %d hero%s to go." % [rest, "" if rest == 1 else "es"]
 	return r
 
 # Niveaus die erbij kwamen als faam van `oud` naar `nieuw` gaat (voor het feestje en de log), oplopend.

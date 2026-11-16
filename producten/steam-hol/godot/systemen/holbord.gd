@@ -114,7 +114,7 @@ func plank_x() -> float:
 func vlak() -> Rect2:
 	return Rect2(plank_x(), BOVEN, CEL.x, CEL.y)
 
-# "Level 5: the Thief. 12 more heroes."; met iets in de rij "7 more to come. Next: a second pit, in 2 min." (Sanne 16:00, Iris 17:40)
+# "Level 5: the Thief. 4 heroes to go."; met iets in de rij "7 more to come. Next: a second pit, in 2 min." (Sanne 16:00, Iris 17:40)
 func hover_tekst() -> String:
 	if s == null:
 		return ""
