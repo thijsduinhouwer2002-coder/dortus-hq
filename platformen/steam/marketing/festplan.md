@@ -62,7 +62,7 @@ Twee getallen, allebei voor ons zelf te meten:
 
 | Uitslag | Spelers tegelijk (piek, eerste 48 u) | Verlanglijstjes (eerste 48 u) | Wat we doen |
 |---|---|---|---|
-| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf |
+| **Doorbraak** | boven 100 | boven 1.000 | alles op versterken: elke dag een bericht met het getal, makers uit bak B (fest-overzichten) nu mailen met het getal erin ("X players have Gloop on their taskbar right now"), de demo blijft staan, Next Fest voorbereiden als tweede golf; dezelfde avond een post met het getal en een schermafbeelding (Thijs) en de klaargezette persmail naar 10 bladen plus Games Press (`pers.md`, run 6: na de tweet "1 week ago we had 3 players" schreven 6 bladen in 4 talen over Desktop Defender) |
 | **Gewoon** | 20 tot 100 | 300 tot 1.000 | het plan afmaken; in de verbeterweek één ding aan de haak (eerste hoed binnen 30 s, capsule), daarna Next Fest |
 | **Stil** | onder 20 | onder 300 | zie "Als het stil blijft" |
 
