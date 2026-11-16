@@ -13,7 +13,14 @@
     voor een nieuw gewricht neemt (maat.te_dicht). Bewust ook aan de komkant naad_r + 0,4 r en niet r + s zoals de
     kern voor een oud gewricht aan de komkant doet: de zaagsnede en de stopvlakken van een scharnier lopen over de
     hele doorsnede van het lid, en zo is de grens in beide volgordes (eerst scharnier of eerst kogel) dezelfde.
-    Nooit minder dan r + s (de kom). Bij een pen (geen bolnaad): 1,5 r + s, de pen reikt 0,4 r onder het snijvlak
+    Nooit minder dan r + s (de kom).
+    Pro 1.1 (16 nov, Ruben): wel per kant. Aan de komkant (boven het kogelmidden langs de as van de kogel) ligt
+    alleen de kom, r + s: daar is deel A al door het vlak door het kogelmidden afgesneden en de bolnaad loopt
+    alleen onder dat vlak (gewricht.py: A zonder alles boven het midden en de bol). Een scharnier aan de komkant
+    hoeft dus alleen buiten r + s plus 0,5 mm wand te blijven; zijn eigen reik dekt al de hele doorsnede van zijn lid. Aan de
+    snijvlakkant blijft het naad_r + 0,4 r. Ook dit is in beide volgordes gelijk: beide kijken naar de kant van
+    het scharnier ten opzichte van de kogel. Gevonden met de proef met armen: de schouder lag 26 mm van de
+    elleboog, de oude regel vroeg 30 mm, de nieuwe 26 mm. Bij een pen (geen bolnaad): 1,5 r + s, de pen reikt 0,4 r onder het snijvlak
     en het midden ligt op 1,1 r, het gat r + s eromheen.
 
 De kogel zelf zit in het gratis deel, dat niet verandert. Daarom omhult betaald/__init__.py in register() aan het eind
@@ -53,12 +60,30 @@ def kogel_reik(naad_r, r, s):
     return 1.5 * r + s
 
 
-def kogel_van(ob, u):
-    """(kogelmidden, reik) van de kogel of pen waarvan dit deel komt, of None."""
+def kom_reik(r, s, u=1.0):
+    """Reik van een kogel aan de komkant (boven het kogelmidden langs de as): de kom, plus 0,5 mm wand (zelfde marge
+    als de bolnaad, maat.NAAD_MARGE_MM), zodat de
+    zaagsnede van het scharnier de kom niet net raakt."""
+    return r + s + 0.5 * u
+
+
+def reik_naar(punt, centrum, as_, naad_r, r, s, u=1.0):
+    """Reik van de kogel in de richting van punt: aan de komkant r + s, aan de snijvlakkant kogel_reik.
+    Een pen (geen bolnaad) houdt overal 1,5 r + s, want zijn pen en gat liggen aan beide kanten."""
+    if naad_r > 0 and as_ is not None and (Vector(punt) - Vector(centrum)).dot(Vector(as_)) > 0:
+        return kom_reik(r, s, u)
+    return kogel_reik(naad_r, r, s)
+
+
+def kogel_van(ob, u, punt=None):
+    """(kogelmidden, reik) van de kogel of pen waarvan dit deel komt, of None. Met punt: de reik naar dat punt."""
     if ob.get("cj_soort", "") not in ("KOGEL", "PEN") or "cj_centrum" not in ob:
         return None
     s = float(ob.get("cj_speling_mm", 0.2)) * u
-    return Vector(ob["cj_centrum"]), kogel_reik(float(ob.get("cj_naad_r", -1.0)), float(ob.get("cj_kogel_r", 0.0)), s)
+    naad, r = float(ob.get("cj_naad_r", -1.0)), float(ob.get("cj_kogel_r", 0.0))
+    if punt is None or ob.get("cj_soort") != "KOGEL":
+        return Vector(ob["cj_centrum"]), kogel_reik(naad, r, s)
+    return Vector(ob["cj_centrum"]), reik_naar(punt, ob["cj_centrum"], ob.get("cj_as"), naad, r, s, u)
 
 
 def nodig_mm(paren, u):
@@ -71,8 +96,9 @@ def nodig_mm(paren, u):
 def te_dicht_kogel(bron, centrum, richting, maat, u):
     """Omhulsel van gewricht.te_dicht: eerst de kern (kogel naast kogel), dan elk scharnier op het deel."""
     kern = _oud_te_dicht[0](bron, centrum, richting, maat, u)
-    reik_k = kogel_reik(maat.get("naad_r", -1.0), maat["r"], maat["s"])
-    paren = [((Vector(centrum) - p).length, reik + reik_k) for p, reik, _k in scharnieren(bron) if reik >= 0]
+    naad = maat.get("naad_r", -1.0)
+    paren = [((Vector(centrum) - p).length, reik + reik_naar(p, centrum, richting, naad, maat["r"], maat["s"], u))
+             for p, reik, _k in scharnieren(bron) if reik >= 0]
     eigen = nodig_mm(paren, u)
     uit = [n for n in (kern, eigen) if n is not None]
     return max(uit) if uit else None

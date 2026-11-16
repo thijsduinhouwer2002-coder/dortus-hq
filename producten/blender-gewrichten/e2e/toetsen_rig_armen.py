@@ -1,0 +1,160 @@
+"""Toets Pro 1.1: "Figure from rig" op een hele figuur (benen, romp, armen) met Rigify-namen.
+
+Figuur uit e2e/proef_armen.py: benen r 8 mm, 20 mm uit elkaar, romp 40 x 20 x 70, armen r 6 horizontaal.
+Botkoppen van dij en bovenarm liggen zoals bij echte rigs in of tegen de romp. Op forearm.L Limit Rotation X 0 tot 140.
+Twee figuren:
+- lang (benen 90 mm, dij 45 mm): alle acht gewrichten lukken (knieën en ellebogen scharnier, heupen en schouders
+  kogel), 9 gesloten delen, Left elbow 140 "from rig", samenvatting "8 joints, 1 range from your rig";
+  de heupkogels liggen onder de romp (uit de romp geschoven), hun bolnaad is niet groter dan 1,5 keer de beenstraal;
+- kort (benen 70 mm, dij 33 mm): schouders lukken (26 mm van de elleboog, aan de komkant van de kogel genoeg),
+  heupen worden eerlijk overgeslagen met "too close" (de knie van 135 graden reikt 25 mm).
+Rekenregel (zonder Blender-figuur): reik van de kogel aan de komkant r + s + 0,5 mm, aan de snijvlakkant naad_r + 0,4 r.
+Gebruik: blender -b --factory-startup --python e2e/toetsen_rig_armen.py -- <betaalde zip>
+"""
+import importlib
+import math
+import sys
+
+import bmesh
+import bpy
+from mathutils import Matrix, Vector
+
+FOUT = []
+
+
+def log(t):
+    print(f"[cj-armen] {t}", flush=True)
+
+
+def check(ok, t):
+    log(("OK   " if ok else "FOUT ") + t)
+    if not ok:
+        FOUT.append(t)
+
+
+def mod(naam):
+    return importlib.import_module(f"bl_ext.user_default.click_joints.{naam}")
+
+
+def figuur(B):
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    for a in list(bpy.data.armatures):
+        bpy.data.armatures.remove(a)
+    us = bpy.context.scene.unit_settings
+    us.system, us.scale_length, us.length_unit = "METRIC", 0.001, "MILLIMETERS"
+    inst = bpy.context.scene.click_joints
+    inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
+    bm = bmesh.new()
+    for x in (-10.0, 10.0):
+        bmesh.ops.create_cone(bm, cap_ends=True, segments=32, radius1=8, radius2=8, depth=B,
+                              matrix=Matrix.Translation((x, 0, B / 2)))
+    bmesh.ops.create_cube(bm, size=1, matrix=Matrix.Translation((0, 0, B + 30)) @ Matrix.Diagonal((40, 20, 70, 1)))
+    for s in (-1, 1):
+        bmesh.ops.create_cone(bm, cap_ends=True, segments=32, radius1=6, radius2=6, depth=75,
+                              matrix=Matrix.Translation((s * 55, 0, B + 55)) @ Matrix.Rotation(math.radians(90), 4, "Y"))
+    me = bpy.data.meshes.new("b")
+    bm.to_mesh(me)
+    bm.free()
+    ob = bpy.data.objects.new("b", me)
+    bpy.context.scene.collection.objects.link(ob)
+    r = ob.modifiers.new("v", "REMESH")
+    r.mode, r.voxel_size = "VOXEL", 0.6
+    dg = bpy.context.evaluated_depsgraph_get()
+    me2 = bpy.data.meshes.new_from_object(ob.evaluated_get(dg))
+    bpy.data.objects.remove(ob)
+    mesh = bpy.data.objects.new("held", me2)
+    bpy.context.scene.collection.objects.link(mesh)
+    data = bpy.data.armatures.new("rig")
+    arm = bpy.data.objects.new("rig", data)
+    bpy.context.scene.collection.objects.link(arm)
+    bpy.context.view_layer.objects.active = arm
+    bpy.ops.object.mode_set(mode="EDIT")
+    kn, sch = B / 2, B + 55
+    for k, s in (("L", 1), ("R", -1)):
+        th = data.edit_bones.new(f"thigh.{k}"); th.head, th.tail = (s * 10, 0, B - 2), (s * 10, 0, kn)
+        sh = data.edit_bones.new(f"shin.{k}"); sh.head, sh.tail = (s * 10, 0, kn), (s * 10, 0, 4); sh.parent = th
+        ua = data.edit_bones.new(f"upper_arm.{k}"); ua.head, ua.tail = (s * 24, 0, sch), (s * 55, 0, sch)
+        fa = data.edit_bones.new(f"forearm.{k}"); fa.head, fa.tail = (s * 55, 0, sch), (s * 88, 0, sch)
+        fa.parent = ua
+    bpy.ops.object.mode_set(mode="OBJECT")
+    c = arm.pose.bones["forearm.L"].constraints.new("LIMIT_ROTATION")
+    c.use_limit_x, c.min_x, c.max_x, c.owner_space = True, 0, math.radians(140), "LOCAL"
+    mesh.modifiers.new("Armature", "ARMATURE").object = arm
+    for o in bpy.context.view_layer.objects:
+        o.select_set(False)
+    mesh.select_set(True)
+    bpy.context.view_layer.objects.active = mesh
+    return mesh, arm
+
+
+def uitvoeren():
+    try:
+        r = bpy.ops.click_joints.figuur_uit_rig()
+    except RuntimeError as e:
+        r = {f"fout {e}"}
+    fig = mod("betaald.figuur")
+    alle = fig.figuur_gewrichten(bpy.context.scene.objects, "held")
+    delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == "held" and o.visible_get()
+             and o.type == "MESH"]
+    over = next((o.get("cj_rig_overgeslagen") for o in delen if o.get("cj_deel")), "")
+    log(f"uitslag {r}; {[fig.regel(x) for x in alle]}; overgeslagen: {over}")
+    return r, {x["naam"]: x for x in alle}, delen, over or "", fig
+
+
+def rekenregel():
+    af = mod("betaald.afstand")
+    c, as_ = Vector((0, 0, 0)), Vector((0, 0, 1))
+    boven = af.reik_naar(Vector((0, 0, 20)), c, as_, 8.0, 3.0, 0.2, 1.0)
+    onder = af.reik_naar(Vector((0, 0, -20)), c, as_, 8.0, 3.0, 0.2, 1.0)
+    check(abs(boven - 3.7) < 1e-6, f"komkant r + s + 0,5 = {boven:.2f}")
+    check(abs(onder - 9.2) < 1e-6, f"snijvlakkant naad_r + 0,4 r = {onder:.2f}")
+    pen = af.reik_naar(Vector((0, 0, 20)), c, as_, -1.0, 3.0, 0.2, 1.0)
+    check(abs(pen - 4.7) < 1e-6, f"pen overal 1,5 r + s = {pen:.2f}")
+    rig = mod("betaald.rig")
+    # straal 30 (romp) tot t = 6, daarna 8 (been): schuif tot het vlak en het kogelmidden (t + 6,72) in het been liggen
+    t = rig.schuif_uit_romp(lambda t: 30.0 if t < 6.0 else 8.0, 40.0, 0.5)
+    check(abs(t - 6.0) < 1e-6, f"schuif uit romp {t}")
+    check(rig.schuif_uit_romp(lambda t: 8.0, 40.0, 0.5) == 0.0, "geen romp: niet schuiven")
+
+
+def main():
+    zip_pad = sys.argv[sys.argv.index("--") + 1]
+    bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
+    rekenregel()
+
+    figuur(90.0)
+    r, per, delen, over, fig = uitvoeren()
+    namen = [f"{k} {w}" for k in ("Left", "Right") for w in ("knee", "elbow", "hip", "shoulder")]
+    check(all(n in per for n in namen), f"alle acht gewrichten ({sorted(per)})")
+    check(all(per[n]["soort"] == "HINGE" for n in namen if n in per and ("knee" in n or "elbow" in n)),
+          "knieën en ellebogen zijn scharnieren")
+    check(all(per[n]["soort"] != "HINGE" for n in namen if n in per and ("hip" in n or "shoulder" in n)),
+          "heupen en schouders zijn kogels")
+    le = per.get("Left elbow", {})
+    check(le.get("herkomst") == "from rig" and le.get("graden") is not None and 135.0 <= le["graden"] <= 140.2,
+          f"Left elbow from rig 140: {le}")
+    check(len(delen) == 9, f"9 delen ({len(delen)})")
+    ges = mod("gesloten")
+    check(all(ges.is_gesloten(o) for o in delen), "alle delen gesloten")
+    tekst = fig.samenvatting(list(per.values()))
+    check(tekst == "8 joints, 1 range from your rig", f"samenvatting '{tekst}'")
+    heup = [o for o in delen if o.get("cj_naam") == "Left hip" and o.get("cj_deel") == "B"]
+    if heup:
+        h = heup[0]
+        c = Vector(h["cj_centrum"])
+        log(f"Left hip kogelmidden z {c.z:.1f}, bolnaad {h.get('cj_naad_r', -1):.1f}")
+        check(c.z < 90.0 - 5.0, f"heupkogel onder de romp (z {c.z:.1f} < 85)")
+        check(0 < float(h.get("cj_naad_r", -1)) <= 12.0, f"bolnaad heup {float(h.get('cj_naad_r', -1)):.1f} <= 12 mm")
+    else:
+        check(False, "deel B van de linkerheup gevonden")
+
+    figuur(70.0)
+    r, per, delen, over, fig = uitvoeren()
+    check("Left shoulder" in per and "Right shoulder" in per, "korte figuur: schouders lukken")
+    check("Left hip" not in per and "Left hip (too close" in over, f"korte figuur: heup eerlijk overgeslagen ({over})")
+    check(all(ges.is_gesloten(o) for o in delen), f"korte figuur: alle {len(delen)} delen gesloten")
+    log(f"KLAAR {len(FOUT)} FOUT")
+
+
+main()

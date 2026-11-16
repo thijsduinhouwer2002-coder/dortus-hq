@@ -201,12 +201,12 @@ def te_dicht(bron, punt, m, u, bvh=None):
       er tussen de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe
       al tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort.
     - Naast de kogel of pen waarvan het deel komt: van snijpunt tot kogelmidden minstens de reik van het scharnier
-      plus de reik van de kogel (afstand.kogel_reik, uitleg in afstand.py).
+      plus de reik van de kogel naar het scharnier toe (afstand.kogel_van met punt, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
     eigen = reik(m)
     paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, k in afstand.scharnieren(bron)
              if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
-    kogel = afstand.kogel_van(bron, u)
+    kogel = afstand.kogel_van(bron, u, punt)  # 1.1: aan de komkant alleen de kom (afstand.py)
     if kogel is not None:
         paren.append(((Vector(punt) - kogel[0]).length, eigen + kogel[1]))
     return afstand.nodig_mm(paren, u)

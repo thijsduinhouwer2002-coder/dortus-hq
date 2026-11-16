@@ -114,6 +114,27 @@ def cursor_matrix(armature, pose_bot, kant=1):
     return uit
 
 
+def schuif_uit_romp(straal_op, lengte, stap):
+    """Pro 1.1: hoe ver het snijvlak van een kogel langs het bot moet schuiven (vanaf de botkop) om uit de romp te
+    komen. Riggers zetten de kop van dij en bovenarm in het bekken en de borst; een kogel daar krijgt een bolnaad zo
+    groot als de romp (proef met armen: naad 31 mm in een been van 8 mm) en botst met alles. straal_op(t) geeft de
+    grootste afstand van de botas tot de huid op t langs het bot (None buiten de mesh). Grens: 1,3 keer de straal
+    halverwege het bot plus een stap. Geeft de eerste t waar het vlak en het kogelmidden (t + 0,84 keer de
+    lidstraal, het midden ligt 1,4 r verder en r is 0,6 keer de lidstraal) allebei binnen de grens liggen; zoekt tot
+    de helft van het bot, anders 0 (niets gevonden: dan zegt de kern zelf wat er misgaat)."""
+    lid = straal_op(lengte / 2)
+    if lid is None or lid <= 0:
+        return 0.0
+    grens = 1.3 * lid + stap
+    t = 0.0
+    while t <= lengte / 2:
+        a, b = straal_op(t), straal_op(t + 0.84 * lid)
+        if a is not None and b is not None and a <= grens and b <= grens:
+            return t
+        t += stap
+    return 0.0
+
+
 # ---------- Operator "Figure from rig" (bpy alleen hieronder, zodat de naamregels zonder Blender te toetsen zijn) ----------
 import bpy  # noqa: E402
 from bpy.props import BoolProperty  # noqa: E402
@@ -143,6 +164,34 @@ def binnen(ob, punt, dg):
     if plek is None:
         return False, None
     return (punt - plek).dot(normaal) < 0, afst
+
+
+def bvh_van(ob, dg):
+    ev = ob.evaluated_get(dg)
+    me = ev.to_mesh()
+    try:
+        mw = ob.matrix_world
+        return BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(p.vertices) for p in me.polygons])
+    finally:
+        ev.to_mesh_clear()
+
+
+def kogel_schuif(context, doel, m, lengte):
+    """De cursor-matrix m van een kogel, met de oorsprong langs de lidas (kolom 2) uit de romp geschoven."""
+    from .. import passing
+    bvh = bvh_van(doel, context.evaluated_depsgraph_get())
+    from ..eigenschappen import eenheid_per_mm
+    u = eenheid_per_mm(context.scene)
+
+    def straal_op(t):
+        f = m.copy()
+        f.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
+        return passing.grootste_straal(bvh, f, (0.0,), n=24)
+
+    t = schuif_uit_romp(straal_op, lengte, 0.5 * u)
+    uit = m.copy()
+    uit.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
+    return uit, t / u
 
 
 def deel_met(context, kandidaten, punt):
@@ -202,6 +251,10 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             if doel is None:
                 overgeslagen.append(f"{naam} (joint outside the mesh)")
                 continue
+            if soort != "HINGE":
+                # Kogel: uit de romp schuiven (de botkop van dij en bovenarm ligt meestal in bekken of borst).
+                lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
+                m, _mm = kogel_schuif(context, doel, m, lengte)
             for o in context.view_layer.objects:
                 o.select_set(False)
             doel.select_set(True)
