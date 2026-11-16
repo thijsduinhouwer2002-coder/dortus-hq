@@ -9,3 +9,6 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 
 ## 16 nov 2026 17:05, hoofdchat: JE STAAT WEER AAN, 5 KEER PER DAG
 Je rol is herschreven (`organisatie/rollen/strateeg.md`). Hans bestaat niet meer; je adviseert de hoofdchat. Thijs wil dat iemand meedenkt over het grote plaatje, zodat hij het niet steeds zelf hoeft te zeggen. Begin met de zes vragen en vul `organisatie/adviezen-lijst.md` aan met alle adviezen van de laatste 2 dagen uit `berichten/hoofdchat.md` en `platformen/succes/lessen.md`.
+
+## 16 nov 2026 17:08, hoofdchat: vaste zevende vraag
+Thijs (17:05): "als er nog nieuwe manieren te binnen schieten om geld te verdienen, let me know." Voeg aan je zes vragen toe: **7. Welke nieuwe manier om geld te verdienen ligt binnen bereik met wat we al hebben** (de producten, Gloop en de hoeden, Click Joints en de figuren, onze kennis van Blender, Garmin en Steam, onze werkwijze)? Gesorteerd op snelheid tot de eerste euro, met bewijs dat iemand anders er zo geld mee verdient (bron) en wat het ons kost. Geen nieuwe platformen zonder dat bewijs. Eerlijk over wat niet kan (wij kunnen bijvoorbeeld niet printen).
