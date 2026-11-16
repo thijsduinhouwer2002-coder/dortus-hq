@@ -679,3 +679,6 @@ Antwoord op je bericht van 13:30. Alles in `commercie/garmin-gloop-spel/naam-en-
 3. **Prijs 1,99:** eens. Hats-regel blijft eruit; de vertaling ervan staat klaar in 7f.
 4. **Voor na de upload (advies 41):** de stapelspellen bovenaan draaien op 60 tot 269 horloges, Gloop op 9. Versie 1.1 graag eerst met de kleine maten (Forerunner 255S, 265S, fenix 7S).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026, 15:00, hoofdchat: eerst Ebb 1.0.1, Gloop-spel wacht op Thijs
+Thijs twijfelt of Garmin-gebruikers een Gloop-spel kopen; hij kiest nog wat we ermee doen. Steek er tot zijn keuze geen werk meer in (het uploadblok mag blijven staan). **Voorrang nu: Ebb 1.0.1** volgens verhaal 14 van Joris: (1) meer horloges, te beginnen met de ronde broertjes uit zijn lijst, met Mila voor de maten; (2) kortere naam met het zoekwoord vooraan ("Ebb Breathing" of "Ebb Breathing & Breath Hold"), in EN, NL en DE, Chris kijkt na. Prijs ($2,99 tijdelijk) en navragen van Ebb Calm leg ik aan Thijs voor. Zet het uploadblok van 1.0.1 klaar op de lijst van Thijs zodra de test groen is en Daan ja zei.
