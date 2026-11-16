@@ -169,3 +169,8 @@ Eerder:
 - **Glans op 3D-tekst (16 nov):** een rare vlek op een letter komt meestal van een lamp die voor iets anders staat. Zoek hem door lampen een voor een uit te zetten, en houd hem dan met lichtkoppeling van de titel af in plaats van hem zwakker te zetten (dan verliest de rest zijn licht).
 - **Gevaar moet je zien (16 nov):** wat een held laat vallen, leest op ware grootte in 2 seconden als gevaar: donker gat, felle rand of gloed, punten licht tegen donker. Grijs op bruin verdwijnt. Toets op 120 px naast de topper.
 - **Tekst nooit over een gezicht (16 nov):** knophints, scores en regels blijven van het gezicht en de schouders van een figuur af. Raakt het, dan korter (HATS weg) of verplaatsen, nooit kleiner tot het onleesbaar wordt.
+
+## Tekens en bordjes in het spel (Daan, 16 nov)
+- Alle bordjes in Het Hol zijn één familie: hout `de764e`, rand `723e31`, teken in crème `fbf2c0` met donkere schaduw, paaltje `a76654`. Zo leest een nieuw bordje meteen als "van het spel" en niet als een knop van Windows. Goud alleen voor wat je verdient (munt, balkje vol).
+- Een getal of regel die de speler ziet, moet ergens in beeld bij horen. "Grew 11 levels" zonder bordje is een los getal; dan liever de regel later.
+- Keur tekens in spreekwolkjes altijd ook op ware grootte (1x), niet alleen vergroot; op 1x mist een donker wolkje zonder lichte rand de achtergrond.
