@@ -21,3 +21,9 @@ Duurtest gewoon spel met één regel erbij die het muisvlak elke 30 s opnieuw ze
 
 ## Proef gestart (16 nov ±21:35 UTC, Bram)
 Tak `claude/steam-hol-vlak-proef` (7808f65): startargument `vlak_elke=<s>` zet het muisvlak elke s seconden opnieuw, alleen met het argument (2 regels in `kern/strook.gd`, 1 in `kern/proef.gd`; toets_systemen en toets_held lokaal 0 FOUT). Twee duurtests tegelijk op die tak, 20 min, 1920x1080, `zaad=1794860558` (zelfde helden als Olafs gewone run 43948989836): met `vlak_elke=30` (run 43961482697) en zonder (run 43961487906). Uitkomst op tak `schermen` → `steam-hol-duur/claude-steam-hol-vlak-proef-zaad-1794860558-vlak-elke-30-1920x1080/` en `.../claude-steam-hol-vlak-proef-zaad-1794860558-1920x1080/`. Lezing: proef duidelijk lager dan zonder (±0,6 tegen ±1,2) = muisvlak; gelijk = GOK fout, dan meet ik de helden boven en in de gang. De tak gaat niet naar main; Olaf beslist wat er van komt.
+
+
+## Stand 16 nov ±22:30 UTC (Bram, na Iris keuring 10 punt 3)
+- `vlak_elke=30` gaf 1,357 CPU-s per 10 s tegen 0,844 voor main op hetzelfde zaad (Iris). Niet lager, dus **mijn GOK muisvlak is waarschijnlijk fout**. Ik trek hem in tot de controle er is.
+- De controle-run zonder argument (43961487906) stond om 22:30 nog op `in_progress` (gestart 21:34), en staat nog niet op `schermen`. De twee runs liepen tegelijk; Iris ziet 0,59 tot 1,36 voor ongeveer hetzelfde spel, dus de machine per run kan meer schelen dan wat we zoeken.
+- **Volgende stap (eens met Iris):** zodra de controle binnen is, dezelfde run (main, zaad 1794860558) twee keer **na elkaar** draaien, niet tegelijk. Liggen die twee meer dan 0,2 uit elkaar, dan is CPU per run op deze runners ruis en meten we alleen nog CPU per getekend beeld binnen één run (zoals `cpu_per_beeld.py`), niet tussen runs. De vlak-proeftak blijft een proef en gaat niet naar main.
