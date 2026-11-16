@@ -76,6 +76,12 @@ jobs:
             tail -5 "/tmp/do-$d.log"
             sleep 2
           done
+          # Elk horloge moet de maten van zijn eigen scherm laden (tijd in px uit het blad van Mila).
+          MIS=0
+          for paar in fr255:78 fenix847mm:136 venu3s:117 vivoactive5:117 fr55:62 fr245:72; do
+            grep -q "^${paar%%:*} KERN MATEN n=29 tijdPx=${paar##*:} " "$U" || { echo "MATEN FOUT ${paar%%:*}, verwacht tijdPx=${paar##*:}" >> "$U"; MIS=1; }
+          done
+          echo "MATEN_PER_HORLOGE $([ $MIS = 0 ] && echo goed || echo FOUT)" >> "$U"
           mogrify -fuzz 2% -trim +repage schermen/*.png
           cat "$U"
           ls -la schermen

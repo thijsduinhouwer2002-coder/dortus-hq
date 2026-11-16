@@ -42,9 +42,10 @@ module Maten {
     // Laadt de lijst één keer. Een lijst met een verkeerd aantal getallen telt als leeg.
     function laad() as Array<Number> {
         if (lijst == null) {
-            var l = WatchUi.loadResource(Rez.JsonData.Maten) as Array<Number>;
-            if (l.size() != AANTAL) {
-                l = [] as Array<Number>;
+            var bron = WatchUi.loadResource(Rez.JsonData.Maten);
+            var l = [] as Array<Number>;
+            if (bron instanceof Lang.Array && bron.size() == AANTAL) {
+                l = bron as Array<Number>;
             }
             lijst = l;
         }
@@ -57,6 +58,10 @@ module Maten {
         if (i < 0 || i >= l.size()) {
             return 0;
         }
-        return l[i];
+        var v = l[i];
+        if (!(v instanceof Lang.Number)) {
+            return 0;
+        }
+        return v;
     }
 }

@@ -8,19 +8,33 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 NAMEN = ['DATUM_Y', 'DATUM_PX', 'TIJD_Y', 'TIJD_PX', 'VELD_XL', 'VELD_XM', 'VELD_XR', 'ICOON_Y', 'ICOON_H',
          'VELD_Y', 'VELD_PX', 'WATER_TOP', 'WATER_BODEM', 'NU_X', 'LIJN_X', 'BAND_0', 'BAND_1', 'BAND_2', 'BAND_3',
          'LIJN_DIK', 'BOOT_HALF', 'MAST', 'BB_Y', 'BB_PX', 'BB_RAND', 'GOLF_B', 'GOLF_DIK', 'GOLF_AFSTAND', 'VEILIG']
-BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq 2)
+BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq en Sq 2, en 360 px)
+# Elke rij van het blad: hoe de naam begint en hoeveel getallen er per cel staan. Wisselt Mila twee rijen
+# of komt er een bij, dan stopt het script in plaats van de maten stil op de verkeerde plek te zetten.
+RIJEN = [('datum:', 2), ('tijd:', 2), ('velden:', 3), ('veld-icoon:', 2), ('veld-getal:', 2), ('water bij 100', 1),
+         ('water bij 0', 1), ('nu (bootje)', 1), ('lijn begint', 1), ('banden onder', 4), ('waterlijn dikte', 1),
+         ('bootje halve', 2), ('BB-getal:', 3), ('golfje', 3), ('veilige straal', 1)]
 
 def lees_blad(pad):
     regels = [r for r in open(pad, encoding='utf-8').read().split('\n\n')[0].split('\n') if r.startswith('|')]
     kop = [c.strip() for c in regels[0].strip('|').split('|')]
     maten = [int(c) for c in kop[1:]]
     uit = {S: [] for S in maten}
-    for r in regels[2:]:
+    if len(regels) - 2 != len(RIJEN):
+        raise SystemExit(f'het blad heeft {len(regels) - 2} rijen, verwacht {len(RIJEN)}')
+    for r, (begin, aantal) in zip(regels[2:], RIJEN):
         cellen = [c.strip() for c in r.strip().strip('|').split('|')]
         if len(cellen) != len(maten) + 1:
             raise SystemExit('rij met een ander aantal kolommen: ' + cellen[0])
+        if not cellen[0].startswith(begin):
+            raise SystemExit(f'rij "{cellen[0]}" staat waar "{begin}" hoort')
         for S, c in zip(maten, cellen[1:]):
-            uit[S] += [int(g) for g in re.findall(r'\d+', c)]
+            if not re.fullmatch(r'[0-9 ,/]+', c):
+                raise SystemExit(f'cel "{c}" in rij "{begin}" bevat iets anders dan cijfers, komma of schuine streep')
+            g = [int(x) for x in re.findall(r'\d+', c)]
+            if len(g) != aantal:
+                raise SystemExit(f'cel "{c}" in rij "{begin}": {len(g)} getallen, verwacht {aantal}')
+            uit[S] += g
     for S, l in uit.items():
         if len(l) != len(NAMEN):
             raise SystemExit(f'maat {S}: {len(l)} getallen, verwacht {len(NAMEN)}')
