@@ -115,3 +115,5 @@
 - Wat Pose to Print beter doet en wij niet beloven: kleding en haar dicht maken, wanddikte, ogen, voet met magneet, 80 van 80 gesloten in hun toetsen op 10 figuren. Wij vragen een mesh die al dicht is (of Make watertight) en zeggen dat.
 - Eerlijk voor de winkeltekst: wij noemen alleen wat getoetst is. Heupen op AI-figuren waarvan de dijen elkaar raken lukken nog niet (zie `status.md`); dat staat er dan ook zo in. Geen vergelijkende zin met hun naam op onze pagina.
 - Ook genoemd door de hoofdchat: JointLab ($30, early access) en CatPin (vaste pennen) stonden al in de check; geen van beide leest een rig met eindstop.
+- Zelfde run, Pro 1.1: heupen op AI-figuren met een spleet tussen de benen geprobeerd, geen heup; oorzaak gemeten (dij te kort voor kogel plus knie op 150 mm). Besluit: naar 1.2, met een leesbare reden in de lijst. Nieuwe toets `toetsen_meshy_rig` in de CI. Tak 1532a02. Details `producten/blender-gewrichten/ontwerp-1.1.md` run 16 op de tak.
+- Wat misging: twee Blenders tegelijk starten botst op het slot van de extensiemap (tweede installeert niet); de proef stapelde zijn naamfilter per figuur (recursiefout vanaf de tweede figuur), opgelost.
