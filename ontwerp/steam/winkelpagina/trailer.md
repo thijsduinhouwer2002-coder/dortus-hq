@@ -19,7 +19,7 @@ Wat zij missen en wij hebben: **een verhaal per held**. Bij Rusty groeit er iets
 | Tijd | Beeld | Tekst |
 |---|---|---|
 | 0 tot 3 s | **Haak.** Ingezoomd (4x) op de put: een ridder met pluimhelm loopt binnen, ziet de munt, stapt, valt (stof), de helm wipt op en draait door de lucht en landt op Gloops toren. Gloop knippert blij. | geen |
-| 3 tot 6 s | Uitzoomen in één beweging naar het echte bureaublad (donkere achtergrond, Kladblok open): het hol is een dunne strook boven de taakbalk. | "Your taskbar has a basement now." |
+| 3 tot 6 s | Uitzoomen in één beweging naar het echte bureaublad (donkere achtergrond, Kladblok open): het hol is een dunne strook boven de taakbalk. | "Your taskbar has a basement now." (vast, ja Daan 16 nov 19:50; eis: de taakbalk staat al in beeld als de zin verschijnt, dus de zin komt pas na de uitzoom, ±4,5 s) |
 | 6 tot 18 s | Ingezoomd, vier grapjes van 3 s: heks valt (heksenhoed op de toren), kok (koksmuts), dief met masker die "picks the lock. It was open.", bard. Elke hoed komt bovenop; de toren groeit. | kaartjes uit het spel zelf |
 | 18 tot 24 s | **Wrok.** Een held vlucht met een litteken, komt later terug met een bijnaam uit het spel ("Fenna the Spooked", `kroniek.gd`: Spooked, Lucky, Twice-Fled, Thrice-Fled, Hoard-Toucher) en valt in dezelfde put. | "They come back. With a grudge." |
 | 24 tot 30 s | Bouwen: graven, Gloop upgraden (kaartje Big Gloop, Buy: Gloop wordt in beeld groter, regel "Gloop is now Big Gloop. Bigger mouth."), munten. | "Dig. Upgrade. Get fat." |

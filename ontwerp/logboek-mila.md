@@ -744,3 +744,9 @@
 - Kleine capsule ronde 7 (uit de beeldmap): **besluit** nieuwe `klein-462x174.png` met grotere titel, ridder rechts, donkerdere wand. Waarom: de blinde kijker koos hem (6 tegen 5) en de titel vult nu ±60% van de breedte zoals bij de toppers. Twee andere proeven (enorme helm; ridder kop eerst in de munten) verloren van de oude en zijn niet gekozen. Keuring bij Daan.
 - Volgende: achtergrond van de capsules minder vlak bruin, en "fallen" zichtbaar maken (stapel hoeden), eerst op klein proeven.
 - Ronde 7b: hoeden op de berg en een donkerdere wand geprobeerd, geen van beide zichtbaar op 231 px; niet gekozen. Het bruin zit in het palet, niet in het licht. Volgende run: een tweede kleurvlak achter de figuren proeven, naast de toppers.
+
+## 16 nov ±19:55 tot 20:15 UTC
+- Kleine capsule ronde 7c: ridder groter, op zijn laarzen, los van Gloop en met een eigen lichtje (kan-punt Daan en controleur). **Besluit** proef g. Waarom: in grijs op 231 px is de ridder nu een poppetje en geen vlek, de titel bleef vrij. Zie `capsule-3d/LEESMIJ.md` ronde 7c.
+- Trailer 3 tot 6 s: kelderzin vast in `trailer.md`, met Daans eis dat de taakbalk al in beeld staat als de zin komt.
+- Volgende: tweede kleurvlak achter de figuren proeven naast de toppers (achtergrond minder vlak bruin).
+

@@ -89,9 +89,9 @@ HOOFD = VARIANT == "hoofd"
 def E(naam, gewoon):
     return float(os.environ.get(naam, gewoon))
 GX = (2.35 if not HOOFD else E("HF_GX", "1.8")) if not KLEIN else E("K_GX", "2.75")         # Gloop rechts van het midden
-RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.25"))) if not KLEIN else E("K_RX", "5.05")       # ridder
-RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else E("K_RY", "-0.9")   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
-RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else E("K_RS", "1.35")
+RX = float(os.environ.get("HEADER_RX", "-0.1" if not HOOFD else os.environ.get("HF_RX", "-0.25"))) if not KLEIN else E("K_RX", "5.35")       # ridder (ronde 7c: 5,05 / -0,9 / 1,35 werd 5,35 / 0,0 / 1,6: laarzen op de grond, los van Gloop)
+RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else E("K_RY", "0.0")   # ronde 5: -2,2 werd -1,95, laarzen verder van de onderrand
+RS = (1.2 if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else E("K_RS", "1.6")
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
@@ -343,6 +343,8 @@ lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), 1600, 4.0, (GX,
 lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
+if KLEIN and E("K_RLICHT", "700") > 0:   # Mila ronde 7c (Daan 19:50: ridder is in grijs een vlekje): eigen lichtje op de ridder
+    lamp("ridderlicht", "AREA", (RX - 1.2, RY - 4.0, 3.2), (1.0, 0.93, 0.8), E("K_RLICHT", "700"), 2.0, (RX, RY, 1.0))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
 lamp("wandgloed", "POINT", (GX, 2.2, 2.0), (1.0, 0.62, 0.3), 900 if not KLEIN else E("K_WANDGLOED", "900"))   # warme gloed op de muur achter Gloop
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
