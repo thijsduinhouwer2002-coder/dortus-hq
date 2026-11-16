@@ -1,0 +1,5 @@
+30 zaden, 150 open uur, mediaan open uur tot hol-niveau (alleen als meer dan de helft het haalt)
+oud ritme, vast 6          | hol 12 1.9 u | 20 10.5 | 30 37.2 | 40 75.7 | 50 126.9 | helden per open uur 77
+nieuw ritme, vast 6        | hol 12 1.1 u | 20 6.0 | 30 23.3 | 40 44.6 | 50 76.1 | helden per open uur 131
+nieuw ritme, graafbonus    | hol 12 1.1 u | 20 6.0 | 30 22.1 | 40 42.7 | 50 73.3 | helden per open uur 131
+nieuw, graafbonus, drempels x1,7 | hol 12 1.1 u | 20 9.1 | 30 34.1 | 40 69.7 | 50 120.0 | helden per open uur 131
