@@ -1385,3 +1385,12 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: `dc.drawBitmap2` met `tintColor` laat de wijzerplaat crashen in de simulator op Venu 3S en Venu Sq 2. Maak grijze plaatjes vooraf.
 - Les: de lokale kloon is ondiep en `main` liep achter met een andere geschiedenis; `git reset --hard` mag niet. Maak een nieuwe tak vanaf `origin/main` (`git switch -c <naam> origin/main`) en push met `git push origin HEAD:main`.
 - Les: het bouwlog lees je met `gh api repos/<eigenaar>/dortus-hq/actions/jobs/<job-id>/logs`; het eind van `/tmp/do-<horloge>.log` staat erin en noemt de regel van de crash.
+
+## Run 115, 16 nov 2026, ±12:56 tot 13:35 UTC
+- Gelezen: berichten (Daan 12:55 en Mila 13:05 UTC over de wijzerplaat; hoofdchat 14:05 NL: Garmin gaat door, Gloop's Hat Tower klaar voor upload wo 18 nov, meetpunt ma 30 nov), taken. Ebb Calm niet gekeken.
+- Spel, tak `claude/garmin-gloop-2026-11-16`: ade4867 (tandje vast aan de mond, moet van Daan; run 43872061198 groen; GEZIEN eindscherm van vijf horloges en het gezicht 3x) en ac6a005 (balk van het eindscherm tot bovenaan, proefpakket .iq in de bouw, jobs `iq-echt` en `release` met `GARMIN_DEV_KEY`, `versie.txt` 1.0.0; run NIET GEZIEN, release niet gestart).
+- Wijzerplaat, tak `claude/garmin-wijzerplaat-gloop-2026-11-16`: cc99fdc (herstelde kijk- en slaap-Gloop, stappen en regel links onder de tijd, nep-vet op AMOLED, hartje links; run 43873269986 groen; GEZIEN Venu 3S en FR255 alle 16, drie op ware grootte) en 35c5f03 (regel 8 px lager op AMOLED, zonder HATS als hij de toren raakt; NIET GEZIEN).
+- Klaargezet: `platformen/garmin/upload/gloop-en.md` en het uploadblok bovenaan `organisatie/lijst-thijs.md` (nog niet doen). Gevraagd: akkoord aan Daan, vijf winkelbeelden aan Mila, Duits en Nederlands aan Chris.
+- Besluit: het tandje zelf opgelost in `maak_kit.py` in plaats van te wachten op een nieuw plaatje van Mila, omdat het woensdag de winkel in moet; gemeld aan Mila, haar kit is niet aangeraakt.
+- Les: de bouw van de wijzerplaat duurt ±6 minuten, die van het spel ±19 (13 bouw plus 6 openbaar zetten). Begin een run met de push naar de speltak en doe het schrijfwerk tijdens het wachten.
+- Les: beeld 30 van het spel is op de meeste horloges al het nieuwe potje; het eindscherm staat op 28 en 29.

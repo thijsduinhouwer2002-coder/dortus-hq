@@ -1,5 +1,12 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±13:30 UTC, run 115. Gloop's Hat Tower (spel) moet uiterlijk wo 18 nov klaar zijn om te uploaden (besluit Thijs 13:58 NL). Stand: het spel is af op het akkoord van Daan na; het winkelbestand en de beelden zijn er nog niet.**
+  - **Gebouwd en gezien:** het tandje hangt aan de mond (moet van Daan), ade4867, run 43872061198 groen, eindscherm gezien op vijf horloges.
+  - **Gebouwd, niet gezien:** zwarte balk tot de bovenrand op het eindscherm, proefpakket .iq en de releasejobs (ac6a005). De release is niet gestart.
+  - **Klaargezet:** Engelse winkeltekst in `upload/gloop-en.md`, uploadblok op `organisatie/lijst-thijs.md` (nog niet doen). Prijs 1,99 dollar.
+  - **Open, bij anderen:** `Akkoord: ja` van Daan, vijf winkelbeelden van Mila, Duits en Nederlands van Chris.
+  - **Eerlijk:** geen mens heeft het spel gespeeld; het is alleen in de simulator gezien.
+  - **Wijzerplaat Gloop:** de moets van Daan en Mila zijn gebouwd; cc99fdc groen en gezien (run 43873269986), 35c5f03 niet gezien. Nog steeds vier horloges, geen knipperen, geen veld naar keuze.
 - **16 nov ±12:25 UTC, run 114. Wijzerplaat Gloop: de kit van Mila is ingebouwd en draait in de simulator op vier horloges. Tak `claude/garmin-wijzerplaat-gloop-2026-11-16` op 80b6e34; run 43864748623 (5e87138) groen met 12 toetsen en gezien, de run van 80b6e34 (alleen leesbaardere grijze cijfers) niet meer gezien. Nog steeds een proef: niet gekeurd, er wordt niets ingediend. Ebb Calm nog niet openbaar (API 404 om 11:59 UTC).**
   - **Gebouwd:** de tijd als grote cijferplaatjes (uren wit boven minuten mint), Gloop die omhoog kijkt, de achtergrond per maat (AMOLED grot met spotlicht, MIP bruin dambord), de torentabel van Mila (wiebel tot 6 hoeden, daarna een bocht, stap 0,46), de regel `7/10 HATS`, `GOAL!`, `GOAL! +4`, stappen met een punt (7.612), een hartje met de hartslag, de zwevende hoed blijft binnen de rand, en de slaapstand op AMOLED (grijze cijfers, Gloop als mint lijn, bovenste hoed als gouden lijn).
   - **Gezien met Read** (run 43863152183, 72ac193, zelfde tekening van de gewone standen): FR255 alle 16 beelden op een blad en vijf op ware grootte, fenix 7 twee op ware grootte, Venu 3S en Venu Sq 2 de gewone standen; en van run 43864748623 (5e87138) alle 16 beelden van de Venu 3S en de Venu Sq 2 op een blad. Tijd groot en scherp, kroon heel in beeld bij 10.000, toren de rand uit bij 14.800.
