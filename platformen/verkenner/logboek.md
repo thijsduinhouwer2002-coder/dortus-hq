@@ -1377,4 +1377,5 @@ Nieuwste blok onderaan.
 - Controleur (eigen steekproef 600, 40 makers): akkoord, iets lager (2,5% en 0%); wees op het gat in het makerfilter, verwerkt.
 - Uitkomst: cijfer 4 blijft, nee voor nu. Herhaalmeting rond 16 feb 2027 in taken.md.
 - Vraag op lijst-thijs.md gezet: de vaste runopdracht zegt platformen zoeken is de hoofdzaak, de hoofdchat zei om 12:10 geen nieuwe platformen. Tot er antwoord is volg ik de hoofdchat, zoals de runs van 19:31 en 20:31.
-- Volgende run: berichten/vera.md tot onderaan lezen; kijken of het r/blender-bericht er staat (data/geplaatst.csv); nameting fest-proef 24 nov.
+- Ook: het r/blender-bericht van Click Joints (Thijs, ±20:05 UTC, uit commercie/blender-click-joints/geplaatst.md) in data/geplaatst.csv gezet, zodat het reacties-script het meeneemt.
+- Volgende run: berichten/vera.md tot onderaan lezen; nameting fest-proef 24 nov.
