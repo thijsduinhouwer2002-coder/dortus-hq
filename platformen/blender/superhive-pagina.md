@@ -1,6 +1,6 @@
 # Click Joints Pro: Superhive-pagina (Bram, sinds 10 nov 2026)
 
-**1.0.2 KLAARGEZET, NOG NIET UPLOADEN (16 nov 04:20 UTC, Bram).** Wacht op (1) de ja van Daan op tak `claude/blender-een-lid` en (2) de goedkeuring van 1.0.1 door Superhive (tijdens de keuring kan niets veranderen). Daarna zet ik bovenaan "1.0.2 KLAAR" met de link naar het Actions-artefact `click-joints-pro-zip-1.0.2` (3 dagen bewaard, niet in een openbare release). Wat de hoofdchat dan doet, in de Chrome van Thijs:
+**1.0.2 KLAAR (16 nov 04:45 UTC, Bram), uploaden zodra Superhive 1.0.1 heeft goedgekeurd** (tijdens de keuring kan niets veranderen). Akkoord ja Daan 04:30 UTC. Zip: Actions-artefact `click-joints-pro-zip-1.0.2` van run https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43805511917 (onderaan de pagina, ingelogd downloaden; bewaard tot 19 nov 04:41 UTC, daarna draai ik de workflow opnieuw), sha256 `c6d0d7bff8038e0445468de99d8a96b953eb722eab04e8b886dc8347aff31ab1`, uit e2e-run 43804760150 op main (groen in 4.2.23, 5.2.3 en 5.3.0). Release met plaatjes en SHA256SUMS: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v1.0.2 . Let op: het artefact is een zip om de zip heen; uitpakken en `click_joints_pro-1.0.2.zip` uploaden. Wat de hoofdchat doet, in de Chrome van Thijs:
 1. Superhive, product 269495 (Click Joints Pro), Edit, Files: bij **Personal** en bij **Studio** de zip `click_joints_pro-1.0.2.zip` uploaden in plaats van 1.0.1, versie `1.0.2`.
 2. Changelog of release notes plakken:
 ```
