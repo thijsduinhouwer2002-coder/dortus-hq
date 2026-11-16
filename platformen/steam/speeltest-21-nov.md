@@ -16,11 +16,11 @@ Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer
 ## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC)
 Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
 - 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
+- ±10 s: tweede held. **±27 s: Gloop eet hem en zijn hoed (de kroon) gaat op de toren** (op main sinds 16 nov 07:40 UTC, tak `claude/steam-hol-hoed30` van Bram; zaden 4242, 777, 1, 2026, 99, 2 en 3: hap 26,3 tot 27,8 s; daarvoor 59 tot 62 s, en vóór 16 nov 00:35 UTC 96 tot 102 s).
 - 16 s: hij valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
-- **Tak `claude/steam-hol-hoed30` (Bram 16 nov 07:30 UTC, nog niet op main):** ±10 s tweede held, **±27 s: Gloop eet hem en zijn hoed gaat op de toren** (5 zaden 4242, 777, 1, 2026, 99 plus 2 en 3: hap 26,3 tot 27,8 s), ±31 s derde held die ontsnapt, ±65 tot 75 s komt hij terug met zijn wrok. Eerste koop mogelijk na 157 tot 227 s, gemiddeld 196 s (zelfde 5 zaden). Hieronder de stand op main:
-- ±25 s: tweede held, die ontsnapt mank. **±60 s: Gloop eet de derde held en zijn hoed gaat op de toren** (was ±100 s; sinds 16 nov 00:35 UTC op main, tak `claude/steam-hol-eerste-hoed` van Bram: in 5 zaden hap op 59 tot 62 s, daarvoor 96 tot 102 s).
-- Eerste koop mogelijk na 172 tot 320 s, gemiddeld 245 s in 5 zaden (4242, 777, 1, 2026, 99; op main met dezelfde zaden 217 tot 373 s, gemiddeld 291 s); eerder op Windows gemeten op main: 211 s. Ruim onder de grens van 600 s (demolijst 3).
-Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt nu rond 60 s, binnen de eerste minuut.
+- ±31 s: derde held, die ontsnapt mank. **±63 tot 75 s: hij komt terug met zijn wrok** (bijnaam, "is back for ...").
+- Eerste koop mogelijk na 157 tot 227 s, gemiddeld 196 s (zelfde 5 zaden; met de stand van 16 nov 00:35 UTC gemiddeld 245 s, daarvoor 291 s); eerder op Windows gemeten: 211 s. Ruim onder de grens van 600 s (demolijst 3).
+Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt nu rond 27 s, binnen de eerste halve minuut, en de eerste wrok binnen anderhalve minuut.
 
 ## Wat je doet (15 tot 30 min)
 - Start het spel en **werk gewoon door** op je pc (mail, browser). Het hol ligt onderaan, boven de taakbalk.
