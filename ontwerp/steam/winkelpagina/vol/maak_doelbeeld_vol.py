@@ -57,6 +57,7 @@ def begraaf(i, x, y, hoek, breed=50):
     h = Image.open(os.path.join(WAND, f'wand-{i}.png')).convert('RGBA'); h = h.crop(h.getbbox())
     h = h.resize((breed, round(h.height * breed / h.width)), Image.LANCZOS)
     s.alpha_composite(h, (round(x - h.width / 2), round(y - h.height * 0.6)))
+# (wortels onder het gras geprobeerd met ontwerp/steam/hoedenwand/wortels.py: te dun en vaag op 600, liepen over de kamers; niet gebruikt)
 for i, x, y, hoek in [(4, 412, 72, 20), (7, 600, 66, -25), (1, 800, 78, 15), (8, 975, 62, -10), (3, 1160, 66, 30),
                       (0, 1440, 74, -20), (9, 1570, 56, 25), (5, 1700, 78, -15), (2, 215, 66, 10)]:
     begraaf(i, x, y, hoek)

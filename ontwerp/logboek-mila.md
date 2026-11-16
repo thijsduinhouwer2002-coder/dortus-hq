@@ -673,3 +673,4 @@
 - Eerlijk antwoord: 3D uit Blender haalt het; het gat is leegte, geen stijl. Bouwpunten in `platformen/steam/taken.md`.
 - Volgende run: hoedenwand als echte 3D-render (een hoed half in een holte) en de aardwand zelf rijker (lagen, wortels, steentjes) zodat de stippen niet meer herhalen.
 
+- ±09:00 UTC: hoedenwand als echte 3D-render (`ontwerp/steam/hoedenwand/`, alle 10 hoeden, ±6 s per stuk), in het doelbeeld op 50 px GEZIEN: leest. Wortels onder het gras geprobeerd en weggelaten (te dun op 600).
