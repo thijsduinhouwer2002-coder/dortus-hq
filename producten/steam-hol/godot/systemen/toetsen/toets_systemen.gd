@@ -815,7 +815,7 @@ func _init() -> void:
 	for i in range(1, vlos_k.size()):
 		if vlos_k[i] - vlos_k[i - 1] < 2 or vlos_s[i] == vlos_s[i - 1]:
 			vlfout += 1
-	ok(vlos_k.size() > 0 and vlos_k.size() * 3 <= 26 + 2 and vlfout == 0, "vol: %d losse dingen op 26 tegels, %d fout (naast elkaar of zelfde soort): %s" % [vlos_k.size(), vlfout, str(vlos_s)])
+	ok(vlos_k.size() > 0 and vlos_k.size() * 3 <= 26 + 2 and vlfout == 0, "vol: %d losse dingen op 26 tegels, mis (naast elkaar of zelfde soort): %d, %s" % [vlos_k.size(), vlfout, str(vlos_s)])
 	# over veel holen: gemiddeld hooguit 1 op 3 tegels een los ding
 	var vtl := 0
 	var vtk := 0
