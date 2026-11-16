@@ -2,19 +2,106 @@
  "uit": "click-joints-5-pro-hinge-stops.mp4",
  "alleen_na": "Click Joints Pro live op Superhive",
  "segmenten": [
-  {"bron": "bron/s1.mp4", "start": 0, "dur": 2.0, "vf": "scale=1080:1920", "y": 0},
-  {"bron": "bron/s2.mp4", "start": 0, "dur": 3.3, "vf": "scale=1080:1920", "y": 0},
-  {"bron": "bron/s3.mp4", "start": 0, "dur": 4.5, "vf": "scale=1080:1920", "y": 0},
-  {"bron": "bron/s4.mp4", "start": 0, "dur": 3.2, "vf": "scale=1080:1920", "y": 0},
-  {"bron": "bron/s5.mp4", "start": 0, "dur": 3.3, "vf": "scale=1080:1920", "y": 0}
+  {
+   "bron": "bron/s1.mp4",
+   "start": 0,
+   "dur": 2.0,
+   "vf": "scale=1080:1920",
+   "y": 0
+  },
+  {
+   "bron": "bron/s2.mp4",
+   "start": 1.6,
+   "dur": 1.7,
+   "vf": "scale=1080:1920",
+   "y": 0
+  },
+  {
+   "bron": "bron/s3.mp4",
+   "start": 0,
+   "dur": 4.5,
+   "vf": "scale=1080:1920",
+   "y": 0
+  },
+  {
+   "bron": "bron/s4.mp4",
+   "start": 0,
+   "dur": 3.2,
+   "vf": "scale=1080:1920",
+   "y": 0
+  },
+  {
+   "bron": "bron/s5.mp4",
+   "start": 0,
+   "dur": 3.3,
+   "vf": "scale=1080:1920",
+   "y": 0
+  }
  ],
  "teksten": [
-  {"van": 0, "tot": 2.0, "regels": ["A printable *knee*", "that stops at 115°"], "grootte": 80},
-  {"van": 2.0, "tot": 5.3, "regels": ["I made a Blender add-on", "that places a click *hinge*"], "grootte": 68},
-  {"van": 5.3, "tot": 9.8, "regels": ["It bends to 115° and *stops*,", "instead of flopping backwards"], "grootte": 64},
-  {"van": 9.8, "tot": 13.0, "regels": ["Past the stop?", "It turns red."], "grootte": 78},
-  {"van": 13.0, "tot": 16.3, "regels": ["Ball joints: *free*.", "Click hinges: *Pro*."], "grootte": 76},
-  {"van": 0, "tot": 16.3, "regels": ["Click Joints Pro, a Blender add-on"], "grootte": 40, "y": 1380, "licht": true},
-  {"van": 13.0, "tot": 16.3, "regels": ["Link in bio"], "grootte": 52, "y": 1290}
+  {
+   "van": 0,
+   "tot": 2.0,
+   "regels": [
+    "A printable *knee*",
+    "that stops at 115°"
+   ],
+   "grootte": 80
+  },
+  {
+   "van": 2.0,
+   "tot": 3.7,
+   "regels": [
+    "I made a Blender add-on",
+    "that places a click *hinge*"
+   ],
+   "grootte": 68
+  },
+  {
+   "van": 3.7,
+   "tot": 8.2,
+   "regels": [
+    "It bends to 115° and *stops*,",
+    "instead of flopping backwards"
+   ],
+   "grootte": 64
+  },
+  {
+   "van": 8.2,
+   "tot": 11.4,
+   "regels": [
+    "Past the stop?",
+    "It turns red."
+   ],
+   "grootte": 78
+  },
+  {
+   "van": 11.4,
+   "tot": 14.7,
+   "regels": [
+    "Ball joints: *free*.",
+    "Click hinges: *Pro*."
+   ],
+   "grootte": 76
+  },
+  {
+   "van": 0,
+   "tot": 14.7,
+   "regels": [
+    "Click Joints Pro, a Blender add-on"
+   ],
+   "grootte": 40,
+   "y": 1380,
+   "licht": true
+  },
+  {
+   "van": 11.4,
+   "tot": 14.7,
+   "regels": [
+    "Link in bio"
+   ],
+   "grootte": 52,
+   "y": 1290
+  }
  ]
 }

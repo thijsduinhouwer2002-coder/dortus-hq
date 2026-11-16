@@ -1292,3 +1292,22 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 ## 14 nov 2026 ±05:05 UTC (Gijs, run 103)
 - Geen nieuwe berichten of besluiten. Ebb: APPROVED, 0 downloads, 0 reviews (05:04 UTC). Maker Dortus heeft 1 app in de winkel, dus Ebb Calm is nog niet openbaar. Dagmeting niet herhaald (volgende op 14 nov rond 22:00 UTC).
 - Niets gebouwd en niets veranderd. De werkmap stond met HEAD los en `git pull` bleef hangen; daarna main gelijkgezet met `origin/main` (0698916) en daar gewerkt.
+
+## 16 nov 2026 ±02:40 UTC (Gijs, run 104)
+- Weer aan na het bericht van de hoofdchat van 15 nov 23:20. Ebb: APPROVED, 0 downloads, 0 reviews (01:59 UTC). Ebb Calm: API 404, nog niet openbaar. Dagmeting gedaan (02:03 UTC): "breathing" nu plek 30.
+- Gloop-spel begonnen. Besluit: het spel wordt "Hat Tower" zoals Mila voorstelt (held valt, druk bij de bek, hoed op de toren), als ronde van 30 seconden zonder game over. Waarom: één knop, de eerste hoed valt binnen 2 seconden, missen straft niet, en het is dezelfde grap als Het Hol, dus het ene maakt reclame voor het andere. Waarom 30 seconden en geen levens: "nooit straffen" laat geen game over toe, en een klok geeft toch een einde en een score.
+- Besluit: de proef tekent alleen rechthoeken en cirkels. Waarom: eerst leuk, dan mooi (`organisatie/onderzoek-youtube-werkwijze.md`); zo kost het ook geen geheugen op oude horloges.
+- Gebouwd op tak `claude/garmin-gloop-2026-11-16`: `producten/garmin-gloop/` (regels los van het scherm, 6 toetsen, zelfspeler voor de beelden) en `.github/workflows/garmin-gloop.yml` (kopie van `garmin-proef.yml`). Run 43789791678: compileert, 5 van 6 toetsen groen, 19 hoeden voor een speler die alles raakt.
+- Wat misging: één nieuwe toets was zelf fout (liep door na het einde van de ronde), en mijn eerste reparatie had een verkeerde grens voor het aantal tikken. Beide rechtgezet (79afc0a, 1fe0449); de spelcode is niet aangepast om de toets te laten slagen. De uitslag van de laatste run en de schermafbeeldingen niet meer gezien; dat is de eerste taak van de volgende run.
+- Werkmap stond met HEAD los en `git pull` bleef hangen; daarna main gelijkgezet met `origin/main` (239c7a5).
+- Nagekomen 02:17 UTC: run 43790127552 groen (6 van 6 toetsen, 60 beelden op tak `schermen`). Acht beelden bekeken: het spel draait op FR255, fenix 7 en Venu 3S. Open: de zelfspeler haalt in de simulator 8 hoeden in plaats van 19; start en eindscherm nog niet bekeken.
+
+## 16 nov 2026 ±03:20 UTC (Gijs, run 105)
+- Geen nieuwe berichten. Ebb: APPROVED, 0 downloads, 0 reviews (02:55 UTC). Ebb Calm: API 404, nog niet openbaar. Dagmeting niet herhaald (volgende 17 nov rond 02:00 UTC).
+- Gloop-proef, tak `claude/garmin-gloop-2026-11-16`: bd04a60 (slok, trilling, cijfer in het midden, Venu Sq 2, betere zelfspeler, 26 beelden), e2477f4 (ontwerp bijgewerkt), 46cb196 (klok als balk op vierkant, eindscherm hoger). Runs 43795386009 en 43796542512 groen. Beelden bekeken: zie status.
+- Besluit: de zelfspeler laat nog maar één held lopen (bij 4 hoeden). Waarom: de beelden moeten het hele spel tonen, ook de toren tot de rand en het eindscherm; met drie vroege missers kwam hij maar tot 8.
+- Besluit: op niet-ronde schermen is de klok een balk bovenaan. Waarom: de cirkel liep op de Venu Sq 2 dwars door de toren (gezien in run 43795386009).
+- Besluit: de proef nog niet op de lijst van Thijs. Waarom: er is geen speelbaar bestand; de bouwstraat maakt alleen beelden. Eerst een `.prg` als proefrelease.
+- Uitgezocht waarom de simulator 8 hoeden gaf en de toets 19: de zelfspeler, niet de klok (nagerekend in Python).
+- Wat misging: `git pull` hing weer 2 minuten en de lokale main was oud; gewerkt op een eigen tak vanaf `origin/main`, de oude main niet aangeraakt. De volledige tak `schermen` ophalen met git duurde te lang; beelden opgehaald met `curl` van raw.githubusercontent.com, dat werkt in seconden.
+- Nagekomen 03:32 UTC: bouwstraat maakt nu ook een speelbare `.prg` per horloge (36d0daf, run 43797596147 groen), openbaar naast de beelden op tak `schermen`. Besluit: daar en niet als release. Waarom: het is een proef met een wegwerpsleutel, geen product; een release wekt de indruk dat het uit is. Vraag aan Thijs op zijn lijst gezet, vrijblijvend, omdat ik niet weet of hij een Garmin heeft.

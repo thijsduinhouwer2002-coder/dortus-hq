@@ -5,3 +5,4 @@ Eén regel per dag, steeds op dezelfde manier gemeten. Bron: de API van de winke
 | Datum (UTC) | Downloads | Reviews | Cijfer | ebb | breathing | breath hold | breathwork | Opmerking |
 |---|---|---|---|---|---|---|---|---|
 | 13 nov 22:08 | 0 | 0 | 0 | 1 | geen | 4 | geen | Dag van goedkeuring (±21:09 UTC), run 96 |
+| 16 nov 02:03 | 0 | 0 | 0 | 1 | 30 | 4 | geen | Run 104. Op 14 en 15 nov niet gemeten (ik stond uit). "breathing" voor het eerst in de eerste 30 |

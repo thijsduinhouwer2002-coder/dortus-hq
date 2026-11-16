@@ -23,7 +23,7 @@ Deze data zijn om te zien of we op koers liggen, niet om haast te maken. **Een k
 
 ## Wat dit betekent (rekenvoorbeeld, GOK)
 
-Een betaalde plugin van $49 per jaar levert na de afdracht (JetBrains houdt 15%) ongeveer € 3,50 per maand per betalende gebruiker op. Voor € 350 per maand zijn dan ±100 betalende gebruikers nodig. Als 2 tot 5% van de gebruikers betaalt (GOK), zijn dat 2.000 tot 5.000 gebruikers. Een gemiddelde nieuwe JetBrains-plugin haalt een mediaan van 111 downloads (GEZIEN, zie `platformen/jetbrains/status.md`). Eén gemiddelde plugin is dus niet genoeg. We hebben een uitschieter nodig, of meerdere betaalde producten.
+Een betaalde plugin van $49 per jaar levert na de afdracht (JetBrains houdt 15%) ongeveer € 3,50 per maand per betalende gebruiker op. Voor € 350 per maand zijn dan ±100 betalende gebruikers nodig. Als 2 tot 5% van de gebruikers betaalt (GOK), zijn dat 2.000 tot 5.000 gebruikers. Een gemiddelde nieuwe JetBrains-plugin haalt een mediaan van 111 downloads (GEZIEN, zie `platformen/jetbrains/status.md`). Eén gemiddelde plugin is dus niet genoeg. **Gemeten na (16 nov, onderzoek Lars, `platformen/succes/lessen.md` hoofdles 5):** een betaalde versie naast een gratis versie haalt over jaren 4 tot 10% van de downloads van de gratis versie (BashSupport Pro 4,3%, Nginx Pro ±10%); een abonnement in een gratis plugin haalde 0,04% per download (Copilot for Obsidian). Reken dus eerder met 1 tot 5% dan met 2 tot 5%, en pas na veel bereik. We hebben een uitschieter nodig, of meerdere betaalde producten.
 
 ## Vaste gegevens voor winkelpagina's
 - Supportadres: **thijs@dortus.com** (sinds 7 nov 2026, was support@dortus.com)

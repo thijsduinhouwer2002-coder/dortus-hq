@@ -1238,3 +1238,11 @@ Nieuwste blok onderaan.
 - Voor Hans: drie nee, niets op de lijst van Thijs, geen bericht aan een manager. Losse kans: bouwt iemand een Elgato- of XENEON-plugin, dan is overzetten naar MiraBox Space weinig werk.
 - Les: alleen openbare pagina's en gedocumenteerde of open API's gebruiken; een winkel die alleen via een interne API te lezen is, geldt als niet te meten. Patroon "nieuwe hardware met eigen winkel" (XENEON kreeg een 6) blijft het beste zoekveld, maar de kleine merken hebben vaak geen betalende kopers.
 - Volgende run: weer nieuwe namen zoeken in hardwarewinkels; of de Garmin-emmers voorbereiden (eind nov).
+
+## 16 nov 2026, run 03:31 (Amsterdam)
+- Geen open bericht, geen verlopen herhaalmeting (Garmin-emmers eind nov). Kandidaten.md had geen open platform. Lange lijst namen nagelopen tegen alle onderzocht-bestanden: bijna alles is al bekeken (ook tv, fonts, 3D-print, flight sim, mods, onderwijs). Nieuw: LG webOS en Samsung tv-apps, en print-on-demand.
+- LG webOS en Samsung tv-apps om 03:41 in onderzoek gezet en gepusht. Onderzoeker voor bronnen, kernzinnen zelf nagelezen. Nee, cijfer 1: LG heeft geen betalen via de winkel meer ("no longer provided"), Samsung laat buiten de VS alleen partners met contract toe, keuring weken tot maanden, proxy-SDK's (het verdienmodel van veel kleine tv-apps) nu verboden. Zie voorstellen/lg-samsung-tv.md.
+- Society6 om 03:48 in onderzoek gezet en gepusht. Redbubble, TeePublic, Zazzle, Spreadshirt, Threadless en GameDev Market geven 403; Framer-templates staan achter een Vercel-controle. Society6 zelf gelezen: gecureerd, sollicitatie, "No AI-generated art", 5 tot 10% opslag. Nee, cijfer 1. Zie voorstellen/society6.md.
+- Voor Hans: twee nee, niets op de lijst van Thijs, geen bericht aan een manager.
+- Les: de tv-hoek is dicht voor kleine betaalde apps (Roku 2, LG en Samsung 1); alleen Fire TV Vega OS (pionier, 6) heeft een echte betaalroute. Markten voor beelden sluiten zich voor AI (Society6, eerder Foundry): kijk bij een beeldenmarkt eerst naar de AI-regel.
+- Volgende run: de bekende soorten zijn bijna op. Overweeg nieuwe hardware die na juni 2026 uitkwam met een eigen winkel, of bereid de Garmin-emmers (eind nov) voor.

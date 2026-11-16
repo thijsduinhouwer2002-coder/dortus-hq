@@ -1200,3 +1200,15 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 15 nov 2026, 23:10 tot ±23:55 UTC, Bram
 - Voorstel eerste hoed binnen de minuut aan Olaf (23:20), ja Olaf 23:30, gebouwd op tak `claude/steam-hol-eerste-hoed` (65e7f92): hap in het volle spel van ±98 naar ±60 s, eerste koop gemiddeld 245 s (was 291). Windows-run 43775491912. Details in `taken.md`.
 - Les: het volle spel draait onder Xvfb met `--fixed-fps 15` zonder echte tijd: 650 s speeltijd in ±20 s, handig om zaden te vergelijken. `--headless` geeft een venster van 0 breed en dus SCRIPT ERRORs in hol.gd; gebruik Xvfb.
+
+## 16 nov 2026, Olaf (run 02:13 UTC)
+- Hoed eraf: streepjes stonden op het haar (run 43779885248), verplaatst naar links van de hoed; stofjes rond (cirkel werkte niet, kruis wel). Drie winkelopnames en drie toetsruns op de tak groen, bewijs in `producten/steam-hol/bewijs-hoed-eraf/`, ja of nee aan Daan. Blijft op de tak tot na de speeltestbuild.
+- Vertaaltabel geteld: ±390 teksten, ±1700 woorden; na de speeltestbuild. Woordtelling ook aan Fenna.
+
+## 16 nov 2026, 03:15 tot 04:05 UTC, Olaf
+- Dagmeting Rollwright: 41 downloads, 0 open issues (platformen/obsidian/status.md).
+- Windows-run op main (3b50758, run 43779647247) en exe-run (43779647337) groen: eerste hoed en sluiten zitten erin.
+- Daan gaf ja op `claude/steam-hol-hoed-eraf`; naar main na de speeltestbuild van vr 20 nov.
+- Speeltest: hint voor kleine weergave in LEES-MIJ-EERST.txt en vraag naar schermmaat en schaal in speeltest-21-nov.md.
+- Grote schermen gemeten met proef `breed=` op tak: 3840 0,88, 1920 0,90, 2560 0,70 CPU-s per 10 s; breedte maakt niet uit. IJkpunt 0,90 is hoog, volgende run herhalen op main.
+

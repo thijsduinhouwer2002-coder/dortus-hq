@@ -11,8 +11,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-octopus-hold.png",
@@ -24,8 +24,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-zeepaard-hold.png",
@@ -37,8 +37,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-schildpad-hold.png",
@@ -50,8 +50,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-otter-hold.png",
@@ -63,8 +63,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-kreeft-hold.png",
@@ -76,8 +76,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-komkommer-hold.png",
@@ -89,8 +89,8 @@
    ],
    "zoom": 0.03,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-new-friend.png",
@@ -102,8 +102,8 @@
    ],
    "zoom": 0.05,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-sealog-8.png",
@@ -115,8 +115,8 @@
    ],
    "zoom": 0.05,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-sealog-24.png",
@@ -128,8 +128,8 @@
    ],
    "zoom": 0.05,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   },
   {
    "bron": "bron/e6-menu.png",
@@ -141,8 +141,8 @@
    ],
    "zoom": 0.05,
    "h": 1080,
-   "y": 400,
-   "marge": 1.12
+   "y": 470,
+   "marge": 1.2
   }
  ],
  "teksten": [
@@ -153,7 +153,7 @@
     "My breathing app for Garmin",
     "has *24* sea animals"
    ],
-   "y": 110,
+   "y": 240,
    "grootte": 64
   },
   {
@@ -163,7 +163,7 @@
     "You earn them by *showing up*,",
     "never by holding longer"
    ],
-   "y": 110,
+   "y": 240,
    "grootte": 64
   },
   {
@@ -173,7 +173,7 @@
     "Your streak counts *weeks*,",
     "so rest days never break it"
    ],
-   "y": 110,
+   "y": 240,
    "grootte": 64
   },
   {
@@ -183,7 +183,7 @@
     "Pick the one that",
     "*swims with you*"
    ],
-   "y": 110,
+   "y": 240,
    "grootte": 64
   },
   {
@@ -194,7 +194,7 @@
     "link in bio"
    ],
    "grootte": 66,
-   "y": 120
+   "y": 240
   },
   {
    "van": 0,
@@ -203,7 +203,7 @@
     "Screens from the Garmin simulator"
    ],
    "grootte": 36,
-   "y": 322,
+   "y": 425,
    "licht": true
   }
  ]

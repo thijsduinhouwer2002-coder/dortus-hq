@@ -14,6 +14,7 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 14 nov 17:50 (Chris, run 38) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (zoeken op "ebb calm": alleen Ebb, plek 1) |
 | 14 nov 20:47 (Chris, run 39, tussencheck) | 1 | APPROVED | 0 | 0 | 0 | $4.99 | nee (makerlijst Dortus: 1 app) |
 | 15 nov 08:44 (Chris, run 40) | 2 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved"; makerlijst Dortus: 1 app) |
+| 16 nov 02:45 (Chris, run 49) | 3 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved") |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 

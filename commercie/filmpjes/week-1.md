@@ -1,4 +1,6 @@
-# Filmpjes week 1: Click Joints en Ebb (concept, wacht op Daan; filmpje 5 pas na Pro live; filmpje 6 erbij in run 48)
+# Filmpjes week 1: Click Joints en Ebb (Daans moet-punten verwerkt in run 49, wacht op zijn laatste blik; filmpje 5 pas na Pro live)
+
+**Stand 16 nov, run 49:** Daan keurde alle zes (`ontwerp/filmpjes/keuring-week-1.md`): 2 ja; 1, 3, 5 en 6 ja met één moet; 4 nee tot rond op donker. Zijn vijf json's (`ontwerp/filmpjes/voorstel-daan/`) staan nu ongewijzigd in `commercie/filmpjes/week-1/` en de workflow bouwde de release opnieuw. Daan kijkt de nieuwe release na; daarna mag hij op de lijst van Thijs. De tabellen hieronder volgen de nieuwe versie.
 
 Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichten/chris.md`). Onderzoek vooraf: `commercie/filmpjes/formats.md`.
 
@@ -17,37 +19,36 @@ Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichte
 
 ## De drie filmpjes
 
-### 1. `click-joints-1-bend-far-enough.mp4` (18,5 s), format 2: vraag boven, beeld in het midden
+### 1. `click-joints-1-bend-far-enough.mp4` (16,8 s; run 49 zonder de rode close-up van de hals, moet M1 van Daan), format 2: vraag boven, beeld in het midden
 | tijd | beeld | tekst in beeld |
 |---|---|---|
 | 0 tot 0,5 s | gloeiende ring, close-up | Will this joint bend far enough? |
 | 0,5 tot 4,5 s | tekenpop die schopt | (tot 2,2 s de vraag) I made a free Blender add-on that **checks** it |
-| 4,5 tot 7,5 s | arm buigt, ring op het gewricht | Place the joint. **Drag** the bend. |
-| 7,5 tot 9,2 s | exploded view | Exploded view: ball and socket apart |
-| 9,2 tot 15,5 s | arm buigt verder | Green ring = **good fit**, in mm |
-| 15,5 tot 18,5 s | pop vervaagt in de eindkaart uit film v2 | Free on Blender Extensions, link in bio |
+| 4,5 tot 8,4 s | arm buigt, ring op het gewricht, kogel en kom gaan in de arm uit elkaar (±8,9 tot 9,9 s) | Place the joint. **Drag** the bend. (tot 8,4 s), dan Exploded view: ball and socket apart (8,4 tot 10,8 s) |
+| 10,8 tot 13,8 s | arm buigt verder | Green ring = **good fit**, in mm |
+| 13,8 tot 16,8 s | pop vervaagt in de eindkaart uit film v2 | Free on Blender Extensions, link in bio |
 
 **Onderschrift:** `I made a free Blender add-on that shows how far a joint bends before you 3D print it. Place a joint, drag the bend, check the fit in mm, export STL or 3MF. Click Joints, free on Blender Extensions (link in bio). Built with help from AI. #blender #3dprinting #b3d #blenderaddon #articulated`
 
 ### 2. `click-joints-2-satisfying-bend.mp4` (10,2 s), format 1: één vaste regel, loopt rond
 Ring gloeit (0,5 s), arm buigt (3,9 s), arm buigt verder met de ring (5,8 s). Vaste tekst: "See how far a joint **bends**, before you print." en klein onderaan "Click Joints, a free Blender add-on". Dit is de winkelzin van de listing, dus overal hetzelfde.
 
-**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). Built with help from AI. #blender #3dprinting #printinplace #blenderaddon`
+**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). Built with help from AI. #blender #3dprinting #articulated #blenderaddon`
 
 ### 3. `click-joints-3-three-checks.mp4` (16,7 s), format 4: lijstje zonder gezicht
 | tijd | beeld | tekst in beeld |
 |---|---|---|
 | 0 tot 3 s | ring, tekenpop | 3 things my free Blender add-on **checks** before you print |
-| 3 tot 7 s | preview: buig 28°, rode wig | 1. How far it bends. **Red** means too far. |
+| 3 tot 7 s | preview: buig 28°, rode wig | 1. How far it bends. Red means too far. (*Red* in wit sinds run 49, moet M2) |
 | 7 tot 11 s | preview: paneel met Good fit, wand, speling | 2. The fit, measured in **mm**: wall and clearance |
-| 11 tot 13,7 s | exploded view, arm | 3. Exploded view, then one STL or 3MF per part |
+| 11 tot 13,7 s | ring, kogel en kom gaan in de arm uit elkaar en weer terug (bron 10,2 tot 12,9 s; de rode close-up is eruit, moet M2) | 3. Exploded view, then one STL or 3MF per part |
 | 13,7 tot 16,7 s | eindkaart | Free on Blender Extensions, link in bio |
 
 **Onderschrift:** `3 things my free Blender add-on checks before you 3D print a poseable figure: how far each joint bends, the fit in mm (wall and clearance), and clean parts as STL or 3MF. Click Joints, link in bio. Built with help from AI. #blender #3dprinting #b3d #blenderaddon #3dprint`
 
 Elke bewering komt uit de listing of de previews: "Drag the bend. Red means too far", "Good fit, measured in mm", "One STL or 3MF per part, in mm", "Exploded view" (winkeltekst en previews 0.1.0, GEZIEN).
 
-### 4. `ebb-4-sea-rises.mp4` (14,3 s), Ebb, format 2: tekst boven, horloge in het midden
+### 4. `ebb-4-sea-rises.mp4` (14,3 s; run 49 rond uitgesneden op donker, moet M4 van Daan), Ebb, format 2: tekst boven, horloge in het midden
 Extra gemaakt in run 46 (extra run van Thijs, 15 nov 23:00), zodat de dagelijkse reeks wisselend Click Joints en Ebb kan beginnen. Bron: `commercie/ebb/ebb-film.mp4`, schermen uit de simulatorrun 43327097299 van de ingediende app (fenix 8 47 mm), zie `commercie/ebb/lancering.md` punt 3. Opgeschaald van 600 naar 1080 pixels.
 | tijd | beeld | tekst in beeld |
 |---|---|---|
@@ -56,23 +57,23 @@ Extra gemaakt in run 46 (extra run van Thijs, 15 nov 23:00), zodat de dagelijkse
 | 7,2 tot 9,5 s | inhouden, onder water met de krab | Hold, and you go **under water** |
 | 9,5 tot 12 s | "new friend: Starfish", sea log "8 of 24" | New sea creatures join your **sea log** |
 | 12 tot 14,3 s | sea log | Ebb, on the Connect IQ Store, link in bio |
-Onderaan de hele tijd klein: "Screens from the Garmin simulator" (eerlijk: geen opname van een echt horloge, en het water is een overvloeier tussen twee schermen).
+Sinds run 49: horloge rond uitgesneden op de donkere achtergrond (zoals filmpje 6), horloge op y 490. De hele tijd klein, direct onder de tekst op y 425: "Screens from the Garmin simulator" (eerlijk: geen opname van een echt horloge, en het water is een overvloeier tussen twee schermen).
 
 **Onderschrift:** `I made a breathing app for Garmin watches: the sea rises and falls with your breath, and when you hold, you go under water. Sea creatures join your sea log as you keep coming back. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #breathwork #garminwatch`
 
 Bewust niet: geen gezondheidsclaim (geen "calmer", "better sleep", "lung capacity"), geen freediving, geen "every session a new animal" (dieren komen door sessies en weken op rij). Alle beweringen staan in de winkeltekst (stijgen en zakken, onder water bij inhouden, 24 dieren, $4,99 eenmalig zonder abonnement). Ebb Calm (gratis) noem ik niet: nog niet openbaar. Link in bio voor dit filmpje: de winkellink van Ebb uit `commercie/ebb/lancering.md`; één link in het profiel kan maar één product tonen, dus wissel hem mee of gebruik later één pagina op dortus.com met beide.
 Nagekeken door een controleur (run 46): filmpje en workflow ja; tekst eerst nee ("as you keep going" las alsof langer inhouden dieren oplevert, en de vaste zin over alleen op het droge ontbrak), beide verwerkt, plus de precieze AI-zin uit `lancering.md`.
-Voor Daan: de schermen hebben een witte achtergrond rond het horloge (zo uit de simulator); liever donker of bijgesneden tot het horloge?
+Voor Daan (vraag d): beantwoord in zijn keuring, ja rond op donker; verwerkt in run 49.
 
-### 5. `click-joints-5-pro-hinge-stops.mp4` (16,3 s), Click Joints Pro, format 2: tekst boven, beeld vult het scherm
+### 5. `click-joints-5-pro-hinge-stops.mp4` (14,7 s; run 49 lege buis korter, moet M3 van Daan), Click Joints Pro, format 2: tekst boven, beeld vult het scherm
 **Pas plaatsen als Click Joints Pro live is op Superhive** (keuring loopt sinds 15 nov 19:45). Tot die dag is het een concept voor de lanceerdag van Pro. Gemaakt in run 47 uit de vijf staande opnames die Bram op 15 nov 22:35 maakte in de echte Blender 5.3.0 met de betaalde zip 1.0.1 (`ontwerp/click-joints/pro/film/staand/`, LEESMIJ daar). Deze opnames zijn al 1080 x 1920, dus geen uitsnede uit een liggende film: het beeld vult het hele scherm en het gewricht is groter dan in 1 tot 3. Het grijze label "Bends 0° to 115°" bovenaan zit in Brams opname zelf.
 | tijd | beeld (opname van Bram) | tekst in beeld |
 |---|---|---|
 | 0 tot 2 s | deel 1: knie buigt van 0 naar 115° met de gradenboog | A printable **knee** that stops at 115° |
-| 2 tot 5,3 s | deel 2: been draait, Place hinge, twee delen met groen | I made a Blender add-on that places a click **hinge** |
-| 5,3 tot 9,8 s | deel 3: buigt van 0 naar 115° en blijft 1 s op de stop | It bends to 115° and **stops**, instead of flopping backwards |
-| 9,8 tot 13 s | deel 4: 9° voorbij de stop, rood en "+9° past limit" | Past the stop? It turns red. |
-| 13 tot 16,3 s | deel 5: kogel en kom uit elkaar (gratis versie) | Ball joints: **free**. Click hinges: **Pro**. Link in bio |
+| 2 tot 3,7 s | deel 2 vanaf 1,6 s: scharnier staat er meteen, twee delen met groen | I made a Blender add-on that places a click **hinge** |
+| 3,7 tot 8,2 s | deel 3: buigt van 0 naar 115° en blijft 1 s op de stop | It bends to 115° and **stops**, instead of flopping backwards |
+| 8,2 tot 11,4 s | deel 4: 9° voorbij de stop, rood en "+9° past limit" | Past the stop? It turns red. |
+| 11,4 tot 14,7 s | deel 5: kogel en kom uit elkaar (gratis versie) | Ball joints: **free**. Click hinges: **Pro**. Link in bio |
 Klein, de hele tijd: "Click Joints Pro, a Blender add-on" op y 1380 en "Link in bio" op y 1290, boven de strook van ±420 px onderaan waar de apps naam en onderschrift zetten (moet-punt controleur). Het woord red staat in wit: de groene nadruk zou hier verwarren.
 
 **Onderschrift:** `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Superhive (link in bio). Measured in Blender, not printed yet. AI agents write the code, I direct and test. #blender #3dprinting #b3d #blenderaddon #articulated`
@@ -82,7 +83,7 @@ Elke bewering komt uit de ingediende Superhive-tekst en BlenderNation C44 (`comm
 Let op: het bestand staat al in de openbare prerelease `filmpjes-week-1`, net als de rest een concept. Dat breekt geen regel; plaatsen op TikTok, Shorts en Reels pas na Pro live.
 Nagekeken door een controleur (run 47): techniek, beweringen, echte beelden en workflow ja; moet-punt (onderste regels in de strook van de apps) verwerkt; kan-punten verwerkt: red niet groen, "overshoot shows in red" in plaats van "parts turn red" (in beeld zie je alleen de boog rood), de precieze AI-zin zoals bij filmpje 4.
 
-### 6. `ebb-6-sea-animals.mp4` (14,4 s), Ebb, format 1 en 4: dieren in snel ritme, korte regels boven
+### 6. `ebb-6-sea-animals.mp4` (14,4 s; run 49 tekst omlaag naar y 240, moet M5 van Daan), Ebb, format 1 en 4: dieren in snel ritme, korte regels boven
 Gemaakt in run 48 (15 nov ±23:50 tot 16 nov ±00:30 UTC), het tweede Ebb-filmpje volgens punt 4 van de opdracht (na filmpje 5 voor Click Joints). Ander verhaal dan filmpje 4: niet het ademen, maar de verzameling van 24 zeedieren. Bron: 11 losse schermen uit dezelfde simulatorrun 43327097299 op commit e40269e1 (de ingediende app, fenix 8 47 mm), map `garmin-adem/plaatjes/namen/` op tak `schermen`; de workflow haalt ze op en toetst de sha256. **Rond uitgesneden tot het horloge op de donkere achtergrond**, zonder de witte rand en menubalk van de simulator (een mogelijk antwoord op de vraag over filmpje 4 hieronder). Harde knippen met een kleine zoom, geen overvloeiers, dus geen beweging die de app niet heeft.
 | tijd | beeld (scherm uit de simulator) | tekst in beeld |
 |---|---|---|
@@ -92,7 +93,7 @@ Gemaakt in run 48 (15 nov ±23:50 tot 16 nov ±00:30 UTC), het tweede Ebb-filmpj
 | 6,3 tot 8,7 s | eindscherm "new friend: Sea cucumber" | Your streak counts **weeks**, so rest days never break it |
 | 8,7 tot 12 s | sea log "8 of 24", dan "24 of 24 + bonus" | Pick the one that **swims with you** |
 | 12 tot 14,4 s | menu met de krab | Ebb, on the Connect IQ Store, link in bio |
-Klein, de hele tijd, direct onder de tekst (y 322, ver boven de strook van de apps): "Screens from the Garmin simulator".
+Sinds run 49 staat de tekst op y 240 (zoals 1 tot 4), want op y 110 viel de eerste regel onder de bovenbalk van TikTok en Shorts. Klein, de hele tijd, op y 425: "Screens from the Garmin simulator". Horloge op y 470, marge 1,2, onderkant ±1470.
 
 **Onderschrift:** `I made a breathing app for Garmin watches with 24 sea animals to collect. You earn them with sessions and weeks in a row, never by holding your breath longer, and your streak counts the weeks you hit your goal, so rest days never break it. Ebb, $4.99 one time, no subscription (link in bio). For practice on land only: sit or lie down. Screens from the Garmin simulator. AI agents write the code, I direct and test. #garmin #connectiq #garminwatch #breathwork`
 
@@ -109,8 +110,10 @@ Nagekeken door een controleur (run 48): beweringen, bronnen (sha256 zelf nagerek
 ## Uitnodiging aan makers (tip van Joris, 16 nov 00:15, verwerkt in run 48)
 Uit het verhaal van McGybeer (`platformen/succes/verhalen-groei.md`): de beweegbare draak groeide door filmpjes van anderen met de print in hun hand. Daarom komt aan het eind van elk onderschrift voor Click Joints (1, 2, 3 en 5) deze zin, vóór de hashtags: `Made something with Click Joints? Tag me, I'd love to see it.` Bij het plakken dus: onderschrift zoals hierboven, met deze zin vlak voor de eerste #. Niet bij Ebb (daar is niets om te laten zien). Zijn eerste tip (een filmpje van 8 tot 12 s met de figuur die buigt in een hand) kan pas met een echte print; een render "in een hand" maken we niet, want we hebben geen echte hand in beeld en het zou op een print lijken (`formats.md` format 3). Open: Joris vraagt dezelfde uitnodiging ook op de Pro-pagina; die zet ik op tak `claude/chris-click-joints-pro` (repo dortus) in een volgende run, samen met de link naar het account zodra Thijs dat heeft.
 
-## Vraag aan Daan (ontwerper)
+## Vraag aan Daan (ontwerper), beantwoord 16 nov ±02:30 UTC in `ontwerp/filmpjes/keuring-week-1.md`
 Kijk de drie filmpjes in de release na: ja of nee met moet-punten. Waar ik zelf twijfel: (a) het beeld staat in een vlak van 1080 x 1013 met donkere ruimte eronder, zodat de knoppen van de apps niets bedekken; wil je het beeld groter? (b) in filmpje 3 staan de previews stil (met een langzame zoom); (c) de rode band in de exploded view (filmpje 1 op 7,5 s, filmpje 3 op 11 s) leg ik niet uit, want ik wil er niets over beweren wat niet klopt; in filmpje 3 komt hij vlak na "Red means too far" en kan dat verwarren. Liever een ander stuk? Dan pas ik het json-bestand aan. (d) run 48: filmpje 6 (Ebb) staat rond uitgesneden op donker, zonder de witte simulatorrand; zo ja, dan maak ik filmpje 4 ook zo.
+
+**Antwoorden van Daan (16 nov):** (a) nee, de donkere ruimte is precies waar naam en onderschrift van de app komen; (b) goed genoeg, 4 s laten staan; (c) rode close-up eruit in 1 en 3 (M1, M2); (d) ja, filmpje 4 ook rond op donker (M4). Kan-punten voor week 2: elk Click Joints-filmpje anders laten beginnen (1, 2 en 3 beginnen nu alle drie met de ring en de pop), eventueel een eindkaart van 1,5 s in 2, later een filmpje met de sea log groot in beeld. Die neem ik mee bij de volgende filmpjes.
 
 Nagekeken door een controleur (run 45): techniek, beweringen, onderzoek en workflow ja; zijn moet-punt (twee teksten één beeld lang door elkaar bij elke wissel) is opgelost, en zijn kan-punten ("Place the joint" in plaats van "Click where the joint goes", eindkaart eerder) zijn verwerkt.
 

@@ -17,20 +17,20 @@ Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer
 Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
 - 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
 - 16 s: hij valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
-- ±45 s: tweede held, die ontsnapt mank. ±100 s: Gloop eet de derde held en zijn hoed gaat op de toren.
-- Na 150 s 41 goud, nog geen eerste koop; eerder op Windows gemeten: eerste koop na 211 s (demolijst 3).
-Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt pas na ±100 s; als Thijs zegt dat de eerste minuut saai is, is dat het eerste dat we naar voren halen.
+- ±25 s: tweede held, die ontsnapt mank. **±60 s: Gloop eet de derde held en zijn hoed gaat op de toren** (was ±100 s; sinds 16 nov 00:35 UTC op main, tak `claude/steam-hol-eerste-hoed` van Bram: in 5 zaden hap op 59 tot 62 s, daarvoor 96 tot 102 s).
+- Eerste koop mogelijk na 172 tot 320 s, gemiddeld 245 s in 5 zaden (4242, 777, 1, 2026, 99; op main met dezelfde zaden 217 tot 373 s, gemiddeld 291 s); eerder op Windows gemeten op main: 211 s. Ruim onder de grens van 600 s (demolijst 3).
+Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt nu rond 60 s, binnen de eerste minuut.
 
 ## Wat je doet (15 tot 30 min)
 - Start het spel en **werk gewoon door** op je pc (mail, browser). Het hol ligt onderaan, boven de taakbalk.
 - Klik als je zin hebt: graven, een put zetten, op Gloop klikken om iets te kopen. Lees geen uitleg verder dan het briefje; wat je niet snapt, is precies wat we willen weten.
-- Na een kwartier mag je stoppen (Alt+F4 op Gloop in de taakbalk). Wil je het later nog eens aanzetten: het spel gaat verder waar het was.
+- Na een kwartier mag je stoppen (rechtsklik op Gloop in de taakbalk, "Venster sluiten"; liever geen Alt+F4, want het hol pakt nooit de focus en dan sluit Alt+F4 misschien je browser). Wil je het later nog eens aanzetten: het spel gaat verder waar het was.
 
 ## Waar je op let
 1. **De eerste 30 seconden:** gebeurt er iets leuks, of zit je naar een leeg hol te kijken?
 2. **De eerste 10 minuten:** kon je iets kopen, en wilde je dat ook?
 3. **Stoort het?** Zit het hol in de weg bij je werk, klikt er iets mis, wordt je pc traag of lawaaiig?
-4. **Kun je het lezen** op je eigen scherm: zie je Gloop, de helden en de hoeden, of zijn het een paar pixels?
+4. **Kun je het lezen** op je eigen scherm: zie je Gloop, de helden en de hoeden, of zijn het een paar pixels? Te klein: rechtsklik in het hol tot de hoogste stand (160). Zet in je antwoord ook je schermmaat en schaal (Instellingen, Systeem, Beeldscherm, bijvoorbeeld "1920 x 1080, 125%"): het spel rekent in echte schermpixels, dus op een laptop of 4K-scherm met hoge schaal is alles kleiner dan bij ons.
 
 ## Drie vragen na afloop (zeg ze in de projectchat, een zin per vraag is genoeg)
 1. Wanneer moest je voor het eerst glimlachen, en wanneer verveelde je je (ongeveer welke minuut)?

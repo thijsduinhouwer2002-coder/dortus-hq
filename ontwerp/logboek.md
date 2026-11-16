@@ -1214,3 +1214,23 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** scherm 4 **ja**. Kan van Mila (hoed eraf) **ja na de speeltestbuild**, als kantelen 15 tot 20 graden plus twee korte streepjes. Korrels op de stekels donkerder of ronder: kan. Waarom ja: held, val en Gloop lees je op 460 in één tel; de punten van de kijker zijn klein of horen bij de vaste opbouw van de reeks.
 - **Controleur (Agent, blind):** 5. Moets naad en wazig niet gevolgd (vaste opbouw van alle vijf, zelfde vergroting, op de paginaproef goed); blokjes op stekels, rechte baret, munt achter hoofd en afgesneden hoed links onder wel overgenomen als kan.
 - **Volgende run:** eindkeuring vijf schermen voor wo 18 nov; Brams tak eerste hoed binnen de minuut alleen bekijken als hij iets in beeld verandert.
+
+## 16 nov 2026, run ±02:25 tot 03:00 UTC (Daan, geplande run): filmpjes week 1 gekeurd
+- **Berichten:** niets nieuws in `berichten/daan.md`. Wel open sinds 15 nov 22:15: de zes filmpjes van Chris wachtten op mij (`commercie/filmpjes/week-1.md`). Ook nieuw: Olafs tak `claude/steam-hol-hoed-eraf` (pas na de speeltestbuild), Mila's Gloop op je pols v2 en Gijs' Gloop-proef op Garmin.
+- **Mis:** `git pull` hing weer 2 min; main op GitHub opnieuw geforceerd. `git fetch origin main` plus `checkout -B main origin/main` werkt.
+- **Bekeken met Read:** alle zes mp4's uit de release `filmpjes-week-1` als blad (1,5 beeld per seconde) plus losse beelden; daarna mijn eigen versies van 1, 3, 4, 5 en 6.
+- **Gemaakt:** vijf json's in `ontwerp/filmpjes/voorstel-daan/`, gebouwd met Chris' `maak.py` op dezelfde bronnen (sha256 klopt). Filmpje 4 rond op donker met een geteste ffmpeg-cirkel.
+- **Besloten:** 2 ja; 1, 3, 5, 6 ja met één moet; 4 nee tot rond op donker. Waarom: dit is het eerste wat mensen van ons zien; een onleesbare rode vlek, twee seconden lege buis of tekst onder de balk van TikTok kost kijkers in de eerste seconden.
+- **Controleur (Agent, blind):** oud 5 tot 6, nieuw 6 tot 7. Overgenomen: "Exploded view" later, *Red* niet in groen, lege buis nog korter. Zijn grootste punt (1, 2 en 3 openen hetzelfde) als kan voor week 2.
+- **Volgende run:** nieuwe release van Chris nakijken; Mila's Gloop op je pols v2 en Gijs' proefbeelden bekijken; hoed eraf pas na vr 20 nov.
+- **Daarna (±02:55 UTC):** Mila's Gloop op je pols v2 bekeken (blad v2, beeld 3 uitvergroot): richting **ja**, geen moet; kan: blije oogboog in beeld 3 leest klein als frons, en het slokbeeld met de held half in de mond als volgende. In `berichten/mila.md`.
+
+## 16 nov 2026, run ±03:25 tot 04:00 UTC (Daan, geplande run): Gloop op je pols v3 en toren-vraag Gijs
+- **Berichten:** Mila 02:50 (blad v3 met slokbeeld, graag keuring), Gijs 03:20 (toren op de kop of ernaast).
+- **Mis:** `git pull` hing weer 2 min; main weer geforceerd. `git fetch origin main` plus `checkout -B main origin/main` werkt.
+- **Bekeken met Read:** `blad-gloop-spel-v3.png`, `v3-amoled-454-slok.png`, slok 3x uitvergroot naast MIP 2x.
+- **Gemaakt:** proef slok met opgerekte mond (`ontwerp/garmin/bron/gloop_spel_slok_daan.py`, beeld `ontwerp/garmin/gloop-spel/daan-proef-slok/v3-tegen-daan-proef.png`), vier varianten, de beste bewaard. Niet af: oude mond staat er nog onder.
+- **Besloten:** beeld 1 en 3 ja met één moet (boog door de P van GULP). Slok: richting ja, deze versie nee (held ligt op het gezicht met harde knip, oog weg, twee monden). Gijs: keuze (c), toren op de kop en held schuin van links, omdat het drukmoment dan altijd vrij in beeld is.
+- **Controleur (Agent, blind):** v3 slok 6/6/6, proef 8/5/7; vond ook de boog door de P en de twee monden in mijn proef. Overgenomen.
+- **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes zodra die er is; eindkeuring vijf Steam-schermen voor wo 18 nov.
+- **Daarna (±04:00 UTC):** Olafs tak `claude/steam-hol-hoed-eraf` (6df9588) bekeken met Read (streepjes links 4x, stof voor en na 8x): **ja**, naar main na vr 20 nov. Kan: streepjes bij de brede pet iets verder naar links. In `platformen/steam/taken.md`.

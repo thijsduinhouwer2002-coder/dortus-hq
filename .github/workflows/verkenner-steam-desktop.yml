@@ -1,0 +1,63 @@
+name: Verkenner Steam desktop-kaart
+
+# Vera, 16 nov 2026. Opdracht hoofdchat 16 nov 04:00: kaart van de Steam-markt voor Hats of the Fallen.
+# Per app appdetails, winkelpagina (labels) en reviewtelling, in 6 delen naast elkaar, elk rustig
+# (ongeveer 1 verzoek per seconde, alleen openbare pagina's). Uitkomst op de tak `verkenner-data`,
+# map steam-desktop/, elke 10 minuten tussentijds en aan het eind.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/verkenner-steam-desktop.yml", "platformen/verkenner/data/steam-desktop-haal-script.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verkenner-steam-desktop
+  cancel-in-progress: true
+
+jobs:
+  haal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        deel: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ophalen en tussentijds opslaan
+        env:
+          TOKEN: ${{ github.token }}
+          DEEL: ${{ matrix.deel }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          bewaar() {
+            for poging in 1 2 3 4 5 6 7 8; do
+              rm -rf /tmp/s
+              if git clone -q --depth 1 --branch verkenner-data "$URL" /tmp/s 2>/dev/null; then :; else
+                mkdir /tmp/s && (cd /tmp/s && git init -q -b verkenner-data && git remote add origin "$URL")
+              fi
+              mkdir -p /tmp/s/steam-desktop
+              cp uit/details-${DEEL}.jsonl /tmp/s/steam-desktop/ 2>/dev/null || return 0
+              cp log.txt /tmp/s/steam-desktop/log-${DEEL}.txt
+              (cd /tmp/s && git add -A && git commit -q -m "Steam desktop deel ${DEEL} ($1) run ${GITHUB_RUN_ID}") || return 0
+              (cd /tmp/s && git push -q origin verkenner-data) && return 0
+              sleep $((poging * 5 + DEEL))
+            done
+          }
+          mkdir -p uit
+          python3 -I platformen/verkenner/data/steam-desktop-haal-script.py uit platformen/verkenner/data/steam-desktop-kandidaten-2026-11-16.json ${DEEL} 6 > log.txt 2>&1 &
+          PID=$!
+          while kill -0 $PID 2>/dev/null; do
+            sleep 600
+            tail -2 log.txt
+            bewaar tussentijds
+          done
+          wait $PID || true
+          tail -5 log.txt
+          wc -l uit/details-${DEEL}.jsonl
+          bewaar klaar

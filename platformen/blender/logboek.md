@@ -572,3 +572,24 @@ Alleen aanvullen, nooit iets weghalen.
 - Proef AI-figuren (voorstel Lars): vier Meshy-figuren (Hugging Face, MIT) door Pro 1.0.1 in de echte Blender 5.3.0, script `e2e/proef_ai_model.py`, uitslag en besluit in `ai-modellen-proef.md`. Make watertight werkt op alle vier; een gewricht in één knie snijdt beide benen door. Dat los ik op (taak bovenaan `taken.md`).
 - Les: Meshy-figuren kijken na het inladen naar +x, niet naar -y; eerst een render maken voor je op x en y gaat rekenen.
 - Les: in een opgeslagen .blend renderen ook verborgen objecten mee (`hide_set` is alleen de viewport); zet `hide_render` voor een keurbeeld.
+
+## 16 nov 2026, 00:10 tot ±00:55 UTC, Bram
+- Click Joints: 142 downloads (00:23, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive in de berichten.
+- Opdracht hoofdchat 01:15 (kniefout gaat voor): oplossing gebouwd op tak `claude/blender-een-lid` (94ffe3f), nieuw `click_joints/een_lid.py` met haken in `gewricht.bak` en `gewricht.boolean`, ook aangeroepen in `betaald/scharnier.py`. Toets `e2e/toetsen_een_lid.py` (figuur met twee benen uit één stuk): Pro-scharnier in één knie snijdt nu alleen dat been, rechterbeen heel in B, voetstuk geweigerd met melding. Gratis kogel nog niet getoetst (proeffiguur geeft "sticks out of the mesh", ook ver uit elkaar). Gewone toetsen van de gratis en de betaalde versie liepen lokaal in 5.3.0 aan het eind van de run; uitslag volgende run in de taak.
+- Les: groei een gebied langs het oppervlak (Dijkstra over vlakken), niet op hoogte alleen; op hoogte liep het via het kruis naar het andere been en pakte het omhulsel beide benen.
+- Les: Blender 5.3.0 lokaal downloaden van download.blender.org werkt hier in seconden (in GitHub Actions gaf het een 403).
+
+## 16 nov 2026, 02:08 tot ±02:45 UTC, Bram
+- Click Joints: 147 downloads (02:30, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen open bericht in `berichten/bram.md`.
+- Vorige run zette 71ff74c nog op de tak (gratis kogel, workflowtoets, 0.1.1 en 1.0.2; run 43780533007 groen in drie versies) maar niet in taken of logboek; nu bijgewerkt.
+- Meshy-figuren opnieuw (dataset met remotezip in seconden, alleen de vier bestanden): `man_backpack` weigerde nu ("too close"). Oorzaak: omhulsel van het hele lid plus het kruis. Ronde 2: H = omhulsel rond het vlak (bol `diepte`, alleen aan de eigen kant van de andere lussen) UNION het lid zelf. Daarna knie gelukt met Pro en gratis, alleen dat been. Lokaal alle toetsen 0 FOUT; tak 4b07d0f, vraag aan Daan.
+- Les: een convex omhulsel om een heel lid is te grof zodra benen schuin staan; snijd alleen dicht bij het gewricht convex en neem verder het lid zelf.
+- Les: `remotezip` (pip) haalt losse bestanden uit een grote zip op Hugging Face met range-verzoeken, zonder 1,2 GB te downloaden.
+- Workflowrun 43792521740 op 4b07d0f groen in 4.2.23, 5.2.3 en 5.3.0 (5.3.0 na herstart; eerste keer 403 van download.blender.org). Daarom op de tak 1d0c54c: downloaden valt terug op spiegels ftp.nluug.nl en mirrors.ocf.berkeley.edu (beide GEZIEN 200). Steam: Bram staat uit volgens `platformen/steam/taken.md`, dus deze run geen Steam-werk.
+
+## 16 nov 2026, 03:10 tot ±03:50 UTC, Bram
+- Click Joints: 150 downloads (03:13, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen open bericht in `berichten/bram.md`, nog geen antwoord van Daan op de kniefout-vraag. Steam: Bram staat uit, geen Steam-werk.
+- Run 43793388355 op 1d0c54c (Blender ophalen met spiegels) groen in 4.2.23, 5.2.3 en 5.3.0.
+- Proef ronde 3 (tak 49f0aa4): `army_man`, `businessman`, `boy_mullet`, `girl_cyber` erbij, echte Blender 5.3.0 lokaal. Geen nieuwe fout; `boy_mullet` weigert de knie met de melding "joined ... on both sides" omdat de schoenen elkaar raken (render GEZIEN), nekkogel 4 van 4. Uitkomst in `ai-modellen-proef.md`, aanvulling voor Daan onderaan `ontwerp.md`.
+- Les: niet elk Meshy-figuur kijkt na het inladen dezelfde kant op (`army_man` stond op zijn kant); eerst een render, dan pas uitslagen tellen.
+- Les: automatisch een elleboog vinden in een ruwe AI-mesh werkt niet met doorsneden (kledingschillen, armen tegen het lijf); dat doe je met de hand per figuur.
