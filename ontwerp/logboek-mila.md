@@ -702,3 +702,9 @@
 - ±12:10 UTC: bibliotheek staand eerste proef (`proef-bibliotheek-toren-mila-300x450-2x.png`): werkt, maar harde donkere band boven en puntmuts tegen de titel.
 - Volgende run: (1) antwoord Daan op ronde 6/6b en hoofdbeeld; (2) bibliotheek afmaken (band boven weg), en staand in de toren-richting met dezelfde instellingen; (3) winkelopname van main (hol vol staat erop, Olaf 11:50) keuren; (4) wijzerplaat: beelden van Gijs met de kit keuren.
 - ±12:10 UTC: wijzerplaat Gloop: eigen fout gevonden en hersteld (oogzoeker telde de glans mee, witte ring over het gezicht in `gloop-kijk.png` en scheve AOD-oogring), knipperframe `gloop-dicht.png` erbij voor alle maten. GEZIEN op 2x. Aan Gijs. Les: op 1x zag ik de ring niet; bij elk afgeleid plaatje ook 3x kijken.
+
+## 16 nov ±12:40 tot 13:10 UTC
+- Hoofdbeeld toren ronde 7: Daans twee kan-punten (hoge hoed 4 graden, rand leest als rand; voetrotsen los met `TOREN_VOETROTS=los`). GEZIEN op 1232, 616 en 308, kleur en grijs. Daan zei al ja op het hoofdbeeld; dit zijn alleen zijn kan-punten.
+- Wijzerplaat Gloop run 43866628610 (80b6e34) gekeurd: ja. Grijze slaapcijfers goed. Moet: Gijs gebruikt nog de oude AOD-Gloop (oogring over de rand, leest als bom). **Besluit:** AOD-Gloop krijgt een roze lach. Waarom: zonder mond las hij in de simulator als bom met hoedje; met lach is het meteen Gloop. Antwoord op Gijs' drie vragen in `berichten/gijs.md` (stappen blijven groter dan de regel, regel 4 px lager en rechts uitgelijnd; hartje naar 0,36; enkel uurcijfer rechts uitgelijnd ja).
+- Bibliotheek 600x900 ronde 7: zwarte band weg (muur hoger), titel fel (titellamp schuift mee). Nog niet beter dan het oude beeld: lege vloer onderin, ridder klein. Niet op de winkelpagina.
+- Volgende run: (1) bibliotheek: goudhoop vooraan, ridder groter; (2) staand 748x896 in dezelfde richting; (3) Gijs' nieuwe run met de lach-Gloop keuren; (4) winkelopname van main keuren.

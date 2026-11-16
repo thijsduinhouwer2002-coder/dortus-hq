@@ -99,8 +99,9 @@ RY = float(os.environ.get("HEADER_RY", "-1.95")) if not KLEIN else -1.35   # ron
 RS = (E("TOREN_RS", "0.85") if not HOOFD else E("HF_RS", "1.3")) if not KLEIN else E("TOREN_KRS", "1.0")
 
 # ---------- achterwand met boog (de schatkamer) en vloer ----------
-bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, 3)); o = bpy.context.object
-o.scale = (30, 14, 1); o.rotation_euler = (math.radians(90), 0, 0); kies(o, WAND)
+WANDH = float(os.environ.get("TOREN_WANDH", "14"))   # Mila 16 nov: staand (bibliotheek) keek boven de muur uit, harde zwarte band
+bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 3.2, WANDH / 2 - 4)); o = bpy.context.object
+o.scale = (30, WANDH, 1); o.rotation_euler = (math.radians(90), 0, 0); kies(o, WAND)
 bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0, 0)); o = bpy.context.object
 o.scale = (30, 14, 1); kies(o, VLOER)
 # ronde 4: stenen boog weg (las als los roze confetti, geen boog)
@@ -388,7 +389,8 @@ if E("TOREN_HOEDLICHT", "0") > 0:
     _hl.light_linking.receiver_collection = _hc
     for _co in _hc.collection_objects: _co.light_linking.link_state = "INCLUDE"
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
-lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
+_tlx, _tlz = E("TOREN_TLX", "0"), E("TOREN_TLZ", "0")   # Mila 16 nov: titellamp mee met de titel (bibliotheek staat hij elders)
+lamp("titellamp", "AREA", (-3.0 + _tlx, -4.0, 4.5 + _tlz), (1.0, 0.95, 0.85), E("TOREN_TLAMP", "500"), 3.0, (-3.0 + _tlx, -0.6, 2.4 + _tlz))
 lamp("schatgloed", "POINT", (GX, -1.8, 0.9), (1.0, 0.75, 0.35), 160)
 lamp("wandgloed", "POINT", (GX, 2.2, 1.2), (1.0, 0.62, 0.3), E("TOREN_WANDGLOED", "380"))
 lamp("torenrand", "AREA", (GX - 2.5, 1.6, 7.5), (1.0, 0.9, 0.75), E("TOREN_RAND", "300"), 2.5, (GX, 0.0, 4.5))   # warme gloed op de muur achter Gloop

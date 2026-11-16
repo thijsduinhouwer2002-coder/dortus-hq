@@ -73,3 +73,12 @@ GEZIEN met Read: `voor-na-ronde3-4-4b-mila-met-120.png`, `toren-klein-ronde4b-mi
 - **Kan 2, worst aan de voet van de muur:** nieuwe schakelaar `TOREN_VOETROTS=los` (standaard `rij` = oud beeld). Ruim de helft van de 40 rotsen valt weg, de rest wordt kleiner en wisselender. De gewone random-reeks loopt gelijk door, dus kiezels, munten en alles daarna blijven op hun plek. Leest nu als losse stenen langs de wand.
 - Instellingen: precies als het hoofdbeeld 6b plus `TOREN_KANTEL=6,4,24 TOREN_VOETROTS=los`, 1232x706 met 16 samples.
 - Niet in klein en header doorgevoerd: daar staat de hoge hoed kleiner en leest de rand al goed, en de voetrotsen vallen buiten beeld of achter de titel.
+
+## Bibliotheek 600x900 ronde 7 (Mila, 16 nov ±13:10 UTC, nog niet af)
+`toren-bibliotheek-ronde7-mila-600x900.png`, naast het huidige `capsule-3d/bibliotheek-600x900.png`, Rusty's en Bongo Cat (vers van de Steam-CDN) op 300 en 100 px, kleur en grijs: `vergelijk-bibliotheek-toren-ronde7-toppers.png`. GEZIEN met Read.
+- **Twee nieuwe schakelaars, standaard uit:** `TOREN_WANDH` (hoogte van de muur, standaard 14; de staande camera keek erboven uit, dat was de harde zwarte band) en `TOREN_TLX`/`TOREN_TLZ`/`TOREN_TLAMP` (de titellamp schuift mee met de titel; in de staande variant stond de titel buiten zijn licht en was hij dof).
+- Instellingen: hoofdbeeld 7 (hoeden, kleuren, licht, `TOREN_KANTEL=6,4,24 TOREN_VOETROTS=los`) plus `TOREN_WANDH=24 TOREN_GROOT=1.65 TOREN_CX=2.25 TOREN_CZ=3.75 TOREN_LENS=58 TOREN_TX=4.3 TOREN_TZ=4.85 TOREN_TM=1.2 TOREN_S=0.7 TOREN_TLX=3.0 TOREN_TLZ=5.0 HEADER_RX=1.0 HEADER_RY=-1.3`, `python capsule_toren.py uit.png 600 900 16`.
+- **Wat beter is:** geen zwarte band, titel groot en fel bovenaan, de puntmuts raakt OF THE FALLEN niet meer (hoeden 0,7), op 100 px lees je titel en slijm met hoedentoren.
+- **Wat nog niet goed is (eerlijk naast het oude en de toppers):** het onderste vijfde is lege vloer, de ridder is een stipje en het geheel is donkerder dan het oude beeld met de goudhoop. Rusty's en Bongo Cat vullen tot onderin. Nog niet op de winkelpagina zetten.
+- Geprobeerd: lens 46 (alles klein, veel vloer), lens 64 (HATS tegen de bovenrand), hoeden 0,78 (puntmuts in de titel).
+- **Volgende stap:** goudhoop vooraan onderin (zoals in het oude beeld, en eerlijk: de goudberg zit in het spel), ridder groter en dichter bij de kijker, dan opnieuw naast de toppers.
