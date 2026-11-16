@@ -464,26 +464,39 @@ static func wand_plekken(h, schat_3d: bool) -> Array:
 	return uit
 
 # Welke hoed op welke plek (Daan 16 nov 11:15, kan: "drie kronen op een rij van vijf plekken; zet dezelfde hoed niet in
-# naburige plekken"). Oudste hoed eerst, elk op de eerste vrije plek (in de volgorde van wand_plekken) waar binnen
-# WAND_BUUR geen zelfde hoed hangt; lukt dat nergens, dan de eerste vrije plek. Een nieuwe hoed verschuift niets dat al hangt.
-const WAND_BUUR := 2.5 * KOL
+# naburige plekken"). Naburig = hooguit WAND_BUUR plekken links of rechts op de wand (van links naar rechts geteld), dus
+# in elke vijf plekken op een rij geen hoed twee keer als het kan. Oudste hoed eerst, elk op de eerste vrije plek (in de
+# volgorde van wand_plekken) zonder zelfde buur; lukt dat nergens, dan de plek met de minste en verste zelfde buren. Een nieuwe hoed verschuift
+# niets dat al hangt.
+const WAND_BUUR := 2
 static func wand_verdeling(wh: Array, wp: Array) -> Array:
+	var xs: Array = []
+	for p in wp:
+		xs.append((p as Vector2).x)
+	xs.sort()
+	var rang := {}
+	for n in xs.size():
+		rang[xs[n]] = n
 	var uit := []
+	var bezet := {}   # rang -> hoed
 	var vrij: Array = wp.duplicate()
 	for hoed in wh:
 		if vrij.is_empty():
 			break
 		var keus: int = 0
+		var minst: int = 99
 		for j in vrij.size():
-			var p: Vector2 = vrij[j]
-			var botst := false
-			for hp in uit:
-				if int(hp[0]) == int(hoed) and absf((hp[1] as Vector2).x - p.x) <= WAND_BUUR:
-					botst = true
-					break
-			if not botst:
+			var r: int = rang[(vrij[j] as Vector2).x]
+			var botst: int = 0   # zelfde hoeden binnen WAND_BUUR, de dichtste telt zwaarder
+			for dr in range(-WAND_BUUR, WAND_BUUR + 1):
+				if dr != 0 and bezet.get(r + dr, -1) == int(hoed):
+					botst += WAND_BUUR + 1 - absi(dr)
+			if botst < minst:
+				minst = botst
 				keus = j
-				break
+				if botst == 0:
+					break
+		bezet[rang[(vrij[keus] as Vector2).x]] = int(hoed)
 		uit.append([hoed, vrij[keus]])
 		vrij.remove_at(keus)
 	return uit
