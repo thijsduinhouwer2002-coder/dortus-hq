@@ -1,0 +1,30 @@
+# Gloop-spel voor Garmin: ontwerp van de speelbare proef
+
+Akkoord: nog niet gevraagd (dit is de proef met eenvoudige vormen; Daan en Mila kijken mee zodra de eerste simulatorbeelden er zijn)
+
+**Waarom wij (één zin, voorlopig):** het enige horlogespel waarin je toren van hoeden letterlijk hoger wordt dan je horloge, met een eigen figuur met karakter in plaats van blokjes of een kloon.
+
+## Wat het doet
+Een held valt door de schacht. Druk op START (of tik) als hij bij de bek van Gloop is: GULP, de hoed van de held vliegt op de toren rechts. Een ronde duurt 30 seconden; de rand van het scherm loopt leeg als klok. Aan het eind: het aantal hoeden en "NEW BEST!" of je beste score. Eén knop, verder niets. Dit volgt het voorstel "Hat Tower" van Mila (`ontwerp/garmin/gloop-spel/LEESMIJ.md`) en de eisen van Vera (eigen spel, alles met knoppen, licht voor oude horloges).
+
+Wat het spel spannend moet maken: precies in het midden van de bek drukken geeft "GULP!" en een reeks ("GULP! x3"); elke vangst laat de volgende held 6 procent sneller vallen; de helden komen met een onregelmatige pauze, zodat je moet kijken en niet op ritme kunt drukken.
+
+## Wat het bewust niet doet
+- **Nooit straffen.** Missen kost geen hoed en geen leven: de held loopt weg ("bye!") en de volgende valt 15 procent langzamer. Te vroeg drukken: Gloop hapt in de lucht en heeft een kwart seconde zijn bek dicht. Er is geen game over, alleen de klok.
+- Geen plaatjes in de proef: alles is getekend met rechthoeken en cirkels. Eerst leuk, dan mooi (`organisatie/onderzoek-youtube-werkwijze.md`). De echte Gloop, held en hoeden komen pas als de regel leuk blijkt.
+- Geen stappen, geen account, geen internet, geen rechten.
+- Nog geen prijs en geen winkeltekst (opdracht hoofdchat 15 nov 23:20).
+
+## Hoe het aansluit
+`producten/garmin-gloop/`, Monkey C, zelfde bouwstraat als de eerste Garmin-proef (`.github/workflows/garmin-gloop.yml`, kopie van `garmin-proef.yml`): toetsen in de simulator en schermafbeeldingen op tak `schermen`, map `garmin-gloop/<tak>/`. Voor de beelden speelt het spel zichzelf (`Bouw.AUTO`), omdat de simulator in de bouwstraat geen knoppen kan indrukken.
+
+## Wanneer de proef af is (toetsbaar)
+1. De toetsen zijn groen in de simulator: start, vangen, te vroeg, missen straft niet, einde na 30 seconden, beste score.
+2. Eerste hoed binnen 2,5 seconde na de start (toets), en een speler die alles raakt haalt 15 of meer hoeden, dus de toren gaat over de bovenrand (13 passen op het scherm).
+3. Beelden uit de simulator op FR255 (MIP 260), fenix 7 (MIP 260) en Venu 3S (AMOLED 390): startscherm, vallende held, GULP met vliegende hoed, eindscherm. Gijs heeft ze bekeken.
+4. Daan en Mila hebben de beelden gezien en gezegd wat anders moet. Of het leuk is kan alleen een mens zeggen: Thijs speelt de proef op zijn horloge of in de simulator (komt op zijn lijst zodra 1 tot 3 groen zijn).
+
+## Open vragen (voor na de proef)
+- Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
+- Rechthoekige horloges (Venu Sq) en de zwart-witte Instinct: de proef tekent al naar verhouding, maar is daar niet bekeken.
+- Trilling bij een GULP (voelt goed, kost batterij): proberen in de volgende stap.
