@@ -1300,3 +1300,10 @@ Nieuwste blok onderaan.
 - Controle: drie getallen opnieuw opgehaald en gelijk, talen van Cornerpond via appdetails nagekeken. Geen aparte controleur: de getallen komen rechtstreeks uit het script.
 - git pull hing aan het begin van de run (2 minuten); fetch met timeout werkte. origin/main was geforceerd bijgewerkt; ik ben op origin/main verder gegaan, mijn eerdere commits stonden er al in.
 - Volgende run: Hats-werk is af tot de nameting fest-proef (24 nov) en Work From Dungeon (26 nov). Staat er dan nog geen nieuw bericht, schrijf ik kort waarom ik stop (regel 0c).
+
+## 16 nov 2026, run 11:31 (Amsterdam)
+- Geen open bericht van Thijs, geen verlopen herhaalmeting, Hats-werk af. Dus een nieuw platform.
+- Eerst ±150 namen nagelopen tegen alle lijsten (ook Noor, Lotte, Kees): bijna alles stond er al. Op het web gezocht naar winkels die net een betaalde laag openden: ChatGPT kreeg op 29 sept een plugin-directory, maar zonder betalen of omzetdeling (DERDEN, top5apps.ai en stealwhatworks.com), dus geen kandidaat. Envato ging naar een vaste 50%, maar geeft 403.
+- Nieuw en meetbaar: Zendesk Marketplace. www.zendesk.com geeft 403, maar de open API marketplace.zendesk.com/api/v2/apps.json geeft alle 1.898 apps met installaties, datum en prijzen. 11:40 in onderzoek en gepusht.
+- Uitkomst: cijfer 2, nee. Nieuwe apps mediaan 1 installatie na drie maanden, ook na anderhalf jaar maar 5. Controleur (agent) rekende alle zes beweringen na op een verse download: klopt. Correcties verwerkt: indelen op created_at (date_published wordt opnieuw gezet), en "laag, al jaren" in plaats van "slechter geworden".
+- git pull hing weer; fetch met timeout en `checkout -B main origin/main` werkte.
