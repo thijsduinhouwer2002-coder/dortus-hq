@@ -26,3 +26,11 @@ Aanleiding: besluit hoofdchat 16 nov 08:05 NL (advies Fenna, `platformen/succes/
 - Groot oogt hij levendiger (een toren die bijna omvalt naar de titel, past bij de grap). Op 120 px ongeveer gelijk aan ronde 2.
 - Nog steeds te klein: Gloop. In klein staat `GROOT` vast op 1,3 in het script (`TOREN_GROOT` werkt alleen in de header), en de hoeden schalen mee met de helm. Gloop groter maken = `GROOT` voor klein instelbaar maken en `TOREN_S` iets omlaag.
 - Fout om te verhelpen: witte glansvlek op de H van HATS (sleutellicht), en een donkere fakkelrest aan de rechterrand.
+
+## Ronde 4 (Mila, klein, 16 nov ±11:00 UTC)
+`toren-klein-ronde4-mila-462x174.png`, naast ronde 3 met 120 px in kleur en grijs: `voor-na-ronde3-ronde4-mila-met-120.png`. GEZIEN met Read. Gerenderd op 924x348 (16 samples) en verkleind.
+- Script: `GROOT` voor klein is nu instelbaar (`TOREN_KGROOT`, standaard 1,3 zoals het was) en het sleutellicht ook (`CAP_SLEUTEL`, standaard 1600). Verder niets aan Daans script veranderd.
+- Instellingen: `TOREN_ZAK=0.12,0.38,0.15 TOREN_HOEDEN=4,7,1 TOREN_KANTEL=6,12,24 TOREN_SCHUIF=-0.12,-0.22,-0.34 TOREN_S=0.9 TOREN_KGROOT=1.6 TOREN_KRS=0.7 TOREN_WANDGLOED=60 TOREN_RAND=150 CAP_WANDLAMP=120 CAP_WAND1=3a2420 CAP_WAND2=4e3028 TOREN_KTM=1.5 CAP_SLEUTEL=900 TOREN_KCX=1.0 TOREN_KLENS=23 TOREN_KCZ=3.9 TOREN_KTZ=1.9 TOREN_KTX=-0.9 python capsule_toren.py uit.png 924 348 16 klein`.
+- **Wat anders is:** Gloop 1,6 in plaats van 1,3, drie hoeden in plaats van vier (kroon, hoge hoed, puntmuts), elk een eigen omtrek, en de hele toren in beeld, scheef naar de titel. Op 120 px lees je nu een groot slijm met een stapel hoeden in plaats van een paaltje boven een stipje.
+- Geprobeerd en niet gekozen: vier hoeden met Gloop 1,75 (toren loopt boven uit beeld, dan is het geen toren meer), koksmuts bovenop voor licht-donker-licht (leest als popcorn of wolk, net als op het icoon).
+- Nog open: in grijs vallen puntmuts en hoge hoed samen tot één donkere vorm (alleen de kroon is licht); de witte glansvlek op de H blijft ook met een zwakker sleutellicht, die komt van een ander licht. Volgende stap: puntmuts lichter paars (zoals op het Garmin-icoon, richting 8a6ad8) en de glans op de H zoeken.

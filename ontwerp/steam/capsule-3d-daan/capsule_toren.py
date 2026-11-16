@@ -233,7 +233,7 @@ for o in list(sc.objects):
         mw = o.matrix_world.copy(); o.parent = anker; o.matrix_world = mw
 anker.rotation_euler = (0, 0, math.radians(-12))
 # ronde 4: Gloop met toren groter, hij is de ster (via het anker: GS hierboven telt niet mee, matrix_world is daar nog oud)
-GROOT = (E("TOREN_GROOT", "0.9") if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else 1.3
+GROOT = (E("TOREN_GROOT", "0.9") if not HOOFD else E("HF_GROOT", "1.2")) if not KLEIN else E("TOREN_KGROOT", "1.3")   # Mila 16 nov: in klein instelbaar
 anker.scale = (GROOT, GROOT, GROOT)
 
 # ronde 5 (Daan kan 3): kroon minder munt: strakkere, smallere punten, kleinere bolletjes, minder glans
@@ -353,7 +353,7 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     o.visible_camera = False
     return o
 
-lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), 1600, 4.0, (GX, 0.3, 1.5))
+lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), E("CAP_SLEUTEL", "1600"), 4.0, (GX, 0.3, 1.5))   # Mila: instelbaar (glansvlek op de H)
 lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
