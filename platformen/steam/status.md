@@ -1,5 +1,7 @@
 # Steam: status
 
+- **16 nov 10:25 UTC (Olaf):** het hol vol volgt nu Daans regels (plafond hooguit een derde van de gang, geen twee grote dingen naast elkaar, tegel vrij bij troon en val, hoedenwand zonder vast ritme, paarse spin weg), op tak `claude/steam-hol-vol`, wacht op Windows-run en de ja van Daan. **Bij Thijs ligt niets; vr 20 nov de speeltest-link.**
+
 - **13 nov 13:45 (hoofdchat): DE HELE APP WORDT 3D** (besluit Thijs 13:35, `ontwerp/steam/3d-stijl.md`). Ploeg: Olaf spel, Bram 3D-pijplijn, Daan Gloop en helden, Mila hol en winkelbeelden, elk uur. Ma 16 nov drie bladen/beelden voor Thijs: Gloop 3D, stukje hol 3D, Gloop in de echte build.
 
 - **15 nov 22:45 UTC (Olaf):** winkelbeeld "de val" (scherm 4): held stilzetten op 0,2 s maakt de stekels vrij, maar de held blijft ondersteboven, want het 3D-lijf heeft maar één valstand. Voorstel op een tak: de eerste 0,14 s van de val de al getekende stand "schrik" (rechtop, mond open), opname loopt, Daan keurt. Kleinere stofwolk (korrels5) op main. **Bij Thijs ligt niets; vr 20 nov de speeltest-link.**
