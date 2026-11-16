@@ -1,0 +1,572 @@
+{
+ "_uitleg": "Bram 16 nov: Sannes voortgang.json versie 1 met lagen (luik 500/750/1000 op hol 20/30/40), graven kost goud, upgrades 45/126/353/600/1000/1600, prijsfactor per laag 1/1.2/2.2/3.2, oude lagen geven 0.5 x hun goud, drempels geijkt op haar doeluren terwijl helden uit alle lagen meetellen. Gemaakt met producten/steam-hol/sim/voortgang_lagen.py.",
+ "uren": 100,
+ "sporen": [
+  {
+   "naam": "hol-niveau",
+   "bron": "gevallen",
+   "niveaus": [
+    {
+     "niveau": 2,
+     "drempel": 3,
+     "wat": "Heldenboek open (grijze vakjes)"
+    },
+    {
+     "niveau": 3,
+     "drempel": 6,
+     "wat": "Ridder komt"
+    },
+    {
+     "niveau": 4,
+     "drempel": 10,
+     "wat": "Vleermuis komt wonen"
+    },
+    {
+     "niveau": 5,
+     "drempel": 12,
+     "wat": "Dief komt"
+    },
+    {
+     "niveau": 6,
+     "drempel": 20,
+     "wat": "Tweede slijm of put te koop",
+     "effect": {
+      "bewoner": "put"
+     }
+    },
+    {
+     "niveau": 7,
+     "drempel": 25,
+     "wat": "Rolsteen (nieuwe val)",
+     "effect": {
+      "kans": {
+       "ridder": 0.03
+      }
+     }
+    },
+    {
+     "niveau": 8,
+     "drempel": 31,
+     "wat": "Magier komt"
+    },
+    {
+     "niveau": 9,
+     "drempel": 39,
+     "wat": "Vaandel met de naam van je hol",
+     "effect": {
+      "gat": 0.97
+     }
+    },
+    {
+     "niveau": 10,
+     "drempel": 53,
+     "wat": "Edelman komt (nieuwe held)",
+     "effect": {
+      "goud": 1
+     }
+    },
+    {
+     "niveau": 11,
+     "drempel": 69,
+     "wat": "Bard komt",
+     "effect": {
+      "gat": 0.97
+     }
+    },
+    {
+     "niveau": 12,
+     "drempel": 88,
+     "wat": "Hoedenwand in de schatkamer"
+    },
+    {
+     "niveau": 13,
+     "drempel": 129,
+     "wat": "Upgrades stap 4",
+     "effect": {
+      "kans": {
+       "gewoon": 0.02
+      },
+      "upg_max": 4
+     }
+    },
+    {
+     "niveau": 14,
+     "drempel": 166,
+     "wat": "Skelet (bewoner)",
+     "effect": {
+      "bewoner": "slijm",
+      "koop": 450.0
+     }
+    },
+    {
+     "niveau": 15,
+     "drempel": 211,
+     "wat": "Trek: slaapkop"
+    },
+    {
+     "niveau": 16,
+     "drempel": 259,
+     "wat": "Slaapkamer",
+     "effect": {
+      "koop": 450.0
+     }
+    },
+    {
+     "niveau": 17,
+     "drempel": 316,
+     "wat": "Lijmplaat (val)",
+     "effect": {
+      "kans": {
+       "dief": 0.03
+      },
+      "koop": 450.0
+     }
+    },
+    {
+     "niveau": 18,
+     "drempel": 384,
+     "wat": "Hoedenpakket 2"
+    },
+    {
+     "niveau": 19,
+     "drempel": 471,
+     "wat": "Trek: opschepper"
+    },
+    {
+     "niveau": 20,
+     "drempel": 572,
+     "wat": "Trap naar Laag 2: de Kristalader"
+    },
+    {
+     "niveau": 21,
+     "drempel": 668,
+     "wat": "Mijnwerker"
+    },
+    {
+     "niveau": 22,
+     "drempel": 834,
+     "wat": "Mimic (bewoner)",
+     "effect": {
+      "bewoner": "slijm",
+      "koop": 700.0
+     }
+    },
+    {
+     "niveau": 23,
+     "drempel": 1044,
+     "wat": "Valluik",
+     "effect": {
+      "koop": 700.0
+     }
+    },
+    {
+     "niveau": 24,
+     "drempel": 1264,
+     "wat": "Keuken",
+     "effect": {
+      "koop": 700.0
+     }
+    },
+    {
+     "niveau": 25,
+     "drempel": 1497,
+     "wat": "Upgrades stap 5",
+     "effect": {
+      "kans": {
+       "gewoon": 0.02
+      },
+      "upg_max": 5
+     }
+    },
+    {
+     "niveau": 26,
+     "drempel": 1743,
+     "wat": "Kinderen van aartsvijanden"
+    },
+    {
+     "niveau": 27,
+     "drempel": 2017,
+     "wat": "Hoedenpakket 3 (kristal)"
+    },
+    {
+     "niveau": 28,
+     "drempel": 2301,
+     "wat": "Trek: verdwaald"
+    },
+    {
+     "niveau": 29,
+     "drempel": 2597,
+     "wat": "Trofeeenzaal",
+     "effect": {
+      "koop": 700.0
+     }
+    },
+    {
+     "niveau": 30,
+     "drempel": 2908,
+     "wat": "Trap naar Laag 3: de Verzonken Crypte"
+    },
+    {
+     "niveau": 31,
+     "drempel": 3352,
+     "wat": "Archeoloog"
+    },
+    {
+     "niveau": 32,
+     "drempel": 3819,
+     "wat": "Trol (bewoner)",
+     "effect": {
+      "bewoner": "put",
+      "koop": 950.0
+     }
+    },
+    {
+     "niveau": 33,
+     "drempel": 4302,
+     "wat": "Nep-schat (val)",
+     "effect": {
+      "koop": 950.0
+     }
+    },
+    {
+     "niveau": 34,
+     "drempel": 4834,
+     "wat": "Upgrades stap 6",
+     "effect": {
+      "kans": {
+       "gewoon": 0.02
+      },
+      "upg_max": 6
+     }
+    },
+    {
+     "niveau": 35,
+     "drempel": 5383,
+     "wat": "Hoedenpakket 4 (crypte)"
+    },
+    {
+     "niveau": 36,
+     "drempel": 5973,
+     "wat": "Heks"
+    },
+    {
+     "niveau": 37,
+     "drempel": 6533,
+     "wat": "Trek: verzamelaar"
+    },
+    {
+     "niveau": 38,
+     "drempel": 7146,
+     "wat": "Kaarsenkamer (crypte)",
+     "effect": {
+      "koop": 950.0
+     }
+    },
+    {
+     "niveau": 39,
+     "drempel": 7769,
+     "wat": "Skelet in harnas"
+    },
+    {
+     "niveau": 40,
+     "drempel": 8361,
+     "wat": "Trap naar Laag 4: het Gloophart"
+    },
+    {
+     "niveau": 41,
+     "drempel": 9164,
+     "wat": "Hoedenjager"
+    },
+    {
+     "niveau": 42,
+     "drempel": 10031,
+     "wat": "Moeder Gloop (bewoner)",
+     "effect": {
+      "bewoner": "slijm",
+      "koop": 1200.0
+     }
+    },
+    {
+     "niveau": 43,
+     "drempel": 10957,
+     "wat": "Gloopbron (val)",
+     "effect": {
+      "koop": 1200.0
+     }
+    },
+    {
+     "niveau": 44,
+     "drempel": 11913,
+     "wat": "Hoedenpakket 5 (legendarisch)"
+    },
+    {
+     "niveau": 45,
+     "drempel": 12915,
+     "wat": "Mimic van goud",
+     "effect": {
+      "koop": 1200.0
+     }
+    },
+    {
+     "niveau": 46,
+     "drempel": 13917,
+     "wat": "Vleermuisfamilie",
+     "effect": {
+      "koop": 1200.0
+     }
+    },
+    {
+     "niveau": 47,
+     "drempel": 14960,
+     "wat": "Trol met leesbril"
+    },
+    {
+     "niveau": 48,
+     "drempel": 16099,
+     "wat": "Zeldzame held: de Gekroonde"
+    },
+    {
+     "niveau": 49,
+     "drempel": 17285,
+     "wat": "Hoedentroon voor Gloop",
+     "effect": {
+      "koop": 1200.0
+     }
+    },
+    {
+     "niveau": 50,
+     "drempel": 18601,
+     "wat": "Hol van de Hoedenkoning"
+    }
+   ]
+  },
+  {
+   "naam": "Gloop",
+   "bron": "hoeden_gloop",
+   "niveaus": [
+    {
+     "niveau": 2,
+     "drempel": 5,
+     "wat": "Wiebeltoren"
+    },
+    {
+     "niveau": 3,
+     "drempel": 25,
+     "wat": "Boer: spuugt soms een hoed op de berg"
+    },
+    {
+     "niveau": 4,
+     "drempel": 60,
+     "wat": "Kleverig: stuitert helden terug",
+     "effect": {
+      "kans": {
+       "gewoon": 0.03
+      }
+     }
+    },
+    {
+     "niveau": 5,
+     "drempel": 100,
+     "wat": "Grote Gloop, toren van 5"
+    },
+    {
+     "niveau": 6,
+     "drempel": 200,
+     "wat": "Hoedendans als het stil is"
+    },
+    {
+     "niveau": 7,
+     "drempel": 300,
+     "wat": "Gloopje splitst af",
+     "effect": {
+      "bewoner": "slijm"
+     }
+    },
+    {
+     "niveau": 8,
+     "drempel": 600,
+     "wat": "Hoedenworp naar vluchters",
+     "effect": {
+      "kans": {
+       "gewoon": 0.02
+      }
+     }
+    },
+    {
+     "niveau": 9,
+     "drempel": 1000,
+     "wat": "Gloop the Hatted, kroon van de berg"
+    },
+    {
+     "niveau": 10,
+     "drempel": 3000,
+     "wat": "Gloop de Hoedenkoning, gouden slijm"
+    }
+   ]
+  },
+  {
+   "naam": "laagsterren",
+   "bron": "gevallen",
+   "niveaus": [
+    {
+     "niveau": 1,
+     "drempel": 295,
+     "wat": "ster 1"
+    },
+    {
+     "niveau": 2,
+     "drempel": 424,
+     "wat": "ster 2"
+    },
+    {
+     "niveau": 3,
+     "drempel": 525,
+     "wat": "ster 3"
+    },
+    {
+     "niveau": 4,
+     "drempel": 1146,
+     "wat": "ster 4"
+    },
+    {
+     "niveau": 5,
+     "drempel": 1876,
+     "wat": "ster 5"
+    },
+    {
+     "niveau": 6,
+     "drempel": 2748,
+     "wat": "ster 6"
+    },
+    {
+     "niveau": 7,
+     "drempel": 4589,
+     "wat": "ster 7"
+    },
+    {
+     "niveau": 8,
+     "drempel": 6238,
+     "wat": "ster 8"
+    },
+    {
+     "niveau": 9,
+     "drempel": 8056,
+     "wat": "ster 9"
+    },
+    {
+     "niveau": 10,
+     "drempel": 11448,
+     "wat": "ster 10"
+    },
+    {
+     "niveau": 11,
+     "drempel": 14459,
+     "wat": "ster 11"
+    },
+    {
+     "niveau": 12,
+     "drempel": 17937,
+     "wat": "ster 12"
+    }
+   ]
+  },
+  {
+   "naam": "bewoners",
+   "bron": "gevallen",
+   "niveaus": [
+    {
+     "niveau": 1,
+     "drempel": 409,
+     "wat": "Skelet 2: rammelt helden bang"
+    },
+    {
+     "niveau": 2,
+     "drempel": 1225,
+     "wat": "Mimic 2: likt zijn lippen"
+    },
+    {
+     "niveau": 3,
+     "drempel": 1447,
+     "wat": "Skelet 3: gooit zijn hoofd"
+    },
+    {
+     "niveau": 4,
+     "drempel": 2467,
+     "wat": "Mimic 3: valse munt"
+    },
+    {
+     "niveau": 5,
+     "drempel": 4197,
+     "wat": "Trol 2: bromt in zijn slaap"
+    },
+    {
+     "niveau": 6,
+     "drempel": 5183,
+     "wat": "Skelet 4: draagt een hoed van de berg"
+    },
+    {
+     "niveau": 7,
+     "drempel": 6257,
+     "wat": "Trol 3: gooit een rots"
+    },
+    {
+     "niveau": 8,
+     "drempel": 6812,
+     "wat": "Mimic 4: twee rijen tanden"
+    },
+    {
+     "niveau": 9,
+     "drempel": 9555,
+     "wat": "Trol 4: schrijft wrokken op"
+    },
+    {
+     "niveau": 10,
+     "drempel": 10506,
+     "wat": "Moeder Gloop 2: zingt slijmliedjes"
+    },
+    {
+     "niveau": 11,
+     "drempel": 14313,
+     "wat": "Moeder Gloop 3: breit hoeden"
+    },
+    {
+     "niveau": 12,
+     "drempel": 17985,
+     "wat": "Moeder Gloop 4: adopteert gevluchte helden"
+    }
+   ]
+  }
+ ],
+ "laag_factor": [
+  1.0,
+  1.2,
+  2.2,
+  3.2
+ ],
+ "gloop_oud": false,
+ "graven": true,
+ "upg_mee": false,
+ "upg_prijs": [
+  45.0,
+  126.0,
+  353.0,
+  600.0,
+  1000.0,
+  1600.0
+ ],
+ "lagen": [
+  {
+   "niveau": 20,
+   "prijs": 500.0
+  },
+  {
+   "niveau": 30,
+   "prijs": 750.0
+  },
+  {
+   "niveau": 40,
+   "prijs": 1000.0
+  }
+ ],
+ "oud_goud": 0.5
+}
