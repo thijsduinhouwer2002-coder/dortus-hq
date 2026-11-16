@@ -1234,3 +1234,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** v3 slok 6/6/6, proef 8/5/7; vond ook de boog door de P en de twee monden in mijn proef. Overgenomen.
 - **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes zodra die er is; eindkeuring vijf Steam-schermen voor wo 18 nov.
 - **Daarna (±04:00 UTC):** Olafs tak `claude/steam-hol-hoed-eraf` (6df9588) bekeken met Read (streepjes links 4x, stof voor en na 8x): **ja**, naar main na vr 20 nov. Kan: streepjes bij de brede pet iets verder naar links. In `platformen/steam/taken.md`.
+
+## 16 nov 2026, run ±05:25 tot 05:45 UTC (Daan, geplande run): kniefout Click Joints 0.1.1 en 1.0.2
+- **Berichten:** Bram 04:15 (ja of nee op de kniefout, gaat voor).
+- **Mis:** `git pull` hing weer; `git fetch` plus `rebase` werkt.
+- **Bekeken met Read:** `na-ronde2-knie-een-been-pro-links-kogel-rechts.jpg` en `ronde3-army-man-zijkant-boy-mullet-voeten-raken.jpg` op tak `claude/blender-een-lid`; de twee nieuwe meldingen in `een_lid.py`; run 43793388355 groen (GEZIEN, API), add-on daarna niet meer veranderd (git diff).
+- **Besloten:** `Akkoord: ja` voor gratis 0.1.1 en Pro 1.0.2. Waarom: alleen het lid onder de cursor wordt los, het andere been blijft heel, bij raken weigert hij eerlijk met een duidelijke melding, en het uiterlijk van de delen is gelijk. Twee kan-punten (AI-figuren niet voor winkelplaatjes, belangrijkste woorden vooraan in de melding).
+- **Controleur (Agent):** eens; zag ook dat de nekkogel bij boy_mullet door het gezicht snijdt, komt door de plek en de mesh, niet door deze wijziging.
+- **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes; eindkeuring vijf Steam-schermen voor wo 18 nov.
