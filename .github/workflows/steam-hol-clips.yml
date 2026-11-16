@@ -55,10 +55,10 @@ jobs:
           $n = [int]$env:SECONDEN * 30
           $vers = "vers=1"
           if ([int]$env:WEG_UUR -gt 0) {
-            # clip 3 (Olaf 16 nov): eerst 20 s gewoon spelen, dan de save WEG_UUR terug, zodat Gloop bij openen de nachthoeden krijgt
+            # clip 3 (Olaf 16 nov): eerst 100 s gewoon spelen (begin met vluchten en terug klaar), dan de save WEG_UUR terug, zodat Gloop bij openen de nachthoeden krijgt
             $p0 = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE vers=1 duur=20" -PassThru
-            if (-not $p0.WaitForExit(120000)) { Stop-Process -Id $p0.Id -Force }
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE vers=1 duur=100" -PassThru
+            if (-not $p0.WaitForExit(200000)) { Stop-Process -Id $p0.Id -Force }
             $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
             python producten/steam-hol/e2e/save_terug.py $save ([int]$env:WEG_UUR * 3600)
             $vers = ""
