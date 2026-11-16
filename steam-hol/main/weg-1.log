@@ -1,13 +1,13 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 606, erbij 3012
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 606, erbij 2988
 HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 3032 goud
+HOL opslag geladen: 0 terugkomers, 3008 goud
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794832172
-HOL eerste koop mogelijk na 15 s speeltijd (goud 3032)
+HOL zaad 1794832247
+HOL eerste koop mogelijk na 15 s speeltijd (goud 3008)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.6 (wacht 2.6): 606 came, 401 fell. +3012 gold.
-HOL begin: vluchten (Joost)
-HOL held binnen: Joost
-HOL kroniek 5.2 (wacht 1.1): Joost climbs into your hole.
+HOL kroniek 2.5 (wacht 2.5): 606 came, 397 fell. +2988 gold.
+HOL begin: vluchten (Lotte)
+HOL held binnen: Lotte
+HOL kroniek 5.0 (wacht 1.0): Lotte says this is a quick one.
 HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=3032, terugkomers=0
+HOL einde na 15 s, fps=10, goud=3008, terugkomers=0
