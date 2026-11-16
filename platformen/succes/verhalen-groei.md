@@ -1,8 +1,78 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 17, lanceerplatforms Smol Launch, DevHunt en TinyLaunch naast Product Hunt, klaar 16 nov 2026 ±16:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
+bezig: niets (laatste: verhaal 18, de zoekplek van Click Joints in Blender zelf: broncode van Blender en de winkel gelezen, klaar 16 nov 2026 ±17:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of nameten van de plek in Blender na een nieuwe tagline of eerste review.
 
 Nieuwste bovenaan.
+
+---
+
+## 18. Hoe vindt iemand Click Joints in Blender zelf (Get Extensions)? De broncode gelezen: zoeken op stukjes woord in naam en korte omschrijving, en de volgorde komt van de sterren
+
+Onderzocht 16 nov 2026 ±17:00 tot 17:45 UTC, run 18. Waarom: verhaal 15 en 16 lieten zien dat de downloads van gratis Click Joints uit zoeken in de winkel komen, maar ik had alleen de website gemeten. In Blender zelf (Voorkeuren, Get Extensions) zoekt iemand op een andere manier, en dat had ik als GOK laten staan.
+
+### Bronnen en werkwijze
+- **De code van Blender zelf** (GEZIEN): `scripts/addons_core/bl_pkg/bl_extension_ui.py` en `bl_extension_ops.py` op de hoofdtak van github.com/blender/blender. Daarin staat hoe het venster Get Extensions zoekt en sorteert.
+- **De code van de winkel** (GEZIEN): `extensions/views/api.py`, `extensions/models.py` en `ratings/signals.py` van projects.blender.org/infrastructure/extensions-website. Daarin staat in welke volgorde de winkel de lijst aan Blender geeft.
+- **De lijst die Blender binnenhaalt** (GEZIEN 16 nov ±17:01 UTC): `extensions.blender.org/api/v1/extensions/?blender_version=5.0.0&platform=windows-x64`, 1.354 extensies, waarvan 1.122 add-ons.
+- **Sterren, aantal reviews en downloads** van alle 1.206 add-ons van de website-lijst (76 pagina's, GEZIEN), gekoppeld op naam. Tabel: `platformen/succes/data/blender-in-app-volgorde-2026-11-16.csv`.
+- **Twee meldingen in de winkel-repo** (GEZIEN): #145 (sorteren op sterren, 2024) en #258 ("5.0 rating seems incorrect", nog open), plus #414 (zoeken op de website, 2026).
+- Voor 13 nieuwe add-ons met precies één review: datum van die review en downloads per versie (GEZIEN), om te zien of de downloads na de eerste review veranderden.
+
+### Wat de code zegt (GEZIEN)
+1. **Zoeken in Blender is zoeken op een stukje tekst, alleen in de naam en de korte omschrijving (tagline).** De functie `pkg_info_check_exclude_filter_ex` kijkt of wat je typt (zonder hoofdletters) ergens in de naam of de tagline staat. Niet in de lange beschrijving, niet in de tags. "print" vindt dus ook "printed", en "3d print" vindt "3D printed". Dat is anders dan de website, die op hele woorden zoekt in meer tekst en maar 32 uitslagen toont (melding #414).
+2. **De volgorde van "Available" komt rechtstreeks van de winkel.** In de code staat bij die lijst: `NOTE: don't use A-Z here to prevent name manipulation`. Blender sorteert dus niet zelf en houdt de volgorde van de winkel aan.
+3. **De winkel sorteert die lijst op de mediaan van de sterren, daarna op nieuwste, daarna op naam** (`ordering = ['-average_score', '-date_created', 'name']`, en `average_score` is de mediaan van alle sterren, `ratings/signals.py`). De website zelf gebruikt sinds 2024 een slimmere sortering voor "Rating" (melding #145), maar de lijst voor Blender nog niet.
+4. Standaard toont Get Extensions alle soorten (add-ons, thema's, bibliotheken) en het blok "Available" staat open. Wie niets typt, ziet de hele lijst in deze volgorde.
+
+### Wat dat in de echte lijst betekent (GEZIEN 16 nov)
+| Groep in de lijst voor Blender | Aantal add-ons | Plekken |
+|---|---|---|
+| Mediaan 5 sterren (ook met maar 1 review) | 652 | 1 tot 653, nieuwste eerst |
+| Mediaan 1 tot 4,5 sterren | 93 | 654 tot 747 |
+| Geen enkele review | 377 | 748 tot 1.122, nieuwste eerst |
+
+- **Click Joints staat op plek 757 van 1.122 add-ons** (927 van 1.354 met thema's erbij): tiende in het blok zonder review. Zelfs een add-on met één ster (EasySlice Print, mediaan 1) staat erboven.
+- Bovenaan de hele lijst staat Texel Kit (1 review, gepubliceerd 9 nov). Met één eerlijke review van 5 sterren zou Click Joints (aangemaakt 8 nov) bij de eerste ±5 van de hele lijst staan (GOK op basis van de datums van de buren; de precieze aanmaakdatum staat niet in de lijst).
+- Een review komt vanzelf zelden: mediaan **0,29 reviews per 1.000 downloads** (845 add-ons met 2.000+ downloads). Op 20 per dag duurt de eerste review voor Click Joints dan ±5 maanden (GOK, uit die mediaan). 373 add-ons hebben geen review, met een mediaan van 1.326 downloads.
+
+### Click Joints op de zoekwoorden, in Blender zelf (nagebootst met de code, GEZIEN)
+| Zoekwoord | Treffers | Plek Click Joints | Wat erboven staat |
+|---|---|---|---|
+| joint, joints, ball joint, figure | 1 tot 3 | **1** | niets |
+| 3d print | 6 | 4 | 3D Print Toolbox (54 reviews), Easy-Print, EasySlice Print, alle drie met review |
+| print | 19 | 11 | 10 add-ons, allemaal met minstens één review |
+| 3d printing | 4 | niet gevonden ("3D printed" bevat geen "printing") | |
+| poseable, articulated, action figure, hinge, figurine, toy | 0 | niet gevonden | geen enkele add-on, dus wie dat typt ziet een lege lijst |
+
+Vergelijk de website (verhaal 16): daar staat Click Joints op 1 bij "poseable" (staat in de lange beschrijving) maar niet in de eerste ±30 bij "3d print". In Blender is het precies andersom. Mijn GOK uit verhaal 16 ("in Blender wordt print in printed wel gevonden") klopt dus.
+
+### Helpt de eerste review echt? 13 nieuwe add-ons met precies één review (GEZIEN, downloads per versie gedeeld door dagen)
+| Add-on | Eerste review | Per dag vóór | Per dag na |
+|---|---|---|---|
+| Papercraft Pro | 1 nov | 26,5 (28 okt tot 1 nov) | 76 tot 102 (1 tot 16 nov) |
+| Faster Scrubbing | 11 nov | 13,0 (5 tot 10 nov) | 55,3 (10 tot 16 nov) |
+| Croquis | 1 nov | 21 tot 46 (25 okt tot 1 nov) | 61 tot 96 (1 tot 16 nov): steeg al vóór de review |
+| Texture Wrangler | 20 okt | ±156 (al hoog vóór de review) | ±193 |
+| ID RenderFlo | 13 nov | 3,0 (20 okt tot 16 nov, niet te splitsen) | staat op plek 17 en blijft laag |
+
+De rest (KN5 Tools, Axonobox Lite, JCut, Black Hole Studio, NK Auto IK, CurioMesh, Easy Adjust, Texel Kit) had geen versie rond de reviewdatum, dus daar kan ik voor en na niet splitsen. Groepen nieuwe add-ons van okt en nov 2026 (zelfde leeftijd): **mediaan 5 sterren 61,6 per dag (n=23, mediaan plek 12), geen review 10,8 per dag (n=68, mediaan plek 782)**, 1 tot 4,5 sterren 12,4 (n=3).
+
+Eerlijk: dit is geen bewijs dat de plek de downloads maakt. Wie veel downloadt, krijgt eerder een review, dus de pijl wijst ook de andere kant op (Texture Wrangler was al groot vóór de review). Twee gevallen (Papercraft Pro ×3,5 en Faster Scrubbing ×4) springen wel omhoog binnen een dag rond de eerste review, en ID RenderFlo laat zien dat een hoge plek alleen niet genoeg is als niemand de add-on wil. Hoeveel mensen in Blender zoeken en hoeveel op de website, staat nergens openbaar (GOK).
+
+### Drie lessen
+1. **In Blender bepaalt de tagline wat gevonden wordt, niet de beschrijving of de tags.** Elk woord waar iemand op typt, moet als stukje in de naam of tagline staan. Click Joints mist "poseable" en "figurine"; op die woorden vindt Blender nu niemand, dus wie het als eerste in de tagline zet, staat er alleen.
+2. **Eén eerlijke review verplaatst een add-on van onderin naar bovenin de hele lijst in Blender.** De volgorde is mediaan van de sterren, dan nieuwste. Dat is groot voor een nieuwe add-on, en het is niet te koop: de enige weg is echte gebruikers die het goed vinden en het ook zeggen.
+3. **Een review komt niet vanzelf** (0,29 per 1.000 downloads). Wie wil dat gebruikers iets zeggen, moet het ze één keer vriendelijk vragen, op een plek die ze toch zien.
+
+### Wat dit niet zegt
+- Ik heb het venster niet in een echte Blender gezien (geen scherm in de cloud); ik heb de code gelezen en nagebootst. Blender kan de code in een nieuwe versie veranderen, en de winkel kan de lijst voor Blender ook op de slimmere sortering zetten (melding #145 en #258 laten zien dat ze erover nadenken). Dan weegt één review minder.
+- De datums van aanmaken (die de volgorde binnen een blok bepalen) staan niet in de lijst; de plek "±5 met één review" is een schatting.
+- Voor en na de eerste review heb ik maar bij 4 add-ons kunnen splitsen.
+
+### Voorstel voor Dortus deze week
+1. **Bram, bij de volgende versie van gratis Click Joints (vervangt mijn voorstel van 15:40):** tagline met de woorden die mensen in Blender typen, als stukjes tekst. Bijvoorbeeld `Ball joints for poseable 3D print figures, with bend range` (58 tekens, onder de 64). Dan vindt Blender hem op joint, ball joint, poseable, figure, print en 3d print; op "poseable" staat hij dan als enige. Geen woord over Pro, dus binnen de regels. Na de keuring meet ik de plekken opnieuw met dezelfde nabootsing.
+2. **Chris en de hoofdchat: één eerlijke vraag om een review, op plekken die gebruikers al zien.** Op de pagina dortus.com/click-joints/, in de README en in de onderschriften: "Free in Blender: Preferences > Get Extensions, search *joints*. If it helped, an honest rating on extensions.blender.org helps other makers find it." Nooit om 5 sterren vragen, nooit iets geven voor een review, niet zelf of via vrienden die het niet gebruikten. Kopers van Pro (Superhive, Gumroad) mogen dezelfde zin in de bedankmail krijgen. Een melding of knop in de add-on zelf doe ik bewust niet als voorstel: dat voelt als zeuren (zie de klacht over "zeurt om reviews" bij de leider van de ademapps, besluit Garmin 10 nov), en ik heb niet nagezocht of de regels van extensions.blender.org het toestaan.
+3. **Ik meet** de plek van Click Joints in de lijst voor Blender en de downloads per dag in elke run waarin ik toch in de winkel meet, zodat we zien wat de nieuwe tagline en een eerste review doen.
 
 ---
 
