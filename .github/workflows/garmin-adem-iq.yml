@@ -159,7 +159,7 @@ jobs:
       matrix:
         # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges: FR255 (MIP 260),
         # fenix 8 47 mm (AMOLED 454) en Venu 3S (AMOLED 390, het kleinste AMOLED-scherm). De bouwtak draait ze alle dertien.
-        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
+        horloge: ${{ fromJSON(contains(github.ref_name, 'enduro3-proef') && '["enduro3"]' || contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -200,7 +200,8 @@ jobs:
           NAMEN="$NAMEN thuis-menu-dag thuis-menu-nacht thuis-pauze-dag thuis-pauze-nacht thuis-sealog-dag thuis-sealog-nacht thuis-menu-leeg-dag thuis-sealog-alle-nacht"
           # Korte proefronde: op een proeftak alleen de scènes uit proef-scenes.txt (namen, een sterretje mag).
           KEUZE=""
-          case "$GITHUB_REF_NAME" in *proef*) if [ -f proef-scenes.txt ]; then set -f
+          # Run 121: tak enduro3-proef draait geen keuze maar de hele reeks vanaf start 62 (zie EERSTE hieronder).
+          case "$GITHUB_REF_NAME" in *enduro3-proef*) ;; *proef*) if [ -f proef-scenes.txt ]; then set -f
             for n in $(grep -v "^#" proef-scenes.txt); do i=0; for m in $NAMEN; do case "$m" in $n) KEUZE="$KEUZE $i" ;; esac; i=$((i+1)); done; done
           set +f; fi ;; esac
           KEUZE=$(echo $KEUZE)
@@ -209,7 +210,7 @@ jobs:
           for d in $D; do
             # Proeftak (naam met "proef"): alleen de proefscènes vanaf 51, zodat de uitslag er in minuten is.
             # Tak thuis-proef (Bas, stap 4): alleen de laatste acht scènes (menu, pauze en sea log op het thuiswater).
-            EERSTE=0; case "$GITHUB_REF_NAME" in *thuis-proef*) EERSTE=$((LAATSTE - 7)) ;; *proef*) EERSTE=51 ;; esac
+            EERSTE=0; case "$GITHUB_REF_NAME" in *enduro3-proef*) EERSTE=62 ;; *thuis-proef*) EERSTE=$((LAATSTE - 7)) ;; *proef*) EERSTE=51 ;; esac
             sed -i "s/const EERSTE = 0;/const EERSTE = $EERSTE;/" source/Bouw.mc
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
