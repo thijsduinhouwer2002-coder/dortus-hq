@@ -97,6 +97,13 @@ def speel(uren, zaad, spec=None):
     # weg "keer": hooguit zoveel keer weg (voor de proef "X minuten spelen, één nacht weg"). "leeg_gevallen_s": tempo als
     # er nog geen tempo te meten is (0 minuten gespeeld), zoals voortgang.gd: 1 held per 47,5 s, ±60% gevangen.
     rij = sp_.get("rij")
+    # Bram 16 nov ±22:30 UTC: het ritme en de graafbonus van het spel als sleutel in de spec, zodat een json zegt waarmee
+    # hij geijkt is. "ritme": "nieuw" = Sanne 16 nov 20:50 (28 tot 38 s, 15% paar van 6 tot 10 s, Gloop 30 s plat), zelfde
+    # rng-volgorde als de vervanging in data/sim-v3-goud/v3ritme.py. "graafbonus": {"per": 8, "max": 3} = +1 goud per val
+    # per 8 zelf gegraven cellen (begingang 6 telt niet), hooguit +3 (balans.md 21:00). Zonder de sleutels: niets anders.
+    # weg "faam_niveaus": 2 = faam uit één keer weg telt tot net de drempel van huidig hol-niveau + 2 (balans.md 22:00).
+    ritme_nieuw = sp_.get("ritme") == "nieuw"
+    gbonus = sp_.get("graafbonus")
     # Bram 16 nov (voortgang.md "Wat nog niet klopt" punt 2): de eigen helden per laag (mijnwerker, archeoloog) zitten nog
     # niet in de sim. "laag_vang": [1, 0.9, 0.8, 0.8] = vangkans x dit getal in de laag die je ziet, als gevoeligheid
     # (hoeveel mogen ze kosten), geen ontwerp. Zonder de sleutel: x 1.
@@ -197,6 +204,16 @@ def speel(uren, zaad, spec=None):
             goud += g
             st["goud_totaal"] = st.get("goud_totaal", 0.0) + g
             erbij = ((lb[2] - la[2]) / dl + oud["gevallen"]) * x
+            if weg.get("faam_niveaus"):
+                f0 = st["gevallen"] + st_oud["gevallen"]
+                hs_ = [s_ for s_ in sporen if s_["naam"] == "hol-niveau"]
+                if hs_:
+                    nvs_ = hs_[0]["niveaus"]
+                    nu_ = max([1] + [n_["niveau"] for n_ in nvs_ if n_["drempel"] <= f0])
+                    doel_ = [n_["drempel"] for n_ in nvs_ if n_["niveau"] == nu_ + weg["faam_niveaus"]]
+                    if doel_:
+                        st["weg_faam_af"] = st.get("weg_faam_af", 0.0) + max(0.0, erbij - max(0.0, doel_[0] - f0))
+                        erbij = max(0.0, min(erbij, doel_[0] - f0))
             st_oud["gevallen"] += erbij
             if rij:
                 rij_cap = max(hol_hoogst, 1) + rij.get("meteen", 4)   # hol 1 is de start
@@ -215,7 +232,12 @@ def speel(uren, zaad, spec=None):
                 gat = (5, 7) if begin_i == 1 else (18, 22) if begin_i == 2 else (35, 45)
             else:
                 gat = (40, 60)
-            volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(*gat) * (1.0 if stap else eff["gat"]))
+            if ritme_nieuw:
+                if gat in ((35, 45), (40, 60)):
+                    gat = (28, 38)
+                volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else (rng.uniform(6, 10) if (not stap and rng.random() < 0.15) else rng.uniform(*gat) * (1.0 if stap else eff["gat"])))
+            else:
+                volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(*gat) * (1.0 if stap else eff["gat"]))
         else:
             volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
         lied_extra = max(0, lied_extra - 1)
@@ -349,6 +371,8 @@ def speel(uren, zaad, spec=None):
             if v["soort"] == "slijm":
                 # Bouncy Gloop (godot/systemen/upgrades.gd, stap 2): plat 2/3 van de tijd
                 v["plat_tot"] = t + PLAT_S * (2 / 3 if upg["slijm"] >= 2 else 1)
+                if ritme_nieuw:
+                    v["plat_tot"] = t + 30 * (2 / 3 if upg["slijm"] >= 2 else 1)
             # Deep Pit (stap 2 van de put): een schijterige held keert na zijn eerste klap van de put niet om
             # (10 nov 01:30: stond op "stekelput", maar in de sim heet hij "put", dus Deep Pit telde nooit mee)
             diep = v["soort"] == "put" and upg["put"] >= 2 and klappen < 2
@@ -374,6 +398,8 @@ def speel(uren, zaad, spec=None):
         if uit == "gevallen":
             st["gevallen"] += 1
             erbij = ((6 if SPEL_ECONOMIE else 6 * (1 + 0.1 * faam) * (1 + gangen / 40)) + GOUD_PER_BEZOEK * h["bezoeken"] + eff["goud"]) * eff["goud_x"]
+            if gbonus and SPEL_ECONOMIE:
+                erbij += min(gbonus["max"], max(0, gangen - 6) // gbonus["per"]) * eff["goud_x"]
             goud += erbij
             st["goud_totaal"] = st.get("goud_totaal", 0.0) + erbij
             laag_tel["goud"] += erbij
