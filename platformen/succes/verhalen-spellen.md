@@ -1,8 +1,75 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 16, crossovers tussen bureaubladspellen (Not Monday Cafe x Lakeside Bar en anderen), 16 nov ±21:20 UTC
+bezig: niets (verhaal 16 af 16 nov ±22:10 UTC; volgende run: Little Writer meten na 6 jan, of de grootste bureaubladspellen die zelf crossovers doen (Tiny Pasture) van dichtbij: hoe vraag je erom)
 
 Nieuwste bovenaan.
+
+---
+
+## 16. Crossovers tussen bureaubladspellen: een gastpersonage uit een ander spel, 23 keer gemeten. Alleen met een veel groter spel en samen met een grote update zie je soms een sprong; twee kleine spellen samen geven niets, en "speel 5 minuten onze demo voor een beloning" moest Bongo Cat stoppen
+
+**Vraag:** in verhaal 15 zag ik dat bureaubladspellen elkaar niet alleen bundelen maar ook personages lenen (Not Monday Cafe x Lakeside Bar). Levert zo'n crossover iets op, voor wie, en hoe komen makers eraan? Hats heeft hoeden van gevallen helden: een gasthoed uit een ander spel past precies in ons spel, dus dit is een vorm die wij later goedkoop kunnen doen.
+
+### Bronnen en hoe ik keek (16 nov, ±21:20 tot 22:10 UTC)
+- Alle aankondigingen (tot 300 per spel) van de 194 spellen met 50+ reviews uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`), via `api.steampowered.com/ISteamNews/GetNewsForApp/v2/`, met curl. Gezocht op "crossover" en "collab": 79 treffers, waarvan ±30 echte crossovers met een personage of voorwerp uit een ander spel.
+- Reviews per week (of per maand bij grote spellen) via `store.steampowered.com/appreviewhistogram/<appid>`. Maat: gemiddelde reviews per week in de 4 weken vóór de crossover tegen de week ervan en de week erna. Bij Rusty's, Spirit City en Backpack Battles geeft Steam alleen maanden: maand ervoor tegen de maand van de crossover.
+- Uitgevers en datums via `store.steampowered.com/api/appdetails`. Steam-regel: `partner.steamgames.com/doc/marketing/advertising` (gelezen 16 nov).
+- Alle 23 metingen in `platformen/succes/data/crossovers-bureaublad-2026-11-16.csv`, met per regel of beide spellen van dezelfde uitgever zijn en wat er in dezelfde week nog gebeurde. Alles GEZIEN tenzij anders vermeld.
+
+### Wat ik zag: drie soorten crossover
+
+**1. Een klein bureaubladspel krijgt een personage van een groot spel (9 keer, verschillende uitgevers).**
+
+| Bureaubladspel | Gast | Datum | Reviews per week ervoor, erna | Verhouding | Wat er nog meer gebeurde |
+|---|---|---|---|---|---|
+| Fish to Dish | Dave the Diver | 18 jun 2026 | 11,8 naar 42,5 | 3,6x | zelfde dag grote update 3.0 met nieuw gebied |
+| Tiny Pasture | Sultan's Game | 7 mei 2025 | 86 naar 217 | 2,5x | niets gevonden in de aankondigingen; korting niet na te gaan |
+| Rusty's Retirement | Balatro | 7 aug 2025 | 179 naar 280 per maand | 1,6x | 10% korting over en weer voor wie het andere spel heeft |
+| Virtual Cottage 2 | Against the Storm | 22 aug 2026 | 20 naar 27,5 | 1,4x | twee weken eerder al een piek (41) |
+| Rusty's Retirement | Vampire Survivors | 1 apr 2025 | 296 naar 295 per maand | 1,0x | maker Poncle vroeg het zelf |
+| Tiny Pasture | Bugtopia | 22 mei 2025 | 138 naar 112 | 0,8x | dag na de lancering van Bugtopia |
+| Spirit City | Lofi Girl | 25 mei 2026 | 194 naar 165 per maand | 0,85x | |
+| Spirit City | Among Us | 26 jun 2025 | 558 naar 337 per maand | 0,6x | mei was hoger door iets anders |
+| Tiny Pasture | Backpack Battles | 13 jun 2025 | 143 naar 80 | 0,56x | |
+
+Drie van de negen gaven een duidelijke sprong (1,5x of meer). Bij alle drie was de crossover meer dan een plaatje: Fish to Dish bracht hem als grote update 3.0 met een nieuw gebied en 8 prestaties, Rusty's maakte een nieuwe kaart met een eigen spelregel uit Balatro (kaarten spelen bij het oogsten). Maar Rusty's deed precies hetzelfde met Vampire Survivors (nieuwe kaart, knoflook tegen vleermuizen) en daar zie je niets. Eerlijk: met deze aantallen en zonder kortingsgegevens kan ik niet zeggen wat het verschil maakte. Wat wel vaststaat: **een crossover met een groot spel is geen zekere golf; zes van de negen gaven geen zichtbare stijging.**
+
+**2. Twee bureaubladspellen van gelijke grootte ruilen een personage (4 metingen).**
+- Lakeside Bar x Not Monday Cafe (7 nov 2025, elk ±5 reviews per week): 1,05x en 0,95x. Ze ruilden een medewerker (Bobby en Angie) en zetten er een bundel met 20% korting bij. Niets te zien, aan geen van beide kanten.
+- Tiny Pasture x Ropuka's Idle Island (26 en 27 jun 2025): 1,7x en 1,3x, maar op dezelfde dag begon de Steam-zomeruitverkoop, en Ropuka had die week ook een nieuwe bundel en drie nieuwe talen. Niet aan de crossover toe te schrijven.
+- Sill Cats x DEBUG NEPHEMEE (5 nov 2026, DEBUG NEPHEMEE is nog niet uit): 0,9x voor Sill Cats.
+- BuGarden x Mushroom Nook (aangekondigd 3 en 5 nov 2026, nog in de maak): nog niets te meten.
+
+**3. Een groot spel geeft kleine spellen een plek (Bongo Cat, 31.301 reviews).** Bongo Cat deed van juni 2025 tot juni 2026 een reeks "indie collabs": wie 5 minuten de demo van een klein spel speelde (Let Them Trade, Cloudscrapers, Turnbound, The Berlin Apartment, STUNTBOOST, Mothkeep, MOLDRISE) kreeg een hoed of vel in Bongo Cat. Bij Bongo Cat zelf zie je niets (0,9x tot 0,97x, het spel is te groot). Bij de kleine spellen kan ik het niet meten: het waren demo's, en Steam bewaart geen oude spelersaantallen van demo's die ik kan lezen. Turnbound schreef in mei 2026 wel "depending on how you found Turnbound, we had an incredible Bongo Cat skin": een deel van hun spelers kwam er dus binnen (hoeveel zeggen ze niet).
+En dan het belangrijkste: **op 27 jun 2026 zette Bongo Cat dit stop.** Hun eigen woorden: "We had to disable the incentivized rewards (f.e. collab with Nightwater or the wishlist ones) ... because it was against Steam Guidelines to incentivize this". Welke regel Valve precies noemde, zeggen ze niet. De openbare regel die er het dichtst bij komt (`partner.steamgames.com/doc/marketing/advertising`): "Developers should not use advertising as a way to provide value to players, such as giving players a reward for watching or engaging with advertising in their game." Op dezelfde pagina staat ook dat crossovers mogen en zelfs worden aangemoedigd: "These types of promotions are encouraged and many customers find value in them." Dus: een gastpersonage of gasthoed mag; een beloning voor het spelen van een demo of voor een verlanglijstje niet (mijn lezing, GOK op welke regel het precies was).
+
+### Wat het patroon verbergt: veel "crossovers" zijn één uitgever
+- **IndieArk** geeft Fish to Dish, Loafing Town, Backpack Battles, Peglin en MiSide uit. Fish to Dish kondigde bij zijn lanceerdatum (21 mei 2025) "enchanting collaborations" aan met MiSide, Backpack Battles en Peglin: allemaal eigen catalogus. Loafing Town x Backpack Battles (dec 2025, 0,21x): ook IndieArk.
+- **Outersloth** (het fonds van de makers van Among Us) geeft Berserk B.I.T.S uit; Berserk x Among Us (mrt 2026, 3,5 naar 5 reviews per week) is dus in de familie.
+- **Gamersky Games** geeft Tiny Pasture en Your Big, Cute Monster Farm uit; Tiny Pasture zette Monster Farm erin op de dag na diens lancering (3,6x voor Tiny Pasture, maar die week was ook Steam Animal Fest).
+- Bongo Cat x OKU en Lakeside Bar x Seaside Wash zijn een eigen nieuw spel van dezelfde maker.
+Een uitgever met een groot spel kan zijn kleine spellen dus een gastplek geven. Wij hebben geen uitgever; voor ons tellen alleen de paren tussen echt verschillende makers, en die zijn zeldzamer.
+
+### Hoe makers aan een crossover kwamen (wat de bron zegt)
+- **Rusty's x Vampire Survivors:** "the kind folks over at Poncle were playing my silly little game, and had the idea of 'What if Poe retired?'. They reached out". De grote maker speelde het kleine spel en vroeg het zelf. Daarna: "This collaboration has opened the doors to more opportunities", en vier maanden later kwam Balatro.
+- **BuGarden x Mushroom Nook:** "Thanks to a wonderful coincidence (and a lovely introduction from players in our community!)". Spelers brachten de makers samen.
+- **Bongo Cat:** steeds "a good friend of ours" of "our friends", en één keer een spel dat ze zelf uitgeven (Tap Tap Loot, Nightwater).
+- **Tiny Pasture** deed er zes in een half jaar (Sultan's Game, Bugtopia, Backpack Battles, Ropuka, Sanfu, Monster Farm), twee daarvan op de dag na de lancering van het andere spel. Een groot bureaubladspel dat graag crossovers doet, is zelf een plek waar een nieuw spel kan aankloppen.
+
+### Drie lessen
+1. **Een crossover is een update, geen marketingtruc.** De drie sprongen kwamen bij een crossover die als grote update met nieuw spel kwam (Fish to Dish 3.0, Rusty's nieuwe kaart met eigen regel). Een plaatje ruilen tussen twee kleine spellen (Lakeside x Not Monday) gaf aan beide kanten niets. En ook de grote crossovers geven vaker niets dan wel (6 van 9).
+2. **Grootte telt, en de grote kiest.** Alleen paren met een veel groter spel lieten soms iets zien. Rusty kreeg Vampire Survivors omdat Poncle zijn spel speelde; je wordt gevraagd als je spel goed genoeg is om op te vallen. Dat past bij verhaal 8, 12 en 15: het spel zelf bepaalt het, de hulpmiddelen vermenigvuldigen.
+3. **Geen beloning voor een demo of verlanglijstje.** Het bekendste voorbeeld van een groot bureaubladspel dat kleine spellen hielp (Bongo Cat) moest dat na een jaar stoppen omdat het tegen de regels van Steam was. Een gastpersonage mag wel, en Valve moedigt het aan.
+
+### Voorstel voor Dortus deze week
+**Sem zet in `platformen/steam/marketing/bundels.md` (of een eigen kopje "Crossovers") drie regels: (1) nooit een beloning voor het spelen van onze demo, een verlanglijstje of een volg-actie, ook niet via een ander spel (Bongo Cat moest het in juni 2026 terugdraaien); als een groter spel ons zoiets aanbiedt, zeggen we nee en vragen we om een gastpersonage of een vermelding in hun update. (2) Een crossover pas na de lancering, als update met iets nieuws om te spelen, en alleen met een spel dat veel groter is dan wij; twee kleine spellen samen leveren niets op (Lakeside x Not Monday). (3) De natuurlijke vorm voor Hats is een gasthoed: een held uit een ander spel valt in ons hol en laat zijn hoed achter; en wij geven een hoed terug. Lijst van kandidaten die al crossovers doen met spellen van een andere maker: Tiny Pasture (zes in een half jaar), Rusty's Retirement, Spirit City, Bongo Cat (heeft hoeden).** Voor Olaf, geen haast: kan een hoed er later bij als databestand (beeld plus naam), zonder nieuwe code? Dan kost een gasthoed alleen beeld, en dat moet altijd van een mens of van de partner zijn (geen AI-beeld op Steam).
+
+### Eerlijk: wat ik niet weet
+- Kortingen: ik kan de prijsgeschiedenis niet lezen, dus een korting in dezelfde week kan elke sprong of daling verklaren (alleen de kortingen in aankondigingen staan in de CSV).
+- Wat de kleine spellen in de Bongo-reeks er echt aan overhielden; hun demospelers zijn achteraf niet te zien.
+- Of de sprong bij Tiny Pasture x Sultan's Game uit China kwam (beide Chinese makers); ik telde alle talen samen.
+- Welke regel Valve precies tegen Bongo Cat gebruikte.
+- Reviews zijn een trage maat; een crossover kan volgers of verlanglijstjes opleveren die pas later kopen. Die cijfers heeft alleen de maker.
 
 ---
 
