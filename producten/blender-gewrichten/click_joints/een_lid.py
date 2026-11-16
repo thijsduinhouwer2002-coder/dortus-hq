@@ -8,8 +8,10 @@ Oplossing, alleen als het snijvlak het figuur op meer dan één plek raakt (ande
 2. De lus van het vlak rond de cursor kiezen. Aan elke kant het stuk dat aan die lus vastzit zoeken; het
    stuk dat alleen aan deze lus vastzit is het lid (het onderbeen). Hangt het aan beide kanten aan een andere
    lus vast (twee voeten op één voetstuk), dan niet snijden: melding VAST.
-3. H = convex omhulsel van het lid plus het stuk aan de andere kant tot `diepte` van het vlak (langs het oppervlak) (daar zitten
-   kom, naad en wig), een fractie groter. Raakt H een ander deel van het figuur: melding DICHT.
+3. H = convex omhulsel van het stuk rond het vlak (tot `diepte` aan beide kanten, aan de andere kant langs het
+   oppervlak gemeten; daar zitten kom, naad en wig) samen met het lid zelf (dichtgemaakt), een fractie groter.
+   Niet het omhulsel van het hele lid: een schuin onderbeen met voet raakte dan het andere been (ronde 2).
+   Raakt H een ander deel van het figuur: melding DICHT.
 4. Tijdens de snede (gewricht.bak en gewricht.boolean vragen STAND): de kopie van het figuur aan de kant van
    het lid krijgt eerst INTERSECT H; elk gereedschap dat van de andere kant iets afhaalt krijgt INTERSECT H.
    Buiten H snijdt dus niets: het andere been blijft heel in het deel aan de andere kant.
@@ -160,14 +162,38 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
                 if nd <= 2.5 * diepte and nd < afstand.get(g.index, 1e30):
                     afstand[g.index] = nd
                     heapq.heappush(rij2, (nd, g.index))
+    # Ronde 2: ook binnen een bol met straal `diepte` rond het midden van het gewricht (verder reikt geen vorm).
+    # Zonder bol pakte het omhulsel bij een kort dik been (Meshy man_backpack, diepte 25 mm) het kruis tot ver
+    # opzij, en daarmee het andere been.
+    # En alleen wat in het vlak dichter bij deze lus ligt dan bij een andere lus (het andere been): anders liep het
+    # stuk boven het vlak via het kruis tot op de binnenkant van het andere dijbeen.
+    midden = Vector((0.0, 0.0, vlak_z))
+
+    def mid(lus):
+        ps = [v.co.xy for e in lus for v in e.verts]
+        return sum(ps, Vector((0.0, 0.0))) / len(ps)
+    m0 = mid(lus0)
+    anderen = [mid(l) for l in lussen if l is not lus0]
+
+    def eigen_kant(co):
+        d0 = (co.xy - m0).length
+        return all(d0 <= (co.xy - c).length for c in anderen)
+
+    def bij(v):
+        return (v.co - midden).length <= diepte and eigen_kant(v.co)
     dicht, punten = set(afstand), set()
     for i in dicht:
         f = bm.faces[i]
         if afstand[i] <= 1.2 * diepte and max(abs(v.co.z - vlak_z) for v in f.verts) <= diepte:
-            punten.update(v.index for v in f.verts)
+            punten.update(v.index for v in f.verts if bij(v))
     bm.verts.ensure_lookup_table()
+    # 0.1.1 ronde 2 (Meshy man_backpack): niet het omhulsel van het hele lid, want een schuin onderbeen met voet
+    # gaf een omhulsel dat het andere been raakte. H = (omhulsel van alleen het stuk rond het vlak, tot `diepte`
+    # aan beide kanten) samen met (het lid zelf, dichtgemaakt). Beide een fractie groter.
     for i in stukken[lid]:
-        punten.update(v.index for v in bm.faces[i].verts)
+        f = bm.faces[i]
+        if max(abs(v.co.z - vlak_z) for v in f.verts) <= diepte:
+            punten.update(v.index for v in f.verts if bij(v))
     punten.update(v.index for e in lus0 for v in e.verts)
     # Convex omhulsel, daarna elke hoek `m` naar buiten.
     rl = max(v.co.xy.length for e in lus0 for v in e.verts)
@@ -182,11 +208,31 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
     for v in hb.verts:
         v.co += v.normal * m
     hb.normal_update()
+    # Het lid zelf: zijn vlakken, het gat bij het snijvlak dicht, `m` naar buiten.
+    lb = bmesh.new()
+    kaart = {}
+    for i in stukken[lid]:
+        f = bm.faces[i]
+        vs = []
+        for v in f.verts:
+            if v.index not in kaart:
+                kaart[v.index] = lb.verts.new(v.co)
+            vs.append(kaart[v.index])
+        try:
+            lb.faces.new(vs)
+        except ValueError:
+            pass
+    bmesh.ops.holes_fill(lb, edges=lb.edges[:], sides=0)
+    bmesh.ops.recalc_face_normals(lb, faces=lb.faces[:])
+    lb.normal_update()
+    for v in lb.verts:
+        v.co += v.normal * m
+    lid_open = sum(1 for e in lb.edges if len(e.link_faces) != 2)
+    LAATSTE["lid_open"] = lid_open
     # Raakt H een ander deel van het figuur?
     mag = stukken[lid] | dicht
-    bvh_h = BVHTree.FromBMesh(hb)
     bvh_w = BVHTree.FromBMesh(bm)
-    vreemde = sorted({j for _, j in bvh_h.overlap(bvh_w) if j not in mag})
+    vreemde = sorted({j for b in (hb, lb) for _, j in BVHTree.FromBMesh(b).overlap(bvh_w) if j not in mag})
     vreemd = len(vreemde)
     if vreemde:
         LAATSTE["vreemd_voorbeeld"] = [tuple(round(c, 1) for c in bm.faces[j].calc_center_median()) for j in vreemde[:4]]
@@ -195,16 +241,64 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
     bm.free()
     if vreemd:
         hb.free()
+        lb.free()
         return False, MELD_DICHT
+    h = _samen(hb, lb, frame, hulp, lid_open == 0)
+    hb.free()
+    lb.free()
+    STAND.update(h=h, kant=lid, solver=solver, bronnen={})
+    return True, None
+
+
+def _samen(hb, lb, frame, hulp, lid_dicht):
+    """H als één gesloten vorm: omhulsel rond het vlak plus het lid (Exact, UNION). Lukt dat niet of is het lid niet
+    dicht, dan beide vormen los in één mesh (de booleans rekenen dan met Self Intersection)."""
     hb.transform(frame)
+    lb.transform(frame)
     me = bpy.data.meshes.new("cj_een_lid")
     hb.to_mesh(me)
-    hb.free()
     h = bpy.data.objects.new("cj_een_lid", me)
     hulp.objects.link(h)
     h.hide_set(True)
-    STAND.update(h=h, kant=lid, solver=solver, bronnen={})
-    return True, None
+    me_l = bpy.data.meshes.new("cj_een_lid_l")
+    if lid_dicht:
+        lb.to_mesh(me_l)
+        lo = bpy.data.objects.new("cj_een_lid_l", me_l)
+        hulp.objects.link(lo)
+        m = h.modifiers.new("samen", "BOOLEAN")
+        m.operation, m.object, m.solver = "UNION", lo, "EXACT"
+        dg = bpy.context.evaluated_depsgraph_get()
+        ev = h.evaluated_get(dg)
+        nm = bpy.data.meshes.new_from_object(ev)
+        h.modifiers.remove(m)
+        bpy.data.objects.remove(lo)
+        bm2 = bmesh.new()
+        bm2.from_mesh(nm)
+        goed = len(bm2.faces) > 0 and all(len(e.link_faces) == 2 for e in bm2.edges)
+        bm2.free()
+        if goed:
+            oud = h.data
+            h.data = nm
+            bpy.data.meshes.remove(oud)
+            LAATSTE["h_soort"] = "samen"
+        else:
+            bpy.data.meshes.remove(nm)
+    if LAATSTE.get("h_soort") != "samen":
+        # terugval: beide vormen los in één mesh; de booleans rekenen dan met Self Intersection
+        alle = bmesh.new()
+        alle.from_mesh(h.data)
+        kaart = {v: alle.verts.new(v.co) for v in lb.verts}
+        for f in lb.faces:
+            try:
+                alle.faces.new([kaart[v] for v in f.verts])
+            except ValueError:
+                pass
+        alle.to_mesh(h.data)
+        alle.free()
+        LAATSTE["h_soort"] = "los"
+    if me_l.users == 0:
+        bpy.data.meshes.remove(me_l)
+    return h
 
 
 def _snijd_met_h(ob):
@@ -215,7 +309,7 @@ def _snijd_met_h(ob):
     m.object = STAND["h"]
     m.solver = STAND["solver"]
     if m.solver == "EXACT":
-        m.use_self = False
+        m.use_self = LAATSTE.get("h_soort") == "los"
         m.use_hole_tolerant = False
 
 

@@ -236,6 +236,47 @@ def nek(ob_naam):
         f"kogel_mm={inst.kogel_mm:.1f} nieuwe_delen={gesloten(nieuw)}")
 
 
+def knie_kogel(ob_naam):
+    """Gratis kogel in de linkerknie (16 nov, na de kniefout): op een verse kopie van het dichte figuur, as omhoog.
+    Telt of deel A alleen het linkerbeen is (x < 0) en uit één stuk bestaat."""
+    bron = bpy.data.objects.get(ob_naam)
+    if bron is None:
+        return
+    for pct in (27, 25, 29, 24, 31, 32):
+        c, breed = doorsnede(bron, pct / 100.0 * HOOGTE_MM, -1)
+        if c is None:
+            continue
+        kopie = bron.copy()
+        kopie.data = bron.data.copy()
+        kopie.name = ob_naam + "_kk"
+        for k in list(kopie.keys()):
+            if k.startswith("cj_"):
+                del kopie[k]
+        bpy.context.scene.collection.objects.link(kopie)
+        cur = bpy.context.scene.cursor
+        cur.location = c
+        cur.rotation_mode = "QUATERNION"
+        cur.rotation_quaternion = Vector((0, 0, 1)).to_track_quat("Z", "Y")
+        inst = bpy.context.scene.click_joints
+        inst.soort, inst.as_bron, inst.kogel_auto = "KOGEL", "CURSOR", True
+        voor = set(o.name for o in bpy.context.scene.objects)
+        actief(kopie)
+        try:
+            uitslag = bpy.ops.click_joints.plaats()
+        except RuntimeError as fout:
+            uitslag = f"fout: {str(fout).strip()[:200]}"
+        nieuw = [o for o in bpy.context.scene.objects if o.name not in voor and o.get("cj_deel")]
+        info = []
+        for d in nieuw:
+            xs = [(d.matrix_world @ v.co).x for v in d.data.vertices]
+            info.append((d.get("cj_deel"), round(min(xs), 1), round(max(xs), 1)))
+        log(f"{ob_naam} KNIE-KOGEL op ({c.x:.1f}, {c.y:.1f}, {c.z:.1f}): uitslag={uitslag} kogel_mm={inst.kogel_mm:.1f} "
+            f"delen={gesloten(nieuw)} x-bereik={info}")
+        if nieuw:
+            return
+        bpy.data.objects.remove(kopie)
+
+
 def main():
     args = sys.argv[sys.argv.index("--") + 1:]
     zip_pad, uit = args[0], args[1]
@@ -260,6 +301,7 @@ def main():
             if nieuw is not ob:
                 ob = nieuw
         naam = ob.name
+        knie_kogel(naam)
         knie(ob)
         nek(naam)
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uit, naam + ".blend"))
