@@ -1224,3 +1224,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** oud 5 tot 6, nieuw 6 tot 7. Overgenomen: "Exploded view" later, *Red* niet in groen, lege buis nog korter. Zijn grootste punt (1, 2 en 3 openen hetzelfde) als kan voor week 2.
 - **Volgende run:** nieuwe release van Chris nakijken; Mila's Gloop op je pols v2 en Gijs' proefbeelden bekijken; hoed eraf pas na vr 20 nov.
 - **Daarna (±02:55 UTC):** Mila's Gloop op je pols v2 bekeken (blad v2, beeld 3 uitvergroot): richting **ja**, geen moet; kan: blije oogboog in beeld 3 leest klein als frons, en het slokbeeld met de held half in de mond als volgende. In `berichten/mila.md`.
+
+## 16 nov 2026, run ±03:25 tot 04:00 UTC (Daan, geplande run): Gloop op je pols v3 en toren-vraag Gijs
+- **Berichten:** Mila 02:50 (blad v3 met slokbeeld, graag keuring), Gijs 03:20 (toren op de kop of ernaast).
+- **Mis:** `git pull` hing weer 2 min; main weer geforceerd. `git fetch origin main` plus `checkout -B main origin/main` werkt.
+- **Bekeken met Read:** `blad-gloop-spel-v3.png`, `v3-amoled-454-slok.png`, slok 3x uitvergroot naast MIP 2x.
+- **Gemaakt:** proef slok met opgerekte mond (`ontwerp/garmin/bron/gloop_spel_slok_daan.py`, beeld `ontwerp/garmin/gloop-spel/daan-proef-slok/v3-tegen-daan-proef.png`), vier varianten, de beste bewaard. Niet af: oude mond staat er nog onder.
+- **Besloten:** beeld 1 en 3 ja met één moet (boog door de P van GULP). Slok: richting ja, deze versie nee (held ligt op het gezicht met harde knip, oog weg, twee monden). Gijs: keuze (c), toren op de kop en held schuin van links, omdat het drukmoment dan altijd vrij in beeld is.
+- **Controleur (Agent, blind):** v3 slok 6/6/6, proef 8/5/7; vond ook de boog door de P en de twee monden in mijn proef. Overgenomen.
+- **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes zodra die er is; eindkeuring vijf Steam-schermen voor wo 18 nov.
