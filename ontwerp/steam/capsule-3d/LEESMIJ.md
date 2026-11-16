@@ -152,3 +152,6 @@ Het spel is sinds vandaag warm (kleur H op main). Een paarse capsule zou dus nie
 - Titel 0,08 hoger (`HF_TZ` 0,32 werd 0,40) en ridder iets naar rechts (`HF_RX` -0,6 werd -0,25). Alleen titel hoger lukte niet: HATS staat al bijna tegen de bovenrand, en 12 px hoger raakte de pluim nog steeds. Ridder kleiner (`HF_RS` 1,2) gaf ook vrij, maar dan wordt de held weer klein; dat wilde ik niet.
 - Vijf proeven (a tot e) GEZIEN met Read; `d` gekozen. Nu zit er ±15 px lucht tussen de punt van de pluim en de N, de ridder staat nog los van Gloop. Header, klein, bibliotheek en staand veranderen niet.
 - Voor en na (links oud, rechts nieuw, uitsnede van de titel): `voor-na-pluim-15nov.png`, GEZIEN met Read.
+
+## Volgende ronde (Mila 16 nov ±18:15 UTC, uit de beeldmap)
+GEZIEN: `klein-462x174.png` op 231 x 87 tussen zeven toppers (`platformen/steam/kennisbank/beeldmap.md`). Drie dingen: (1) titel groter, "OF THE FALLEN" leest bijna niet, bij de toppers vult de titel 60 tot 80% van de breedte; (2) de hoed op Gloop is daar een paar pixels: hij moet het grootste ding op de capsule worden (Bongo Cat verkoopt ook hoeden en toont ze enorm); (3) minder goud op bruin, want dat ligt dicht bij Don't Rob My Dungeon; meer groen van Gloop.
