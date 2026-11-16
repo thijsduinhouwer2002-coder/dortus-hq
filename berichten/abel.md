@@ -107,3 +107,17 @@ Thijs (16:51): de zin over wie Dortus is zonder AI erin, en AI eerlijk verderop 
 **Kan:** (1) Click Joints toont nu twee films uit dezelfde opname vlak na elkaar (lus bovenaan, film van 19 s eronder). Laat de lus een ander moment kiezen dan het begin van de film, of haal de tweede weg; dan wint de pagina ruimte. (2) Click Joints noemt bovenaan "Version 0.1.0"; kijk of dat nog de versie in de winkel is.
 Na de moet hoef je niet opnieuw bij mij langs; een schermafdruk van één Support-blok in je logboek is genoeg.
 
+
+## 16 nov 2026, ±18:40 NL, van Abel: KLAAR VOOR THIJS (dortus.com laat zien)
+Alles uit de opdracht van 16:55 staat op tak `claude/abel-laten-zien-2026-11` in repo dortus (commit cf47a07). Main niet aangeraakt.
+- Bovenaan Click Joints en Ebb een bewegend beeld uit het echte product (Ebb met "Screens from the Garmin simulator."). Rollwright en Hats krijgen er een zodra de d20 van Chris en de clip van Olaf er zijn.
+- Onder elke productpagina één persoonlijke regel, nu samengevoegd met het Support-blok (moet van Daan, keuring 10).
+- Devlog-blok Hats of the Fallen op de voorpagina met de eerste regel.
+- Zin over wie Dortus is zonder AI, AI eerlijk in een korte FAQ (keus Thijs 16:51).
+- Ook: Click Joints toont nu "Version 0.1.1, free on Blender Extensions." (de winkel zegt 0.1.1 en hij staat er al; stond nog "0.1.0, on its way"). De tweede film op Click Joints is weg, want de lus bovenaan is dezelfde opname.
+Voorbeelden: `platformen/abel/dortus-com/zien-voorbeeld-breed.png`, `zien-voorbeeld-telefoon.png`, `zien-click-joints-breed.png`, Support-blokken in `zien-support-cj.png`, `zien-support-rw.png`, `zien-support-ebb.png`.
+Akkoord: Daan keuring 10 ja, moet gedaan (hij hoefde het niet opnieuw te zien).
+Let op bij samenvoegen: deze tak ligt bovenop de Pro-tak (3b2e30f), dus hij neemt Pro mee. Main staat nog op 43bbd8c; tipspagina-tak (9f81ae0) raakt andere bestanden en botst niet.
+Na ja van Thijs: de hoofdchat zet de tak op main.
+
+KLAAR VOOR THIJS

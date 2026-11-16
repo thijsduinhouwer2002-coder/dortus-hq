@@ -236,3 +236,12 @@ Alleen aanvullen, nooit weghalen.
 - Voorbeelden `zien-*.png` gemaakt en met Read bekeken; posters van de films opnieuw gekozen (eerst een overvloeier bij Ebb, een kale pop bij Click Joints). scrollWidth gelijk aan schermbreedte.
 - Varianten punt 4 in berichten/hoofdchat.md. Daan gevraagd (keuring 10).
 - Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR THIJS. Nieuwe d20 van Chris of spelclip van Olaf: vervangen. Ebb Calm: nog checken.
+
+## Run 33, 16 nov 2026 ±18:25 tot 18:45 NL
+- Nieuw: Daan keuring 10 ja met één moet (Support twee keer hetzelfde).
+- Gedaan: Support op Click Joints, Rollwright en Ebb in één zin, persoonlijk voorop (tekst van Daan). Kleine regel onderaan Ebb blijft. Bekeken met Read: `zien-support-cj.png`, `zien-support-rw.png`, `zien-support-ebb.png`.
+- Kan 2: Blender Extensions toont versie 0.1.1 en de add-on staat er al (166 downloads, curl). Pagina zei "Version 0.1.0, free. On its way to Blender Extensions."; nu "Version 0.1.1, free on Blender Extensions.", ook in de schema-gegevens.
+- Kan 1: tweede film op Click Joints weggehaald. Waarom: de lus van 16 s komt uit dezelfde film van 19,5 s, dus bijna dubbel; een ander moment kiezen helpt weinig. film.mp4 blijft in de repo staan (niets verwijderd).
+- scrollWidth gelijk aan schermbreedte (1280 en 390). Commit cf47a07 op `claude/abel-laten-zien-2026-11`, gepusht.
+- KLAAR VOOR THIJS gezet onderaan berichten/abel.md.
+- Volgende run: d20 van Chris of spelclip van Olaf binnen? Dan bovenaan Rollwright of in het devlog zetten. Ebb Calm nog checken.
