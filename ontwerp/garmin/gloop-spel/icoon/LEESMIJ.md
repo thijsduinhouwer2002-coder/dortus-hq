@@ -1,5 +1,22 @@
 # Icoon Gloop-spel: voorstel (Mila, 16 nov)
 
+## Ronde 5 (±05:40 tot 06:10 UTC): donker warm, kroon bovenop. Voorlopige keus.
+Op Daans richting (16 nov 05:40): donker warm zoals de randen van het spelscherm, de schuine lichtbundel, geen paars als achtergrond, drie hoeden met een eigen omtrek en een donkere rand ertussen, bovenste hoed scheef binnen het vak.
+- **Keus: `icoon-500-r5-kroon-boven.png`** (launcher `launcher-40/60/80-r5-kroon-boven.png`). Onder op Gloop de puntmuts, daarop balanceert de hoge hoed op de punt, bovenop scheef de kroon. Bijna zwarte grot met een oranje spotlicht achter de toren, Gloop geeft mint licht, lichte warme rand om de hele toren en een donkere rand om elke hoed.
+- Waarom: vier blinde kijkers, elk nieuw, ons icoon telkens op een andere plek tussen dertien echte toppers uit de Connect IQ-winkel (`kijker-toppers-ronde5.png`):
+  - zacht bruin, toren klein (ronde 5a): 5/4/4, niet in top 3; "hoeden lopen in elkaar over, zwarte hoed valt weg".
+  - grotere hoeden met lichte rand (5b): 5/5/4, in A/B tegen 5a 6/5/5.
+  - zwarte grot met fel oranje spotlicht (5c): 7/5/5, **voor het eerst in de top 3**; de kroon onderaan leest als "emmer met munten".
+  - kroon bovenop (5d): **8/6/6 en als eerste genoemd** van alle veertien; A/B tegen 5c: 8/7/7 tegen 7/5/5. Hij noemt drie hoeden goed van onder naar boven en snapt het spel: "zo hoog mogelijk stapelen zonder dat de toren omvalt".
+  - Ter vergelijking: paars van ronde 3 kreeg 6/7/5 en kwam nooit in de top 3.
+- De grap: een hoge hoed die op de punt van een puntmuts balanceert, met de kroon er scheef op. Je ziet dat hij zo valt.
+- Eerlijk: alle drie hoeden en Gloop zijn de renders uit het spel; alleen de kroon is iets feller gezet (helderheid 1,3) omdat hij klein als goudklomp las. De bundel en het warme donker zitten in het spel.
+- Paars: de puntmuts is paars, maar dat is een hoed uit het spel, geen achtergrond.
+- Open (moet van kijker 4): Gloop en zijn oog vallen klein net weg, op 40 px is het oog "net te zien". Volgende stap: Gloop groter of hoger, toren iets kleiner. Daarna aan Daan voor fouten en leesbaarheid, dan pas aan Gijs.
+- Script: `ontwerp/garmin/bron/gloop_spel_icoon_r5.py bron-renders <uit>`.
+- GEZIEN met Read: alle vijf versies op 500, de kijkers 5a tot 5d op ware grootte en de A/B-stroken op 110/40/60/80 px.
+
+
 ## Ronde 3 blind gekeurd (±05:15 UTC): nog niet goed genoeg
 - Nieuwe kijker, ons icoon (vak 3) tussen dertien toppers: `kijker-toppers-ronde4.png`. Cijfers 6/7/5. Hij verwacht "een tamagotchi", niet een stapelspel; de drie die opvallen hebben allemaal een **donkere achtergrond** (raket, Fruit Spider, Simon).
 - **Volgende ronde (Mila):** donkere grot (bijna zwart met warme gloed), Gloop groter en lichtgevend, één nette hoge toren van 3 hoeden die duidelijk wiebelt (of een vallende held erboven met "!", dan zie je de spelactie). Dit icoon nog niet aan Gijs geven.
