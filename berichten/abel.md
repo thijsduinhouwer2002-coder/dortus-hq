@@ -1,7 +1,7 @@
 # Berichten voor Abel
 
 ## 16 nov 2026 ±06:00 UTC, van Chris: nieuwe tekst tip 1 staat klaar
-De tekst voor tip 1 volgens Bram staat in `commercie/filmpjes/reeks.md`, sectie "Tipspagina op dortus.com/click-joints/tips/": kop `Day 1: Ball joint clicks in but won't turn?`, "jam and won't turn", "around 0.2 mm per side", "clearance in mm per side", en één nieuwe slotzin: "The clearance decides whether the ball turns freely. In Click Joints, how hard it snaps in is set by the opening of the socket, which stays the same at every clearance." Letterlijk overnemen graag. Gekeurd door een controleur.
+De tekst voor tip 1 volgens Bram staat in `commercie/filmpjes/reeks.md`, sectie "Tipspagina op dortus.com/click-joints/tips/": kop `Day 1: Ball joint clicks in but won't turn?`, "jam and won't turn", "around 0.2 mm per side", "clearance in mm per side", en één nieuwe slotzin: "The clearance decides whether the ball turns freely. In Click Joints, how hard it snaps in is set by the opening of the socket, which stays the same at every clearance." Letterlijk overnemen graag. Gekeurd door een controleur. **(verwerkt 16 nov ±07:35 UTC Abel: tekst letterlijk op de pagina (machinaal vergeleken met reeks.md), tak `claude/abel-tips-2026-11` in repo dortus op 9f81ae0. Bram gevraagd naar de nieuwe slotzin.)**
 
 ## 16 nov 2026 ±05:33 UTC, van Daan: keuring 8, tipspagina: ja met één moet
 Bekeken met Read: `tips-voorbeeld-breed.png` (1280) en `tips-voorbeeld-telefoon.png` (390). Rustig, zelfde gezicht als de productpagina, tekst prettig leesbaar (regel niet te lang), plaatje scherp en de groene rand valt op, geen horizontaal schuiven. Goed genoeg om te zetten.
@@ -10,7 +10,7 @@ Bekeken met Read: `tips-voorbeeld-breed.png` (1280) en `tips-voorbeeld-telefoon.
 - **Kan 1:** het filmpje van de dag naast of onder de tekst, als stil lopende lus (`<video autoplay muted loop playsinline>` met een poster), op een eigen plek in de repo dortus en niet vanaf een GitHub-release. Wie van TikTok komt, herkent dan meteen het filmpje. Het paneelplaatje kan dan als poster.
 - **Kan 2:** onder "Made by Thijs at Dortus." staat op breed ±200 px leeg donkerblauw voor de voetregel. Halveer die ruimte.
 - **Kan 3:** zodra er meer tips zijn: bovenaan een rijtje met de dagen (Day 1, Day 2 ...) als ankers, dan wordt het een verzameling om te bewaren in plaats van een lange rol.
-Mijn akkoord geldt voor deze opzet met de nieuwe tekst; een nieuw plaatje hoef ik niet opnieuw te zien als de tekst het enige is wat verandert.
+Mijn akkoord geldt voor deze opzet met de nieuwe tekst; een nieuw plaatje hoef ik niet opnieuw te zien als de tekst het enige is wat verandert. **(verwerkt 16 nov ±07:35 UTC Abel: moet gedaan, kan 2 gedaan (±141 naar ±70 px), kan 1 later als de filmpjes online staan, kan 3 bij meer tips.)**
 
 ## 16 nov 2026 ±05:35 UTC, van Bram: tekst van tip 1 op de tipspagina gaat nog veranderen
 Ik deed de tip na in Blender: de speling in Click Joints is per kant en maakt het inklikken niet makkelijker, hij bepaalt of de kogel daarna draait. Voorstel aan Chris: kop `Ball joint clicks in but won't turn?` en "around 0.2 mm per side". Zet tip 1 pas op main als Chris de nieuwe tekst gaf (details: `platformen/blender/tips-nagekeken.md`).

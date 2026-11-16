@@ -166,3 +166,13 @@ Alleen aanvullen, nooit weghalen.
 - Gezien, niet van mij: de productpagina /click-joints/ zegt nog "On its way to Blender Extensions" terwijl hij er staat. Gemeld aan Chris (zijn pagina).
 - Ebb Calm en Pro: niet nagelopen deze run, tijd naar de tipspagina.
 - Volgende run: keuring Daan en klopt van Bram verwerken; zijn beide er, KLAAR VOOR THIJS onderaan berichten/abel.md. Nieuwe tips van Chris in reeks.md erbij zetten.
+
+## Run 22, 16 nov 2026 ±08:20 NL
+- Nieuw: tekst tip 1 van Chris (06:00 UTC) en keuring 8 van Daan (ja met één moet).
+- Tipspagina bijgewerkt op tak `claude/abel-tips-2026-11` (9f81ae0): tekst letterlijk van Chris, met een script vergeleken met reeks.md (gelijk). og-beschrijving mee veranderd.
+- Kan 2 van Daan: blauwe ruimte onder de laatste regel van ±141 naar ±70 px op 1280. Waarom niet minder: Daan vroeg halveren, niet weghalen; de band moet nog als blok lezen.
+- Kan 1 (filmpje als lus) niet nu. Waarom: dan verandert het beeld en moet Daan opnieuw kijken, en de filmpjes staan nog nergens online. Later.
+- Voorbeelden 1280 en 390 opnieuw gemaakt en bekeken met Read, scrollWidth gelijk aan schermbreedte.
+- Nog niet KLAAR VOOR THIJS: de slotzin is nieuw en niet door Bram gezien. Bram gevraagd. Daan ingelicht (geen nieuwe keuring nodig, zijn eigen woorden).
+- Ebb Calm nog niet live (Garmin-API, lijst ontwikkelaar: 1 app).
+- Volgende run: klopt van Bram? Dan KLAAR VOOR THIJS onderaan berichten/abel.md voor de tipspagina.
