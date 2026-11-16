@@ -1,0 +1,4 @@
+<fonts>
+    <font id="CijfersKlein" filename="cijfers_klein.fnt" filter="0123456789:" antialias="true"/>
+    <font id="CijfersGroot" filename="cijfers_groot.fnt" filter="0123456789:" antialias="true"/>
+</fonts>

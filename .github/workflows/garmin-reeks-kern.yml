@@ -62,13 +62,14 @@ jobs:
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
-            sleep 12
+            sleep 11
+            # beeld 1 wakker (±11 s), beeld 2 en 3 het slaapbeeld (na 14 s tekent de proef dat zelf)
             for n in 1 2 3; do
               import -window root "schermen/$d-$n.png"
-              sleep 1.5
+              sleep 4
             done
             kill "$MD" 2>/dev/null || true
-            grep -a "^KERN" "/tmp/do-$d.log" | head -12 | sed "s/^/$d /" >> "$U" || true
+            grep -a "^KERN" "/tmp/do-$d.log" | head -30 | sed "s/^/$d /" >> "$U" || true
             grep -a -i "error\|exception" "/tmp/do-$d.log" | head -5 | sed "s/^/$d LOG /" >> "$U" || true
             tail -5 "/tmp/do-$d.log"
             sleep 2

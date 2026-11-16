@@ -1,3 +1,4 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="icoon.png"/>
+    <bitmap id="Achtergrond" filename="achtergrond.png"/>
 </drawables>
