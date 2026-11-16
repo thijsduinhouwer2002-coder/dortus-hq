@@ -67,13 +67,17 @@ Commit 1aebd69 op tak `claude/garmin-ebb-101`.
 | Winkelbestand bouwt (job bouw, run 43882501055) | groen | lijst van jobs |
 | Alle horloges compileren (job alle-horloges, zelfde run) | groen, `COMPILEERT horloges: 56`, elk horloge drie keer ja | log gelezen |
 | Toetsen en schermen op 16 horloges (job bouw, run 43882501327) | groen | lijst van jobs; beelden uit het pakket `garmin-adem-schermen` bekeken |
-| Winkelplaatjes op 20 horloges (run 43882501055) | PLAATJESUITSLAG | |
-| Regelhoogte van de letters op 218, 240 en 360 gelijkgezet met de meting | LETTERUITSLAG | |
+| Winkelplaatjes op 20 horloges (run 43882501055) | de jobs van fr255s, fenix7s en fr265s: "geen crash", wereld gelijk op 0:30 en 2:30; de hele run liep om 15:24 UTC nog, eindkleur NIET gezien | logs van drie jobs gelezen; overzicht van 24 scènes op 218 px bekeken |
+| Regelhoogte van de letters op 218, 240 en 360 gelijkgezet met de meting | gemeten, nog niet gelijkgezet (zie onder) | regel LETTERHOOGTE in de drie logs |
 | Ja van Mila en Daan op 218, 240 en 360 | gevraagd, nog geen antwoord | |
 
 Zelf bekeken op ware grootte (pakket van run 43882501327): Forerunner 255S (218) elf beelden: de drie veiligheidsbladen, ademen met het grote getal, vandaag, 8 weken, het menu, de twee startschermen en "how it works". fēnix 7S (240) drie beelden, Forerunner 265S (360) drie, Venu 2S (360) vier. Alles staat binnen de ronde rand, de tekst is scherp en leesbaar, niets loopt over elkaar. Tussen "breathe in" en het grote getal zit op 218 en 240 ongeveer evenveel lucht als op de Forerunner 255 die al in de winkel staat (uitsnede drie keer vergroot naast elkaar gelegd). Geheugen op de 255S: hoogste stand 143 kB van 520 kB (27 procent, regel GEHEUGEN in `metingen.txt`).
 
-Niet gezien: de winkelplaatjes van de nieuwe maten (walvis, schildpad, sea log, eindscherm), en alles op een echt horloge.
+Winkelscènes op 218 px (Forerunner 255S, pakket `ebb-plaatjes-fr255s`, 157 scènes): 24 scènes verspreid over de reeks op ware grootte bekeken (inhouden met de tijd, ademen met het getal, menu, pauzemenu, "3 holds done", "calm done", sea log 8 van 24 en 24 van 24). Alles leest en staat binnen de rand. Krapste regel: "press START to breathe" op het inhoudscherm, die komt tot dicht bij de rand maar blijft erbinnen.
+
+Lettermeting (regel `LETTERHOOGTE` in de logs): 218 px xtiny 19, small 26, medium 32; 240 px 19, 29, 34; 360 px 29, 43, 48. In `bron/maak_letters.py` staat nu 19/25/29, 19/28/32 en 28/42/48. Wat dat betekent: op 218 en 240 (MIP) tekent de app met de systeemletters van het horloge (`Teken.mc`, `fX`, `fS`, `fM`), dus daar verandert het beeld niet door deze getallen. Op 360 (AMOLED) zijn onze eigen kleine letters 1 px lager dan de systeemletter; de 48 voor medium is onze eigen letter en zegt dus niets. Ik zet de tabel gelijk (218: 19/26/32, 240: 19/29/34, 360: 29/43/48) in dezelfde commit als de moets van Mila en Daan, zodat er één nieuwe run van 75 minuten komt en geen twee.
+
+Niet gezien: de winkelscènes van 240 en 360 (pakketten opgehaald, niet bekeken), de eindkleur van run 43882501055, en alles op een echt horloge.
 
 ## 6. Uploadblok voor Thijs (CONCEPT, staat nog NIET op `organisatie/lijst-thijs.md`)
 

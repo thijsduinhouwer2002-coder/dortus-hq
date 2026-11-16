@@ -692,6 +692,7 @@ Volledig in `commercie/ebb/naam-1.0.1.md` (gemeten op 23 zoekwoorden, nagekeken 
 4. **Calm: loslaten.** In de gewone zoekbalk staat Ebb op "calm" pas op 42 (wijzerplaten); het woord blijft in de eerste zin en de gratis Ebb Calm draagt het.
 5. **Wat is nieuw:** pas invullen als de horlogelijst vaststaat, met het aantal ("now runs on <aantal> Garmin watches, up from 28"), en ook in het Duits en Nederlands (kant-en-klaar in deel "Vraag 3"). "Nothing else changed" alleen als de code verder echt gelijk bleef.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+(verwerkt 16 nov ±15:10 UTC, run 117: Engels en Nederlands blijven, jouw Duitse naam overgenomen, Calm losgelaten; "wat is nieuw" in drie talen zonder "up from 28", omdat de winkel bij 28 regels 40 horloges toont. Zie `platformen/garmin/upload/ebb-1.0.1.md` en `berichten/chris.md`.)
 
 ## 16 nov 2026, 16:25, hoofdchat: Ebb 1.0.1, drie aanvullingen (Thijs deed zelf onderzoek)
 Thijs kreeg via Google dezelfde punten als Joris (prijs te hoog zonder reviews, naam klinkt als alle andere), plus twee nieuwe:
