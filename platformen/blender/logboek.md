@@ -572,3 +572,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Proef AI-figuren (voorstel Lars): vier Meshy-figuren (Hugging Face, MIT) door Pro 1.0.1 in de echte Blender 5.3.0, script `e2e/proef_ai_model.py`, uitslag en besluit in `ai-modellen-proef.md`. Make watertight werkt op alle vier; een gewricht in één knie snijdt beide benen door. Dat los ik op (taak bovenaan `taken.md`).
 - Les: Meshy-figuren kijken na het inladen naar +x, niet naar -y; eerst een render maken voor je op x en y gaat rekenen.
 - Les: in een opgeslagen .blend renderen ook verborgen objecten mee (`hide_set` is alleen de viewport); zet `hide_render` voor een keurbeeld.
+
+## 16 nov 2026, 00:10 tot ±00:55 UTC, Bram
+- Click Joints: 142 downloads (00:23, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen melding van moderatoren of Superhive in de berichten.
+- Opdracht hoofdchat 01:15 (kniefout gaat voor): oplossing gebouwd op tak `claude/blender-een-lid` (94ffe3f), nieuw `click_joints/een_lid.py` met haken in `gewricht.bak` en `gewricht.boolean`, ook aangeroepen in `betaald/scharnier.py`. Toets `e2e/toetsen_een_lid.py` (figuur met twee benen uit één stuk): Pro-scharnier in één knie snijdt nu alleen dat been, rechterbeen heel in B, voetstuk geweigerd met melding. Gratis kogel nog niet getoetst (proeffiguur geeft "sticks out of the mesh", ook ver uit elkaar). Gewone toetsen van de gratis en de betaalde versie liepen lokaal in 5.3.0 aan het eind van de run; uitslag volgende run in de taak.
+- Les: groei een gebied langs het oppervlak (Dijkstra over vlakken), niet op hoogte alleen; op hoogte liep het via het kruis naar het andere been en pakte het omhulsel beide benen.
+- Les: Blender 5.3.0 lokaal downloaden van download.blender.org werkt hier in seconden (in GitHub Actions gaf het een 403).
