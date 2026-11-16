@@ -54,6 +54,10 @@ jobs:
             monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || { case "$d" in fr55|fr245) echo "MISLUKT_KLEIN prg $d"; continue;; *) exit 1;; esac; }
             cp "/tmp/prg/gloop-proef-$d.prg" schermen/
           done
+          # Proef van het winkelbestand (.iq, alle horloges uit het manifest) met de wegwerpsleutel: alleen om te
+          # zien dat het pakket bouwt en hoe groot het is. Het echte bestand maakt de job iq-echt.
+          monkeyc -e -r -w -f monkey.jungle -y /tmp/key.der -o /tmp/prg/proef.iq > /tmp/iq-proef.log 2>&1 || { tail -40 /tmp/iq-proef.log; exit 1; }
+          echo "IQ_PROEF $(stat -c %s /tmp/prg/proef.iq) bytes, waarschuwingen: $(grep -ci warning /tmp/iq-proef.log || true)"
           # fr55 (208 px) en fr245 (240 px) zijn nieuw (run 110): mislukt het bouwen daar, dan gaat de rest door.
           # 30 beelden per horloge (was 26), zodat het eindscherm er altijd op staat.
           # Het potje speelt zichzelf: start na 6 s (zodat het startscherm op het eerste beeld staat), ronde van 30 s, daarna het eindscherm.
@@ -121,3 +125,75 @@ jobs:
             cd - >/dev/null; sleep $((poging * 3))
           done
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/garmin-gloop/$NAAM"
+
+  # Het winkelbestand, ondertekend met de ontwikkelaarssleutel van Dortus (geheim GARMIN_DEV_KEY, dezelfde als Ebb).
+  # Alleen met de hand (workflow_dispatch) of met "[release-gloop]" in het commitbericht, en pas als bouw groen is.
+  # Zoals bij Ebb: de image van een derde draait zonder netwerk in een job zonder schrijfrechten, zodat de sleutel er
+  # niet uit kan; alleen de job release mag schrijven en die draait de image niet.
+  iq-echt:
+    needs: bouw
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release-gloop]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      APP: producten/garmin-gloop
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Sleutel
+        env:
+          KEY: ${{ secrets.GARMIN_DEV_KEY }}
+        run: |
+          mkdir -p /tmp/k && chmod 700 /tmp/k
+          if [ -z "$KEY" ]; then echo "::error::Geen GARMIN_DEV_KEY, geen release"; exit 1; fi
+          echo "$KEY" | base64 -d > /tmp/k/key.der; echo "Ondertekend met GARMIN_DEV_KEY"
+      - name: .iq bouwen (alle horloges uit manifest.xml)
+        run: |
+          grep -q 'const AUTO = false;' "$APP/source/Bouw.mc" || { echo "::error::Bouw.AUTO staat aan"; exit 1; }
+          mkdir -p /tmp/uit && chmod 777 /tmp/uit
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro -v /tmp/uit:/uit "$IMAGE" -c \
+            'monkeyc -e -r -w -f monkey.jungle -y /k/key.der -o /uit/GloopHatTower.iq > /uit/bouw.log 2>&1; cat /uit/bouw.log; test -s /uit/GloopHatTower.iq'
+          rm -rf /tmp/k
+          ls -la /tmp/uit/GloopHatTower.iq
+          echo "Waarschuwingen: $(grep -ci warning /tmp/uit/bouw.log || true)"
+          cd /tmp/uit && sha256sum GloopHatTower.iq | tee GloopHatTower.iq.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gloop-hat-tower-iq
+          path: |
+            /tmp/uit/GloopHatTower.iq
+            /tmp/uit/GloopHatTower.iq.sha256
+            /tmp/uit/bouw.log
+
+  release:
+    needs: iq-echt
+    concurrency:
+      group: gloop-hat-tower-release
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: producten/garmin-gloop/versie.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: gloop-hat-tower-iq
+          path: iq
+      - name: Release op GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSIE=$(tr -d ' \n' < producten/garmin-gloop/versie.txt)
+          TAG="gloop-hat-tower-v$VERSIE"
+          gh release delete "$TAG" -R "$GITHUB_REPOSITORY" -y --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" -t "$TAG" \
+            -n "Gloop's Hat Tower $VERSIE voor de Connect IQ-winkel, ondertekend met de ontwikkelaarssleutel van Dortus. Commit $GITHUB_SHA, run $GITHUB_RUN_ID. Grootte: $(stat -c %s iq/GloopHatTower.iq) bytes. sha256: $(cut -d' ' -f1 iq/GloopHatTower.iq.sha256)" iq/GloopHatTower.iq iq/GloopHatTower.iq.sha256

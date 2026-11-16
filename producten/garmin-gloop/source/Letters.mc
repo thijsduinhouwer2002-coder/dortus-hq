@@ -130,7 +130,9 @@ module Letters {
         if (!inBalk) {
             balkOnder = (h * 0.50).toNumber();
         }
-        var balkBoven = (h * 0.16).toNumber();
+        // Balk over de volle bovenkant (kan 5 van Daan, 16 nov 09:50 UTC): zo steken er geen halve,
+        // afgekapte hoeden boven de balk uit.
+        var balkBoven = 0;
         dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(0, balkBoven, w, balkOnder - balkBoven);
         dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
