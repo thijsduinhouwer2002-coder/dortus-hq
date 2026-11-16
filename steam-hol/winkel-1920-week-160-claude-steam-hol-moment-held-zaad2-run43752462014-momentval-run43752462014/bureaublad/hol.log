@@ -1,0 +1,39 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 58 s (klok terug: false): goud voor 1619, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Tibbe vs the Spike Pit: fled again.
+HOL opslag geladen: 1 terugkomers, 1626 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Fenna
+HOL kroniek 5.2 (wacht 1.1): Fenna has a map. It is wrong.
+HOL moment vast val t=8.9
+HOL meting t=10 beelden=62 helden=1 hol_vast=2
+HOL meting t=20 beelden=55 helden=1 hol_vast=2
+HOL meting t=30 beelden=57 helden=1 hol_vast=2
+HOL meting t=40 beelden=58 helden=1 hol_vast=2
+HOL meting t=50 beelden=57 helden=1 hol_vast=2
+HOL kroniek 55.0 (wacht 0.0): Wout knocks first. Polite.
+HOL held binnen: Wout
+HOL meting t=60 beelden=130 helden=2 hol_vast=2
+HOL kroniek 68.5 (wacht 0.0): Wout will not be leaving. +6
+HOL meting t=70 beelden=176 helden=1 hol_vast=3
+HOL meting t=80 beelden=57 helden=1 hol_vast=3
+HOL meting t=90 beelden=59 helden=1 hol_vast=3
+HOL meting t=100 beelden=57 helden=1 hol_vast=3
+HOL kroniek 107.5 (wacht 0.0): Pim picks the lock. It was open.
+HOL held binnen: Pim
+HOL meting t=110 beelden=96 helden=2 hol_vast=3
+HOL meting t=120 beelden=200 helden=2 hol_vast=3
+HOL kroniek 128.5 (wacht 0.0): Pim escaped with a limp.
+HOL meting t=130 beelden=176 helden=1 hol_vast=3
+HOL meting t=140 beelden=58 helden=1 hol_vast=3
+HOL meting t=150 beelden=59 helden=1 hol_vast=3
+HOL kroniek 150.7 (wacht 0.0): Lotte the Bard tunes his lute.
+HOL held binnen: Lotte
+HOL kroniek 156.2 (wacht 0.0): Lotte left gold and one boot. +6
+HOL kroniek 158.7 (wacht 2.5): New page: the Bard. The pit got him.
+HOL meting t=160 beelden=136 helden=1 hol_vast=3
+HOL meting t=170 beelden=57 helden=1 hol_vast=3
+HOL meting t=180 beelden=57 helden=1 hol_vast=3
