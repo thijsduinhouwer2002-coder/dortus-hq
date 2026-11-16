@@ -42,6 +42,13 @@ jobs:
           sleep 2
           simulator > /tmp/sim.log 2>&1 &
           sleep 8
+          # Speelbare proef voor een echt horloge (AUTO = false), komt naast de beelden op de tak schermen.
+          # Ondertekend met een wegwerpsleutel: alleen om via de kabel in GARMIN/APPS te zetten, niet voor de winkel.
+          grep -q 'const AUTO = false;' source/Bouw.mc || exit 1
+          for d in fr255 fenix7 venu3s venusq2; do
+            monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || exit 1
+            cp "/tmp/prg/gloop-proef-$d.prg" schermen/
+          done
           # Het potje speelt zichzelf: start na 2,5 s, ronde van 30 s, daarna het eindscherm.
           sed -i 's/const AUTO = false;/const AUTO = true;/' source/Bouw.mc
           grep -q 'const AUTO = true;' source/Bouw.mc || exit 1
