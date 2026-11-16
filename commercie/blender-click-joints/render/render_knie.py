@@ -146,11 +146,12 @@ bpy.ops.mesh.primitive_plane_add(size=hoogte * 20, location=(0, 0, lo))
 vloer = bpy.context.active_object
 vm = bpy.data.materials.new("vloer")
 vm.use_nodes = True
-vm.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.035, 0.037, 0.045, 1)
+vm.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.012, 0.013, 0.016, 1)
 vm.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.6
 vloer.data.materials.append(vm)
 
-zij = draai_as  # de scharnieras ligt links-rechts: van opzij zie je de knie buigen
+# de scharnieras ligt links-rechts: kijk van de kant waar de knie zit, anders staat het andere been ervoor
+zij = draai_as if (c - Vector((0, 0, c.z))).dot(draai_as) > 0 else -draai_as
 voor = -buig
 
 
@@ -164,9 +165,9 @@ def lamp(naam, richting, kracht, grootte, kleur=(1, 1, 1)):
 
 
 s = hoogte / 150.0
-lamp("hoofd", zij * 1.0 + voor * 0.7 + Vector((0, 0, 1.1)), 1.0e8 * s * s, hoogte * 0.9)
-lamp("vul", -zij * 0.4 + voor * 1.0 + Vector((0, 0, 0.3)), 3.0e7 * s * s, hoogte * 1.2, (0.85, 0.9, 1.0))
-lamp("rand", -voor * 1.0 + zij * 0.3 + Vector((0, 0, 0.8)), 6.0e7 * s * s, hoogte * 0.6, (0.75, 0.65, 1.0))
+lamp("hoofd", zij * 1.0 + voor * 0.7 + Vector((0, 0, 1.1)), 2.5e6 * s * s, hoogte * 0.9)
+lamp("vul", -zij * 0.4 + voor * 1.0 + Vector((0, 0, 0.3)), 8.0e5 * s * s, hoogte * 1.2, (0.85, 0.9, 1.0))
+lamp("rand", -voor * 1.0 + zij * 0.3 + Vector((0, 0, 0.8)), 1.5e6 * s * s, hoogte * 0.6, (0.75, 0.65, 1.0))
 
 cd = bpy.data.cameras.new("cam")
 cd.lens = 70
@@ -178,7 +179,7 @@ sc.camera = cam
 def zet_camera(hoek):
     r = Quaternion(Vector((0, 0, 1)), math.radians(hoek))
     richting = r @ (zij * 1.0 + voor * 0.35 + Vector((0, 0, 0.18)))
-    cam.location = midden + richting.normalized() * hoogte * 3.3
+    cam.location = midden + richting.normalized() * hoogte * 2.5
     cam.rotation_euler = (midden - cam.location).to_track_quat("-Z", "Y").to_euler()
 
 

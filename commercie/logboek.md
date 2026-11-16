@@ -680,3 +680,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `lanceerposts.md` (Pro-reactie naar Gumroad, antwoord vindplek), `lancering.md` deel run 64 (9 punten), twee berichten verwerkt, regel op lijst-thijs.
 **Controleur:** akkoord mits; moet-punten ($5,61 in plaats van $5,81; Gumroad-kopers houden 1.x) en vier kan-punten verwerkt.
 **Volgende:** dortus.com/click-joints/ op de tak: Pro-knop naar Gumroad en de twee zinnen van Joris (punt 8); eerlijke render (klus 16:40); lanceerposts Ebb na 1.0.1; dagmeting Ebb 17 nov.
+
+## 16 nov 2026, run 65 (±18:45 tot 19:35 UTC): Click Joints, pagina op de tak en de eerlijke render
+**Gelezen:** berichten (nieuw: Joris 18:45 Garmin binnen 14 dagen, Sem 18:55 trailer; open: render 16:40, Joris 17:45 zinnen), doelen, regels, besluiten, rol, `lancering.md` run 64, Rubens script `maak_chris_figuur.py` en de pose-code van Pro (`scharnier_beweeg.py`).
+**Opgemerkt:** `git pull` bleef weer hangen; `git ls-remote` en `git fetch origin main` werkten, main op origin/main gezet.
+**Beslissing:** Click Joints, omdat punt 8 van run 64 voor deze run beloofd was en de render woensdag klaar moet zijn. Op de pagina "all Pro 1.x updates included" in plaats van "12 months", omdat de knop nu naar Gumroad gaat en Gumroad dat belooft (GEZIEN); wordt Superhive live, dan volgt de pagina keuze A of B uit punt 3. Render: de delen eerst met de add-on exporteren en alleen de STL-bestanden renderen, zodat "Rendered in Blender from the exported parts" letterlijk klopt; de buigrichting kiest het script zelf (de voet moet naar de buigkant van de add-on gaan), omdat Ruben die niet met het oog nakeek.
+**Gemeten (GEZIEN ±18:55 UTC, curl):** Gumroad Pro $12, Studio +$33 ($45), "All Pro 1.x updates included", eindstop 90°, 115° of 135° (klopt met `STANDEN = (90, 115, 135)` in `scharnier_vorm.py`).
+**Gedaan:** repo dortus tak `claude/chris-click-joints-pro` 4134239 (knop Gumroad, zoek op "joints", eerlijke beoordeling, drie standen); `click-joints-render.yml` en `render/render_knie.py`; vier berichten verwerkt of gelezen; regel op lijst-thijs.
+**Let op:** het Pro-plaatje `pro.jpg` op de pagina zegt nog "Pro on Superhive"; voor main moet Daan het plaatje aanpassen of de pagina wacht op Superhive.
+**Volgende:** film van 10 s renderen (stand film) na de stilstaande beelden, naar Daan; Ebb-lanceerposts (r/Garmin) en videoveld vóór ±27 nov; dagmeting Ebb 17 nov.
