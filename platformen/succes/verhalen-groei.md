@@ -1,8 +1,73 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: Notebook Navigator (Obsidian-plugin die in ±een jaar de populairste werd: hoe kwam hij aan gebruikers, Reddit, YouTube, forum), 16 nov 2026 ±05:10 UTC. Vorige: Blender Secrets.
+bezig: niets (laatste: Notebook Navigator, gratis Obsidian-plugin, kanalen Reddit, forum, lange video en welkomstscherm, klaar 16 nov 2026 ±05:15 NL-tijd). Volgende: een nieuwsbrief als kanaal (bijvoorbeeld een plugin in This Week in Obsidian of Obsidian Roundup, gemeten in de downloads), of een Garmin-maker die met Reddit groeide.
 
 Nieuwste bovenaan.
+
+---
+
+## 5. Notebook Navigator (Johan Sanneblad, solo, Zweden): een gratis Obsidian-plugin die in een jaar de populairste werd, met een Reddit-post vóór de winkel, lange uitlegvideo's en een welkomstscherm met video
+
+Onderzocht 16 nov 2026, run 5. Open vraag uit run 4: Reddit of nieuwsbrieven als kanaal voor een kleine tool. Reddit zelf is voor ons niet leesbaar (403 met curl), dus ik zocht een maker wiens kanalen ik wel kon nameten. Notebook Navigator is een vervanger van de bestandslijst in Obsidian, "Apple Notes, Bear en Evernote voor Obsidian". Hij kwam in sep 2025 in de winkel en stond in aug 2026 bovenaan de Obsidian-gids. Het is gratis, dus het is een verhaal over bereik, niet over geld. Lars doet Obsidian-plugins als product; ik kijk hier alleen naar de kanalen.
+
+### Bronnen
+- Forum Obsidian (Discourse-JSON met curl): de aankondiging van 15 sep 2025 (https://forum.obsidian.md/t/105704), de draad "Missing community plugin" van 29 jul 2025 (https://forum.obsidian.md/t/103454), de oude verzoekdraad uit 2022 waarin hij reageerde (https://forum.obsidian.md/t/40361), zijn verzoek aan Obsidian van 1 dec 2025 (https://forum.obsidian.md/t/108593) en zijn profiel (https://forum.obsidian.md/u/johansan/summary.json).
+- Downloadreeks per week en versielijst: Obsidian Stats van Moritz Jung (https://www.moritzjung.dev/obsidian-stats/plugins/notebook-navigator/, data `/obsidian-stats/data/plugins/downloads/notebook-navigator.json`, curl).
+- Tellers nu: `community-plugin-stats.json` en `community-plugins.json` van obsidianmd/obsidian-releases (curl, 16 nov 2026 ±04:00 UTC); sterren, issues en commits van obsidianstats.com (https://www.obsidianstats.com/plugins/notebook-navigator, curl).
+- Zijn website (https://notebooknavigator.com/ en https://notebooknavigator.com/apple-notes/) en de README (raw.githubusercontent.com, curl).
+- Zijn YouTube-kanaal @JohanSanneblad: de openbare lijst met views en lengte (yt-dlp `--flat-playlist`). Uploaddatums kreeg ik niet (YouTube vraagt om in te loggen), dus de datums van de video's hieronder zijn afgeleid uit de versies.
+- Discord: aantal leden via de openbare uitnodiging (discord.com/api/v9/invites/6eeSUvzEJr?with_counts=true); de aanmaakdatum uit het server-id.
+- Buy Me a Coffee: https://www.buymeacoffee.com/johansan (teller op de pagina).
+- Nieuwsbericht van Sébastien Dubois, 20 aug 2026: https://www.dsebastien.net/notebook-navigator-is-now-obsidians-most-popular-plugin/
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Downloads nu (alle versies samen) | 1.150.094 | GEZIEN, stats.json 16 nov |
+| Eerste meetpunt, 15 sep 2025 | 33.231 | GEZIEN, Obsidian Stats |
+| Na ruim twee maanden | "over 150 000 downloads in just over two months" | EIGEN OPGAVE, forum 1 dec 2025 |
+| Groei per week, sep tot dec 2025 | ±8.400 tot 16.000 | GEZIEN |
+| Groei per week, apr tot sep 2026 | ±18.000 tot 31.000 | GEZIEN |
+| Groei per week, okt 2026 | ±12.000 tot 16.000 | GEZIEN (daling, oorzaak niet uitgezocht; rond 1 nov werden ook nepdownloads uit alle tellers gehaald, zie `platformen/obsidian/volgend-product.md`) |
+| Versies | 188 in ±14 maanden | GEZIEN |
+| Versie 3.4.3, ±4 weken de nieuwste (26 sep tot eind okt) | 75.036 downloads | GEZIEN |
+| GitHub-sterren, issues | 2.846 sterren, 1.300 issues (4 open), 1.986 commits | DERDEN, obsidianstats.com |
+| YouTube-abonnees | 2.960 | GEZIEN |
+| "Mastering Notebook Navigator" (29:48) | 118.000 views | GEZIEN |
+| "Mastering Notebook Navigator 3" (64:15), ±aug 2026 | 110.000 views | GEZIEN, datum DERDEN (Dubois) |
+| "Notebook Navigator 3.0 - The writer's release" (5:50) | 16.000 views | GEZIEN |
+| "What's New in Notebook Navigator 2.1" (12:38) | 8.200 views | GEZIEN |
+| Discord | 575 leden, server gemaakt 14 aug 2025 | GEZIEN |
+| Buy Me a Coffee | 546 supporters | GEZIEN, bedragen onbekend |
+| Zijn twee eerdere plugins | Featured Image 46.469, Pixel Perfect Image 31.280 | GEZIEN |
+| Ter vergelijking: oudere concurrent File Explorer Alternative (`file-tree-alternative`) | 360.438 | GEZIEN |
+
+**Pas op met het downloadcijfer.** Een download is ook een update. Met 188 versies telt elke bestaande gebruiker vele keren mee. Daarom kijk ik naar versie 3.4.3, die ongeveer vier weken de nieuwste was: 75.036 downloads. Dat zijn vooral gebruikers die bijwerkten plus nieuwe installaties. Mijn schatting: **in de orde van 70.000 gebruikers die bijwerken** (GOK, afgeleid uit die ene versie; wie automatisch bijwerken uit heeft, telt niet mee, wie op meer apparaten werkt telt dubbel). "Populairste plugin" in het bericht van Dubois slaat op de Obsidian-gids; in totale downloads staat hij nog ver achter Excalidraw (9,1 miljoen, GEZIEN). Waarop de gids sorteert, heb ik niet vastgesteld.
+
+### Wat hij deed, in volgorde
+1. **Eerst twee kleine plugins rond hetzelfde idee** (GEZIEN, forum en stats): Featured Image in nov 2024 ("Create Note Lists like Apple Notes, Bear and Evernote", nu 46.469) en Pixel Perfect Image in feb 2025 (31.280). Zijn grote plugin bouwt daarop voort; de feature images uit de eerste plugin zitten erin.
+2. **Een vraag die er al lang lag.** Op het forum stond sinds jul 2022 het verzoek "Plugin for 3-Pane File Explorer with Note Previews": 14.245 keer bekeken, 73 likes (GEZIEN). Hij schreef zelf: eerst "nearly six months of sporadic planning and feature collection, and then another six months of intense development. Over thousand hours spent" (forum 15 sep 2025).
+3. **Reddit vóór de winkel.** Op 9 jun 2025 plaatste hij in r/ObsidianMD "I missed Apple Notes, so I created it as an Obsidian plugin" (DERDEN: een gebruiker citeert de titel en datum op het forum; Reddit zelf kon ik niet lezen). Een dag eerder had hij de plugin ingediend; de keuring duurde tot eind jul en de opname tot ±15 sep. Gebruikers wachtten intussen: één schreef op 29 jul dat hij al 50 dagen elke keer in de winkel keek (GEZIEN). Op 27 aug wees een andere gebruiker al naar de website notebooknavigator.com (GEZIEN). De Discord kwam op 14 aug (GEZIEN). Hoeveel stemmen de Reddit-post kreeg, weet ik niet.
+4. **De dag van de opname** (±15 sep 2025): een aankondiging in Share & showcase (7.770 keer bekeken, 75 likes, GEZIEN) en een reactie in de oude verzoekdraad van 2022: "This plugin has everything everyone has ever requested when it comes to 3-pane layouts" (GEZIEN). Een moderator sloot die draad een dag later "because there are multiple plugins implementing this now".
+5. **Heel vaak bijwerken, en dat steeds melden in dezelfde draad.** 188 versies in 14 maanden (GEZIEN). Op 7 okt: "Lots of new features since I posted this two weeks ago" met een lijst; op 28 okt bij versie 1.7: "If you missed File Explorer Alternative (which hasn't been updated for over a year), this is for you!" (GEZIEN). Hij noemt dus met naam de verlaten concurrent.
+6. **De gebruikers voor zich laten pleiten.** Op 1 dec 2025 vroeg hij Obsidian om een instelling "standaard bestandslijst" voor plugins zoals de zijne. Dat verzoek kreeg 142 likes en 3.152 views (GEZIEN), meer dan zijn eigen aankondiging.
+7. **Lange uitlegvideo's, en de plugin wijst er zelf naar.** Twee masterclasses van 30 en 64 minuten haalden elk ±110.000 tot 118.000 views op een kanaal van 2.960 abonnees; zijn korte "wat is nieuw"-video's 8.200 en 16.000 (GEZIEN). De README zegt dat de plugin bij de eerste start een welkomstvenster toont met een YouTube-plaatje (de video), en bij elke update een "wat is nieuw"-venster met een banner of een filmpje (GEZIEN, README hoofdstuk 11.3). De masterclass van versie 3 heeft ondertiteling in 21 talen (README); Dubois schrijft dat hij de stem met ElevenLabs in 20 talen liet nasynchroniseren (DERDEN). Mijn lezing: elke nieuwe gebruiker krijgt de video te zien op het moment dat hij hem nodig heeft, en dat verklaart de vele views bij weinig abonnees (GOK, YouTube geeft de bron van views niet openbaar).
+8. **21 talen en pagina's per overstapper.** De plugin en de site zijn er in 21 talen (GEZIEN). De site heeft aparte pagina's voor wie wegkomt van Apple Notes, Bear, Evernote, OneNote en Day One, bijvoorbeeld "The Apple Notes alternative, for people who want more" met de stappen om over te stappen (GEZIEN). Wanneer die pagina's kwamen en hoeveel bezoek ze brengen, weet ik niet.
+9. **Gratis, met fooien.** GPL-3.0, gratis, met Buy Me a Coffee (546 supporters) en GitHub Sponsors (GEZIEN). Geen betaalde versie.
+
+### Drie lessen
+1. **Noem de app die mensen missen, in de eerste zin.** Zijn Reddit-titel was geen productnaam maar een gemis: "I missed Apple Notes, so I created it". Daarna zegt alles hetzelfde: "Apple Notes, Bear & Evernote for Obsidian", een pagina per app waar mensen vandaan komen, en met naam de verlaten concurrent. Wie die app kent, snapt in één regel wat het doet. Dit past bij de regel in `regels.md` dat de belofte meteen duidelijk moet zijn.
+2. **Zet de uitlegvideo in het product zelf.** De twee lange masterclasses haalden elk bijna 40 keer zoveel views als zijn kanaal abonnees heeft, de korte filmpjes maar een fractie (GEZIEN). De plugin toont de video bij de eerste start en een filmpje bij elke update. Zo hoeft de video niet gevonden te worden in een feed; hij wordt bekeken door wie het net installeerde. Dit is het derde verhaal (na VibeDesk en Blender Secrets) waarin uitleg die een vraag beantwoordt meer doet dan reclame.
+3. **Een Reddit-post vóór de lancering werkt als wachtlijst, als het product er daarna snel en vaak bij komt.** Mensen keken 50 dagen in de winkel. Daarna hield hij de aandacht vast met tientallen versies en meldingen in dezelfde draad. Let op: het bewijs voor de Reddit-post is één citaat; de kracht ervan (stemmen, bezoekers) kon ik niet meten.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Hij werkte ruim duizend uur aan één product met tientallen jaren ervaring (Apple, EA, Google volgens zijn site, EIGEN OPGAVE). Het product is echt goed; de kanalen versterkten dat, ze maakten het niet.
+- Een bestandslijst gebruik je elke dag; een kleine tool zoals Click Joints of Ebb gebruik je minder vaak. Het welkomstscherm werkt pas als er installaties zijn.
+- Het is gratis. Over geld leert dit verhaal alleen dat fooien bij ±70.000 gebruikers 546 supporters gaven (bedragen onbekend). Dat past bij hoofdles 5 in `lessen.md`: het betaalde deel haalt een klein deel van het gratis publiek.
+- Een dagelijkse plugin met veel versies krijgt veel update-downloads; vergelijk zijn 1,15 miljoen dus niet met de 41 van Rollwright.
+
+### Voorstel voor Dortus deze week
+**Bram: zet in Click Joints Pro (de betaalde versie op Superhive) bij de eerste start een klein welkomstvenster of een knop "Getting started" met de link naar één uitlegvideo van 1 tot 3 minuten. Chris maakt die video (echte Blender-beelden, een gewricht van begin tot print), en zet hem ook bovenaan de Superhive-pagina.** Waarom: wie Pro koopt, moet in de eerste minuut slagen; de video wordt dan bekeken door de mensen die hem nodig hebben, en het kost één venster. De regels van extensions.blender.org (geen reclame voor betaald in de gratis versie) gelden voor de gratis listing; voor Pro op Superhive niet, maar zet in de gratis versie niets. Voor de lanceerberichten van Click Joints en Ebb: Chris schrijft de eerste regel als gemis ("I wanted X in Blender, so I made it"), niet als productnaam; Thijs plaatst. Meten: views van die ene video tegen het aantal verkochte Pro-licenties.
 
 ---
 

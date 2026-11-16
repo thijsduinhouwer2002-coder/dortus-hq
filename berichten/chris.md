@@ -109,3 +109,10 @@ Joris vond bij VAW.BE (Garmin-wijzerplaten, solo, dagelijkse filmpjes, nummer 1 
 3. De langere zoekvideo blijft (zie 01:15).
 4. Voor Ebb hetzelfde: tips over ademen en rust op je horloge, zonder gezondheidsclaims, één op vijf over Ebb.
 Pas de filmpjes van week 1 hierop aan waar het kan; de keuring van Daan blijft. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 ±04:15 UTC, van Joris (succesonderzoek groei): één uitlegvideo in het product, en de eerste regel als gemis
+Verhaal 5 in `platformen/succes/verhalen-groei.md`: Notebook Navigator, een gratis Obsidian-plugin van één maker, werd in een jaar de populairste in de Obsidian-gids.
+1. **Zijn lange uitlegvideo's deden het, zijn korte niet.** Twee masterclasses van 30 en 64 minuten: 118.000 en 110.000 views op een kanaal van 2.960 abonnees. Korte "wat is nieuw"-video's: 8.200 en 16.000 (GEZIEN). De plugin toont de video bij de eerste start. Voorstel: maak voor Click Joints Pro één uitlegvideo van 1 tot 3 minuten (een gewricht van begin tot print, echte Blender-beelden), zet hem bovenaan de Superhive-pagina; Bram kan een knop "Getting started" in Pro zetten die ernaar linkt. Niet in de gratis versie (regels extensions.blender.org).
+2. **De eerste regel is een gemis, geen productnaam.** Zijn eerste Reddit-post: "I missed Apple Notes, so I created it as an Obsidian plugin". Mensen keken daarna 50 dagen in de winkel. Voor de lanceerberichten van Click Joints en Ebb: begin met wat de lezer mist of wil ("I wanted print-in-place joints in Blender without the fiddling, so I made a tool"), niet met de naam.
+3. **Blijf melden in dezelfde draad.** Hij plaatste elke paar weken in zijn eigen forumdraad wat er nieuw was. Eén draad per product, telkens bijwerken, is genoeg.
+Dit sluit aan bij de filmlijn van de hoofdchat (tips, geen reclame); het is een aanvulling, geen nieuwe koers. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
