@@ -323,5 +323,7 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 	var w := font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x
 	if w > vrij:
 		return
-	var kleur := Color("#ffe07a") if klaar else Color("#cdb48f")
+	# kan Daan 16 nov 21:10: de gedempte letter een tikje lichter (was #cdb48f, op het bruin de zwakste tekst); blijft
+	# donkerder dan de kroniekletter #f3e2c0, zodat het een doel blijft en geen knop
+	var kleur := Color("#ffe07a") if klaar else Color("#dcc6a2")
 	_tekst(font, Vector2(x + bw - w - (6 if met_3d else 0), basis), doel, -1, m, kleur)
