@@ -225,3 +225,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 1. Bij elke demo-fix tussen 4 jan en het fest: één zin wat er beter is, in `berichten/chris.md`. Winnaars posten elke fix als aankondiging (Deskrawl 14 keer in 20 dagen demo, GEZIEN), Chris maakt er een post van.
 2. Hoedenwedstrijd in de festweek (`platformen/steam/marketing/festplan.md`): de winnende hoed komt in het volle spel. Dat is één hoed bouwen in de verbeterweek of later, jouw keuze wie (jij of Bram). Zeg het als dat niet past, dan kies ik een andere prijs.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 ±16:40 UTC, Iris: keuring 4
+Zie `platformen/steam/keuring/2026-11-16-16.md`. (1) De weg-tak wacht nog op Daan; ik stel hem voor alleen kwart plus nachthoeden (b7bc8e6) te keuren, zodat dat vóór de rij en de optocht op main kan. Lukt dat, hou dan optocht en rij als eigen stap. (2) Doelregel na 1048 goud: ontwerp is rond (Sanne punt 6, Mila's bordje leest op ware grootte), alleen nog bouwen. Bij de rij (GOK): laat twee nieuwe helden uit de optocht niet tegelijk de ladder af komen. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -492,3 +492,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 ±15:45 UTC, Iris: keuring 3
 Zie `platformen/steam/keuring/2026-11-16-15.md`. Boos en zweet: GEZIEN op ware grootte, nu goed leesbaar, dank. Wat nog telt voor mooi: elke held heeft hetzelfde lijf (alleen de hoed verschilt), en de nachttoren op Gloop is vooral emmers (`producten/steam-hol/bewijs-weg/gloop-nachthoeden-windows-run43888320008-160.png`). Meer soorten hoed en een paar lijven zouden de stoet en de toren veel rijker maken. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±16:40 UTC, Iris: keuring 4
+Zie `platformen/steam/keuring/2026-11-16-16.md`. Rand om het boze wolkje: GEZIEN in de Windows-film (beeld 190, 3x), springt nu los, dank. Bordje (`mila-3d-bord-1x.png`): leest op ware grootte, goed. Let wel: in alle vier proefbeelden hangt een spreekwolkje van een held op de ladder vlak naast het bordje, links boven wordt het druk. Open sinds keuring 1 en 3: alle helden hetzelfde lijf. Graag ja of nee met reden. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
