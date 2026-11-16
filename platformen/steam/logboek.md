@@ -1263,3 +1263,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Bram (run ±11:10 tot 11:40 UTC)
 - Click Joints overgedragen aan Ruben (`platformen/blender/overdracht.md`); vanaf nu alleen Hats.
 - `claude/steam-hol-vleermuis-vol` bijgewerkt met Olafs laatste `claude/steam-hol-vol` (1d0b71f, geen botsing, verschil alleen vleermuis en toets). Vraag aan Olaf onder Vragen.
+
+## 16 nov 2026, Olaf (run ±11:15 tot 12:00 UTC)
+- Daans moet (spinrag heel en kleiner, zonder draad) gebouwd in `hol/hol_vast.gd`, GEZIEN op Windows-weekopname run 43856817033; hol vol met Brams vleermuis-vol naar main (626ab71).
+- Daans kan (zelfde hoed niet naast elkaar in de wand) geprobeerd met een vaste verdeling; in de echte weekopname niet beter, teruggedraaid, vraag aan Daan.
+- Fenna 11:15: meetpunt fest (15 en 18 jan) en "nooit de save wissen" in de planning; gezamenlijk doel nu niet (niet eerlijk te tellen zonder server).
+- Lokaal draait nu Godot 4.3 Linux headless voor de toetsen (download van de officiële release, alleen in de werkmap van deze run).

@@ -22,6 +22,8 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **ma 21 dec** | Thijs dient de demo in (3 weken vóór het fest, met de feestdagen ertussen). | |
 | **8 jan** | Eigen bericht met de asset kit van Valve. | |
 | **10 jan** | Aanmelden Next Fest februari. | |
+| **vr 15 jan** | **Meetpunt fest** (voorstel Fenna 16 nov 11:15, besluit Olaf): nieuwe verlanglijsten in de festweek tellen (Steamworks, Thijs leest af of geeft het cijfer). | |
+| **ma 18 jan** | **Uitslag fest, regel vooraf vastgezet:** minder dan 1.000 nieuwe verlanglijsten in de festweek (GOK als grens, geen eigen cijfers) betekent: de verbeterweek gaat naar de haak (capsule, eerste 30 seconden, korte tekst) en niet naar de demo zelf, en de hoofdchat bekijkt de lanceerdatum van maart opnieuw. Waarom: van 16 kerkerspellen voor de schermhoek met demo haalden er 3 de 100 reviews, mediaan 8 (`platformen/succes/verhalen-spellen.md`, verhaal 8). | hoofdchat |
 | **ma 18 jan tot ma 1 feb** | **Verbeterweek demo** (voorstel Fenna 16 nov, besluit Olaf): één verandering in de demo uit wat fest-spelers zeiden (reviews, discussies, streams), geen nieuwe inhoud; daarna de demo opnieuw indienen vóór Next Fest. Waarom: van de 11 bureaubladspellen uit Next Fest juni 2026 deden de spellen die na het fest iets veranderden het beter (`platformen/succes/verhalen-spellen.md`, verhaal 7). | Thijs (indienen) |
 | **22 feb tot 1 mrt** | Next Fest februari (demo doet mee). | |
 | **di 2 tot do 4 mrt** | **Voorstel uitbrengen** (advies Vera 16 nov, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`; Olaf eens). Korting eerste week klaar vóór 18 mrt; niet uitbrengen van 11 tot 25 mrt (Spring Sale). Schuift het: eind maart tot half april. **Besluit ligt bij de hoofdchat.** | hoofdchat |
@@ -32,7 +34,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 3. De eerste tien minuten zoals in `platformen/steam/features.md`: binnen 30 seconden gebeurt er iets leuks, binnen 10 minuten heb je één keer gekocht.
 4. Nooit straffen als je weg bent: terugkomen na 8 uur geeft alleen winst.
 5. Strook 96, 120 en 160 px werkt; klikken gaan door de lucht heen.
-6. Demo-einde na ongeveer 2 uur speeltijd: een vriendelijke regel, het spel blijft draaien, save gaat mee naar het volle spel.
+6. Demo-einde na ongeveer 2 uur speeltijd: een vriendelijke regel, het spel blijft draaien, save gaat mee naar het volle spel. **Nooit de save wissen** tijdens of tussen de fests, ook niet bij een update van de demo (Fenna 16 nov 11:15; Minimon wiste midden in het fest alle voortgang).
 7. Ja van Thijs op het uiterlijk (Gloop, helden, winkelbeelden) op de vaste momenten hierboven.
 Niets nieuws erbij na 18 dec. Wat niet op deze lijst staat, gaat naar na het fest.
 
@@ -46,3 +48,6 @@ Niets nieuws erbij na 18 dec. Wat niet op deze lijst staat, gaat naar na het fes
 
 ## Grootste risico (eerlijk)
 De winkelafbeelding. Onze huidige header is een uitvergrote spelstrook naast getekende illustraties van de toppers (`ontwerp/steam/winkelpagina/vergelijk-v5-header.png`). Bij Ebb lukte "mooi uit code" niet bij kleine figuren; pixelart op 16 px gaat code beter af, maar een capsule op 920x430 is een ander soort beeld. Halen we op 25 nov geen ja van Thijs op de capsule, dan leggen we de keuze tekenaar of niet opnieuw voor: een tekenaar heeft 1 tot 3 weken nodig, dus later dan 25 nov schuift de winkelpagina op.
+
+## Afgewezen of geparkeerd (met reden)
+- **Gezamenlijk doel voor alle spelers** ("samen 10.000 helden opgegeten, dan komt hoed X in de demo", voorstel Fenna 16 nov 11:15): **nu niet** (besluit Olaf 16 nov). Zonder eigen server kunnen wij het aantal niet eerlijk tellen, en een teller die we zelf invullen is niet eerlijk. Het is ook een nieuwe feature buiten de demolijst. Na het fest opnieuw bekijken, bijvoorbeeld met de Steam-statistieken (stats/achievements) die Steamworks zelf telt.
