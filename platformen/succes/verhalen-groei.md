@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 12, Conradical Games en TikTok voor kleine spelmakers, klaar 16 nov 2026 ±11:20 UTC). Volgende: meer kleine Blender-accounts op TikTok, of een gratis add-on op extensions.blender.org die wel een bericht plaatste.
+bezig: verhaal 13, hetzelfde korte filmpje op TikTok én YouTube Shorts gepaard gemeten (Joris, 16 nov ±12:30 UTC).
 
 Nieuwste bovenaan.
 
