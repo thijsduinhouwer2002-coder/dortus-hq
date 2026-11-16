@@ -1,0 +1,41 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 54 s (klok terug: false): goud voor 1637, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1644 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 1794822015
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Pim
+HOL kroniek 5.1 (wacht 1.0): Pim has a map. It is wrong.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL meting t=20 beelden=101 helden=1 hol_vast=1
+HOL kroniek 25.1 (wacht 0.0): Pim ran. Swore revenge.
+HOL kroniek 27.6 (wacht 2.5): New page: the Hero. He got away.
+HOL meting t=30 beelden=56 helden=0 hol_vast=1
+HOL meting t=40 beelden=10 helden=0 hol_vast=1
+HOL meting t=50 beelden=8 helden=0 hol_vast=1
+HOL kroniek 57.0 (wacht 0.0): Sir Tibbe polished his armor for this.
+HOL held binnen: Tibbe
+HOL meting t=60 beelden=50 helden=1 hol_vast=1
+HOL meting t=70 beelden=101 helden=1 hol_vast=1
+HOL meting t=80 beelden=101 helden=1 hol_vast=1
+HOL kroniek 82.4 (wacht 0.0): Tibbe fled, crying a little.
+HOL kroniek 85.0 (wacht 2.6): Page for the Knight. Ran off. Counts.
+HOL meting t=90 beelden=25 helden=0 hol_vast=1
+HOL meting t=100 beelden=8 helden=0 hol_vast=1
+HOL kroniek 101.6 (wacht 0.0): Wout read about you in a tavern.
+HOL held binnen: Wout
+HOL meting t=111 beelden=96 helden=1 hol_vast=1
+HOL kroniek 115.1 (wacht 0.0): Wout fell to the Spike Pit. +6
+HOL kroniek 117.6 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=121 beelden=73 helden=0 hol_vast=2
+HOL meting t=131 beelden=8 helden=0 hol_vast=2
+HOL meting t=141 beelden=11 helden=0 hol_vast=2
+HOL meting t=151 beelden=20 helden=0 hol_vast=2
+HOL kroniek 159.0 (wacht 0.0): Fenna knocks first. Polite.
+HOL held binnen: Fenna
+HOL meting t=161 beelden=47 helden=1 hol_vast=2
+HOL kroniek 164.5 (wacht 0.0): Fenna left gold and one boot. +6
+HOL meting t=171 beelden=75 helden=0 hol_vast=3
+HOL meting t=181 beelden=18 helden=0 hol_vast=3
