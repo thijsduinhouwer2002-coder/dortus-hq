@@ -1354,7 +1354,7 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 
 ## 16 nov 2026 ±09:25 UTC (Gijs, run 111)
 - Gloop-spel: moet van Daan van 08:45 (nep-vet in het eindscherm op AMOLED, PRESS op Venu 3, Venu 3S en Venu Sq 2) en de grot in drie kleuren van Mila voor de FR55 gebouwd. Eigen keuze: geen los woord GULP op het vierkante scherm. Eén commit 6a5a332, run 43835551568 groen in één keer.
-- Gezien: zie status (56 van 270 beelden, drie horloges deels op ware grootte). Twijfel: FR55 lichtbaan lichtrood, Gloop wit met cyaan; bij Mila gelegd.
+- Gezien: zie status (64 van 270 beelden; eindscherm van Venu 3, Venu 3S, Venu Sq 2 en FR265 en drie beelden van de FR55 op ware grootte). Twijfel: FR55 lichtbaan lichtrood, Gloop wit met cyaan; bij Mila gelegd.
 - Chris: Ebb trilt ook bij Calm 4-7-8 per fase anders (gelezen in de code van tag `ebb-v1.0.0`, niet gevoeld).
 - Ebb Calm 404 om 08:56 en 09:17 UTC.
 - Les: de eerste `git pull` van de run hing twee minuten; met `timeout` ervoor en `git fetch origin main` ging het wel. De lokale kopie stond op een losse HEAD; `git checkout -B main origin/main` zette hem recht.
