@@ -1,8 +1,58 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 24, Chrome Web Store: hoeveel gebruikers krijgt een nieuwe extensie van een kleine maker uit de winkel zelf (lanceerberichten op r/chrome_extensions naast de winkelpagina), 16 nov 2026 23:10 UTC. Daarna: Ebb en Ebb Calm als paar meten (Calm staat sinds 16 nov in de winkel, eerst een week laten lopen), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov).
+bezig: niets (laatste: verhaal 24, Chrome Web Store, wat de winkel een nieuwe extensie geeft, klaar 16 nov 2026 ±23:55 UTC). Volgende: Ebb en Ebb Calm als paar meten (Calm staat sinds 16 nov in de winkel, eerst een week laten lopen, rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 24. Chrome Web Store: hoeveel gebruikers krijgt een nieuwe extensie van een kleine maker uit de winkel zelf? 725 lanceerberichten op r/chrome_extensions (aug en sep 2026) naast de winkelpagina van vandaag gemeten
+
+Onderzocht 16 nov 2026 ±23:10 tot 23:55 UTC, run 24. Waarom: vannacht kiest de hoofdchat een nieuw platform (besluit Thijs 16 nov 23:10). De Chrome Web Store staat op plek 4 van Vera's nachtscan (`platformen/verkenner/nacht-2026-11-17.md`), en Lars schreef vanavond dat drie van zijn vier snelle eerste verkopen uit de zoekbalk van die winkel kwamen (`platformen/succes/snel-eerste-euros.md`). Dat zijn verhalen van makers die het gelukt is. Mijn vraag is de groeivraag ernaast: wat geeft die winkel een **gewone** nieuwe extensie, en wat maakt het verschil?
+
+### Bronnen en werkwijze
+- **Reddit** (GEZIEN, Arctic Shift, `https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=chrome_extensions`): alle 5.478 berichten van 1 jul tot 30 sep 2026 (drie gaten van een uur, de API gaf daar niets). Uit titel, link en tekst de extensie-ID gehaald: 1.712 extensies. Juli dient als buffer: alleen extensies die **voor het eerst in aug of sep** genoemd worden (1.093).
+- **Winkelpagina** (GEZIEN 16 nov ±23:20 UTC, curl op `chromewebstore.google.com/detail/<id>?hl=en`): naam, gebruikers, beoordelingen, versie, het Featured-badge. 42 van de 1.093 bestaan niet meer.
+- **Lanceerberichten**: titel met "built", "made", "launched", "first", "published" en dergelijke, zonder mijlpaal in de titel ("1.000 users", "$"): **725 extensies**. Daarbinnen **74** waar de maker het letterlijk een lancering of zijn eerste extensie noemt. Daarvan haalde ik er 3 af die aantoonbaar al ouder waren (Broken Link Checker, "about a year ago"; een whiteboard met "a few thousand installs" vóór de post; FreshView versie 3.2.1): **71 echt nieuwe**.
+- "Gebruikers" in de Chrome Web Store zijn gebruikers die de extensie nu hebben, geen totaal aantal downloads zoals bij Blender en Garmin. Staat er geen teller op de pagina (75 keer), dan tel ik 0.
+- Tabel: `platformen/succes/data/chrome-lanceringen-2026-11-16.csv` (extensie-ID, naam, datum eerste post, post-ID, punten, gebruikers, beoordelingen, versie, featured).
+- Google zelf: `https://developer.chrome.com/docs/webstore/discovery` (gelezen met curl).
+
+### 1. Een gewone nieuwe extensie heeft na 7 tot 15 weken ±15 gebruikers (GEZIEN)
+| Groep | Aantal | Mediaan gebruikers | 25% / 75% / 90% | 100+ | 1.000+ |
+|---|---|---|---|---|---|
+| Alle 725 lanceerberichten | 725 | 15 | 6 / 46 / 206 | 119 (16%) | 17 (2%) |
+| Echt nieuw, maker zegt "lancering" of "eerste" | 71 | 17 | | 11 (15%) | 0 |
+- Aug en sep geven bijna hetzelfde (mediaan 15 en 14), dus na de eerste weken groeit een gewone extensie nauwelijks nog.
+- De 17 met 1.000+ zijn bijna allemaal ouder dan de post (versies 4.2.6 en 5.4, "a Chrome extension I made 10 years ago"). Van de 71 echt nieuwe kwam de beste op **521** (Aspect Ratio Changer for YouTube, eerste extensie, post 29 aug) en **489** (Video Transcription, 5 sep).
+- Vergelijk (andere maat, dus voorzichtig): een nieuwe gratis add-on op extensions.blender.org haalt mediaan 11,5 downloads per dag (verhaal 15), dus ±800 na 10 weken. Ook als maar een derde van de Chrome-installaties blijft (GOK), is 17 gebruikers ±50 installaties: zo'n 15 keer minder.
+- Wat makers zelf zeggen klopt hiermee: "a few downloads a day without making any promotional posts" (CaptureFlow, post 1w670iy; nu 65 gebruikers), "3 weeks after submitting my first extension: 40 active users" (1vlcjee, 24 hadden hem al weer verwijderd), "it seemed very hard to get users" (een lezer onder 1w670iy).
+
+### 2. De Reddit-post zelf geeft niets (GEZIEN)
+- De 725 lanceerberichten halen **mediaan 1 punt**, 90% blijft op 3 of minder, maar 12 halen 10+. r/chrome_extensions is een plek waar makers elkaar posten, geen plek waar gebruikers zoeken.
+- Berichten met 5+ punten horen bij extensies met mediaan 45 gebruikers, die met 0 of 1 punt bij 13. Dat is eerder "betere extensie krijgt ook meer punten" dan "punten brengen gebruikers": met 5 punten bereik je geen 30 mensen extra.
+- Een piek uit eigen reacties op internet houdt niet: de maker van Shiritai (Japanse furigana) reageerde een dag lang op mensen die hun JLPT-uitslag deelden en kreeg 165 bezoekers op zijn winkelpagina, 10 keer normaal: "Then the JLPT posts stopped aaand so did the installs" (1w37li0).
+
+### 3. Wat wel verschil maakt: een naam die mensen intypen, en het Featured-badge
+- **Naam** (GEZIEN, eigen indeling): een naam die zegt wat het doet ("Aspect Ratio Changer for YouTube", "Broken Link Checker", met "for", ":" of " - " of vier woorden of meer) haalt mediaan **20** gebruikers en in 20% van de gevallen 100+; een losse merknaam ("Tabox", "Mimik") mediaan **10** en 11% 100+ (434 tegen 291 extensies). Dat klopt met Lars: "de naam is de zoekterm".
+- **Featured-badge** (GEZIEN): 19 van de 725 hebben het. Zij hebben mediaan **271** gebruikers, de rest 14. Dat is deels omgekeerd (Google geeft het aan goede extensies), maar twee makers beschrijven het voor en na:
+  - Broken Link Checker (eerste extensie, gebouwd met Cursor en Claude Code, 1vnjis9): badge aangevraagd twee maanden na de start, bij 300 tot 500 gebruikers. "Before it, I was getting a few installs a day. Afterward, the store started recommending the extension more often, and installs increased to roughly 10-20 per day. That pace has remained fairly consistent." Nu ±3.900 gebruikers per week. Wat volgens hem **niet** hielp: $100 reclame ("terrible"), Product Hunt (#17 van de dag, "can't say that it changed the trajectory"), 24 SEO-artikelen ("almost no traffic"). Wat wel een beetje hielp: de winkeltekst in 52 talen, omdat hij in het Frans en Japans op de eerste pagina komt.
+  - TextReads (1vw5q6l): badge aangevraagd 22 mei, antwoord van Google op 17 aug. "This led to some spike in user installs", en een paar dagen later de eerste 2 betalende gebruikers.
+- **Wat Google zegt** (DERDEN, developer.chrome.com): badges geven "higher rankings in search and filtering" en soms promotie. Het Featured-badge vraag je zelf aan (nominatie) en de eisen zijn onder meer: Engels, gepubliceerd en openbaar, geen overtredingen, en **"Your extension's core features must be accessible without additional credentials or payments."** Een extensie die alleen betaald werkt, of eerst een account vraagt, komt er dus niet voor in aanmerking. Wachten kan maanden duren (TextReads: bijna 3 maanden).
+
+### Drie lessen
+1. **De Chrome Web Store geeft een nieuwe extensie bijna niets vanzelf.** Mediaan ±15 gebruikers na 7 tot 15 weken, ook bij wie een lanceerpost deed; geen van de 71 echt nieuwe kwam boven de 521. De snelle eerste verkopen van Lars zijn de uitzonderingen bovenaan, geen gemiddelde. Wie daar kiest, moet een eigen route naar gebruikers meebrengen.
+2. **Gevonden worden in die winkel = de naam en het badge, niet de post.** Een naam die de zoekterm is, verdubbelt ruwweg de kans; het Featured-badge gaf twee makers een blijvende stap (van een paar per dag naar 10 tot 20 per dag). Posts op r/chrome_extensions halen 1 punt.
+3. **Het badge vraagt een gratis kern.** Een extensie die alleen betaald werkt, of een account eist, kan het badge niet krijgen. Gratis kern plus betaalde extra's (zoals Latr bij Lars, en ytbud met 7 dagen proef) past wel.
+
+### Voorstel voor Dortus deze week
+**Hoofdchat en Vera, bij de keuze van vannacht:** zet bij de Chrome Web Store (plek 4) de groeiverwachting erbij: zonder eigen kanaal ±15 gebruikers na 2 tot 3 maanden (mediaan, GEZIEN), dus eerste euro's zijn mogelijk (Lars) maar €100 per maand niet zonder iets extra's. Kiest de hoofdchat toch Chrome, dan vanaf dag 1 drie dingen, alle drie zonder Thijs behalve de aanvraag: (1) de naam is de zoekterm, met weinig concurrenten (Vera telt ze); (2) een gratis kern zonder account, betaald als extra, zodat het Featured-badge kan; (3) het badge aanvragen zodra de extensie live is en een eigen pagina op dortus.com heeft (het aanvragen staat op het account, dus dat zet de hoofdchat op `organisatie/lijst-thijs.md`). Geen Product Hunt en geen reclame, daar zeggen makers zelf van dat het niets deed.
+
+### Wat ik niet weet
+- De echte startdatum per extensie: de winkel toont alleen "Updated". De eerste post in aug of sep is een benadering; een deel was ouder (ik haalde de 3 duidelijke eruit bij de 71).
+- Alleen makers die posten zitten erin. Wie nooit post, heeft misschien nog minder, of juist een beter product en geen post nodig.
+- Of het Featured-badge oorzaak of gevolg is: de 19 met badge zeggen het niet, alleen de twee verhalen van makers.
+- Gebruikers per week tegen downloads: de vergelijking met Blender is grof (GOK op wie blijft).
 
 ---
 
