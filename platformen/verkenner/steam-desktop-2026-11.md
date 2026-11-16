@@ -186,3 +186,17 @@ Ook gezien: Winter Sale 17 dec 2026 tot 4 jan 2027, en Black Friday 26 tot 30 no
 - **Regels voor de lanceerkorting** (Steamworks-pagina Discounting, `partner.steamgames.com/doc/marketing/discounts`, GEZIEN 16 nov 07:40 UTC): de lanceerkorting begint bij het uitbrengen, loopt 7 tot 14 dagen, minimaal 10% en maximaal 40%; Valve raadt zelf ±10 tot 15% aan. Je stelt hem in naast de releasedatum op de app-pagina, niet in het gewone kortingenscherm. Daarna geldt een wachttijd: 30 dagen na het uitbrengen mag er geen andere korting, en een spel in die wachttijd mag niet meedoen aan een seizoensuitverkoop. Een korting van 20% of meer kan een melding sturen aan wie het spel op de verlanglijst heeft. Gevolg voor Hats: 15% gedurende 7 dagen past precies binnen de regels en loopt bij uitbrengen op 2 tot 4 maart af vóór 18 maart; de eerste gewone korting kan pas begin april. Of we 20% nemen om die extra verlanglijstmelding te krijgen, is een keuze voor Olaf en de hoofdchat; de melding "nu te koop" bij het uitbrengen gaat waarschijnlijk hoe dan ook naar de verlanglijsten (GOK uit algemene kennis, niet nagekeken; staat op de Steamworks-pagina Wishlists).
 
 Doorgegeven aan Fenna (berichten/fenna.md), zodat de lanceerdatum in de planning komt.
+
+## Aanvulling 5, 16 nov run 08:31: nulmeting voor een proef "wat doet een fest met volgers?"
+Vraag voor Hats: hoeveel volgers levert een thema-fest van Steam op? Dat bepaalt wat we van het Desktop Companion Fest (14 tot 18 jan) mogen verwachten. Er loopt nu een fest dat op onze hoek lijkt: het **Auto-Battler RPG Fest, 16 nov 18:00 UTC tot 23 nov 2026** (Steamworks, GEZIEN). Desktop Defender en een deel van de kerkerspellen op de kaart hebben het label Auto Battler.
+
+**Nulmeting, vóór de start (GEZIEN 16 nov, 04:40 tot 08:15 UTC, openbare volgers-XML, 1 verzoek per 10 s, bij 429 vijf minuten gewacht, niets omzeild):** van de 144 bureaubladapps met het label Auto Battler zijn er nu 144 gemeten (48 al eerder vandaag, de rest deze run), plus 284 apps zonder dat label als controle. Ruwe data: `data/steam-volgers-autobattler-2026-11-16.jsonl` naast `data/steam-volgers-2026-11-16.jsonl`.
+
+| groep (16 nov, vóór het fest) | aantal | mediaan volgers |
+|---|---|---|
+| Auto Battler, binnenkort | 82 | 9 |
+| Auto Battler, uit | 62 | 73,5 |
+| controle, binnenkort | 177 | 8 |
+| controle, uit | 107 | 20 |
+
+**Plan:** op 24 nov (dag na het fest) en op 1 dec dezelfde apps opnieuw meten en de groei van de Auto Battler-groep vergelijken met de controle, met `data/steam-fest-effect-script.py`. Wie echt meedeed is nu nog niet te zien (de festpagina is pas na de start gevuld); op 17 nov of later de deelnemers van de festpagina halen als dat lukt, anders blijft het label de grove maat. Eerlijk: niet elke app met het label doet mee, en de controlegroep doet soms aan andere acties mee; dit wordt een grove orde van grootte, geen bewijs.

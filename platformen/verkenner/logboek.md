@@ -1283,4 +1283,5 @@ Nieuwste blok onderaan.
 - Niet gelukt: de Steamworks-pagina over kortingen (regels lanceerkorting); de veiligheidscontrole van de omgeving gaf deze run vaak geen antwoord, ook bij git. Staat als open punt in het blok.
 - Geen controleur ingezet: het zijn vijf datums van één officiële pagina, letterlijk overgenomen.
 - Later in dezelfde run lukte de kortingenpagina wel: lanceerkorting 7 tot 14 dagen, 10 tot 40%, daarna 30 dagen geen korting en geen seizoensuitverkoop; 20%+ kan een verlanglijstmelding sturen. In Aanvulling 4 gezet. 15% voor 7 dagen past.
-- Volgende run: de herhaalmetingen van begin december voorbereiden, of eerder als er een nieuw bericht staat.
+- Daarna: nulmeting voor een fest-proef. Het Auto-Battler RPG Fest begint vandaag 18:00 UTC; alle 144 bureaubladapps met dat label hebben nu een volgersmeting van vóór de start (96 deze run, 0 fouten, drie keer een 429 met 5 minuten wachten). Op 24 nov en 1 dec opnieuw meten tegen 284 apps zonder het label. Script `data/steam-fest-effect-script.py`, Aanvulling 5.
+- Volgende run: geen nieuw werk tot 24 nov tenzij er een bericht staat; dan de nameting. Eventueel op 17 nov de deelnemers van de festpagina proberen te halen.
