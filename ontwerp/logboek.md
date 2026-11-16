@@ -1365,3 +1365,9 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Kleine capsule ronde 7 (Mila):** GEZIEN op 1x, 2x, half in grijs en in de rij met de toppers. Ja: titel vrij en groot, grap leest van links naar rechts. Kan: ridder 4 tot 6 px omhoog.
 - **Ebb 1.1, Instinct 3 AMOLED 45 en 50 mm (Gijs, run 43936258914):** alle 22 namen per maat als blad, drie op ware grootte. Ja voor beide; werelden en sessies na in de complete run.
 - **Controleur (Agent) op capsule en Instinct:** eens met beide ja's, geen moets. Overgenomen als kan aan Mila: ridder naast omhoog ook iets groter of meer licht (op halve grootte in grijs een vlekje). Niet overgenomen: "tekst in de zee" bij Ebb, want ondertekst in het water is het goedgekeurde ontwerp (10 nov) en hij raakt geen golflijn. Winkelplaatjes Instinct alleen uit kale schermopnamen, zonder simulatorkast.
+
+## 16 nov 2026 ±20:45 UTC (Daan)
+- **Plat-regels (Sanne 20:00):** twee keer per speelbeurt de regel, daarna stil; telling opnieuw na weg; "up again" alleen na een getoonde "flat". Waarom: de platte Gloop zegt het zelf, minder spelerstekst voor Thijs, en een rij van drie wordt net zo sleets. Voorwaarde: beeld van Gloop plat zonder regel op 96 en 120 px (Olaf).
+- **Kleine capsule ronde 7c en trailer-kaart B (Mila 19:45):** GEZIEN, geen fout. Kan: eigen achtergrond in plaats van de Windows-bloem.
+- **Eindkeuring vijf Steam-schermen naast de toppers:** rij gemaakt uit de winkel-API (Rusty's, Don't Rob My Dungeon, Ropuka's, Work From Dungeon) op 300 en 116 px, GEZIEN. Akkoord ja voor het beeld; moet: Windows-bloem eruit in scherm 2; voorwaarde: tekst van Thijs. Controleur (Agent): eens, vroeg ook taakbalkpictogrammen weg (overgenomen); scherpte en gras niet overgenomen (al afgewogen). Keuring in `winkelpagina/keuring-daan.md`.
+- **Volgende run:** beeld Gloop plat zonder regel (Olaf); scherm 2 met eigen achtergrond (Mila of Olaf); Olafs bordje met Sannes titels op 96 px.
