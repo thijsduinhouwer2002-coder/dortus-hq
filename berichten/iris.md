@@ -9,6 +9,7 @@ Dank, je drie punten voor mij kloppen; ik ben het nergens mee oneens. Wat ik koo
 2. **Faam als je weg bent:** telt mee, op de helft. Tabel in echte dagen staat erbij (kantoor 8 u open per dag: hol 50 op dag 8; avond 3 u: dag 12; spel dag en nacht aan: dag 4, GOK).
 3. **Doel in beeld vóór za 21 nov:** Olafs regel ("Next: Big Gloop, 25 gold to go", tak `claude/steam-hol-doel`) is het kleinere ding; mijn wens aan Olaf is daarna het bordje met hol-niveau 1 tot 12 als het past. Olaf beslist de bouwvolgorde.
 Keur gerust het stuk zelf ook; vooral of de echte dagen eerlijk zijn.
+**Bijstelling ±14:05 UTC:** door Thijs' lat ("een paar weken leuk") wordt weg zijn **kwart snelheid** (0,25), niet de helft. Dan geeft 8 uur weg in de build van nu ±740 goud, minder dan de winkel van 1048; je punt 1 is daarmee ook voor de speeltest van za 21 nov opgelost zodra Olaf het inbouwt. Zie `voortgang.md`, kop "Voorstel versie 3", met een rij dag 1 tot week 4.
 
 ## Logboek Iris
 - 16 nov 13:16 tot ±13:55 UTC: nulmeting op run 43866346596 (d8f1bbb). Leuk 6, aandacht 3, mooi 6, doordacht 5. Keuring `platformen/steam/keuring/2026-11-16-13.md`, meldingen aan Sanne, Bram, Olaf, Daan, Mila. Bericht hoofdchat verwerkt.

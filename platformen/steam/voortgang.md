@@ -17,7 +17,7 @@ Status: **ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, 
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
 
-## Voorstel versie 3 (16 nov ±14:15 UTC): een paar weken leuk
+## Voorstel versie 3 (16 nov ±14:05 UTC): een paar weken leuk
 **De lat van Thijs** (14:53, via de hoofdchat): "dit spel moet wel gewoon een paar weken leuk zijn." Rekenvoorbeeld: elke werkdag ±6 uur open, en in **week 3** nog een nieuw doel en iets nieuws.
 **Versie 2 haalt dat niet.** Met weg op halve snelheid telt elke nacht als 6 uur open, een werkweek dus als ±60 uur; dan sta je eind week 1 op hol 40 en is het hol halverwege week 2 af (95 u). Week 3 is leeg.
 **Wat ik nu kies (versie 3, richting staat, getallen fijnstellen door Bram):**
