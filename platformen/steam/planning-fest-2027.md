@@ -28,6 +28,33 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **22 feb tot 1 mrt** | Next Fest februari (demo doet mee). | |
 | **di 2 tot do 4 mrt** | **Voorstel uitbrengen** (advies Vera 16 nov, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`; Olaf eens). Korting eerste week klaar vóór 18 mrt; niet uitbrengen van 11 tot 25 mrt (Spring Sale). Schuift het: eind maart tot half april. **Besluit ligt bij de hoofdchat.** | hoofdchat |
 
+## Diep spel met level ups: wat kost ±100 uur (Olaf, versie 1, 16 nov 12:50 UTC; vraag hoofdchat 16 nov 13:10)
+Eerste schatting, vóór Sanne's `voortgang.md` (wo 18 nov). Uiterlijk do 19 nov reken ik het opnieuw met haar niveaus en Brams sim. "Dag" = een kalenderdag van één agent die elk uur draait, zoals in `samen-spelen.md`.
+**Waar we nu staan (GEMETEN):** Brams sim op het spel van nu (`producten/steam-hol/sim/uitkomst-diepte.txt`, 8 zaden): **de winkel is helemaal gekocht na 2,8 uur**; daarna stijgen alleen nog getallen (goud op de bank 37.000 bij 100 uur, 0 aankopen meer). Inhoud nu: 4 heldensoorten plus gewone, 10 hoeden, 1 val (stekelput) plus slijm, 2 upgradelijnen van 3 niveaus, 1 hol, 6 maten Gloop. Het spel van nu is dus ±3 uur diep.
+**(1) Wat in de demo van 18 dec, zodat een speler in 2 uur ziet dat het diep is.** Niet veel nieuwe inhoud, wel zichtbare doelen:
+- een **hol-niveau** met een balkje en de volgende ontgrendeling in beeld ("Level 7: Trick Lid"), niveau 1 tot ±10 haalbaar in 2 uur;
+- in de winkel en het Heldenboek de **dichte plekken** van wat later komt (grijze kaart met "Level 15", lege vakjes "4 of 12 heroes", "10 of 40 hats"), zodat je de omvang ziet zonder dat alles getekend is;
+- **één nieuwe val en één nieuwe heldensoort** speelbaar, zodat het eerste uur echt iets nieuws brengt na de stekelput.
+Kost: niveau en dichte plekken 3 tot 4 dagen code, val plus held ±2 dagen code en ±3 dagen beeld (Daan, Mila, Bram). Samen met samen-spelen A (±4 dagen, `samen-spelen.md`) en de vertaaltabel (±1 dag) is dat **±13 tot 15 dagen werk tussen 21 nov en 18 dec**, verdeeld over vier mensen. Krap maar haalbaar; als het niet past, valt samen-spelen C naar de verbeterweek (18 jan tot 1 feb) en de nieuwe heldensoort naar na de demo, niet het niveau.
+**(2) Wat kost ±100 uur inhoud (GOK, wordt do 19 nov scherper).** Een idler wordt diep door lagen, niet door 100 uur nieuwe plaatjes: drempels die steeds verder liggen kosten niets, nieuwe figuren wel. Mijn rekensom voor een voortgang die tot ±100 uur nieuwe doelen geeft:
+| Stuk | Hoeveel | Code | Beeld |
+|---|---|---|---|
+| hol-niveau tot 50, upgradelijnen naar ±6 van 10 niveaus | systeem | 4 tot 6 dagen | kaartjes, klein |
+| opnieuw beginnen met winst (Gloop verhuist naar een dieper hol, een blijvende bonus) | 1 lus | 4 tot 5 dagen | 1 tot 2 dagen |
+| heldensoorten | van 4 naar ±10 | 3 tot 4 dagen | 6 tot 9 dagen (±1 tot 1,5 per held met keuring) |
+| vallen | van 1 naar ±6 | 4 tot 5 dagen | 5 dagen |
+| hoeden | van 10 naar ±40 | 1 dag | 4 tot 6 dagen (pijplijn, ±1 tot 2 uur per hoed) |
+| diepten (ander uiterlijk van het hol) | ±3 | 2 dagen | 6 tot 9 dagen |
+| bazen of zeldzame helden | ±3 | 2 tot 3 dagen | 4 tot 5 dagen |
+| balans met de sim, toetsen, tekst erbij (±2 keer zoveel regels in de vertaaltabel) | | 5 tot 7 dagen | |
+| **Totaal** | | **±25 tot 33 dagen** | **±26 tot 36 dagen** |
+Samen **±50 tot 70 dagen werk**. Met vier mensen naast elkaar ±3 tot 4 weken, maar de echte rem is keuren: elk nieuw figuur gaat langs Daan, en Thijs keurt op vaste momenten. Reken op 6 tot 8 weken kalendertijd.
+**(3) Haalt begin maart dat?** Na de demo (21 dec) tot 2 maart zijn het ruim 10 weken, maar januari gaat voor een groot deel naar het fest (meetpunt, verbeterweek, opnieuw indienen). Eerlijk: **±100 uur met nieuwe figuren tot het eind haalt 2 maart niet met de kwaliteit die we voor de demo eisen.** Wat wel kan:
+- **A, mijn voorkeur:** uitbrengen begin maart met de hele lus (niveau 50, opnieuw beginnen, 6 vallen, ±8 helden, ±30 hoeden, 1 diepte extra): ±40 tot 50 uur met nieuwe dingen, daarna niveaus met alleen getallen tot 100 uur. Op de winkelpagina zeggen we "40+ hours" en niet 100. Diepten en bazen komen in gratis updates in april en mei, die elk een reden geven om terug te komen en een bericht op Steam.
+- **B:** uitbrengen eind maart tot half april (het schuifvak van Vera) met bijna alles. Kost de week na Next Fest, de beste week voor verlanglijsten.
+- **C: Early Access** in maart. Past slecht bij een spel van ±$5 dat "af" moet voelen; ik raad het af, maar de hoofdchat beslist.
+Grootste onzekerheid: niemand kan 100 uur speeltesten. Alleen de sim rekent het na; echte spelers zien we pas na het fest. Daarom de lus (opnieuw beginnen) vóór de extra figuren bouwen: die geeft de diepte, de figuren geven de kleur.
+
 ## Wanneer is de demo klaar? (vaste lijst, zoals bij Ebb: niet "als een keurder een 8 geeft")
 1. Volle toetsrun groen op Windows (Actions), geen crash in 60 minuten draaien.
 2. Zuinig: gemiddeld onder 1 CPU-seconde per 10 seconden op 120 px; stilstaand beeld bijna 0.
