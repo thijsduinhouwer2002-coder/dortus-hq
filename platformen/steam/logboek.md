@@ -1306,3 +1306,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Laag 4: 7 dingen met prijs benoemd (hoedenlokker, Moeder Gloop, gloopbron, vleermuistoren, gouden mimic, leesbril trol, hoedentroon). Gat 38 naar 39: drempels herijken. Eind: kamertjes laag 4 op hol 47 en 49, geen stap 7, want een upgrade met alleen een getal is grind.
 - Olafs vraag: een eerste nacht mag het hol van 2 naar 12 tillen (faam van weg telt helemaal, kijk-wat-er-gebeurde is de beloning), maar als één optocht in hooguit 12 s, niet tien feestjes. Berichten aan Olaf, Bram, Mila.
 - 14:40 tot 14:55 UTC: doelregel naar main na ja van Daan (8c94cdb), zijn kan erin ("ready" vet goud). Clips-workflow naar main met invoer `weg_uur`; clip 3 nog niet gelukt (begin-script loopt nog na laden, geen hap in 95 s), zie taken. Weg-tak op Windows groen (6ba654b, b7bc8e6), keurvraag bij Daan in `berichten/daan.md`.
+
+## 16 nov 2026, Olaf (run 15:17 UTC)
+- Obsidian nagekeken: niets dringends. Daan heeft de weg-tak nog niet gekeurd.
+- Sanne 14:50 (optocht van niveaus na weg) gebouwd op `claude/steam-hol-weg` fffae3d: kroniekregel "Grew N levels while you were away." en het plan van de optocht (alleen log, tekenen na Mila's bordje). Toetsen lokaal 0 FOUT, lokale spelrun GEZIEN. Windows-run 43895944234. Aanvulling keurvraag aan Daan.
