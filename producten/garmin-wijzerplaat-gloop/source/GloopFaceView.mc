@@ -5,6 +5,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
+import Toybox.Timer;
 import Toybox.WatchUi;
 
 typedef Plaatje as WatchUi.BitmapResource or Graphics.BitmapReference;
@@ -29,6 +30,14 @@ class GloopFaceView extends WatchUi.WatchFace {
     var slaap as Boolean = false;
     var gemeld as Boolean = false;
     var regelGemeld as Number = -1;
+    // Knipperen (Mila, 16 nov 12:10 UTC): alleen als het horloge wakker is (pols opgetild). Kort na het
+    // optillen en daarna om de paar seconden gaat het oog 150 ms dicht. In de slaapstand loopt er geen klok.
+    var knipKlok as Timer.Timer?;
+    var dicht as Boolean = false;
+    var dichtPl as Plaatje?;
+    const KNIP_EERST = 700;
+    const KNIP_DICHT = 150;
+    const KNIP_PAUZE = 3800;
     // Kijken wordt beloond (regel van Daan): komt er een hoed bij terwijl je niet kijkt, dan valt hij
     // pas op de toren als je de pols optilt. `gezien` is het aantal hoeden (met kroon) dat de drager
     // al heeft zien landen, `wek` staat aan in de eerste seconde na het optillen.
@@ -68,68 +77,69 @@ class GloopFaceView extends WatchUi.WatchFace {
 
     function onEnterSleep() as Void {
         slaap = true;
+        stopKnipper();
         WatchUi.requestUpdate();
     }
 
     function onExitSleep() as Void {
         slaap = false;
         wek = true;
+        startKnipper();
         WatchUi.requestUpdate();
     }
 
-    // Laadt het plaatje van een cijfer: nr 0 tot 9 is een uurcijfer (wit), 10 tot 19 een minuutcijfer (mint).
-    function laadCijfer(nr as Number) as Plaatje {
-        var r = Rez.Drawables.Uur0;
-        switch (nr) {
-            case 1: r = Rez.Drawables.Uur1; break;
-            case 2: r = Rez.Drawables.Uur2; break;
-            case 3: r = Rez.Drawables.Uur3; break;
-            case 4: r = Rez.Drawables.Uur4; break;
-            case 5: r = Rez.Drawables.Uur5; break;
-            case 6: r = Rez.Drawables.Uur6; break;
-            case 7: r = Rez.Drawables.Uur7; break;
-            case 8: r = Rez.Drawables.Uur8; break;
-            case 9: r = Rez.Drawables.Uur9; break;
-            case 10: r = Rez.Drawables.Min0; break;
-            case 11: r = Rez.Drawables.Min1; break;
-            case 12: r = Rez.Drawables.Min2; break;
-            case 13: r = Rez.Drawables.Min3; break;
-            case 14: r = Rez.Drawables.Min4; break;
-            case 15: r = Rez.Drawables.Min5; break;
-            case 16: r = Rez.Drawables.Min6; break;
-            case 17: r = Rez.Drawables.Min7; break;
-            case 18: r = Rez.Drawables.Min8; break;
-            case 19: r = Rez.Drawables.Min9; break;
-            case 20: r = Rez.Drawables.Grijs0; break;
-            case 21: r = Rez.Drawables.Grijs1; break;
-            case 22: r = Rez.Drawables.Grijs2; break;
-            case 23: r = Rez.Drawables.Grijs3; break;
-            case 24: r = Rez.Drawables.Grijs4; break;
-            case 25: r = Rez.Drawables.Grijs5; break;
-            case 26: r = Rez.Drawables.Grijs6; break;
-            case 27: r = Rez.Drawables.Grijs7; break;
-            case 28: r = Rez.Drawables.Grijs8; break;
-            case 29: r = Rez.Drawables.Grijs9; break;
-            default: break;
+    function onShow() as Void {
+        if (!slaap) {
+            startKnipper();
         }
-        return WatchUi.loadResource(r) as Plaatje;
     }
 
-    function laadLijnHoed(k as Number) as Plaatje {
-        var r = Rez.Drawables.HoedAod0;
-        switch (k) {
-            case 1: r = Rez.Drawables.HoedAod1; break;
-            case 2: r = Rez.Drawables.HoedAod2; break;
-            case 3: r = Rez.Drawables.HoedAod3; break;
-            case 4: r = Rez.Drawables.HoedAod4; break;
-            case 5: r = Rez.Drawables.HoedAod5; break;
-            case 6: r = Rez.Drawables.HoedAod6; break;
-            case 7: r = Rez.Drawables.HoedAod7; break;
-            case 8: r = Rez.Drawables.HoedAod8; break;
-            case 9: r = Rez.Drawables.HoedAod9; break;
-            default: break;
+    function onHide() as Void {
+        stopKnipper();
+    }
+
+    // In de bouwstraat (Bouw.AUTO) loopt de klok niet: daar bepaalt de stand of het oog dicht is,
+    // zodat het knipperbeeld op een vast plaatje staat.
+    function startKnipper() as Void {
+        if (Bouw.AUTO) {
+            return;
         }
-        return WatchUi.loadResource(r) as Plaatje;
+        var k = knipKlok;
+        if (k == null) {
+            k = new Timer.Timer();
+            knipKlok = k;
+        }
+        k.stop();
+        dicht = false;
+        k.start(method(:knipDicht), KNIP_EERST, false);
+    }
+
+    function stopKnipper() as Void {
+        var k = knipKlok;
+        if (k != null) {
+            k.stop();
+        }
+        dicht = false;
+    }
+
+    function knipDicht() as Void {
+        var k = knipKlok;
+        if (k == null || slaap) {
+            return;
+        }
+        dicht = true;
+        WatchUi.requestUpdate();
+        k.start(method(:knipOpen), KNIP_DICHT, false);
+    }
+
+    function knipOpen() as Void {
+        var k = knipKlok;
+        dicht = false;
+        if (k == null || slaap) {
+            return;
+        }
+        WatchUi.requestUpdate();
+        k.start(method(:knipDicht), KNIP_PAUZE, false);
     }
 
     // Het cijfer op vak 0 tot 3 (tiental en eenheid van de uren, daarna van de minuten). Laadt alleen
@@ -137,7 +147,7 @@ class GloopFaceView extends WatchUi.WatchFace {
     function cijfer(vak as Number, nr as Number) as Plaatje {
         var c = cij[vak];
         if (c == null || cijNr[vak] != nr) {
-            c = laadCijfer(nr);
+            c = Laad.cijfer(nr);
             cij[vak] = c;
             cijNr[vak] = nr;
         }
@@ -224,7 +234,21 @@ class GloopFaceView extends WatchUi.WatchFace {
         // Gloop en de toren, rechts.
         var gx = p[0] - m[0] / 2;
         var gy = p[1] - m[1];
-        dc.drawBitmap(gx, gy, pl[1]);
+        var oogDicht = dicht;
+        if (Bouw.AUTO) {
+            // Tweede foto van stand 1 (3.420 stappen): oog dicht.
+            oogDicht = (System.getTimer() / 1500) % 12 == 3;
+        }
+        if (oogDicht) {
+            var dp = dichtPl;
+            if (dp == null) {
+                dp = WatchUi.loadResource(Rez.Drawables.GloopDicht) as Plaatje;
+                dichtPl = dp;
+            }
+            dc.drawBitmap(gx, gy, dp);
+        } else {
+            dc.drawBitmap(gx, gy, pl[1]);
+        }
         tekenToren(dc, w, h, rond, gx + m[10], gy + m[11], toon, kroonOp, zweef);
 
         // Links, rechts uitgelijnd op de lijn van de tijd: datum, tijd, stappen en de hoedenregel.
@@ -328,7 +352,7 @@ class GloopFaceView extends WatchUi.WatchFace {
             var k = hoedOp(toon - 1, toon, kroonOp);
             var lh = lijnHoed;
             if (lh == null || lijnHoedNr != k) {
-                lh = laadLijnHoed(k);
+                lh = Laad.lijnHoed(k);
                 lijnHoed = lh;
                 lijnHoedNr = k;
             }

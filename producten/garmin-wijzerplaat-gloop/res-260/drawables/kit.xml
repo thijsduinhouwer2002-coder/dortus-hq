@@ -11,6 +11,7 @@
     <bitmap id="Hoed9" filename="hoed_09_veermuts.png" dithering="none"/>
     <bitmap id="Achter" filename="wp_achter.png" dithering="none"/>
     <bitmap id="GloopKijk" filename="wp_gloop_kijk.png" dithering="none"/>
+    <bitmap id="GloopDicht" filename="wp_gloop_dicht.png" dithering="none"/>
     <bitmap id="Uur0" filename="wp_uur_0.png" dithering="none"/>
     <bitmap id="Uur1" filename="wp_uur_1.png" dithering="none"/>
     <bitmap id="Uur2" filename="wp_uur_2.png" dithering="none"/>
