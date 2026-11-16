@@ -1,6 +1,6 @@
 name: Garmin Gloop-spel proef (Connect IQ simulator)
 
-# Bouwstraat voor de speelbare proef van het Gloop-spel (Gijs, 16 nov 2026), kopie van garmin-gloop.yml:
+# Bouwstraat voor de speelbare proef van het Gloop-spel (Gijs, 16 nov 2026), kopie van garmin-proef.yml:
 # compileren, Run No Evil-tests en schermafbeeldingen van een potje dat zichzelf speelt (Bouw.AUTO) in de echte
 # Connect IQ-simulator. Image ghcr.io/matco/connectiq-tester bevat SDK 9.2.0, apparaten en fonts (2026-08-31).
 # De image draait alleen in de bouw-job zonder schrijfrechten; alleen de job "schermen" mag pushen.
@@ -45,12 +45,12 @@ jobs:
           # Het potje speelt zichzelf: start na 2,5 s, ronde van 30 s, daarna het eindscherm.
           sed -i 's/const AUTO = false;/const AUTO = true;/' source/Bouw.mc
           grep -q 'const AUTO = true;' source/Bouw.mc || exit 1
-          for d in fr255 fenix7 venu3s; do
+          for d in fr255 fenix7 venu3s venusq2; do
             monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || exit 1
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             sleep 8
-            for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20; do
+            for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26; do
               import -window root "schermen/$d-$n.png"
               sleep 1.5
             done

@@ -12,6 +12,7 @@ class SpelView extends WatchUi.View {
     var klok as Timer.Timer?;
     var vorige as Number = 0;
     var wasEinde as Boolean = false;
+    var lietLopen as Boolean = false;
 
     const KLEUREN = [0xFF0000, 0x0055FF, 0xFFFF00, 0xAA00FF, 0xFFFFFF, 0x00AAAA] as Array<Number>;
 
@@ -57,11 +58,15 @@ class SpelView extends WatchUi.View {
         WatchUi.requestUpdate();
     }
 
-    // Alleen voor de bouwstraat: drukt zelf, en laat expres één soort held lopen (ongeveer 1 op 6).
+    // Alleen voor de bouwstraat: drukt zelf, en laat expres één held lopen (bij 4 hoeden),
+    // zodat "bye!" in beeld komt en de toren toch over de rand groeit.
     function speelZelf() as Void {
         if (spel.toestand == Regel.KLAAR && spel.fase > 2500) {
+            lietLopen = false;
             spel.druk();
-        } else if (spel.toestand == Regel.VALT && spel.y >= Regel.RAAK_BOVEN && spel.held != 5) {
+        } else if (spel.toestand == Regel.WEG) {
+            lietLopen = true;
+        } else if (spel.toestand == Regel.VALT && spel.y >= Regel.RAAK_BOVEN && (lietLopen || spel.hoeden != 4)) {
             spel.druk();
         } else if (spel.toestand == Regel.EINDE && spel.fase > 6000) {
             spel.druk();
@@ -91,6 +96,7 @@ class SpelView extends WatchUi.View {
         tekenToren(dc, w, h, vloer);
         tekenHeld(dc, w, h, vloer, gx);
         tekenGloop(dc, gx, gy, gr);
+        tekenSlok(dc, w, h, gx, gy, gr);
         tekenVliegendeHoed(dc, w, h, vloer, gx, gy - gr);
         tekenTijd(dc, w, h);
 
@@ -108,7 +114,7 @@ class SpelView extends WatchUi.View {
             dc.drawText(w / 2, (h * 0.48).toNumber(), Graphics.FONT_SMALL, regel, midden);
             dc.drawText(w / 2, (h * 0.84).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden);
         } else {
-            dc.drawText((w * 0.74).toNumber(), (h * 0.82).toNumber(), Graphics.FONT_SMALL, spel.hoeden.toString(), midden);
+            dc.drawText(w / 2, (h * 0.81).toNumber(), Graphics.FONT_SMALL, spel.hoeden.toString(), midden);
             if (spel.toestand == Regel.SLOK) {
                 dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
                 var kreet = spel.raak ? "GULP!" : "gulp";
@@ -179,20 +185,49 @@ class SpelView extends WatchUi.View {
         dc.fillCircle(gx, gy, gr);
         // Ogen.
         var o = gr / 3;
+        // Bij de slok zakken de ogen, want de bek staat dan wijd open bovenin.
+        var ey = (spel.toestand == Regel.SLOK) ? gy + o / 2 : gy - o / 2;
         dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(gx - o, gy - o / 2, o / 2 + 2);
-        dc.fillCircle(gx + o, gy - o / 2, o / 2 + 2);
+        dc.fillCircle(gx - o, ey, o / 2 + 2);
+        dc.fillCircle(gx + o, ey, o / 2 + 2);
         dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
         var kijk = (spel.toestand == Regel.VALT) ? -2 : 0;
-        dc.fillCircle(gx - o, gy - o / 2 + kijk, o / 4 + 1);
-        dc.fillCircle(gx + o, gy - o / 2 + kijk, o / 4 + 1);
+        dc.fillCircle(gx - o, ey + kijk, o / 4 + 1);
+        dc.fillCircle(gx + o, ey + kijk, o / 4 + 1);
         // Bek: wijd open als de held te pakken is, anders een streep.
         if (open) {
             dc.fillEllipse(gx, gy - gr + o, o * 2, o);
         } else if (spel.toestand == Regel.SLOK) {
-            dc.fillEllipse(gx, gy + o, o, o / 2);
+            // De bek tekent tekenSlok, met de held erin.
         } else {
             dc.fillRectangle(gx - o, gy + o, o * 2, 3);
+        }
+    }
+
+    // De slok (voorstel Mila, v3): de held steekt ondersteboven half uit de open bek,
+    // benen omhoog, en zakt in 0,3 seconde weg. Nog met eenvoudige vormen.
+    function tekenSlok(dc as Graphics.Dc, w as Number, h as Number, gx as Number, gy as Number, gr as Number) as Void {
+        if (spel.toestand != Regel.SLOK) {
+            return;
+        }
+        var hb = (w * 0.09).toNumber();
+        var hl = (h * 0.10).toNumber();
+        var zak = (hl * spel.fase / Regel.SLOK_MS).toNumber();
+        if (zak > hl) {
+            zak = hl;
+        }
+        var lip = gy - gr / 2;
+        var zicht = hl - zak;
+        // Open bek met donkere rand, bovenin de bol.
+        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+        dc.fillEllipse(gx, lip, hb, gr / 3);
+        if (zicht > 2) {
+            // Buik en twee benen die eruit steken.
+            dc.fillRectangle(gx - hb / 2 - 1, lip - zicht - 1, hb + 2, zicht + 1);
+            dc.setColor(0xAAAAFF, Graphics.COLOR_TRANSPARENT);
+            dc.fillRectangle(gx - hb / 2, lip - zicht + zicht / 2, hb, zicht - zicht / 2);
+            dc.fillRectangle(gx - hb / 2, lip - zicht, hb / 3, zicht / 2);
+            dc.fillRectangle(gx + hb / 2 - hb / 3, lip - zicht, hb / 3, zicht / 2);
         }
     }
 
