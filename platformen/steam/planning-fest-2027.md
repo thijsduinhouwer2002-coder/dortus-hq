@@ -55,6 +55,49 @@ Samen **±50 tot 70 dagen werk**. Met vier mensen naast elkaar ±3 tot 4 weken, 
 - **C: Early Access** in maart. Past slecht bij een spel van ±$5 dat "af" moet voelen; ik raad het af, maar de hoofdchat beslist.
 Grootste onzekerheid: niemand kan 100 uur speeltesten. Alleen de sim rekent het na; echte spelers zien we pas na het fest. Daarom de lus (opnieuw beginnen) vóór de extra figuren bouwen: die geeft de diepte, de figuren geven de kleur.
 
+## Diep spel opnieuw gerekend, in runs (Olaf, versie 2, 16 nov 22:25 UTC; vraag hoofdchat 16 nov 16:40, regel "Planning in runs")
+Versie 1 hierboven rekende in "dagen" van een agent. Dat was te ruim: vandaag (16 nov, ±12:00 tot 22:00 UTC, ±10 runs van mij) kwamen doelregel, kroniekfix, bordje, rij en optocht, kaartje, ritme, ritmemeting, graafbonus, gang zonder behang, kortere regels na weg, weg 0,12 met faam-plafond en de checklist app-aanmaken af, elk met Windows-run. **Een klein bouwstuk kost mij 1 run, een middelgroot 2 tot 4.** Een run is ±45 minuten, tot 24 per dag. Ik reken met **±16 runs per dag aan Hats**: de rest gaat naar Rollwright, Blender-2 (22 nov) en wachten.
+Basis voor de inhoud: Sanne `voortgang.md` versie 3 met Brams laatste run (2615151, 30 zaden: weg 0,12, hooguit 2 niveaus per nacht, drempels x 1,4; hol 12 na 1,1, 20 na 8,6, 30 na 33,6, 40 na 69,1, **50 na 119,5 open uur**).
+
+**(1) Demo van 18 dec (hol 1 tot 12 in ±2 uur, zichtbaar wat erna komt), in runs:**
+| Stuk | Olaf (code) | Mila (beeld) | Bram / Sanne | Wat echt wacht |
+|---|---|---|---|---|
+| niveaus koppelen aan wat erbij komt (ridder, dief, vleermuis, tweede put op hun niveau; nu titels, Sanne 19:00) | 2 tot 3 | 0 | Bram 1 sim | 1 Windows-run (±10 min, past in de run) |
+| dichte plekken in winkel en Heldenboek ("Level 13 and 37 more", lege vakjes) | 3 tot 4 | 1 tot 2 (grijze kaart) | | Daan 1 tot 2 rondes (elk ±1 uur) |
+| één nieuwe val | 2 tot 3 | 3 tot 4 | Bram 1 | Daan 2 rondes, Iris 1 |
+| één nieuwe held | 2 | 4 tot 6 | | Daan 2 rondes, Thijs 1 keer kijken |
+| samen spelen A (stats, doelhoeden) | 4 tot 6 | 0 | Sem doelen | **demo-app in Steamworks (Thijs, ±18 nov) en de Steam-keuring van de demo** |
+| vertaaltabel (±390 teksten) | 2 tot 3 | 0 | | vertalers: buiten ons (Fenna) |
+| speeltestpunten van za 21 nov | 6 tot 10 (GOK) | 2 tot 4 | Sanne | Thijs speelt één keer |
+| **Totaal** | **±21 tot 31 runs** | **±10 tot 16 runs** | **±3 tot 5 runs** | |
+Met 16 runs per dag is mijn deel **±1,5 tot 2 dagen**, Mila ±1 dag naast haar andere werk. Klok: **demo-inhoud af ±wo 25 nov 22:00 tot vr 27 nov 22:00 NL** als de speeltest van za 21 nov geen grote omweg vraagt. Wat echt de datum zet: de demo-app (Thijs) en de keuring van Steam na indienen op 21 dec; niet het bouwen.
+
+**(2) ±100 uur inhoud (voortgang versie 3: hol 1 tot 50, 3 nieuwe lagen, 5 nieuwe helden, 4 nieuwe vallen of lokkers, ±30 hoeden erbij, bewoners per laag), in runs:**
+| Stuk | Olaf (code) | Mila (beeld) | Bram (sim) |
+|---|---|---|---|
+| hol-niveau 13 tot 50, upgradelijnen naar 6 tot 10 stappen | 6 tot 10 | 4 tot 6 (kaartjes) | 3 tot 4 |
+| lagen: trap graven, nieuwe laag leeg, oude laag draait door | 8 tot 12 | 24 tot 36 (3 lagen x 8 tot 12: tegels, aankleding, bewoner) | 3 tot 4 |
+| 5 helden (Miner, Explorer, Witch, Hat Hunter, Crowned) | 8 tot 12 | 20 tot 30 | 2 tot 3 |
+| 4 vallen of lokkers (valluik, nep-schat, hoedenlokker, één per laag 4) | 8 tot 12 | 12 tot 16 | 2 |
+| ±30 hoeden (pijplijn) | 1 tot 2 | 15 (±½ run per hoed) | |
+| laagsterren, tekst, toetsen, vertaaltabel x2 | 8 tot 12 | | |
+| **Totaal** | **±39 tot 60 runs** | **±75 tot 103 runs** | **±10 tot 13 runs** |
+In dagen van 16 runs: **ik ±2,5 tot 4 dagen, Mila ±5 tot 7 dagen, Bram ±1 dag.** Versie 1 zei "±50 tot 70 dagen werk"; dat was in mensendagen gedacht en klopt niet met hoe snel we nu leveren.
+
+**Wat echt wacht (apart, eerlijk):**
+- **Keuring Daan en Iris:** elk nieuw figuur 1 tot 3 rondes van ±1 uur. Met ±40 figuren en hoeden is dat ±40 tot 120 runs wachttijd, maar die loopt naast ander bouwwerk; alleen het laatste figuur zit in de weg. Reken **+1 tot 2 dagen kalender** aan het eind.
+- **Thijs:** smaak en de keuze per laag (sfeer van een nieuwe laag zegt hij ja op). Als hij één keer per dag kijkt: 3 lagen = 3 dagen kalender minimaal, waarschijnlijk 1 tot 2 weken door de feestdagen.
+- **CI:** Windows-run ±10 min, duurtest 20 tot 25 min, valt binnen een run of de volgende. Geen rem.
+- **Echt spelen:** niemand kan 100 uur spelen. De sim rekent het na; wij draaien duurtests van 20 tot 60 min. Spelers zien de lange staart pas na de uitgave. Dat is het grootste risico, niet de tijd.
+- **Januari:** fest (14 tot 18 jan), meetpunt, verbeterweek en opnieuw indienen kosten ±20 tot 40 runs van mij, geen nieuwe inhoud.
+
+**(3) Haalt di 2 maart meer dan 40 tot 50 uur? Ja.** Bouwen kost ±1 week runs voor mij en ±1,5 week voor Mila; er zijn tussen 27 nov en 15 feb ruim 11 weken. Voorstel:
+- **Alles van versie 3 (hol 1 tot 50, 3 lagen) op 2 maart**, met een **bevriezing op ma 15 feb** (twee weken testen, en Next Fest 22 feb draait op de demo, niet op het volle spel).
+- **Volgorde van bouwen = volgorde van schrappen andersom:** eerst laag 2 en hol 13 tot 30 (hol 30 na ±33,6 open uur in Brams run van 22:35), dan laag 3 (hol 40 na ±69 uur), dan laag 4 met Hat Hunter en Crowned. Is er op 15 feb iets niet af, dan gaat alleen laag 4 naar een gratis update in april; de rest staat.
+- **Op de winkelpagina:** geen "100 hours". Schrijf alleen wat de sim en de duurtests laten zien, en zeg wat gemeten is ("about 40 hours to reach the third layer" of vergelijkbaar, Mila en Fenna kiezen de woorden). Na de eerste maand spelers kunnen we het aanpassen.
+- **Early Access is niet nodig** voor de tijd; mijn advies blijft het niet te doen.
+**Grootste onzekerheid:** Mila's tijd. Haar ±75 tot 103 runs naast Garmin en Tij zijn de echte rem. Als zij half aan Hats werkt, wordt het ±3 weken kalender voor beeld, nog steeds ruim voor 15 feb. Voorstel aan de hoofdchat: vanaf 28 nov Mila voor de helft vast op Hats tot 15 feb.
+
 ## Wanneer is de demo klaar? (vaste lijst, zoals bij Ebb: niet "als een keurder een 8 geeft")
 1. Volle toetsrun groen op Windows (Actions), geen crash in 60 minuten draaien.
 2. Zuinig: gemiddeld onder 1 CPU-seconde per 10 seconden op 120 px; stilstaand beeld bijna 0.
