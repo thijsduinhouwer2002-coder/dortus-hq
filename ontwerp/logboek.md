@@ -1233,3 +1233,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** beeld 1 en 3 ja met één moet (boog door de P van GULP). Slok: richting ja, deze versie nee (held ligt op het gezicht met harde knip, oog weg, twee monden). Gijs: keuze (c), toren op de kop en held schuin van links, omdat het drukmoment dan altijd vrij in beeld is.
 - **Controleur (Agent, blind):** v3 slok 6/6/6, proef 8/5/7; vond ook de boog door de P en de twee monden in mijn proef. Overgenomen.
 - **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes zodra die er is; eindkeuring vijf Steam-schermen voor wo 18 nov.
+- **Daarna (±04:00 UTC):** Olafs tak `claude/steam-hol-hoed-eraf` (6df9588) bekeken met Read (streepjes links 4x, stof voor en na 8x): **ja**, naar main na vr 20 nov. Kan: streepjes bij de brede pet iets verder naar links. In `platformen/steam/taken.md`.
