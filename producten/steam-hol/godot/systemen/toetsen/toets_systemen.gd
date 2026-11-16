@@ -142,7 +142,9 @@ func _init() -> void:
 	# rij bij de ingang (Sanne 16 nov 16:00): hooguit 4 meteen, rest wacht; zichtbaar = niveau - rij
 	var rq: Dictionary = HN.weg(0, 136, 0)
 	ok(rq.meteen == [2, 3, 4, 5] and int(rq.rij) == 7, "eerste nacht: hol 5 meteen, 7 in de rij (%s, %d)" % [str(rq.meteen), int(rq.rij)])
-	ok(rq.regels == ["Grew 4 levels while you were away.", "7 more to come as you play."], "regels na weg met rij (Daan 16:50): " + str(rq.regels))
+	# "Grew N levels" eruit (Iris keuring 6 tot 8, ja Daan 16 nov 20:50): alleen de rij-regel blijft
+	ok(rq.regels == ["7 more to come as you play."], "regels na weg met rij (Daan 16:50 en 20:50): " + str(rq.regels))
+	ok(HN.weg(0, 12, 0).rij == 0 and HN.weg(0, 12, 0).meteen.size() == 4 and HN.weg(0, 12, 0).regels.is_empty(), "4 niveaus zonder rij: geen regel (Daan 20:50) " + str(HN.weg(0, 12, 0)))
 	ok(HN.zichtbaar(136, 7) == 5 and HN.zichtbaar(136, 0) == 12, "zichtbaar niveau = niveau min rij")
 	var op4: Dictionary = rq.optocht
 	ok(op4.helden == [3, 5] and op4.poef.size() == 1 and float(op4.duur) <= 5.0, "optocht met 4 niveaus: ridder, dief, vleermuis, kort")
@@ -266,11 +268,12 @@ func _init() -> void:
 	var per: Array = V.geef_hoeden([sl1, sl2], hw7, 42)
 	ok(per == [4, 3] and sl1.hoeden.size() == 4 and sl2.hoeden.size() == 3 and sl1.hap_van < 0.0 and hw7.hoeden_gegeven, "hoeden verdeeld over twee slijmen, zonder hap (%s)" % str(per))
 	var hv: Array = V.verhaal(hw7, {}, ["Gloop the Slime", "the Spike Pit"], 42)
-	ok(hv.size() >= 1 and hv.size() <= 3 and hv[0] == "Gloop got 7 new hats." and hv[-1].contains(" 7 hats."), "na geef_hoeden noemt het verhaal de hoeden: " + str(hv))
+	# "Gloop got N new hats." eruit (Iris keuring 6 tot 8, ja Daan 16 nov 20:50): de telling noemt de hoeden
+	ok(hv.size() >= 1 and hv.size() <= 2 and not str(hv).contains("new hat") and hv[-1].contains(" 7 hats."), "na geef_hoeden noemt alleen de telling de hoeden: " + str(hv))
 	var hw1 := hw.duplicate()
 	hw1["opgegeten"] = 1
 	V.geef_hoeden([sl1], hw1, 42)
-	ok(V.verhaal(hw1, {}, ["Gloop the Slime"], 42)[0] == "Gloop got 1 new hat.", "enkelvoud: 1 new hat")
+	ok(V.verhaal(hw1, {}, ["Gloop the Slime"], 42)[-1].contains(" 1 hat."), "enkelvoud: 1 hat " + str(V.verhaal(hw1, {}, ["Gloop the Slime"], 42)))
 	sl1.free()
 	sl2.free()
 
@@ -1197,5 +1200,24 @@ func _nieuwe_held() -> bool:
 	nk2.t = 15.0
 	WR.toon(nk2)
 	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
+	# Daan 16 nov 20:35: "flat" alleen de eerste twee keer per speelbeurt, "up again" alleen na een getoonde "flat"
+	var np = GDScript.new()
+	np.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar plat_keer := 0\nvar plat_gemeld := false\nvar log: Array[String] = []\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
+	np.reload()
+	var pk = np.new()
+	var pw: Array[String] = []
+	for i in 4:
+		for nu in [true, false]:
+			var ps: String = WR.plat_wissel(pk, nu)
+			pw.append(ps)
+			pk.wachtrij.clear()   # alles getoond
+	ok(pw == ["plat", "op", "plat", "op", "", "", "", ""], "plat en op alleen de eerste twee keer: " + str(pw))
+	ok(pk.log.size() == 2 and pk.log[0].contains("plat zonder regel"), "derde en vierde keer plat staan in de log " + str(pk.log))
+	var pk2 = np.new()
+	pk2.wachtrij.append({"r": "P", "soort": "plat"})
+	pk2.plat_keer = 1
+	pk2.plat_gemeld = true
+	ok(WR.plat_wissel(pk2, false) == "" and pk2.plat_keer == 0 and pk2.wachtrij.is_empty(), "plat nooit getoond: geen op en telt niet mee")
+	ok(WR.plat_wissel(pk2, true) == "plat", "daarna mag plat nog")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

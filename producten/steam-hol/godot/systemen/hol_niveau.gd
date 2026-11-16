@@ -142,10 +142,10 @@ static func weg(oud_faam: int, nieuw_faam: int, rij_voor: int) -> Dictionary:
 		meteen.append(n)
 	var rij := maxi(0, tot - van - meteen.size())
 	var regels: Array[String] = []
+	# Bij meer niveaus tegelijk geen "Grew N levels while you were away." meer (Iris keuring 6 tot 8, ja Daan 16 nov 20:50):
+	# het bordje en de optocht laten het al zien. weg_regel() houdt de oude tekst voor wie hem nog vraagt.
 	if meteen.size() == 1:
 		regels.append(niveau_regel(meteen[0]))
-	elif meteen.size() > 1:
-		regels.append(WEG_REGEL % meteen.size())
 	if rij > 0:
 		regels.append(rij_regel(rij))
 	return {"meteen": meteen, "rij": rij, "regels": regels, "optocht": plan(meteen)}

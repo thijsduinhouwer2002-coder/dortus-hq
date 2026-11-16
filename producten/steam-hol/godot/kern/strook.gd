@@ -108,6 +108,8 @@ var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
 var slijm_plat := false
+var plat_keer := 0           # hoe vaak "flat" deze speelbeurt in de rij ging (hooguit WACHTRIJ.PLAT_KEER, Daan 16 nov 20:35)
+var plat_gemeld := false     # staat (of wacht) er een "flat" voor de huidige keer plat; alleen dan komt "up again"
 var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort
 var kaart_soort := ""       # het kaartje voor upgrades (kern/kaartje.gd): "" dicht, anders "slijm" of "stekelput"
 var kaart_t := 0.0          # laatste klik op het kaartje (dicht na 6 s)
@@ -294,21 +296,10 @@ func _process(delta: float) -> void:
 		var nu_plat: bool = not slijm.kan_vechten()
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
-			# laag: toestand, geen gebeurtenis. Wacht "plat" nog als hij al weer op is, dan geen van beide (controleur ronde 3)
-			# en andersom: wacht "op" nog als hij alweer plat gaat, dan ook geen van beide ("op" vervalt niet meer, Iris 16 nov)
-			var oud_plat := -1
-			var oud_op := -1
-			for i in wachtrij.size():
-				if String(wachtrij[i].soort) == "plat":
-					oud_plat = i
-				elif String(wachtrij[i].soort) == "op":
-					oud_op = i
-			if not nu_plat and oud_plat >= 0:
-				wachtrij.remove_at(oud_plat)
-			elif nu_plat and oud_op >= 0:
-				wachtrij.remove_at(oud_op)
-			else:
-				_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}), true, "plat" if nu_plat else "op")
+			# laag: toestand, geen gebeurtenis; welke regel (of geen) beslist wachtrij.gd plat_wissel (Daan 16 nov 20:35)
+			var ps: String = WACHTRIJ.plat_wissel(self, nu_plat)
+			if ps != "":
+				_kroniek(regels.kies(ps, {"bewoner": _bewoner()}), true, ps)
 	var helden := 0
 	for w in wezens.get_children():
 		if w.has_method("is_held"):
