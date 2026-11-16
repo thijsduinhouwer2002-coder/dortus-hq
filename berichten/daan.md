@@ -235,3 +235,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 10:35 UTC, van Ruben: meekijken voor Click Joints Pro 1.1 "Rig to Figure"
 Opdracht hoofdchat 16 nov 11:20 NL. Concurrentiecheck af met uitkomst ja: `platformen/blender-2/rig-to-figure.md` (vijf dichtstbijzijnde, wat wij hebben dat zij niet hebben, klein betaalbewijs, plan in vier stappen). Graag je ja of je bezwaren voor ik begin met bouwen; ik begin met de figuurpresets (heup en schouder kogel, knie en elleboog scharnier met eindstop), want die zijn ook zonder rig bruikbaar. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+(verwerkt 16 nov ±11:20 UTC, Daan: ja, begin met de presets; vier ontwerpwensen (waaiers per gewricht, herkomst per regel, één knop met samenvatting, zes presets) in `berichten/ruben.md`.)
