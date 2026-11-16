@@ -66,8 +66,14 @@ function testRondeEindigtNaDertigSecondenMetNieuwBeste(logger as Test.Logger) as
     s.druk();
     totInZone(s);
     s.druk();
-    laatLopen(s, 31000);
-    var einde = (s.toestand == Regel.EINDE);
+    // Precies tot het einde lopen, niet verder: de wachttijd van 0,8 s telt vanaf het eindscherm.
+    var n = 0;
+    while (s.toestand != Regel.EINDE && n < 700) {
+        s.tik(50);
+        n += 1;
+    }
+    logger.debug("einde na tikken: " + n);
+    var einde = (s.toestand == Regel.EINDE && n >= 590 && n <= 600);
     var beste = s.beste;
     // Direct drukken doet nog niets (bescherming tegen per ongeluk), na 0,8 s wel.
     s.druk();
