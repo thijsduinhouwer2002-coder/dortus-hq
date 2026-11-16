@@ -271,6 +271,7 @@ func put_koop() -> void:
 # omlaag en terug in 2 beelden (0,1 s). Geen schok van de strook; alles in hele spelpixels.
 const STOF_S := 0.35
 const SCHOK_S := 0.1
+const STOF_R := 0.55             # straal van een stofje, keer zijn maat (16 nov: rond)
 const STOF_KLEUR := Color("#ecc3a4")   # nog een trede lichter (kan Daan 15 nov 18:50: dan lezen ze als korrels)
 # per stofje: [start x, start y, verschuiving x, verschuiving y over 0,35 s, maat]; x ten opzichte van het midden van de put,
 # y ten opzichte van de bovenste vloerrij
@@ -460,7 +461,10 @@ func _draw() -> void:
 		for st in stof_stofjes(k):
 			var c := STOF_KLEUR
 			c.a = float(st[2])   # begint helemaal dekkend (was 0,9)
-			draw_rect(Rect2(Vector2(st[0]), Vector2(st[1], st[1])), c)
+			# rond in plaats van een vierkant (kan Daan 15 nov 23:50 punt 2: op 4,5x lazen de vierkantjes als beige blokjes,
+			# "kapotte textuur"); zelfde plek en maat: middelpunt in het midden van de spelpixel, doorsnede 1,1 spelpixel
+			var m: float = float(st[1])
+			draw_circle(Vector2(st[0]) + Vector2(m, m) * 0.5, m * STOF_R, c)
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
