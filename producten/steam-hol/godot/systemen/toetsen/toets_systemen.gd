@@ -80,12 +80,18 @@ func _init() -> void:
 
 	var t0 := 1_800_000_000
 	var r: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
-	ok(r["helden"] == 30 and r["goud"] >= r["helden"], "een uur weg op kwart snelheid: 30 helden (HELD_ELKE_S 30, Sanne 16 nov 20:00), goud >= helden (%s)" % r["regel"])
+	ok(r["helden"] == 14 and r["goud"] >= r["helden"], "een uur weg op weg-snelheid 0,12: 14 helden (HELD_ELKE_S 30, Sanne 16 nov 22:00), goud >= helden (%s)" % r["regel"])
 	ok(r["faam"] == r["gevallen"], "faam weg = gevangen helden")
 	var acht: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42)
-	# Sanne 16 nov 20:00: weg blijft een kwart van spelen, maar het spel is sneller, dus een nacht levert ±1,6 keer zoveel;
-	# de grens "minder dan de hele winkel" (1048) gaat daarom naar anderhalve winkel (1572)
-	ok(acht["helden"] == 240 and acht["goud"] < 1572, "8 uur weg: 240 helden, minder goud dan anderhalve winkel (%d)" % acht["goud"])
+	# Sanne 16 nov 22:00 (balans.md): weg op 0,12, een nacht is ±een uur spelen en blijft onder de winkel (1048),
+	# ook met de volle graafbonus (+3 per val). De oude grens van anderhalve winkel (1572) vervalt.
+	ok(acht["helden"] == 115 and acht["goud"] < 1048, "8 uur weg: 115 helden, minder goud dan de winkel (%d)" % acht["goud"])
+	var acht_gb: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42, 6, 0, null, 41)
+	ok(int(acht_gb["goud"]) < 1048, "8 uur weg met graafbonus +3: minder goud dan de winkel (%d)" % int(acht_gb["goud"]))
+	# faam uit één keer weg: hooguit 2 hol-niveaus (Sanne 16 nov 22:00)
+	var HNw = load("res://systemen/hol_niveau.gd")
+	ok(HNw.niveau(HNw.weg_faam(0, int(acht["faam"]))) <= 3 and HNw.weg_faam(0, 74) == 5, "8 uur weg vanaf 0: hooguit hol 3 (faam %d van %d)" % [HNw.weg_faam(0, int(acht["faam"])), int(acht["faam"])])
+	ok(HNw.niveau(17 + HNw.weg_faam(17, 74)) == 8 and HNw.weg_faam(17, 3) == 3 and HNw.weg_faam(5, 0) == 0, "vanaf hol 6: hooguit hol 8; weinig faam blijft heel")
 	ok(V.tempo_regel(acht) == "" and V.TEMPO_REGEL.length() <= 42, "regel kwart snelheid uit (moet Daan 17:45), tekst blijft kort")
 	ok(V.tempo_regel(V.reken(t0, t0 + 600, 1, 1, 42)) == "", "geen regel kwart snelheid na 10 min weg")
 	# hol-niveau (Sanne voortgang.md spoor 1, drempels Bram): faam = gevangen helden
