@@ -84,23 +84,60 @@ def gloop_kijk(maat):
     return g
 
 
+def is_lijf(c):
+    r, g, b, a = c
+    return a > 220 and g > 150 and g >= r + 30 and not (min(c[:3]) > 215)
+
+
 # ---------- 1b. knipperframe: zelfde Gloop, oog dicht (Gijs 11:25 punt 2) ----------
 def gloop_dicht(maat):
-    """Zelfde maat en voet als gloop-kijk.png. Het oog wordt een ooglid in lijfkleur met een donkere
-    sluitlijn die iets naar beneden buigt (geen lachboogje: dat las op horlogemaat als slapen).
-    Alleen voor één knipperframe van ±150 ms."""
+    """Zelfde maat en voet als gloop-kijk.png. Mila 16 nov 16:50, ronde 2: het lid is geen plat rondje meer.
+    Ronde 1 (gemiddelde lijfkleur x 0,86) las op het horloge als een sticker of pleister in het gezicht, op MIP
+    zelfs als fel groene schijf, omdat het horloge die tussenkleur naar het felste groen afrondt. Nu loopt het
+    lid per rij van de lijfkleur links naar de lijfkleur rechts (7 rijen glad), bovenin iets lichter als bolling,
+    1,6 px ruimer zodat de witte rand van het oog weg is, en op MIP met een 2x2-dambord in het 64-kleurenpalet.
+    Daarop de donkere sluitlijn. Alleen voor één knipperframe van ±150 ms."""
     g = Image.open(os.path.join(KIT, maat, 'gloop-rust.png')).convert('RGBA')
     px = g.load(); W, H = g.size
     cx, cy, R = oog(g)
-    # lijfkleur net onder het oog
-    # naast het oog, niet eronder (daar zit het tandje); gemiddelde van een vlakje, zodat het dambord op MIP mengt
-    vak = [px[x, y] for x in range(max(0, int(cx - R - 7)), max(1, int(cx - R - 2))) for y in range(int(cy - 2), int(cy + 3)) if px[x, y][3] > 200]
-    lijf = tuple(sum(c[i] for c in vak) // len(vak) for i in range(3)) + (255,)
-    lid = tuple(max(0, int(c * 0.86)) for c in lijf[:3]) + (255,)
+    Rv = R + 1.6 + 0.06 * R   # groot formaat: de zachte witte rand van het oog is daar 2 tot 3 px breed
+    def rand(x, y, stap):
+        # eerste lijfpixel buiten de schijf, langs de rij
+        while 0 <= x < W:
+            if is_lijf(px[x, y]): return px[x, y][:3]
+            x += stap
+        return None
+    lijf_rij = {}
+    for y in range(int(cy - Rv) - 1, int(cy + Rv) + 2):
+        if not 0 <= y < H: continue
+        h = math.sqrt(max(0, Rv * Rv - (y - cy) ** 2))
+        L = rand(int(cx - h) - 1, y, -1); Rr = rand(int(cx + h) + 1, y, 1)
+        lijf_rij[y] = (L or Rr, Rr or L, cx - h, cx + h)
+    # rijen glad maken over 7 rijen, anders worden wangen en schaduw strepen
+    gl = {}
+    ys = sorted(y for y in lijf_rij if lijf_rij[y][0])
+    for y in ys:
+        buur = [lijf_rij[v] for v in ys if abs(v - y) <= 3]
+        gl[y] = (tuple(sum(b[0][i] for b in buur) / len(buur) for i in range(3)),
+                 tuple(sum(b[1][i] for b in buur) / len(buur) for i in range(3)), lijf_rij[y][2], lijf_rij[y][3])
+    lijf_rij = gl
+    BAYER = [[0, 2], [3, 1]]
+    for y in range(H):
+        for x in range(W):
+            if math.hypot(x - cx, y - cy) <= Rv and y in lijf_rij:
+                L, Rr, x0, x1 = lijf_rij[y]
+                t = 0 if x1 - x0 < 1 else min(1, max(0, (x - x0) / (x1 - x0)))
+                c = [L[i] * (1 - t) + Rr[i] * t for i in range(3)]
+                # bovenkant van het lid iets lichter: een bolling, geen plat rondje
+                k = (y - (cy - Rv)) / (2 * Rv)
+                c = [min(255, v * (1.06 - 0.10 * k)) for v in c]
+                if mip(maat):   # naar het 64-kleurenpalet met een 2x2-dambord, zoals de rest van Gloop
+                    d = (BAYER[y % 2][x % 2] + 0.5) / 4
+                    c = [min(255, 85 * math.floor(v / 85 + d)) for v in c]
+                px[x, y] = tuple(int(v) for v in c) + (255,)
     d = ImageDraw.Draw(g)
-    d.ellipse((cx - R - 0.5, cy - R - 0.5, cx + R + 0.5, cy + R + 0.5), fill=lid)
-    dik = max(2, round(R * 0.22))
-    d.arc((cx - R * 0.9, cy - R * 0.45, cx + R * 0.9, cy + R * 0.35), 15, 165, fill=DONKER + (255,), width=dik)
+    dik = max(2, round(R * 0.24))
+    d.arc((cx - R * 0.95, cy - R * 0.55, cx + R * 0.95, cy + R * 0.40), 12, 168, fill=DONKER + (255,), width=dik)
     return g
 
 
