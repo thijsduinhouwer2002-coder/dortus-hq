@@ -3,6 +3,7 @@ extends RefCounted
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 const VOORTGANG := preload("res://systemen/voortgang.gd")
 const AFLOOP := preload("res://kern/afloop.gd")   # faam_erbij (hol-niveau)
+const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")   # weg_regel en optocht (Sanne 16 nov 14:50)
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
 # voortgang.gd belooft dat de bewaarde tijd nooit achteruit gaat (nieuwe_laatst). Stond de klok terug, dan blijft de
@@ -124,6 +125,7 @@ static func laad(s, begin) -> void:
 	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
 	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d, hoeden %d" % [int(weg.weg_s), str(weg.teruggezet),
 		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0, int(weg.opgegeten)])
+	var faam_voor: int = s.faam
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
 		AFLOOP.faam_erbij(s, int(weg.get("faam", 0)))   # faam ook als je weg was, kwart snelheid (Sanne 16 nov 14:05)
@@ -143,6 +145,18 @@ static func laad(s, begin) -> void:
 		var tr := VOORTGANG.tempo_regel(weg)
 		if tr != "":
 			s._kroniek(tr)
+		# optocht van de niveaus van weg (Sanne 16 nov 14:50): één kroniekregel na de kwart-regel, en het plan
+		# (wip, poef per ding, nieuwe heldensoorten als eerstvolgende bezoekers). Tekenen volgt met het bordje (Mila).
+		var wr := HOL_NIVEAU.weg_regel(faam_voor, s.faam)
+		if wr != "":
+			s._kroniek(wr)
+		s.optocht = HOL_NIVEAU.optocht(faam_voor, s.faam)
+		if bool(s.optocht.wip):
+			var stukken: Array[String] = []
+			for po in s.optocht.poef:
+				stukken.append("%.1f poef %d%s" % [float(po.t), int(po.niveau), " munt" if bool(po.munt) else ""])
+			s.log_regel("HOL optocht wip, %s; helden %s; duur %.1f s" % [", ".join(stukken) if not stukken.is_empty() else "geen poef",
+				str(s.optocht.helden), float(s.optocht.duur)])
 	# met pensioen (Bram 04:35, Sanne kroniek-regels.md): na minstens 30 min weg hooguit één held die nooit terugkwam
 	var p: Dictionary = VOORTGANG.pensioen(s.pensioen_namen, weg, s.regels)
 	if not p.is_empty():

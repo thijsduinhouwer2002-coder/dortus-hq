@@ -52,3 +52,56 @@ static func erbij(oud: int, nieuw: int) -> Array[int]:
 	for n in range(niveau(oud) + 1, niveau(nieuw) + 1):
 		uit.append(n)
 	return uit
+
+# --- Optocht na weg zijn (Sanne 16 nov 14:50) -----------------------------------------------------------------
+# De eerste nacht mag het hol van 2 naar 12 tillen, maar als één optocht, niet tien feestjes:
+# na de weg-telling wipt het bordje één keer, dan verschijnt elk nieuw ding met de poef van graven, van laag naar hoog,
+# 1,2 s na elkaar (meer dan 10 dingen: 0,6 s), samen hooguit 12 s. Niveaus zonder iets om te zien slaan over.
+# Een nieuwe heldensoort komt als eerstvolgende bezoeker binnen (in volgorde), niet met een poef.
+# Muntjes uit de schat alleen bij het eerste en laatste ding. Klikken mag tijdens de optocht (dit is alleen een plan).
+# Soort per niveau (voortgang.md spoor 1): "poef" = iets nieuws in het hol, "held" = nieuwe heldensoort,
+# "" = niets om te zien in de strook (Heldenboek, iets dat alleen te koop komt).
+const SOORT := ["", "", "", "held", "poef", "held", "", "", "held", "poef", "held", "held", "poef"]
+const OPTOCHT_STAP_S := 1.2
+const OPTOCHT_STAP_VOL_S := 0.6
+const OPTOCHT_VOL := 10
+const OPTOCHT_MAX_S := 12.0
+const WEG_REGEL := "Grew %d levels while you were away."
+
+static func soort(n: int) -> String:
+	return String(SOORT[n]) if n >= 0 and n < SOORT.size() else ""
+
+# Gewone niveauregel van het feestje: "Hole level 4: a bat moves in."
+static func niveau_regel(n: int) -> String:
+	var naam: String = WAT[n] if n >= 0 and n < WAT.size() else ""
+	return "Hole level %d: %s." % [n, naam]
+
+# Eén kroniekregel na weg zijn: "" als er geen niveau bijkwam, bij één niveau de gewone niveauregel.
+static func weg_regel(oud_faam: int, nieuw_faam: int) -> String:
+	var bij := erbij(oud_faam, nieuw_faam)
+	if bij.is_empty():
+		return ""
+	if bij.size() == 1:
+		return niveau_regel(bij[0])
+	return WEG_REGEL % bij.size()
+
+# Het plan van de optocht. Uit: {"wip": bool, "poef": [{niveau, wat, t, munt}], "helden": [niveau, ...], "duur": s}.
+# t = seconden na de wip. Leeg (wip false) als er geen niveau bijkwam.
+static func optocht(oud_faam: int, nieuw_faam: int) -> Dictionary:
+	var bij := erbij(oud_faam, nieuw_faam)
+	var poef: Array = []
+	var helden: Array[int] = []
+	for n in bij:
+		match soort(n):
+			"poef":
+				poef.append({"niveau": n, "wat": String(WAT[n]), "t": 0.0, "munt": false})
+			"held":
+				helden.append(n)
+	var stap := OPTOCHT_STAP_S if poef.size() <= OPTOCHT_VOL else OPTOCHT_STAP_VOL_S
+	if poef.size() > 0:
+		stap = minf(stap, OPTOCHT_MAX_S / float(poef.size()))
+	for i in poef.size():
+		poef[i].t = snappedf(stap * float(i + 1), 0.01)   # de eerste poef 1 stap na de wip
+		poef[i].munt = i == 0 or i == poef.size() - 1
+	var duur: float = poef[-1].t if not poef.is_empty() else 0.0
+	return {"wip": not bij.is_empty(), "poef": poef, "helden": helden, "duur": duur}

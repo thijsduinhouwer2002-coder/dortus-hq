@@ -96,6 +96,7 @@ var vlucht_tijd := {}          # demo: naam -> wanneer hij vluchtte (niet bewaar
 const DEMO_TERUG_NA := 8.0     # Sanne toets 7, punt 3: Tibbe klom de ladder op en meteen weer af, dat leest als een fout
 var anim_t := 0.0
 var pensioen_namen: Array = []   # wie vluchtte en nooit terugkomt (hooguit 5, oudste voor); bij openen een grapje (Bram 04:35)
+var optocht := {}   # plan van de optocht na weg zijn (hol_niveau.gd optocht), niet bewaard
 var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_niveau.gd, Sanne voortgang.md spoor 1)
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm

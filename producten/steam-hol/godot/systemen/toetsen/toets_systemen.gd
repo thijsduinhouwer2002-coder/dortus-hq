@@ -99,6 +99,23 @@ func _init() -> void:
 		if HN.hover(f_).length() > 42:
 			lang_h += 1
 	ok(lang_h == 0, "hover hooguit 42 tekens")
+	# optocht na weg zijn (Sanne 16 nov 14:50): 2 naar 12 is één optocht, geen tien feestjes
+	ok(HN.weg_regel(3, 88) == "Grew 10 levels while you were away." and HN.weg_regel(3, 88).length() == 35, "weg-regel 10 niveaus, 35 tekens")
+	ok(HN.weg_regel(10, 12) == "Hole level 5: the Thief." and HN.weg_regel(5, 5) == "", "weg-regel bij één niveau de gewone regel, bij geen niveau leeg")
+	var op: Dictionary = HN.optocht(3, 88)
+	var op_n: Array = []
+	for p_ in op.poef:
+		op_n.append(int(p_.niveau))
+	ok(bool(op.wip) and op_n == [4, 9, 12], "optocht 2 naar 12: poef bij vleermuis, vaandel, hoedenwand (%s)" % str(op_n))
+	ok(op.helden == [3, 5, 8, 10, 11], "nieuwe heldensoorten als bezoekers, in volgorde, geen poef")
+	ok(absf(float(op.poef[0].t) - 1.2) < 0.01 and absf(float(op.poef[2].t) - 3.6) < 0.01 and float(op.duur) <= 12.0, "1,2 s na elkaar, hooguit 12 s")
+	ok(bool(op.poef[0].munt) and not bool(op.poef[1].munt) and bool(op.poef[2].munt), "muntjes alleen bij eerste en laatste ding")
+	ok(not bool(HN.optocht(5, 5).wip) and HN.optocht(10, 12).poef.is_empty(), "geen optocht zonder niveau; dief alleen als bezoeker")
+	var lang_n := 0
+	for n_ in range(2, 13):
+		if HN.niveau_regel(n_).length() > 42:
+			lang_n += 1
+	ok(lang_n == 0, "niveauregels hooguit 42 tekens")
 	ok(r["gevallen"] + r["gevlucht"] == r["helden"], "gevallen + gevlucht = helden")
 	var r2: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	ok(r2["goud"] == r["goud"], "zelfde save, zelfde uitkomst")
