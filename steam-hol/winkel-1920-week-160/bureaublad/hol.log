@@ -1,40 +1,40 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 51 s (klok terug: false): goud voor 1595, helden 1, erbij 7
-HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
-HOL opslag geladen: 0 terugkomers, 1602 goud
+HOL weg geweest 54 s (klok terug: false): goud voor 1637, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Wout vs the Spike Pit: fled again.
+HOL opslag geladen: 1 terugkomers, 1644 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL zaad 1794735613
-HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
+HOL zaad 1794822016
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL held binnen: Joost
-HOL kroniek 5.0 (wacht 1.0): Joost signs autographs. Nobody asked.
-HOL kroniek 9.6 (wacht 0.0): Joost left gold and one boot. +6
+HOL held binnen: Wout
+HOL kroniek 5.1 (wacht 1.0): Wout limps back to the Spike Pit.
+HOL kroniek 9.6 (wacht 0.0): The Spike Pit wins round two. +9
 HOL meting t=10 beelden=76 helden=0 hol_vast=2
-HOL meting t=20 beelden=17 helden=0 hol_vast=3
+HOL kroniek 12.1 (wacht 2.5): New stamp for the Hero. The pit got him.
+HOL meting t=20 beelden=19 helden=0 hol_vast=3
 HOL meting t=30 beelden=12 helden=0 hol_vast=3
 HOL meting t=40 beelden=4 helden=0 hol_vast=3
-HOL kroniek 47.1 (wacht 0.0): Wout the Wizard sniffs for traps.
-HOL held binnen: Wout
-HOL meting t=50 beelden=31 helden=1 hol_vast=3
-HOL meting t=60 beelden=101 helden=1 hol_vast=3
-HOL kroniek 68.1 (wacht 0.0): Wout escaped with a limp.
-HOL meting t=70 beelden=81 helden=0 hol_vast=3
-HOL kroniek 70.7 (wacht 2.6): Page for the Wizard. He got away.
-HOL meting t=80 beelden=12 helden=0 hol_vast=3
-HOL meting t=90 beelden=5 helden=0 hol_vast=3
-HOL kroniek 92.0 (wacht 0.0): Fenna casts Light. It is a candle.
+HOL kroniek 49.4 (wacht 0.0): Sir Joost is very slow. Very sure.
+HOL held binnen: Joost
+HOL meting t=50 beelden=12 helden=1 hol_vast=3
+HOL kroniek 54.9 (wacht 0.0): Joost left gold and one boot. +6
+HOL kroniek 57.5 (wacht 2.6): New page: the Knight. Spikes: one.
+HOL meting t=60 beelden=84 helden=0 hol_vast=5
+HOL meting t=70 beelden=2 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL kroniek 97.8 (wacht 0.0): Fenna read about you in a tavern.
 HOL held binnen: Fenna
-HOL meting t=100 beelden=83 helden=1 hol_vast=3
-HOL meting t=110 beelden=100 helden=1 hol_vast=3
-HOL kroniek 113.0 (wacht 0.0): Fenna fled. Grudge: the Spike Pit.
-HOL meting t=120 beelden=39 helden=0 hol_vast=3
-HOL meting t=130 beelden=3 helden=0 hol_vast=3
-HOL meting t=140 beelden=4 helden=0 hol_vast=3
-HOL kroniek 142.4 (wacht 0.0): Tibbe picks the lock. It was open.
+HOL meting t=100 beelden=31 helden=1 hol_vast=5
+HOL kroniek 103.3 (wacht 0.0): Fenna fell to the Spike Pit. +6
+HOL meting t=110 beelden=63 helden=0 hol_vast=7
+HOL meting t=120 beelden=11 helden=0 hol_vast=7
+HOL meting t=130 beelden=3 helden=0 hol_vast=7
+HOL meting t=141 beelden=4 helden=0 hol_vast=7
+HOL meting t=151 beelden=5 helden=0 hol_vast=7
+HOL kroniek 155.9 (wacht 0.0): Sir Tibbe polished his armor for this.
 HOL held binnen: Tibbe
-HOL meting t=150 beelden=83 helden=1 hol_vast=3
-HOL meting t=160 beelden=101 helden=1 hol_vast=3
-HOL kroniek 163.4 (wacht 0.0): Tibbe fled, crying a little.
-HOL kroniek 166.0 (wacht 2.6): New page: the Thief. Ran off. Counts.
-HOL meting t=170 beelden=30 helden=0 hol_vast=3
-HOL meting t=181 beelden=4 helden=0 hol_vast=3
+HOL meting t=161 beelden=65 helden=1 hol_vast=8
+HOL kroniek 161.4 (wacht 0.0): Tibbe found the Spike Pit. Hard. +6
+HOL meting t=171 beelden=35 helden=0 hol_vast=9
+HOL meting t=181 beelden=11 helden=0 hol_vast=9
