@@ -34,6 +34,34 @@ Bram rekende uit dat 10% minder vangen in laag 2 tot 4 al ±1 werkdag kost tot h
 5. **Laagsterren die hierbij horen** (spoor 4): laag 2 "Catch a Miner with the trapdoor", laag 3 "Catch an Explorer with the Fake Hoard", laag 4 "Lure the Hat Hunter 10 times". Kroniekregels (hooguit 42 tekens): "Pip dug around the spikes. Into the hole." (39), "Pip remembered every trap. Not this one." (40), "Brom chased a hat on a stick. Again." (35).
 6. **Toets:** T2 ja (elke held heeft een grap die je ziet), T3 ja (niets gaat weg, de tegenzet komt meteen en is niet duur: ±1 uur goud), T4 ja.
 
+## Speeltestbuild: de niveaunamen beloven wat er niet is (16 nov ±19:00 UTC, Sanne)
+**Gevonden (GEZIEN in de code van main 2f52179):** het bordje, de hover, de doelregel en de kroniekregel noemen bij elk hol-niveau wat erbij komt (`WAT` in `systemen/hol_niveau.gd`: "the Knight", "the Thief", "a second pit", "the Rolling Stone", "the Mage", "the Noble", ...). Maar in de build ontgrendelt een niveau niets:
+- ridder, dief, magiër en bard komen na de eerste 10 helden, los van het niveau (`heldensoort.gd` `kies(nr)` in `binnenkomst.gd`). Thijs ziet dus een dief op minuut 8 en daarna "Level 5: the Thief".
+- de vleermuis hangt er vanaf het begin (`strook.gd`), een put zetten kan vanaf het begin zo vaak je wilt (`hol.gd`), dus "a bat moves in" en "a second pit" gebeuren niet op dat niveau.
+- **the Rolling Stone en the Noble bestaan nog niet.** In een speeltest van een half uur staat er "Next: the Rolling Stone, 5 heroes" en dan komt er niets.
+Dat breekt de eerlijk-regel (Thijs: bijzonder, maar eerlijk) en het kost de speeltest punten die we al kennen: vraag 2 ("wat snapte je niet") gaat dan over een steen die nooit komt.
+
+**Besluit: in de speeltestbuild worden de niveaunamen titels van je hol in plaats van ontgrendelingen.** Een titel is altijd waar (faam = gevangen helden, dus je hol wordt echt beruchter), hij geeft het bordje toch een doel ("Next: a hat museum, 4 heroes") en het is een grap per niveau. Alleen tekst, geen nieuwe feature.
+
+| Niveau | Titel (Engels, zoals in het spel) | tekens |
+|---|---|---|
+| 1 | a damp hole | 11 |
+| 2 | a local rumor | 13 |
+| 3 | a known hazard | 14 |
+| 4 | a bad idea | 10 |
+| 5 | a tavern tale | 13 |
+| 6 | a hat museum | 12 |
+| 7 | a hero shortage | 15 |
+| 8 | a no-go zone | 12 |
+| 9 | a dare | 6 |
+| 10 | a local legend | 14 |
+| 11 | a royal problem | 15 |
+| 12 | Gloop's Empire | 14 |
+
+Nagemeten: langste hover "Level 11: a royal problem. 12 heroes to go." is 43 tekens (`HOVER_MAX` 43), langste doelregel "Next: a hero shortage, 12 heroes" 32 (`DOEL_MAX` 34), kroniek "Hole level 11: a royal problem." 31. (Nagerekend met een paar regels Python.)
+
+**Voor de demo (na de speeltest):** zodra een niveau echt iets ontgrendelt en het spel dat ook zo doet (soort pas na dat niveau, rolsteen gebouwd), krijgt dat niveau zijn ontgrendeling terug als naam, of beide ("Level 7: the Rolling Stone"). Regel: **het bordje noemt alleen wat op dat niveau echt verschijnt.** Daan kiest de woorden, Olaf bouwt; de optocht na weg (poef met `WAT`) gebruikt dan dezelfde lijst.
+
 ## Eerste 20 minuten voor de speeltest van za 21 nov (16 nov ±18:10 UTC)
 Thijs speelt 15 tot 30 minuten en zijn eerste vraag is "wanneer verveelde je je". Ik keek dus naar de eerste 20 minuten in Brams sim (versie 3 eind, 16 zaden, script `platformen/steam/data/eerste20-gat.py`, uitkomst `data/eerste20-gat-uitkomst.txt`, GEZIEN). Telt als "iets nieuws": een hol-niveau, een Gloop-niveau of een aankoop. Wat de sim niet telt (wrok, hoed op de toren, kroniekregels) loopt er gewoon doorheen.
 - **Nu (drempels 3 / 6 / 10 / 12 / 20 voor hol 2 tot 6):** langste gat tussen minuut 1 en 20 mediaan 5,4 min, **ergste 11,8 min** (zaad 3: na hol 2 op 1,2 min niets nieuws tot 12,9 min). De ridder (hol 3) komt mediaan op 6,5 min, hol 6 op 24,5 min.
