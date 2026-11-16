@@ -281,11 +281,18 @@ func _process(delta: float) -> void:
 			slijm_plat = nu_plat
 			# laag: toestand, geen gebeurtenis. Wacht "plat" nog als hij al weer op is, dan geen van beide (controleur ronde 3)
 			var oud_plat := -1
+			var oud_op := -1
 			for i in wachtrij.size():
 				if String(wachtrij[i].soort) == "plat":
 					oud_plat = i
+				if String(wachtrij[i].soort) == "op":
+					oud_op = i
 			if not nu_plat and oud_plat >= 0:
 				wachtrij.remove_at(oud_plat)
+			elif nu_plat and oud_op >= 0:
+				# Bram 16 nov: "op" vervalt niet meer (wachtrij.gd). Wacht hij nog als Gloop weer plat gaat, dan geen van
+				# beide: de kroniek zegt dan nog "plat", en dat klopt met wat je ziet.
+				wachtrij.remove_at(oud_op)
 			else:
 				_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}), true, "plat" if nu_plat else "op")
 	var helden := 0

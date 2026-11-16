@@ -18,10 +18,13 @@ const BINNEN_WIJK := 1.0
 # weg in strook.gd (samen met "op"). De lied-regel is een sfeerregel: laag (besluit 2a), maar hij vervalt ook niet
 # (afwijking, besluit Olaf 10 nov): in de film van fe3411e verviel hij en kwam daarna "Lotte hums the song" zonder dat
 # je ooit van een lied hoorde. Laag betekent dat hij nooit een gebeurtenis ophoudt, dus de kroniek loopt niet achter.
-const NOOIT_WEG := ["plat", "lied"]
+const NOOIT_WEG := ["plat", "lied", "op"]
+# Bram 16 nov (Iris keuring 1): "op" vervalt ook niet. In run 43866346596 stond "Gloop is flat" in de kroniek, maar
+# "Gloop is up again. Wobbly." verviel achter de lied-regel (hol-120.log 45.0), dus de kroniek zei nog "plat" terwijl
+# Gloop allang weer stond. "op" komt alleen als "plat" echt getoond is (strook.gd), dus hij hoort er altijd bij.
 # "Gloop is flat" drukt net als een gebeurtenis een getoonde lage regel (lied, binnenkomst) na 1 s weg (Sanne toets 10,
 # punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond).
-const DRINGEND := ["plat"]
+const DRINGEND := ["plat", "op"]
 # Weggedrukt voor hij 2,5 s stond (Sanne toets 11, punt 1: "Bram's song got popular. Uh oh." stond 1 s, plat drukte hem
 # weg): de lied-regel (TERUG) komt direct na de regel die hem wegdrukte nog één keer terug, zonder die op te houden, en gaat
 # daarna pas weg. Alleen lage sfeerregels (besluit Olaf 10 nov): een binnenkom-regel mag na 1 s wijken voor een gebeurtenis
@@ -30,12 +33,20 @@ const DRINGEND := ["plat"]
 # Alleen "lied", niet "plat" (controleur 10 nov 06:30): een plat die terugkomt terwijl Gloop al op is zegt iets anders
 # dan je ziet, en strook.gd haalt een wachtende plat weg als hij opstaat (dan zou "op" ontbreken).
 const TERUG := ["lied"]
+# Bram 16 nov (Iris keuring 1): de terugkomer vervalt als hij niet binnen TERUG_WACHT s terug kan. In run 43866346596
+# kwam "Bram's song got popular. Uh oh." op 28.9 en, door gebeurtenissen ervoor, pas op 39.9 terug: dat leest als een
+# herhaalde grap, niet als dezelfde regel. Vervalt hij, dan blijft de eerste keer in de kroniek staan.
+const TERUG_WACHT := 4.0
 
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
 	for i in range(s.wachtrij.size() - 1, -1, -1):
 		if bool(s.wachtrij[i].binnen) and not bool(s.wachtrij[i].get("terug", false)) and not NOOIT_WEG.has(String(s.wachtrij[i].get("soort", ""))) and s.t - float(s.wachtrij[i].sinds) > BINNEN_WACHT:
 			s.log_regel("HOL kroniek vervallen %.1f: %s" % [s.t, s.wachtrij[i].r])
+			s.wachtrij.remove_at(i)
+	for i in range(s.wachtrij.size() - 1, -1, -1):
+		if bool(s.wachtrij[i].get("terug", false)) and s.t - float(s.wachtrij[i].sinds) > TERUG_WACHT:
+			s.log_regel("HOL kroniek terug vervallen %.1f: %s" % [s.t, s.wachtrij[i].r])
 			s.wachtrij.remove_at(i)
 	if s.wachtrij.is_empty():
 		return
