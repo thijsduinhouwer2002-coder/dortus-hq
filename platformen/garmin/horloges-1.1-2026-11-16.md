@@ -10,7 +10,7 @@ Bron: het log van de job bouw, run 43915975753; de hele tabel staat in `sdk-horl
 |---|---|---|---|---|
 | `enduro3` | 280 MIP | 786 kB | nee, eruit gehaald | proef loopt (tak `claude/garmin-ebb-enduro3-proef`): simulator stopte twee keer bij start 62 |
 | `instinct3amoled45mm` | 390 AMOLED | 786 kB | nee | proef goed (run 43936258914 groen, alle 22 scènes gezien als blad), map gelijk aan epix Pro 42 mm; wacht op Daan |
-| `instinct3amoled50mm` | 416 AMOLED | 786 kB | nee | zelfde proef (12 van 22 gezien), map gelijk aan Forerunner 265; wacht op Daan |
+| `instinct3amoled50mm` | 416 AMOLED | 786 kB | nee | zelfde proef (alle 22 gezien als blad), map gelijk aan Forerunner 265; wacht op Daan |
 | `instinctcrossoveramoled` | 390 AMOLED | 786 kB | nee | eigen knoptekst (ENTER) en er lopen echte wijzers over het scherm: eerst zien hoe dat eruitziet, later |
 | `approachs50`, `approachs7042mm` | 390 AMOLED | 786 kB | nee | golfhorloges met aanraakscherm; knoptekst zoals de Venu's (PRESS); lage voorrang |
 | `approachs7047mm` | 454 AMOLED | 786 kB | nee | idem |
