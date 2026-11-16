@@ -97,7 +97,7 @@ def stukken(ob):
 
 def cursor(z, soort):
     m = Matrix.Identity(4)
-    m.col[3][:3] = Vector((-MAAT["x"], 0, z))
+    m.col[3][:3] = Vector((-MAAT["x"] + 0.031, 0.137, z + 0.071))  # niet precies op het voxelraster (stralen langs een rand missen)
     cur = bpy.context.scene.cursor
     cur.rotation_mode = "QUATERNION"
     cur.matrix = m

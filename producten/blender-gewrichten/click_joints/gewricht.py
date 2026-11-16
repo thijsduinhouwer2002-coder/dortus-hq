@@ -277,7 +277,11 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
 
         # 0.1.1: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
         vlak_z = maat["schuif"] + (maat["midden_z"] if inst.soort == "KOGEL" and "naad_r" in maat else 0.0)
-        diepte = 2 * max(maat["r"], maat.get("naad_r", 0.0)) + 2 * maat["s"] + abs(maat["schuif"])
+        # Hoe ver kom, bolnaad en trechter van het snijvlak reiken (naar beide kanten), plus wat speling.
+        if inst.soort == "KOGEL" and "naad_r" in maat:  # vlak door het kogelmidden; trechter reikt het verst
+            diepte = maat["naad_r"] + 0.5 * maat["r"] + 2 * maat["s"] + abs(maat["schuif"])
+        else:  # vlak bij de cursor; kogel of pen steekt tot midden_z + r of top_z uit
+            diepte = max(abs(maat["midden_z"]) + maat["r"], abs(maat.get("top_z", 0.0))) + 2 * maat["s"]
         ok_lid, melding = een_lid.bereid(werk, frame, vlak_z, diepte, maat["s"], solver, hulp)
         if not ok_lid:
             ruim_op(hulp)

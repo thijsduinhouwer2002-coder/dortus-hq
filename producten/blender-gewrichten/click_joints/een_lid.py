@@ -1,4 +1,4 @@
-"""Eén lid snijden, niet het hele figuur (0.1.1 en Pro 1.0.2, proef met Meshy-figuren 15 nov).
+"""Eén lid snijden, niet het hele figuur (0.1.1, proef met Meshy-figuren 15 nov).
 
 Probleem: de snijvormen (dozen, wig, naadcilinders) lopen over het hele object. Een gewricht in één knie van
 een figuur uit één stuk sneed zo ook het andere been door.
@@ -8,7 +8,7 @@ Oplossing, alleen als het snijvlak het figuur op meer dan één plek raakt (ande
 2. De lus van het vlak rond de cursor kiezen. Aan elke kant het stuk dat aan die lus vastzit zoeken; het
    stuk dat alleen aan deze lus vastzit is het lid (het onderbeen). Hangt het aan beide kanten aan een andere
    lus vast (twee voeten op één voetstuk), dan niet snijden: melding VAST.
-3. H = convex omhulsel van het lid plus het stuk aan de andere kant tot `diepte` van het vlak (daar zitten
+3. H = convex omhulsel van het lid plus het stuk aan de andere kant tot `diepte` van het vlak (langs het oppervlak) (daar zitten
    kom, naad en wig), een fractie groter. Raakt H een ander deel van het figuur: melding DICHT.
 4. Tijdens de snede (gewricht.bak en gewricht.boolean vragen STAND): de kopie van het figuur aan de kant van
    het lid krijgt eerst INTERSECT H; elk gereedschap dat van de andere kant iets afhaalt krijgt INTERSECT H.
@@ -135,8 +135,8 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
         bm.free()
         return False, MELD_VAST
     andere_kant = "B" if lid == "A" else "A"
-    # Aan de andere kant: het stuk vanaf de lus tot 2 x diepte langs het oppervlak (mag in H), en daarvan wat
-    # binnen `diepte` van het vlak ligt (punten van H). Langs het oppervlak, zodat het niet via het kruis
+    # Aan de andere kant: het stuk vanaf de lus tot 2,5 x diepte langs het oppervlak (mag in H), en daarvan wat
+    # binnen 1,2 x diepte langs het oppervlak en binnen `diepte` van het vlak ligt (punten van H). Langs het oppervlak, zodat het niet via het kruis
     # naar het andere been loopt.
     bm.faces.ensure_lookup_table()
     afstand = {}
@@ -157,13 +157,13 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
                 if g.index == i or _kant(g, vlak_z) != andere_kant:
                     continue
                 nd = d + (g.calc_center_median() - c).length
-                if nd <= 2 * diepte and nd < afstand.get(g.index, 1e30):
+                if nd <= 2.5 * diepte and nd < afstand.get(g.index, 1e30):
                     afstand[g.index] = nd
                     heapq.heappush(rij2, (nd, g.index))
     dicht, punten = set(afstand), set()
     for i in dicht:
         f = bm.faces[i]
-        if max(abs(v.co.z - vlak_z) for v in f.verts) <= diepte:
+        if afstand[i] <= 1.2 * diepte and max(abs(v.co.z - vlak_z) for v in f.verts) <= diepte:
             punten.update(v.index for v in f.verts)
     bm.verts.ensure_lookup_table()
     for i in stukken[lid]:
