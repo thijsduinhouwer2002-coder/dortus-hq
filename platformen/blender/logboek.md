@@ -621,3 +621,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 16 nov 2026 ±09:22 UTC, Bram
 - Click Joints: 156 downloads, de winkel toont 0.1.1. Niets anders open voor Blender; Pro 1.0.2 wacht op de keuring van 1.0.1 (hoofdchat).
+
+## 16 nov 2026, ±11:10 tot 11:25 UTC, Bram: overdracht
+- Besluit hoofdchat 11:20 NL: Click Joints naar Ruben. Overdracht geschreven in `overdracht.md` (bron main, zeven workflows, open taken, valkuilen). Berichten van de hoofdchat en Ruben in `berichten/bram.md` verwerkt. Dit is mijn laatste regel in deze map.

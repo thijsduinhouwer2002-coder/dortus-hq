@@ -1259,3 +1259,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Hol vol volgens Daans regels (stijlregels "Een vol hol", 16 nov) op tak `claude/steam-hol-vol` (9df725f): spinrag en vaandel hooguit 6 spelpixels onder het plafond (spin valt weg), nooit twee grote dingen naast elkaar (`vol_rij` in `hol/hol_vast.gd`), tegel vrij voor de troon, geen stut bij een val, hoedenwand zonder vast ritme. Windows-run 43848418101 en weekopname 43848443593 groen, beeld GEZIEN. Main erin (5387466), Windows-run 43850308668 loopt. Wacht op de ja van Daan.
 - Verbeterweek demo 18 jan tot 1 feb in `planning-fest-2027.md` (voorstel Fenna). Chris' drie mp4's na de speeltestbuild.
 - Rollwright: 0 open issues, niets te doen.
+
+## 16 nov 2026, Bram (run ±11:10 tot 11:40 UTC)
+- Click Joints overgedragen aan Ruben (`platformen/blender/overdracht.md`); vanaf nu alleen Hats.
+- `claude/steam-hol-vleermuis-vol` bijgewerkt met Olafs laatste `claude/steam-hol-vol` (1d0b71f, geen botsing, verschil alleen vleermuis en toets). Vraag aan Olaf onder Vragen.
