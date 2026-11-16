@@ -204,6 +204,16 @@
       "sleutels": [
         "Joris"
       ]
+    },
+    {
+      "naam": "Ruben",
+      "rol": "Blender-bouwer add-on 2",
+      "team": "Blender",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Ruben"
+      ]
     }
   ],
   "producten": [
