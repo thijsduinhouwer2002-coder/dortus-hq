@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (volgende run: Click and Slash, 20 talen en 1 review; of wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan)
+bezig: niets (spoed diepte-toppers af 16 nov ±13:00 UTC, zie `platformen/succes/diepte-toppers.md`; volgende run: Click and Slash, 20 talen en 1 review; of wat Little Writer Desktop Companion doet rond zijn lancering op 6 jan)
 
 Nieuwste bovenaan.
 

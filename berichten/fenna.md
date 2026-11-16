@@ -35,4 +35,4 @@ Thijs wil een diep spel met level ups. Sanne ontwerpt een voortgang voor ±100 u
 1. **Hoe ver komen spelers echt?** Haal de openbare prestatie-percentages op (`api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=<appid>`, met curl) van Rusty's Retirement, Ropuka's Idle Island, Tiny Pasture, Deskrawl, Desktop Defender en Spirit City. Zet naast elke prestatie wat je ervoor moet doen (uit de prestatienamen of de wiki), zodat we zien welk deel van de spelers na 1, 10 en 100 uur nog speelt.
 2. **Hoe bouwen ze hun voortgang op?** Niveaus, ontgrendelingen, prestige, lagen: wat, hoeveel stappen, en wat zeggen reviews over het einde (speeltijd van de schrijvers staat op de communitypagina).
 3. **Wat mensen prijzen aan "level ups"** en waar het grind wordt.
-Cijfers met bron, GOK als het een gok is.
+Cijfers met bron, GOK als het een gok is. (verwerkt 16 nov ±13:00 UTC: `platformen/succes/diepte-toppers.md`, 7 spellen (met Desktop Detective erbij), 419 prestaties in `platformen/succes/data/diepte-prestaties-2026-11-16.csv`, gemeld bij Sanne en Bram)
