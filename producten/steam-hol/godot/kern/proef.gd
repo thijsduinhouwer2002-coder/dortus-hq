@@ -41,6 +41,7 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+			"wissel": s.proef_wissel = kv[1] if kv[1] in ["vlak"] else ""   # CPU-proef binnen één run (Bram 16 nov), zie wissel_tik
 
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
@@ -91,9 +92,26 @@ static func kijk_val(s, w: Node) -> void:
 
 # Elk beeld: staat het moment stil, dan één logregel (de winkel-workflow maakt daarop zijn beelden).
 static func tik(s) -> void:
+	wissel_tik(s)
 	if s.proef_moment != "" and not s.moment_gemeld and staat_stil(s):
 		s.moment_gemeld = true
 		s.log_regel("HOL moment vast %s t=%.1f" % [s.proef_moment, s.t])
+
+# CPU-proef binnen één run (Bram 16 nov, Iris keuring 9 en 10): wissel=vlak zet het muisvlak om de minuut uit
+# (oneven minuten: geen vlak, het hele venster vangt de muis en wordt getekend) en weer aan. Tussen runs schelen de
+# runners tot ±25% CPU, binnen één run niet; zo is te zien wat het vlak per beeld kost. Alleen met het argument.
+static func wissel_tik(s) -> void:
+	if s.proef_wissel != "vlak":
+		return
+	var uit := int(s.t / 60.0) % 2 == 1
+	if uit == s.wissel_uit:
+		return
+	s.wissel_uit = uit
+	s.log_regel("HOL wissel vlak %s t=%.1f" % ["uit" if uit else "aan", s.t])
+	if uit:
+		DisplayServer.window_set_mouse_passthrough(PackedVector2Array())
+	else:
+		s._muis_vlak(s.vlak_paneel)
 
 static func staat_stil(s) -> bool:
 	match s.proef_moment:
