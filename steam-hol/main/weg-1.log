@@ -1,27 +1,30 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 775, hoeden 56
-HOL hol-niveau 2 (faam 104)
-HOL hol-niveau 3 (faam 104)
-HOL hol-niveau 4 (faam 104)
-HOL hol-niveau 5 (faam 104)
-HOL hol-niveau 6 (faam 104)
-HOL hol-niveau 7 (faam 104)
-HOL hol-niveau 8 (faam 104)
-HOL hol-niveau 9 (faam 104)
-HOL hol-niveau 10 (faam 104)
-HOL hol-niveau 11 (faam 104)
-HOL hol-niveau 12 (faam 104)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 56 new hats.
-HOL weg-regel uit tot het bordje: Grew 11 levels while you were away.
-HOL optocht wip, 1.2 poef 4 munt, 2.4 poef 9, 3.6 poef 12 munt; helden [3, 5, 8, 10, 11]; duur 3.6 s
-HOL opslag geladen: 0 terugkomers, 795 goud, faam 104
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 805, hoeden 70
+HOL hol-niveau 2 (faam 109)
+HOL hol-niveau 3 (faam 109)
+HOL hol-niveau 4 (faam 109)
+HOL hol-niveau 5 (faam 109)
+HOL hol-niveau 6 (faam 109)
+HOL hol-niveau 7 (faam 109)
+HOL hol-niveau 8 (faam 109)
+HOL hol-niveau 9 (faam 109)
+HOL hol-niveau 10 (faam 109)
+HOL hol-niveau 11 (faam 109)
+HOL hol-niveau 12 (faam 109)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 70 new hats.
+HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
+HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
+HOL opslag geladen: 0 terugkomers, 825 goud, faam 109
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794850171
-HOL eerste koop mogelijk na 15 s speeltijd (goud 795)
+HOL zaad 1794850698
+HOL eerste koop mogelijk na 15 s speeltijd (goud 825)
+HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 151 came, 104 fell, 56 hats. +775 gold.
-HOL begin: vluchten (Wout)
-HOL held binnen: Wout
-HOL kroniek 5.1 (wacht 5.1): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.0: Wout is here for your gold.
-HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=795, terugkomers=0
+HOL kroniek 2.5 (wacht 2.5): 151 came, 109 fell, 70 hats. +805 gold.
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
+HOL kroniek 5.0 (wacht 5.0): Your hole worked at quarter speed.
+HOL kroniek vervallen 7.0: Kees brought a torch. And hope.
+HOL kroniek 7.5 (wacht 7.5): Grew 4 levels while you were away.
+HOL meting t=10 beelden=71 helden=1 hol_vast=1
+HOL kroniek 10.1 (wacht 10.1): 7 more to come as you play.
+HOL einde na 15 s, fps=10, goud=825, terugkomers=0

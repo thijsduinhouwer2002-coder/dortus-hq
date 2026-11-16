@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 795, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 795 goud, faam 104
+HOL weg geweest 0 s (klok terug: true): goud voor 825, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 825 goud, faam 109
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794850187
-HOL eerste koop mogelijk na 30 s speeltijd (goud 795)
+HOL zaad 1794850713
+HOL eerste koop mogelijk na 30 s speeltijd (goud 825)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Fenna brought a torch. And hope.
-HOL begin: doorlopen (Fenna)
-HOL held binnen: Fenna
-HOL einde na 8 s, fps=10, goud=795, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Tibbe read about you in a tavern.
+HOL begin: doorlopen (Tibbe)
+HOL held binnen: Tibbe
+HOL einde na 8 s, fps=10, goud=825, terugkomers=0
