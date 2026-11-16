@@ -157,27 +157,36 @@ class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):
         return {"FINISHED"}
 
 
-def teken(self, context):
-    """Vak "Figure joints" onder het paneel: zes presets met icoon, daarna de lijst van deze figuur."""
-    ob = context.active_object
-    if ob is None:
-        return
-    vak = self.layout.box()
-    vak.label(text="Figure joints", icon="ARMATURE_DATA")
-    rooster = vak.grid_flow(row_major=True, columns=2, even_columns=True, align=True)
-    for sleutel, naam, _soort, _stand in PRESETS:
-        ic = icoon(sleutel)
-        if ic:
-            op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam, icon_value=ic)
-        else:
-            op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam)
-        op.deel = sleutel
-    lijst = figuur_gewrichten(context.scene.objects, figuur_naam(ob))
-    if lijst:
-        vak.label(text=samenvatting(lijst))
-        kol = vak.column(align=True)
-        for rec in lijst:
-            kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)
+class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
+    """Eigen paneel "Figure joints" onder Click Joints (zelfde tabblad): in te klappen en te verslepen."""
+    bl_label = "Figure joints"
+    bl_idname = "CLICK_JOINTS_PT_figuur"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_category = "Click Joints"
+
+    def draw_header(self, _context):
+        self.layout.label(icon="ARMATURE_DATA")
+
+    def draw(self, context):
+        ob = context.active_object
+        layout = self.layout
+        layout.label(text="Put the 3D cursor on the joint, then:")
+        rooster = layout.grid_flow(row_major=True, columns=2, even_columns=True, align=True)
+        for sleutel, naam, _soort, _stand in PRESETS:
+            ic = icoon(sleutel)
+            if ic:
+                op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam, icon_value=ic)
+            else:
+                op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam)
+            op.deel = sleutel
+        lijst = figuur_gewrichten(context.scene.objects, figuur_naam(ob)) if ob is not None else []
+        if lijst:
+            vak = layout.box()
+            vak.label(text=samenvatting(lijst))
+            kol = vak.column(align=True)
+            for rec in lijst:
+                kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)
 
 
 def register():
@@ -195,15 +204,11 @@ def register():
     except Exception as e:  # zonder iconen werkt alles, alleen zonder plaatje
         print(f"Click Joints: icons not loaded ({e})")
         _iconen[0] = None
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.append(teken)
+    bpy.utils.register_class(CLICK_JOINTS_PT_figuur)  # na het hoofdpaneel, dus eronder in het tabblad
 
 
 def unregister():
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.remove(teken)
+    bpy.utils.unregister_class(CLICK_JOINTS_PT_figuur)
     if _iconen[0] is not None:
         from bpy.utils import previews
         previews.remove(_iconen[0])
