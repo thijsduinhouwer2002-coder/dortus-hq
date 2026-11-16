@@ -15,7 +15,7 @@ import time
 
 import bmesh
 import bpy
-from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty
+from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty, IntProperty
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
@@ -30,6 +30,7 @@ from . import scharnier_kleur
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
 
+GRADEN_MIN, GRADEN_MAX = 30, 150  # vrije eindstop (Pro 1.1); buiten dit bereik geen getoetste vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
 
 
@@ -70,6 +71,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
     stand: EnumProperty(name="Bends up to", items=STAND_KEUZES, default=str(vorm.STAND_STANDAARD))
     flip_bend: BoolProperty(name="Flip bend", default=False,
                             description="Bend the other way: the end stop moves to the other side of the part")
+    # Pro 1.1 (ontwerp-1.1.md, stap 2a): eindstop op een vrij getal, bijvoorbeeld uit Limit Rotation van een rig.
+    # 0 = de knop (stand). Alleen voor "Figure from rig" en scripts, daarom verborgen.
+    graden: IntProperty(default=0, min=0, max=180, options={"HIDDEN", "SKIP_SAVE"})
     # Leeg (0, 0, 0) = kijkrichting uit de 3D-weergave. Alleen voor scripts en de toets zonder venster.
     kijk_richting: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
     kijk_omhoog: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
@@ -117,7 +121,14 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bm.to_mesh(me)
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
-        maat, reden = vorm.maten(bvh, frame, s, int(self.stand), u)
+        stand = int(self.stand)
+        if self.graden:
+            if not GRADEN_MIN <= self.graden <= GRADEN_MAX:
+                bpy.data.meshes.remove(me)
+                self.report({"WARNING"}, f"End stop {self.graden}°: pick {GRADEN_MIN}° to {GRADEN_MAX}°.")
+                return {"CANCELLED"}
+            stand = int(self.graden)
+        maat, reden = vorm.maten(bvh, frame, s, stand, u)
         if maat is not None:
             # Eis 3: klikneus en rek, of Tight (dan geen scharnier); de sleuf nooit door de onderkant van A.
             reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
