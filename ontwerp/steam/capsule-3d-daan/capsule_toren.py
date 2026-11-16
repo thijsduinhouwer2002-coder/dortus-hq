@@ -312,6 +312,9 @@ for i, nr in enumerate(TOREN):
 km = bpy.data.materials.get("koks")
 if km:   # Daan toren: wit brandde uit tegen de warme muur; in de capsule iets romiger
     km.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*g.hex2(os.environ.get("TOREN_KOKS", "e6dccb")), 1)
+pm = bpy.data.materials.get("paars")
+if pm and os.environ.get("TOREN_PAARS"):   # Mila: lichtere puntmuts, zodat hij in grijs los komt van de hoge hoed
+    pm.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*g.hex2(os.environ["TOREN_PAARS"]), 1)
 print("toren top", top)
 
 # ---------- titel ----------
