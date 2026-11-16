@@ -60,6 +60,7 @@ var proef_zaad := 0           # zaad=<n>: zelfde volgorde van heldsoorten (stroo
 var proef_drukte := false    # drukte=1: helden elke 5 tot 8 s (hooguit 3 tegelijk), alleen voor de winkelopname week (Mila 16 nov, punt 3)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
+var zicht_was := false        # Iris keuring 6: log 'HOL zicht' als er een held in beeld komt of de laatste weg is (e2e/ritme_meting.py)
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
 var demo_grens := 7200.0      # demo_einde=<s> voor de toets
 var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
@@ -319,6 +320,9 @@ func _process(delta: float) -> void:
 			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
 				hi["dutje_gemeld"] = true
 				_kroniek(regels.kies("dutje", {"naam": hi.get("naam", "")}), true)
+	if logpad != "" and (helden > 0) != zicht_was:
+		zicht_was = helden > 0
+		log_regel("HOL zicht %.1f %d" % [t, helden])
 	if logpad != "":
 		meet_t += delta
 		if meet_t >= 10.0:
