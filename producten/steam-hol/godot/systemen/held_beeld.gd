@@ -334,14 +334,18 @@ static func hoed_tuimel(vt: float) -> Vector3:
 		- (2.2 - HOED_KANTEL) * clampf((vt - HOED_KANTEL_S) / (1.0 - HOED_KANTEL_S), 0.0, 1.0)
 	return Vector3(dx, op + zak, draai)
 
-# Twee korte witte streepjes onder de loskomende hoed (kan Daan 15 nov 23:50): dun, ±60% dekking, alleen de eerste
+# Twee korte witte streepjes bij de loskomende hoed (kan Daan 15 nov 23:50): dun, ±60% dekking, alleen de eerste
 # STREEP_S. Geeft per streepje [x, y_boven, y_onder] in spelpixels tegenover het nulpunt van de hoed (plek), of [] daarna.
+# x wordt nog met f (maat van de hoed) vermenigvuldigd, y niet.
+# 16 nov (Olaf, Windows-opname run 43779885248, moment-a 4x): onder de hoed vielen ze op het haar en lazen als twee witte
+# strepen op het hoofd. Nu links van de rand van de hoed, de kant waar hij vandaan komt (hij schuift naar rechts), op de
+# muur naast en net boven de kruin, verspringend.
 const STREEP_S := 0.2
 const STREEP_ALFA := 0.6
 static func hoed_streepjes(vt: float) -> Array:
 	if vt < 0.0 or vt >= STREEP_S:
 		return []
-	return [Vector3(-1.5, 1.5, 3.5), Vector3(0.5, 2.0, 4.0)]
+	return [Vector3(-4.6, -1.0, 1.0), Vector3(-3.5, -2.5, -0.5)]
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
 static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:

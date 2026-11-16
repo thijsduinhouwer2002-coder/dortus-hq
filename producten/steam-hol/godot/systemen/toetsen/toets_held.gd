@@ -1012,6 +1012,10 @@ func _init() -> void:
 	ok(rad_to_deg(absf(tm.z)) >= 15.0 and rad_to_deg(absf(tm.z)) <= 20.0 and tm.x >= 1.5, "hoed eraf: op het moment %.1f graden gekanteld en %.1f opzij" % [rad_to_deg(absf(tm.z)), tm.x])
 	ok(absf(HB3.hoed_tuimel(1.0).z - 2.2) < 0.001 or absf(HB3.hoed_tuimel(1.0).z + 2.2) < 0.001, "hoed eraf: op 1 s dezelfde draai als voorheen (2,2 rad)")
 	ok(HB3.hoed_streepjes(0.1).size() == 2 and HB3.hoed_streepjes(0.2).is_empty() and HB3.hoed_streepjes(0.5).is_empty(), "hoed eraf: twee streepjes alleen de eerste 0,2 s")
+	var str_links := true
+	for st in HB3.hoed_streepjes(0.1):
+		str_links = str_links and float(st.x) <= -3.0 and float(st.y) < float(st.z) and float(st.y) <= 0.0
+	ok(str_links, "hoed eraf: streepjes links van de hoed en niet onder de kruin (16 nov: lazen als strepen op het haar)")
 	if HB3.held3d.has("hoeden") and HB3.held3d.has("ridder"):
 		var hi: Dictionary = HB3.held3d["hoeden"][1]
 		var ri: Dictionary = HB3.held3d["ridder"][1]
