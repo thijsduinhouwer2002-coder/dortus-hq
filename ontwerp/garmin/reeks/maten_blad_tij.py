@@ -1,9 +1,9 @@
 # Maakt het blad met maten voor Tij (plaat 1) voor Gijs: tabel in px per scherm + een plaatje met hulplijnen.
-# Alle maten komen uit stijl_proef_v3.py en v4 (golfje, vaste plek BB-getal), zodat proef en blad nooit uit elkaar lopen.  python3 maten_blad_tij.py
+# Alle maten komen uit stijl_proef_v3.py en v5 (golfje, BB-getal met ruimte-eis), zodat proef en blad nooit uit elkaar lopen.  python3 maten_blad_tij.py
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import stijl_proef_v3 as P
-import stijl_proef_v4 as V
+import stijl_proef_v5 as V  # v5: plafond 0,715 en BB-getal 0,632 (ruimte-eis Daan 23:30)
 from PIL import ImageDraw
 HIER = os.path.dirname(os.path.abspath(__file__))
 MATEN = [208, 218, 240, 260, 280, 390, 416, 454]
@@ -23,6 +23,7 @@ regels = ['| wat | ' + ' | '.join(f'{S}' for S in MATEN) + ' |', '|---|' + '---|
   rij('waterlijn dikte px', lambda S: max(2, S//110)),
   rij('bootje halve breedte, mast px', lambda S: f'{r(S*.05)}, {r(S*.075)}'),
   rij('BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2)', lambda S: f'{r(S*V.BB_Y)}, {r(S*.11)}, {max(2,S//120)}'),
+  rij('ruimte-eis: px tussen onderkant getal (met rand) en golftop/zeil eronder; bootje nooit links van rechterkant getal + halve romp + deze ruimte', lambda S: f'{V.ruimte(S):.1f}'),
   rij('golfje (2 golven, kleur waterlijn): breedte, lijndikte, afstand tot getal px', lambda S: f'{r(max(12,S*.05))}, {max(2,r(max(12,S*.05)*.17))}, {r(max(12,S*.05)*.25)}'),
   rij('veilige straal bootje px', lambda S: r(S*P.VEILIG)),
 ]

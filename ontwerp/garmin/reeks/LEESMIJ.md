@@ -53,3 +53,9 @@ Daan zei ja op plaat 1 alleen met een eigen beeld: een hoogteprofiel van je Body
 - Blad met maten opnieuw gemaakt uit dezelfde getallen (`maten_blad_tij.py`), nu ook voor **208, 218 en 240**.
 
 **Keuze voor de oude horloges (vraag Gijs 22:15):** Forerunner 55 (208) en 245 (240) en de 218-maat horen bij de betaalde. De letters passen (3.472 en 6.328 bytes), de zee is getekend, geen plaatje, dus het geheugenprobleem van de 245 speelt niet. Op 8 kleuren (Forerunner 55): twee banden in plaats van vier (licht en donker uit het palet), waterlijn en slaaplijn wit en 2 px. Instinct 2 (176, zwart-wit, rond venster) niet: die vraagt een eigen opmaak, dus voorlopig alleen de gratis.
+
+## Proef 5, Tij met ruimte (16 nov ±23:55 UTC): de moet van Daan (23:30)
+`stijlproef-v5-tij.png` (script `stijl_proef_v5.py`), `stijlproef-v5-208-3x.png`, `stijlproef-v5-260-3x.png`, meting per maat en stand in `ruimte-v5.txt`.
+- **Moet: altijd ruimte tussen getal en golf.** Eis: minstens 4 px op 208, dus S maal 4/208 (8,7 px op 454). Gedaan met twee vaste maten en een vangnet: plafond van 0,70 naar **0,715 S**, BB-getal van 0,638 naar **0,632 S**. Vangnet voor Gijs: meet de onderkant van het getal (met rand) en de hoogste golf of zeilpunt binnen de breedte van het getal; is de ruimte te klein, schuif het getal omhoog, hooguit tot 0,012 S onder de veldgetallen. In alle 48 gevallen (8 maten, 6 standen) was dat niet nodig: krapst is Kelp 100 op 208 met 5,3 px (eis 4,0), waterlijndikte meegeteld.
+- **Moet: bootje nooit onder het getal.** Het bootje mag niet verder naar links dan rechterkant getal plus halve romp plus de ruimte. Bij 2 (Night) schoof het eerst naar links voor de cirkel; dat stopt nu bij die grens.
+- GEZIEN met Read: blad op 454 en 260, en 208 op 3x. Bij 100 staat tussen 100 en het gras een duidelijke zwarte strook, het zeil staat er rechts naast met lucht. Blad met maten opnieuw gemaakt, met een regel voor de ruimte-eis.
