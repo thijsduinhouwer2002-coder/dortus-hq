@@ -164,7 +164,13 @@ func _ready() -> void:
 	hol.maak(int(scherm.size.x / schaal))
 	wezens = Node2D.new()
 	wezens.name = "Wezens"
+	# vleermuis (Bram 16 nov, Mila punt 4b) vóór Wezens: de helden lopen voor hem langs; zonder blad doet hij niets
+	var vleermuis := Node2D.new()
+	vleermuis.set_script(load("res://systemen/vleermuis.gd"))
+	vleermuis.name = "Vleermuis"
+	hol.add_child(vleermuis)
 	hol.add_child(wezens)
+	vleermuis.zet(hol, wezens)
 	# Brams slijm (Gloop, gaat nooit dood) als die er is, anders de stand-in
 	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))

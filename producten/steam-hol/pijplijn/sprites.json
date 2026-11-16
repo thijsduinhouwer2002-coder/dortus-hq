@@ -1328,6 +1328,138 @@
         }
       },
       "_uitleg": "Daan 14 nov 09:40 (Bram 09:25 en 09:40, keuze b): eigen blad voor Royal, zelfde eenheid als gloop. achter = troon, scepter en goudhoop (royal.py ronde 7c, stand cape), voor = broche (stand zoom). Model ja voor de proef in het echte beeld, nog niet naar main."
+    },
+    "hoedenwand": {
+      "model": "hoedenwand.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        400,
+        300
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        13,
+        12
+      ],
+      "px": 4,
+      "frames": {
+        "wand-0": {
+          "stand": "0",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-1": {
+          "stand": "1",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-2": {
+          "stand": "2",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-3": {
+          "stand": "3",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-4": {
+          "stand": "4",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-5": {
+          "stand": "5",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-6": {
+          "stand": "6",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-7": {
+          "stand": "7",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-8": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "wand-9": {
+          "stand": "9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Bram 16 nov (Mila 09:00, Het Hol moet vol, punt 4): de hoedenwand van Mila (ontwerp/steam/hoedenwand/) in de pijplijn. Beeld i = hoed i uit hoeden.py (zelfde volgorde als hoed_nr in held.gd: helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge_hoed, pan, veermuts), scheef half in de wand met donkere holte en aardrand, kanteling uit KANTEL in modellen/hoedenwand.py. Cel 13 x 12 spelpixels zoals Mila's blad; alle beelden dezelfde schaal. Olaf plaatst ze in hol_vast.gd (een per opgegeten held, aarde boven de gang)."
+    },
+    "vleermuis": {
+      "model": "vleermuis.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        300,
+        300
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        8,
+        8
+      ],
+      "px": 4,
+      "frames": {
+        "hang": {
+          "stand": "hang",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "vlieg": {
+          "stand": "vlieg",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Bram 16 nov (Mila 09:00, punt 4b): vleermuis van Mila (ontwerp/steam/vleermuis/). hang = ondersteboven aan het plafond, vlieg = vleugels open. Cel 8 x 8 spelpixels (in het doelbeeld 22 tot 34 px op strook 160, dus 6 tot 8 spelpixels). systemen/vleermuis.gd tekent hem."
     }
   }
 }
