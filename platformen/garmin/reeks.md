@@ -61,7 +61,7 @@ Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-ker
 1. **Velden kiezen** uit de lijst hierboven, in Garmin Connect en waar het kan op het horloge zelf. Bij de wijzerplaten met 100+ noemt 85% dit (Vera).
 2. **Kleuren:** een handvol thema's per plaat, door Mila gekozen en op contrast gemeten (zoals bij de dieren van Ebb), geen vrije kleurkiezer met 64 lelijke uitkomsten.
 3. **Slaapstand** op AMOLED en **aanraken**: tik op een veld en de bijbehorende weergave van Garmin gaat open.
-4. **Gratis en betaald uit één bron.** Gratis: vaste velden, één thema, blijft altijd werken. Betaald ($2,99, of de dichtstbijzijnde prijsstap die het formulier aanbiedt): alles kiezen. Geen proef die omslaat, geen code, geen eigen site. Zin voor de winkel: "Pay once in the Connect IQ Store. The free version stays free."
+4. **Gratis en betaald uit één bron.** Gratis: vaste velden, één thema, blijft altijd werken. Betaald ($3,00; $2,99 bestaat niet bij Garmin, de stappen zijn $2,75 en $3,00): alles kiezen. Geen proef die omslaat, geen code, geen eigen site. Zin voor de winkel: "Pay once in the Connect IQ Store. The free version stays free."
 5. **100+ horloges vanaf de eerste dag.** Het venster "nieuw" duurt 14 dagen en komt niet terug (Joris). De mediaan van een betaalde app is 84 van de 107 soorten horloges waar betaald op kan.
 6. **Winkelpagina:** filmpje (Chris), 5 beelden (Mila), tekst in Engels, Duits en Nederlands, zoekwoord in de naam.
 7. **Meten:** elke plaat krijgt een regel in een meetbestand op dag 0, 7, 14 en 30.
