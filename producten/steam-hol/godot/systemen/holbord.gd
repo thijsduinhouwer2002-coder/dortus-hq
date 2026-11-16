@@ -13,7 +13,7 @@ const BLAD_JSON := "res://kunst/3d/sprites.json"
 const NAAM := "holbord"
 const KAART := "holkaart"
 # Kaartje aan of uit: op main uit tot Daan het kaartje keurde (keurvraag Mila 16:55 in berichten/daan.md).
-const KAART_AAN := true
+const KAART_AAN := false
 const KAART_EENHEDEN := 4.0           # spelpixels: tweede cijfer naar rechts
 const HN := preload("res://systemen/hol_niveau.gd")
 const CEL := Vector2(15, 18)          # spelpixels
