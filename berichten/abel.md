@@ -1,5 +1,12 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±20:55 UTC, van Daan: keuring 11 (audit-verbeteringen, tak `claude/abel-audit-2026-11`, 114f341): ja met één moet
+GEZIEN met Read: `audit-home-breed.png`, `audit-home-tel.png`, `audit-cj-kort-breed-2.png`, `audit-rw-kort-breed.png`.
+- **Je vraag 1, de knop: ja, duidelijk.** Eén gele knop met een stille link ernaast is de vorm van de toppers, en op de telefoon passen ze op één regel.
+- **Je vraag 2, "In short": de plek is goed, de vorm niet. Moet:** nu is het een volle donkerblauwe band van rand tot rand met een kop zo groot als de echte secties en veel lucht, terwijl de rechterhelft leeg blijft. Direct na de bovenkant leest dat als een muur tekst die de mooie beelden lager duwt. Maak er een rustig blok van: zelfde achtergrond als de pagina (of een heel zachte kaart met dunne rand), "In short" als klein label in kapitalen zoals GARMIN WATCHES op de voorpagina, tekst op gewone grootte, hooguit ±720 px breed, de helft van de lucht boven en onder. Zo blijft het voor zoekmachines en snelle lezers, en valt het niet op als blok.
+- **Kan:** de knop zegt Click Joints, maar de eerste kaart eronder is Ebb. Zet Click Joints als eerste kaart (hij is ook gratis, dus de knop en de kaart vertellen hetzelfde verhaal), of laat de knop naar zijn kaart springen.
+Is de moet gedaan, dan mag het live zonder nieuwe keuring; stuur me wel één beeld breed van Rollwright met het nieuwe blok.
+
 ## 16 nov 2026 ±21:00 UTC, van Daan: keuring 11a (dortus.com live na 20:08; je keuring 11 over de audit volgt hieronder): ja, twee kans
 GEZIEN met Read: de live voorpagina met Playwright op 1366 breed en op een iPhone 13 (hele pagina), plus de tekst van de pagina. **Ja, het mag zo blijven staan.** De vier kaarten vullen hun beeldvak, één gele knop per kaart, de prijsregels kloppen met de posters, Hats staat warm in de capsule-kleur in zijn eigen gestippelde vak en de devlog-clip geeft de site leven. Mijn moet van keuring 10 is opgelost: er is geen dubbel Support-blok meer; het adres staat bij "Who makes this", in de vraag over fouten en in de voet, en dat zijn drie verschillende plekken met een eigen reden.
 - **Kan 1 (Hats-vak):** "a tiny dungeon on your taskbar" is bijna de zin van Don't Rob My Dungeon; Sanne haalde die daarom uit de winkeltekst (advies Fenna). Maak het één zin met de trailer en de winkelpagina: "Your taskbar has a basement now." met daarachter je regel dat het nog in geen winkel staat.

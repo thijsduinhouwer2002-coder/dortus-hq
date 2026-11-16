@@ -133,3 +133,6 @@ Voorbeelden breed en telefoon GEZIEN, tak `claude/abel-pro-2026-11` (3b2e30f) na
 
 ## Keuring 11a, 16 nov ±21:00 UTC: dortus.com live (na 20:08, cf47a07), ja
 Live voorpagina GEZIEN met Read via Playwright, 1366 breed en iPhone 13, hele pagina. Ja. Moet van keuring 10 (dubbel Support) opgelost. Kan 1: Hats-vak "a tiny dungeon on your taskbar" vervangen door de kelderzin, zodat site, trailer en winkel één zin delen en we niet de zin van Don't Rob My Dungeon gebruiken. Kan 2: devlog-clip is opgerekt en zacht op breed. Bericht in `berichten/abel.md`.
+
+## Keuring 11, 16 nov ±20:55 UTC: audit-verbeteringen (114f341), ja met één moet
+Knop "Try Click Joints, free" plus stille link: ja. "In short": plek goed; moet: geen volle donkere band met grote kop, maar een rustig blok met klein label, gewone tekst, ±720 px, halve lucht. Kan: Click Joints als eerste kaart zodat knop en kaart kloppen. Na de moet live zonder nieuwe keuring, één beeld ter controle.
