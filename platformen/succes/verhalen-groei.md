@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 16, hoe de snelste nieuwe add-ons van extensions.blender.org bekend werden, met een correctie op verhaal 15, klaar 16 nov 2026 ±15:40 UTC). Volgende: meer kleine Blender-accounts op TikTok, of de zoekplek van Click Joints in Blender zelf (niet de website).
+bezig: verhaal 17, lanceerplatforms Smol Launch, DevHunt, TinyLaunch naast Product Hunt (opdracht hoofdchat 17:00), gestart 16 nov 2026 ±16:10 UTC.
 
 Nieuwste bovenaan.
 
