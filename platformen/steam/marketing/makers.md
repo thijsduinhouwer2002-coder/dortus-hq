@@ -35,7 +35,7 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 | 11 | Dex (@DexTag) | Duitsland | 316K | "Windows 98 Horde Survivor is CRAZY" 23.762; maakt incrementals | ja | staat in kanaaltekst | middel |
 | 12 | knekroTV (@knekroTV) | Spanje | 158K | "DESKRAWL is like DIABLO but AFK" 30.423 (stream) | ja, variëteit | nee | middel (Spaans) |
 | 13 | Starker MMOs (@StarkerMMOs) | Brazilië | 11,6K | "The next Task Bar Hero!?" over Deskrawl 8.752, TBH-gidsen 51.375 | ja | staat in kanaaltekst ("parcerias") | middel |
-| 14 | Wanderbots (@wanderbots) | VS | 10,5K | "Incremental Farm Sim To Play While Playing Other Incremental Games" (Rusty) 18.058 | ja, "100% human-made videogames" | nee | **hoog: hij zoekt bewust spellen zonder AI; Hats is zonder AI-beeld** |
+| 14 | Wanderbots (@wanderbots) | VS | 10,5K | "Incremental Farm Sim To Play While Playing Other Incremental Games" (Rusty) 18.058 | ja, "100% human-made videogames" | nee | ~~hoog: hij zoekt bewust spellen zonder AI; Hats is zonder AI-beeld~~ **laag, niet als "zonder AI" benaderen** (correctie run 2: Hats wordt gemaakt door AI-agents, ook de code die de 3D-beelden maakt en de teksten in het spel; zie "Correctie" onder) |
 
 ### B. Lijstjes en cozy-overzichten (12)
 | # | Kanaal | Land | Abonnees | Bewijs | Contact openbaar | Kans |
@@ -75,10 +75,36 @@ Kans per maker is een GOK op basis van: speelde al zo'n spel, kanaal speelt klei
 | 39 | Dekaff (@Dekaif) | 705K | "I Played 7 Unhinged Games on Steam Next Fest" 751.500 | **Partners@saltraiders.com** (zakelijk) | laag tot middel: "unhinged" past bij Gloop die hoeden eet |
 | 40 | Wholesome Games (@WholesomeGames) | 62,7K | trailers Ropuka 26.846, Rusty 20.242, Bao Bao 7.280 | via hun showcase (oude inzendpagina bestaat niet meer, Fenna) | middel als we een showcase halen |
 
+## Aanvulling 16 nov, run 2: 19 kanalen uit Fenna's verhaal 9 (nummer 41 tot 59)
+Bron: `platformen/succes/data/youtube-kanalen-winnaars-2026-11-16.csv` (Fenna, GEZIEN 16 nov). Per kanaal de grootste video over een winnaar. Contact nog niet nagekeken (volgende run, zelfde regel als boven). Fenna's bak tussen haakjes.
+| # | Kanaal | Abonnees | Grootste video (spel, weergaven) | Bak / kans |
+|---|---|---|---|---|
+| 41 | Hadomancer (@Hadomancer) | 100K | TBH, "The game you don't even play is breaking Steam" 350.336 (3,5x abonnees) | A, middel: maakt video's over wat al groot is |
+| 42 | Maybe Sarisa (@MaybeSarisa) | 1,63K | Ropuka, "Cozy Idle Games Under $10 for Multitasking" 3.140 | A, hoog: klein, precies onze lijst |
+| 43 | Indie Signal (@IndieSignal) | ? | Ropuka, "10 Idle Games on Steam That Will Quietly Ruin Your Life" 7.233 | A, hoog (lijstje) |
+| 44 | Idle cub (@idlecub) | 203K | Desktop Survivors 98, 28.231 | A, middel |
+| 45 | Krayn (@Krayn) | 95K | Deskrawl, "THE PERFECT GAME TO PLAY WHILE DO(ing other things)" 7.547 | A, middel |
+| 46 | Gaming Meets Experience | 2,21K | Deskrawl, 6.478 | A, middel (vooral gidsen) |
+| 47 | Plano Plays Games (@PlanoPlaysGames) | 566K | Desktop Raid, "The Ultimate Productivity RPG?" 23.940 | B (groot), laag tot middel |
+| 48 | Mattastic ASMR (@MattasticASMR) | 293K | Desktop Survivors 98, 110.002 | B, laag: actief spel, ASMR-publiek |
+| 49 | Bijuu Mike (@BijuuMike) | 3,78M | Desktop Survivors 98, 38.967 | B, laag |
+| 50 | EuSouOGiba (@EuSouOGiba) | 17,3K | Deskrawl, 6.029 (Portugees) | C, alleen met Portugees |
+| 51 | Task Bar Hero Dicas (@tbhdicas) | 13,4K | TBH-gids 137.668 (10x abonnees, Portugees) | C, laag: gidsen komen pas na succes |
+| 52 | 小月歡樂星 | ? | Deskrawl-stream 13.902 (Chinees, TW) | C, alleen met Chinees |
+| 53 | しんじさん | ? | Deskrawl-demo 37.451 (Japans) | C, middel met Japans: speelde een demo |
+| 54 | くろろじちゃんねる (@KUROROJI) | 41,7K | Deskrawl, "eindelijk Diablo spelen terwijl je werkt" 6.753 (Japans) | C, middel met Japans |
+| 55 | Tietie TH. (@TietieTHAI) | 43,9K | Desktop Raid, 19.835 (Thai) | C, alleen met Thai |
+| 56 | Diomio (@Diomio-Game) | 180K | TBH, "everyone is playing AFK games now" 98.806 (Vietnamees) | C, laag |
+| 57 | GameStar (@gamestar) | 1,59M | TBH, "#2 on Steam" 81.403 (Duits, pers) | C/pers, laag: schrijft over succes |
+| 58 | IlloRubiu (@Illorubiu3) | 1,63K | Deskrawl-stream 6.282 (Spaans) | C, middel met Spaans |
+| 59 | Alex Baena (@alexpolybius) | 59,3K | Rusty, video-essay over het genre 30.403 (Spaans) | C, middel: essay over "het genre", Hats past in een vervolg |
+
+**Wat ik meeneem uit Fenna:** de echte doorbraken kregen hun grote video's ná het succes (TBH, GameStar, Hadomancer). Die kanalen zijn dus voor de week ná een doorbraak in de meetlat (`festplan.md`), niet voor de aanloop. Voor de aanloop tellen de kleine lijstjesmakers met veel weergaven per abonnee (The Indie Brew 4x, JGigs 9x, Maybe Sarisa, Indie Signal, Conkbot).
+
 ## Wat ik eruit haal (eerste lezing)
 1. **De kanalen die precies ons soort spel speelden zijn klein**: 14 kanalen in A, mediaan ±11K abonnees, en de video over het bureaubladspel haalde meestal 1.500 tot 30.000 weergaven. Dat is het eerlijke plafond per video: geen doorbraak uit één mail.
 2. **Drie zeggen zelf dat je spellen mag sturen** (The Indie Brew, MaxPalaro, Gohjoe "all business inquiries") en vier hebben een bureau-adres (Gaming In The Wild, Easily Distracted, Dekaff, foxranch). Daar beginnen.
-3. **Wanderbots zoekt bewust "100% human-made" spellen.** Hats heeft geen AI-beeld (onderscheid-hats.md, punt 3); dat is hier een echte haak in de mail.
+3. ~~**Wanderbots zoekt bewust "100% human-made" spellen.** Hats heeft geen AI-beeld (onderscheid-hats.md, punt 3); dat is hier een echte haak in de mail.~~ **Correctie run 2 (16 nov):** dit was fout. Hats is niet met een AI-beeldtool gemaakt, maar wel door AI-agents: de code die Gloop en het hol in Blender bouwt en rendert, de spelcode en de teksten in het spel (kroniek, namen). "Human-made" of "no AI" zeggen is dan misleidend, en Valve vraagt een AI-melding voor wat spelers zien. Regel voor alle teksten: **we zeggen nergens "no AI" of "human-made"**. Wat we wel eerlijk kunnen zeggen: "no AI image generators", alleen als de hoofdchat de AI-melding op de winkelpagina zo vastlegt. Gemeld in het logboek voor de hoofdchat.
 4. **De grote uitschieters zijn niet Engels** (uzuhama 908K, foxranch, strongbro). Zonder Koreaans en Chinees in de demo valt groep C grotendeels weg. Dit weegt mee in het besluit over talen (fest-plan punt 6).
 
 ## Plan: wie krijgt wanneer een sleutel (voorstel, nog niets versturen)
