@@ -1,5 +1,20 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 16 nov 2026 ±16:45 UTC (Bram): hoeveel mogen de eigen helden per laag kosten? (voortgang.md "Wat nog niet klopt" punt 2)
+Uitvoer `voortgang-laagvang-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_laagvang.py`. Mijnwerker en archeoloog zijn nog niet uitgewerkt (hoe vaak ze komen, hoe goed valluik en nep-schat ertegen werken), dus geen GOK-model maar een gevoeligheid: nieuwe sleutel `"laag_vang": [1, f2, f3, f4]` in `sim.py`, de vangkans in de laag die je ziet x die factor. Zonder de sleutel verandert er niets (`voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
+
+| vangkans laag 2 tot 4 | hol 30 / 40 / 50 (open uur) | hol 50 op werkdag | langste gat week 2 / 3 / 4 (mediaan / ergste) |
+|---|---|---|---|
+| x 1 (versie 3 definitief) | 37,4 / 76,2 / 127,8 | 22 | 1,9/3,7; 2,7/2,9; 2,8/3,2 |
+| x 1,1 (tegenzet wint) | 36,5 / 73,3 / 125,9 | 21 | 1,9/2,6; 2,6/2,8; 5,6/6,0 |
+| x 0,9 | 39,1 / 78,6 / 135,8 | 23 | 3,1/4,2; 2,8/3,1; 4,4/5,7 |
+| laag 2 x 0,9, laag 3 en 4 x 0,8 | 39,1 / 80,1 / 138,0 | 24 | 3,1/4,2; 3,0/3,1; 2,9/5,3 |
+| x 0,8 | 40,6 / 81,2 / 138,3 | 24 | 3,0/4,0; 3,0/5,1; 3,0/4,3 |
+| x 0,7 | 41,8 / 84,0 / 145,2 | 25 | 2,7/2,9; 3,0/3,7; 2,8/3,1 |
+
+**Wat dit zegt:** (1) de hol-tijden zijn niet erg gevoelig: 10% minder vangen in laag 2 tot 4 kost ±1 werkdag tot hol 50, 20% ±2, 30% ±3 (helden die vluchten komen terug en worden later alsnog gevangen). (2) De gaten springen wel: al bij x 0,9 of x 1,1 komt er in week 2 of 4 een gat van 4 tot 6 uur (ergste), omdat aankopen en niveaus anders op elkaar vallen. Week 1 en hol 20 veranderen nergens (laag 2 opent pas op hol 20). (3) **Voorstel voor als mijnwerker en archeoloog ontworpen worden:** laat elke held zijn eigen tegenzet hebben die hem ongeveer even vaak terug vangt (valluik voor de mijnwerker, nep-schat voor de archeoloog), dan blijft het netto tussen x 0,95 en x 1,05 en kloppen de bouwgetallen. Wordt het netto lager, dan de drempels 21 tot 50 opnieuw ijken met `sim.ijken` (één run, zoals bij versie 3), niet de prijzen.
+
+
 ## 16 nov 2026 ±16:35 UTC (Bram): de rij bij de ingang in de sim (vraag Sanne 16:00)
 Uitvoer `voortgang-rij-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_rij.py`, spec `voortgang-v3-eind-bram.json` (versie 3 definitief) met `"rij": {"meteen": 4, "elke_s": 180}`. Oude uitkomsten veranderen niet (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
 

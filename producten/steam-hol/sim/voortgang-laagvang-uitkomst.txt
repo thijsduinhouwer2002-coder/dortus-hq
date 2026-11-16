@@ -1,0 +1,16 @@
+Bram 16 nov, gevoeligheid vangkans per laag. Gemaakt met: python3 voortgang_laagvang.py   (8 zaden, spec voortgang-v3-eind-bram.json, 165 open uur, 6 uur open per werkdag)
+Kolommen: hol 20 / 30 / 40 / 50 in open uren (mediaan), werkdag van hol 50,
+langste gat per week 1 tot 5 (mediaan / ergste, open uren).
+
+versie 3 definitief (alles x 1)      hol 10.5 / 37.4 / 76.2 / 127.8 u, hol 50 werkdag 22
+                                     gaten 1.7/1.9; 1.9/3.7; 2.7/2.9; 2.8/3.2; 6.0/6.0
+laag 2 tot 4 x 0,9                   hol 10.5 / 39.1 / 78.6 / 135.8 u, hol 50 werkdag 23
+                                     gaten 1.5/1.9; 3.1/4.2; 2.8/3.1; 4.4/5.7; 6.3/6.4
+laag 2 tot 4 x 0,8                   hol 10.5 / 40.6 / 81.2 / 138.3 u, hol 50 werkdag 24
+                                     gaten 1.8/1.8; 3.0/4.0; 3.0/5.1; 3.0/4.3; 6.5/7.0
+laag 2 x 0,9, laag 3 en 4 x 0,8      hol 10.5 / 39.1 / 80.1 / 138.0 u, hol 50 werkdag 24
+                                     gaten 1.5/1.9; 3.1/4.2; 3.0/3.1; 2.9/5.3; 6.1/6.6
+laag 2 tot 4 x 0,7                   hol 10.5 / 41.8 / 84.0 / 145.2 u, hol 50 werkdag 25
+                                     gaten 1.9/1.9; 2.7/2.9; 3.0/3.7; 2.8/3.1; 6.9/7.4
+laag 2 tot 4 x 1,1 (tegenzet wint)   hol 10.5 / 36.5 / 73.3 / 125.9 u, hol 50 werkdag 21
+                                     gaten 1.5/1.9; 1.9/2.6; 2.6/2.8; 5.6/6.0; 5.8/6.0

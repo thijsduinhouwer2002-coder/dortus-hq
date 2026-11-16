@@ -93,6 +93,10 @@ def speel(uren, zaad, spec=None):
     # weg "keer": hooguit zoveel keer weg (voor de proef "X minuten spelen, één nacht weg"). "leeg_gevallen_s": tempo als
     # er nog geen tempo te meten is (0 minuten gespeeld), zoals voortgang.gd: 1 held per 47,5 s, ±60% gevangen.
     rij = sp_.get("rij")
+    # Bram 16 nov (voortgang.md "Wat nog niet klopt" punt 2): de eigen helden per laag (mijnwerker, archeoloog) zitten nog
+    # niet in de sim. "laag_vang": [1, 0.9, 0.8, 0.8] = vangkans x dit getal in de laag die je ziet, als gevoeligheid
+    # (hoeveel mogen ze kosten), geen ontwerp. Zonder de sleutel: x 1.
+    laag_vang = sp_.get("laag_vang")
     rij_cap = None        # hoogste hol-niveau dat nu mag komen; None = er staat niets in de rij
     rij_weg = 0.0         # gevangen helden van weg die nog in de rij zitten
     rij_volgende = None   # open tijd waarop het volgende niveau uit de rij mag
@@ -271,6 +275,8 @@ def speel(uren, zaad, spec=None):
                 vijand = ""   # na het duel door naar de schat
             if h["hoard"]:
                 kans *= BRUTAAL
+            if laag_vang:
+                kans *= laag_vang[min(len(laag_info), len(laag_vang)) - 1]
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
                 if v["soort"] == "slijm":
