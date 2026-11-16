@@ -1,8 +1,8 @@
 # Gloop's Hat Tower, tekst voor de Connect IQ-winkel: Nederlands
 
-Bron: `commercie/garmin-gloop-spel/naam-en-tekst.md` deel 7 van Chris (16 nov ±14:30 UTC, nagekeken door een controleur), overgenomen door Gijs op 16 nov ±20:00 UTC (run 122). Eén verschil met Chris: de regel met horloges, want het manifest telt nu 52 modellen in plaats van 9. Plak alleen wat in de grijze blokken staat.
+Bron: `commercie/garmin-gloop-spel/naam-en-tekst.md` deel 7 van Chris (16 nov ±14:30 UTC, nagekeken door een controleur), overgenomen door Gijs op 16 nov ±20:00 UTC (run 122). De regel met horloges komt uit deel 8d van Chris (16 nov ±21:10 UTC), geplakt in run 123. Plak alleen wat in de grijze blokken staat.
 
-**Stand 16 nov ±20:00 UTC (run 122): klaargezet, nog niet uploaden.** Thijs koos doorgaan (hoofdchat 20:10). Daan zei `Akkoord: ja` op het spel (13:50 UTC). Nieuw in run 122: het spel gaat van 9 naar 52 horloges (commit 07b9999 op `claude/garmin-gloop-2026-11-16`), de Forerunner 55 en 245 zijn eruit. De regel met horloges hieronder is daarom van Gijs en nog niet door Chris nagekeken. Open: groene run van 07b9999, Daan op de nieuwe horloges, vijf winkelbeelden van Mila, het ondertekende bestand. De hoofdchat laat de teksten eerst aan Thijs zien.
+**Stand 16 nov ±21:10 UTC (run 123): teksten en beelden klaar.** Daan zei ja op alle 52 horloges (16 nov ±21:00 UTC, run 43944787840) en op de vijf winkelbeelden van Mila (±21:10 UTC). Het blok met horloges is nu dat van Chris (`naam-en-tekst.md` deel 8d, nagekeken door een controleur): Venu Sq 2 Music en Venu X1 staan bij nog niet. Het ondertekende bestand en de stand van de upload staan op `organisatie/lijst-thijs.md`. De hoofdchat laat de teksten eerst aan Thijs zien.
 
 ## Titel (42 tekens)
 
@@ -16,7 +16,7 @@ Weigert het formulier deze lengte (de grens is NIET GEZIEN), neem dan:
 Gloop: Hat Tower
 ```
 
-## Beschrijving (1.648 tekens)
+## Beschrijving (1675 tekens)
 
 ```
 Eén knop. 30 seconden. Een toren van hoeden, hoger dan je horloge.
@@ -38,8 +38,8 @@ GOED OM TE WETEN
 - Het spel is in het Engels.
 
 HORLOGES
-Forerunner 70, 165, 170, 255, 265, 570, 955, 965 en 970. fenix 7, 7S en 7X (ook Pro), fenix 8, fenix E en fenix 9. epix (Gen 2) en epix Pro. Venu 2, 2 Plus, 3, 3S, 4 en Venu Sq 2. vivoactive 5 en 6. MARQ (Gen 2). D2 Air X10, D2 Mach 1 en D2 Mach 2.
-Nog niet: Forerunner 255S en 265S, Venu 2S, fenix 9 Pro 51 mm met AMOLED-scherm, Instinct. De winkel laat vóór het kopen zien of jouw horloge op de lijst staat.
+Forerunner 70, 165, 170, 255, 265, 570, 955, 965 en 970. fēnix 7, 7S en 7X (ook Pro), fēnix 8, fēnix E en fēnix 9. epix (Gen 2) en epix Pro. Venu 2, 2 Plus, 3, 3S en 4. Venu Sq 2. vívoactive 5 en 6. MARQ (Gen 2). D2 Air X10, D2 Mach 1 en D2 Mach 2 (ook Pro).
+Nog niet: Forerunner 255S en 265S, Venu 2S, Venu Sq 2 Music, Venu X1, fēnix 9 Pro 51 mm (AMOLED), Instinct. De winkel laat vóór het kopen zien of jouw horloge op de lijst staat.
 
 SUPPORT EN TERUGBETALEN
 Mail naar thijs@dortus.com met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Voor terugbetalen gelden de regels van de Connect IQ Store van Garmin: je kunt het spel tot 48 uur na aankoop teruggeven.
