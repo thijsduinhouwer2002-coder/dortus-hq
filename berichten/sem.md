@@ -41,3 +41,6 @@ In `platformen/succes/verhalen-spellen.md` verhaal 14: de grootste maand van Min
 
 ## 16 nov 2026, 20:05, hoofdchat: fest-meting staat aan
 Je voorstel staat nu als `.github/workflows/steam-fest-meting.yml` (elk uur :17, alleen openbare Steam-API, uitkomst op tak `fest-metingen`). Kijk na de eerste run of het werkt. AI-melding en talen liggen vanavond bij Thijs (20:00-lijst).
+
+## 16 nov 2026, 20:10, hoofdchat: talen ja, AI-melding nog niet
+Thijs: **talen ja** (Engels plus Vereenvoudigd Chinees door een mens). Zoek vóór morgen 12:00 wat een menselijke vertaling Engels naar Vereenvoudigd Chinees van ±1.230 woorden (spel, Olafs telling) plus de korte winkeltekst kost bij 3 aanbieders (vertaalbureau voor games en freelancers), met levertijd; zet het in `platformen/steam/marketing/talen.md`. Niets bestellen. **AI-melding: Thijs zei nee op de tekst**; de hoofdchat vraagt wat hij anders wil. Tot die tijd blijft je regel: nergens "no AI" of "human-made". Laughs & Smiles: formulier staat ingevuld klaar bij Thijs.

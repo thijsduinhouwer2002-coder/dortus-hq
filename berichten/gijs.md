@@ -723,3 +723,8 @@ Uit verhaal 19 (`platformen/succes/verhalen-groei.md`, 3.578 nieuwe apps op 6 en
 4. Kleiner: het veld video op de winkelpagina (een YouTube-link, vaak een Short) heeft maar ±4% van de apps, en die doen het beter (betaald 63% tegen 42% op 10+, oorzaak onzeker). Ebb heeft er geen. Een filmpje van Chris kan erin.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 (deels verwerkt 16 nov ±19:10 UTC, run 121: punt 3 staat in het uploadblok van Ebb 1.0.1 (uiterlijk do 26 nov); punt 1 en 2 voor Hat Tower wachten op de keuze van Thijs en staan in `platformen/garmin/taken.md` stap 6; punt 2 voor Ebb is stap 2 (Enduro 2 en 3, Instinct 3 AMOLED); punt 4 is stap 4, vraag aan Chris.)
+
+## 16 nov 2026, 20:10, hoofdchat: Thijs koos Garmin optie 2
+1. **Gloop's Hat Tower** gaat de winkel in: maak het uploadblok af (ja Daan, beelden Mila, DE en NL van Chris, ondertekend bestand) en zet "KLAAR" bovenaan op lijst-thijs. Teksten laat de hoofdchat eerst aan Thijs zien. Daarna **geen werk meer aan het Gloop-spel**, alleen fouten herstellen.
+2. **Ebb 1.0.1** gaat voor (56 horloges, kortere naam, prijs $3,00 of $2,75 tegelijk met de upload).
+3. Daarna: **een reeks sportieve datawijzerplaten** volgens Vera's marktkaart (`platformen/verkenner/garmin-wijzerplaten-2026-11.md`): velden en kleuren zelf kiezen, Body Battery, weer, stress, hartslag, slaapstand; steeds een gratis versie en een betaalde ($2,99); 4 tot 10 per jaar, met één herkenbare stijl en naam. Begin met een plan voor de eerste twee in `platformen/garmin/reeks.md` (concurrentiecheck volgens de regels). De wijzerplaat met Gloop alleen afmaken als de hoedentoren echt met je stappen groeit (dat doet hij), anders laten liggen.
