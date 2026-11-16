@@ -41,12 +41,19 @@ Doel (GOK): **30 volgers na een week is gewoon, 100 is sterk.** Ijking (GEZIEN 1
 | Wanneer | Wat | Wie |
 |---|---|---|
 | vóór 4 jan | demosleutels naar de makers met "demo af" in de eerste ronde (`makers.md`), met de vraag de video op of na 4 jan te zetten | Sem zet klaar, Thijs verstuurt |
-| ma 4 jan 18:00 | Thijs drukt "uitbrengen" (lijst-thijs); 18:00 NL is 9:00 in Californië en de middag voor de Amerikaanse oostkust, GOK beste moment | Thijs |
-| ma 4 jan 18:00 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
-| ma 4 jan 18:00 | mail aan de rest van de eerste ronde: de demo is er, link | Thijs |
-| ma 4 jan vanaf 18:00 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
+| ma 4 jan 19:15 | Thijs drukt "uitbrengen" (lijst-thijs), **zonder de mailknop**. Run 12: verschoven van 18:00, want de Winter Sale loopt tot ma 4 jan 10:00 Pacific = 19:00 NL (Steamworks `doc/marketing/upcoming_events`: "Winter Sale 2026, December 17, 2026 - January 4, 2027", GEZIEN 16 nov; het eindtijdstip 10:00 Pacific is het gewone tijdstip, GOK, Fenna verhaal 17). 19:15 NL is 10:15 in Californië. | Thijs |
+| ma 4 jan 19:15 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
+| ma 4 jan 19:15 | mail aan de rest van de eerste ronde: de demo is er, link (persoonlijke mail, niet de Steam-mail) | Thijs |
+| ma 4 jan vanaf 19:15 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
 | di 5 tot wo 13 jan | elke demo-fix een korte post (zie onder) | Olaf meldt, Chris schrijft |
 Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2.500 verlanglijstjes 23 tegelijk in zijn demo (GEZIEN 16 nov), Desktop Defender met 200 verlanglijstjes "hoped for maybe 20" en haalde 36 vóór Next Fest (Kotaku, DERDEN).
+
+**De Steam-mail naar verlanglijsten: op do 14 jan 19:00, niet op de demodag (run 12, voorstel Fenna verhaal 17, nagekeken).** Steamworks-docs `doc/store/application/demos` (GEZIEN 16 nov met curl): "you can trigger sending notifications (emails and mobile app notifications) to players who have the associated full game on their wishlist. This action is available on your demo app landing page for two weeks following the initial launch of your demo. You can only take this action once". Plus: "Wishlist notifications have a two week cooldown per App ID". Dus:
+- Eén mail, één keer, binnen 14 dagen na de eerste demodag. Demo op 4 jan, dan kan de knop tot en met ±18 jan; do 14 jan is dag 10.
+- Op 14 jan 19:00 vallen dan samen: start fest, mailknop, festaankondiging, makersvideo's. Wie de mail opent, landt op een pagina die in het fest staat en ziet de hoedenteller lopen. Op 4 jan zou de mail ook nog in de uitverkoop vallen (Fenna: mails in een seizoensuitverkoop gaan later en vervallen na een week).
+- Grens: demo niet vóór 31 dec openbaar, anders sluit het venster vóór het fest. Komt de keuring pas na 4 jan: elk uitbrengmoment tot 11 jan houdt 14 jan binnen het venster.
+- Afkoeltijd: na 14 jan twee weken geen andere verlanglijstmail. Next Fest 22 feb en de lancering in maart liggen daar ruim na.
+- Op `organisatie/lijst-thijs.md` gezet met datum en uur; het demo-appid vult Olaf in zodra het bestaat.
 
 **Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
 
@@ -88,7 +95,7 @@ Tijden NL. Het fest begint do 14 jan 19:00 (10:00 PST, GEZIEN in fest.md). Elke 
 | Dag | Wat er gebeurt in de demo | Bericht op Steam en clip | Doel spelers tegelijk (piek die dag) |
 |---|---|---|---|
 | wo 13 jan | laatste controle build, geen wijzigingen meer | aankondiging "Tomorrow: the Desktop Companion Fest. The Gloops start eating." | |
-| **do 14 jan (dag 1)** | het bordje "All Gloops: … hats" telt (optie A), eerste doel 10.000 hoeden | "We're in the Desktop Companion Fest. Every hat counts." Clip: Gloop zet een hoed op, teller loopt | 30 |
+| **do 14 jan (dag 1)** | het bordje "All Gloops: … hats" telt (optie A), eerste doel 10.000 hoeden | 19:00: Thijs drukt de mailknop van de demo (verlanglijstmail, eenmalig). "We're in the Desktop Companion Fest. Every hat counts." Clip: Gloop zet een hoed op, teller loopt | 30 |
 | **vr 15 jan (dag 2)** | doel 50.000: een nieuwe hoed komt voor iedereen vrij (zit al in de build) | per gehaald doel een aankondiging met de nieuwe hoed; clip van die hoed | 60 |
 | **za 16 jan, 19:00 meetpunt** | **meetlat lezen** (zie onder), keuze doorbraak, gewoon of stil | | |
 | za 16 jan (dag 3) | doel 250.000 | weekendbericht; bij doorbraak: "Thank you, X Gloops" met het getal | 80 |

@@ -26,7 +26,7 @@ Vorm voor elke post: **een titel, één gif of clip, hooguit twee zinnen**. Waar
 | Id | Wanneer | Voorstel (Engels) | Beeld | Woorden | Status |
 |---|---|---|---|---|---|
 | A1 | paginadag ±8 dec, 18:00 NL | Titel: "Hats of the Fallen is on Steam. Free demo on January 4." | trailer | 11 | CONCEPT |
-| A2 | ma 4 jan 18:00 NL | Titel: "The demo is out. Gloop is waiting." | gif: held valt, hoed op Gloop | 7 | CONCEPT |
+| A2 | ma 4 jan 19:15 NL (na het einde van de Winter Sale, festplan run 12) | Titel: "The demo is out. Gloop is waiting." | gif: held valt, hoed op Gloop | 7 | CONCEPT |
 | A3 | wo 13 jan | Titel: "Tomorrow: the Desktop Companion Fest." Zin: "Every hat you collect counts toward hats for everyone." (tweede zin alleen bij optie A, keuze 21 nov) | clip Gloop met hoedenstapel | 14 | CONCEPT |
 | A4 | do 14 jan 19:00 NL | Titel: "We're in the Desktop Companion Fest. Every hat counts." | clip: Gloop zet een hoed op, teller loopt | 9 | CONCEPT |
 | A5 | bij elk gehaald hoedendoel (optie A) | Titel: "[50,000] hats! A new hat for every Gloop." | clip van die hoed | 8 | CONCEPT |
