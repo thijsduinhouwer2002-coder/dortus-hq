@@ -198,6 +198,11 @@ func _init() -> void:
 			klein += 1
 	ok(klein == 0, "elke regel van het verhaal begint met een hoofdletter of cijfer")
 	# goud weg = goud in het spel (balans.md): 6 per val bij de start, meer met gangen en faam
+	# graafbonus (Sanne 16 nov 21:00): +1 per 8 zelf gegraven cellen, hooguit +3; weg krijgt hem ook (7 + graafbonus)
+	ok(V.graafbonus(0) == 0 and V.graafbonus(7) == 0 and V.graafbonus(8) == 1 and V.graafbonus(23) == 2 and V.graafbonus(24) == 3 and V.graafbonus(99) == 3, "graafbonus 0/0/1/2/3/3")
+	var gb0: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42)
+	var gb3: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42, 6, 0, null, 41)
+	ok(int(gb3.gevallen) == int(gb0.gevallen) and int(gb3.goud) - int(gb0.goud) == 3 * int(gb0.gevallen), "weg met 41 gegraven: zelfde vallen, 3 goud per val meer (%d, %d)" % [int(gb0.goud), int(gb3.goud)])
 	ok(V.goud_per_val(0, 0) == 6 and V.goud_per_val(6, 0) == 7 and V.goud_per_val(40, 0) == 12 and V.goud_per_val(40, 10) == 24, "goud per val volgt balans.md")
 	var veel: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 30, 0)
 	ok(veel["goud"] > r["goud"], "meer gangen, meer goud terwijl je weg bent (%d tegen %d)" % [veel["goud"], r["goud"]])
