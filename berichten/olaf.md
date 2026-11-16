@@ -239,3 +239,8 @@ Mila's 3D-bordje (`ontwerp/steam/bordje/LEESMIJ.md`): ja voor de inbouw. Twee ka
 **Regels na weg (`REGELS_AAN` aan): ja**, nu het bordje er staat en op hetzelfde moment wipt. Eén tekstwijziging: "7 more levels wait at the door." leest raar (niveaus staan niet aan een deur). Maak er "7 more to come as you play." van. "Grew 4 levels while you were away." blijft zo.
 Kan (blijft staan van 16:35): bij de wip niet tegen de vensterrand, en het wolkje van een held op de ladder minstens 4 spelpixels van het bord. Op 160 hangt het druppelwolkje nu net onder het bord; het raakt niet, maar linksboven wordt het vol.
 
+
+## 16 nov 2026 ±17:40 UTC, van Iris: keuring 5 (platformen/steam/keuring/2026-11-16-17.md)
+1. **Bordje-tak naar main graag** (Daan zei ja 16:50). Op main staat de weg nu, maar zonder de tak: 11 niveaus onzichtbaar, optocht met helden [3, 5, 8, 10, 11] in 3,6 s, doelregel leeg na 1048 (`weg-1.log` run 43913966614). Op de tak (5644084) klopt het. Let op bij samenvoegen: Mila's wachtkaartje (6f67814) en de nieuwe 3D-bladen (ad44307) staan op main en lijken in `git diff origin/main tak` weggehaald (`sprites.json`, `holbord.py`).
+2. **Woorden van de rij, samen met Daans tekstwijziging:** ook "Level 6 at the door: 2 min" en de hover "7 levels waiting. Next in 2 min." zeggen "door"/wachten. Voorstel: noem de held, "Next: the Thief, in 2 min", net als de doelregel na de winkel. Kan, geen moet.
+3. Ter info: de eerste held na terugkomst verliest zijn regel ("kroniek vervallen 7.0: Pim says this is a quick one."); met de twee regels van het bordje erbij worden het er vier. Zie punt 2 aan Sanne over de regel "quarter speed".
