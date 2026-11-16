@@ -155,17 +155,42 @@ def reik(m):
     return max(m["t_vlak"] * math.sin(m["alfa"]), m["rn"], m["lip"]) + m["s"]
 
 
-def ander_lid(bvh, punt, p):
-    """Pro 1.1: ligt het oude gewricht p op een ander lid dan punt? Ja als de rechte lijn ertussen de huid
-    verlaat (bijvoorbeeld van de ene knie naar de andere door de lucht tussen de benen). Dan kunnen hun
-    stopvlakken elkaar niet raken en telt de afstand niet."""
+def _buiten(bvh, q):
+    """Ligt q buiten de huid? (dichtstbijzijnde vlak, normaal wijst naar buiten; de mesh is gesloten)."""
+    loc, nor, _i, _d = bvh.find_nearest(q)
+    return loc is not None and (q - loc).dot(nor) > 0.0
+
+
+def ander_lid(bvh, punt, p, rand, u):
+    """Pro 1.1: ligt het oude gewricht p op een ander lid dan punt? Ja als de rechte lijn ertussen een stuk
+    van minstens 2 mm door de lucht gaat (bijvoorbeeld van de ene knie naar de andere tussen de benen door).
+    Dan kunnen hun stopvlakken elkaar niet raken en telt de afstand niet.
+    Niet meegeteld: de eerste mm bij het nieuwe punt en `rand` rond p (knokkelstraal plus speling plus 1 mm),
+    want daar zit de sleuf van het oude scharnier: lucht op hetzelfde lid. De eerste versie met een straal zag
+    de rand van die sleuf als huid en liet een tweede scharnier op hetzelfde lid te dicht toe (eis 6 rood);
+    de hele reik overslaan was te veel (reik 22 mm bij knieën 18 mm uit elkaar)."""
     if bvh is None:
         return False
-    d = Vector(p) - Vector(punt)
-    if d.length < 1e-9:
+    a, b = Vector(punt), Vector(p)
+    d = b - a
+    lengte = d.length
+    if lengte < 1e-9:
         return False
-    hit = bvh.ray_cast(Vector(punt), d.normalized(), d.length)
-    return hit[0] is not None
+    rich = d / lengte
+    stap = 0.25 * u
+    van, tot = 1.0 * u, lengte - max(rand, 1.0 * u)
+    nodig = 2.0 * u
+    run = 0.0
+    t = van
+    while t <= tot:
+        if _buiten(bvh, a + rich * t):
+            run += stap
+            if run >= nodig - 1e-9:
+                return True
+        else:
+            run = 0.0
+        t += stap
+    return False
 
 
 def te_dicht(bron, punt, m, u, bvh=None):
@@ -179,8 +204,8 @@ def te_dicht(bron, punt, m, u, bvh=None):
       plus de reik van de kogel (afstand.kogel_reik, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
     eigen = reik(m)
-    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, _k in afstand.scharnieren(bron)
-             if r >= 0 and not ander_lid(bvh, punt, p)]
+    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, k in afstand.scharnieren(bron)
+             if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
     kogel = afstand.kogel_van(bron, u)
     if kogel is not None:
         paren.append(((Vector(punt) - kogel[0]).length, eigen + kogel[1]))
