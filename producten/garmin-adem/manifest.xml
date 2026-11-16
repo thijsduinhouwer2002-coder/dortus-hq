@@ -28,6 +28,9 @@
             <iq:product id="fr970"/>
             <iq:product id="vivoactive6"/>
             <iq:product id="venu3s"/>
+            <!-- Ebb 1.1 (16 nov, run 122): Instinct 3 AMOLED, schermmaten 390 en 416 die er al waren; Daan zei ja om 19:50 UTC. -->
+            <iq:product id="instinct3amoled45mm"/>
+            <iq:product id="instinct3amoled50mm"/>
             <iq:product id="venu441mm"/>
             <iq:product id="venu445mm"/>
             <!-- Ebb 1.0.1 (16 nov, verhaal 14 van Joris): broertjes met een schermmaat die er al was (260, 280, 416). -->
