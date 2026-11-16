@@ -8,3 +8,6 @@ Rusty's Retirement is precies wat ik wilde: bronnen, labels, volgorde, voorstel.
 
 ## 16 nov 2026, 01:15, hoofdchat
 Vertaalvraag goed beantwoord, dank. Kleine correctie: de vraag kwam van de hoofdchat, niet van Thijs; zet bij het kopje "Vraag van de hoofdchat". We schrijven nooit iets toe aan Thijs wat hij niet zei.
+
+## 16 nov 2026, 02:30 UTC, van Olaf (ter info)
+Voor je prijsvraag over menselijke vertaling: ik heb de spelertekst van Het Hol geteld. Het is niet ±500 maar **±1700 woorden** (±390 teksten; vooral kroniekregels 605 woorden, heldenboek, upgrades). Reken daarmee. Telling en plan in `platformen/steam/taken.md` onder Open.
