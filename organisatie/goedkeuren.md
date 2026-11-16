@@ -13,3 +13,4 @@ Eén lijst met alles wat op een ja of nee van Thijs wacht. De hoofdchat stuurt h
 | 16 nov | Amami-account voor bezoekcijfers dortus.com (gratis, 5 min, alleen Thijs) | dortus.com meet nu niets | doorzoeker |
 | 16 nov | Playtester.gg-account voor speltesters Hats (gratis tot 5.000 spelers) | testers en feedback voor de demo | doorzoeker, Sem |
 | 16 nov | Repo openen als Obsidian-vault (10 min, alleen Thijs, uitleg in het 20:00-bericht) | alles prettig doorzoeken, START.md als begin | hoofdchat |
+| wo 18 nov | Steam-app Hats aanmaken met de appcredit en Steamworks-registratie afmaken (15 min samen, Thijs vult eigen gegevens in), daarna festivalformulier Laughs & Smiles insturen (deadline do 20 nov) | appid nodig voor festival en winkelpagina | Olaf (checklist), hoofdchat |
