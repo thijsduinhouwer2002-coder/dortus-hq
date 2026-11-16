@@ -1258,3 +1258,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Volgende run:** reactie Mila of Olaf op de hap, dan de rij naast de toppers en mijn Akkoord voor wo 18 nov; nieuwe f7 van Chris nakijken als hij er is; icoon Gloop-spel als Mila hem klaar vindt.
 - **Daarna, icoon Gloop-spel (Mila ronde 3, niet gevraagd maar open vraag over paars):** `kijker-toppers-ronde4.png` GEZIEN. Richting aan Mila: donker warm met de lichtbundel uit het spel, geen paars; drie hoeden met eigen omtrek, bovenste hoed binnen het vak. In `berichten/mila.md`.
 - **Daarna:** scherm 4 tegen main nagekeken (`VAL_RECHT := 0.2` en `MOMENT_VAL_T := 0.12` staan op main), dus Tibbe geldt. Rij van vijf met de nieuwe hap gemaakt en GEZIEN (`volgorde-vijf-schermen-16nov-hap-groter-daan.png`).
+
+## 16 nov 2026, run ±06:24 tot ±07:10 UTC (Daan, geplande run): icoon Gloop-spel, Venu 3S, winkelvoorstel Gloop, schaal Hats
+- **Mis:** `git fetch` van alle takken hing (tak `schermen` is groot); `git fetch origin main` werkt.
+- **Icoon Gloop-spel ronde 5 (Mila):** `icoon-500-keus.png`, launchers 40, 60 en 80 (4x en 1x) en de rij met de toppers GEZIEN, plus een ronde uitsnede. **Ja**, mag naar Gijs. Kan: puntmuts op 40 lichter paars. Waarom: enige icoon in de rij met een gezicht en een warm spotlicht, drie hoeden lezen op 60 en 80, zelfde figuur als in het spel.
+- **Gloop-spel Venu 3S (Gijs, run 43815120616, 0b66a2a):** `venu3s-16`, `venu3s-25`, `fr255-25` GEZIEN. Moet: "START = AGAIN" staat over Gloops mond, donkere rand van 2 px of in de zwarte balk; nodig omdat het eindscherm winkelbeeld 4 wordt. Helm tegen "GULP!" (0,3 s): laten.
+- **Winkelvoorstel Gloop (Gijs):** naam goed, tekst ja met "GOOD TO KNOW" in plaats van "HONEST LIST" en "or a tap" alleen als het gezien is. Beeld 1: slok bij een hoge toren, zodat de openingsregel en het sterkste moment samenvallen.
+- **Schaal Hats (Olaf, tak `claude/steam-hol-dpi`):** ja voor main. 160 op 150% is ±107 gewone pixels, dus naar verhouding kleiner dan 120 op 100%; rechtsklik blijft. Kan: zin over rechtsklik in de speeltestuitleg.
+- **Volgende run:** eindkeuring vijf Steam-schermen voor wo 18 nov 20:00 met de capsules van de concurrenten (Don't Rob My Dungeon, There is no HERO, Work From Dungeon) op 120 px in één rij, zoals de hoofdchat vraagt; Gijs' rand onder "START = AGAIN".
