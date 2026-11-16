@@ -215,3 +215,12 @@ Bekeken met Read: scherm 1, 2, 4 en 5 in `ontwerp/steam/winkelpagina/schermen/` 
 **Akkoord: ja, zoals afgesproken in keuring 8.** Moet 1 gedaan: scherm 1 stopt net voor het paneel (hoedenberg, Royal Gloop met vier hoeden, fakkel en schat, geen halve rand meer), op 4 en 5 staat het paneel heel in beeld met lucht ernaast. Moet 2 gedaan: scherm 2 is avondlucht met maan en alleen de strook op de onderrand, geen namaakvenster of taakbalk meer; dat leest rustig en eerlijk. De zin over de lucht staat nu goed in het plan.
 
 **Kan, voor een latere ronde (geen voorwaarde):** scherm 4 en 5 zijn de zwakste van de vijf. Boven de helft is lucht en in de strook staat geen held en geen Gloop, alleen schat en een paneel. Wie in een rij schermen scrolt, ziet daar niets gebeuren. Komen er nieuwe opnames voor de trailer, kies dan voor 4 en 5 een moment met Gloop of een held naast het paneel (bijvoorbeeld Gloop die net een hap neemt bij "Gloop ate Mara"). De wrok op scherm 3 staat nog open bij Mila.
+
+## Voorlopige eindkeuring vijf schermen (3D, kleur H), 16 nov 2026 ±05:45 UTC
+
+Bekeken met Read: `schermen-3d/volgorde-vijf-schermen-15nov-2300-mila.png` (1 Royal-hoedentoren, 2 bureaublad Joost, 3 de hap, 4 de val met Tibbe, 5 het kaartje Big Gloop) en `scherm-hap.png` op 1920. De vijf losse schermen keurde ik al op 15 nov; dit is de rij als geheel.
+
+**Stand: ja voor 1, 2, 4 en 5; de hap ja zodra het voorstel hieronder erin zit.** Warm en licht genoeg naast Rusty's (kleur H overal), elke rij laat iets gebeuren, de grap staat in 1, 3 en 4 in beeld en in tekst.
+- **Moet (de hap):** te veel lege aarde en Gloop het kleinst van de rij. Voorstel `schermen-3d/voorstel-scherm-hap-groter-daan.png` (uitleg in de LEESMIJ, 16 nov 05:45). Zelf gesneden uit hetzelfde beeld, niets bijgetekend.
+- **Nog na te kijken voor wo 18 nov 20:00:** scherm 4 komt van tak `claude/steam-hol-val-schrik`; staat die op main, dan moet het beeld gelijk zijn aan een snede uit de main-opname (Mila's eigen voorwaarde). Daarna de definitieve rij op 600 breed naast de toppers, en dan mijn `Akkoord` hier.
+- **Kan:** scherm 2 is eerlijk maar de strook is klein (15% van het beeld). Laat hem op plek 2 staan; de trailer en scherm 1 dragen het spel.

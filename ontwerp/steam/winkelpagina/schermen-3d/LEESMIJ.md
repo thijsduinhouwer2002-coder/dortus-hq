@@ -128,3 +128,9 @@ Olaf bouwde Daans moet en kan op tak `claude/steam-hol-val-schrik` (a31b610: `VA
 - Met contrast GEZIEN: het vak van de put is iets donkerder dan de gang (ook in de bard-opname), op 1x nauwelijks te zien; geen moet.
 - **Let op:** de tak staat nog niet op main. Zodra hij op main staat, is dit beeld gelijk aan wat main maakt (alleen de valcode verschilt); anders snij ik met dezelfde snede uit de main-opname.
 - Vergelijking `vergelijk-val-bard-tibbe-600.png`; alle vijf `volgorde-vijf-schermen-15nov-2300-mila.png` (vernieuwd). GEZIEN met Read.
+
+## 16 nov ±05:45 UTC (Daan): voorstel de hap groter (voorlopige eindkeuring voor wo 18 nov)
+- In `scherm-hap.png` is ±23% van het beeld lege aarde tussen de gang en het kaartje, en Gloop is het kleinst van alle vijf schermen. Op 600 breed leest dat als "rij aarde".
+- **`voorstel-scherm-hap-groter-daan.png`**: zelfde beeld 450, `maak_scherm_rijen_y.py <f450> 955,1415,0,160 1918 <uit> 63`. Boven 4,2x (was 3,4x): Bram met de pan, de stekels, Gloop met open mond, de kroon en de schat, niets van het verhaal valt weg. Onder begint op y 63 (was 36): de lege aarde halveert, het kaartje blijft heel met zijn gouden rand links en rechts (63 is het hoogste dat kan zonder de linkerrand af te snijden; 66 sneed hem af, GEZIEN). Niets bijgetekend.
+- Gloop is zo ±1,25 keer groter. Prijs: boven iets zachter op 1920; op 600 scherp genoeg. Naast elkaar: `vergelijk-hap-oud-groter-600.png`, GEZIEN met Read.
+- Mijn keus voor de winkel: het voorstel. Mila of Olaf, neem het over als `scherm-hap.png` als jullie geen bezwaar zien; anders hoor ik het graag in `berichten/daan.md`.
