@@ -1,5 +1,22 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 16 nov 2026 ±17:35 UTC (Bram): de speler die niet meteen koopt (voortgang.md "Wat nog niet klopt" punt 5)
+Uitvoer `voortgang-kijken-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_kijken.py`, nieuwe sleutel `"koop_elke_s"` in `sim.py` (de speler kijkt hooguit elke X open seconden in de winkel, en altijd meteen als hij het spel weer opent). Spec versie 3 definitief met de eigen helden en hun tegenzet. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` byte voor byte gelijk).
+
+| speler (6 uur open per werkdag) | hol 20 / 30 / 40 / 50 (open uur) | hol 50 | goud op de bank (mediaan) |
+|---|---|---|---|
+| koopt meteen (de sim tot nu) | 10,5 / 37,7 / 76,0 / 127,9 | werkdag 22 | 1.001 |
+| kijkt elke 10 min | 10,5 / 37,2 / 75,6 / 127,4 | werkdag 22 | 1.068 |
+| kijkt elke 30 min | 10,5 / 37,3 / 75,3 / 127,0 | werkdag 22 | 1.433 |
+| kijkt elk uur | 10,4 / 37,2 / 74,6 / 126,5 | werkdag 22 | 1.957 |
+| kijkt elke 2 uur | 10,4 / 37,6 / 75,7 / 127,4 | werkdag 22 | 2.551 |
+| kijkt alleen bij het openen (1 x per dag) | 11,3 / 41,6 / 78,0 / 132,0 | werkdag 23 | 4.432 |
+
+Tussendoor-speler (15 / 30 / 60 min per dag, kijkt alleen bij het openen): hol 50 op dag 63 / 57 / 50, tegen 63 / 58 / 49 als hij meteen koopt.
+
+**Wat dit zegt:** (1) **later kopen maakt het spel bijna niet langzamer.** Tot "elke 2 uur kijken" blijft hol 50 op werkdag 22; zelfs wie maar één keer per dag koopt, is één werkdag later. Het hol-niveau komt van vangen, en een gang die al 80% vangt wordt van één val meer niet veel beter. De zorg in punt 5 ("een echte speler klikt minder, dus langzamer") klopt dus nauwelijks; de tabel in echte dagen kan blijven. (2) **Wat wel verandert is de berg goud:** wie elke 2 uur kijkt heeft er ±2.500 liggen, wie 1 x per dag kijkt ±4.400. Dat is precies waar de doelregel en het bordje voor zijn: laat zien wat er te koop is, dan klikt de speler vanzelf vaker. (3) De gaten van wie 1 x per dag koopt zijn natuurlijk een werkdag (de aankopen vallen dan allemaal op het openen); de hol-niveaus lopen gewoon door.
+
+
 ## 16 nov 2026 ±17:20 UTC (Bram): de eigen helden per laag met hun tegenzet nagerekend (vraag Sanne 17:00)
 Uitvoer `voortgang-laaghelden-uitkomst.txt` (8 zaden, GEZIEN; ook 16 zaden voor de krapste punten), script `voortgang_laaghelden.py` (`ijk` geeft de varianten), spec versie 3 definitief plus de nieuwe sleutel `"laag_helden"` in `sim.py`. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
 

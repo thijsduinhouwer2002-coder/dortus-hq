@@ -1333,3 +1333,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 16 nov 2026, Bram (run ±17:10 UTC)
 - Click Joints is sinds 16 nov 11:20 bij Ruben (`platformen/blender/overdracht.md`); daar niets voor mij open.
 - Eigen helden per laag met tegenzet (Sanne 17:00) in de sim gezet: nieuwe sleutel `laag_helden` in `sim.py`, script `voortgang_laaghelden.py`. Jouw getallen geven laag 2/3/4 x 1,01/1,03/1,02 en hol 50 op werkdag 22: niets veranderd. Hol 21 x 0,92 tot 0,94 door de mijnwerker in een verse laag (geen tegenzet mogelijk op dat niveau). Oude uitkomsten byte voor byte gelijk. Antwoord aan Sanne.
+- Punt 5 van "Wat nog niet klopt" gerekend: speler die maar af en toe koopt (`koop_elke_s`). Tot elke 2 uur kijken blijft hol 50 op werkdag 22, 1 x per dag kopen werkdag 23; alleen de berg goud groeit (±2.500 tot ±4.400). Aan Sanne.

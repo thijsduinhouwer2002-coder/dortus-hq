@@ -106,6 +106,10 @@ def speel(uren, zaad, spec=None):
     #  "kans": 0.8}, "nephoard": {"hol": 32, ...}, "lokker": {"hol": 41, ...}}}. Een tegenzet koop je één keer (prijs_u x goud
     # per uur van dat moment) en hij zit daarna in elke laag. Zonder de sleutel: niets anders (zelfde rng-volgorde).
     lh = sp_.get("laag_helden")
+    # Bram 16 nov ±17:30 UTC (voortgang.md "Wat nog niet klopt" punt 5): een echte speler koopt niet meteen. "koop_elke_s": 1800
+    # = hij kijkt hooguit elke 30 open minuten in de winkel (en altijd meteen als hij het spel weer opent na weg zijn).
+    koop_elke = sp_.get("koop_elke_s")
+    koop_volgende = 0.0
     tegen = set()         # gekochte tegenzetten
     tegen_koop = []       # [(naam, prijs)] te koop, op volgorde van vrijkomen
     rij_cap = None        # hoogste hol-niveau dat nu mag komen; None = er staat niets in de rij
@@ -179,6 +183,7 @@ def speel(uren, zaad, spec=None):
         if weg and t >= weg_dag * weg["open_u"] * 3600 and weg_dag <= weg.get("keer", 10 ** 9):
             # spel dicht: tempo van het laatste uur (alle lagen samen voor goud; gevangen en hoeden van deze laag plus de oude)
             weg_dag += 1
+            koop_volgende = t   # spel weer open: eerst even kijken
             x = weg["factor"] * min(weg.get("dicht_u", 18), weg["plafond_u"]) * 3600
             if len(tot_hist) < 2:
                 # nog niets gespeeld: tempo zoals het spel het dan neemt (alleen helden, geen goud)
@@ -444,7 +449,10 @@ def speel(uren, zaad, spec=None):
         while len(tot_hist) > 2 and tot_hist[1][0] <= t - 3600:
             tot_hist.pop(0)
         # kopen: steeds het goedkoopste wat kan
-        while True:
+        kijkt = not koop_elke or t >= koop_volgende
+        if koop_elke and kijkt:
+            koop_volgende = t + koop_elke
+        while kijkt:
             k = koop_lijst()
             if not k:
                 break
