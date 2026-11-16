@@ -1365,4 +1365,5 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Antwoord aan Mila (toppers, naam, geheugen niet gemeten) en vraag aan Daan in hun berichtenbestanden. Niets gebouwd.
 - Ebb Calm 404 om 09:56 UTC.
 - Les: `git pull` hing weer twee minuten; meteen `timeout 60 git fetch origin main` gebruiken. De zoek-API kent `sortType=mostRecent`, `mostPopular`, `highestRated`; een antwoord van 30 apps is ±0,9 MB, dus rustig aan.
-
+- Tweede deel (±10:05 tot 10:30 UTC): kale proef wijzerplaat Gloop gebouwd op tak `claude/garmin-wijzerplaat-gloop-2026-11-16`. Run 43845813024 rood (apostrof in de appnaam), 43846568258 groen (1c729d0), 43847876332 groen (d77b777, GOAL-regel en Venu Sq 2). Geheugen: limiet 131 kB (98 kB op FR55 en FR245), gebruikt 16 kB met alle plaatjes geladen. Beelden gezien op FR255, Venu 3S, Venu Sq 2 en fenix 7. Open: tijd te klein, GOAL-regel raakt Gloop op de Venu Sq 2.
+- Les: een wijzerplaat tekent in de simulator elke seconde, dus met een bouwvlag die elke 3 seconden een andere stand kiest krijg je alle standen in beeld zonder knoppen; neem elk beeld (niet om het andere), anders mis je een stand.
