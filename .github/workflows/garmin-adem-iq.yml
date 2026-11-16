@@ -58,6 +58,14 @@ jobs:
           docker run --rm --network none --entrypoint bash "$IMAGE" -c \
             'cd /root/.Garmin/ConnectIQ/Devices; for d in fenix7 fr255 venu2 fenix843mm fenix847mm fenix8pro47mm fenix8solar47mm fenix8solar51mm fenix7pro fenix7xpro fenix7x epix2pro42mm epix2pro47mm epix2pro51mm fr165 fr165m fr57042mm fr57047mm fr955 fr970 vivoactive6 venu3s venux1 venu441mm venu445mm; do
                echo "TOESTEL $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"connectIQVersion\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"type\":\"watchApp\"[^}]*" | tr "\n" " ")"; done; for d in fr255 fenix7xpro vivoactive5 fr265 fenix847mm venu2; do echo "LETTERS $d"; ls $d; tr -d " \n\t" < $d/simulator.json | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done; for d in venu3 venu441mm venux1; do echo "KNOPPEN $d"; ls -d $d 2>/dev/null || echo "ONBEKEND $d"; tr -d " \n\t" < $d/simulator.json 2>/dev/null | grep -o "\"keys\":\[.\{0,1500\}" | head -c 1500; echo; tr -d " \n\t" < $d/compiler.json 2>/dev/null | grep -o "\"resolution\":{[^}]*}\|\"displayType\":\"[^\"]*\"\|\"enhancedReadabilityModes\|\"shape\":\"[^\"]*\""; done' || true
+      # Ebb 1.0.1 (16 nov): welke horloges kent de SDK, met schermmaat, startpictogram en geheugen; en de systeemletters
+      # van de maten die Ebb nog niet heeft (218, 240, 360). Alleen ter info voor de volgende stap, telt niet mee.
+      - name: Alle horloges in de SDK (info voor meer horloges)
+        run: |
+          docker run --rm --network none --entrypoint bash "$IMAGE" -c \
+            'cd /root/.Garmin/ConnectIQ/Devices; for d in *; do
+               echo "SDK $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"displayType\":\"[^\"]*\"\|\"shape\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"memoryLimit\":[0-9]*,\"type\":\"watchApp\"" | tr "\n" " ")"; done;
+             for d in fenix7s fenix7spro fr255s fr255sm fr265s venu2s fr255m fenix7pronowifi fenix7xpronowifi enduro3 epix2 venu2plus marq2 marq2aviator d2mach1; do echo "LETTERS $d"; ls -d $d 2>/dev/null || echo "ONBEKEND $d"; tr -d " \n\t" < $d/simulator.json 2>/dev/null | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done' || true
       - name: .iq bouwen (alle horloges uit manifest.xml)
         run: |
           mkdir -p /tmp/uit && chmod 777 /tmp/uit
@@ -125,7 +133,7 @@ jobs:
           else echo "CIQVERSIE: map Devices niet gevonden"; fi
           fout=0
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
-          [ "$n" -ge 28 ] || fout=1
+          [ "$n" -ge 37 ] || fout=1
           exit $fout
           SH
           docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt

@@ -30,6 +30,16 @@
             <iq:product id="venu3s"/>
             <iq:product id="venu441mm"/>
             <iq:product id="venu445mm"/>
+            <!-- Ebb 1.0.1 (16 nov, verhaal 14 van Joris): broertjes met een schermmaat die er al was (260, 280, 416). -->
+            <iq:product id="fr255m"/>
+            <iq:product id="fenix7pronowifi"/>
+            <iq:product id="fenix7xpronowifi"/>
+            <iq:product id="enduro3"/>
+            <iq:product id="epix2"/>
+            <iq:product id="venu2plus"/>
+            <iq:product id="marq2"/>
+            <iq:product id="marq2aviator"/>
+            <iq:product id="d2mach1"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="Fit"/>
