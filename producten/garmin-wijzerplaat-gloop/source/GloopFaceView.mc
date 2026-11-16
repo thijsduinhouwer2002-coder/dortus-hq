@@ -5,7 +5,6 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
-import Toybox.Timer;
 import Toybox.WatchUi;
 
 typedef Plaatje as WatchUi.BitmapResource or Graphics.BitmapReference;
@@ -30,25 +29,14 @@ class GloopFaceView extends WatchUi.WatchFace {
     var slaap as Boolean = false;
     var gemeld as Boolean = false;
     var regelGemeld as Number = -1;
-    // Knipperen (Mila, 16 nov 12:10 UTC): alleen als het horloge wakker is (pols opgetild). Kort na het
-    // optillen en daarna om de paar seconden gaat het oog 150 ms dicht. In de slaapstand loopt er geen klok.
-    var knipKlok as Timer.Timer?;
-    var dicht as Boolean = false;
+    // Knipperen als het horloge wakker is (Knipper.mc); het plaatje met het dichte oog laadt pas als het nodig is.
+    var knipper as Knipper = new Knipper();
     var dichtPl as Plaatje?;
-    const KNIP_EERST = 700;
-    const KNIP_DICHT = 150;
-    const KNIP_PAUZE = 3800;
     // Kijken wordt beloond (regel van Daan): komt er een hoed bij terwijl je niet kijkt, dan valt hij
     // pas op de toren als je de pols optilt. `gezien` is het aantal hoeden (met kroon) dat de drager
     // al heeft zien landen, `wek` staat aan in de eerste seconde na het optillen.
     var gezien as Number = -1;
     var wek as Boolean = false;
-    // Volgorde van de gewone hoeden in de toren (Mila). De kroon (hoed 4) komt alleen bij het stapdoel
-    // en staat dan altijd bovenop.
-    const VOLGORDE = [0, 1, 2, 3, 5, 6, 7, 8, 9] as Array<Number>;
-    const KROON = 4;
-    // Hoe ver elke hoed boven de vorige staat, als deel van zijn eigen hoogte (Mila: 0,46).
-    const HOED_STAP = 0.46;
     // Standen voor de bouwstraat (Bouw.AUTO): stappen per stand; de laatste stand is de slaapstand.
     const PROEF = [0, 3420, 7612, 10000, 14800, 7612] as Array<Number>;
 
@@ -77,69 +65,25 @@ class GloopFaceView extends WatchUi.WatchFace {
 
     function onEnterSleep() as Void {
         slaap = true;
-        stopKnipper();
+        knipper.stop();
         WatchUi.requestUpdate();
     }
 
     function onExitSleep() as Void {
         slaap = false;
         wek = true;
-        startKnipper();
+        knipper.start();
         WatchUi.requestUpdate();
     }
 
     function onShow() as Void {
         if (!slaap) {
-            startKnipper();
+            knipper.start();
         }
     }
 
     function onHide() as Void {
-        stopKnipper();
-    }
-
-    // In de bouwstraat (Bouw.AUTO) loopt de klok niet: daar bepaalt de stand of het oog dicht is,
-    // zodat het knipperbeeld op een vast plaatje staat.
-    function startKnipper() as Void {
-        if (Bouw.AUTO) {
-            return;
-        }
-        var k = knipKlok;
-        if (k == null) {
-            k = new Timer.Timer();
-            knipKlok = k;
-        }
-        k.stop();
-        dicht = false;
-        k.start(method(:knipDicht), KNIP_EERST, false);
-    }
-
-    function stopKnipper() as Void {
-        var k = knipKlok;
-        if (k != null) {
-            k.stop();
-        }
-        dicht = false;
-    }
-
-    function knipDicht() as Void {
-        var k = knipKlok;
-        if (k == null || slaap) {
-            return;
-        }
-        dicht = true;
-        WatchUi.requestUpdate();
-        k.start(method(:knipOpen), KNIP_DICHT, false);
-    }
-
-    function knipOpen() as Void {
-        var k = knipKlok;
-        dicht = false;
-        if (k == null || slaap) {
-            return;
-        }
-        WatchUi.requestUpdate();
-        k.start(method(:knipDicht), KNIP_PAUZE, false);
+        knipper.stop();
     }
 
     // Het cijfer op vak 0 tot 3 (tiental en eenheid van de uren, daarna van de minuten). Laadt alleen
@@ -234,7 +178,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         // Gloop en de toren, rechts.
         var gx = p[0] - m[0] / 2;
         var gy = p[1] - m[1];
-        var oogDicht = dicht;
+        var oogDicht = knipper.dicht;
         if (Bouw.AUTO) {
             // Tweede foto van stand 1 (3.420 stappen): oog dicht.
             oogDicht = (System.getTimer() / 1500) % 12 == 3;
@@ -249,7 +193,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         } else {
             dc.drawBitmap(gx, gy, pl[1]);
         }
-        tekenToren(dc, w, h, rond, gx + m[10], gy + m[11], toon, kroonOp, zweef);
+        Toren.teken(dc, rond, gx + m[10], gy + m[11], toon, kroonOp, zweef, pl, m, p);
 
         // Links, rechts uitgelijnd op de lijn van de tijd: datum, tijd, stappen en de hoedenregel.
         tekenTijd(dc, uur, is24, minuut, 0, 0, false);
@@ -301,51 +245,6 @@ class GloopFaceView extends WatchUi.WatchFace {
         tekst(dc, hx + 3 * r, hy, Graphics.FONT_XTINY, hs, 0xFFAAAA, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    // Welke hoed op plek i (van onder) staat als er `toon` in de toren zitten.
-    function hoedOp(i as Number, toon as Number, kroonOp as Boolean) as Number {
-        return (kroonOp && i == toon - 1) ? KROON : VOLGORDE[i % 9];
-    }
-
-    // Stapelt `toon` hoeden op de kruin volgens de torentabel van Mila: tot 6 hoeden een wiebel, daarna
-    // buigt de toren naar rechtsboven, weg van de tijd. Bij het doel staat de kroon bovenop en in beeld;
-    // daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
-    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, voetX as Number, voetY as Number, toon as Number, kroonOp as Boolean, zweef as Boolean) as Void {
-        var y = voetY;
-        // Op een rond scherm stopt de toren bij de laatste hoed die heel binnen de cirkel past (moet van
-        // Daan, 16 nov: nooit een hoed kapot tegen de rand). De kroon blijft dan bovenop staan.
-        if (rond) {
-            var past = Regel.zichtbaar(toon, kroonOp, Rand.gewoon(w), Rand.kroon(w));
-            if (past < toon) {
-                zweef = zweef && kroonOp;
-                toon = past;
-            }
-        }
-        for (var i = 0; i < toon; i += 1) {
-            var k = hoedOp(i, toon, kroonOp);
-            var hb = m[12 + 2 * k];
-            var hh = m[13 + 2 * k];
-            var x = voetX + p[13 + (i < 24 ? i : 23)];
-            var top = y - hh;
-            if (top + hh < 0) {
-                break;
-            }
-            if (zweef && i == toon - 1) {
-                // De bovenste hoed hangt nog boven de toren, maar blijft in beeld (punt van Daan).
-                var rand = Regel.randBoven(x, w, h, rond, 3);
-                var hoog = top - hh;
-                if (hoog < rand) {
-                    hoog = rand;
-                }
-                if (hoog > top - hh / 3) {
-                    hoog = top - hh / 3;
-                }
-                top = hoog;
-            }
-            dc.drawBitmap(x - hb / 2, top, pl[2 + k]);
-            y = y - (hh * HOED_STAP + 0.5).toNumber();
-        }
-    }
-
     // Slaapstand op AMOLED: zwart, de tijd in grijs op dezelfde plek, Gloop als mint lijn met alleen de
     // bovenste hoed als gouden lijn op zijn hoofd. Elke minuut een paar pixels verschoven tegen inbranden.
     function tekenSlaap(dc as Graphics.Dc, uur as Number, is24 as Boolean, minuut as Number, toon as Number, kroonOp as Boolean) as Void {
@@ -358,7 +257,7 @@ class GloopFaceView extends WatchUi.WatchFace {
         var gx = p[0] - m[0] / 2 + dx;
         var gy = p[1] - m[1] + dy;
         if (toon > 0) {
-            var k = hoedOp(toon - 1, toon, kroonOp);
+            var k = Toren.hoedOp(toon - 1, toon, kroonOp);
             var lh = lijnHoed;
             if (lh == null || lijnHoedNr != k) {
                 lh = Laad.lijnHoed(k);
