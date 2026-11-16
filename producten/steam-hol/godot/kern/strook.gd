@@ -332,6 +332,8 @@ func _process(delta: float) -> void:
 	if demo:
 		KAARTJE.demo_stap(self)
 	var doel := KAARTJE.doel_regel(self)   # Iris 16 nov: volgend doel zonder klik; alleen opnieuw tekenen als het verandert
+	if holbord != null and holbord.hover:
+		doel = holbord.hover_tekst()   # muis op het bordje: de hover van het hol-niveau in de kopregel (Sanne spoor 1)
 	if tekst.goud != hol.goud or tekst.doel != doel:
 		tekst.doel = doel
 		tekst.zet(kroniek, hol.goud)
@@ -374,13 +376,22 @@ func _input(event: InputEvent) -> void:
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
-	elif event is InputEventMouseMotion and not tekst.hover:
+	if event is InputEventMouseMotion and holbord != null and holbord.actief():
+		var pb: Vector2 = (event.position - hol.position) / schaal
+		var op_bord: bool = holbord.vlak().has_point(pb)
+		if op_bord != holbord.hover:
+			holbord.hover = op_bord
+			if op_bord:
+				log_regel("HOL hover bordje: %s" % holbord.hover_tekst())
+	if event is InputEventMouseMotion and not tekst.hover:
 		tekst.hover = true
 		tekst.queue_redraw()
 		_muis_vlak(true)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
+		if holbord != null:
+			holbord.hover = false
 		tekst.hover = false
 		tekst.queue_redraw()
 		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen

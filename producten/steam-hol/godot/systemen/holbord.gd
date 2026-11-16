@@ -30,6 +30,7 @@ var _kijk_t := 0.0
 var _faam := -1
 var _x := -999.0
 var _eerste := true
+var hover := false   # muis op de plank (strook.gd _input)
 var _niv := 1
 var _niv_nu := 1
 
@@ -63,6 +64,14 @@ func plank_x() -> float:
 # Rechthoek van de plank in spelpixels (voor hover en toetsen).
 func vlak() -> Rect2:
 	return Rect2(plank_x(), BOVEN, CEL.x, CEL.y)
+
+# "Level 5: the Thief. 12 more heroes."; met iets in de rij "7 levels waiting. Next in 2 min." (Sanne 16:00)
+func hover_tekst() -> String:
+	if s == null:
+		return ""
+	if int(s.rij) > 0:
+		return HN.rij_hover(int(s.rij), float(s.rij_t))
+	return HN.hover(int(s.faam))
 
 func wip() -> void:
 	if ct == null:
