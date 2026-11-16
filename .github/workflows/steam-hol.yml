@@ -268,7 +268,8 @@ jobs:
           $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
           if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
           if ($a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): \d+ came, \d+ fell") { Write-Output "FOUT: geen verhaal-regel (came, fell) in de kroniek na terugkomen"; $fout++ }
-          if ($a -notmatch "quarter speed") { Write-Output "FOUT: geen regel 'Your hole worked at quarter speed.' na 8 uur weg"; $fout++ }
+          # moet Daan 16 nov 17:45: de regel "quarter speed" staat uit (leest als straf)
+          if ($a -match "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Your hole worked at quarter speed") { Write-Output "FOUT: regel 'quarter speed' staat nog in de kroniek"; $fout++ }
           # optocht (Sanne 16 nov 14:50): een nieuw spel van 15 s staat op niveau 1 tot 2, 8 uur weg tilt het naar ±12 in één optocht
           if ($a -notmatch "HOL (kroniek [0-9.]+ \(wacht [0-9.]+\)|weg-regel uit tot het bordje): (Grew \d+ levels while you were away\.|Hole level \d+: )") { Write-Output "FOUT: geen regel 'Grew N levels while you were away.' na 8 uur weg"; $fout++ }
           # rij bij de ingang (Sanne 16 nov 16:00): een vers hol tilt na 8 uur weg hooguit 4 niveaus meteen, de rest wacht

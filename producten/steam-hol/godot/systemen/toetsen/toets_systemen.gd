@@ -84,7 +84,7 @@ func _init() -> void:
 	ok(r["faam"] == r["gevallen"], "faam weg = gevangen helden")
 	var acht: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42)
 	ok(acht["helden"] == 151 and acht["goud"] < 1048, "8 uur weg: 151 helden, minder goud dan de hele winkel (%d)" % acht["goud"])
-	ok(V.tempo_regel(acht) == "Your hole worked at quarter speed." and V.tempo_regel(acht).length() <= 42, "regel kwart snelheid na lang weg")
+	ok(V.tempo_regel(acht) == "" and V.TEMPO_REGEL.length() <= 42, "regel kwart snelheid uit (moet Daan 17:45), tekst blijft kort")
 	ok(V.tempo_regel(V.reken(t0, t0 + 600, 1, 1, 42)) == "", "geen regel kwart snelheid na 10 min weg")
 	# hol-niveau (Sanne voortgang.md spoor 1, drempels Bram): faam = gevangen helden
 	var HN = load("res://systemen/hol_niveau.gd")

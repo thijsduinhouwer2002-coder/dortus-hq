@@ -142,7 +142,12 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 
 # Eén regel die de afspraak zegt (Sanne: "While you're away, your hole works at a quarter speed.", ingekort tot 42 tekens).
 # Alleen na minstens een half uur weg en als er iemand kwam; anders is het ruis.
+# Moet Daan 16 nov 17:45 (Iris keuring 5): de regel leest als straf ("je miste driekwart") en drukt de regel van de eerste
+# held weg. Kwart snelheid zelf blijft; de regel staat uit. Zet TEMPO_REGEL_AAN alleen terug na een nieuwe keuring.
+const TEMPO_REGEL_AAN := false
 static func tempo_regel(uitkomst: Dictionary) -> String:
+	if not TEMPO_REGEL_AAN:
+		return ""
 	if int(uitkomst.get("helden", 0)) == 0 or int(uitkomst.get("weg_s", 0)) < TEMPO_REGEL_NA_S:
 		return ""
 	return TEMPO_REGEL
