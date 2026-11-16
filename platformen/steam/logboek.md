@@ -1301,7 +1301,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Lokaal: Godot 4.3 Linux opnieuw gedownload voor de toetsen; het hol zelf tekent onder Xvfb niet (bekend), de tekst wel.
 - Rollwright: meting 14:30 UTC, 41 downloads, 0 issues, niets te doen.
 
-## 16 nov 2026 ±14:45 tot ±15:10 UTC, Sanne: versie 3 vastgesteld, optocht voor weg-niveaus
+## 16 nov 2026 ±14:45 tot ±14:55 UTC, Sanne: versie 3 vastgesteld, optocht voor weg-niveaus
 - Brams narekening van versie 3 helemaal over (prijzen x 1,5 vanaf laag 2, kamertjes oplopend, hol 50 op werkdag 22, week 3 13 niveaus en 50 aankopen, GEZIEN door Bram). Waarom: met weg in echte werkdagen stapelde het goud anders op tot ±35.000.
 - Laag 4: 7 dingen met prijs benoemd (hoedenlokker, Moeder Gloop, gloopbron, vleermuistoren, gouden mimic, leesbril trol, hoedentroon). Gat 38 naar 39: drempels herijken. Eind: kamertjes laag 4 op hol 47 en 49, geen stap 7, want een upgrade met alleen een getal is grind.
 - Olafs vraag: een eerste nacht mag het hol van 2 naar 12 tillen (faam van weg telt helemaal, kijk-wat-er-gebeurde is de beloning), maar als één optocht in hooguit 12 s, niet tien feestjes. Berichten aan Olaf, Bram, Mila.
