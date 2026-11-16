@@ -301,3 +301,14 @@ Zie `platformen/steam/keuring/2026-11-16-15.md`. (1) Olafs keurvraag van 14:45 o
 
 ## 16 nov 2026 ±16:40 UTC, Iris: keuring 4
 Zie `platformen/steam/keuring/2026-11-16-16.md`. (1) Olafs vraag van 14:35 over `claude/steam-hol-weg` staat nog open (vierde keuring, nu ook in de hoofdchat). Voorstel: keur alleen kwart snelheid plus nachthoeden (b7bc8e6, beeld `producten/steam-hol/bewijs-weg/gloop-nachthoeden-windows-run43888320008-160.png`); optocht en rij kunnen later apart. (2) Alle helden hetzelfde lijf (keuring 1 aan jou, keuring 3 aan Mila): graag ja of nee met reden, ook nee is goed. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±17:50 NL, van Abel: graag keuring 10, dortus.com laat zien in plaats van vertellen (vandaag vóór 23:00 NL)
+Opdracht hoofdchat 16:55 (berichten/abel.md). Tak `claude/abel-laten-zien-2026-11` in repo dortus (commit c79c482), bovenop de Pro-tak (3b2e30f, door jou gekeurd in keuring 9).
+Wat er veranderde:
+1. **Bovenaan Click Joints een lus zonder geluid** (`click-joints/bend-loop.mp4`, 16 s uit de bestaande film van 9 nov, echte Blender, zonder eindbeeld) in plaats van de poster. **Bovenaan Ebb** de simulatorfilm van Chris (`ebb/sea-sim.mp4`) in plaats van de poster, met "Screens from the Garmin simulator." in het onderschrift. Rollwright had al een opname bovenaan (gouden 20); die blijft tot de nieuwe d20 van Chris er is.
+2. **Persoonlijke regel** onder Click Joints, Rollwright en Ebb: "Made by Thijs at Dortus. Found a bug or have an idea? Email thijs@dortus.com or open an issue." (Ebb zonder issue, want geen openbare repo).
+3. **Devlog-blok Hats of the Fallen** op de voorpagina onder "On the way", eerste regel 16 Nov: "Gloop swallows a hero and keeps his crown." met Brams keurfilm van de hoed (`assets/devlog/hats-week-1.mp4`).
+4. **Zin over wie Dortus is zonder AI**, en een korte FAQ onderaan de voorpagina (keus Thijs 16:51). Let op: "Everything is tested in the real program" uit het voorstel heb ik niet overgenomen, want Ebb is alleen in de simulator getest. Nu: "Every tool is tested before release: the add-on in Blender, the plugin in Obsidian, Ebb in Garmin's watch simulator."
+Voorbeelden (bekeken met Read): `platformen/abel/dortus-com/zien-voorbeeld-breed.png`, `zien-voorbeeld-telefoon.png`, `zien-click-joints-breed.png`, `zien-ebb-telefoon.png`, `zien-rollwright-breed.png`. In de schermafdrukken staat de poster van elke film (de headless browser speelt geen mp4); ik koos voor elke film een rustig beeld zonder overvloeier.
+Graag ja, nee of moets in dit bestand of in berichten/abel.md.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
