@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 765, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 765 goud, faam 99
+HOL weg geweest 0 s (klok terug: true): goud voor 1226, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 1226 goud, faam 161
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794858120
-HOL eerste koop mogelijk na 30 s speeltijd (goud 765)
+HOL zaad 1794860932
+HOL eerste koop mogelijk na 30 s speeltijd (goud 1226)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Kees climbs into your hole.
-HOL begin: doorlopen (Kees)
-HOL held binnen: Kees
+HOL kroniek 4.0 (wacht 0.0): Wout brought a torch. And hope.
+HOL begin: doorlopen (Wout)
+HOL held binnen: Wout
 HOL zicht 4.1 1
-HOL einde na 8 s, fps=10, goud=765, terugkomers=0
+HOL einde na 8 s, fps=10, goud=1226, terugkomers=0
