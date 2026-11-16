@@ -313,7 +313,7 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	h.draw_texture_rect_region(ct, Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), c)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	if staat == "vallen":
-		for st in hoed_streepjes(float(h.val_t)):
+		for st in hoed_streepjes(float(h.val_t), str((hi["frames"] as Array)[nr])):
 			var x: float = plek.x * sx + float(st.x) * sx * f
 			h.draw_line(Vector2(x, plek.y + float(st.y)), Vector2(x, plek.y + float(st.z)), Color(1, 1, 1, STREEP_ALFA * alfa * kleur.a), 0.5)
 	var tops: Array = hi.get("top", [])
@@ -340,12 +340,15 @@ static func hoed_tuimel(vt: float) -> Vector3:
 # 16 nov (Olaf, Windows-opname run 43779885248, moment-a 4x): onder de hoed vielen ze op het haar en lazen als twee witte
 # strepen op het hoofd. Nu links van de rand van de hoed, de kant waar hij vandaan komt (hij schuift naar rechts), op de
 # muur naast en net boven de kruin, verspringend.
+# 16 nov (kan Daan 04:00): bij de brede pet raakten ze de klep; voor de pet 1,5 verder naar links (STREEP_PET).
 const STREEP_S := 0.2
 const STREEP_ALFA := 0.6
-static func hoed_streepjes(vt: float) -> Array:
+const STREEP_PET := -1.5
+static func hoed_streepjes(vt: float, naam: String = "") -> Array:
 	if vt < 0.0 or vt >= STREEP_S:
 		return []
-	return [Vector3(-4.6, -1.0, 1.0), Vector3(-3.5, -2.5, -0.5)]
+	var dx := STREEP_PET if naam == "pet" else 0.0
+	return [Vector3(-4.6 + dx, -1.0, 1.0), Vector3(-3.5 + dx, -2.5, -0.5)]
 
 # Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
 static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:
