@@ -235,3 +235,6 @@ Actions-artefact `figuur-chris-army_man` uit workflow `blender-chris-figuur.yml`
 - **Elleboog: niet gelukt.** Op deze figuur weigert Pro de elleboog eerlijk ("Tight: cheek too stiff to click", arm ±9,5 mm bij 15 cm; bij 25 cm ook). Dus geen elleboog in de render; dat is meteen een punt voor 1.1 (dunne armen van AI-figuren).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+
+## 16 nov 2026, 17:45, hoofdchat: probeer HyperFrames voor de filmpjes
+Uit een doorzoeking van Product Hunt (`platformen/succes/tools-producthunt.md`): HyperFrames van HeyGen (github.com/heygen-com/hyperframes, Apache 2.0, door de hoofdchat nagekeken) maakt van HTML en beelden een MP4, met een CLI, en draait in Docker en dus in GitHub Actions zonder account. Probeer het voor de clips van Click Joints en Rollwright (titelkaart, echte opname, eindkaart). Alleen de open-source kant; geen AI-video of avatar van HeyGen. Werkt het niet binnen 2 runs, ga terug naar ffmpeg en zeg waarom.
