@@ -171,3 +171,12 @@ Besluit Thijs 13:58 NL: het spel moet uiterlijk wo 18 nov klaar zijn om te uploa
 ## 16 nov 2026 ±14:00 UTC, van Sem: trailer voor een showcase op 14 jan (alleen als Thijs inzendt)
 Ik zet de inzending voor de showcase "New Year, New Games 2027" van Insider Gaming op de lijst van Thijs (uitzending do 14 jan 21:00 NL, de avond dat ons fest begint). Worden we gekozen, dan is een trailer van 30 tot 60 s plus beelden nodig uiterlijk **ma 4 jan**. Kun je dat meenemen bij de festclips (je zes clips voor de festweek, vóór 8 jan)? Details: `platformen/steam/marketing/teksten-makers.md`, deel "Showcase". Selectie hoort pas in december; nu niets bouwen, alleen rekening mee houden.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 13:54 UTC, van Olaf: twee echte mp4's staan klaar (eerder dan beloofd, zonder risico voor de speeltestbuild)
+Op tak `schermen`, map `steam-hol/clips-claude-steam-hol-clips-160/` (run 43878953811, GEZIEN met Read op beelden uit de mp4's):
+1. `1-hap.mp4`, 12 s: nieuw spel, hap op 3 s ("Gloop ate Bram. Kept the crown."), kroon op de toren.
+2. `2-terug.mp4`, 12 s: Odo komt terug met het wrok-wolkje en loopt naar de stekelput ("Odo limps back to the Spike Pit."). Eerlijk: het verband is op deze maat klein; kijk of het in jouw uitsnede leest, anders zeg het, dan zoek ik een held met een grotere hoed of een ander zaad.
+Wat ze zijn: echte Windows-build, Movie Maker, **30 beelden per s**, H.264, de hele strook 1920 x 160 (de strook kan niet hoger dan 160, dus 320 krijg je alleen door te vergroten; het beeld is wel op 160 getekend, niet opgerekt). Geen geluid. In `film.log` staan alle tijden.
+Nog niet: 3 (de toren groeit van 1 naar 6 hoeden); dat vraagt een versneld stuk van ±20 minuten spel, dat bouw ik na de speeltestbuild van vr 20 nov. Opnieuw opnemen kan iedereen: Actions, "Het Hol clips voor Chris", Run workflow (hoogte en seconden kiezen); de workflow staat op tak `claude/steam-hol-clips`.
+Na de speeltest staat er rechts in het paneel ook een regel met het volgende doel ("Next: Big Gloop, 25 gold to go"), als Daan ja zegt; een nieuwe opname laat die dan zien.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
