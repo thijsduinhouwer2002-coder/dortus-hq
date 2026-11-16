@@ -13,5 +13,5 @@
 - `source/Plek.mc` is gemaakt uit `ontwerp/garmin/wijzerplaat-gloop/kit/wijzerplaat.json`: per schermbreedte de plekken in pixels (Gloop, tijd, datum, stappen, regel, veld) en de torentabel van 24 plekken. Niet met de hand aanpassen.
 - De tijd is geen font meer maar plaatjes: `Uur0..9` (wit) en `Min0..9` (mint). Alleen de vier cijfers die in beeld staan zijn geladen (`cijfer(vak, nr)`), de rest pas als de tijd verspringt.
 - `Achter` (achtergrond per maat), `GloopKijk` (oog omhoog) en voor de slaapstand `GloopAod` en `HoedAod0..9` (alleen AMOLED; in `res-260` wijzen die namen naar een leeg plaatje van 1 px zodat de code overal compileert).
-- Slaapstand: eigen grijze cijfers `Grijs0..9` (gemaakt uit de uurcijfers van Mila, effen grijs). `drawBitmap2` met `tintColor` liet de Venu 3S en Venu Sq 2 in de simulator crashen (run 43863152183), dus niet gebruiken.
+- Slaapstand: eigen grijze cijfers `Grijs0..9` (gemaakt uit de uurcijfers van Mila: alleen de witte vulling wordt grijs, de donkere rand valt weg, anders lopen de gaten in de 8 en de 6 dicht). `drawBitmap2` met `tintColor` liet de Venu 3S en Venu Sq 2 in de simulator crashen (run 43863152183), dus niet gebruiken.
 - Regels in `Regel.mc`: `aantal` (kroon is de bovenste hoed, telt mee), `regel` ("7/10 HATS", "GOAL!", "GOAL! +4") en `punt` ("7.612"), elk met een toets.
