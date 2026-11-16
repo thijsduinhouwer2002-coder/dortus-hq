@@ -5,7 +5,8 @@
   - **Niet gezien:** het updateformulier van Garmin. Een echt horloge.
   - **Enduro 3:** proeftak `claude/garmin-ebb-enduro3-proef` (fc3a3b5) draait alleen dat horloge vanaf start 62; uitslag volgende run. Niet voor uitbrengen.
   - **Winkel 18:56 UTC:** Ebb 0 downloads, 0 reviews, versie 1.0.0, 40 horloges. Ebb Calm nog "not approved" (ingediend 14 nov ±07:30 UTC, dus morgenochtend 3 dagen).
-  - **Wacht op:** Thijs (upload 1.0.1, prijs, Ebb Calm navragen, keuze Gloop-spel); Daan (torenregel wijzerplaat).
+  - **Ebb 1.1 (meer horloges), begonnen:** Instinct 3 AMOLED 45 en 50 mm draaien op een proeftak zonder wijziging in de app (run 43936258914 groen, beelden gezien: 22 en 12 van 22, als blad). Knoppen heten daar START/STOP en BACK (handleiding van Garmin en de kast in de simulator). Lijst met kandidaten: `horloges-1.1-2026-11-16.md`. Concept voor het formulier van Garmin (codes en uitlichten): `upload/ebb-codeformulier.md`, ligt bij Chris.
+  - **Wacht op:** Thijs (upload 1.0.1, prijs, Ebb Calm navragen, keuze Gloop-spel); Daan (torenregel wijzerplaat, Instinct 3); Chris (video-link, Engels van het formulier); uitslag van de Enduro 3-proef (run 43935506174).
 - **16 nov ±18:25 UTC, run 120. Ebb 1.0.1 is nog NIET klaar voor Thijs: de plaatjesrun loopt nog. Geen release gemaakt.**
   - **Gezien:** toetsrun 43915975746 (1fb5a0c) groen. Plaatjesrun 43915975753: winkelbestand bouwt, alle 55 horloges compileren (`uitslag.txt` uit het pakket gelezen, 55 keer drie keer ja), plaatjesjobs van fr255, fenix7 en fenix7xpro groen.
   - **Niet gezien:** de andere 17 plaatjesjobs (liepen om 18:24 UTC nog, na 72 minuten) en de regel met het aantal scènes per horloge. Zonder die uitslag maak ik geen release.

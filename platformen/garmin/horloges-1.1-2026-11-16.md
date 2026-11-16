@@ -9,8 +9,8 @@ Bron: het log van de job bouw, run 43915975753; de hele tabel staat in `sdk-horl
 | Horloge (id in de SDK) | Scherm | Geheugen | In Ebb 1.0.1 | Wat nodig is |
 |---|---|---|---|---|
 | `enduro3` | 280 MIP | 786 kB | nee, eruit gehaald | proef loopt (tak `claude/garmin-ebb-enduro3-proef`): simulator stopte twee keer bij start 62 |
-| `instinct3amoled45mm` | 390 AMOLED | 786 kB | nee | proef loopt (tak `claude/garmin-ebb-instinct3-proef`), map gelijk aan epix Pro 42 mm |
-| `instinct3amoled50mm` | 416 AMOLED | 786 kB | nee | zelfde proef, map gelijk aan Forerunner 265 |
+| `instinct3amoled45mm` | 390 AMOLED | 786 kB | nee | proef goed (run 43936258914 groen, alle 22 scènes gezien als blad), map gelijk aan epix Pro 42 mm; wacht op Daan |
+| `instinct3amoled50mm` | 416 AMOLED | 786 kB | nee | zelfde proef (12 van 22 gezien), map gelijk aan Forerunner 265; wacht op Daan |
 | `instinctcrossoveramoled` | 390 AMOLED | 786 kB | nee | eigen knoptekst (ENTER) en er lopen echte wijzers over het scherm: eerst zien hoe dat eruitziet, later |
 | `approachs50`, `approachs7042mm` | 390 AMOLED | 786 kB | nee | golfhorloges met aanraakscherm; knoptekst zoals de Venu's (PRESS); lage voorrang |
 | `approachs7047mm` | 454 AMOLED | 786 kB | nee | idem |
@@ -29,7 +29,7 @@ Niet zinvol voor een betaalde app (staan niet op de lijst van Garmin voor betaal
 | Instinct Crossover AMOLED | `ENTER` en `GPS` | `BACK` en `SET` | `https://www8.garmin.com/manuals/webhelp/GUID-B613EA0B-EFB7-451C-BA10-DB9EE5A990BF/EN-US/Instinct_Crossover_AMOLED_OM_EN-US.pdf`, hoofdstuk Buttons |
 | Approach S70 | "Action button" (geen woord op de knop genoemd) | "Back button"; midden "Menu button" | `https://www8.garmin.com/manuals/webhelp/GUID-0F89E6A5-EC1C-4382-964E-27DC4B5FC932/EN-US/GUID-C4EE9EF3-5007-41D9-B84F-4582440483AE.html` |
 
-Wat dit betekent: mijn oude aanname "op de Instinct heet de knop niet START" klopt niet voor de Instinct 3 AMOLED. De handleiding noemt de knop START/STOP en de andere BACK. De teksten van Ebb ("press START to breathe", "BACK: pause.") kloppen daar dus zonder wijziging in de code. NIET GEZIEN: wat er op de kast van het horloge zelf gegraveerd staat (de handleiding toont de woorden naast de tekening; een foto heb ik niet bekeken).
+Wat dit betekent: mijn oude aanname "op de Instinct heet de knop niet START" klopt niet voor de Instinct 3 AMOLED. De handleiding noemt de knop START/STOP en de andere BACK. De teksten van Ebb ("press START to breathe", "BACK: pause.") kloppen daar dus zonder wijziging in de code. Ook GEZIEN op de kast van het horloge in de simulator (run 43936258914): rechtsboven GPS en START/STOP, rechtsonder BACK en SET. Geheugen in de simulator: hoogstens 146 kB van 764 kB. Niet gezien: een echt horloge.
 
 ## Volgorde (voorstel)
 1. Instinct 3 AMOLED 45 en 50 mm: als de proef goede beelden geeft, naar Daan. Geen wijziging in de code.
