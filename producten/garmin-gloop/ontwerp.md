@@ -33,6 +33,9 @@ Sinds 16 nov ±03:00 UTC (commit bd04a60) ook: **de slok** (voorstel Mila v3: de
 - Punt 4 open: niemand heeft het gespeeld. Er is nog geen bestand dat Thijs op een horloge kan zetten.
 - Uitgezocht: het verschil tussen 8 hoeden (simulator) en 19 (toets) kwam niet door de klok. De oude zelfspeler liet één soort held lopen en die viel toevallig drie keer vroeg; elke misser kost tijd en maakt de volgende 15 procent trager. Nagerekend in Python met hetzelfde toevalsgetal: 10 hoeden bij tikken van 50 ms, 8 bij 200 ms. Wel een les: bij tikken van 150 ms of trager springt een snelle held in één stap over de bek heen.
 
+## Stand 16 nov ±04:15 UTC: echte plaatjes en opstelling (c)
+Daan en Mila kozen allebei (c): de toren staat op de kop van Gloop, de held komt schuin van linksboven door een lichtbaan. Dat is nu gebouwd met de spritekit van Mila (`ontwerp/garmin/gloop-spel/kit/` op main, omgezet met `maak_kit.py`): Gloop rust, hap (in de vangzone), slok en blij, de vallende held, de vliegende helm en tien hoeden. De teller staat bovenaan met de kroon, het woord GULP staat met een boogje naast de START-knop, de klok rondom is goudgeel. De spelregels in `Spel.mc` en de toetsen zijn niet veranderd. Bewust nog niet: de held draagt altijd de helm terwijl de toren tien soorten hoeden krijgt (zo staat het op het blad van Mila; vraag aan haar of dat zo blijft), en de slok duurt nog 0,3 seconde.
+
 ## Open vragen (voor na de proef)
 - Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
 - Rechthoekige horloges (Venu Sq) en de zwart-witte Instinct: de proef tekent al naar verhouding, maar is daar niet bekeken.

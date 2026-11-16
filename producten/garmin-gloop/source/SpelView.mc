@@ -5,8 +5,11 @@ import Toybox.System;
 import Toybox.Timer;
 import Toybox.WatchUi;
 
-// Het scherm van de proef. Alles met eenvoudige vormen (grijze-dozen-proef):
-// links de schacht met Gloop, rechts de hoedentoren, rondom de tijd.
+typedef Plaatje as WatchUi.BitmapResource or Graphics.BitmapReference;
+
+// Het scherm van het spel, met de spritekit van Mila (keuze (c) van Daan en Mila, 16 nov):
+// Gloop staat in het midden met de hoedentoren op zijn kop, de held valt schuin van linksboven
+// door een lichtbaan naar zijn bek. Rondom loopt de tijd.
 class SpelView extends WatchUi.View {
     var spel as Spel;
     var klok as Timer.Timer?;
@@ -14,11 +17,38 @@ class SpelView extends WatchUi.View {
     var wasEinde as Boolean = false;
     var lietLopen as Boolean = false;
 
-    const KLEUREN = [0xFF0000, 0x0055FF, 0xFFFF00, 0xAA00FF, 0xFFFFFF, 0x00AAAA] as Array<Number>;
+    // Plaatjes: 0 rust, 1 hap, 2 blij, 3 slok, 4 held, 5 vliegende helm, 6 tot 15 de tien hoeden.
+    var pl as Array<Plaatje> = [] as Array<Plaatje>;
+    // Maten en ankers van de plaatjes (zie Maten.mc).
+    var m as Array<Number> = [] as Array<Number>;
+    // Welke hoed op welke plek in de toren komt: begint met de kroon, zoals op het blad van Mila.
+    const VOLGORDE = [4, 1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
 
     function initialize(hetSpel as Spel) {
         View.initialize();
         spel = hetSpel;
+    }
+
+    function onLayout(dc as Graphics.Dc) as Void {
+        m = Maten.voor(dc.getWidth());
+        pl = [
+            WatchUi.loadResource(Rez.Drawables.GloopRust) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.GloopHap) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.GloopBlij) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.GloopSlok) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.HeldVal) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.HelmVlieg) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed0) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed1) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed2) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed3) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed4) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed5) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed6) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed7) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed8) as Plaatje,
+            WatchUi.loadResource(Rez.Drawables.Hoed9) as Plaatje
+        ] as Array<Plaatje>;
     }
 
     function onShow() as Void {
@@ -74,164 +104,135 @@ class SpelView extends WatchUi.View {
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
+        if (pl.size() < 16) {
+            return;
+        }
         var w = dc.getWidth();
         var h = dc.getHeight();
-        var vloer = (h * 0.80).toNumber();
+        var cx = w / 2;
+        var voet = (h * 0.90).toNumber();
         var midden = Graphics.TEXT_JUSTIFY_CENTER;
 
-        // Grot, schacht en vloer.
+        // Grot, lichtbaan van linksboven naar de bek, vloer. Effen kleuren uit het MIP-palet.
         dc.setColor(0xAA5500, 0xAA5500);
         dc.clear();
-        var sx = (w * 0.20).toNumber();
-        var sb = (w * 0.34).toNumber();
+        var d = (w * 0.11).toNumber();
+        var ax = (w * -0.03).toNumber();
+        var ay = (h * -0.10).toNumber();
+        var bx = (w * 0.38).toNumber();
+        var by = (h * 0.74).toNumber();
         dc.setColor(0xFFAA55, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(sx, 0, sb, vloer);
+        dc.fillPolygon([[ax - d, ay], [ax + d, ay], [bx + d, by], [bx - d, by]] as Array<Graphics.Point2D>);
         dc.setColor(0x550000, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(0, vloer, w, h - vloer);
+        dc.fillEllipse(cx, h, (w * 0.80).toNumber(), (h * 0.16).toNumber());
 
-        var gx = sx + sb / 2;
-        var gr = (w * 0.13).toNumber();
-        var gy = vloer - (gr * 0.8).toNumber();
-
-        tekenToren(dc, w, h, vloer);
-        tekenHeld(dc, w, h, vloer, gx);
-        tekenGloop(dc, gx, gy, gr);
-        tekenSlok(dc, w, h, gx, gy, gr);
-        tekenVliegendeHoed(dc, w, h, vloer, gx, gy - gr);
-        tekenTijd(dc, w, h);
-
-        dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-        if (spel.toestand == Regel.KLAAR) {
-            dc.drawText(w / 2, (h * 0.10).toNumber(), Graphics.FONT_MEDIUM, "GLOOP", midden);
-            dc.drawText(w / 2, (h * 0.84).toNumber(), Graphics.FONT_XTINY, "START = GULP", midden);
-        } else if (spel.toestand == Regel.EINDE) {
-            dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-            dc.fillRectangle(0, (h * 0.16).toNumber(), w, (h * 0.34).toNumber());
-            dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (h * 0.17).toNumber(), Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
-            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
-            dc.drawText(w / 2, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
-            dc.drawText(w / 2, (h * 0.84).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden);
-        } else {
-            dc.drawText(w / 2, (h * 0.81).toNumber(), Graphics.FONT_SMALL, spel.hoeden.toString(), midden);
-            if (spel.toestand == Regel.SLOK) {
-                dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
-                var kreet = spel.raak ? "GULP!" : "gulp";
-                if (spel.raak && spel.reeks >= 3) {
-                    kreet = "GULP! x" + spel.reeks;
-                }
-                dc.drawText(w / 2, (h * 0.08).toNumber(), Graphics.FONT_MEDIUM, kreet, midden);
-            } else if (spel.toestand == Regel.WEG) {
-                dc.drawText(w / 2, (h * 0.08).toNumber(), Graphics.FONT_XTINY, "bye!", midden);
-            }
-        }
-    }
-
-    function tekenHoed(dc as Graphics.Dc, x as Number, y as Number, b as Number, hh as Number, kleur as Number) as Void {
-        // x is het midden, y de onderkant van de hoed.
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(x - b / 2 - 1, y - hh / 3 - 1, b + 2, hh / 3 + 1);
-        dc.fillRectangle(x - b / 4 - 1, y - hh, b / 2 + 2, hh);
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(x - b / 2, y - hh / 3, b, hh / 3 - 1);
-        dc.fillRectangle(x - b / 4, y - hh + 1, b / 2, hh - 2);
-    }
-
-    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, vloer as Number) as Void {
-        var tx = (w * 0.74).toNumber();
-        var hh = (h * 0.06).toNumber();
-        var b = (w * 0.17).toNumber();
+        // De toren begint op de kruin van Gloop (anker uit de kit).
+        var torenX = cx - m[0] / 2 + m[10];
+        var kruinY = voet - m[1] + m[11];
         var n = spel.hoeden;
         if (spel.toestand == Regel.SLOK) {
             n -= 1; // de nieuwste hoed is nog onderweg
         }
-        for (var i = 0; i < n; i += 1) {
-            var y = vloer - i * hh;
-            if (y < 0) {
-                break;
+
+        tekenGloop(dc, cx, voet);
+        var top = tekenToren(dc, torenX, kruinY, n);
+        tekenHeld(dc, w, h, voet);
+        tekenVliegendeHelm(dc, w, cx, voet, torenX, top);
+        tekenTijd(dc, w, h);
+
+        if (spel.toestand == Regel.KLAAR) {
+            tekst(dc, cx, (h * 0.07).toNumber(), Graphics.FONT_MEDIUM, "GLOOP", midden, 0xFFFFFF);
+            tekst(dc, cx, (h * 0.895).toNumber(), Graphics.FONT_XTINY, "START = GULP", midden, 0xFFFFFF);
+            tekenKnopHint(dc, w, h);
+        } else if (spel.toestand == Regel.EINDE) {
+            dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+            dc.fillRectangle(0, (h * 0.16).toNumber(), w, (h * 0.34).toNumber());
+            dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, (h * 0.17).toNumber(), Graphics.FONT_MEDIUM, spel.hoeden + " HATS", midden);
+            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            var regel = spel.nieuwBeste ? "NEW BEST!" : "BEST " + spel.beste;
+            dc.drawText(cx, (h * 0.34).toNumber(), Graphics.FONT_SMALL, regel, midden);
+            tekst(dc, cx, (h * 0.895).toNumber(), Graphics.FONT_XTINY, "START = AGAIN", midden, 0xFFFFFF);
+        } else {
+            tekenTeller(dc, w, h);
+            if (spel.toestand == Regel.SLOK) {
+                var kreet = spel.raak ? "GULP!" : "gulp";
+                if (spel.raak && spel.reeks >= 3) {
+                    kreet = "GULP! x" + spel.reeks;
+                }
+                // Links van de toren, waar net de held viel.
+                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_SMALL, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+            } else if (spel.toestand == Regel.WEG) {
+                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_XTINY, "bye!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFFFF);
+            } else if (spel.toestand == Regel.VALT) {
+                tekenKnopHint(dc, w, h);
             }
-            // De toren wiebelt een beetje: om en om een paar pixels opzij.
-            var dx = ((i % 2) == 0) ? -1 : 2;
-            tekenHoed(dc, tx + dx, y, b, hh, KLEUREN[i % 6]);
         }
     }
 
-    function tekenHeld(dc as Graphics.Dc, w as Number, h as Number, vloer as Number, gx as Number) as Void {
-        var hb = (w * 0.09).toNumber();
-        var hl = (h * 0.10).toNumber();
-        var x = gx;
-        var onder = 0;
+    // Tekst met een zwarte rand, zodat hij op elke ondergrond te lezen is.
+    function tekst(dc as Graphics.Dc, x as Number, y as Number, font as Graphics.FontDefinition, s as String, uitlijning as Graphics.TextJustification, kleur as Number) as Void {
+        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x - 1, y - 1, font, s, uitlijning);
+        dc.drawText(x + 1, y - 1, font, s, uitlijning);
+        dc.drawText(x - 1, y + 1, font, s, uitlijning);
+        dc.drawText(x + 1, y + 1, font, s, uitlijning);
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, font, s, uitlijning);
+    }
+
+    // Gloop staat met zijn voet op 0,90 van het scherm; elk plaatje hangt aan die voet.
+    function tekenGloop(dc as Graphics.Dc, cx as Number, voet as Number) as Void {
+        var t = spel.toestand;
+        if (t == Regel.SLOK) {
+            dc.drawBitmap(cx - m[4] / 2, voet - m[5], pl[3]);
+        } else if (t == Regel.VALT && spel.inVangzone() && spel.hapDicht == 0) {
+            dc.drawBitmap(cx - m[0] / 2, voet - m[2], pl[1]);
+        } else if (t == Regel.EINDE || (t == Regel.WACHT && spel.reeks > 0)) {
+            dc.drawBitmap(cx - m[0] / 2, voet - m[3], pl[2]);
+        } else {
+            dc.drawBitmap(cx - m[0] / 2, voet - m[1], pl[0]);
+        }
+    }
+
+    // Stapelt n hoeden op de kruin. Elke hoed staat 0,56 keer zijn eigen hoogte hoger (regel van Mila).
+    // Geeft de hoogte terug waar de volgende hoed op komt te staan.
+    function tekenToren(dc as Graphics.Dc, torenX as Number, kruinY as Number, n as Number) as Number {
+        var y = kruinY.toFloat();
+        for (var i = 0; i < n; i += 1) {
+            var k = VOLGORDE[i % 10];
+            var hb = m[12 + 2 * k];
+            var hh = m[13 + 2 * k];
+            var boven = y - hh * 0.78;
+            if (boven + hh > 0) {
+                // De toren wiebelt een beetje: elke hoed een paar pixels opzij.
+                var dx = ((i * 7) % 5) - 2;
+                dc.drawBitmap(torenX - hb / 2 + dx, boven.toNumber(), pl[6 + k]);
+            }
+            y = boven + hh * 0.22;
+        }
+        return y.toNumber();
+    }
+
+    // De held volgt de lichtbaan: bij een voltreffer (y = 815) hangt zijn hoofd bij de bek.
+    function tekenHeld(dc as Graphics.Dc, w as Number, h as Number, voet as Number) as Void {
         if (spel.toestand == Regel.VALT) {
-            onder = (spel.y / 1000.0 * vloer).toNumber();
+            var t = spel.y / 815.0;
+            var hx = (w * (0.04 + 0.34 * t)).toNumber();
+            var hy = (h * 0.72 * t).toNumber();
+            dc.drawBitmap(hx - m[6] / 2, hy - m[7] / 2, pl[4]);
+            if (spel.inVangzone() && spel.hapDicht == 0) {
+                tekst(dc, hx - m[6] / 2, hy - m[7] / 2 - 4, Graphics.FONT_MEDIUM, "!", Graphics.TEXT_JUSTIFY_RIGHT, 0xFFFF00);
+            }
         } else if (spel.toestand == Regel.WEG) {
-            onder = vloer;
-            x = gx - (w * 0.45 * spel.fase / Regel.WEG_MS).toNumber() - hb;
-        } else {
-            return;
-        }
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(x - hb / 2 - 1, onder - hl - 1, hb + 2, hl + 2);
-        dc.setColor(0xAAAAFF, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(x - hb / 2, onder - hl, hb, hl);
-        tekenHoed(dc, x, onder - hl, (w * 0.13).toNumber(), (h * 0.05).toNumber(), KLEUREN[spel.held]);
-    }
-
-    function tekenGloop(dc as Graphics.Dc, gx as Number, gy as Number, gr as Number) as Void {
-        var open = (spel.toestand == Regel.VALT && spel.inVangzone() && spel.hapDicht == 0);
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(gx, gy, gr + 2);
-        dc.setColor(spel.toestand == Regel.SLOK ? 0xAAFF00 : 0x55FF00, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(gx, gy, gr);
-        // Ogen.
-        var o = gr / 3;
-        // Bij de slok zakken de ogen, want de bek staat dan wijd open bovenin.
-        var ey = (spel.toestand == Regel.SLOK) ? gy + o / 2 : gy - o / 2;
-        dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(gx - o, ey, o / 2 + 2);
-        dc.fillCircle(gx + o, ey, o / 2 + 2);
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        var kijk = (spel.toestand == Regel.VALT) ? -2 : 0;
-        dc.fillCircle(gx - o, ey + kijk, o / 4 + 1);
-        dc.fillCircle(gx + o, ey + kijk, o / 4 + 1);
-        // Bek: wijd open als de held te pakken is, anders een streep.
-        if (open) {
-            dc.fillEllipse(gx, gy - gr + o, o * 2, o);
-        } else if (spel.toestand == Regel.SLOK) {
-            // De bek tekent tekenSlok, met de held erin.
-        } else {
-            dc.fillRectangle(gx - o, gy + o, o * 2, 3);
+            // Gemist: hij glijdt langs Gloop naar links het beeld uit.
+            var x = (w * 0.30).toNumber() - ((w * 0.30 + m[6]) * spel.fase / Regel.WEG_MS).toNumber();
+            dc.drawBitmap(x, voet - m[7], pl[4]);
         }
     }
 
-    // De slok (voorstel Mila, v3): de held steekt ondersteboven half uit de open bek,
-    // benen omhoog, en zakt in 0,3 seconde weg. Nog met eenvoudige vormen.
-    function tekenSlok(dc as Graphics.Dc, w as Number, h as Number, gx as Number, gy as Number, gr as Number) as Void {
-        if (spel.toestand != Regel.SLOK) {
-            return;
-        }
-        var hb = (w * 0.09).toNumber();
-        var hl = (h * 0.10).toNumber();
-        var zak = (hl * spel.fase / Regel.SLOK_MS).toNumber();
-        if (zak > hl) {
-            zak = hl;
-        }
-        var lip = gy - gr / 2;
-        var zicht = hl - zak;
-        // Open bek met donkere rand, bovenin de bol.
-        dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-        dc.fillEllipse(gx, lip, hb, gr / 3);
-        if (zicht > 2) {
-            // Buik en twee benen die eruit steken.
-            dc.fillRectangle(gx - hb / 2 - 1, lip - zicht - 1, hb + 2, zicht + 1);
-            dc.setColor(0xAAAAFF, Graphics.COLOR_TRANSPARENT);
-            dc.fillRectangle(gx - hb / 2, lip - zicht + zicht / 2, hb, zicht - zicht / 2);
-            dc.fillRectangle(gx - hb / 2, lip - zicht, hb / 3, zicht / 2);
-            dc.fillRectangle(gx + hb / 2 - hb / 3, lip - zicht, hb / 3, zicht / 2);
-        }
-    }
-
-    function tekenVliegendeHoed(dc as Graphics.Dc, w as Number, h as Number, vloer as Number, gx as Number, top as Number) as Void {
+    // Bij de slok schiet de helm van de bek in een boog naar rechts en landt boven op de toren.
+    function tekenVliegendeHelm(dc as Graphics.Dc, w as Number, cx as Number, voet as Number, torenX as Number, top as Number) as Void {
         if (spel.toestand != Regel.SLOK) {
             return;
         }
@@ -239,16 +240,38 @@ class SpelView extends WatchUi.View {
         if (f > 1.0) {
             f = 1.0;
         }
-        var hh = (h * 0.06).toNumber();
-        var tx = (w * 0.74).toNumber();
-        var ty = vloer - (spel.hoeden - 1) * hh;
-        if (ty < hh) {
-            ty = hh;
+        var begin = voet - m[1];
+        var eind = top - m[9] / 2;
+        if (eind < m[9] / 2) {
+            eind = m[9] / 2;
         }
-        var x = gx + ((tx - gx) * f).toNumber();
-        var boog = (h * 0.25 * 4.0 * f * (1.0 - f)).toNumber();
-        var y = top + ((ty - top) * f).toNumber() - boog;
-        tekenHoed(dc, x, y, (w * 0.17).toNumber(), hh, KLEUREN[spel.held]);
+        var x = cx + ((torenX - cx) * f).toNumber() + (w * 0.22 * 4.0 * f * (1.0 - f)).toNumber();
+        var y = begin + ((eind - begin) * f).toNumber();
+        dc.drawBitmap(x - m[8] / 2, y - m[9] / 2, pl[5]);
+    }
+
+    // Teller bovenaan: de kroon en het aantal hoeden.
+    function tekenTeller(dc as Graphics.Dc, w as Number, h as Number) as Void {
+        var s = spel.hoeden.toString();
+        var font = Graphics.FONT_MEDIUM;
+        var tb = dc.getTextWidthInPixels(s, font);
+        var kb = m[20];
+        var kh = m[21];
+        var x0 = (w - tb - kb - 4) / 2;
+        var my = (h * 0.12).toNumber();
+        dc.drawBitmap(x0, my - kh / 2, pl[10]);
+        tekst(dc, x0 + kb + 4, my - dc.getFontHeight(font) / 2, font, s, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF55);
+    }
+
+    // Boogje en het woord GULP naast de START-knop (rechtsboven). Op vierkante schermen alleen het woord.
+    function tekenKnopHint(dc as Graphics.Dc, w as Number, h as Number) as Void {
+        if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
+            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(5);
+            dc.drawArc(w / 2, h / 2, w / 2 - 13, Graphics.ARC_CLOCKWISE, 48, 22);
+            dc.setPenWidth(1);
+        }
+        tekst(dc, (w * 0.79).toNumber(), (h * 0.27).toNumber(), Graphics.FONT_XTINY, "GULP", Graphics.TEXT_JUSTIFY_CENTER, 0xFFFFFF);
     }
 
     function tekenTijd(dc as Graphics.Dc, w as Number, h as Number) as Void {
@@ -260,7 +283,8 @@ class SpelView extends WatchUi.View {
             return;
         }
         var r = ((w < h) ? w : h) / 2 - 4;
-        dc.setColor(spel.tijdOver < 5000 ? 0xFF0000 : 0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+        // De klok is goudgeel (wit is de knophint), de laatste 5 seconden rood.
+        dc.setColor(spel.tijdOver < 5000 ? 0xFF0000 : 0xFFAA00, Graphics.COLOR_TRANSPARENT);
         if (System.getDeviceSettings().screenShape != System.SCREEN_SHAPE_ROUND) {
             // Vierkant scherm: de klok is een balk langs de bovenrand die leegloopt.
             dc.fillRectangle(0, 0, (w * spel.tijdOver / Regel.RONDE_MS).toNumber(), 5);
