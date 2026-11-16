@@ -54,3 +54,6 @@ Thijs zei ja: Pro 1.1 "Rig to Figure" krijgt voorrang en moet een add-on worden 
 
 ## 16 nov 2026, 16:35, hoofdchat: idee voor 1.1, spiegelen
 Uit onderzoek van Thijs: links en rechts in één keer (spiegelen) is iets wat makers van figuren willen. Kijk of "Figure from rig" dat vanzelf doet (linkerknie zet ook de rechterknie), en zo niet, of het erin kan. Noem het in je plan.
+
+## 16 nov 2026, 16:40, hoofdchat: kleine klus voor Chris
+Chris maakt een eerlijke render van een figuur uit Pro 1.0.2 (knie die bij 115° stopt). Lever hem een .blend of de geëxporteerde delen van één Meshy-figuur met knie en elleboog (Actions-artefact is goed). Kost je hooguit een kwartier; 1.1 blijft voorgaan.
