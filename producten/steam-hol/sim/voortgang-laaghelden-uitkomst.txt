@@ -9,16 +9,24 @@ versie 3 (geen eigen helden)
   gaten 1.7/1.9; 1.9/3.7; 2.7/2.9; 2.8/3.2; 6.0/6.0
 
 helden zonder tegenzet
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.840 (x 1.01); laag 3, hol 31 0.547 (x 0.93); laag 3, hol 32+ 0.864 (x 0.99); laag 4, hol 41+ 0.894 (x 0.99); laag 2 heel 0.809 (x 1.00); laag 3 heel 0.801 (x 0.99); laag 4 heel 0.878 (x 0.99)
-  eigen helden (bezoeken, gevangen): mijnwerker 1668 81%, ontdekker 928 87%, heks 513 89%, hoedenjager 628 81%
-  hol 10.5 / 37.8 / 76.8 / 129.2 u, hol 50 werkdag 22
-  gaten 1.5/1.9; 1.9/3.3; 2.8/3.0; 2.9/5.8; 5.8/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.840 (x 1.01); laag 3, hol 31 0.537 (x 0.91); laag 3, hol 32+ 0.863 (x 0.99); laag 4, hol 41+ 0.897 (x 0.99); laag 2 heel 0.809 (x 1.00); laag 3 heel 0.798 (x 0.98); laag 4 heel 0.881 (x 0.99)
+  eigen helden (bezoeken, gevangen): mijnwerker 1653 81%, ontdekker 926 88%, heks 511 88%, hoedenjager 616 82%
+  hol 10.5 / 37.8 / 76.8 / 128.6 u, hol 50 werkdag 22
+  gaten 1.5/1.9; 1.9/3.3; 2.7/3.0; 2.9/5.7; 5.9/6.0
 
 Sanne: valluik 0,8, nep 0,75/0,5/0,3, lokker x 2
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.628 (x 1.06); laag 3, hol 32+ 0.879 (x 1.01); laag 4, hol 41+ 0.916 (x 1.01); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.834 (x 1.03); laag 4 heel 0.909 (x 1.02)
-  eigen helden (bezoeken, gevangen): mijnwerker 1549 95%, ontdekker 948 87%, heks 519 90%, hoedenjager 595 91%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.2/90.0, 19.6/48.0/90.0, 19.3/48.0/90.0
-  hol 10.5 / 37.7 / 76.0 / 127.9 u, hol 50 werkdag 22
-  gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 2.8/5.4; 6.0/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.625 (x 1.06); laag 3, hol 32+ 0.884 (x 1.02); laag 4, hol 41+ 0.915 (x 1.01); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.837 (x 1.03); laag 4 heel 0.908 (x 1.02)
+  eigen helden (bezoeken, gevangen): mijnwerker 1553 95%, ontdekker 931 90%, heks 521 89%, hoedenjager 602 91%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.4/90.0, 19.6/48.0/90.0, 19.3/48.0/90.0
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 20.0 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 77.8 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 91.9 u (8 van 8 zaden)
+  hol 10.5 / 37.7 / 76.1 / 128.1 u, hol 50 werkdag 22
+  gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 2.8/5.3; 6.0/6.0
+
+idem, terugkomende ontdekker loopt recht op de nep-schat af
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.625 (x 1.06); laag 3, hol 32+ 0.884 (x 1.02); laag 4, hol 41+ 0.917 (x 1.01); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.837 (x 1.03); laag 4 heel 0.910 (x 1.02)
+  eigen helden (bezoeken, gevangen): mijnwerker 1549 95%, ontdekker 935 90%, heks 518 89%, hoedenjager 605 91%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.4/90.0, 19.6/48.0/90.0, 19.3/48.0/90.0
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 20.0 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 49.4 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 91.6 u (8 van 8 zaden)
+  hol 10.5 / 37.7 / 76.1 / 128.0 u, hol 50 werkdag 22
+  gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 2.8/5.1; 5.9/6.0
 
 
 versie 3 (geen eigen helden)
@@ -28,32 +36,37 @@ versie 3 (geen eigen helden)
   gaten 1.7/1.9; 1.9/3.7; 2.7/2.9; 2.8/3.2; 6.0/6.0
 
 Sanne, tegenzet voor 0,5 uur goud
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.639 (x 1.08); laag 3, hol 32+ 0.880 (x 1.01); laag 4, hol 41+ 0.920 (x 1.02); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.833 (x 1.02); laag 4 heel 0.911 (x 1.02)
-  eigen helden (bezoeken, gevangen): mijnwerker 1550 95%, ontdekker 942 87%, heks 524 89%, hoedenjager 587 94%; tegenzet gekocht op (open uur, zaad 1 tot 3): 18.0/44.0/80.3, 18.0/44.7/79.9, 18.0/44.1/79.7
-  hol 10.5 / 37.7 / 76.1 / 127.9 u, hol 50 werkdag 22
-  gaten 1.4/1.9; 1.9/3.2; 2.8/3.0; 2.9/5.1; 5.9/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.634 (x 1.07); laag 3, hol 32+ 0.883 (x 1.02); laag 4, hol 41+ 0.922 (x 1.02); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.835 (x 1.03); laag 4 heel 0.913 (x 1.02)
+  eigen helden (bezoeken, gevangen): mijnwerker 1552 95%, ontdekker 941 89%, heks 518 89%, hoedenjager 583 94%; tegenzet gekocht op (open uur, zaad 1 tot 3): 18.0/43.9/80.0, 18.0/44.7/80.0, 18.0/44.0/79.8
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 18.1 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 47.9 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 83.0 u (8 van 8 zaden)
+  hol 10.5 / 37.7 / 75.8 / 127.4 u, hol 50 werkdag 22
+  gaten 1.4/1.9; 1.9/3.2; 2.8/3.0; 2.8/5.0; 5.9/6.0
 
 Sanne, tegenzet voor 0,25 uur goud
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.857 (x 1.03); laag 3, hol 31 0.613 (x 1.04); laag 3, hol 32+ 0.880 (x 1.01); laag 4, hol 41+ 0.922 (x 1.02); laag 2 heel 0.824 (x 1.02); laag 3 heel 0.832 (x 1.02); laag 4 heel 0.911 (x 1.02)
-  eigen helden (bezoeken, gevangen): mijnwerker 1533 95%, ontdekker 954 87%, heks 527 89%, hoedenjager 588 95%; tegenzet gekocht op (open uur, zaad 1 tot 3): 15.7/43.8/78.7, 15.1/44.3/80.1, 15.2/43.3/78.0
-  hol 10.5 / 37.5 / 76.1 / 127.2 u, hol 50 werkdag 22
-  gaten 1.5/1.9; 1.9/3.3; 2.9/3.0; 3.8/5.9; 6.0/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.857 (x 1.03); laag 3, hol 31 0.624 (x 1.06); laag 3, hol 32+ 0.885 (x 1.02); laag 4, hol 41+ 0.924 (x 1.02); laag 2 heel 0.824 (x 1.02); laag 3 heel 0.837 (x 1.03); laag 4 heel 0.913 (x 1.03)
+  eigen helden (bezoeken, gevangen): mijnwerker 1533 96%, ontdekker 939 89%, heks 526 89%, hoedenjager 596 95%; tegenzet gekocht op (open uur, zaad 1 tot 3): 15.7/43.7/78.4, 15.1/44.2/79.7, 15.2/43.3/78.0
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 15.3 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 48.1 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 81.6 u (8 van 8 zaden)
+  hol 10.5 / 37.5 / 75.7 / 126.9 u, hol 50 werkdag 22
+  gaten 1.5/1.9; 1.9/3.3; 2.7/3.0; 4.1/5.6; 6.0/6.1
 
 Sanne, tegenzet voor 2 uur goud
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.843 (x 1.01); laag 3, hol 31 0.611 (x 1.03); laag 3, hol 32+ 0.877 (x 1.01); laag 4, hol 41+ 0.911 (x 1.01); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.829 (x 1.02); laag 4 heel 0.902 (x 1.01)
-  eigen helden (bezoeken, gevangen): mijnwerker 1542 94%, ontdekker 944 86%, heks 526 88%, hoedenjager 599 90%; tegenzet gekocht op (open uur, zaad 1 tot 3): 24.0/53.0/90.0, 24.0/53.3/90.2, 24.0/53.5/90.6
-  hol 10.5 / 37.8 / 76.3 / 128.0 u, hol 50 werkdag 22
-  gaten 1.6/1.7; 1.9/2.8; 2.5/3.0; 2.8/4.8; 5.9/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.843 (x 1.01); laag 3, hol 31 0.630 (x 1.07); laag 3, hol 32+ 0.879 (x 1.01); laag 4, hol 41+ 0.914 (x 1.01); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.833 (x 1.02); laag 4 heel 0.906 (x 1.02)
+  eigen helden (bezoeken, gevangen): mijnwerker 1550 94%, ontdekker 930 89%, heks 521 89%, hoedenjager 597 91%; tegenzet gekocht op (open uur, zaad 1 tot 3): 24.0/53.2/90.0, 24.0/53.1/96.0, 24.0/53.2/90.8
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 24.1 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 55.6 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 93.2 u (8 van 8 zaden)
+  hol 10.5 / 37.8 / 76.2 / 128.2 u, hol 50 werkdag 22
+  gaten 1.6/1.7; 1.9/2.8; 2.5/3.0; 2.8/4.3; 5.8/6.0
 
 Sanne zonder lokker
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.628 (x 1.06); laag 3, hol 32+ 0.879 (x 1.01); laag 4, hol 41+ 0.908 (x 1.00); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.834 (x 1.03); laag 4 heel 0.901 (x 1.01)
-  eigen helden (bezoeken, gevangen): mijnwerker 1545 95%, ontdekker 936 87%, heks 522 90%, hoedenjager 638 81%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.2, 19.6/48.0, 19.3/48.0
-  hol 10.5 / 37.7 / 76.0 / 128.2 u, hol 50 werkdag 22
-  gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 3.4/5.6; 6.0/6.0
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.844 (x 1.01); laag 3, hol 31 0.625 (x 1.06); laag 3, hol 32+ 0.884 (x 1.02); laag 4, hol 41+ 0.906 (x 1.00); laag 2 heel 0.813 (x 1.01); laag 3 heel 0.837 (x 1.03); laag 4 heel 0.899 (x 1.01)
+  eigen helden (bezoeken, gevangen): mijnwerker 1547 95%, ontdekker 920 90%, heks 522 89%, hoedenjager 642 81%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.4, 19.6/48.0, 19.3/48.0
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 20.0 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 77.8 u (8 van 8 zaden)
+  hol 10.5 / 37.7 / 76.1 / 128.3 u, hol 50 werkdag 22
+  gaten 1.4/1.6; 1.9/3.3; 2.8/2.9; 3.3/5.5; 6.0/6.0
 
 valluik 0,9, nep 0,75/0,4/0,25
-  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.842 (x 1.01); laag 3, hol 31 0.621 (x 1.05); laag 3, hol 32+ 0.879 (x 1.01); laag 4, hol 41+ 0.915 (x 1.01); laag 2 heel 0.811 (x 1.00); laag 3 heel 0.831 (x 1.02); laag 4 heel 0.907 (x 1.02)
-  eigen helden (bezoeken, gevangen): mijnwerker 1528 96%, ontdekker 959 87%, heks 521 89%, hoedenjager 596 92%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.1/90.0, 19.6/48.0/90.0, 19.3/48.0/90.0
-  hol 10.5 / 37.7 / 76.6 / 128.3 u, hol 50 werkdag 22
+  laag 2, hol 21 0.494 (x 0.92); laag 2, hol 22+ 0.842 (x 1.01); laag 3, hol 31 0.625 (x 1.06); laag 3, hol 32+ 0.883 (x 1.01); laag 4, hol 41+ 0.918 (x 1.01); laag 2 heel 0.811 (x 1.00); laag 3 heel 0.834 (x 1.03); laag 4 heel 0.909 (x 1.02)
+  eigen helden (bezoeken, gevangen): mijnwerker 1534 96%, ontdekker 942 89%, heks 522 89%, hoedenjager 604 91%; tegenzet gekocht op (open uur, zaad 1 tot 3): 19.6/48.0/90.0, 19.6/48.0/90.0, 19.3/48.0/90.0
+  laagsterren (open uur, mediaan): Catch a Miner with the trapdoor: 20.0 u (8 van 8 zaden); Catch an Explorer with the Fake Hoard: 53.2 u (8 van 8 zaden); Lure the Hat Hunter 10 times: 91.9 u (8 van 8 zaden)
+  hol 10.5 / 37.7 / 76.2 / 127.6 u, hol 50 werkdag 22
   gaten 1.4/1.7; 2.0/3.4; 2.8/3.0; 2.8/4.1; 6.0/6.0
 

@@ -4,7 +4,8 @@ Doel van Sanne: per laag met tegenzet gemiddelde vangkans x 1,0 tot 1,05 van ver
 tegenzet mag het zakken tot ±x 0,95. Wat de held doet blijft; alleen de getallen van de tegenzet mogen anders.
 Aannames (staan niet in de tekst van Sanne): een tegenzet koop je één keer voor ±1 uur goud (prijs_u 1,0 x goud per uur op
 het moment dat hij vrijkomt) en hij zit daarna in elke nieuwe laag; het valluik vangt alleen de mijnwerker (die graaft erin),
-gewone helden lopen eroverheen; de lokker hangt voor de eerste val; de Gekroonde zit er niet in (telt niet mee, zegt Sanne).
+gewone helden lopen eroverheen; de lokker hangt voor de eerste val; de terugkomende ontdekker stapt over een val die hem
+eerder raakte zonder klap (hij schrikt niet), en valt er alleen in met x 0,3; de Gekroonde zit er niet in (telt niet mee, zegt Sanne).
 Draaien: python3 voortgang_laaghelden.py > voortgang-laaghelden-uitkomst.txt"""
 import copy, json, os
 import sim
@@ -31,6 +32,7 @@ GEVALLEN = [
     ("versie 3 (geen eigen helden)", {"helden": {}, "tegen": {}}),
     ("helden zonder tegenzet", {"helden": HELDEN, "tegen": {}}),
     ("Sanne: valluik 0,8, nep 0,75/0,5/0,3, lokker x 2", {"helden": HELDEN, "tegen": tegen()}),
+    ("idem, terugkomende ontdekker loopt recht op de nep-schat af", {"helden": HELDEN, "tegen": tegen(), "nep_vooraan": True}),
 ]
 import sys
 if len(sys.argv) > 1 and sys.argv[1] == "ijk":
@@ -99,6 +101,15 @@ for naam, lh in GEVALLEN:
                 d[1] += ja
     print("  eigen helden (bezoeken, gevangen): " + ", ".join("%s %d %.0f%%" % (s, d[0] / Z, 100 * d[1] / d[0]) for s, d in soorten.items())
           + ("; tegenzet gekocht op (open uur, zaad 1 tot 3): " + tk_t if any(tk) else ""))
+    sterren = []
+    for nm, wat, n_ in [("Catch a Miner with the trapdoor", "valluik", 1), ("Catch an Explorer with the Fake Hoard", "nephoard_ontdekker", 1),
+                        ("Lure the Hat Hunter 10 times", "lokker", 10)]:
+        ts = [sorted(t for t, x in st.get("tegen_t", []) if x == wat) for st in alle]
+        ts = [r[n_ - 1] for r in ts if len(r) >= n_]
+        if ts:
+            sterren.append("%s: %.1f u (%d van %d zaden)" % (nm, sim.mediaan(ts) / 3600, len(ts), Z))
+    if sterren:
+        print("  laagsterren (open uur, mediaan): " + "; ".join(sterren))
     print("  hol %s / %s / %s / %s u, hol 50 %s" % (tijd(20), tijd(30), tijd(40), tijd(50), d50))
     print("  gaten " + "; ".join(gs_w))
     print()

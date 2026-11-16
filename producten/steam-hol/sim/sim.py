@@ -287,7 +287,13 @@ def speel(uren, zaad, spec=None):
             uit = "gevlucht"
             geraakt_door = "put"
             begin_vlucht = h
-        for i, v in enumerate(verd if not dwing else []):
+        if lh and lh.get("nep_vooraan") and hs_ == "ontdekker" and h["bezoeken"] > 0 and "nephoard" in tegen and not dwing:
+            # variant: de terugkomende ontdekker loopt recht op de (verschoven) nep-schat af, vóór de vallen
+            if rng.random() < lh["tegen"]["nephoard"]["kans"]:
+                uit = "gevallen"
+                st["tegen_vang"] = st.get("tegen_vang", 0) + 1
+                st.setdefault("tegen_t", []).append((t, "nephoard_" + hs_))
+        for i, v in enumerate(verd if not dwing and uit is None else []):
             if v["soort"] == "slijm" and t < v["plat_tot"]:
                 continue
             # soortfactor alleen op de basiskans, zoals held.gd (controleur 10 nov): upgrade en ROEKELOOS komen erbij
@@ -318,11 +324,15 @@ def speel(uren, zaad, spec=None):
                 if "valluik" in tegen and rng.random() < lh["tegen"]["valluik"]["kans"]:
                     uit = "gevallen"
                     st["tegen_vang"] = st.get("tegen_vang", 0) + 1
+                    st.setdefault("tegen_t", []).append((t, "valluik"))
                     break
                 continue
+            lokker_val = hs_ == "hoedenjager" and eerste_val and "lokker" in tegen
             eerste_val = False
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
+                if hs_ == "hoedenjager" and lokker_val:
+                    st.setdefault("tegen_t", []).append((t, "lokker"))
                 if v["soort"] == "slijm":
                     st["hap_slijm"] += 1      # hoedentoren: elke hap is een hoed (Sanne toets 3, punt 4)
                     if v is verd[0]:
@@ -330,6 +340,8 @@ def speel(uren, zaad, spec=None):
                 if h["gevlucht"] > 0 and is_vijand:
                     st["afgerekend"] += 1
                 break
+            if hs_ == "ontdekker" and h["bezoeken"] > 0 and i in h["geraakt_i"] and lh.get("ontdekker_stapt_over", True):
+                continue   # stapt eroverheen en tikt tegen zijn hoed: geen klap, hij schrikt niet
             klappen += 1
             geraakt_door = v["soort"]
             if lh:
@@ -350,6 +362,7 @@ def speel(uren, zaad, spec=None):
             if rng.random() < k_:
                 uit = "gevallen"
                 st["tegen_vang"] = st.get("tegen_vang", 0) + 1
+                st.setdefault("tegen_t", []).append((t, "nephoard_" + hs_))
         if uit is None:
             uit = "gevlucht"
             h["hoard"] = True

@@ -5,36 +5,38 @@ Uitvoer `voortgang-kijken-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_kij
 
 | speler (6 uur open per werkdag) | hol 20 / 30 / 40 / 50 (open uur) | hol 50 | goud op de bank (mediaan) |
 |---|---|---|---|
-| koopt meteen (de sim tot nu) | 10,5 / 37,7 / 76,0 / 127,9 | werkdag 22 | 1.001 |
-| kijkt elke 10 min | 10,5 / 37,2 / 75,6 / 127,4 | werkdag 22 | 1.068 |
-| kijkt elke 30 min | 10,5 / 37,3 / 75,3 / 127,0 | werkdag 22 | 1.433 |
-| kijkt elk uur | 10,4 / 37,2 / 74,6 / 126,5 | werkdag 22 | 1.957 |
-| kijkt elke 2 uur | 10,4 / 37,6 / 75,7 / 127,4 | werkdag 22 | 2.551 |
-| kijkt alleen bij het openen (1 x per dag) | 11,3 / 41,6 / 78,0 / 132,0 | werkdag 23 | 4.432 |
+| koopt meteen (de sim tot nu) | 10,5 / 37,7 / 76,1 / 128,1 | werkdag 22 | 1.025 |
+| kijkt elke 10 min | 10,5 / 37,2 / 75,4 / 127,1 | werkdag 22 | 1.066 |
+| kijkt elke 30 min | 10,5 / 37,3 / 75,3 / 127,0 | werkdag 22 | 1.419 |
+| kijkt elk uur | 10,4 / 37,2 / 74,6 / 126,1 | werkdag 22 | 1.966 |
+| kijkt elke 2 uur | 10,4 / 37,6 / 75,7 / 127,8 | werkdag 22 | 2.517 |
+| kijkt alleen bij het openen (1 x per dag) | 11,3 / 41,6 / 78,0 / 132,0 | werkdag 23 | 4.461 |
 
-Tussendoor-speler (15 / 30 / 60 min per dag, kijkt alleen bij het openen): hol 50 op dag 63 / 57 / 50, tegen 63 / 58 / 49 als hij meteen koopt.
+Tussendoor-speler (15 / 30 / 60 min per dag, kijkt alleen bij het openen): hol 50 op dag 63 / 57 / 50, tegen 63 / 57 / 49 als hij meteen koopt.
 
 **Wat dit zegt:** (1) **later kopen maakt het spel bijna niet langzamer.** Tot "elke 2 uur kijken" blijft hol 50 op werkdag 22; zelfs wie maar één keer per dag koopt, is één werkdag later. Het hol-niveau komt van vangen, en een gang die al 80% vangt wordt van één val meer niet veel beter. De zorg in punt 5 ("een echte speler klikt minder, dus langzamer") klopt dus nauwelijks; de tabel in echte dagen kan blijven. (2) **Wat wel verandert is de berg goud:** wie elke 2 uur kijkt heeft er ±2.500 liggen, wie 1 x per dag kijkt ±4.400. Dat is precies waar de doelregel en het bordje voor zijn: laat zien wat er te koop is, dan klikt de speler vanzelf vaker. (3) De gaten van wie 1 x per dag koopt zijn natuurlijk een werkdag (de aankopen vallen dan allemaal op het openen); de hol-niveaus lopen gewoon door.
 
 
-## 16 nov 2026 ±17:20 UTC (Bram): de eigen helden per laag met hun tegenzet nagerekend (vraag Sanne 17:00)
-Uitvoer `voortgang-laaghelden-uitkomst.txt` (8 zaden, GEZIEN; ook 16 zaden voor de krapste punten), script `voortgang_laaghelden.py` (`ijk` geeft de varianten), spec versie 3 definitief plus de nieuwe sleutel `"laag_helden"` in `sim.py`. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
+## 16 nov 2026 ±17:20 UTC (Bram, bijgewerkt ±17:45): de eigen helden per laag met hun tegenzet nagerekend (vraag Sanne 17:00)
+Uitvoer `voortgang-laaghelden-uitkomst.txt` (8 zaden, GEZIEN; de krapste punten ook met 16), script `voortgang_laaghelden.py` (`ijk` geeft de varianten), spec versie 3 definitief plus de nieuwe sleutel `"laag_helden"` in `sim.py`. Zonder de sleutel verandert er niets (nagekeken: `voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
 
-**Hoe het in de sim zit:** mijnwerker (vanaf hol 21, laag 2+, gewicht 20) slaat de eerste val die hij tegenkomt over (kans 0, geen klap), slijm x 1,2; met het valluik valt hij daar met kans 0,8. Ontdekker (hol 31, laag 3+, gewicht 15): eerste bezoek put x 1,2, als terugkomer x 0,3 op elke val die hem eerder raakte. Nep-schat: wie de echte schat zou halen, valt erin met 0,75 (ontdekker), 0,5 (hebzuchtig) of 0,3 (schijterig). Heks (hol 36, laag 3+, gewicht 10) x 1. Hoedenjager (hol 41, laag 4, gewicht 15) alle vallen x 0,7, met de lokker de eerste val x 2 (hooguit 0,95). Gekroonde niet (telt niet mee). **Aannames die niet in jouw tekst staan:** een tegenzet koop je één keer voor ±1 uur goud en hij zit daarna in elke nieuwe laag; het valluik vangt alleen de mijnwerker (gewone helden lopen eroverheen). Vangkans = gevangen gedeeld door alle helden in de laag die je ziet.
+**Hoe het in de sim zit:** mijnwerker (vanaf hol 21, laag 2+, gewicht 20) slaat de eerste val die hij tegenkomt over (kans 0, geen klap), slijm x 1,2; met het valluik valt hij daar met kans 0,8. Ontdekker (hol 31, laag 3+, gewicht 15): eerste bezoek put x 1,2; als terugkomer valt hij in een val die hem eerder raakte alleen met x 0,3, en anders stapt hij eroverheen zonder klap (hij schrikt niet). Nep-schat: wie de echte schat zou halen, valt erin met 0,75 (ontdekker), 0,5 (hebzuchtig) of 0,3 (schijterig). Heks (hol 36, laag 3+, gewicht 10) x 1. Hoedenjager (hol 41, laag 4, gewicht 15) alle vallen x 0,7, met de lokker de eerste val x 2 (hooguit 0,95). Gekroonde niet (telt niet mee). **Aannames die niet in jouw tekst staan:** een tegenzet koop je één keer voor ±1 uur goud en hij zit daarna in elke nieuwe laag; het valluik vangt alleen de mijnwerker (gewone helden lopen eroverheen). Vangkans = gevangen gedeeld door alle helden in de laag die je ziet.
 
 | | laag 2 heel | laag 3 heel | laag 4 heel | hol 21 (held, nog geen valluik) | hol 31 (held, nog geen nep-schat) | hol 30 / 40 / 50 (open uur) | hol 50 | langste gat week 4 (mediaan / ergste) |
 |---|---|---|---|---|---|---|---|---|
 | versie 3 | 0,808 | 0,813 | 0,891 | 0,534 | 0,591 | 37,4 / 76,2 / 127,8 | werkdag 22 | 2,8 / 3,2 |
-| helden zonder tegenzet | x 1,00 | x 0,99 | x 0,99 | x 0,92 | x 0,93 | 37,8 / 76,8 / 129,2 | werkdag 22 | 2,9 / 5,8 |
-| **jouw getallen (0,8 / 0,75-0,5-0,3 / x 2)** | **x 1,01** | **x 1,03** | **x 1,02** | **x 0,92** (16 zaden x 0,94) | x 1,06 (16 zaden x 1,08) | 37,7 / 76,0 / 127,9 | werkdag 22 | 2,8 / 5,4 |
+| helden zonder tegenzet | x 1,00 | x 0,98 | x 0,99 | x 0,92 | x 0,91 | 37,8 / 76,8 / 128,6 | werkdag 22 | 2,9 / 5,7 |
+| **jouw getallen (0,8 / 0,75-0,5-0,3 / x 2)** | **x 1,01** | **x 1,03** | **x 1,02** | **x 0,92** (16 zaden x 0,94) | x 1,06 | 37,7 / 76,1 / 128,1 | werkdag 22 | 2,8 / 5,3 |
+| idem, terugkomende ontdekker recht op de nep-schat af | x 1,01 | x 1,03 | x 1,02 | x 0,92 | x 1,06 | 37,7 / 76,1 / 128,0 | werkdag 22 | 2,8 / 5,1 |
 
 **Wat dit zegt:**
-1. **Jouw getallen kloppen, ik verander niets.** Per laag x 1,01 / 1,03 / 1,02, binnen de band x 1,0 tot 1,05. Hol 50 blijft op werkdag 22 (127,9 tegen 127,8 open uur).
-2. **Het krapste punt is hol 21, en dat ligt aan de held, niet aan de tegenzet:** x 0,92 (8 zaden) tot x 0,94 (16 zaden), net onder de ±0,95, ±2,3 open uur lang. Daar is laag 2 net gekocht en heeft hij maar Gloop en één put; slaat de mijnwerker er één over, dan blijft er weinig. Een sterker valluik helpt hier niet, want het is er nog niet. Wil je het toch boven 0,95: zet het valluik op hetzelfde niveau als de mijnwerker (zoals de lokker op 41), dan wordt hol 21 x 1,07 (proef 8 zaden). Mijn advies: zo laten, het kost niets aan de voortgang en het is precies het raadsel dat je wilde.
-3. **Hol 31 gaat omhoog (x 1,06), niet omlaag:** het valluik vangt ook de mijnwerkers in laag 3 al, en de ontdekker komt in zijn eerste bezoek gewoon x 1. Hij wordt pas lastig als terugkomer, en dan staat de nep-schat er al.
-4. **Zonder tegenzet gebeurt er per laag bijna niets** (x 0,99 tot 1,00): in een gang met 6 tot 8 vallen maakt één overgeslagen val weinig uit. De tegenzet is dus vooral voor het gevoel ("ik heb hem door"), wat goed is: hij kan niet stuk.
-5. **Prijs van de tegenzet:** met de koopregel "steeds het goedkoopste" koopt de sim het valluik pas ±5 open uur na hol 22 (19,6 u), de nep-schat op ±48 u, de lokker op ±90 u. Bij 0,25 / 0,5 / 2 uur goud blijven de lagen x 1,01 tot 1,03 en hol 50 op werkdag 22. Het ergste gat in week 4 springt bij elke variant tussen 4,1 en 5,9 uur (bij versie 3 3,2): dat is hetzelfde schuiven van aankopen als bij de gevoeligheid van 16:45, de mediaan blijft 2,8 tot 3,8. Lokker weglaten maakt laag 4 x 1,01 in plaats van 1,02; hij mag dus blijven of weg, voor de balans maakt het niet uit.
-6. **Opbrengst van de eigen helden:** mijnwerker gevangen 81% zonder en 95% met valluik; hoedenjager 81% zonder en 91% met lokker; ontdekker 87% (de nep-schat vangt hem meestal pas als terugkomer).
+1. **Jouw getallen kloppen voor de balans, ik verander ze niet.** Per laag x 1,01 / 1,03 / 1,02, binnen de band x 1,0 tot 1,05. Hol 50 blijft op werkdag 22.
+2. **Het krapste punt is hol 21, en dat ligt aan de held, niet aan de tegenzet:** x 0,92 (8 zaden) tot x 0,94 (16 zaden), net onder de ±0,95, ±2,3 open uur lang. Daar is laag 2 net gekocht en heeft hij maar Gloop en één put; slaat de mijnwerker er één over, dan blijft er weinig. Een sterker valluik helpt hier niet, want het is er nog niet. Wil je het toch boven 0,95: zet het valluik op hetzelfde niveau als de mijnwerker (zoals de lokker op 41), dan wordt hol 21 x 1,07 (proef 8 zaden). Mijn advies: zo laten, het kost niets aan de voortgang.
+3. **Wel een probleem: de ster "Catch an Explorer with the Fake Hoard" hangt van geluk af.** In een volle laag 3 komt bijna niemand bij de schat: wie niet valt, vlucht na twee klappen. De nep-schat ving in heel laag 3 (±48 tot 77 open uur) per zaad 0, 0, 0, 0, 1, 2, 3 en 3 ontdekkers; in de helft van de zaden haal je de ster dus niet in laag 3 (mediaan pas op 77,8 u, in laag 4). Een sterkere nep-schat (0,95) helpt niet, want hij komt er niet. **Voorstel:** de terugkomende ontdekker loopt recht op de (verschoven) nep-schat af, vóór de vallen: hij onthoudt elke val, dus hij gaat voor de schat, en juist die is verplaatst. Dan haal je de ster in 8 van 8 zaden binnen ±1,5 open uur na het kopen (mediaan 49,4 u, 5 tot 14 keer per laag), en de balans blijft gelijk (laatste rij). Dat past ook bij jouw regel "niets via geluk".
+4. **Hol 31 gaat omhoog (x 1,06), niet omlaag:** het valluik vangt ook de mijnwerkers in laag 3 al, en de ontdekker komt in zijn eerste bezoek gewoon x 1.
+5. **Zonder tegenzet gebeurt er per laag bijna niets** (x 0,98 tot 1,00): in een gang met 6 tot 8 vallen maakt één overgeslagen val weinig uit. De tegenzet is dus vooral voor het gevoel ("ik heb hem door"), en hij kan de balans niet stukmaken.
+6. **Prijs van de tegenzet:** met de koopregel "steeds het goedkoopste" koopt de sim het valluik ±5 open uur na hol 22 (19,6 u), de nep-schat op ±48 u, de lokker op ±90 u (hol 41 is 80 u). Bij 0,25 / 0,5 / 2 uur goud blijven de lagen x 1,01 tot 1,03 en hol 50 op werkdag 22. Het ergste gat in week 4 springt bij elke variant tussen 4,1 en 5,7 uur (versie 3: 3,2): hetzelfde schuiven van aankopen als bij de gevoeligheid van 16:45, de mediaan blijft 2,8 tot 4,1. Lokker weglaten maakt laag 4 x 1,01 in plaats van 1,02.
+7. **Laagsterren in de sim (mediaan open uur):** "Catch a Miner with the trapdoor" 20,0 u (vlak na het valluik), "Lure the Hat Hunter 10 times" ±92 u (vlak na de lokker). Mijnwerker gevangen 81% zonder en 95% met valluik; hoedenjager 82% zonder en 91% met lokker.
 
 
 ## 16 nov 2026 ±16:30 UTC (Bram): de tussendoor-speler, elke dag kort open (met en zonder rij)
