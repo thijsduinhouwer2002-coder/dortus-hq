@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Maten passen bij het blad van Mila
+        run: cd "$GITHUB_WORKSPACE/$APP" && python3 maak_maten.py --toets
       - name: Image ophalen (tot drie pogingen)
         run: |
           for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1

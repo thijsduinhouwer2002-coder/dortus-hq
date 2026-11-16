@@ -50,6 +50,10 @@ class KernView extends WatchUi.WatchFace {
         var inbrand = (ds has :requiresBurnInProtection) ? ds.requiresBurnInProtection : false;
         System.println("KERN SCHERM " + ds.screenWidth + "x" + ds.screenHeight + " inbrand=" + inbrand
             + " pool=" + ((Graphics has :createBufferedBitmap) ? "ja" : "nee"));
+        // Stap (a) van de kern: de maten van dit scherm uit het blad van Mila.
+        System.println("KERN MATEN n=" + Maten.laad().size() + " tijdPx=" + Maten.m(Maten.TIJD_PX) + " bbY=" + Maten.m(Maten.BB_Y)
+            + " veilig=" + Maten.m(Maten.VEILIG) + " bytes=" + (System.getSystemStats().usedMemory - m2));
+        m2 = System.getSystemStats().usedMemory;
         System.println("KERN PLAATJE laden, gebruikt=" + m2);
         achter = WatchUi.loadResource(Rez.Drawables.Achtergrond) as WatchUi.BitmapResource;
         var m3 = System.getSystemStats().usedMemory;
