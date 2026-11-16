@@ -1,30 +1,30 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 151, erbij 739, hoeden 57
-HOL hol-niveau 2 (faam 98)
-HOL hol-niveau 3 (faam 98)
-HOL hol-niveau 4 (faam 98)
-HOL hol-niveau 5 (faam 98)
-HOL hol-niveau 6 (faam 98)
-HOL hol-niveau 7 (faam 98)
-HOL hol-niveau 8 (faam 98)
-HOL hol-niveau 9 (faam 98)
-HOL hol-niveau 10 (faam 98)
-HOL hol-niveau 11 (faam 98)
-HOL hol-niveau 12 (faam 98)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 57 new hats.
+HOL weg geweest 28803 s (klok terug: false): goud voor 20, helden 151, erbij 715, hoeden 49
+HOL hol-niveau 2 (faam 94)
+HOL hol-niveau 3 (faam 94)
+HOL hol-niveau 4 (faam 94)
+HOL hol-niveau 5 (faam 94)
+HOL hol-niveau 6 (faam 94)
+HOL hol-niveau 7 (faam 94)
+HOL hol-niveau 8 (faam 94)
+HOL hol-niveau 9 (faam 94)
+HOL hol-niveau 10 (faam 94)
+HOL hol-niveau 11 (faam 94)
+HOL hol-niveau 12 (faam 94)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 49 new hats.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL weg-regel uit tot het bordje: Grew 4 levels while you were away.
 HOL weg-regel uit tot het bordje: 7 more levels wait at the door.
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 759 goud, faam 98
+HOL opslag geladen: 0 terugkomers, 735 goud, faam 94
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794847124
-HOL eerste koop mogelijk na 15 s speeltijd (goud 759)
+HOL zaad 1794847210
+HOL eerste koop mogelijk na 15 s speeltijd (goud 735)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.6 (wacht 2.6): 151 came, 98 fell, 57 hats. +739 gold.
-HOL begin: vluchten (Joost)
-HOL held binnen: Joost
+HOL kroniek 2.5 (wacht 2.5): 151 came, 94 fell, 49 hats. +715 gold.
+HOL begin: vluchten (Mara)
+HOL held binnen: Mara
 HOL kroniek 5.1 (wacht 5.1): Your hole worked at a quarter speed.
-HOL kroniek vervallen 7.2: Joost says this is a quick one.
+HOL kroniek vervallen 7.1: Mara is here for your gold.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=759, terugkomers=0
+HOL einde na 15 s, fps=10, goud=735, terugkomers=0
