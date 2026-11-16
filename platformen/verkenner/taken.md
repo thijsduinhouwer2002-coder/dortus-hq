@@ -2,6 +2,7 @@
 
 Aangemaakt door Hans op 6 nov 2026. De berichten van Thijs in `berichten/vera.md` gaan voor.
 
+- [ ] **Talen voor Hats (zelf toegevoegd, focus Hats, 16 nov):** per taal tellen hoeveel reviews de bureaubladspellen met 100+ reviews krijgen (winkelpagina met ?l=, reviewCount), zodat de hoofdchat de eerste vertaaltalen op cijfers kiest. In onderzoek 16 nov 08:45 UTC (Vera).
 - [x] Discord opnieuw, met eigen meting van bereik (bericht Thijs 6 nov 20:32). Klaar 6 nov run 21:31: nee voor nu, cijfer 5.
 - [ ] Unity Asset Store en Godot opnieuw, met eigen meting (bericht Thijs 6 nov 20:32).
 - [x] Shopify: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). Klaar 7 nov run 07:31: bijna nooit, ±2 tot 6 van de 100.
