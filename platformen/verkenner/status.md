@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 11:31, ook: Freshworks Marketplace (2, nee), 1.093 apps, nieuwe apps mediaan 1 installatie. Helpdeskwinkels afgesloten. Zie voorstellen/freshworks-marketplace.md.
 - 16 nov, run 11:31: Zendesk Marketplace (2, nee), alle 1.898 apps via de open API, nieuwe apps mediaan 1 installatie. Zie voorstellen/zendesk-marketplace.md.
 - 16 nov, run 10:31: talen voor Hats afgemaakt (101 van 101 spellen). Advies: Engels plus Vereenvoudigd Chinees bij lancering, Koreaans als derde. Zie Aanvulling 7 in steam-desktop-2026-11.md.
 - 16 nov, run 08:31: kalender Steam 2027 nagekeken (Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt). Advies Hats: uit in de week van 2 tot 4 maart 2027. Zie Aanvulling 4 in steam-desktop-2026-11.md. Ook: nulmeting fest-proef (Auto-Battler RPG Fest, 144 apps), nameting 24 nov, zie Aanvulling 5.

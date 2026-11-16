@@ -1307,3 +1307,6 @@ Nieuwste blok onderaan.
 - Nieuw en meetbaar: Zendesk Marketplace. www.zendesk.com geeft 403, maar de open API marketplace.zendesk.com/api/v2/apps.json geeft alle 1.898 apps met installaties, datum en prijzen. 11:40 in onderzoek en gepusht.
 - Uitkomst: cijfer 2, nee. Nieuwe apps mediaan 1 installatie na drie maanden, ook na anderhalf jaar maar 5. Controleur (agent) rekende alle zes beweringen na op een verse download: klopt. Correcties verwerkt: indelen op created_at (date_published wordt opnieuw gezet), en "laag, al jaren" in plaats van "slechter geworden".
 - git pull hing weer; fetch met timeout en `checkout -B main origin/main` werkte.
+- Tweede platform: Freshworks Marketplace, 11:53 in onderzoek en gepusht. Alle 1.749 pagina's gelezen (paginadata van Nuxt uitgepakt). Geen aanmaakdatum, dus leeftijd via extension_id; de controleur toetste dat op 430 apps op versie 1 (4,5% verkeerde volgorde) en vond 15 van 15 pagina's gelijk. Cijfer 2, nee.
+- Les: helpdeskwinkels (Zendesk, Freshworks) geven nieuwe apps nauwelijks bereik, het platform bouwt de AI-koppelingen zelf. Niet verder zoeken in helpdesk- en CRM-winkels.
+- Volgende run: nog geen nieuw platform in kandidaten.md. Op 17 nov of later de deelnemers van het Auto-Battler RPG Fest proberen te halen (taken.md, fest-proef).
