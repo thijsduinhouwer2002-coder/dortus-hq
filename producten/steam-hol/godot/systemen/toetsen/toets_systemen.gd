@@ -748,6 +748,17 @@ func _init() -> void:
 	var wvh2 := wvh.duplicate()
 	wvh2["max_kol"] = 12
 	ok(HV.wand_plekken(wvh2, true).size() < wp.size(), "wand: niet voorbij max_kol (onder het paneel)")
+	# zelfde hoed niet op naburige plekken (Daan 16 nov 11:15, kan); een nieuwe hoed verschuift niets
+	var wh7 := [4, 4, 4, 1, 4, 2, 4]
+	var wv: Array = HV.wand_verdeling(wh7, wp)
+	var wbots := 0
+	for i in wv.size():
+		for j in range(i + 1, wv.size()):
+			if wv[i][0] == wv[j][0] and absf(wv[i][1].x - wv[j][1].x) <= HV.WAND_BUUR:
+				wbots += 1
+	var wv6: Array = HV.wand_verdeling(wh7.slice(0, 6), wp)
+	ok(wv.size() == 7 and wbots == 0, "wand: geen zelfde hoed naast elkaar, %d botsingen" % wbots)
+	ok(wv.slice(0, 6) == wv6, "wand: een nieuwe hoed verschuift niets dat al hangt")
 	# graafmoment in 3D (Daan 14 nov): beeld 0 tot 3 over GRAAF_S, keurstrook zet vier kamers stil in elk beeld
 	var HG = load("res://hol/hol.gd")
 	ok(HG.graaf_beeld(0.0) == 0 and HG.graaf_beeld(HG.GRAAF_S * 0.3) == 1 and HG.graaf_beeld(HG.GRAAF_S * 0.6) == 2 \

@@ -184,8 +184,8 @@ func teken(d: CanvasItem) -> void:
 	if h.met_3d and HOL3D.heeft_wand():
 		var wh: Array = wand_hoeden()
 		var wp: Array = wand_plekken(h, HOL3D.schatkamer_aan(h))
-		for i in mini(wh.size(), wp.size()):
-			HOL3D.teken_wand(d, int(wh[i]), wp[i])
+		for hp in wand_verdeling(wh, wp):
+			HOL3D.teken_wand(d, int(hp[0]), hp[1])
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren.
 	# Brokkelen (hol.gd) komt er los overheen: in de gang liggen nieuwe cellen aan de rand, waar geen versiering staat;
 	# bij een kamer valt het stof 2 spelpixels over een vloerding eronder (controleur, kan, bijna niet te zien).
@@ -461,6 +461,31 @@ static func wand_plekken(h, schat_3d: bool) -> Array:
 		uit.append(plek)
 		if uit.size() >= WAND_MAX:
 			break
+	return uit
+
+# Welke hoed op welke plek (Daan 16 nov 11:15, kan: "drie kronen op een rij van vijf plekken; zet dezelfde hoed niet in
+# naburige plekken"). Oudste hoed eerst, elk op de eerste vrije plek (in de volgorde van wand_plekken) waar binnen
+# WAND_BUUR geen zelfde hoed hangt; lukt dat nergens, dan de eerste vrije plek. Een nieuwe hoed verschuift niets dat al hangt.
+const WAND_BUUR := 2.5 * KOL
+static func wand_verdeling(wh: Array, wp: Array) -> Array:
+	var uit := []
+	var vrij: Array = wp.duplicate()
+	for hoed in wh:
+		if vrij.is_empty():
+			break
+		var keus: int = 0
+		for j in vrij.size():
+			var p: Vector2 = vrij[j]
+			var botst := false
+			for hp in uit:
+				if int(hp[0]) == int(hoed) and absf((hp[1] as Vector2).x - p.x) <= WAND_BUUR:
+					botst = true
+					break
+			if not botst:
+				keus = j
+				break
+		uit.append([hoed, vrij[keus]])
+		vrij.remove_at(keus)
 	return uit
 
 # De hoeden van Gloop, oudste eerst (slijm.gd `hoeden`), via de strook; leeg in de toetsen zonder strook.
