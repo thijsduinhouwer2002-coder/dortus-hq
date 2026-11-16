@@ -13,6 +13,9 @@ on:
       seconden:
         description: "hoe lang opnemen (de terugkomer komt rond 63 tot 75 s)"
         default: "95"
+      weg_uur:
+        description: "0 = nieuw spel; meer dan 0 = eerst kort spelen, save zoveel uur terug, dan opnemen (clip 3: toren met nachthoeden)"
+        default: "0"
   push:
     branches: ["claude/steam-hol-clips"]
     paths: [".github/workflows/steam-hol-clips.yml", "producten/steam-hol/e2e/clips.py"]
@@ -27,6 +30,7 @@ jobs:
     env:
       HOOGTE: ${{ inputs.hoogte || '160' }}
       SECONDEN: ${{ inputs.seconden || '95' }}
+      WEG_UUR: ${{ inputs.weg_uur || '0' }}
     steps:
       - uses: actions/checkout@v4
       - name: Scherm op 1920 x 1080
@@ -49,8 +53,18 @@ jobs:
           $f = (Resolve-Path "$uit/f").Path
           $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/film.log"
           $n = [int]$env:SECONDEN * 30
+          $vers = "vers=1"
+          if ([int]$env:WEG_UUR -gt 0) {
+            # clip 3 (Olaf 16 nov): eerst 20 s gewoon spelen, dan de save WEG_UUR terug, zodat Gloop bij openen de nachthoeden krijgt
+            $p0 = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$env:HOOGTE vers=1 duur=20" -PassThru
+            if (-not $p0.WaitForExit(120000)) { Stop-Process -Id $p0.Id -Force }
+            $save = Join-Path $env:APPDATA "Dortus/Het Hol/hol.json"
+            python producten/steam-hol/e2e/save_terug.py $save ([int]$env:WEG_UUR * 3600)
+            $vers = ""
+          }
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$f/f.png`" --fixed-fps 30 --quit-after $n -- hoogte=$env:HOOGTE vers=1 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$f/f.png`" --fixed-fps 30 --quit-after $n -- hoogte=$env:HOOGTE $vers log=$log" -PassThru
           if (-not $p.WaitForExit(1800000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue | Select-String "kroniek"
           (Get-ChildItem $f -Filter *.png).Count
@@ -73,6 +87,7 @@ jobs:
           SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/clips/mp4"
           [ -d "$SRC" ] || { echo "geen clips"; exit 0; }
           NAAM="clips-$(echo "$TAK" | tr '/' '-')-$HOOGTE"
+          [ "$WEG_UUR" != "0" ] && NAAM="$NAAM-weg$WEG_UUR"
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"

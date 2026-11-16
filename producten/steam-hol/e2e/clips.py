@@ -16,7 +16,11 @@ def eerste(patroon):
     return None, None
 n = len(list(bron.glob("f*.png")))
 ff = imageio_ffmpeg.get_ffmpeg_exe()
-for naam, patroon, voor, na in [("1-hap", r" ate ", 3.0, 9.0), ("2-terug", r" is back| limps back | remembers ", 2.0, 10.0)]:
+knippen = [("1-hap", r" ate ", 3.0, 9.0), ("2-terug", r" is back| limps back | remembers ", 2.0, 10.0)]
+# 3 toren (15 s): alleen in een opname na weg zijn (workflow weg_uur): Gloop heeft de nachthoeden al, dan de eerste hap
+if any("new hats" in r for r in regels):
+    knippen = [("3-toren", r" ate ", 4.0, 11.0)] + knippen
+for naam, patroon, voor, na in knippen:
     t, regel = eerste(patroon)
     if t is None:
         print(f"{naam}: niet gevonden in de log"); continue
