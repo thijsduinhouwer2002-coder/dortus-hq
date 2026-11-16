@@ -1,15 +1,15 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794840349
+HOL zaad 1794840379
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Gerda says this is a quick one.
-HOL begin: vallen (Gerda)
+HOL kroniek 4.1 (wacht 0.0): Mara brought a torch. And hope.
+HOL begin: vallen (Mara)
+HOL held binnen: Mara
+HOL kroniek 9.7 (wacht 0.0): Gerda climbs into your hole.
+HOL begin: opgegeten (Gerda)
 HOL held binnen: Gerda
 HOL demo voorbij na 10 s speeltijd
-HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
-HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL begin: opgegeten (Odo)
-HOL held binnen: Odo
-HOL kroniek 12.6 (wacht 2.4): Odo read about you in a tavern.
+HOL meting t=10 beelden=63 helden=2 hol_vast=1
+HOL kroniek 10.8 (wacht 0.7): That's the demo. Your hole keeps going.
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
