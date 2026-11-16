@@ -267,7 +267,7 @@ import held
 # ronde 6 (Daan moet 1): hoger draaide hem juist weg; -40 kijkt hij naar de helm op Gloop (ridder-draai-reeks.png)
 RIDDER_AAN = not (KLEIN and E("K_RIDDER", "1") == 0)   # Mila ronde 7: klein mag zonder ridder, dan past de grote titel
 R_STAND = os.environ.get("K_RSTAND", "schrik") if KLEIN else "schrik"
-ridder = None if not RIDDER_AAN else held.bouw("ridder", R_STAND, plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40" if not KLEIN else os.environ.get("K_RDRAAI", "55"))), schaal=RS,
+ridder = None if not RIDDER_AAN else held.bouw("ridder", R_STAND, plek=(RX, RY, 0.0), draai=float(os.environ.get("RIDDER_DRAAI", "-40" if not KLEIN else os.environ.get("K_RDRAAI", "75"))), schaal=RS,
                    gloed=30, rand=float(os.environ.get("RIDDER_RAND", "25")))
 # ronde 5 (Daan kan 1): schild van de ridder lager en opzij, weg bij zijn gezicht
 SCHILD_ZAK = float(os.environ.get("SCHILD_ZAK", "0.42"))
@@ -343,8 +343,8 @@ lamp("sleutel", "AREA", (GX + 3.5, -5.0, 6.0), (1.0, 0.82, 0.6), 1600, 4.0, (GX,
 lamp("koel", "AREA", (-5.0, -1.0, 5.0), (0.55, 0.62, 1.0), 300, 3.0, (RX, RY, 1.0))   # ronde 5b: 500 werd 300, ridder minder vlak en koud
 lamp("vul", "AREA", (-1.0, -8.0, 2.5), (0.85, 0.85, 1.0), 260, 6.0, (0, 0, 1.5))
 lamp("titellamp", "AREA", (-3.0, -4.0, 4.5), (1.0, 0.95, 0.85), 500, 3.0, (-3.0, -0.6, 2.4))
-if KLEIN and E("K_RLICHT", "700") > 0:   # Mila ronde 7c (Daan 19:50: ridder is in grijs een vlekje): eigen lichtje op de ridder
-    lamp("ridderlicht", "AREA", (RX - 1.2, RY - 4.0, 3.2), (1.0, 0.93, 0.8), E("K_RLICHT", "700"), 2.0, (RX, RY, 1.0))
+if KLEIN and E("K_RLICHT", "0") > 0:   # Mila ronde 7c (Daan 19:50: ridder is in grijs een vlekje): eigen lichtje op de ridder
+    lamp("ridderlicht", "AREA", (RX - 1.2, RY - 4.0, 3.2), (1.0, 0.93, 0.8), E("K_RLICHT", "0"), 2.0, (RX, RY, 1.0))
 if KLEIN and E("K_HALO", "0") > 0:   # Mila ronde 7d proef: tweede kleurvlak, een zachte gloed op de wand achter Gloop (geen ding, alleen licht)
     bpy.ops.mesh.primitive_plane_add(size=1, location=(E("K_HALOX", str(GX)), 3.1, E("K_HALOZ", "2.0"))); hz = bpy.context.object
     hz.scale = (E("K_HALOW", "7.0"), E("K_HALOW", "7.0"), 1); hz.rotation_euler = (math.radians(90), 0, 0)
