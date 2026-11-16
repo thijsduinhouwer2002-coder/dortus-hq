@@ -83,8 +83,8 @@ Niet gezien: de winkelscènes van 240 en 360 (pakketten opgehaald, niet bekeken)
 
 ## 7. Release en eindstand (run 121, 16 nov ±19:05 UTC)
 
-- Plaatjesrun 43915975753 (1fb5a0c): klaar en groen, alle 23 jobs (bouw, alle-horloges, 20 keer plaatjes, plaatjes-openbaar; de releasejob sloeg over omdat het een push was). Toetsrun 43915975746 groen (run 120).
-- De regel `SCENES <horloge>: 157 van 157` heb ik NIET letterlijk gelezen (het log is te lang om te doorzoeken met mijn gereedschap). Wel gezien in het log van de job fr265s: "geen crash op fr265s", en 472 bestanden in het pakket. De stap wordt rood als er te weinig scènes zijn (regel 252 tot 258 van `garmin-adem-iq.yml`: te weinig scènes komt in `CRASH-<horloge>.txt`, en de stap "Geen crash" stopt dan met fout). Alle 20 plaatjesjobs zijn groen, dus de telling klopte overal.
+- Plaatjesrun 43915975753 (1fb5a0c): klaar en groen, alle jobs (bouw, alle-horloges, 19 keer plaatjes, plaatjes-openbaar; de releasejob sloeg over omdat het een push was). Toetsrun 43915975746 groen (run 120).
+- De regel `SCENES <horloge>: 157 van 157` GEZIEN voor alle 19 horloges met plaatjes (later in run 121: het hele runlog als zip opgehaald via `get_workflow_run_logs_url`, uitgepakt en doorzocht). Geen enkel horloge met minder.
 - Release `ebb-v1.0.1` gemaakt met de hand (run 43934066456, tak `claude/garmin-ebb-101`, commit 1fb5a0c). De tag heeft geen "proef" in de naam, dus ondertekend met de echte sleutel.
 - `Ebb.iq` opgehaald met curl en zelf gemeten: 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`. Link: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-v1.0.1/Ebb.iq
 - In het bestand gekeken: 75 horlogebestanden (`.prg`) voor 55 regels in het manifest. Dat komt doordat één model meerdere artikelnummers kan hebben; zo maakte de winkel bij 1.0.0 ook 40 van 28. Hoeveel de winkel er straks toont weet ik pas na de upload.

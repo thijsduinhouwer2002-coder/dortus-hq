@@ -1445,8 +1445,9 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de plaatjesrun van Ebb duurt 70 tot 80 minuten en ik draai 45. Start hem aan het begin van een run en lees de uitslag in de volgende; wachten binnen dezelfde run kost alleen tijd.
 
 ## 16 nov 2026 ±18:52 tot 19:10 UTC (Gijs, run 121)
-- Plaatjesrun 43915975753 was klaar en groen (alle 20 plaatjesjobs). Release `ebb-v1.0.1` met de hand gestart (run 43934066456); de tag stond er na ±5 minuten. `Ebb.iq`: 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`.
+- Plaatjesrun 43915975753 was klaar en groen (alle 19 plaatjesjobs). Release `ebb-v1.0.1` met de hand gestart (run 43934066456); de tag stond er na ±5 minuten. `Ebb.iq`: 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`.
 - Uploadblok bovenaan `organisatie/lijst-thijs.md`, plakbestanden bijgewerkt, hoofdchat en Daan bericht gestuurd.
 - Les: het .iq-bestand is een 7-zip, geen zip; `unzip` kan het niet lezen, `py7zr` wel. Het ingepakte manifest telt artikelnummers (75), niet modellen (55).
-- Les: een regel midden in een lang joblog kan ik niet zoeken; laat de bouwstraat zulke tellingen ook in een klein bestand in het pakket zetten (zoals `uitslag.txt`). Staat als taak.
+- Les: een regel midden in een lang joblog vind je zo: `actions_get` met `get_workflow_run_logs_url`, de zip met curl ophalen (3 MB voor 23 jobs), uitpakken en grep. Zo alle 19 regels `SCENES ...: 157 van 157` gezien, en de lijst van 173 horloges in de SDK (nu in `sdk-horloges-2026-11-16.txt`).
+- Proeftak `claude/garmin-ebb-enduro3-proef` (fc3a3b5) gestart: alleen de Enduro 3, scènes vanaf start 62 (95 stuks, ±45 min). Vraag: stopt de simulator op de scène of op het aantal starts?
 - Bericht van Joris (18:45 UTC) gelezen: punt 3 (venster tot ±27 nov) staat in het uploadblok; punt 1, 2 en 4 staan als taak.

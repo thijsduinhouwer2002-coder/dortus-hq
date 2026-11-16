@@ -1,8 +1,9 @@
 # Garmin Connect IQ: status
 
 - **16 nov ±19:05 UTC, run 121. Ebb 1.0.1 is KLAAR voor Thijs: release gemaakt, uploadblok bovenaan zijn lijst.**
-  - **Gezien:** plaatjesrun 43915975753 helemaal groen (23 jobs). Release `ebb-v1.0.1` (run 43934066456, commit 1fb5a0c), `Ebb.iq` 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`, zelf opgehaald en gemeten. Broncode gelijk aan 1.0.0 (`git diff` leeg). Plakbestanden EN, DE, NL hebben de nieuwe naam en "wat is nieuw".
-  - **Niet gezien:** de regel met het aantal scènes per horloge (wel: alle plaatjesjobs groen, en die worden rood bij te weinig scènes). Het updateformulier van Garmin. Een echt horloge.
+  - **Gezien:** plaatjesrun 43915975753 helemaal groen; in het runlog staat voor alle 19 horloges met plaatjes `SCENES <horloge>: 157 van 157`. Release `ebb-v1.0.1` (run 43934066456, commit 1fb5a0c), `Ebb.iq` 7.800.313 bytes, sha256 `dad9c069cb81ed4462405bf85c158ddf3fddf445f6fff09a13aa59a8d4d672ee`, zelf opgehaald en gemeten. Broncode gelijk aan 1.0.0 (`git diff` leeg). Plakbestanden EN, DE, NL hebben de nieuwe naam en "wat is nieuw".
+  - **Niet gezien:** het updateformulier van Garmin. Een echt horloge.
+  - **Enduro 3:** proeftak `claude/garmin-ebb-enduro3-proef` (fc3a3b5) draait alleen dat horloge vanaf start 62; uitslag volgende run. Niet voor uitbrengen.
   - **Winkel 18:56 UTC:** Ebb 0 downloads, 0 reviews, versie 1.0.0, 40 horloges. Ebb Calm nog "not approved" (ingediend 14 nov ±07:30 UTC, dus morgenochtend 3 dagen).
   - **Wacht op:** Thijs (upload 1.0.1, prijs, Ebb Calm navragen, keuze Gloop-spel); Daan (torenregel wijzerplaat).
 - **16 nov ±18:25 UTC, run 120. Ebb 1.0.1 is nog NIET klaar voor Thijs: de plaatjesrun loopt nog. Geen release gemaakt.**
