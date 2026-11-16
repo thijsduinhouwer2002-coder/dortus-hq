@@ -447,3 +447,89 @@ Regels opnieuw letterlijk gelezen (GEZIEN 15 nov 20:50, https://www.blendernatio
 
 ### Controleur
 Akkoord mits. Moet 1: de lezing van regel 6 was te ruim en Pro stond al in de tweede knop en het menu; verwerkt, Pro alleen nog als blok onderaan (8172d32). Moet 2: "Both versions work in Blender 4.2 and newer" was voor Pro niet getoetst; verwerkt naar "Pro is tested on Blender 4.2 to 5.3". Kan 1: onderschrift van pro.jpg is nu "Poster with a screenshot", verwerkt. Kan 2 (stop ook op 90 of 135 graden noemen): niet gedaan, de ingediende Superhive-tekst noemt alleen 115 en de pagina moet gelijk blijven aan de winkel. Kan 3: bij keuze B linkt de gratis listing nog steeds naar dortus.com met het Pro-blok; geen regelbreuk, genoteerd.
+
+## Run 64 (Chris, 16 nov ±17:45 tot 18:35 UTC): lijst voor de dag dat Superhive Pro goedkeurt
+
+Op het bericht van de hoofdchat van 16 nov 18:50 NL (advies Stijn) in `berichten/chris.md`. Dit deel gaat voor op "Dag 0 van Pro" van run 44 waar het verschilt. Per punt: wat, wie, of Thijs nodig is. **De hoofdchat zegt per punt ja of nee.**
+
+### Stand (GEZIEN 16 nov ±18:05 UTC, curl)
+- Superhive: nog steeds 403 vanuit mijn run, dus of Pro al goedgekeurd is zie ik niet. Ingediend 15 nov 19:45 NL, keuring 3 tot 5 dagen: goedkeuring waarschijnlijk wo 18 tot vr 20 nov (GOK op de termijn van Superhive).
+- Gumroad: Pro live, $12, pagina 200. De titel is nog `Click Joints Pro for Blender` (de nieuwe titel uit `reddit.md` deel 1 staat er nog niet op).
+- Gratis Click Joints: 167 downloads op extensions.blender.org (was 166 om 16:57 UTC), versie 0.1.1, zip sha256 `d1643ba56f09540986a3a951d78fbc5046ad5744fd30c324730ae5b9f980fe3d` (API).
+
+### De lijst, in volgorde van de dag
+
+| # | Wat | Wie | Thijs nodig? |
+|---|---|---|---|
+| 0 | "Pro live" melden in `berichten/chris.md` en bovenaan lijst-thijs; daarna 1.0.2 uploaden (Bram, `platformen/blender/superhive-pagina.md`) | hoofdchat (ziet de mail) | nee, alleen zijn browser |
+| 1 | Gratis variant $0 op de Superhive-pagina | hoofdchat in Thijs' Chrome | ja op het idee; dan ±3 min in zijn browser |
+| 2 | Titel en tags met de woorden van de koper | hoofdchat in Thijs' Chrome | ja op de tekst |
+| 3 | Eén regel over updates, en Superhive en Gumroad gelijk trekken | Bram of Hans beslist, hoofdchat voert uit | ja op de keuze |
+| 4 | Cyber Sale-vinkje, en wat het met de lanceerprijs doet | Thijs of hoofdchat in zijn browser | ja, het is een prijs |
+| 5 | Lanceerdraad Blender Artists: **mijn advies nee**, BlenderNation in de plaats | hoofdchat | ja op de € 25 (staat al op lijst-thijs) |
+| 6 | Filmpje 5 (Pro): mag nu al, met Gumroad in het onderschrift | Thijs plaatst | ja op tekst en beeld |
+| 7 | Makersmails: pas na Pro 1.1 | hoofdchat verstuurt vanaf thijs@dortus.com | ja, het is een mail onder zijn naam |
+| 8 | dortus.com/click-joints/: Pro-knop naar Gumroad (en Superhive als die live is), plus de twee zinnen van Joris | Chris op de tak, naar main na ja | ja (main van de site) |
+
+### 1. Gratis variant $0 op de Superhive-pagina
+- **Wat:** naast Personal $12 en Studio $45 een derde variant `Free (ball joints only)` voor $0 met de gratis zip `click_joints-0.1.1.zip`, precies het bestand van extensions.blender.org (sha256 hierboven; staat ook in `producten/blender-gewrichten/uitgave/`). Eén regel in de beschrijving: `The Free option is the same Click Joints as on Blender Extensions: ball and pin joints with the fit colour. Pro adds the click hinge with an end stop.`
+- **Waarom:** de enige winnaar in onze hoek zonder eigen publiek, Split 3D Print (400+), heeft een gratis variant op dezelfde pagina; gratis gebruikers mogen daar een beoordeling geven (DERDEN, Lars verhaal 8 en 9, `platformen/succes/verhalen.md`; hoofdles "gratis variant" in `lessen.md`). Wij hebben 167 gebruikers van de gratis versie die Superhive nu niet ziet. Het kost niets: de gratis versie is al openbaar en GPL.
+- **Let op:** gratis en Pro kunnen niet tegelijk aan in Blender (zelfde id); die zin staat al onder Good to know. Of Superhive "Sales" ook gratis downloads telt, weet niemand van ons (Lars: waarschijnlijk niet). Mag een $0-variant niet bij Superhive, dan overslaan; niets anders verandert.
+- **Thijs:** ja op het idee. Uitvoeren in zijn browser ±3 min (Edit, Variations).
+
+### 2. Titel en tags
+- **Titel op Superhive:** `Click Joints Pro: Ball Joints and Hinges with End Stop for 3D Printed Figures` (Lars, verhaal 9). Ik neem hem over: de zoekvolgorde van Superhive gaat op woorden in titel en tags (GEZIEN door Lars op 11 zoekwoorden), en op "ball joint" en "action figure" staan alleen splitsers (Cleave eerste op "ball joint") en Articulator ($1, 30+), geen echte gewrichtentool met eindstop. Gumroad krijgt de titel uit `reddit.md` deel 1 (die woorden werken daar, gemeten op de Gumroad-zoek-API); het verschil is klein en allebei zeggen ze hetzelfde product.
+- **Tags (Superhive, voor zover ze er nog niet staan; welke 9 er nu staan, staat niet in de repo):** `ball joint`, `hinge`, `articulated`, `action figure`, `figurine`, `3d printing`, `cosplay`, `resin`, `fdm`. Zelfde als Lars. Geen namen van anderen.
+- **Thijs:** ja op de tekst. Pas na de goedkeuring aanpassen (GOK dat wijzigen de keuring opnieuw start).
+
+### 3. Eén regel over updates, en een tegenspraak tussen de twee winkels
+- **De tegenspraak (GEZIEN 16 nov ±18:05 UTC):** Gumroad zegt `All Pro 1.x updates included`. Superhive staat op Support Period: 12 maanden updates, daarna verlengen voor 25% (`superhive-pagina.md`). Thijs besloot om 16:09 dat Pro 1.1 gratis is voor wie Pro al kocht; dat klopt in beide winkels. Maar duurt 1.x langer dan een jaar, dan krijgt de Gumroad-koper meer dan de Superhive-koper. Dat breekt "overal precies hetzelfde" (regels, 8 nov).
+- **Mijn advies (keuze A):** op Superhive de Support Period laten staan (besluit 9 nov, advies 7, en verlengen geeft terugkerend geld), en op Gumroad de regel gelijk maken aan Superhive. Regel voor allebei, onder Good to know (zin van Lars, verhaal 7, in de lijn van Cablerator):
+  `Includes 12 months of updates, including Pro 1.1. Every version you download is yours to keep. After a year you can extend updates for 25% of the price; it is never required.`
+  Op Gumroad kan verlengen niet als knop. Daar wordt de regel: `Includes 12 months of updates, including Pro 1.1. Every version you download is yours to keep.`
+  **Belangrijk (moet-punt controleur):** wie sinds 16 nov 15:02 NL op Gumroad kocht, kreeg "All Pro 1.x updates included". Die belofte houden we: die kopers krijgen alle 1.x-versies. Gumroad stuurt een nieuwe zip toch naar alle kopers, dus "12 months" is daar niet af te dwingen. Daarom eerlijk gezegd: keuze A maakt de tekst gelijk, niet de praktijk op Gumroad. Dat maakt keuze B sterker dan het eerst leek.
+  `including Pro 1.1` pas in de tekst zetten als 1.1 er echt is; tot dan zonder die woorden.
+- **Keuze B:** Support Period op Superhive uit en overal `All Pro 1.x updates included` (zoals Cleave). Eenvoudiger voor de koper, maar dan valt het verlenggeld weg en draaien we het besluit van 9 nov terug; dat is aan Hans.
+- **Thijs:** ja op de keuze. Wie beslist: Bram als eigenaar van het product, bij twijfel Hans (prijs is een besluit van de platformmanager, rol).
+
+### 4. Cyber Sale-vinkje, en wat het met de lanceerprijs doet
+- **Wat:** in het Superhive-dashboard, Sale Campaigns, Sitewide Sale Settings, het vinkje "Opt-in to all sitewide sales", of Pro apart in de Cyber-campagne (Lars, verhaal 10; staat al op lijst-thijs). Cyber Sale begint rond vr 27 nov (GOK op het vaste patroon).
+- **Wat het met de prijs doet:** de lanceerprijs $9 (14 dagen, besluit Bram) loopt dan door tot ±2 tot 4 dec en botst met de Cyber Sale: een eigen campagne staat uit zolang een sitewide sale loopt (GEZIEN door de controleur van run 17, `prijs.md`). In de praktijk merkt de koper niets: $12 min 25% is ook $9. Na de Cyber Sale weer $12. Dortus houdt bij $9 ±$5,61 per verkoop (`prijs.md` regel 8: (prijs min 5,5% min $0,49) keer 70%; de $5,81 uit run 44 was te hoog).
+- **Gumroad:** ook $9 in dezelfde dagen, met een kortingscode of tijdelijke prijs, zodat dezelfde koper niet in de ene winkel meer betaalt dan in de andere (GOK dat dit klachten voorkomt; kost niets extra).
+- **Let op Pro 1.1:** Thijs noemde daarna $15 tot $19 (besluit 16:09). Komt 1.1 vóór of in de Cyber Sale, dan rekent de korting vanaf de nieuwe prijs. Dan reken ik het opnieuw.
+- **Thijs:** ja, het gaat om een prijs. ±2 min in zijn browser.
+
+### 5. Lanceerdraad Blender Artists: mijn advies nee, en wat wel
+**Nee, om drie regels van Blender Artists zelf** (GEZIEN 16 nov ±18:20 UTC met curl):
+1. **AI-regel:** "This site is for humans to share artwork ideated and made by humans using words ideated and written by humans. AI can help as a tool, but majority AI generation is a no-go." En: "Did an AI do 51% or more of the work? If so, it's not allowed." (staf, https://blenderartists.org/t/1598841, 24 jun 2025). De regel noemt "artwork" en "words", geen code: dat hij ook voor AI-code geldt is onze uitleg. Voor de tekst van een post geldt hij wel letterlijk ("Using AI to write a reply is not" fine), en een tekst van mij is door AI geschreven. Gevolg volgens dezelfde draad: de draad gaat dicht en wordt verborgen. Eerlijk melden dat AI de code schreef (wat wij overal doen) maakt het juist zichtbaar.
+2. **Nieuw account kan er niet eens plaatsen:** de categorie Released Add-ons and Extensions is alleen-lezen tot je eerst gewoon meedoet ("You need to spend some time engaging with the community outside of self promotion before you can post there", moderator, https://blenderartists.org/t/1655257, 17 okt 2026). Thijs heeft daar voor zover wij weten geen account met geschiedenis.
+3. **Eén zelfpromotiebericht per week, en antwoorden in je eigen draad tellen mee** ("we count replies to your self-promotions too", https://blenderartists.org/faq). Vragen beantwoorden zou de regel dus ook raken.
+- Ook gezien: de categorie eist de tag `free` of `commercial` ("Must be tagged free or commercial", https://blenderartists.org/t/294166).
+- **Wat wel (de versie die werkt):** BlenderNation, keuze A (C44, met Pro, € 25 eenmalig) of B (C37, gratis, € 0), staat al uitgeschreven in run 44 hierboven en de vraag staat op lijst-thijs. BlenderNation hoort bij dezelfde Bart Veldhuizen, heeft geen AI-regel in de inzendregels die ik las (14 en 15 nov), en daar plaatst de redactie zelf. Mijn advies blijft A in de 14 dagen van de lanceerprijs, maar met Gumroad erbij: zie de aanvulling hieronder.
+- **Aanvulling C44:** de regel `Pro, on Superhive: <link>` wordt `Pro: Superhive https://superhivemarket.com/products/click-joints-pro or Gumroad https://duinhouwer8.gumroad.com/l/click-joints-pro`. Verder letterlijk run 44.
+- **Thijs:** ja op de € 25 (A) of op B. Wil Thijs Blender Artists toch, dan alleen in zijn eigen woorden, na eerst een tijd gewoon meedoen, en met het risico dat de draad dicht gaat om regel 1. Dat schrijf ik niet voor hem.
+
+### 6. Filmpje 5 (Pro): mag nu al, los van Superhive
+- **Wat:** `click-joints-5-pro-hinge-stops.mp4` (14,7 s) uit release `filmpjes-week-1`, Daan ja met één moet (verwerkt run 49, `commercie/filmpjes/week-1.md`). In het beeld staat alleen "Click hinges: Pro. Link in bio", geen winkelnaam, dus het beeld blijft gelijk.
+- **Nieuw onderschrift** (alleen de winkel en de AI-zin veranderen; de AI-zin zei dat Thijs zelf test, dat klopt niet, controleur run 63):
+  `I made a Blender add-on that places a click hinge for knees and elbows: it bends to 115° and stops there, instead of flopping backwards. Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the click hinge is in Click Joints Pro on Gumroad (link in bio). Measured in Blender, not printed yet. The code is written by AI agents at my studio and tested automatically in real Blender. #blender #3dprinting #b3d #blenderaddon #articulated`
+- **Link in bio:** zolang Pro alleen op Gumroad staat, wijst de bio van TikTok en YouTube naar dortus.com/click-joints/ (als punt 8 op main staat) of naar de Gumroad-link. Komt Superhive live, dan "on Superhive and Gumroad".
+- **Wanneer:** de eerstvolgende werkdag om ±16:00 NL, voor de reeks (week-1.md: filmpje 5 gaat voor zodra Pro te koop is). Joris' les (Reddit en filmpjes geven de winkel weinig) geldt ook hier: geen sprong verwachten.
+- **Thijs:** ja op tekst en beeld; hij plaatst (of de hoofdchat waar de browser het toelaat).
+
+### 7. Makersmails: pas na Pro 1.1
+- Zoals in `organisatie/goedkeuren.md` ("na 1.1 | 10 mails aan makers"): een maker die Pro gratis krijgt, moet de versie zien waar Pro om draait (Rig to Figure, besluit 16:09). Eerder sturen verspilt de ene kans per maker.
+- **Op de dag zelf:** in `makers.md` `<LINK PRO>` invullen (Superhive als die live is, anders Gumroad) en `<CODE>` (een 100%-kortingscode op Gumroad of een gratis code via Superhive; maakt de hoofdchat in Thijs' browser). De zinnen over Pro opnieuw naast 1.1 leggen; dat doe ik in de run waarin 1.1 klaar is.
+- **Thijs:** ja op de mails (onder zijn naam, vanaf thijs@dortus.com). Wie: hoofdchat verstuurt.
+
+### 8. dortus.com/click-joints/
+- Tak `claude/chris-click-joints-pro` in repo dortus wijst de Pro-knop nog naar Superhive. In mijn volgende run zet ik daar: knop naar Gumroad (nu), Superhive erbij zodra die live is, en de twee zinnen van Joris (16 nov 17:45 UTC): `Free in Blender: Edit > Preferences > Get Extensions, search "joints".` en `If it helped, an honest rating on extensions.blender.org helps other makers find it.` Nooit om 5 sterren vragen, niets geven voor een review.
+- **Thijs:** ja voor main (regel website: alleen na zijn ja). De hoofdchat noemde dit ook in het besluit van 15:02 ("link op dortus.com (na ja)").
+
+### Controleur
+Akkoord mits (16 nov run 64, los van mij, bronnen en webpagina's zelf nagelezen). Moet 1: $5,81 bij $9 was verouderd, nu $5,61; verwerkt. Moet 2: Gumroad-kopers houden hun 1.x-belofte; verwerkt in punt 3. Kan verwerkt: Cleave op "ball joint", AI-regel noemt geen code, "including Pro 1.1" pas na 1.1, C44-zin. Kan verwerkt in `lanceerposts.md`: prijs in de Pro-reactie nakijken op de dag zelf.
+
+### Wat dit deel zou veranderen
+- Superhive staat geen $0-variant toe: punt 1 vervalt, de rest blijft.
+- Pro 1.1 komt vóór de goedkeuring: punt 2 en 6 krijgen de woorden van 1.1 (rig), punt 4 de nieuwe prijs.
+- Blender Artists verandert de AI-regel, of Thijs heeft daar al een account met geschiedenis: punt 5 opnieuw bekijken.
