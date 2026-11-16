@@ -65,6 +65,7 @@ Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-ker
 5. **100+ horloges vanaf de eerste dag.** Het venster "nieuw" duurt 14 dagen en komt niet terug (Joris). De mediaan van een betaalde app is 84 van de 107 soorten horloges waar betaald op kan.
 6. **Winkelpagina:** filmpje (Chris), 5 beelden (Mila), tekst in Engels, Duits en Nederlands, zoekwoord in de naam.
 7. **Meten:** elke plaat krijgt een regel in een meetbestand op dag 0, 7, 14 en 30.
+8. **Het gratis broertje (Joris, 16 nov ±21:50 UTC, verhaal 22 in `platformen/succes/verhalen-groei.md`, 452 paren gemeten):** de betaalde haalt mediaan een tiende van zijn gratis broertje. Daarom: (a) in de eerste regels van de gratis winkeltekst één zin met link naar de betaalde ("The full version adds ...: <link>"); (b) de gratis op alle horloges waar hij draait, ook waar de betaalde niet kan (oude horloges zonder betalen via Garmin); (c) meetlat: de gratis op 1.000 is het doel, de betaalde volgt met ±een tiende. Gratis blijft gratis, geen proef en geen code: dat klopt met wat Joris mat.
 
 De wijzerplaat met Gloop (tak `claude/garmin-wijzerplaat-gloop-2026-11-16`) wordt plaat 3 of later: de hoedentoren groeit echt met je stappen, maar hij krijgt eerst de kern eronder. Een figuur zonder velden haalt half zo vaak 100+ (Vera).
 
