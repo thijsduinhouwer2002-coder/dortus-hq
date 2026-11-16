@@ -1,4 +1,5 @@
 extends RefCounted
+const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")   # doelregel als er niets te kopen is
 # Het kaartje voor upgrades (Olaf, 10 nov). Uitwerking van Sanne in platformen/steam/features.md, feature 5 ("het kaartje"):
 # de keuze in een bezoek van 30 seconden, zonder melding en zonder venster buiten de strook.
 # - kun je een upgrade betalen, dan staat er een klein muntje boven Gloop of de put (hol.gd tekent het, geen geluid);
@@ -60,11 +61,28 @@ static func doel_regel(s) -> String:
 		soorten.append("stekelput")   # zonder put valt er aan de put niets te kopen
 	var d: Dictionary = s.hol.upgrades.doel(soorten, s.hol.goud)
 	if d.is_empty():
+		# niets meer te kopen: het volgende hol-niveau (Sanne 16 nov 16:10, punt 6c); alleen met het bordje in beeld (moet Daan 15:33)
+		if s.holbord != null and s.holbord.actief():
+			return niveau_doel(int(s.faam))
 		return ""
 	var bew: String = s._bewoner()
 	var naam := String(d.naam).replace("Gloop", bew) if d.soort == "slijm" else String(d.naam)
 	var ding := bew if d.soort == "slijm" else "the pit"
 	return doel_tekst(naam, ding, int(d.kost), s.hol.goud)
+
+# "Next: the Thief, 12 heroes" (Sanne 16 nov 16:10/16:20); past de naam niet in DOEL_MAX: "Next: level 13, 40 heroes".
+# Leeg op het laatste niveau van deze versie.
+static func niveau_doel(faam: int) -> String:
+	var rest := HOL_NIVEAU.nog(faam)
+	if rest <= 0:
+		return ""
+	var n := HOL_NIVEAU.niveau(faam) + 1
+	var helden := "%d hero%s" % [rest, "" if rest == 1 else "es"]
+	var naam: String = String(HOL_NIVEAU.WAT[n]) if n < HOL_NIVEAU.WAT.size() else ""
+	var r := "Next: %s, %s" % [naam, helden]
+	if naam == "" or r.length() > DOEL_MAX:
+		r = "Next: level %d, %s" % [n, helden]
+	return r
 
 # Wat het kaartje laat zien. Alles in het Engels zoals in het spel.
 static func beschrijving(s, soort: String) -> Dictionary:

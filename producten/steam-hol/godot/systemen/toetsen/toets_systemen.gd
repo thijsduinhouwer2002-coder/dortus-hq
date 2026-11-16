@@ -102,6 +102,16 @@ func _init() -> void:
 	var hb = HB.new()
 	ok(not hb.actief() and hb.plank_x() == 4.0, "bordje zonder blad of hol doet niets")
 	hb.free()
+	# doelregel als alles gekocht is (Sanne 16 nov 16:10, punt 6c)
+	var KA = load("res://kern/kaartje.gd")
+	ok(KA.niveau_doel(12) == "Next: a second pit, 8 heroes", "doelregel volgend niveau: " + KA.niveau_doel(12))
+	ok(KA.niveau_doel(11) == "Next: the Thief, 1 hero", "doelregel enkelvoud: " + KA.niveau_doel(11))
+	ok(KA.niveau_doel(100000) == "", "doelregel leeg op het laatste niveau")
+	var lang_d := 0
+	for f_ in range(0, 90):
+		if KA.niveau_doel(f_).length() > KA.DOEL_MAX:
+			lang_d += 1
+	ok(lang_d == 0, "doelregel altijd binnen 34 tekens")
 	var lang_h := 0
 	for f_ in [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]:
 		if HN.hover(f_).length() > 42:
