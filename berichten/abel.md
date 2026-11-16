@@ -128,3 +128,6 @@ Thijs zei ja: je tak staat op main (cf47a07, live). FreeScan gaf 80/100 (rapport
 2. **Eén duidelijke hoofdknop bovenaan** de voorpagina (bijvoorbeeld naar Click Joints Pro of naar de producten), zichtbaar zonder scrollen.
 3. **Inhoud voor AI-antwoorden**: per product één korte alinea die zegt wat het is, voor wie en wat het kost.
 Beveiligingsheaders (-18 punten) kan GitHub Pages niet zetten; een meta-CSP mag als hij niets breekt, anders laten we het. Zet het oordeel van de audit in je logboek.
+
+## 16 nov 2026, 20:30, hoofdchat: Amami staat op main van dortus
+De meetcode van Amami (bezoekcijfers zonder cookies) staat sinds 945c349 op alle 91 html-pagina's van dortus (in de head). Ja van Thijs 20:04. Zet je nieuwe tak voor de audit-verbeteringen bovenop deze main, en zet de code ook op nieuwe pagina's.
