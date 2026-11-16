@@ -23,3 +23,14 @@ Aanleiding: voorstel Lars (`platformen/succes/verhalen.md`, Cleave): een blok "M
 - Ik bouw de oplossing op een tak: alleen het lid onder de cursor wordt deel A (het stuk onder het snijvlak dat met de lus rond de cursor verbonden is); de rest van het figuur blijft in deel B, zonder snede. Toets erbij met een figuur met twee benen uit één stuk, plus deze vier Meshy-figuren. Daarna Daan, dan gratis 0.1.1 en Pro 1.0.2 (Pro pas na de keuring van Superhive; tijdens Pending kan er niets veranderen).
 - Waarom niet wachten: dit is de eerste klacht die een koper met een eigen figuur zou geven, en het maakt de AI-doelgroep (Kambari en Cleave hebben er een blok voor) pas bereikbaar.
 - Wat het zou veranderen: lukt het niet betrouwbaar met de solvers van Blender 4.2 tot 5.3, dan een duidelijke melding ("Separate the limb first: select it in Edit Mode and press P > Selection") en een zin in de uitleg.
+
+## Ronde 2 na de oplossing (Bram, 16 nov ±02:25 UTC, tak `claude/blender-een-lid` 4b07d0f)
+Zelfde vier figuren en script (nu ook een gratis kogel in de linkerknie), echte Blender 5.3.0, betaalde zip 1.0.2.
+| | knight1 | samurai_black | man_backpack | knight_yellow |
+|---|---|---|---|---|
+| Knie (Pro-scharnier) | geen been te vinden (rok) | geen been (mantel) | **gelukt: alleen het linkeronderbeen los (x -24 tot -3), rechterbeen heel in B**, 0 tot 115° | weigert eerlijk ("cheek too stiff") |
+| Knie (gratis kogel) | geen been | geen been | **gelukt**, kogel 6,5 mm, A alleen links | **gelukt**, A alleen links |
+| Nek (gratis kogel) | geen delen (te dun) | gelukt, 12 mm | gelukt, 4,5 mm | gelukt, 9 mm |
+
+- Eerst gaf ronde 1 van de oplossing bij `man_backpack` een weigering: het omhulsel van het hele schuine onderbeen plus het stuk boven het vlak liep via het kruis tot op het andere dijbeen. Nu: omhulsel van alleen het stuk rond het vlak, aan de eigen kant, plus het lid zelf. GEZIEN met Read: `producten/blender-gewrichten/proeven/ai-model/na-ronde2-knie-een-been-pro-links-kogel-rechts.jpg` (op de tak).
+- Wat we nu eerlijk kunnen zeggen (na Daan en de release): "Works on one-piece figures: a joint in one knee only cuts that leg." Een blok "Made for AI-generated figures" blijft nog uit: twee van de vier hebben geen vrije knie, en dat ligt aan het figuur, niet aan ons; wel kan "Make watertight repairs typical AI meshes in one click".

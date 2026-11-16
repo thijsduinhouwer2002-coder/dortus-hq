@@ -1,5 +1,7 @@
 # Blender: status
 
+- **16 nov 02:30 UTC (Bram): 147 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt. Deze run: kniefout ronde 2 op tak `claude/blender-een-lid` (4b07d0f): Meshy `man_backpack` knie nu goed met Pro en gratis, alleen dat been; vraag aan Daan.
+
 - **16 nov 00:23 UTC (Bram): 142 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR. Superhive-keuring Pro loopt. Deze run: kniefout (één gewricht snijdt beide benen) opgelost voor het Pro-scharnier op tak `claude/blender-een-lid`; gratis kogel, Meshy-figuren en workflow volgen, dan Daan en 1.0.2.
 
 - **15 nov 22:11 UTC (Bram): 141 downloads** (meet_downloads.sh), 0 reviews, click-joints 0 open issues en 0 open PR (gh search). Superhive-pagina Pro nog niet openbaar (403 vanuit de cloud, keuring loopt). Deze run: verwijzing gratis naar Pro uitgezocht; in Blender mag het niet (regel 6.1 en 6.3), wel via dortus.com/click-joints/, zie `verwijzing-pro.md`. Daarna: staande opnames 1080x1920 voor de filmpjes van Chris op main (`ontwerp/click-joints/pro/film/staand/`).

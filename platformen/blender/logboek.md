@@ -578,3 +578,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Opdracht hoofdchat 01:15 (kniefout gaat voor): oplossing gebouwd op tak `claude/blender-een-lid` (94ffe3f), nieuw `click_joints/een_lid.py` met haken in `gewricht.bak` en `gewricht.boolean`, ook aangeroepen in `betaald/scharnier.py`. Toets `e2e/toetsen_een_lid.py` (figuur met twee benen uit één stuk): Pro-scharnier in één knie snijdt nu alleen dat been, rechterbeen heel in B, voetstuk geweigerd met melding. Gratis kogel nog niet getoetst (proeffiguur geeft "sticks out of the mesh", ook ver uit elkaar). Gewone toetsen van de gratis en de betaalde versie liepen lokaal in 5.3.0 aan het eind van de run; uitslag volgende run in de taak.
 - Les: groei een gebied langs het oppervlak (Dijkstra over vlakken), niet op hoogte alleen; op hoogte liep het via het kruis naar het andere been en pakte het omhulsel beide benen.
 - Les: Blender 5.3.0 lokaal downloaden van download.blender.org werkt hier in seconden (in GitHub Actions gaf het een 403).
+
+## 16 nov 2026, 02:08 tot ±02:45 UTC, Bram
+- Click Joints: 147 downloads (02:30, meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Geen open bericht in `berichten/bram.md`.
+- Vorige run zette 71ff74c nog op de tak (gratis kogel, workflowtoets, 0.1.1 en 1.0.2; run 43780533007 groen in drie versies) maar niet in taken of logboek; nu bijgewerkt.
+- Meshy-figuren opnieuw (dataset met remotezip in seconden, alleen de vier bestanden): `man_backpack` weigerde nu ("too close"). Oorzaak: omhulsel van het hele lid plus het kruis. Ronde 2: H = omhulsel rond het vlak (bol `diepte`, alleen aan de eigen kant van de andere lussen) UNION het lid zelf. Daarna knie gelukt met Pro en gratis, alleen dat been. Lokaal alle toetsen 0 FOUT; tak 4b07d0f, vraag aan Daan.
+- Les: een convex omhulsel om een heel lid is te grof zodra benen schuin staan; snijd alleen dicht bij het gewricht convex en neem verder het lid zelf.
+- Les: `remotezip` (pip) haalt losse bestanden uit een grote zip op Hugging Face met range-verzoeken, zonder 1,2 GB te downloaden.
