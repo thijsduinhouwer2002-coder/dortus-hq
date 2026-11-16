@@ -53,6 +53,11 @@ REEKS = False   # True: speel() bewaart na elke held de tellers in st["reeks"] (
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 
+def decor_prijzen(d, gpu):
+    """prijs_u: één getal (alle kamertjes even duur) of een lijst (oplopend, zodat ze verspreid gekocht worden)."""
+    pu = d["prijs_u"] if isinstance(d["prijs_u"], list) else [d["prijs_u"]] * d["per_laag"]
+    return [round(x * gpu, -1) for x in pu]
+
 def speel(uren, zaad, spec=None):
     """spec (optioneel): een voortgang zoals voortgang() hem leest. Dan ontgrendelt speel() zelf de niveaus zodra een bron
     de drempel haalt, en telt het "effect" van een niveau vanaf dat moment mee (zie EFFECTEN bij voortgang())."""
@@ -66,6 +71,19 @@ def speel(uren, zaad, spec=None):
     upg_mee = bool(sp_.get("upg_mee"))               # True: upgrades gaan mee naar de nieuwe laag
     laag_factor = sp_.get("laag_factor", [1, 1, 1, 1])   # prijs van graven en upgrades x factor van de laag die je ziet
     gloop_oud = bool(sp_.get("gloop_oud", True))     # True: hoeden uit de lagen erboven tellen voor Gloops niveau
+    # Bram 16 nov (Sanne versie 3): eigen prijsfactor per laag voor upgrade stap 4 tot 6
+    laag_factor_hoog = sp_.get("laag_factor_hoog", laag_factor)
+    # kamertjes aankleding per laag: {"per_laag": 5, "prijs_u": 1.25}; vrij als de volgende laag opengaat (laag 1 na het
+    # luik naar laag 2), die van de diepste laag als die gebouwd is; prijs = prijs_u x goud per uur op dat moment
+    decor_spec = sp_.get("decor")
+    decor = []
+    decor_vrij = set()
+    # weg zijn in echte dagen: {"factor": 0.25, "open_u": 6, "plafond_u": 12}. Na elke open_u uur open is het spel dicht
+    # (nacht of weekend, beide langer dan het plafond) en levert het plafond x factor x het tempo van het laatste uur op:
+    # goud, gevangen helden (faam, telt voor hol-niveau) en hoeden. De sim-tijd t blijft open tijd.
+    weg = sp_.get("weg")
+    weg_dag = 1
+    weg_hoeden_gloop = 0.0
     oud = {"goud": 0.0, "gevallen": 0.0, "hoeden": 0.0}      # per seconde, van de lagen die je niet ziet
     st_oud = {"gevallen": 0.0, "hoeden": 0.0}
     laag_hist = []        # (t, goud, gevallen, hoeden) van de laag die je ziet, laatste uur
@@ -100,6 +118,8 @@ def speel(uren, zaad, spec=None):
             k.append(("graaf", graaf_prijs(gangen) * laag_factor[min(len(laag_info), len(laag_factor)) - 1]))
         for d in dingen[:1]:
             k.append(("ding", d))   # één tegelijk, op volgorde van vrijkomen
+        for d in decor[:1]:
+            k.append(("kamertje", d))
         for i, L in enumerate(lagen):
             if L["open"] and L["gekocht"] is None and i == len(laag_info) - 1:
                 k.append(("luik", L["prijs"]))
@@ -110,9 +130,9 @@ def speel(uren, zaad, spec=None):
                 k.append(("extra_" + s, 40 * 2.6 ** n))
             if upg[s] < eff["upg_max"]:
                 k.append(("upg_" + s, (upg_prijs[upg[s]] if upg_prijs else UPG_BASIS * 2.8 ** upg[s])
-                          * laag_factor[min(len(laag_info), len(laag_factor)) - 1]))
+                          * (laag_factor if upg[s] < 3 else laag_factor_hoog)[min(len(laag_info), len(laag_factor)) - 1]))
         if STRATEGIE == "spaar" or SPEL_ECONOMIE:
-            k = [x for x in k if x[0].startswith("upg_") or x[0] in ("luik", "ding") or (graven_kost and x[0] == "graaf")]
+            k = [x for x in k if x[0].startswith("upg_") or x[0] in ("luik", "ding", "kamertje") or (graven_kost and x[0] == "graaf")]
         return k
 
     while t < eind:
@@ -125,6 +145,22 @@ def speel(uren, zaad, spec=None):
             st_oud["gevallen"] += oud["gevallen"] * dt
             st_oud["hoeden"] += oud["hoeden"] * dt
         t_vorig = t
+        if weg and t >= weg_dag * weg["open_u"] * 3600:
+            # spel dicht: tempo van het laatste uur (alle lagen samen voor goud; gevangen en hoeden van deze laag plus de oude)
+            weg_dag += 1
+            a, b = tot_hist[0], tot_hist[-1]
+            d = max(60.0, b[0] - a[0])
+            x = weg["factor"] * min(weg.get("dicht_u", 18), weg["plafond_u"]) * 3600
+            la, lb = laag_hist[0], laag_hist[-1]
+            dl = max(60.0, lb[0] - la[0])
+            g = (b[1] - a[1]) / d * x
+            goud += g
+            st["goud_totaal"] = st.get("goud_totaal", 0.0) + g
+            st_oud["gevallen"] += ((lb[2] - la[2]) / dl + oud["gevallen"]) * x
+            st_oud["hoeden"] += oud["hoeden"] * x
+            weg_hoeden_gloop += (lb[3] - la[3]) / dl * x
+            st["weg_goud"] = st.get("weg_goud", 0.0) + g
+            st.setdefault("weg", []).append((t, g))
         stap = BEGIN[begin_i] if RITME_SPEL and begin_i < len(BEGIN) else ""
         if RITME_SPEL:
             if stap:
@@ -259,7 +295,7 @@ def speel(uren, zaad, spec=None):
         for sp in sporen:
             # ontgrendelen zodra de bron de drempel haalt; het effect telt vanaf de volgende held
             bron = {"helden": helden, "gevallen": st["gevallen"] + int(st_oud["gevallen"]), "goud": st.get("goud_totaal", 0.0),
-                    "hoeden_gloop": len(st["hap_tijden"]) + (int(st_oud["hoeden"]) if gloop_oud else 0), "hoeden": st["hap_slijm"] + int(st_oud["hoeden"]),
+                    "hoeden_gloop": len(st["hap_tijden"]) + int(weg_hoeden_gloop) + (int(st_oud["hoeden"]) if gloop_oud else 0), "hoeden": st["hap_slijm"] + int(st_oud["hoeden"]),
                     "uren": t / 3600}[sp["bron"]]
             while sp["_i"] < len(sp["niveaus"]) and bron >= sp["niveaus"][sp["_i"]]["drempel"]:
                 nv = sp["niveaus"][sp["_i"]]
@@ -291,7 +327,7 @@ def speel(uren, zaad, spec=None):
         if spec and len(st.setdefault("bank", [])) < int(t // 3600):
             st["bank"].append(goud)   # goud op de bank aan het eind van elk open-uur (voor het kopen van deze held)
         laag_hist.append((t, laag_tel["goud"], laag_tel["gevallen"], laag_tel["hoeden"]))
-        tot_hist.append((t, st.get("goud_totaal", 0.0)))
+        tot_hist.append((t, st.get("goud_totaal", 0.0) - st.get("weg_goud", 0.0)))   # zonder weg-goud: tempo van open tijd
         while len(laag_hist) > 2 and laag_hist[1][0] <= t - 3600:
             laag_hist.pop(0)
         while len(tot_hist) > 2 and tot_hist[1][0] <= t - 3600:
@@ -316,6 +352,8 @@ def speel(uren, zaad, spec=None):
                 st["eerste_upg"] = t
             if wat == "ding":
                 dingen.pop(0)
+            elif wat == "kamertje":
+                decor.pop(0)
             elif wat == "luik":
                 L = next(x for x in lagen if x["open"] and x["gekocht"] is None)
                 L["gekocht"] = t
@@ -325,6 +363,10 @@ def speel(uren, zaad, spec=None):
                 oud["gevallen"] += (laag_tel["gevallen"] - a[2]) / d
                 oud["hoeden"] += (laag_tel["hoeden"] - a[3]) / d
                 laag_info[-1]["oud_per_uur"] = {k: v * 3600 for k, v in oud.items()}
+                if decor_spec and len(laag_info) not in decor_vrij:
+                    decor_vrij.add(len(laag_info))
+                    gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
+                    decor.extend(decor_prijzen(decor_spec, gpu))
                 laag_info.append({"laag": len(laag_info) + 1, "open": t, "ingericht": None, "luik_open": L["open_t"],
                                   "bank_bij_open": goud})
                 # nieuwe laag begint leeg: kale gang van 6, Gloop en een put, geen terugkomers (die blijven boven)
@@ -347,6 +389,10 @@ def speel(uren, zaad, spec=None):
                 upg[wat[4:]] += 1
         if spec and laag_info[-1]["ingericht"] is None and (gangen >= 40 or not graven_kost) and min(upg.values()) >= 3:
             laag_info[-1]["ingericht"] = t   # "gebouwd": 40 gangen en elke lijn op stap 3 (de winkel van laag 1 nu)
+            if decor_spec and len(laag_info) == len(lagen) + 1 and len(laag_info) not in decor_vrij:
+                decor_vrij.add(len(laag_info))   # kamertjes van de diepste laag: als die gebouwd is
+                gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
+                decor.extend(decor_prijzen(decor_spec, gpu))
     st["lagen"] = laag_info
     st["oud_per_uur"] = {k: v * 3600 for k, v in oud.items()}
     st["helden"] = helden
@@ -635,7 +681,8 @@ def lagen_spec(spec, luik=(400, 800, 1200), upg=None, mee=False, factor=None, gl
                 nv.pop("effect", None)
     return s
 
-def lagen_run(spec, zaden=8, uren=100):
+def lagen_run(spec, zaden=8, uren=None):
+    uren = uren or spec.get("uren", 100)
     global SPEL_ECONOMIE, SOORTEN, REEKS
     oud = (SPEL_ECONOMIE, SOORTEN)
     SPEL_ECONOMIE, SOORTEN = True, True
@@ -688,6 +735,8 @@ def lagen(pad, luik=(400, 800, 1200), upg=None, mee=False, zaden=8, toon=True, f
                 g = "luik naar laag %d" % (laag + 1)
             elif wat == "ding":
                 g = "laag %d nieuw ding (niveau)" % laag
+            elif wat == "kamertje":
+                g = "laag %d kamertje" % laag
             else:
                 g = "laag %d upgrade stap %d" % (laag, stap)
             groepen.setdefault(g, []).append((t, prijs, gpu, prijs / max(1.0, gpu)))
@@ -704,19 +753,46 @@ def lagen(pad, luik=(400, 800, 1200), upg=None, mee=False, zaden=8, toon=True, f
     gl = niveau_tijden(alle, "Gloop")
     print("  Gloop (hoeden van de lagen erboven tellen %s): " % ("mee" if gloop_oud else "niet mee") + "  ".join("%d:%s" % (n, u(gl.get(n))) for n in sorted(gl)))
     # ritme: alle ontgrendelingen en aankopen samen, zoals voortgang()
-    blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100)]
+    eind = spec.get("uren", 100)
+    blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100)] + [(a, b) for a, b in ((100, 130), (130, 165)) if eind >= b]
     rij = []
     for a, b in blokken:
         aant, gat = [], []
         for st in alle:
             ts = sorted([x[0] for x in st.get("ontgrendeld", [])] + [x[0] for x in st["aankopen"]])
             aant.append(sum(1 for x in ts if a * 3600 < x <= b * 3600))
-            ats = [0.0] + ts + ([360000.0] if b == 100 else [])
+            ats = [0.0] + ts + ([eind * 3600.0] if b == blokken[-1][1] else [])
             gat.append(max([y - x for x, y in zip(ats, ats[1:]) if a * 3600 < y <= b * 3600] + [0.0]))
         rij.append("%d-%d u: %d | %s" % (a, b, mediaan(aant), uur_tekst(mediaan(gat))))
     print("  ritme (niveaus en aankopen samen, mediaan): ontgrendelingen | langste gat\n    " + "\n    ".join(rij))
     print("  goud op de bank (mediaan) bij uur " + ", ".join("%d: %.0f" % (h, mediaan([st["bank"][h - 1] for st in alle if len(st.get("bank", [])) >= h]))
                                                           for h in (5, 10, 20, 30, 40, 57, 70, 99)))
+    if spec.get("weg"):
+        w = spec["weg"]
+        dag = lambda s: None if s is None else int(s // (w["open_u"] * 3600)) + 1   # werkdag waarop je het haalt
+        kal = lambda d: "-" if d is None else "wk %d dag %d" % ((d - 1) // 5 + 1, (d - 1) % 5 + 1)
+        print("  in echte dagen (%g uur open per werkdag, weg x %g met plafond %g uur; werkdag n = open uur 6n-6 tot 6n):" % (w["open_u"], w["factor"], w["plafond_u"]))
+        print("    hol-niveau: " + "  ".join("%d: werkdag %s" % (n, dag(hol.get(n))) for n in sorted(hol) if n in (5, 10, 12, 15, 20, 25, 30, 35, 40, 45, 50)))
+        for i in range(1, 4):
+            rij = [st["lagen"][i]["open"] for st in alle if len(st["lagen"]) > i]
+            if len(rij) * 2 > len(alle):
+                print("    laag %d open: werkdag %d (%s)" % (i + 1, dag(mediaan(rij)), kal(dag(mediaan(rij)))))
+        wg = {}
+        for st in alle:
+            for t, g in st.get("weg", []):
+                wg.setdefault(dag(t) - 1, []).append(g)
+        print("    goud van één nacht weg (mediaan), na werkdag: " + ", ".join("%d: %.0f" % (d, mediaan(wg[d])) for d in sorted(wg) if d in (1, 2, 3, 5, 8, 10, 15, 20, 25)))
+        # per week: wat er nieuw is (ontgrendelingen + aankopen) en het langste gat in open uren
+        wk = []
+        for k in range(int(eind // (w["open_u"] * 5)) + 1):
+            a, b = k * w["open_u"] * 5 * 3600, (k + 1) * w["open_u"] * 5 * 3600
+            n_ = [sum(1 for x in st.get("ontgrendeld", []) if a < x[0] <= b) for st in alle]
+            k_ = [sum(1 for x in st["aankopen"] if a < x[0] <= b) for st in alle]
+            if mediaan(n_) + mediaan(k_) == 0 and k > 0:
+                wk.append("week %d: niets meer" % (k + 1))
+                break
+            wk.append("week %d: %d niveaus, %d aankopen" % (k + 1, mediaan(n_), mediaan(k_)))
+        print("    per week (5 werkdagen): " + "; ".join(wk))
     opu = mediaan([st["oud_per_uur"]["goud"] for st in alle])
     print("  goud per uur van alle lagen die je niet ziet bij 100 u: mediaan %.0f; gevangen per uur daar: %.0f" % (
         opu, mediaan([st["oud_per_uur"]["gevallen"] for st in alle])))
