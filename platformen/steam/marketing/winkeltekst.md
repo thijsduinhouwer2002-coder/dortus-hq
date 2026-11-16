@@ -42,3 +42,22 @@ Script `data/winkeltekst_lang.py`, uitkomst `data/winkeltekst-lang-2026-11-16.cs
 | Kopjes (mediaan) | 4 | 6,5 | 3 | 4 |
 
 Lezing: bewegende beelden in de tekst doet bijna iedereen, dus dat is de norm. Winnaars schrijven iets korter (mediaan 207 woorden; Cornerpond 105, Desktop Defender 134, Black Cat 144). Kopjes zijn korte daden ("Cut grass", "Level up and unlock", "Unlock New Species"), geen verhaal. **Recept: ±200 woorden, 3 tot 5 gifs, 4 korte kopjes, elk kopje een gif en twee zinnen.** Dat past bij wat Thijs wil (minder tekst, meer beeld) en scheelt hem schrijfwerk. De gifs vraag ik aan Chris en Mila.
+
+## Tags (run 10, vervolg)
+Script `data/tags.py`, uitkomst `data/tags-2026-11-16.csv` (GEZIEN 16 nov ±20:55 UTC, de tags zoals de winkelpagina ze toont, op volgorde; let op: die volgorde komt deels van stemmen door spelers, de maker zet alleen de beginlijst).
+
+| Tag | Winnaars (13) | Demo 20+ (10) | Demo 0 (20) | Ons voorstel (`ontwerp/steam/winkelpagina/teksten.md`), plek |
+|---|---|---|---|---|
+| Idler | 13 (12 in top 5) | 9 | 16 | 2 |
+| Desktop Companion | 13 (11 in top 5) | 8 | 16 | 1 |
+| Casual | 13 | 8 | 18 | 5 |
+| Relaxing | 11 | 7 | 17 | 8 |
+| Cute | 10 | 6 | 13 | 7 |
+| Singleplayer | 10 | 9 | 16 | 15 |
+| Incremental | 9 | 6 | 10 | 12 |
+| Simulation | 8 | 8 | 13 | 17 |
+| 2D | 7 | 7 | 16 | 14 |
+| 3D | 0 | 3 | 0 | niet |
+| Funny, Comedy, Villain Protagonist, Cartoony, Stylized | 0 | 0 | 0 | 4, 10, 9, 20, 3 |
+
+Lezing: de kern (Idler, Desktop Companion, Casual) hebben alle 13 winnaars; dat is de toegang tot de rij "meer zoals dit" en de festfilters, geen onderscheid. Onze eigen tags (Funny, Villain Protagonist) heeft geen enkele winnaar; die maken ons anders, maar horen na de kern. **Fout gevonden in ons voorstel: "2D" staat erin, terwijl het spel sinds 13 nov 3D gerenderd is** (Olaf, zelfde bestand regel 93). Voorstel aan Sanne (haar bestand): **1 Desktop Companion, 2 Idler, 3 Casual, 4 Relaxing, 5 Cute**, dan Incremental, Singleplayer, Funny, Villain Protagonist, Management, Cozy, Simulation, Fantasy, Building, 3D (in plaats van 2D), daarna de rest. Waarom: filters kijken naar de eerste 15 (DERDEN, Valve-docs), en de vijf bovenste zijn precies wat 10 tot 13 van de 13 winnaars hebben.
