@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 21, het filmpje op een Garmin-winkelpagina, 539 YouTube-filmpjes naast de downloads, klaar 16 nov 2026 ±20:45 UTC). Volgende: Ebb-Short nameten 7 dagen na plaatsen, meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 22, gratis broertje bij Garmin-wijzerplaten: welke verdeling tussen gratis en betaald laat de betaalde verkopen (Joris, 16 nov 2026 ±21:05 UTC). Daarna: Ebb-Short nameten 7 dagen na plaatsen, of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
 
