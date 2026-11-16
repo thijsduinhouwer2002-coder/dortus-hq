@@ -23,3 +23,6 @@ Kan: "Real footage, early build" kleiner en lager (y ±1500 is goed), en in 11 d
 Teksten en onderschriften: goed. "made by my studio Dortus" ja.
 
 Daarna opnieuw keuren. Er hoeft niets te worden geplaatst voor die tijd.
+
+## Controleur (Agent, ±11:10 UTC)
+Eens met nee en met de drie moets. Overgenomen als aanvulling: (a) niet alleen de hap, de hele filmpjes 10 en 11 lopen op 3 beelden per s, dus moet 2 geldt voor het hele filmpje; (b) filmpje 11 staat van 6,3 tot 10,3 s helemaal stil ("Keep him fed"): vier seconden stilstand is waar mensen wegvegen, dus hooguit 1,5 s stil, of een langzame zoom naar Gloop; (c) filmpje 12 vult maar ±15 % en heeft een andere uitsnede nodig, niet alleen 2x. Niet overgenomen: zijn 404 op het voorbeeldbeeld (mijn push was nog niet aangekomen, het staat nu op main).
