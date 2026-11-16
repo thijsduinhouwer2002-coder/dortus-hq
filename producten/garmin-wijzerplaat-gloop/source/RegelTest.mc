@@ -85,3 +85,26 @@ function testKorteRegel(logger as Test.Logger) as Boolean {
     return Regel.kort("7/10 HATS").equals("7/10") && Regel.kort("GOAL! +4").equals("GOAL+4")
         && Regel.kort("GOAL! +12").equals("GOAL+12") && Regel.kort("GOAL!").equals("GOAL!");
 }
+
+(:test)
+function testTorenBlijftBinnenDeRand(logger as Test.Logger) as Boolean {
+    // 8 gewone hoeden passen, de kroon past tot plek 8 (fenix 7, 260 px).
+    return Regel.zichtbaar(0, false, 8, 8) == 0 && Regel.zichtbaar(7, false, 8, 8) == 7
+        && Regel.zichtbaar(9, false, 8, 8) == 8 && Regel.zichtbaar(10, true, 8, 8) == 9
+        && Regel.zichtbaar(14, true, 8, 8) == 9 && Regel.zichtbaar(60, true, 8, 8) == 9
+        && Regel.zichtbaar(1, true, 8, 8) == 1 && Regel.zichtbaar(5, true, 8, 8) == 5;
+}
+
+(:test)
+function testRandtabelKlopt(logger as Test.Logger) as Boolean {
+    // De kroon staat nooit hoger dan er gewone hoeden onder passen, op elke maat.
+    var maten = [208, 218, 240, 260, 280, 390, 416, 454] as Array<Number>;
+    for (var i = 0; i < maten.size(); i += 1) {
+        var g = Rand.gewoon(maten[i]);
+        var k = Rand.kroon(maten[i]);
+        if (g < 6 || k < 6 || k > g) {
+            return false;
+        }
+    }
+    return true;
+}

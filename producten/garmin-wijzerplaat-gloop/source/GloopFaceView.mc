@@ -311,6 +311,15 @@ class GloopFaceView extends WatchUi.WatchFace {
     // daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
     function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, voetX as Number, voetY as Number, toon as Number, kroonOp as Boolean, zweef as Boolean) as Void {
         var y = voetY;
+        // Op een rond scherm stopt de toren bij de laatste hoed die heel binnen de cirkel past (moet van
+        // Daan, 16 nov: nooit een hoed kapot tegen de rand). De kroon blijft dan bovenop staan.
+        if (rond) {
+            var past = Regel.zichtbaar(toon, kroonOp, Rand.gewoon(w), Rand.kroon(w));
+            if (past < toon) {
+                zweef = zweef && kroonOp;
+                toon = past;
+            }
+        }
         for (var i = 0; i < toon; i += 1) {
             var k = hoedOp(i, toon, kroonOp);
             var hb = m[12 + 2 * k];

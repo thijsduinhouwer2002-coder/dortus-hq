@@ -139,6 +139,19 @@ module Regel {
         return h / 2 - Math.sqrt(r * r - d * d).toNumber() + marge;
     }
 
+    // Hoeveel hoeden getekend worden als er `gewoon` gewone hoeden heel in beeld passen en de kroon tot
+    // en met plek `kroonPlek` (vanaf 0). Zonder kroon stopt de toren bij `gewoon`. Met kroon staat de
+    // kroon op de hoogste plek die past, met gewone hoeden eronder: wie zijn doel haalde ziet hem altijd.
+    function zichtbaar(toon as Number, kroonOp as Boolean, gewoon as Number, kroonPlek as Number) as Number {
+        if (toon <= 0) {
+            return 0;
+        }
+        if (kroonOp) {
+            return toon - 1 > kroonPlek ? kroonPlek + 1 : toon;
+        }
+        return toon > gewoon ? gewoon : toon;
+    }
+
     // In de slaapstand (pols omlaag) komt er geen hoed bij: de toren toont wat de drager al zag
     // landen. Na middernacht (minder hoeden dan gezien) of bij de eerste keer gewoon het echte aantal.
     function wachtend(aantal as Number, gezien as Number) as Number {
