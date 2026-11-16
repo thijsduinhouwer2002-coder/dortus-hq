@@ -1,8 +1,64 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 18 af 16 nov ±23:45 UTC; volgende run: Little Writer meten na 6 jan, of de vraag van de hoofdchat als die er is; anders: wat deden bureaubladspellen met korting in een themafest (Valve zet die het meest in beeld))
+bezig: niets (verhaal 19 af 16 nov ±23:45 UTC; volgende run: Little Writer meten na 6 jan, of de vraag van de hoofdchat als die er is; anders: hoe bureaubladspellen hun eerste week na de uitgave met korting deden (Tap Tap Loot 30%, Typing Farmer 10%), voor het lanceerplan van maart)
 
 Nieuwste bovenaan.
+
+---
+
+## 19. De Typing Fest van februari 2026: een themafest van vier dagen, net als het Desktop Companion Fest. Maar 2 van de 105 typespellen voor het bureaublad zeiden er iets over, allebei van de uitgever van Bongo Cat. Wat ze deden: een cadeau op dag 1, en een open speeltest alleen tijdens de festdagen
+
+**Vraag:** wat doet een themafest van vier dagen met bureaubladspellen, en wat deden de makers die het goed gebruikten? Het Desktop Companion Fest loopt van do 14 jan 10:00 PST tot ma 18 jan 10:00 PST. Dat is vier dagen, net als de "Spotlight Fests" van 2026, en niet de gewone week (Valve's lijst via GamingOnLinux: Typing Fest 5 tot 9 feb, Horse Fest 19 tot 23 feb en Hidden Object Fest 9 tot 13 apr zijn allemaal "(Spotlight Fest)"). In de lijst voor 2027 staat dat woord niet bij het Desktop Companion Fest (GEZIEN). Of Valve het net zo klein opzet, weet ik dus niet (GOK). Van die korte fests is de **Typing Fest** de enige met bureaubladspellen erin: Bongo Cat en zijn navolgers hebben het label Typing.
+
+### Bronnen en hoe ik keek (16 nov, ±23:30 tot 23:45 UTC)
+- Lijst fests 2026 en 2027: https://www.gamingonlinux.com/2026/01/valve-reveal-all-the-steam-events-scheduled-for-2026 en https://gamingonlinux.com/2026/07/valve-announced-the-themed-sale-events-for-the-first-half-of-2027 (GEZIEN met curl).
+- Steamworks-docs over themafests: `partner.steamgames.com/doc/marketing/upcoming_events/themed_sales` (GEZIEN met curl, 17 nov). De pagina van het Desktop Companion Fest gaf deze run een foutmelding; wat erop staat, staat in verhaal 18.
+- Wat er in de Typing Fest in de aanbieding was: Simulation Daily, 6 feb 2026, https://simulationdaily.com/news/steam-typing-fest-2026/, en een maker op het IF-forum, https://intfiction.org/t/steam-typing-festival-05-02-09-02-2026/78930 (DERDEN).
+- Uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`) 290 bureaubladapps: alle 105 met het label Typing, plus alle andere die vóór 28 jan 2026 uitkwamen met 20+ reviews. Van elk alle aankondigingen (nieuws-API) doorzocht op "Typing Fest", en de reviews per week (`store.steampowered.com/appreviewhistogram/<appid>`, lege weken als 0). Festweek = de week van de app die begint tussen 2 en 6 feb; ervoor = het gemiddelde van de drie weken daarvoor.
+- Data: `platformen/succes/data/typing-fest-2026-bureaublad-2026-11-16.csv`.
+- Niet gelukt: de festpagina zelf terugzien. Er is geen archiefversie (archive.org heeft niets), en `store.steampowered.com/category/typing/` is nu de gewone labelpagina. Verlanglijsten van anderen zijn niet openbaar, dus wat het fest aan verlanglijsten gaf, weet ik niet.
+
+### Wat Valve zegt over themafests (GEZIEN, 17 nov)
+- "A discount is not required to participate ... though each event page will most prominently feature discounted games."
+- Elk fest heeft vakken: Discounted, VR, Free to Play, Demos en Upcoming. Daarbinnen sorteert Valve "based on heuristics like player interest and popularity, while other sections may be more random".
+- "Steam themed sale events currently do not include playtests." Een speeltest komt dus niet in het fest; de demo en de pagina "binnenkort" wel.
+- "Even when events are shorter than one week in duration, the official discount will typically still be set to the standard one week duration." Voor ons pas van belang na de uitgave.
+
+### Wie zei er iets over de Typing Fest? (GEZIEN, aankondigingen)
+Van de 105 typespellen voor het bureaublad noemden er **2** de Typing Fest, en van de andere 185 bureaubladapps **geen enkele**. Die twee zijn van dezelfde uitgever:
+- **Bongo Cat** (Irox Games, gratis, 31.301 reviews), 5 feb: "WE ARE PART OF THE STEAM TYPING FEST". Een gratis mecha voor iedereen die het spel bijwerkt en het cadeautje aanklikt, een nieuwe mecha-verzameling in de winkel, en een skin en hoed voor wie 1 miljoen klikken haalt.
+- **Tap Tap Loot** (ontwikkelaar Turtle Knight Games, uitgever Irox Games), toen nog "binnenkort", 5 feb: "Tap Tap Loot is part of the Steam Typing Fest. To celebrate this we will open up the playtest for everyone for a few days (until Typing Fest ends)". In dezelfde update: wie Bongo Cat en Tap Tap Loot tegelijk draait, krijgt extra kracht van een paar Bongo Cat-voorwerpen ("This is a bit of an experiment").
+
+### Wat de festweek deed met de reviews (GEZIEN, histogram)
+| | 3 weken ervoor (gem.) | festweek | week erna |
+|---|---|---|---|
+| Bongo Cat | 947 | **1.046** (+10%) | 1.037 |
+| MISHA (typing, gratis) | 5,7 | 7 | 9 |
+| Farlands: Tiny Harvest (typing, gratis) | 25,7 | 22 | 13 |
+| 41 andere bureaubladspellen met 3+ reviews per week, mediaan | | **0,78 keer** ervoor | 0,69 keer |
+
+Van de 41 andere spellen zaten er 13 in de festweek op of boven hun eigen niveau. Let op: veel van die 41 waren in nov of dec 2025 uitgekomen en zakten toch al (your wife 0,73, Cast n Chill 0,58). Een eerlijke vergelijking is dit dus niet. Bongo Cat, een spel dat al een jaar stabiel liep, ging in de festweek 10% omhoog en bleef de week erna op dat niveau; zijn eigen dag 1-cadeau zat in die week. Meer dan "een klein plusje" kan ik er niet uit halen.
+
+**Wat het fest deed voor onbekende nieuwkomers (GEZIEN):** drie betaalde typespellen voor het bureaublad kwamen 2 tot 3 dagen vóór het fest uit, zonder bericht over het fest: Your Succubus ($6,99, 3 feb) kreeg 2 reviews in de festweek, Text To Speech ($6,99, 3 feb) 1, Idle Crops ($0,99, 2 feb) 1 en de week erna 3. Deskworm (gratis, uit 15 jan, met demobeloning) zakte gewoon door: 22, 9, 7, en in de festweek 4. Een plek in het fest zonder eigen actie gaf deze spellen dus niets wat je terugziet.
+
+### Tap Tap Loot: van festspeeltest naar lancering (GEZIEN, aankondigingen en histogram)
+1. **5 feb 2026, dag 1 Typing Fest:** de speeltest gaat alleen tijdens de festdagen open voor iedereen, met een samenwerking met Bongo Cat.
+2. **22 feb, Next Fest:** pas nu de demo. "Your progress will carry over from the playtest". De voortgang van de demo gaat níet mee naar het volle spel; in de plaats daarvan krijgen demospelers een eigen skin (de Target Dummy).
+3. **7 apr:** datum bekend (13 apr). Over de prijs: "we decided to go with a bit of a higher base price to allow us to discount the title further in the future. That's why we are launching with a 30% discount!" Basisprijs $6,99, met regionale prijzen.
+4. **13 apr, uitgave:** demobeloning, en een bundel met The Farmer Was Replaced (een programmeerspel). Drie dagen later "The Typer Was Replaced": in dat spel kun je nu met `tap()` je Bongo Cat en je Tap Tap Loot-held laten tikken.
+5. **Uitkomst:** week 1 **358 reviews**, net boven het bovenste kwart van 70 lanceringen van bureaubladspellen (p75 345, mediaan 133, `lanceer-verval-bureaublad-2026-11-16.csv`). Week 2 maar 100 (0,28 keer week 1; mediaan van de 70: 0,32). Nu 872 reviews.
+- Ter vergelijking, **Typing Farmer** (MilkwayStudio, ook met Irox als uitgever): demo al sinds januari, geen bericht over de Typing Fest, uitgave 20 apr met lanceerbundels met Tap Tap Loot, Tiny Pasture en drie anderen. Week 1: 113 reviews, onder de mediaan. Nu 456.
+- Wat ik niet kan scheiden: Tap Tap Loot had de grote speler Bongo Cat achter zich (zelfde uitgever, eigen samenwerking in het spel). Wat de Typing Fest zelf deed, is niet te zien.
+
+### Drie lessen
+1. **Bijna niemand doet iets met een themafest, dus wie iets doet, valt op.** 2 van de 105 typespellen voor het bureaublad zetten een bericht neer, en allebei hadden ze een reden om te spelen op dag 1 (een gratis mecha, een open speeltest). Dat past bij Sems meting op dag 1 van het Auto-Battler RPG Fest (alleen wie zelf spelers meebracht, steeg) en bij verhaal 3 (cadeaus in de demo). Het Desktop Companion Fest wordt de eerste keer, dus de kans dat de andere spellen stil blijven is groot (GOK op basis van deze 2 op 105).
+2. **Iets wat alleen tijdens de festdagen kan.** Tap Tap Loot zette zijn speeltest alleen in de vier festdagen open voor iedereen. Daarmee is het fest een moment met een einde, en geen pagina die er toevallig ook staat. Let wel: Valve neemt speeltests niet op in het fest, dus bij Tap Tap Loot kwam het verkeer via de pagina "binnenkort". Bij ons is de demo er al (ma 4 jan); het cadeau moet dus in de demo zitten.
+3. **In een fest van vier dagen gaat het bovenste vak naar spellen die al uit zijn en korting geven.** Ook dat zegt Valve zelf. Een demo of "binnenkort" krijgt een eigen vak, en daarbinnen telt belangstelling. Ons eigen festverkeer moet dus van onszelf komen (mail, makers, bericht om 19:00 NL); het fest geeft vooral een plek.
+
+### Voorstel voor Dortus deze week
+**Sem en Olaf: maak van de Fest Hat (al gepland in `marketing/makers.md` voor 8 jan) een hoed die je alleen kunt halen van do 14 jan 19:00 tot ma 18 jan 19:00 NL. Zet hem in de aankondiging van dag 1 met één zin over hoe je hem pakt: bijwerken en spelen, net zo kort als de mecha van Bongo Cat.** Waarom: de enige twee makers die de Typing Fest gebruikten, gaven op dag 1 iets dat alleen toen te halen was. Een hoed met een einddatum maakt van ons fest een moment, en de hoed gaat via de save mee naar het volle spel (Tap Tap Loot kon dat niet en gaf een skin in de plaats). Kosten: één hoed uit de pijplijn (±½ run Mila, planning Olaf) en een datumcheck in de code (klein, Olaf). Valt het buiten de demolijst van 18 dec, dan beslist Olaf; dan is de terugvaloptie het cadeau dat er al is, maar dan zonder einddatum.
+
+Eerlijk: dit zijn twee berichten van één uitgever met honderdduizenden spelers achter zich (Bongo Cat: 500.000 spelers na 4 weken, eigen opgave, verhaal 3). Of een hoed met een einddatum bij een onbekend spel spelers trekt, laat dit niet zien. Wel laat het zien dat het de gewoonte is van de grootste speler in onze hoek.
 
 ---
 
