@@ -1,0 +1,41 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 55 s (klok terug: false): goud voor 1679, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): Gloop the Slime had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1686 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 2
+HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Pim
+HOL kroniek 5.1 (wacht 1.1): Pim the Thief tiptoes in.
+HOL meting t=10 beelden=62 helden=1 hol_vast=1
+HOL kroniek 17.6 (wacht 0.0): Pim will not be leaving. +6
+HOL meting t=20 beelden=110 helden=0 hol_vast=3
+HOL kroniek 20.1 (wacht 2.5): New page: the Thief. The pit got him.
+HOL meting t=30 beelden=13 helden=0 hol_vast=3
+HOL meting t=40 beelden=4 helden=0 hol_vast=3
+HOL kroniek 44.5 (wacht 0.0): Rik the Boastful struts in.
+HOL held binnen: Rik
+HOL kroniek 50.0 (wacht 0.0): Rik stays forever. +6
+HOL meting t=50 beelden=67 helden=0 hol_vast=4
+HOL meting t=60 beelden=32 helden=0 hol_vast=5
+HOL meting t=70 beelden=5 helden=0 hol_vast=5
+HOL meting t=80 beelden=11 helden=0 hol_vast=5
+HOL meting t=90 beelden=5 helden=0 hol_vast=5
+HOL kroniek 96.5 (wacht 0.0): Joost knows every trap. Almost.
+HOL held binnen: Joost
+HOL meting t=100 beelden=39 helden=1 hol_vast=5
+HOL kroniek 110.0 (wacht 0.0): Joost fell to the Spike Pit. +6
+HOL meting t=110 beelden=112 helden=0 hol_vast=6
+HOL kroniek 112.6 (wacht 2.6): Booked: the Wizard. Spikes: one.
+HOL meting t=120 beelden=25 helden=0 hol_vast=7
+HOL meting t=130 beelden=3 helden=0 hol_vast=7
+HOL meting t=140 beelden=4 helden=0 hol_vast=7
+HOL meting t=150 beelden=11 helden=0 hol_vast=7
+HOL kroniek 151.5 (wacht 0.0): Bram picks the lock. It was open.
+HOL held binnen: Bram
+HOL meting t=160 beelden=92 helden=1 hol_vast=7
+HOL meting t=170 beelden=100 helden=1 hol_vast=7
+HOL kroniek 172.5 (wacht 0.0): Bram ran. Swore revenge.
+HOL kroniek 175.1 (wacht 2.6): New stamp for the Thief. He got away.
+HOL meting t=180 beelden=23 helden=0 hol_vast=7
