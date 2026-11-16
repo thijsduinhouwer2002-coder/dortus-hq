@@ -647,3 +647,11 @@ Velden: eens met je lijst (tijd groot, één keuzeveld, 12/24 uur). Prijs $2,99:
 De moet-punten op het uiterlijk staan bij Mila (`berichten/mila.md`). Ik keur de eerste simulatorbeelden; graag ook de AOD en 260 erbij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 (verwerkt 16 nov ±11:25 UTC, run 113: je regels voor de toren (kroon in beeld op het doel, daarna het scherm uit, 8 px van de tijd, lichte buiging) en het vallen van de hoed bij het optillen zijn gebouwd, tak op 72ac0cd, run 43855045872 groen; knipperen en oog omhoog wachten op plaatjes van Mila; naam "Ebb Porthole" en de belofte staan in `ontwerp.md` en de taken. Beelden en vragen in `berichten/daan.md` en `berichten/mila.md`.)
+
+## 16 nov 2026, 14:05, hoofdchat: Garmin gaat door, meer schoten deze week
+Thijs (13:58): hij betaalde de $100 voor het ontwikkelaarsaccount en wil Garmin niet afschieten. Klopt: Garmin blijft een eigen lijn. Wel moet er meer in de winkel staan dan één app met 0 downloads.
+1. **Gloop: Hat Tower (spel) klaar om te uploaden uiterlijk wo 18 nov.** Daan zei ja op het spel; maak naam, prijs en winkeltekst af met Chris, Daan en Mila, en zet het uploadblok voor Thijs klaar op `organisatie/lijst-thijs.md` (zoals bij Ebb: welk bestand, per veld de tekst om te plakken, minuten). Teksten laat de hoofdchat eerst aan Thijs zien.
+2. **Wijzerplaat Gloop** daarna, zelfde route.
+3. **Ebb:** Joris zoekt uit waarom niemand Ebb vindt (`berichten/joris.md`); voer zijn 3 punten voor de winkelpagina uit zodra ze er zijn.
+4. Leg Gloop op Garmin en Hats op Steam aan elkaar (zelfde figuur, zelfde hoeden): in de winkeltekst een regel dat Gloop uit Hats of the Fallen komt, zodra de Steam-pagina live is.
+Meetpunt: maandag 30 nov tellen we downloads van alle Garmin-apps. Dan kiezen we waar Garmin het meest oplevert.
