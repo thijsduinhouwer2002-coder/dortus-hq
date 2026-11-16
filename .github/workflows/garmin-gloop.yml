@@ -46,11 +46,11 @@ jobs:
           # Ondertekend met een wegwerpsleutel: alleen om via de kabel in GARMIN/APPS te zetten, niet voor de winkel.
           grep -q 'const AUTO = false;' source/Bouw.mc || exit 1
           # Welke maat launchericoon wil elk horloge? (alleen voor het logboek, mag mislukken)
-          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fenix7s fr965 vivoactive5 fenix847mm fr165; do
+          for d in fr255 fenix7 venu3s approachs50 approachs7042mm approachs7047mm enduro3 instinct3amoled45mm instinct3amoled50mm; do
             f=$(find / -path "*Devices/$d/compiler.json" 2>/dev/null | head -1)
             echo "LAUNCHER $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"launcherIcon":{[^}]*}')" || true
           done
-          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fenix7s fr965 vivoactive5 fenix847mm fr165; do
+          for d in fr255 fenix7 venu3s approachs50 approachs7042mm approachs7047mm enduro3 instinct3amoled45mm instinct3amoled50mm; do
             monkeyc -f monkey.jungle -d "$d" -o "/tmp/prg/gloop-proef-$d.prg" -y /tmp/key.der -r -l 1 || exit 1
             cp "/tmp/prg/gloop-proef-$d.prg" schermen/
           done
@@ -63,7 +63,7 @@ jobs:
           # Het potje speelt zichzelf: start na 6 s (zodat het startscherm op het eerste beeld staat), ronde van 30 s, daarna het eindscherm.
           sed -i 's/const AUTO = false;/const AUTO = true;/' source/Bouw.mc
           grep -q 'const AUTO = true;' source/Bouw.mc || exit 1
-          for d in fr255 fenix7 venu3s venusq2 fenix7x fr265 venu3 fenix7s fr965 vivoactive5 fenix847mm fr165; do
+          for d in fr255 fenix7 venu3s approachs50 approachs7042mm approachs7047mm enduro3 instinct3amoled45mm instinct3amoled50mm; do
             monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || exit 1
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!

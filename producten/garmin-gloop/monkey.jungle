@@ -97,3 +97,16 @@ vivoactive5.resourcePath = $(vivoactive5.resourcePath);res-390
 vivoactive5.excludeAnnotations = mip;metstart
 vivoactive6.resourcePath = $(vivoactive6.resourcePath);res-390
 vivoactive6.excludeAnnotations = mip;metstart
+# Versie 1.1.0 (run 123, 16 nov): zes horloges erbij met een maat die het spel al heeft (advies Chris, deel 8e).
+# Approach en Instinct 3 AMOLED zeggen PRESS: of de knop rechtsboven daar START heet is niet gezien.
+approachs50.resourcePath = $(approachs50.resourcePath);res-390
+approachs50.excludeAnnotations = mip;metstart
+approachs7042mm.resourcePath = $(approachs7042mm.resourcePath);res-390
+approachs7042mm.excludeAnnotations = mip;metstart
+approachs7047mm.resourcePath = $(approachs7047mm.resourcePath);res-454
+approachs7047mm.excludeAnnotations = mip;metstart
+enduro3.resourcePath = $(enduro3.resourcePath);res-280
+instinct3amoled45mm.resourcePath = $(instinct3amoled45mm.resourcePath);res-390
+instinct3amoled45mm.excludeAnnotations = mip;metstart
+instinct3amoled50mm.resourcePath = $(instinct3amoled50mm.resourcePath);res-416
+instinct3amoled50mm.excludeAnnotations = mip;metstart
