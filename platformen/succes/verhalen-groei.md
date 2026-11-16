@@ -1,8 +1,61 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: This Week in Obsidian (nieuwsbrief, wat doet een vermelding met de downloads; gemeten bij alle "Gem of the Week"-plugins), 16 nov 2026 06:05 NL-tijd, Joris.
+bezig: niets (laatste: This Week in Obsidian, meting van een kleine nieuwsbrief bij 34 plugins, klaar 16 nov 2026 ±06:30 NL-tijd). Volgende: een Garmin-maker die met Reddit of een grote site groeide, of een maker die een grote nieuwsbrief of site met cijfers beschrijft.
 
 Nieuwste bovenaan.
+
+---
+
+## 6. This Week in Obsidian (kleine nieuwsbrief, ±800 abonnees): wat doet een vermelding als "Gem of the Week" met de downloads? Gemeten bij 34 plugins
+
+Onderzocht 16 nov 2026, run 6. Open vraag uit run 5: een nieuwsbrief als kanaal, gemeten in de downloads. Ik koos geen maker die het zelf vertelt, maar een meting die ik zelf kan doen. This Week in Obsidian is een wekelijkse nieuwsbrief (elke dinsdag, sinds 23 dec 2025) die elke week één plugin uitlicht als "Gem of the Week". Alle nummers staan openbaar op GitHub, en van elke Obsidian-plugin is de downloadteller per week openbaar. Zo kon ik voor elk uitgelicht plugin kijken wat er in de week van het nummer gebeurde. Dit is dus geen succesverhaal van één maker, maar een toets van een kanaal dat kleine makers vaak aangeraden krijgen ("probeer in de nieuwsbrieven te komen").
+
+### Bronnen
+- De nummers: GitHub boundless-forest/this-week-in-obsidian, map `archive/` (47 nummers, 23 dec 2025 tot 10 nov 2026), gekloond met git. De werkafspraken in `AGENTS.md` zeggen dat de inhoud uit een generator komt (`gen-newsletter-obsidian`) en daarna wordt nagekeken (GEZIEN).
+- Aankondiging en reacties op het forum: https://forum.obsidian.md/t/110776 (Discourse-JSON met curl): gestart omdat Obsidian Roundup stillag, "1-2 hours per issue" (EIGEN OPGAVE), draad 2.924 keer bekeken (GEZIEN).
+- Aantal abonnees: de Substack-pagina https://thisweekinobsidian.substack.com/about (curl) geeft "Hundreds of subscribers" en in de paginadata `freeSubscriberCountOrderOfMagnitude: 803` (GEZIEN). Ik lees dat als ongeveer 800 gratis abonnees (GOK hoe Substack dat getal afrondt).
+- Downloads per week en versiedatums per plugin: Obsidian Stats van Moritz Jung (https://www.moritzjung.dev/obsidian-stats/, data `/data/plugins/downloads/<id>.json` en de versietabel op de pluginpagina, curl). De reeksen lopen tot ±27 okt 2026, dus de laatste 5 nummers vallen af.
+- Pluginlijst en tellers: `community-plugins.json` en `community-plugin-stats.json` van obsidianmd/obsidian-releases (curl, 16 nov).
+- Controlegroep: 90 willekeurige plugins met meer dan 20.000 downloads (uit 655), dezelfde bron.
+- De ruwe tabel staat in `platformen/succes/data/twio-gems-2026-11-16.csv`.
+
+### Hoe ik mat
+Per nummer: downloads in de week van het nummer (maandag ervoor tot maandag erna), gedeeld door het gemiddelde van de 3 weken ervoor. Dat noem ik de factor. Dezelfde factor voor de controlegroep in dezelfde week, om drukke en stille weken van heel Obsidian eruit te halen. Daarnaast: was er een nieuwe versie van de plugin in de 2 weken ervoor of in de week zelf? Bij Obsidian telt elke download mee, ook een update (zie verhaal 5). Een nieuwe versie geeft dus een sprong in de teller zonder één nieuwe gebruiker.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Nummers met een Gem of the Week | 47, waarvan 34 te meten (rest: plugin niet in de winkel, reeks te kort of na 27 okt; agent-client weggelaten, teller werd die week gecorrigeerd) | GEZIEN |
+| Factor in de week van het nummer, mediaan | 1,34 | GEZIEN, eigen berekening |
+| Na correctie voor heel Obsidian, mediaan | 1,27 (17 van 34 boven 1,3; 6 onder 1) | GEZIEN, eigen berekening |
+| Factor in de week **vóór** het nummer, mediaan | 1,35 | GEZIEN, eigen berekening |
+| Week vóór het nummer al boven 1,5 | 16 van 34; bij 12 daarvan kwam die week een nieuwe versie uit | GEZIEN |
+| Nieuwe versie in de 2 weken ervoor of de week zelf | **30 van 34 uitgelichte plugins (88%)** | GEZIEN |
+| Hetzelfde bij de controlegroep, zelfde weken | 20% | GEZIEN, 45 controleplugins x 42 weken |
+| Extra downloads in de nummerweek boven de basis, mediaan | ±390 | GEZIEN, maar vooral updates |
+| De 4 nummers zonder nieuwe versie in de buurt | +152 (Auto Link Title), +115 (Typewriter Mode), en twee dalingen | GEZIEN |
+
+### Wat ik zag, in volgorde
+1. **Op het eerste gezicht werkt het.** In de week van het nummer gingen de uitgelichte plugins gemiddeld een derde omhoog, ook na correctie voor heel Obsidian. Uitschieters: Vertical Tabs x2,67, Reminder x2,07, Task List Kanban x1,94, Maps x1,80, Share Note x1,74 (GEZIEN).
+2. **Maar de sprong begon meestal al een week eerder.** De mediaan van de week vóór het nummer (1,35) is even hoog als die van de nummerweek (1,34). Bij Reminder was de week ervoor al x4,27, bij Various Complements x4,14, Vertical Tabs x3,65, Readwise x3,33, Maps x3,32 (GEZIEN). Een nieuwsbrief kan geen downloads geven vóór hij verschijnt.
+3. **De nieuwsbrief kiest plugins die net een nieuwe versie hebben.** 30 van de 34 uitgelichte plugins brachten in de 2 weken ervoor of in de week zelf een versie uit, tegen 20% van vergelijkbare plugins in dezelfde weken (GEZIEN). Veel uitgelichte plugins zijn oud (Hider uit 2020, Auto Link Title uit 2021): ze kwamen in beeld omdat er iets nieuws was. De inhoud komt uit een generator (GEZIEN, AGENTS.md); dat die op nieuwe versies en Reddit-berichten van de afgelopen week let, is mijn lezing (GOK, de generator zelf is niet openbaar).
+4. **Een nieuwe versie geeft op zich al zo'n sprong.** Bij Obsidian telt elke update als download. Wie duizenden gebruikers heeft, ziet na een versie honderden tot duizenden extra downloads, en die vallen in dezelfde weken als het nummer. Vergeleken met hun eigen eerdere weken mét een nieuwe versie zaten de uitgelichte plugins in de nummerweek maar iets boven het midden (mediaan ±60e percentiel van hun eigen versieweken, GEZIEN, eigen berekening per plugin).
+5. **Waar geen nieuwe versie was, bleef weinig over.** Bij de 4 schone gevallen: +152 en +115 downloads in de week, en twee dalingen (GEZIEN). Dat past bij ±800 abonnees: als de helft opent en een paar procent op de uitgelichte plugin klikt, zijn dat tientallen tot hooguit een paar honderd installaties (GOK, open- en klikcijfers van deze nieuwsbrief zijn niet openbaar).
+6. **Lezers kunnen sinds 19 aug zelf plugins aandragen** via een formulier op GitHub ("Add content suggestion workflow", GEZIEN in de commits), en nummer 46 noemt "reader suggested plugins" (GEZIEN). Een maker kan dus zijn eigen plugin aandragen. Of dat meer oplevert dan wat ik hierboven mat, weet ik niet.
+
+### Drie lessen
+1. **Een kleine nieuwsbrief is geen groeikanaal op zich; hij versterkt nieuws dat er al is.** De nieuwsbrief volgt wat er gebeurt (een nieuwe versie, een Reddit-bericht) en zet het nog eens in beeld. Het nieuws zelf geeft de sprong. Voor ons: eerst iets uitbrengen dat het melden waard is, dan pas aandragen bij lijstjes en nieuwsbrieven. Dit past bij hoofdles 9 in `lessen.md` (op een moment lanceren) en bij Fenna's les over in de lijstjes komen.
+2. **Lees een sprong in de teller niet als groei voordat je weet wat de teller telt.** Bij Obsidian telt elke update mee, dus na een nieuwe versie springt de teller zonder nieuwe gebruikers. Bij extensions.blender.org is dat anders: de broncode telt één download per extensie per IP-adres of per ingelogde gebruiker (GEZIEN: `stats/models.py` in projects.blender.org/infrastructure/extensions-website, unieke sleutel op extensie plus IP en op extensie plus gebruiker). Een update van iemand die Click Joints al had, telt daar dus niet opnieuw, tenzij zijn IP-adres veranderde. Voor Garmin (Ebb) heb ik niet uitgezocht wat de teller telt.
+3. **"Uitgelicht" en "geholpen" zijn twee verschillende dingen.** Een lijstje of nieuwsbrief kiest vaak wat al stijgt. Wie alleen naar uitgelichte producten kijkt, denkt dat uitlichten werkt. De vergelijking met de week ervoor en met een controlegroep liet hier zien dat het effect klein is. Dezelfde val geldt voor onze eigen metingen na een filmpje of bericht: kijk ook naar de week ervoor.
+
+### Eerlijk: wat deze meting niet zegt
+- Het gaat om één kleine nieuwsbrief. Een grote nieuwsbrief of site (zoals MacStories, die in nov 2023 "Obsidian Plugin Gems" schreef, achter een betaalmuur, GEZIEN alleen de kop) kan wel veel doen; dat heb ik niet gemeten.
+- Weken zijn grof en ik verdeel de teller lineair tussen meetpunten. Een effect van een paar dagen kan wegvallen.
+- De downloadteller van Obsidian had rond 1 nov 2026 een correctie (zie verhaal 5); mijn reeksen stoppen ervoor, maar er zitten meer rare dalingen in (RSS Dashboard x0,34, Continuous Mode x0,39), waarschijnlijk tellerfouten.
+- Ik weet niet hoe de gems gekozen worden; de samenhang met nieuwe versies is sterk (88% tegen 20%), de reden is GOK.
+
+### Voorstel voor Dortus deze week
+**Bram: breng Click Joints 0.1.1 (gratis) en Pro 1.0.2 uit zodra Daan ja zegt, en schrijf bij elke versie twee zinnen "wat is nieuw" die een gebruiker iets zeggen (niet "fixes"). Chris maakt van die versie het filmpje van die dag (de kniefout die nu goed gaat, voor en na). Hoofdchat: zet pas daarna een bericht klaar voor Thijs om de gratis versie aan te dragen bij één Blender-nieuwssite of nieuwsbrief (bijvoorbeeld BlenderNation, die een formulier voor tips heeft; GOK, niet nagekeken), met de nieuwe versie als nieuws.** Waarom: deze meting laat zien dat lijstjes nieuws volgen, en dat het nieuws (een versie met een zichtbare verbetering) zelf de sprong geeft. Meten: Bram noteert in `downloads.csv` de datum van elke versie en van elk bericht, en vergelijkt de week erna met de week ervoor. Omdat extensions.blender.org per IP telt, is een sprong daar echte nieuwe mensen, geen updates.
 
 ---
 
