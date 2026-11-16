@@ -41,7 +41,7 @@ Per week (mediaan): week 1 42 niveaus en 96 aankopen, week 2 15 en 54, **week 3 
 
 **Gaten (langste tijd zonder iets nieuws, open uren):** tot 40 u 1,9 u, 40 tot 70 u 2,0 u, 70 tot 100 u 4,2 u, 100 tot 130 u 6,0 u. Waar (3 zaden uitgeschreven): rond 67 tot 72 u tussen hol 38 en 39, vlak voor het luik naar laag 4 (in dagen een halve middag), en na ±110 u in week 4 en 5, als laag 4 af is en alleen hol 46 tot 50 nog komen. Grootste bank: ±2.650 bij uur 30 (wachten op hol 30 voor het luik naar laag 3). Voorstel als het eind beter moet: de laatste kamertjes van laag 4 pas vrij op hol 47 en 49, of een stap 7 voor één lijn; dat is een ontwerpkeuze voor Sanne.
 
-**Eerlijk, wat dit niet meet:** de sim koopt alles meteen; de werkdag is een vast patroon (6 uur open, dan dicht); een weekend telt net als een nacht één keer 12 uur (plafond); de nieuwe dingen in laag 4 (niveau 41, 44, 47, 49) zijn plekken voor iets met een prijs, wat het wordt is aan Sanne. Fenna's toets "prijs volgende ontgrendeling / goud per uur" staat al in elk lagenrapport (blok "verhouding").
+**Eerlijk, wat dit niet meet:** de sim koopt alles meteen; de werkdag is een vast patroon (6 uur open, dan dicht); een weekend telt net als een nacht één keer 12 uur (plafond); de nieuwe dingen in laag 4 (niveau 41, 44, 47, 49) zijn plekken voor iets met een prijs, wat het wordt is aan Sanne. Fenna's toets "prijs volgende ontgrendeling / goud per uur" staat al in elk lagenrapport (blok "verhouding"). In dat blok staat bij kamertjes de laag waarin je ze koopt: "laag 2 kamertje" zijn dus die van laag 1 (vrij na het luik naar laag 2), "laag 4 kamertje" die van laag 3 en 4 samen.
 
 
 ## 16 nov 2026 12:45 UTC (Bram): klaar om de voortgang van ±100 uur na te rekenen (besluit Thijs 13:01 NL)
