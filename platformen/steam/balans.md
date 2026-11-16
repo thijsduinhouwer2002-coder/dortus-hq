@@ -3,6 +3,39 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±19:55 UTC: ritme in het gewone spel (Sanne, na Iris keuring 7)
+**Vraag:** Iris mat in de duurtest van 20 min (run 43931188663) dat er **62% van de tijd geen held in beeld** is, gaten mediaan 30 s, nooit twee helden tegelijk, en 13% van de tijd geen held terwijl Gloop plat ligt. Zij gaf drie knoppen: (a) helden sneller na elkaar, (b) Gloop korter plat, (c) soms twee helden kort na elkaar. Ik kies met Brams sim, speeltestbuild (graven gratis, upgrades 45/126/353, drempels 3/5/7/12/17), 40 zaden, held ±15 s in beeld. Script: `platformen/steam/data/sim-ritme/ritme.py`.
+
+**Uitkomst (GEZIEN, mediaan over 40 zaden, eerste 20 min):**
+
+| Variant | held in beeld | gat zonder held | geen held + Gloop plat | helden in paar | ergste gat koop/hol min 1-20 | min 1-60 | hol 6 | hol 12 |
+|---|---|---|---|---|---|---|---|---|
+| nu (35-45 begin, 40-60 later, plat 60) | 33% | 33 s | 20% | 4% | 10,7 | 14,1 | 21 min | 98 min |
+| (b) alleen plat 30 | 33% | 32 s | 12% | 4% | 8,4 | 17,5 | 18 | 94 |
+| (a) 25-35 altijd | 51% | 15 s | 23% | 2% | 8,1 | 14,0 | 14 | 61 |
+| (a) 25-35 + plat 30 | 51% | 15 s | 15% | 2% | 7,4 | 13,5 | 12 | 59 |
+| **(a+b+c) 28-38, 15% kans paar (6-10 s), plat 30** | **49%** | **18 s** | **17%** | **16%** | **7,6** | **13,5** | **13** | **58** |
+| (a) 25-35 alleen tot min 20, daarna 40-60, plat 30 | 51% | 15 s | 15% | 2% | 7,4 | 22,5 | 12 | 84 |
+
+De sim geeft voor nu 33% in beeld; de echte build mat 38%. De sim zit dus iets aan de lage kant, de verschillen tussen varianten tellen.
+
+**Besluit (Sanne, het ritme is mijn keus):**
+1. **Tijd tussen helden 28 tot 38 s** (was 35 tot 45 in het begin en 40 tot 60 daarna), ook na de vaste stappen van BEGIN. De eerste stappen (5-7 s en 18-22 s) en het lied van de bard (8-20 s) blijven.
+2. **15% kans dat de volgende held al na 6 tot 10 s komt** (niet tijdens BEGIN, niet als het lied loopt). Dan lopen er twee kort na elkaar: de een ziet de ander in de put vallen, of ze staan samen voor Gloop. Ongeveer elke 3 min een paar. Gemiddeld komt er zo een held per ±30 s.
+3. **Gloop 30 s plat** (was 60). Bouncy Gloop houdt zijn factor 2/3, dus 20 s.
+4. **Weg-tempo mee: `HELD_ELKE_S` 47,5 naar 30** in `voortgang.gd`, zodat weg nog steeds precies een kwart van spelen is (mijn regel van 14:05). Een nacht levert dus ±1,6 keer zoveel als nu; dat is geen extra, het is hetzelfde kwart van een sneller spel.
+5. **Drempels en prijzen blijven** (3/5/7/12/17/25/31/39/53/69/88, 45/126/353). Hogere drempels voor hol 8 tot 12 geprobeerd: dan wordt het ergste gat in uur 1 slechter (15,3 tegen 13,5 min), dus niet.
+
+**Waarom:** (a) is de enige knop die het lege deel echt kleiner maakt (33 naar 49%); (b) alleen helpt niet voor beeld, wel voor de stilte met een platte Gloop, want meer helden betekent ook vaker plat; (c) kost bijna niets en geeft het moment dat Iris mist (twee helden die elkaar iets aandoen). Meer helden is ook meer goud: de kopen vallen op 2, 8, 22, 35, 63 en 90 min in plaats van 3, 12, 37, 57, 106 en 151 (mediaan), en het gat tussen minuut 5 en 20 waar ik om 18:55 geen oplossing voor had wordt ook kleiner (ergste 10,7 naar 7,6 min). Eén knop, twee problemen.
+
+**Wat het kost (eerlijk):**
+- Hol 12 (Gloop's Empire) komt rond **58 min** in plaats van 98. In een demo van ±2 uur komt er daarna niets nieuws meer op het bordje. Voor de speeltest van za 21 nov maakt dat niet uit (Thijs speelt het begin en een nacht); voor de demo van 18 dec rekenen we het opnieuw met de v3-economie, daar komen kamertjes en laag 2 bij.
+- De winkel van de speeltestbuild is op na ±90 min in plaats van ±150.
+- CPU: helden die lopen zijn de dure stukken (Olaf 13 nov: de metingen boven 1 zijn de stukken met helden). GOK: gemiddeld van ±0,55 naar ±0,7 CPU-s per 10 s, nog onder de grens van 1. Olaf meet het met de duurtest.
+- "Gloop is flat. Back soon." komt vaker voor (Iris: nu al 5 keer in 20 min). Vraag aan Daan: na de tweede keer een andere regel of geen regel.
+
+**Toets:** Olaf draait na de bouw dezelfde duurtest (20 min, 1920x1080, gewoon spel) en `ritme_meting.py`. Geslaagd als held in beeld **minstens 45%**, langste stuk zonder held en zonder regel **onder 40 s**, gemiddelde CPU **onder 0,8**. Haalt het de CPU niet, dan 32 tot 42 s in plaats van 28 tot 38 (sim: ±44% in beeld).
+
 ## Stand 16 nov 18:55 UTC: het gat tussen minuut 5 en 20 in de speeltestbuild (Sanne, na Bram 18:50)
 **Vraag:** Bram zegt dat het gat in minuut 5 tot 20 (ergste 10,7 min zonder koop of nieuw hol-niveau) niet met drempels op te lossen is. Lukt het met prijzen, of met drempels voor hol 5 tot 7? Gerekend met Brams sim, zelfde opzet als `sim/samenval.py` deel 3 (graven gratis, 40 zaden). Scripts en aanpak: `platformen/steam/data/sim-prijzen/` (`prijsladder.py`, `zoek.py`, `drempels.py`, `lang.py`).
 
