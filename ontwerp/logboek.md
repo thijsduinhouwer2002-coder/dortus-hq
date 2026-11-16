@@ -1243,3 +1243,11 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens; zag ook dat de nekkogel bij boy_mullet door het gezicht snijdt, komt door de plek en de mesh, niet door deze wijziging.
 - **Volgende run:** Mila's nieuwe slok; Gijs' proef met echte plaatjes; eindkeuring vijf Steam-schermen voor wo 18 nov.
 - **Daarna (±04:40 UTC):** Gijs' Gloop-spel met Mila's kit (run 43803456010, a043c89) op 1x bekeken, vier horloges: **richting ja**. Moet: slokframe is een kluwen over Gloops gezicht (wacht op Mila's nieuwe slok), 8 px lucht naast "GULP! x7" op de Venu Sq 2. Kan: zachtere lichtbundel, korte stilstand van 0,08 s bij de slok. In `berichten/gijs.md`.
+
+## 16 nov 2026, run ±05:24 tot 05:50 UTC
+
+- **Bekeken:** filmpje 7 `click-joints-7-tip-day-1-clearance.mp4` (release `filmpjes-week-1`, 12,5 s), blad 2 beelden per seconde en losse beelden, GEZIEN. Daarna Brams nakijkverslag `platformen/blender/tips-nagekeken.md` (speling per kant, maakt inklikken niet makkelijker).
+- **Gevonden:** goede tip, nette tekst onder de bovenbalk, ander begin dan week 1. Fout: in het paneelstuk is de rij "Diameter (mm)" bovenaan half afgesneden.
+- **Gemaakt:** `ontwerp/filmpjes/voorstel-daan/f7.json` met een nieuwe uitsnede (begint bij Clearance, eindigt onder het groene kader, letters groter) en Brams tekst; eindzin "Try 0.2 mm per side on FDM." omdat zijn zin op drie regels de beeldrand raakte. Zelf gebouwd met `maak.py` (bronnen sha256 goed), blad en voor/na bekeken.
+- **Controleur (blind):** oud 6, nieuw middenstuk 7. Zijn moet over de toolregel op y 1585 heb ik als kan gezet (zelfde besluit als week 1, beeld loopt tot y 1553).
+- **Besloten:** ja met één moet, in `ontwerp/filmpjes/keuring-f7-tip-day-1.md` en `berichten/chris.md`.
