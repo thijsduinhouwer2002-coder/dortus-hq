@@ -235,4 +235,4 @@ Waarom wel: een tweede moment in beeld een week na ons fest, voor een kleine kan
 ~~Nog niet.~~ **Uitgezocht run 11** (`festivals.md`, kopje Showcases en nieuwsbrieven): december en januari hebben geen open showcase meer (INDIE Live Expo en Wholesome Snack sloten in september, Insider Gaming staat al klaar). Wel: Wholesome Games-nieuwsbrief "Coming Soon" voor maart, mail ±1 feb (conceptmail daar). PC Gaming Show: nee (run 11).
 
 ## Wat Thijs straks precies doet (komt op `organisatie/lijst-thijs.md` zodra de pagina live is)
-Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 8 tot 10 mails (groep A en B met een openbaar adres).
+Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 6 mails op de paginadag (run 13: Easily Distracted, OKtrix, I Dream of Indie, Cozy With Toxi, Gaming In The Wild kort, plus waar tijd is Maybe Sarisa), de rest bij demo af en in februari, zie `makers.md`.
