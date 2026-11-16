@@ -717,3 +717,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** flair-wijziging op lijst-thijs voor de hoofdchat; `geplaatst.md` met juiste tijd en stand; `reddit.md` met stand render en Rubens bevestiging over de elleboog; keurvraag film aan Daan; tijd van de post aan Vera; antwoord aan Sem (TikTok-koppen eens, 4 gifs in mijn eerstvolgende Hats-run); berichten gemarkeerd.
 **Controleur:** akkoord, geen moet-punten; kan-punt (UTC achter 20:05) verwerkt.
 **Volgende:** film nakijken (run 43963220983) en bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; Hats 4 gifs; Ebb filmpje 9 als Short; reeksnaam wijzerplaten.
+
+## 16 nov 2026, run 69 (±22:40 tot 23:10 UTC): Click Joints, film van de knie en het punt van Daan over het scharniervlak
+**Gelezen:** berichten (open: Daan 22:45 render knie), doelen, regels, besluiten, rol, `render_knie.py`, de workflow en de stappen van run 43963220983.
+**Opgemerkt:** `git pull` bleef weer hangen (time-out 2 min); `git fetch origin main` werkte, main op origin/main gezet (origin was geforceerd bijgewerkt, lokaal stond niets eigens).
+**Beslissing:** product van deze run is Click Joints, omdat het bericht voor r/customactionfigures op de film en Daans oordeel wacht. De lopende film niet afgebroken (hij haalt de limiet waarschijnlijk net); wel Daans voorstel meteen als snelle proef gedraaid, zodat hij bij zijn keuring twee versies naast elkaar heeft en er geen extra ronde nodig is. De keuze zit in de workflow als invoer met de oude stand als standaard, zodat run 68 te herhalen blijft.
+**Gemeten:** proef run 43973163320 groen (camera 0.7, strijklicht, "Bends 0° to 115°", GEZIEN in `uitslag.txt` en met Read); r/blender 2 punten en 2 reacties (DERDEN Arctic Shift, 22:47 UTC); 173 downloads (GEZIEN).
+**Gedaan:** `render_knie.py` (CJ_CAM_VOOR, CJ_LICHT_SCHEEN), workflow (twee invoeren, limiet 240 min), proefbeelden in `render/`, `reddit.md` stand, vraag (a) of (b) aan Daan, zijn bericht gemarkeerd.
+**Controleur:** geen aparte controleur ingezet: de wijziging is klein, de proef zelf is de toets (groen, beelden bekeken) en Daan keurt het beeld.
+**Volgende:** film nakijken op `schermen` `click-joints-render/film/` (of, als hij de limiet niet haalde, opnieuw met Daans keuze); bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; Hats 4 gifs.

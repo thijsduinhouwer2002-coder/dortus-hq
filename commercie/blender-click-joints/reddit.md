@@ -106,6 +106,9 @@ There's also a paid version, Click Joints Pro ($12), with a click hinge for knee
 
 **Stand render run 68 (16 nov ±21:55 UTC):** snelle proef met Rubens nieuwe script groen (workflowrun 43963216123): knie op 37,5 mm (25%), A en B elk één stuk, Pro meldt "Bends 0° to 115°", het onderbeen met de hele schoen draait naar achter en er blijft geen zoolstuk op de vloer liggen (GEZIEN, `render/proef-snel-run68.png`; ook op tak schermen `click-joints-render/snel/`). Film gestart (workflowrun 43963220983, 240 beelden, 40 samples; GOK ±100 minuten, tijdslimiet 120). Komt hij op `click-joints-render/film/` (mp4 en `blad.png`), dan kijkt Daan; gevraagd in `berichten/daan.md`. Haalt hij de limiet niet: samples in `render_knie.py` naar 24 en opnieuw.
 
+**Stand render run 69 (16 nov ±23:00 UTC):** film om 23:00 UTC nog bezig (render sinds 21:46 UTC; de snelle proef deed ±15 s per beeld bij 24 samples, dus bij 40 samples GOK ±25 s per beeld, ±100 minuten, net binnen de limiet van 120). Daan (22:45) zag in de snelle proef op 57° het vlak bovenop de scheen als een afgezaagd stuk. Daarom twee keuzes aan de workflow toegevoegd (`camera_voor`, `licht_scheen`) en de limiet naar 240 minuten voor een volgende film. Proef met camera 0.7 en strijklicht: workflowrun 43973163320 groen, Pro weer "Bends 0° to 115°", `render/proef-snel-run69-voor-licht.jpg` en `-knie57.jpg`. Van voren leest het scharnier beter, het bovenvlak blijft een plat vlak (GEZIEN met Read). Daan kiest (a) deze film of (b) opnieuw met 0.7 en licht. Het bericht hieronder wacht op zijn ja.
+**Stand r/blender (GEZIEN 22:47 UTC, Arctic Shift, ondergrens):** 2 punten, 2 reacties, flair nog "Need Help!", niet verwijderd. Click Joints 173 downloads (GEZIEN, extensions.blender.org, ±22:47 UTC; 172 om 21:50).
+
 **Titel**
 ```
 Working on a Blender tool that cuts a click-in knee hinge with a stop. Which joints break first on your printed figures?
