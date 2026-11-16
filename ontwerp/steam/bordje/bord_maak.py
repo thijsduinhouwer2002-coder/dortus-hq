@@ -4,7 +4,7 @@ base=Image.open(sys.argv[1]).convert('RGB')
 D={'1':["010","110","010","010","111"],'2':["111","001","111","100","111"],'5':["111","100","111","001","111"],'0':["111","101","101","101","111"],'2b':[]}
 # 4x6 vette cijfers
 F={'5':["1111","1000","1110","0001","1001","0110"],'1':["0110","1110","0110","0110","0110","1111"],'2':["0110","1001","0010","0100","1000","1111"]}
-GOUD=(255,224,122); GOUDD=(196,140,40); HOUT=(122,74,40); HOUTL=(160,102,56); HOUTD=(70,40,22); RAND=(40,22,12); BALKLEEG=(58,34,20)
+GOUD=(255,224,122); GOUDD=(196,140,40); HOUT=(222,118,78); HOUTL=(240,150,105); HOUTD=(129,80,44); RAND=(114,62,49); BALKLEEG=(90,48,36); CREME=(251,242,192); PAAL=(167,102,84)
 def cijfer(d,x,y,s,kleur,schaduw):
     for r,row in enumerate(F[s]):
         for c,v in enumerate(row):
@@ -13,12 +13,12 @@ def cijfer(d,x,y,s,kleur,schaduw):
 def bord_a(niv,deel):
     # plank op paaltje, 13x9 spelpixels plus paal
     w,h=13,11; im=Image.new('RGBA',(w,h+4),(0,0,0,0)); d=ImageDraw.Draw(im)
-    d.rectangle((5,h-1,7,h+3),fill=HOUTD); d.rectangle((6,h-1,6,h+3),fill=HOUT)
+    d.rectangle((5,h-1,7,h+3),fill=HOUTD); d.rectangle((6,h-1,6,h+3),fill=PAAL)
     d.rectangle((0,0,w-1,h-1),fill=RAND); d.rectangle((1,1,w-2,h-2),fill=HOUT); d.line((1,1,w-2,1),fill=HOUTL)
     s=str(niv); x=(w-len(s)*5+1)//2
-    for k,ch in enumerate(s): cijfer(d,x+k*5,2,ch,GOUD,HOUTD)
-    d.line((2,h-2,w-3,h-2),fill=BALKLEEG); n=round((w-4)*deel)
-    if n: d.line((2,h-2,2+n-1,h-2),fill=GOUD)
+    for k,ch in enumerate(s): cijfer(d,x+k*5,2,ch,CREME,HOUTD)
+    d.line((1,h-1,w-2,h-1),fill=BALKLEEG); n=round((w-2)*deel)
+    if n: d.line((1,h-1,1+n-1,h-1),fill=GOUD)
     return im
 def bord_b(niv,deel):
     # schildje op de sluitsteen van de boog, 9x10
