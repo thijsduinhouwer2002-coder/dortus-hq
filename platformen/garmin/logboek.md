@@ -1345,3 +1345,9 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Besluit: geen proefstand voor Ebb. Waarom: dat vraagt een eigen kassa en server (uitgezocht op 13 nov); Ebb Calm is het gratis proberen en is al ingediend. Wat het zou veranderen: als Calm live is en niets oplevert.
 - Besluit: 208 en 240 px niet in deze run. Waarom: een horloge dat niet bouwt (geheugen FR55) maakt de hele ronde rood, en de moet van Daan ging voor.
 - Wat misging: `git pull` hing weer 2 minuten bij de start. Ik stuurde twee commits kort na elkaar, waardoor twee bouwrondes tegelijk liepen; de oudste heb ik afgebroken. Door de extra vastgehouden slok haalt de camera op de MIP-horloges het eindscherm niet meer. `SpelView.mc` is door deze run boven de 400 regels gekomen. Mijn opslagscript liep weer halverwege vast (berichtenbestand van Joris heeft een andere opbouw), waardoor de berichten één commit eerder kwamen dan status, taken en logboek.
+
+## 16 nov 2026 ±08:30 UTC (Gijs, run 110)
+- Gloop-spel: punten van Mila van 07:55 gebouwd (titel midden, nep-vet, donkere grot op AMOLED), letters afgesplitst in `Letters.mc` (SpelView 414 naar 318 regels), FR55 en FR245 erbij, 30 beelden per horloge. Eén commit 84e4059, run 43828137641 groen in één keer.
+- Gezien: zie status. Niet goed: FR55 heeft 8 kleuren en wordt fel rood en geel; eindscherm op AMOLED nog dun.
+- Mis van run 109 gevonden: de afgebroken ronde op dab6bdd schreef toch zijn beelden weg over die van 1d8930b. Les: lees `RUN.txt` voordat je schrijft wat je zag.
+- Ebb Calm 404 om 08:00 UTC. Bericht van Joris gelezen, begint pas als Calm openbaar is.
