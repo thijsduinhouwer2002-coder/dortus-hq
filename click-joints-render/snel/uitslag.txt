@@ -14,11 +14,13 @@
 /tmp/fig.log:[cj-chris] KLAAR
 /tmp/render.log:[cj-render] add-on geladen: True
 /tmp/render.log:[cj-render] A army_man_gesloten_A, B army_man_gesloten_B, bereik 114.96, punt (-2.83, 15.57, 37.5), lidas (0.0, -0.0, 1.0), buigkant (1.0, -0.0, -0.0)
-/tmp/render.log:[cj-render] export {'FINISHED'}: /tmp/uit/stl/army_man_gesloten_A.stl (1777284 B), /tmp/uit/stl/army_man_gesloten_B.stl (11080584 B)
+/tmp/render.log:[cj-render] export {'FINISHED'}: /tmp/uit/stl/army_man_gesloten_A.stl (1777384 B), /tmp/uit/stl/army_man_gesloten_B.stl (11080184 B)
 /tmp/render.log:[cj-render] A terug uit STL: van (-20.84, 3.92, 0.19) tot (17.42, 28.15, 44.78), verschil met de add-on 0.000 mm
 /tmp/render.log:[cj-render] B terug uit STL: van (-15.69, -45.75, 0.02) tot (20.82, 45.76, 149.97), verschil met de add-on 0.000 mm
 /tmp/render.log:[cj-render] teken -1: voet gaat bij +30 graden 2.94 mm naar de buigkant
-/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.222
-/tmp/render.log:[cj-render] stil 57.5 graden geschreven, gemiddelde helderheid 0.224
-/tmp/render.log:[cj-render] stil 115.0 graden geschreven, gemiddelde helderheid 0.222
+/tmp/render.log:[cj-render] strijklicht op het scharniervlak aan
+/tmp/render.log:[cj-render] camera voor 0.70
+/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.252
+/tmp/render.log:[cj-render] stil 57.5 graden geschreven, gemiddelde helderheid 0.251
+/tmp/render.log:[cj-render] stil 115.0 graden geschreven, gemiddelde helderheid 0.249
 /tmp/render.log:[cj-render] KLAAR bereik 114.96
