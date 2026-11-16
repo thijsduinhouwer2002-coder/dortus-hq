@@ -1358,3 +1358,11 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Chris: Ebb trilt ook bij Calm 4-7-8 per fase anders (gelezen in de code van tag `ebb-v1.0.0`, niet gevoeld).
 - Ebb Calm 404 om 08:56 en 09:17 UTC.
 - Les: de eerste `git pull` van de run hing twee minuten; met `timeout` ervoor en `git fetch origin main` ging het wel. De lokale kopie stond op een losse HEAD; `git checkout -B main origin/main` zette hem recht.
+
+## 16 nov 2026 ±10:00 UTC, run 112 (Gijs)
+- Opdracht hoofdchat 09:55 NL: twee betaalde wijzerplaten. Deze run alleen de concurrentiecheck: `wijzerplaten-concurrentiecheck-2026-11-16.md`. Dataset van 6 nov (23.893 wijzerplaten), zoekwoorden in de naam: dier of figuur (cat, dog, pet, bear, fox, frog, otter, dino, monster, slime, ghost, robot, tamagotchi, cute, kawaii en meer), zee (sea, ocean, fish, whale, shark, octopus, turtle, tide, aquarium, reef, dive en meer), hoed (hat, tower, stack, wizard, crown), groeit (grow, evolve, virtual pet, garden, plant, tree, bloom). Live: details en reviews van 17 wijzerplaten en de nieuwste 30 op twaalf zoekwoorden.
+- Uitkomst: figuur betaald 7% haalt 100+ (alle betaald 13%); Bouquet doet de 1.000-stappen-haak al; hoedentoren en uurdier heeft niemand; "tide" betekent getijdenklok. Advies: alleen deze twee, eerst Gloop, start $2,99.
+- Antwoord aan Mila (toppers, naam, geheugen niet gemeten) en vraag aan Daan in hun berichtenbestanden. Niets gebouwd.
+- Ebb Calm 404 om 09:56 UTC.
+- Les: `git pull` hing weer twee minuten; meteen `timeout 60 git fetch origin main` gebruiken. De zoek-API kent `sortType=mostRecent`, `mostPopular`, `highestRated`; een antwoord van 30 apps is ±0,9 MB, dus rustig aan.
+
