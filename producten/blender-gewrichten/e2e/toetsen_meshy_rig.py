@@ -3,7 +3,7 @@
 Gebruikt de opzet van proef_meshy_rig.py (figuur 150 mm, Make watertight, rig met Mixamo-namen uit doorsneden,
 linkerknie Limit Rotation 120, rechts niets). Alleen heupen en knieën (`CJ_ALLEEN=hip,knee`), heupkop op 52%.
 Eisen per figuur:
-- linkerknie scharnier 0-120 `from rig`; rechterknie `mirrored` (in 4.2 mag die eerlijk ontbreken: Exact-solver);
+- linkerknie scharnier 0-120 `from rig`; rechterknie `mirrored` (in 4.2 mag een knie eerlijk ontbreken: Exact-solver);
 - elk deel gesloten en één stuk (geen achtergelaten zool of blokje);
 - een heup die er niet op komt heeft een leesbare reden (geen "not placed", geen kale "nothing was cut").
 
@@ -79,8 +79,11 @@ def main():
         over = next((o.get("cj_rig_overgeslagen") for o in delen if o.get("cj_rig_overgeslagen")), "") or ""
         log(f"{naam}: uitslag {r}, gewrichten {[fig.regel(x) for x in alle]}, overgeslagen: {over}")
         lk = per.get("Left knee")
-        check(lk is not None and lk.get("herkomst") == "from rig" and round(lk.get("graden") or 0) == 120,
-              f"{naam}: linkerknie 0-120 from rig ({lk})")
+        # 4.2 (Exact-solver, plan punt 3): een knie mag eerlijk weigeren, met een echte reden in de lijst.
+        lk_reden = next((s for s in over.split("; ") if s.startswith("Left knee (")), "")
+        check((lk is not None and lk.get("herkomst") == "from rig" and round(lk.get("graden") or 0) == 120)
+              or (oud and lk is None and lk_reden and "not placed" not in lk_reden),
+              f"{naam}: linkerknie 0-120 from rig ({lk or lk_reden})")
         rk = per.get("Right knee")
         check((rk is not None and rk.get("herkomst") == "mirrored") or (oud and rk is None),
               f"{naam}: rechterknie mirrored ({rk})")
