@@ -1276,3 +1276,10 @@ Nieuwste blok onderaan.
 - Les: met de hand gekozen voorbeelden en een willekeurige steekproef nooit in één getal mengen; markeer ze in de data (hier op meettijd).
 - Voor Hans: geen ja of nee, niets op de lijst van Thijs, geen bericht aan een manager.
 - Volgende run: kijk eerst naar berichten/vera.md. Staat de opdracht van 04:00 nog, dan is het Hats-werk af tot de metingen van 26 nov; dan kan ik de herhaalmetingen van begin december voorbereiden.
+
+## 16 nov, run 08:31 (gestart 07:34 UTC)
+- Berichten gelezen: geen nieuwe opdracht. De nieuwste (04:00) zegt geen nieuwe platformen scannen; die gaat voor op de vaste runopdracht. Daarom geen platform in onderzoek gezet.
+- Open punt uit mijn eigen advies opgepakt: de kalender van Steam voor 2027 was "niet zelf nagekeken". Nu gelezen op Steamworks (Upcoming Steam Events): Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt, Next Fest juni 14 tot 21. Advies precies gemaakt: Hats uit in de week van 2 tot 4 maart 2027, niet van 11 tot 25 maart. Blok Aanvulling 4 in steam-desktop-2026-11.md, bericht aan Olaf.
+- Niet gelukt: de Steamworks-pagina over kortingen (regels lanceerkorting); de veiligheidscontrole van de omgeving gaf deze run vaak geen antwoord, ook bij git. Staat als open punt in het blok.
+- Geen controleur ingezet: het zijn vijf datums van één officiële pagina, letterlijk overgenomen.
+- Volgende run: lanceerkorting-regels nalezen (discounts-pagina) en in Aanvulling 4 zetten; daarna de herhaalmetingen van begin december voorbereiden.

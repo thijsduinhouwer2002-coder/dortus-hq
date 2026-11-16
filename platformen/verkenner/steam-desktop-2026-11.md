@@ -162,3 +162,27 @@ Een aparte controleur heeft de twee blokken hierboven nagerekend tegen de data: 
 1. Reken met **±5 volgers per review** ruim na de lancering, maar met een brede band (±3 tot 10). 300 volgers past dan bij ±60 reviews, eerlijk gezegd ergens tussen 30 en 110. Om bij de 100+ reviews van de kaart te horen heeft Hats na de lancering ±500 volgers nodig (300 tot 1.000). Met ±30 verkopen per review is 60 reviews ±1.800 verkopen; ook die factor is onzeker, dus lees dit als orde van grootte.
 2. De lat op het fest: binnen de spellen die op Hats lijken is 100+ volgers top 10% en 300+ bovenaan (alleen Bondoq 460 zit hoger). In de hele bureaubladhoek staan er ±30 aangekondigde apps boven de 300, vooral huisdieren en companions; die spelen in een andere hoek van het fest, maar trekken wel dezelfde bezoekers.
 3. Het advies blijft: een demo vóór het fest, en de winkelpagina vanaf 1 dec wekelijks meten naast Don't Rob My Dungeon, Traymon World, Bondoq en Fish Tankfully.
+
+## Aanvulling 4, 16 nov run 08:31: de kalender van Steam voor 2027 (maandadvies precies gemaakt)
+In het advies stond "niet in de week van een grote uitverkoop, niet zelf nagekeken voor maart 2027". Nu wel: de Steamworks-pagina Upcoming Steam Events (`partner.steamgames.com/doc/marketing/upcoming_events`, GEZIEN 16 nov 07:45 UTC) noemt:
+
+| wanneer (2027) | wat | wat het voor Hats betekent |
+|---|---|---|
+| 14 tot 18 jan | Desktop Companion Fest | wij doen mee als "binnenkort" met demo (staat al in `platformen/steam/planning-fest-2027.md`) |
+| 25 jan tot 1 feb | Shop Keeper Fest | niet onze hoek |
+| **22 feb tot 1 mrt** | **Next Fest februari** | alleen voor spellen die nog niet uit zijn, met speelbare demo; aanmelden uiterlijk 10 jan (planning) |
+| 8 tot 15 mrt | Rhythm Fest | niet onze hoek, kleine drukte |
+| **18 tot 25 mrt** | **Spring Sale** (seizoensuitverkoop) | meedoen kan alleen als het spel 30 dagen vóór de start uit is, dus uiterlijk 16 feb; dat botst met Next Fest, dus Hats doet niet mee |
+| 14 tot 21 jun | Next Fest juni | reserve als we februari missen |
+| 24 jun tot 8 jul | Summer Sale | |
+
+Ook gezien: Winter Sale 17 dec 2026 tot 4 jan 2027, en Black Friday 26 tot 30 nov 2026 als thema op de kortingspagina (geen eigen fest).
+
+**Advies, nu met data (GOK met onderbouwing):**
+- **Uitbrengen in de week van di 2 tot do 4 maart 2027**, direct na Next Fest. Wie op het fest de demo speelde en het spel op de verlanglijst zette, krijgt dan meteen de melding "nu te koop", terwijl het spel nog vers in het geheugen zit.
+- De **korting van de eerste week** (15%) loopt dan af rond 9 tot 11 maart, ruim vóór de Spring Sale van 18 maart. Dan staat ons spel niet met een kleine korting tussen duizenden spellen met grote kortingen.
+- **Niet uitbrengen van 11 tot 25 maart**: de week vóór en tijdens de Spring Sale gaat de aandacht van kopers naar kortingen, en wij mogen niet meedoen.
+- **Schuift het?** Dan eerst ma 29 mrt tot half april (na de Spring Sale, februari en maart scoorden in de kaart het best, april nog redelijk met 26% 100+). Schuift het verder, dan Next Fest juni met uitbrengen na de Summer Sale, maar juli en augustus scoorden slecht (augustus 10% 100+), dus dat is de zwakste keuze.
+- Wat ik niet heb nagekeken: de precieze regels van Steam voor de korting bij de lancering (de pagina over kortingen kon ik deze run niet ophalen). Dat moet de Steam-manager nalezen in `partner.steamgames.com/doc/marketing/discounts` vóór de prijs wordt ingesteld.
+
+Doorgegeven aan Fenna (berichten/fenna.md), zodat de lanceerdatum in de planning komt.
