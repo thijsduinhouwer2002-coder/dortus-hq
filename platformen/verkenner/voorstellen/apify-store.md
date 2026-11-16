@@ -1,5 +1,53 @@
 # Voorstel: Apify Store (Actors)
 
+## Herhaling 16 nov 2026 (run 21:31), nu met eigen meting
+
+**Advies: nee voor nu. Cijfer: 4 van 10 (blijft).** Het geld is echt en groeit (Apify betaalt makers nu $2M per maand), en bouwen past heel goed bij ons. Maar de winkel loopt vol met ±27.000 nieuwe Actors per maand, en een gewone nieuwe Actor heeft na 3 tot 6 maanden 2 gebruikers. Een grote speler worden lukt hier alleen met massa, en dat doen honderden makers met AI al. Nagekeken door de controleur, met een eigen tweede steekproef: akkoord, zijn cijfers liggen iets lager.
+
+Op 6 nov gaven winkel en API een 403. Nu antwoordt de open winkel-API (`api.apify.com/v2/store`, `api.apify.com/v2/acts/<maker>~<naam>`) en robots.txt van apify.com staat alles toe (ai-input=yes).
+
+**Hoe gemeten (GEZIEN, 16 nov):**
+- Sitemap apify.com (actors1 t/m 20): 123.175 Actors van 10.487 makers. Winkel-API meldt ±121.700.
+- Willekeurige steekproef van 3.000 Actors uit de sitemap (zaad 16), per Actor de detail-API met aanmaakdatum en gebruikers (totaal, 30 dagen). 2.995 goed opgehaald.
+- Willekeurige steekproef van 400 makers, al hun Actors via `store?username=`, plus de aanmaakdatum van hun oudste Actor. Let op: bij ±40% van de makers geeft dat filter niets terug (de controleur zag 15 van 40, hun Actors los opgevraagd haalden hooguit 7 maandgebruikers samen). De makercijfers hieronder zijn dus te gunstig.
+- De nieuwste 13.362 Actors in de winkellijst (dieper bladeren kan niet): aangemaakt van 3 tot 16 nov.
+- Scripts en ruwe steekproef: `data/apify-detail-script.sh`, `data/apify-actors-analyse-script.py`, `data/apify-maker-script.sh`, `data/apify-makers-analyse-script.py`, `data/apify-steekproef-3000-2026-11-16.jsonl`.
+
+**Bereik (GEZIEN)**
+- Lichting mei t/m aug 2026 (n=948): mediaan 2 gebruikers ooit, mediaan 1 in de laatste 30 dagen (vaak de maker zelf of de test van Apify, GOK). 3,4% haalde ooit 100+ gebruikers, 0,6% heeft 100+ in de laatste 30 dagen. Controleur, eigen steekproef van 600 (203 uit die maanden): mediaan 2, 2,5% en 0%.
+- Ouder helpt weinig: lichting jan t/m apr 2026 mediaan 7 tot 12 ooit, ±11% 100+; lichting 2025 per maand ±10 tot 60% 100+ ooit, maar per 30 dagen bijna nergens 100+.
+- Per soort (lichting mrt t/m aug): sociale media (n=155, 14% 100+) en video (n=47, 13%) doen het het best; ontwikkeltools, AI, MCP-servers en zakelijk 0 tot 7%. De beste soorten zijn juist het scrapen van grote platformen, met het grootste juridische risico.
+- Geconcentreerd: in de steekproef heeft de top 1% van de Actors 86% van alle maandgebruikers, de top 10% 94%.
+
+**Drukte (GEZIEN)**
+- 13.362 nieuwe openbare Actors in ±13,5 dagen: ±27.000 tot 30.000 per maand. In de steekproef: 147 uit mei, 305 uit aug, 725 uit okt. Op 6 nov meldde apifystats 26.772 in okt (DERDEN); dat klopt.
+- Massamakers: in de nieuwste 13.362 hebben 1.518 makers iets gezet, de grootste 141 tot 144 Actors in twee weken (memo23, rbbscrap). 69% van de steekproef uit mei t/m aug is van makers met 50+ Actors.
+- 93% van de makers in de makersteekproef begon in 2026. De winkel is dus vooral nieuwkomers.
+
+**Geld**
+- DERDEN, Apify zelf (apify.com/partners/actor-developers, gelezen 16 nov): "$2M paid out monthly", "7,500 community developers", "Many developers earn over $3k". Op 6 nov was het $1,7M, in aug $1,4M.
+- DERDEN, eigen opgave kleine maker: [Boon](https://dev.to/boo_n/3-months-shipping-my-first-apify-actor-64-users-200mo-and-everything-i-got-wrong-52i7), Vinted-scraper, begonnen feb 2026: stand mei 2026 64 gebruikers ooit, 13 actief per maand, ±$200 per maand netto na 20% afdracht. Het beste nieuwe bewijs, maar onder $300, en Vinted verbiedt tools van derden (zie kansen/chrome-vinted-en-ondertitels.md).
+- DERDEN, oud: [Guillaume Lancrenon](https://blog.apify.com/turning-code-into-cash-with-apify/) $2.000+ per maand (okt 2024, geen nieuwe maker).
+- GEZIEN, makers die in mei t/m aug 2026 begonnen (n=60, te gunstig, zie boven): mediaan 4 maandgebruikers over al hun Actors samen, 5% haalt 200+, niemand 1.000+. Makers met 21+ Actors halen mediaan ±120 tot 185 maandgebruikers samen; makers met 1 Actor mediaan 1. Snelste nieuwkomer in de steekproef: blueskyscraper, 70 Actors sinds sep 2026, 2.631 maandgebruikers.
+- GOK, opbrengst per maandgebruiker: gemiddeld ±$1 ($2M gedeeld door ±1,8M maandgebruikers per Actor in de hele winkel, schatting uit de steekproef), maar bij Boon ±$15. Een massamaker met ±150 maandgebruikers zit dan ergens tussen $150 en $2.000 per maand. Te onzeker om op te bouwen.
+- Voorwaarde van 6 nov (3 makers met minder dan 12 maanden en een eigen cijfer boven $300 per maand): niet gehaald, we vonden er 0 (Boon $200).
+
+**Vindbaarheid**
+- Zoeken in de winkel en op Google, en sinds 2026 AI-agents via MCP; Actors krijgen een vlag `isWhiteListedForAgenticPayments` (agents betalen zelf per gebruik). Dat is een nieuw kanaal, maar MCP-servers als soort doen het niet beter dan de rest (7% 100+).
+
+**Past het bij ons**
+- Bouwen: zeer goed. Code, Linux, test in de cloud van Apify, betalen en uitbetalen geregeld. Een Actor in 1 tot 3 dagen.
+- Grote speler worden: alleen met tientallen Actors en onderhoud (scrapers breken). Honderden makers doen dat al met AI; geen voorsprong voor ons.
+- Thijs moet een Apify-account met uitbetaling hebben (staat niet klaar). Juridisch risico bij scrapen blijft.
+
+**Waarom niet hoger:** bereik voor een nieuwe Actor is het zwakste dat we zagen naast Zendesk en Freshworks (mediaan 2, 0 tot 0,6% 100+ per maand), de vloed is verdubbeld sinds juli, en het geldbewijs van nieuwe kleine makers blijft onder $300. **Waarom niet lager:** het geld op het platform is groot en groeit, en er zijn nieuwkomers die met massa snel honderden maandgebruikers halen.
+
+**Wanneer opnieuw (rond 16 feb 2027):** `data/apify-detail-script.sh` op een nieuwe steekproef van 3.000 uit de sitemap, dan `data/apify-actors-analyse-script.py`. Opnieuw wegen als de lichting nov 2026 t/m jan 2027 op 5%+ met 100+ maandgebruikers komt, als de vloed onder 10.000 per maand zakt, of als we 3 makers met minder dan 12 maanden en een eigen cijfer boven $300 per maand vinden.
+
+---
+
+## Eerste meting 6 nov 2026
+
 **Advies: nee. Cijfer: 4 van 10.** Op platformniveau wordt hier echt geld uitbetaald, meer dan op enig platform dat we tot nu toe zagen. Maar bij nieuwe kleine makers is dat niet bewezen (hoogste cijfer dat we vonden: $47 netto), het bereik van een gewone nieuwe Actor is erg laag, en de stroom nieuwe Actors verdubbelde in oktober. Geen manager. Heropenen alleen onder de voorwaarde onderaan. Geschreven op 6 nov 2026.
 
 Een Actor is een klein programma in de cloud van Apify, meestal een scraper of een hulpmiddel voor AI-agents. De koper betaalt per resultaat, Apify betaalt de maker uit.

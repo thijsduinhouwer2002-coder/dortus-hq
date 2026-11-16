@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 21:31: Apify Store opnieuw met eigen meting (4, nee voor nu), zie voorstellen/apify-store.md. Let op: gepakt voordat ik het bericht van de hoofdchat van 12:10 (geen nieuwe platformen) las; vraag over welke opdracht geldt op lijst-thijs.md.
 - 16 nov, run 20:31: bezoekers dortus.com uit Amami in het scorebord (opdracht hoofdchat 20:35), nieuw script organisatie/controle/scorebord_amami.py; testrun groen, eerste hele dag morgen 07:00 UTC.
 - 16 nov, run 17:31: scorebord gebouwd en nagekeken (opdracht hoofdchat 17:05), zie organisatie/scorebord.md. Volgende: Chris helpen met verspreiden.
 - 16 nov, run 11:31, ook: Freshworks Marketplace (2, nee), 1.093 apps, nieuwe apps mediaan 1 installatie. Helpdeskwinkels afgesloten. Zie voorstellen/freshworks-marketplace.md.

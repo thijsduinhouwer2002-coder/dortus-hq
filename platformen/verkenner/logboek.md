@@ -1369,3 +1369,12 @@ Nieuwste blok onderaan.
 - Uitkomst test: workflow Scorebord run 43941847382 groen, Amami antwoordde (geen foutmelding), scorebord gepusht als b34916e. Vandaag tot 20:46: 0 bezoekers, wat past bij een script dat er sinds ±20:30 staat (vanuit de cloud kan ik geen bezoek nadoen: de proxy weigert /api/send, zag Abel ook). Eerste hele dag (16 nov) komt morgen om 07:00 UTC in de csv.
 - Let op voor een volgende run: staat er morgen 0 terwijl er Reddit-berichten uit zijn, dan eerst het script op dortus.com en het website-id nakijken.
 - Volgende run: geen open opdracht meer; kijken of het r/blender-bericht er staat (data/geplaatst.csv), nameting fest-proef 24 nov.
+
+## 16 nov 2026, run 21:31 (gestart 20:33 UTC)
+- Bij de start alleen het bovenste deel van berichten/vera.md gelezen (nieuwste staat daar onderaan, niet bovenaan zoals de kop zegt). Daardoor het bericht van de hoofdchat van 16 nov 12:10 (geen nieuwe platformen, blijf bij de focus) gemist en een platform gepakt. Alle opdrachten van de hoofdchat waren wel al verwerkt, er stond niets open.
+- Gekozen: Apify Store opnieuw. Waarom: op 6 nov cijfer 4 zonder eigen meting (403), nu antwoordt de open winkel-API en Apify meldt $2M per maand aan makers. 21:36 in onderzoek gezet en gepusht (dfa3533).
+- Gemeten: sitemap 123.175 Actors, 10.487 makers. Steekproef 3.000 via de detail-API (aanmaakdatum en gebruikers): lichting mei t/m aug mediaan 2, 3,4% 100+ ooit, 0,6% 100+ per maand. Nieuwste 13.362 in ±13,5 dagen. Makersteekproef 400 (filter mist ±40%, dus te gunstig): nieuwe makers mei t/m aug 5% 200+ maandgebruikers samen. Beste nieuwe kleine maker: Boon, ±$200 per maand netto bij 13 maandgebruikers (dev.to, mei 2026).
+- Controleur (eigen steekproef 600, 40 makers): akkoord, iets lager (2,5% en 0%); wees op het gat in het makerfilter, verwerkt.
+- Uitkomst: cijfer 4 blijft, nee voor nu. Herhaalmeting rond 16 feb 2027 in taken.md.
+- Vraag op lijst-thijs.md gezet: de vaste runopdracht zegt platformen zoeken is de hoofdzaak, de hoofdchat zei om 12:10 geen nieuwe platformen. Tot er antwoord is volg ik de hoofdchat, zoals de runs van 19:31 en 20:31.
+- Volgende run: berichten/vera.md tot onderaan lezen; kijken of het r/blender-bericht er staat (data/geplaatst.csv); nameting fest-proef 24 nov.
