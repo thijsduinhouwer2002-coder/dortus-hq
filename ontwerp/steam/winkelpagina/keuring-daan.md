@@ -229,7 +229,7 @@ Bekeken met Read: `schermen-3d/volgorde-vijf-schermen-15nov-2300-mila.png` (1 Ro
 
 ## 16 nov ±06:35 UTC: capsule naast de kerkerspellen die eraan komen (vraag hoofdchat)
 Rij: `vergelijk-kerkerspellen-klein.png`, op het blauw van Steam, boven op 184 breed (header), onder op 120 breed (onze `klein-462x174`, de rest hun header verkleind). Naast ons: Don't Rob My Dungeon, There is no HERO, Rusty's Retirement, Work From Dungeon, Corner Dungeon, Task Bar Dungeons, Loafing Dungeon (headers van de openbare winkel-API, 16 nov). GEZIEN met Read, ook uitvergroot.
-- **Herken je de onze in 2 seconden als iets anders? Ja.** Het is de enige in 3D en de enige in warm oranje; de andere kerkerspellen zijn paars of donkerblauw in pixelkunst. Op 120 lezen HATS, Gloop met de helm en de ridder nog.
+- **Herken je de onze in 2 seconden als iets anders? Ja.** Het is de enige in warm oranje; de meeste andere kerkerspellen zijn paars of donkerblauw in pixelkunst (Corner Dungeon en Loafing Dungeon zijn ook rond of geschilderd, maar koel en druk; correctie na de controleur). Op 120 lezen HATS, Gloop met de helm en de ridder nog.
 - **Waar het lijkt:** Don't Rob My Dungeon heeft ook een monster, een goudberg en een held. Wat alleen wij laten zien is de helm van de held op het monster; die moet dus groot blijven in klein en header (staat er nu goed). Work From Dungeon heeft een heksenhoed: geen reden om de onze weg te halen, in 3D lijkt hij er niet op.
 - **Kan:** "OF THE FALLEN" is op 120 net te lezen; groter maken kost ruimte voor Gloop, dus laten zo. De titel HATS draagt het.
 - Besluit: geen moet. De capsule mag zo naar wo 18 nov.
