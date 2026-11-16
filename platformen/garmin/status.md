@@ -1,5 +1,10 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±16:15 UTC, run 118. Ebb 1.0.1 is nog NIET klaar voor Thijs: er loopt een nieuwe run en Daan moet nog ja zeggen op 240 en 360 px.**
+  - **Gezien:** veiligheidsbladen 1 tot 3 en how it works op fēnix 7S (240), Forerunner 265S en Venu 2S (360), uit plaatjesrun 43882501055 (1aebd69): binnen de rand, niets afgesneden. Alle 23 jobs van die run groen.
+  - **Niet gezien:** de werelden en sessies op de Enduro 3 (scènes 62 tot 156). De simulator gaf daar geen beeld meer en de job was toch groen. Hersteld in de bouwstraat (79d2a6b, app ongewijzigd); runs 43902431815 en 43902431831 liepen nog toen ik stopte, uitslag niet gezien.
+  - **Uitgezocht:** proefstand nee, codes voor testers bestaan via een formulier van Garmin, $2,99 is geen prijspunt, betaalde apps staan alleen op een vaste lijst horloges (alle 56 van Ebb staan erop). `proefstand-en-codes-2026-11-16.md`.
+  - **Wacht op:** Daan (ja op 240 en 360), de hoofdchat (codes aanvragen ja of nee), Thijs (keuze Gloop-spel). Ebb Calm nog niet in de winkel (404 om 16:00 UTC).
 - **16 nov ±15:25 UTC, run 117. Ebb 1.0.1: alle 56 horloges compileren en de toetsrun is groen; de nieuwe kleine maten (218, 240, 360) heb ik gezien en ze lezen goed. De naam staat vast (Chris). Nog NIET klaar voor Thijs: de plaatjesrun liep nog, Mila en Daan hebben nog geen ja gezegd, er is geen release.**
   - **Gezien in het log:** `COMPILEERT horloges: 56`, elk horloge drie keer ja (job alle-horloges, run 43882501055, commit 1aebd69). Job bouw (winkelbestand) groen. Toetsrun 43882501327 groen, beelden staan op tak `schermen` in `garmin-adem/claude-garmin-ebb-101/` (RUN.txt noemt 1aebd69).
   - **Zelf bekeken op ware grootte:** Forerunner 255S elf schermen en 24 winkelscènes, fēnix 7S drie, Forerunner 265S drie, Venu 2S vier. Binnen de rand, scherp, niets over elkaar. Details in `platformen/garmin/upload/ebb-1.0.1.md` deel 5.

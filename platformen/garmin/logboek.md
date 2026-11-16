@@ -1406,3 +1406,13 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: het pakket met beelden van een run is meteen op te halen via de Actions-koppeling (`download_workflow_run_artifact` geeft een tijdelijke link, daarna `curl`); dat is sneller dan wachten tot de stap "openbaar zetten" klaar is (die duurde 16 minuten).
 - Les: logs van een job die midden in een lange log iets drukt: vraag de link (`return_content` uit), haal op met `curl` en zoek met grep. De staart van 500 regels bevat het niet.
 - Les: de winkel-API toont in `compatibleDeviceTypeIds` meer horloges (40) dan er regels in het manifest staan (28). Noem in winkelteksten geen aantal uit het manifest.
+
+## 16 nov 2026 ±15:53 tot 16:20 UTC, run 118 (Gijs)
+- Ebb 1.0.1: Daan (15:32 UTC) zei ja op 218 px en wilde van 240 en 360 px de veiligheidsbladen en how it works zien. Die stonden al in plaatjesrun 43882501055 (scènes 13, 14, 15 en 11 van fenix7s, fr265s en venu2s). Alle twaalf bekeken: goed. Namen en vaste links aan Daan gegeven.
+- Gevonden: plaatjesjob van de Enduro 3 was groen met 95 lege beelden (simulator gaf vanaf start 62 geen antwoord, geen crashregel in het log). Bouwstraat aangepast in 79d2a6b: gemiste scène één keer overdoen met een nieuwe simulator, anders rood. Eerste demobeeld op 10 s in plaats van 7 s (moet van Daan). Alle jobs van run 43882501055 waren groen (23 gelezen).
+- REGEL in `maak_letters.py` niet veranderd: Daan keurde de schermen zoals ze zijn, een andere regelhoogte verschuift alles.
+- Uitgezocht voor de hoofdchat: proefstand (nee), codes (bestaan, formulier), prijspunten ($2,99 bestaat niet), lijst van horloges voor betaalde apps. In `proefstand-en-codes-2026-11-16.md`.
+- Ebb Calm: 404 om 16:00 UTC.
+- Les: een groene job zegt niet dat alle beelden er zijn. Tel na een run de bestanden `*-mis*` op tak `schermen`; de bouwstraat doet dat nu zelf.
+- Les: de uitleg van Garmin is een Gatsby-site; de pagina zelf is een lege schil. De tekst staat in `https://developer.garmin.com/connect-iq/articles/<map>/<Naam>.html` (de naam vind je in `/page-data/connect-iq/<pad>/page-data.json`, veld `fileName`).
+- Les: de lokale kloon was ondiep en liep 50 commits achter met een losse HEAD; `git pull` bleef hangen. `git fetch origin main` en dan `git reset --hard origin/main` werkte meteen.
