@@ -15,7 +15,7 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
-		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t,
+		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t, "gegraven": s.zelf_gegraven,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -93,6 +93,7 @@ static func laad(s, begin) -> void:
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
 	s.faam = maxi(0, int(data.get("faam", 0)))
+	s.zelf_gegraven = maxi(0, int(data.get("gegraven", 0)))   # graafbonus (Sanne 16 nov 21:00); oude saves 0
 	s.rij = maxi(0, int(data.get("rij", 0)))   # rij bij de ingang (Sanne 16 nov 16:00); oude saves 0
 	s.rij_t = float(data.get("rij_t", 0.0))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3
@@ -119,7 +120,7 @@ static func laad(s, begin) -> void:
 		if s.slijm != null and s.slijm.has_method("upgrade_veranderd"):
 			s.slijm.upgrade_veranderd()   # het lijf van zijn gekochte stap meteen bij openen (Bram 03:25)
 	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
-	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
+	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades, s.zelf_gegraven)
 	tijd_vloer = int(weg.get("nieuwe_laatst", 0))
 	# stond de klok per ongeluk ver vooruit (meer dan 3 dagen), dan niet tot die datum zonder weg-winst blijven (controleur kan-punt)
 	if tijd_vloer > int(Time.get_unix_time_from_system()) + 3 * 86400:

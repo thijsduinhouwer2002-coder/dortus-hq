@@ -22,7 +22,8 @@ const HELD_ELKE_S := 30.0          # gemiddeld, zelfde orde als in het spel (28 
 # 6 x (1 + 0,1 x faam) x (1 + gangen / 40), en faam maakt helden iets sterker (x 0,97 per niveau, bodem 0,75).
 # Zo levert een uur weg ongeveer hetzelfde op als een uur kijken (zonder de +3 voor terugkomers: die kent de save niet).
 # upg (optioneel): systemen/upgrades.gd; gekochte stappen tellen ook terwijl je weg bent (+7 procentpunt per stap).
-static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int, gangen := 6, faam := 0, upg = null) -> Dictionary:
+# graaf = zelf gegraven cellen uit de save: weg krijgt dezelfde graafbonus als spelen (Sanne 21:00), dus 7 + graafbonus.
+static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int, gangen := 6, faam := 0, upg = null, graaf := 0) -> Dictionary:
 	var weg := nu_unix - laatst_unix
 	var teruggezet := weg < 0
 	weg = clampi(weg, 0, PLAFOND_S)
@@ -31,7 +32,7 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 	var k_put: float = 0.35 + (upg.kans_erbij("stekelput") if upg != null else 0.0)
 	var k_slijm: float = 0.45 + (upg.kans_erbij("slijm") if upg != null else 0.0)
 	var kans_val := clampf((1.0 - pow(1.0 - k_put, vallen) * pow(1.0 - k_slijm, bewoners)) * maxf(0.75, pow(0.97, faam)), 0.0, 0.85)
-	var per_val := goud_per_val(gangen, faam)
+	var per_val := goud_per_val(gangen, faam) + graafbonus(graaf)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash([zaad, laatst_unix, helden])
 	var gevallen := 0
@@ -80,6 +81,12 @@ static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Arra
 			per[k] += 1
 	uitkomst["hoeden_gegeven"] = per.reduce(func(a, b): return a + b, 0) > 0
 	return per
+
+# Graafbonus (Sanne 16 nov 21:00, balans.md): +1 goud per val per GRAAF_PER zelf gegraven cellen, hooguit GRAAF_MAX.
+const GRAAF_PER := 8
+const GRAAF_MAX := 3
+static func graafbonus(zelf_gegraven: int) -> int:
+	return clampi(zelf_gegraven / GRAAF_PER, 0, GRAAF_MAX)
 
 static func goud_per_val(gangen: int, faam: int) -> int:
 	return int(round(6.0 * (1.0 + 0.1 * faam) * (1.0 + gangen / 40.0)))
