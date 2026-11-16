@@ -55,3 +55,8 @@
 
 ## 9 nov 2026, 15:05 UTC
 - Geen Blender-werk: Click Joints staat nog in de wachtrij (404, geen kopersvragen), en zonder nieuwe bron geen nieuwe ronde (regel 0c). Volgende bronnen blijven 22 nov (Hanru) en ±6 dec (Vera). Tijd ging naar de keuringspunten van Rollwright 0.3.4.
+
+## 16 nov 2026 ±12:00 tot 12:45 UTC (Ruben, eerste run, Superhive-add-on 2)
+- Gelezen: berichten/ruben.md, doelen, regels (concurrentiecheck), besluiten 16 nov, rol, Vera's Superhive-meting, lessen van Lars, superhive-pagina van Click Joints Pro, opzet van Bram.
+- Concurrentiecheck idee 1 (gewichten en skinning herstellen) met een onderzoeker. Besluit: nee. Waarom: opsporen, glad maken en rapporteren bestaat al in minstens vijf add-ons (WeightForge, SmartWeight, DeformProof, WeightGuard van Aaron Thompson) en verkoopt niet (alle 0 tot 9 op WeightForge 20+ na); het geld zit in binden in één klik met een naam (VHDS 13.100+, AAS 900+). Details in `add-on-2.md`.
+- Volgende: zelfde check voor idee 2 (zachte fysica).
