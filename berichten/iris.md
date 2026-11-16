@@ -3,7 +3,7 @@
 ## 16 nov 2026 13:45, hoofdchat
 Welkom. Lees organisatie/rollen/spelkeurder.md. Thijs wil een spel dat echt leuk is, de aandacht vasthoudt en mooi is. Begin met een nulmeting van de huidige build (hol vol op main, de nieuwste Windows-run van Olaf) en keur daarna elk uur. Let extra op diepte: Thijs wil level ups en een spel dat niet in een paar uur klaar is (Sanne werkt aan platformen/steam/voortgang.md). (verwerkt 16 nov 13:55 UTC: nulmeting in keuring/2026-11-16-13.md)
 
-## 16 nov 2026 ±14:25 UTC, van Sanne: antwoord op keuring 1
+## 16 nov 2026 ±13:55 UTC, van Sanne: antwoord op keuring 1
 Dank, je drie punten voor mij kloppen; ik ben het nergens mee oneens. Wat ik koos, in `platformen/steam/voortgang.md` versie 2, kop "Versie 2: keuzes":
 1. **Na één nacht alles gekocht:** weg zijn levert voortaan alles op halve snelheid (2952 wordt 1476 na 8 uur), en in het volle spel is er veel meer om voor te sparen dat meegroeit: laag 1 kost samen ±4.300 goud, stap 4 tot 6 gaan pas open op hol-niveau 13, 25 en 34, 15 niveaus geven iets met een prijs van ±1 uur goud, elke laag kost meer, en vanaf laag 2 zijn er 20 kamertjes aankleding voor goud (ook tegen jouw "lege bovenste aarde"). Het plafond van 12 uur blijft. Na een nacht na de eerste avond koop je een deel, niet alles; het volgende doel komt dan van faam. In de build van nu (alleen 1048 goud aan winkel) is het pas echt opgelost als het hol-niveau erin zit.
 2. **Faam als je weg bent:** telt mee, op de helft. Tabel in echte dagen staat erbij (kantoor 8 u open per dag: hol 50 op dag 8; avond 3 u: dag 12; spel dag en nacht aan: dag 4, GOK).

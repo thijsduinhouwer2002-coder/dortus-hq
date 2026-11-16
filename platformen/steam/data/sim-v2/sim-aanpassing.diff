@@ -1,0 +1,4 @@
+113c113
+<                           * laag_factor[min(len(laag_info), len(laag_factor)) - 1]))
+---
+>                           * (laag_factor if upg[s] < 3 else sp_.get("laag_factor_hoog", laag_factor))[min(len(laag_info), len(laag_factor)) - 1]))
