@@ -8,6 +8,7 @@ class NepHol:
 	var vallen := {}
 	var ingang_kol := 2
 	var schat_kol := 30
+	var deco_proef := false   # true: hol_vast.gd ziet het hol nooit als vol (zoals de keurstrook)
 	func _hash(x: int, y: int) -> int:   # zelfde als hol/hol.gd
 		return int(abs(sin(x * 12.9898 + y * 78.233) * 43758.5453)) % 97
 
@@ -35,6 +36,7 @@ func _init() -> void:
 	var V = load("res://systemen/vleermuis.gd")
 	ok(V.aantal(5) == 0 and V.aantal(10) == 1 and V.aantal(23) == 1 and V.aantal(24) == 2, "aantal: leeg hol geen, groot hol twee")
 	var h := nep(2, 30)
+	h.deco_proef = true   # eerst de gewone regels, zonder het volle hol van hol_vast.gd
 	h.vallen[10] = "stekelput"
 	h.boven[14] = true
 	var p: Array = V.plekken(h)
@@ -53,6 +55,28 @@ func _init() -> void:
 	d = V.vlucht_doel(h, 27, 27 * 16 + 2.0, [])
 	ok(d >= 0 and d < 27, "aan het eind van de gang: dan toch de andere kant op (%d)" % d)
 	ok(V.vlucht_doel(h, 20, 322.0, [22, 23]) == 24, "bezette plekken overslaan")
+	# vol hol (Olaf, hol_vast.gd): niet hangen waar al een stut, spinrag of vaandel hangt (kan Olaf 16 nov 09:45)
+	var hv := nep(2, 30)
+	hv.vallen[10] = "stekelput"
+	hv.boven[14] = true
+	var HV = load("res://hol/hol_vast.gd")
+	var bezet: Dictionary = V.vol_plafond_kols(hv)
+	var pv: Array = V.plekken(hv)
+	ok(bezet.size() > 0, "vol hol: er hangen plafonddingen (%s)" % str(bezet.keys()))
+	var los := true
+	for k in pv:
+		if bezet.has(k):
+			los = false
+	ok(los and pv.size() > 0, "vol hol: vleermuis nooit onder een plafondding (%s)" % str(pv))
+	var nagelopen := {}
+	var vorige := -99
+	for k in range(hv.ingang_kol + 1, hv.schat_kol - 1):
+		if HV.vol_plafond(hv, k, vorige) >= 0:
+			nagelopen[k] = true
+			vorige = k
+	ok(nagelopen == bezet, "vol hol: zelfde kolommen als hol_vast.gd tekent")
+	for k in V.kies(hv, 2):
+		ok(not bezet.has(k), "vol hol: gekozen plek %d is vrij" % int(k))
 	var a: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 0.0)
 	var m: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 0.5)
 	var e: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 1.0)
