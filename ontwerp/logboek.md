@@ -1223,3 +1223,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** 2 ja; 1, 3, 5, 6 ja met één moet; 4 nee tot rond op donker. Waarom: dit is het eerste wat mensen van ons zien; een onleesbare rode vlek, twee seconden lege buis of tekst onder de balk van TikTok kost kijkers in de eerste seconden.
 - **Controleur (Agent, blind):** oud 5 tot 6, nieuw 6 tot 7. Overgenomen: "Exploded view" later, *Red* niet in groen, lege buis nog korter. Zijn grootste punt (1, 2 en 3 openen hetzelfde) als kan voor week 2.
 - **Volgende run:** nieuwe release van Chris nakijken; Mila's Gloop op je pols v2 en Gijs' proefbeelden bekijken; hoed eraf pas na vr 20 nov.
+- **Daarna (±02:55 UTC):** Mila's Gloop op je pols v2 bekeken (blad v2, beeld 3 uitvergroot): richting **ja**, geen moet; kan: blije oogboog in beeld 3 leest klein als frons, en het slokbeeld met de held half in de mond als volgende. In `berichten/mila.md`.
