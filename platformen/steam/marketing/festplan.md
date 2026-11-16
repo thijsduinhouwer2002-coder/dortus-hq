@@ -76,13 +76,25 @@ Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna
 3. **Makers niet harder mailen.** Een stil fest wordt niet goed door meer mails over hetzelfde; eerst het ding repareren, dan met de nieuwe demo naar Next Fest.
 4. **De hoofdchat legt de lanceerdatum van maart opnieuw neer** (staat al in de planning), en ik schrijf een korte uitslag met de getallen voor Thijs.
 
+## Wat winnaars posten tussen pagina en uitgave (toegevoegd run 5, 16 nov)
+Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN 16 nov ±16:00 UTC; telling van alle 17 spellen in `data/routekaart-2026-11-16.csv`). Drie dingen die ons plan nog niet had:
+1. **Elke demo-fix is een post.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo (patches, hotfixes), Birdwatching Notebook 10 keer in 22 dagen, TBH 9 keer in 13 dagen. Dat past bij Olafs regel "tussen 4 jan en het fest alleen fixes": ook een fix krijgt een korte aankondiging ("Demo 1.0.3: the bard no longer gets stuck"). Waarom: volgers zien beweging, en het kost niets. Chris schrijft, Thijs plaatst; Olaf meldt elke demo-fix met één zin.
+2. **Een mijlpaal-post met een belofte erin.** Desktop Defender: "ALMOST AT 1000 CONCURRENT PLAYERS!" 20 dagen vóór de uitgave, met de demo van 10 naar 30 levels en "one more thing" bij 1.000 (GEZIEN). Black Cat: "2k wishlists!" (GEZIEN). Dat is onze hoedenteller (optie A); zonder optie A doen we het met spelers tegelijk of verlanglijsten.
+3. **Een wedstrijd voor de community tijdens het fest.** Rusty's Retirement hield in Next Fest een versierwedstrijd (mooie boerderij delen op Steam of Twitter met #RustysRetirement, prijs een fysiek exemplaar van een vorig spel plus een sleutel voor het volle spel, GEZIEN). Spirit City: "Cat Contest", de winnende kat werd een skin in het spel (GEZIEN). Bij Fenna's flops (verhaal 8) zag ik niets van dit soort.
+
+**Besluit Sem: hoedenwedstrijd in de festweek, "Design a hat for Gloop".** Spelers tekenen of beschrijven een hoed en delen hem in de Artwork-sectie van onze communitypagina op Steam met #HatsOfTheFallen in de titel. Wij kiezen er één (of drie); die hoed komt in het volle spel, met de naam van de maker in het Heldenboek als hij dat wil. Waarom: het is precies onze haak (hoeden), het levert beelden die mensen zelf delen, en de prijs kost ons geen geld maar een hoed (Olaf: ±1 tot 2 uur per hoed met de pijplijn, `planning-fest-2027.md`). Eerlijk erbij zeggen hoe de hoed gemaakt wordt: wij bouwen hem na in 3D met code die AI-agents schrijven (zie mijn correctie in run 2: nergens "human-made"); de precieze zin volgt het besluit over de AI-melding dat bij de hoofdchat ligt.
+- Regels die ik vastzet: geen sleutels of prijzen voor reviews, verlanglijsten of volgen (Valve); meedoen kan zonder het spel te hebben; looptijd do 14 jan tot ma 18 jan 19:00 NL, winnaar bekend in de verbeterweek.
+- Wie wat: tekst Chris (vóór 8 jan), plaatsen en de communitypagina modereren Thijs (lijst-thijs, pas als de pagina live is), de hoed bouwen na het fest Olaf of Bram. GOK hoeveel inzendingen: Rusty kreeg er genoeg om een winnaar te kiezen in 10 dagen met een bekend spel; wij zijn onbekend, dus misschien 5 tot 30.
+- Geen inzendingen na dag 2: dan zegt dat iets over de meetlat (stil), en noemen we het niet opnieuw.
+
 ## Next Fest februari (22 feb tot 1 mrt)
 Zelfde ritme, met de demo uit de verbeterweek. Tweede meetlat, hoger omdat Next Fest veel groter is: **doorbraak boven 300 spelers tegelijk na 48 uur** (Desktop Defender 1.548 op de piekdag, GOK dat een derde daarvan na 48 uur gangbaar is), gewoon 50 tot 300, stil onder 50. Hierna besluit de hoofdchat over de lancering. Uitwerken na de uitslag van januari.
 
 ## Wat ik nodig heb van anderen (afspraken via hun berichtenbestand)
 - **Olaf:** demo openbaar op 4 jan (als de build het toelaat), het demo-appid zodra het bestaat (voor het meetscript), en of de vier beloningshoeden van optie A vóór 18 dec in de build kunnen.
 - **Sanne:** keuze optie A na 21 nov; de doelen 10.000, 50.000, 250.000, 1.000.000 komen uit haar rekensom.
-- **Chris:** zes korte Steam-aankondigingen en zes clips voor de festweek (lijst hierboven), klaar vóór 8 jan.
+- **Chris:** zes korte Steam-aankondigingen en zes clips voor de festweek (lijst hierboven), klaar vóór 8 jan; plus de tekst van de hoedenwedstrijd en een vaste vorm voor demo-fix-posts.
+- **Olaf:** bij elke demo-fix tussen 4 jan en het fest één zin wat er gerepareerd is (voor de post), en na het fest de winnende hoed.
 - **Thijs (lijst):** Discord-server vóór 4 jan, verlanglijstjes aflezen op vr 15 en za 16 jan, aankondigingen plaatsen. Staat op de lijst zodra de hoofdchat dit plan heeft gezien.
 
 ## Nulmeting: spelers tegelijk in demo's van aangekondigde bureaubladspellen, gewone maandag (GEZIEN 16 nov)
