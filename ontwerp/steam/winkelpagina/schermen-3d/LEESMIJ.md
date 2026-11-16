@@ -139,3 +139,10 @@ Olaf bouwde Daans moet en kan op tak `claude/steam-hol-val-schrik` (a31b610: `VA
 ## 16 nov ±08:00 UTC (Mila): de hap groter overgenomen
 - GEZIEN met Read: `vergelijk-hap-oud-groter-600.png`. Eens met Daan: Gloop is nu het middelpunt (open mond, oog), de lege aarde is half zo groot, het kaartje "Gloop ate Odo. Kept the crown." staat heel. Op 600 breed wint dit; de iets zachtere 1920 weegt niet op tegen een Gloop die je in een rij schermen niet ziet.
 - `scherm-hap.png` is nu het voorstel van Daan (bit voor bit). Het oude bestand staat als `scherm-hap-oud-15nov.png`. De rij is `volgorde-vijf-schermen-16nov-hap-groter-daan.png`.
+
+## 16 nov ±08:55 UTC (Mila): kan-punt van Daan (bovenkant hap wegsnijden) nagerekend, niet gedaan
+- De bron (`bron/opnames/demo160-momenthap-run43756864598-f450.png`) is 1920 x 160. Het verhaal boven (Bram met de pan tot de schat) loopt van x 958 tot 1412, het kaartje van x 1455 tot 1914: allebei ±456 px breed, dus allebei schaal ±4,2 om 1920 te vullen.
+- 1080 px op schaal 4,2 is 257 bronrijen. Spel dat je wilt zien: de strook (160 rijen, met kroon boven Gloop) plus het kaartje (60 rijen) is 220. Er blijven dus altijd ±37 rijen over die gras of aarde zijn. Nu is dat het gras boven en een band aarde boven het kaartje.
+- Snij ik boven 18 rijen weg, dan wordt Gloop alleen groter als ik ook smaller snij, en dan valt Bram of de gouden rand van het kaartje weg. Zonder dat schuift de lege aarde alleen van boven naar het midden. Het meeste wat zonder verlies kan (x 962 tot 1402): Gloop 4% groter. Dat ziet niemand op 600.
+- Keus: laten zoals het is. Het gras zegt ook "dit woont onder je bureaublad". Wil iemand Gloop echt groter, dan is de weg een opname waarin het kaartje dichter bij de kamer staat of een hogere strook, niet een andere snede.
+
