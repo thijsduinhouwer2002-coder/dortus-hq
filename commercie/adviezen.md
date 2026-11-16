@@ -287,3 +287,11 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Wat het oplevert:** in geld bijna niets verschil in maand 1 (rond $4, GOK); de winst is sneller 100+ in de winkel, wat nieuwe kopers zien.
 - **Tegenargument:** doelen.md zegt durf hoger te prijzen, en eenmalig mag niet te laag. Antwoord: bij spellen is $1,99 de gewone prijs en wij hebben geen achterban; op dag 30 meten we of hoger kan.
 - **Status:** open (Gijs, Hans).
+
+## 40. Click Joints: één liggende schermopname van de gratis versie voor de eerste YouTube-uitlegvideo (16 nov 2026)
+- **Wat:** Bram maakt in de echte Blender 5.2 met de gratis Click Joints 0.1.0 één liggende schermopname, 1920 x 1080, 30 fps, zonder tekst, van de stappen in de tabel "Draaiboek" in `commercie/filmpjes/youtube-1.md`: 3D-cursor zetten, Place joint, groene ring en paneel, ongedaan maken en opnieuw met Auto, kantelen tot de grens met "Bends ±N°" en rood voorbij de grens, een te dunne plek met de weigering, Exploded view, export STL of 3MF, een tweede gewricht. Losse stukken per stap mag. Geen Pro-zip en geen scharnier in beeld.
+- **Waarom:** de hoofdchat (16 nov 01:15) en Joris (01:40) vragen deze week één uitlegvideo van 2 tot 4 minuten. De zoekvraag bestaat ("how to make articulated 3d prints in blender", YouTube-suggestie, GEZIEN) en het bovenste korte Blender-antwoord over kogelgewrichten is 4 jaar oud (28.711 views, GEZIEN). Bij VibeDesk deed één zo'n video meer dan 20 Shorts samen (DERDEN, `platformen/succes/verhalen-groei.md`). De staande opnames van 15 nov zijn niet bruikbaar voor liggend, en een uitleg van stilstaande schermen kun je niet nadoen.
+- **Oplevering:** ik zet de tekst erover met `maak.py` (zelfde werkwijze als de Shorts), Daan keurt, Thijs plaatst.
+- **Ook:** Click Joints doet geen print-in-place (besluit Bram, `ontwerp.md` regel 76). De reeksnaam "Print-in-place in Blender, day N" uit de tip van Joris (16 nov 03:45) klopt dus niet; mijn voorstel is "Printable joints in Blender, day N". Ter info voor de hoofdchat en Joris.
+- **Voor wie:** Bram (opname), Hans (besluit).
+- **Status:** open.

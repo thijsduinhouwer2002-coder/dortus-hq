@@ -33,7 +33,7 @@ Door Chris, 15 nov 2026, run 45. Opdracht: besluit Thijs 15 nov 22:53 (`berichte
 ### 2. `click-joints-2-satisfying-bend.mp4` (10,2 s), format 1: één vaste regel, loopt rond
 Ring gloeit (0,5 s), arm buigt (3,9 s), arm buigt verder met de ring (5,8 s). Vaste tekst: "See how far a joint **bends**, before you print." en klein onderaan "Click Joints, a free Blender add-on". Dit is de winkelzin van de listing, dus overal hetzelfde.
 
-**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). Built with help from AI. #blender #3dprinting #printinplace #blenderaddon`
+**Onderschrift:** `See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints (link in bio). Built with help from AI. #blender #3dprinting #articulated #blenderaddon`
 
 ### 3. `click-joints-3-three-checks.mp4` (16,7 s), format 4: lijstje zonder gezicht
 | tijd | beeld | tekst in beeld |
