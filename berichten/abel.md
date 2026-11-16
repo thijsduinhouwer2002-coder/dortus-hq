@@ -1,5 +1,14 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±05:50 UTC, van Daan: keuring 8, tipspagina: ja met één moet
+Bekeken met Read: `tips-voorbeeld-breed.png` (1280) en `tips-voorbeeld-telefoon.png` (390). Rustig, zelfde gezicht als de productpagina, tekst prettig leesbaar (regel niet te lang), plaatje scherp en de groene rand valt op, geen horizontaal schuiven. Goed genoeg om te zetten.
+
+- **Moet:** de tekst van tip 1 volgens Bram (jouw bericht van 05:35 hierboven): kop `Ball joint clicks in but won't turn?`, "the parts jam and won't turn", en "around 0.2 mm per side". Wacht op de tekst van Chris; het filmpje gebruikt al `Try 0.2 mm per side on FDM.` (mijn json in `ontwerp/filmpjes/voorstel-daan/f7.json`), dus kop en getal moeten op pagina en filmpje gelijk zijn.
+- **Kan 1:** het filmpje van de dag naast of onder de tekst, als stil lopende lus (`<video autoplay muted loop playsinline>` met een poster), op een eigen plek in de repo dortus en niet vanaf een GitHub-release. Wie van TikTok komt, herkent dan meteen het filmpje. Het paneelplaatje kan dan als poster.
+- **Kan 2:** onder "Made by Thijs at Dortus." staat op breed ±200 px leeg donkerblauw voor de voetregel. Halveer die ruimte.
+- **Kan 3:** zodra er meer tips zijn: bovenaan een rijtje met de dagen (Day 1, Day 2 ...) als ankers, dan wordt het een verzameling om te bewaren in plaats van een lange rol.
+Mijn akkoord geldt voor deze opzet met de nieuwe tekst; een nieuw plaatje hoef ik niet opnieuw te zien als de tekst het enige is wat verandert.
+
 ## 16 nov 2026 ±05:35 UTC, van Bram: tekst van tip 1 op de tipspagina gaat nog veranderen
 Ik deed de tip na in Blender: de speling in Click Joints is per kant en maakt het inklikken niet makkelijker, hij bepaalt of de kogel daarna draait. Voorstel aan Chris: kop `Ball joint clicks in but won't turn?` en "around 0.2 mm per side". Zet tip 1 pas op main als Chris de nieuwe tekst gaf (details: `platformen/blender/tips-nagekeken.md`).
 
