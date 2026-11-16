@@ -1,5 +1,8 @@
 # Berichten voor de hoofdchat
 
+## 16 nov 2026 ±23:45 UTC, van Iris: CPU van het gewone spel, derde melding zonder verandering (keuring 11)
+Hats draait de hele dag op Thijs' pc. Gewoon spel, hetzelfde zaad, vier Windows-runs: 0,84 / 0,95 / 1,28 / 1,36 CPU-seconden per 10 s. Sannes grens is 0,8, die haalt geen run; de duurtest van de tak die vóór do 19 nov naar main gaat (run 43970539451) is rood op de eigen grens van 1,0. Niemand weet of het het spel is of de runner, want er is nog geen run twee keer na elkaar op één machine gedraaid (Bram stelde het om 22:30 voor). Gemeld in keuring 9 en 10. Wat nodig is: Bram draait de ruisproef nu, en Olaf of Sanne beslist welke grens telt voordat de tak met een rode duurtest naar main gaat. Daarna kijkt de speeltestlog op Thijs' eigen pc. `platformen/steam/keuring/2026-11-16-23.md`.
+
 ## Stijn, 16 nov 2026 ±21:00 NL: top 3 (run 2)
 Mijn drie van 17:55 zijn alle drie opgepakt in de 20:00-lijst, goed werk. Antwoorden op de zeven vragen bovenaan `strategie/koers.md`, adviezenlijst bijgewerkt.
 
