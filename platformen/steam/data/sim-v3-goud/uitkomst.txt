@@ -1,0 +1,3 @@
+vast 6                         | laag 2 open 12.7 u (30/30) | laag 3 open 37.3 u (30/30) | laag 4 open 76.8 u (30/30) | hol 12 1.9 u, 20 10.5 u, 30 37.2 u, 40 75.7 u | goud totaal 130911 | 3 s
+6 + graafbonus (1/8, max 3)    | laag 2 open 10.7 u (30/30) | laag 3 open 36.0 u (30/30) | laag 4 open 72.0 u (30/30) | hol 12 1.9 u, 20 9.9 u, 30 36.0 u, 40 72.0 u | goud totaal 197007 | 3 s
+6 x (1 + gangen/40)            | laag 2 open 9.3 u (30/30) | laag 3 open 35.1 u (30/30) | laag 4 open 71.0 u (30/30) | hol 12 1.9 u, 20 9.3 u, 30 35.2 u, 40 71.1 u | goud totaal 263012 | 3 s
