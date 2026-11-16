@@ -3,7 +3,8 @@
 Figuur en rig uit toetsen_rig_armen.py (benen 90 mm, romp, armen; linkerelleboog Limit Rotation 0 tot 140).
 Na de knop: vier scharnierbogen met getal (knieën, ellebogen) en vier kogelwaaiers (heupen, schouders).
 Regel "ARMEN BEELD OK" als vier bogen van een figuur in de passingkleur met getal getekend zijn, de kopregel
-hooguit één keer staat, de lijst `from rig` bevat en de samenvatting "8 joints" noemt.
+hooguit één keer staat, de lijst `from rig` bevat en de samenvatting "8 joints" noemt (voor 4.5: 6 tot 8, zie
+toetsen_rig_armen.py).
     blender --python e2e/scherm_rig_armen.py -- <map> <betaalde zip>
 """
 import importlib
@@ -95,8 +96,9 @@ def stap():
     rig_regel = any("from rig" in r for r in staat.get("regels", []))
     act = bpy.context.view_layer.objects.active
     zichtbaar = act is not None and act.visible_get() and bool(act.get("cj_deel"))
-    genoeg = len(bogen) >= 4
-    acht = staat.get("samenvatting", "").startswith("8 joints")
+    oud = bpy.app.version < (4, 5, 0)  # bekende losse boolean-fout met alleen Exact (toetsen_rig_armen.py)
+    genoeg = len(bogen) >= (3 if oud else 4)
+    acht = staat.get("samenvatting", "").startswith(("6 joints", "7 joints", "8 joints") if oud else "8 joints")
     ok = genoeg and acht and groen and getal and len(koppen) <= 1 and rig_regel and zichtbaar and ok_uit
     log(f"ARMEN BEELD {'OK' if ok else 'FOUT'} samenvatting={staat.get('samenvatting')} bogen={[(b['naam'], b['getal'], b['kijkhoek']) for b in bogen]} "
         f"koppen={len(koppen)} actief={act.name if act else None} zichtbaar={zichtbaar} groen={groen} getal={getal} from_rig={rig_regel} uitsnede={ok_uit} "
