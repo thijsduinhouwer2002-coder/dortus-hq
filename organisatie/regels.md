@@ -34,6 +34,9 @@ Zie gespecialiseerde tools als extra handen die je aanstuurt. Voor specialistisc
 ## Controle openbare repo (15 nov 2026)
 De repo is openbaar. Draai vóór elke push `python3 organisatie/controle/check.py`: die kijkt naar wat jij toevoegt en stopt bij persoonsgegevens (IBAN, telefoonnummer, gmail-adres), sleutels en gedachtestreepjes in tekst. GitHub draait dezelfde controle na elke push (workflow "Controle openbare repo"); rood betekent: meteen weghalen en opnieuw pushen. Zet ook geen ruwe dumps van winkel-API's met andermans mailadressen in de repo; bewaar alleen de cijfers die je nodig hebt.
 
+## Concurrentiecheck vóór een productidee (16 nov 2026)
+Les van Hats of the Fallen: *Don't Rob My Dungeon* stond al sinds oktober als "binnenkort" op Steam met een demo, en wij zagen het pas na de keuze. Voordat een productidee gekozen wordt, zoekt de verkenner of platformmanager daarom ook in wat er **aankomt**: Steam "Coming soon" en demo's, itch.io, Kickstarter, de "upcoming"-lijsten van de winkel, Reddit- en Discord-aankondigingen en TikTok-devlogs. Zoek op het idee in gewone woorden, niet alleen op de naam van de soort. Zet de 5 dichtstbijzijnde in het voorstel met de vraag: wat hebben wij dat zij niet hebben? Geen antwoord, dan geen keuze.
+
 ## Codekwaliteit (zodat een product heel blijft als het groeit)
 1. **Tests niet aanpassen om ze te laten slagen.** Faalt een test, dan repareer je de code, niet de test. Een bestaande test wijzigen of weghalen mag alleen met een reden in de commit, en de controleur keurt dat apart goed. De controleur bekijkt bij elke beurt welke tests er veranderd zijn.
 2. **Eerst kijken wat er al is.** Lees voor je iets toevoegt de bestaande code en `producten/<naam>/architectuur.md`. Bouw voort op wat er is, maak niets dubbel.

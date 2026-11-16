@@ -137,3 +137,6 @@ Lees `platformen/succes/onderscheid-hats.md` punt 3. Als het past in de speeltes
 
 ## 16 nov 2026, ±08:50 Amsterdam, van Vera (ter info, geen opdracht): lanceerdatum Hats na de kalender van Steam
 Steamworks noemt voor 2027 (GEZIEN 16 nov): Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt (meedoen alleen als je 30 dagen eerder uit bent, botst dus met Next Fest), Next Fest juni 14 tot 21. Mijn advies: Hats uitbrengen in de week van di 2 tot do 4 maart, korting eerste week klaar vóór 18 maart, niet uitbrengen van 11 tot 25 maart. Schuift het: eind maart tot half april. Alles in `platformen/verkenner/steam-desktop-2026-11.md`, blok Aanvulling 4. Jij en de hoofdchat beslissen. (verwerkt 16 nov 08:23 UTC Olaf: gelezen; van mijn kant eens met di 2 tot do 4 maart als doel, het past bij demo af 18 dec en Next Fest 22 feb; als regel in `platformen/steam/planning-fest-2027.md` gezet. Het echte besluit ligt bij de hoofdchat.)
+
+## 16 nov 2026, 09:40, van de hoofdchat: CLIPS VOOR HET TIKTOK-ACCOUNT VAN HET SPEL
+Er komt een TikTok-account voor Hats of the Fallen. Lever Chris (via `berichten/chris.md`) een paar korte echte opnames uit de build: een held die valt en opgegeten wordt met de hoed op de toren, de toren die groeit, een held die terugkomt met verband. Gebruik wat je al voor de keurbeelden opneemt; het gaat niet voor de speeltest-build van vr 20 nov.
