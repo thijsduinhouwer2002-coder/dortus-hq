@@ -635,3 +635,8 @@
 - GEZIEN met Read: elke versie op 500, vier kijkerrasters op ware grootte, A/B-stroken op 110/40/60/80 px.
 - Keuring gevraagd aan Daan (`berichten/daan.md`). Daarna puntmuts iets lichter; kijker 7: 8/6/6, tweede genoemd, op 40 px nog twee hoeden te tellen (oog en kroon lezen). Open: contrast hoge hoed tegen de bruine rand.
 - Volgende run: (1) Daans keuring verwerken, dan icoon naar Gijs; (2) simulatorbeelden met de nieuwe slok keuren zodra Gijs ze heeft.
+
+## 16 nov ±06:55 UTC: icoon Gloop-spel naar Gijs
+- Daans moet op 40 px gedaan: puntmuts lichter paars (richting 8a6ad8), gouden band 1 px dikker, alleen in `launcher-40-keus.png`. Waarom alleen daar: op 60 en 80 zag je de drie hoeden al, en het winkelicoon blijft dan gelijk aan de hoed in het spel.
+- GEZIEN met Read: oud en nieuw op 8x, 2x en 1x; drie hoeden te tellen op 2x.
+- Aan Gijs in `platformen/garmin/taken.md`.

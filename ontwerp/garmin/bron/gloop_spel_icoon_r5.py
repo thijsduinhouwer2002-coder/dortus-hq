@@ -11,6 +11,7 @@ import gloop_spel_v2 as v2
 
 MINT = (120, 255, 200)
 RAND = (22, 12, 7)
+P40 = False   # alleen launcher 40 (moet van Daan 16 nov): puntmuts lichter paars (richting 8a6ad8), gouden band 1 px dikker
 FEL = False   # variant C: zwartere grot, fellere oranje bundel (twee kijkers: bruin verdwijnt tussen felle buren)
 
 
@@ -73,6 +74,23 @@ def icoon(N, gb=0.60, cx=0.43, hw=None, hb=0.56, hoeken=(-6, 8, 22), schuif=(0.0
         if i in (4, 1) and licht:   # kroon feller goud (las klein als mandje), puntmuts lichter paars (viel op 40 px weg in de hoge hoed)
             from PIL import ImageEnhance
             a_ = h.getchannel("A"); h = ImageEnhance.Brightness(ImageEnhance.Color(h.convert("RGB")).enhance(1.25)).enhance(1.3).convert("RGBA"); h.putalpha(a_)
+        if i == 1 and P40:
+            import numpy as np
+            from scipy import ndimage as nd
+            ar = np.array(h).astype(float); rr, gg, bb, aa = ar[..., 0], ar[..., 1], ar[..., 2], ar[..., 3]
+            goud = (rr > 140) & (gg > 90) & (bb < 110) & (rr > bb + 70) & (aa > 100)
+            paars = (bb > rr + 10) & (bb > gg + 10) & (aa > 40) & ~goud
+            doel = np.array([0x8a, 0x6a, 0xd8], float)
+            lum = (0.3 * rr + 0.59 * gg + 0.11 * bb) / 255.0
+            for ch in range(3):   # kleur richting 8a6ad8, schaduw en glans van de render blijven
+                ar[..., ch] = np.where(paars, np.clip(doel[ch] * (0.55 + 0.9 * lum), 0, 255), ar[..., ch])
+            # gouden band 1 px dikker op 40 px: 1000/40 = 25 px op deze maat, half boven, half onder
+            dik = int(round(N / 40))
+            groei = nd.binary_dilation(goud, structure=np.ones((dik, 3), bool)) & (aa > 100)
+            kl = ar[goud][:, :3].mean(0) if goud.any() else np.array([230, 170, 40.0])
+            for ch in range(3):
+                ar[..., ch] = np.where(groei & ~goud, kl[ch], ar[..., ch])
+            h = Image.fromarray(ar.clip(0, 255).astype("uint8"))
         # alleen het grootste stuk: bij de hoge hoed zat de steel van de pan nog in de uitsnede
         al = np.array(h.getchannel("A")) > 40; lab, cnt = ndimage.label(al)
         if cnt > 1:
@@ -128,5 +146,9 @@ if __name__ == "__main__":
     keus.resize((500, 500), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, "icoon-500-keus.png"))
     for n in (40, 60, 80):
         keus.resize((n, n), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, f"launcher-{n}-keus.png"))
+    P40 = True
+    k40, _ = icoon(1000, gb=0.62, cx=0.46, hw=0.28, hoeken=(-6, 14, 30), schuif=(0.0, 0.0, 0.06), licht=0.008, voet=1.02, rij=(1, 7, 4))
+    k40.resize((40, 40), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, "launcher-40-keus.png"))
+    k40.resize((500, 500), Image.LANCZOS).convert("RGB").save(os.path.join(UIT, "_controle-40-op-500.png"))
     import shutil; shutil.rmtree(os.path.join(UIT, "_kit"), ignore_errors=True)
     print("klaar")
