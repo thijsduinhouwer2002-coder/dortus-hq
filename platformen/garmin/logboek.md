@@ -1300,4 +1300,4 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Gebouwd op tak `claude/garmin-gloop-2026-11-16`: `producten/garmin-gloop/` (regels los van het scherm, 6 toetsen, zelfspeler voor de beelden) en `.github/workflows/garmin-gloop.yml` (kopie van `garmin-proef.yml`). Run 43789791678: compileert, 5 van 6 toetsen groen, 19 hoeden voor een speler die alles raakt.
 - Wat misging: één nieuwe toets was zelf fout (liep door na het einde van de ronde), en mijn eerste reparatie had een verkeerde grens voor het aantal tikken. Beide rechtgezet (79afc0a, 1fe0449); de spelcode is niet aangepast om de toets te laten slagen. De uitslag van de laatste run en de schermafbeeldingen niet meer gezien; dat is de eerste taak van de volgende run.
 - Werkmap stond met HEAD los en `git pull` bleef hangen; daarna main gelijkgezet met `origin/main` (239c7a5).
-
+- Nagekomen 02:17 UTC: run 43790127552 groen (6 van 6 toetsen, 60 beelden op tak `schermen`). Acht beelden bekeken: het spel draait op FR255, fenix 7 en Venu 3S. Open: de zelfspeler haalt in de simulator 8 hoeden in plaats van 19; start en eindscherm nog niet bekeken.
