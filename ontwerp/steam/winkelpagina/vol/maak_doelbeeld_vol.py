@@ -48,23 +48,17 @@ for naam, x in [('ton', 200), ('paddenstoel', 245), ('schedel', 420), ('krat', 4
 for naam, x in [('spinrag', 300), ('vaandel', 680), ('stut', 870), ('spinrag', 940)]:
     zet(naam, x, P, hangend=True)
 # EIGEN GEZICHT: begraven hoeden in de aardwand (nog niet in het spel; voorstel). Elke held die Gloop at, laat een hoed
-# achter die langzaam in de wand zakt. Hoeden uit hoeden.png (10 stuks), scheef, donkerder, onderkant in de aarde.
+# achter die in de wand blijft steken. 3D-renders, zie ontwerp/steam/hoedenwand/.
 from PIL import ImageEnhance
 hb = Image.open(os.path.join(K3, 'hoeden.png')).convert('RGBA'); hw = hb.width // 10
-def begraaf(i, x, y, hoek, sch=0.9):
-    h = hb.crop((i * hw, 0, (i + 1) * hw, hb.height)); h = h.crop(h.getbbox())
-    h = h.resize((round(h.width * sch), round(h.height * sch)), Image.LANCZOS).rotate(hoek, expand=True, resample=Image.BICUBIC)
-    h = ImageEnhance.Brightness(h).enhance(0.85)
-    al = np.array(h); hh = al.shape[0]
-    al[int(hh * 0.7):, :, 3] = 0          # onderste stuk zit in de aarde
-    # donkere holte om de hoed, zodat hij IN de wand zit en niet erop plakt
-    m = ndimage.binary_dilation(al[:, :, 3] > 40, iterations=3)
-    holte = np.zeros_like(al); holte[m] = (70, 38, 30, 200); holte[int(hh * 0.7):, :, 3] = 0
-    p = (round(x - h.width / 2), round(y - hh * 0.7))
-    s.alpha_composite(Image.fromarray(holte), p); s.alpha_composite(Image.fromarray(al), p)
+WAND = os.path.join(REPO, 'ontwerp/steam/hoedenwand/renders')
+def begraaf(i, x, y, hoek, breed=50):
+    # 3D-render uit ontwerp/steam/hoedenwand/hoedenwand.py (hoek staat vast in de render; hier alleen plek en maat)
+    h = Image.open(os.path.join(WAND, f'wand-{i}.png')).convert('RGBA'); h = h.crop(h.getbbox())
+    h = h.resize((breed, round(h.height * breed / h.width)), Image.LANCZOS)
+    s.alpha_composite(h, (round(x - h.width / 2), round(y - h.height * 0.6)))
 for i, x, y, hoek in [(4, 412, 72, 20), (7, 600, 66, -25), (1, 800, 78, 15), (8, 975, 62, -10), (3, 1160, 66, 30),
-                      (0, 1440, 74, -20), (9, 1570, 56, 25), (5, 1700, 78, -15), (2, 215, 66, 10), (6, 1290, 66, -30),
-                      (4, 70, 80, -15), (7, 1840, 70, 20)]:
+                      (0, 1440, 74, -20), (9, 1570, 56, 25), (5, 1700, 78, -15), (2, 215, 66, 10)]:
     begraaf(i, x, y, hoek)
 # twee helden er extra bij (bard en heks lopen naar binnen), naast Wout
 held('bard.png', 1, 505)
