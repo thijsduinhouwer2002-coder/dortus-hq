@@ -1,8 +1,52 @@
 # Succesverhalen (Lars)
 
-bezig: verhaal 19, gratis op extensions.blender.org naast betaald op Superhive (paren met dezelfde naam), 16 nov ±19:50 UTC. Verhaal 18 af (16 nov ±19:00 UTC).
+bezig: niets. Verhaal 19 af (16 nov ±20:40 UTC, gratis in Blender naast betaald op Superhive, 50 paren, en AutoCam). Volgende: wat de late splitsers buiten Superhive doen, of Model Splitter volgen (Pro en Kickstarter). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 19. Gratis in Blender, betaald op Superhive: 50 add-ons van dezelfde maker naast elkaar gemeten (mediaan 1 verkoop per ±550 gratis downloads), en hoe AutoCam het wel liet werken (één video van 251.537 weergaven, Free en Pro op één pagina)
+
+Onderzocht 16 nov 2026, run 19 (±19:50 tot 20:40 UTC). Waarom: Click Joints staat gratis op extensions.blender.org (170 downloads, GEZIEN 16 nov) en Pro staat op Gumroad en straks Superhive. De vraag voor de eerste 100 kopers: hoeveel betalers levert een gratis versie in Blender zelf op? Lessen 6 en 7 hadden cijfers van Obsidian, JetBrains en Garmin, nog niet van Blender. Geen cursusverkoper; alles komt van winkelpagina's, Reddit-archief en YouTube.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±19:50 tot 20:35 UTC)
+- extensions.blender.org/api/v1/extensions/ (1.662 extensies, 1.359 add-ons) en de pagina's van 55 add-ons (downloads, datum, beschrijving).
+- De sitemap van Superhive (73.669 productadressen) en 55 productpagina's (verkoopblok, prijzen per variant, leeftijd).
+- Koppeling: zelfde naam (of naam plus "pro"), en dan alleen paren waar de maker aantoonbaar dezelfde is (link van de ene pagina naar de andere, dezelfde GitHub-naam, of dezelfde schuilnaam). 50 paren zeker, 5 onzeker (Light Painter, Motion Path Pro, Govie Tools, Text Helper, Matching Actions: niet meegeteld). Paren met dezelfde naam maar een andere maker (Color Palette, Palette, Magic Wand en ±25 andere) weggelaten.
+- AutoCam: Gumroad-pagina renderrides.gumroad.com/l/autocam, Superhive /products/autocam en /versions, de pagina op extensions.blender.org, de RSS van YouTube-kanaal @RenderRides, berichten en reacties van u/RenderRides via het Reddit-archief Arctic Shift.
+- Tabel: `platformen/succes/data/blender-gratis-naast-superhive-2026-11-16.tsv`.
+
+### Wat de 50 paren zeggen (GEZIEN, rekensom van mij)
+- **Van de 50 paren heeft maar 29 een verkoopblok op Superhive (10+ of meer); 21 verkopen er minder dan 10.** Van de 22 met 10.000+ gratis downloads haalt de helft (10) 100+ verkopen.
+- **Verkopen per gratis download: mediaan 0,18% (40 paren met 1.000+ downloads), dus ongeveer 1 betaler per 550 downloads.** Twee kanttekeningen, allebei richting "nog minder": de teller van extensions.blender.org telt waarschijnlijk ook updates mee (GOK, zoals bij Obsidian), en de verkoopblokken zijn ondergrenzen. De andere kant op: bij 25 paren stond het product al jaren op Superhive voor het in Blender kwam, dus daar komen de verkopen niet van de gratis versie.
+- **Bij de paren waar de gratis versie eerst kwam of tegelijk, met 5.000+ downloads:** AutoCam 900+ op 37.764 (2,4%, maar de 900+ telt ook de gratis variant van $1 mee), Blockout 200+ op 9.521 (2,1%), Easy Driver 100+ op 20.954 (0,5%), Texel Density Checker 300+ op 112.980 (0,27%), Bioxel Nodes 90+ op 34.491 (0,26%), UniV 100+ op 113.765 (0,09%), Parallax Node 20+ op 35.547 (0,06%), en vijf met minder dan 10 (Improved Node Search 23.542, Sakura Poselib 23.497, SmartScene Toolkit 9.367, Render Profiler 8.506, rotor 6.790).
+- **Wie een echte betaalde versie naast een "Lite" of "Free" zet, scoort het hoogst, maar het zijn er weinig:** Audio Trigger Lite 727 downloads, volledige versie $29 met 60+ verkopen in 4 maanden (±8%); Driver Espresso Lite 236 downloads, 10+ verkopen ($15 en $25); AutoCam Free en Pro (hieronder). Bij "betaal om te steunen" voor hetzelfde product (Screencast Keys 202.748 downloads en 700+, Texel 300+, Simple Renaming 41.849 en 60+) ligt het rond 0,1 tot 0,4%. GOK: drie Lite-gevallen is te weinig om hard te zeggen dat een betaalde versie met meer functies beter verkoopt dan steunen, maar het past bij les 7.
+- **Zes van de 55 gratis pagina's in Blender noemen of linken de betaalde versie in hun beschrijving:** SmartScene Toolkit ("unlock the FULL POWER ... on Superhive Market on Gumroad"), Dimensions and Lines ("the full version (v2.0+) includes major improvements ... superhivemarket.com/products/dimensions-and-lines"), SnapSplit ("Get and support it on Superhive / Gumroad"), Surface Diagnostics, Texel Density Checker ("support the development ... on Superhive or Gumroad") en AutoCam ("Consider supporting development on Gumroad"), plus Node Group Utilities met blendermarket.com als website. Ze staan er nu (GEZIEN). Dat zegt niet dat het mag: Bram las regels 6.1 tot 6.3 als een verbod op reclame voor een betaalde versie, en een pagina kan later alsnog worden aangepast. Het zegt wel hoe ver anderen gaan zonder dat het (nog) is weggehaald.
+
+### AutoCam (RenderRides, solo, camera-animatie in Blender): wat hij in welke volgorde deed
+1. **Eerst een publiek, met iets anders.** Kanaal @RenderRides met tutorials over Marvelous Designer en Blender sinds ±2021; in maart 2025 een cursus van "over a year of work", gedeeld op 8 subreddits (GEZIEN, Arctic Shift). Nu 56K abonnees (GEZIEN, kanaalpagina).
+2. **8 mei 2025: de add-on gratis op Gumroad met een video "AutoCam: Free Blender Addon to Instantly Animate Cameras": 251.537 weergaven** (GEZIEN, RSS). 19 mei een bericht op r/blender: 105 punten, 15 reacties (GEZIEN). Op een vraag waarom niet in Blender zelf: "I wanted it to be feature-rich and mostly bug free before submitting" (20 mei 2025, GEZIEN).
+3. **15 juni 2025 ingediend bij extensions.blender.org, 19 juni goedgekeurd.** Een dag later: "I plan to release a paid version in the future, with more features ... The core version will always be free" (u/RenderRides, 20 jun 2025, GEZIEN).
+4. **Sep en okt 2025: meer video's over het gratis product** (AutoCam 2.0: 37.180; Noob vs Pro Artist: 27.099; Speed Ramping: 10.684, GEZIEN). Daarna Pro, datum niet gevonden (GOK: tussen sep 2025 en aug 2026; de Superhive-pagina is "over 1 year ago" gemaakt en in de changelog van aug 2026 bestond Pro al).
+5. **Bij Pro zette hij "AutoCam Pro is out now!" bovenaan de beschrijving van zijn oude gratis video's,** ook de video van 251.537 (GEZIEN, RSS-beschrijving). In okt 2026 een video over Pro zelf: 2.023 weergaven (GEZIEN). De gratis video's bleven dus de motor; de Pro-video zelf deed weinig.
+6. **Free en Pro op één pagina, met vijf prijzen:** Free $0 (op Superhive $1, "because Superhive requires a minimum"), Pro Personal $29, Studio 5 plaatsen $129, Studio+ 15 plaatsen $349, Unlimited $899, alle met "Lifetime updates" (GEZIEN, Gumroad en Superhive). Gumroad telt 24.960 "sales", vooral gratis downloads, en 180 beoordelingen met 4,9; Superhive 900+ (GEZIEN). Hoeveel daarvan Pro is, zegt geen bron.
+7. **Eerlijk over de grens tussen gratis en betaald.** De gratis versie: "No trial period, no watermark, no buttons that ask you to upgrade." Pro begint met waarom: "Pro is what you reach for when the take was nearly right". Plus een blok "Is AutoCam right for your shot? ... Better you know now than after you buy" met wat Pro nog niet kan (GEZIEN, Gumroad).
+8. **Naam in Blender:** in aug 2026 hernoemd naar "AutoCam Free" in de lijst van add-ons, "matching how the Pro edition already read" (GEZIEN, changelog 2.1.1). Wie de gratis naam ziet, weet dat er meer is, zonder knop of reclame in Blender.
+
+### 3 lessen
+1. **De gratis versie in Blender is geen verkoopmotor: mediaan ±1 betaler per 550 downloads, en de helft van de paren met 10.000+ downloads haalt geen 100 verkopen.** Click Joints heeft 170 downloads; volgens deze maat levert dat 0 tot 3 kopers van Pro (GOK). Voor 100 kopers zou je bij 0,2% ±50.000 gratis downloads nodig hebben, bij de beste gevallen (2%) ±5.000. De motor moet dus ergens anders zitten. (Bij les 6 en 4.)
+2. **Wat wel werkte bij AutoCam: één sterke video van het gratis product, op een kanaal dat er al was, en daarna de betaalde versie bovenaan die oude video zetten.** De Pro-video zelf haalde 2.023 weergaven, de gratis video 251.537. (Bij les 3 en 4.)
+3. **Een betaalde versie met echte extra's naast een gratis versie onder de naam "Lite" of "Free" doet het beter dan "betaal om te steunen"** (Audio Trigger Lite ±8%, Driver Espresso Lite, AutoCam; steunen 0,1 tot 0,4%). Zeg in de gratis versie niets over upgraden, maar laat de naam het werk doen, en zeg op de betaalde pagina eerlijk wat Pro nog niet kan. (Bij les 7 en les 1: AutoCam heeft vijf prijzen, van $0 tot $899.)
+
+### Wat Dortus anders doet
+- Wij hebben Free en Pro op twee plekken met twee namen (Click Joints, Click Joints Pro). AutoCam heeft één productpagina met Free als eerste keuze, zodat ook wie gratis neemt in de winkel als koper telt (en kan reviewen; zie verhaal 8 bij Split 3D Print).
+- Wij hebben nog geen video van het gratis product met veel weergaven; Chris begint di 17 nov met korte filmpjes. Bij AutoCam deed één video van 4 minuten met een duidelijke belofte ("Instantly Animate Cameras") het werk, niet de korte filmpjes.
+- Wij hebben alleen Personal $12 en Studio $45; AutoCam gaat tot 15 plaatsen en onbeperkt.
+
+### Voorstel voor Dortus deze week
+**Chris (met de hoofdchat): maak één uitlegvideo van 2 tot 4 minuten over het gratis Click Joints op @Dortusapps, met een belofte in de titel zoals AutoCam ("Print-ready joints in Blender in one click", echte beelden), en zet de link naar Pro bovenaan de beschrijving, zoals RenderRides deed.** Waarom: de gratis versie in Blender levert volgens 50 paren maar ±1 betaler per 550 downloads; bij AutoCam kwam het bereik van één video, en Pro kreeg zijn plek in de beschrijving van die video. Meetlat: weergaven en Gumroad-verkopen 14 dagen na plaatsing. Plaatsen pas na ja van Thijs (via `organisatie/goedkeuren.md`).
+Klein erbij voor **Bram**, ter overweging en niet als taak: zes gratis pagina's op extensions.blender.org linken nu naar hun betaalde versie, en AutoCam heet in Blender "AutoCam Free". Of een naam als "Click Joints Free" of één regel "support development" binnen regel 6 valt, is aan Bram; ik stel niet voor de regel op te rekken.
 
 ---
 
