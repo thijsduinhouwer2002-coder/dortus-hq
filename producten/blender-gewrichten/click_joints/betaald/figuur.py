@@ -1,0 +1,212 @@
+"""Figuurpresets van Pro 1.1 "Rig to Figure", stap 1 (ontwerp-1.1.md): zes vaste gewrichten zonder rig.
+
+Een preset kiest alleen de soort en het bereik; het snijden zelf doen de bestaande operators (kogel uit de kern,
+scharnier uit scharnier.py), dus de vorm, de pasband en de toetsen daarvan blijven gelijk.
+- Shoulder, Hip, Neck: kogel (bereik gemeten door de kern, cj_grens_graden, "±N°").
+- Elbow, Knee: scharnier met eindstop op 135°. Ankle: scharnier op 90°. Het getal in de lijst is het gemeten
+  bereik uit de beweegproef (cj_bereik_graden), niet de stand, zodat we nooit meer graden tonen dan gemeten.
+
+Elk deel krijgt een lijst `cj_gewrichten` (JSON) met alle gewrichten aan zijn kant, zoals cj_scharnieren:
+naam, soort, graden en herkomst ("preset" nu, "from rig" in stap 2). Het paneel toont die lijst per figuur.
+"""
+import json
+
+import bpy
+from bpy.props import EnumProperty
+
+
+# (sleutel, naam in het paneel, soort, stand van het scharnier of None); icoon: iconen/<sleutel>.png
+PRESETS = (
+    ("SHOULDER", "Shoulder", "BALL", None),
+    ("ELBOW", "Elbow", "HINGE", 135),
+    ("HIP", "Hip", "BALL", None),
+    ("KNEE", "Knee", "HINGE", 135),
+    ("ANKLE", "Ankle", "HINGE", 90),
+    ("NECK", "Neck", "BALL", None),
+)
+PER_SLEUTEL = {p[0]: p for p in PRESETS}
+KEUZES = [(p[0], p[1], f"{p[1]}: {'ball joint' if p[2] == 'BALL' else f'hinge with an end stop at {p[3]}°'}")
+          for p in PRESETS]
+SOORT_TEKST = {"BALL": "Ball", "HINGE": "Hinge"}
+_iconen = [None]
+
+
+def icoon(sleutel):
+    """icon_value van het kleine lichaamsdeel-icoon, of 0 (dan zonder icoon) als het niet te laden is."""
+    pv = _iconen[0]
+    if pv is None or sleutel.lower() not in pv:
+        return 0
+    return pv[sleutel.lower()].icon_id
+
+
+def lees(ob):
+    """Lijst met gewrichten op een deel (leeg als er geen is of de tekst kapot is)."""
+    try:
+        return list(json.loads(ob.get("cj_gewrichten", "[]")))
+    except (TypeError, ValueError):
+        return []
+
+
+def graden(deel):
+    """Gemeten bereik van het laatste gewricht op dit deel: (soort, graden) of (soort, None)."""
+    if deel.get("cj_soort") == "SCHARNIER":
+        g = deel.get("cj_bereik_graden")
+        return "HINGE", (None if g is None else round(float(g), 1))
+    g = deel.get("cj_grens_graden", -1.0)
+    return "BALL", (round(float(g), 1) if g is not None and g >= 0 else None)
+
+
+def bereik_tekst(soort, g):
+    if g is None:
+        return "range not measured"
+    return f"0–{g:.0f}°" if soort == "HINGE" else f"±{g:.0f}°"
+
+
+def regel(rec):
+    """Eén regel in het paneel: "Knee · Hinge · 0–135° · preset"."""
+    return " · ".join((rec["naam"], SOORT_TEKST.get(rec["soort"], rec["soort"]),
+                            bereik_tekst(rec["soort"], rec.get("graden")), rec.get("herkomst", "preset")))
+
+
+def figuur_naam(ob):
+    """Vaste naam van de figuur: cj_bron wisselt bij elke snede (het gesneden deel), cj_figuur niet."""
+    if "cj_figuur" in ob:
+        return ob["cj_figuur"]
+    return ob.get("cj_bron", ob.name) if ob.get("cj_deel") else ob.name
+
+
+def figuur_gewrichten(objecten, figuur):
+    """Alle gewrichten van één figuur (cj_figuur), elk één keer (op snijpunt), in volgorde van plaatsen."""
+    gezien, uit = set(), []
+    for ob in objecten:
+        if ob.get("cj_figuur") != figuur:
+            continue
+        for rec in lees(ob):
+            sleutel = tuple(round(c, 3) for c in rec.get("punt", ()))
+            if sleutel not in gezien:
+                gezien.add(sleutel)
+                uit.append(rec)
+    return sorted(uit, key=lambda r: r.get("nr", 0))
+
+
+def samenvatting(lijst):
+    """Korte regel bovenaan: "3 joints" of "6 joints, 4 ranges from your rig"."""
+    n = len(lijst)
+    rig = sum(1 for r in lijst if r.get("herkomst") == "from rig")
+    kop = f"{n} joint" + ("" if n == 1 else "s")
+    return f"{kop}, {rig} range{'' if rig == 1 else 's'} from your rig" if rig else kop
+
+
+class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):
+    bl_idname = "click_joints.plaats_preset"
+    bl_label = "Place figure joint"
+    bl_description = "Place the right joint for this body part at the 3D cursor"
+    bl_options = {"REGISTER", "UNDO"}
+
+    deel: EnumProperty(name="Body part", items=KEUZES, default="KNEE")
+
+    @classmethod
+    def poll(cls, context):
+        return context.active_object is not None and context.active_object.type == "MESH"
+
+    @staticmethod
+    def _snij(context, inst, soort, stand):
+        if soort == "HINGE":
+            flip = bool(getattr(context.window_manager, "cj_flip_bend", False))
+            return bpy.ops.click_joints.plaats_scharnier(stand=str(stand), flip_bend=flip)
+        oud_soort = inst.soort
+        inst.soort = "KOGEL"
+        try:
+            return bpy.ops.click_joints.plaats()
+        finally:
+            if inst.soort != oud_soort:
+                inst.soort = oud_soort
+
+    def execute(self, context):
+        _sleutel, naam, soort, stand = PER_SLEUTEL[self.deel]
+        bron = context.active_object
+        oude = lees(bron)
+        fig = figuur_naam(bron)
+        voor = {o.name for o in bpy.data.objects}
+        inst = context.scene.click_joints
+        try:
+            uitslag = self._snij(context, inst, soort, stand)
+        except RuntimeError as e:  # een ERROR-melding van de onderliggende operator komt hier als fout binnen
+            self.report({"ERROR"}, str(e).replace("Error: ", "").strip())
+            return {"CANCELLED"}
+        if "FINISHED" not in uitslag:
+            # De onderliggende operator gaf zijn eigen melding al (te dun, te dichtbij, niet gesloten ...).
+            return {"CANCELLED"}
+        nieuw = [o for o in bpy.data.objects if o.name not in voor and o.get("cj_deel") in ("A", "B")]
+        if len(nieuw) != 2:
+            self.report({"WARNING"}, f"{naam}: joint placed, but its parts were not found for the joint list.")
+            return {"FINISHED"}
+        soort_echt, g = graden(nieuw[0])
+        nr = 1 + max([r.get("nr", 0) for o in bpy.data.objects if o.get("cj_figuur") == fig for r in lees(o)]
+                     + [r.get("nr", 0) for r in oude] + [0])
+        rec = {"nr": nr, "naam": naam, "preset": self.deel, "soort": soort_echt, "graden": g,
+               "herkomst": "preset", "punt": [round(c, 4) for c in nieuw[0]["cj_snijpunt"]]}
+        for d in nieuw:
+            # Elk deel erft de oude gewrichten van het gesneden deel; een gewricht dat aan de andere kant lag,
+            # blijft ook op een ander deel van de figuur staan, dus de lijst per figuur raakt niets kwijt.
+            d["cj_gewrichten"] = json.dumps(oude + [rec])
+            d["cj_naam"] = naam
+            d["cj_figuur"] = fig
+            d["cj_herkomst"] = "preset"
+        self.report({"INFO"}, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.")
+        return {"FINISHED"}
+
+
+def teken(self, context):
+    """Vak "Figure joints" onder het paneel: zes presets met icoon, daarna de lijst van deze figuur."""
+    ob = context.active_object
+    if ob is None:
+        return
+    vak = self.layout.box()
+    vak.label(text="Figure joints", icon="ARMATURE_DATA")
+    rooster = vak.grid_flow(row_major=True, columns=2, even_columns=True, align=True)
+    for sleutel, naam, _soort, _stand in PRESETS:
+        ic = icoon(sleutel)
+        if ic:
+            op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam, icon_value=ic)
+        else:
+            op = rooster.operator(CLICK_JOINTS_OT_plaats_preset.bl_idname, text=naam)
+        op.deel = sleutel
+    lijst = figuur_gewrichten(context.scene.objects, figuur_naam(ob))
+    if lijst:
+        vak.label(text=samenvatting(lijst))
+        kol = vak.column(align=True)
+        for rec in lijst:
+            kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)
+
+
+def register():
+    bpy.utils.register_class(CLICK_JOINTS_OT_plaats_preset)
+    try:
+        import os
+        from bpy.utils import previews
+        pv = previews.new()
+        map_ = os.path.join(os.path.dirname(__file__), "iconen")
+        for sleutel, *_ in PRESETS:
+            pad = os.path.join(map_, f"{sleutel.lower()}.png")
+            if os.path.isfile(pad):
+                pv.load(sleutel.lower(), pad, "IMAGE")
+        _iconen[0] = pv
+    except Exception as e:  # zonder iconen werkt alles, alleen zonder plaatje
+        print(f"Click Joints: icons not loaded ({e})")
+        _iconen[0] = None
+    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
+    if paneel is not None:
+        paneel.append(teken)
+
+
+def unregister():
+    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
+    if paneel is not None:
+        paneel.remove(teken)
+    if _iconen[0] is not None:
+        from bpy.utils import previews
+        previews.remove(_iconen[0])
+        _iconen[0] = None
+    bpy.utils.unregister_class(CLICK_JOINTS_OT_plaats_preset)
+

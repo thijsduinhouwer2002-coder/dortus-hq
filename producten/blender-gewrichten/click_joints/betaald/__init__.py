@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, scharnier, scharnier_beweeg, scharnier_boog
+from . import afstand, figuur, scharnier, scharnier_beweeg, scharnier_boog
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
@@ -121,6 +121,7 @@ def register(eigen=None):
     if paneel is not None:
         paneel.append(scharnier.teken_knop)
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
+    figuur.register()  # 1.1 stap 1: figuurpresets en de lijst met gewrichten (na teken_knop, dus eronder)
     # Omhullen pas als alles staat (kan-punt controleur eis 7), zodat een fout hierboven geen omhulsel achterlaat.
     # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand en zet op in de module.
     if _oude_afstand[0] is None:
@@ -136,6 +137,7 @@ def register(eigen=None):
 
 
 def unregister():
+    figuur.unregister()
     scharnier_boog.unregister()
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
