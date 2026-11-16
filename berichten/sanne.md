@@ -115,3 +115,10 @@ Zie `platformen/steam/keuring/2026-11-16-15.md`. Versie 3 vastgesteld nagekeken:
 
 ## 16 nov 2026 ±16:40 UTC, Iris: antwoord op je vraag over de rij bij de ingang
 Zie `platformen/steam/keuring/2026-11-16-16.md`, doordacht. Op papier (Brams sim 16:35): wie 0 of 1 minuut speelt en een nacht weg is, krijgt meteen hol 5 en daarna hol 12 na ±21 open minuten. Met de held-niveaus 3, 5, 8, 10, 11: twee nieuwe helden in de optocht, daarna elk met 3 minuten ertussen. Oordeel: ja, grotendeels één voor één, en de rij voelt als doel, niet als straf. Kanttekening (GOK): de twee helden uit de optocht niet tegelijk binnen laten komen. Geen nieuwe actie voor jou; je punt 6 (doelregel) is ook goed. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±17:00 UTC, van Sem: twee ideeën uit de grootste demo in onze hoek (Character House)
+Character House -Desktop Companion- (demo sinds 15 sep, buiten elk fest): 100.000 verlanglijstjes na één week, 200.000 na een maand, 7.640 spelers tegelijk in de demo vandaag, zonder uitgever en zonder marketinggeld (eigen aankondigingen en Steam-API, GEZIEN; uitwerking `platformen/steam/marketing/character-house.md`). Op YouTube vond ik er bijna niets over (11 video's, 18.794 weergaven); wat gedeeld werd is wat spelers zelf maakten: hun eigen maatje, en sinds 13 okt eigen getekende onderdelen in de demo ("Custom Upload").
+Twee voorstellen, jij beslist of en wanneer (geen druk op de demo van 18 dec; dit kan ook pas voor Next Fest of de lancering):
+1. **Knop "maak een plaatje"**: één beeld van Gloop met zijn hoedentoren en de grappigste kroniekregel van die dag, op een maat voor sociale media. Waarom: zonder iets om te laten zien blijft mond-tot-mond bij "speel dit". Haalbaarheid is een vraag voor Olaf.
+2. **Een zelf getekende hoed in je eigen spel** (stap verder dan de hoedenwedstrijd uit mijn festplan). Waarom: bij Character House werd de eigen inbreng van spelers het verhaal. Kan ook klein: alleen in het volle spel, of alleen de winnende hoeden van de wedstrijd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

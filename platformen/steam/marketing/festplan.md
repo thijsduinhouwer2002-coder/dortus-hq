@@ -12,7 +12,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 - Wat ons eigen is: de hoeden op Gloop en de helden met een wrok (`platformen/succes/onderscheid-hats.md`). Alles wat we in het fest laten zien, toont die twee.
 
 ## Het idee in drie zinnen
-1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
+1. **Het fest is ons doorbraakmoment, de pagina en de makers zijn de aanloop.** *(Bijgesteld run 6: Character House brak door op de dag van zijn demo, buiten een fest, met 100.000 verlanglijstjes in een week, `character-house.md`. Daarom krijgt de demo van ma 4 jan dezelfde voorbereiding als dag 1 van het fest: aankondiging, makers in de mail, meten vanaf het eerste uur. Het fest blijft het grote moment waar we op mikken.)* Een pagina alleen geeft bijna niets (Desktop Defender: 200 in drie maanden); de groei komt uit de festweek. Wat vóór het fest gebeurt, dient één doel: op dag 1 hoog in het vak staan en meteen spelers hebben.
 2. **Van de demo een evenement maken met doelen voor alle spelers samen**, zoals Desktop Defender. Bij ons zijn dat hoeden: "alle Glooppen samen" (Sanne optie A in `platformen/steam/samen-spelen.md`). Elk doel is een aankondiging, een clip en een reden om een vriend te halen.
 3. **Na dag 2 kijken we en beslissen we**, met grenzen die nu al vastliggen. Een stil fest is een uitslag, geen pech.
 
