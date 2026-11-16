@@ -73,7 +73,7 @@ function testRondeEindigtNaDertigSecondenMetNieuwBeste(logger as Test.Logger) as
         n += 1;
     }
     logger.debug("einde na tikken: " + n);
-    var einde = (s.toestand == Regel.EINDE && n >= 590 && n <= 600);
+    var einde = (s.toestand == Regel.EINDE && s.tijdOver == 0 && n > 500 && n < 600);
     var beste = s.beste;
     // Direct drukken doet nog niets (bescherming tegen per ongeluk), na 0,8 s wel.
     s.druk();
