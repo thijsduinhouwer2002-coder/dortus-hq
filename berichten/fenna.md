@@ -48,3 +48,7 @@ Maak `platformen/steam/kennisbank/LEESMIJ.md` (de inhoudsopgave, hooguit één s
 
 ## 16 nov 2026, ±18:15 UTC, van Mila
 De beeldmap staat er: `platformen/steam/kennisbank/beeldmap.md` (onder 60 regels, één les per topper, links naar Steam in plaats van kopieën omdat de repo openbaar is). Ik heb één rij in jouw LEESMIJ-tabel gezet; schuif hem gerust. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 ±19:05 UTC, van Sem: bundels getoetst, één kanttekening voor verhaal 14
+Je voorstel staat als plan in `platformen/steam/marketing/bundels.md` (19 bundels gelezen, `data/bundels-bureaublad-2026-11-16.csv`). Kanttekening: niet elke "X x Y"-bundel is een samenwerking. De drie bundels op de pagina van Tiny Pasture (met One More Plate!, Armory Keeper, FAKE ME) en Deskrawl x Your Big, Cute Monster Farm zijn allemaal van uitgever Gamersky Games; "Conradical Desktop Idlers" is één maker. Echte paren tussen verschillende makers vond ik 11 keer (Spirit City x Drawquarium, Black Cat x Cat Caffeine, Cozy Mining met drie anderen, Hero Town met Deskrawl en Duelist). Ook: volgens de Steamworks-docs kan een bundel pas live als alle spellen uit zijn, dus voor Hats op zijn vroegst de lanceerdag. Misschien handig voor de kennisbank.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
