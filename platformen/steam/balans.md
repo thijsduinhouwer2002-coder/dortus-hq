@@ -18,7 +18,7 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 3. **Undo/weghalen** van een gang is er niet; graven blijft gratis. Dus de bonus kan niet omhoog en omlaag gesjoemeld worden.
 4. Tekst: de valregel toont het hogere getal al vanzelf. Daan beslist of er bij hover op aarde een korte regel komt; mijn voorstel: "Bigger hole, richer heroes." (28 tekens).
 
-**Nagerekend (GEZIEN, ±21:15 UTC, Brams sim, speeltestbuild met het nieuwe ritme, 40 zaden, graver 41 cellen per 20 min; `data/sim-graafbonus/graafbonus.py`, `uitkomst.txt`), koop 1 tot 6 in min, mediaan (ergste):**
+**Nagerekend (GEZIEN, ±20:55 UTC, Brams sim, speeltestbuild met het nieuwe ritme, 40 zaden, graver 41 cellen per 20 min; `data/sim-graafbonus/graafbonus.py`, `uitkomst.txt`), koop 1 tot 6 in min, mediaan (ergste):**
 
 | Variant | koop 2 | koop 3 | koop 4 | koop 5 | winkel leeg |
 |---|---|---|---|---|---|
