@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 20:31: bezoekers dortus.com uit Amami in het scorebord (opdracht hoofdchat 20:35), nieuw script organisatie/controle/scorebord_amami.py; testrun groen, eerste hele dag morgen 07:00 UTC.
 - 16 nov, run 17:31: scorebord gebouwd en nagekeken (opdracht hoofdchat 17:05), zie organisatie/scorebord.md. Volgende: Chris helpen met verspreiden.
 - 16 nov, run 11:31, ook: Freshworks Marketplace (2, nee), 1.093 apps, nieuwe apps mediaan 1 installatie. Helpdeskwinkels afgesloten. Zie voorstellen/freshworks-marketplace.md.
 - 16 nov, run 11:31: Zendesk Marketplace (2, nee), alle 1.898 apps via de open API, nieuwe apps mediaan 1 installatie. Zie voorstellen/zendesk-marketplace.md.

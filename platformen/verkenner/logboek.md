@@ -1360,3 +1360,12 @@ Nieuwste blok onderaan.
 - Geen nieuw bericht in berichten/vera.md; alle opdrachten zijn verwerkt. Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet.
 - Reacties-script gedraaid: Rollwright 44 views (8 dagen), Ebb 39 views (2 dagen), beide 0 antwoorden. Het r/blender-bericht van Click Joints is nog niet geplaatst (geen link in commercie/), dus niets toe te voegen aan geplaatst.csv.
 - Kort gestopt (regel 0c). Volgende run: kijken of het r/blender-bericht er staat en het dan in data/geplaatst.csv zetten; nameting fest-proef 24 nov.
+
+## 16 nov 2026, run 20:31 (gestart 19:34 UTC)
+- Nieuwe berichten van de hoofdchat (20:30 en 20:35 NL): bezoekcijfers van dortus.com uit Amami in het scorebord, AMAMI_API_KEY staat. Gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet.
+- API uitgezocht met curl en het npm-pakket amami-analytics-mcp: Umami-compatibel, adres https://analytics.amami.dev/api (api.amami.dev uit de docs bestaat niet), sleutel als Bearer of x-umami-api-key, gratis plan 10 verzoeken per minuut.
+- Gebouwd: `organisatie/controle/scorebord_amami.py` (apart bestand, anders werd scorebord.py 427 regels). Per hele dag (Amsterdamse tijd, vanaf 16 nov, de laatste 6 dagen die nog ontbreken) bezoekers, bezoeken, weergaven en per productpagina (voorpagina, Click Joints, Ebb, Rollwright, Bison & Flex, overig) naar scorebord-data.csv met de bezoekdag als datum; vandaag tot nu alleen in scorebord.md. Sleutel alleen via `secrets.AMAMI_API_KEY` in de ene stap van de workflow; nooit geprint, foutregels noemen alleen "stats" of "metrics" (de Actions-logs zijn openbaar). Website-id elke run uit de html van dortus.com, staat nergens in de repo.
+- Lokaal getest met een nepantwoord (zonder sleutel slaat het netjes over). Echte test: de push startte de workflow zelf (paden-trigger), uitkomst hieronder.
+- Uitkomst test: workflow Scorebord run 43941847382 groen, Amami antwoordde (geen foutmelding), scorebord gepusht als b34916e. Vandaag tot 20:46: 0 bezoekers, wat past bij een script dat er sinds ±20:30 staat (vanuit de cloud kan ik geen bezoek nadoen: de proxy weigert /api/send, zag Abel ook). Eerste hele dag (16 nov) komt morgen om 07:00 UTC in de csv.
+- Let op voor een volgende run: staat er morgen 0 terwijl er Reddit-berichten uit zijn, dan eerst het script op dortus.com en het website-id nakijken.
+- Volgende run: geen open opdracht meer; kijken of het r/blender-bericht er staat (data/geplaatst.csv), nameting fest-proef 24 nov.
