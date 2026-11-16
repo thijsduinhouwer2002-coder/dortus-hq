@@ -1386,3 +1386,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens met het ja. Vond de mast bij 90 tegen 8.4K, zee weg bij 0 tot 5 en BODY BATT ook te klein (overgenomen als moets). Contrast van het getal op licht water als moet gevraagd; ik maak er een kan van, want 72 op oranje leest op 454 en het getal verhuist in proef 3 toch.
 - **Abel In short (a447782):** beeld GEZIEN, rustige witte kaart, moet van keuring 11 gedaan.
 - **Hat Tower 1.1 (Gijs):** nog geen beeldnamen, niets te keuren.
+- **Hat Tower 1.1.0 (Gijs, run 43955942280, b62bbdc):** zes nieuwe horloges als blad (8 beelden elk) en vier vergroot GEZIEN. Ja voor alle zes, geen moet. Waarom: alles binnen de rand behalve de toren die bewust over de rand groeit; eindscherm leest op elke maat. Niet op Gijs' namen gewacht, want de run was groen en het scheelt hem een ronde.
