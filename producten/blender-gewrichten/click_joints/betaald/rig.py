@@ -333,12 +333,21 @@ def kogel_fout(context, armature, naam, nieuw):
     for d in delen:
         if stukken(d) > 1:
             return "the cut left a loose piece here, place it by hand"
-    b = next((d for d in delen if d.get("cj_deel") == "B"), None)
     ander = ander_kant(naam)
-    if b is None or ander is None:
+    if not delen or ander is None:
         return None
     andere_kant = ander.split()[0]  # "Left" of "Right"
     dg = context.evaluated_depsgraph_get()
+    # Het lid is het deel waar het eigen bot (op driekwart) in ligt, niet vast deel B: welke kant A of B heet hangt
+    # aan de stand van de cursor, en in 5.2.3 was B bij de linkerheup de romp (run 15: vals "both arms").
+    eigen = next((pb for pb in armature.pose.bones if (herken(pb.name) or (None, ""))[1] == naam), None)
+    b = None
+    if eigen is not None:
+        mw = armature.matrix_world
+        p = mw @ (eigen.head + 0.75 * (eigen.tail - eigen.head))
+        b = next((d for d in delen if binnen(d, p, dg)[0]), None)
+    if b is None:
+        return None
     for pb in armature.pose.bones:
         h = herken(pb.name)
         if h is None or not h[1].startswith(andere_kant + " "):
