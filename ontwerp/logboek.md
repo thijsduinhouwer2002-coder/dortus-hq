@@ -1271,7 +1271,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 
 ## 16 nov 2026, run ±07:26 tot ±08:10 UTC (Daan, geplande run): capsule-richting TOREN (haak van Hats)
 - **Berichten:** alles in `berichten/daan.md` was al verwerkt. Nieuw sinds vorige run: besluit hoofdchat 08:05 NL (advies Fenna): hoedentoren grootste ding op de capsule, korte tekst begint met de hoeden, samen met Daan.
-- **Gemaakt:** `ontwerp/steam/capsule-3d-daan/capsule_toren.py` (Mila's capsule plus een hoedentoren uit `hoeden.py`), ronde 1 header en klein, ronde 2 klein. Toets op 120 px in kleur en grijs naast Don't Rob My Dungeon, GEZIEN (3x vergroot).
+- **Gemaakt:** `ontwerp/steam/capsule-3d-daan/capsule_toren.py` (Mila's capsule plus een hoedentoren uit `hoeden.py`), ronde 1 header en klein, ronde 2 en 3 (scheef) klein. Toets op 120 px in kleur en grijs naast Don't Rob My Dungeon, GEZIEN (3x vergroot).
 - **Controleur (blinde kijker, Agent):** nu 4, toren r1 5; toren te smal, lichte hoeden in de lichtvlek, lege muur. Overgenomen in ronde 2 (donkere muur, minder en grotere hoeden, donkere hoge hoed ertussen): op 120 lees je nu hoeden.
 - **Besloten:** richting en lessen aan Mila (eigenaar capsule), `LEESMIJ-toren.md`. Korte tekst van Fenna: ja, kan om met de hoed te beginnen. In `berichten/mila.md`.
 - **Volgende run:** Mila's capsule op de toetsen nakijken; eindkeuring vijf Steam-schermen voor wo 18 nov 20:00; Gijs' rand onder "START = AGAIN".

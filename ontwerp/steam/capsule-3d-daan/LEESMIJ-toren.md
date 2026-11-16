@@ -20,3 +20,9 @@ Aanleiding: besluit hoofdchat 16 nov 08:05 NL (advies Fenna, `platformen/succes/
 3. **Donkere muur achter de toren**, geen lichtvlek daar; het licht hoort óp de hoeden (randlicht van boven).
 4. **Gloop groter dan nu in r2**, het oog is het tweede herkenningspunt. De ridder mag een stipje zijn of weg in klein.
 5. Wat nog te proberen (Mila): toren licht scheef naar de titel toe, zodat hij de breedte gebruikt; elke hoed een donkere rand (zoals het icoon van het Gloop-spel).
+
+## Ronde 3 (klein, scheef naar de titel), 16 nov ±07:55 UTC
+`toren-klein-ronde3-scheef-462x174.png`, toets `toren-toets-120-grijs-ronde3-1x.png`, GEZIEN. Zelfde als ronde 2 met `TOREN_KANTEL=6,10,14,18 TOREN_SCHUIF=-0.12,-0.2,-0.28,-0.3 TOREN_KCX=0.9 TOREN_KCZ=3.6 TOREN_KLENS=21 TOREN_KTZ=1.6 TOREN_KTX=-0.6 TOREN_KRS=0.7`.
+- Groot oogt hij levendiger (een toren die bijna omvalt naar de titel, past bij de grap). Op 120 px ongeveer gelijk aan ronde 2.
+- Nog steeds te klein: Gloop. In klein staat `GROOT` vast op 1,3 in het script (`TOREN_GROOT` werkt alleen in de header), en de hoeden schalen mee met de helm. Gloop groter maken = `GROOT` voor klein instelbaar maken en `TOREN_S` iets omlaag.
+- Fout om te verhelpen: witte glansvlek op de H van HATS (sleutellicht), en een donkere fakkelrest aan de rechterrand.
