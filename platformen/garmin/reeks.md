@@ -155,3 +155,49 @@ De winkel heeft geen lijst "binnenkort". Wat ik zag: 4 van de 15 gelezen wijzerp
 ## Wat dit omgooit
 - Blijkt in de proef dat de geschiedenis van Body Battery of het weer per uur op de helft van de horloges niet te lezen is: dan vervalt de richting per veld of de ring, en kiezen we opnieuw.
 - Staat plaat 1 met kern, filmpje en 100+ horloges na 30 dagen onder de 10 downloads: dan ligt het aan de drukte en niet aan ons product, en bouwen we geen plaat 3 zonder ander kanaal (Vera schreef hetzelfde over Gloop).
+
+## Tij: concurrentiecheck van de dag en de slaapstand (run 125, 16 nov ±23:00 UTC)
+
+### De check: het idee bestaat al, drie keer, en dat zagen wij eerder niet
+Gemeten met `tij_concurrentiecheck.py` (zoekbalk van de winkel, alleen wijzerplaten): de nieuwste 60 op "body battery" en op "big digits", en de eerste 60 op tide, sea, ocean, wave, boat, sail, water level, ship en "battery level sea". Samen 660 rijen, 601 verschillende wijzerplaten: `tij-concurrentiecheck-2026-11-16.csv`. Van negen de winkeltekst gelezen, van vier de eerste drie winkelbeelden bekeken als blad (`tij-concurrenten-blad-2026-11-16.png`, GEZIEN met Read, 300 px per beeld). Showcase van het forum gelezen (eerste pagina, 20 onderwerpen).
+
+**Mijn fout van run 122:** ik zocht toen op woorden voor gegevens (body battery, big digits, 24h) en niet op woorden voor het beeld (tide, sea, boat). Daardoor schreef Mila "in de 318 rijen vond ik verder geen zee, golf of boot" en zei Daan ja zonder deze drie te kennen. Les: bij een plaat met een beeld ook op het beeld zoeken, vóór het stijlblad.
+
+| De 5 dichtstbijzijnde | Prijs | Downloads, reviews | Horloges | Sinds | Wat het doet (winkeltekst en beeld) | Wat wij hebben dat zij niet hebben |
+|---|---|---|---|---|---|---|
+| **Tide Line**, Fabrique-Futur | gratis | 0, 0 | 1 (Forerunner 970) | 2 nov 2026 | "Your Body Battery is the sea level": het water staat zo hoog als je Body Battery, de tijd drijft er half in, een dunne lijn van de laatste 24 uur over de bodem, "high tide" noemt je piek. Slaapstand: grijze waterlijn en dunne tijd, schuift elke minuut. Beeld: effen blauwe zee, peilschaal links | Hetzelfde idee. Verschil: bij ons ís de waterlijn het verloop (bij hen een los lijntje op de bodem), het bootje op het nu dat scheef valt als je leeg bent, vier thema's, drie velden, 100+ horloges tegen 1 |
+| **Tide - Your battery, poured into the time**, GaminWatch | $2,75, met een gratis versie die na 7 dagen om de betaalde vraagt | 1+, 1 (5,0) | 87 | 13 nov 2026 | De cijfers van de tijd lopen vol met vloeistof; het peil is de accu of Body Battery, stappen, calorieën. Groen naar rood. Beeld: groene cijfers op zwart, verder leeg | Een zee met een verloop in plaats van gevulde cijfers; de gratis versie blijft gratis; velden |
+| **TIDE**, oleg-koval | gratis | 10+, 0 | 76 | 3 aug 2026 | Het scherm is een vat: het water stijgt door het uur, een boei drijft op de waterlijn en beweegt met je hartslag, het water wordt lichter als Body Battery zakt. Beeld: wit geblokt water op zwart, geen cijfers van belang | Leesbaar: de tijd groot, Body Battery als getal en als peil. Bij hen is het water de tijd |
+| **Sailboat Weather Big Digits: Voyage**, fun4watch | gratis, PRO $2,99 met een code via eigen site, 48 uur proef | 0, 0 | 90 | 16 nov 2026 (vandaag) | Een zeilboot met de tijd op de zeilen, de lucht volgt het weer (18 soorten), 53 velden, 8 zeilkleuren. Beeld: druk, kleurig, boot vult het scherm | Rust, en het water betekent iets (je Body Battery); kopen via Garmin |
+| **Overflow - Big Liquid Digits**, TinyDialStudio (eerder gevonden door Mila) | gratis, $2,99 via KiezelPay | 10+ | niet opnieuw gemeten | niet gemeten | Minuutcijfers lopen vol naarmate je stappen haalt | Zie Tide van GaminWatch |
+
+Daarnaast: tientallen wijzerplaten met een zee of zeilboot als achtergrondplaatje (GreenPoint, Stella, Awooche, Vista: bijna allemaal gratis, 10+ tot 100+), en echte getijdenplaten (Tidewell $1,99 100+, Astra Tidemark gratis 100+ en Pro $4,99 10+, Tide Time gratis 1.000+).
+
+**Wat ik eruit haal, eerlijk:**
+1. "Body Battery is het zeepeil" is niet van ons alleen. Tide Line doet het sinds twee weken, op één horloge, met 0 downloads. Het idee is dus nog door niemand op veel horloges en met een winkelpagina die verkoopt uitgevoerd; of mensen het willen is daarmee niet bewezen, ook niet weerlegd.
+2. Wat van ons blijft: de waterlijn als verloop van je dag in getekende lagen (het beeld van Dusk 72 lijkt op geen van de vier), het bootje met de grap, 100+ horloges, gratis die gratis blijft. Dat is uitvoering en bereik, geen idee dat niemand heeft. Zo stond het al in "Kort" punt 1 en 2, en het geldt hier ook.
+3. **De naam Tide of Tij kan niet.** Op "tide" staan er tientallen, waaronder drie die letterlijk Tide heten en echte getijdenplaten; wie "tide" zoekt wil vaak eb en vloed. Dat ligt bij Chris.
+4. Nieuwkomers komen snel: Tide (13 nov), Voyage en Level Up (vandaag). De check moet op de dag van indienen opnieuw.
+
+**Mijn besluit:** de kern (velden, thema's, slaapstand, gratis en betaald uit één bron) bouw ik door, want die is voor elke plaat nodig. Het beeld van plaat 1 blijft Tij, maar Daan moet zijn ja opnieuw geven nu hij Tide Line kent, met het verschil in één zin. Zegt hij nee, dan krijgt de kern een ander beeld en is er geen bouwwerk verloren.
+
+### De slaapstand: regels van Garmin (GEZIEN met curl, 16 nov ±23:00 UTC)
+Bron: `https://developer.garmin.com/connect-iq/articles/connect-iq-faq/How_Do_I_Make_a_Watch_Face_for_AMOLED_Products.html` en `.../articles/user-experience-guidelines/Watch_Faces.html` (de gewone pagina's laden hun tekst pas met een script; deze adressen geven de tekst zelf).
+- In de slaapstand tekent de wijzerplaat **één keer per minuut**.
+- Eerste Venu: hooguit **10% van de pixels aan** en geen pixel langer dan **3 minuten** aan, anders zet het horloge het scherm uit. Een pixel is aan bij elke kleur behalve zwart.
+- Sinds de Venu 2: minder dan **10% van de lichtsterkte van het scherm**. De wijzerplaat vraagt met `System.getDisplayMode()` of het scherm in de zuinige stand staat; of de regel geldt staat in `requiresBurnInProtection` (in proef 2: ja op fēnix 8, Venu 3S, vívoactive 5, Venu Sq 2).
+- Raad van Garmin: weinig wit en blauw (liever lichtgrijs), dunne letters, niets dat stilstaat; wat stilstaat elke minuut tot 4 pixels verschuiven. En: een wijzerplaat voor AMOLED hoort een slaapstand te hebben.
+- De simulator heeft een proef voor inbranden (menu "View Screen Heat Map"). Of die zonder scherm op de bouwstraat te draaien is: NIET GEZIEN.
+
+### Gemeten: de dikke tijd van Tij past niet in de slaapstand
+`tij_slaapstand_meet.py` tekent de slaapstand met de letter van Mila (tijd op de maat uit haar tabel, waterlijn van 2 px, bootje als omtrek) en telt de pixels binnen het ronde scherm. Het is een rekensom op een plaatje, geen horloge; "licht" telt een grijze pixel naar zijn grijswaarde (170 van 255 telt als 67%), en hoe Garmin lichtsterkte precies meet weet ik niet (GOK).
+
+| Tijd in de slaapstand | Pixels aan (390, 416, 454) | Licht |
+|---|---|---|
+| Gewicht 900, vol, wit | 13,3%, 13,1%, 13,3% | 12,7% |
+| Gewicht 900, vol, grijs 170 | 13,3%, 13,1%, 13,3% | 8,5% |
+| Gewicht 900 als omtrek van 2 px, grijs 170 | 5,0%, 4,8%, 4,4% | 2,2 tot 2,6% |
+| Gewicht 400, vol, grijs 170 | 6,5%, 6,7%, 6,3% | ±4,1% |
+| Gewicht 300, vol, grijs 170 | 5,2%, 4,9%, 5,0% | 3,0% |
+
+De volle dikke tijd zet 13% van de pixels aan: boven de 10% van de eerste Venu, en bij grijs maar net onder de 10% licht van de nieuwere. Dat is te krap. **Voorstel aan Mila en Daan:** in de slaapstand de tijd als omtrek van dezelfde dikke cijfers (zelfde vorm, past bij het bootje als omtrek, ±5%) of in gewicht 300 tot 400 (±5 tot 6,5%), grijs en niet wit, en alles elke minuut 1 tot 4 px verschuiven. Een extra letter voor de slaapstand kost op nieuwe horloges ±600 bytes (proef 3); op de oude horloges zonder AMOLED is hij niet nodig.
