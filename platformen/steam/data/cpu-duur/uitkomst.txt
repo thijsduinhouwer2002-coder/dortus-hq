@@ -1,0 +1,15 @@
+# python3 -I cpu_per_beeld.py <mappen van tak schermen steam-hol-duur/...>
+main-1920x1080 lag -1 n 118 cor beelden 0.69 hol_vast 0.14 helden 0.57 | gem beelden/10s 73, hol_vast per 10s 0.25, cpu 1.23
+   cpu-ms per beeld 16.7; cpu bij helden=0: 0.73, >=1: 1.49
+main-koper-1-1920x1080 lag -2 n 118 cor beelden 0.42 hol_vast 0.15 helden -0.25 | gem beelden/10s 105, hol_vast per 10s 1.39, cpu 0.59
+   cpu-ms per beeld 5.6; cpu bij helden=0: 0.70, >=1: 0.59
+main-koper-2-1920x1080 lag -1 n 118 cor beelden 0.57 hol_vast -0.05 helden 0.73 | gem beelden/10s 67, hol_vast per 10s 0.35, cpu 1.04
+   cpu-ms per beeld 15.3; cpu bij helden=0: 0.54, >=1: 1.42
+main-1920x1080-exe lag -1 n 118 cor beelden 0.60 hol_vast -0.04 helden 0.75 | gem beelden/10s 67, hol_vast per 10s 0.31, cpu 0.94
+   cpu-ms per beeld 14.1; cpu bij helden=0: 0.49, >=1: 1.32
+
+# python3 -I cpu_plat.py ...
+main-1920x1080 plat-events 14 | geen held, niet plat 1.02 (n31) | geen held, plat 1.17 (n9) | held, niet plat 1.41 (n31) | held, plat 1.27 (n47)
+main-koper-1-1920x1080 plat-events 6 | geen held, niet plat 0.56 (n3) | geen held, plat 0.44 (n1) | held, niet plat 0.59 (n89) | held, plat 0.59 (n25)
+main-koper-2-1920x1080 plat-events 9 | geen held, niet plat 0.98 (n43) | geen held, plat 1.20 (n8) | held, niet plat 1.03 (n39) | held, plat 1.10 (n28)
+main-1920x1080-exe plat-events 9 | geen held, niet plat 0.82 (n47) | geen held, plat 0.92 (n6) | held, niet plat 0.99 (n44) | held, plat 1.09 (n21)
