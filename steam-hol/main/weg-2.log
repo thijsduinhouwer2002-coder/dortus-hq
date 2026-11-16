@@ -1,10 +1,10 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 675, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 675 goud, faam 84
+HOL weg geweest 0 s (klok terug: true): goud voor 741, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 741 goud, faam 95
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794851802
-HOL eerste koop mogelijk na 30 s speeltijd (goud 675)
+HOL zaad 1794852927
+HOL eerste koop mogelijk na 30 s speeltijd (goud 741)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Joost read about you in a tavern.
-HOL begin: doorlopen (Joost)
-HOL held binnen: Joost
-HOL einde na 8 s, fps=10, goud=675, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Kees read about you in a tavern.
+HOL begin: doorlopen (Kees)
+HOL held binnen: Kees
+HOL einde na 8 s, fps=10, goud=741, terugkomers=0
