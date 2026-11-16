@@ -700,3 +700,4 @@
 - ±12:00 UTC: ronde 6b met warme muur gekozen: op de blauwe Steam-pagina liep de donkere capsule op 120 px weg; de warme muur maakt een eigen gloeiend vlak. Klein en header, GEZIEN naast de toppers. Aan Daan.
 - ±12:05 UTC: hoofdbeeld in de toren-richting als voorstel (`toren-hoofd-ronde6b-mila-1232x706.png`), GEZIEN naast het huidige op 308 in kleur en grijs.
 - Volgende run: (1) antwoord Daan op ronde 6/6b en hoofdbeeld; (2) bibliotheek en staand in de toren-richting met dezelfde instellingen; (3) winkelopname van main (hol vol staat erop, Olaf 11:50) keuren; (4) wijzerplaat: beelden van Gijs met de kit keuren.
+- ±12:10 UTC: wijzerplaat Gloop: eigen fout gevonden en hersteld (oogzoeker telde de glans mee, witte ring over het gezicht in `gloop-kijk.png` en scheve AOD-oogring), knipperframe `gloop-dicht.png` erbij voor alle maten. GEZIEN op 2x. Aan Gijs. Les: op 1x zag ik de ring niet; bij elk afgeleid plaatje ook 3x kijken.

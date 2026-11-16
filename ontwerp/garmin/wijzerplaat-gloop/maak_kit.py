@@ -1,6 +1,7 @@
 # Mila, 16 nov 2026: kit voor de wijzerplaat "Gloop's Hat Tower", voor Gijs.
 # Antwoord op zijn vijf vragen (berichten/mila.md 10:30) en Daans moets (11:00).
 # Alles wordt gemaakt uit de spelkit (../gloop-spel/kit/<maat>), dus hetzelfde figuur.
+#   <maat>/gloop-dicht.png     knipperframe, oog dicht, zelfde maat en voet als gloop-kijk
 #   <maat>/gloop-kijk.png      Gloop met open oog dat omhoog naar zijn toren kijkt (moet 1 Daan)
 #   <maat>/achter.png          achtergrond: AMOLED donkere grot met licht op de toren, MIP 5 kleuren met dambord
 #   <maat>/uur-0..9.png        cijfers uren (wit), <maat>/min-0..9.png cijfers minuten (mint), stripletter met rand
@@ -32,16 +33,38 @@ def hoed(maat, i):
     return Image.open(os.path.join(KIT, maat, 'hoed-%02d-%s.png' % (i, HOEDEN[i]))).convert('RGBA')
 
 
+def oog(g):
+    """Midden en straal van het oogwit. Mila 16 nov 12:10: alleen de grootste samenhangende witte vlek die de
+    pupil omsluit, niet alle witte pixels; anders tellen de glans linksboven en het tandje mee en wordt de
+    schijf twee keer te groot (fout in de eerste kit: een witte ring over het hele gezicht)."""
+    px = g.load(); W, H = g.size
+    def is_wit(x, y):
+        c = px[x, y]
+        return c[3] > 200 and min(c[:3]) > 215 and max(c[:3]) - min(c[:3]) < 25
+    gezien = set(); vlekken = []
+    for y in range(int(H * 0.7)):
+        for x in range(W):
+            if (x, y) in gezien or not is_wit(x, y):
+                continue
+            stapel = [(x, y)]; gezien.add((x, y)); vlek = []
+            while stapel:
+                a, b = stapel.pop(); vlek.append((a, b))
+                for na, nb in ((a + 1, b), (a - 1, b), (a, b + 1), (a, b - 1)):
+                    if 0 <= na < W and 0 <= nb < int(H * 0.7) and (na, nb) not in gezien and is_wit(na, nb):
+                        gezien.add((na, nb)); stapel.append((na, nb))
+            vlekken.append(vlek)
+    vlek = max(vlekken, key=len)
+    xs = [p[0] for p in vlek]; ys = [p[1] for p in vlek]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    return (x0 + x1) / 2, (y0 + y1) / 2, max(x1 - x0, y1 - y0) / 2
+
+
 # ---------- 1. Gloop kijkt omhoog naar zijn toren ----------
 def gloop_kijk(maat):
     g = Image.open(os.path.join(KIT, maat, 'gloop-rust.png')).convert('RGBA')
     px = g.load(); W, H = g.size
     # oogwit: licht en grijs, in de bovenste 70%
-    wit = [(x, y) for y in range(int(H * 0.7)) for x in range(W)
-           if px[x, y][3] > 200 and min(px[x, y][:3]) > 215 and max(px[x, y][:3]) - min(px[x, y][:3]) < 25]
-    xs = [p[0] for p in wit]; ys = [p[1] for p in wit]
-    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
-    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; R = max(x1 - x0, y1 - y0) / 2
+    cx, cy, R = oog(g)
     # pupil = alles binnen de schijf dat niet wit is
     pup = Image.new('RGBA', g.size, (0, 0, 0, 0)); pp = pup.load()
     for y in range(H):
@@ -58,6 +81,26 @@ def gloop_kijk(maat):
     ImageDraw.Draw(m).ellipse((cx - R + 1.5, cy - R + 1.5, cx + R - 1.5, cy + R - 1.5), fill=255)
     pup.putalpha(ImageChops.multiply(pup.split()[3], m))
     g.alpha_composite(pup)
+    return g
+
+
+# ---------- 1b. knipperframe: zelfde Gloop, oog dicht (Gijs 11:25 punt 2) ----------
+def gloop_dicht(maat):
+    """Zelfde maat en voet als gloop-kijk.png. Het oog wordt een ooglid in lijfkleur met een donkere
+    sluitlijn die iets naar beneden buigt (geen lachboogje: dat las op horlogemaat als slapen).
+    Alleen voor één knipperframe van ±150 ms."""
+    g = Image.open(os.path.join(KIT, maat, 'gloop-rust.png')).convert('RGBA')
+    px = g.load(); W, H = g.size
+    cx, cy, R = oog(g)
+    # lijfkleur net onder het oog
+    # naast het oog, niet eronder (daar zit het tandje); gemiddelde van een vlakje, zodat het dambord op MIP mengt
+    vak = [px[x, y] for x in range(max(0, int(cx - R - 7)), max(1, int(cx - R - 2))) for y in range(int(cy - 2), int(cy + 3)) if px[x, y][3] > 200]
+    lijf = tuple(sum(c[i] for c in vak) // len(vak) for i in range(3)) + (255,)
+    lid = tuple(max(0, int(c * 0.86)) for c in lijf[:3]) + (255,)
+    d = ImageDraw.Draw(g)
+    d.ellipse((cx - R - 0.5, cy - R - 0.5, cx + R + 0.5, cy + R + 0.5), fill=lid)
+    dik = max(2, round(R * 0.22))
+    d.arc((cx - R * 0.9, cy - R * 0.45, cx + R * 0.9, cy + R * 0.35), 15, 165, fill=DONKER + (255,), width=dik)
     return g
 
 
@@ -142,9 +185,7 @@ def gloop_aod(g, w):
     # oog: grijze ring en grijze pupil uit de kijk-Gloop, zodat het geen wolk is
     p = Image.new('RGBA', (g.width + 2 * dik, g.height + 2 * dik), (0, 0, 0, 0)); p.alpha_composite(g, (dik, dik)); g = p
     px = g.load(); W, H = g.size; d = ImageDraw.Draw(out)
-    wit = [(x, y) for y in range(int(H * 0.7)) for x in range(W) if px[x, y][3] > 200 and min(px[x, y][:3]) > 240]
-    xs = [p[0] for p in wit]; ys = [p[1] for p in wit]
-    cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2; R = (max(xs) - min(xs)) / 2
+    cx, cy, R = oog(g)   # Mila 16 nov 12:10: zelfde vlekzoeker als kijk, de glans telde mee
     d.ellipse((cx - R, cy - R, cx + R, cy + R), outline=(200, 200, 200, 255), width=dik)
     pz = [(x, y) for y in range(H) for x in range(W) if px[x, y][3] > 200 and max(px[x, y][:3]) < 90 and math.hypot(x - cx, y - cy) < R]
     if pz:
@@ -249,6 +290,7 @@ if __name__ == '__main__':
     for maat, (w, h) in MATEN.items():
         os.makedirs(os.path.join(UIT, maat), exist_ok=True)
         g = gloop_kijk(maat); g.save(os.path.join(UIT, maat, 'gloop-kijk.png'), optimize=True)
+        gloop_dicht(maat).save(os.path.join(UIT, maat, 'gloop-dicht.png'), optimize=True)
         ch = round(w * 0.215)
         bw, bh = cijfers(maat, w, ch, (255, 255, 255), 'uur')
         cijfers(maat, w, ch, MINT, 'min')
