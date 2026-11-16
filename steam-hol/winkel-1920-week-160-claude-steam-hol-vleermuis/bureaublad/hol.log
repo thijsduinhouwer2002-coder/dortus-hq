@@ -1,0 +1,40 @@
+HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
+HOL weg geweest 63 s (klok terug: false): goud voor 1607, helden 1, erbij 7
+HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
+HOL opslag geladen: 0 terugkomers, 1614 goud
+HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
+HOL zaad 1794822018
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
+HOL held binnen: Bram
+HOL kroniek 5.1 (wacht 1.1): Bram climbs into your hole.
+HOL kroniek 9.5 (wacht 0.0): Bram found the Spike Pit. Hard. +6
+HOL meting t=10 beelden=79 helden=0 hol_vast=2
+HOL kroniek 12.1 (wacht 2.6): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=27 helden=0 hol_vast=3
+HOL meting t=30 beelden=16 helden=0 hol_vast=3
+HOL meting t=40 beelden=10 helden=0 hol_vast=3
+HOL meting t=50 beelden=7 helden=0 hol_vast=3
+HOL kroniek 52.7 (wacht 0.0): Joost knocks first. Polite.
+HOL held binnen: Joost
+HOL meting t=60 beelden=81 helden=1 hol_vast=3
+HOL meting t=70 beelden=101 helden=1 hol_vast=3
+HOL kroniek 73.7 (wacht 0.0): Joost escaped with a limp.
+HOL kroniek 76.3 (wacht 2.6): New stamp for the Hero. He got away.
+HOL meting t=80 beelden=49 helden=0 hol_vast=3
+HOL meting t=90 beelden=11 helden=0 hol_vast=3
+HOL kroniek 97.4 (wacht 0.0): Lotte keeps a list of names.
+HOL held binnen: Lotte
+HOL meting t=100 beelden=37 helden=1 hol_vast=3
+HOL meting t=110 beelden=107 helden=1 hol_vast=4
+HOL kroniek 110.9 (wacht 0.0): Lotte stays forever. +6
+HOL meting t=120 beelden=44 helden=0 hol_vast=5
+HOL meting t=130 beelden=8 helden=0 hol_vast=5
+HOL meting t=140 beelden=10 helden=0 hol_vast=5
+HOL kroniek 143.1 (wacht 0.0): Tibbe yawns. Long walk.
+HOL held binnen: Tibbe
+HOL kroniek 148.6 (wacht 0.0): Tibbe left gold and one boot. +6
+HOL meting t=150 beelden=104 helden=0 hol_vast=7
+HOL meting t=160 beelden=8 helden=0 hol_vast=7
+HOL meting t=170 beelden=10 helden=0 hol_vast=7
+HOL meting t=181 beelden=13 helden=0 hol_vast=7
