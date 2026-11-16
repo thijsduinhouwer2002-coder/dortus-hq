@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Verhaal 17 af (16 nov ±18:25 UTC, drie kleine gewrichtenbouwers, BOSSposes, NunnBreakable, Granite Studio). Volgende: run 18 is de top 3 voor de hoofdchat; daarna wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: YouTube-reacties voor pro-lijp (het gat van 16:25), 16 nov ±19:10 UTC. Run 18 deed de top 3 voor de hoofdchat (staat in berichten/hoofdchat.md). Daarna: wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
 
