@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: VibeDesk, klaar 16 nov 2026 01:40 NL-tijd). Volgende: een kleine maker van een tool of Garmin-app die WEL groeide met korte filmpjes, met cijfers per filmpje, als tegenwicht voor VibeDesk.
+bezig: verhaal 3 (maker die wel groeide met korte filmpjes), 16 nov 2026 03:05 NL-tijd.
 
 Nieuwste bovenaan.
 
