@@ -111,6 +111,8 @@ var boek = BOEK.new()        # wat er in het Heldenboek staat (in de save); de b
 var lied_helden := 0        # zoveel helden komen nog snel na het lied van een gevluchte bard (in de save)
 # Demo: de held die moet vluchten is een bard, zodat de minuut één lied laat zien (2 helden snel erachter, Bram 02:30)
 const DEMO_BARD := true
+const STEAM := preload("res://kern/steam_koppeling.gd")
+var steam: Node = null   # kern/steam_koppeling.gd (proef)
 
 func log_regel(tekst_: String) -> void:
 	print(tekst_)
@@ -128,6 +130,14 @@ func _ready() -> void:
 			hoogte = clampi(int(inst.hoogte), 96, 160)
 			hoogte_gekozen = true
 	PROEF.lees_argumenten(self)   # alle startargumenten (hoogte, duur, log, proeven): kern/proef.gd
+	# proef Steam (Olaf 16 nov, tak claude/steam-hol-steam-proef): zonder Steam valt alles terug, het spel speelt gewoon
+	var steam_app := 0
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("steam_app="):
+			steam_app = int(arg.substr(10))
+	steam = STEAM.new()
+	add_child(steam)
+	log_regel("HOL steam " + steam.start(steam_app))
 	PROEF.kies_begin_hoogte(self)   # niets gekozen: hoogte naar de schaal van het scherm (kern/proef.gd)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))

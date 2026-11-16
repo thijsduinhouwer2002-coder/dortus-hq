@@ -1,0 +1,12 @@
+; GodotSteam 4.15 GDExtension, de laatste build voor Godot 4.1 tot 4.3 (codeberg.org/godotsteam/godotsteam, release v4.15-gde,
+; MIT, license.txt). Olaf 16 nov 2026: alleen Windows 64-bit, de rest van de zip weggelaten (we bouwen alleen voor Windows).
+[configuration]
+entry_symbol = "godotsteam_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+windows.debug.x86_64 = "res://addons/godotsteam/win64/libgodotsteam.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/godotsteam/win64/libgodotsteam.windows.template_release.x86_64.dll"
+
+[dependencies]
+windows.x86_64 = { "res://addons/godotsteam/win64/steam_api64.dll": "" }
