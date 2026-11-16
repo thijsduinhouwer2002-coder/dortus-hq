@@ -1099,5 +1099,23 @@ func _init() -> void:
 	var PR = load("res://kern/proef.gd")
 	ok(PR.hoogte_voor_dpi(96) == 120 and PR.hoogte_voor_dpi(110) == 120, "schaal 100% en 115%: 120 px")
 	ok(PR.hoogte_voor_dpi(120) == 160 and PR.hoogte_voor_dpi(144) == 160 and PR.hoogte_voor_dpi(192) == 160, "schaal 125%, 150% en 200%: 160 px")
+	# een hapering (één beeld van 2,5 s) mag een held niet over een val laten springen (Bram 16 nov, vraag Sanne
+	# over de koper-duurtest): hij loopt dan 25 pixels in één keer, meer dan een kolom van 16
+	var hh := Node2D.new()
+	hh.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	for kk in range(3, 12):
+		hh.vallen[kk] = "stekelput"
+	var hw := Node2D.new()
+	hh.add_child(hw)
+	var hk := Node2D.new()
+	hk.set_script(load("res://systemen/held.gd"))
+	hw.add_child(hk)
+	hk.start(hh, {"naam": "Haper", "bezoeken": 0, "wrok": "", "moet_doorlopen": true, "zaad": 3})
+	var hn := 0
+	while hk.staat in ["afdalen", "lopen"] and hn < 200:
+		hk.stap(2.5)
+		hn += 1
+	ok(hk.gezien.size() == 9, "hapering: met beelden van 2,5 s gooit hij toch bij alle 9 vallen (%d)" % hk.gezien.size())
+	hh.free()
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
