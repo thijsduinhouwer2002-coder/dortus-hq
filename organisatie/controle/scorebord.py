@@ -17,6 +17,13 @@ Wat het meet (alles openbaar, niet inloggen):
 - Obsidian: downloads van Rollwright uit community-plugin-stats.json.
 - JetBrains: downloads, keuring en beoordeling van Bison & Flex.
 - Gumroad: verkopen zijn niet openbaar, daar staat "zie hoofdchat".
+- dortus.com (sinds 16 nov 20:35): bezoekers per dag uit Amami, totaal en per productpagina.
+  Dit is de enige bron met een sleutel: AMAMI_API_KEY als GitHub-secret, alleen gelezen uit de
+  omgeving, nooit geprint of opgeslagen. Zonder sleutel slaat het script dit deel over. Het
+  website-id wordt elke run uit de html van dortus.com gelezen. Amami bewaart cijfers 7 dagen,
+  dus het script haalt elke run de afgelopen 6 hele dagen (Amsterdamse tijd, vanaf 16 nov) die nog
+  niet in de geschiedenis staan, plus vandaag tot nu (alleen in scorebord.md). Gratis plan:
+  10 verzoeken per minuut, daarom 7 seconden tussen verzoeken.
 
 Geschiedenis: organisatie/scorebord-data.csv (datum, product, maat, waarde). Een tweede run op
 dezelfde dag vervangt de cijfers van die dag. Uitvoer: organisatie/scorebord.md.
@@ -29,6 +36,9 @@ import re
 import sys
 import time
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import scorebord_amami as amami  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 ORG = os.path.dirname(HIER)
@@ -216,10 +226,20 @@ def main():
         except Exception as e:  # noqa: BLE001
             NOTEN.append(f"{stap.__name__}: fout tijdens meten ({type(e).__name__}).")
 
-    oud = [r for r in lees_geschiedenis() if r["datum"] != vandaag.isoformat()]
+    geschiedenis = lees_geschiedenis()
+    al = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and r["product"] == "dortus.com"}
+    try:
+        amami.dortus_bezoek(al, haal, NOTEN)
+    except Exception as e:  # noqa: BLE001
+        NOTEN.append(f"dortus_bezoek: fout tijdens meten ({type(e).__name__}).")
+    # bezoekrijen hebben de bezoekdag als datum; ze blijven staan, behalve een dag die opnieuw gehaald is
+    oud = [r for r in geschiedenis
+           if (r["platform"] == "dortus.com" and r["datum"] not in amami.BEZOEK_DAGEN)
+           or (r["platform"] != "dortus.com" and r["datum"] != vandaag.isoformat())]
+    bezoek_nieuw = [{"datum": d, "product": p, "platform": "dortus.com", "maat": m, "waarde": w} for d, p, m, w in amami.BEZOEK]
     nieuw = [{"datum": vandaag.isoformat(), "product": p, "platform": pl, "maat": m, "waarde": "" if w is None else w}
              for p, pl, m, w, _ in METINGEN]
-    alles = oud + nieuw
+    alles = oud + nieuw + bezoek_nieuw
 
     gister = (vandaag - dt.timedelta(days=1)).isoformat()
     week = (vandaag - dt.timedelta(days=7)).isoformat()
@@ -227,7 +247,7 @@ def main():
         "# Scorebord Dortus",
         "",
         f"Gemeten op {vandaag.isoformat()} om {dt.datetime.now(dt.timezone.utc):%H:%M} UTC met `organisatie/controle/scorebord.py`, "
-        "alleen openbare bronnen. Draait elke dag om 07:00 UTC (workflow \"Scorebord\"). "
+        "openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 07:00 UTC (workflow \"Scorebord\"). "
         "Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, "
         "dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.",
         "",
@@ -235,11 +255,12 @@ def main():
         "|---|---|---|---|---|---|---|---|",
     ]
     for p, pl, m, w, toel in METINGEN:
-        g, gd = waarde_op(oud, p, m, gister)
+        g, gd = waarde_op([r for r in oud if r["platform"] != "dortus.com"], p, m, gister)
         k, kd = waarde_op(oud, p, m, week)
         gt = tekst(g) + (f" ({gd})" if gd and gd != gister else "") if g is not None else "geen meting"
         kt = tekst(k) + (f" ({kd})" if kd and kd != week else "") if k is not None else "geen meting"
         regels.append(f"| {p} | {pl} | {m} | {tekst(w)} | {gt} | {kt} | {verschil(w, k)} | {toel} |")
+    regels += amami.bezoek_tabel(alles)
     regels += ["", "## Wat niet te zien is", "",
                "- Gumroad-verkopen (Click Joints Pro) zijn niet openbaar: zie hoofdchat.",
                "- Superhive toont alleen een verkoopklasse (0, 10+, 100+ ...), geen precies aantal.",

@@ -2,14 +2,15 @@ name: Scorebord (elke dag 07:00 UTC)
 
 # Vera, 16 nov 2026, opdracht hoofdchat 16 nov 17:05. Meet per product de openbare cijfers met
 # organisatie/controle/scorebord.py, schrijft organisatie/scorebord.md en scorebord-data.csv,
-# draait de controle voor de openbare repo en commit naar main. Alleen openbare bronnen, niet inloggen.
+# draait de controle voor de openbare repo en commit naar main. Openbare bronnen, niet inloggen;
+# sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY.
 on:
   schedule:
     - cron: "0 7 * * *"
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py"]
+    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py", "organisatie/controle/scorebord_amami.py"]
 
 permissions:
   contents: write
@@ -28,6 +29,9 @@ jobs:
           ref: main
           fetch-depth: 0
       - name: Meten, controleren en naar main
+        env:
+          # alleen deze stap ziet de sleutel; het script print hem nooit (16 nov 20:35, hoofdchat)
+          AMAMI_API_KEY: ${{ secrets.AMAMI_API_KEY }}
         # Elke poging begint op de nieuwste main en meet opnieuw, zodat er nooit een rebase-conflict
         # op scorebord.md of de csv kan ontstaan (controleur 16 nov, punt M2).
         run: |
