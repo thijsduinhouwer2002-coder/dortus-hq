@@ -1,8 +1,58 @@
 # Succesverhalen (Lars)
 
-bezig: verhaal 14, de flexi-gereedschappen naast elkaar (PrintPal, SlicerJoint Pro, Riggable, 3DAI Studio, Flexi Cutter), 16 nov 2026 ±12:55 UTC. Spoor voor later: wat de late splitsers buiten Superhive doen; TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 14, PrintPal en de flexi-webdiensten, klaar 16 nov 2026 ±13:20 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of een maker van beweegbare figuren die zelf Blender gebruikt (de koper van Click Joints Pro, niet de concurrent). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 14. PrintPal (Atlas Rodin LLC, klein bedrijf uit Chicago, van OctoPrint-plugin naar een site met 50+ gratis printgereedschappen en een abonnement van $10): flexi is daar een gratis lokkertje, en hun filmpjes over flexi zijn hun slechtste
+
+Onderzocht 16 nov 2026, run 14. Waarom dit verhaal: in verhaal 13 bleek de flexi-hoek te kiezen voor "zonder Blender". PrintPal is de grootste van die webdiensten die ik vond, en het heeft een volgorde die we kunnen nalopen: eerst een plugin voor OctoPrint, dan een AI-generator, dan tientallen kleine gratis gereedschappen, elk met een eigen pagina en een eigen Short. Omzet staat nergens openbaar; het enige grote getal ("400,000+ makers") is hun EIGEN OPGAVE. Wat ik zelf telde staat als GEZIEN.
+
+### Bronnen (alle met curl of yt-dlp, GEZIEN 16 nov 2026)
+- Flexi-gereedschap: https://printpal.io/tools/flexi-model-creator en de uitleg op hun blog, 27 feb 2026: https://blog.printpal.io/how-to-turn-any-3d-model-into-a-flexi-print-with-the-articulated-model-creator/
+- Prijzen: https://printpal.io/pricing. Wie erachter zit: https://printpal.io/terms ("provided by Atlas Rodin LLC", Chicago).
+- Hoeveel gereedschappen: https://printpal.io/sitemap-pages.xml (154 pagina's, waarvan 54 onder /tools/) en https://blog.printpal.io/sitemap-posts.xml (139 blogberichten met datum).
+- De oude producten: https://plugins.octoprint.org/plugins.json (PrintWatch en BedCheckAI, auteur "printpal.io", met gebruikscijfers van OctoPrint zelf).
+- YouTube: https://www.youtube.com/@printpal-io (17,5K abonnees; 8 gewone video's en 192 Shorts met weergaven via yt-dlp). Lijst: `platformen/succes/data/printpal-shorts-2026-11-16.csv`. Let op: YouTube rondt weergaven af (134.000 is "134K").
+- Naast PrintPal gekeken: 3D AI Studio (https://www.3daistudio.com/pricing, "Join 1,000,000+ creators", EIGEN OPGAVE) en de Flexi Articulator Tool van Granite Studio op Thangs (een snij-STL voor $4,50; de hele maker heeft 299 downloads over 58 modellen, GEZIEN).
+- Niet gelukt: Reddit (de zoek-API gaf een HTML-blokkade), het webarchief (geen verbinding), GitHub-gegevens van printpal-io (deze omgeving mag alleen bij onze eigen repo's).
+
+### Wat ze in welke volgorde deden
+1. **Jan 2022: PrintWatch**, een OctoPrint-plugin die mislukte prints stopt met AI. Nu 50 sterren op GitHub en 0 gebruikers per maand volgens OctoPrint (GEZIEN).
+2. **Sep 2023: BedCheckAI**, tweede OctoPrint-plugin (kijkt of het bed leeg is). Nu 124 installaties per maand (GEZIEN). Klein, maar het bedrijf leefde door.
+3. **Maart tot juli 2025: de AI-generator** (tekst of plaatje naar 3D-model) met een golf blogberichten: 56 berichten in vier maanden, bijna allemaal zoekvragen ("How to generate 3D models using ChatGPT", "What is a 3D print farm") (GEZIEN, sitemap).
+4. **2026: gereedschap na gereedschap.** 54 pagina's onder /tools/, van rekenhulpjes (filament, kosten, e-steps) tot makers (naambord, vaas, puzzel, scharnierloze flexi, bureaumaatje met ESP32). Elk heeft een eigen pagina met uitleg onderaan en vaak een eigen Short ("3D Printing tools you should know part 7"). In januari 2026 alleen al 30 blogberichten (GEZIEN).
+5. **Geld:** gratis met 10 AI-generaties per maand, Pro $10 per maand (200 generaties, "Flexi Model Creator", commerciële rechten), Studio $25, scholen $4 per plaats per maand, plus een aparte "AI CAD Agent" voor $20 per maand (GEZIEN). De flexi-pagina zelf zegt "100% free to use in your browser", de prijslijst zet de Flexi Model Creator bij Pro: dat spreekt elkaar tegen (GEZIEN). Mijn lezing (GOK): knippen is gratis, het AI-model maken waar je de gewrichten in zet kost generaties.
+
+### Cijfers die iets zeggen
+- **192 Shorts, samen ±4,4 miljoen weergaven, mediaan 14.000** (GEZIEN). 20 Shorts boven de 50.000, 21 onder de 5.000.
+- **Per onderwerp (GEZIEN, mijn indeling op woorden in de titel; een Short kan in twee groepen vallen):**
+
+| onderwerp | aantal | mediaan | hoogste |
+|---|---|---|---|
+| printdelen verbinden (snap fit, inserts, draad, "connect 3d prints") | 7 | 40.000 | 134.000 |
+| een printfout oplossen (overhang, naad, eerste laag) | 28 | 27.000 | 120.000 |
+| slicer-les "Day N" | 13 | 28.000 | 41.000 |
+| een gereedschap van de eigen site laten zien | 31 | 14.000 | 96.000 |
+| **flexi** | 3 | **3.200** | 6.200 |
+
+- De flexi-Shorts ("How to make a flexi 3d print without designing" 6.200, "custom flexi animals" 3.200, "flexi animal ... perfect gift" 2.100) zitten alle drie in de onderste 15% van hun eigen kanaal (GEZIEN). "How to easily connect 3d prints with a snap fit" haalde 134.000.
+- Eén gewone video brak uit: "Build an Interactive Desk Buddy for Under $20!" met 561.000 weergaven; de andere zeven gewone video's 1.000 tot 9.700 (GEZIEN). Daar hoort een gereedschap bij (Desk Pal Maker) en een bouwpakket van onderdelen van $20: iets wat je ook echt maakt.
+
+### 3 lessen
+1. **Flexi zonder Blender is nu een gratis lokkertje op grote sites, geen product.** PrintPal, STL Buddy (verhaal 13) en 3D AI Studio stoppen flexi als één van tientallen gereedschappen in een abonnement van ±$10 per maand, en de losse snij-STL van Granite Studio kost $4,50 en verkoopt bijna niets. Wie alleen "maak van een STL een flexi" wil, betaalt Click Joints Pro niet. Wat geen van deze sites doet: gewrichten met een eindstop en een bereik, kogel en scharnier die je los print en klikt, of een rig lezen (Ruben, `platformen/blender-2/rig-to-figure.md`). Daar zit ons verschil, en dat moet in de eerste zin staan.
+2. **Het woord "flexi" trekt niet, het probleem "twee printdelen aan elkaar" wel.** Op hetzelfde kanaal, met dezelfde vorm en dezelfde hashtags, haalt "verbinden" mediaan 40.000 en "flexi" 3.200 (GEZIEN). Dat past bij hoofdles 3 (filmpjes rond de vraag van de gebruiker): een koper zoekt hoe hij delen verbindt, niet naar de naam van een soort speelgoed. Click Joints is precies een verbinder.
+3. **Veel kleine gratis gereedschappen, elk met een eigen pagina en een eigen Short, en een betaald plan erboven.** PrintPal overleefde twee kleine plugins door te blijven schieten: 54 gereedschappen, en het gereedschap met een echt bouwproject (bureaumaatje) brak uit. Dit is de tweede keer na Kambari (verhaal 1) dat "veel schoten, door met wat raak is" terugkomt. Let op de schaal: dit is een bedrijf met een site en AI-servers, geen solo-add-on; de les is de vorm (één vraag, één gereedschap, één pagina, één Short), niet het aantal.
+
+### Wat doen wij anders
+- Onze reeks "Printable joints in Blender, day N" (Chris, `commercie/filmpjes/reeks.md`) is al tips, geen reclame. Goed. Maar de koppen gaan over speling en wanddikte: vragen die je pas hebt als je al gewrichten maakt. De grootste groep die PrintPal bereikt, heeft de vraag ervóór: "hoe krijg ik twee geprinte delen aan elkaar zodat ze bewegen".
+- Op de winkelpagina en dortus.com/click-joints staat nog niet waarom iemand ons kiest boven een gratis flexi-site.
+
+### Voorstel voor Dortus deze week
+**Chris:** zet in de reeks vóór dag 5 één tip met een "connect"-kop, bijvoorbeeld "How to connect two 3D printed parts so they still move" (bal en kom, in Blender, los geprint en geklikt), met de Engelse woorden die werken: "connect 3d prints", "snap fit", plus #3dprinting. Gebruik het woord "flexi" niet in koppen. Meetlat (GOK): haalt die tip na 7 dagen minder dan de mediaan van de eerste vier tips, dan klopt deze les voor ons niet en schrappen we hem. Bram zegt "klopt" op de tekst zoals bij de andere tips. Kost geen geld en geen nieuwe opname als de bestaande beelden van kogel en kom (staande opname 5) gebruikt worden.
+**Klein erbij voor Bram en Chris (geen taak, wel een zin):** "Flexi sites cut a joint into an STL. Click Joints builds joints that stop where you want, in Blender." of iets met dezelfde inhoud, als waarom-wij-zin op dortus.com/click-joints zodra Pro live staat.
 
 ---
 
