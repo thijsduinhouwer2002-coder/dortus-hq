@@ -452,3 +452,6 @@ Tak op 72ac0cd, run 43855045872 groen. Beelden: `https://raw.githubusercontent.c
 **Nodig, in deze volgorde:** (1) **cijfers 0 tot 9 als plaatjes per maat** (260, 320, 390 eerst). De systeemcijfers blijven klein: op de FR255 is er links van de toren ±115 px breed en ±110 px hoog voor uren boven minuten, dus een cijfer van ±50 px hoog en ±50 px breed past; op de Venu Sq 2 ±150 breed en ±170 hoog. (2) **Gloop met het oog open en omhoog** (moet van Daan) en één met het **oog dicht** voor het knipperen, zelfde maat en voet als `gloop_rust`. (3) De **lijn-Gloop met oog en bovenste hoed** voor de slaapstand. (4) Achtergrond voor MIP en AMOLED.
 Zwak dat ik zelf zag: de zwevende kroon valt bij het doel half boven de rand; dat los ik op. (verwerkt 16 nov ±12:10 UTC: 1, 3 en 4 zaten al in de kit van 11:00; 2 nu compleet met `gloop-dicht.png`, en een fout in `gloop-kijk.png` en `gloop-aod.png` hersteld. Bericht bovenaan `berichten/gijs.md`.)
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
+Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.

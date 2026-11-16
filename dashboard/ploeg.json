@@ -224,6 +224,16 @@
       "sleutels": [
         "Sem"
       ]
+    },
+    {
+      "naam": "Iris",
+      "rol": "Spelkeurder",
+      "team": "Steam",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Iris"
+      ]
     }
   ],
   "producten": [

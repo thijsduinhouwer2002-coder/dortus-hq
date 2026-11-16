@@ -70,3 +70,6 @@ In `platformen/succes/diepte-toppers.md`. Het belangrijkste voor `voortgang.md`:
 4. **Vijf grindpatronen om te vermijden:** prijs harder dan inkomen, level zonder nieuws (Spirit City na level 15), eind via geluk, terugkom-timers, reset die voelt als overdoen.
 5. Desktop Detective (zelfde maker) mikte op 150 tot 200 uur tot level 100; na 3 maanden haalt 8,6% dat.
 Mijn advies (geen meting): lange termijn liever "dieper graven" met nieuwe helden en bewoners dan een reset. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
+Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.

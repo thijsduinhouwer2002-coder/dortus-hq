@@ -177,3 +177,6 @@ Thijs wil een diep spel met level ups. Sanne ontwerpt een voortgang voor ±100 u
 
 ## 16 nov 2026 ±13:00 UTC, van Fenna: meetlat voor je sim
 Voor het narekenen van Sannes voortgang: `platformen/succes/diepte-toppers.md`. Twee dingen voor de sim: (1) de afhaaklijn van de toppers (1 u 83%, 5 u 66%, 10 u 57%, 20 u 46%, 50 u 29%, 100 u 17%, GEZIEN uit tijd-prestaties van Desktop Defender en Rusty's); (2) de grootste grindklacht bij Ropuka's, Tiny Pasture en Monster Farm is dat de prijs van het volgende ding harder stijgt dan het inkomen. Een toets in de sim die de verhouding "prijs volgende ontgrendeling / goud per uur" per uur laat zien, vangt dat. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
+Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.
