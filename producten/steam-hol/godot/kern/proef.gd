@@ -14,7 +14,10 @@ static func lees_argumenten(s) -> void:
 		if kv.size() < 2:
 			continue
 		match kv[0]:
-			"hoogte": s.hoogte = clampi(int(kv[1]), 96, 160)
+			"hoogte":
+				s.hoogte = clampi(int(kv[1]), 96, 160)
+				s.hoogte_gekozen = true
+			"dpi": s.proef_dpi = clampi(int(kv[1]), 48, 480)   # dpi=<n>: doen alsof het scherm n dpi heeft (eerste start), om de grote stand op de runner te toetsen
 			"duur": s.duur = float(kv[1])
 			"log": s.logpad = kv[1]
 			"demo": s.demo = kv[1] == "1"
@@ -34,6 +37,19 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+
+# Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
+# met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
+# hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Rechtsklik blijft wisselen en bewaart.
+static func hoogte_voor_dpi(dpi: int) -> int:
+	return 160 if dpi >= 120 else 120   # 96 dpi = 100%: 120; 120 dpi = 125%: 120 x 1,25 = 150, dichtst bij 160
+
+static func kies_begin_hoogte(s) -> void:
+	if s.hoogte_gekozen:
+		return
+	var dpi: int = s.proef_dpi if s.proef_dpi > 0 else DisplayServer.screen_get_dpi()
+	s.hoogte = hoogte_voor_dpi(dpi)
+	s.log_regel("HOL eerste start dpi=%d hoogte=%d" % [dpi, s.hoogte])
 
 # Na het neerzetten van Gloop: laars, spugen en de winkelmomenten aanzetten.
 static func na_slijm(s) -> void:

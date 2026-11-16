@@ -34,6 +34,8 @@ const KLEUREN := ["#3f6fb5", "#8a4fb0", "#3f9a6a", "#c07a2a", "#6a6a7a", "#b0404
 const HOEDEN := ["#b33a3a", "#e0b040", "#2a5aa0", "#3a7a3a", "#7a3a8a", "#d06a2a"]
 
 var hoogte := 120
+var hoogte_gekozen := false   # bewaard of hoogte=<n>; anders kiest kern/proef.gd de stand bij de schaal
+var proef_dpi := 0            # dpi=<n>: doen alsof het scherm n dpi heeft (alleen om de eerste start te toetsen)
 var schaal := 3
 var duur := 0.0
 var logpad := ""
@@ -121,7 +123,9 @@ func _ready() -> void:
 		var inst = JSON.parse_string(FileAccess.get_file_as_string(INSTELLING))
 		if inst is Dictionary and inst.has("hoogte"):
 			hoogte = clampi(int(inst.hoogte), 96, 160)
+			hoogte_gekozen = true
 	PROEF.lees_argumenten(self)   # alle startargumenten (hoogte, duur, log, proeven): kern/proef.gd
+	PROEF.kies_begin_hoogte(self)   # niets gekozen: hoogte naar de schaal van het scherm (kern/proef.gd)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
 	rng.seed = 7 if demo else (proef_zaad if proef_zaad != 0 else int(Time.get_unix_time_from_system()))
 	if not film:
