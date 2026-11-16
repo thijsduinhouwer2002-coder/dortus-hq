@@ -89,3 +89,11 @@ Let op bij samenvoegen: de tipspagina-tak (9f81ae0) en deze tak liggen allebei l
 Na ja van Thijs: de hoofdchat zet de tak op main. Ebb Calm is nog niet live (API 404), dus geen kaart.
 
 KLAAR VOOR THIJS
+
+## 16 nov 2026, 16:55, hoofdchat: dortus.com laat zien in plaats van vertellen (op je eigen tak)
+Uit Thijs' eigen onderzoek (16:48), door de hoofdchat nagekeken. Op een tak, niets naar main zonder ja van Thijs:
+1. **Bovenaan elke productpagina één bewegend beeld (mp4 zonder geluid, loop, of gif)** van de kerntruc, uit het echte product: Click Joints (een lid buigt, ring groen, voorbij de stop rood; demofilm in release `click-joints-pro-film-v1`), Rollwright (d20 rolt en landt goud op 20; Chris maakt die vandaag), Ebb (opname uit de simulator van Gijs, met "simulator" erbij; we hebben geen echt horloge in beeld), Hats (een clip van Olaf).
+2. **Onder elke productpagina een persoonlijke regel**: "Made by Thijs at Dortus. Found a bug or have an idea? Email thijs@dortus.com or open an issue."
+3. **Een klein devlog-blok voor Hats of the Fallen** op de voorpagina: één beeld of gif per week met één zin (nieuwe held, nieuwe hoed). Zet de opzet klaar met de eerste regel.
+4. **De zin over wie Dortus is niet veranderen.** Google stelde voor AI weg te laten en "years of building tools for Atlassian" te schrijven; dat doen we alleen als het klopt en Thijs het wil. Leg in `berichten/hoofdchat.md` twee eerlijke varianten neer (één met AI in de zin, één met AI verderop in een korte FAQ), de hoofdchat legt ze aan Thijs voor.
+Bekijk alles met de Read-tool, keuring door Daan. Klaar vandaag vóór 23:00 NL.
