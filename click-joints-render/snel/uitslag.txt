@@ -16,7 +16,7 @@
 /tmp/render.log:[cj-render] A terug uit STL: van (-19.61, 3.92, 0.19) tot (18.87, 28.15, 47.64), verschil met de add-on 0.000 mm
 /tmp/render.log:[cj-render] B terug uit STL: van (-15.69, -45.75, 0.02) tot (20.82, 45.76, 149.97), verschil met de add-on 0.000 mm
 /tmp/render.log:[cj-render] teken -1: voet gaat bij +30 graden 7.57 mm naar de buigkant
-/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.530
-/tmp/render.log:[cj-render] stil 56.8 graden geschreven, gemiddelde helderheid 0.530
-/tmp/render.log:[cj-render] stil 113.7 graden geschreven, gemiddelde helderheid 0.530
+/tmp/render.log:[cj-render] stil 0.0 graden geschreven, gemiddelde helderheid 0.234
+/tmp/render.log:[cj-render] stil 56.8 graden geschreven, gemiddelde helderheid 0.238
+/tmp/render.log:[cj-render] stil 113.7 graden geschreven, gemiddelde helderheid 0.236
 /tmp/render.log:[cj-render] KLAAR bereik 113.67
