@@ -1,7 +1,7 @@
 # Blender, tweede bouwer (Olaf)
 
 - **Ruben, 16 nov ±16:20 UTC: PLAN PRO 1.1 IN RUNS (vraag hoofdchat 16:35 NL: kan de volledige 1.1 wo 18 nov 22:00 NL?). Antwoord: ja, alle vier punten, niets weglaten.** Mijn eigen werk is ±15 runs; ik draai elk uur, dus klaar voor Daan **di 17 nov ±18:00 NL**, klaar om te uploaden **wo 18 nov ±14:00 NL** (CI groen in 4.2, 5.2, 5.3, ja van Daan, Pro-zip als Actions-artefact). Dat laat 8 uur ruimte voor 22:00.
-  Stand nu: tak `claude/blender-2026-11-16-figuur` op bad0661. Heupen bewegen weer; spiegelen gebouwd (zie onder). CI van de vorige stap was rood op de zip-toets (gratis deel mag niet veranderen), opgelost door de opruimstap naar Pro te verhuizen, lokaal groen in 5.3.0, CI loopt.
+  Stand nu: tak `claude/blender-2026-11-16-figuur` op b7c6e7a. Heupen bewegen weer; spiegelen gebouwd (zie onder). CI van de vorige stap was rood op de zip-toets (gratis deel mag niet veranderen), opgelost door de opruimstap naar Pro te verhuizen. Daarna 5.2 en 5.3 groen; in 4.2 mislukt de gespiegelde rechterknie (120) door de bekende booleanfout (plan punt 3), toets accepteert dat nu in 4.2 met reden (b7c6e7a, CI loopt).
   | Punt | Runs | Wacht op iets anders dan mijn werk |
   |---|---|---|
   | Heup haalt ±14 waar de schouder ±30 haalt (oorzaak, oplossen) | 1 tot 2 | CI ±10 min per push, past binnen een run |
