@@ -1,8 +1,74 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 20, Reddit-berichten over gereedschap voor 3D-printen (welke subreddit, welke vorm, wat wordt weggehaald), 16 nov 2026 ±20:15 UTC. Volgende daarna: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 20, Reddit voor gereedschap rond 3D-printen in r/3Dprinting, r/customactionfigures en r/BJD, klaar 16 nov 2026 ±19:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen, of r/blender-printberichten als het archief sneller is.
 
 Nieuwste bovenaan.
+
+---
+
+## 20. Reddit voor gereedschap rond 3D-printen: waar een maker van een add-on of tool punten haalt en waar hij wordt weggehaald. r/3Dprinting, r/customactionfigures en r/BJD gemeten (mei tot nov 2026)
+
+Onderzocht 16 nov 2026 ±19:00 tot 19:45 UTC, run 20. Waarom: Thijs gaat deze week zelf lanceerposts plaatsen, en Chris zette r/3Dprinting en r/BJD op "niet nu" en r/customactionfigures op "misschien", op basis van regels uit tweede hand (Reddit geeft ons 403). De vraag: wat gebeurt er echt met een bericht van een maker van gereedschap in die subreddits? Wie haalt punten, wie wordt weggehaald, en wat doen de winnaars anders?
+
+### Bronnen en werkwijze
+- **Arctic Shift** (openbaar Reddit-archief, `arctic-shift.photon-reddit.com/api/posts/search`), GEZIEN 16 nov. Per bericht: punten, reacties, soort (video, foto, tekst) en `_meta.removal_type` uit de tweede ophaling (±1 tot 2 dagen na plaatsen): moderator, automod, reddit (spamfilter) of zelf verwijderd.
+- **r/customactionfigures en r/BJD**: alle berichten van 1 mei tot 12 nov 2026 (6.505 en 2.357).
+- **r/3Dprinting**: alleen berichten met de woorden blender, addon, plugin of tool (418 samen met wat r/blender gaf). De server gaf vaak een time-out; voor "blender" ontbreken juni, september en oktober. Dit is dus een steekproef, geen volledige telling.
+- Berichten van makers die hun eigen gereedschap tonen heb ik met een zoekpatroon gevonden ("I made / I built ... add-on / tool / plugin") en daarna met de hand nagelezen.
+- Gumroad: de openbare zoek-API (`gumroad.com/products/search`) en de hulppagina over Discover (`gumroad.com/help/article/79-gumroad-discover`).
+- extensions.blender.org, pagina van Blendtopo (downloads), GEZIEN 16 nov.
+- Tabel met de 18 belangrijkste berichten: `platformen/succes/data/reddit-gereedschap-3dprint-2026-11-16.csv`.
+
+### 1. r/3Dprinting: "ik heb een tool gemaakt" haalt bijna niets, en de helft wordt weggehaald (GEZIEN)
+13 berichten waarin een maker zijn software laat zien (schermbeeld, uitleg, link): **mediaan 2 punten, 6 van de 13 door een moderator weggehaald.** Voorbeelden:
+- Een gratis Blender-add-on die onderdelen lichter maakt (Blendtopo), met link naar extensions.blender.org: 4 punten, weggehaald door een moderator. Op extensions.blender.org staat Blendtopo nu op **6.511 downloads** sinds 23 juni (GEZIEN), dus ±45 per dag zonder dat Reddit hielp. Dat past bij verhaal 15: de winkel is de motor.
+- Twee Blender-add-ons voor printers die precies in ons straatje zitten: een add-on die toleranties regelt ("I got tired of reprinting parts because tolerances were wrong"): 0 punten, en op r/blender ook 0. Meshsmith (STL's klaarmaken in Blender): 0 punten op r/3Dprinting, 1 op r/blender, 1 op r/3DPrintingTools.
+- Gratis tool om meerkleurenprints in AR te bekijken, open-source tool voor 3MF-kleuren, een eigen CAD-programma, een eigen beeldhouwprogramma: alle vier weggehaald.
+
+De enige uitzondering in de steekproef: **2STEP-Converter** (gratis, open source, STL naar STEP). De maker plaatste vier keer in tien dagen in mei: 36, 1, 68 en 94 punten, met een lange persoonlijke tekst over een ergernis die iedereen kent. Op 2 oktober plaatste hij versie 4.0.0: 3 punten, **weggehaald door een moderator**. Wat in mei nog kon, mag nu kennelijk niet meer (GOK op de reden; de regel "self-promotion is restricted" staat in de tekst van Chris). Dezelfde berichten in r/Creality, r/STLFiles en r/Plasticity3D: 1 tot 10 punten.
+
+### 2. De maker die wél wint op r/3Dprinting laat de print zien, niet de add-on (GEZIEN)
+**TrailPrint3D** (Reddit-naam Cube004) is een Blender-add-on die 3D-printbare landkaarten en puzzels maakt, gratis en open source, met een eigen site. Zijn berichten op r/3Dprinting sinds juli 2025: 2.168, 395, 1.639, 2.376, 871, 2.431, **2.469**, 3, 545 en 524 punten. Nooit weggehaald. Wat hij doet:
+- Bijna altijd een **video of foto van het geprinte ding**: een sorteerapparaat, de Grand Canyon als puzzel, een stad in vier kleuren zonder meerkleurensysteem. De add-on komt pas in de tekst ("generated with my Blender addon").
+- Het bericht met 2.469 punten (21 jun 2026, flair "Project") heet "The Terrain Puzzle Generator of my Blender Addon Got an Upgrade" en laat in de video zien hoe je op een kaart tekent en er een puzzel uit komt. Download zonder account, link naar de site en GitHub in de tekst.
+- Dezelfde update op r/blender: **57 punten**. Op r/BambuLab haalde hij met een print 335 tot 1.093.
+- Zijn ene misser (3 punten): een foto van een bergtop zonder verhaal of iets nieuws.
+
+Het verschil met de 13 mislukkingen is niet "gratis" (die waren ook bijna allemaal gratis), maar **wat er in beeld is: een echt geprint ding dat iets laat zien wat je niet verwacht**. Dat is dezelfde les als verhaal 11 (wat doorbrak op TikTok was iets wat onverwacht beweegt).
+
+### 3. r/customactionfigures: een joint-tool voor Blender haalde 88 punten, met een vraag in plaats van een verkooppraatje (GEZIEN)
+r/customactionfigures is groot en levendig: 6.505 berichten in 6,5 maand, mediaan 6 punten, 1 op de 10 boven de 69. Maar 1 bericht door een moderator weggehaald (wel 56 door het spamfilter van Reddit). 15% van de berichten noemt 3D-printen. Dit is de plek waar mensen beweegbare figuren printen.
+
+- **"Joint Generator tool for blender"** (teenturtle, 6 sep 2026): **88 punten, 13 reacties, niet weggehaald.** Een Blender-add-on die vervangende gewrichten (dumbbell joints) maakt voor actiefiguren, te koop op Gumroad voor **$12**, precies de prijs van Click Joints Pro. Hoe hij het bracht: "I am working on a tool to create custom joints", een galerij met een gewricht dat hij voor een Punisher-figuur maakte, waarom ("I had too many broken wrist joints"), wat hij nog wil (pin joints), en geen link: "I am not sure if I am allowed to share links. You can look for action joint generator". De reacties zijn vragen naar specifieke gewrichten: "I need a replacement neck joint for Storm", "nobody ever does replacement joints for figures". Iemand schreef: "i saw your reel on insta". Zijn account was al bekend in de sub (eerder 189 punten met een geschilderde figuur).
+- Wat het opleverde in geld weet ik niet. Wel: het product staat in Gumroad Discover (GEZIEN), en daarvoor moet een account **$100 aan echte verkopen** hebben en het product **minstens één verkoop** (DERDEN, hulppagina Gumroad). Hij verkoopt ook STL's, dus de $100 kan van iets anders komen (GOK). 0 beoordelingen.
+- Een maand later gebruikte hij zijn eigen tool voor een vervangend torsogewricht van een Street Fighter-figuur en plaatste dat in r/stormcollectibles (de sub van dat figuurmerk): 36 punten, 12 reacties. **Het resultaat in de sub van het merk, niet de tool.**
+
+Twee andere makers van printbare figuren in dezelfde sub, en het verschil:
+- **Geschilderde, afgemaakte figuur**: "3d printed Doomguy kit I made." 744 punten; een week later dezelfde figuur met "link to kit in description": 405, niet weggehaald. Een andere verkoper van printbare figuren plaatste 60 keer in 6 maanden: mediaan 5 punten, met uitschieters 112, 415 en 456 als er iets nieuws te zien was (een video van het in elkaar zetten).
+- **Productvideo met verkoopwoorden** (een maker van print-in-place figuren, titels als "Fully Poseable, No Supports, No Assembly", "Free download👇"): vijf berichten, 3 tot 21 punten, **0 reacties** op alle vijf.
+
+### 4. r/BJD: streng voor verkopers, maar er staan vragen open die precies over Click Joints gaan (GEZIEN)
+r/BJD: mediaan 19 punten, maar strenger: van 2.357 berichten 101 door een moderator en 57 door de automod weggehaald (7%), tegen 0,02% in r/customactionfigures. Berichten die 3D-printen noemen doen het niet slechter (mediaan 31). Maar wat erbovenuit komt is handwerk: zelf geboetseerd, geschilderd ("hand sculpted bjd" 766).
+
+Wat voor ons telt zijn de **vragen**: "Help/advice about making bjd in blender" (12 reacties), "Best videos to learn 3D BJD modeling with Blender?", "Conception d'articulations 3D adaptées à un corps existant" (gewrichten ontwerpen voor een bestaand lichaam), "Custom BJD/MJD with a resin printer?" (11 reacties). Dat zijn mensen die precies ons probleem hebben, en een behulpzaam antwoord zonder link is volgens de regels uit tweede hand welkom.
+
+### Drie lessen
+1. **Op r/3Dprinting telt de print, niet de tool.** Software laten zien: mediaan 2 punten en de helft weggehaald. Een geprint ding in beeld met de add-on in de tekst: TrailPrint3D 400 tot 2.500 punten, tien keer achter elkaar, nooit weggehaald. Zonder echte print geen r/3Dprinting (Chris had dus gelijk, nu met cijfers).
+2. **In een kleine hobbysub werkt "ik werk aan een tool voor jullie probleem" beter dan "koop mijn tool".** teenturtle: 88 punten en 13 reacties met een vraag naar welke gewrichten mensen nodig hebben en geen link; de productvideo's met verkoopwoorden: 0 reacties. De reacties zijn meteen marktonderzoek.
+3. **Het resultaat hoort in de sub van het ding zelf.** Een vervangend gewricht voor een Storm-figuur gaat naar r/stormcollectibles, een kaart naar r/BambuLab, een pop naar r/BJD. Daar is de tool bijzaak en dus geen reclame.
+
+### Voorstel voor Dortus deze week
+**Chris (Thijs plaatst): maak van de Click Joints-post voor r/customactionfigures een "ik werk aan"-bericht in de vorm van teenturtle, en zet r/3Dprinting pas open met een echte print.** Concreet:
+1. Titel in de geest van "Making a Blender add-on for click joints in 3D printed figures: which joints break on yours?" Beeld: de eerlijke render van Ruben met de zin "Rendered in Blender from the exported parts", of de opname in Blender. Tekst: wat het doet, dat de gratis versie op extensions.blender.org staat, en een vraag naar welke gewrichten mensen missen. Geen link in het bericht, alleen in een reactie als iemand ernaar vraagt. Geen verkoopwoorden.
+2. r/3Dprinting en r/BJD blijven dicht tot er een foto of video van een echte print is. Een echte print vraagt een printer of een printdienst (geld, dus alleen via Thijs); ik zet dat niet op zijn lijst, de hoofdchat kiest.
+3. Bij r/BJD geen post maar antwoorden: Chris zet twee korte, behulpzame antwoorden klaar op de vragen over gewrichten ontwerpen in Blender (zonder link, met de naam van het gratis add-on alleen als het echt het antwoord is). Thijs plaatst als hij wil.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+### Wat ik niet weet
+- Hoeveel downloads of verkopen een Reddit-bericht hier gaf. Bij teenturtle zie ik alleen dat er minstens één verkoop is.
+- Of de regels van r/3Dprinting na mei strenger zijn geworden (2STEP in oktober weggehaald) of dat het aan één moderator lag.
+- r/3Dprinting is een steekproef (time-outs bij het archief); er kunnen meer tool-berichten zijn die ik mis, ook goede.
+- Of een render in r/customactionfigures goed valt. Ik zag daar geen enkel bericht met alleen een render dat hoog scoorde; wel een paar met een render als tussenstap. GOK: een render met een vraag mag, een render als product niet.
 
 ---
 
