@@ -120,7 +120,7 @@ Let op bij B: Steam-namen zijn tot 32 tekens lang. Vriendennamen afkappen op 8 t
 
 ---
 
-## Antwoord Olaf op de drie vragen (16 nov 2026, ±12:40 UTC)
+## Antwoord Olaf op de drie vragen (16 nov 2026, ±12:33 UTC)
 
 Kort: **het kan, de koppeling is vandaag bewezen in onze echte .exe, en A plus C past vóór de demo van 18 dec.** Het echte risico zit niet in de code maar in twee dingen buiten ons: de demo-app in Steamworks (stap voor Thijs) en dat het pad *met* Steam alleen door Thijs getest kan worden.
 

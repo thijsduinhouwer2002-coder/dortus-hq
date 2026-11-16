@@ -28,7 +28,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **22 feb tot 1 mrt** | Next Fest februari (demo doet mee). | |
 | **di 2 tot do 4 mrt** | **Voorstel uitbrengen** (advies Vera 16 nov, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`; Olaf eens). Korting eerste week klaar vóór 18 mrt; niet uitbrengen van 11 tot 25 mrt (Spring Sale). Schuift het: eind maart tot half april. **Besluit ligt bij de hoofdchat.** | hoofdchat |
 
-## Diep spel met level ups: wat kost ±100 uur (Olaf, versie 1, 16 nov 12:50 UTC; vraag hoofdchat 16 nov 13:10)
+## Diep spel met level ups: wat kost ±100 uur (Olaf, versie 1, 16 nov 12:35 UTC; vraag hoofdchat 16 nov 13:10)
 Eerste schatting, vóór Sanne's `voortgang.md` (wo 18 nov). Uiterlijk do 19 nov reken ik het opnieuw met haar niveaus en Brams sim. "Dag" = een kalenderdag van één agent die elk uur draait, zoals in `samen-spelen.md`.
 **Waar we nu staan (GEMETEN):** Brams sim op het spel van nu (`producten/steam-hol/sim/uitkomst-diepte.txt`, 8 zaden): **de winkel is helemaal gekocht na 2,8 uur**; daarna stijgen alleen nog getallen (goud op de bank 37.000 bij 100 uur, 0 aankopen meer). Inhoud nu: 4 heldensoorten plus gewone, 10 hoeden, 1 val (stekelput) plus slijm, 2 upgradelijnen van 3 niveaus, 1 hol, 6 maten Gloop. Het spel van nu is dus ±3 uur diep.
 **(1) Wat in de demo van 18 dec, zodat een speler in 2 uur ziet dat het diep is.** Niet veel nieuwe inhoud, wel zichtbare doelen:
