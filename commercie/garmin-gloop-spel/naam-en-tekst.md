@@ -216,3 +216,57 @@ Joris' grootste les voor Ebb geldt ook voor Gloop: de nieuwe ademhalingsapps met
 
 ### 7h. Nagekeken
 Controleur (16 nov ±14:10 UTC): akkoord mits. Moet-punten (titelnotities in 7d en 7e: namen in de winkel worden op 50 tekens afgekapt, dus 42 en 46 passen) verwerkt. Kan-punten verwerkt: Nederlandse zin over terugbetalen, "ontgrendelen", "Noch nicht für Instinct", "Smartphone-App", woordkeus Garmin GEZIEN, rechtzetting over *Stack* en de naam *Tower - Stacker Game*. Niet overgenomen: knopnamen tussen haakjes (maakt de tekst langer, "rechtsboven" klopt al overal) en kop HULP in plaats van SUPPORT (allebei goed, SUPPORT is gelijk aan Ebb).
+
+## 8. De regel met horloges voor 52 modellen, nagekeken (run 67, 16 nov ±20:45 tot 21:30 UTC)
+Vraag van Gijs (16 nov ±20:05 UTC): het spel gaat van 9 naar 52 horloges (commit 07b9999 op `claude/garmin-gloop-2026-11-16`), hij schreef de regel WATCHES, UHREN en HORLOGES zelf; nakijken en zo nodig aanpassen.
+
+### 8a. Hoe nagekeken
+- De 52 `product id`'s uit `producten/garmin-gloop/manifest.xml` op 07b9999 (GEZIEN, `git show`), naast de tabel met namen, schermmaat en API-niveau op https://developer.garmin.com/connect-iq/compatible-devices/ (DERDEN, met curl gelezen ±20:46 UTC).
+- Per naam in Gijs' regel: staat hij in het manifest, en staat er iets in het manifest dat de regel mist, of iets in de regel "Not yet" dat er wel in zit.
+
+### 8b. Wat klopt (alles op twee punten na)
+- Forerunner 70, 165, 170, 255, 265, 570, 955, 965 en 970: alle negen in het manifest, ook de Music-versies van 165, 170 en 255 (`fr165m`, `fr170m`, `fr255m`) en beide maten van de 570. GEZIEN.
+- fēnix 7, 7S en 7X met Pro (ook Pro Solar zonder wifi), fēnix 8 (43, 47, Pro 47 en Solar 47 en 51), fēnix E, fēnix 9 (43, 47, Pro 43, Pro 47, Pro Solar 47 en 51). GEZIEN. Volgens Garmins tabel deelt `fenix947mm` zijn plek met de 51 mm en `fenix8pro47mm` met de 8 Pro 51 mm en MicroLED (DERDEN).
+- epix (Gen 2) en epix Pro in alle drie de maten. Venu 2, 2 Plus, 3, 3S, 4 (41 en 45 mm). vívoactive 5 en 6. MARQ (Gen 2) en Aviator. D2 Air X10, Mach 1, Mach 2 en Mach 2 Pro. GEZIEN.
+- Via een gedeelde rij in Garmins tabel werken ook (DERDEN, niet in de tekst, hoeft niet): Enduro 2, quatix 7 en 8, tactix 7 en 8, D2 Mach 1 Pro en D2 Air X15.
+- "Not yet" klopt: Forerunner 255S en 265S, Venu 2S, fēnix 9 Pro 51 mm (de AMOLED van 466 x 466; de Pro Solar 51 mm zit er wel in) en elke Instinct ontbreken in het manifest. GEZIEN.
+
+### 8c. Wat ik verander
+1. **Venu Sq 2 Music staat er niet in** (`venusq2m` ontbreekt, alleen `venusq2`). Zelfde scherm (320 x 360) en zelfde API 5.0 als de Venu Sq 2 (DERDEN). Wie een Music heeft, leest nu "Venu Sq 2" en denkt dat het werkt. Daarom zet ik hem bij "Not yet". Voegt Gijs `venusq2m` toe (mijn advies, zie 8e), dan gaat hij daar weer weg.
+2. **Venu X1 bij "Not yet".** Nieuw groot vlaggenschip met een eigen scherm (448 x 486), zit er niet in. Kopers van een nieuw horloge vragen daar het eerst naar (GOK).
+3. **"fēnix" en "vívoactive" zoals Garmin ze schrijft**, gelijk aan de tekst van Ebb (die zegt overal fēnix). Zoeken in de winkel gaat op de naam van de app, niet op deze regel, dus dit kost geen vindbaarheid (GOK).
+4. **"(AMOLED)" tussen haakjes** in plaats van "with AMOLED display": korter, en het onderscheid met de Pro Solar blijft.
+5. **"D2 Mach 2 (also Pro)"**, want `d2mach2pro` zit erin.
+6. Venu Sq 2 als eigen zin, los van de ronde Venu's: zo leest het niet als "Venu Sq 2 en 4".
+
+### 8d. Plaktekst, drie talen (vervangt alleen het blok met horloges)
+Engels (`gloop-en.md`):
+```
+WATCHES
+Forerunner 70, 165, 170, 255, 265, 570, 955, 965 and 970. fēnix 7, 7S and 7X (also Pro), fēnix 8, fēnix E and fēnix 9. epix (Gen 2) and epix Pro. Venu 2, 2 Plus, 3, 3S and 4. Venu Sq 2. vívoactive 5 and 6. MARQ (Gen 2). D2 Air X10, D2 Mach 1 and D2 Mach 2 (also Pro).
+Not yet: Forerunner 255S and 265S, Venu 2S, Venu Sq 2 Music, Venu X1, fēnix 9 Pro 51 mm (AMOLED), Instinct. The store shows whether your watch is on the list before you buy.
+```
+Duits (`gloop-de.md`):
+```
+UHREN
+Forerunner 70, 165, 170, 255, 265, 570, 955, 965 und 970. fēnix 7, 7S und 7X (auch Pro), fēnix 8, fēnix E und fēnix 9. epix (Gen 2) und epix Pro. Venu 2, 2 Plus, 3, 3S und 4. Venu Sq 2. vívoactive 5 und 6. MARQ (Gen 2). D2 Air X10, D2 Mach 1 und D2 Mach 2 (auch Pro).
+Noch nicht: Forerunner 255S und 265S, Venu 2S, Venu Sq 2 Music, Venu X1, fēnix 9 Pro 51 mm (AMOLED), Instinct. Der Store zeigt vor dem Kauf, ob deine Uhr auf der Liste steht.
+```
+Nederlands (`gloop-nl.md`):
+```
+HORLOGES
+Forerunner 70, 165, 170, 255, 265, 570, 955, 965 en 970. fēnix 7, 7S en 7X (ook Pro), fēnix 8, fēnix E en fēnix 9. epix (Gen 2) en epix Pro. Venu 2, 2 Plus, 3, 3S en 4. Venu Sq 2. vívoactive 5 en 6. MARQ (Gen 2). D2 Air X10, D2 Mach 1 en D2 Mach 2 (ook Pro).
+Nog niet: Forerunner 255S en 265S, Venu 2S, Venu Sq 2 Music, Venu X1, fēnix 9 Pro 51 mm (AMOLED), Instinct. De winkel laat vóór het kopen zien of jouw horloge op de lijst staat.
+```
+Verandert het manifest nog vóór de upload: haal elk horloge dat erbij komt uit "Not yet" en zet het in de rij van zijn familie. Komen er families bij die nu niet genoemd worden (bijvoorbeeld Approach of Descent), dan is de korte vorm veiliger dan een langere lijst: zet ze dan niet los erbij maar laat de zin "The store shows ..." het werk doen.
+
+### 8e. Advies aan Gijs: nog meer horloges, nu het venster "nieuw" er nog niet is
+In 7g stond al: de stapelspellen met bereik draaien op 60 tot 177 horloges (*Tower Drop* 102, *Prism Spire* 177; GEZIEN 16 nov ±14:00 UTC). Met 52 zitten we er nog onder. Het spel vraagt API 3.2 (`minApiLevel="3.2.0"`, GEZIEN) en heeft al indelingen voor 240, 260, 280, 390, 416, 454 en 320 x 360. Deze horloges hebben precies zo'n scherm en een hoog genoeg API (DERDEN, tabel van Garmin), en zitten er niet in:
+- **Zelfde scherm, nieuw:** Venu Sq 2 Music (320 x 360), Instinct 3 AMOLED 45 en 50 mm (390 en 416; Daan zei bij Ebb 1.1 al ja op die twee maten), Instinct Crossover AMOLED (390), MARQ (Gen 3) (454), Enduro 3 en 4 (280), Approach S70 en S72 (390 tot 454), Descent Mk3, Mk3i en G2 (390 en 454).
+- **Ook nog passend (controleur):** D2 Air (390, API 3.2), Approach S50 (390), Venu Mercedes-Benz Collection (390), Descent Mk2 en Mk2i (280), Enduro (280), fēnix 5 Plus-reeks (240).
+- **Ouder maar veel gedragen (GOK):** fēnix 6-reeks (240 tot 280), vívoactive 4 (260), Venu (390), Forerunner 745, 945 en 945 LTE (240). De Forerunner 245 ging eruit omdat geen enkele betaalde app in de winkel op 245 en 55 staat (`monkey.jungle`, Joris verhaal 19), niet om het scherm; kijk met dezelfde meting of dat ook voor deze 240-modellen geldt.
+- **Eigen maat:** Venu 2S en Forerunner 265S (360 x 360) zitten al in Ebb 1.0.1, met Daans ja op 360. Venu X1 (448 x 486) is een nieuwe maat.
+Ik kies niets: wat erbij komt beslis jij met Daan. Zeg welke het worden, dan pas ik 8d in dezelfde run aan.
+
+### 8f. Nagekeken
+Controleur (16 nov ±21:05 UTC): akkoord, geen moet-punten (manifest, Garmins tabel, drie talen, feiten in 8e en spelling nagelopen). Kan-punten verwerkt: zes extra kandidaten in 8e, de echte reden voor het weghalen van de 245 uit `monkey.jungle`, gedeelde rijen in 8b. Niet overgenomen: "255s" met kleine s, want de Ebb-tekst schrijft 255S en gelijk blijven gaat voor.

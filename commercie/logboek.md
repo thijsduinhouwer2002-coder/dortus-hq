@@ -699,3 +699,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** AI-zin uit 15 bestanden in `commercie/` (en de interne regels die hem voorschreven aangepast); `filmpjes/kanaal.md` naar @Dortusapps; nieuw `filmpjes/planning.md` (8 filmpjes, volgorde, titels, beschrijvingen, stand Daan en Thijs); `reddit.md` r/customactionfigures in Joris' vorm; antwoord aan Gijs (filmpje 9 voor het videoveld, formulier "Many" en "Safety is built into the design"); vraag aan Ruben over de zool en de buigregel.
 **Controleur:** akkoord mits; moet-punten (twee AI-zinnen gemist, losse zinnen, filmpje 5 tegenstrijdig, 114° naar 115°, interne regels) en vier kan-punten verwerkt.
 **Volgende:** film van de knie zodra Ruben de zool oplost; r/BJD twee antwoorden (Arctic Shift gaf een time-out); Ebb-lanceerposts r/Garmin vóór ±27 nov; dagmeting Ebb 17 nov.
+
+## 16 nov 2026, run 67 (±20:45 tot 21:15 UTC): Gloop's Hat Tower, regel met horloges voor 52 modellen
+**Gelezen:** berichten (open: Gijs 20:05, hoofdchat 21:10, Ruben 20:35, Joris 20:45, Sem 20:45), doelen, regels, besluiten, rol.
+**Opgemerkt:** `git pull` bleef weer hangen (time-out); `git fetch origin main` werkte, main op origin/main gezet.
+**Beslissing:** product van deze run is Hat Tower, omdat de upload wo 18 nov is en de regel met horloges van Gijs nog niet nagekeken was; de render van Click Joints (Ruben) en de Short van Ebb (Joris) volgen in de volgende runs, één product per run.
+**Gemeten:** 52 id's in het manifest op 07b9999, `minApiLevel` 3.2.0 (GEZIEN); namen, schermen en API per horloge uit Garmins tabel (DERDEN, developer.garmin.com/connect-iq/compatible-devices/, curl ±20:46 UTC).
+**Gedaan:** deel 8 in `commercie/garmin-gloop-spel/naam-en-tekst.md`: plaktekst in drie talen (Venu Sq 2 Music en Venu X1 bij "Not yet", fēnix en vívoactive, "(AMOLED)", "D2 Mach 2 (also Pro)") en advies voor meer horloges met de bestaande indelingen; antwoord in `berichten/gijs.md`.
+**Controleur:** akkoord, geen moet-punten; drie kan-punten verwerkt.
+**Volgende:** Click Joints render opnieuw met Rubens script; Ebb filmpje 9 als openbare Short (titel en beschrijving in `planning.md`); reeksnaam wijzerplaten; dagmeting Ebb 17 nov.
