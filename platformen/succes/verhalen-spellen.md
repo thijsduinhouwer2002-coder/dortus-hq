@@ -1,8 +1,76 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 17 af 16 nov ±22:15 UTC; volgende run: de pagina van het Desktop Companion Fest opnieuw lezen (eisen aan de demo), daarna Little Writer meten na 6 jan of Tiny Pasture: hoe vraag je om een crossover)
+bezig: niets (verhaal 18 af 16 nov ±23:45 UTC; volgende run: Little Writer meten na 6 jan, of de vraag van de hoofdchat als die er is; anders: wat deden bureaubladspellen met korting in een themafest (Valve zet die het meest in beeld))
 
 Nieuwste bovenaan.
+
+---
+
+## 18. Tiny Pasture als lanceerpartner: tien nieuwkomers kregen een bundel en een aankondiging op hun lanceerdag of kort erna, maar waar ik het kan meten zie je geen sprong boven het gewone verval (plus: de eisen van het Desktop Companion Fest, eindelijk gelezen)
+
+**Vraag:** Sem vroeg (16 nov ±21:41) of er een manier is om te zien wat een ruil op de lanceerdag een nieuwkomer oplevert, zoals Bugtopia die op dag 1 een crossover plus bundel met Tiny Pasture kreeg. Ons bundelplan (`marketing/bundels.md`) zet Tiny Pasture als eerste kandidaat voor een ruil rond de lancering van Hats. Eerst heb ik de festpagina van Valve gelezen, die in verhaal 17 een foutmelding gaf.
+
+### Bronnen en hoe ik keek (16 nov, ±22:50 tot 23:40 UTC)
+- Steamworks-docs, gelezen met curl op 16 nov: `partner.steamgames.com/doc/marketing/upcoming_events/themed_sales/desktop_companion_2027` en de ouderpagina `.../themed_sales` (GEZIEN).
+- Alle 59 aankondigingen van Tiny Pasture (appid 3167550) en van de tien partners, via `api.steampowered.com/ISteamNews/GetNewsForApp/v2/` (GEZIEN).
+- Reviews per week van de partners en van een vergelijkingsgroep: alle 253 betaalde bureaubladspellen uit Vera's kaart die tussen juni 2024 en augustus 2026 uitkwamen met 10+ reviews; daarvan 70 met een weekgrafiek vanaf de uitgave, 12+ weken en 50+ reviews in week 1 (`store.steampowered.com/appreviewhistogram/<appid>`, GEZIEN). Week 1 = de eerste 7 dagen na de uitgave.
+- In die 253 spellen ook gezocht naar aankondigingen met "bundle", "crossover" of "collab" in de eerste 10 dagen na de uitgave: 37 spellen hebben er een.
+- Data: `platformen/succes/data/tiny-pasture-lanceerpartners-2026-11-16.csv` (de tien partners) en `platformen/succes/data/lanceer-verval-bureaublad-2026-11-16.csv` (de 70 spellen, verval per week).
+- Niet gelukt: reviews per dag (de route `appreviews` stuurt vanaf onze omgeving door naar de voorpagina, ook met een andere browsernaam). Daardoor kan ik binnen week 1 niets scheiden.
+
+### Eerst: wat Valve eist voor het Desktop Companion Fest (GEZIEN, 16 nov)
+- **Uitnodigen gaat vanzelf, op de tags en de winkelpagina.** "If your game does not that [sic] the Desktop Companion tag, then it is likely not eligible for this Fest." Op de ouderpagina: geschiktheid komt uit de tags "as well as the gameplay that is evident from how you describe and represent your game on your store page". Wie geen uitnodiging kreeg, kijkt op de opt-in-pagina en kan bezwaar maken.
+- **Wat telt als bureaubladspel:** zit "unobtrusively" op een deel van het scherm (meestal onder of opzij), speelt door als je niets doet, meestal casual of idle. **Niet:** spellen die je alleen kleiner kunt maken, schermbeveiligers, software, pomodoro-timers, en spellen voor een heel tweede scherm of volledig scherm.
+- **Demo's mogen, in een eigen vak**, en de demo wordt ingedeeld op de pagina van het volle spel ("keep tags for the base game up to date"). Maar: "Demos are generally not eligible to appear in the official event trailer", en "discounted released games will be featured most prominently".
+- **Datums:** trailer van Valve 8 jan, fest 14 jan 10:00 PST tot 18 jan 10:00 PST. Livestreams staan niet op de festpagina, wel op je eigen winkelpagina.
+- Wat dit voor Hats betekent: de tag Desktop Companion bovenaan (staat al in de planning van 30 nov) en de winkeltekst en schermen moeten de strook onderaan laten zien, anders kan Valve ons niet uitnodigen. In de festtrailer van Valve komen wij als demo waarschijnlijk niet.
+
+### Tiny Pasture doet een vast lanceerprogramma (GEZIEN, aankondigingen)
+Tiny Pasture (7.140 reviews, uitgever Gamersky Games) zette in 13 maanden **tien aankondigingen voor een bundel met een nieuwkomer**, zes daarvan op de dag van de uitgave of de dag erna:
+
+| Nieuwkomer | Uit | Post Tiny Pasture | Dag | Wat | Zelfde uitgever |
+|---|---|---|---|---|---|
+| Maltese's Fluffy Onsen | 13 mei 2025 | 22 mei 2025 | 9 | bundel 10% | nee |
+| Bugtopia | 21 mei 2025 | 22 mei 2025 | 1 | crossover plus bundel 10% | nee (GCORES) |
+| Idle Waters | 12 jun 2025 | 12 jun 2025 | 0 | bundel 10% | nee |
+| Village Tale | 27 jul 2025 | 28 jul 2025 | 1 | bundel 10% | nee |
+| Lakeside Bar | 30 jul 2025 | 31 jul 2025 | 1 | bundel | nee |
+| Sensei! I Like You So Much! | 1.0 op 5 aug 2025 | 5 aug 2025 | 0 | bundel | nee |
+| Fischer's Fishing Journey | 7 aug 2025 | 8 aug 2025 | 1 | bundel 10% | **ja** (Gamersky) |
+| Your Big, Cute Monster Farm | 10 nov 2025 | 11 nov 2025 | 1 | gastpersonage plus bundel | **ja** (Gamersky) |
+| Tingus Goose | 1 dec 2025 | 10 feb 2026 | 71 | bundel | nee |
+| Birdwatching Notebook | 26 mei 2026 | 10 jun 2026 | 15 | bundel 10% | nee |
+
+- **Het is bijna altijd een bundel, geen ruil.** Alleen Bugtopia (andere uitgever) en Monster Farm (eigen uitgever) kregen er een personage bij. Wat Tiny Pasture als ruil doet met spellen van anderen, doet het vooral met grote, al uitgebrachte spellen (Sultan's Game, Backpack Battles bij hun 1.0, Ropuka, Sanfu bij zijn verjaardag; verhaal 16).
+- **De tekst is één sjabloon voor beide kanten.** Idle Waters en Tiny Pasture zetten op 12 jun 2025 dezelfde zinnen ("If you would like to fish while petting animals, then don't miss this bundle", "Exclusive Bundle Deal", "instant 10% discount"). Ook bij de anderen steeds: één regel waarom het past, "10%", "double the fun", over elk spel twee zinnen. De nieuwkomer post zelf meestal dezelfde dag.
+- 8 van de 10 zijn van een andere uitgever. Hoe het contact ontstond staat in geen enkele post (niet gevonden).
+
+### Leverde de post van Tiny Pasture iets op? (GEZIEN, verval per week)
+Bij zes partners viel de post in week 1, samen met de uitgave zelf: daar is het niet te scheiden (Sem had gelijk). Bij drie viel hij later, en daar kan ik de week van de post leggen naast hoe een lancering gewoon daalt:
+
+| Partner | Post in | Reviews | Verhouding | Gewoon in deze hoek (70 spellen) |
+|---|---|---|---|---|
+| Maltese's Fluffy Onsen | week 2 (dag 9) | 487 dan 176 | 0,36 | week 2 tegen week 1: mediaan 0,31 (helft tussen 0,20 en 0,43) |
+| Birdwatching Notebook | week 3 (dag 15) | 241 dan 108 | 0,45 | week 3 tegen week 2: mediaan 0,52 (helft tussen 0,37 en 0,61) |
+| Tingus Goose | week 11 (dag 71) | 15, 17, 12 dan 23, 24 | ±1,6x | stijging van ±8 reviews per week; rond Chinees Nieuwjaar en de nieuwjaarsupdate van Tiny Pasture |
+
+**Bij Maltese en Birdwatching zie je niets boven het gewone verval.** Bij Tingus Goose een klein beetje, maar in dezelfde week als een feestdag in China en een update van Tiny Pasture, dus niet toe te schrijven. En de zes die de post in week 1 kregen, houden het daarna niet beter vol dan de rest: reviews in week 5 tot 12 tegen week 1 tot 4 is bij hen 0,19 tot 0,51 (mediaan ±0,23), bij de rest mediaan 0,30. Hun eerste vier weken (172 tot 570 reviews) liggen rond en boven de mediaan van de groep (216), maar Tiny Pasture kiest zijn partners, dus dat zegt niets over de bundel.
+
+Voor Sem, de manier die wel werkt: **een post na week 1 leggen naast het verval van 70 vergelijkbare lanceringen.** Voor een post in week 1 is er geen eerlijke maat zonder de verlanglijstcijfers van de maker.
+
+### Drie lessen
+1. **Tiny Pasture is een vaste lanceerpartner, geen gunst.** Tien nieuwkomers in 13 maanden, steeds hetzelfde sjabloon: bundel 10%, één zin waarom het past, posts aan beide kanten op dezelfde dag. Vragen is dus normaal; een crossover met personage is de uitzondering (1 keer bij een andere uitgever).
+2. **Een bundelpost van een groot bureaubladspel geeft geen zichtbare golf.** Waar het te meten is (2 keer schoon), valt de week van de post binnen het gewone verval. Dat past bij verhaal 15 (Bottom-Of-Your-Screen) en 16 (crossovers): het spel zelf bepaalt de lancering, partners geven een plek op een pagina, geen kopers.
+3. **Voor het fest tellen de tags en de winkelpagina, niet de demo.** Valve nodigt uit op de tag Desktop Companion en op wat de pagina laat zien, zet uitgebrachte spellen met korting het meest in beeld en neemt demo's meestal niet op in zijn trailer.
+
+### Voorstel voor Dortus deze week
+**Sem past in `marketing/bundels.md` de regel voor Tiny Pasture aan: vraag om hun gewone lanceerbundel (10%, beide kanten posten op de lanceerdag) en lever de tekst kant-en-klaar in hun sjabloon mee (twee zinnen per spel, één zin waarom ze passen); de gasthoed is een extra vraag, geen voorwaarde. Reken er in het lanceerplan op nul extra kopers: het is gratis en het geeft een plek op een pagina met 7.140 reviews, meer niet. Mila of Olaf: de winkeltekst en de eerste schermafbeelding van Hats moeten de strook onderaan het bureaublad laten zien, want Valve nodigt voor het fest uit op tags plus wat de pagina toont.** Kost niets; voorkomt dat we op een ruil rekenen voor groei.
+
+### Eerlijk: wat ik niet weet
+- Wat de bundels in week 1 deden: zonder reviews per dag en zonder verlanglijstcijfers is dat niet te zien.
+- Of Tiny Pasture nee zegt tegen een spel zonder uitgever; alle tien hadden een studio of uitgever, hoe ze contact kregen staat nergens.
+- Of bundels verkopen: Steam toont geen bundelverkopen. Reviews zijn een trage maat; extra verlanglijsten of volgers zie ik niet.
+- Of de Desktop Companion-tag door Valve of door spelers moet komen: de pagina zegt alleen dat het spel hem moet hebben.
 
 ---
 
