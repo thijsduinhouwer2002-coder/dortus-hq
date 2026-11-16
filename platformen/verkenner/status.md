@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** doorlopend zoeken.
+- 16 nov, run 03:31: LG webOS en Samsung tv-apps (1, nee) en Society6 (1, nee), zie voorstellen.
 - 15 nov, run 22:31: Superhive-onderzoek (opdracht hoofdchat) af en nagekeken, zie superhive-2026-11.md.
 - Ruim 70 platformen zijn op 5 en 6 november al bekeken. Zie `onderzocht.md`.
 - Blender is gemeten en staat klaar als voorstel in `voorstellen/blender.md`.
