@@ -122,6 +122,16 @@ def main():
           "zonder grens aan beide kanten blijft het preset")
     sp2 = rigm.spiegel_stops({"Left knee": (120, 1), "Right knee": (100, 1)})
     check(sp2["Right knee"] == ((100, 1), "from rig"), f"eigen grens gaat voor spiegelen {sp2}")
+    # run 16: leesbare reden voor een heup die nergens lukt; andere meldingen blijven
+    check("legs touch" in rigm.kogel_reden("HIP", "nothing was cut") and "legs touch" in rigm.kogel_reden("HIP", None)
+          and "legs touch" in rigm.kogel_reden("HIP", "too thin here for a ball joint"), "heup: leesbare reden")
+    check(rigm.kogel_reden("KNEE", "nothing was cut") == "nothing was cut"
+          and rigm.kogel_reden("HIP", "the cut left a loose piece here, place it by hand").startswith("the cut left"),
+          "andere gewrichten en meldingen ongewijzigd")
+    g36 = rigm.geen_ruimte("too close to another joint, keep 36 mm apart", "Left hip", 38.0)
+    check(g36 is not None and "next to the knee" in g36, f"36 mm op een dij van 38: geen ruimte ({g36})")
+    check(rigm.geen_ruimte("too close to another joint, keep 20 mm apart", "Left hip", 38.0) is None,
+          "20 mm op een dij van 38: oude melding blijft")
 
     leeg()
     inst = bpy.context.scene.click_joints

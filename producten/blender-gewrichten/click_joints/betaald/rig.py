@@ -197,6 +197,19 @@ def _naad_vrij(straal_op, t, lid, a, b, grens, stap):
     return True
 
 
+def kogel_reden(sleutel, melding):
+    """Pro 1.1 (run 16): een leesbare reden als een heup- of schouderkogel op geen enkele plek lukt en de kern alleen
+    "too thin" of "nothing was cut" zegt. Gezien op AI-figuren van 150 mm (Meshy): de dijen raken elkaar tot vlak boven
+    de knie en de dij is 35 tot 38 mm, korter dan kogel plus knie nodig hebben; een spleet tussen de benen hielp niet
+    (proef run 16). Dan weet de koper waar hij moet bijsturen. Andere meldingen blijven zoals ze zijn."""
+    if sleutel not in ("HIP", "SHOULDER") or (melding or "nothing was cut") not in (
+            "too thin here for a ball joint", "nothing was cut"):
+        return melding
+    if sleutel == "HIP":
+        return "no clean spot for a hip ball on this thigh (legs touch or the thigh is short), place it by hand"
+    return "no clean spot for a shoulder ball on this upper arm (arm touches the body or is short), place it by hand"
+
+
 # ---------- Operator "Figure from rig" (bpy alleen hieronder, zodat de naamregels zonder Blender te toetsen zijn) ----------
 import bpy  # noqa: E402
 from bpy.props import BoolProperty  # noqa: E402
@@ -282,7 +295,9 @@ def geen_ruimte(melding, naam, bot_mm):
     of knie. Anders None (de oude melding blijft)."""
     import re
     m = re.search(r"too close to another joint, keep (\d+) mm apart", melding or "")
-    if not m or int(m.group(1)) <= bot_mm:
+    # Run 16: ook als de afstand meer dan 0,8 keer het bot is. De kogel moet uit de romp (op AI-figuren pas na ±40%
+    # van de dij), dus "keep 36 mm apart" op een dij van 38 mm past nooit (man_backpack, Meshy).
+    if not m or int(m.group(1)) <= 0.8 * bot_mm:
         return None
     kern = naam.split()[-1].lower()
     buur = BUUR.get(kern, "next joint")
@@ -468,6 +483,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 melding = vangnet  # de echte reden; latere plekken zeggen vaak alleen "nothing was cut"
             if not ok and soort != "HINGE":
                 melding = geen_ruimte(melding, naam, lengte / eenheid_per_mm(context.scene)) or melding
+            if not ok and not geblokkeerd:
+                melding = kogel_reden(sleutel, melding)
             if not ok and geblokkeerd and not melding:
                 melding = "no room for a ball joint that can move here (it would be blocked)"
             if ok:

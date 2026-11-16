@@ -133,6 +133,24 @@ def maak_rig(ob):
     return rig
 
 
+def spleet(ob, rig, pct, breed=0.6):
+    """Proef run 16: een smalle spleet tussen de benen (middenvlak van de heupkoppen, van de vloer tot pct van de
+    hoogte), zodat dijen die elkaar raken los komen. Daarna pas de gewrichten."""
+    l, r = rig.data.bones["mixamorig:LeftUpLeg"].head_local, rig.data.bones["mixamorig:RightUpLeg"].head_local
+    mx = (l.x + r.x) / 2
+    zt = pct / 100.0 * H
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(mx, 0, zt / 2 - 1))
+    k = bpy.context.active_object
+    k.scale = (breed, 400, zt + 2)
+    bpy.context.view_layer.update()
+    m = ob.modifiers.new("spleet", "BOOLEAN")
+    m.operation, m.object, m.solver = "DIFFERENCE", k, "EXACT"
+    A["actief"](ob)
+    bpy.ops.object.modifier_apply(modifier=m.name)
+    bpy.data.objects.remove(k)
+    log(f"{ob.name} SPLEET x={mx:.1f} tot z={zt:.1f} mm, stukken {A['mesh_staat'](ob)['losse_stukken']}")
+
+
 def main():
     args = sys.argv[sys.argv.index("--") + 1:]
     zip_pad, uit = args[0], args[1]
@@ -157,12 +175,15 @@ def main():
         rig = maak_rig(ob)
         if rig is None:
             continue
+        if os.environ.get("CJ_SPLEET"):
+            spleet(ob, rig, float(os.environ["CJ_SPLEET"]))
         ob.modifiers.new("Armature", "ARMATURE").object = rig
         inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
         A["actief"](ob)
         if os.environ.get("CJ_ALLEEN"):  # zoals proef_rigify: alleen gewrichten met deze stukjes naam
             _rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
-            _g, _w = _rigm.gewrichten, os.environ["CJ_ALLEEN"].split(",")
+            _g = getattr(_rigm, "_cj_echt", _rigm.gewrichten)
+            _rigm._cj_echt, _w = _g, os.environ["CJ_ALLEEN"].split(",")
             _rigm.gewrichten = lambda a, meer=False: [x for x in _g(a, meer) if any(w in x[2].lower() for w in _w)]
         try:
             r = bpy.ops.click_joints.figuur_uit_rig()

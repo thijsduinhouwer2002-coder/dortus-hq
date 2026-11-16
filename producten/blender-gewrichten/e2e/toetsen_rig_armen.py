@@ -155,7 +155,7 @@ def main():
     figuur(70.0)
     r, per, delen, over, fig = uitvoeren()
     check("Left shoulder" in per and "Right shoulder" in per, "korte figuur: schouders lukken")
-    check("Left hip" not in per and "Left hip (too close" in over, f"korte figuur: heup eerlijk overgeslagen ({over})")
+    check("Left hip" not in per and ("Left hip (too close" in over or "Left hip (no room on this" in over), f"korte figuur: heup eerlijk overgeslagen ({over})")
     check(all(mod("gesloten").is_gesloten(o)[0] for o in delen), f"korte figuur: alle {len(delen)} delen gesloten")
     log(f"KLAAR {len(FOUT)} FOUT")
 
