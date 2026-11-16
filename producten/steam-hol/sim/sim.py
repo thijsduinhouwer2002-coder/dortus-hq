@@ -53,8 +53,12 @@ REEKS = False   # True: speel() bewaart na elke held de tellers in st["reeks"] (
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 
-def speel(uren, zaad):
+def speel(uren, zaad, spec=None):
+    """spec (optioneel): een voortgang zoals voortgang() hem leest. Dan ontgrendelt speel() zelf de niveaus zodra een bron
+    de drempel haalt, en telt het "effect" van een niveau vanaf dat moment mee (zie EFFECTEN bij voortgang())."""
     rng = random.Random(zaad)
+    eff = {"gat": 1.0, "kans": {}, "goud": 0.0, "goud_x": 1.0}
+    sporen = [dict(sp, _i=0) for sp in (spec or {}).get("sporen", [])]
     t = 0.0
     goud = float(START_GOUD)
     gangen = 6
@@ -98,7 +102,7 @@ def speel(uren, zaad):
                 gat = (5, 7) if begin_i == 1 else (18, 22) if begin_i == 2 else (35, 45)
             else:
                 gat = (40, 60)
-            volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(*gat))
+            volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(*gat) * (1.0 if stap else eff["gat"]))
         else:
             volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
         lied_extra = max(0, lied_extra - 1)
@@ -169,7 +173,7 @@ def speel(uren, zaad):
             fs = sd[0].get(v["soort"], 1.0)
             if TRICK_MAGIER is not None and h.get("soort", "") == "magier" and v["soort"] == "put" and upg["put"] >= 3:
                 fs = TRICK_MAGIER   # Trick Lid: de put ziet eruit als vloer, de magier ziet hem niet (idee Sanne 10 nov 03:10)
-            kans = (KANS[v["soort"]] * fs + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
+            kans = (KANS[v["soort"]] * fs + UPGRADE * upg[v["soort"]] + eff["kans"].get(v["soort"], 0.0)) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
             is_vijand = v["soort"] == vijand
             if is_vijand:
                 kans += ROEKELOOS * (2 if h["trek"] == "wraakzuchtig" else 1)
@@ -204,7 +208,7 @@ def speel(uren, zaad):
             st["eerste_hap"] = t + LOOP_HAP_S
         if uit == "gevallen":
             st["gevallen"] += 1
-            erbij = (6 if SPEL_ECONOMIE else 6 * (1 + 0.1 * faam) * (1 + gangen / 40)) + GOUD_PER_BEZOEK * h["bezoeken"]
+            erbij = ((6 if SPEL_ECONOMIE else 6 * (1 + 0.1 * faam) * (1 + gangen / 40)) + GOUD_PER_BEZOEK * h["bezoeken"] + eff["goud"]) * eff["goud_x"]
             goud += erbij
             st["goud_totaal"] = st.get("goud_totaal", 0.0) + erbij
             if st["eerste_val"] is None:
@@ -220,6 +224,23 @@ def speel(uren, zaad):
                 h["wrok"] = geraakt_door
             if rng.random() < BLIJFT_KANS or h["gevlucht"] >= 3 or h is begin_vlucht:
                 terug.append(h)
+        for sp in sporen:
+            # ontgrendelen zodra de bron de drempel haalt; het effect telt vanaf de volgende held
+            bron = {"helden": helden, "gevallen": st["gevallen"], "goud": st.get("goud_totaal", 0.0),
+                    "hoeden_gloop": len(st["hap_tijden"]), "hoeden": st["hap_slijm"], "uren": t / 3600}[sp["bron"]]
+            while sp["_i"] < len(sp["niveaus"]) and bron >= sp["niveaus"][sp["_i"]]["drempel"]:
+                nv = sp["niveaus"][sp["_i"]]
+                sp["_i"] += 1
+                st.setdefault("ontgrendeld", []).append((t, sp["naam"], nv.get("niveau"), nv.get("wat", "")))
+                e = nv.get("effect", {})
+                eff["gat"] *= e.get("gat", 1.0)
+                eff["goud"] += e.get("goud", 0.0)
+                eff["goud_x"] *= e.get("goud_x", 1.0)
+                for k, x in e.get("kans", {}).items():
+                    eff["kans"][k] = eff["kans"].get(k, 0.0) + x
+                if e.get("bewoner") in ("slijm", "put"):
+                    aantal[e["bewoner"]] += 1
+                    verd.append({"soort": e["bewoner"], "plat_tot": -1})
         if REEKS:
             # tellers na elke held, voor de voortgang over ±100 uur (diepte(), voortgang(), drempels())
             st.setdefault("reeks", []).append((t, helden, st["gevallen"], st.get("goud_totaal", 0.0),
@@ -338,6 +359,9 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "begin":
 #   python3 sim.py diepte [zaden]            wat een speler bij uur 1, 2, 5 ... 100 heeft verzameld (bronnen voor niveaus)
 #   python3 sim.py drempels N uren p bron     drempels zodat niveau n valt op uren x ((n-1)/(N-1))^p (voorstel, geen besluit)
 #   python3 sim.py voortgang bestand.json     wanneer valt elke ontgrendeling, langste gat, muur, laatste ontgrendeling
+# EFFECTEN: een niveau mag "effect" hebben, dat telt vanaf het ontgrendelen mee in speel(): {"gat": 0.9} (10% korter
+# wachten op de volgende held), {"kans": {"slijm": 0.03}} (+3 procentpunt vangen), {"goud": 1} (+1 per val),
+# {"goud_x": 1.1}, {"bewoner": "slijm"} (een extra slijm of put in de gang). Zo telt mee dat de voortgang het tempo verandert.
 # Bronnen: helden (binnengekomen), gevallen (gevangen helden), goud (verdiend, opgeteld), hoeden_gloop (hoeden op de toren
 # van Gloop), hoeden (alle slijmen), uren (vaste open tijd). Let op: na ±7 uur is alles van de winkel gekocht, daarna
 # groeien de bronnen recht evenredig. Nieuwe inhoud uit voortgang.md (andere bewoners, lagen) verandert dat; zet die eerst
@@ -438,14 +462,17 @@ def voortgang(pad, zaden=8):
     import json
     spec = json.load(open(pad))
     uren = max(100, int(spec.get("uren", 100)))
-    alle = reeksen(zaden, uren)
+    global SPEL_ECONOMIE, SOORTEN, REEKS
+    oud = (SPEL_ECONOMIE, SOORTEN)
+    if os.environ.get("SIM_ECONOMIE", "") != "oud":
+        SPEL_ECONOMIE, SOORTEN = True, True
+    REEKS = True
+    alle = [speel(uren, z, spec) for z in range(1, zaden + 1)]   # met de effecten van de niveaus erin
+    REEKS = False
+    SPEL_ECONOMIE, SOORTEN = oud
     per_zaad = []
     for st in alle:
-        ev = []
-        for sp in spec["sporen"]:
-            for nv in sp["niveaus"]:
-                tt = tijd_van(st, sp["bron"], nv["drempel"])
-                ev.append((tt, sp["naam"], nv.get("niveau"), nv.get("wat", "")))
+        ev = list(st.get("ontgrendeld", []))
         if spec.get("winkel", True):
             # de 6 upgrades van de winkel (upgrades.gd) zijn ook ontgrendelingen; "winkel": false laat ze weg
             ev += [(a[0], "winkel", i + 1, a[1]) for i, a in enumerate(st["aankopen"])]
@@ -453,17 +480,19 @@ def voortgang(pad, zaden=8):
     eind = uren * 3600
     print("voortgang | %s | %d zaden, %d u open tijd, muur = gat langer dan %.0f u zonder ontgrendeling, winkel %s" % (
         pad, zaden, uren, MUUR_S / 3600, "telt mee" if spec.get("winkel", True) else "telt niet mee"))
-    # per spoor: mediane tijd per niveau
+    # per spoor: mediane tijd per niveau (uit de ontgrendelingen van speel(), dus met de effecten)
     for sp in spec["sporen"]:
         regels = []
         for nv in sp["niveaus"]:
-            ts = [tijd_van(st, sp["bron"], nv["drempel"]) for st in alle]
+            ts = [next((x[0] for x in ev if x[1] == sp["naam"] and x[2] == nv.get("niveau")), None) for ev in per_zaad]
             ok = [x for x in ts if x is not None]
             if len(ok) * 2 > len(ts):
                 regels.append("%s:%s" % (nv.get("niveau"), uur_tekst(mediaan([x if x is not None else 9e9 for x in ts]))))
             else:
                 regels.append("%s:niet binnen %d u" % (nv.get("niveau"), uren))
         print("  %s (%s): %s" % (sp["naam"], sp["bron"], "  ".join(regels)))
+    eff_n = sum(1 for sp in spec["sporen"] for nv in sp["niveaus"] if nv.get("effect"))
+    print("  niveaus met een effect op het spel: %d (gat, kans, goud, goud_x, bewoner)" % eff_n)
     # samen: gaten per uurblok, muren, laatste ontgrendeling, aantal per blok
     blokken = [(0, 1), (1, 2), (2, 5), (5, 10), (10, 20), (20, 40), (40, 70), (70, 100)]
     print("  samen per blok (mediaan over zaden): ontgrendelingen | langste gat")

@@ -1,6 +1,7 @@
 voortgang | voortgang-voorbeeld.json | 8 zaden, 100 u open tijd, muur = gat langer dan 2 u zonder ontgrendeling, winkel telt mee
   hol-niveau (gevallen): 2:1 min  3:11 min  4:22 min  5:41 min  6:1.1 u  7:1.5 u  8:2.0 u  9:2.7 u  10:3.4 u  11:4.2 u  12:5.0 u  13:6.1 u  14:7.1 u  15:8.2 u  16:9.4 u  17:10.7 u  18:12.0 u  19:13.5 u  20:15.0 u  21:16.7 u  22:18.5 u  23:20.3 u  24:21.9 u  25:23.6 u  26:25.3 u  27:28.6 u  28:30.3 u  29:31.9 u  30:35.2 u  31:36.8 u  32:40.2 u  33:43.5 u  34:45.2 u  35:48.4 u  36:51.8 u  37:53.5 u  38:56.8 u  39:60.1 u  40:63.3 u  41:66.5 u  42:70.0 u  43:73.3 u  44:76.5 u  45:81.5 u  46:84.8 u  47:88.1 u  48:91.4 u  49:96.4 u  50:99.7 u
   Gloop (hoeden_gloop): 2:10 min  3:43 min  4:2.4 u  5:6.6 u  6:21.2 u  7:62.9 u
+  niveaus met een effect op het spel: 0 (gat, kans, goud, goud_x, bewoner)
   samen per blok (mediaan over zaden): ontgrendelingen | langste gat
     0-1 u: 10 | 14 min
     1-2 u: 3 | 31 min
