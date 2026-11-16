@@ -341,8 +341,9 @@ if KLEIN:
     tekst("OF THE FALLEN", (-4.7 + KX, -0.6, 0.98 + KT), 0.86 * KM, kantel=-3, rand=0.11 if KLEUR_H else 0.07)
 elif HOOFD:
     tx, tz = E("HF_TX", "-4.3"), E("HF_TZ", "0.40")
-    tekst("HATS", (tx, -0.6, 2.55 + tz), 1.75, kantel=-3)
-    tekst("OF THE FALLEN", (tx - 0.05, -0.6, 1.70 + tz), 0.72, kantel=-3, rand=0.11)
+    HM = E("HF_TM", "1.0")   # Mila ronde 6: titel in het hoofdbeeld instelbaar groter
+    tekst("HATS", (tx, -0.6, 2.55 + tz + 0.75 * (HM - 1)), 1.75 * HM, kantel=-3)
+    tekst("OF THE FALLEN", (tx - 0.05, -0.6, 1.70 + tz), 0.72 * HM, kantel=-3, rand=0.11)
 else:
     TT = E("TOREN_TZ", "0.0"); TM = E("TOREN_TM", "1.0")
     tekst("HATS", (-4.55, -0.6, 2.55 + TT + 0.75 * (TM - 1)), 1.75 * TM, kantel=-3)
