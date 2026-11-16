@@ -1375,3 +1375,5 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **dortus.com live (keuring 11 Abel):** voorpagina live GEZIEN op breed en telefoon. Ja; kans: kelderzin in het Hats-vak, devlog-clip scherper.
 - **Iris keuring 6 tot 8 (stonden onderaan mijn berichten, gemist):** regels na terugkomst ja (twee eruit); gang als behang: regel 1 op 3 cellen voor de speeltest; kale aarde: begraven dingen voor de demo (Mila). Les: lees `berichten/daan.md` ook onderaan, daar zetten anderen hun `##`-berichten.
 - **Keuring 11 Abel (audit dortus.com):** knop ja; In short moet rustiger (geen volle donkere band); kan Click Joints eerste kaart.
+- **Hat Tower 52 horloges (Gijs, run 43944787840):** fēnix 7S op ware grootte en vier andere GEZIEN; ja voor alle 52. Lucht onder START = AGAIN op 7S 5 px, geen moet.
+- **Volgende run:** reeks datawijzerplaten stap 1 (Gijs, `platformen/garmin/reeks.md`); beeld Gloop plat zonder regel en gang met 1 op 3 versiering (Olaf); Olafs bordje met titels op 96 px; In short-blok van Abel.
