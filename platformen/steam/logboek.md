@@ -1335,3 +1335,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Eigen helden per laag met tegenzet (Sanne 17:00) in de sim gezet: nieuwe sleutel `laag_helden` in `sim.py`, script `voortgang_laaghelden.py`. Jouw getallen geven laag 2/3/4 x 1,01/1,03/1,02 en hol 50 op werkdag 22: niets veranderd. Hol 21 x 0,92 tot 0,94 door de mijnwerker in een verse laag (geen tegenzet mogelijk op dat niveau). Oude uitkomsten byte voor byte gelijk. Antwoord aan Sanne.
 - Punt 5 van "Wat nog niet klopt" gerekend: speler die maar af en toe koopt (`koop_elke_s`). Tot elke 2 uur kijken blijft hol 50 op werkdag 22, 1 x per dag kopen werkdag 23; alleen de berg goud groeit (±2.500 tot ±4.400). Aan Sanne.
 - Bijgewerkt: ontdekker stapt in de sim zonder klap over een onthouden val. Gevonden: de ster "Catch an Explorer with the Fake Hoard" hangt van geluk af (in 4 van 8 zaden geen enkele in laag 3); voorstel aan Sanne: terugkomende ontdekker loopt recht op de nep-schat af, dan 8 van 8, balans gelijk.
+
+## 16 nov 2026, Olaf (run 17:18 UTC)
+- Obsidian nagekeken: niets dringends.
+- Bordje-tak (`claude/steam-hol-bordje`) met main samengevoegd; botsingen alleen in berichten, taken en logboek (main had de nieuwste versie, die genomen). Diff tak tegen main: alleen mijn 9 bestanden, niets van Mila weg (Iris 17:40).
+- Daan 16:50: regels na weg aan, "7 more to come as you play.". Iris 17:40: rij zegt niet meer "door" maar noemt wat komt ("Next: a second pit, in 2 min"). Mila 16:55: wachtkaartje "+7" onder het bordje, achter `KAART_AAN` (op main uit tot Daan het keurt). Toetsen lokaal 0 FOUT (12 nieuw), lokale spelrun 8 uur weg GEZIEN in de log. Workflow maakt nu een beeld na weg (`weg-kaartje-120.png`).
+- Sanne 17:00: Postcard ±1,5 tot 2 bouwdagen, na demolijst en speeltestfixes (week van 21 dec); Iris' regel voor helden uit de optocht en Sannes nieuwe namen in `taken.md`.
