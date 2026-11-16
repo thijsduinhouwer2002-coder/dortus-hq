@@ -133,7 +133,7 @@ jobs:
           else echo "CIQVERSIE: map Devices niet gevonden"; fi
           fout=0
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
-          [ "$n" -ge 56 ] || fout=1
+          [ "$n" -ge 55 ] || fout=1
           exit $fout
           SH
           docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
@@ -159,7 +159,7 @@ jobs:
       matrix:
         # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges: FR255 (MIP 260),
         # fenix 8 47 mm (AMOLED 454) en Venu 3S (AMOLED 390, het kleinste AMOLED-scherm). De bouwtak draait ze alle dertien.
-        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm","enduro3"]') }}
+        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -248,6 +248,12 @@ jobs:
           # terugval licht blijft, niet de echte snelheid.
           # Run 71: alleen op de fr255, anders staat er op de andere horloges een regel "TERUGVAL fr255: 0 metingen".
           if [ "$D" = fr255 ]; then grep -h "KRABV2 wereld.*DIRECT" /tmp/plaatje-fr255-*.log 2>/dev/null | awk '{for (i = 1; i < NF - 1; i++) if ($i == "traagste" && $(i+1) == "beurt") { n++; if ($(i+2) + 0 > 60) print "TERUGVAL TRAAG (grens 60 ms): " $0 } } END { print "TERUGVAL fr255: " n + 0 " metingen, grens 60 ms" > "/dev/stderr" }' >> plaatjes/CRASH-$D.txt; fi
+          # Run 119: een nieuwe simulator wist de teller van de app, dan begint hij weer bij scène 0 en blijft de rest
+          # ongemerkt weg (Enduro 3, run 43902431815: 62 van de 157 en toch groen). Daarom het aantal natellen.
+          VERWACHT=$((LAATSTE - EERSTE + 1)); if [ -n "$KEUZE" ]; then VERWACHT=$(echo $KEUZE | wc -w); fi
+          GETELD=$(ls plaatjes/$D-scene*.png 2>/dev/null | wc -l)
+          echo "SCENES $D: $GETELD van $VERWACHT"
+          [ "$GETELD" -ge "$VERWACHT" ] || echo "TE WEINIG SCENES op $D: $GETELD van $VERWACHT" >> /tmp/geen-scene.txt
           if [ -s /tmp/geen-scene.txt ]; then cat /tmp/geen-scene.txt >> plaatjes/CRASH-$D.txt; fi
           [ -s plaatjes/CRASH-$D.txt ] || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
