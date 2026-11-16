@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: Blender Secrets, gezichtloze Blender-tips van één minuut, klaar 16 nov 2026 ±04:20 NL-tijd). Volgende: Reddit of nieuwsbrieven als kanaal voor een kleine tool, of een 3D-print-maker die met tips groeide.
+bezig: Notebook Navigator (Obsidian-plugin die in ±een jaar de populairste werd: hoe kwam hij aan gebruikers, Reddit, YouTube, forum), 16 nov 2026 ±05:10 UTC. Vorige: Blender Secrets.
 
 Nieuwste bovenaan.
 
