@@ -2,6 +2,7 @@ extends RefCounted
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 const VOORTGANG := preload("res://systemen/voortgang.gd")
+const AFLOOP := preload("res://kern/afloop.gd")   # faam_erbij (hol-niveau)
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
 # voortgang.gd belooft dat de bewaarde tijd nooit achteruit gaat (nieuwe_laatst). Stond de klok terug, dan blijft de
@@ -13,7 +14,7 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
-		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s,
+		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -90,6 +91,7 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
+	s.faam = maxi(0, int(data.get("faam", 0)))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3
 	s.pensioen_namen = []
 	var pn = data.get("pensioen_namen", [])
@@ -124,6 +126,7 @@ static func laad(s, begin) -> void:
 		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0, int(weg.opgegeten)])
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
+		AFLOOP.faam_erbij(s, int(weg.get("faam", 0)))   # faam ook als je weg was, kwart snelheid (Sanne 16 nov 14:05)
 		# hoeden ook terwijl je weg was, op hetzelfde kwart tempo (Sanne 16 nov 14:05); geef_hoeden zet hoeden_gegeven,
 		# zodat het verhaal ze pas noemt als ze echt op Gloop staan
 		if s.slijm != null:
@@ -147,4 +150,4 @@ static func laad(s, begin) -> void:
 		s.pensioen_namen.erase(p.naam)
 	s.hol.queue_redraw()
 	s.tekst.zet(s.kroniek, s.hol.goud)
-	s.log_regel("HOL opslag geladen: %d terugkomers, %d goud" % [s.terugkomers.size(), s.hol.goud])
+	s.log_regel("HOL opslag geladen: %d terugkomers, %d goud, faam %d" % [s.terugkomers.size(), s.hol.goud, s.faam])

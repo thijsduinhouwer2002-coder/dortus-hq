@@ -86,6 +86,19 @@ func _init() -> void:
 	ok(acht["helden"] == 151 and acht["goud"] < 1048, "8 uur weg: 151 helden, minder goud dan de hele winkel (%d)" % acht["goud"])
 	ok(V.tempo_regel(acht) == "Your hole worked at a quarter speed." and V.tempo_regel(acht).length() <= 42, "regel kwart snelheid na lang weg")
 	ok(V.tempo_regel(V.reken(t0, t0 + 600, 1, 1, 42)) == "", "geen regel kwart snelheid na 10 min weg")
+	# hol-niveau (Sanne voortgang.md spoor 1, drempels Bram): faam = gevangen helden
+	var HN = load("res://systemen/hol_niveau.gd")
+	ok(HN.niveau(0) == 1 and HN.niveau(2) == 1 and HN.niveau(3) == 2 and HN.niveau(12) == 5 and HN.niveau(88) == 12, "hol-niveau op de drempels")
+	ok(HN.niveau(100000) == 12 and HN.nog(100000) == 0, "demo stopt op hol-niveau 12")
+	ok(HN.hover(0) == "Level 1: Gloop and the pit. 3 more heroes.", "hover niveau 1: " + HN.hover(0))
+	ok(HN.hover(11) == "Level 4: a bat moves in. 1 more hero.", "hover enkelvoud: " + HN.hover(11))
+	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
+	ok(absf(HN.deel(8) - 0.5) < 0.01, "balkje halverwege tussen 6 en 10")
+	var lang_h := 0
+	for f_ in [0, 3, 6, 10, 12, 20, 25, 31, 39, 53, 69, 88]:
+		if HN.hover(f_).length() > 42:
+			lang_h += 1
+	ok(lang_h == 0, "hover hooguit 42 tekens")
 	ok(r["gevallen"] + r["gevlucht"] == r["helden"], "gevallen + gevlucht = helden")
 	var r2: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	ok(r2["goud"] == r["goud"], "zelfde save, zelfde uitkomst")
