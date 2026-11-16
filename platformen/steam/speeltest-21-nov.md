@@ -24,7 +24,7 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 ## Wat je doet (15 tot 30 min)
 - Start het spel en **werk gewoon door** op je pc (mail, browser). Het hol ligt onderaan, boven de taakbalk.
 - Klik als je zin hebt: graven, een put zetten, op Gloop klikken om iets te kopen. Lees geen uitleg verder dan het briefje; wat je niet snapt, is precies wat we willen weten.
-- Na een kwartier mag je stoppen (Alt+F4 op Gloop in de taakbalk). Wil je het later nog eens aanzetten: het spel gaat verder waar het was.
+- Na een kwartier mag je stoppen (rechtsklik op Gloop in de taakbalk, "Venster sluiten"; liever geen Alt+F4, want het hol pakt nooit de focus en dan sluit Alt+F4 misschien je browser). Wil je het later nog eens aanzetten: het spel gaat verder waar het was.
 
 ## Waar je op let
 1. **De eerste 30 seconden:** gebeurt er iets leuks, of zit je naar een leeg hol te kijken?
