@@ -42,6 +42,8 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 ## Wat wij ermee doen
 Je punten gaan vóór alles (ook vóór de winkelbeelden). Olaf zet ze bovenaan `platformen/steam/taken.md` en bouwt ze in volgorde.
 
+Waar wij zelf op letten (niet aan Thijs vragen, alleen kijken of het hem opvalt; Sanne 16 nov 22:50): wie veel graaft, heeft zondag goud zonder iets om te kopen (30 min spelen plus een nacht weg geeft ±963 goud, de winkel is 1048). Dat is de demo die ophoudt, geen fout.
+
 ## Eerlijk vooraf
 - De naam in het bestand is nog Het Hol; het spel heet Hats of the Fallen.
 - Geluid kan uit staan of kaal zijn; de beelden zijn deels nog oud of paars.

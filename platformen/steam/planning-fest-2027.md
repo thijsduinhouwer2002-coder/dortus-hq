@@ -19,7 +19,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **±8 dec** | Pagina live als "binnenkort", verlanglijsten beginnen. | |
 | **vr 4 dec** | **Speeltest door Thijs**: een speelbare Windows-build die hij zelf 15 minuten speelt. Hij zegt wat saai, onduidelijk of kapot is; dat gaat vóór alles. Les uit TikTok-reacties (15 nov): echte spelers vinden in 10 minuten tientallen punten die agents missen. | Thijs |
 | **vr 18 dec** | **Demo af** volgens de vaste lijst hieronder. Thijs speelt hem zelf 15 minuten en zegt ja. | Thijs |
-| **ma 21 dec** | Thijs dient de demo in (3 weken vóór het fest, met de feestdagen ertussen). | |
+| **ma 21 dec** | Thijs dient de demo in (3 weken vóór het fest, met de feestdagen ertussen). **Indienen, niet openbaar maken vóór ma 4 jan na 19:00 NL** (Fenna 16 nov 22:15: Steam stuurt de demomail naar verlanglijsten alleen in de eerste 14 dagen na de eerste demodag; zo valt de mail op 14 jan 19:00 NL in het fest en buiten de Winter Sale; verhaal 17 in `platformen/succes/verhalen-spellen.md`). | |
 | **8 jan** | Eigen bericht met de asset kit van Valve. | |
 | **10 jan** | Aanmelden Next Fest februari. | |
 | **vr 15 jan** | **Meetpunt fest** (voorstel Fenna 16 nov 11:15, besluit Olaf): nieuwe verlanglijsten in de festweek tellen (Steamworks, Thijs leest af of geeft het cijfer). | |
