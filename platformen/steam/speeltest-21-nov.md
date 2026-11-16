@@ -16,8 +16,9 @@ Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer
 ## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC)
 Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
 - 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
-- ±10 s: tweede held. **±27 s: Gloop eet hem en zijn hoed (de kroon) gaat op de toren** (op main sinds 16 nov 07:31 UTC, tak `claude/steam-hol-hoed30` van Bram; zaden 4242, 777, 1, 2026, 99, 2 en 3: hap 26,3 tot 27,8 s; daarvoor 59 tot 62 s, en vóór 16 nov 00:35 UTC 96 tot 102 s).
-- 16 s: hij valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
+- ±10 s: tweede held.
+- 16 s: de eerste held valt in de stekelput, +6 goud, eerste bladzijde in het heldenboek. **Dus binnen 30 s gebeurt er iets** (demolijst 3).
+- **±27 s: Gloop eet de tweede held en zijn hoed (de kroon) gaat op de toren** (op main sinds 16 nov 07:31 UTC, tak `claude/steam-hol-hoed30` van Bram; zaden 4242, 777, 1, 2026, 99, 2 en 3: hap 26,3 tot 27,8 s; daarvoor 59 tot 62 s, en vóór 16 nov 00:35 UTC 96 tot 102 s).
 - ±31 s: derde held, die ontsnapt mank. **±63 tot 75 s: hij komt terug met zijn wrok** (bijnaam, "is back for ...").
 - Eerste koop mogelijk na 157 tot 227 s, gemiddeld 196 s (zelfde 5 zaden; met de stand van 16 nov 00:35 UTC gemiddeld 245 s, daarvoor 291 s); eerder op Windows gemeten: 211 s. Ruim onder de grens van 600 s (demolijst 3).
 Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het spel zelf en zijn op Windows gelijk (zelfde code, zelfde klok). Het echte hoedengrapje (Gloop eet, hoed op de toren) komt nu rond 27 s, binnen de eerste halve minuut, en de eerste wrok binnen anderhalve minuut.
@@ -31,7 +32,7 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 1. **De eerste 30 seconden:** gebeurt er iets leuks, of zit je naar een leeg hol te kijken?
 2. **De eerste 10 minuten:** kon je iets kopen, en wilde je dat ook?
 3. **Stoort het?** Zit het hol in de weg bij je werk, klikt er iets mis, wordt je pc traag of lawaaiig?
-4. **Kun je het lezen** op je eigen scherm: zie je Gloop, de helden en de hoeden, of zijn het een paar pixels? Te klein: rechtsklik in het hol tot de hoogste stand (160). Te groot of te klein? Rechtsklik op de strook wisselt de maat. (Staat je scherm op 125% of meer, dan begint het spel al op 160.) Zet in je antwoord ook je schermmaat en schaal (Instellingen, Systeem, Beeldscherm, bijvoorbeeld "1920 x 1080, 125%"): het spel rekent in echte schermpixels, dus op een laptop of 4K-scherm met hoge schaal is alles kleiner dan bij ons.
+4. **Kun je het lezen** op je eigen scherm: zie je Gloop, de helden en de hoeden, of zijn het een paar pixels? Te groot of te klein? Rechtsklik op de strook wisselt de maat (96, 120, 160, dan weer 96). (Staat je scherm op 125% of meer, dan begint het spel al op 160.) Zet in je antwoord ook je schermmaat en schaal (Instellingen, Systeem, Beeldscherm, bijvoorbeeld "1920 x 1080, 125%"): het spel rekent in echte schermpixels, dus op een laptop of 4K-scherm met hoge schaal is alles kleiner dan bij ons.
 
 ## Drie vragen na afloop (zeg ze in de projectchat, een zin per vraag is genoeg)
 1. Wanneer moest je voor het eerst glimlachen, en wanneer verveelde je je (ongeveer welke minuut)?
