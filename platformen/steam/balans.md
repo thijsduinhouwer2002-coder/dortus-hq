@@ -3,6 +3,32 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±22:00 UTC: een nacht weg na het nieuwe ritme, en de kroniek minder herhalen (Sanne, na Iris keuring 9)
+**Vraag 1, weg:** Iris (keuring 9, `schermen/steam-hol/main/weg-1.log`, run 43953061155) zag 8 uur weg vanaf 20 goud: **+1098 goud en faam 143**, dus de hele winkel (1048) en hol 2 tot 12 in één keer. Klopt: mijn regel van 14:05 was "een nacht is minder dan de winkel" en die heb ik om 19:55 niet opnieuw nagerekend toen `HELD_ELKE_S` naar 30 ging. Mijn fout.
+
+**Nagerekend (GEZIEN, `data/sim-weg-nacht/weg.py`, `uitkomst.txt`, zelfde rekenwijze als `voortgang.gd`, begin: 1 put en Gloop, kans 0,64; 200 zaden):**
+
+| Snelheid weg | helden in 8 u | gevallen (= faam) | goud zonder graafbonus | met graafbonus +3 | +3 en kans 0,85 | hol vanaf 0 |
+|---|---|---|---|---|---|---|
+| 0,25 (nu) | 240 | 155 | 1170 | 1635 | 2076 | 12 |
+| 0,17 (Iris' GOK) | 163 | 105 | 793 | 1108 | 1414 | 12 |
+| 0,15 | 144 | 93 | 702 | 981 | 1251 | 12 |
+| **0,12 (KEUS)** | **115** | **74** | **559** (hoogste 643) | **781** (hoogste 907) | 997 | 11 |
+| 0,10 | 96 | 62 | 468 | 654 | 834 | 10 |
+
+**Besluit (Sanne):**
+1. **`SNELHEID` 0,25 naar 0,12** in `voortgang.gd`. Een nacht is dan ongeveer **een uur spelen** (in het spel ±10 goud per minuut), ongeveer de helft van de winkel, en ook met de volle graafbonus blijft het onder de winkel (hoogste van 200 zaden 907). De 0,17 van Iris haalt de grens niet meer zodra de graafbonus meetelt (1108). Het plafond van 12 uur blijft. Hoeden en de kans op de aartsvijand gaan vanzelf mee (±42 hoeden per nacht in plaats van ±80; nog steeds een berg).
+2. **Faam als je weg bent: hooguit 2 hol-niveaus per keer weg.** Zonder plafond geeft ook 0,12 vanaf 0 meteen hol 11. Het bordje is de reden om te kijken; als één nacht het afmaakt, is de tweede speeldag leeg (keuring 1). Regel: faam uit de weg-stap telt tot net de drempel van huidig niveau + 2, de rest van die nacht telt niet als faam. Goud, hoeden en de kroniek van de nacht veranderen niet. Waarom eerlijk: er gaat niets weg wat je had, net als het plafond van 12 uur; faam is wat er rondverteld wordt, en 's nachts kijkt niemand. Tekst: geen nieuwe zin. De bestaande regel "Grew N levels while you were away." wordt hooguit 2, en de regel "N more to come as you play" valt meestal weg. Minder tekst (Thijs 21:05).
+3. **Toets voor Olaf (stap 'Weg geweest'):** 8 uur weg vanaf 0, beginopstelling, graafbonus +3: goud **onder 1048** (verwacht 650 tot 910) en hol-niveau hooguit 3. En 8 uur weg vanaf hol 6: hooguit hol 8. De oude grens van 1572 vervalt.
+
+**Wat het betekent voor de speeltest van za 21 nov:** Thijs speelt een half uur 's avonds (GOK hol 7 tot 8, koop 2 of 3), laat het 's nachts staan, en ziet 's ochtends ±560 tot 780 goud en 2 niveaus erbij. Er is dan nog wat te kopen en nog 2 tot 3 niveaus te halen in het spelen, precies de tweede dag die keuring 1 miste.
+
+**Vraag 2, kroniek:** in 20 min 16 tot 18 naamgenoot-regels uit drie zinnen (Iris, `hol.log` .exe-run 43953082236). Met helden om de ±30 s en 12 namen is na minuut 5 bijna iedereen een naamgenoot. Thijs schrijft de tekst zelf, dus de oplossing is minder regels, geen nieuwe zinnen.
+
+**Besluit (Sanne):** de naamgenoot-regel (`naamgenoot` en `naamgenoot_hoed`) komt **één keer per voornaam per speelbeurt** (dus "Kees II" wel, "Kees III" daarna niet; na terugkomst van weg begint de telling opnieuw, zoals Daans plat-regel). Een latere naamgenoot krijgt de gewone binnenkomstregel van zijn soort, en heeft hij een wrok, dan de terug-regel die de wrok noemt (dat is nieuw nieuws). Verwacht: hooguit ±8 naamgenoot-regels in de eerste 20 min, daarna bijna geen. Samen met Daans plat-regel (twee keer) gaat het aandeel herhaalde zinnen in 20 min van ruim een kwart naar GOK onder 10%. Toets: de teller in `uitslag.txt` (Olaf bouwde hem): geen enkele zin vaker dan 4 keer in 20 min.
+
+**Klein, gezien en gelaten:** veel valregels noemen de val niet ("Kees will not be leaving. +6"). Klopt, maar wie keek zag het, en het oplossen kost nieuwe zinnen. Niet nu.
+
 ## Stand 16 nov ±21:00 UTC: graven moet iets opleveren (Sanne, na Bram 20:35 en Olaf 20:50)
 **Vraag:** Brams meting (30 zaden, `data/graaf-vangst/LEESMIJ.md`): een graver vangt evenveel als wie niets doet (14,1 tegen 13,9 per 20 min). Mijn eis "wie graaft vangt minstens evenveel" haalt het, maar graven doet dan niets voor het hol. In `features.md` beloofden we "graven: het hol groter, meer goud per val later". In de speeltestbuild klopt dat niet: in het spel is het goud per val 6 plus 3 per eerder bezoek, los van de gang (`afloop.gd`). Thijs graaft in de speeltest het meest van alles; als dat niets doet merkt hij het.
 
