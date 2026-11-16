@@ -3,7 +3,7 @@
 ## Keus na ronde 5 (±05:50 UTC): `icoon-500-keus.png` en `launcher-40/60/80-keus.png`
 - Zelfde toren als 5d (puntmuts, hoge hoed op de punt, kroon scheef bovenop), maar **Gloop groter met heel gezicht** (moet van kijker 4) en een **lichter oranje spotlicht** (kijkers 2, 3 en 5 vonden het bruin dof). Vervangt het paarse icoon van ronde 2.
 - Kijker 5 (A/B/C): 5d 6/5/4, Gloop groot 7/7/6, middenmaat 7/6/6. Kijker 6, keus tussen de toppers (`kijker-toppers-ronde5-keus.png`): **7/6/6, als tweede genoemd** na de Crossy-kip; noemt de drie hoeden goed en het spel ("stapelen zonder dat de toren omvalt"). Lichter of donkerder spotlicht maakte voor hem geen verschil.
-- Wat nog zwak is (eerlijk): op 40 px valt de paarse puntmuts weg in de zwarte hoge hoed, dan tel je twee hoeden. Het oog, de kroon en het mint lezen wel. Kan later: een vierde hoed die nog valt (twee kijkers stelden het voor), alleen als het oog vrij blijft.
+- Wat nog zwak is (eerlijk): op 40 px viel de paarse puntmuts weg in de zwarte hoge hoed (kijker 6 telde twee hoeden). Daarna (±06:00) de puntmuts net als de kroon iets lichter gezet (kleur 1,25, helderheid 1,3, nog steeds de hoed uit het spel); op 40 px 2x vergroot nagekeken: de paarse punt staat nu los van de zwarte hoed. Nog niet opnieuw blind gekeurd. Het oog, de kroon en het mint lezen wel. Kan later: een vierde hoed die nog valt (twee kijkers stelden het voor), alleen als het oog vrij blijft.
 - `icoon-500-r5-kroon-boven.png` en `-kroon-onder.png` zijn opnieuw gemaakt met het lichtere spotlicht; de kijkers zagen de iets donkerdere versie.
 - Volgende: Daan keurt op fouten en leesbaarheid, daarna gaat het naar Gijs (launcher schalen naar de SDK-maat per horloge).
 

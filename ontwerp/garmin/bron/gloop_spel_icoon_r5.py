@@ -70,7 +70,7 @@ def icoon(N, gb=0.60, cx=0.43, hw=None, hb=0.56, hoeken=(-6, 8, 22), schuif=(0.0
     tl = Image.new("RGBA", (N, N), (0, 0, 0, 0))
     for n, (i, hoek) in enumerate(zip(rij, hoeken)):
         h = v2.schaal(H[i], (N * hw if hw else rust.width * hb) * (1.0 if i != 1 else 0.95))
-        if i == 4 and licht:   # kroon feller goud: blinde kijker las hem klein als mandje
+        if i in (4, 1) and licht:   # kroon feller goud (las klein als mandje), puntmuts lichter paars (viel op 40 px weg in de hoge hoed)
             from PIL import ImageEnhance
             a_ = h.getchannel("A"); h = ImageEnhance.Brightness(ImageEnhance.Color(h.convert("RGB")).enhance(1.25)).enhance(1.3).convert("RGBA"); h.putalpha(a_)
         # alleen het grootste stuk: bij de hoge hoed zat de steel van de pan nog in de uitsnede
