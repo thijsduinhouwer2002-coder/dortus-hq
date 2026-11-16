@@ -1,8 +1,83 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 13, Little Writer Desktop Companion (JSLegendDev), vanaf 16 nov ±17:10 UTC
+bezig: niets (verhaal 13 af 16 nov ±16:50 UTC; volgende run: wie Mini Cozy Room in Korea en China groot maakte, of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 13. Little Writer Desktop Companion (JSLegendDev, solo): eerst de Steampagina, dan één video; 1.295 volgers zonder fest, terwijl zijn vorige spel met een even grote video op 12 bleef
+
+Onderzocht 16 nov 2026, run 14. Een concurrent in ons venster (uit 6 jan 2027, acht dagen vóór ons fest) en het mooiste natuurlijke experiment dat ik tot nu toe vond: dezelfde maker, hetzelfde YouTube-kanaal, twee spellen. Bij het eerste spel maakte hij een grote video zonder Steampagina, bij het tweede zette hij de pagina eerst live. Hij schreef zelf op wat er misging.
+
+### Bronnen
+- Zijn eigen stuk "My Biggest Gripe With YouTube", 30 mei 2026: https://jslegenddev.substack.com/p/my-biggest-gripe-with-youtube (GEZIEN, helemaal gelezen via de Substack-API).
+- Zijn spellenblog: https://jslegenddevgames.substack.com, drie posts (15 en 17 mei, 21 jun 2026) met de 10 reacties onder de aankondiging (GEZIEN).
+- YouTube-kanaal @JSLegendDev: abonnees en alle Shorts van het spel van de kanaalpagina's, weergaven per video uit de openbare feed https://www.youtube.com/feeds/videos.xml?channel_id=UCcDQenwAOcjJFyrJvjlrVVw (GEZIEN, 16 nov ±16:30 UTC). De videopagina's zelf gaven een blokkade van Google, dus lengte en reacties van de trailer heb ik niet.
+- Steam: appdetails van het spel (4672770), de demo (5236990) en zijn vorige spel Donovan's Demise (4393750); volgers via `steamcommunity.com/games/<appid>/memberslistxml/?xml=1`; nieuws-API; spelers tegelijk; reviewtelling van de demo op de winkelpagina (GEZIEN, 16 nov).
+- Volgers een dag eerder en de plek in de Top Wishlisted: https://www.indiespade.com/game/4672770 (DERDEN).
+- Ter vergelijking: Vera's volgers van 222 aangekondigde bureaubladapps (`platformen/verkenner/data/steam-volgers-2026-11-16.jsonl`) en Sems meting van 245 demo's (`platformen/steam/marketing/data/demo-spelers-2026-11-16.csv`).
+- Alle cijfers in `platformen/succes/data/little-writer-2026-11-16.csv`.
+- Niet gelezen: Reddit (gaf een blokpagina), X en Discord. Ik weet dus niet of hij de trailer ook buiten YouTube deelde.
+
+### Cijfers
+| Wat | Cijfer | Label |
+|---|---|---|
+| Maker | JSLegendDev, solo; maakte 3 jaar lang JavaScript-lesvideo's | GEZIEN (eigen stuk) |
+| Kanaal | ±17.000 abonnees | GEZIEN |
+| Het spel | "Your little companion is an ambitious writer with very little discipline. Type, and they'll write too." Elke toetsaanslag van jou laat het figuurtje schrijven; boeken af, geld, sneller typen, betere kwaliteit, grotere projecten, nieuwe plekken en kleding | GEZIEN (winkeltekst) |
+| Steampagina live | uiterlijk 21 jun 2026 ("the Steam page is up!") | GEZIEN |
+| Aankondigingstrailer, 13 jul 2026 | **378.314 weergaven, 17.504 duimpjes**: 22 keer zijn aantal abonnees | GEZIEN |
+| Demo, 22 sep 2026 | demotrailer 91.393 weergaven; **97 reviews, 100% positief** (33 in de laatste 30 dagen); nu 81 spelers tegelijk, om 12:40 UTC 68: plek 6 van 245 demo's van aangekondigde bureaubladapps | GEZIEN |
+| Shorts over het spel | 14 stuks, meestal 1.000 tot 2.500 weergaven; uitschieters: "App Focus Feature" 21.220, de trailer als Short 19.141, "Why Does My Game Look Like That?" 9.262 | GEZIEN |
+| Releasedatum-video, 26 okt | 1.462 weergaven | GEZIEN |
+| **Volgers op Steam** | **1.295** (15 nov 1.248 volgens indiespade). Van de 222 aangekondigde bureaubladapps die Vera mat heeft alleen 3 er meer (Character House 9.732, Amarillo's Desktop Pets 5.822, Meowniverse 1.435). Mediaan van de 88 die op Hats lijken: 10 | GEZIEN, DERDEN |
+| Top Wishlisted op Steam | plek 1.848 | DERDEN |
+| Verlanglijsten | ±9.000 tot 26.000 (1.295 volgers keer 7 tot 20, de verhouding van GameDiscoverCo uit Vera's kaart) | GOK |
+| Aankondigingen op Steam | 1 (de releasedatum, 26 okt); geen routekaart, geen devlog op Steam | GEZIEN |
+| Talen | alleen Engels; Windows en Mac beloofd | GEZIEN |
+| Prijs | nog niet bekend | GEZIEN |
+| **Zijn vorige spel, Donovan's Demise** | video "Making a Small RPG" "barely below 100k views", toen zonder Steampagina; de volgende video erover "below 10k"; de pagina staat nu op "Coming soon" met **12 volgers**; het spel ligt stil ("currently on hold", 22 jun) | BRON (eigen stuk), GEZIEN |
+
+### Wat hij deed, in volgorde
+1. **2023 tot 2025: lesvideo's van 4 tot 10 uur**, die steeds minder gingen doen. Toen verhalende video's van 10 tot 15+ minuten, eerst als artikel geschreven: "How do Devs Make Levels Without Game Engines?" (30k+) en "You Can Now Make PS2 Games in JavaScript" (100k+). Zijn verklaring: het onderwerp moet "remarkable" zijn, het moet een verhaal zijn, en langer dan 10 minuten (BRON).
+2. **Eind 2025: "Making a Small RPG"**, het verhaal van hoe hij zijn eerste eigen spel ontwierp, bijna 100k weergaven. "I had made a big mistake by not setting up a Steam page to direct viewers to before publishing the video." De tweede video over hetzelfde spel: onder de 10k. "I had wasted my biggest marketing ammunition" (BRON). Dat spel heeft nu 12 volgers.
+3. **15 tot 17 mei 2026: eerst testen, dan pas Steam.** Een ander idee (HARVEST MOVE) zette hij als prototype in de browser op itch.io: "I think this would be a smarter choice rather than going immediately for Steam" (GEZIEN). Daar hoorde ik daarna niets meer van.
+4. **30 mei: zijn conclusie.** YouTube geeft bereik maar geen publiek: "I was building a sand castle". Nieuw plan: zelden een sterke video maken en de kijkers altijd naar iets sturen wat van jou is (zijn maillijst op Substack) (BRON).
+5. **Juni: Shorts over het maken, kort na of rond de Steampagina.** "I'm Making an Idle Productivity Game", "Why Does My Game Look Like That?" (21 jun, 9.262), hoe het figuurtje geld verdient, nieuwe werkplekken, kleding. Op 21 jun op zijn spellenblog: "Still in somewhat early development but the Steam page is up!" met de link (GEZIEN).
+6. **13 jul: één aankondigingstrailer op zijn eigen kanaal**, met als eerste regel "Wishlist here :" en de Steamlink. 378k weergaven (GEZIEN). Twee weken later dezelfde trailer als Short (19k).
+7. **Jul tot okt: elke paar weken een Short over één nieuwe functie** (kleding, met Professor Layton als voorbeeld, "App Focus", donkere modus, instellingen voor beeld, typemachinegeluid). Dit is zijn routekaart, maar dan op YouTube in plaats van op Steam. Op de blog vragen lezers om te mogen testen; een schrijfster krijgt een sleutel en toegang tot de Discord (12 sep, GEZIEN).
+8. **22 sep: demo**, met de zin "Your save data carries over to the full game!" en in de videotekst "Please also leave a review!" (vragen om een review, zonder beloning: dat mag). 97 reviews, alle 97 positief.
+9. **26 okt: releasedatum 6 jan 2027** als eerste en enige Steam-aankondiging. Geen Next Fest-post en geen fest-evenement gevonden.
+
+### Waarom ik denk dat het werkte (en wat ik niet weet)
+- **De haak past in één zin en bij een groep die zich herkent:** "Type, and they'll write too." Wat jij doet (typen voor je werk) is wat het spel aandrijft. Hij richt zich op schrijvers (#author, #novels, #writers, #booktube); de reacties komen ook van schrijvers ("As an author I'm OBSESSED with this!"). Hij zet de privacy bovenaan de winkeltekst: "What you type is not recorded and does not leave your device", precies de vraag die iemand heeft bij een spel dat je toetsen telt.
+- **De volgorde:** het verschil tussen 12 en 1.295 volgers komt overeen met zijn eigen uitleg (pagina eerst). Maar het zijn ook andere spellen (actie-RPG tegen een schrijfmaatje), dus de volgorde is niet de enige verklaring. Dit is één maker met twee spellen, geen meting.
+- **Hoe 17.000 abonnees 378.000 weergaven werden** weet ik niet zeker. Zijn eigen theorie is dat YouTube een opvallend onderwerp aan mensen buiten je kanaal laat zien; de lage weergaven van de Shorts (meestal 1.000 tot 2.500) laten zien dat het geen vast publiek is dat alles kijkt. Of de trailer ook via Reddit of X liep, heb ik niet kunnen nagaan.
+- **Wat er na 378k gebeurde:** zijn release-video haalde 1.462. Precies wat hij voorspelde: een vervolg doet het slecht. Zijn volgers op Steam blijven wel staan; dat is het verschil met de eerste keer.
+
+### Drie lessen
+1. **Een groot moment zonder plek om te landen is weg.** Bijna 100k weergaven zonder Steampagina leverde een spel met 12 volgers; 378k met de pagina erbij leverde er 1.295, de vierde plek van 222 aangekondigde bureaubladapps. De maker zegt het zelf: "I had wasted my biggest marketing ammunition."
+2. **Eén sterke video slaat honderd kleine.** 14 Shorts samen ±81.000 weergaven, de ene trailer 378.000. Wat hem bracht was één opvallend ding op het juiste moment, niet elke dag posten. De dagelijkse Shorts hielden de functies zichtbaar, maar brachten weinig.
+3. **Haak = wat de speler zelf al doet.** Bij Little Writer is dat typen; bij Bongo Cat ook (114.956 reviews volgens indiespade, DERDEN). Bij Hats is de vraag: wat doet de speler terwijl het hol loopt? Dat is werken, en het hol gaat door. Little Writer koppelt dat werk letterlijk aan de voortgang; wij niet.
+
+### Wat dit betekent voor Hats
+- **Little Writer is geen concurrent om het idee** (een schrijfmaatje, geen kerker) maar wel om de aandacht in dezelfde week: uit op 6 jan, wij in het fest van 14 jan. Met ±10.000 tot 25.000 verlanglijsten (GOK) staat het dan waarschijnlijk hoog bij "nieuw en populair" in de tag Desktop Companion (GOK). Dat is ook kans: wie in die week bureaubladmaatjes zoekt, komt bij de tag.
+- **Antwoord op Sems vraag:** nee, geen routekaart op Steam vóór de uitgave (1 aankondiging totaal). Wel een routekaart in de vorm van Shorts per functie op YouTube. Het is geen geval dat zijn regel uit `routekaart.md` omgooit.
+- **Ons risico is precies zijn eerste fout:** het fest-plan zet vanaf di 17 nov elke dag een TikTok-clip, terwijl de Steampagina pas rond 8 dec live gaat. Als een van die clips aanslaat, is er niets om op te klikken.
+- **Niet overnemen:** de hashtags en de schrijvers-niche zelf; Hats heeft geen beroepsgroep zoals schrijvers. Zijn aanpak om met een eigen kanaal van 17.000 te beginnen hebben wij niet.
+
+### Voorstel voor Dortus deze week
+**Chris en Sem houden vóór ±8 dec de sterkste clip (het eerste filmpje waar we het meest in geloven, de "haak" uit `onderscheid-hats.md`) achter, en posten tot dan alleen kleine maak-clips met een uitnodiging om het TikTok-account te volgen. De sterke clip en de trailer gaan pas uit op de dag dat de Steampagina live staat, met de Steamlink in de eerste regel of het profiel.** Waarom: JSLegendDev verloor bijna 100k weergaven omdat er geen pagina was (zijn vorige spel staat op 12 volgers) en kreeg er met de pagina 1.295 volgers uit een video van 378k. Het kost niets en vraagt alleen een andere volgorde. Wie: Chris (TikTok), Sem (festplan en trailerdatum); Thijs hoeft er niets extra voor te doen.
+
+Tweede punt voor Olaf (geen actie deze week, wel voor de winkeltekst van 30 nov): zet net als Little Writer in één zin wat het spel doet terwijl jij werkt, en wat het níet doet met je computer (Hats leest geen toetsen; als het iets van je bureaublad gebruikt, één regel over privacy bovenaan). Spellen in de taakbalk roepen die vraag op.
+
+### Eerlijk: wat ik niet weet
+- Het echte aantal verlanglijsten; de schatting is een GOK met factor 3 marge.
+- Of de trailer buiten YouTube werd gedeeld (Reddit, X, Discord niet gelezen), en hoe lang hij is.
+- Wanneer de Steampagina precies live ging; 21 jun is de eerste datum waarop hij het zegt.
+- Hoeveel van het verschil tussen 12 en 1.295 door de volgorde komt en hoeveel door het idee.
+- Hoe het na 6 jan gaat. Volgende stap: op 7, 13 en 20 jan volgers, reviews en spelers tegelijk meten (zelfde API's), naast ons fest.
 
 ---
 
