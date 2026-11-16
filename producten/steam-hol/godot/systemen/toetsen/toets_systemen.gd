@@ -670,7 +670,7 @@ func _init() -> void:
 	ok(not HV.is_vol({"gang": vgk, "deco_proef": true}), "vol: keurstrook houdt de vaste rij")
 	ok(HV.vol_vloer(vvh, 2, -1) == -1, "vol: geen vloerding op de eerste tegel na de schacht")
 	ok(HV.vol_vloer(vvh, 6, -1) == -1 and HV.vol_vloer(vvh, 7, -1) == -1 and HV.vol_vloer(vvh, 8, -1) == -1, "vol: niets op of naast een val")
-	ok(HV.vol_vloer(vvh, 25, -1) == -1 and HV.vol_vloer(vvh, 27, -1) == -1, "vol: niets bij de hoeden en Gloop")
+	ok(HV.vol_vloer(vvh, 24, -1) == -1 and HV.vol_vloer(vvh, 27, -1) == -1, "vol: niets bij de hoeden en Gloop, en één tegel vrij ervoor")
 	var vvrij := 0
 	var vgevuld := 0
 	var vzelfde := 0
@@ -683,7 +683,7 @@ func _init() -> void:
 		if c >= 0 and c == vvs:
 			vzelfde += 1
 		vvs = c
-		if not (kk == 2 or vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1) or kk >= 25):
+		if not (kk == 2 or vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1) or kk >= 24):
 			vvrij += 1
 			if c >= 0:
 				vgevuld += 1
@@ -691,13 +691,27 @@ func _init() -> void:
 		if p >= 0:
 			if kk - vvp < 2 or vbk[kk]:
 				vnaast += 1
-			if p == 7 and vvh.vallen.has(kk):
-				vnaast += 1
+			if p == 7 and (vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1)) or kk >= 24:
+				vnaast += 1   # geen stut op of naast een val, één tegel vrij voor de troon (Daan 16 nov, regel c)
 			vplafond += 1
 			vvp = kk
 	ok(vvrij > 0 and vgevuld == vvrij, "vol: elke vrije gangtegel een vloerding (%d van %d)" % [vgevuld, vvrij])
 	ok(vzelfde == 0, "vol: nooit twee keer dezelfde soort naast elkaar (%d)" % vzelfde)
 	ok(vplafond > 0 and vnaast == 0, "vol: plafond los van de vloer, nooit naast elkaar of onder een kamer (%d stuks, %d fout)" % [vplafond, vnaast])
+	# Daan 16 nov regel b: nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar of op dezelfde tegel
+	var vrij: Array = HV.vol_rij(vvh)
+	var vgroot := {}
+	var vgfout := 0
+	var vvloer := 0
+	for dd in vrij:
+		if dd[1] in HV.GROOT:
+			if vgroot.has(dd[0] - 1) or vgroot.has(dd[0]) or vgroot.has(dd[0] + 1):
+				vgfout += 1
+			vgroot[dd[0]] = true
+		if not dd[2]:
+			vvloer += 1
+	ok(vgroot.size() > 0 and vgfout == 0, "vol: %d grote dingen, %d naast of op een ander groot ding" % [vgroot.size(), vgfout])
+	ok(vvloer == vgevuld, "vol: na regel b nog steeds elke vrije tegel een vloerding (%d van %d)" % [vvloer, vgevuld])
 	var vkd: Array = HV.kamer_dingen(vvh, false)
 	ok(vkd.size() == 8, "vol: vier kamers van twee kolommen, elk twee dingen (%d)" % vkd.size())
 	var vkok := true
@@ -716,10 +730,20 @@ func _init() -> void:
 	var wfout := 0
 	for p in wp:
 		var kk: int = int(p.x) / 16
-		if wkol.has(kk - 1) or wkol.has(kk + 1) or vbk[kk] or kk <= 2 or kk >= 25 or p.y < 15 or p.y > 17:
+		if vbk[kk] or kk <= 2 or kk >= 25 or p.y < HV.WAND_Y_MIN or p.y > HV.WAND_Y_MAX:
 			wfout += 1
-		wkol[kk] = true
-	ok(wp.size() >= 5 and wfout == 0, "wand: %d plekken, %d tegen de regels (naast elkaar, kamer, schacht, stapel, hoogte)" % [wp.size(), wfout])
+		wkol[kk] = p
+	var wpaar := 0
+	for kk in wkol:
+		if wkol.has(kk + 1):
+			wpaar += 1
+			if wkol.has(kk + 2) or absf(wkol[kk].y - wkol[kk + 1].y) < 3:
+				wfout += 1   # nooit drie op een rij, een paar op duidelijk andere hoogte
+	var whoog := {}
+	for p in wp:
+		whoog[p.y] = true
+	ok(wp.size() >= 5 and wfout == 0, "wand: %d plekken, %d tegen de regels (kamer, schacht, stapel, hoogte, drietal)" % [wp.size(), wfout])
+	ok(whoog.size() >= 3, "wand: geen vast ritme, %d verschillende hoogtes, %d paren (Daan 16 nov)" % [whoog.size(), wpaar])
 	ok(HV.wand_plekken(wvh, true) == wp, "wand: zelfde plekken bij opnieuw tekenen (vast, groeit zonder verschuiven)")
 	var wvh2 := wvh.duplicate()
 	wvh2["max_kol"] = 12

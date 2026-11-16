@@ -23,3 +23,14 @@ Wat het spel nu doet (alleen op de 3D-gang en vanaf 20 gangtegels, `hol/hol_vast
   de stapel en de schatkamer (`schat_kol - 4`), niet voorbij `max_kol`, vaste volgorde (hash), nooit twee naast elkaar.
   De oudste hoed van Gloop (`slijm.hoeden`) krijgt de eerste plek. Het vaste beeld tekent opnieuw als er een hoed bij komt.
 - Alleen in 3D en alleen als het blad er is; zonder blad niets (er is geen pixelvorm).
+
+## Daans regels voor een vol hol (16 nov ±10:30 UTC, `ontwerp/steam` stijlregels "Een vol hol")
+- `regels-daan-voor-boven-na-onder-2x.png`: zelfde week-save, beeld 50; boven vóór, onder ná, linker 1100 schermpixels, 2x.
+- (a) Spinrag en vaandel hangen hooguit 6 spelpixels onder het plafond (±een derde van de gang): spinrag op 0,75 en
+  de onderkant eraf (daarmee valt ook de paarse spin weg, die leek op de vleermuis), vaandel kleiner tot het past.
+  De stut blijft heel: hij staat op de vloer en is open in het midden, de held loopt erdoor (vraag aan Daan).
+- (b) Nooit twee grote dingen (ton, krat, stut) naast elkaar of op dezelfde tegel: een stut wordt dan spinrag,
+  een ton of krat een klein ding. Elke vrije tegel houdt een vloerding.
+- (c) Eén tegel vrij voor de troon en de hoedenhoop (`schat_kol - 5`), geen stut op of naast een val.
+- Hoedenwand zonder vast ritme: ±1 op 4 plekken leeg, soms een paar naast elkaar (op 3 of meer pixels andere hoogte),
+  hoogte 14 tot 19, nooit drie op een rij.
