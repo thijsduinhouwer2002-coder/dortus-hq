@@ -690,4 +690,5 @@
 - Volgende run: (1) Ebb-moets van Daan (naam "FULL SEA · WHALE", koperen patrijspoortrand met zes boutjes, sterren of maan bij weinig stappen); (2) beelden van Gijs met de kit keuren op 1x; (3) knipperframe voor Gloop; (4) Het Hol: volle opname van Olaf keuren zodra die er is.
 - ±11:10 UTC: wijzerplaat Ebb concept 2 "Ebb Porthole" (FULL SEA, koperen ring met zes boutjes, golf onder de tijd, sterren en maan), GEZIEN op 454 en 260, aan Gijs.
 - ±11:05 UTC: capsule TOREN klein ronde 4 en 4b op Daans ronde 3 (Gloop 1,6, drie hoeden heel in beeld, puntmuts b89cf0). Lokaal gerenderd met bpy 4.2 in een eigen venv (±17 s per beeld op 924x348). GEZIEN op 462 en 120 px in kleur en grijs. Keuring gevraagd aan Daan. **Besluit: drie hoeden, niet vier.** Waarom: met Gloop groter loopt een vierde hoed boven uit beeld, en een toren zonder top leest niet als toren.
-- Volgende run: (1) header 920x430 in de toren-richting; (2) glans op de H; (3) kit wijzerplaat: beelden van Gijs keuren.
+- ±11:10 UTC: header 920x430 ronde 4 in dezelfde richting, GEZIEN, in de LEESMIJ-toren.
+- Volgende run: (1) antwoord Daan op ronde 4b en header; (2) glans op de H; (3) hoofdbeeld, bibliotheek en staand in de toren-richting; (4) wijzerplaat: beelden van Gijs met de kit keuren.
