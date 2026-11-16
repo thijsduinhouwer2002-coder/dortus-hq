@@ -1,8 +1,67 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 4, hoe taakbalkspellen op YouTube kwamen (welke kanalen, welke soort video, wat de makers deden), Fenna, 16 nov 2026
+bezig: niets (laatste: verhaal 4, taakbalkspellen op YouTube, klaar 16 nov 2026; volgende run: een vijfde verhaal, bijvoorbeeld hoe een taakbalkspel de eerste maand na de lancering doorkwam, of Tiny Pasture met een uitgever)
 
 Nieuwste bovenaan.
+
+---
+
+## 4. Hoe taakbalkspellen op YouTube kwamen: acht spellen naast elkaar, plus een concurrent die op 6 jan uitkomt
+
+Onderzocht 16 nov 2026, run 5. Vraag uit run 4: hoe kreeg een taakbalkspel YouTubers en streamers? Geen enkele maker schrijft daar zelf over (zie onder), dus ik heb het omgekeerd gedaan: per spel de best bekeken video's op YouTube opgezocht en ingedeeld naar soort. Zo zie je wie die video's maakte en wat daarvoor nodig was.
+
+### Bronnen en werkwijze
+- YouTube-zoekpagina, gesorteerd op weergaven, met curl gelezen op 16 nov 2026 (`youtube.com/results?search_query=<naam>&sp=CAM%253D`, de lijst uit `ytInitialData`). Per spel de bovenste 14 tot 16 video's. Weergaven zijn GEZIEN op die dag. Datums staan alleen als "2y ago" in de zoeklijst; de videopagina's zelf blokkeert YouTube voor ons ("Sign in to confirm you're not a bot"), dus exacte datums en abonneecijfers ontbreken.
+- Spellen: Rusty's Retirement, Bongo Cat, Ropuka's Idle Island, Bao Bao's Cozy Laundromat, Tiny Pasture, Deskrawl, Desktop Heroes, Soggy Beans, Chonkers. Plus drie zoekopdrachten over het genre ("Steam Idler Fest 2025", "desktop companion games steam", "games that sit on your taskbar").
+- Alle aankondigingen van Rusty (34), Bao Bao (17), Ropuka (29) en Bongo Cat (65) via de nieuws-API van Steam doorzocht op youtube, streamer, twitch, creator, curator, keymailer en influencer.
+- Steam appdetails (16 nov 2026): Ropuka 4.113 aanbevelingen, $3,99, 10 talen, 2 mensen (Moczan en Little Chmura, Polen); Tiny Pasture 7.140, $4,07, uitgever Gamersky Games; Little Writer Desktop Companion, uitbrengdatum 6 jan 2027.
+- Interview met Moczan (Ropuka) op Game Dev Journey: https://sites.google.com/view/game-dev-guide/home/developer-diaries/unity-diaries/ropukas-idle-island. Zegt niets over marketing, wel: het begon als zijproject en "after playing with the prototype and seeing people's reaction to it, we decided to turn it into a full game."
+
+### Wat de makers zelf zeggen over YouTubers en streamers
+Bijna niets. In 145 aankondigingen van vier spellen staat geen woord over sleutels sturen, Keymailer of influencers. Wat er wel staat, gaat allemaal over **streamers het makkelijk maken in het spel zelf**:
+- Rusty: Twitch-koppeling vanaf de lancering (apr 2024, kijkers planten met !plant), een instelling "mainly used by streamers" (jun 2024), een tweede inlogmanier in de Twitch-gids (dec 2024). GEZIEN.
+- Bao Bao: "Access to Twitch chat functionalities for streamers" (19 dec 2024, in de demo vóór het Idler Fest). GEZIEN.
+Hoe de video's van anderen tot stand kwamen (sleutels gemaild, via Curator Connect van Steam, of vanzelf opgepikt) weet ik dus niet. GOK: het meeste vanzelf, via fests en lijstjes, zie hieronder.
+
+### Wat er op YouTube staat, per soort
+| Soort | Voorbeelden (weergaven, GEZIEN 16 nov) | Wie maakte het mogelijk |
+|---|---|---|
+| **1. Trailer op een groot kanaal** | Wholesome Games: Ropuka 26.843, Rusty aankondiging 20.242, Bao Bao 7.280. GameTrailers: Balatro x Rusty 44.633, Soggy Beans via Frosty Games Fest 1.728 | De maker levert de trailer aan (GOK: via een inzendformulier of een showcase; de pagina wholesomegames.com/submit bestaat niet meer) |
+| **2. Trailer op eigen kanaal** | Rusty release-trailer 67.190, Deskrawl launch-trailer 15.848, Tiny Pasture launch 9.392 | De maker zelf |
+| **3. Lijstjes en cozy-nieuws** | "MOST ADDICTIVE Incremental/Idle Games" 43.199 (Ropuka), "The BEST Idle Games to play While You Work" 16.577, PC Gamer Cozy Corner over bureaubladspellen 14.373 (Ropuka, Bao Bao en Tiny Pasture samen), Buckeye Bunny: review Rusty 66.632 en "31 FREE Chill & Cozy Games, Next Fest February 2025" 17.410 (met Bao Bao) | Niemand hoeft iets te doen behalve gevonden worden: in een fest, op een lijst, met een duidelijke titel |
+| **4. Kanalen in andere talen** | Rusty: Koreaans (우주하마) **907.965**, Braziliaans 51.757 en 46.681, Taiwanees 44.788. Deskrawl: Japans 37.451, Koreaans 16.996, Taiwanees 13.132 en 13.902, Spaans (IlloRubiu, stream). Ropuka: Thai 5.695, Turks 1.578 | Vertaald spel (GOK dat het verband oorzaak is; Rusty had 11 talen en 46% kopers in Azië, zie verhaal 1) |
+| **5. Genrekanaal en grote streamer** | Deskrawl: "The next Task Bar Hero!?" (Starker MMOs) 8.752, twee video's van Gaming Meets Experience ±6.000, Kripparrian (stream) 21.318, knekroTV 30.421 | Een bestaand publiek dat al een soortgelijk spel speelt (Task Bar Hero) en een haak die zij snappen (handelsmarkt van Steam) |
+
+Wat opvalt:
+- **De grootste video over Rusty is niet Engels.** Eén Koreaanse video heeft meer weergaven (908.000) dan alle Engelse video's over het spel in de lijst samen (rond 320.000; twee nog grotere treffers gaan over een kindertekenfilm "Rusty's World" en tellen niet mee).
+- **Lijstjes doen het meeste werk bij de kleine succesjes.** Bij Ropuka en Bao Bao zijn de best bekeken video's geen eigen video's maar verzamelvideo's ("speel dit terwijl je werkt") en een Next Fest-overzicht. Een themafest of Next Fest is precies waar die makers hun lijst vandaan halen; er staan ook Idler Fest-overzichten (4.534 en 2.710 weergaven).
+- **Het eigen kanaal van de maker telt alleen bij een trailer.** Behalve trailers maakte geen van de acht makers een video die in de bovenste 14 kwam.
+
+### Wat níet werkte
+- **Soggy Beans** (23 reviews): beste video is de trailer via Frosty Games Fest op GameTrailers, 1.728 weergaven. Daarna niets boven de 500. **Chonkers**: beste video 2.947, de rest onder 1.000.
+- **Een naam die je niet kunt vinden.** Bij "Desktop Heroes" (104 reviews) staan in de bovenste 14 dertien video's over iets anders (Windows 10, Company of Heroes, Nexon); de beste echte video heeft 3.488 weergaven. Bij "Tiny Pasture" gaan de bovenste vier over paarden en kwartels, terwijl het spel 7.140 aanbevelingen heeft. Wie zoekt, vindt het spel niet. "Hats of the Fallen" heeft op YouTube en Steam nu geen botsing (zoektest 16 nov: Steam 0 treffers, YouTube alleen haakwerk en One Piece). Goed zo houden.
+- **Bongo Cat** laat zien dat een bekend meme alles overstemt: de zoeklijst is gevuld met muziekcovers van het Bongo Cat-kanaal (63 miljoen), niet met het spel. Dat is geen route voor ons.
+
+### Een concurrent in ons venster: Little Writer Desktop Companion
+- Solo-maker JSLegendDev, een YouTuber met programmeerlessen (zijn gewone video's: 6.000 tot 114.000 weergaven, GEZIEN). Spel: een schrijvertje dat met jouw toetsaanslagen meeschrijft, "a productivity game".
+- Aankondigingstrailer op zijn eigen kanaal, ongeveer 4 maanden geleden: **378.303 weergaven** (GEZIEN). Zijn bericht met de uitbrengdatum, 2 weken geleden: 1.461 (GEZIEN). Hij had dus één uitschieter, en die viel op het moment dat de pagina nieuw was.
+- **Uitbrengdatum 6 jan 2027** (appdetails en aankondiging van 26 okt 2026, GEZIEN): 8 dagen vóór het Desktop Companion Fest. Hij gaat dus waarschijnlijk met korting of als nieuw spel in hetzelfde fest staan als wij (GOK).
+
+### Drie lessen
+1. **Een taakbalkspel komt op YouTube via andermans lijstjes, niet via eigen filmpjes.** De makers zelf maakten alleen trailers; de grote aantallen kwamen van verzamelvideo's, cozy-nieuws en fest-overzichten. Die makers putten uit fests en uit wat ze op Steam vinden. Meedoen aan het fest met een demo, een heldere titel en een capsule die in een lijstje opvalt, is dus het werk.
+2. **Video's volgen de talen.** Rusty's grootste video is Koreaans, Deskrawl werd in Japan, Korea en Taiwan gestreamd. Dat past bij verhaal 1 (46% kopers in Azië); het onderbouwt het voorstel van de vertaaltabel die al bij Olaf ligt.
+3. **Maak het streamers makkelijk in het spel, want daar zeggen makers wél iets over.** Rusty en Bao Bao bouwden Twitch-chatfuncties; geen van beiden schreef over e-mails aan YouTubers. Het eenvoudigste voor ons: een modus die er op een stream goed uitziet (groter beeld of een venster dat OBS kan vangen). Een Twitch-koppeling is te veel voor de demo van 18 dec.
+
+### Eerlijk: wat ik niet weet
+- Of de makers sleutels hebben gestuurd. De zoeklijst laat alleen zien wat er staat, niet hoe het kwam.
+- Exacte datums: "2y ago" zegt niet of een video vóór of na de lancering kwam.
+- YouTube is maar één kanaal. Bij Rusty kwam veel van TikTok, Reels en Twitch (verhaal 1); die tel ik hier niet.
+- Zoekresultaten van YouTube zijn per land en per keer iets anders; dit is één meting.
+
+### Voorstel voor Dortus deze week
+**Joris (groei) maakt vóór 1 dec een lijst van ±30 YouTube-kanalen die lijstjes maken van idle-, taakbalk- en cozy-spellen en fest-overzichten** (beginnen bij de namen hierboven: Buckeye Bunny, The Indie Brew, Best Indie Games, Maybe Sarisa, CozyAriGames, Indie Signal, Ken Cikas, Indie Games Hub, Gaming Meets Experience, Starker MMOs; daarnaast Koreaanse, Japanse en Braziliaanse kanalen). Per kanaal: taal, soort video, openbaar zakelijk adres of formulier als dat op hun pagina staat. Het versturen (een korte mail met de demo, rond 8 jan als Valve de fest-trailer brengt) is iets plaatsen op internet en gaat dus via de lijst van Thijs. Waarom: bij elk geslaagd taakbalkspel kwamen de meeste weergaven van zulke kanalen, en we hebben zelf nul volgers.
+
+Tweede punt voor de hoofdchat en Olaf (na de speeltest): zet Little Writer Desktop Companion (uit 6 jan 2027) in de vergelijking van de winkelpagina en het fest, en zet "ziet er goed uit op een stream" als wens op de lijst voor na het fest; niet in de demo, want de demolijst is vast.
 
 ---
 
