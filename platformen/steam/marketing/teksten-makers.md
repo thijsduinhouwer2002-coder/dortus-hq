@@ -184,6 +184,8 @@ Onderwerp: For your [maand] releases list
 >
 > {afzender}, Dortus
 
+**Kaganath (#75), GameGen (#76), Get To It (#77), Sloth Vibes (#78). Wanneer: dag dat de pagina live is. (run 13)** Zelfde tekst als OKtrix hierboven, met hun eigen titel als eerste zin: Kaganath "5 Upcoming Cozy Games That ARE NOT Farm Sims" (zin erbij: "It's not a farm sim either."), GameGen "Top 16 Upcoming Cozy Games 2026", Get To It "The Most Wishlisted Steam Games", Sloth Vibes "10 Cozy Idle Games You Need to Try!" (haar regel "Cozy isn't a genre. It's a feeling." past bij een slijm die hoeden eet; niet citeren, wel de toon licht houden).
+
 **NextBigGames (#70), adres op eigen domein in kanaaltekst. Wanneer: dag dat de pagina live is.** Kort, want het is een lijst van 100+ spellen: alleen naam, één zin haak, link, demo-datum, genre "idle / desktop companion". Zij volgen markten; een vermelding helpt vooral dat andere makers en uitgevers ons zien.
 
 **Rusty Champaign (#71), geen adres in tekst.** Na 18 dec via de reactie of het adres dat hij dan noemt: dezelfde tekst als groep A, met zijn video "A Cozy Idle Game About Turning a Desert Into an Oasis!" als persoonlijke zin.
@@ -235,4 +237,4 @@ Waarom wel: een tweede moment in beeld een week na ons fest, voor een kleine kan
 ~~Nog niet.~~ **Uitgezocht run 11** (`festivals.md`, kopje Showcases en nieuwsbrieven): december en januari hebben geen open showcase meer (INDIE Live Expo en Wholesome Snack sloten in september, Insider Gaming staat al klaar). Wel: Wholesome Games-nieuwsbrief "Coming Soon" voor maart, mail ±1 feb (conceptmail daar). PC Gaming Show: nee (run 11).
 
 ## Wat Thijs straks precies doet (komt op `organisatie/lijst-thijs.md` zodra de pagina live is)
-Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 6 mails op de paginadag (run 13: Easily Distracted, OKtrix, I Dream of Indie, Cozy With Toxi, Gaming In The Wild kort, plus waar tijd is Maybe Sarisa), de rest bij demo af en in februari, zie `makers.md`.
+Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 7 mails op de paginadag (run 13: Easily Distracted, OKtrix, I Dream of Indie, Cozy With Toxi, Gaming In The Wild kort, Get To It, Sloth Vibes), plus Kaganath en GameGen als Thijs hun adres via de knop op het kanaal vindt; de rest bij demo af en in februari, zie `makers.md`.
