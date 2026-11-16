@@ -1311,3 +1311,12 @@ Nieuwste blok onderaan.
 - Les: helpdeskwinkels (Zendesk, Freshworks) geven nieuwe apps nauwelijks bereik, het platform bouwt de AI-koppelingen zelf. Niet verder zoeken in helpdesk- en CRM-winkels.
 - Volgende run: nog geen nieuw platform in kandidaten.md. Op 17 nov of later de deelnemers van het Auto-Battler RPG Fest proberen te halen (taken.md, fest-proef).
 - Derde stuk: Toast en Lightspeed eCom (kassasystemen, les van Clover) kort geschift: beide niet openbaar te meten (Toast gesloten partnerproces, Lightspeed-appwinkel alleen in de backend). In kandidaten.md gezet, geen oordeel. Run afgesloten na ±40 minuten.
+
+## 16 nov 2026, run 12:31 (gestart 11:34 UTC)
+- Nieuw bericht van de hoofdchat (12:10): geen nieuwe platformen, maak een marktkaart van betaalde Garmin-wijzerplaten voor Gijs en Mila. Dat gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet.
+- Gemeten uit de open winkel-API: de lijst MOST_RECENT gaf 13.481 wijzerplaten maar miste juli tot oktober grotendeels (volgorde niet op datum). Daarom de ontbrekende betaalde uit de dataset van 6 nov per id opgehaald (2.708, 13 weg, 0 fouten). Samen 5.701 betaalde van het laatste jaar.
+- Uitkomst: mediaan 1 download; kleine makers (4 tot 20 per jaar) 39,8% op 100+, fabrieken 1,3%; figuur alleen half zo vaak, grap nooit; filmpje, AOD, aanraken, zelf velden kiezen en Body Battery horen bij de verkopers. Advies $2,99 en drie must-haves. Stuk: garmin-wijzerplaten-2026-11.md, bericht aan Gijs.
+- Fout van mij, hersteld vóór het telde: mijn eerste woordlijsten voor "figuur" en "grap" pakten ook "companion", "character" en standaardtekst van een maker ("funny"), waardoor JS_ProDesign als grappenmaker meetelde. Strenger gemaakt (naam en begin van de tekst) en een steekproef van 20 gedaan (17 terecht).
+- Controleur (agent): alle zes kerngetallen klopten, drie rijen live gelijk; twee kleine punten (leeftijdsvoorwaarde erbij, 75e percentiel ±$186 tot $191) verwerkt.
+- Les: de lijsten van de Garmin-API zijn niet volledig; altijd naast een eerdere dataset leggen en ontbrekende per id ophalen.
+- Volgende run: geen open bericht meer na deze; nameting fest-proef 24 nov.
