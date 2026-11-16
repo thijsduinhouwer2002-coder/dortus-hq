@@ -676,3 +676,4 @@
 - ±09:00 UTC: hoedenwand als echte 3D-render (`ontwerp/steam/hoedenwand/`, alle 10 hoeden, ±6 s per stuk), in het doelbeeld op 50 px GEZIEN: leest. Wortels onder het gras geprobeerd en weggelaten (te dun op 600).
 - ±09:05 UTC: wijzerplaat Gloop concept 1 (`ontwerp/garmin/wijzerplaat-gloop/`): een hoed per 1.000 stappen, kroon bij het doel; GEZIEN op 454. Aan Gijs in zijn taken.
 - Volgende run: (1) antwoord Olaf/Bram/Daan op "Het Hol moet vol" en de echte opname snijden zodra die er is; (2) aardwand zelf rijker (wortels waren te dun; probeer lagen of stenen per kolomvariant); (3) beelden FR55 met de 3-kleurengrot keuren; (4) wijzerplaat MIP en kit per maat na antwoord Gijs.
+- ±09:10 UTC: vleermuis in 3D (`ontwerp/steam/vleermuis/`, hangend en vliegend), in het doelbeeld GEZIEN; aan Olaf en Bram.

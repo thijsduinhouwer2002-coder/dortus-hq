@@ -8,7 +8,7 @@ Wat ik niet kan beloven: dat onze strook (12 op 1) ooit zo vol oogt als Rusty's 
 
 ## Doelbeeld (GEEN winkelbeeld)
 - `doelbeeld-vol-1920.png` (winkelvorm, twee rijen zoals scherm 1) en `doelbeeld-strook-vol.png` (de hele strook op spelmaat). Gemaakt met `maak_doelbeeld_vol.py`.
-- Basis is de echte opname week 160 zaad 2 (run 43741619098, beeld 1000). Erbij geplakt, alleen met stukken die al in het spel zitten (`producten/steam-hol/godot/kunst/3d/deco.png`, `bard.png`, `heks.png`, `hoeden.png`): op elke vrije gangtegel iets (ton, krat, schedel, paddenstoel, kristal), spinrag, stut en vaandel aan het plafond, drie extra kamers met spullen erin, twee helden extra (bard en heks), en **hoeden die half in de aardwand steken** (3D-render klaar, nog niet in het spel).
+- Basis is de echte opname week 160 zaad 2 (run 43741619098, beeld 1000). Erbij geplakt, alleen met stukken die al in het spel zitten (`producten/steam-hol/godot/kunst/3d/deco.png`, `bard.png`, `heks.png`, `hoeden.png`): op elke vrije gangtegel iets (ton, krat, schedel, paddenstoel, kristal), spinrag, stut en vaandel aan het plafond, drie extra kamers met spullen erin, twee helden extra (bard en heks), en **hoeden die half in de aardwand steken** (3D-render klaar, nog niet in het spel) en **twee vleermuizen** (3D, `ontwerp/steam/vleermuis/`, nog niet in het spel).
 - Naast de toppers: `vergelijk-doelbeeld-toppers-600.png` en `vergelijk-doelbeeld-rusty2-600.png`. GEZIEN met Read op 1920 en op 600. Oordeel: van "lege bruine gang" naar "druk, warm hol waar van alles gebeurt"; de hoeden in de wand lezen op 600 als hoeden en zijn meteen van ons. Nog niet op Rusty's niveau: de stippen in de aarde blijven één herhaald patroon, en het kaartje onderaan heeft donkere zijkanten.
 - **Mag niet de winkel in** zolang het spel het niet zelf zo tekent. Pas als Olaf het bouwt, maken we de echte opname en snijden we opnieuw.
 
@@ -21,5 +21,6 @@ De renders staan er al: `ontwerp/steam/hoedenwand/renders/wand-0..9.png` (alle 1
 2. **Olaf:** spullen in de kamers boven de gang (nu staat er alleen een kistje): twee stuks uit `DECO_GANG` per kamer.
 3. **Olaf:** in de winkelopname week 160 drie helden tegelijk in beeld (nu één, soms twee).
 4. **Bram:** de hoedenwand-renders (staan klaar) in de pijplijn; Olaf plaatst er één per opgegeten held in de aarde boven de gang, op vaste hash-plekken buiten de kamers.
-5. **Mila:** daarna de echte opname snijden, naast Rusty's 2 en Spirit City op 600 leggen, en pas dan keuring bij Daan.
+5. **Olaf en Bram:** de vleermuis (renders klaar in `ontwerp/steam/vleermuis/`): hangt aan het gangplafond en fladdert op als er een held onderdoor loopt.
+6. **Mila:** daarna de echte opname snijden, naast Rusty's 2 en Spirit City op 600 leggen, en pas dan keuring bij Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

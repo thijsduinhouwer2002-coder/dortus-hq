@@ -61,6 +61,11 @@ def begraaf(i, x, y, hoek, breed=50):
 for i, x, y, hoek in [(4, 412, 72, 20), (7, 600, 66, -25), (1, 800, 78, 15), (8, 975, 62, -10), (3, 1160, 66, 30),
                       (0, 1440, 74, -20), (9, 1570, 56, 25), (5, 1700, 78, -15), (2, 215, 66, 10)]:
     begraaf(i, x, y, hoek)
+# vleermuizen (3D, ontwerp/steam/vleermuis/vleermuis.py, nog niet in het spel): een hangt aan het plafond, een fladdert op
+VM = os.path.join(REPO, 'ontwerp/steam/vleermuis')
+for stand, x, y, b in [('hang', 385, 97, 22), ('vlieg', 1010, 102, 34)]:
+    v = Image.open(os.path.join(VM, f'vm-{stand}.png')).convert('RGBA'); v = v.crop(v.getbbox())
+    v = v.resize((b, round(v.height * b / v.width)), Image.LANCZOS); s.alpha_composite(v, (round(x - b / 2), y))
 # twee helden er extra bij (bard en heks lopen naar binnen), naast Wout
 held('bard.png', 1, 505)
 held('heks.png', 0, 330)
