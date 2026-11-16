@@ -220,3 +220,12 @@ Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B,
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
 - Stand run 4: **73 makers** (59 YouTube, 8 streamers, 6 aanloopkanalen; Indie Games Hub stond er al als #21), plus 23 curatoren in `curatoren.md`. Vóór di 24 nov: een korte eerste ronde van ±15 namen bovenaan dit bestand zetten, zodat de hoofdchat die in één blik aan Thijs kan laten zien.
+
+## Contact van 41 tot 71 nagelopen (run 7, 16 nov ±17:37 UTC)
+Kanaaltekst van 22 kanalen opnieuw gelezen (`data/contact.py`, uitkomst `data/contact-41-71-2026-11-16.csv`; adressen zelf niet overgenomen, alleen het soort). 
+| Soort | Aantal | Wie | Route |
+|---|---|---|---|
+| eigen domein of bureau | 2 | くろろじちゃんねる (#54, via een advertentiebureau), GameStar (#57, redactie) | mail, alleen als de taal in de demo zit (groep C) of als pers bij een doorbraak |
+| gratis adres in de kanaaltekst | 5 | Hadomancer (#41), Task Bar Hero Dicas (#51), Diomio (#56), Edouard_EMB (#65), Game Launch Central (#67) | Thijs kopieert het adres zelf van het kanaal (repo is openbaar, daarom hier niet) |
+| geen adres in de tekst | 15 | o.a. Idle cub, Krayn, GriffyBit TV, Phenexa, Rusty Champaign, Laimu | de knop "View email address" op YouTube (vraagt inlog en een captcha, dus stap voor Thijs), of Curator Connect zodra de pagina live is |
+**Gevolg voor de eerste ronde:** van de 15 namen in "Eerste ronde in één blik" hebben er nu 5 een eigen-domein-adres (Maybe Sarisa, I Dream of Indie Games, Cozy With Toxi, NextBigGames, plus GameStar alleen als pers) en 1 een gratis adres (Game Launch Central). Voor de anderen (GriffyBit TV, Rusty Champaign, Idle cub, Phenexa) is Curator Connect de route: geen adres nodig, en Valve laat zien wie de sleutel gebruikte. **Besluit Sem:** Thijs hoeft geen captcha's op te lossen voor kanalen onder de 10K; die gaan via Curator Connect. Alleen voor Idle cub (203K, half zijn titels idle; Hadomancer heeft al een adres in zijn tekst) zet ik de knop op de lijst van Thijs zodra de pagina live is. Waarom: een captcha per kanaal kost Thijs tijd, en bij kleine kanalen is de kans op een video klein (GOK) terwijl Curator Connect hetzelfde doet zonder adres.
