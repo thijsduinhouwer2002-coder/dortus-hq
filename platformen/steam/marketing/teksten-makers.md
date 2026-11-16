@@ -51,6 +51,39 @@ Wanneer: tweede week december (pagina live), en een herinnering op ma 11 jan voo
 **Herinnering 11 jan (alleen als ze niet reageerden, één keer):**
 > Hi {naam}, quick follow-up: the Hats of the Fallen demo is live now and in the Desktop Companion Fest from Thursday. {link}. Thanks either way!
 
+## Eerste twee mails, uitgeschreven (run 3; pas versturen als de pagina live is)
+Gekozen omdat ze nu actief zijn én precies onze plank maken (`makers.md`, "Nog actief?").
+
+**Maybe Sarisa (#42), adres op eigen domein (staat in `makers.md`). Wanneer: dag dat de pagina live is.**
+Onderwerp: For your next taskbar games list
+> Hi Sarisa,
+>
+> Your "Cozy Idle Desktop Companion Taskbar Games You've Missed" is exactly the shelf we're building for, so a short note.
+>
+> Hats of the Fallen is an idle dungeon on top of your taskbar. Heroes fall into your traps and Gloop the slime wears their hats; the ones who escape come back with a grudge. Silent, light on CPU, and it keeps going while you work.
+>
+> {GIF}
+> Steam page: {link}
+>
+> The free demo is out on January 4 and is part of the Desktop Companion Fest (Jan 14 to 18). Happy to send anything you need. No strings attached.
+>
+> {afzender}, Dortus
+
+**Conkbot (#16), geen adres in de kanaaltekst: via een reactie of het adres dat hij dan noemt; anders Curator Connect niet mogelijk (geen curator). Wanneer: begin december, want zijn lijst "Coming in January 2027" maakt hij eind december (zijn november-lijst kwam eind oktober, GOK uit de volgorde op zijn kanaal).**
+Onderwerp: For your "coming in January" list
+> Hi Conkbot,
+>
+> I saw "15 Cozy, Creative & Co-op Games Coming in November 2026" and wanted to put one on your radar for January.
+>
+> Hats of the Fallen is an idle dungeon on top of your taskbar: every hero who falls in leaves a hat on Gloop the slime's head, and the ones who get away come back with a grudge. Free demo on January 4, in the Desktop Companion Fest Jan 14 to 18.
+>
+> {GIF}
+> Steam page: {link}
+>
+> {afzender}, Dortus
+
+Let op bij Conkbot: zijn lijst gaat over spellen die in die maand **uitkomen**. Hats komt in maart; past het niet in januari, dan de lijst van maart (mail begin februari). Eerlijk zeggen: in januari is alleen de demo er.
+
 ## C. Andere talen (27 tot 35, 50 tot 59)
 **Pas versturen als de demo die taal heeft** (fest-plan punt 6, besluit hoofdchat met Thijs vóór 1 dec). Dan dezelfde tekst als A, vertaald door iemand die de taal kent of met de vertaling die ook in het spel gaat, en met een video-titel in die taal. Een Engelse mail aan een Koreaans kanaal over een spel zonder Koreaans: niet doen, dat kost hun tijd en ons de naam.
 
