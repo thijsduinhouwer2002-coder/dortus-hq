@@ -51,3 +51,6 @@ De haak: **GULP** (Gloop/gulp) en een hoedentoren die letterlijk niet meer op je
 - Sprites op de echte maat: Gloop ±0,34 van de schermbreedte, held ±0,15, hoed ±0,15. Op 260 is Gloop ±88 px breed, een hoed ±40 px. Het spelblad van Het Hol (`gloop.png` 132x80 per cel, `hoeden.png` 63x46, `held0.png` 109x70) is al ongeveer op die maat: eerst die proberen.
 - Boog "GULP" bij de START-knop van elk toestel (rechtsboven op de meeste; per toestel nakijken).
 - Open: een slokbeeld met de held half in de mond (de kijkers willen de grap zien), en 1x-check op een echt MIP-scherm in de simulator.
+
+## 16 nov ±07:55 UTC: donkere grot op AMOLED als plaatje
+- `kit/<maat>/grot-donker.png` (320x360, 390, 416, 454), 16 kleuren. Vijf harde ringen, warm achter Gloop, bijna zwart aan de rand; lichtbaan en vloer op dezelfde maten als in het spel. Waarom ringen en geen verloop: met 16 kleuren gaf een verloop zichtbare banden die op een fout leken; harde ringen ogen bewust, als een spotlicht op een toneel, en passen bij de stripletter. Proef `kit/proef-grot-donker-venu3.png`. MIP blijft effen.

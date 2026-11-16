@@ -655,3 +655,8 @@
 ## 16 nov ±07:15 UTC: kit 208-mip en 240-mip
 - Op vraag van Gijs (spelers zitten vaak op FR55 en FR245). Zelfde regels als de bestaande kit; bestaande bestanden en waarden niet veranderd. Proef alleen uit kitbestanden, GEZIEN met Read op 1x en 2x.
 - Instinct (1 bit) bewust nog niet: eerst zien of 208 in de simulator werkt.
+
+## 16 nov ±07:55 UTC: keuring Gloop-spel op 1x, donkere grot als plaatje
+- Run 43822689413 van Gijs (tak op 1d8930b) bekeken op alle zeven horloges. Ja, door. Titel in het midden, woord GULP weg op het startscherm (boogje blijft). Moet: dun systeemfont op de Venu-reeks oogt armoedig, nep-vet (twee keer tekenen, x en x+1).
+- Donkere grot voor AMOLED: `kit/<320|390|416|454>/grot-donker.png`, 16 kleuren, vijf harde ringen als strip-spotlicht, lichtbaan en vloer op de maten uit SpelView.mc. Script `kit/maak_grot_donker.py`, proef `kit/proef-grot-donker-venu3.png` (GEZIEN met Read op 1x en op 70 px: Gloop en toren springen er harder uit dan op effen oranje).
+- Volgende run: beelden van Gijs met de grot keuren; winkelbeelden opnieuw met de slok bij 12 hoeden (beeld 21/22 van deze run kan al).
