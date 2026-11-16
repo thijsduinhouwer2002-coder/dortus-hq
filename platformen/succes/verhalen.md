@@ -1,8 +1,62 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Verhaal 19 af (16 nov ±20:40 UTC, gratis in Blender naast betaald op Superhive, 50 paren, en AutoCam). Volgende: wat de late splitsers buiten Superhive doen, of Model Splitter volgen (Pro en Kickstarter). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Verhaal 20 af (16 nov ±21:35 UTC, HueForge: devlog vooraf, Polymaker-bon, uitleg door anderen, 6.454 modellen op Printables). Volgende: Model Splitter volgen (Pro en Kickstarter), late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 20. HueForge (Horn & Rhode LLC, één bouwer naast een vaste baan, betaalde software voor kleurenprints met een gewone 3D-printer): een devlog drie maanden voor de software er was, een filamentmerk dat de licentie "gratis" maakte, en de uitlegvideo's die anderen maakten
+
+Onderzocht 16 nov 2026, run 20 (±20:50 tot 21:35 UTC). Waarom: HueForge is het duidelijkste geval van een klein, betaald stuk software voor 3D-printers dat een eigen soort print heeft gemaakt. Dezelfde kopers als Click Joints (makers met een FDM-printer die op Printables en MakerWorld delen), en ook betaald naast een wereld vol gratis. Geen cursusverkoper: alles komt uit de eigen devlog van de maker, zijn winkel, Reddit-archief, Printables en YouTube. Omzet of aantal kopers vond ik niet; de maker noemt ze nergens die ik las.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±20:50 tot 21:20 UTC)
+- Devlog op Substack: devlog.thehueforge.com, via de RSS (/feed), de sitemap en de API per bericht (/api/v1/posts/<slug>). Gelezen: "Color Lithophanes Are Awesome and Accessible!" (10 mrt 2023), "Want to try a HueForge model yourself?" (6 mei 2023), "What is HueForge and How Did You Do That?" (17 mei 2023), "Quick Poll on Pricing and Plans" (19 mei 2023), "A Follow-up on Licensing" (23 mei 2023), "When HueForge?" (15 jun 2023), "HueForge is available for Purchase" (16 jun 2023), "Polymaker Coupon Deal is Expired" (24 jul 2023), "Let's talk HueForge Lifetime and Maintenance Updates" (24 aug 2026).
+- Winkel: shop.thehueforge.com, /products.json (alle prijzen), /pages/about-hueforge, /pages/polymaker-coupon-details, /pages/license-terms, /pages/affiliates.
+- Reddit via Arctic Shift: de eerste berichten in r/HueForge en de eerste berichten met "hueforge" in de kop op r/3Dprinting, plus de telling van r/HueForge.
+- Printables: aantal modellen bij zoekwoord "hueforge" en "flexi" (api.printables.com, GraphQL searchPrints2).
+- YouTube: zoekpagina "hueforge" (15 video's met weergaven).
+- Tabel: `platformen/succes/data/hueforge-2026-11-16.tsv`.
+
+### Cijfers (GEZIEN tenzij anders vermeld)
+- Devlog: "Over 4,000 subscribers".
+- r/HueForge: 4.303 leden, 2.900 berichten, 17.252 reacties (telling uit het archief, de datum van die telling staat er niet bij; GOK dat het nu meer is). Aangemaakt 24 jun 2023, 8 dagen na de lancering, niet door de maker.
+- Printables: 6.454 modellen bij zoekwoord "hueforge", tegen 8.105 bij "flexi". Een hele soort prints draagt de naam van één programma. MakerWorld sluit "Hueforges" zelfs uit van zijn Exclusive-regeling, naast sleutelhangers en onderzetters (GEZIEN, wiki MakerWorld, zie `platformen/verkenner/voorstellen/makerworld.md`): zo veel zijn het er.
+- Prijzen nu: Personal (levenslang) $24, Limited Commercial $60 per jaar, Professional Commercial $120 per jaar, Professional levenslang $350; opwaarderen tegen het verschil (bijvoorbeeld Personal naar Limited Commercial $36); cadeaubonnen; eigen plugins $0 tot $20, een plugin van een andere maker (3MF Export, Additive Atom) $20; eigen filament "Chrominal" $39,99 per kilo, en kleding.
+- De best bekeken video's over HueForge zijn van anderen: Teaching Tech 243.816, 3D Printing Nerd 165.344 (beide ±3 jaar oud, dus uit de lanceertijd), 3D Print Dood 80.355 en 68.800, 3D Printerly Profits 37.458, NeoKoi Prints 28.166 en 25.062.
+
+### Wat hij in welke volgorde deed
+1. **Een devlog en mailinglijst voordat er iets te koop was (10 mrt 2023).** "I've been developing software to make color lithophanes and it's getting close ... sign up here for free ... 100% this will be the first place where I announce the release and pricing info. Currently looking at a nominal $10-15 rate." Hij beloofde "an image or two a week" en hield zich eraan. Drie maanden later kwam de lancering op die lijst.
+2. **Hij veranderde van onderwerp toen de prints dat zeiden.** Begonnen met kleurenlithofanen (licht van achteren), en in de eerste helft van 2023 "moved from being primarily about color lithophanes to being about front-lit filament paintings" (devlog 24 aug 2026). Er staan in de sitemap berichten als "Front-lit or Back-lit?" en "The answer is both".
+3. **Gratis voorproefjes op Printables (6 mei 2023):** een kant-en-klare STL (Cameo) en een gratis meethulpje voor filament (FilaScope), zodat mensen het resultaat konden printen zonder de software.
+4. **Bereik kwam van anderen, vóór de lancering.** 23 mei 2023: "After surprising the 3D Printing Nerd with a feather ... him liking my fabric video. Along with the amazing callout in #hotmakes last night ... All of a sudden there are more eyes than ever on HueForge." #HotMakes is een wekelijkse livestream waarop makers hun prints laten zien. Daar noemde hij op 12 jun 2023 ook zijn releasedatum (devlog 15 jun).
+5. **Prijs gevraagd aan de lijst, niet bedacht (19 mei 2023, 38 reacties).** Drie lagen voorgesteld, met abonnementen. Uitkomst volgens hemzelf: "I got a resounding NO on monthly subscription plans" (2026). Vier dagen later de regel die nu nog staat: "I want the everyday, personal user to enjoy HueForge with no recurring charges - and I want the continued development of HueForge to mostly be supported by those who make money from it."
+6. **Het gratis deel dat de markt groter maakt, gaf hij weg:** "the filament library will be free for everyone, not just people who buy HueForge" (23 mei 2023). De lijst met hoe doorzichtig elk filament is, werkt met merken samen: de pagina Affiliates heeft per merk een gratis JSON-bestand plus een partnerlink naar dat merk.
+7. **Hij liet de uitleg aan anderen.** "my tutorials are - well they are really really awkward. So I'm going to accept they aren't good and just look forward to the MUCH BETTER tutorials that the community will hopefully come up with ... I'm planning (with the creators permission) on making the best community tutorials direct links in HueForge" (15 jun 2023).
+8. **Lancering 16 jun 2023 met een filamentmerk erachter.** Polymaker gaf bij elke aankoop een bon voor hetzelfde bedrag aan filament, plus gratis verzending. Een koper op r/3Dprinting (7 jul 2023): "the deal they have that gives you a PolyMaker voucher for the same amount that you spend on HueForge is a steal" (28 reacties). Bij het aflopen schreef de maker: "I want to thank them personally for having a such a huge hand in helping launch HueForge!" De bon is later terug gekomen en staat er nu nog: Personal $24, bon $24 bij Polymaker in de VS, Canada, VK en een deel van de EU, ook in Japan.
+9. **Wie verkoopt, laat het zien.** Commerciële kopers moeten een "Certificate" tonen in hun webwinkel (sinds dag één, devlog 16 jun 2023; nu: "no watermark/HueForge Logo requirement ... I only ask that you display your Certificate Image ... somewhere that can be found on your online store"). Een koper vond het in 2023 vervelend ("to pay AND brand?", r/3Dprinting). GOK: samen met de naam van de soort ("a Hueforge") is dit waarom duizenden modellen en winkels HueForge noemen.
+10. **Daarna een hele winkel om de software heen:** plugins (eigen en van andere makers, die een HueForge-licentie vereisen), filament met eigen naam, kleding, cadeaubonnen, en een devlog met release notes bij elke versie (in 2026 alleen al 0.9.3 tot 0.9.4.4).
+11. **Updates eerlijk geregeld en uitgelegd toen er onrust kwam (aug 2026).** Levenslang is levenslang gebruik plus 2 jaar updates; daarna mag je voor "as little as $12" weer een jaar updates kopen, of je houdt gratis de laatste versie uit je periode. Hij zegt waarom: "a few notable lifetime license products had been required to go back on their word". En: geen licentiesleutel, installeren op elke eigen computer ("Household license"), betaalde eigen plugins geven 6 maanden extra updates.
+12. **Zegt eerlijk wat het niet doet.** Op de productpagina een blok "What HueForge Doesn't Do": "It doesn't auto-color for you", "It isn't a slicer".
+
+### 3 lessen
+1. **Eerst een lijst, dan een product.** Drie maanden devlog met elke week een plaatje, een prijspeiling met 38 reacties en de belofte "de lijst hoort het eerst". Op de lanceerdag stond er een publiek klaar (31 reacties onder het lanceerbericht), en de devlog heeft nu 4.000+ abonnees. (Kandidaatles "lijst opbouwen" en "werk vooraf in het openbaar" komen hiermee allebei op 3.)
+2. **Laat anderen het bereik en de uitleg maken, en maak daar ruimte voor.** De maker vond zijn eigen uitlegvideo's "really really awkward"; de video's van Teaching Tech (243.816) en 3D Printing Nerd (165.344) deden het werk, en een wekelijkse makerslivestream (#HotMakes) bracht de eerste golf. Hij gaf weg wat de soort groter maakt (de filamentlijst) en verkocht de software. (Hoofdles 4, opnieuw.)
+3. **Een partner die verdient aan jouw kopers kan je prijs wegstrepen.** Polymaker verkoopt filament aan elke HueForge-gebruiker en betaalt daarom de Personal-licentie terug in filament. Daarnaast verdient iedereen die prints verkoopt mee, dus die betaalt meer (Commercial $60 tot $350), en de gewone gebruiker betaalt één keer. (Bij hoofdles 1: meer prijzen, hier netjes naar "wie verdient eraan".)
+
+### Wat Dortus anders doet
+- Wij lanceerden Click Joints Pro zonder lijst: er is geen plek waar mensen zich vooraf aanmelden, en 1.1 gaat wo 18 nov naar Superhive zonder dat iemand er van tevoren van weet.
+- Wij hebben nog geen voorbeeldmodel gemaakt met Click Joints op Printables of MakerWorld. HueForge begon daar met een gratis STL, en nu dragen 6.454 modellen op Printables zijn naam.
+- Onze licenties heten Personal ($12) en Studio ($45): naar wie het gebruikt, niet naar wie er geld mee verdient. De flexi-ontwerpers die prints of STL's verkopen (verhaal 15) zijn precies de groep die bij HueForge de meeste betaalt.
+
+### Voorstel voor Dortus deze week
+**Chris (klaarzetten) en Thijs (account): één gratis, print-klaar figuur met Click Joints-gewrichten op Printables zetten, met de titel "... (made with Click Joints, free Blender add-on)" en een korte uitleg hoe de gewrichten gemaakt zijn, zoals HueForge zijn Cameo-STL deed.** Waarom: op Printables staan 8.105 modellen bij "flexi" en 6.454 bij "hueforge"; daar zitten de kopers, en een model dat je kunt printen zegt meer dan een winkelpagina. Plus: wie het model print, ziet de naam van het gereedschap. Kost ±1 uur klaarzetten en een account dat Thijs moet maken (regel op `organisatie/lijst-thijs.md`). Eerlijk: alleen echte beelden, een render met "render" erbij, en een foto pas als er echt geprint is. Meetlat: downloads en "makes" van het model na 14 dagen, en of er klikken op dortus.com/click-joints/ van Printables komen (Amami).
+Klein erbij voor **Chris, ter overweging en niet als taak**: een aanmeldvak "hoor het eerst als 1.2 er is" op dortus.com/click-joints/, zodat de volgende grote update een lijst heeft om naar te sturen. En voor later, als 1.1 verkoopt: een licentie die naar "wie prints of STL's verkoopt" heet in plaats van naar plaatsen.
+
+### Wat ik niet vond
+- Omzet, aantal kopers of hoeveel mensen de Polymaker-bon gebruikten. De maker noemt het nergens die ik las.
+- De datum van de telling van r/HueForge (4.303 leden).
+- Wie precies de presentatoren van #HotMakes zijn; de devlog noemt Edge of Tech en Filament Stories bij die uitzending (GOK dat zij het zijn).
 
 ---
 
