@@ -1,8 +1,61 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: TrueDepth, klaar 16 nov 2026 ±07:00 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of een tweede JetBrains-maker met een kleine betaalde taalplugin (zoals BatchCraft of de Flexible-reeks) om te zien wat een nieuwe betaalde plugin zonder eigen publiek haalt. Spoor voor later: TrustMRR toont meer makers met omzet uit Stripe (bijvoorbeeld "3D-AGENT AI for Blender", $7,3k in 30 dagen, nog niet nagekeken).
+bezig: niets (laatste: verhaal 7, Superhive zelf en de Support Periods, klaar 16 nov 2026 ±07:50 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of een kleine JetBrains-maker met een betaalde taalplugin. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", nog niet nagekeken), en de "Creator 4 Creator"-interviews van Superhive als bron voor kleine makers.
 
 Nieuwste bovenaan.
+
+---
+
+## 7. Superhive zelf: de markt waar Click Joints Pro staat, en wat kopers vinden van "12 maanden updates" (Support Periods, 2026)
+
+Onderzocht 16 nov 2026, run 7. Waarom dit verhaal: de hoofdchat vroeg verhalen die helpen bij de eerste 100 kopers van Click Joints Pro. Pro staat op Superhive in keuring met een Support Period aan (12 maanden updates, verlengen voor 25% van de prijs, `platformen/blender/superhive-pagina.md`). Ik vond dat Superhive dit jaar zelf zijn cijfers en zijn grootste ruzie met kopers openbaar maakte, precies over die keuze. Geen enkele maker, maar het "verhaal" van de winkel, met eigen telling van 110 productpagina's. Geen cursusverkoper.
+
+### Bronnen
+- Jonathan Williamson (baas van Superhive, bedrijf Autotroph), "The Blender Creator Economy is Breaking. Let's Start Talking About It.", 18 feb 2026: https://autotroph.com/the-blender-creator-economy-is-breaking-lets-start-talking-about-it
+- Williamson, "We built this together, now we need to fix it" (uitwerking van zijn praatje op BCON Austin, voorjaar 2026): https://autotroph.com/we-built-this-together-now-we-need-to-fix-it
+- Williamson, "Support Periods: A Sustainable Path Forward for Blender Creators", 22 apr 2026: https://superhivemarket.com/posts/support-periods-a-sustainable-path-forward-for-blender-creators
+- Hulpartikelen voor makers: FAQ https://support.superhivemarket.com/article/331-support-period-faqs-creators , verlengkorting https://support.superhivemarket.com/article/328-discounting-support-period-renewals , levenslang verkopen https://support.superhivemarket.com/article/327-selling-lifetime-support-and-updates , oude kopers https://support.superhivemarket.com/article/345-managing-legacy-customers
+- BlenderNation (Greg Zaal, Poly Haven), "Incoming Policy Changes on Superhive", 1 apr 2026, met reacties: https://www.blendernation.com/2026/04/01/incoming-policy-changes-on-superhive/
+- BlenderArtists, draad "Superhive Changes", 20 mrt tot 25 jun 2026, 812 berichten, 46.025 keer bekeken (GEZIEN via de JSON van het forum): https://blenderartists.org/t/1634680 . Ik las de laatste 40 berichten.
+- Spencer Magnusson (kleine maker op Superhive), nieuwsbrief 7 mrt 2026: https://spencer-magnusson.beehiiv.com/p/blender-creator-economy-is-breaking-whats-next
+- Marktcijfers: https://superhivemarket.com/market-stats (16 nov 2026) en de terugblik 2022: https://superhivemarket.com/posts/2022-wrap-up-and-cyber-results
+- Eigen telling, 16 nov 2026 met curl: de 71 best verkochte producten (`/products?sort_sales=desc`, pagina 1 tot 3) en de 39 nieuwste add-ons van de laatste ±6 maanden (`/categories/addons?sort_date=desc`). Per pagina gekeken wat er over updates staat. Bestand: `platformen/succes/data/superhive-updatebelofte-2026-11-16.tsv`.
+- Niet gelukt: het Medium-stuk "Who Is Superhive's Support Policy Actually Benefiting?" (leeg vanuit de cloud), de grafieken in de blogs (plaatjes, geen getallen), de Reddit-draden. Verkoopcijfers per maand van Superhive staan nergens openbaar na 2022.
+
+### Cijfers
+- **De markt nu (GEZIEN 16 nov, market-stats):** 6.877 makers, 73.662 producten, waarvan 6.770 add-ons, 5.795.934 verkochte items aan 1.138.576 klanten, $53.532.733 betaald aan makers sinds 2014. Gemiddeld $9,24 per verkocht item voor de maker en ±$7.800 per maker in 12 jaar (rekensom; gratis items tellen misschien mee in de items, dus GOK hoe precies).
+- **Groei is voorbij de top (DERDEN, Williamson):** acht jaar op rij verdubbeling, piek in 2022. Recordmaand nov 2022: $1.246.632 omzet (DERDEN, blog 2022). In zijn praatje (voorjaar 2026): "7,500 creators", "over 60,000 products", "nearly $50 million" uitbetaald. Sindsdien ±$3,5 miljoen erbij in ±7 maanden, dus ±$0,5 miljoen per maand (GOK, zijn getallen zijn afgerond).
+- **Het patroon bij "virtually all top sellers" (DERDEN, Williamson):** het aantal kopers dat steun verwacht groeit, de verkopen per jaar blijven gelijk of dalen. "The pattern is consistent across categories, product types, and audience sizes." Zijn verklaring: de onuitgesproken verwachting van levenslang gratis updates.
+- **Wat er gebeurde (DERDEN, BlenderNation en Superhive):** 18 mrt mail aan makers: verplicht voor iedereen, ook voor oude aankopen, verlengen voor 50%. Felle reacties ("feels similar to a subscription"). 22 apr de nieuwe versie: vrijwillig per product, oude kopers houden alles, de maker kiest 25, 50, 75 of 100% van de prijs voor verlengen. Live op 22 jun 2026. Superhive zegt zelf dat de communicatie fout ging.
+- **Wie doet mee (GEZIEN, eigen telling 16 nov):**
+  - Top 71 best verkocht: 17 met Support Period (24%), waarvan 9 op 25%, 7 op 50% en 1 op 75%. De grootste van de hele winkel, Auto-Rig Pro (71.200+ verkopen), doet mee op 25%. 45 pagina's zeggen niets over updates, 6 noemen "free updates" zonder termijn, 2 noemen levenslang (onder meer TrueDepth: "Lifetime support. All future updates, free"), 1 heeft een eigen jaarregeling (MACHIN3tools: "1 year of free Updates", verlengen als aparte variant, al van vóór Support Periods).
+  - 39 nieuwe add-ons (±6 maanden): 9 met Support Period (23%), 4 op 25% en 5 op 50%. 23 zeggen niets, 5 "free updates", 2 levenslang.
+  - Onze drie vergelijkers in 3D-printen doen het alle drie anders: TrueDepth levenslang, CatPin 12 maanden en verlengen 50%, Cleave "Free updates for the 1.x line".
+- **Wat kopers zeggen (GEZIEN, BlenderArtists mei tot jun 2026):** "What used to be 'buying a fun product to try ... when I have time' is now 'entering into a potential future contract with unknown time and financial expenses'." Twee vaste kopers kochten in de voorjaarsuitverkoop niets. Een ander: "I still think the entire idea of support periods will only help the top 10 most popular addons." Tegengeluid: "Communication could be better but im quite satisfied with the changes."
+- **Hoe een kleine maker het bracht (GEZIEN, mail van Cablerator, doorgeplaatst 25 jun):** "I have enabled yearly Support Periods for Cablerator at 25% (the lowest available setting), however this will apply only to new customers ... nothing changes for you ... you can optionally join." De koper die het plaatste vond dat goed: "most creators still want their add-ons to be affordable".
+
+### Wat er gebeurde, in volgorde
+1. 2014 tot 2022: de winkel groeit elk jaar met de helft of meer; kopers wennen aan "eens kopen, altijd updates". Superhive eiste dat nooit, maar vroeg alleen om op de pagina te zeggen of updates gratis zijn (oude hulptekst, aangehaald door een lezer van BlenderNation).
+2. 2022 tot 2025: meer kopers, niet meer verkopen. Williamson ziet het bij bijna alle grote verkopers.
+3. Feb 2026: hij maakt het probleem openbaar, met geanonimiseerde grafieken.
+4. Mrt 2026: verplichte regel per mail, ook voor oude aankopen. Woede op elk forum.
+5. Apr 2026: alles vrijwillig, oude kopers ongemoeid, verlengprijs door de maker gekozen.
+6. Jun 2026: live. Weinig makers doen mee in het begin; in november een kwart van de toppers en een kwart van de nieuwe add-ons.
+
+### Drie lessen
+1. **Op Superhive is "12 maanden updates" normaal geworden, maar kopers voelen het nog als een abonnement. Zeg dus in gewone woorden wat de koper houdt.** Superhive zelf zegt "This is not a subscription. You own what you buy", maar de kopers op het forum lezen "contract". Auto-Rig Pro en de kleine maker van Cablerator kozen allebei de laagste stand (25%), en de maker legde het uit in zijn eigen woorden. Onze keuze (25%) is dus dezelfde als die van de grootste verkoper; wat ontbreekt is de uitleg op onze pagina.
+2. **"Levenslang gratis updates" is een verkoopargument dat de winkel zelf afraadt, en dat maakt het juist een onderscheid.** TrueDepth, de best verkochte printadd-on, zet "Lifetime support. All future updates, free" in zijn rijtje. Superhive: "we genuinely believe that lifetime support and updates is an unsustainable promise". Voor een product van $12 met weinig onderhoud is het vooral een kwestie van wat je durft te beloven. Ik raad het niet aan (een belofte zonder einde past niet bij een ploeg die nog niet weet hoeveel kopers er komen), maar we moeten weten dat het er naast ons staat.
+3. **De markt groeit niet meer vanzelf.** Na acht jaar verdubbelen is Superhive sinds 2022 niet meer gegroeid, en de baas zegt dat bijna elke grote verkoper minder verkoopt per jaar. Wie nu nieuw binnenkomt, krijgt geen golf mee; de kopers moeten van buiten komen (video's van anderen, hoofdles 4) of uit een echt nieuwe vraag (hoofdles 9). Gemiddeld verdient een maker op Superhive ±$7.800 in 12 jaar (rekensom).
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Of een Support Period de verkoop van een nieuw product remt, kan ik niet meten: nieuwe producten tonen nog geen verkoopblok, en de toppers met Support Period verkochten al jaren vóór juni. De mediaan van de 17 toppers met Support Period (11.500) is hoger dan die van de rest (7.600), maar dat zegt niets over oorzaak.
+- De forumdraad is een luide groep; 812 berichten zijn niet de 1,1 miljoen klanten. Hoeveel kopers echt minder kopen weet niemand buiten Superhive.
+- De grafieken van Williamson zijn geanonimiseerd en zonder getallen. Hij heeft er belang bij dat makers meedoen (Superhive verdient aan verlengingen).
+- Voor ons gaat het om $3 per jaar (25% van $12). Het bedrag is het probleem niet; het woord "contract" in het hoofd van de koper wel.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris schrijft de zin (`commercie/blender-click-joints/`), de hoofdchat zet hem op de pagina zodra Pro live is (de pagina nu niet aanraken tijdens de keuring, GOK dat aanpassen de keuring stoort), Bram houdt het aan bij 1.0.2.
+**Wat:** één regel onder "Good to know" op de Superhive-pagina van Click Joints Pro, in de lijn van Cablerator: "Includes 12 months of updates. Every version you download is yours to keep. After a year you can extend updates for 25% of the price ($3 today); it is never required." En dezelfde zin in het antwoord-sjabloon van Chris voor vragen van kopers. Waarom: het neemt de angst voor een abonnement weg zonder iets te veranderen aan de prijs of de regeling, en het kost niets. Daarnaast voor later (geen taak): bij elke nieuwe add-on bewust kiezen tussen 25% en "updates voor de hele 1.x-reeks" zoals Cleave, niet automatisch.
 
 ---
 
