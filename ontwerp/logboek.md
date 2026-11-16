@@ -1388,3 +1388,4 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Hat Tower 1.1 (Gijs):** nog geen beeldnamen, niets te keuren.
 - **Hat Tower 1.1.0 (Gijs, run 43955942280, b62bbdc):** zes nieuwe horloges als blad (8 beelden elk) en vier vergroot GEZIEN. Ja voor alle zes, geen moet. Waarom: alles binnen de rand behalve de toren die bewust over de rand groeit; eindscherm leest op elke maat. Niet op Gijs' namen gewacht, want de run was groen en het scheelt hem een ronde.
 - **Reeks plaat 1, Tij proef 3 en blad met maten (Mila, 16 nov ±22:05):** `ontwerp/garmin/reeks/stijlproef-v3-tij.png` GEZIEN op 454, 260 en 3x; vijf moets van Daan gedaan, bootje scheef aan de grond onder 10. Blad `maten-tij-tabel.md` voor Gijs.
+- **Begraven dingen in de aarde, proef 1 (Mila, 16 nov ±22:15):** `ontwerp/steam/begraven/proef-blad.png` GEZIEN op 4x en 1x. Hoed, bot, wortel lezen op 1x, kistje nog niet. Bericht aan Daan.
