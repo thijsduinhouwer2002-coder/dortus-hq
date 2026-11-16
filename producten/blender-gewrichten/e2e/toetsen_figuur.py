@@ -109,7 +109,8 @@ def main():
         recs = fig.lees(s)
         check([r_["naam"] for r_ in recs] == ["Knee", "Shoulder"], f"Shoulder: deel kent beide ({recs})")
         check(recs[-1]["soort"] == "BALL" and recs[-1]["graden"] is not None
-              and abs(recs[-1]["graden"] - float(s["cj_grens_graden"])) < 0.11, "Shoulder: ±graden van de kern")
+              and recs[-1]["graden"] == float(importlib.import_module("bl_ext.user_default.click_joints.paneel").buig_graden(s)),
+              "Shoulder: ±graden gelijk aan het paneel (Bends ±N°, met beweegproef; sinds 16 nov run 6)")
     lijst = fig.figuur_gewrichten(bpy.context.scene.objects, "pop")
     check([x["naam"] for x in lijst] == ["Knee", "Shoulder"], f"lijst van de figuur ({[x['naam'] for x in lijst]})")
     check(fig.samenvatting(lijst) == "2 joints", f"samenvatting '{fig.samenvatting(lijst)}'")

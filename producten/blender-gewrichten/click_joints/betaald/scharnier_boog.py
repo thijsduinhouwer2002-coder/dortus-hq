@@ -238,7 +238,11 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
                 waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
             # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
             nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
-        getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int((FIGUUR_PX if fig else 20) * schaal))
+        if fig:  # donkere rand van 1 px, zodat het getal los van het model staat (Daan, 16 nov, kan)
+            from .figuur_teken import tekst_rand
+            getal = tekst_rand(q["label"], f"{v['getal']}°", KL, int(FIGUUR_PX * schaal))
+        else:
+            getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int(20 * schaal))
     rood_tekst, vrij = False, None
     if q["pose_eind"] is not None:
         if v["voorbij"]:
@@ -267,7 +271,8 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
             "streepjes": len(streep), "kijkhoek": round(hoek, 1), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None,
             "kop": kop if kop_getekend else None, "rood_vrij": vrij, "figuur": fig, "kleur": KL,
-            "naam": b.get("cj_naam", ""), "centrum_px": tuple(q["centrum"]) if q["centrum"] is not None else None}
+            "naam": b.get("cj_naam", ""), "centrum_px": tuple(q["centrum"]) if q["centrum"] is not None else None,
+            "label_px": tuple(q["label"]) if getal and q["label"] is not None else None}
 
 
 def teken():

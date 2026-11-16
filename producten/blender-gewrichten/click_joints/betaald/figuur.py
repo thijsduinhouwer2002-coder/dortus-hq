@@ -52,6 +52,12 @@ def graden(deel):
     if deel.get("cj_soort") == "SCHARNIER":
         g = deel.get("cj_bereik_graden")
         return "HINGE", (None if g is None else round(float(g), 1))
+    # Het getal van het paneel ("Bends ±N°"): ook de beweegproef telt, nooit meer graden dan gemeten (16 nov:
+    # de lijst zei ±30° bij een heup die volgens de beweegproef 0° kon).
+    from ..paneel import buig_graden
+    n = buig_graden(deel)
+    if n is not None:
+        return "BALL", float(n)
     g = deel.get("cj_grens_graden", -1.0)
     return "BALL", (round(float(g), 1) if g is not None and g >= 0 else None)
 
@@ -59,6 +65,8 @@ def graden(deel):
 def bereik_tekst(soort, g):
     if g is None:
         return "range not measured"
+    if soort == "BALL" and g < 1.0:
+        return "±0° (blocked)"
     return f"0–{g:.0f}°" if soort == "HINGE" else f"±{g:.0f}°"
 
 
@@ -153,6 +161,10 @@ def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset
         d["cj_naam"] = naam
         d["cj_figuur"] = fig
         d["cj_herkomst"] = herkomst
+        if soort_echt == "HINGE" and not d.get("cj_passing"):
+            # Daan (16 nov, moet 2): anders zegt "3 Fit and export" "No joint yet" naast acht gewrichten. Een scharnier
+            # bestaat alleen bij Good fit (Tight wordt geweigerd), dus groen is waar. Alleen bij figuurdelen.
+            d["cj_passing"] = "groen"
     return True, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.", nieuw
 
 
@@ -215,7 +227,13 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
             vak.label(text=samenvatting(lijst))
             kol = vak.column(align=True)
             for rec in lijst:
-                kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)
+                # Daan (16 nov, kan): `from rig` valt op met een groen bolletje (groen zoals de bogen) in plaats van
+                # het lichaamsdeel-icoon. Een losse grijze kolom voor de herkomst paste niet in de zijbalk (het bereik
+                # viel weg, eigen beeld 14:35), en de hele regel grijs leest als uitgeschakeld.
+                if rec.get("herkomst") == "from rig":
+                    kol.label(text=regel(rec), icon="COLLECTION_COLOR_04")
+                else:
+                    kol.label(text=regel(rec), icon_value=icoon(rec.get("preset", "")) or 0)
 
 
 def register():

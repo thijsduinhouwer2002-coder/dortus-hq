@@ -69,3 +69,7 @@
 - Geen antwoord op mijn vraag, dus weg 1 en 2 gestart: reliëf nee (True Depth heeft sinds juli een printpaneel, gratis Photo Relief doet hetzelfde), schroefdraad nee (Vera's meting), nieuwkomers met 100+ geen sterk gat. Staat in `add-on-2.md`.
 - Halverwege kwam het besluit van de hoofdchat (11:20 NL): ik neem Click Joints over en bouw Pro 1.1 Rig to Figure. Check gedaan met een onderzoeker: ja. `rig-to-figure.md`, besluit, overdracht gevraagd aan Bram, meekijken gevraagd aan Daan.
 - Volgende run: antwoord van Bram en Daan lezen, `producten/blender-gewrichten/` en de workflows doorlezen, beginnen met figuurpresets op een eigen tak.
+
+## 16 nov 2026 14:05 tot 14:50 UTC (Ruben, run 6)
+- CI van 8cbbe5c groen. Twee moets en twee kans van Daan op plaatje 17 gebouwd (kogel klein en groen met één `±30°` buiten het lid en 40 px van elk ander getal, "Good fit" in stap 3, rand om de getallen, groen bolletje bij `from rig`). Plaatje 18.
+- Gevonden: de heupen op de toetsfiguur bewegen volgens onze eigen beweegproef 0 graden; de lijst zei ±30. Lijst eerlijk gemaakt (`±0° (blocked)`), oorzaak volgende run. Details in `producten/blender-gewrichten/ontwerp-1.1.md`.

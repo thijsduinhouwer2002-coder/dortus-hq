@@ -99,7 +99,26 @@ def stap():
     oud = bpy.app.version < (4, 5, 0)  # bekende losse boolean-fout met alleen Exact (toetsen_rig_armen.py)
     genoeg = len(bogen) >= (3 if oud else 4)
     acht = staat.get("samenvatting", "").startswith(("6 joints", "7 joints", "8 joints") if oud else "8 joints")
-    ok = genoeg and acht and groen and getal and len(koppen) <= 1 and rig_regel and zichtbaar and ok_uit
+    # Daan 16 nov ±13:50: kogels van een figuur klein en groen met één getal ±N° (moet 1: nooit binnen 40 px van
+    # een ander getal), en stap 3 zegt niet "No joint yet" naast de gewrichten (moet 2).
+    ft = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur_teken")
+    from mathutils import Vector
+    kogels = list(ft.laatst.get("getekend", {}).values())
+    schaal = bpy.context.preferences.system.ui_scale
+    vakken = [k["vak"] for k in kogels if k.get("getal_getekend")]
+    for b in bogen:
+        if b.get("label_px"):
+            vakken_s = ft.vak(Vector(b["label_px"]), b["getal"], int(16 * schaal))
+            vakken.append(vakken_s)
+    gaten = [ft.gat(k["vak"], o) for k in kogels for o in vakken if tuple(o) != tuple(k["vak"])]
+    min_gat = round(min(gaten), 1) if gaten else None
+    kogel_ok = (len(kogels) >= (2 if oud else 4) and all(k["getal"].startswith("\u00b1") for k in kogels)
+                and all(k["kleur"] != boog.WIT for k in kogels) and all(k.get("getal_getekend") for k in kogels)
+                and (min_gat is None or min_gat >= 40.0 * schaal - 0.5))
+    stap3 = bool(act is not None and act.get("cj_passing"))
+    log(f"ARMEN KOGELS {'OK' if kogel_ok else 'FOUT'} kogels={[(k['naam'], k['getal'], k['label_px']) for k in kogels]} "
+        f"kleinste_gat_px={min_gat} stap3_passing={act.get('cj_passing') if act else None} fout={ft.laatst.get('fout')}")
+    ok = genoeg and acht and groen and getal and len(koppen) <= 1 and rig_regel and zichtbaar and ok_uit and kogel_ok and stap3
     log(f"ARMEN BEELD {'OK' if ok else 'FOUT'} samenvatting={staat.get('samenvatting')} bogen={[(b['naam'], b['getal'], b['kijkhoek']) for b in bogen]} "
         f"koppen={len(koppen)} actief={act.name if act else None} zichtbaar={zichtbaar} groen={groen} getal={getal} from_rig={rig_regel} uitsnede={ok_uit} "
         f"fout={boog.laatst.get('fout')}")
