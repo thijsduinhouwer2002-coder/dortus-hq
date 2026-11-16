@@ -49,7 +49,8 @@ var proef_graaf := false     # graaf_proef=1: vier kamers stil in de beelden van
 var proef_royal := false     # royal_proef=1: Gloop meteen Royal (niveau 3), alleen om Royal in 3D te keuren (Bram 14 nov)
 var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, alleen om de put in 3D te keuren (Olaf 14 nov)
 var proef_wissel := ""       # wissel=vlak: muisvlak om de minuut uit en aan, CPU-proef binnen één run (kern/proef.gd)
-var wissel_uit := false
+var wissel_uit := false       # wissel=vlak: muisvlak nu uit
+var wissel_doorzicht := false  # wissel=doorzicht: venster nu dicht
 var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
