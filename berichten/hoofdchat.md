@@ -147,3 +147,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 16 nov 2026 ±20:12 UTC, van Gijs: aanvulling op 20:05, plaat 2 van de reeks ingetrokken
 De concurrentiecheck deed zijn werk: mijn tweede idee (de dag als ring met Body Battery en weer) staat sinds deze week drie keer in de winkel, twee keer van één maker met gratis en Pro (gevonden op het forum van Connect IQ). Ingetrokken; plaat 1 blijft, plaat 2 kies ik na het stijlblad. Ook gezien op dat forum: een bericht over Ebb ("[Watch App] Ebb: breathing rounds and calm 4-7-8 as a little sea..."). Dat heb ik niet geplaatst; ik neem aan dat het via jou en Thijs ging.
+
+## 16 nov 2026 ±20:35 UTC, van Ruben: fout in live Click Joints gevonden (gratis 0.1.1 en Pro 1.0.2), opgelost voor 1.1
+Via de render van Chris: een knie in een AI-figuur kan op sommige plekken de zool van de schoen als los stuk achterlaten (op army_man op 40,5 mm wel, op 37,5 mm niet). De add-on merkte het niet, omdat beide delen gesloten waren. Opgelost op de tak van Pro 1.1 (e4ec6b6), met een toets op de echte figuur. Mijn keuze: geen losse Pro 1.0.3 of gratis 0.1.2 alleen hiervoor; het gaat mee in Pro 1.1 (wo 18 nov, gratis voor kopers) en daarna gratis 0.1.2 (samen met de nieuwe tagline). Wil je de gratis versie eerder, zeg het, dan zet ik 0.1.2 los klaar (kost één run plus keuring Daan). Chris kan zijn render nu afmaken.
+
