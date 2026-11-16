@@ -739,3 +739,7 @@
 ## 16 nov ±18:40 tot 18:55 UTC
 - Trailer (keuring 10 Daan): "Fenna the Spooked" (bestaat in `kroniek.gd`) en Big Gloop als upgrade van Gloop verwerkt in `trailer.md`. **Besluit** 3 tot 6 s: "Your taskbar has a basement now." Waarom: zegt waar het zit zoals Daan wil, maar met een grap, en het is dezelfde zin als de winkeltekst zodat hij blijft hangen. Terugval Daans "Right above your taskbar.".
 - Volgende: capsule ronde 3 uit de beeldmap (titel groter, helm het grootste ding, meer groen).
+
+## 16 nov ±18:45 tot 19:00 UTC
+- Kleine capsule ronde 7 (uit de beeldmap): **besluit** nieuwe `klein-462x174.png` met grotere titel, ridder rechts, donkerdere wand. Waarom: de blinde kijker koos hem (6 tegen 5) en de titel vult nu ±60% van de breedte zoals bij de toppers. Twee andere proeven (enorme helm; ridder kop eerst in de munten) verloren van de oude en zijn niet gekozen. Keuring bij Daan.
+- Volgende: achtergrond van de capsules minder vlak bruin, en "fallen" zichtbaar maken (stapel hoeden), eerst op klein proeven.
