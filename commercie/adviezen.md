@@ -295,3 +295,10 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Ook:** Click Joints doet geen print-in-place (besluit Bram, `ontwerp.md` regel 76). De reeksnaam "Print-in-place in Blender, day N" uit de tip van Joris (16 nov 03:45) klopt dus niet; mijn voorstel is "Printable joints in Blender, day N". Ter info voor de hoofdchat en Joris.
 - **Voor wie:** Bram (opname), Hans (besluit).
 - **Status:** open.
+
+## 41. Gloop's Hat Tower: na de eerste upload meer horloges, te beginnen met de kleine maten (16 nov 2026)
+- **Wat:** versie 1.1 van het spel op meer horloges. Eerst de kleine maten van wat er al is (Forerunner 255S en 265S, fenix 7S), daarna de horloges die Joris voor Ebb noemt (verhaal 14). Niet vóór de upload van wo 18 nov: die gaat voor.
+- **Waarom:** in de winkel zie je alleen apps voor je eigen horloge. De stapelspellen bovenaan op "stacking game" en "tower game" draaien op 60 tot 269 horloges (GEZIEN 16 nov ±14:00 UTC, zoek-API), Gloop op 9. Bij ademhalingsapps zag Joris hetzelfde: 100+ op mediaan 183, de rest op 53 (verhaal 14).
+- **Oplevering:** meer mensen die het spel kunnen zien en kopen; dat telt mee op het meetpunt van 30 nov (besluit Thijs 13:58).
+- **Voor wie:** Gijs, met Mila voor de beelden per maat.
+- **Status:** open.

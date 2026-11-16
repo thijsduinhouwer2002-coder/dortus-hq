@@ -93,3 +93,126 @@ Eens met de volgorde van Gijs en de wens van Daan (beeld 1: een slok bij een tor
 ## 6. Wat dit niet zegt
 - Of het spel leuk is: niemand heeft het gespeeld. Alles hierboven gaat over vinden en kiezen, niet over of mensen het houden.
 - Hoeveel mensen op "stacking game" of "tower game" zoeken: de winkel geeft geen zoekcijfers. Ik weet alleen wat er bovenaan staat als iemand het zoekt.
+
+## 7. Versie 2 voor de upload van wo 18 nov: Engels bijgewerkt, Duits en Nederlands (run 60, 16 nov ±13:45 tot 14:30 UTC)
+Vraag van Gijs (16 nov ±13:30 UTC): Duits en Nederlands, en meekijken op zijn plakbestand `platformen/garmin/upload/gloop-en.md`. Besluit Thijs 13:58 NL: uploaden uiterlijk wo 18 nov, de hoofdchat laat de teksten eerst aan Thijs zien.
+
+### 7a. Wat er verandert in het Engels, en waarom
+1. **"Press START (the top right button)" wordt "Press the top right button".** Op de Venu 3, Venu 3S en Venu Sq 2 heet geen knop START, en het spel zegt daar `PRESS = GULP` (besluit Daan 16 nov 08:45, gebouwd door Gijs in 6a5a332, GEZIEN door Gijs in de simulator). "The top right button" klopt op alle negen horloges; het woord START klopte maar op zeven. Zelfde voor de regel onder HOW IT PLAYS: `One button: the top right button.` Daan zei ja op het spel (hoofdchat 14:05 NL), dus de wachttijd uit Gijs' bericht van 09:30 is voorbij.
+2. **WATCHES met de Forerunner 55 en 245** zoals Gijs het al had (staan in het manifest, door Mila gekeurd). Verder is de Engelse tekst in het plakbestand gelijk aan de mijne.
+3. **De titel blijft** `Gloop's Hat Tower: One-Button Stacking Game`, ook na de les van Joris (verhaal 14: de zoekbalk zet bij ademhalingsapps korte namen met het zoekwoord bovenaan). Bij spellen zag ik vandaag iets anders (GEZIEN ±13:55 UTC, zoek-API, eerste 8 treffers): op "stacking game" staan drie namen van 5 tot 6 woorden bovenaan (*Tower Drop: Block Stacking Game*, *Babel Tower: Crane Stacking Game*, *Prism Spire: One-Tap Stacking Game*), op "tower game" staan drie lange namen boven *Stack* (die in het Duits en Nederlands "Tower Stack" heet, wat 7b steunt) en de korte *Stack Tower* en *Tower*. Wat telt is het zoekwoord in de naam, niet de lengte. "Stacking Game" eruit halen kost ons juist de plek.
+
+### 7b. Nieuw feit: de zoekbalk leest ook de Duitse en Nederlandse naam
+GEZIEN ±13:55 UTC: op "stapelspiel" en op "stapelspel" staat *Babel Tower* op plek 1, alleen omdat zijn Duitse naam `Babel Tower - Kran-Stapelspiel` is en zijn Nederlandse `Babel Tower - Stapelspel met een kraan`. Daarna komen apps die er niets mee te maken hebben (een hoogtemeter, een babylogboek). Op "turm" staat wel nog *Stack Game* op plek 4. Op "turm" en "toren" staat *Astra Helix Ball Jump* bovenaan door `Turm-Fallspiel` en `Spel met bal en toren`. *Tower Drop*, de sterkste concurrent, heeft in het Duits en Nederlands gewoon zijn Engelse naam.
+**Gevolg:** een vertaalde ondertitel met "Stapelspiel" en "stapelspel" geeft ons in het Duits en Nederlands een veld met één echte concurrent. Daarom vertaal ik de ondertitel en laat ik de naam van het spel (`Gloop's Hat Tower`) Engels: zo heet het spel op het horloge en in de beelden, en het spel zelf is in het Engels. Of de telefoon-app in het Duits precies zo zoekt als de API: NIET GEZIEN (GOK: ja, het is dezelfde zoekdienst).
+
+### 7c. Engels (plak dit in `gloop-en.md`)
+Titel (43 tekens):
+```
+Gloop's Hat Tower: One-Button Stacking Game
+```
+Beschrijving:
+```
+One button. 30 seconds. A tower of hats taller than your watch.
+A one-button stacking game starring Gloop.
+
+A hero drops into the cave. Press the top right button when he reaches Gloop's mouth. GULP! His hat flies onto the tower on Gloop's head. Hit the timing just right and you start a streak.
+
+HOW IT PLAYS
+- One button: the top right button.
+- A round takes 30 seconds. Good for a queue, a bus stop or a rest between sets.
+- Miss a hero? He walks off ("bye!") and the next one falls a little slower. You never lose a hat.
+- Ten different hats. The tower grows past the top of your screen.
+- Your best score is saved on the watch.
+
+GOOD TO KNOW
+- This is a paid game. You pay once in the Connect IQ Store. No ads, no subscription, nothing to unlock later.
+- No account, no phone app, no internet, no permissions.
+- It is a small game: one screen, one mode.
+
+WATCHES
+Forerunner 55, 245, 255 and 265, fenix 7 and 7X, Venu 3, Venu 3S and Venu Sq 2. More will follow. No Instinct yet.
+
+SUPPORT AND REFUNDS
+Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days. Refunds follow Garmin's Connect IQ Store policy: a 48-hour return window after you buy.
+```
+
+### 7d. Duits (voor `gloop-de.md`)
+Titel (46 tekens; namen in de winkel worden op 50 tekens afgekapt, dus dit past vrijwel zeker. Weigert het formulier hem toch: `Gloop: Hat Tower`):
+```
+Gloop's Hat Tower: Stapelspiel mit einer Taste
+```
+Beschrijving:
+```
+Eine Taste. 30 Sekunden. Ein Turm aus Hüten, höher als deine Uhr.
+Ein Stapelspiel mit einer Taste, mit Gloop in der Hauptrolle.
+
+Ein Held fällt in die Höhle. Drücke die Taste oben rechts, wenn er Gloops Maul erreicht. GULP! Sein Hut fliegt auf den Turm auf Gloops Kopf. Triffst du den Moment genau, startest du eine Serie.
+
+SO WIRD GESPIELT
+- Eine Taste: die Taste oben rechts.
+- Eine Runde dauert 30 Sekunden. Gut für die Warteschlange, die Bushaltestelle oder die Pause zwischen zwei Sätzen.
+- Einen Helden verpasst? Er geht weiter ("bye!") und der nächste fällt etwas langsamer. Du verlierst nie einen Hut.
+- Zehn verschiedene Hüte. Der Turm wächst über den oberen Rand deines Displays hinaus.
+- Dein Rekord wird auf der Uhr gespeichert.
+
+GUT ZU WISSEN
+- Dies ist ein kostenpflichtiges Spiel. Du zahlst einmal im Connect IQ Store. Keine Werbung, kein Abo, nichts, was du später freischalten musst.
+- Kein Konto, keine Smartphone-App, kein Internet, keine Berechtigungen.
+- Es ist ein kleines Spiel: ein Bildschirm, ein Modus.
+- Das Spiel ist auf Englisch.
+
+UHREN
+Forerunner 55, 245, 255 und 265, fenix 7 und 7X, Venu 3, Venu 3S und Venu Sq 2. Weitere folgen. Noch nicht für Instinct.
+
+SUPPORT UND ERSTATTUNG
+Schreib an thijs@dortus.com und nenne dein Uhrenmodell. Wir versuchen, innerhalb von 5 Werktagen zu antworten. Erstattungen folgen den Regeln des Connect IQ Store von Garmin: Nach dem Kauf hast du 48 Stunden Zeit für eine Rückgabe.
+```
+Wat is nieuw: `Erste Version.`
+Trefwoorden (alleen als er een veld is): `stapelspiel, turm, eine taste, arcade, reaktion, timing, hüte`
+
+### 7e. Nederlands (voor `gloop-nl.md`)
+Titel (42 tekens; namen in de winkel worden op 50 tekens afgekapt, dus dit past vrijwel zeker. Weigert het formulier hem toch: `Gloop: Hat Tower`):
+```
+Gloop's Hat Tower: stapelspel met één knop
+```
+Beschrijving:
+```
+Eén knop. 30 seconden. Een toren van hoeden, hoger dan je horloge.
+Een stapelspel met één knop, met Gloop in de hoofdrol.
+
+Een held valt de grot in. Druk op de knop rechtsboven als hij bij Gloops mond is. GULP! Zijn hoed vliegt op de toren op Gloops hoofd. Druk je precies op het goede moment, dan begin je een reeks.
+
+ZO SPEEL JE
+- Eén knop: de knop rechtsboven.
+- Een ronde duurt 30 seconden. Handig in de rij, bij de bushalte of tussen twee sets door.
+- Een held gemist? Hij loopt door ("bye!") en de volgende valt iets langzamer. Je raakt nooit een hoed kwijt.
+- Tien verschillende hoeden. De toren groeit tot boven je scherm uit.
+- Je beste score blijft op je horloge bewaard.
+
+GOED OM TE WETEN
+- Dit is een betaald spel. Je betaalt één keer in de Connect IQ Store. Geen advertenties, geen abonnement, niets om later te ontgrendelen.
+- Geen account, geen telefoonapp, geen internet, geen rechten nodig.
+- Het is een klein spel: één scherm, één spelvorm.
+- Het spel is in het Engels.
+
+HORLOGES
+Forerunner 55, 245, 255 en 265, fenix 7 en 7X, Venu 3, Venu 3S en Venu Sq 2. Er komen er meer. Nog geen Instinct.
+
+SUPPORT EN TERUGBETALEN
+Mail naar thijs@dortus.com met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Voor terugbetalen gelden de regels van de Connect IQ Store van Garmin: je kunt het spel tot 48 uur na aankoop teruggeven.
+```
+Wat is nieuw: `Eerste versie.`
+Trefwoorden (alleen als er een veld is): `stapelspel, toren, één knop, arcade, reactie, timing, hoeden`
+
+### 7f. Keuzes in de vertaling
+- "Het spel is in het Engels" / "Das Spiel ist auf Englisch" staat er alleen in het Duits en Nederlands, zoals bij Ebb: wie de tekst in zijn taal leest, verwacht anders een spel in zijn taal. GULP, bye! en PRESS blijven Engels, want zo staan ze op het scherm.
+- Duits "Taste" en "Display", Nederlands "knop": de woorden die Garmin in zijn eigen handleidingen gebruikt (GEZIEN door de controleur in de Duitse en Nederlandse handleidingen van de Forerunner 255 en de Venu 3 op www8.garmin.com). Garmin noemt de knop daar naar zijn naam (START op Forerunner en fenix, Aktionstaste of actieknop op de Venu); "rechtsboven" klopt op alle negen en is daarom de gewone omschrijving.
+- "Er geht weiter" / "hij loopt door" in plaats van "loopt weg": hij verlaat het beeld zonder te vallen; zo staat het in het Engels ("walks off").
+- De regel over Hats of the Fallen staat er in geen enkele taal in, tot de Steam-pagina openbaar is. Dan in het Duits `Gloop lebt auch in Hats of the Fallen, bald auf Steam.` en in het Nederlands `Gloop woont ook in Hats of the Fallen, binnenkort op Steam.` (na de lancering: `..., unserem Desktop-Spiel auf Steam.` / `..., ons desktopspel op Steam.`).
+
+### 7g. Advies voor na de upload (niet voor wo 18 nov)
+Joris' grootste les voor Ebb geldt ook voor Gloop: de nieuwe ademhalingsapps met 100+ draaien op mediaan 183 horloges (verhaal 14). Bij de stapelspellen is het net zo (GEZIEN ±14:00 UTC, veld `compatibleDeviceTypeIds`): *Tower Drop* 102 horloges, *Babel Tower* 60, *Prism Spire* 177, *Tower - Stacker Game* 178, *Stack* (10.000+) 269. Gloop staat op 9. *Tower Drop* en *Stack* hebben hun naam ook in 28 talen. Voor versie 1.1: eerst de kleine maten van de horloges die er al zijn (Forerunner 255S, 265S, fenix 7S), daarna meer. Staat als advies 41 in `commercie/adviezen.md`.
+
+### 7h. Nagekeken
+Controleur (16 nov ±14:10 UTC): akkoord mits. Moet-punten (titelnotities in 7d en 7e: namen in de winkel worden op 50 tekens afgekapt, dus 42 en 46 passen) verwerkt. Kan-punten verwerkt: Nederlandse zin over terugbetalen, "ontgrendelen", "Noch nicht für Instinct", "Smartphone-App", woordkeus Garmin GEZIEN, rechtzetting over *Stack* en de naam *Tower - Stacker Game*. Niet overgenomen: knopnamen tussen haakjes (maakt de tekst langer, "rechtsboven" klopt al overal) en kop HULP in plaats van SUPPORT (allebei goed, SUPPORT is gelijk aan Ebb).
