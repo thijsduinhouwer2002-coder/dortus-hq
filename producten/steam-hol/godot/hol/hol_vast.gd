@@ -263,13 +263,29 @@ static func is_vol(h) -> bool:
 # kristal; hangend: spinrag, vaandel), vast per kolomnummer en nooit twee keer hetzelfde na elkaar. Stutten blijven regelmatig.
 const LOS_SOORTEN := [0, 1, 2, 3, 4, 5, 6, 8]
 
-# Krijgt gangkolom k een los ding? Vast per kolom (hash), nooit twee kolommen naast elkaar, gemiddeld ±1 op 4.
+# Krijgt gangkolom k een los ding? Daan 16 nov 22:45 (moet): per drie tegels precies één los ding, op een wisselende plek
+# binnen die drie, nooit twee naast elkaar. Blokken van drie tellen vanaf de eerste tegel na de schacht.
 static func is_los(h, k: int) -> bool:
-	return _hh(h, k, 10) % 3 == 0 and _hh(h, k - 1, 10) % 3 != 0
+	var r: int = k - (h.ingang_kol + 1)
+	if r < 0:
+		return false
+	return r % 3 == los_plek(h, int(r / 3))
+
+# Plek (0, 1 of 2) van het losse ding in blok b. Stond het vorige op plek 2 en dit op 0, dan zouden ze naast elkaar
+# staan: dan plek 1. (Een vorige op plek 2 is nooit verschoven, dus dit hangt alleen van b en b - 1 af.)
+static func los_plek(h, b: int) -> int:
+	var p: int = _hh(h, b, 10) % 3
+	if p == 0 and b > 0 and _hh(h, b - 1, 10) % 3 == 2:
+		p = 1
+	return p
 
 # Soort van het losse ding op kolom k (index in DECO_GANG), zonder regels voor de plek. Hangend of niet ligt vast per kolom.
 static func los_soort(h, k: int) -> int:
 	return LOS_SOORTEN[_hh(h, k, 12) % LOS_SOORTEN.size()]
+
+# Mag op kolom k niets op de vloer (de held staat er na zijn val, of hij valt ernaast)? Dan hangt het losse ding.
+static func vloer_dicht(h, k: int) -> bool:
+	return h.vallen.has(k) or k == h.ingang_kol + 1 or h.vallen.has(k - 1) or h.vallen.has(k + 1)
 
 static func is_hangend(c: int) -> bool:
 	return c == 6 or c == 8
@@ -281,8 +297,10 @@ static func vol_vloer(h, k: int, vorige_soort: int) -> int:
 		return -1
 	if k >= h.schat_kol - VOL_TROON:   # stapel hoeden en Gloop, plus één tegel vrij ervoor (Daan 16 nov, regel c)
 		return -1
-	if not is_los(h, k) or is_hangend(los_soort(h, k)):
+	if not is_los(h, k):
 		return -1
+	if is_hangend(los_soort(h, k)) and not h.boven[k]:
+		return -1   # hangt aan het plafond (vol_plafond); onder een kamer is geen plafond, dan toch op de vloer
 	var hh: int = _hh(h, k, 12)
 	var c: int = VLOER_SOORTEN[hh % VLOER_SOORTEN.size()]
 	if c == vorige_soort:
@@ -297,10 +315,16 @@ static func vol_plafond(h, k: int, vorige_kol: int) -> int:
 	if h.boven[k] or k == h.ingang_kol + 1 or k >= h.schat_kol - VOL_TROON or k - vorige_kol < 2:
 		return -1
 	var bij_val: bool = h.vallen.has(k) or h.vallen.has(k - 1) or h.vallen.has(k + 1)
+	if is_los(h, k):
+		# het losse ding gaat voor op een stut (Daan 22:45: precies één per drie tegels); spinrag en vaandel hangen hooguit
+		# een derde van de gang (HANG_MAX), dus ook bij een val. Mag de vloer niet, dan hangt een vloersoort als spinrag of vaandel.
+		var s: int = los_soort(h, k)
+		if is_hangend(s):
+			return s
+		if vloer_dicht(h, k):
+			return 6 if _hh(h, k, 13) % 2 == 0 else 8
 	if _hh(h, k, 8) < 24 and not bij_val:
 		return 7
-	if is_los(h, k) and is_hangend(los_soort(h, k)):
-		return los_soort(h, k)   # spinrag en vaandel hangen hooguit een derde van de gang (HANG_MAX), dus ook bij een val
 	return -1
 
 static func _hh(h, k: int, y: int) -> int:
@@ -308,12 +332,14 @@ static func _hh(h, k: int, y: int) -> int:
 		return int(abs(sin(k * 12.9898 + y * 78.233) * 43758.5453)) % 97   # zelfde som hol.gd _hash (toetsen)
 	return h._hash(k, y)
 
-# Twee dingen in elke kamer boven de gang, naast het kistje (Mila 16 nov, punt 2): een rij open kamers (minstens twee
-# kolommen; kamer_los heeft zijn eigen paddenstoelen) krijgt er een rechts van de fakkel in kamer_begin en een links
-# van het kistje in kamer_eind. Geeft [naam, voetpunt] in spelpixels.
+# Dingen in de kamers boven de gang (Mila 16 nov punt 2; Daan 16 nov 22:45, moet: "losser"). Een rij open kamers
+# (minstens twee kolommen; kamer_los heeft zijn eigen paddenstoelen) krijgt 0, 1 of 2 dingen uit KAMER_SOORTEN: rechts
+# van de fakkel in kamer_begin en/of links van het kistje in kamer_eind. Ongeveer de helft leeg (3 op 4 na een kamer met
+# iets), nooit twee kamers na elkaar met dezelfde inrichting (dus ook nooit twee lege na elkaar). Geeft [naam, voetpunt].
 static func kamer_dingen(h, schat_3d: bool) -> Array:
 	var uit := []
 	var boven: Array = h.boven
+	var vorige := "begin"
 	var k := 0
 	while k < boven.size():
 		if not HOL3D._kamer_open(boven, k, h.ingang_kol, h.schat_kol, schat_3d):
@@ -327,10 +353,32 @@ static func kamer_dingen(h, schat_3d: bool) -> Array:
 		if b == a:
 			continue
 		var hh: int = _hh(h, a, 11)
+		var aantal := 0
+		if vorige == "" or (hh % 4 == 3):
+			aantal = 1 + _hh(h, a, 14) % 2
 		var s1: int = KAMER_SOORTEN[hh % KAMER_SOORTEN.size()]
-		var s2: int = KAMER_SOORTEN[(hh + 1 + int(hh / 7.0) % (KAMER_SOORTEN.size() - 1)) % KAMER_SOORTEN.size()]
-		uit.append([HOL3D.DECO_GANG[s1], Vector2(a * KOL + 10, KAMER_VLOER)])
-		uit.append([HOL3D.DECO_GANG[s2], Vector2(b * KOL, KAMER_VLOER)])
+		var s2: int = KAMER_SOORTEN[(hh + 1 + _hh(h, a, 15) % (KAMER_SOORTEN.size() - 1)) % KAMER_SOORTEN.size()]
+		var rechts: bool = _hh(h, a, 16) % 2 == 0   # bij één ding: true = links van het kistje (rechts in de kamer), false = rechts van de fakkel
+		var sleutel := ""
+		if aantal == 1:
+			sleutel = "%d%s" % [s1, "r" if rechts else "l"]
+			if sleutel == vorige:
+				s1 = KAMER_SOORTEN[(KAMER_SOORTEN.find(s1) + 1) % KAMER_SOORTEN.size()]
+				sleutel = "%d%s" % [s1, "r" if rechts else "l"]
+		elif aantal == 2:
+			sleutel = "%d-%d" % [s1, s2]
+			if sleutel == vorige:
+				s2 = KAMER_SOORTEN[(KAMER_SOORTEN.find(s2) + 1) % KAMER_SOORTEN.size()]
+				if s2 == s1:
+					s2 = KAMER_SOORTEN[(KAMER_SOORTEN.find(s2) + 1) % KAMER_SOORTEN.size()]
+				sleutel = "%d-%d" % [s1, s2]
+		vorige = sleutel
+		if aantal == 2 or (aantal == 1 and not rechts):
+			uit.append([HOL3D.DECO_GANG[s1], Vector2(a * KOL + 10, KAMER_VLOER)])
+		if aantal == 2:
+			uit.append([HOL3D.DECO_GANG[s2], Vector2(b * KOL, KAMER_VLOER)])
+		elif aantal == 1 and rechts:
+			uit.append([HOL3D.DECO_GANG[s1], Vector2(b * KOL, KAMER_VLOER)])
 	return uit
 
 # Het hele volle gangstuk als lijst [kolom, index in DECO_GANG, hangend], van links naar rechts (Daan 16 nov, "een vol hol"):
