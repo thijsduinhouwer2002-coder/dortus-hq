@@ -1,6 +1,6 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 8, Split 3D Print van AUER, gratis variant op de winkelpagina, klaar 16 nov 2026 ±08:45 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of het verschil tussen Split 3D Print (400+) en Split It (10+) en CutLink (30+): wat de late splitsers missen. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel), de "Creator 4 Creator"-interviews van Superhive.
+bezig: verhaal 9, de late splitsers (Split It, CutLink) naast Split 3D Print, CatPin en Cleave: wat de achterblijvers missen, start 16 nov 2026 ±08:51 NL-tijd.
 
 Nieuwste bovenaan.
 
