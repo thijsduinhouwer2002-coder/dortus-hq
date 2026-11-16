@@ -1,15 +1,15 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794829611
+HOL zaad 1794831997
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Pim brought a torch. And hope.
-HOL begin: vallen (Pim)
-HOL held binnen: Pim
+HOL kroniek 4.0 (wacht 0.0): Bram climbs into your hole.
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
 HOL demo voorbij na 10 s speeltijd
 HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL begin: opgegeten (Wout)
-HOL held binnen: Wout
-HOL kroniek 12.6 (wacht 1.6): Wout is here for your gold.
+HOL begin: opgegeten (Tibbe)
+HOL held binnen: Tibbe
+HOL kroniek 12.5 (wacht 2.5): Tibbe brought a torch. And hope.
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
