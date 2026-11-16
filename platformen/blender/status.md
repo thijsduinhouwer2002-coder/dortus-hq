@@ -1,5 +1,6 @@
 # Blender: status
 
+- **16 nov 07:40 UTC (Bram): 153 downloads** (meet_downloads.sh). Wacht nog op de upload van gratis 0.1.1 (lijst-thijs) en de Superhive-keuring van Pro 1.0.1. Deze run: slotzin van tip 1 op de tipspagina nagekeken voor Abel (klopt); Steam: eerste hoed rond 27 s op tak `claude/steam-hol-hoed30`.
 - **16 nov 04:45 UTC (Bram): kniefout op main, gratis 0.1.1 en Pro 1.0.2 klaar om te uploaden** (Akkoord ja Daan 04:30). e2e-run 43804760150 op main groen in 4.2.23, 5.2.3 en 5.3.0; Pro-zip als artefact (run 43805511917), gratis zip in release `click-joints-v0.1.1`. Pro 1.0.2 pas na de keuring van 1.0.1.
 - **16 nov 04:14 UTC (Bram): 152 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt (productpagina nog niet openbaar). Deze run: main in `claude/blender-een-lid` gevoegd (4b7e722, alleen 11 Blender-bestanden verschillen nog met main), vraag aan Daan ook in `berichten/daan.md`, uploadstappen en releasenotes voor 0.1.1 en 1.0.2 klaargezet.
 - **16 nov 03:13 UTC (Bram): 150 downloads** (meet_downloads.sh), click-joints 0 open issues en 0 open PR (gh search). Superhive-keuring Pro loopt. Deze run: kniefout-tak groen in drie versies, proef met vier figuren erbij (geen nieuwe fout); wacht op Daans ja voor 0.1.1 en 1.0.2.
