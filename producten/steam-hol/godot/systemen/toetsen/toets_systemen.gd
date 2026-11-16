@@ -90,8 +90,8 @@ func _init() -> void:
 	var HN = load("res://systemen/hol_niveau.gd")
 	ok(HN.niveau(0) == 1 and HN.niveau(2) == 1 and HN.niveau(3) == 2 and HN.niveau(12) == 5 and HN.niveau(88) == 12, "hol-niveau op de drempels")
 	ok(HN.niveau(100000) == 12 and HN.nog(100000) == 0, "demo stopt op hol-niveau 12")
-	ok(HN.hover(0) == "Level 1: Gloop and the pit. 3 more heroes.", "hover niveau 1: " + HN.hover(0))
-	ok(HN.hover(11) == "Level 4: a bat moves in. 1 more hero.", "hover enkelvoud: " + HN.hover(11))
+	ok(HN.hover(0) == "Level 1: Gloop and the pit. 3 heroes to go.", "hover niveau 1: " + HN.hover(0))
+	ok(HN.hover(11) == "Level 4: a bat moves in. 1 hero to go.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
 	ok(absf(HN.deel(6) - 0.5) < 0.01, "balkje halverwege tussen 5 en 7")
 	ok(HN.niveau(4) == 2 and HN.niveau(5) == 3 and HN.niveau(7) == 4 and HN.niveau(16) == 5 and HN.niveau(17) == 6, "drempels hol 3, 4 en 6 op 5 / 7 / 17 (Bram 18:50, speeltestbuild)")
@@ -120,10 +120,11 @@ func _init() -> void:
 			lang_d += 1
 	ok(lang_d == 0, "doelregel altijd binnen 34 tekens")
 	var lang_h := 0
-	for f_ in HN.DREMPEL:
-		if HN.hover(f_).length() > 42:
+	for f_ in range(0, 90):
+		if HN.hover(f_).length() > HN.HOVER_MAX:
 			lang_h += 1
-	ok(lang_h == 0, "hover hooguit 42 tekens")
+	ok(lang_h == 0 and HN.HOVER_MAX == 43, "hover hooguit 43 tekens (Daan 18:40)")
+	ok(HN.hover(25) == "Level 7: the Rolling Stone. 6 heroes to go." and HN.hover(88) == "Level 12: the Hat Wall.", "hover langste geval en laatste niveau zonder staart")
 	# optocht na weg zijn (Sanne 16 nov 14:50): 2 naar 12 is één optocht, geen tien feestjes
 	ok(HN.weg_regel(3, 88) == "Grew 10 levels while you were away." and HN.weg_regel(3, 88).length() == 35, "weg-regel 10 niveaus, 35 tekens")
 	ok(HN.weg_regel(10, 12) == "Hole level 5: the Thief." and HN.weg_regel(5, 5) == "", "weg-regel bij één niveau de gewone regel, bij geen niveau leeg")

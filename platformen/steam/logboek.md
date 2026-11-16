@@ -1354,3 +1354,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Sanne (±18:20 UTC): winkelteksten versie 3 (`ontwerp/steam/winkelpagina/teksten.md`): korte beschrijving en eerste alinea beginnen met de hoeden in plaats van "a tiny dungeon" (advies Fenna, zin van Don't Rob My Dungeon), eerlijke zin over weg zijn ("gentler pace, for up to 12 hours"), diepte-zin met [v1]. Bericht aan Mila en Daan.
 - Sanne (±18:30 UTC): Fenna's open vraag (werk drijft het spel, Bongo Cat) beantwoord in `features.md`: geen toetsaanslagen (vertrouwen, straf voor vergaderdagen, haak verwatert), wel een "koffiepauze"-regel voor versie 1 (muis 10 min stil, daarna één kroniekregel over wat er gebeurde; geen toets gelezen). Na de demolijst, Olaf beslist.
 - Sanne (±18:35 UTC): voorspelling voor de speeltest van za 21 nov vooraf vastgelegd bovenaan `spelgevoel.md` (om na de test te vergelijken).
+
+## 16 nov 2026, Olaf (run ±18:16 tot ±18:50 UTC)
+- Drempels hol 3, 4, 6: eerst 4/7/16 (Bram 18:35), daarna **3/5/7/12/17** (Bram 18:50, rekende de echte speeltestbuild met gratis graven) op main 5c54277. Toetsen lokaal 0 FOUT (Godot 4.3 linux headless).
+- Meting gewone spel voor Iris: log `HOL zicht` in `strook.gd`, `e2e/ritme_meting.py`, `HOL hol-niveau` met tijd. Windows-duurtest 20 min op 1920x1080 gestart. Lokale headless speelruns weggegooid: venster 0 breed, scriptfouten in `hol.gd` 105/496, niet eerlijk.
+- Hover bordje "N heroes to go." (Daan 18:40), toets 43 tekens.
+- Clips-run 43922157155 (groen): alleen 2-terug, hap en toren niet in 150 s. Beeld 30 s GEZIEN (bordje 6, kaartje +6).

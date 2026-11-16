@@ -30,5 +30,5 @@ Terug naar [LEESMIJ](LEESMIJ.md). Het ontwerp van Hats staat in [features.md](..
 9. **Een kort moment tussendoor is genoeg.** Wat spelers prijzen: "entertaining enough to spend 5 minutes redecorating your island" (Ropuka's, 341 u). Het bezoek hoeft niet lang, wel elke keer iets.
    Bron: [diepte-toppers.md](../../succes/diepte-toppers.md). GEZIEN.
 
-## Open vraag (geen les, wel het noemen waard)
-De sterkste haken laten het werk van de speler het spel aandrijven: typen bij Little Writer en Bongo Cat. Bij Hats loopt het hol door terwijl je werkt, maar het werk zelf doet niets. Of dat uitmaakt is een GOK. Bron: [verhaal 13](../../succes/verhalen-spellen.md).
+## Vraag beantwoord: moet ons werk het spel aandrijven?
+De sterkste haken laten het werk van de speler het spel aandrijven: typen bij Little Writer en Bongo Cat ([verhaal 13](../../succes/verhalen-spellen.md)). Besluit Sanne (16 nov): geen toetsaanslagen tellen (vertrouwen, en een dag zonder typen mag geen straf zijn), wel een koffiepauze-regel na 10 minuten stilstaande muis, na de demolijst. Zie [features.md](../features.md), kopje "Onderzocht: moet ons werk het spel aandrijven".
