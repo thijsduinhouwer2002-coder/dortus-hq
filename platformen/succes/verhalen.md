@@ -1,8 +1,56 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: BashSupport Pro, klaar 16 nov 2026 ±05:50 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of een tweede JetBrains-maker met een kleine betaalde taalplugin (zoals BatchCraft of de Flexible-reeks) om te zien wat een nieuwe betaalde plugin zonder eigen publiek haalt. Spoor voor later: TrustMRR toont meer makers met omzet uit Stripe (bijvoorbeeld "3D-AGENT AI for Blender", $7,3k in 30 dagen, nog niet nagekeken).
+bezig: niets (laatste: TrueDepth, klaar 16 nov 2026 ±07:00 NL-tijd). Volgende: een Gumroad-verkoper van Blender-add-ons met openbare cijfers, of een tweede JetBrains-maker met een kleine betaalde taalplugin (zoals BatchCraft of de Flexible-reeks) om te zien wat een nieuwe betaalde plugin zonder eigen publiek haalt. Spoor voor later: TrustMRR toont meer makers met omzet uit Stripe (bijvoorbeeld "3D-AGENT AI for Blender", $7,3k in 30 dagen, nog niet nagekeken).
 
 Nieuwste bovenaan.
+
+---
+
+## 6. TrueDepth (Lewis Martin, solo, mogelijk met een helper, AI-dieptekaart naar 3D in Blender, Superhive)
+
+Onderzocht 16 nov 2026, run 6. Waarom dit verhaal: TrueDepth is in de lijst van Olaf (8 nov) het best verkochte product met "3d print" op Superhive: 6900+ verkopen in bijna twee jaar. Het is een kleine maker die een gratis AI-model (Depth Anything) in één klik in Blender zet, terwijl er gratis wegen bestaan. Dat lijkt op Click Joints Pro: iets wat je met de hand of gratis ook kunt, maar sneller en binnen Blender. Geen cursusverkoper: hij verkoopt add-ons, geen cursus.
+
+### Bronnen
+- Superhive, met curl gelezen 16 nov 2026: productpagina https://superhivemarket.com/products/truedepth , alle 57 reviews (https://superhivemarket.com/products/truedepth/ratings?page=1 tot 6), zijn winkel https://superhivemarket.com/creators/lewis-martin en de pagina's van al zijn 15 producten en bundels (verkoopblokken en "published").
+- Eerdere meting Olaf, 8 nov: `platformen/blender-2/data/superhive-print-2026-11-08.jsonl` (TrueDepth toen al 6900+, prijs $25, 57 reviews).
+- YouTube, kanaalpagina's met curl (aantallen afgerond zoals YouTube ze toont), 16 nov: zijn eigen kanaal https://www.youtube.com/@TheBlenderAcademy69 , Defonten https://www.youtube.com/@defonten , Gleb Alexandrov https://www.youtube.com/@GlebAlexandrov , 247 Creative Secrets https://www.youtube.com/@247creativesecrets . Titels via de oEmbed van YouTube.
+- Creative Shrimp (Gleb Alexandrov), "True Depth Blender Add-on: A Complete Guide (V3)", 13 aug 2026: https://www.creativeshrimp.com/true-depth-blender-add-on-the-complete-guide-v3.html (links naar Superhive met `?ref=88`, een partnerlink).
+- BlenderArtists, aankondiging V3 door Defonten, 25 jul 2026: https://blenderartists.org/t/1648658 (206 keer bekeken, 0 reacties, GEZIEN via de JSON van het forum).
+- Een open kloon op GitHub die zegt de werkwijze van TrueDepth na te volgen: https://github.com/saranunt-0/2D-to-3D-TrueDepth
+- Niet gelukt: archive.org (verbinding geweigerd vanuit de cloud), YouTube-videopagina's (geen beschrijving of datum te lezen), X. Geen interview, devlog of omzetcijfer van de maker gevonden (zoektocht 16 nov). Hoe hij de eerste kopers kreeg zegt hij nergens; wat hieronder staat over kanalen komt uit de reviews en de videocijfers.
+
+### Cijfers
+- **TrueDepth: 6900+ verkopen, 57 reviews (81% vijf sterren), "published almost 2 years ago"**, dus rond eind 2024 (GEZIEN 16 nov). Op 8 nov ook al 6900+ (GEZIEN Olaf), dus ±290 per maand gemiddeld over de hele looptijd (rekensom, Superhive telt in blokken).
+- **Eén review per ±121 verkopen** (57 op 6900+, GEZIEN). Bij Kambari zagen we 1 op 50 tot 140; het past dus.
+- **Prijs (GEZIEN 16 nov):** 1 persoon $25, 3 plaatsen $35, 10 plaatsen $85. Vóór V3 was het $15: twee reviews van 10 en 6 maanden geleden noemen "$15" (GEZIEN). Bij de grote gratis update V3 (zomer 2026) ging de prijs dus 67% omhoog, terwijl bestaande kopers alles gratis kregen.
+- **Omzet (GOK):** 6900 verkopen grotendeels tegen $15, met korting en bundels, is ruwweg $90.000 tot $110.000 bruto in twee jaar; wat de maker daarvan houdt na het deel van Superhive weet ik niet. Hij noemt zelf alleen "Total donated: $1,571" aan de Blender Foundation (GEZIEN).
+- **Zijn andere producten (GEZIEN 16 nov):** CinePack (camerabewegingen, ±6 jaar) 4000+, The Particle Library (±4 jaar) 1100+, True Fire (±5 jaar) 300+, PocketCam (27 dagen, $0 tot $69) 100+, OpacityFlow (3 maanden) 70+. Plus negen bundels, waarvan twee **met add-ons van andere makers**: Light Wrangler 3 + CinePack 100+ en Lens Sim + CinePack 100+. Bundels met alleen zijn eigen spullen: 20+ tot 200+.
+- **Zijn eigen YouTube-kanaal: ±1.000 abonnees, 27 video's** (GEZIEN). TrueDepth-video's daar: 31.000 (installatie en demo, ±1 jaar), 27.000, 8.800 (V3), 2.800 en 1.200 weergaven.
+- **Video's van anderen over TrueDepth (GEZIEN 16 nov):** Defonten (10.900 abonnees) maakte er 8, samen ±72.000 weergaven, waarvan "How to Install and Use TrueDepth V3" 36.000 en een eerdere installatievideo 20.000. Gleb Alexandrov (242.000 abonnees) "True Depth 3.0 for Blender - Complete Guide" 25.000, plus eerder een bas-reliëfvideo met TrueDepth en een geschreven gids met partnerlink. 247 Creative Secrets 1.600. Samen dus meer weergaven dan op zijn eigen kanaal.
+
+### Wat hij deed, in volgorde (voor zover te zien)
+1. **Eerst een andere niche, jaren eerder.** CinePack (2020) verkocht 4000+ aan mensen die filmische camerabewegingen willen. Zijn kanaal bleef klein; de best bekeken video is die van CinePack (33.000).
+2. **Eind 2024: TrueDepth voor $15**, op het moment dat open dieptemodellen (Depth Anything V2) goed genoeg werden. De belofte in één regel: "Turn any image ... into 3D, with AI, right inside Blender", lokaal, zonder abonnement. Kopers vergelijken het in hun reviews zelf met de duurdere of omslachtige weg: VistaSculpt (abonnement, alleen Windows), Nomad Sculpt, ComfyUI, de Displace-modifier van Blender (GEZIEN in reviews).
+3. **Andere makers maakten de uitleg.** Defonten maakte vanaf ±jan 2026 installatie- en gebruiksvideo's en kondigde V3 aan op BlenderArtists alsof het zijn eigen product is ("the latest update ... is officially here"). Of hij betaald wordt of meewerkt weet ik niet (GOK; een review noemt "the creator and maintainer", en Martin schrijft "we"). Gleb Alexandrov schreef een gids met een partnerlink van Superhive (`?ref=88`, GEZIEN): hij verdient dus aan elke verkoop via zijn link. Twee kopers schrijven hoe ze het vonden: "after seeing a random YouTube video about it" en "by chance, I came across a random blog that mentioned this Blender add-on" (GEZIEN).
+4. **Installeren was het grootste probleem.** Van de 13 kritische reviews die ik las gaan er 5 over installeren of afhankelijkheden (de sterren per review staan niet in de tekst), en ook veel vijfsterrenreviews noemen "had an issue with installation ... solved quickly" (GEZIEN). In V3 bouwde hij het opnieuw: het AI-model downloaden in Blender met een voortgangsbalk, modellen apart bewaard zodat een update ze niet wist, en "self-healing settings". De twee best bekeken video's over het product (31.000 en 36.000) zijn installatievideo's.
+5. **Zomer 2026: V3 gratis voor alle kopers, prijs naar $25**, met drie nieuwe modi, waaronder een paneel voor 3D-printen (waterdicht model, maat in mm, STL voor Bambu Studio, PrusaSlicer en Cura). Zo kwam hij ook in de printhoek, waar wij zitten. Kopers zeiden het zelf: "BOOM new features all over the place ... With Superhive and some authors trying to reduce support this was an amazing bonus" (GEZIEN). Wachten kostte wel: "seriously where is update in this 5 months?" (GEZIEN).
+6. **Antwoorden op bijna elke review, ook de slechte**, meestal met uitleg en een vraag om de afbeelding op te sturen. Op "can be easily done for free using ComfyUI" antwoordt hij: "The value here is the Integration Directly within Blender, no need to leave the program." Soms kortaf: "Thousands of others have had no issue installing this" (GEZIEN).
+7. **Nu: steeds nieuwe kleine add-ons en bundels.** PocketCam (okt 2026) met een gratis klasse ($0) naast betaalde, 100+ in 27 dagen; bundels met zijn eigen producten en met die van andere makers.
+
+### Drie lessen
+1. **De grootste verkoper in onze hoek kreeg zijn bereik via de video's van anderen, niet via zijn eigen kanaal.** Zijn kanaal heeft ±1.000 abonnees; video's van Defonten en Gleb Alexandrov over TrueDepth haalden samen ±97.000 weergaven, en een grote maker linkte met een partnerlink van Superhive. Dit is de derde keer dat we dit zien, na McGybeer (filmpjes van printerbezitters en Snapmaker, Joris) en de taakbalkspellen (verzamelvideo's van anderen, Fenna).
+2. **"Hoe installeer en gebruik je X" is de video die bekeken wordt, en installeren is waar de slechte reviews vandaan komen.** De twee best bekeken TrueDepth-video's zijn installatievideo's; ruim een derde van de kritische reviews gaat over installeren. Hij loste het op in het product (download in Blender, zelfherstel) en niet alleen met uitleg.
+3. **Een grote gratis update maakt van bestaande kopers aanbevelers en rechtvaardigt een hogere prijs.** Van $15 naar $25 bij V3, met plaatsen voor 3 en 10 mensen, en bestaande kopers kregen alles gratis. Bij elke vraag "kan dit niet gratis?" noemt hij één ding: het zit in Blender, in één klik. Hetzelfde verhaal als Click Joints Pro tegenover voegen met de hand.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Zijn product heeft een "wauw"-beeld (een foto wordt 3D) dat zich vanzelf laat filmen; een kogelgewricht is minder spectaculair, tot je de figuur ziet bewegen.
+- Hij had al zes jaar een winkel met 4000+ kopers van CinePack en dus een naam op Superhive toen TrueDepth uitkwam. Hoeveel van de eerste kopers daarvandaan kwamen weet ik niet.
+- Of Defonten betaald werd of meebouwt, weet ik niet. Als hij meebouwt, is "anderen maakten de video's" minder sterk dan het lijkt.
+- De verkoopblokken op Superhive geven geen tijdlijn; ik weet niet hoe snel de eerste 100 kwamen.
+
+### Voorstel voor Dortus deze week
+**Wie:** Chris maakt het klaar (`commercie/blender-click-joints/`), Hans beslist, Thijs verstuurt; Bram levert één installatie- en gebruiksvideo.
+**Wat:** (1) Zodra Click Joints Pro live staat: een korte mail aan twee of drie middelgrote Blender-YouTubers die al uitlegvideo's maken over betaalde add-ons of 3D-printen (zoals Defonten, 10.900 abonnees, 36.000 weergaven op één installatievideo), met een gratis Studio-licentie en de vraag of ze er een eerlijke video over willen maken, met hun eigen partnerlink van Superhive als ze die hebben. Dat staat nu als plek 9 in `verspreiding.md` met "na dag 14, besluit Hans nodig"; dit verhaal is het bewijs om dat naar de lanceerweek te halen. (2) Bram maakt een video "How to install and use Click Joints Pro" van 2 tot 4 minuten (installeren, een figuur, kogel en scharnier, printen), naast de demofilm. Kost geen geld; de licenties zijn gratis voor ons.
 
 ---
 
