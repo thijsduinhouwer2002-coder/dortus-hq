@@ -51,6 +51,7 @@ Dit zijn feiten die kloppen en die Thijs in zijn eigen woorden kan gebruiken. De
 | Z2 | "Your hole keeps going while you're away, at a gentler pace, for up to 12 hours." Niet "fully idle" of "earns while you sleep" zonder die toevoeging. | Sanne, kwart snelheid, plafond 12 uur | CONCEPT |
 | Z3 | Haak voorop: "Every hero who falls in leaves a hat on Gloop's head; the ones who get away come back with a grudge." Niet beginnen met "a tiny dungeon" (zin van Don't Rob My Dungeon). | `platformen/succes/onderscheid-hats.md`, `marketing/teksten-makers.md` regel 1 | CONCEPT |
 | Z4 | "Silent, light on your CPU, and it never punishes you for looking away." Alleen zolang het CPU-getal van Olaf dit waarmaakt. | `marketing/teksten-makers.md` | CONCEPT |
+| Z5 | **Korte beschrijving** (vorm van de winnaars, ±35 woorden): "An idle game that sits on top of your taskbar while you work. Every hero who falls into Gloop's traps leaves a hat on his head, and the ones who get away come back with a grudge." Eerst soort en plek, dan de haak; "idle" in zin 1, niet "dungeon" voorop. | `marketing/winkeltekst.md`: 10 van 13 winnaars noemen "idle" (stille demo's 4 van 20), 8 van 13 de vorm "sits on [plek]" | CONCEPT |
 
 ## Mails die Thijs als zichzelf verstuurt
 Mails aan makers, pers en bundelpartners zijn geen tekst op Steam, maar Thijs verstuurt ze onder zijn naam. Ze staan als voorstel in `marketing/teksten-makers.md`, `marketing/pers.md` en `marketing/bundels.md`; Thijs past ze aan in eigen woorden voor hij ze verstuurt. Ze gaan pas weg als de pagina live is (±8 dec).
