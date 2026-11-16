@@ -233,3 +233,18 @@ Rij: `vergelijk-kerkerspellen-klein.png`, op het blauw van Steam, boven op 184 b
 - **Waar het lijkt:** Don't Rob My Dungeon heeft ook een monster, een goudberg en een held. Wat alleen wij laten zien is de helm van de held op het monster; die moet dus groot blijven in klein en header (staat er nu goed). Work From Dungeon heeft een heksenhoed: geen reden om de onze weg te halen, in 3D lijkt hij er niet op.
 - **Kan:** "OF THE FALLEN" is op 120 net te lezen; groter maken kost ruimte voor Gloop, dus laten zo. De titel HATS draagt het.
 - Besluit: geen moet. De capsule mag zo naar wo 18 nov.
+
+## Keuring 10 (teksten versie 3 van Sanne), 16 nov 2026 ±18:35 UTC
+
+Bekeken: `teksten.md` sectie 2 en 3 (versie 3), `trailer.md` draaiboek, en de spelteksten in `kroniek_regels.gd`, `boek.gd` en `kroniek.gd`. Controleur (Agent) las mee.
+
+**Akkoord: ja 16 nov voor de teksten, met drie moet-punten** (klein, alleen woorden). Waarom ja: de eerste woorden zijn nu wat alleen wij hebben (Gloop draagt hun hoeden), niet meer bijna de zin van Don't Rob My Dungeon. De zin over weg zijn is eerlijk en zonder strafwoord. 277 tekens, nageteld.
+
+Moet:
+1. Korte beschrijving: "Gloop the slime" wordt **"Gloop the Slime"** (zo staat hij in de lange beschrijving en in het spel).
+2. Korte beschrijving: "on top of your taskbar" wordt **"right above your taskbar"** (280 tekens). "On top of" leest als over de taakbalk heen; overal elders staat "above".
+3. Lange beschrijving: "Flee three times and he becomes your Archenemy." wordt **"A hero who flees three times becomes your nemesis."** Nu lijkt "he" de bard uit de zin ervoor, en het spel zegt overal "nemesis" ("Your nemesis Bram has arrived.", "New nemesis in the book"). De koper moet in het spel hetzelfde woord terugzien.
+
+**Trailer 3 tot 6 s (vraag van Sanne):** niet "He wears their hats.", wel **"Right above your taskbar."** Waarom: op 3 tot 6 s zoomt het beeld uit naar het bureaublad, dus de tekst moet zeggen wáár; de hoed die op Gloop landt zag je op 0 tot 3 s al, die zin zou dat alleen herhalen. "A tiny dungeon" gaat zo ook uit de trailer. De vaste ondertitel in sectie 1 van `teksten.md` gaat mee (anders zijn er twee waarheden); website en andere plekken passen we aan als de winkelpagina vaststaat.
+
+**Trailer, twee dingen die niet uit het spel komen (aan Mila, eigenaar trailer):** 18 tot 24 s "Fenna the Limp" bestaat niet; het spel kent Spooked, Lucky, Twice-Fled, Thrice-Fled en Hoard-Toucher (`kroniek.gd`), dus bijvoorbeeld "Fenna the Spooked". 24 tot 30 s: Big Gloop is een upgrade van Gloop, geen nieuwe put.
