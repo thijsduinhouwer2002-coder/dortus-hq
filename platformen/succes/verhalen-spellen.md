@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (laatste: verhaal 2 Desktop Heroes naast Deskrawl, klaar 16 nov 2026; volgende run: hoe makers het Desktop Companion Fest gebruikten)
+bezig: verhaal 3, hoe makers het Desktop Companion Fest (of eerdere themafestivals voor idle en taakbalk) gebruikten, Fenna 16 nov 2026
 
 Nieuwste bovenaan.
 
