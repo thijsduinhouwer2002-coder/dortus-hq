@@ -174,13 +174,10 @@ class SpelView extends WatchUi.View {
 
         if (spel.toestand == Regel.KLAAR) {
             // Titelplaatje van Mila ("GLOOP / HAT TOWER") in plaats van het dunne systeemfont:
-            // bovenkant op 0,08 van de hoogte (anker uit de kit). Op ronde schermen 0,07 van de breedte
-            // naar links: in het midden raakte "HAT TOWER" het woord GULP van de knophint (gezien op
-            // FR255 en Venu 3S, run 43820999649).
-            var tx = cx - m[32] / 2;
-            if (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND) {
-                tx -= (w * 0.07).toNumber();
-            }
+            // bovenkant op 0,08 van de hoogte (anker uit de kit), en 0,07 van de breedte naar links:
+            // in het midden raakte "HAT TOWER" het woord GULP van de knophint (gezien op FR255,
+            // Venu 3S en Venu Sq 2, run 43820999649).
+            var tx = cx - m[32] / 2 - (w * 0.07).toNumber();
             dc.drawBitmap(tx, (h * 0.08).toNumber(), pl[16]);
             tekenOnderregel(dc, w, h, "START = GULP");
             tekenKnopHint(dc, w, h);
