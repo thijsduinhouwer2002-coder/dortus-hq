@@ -8,10 +8,11 @@ Ruwe lijst: `data/betaald-naast-gratis-superhive-2026-11-16.csv`.
 1. **Bij de toppers is een gratis versie zeldzaam.** Van de 150 best verkopende add-ons op Superhive (lijst van 8 nov, opnieuw gelezen op 16 nov) hebben er maar 15 iets gratis ernaast (precies de gevraagde 15), en daarvan zijn er 3 alleen een proefbestand of kijkversie zonder werkende add-on (GEZIEN). De rest verkoopt zonder gratis versie. Gratis naast betaald is dus geen voorwaarde om te verkopen; het is een manier om gevonden te worden.
 2. **Het patroon bij wie het wel doet: gratis is een compleet, klein gereedschap; betaald is de hele klus, voor wie er werk mee maakt.** Wat achter betalen zit, in volgorde van hoe vaak ik het zag:
    - **meer inhoud** (meer lenzen, presets, assets, riggen): Lens Sim, Easy Fog 2, BagaPie, Urbaniac, RBC (5 van de 12 toppers met een echte gratis versie);
-   - **de hele werkwijze, niet één stap** (zelf maken in plaats van alleen plaatsen, bulk, fabriek): KIT OPS, RBC, Audio Trigger (3);
+   - **de hele werkwijze, niet één stap** (zelf maken in plaats van alleen plaatsen, bulk, fabriek): KIT OPS, RBC (2 van de 12; Audio Trigger, buiten de top 150, doet het ook).
+   Eerlijk: "meer inhoud" en "alleen steunen" komen even vaak voor (elk 5). Bijna de helft van de toppers met een gratis versie geeft dus alles weg en leeft van steun en gemak; FLIP Fluids (demo) valt in geen groep. Het patroon "betaald = de hele klus" geldt voor de makers die wel iets achterhouden;
    - **niets extra, alleen steunen of gemak** (open bron, betaald is hetzelfde of alleen een label weg): Gaffer, PowerSave, Serpens, Anti-Seam, Poly Haven (5);
    - **licentie voor werk dat geld oplevert of voor een team**: bijna allemaal, als tweede trap (Easy Fog 2 $29,99 tegen $59,99 commercieel, AutoCam $29 tegen $129 voor 5 plaatsen).
-3. **Voor ons:** Click Joints Pro op $12 met alleen het scharnier is dun naast Cleave ($23 tot $28, pennen, magneten, kogels en zelf knippunten zoeken, 100+ verkopen in 2 maanden). $12 is te verdedigen als instapprijs, niet als eindprijs. Met 1.1 "Rig to Figure" (hele figuur in één keer, bereik uit de rig, spelingsproef) is $19 te verdedigen (GOK). Ebb op $4,99 is te duur voor wat de gratis apps al doen; de echte reden om te betalen is de voortgang over weken, en die moet bovenaan. Bison & Flex volgt al het patroon dat op JetBrains werkt (alles in één bestand gratis, over bestanden heen betaald).
+3. **Voor ons:** Click Joints Pro op $12 met alleen het scharnier is dun naast Cleave ($23 tot $28, knippen met pennen, magneten en kogels volgens de hoofdchat (GEZIEN 15 nov), zoekt zelf knippunten; 100+ verkopen in 2 maanden). $12 is te verdedigen als instapprijs, niet als eindprijs. Met 1.1 "Rig to Figure" (hele figuur in één keer, bereik uit de rig, spelingsproef) is $19 te verdedigen (GOK). Ebb op $4,99 is te duur voor wat de gratis apps al doen; de echte reden om te betalen is de voortgang over weken, en die moet bovenaan. Bison & Flex volgt al het patroon dat op JetBrains werkt (alles in één bestand gratis, over bestanden heen betaald).
 
 ## 1. Superhive: toppers met een gratis versie
 
@@ -44,7 +45,7 @@ Alles GEZIEN op de Superhive-pagina's (16 nov), Lite-downloads op extensions.ble
 **Wat niet te meten was:** hoeveel mensen van gratis naar betaald gaan. Superhive toont naast "Sales" ook "Downloads", maar dat getal staat ook bij add-ons zonder gratis variant (Auto-Rig Pro 93.900+), dus het telt niet alleen gratis downloads (GEZIEN). Geen omzetting uit af te leiden.
 
 ### Het patroon in vier regels (GOK, uit de tabel)
-1. **Gratis moet op zichzelf af zijn.** KIT OPS, BagaPie, AutoCam en Audio Trigger geven een gereedschap dat één ding helemaal doet. Niemand geeft een kapotte of half werkende versie weg.
+1. **Gratis moet op zichzelf af zijn.** KIT OPS, BagaPie, AutoCam en Audio Trigger geven een gereedschap dat één ding helemaal doet. Niemand geeft een kapotte versie weg; wel soms een beperkte (Lens Sim met watermerk, RBC met 1 rig).
 2. **Betaald = de klus van begin tot eind of de grote voorraad.** De vraag is steeds: wie hier werk mee maakt, wil dit sneller of groter. Eén extra functie ernaast (zoals bij ons het scharnier) zie ik bij geen enkele topper als hele reden.
 3. **Het verschil staat letterlijk op de pagina, als twee varianten met elk één zin** ("Free: 1 Rig, Type: Car, Limited..."; "Everything in Lite, plus real tracks"). Superhive toont varianten als knoppen met prijs; de koper ziet het verschil zonder te zoeken.
 4. **Een tweede trap voor werk en teams** (commercieel, studio 5 plaatsen) brengt extra geld zonder extra bouwen. Wij hebben die al (Studio $45).
@@ -62,11 +63,11 @@ Bron: `platformen/blender/superhive-pagina.md` (winkeltekst Pro 1.0.1 en 1.0.2),
 | Afstandscontrole tussen gewrichten | nee | ja |
 | Printerprofielen met testkaartje, alle ledematen in één keer, magneetgaten | nee | **nog niet gebouwd** (stond in het ontwerp als Pro) |
 
-**Naast de concurrenten (GEZIEN door Ruben, 16 nov):** Cleave $23 tot $28 (pennen, magneten, kogels, zoekt zelf knippunten bij nek, schouders, knieën; 100+ in 2 maanden), Cut Flex $34,99 (gewricht per lichaamsdeel, 10+ in 26 dagen, alleen Windows), JointLab $65 (20+).
+**Naast de concurrenten (GEZIEN door Ruben, 16 nov, en de hoofdchat, 15 nov):** Cleave $23 tot $28 (volgens de hoofdchat knippen met pennen, magneten en kogels; volgens Ruben als bewegend gewricht alleen een kogel sinds 1.6, geen eindstop; zoekt zelf knippunten bij nek, schouders, knieën; 100+ in 2 maanden), Cut Flex $34,99 (gewricht per lichaamsdeel, 10+ in 26 dagen, alleen Windows), JointLab $65 (20+).
 
 **Is $12 nu te verdedigen? Als instap ja, als blijvende prijs nee (GOK).**
 - Voor: onder Cleave en Cut Flex, en het scharnier met eindstop en bereik in graden heeft niemand anders (Ruben). Wie knieën print die niet achterover mogen klappen, krijgt iets wat nergens te koop is.
-- Tegen: volgens het patroon hierboven is één extra gewrichtsoort geen "hele klus". De gratis versie doet al het meeste (kogel, pen, kleur, graden, export). Een koper die Cleave ernaast ziet, ziet bij Cleave vier dingen en bij ons één. Dat is precies wat Thijs voelt.
+- Tegen: volgens het patroon hierboven is één extra gewrichtsoort geen "hele klus". De gratis versie doet al het meeste (kogel, pen, kleur, graden, export). Een koper die Cleave ernaast ziet, ziet bij Cleave meer soorten verbinders plus zelf knippunten zoeken, en bij ons één extra gewricht. Dat is precies wat Thijs voelt.
 
 **Wat moet er in 1.1 om $15 tot $19 te vragen (in volgorde, GOK op basis van het patroon en Rubens plan):**
 1. **Hele figuur in één keer** (figuurpresets: heup en schouder kogel, knie en elleboog scharnier, enkel, nek, elk met bereik). Dat is het "hele werkwijze"-patroon van KIT OPS en RBC, en de vraag van de Dovetail Key-koper. Zonder dit geen prijsverhoging.
@@ -91,7 +92,7 @@ Tot 1.1 live is (eerlijk, alleen wat er nu is): "Free Click Joints does ball and
 | Whole figure in one click (hips, shoulders, knees, elbows, ankles, neck) | | ✓ (1.1) |
 | Read your rig: joint ranges from your bones | | ✓ (1.1) |
 | Clearance test print (0.1 / 0.2 / 0.3 mm) | | ✓ (1.1) |
-| Studio licence (up to 5 people) | | ✓ |
+| Studio licence (up to 5 people) | | ✓ (alleen tonen in een winkel waar Studio te koop is; nu alleen Superhive) |
 
 ## 3. Ebb ($4,99) naast de gratis ademapps
 
@@ -105,13 +106,13 @@ Bron: `platformen/succes/verhalen-groei.md` verhaal 14 (Joris, 16 nov) en `platf
 | Rondes met adem inhouden | ja (WHM) | nee | ja |
 | Trilling per fase, ogen dicht | deels (GOK, niet bij elke app nagekeken) | ja | ja |
 | Inhouden als duik, dieren die je verzamelt | nee | één dier | 24 dieren, logboek |
-| Duikprofiel per sessie, record, 8 weken voortgang | nee (GOK: niet gezien bij de nieuwe gratis apps) | nee | ja |
+| Eindscherm met rondes, 8 weken met gemiddelde en sessies per week | nee (GOK: niet gezien bij de nieuwe gratis apps) | nee | ja |
 
-**Eerlijk:** de kern (rondes met een inhoudtimer) zit al gratis in WHM breathing. Wat alleen Ebb heeft is **zien dat je beter wordt** (duikprofiel, record, getijdenlijn over 8 weken) en de beleving (duik, dieren). Dat is het patroon "betaald = de hele klus", maar alleen als de koper het in een paar seconden ziet. Op de huidige winkelpagina komt "mooi" eerst ("Breathe. Make sea friends.") en voortgang later.
+**Eerlijk:** de kern (rondes met een inhoudtimer) zit al gratis in WHM breathing. Wat alleen Ebb heeft is **zien dat je blijft oefenen** (eindscherm met je rondes, 8 weken met gemiddelde en sessies per week) en de beleving (duik, 24 dieren die je verdient door terug te komen). Let op: langer inhouden wordt bewust niet beloond (besluiten 10 en 12 nov, Garmin-regel); dus geen record en geen groeiende inhoudtijd beloven. Dat is het patroon "betaald = de hele klus", maar alleen als de koper het in een paar seconden ziet. Op de huidige winkelpagina komt "mooi" eerst ("Breathe. Make sea friends.") en voortgang later.
 - **$4,99 is nu niet te verdedigen naast gratis** (GOK, steunt op de 6 van 7 gratis winnaars). Advies blijft wat Joris schreef: tijdelijk $2,99 tot de eerste 5 reviews, en Ebb Calm openbaar als gratis ingang. Daarna terug naar $4,99 kan als de reviews de voortgang noemen.
 - Geen medische beloftes in de zin of de tabel.
 
-**Waarom betalen (één zin):** "Ebb Calm helps you breathe; Ebb shows you getting better: every breath hold becomes a dive, your record is kept, and an 8-week tide line shows your hold time growing."
+**Waarom betalen (één zin):** "Ebb Calm helps you breathe; Ebb turns your practice into a habit: breath hold rounds as a calm dive, 24 sea animals you meet by coming back, and 8 weeks that show how often you practised."
 
 **Tabel voor de winkelpagina (Engels):**
 
@@ -119,13 +120,13 @@ Bron: `platformen/succes/verhalen-groei.md` verhaal 14 (Joris, 16 nov) en `platf
 |---|---|---|
 | Calm breathing 4-7-8 with the rising sea | ✓ | ✓ |
 | Vibration for every phase, eyes closed | ✓ | ✓ |
-| Box 4-4-4-4, slow breathing and your own pattern | | ✓ |
+| Slow breathing and your own pattern | | ✓ |
 | Breath hold rounds: each hold is a dive | | ✓ |
-| Dive profile after every session, all-time record | | ✓ |
-| 8-week tide line of your best hold | | ✓ |
+| Summary of your rounds after every session | | ✓ |
+| 8 weeks: average per session and sessions per week | | ✓ |
 | 24 sea animals to meet and keep in your log | 1 | 24 |
 
-(Box 4-4-4-4 alleen tonen als Gijs dat vaste patroon erin zet, zoals verhaal 14 voorstelt; nu kan het via My pattern.)
+(Box 4-4-4-4 is op 11 nov uit de winkeltekst gehaald; pas weer tonen als Gijs het vast in de winkeltekst zet. Gijs kijkt na of "summary of your rounds" precies is wat het eindscherm nu toont.)
 
 ## 4. Bison & Flex Pro ($19 per jaar, $49 voor bedrijven) naast het patroon op JetBrains
 
@@ -148,11 +149,14 @@ Bron: `producten/jetbrains-bison-flex/ontwerp.md`, `platformen/jetbrains/status.
 |---|---|---|
 | Bison/Yacc and Flex/Lex file types, colours, folding, structure view | ✓ | ✓ |
 | Syntax errors in grammar and scanner | ✓ | ✓ |
-| Go to declaration, find usages, rename within one file | ✓ | ✓ |
+| Go to declaration and rename within one file | ✓ | ✓ |
 | Jump, find usages and rename across grammar and scanner | | ✓ |
 | Undefined and unused names, with a quick fix | | ✓ |
 | Completion of rule and token names | | ✓ (1.1) |
 | 30-day free trial | | ✓ |
+
+## Nakijken
+Controleur (agent, 16 nov ±16:40 UTC): Superhive-steekproef 7 van 7 klopt (KIT OPS, Lens Sim, RBC, BagaPie, Gaffer, AutoCam, Anti-Seam: prijs, verkoopblok en gratis/betaald). Zes moet-correcties verwerkt: Ebb-zin en -tabel zonder record en groeiende inhoudtijd (botste met de besluiten van 10 en 12 nov), box-regel eruit, Cleave met bron, patroon eerlijker (steunen even vaak als meer inhoud, Audio Trigger niet als topper), Bison find usages eruit tot de code het bevestigt, Studio alleen waar te koop. Ook: het bewijs dat $4,99 te duur is, is dun (7 apps met 100+, Ebb pas 3 dagen in de winkel).
 
 ## Wat ik niet weet
 - Hoeveel gebruikers van een gratis versie later kopen (Superhive geeft het niet, zie boven).

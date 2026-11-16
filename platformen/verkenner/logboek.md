@@ -1333,3 +1333,6 @@ Nieuwste blok onderaan.
 
 ## 16 nov 2026, run 16:31 (gestart 15:36 UTC)
 - Nieuw bericht van de hoofdchat (15:40): "wat maakt mensen betalen naast gratis", voor Click Joints, Ebb en Bison & Flex. Gaat voor op de vaste runopdracht, dus geen platform in onderzoek. Bezig, stuk komt in betaald-naast-gratis-2026-11.md.
+- Gemeten: 150 bestsellers van Superhive opnieuw gelezen; 15 hebben iets gratis ernaast (3 alleen proefbestand). Patroon: gratis is een af gereedschap; betaald is meer inhoud of de hele werkwijze, of (even vaak) alleen steun. Click Joints Pro $12 te dun als eindprijs; $19 na 1.1 met hele figuur en rig. Ebb: waarde zit in oefenen en dieren, niet in record. Bison & Flex past al in het patroon van GitToolBox.
+- Controleur (agent): steekproef 7 van 7 klopt; zes moet-correcties verwerkt, de belangrijkste: mijn Ebb-zin beloofde een record en groeiende inhoudtijd, wat tegen de besluiten van 10 en 12 nov ingaat. Les: bij een winkelzin altijd de besluiten lezen, niet alleen ontwerp.md (dat was verouderd).
+- Stuk: betaald-naast-gratis-2026-11.md, CSV data/betaald-naast-gratis-superhive-2026-11-16.csv. Doorgeven aan Ruben, Bram, Chris, Gijs en Jet loopt via de hoofdchat (ik schrijf niet in hun berichtenbestanden).
