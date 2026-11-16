@@ -1,5 +1,17 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 16 nov 2026 ±16:30 UTC (Bram): de tussendoor-speler, elke dag kort open (met en zonder rij)
+Uitvoer `voortgang-tussendoor-uitkomst.txt` (8 zaden, 80 dagen, GEZIEN), script `voortgang_tussendoor.py`, spec versie 3 definitief. Elke dag M minuten open, de rest dicht (12 u x 0,25 = 3 u tempo erbij), ook in het weekend; dag n = de n-de keer open.
+
+| per dag open | hol 12 | hol 20 | hol 30 | hol 40 | hol 50 | langste rij |
+|---|---|---|---|---|---|---|
+| 15 min | dag 2 | dag 6 | dag 20 | dag 38 | **dag 63** | 5 (alleen dag 2) |
+| 30 min | dag 2 | dag 5 | dag 18 | dag 35 | **dag 57** (58 met rij) | 4 (alleen dag 2) |
+| 60 min | dag 2 | dag 5 | dag 15 | dag 30 | **dag 49** | 1 (alleen dag 2) |
+
+Twee dingen: (1) **voor wie het spel tussendoor speelt is het hol pas na 7 tot 9 weken af**, want de nachten dragen het (3 uur tempo per dag tegen 15 tot 60 minuten open). Dat is het "diep voor weken" dat Thijs misschien wil (`voortgang.md` "Wat nog niet klopt" punt 4): wie werkt met het spel 6 uur open is in ±4,5 werkweek klaar, wie het tussendoor even opent na ±2 maanden. (2) **De rij merk je alleen op dag 2** (de eerste terugkomst), daarna nooit meer, en hij stapelt niet op: elke dag is hij leeg voor je weer dichtdoet.
+
+
 ## 16 nov 2026 ±16:45 UTC (Bram): hoeveel mogen de eigen helden per laag kosten? (voortgang.md "Wat nog niet klopt" punt 2)
 Uitvoer `voortgang-laagvang-uitkomst.txt` (8 zaden, GEZIEN), script `voortgang_laagvang.py`. Mijnwerker en archeoloog zijn nog niet uitgewerkt (hoe vaak ze komen, hoe goed valluik en nep-schat ertegen werken), dus geen GOK-model maar een gevoeligheid: nieuwe sleutel `"laag_vang": [1, f2, f3, f4]` in `sim.py`, de vangkans in de laag die je ziet x die factor. Zonder de sleutel verandert er niets (`voortgang-v3-eind-uitkomst.txt` komt byte voor byte terug).
 
