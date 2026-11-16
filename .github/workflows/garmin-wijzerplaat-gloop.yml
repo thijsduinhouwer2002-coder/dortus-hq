@@ -62,6 +62,7 @@ jobs:
             done
             kill "$MD" 2>/dev/null || true
             grep -a "GEHEUGEN\|FONTS" "/tmp/do-$d.log" | head -3 | sed "s/^/$d /" || true
+            grep -a "^REGEL" "/tmp/do-$d.log" | sort -u | head -8 || true
             tail -5 "/tmp/do-$d.log"
             sleep 2
           done

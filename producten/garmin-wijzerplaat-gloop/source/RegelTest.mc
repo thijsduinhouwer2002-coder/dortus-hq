@@ -79,3 +79,9 @@ function testPuntBijDuizend(logger as Test.Logger) as Boolean {
     return Regel.punt(0).equals("0") && Regel.punt(999).equals("999") && Regel.punt(7612).equals("7.612")
         && Regel.punt(10005).equals("10.005") && Regel.punt(14800).equals("14.800");
 }
+
+(:test)
+function testKorteRegel(logger as Test.Logger) as Boolean {
+    return Regel.kort("7/10 HATS").equals("7/10") && Regel.kort("GOAL! +4").equals("GOAL+4")
+        && Regel.kort("GOAL! +12").equals("GOAL+12") && Regel.kort("GOAL!").equals("GOAL!");
+}

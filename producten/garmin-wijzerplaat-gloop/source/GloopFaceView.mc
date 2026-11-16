@@ -28,6 +28,7 @@ class GloopFaceView extends WatchUi.WatchFace {
     var lijnHoedNr as Number = -1;
     var slaap as Boolean = false;
     var gemeld as Boolean = false;
+    var regelGemeld as Number = -1;
     // Kijken wordt beloond (regel van Daan): komt er een hoed bij terwijl je niet kijkt, dan valt hij
     // pas op de toren als je de pols optilt. `gezien` is het aantal hoeden (met kroon) dat de drager
     // al heeft zien landen, `wek` staat aan in de eerste seconde na het optillen.
@@ -240,11 +241,21 @@ class GloopFaceView extends WatchUi.WatchFace {
         // de regel 8 px lager, anders loopt hij door de stappen heen (gezien in run 43873269986).
         var rg = Regel.regel(stappen, doel);
         var grens = p[0] - m[0] / 2 + m[10] - m[12] / 2 - 6;
-        var eind = rg.find(" HATS");
-        if (eind != null && links + dc.getTextWidthInPixels(rg, Graphics.FONT_XTINY) + 2 > grens) {
-            rg = rg.substring(0, eind) as String;
+        // Staat de regel lager dan Gloops kruin, dan telt ook zijn linkerrand (Venu 3S: "7/10 HATS" en
+        // "GOAL! +4" raakten zijn schouder, Daan 16 nov 13:50 UTC). Dan de korte vorm: "7/10" of "GOAL+4".
+        var ry = p[7] + (w < 320 ? 4 : 8);
+        if (ry + dc.getFontHeight(Graphics.FONT_XTINY) / 2 > gy && gx - 6 < grens) {
+            grens = gx - 6;
         }
-        tekst(dc, links, p[7] + (w < 320 ? 4 : 8), Graphics.FONT_XTINY, rg, 0xFFAA00, linksUit);
+        var breed = dc.getTextWidthInPixels(rg, Graphics.FONT_XTINY);
+        if (links + breed + 2 > grens) {
+            rg = Regel.kort(rg);
+        }
+        if (Bouw.AUTO && regelGemeld != stappen) {
+            regelGemeld = stappen;
+            System.println("REGEL " + w + " '" + rg + "' links " + links + " breed " + breed + " na inkorten " + dc.getTextWidthInPixels(rg, Graphics.FONT_XTINY) + " grens " + grens);
+        }
+        tekst(dc, links, ry, Graphics.FONT_XTINY, rg, 0xFFAA00, linksUit);
 
         // Vrij veld onderaan: nu de hartslag met een getekend hartje.
         // Zonder hartslag alleen het hartje (kan a van Daan); het hartje staat links van Gloops voet (Mila: 0,36).

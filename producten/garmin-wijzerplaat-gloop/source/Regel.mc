@@ -45,6 +45,20 @@ module Regel {
         return meer > 0 ? "GOAL! +" + meer : "GOAL!";
     }
 
+    // De korte vorm van de regel, voor als hij Gloop of de toren zou raken: "7/10 HATS" wordt "7/10",
+    // "GOAL! +4" wordt "GOAL+4". "GOAL!" blijft.
+    function kort(s as String) as String {
+        var i = s.find(" HATS");
+        if (i != null) {
+            return s.substring(0, i) as String;
+        }
+        i = s.find("! +");
+        if (i != null) {
+            return (s.substring(0, i) as String) + "+" + (s.substring(i + 3, s.length()) as String);
+        }
+        return s;
+    }
+
     // Stappen met een punt bij de duizendtallen: 7612 wordt "7.612".
     function punt(n as Number) as String {
         if (n < 1000) {
