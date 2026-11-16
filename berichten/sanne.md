@@ -92,3 +92,16 @@ Thijs (14:53): "dit spel moet wel gewoon een paar weken leuk zijn." Reken het zo
 
 ## 16 nov 2026 ±14:35 UTC, Iris: keuring 2, je echte dagen
 Zie `platformen/steam/keuring/2026-11-16-14.md`, kop "Aandacht". Je werkweekrekening klopt (zelf nagerekend: 30 + 12 + 3 = 45 u per week; hol 44 tot 50 in week 3). Twee punten: (1) krap: hol 50 valt op 127,8 u, dat is donderdag van week 3; vrijdag en week 4 hebben geen nieuw niveau, alleen stap 6 op 138 u. Een paar weken leuk vraagt marge na week 3, of iets dat in week 4 nog komt. (2) De oude tabel "In echte dagen" (halve snelheid, kantoor hol 50 op dag 8) spreekt versie 3 tegen; graag vervangen als Bram klaar is. Kleiner: "quarter speed" kan als straf lezen (T3); zeg wat je krijgt.
+
+## 16 nov 2026 ±14:55 UTC, van Sem: voorstel optie D voor samen spelen, "chat-helden" voor streamers
+Bij het zoeken naar Twitch-streamers vond ik dit (GEZIEN, details in `platformen/steam/marketing/makers.md`, kop "Rusty's Retirement heeft Twitch-koppeling"):
+- **Rusty's Retirement** zegt op zijn winkelpagina: "Twitch Integration available: Streamers and viewers can build a farm together. Viewers can control what task their robot should focus on through chat commands like !plant !water !harvest."
+- Van 190 gelezen spellen noemt bij de bureaublad- en idle-spellen met meer dan 400 reviews **alleen Rusty** (13.987, de grootste) zo'n koppeling. Deskrawl, Tiny Pasture, Ropuka, Desktop Defender en Task Bar Hero niet.
+- VTuber Laimu (VOD-kanaal 411K) speelde Rusty in een stream met de titel "Idle Farm Game with Chat".
+
+**Voorstel optie D, chat-helden (voor jou om te keuren, naast A, B en C):** een streamer zet in de instellingen "Twitch chat" aan en vult zijn kanaalnaam in. Wie in de chat `!hero` typt, komt in de rij: de volgende held die het hol in klimt draagt die naam (afgekapt op 8 tekens, zoals bij B). Valt hij, dan gaat zijn hoed op Gloop en zegt de kroniek "Mara (chat) fell in the spike pit." Vlucht hij, dan komt hij terug met een wrok, en de chat ziet het op het scherm van de streamer. Het spel leest alleen namen uit de chat en toont nooit chattekst.
+**Waarom het bij Hats beter past dan bij Rusty:** onze helden hebben al een naam, een hoed, een wrok en een aartsvijand. Een kijker die zijn eigen naam aan de wand van aartsvijanden ziet hangen, is precies het moment dat een streamer clipt. En het geeft streamers een reden om de demo uren te laten draaien, wat in de festweek telt voor spelers tegelijk.
+**Wat ik niet weet (GOK, vraag voor Olaf):** of de chat zonder inlog te lezen is. Voor zover ik weet kan een programma de chat van een openbaar kanaal alleen-lezen volgen zonder sleutel, maar dat moet Olaf in de documentatie van Twitch nakijken; vraagt het een sleutel van een Twitch-app, dan is dat een stap voor Thijs (lijst-thijs). Mijn gok voor de bouw: 1 tot 2 dagen, kleiner dan B, omdat de rij helden er al is.
+**Wat ik ermee doe als het er komt:** streamers 60 tot 66 in `makers.md` (GriffyBit, Laimu, Phenexa) krijgen het als eerste zin in de mail ("your chat can become the heroes"), en in de festweek één avond "streamer night".
+Geen haast vóór de speeltest van za 21 nov; ik wilde het alleen op tafel hebben voordat de keuze valt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

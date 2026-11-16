@@ -139,6 +139,26 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 
 **Eerlijke rekensom (GOK):** de mediaan per video van de 11 kanalen hierboven loopt van 55 (Conkbot) tot 199.500 (Idle cub). Als 4 van de 11 een video maken met hun mediaan, is dat grofweg 5.000 tot 200.000 weergaven, en met een klikratio naar Steam van 1 tot 3% (GOK) 50 tot 6.000 bezoekers. Dat is genoeg om in het vak te stijgen, niet om alleen daarmee door te breken. Makers zijn de aanloop; het fest zelf blijft het moment (`festplan.md`).
 
+## Twitch: streamers gevonden via hun VOD-kanalen (run 4, GEZIEN 16 nov ±14:40 tot 14:55 UTC)
+**Waarom zo:** SullyGnome, TwitchTracker en Streams Charts geven 403 met curl (GEZIEN, run 1 en nu), en de Twitch-API vraagt een sleutel van Thijs. Veel streamers zetten hun streams als "VOD" of "archive" op YouTube; die vind je met dezelfde zoekpagina. Zoektermen: "<spel> stream" en "<spel> twitch" voor Rusty's Retirement, Deskrawl, Desktop Defender, Task Bar Hero, Desktop Survivors 98, Tiny Pasture, plus "idle desktop game stream vod" (11 zoekopdrachten, video's langer dan een uur = stream). Activiteit uit `data/yt-recent-streamers-2026-11-16.csv` (laatste 30 video's).
+| # | Streamer (VOD-kanaal) | Twitch | VOD-kanaal abonnees | Bewijs (stream, weergaven van het archief) | Actief? (dagen sinds laatste VOD, mediaan) | Kans |
+|---|---|---|---|---|---|---|
+| 60 | Laimu (@LimeArchives) | ja, VTuber | 411K | "Idle Farm Game with Chat ~ Laimu plays Rusty's Retirement" 1.740, en Rusty na Heavy Rain 2.488 | 0 dagen, mediaan 8.600, speelt cozy | middel: speelde Rusty **met haar chat**, juist de functie hieronder |
+| 61 | GriffyBit TV (@GriffyBitTV) | ja | 43,5K | streams met "Some Other Idle Games" (1.528) en Idle Monster TD (2.565); vooral IdleOn | 10 dagen, mediaan 3.550, 21 van 30 titels idle | hoog: idle-streamer die nieuwe idle-spellen probeert |
+| 62 | Krayn (#45, @Krayn) | ja, krayn_live (staat in zijn kanaaltekst) | 16,6K (VOD-kanaal) | Deskrawl-stream 7.547 | 0 dagen, mediaan 9.500 | middel (Frans) |
+| 63 | Kripparrian (al in D) | ja | 33,4K (VOD-kanaal) | "VARIETY! Lootbound / Deskrawl!" 21.318 | dagelijks | laag tot middel: groot, speelt wel kleine ARPG-achtige spellen in variety-streams |
+| 64 | CallMeCarson (@CallMeCarsonVODS) | ja (groot) | 2,45M | "Every 5 Minutes, I add another Idle Game" 4.893 | 4 dagen, mediaan 11.000 | laag: één idle-stream, groot kanaal; alleen via Curator Connect of mail zonder verwachting |
+| 65 | Edouard_EMB (@edouard_emb) | ja (staat in kanaaltekst) | 347K | "Un jeu en BARRE DE TACHE ?!" (Rusty) 3.911 | 0 dagen, mediaan 28.000 | laag tot middel (Frans; bureau-adres staat in kanaaltekst, niet overgenomen) |
+| 66 | Phenexa (@Phenexa) | ja | 1,86K | Rusty 1.428, Tiny Pasture 230 | 6 dagen, klein | hoog voor een klein kanaal: speelt elk cozy spel als "First Look" |
+| 67 | Game Launch Central (@GameLaunchCentral) | nee, YouTube | 17,3K | "10 Upcoming Idle Games for Endless Fun..." 525; TBH-gidsen tot 11.732 | 0 dagen, 30 video's in 30 dagen | **hoog voor de aanloop**: maakt lijsten van *komende* idle-spellen, precies waar een spel met alleen een pagina in past (zakelijk adres in kanaaltekst, gmail, niet overgenomen) |
+- Ook gezien, niet opgenomen: AceTo (stream van 9 uur Desktop Defender, 103 tot 173 weergaven, 139 abonnees), Felps LIVE (Rusty 46.682, staat al in groep C via Fenna), GRINDING CURRENCY (12 Deskrawl-gidsen, 1,74K, maakt alleen gidsen over spellen met een markt), Zhain Gaming (volledige doorspeelvideo's, geen idle).
+- **Eerlijk:** de streams over bureaubladspellen hebben op YouTube kleine archiefcijfers (100 tot 21.000). Live kijkers op Twitch zie ik zo niet. Wat telt is dat deze streamers het spel **uren** laten draaien, met chat erbij.
+
+### Gevonden tijdens het zoeken: Rusty's Retirement heeft Twitch-koppeling, de rest niet
+- Rusty's winkelpagina (GEZIEN, appdetails 2666510): "Twitch Integration available: Streamers and viewers can build a farm together. Viewers can control what task their robot should focus on through chat commands like !plant !water !harvest."
+- Ik heb de beschrijving van 190 spellen gelezen (Steam-zoekpagina op "desktop idle", "taskbar", "desktop companion", "bottom of your screen", "idle desktop pet", plus 10 bekende bureaubladspellen; script `data/twitch-koppeling.py`, cijfers in `data/twitch-koppeling-2026-11-16.csv`; "reviews" is het getal "recommendations" uit de winkel-API). Van de bureaublad- en idle-spellen met meer dan 400 reviews noemt **alleen Rusty** (13.987 reviews, de grootste) een koppeling met chat. Deskrawl (3.642), Tiny Pasture (7.142), Ropuka (4.113), Desktop Defender (1.788) en Task Bar Hero niet. Andere met iets voor streamers: Spirit City (muziek mag op stream), Burgie's Cozy Kitchen (streamermodus), Kukoro (919 reviews, een heel spel van chat-minispellen).
+- Wat het **niet** bewijst: dat Rusty groot werd door de koppeling (GOK, één spel). Wat het wel laat zien: een open plek bij precies ons soort spel, en het past op Hats beter dan op een boerderij, want onze helden hebben al een naam, een wrok en een hoed. Voorstel aan Sanne (optie D, "chat-helden") staat in `berichten/sanne.md`.
+
 ## Wat ik eruit haal (eerste lezing)
 1. **De kanalen die precies ons soort spel speelden zijn klein**: 14 kanalen in A, mediaan ±11K abonnees, en de video over het bureaubladspel haalde meestal 1.500 tot 30.000 weergaven. Dat is het eerlijke plafond per video: geen doorbraak uit één mail.
 2. **Drie zeggen zelf dat je spellen mag sturen** (The Indie Brew, MaxPalaro, Gohjoe "all business inquiries") en vier hebben een bureau-adres (Gaming In The Wild, Easily Distracted, Dekaff, foxranch). Daar beginnen.
@@ -156,7 +176,7 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 De teksten (Engels, kort, per groep) zet ik in een volgende run klaar in `platformen/steam/marketing/teksten-makers.md`.
 
 ## Open (volgende runs)
-- Twitch: wie streamde Rusty, Desktop Defender, Deskrawl. SullyGnome en TwitchTracker geven 403 met curl (GEZIEN 16 nov); volgende poging: de openbare Twitch-pagina's of VOD-titels op YouTube ("stream", zoals Kripparrian en knekroTV).
+- ~~Twitch: wie streamde Rusty, Desktop Defender, Deskrawl.~~ Gedaan run 4 via VOD-kanalen: 60 tot 67 hierboven. Live kijkers op Twitch blijven onbekend zonder Twitch-sleutel.
 - TikTok: makers met bureaubladspellen (yt-dlp leest TikTok volgens Joris, verhaal 11).
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
