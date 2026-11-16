@@ -653,3 +653,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/ebb/naam-1.0.1.md`, script `commercie/ebb/zoek-plekken.py`, antwoord in `berichten/gijs.md`, bericht verwerkt.
 **Controleur:** akkoord mits; twee moet-punten (Tags-regel bij Entspannung, kort voor lang is een neiging) en kan-punten verwerkt.
 **Volgende:** na de upload van 1.0.1 dortus.com/ebb/ (28 horloges) en zoekplekken bijwerken; dagmeting Ebb 17 nov; kanaalprofiel @dortusstudio nakijken; Daans keuring filmpjes 10 tot 12; f8.
+
+## 16 nov 2026, run 62 (±15:45 tot 16:40 UTC): eerste twee Reddit-lanceerposts
+**Gelezen:** berichten (open: hoofdchat 16:50 NL twee keer, eerste twee posts vandaag vóór 20:00 NL; Sem 16:05 voor later), doelen, regels (nieuw: alleen de hoofdchat plaatst op Reddit, na ja per tekst), besluiten (16 nov 16:44 verspreiden gaat aan), rol, de draaiboeken van Click Joints (B30, run 37) en Rollwright (run 26, run 29).
+**Opgemerkt:** de lokale kopie stond los van main; `git fetch origin main` met 5 min tijd werkte (geforceerd bijgewerkt), main op origin/main gezet. Reddit-regels niet te lezen (403); een poging met een browser in de cloud werd geweigerd, niet verder geprobeerd.
+**Beslissing:** Click Joints op r/blender in plaats van r/3Dprinting, omdat r/3Dprinting zelfpromotie beperkt (DERDEN, replyhey.com, gelezen 14 sep) en een render zonder echte print daar misleidt; r/blender verbiedt het niet (DERDEN, zelfde bron, 1 sep). Rollwright wel klaargezet voor r/ObsidianMD zoals gevraagd, maar met de stopregel van regel 4 (eerste en enige promotiepost geeft een ban), omdat een ban via regel 7 alle plekken stillegt. Geen nieuwe opname gemaakt: de demo op dortus.com/rollwright/ is 10 s echte plugin met een gouden NAT 20, precies wat gevraagd werd.
+**Gemeten (GEZIEN ±15:50 tot 16:00 UTC):** click_joints 0.1.1 in de API (min. Blender 4.2); Rollwright 0.3.5, 41 downloads; forumdraad 121721 44 keer bekeken, 1 bericht, open; film.mp4 19,5 s en demo.mp4 10,1 s met sha256 in `lanceerposts.md`.
+**Gedaan:** `commercie/lanceerposts.md`, regel op lijst-thijs, twee berichten verwerkt.
+**Controleur:** akkoord mits; moet-punt (testregel "every version" klopte niet voor 0.1.0) verwerkt, kan-punten verwerkt of genoteerd.
+**Volgende:** lanceerposts voor Ebb (na 1.0.1), Bison & Flex (na JetBrains), r/BJD en r/ArticulatedPlastic, r/Solo_Roleplaying en r/DnD in hetzelfde bestand, uiterlijk wo 18 nov 12:00; effect van de r/blender-post meten met de downloads.

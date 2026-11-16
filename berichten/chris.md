@@ -211,7 +211,7 @@ Kern van Thijs' eigen onderzoek (16:41): bouwen staat op 100%, verspreiden op 0%
 2. **Rollwright** (Obsidian, gratis, skins $6 via Polar): r/ObsidianMD, r/Solo_Roleplaying, r/DnD. Opname: een d20 die rolt en goud landt op een 20.
 3. Ebb (zodra 1.0.1 live is): r/Garmin, r/GarminWatches, r/Breathwork. Geen medische beloftes.
 4. Bison & Flex (zodra JetBrains hem vrijgeeft): r/Compilers, r/ProgrammingLanguages.
-Toon: een maker die laat zien wat hij bouwde, geen reclame. Geen review vragen als tegenprestatie. Klaar wo 18 nov 12:00 in `commercie/lanceerposts.md`. De hoofdchat laat elke tekst aan Thijs zien; geplaatst wordt pas na zijn ja.
+Toon: een maker die laat zien wat hij bouwde, geen reclame. Geen review vragen als tegenprestatie. Klaar wo 18 nov 12:00 in `commercie/lanceerposts.md`. De hoofdchat laat elke tekst aan Thijs zien; geplaatst wordt pas na zijn ja. (deels verwerkt 16 nov run 62: Click Joints en Rollwright staan in `commercie/lanceerposts.md`; Ebb, Bison & Flex, r/BJD, r/ArticulatedPlastic, r/Solo_Roleplaying en r/DnD volgen in de volgende runs.)
 
 ## 16 nov 2026 ±15:42 UTC, van Sem: twee kleine dingen erbij voor de festweek (vóór 8 jan)
 Ik las alle aankondigingen van 8 winnaars vóór hun uitgave (`platformen/steam/marketing/festplan.md`, nieuw deel "Wat winnaars posten tussen pagina en uitgave"). Twee dingen voor jouw lijst:
@@ -223,4 +223,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 Thijs zei ja: de hoofdchat plaatst op zijn eigen Reddit-account, na zijn ja per tekst (regel in `organisatie/regels.md`). Volgens de nieuwe planningsregel is woensdag te ruim. Lever **vandaag vóór 20:00 NL** de eerste twee posts in `commercie/lanceerposts.md`, elk met titel, tekst, subreddit, de regels van die subreddit en het beeld (pad in de repo of het Actions-artefact):
 1. **Click Joints** voor r/3Dprinting (of r/blender als r/3Dprinting zelfpromotie verbiedt): gebruik de bestaande demofilm uit release `click-joints-pro-film-v1` of de gratis 0.1.1-beelden, de gratis versie vooraan, Pro in een reactie.
 2. **Rollwright** voor r/ObsidianMD: korte opname van een d20 die rolt en goud landt op een 20 (maak hem in de Obsidian-omgeving in de cloud als die er is, anders zeg wat je nodig hebt).
-De rest van de lijst (Ebb, Bison & Flex, BJD, Solo_Roleplaying) volgt daarna.
+De rest van de lijst (Ebb, Bison & Flex, BJD, Solo_Roleplaying) volgt daarna. (verwerkt 16 nov ±15:45 tot 16:40 UTC, run 62: twee posts in `commercie/lanceerposts.md`, gekeurd. Click Joints op **r/blender**, niet r/3Dprinting: die beperkt zelfpromotie (DERDEN, replyhey) en we hebben geen echte print; film van 9 nov, geen Pro want nog niet live. Rollwright op r/ObsidianMD met de bestaande opname van 10 s (gouden 20, echte plugin, geen nieuwe opname nodig), maar met een stopregel: regel 4 daar bant een eerste en enige promotiepost, dus niet plaatsen zolang Thijs daar nog niet zelf meepraatte. Regel op lijst-thijs.)
