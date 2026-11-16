@@ -16,6 +16,11 @@ class SpelView extends WatchUi.View {
     var vorige as Number = 0;
     var wasEinde as Boolean = false;
     var lietLopen as Boolean = false;
+    // Korte stilstand precies op het slikken (kan 5 van Daan, ja van Mila): alles bevriest even,
+    // ook de klok van het potje, dus het tempo en de regels in Spel.mc blijven gelijk.
+    const STILSTAND_MS = 80;
+    var stilstand as Number = 0;
+    var vorigeToestand as Number = Regel.KLAAR;
 
     // Plaatjes: 0 rust, 1 hap, 2 blij, 3 slok, 4 held, 5 vliegende helm, 6 tot 15 de tien hoeden.
     var pl as Array<Plaatje> = [] as Array<Plaatje>;
@@ -79,7 +84,20 @@ class SpelView extends WatchUi.View {
         if (Bouw.AUTO) {
             speelZelf();
         }
-        spel.tik(dt);
+        if (stilstand > 0) {
+            stilstand -= dt;
+        } else {
+            spel.tik(dt);
+        }
+        if (spel.toestand == Regel.SLOK && vorigeToestand != Regel.SLOK) {
+            stilstand = STILSTAND_MS;
+            if (Bouw.AUTO && (spel.hoeden == 3 || spel.hoeden == 8)) {
+                // Alleen in de bouwstraat: hetzelfde slokbeeld langer vasthouden, zodat de camera
+                // (één foto per 1,5 s) het zeker pakt. In het echte spel is het 0,08 s.
+                stilstand = 1700;
+            }
+        }
+        vorigeToestand = spel.toestand;
         var einde = (spel.toestand == Regel.EINDE);
         if (einde && !wasEinde && spel.nieuwBeste) {
             Application.Storage.setValue("beste", spel.beste);
@@ -121,7 +139,19 @@ class SpelView extends WatchUi.View {
         var ay = (h * -0.10).toNumber();
         var bx = (w * 0.38).toNumber();
         var by = (h * 0.74).toNumber();
-        dc.setColor(0xFFAA55, Graphics.COLOR_TRANSPARENT);
+        if (w >= 320) {
+            // AMOLED: zachtere kleur en een rand in twee stappen (kan van Daan, maat van Mila: 226,162,92).
+            var r2 = (d * 1.24).toNumber();
+            var r1 = (d * 1.12).toNumber();
+            dc.setColor(0xBD6F1F, Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon([[ax - r2, ay], [ax + r2, ay], [bx + r2, by], [bx - r2, by]] as Array<Graphics.Point2D>);
+            dc.setColor(0xCF883D, Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon([[ax - r1, ay], [ax + r1, ay], [bx + r1, by], [bx - r1, by]] as Array<Graphics.Point2D>);
+            dc.setColor(0xE2A25C, Graphics.COLOR_TRANSPARENT);
+        } else {
+            // MIP: effen, geen tussenkleuren.
+            dc.setColor(0xFFAA55, Graphics.COLOR_TRANSPARENT);
+        }
         dc.fillPolygon([[ax - d, ay], [ax + d, ay], [bx + d, by], [bx - d, by]] as Array<Graphics.Point2D>);
         dc.setColor(0x550000, Graphics.COLOR_TRANSPARENT);
         dc.fillEllipse(cx, h, (w * 0.80).toNumber(), (h * 0.16).toNumber());
@@ -162,11 +192,21 @@ class SpelView extends WatchUi.View {
                 }
                 // Links van de toren, waar net de held viel.
                 // Past de kreet niet links van de toren (breed systeemfont, lange reeks), dan een maat kleiner.
+                // Moet van Daan: altijd minstens 8 px lucht tussen de kreet en de toren. Past hij ook
+                // klein niet op één regel, dan staat de reeks ("x7") op een tweede regel.
+                var kx = (w * 0.05).toNumber();
+                var ky = (h * 0.40).toNumber();
+                var ruimte = torenX - m[12] / 2 - 2 - 8 - kx - 1;
                 var kfont = Graphics.FONT_SMALL;
-                if (dc.getTextWidthInPixels(kreet, kfont) > w * 0.35) {
+                if (dc.getTextWidthInPixels(kreet, kfont) > ruimte) {
                     kfont = Graphics.FONT_XTINY;
                 }
-                tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), kfont, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+                if (dc.getTextWidthInPixels(kreet, kfont) > ruimte && spel.raak && spel.reeks >= 3) {
+                    tekst(dc, kx, ky - dc.getFontHeight(kfont) / 2, kfont, "GULP!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+                    tekst(dc, kx, ky + dc.getFontHeight(kfont) / 2, kfont, "x" + spel.reeks, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+                } else {
+                    tekst(dc, kx, ky, kfont, kreet, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
+                }
             } else if (spel.toestand == Regel.WEG) {
                 tekst(dc, (w * 0.05).toNumber(), (h * 0.40).toNumber(), Graphics.FONT_XTINY, "bye!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFFFF);
             } else if (spel.toestand == Regel.VALT) {
@@ -190,7 +230,8 @@ class SpelView extends WatchUi.View {
     function tekenGloop(dc as Graphics.Dc, cx as Number, voet as Number) as Void {
         var t = spel.toestand;
         if (t == Regel.SLOK) {
-            dc.drawBitmap(cx - m[4] / 2, voet - m[5], pl[3]);
+            // De slokplaat van Mila is even groot als de hap en staat op dezelfde plek.
+            dc.drawBitmap(cx - m[0] / 2, voet - m[5], pl[3]);
         } else if (t == Regel.VALT && spel.inVangzone() && spel.hapDicht == 0) {
             dc.drawBitmap(cx - m[0] / 2, voet - m[2], pl[1]);
         } else if (t == Regel.EINDE || (t == Regel.WACHT && spel.reeks > 0)) {
@@ -245,7 +286,8 @@ class SpelView extends WatchUi.View {
         if (f > 1.0) {
             f = 1.0;
         }
-        var begin = voet - m[1];
+        // Begint boven de kruin, zodat de helm nooit over het oog of de mond ligt (moet van Mila en Daan).
+        var begin = voet - m[1] - m[9] / 2;
         var eind = top - m[9] / 2;
         if (eind < m[9] / 2) {
             eind = m[9] / 2;
