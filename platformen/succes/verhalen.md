@@ -1,8 +1,63 @@
 # Succesverhalen (Lars)
 
-bezig: YouTube-reacties voor pro-lijp (het gat van 16:25), 16 nov ±19:10 UTC. Run 18 deed de top 3 voor de hoofdchat (staat in berichten/hoofdchat.md). Daarna: wat de late splitsers buiten Superhive doen, of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Verhaal 18 af (16 nov ±19:00 UTC, uitlegvideo's naar programma en Model Splitter). Run 18 deed ook de top 3 voor de hoofdchat. Volgende: wat de late splitsers buiten Superhive doen, of Model Splitter volgen (Pro en Kickstarter). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 18. Hoe leren mensen poseerbare en flexi-prints maken? 89 uitlegvideo's op YouTube naar programma geteld: het nieuwe jaar is van webtools zonder 3D-modelleren, en sinds gisteren zet een gratis webtool (Model Splitter) kogelgewrichten in elk model
+
+Onderzocht 16 nov 2026, run 18 (na de top 3). Waarom: in verhaal 15 bleef open welke software de flexi-ontwerpers gebruiken (koopt die groep wel een Blender-add-on?). Interviews met Flexi Factory, MatMire en Cinderwing3D vond ik niet (drie zoekopdrachten, niets bruikbaars), en hun YouTube-beschrijvingen noemen geen programma, alleen Patreon, MyMiniFactory Tribes, Thangs en Cults3D (GEZIEN, RSS van beide kanalen, 15 video's elk). Dus de vraag andersom gesteld: met welk programma leren nieuwe makers het, volgens wat ze op YouTube zoeken en bekijken? Daarbij vond ik een nieuwe concurrent van gisteren.
+
+Ook geprobeerd en niet gedaan: YouTube-reacties lezen voor pro-lijp. Dat kan alleen via de interne API van YouTube of de officiële API met een sleutel; de eerste mag niet (mijn poging werd tegengehouden en ik heb hem niet omzeild), een sleutel is werk voor Thijs en dit gat is hem dat niet waard. Het gat in pro-lijp blijft dus open; Reddit, BlenderArtists en Printables dekken het grootste deel.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±18:52 tot 19:00 UTC)
+- YouTube-zoekpagina's (gewone HTML, de lijst in de pagina) voor 8 zoektermen: "how to design flexi 3d print", "how to make articulated 3d print", "how to design print in place articulated figure", "flexi model tutorial", "how to make your own flexi stl", "articulated dragon 3d print tutorial", "ball joint action figure 3d print design tutorial", "how to make poseable figure 3d print". Samen 89 verschillende video's. Tabel: `platformen/succes/data/youtube-figuren-uitleg-2026-11-16.tsv` (id, kanaal, titel, weergaven, leeftijd, programma in de titel).
+- Openbare RSS van Flexi Factory (https://www.youtube.com/feeds/videos.xml?channel_id=UCpV00uonUYokxB5w8sQeaLw), MatMire Makes (channel_id=UCxsWnsAdUGRnpOH3BkrHAFg) en Model Splitter (channel_id=UCo1dZdm6EqBGFFhQ9eJdEzg).
+- Model Splitter zelf: https://modelsplitter.com en de video https://www.youtube.com/watch?v=itFpGRqcFrU ("Why Every 3D Printer Needs Model Splitter") en de video van 16 nov "Ball and socket joints: make any 3D print posable in Model Splitter" (16 nov 2026, 127 weergaven bij het lezen).
+
+### Cijfers
+Ik telde alleen uitlegvideo's (hoe maak je het), 62 van de 89, en keek welk programma in de titel staat. Leeftijd zoals YouTube die toont ("1 year ago" kan 12 tot 23 maanden zijn).
+
+| Programma in de titel | Ouder dan 1 jaar | Laatste 12 maanden | Weergaven laatste 12 maanden |
+|---|---|---|---|
+| Webtool of AI, zonder 3D-modelleren (Bambu PrintU, Text to Flexi, STL Buddy, Layerling, Audja, Model Splitter, AI-figuur) | 0 | **10** | 128 tot 31.046, samen ±92K |
+| Blender | 4 (waaronder 700K en 143K) | 4 | 560 tot 38.222 |
+| Tinkercad | 9 | 4 | 459 tot 10.326 |
+| Nomad Sculpt | 7 | 0 | |
+| Fusion of Onshape | 1 | 1 | |
+| Geen programma in de titel | 28 | (meestal oud) | |
+
+(GEZIEN, eigen telling uit de zoekpagina's. De zoekvolgorde van YouTube kiest mee, dus dit is een beeld, geen meting van de hele markt.)
+
+Model Splitter (GEZIEN op de site en in de RSS):
+- Gratis openbare beta in de browser ("all current tools unlocked for testing"), het model blijft op je eigen computer. Op de site staat ook "Pro and the launch draw" en "Follow on Kickstarter": er komt dus een betaalde versie.
+- Sinds 16 nov: **"Ball joint cut"**. Je tekent een naad, drukt op de knop, en krijgt een kogel met een kruissleuf (veert in de kom) en een ronde kom. "There are no settings to get right: the ball is sized from the seam, and the fit was worked out on test prints." In de video krijgt een alien kogels in polsen, elleboog en schouder, geprint in PLA op een Bambu A1, zonder lijm.
+- Verder: Push-fit en Inlay, een Pose-gereedschap (30 okt), mallen, en een video "AI Model to Printed Figure: Tripo + ModelSplitter" (1 nov). Ongeveer 15 video's sinds half oktober, 66 tot 1.292 weergaven, kanaal 806 abonnees.
+- Wat ik niet zag: een scharnier met eindstop, bereik in graden, of iets wat een rig leest. Alleen kogel, push-fit en inlay als verbinding.
+
+### Wat ze in welke volgorde deden (Model Splitter)
+1. Een gratis splitter in de browser voor wie een te groot model wil printen (oktober).
+2. Elke paar dagen een korte uitlegvideo per gereedschap, met de functie in de titel ("Paint to cut", "Band and Rope cuts", "Cut, Push-fit or Inlay?").
+3. De AI-weg erbij (Tripo, foto of prompt naar model) met een affiliate-link.
+4. Pose-gereedschap, daarna gewrichten. Betalen pas later, via Pro en Kickstarter.
+
+### 3 lessen
+1. **Het nieuwe publiek leert figuren maken zonder 3D-programma.** In de laatste 12 maanden is de grootste groep uitlegvideo's over een webtool of AI (10), meer dan Blender en Tinkercad samen (8); een jaar eerder was het Tinkercad en Nomad, en geen enkele webtool. Dat past bij verhaal 13 (Nikko: "zonder Blender") en verhaal 14 (PrintPal). Voor wie een AI-figuur wil laten bewegen is een knop in de browser de makkelijkste weg.
+2. **De gratis weg wordt beter, dus het verschil moet in wat gratis niet kan.** Model Splitter doet nu gratis wat de gratis Click Joints ook doet (kogel met speling), zonder Blender. Wat wij hebben en zij niet (zover ik kon zien): scharnier met eindstop, bereik in graden zichtbaar vóór het printen, waarschuwing als iets botst, en in 1.1 gewrichten uit de rig. Dat is hoofdles 7 opnieuw.
+3. **Blender houdt de grote, oude uitlegvideo's (700K, 143K), en Blender-makers zijn de makers die al figuren ontwerpen.** Onze koper is dus de Blender-gebruiker die zelf figuren maakt, niet de printer die een AI-model wil laten bewegen. Die tweede groep gaat naar de browser.
+
+### Wat doen wij anders
+Onze filmpjes en teksten beginnen nu bij "ball joints". Dat is precies wat sinds gisteren gratis in de browser kan. Het scharnier dat stopt, en het bereik dat je ziet, staat nog niet vooraan.
+
+### Voorstel voor Dortus deze week
+**Ruben zet Model Splitter in de concurrentiecheck van 1.1 (naast NB Figure Joints en Action Joint Generator), en Chris zet in de eerste Pro-teksten en de eerste Short het scharnier met eindstop vooraan, niet de kogel.** Concreet: de Short uit de top 3 van vandaag ("How to make a hinge that stops at 90° #3dprinting") gaat vóór elke kogel-Short. En de waarom-zin op Gumroad en Superhive wordt iets als "Hinges that stop where you want and range you can see before you print, inside Blender. Free tools give you a ball; Pro gives you a figure that holds its pose." (Ruben zegt "klopt" of past aan.) Kost een half uur, geen geld. Ik volg Model Splitter: als hun Pro of Kickstarter verschijnt, schrijf ik prijs en functies erbij.
+
+### Eerlijk: wat ik niet weet
+- Welke software Flexi Factory, MatMire en Cinderwing3D echt gebruiken, blijft open. Alleen McGybeer zegt Blender (verhaal 15).
+- Of Model Splitter veel gebruikers heeft. Hun video's halen honderden weergaven, en ze sturen "anonymous counts" maar maken die niet openbaar.
+- De telling hangt aan titels; een Blender-video zonder "Blender" in de titel telt als "geen programma".
 
 ---
 
