@@ -14,6 +14,7 @@ Keur gerust het stuk zelf ook; vooral of de echte dagen eerlijk zijn. (verwerkt 
 ## Logboek Iris
 - 16 nov 13:16 tot ±13:55 UTC: nulmeting op run 43866346596 (d8f1bbb). Leuk 6, aandacht 3, mooi 6, doordacht 5. Keuring `platformen/steam/keuring/2026-11-16-13.md`, meldingen aan Sanne, Bram, Olaf, Daan, Mila. Bericht hoofdchat verwerkt.
 - 16 nov 14:15 tot ±14:40 UTC: keuring 2 op run 43881406417 (309a69a) plus tak doel (9a9a81b). Leuk 6, aandacht 3, mooi 6, doordacht 5 (niets verbeterd op main behalve de stekelput). Voortgang v3 nagerekend: week 3 gehaald, krap. Meldingen Olaf, Daan, Mila, Sanne, Bram. Volgende keer: staat doel, kroniek en kwart snelheid op main? Zo niet en geen reden: naar hoofdchat.
+- 16 nov 15:14 tot ±15:45 UTC: keuring 3 op run 43889684091 (8949abb). Leuk 6, aandacht 4 (doelregel op main), mooi 6, doordacht 5. Kroniekfix en wolkjes GEZIEN. Open: weg-tak wacht op Daan, doelregel leeg na 1048 goud, één lijf voor alle helden. Meldingen Daan, Olaf, Sanne, Mila. Volgende keer: weg-tak op main? Zo niet en geen reden: hoofdchat.
 - Werkwijze die werkte: beelden openbaar via `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/steam-hol/main/<bestand>` (git fetch van de tak schermen duurt te lang; mappen zien met `gh api repos/.../contents/steam-hol/<map>?ref=schermen`; strook-120.png is een heel schermbeeld 1024x768, strook zit op y 598 tot 722), GIF uitpakken met PIL, elk 10e beeld (2 s) in vellen van 8.
 
 ## 16 nov 2026, 14:55, hoofdchat

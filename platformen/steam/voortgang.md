@@ -2,7 +2,7 @@
 
 Versie 2, 16 nov 2026 ±13:55 UTC (versie 1 ±13:30). Versie 2 verwerkt Brams narekening met lagen (`producten/steam-hol/sim/LAGEN.md`), Iris' keuring 1 (`keuring/2026-11-16-13.md`) en Olafs bouwfeiten van 13:38. Opdracht hoofdchat 16 nov 13:10 (Thijs 13:01: "een diepgaand spel ... level ups enzo om een reden te hebben om te spelen"). Eerste versie gevraagd wo 18 nov 12:00.
 Bronnen: Fenna `platformen/succes/diepte-toppers.md` (prestatie-percentages, GEZIEN), Olaf `planning-fest-2027.md` ("Diep spel met level ups"), Brams sim `producten/steam-hol/sim/sim.py voortgang`. Nagerekend met die sim: `platformen/steam/data/voortgang-maak.py` maakt `data/voortgang.json`, uitkomst in `data/voortgang-uitkomst.txt` (versie 1, GEZIEN, 8 zaden); versie 2 en het voorstel voor versie 3 in `data/sim-v2/` (GEZIEN, 8 zaden).
-Status: **ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
+Status: **versie 3 vastgesteld 16 nov ±14:50 UTC (zie "Versie 3 vastgesteld"), daaronder ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, verwerkt)** (tijden en tellingen klopten; gaten waren te mooi opgeschreven, meetlat-bron, demo-tellers, Gekroonde zonder geluk). Bram rekent na, Olaf zegt do 19 nov wat het kost, Daan en Mila zeggen of het er goed uitziet.
 
 ## In het kort
 1. **Vier sporen naast elkaar, geen enkel spoor alleen.** Zoals elke topper (Fenna: iets kleins elke paar minuten, iets middelgroots elk uur of elke paar uur, en iets groots): **hol-niveau 1 tot 50** (elk niveau iets nieuws dat je ziet), **Gloop 1 tot 10** (op de hoeden die hij at, onze haak), **niveaus van de andere bewoners**, en **laagsterren** (doelen met een hint per laag).
@@ -16,6 +16,32 @@ Status: **ontwerp versie 2 (versie 1: controleur 16 nov ±13:45 UTC, 11 punten, 
 - **Levels zonder nieuws zijn grind** (Spirit City na level 15). Daarom heeft elk hol-niveau een ding met een naam dat je in de strook ziet, en houdt het op bij 50. Geen niveau 51 tot 999 met alleen een getal.
 - **Prestige werkt als eerste stap en wordt gehaat als klus.** Wij doen geen reset. Het "opnieuw beginnen" zit in een lege nieuwe laag, terwijl de oude blijft.
 - **Prijs mag niet weglopen van het inkomen** (Ropuka's, Tiny Pasture). Hol-niveau stijgt op gevangen helden, niet op goud. Goud blijft voor graven en upgrades; die prijzen kijkt Bram na met zijn verhouding prijs / goud per uur.
+
+## Versie 3 vastgesteld (16 nov ±14:50 UTC)
+Bram rekende het voorstel hieronder na met weg als echte werkdagen (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-uitkomst.txt`, 8 zaden, GEZIEN). Ik neem alles over. Daarmee is versie 3 de richting; de tabellen van versie 2 verderop blijven staan als geschiedenis tot Bram de laatste run (punt 4) heeft gedaan.
+1. **Prijzen vanaf laag 2 x 1,5** (Bram, want een werkdag geeft met de nacht erbij 1,5 keer het goud van de open uren): luik **750 / 1650 / 3000**; graven en stap 1 tot 3 per laag x **1 / 2,25 / 5,25 / 8,25**; stap 4 tot 6 per laag x **1 / 1,95 / 2,0 / 2,25**; ding met een prijs per laag **590 / 1410 / 1935 / 2430**; kamertjes 5 per laag, oplopend **1,2 / 1,6 / 2,0 / 2,4 / 2,8 uur goud**. Laag 1 blijft zoals hij was, want op dag 1 is er nog geen nacht geweest. Weg 0,25, plafond 12 uur.
+2. **Uitkomst (Bram, GEZIEN):** hol 50 na 127,9 open uur. In werkdagen van 6 uur: hol 12 en 20 in week 1, laag 3 open week 2 dag 2, **laag 4 open week 3 dag 3, hol 50 week 5 dag 2**. Per week 42 / 15 / **13 niveaus en 50 aankopen in week 3** / 8 / 4. Thijs' lat ("een paar weken leuk", in week 3 nog iets nieuws) is gehaald. Elke aankoop in laag 4 kost 0,7 tot 1,9 uur in werkdag-tempo; duurste van het spel is stap 6 in laag 3 (2,1 uur).
+3. **Laag 4 krijgt 7 dingen met een prijs** (Brams plekken 41, 42, 43, 44, 45, 47, 49). Wat ze worden:
+   - 41: **hoedenlokker** (val: een nep-hoed aan een touwtje; de hoedenjager die op dit niveau gratis binnenkomt, rent er steeds weer in). Zelfde patroon als archeoloog en nep-schat: een nieuwe held en zijn tegenzet.
+   - 42: Moeder Gloop (bewoner). 43: gloopbron (val).
+   - 44: **vleermuistoren** (kamer: de vleermuisfamilie trekt erin en pikt soms een hoed van de berg om in te hangen). De vleermuisfamilie schuift dus van 46 naar 44 en wordt een kamer.
+   - 45: mimic van goud.
+   - 47: **leesbril voor de trol** (hij leest af en toe een kroniekregel voor in een wolkje, één woord fout).
+   - 49: hoedentroon voor Gloop.
+   - Gratis blijven: 41 hoedenjager, **46 hoedenpakket 5** (was 44), 48 de Gekroonde, 50 Hol van de Hoedenkoning.
+4. **De twee gaten die Bram vond:**
+   - **Hol 38 naar 39 (±4 uur open, vlak voor het luik naar laag 4):** drempels 36 tot 40 gelijkmatiger herijken, zodat geen gat langer is dan 2,5 uur open (±1,7 uur in werkdag-tempo). Hol 40 mag daardoor iets later vallen. Waarom niet iets extra's kopen: er staat op dat moment al genoeg goud op de bank, het ontbreekt aan iets nieuws om te zien, en dat komt van faam.
+   - **Het eind (na ±110 uur, week 4 en 5, gaten tot 6 uur):** Brams voorstel over: **kamertje 4 en 5 van laag 4 komen pas vrij op hol 47 en 49**, dan valt er in week 4 en 5 ook nog iets te kopen. **Geen stap 7**: een upgrade die alleen een getal verhoogt is precies de grind die we niet willen (Spirit City na level 15). Een gat van een werkdag op het eind betekent elke dag iets nieuws; voor het einde van een rustig spel vind ik dat eerlijk.
+   - Bram draait daarna één run om het te bevestigen; dan zet ik de tabellen om naar versie 3.
+5. **Niveaus van terwijl je weg was (antwoord op Olafs vraag van 14:35):** in zijn lokale run tilde één nacht na 90 seconden spelen het hol van 2 naar 12. **Dat mag**: alle faam van weg telt (anders voelt het als diefstal, Iris), en "kijk wat er gebeurde" is precies de beloning van een spel dat je tussendoor opent (T1, T3). Minder geven maakt de demo voor wie terugkomt alleen trager, niet leuker. Maar het nieuwe mag niet allemaal tegelijk in beeld springen, want dan zie je de vleermuis, de dief en de magiër niet binnenkomen. Daarom **één optocht, geen tien feestjes**:
+   - na de weg-telling wipt het bordje **één keer**, wat er ook bijkwam;
+   - daarna verschijnt elk nieuw ding met de poef van graven, van laag naar hoog niveau, **1,2 s na elkaar, samen hooguit 12 s** (meer dan 10 dingen kan alleen bij hol 1 tot 12: dan 0,6 s). Niveaus zonder iets om te zien (het Heldenboek, een upgrade-stap) slaan over;
+   - een nieuwe heldensoort komt niet met een poef maar is de eerstvolgende bezoeker, in volgorde (eerst de ridder, dan de dief);
+   - muntjes uit de schat alleen bij het eerste en laatste ding;
+   - één kroniekregel na de regel over kwart snelheid: **"Grew 10 levels while you were away."** (35 tekens, het getal past zich aan; bij één niveau gewoon de gewone niveauregel);
+   - klikken mag gewoon tijdens de optocht. In de demo staat na hol 12 de grijze kaart "Level 13 and 37 more in the full game".
+
+6. **Kamertjes (Mila 15:10):** past; 12 x 9 spelpixels met een ronde bovenkant, één ding van hooguit 8 x 8 met een eigen silhouet en één grapje, donkere warme achterwand met een lampje, minstens 6 spelpixels aarde ertussen, niet boven een val of de troon. Mila tekent ze in 3D, laag 1 eerst.
 
 ## Voorstel versie 3 (16 nov ±14:05 UTC): een paar weken leuk
 **De lat van Thijs** (14:53, via de hoofdchat): "dit spel moet wel gewoon een paar weken leuk zijn." Rekenvoorbeeld: elke werkdag ±6 uur open, en in **week 3** nog een nieuw doel en iets nieuws.
@@ -121,15 +147,15 @@ Staat bij de tabel per uur hieronder.
 | 38 | kaarsenkamer (crypte) *(te koop, ±1 u goud)* | 3 | nee | 51,7 u |
 | 39 | skelet in harnas (verdiend uiterlijk, niet te koop) | 3 | nee | 54,8 u |
 | 40 | **trap naar laag 4: het Gloophart** (waar slijm vandaan komt) | 4 | nee | 57,7 u |
-| 41 | hoedenjager (wil een hoed van de berg terug, lukt nooit, krijgt een wrok) | 4 | nee | 60,9 u |
+| 41 | hoedenjager (wil een hoed van de berg terug, lukt nooit, krijgt een wrok), plus hoedenlokker *(te koop, versie 3)* | 4 | nee | 60,9 u |
 | 42 | Moeder Gloop (bewoner) *(te koop, ±1 u goud)* | 4 | nee | 64,2 u |
 | 43 | gloopbron (val: een gevangen held wordt even een slijmpje) *(te koop, ±1 u goud)* | 4 | nee | 67,7 u |
-| 44 | hoedenpakket 5 (legendarisch: hoeden van je oude aartsvijanden als goud) | 4 | pijplijn | 71,2 u |
+| 44 | vleermuistoren (kamer, de vleermuisfamilie trekt erin) *(te koop, versie 3)* | 4 | deels | 71,2 u |
 | 45 | mimic van goud *(te koop, ±1 u goud)* | 4 | nee | 74,9 u |
-| 46 | vleermuisfamilie | 4 | deels | 78,6 u |
-| 47 | trol met leesbril (leest de kroniek voor) | 4 | nee | 82,3 u |
+| 46 | hoedenpakket 5 (legendarisch: hoeden van je oude aartsvijanden als goud) | 4 | pijplijn | 78,6 u |
+| 47 | trol met leesbril (leest de kroniek voor) *(te koop, versie 3)* | 4 | nee | 82,3 u |
 | 48 | zeldzame held: de Gekroonde (komt zeker binnen ±1 uur na dit niveau en daarna af en toe; geen kans-spul) | 4 | nee | 86,5 u |
-| 49 | hoedentroon voor Gloop | 4 | nee | 90,7 u |
+| 49 | hoedentroon voor Gloop *(te koop, versie 3)* | 4 | nee | 90,7 u |
 | 50 | Hol van de Hoedenkoning: gouden vaandel, titel, prestatie | 4 | nee | 95,5 u |
 
 Samen: 11 heldensoorten (5 nu plus edelman, mijnwerker, archeoloog, heks, hoedenjager, en de Gekroonde als zeldzame), 6 vallen (stekelput, rolsteen, lijmplaat, valluik, nep-schat, gloopbron), 5 bewoners (Gloop, skelet, mimic, trol, Moeder Gloop; de vleermuis is aankleding, geen bewoner die vecht), 4 lagen, ±40 hoeden in 5 pakketten. Dat is ongeveer de omvang die Olaf al rekende (±10 helden, ±6 vallen, ±40 hoeden, ±3 diepten).

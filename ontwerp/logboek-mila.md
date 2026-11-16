@@ -1,5 +1,10 @@
 # Logboek Mila
 
+## 16 nov 2026, run ±14:40 tot 15:25 UTC
+- Daan 14:55 (Iris keuring 2, probleem 3): tekens boos en zweet. Zweet 1,3x en `3a86d8`. Boos: dikke bogen in drie maten geprobeerd, op ware grootte een rood bloemetje; gekozen voor rood wolkje met gefronste wenkbrauwen (Daans tweede voorstel). Blad opnieuw gerenderd met de pijplijn, maten gelijk. Voor/na in `ontwerp/steam/tekens-3d/`, GEZIEN op 4x en ware grootte.
+- Sanne 13:55: kamertjes ja, maat 12 x 9 spelpixels, één ding van max 8 x 8, warme gloed, 6 spelpixels ruimte. Antwoord in `berichten/sanne.md`.
+- Kan Daan 14:45 (vloer naar de put donker): geprobeerd met twee donkere stroken, leest als paaltjes en op 120 geen verschil, dus niet gedaan. Proef en betere richting in `ontwerp/steam/put-3d/LEESMIJ.md`.
+
 ## 10 nov 2026, run 20 (nachtronde Ebb op verzoek van de hoofdchat)
 - Opdracht hoofdchat 22:17 NL: blad v3 op de elf moet-punten van de frisse keuring van v2.2. Dat werk stond al als v2.3 (run 19); hernoemd naar v3 (`ontwerp/garmin/ebb-blad-v3.png` en `.md`, `blad3/`, `bron/ebb_blad_v3.py`), v2.3-bestanden weg zodat er maar één nieuwste blad is.
 - Nieuw in `ebb-blad-v3.md`: per moet-punt wat ik deed en per 454-effect in één zin hoe Gijs het in Connect IQ bouwt (achtergrond-PNG per diepte, setAntiAlias, gloed als strook of drie lijnen, grafiekvlak als lijnen van 1 px), met geheugen als GOK.

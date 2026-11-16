@@ -19,3 +19,8 @@ Ronde d (±13:50 UTC): frisse kijker op ronde c gaf 6,5 ("1 leest nu als oud roe
 - Zwarte schacht (snijvlakken via `eigen_mat`), gloeiende rode bodem en een zwak rood puntlicht in de schacht, 5 dikke botwitte stekels met een donkere kegel erachter als rand, 4 lagere achteraan, een blauwe puntmuts doorgeprikt op de hoogste stekel en een schedeltje vooraan. Namen beginnen niet met `buit`, dus ze blijven in het putstuk.
 - Geen gloed op de gangmuur: het stuk is één kolom, dus een rode vlek wordt in het spel een rood vierkant naast gewone gangtegels.
 - `put-gat-mila-voor-na-120-4x.png`: boven oud, onder nieuw, op 120 en 4x, plus het knipvak op 3x. GEZIEN met Read.
+
+## Mila 16 nov ±15:25 UTC: vloer naar de put donker laten aflopen (kan Daan 14:45): geprobeerd, niet gedaan
+- Twee donkere stroken van 1 spelpixel op de vloer naast het gat, binnen het putstuk. `put-afloop-proef-mila-afgewezen.png`: boven nu, onder met stroken, groot en op 120 (rechts). GEZIEN met Read.
+- Uitkomst: de camera kijkt bijna recht van voren, dus de bovenkant van de vloer zie je nauwelijks; de stroken worden twee donkere paaltjes aan de rand en op 120 zie je geen verschil. Niet in `hol.py` gezet.
+- Wat wel kan werken (volgende keer, alleen als er tijd is): de voorkant van de vloerplaat zelf naar het gat toe laten zakken (een schuine snede van 2 spelpixels), zodat het silhouet van de vloer een rand naar beneden krijgt.

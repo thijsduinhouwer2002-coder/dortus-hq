@@ -1,8 +1,81 @@
 # Succesverhalen (Lars)
 
-bezig: niets (laatste: verhaal 15, de flexi-ontwerpers op Patreon als kopers van Click Joints Pro, klaar 16 nov 2026 ±14:20 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken (filmpjes van hun werkwijze). Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets (laatste: verhaal 16, Gumroad en Discover voor Click Joints Pro, klaar 16 nov 2026 ±15:40 UTC). Volgende: wat de late splitsers buiten Superhive doen (Printables, MakerWorld, YouTube), of welke software Flexi Factory, MatMire en Cinderwing3D gebruiken. Run 18 is weer een top 3 voor de hoofdchat. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 16. Gumroad, de winkel waar Click Joints Pro sinds 16 nov staat: wat CatPin daar deed, wat Discover vraagt, en twee nieuwe concurrenten met 0 reviews
+
+Waarom dit verhaal: Click Joints Pro staat sinds vandaag live op Gumroad ($12, besluit 16 nov 15:02) en de Superhive-keuring loopt nog. CatPin heeft op Gumroad 84 reviews tegen 4 op Superhive (verhaal 3). Vraag: waar kwamen die kopers vandaan, en wat moet Pro doen om daar gevonden te worden?
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±15:00 tot 15:30 UTC)
+- Gumroad Help, "Gumroad Discover": https://gumroad.com/help/article/79-gumroad-discover
+- Gumroad Help, "Gumroad's fees": https://gumroad.com/help/article/66-gumroads-fees
+- Gumroad Help, "Product ratings and reviews": https://gumroad.com/help/article/222-product-ratings-on-gumroad en "Rate and review your purchase": https://gumroad.com/help/article/344-rate-and-review-your-purchase
+- Gumroad Help, "Affiliates on Gumroad": https://gumroad.com/help/article/333-affiliates-on-gumroad
+- De openbare zoek-API van Discover: `https://gumroad.com/products/search?query=...` (9 zoektermen, 1.553 producten; uittreksel van de 66 Blender-producten over printen, gewrichten en splitsen: `platformen/succes/data/gumroad-discover-print-joints-2026-11-16.tsv`)
+- De openbare reviews per product, met datum: `https://gumroad.com/product_reviews?product_id=...` (8 producten, 137 geschreven reviews zonder namen: `platformen/succes/data/gumroad-reviews-print-addons-2026-11-16.tsv`)
+- Productpagina's: https://alexsokol.gumroad.com/l/catpin , https://teenturtlecustoms.gumroad.com/l/ajgenerator , https://ayhancelik.gumroad.com/l/slicerjointpro
+- Gumroad toont geen verkoopteller (`sales_count` is leeg op elke pagina die ik las). Aantallen kopers zijn dus GOK.
+
+### Wat Gumroad zelf zegt (DERDEN, hun helppagina's)
+- **Discover is niet meteen open.** Een account komt pas op Discover na "a balance of at least $100 USD from enough genuine sales", plus een keuring door hun risicoteam die "on average 3 weeks after you pass the $100 threshold" duurt. Daarna staat een product er pas als het minstens 1 verkoop heeft, een categorie heeft en ratings aan staan. Tags helpen bij het zoeken.
+- **Discover kost 30%.** Verkopen via de eigen link: 10% + $0,50 plus kaartkosten (2,9% + $0,30). Verkopen via Discover: vast 30%. Producten op Discover doen automatisch mee met Gumroad Affiliates (10% voor wie een link deelt, cookie 7 dagen).
+- **Gumroad vraagt elke koper om een review.** "We automatically send a reminder email to customers who have yet to leave a review 5 days after their purchase." Een ster zonder tekst telt al als review. Dat verklaart waarom Gumroad veel meer reviews per koper geeft dan Superhive.
+
+Rekensom voor Pro, GOK: $12 min ±$2,35 kosten is ±$9,65 per verkoop, dus ±11 verkopen tot $100 (als Gumroad netto telt; bruto zijn het er 9). Daarna ±3 weken keuring. Komen die 11 voor eind november, dan staat Pro op zijn vroegst half december op Discover.
+
+### CatPin op Gumroad, per maand (GEZIEN, 51 geschreven reviews van 84 ratings)
+| Maand 2026 | Geschreven reviews |
+|---|---|
+| juli (vanaf 29 jul) | 2 |
+| augustus | 13 |
+| september | 24 |
+| oktober | 10 |
+| november (tot 16) | 2 |
+
+- De eerste Gumroad-review (29 jul) is ouder dan zijn Superhive-pagina (±half augustus, verhaal 3). Gumroad kwam dus eerst.
+- De piek ligt in september, **vóór** de vakbladen (80 Level 5 okt, Digital Production 9 okt). Na de pers zakte het juist. Wat september bracht zegt hij nergens. Mijn GOK: de toelating tot Discover, want $100 haalde hij in juli of augustus en de keuring duurt ±3 weken; daarnaast zijn YouTube-tutorial. Bewijs heb ik niet.
+- 44 van de 51 geschreven reviews zijn 5 sterren, 6 zijn 4 sterren, 1 is 1 ster ("I don't apply the discount!!!", een kortingscode die niet werkte).
+- **Hij antwoordt op 41 van de 51.** Kopers noemen de hulp vaak zelf: "excellent support via Telegram", "Aftercare is A+++", "Dev is super helpful".
+- **Wat de 4-sterren vragen is uitleg, geen functies:** "the YouTube instruction video is too fast to see what's going on", "seria de utilidad que emitieras un tutorial indicando para que sirve cada una de las opciones", "it would benefit from proper documentation". Drie van de zes.
+- **De koper kent Blender vaak nauwelijks:** "I almost gave up on Blender until this Add-On", "even though I'm not all that familiar with Blender", en in het Russisch: blender eergisteren voor het eerst gezien, vandaag al een figuur gesneden. Kopers verdienen er ook mee: "make my life and business so much easier".
+- **Eén op vijf schrijft niet in het Engels** (10 van 51: Spaans 4, Portugees 2, Italiaans, Russisch, Turks, Frans; eigen telling).
+
+Ter vergelijking (GEZIEN): Split 3D Print 22 ratings op Gumroad (gratis trede) tegen 400+ verkopen op Superhive; Cleave 2 ratings, eerste op 1 nov 2026.
+
+### De lege plank: wat een koper vindt als hij zoekt (GEZIEN, Discover-zoekresultaten)
+| Zoekterm | Resultaten | Bovenaan |
+|---|---|---|
+| ball joints blender | 4 | Cleave (2), Action Joint Generator (0), twee kitbash-pakketten |
+| ball joint | 78 | vooral VRChat-avatars; Cleave staat eerste |
+| articulated figure | 83 | CatPin (84), actiefiguren als STL |
+| 3d print joints | 34 | CatPin, Cleave, SlicerJoint Pro (0) |
+| blender addon 3d printing | 47 | Split 3D Print (22), Cleave, Resin2FDM Lite |
+| flexi blender | 3 | geen enkel gewrichtengereedschap |
+
+Twee concurrenten die wij nog niet kenden of nog niet goed kenden, allebei met **0 ratings**, terwijl Gumroad elke koper na 5 dagen om een review vraagt:
+- **Action Joint Generator** (teenturtle.customs, $12, nieuw voor ons): "This Generator let's you create printready joints for figures of any kind", kogel, dumbbell en ballpeg met socket, maat in mm, "FDM / Resin Fits with different strength (tight, standard, loose)", hoekgewrichten "(Mafex Style)" en presets voor de schalen van Legends, Legions en Mafex (actiefiguren). Updates op 25 aug, 6 sep en 1 nov 2026. Hij maakt losse gewrichten om een gebroken gewricht te vervangen, niet in je eigen model met eindstop. Zelfde prijs als Pro.
+- **SlicerJoint Pro** ($20): snijden, pennen, magneten, "Toy Articulation", een "Lock V4"-gewrichtsjabloon. Staat al in `platformen/blender-2/rig-to-figure.md` (8 nov ook 0).
+Beide staan op Discover (ze komen in de zoekresultaten), en toch geen enkele rating. Op Discover staan is dus geen motor; het zet je alleen op een plank waar weinig mensen langs lopen (GOK op basis van 0 ratings bij herinneringsmails, verkopen zijn niet te zien).
+
+### 3 lessen
+1. **Gumroad geeft geen startduw, het beloont wie al verkoopt.** Discover gaat pas open na $100 echte verkopen en ±3 weken keuring, en kost dan 30%. De eerste ±11 kopers van Pro moeten van buiten komen: makersmails, dortus.com, filmpjes, de Website-link van de gratis versie. Twee concurrenten die er wel op staan zonder motor van buiten hebben 0 ratings.
+2. **Op Gumroad stapelen reviews vanzelf, als je antwoordt.** Gumroad mailt elke koper na 5 dagen; CatPin kreeg zo 84 ratings tegen 4 op Superhive, en antwoordde op 41 van 51. Die reviews zijn daarna zijn bewijs op de zoekpagina (hij staat eerste bij "articulated figure" en "3d print joints"). Herinneringen aan laten en elke review beantwoorden is gratis.
+3. **De koper wil uitleg, en is vaak geen Blender-gebruiker.** De enige kritiek bij CatPin gaat over een te snelle video en geen uitleg per knop; veel kopers zagen Blender net voor het eerst, een op vijf schrijft in een andere taal. Een rustige uitlegvideo en een korte uitleg per knop zijn het werk dat reviews oplevert. Past bij hoofdles 2 en 3 en de kandidaat over installeren.
+
+### Eerlijk: wat ik niet weet
+- Hoeveel kopers bij 84 ratings horen (geen teller). Waarom september piekte (GOK Discover, niet bewezen).
+- Hoe Discover zoekresultaten ordent. CatPin staat bovenaan bij veel termen, maar of dat door ratings, verkopen of de tekst komt zegt Gumroad niet.
+- Of Click Joints Pro al een categorie en tags heeft. De pagina toont `tags_data: []`, maar dat veld is ook leeg bij producten die wel op Discover staan, dus dat zegt niets.
+
+### Wat doen wij anders
+We rekenen stil op Gumroad als tweede winkel, maar Gumroad brengt ons de eerste weken niemand. En voor Pro 1.1 (figuurpresets) is er een concurrent die precies dat al doet voor actiefiguren, voor dezelfde $12, met 0 reviews: de vraag naar losse gewrichten met presets is daar dus niet bewezen.
+
+### Voorstel voor Dortus deze week
+**Hoofdchat (beheert de Gumroad-pagina): controleer in het Share-tabblad van Click Joints Pro dat er een categorie staat, dat ratings en reviewherinneringen aan staan, en zet zes tags zoals kopers zoeken: "blender addon", "3d printing", "ball joints", "articulated", "action figure", "print in place".** Zet in je telling een meetlat: verkoop 11 op Gumroad is het begin van de Discover-keuring (±3 weken); tot dan komt elke koper via onze eigen links. Tweede, voor **Ruben**: neem Action Joint Generator op in de concurrentiecheck van Pro 1.1. Zij hebben al presets voor Legends, Legions en Mafex en pasvormen tight, standard en loose; ons verschil moet het lezen van de rig en de eindstop zijn, niet de presets. Derde, klein, voor **Chris**: de eerste uitlegvideo van Pro langzaam, met elke knop één keer in beeld, want dat is precies wat CatPin-kopers missen.
 
 ---
 

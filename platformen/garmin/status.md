@@ -1,5 +1,18 @@
 # Garmin Connect IQ: status
 
+- **16 nov ±15:25 UTC, run 117. Ebb 1.0.1: alle 56 horloges compileren en de toetsrun is groen; de nieuwe kleine maten (218, 240, 360) heb ik gezien en ze lezen goed. De naam staat vast (Chris). Nog NIET klaar voor Thijs: de plaatjesrun liep nog, Mila en Daan hebben nog geen ja gezegd, er is geen release.**
+  - **Gezien in het log:** `COMPILEERT horloges: 56`, elk horloge drie keer ja (job alle-horloges, run 43882501055, commit 1aebd69). Job bouw (winkelbestand) groen. Toetsrun 43882501327 groen, beelden staan op tak `schermen` in `garmin-adem/claude-garmin-ebb-101/` (RUN.txt noemt 1aebd69).
+  - **Zelf bekeken op ware grootte:** Forerunner 255S elf schermen en 24 winkelscènes, fēnix 7S drie, Forerunner 265S drie, Venu 2S vier. Binnen de rand, scherp, niets over elkaar. Details in `platformen/garmin/upload/ebb-1.0.1.md` deel 5.
+  - **Code:** tussen tag `ebb-v1.0.0` en 1aebd69 is in `source/` niets veranderd (`git diff`). "Nothing else changed" in de winkeltekst klopt dus.
+  - **Naam:** Engels `Ebb Breathing & Breath Hold`, Duits `Ebb Atemübungen & Atem anhalten` (voorstel van Chris, overgenomen), Nederlands `Ebb Ademhaling & Adem inhouden`. "Calm" laten we los.
+  - **Nulmeting zoekplekken** (16 woorden, 14:58 UTC) in `meting-ebb.md`: breathing 29, breath hold 4, breathwork 32, calm 42, atmung niet in de eerste 90.
+  - **Gevonden:** de winkel toont bij 28 regels in het manifest 40 horloges. Daarom geen "up from 28" in de tekst, maar "about twice as many". Gemeld aan Chris (ook voor dortus.com/ebb/).
+  - **Lettermeting:** 360 px wijkt 1 px af van mijn schatting; op 218 en 240 gebruikt de app systeemletters, daar maakt het niets uit. Gelijkzetten gaat mee met de moets van Mila en Daan, in één commit.
+  - **Fout van mij deze run:** ik haalde de tak `schermen` op zonder `+` voor de naam, waardoor ik een oude stand bleef zien en aan Mila en Daan schreef dat de beelden er nog niet stonden. Binnen een paar minuten rechtgezet in hun berichten.
+  - **Niet gezien:** eindkleur van run 43882501055 (liep om 15:24 UTC nog; drie van de twintig plaatjesjobs heb ik in het log "geen crash" zien geven), de winkelscènes van 240 en 360, en alles op een echt horloge.
+  - **Ebb in de winkel:** 0 downloads, 0 reviews (API 14:57 UTC). **Ebb Calm:** nog niet openbaar (API 404 om 14:57 UTC).
+  - **Concept uploadblok** staat in `upload/ebb-1.0.1.md` deel 6, niet op de lijst van Thijs.
+  - **Bericht hoofdchat 16:25 NL (proefstand, haak, codes):** kwam binnen aan het eind van de run. Proefstand uitgezocht: die loopt via een eigen ontgrendelpagina met eigen betaling en server (uitleg van Garmin gelezen), dus keuze Ebb Calm als gratis ingang; of het ook met de betaling van Garmin kan heb ik niet gezien. Haak en codes: nog niet gedaan. Alles in `taken.md`.
 - **16 nov ±14:15 UTC, run 116. Ebb 1.0.1 (voorrang van de hoofdchat, 15:00 NL): van 28 naar 56 horloges gebouwd op tak `claude/garmin-ebb-101`, nieuwe naam voorgesteld. Nog niets gekeurd, nog niets klaargezet voor Thijs. Het Gloop-spel ligt stil tot Thijs kiest; het uploadblok blijft staan.**
   - **Gebouwd en gezien (run 43881391618, commit f41b258, job bouw groen):** het winkelbestand bouwt met negen horloges erbij (37), ondertekend met de echte sleutel ("Ondertekend met GARMIN_DEV_KEY" in het log), 5.409.995 bytes. Er is geen release gemaakt. Dezelfde run gaf de lijst van alle 173 horloges in de SDK met schermmaat, startpictogram en geheugen.
   - **Fout van mij, zelf gevonden in die lijst en gerepareerd:** ik had MARQ (Gen 2) de plaatjes van 416 px gegeven; het scherm is 390. Staat goed in 1aebd69.

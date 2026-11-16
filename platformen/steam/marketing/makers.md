@@ -3,6 +3,27 @@
 Opdracht: fest-plan punt 2, klaar di 24 nov. Dit is **versie 1**: 40 YouTube-kanalen die aantoonbaar een bureaublad-, idle- of cozy spel speelden. Twitch en TikTok volgen (zie "Open").
 Niemand is benaderd. Versturen is iets plaatsen op internet en gaat via de hoofdchat en de lijst van Thijs.
 
+## Eerste ronde in één blik (run 4, voorstel voor de hoofdchat en Thijs; niets verstuurd)
+De 15 die als eerste een mail of sleutel krijgen. Gekozen op: actief in de laatste 30 dagen (GEZIEN), maakt precies ons soort video, en een openbare route om ze te bereiken. Details per naam verderop.
+| # | Wie | Waarom (kort) | Route | Wanneer |
+|---|---|---|---|---|
+| 42 | Maybe Sarisa | video "Cozy Idle Desktop Companion Taskbar Games You've Missed" | eigen domein | pagina live (±8 dec) |
+| 15 | The Indie Brew | "The BEST Idle Games to play While You Work" 16.602; vraagt zelf om mails | eigen domein | pagina live |
+| 68 | I Dream of Indie Games | wekelijkse lijst nieuwe indies, mediaan 11.500 | eigen domein | pagina live |
+| 69 | Cozy With Toxi | "20 HUGE Upcoming Cozy Games" 19.063 | eigen domein | pagina live |
+| 70 | NextBigGames | maandlijst komende idle-spellen | eigen domein | pagina live |
+| 29 | MaxPalaro | Rusty "jogar enquanto trabalha" 51.757; "for keys" | eigen domein | pagina live, Engels of Portugees |
+| 22 | Gaming In The Wild | Next Fest-lijsten 42.114 | bureau | pagina live, nog eens in de festweek |
+| 23 | Easily Distracted Games | cozy-lijsten, mediaan 61.000 | bureau | pagina live, nog eens in de festweek |
+| 16 | Conkbot | maandlijst "Coming in ..." | via kanaal | begin december (lijst januari of maart) |
+| 7 | Kosh Idle | alleen idle, elke dag, mediaan 1.600 | via kanaal | demo af (18 dec) |
+| 19 | CozyAriGames | "First Look" van demo's, ook curator | Curator Connect | demo af |
+| 61 | GriffyBit TV | idle-streamer, 21 van 30 titels idle | via kanaal | demo af |
+| 71 | Rusty Champaign | bijna elke dag een cozy of idle demo | via kanaal | demo af |
+| 44 | Idle cub | half zijn titels idle, mediaan 199.500 | via kanaal | demo af, zonder verwachting |
+| 20 | Nookrium | "best overlooked" uit fests, 97.186 | via kanaal | festweek (14 jan) |
+Verwachting (GOK, rekensom onder "Nog actief?"): als 4 tot 5 van deze 15 iets maken, tientallen tot enkele duizenden bezoekers. Aanloop, geen doorbraak.
+
 ## Hoe ik keek (alles GEZIEN 16 nov 2026, ±11:20 tot 11:45 UTC)
 - YouTube-zoekpagina, met curl, gesorteerd op weergaven en op relevantie, 18 zoektermen (Rusty's Retirement, Desktop Defender, Deskrawl, Desktop Survivors 98, Bao Bao's Cozy Laundromat, Ropuka's Idle Island, Tiny Pasture, Task Bar Hero, Minimon, "desktop companion games", "idle games to play while you work", "games that sit at the bottom of your screen", "taskbar games steam", Next Fest idle). Script: `data/yt-zoek.py`. 246 kanalen gevonden; video's over Windows Defender en dergelijke eruit gefilterd.
 - Per kanaal de openbare "about"-pagina met curl: abonnees, land, kanaaltekst. Script: `data/yt-kanaal.py`. Het aantal video's dat het script geeft is niet betrouwbaar, dat laat ik weg.
@@ -139,6 +160,40 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 
 **Eerlijke rekensom (GOK):** de mediaan per video van de 11 kanalen hierboven loopt van 55 (Conkbot) tot 199.500 (Idle cub). Als 4 van de 11 een video maken met hun mediaan, is dat grofweg 5.000 tot 200.000 weergaven, en met een klikratio naar Steam van 1 tot 3% (GOK) 50 tot 6.000 bezoekers. Dat is genoeg om in het vak te stijgen, niet om alleen daarmee door te breken. Makers zijn de aanloop; het fest zelf blijft het moment (`festplan.md`).
 
+## Twitch: streamers gevonden via hun VOD-kanalen (run 4, GEZIEN 16 nov ±14:40 tot 14:55 UTC)
+**Waarom zo:** SullyGnome, TwitchTracker en Streams Charts geven 403 met curl (GEZIEN, run 1 en nu), en de Twitch-API vraagt een sleutel van Thijs. Veel streamers zetten hun streams als "VOD" of "archive" op YouTube; die vind je met dezelfde zoekpagina. Zoektermen: "<spel> stream" en "<spel> twitch" voor Rusty's Retirement, Deskrawl, Desktop Defender, Task Bar Hero, Desktop Survivors 98, Tiny Pasture, plus "idle desktop game stream vod" (11 zoekopdrachten, video's langer dan een uur = stream). Activiteit uit `data/yt-recent-streamers-2026-11-16.csv` (laatste 30 video's).
+| # | Streamer (VOD-kanaal) | Twitch | VOD-kanaal abonnees | Bewijs (stream, weergaven van het archief) | Actief? (dagen sinds laatste VOD, mediaan) | Kans |
+|---|---|---|---|---|---|---|
+| 60 | Laimu (@LimeArchives) | ja, VTuber | 411K | "Idle Farm Game with Chat ~ Laimu plays Rusty's Retirement" 1.740, en Rusty na Heavy Rain 2.488 | 0 dagen, mediaan 8.600, speelt cozy | middel: speelde Rusty **met haar chat**, juist de functie hieronder |
+| 61 | GriffyBit TV (@GriffyBitTV) | ja | 43,5K | streams met "Some Other Idle Games" (1.528) en Idle Monster TD (2.565); vooral IdleOn | 10 dagen, mediaan 3.550, 21 van 30 titels idle | hoog: idle-streamer die nieuwe idle-spellen probeert |
+| 62 | Krayn (#45, @Krayn) | ja, krayn_live (staat in zijn kanaaltekst) | 16,6K (VOD-kanaal) | Deskrawl-stream 7.547 | 0 dagen, mediaan 9.500 | middel (Frans) |
+| 63 | Kripparrian (al in D) | ja | 33,4K (VOD-kanaal) | "VARIETY! Lootbound / Deskrawl!" 21.318 | dagelijks | laag tot middel: groot, speelt wel kleine ARPG-achtige spellen in variety-streams |
+| 64 | CallMeCarson (@CallMeCarsonVODS) | ja (groot) | 2,45M | "Every 5 Minutes, I add another Idle Game" 4.893 | 4 dagen, mediaan 11.000 | laag: één idle-stream, groot kanaal; alleen via Curator Connect of mail zonder verwachting |
+| 65 | Edouard_EMB (@edouard_emb) | ja (staat in kanaaltekst) | 347K | "Un jeu en BARRE DE TACHE ?!" (Rusty) 3.911 | 0 dagen, mediaan 28.000 | laag tot middel (Frans; bureau-adres staat in kanaaltekst, niet overgenomen) |
+| 66 | Phenexa (@Phenexa) | ja | 1,86K | Rusty 1.428, Tiny Pasture 230 | 6 dagen, klein | hoog voor een klein kanaal: speelt elk cozy spel als "First Look" |
+| 67 | Game Launch Central (@GameLaunchCentral) | nee, YouTube | 17,3K | "10 Upcoming Idle Games for Endless Fun..." 525; TBH-gidsen tot 11.732 | 0 dagen, 30 video's in 30 dagen | **hoog voor de aanloop**: maakt lijsten van *komende* idle-spellen, precies waar een spel met alleen een pagina in past (zakelijk adres in kanaaltekst, gmail, niet overgenomen) |
+- Ook gezien, niet opgenomen: AceTo (stream van 9 uur Desktop Defender, 103 tot 173 weergaven, 139 abonnees), Felps LIVE (Rusty 46.682, staat al in groep C via Fenna), GRINDING CURRENCY (12 Deskrawl-gidsen, 1,74K, maakt alleen gidsen over spellen met een markt), Zhain Gaming (volledige doorspeelvideo's, geen idle).
+- **Eerlijk:** de streams over bureaubladspellen hebben op YouTube kleine archiefcijfers (100 tot 21.000). Live kijkers op Twitch zie ik zo niet. Wat telt is dat deze streamers het spel **uren** laten draaien, met chat erbij.
+
+### Gevonden tijdens het zoeken: Rusty's Retirement heeft Twitch-koppeling, de rest niet
+- Rusty's winkelpagina (GEZIEN, appdetails 2666510): "Twitch Integration available: Streamers and viewers can build a farm together. Viewers can control what task their robot should focus on through chat commands like !plant !water !harvest."
+- Ik heb de beschrijving van 190 spellen gelezen (Steam-zoekpagina op "desktop idle", "taskbar", "desktop companion", "bottom of your screen", "idle desktop pet", plus 10 bekende bureaubladspellen; script `data/twitch-koppeling.py`, cijfers in `data/twitch-koppeling-2026-11-16.csv`; "reviews" is het getal "recommendations" uit de winkel-API). Van de bureaublad- en idle-spellen met meer dan 400 reviews noemt **alleen Rusty** (13.987 reviews, de grootste) een koppeling met chat. Deskrawl (3.642), Tiny Pasture (7.142), Ropuka (4.113), Desktop Defender (1.788) en Task Bar Hero niet. Andere met iets voor streamers: Spirit City (muziek mag op stream), Burgie's Cozy Kitchen (streamermodus), Kukoro (919 reviews, een heel spel van chat-minispellen).
+- Wat het **niet** bewijst: dat Rusty groot werd door de koppeling (GOK, één spel). Wat het wel laat zien: een open plek bij precies ons soort spel, en het past op Hats beter dan op een boerderij, want onze helden hebben al een naam, een wrok en een hoed. Voorstel aan Sanne (optie D, "chat-helden") staat in `berichten/sanne.md`.
+
+## Aanloop: kanalen met lijsten van *komende* spellen (run 4, GEZIEN 16 nov ±15:00 UTC, nummer 68 tot 73)
+**Waarom deze groep:** tussen de pagina live (±8 dec) en de demo (4 jan) hebben we alleen een pagina en een GIF. De makers in A spelen een spel; deze kanalen zetten een spel dat nog niet uit is in een lijst ("wishlist these"). Gevonden met 8 zoekopdrachten ("upcoming idle games 2026/2027", "upcoming cozy games 2027", "upcoming desktop games steam", "new idle games steam demo", "upcoming taskbar games", "best steam demos idle", "upcoming indie games january 2027"). Activiteit uit `data/yt-recent-aanloop-2026-11-16.csv`. Kanalen met alleen mobiele gacha-lijsten of AAA-lijsten weggelaten.
+| # | Kanaal | Abonnees | Bewijs (video, weergaven) | Actief (laatste video, video's in 30 dagen, mediaan) | Contact openbaar | Kans |
+|---|---|---|---|---|---|---|
+| 68 | I Dream of Indie Games (@IDreamofIndie) | 1,72K | "I Found 70 NEW Indie Games You Should Grab This Week!" 11.629 (8 dagen oud); is een eigen indie-mediasite | 1 dag, 30, 11.500 | adres op eigen domein in kanaaltekst | **hoog**: wekelijkse lijst, 7x abonnees per video, mediasite met eigen adres |
+| 69 | Cozy With Toxi (@CozyWithToxi) | 9,71K | "20 HUGE Upcoming Cozy Games Worth Waiting For! (2026 & Beyond)" 19.063 | 4 dagen, 17, 10.500 | adres op eigen domein in kanaaltekst | **hoog**: cozy, komende spellen, eigen adres |
+| 70 | NextBigGames (@thenextbiggames) | 2,61K | "October 2026 Promising Idle Games: 106 Games + 12 Categories" 748 (5 dagen oud) | 1 dag, 18, 1.450 | adres op eigen domein in kanaaltekst | hoog voor zichtbaarheid bij makers en uitgevers: maandlijst van idle-spellen die nog komen; klein publiek |
+| 71 | Rusty Champaign (@RustyChampaign) | 4,83K | "A Cozy Idle Game About Turning a Desert Into an Oasis! (Quiet Bloom demo)" 4.486 | 0 dagen, 28, 5.750 | niet in tekst | hoog: speelt bijna elke dag een cozy of idle demo |
+| 72 | Gameskeys (@Gameskeysnet) | 96,6K | "NEW Indie Games Coming in 2026 & 2027" 9.025 (6 video's in mijn zoektermen) | 1 dag, 30, 6.200 | niet in tekst | middel: grote lijsten, wij zijn er één van veel |
+| 73 | OKtrix (@OKtrix) | 9,65K | "28 NEW Upcoming Unique Simulation Games You Need on Your Wishlist" 58.836 | 1 dag, 30, 27.000 | zakelijk adres in kanaaltekst (gmail, niet overgenomen) | middel: veel weergaven per abonnee (±3x), lijsten op "unique" |
+| (74) | ~~Indie Games Hub~~ | | staat al als #21 in groep B; dubbel, geen nieuw nummer | | | |
+- **Wanneer:** de dag dat de pagina live is (±8 dec) een korte mail aan 68, 69 en 70 (eigen adres), met GIF en "free demo January 4, Desktop Companion Fest Jan 14 to 18". 71 krijgt een demosleutel zodra de demo af is (18 dec). 72 en 73 pas met een getal (verlanglijstjes of de festuitslag).
+- **Eerlijk:** de mediaan van deze kanalen is 1.450 tot 27.000 weergaven per video, maar wij staan in een lijst van 20 tot 106 spellen. Per vermelding zijn het eerder tientallen dan honderden bezoekers (GOK). Het telt omdat het in de weken vóór de demo de enige weg is naast onze eigen clips.
+
 ## Wat ik eruit haal (eerste lezing)
 1. **De kanalen die precies ons soort spel speelden zijn klein**: 14 kanalen in A, mediaan ±11K abonnees, en de video over het bureaubladspel haalde meestal 1.500 tot 30.000 weergaven. Dat is het eerlijke plafond per video: geen doorbraak uit één mail.
 2. **Drie zeggen zelf dat je spellen mag sturen** (The Indie Brew, MaxPalaro, Gohjoe "all business inquiries") en vier hebben een bureau-adres (Gaming In The Wild, Easily Distracted, Dekaff, foxranch). Daar beginnen.
@@ -148,16 +203,18 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 ## Plan: wie krijgt wanneer een sleutel (voorstel, nog niets versturen)
 | Wanneer | Wie | Wat |
 |---|---|---|
-| zodra de winkelpagina live is (±8 dec) | groep A en B met openbaar adres (15, 22, 23, 29, 31 en wie in A een adres in tekst heeft) | korte mail: één zin haak ("Every hero who falls in leaves a hat on Gloop's head"), GIF, link naar de pagina, "demo-sleutel vóór het fest als je wilt" |
+| zodra de winkelpagina live is (±8 dec) | groep A en B met openbaar adres (15, 22, 23, 29, 31 en wie in A een adres in tekst heeft), **plus Maybe Sarisa (42) en de aanloopgroep met eigen adres (68, 69, 70)** (run 4) | korte mail: één zin haak ("Every hero who falls in leaves a hat on Gloop's head"), GIF, link naar de pagina, "demo-sleutel vóór het fest als je wilt" |
 | vr 18 dec, demo af | wie ja zei | vroege demo-sleutel (Steam-sleutels via Steamworks, of Curator Connect) |
+| vr 18 dec, demo af (run 4) | streamers 61, 66 en 71 (GriffyBit, Phenexa, Rusty Champaign), via de route die ze zelf noemen | demosleutel; als chat-helden (optie D bij Sanne) er komt, is dat de eerste zin |
 | 8 jan (Valve-trailer, wij mogen melden) | alle 40, ook zonder adres via Curator Connect | herinnering: demo staat in het Desktop Companion Fest, Fest Hat |
 | 14 tot 18 jan | groep B (lijstjes) en Nookrium | fest-dag 1: "nieuw in het fest", onze GIF |
 
-De teksten (Engels, kort, per groep) zet ik in een volgende run klaar in `platformen/steam/marketing/teksten-makers.md`.
+Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B, D, E, Curator Connect, showcase).
 
 ## Open (volgende runs)
-- Twitch: wie streamde Rusty, Desktop Defender, Deskrawl. SullyGnome en TwitchTracker geven 403 met curl (GEZIEN 16 nov); volgende poging: de openbare Twitch-pagina's of VOD-titels op YouTube ("stream", zoals Kripparrian en knekroTV).
-- TikTok: makers met bureaubladspellen (yt-dlp leest TikTok volgens Joris, verhaal 11).
+- ~~Twitch: wie streamde Rusty, Desktop Defender, Deskrawl.~~ Gedaan run 4 via VOD-kanalen: 60 tot 67 hierboven. Live kijkers op Twitch blijven onbekend zonder Twitch-sleutel.
+- TikTok: makers met bureaubladspellen. yt-dlp mocht niet in deze omgeving (run 4); alleen nog via openbare pagina's met curl, anders aan Chris.
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
-- Teksten per groep.
+- ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
+- Stand run 4: **73 makers** (59 YouTube, 8 streamers, 6 aanloopkanalen; Indie Games Hub stond er al als #21), plus 23 curatoren in `curatoren.md`. Vóór di 24 nov: een korte eerste ronde van ±15 namen bovenaan dit bestand zetten, zodat de hoofdchat die in één blik aan Thijs kan laten zien.

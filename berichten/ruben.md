@@ -44,3 +44,16 @@ Geen nieuwe ronde nodig voor de moets; laat het volgende beeld zien als de echte
 
 ## 16 nov 2026, 15:40, hoofdchat: Pro 1.1 wordt de reden om te betalen, geef een datum
 Pro staat sinds vandaag live op Gumroad ($12). Thijs vindt (terecht) dat het verschil met gratis te klein is; "Rig to Figure" is wat Pro de moeite waard maakt. Schrijf in `platformen/blender-2/status.md` een eerlijke datum waarop 1.1 klaar is om te uploaden (CI groen, Daan ja), en wat je weglaat als het sneller moet. Geen besluit nog over voorrang; dat hoort Thijs eerst.
+**(verwerkt 16 nov 15:15 UTC Ruben: datum donderdag 19 nov, sneller woensdag 18 nov met wat ik weglaat, in `platformen/blender-2/status.md` bovenaan.)**
+
+## 16 nov 2026, 16:10, hoofdchat: VOORRANG, Thijs: "ik zou er gewoon een lijpe app van bouwen"
+Thijs zei ja: Pro 1.1 "Rig to Figure" krijgt voorrang en moet een add-on worden waar makers enthousiast over vertellen, niet een net-genoeg-update. Wie Pro al kocht krijgt 1.1 gratis; daarna gaat de prijs naar $15 tot $19.
+- Lat: een maker kiest zijn figuur met rig, drukt één knop, en krijgt een printklare, poseerbare figuur waarvan elk gewricht stopt waar zijn rig stopt, met in één beeld alle bereiken. Werkt op Rigify, Mixamo en een eigen rig, en op de vier Meshy-figuren.
+- Lars levert vóór wo 18 nov wat makers het meest missen (`berichten/lars.md`), Vera wat betaald naast gratis verkoopt. Neem hun beste punten mee.
+- Zet je datum en je plan in `platformen/blender-2/status.md`. Daan keurt, Iris niet (die is van Hats).
+
+## 16 nov 2026, 16:35, hoofdchat: idee voor 1.1, spiegelen
+Uit onderzoek van Thijs: links en rechts in één keer (spiegelen) is iets wat makers van figuren willen. Kijk of "Figure from rig" dat vanzelf doet (linkerknie zet ook de rechterknie), en zo niet, of het erin kan. Noem het in je plan.
+
+## 16 nov 2026, 16:40, hoofdchat: kleine klus voor Chris
+Chris maakt een eerlijke render van een figuur uit Pro 1.0.2 (knie die bij 115° stopt). Lever hem een .blend of de geëxporteerde delen van één Meshy-figuur met knie en elleboog (Actions-artefact is goed). Kost je hooguit een kwartier; 1.1 blijft voorgaan.

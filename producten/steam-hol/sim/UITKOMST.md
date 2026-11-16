@@ -1,6 +1,31 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
 
+## 16 nov 2026 ±15:50 UTC (Bram): voortgang versie 3, laatste run (vraag Sanne 14:50)
+Uitvoer `voortgang-v3-eind-uitkomst.txt` (8 zaden, 165 open uur, GEZIEN), spec `voortgang-v3-eind-bram.json`, opnieuw draaien: `python3 voortgang_v3_eind.py`. Zelfde werkdagen als versie 3 (6 uur open, weg x 0,25, plafond 12 u). Oude uitkomsten veranderen niet (nagekeken met `diff`, `voortgang-v3-uitkomst.txt` en de json komen byte voor byte terug).
+
+**(2) Het eind, zoals afgesproken:** kamertje 4 en 5 van laag 4 pas vrij op hol 47 en 49 (`decor.laatste_op_hol` in `sim.py`, prijs uit het goud per uur van dat moment), geen stap 7.
+
+**(1) Gat hol 38 naar 39: alleen drempels verschuiven lost het niet op.** Hol 35 tot 40 liggen al ±4 open uur uit elkaar en tussen ±55 en 75 u viel er niets te kopen (bank bij het luik naar laag 4 was 8.241 goud). Het gat was dus één hol-niveau lang, hoe je de drempels ook verdeelt; met hol 40 later (77, 79, 81 u) werd het zelfs langer (tot 4 tot 6 u). Wat wel werkt, en wat er nu in zit:
+- **De kamertjes van laag 3 vrij zodra laag 3 gebouwd is** (±56 u), niet pas bij het luik naar laag 4 (`decor.vrij_gebouwd: [3]`). Dan koop je ze verspreid tussen hol 36 en 40, en heb je bij het luik geen berg goud meer.
+- **Stap 4 tot 6 in laag 3 x 1,85 in plaats van x 2,0** (stap 6 was met 3.200 de duurste aankoop van het spel, 3,2 u sparen; nu 2.960).
+- **Hol 36 tot 40 gelijk verdeeld tot 76 open uur** (drempels 11.884 / 13.345 / 14.823 / 15.668 / 17.131, waren 11.804 / 13.209 / 14.710 / 15.588 / 17.042): 36 op 60,0 u, 37 op 64,0, 38 op 68,2, 39 op 72,0, 40 op 76,2 (was 75,8).
+
+| langste gat (open uren), mediaan / ergste van 8 zaden | versie 3 | **eind** |
+|---|---|---|
+| week 1 | 1,7 / 1,9 | 1,7 / 1,9 |
+| week 2 | 2,0 / 3,7 | 1,9 / 3,7 (2 zaden wachten bij 36 tot 40 u op hol 30 voor het luik naar laag 3) |
+| week 3 (hol 36 tot 40) | 4,2 / 5,1 | **2,7 / 2,9** |
+| week 4 | 2,8 / 2,9 | 2,8 / 3,2 |
+| week 5 (hol 48 tot 50) | 6,0 / 6,0 | 6,0 / 6,0 |
+
+**Eerlijk: onder 2,5 u kom ik in week 3 niet.** Wat er nog over is, is sparen voor de duurste dingen van laag 3 (kamertje 5, stap 6, het luik: elk 2,5 tot 3 u goud), niet meer wachten zonder iets te doen. Goedkoper maken heb ik geprobeerd (kamertjes 1,0 tot 2,2 u, stap 4 tot 6 x 1,6, luik 2.000 of 2.400): dan schuift het gat naar week 4 en wordt het daar 4 tot 6 u. Week 5 blijft 6 u: dat is de afstand hol 48 naar 49 en 49 naar 50, en dan is alles gekocht. In dagen is dat één nieuw hol-niveau per werkdag.
+
+**Hol 40: 76,2 open uur = werkdag 13 (week 3 dag 3). Hol 50: 127,8 open uur = werkdag 22 (week 5 dag 2).** Laag 2 / 3 / 4 open op werkdag 3 / 7 / 13, per week 42 / 15 / 13 / 8 / 4 niveaus, zelfde als versie 3.
+
+**Extra: de eerste nacht weg tilt het hol al na 1 minuut spelen tot 12 of hoger** (8 van 8 zaden, mediaan hol 16; na 5 tot 60 minuten hol 13 tot 14). Twee oorzaken: (a) een nacht geeft 12 x 0,25 = 3 uur tempo, en hol 12 valt op 2,0 open uur, dus elke eerste nacht is genoeg; (b) met minder dan een uur gespeeld rekent het tempo met de eerste minuten door, en dan komen er veel helden snel achter elkaar (in de sim telt minstens 60 s). Dat past bij wat Olaf na 90 s zag. Voorstel (keuze voor Sanne en Olaf): **weg geeft hooguit zoveel als je die dag zelf open had** (eerste dag 20 min gespeeld, dan levert de nacht hooguit 20 min op), of het tempo pas meten na 10 minuten spelen. Dan blijft de demo (hol 12 rond 2 uur) zoals hij is. **Aanvulling 15:35 UTC:** in het spel zelf (Olafs `systemen/voortgang.gd` op tak `claude/steam-hol-weg`) hangt het niet eens van de speeltijd af: helden = 12 u x 0,25 / 47,5 s = ±227, met ±60% vangen ±135 gevangen, en hol 12 is 88. Dus ook na 0 minuten spelen tilt de eerste nacht het hol tot 12 of 13. Sanne besloot 14:50 (`berichten/olaf.md`) dat dat mag, als één optocht; dan hoeft er niets te veranderen en is het voorstel hierboven alleen nodig als jullie de demo-lijn van ±2 uur toch willen bewaren.
+
+
 ## 16 nov 2026 ±14:20 UTC (Bram): voortgang versie 3 nagerekend, met weg in echte dagen
 Vraag Sanne 14:05. Volledige uitvoer: `voortgang-v3-uitkomst.txt` (8 zaden, 165 open uur, GEZIEN), spec `voortgang-v3-bram.json`, het commando staat bovenaan de uitvoer.
 

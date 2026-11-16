@@ -78,6 +78,10 @@ def speel(uren, zaad, spec=None):
     decor_spec = sp_.get("decor")
     decor = []
     decor_vrij = set()
+    # Bram 16 nov (Sanne 14:50): "laatste_op_hol": [47, 49] = de laatste kamertjes van de diepste laag pas vrij op die
+    # hol-niveaus (en als die laag gebouwd is); prijs dan uit het goud per uur van dat moment
+    decor_wacht = []      # [(hol-niveau, prijs_u)] van de diepste laag, nog niet vrij
+    hol_hoogst = 0
     # weg zijn in echte dagen: {"factor": 0.25, "open_u": 6, "plafond_u": 12}. Na elke open_u uur open is het spel dicht
     # (nacht of weekend, beide langer dan het plafond) en levert het plafond x factor x het tempo van het laatste uur op:
     # goud, gevangen helden (faam, telt voor hol-niveau) en hoeden. De sim-tijd t blijft open tijd.
@@ -309,6 +313,11 @@ def speel(uren, zaad, spec=None):
                 if e.get("koop"):
                     dingen.append(e["koop"])
                 if sp["naam"] == "hol-niveau":
+                    hol_hoogst = max(hol_hoogst, nv.get("niveau") or 0)
+                    for w_ in [w_ for w_ in decor_wacht if w_[0] <= hol_hoogst]:
+                        decor_wacht.remove(w_)
+                        gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
+                        decor.append(round(w_[1] * gpu, -1))
                     for L in lagen:
                         if nv.get("niveau") == L["niveau"]:
                             L["open"] = True
@@ -389,10 +398,25 @@ def speel(uren, zaad, spec=None):
                 upg[wat[4:]] += 1
         if spec and laag_info[-1]["ingericht"] is None and (gangen >= 40 or not graven_kost) and min(upg.values()) >= 3:
             laag_info[-1]["ingericht"] = t   # "gebouwd": 40 gangen en elke lijn op stap 3 (de winkel van laag 1 nu)
+            # Bram 16 nov: "vrij_gebouwd": [3] = de kamertjes van die lagen al vrij zodra de laag gebouwd is (niet pas bij het luik)
+            if decor_spec and len(laag_info) in decor_spec.get("vrij_gebouwd", []) and len(laag_info) not in decor_vrij:
+                decor_vrij.add(len(laag_info))
+                gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
+                decor.extend(decor_prijzen(decor_spec, gpu))
             if decor_spec and len(laag_info) == len(lagen) + 1 and len(laag_info) not in decor_vrij:
                 decor_vrij.add(len(laag_info))   # kamertjes van de diepste laag: als die gebouwd is
                 gpu = (tot_hist[-1][1] - tot_hist[0][1]) * 3600 / max(60.0, t - tot_hist[0][0])
-                decor.extend(decor_prijzen(decor_spec, gpu))
+                pr = decor_prijzen(decor_spec, gpu)
+                op = decor_spec.get("laatste_op_hol", [])
+                if op:
+                    pu = decor_spec["prijs_u"] if isinstance(decor_spec["prijs_u"], list) else [decor_spec["prijs_u"]] * decor_spec["per_laag"]
+                    pr = pr[:len(pr) - len(op)]
+                    for niv, u_ in zip(op, pu[len(pu) - len(op):]):
+                        if niv <= hol_hoogst:
+                            pr.append(round(u_ * gpu, -1))
+                        else:
+                            decor_wacht.append((niv, u_))
+                decor.extend(pr)
     st["lagen"] = laag_info
     st["oud_per_uur"] = {k: v * 3600 for k, v in oud.items()}
     st["helden"] = helden

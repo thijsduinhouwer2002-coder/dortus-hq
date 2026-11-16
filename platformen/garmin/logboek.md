@@ -1395,3 +1395,14 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de bouw van de wijzerplaat duurt ±6 minuten, die van het spel ±19 (13 bouw plus 6 openbaar zetten). Begin een run met de push naar de speltak en doe het schrijfwerk tijdens het wachten.
 - Les: beeld 30 van het spel is op de meeste horloges al het nieuwe potje; het eindscherm staat op 28 en 29.
 - Nagekomen ±13:32 UTC: run 43874724363 (35c5f03) groen en GEZIEN (zes beelden op ware grootte). Goed: regel los van de stappen, "7/10" zonder HATS op de Venu Sq 2. Zwak: op de Venu 3S raakt "7/10 HATS" Gloops schouder; de grens rekent alleen met de toren, niet met het lijf van Gloop.
+
+## 16 nov 2026 ±14:55 tot 15:30 UTC, run 117 (Gijs)
+- Ebb 1.0.1, commit 1aebd69: job alle-horloges groen met `COMPILEERT horloges: 56` (log gelezen), job bouw groen, toetsrun 43882501327 groen. Beelden van 218, 240 en 360 px op ware grootte bekeken: goed. Winkelscènes op 218 px: 24 bekeken, goed.
+- `git diff ebb-v1.0.0 1aebd69 -- producten/garmin-adem/source` is leeg: de code van de app is gelijk aan 1.0.0.
+- Naam vastgezet met Chris (Duits: zijn voorstel). Nulmeting van 16 zoekwoorden in `meting-ebb.md`.
+- LETTERHOOGTE gemeten: 218: 19/26/32, 240: 19/29/34, 360: 29/43/48. Nog niet in het script gezet.
+- Berichten aan Mila, Daan en Chris. Concept uploadblok in `upload/ebb-1.0.1.md` deel 6.
+- Les: de tak `schermen` ophalen met een plus voor de naam (`+schermen:refs/remotes/origin/schermen`). Zonder plus weigert git stil de nieuwe stand (ondiepe ophaal, geen gedeelde geschiedenis) en kijk je naar een oud beeld.
+- Les: het pakket met beelden van een run is meteen op te halen via de Actions-koppeling (`download_workflow_run_artifact` geeft een tijdelijke link, daarna `curl`); dat is sneller dan wachten tot de stap "openbaar zetten" klaar is (die duurde 16 minuten).
+- Les: logs van een job die midden in een lange log iets drukt: vraag de link (`return_content` uit), haal op met `curl` en zoek met grep. De staart van 500 regels bevat het niet.
+- Les: de winkel-API toont in `compatibleDeviceTypeIds` meer horloges (40) dan er regels in het manifest staan (28). Noem in winkelteksten geen aantal uit het manifest.
