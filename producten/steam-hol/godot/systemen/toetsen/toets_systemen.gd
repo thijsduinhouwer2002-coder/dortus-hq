@@ -80,7 +80,12 @@ func _init() -> void:
 
 	var t0 := 1_800_000_000
 	var r: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
-	ok(r["helden"] == 75 and r["goud"] >= r["helden"], "een uur weg: 75 helden, goud >= helden (%s)" % r["regel"])
+	ok(r["helden"] == 18 and r["goud"] >= r["helden"], "een uur weg op kwart snelheid: 18 helden, goud >= helden (%s)" % r["regel"])
+	ok(r["faam"] == r["gevallen"], "faam weg = gevangen helden")
+	var acht: Dictionary = V.reken(t0, t0 + 8 * 3600, 1, 1, 42)
+	ok(acht["helden"] == 151 and acht["goud"] < 1048, "8 uur weg: 151 helden, minder goud dan de hele winkel (%d)" % acht["goud"])
+	ok(V.tempo_regel(acht) == "Your hole worked at a quarter speed." and V.tempo_regel(acht).length() <= 42, "regel kwart snelheid na lang weg")
+	ok(V.tempo_regel(V.reken(t0, t0 + 600, 1, 1, 42)) == "", "geen regel kwart snelheid na 10 min weg")
 	ok(r["gevallen"] + r["gevlucht"] == r["helden"], "gevallen + gevlucht = helden")
 	var r2: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	ok(r2["goud"] == r["goud"], "zelfde save, zelfde uitkomst")

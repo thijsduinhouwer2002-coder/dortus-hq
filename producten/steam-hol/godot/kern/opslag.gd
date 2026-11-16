@@ -120,10 +120,14 @@ static func laad(s, begin) -> void:
 	if tijd_vloer > int(Time.get_unix_time_from_system()) + 3 * 86400:
 		tijd_vloer = 0
 	# demolijst 4 (bewijs op Windows, steam-hol.yml stap "Weg geweest"): goud voor en wat erbij kwam
-	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d" % [int(weg.weg_s), str(weg.teruggezet),
-		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0])
+	s.log_regel("HOL weg geweest %d s (klok terug: %s): goud voor %d, helden %d, erbij %d, hoeden %d" % [int(weg.weg_s), str(weg.teruggezet),
+		s.hol.goud, int(weg.helden), int(weg.goud) if int(weg.helden) > 0 else 0, int(weg.opgegeten)])
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
+		# hoeden ook terwijl je weg was, op hetzelfde kwart tempo (Sanne 16 nov 14:05); geef_hoeden zet hoeden_gegeven,
+		# zodat het verhaal ze pas noemt als ze echt op Gloop staan
+		if s.slijm != null:
+			VOORTGANG.geef_hoeden([s.slijm], weg, 7)
 		var helden_d := {}
 		for h in s.terugkomers:
 			helden_d[String(h.naam)] = {"gevlucht": int(h.bezoeken), "wrok": String(h.get("wrok", ""))}
@@ -133,6 +137,9 @@ static func laad(s, begin) -> void:
 		# via de wachtrij, zodat je ze bij openen een voor een ziet (controleur punt 4)
 		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
 			s._kroniek(String(r))
+		var tr := VOORTGANG.tempo_regel(weg)
+		if tr != "":
+			s._kroniek(tr)
 	# met pensioen (Bram 04:35, Sanne kroniek-regels.md): na minstens 30 min weg hooguit één held die nooit terugkwam
 	var p: Dictionary = VOORTGANG.pensioen(s.pensioen_namen, weg, s.regels)
 	if not p.is_empty():
