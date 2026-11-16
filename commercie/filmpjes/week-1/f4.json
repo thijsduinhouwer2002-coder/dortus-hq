@@ -5,9 +5,9 @@
    "bron": "bron/ebb-film.mp4",
    "start": 0,
    "dur": 14.25,
-   "vf": "scale=1080:1080:flags=lanczos",
-   "h": 1080,
-   "y": 500
+   "vf": "crop=548:548:26:26,scale=980:980:flags=lanczos,format=rgba,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='if(lte(hypot(X-490,Y-490),488),255,0)',pad=1080:980:50:0:color=0x15171c",
+   "h": 980,
+   "y": 490
   }
  ],
  "teksten": [
@@ -59,7 +59,7 @@
     "Screens from the Garmin simulator"
    ],
    "grootte": 38,
-   "y": 1610,
+   "y": 425,
    "licht": true
   }
  ]

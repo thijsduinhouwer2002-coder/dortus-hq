@@ -39,14 +39,8 @@
   },
   {
    "bron": "bron/v2.mp4",
-   "start": 7.5,
-   "dur": 1.7,
-   "cx": 384
-  },
-  {
-   "bron": "bron/v2.mp4",
-   "start": 9.2,
-   "dur": 1.0,
+   "start": 10.2,
+   "dur": 2.7,
    "cx": 768
   },
   {
@@ -71,7 +65,7 @@
    "tot": 7,
    "regels": [
     "1. How far it bends.",
-    "*Red* means too far."
+    "Red means too far."
    ]
   },
   {

@@ -21,12 +21,6 @@
   },
   {
    "bron": "bron/v2.mp4",
-   "start": 7.5,
-   "dur": 1.7,
-   "cx": 384
-  },
-  {
-   "bron": "bron/v2.mp4",
    "start": 9.2,
    "dur": 6.3,
    "cx": 768
@@ -57,7 +51,7 @@
   },
   {
    "van": 4.5,
-   "tot": 7.5,
+   "tot": 8.4,
    "regels": [
     "Place the joint.",
     "*Drag* the bend."
@@ -65,24 +59,24 @@
    "grootte": 70
   },
   {
-   "van": 7.5,
-   "tot": 9.2,
+   "van": 8.4,
+   "tot": 10.8,
    "regels": [
     "Exploded view:",
     "ball and socket apart"
    ]
   },
   {
-   "van": 9.2,
-   "tot": 15.5,
+   "van": 10.8,
+   "tot": 13.8,
    "regels": [
     "Green ring =",
     "*good fit*, in mm"
    ]
   },
   {
-   "van": 15.5,
-   "tot": 18.5,
+   "van": 13.8,
+   "tot": 16.8,
    "regels": [
     "Free on Blender Extensions",
     "link in bio"
@@ -91,7 +85,7 @@
   },
   {
    "van": 0,
-   "tot": 15.5,
+   "tot": 13.8,
    "regels": [
     "Click Joints for Blender"
    ],
