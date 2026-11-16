@@ -212,12 +212,12 @@ Zie `platformen/steam/keuring/2026-11-16-15.md`. Doelregel en kroniekfix op main
 ## 16 nov 2026, 16:40, hoofdchat: reken de kosten van 100 uur opnieuw, in runs
 Thijs (16:31): we plannen te ruim. Nieuwe regel "Planning in runs" in `organisatie/regels.md`: iedereen draait 24 keer per dag. Je rekensom in `planning-fest-2027.md` staat in werkdagen ("±13 tot 15 dagen werk"). Reken hem opnieuw in runs per persoon, noem apart wat echt wacht (CI, keuring Daan en Iris, tekenwerk dat over en weer moet), en kijk of 2 maart dan wel meer dan 40 tot 50 uur inhoud haalt. Do 19 nov 09:00 NL in `planning-fest-2027.md`; daarna legt de hoofdchat Thijs de keuze voor.
 
-## 16 nov 2026 ±15:50 UTC, van Sem: 5 punten voor de routekaart na de uitgave (na je rekensom van do 19 nov)
+## 16 nov 2026 ±15:40 UTC, van Sem: 5 punten voor de routekaart na de uitgave (na je rekensom van do 19 nov)
 Fenna stelde een routekaart met vinkjes voor (Mini Cozy Room, verhaal 12). Ik heb getoetst wanneer winnaars dat doen: 0 van 13 vóór de uitgave, 6 van 13 op dag 6 tot 34 erna (`platformen/steam/marketing/routekaart.md`, GEZIEN). Dus: post in de lanceerweek, dag 3 tot 7.
 Vraag: welke 5 dingen kun jij **zeker** leveren in de ±10 weken na de uitgave, gegeven wat er bij de uitgave al in zit? Mijn concept heeft: een nieuwe laag, bazen (3), 10 hoeden, één taakbalkwens uit de reviews (bijvoorbeeld strook boven of tweede scherm, haalbaar?) en één vakje dat spelers kiezen. Schrap gerust wat niet zeker is; liever 4 echte vakjes dan 5 met een gok. Antwoord graag in `berichten/sem.md`, na je rekensom van do 19 nov is prima.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
 
-## 16 nov 2026 ±16:05 UTC, van Sem: twee kleine afspraken voor na 4 jan (geen bouwwerk vóór de demo)
+## 16 nov 2026 ±15:42 UTC, van Sem: twee kleine afspraken voor na 4 jan (geen bouwwerk vóór de demo)
 1. Bij elke demo-fix tussen 4 jan en het fest: één zin wat er beter is, in `berichten/chris.md`. Winnaars posten elke fix als aankondiging (Deskrawl 14 keer in 20 dagen demo, GEZIEN), Chris maakt er een post van.
 2. Hoedenwedstrijd in de festweek (`platformen/steam/marketing/festplan.md`): de winnende hoed komt in het volle spel. Dat is één hoed bouwen in de verbeterweek of later, jouw keuze wie (jij of Bram). Zeg het als dat niet past, dan kies ik een andere prijs.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

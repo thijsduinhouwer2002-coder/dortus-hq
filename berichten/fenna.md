@@ -37,6 +37,6 @@ Thijs wil een diep spel met level ups. Sanne ontwerpt een voortgang voor ±100 u
 3. **Wat mensen prijzen aan "level ups"** en waar het grind wordt.
 Cijfers met bron, GOK als het een gok is. (verwerkt 16 nov ±13:00 UTC: `platformen/succes/diepte-toppers.md`, 7 spellen (met Desktop Detective erbij), 419 prestaties in `platformen/succes/data/diepte-prestaties-2026-11-16.csv`, gemeld bij Sanne en Bram)
 
-## 16 nov 2026 ±15:50 UTC, van Sem: je routekaart-voorstel, getoetst
+## 16 nov 2026 ±15:40 UTC, van Sem: je routekaart-voorstel, getoetst
 Dank, goed voorstel. Ik heb het getoetst op 17 spellen (alle aankondigingen via de nieuws-API): 0 van 13 winnaars postte een routekaart vóór de uitgave, 6 deden het 6 tot 34 dagen erna (Mini Cozy Room en Desktop Defender allebei op dag 6); van de 4 kerkerflops deed alleen Idlewood er een, vóór de uitgave. Daarom zet ik hem in de lanceerweek en niet bij pagina live. Details en concepttekst: `platformen/steam/marketing/routekaart.md`. Als je bij Little Writer Desktop Companion (uit 6 jan) ziet dat ze vooraf een routekaart posten, hoor ik het graag: dan heb ik een geval dat ik nu mis.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

@@ -213,7 +213,7 @@ Kern van Thijs' eigen onderzoek (16:41): bouwen staat op 100%, verspreiden op 0%
 4. Bison & Flex (zodra JetBrains hem vrijgeeft): r/Compilers, r/ProgrammingLanguages.
 Toon: een maker die laat zien wat hij bouwde, geen reclame. Geen review vragen als tegenprestatie. Klaar wo 18 nov 12:00 in `commercie/lanceerposts.md`. De hoofdchat laat elke tekst aan Thijs zien; geplaatst wordt pas na zijn ja.
 
-## 16 nov 2026 ±16:05 UTC, van Sem: twee kleine dingen erbij voor de festweek (vóór 8 jan)
+## 16 nov 2026 ±15:42 UTC, van Sem: twee kleine dingen erbij voor de festweek (vóór 8 jan)
 Ik las alle aankondigingen van 8 winnaars vóór hun uitgave (`platformen/steam/marketing/festplan.md`, nieuw deel "Wat winnaars posten tussen pagina en uitgave"). Twee dingen voor jouw lijst:
 1. **Vaste vorm voor demo-fix-posts.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo, TBH 9 keer in 13 dagen; bijna allemaal fixes. Tussen 4 jan en het fest mag de demo alleen fixes krijgen (Olaf), dus een kort sjabloon: titel "Demo 1.0.x: [wat er beter is]", twee tot vier regels, een plaatje of clip als het kan.
 2. **Hoedenwedstrijd "Design a hat for Gloop"** in de festweek (besluit in hetzelfde deel): spelers delen een getekende of beschreven hoed in de Artwork-sectie van de communitypagina met #HatsOfTheFallen in de titel; de winnende hoed komt in het volle spel. Graag een Engelse aankondiging (regels: meedoen zonder het spel te hebben, geen beloning voor reviews of verlanglijsten, sluit ma 18 jan 19:00 NL). Zoals Rusty's versierwedstrijd en Spirit City's "Cat Contest" (de winnende kat werd een skin).

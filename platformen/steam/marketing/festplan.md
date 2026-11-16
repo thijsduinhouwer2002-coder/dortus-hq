@@ -23,7 +23,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 | 1. Pagina live | ±8 dec tot 3 jan | **500 verlanglijstjes** vóór de demo openbaar is | Steamworks (Thijs leest af), volgers via `memberslistxml` (GEZIEN werkt zonder inlog) |
 | 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **1.000 verlanglijstjes** op de avond voor het fest | reviews op de demo-pagina, spelers tegelijk via de openbare API |
 | 3. Desktop Companion Fest | do 14 jan 19:00 NL tot ma 18 jan 19:00 NL | meetlat hieronder | eigen meetscript elk uur |
-| 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md) | |
+| 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md); als Thijs inzendt: Laughs & Smiles Festival 21 tot 31 jan (vak "binnenkort", `festivals.md`) | |
 | 5. Next Fest februari | ma 22 feb tot ma 1 mrt | doorbraak volgens de tweede meetlat | eigen meetscript |
 
 **Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
@@ -77,7 +77,7 @@ Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna
 4. **De hoofdchat legt de lanceerdatum van maart opnieuw neer** (staat al in de planning), en ik schrijf een korte uitslag met de getallen voor Thijs.
 
 ## Wat winnaars posten tussen pagina en uitgave (toegevoegd run 5, 16 nov)
-Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN 16 nov ±16:00 UTC; telling van alle 17 spellen in `data/routekaart-2026-11-16.csv`). Drie dingen die ons plan nog niet had:
+Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN 16 nov ±15:41 UTC; telling van alle 17 spellen in `data/routekaart-2026-11-16.csv`). Drie dingen die ons plan nog niet had:
 1. **Elke demo-fix is een post.** Deskrawl postte 14 keer in de eerste 20 dagen van zijn demo (patches, hotfixes), Birdwatching Notebook 10 keer in 22 dagen, TBH 9 keer in 13 dagen. Dat past bij Olafs regel "tussen 4 jan en het fest alleen fixes": ook een fix krijgt een korte aankondiging ("Demo 1.0.3: the bard no longer gets stuck"). Waarom: volgers zien beweging, en het kost niets. Chris schrijft, Thijs plaatst; Olaf meldt elke demo-fix met één zin.
 2. **Een mijlpaal-post met een belofte erin.** Desktop Defender: "ALMOST AT 1000 CONCURRENT PLAYERS!" 20 dagen vóór de uitgave, met de demo van 10 naar 30 levels en "one more thing" bij 1.000 (GEZIEN). Black Cat: "2k wishlists!" (GEZIEN). Dat is onze hoedenteller (optie A); zonder optie A doen we het met spelers tegelijk of verlanglijsten.
 3. **Een wedstrijd voor de community tijdens het fest.** Rusty's Retirement hield in Next Fest een versierwedstrijd (mooie boerderij delen op Steam of Twitter met #RustysRetirement, prijs een fysiek exemplaar van een vorig spel plus een sleutel voor het volle spel, GEZIEN). Spirit City: "Cat Contest", de winnende kat werd een skin in het spel (GEZIEN). Bij Fenna's flops (verhaal 8) zag ik niets van dit soort.
