@@ -3,7 +3,8 @@ Stap 1: kandidaten. (a) alles met label Desktop Companion (tag 1320952), alle so
         (b) zoektermen op de openbare zoekpagina (taskbar, desktop pet, ...), daarna alleen houden wat in de
         winkeltekst echt over taakbalk, onderkant scherm of bureaublad gaat.
 Stap 2: per app appdetails (maker, prijs, datum, talen, demo, tekst), winkelpagina (labels) en
-        appreviews (totaal en positief, alle talen, alle kopers).
+        reviewtotaal uit appdetails (recommendations, alle talen) en Engelse score van de winkelpagina
+        (appreviews stuurt sinds kort door naar de voorpagina, ook vanaf GitHub).
 Gebruik: python3 -I steam-desktop-haal-script.py <uitmap> [kandidaten.json] [deel] [aantal delen]
 Met een kandidatenbestand slaat hij stap 1 over; met deel/aantal doet hij elke n-de app (voor GitHub Actions).
 Rustig: ongeveer 1 verzoek per seconde, alleen openbare pagina's.
@@ -63,21 +64,18 @@ for i, (a, b) in enumerate(bron.items()):
                         'lang': re.sub(r'<[^>]+>', '', d.get('supported_languages') or '').replace('languages with full audio support', '').strip(),
                         'demo': bool(d.get('demos')), 'short': d.get('short_description', ''),
                         'about': re.sub(r'<[^>]+>', ' ', d.get('about_the_game') or '')[:4000],
-                        'genres': [g['description'] for g in d.get('genres', [])], 'dlc': len(d.get('dlc', []))})
+                        'genres': [g['description'] for g in d.get('genres', [])], 'dlc': len(d.get('dlc', [])),
+                        'rev': (d.get('recommendations') or {}).get('total', 0)})
     except Exception as e: rec['err'] = str(e)
     time.sleep(1.0)
-    if rec.get('type') in ('game', 'application', 'demo', None):
+    if rec.get('type') in ('game', 'application', None):
         try:
             h = get(f'https://store.steampowered.com/app/{a}/?cc=us&l=english')
             rec['tags'] = [html.unescape(t.strip()) for t in re.findall(r'class="app_tag"[^>]*>\s*([^<]+?)\s*</a>', h)]
+            m = re.search(r'(\d+)% of the ([\d,]+) user reviews for this game', h)
+            if m: rec['en_pct'] = int(m.group(1)); rec['en_rev'] = int(m.group(2).replace(',', ''))
         except Exception as e: rec['tag_err'] = str(e)
         time.sleep(1.0)
-        if not rec.get('soon'):
-            try:
-                r = json.loads(get(f'https://store.steampowered.com/appreviews/{a}?json=1&language=all&purchase_type=all&num_per_page=0&filter=all'))
-                q = r.get('query_summary', {}); rec['rev'] = q.get('total_reviews'); rec['revpos'] = q.get('total_positive')
-            except Exception as e: rec['rev_err'] = str(e)
-            time.sleep(1.0)
     f.write(json.dumps(rec) + '\n'); f.flush()
     if i % 50 == 0: print(i, flush=True)
 print('klaar', flush=True)
