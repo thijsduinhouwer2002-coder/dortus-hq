@@ -1016,7 +1016,7 @@ func _init() -> void:
 	for st in HB3.hoed_streepjes(0.1):
 		str_links = str_links and float(st.x) <= -3.0 and float(st.y) < float(st.z) and float(st.y) <= 0.0
 	ok(str_links, "hoed eraf: streepjes links van de hoed en niet onder de kruin (16 nov: lazen als strepen op het haar)")
-	var pet_verder := HB3.hoed_streepjes(0.1, "pet").size() == 2
+	var pet_verder: bool = HB3.hoed_streepjes(0.1, "pet").size() == 2
 	for j in range(HB3.hoed_streepjes(0.1).size()):
 		pet_verder = pet_verder and float(HB3.hoed_streepjes(0.1, "pet")[j].x) <= float(HB3.hoed_streepjes(0.1, "kroon")[j].x) - 1.0 \
 			and float(HB3.hoed_streepjes(0.1, "pet")[j].x) >= float(HB3.hoed_streepjes(0.1, "kroon")[j].x) - 2.0
