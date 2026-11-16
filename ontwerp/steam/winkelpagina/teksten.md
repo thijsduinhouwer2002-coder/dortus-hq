@@ -1,6 +1,6 @@
 # Hats of the Fallen: teksten voor de winkelpagina (Sanne)
 
-**Versie 2, 10 nov 2026** (keuring 1 van Daan verwerkt: naam overal Hats of the Fallen, één verhaal over de hoogte, "No microtransactions" weg, punt 11; prijs volgt `platformen/steam/verdienmodel.md`). Eerste versie 9 nov 2026, 23:05 UTC. Opdracht Thijs 9 nov 23:45 NL: Sanne schrijft de teksten mee, Mila is eigenaar van de wow, Daan keurt, Olaf levert de beelden. De winkel is Engelstalig; de uitleg eromheen is Nederlands.
+**Versie 3, 16 nov 2026 ±18:20 UTC:** korte beschrijving en eerste alinea beginnen nu met de hoeden in plaats van "a tiny dungeon" (Fenna, `platformen/succes/onderscheid-hats.md` advies 1: dat is bijna de zin van Don't Rob My Dungeon), eerlijke zin over weg zijn (kwart snelheid, plafond 12 uur, zonder strafwoord) en een zin over diepte met **[v1]**. De oude korte beschrijving staat eronder als archief. De ondertitel *a tiny dungeon on your taskbar* blijft voorlopig in de trailer tot Mila en Daan kiezen; mijn advies: "He wears their hats." (Fenna). **Versie 2, 10 nov 2026** (keuring 1 van Daan verwerkt: naam overal Hats of the Fallen, één verhaal over de hoogte, "No microtransactions" weg, punt 11; prijs volgt `platformen/steam/verdienmodel.md`). Eerste versie 9 nov 2026, 23:05 UTC. Opdracht Thijs 9 nov 23:45 NL: Sanne schrijft de teksten mee, Mila is eigenaar van de wow, Daan keurt, Olaf levert de beelden. De winkel is Engelstalig; de uitleg eromheen is Nederlands.
 
 **Eerlijk-regel voor deze pagina:** elke zin beschrijft iets dat bij het uitbrengen in het spel zit. Zinnen met **[v1]** gaan over features uit versie 1 (`platformen/steam/features.md`) die nog niet gebouwd zijn. Zit zo'n feature er bij het indienen van de binnenkort-pagina (±1 december) nog niet in, dan blijft de zin staan alleen als Olaf bevestigt dat het bij het uitbrengen erin zit; anders gaat hij eruit. Niets over skins of DLC op de pagina tot ze bestaan.
 
@@ -18,7 +18,12 @@
 
 Mijn advies was Hat Hoard; Daan koos Hats of the Fallen omdat Hat Hoard als verzamelspel klinkt en de grap mist. Akkoord.
 
-## 2. Korte beschrijving (Steam-veld ±300 tekens, DERDEN/GOK: Valve noemt "a few hundred characters"; deze heeft 270)
+## 2. Korte beschrijving (Steam-veld ±300 tekens, DERDEN/GOK: Valve noemt "a few hundred characters"; deze heeft 277)
+> Gloop the slime eats the heroes who fall into your dungeon and wears their hats. The ones who flee come back with scars, nicknames and a grudge. It all happens in a thin strip on top of your taskbar. Dig, upgrade and laugh between tasks. You're never punished for looking away.
+
+Waarom versie 3: de eerste woorden zijn nu wat alleen wij hebben (hoeden op Gloop, wrok), "taskbar" blijft erin voor de Desktop Companion-keuring. Alles is waar in de build van main (hap en hoed op ±27 s, wrok binnen 63 tot 75 s, graven, upgrades met Undo).
+
+Archief versie 2 (10 nov):
 > A tiny dungeon lives on top of your taskbar. Heroes climb in, fall into your traps and get eaten by Gloop, who wears their hats. The ones who flee come back with scars, nicknames and a grudge. Dig, upgrade and laugh between tasks. You're never punished for looking away.
 
 Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin 2 is de haak die op de capsule en in de trailer staat (hoeden op Gloop), zin 3 is wat geen ander taakbalkspel heeft (de wrok), zin 4 belooft het eerlijke ritme. Valen, opgegeten worden, hoed op Gloop en terugkomen met wrok zitten in de film van main (toets 5); graven en "nooit straffen" zitten in de bouw. "Upgrade" is sinds 10 nov waar in de build (kaartje met Buy en Undo, drie stappen voor Gloop en voor de put, toets 8 en 9 in `spelgevoel.md`), dus geen **[v1]** meer. Sinds toets 10 (10 nov 05:00 UTC) wel in de lange beschrijving: het lied van de bard (luit in beeld, "Mara knows all the words. Sadly.") en "he grows" (Gloop wipt en wordt groter bij kopen). De namen van stap 2 en 3 nog niet, want die zag ik nog niet in een film. (Na controleur: "into" in plaats van "in", "upgrade" in plaats van "decorate".)
@@ -27,7 +32,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 
 > [b]Your taskbar has a basement now.[/b]
 >
-> Hats of the Fallen is a tiny dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
+> In Hats of the Fallen, your dungeon sits in a thin strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
 >
 > [h2]Gloop wears the hats[/h2]
 > Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks. Spend your gold on him and he grows.
@@ -39,7 +44,8 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > [list]
 > [*]Something happens about every minute: a fall, a burp, a hero who tries to lift your whole hoard and gives up.
 > [*]A visit of 30 seconds is enough: read the chronicle, dig a new tunnel or give Gloop an upgrade, go back to what you were doing.
-> [*]Coming back after a night away? You get gold and three lines about who came by. Nothing broke, none of your monsters died, nothing was stolen.
+> [*]Coming back after a night away? Your dungeon kept going at a gentler pace, for up to 12 hours. You get gold, a few new hats and a line about who came by. Nothing broke, none of your monsters died, nothing was stolen.
+> [*]**[v1]** Open it for a few minutes a day and your dungeon grows for weeks: 50 dungeon levels, each with something new to see, and three floors to dig down to. Nothing ever resets.
 > [/list]
 >
 > [h2]Small, quiet and fair[/h2]
@@ -52,6 +58,8 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > [/list]
 
 Te controleren voor het indienen (Olaf, Bram):
+- "gentler pace, for up to 12 hours" en "a few new hats" (16 nov): weg op 0,25 met plafond 12 uur en nachthoeden bij Gloop staan op main (Olaf, `systemen/voortgang.gd` `SNELHEID`, Iris keuring 5 GEZIEN). Klopt. Het woord "quarter" bewust niet: het getal is waar, maar het leest als straf (Iris, Daan).
+- **[v1]** "50 dungeon levels ... three floors ... Nothing ever resets": ontwerp `platformen/steam/voortgang.md` (versie 3); in de build nu hol 1 tot 12 en één laag. Blijft alleen staan als Olaf bevestigt dat het bij het uitbrengen erin zit (zie zijn kosten van do 19 nov; valt laag 4 naar een gratis update, dan "two floors").
 - Hoogte en klikken (10 nov 00:55 UTC): rechtsklik wisselt 96, 120, 160 en bewaart het (`HOOGTES` en `MOUSE_BUTTON_RIGHT` in `kern/strook.gd`), klikken gaan door lucht en gras (`window_set_mouse_passthrough`), op main volgens Olaf, controleur akkoord. Zin aangepast naar wat de build doet. Klopt.
 - "about every minute": held elke 40 tot 60 s (strook.gd), klopt nu.
 - "three lines about who came by": `kern/strook.gd` roept `VOORTGANG.verhaal` al aan (controleur, GEZIEN). Klopt.
