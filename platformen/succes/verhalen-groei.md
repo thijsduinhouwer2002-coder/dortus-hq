@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 19, wat de Garmin-winkel een nieuwe app in de eerste 14 dagen geeft, klaar 16 nov 2026 ±18:45 UTC). Volgende: meer kleine Blender-accounts op TikTok, of Reddit-berichten van nieuwe accounts als Arctic Shift weer werkt, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 20, Reddit-berichten over gereedschap voor 3D-printen (welke subreddit, welke vorm, wat wordt weggehaald), 16 nov 2026 ±20:15 UTC. Volgende daarna: meer kleine Blender-accounts op TikTok, of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
 
