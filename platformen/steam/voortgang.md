@@ -41,8 +41,32 @@ Bram draaide de laatste run (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `si
    - **Waarom zo en niet minder faam geven:** er gaat niets af van wat je verdiende (Iris: alles korten voelt als diefstal), het is alleen de volgorde. Een terugkomer na 1 minuut spelen heeft na ±35 minuten open de hele demo gezien, met elk feestje apart, in plaats van in 2 uur (wie speelt) of 12 seconden (zonder rij). Boven hol 12 liggen de niveaus 1 uur of meer uit elkaar, dus een nacht geeft daar bijna altijd 4 of minder en merk je de rij niet.
    - **Toets:** T1 ja (je komt terug en er staat iets klaar), T3 ja (niets weg, geen timer die je dwingt: de rij wacht ook als je de app weer dicht doet), T4 ja.
    - Olaf: dit verandert `optocht()` en `weg_regel()` op `claude/steam-hol-weg`, zie `berichten/olaf.md`. Bram: zet de rij in de sim als het kan (hoeveel open minuten tot hol 12 voor wie 1, 5, 15 minuten speelt en dan een nacht weg is).
-6. **Doelregel als alles gekocht is (Iris keuring 3, probleem 2): ja, dan het hol-niveau.** Nu wordt de regel leeg na 1048 goud, precies als de speler wil weten wat er komt. Volgorde voor de kopregel: (a) iets klaar om te kopen: "ready: click ..." (blijft eerst); (b) anders het volgende goud-doel zoals nu; (c) **is er niets meer te kopen: "Next: the Thief, 12 heroes to go"** (naam van het niveau uit spoor 1; past de naam niet in 34 tekens, dan "Next: level 13, 40 heroes to go"); (d) staat er iets in de rij: "Level 6 at the door: 2 min". Niveaus zonder naam (een upgrade-stap) tonen het nummer. Waarom het hol-niveau en niet meer winkel: het niveau komt van vangen, dus er is altijd een doel, ook als het goud niets meer kan kopen. Dit komt samen met Mila's bordje (Daans moet van 15:33: geen niveautekst zonder iets in beeld).
+6. **Doelregel als alles gekocht is (Iris keuring 3, probleem 2): ja, dan het hol-niveau.** Nu wordt de regel leeg na 1048 goud, precies als de speler wil weten wat er komt. Volgorde voor de kopregel: (a) iets klaar om te kopen: "ready: click ..." (blijft eerst); (b) anders het volgende goud-doel zoals nu; (c) **is er niets meer te kopen: "Next: the Thief, 12 heroes"** (naam uit punt 7; past het niet in 34 tekens, dan "Next: level 13, 40 heroes"); (d) staat er iets in de rij: "Level 6 at the door: 2 min". Niveaus zonder naam (een upgrade-stap) tonen het nummer. Waarom het hol-niveau en niet meer winkel: het niveau komt van vangen, dus er is altijd een doel, ook als het goud niets meer kan kopen. Dit komt samen met Mila's bordje (Daans moet van 15:33: geen niveautekst zonder iets in beeld).
 
+
+7. **Namen in het spel en soort voor de optocht, niveau 13 tot 50** (vervolg op Olafs `WAT` en `SOORT` 1 tot 12 in `hol_niveau.gd`). Engels, zo kort mogelijk zodat "Next: <naam>, 999 heroes" in 34 tekens past (naam hooguit 14 tekens; langer mag in de hover, dan valt de doelregel terug op het nummer). Soort: "held" = nieuwe bezoeker of iets aan de helden, "poef" = iets nieuws in het hol dat gratis komt, "" = komt alleen in de winkel of is niet te zien.
+   | Niv. | Naam | Soort | Niv. | Naam | Soort |
+   |---|---|---|---|---|---|
+   | 13 | tier 4 upgrades | "" | 32 | the Troll | "" |
+   | 14 | the Skeleton | "" | 33 | the Fake Hoard | "" |
+   | 15 | the Sleepyhead | held | 34 | tier 6 upgrades | "" |
+   | 16 | the Bedroom | "" | 35 | hat pack 4 | held |
+   | 17 | the Glue Trap | "" | 36 | the Witch | held |
+   | 18 | hat pack 2 | held | 37 | the Collector | held |
+   | 19 | the Show-off | held | 38 | Candle Room | "" |
+   | 20 | Crystal Vein | poef | 39 | Skeleton armor | poef |
+   | 21 | the Miner | held | 40 | Gloop Heart | poef |
+   | 22 | the Mimic | "" | 41 | the Hat Hunter | held |
+   | 23 | the Trapdoor | "" | 42 | Mother Gloop | "" |
+   | 24 | the Kitchen | "" | 43 | Gloop Spring | "" |
+   | 25 | tier 5 upgrades | "" | 44 | the Bat Tower | "" |
+   | 26 | rivals' kids | held | 45 | the Gold Mimic | "" |
+   | 27 | hat pack 3 | held | 46 | hat pack 5 | held |
+   | 28 | the Lost One | held | 47 | Troll glasses | "" |
+   | 29 | Trophy Hall | "" | 48 | the Crowned | held |
+   | 30 | Sunken Crypt | poef | 49 | the Hat Throne | "" |
+   | 31 | the Explorer | held | 50 | the Hat King | poef |
+   Bij 20, 30 en 40 is de "poef" het dichte luik dat in de schatkamer verschijnt (te koop voor 750 / 1650 / 3000); de laag zelf koop je. Bij 41 komt ook de hoedenlokker in de winkel. De archeoloog heet in het spel "the Explorer" (korter, zelfde grap: hij onthoudt elke val).
 
 ## Versie 3 vastgesteld (16 nov ±14:50 UTC)
 Bram rekende het voorstel hieronder na met weg als echte werkdagen (`producten/steam-hol/sim/UITKOMST.md` bovenaan, `sim/voortgang-v3-uitkomst.txt`, 8 zaden, GEZIEN). Ik neem alles over. Daarmee is versie 3 de richting; de tabellen van versie 2 verderop blijven staan als geschiedenis tot Bram de laatste run (punt 4) heeft gedaan.
