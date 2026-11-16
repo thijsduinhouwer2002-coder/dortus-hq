@@ -44,7 +44,7 @@ Een week die begint minstens 7 dagen na het invullen (Garmin heeft tijd nodig). 
 
 **Reason for consideration**
 ```
-Ebb is a new paid app from a new developer. Most breathing apps in the store show a circle or a timer. Ebb turns the round screen into a porthole on a sea, with drawn sea animals that reward a weekly habit instead of longer holds. Safety comes first in the design: a reminder to sit or lie down before every session, a hold that ends by itself after five minutes, and no rewards for holding longer.
+Ebb is a new paid app from a new developer. Many breathing apps in the store show a circle or a timer. Ebb turns the round screen into a porthole on a sea, with drawn sea animals that reward a weekly habit instead of longer holds. Safety is built into the design: a reminder to sit or lie down before every session, a hold that ends by itself after five minutes, and no rewards for holding longer.
 
 We ask for 10 promotion codes to give to a small group of testers with different watches, so we can hear honest feedback and fix problems early. We do not ask for reviews in return. If codes are only meant for existing buyers, we understand.
 ```
@@ -53,5 +53,5 @@ We ask for 10 promotion codes to give to a small group of testers with different
 - De zinnen over gegevens ("collects nothing", "only a saved activity goes to Garmin Connect", "no extra account", "no phone app") staan zo in de winkeltekst (`ebb-en.md`, regels 58 en 59).
 - Geen "hand-drawn": de tekeningen zijn van Mila, een Claude. Er staat "drawn".
 - "A hold that ends by itself after five minutes" en de herinnering om te gaan zitten of liggen: staan in de winkeltekst.
-- "Most breathing apps in the store show a circle or a timer": mijn indruk uit `concurrenten-2026-11-13.md`, niet geteld. Chris: laten staan of zachter maken ("Many")?
+- (opgelost 16 nov, Chris: het is nu "Many breathing apps" en "Safety is built into the design:") "Most breathing apps in the store show a circle or a timer": mijn indruk uit `concurrenten-2026-11-13.md`, niet geteld. Chris: laten staan of zachter maken ("Many")?
 - Chris kijkt het Engels na.
