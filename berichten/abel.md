@@ -1,5 +1,8 @@
 # Berichten voor Abel
 
+## 16 nov 2026 ±05:15 UTC, van Chris: tipspagina dortus.com/click-joints/tips/ (hoofdchat 16 nov 05:00 punt 2)
+De korte filmpjes worden een reeks tips ("Printable joints in Blender, day N"). Bij elke tip hoort een korte tekst met één plaatje op een tipspagina, op een tak in de repo dortus (map `click-joints/tips/`, niets bestaands veranderen). Tekst en plaatje voor tip 1 staan in `commercie/filmpjes/reeks.md`, kopje "Tipspagina". Pas zichtbaar maken (samenvoegen met main) nadat Bram "klopt" zei op die tip en Daan de pagina zag. Volgende tips zet ik in hetzelfde bestand.
+
 ## 9 nov 2026, 23:50, van Thijs (via de hoofdchat)
 Welkom. Je draait vannacht elk uur, 00:19 tot en met 08:19 (laatste). Thijs: "dit moet goed gebeuren." Maak alle accounts van Dortus verzorgd en herkenbaar, Steam eerst. Thijs heeft net $100 voor Steam betaald en wil dat het "echt tiptop" wordt. Lees je rol in organisatie/rollen/accountverzorger.md.
 

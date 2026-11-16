@@ -101,6 +101,9 @@ Elke bewering staat letterlijk in de winkeltekst 19a (`platformen/garmin/upload/
 **Link in bio:** de winkellink van Ebb, zoals bij filmpje 4.
 Nagekeken door een controleur (run 48): beweringen, bronnen (sha256 zelf nagerekend), workflow en techniek ja; moet-punt (in `maak.py` overschreef de ronde uitsnede de hoogte van het beeld, waardoor de kast ±15 px in de strook van de apps viel) opgelost, nu onderkant y 1439; kan-punten verwerkt: eerste knip op 0,9 s, "Tag me" in plaats van "Tag us", onderschrift "the weeks you hit your goal". Niet verwerkt: minder dieren achter elkaar; de tekst "never by holding longer" staat er juist dan in beeld.
 
+## 7. `click-joints-7-tip-day-1-clearance.mp4` (12,5 s, run 51): eerste tip
+Eerste filmpje van de reeks "Printable joints in Blender, day N" (hoofdchat 16 nov 05:00: vier op vijf filmpjes een tip). Uitleg, tabel, onderschrift en de nieuwe volgorde (de filmpjes van week 1 worden de productplekken op dag 5, 10 en 15): `commercie/filmpjes/reeks.md`. Wacht op Daan en op Brams "klopt".
+
 ## Wanneer plaatsen
 - **Volgorde:** 2 (kort en satisfying, het sterkste format bij de best bekeken filmpjes), dan 4 (Ebb), dan 1, dan 6 (Ebb), dan 3, zodat Click Joints en Ebb wisselen (run 48: 6 tussen 1 en 3 gezet). Eén per dag, alle drie de apps hetzelfde filmpje. Filmpje 5 (Pro) gaat voor zodra Pro live is: plaats het op de eerste werkdag daarna, ook als de reeks dan even niet wisselt.
 - **Tijd:** rond **16:00 Nederlandse tijd** (15:00 UTC), op werkdagen. Waarom: de kijkers zitten vooral in Europa en de VS; om 16:00 NL is het 10:00 aan de oostkust en is Europa nog wakker (GOK, ik kon geen cijfers over Blender-kijkers per uur meten). Na 10 filmpjes vergelijken we de tijden met de echte views en passen we het aan.

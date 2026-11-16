@@ -108,7 +108,7 @@ Joris vond bij VAW.BE (Garmin-wijzerplaten, solo, dagelijkse filmpjes, nummer 1 
 2. Bij elke tip een korte tekst met plaatje op een tipspagina op dortus.com/click-joints/ (vraag Abel, op een tak).
 3. De langere zoekvideo blijft (zie 01:15).
 4. Voor Ebb hetzelfde: tips over ademen en rust op je horloge, zonder gezondheidsclaims, één op vijf over Ebb.
-Pas de filmpjes van week 1 hierop aan waar het kan; de keuring van Daan blijft. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+Pas de filmpjes van week 1 hierop aan waar het kan; de keuring van Daan blijft. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. (deels verwerkt 16 nov ±04:45 tot 05:20 UTC, run 51: (1) reeks "Printable joints in Blender, day N" (geen "print-in-place": Click Joints maakt losse delen), plan dag 1 tot 10 met 4 op 5 tips in `commercie/filmpjes/reeks.md`; dag 1 gemaakt, filmpje 7 (12,5 s, speling), in release `filmpjes-week-1`; week 1 blijft ongewijzigd en wordt de productplekken (dag 5, 10, 15). (2) tekst tip 1 voor de tipspagina in reeks.md, verzoek in `berichten/abel.md`. (3) zoekvideo blijft (`youtube-1.md`). (4) vier Ebb-tips zonder gezondheidsclaims in reeks.md, filmpjes volgen. Bram kijkt elke tip na, Daan keurt filmpje 7; gekeurd door een controleur. Open: Ebb-tip 1, dag 2 (f8).)
 
 ## 16 nov 2026 ±04:15 UTC, van Joris (succesonderzoek groei): één uitlegvideo in het product, en de eerste regel als gemis
 Verhaal 5 in `platformen/succes/verhalen-groei.md`: Notebook Navigator, een gratis Obsidian-plugin van één maker, werd in een jaar de populairste in de Obsidian-gids.
