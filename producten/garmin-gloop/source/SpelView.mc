@@ -167,7 +167,7 @@ class SpelView extends WatchUi.View {
         tekenGloop(dc, cx, voet);
         var top = tekenToren(dc, torenX, kruinY, n);
         tekenHeld(dc, w, h, voet);
-        tekenVliegendeHelm(dc, w, cx, voet, torenX, top);
+        tekenVliegendeHelm(dc, w, h, cx, voet, torenX, top);
         tekenTijd(dc, w, h);
 
         if (spel.toestand == Regel.KLAAR) {
@@ -198,10 +198,17 @@ class SpelView extends WatchUi.View {
                 var ky = (h * 0.40).toNumber();
                 var ruimte = torenX - m[12] / 2 - 2 - 8 - kx - 1;
                 var kfont = Graphics.FONT_SMALL;
+                var tweeRegels = false;
                 if (dc.getTextWidthInPixels(kreet, kfont) > ruimte) {
-                    kfont = Graphics.FONT_XTINY;
+                    if (spel.raak && spel.reeks >= 3 && dc.getTextWidthInPixels("GULP!", kfont) <= ruimte) {
+                        // Liever twee regels in het grotere font dan één regel piepklein (260 en 280).
+                        tweeRegels = true;
+                    } else {
+                        kfont = Graphics.FONT_XTINY;
+                        tweeRegels = (dc.getTextWidthInPixels(kreet, kfont) > ruimte && spel.raak && spel.reeks >= 3);
+                    }
                 }
-                if (dc.getTextWidthInPixels(kreet, kfont) > ruimte && spel.raak && spel.reeks >= 3) {
+                if (tweeRegels) {
                     tekst(dc, kx, ky - dc.getFontHeight(kfont) / 2, kfont, "GULP!", Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
                     tekst(dc, kx, ky + dc.getFontHeight(kfont) / 2, kfont, "x" + spel.reeks, Graphics.TEXT_JUSTIFY_LEFT, 0xFFFF00);
                 } else {
@@ -277,8 +284,8 @@ class SpelView extends WatchUi.View {
         }
     }
 
-    // Bij de slok schiet de helm van de bek in een boog naar rechts en landt boven op de toren.
-    function tekenVliegendeHelm(dc as Graphics.Dc, w as Number, cx as Number, voet as Number, torenX as Number, top as Number) as Void {
+    // Bij de slok schiet de helm van boven de kruin in een boog naar rechts en landt boven op de toren.
+    function tekenVliegendeHelm(dc as Graphics.Dc, w as Number, h as Number, cx as Number, voet as Number, torenX as Number, top as Number) as Void {
         if (spel.toestand != Regel.SLOK) {
             return;
         }
@@ -292,7 +299,10 @@ class SpelView extends WatchUi.View {
         if (eind < m[9] / 2) {
             eind = m[9] / 2;
         }
-        var x = cx + ((torenX - cx) * f).toNumber() + (w * 0.22 * 4.0 * f * (1.0 - f)).toNumber();
+        // Staat de teller rechts naast een hoge toren, dan vliegt de helm links om (kan van Daan),
+        // zodat hij niet over het kroontje van de teller gaat.
+        var kant = (top < h * 0.24) ? -1.0 : 1.0;
+        var x = cx + ((torenX - cx) * f).toNumber() + (kant * w * 0.22 * 4.0 * f * (1.0 - f)).toNumber();
         var y = begin + ((eind - begin) * f).toNumber();
         dc.drawBitmap(x - m[8] / 2, y - m[9] / 2, pl[5]);
     }

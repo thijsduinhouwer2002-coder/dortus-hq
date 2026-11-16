@@ -1,6 +1,6 @@
 # Gloop-spel voor Garmin: ontwerp van de speelbare proef
 
-Akkoord: nog niet gevraagd (dit is de proef met eenvoudige vormen; Daan en Mila kijken mee zodra de eerste simulatorbeelden er zijn)
+Akkoord: nog niet voor uitbrengen. Daan keurde het spel in de simulator op stijl (16 nov ±05:38 UTC, run 43808547911 op e5dbbf2: beide moets ja, geen nieuwe ronde nodig voor het spel zelf); winkelbeelden en icoon keurt hij apart. De keuring van Mila van de slok in het spel staat nog open. Niemand heeft het gespeeld.
 
 **Waarom wij (één zin, voorlopig):** het enige horlogespel waarin je toren van hoeden letterlijk hoger wordt dan je horloge, met een eigen figuur met karakter in plaats van blokjes of een kloon.
 
@@ -35,6 +35,15 @@ Sinds 16 nov ±03:00 UTC (commit bd04a60) ook: **de slok** (voorstel Mila v3: de
 
 ## Stand 16 nov ±04:15 UTC: echte plaatjes en opstelling (c)
 Daan en Mila kozen allebei (c): de toren staat op de kop van Gloop, de held komt schuin van linksboven door een lichtbaan. Dat is nu gebouwd met de spritekit van Mila (`ontwerp/garmin/gloop-spel/kit/` op main, omgezet met `maak_kit.py`): Gloop rust, hap (in de vangzone), slok en blij, de vallende held, de vliegende helm en tien hoeden. De teller staat bovenaan met de kroon, het woord GULP staat met een boogje naast de START-knop, de klok rondom is goudgeel. De spelregels in `Spel.mc` en de toetsen zijn niet veranderd. Bewust nog niet: de held draagt altijd de helm terwijl de toren tien soorten hoeden krijgt (zo staat het op het blad van Mila; vraag aan haar of dat zo blijft), en de slok duurt nog 0,3 seconde.
+
+## Stand 16 nov ±06:10 UTC: zeven horloges, slok van Mila, stilstand
+- Het spel draait op zeven horloges in alle zes maten van de kit: FR255 en fenix 7 (260, MIP), fenix 7X (280, MIP), Venu Sq 2 (320, vierkant), Venu 3S (390), FR265 (416) en Venu 3 (454).
+- De slok is de plaat van Mila (één grote mond, oog vrij, benen en buik van de held schuin erin); de helm vertrekt boven de kruin.
+- Precies op het slikken staat alles 0,08 seconde stil (ook de klok van het potje), zodat de vangst zwaarder voelt zonder dat het tempo verandert. Dit zit alleen in het scherm; `Spel.mc` en de toetsen zijn niet veranderd. Of het zo voelt kan alleen een mens zeggen.
+- De kreet ("GULP! x7") houdt altijd minstens 8 px lucht tot de toren. Past hij niet op één regel, dan staat de reeks op een tweede regel, in het grotere font als "GULP!" daarin past (260 en 280), anders klein.
+- Staat de teller rechts naast een hoge toren, dan vliegt de helm links om (kan van Daan), zodat hij niet over het kroontje gaat.
+- Op AMOLED heeft de lichtbaan een zachte rand; op MIP is hij effen.
+- Nog niet: Instinct (zwart-wit, vraagt eigen plaatjes van Mila), een titelplaatje in plaats van het dunne systeemfont op AMOLED, naam, prijs en winkeltekst (voorstel staat sinds run 108 in `platformen/garmin/gloop-winkel-voorstel.md` op main, wacht op Daan en Chris).
 
 ## Open vragen (voor na de proef)
 - Is 30 seconden goed, of liever een vast aantal helden? Kiezen na het eerste echte potje.
