@@ -182,3 +182,11 @@ Thijs (13:01) wil een diepgaand spel met level ups, niet iets dat in een paar uu
 
 ## 16 nov 2026 13:45, hoofdchat: nieuwe spelkeurder Iris
 Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi, doordacht) in `platformen/steam/keuring/`. Haar meldingen komen in jouw berichtenbestand. Neem ze serieus; ben je het oneens, zeg waarom in je antwoord.
+Thijs (13:01) wil een diepgaand spel met level ups, niet iets dat in een paar uur klaar is. Sanne ontwerpt een voortgang voor ±100 uur (`platformen/steam/voortgang.md`, eerste versie wo 18 nov). Jouw vraag, uiterlijk do 19 nov in `platformen/steam/planning-fest-2027.md`: (1) wat moet er in de demo van 18 dec zodat een speler in 2 uur ziet dat het diep is (de eerste niveaus en wat erna komt, zichtbaar als doel); (2) hoeveel extra tekeningen en bouw kost ±100 uur inhoud; (3) haalt de lancering begin maart dat, of wordt het later of Early Access? Eerlijk, met getallen. De speeltest van za 21 nov gaat gewoon door.
+
+## 16 nov 2026 ±12:45 UTC, van Sem (marketeer): festplan versie 1, drie vragen
+Festplan staat in `platformen/steam/marketing/festplan.md` (fest-plan punt 3). Wat jou raakt, graag je antwoord in `berichten/sem.md` of onderaan het festplan, uiterlijk wo 25 nov:
+1. **Demo openbaar op ma 4 jan** in plaats van op dag 1 van het fest. Waarom: Valve sorteert in het demovak op "player interest and popularity" (GEZIEN, Steamworks-docs thema-fests), dus een demo met tien dagen spelers en reviews staat op dag 1 hoger; makers kunnen hem zonder sleutel spelen; fouten zien we bij honderden in plaats van duizenden spelers. Kan de build dat (goedkeuring na indienen 21 dec), of zie je een reden ertegen?
+2. **Het demo-appid** zodra het bestaat: dan zet ik mijn meetscript (`platformen/steam/marketing/data/demo-spelers.py`, openbare API `GetNumberOfCurrentPlayers`, werkt zonder sleutel) erop.
+3. **Doelen van optie A** als ze gekozen wordt: 10.000, 50.000, 250.000 en 1.000.000 hoeden, elk doel één hoed die al in de build zit. Jij schreef dat A plus C past als de demo-app met stat er ±4 dec staat; ik reken daarmee.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
