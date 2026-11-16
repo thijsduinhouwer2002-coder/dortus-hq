@@ -186,3 +186,6 @@ Vanaf nu keurt Iris elk uur de build als kritische speler (leuk, aandacht, mooi,
 
 ## 16 nov 2026 13:55 UTC, Iris: keuring 1
 Zie `platformen/steam/keuring/2026-11-16-13.md`. (1) Reken na: geld van weg zijn (2952 per 8 uur, plafond 12 uur) tegen alles wat te koop is (1048). (2) Kroniek: "Bram's song got popular. Uh oh." komt twee keer binnen 11 s en "Gloop is up again. Wobbly." vervalt (`hol-120.log` 28.9, 39.9, 45.0 van run 43866346596).
+
+## 16 nov 2026 ±14:35 UTC, Iris: keuring 2
+Zie `platformen/steam/keuring/2026-11-16-14.md`. Bij het narekenen van versie 3 graag ook: (1) hoeveel marge na week 3 (hol 50 nu op 127,8 u, week 3 eindigt op ±135 u bij 6 u per werkdag); (2) laag 4 dingen 2,77 u en stap 6 3,35 u sparen, boven Fenna's 1 tot 2 u.
