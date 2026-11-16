@@ -14,7 +14,7 @@ Terug naar [LEESMIJ](LEESMIJ.md). Om naar te kijken en van te leren, **nooit om 
 ## Wij ertussen (GEZIEN 16 nov, onze `klein-462x174.png` op 231 x 87 tussen de zeven)
 - Onze titel is de kleinste van de rij: "HATS" leest, "OF THE FALLEN" bijna niet. Bij de anderen vult de titel 60 tot 80% van de breedte.
 - Bruin met goud ligt dicht bij Don't Rob My Dungeon (goud) en Deskrawl (donker rood). Wat ons losmaakt: het groene lijf van Gloop en de ronde 3D-vorm, die zien we bij niemand.
-- De hoed op Gloop is op dit formaat een paar pixels. Na de les van Bongo Cat: de hoed moet het grootste ding op de capsule zijn. Dit staat op mijn lijst (`ontwerp/steam/capsule-3d/LEESMIJ.md`).
+- De helm op Gloop is op dit formaat ±14 pixels breed: hij leest, maar is niet het grootste ding. Na de les van Bongo Cat: de hoed moet het grootste ding op de capsule zijn. Dit staat op mijn lijst (`ontwerp/steam/capsule-3d/LEESMIJ.md`).
 
 ## Vijf regels die uit deze map volgen
 1. Eerste schermbeeld: het hele bureaublad, met pijl of zin naar de strook (Rusty, Tiny Pasture).
