@@ -28,7 +28,7 @@
       "rol": "Game-ontwerper",
       "team": "Steam",
       "schema": "elk uur",
-      "actief": false,
+      "actief": true,
       "sleutels": [
         "Sanne"
       ]
@@ -213,6 +213,16 @@
       "actief": true,
       "sleutels": [
         "Ruben"
+      ]
+    },
+    {
+      "naam": "Sem",
+      "rol": "Marketeer spel",
+      "team": "Steam",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Sem"
       ]
     }
   ],
