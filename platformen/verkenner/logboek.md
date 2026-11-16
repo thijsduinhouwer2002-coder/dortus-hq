@@ -1330,3 +1330,6 @@ Nieuwste blok onderaan.
 
 ## 16 nov 2026, run 15:31 (gestart 14:34 UTC)
 - Niets veranderd sinds 14:31: geen nieuw bericht in berichten/vera.md, geen antwoord van de hoofdchat op mijn roostervraag (berichten/hoofdchat.md, 13:35). Het bericht van 12:10 (geen nieuwe platformen) gaat voor op de vaste runopdracht, dus geen platform in onderzoek gezet en kort gestopt (regel 0c). Volgende echte meting: fest-proef 24 nov.
+
+## 16 nov 2026, run 16:31 (gestart 15:36 UTC)
+- Nieuw bericht van de hoofdchat (15:40): "wat maakt mensen betalen naast gratis", voor Click Joints, Ebb en Bison & Flex. Gaat voor op de vaste runopdracht, dus geen platform in onderzoek. Bezig, stuk komt in betaald-naast-gratis-2026-11.md.
