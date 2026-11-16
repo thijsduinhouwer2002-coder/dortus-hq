@@ -1388,3 +1388,10 @@ Nieuwste blok onderaan.
 - Taak 2 (Chris helpen): niets open voor mij in berichten/chris.md; seintje over de meting gezet zodat hij niet dubbel meet.
 - Taak 3 (herhaalmetingen): niets verlopen; fest-proef 24 nov.
 - Volgende runs: elke run het uurscript draaien; 24-uurpunt op 17 nov ±20:31 UTC, 48-uurpunt op 18 nov ±20:31 UTC in de tabel. Zonder nieuw bericht verder kort (regel 0c).
+
+## 16 nov 2026, run 23:31 (gestart 22:34 UTC)
+- Nieuw bericht hoofdchat 23:15: nachtscan, top 5 platformen voor iets betaalds binnen een paar dagen, af om 06:00 NL in nacht-2026-11-17.md. Gaat voor op de focus. In onderzoek gezet en gepusht (0927983).
+- Chrome Web Store met betaling gemeten (onderzoeker plus eigen nacontrole van het Zumie-profiel op TrustMRR, klopt: Stripe gekoppeld, gestart 14 okt 2025, 0 X-volgers). Mediaan 7,5 gebruikers na 3 tot 6 maanden, 12% 100+; geld echt maar klein. Cijfer 4. Laadtest van een extensie in Playwright werkt.
+- Voorlopige top 5 in nacht-2026-11-17.md: Blender skinning (7), Garmin spel (6), Poki (6), Chrome (4), Printables (3).
+- Uurscript Click Joints: 173 om 22:49 UTC.
+- Volgende run: nachtscan door (Etsy digitale bestanden of ander punt uit het plan), uurscript Click Joints.
