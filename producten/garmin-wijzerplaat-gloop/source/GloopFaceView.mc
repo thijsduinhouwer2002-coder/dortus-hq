@@ -9,7 +9,7 @@ import Toybox.WatchUi;
 
 typedef Plaatje as WatchUi.BitmapResource or Graphics.BitmapReference;
 
-// De wijzerplaat: tijd groot links, datum erboven, stappen en hoeden eronder, hartslag en batterij klein.
+// De wijzerplaat: links de datum, uren boven minuten (groot), stappen, hoeden, hartslag en batterij.
 // Gloop staat rechts onderin en de toren groeit langs de rechterkant omhoog (concept 1 van Mila).
 class GloopFaceView extends WatchUi.WatchFace {
     // Plaatjes: 0 rust, 1 blij, 2 tot 11 de tien hoeden.
@@ -21,8 +21,11 @@ class GloopFaceView extends WatchUi.WatchFace {
     // Volgorde van de gewone hoeden in de toren. De kroon (hoed 4) komt alleen bij het stapdoel.
     const VOLGORDE = [1, 9, 5, 2, 0, 6, 7, 3, 8] as Array<Number>;
     const KROON = 4;
+    // Afstand van de urenregel tot de minutenregel, als deel van de fonthoogte (cijferfonts hebben
+    // lucht boven en onder de cijfers).
+    const PITCH = 0.80;
     // Standen voor de bouwstraat (Bouw.AUTO): stappen per stand; de laatste stand is de slaapstand.
-    const PROEF = [0, 3420, 7612, 10230, 14800, 7612] as Array<Number>;
+    const PROEF = [0, 3420, 7612, 10000, 14800, 7612] as Array<Number>;
 
     function initialize() {
         WatchFace.initialize();
@@ -78,12 +81,14 @@ class GloopFaceView extends WatchUi.WatchFace {
         var amoled = (w >= 320);
         var klok = System.getClockTime();
         var is24 = System.getDeviceSettings().is24Hour;
-        var tijd = Regel.uur(klok.hour, is24).format(is24 ? "%02d" : "%d") + ":" + klok.min.format("%02d");
+        var uren = Regel.uur(klok.hour, is24).format(is24 ? "%02d" : "%d");
+        var minuten = klok.min.format("%02d");
+        var rond = System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND;
 
         if (slaapt && amoled) {
-            tekenSlaap(dc, w, h, tijd, klok.min);
+            tekenSlaap(dc, w, h, uren, minuten, klok.min, rond);
         } else {
-            tekenVol(dc, w, h, tijd, stappen, doel, amoled);
+            tekenVol(dc, w, h, uren, minuten, stappen, doel, amoled, rond);
         }
         if (!gemeld) {
             gemeld = true;
@@ -92,18 +97,20 @@ class GloopFaceView extends WatchUi.WatchFace {
         }
     }
 
-    // Grootste cijferfont waarbij de tijd links van de toren past.
-    function tijdFont(dc as Graphics.Dc, tijd as String, ruimte as Number) as Graphics.FontDefinition {
+    // Grootste cijferfont waarbij uren boven minuten passen: twee cijfers breed binnen `breed` px
+    // en twee regels plus de kleine regels eromheen binnen `hoog` px.
+    function tijdFont(dc as Graphics.Dc, breed as Number, hoog as Number) as Graphics.FontDefinition {
         var fonts = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
         for (var i = 0; i < fonts.size(); i += 1) {
-            if (dc.getTextWidthInPixels(tijd, fonts[i]) <= ruimte) {
+            var fh = dc.getFontHeight(fonts[i]);
+            if (dc.getTextWidthInPixels("00", fonts[i]) <= breed && fh * (PITCH + 0.80) <= hoog) {
                 return fonts[i];
             }
         }
         return Graphics.FONT_NUMBER_MILD;
     }
 
-    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, tijd as String, stappen as Number, doel as Number, amoled as Boolean) as Void {
+    function tekenVol(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, stappen as Number, doel as Number, amoled as Boolean, rond as Boolean) as Void {
         var achter = amoled ? 0x000000 : 0xAA5500;
         dc.setColor(achter, achter);
         dc.clear();
@@ -116,84 +123,106 @@ class GloopFaceView extends WatchUi.WatchFace {
         dc.drawBitmap(gx - m[0] / 2, voet - (kroon ? m[3] : m[1]), kroon ? pl[1] : pl[0]);
         var torenX = gx - m[0] / 2 + m[10];
         var kruinY = voet - m[1] + m[11];
-        tekenToren(dc, torenX, kruinY, n, kroon, (h * 0.05).toNumber());
+        tekenToren(dc, w, h, rond, torenX, kruinY, n, kroon, Regel.hoedenBijDoel(doel));
 
-        // Tijd, datum, stappen en hoeden, links.
-        var x0 = (w * 0.06).toNumber();
-        var font = tijdFont(dc, tijd, (w * 0.54).toNumber());
-        var fh = dc.getFontHeight(font);
-        var ty = (h * 0.42).toNumber() - fh / 2;
-        tekst(dc, x0, ty, font, tijd, 0xFFFFFF);
-        var nu = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+        // Links: datum, uren boven minuten, stappen, hoeden, hartslag en batterij.
         var klein = Graphics.FONT_TINY;
         var kh = dc.getFontHeight(klein);
-        tekst(dc, x0 + (w * 0.04).toNumber(), ty - kh + (fh * 0.10).toNumber(), klein, nu.day_of_week + " " + nu.day, 0xFFFF00);
-        var sy = ty + fh - (fh * 0.08).toNumber();
-        tekst(dc, x0, sy, klein, stappen.toString(), 0x55FFAA);
-        // Onder de stappen: hoeveel hoeden van het doel, en na het doel "GOAL!" met het aantal.
-        // Past de regel niet links van Gloop, dan een maat kleiner (Venu Sq 2).
-        var vrij = gx - m[0] / 2 - x0 - 6;
-        var regel = kroon ? "GOAL! " + n + " HATS" : n + "/" + Regel.hoedenBijDoel(doel) + " HATS";
-        var rf = dc.getTextWidthInPixels(regel, klein) <= vrij ? klein : Graphics.FONT_XTINY;
-        tekst(dc, x0, sy + kh - 2, rf, regel, kroon ? 0xFFFF00 : 0xFFFFFF);
+        var xh = dc.getFontHeight(Graphics.FONT_XTINY);
+        var torenLinks = torenX - m[12] / 2 - 2;
+        var gloopLinks = gx - m[0] / 2 - 6;
+        var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
+        var onder = (h * 0.93).toNumber();
+        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), onder - boven - 3 * kh - xh + 12);
+        var fh = dc.getFontHeight(font);
+        var pitch = (fh * PITCH).toNumber();
+        var uy = boven + kh - (fh * 0.12).toNumber();
+        var my = uy + pitch;
+        var tx = Regel.randLinks(uy + fh / 5, my + fh * 4 / 5, w, h, rond, 6);
+        if (tx < (w * 0.07).toNumber()) {
+            tx = (w * 0.07).toNumber();
+        }
+        var nu = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+        tekst(dc, max(tx, Regel.randLinks(boven, boven + kh, w, h, rond, 6)), boven, klein, nu.day_of_week + " " + nu.day, 0xFFFF00);
+        tekst(dc, tx, uy, font, uren, 0xFFFFFF);
+        tekst(dc, tx, my, font, minuten, 0xFFFFFF);
 
-        // Hartslag en batterij, klein linksonder.
+        var sy = my + (fh * 0.90).toNumber();
+        tekst(dc, max(tx, Regel.randLinks(sy, sy + kh, w, h, rond, 6)), sy, klein, stappen.toString(), 0x55FFAA);
+        // Onder de stappen: hoeveel hoeden van het doel; na het doel het aantal in geel.
+        var hy = sy + kh - 2;
+        var hx = max(tx, Regel.randLinks(hy, hy + kh, w, h, rond, 6));
+        var regel = kroon ? n + " HATS!" : n + "/" + Regel.hoedenBijDoel(doel) + " HATS";
+        var rf = dc.getTextWidthInPixels(regel, klein) <= gloopLinks - hx ? klein : Graphics.FONT_XTINY;
+        tekst(dc, hx, hy, rf, regel, kroon ? 0xFFFF00 : 0xFFFFFF);
+
+        // Hartslag en batterij; is er te weinig plek naast Gloop, dan alleen de hartslag.
         var hs = "--";
         var act = Activity.getActivityInfo();
         if (act != null && act.currentHeartRate != null) {
             hs = (act.currentHeartRate as Number).toString();
         }
         var bat = System.getSystemStats().battery.toNumber();
-        tekst(dc, x0 + (w * 0.04).toNumber(), sy + 2 * kh - 4, Graphics.FONT_XTINY, "HR " + hs + " " + bat + "%", 0xFFAAAA);
+        var by = hy + kh - 2;
+        var bx = max(tx, Regel.randLinks(by, by + xh, w, h, rond, 6));
+        var lang = "HR " + hs + "  " + bat + "%";
+        if (dc.getTextWidthInPixels(lang, Graphics.FONT_XTINY) > gloopLinks - bx) {
+            lang = "HR " + hs;
+        }
+        tekst(dc, bx, by, Graphics.FONT_XTINY, lang, 0xFFAAAA);
     }
 
-    // Stapelt n hoeden op de kruin en zet bij het doel de kroon erop. Elke hoed staat 0,56 keer zijn
-    // eigen hoogte hoger (regel van Mila uit het spel); past dat niet onder de bovenrand, dan schuiven
-    // de hoeden dichter in elkaar zodat de bovenste hoed altijd in beeld blijft.
-    function tekenToren(dc as Graphics.Dc, torenX as Number, kruinY as Number, n as Number, kroon as Boolean, bovenrand as Number) as Void {
-        var soorten = [] as Array<Number>;
-        for (var i = 0; i < n; i += 1) {
-            soorten.add(VOLGORDE[i % 9]);
-        }
-        if (kroon) {
-            soorten.add(KROON);
-        }
-        var aantal = soorten.size();
-        if (aantal == 0) {
-            return;
-        }
+    function max(a as Number, b as Number) as Number {
+        return a > b ? a : b;
+    }
+
+    // Stapelt n hoeden op de kruin en zet bij het doel de kroon erop. De afstand tussen de hoeden is
+    // zo gekozen dat de kroon op het moment van het doel helemaal in beeld staat (ook binnen de ronde
+    // rand). Daarna komen nieuwe hoeden onder de kroon en gaat de toren het scherm uit: dat is de grap.
+    // De toren buigt licht naar rechts, weg van de tijd.
+    function tekenToren(dc as Graphics.Dc, w as Number, h as Number, rond as Boolean, torenX as Number, kruinY as Number, n as Number, kroon as Boolean, nDoel as Number) as Void {
+        var buig = (w * 0.03).toNumber();
         var som = 0;
-        for (var i = 0; i < aantal; i += 1) {
-            som += m[13 + 2 * soorten[i]];
+        for (var i = 0; i < nDoel; i += 1) {
+            som += m[13 + 2 * VOLGORDE[i % 9]];
         }
-        var top = m[13 + 2 * soorten[aantal - 1]];
-        var ruimte = kruinY - bovenrand - top * 0.78;
-        var nodig = (som - top) * 0.56;
-        var stap = 0.56;
-        if (nodig > ruimte && nodig > 0) {
-            stap = 0.56 * ruimte / nodig;
-        }
+        var kb = m[12 + 2 * KROON];
+        var khoog = m[13 + 2 * KROON];
+        var bovenrand = Regel.randBoven(torenX + buig + kb / 2 + 2, w, h, rond, 3);
+        var stap = Regel.stap(som, kruinY - bovenrand - (khoog * 0.78).toNumber());
         var y = kruinY.toFloat();
+        var aantal = kroon ? n + 1 : n;
         for (var i = 0; i < aantal; i += 1) {
-            var k = soorten[i];
+            var k = (kroon && i == n) ? KROON : VOLGORDE[i % 9];
             var hb = m[12 + 2 * k];
             var hh = m[13 + 2 * k];
-            var boven = y - hh * 0.78;
-            var dx = ((i * 7) % 5) - 2;
-            dc.drawBitmap(torenX - hb / 2 + dx, boven.toNumber(), pl[2 + k]);
+            var top = (y - hh * 0.78).toNumber();
+            if (top + hh < 0) {
+                break;
+            }
+            var dx = ((i * 7) % 5) - 2 + Regel.buiging(i, nDoel, buig);
+            dc.drawBitmap(torenX - hb / 2 + dx, top, pl[2 + k]);
             y = y - hh * stap;
         }
     }
 
-    // Slaapstand op AMOLED: zwart, alleen de tijd in grijs, elke minuut een paar pixels verschoven
-    // tegen inbranden. Gloop als lijn komt erbij zodra Mila die tekening heeft.
-    function tekenSlaap(dc as Graphics.Dc, w as Number, h as Number, tijd as String, minuut as Number) as Void {
+    // Slaapstand op AMOLED: zwart, alleen de tijd in grijs (uren boven minuten, zelfde plek), elke
+    // minuut een paar pixels verschoven tegen inbranden. Gloop als lijn komt erbij zodra Mila die
+    // tekening heeft.
+    function tekenSlaap(dc as Graphics.Dc, w as Number, h as Number, uren as String, minuten as String, minuut as Number, rond as Boolean) as Void {
         dc.setColor(0x000000, 0x000000);
         dc.clear();
-        var font = tijdFont(dc, tijd, (w * 0.54).toNumber());
+        var kh = dc.getFontHeight(Graphics.FONT_TINY);
+        var xh = dc.getFontHeight(Graphics.FONT_XTINY);
+        var boven = (h * (rond ? 0.11 : 0.07)).toNumber();
+        var torenLinks = (w * 0.70).toNumber() - m[0] / 2 + m[10] - m[12] / 2 - 2;
+        var font = tijdFont(dc, torenLinks - 8 - (w * 0.10).toNumber(), (h * 0.93).toNumber() - boven - 3 * kh - xh + 12);
         var fh = dc.getFontHeight(font);
+        var uy = boven + kh - (fh * 0.12).toNumber() + (minuut % 3) * 2;
+        var x = (w * 0.10).toNumber() + (minuut % 5) * 2;
         dc.setColor(0xAAAAAA, Graphics.COLOR_TRANSPARENT);
-        dc.drawText((w * 0.06).toNumber() + (minuut % 5) * 2, (h * 0.42).toNumber() - fh / 2 + (minuut % 3) * 2, font, tijd, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, uy, font, uren, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, uy + (fh * PITCH).toNumber(), font, minuten, Graphics.TEXT_JUSTIFY_LEFT);
     }
 
     // Tekst met een zwarte rand van 1 px, zodat hij ook op de bruine grot van MIP te lezen is.
