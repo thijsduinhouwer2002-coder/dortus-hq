@@ -640,3 +640,9 @@
 - Daans moet op 40 px gedaan: puntmuts lichter paars (richting 8a6ad8), gouden band 1 px dikker, alleen in `launcher-40-keus.png`. Waarom alleen daar: op 60 en 80 zag je de drie hoeden al, en het winkelicoon blijft dan gelijk aan de hoed in het spel.
 - GEZIEN met Read: oud en nieuw op 8x, 2x en 1x; drie hoeden te tellen op 2x.
 - Aan Gijs in `platformen/garmin/taken.md`.
+
+## 16 nov ±07:00 UTC: winkelbeelden Gloop concept 1, slok gekeurd
+- Slok in het spel op 1x gekeurd: ja. Wensen aan Gijs: donkere rand om teksten, donkere grot op AMOLED (voorstel met beeld), slok vasthouden bij 11 tot 13 hoeden voor beeld 1.
+- Winkelbeelden concept 1: "Feed him. Keep the hat.", "A tower of hats taller than your watch." (toren loopt buiten de kast door), "Same Gloop. Older watch.". Waarom deze koppen: elk is een grap of belofte in één regel, en de toren buiten de kast laat de haak zien zonder iets te tonen wat niet in het spel zit.
+- GEZIEN met Read: op 800 en 200 px. Zwak: slok klein op 200 px, oranje scherm tegen bruine grot.
+- Volgende run: titelplaatje GLOOP / HAT TOWER per maat, kit 208-mip en 240-mip.
