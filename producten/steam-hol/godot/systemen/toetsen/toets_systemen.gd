@@ -653,11 +653,34 @@ func _init() -> void:
 	ok(H3.kamer_keuze(b, 4, 2, 12, true) == "kamer_los", "losse kamer zonder buren")
 	ok(H3.kamer_keuze(b, 6, 2, 12, true) == "kamer_begin" and H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_eind",
 		"rij 6-8: begin en eind")
-	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_b", "midden op oneven: b")
+	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_c", "kamer van drie: midden kaal")
 	b[9] = true
-	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "midden op even: a")
+	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "rij 6-9, tweede middencel: ding (begin 6 even, eerst de stut a): " + H3.kamer_keuze(b, 8, 2, 12, true))
 	ok(H3.kamer_keuze(b, 9, 2, 12, true) == "kamer_eind", "3D-schatkamer telt als dicht: eind")
-	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_b", "zonder 3D-schatkamer loopt de kamer door")
+	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_c", "zonder 3D-schatkamer loopt de kamer door (kaal)")
+	# Daan 16 nov 23:40 (moet): bovenste rij per drie middencellen precies één ding, om en om, nooit twee gelijk na elkaar
+	for kst in [3, 4, 5]:
+		var klb := []
+		for kk in 60:
+			klb.append(kk >= kst and kk <= 50)
+		var klijst := []
+		for kk in range(kst + 1, 50):
+			klijst.append(H3.kamer_keuze(klb, kk, 1, 58, false))
+		var kdingen := []
+		var kper_ok := true
+		for g in range(0, klijst.size() - 2, 3):
+			var n := 0
+			for j in 3:
+				if klijst[g + j] != "kamer_midden_c":
+					n += 1
+					kdingen.append(klijst[g + j])
+			if n != 1:
+				kper_ok = false
+		var kwissel_ok := kdingen.size() >= 10
+		for j in range(1, kdingen.size()):
+			if kdingen[j] == kdingen[j - 1]:
+				kwissel_ok = false
+		ok(kper_ok and kwissel_ok, "bovenste rij vanaf %d: per drie middencellen één ding, om en om (%d dingen)" % [kst, kdingen.size()])
 	b[14] = true
 	b[15] = true
 	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
