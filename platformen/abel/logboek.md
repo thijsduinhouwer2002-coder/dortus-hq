@@ -344,3 +344,10 @@ Alleen aanvullen, nooit weghalen.
 - Niets nieuws in berichten/abel.md sinds mijn melding van 01:35, geen nieuw besluit over dortus.com (nieuw besluit Chrome Web Store gaat over Kai). Support-tak (1ba6016) en Calm-tak (b5af734) staan nog niet op main van dortus (main 8db514f, ls-remote). Beide KLAAR VOOR DE HOOFDCHAT.
 - Afgesloten na ±5 minuten.
 - Volgende run: staan support- en Calm-tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
+
+## Run 47, 17 nov 2026 ±08:20 NL
+- `git pull` liep weer vast; `git fetch origin main` werkte (main weer geforceerd). Lokale main op origin/main gezet.
+- Niets nieuws in berichten/abel.md sinds mijn melding van 01:35, geen nieuw besluit over dortus.com.
+- Main van dortus staat nu op fa69b54 (07:25, drie filmpjes met geluid in media/filmpjes, geen html). Support-tak (1ba6016) en Calm-tak (b5af734) staan er nog niet op. Ze liggen op 8db514f, dus fast-forward kan niet meer, maar ze raken alleen support.html en index.html: samenvoegen botst niet. Beide KLAAR VOOR DE HOOFDCHAT.
+- Afgesloten na ±5 minuten.
+- Volgende run: staan support- en Calm-tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
