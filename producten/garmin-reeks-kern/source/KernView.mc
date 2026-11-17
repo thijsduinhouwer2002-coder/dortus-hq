@@ -107,7 +107,7 @@ class KernView extends WatchUi.WatchFace {
             dc.drawText(w / 2 + dx, h * 14 / 100 + dy, fs as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
         }
         // Het bootje als omtrek van 1 px aan het eind van de lijn (kan van Mila en Daan). Alleen met maten voor dit
-        // scherm; de lijn stopt dan bij de punt van de romp. Onder de 10 ligt het scheef, net als wakker.
+        // scherm; de lijn stopt dan bij de punt van de romp (de romp ligt 15% van s lager, zodat lijn en punt elkaar raken; punt van de keurder). Onder de 10 ligt het scheef, net als wakker.
         var s = Maten.passen(w, h) ? Maten.m(Maten.BOOT_HALF) : 0;
         var x1 = w * 80 / 100;
         var lijn = Teken.profiel(bb, w * 20 / 100, x1 - s, h * 78 / 100, h * 64 / 100, 20);
@@ -119,7 +119,7 @@ class KernView extends WatchUi.WatchFace {
         var bbNu = Veld.laatste(bb);
         if (s > 0 && lijn.size() >= 4 && bbNu != null) {
             var eind = lijn[lijn.size() - 2];
-            var stukken = Zee.bootLijnen(Zee.boot(x1, eind[1] as Number, s, (bbNu < 10) ? -22 : 0));
+            var stukken = Zee.bootLijnen(Zee.boot(x1, (eind[1] as Number) + s * 15 / 100, s, (bbNu < 10) ? -22 : 0));
             for (var i = 0; i < stukken.size(); i++) {
                 var k = stukken[i];
                 dc.drawLine(k[0] + dx, k[1] + dy, k[2] + dx, k[3] + dy);
