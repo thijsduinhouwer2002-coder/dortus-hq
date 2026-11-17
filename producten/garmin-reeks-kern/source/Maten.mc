@@ -58,10 +58,7 @@ module Maten {
         if (i < 0 || i >= l.size()) {
             return 0;
         }
-        var v = l[i];
-        if (!(v instanceof Lang.Number)) {
-            return 0;
-        }
-        return v;
+        // De lijst komt uit maak_maten.py (alleen hele getallen) en de toets testMatenVan260 kijkt hem na.
+        return l[i];
     }
 }
