@@ -62,6 +62,14 @@ def armen(soort, stand, stap):
     return None
 
 
+def hand_doel(soort, stand):
+    """{kant: (x, y, z)}: hand naar een vast punt in plaats van een armhoek. Mila 17 nov: de edelman alleen houdt
+    met zijn linkerhand de hoedrand vast (hoed op z 1,6, rand ±0,4 breed), het teken "x 1,2" voor de speler."""
+    if soort == "edelman" and stand == "alleen":
+        return {-1: (-0.42, -0.16, 1.66)}   # net op de rand, iets voor: de witte handschoen moet boven de rand uit te zien zijn
+    return {}
+
+
 def hand_y(soort, stand):
     if soort == "edelman" and stand in ("wacht", "wacht_tik"):
         return -0.3                         # handen voor het lijf, op de stokknop
@@ -101,7 +109,7 @@ def gezicht(ouder, soort, stand, hk, hs, HZ):
     if soort != "edelman" or stand in ("schrik", "vallen"):
         return
     huid = g.mat("ooglid", h.HUID_EDEL, rough=0.75, spec=0.12)
-    for kant in ((-1, 1) if stand not in ("tenen", "na_u2") else ()):   # na_u2 (Daan 03:50): ogen open, anders op spelmaat een bleke vlek zonder ogen   # tenen: ogen wijd open, hij moet opletten; monocle blijft
+    for kant in ((-1, 1) if stand not in ("tenen", "na_u2", "alleen") else ()):   # na_u2 (Daan 03:50): ogen open, anders op spelmaat een bleke vlek zonder ogen   # tenen: ogen wijd open, hij moet opletten; monocle blijft
         # bovenste helft van het oog dicht: een huidkleurig kapje net voor het oogwit, met een donker randje eronder
         h._bol(ouder, hk(0.11 * kant, -0.285, HZ + 0.075), hs(0.112, 0.06, 0.07), huid, segs=24)
         h._blok(ouder, hk(0.11 * kant, -0.335, HZ + 0.03), hs(0.11, 0.012, 0.014), g.mat("ooglidrand", "5a3a2a", rough=0.6), rond=0.004)

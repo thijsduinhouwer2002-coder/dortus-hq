@@ -164,7 +164,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         else:
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
         kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)
-        if stand in ("wacht", "wacht_tik"):
+        if stand in ("wacht", "wacht_tik", "alleen"):   # alleen: kijkt ook opzij, zenuwachtig om zich heen
             kijk = -0.06   # Mila 17 nov (edelman): kijkt opzij naar de deur, links in de strook   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
         if soort == "dief":   # Daan proef: kleine pupil binnen het oogwit, zodat het oog een wit gaatje in de band is
             _bol(ouder, hk(ox + kijk * 0.6, -0.31 + oy, HZ - 0.005), hs(0.03, 0.03, 0.032), pupil)
@@ -175,8 +175,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         _bol(ouder, hk(0.18 * kant, -0.25, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
     if soort in hs_.SOORTEN and hasattr(hs_, "gezicht"):
         hs_.gezicht(ouder, soort, stand, hk, hs, HZ)
-    if bang:
-        _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
+    if bang or (soort == "edelman" and stand == "alleen"):   # alleen: klein o-mondje, "oh jee, niemand voor me"
+        _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06) if bang else hs(0.035, 0.02, 0.045), g.mat("hmond", "mond", rough=0.6), segs=16)
     else:
         # vastberaden: kleine glimlach (halve ring) en twee wenkbrauwen die naar binnen zakken
         # (frisse kijker ronde 1: de o-mond las als "verbaasd of leeg")
@@ -206,7 +206,22 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         hoek_l, hoek_r = hs_.armen(soort, stand, stap)
     hy = hs_.hand_y(soort, stand) if soort in hs_.SOORTEN else -0.02
     handen = {}
+    doel = hs_.hand_doel(soort, stand) if (soort in hs_.SOORTEN and hasattr(hs_, "hand_doel")) else {}
     for kant, hoek in ((-1, hoek_l), (1, hoek_r)):
+        if kant in doel:
+            # Mila 17 nov (edelman alleen): hand naar een vast punt (de hoedrand), arm in twee stukken met de elleboog opzij
+            from mathutils import Vector
+            sch = Vector((kant * 0.29, 0.0, arm_z)); hnd = Vector(doel[kant])
+            ell = (sch + hnd) / 2 + Vector((kant * 0.24, 0.0, -0.06))
+            for a_, b_ in ((sch, ell), (ell, hnd)):
+                v = b_ - a_
+                _cil(ouder, tuple((a_ + b_) / 2), 0.055, v.length, kleed, rot=v.to_track_quat("Z", "Y").to_euler())
+            _bol(ouder, tuple(ell), (0.06, 0.06, 0.06), kleed, segs=16)
+            hx, hy_, hz = hnd
+            _bol(ouder, (hx, hy_, hz), (0.085, 0.085, 0.085),
+                 g.mat("handschoen_w", "f6efe2", rough=0.7, spec=0.2) if soort == "edelman" else huid, segs=16)
+            handen[kant] = (hx, hz)
+            continue
         a = math.radians(hoek)
         hx = kant * (0.3 + 0.18 * math.sin(a))
         hz = arm_z - 0.22 * math.cos(a)

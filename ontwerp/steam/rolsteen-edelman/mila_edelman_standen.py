@@ -8,7 +8,7 @@ import gedeeld as g
 import held
 import hoeden as hd
 
-STANDEN = ["rust", "wacht", "wacht_tik", "na_u", "na_u2", "tenen", "stap1"]
+STANDEN = ["rust", "wacht", "wacht_tik", "na_u", "na_u2", "tenen", "alleen", "stap1"]
 
 if __name__ == "__main__":
     uit = sys.argv[1]

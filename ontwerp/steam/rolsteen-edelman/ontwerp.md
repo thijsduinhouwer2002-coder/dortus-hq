@@ -133,3 +133,11 @@ Daans kan-punt: de onderste helft van de rand is nu een eigen schijf `7a6e60`, v
 - **Voor Olaf:** de pijplijn moet bij `na_u2` de edelhoed met `voorover=hoed_voorover` renderen (of het hoedbeeld zo draaien), naast de verschuiving van `hoed_voor` en `hoed_zak`.
 - `mila-edelman-standen-v3.png` en `mila-edelman-standen-v3-spelmaat-voor-na-4x.png` (boven v2, onder v3, met hoed, 4x en ware grootte; verkleind, geen spelbeeld).
 - **GEZIEN met Read:** groot buigt nu de hele romp en tikt de hoed naar voren; op spelmaat leest `na_u2` als een buiging met hoed, niet meer als een knik. `tenen` heeft een warmer gezicht met de ogen erin. Eerlijk: de voorkant van de rand vangt nu het licht, de hoed blijft wit en fel, maar niet meer de grootste lichte vlek.
+
+## Edelman stand `alleen`: zenuwachtig, hand aan de hoed (Mila, 17 nov ±06:05 UTC)
+- Uit het plan hierboven: "Alleen en zenuwachtig: houdt met één hand de hoed vast, ogen opzij. Dit is ook het teken voor de speler: x 1,2."
+- **Gebouwd:** linkerhand op de hoedrand (nieuw `hand_doel` in `held_soorten.py`: een hand naar een vast punt, arm in twee stukken met de elleboog opzij, in `held.py`), rechterhand houdt de stok gewoon, ogen opzij (zoals `wacht`), ogen wijd open (geen half ooglid) en een klein o-mondje. Alleen de edelman doet er iets mee; andere helden zien `alleen` als `rust`.
+- **Voor Olaf:** de hoed zelf staat recht en op de gewone plek, er hoeft niets te schuiven. De hand ligt op z 1,66, net op de rand.
+- **Besluit** arm lang en hoekig in plaats van een gewone armhoek. Waarom: met de vaste armhoeken komt de hand niet hoger dan het oor; een lange rode arm naar de hoed is op spelmaat de duidelijkste vorm van de hele rij.
+- `mila-edelman-standen-v4.png` (dief, rust, wacht, wacht_tik, na_u, na_u2, tenen, alleen, stap1) en `mila-edelman-standen-v4-spelmaat-4x.png`.
+- **GEZIEN met Read:** groot een nerveuze heer die zijn hoed vasthoudt en opzij loert, met "oh"-mondje. Op spelmaat leest de rode arm naar de witte hoed meteen, het verschil met `rust` en `wacht` zie je in één blik. Eerlijk: de arm is dun en lang (cartoon), en `tenen` is op spelmaat nu het lichtste gezicht van de rij, niet meer in de schaduw.
