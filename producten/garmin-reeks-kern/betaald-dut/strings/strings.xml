@@ -1,5 +1,10 @@
 <strings>
-    <!-- Werkteksten van de instellingen (Chris, commercie/garmin-wijzerplaat-tij/naam-en-teksten.md deel 1). De naam en de namen van de thema's blijven Engels. -->
+    <!-- Werkteksten van de instellingen (Chris, commercie/garmin-wijzerplaat-tij/naam-en-teksten.md deel 1). De naam en de namen van de thema's blijven Engels, maar staan hier ook: zonder gaf de bouw 450 waarschuwingen (run 44053455766). -->
+    <string id="AppName">Skiff</string>
+    <string id="ThemaDusk">Dusk</string>
+    <string id="ThemaTide">Tide</string>
+    <string id="ThemaKelp">Kelp</string>
+    <string id="ThemaNight">Night</string>
     <string id="ThemaTitel">Thema</string>
     <string id="Veld1Titel">Veld links</string>
     <string id="Veld2Titel">Veld midden</string>
