@@ -11,8 +11,8 @@
 // 2. Dubbel = verschillende iCalUID, zelfde titel (hoofdletters, spaties, leestekens en accenten
 //    tellen niet), zelfde begin en eind. Tijden vergelijken als moment (offset maakt niet uit);
 //    hele dagen op datum. Een hele dag en een afspraak met tijd zijn nooit dubbel.
-// 3. Per groep blijft er één: eerst een echte vergadering (met andere gasten), dan een agenda die de
-//    gebruiker bezit (owner), dan writer, dan de hoofdagenda, dan de oudste (created).
+// 3. Per groep blijft er één: eerst een agenda waarin je mag schrijven, dan een echte vergadering
+//    (met andere gasten), dan een agenda die de gebruiker bezit (owner), dan de hoofdagenda, dan de oudste (created).
 //    De rest staat aangevinkt, behalve wat niet mag of riskant is: alleen-lezen (kan niet),
 //    gast in een vergadering, organisator met gasten, of een gedeelde agenda van een ander (wel aan te vinken).
 
@@ -52,8 +52,9 @@ export function tijdSleutel(ev) {
 function rang(item) {
   // lager is beter
   return [
+    SCHRIJVEN.has(item.accessRole) ? 0 : 1, // nooit je eigen afspraak weg voor iets in een alleen-lezen agenda
     item.vergadering ? 0 : 1,
-    item.accessRole === "owner" ? 0 : item.accessRole === "writer" ? 1 : 2,
+    item.accessRole === "owner" ? 0 : 1,
     item.primary ? 0 : 1,
     Number.isFinite(item.gemaakt) ? item.gemaakt : Number.MAX_SAFE_INTEGER,
     item.agendaId + "\u0000" + item.eventId, // vaste volgorde bij gelijkspel
@@ -81,7 +82,7 @@ function heeftAndereGasten(ev) {
 function ikBenOrganisator(ev) {
   const org = ev.organizer;
   if (org && typeof org === "object") return org.self === true;
-  return ev.creator?.self === true || !ev.creator; // zonder organisator: eigen afspraak
+  return ev.creator?.self === true; // onbekend: niet als organisator rekenen (reden wordt dan "gast", ook niet aangevinkt)
 }
 
 export function vindDubbelen(agendas) {
@@ -110,7 +111,9 @@ export function vindDubbelen(agendas) {
       // Identiteit: zelfde vergadering = zelfde iCalUID op hetzelfde moment (losse keren van een reeks
       // delen de iCalUID, daarom telt het begin mee). Zonder iCalUID is elke afspraak zichzelf.
       // Een verschoven keer heeft originalStartTime: die hoort bij die oorspronkelijke keer, niet bij een andere.
-      const orig = ev.originalStartTime ? (ev.originalStartTime.date || String(Date.parse(ev.originalStartTime.dateTime))) : "";
+      const os = ev.originalStartTime;
+      const osMoment = os && !os.date ? Date.parse(os.dateTime) : NaN;
+      const orig = os ? (os.date || (Number.isFinite(osMoment) ? String(osMoment) : "")) : "";
       const identiteit = ev.iCalUID ? "u:" + ev.iCalUID + "|" + orig : "e:" + uniek;
       const andereGasten = heeftAndereGasten(ev);
       const organisator = ikBenOrganisator(ev);

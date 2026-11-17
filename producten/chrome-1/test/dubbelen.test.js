@@ -164,6 +164,16 @@ test("verliezende vergadering met kopieën in twee agenda's: beide kopieën gaan
   assert.deepEqual(teVerwijderen(groepen).map((x) => x.eventId).sort(), [v.id, vKopie.id].sort());
 });
 
+test("vergadering in een alleen-lezen agenda wint niet van je eigen afspraak", () => {
+  const mijn = ev("Lunch", "2026-11-25T12:00:00Z", "2026-11-25T13:00:00Z", { created: "2026-06-01T00:00:00Z" });
+  const collega = ev("Lunch", "2026-11-25T12:00:00Z", "2026-11-25T13:00:00Z", {
+    created: "2020-01-01T00:00:00Z", organizer: { email: "c@v.nl" }, attendees: [{ email: "c@v.nl" }, { email: "d@v.nl" }],
+  });
+  const { groepen } = vindDubbelen([{ agenda: feest, events: [collega] }, { agenda: eigen, events: [mijn] }]);
+  assert.equal(groepen[0].items.find((i) => i.blijft).eventId, mijn.id);
+  assert.deepEqual(teVerwijderen(groepen), []);
+});
+
 test("creator.self zonder organizer telt als eigen afspraak", () => {
   const a = ev("Eigen", "2026-11-28T09:00:00Z", "2026-11-28T10:00:00Z", { created: "2026-01-01T00:00:00Z", creator: { self: true }, attendees: [{ self: true }, { email: "x@y.z" }] });
   const b = ev("Eigen", "2026-11-28T09:00:00Z", "2026-11-28T10:00:00Z", { created: "2026-02-01T00:00:00Z", creator: { self: true }, attendees: [{ self: true }, { email: "x@y.z" }] });
