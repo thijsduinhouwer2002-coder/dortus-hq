@@ -6,7 +6,7 @@ module Keuze {
     // Maakt van wat de instellingen teruggeven een geldig thema. De telefoon stuurt soms een tekst of een
     // kommagetal in plaats van een heel getal; niets, onzin of buiten de lijst: Tide.
     function thema(ruw as Object?) as Number {
-        var n as Number? = null;
+        var n = null;
         if (ruw instanceof Lang.Number) {
             n = ruw as Number;
         } else if (ruw instanceof Lang.Float) {
@@ -27,7 +27,7 @@ module Keuze {
 
     // Leest het gekozen thema. Bestaat de instelling niet of geeft het horloge een fout: Tide, de plaat stopt niet.
     function leesThema() as Number {
-        var ruw as Object? = null;
+        var ruw = null;
         try {
             ruw = Application.Properties.getValue("Thema");
         } catch (e instanceof Lang.Exception) {
