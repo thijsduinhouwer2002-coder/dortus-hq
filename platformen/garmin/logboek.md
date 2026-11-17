@@ -1558,3 +1558,21 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: raw.githubusercontent.com op een taknaam loopt tot vijf minuten achter; haal de commit van de tak met `git ls-remote origin schermen` en lees op die commit.
 - Les: de simulator geeft voor Body Battery één streep van 93 naar 5; voor beelden een vaste proefdag gebruiken (`Proef.bb`).
 - Niet gedaan: winkel meten (volgende meting dag 7, 23 nov), bootje in de slaapstand, gratis en betaald uit één bron, instellingen voor het thema.
+
+## Run 131 (17 nov ±04:55 tot ±05:30 UTC): de vier moets van Daan voor de zee gebouwd en gezien
+- Begin: mijn kopie stond op de oude geschiedenis van main (main begon om 01:42 UTC opnieuw); nieuwe werktak vanaf `origin/main`, niets weggegooid. Berichten van Daan (zee: ja op de richting, vier moets) en drie van Mila (kleuren 64 en 8, startpictogram, Venu Sq 2) gelezen.
+- Run van 628d80c (44017179674): groen, telling van de slaapstand goed. **Maar de beelden kwamen niet op tak `schermen`:** de job deed er 11 minuten over en bleef groen zonder push. Oorzaak: de hele tak werd opgehaald (die is groot) en een mislukte push gaf geen fout.
+- **Gebouwd** (skill `bouwen-in-stappen`, ontwerp in `producten/garmin-reeks-kern/ontwerp-kern.md`, deel "Run 131"), tak `claude/garmin-reeks-kern`: 212c077 (kleuren, gladde randen, bouwstraat), 0ef9ff5 (punten keurder), bfc0c44 (Venu Sq 2), 6b64a53 (deining bij 100), c069dc6 (één run per tak).
+  - Moet 1 en 2: `Thema.mc` kent drie schermdieptes (vol, 64 kleuren, 8 kleuren) met de tabel van Mila; zeil wit en rand zwart op 64 en 8 kleuren; de Forerunner 55 herkent zich aan `resources-fr55/jsondata/kleuren.xml`.
+  - Moet 3: gladde randen op AMOLED (`setAntiAlias`, alleen als het horloge het kan).
+  - Moet 4: Venu Sq 2 met eigen maten en letters (`resources-rectangle-320x360`), zee van rand tot rand, geen veilige cirkel; `Maten.passen`.
+  - Kan: een volle zee deint 0 tot 3 px omlaag.
+  - Bouwstraat: haalt alleen de eigen map van `schermen` op (3 seconden in plaats van minuten), wordt rood als de beelden niet aankomen, één run per tak tegelijk, en zet `bitsPerPixel` en de maat van het startpictogram per horloge in de uitslag.
+- Keuring door een aparte agent (niet gecompileerd, wel alles nagerekend): geen fout in de code; overgenomen: de beelden-job kon nog groen eindigen zonder push, opnieuw proberen bij mislukt ophalen, zeil en rand gelijk bij een onbekende diepte. Niet overgenomen, staat als taak: de eerste Venu Sq (duizenden kleuren) en de Instinct 2 (zwart en wit) krijgen nu de kleuren van 64.
+- **GEZIEN** (bladen `platformen/garmin/tij-zee/zee-run131-mip.png`, `-amoled.png`, `-venusq2.png`; runs 44021144894, 44021707767 en 44021758925, alle groen): Forerunner 255 Kelp in olijf, groen en nachtblauw met wit zeil; 245 Dusk in roze, framboos en pruim; 55 cyaan boven en blauw onder met witte uren; fēnix 8, Venu 3S en 265S met gladde lijnen; Venu Sq 2 met de zee over de hele breedte en een slaapbeeld van 3,7%; de 255 bij 100 met een lichte deining. In de uitslag: 29 toetsen groen op de fēnix 7, pakket voor 63 horloges, `MATEN_PER_HORLOGE goed`, `KLEUREN_PER_HORLOGE goed`, `SLAAP_TELLING goed`.
+- Gemeten: tekenen met gladde randen kost op de fēnix 8 22 ms (was 12), Venu 3S 16, 265S 16; MIP 4 tot 5 ms. Grens 50 ms.
+- Uit de uitslag: 41 horloges met 16 bits per pixel, 20 met 8 (64 kleuren), de Forerunner 55 met 4 (8 kleuren), de Instinct 2 met 1. Startpictogram: 35 px 2 horloges, 36: 1, 40: 20, 54: 8, 56: 1, 60: 14, 61: 1, 62: 1, 65: 10, 70: 5.
+- Zwak of open: de run van c069dc6 (alleen de werkstroom gewijzigd) heb ik NIET GEZIEN. De Venu Sq 2 toont in de simulator een binnenkader waar de zee op afknipt (vraag aan Mila). `tel_slaap.py` zegt bij de 265S "geen inbrandscherm" terwijl het horloge `inbrand=true` meldt. Geen echt horloge gezien.
+- Les: een job die iets wegschrijft moet rood worden als het wegschrijven mislukt; "groen" zei hier niets over de beelden.
+- Les: bij snel achter elkaar pushen kan een oudere run de map van een nieuwere overschrijven; lees `RUN.txt` en gebruik één run per tak.
+- Niet gedaan: startpictogrammen in de mappen, bootje in de slaapstand, instellingen voor het thema, gratis en betaald uit één bron, winkel meten (dag 7 is 23 nov).

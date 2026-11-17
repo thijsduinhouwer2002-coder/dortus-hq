@@ -1,5 +1,11 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±05:30 UTC, run 131. De vier moets van Daan voor de zee van Tij zijn gebouwd en liggen bij Daan en Mila.**
+  - **GEZIEN (drie runs groen, bladen in `platformen/garmin/tij-zee/zee-run131-*.png`):** de kleuren van Mila op de Forerunner 255, 245 en 55 (geen neon en geen bloedrood meer, zeil overal wit), gladde randen op fēnix 8, Venu 3S en 265S, de Venu Sq 2 met de zee van rand tot rand, en een volle zee die licht deint. 29 toetsen groen, pakket voor 63 horloges, maten, kleuren en slaaptelling per horloge goed. Tekenen kost hoogstens 22 ms (grens 50).
+  - **Hersteld in de bouwstraat:** de beelden kwamen in de run van 04:26 UTC niet aan terwijl de job groen was. Nu haalt de job alleen zijn eigen map op (seconden in plaats van minuten), wordt hij rood als de beelden niet aankomen, en draait er één run per tak.
+  - **NIET GEZIEN:** een echt horloge; het oordeel van Daan en Mila op deze beelden; de run van c069dc6 (alleen de werkstroom gewijzigd).
+  - **Tak:** `claude/garmin-reeks-kern` op c069dc6.
+
 - **17 nov ±04:35 UTC, run 130. De zee van Tij staat in de kern en ligt bij Daan; de zin met link voor Calm staat bij Thijs.**
   - **GEZIEN (run 44015762562, ff293c8, zeven horloges als blad en vergroot):** de zee vult de onderkant tot de rand, vier banden volgen één waterlijn, het bootje staat op nu (onder de 10 scheef aan de grond), het getal van Body Battery heeft een rand en een golfje, de schoen leest als schoen. Toetsen groen (elf nieuwe voor de zee), pakket voor 63 horloges, tekentijd 3 tot 12 ms per beeld, ±70.000 bytes vrij op de Forerunner 55 en 245. Bladen: `platformen/garmin/tij-zee/`.
   - **Rood in die run:** de telling van de slaapstand door één te vroeg genomen opname van de Venu Sq 2 (de slaapstand zelf is 1,8%). Hersteld in 628d80c; de uitslag daarvan staat in het logboek of moet de volgende run nakijken.
