@@ -1529,4 +1529,5 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: op schermen met 8 kleuren of zwart-wit wordt grijs wit of zwart; het telscript kan daar het slaapbeeld niet meten. Telt niet, het zijn geen inbrandschermen.
 - Les: de beelden van Calm staan niet op de tak `schermen` maar als artefact bij de run; ophalen met de downloadlink per artefact.
 - Les: de klok in de kopie loopt goed; schat de tijd niet, vraag `date -u`.
-- Einde run 128 (±02:35 UTC). Niets loopt nog.
+- Laatste commit op de tak van de kern is 3e1a44c (02:27 UTC): de bouwstraat zet de waarschuwingen van het pakket per soort geteld in `uitslag.txt`. NIET GEZIEN: de run daarvan stond om 02:37 UTC nog niet op de tak `schermen`.
+- Einde run 128 (02:38 UTC). Loopt nog: de run van 3e1a44c.
