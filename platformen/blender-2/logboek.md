@@ -140,3 +140,9 @@
 - Gedaan: grijs PLA (#D2D6DB, leest als lichtgrijs), gizmo en oranje oorsprong weg, alleen rechterknie gebogen met het paneel op de knie, heupen zonder band in dit beeld. Alleen `e2e/scherm_mens.py`, add-on ongewijzigd.
 - Gevonden: blok boven de elleboog is echte vorm en komt van de elleboog (CJ_ALLEEN=elbow). Wig-gedachte getoetst met een zwaaigebied: geen verschil en een heup viel af, dus teruggedraaid. Volgende stap: omhulsel H van een_lid nakijken.
 - Wat misging: `git pull` hing 2 minuten; met `timeout 60 git fetch` ging het wel (origin/main was geforceerd bijgewerkt, lokaal niets weg).
+
+## 17 nov 2026 ±07:05 tot 07:50 UTC (Ruben, run 24)
+- Geen antwoord van Daan op plaatje 19 van 06:20.
+- Het "grijze blok" boven de elleboog gemeten met een nieuwe proef (`e2e/proef_kuil.py` op tak `claude/blender-2026-11-16-figuur`, efb6bf9): er steekt niets uit (0 punten buiten de huid), het is de rand boven de kuil aan de binnenkant van de elleboog (5,8 mm diep bij 140 graden). Die kuil is nodig om te buigen. Details: `producten/blender-gewrichten/ontwerp-1.1.md` op de tak, run 24.
+- Nieuw gevonden: een rig-stop van 115 meet maar 82 graden (vlees botst); de lijst zegt eerlijk 0–82°. Eerste proef om het zwaaigebied uit te snijden geeft 100; afmaken en inbouwen is de volgende run.
+- Besluit: plaatje 19 niet opnieuw. Waarom: de add-on veranderde niet, en de botsing bij kleinere stops raakt de belofte "stopt waar je rig stopt", dat gaat voor op een mooier beeld.
