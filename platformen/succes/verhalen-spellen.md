@@ -1,8 +1,71 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 20, lanceerkorting van bureaubladspellen (hoeveel procent, wat gaf het in week 1), 17 nov ±00:30 UTC
+bezig: niets (verhaal 20 af 17 nov ±00:50 UTC; volgende run: vraag van de hoofdchat als die er is; anders: wat de eerste korting van 20%+ na de lancering deed (seizoensuitverkoop, met of zonder update), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 20. De lanceerkorting: bijna iedereen geeft er een, de meesten 10 tot 20%. De spellen met 40% deden het het slechtst, en een grotere korting zie je niet terug in meer reviews in week 1. Valves eigen raad (10 tot 15%) klopt met wat de winnaars deden
+
+**Vraag:** Vera's plan voor Hats is $6,99 met 15% korting in de eerste week (`platformen/verkenner/steam-desktop-2026-11.md`, Aanvulling 4). Klopt dat met wat bureaubladspellen echt doen, en levert een grotere korting meer op in de eerste week?
+
+### Bronnen en hoe ik keek (17 nov, ±00:30 tot 00:45 UTC)
+- **Regels van Valve:** `partner.steamgames.com/doc/marketing/discounts` en `partner.steamgames.com/doc/marketing/wishlist` (GEZIEN met curl, 17 nov).
+- **Wat makers nu doen:** van alle 104 betaalde bureaubladapps uit Vera's kaart die op of na 1 nov 2026 uitkwamen, de prijs en korting van dit moment (`store.steampowered.com/api/appdetails?cc=us`, GEZIEN 17 nov 00:35 UTC). Een lanceerkorting loopt 7 tot 14 dagen, dus alleen de 41 die op of na 10 nov uitkwamen tellen eerlijk mee.
+- **Wat makers eerder deden:** de 300 betaalde bureaubladapps uit de kaart, uitgekomen tussen 1 jun 2024 en 31 okt 2026 met 10+ reviews. Van elk de aankondigingen van 14 dagen vóór tot 4 dagen na de uitgave (nieuws-API), doorzocht op een percentage naast "off", "discount" of "launch". Vier treffers waren geen lanceerkorting (een bundel of een spelregel) en heb ik eruit gehaald. Daarnaast de Engelse reviews in week 1 en week 2 (`appreviewhistogram`, eerste week = de eerste week met reviews, alleen als die binnen 4 dagen van de uitgave valt; 291 spellen).
+- Data: `platformen/succes/data/lanceerkorting-bureaublad-2026-11-17.csv`.
+- **Niet gelukt:** de winkelpagina zoals die in de lanceerweek was (archive.org via web.archive.org is vanaf onze omgeving geblokkeerd; de CDX-zoekdienst ook). Daardoor weet ik van oudere spellen alleen de korting als de maker hem zelf noemde. "Niet genoemd" is dus niet "geen korting".
+
+### Wat Valve zegt (GEZIEN, 17 nov)
+- Lanceerkorting: 7 tot 14 dagen, minimaal 10%, maximaal 40%. "We generally suggest launch discounts around 10% to 15%, should you chose to set one."
+- Na de uitgave mag er 30 dagen geen andere korting. Valt het eind daarvan midden in een seizoensuitverkoop, dan mag je er halverwege nog in. Voor Hats (uit di 2 tot do 4 mrt) eindigt die wachttijd op 1 tot 3 apr, na de Spring Sale (18 tot 25 mrt). Vera's conclusie (niet meedoen met de Spring Sale) blijft staan.
+- "Rushing into a 50% or 75% discount weeks after your launch, or releasing with a very high launch discount, sends a bad message to customers who bought at full price".
+- **Een korting van 20% of meer stuurt een mail naar iedereen met het spel op zijn verlanglijst** ("Any type of discount at or above 20%"). Bij de uitgave gaat er sowieso een mail. Of een lanceerkorting van 20% een tweede mail geeft, staat er niet (niet gevonden, GOK dat het niet zo is, omdat de uitgavemail al gaat).
+
+### Wat makers nu doen: 36 van de 41 geven een lanceerkorting (GEZIEN, 17 nov)
+| Korting | Aantal (uit 10 tot 15 nov 2026) |
+|---|---|
+| geen | 5 |
+| 10 tot 11% | 13 |
+| 15% | 9 |
+| 20% | 9 |
+| 25 tot 27% | 2 |
+| 35 tot 40% | 3 |
+
+88% geeft er een; de middelste waarde van wie er een geeft is 15%. Van de zes met een basisprijs van $6,99 of $7,99: geen, 10%, 10%, 20%, 20% en 40%.
+
+### Wat het eerder opleverde (GEZIEN, 291 spellen met een weekgrafiek vanaf de uitgave)
+Van de 249 spellen met een bericht rond de uitgave noemden er 69 een lanceerkorting in dat bericht. Van wie het noemde, schreven er 19 "twee weken" of "14 dagen" en 5 "één week" (in het stukje tekst dat ik bewaarde).
+
+| Genoemde korting | Spellen | Reviews week 1 (middelste) | Middelste helft | Week 2 tegen week 1 | Basisprijs (middelste) |
+|---|---|---|---|---|---|
+| 10% | 17 | **50** | 22 tot 212 | 0,39 | $5,99 |
+| 15% | 13 | 39 | 12 tot 124 | 0,25 | $4,99 |
+| 17 tot 20% | 21 | **54** | 13 tot 105 | 0,33 | $4,99 |
+| 25 tot 34% | 10 | 20 | 16 tot 202 | 0,28 | $4,69 |
+| **40%** | 8 | **14** | 4 tot 28 | **0,10** | $7,49 |
+| korting niet genoemd, wel een bericht | 180 | 19,5 | 10 tot 62 | 0,20 | $4,99 |
+| geen bericht rond de uitgave | 42 | 7 | 4 tot 11 | 0,12 | $2,99 |
+
+- **Bij 40% deed geen enkel spel het goed.** Van de acht haalde alleen Idlequarium (105) meer dan 31 reviews in week 1; Aviarium ($7,99, 40%, "just $4.79") kreeg er 9, Amphibarium, Checkers Kingdom en Reptilarium 4 of 5. Week 2 viel daar ook het hardst terug.
+- **De grote lanceringen zaten bijna allemaal op 10 tot 20%:** Tiny Pasture 10% (1.352 in week 1), Hero Town 20% (1.071), Birdwatching Notebook 10% (723), Desktop Defender 15% (652), Maltese's Fluffy Onsen 10% (487), gogh 15% (403), Duelist 20% (392).
+- **Twee uitzonderingen op 30%, allebei met een groot spel of een uitgever erachter:** Deskrawl ($6,99, 30%, 1.559 in week 1) en Tap Tap Loot ($6,99, 30%, 358, uitgever van Bongo Cat). Tap Tap Loot legde uit waarom: "a bit of a higher base price to allow us to discount the title further in the future" (verhaal 19). Deskrawl gaf op 13 nov, 46 dagen na de uitgave, weer 30%, samen met een grote update ("The base game will also be on sale starting tomorrow!", aankondiging 12 nov), en dus niet lager dan bij de lancering.
+- **Desktop Heroes** (hetzelfde idee als Deskrawl, verhaal 2) noemde geen korting in zijn uitgavebericht en kwam op 62 in week 1.
+
+**Wat ik er niet uit kan halen:** dat een kleinere korting beter werkt. Wie 40% geeft, is vaak een kleine maker zonder publiek die hoopt dat korting het oplost; wie 10% geeft, is vaak een uitgever met een volle verlanglijst (Tiny Pasture, Maltese, Birdwatching komen alle drie uit China met een uitgever). De korting is hier eerder een teken van hoe sterk een spel al stond dan de oorzaak. Wat wel vaststaat: **een grote korting gaf geen enkel spel in deze hoek een grote eerste week**, en de makers die het goed deden kozen wat Valve aanraadt.
+
+Ook opvallend: spellen die de korting in hun bericht noemden, deden het beter (middelste 39 tegen 19,5). Ook dat is vooral een teken van een maker die zijn lancering goed voorbereidt (een bericht met prijs, korting, bundels en de demovoortgang die meegaat), niet het effect van het woord "korting".
+
+### Drie lessen
+1. **15% is gewoon, niet zuinig.** 88% van de nieuwe bureaubladspellen geeft een lanceerkorting, de middelste is 15%, en Valve raadt 10 tot 15% aan. Met 15% vallen we niet op en niet uit de toon.
+2. **Een hoge lanceerkorting is een slecht teken, geen motor.** Alle acht spellen met 40% bleven klein (middelste 14 reviews in week 1) en zakten in week 2 het hardst. Valve zegt zelf dat het kopers tegen de vroege kopers opzet. De twee goede 30%-spellen hadden een groot publiek of een uitgever met een groot spel achter zich.
+3. **De eerste korting van 20% of meer is een eigen moment, want dan krijgt de hele verlanglijst een mail.** Deskrawl koppelde zijn eerste korting na de lancering aan een grote update, precies wat Valve aanraadt ("tying the discount to a content update"). Met 15% bij de lancering bewaren wij die mail voor later.
+
+### Voorstel voor Dortus deze week
+**Vera en Sem: houd $6,99 met 15% (7 dagen, dan eindigt hij vóór de Spring Sale) en zet in het lanceerplan meteen de tweede stap: de eerste korting van 20 tot 25%, op zijn vroegst in de Summer Sale (24 jun tot 8 jul 2027), samen met de eerste gratis update met een nieuwe laag (Olafs volgorde in `platformen/steam/planning-fest-2027.md`).** Waarom: dat is de eerste mail naar de hele verlanglijst na de uitgave, en Deskrawl liet zien dat korting plus update op één dag kan. Niet naar 20% of meer bij de lancering om een extra mail te krijgen: Valve schrijft nergens dat dat een tweede mail geeft, en de uitgavemail gaat toch. Kosten: één regel in het lanceerplan (Sem), geen werk voor de bouwers. In het uitgavebericht: prijs, korting en einddatum in één zin, zoals de goede lanceringen deden (Desktop Defender: "The game will cost $4.99 USD, have a 15% launch discount"). Die zin is spelerstekst, dus CONCEPT voor Thijs.
+
+Eerlijk: dit is een vergelijking, geen proef. Wat 15% tegen 20% bij één spel echt scheelt, laat niemand openbaar zien. Wat de cijfers wel zeggen: wie het goed deed, gaf 10 tot 20%, en niemand werd groot door een grote korting.
 
 ---
 
