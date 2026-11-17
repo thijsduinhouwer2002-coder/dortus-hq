@@ -67,5 +67,36 @@ Een held met een soort of trek krijgt bij zijn binnenkomst al een eigen regel ("
 
 En `val` van 5 naar 8 regels, zonder dubbele met `val_bewoner` (CONCEPT, erbij): `{naam} took the short way down.` / `{naam} checked the floor. Too late.` / `{naam} is part of the hole now.`
 
-## 3. Nog te doen (Sanne, vóór wo 18 nov 12:00)
-Heldenboek (`systemen/boek.gd`, 62 teksten), winkel en upgrades (`systemen/upgrades.gd`, 39), hol-niveaus (`systemen/hol_niveau.gd`, 18), namen (`kern/namen.gd`, 17), kaartje, menu en demo-einde (±25). Telling met `producten/steam-hol/vertaal/tel_tekst.py`: 404 teksten, 1647 woorden in totaal.
+## 3. Winkel: de zes dingen die je koopt (kaartje en kroniek)
+Elke speler koopt ze; de naam en de uitleg staan op het kaartje, de kroniekregel komt bij de koop. Houd de naam op 12 tekens en de uitleg op 34 (het kaartje is smal). `{b}` is Gloop.
+
+| ding | naam | uitleg op het kaartje | kroniek bij koop (één van drie) |
+|---|---|---|---|
+| slijm 1 | `Big Gloop` | `Bigger mouth. More heroes fall.` | `{b} is now Big {b}. Bigger mouth.` / `{b} grew. The hats fit better.` / `More {b}. Same appetite. Worse.` |
+| slijm 2 | `Bouncy Gloop` | `Back up in 40 s instead of 60.` | `{b} bounces now. Back up in 40 s.` / `{b} learned to bounce. Smug.` / `Boing. {b} is Bouncy {b}.` |
+| slijm 3 | `Royal Gloop` | `A royal cape. Heroes gulp.` | `{b} wears a royal cape now.` / `All hail Royal {b}. Burp.` / `{b} is royalty now. Insufferable.` |
+| put 1 | `Rusty Spikes` | `Rust hurts. More heroes fall.` | `The Spike Pit got rusty. Ouch.` / `Rust on the spikes. On purpose.` / `The spikes are rusty now. Tetanus.` |
+| put 2 | `Deep Pit` | `Timid heroes forget to turn back.` | `The pit got deeper. Echo, echo.` / `Deeper pit. Nobody turns back now.` / `The pit is very deep now. Hello?` |
+| put 3 | `Trick Lid` | `Looks like floor until it isn't.` | `The pit has a lid. Looks like floor.` / `New floor. Not floor.` / `The Spike Pit hides now. Shh.` |
+
+Kaartje en knoppen: `Buy  45` / `Undo` / `Remove` / `Bought.` / `All three bought.` / `Next: Big Gloop, 12 gold to go` / `The Spike Pit is filled in.`
+
+## 4. Hol-niveaus: de naam van je hol (bordje en kroniek)
+Bij elk nieuw niveau: `Hole level 4: a bad idea.` op het bordje, en `Level 4: a bad idea.` in de kroniek. Onder het bordje: `7 heroes to go.` en `Next: level 5, in 6 min`. Na weg zijn: `Grew 2 levels while you were away.`
+Namen van niveau 1 tot 12 (de demo eindigt bij 12, dus deze ziet elke demospeler): `a damp hole` / `a local rumor` / `a known hazard` / `a bad idea` / `a tavern tale` / `a hat museum` / `a hero shortage` / `a no-go zone` / `a dare` / `a local legend` / `a royal problem` / `Gloop's Empire`. Sanne: dit is het rijtje met de meeste kans op een glimlach per woord; het mag gekker.
+
+## 5. Start, weg geweest, demo-einde
+| waar | concept |
+|---|---|
+| eerste regel van een nieuw spel | `Your hole is open. Heroes will come.` |
+| terug na weg zijn (bovenaan het kaartje en in de kroniek) | `240 came, 179 fell, 107 hats. +1314 gold.` / daarna `7 more to come as you play.` / hover op het bordje `7 more to come. Next: a hat museum, in 2 min.` / niets gebeurd: `All quiet while you were away.` / aartsvijand kwam: `Nemesis Odo came by. Still free.` |
+| demo voorbij (één keer) | `That's the demo. Your hole keeps going.` |
+| elke start daarna | `Demo over. The full game keeps it all.` |
+| kaartje na het demo-einde | `Full game: keep this hole.` |
+| hoedenberg bij hover | ` 212 more in the pile.` |
+
+## 6. Heldensoorten (Heldenboek, uitleg per soort)
+`Knight`: `Heavy armor. Too big for Gloop. Pits love him.` / `Thief`: `Quick. Pits rarely catch him. Hates slime.` / `Wizard`: `Sees traps. No spell works on Gloop.` / `Bard`: `Weak. If he escapes, he sings about you.` Bijnamen die helden krijgen: `Thrice-Fled`, `Hatted`, `Milliner`.
+
+## 7. Nog te doen (Sanne, vóór wo 18 nov 12:00)
+Heldenboek zelf (`systemen/boek.gd`, 62 teksten), heldennamen (`kern/namen.gd`, 17), het rechtsklikmenu (tak `claude/steam-hol-menu`). Let op: `tel_tekst.py` slaat teksten over die met een getal beginnen (`%d came, ...`), dus de echte telling is iets hoger dan 404. Telling met `producten/steam-hol/vertaal/tel_tekst.py`: 404 teksten, 1647 woorden in totaal, waarvan ±120 kroniekregels (deel 1) het meest gelezen worden.
