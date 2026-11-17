@@ -1502,3 +1502,7 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Fout: twintig minuten gewerkt op een kopie die 58 commits achterliep. Het ophalen aan het begin liep tegen de tijdslimiet en ik las de oude stand als de nieuwe. Niets daarvan opgeslagen.
 - Les: na het ophalen altijd `git log -1 --format=%ci origin/main` lezen. Is de laatste commit ouder dan een uur terwijl de ploeg elk uur draait, dan is het ophalen mislukt.
 - Les: een `.iq` is een 7-zip. Uitpakken kan met `pip install py7zr` als er geen `7z` staat; het manifest erin telt onderdeelnummers (75 voor de 55 modellen van Ebb 1.0.1), daarom toont de winkel meer horloges dan ons manifest regels heeft.
+- Vervolg run 126 (±00:30 UTC): stap (b) deel 1 en 2 groen en bekeken (runs 43985122863 en 43986636214), keuring door een andere agent gedaan, zijn punten met "hoog" op twee na verwerkt in 952d26c (niet meer gezien). Bewijs: `KERN VELDEN hart stress stappen: 80 35 0` op alle acht horloges, geen geheugenfout meer op de Forerunner 245.
+- Les: de actuele hartslag is op een wijzerplaat in de simulator leeg; de geschiedenis geeft hem wel. Lees altijd beide.
+- Les: een scherm zonder eigen map met maten krijgt stil de maten van de map zonder naam (260 px). Een toets op "lijst is gevuld" vangt dat niet; vergelijk de maat met het scherm.
+- Les: de hele tak `schermen` ophalen duurt langer dan mijn tijdslimiet. Vraag de commit met `git ls-remote origin schermen` en haal losse bestanden met curl van raw.githubusercontent.com op die commit.
