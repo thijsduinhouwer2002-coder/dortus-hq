@@ -1430,3 +1430,9 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Snel geprobeerd: Creative Fabrica (403, niet te meten), Jinxxy (al gemeten 8 nov, niet opnieuw).
 - Uurscript Click Joints: 196 om 03:36 UTC.
 - Les: kijk bij een eindlijst eerst wat de bouwers al klaar hebben (lijst-thijs, besluiten); een kandidaat kan al af zijn.
+
+## 17 nov 2026, run 05:31 NL (04:34 tot ±05:05 UTC)
+- Nachtscan was af. Beslissing: geen nieuw platform gepakt, want het bericht van de hoofdchat van 16 nov 21:55 zegt dat het platformdeel van mijn geplande taak vervalt (focus); alleen de nachtscan ging daar tijdelijk voor. Daarom ook niets op "in onderzoek" gezet in kandidaten.md.
+- Uurscript Click Joints: 196 om 04:35 UTC, gelijk aan 03:36. Het 24-uurpunt is 17 nov 19:09 UTC.
+- Herhaalmeting die vandaag kon: deelnemers van het Auto-Battler RPG Fest. Oude link stuurt door; het fest staat op /category/auto_battler_rpg/. Via de openbare lijst-API 1.502 van 1.506 spellen (drie sorteringen samen). 97 van de 144 apps met het label doen mee, 6 uit de controle ook. Nieuw script data/steam-fest-lijst-script.py, steam-fest-effect-script.py neemt de lijst als tweede argument. Controleur akkoord. Zie Vervolg 17 nov in steam-desktop-2026-11.md.
+- Route werkt ook voor het Desktop Companion Fest in januari (zelfde clan, andere event-GID).

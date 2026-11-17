@@ -201,6 +201,22 @@ Vraag voor Hats: hoeveel volgers levert een thema-fest van Steam op? Dat bepaalt
 
 **Plan:** op 24 nov (dag na het fest) en op 1 dec dezelfde apps opnieuw meten en de groei van de Auto Battler-groep vergelijken met de controle, met `data/steam-fest-effect-script.py`. Wie echt meedeed is nu nog niet te zien (de festpagina is pas na de start gevuld); op 17 nov of later de deelnemers van de festpagina halen als dat lukt, anders blijft het label de grove maat. Eerlijk: niet elke app met het label doet mee, en de controlegroep doet soms aan andere acties mee; dit wordt een grove orde van grootte, geen bewijs.
 
+**Vervolg 17 nov, run 05:31 NL: de festlijst is binnen (GEZIEN, 04:40 UTC).** De oude link (`/sale/autobattlerrpgfest`) stuurt door naar de voorpagina; het fest staat op `store.steampowered.com/category/auto_battler_rpg/`. In die pagina staan het clan-nummer en de event-GID; daarmee geeft de openbare lijst-API van Steam (`saleaction/ajaxgetsaledynamicappquery`) **1.506 spellen** op de festpagina, waarvan ik er 1.502 kreeg (drie sorteringen samen, één sortering mist er ±300 omdat de volgorde schuift). Daarvan 648 binnenkort en 249 met korting. De festinstellingen in de pagina zeggen `optin_only: true`, dus GOK (sterk): dit zijn de echte deelnemers. Lijst: `data/steam-autobattlerfest-lijst-2026-11-17.json` (alleen appids), opnieuw te halen met `data/steam-fest-lijst-script.py`.
+
+| groep in de nulmeting | aantal | mediaan volgers 16 nov |
+|---|---|---|
+| in festlijst, binnenkort | 57 | 10 |
+| in festlijst, uit | 43 | 94 |
+| label Auto Battler, niet in lijst, binnenkort | 26 | 7,5 |
+| label Auto Battler, niet in lijst, uit | 21 | 56 |
+| controle, binnenkort | 176 | 8 |
+| controle, uit | 105 | 20 |
+
+- Van de 144 apps met het label staan er 97 op de festlijst (56 binnenkort, 41 uit; 18 van die 41 hebben korting). 47 met het label doen dus niet mee. Van de controle staan er 6 op de lijst; die tellen nu als deelnemer. Van die 103 hebben er 100 een geldige volgersmeting (de tabel). Nagekeken door een controleur: akkoord, alle getallen gelijk.
+- De groep die meedoet had al vóór het fest meer volgers (binnenkort 10 tegen 8), dus op 24 nov kijk ik naar de **groei**, niet naar het aantal.
+- `data/steam-fest-effect-script.py` neemt nu als tweede argument de festlijst en groepeert dan op "in festlijst" in plaats van op het label. Nameting 24 nov: `python3 -I steam-fest-effect-script.py nameting.jsonl steam-autobattlerfest-lijst-2026-11-17.json`. De groep "label, niet in lijst" is een tweede controle: zelfde soort spel, geen fest.
+- Bruikbaar voor Hats in januari: dezelfde route werkt voor elk fest met een `category`-pagina (clan 41316928 is de vaste groep `store_contenthubs` van Steam); alleen de event-GID uit `data-event` verschilt.
+
 ## Aanvulling 6, 16 nov run 09:31: welke talen? Reviews per taal bij de grote bureaubladspellen
 
 **Vraag:** de hoofdchat kiest later de eerste vertaaltalen voor Hats (Olaf maakt de vertaaltabel na de speeltest van 20 nov). Waar komen de reviews van de bureaubladspellen vandaan?

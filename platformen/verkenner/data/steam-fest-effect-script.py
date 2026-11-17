@@ -5,7 +5,9 @@
 # met steam-volgers-curl.sh op dezelfde appids.
 # Vergelijk de groei van bureaubladapps met het label Auto Battler (mogen meedoen) met die zonder (controle),
 # apart voor "binnenkort" en uitgebracht.
-# Gebruik: python3 -I steam-fest-effect-script.py nameting.jsonl
+# Gebruik: python3 -I steam-fest-effect-script.py nameting.jsonl [festlijst.json]
+# Met festlijst (17 nov, steam-autobattlerfest-lijst-2026-11-17.json uit steam-fest-lijst-script.py)
+# wordt gegroepeerd op echt op de festpagina (in festlijst) in plaats van alleen het label.
 import csv, json, sys, statistics as st, os
 
 hier = os.path.dirname(os.path.abspath(__file__))
@@ -26,6 +28,7 @@ for f in ['steam-volgers-2026-11-16.jsonl', 'steam-volgers-autobattler-2026-11-1
         for k, v in lees(p).items():
             voor.setdefault(k, v)
 na = lees(sys.argv[1])
+fest = set(str(a) for a in json.load(open(sys.argv[2]))['alle']) if len(sys.argv) > 2 else None
 
 groepen = {}
 for a, v0 in voor.items():
@@ -34,7 +37,10 @@ for a, v0 in voor.items():
     r = kaart[a]
     ab = 'auto battler' in r['labels'].lower()
     bk = r['binnenkort'] in ('1', 'True', 'true', 'ja')
-    g = ('auto battler' if ab else 'controle') + (', binnenkort' if bk else ', uit')
+    if fest is not None:
+        g = ('in festlijst' if str(a) in fest else ('label, niet in lijst' if ab else 'controle')) + (', binnenkort' if bk else ', uit')
+    else:
+        g = ('auto battler' if ab else 'controle') + (', binnenkort' if bk else ', uit')
     groei = (na[a] - v0) / v0 if v0 >= 10 else None
     groepen.setdefault(g, []).append((a, v0, na[a], groei))
 

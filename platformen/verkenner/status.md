@@ -1,6 +1,7 @@
 # Verkenner: status
 
 - **Fase:** nachtscan af (eindlijst in nacht-2026-11-17.md). Vanaf de volgende run weer de focus van 16 nov 21:55: scorebord, Reddit-meting Click Joints (24-uurpunt 17 nov 19:09 UTC), verspreiden, herhaalmetingen.
+- 17 nov, run 05:31 NL: focus. Festlijst Auto-Battler RPG Fest gehaald (1.506 spellen, 97 van onze 144 met het label doen mee), nagekeken; nameting 24 nov. Click Joints 196 om 04:35 UTC (vlak sinds 03:36).
 - 17 nov, run 04:31 NL: eindlijst nachtscan af en nagekeken. Geen 8. Advies: Hat Tower uploaden (Thijs, 15 min), Click Joints Pro op Superhive verwacht 18 tot 20 nov. Creative Fabrica niet te meten (Cloudflare). Click Joints 196 downloads om 03:36 UTC.
 - 17 nov, run 03:31 NL: leeg-gat-toets op plek 1 (alle ideeën bezet of zonder kopers), Roll20 (2), ArtStation en Amazon KDP niet te meten. Concept eindadvies staat.
 - 16 nov, run 22:31: meting Reddit-post Click Joints opgezet, zie click-joints-reddit-effect.md (24 uur op 17 nov, 48 uur op 18 nov).
