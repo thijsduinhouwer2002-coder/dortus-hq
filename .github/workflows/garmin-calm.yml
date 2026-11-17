@@ -1,14 +1,14 @@
 name: Garmin Ebb Calm (gratis versie)
 
 # Ebb Calm is dezelfde code als Ebb met de vlag EbbSoort.CALM (calm.jungle, manifest-calm.xml, eigen app-id).
-# Jobs: bouw (drie snelle horloges plus proef-.iq), alle-horloges (compileren voor alle 28), toetsen (Calm en de volle
+# Jobs: bouw (drie snelle horloges plus proef-.iq), alle-horloges (compileren voor alle 55), toetsen (Calm en de volle
 # Ebb op fr255 en fenix7), plaatjes (twaalf schermen op dertien horloges), fit (Calm neemt op en bewaart een activiteit)
 # en de release. De release alleen met de hand (workflow_dispatch) of met "[release-calm]" in het commitbericht, en
 # alleen als alle andere jobs groen zijn. Deze workflow raakt de release ebb-v1.0.0 van de volle Ebb niet aan.
 
 on:
   push:
-    branches: ["claude/ebb-calm"]
+    branches: ["claude/ebb-calm", "claude/ebb-calm-101"]
     paths: ["producten/garmin-adem/**", ".github/workflows/garmin-calm.yml"]
   workflow_dispatch:
 
@@ -78,8 +78,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Dezelfde dertien horloges als de volle ronde van Ebb (garmin-adem-iq.yml).
-        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965, fenix7, fenix7xpro, fr165, venu3s, venu441mm]
+        # Dertien horloges als de volle ronde van Ebb 1.0.0, plus één per nieuwe schermmaat van 1.0.1 (218, 240, 360 px).
+        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965, fenix7, fenix7xpro, fr165, venu3s, venu441mm, fr255s, fenix7s, fr265s]
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -166,7 +166,7 @@ jobs:
           exit $R
 
   # Stap 4: Ebb Calm, de plaatjesbouw en de toetsbouw compileren voor ELK horloge uit manifest-calm.xml, met
-  # typecontrole (-l 2). Alleen compileren: één NEE of minder dan 28 horloges is rood.
+  # typecontrole (-l 2). Alleen compileren: één NEE of minder dan 55 horloges is rood.
   alle-horloges:
     runs-on: ubuntu-latest
     timeout-minutes: 40
@@ -204,7 +204,7 @@ jobs:
           echo "COMPILEERT horloges: $n"
           fout=0
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
-          [ "$n" -ge 28 ] || fout=1
+          [ "$n" -ge 55 ] || fout=1
           exit $fout
           SH
           docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
