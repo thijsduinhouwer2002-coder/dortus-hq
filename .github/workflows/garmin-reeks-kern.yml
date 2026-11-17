@@ -86,13 +86,13 @@ jobs:
           done
           # Elk horloge moet de maten van zijn eigen scherm laden (tijd in px uit het blad van Mila).
           MIS=0
-          for paar in fr255:78 fenix847mm:136 venu3s:117 vivoactive5:117 fr55:62 fr245:72 fr265s:108; do
+          for paar in fr255:78 fenix847mm:136 venu3s:117 vivoactive5:117 fr55:62 fr245:72 fr265s:108 venusq2:90; do
             grep -q "^${paar%%:*} KERN MATEN n=29 tijdPx=${paar##*:} " "$U" || { echo "MATEN FOUT ${paar%%:*}, verwacht tijdPx=${paar##*:}" >> "$U"; MIS=1; }
           done
           echo "MATEN_PER_HORLOGE $([ $MIS = 0 ] && echo goed || echo FOUT)" >> "$U"
           # Elk horloge kiest de kleuren van zijn scherm: 0 vol (AMOLED), 1 64 kleuren, 2 8 kleuren (Forerunner 55).
           MIS=0
-          for paar in fr255:1 fenix847mm:0 venu3s:0 vivoactive5:0 fr55:2 fr245:1 fr265s:0; do
+          for paar in fr255:1 fenix847mm:0 venu3s:0 vivoactive5:0 fr55:2 fr245:1 fr265s:0 venusq2:0; do
             grep -q "^${paar%%:*} KERN SCHERM .* diepte=${paar##*:}\b" "$U" || { echo "KLEUREN FOUT ${paar%%:*}, verwacht diepte=${paar##*:}" >> "$U"; MIS=1; }
           done
           echo "KLEUREN_PER_HORLOGE $([ $MIS = 0 ] && echo goed || echo FOUT)" >> "$U"

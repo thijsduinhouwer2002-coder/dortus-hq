@@ -112,14 +112,6 @@ class KernView extends WatchUi.WatchFace {
         }
     }
 
-    // Horen de geladen maten bij dit scherm? De veilige cirkel van het blad moet op het scherm passen (Instinct 2
-    // valt af) en mag niet veel kleiner zijn dan het scherm (360 px laadt nu nog de maten van 260: dan alleen de
-    // tijd, tot Mila's kolom 360 erin zit). Bij de acht maten van het blad is de cirkel 94 tot 96% van het scherm.
-    function matenPassen(w as Number) as Boolean {
-        var v2 = Maten.m(Maten.VEILIG) * 2;
-        return Maten.laad().size() == Maten.AANTAL && v2 <= w && v2 * 100 >= w * 90;
-    }
-
     // Stap (b) van de kern: datum, tijd en drie velden op de maten van het blad, in de kleuren van het thema.
     // Geen maten voor dit scherm (lege lijst): alleen de tijd in het midden, zodat niets op 0,0 belandt.
     function tekenBoven(dc as Graphics.Dc, uur as String, minuut as String) as Void {
@@ -128,7 +120,7 @@ class KernView extends WatchUi.WatchFace {
         var links = Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER;
         // Punt van de keurder (run 126): een scherm zonder eigen map krijgt de maten van 260 px. Past de
         // veilige cirkel van het blad niet op dit scherm (Instinct 2), dan alleen de tijd in het midden.
-        var heeftMaten = matenPassen(w);
+        var heeftMaten = Maten.passen(w, dc.getHeight());
         var yTijd = heeftMaten ? Maten.m(Maten.TIJD_Y) : dc.getHeight() / 2;
         if (fontG != null) {
             var f = fontG as WatchUi.FontResource;
@@ -188,8 +180,13 @@ class KernView extends WatchUi.WatchFace {
     function tekenZee(dc as Graphics.Dc, t as Number) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
-        if (!matenPassen(w)) {
+        if (!Maten.passen(w, h)) {
             return;
+        }
+        // Rechthoek (Venu Sq 2): geen veilige cirkel, de zee loopt van rand tot rand en het bootje blijft op zijn plek.
+        var straal = Maten.m(Maten.VEILIG);
+        if (straal == 0) {
+            straal = w + h;
         }
         var c = w / 2;
         var yT = Maten.m(Maten.WATER_TOP);
@@ -225,7 +222,7 @@ class KernView extends WatchUi.WatchFace {
             var by = Zee.niveau(bbNu, yT, yB) + zak;
             var hoek = laag ? -22 : 0;
             var stap = w / 100;
-            nuX = Zee.bootX(nuX, gx1 + s * 11 / 10 + g, by, s, hoek, c, Maten.m(Maten.VEILIG), stap);
+            nuX = Zee.bootX(nuX, gx1 + s * 11 / 10 + g, by, s, hoek, c, straal, stap);
             pts = Zee.lijn(bb, Maten.m(Maten.LIJN_X), nuX, w, yT, yB, t);
             // Punt van de keurder (run 130): bij één meting deint de vlakke zee; het bootje ligt op de golf, niet ernaast.
             bootje = Zee.boot(nuX, Zee.hoogte(pts, nuX) + zak, s, hoek);

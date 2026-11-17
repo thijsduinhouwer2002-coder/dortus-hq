@@ -79,6 +79,10 @@ MATEN = {208: (62, 23, 14, 14), 218: (65, 24, 14, 14), 240: (72, 26, 16, 16), 26
          280: (84, 31, 18, 18), 360: (108, 40, 23, 23), 390: (117, 43, 25, 25), 416: (125, 46, 27, 27), 454: (136, 50, 30, 30)}
 
 
+# Niet ronde schermen: map en lettermaten, uit dezelfde lijst als de maten (maak_maten.RECHTHOEK).
+RECHTHOEK = {"resources-rectangle-320x360": (90, 36, 21, 19)}
+
+
 def toets_tegen_blad():
     """Stopt als de lettermaten hierboven niet meer bij het blad van Mila passen."""
     import maak_maten
@@ -89,6 +93,12 @@ def toets_tegen_blad():
         rij = dict(zip(maak_maten.NAMEN, blad[S]))
         if (rij["TIJD_PX"], rij["BB_PX"], rij["VELD_PX"], rij["DATUM_PX"]) != (t, b, v, dt):
             raise SystemExit("lettermaten voor %d px passen niet bij het blad: %r" % (S, rij))
+    if set(maak_maten.RECHTHOEK) != set(RECHTHOEK):
+        raise SystemExit("niet ronde schermen: maten voor %r, letters voor %r" % (sorted(maak_maten.RECHTHOEK), sorted(RECHTHOEK)))
+    for m, (t, b, v, dt) in RECHTHOEK.items():
+        rij = dict(zip(maak_maten.NAMEN, maak_maten.RECHTHOEK[m]))
+        if (rij["TIJD_PX"], rij["BB_PX"], rij["VELD_PX"], rij["DATUM_PX"]) != (t, b, v, dt):
+            raise SystemExit("lettermaten voor %s passen niet bij de maten: %r" % (m, rij))
 
 
 if __name__ == "__main__":
@@ -97,6 +107,7 @@ if __name__ == "__main__":
     for m in (208, 260, 454):
         verloop(m, os.path.join(HIER, "resources-round-%dx%d" % (m, m), "drawables", "achtergrond.png"))
     mappen = [("resources", MATEN[260])] + [("resources-round-%dx%d" % (S, S), MATEN[S]) for S in sorted(MATEN)]
+    mappen += sorted(RECHTHOEK.items())
     for resmap, (t, b, v, dt) in mappen:
         print(letter(resmap, "tijd", t, 900, "0123456789:"))
         print(letter(resmap, "tijdslaap", t, SLAAP_GEWICHT, "0123456789:"))

@@ -8,7 +8,12 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 NAMEN = ['DATUM_Y', 'DATUM_PX', 'TIJD_Y', 'TIJD_PX', 'VELD_XL', 'VELD_XM', 'VELD_XR', 'ICOON_Y', 'ICOON_H',
          'VELD_Y', 'VELD_PX', 'WATER_TOP', 'WATER_BODEM', 'NU_X', 'LIJN_X', 'BAND_0', 'BAND_1', 'BAND_2', 'BAND_3',
          'LIJN_DIK', 'BOOT_HALF', 'MAST', 'BB_Y', 'BB_PX', 'BB_RAND', 'GOLF_B', 'GOLF_DIK', 'GOLF_AFSTAND', 'VEILIG']
-BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq en Sq 2)
+# Schermen die niet rond zijn: een eigen lijst per maat, uit ontwerp/garmin/tij/kleuren-64-8.md van Mila (deel
+# "Venu Sq 2, 320 x 360", 17 nov). Zelfde volgorde als NAMEN. De zee loopt daar van rand tot rand (lijn begint op 0)
+# en er is geen veilige cirkel: VEILIG staat op 0, en daaraan herkent het horloge een lijst voor een rechthoek.
+RECHTHOEK = {'resources-rectangle-320x360': [34, 19, 106, 90, 90, 160, 230, 164, 14, 186, 21, 248, 318, 250, 0,
+                                             0, 12, 26, 45, 3, 16, 24, 222, 36, 2, 16, 3, 5, 0]}
+BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq)
 # Elke rij van het blad: hoe de naam begint en hoeveel getallen er per cel staan. Wisselt Mila twee rijen
 # of komt er een bij, dan stopt het script in plaats van de maten stil op de verkeerde plek te zetten.
 RIJEN = [('datum:', 2), ('tijd:', 2), ('velden:', 3), ('veld-icoon:', 2), ('veld-getal:', 2), ('water bij 100', 1),
@@ -50,6 +55,10 @@ def main():
     blad = lees_blad(os.path.join(HIER, 'maten-tij-tabel.md'))
     fout = 0
     doelen = [(map_voor(S), l) for S, l in sorted(blad.items())] + [(f'resources-round-{BASIS}x{BASIS}', blad[BASIS])]
+    for m, l in sorted(RECHTHOEK.items()):
+        if len(l) != len(NAMEN):
+            raise SystemExit(f'{m}: {len(l)} getallen, verwacht {len(NAMEN)}')
+        doelen.append((m, l))
     for m, l in doelen:
         d = os.path.join(HIER, m, 'jsondata')
         tekst = json.dumps(l, separators=(',', ':'))

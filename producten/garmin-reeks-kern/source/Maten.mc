@@ -52,6 +52,21 @@ module Maten {
         return lijst as Array<Number>;
     }
 
+    // Horen de geladen maten bij een scherm van w bij h px? Rond: de veilige cirkel van het blad moet op het scherm
+    // passen (Instinct 2 valt af) en mag niet veel kleiner zijn dan het scherm (bij de maten van het blad is hij 94
+    // tot 96% van het scherm). Een lijst zonder cirkel (VEILIG 0) is voor een rechthoek: die past alleen op een scherm
+    // dat niet vierkant is en waar het getal van Body Battery op het scherm valt. Past het niet: alleen de tijd.
+    function passen(w as Number, h as Number) as Boolean {
+        if (laad().size() != AANTAL) {
+            return false;
+        }
+        var v2 = m(VEILIG) * 2;
+        if (v2 == 0) {
+            return w != h && m(WATER_BODEM) < h && m(VELD_XR) < w;
+        }
+        return w == h && v2 <= w && v2 * 100 >= w * 90;
+    }
+
     // Eén maat. Buiten de lijst of lijst leeg: 0, zodat tekenen niet stopt.
     function m(i as Number) as Number {
         var l = laad();

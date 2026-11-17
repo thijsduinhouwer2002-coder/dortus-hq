@@ -238,6 +238,14 @@ function testZeeBandenVerschillen(logger as Test.Logger) as Boolean {
 
 // De kleuren van Mila voor 64 en 8 kleuren (ontwerp/garmin/tij/kleuren-64-8.md): de tabel, het witte zeil, de zwarte
 // rand, en op 8 kleuren één vaste zee voor elk thema. Op een vol scherm verandert er niets.
+// De toetsen draaien op de fēnix 7 met de lijst van 260 px: die past op 260 px rond, niet op de Instinct 2 (176),
+// niet op 360 px en niet op een rechthoek (de Venu Sq 2 heeft een eigen lijst zonder cirkel).
+(:test)
+function testMatenPassen(logger as Test.Logger) as Boolean {
+    return Maten.passen(260, 260) && !Maten.passen(176, 176) && !Maten.passen(360, 360) && !Maten.passen(320, 360)
+        && !Maten.passen(240, 240) && Maten.passen(270, 270);
+}
+
 (:test)
 function testKleuren64En8(logger as Test.Logger) as Boolean {
     var goed = Thema.band(Thema.KELP, 0, Thema.MIP64) == 0xAAAA55 && Thema.band(Thema.NIGHT, 1, Thema.MIP64) == 0x5500AA
