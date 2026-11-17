@@ -33,6 +33,9 @@ import bpy
 from mathutils import Vector
 
 STAP = 5
+# Pro 1.1 (run 21): tijdens de tweede poging van "Figure from rig" staat de kernregel kogel naast kogel uit; daarna
+# bewijst de beweegproef van de andere kogels dat niets stuk ging (rig.kogel_heel).
+kk_uit = [False]
 
 _oud_te_dicht = [None]
 _oud_markeer = [None]
@@ -95,7 +98,7 @@ def nodig_mm(paren, u):
 
 def te_dicht_kogel(bron, centrum, richting, maat, u):
     """Omhulsel van gewricht.te_dicht: eerst de kern (kogel naast kogel), dan elk scharnier op het deel."""
-    kern = _oud_te_dicht[0](bron, centrum, richting, maat, u)
+    kern = None if kk_uit[0] else _oud_te_dicht[0](bron, centrum, richting, maat, u)
     naad = maat.get("naad_r", -1.0)
     paren = [((Vector(centrum) - p).length, reik + reik_naar(p, centrum, richting, naad, maat["r"], maat["s"], u))
              for p, reik, _k in scharnieren(bron) if reik >= 0]

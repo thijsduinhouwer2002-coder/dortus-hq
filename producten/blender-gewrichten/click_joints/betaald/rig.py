@@ -528,6 +528,42 @@ def draai_terug(context, bron, voor):
     context.view_layer.update()
 
 
+def kogels_van_figuur(scene, fig):
+    """Alle zichtbare kogeldelen B van de figuur (elke kogel één keer)."""
+    return [o for o in scene.objects if o.type == "MESH" and o.visible_get() and o.get("cj_figuur") == fig
+            and o.get("cj_deel") == "B" and o.get("cj_soort", "KOGEL") == "KOGEL" and o.get("cj_buig_graden")]
+
+
+def kogel_heel(context, fig, b, marge=0.5):
+    """Pro 1.1 (run 21): meet de beweegproef van kogel b opnieuw tegen het deel waarin zijn midden nu ligt, en geef
+    True als hij in geen richting meer dan `marge` graden verloor. Op een tijdelijke kopie, de echte delen houden hun
+    getallen. Zonder deel om tegen te meten: True (niets veranderd aan zijn kant)."""
+    from .. import beweeg
+    from ..eigenschappen import eenheid_per_mm
+    oud = list(b["cj_buig_graden"])
+    c = Vector(b["cj_centrum"])
+    context.view_layer.update()
+    tegen = [o for o in context.scene.objects if o.type == "MESH" and o.visible_get() and o is not b
+             and o.get("cj_figuur") == fig and _in_kader(o, c)]
+    for o in tegen:
+        kopie = o.copy()
+        kopie.data = o.data.copy()
+        context.scene.collection.objects.link(kopie)
+        for k in ("cj_centrum", "cj_as", "cj_kogel_r", "cj_speling_mm", "cj_naad_r"):
+            if k in b:
+                kopie[k] = b[k]
+        try:
+            nieuw = beweeg.meet(kopie, b, b.get("cj_eenheid_per_mm", eenheid_per_mm(context.scene)))
+        finally:
+            me = kopie.data
+            bpy.data.objects.remove(kopie, do_unlink=True)
+            bpy.data.meshes.remove(me)
+        b["cj_buig_graden"] = oud  # meet schrijft ook op b
+        if any(n < g - marge for n, g in zip(nieuw, oud)):
+            return False
+    return True
+
+
 def _in_kader(ob, punt):
     hoeken = [ob.matrix_world @ Vector(h) for h in ob.bound_box]
     return all(min(h[i] for h in hoeken) - 1e-4 <= punt[i] <= max(h[i] for h in hoeken) + 1e-4 for i in range(3))
@@ -610,43 +646,65 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             else:
                 kandidaten = scharnier_plekken(context, doel, m, lengte)
             geblokkeerd, vangnet = False, None
-            for i, (m, _mm) in enumerate(kandidaten):
-                # Run 19 (CI 2569d26, 4.2.23): na een mislukte snede kan de lijst van de view layer in 4.2 nog een
-                # leeg plekje (None) hebben voor een weggehaald object; dat liet de knop vastlopen.
-                for o in [o for o in context.view_layer.objects if o is not None]:
-                    o.select_set(False)
-                doel.select_set(True)
-                context.view_layer.objects.active = doel
-                cursor.rotation_mode = "QUATERNION"
-                cursor.matrix = m
-                voor = {o.name for o in bpy.data.objects}
-                ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
-                if ok and soort != "HINGE" and kogel_vast(nieuw):
-                    # Vangnet (16 nov run 11): een kogel die volgens de beweegproef niet beweegt is een kapot
-                    # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.
+            from . import afstand
+            andere, eerste = [], None
+            for poging_kk in ((0, 1) if soort != "HINGE" else (0,)):
+                if poging_kk == 1:
+                    # Run 21: tweede poging zonder de kernregel kogel naast kogel. Die regel rekent met bollen en ziet
+                    # niet dat twee heupen op twee benen zitten (MakeHuman-mens: heupen 33 mm uit elkaar, regel 34 mm).
+                    # Alleen als de eerste poging op "too close" strandde, en daarna bewijzen: elke andere kogel van
+                    # de figuur beweegt nog even ver (beweegproef opnieuw), anders terugdraaien.
+                    if ok or "too close" not in (melding or "").lower():
+                        break
+                    andere = kogels_van_figuur(context.scene, fig)
+                    if not andere:
+                        break
+                    eerste = (melding, vangnet, geblokkeerd)
+                    afstand.kk_uit[0] = True
+                for i, (m, _mm) in enumerate(kandidaten):
+                    # Run 19 (CI 2569d26, 4.2.23): na een mislukte snede kan de lijst van de view layer in 4.2 nog een
+                    # leeg plekje (None) hebben voor een weggehaald object; dat liet de knop vastlopen.
+                    for o in [o for o in context.view_layer.objects if o is not None]:
+                        o.select_set(False)
+                    doel.select_set(True)
+                    context.view_layer.objects.active = doel
+                    cursor.rotation_mode = "QUATERNION"
+                    cursor.matrix = m
+                    voor = {o.name for o in bpy.data.objects}
+                    ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    if ok and soort != "HINGE" and kogel_vast(nieuw):
+                        # Vangnet (16 nov run 11): een kogel die volgens de beweegproef niet beweegt is een kapot
+                        # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.
+                        draai_terug(context, doel, voor)
+                        ok, melding, geblokkeerd = False, None, True
+                        continue
+                    if ok and soort == "HINGE" and any(stukken(d) > 1 for d in nieuw or []
+                                                       if d.get("cj_deel") in ("A", "B") and d.type == "MESH"):
+                        # Run 17 (CI 4.2.23, knight_yellow): ook een scharnier kan losse stukken achterlaten; dan
+                        # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
+                        fout = "the cut left a loose piece here, place it by hand"
+                    elif ok and soort == "HINGE" and verloren_stuk(context, doel, nieuw, m.to_translation(),
+                                                                   max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > 0.06:
+                        fout = "the cut lost part of the model here, place it by hand"
+                    elif ok and soort != "HINGE" and kogel_te_klein(nieuw, eenheid_per_mm(context.scene)):
+                        fout = "only a tiny ball fits here (the bone sits near the skin), place it by hand"
+                    else:
+                        fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
+                    if fout:
+                        draai_terug(context, doel, voor)
+                        ok, melding, vangnet = False, fout, fout
+                        continue
+                    laag = (melding or "").lower()
+                    verder = "too close" in laag or (soort == "HINGE" and ("too thin" in laag or "tight" in laag))
+                    if ok or i == len(kandidaten) - 1 or not verder:
+                        break
+            afstand.kk_uit[0] = False
+            if ok and eerste is not None:
+                if not all(kogel_heel(context, fig, b) for b in andere if b.name in bpy.data.objects):
                     draai_terug(context, doel, voor)
-                    ok, melding, geblokkeerd = False, None, True
-                    continue
-                if ok and soort == "HINGE" and any(stukken(d) > 1 for d in nieuw or []
-                                                   if d.get("cj_deel") in ("A", "B") and d.type == "MESH"):
-                    # Run 17 (CI 4.2.23, knight_yellow): ook een scharnier kan losse stukken achterlaten; dan
-                    # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
-                    fout = "the cut left a loose piece here, place it by hand"
-                elif ok and soort == "HINGE" and verloren_stuk(context, doel, nieuw, m.to_translation(),
-                                                               max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > 0.06:
-                    fout = "the cut lost part of the model here, place it by hand"
-                elif ok and soort != "HINGE" and kogel_te_klein(nieuw, eenheid_per_mm(context.scene)):
-                    fout = "only a tiny ball fits here (the bone sits near the skin), place it by hand"
-                else:
-                    fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
-                if fout:
-                    draai_terug(context, doel, voor)
-                    ok, melding, vangnet = False, fout, fout
-                    continue
-                laag = (melding or "").lower()
-                verder = "too close" in laag or (soort == "HINGE" and ("too thin" in laag or "tight" in laag))
-                if ok or i == len(kandidaten) - 1 or not verder:
-                    break
+                    ok = False
+            if not ok and eerste is not None:
+                melding, vangnet, geblokkeerd = eerste  # de reden van de eerste poging telt
             if not ok and vangnet:
                 melding = vangnet  # de echte reden; latere plekken zeggen vaak alleen "nothing was cut"
             if not ok and soort != "HINGE":

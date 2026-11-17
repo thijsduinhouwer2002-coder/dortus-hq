@@ -116,7 +116,12 @@ def main():
           f"elke kogel minstens {rigm.KOGEL_MIN_DEEL} keer de breedte van het lid ({sorted(kogels.values())})")
     if not oud:
         heup = [d for d, b in kogels.values() if b > 15]
-        check(any(d >= 8.0 for d in heup), f"een heupkogel van minstens 8 mm in de dij ({heup})")
+        check(len([d for d in heup if d >= 8.0]) >= 2, f"beide heupkogels minstens 8 mm in de dij ({heup})")
+        # Run 21: de tweede heup komt er pas zonder de kernregel kogel naast kogel; dan moet elke kogel na alle
+        # sneden nog net zo ver bewegen als bij zijn eigen snede (beweegproef opnieuw tegen de delen van nu).
+        sc = bpy.context.scene
+        heel = [(b.name, rigm.kogel_heel(bpy.context, naam, b)) for b in rigm.kogels_van_figuur(sc, naam)]
+        check(heel and all(h for _n, h in heel), f"elke kogel beweegt na alle sneden nog even ver ({heel})")
     dg = bpy.context.evaluated_depsgraph_get()
     for p_naam in ("l-hand", "r-hand", "l-ankle", "r-ankle", "head"):
         p = punten[p_naam]
