@@ -398,14 +398,22 @@ func _init() -> void:
 		if int(voor_g[k][3]) != int(g.berg()[k][3]):
 			anders_g += 1
 	ok(g.berg().size() == voor_g.size() and anders_g == 1, "linkergrens: een hoed erbij bedekt er een, de berg wordt niet breder (%d anders)" % anders_g)
+	hol5.vallen.erase(4)
+	hol5.vallen[5] = "stekelput"   # vlak naast Gloop (kolom 6): toch 1 plekje, de berg verdwijnt niet (controleur 10:40)
+	g.stap(0.01)
+	ok(g.berg().size() == 1, "linkergrens: put vlak naast Gloop, nog 1 plekje (%d)" % g.berg().size())
+	hol5.vallen.erase(5)
+	hol5.vallen[2] = "stekelput"
 	g.scale = Vector2.ONE * 1.15
 	g.stap(0.01)
+	var grens_s: float = 3.0 * 16.0 + g.BERG_GRENS_LUCHT
 	var links_s := 1e9
 	for b in g.berg():
 		links_s = minf(links_s, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * 1.15)
-	ok(links_s >= grens_x - 0.01 and g.berg().size() <= voor_g.size(), "linkergrens ook op figuur 1,15 (%.1f, %d plekjes)" % [links_s, g.berg().size()])
+	var n_s: int = g.berg().size()
+	ok(links_s >= grens_s - 0.01 and n_s > 1 and n_s < 33, "linkergrens ook op figuur 1,15, put op 2 (%.1f >= %.1f, %d plekjes)" % [links_s, grens_s, n_s])
 	g.scale = Vector2.ONE
-	hol5.vallen.erase(4)
+	hol5.vallen.erase(2)
 	g.stap(0.01)
 	ok(g.berg_max == vrij_max and g.berg().size() == 33, "linkergrens: put weg, de berg mag weer breed (%d)" % g.berg().size())
 	hol5.ingang_kol = 2

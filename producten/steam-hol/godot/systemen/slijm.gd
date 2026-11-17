@@ -509,6 +509,7 @@ static func berg_maat_bij(tel: int) -> int:
 # Hoeveel hoeden je op de berg ziet bij tel hoeden in totaal. Binnen een maat schuift het aantal mee naar dat van de
 # volgende maat (Sanne 17 nov 07:00), zodat 30 hoeden erbij ook binnen een maat te zien zijn; maat 0 en 6 vast.
 func berg_zichtbaar(tel := -1) -> int:
+	werk_berg_grens()   # na laden (opslag.gd logregel) eerst de grens van dit hol
 	return berg_zichtbaar_bij(hoeden.size() if tel < 0 else tel)
 
 static func berg_zichtbaar_bij(tel: int) -> int:
@@ -540,14 +541,16 @@ static func zet_berg_max(n: int) -> bool:
 	return true
 
 # Hoeveel plekjes passen als de linkerkant van de berg (in Gloop-pixels, negatief) niet verder mag dan ruimte.
+# Altijd met de linkerkant van het grote lijf (-14), zodat Big kopen de berg niet laat krimpen (controleur 10:40).
+# Minstens 1 plekje: ligt er een put vlak naast Gloop, dan zie je toch zijn nieuwste berghoed (controleur 10:40).
 func plekjes_binnen(ruimte: float) -> int:
-	var links := -14 if is_groot() else -12
+	var links := -14
 	var n := 0
 	var d := 0
 	while d < 200 and float(links - 6 * d) - BERG_3D_LUCHT - BERG_HALF >= ruimte:
 		n += mini(d + 1, BERG_RIJEN)
 		d += 1
-	return n
+	return maxi(1, n)
 
 # Rechterrand van wat links van Gloop in de weg ligt (stekelput of ingang), in hol-pixels; -1e9 = niets.
 func berg_grens_x() -> float:
