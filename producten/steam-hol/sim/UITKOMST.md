@@ -1,5 +1,8 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 17 nov 2026 ±01:30 UTC (Bram): Sannes kegel.py nagekeken
+Vervanging klopt met `rolsteen.py`: `leider = steen_klaar` komt één keer vóór `if steen_klaar:` (dus waar bij de worp, onwaar bij de volger), de kegelregel één keer, en `_raak` is bij de volger altijd al gezet. De ridder krijgt zijn eigen kans (39 van 472 keer na een raak voorloper). Wel een fout in mijn eigen code gevonden en hersteld: kwam er na de voorloper een edelman die ging wachten, dan bleef het paar staan en telde de held 30 tot 44 s later als volger (35 van 960 volgerbeurten boven 9,6 s = 6 cellen). Nu vervalt het paar als de edelman wacht (en rolt de steen terug als de voorloper al naar buiten liep). Na herstel: 0 volgers boven 9,6 s. Nieuwe cijfers 0,50 met kegel: paar allebei 47% (was 48), Two for one 0,73 per 20 min (was 0,76), vluchten na koop 20,2% (gelijk), **96 van 100 zaden zien Two for one binnen 60 min na de koop** (was 97; eis 9 van 10 gehaald), eerste na de koop mediaan 10,4 min. Geteld in één run van 3 uur met het tijdstip van elke Two for one: `rolsteen_kegel_check.py`.
+
 ## 17 nov 2026 ±00:30 UTC (Bram): rolsteen en edelman (vraag Sanne 17 nov ±00:00, `features.md`)
 Script `rolsteen.py` (sim.py onveranderd, aanpassing in het geheugen), uitkomst `rolsteen-uitkomst.txt`. Speeltestbuild: nieuw ritme, drempels als `hol_niveau.gd`, upgrades 45/126/353, niet graven, 60 tot 100 zaden, 3 uur open. Steen te koop op hol 7 voor 1 uur goud (±540), ligt in de eerste gang, speler koopt hem zodra het kan. Partner in de gang: gat tot de volgende held x 10 px/s / 16 px per cel korter dan 6 cellen (bij een paar van 6 tot 10 s is dat ±90%), de edelman altijd.
 

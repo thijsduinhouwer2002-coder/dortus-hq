@@ -59,6 +59,10 @@ def bron(steen_basis, edel_goud, gang_cellen=6, steen_x=None, edel_aan=True, ste
                 "            if volgende - t <= 40:\n"
                 "                edel_wacht = h; helden -= 1\n"
                 "                st['steen']['edel_achter'] += 1\n"
+                "                if steen_volg:\n"   # (17 nov Bram) een wachtende edelman is geen volger: het paar van de steen vervalt
+                "                    steen_volg = False; st['steen']['paar_worp'] -= 1; st['steen']['_paar'] = False\n"
+                "                    if st['steen'].get('_uit_bij_volg'):\n"
+                "                        steen_klaar = True\n"
                 "                continue\n"
                 "        sd = SOORT_DATA.get(h.get(\"soort\", \"\"), ({}, False))\n"
                 "        voor_val_nu = None\n")
@@ -71,7 +75,7 @@ def bron(steen_basis, edel_goud, gang_cellen=6, steen_x=None, edel_aan=True, ste
                 "                volg_in_gang = edel_wacht is not None or (volgende - t) * 10.0 / 16.0 < %r\n"
                 "                steen_volg = volg_in_gang\n"
                 "                st['steen']['_paar'] = volg_in_gang\n"
-                "                st['steen']['_raak'] = 0\n"
+                "                st['steen']['_raak'] = 0; st['steen']['_uit_bij_volg'] = False\n"
                 "                if volg_in_gang:\n"
                 "                    st['steen']['paar_worp'] += 1\n"
                 "            else:\n"
@@ -103,7 +107,9 @@ def bron(steen_basis, edel_goud, gang_cellen=6, steen_x=None, edel_aan=True, ste
     s = vervang(s, "            st[\"gevlucht\"] += 1\n",
                 "            st[\"gevlucht\"] += 1\n"
                 "            if not steen_volg:\n"
-                "                steen_klaar = True\n")
+                "                steen_klaar = True\n"
+                "            else:\n"
+                "                st['steen']['_uit_bij_volg'] = True\n")
     # na de voorloper: de edelman meteen erachter, daarna weer het gewone gat
     s = vervang(s, "        # kopen: steeds het goedkoopste wat kan\n",
                 "        if edel_wacht is not None and not is_edel_volg:\n"
