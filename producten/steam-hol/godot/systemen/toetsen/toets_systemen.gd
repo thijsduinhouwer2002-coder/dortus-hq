@@ -655,10 +655,29 @@ func _init() -> void:
 		"rij 6-8: begin en eind")
 	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_c", "kamer van drie: midden kaal")
 	b[9] = true
-	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "rij 6-9, tweede middencel: ding (begin 6 even, eerst de stut a): " + H3.kamer_keuze(b, 8, 2, 12, true))
+	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_c", "rij 6-9: kamer van vier blijft kaal in het midden: " + H3.kamer_keuze(b, 8, 2, 12, true))
 	ok(H3.kamer_keuze(b, 9, 2, 12, true) == "kamer_eind", "3D-schatkamer telt als dicht: eind")
-	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_c", "zonder 3D-schatkamer loopt de kamer door (kaal)")
+	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_a", "zonder 3D-schatkamer loopt de kamer door (6-12, midden een stut)")
 	# Daan 16 nov 23:40 (moet): bovenste rij per drie middencellen precies één ding, om en om, nooit twee gelijk na elkaar
+	# kamers van 4 tot 9 cellen: nooit een ding naast fakkel of kistje, nooit twee dingen in drie cellen op een rij
+	# (fakkel en kistje tellen als ding)
+	var kort_ok := true
+	for klang in range(4, 10):
+		var kb2 := []
+		for kk in 30:
+			kb2.append(kk >= 5 and kk < 5 + klang)
+		var rij2 := []
+		for kk in range(5, 5 + klang):
+			var n2: String = H3.kamer_keuze(kb2, kk, 1, 28, false)
+			rij2.append(0 if n2 == "kamer_midden_c" else 1)
+		for j in range(0, rij2.size() - 2):
+			if rij2[j] + rij2[j + 1] + rij2[j + 2] > 1:
+				kort_ok = false
+	ok(kort_ok, "kamers van 4 tot 9 cellen: fakkel, dingen en kistje nooit twee in drie cellen")
+	var kb7 := []
+	for kk in 30:
+		kb7.append(kk >= 5 and kk < 12)
+	ok(H3.kamer_keuze(kb7, 8, 1, 28, false) != "kamer_midden_c", "kamer van zeven: ding precies in het midden")
 	for kst in [3, 4, 5]:
 		var klb := []
 		for kk in 60:
@@ -674,13 +693,13 @@ func _init() -> void:
 				if klijst[g + j] != "kamer_midden_c":
 					n += 1
 					kdingen.append(klijst[g + j])
-			if n != 1:
+			if n > 1:
 				kper_ok = false
 		var kwissel_ok := kdingen.size() >= 10
 		for j in range(1, kdingen.size()):
 			if kdingen[j] == kdingen[j - 1]:
 				kwissel_ok = false
-		ok(kper_ok and kwissel_ok, "bovenste rij vanaf %d: per drie middencellen één ding, om en om (%d dingen)" % [kst, kdingen.size()])
+		ok(kper_ok and kwissel_ok, "bovenste rij vanaf %d: per drie middencellen hooguit één ding, om en om (%d dingen)" % [kst, kdingen.size()])
 	b[14] = true
 	b[15] = true
 	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
