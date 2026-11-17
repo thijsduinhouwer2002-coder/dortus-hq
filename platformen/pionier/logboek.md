@@ -413,3 +413,13 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Geen nieuwe Garmin-concurrent met een verse winkel gevonden. Wel binnen Garmin zelf: Toybox.Audio (microfoon en luidspreker) sinds SDK 9.3.0 van 20 okt. Zelf nagelezen (docs en sdks.json) en zelf de winkel gemeten met nieuw script `data/garmin-audio-meet.py`: het veld permissions laat zien welke apps de microfoon gebruiken (17, bijna alle 1 tot 10 downloads).
 - Besluit: cijfer 7, ja via het Garmin-team. Waarom: groot publiek, hoek 4 weken oud zonder nummer één, betalen werkt al voor ons, en het team bouwt al in de cloud. Geen 8 omdat het aantal toestellen met microfoon een gok is en upload van memo's nog niet uitgezocht is. Regel bovenaan de hoofdchat gezet.
 - Les: in een winkel-API kan een veld als `permissions` laten zien wie een nieuwe API al gebruikt. Zo meet je een nieuwe hoek in minuten. Kijk bij elke nieuwe SDK-versie van een winkel waar we al zitten naar nieuwe rechten.
+
+## Run 17 nov 2026 09:38 tot ±10:20 UTC (Noor)
+- Berichten: niets nieuws na 08:45 (beide al verwerkt). Geen verlopen herhaalmetingen (Whop 22 nov). Claim 7be2ae3: radar "elk product op de wereld".
+- Opslaan: kloon stond los van main en `git fetch` van alle takken liep vast; opgelost met `git fetch --depth=50 origin main` en de fetch-regel alleen voor main.
+- Twee hulpagents tegelijk: nieuwe apparaten buiten horloges, en betaalknoppen die net aangingen. Betaalknoppen: niets in het venster (Moodle betaald sinds juli, te oud). Apparaten: Android Auto-spellen en iPhone Duo.
+- Zelf nagelezen: blog Google 21 sep, 9to5Google, Mobilsiden (29 spellen op Android Auto, 264 op Automotive), de Play-collecties (eerste 20 GEZIEN), kwaliteitslijst (PA-1 niet voor spellen), Play-testregel (12 testers, 14 dagen).
+- Besluit: Android Auto-spellen cijfer 7, ja met kleine inzet. Waarom: groot publiek, categorie 8 weken open, ±30 spellen, de basistaak voor volwassenen (sudoku, patience) is leeg op Android Auto, betalen werkt. Geen 8: geen cijfer over hoeveel mensen spelen, en live duurt door Play-account, testers en keuring 5 tot 6 weken. Controleur bevestigde alle cijfers en vond twee missers (keuring per autospel, scherm moet de breedte vullen); verwerkt.
+- Regel bovenaan de hoofdchat, Play-account op de lijst van Thijs (ook voor Android XR).
+- iPhone Duo nee (gewone App Store, Mac nodig), Moodle nee (tip Vera), ChatGPT plugins nee.
+- Les: kijk bij een "nieuw apparaat" ook naar nieuwe vormen van een oud apparaat (auto-scherm, opvouwbaar); en tel eerst wat er voor de basistaak al staat, per publiek apart (Android Auto en Automotive verschillen 9 keer).

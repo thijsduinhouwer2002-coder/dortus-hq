@@ -87,3 +87,4 @@ Voor Hans (9 nov 00:10): XENEON EDGE-widgets is een 6 waar betalen nu al werkt (
 | Ring Appstore (Amazon Ring) | 17 nov 2026 | 6 (krap 7) | ja met kleine inzet na één vraag aan Ring (certificeren buiten de VS?); pakketwacht voor elke camera; vóór 1 mrt 2027 staan |
 | Ring Appstore, na controle | 17 nov 2026 | 5 (was 6) | nee voor nu: pakketwacht bestaat al (Package Protect), verkoop alleen VS; Private Apps laten wel bouwen vanuit NL |
 | Garmin Connect IQ microfoon en luidspreker (Toybox.Audio) | 17 nov 2026 | 7 | ja, nu, via Gijs: brede spraakmemo, live binnen 2 weken; hoek 4 weken oud, 17 apps met AudioInput, geen nummer één |
+| Spellen voor Android Auto en Automotive (Google Play) | 17 nov 2026 | 7 | ja met kleine inzet (categorie open sinds 21 sep, ±29 spellen op Android Auto, basistaak sudoku en patience leeg; Play-account nodig, live ±eind dec; herhaalmeting 15 dec) |
