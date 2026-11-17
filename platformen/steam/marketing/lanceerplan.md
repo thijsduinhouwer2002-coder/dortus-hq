@@ -68,6 +68,8 @@ Aanleiding: Fenna verhaal 24 en haar bericht aan de hoofdchat (17 nov ±06:00). 
 | routekaart dag 3 tot 7 | 5 tot 9 mrt | 1 tot 5 apr |
 | demo staat nog | 1 dag na Next Fest | ±4 weken na Next Fest; Valve: veel spelers downloaden in het fest en spelen later, dus die weken telt de demo nog |
 | let op | | **ma 29 mrt is Tweede Paasdag** (Pasen 2027 is 28 mrt; vrij in NL, DE, UK, FR). Een spel "voor als je werkt" komt dan uit op een vrije dag in Europa; GOK of dat slecht is, maar ik zou di 30 mrt of wo 31 mrt kiezen |
+Aanvulling na Fenna's telling: in Vera's grotere kaart (736 aangekondigd) staan 8 bureaubladapps in maart met een vaste dag (Fenna verhaal 24), in mijn lijst van 251 maar 3. De twee vlak bij 2 mrt zelf nagekeken (appdetails en communitygroep, GEZIEN 17 nov): **Woollings** (2 mrt, schapen die van je vensters een dorpje maken, Casual en Simulation) en **Desktop Mart** (1 mrt, supermarkt op je bureaublad, met demo) hebben nu allebei ±3 tot 6 leden in hun communitygroep. Geen van beide is nu een echte concurrent op die dag; Woollings past eerder in de Sheep Fest (4 tot 8 feb, Valve-lijst). Het drukte-argument van Fenna gaat dus vooral over de festspellen die na Next Fest nog een dag kiezen, niet over wie er nu staat.
+
 Mijn oordeel: voor de marketing kan het allebei; mijn plannen schuiven mee zonder verlies, en eind maart geeft de bundelmails sterkere cijfers. Kiest de hoofdchat eind maart, dan **di 30 of wo 31 mrt**, niet ma 29 mrt. Ik verander niets aan de datums in dit plan tot de hoofdchat kiest.
 
 ## Lanceermeetlat: 10 meegetelde reviews in 7 dagen (run 19, Fenna verhaal 25, overgenomen)
