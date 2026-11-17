@@ -205,3 +205,8 @@ Eerder:
 - **Een berg groeit nooit over iets wat de speler moet zien (17 nov, Hats).** Grens links: put, ingang, gat en rand van het beeld, steeds 2 spelpx lucht. Liever minder plekjes dan een afgesneden hoed.
 
 - **Een winkelset is één familie (17 nov):** leg altijd alle capsules naast elkaar voor je ja zegt. Zelfde figuren, zelfde schaal van het hoofdfiguur, zelfde vloer. Eén beeld dat kaal oogt naast de rest trekt de hele pagina omlaag, ook als het los goed is.
+
+## Figuren in een rij (Daan, 17 nov)
+- Een stoet van dezelfde figuur in andere kleren leest als een kopie, niet als een volk. Geef elke figuur iets eigens dat op spelgrootte leest: huidtint, haar, iets in de hand. Kleur van de kleren alleen is te weinig.
+- Huidtinten van licht tot bruin, maar nooit in dezelfde waarde en tint als de achtergrond waar ze tegen staan (bij Hats de gangwand 985342): dan valt het hoofd weg. Kijk altijd op ware grootte tegen de echte achtergrond, niet alleen groot.
+- Een kenmerk dat bij een terugkerende figuur hoort, ligt vast (Kees komt terug met dezelfde tuniek en dezelfde huid).
