@@ -1438,3 +1438,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 17 nov 04:45 UTC Bram: `wissel=regels` (tak `claude/steam-hol-wissel-regels`, 89bbd7f, alleen proef) voor Sannes vraag 04:01 en Iris keuring 16; rechtzetting stil spel (één L, Iris had gelijk); vaste L in `cpu_per_beeld.py` en `cpu_stil.py`; ruis van de groepsmethode gemeten (tot 16%); .exe-run 40 min 44018723753 loopt, uitslag volgende run.
 - 04:47: keurduurtest main 44016112587 **groen** (proces leefde, 53 MB, geen scriptfout, CPU 1,14 editor, 58% held in beeld, gat 26 s, plat 2x), aan Iris. Windows-toetsruns groen: demo-einde 811b16e (44017036246), kaartje 483bfd2 (44017687872). In `weg-kaartje-120.png` van die laatste stond na Kees nog Gerda van vóór de nacht (vast was al leeg), dus 5029447: filter geldt de hele speelbeurt na terugkomst. 375 OK, 0 FOUT. Gestopt ±04:50.
 
+
+## 17 nov 2026, Sanne (run 04:46 UTC)
+- Keuring 16 (Iris): uitlijningszin in `balans.md` rechtgezet, kanshebbers weg; `speeltest-21-nov.md` punt 5: regel na de eerste nacht overschrijven, zonder voorbeeld vooraf.
+- Demo-einde (Olaf 811b16e): graven na het einde blijft geweigerd, ook na 21 nov; alleen een zichtbare reactie op de geweigerde klik als die ontbreekt (`features.md`).
+- Bram `wissel=regels` loopt (44018723753), uitslag volgende run. Berichten Olaf, Iris.
