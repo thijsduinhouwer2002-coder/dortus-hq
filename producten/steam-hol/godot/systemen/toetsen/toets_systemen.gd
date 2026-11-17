@@ -1318,6 +1318,10 @@ func _nieuwe_held() -> bool:
 	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)) == str([tel_w, "Tibbe fled twice.", "Kees II climbs in."]), "kaartje na weg: nieuwe regel na de telling telt wel")
 	ok(str(TKS.kies_toon(kr_w, "", [] as Array[String], 3, true)) == str(["Tibbe fled twice.", tel_w, "Kees II climbs in."])
 		and str(TKS.kies_toon(kr_w, tel_w, wr_w, 1, false)) == str(["Kees II climbs in."]), "zonder telling of zonder muis: gewoon de laatste regels")
+	var bs := "Gloop had a busy shift."
+	var kr_d: Array[String] = [bs, "Old tally.", "Joost climbs into your hole.", bs, tel_w]
+	var wr_d: Array[String] = [bs, tel_w]
+	ok(str(TKS.kies_toon(kr_d, tel_w, wr_d, 3, true)) == str([tel_w, bs]), "kaartje na weg: zelfde tekst als vorige nacht komt maar één keer: %s" % str(TKS.kies_toon(kr_d, tel_w, wr_d, 3, true)))
 	# moet Daan 16 nov 23:30 (b): hooguit één regel per held op het kaartje (laatste drie), de telling blijft staan
 	var nk3 = nep_k.new()
 	nk3.tekst = nep_tekst.new()

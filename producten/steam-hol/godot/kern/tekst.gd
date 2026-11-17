@@ -166,10 +166,20 @@ static func kies_toon(r: Array[String], v: String, wr: Array[String], n: int, mu
 		toon.append(v)
 		var rest: Array[String] = []
 		var vi := r.rfind(v)
+		# per tekst hooguit zo vaak als hij in het nachtverhaal staat: "Gloop had a busy shift." van de vorige nacht
+		# telt niet nog eens mee (controleur 17 nov). Van achter naar voren, dus de regels vlak voor de telling eerst.
+		var over := {}
+		for w in wr:
+			over[w] = int(over.get(w, 0)) + 1
 		for i in range(r.size() - 1, -1, -1):
 			if rest.size() >= n - 1:
 				break
-			if r[i] != v and (i > vi or wr.has(r[i])):
+			if r[i] == v:
+				continue
+			if i > vi:
+				rest.push_front(r[i])
+			elif int(over.get(r[i], 0)) > 0:
+				over[r[i]] = int(over[r[i]]) - 1
 				rest.push_front(r[i])
 		toon.append_array(rest)
 	else:
