@@ -1,8 +1,68 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 25 af 17 nov ±05:50 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: niets (verhaal 26 af 17 nov ±08:05 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 26. Mac en Linux: 1 op de 3 bureaubladspellen met 1.000+ reviews draait op de Mac (tegen 2,35% Mac op heel Steam), en vier grote spellen bouwden hem later na "hundreds of requests". Linux doet bijna niemand. Een Mac-versie kost een Apple-account van $99 per jaar en heeft bij anderen saves gekost
+
+**Vraag (eigen keus, past bij de winkelpagina van 30 nov):** Hats bouwt alleen voor Windows (`producten/steam-hol/godot/export_presets.cfg`: twee presets, allebei Windows). Nergens in de repo staat of dat bewust is. Hoeveel bureaubladspellen draaien op Mac of Linux, vragen spelers erom, wat leverde het op voor wie het later toevoegde, en wat kost het ons?
+
+**Bronnen (17 nov 2026 met curl):**
+- Steam Hardware Survey oktober 2026, `store.steampowered.com/hwsurvey` (GEZIEN): Windows 93,70%, OSX 2,35% (+0,43), Linux 3,95% (+0,90), waarvan SteamOS ±0,87% (de Steam Deck).
+- Valve, `partner.steamgames.com/doc/store/application/platforms` (GEZIEN): "Starting October 14th, 2019 Steam will require all new macOS Applications to be 64-bit and notarized by Apple."
+- Apple, `developer.apple.com/support/enrollment/` (GEZIEN): "The Apple Developer Program annual fee is 99 USD".
+- Godot 4.3, `docs.godotengine.org/en/4.3/tutorials/export/exporting_for_macos.html` en de klassenbeschrijving van DisplayServer (GEZIEN): ondertekenen en notariseren kan ook vanaf Linux met rcodesign. Doorzichtig venster werkt op "Linux (X11/Wayland), macOS, and Windows"; `window_set_mouse_passthrough` (wat Hats gebruikt in `kern/muisvlak.gd`) "is implemented on Linux (X11), macOS and Windows", dus niet op Wayland.
+- Eigen meting 1: platforms van alle 521 uitgebrachte bureaubladapps met 7 of meer reviews uit Vera's kaart (`appdetails`, filter platforms). Data `platformen/succes/data/mac-linux-platformen-bureaublad-2026-11-17.csv`, scripts `mac-linux-platformen-haal.py` en `-analyse.py`. Apps met minder dan 7 reviews heb ik niet opgehaald (tijd).
+- Eigen meting 2: alle aankondigingen (nieuws-API) van de 40 grootste bureaubladspellen, gezocht op Mac, Linux, Proton en Steam Deck: 72 treffers in `mac-linux-nieuws-top40-2026-11-17.csv`.
+- Eigen meting 3: zoeken op "mac" en "linux" in de forums. Na ±25 pagina's gaf de communitysite 429 (te veel vragen) en bleef dat; ik heb het gestopt. Alleen Bongo Cat, Spirit City en Ropuka's Idle Island zijn dus gezien.
+
+**Wat ik zag: wie draait op de Mac (meting 1, platform zoals het nu is):**
+| Spellen (geen hulpmiddelen), reviews | Aantal | Mac | Linux |
+|---|---|---|---|
+| 1.000+ | 33 | **33%** | 3% |
+| 100 tot 999 | 105 | 26% | 9% |
+| 10 tot 99 | 269 | 14% | 8% |
+| kerker en gevecht, 1.000+ | 13 | 15% | 0% |
+- Betaalde spellen uit 2024 tot 2026: met Mac mediaan 115 reviews (54% haalt 100+), zonder Mac 28 (25%). **Dit is geen bewijs dat de Mac verkoopt**: vier van de grote spellen kregen hun Mac-versie pas na hun succes (zie hieronder), dus succes geeft ook Mac. Bij de kerkerspellen die het meest op Hats lijken (TBH, Deskrawl, Desktop Defender, Desktop Survivors 98, Monster Farm, Tap Tap Loot, Desktop Raid) heeft geen enkele een Mac-versie.
+- Linux bijna nergens: 1 van de 33 grote spellen (Tiny Aquarium).
+
+**Wie de Mac later toevoegde, en waarom (meting 2, GEZIEN in hun aankondigingen):**
+- **Spirit City: Lofi Sessions** (uit apr 2024, Mac op 12 mei 2025): "after hundreds of requests" en "It was important for us to natively support MacOS, especially as a productivity-focused game." Op het forum 161 berichten met "mac", met titels als "Mac Os Compatible Please!!!" en "Mac Release?!".
+- **Mini Cozy Room: Lo-Fi** (uit mrt 2025): "Since the game's release, we have received many requests from players asking for Mac support." Op 3 sep 2026 een open Mac-speeltest (een aparte Playtest-app, ook voor wie het spel niet heeft), nog geen officiële versie.
+- **Desktop Defender** (uit nov 2025): Mac in de lijst van de update van 23 nov 2026, samen met mods, uitgesteld omdat het "highly-technical" is.
+- **Bongo Cat**: "Experimental Mac Support" op 23 mrt 2026 ("I know a lot of you want to play with your friends (that are on Mac or Linux)"); Linux: "Linux update will be out soon (for X11). Wayland will take more time." (5 jun 2026). Forum: 240 berichten met "mac", 661 met "linux".
+- Ook **Ithya** (Mac 3,5 maand na de uitgave), **Lakeside Bar** (10 maanden), **VPet-Simulator** (bèta na 3 jaar), en beloofd door Sill Cats, Sensei!, My Little Life en Outcore 2.
+- Wie Mac al bij de demo had: Rusty's Retirement, Maltese's Fluffy Onsen, Birdwatching Notebook. Tiny Pasture had hem op de lanceerdag (fix voor Mac twee dagen na de uitgave).
+- Ropuka's Idle Island (alleen Windows, 4.113 reviews): 52 forumberichten met "mac", 9 van de eerste 10 draadjes zijn een vraag ("MAC PLEASE!!!!!", "Really demand Mac version"). De maker zei er in 29 aankondigingen niets over.
+
+**Wat het opleverde voor wie later Mac toevoegde (reviews per week, weekgrafiek van Steam):**
+| Spel | Mac erbij | 4 weken ervoor | 4 weken erna | week 5 tot 8 |
+|---|---|---|---|---|
+| Ithya | 26 aug 2025 | 20 | 28 | 22 |
+| Lakeside Bar | 8 jun 2026 | 5 | 8 | 7 |
+| Bongo Cat (proef) | 23 mrt 2026 | 1.106 | 793 | 908 |
+| Spirit City (per maand) | 12 mei 2025 | apr 392 | mei 558 | jun 337 |
+- Een korte bult van een derde tot de helft bij Ithya, Lakeside Bar en Spirit City, daarna terug op het oude peil; bij Bongo Cat omlaag. Alle drie de stijgers brachten tegelijk een inhoudsupdate uit, dus het effect van de Mac alleen zie ik niet. Kleine getallen; geen blijvende winst te zien.
+
+**Wat er misging op de Mac bij anderen (GEZIEN in patchnotes):** Rusty's (demo): "Always on top fix on Mac", en die fix "accidentally inverted it for Windows"; na de lancering een update teruggedraaid om "completely black screens, and missing save files on Mac". Birdwatching Notebook: cloud-save op de Mac uitgezet "Due to save data loss issues", later een herstelgids. Tiny Pasture, Maltese en Birdwatching: problemen met twee schermen op de Mac. Lilith: hoog processorgebruik "especially on macOS". Pocket Waifu: "can't make the window transparent for Linux/Steam deck".
+
+### Drie lessen
+1. **In onze hoek vragen spelers om de Mac, meer dan het Steam-cijfer doet denken.** 2,35% van Steam is Mac, maar een derde van de bureaubladspellen met 1.000+ reviews draait erop, en Spirit City, Mini Cozy Room en Ropuka kregen honderden vragen. Spirit City zegt waarom: een spel voor naast je werk, en veel mensen werken op een Mac (GOK voor ons; hun woorden).
+2. **De Mac later toevoegen geeft geen sprong.** Bij drie spellen een bult van een paar weken, samen met een update, en bij Bongo Cat niets. De Mac is service aan wie vraagt, geen groeimotor; de grote spellen werden groot op Windows.
+3. **Een Mac-versie die je niet kunt testen kost vertrouwen.** Zwarte schermen, kwijte saves, "altijd bovenop" die omklapt: precies de dingen die bij een strook boven de taakbalk moeten kloppen. Wij hebben geen Mac en "nooit de save wissen" is een vaste regel van de demo.
+
+### Voorstel voor Dortus deze week
+**Olaf (spel), met Thijs voor het account: alleen Windows voor de demo en de lancering, maar de Mac nu goedkoop klaarzetten, zodat hij er binnen weken na de lancering kan komen als spelers erom vragen.**
+- Olaf: een export-preset macOS (universeel, ad-hoc ondertekend) en één toetsrun op een macOS-runner van GitHub Actions naast de Windows-run, om te zien of de strook, het doorzichtige venster en de klik-door-het-gras werken (Godot noemt macOS bij alle drie). Kost GOK 1 tot 2 runs; zegt het "zwart" of "klikt niet door", dan weten we dat nu en niet na de lancering.
+- Thijs, op `organisatie/lijst-thijs.md` en pas na de lancering: Apple Developer Program, $99 per jaar, nodig omdat Steam alleen genotariseerde Mac-apps toelaat. Het notariseren zelf kan vanaf Linux (rcodesign) in onze Actions.
+- Daarna zoals Mini Cozy Room: eerst een open Mac-speeltest (aparte Playtest-app, raakt de saves van het echte spel niet), pas dan Mac op de winkelpagina. Cloud-save op de Mac pas aanzetten na een week zonder klachten (les van Birdwatching).
+- Linux niet doen: Godot's klik-door werkt niet op Wayland, en 1 van de 33 grote spellen doet het.
+- Winkelpagina en teksten (Mila, Sem): niets beloven over de Mac tot hij er is. Komt de vraag in de festdagen op het forum, dan het eerlijke antwoord: "Windows for now; a Mac version is being tested" alleen als de Actions-run groen is. Tekst CONCEPT voor Thijs.
+
+Eerlijk over de meting: platform is zoals het nu op Steam staat, niet zoals bij de uitgave; de vergelijking met en zonder Mac zegt dus niets over oorzaak. Wanneer de Mac kwam heb ik alleen bij de 40 grootste spellen in de aankondigingen nagezocht; bij Cast n Chill, Tiny Aquarium en Hero Town staat het er niet in. De forumtelling is maar van drie spellen, door de blokkade. Of een Mac-speler een Windows-spel op zijn verlanglijst zet en de demomail krijgt heb ik niet nagezocht.
 
 ---
 
