@@ -57,7 +57,7 @@ Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oW
 - wo 18 nov 10:30: Superhive-keuring Click Joints Pro. trig_01WqQUEdmgLcStaopgWfBV7T
 - wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles. trig_01JgmtxeCrzi9WVdSVAG98ed
 
-Oude van de chat van 17 nov: Steam (trig_01K545VbuHDjt5EYqtWgcypH) en Abel (trig_01C8MjM8mdFitn3ABamFi5Ve) staan uit. **Avondcheck (trig_01WhKTqEqGrpKWEdM28S7oXe) en Superhive (trig_012JkpmK4SCAySWA2FXWBmmX) staan nog aan**: uitzetten werd geblokkeerd, Thijs zet ze uit in de app (Geplande taken). Zolang ze aan staan, draaien die twee dubbel.
+Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 16:11, Avondcheck en Superhive om 17:12).
 
 ## 4. Wat de hoofdchat Thijs beloofde (open)
 
