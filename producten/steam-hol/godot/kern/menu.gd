@@ -8,7 +8,7 @@ extends RefCounted
 # Statisch zoals kaartje.gd; `s` is de strook.
 
 const HOOGTES := [96, 120, 160]
-const TITEL := "Het Hol"
+const TITEL := "Hats of the Fallen"   # naam van de app (app-aanmaken.md); de map en het bestand heten nog Het Hol
 const SAVE_REGEL := "Your save goes to the full game."   # Sem M1b (32 tekens), CONCEPT in platformen/steam/teksten-thijs.md
 # Leeg tot Thijs het subforum "Demo feedback" heeft (lijst-thijs); dan staat de knop er vanzelf.
 const FORUM_URL := ""
