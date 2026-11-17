@@ -7,7 +7,7 @@ HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
+HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes a lute.
 HOL begin: vluchten (Bram)
 HOL held binnen: Bram
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
@@ -15,7 +15,7 @@ HOL meting t=10 beelden=200 helden=2 hol_vast=2
 HOL kroniek 12.3 (wacht 0.0): Odo read about you in a tavern.
 HOL begin: opgegeten (Odo)
 HOL held binnen: Odo
-HOL kroniek 13.3 (wacht 0.9): Kees stays forever. +6
+HOL kroniek 13.3 (wacht 0.9): Kees is part of the hole now. +6
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
