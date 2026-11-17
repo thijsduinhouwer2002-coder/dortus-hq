@@ -96,7 +96,11 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE/$APP"
           python3 -c "import numpy, PIL" 2>/dev/null || pip install -q numpy pillow
-          python3 tel_slaap.py schermen fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2 | sudo tee -a schermen/uitslag.txt
+          # --streng: de job wordt rood als een inbrandscherm boven de 8% zit of niet te meten is.
+          CODE=0
+          python3 tel_slaap.py --streng schermen fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2 > /tmp/slaap.txt || CODE=$?
+          sudo tee -a schermen/uitslag.txt < /tmp/slaap.txt
+          exit $CODE
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -34,7 +34,14 @@ def main(map_, horloges):
         n2, a2, v2 = tel(wit, s2)
         n3, a3, v3 = tel(wit, s3)
         if n2 < 20000 or v2 is None or v3 is None:
-            print(f"SLAAP {d} NIET GEMETEN scherm_px={n2} (wit scherm of slaapbeeld niet gevonden)")
+            if d in INBRAND:
+                # Een inbrandscherm dat niet te meten is, is niet gekeurd: dat telt als fout.
+                fout = True
+                print(f"SLAAP {d} NIET GEMETEN scherm_px={n2} (wit scherm of slaapbeeld niet gevonden) oordeel=FOUT")
+            else:
+                # Gezien op fr55 (8 kleuren) en instinct2 (zwart-wit), run 43993153363: grijs wordt daar wit of zwart,
+                # en wit is niet te onderscheiden van het witte scherm waarmee het masker gemaakt wordt.
+                print(f"SLAAP {d} NIET GEMETEN scherm_px={n2} (scherm met weinig kleuren, grijs wordt wit of zwart) oordeel=telt niet (geen inbrandscherm)")
             continue
         p2, p3 = 100.0 * a2 / n2, 100.0 * a3 / n3
         dx, dy = v3[0] - v2[0], v3[1] - v2[1]
@@ -47,6 +54,10 @@ def main(map_, horloges):
             oordeel = "telt niet (geen inbrandscherm)"
         print(f"SLAAP {d} scherm_px={n2} aan={p2:.1f}% en {p3:.1f}% schuif={dx},{dy} oordeel={oordeel}")
     print("SLAAP_TELLING " + ("FOUT" if fout else "goed"))
+    return 1 if fout else 0
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2:])
+    # Met --streng faalt de bouwstraat als een inbrandscherm boven de grens zit of niet te meten is.
+    args = [a for a in sys.argv[1:] if a != "--streng"]
+    code = main(args[0], args[1:])
+    sys.exit(code if "--streng" in sys.argv else 0)
