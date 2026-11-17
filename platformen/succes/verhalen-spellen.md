@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 26 af 17 nov ±08:05 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: verhaal 27, Ropuka's Idle Island (Moczan, $3,99, geen demo, 4.113 reviews), 17 nov ±09:10 UTC
 
 Nieuwste bovenaan.
 
