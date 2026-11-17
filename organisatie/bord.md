@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 15:55 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 16:35 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -9,14 +9,14 @@
 | Product | Platform | Stand | Prijs | Volgende stap | Wie |
 |---|---|---|---|---|---|
 | **Hats of the Fallen** | Steam | In aanbouw. Hoofdzaak (besluit 15 nov 23:19) | nog te kiezen | wo 18 nov 12:00 Steam-app aanmaken met Thijs; wo 18 nov 20:00 winkelbeelden keuren met Thijs; za 21 nov speeltest (link vr 20 nov); **vr 27 nov pagina indienen** (7 werkdagen keuring); pagina live ±8 dec; demo 4 jan; Fest 14 tot 18 jan. Iris 17 nov: leuk 7, aandacht 6, mooi 6, doordacht 6. Open: 3 capsules zonder ja van Daan, staande en bibliotheekcapsule nog oude stijl (Mila staat uit), alle spel- en winkeltekst is concept tot Thijs hem schrijft | Olaf, Bram, Sanne, Daan, Iris |
-| **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 in keuring sinds 17 nov ±11:20. Live is 1.0.0, 0 downloads na een week | $2,99 (was $4,99) | keuring checken 20:00 | Gijs |
-| **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 in keuring (link naar Ebb, banner). Forumantwoord wacht op moderator | gratis | keuring checken 20:00 | Gijs |
-| **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40 | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
-| **Spraakmemo** | Garmin | **twijfel**: Garmin heeft zelf spraaknotities (opnemen en terugluisteren) op o.a. fēnix 8, fēnix 9, Enduro 3 (GEZIEN 17 nov). Niet bouwen tot dit is uitgezocht | nog niet | Gijs zoekt 15:52 uit welke microfoon-horloges géén ingebouwde notitie hebben; daarna doorgaan, omdraaien of stoppen | Gijs |
+| **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 live (Gijs zag APPROVED in de winkelgegevens, 17 nov ±16:00; 74 artikelnummers, video). 0 downloads, 0 reviews | $2,99 (was $4,99) | 20:00 zelf nakijken; downloads volgen | Gijs |
+| **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 live (Gijs, zelfde check; link naar Ebb, banner). 1 download. Forumantwoord wacht op moderator | gratis | 20:00 zelf nakijken | Gijs |
+| **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40, ±16:00 nog niet goedgekeurd (geen afwijzing gezien) | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
+| **Spraakmemo** | Garmin | **gestopt** 17 nov 16:35: 0 horloges met microfoon zonder ingebouwde spraaknotitie (Gijs, handleidingen nagelezen). Besluit in `besluiten.md` | | niets | niemand |
 | **Click Joints** (gratis) | Blender extensies | live | gratis | alleen meldingen | Bram |
 | **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
 | **Click Joints Pro 1.1** | idem | Ruben bouwt ("Figure from rig") | idem | plan: di ±18:00 naar Daan, wo ±14:00 op Gumroad | Ruben, Daan |
-| **Bison & Flex** | JetBrains | openbaar sinds 17 nov 13:55 | 30 dagen proef, $19/jaar | koopknop (buyUrl) nog leeg: 20:00 checken; forumbericht wo 18 nov; awesome-lijst ±vr 20 nov | Chris |
+| **Bison & Flex** | JetBrains | openbaar sinds 17 nov 13:55, prijs staat live ($19 / $49 per jaar). Lege koopknop (buyUrl) is normaal bij verkoop via JetBrains (Chris, GEZIEN) | 30 dagen proef, $19/jaar | gratis voor studenten en open bron en betalen per maand staan NIET aan: in Sales Info proberen, anders de mail van Chris (`berichten/hoofdchat.md` 17 nov 15:05 UTC); forumbericht wo 18 nov; awesome-lijst ±vr 20 nov | Chris, hoofdchat |
 | **Rollwright** | Obsidian | live, 44 downloads, 0 verkopen | | geparkeerd, alleen bugs | Olaf |
 | **Klopt** | TikTok Shop | kan niet live (KvK moet 1 jaar oud zijn) | | geparkeerd | niemand |
 | **Chrome-extensie** | Chrome Web Store | niet gebouwd (besluit 17 nov 10:50) | | geparkeerd | niemand |
@@ -32,7 +32,7 @@
 | Daan | aan | elk uur, :23 | ontwerp keuren voor alle teams, Garmin-banners |
 | Sanne | aan | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
 | Iris | aan | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
-| Gijs | aan | elk uur, :52 | spraakmemo, en de keuring van de 3 Garmin-apps |
+| Gijs | aan | elk uur, :52 | alleen keuring Hat Tower en downloads Ebb; spraakmemo gestopt, reeks stil tot geldkeuze |
 | Ruben | aan | elk uur, :03 | Click Joints Pro 1.1 |
 | Chris | aan | elke 3 uur, :41 (9 tot 21) | verspreiden: JetBrains-forum, Hat Tower, Superhive, filmpjes |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
@@ -62,6 +62,7 @@ Oude van de chat van 17 nov: Steam (trig_01K545VbuHDjt5EYqtWgcypH) en Abel (trig
 - Elke avond: kijken of de Garmin-apps en Bison & Flex echt zichtbaar en koopbaar zijn.
 - Gumroad-omslag van Pro vervangen.
 - Dit bord bijhouden.
+- Met Thijs kiezen hoe we snel geld verdienen (gevraagd 17 nov 16:30).
 
 ## 5. Wat Thijs moet doen
 
