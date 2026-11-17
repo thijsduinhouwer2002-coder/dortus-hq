@@ -2,6 +2,37 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 17 nov 2026 17:25 UTC: run 3, hoek AI-marktplaatsen en agent-winkels, 0 ideeën klaar voor keuring, 4 zelf afgeschoten
+
+Tijd uit `date -u` (gestart 17:01 UTC). Hoek volgens het nieuwste bericht van de hoofdchat (koers Kingmaker), niet de oude hoek uit mijn geplande opdracht. Eerst nagekeken of de twee winkels van mijn vorige les betalen hebben aangezet: **nee**. ChatGPT-plugins: nog steeds "current approval is limited to plugins for physical goods purchases" (GEZIEN 17 nov 17:18 UTC, developers.openai.com/plugins/build/monetization.md). Hermes Marketplace: 2.450 plugins, geen prijsveld (GEZIEN 17 nov, hermes-agent.nousresearch.com/marketplace).
+
+**Les van deze run.** Er is wel een winkel die net een kassa opende (Grafana, 20 okt), maar daar kopen bedrijven via contracten en de lijst wordt gevuld door integratiefabrieken; de verkochte plugins halen een mediaan van 9 downloads. En de nieuwe betaalrails voor agents (x402) zijn groot in aantallen maar klein in geld: ±$16.600 per week over 635 verkopers, 2,4 cent per keer. Kassa en vroeg blijven in mijn hoek uit elkaar liggen. Het eerstvolgende echte moment is Microsoft Ignite (keynote vandaag 18:00 UTC, na deze run).
+
+### Zelf afgeschoten: betaalde plugin voor de nieuwe Grafana Marketplace | DOOD op wet 2, zwak op vraag 4 en 7
+- Waarom het lokte: Grafana opende op 20 okt 2026 een winkel voor betaalde plugins in Grafana Cloud. Grafana regelt de rekening, elke plugin krijgt 14 dagen gratis proberen en maandabonnementen (GEZIEN 17 nov, grafana.com/blog/grafana-marketplace en itbrief.news, 20 okt 2026). Vier weken oud, met een kassa: precies wat ik zocht.
+- **Wat er staat.** In de open API (`grafana.com/api/plugins`, GEZIEN 17 nov) staan 391 plugins, waarvan 39 als "marketplace". Daarvan zijn er 25 van één integratiebureau (Crest Data: Zoom, SharePoint, Tableau, vSphere, Zscaler, Qualys, Wiz ...), de rest van 8 kleine bedrijven. Mediaan 9 downloads per betaalde plugin; de beste Cisco Meraki 8.368, Microsoft Teams Observability 3.574. De nieuwste van een klein bedrijf, endoflife.ai EOL (6 nov), staat op 5.
+- **Wet 2, harde nee.** Wie in Grafana een databron koopt, koopt een koppeling met zijn eigen dure bedrijfssoftware (Meraki, Zscaler, Nutanix). Dat is per definitie een nis per klantgroep, geen basistaak die iedere Grafana-gebruiker nodig heeft. De basistaken (Prometheus, Loki, databases, cloud) maakt Grafana zelf, gratis: 121 van de 391 plugins zijn van Grafana Labs.
+- **Vraag 7.** Verkopen kan alleen als partner na keuring van het bedrijf, met een contract: kritieke lekken binnen 7 dagen dichten, hoge binnen 30 dagen (zelfde blog). Een aanmeldronde liep tot 30 sep (community.grafana.com/t/164428). Dat is werk en verplichtingen voor Thijs, en buiten onze 7 dagen.
+- **Vraag 4.** Mediaan 9 downloads in 1 tot 7 maanden zegt dat er weinig wordt geprobeerd. Hoeveel er betaald wordt: ONBEKEND, Grafana noemt geen omzet.
+
+### Zelf afgeschoten: betaalde API voor agents met per-keer-betalen (x402 of MPP) | DOOD op wet 1 en wet 3
+- Waarom het lokte: in de Hermes Marketplace staan nu plugins waarmee een agent zelf "priced APIs" vindt en per verzoek betaalt (HTTP 402, x402, MPP; GEZIEN 17 nov). Een eigen kassa die agents zelf gebruiken, zonder winkel ertussen.
+- **Wet 1:** al 175.450 gevolgde endpoints, waarvan 61% niet eens antwoordt (GEZIEN 17 nov, dev.to/minia2a "175,450 endpoints, 630 paid sellers", cijfers bijgewerkt 15 nov). Niet vroeg.
+- **Wet 3:** in de week 8 tot 14 nov 696.510 betalingen voor samen $16.589, gemiddeld $0,024, over 635 betaalde verkopers; gemiddeld ±$114 per verkoper per maand, de mediaan lager (zelfde bron). Bij de grootste verkopers komt 78% tot 99,7% van het geld van één koper (GEZIEN 17 nov, dev.to/feldsparaiagent, oktober 2026). Dat is geen betaalcultuur, dat zijn een paar grote bots. Plus: betalen in stablecoins vraagt een wallet, dat is geld en dus Thijs.
+
+### Zelf afgeschoten: overstaphulp voor OpenAI Agent Builder (stopt 30 nov) | DOOD op vraag 1, 2 en wet 1
+- OpenAI kondigde op 3 juni 2026 aan dat Agent Builder, het Evals-platform en herbruikbare prompts op 30 nov stoppen; de opvolgers zijn de Agents SDK of Workspace Agents in ChatGPT (GEZIEN 17 nov, pickaxe.co/post/openai-agent-builder-deprecation en rerun.build/blog/openai-agent-builder, met verwijzing naar de deprecations-pagina van OpenAI).
+- **Vraag 1:** Agent Builder kon zelf al "exported Agents SDK code" geven (rerun.build). Het omzetten is ingebouwd.
+- **Vraag 2:** de vluchtelingen worden al opgevangen door Pickaxe, Rerun, TaskJuice en anderen met eigen overstapgidsen (zoekresultaten 17 nov). **Wet 1:** aangekondigd 5,5 maand geleden, niet vroeg. Dit sluit het spoor uit run 2.
+
+### Zelf afgeschoten (snel): app voor het volle scherm in Claude (interactive connectors, 10 nov) | DOOD op vraag 2 en wet 4
+- Sinds 10 nov 2026 kan een connector op MCP Apps zijn hele programma naast het gesprek openen; iedereen met een betaald plan kan indienen, zonder partnerprogramma (GEZIEN 17 nov, claude.com/blog/interactive-connectors-full-tool en claude.com/docs/directory/publish). Geen kassa in de directory, wel een eigen kassa mogelijk via een eigen account achter de connector.
+- Maar de eerste vulling is van de makers zelf: Asana, Canva, Dropbox, monday.com, Smartsheet, Vercel, Webflow, Adobe, Atlassian, Box, HubSpot, Notion, en Figma en Shopify komen eraan (zelfde blog). Een koppeling met andermans programma bouw je niet beter dan de maker, en de brede taken (bestanden, documenten, ontwerp) zijn op dag 1 bezet. Een eigen viewer of editor botst met wat Claude zelf al heeft (artifacts, documenten).
+
+### Spoor voor de volgende run
+- **Microsoft Ignite, 17 tot 20 nov.** Keynote vandaag 10:00 PT (18:00 UTC), het Book of News komt pas daarna online (news.microsoft.com/events/ignite/2026/book-of-news, om 17:20 UTC nog leeg; microsoft.com-blogs geven 403 op curl). Zoeken op: een winkel voor agents in Windows of Microsoft 365 met omzetdeling voor makers (de "Windows Agent Store, 85%" uit run 2 had geen bron van Microsoft). Als die er is, met een kassa en open voor kleine makers, is dit het vroege moment.
+- Blijven nakijken: betaalpagina ChatGPT-plugins en het prijsveld in de Hermes-data.
+
 ## 17 nov 2026 16:05 UTC: run 2, nieuwe hoek (AI-marktplaatsen en agent-winkels), 0 ideeën klaar voor keuring, 5 zelf afgeschoten
 
 Tijd uit `date -u`. Hoek volgens het nieuwste bericht van de hoofdchat (17 nov ±16:55 NL) en `organisatie/koers-kingmaker.md`; dat gaat voor de oude hoek "betaald maar gehaat" die nog in mijn geplande opdracht staat. Al eerder bekeken en niet herhaald: ChatGPT-plugins als winkel, Claude Marketplace, MCP Marketplace, Apify, Notion-agents, Google Connected Apps (`platformen/pionier/onderzocht.md`), Custom GPT naar MCP (Noor).
