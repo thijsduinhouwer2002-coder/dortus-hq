@@ -74,6 +74,7 @@ var kaart := {}
 var knop_koop := Rect2()   # in vensterpixels, voor de klik (strook.gd); leeg als er geen knop staat
 var knop_undo := Rect2()
 var knop_weg := Rect2()
+var knop_menu: Array = []   # rechtsklikmenu (kern/menu.gd): [[Rect2, actie], ...] in vensterpixels
 
 # Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
 func _paneel(rect: Rect2) -> void:
@@ -277,6 +278,10 @@ func _draw_kaart() -> void:
 	knop_koop = Rect2()
 	knop_undo = Rect2()
 	knop_weg = Rect2()
+	knop_menu = []
+	if bool(kaart.get("menu", false)):
+		_draw_menu(kx, ky, kh, x + bw, M, vet)
+		return
 	if int(kaart.kost) >= 0 and bool(kaart.get("demo_over", false)):
 		# demo voorbij: tekst in plaats van de knop, zonder klikvlak (kern/demo_einde.gd)
 		var vol: String = preload("res://kern/demo_einde.gd").KAART
@@ -297,11 +302,43 @@ func _draw_kaart() -> void:
 	if bool(kaart.get("weg", false)):
 		knop_weg = _knop(kx, ky, kh, "Remove", int(M.knop2), vet)
 
+# Rechtsklikmenu (kern/menu.gd): één rij knoppen 96 120 160 [Feedback] Quit. De huidige hoogte staat ingedrukt: geen
+# knop maar het getal in goud op dezelfde plek, zonder klikvlak. Past Feedback niet, dan wordt het "?" (zelfde letters).
+func _draw_menu(kx: float, ky: float, kh: float, rechts: float, M: Dictionary, vet: Font) -> void:
+	var tussen := 3 * schaal
+	var acties: Array = []
+	for h in kaart.hoogtes:
+		acties.append(str(h))
+	if bool(kaart.feedback):
+		acties.append("feedback")
+	acties.append("quit")
+	var namen := {"feedback": "Feedback", "quit": "Quit"}
+	var maat := int(M.knop2)
+	# past alles op de rij? anders Feedback als "?"
+	var breed := 0.0
+	for a in acties:
+		breed += vet.get_string_size(String(namen.get(a, a)), HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal + tussen
+	if breed > rechts - kx:
+		namen["feedback"] = "?"
+	for a in acties:
+		var t: String = namen.get(a, a)
+		if a == str(int(kaart.nu)):
+			var tw := vet.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+			var r := Rect2(kx, ky, tw + 6 * schaal, kh)
+			draw_rect(Rect2(r.position.x, r.end.y - schaal, r.size.x, schaal), Color("#f2c14e"))   # streep eronder: dit is nu
+			draw_string(vet, Vector2(kx + 3 * schaal, ky + kh / 2.0 + maat * 0.35), t, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#ffe07a"))
+			kx = r.end.x + tussen
+			continue
+		var k := _knop(kx, ky, kh, t, maat, vet)
+		knop_menu.append([k, a])
+		kx = k.end.x + tussen
+
 func _draw() -> void:
 	if not kaart.is_empty():
 		_draw_kaart()
 		return
 	knop_koop = Rect2()
+	knop_menu = []
 	knop_undo = Rect2()
 	knop_weg = Rect2()
 	var font := _letter(450)

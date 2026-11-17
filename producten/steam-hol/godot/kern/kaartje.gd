@@ -148,6 +148,8 @@ static func dicht(s, toon := true) -> void:
 		s._toon()   # wat in de wachtrij stond komt nu
 
 static func ververs(s) -> void:
+	if s.kaart_soort == "menu":
+		return   # het rechtsklikmenu (kern/menu.gd) heeft geen koopvelden om te verversen
 	s.tekst.kaart = beschrijving(s, s.kaart_soort) if s.kaart_soort != "" else {}
 	s.tekst.goud = s.hol.goud
 	s.tekst.queue_redraw()

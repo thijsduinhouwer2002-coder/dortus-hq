@@ -1362,5 +1362,58 @@ func _nieuwe_held() -> bool:
 	# Hernoem je het project, laat deze map dan staan (of kopieer de oude map eenmalig) en pas pas daarna deze toets aan.
 	ok(ProjectSettings.get_setting("application/config/use_custom_user_dir", false) == true, "savemap: eigen map aan")
 	ok(ProjectSettings.get_setting("application/config/custom_user_dir_name", "") == "Dortus/Het Hol", "savemap blijft Dortus/Het Hol: " + str(ProjectSettings.get_setting("application/config/custom_user_dir_name", "")))
+	# rechtsklikmenu (Olaf 17 nov, demolijst nr 12, ontwerp.md Rechtsklikmenu): kern/menu.gd met een nagebootste strook
+	var MN = load("res://kern/menu.gd")
+	var nep_t := GDScript.new()
+	nep_t.source_code = "extends RefCounted\nvar kaart := {}\nvar knop_menu: Array = []\nvar hover := false\nfunc queue_redraw() -> void:\n\tpass\n"
+	nep_t.reload()
+	var nep_m := GDScript.new()
+	nep_m.source_code = """extends RefCounted
+const KAARTJE := preload("res://kern/kaartje.gd")
+var kaart_soort := ""
+var kaart_gekocht := false
+var kaart_regel := ""
+var kaart_kol := -1
+var kaart_t := 0.0
+var t := 10.0
+var steamdemo := false
+var hoogte := 120
+var tekst
+var gezet := 0
+var gestopt := false
+var getoond := 0
+func log_regel(_r: String) -> void:
+	pass
+func _muis_vlak(_p: bool) -> void:
+	pass
+func _toon() -> void:
+	getoond += 1
+func zet_hoogte(h: int) -> void:
+	gezet = h
+func stop() -> void:
+	gestopt = true
+"""
+	nep_m.reload()
+	var mstr = nep_m.new()
+	mstr.tekst = nep_t.new()
+	MN.wissel(mstr)
+	ok(mstr.kaart_soort == "menu" and mstr.hoogte == 120 and mstr.gezet == 0, "menu: rechtsklik opent het menu, de hoogte verspringt niet")
+	ok(mstr.tekst.kaart.get("menu", false) and mstr.tekst.kaart.nu == 120 and mstr.tekst.kaart.uitleg == "", "menu: kaart met huidige hoogte, vol spel zonder saveregel")
+	ok(mstr.tekst.kaart.feedback == (MN.FORUM_URL != ""), "menu: Feedback alleen met een forumlink (nu leeg: geen knop)")
+	mstr.tekst.knop_menu = [[Rect2(0, 0, 10, 10), "96"], [Rect2(20, 0, 10, 10), "160"], [Rect2(40, 0, 10, 10), "quit"]]
+	ok(MN.klik(mstr, Vector2(25, 5)) and mstr.gezet == 160, "menu: klik op 160 zet de hoogte 160")
+	ok(MN.klik(mstr, Vector2(45, 5)) and mstr.gestopt, "menu: klik op Quit stopt (bewaren zit in strook.stop)")
+	ok(MN.klik(mstr, Vector2(100, 5)) and mstr.kaart_soort == "", "menu: klik ernaast sluit alleen")
+	MN.wissel(mstr)
+	MN.wissel(mstr)
+	ok(mstr.kaart_soort == "", "menu: tweede rechtsklik sluit het menu")
+	mstr.steamdemo = true
+	mstr.kaart_soort = "slijm"
+	MN.wissel(mstr)
+	ok(mstr.kaart_soort == "menu" and mstr.tekst.kaart.uitleg == MN.SAVE_REGEL, "menu: vervangt een open kaartje, demo toont de saveregel")
+	MN.doe(mstr, "120")
+	ok(mstr.kaart_soort == "" and mstr.gezet == 160, "menu: de huidige hoogte kiezen sluit alleen, geen herstart")
+	ok(MN.link("https://x", true) == "steam://openurl/https://x" and MN.link("https://x", false) == "https://x", "menu: link via Steam-overlay of browser")
+	ok(MN.SAVE_REGEL.length() <= 40, "menu: saveregel hooguit 40 tekens")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

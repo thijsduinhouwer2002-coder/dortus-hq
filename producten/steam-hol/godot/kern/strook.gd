@@ -16,6 +16,7 @@ const BEELDTEMPO := preload("res://kern/beeldtempo.gd")
 const RITME := preload("res://kern/ritme.gd")   # wanneer de volgende held komt; graven in de demo-film
 const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of terugkomer binnen laten
 const KAARTJE := preload("res://kern/kaartje.gd")
+const MENU := preload("res://kern/menu.gd")   # rechtsklikmenu: hoogte, Feedback, Quit (demolijst nr 12)
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
 const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
 const MUISVLAK := preload("res://kern/muisvlak.gd")   # welk deel van het venster de muis vangt
@@ -52,6 +53,7 @@ var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, allee
 var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
+var proef_menu := false      # menu_proef=1: rechtsklikmenu na 5 s open (kern/proef.gd), voor het beeld
 var proef_plat := false      # plat_proef=1: Gloop plat zonder regel (twee keer al gemeld), alleen om te keuren (Daan 16 nov 20:35)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
@@ -373,6 +375,8 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if MENU.is_open(self) and MENU.klik(self, event.position):
+			return
 		if KAARTJE.klik(self, event.position):
 			log_regel("HOL klik op %s: kaartje" % event.position)
 			return
@@ -382,7 +386,9 @@ func _input(event: InputEvent) -> void:
 		var wat: String = hol.klik(p)
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
+		MENU.wissel(self)   # was: meteen de volgende hoogte; nu het menu (kern/menu.gd, ontwerp.md Rechtsklikmenu)
+	elif event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE and MENU.is_open(self):
+		KAARTJE.dicht(self)
 	if event is InputEventMouseMotion and holbord != null and holbord.actief():
 		var pb: Vector2 = (event.position - hol.position) / schaal
 		var op_bord: bool = holbord.vlak().has_point(pb)
@@ -434,6 +440,13 @@ func zet_hoogte(h: int) -> void:
 		f.store_string(JSON.stringify({"hoogte": h}))
 		f.close()
 	get_tree().reload_current_scene()
+
+# Quit uit het menu: zelfde weg als het venster sluiten (wachtende koopregel eerst, dan bewaren), dan stoppen.
+func stop() -> void:
+	log_regel("HOL stop via menu")
+	KAARTJE.dicht(self, false)
+	bewaar()
+	get_tree().quit()
 
 func bewaar() -> void:
 	OPSLAG_M.bewaar(self)
