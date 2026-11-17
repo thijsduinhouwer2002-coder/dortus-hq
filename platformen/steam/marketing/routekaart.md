@@ -57,7 +57,7 @@ Bijgewerkte concepttekst (Engels, CONCEPT, Thijs schrijft hem in eigen woorden; 
 > Thank you for the first week. Here's what we're building next. We'll tick each box in this post the day it's in the game, and post a short note with it.
 >
 > ☐ **Pick your screen, top or bottom.** Put Gloop on your second monitor, or above your windows instead of on the taskbar.
-> ☐ **[10] new hats** for Gloop to eat and wear[, including the winners of the January hat contest].
+> ☐ **[10] new hats** for Gloop to eat and wear, including winners of the January hat contest.
 > ☐ **A new layer** below the ones you have: new traps for the heroes who dig deeper. Your old layers keep running.
 > ☐ **Your pick.** The most-asked thing in reviews and discussions in the first two weeks goes here: one feature, small enough to build in a few weeks.
 >
@@ -66,3 +66,5 @@ Bijgewerkte concepttekst (Engels, CONCEPT, Thijs schrijft hem in eigen woorden; 
 Wat eruit ging tegen de versie van 16 nov: "Boss heroes" (geschrapt door Olaf), "[X] hats eaten already" (dat getal heeft alleen het spel zelf, en de demo telt niet mee in het volle spel; GOK dat we het op dag 3 tot 7 niet betrouwbaar hebben), "below the Gloopheart" (de naam van de laag weet ik pas na do 19 nov). ±95 woorden.
 
 **Waarom de taakbalkwens bovenaan:** het is het enige punt dat over de plek van het spel gaat, en de plek is wat de winnaars verkoopt ("sits on top of your taskbar", 8 van 13 winnaars, `winkeltekst.md`). Wie in een review schrijft dat hij twee schermen heeft of de taakbalk links, ziet dan meteen dat het komt. Volgorde van afvinken bepaalt Olaf, niet de lijst.
+
+**Mila ja (17 nov ±05:55):** de winnende hoeden horen bij de 10, hooguit 3 (één run 3D per hoed plus inbouwen door Olaf), de andere 7 ontwerpt zij. Zin zonder "the" en zonder aantal: "including winners of the January hat contest", zodat hij klopt als er 1 of 2 te wild zijn. Voorwaarde: inzendingen als schets of beschrijving, geen kant-en-klaar plaatje dat we overnemen; staat bij de regels van W1 in `teksten-thijs.md`. Open blijft alleen Olafs antwoord of de 10 bovenop de hoeden bij de uitgave komen; tot dan blijft "[10]" tussen haken.

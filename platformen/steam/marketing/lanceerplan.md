@@ -32,7 +32,9 @@ Controle zonder korting 0,7x. Eerlijk: 4 etalagegevallen is weinig, en een Daily
 |---|---|---|
 | ±16 feb | mails voor bundels (Mister Morris Games voor Bottom-Of-Your-Screen, Tiny Pasture lanceerbundel met hun sjabloon, Cozy Mining, Hero Town) | `bundels.md` |
 | uitgavedag | uitgavebericht A10, bundelpost A9 als de bundels staan | `teksten-thijs.md` |
-| dag 3 tot 7 | routekaart A8 met 5 vakjes, afvinken in dezelfde post | `routekaart.md` |
+| dag 2 of 3 | eenmalige reviewzin A11, zonder beloning (run 19) | `teksten-thijs.md` |
+| dag 3 tot 7 | routekaart A8 met 4 vakjes (run 19), afvinken in dezelfde post | `routekaart.md` |
+| dag 7 | meetpunt: 10 meegetelde reviews (run 19) | hier, kopje Lanceermeetlat |
 | 4 tot 8 weken erna | gasthoed met Rusty's als update, alleen met iets nieuws om te spelen | `bundels.md`, kopje Crossovers |
 | ±1 apr of later | eerste grote update, eigen dag zonder korting (bijgesteld run 15) | hier |
 | eerste passend themafest, anders Summer Sale 24 jun | eerste korting 20 tot 25% | hier |
@@ -67,3 +69,14 @@ Aanleiding: Fenna verhaal 24 en haar bericht aan de hoofdchat (17 nov ±06:00). 
 | demo staat nog | 1 dag na Next Fest | ±4 weken na Next Fest; Valve: veel spelers downloaden in het fest en spelen later, dus die weken telt de demo nog |
 | let op | | **ma 29 mrt is Tweede Paasdag** (Pasen 2027 is 28 mrt; vrij in NL, DE, UK, FR). Een spel "voor als je werkt" komt dan uit op een vrije dag in Europa; GOK of dat slecht is, maar ik zou di 30 mrt of wo 31 mrt kiezen |
 Mijn oordeel: voor de marketing kan het allebei; mijn plannen schuiven mee zonder verlies, en eind maart geeft de bundelmails sterkere cijfers. Kiest de hoofdchat eind maart, dan **di 30 of wo 31 mrt**, niet ma 29 mrt. Ik verander niets aan de datums in dit plan tot de hoofdchat kiest.
+
+## Lanceermeetlat: 10 meegetelde reviews in 7 dagen (run 19, Fenna verhaal 25, overgenomen)
+Valve (`doc/store/reviews`, via Fenna, GEZIEN door haar): "Only purchases (not key activation) made by the reviewing account are included in the review score", en een oordeel op de pagina komt pas bij 10 meegetelde reviews. Fenna mat 431 betaalde bureaubladspellen (`platformen/succes/data/eerste-reviews-tempo-bureaublad-2026-11-17.csv`): **alle 85 met 100+ reviews haalden hun eerste 10 in de eerste ±2 weken; van de 51 die er langer over deden kwam er geen boven de 100.** Bij 18 trage spellen gaf de tiende review geen sprong (1,2 naar 1,0 per week). Dat is een teken van publiek, geen knop.
+
+**Besluit Sem:**
+1. **Meetpunt lanceerweek: 10 meegetelde reviews binnen 7 dagen na de uitgave** (de pagina toont dan een oordeel, iedereen kan het zien; Thijs hoeft niets af te lezen). Gehaald: duwen in week 2 (makers, clips, bundelpost). Niet gehaald: de tijd gaat naar het volgende moment (eerste themafest of Summer Sale), niet naar meer duwen in de lanceerweek. De grens is een rand uit Fenna's tabel, GOK als voorspelling.
+2. **Geen sleutelronde om reviews te halen.** Sleutels alleen voor curatoren en makers met bereik (`curatoren.md`, `makers.md`), met de zin uit regel 6e van `teksten-makers.md`. Geen weggeefactie op Reddit of Discord rond de lancering.
+3. **Eén keer vragen, zonder beloning:** A11 in `teksten-thijs.md` (CONCEPT), dag 2 of 3. Nooit in het spel of de demo; de knop "Feedback" gaat naar het forum, dat is geen reviewvraag.
+4. **Wat het vraagt (GOK):** met ±30 verkopen per review (aanname uit het besluit van Hans, 9 nov 20:44) zijn 10 reviews ±300 kopers in de eerste week, ±12% van een lijst van 2.500 verlanglijstjes (het festdoel). Dat is de echte reden waarom het festplan om verlanglijstjes draait: de eerste 10 reviews komen van mensen die al wachten.
+
+**Lanceerweek in de tabel hierboven aangevuld:** dag 2 of 3 A11; dag 7 meetpunt reviews.
