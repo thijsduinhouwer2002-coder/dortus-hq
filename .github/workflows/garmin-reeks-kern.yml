@@ -81,7 +81,7 @@ jobs:
           # De waarschuwingen van het pakket, per soort geteld (zonder de naam van het horloge), zodat ze te lezen zijn.
           echo "WAARSCHUWINGEN per soort:" >> "$U"
           grep -a -i warning /tmp/iq-proef.log | sed -E 's/^WARNING: [^:]+: //' | sort | uniq -c | sort -rn | head -40 | cut -c1-300 >> "$U" || true
-          for d in fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2 fr265s; do
+          for d in fr255 fenix847mm venu3s vivoactive5 fr55 fr245 venusq2 fr265s; do
             monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             # Stap (d): zit de instelling voor het thema in het pakket? (de bouw zet de instellingen naast het programma)
@@ -124,6 +124,11 @@ jobs:
           grep -q "^fenix847mm KERN SOORT betaald=ja " "$U" && echo "BETAALD_IN_BEELD goed" >> "$U" || echo "BETAALD_IN_BEELD FOUT" >> "$U"
           # Run 134: de zes nieuwe pictogrammen in beeld (Proef.velden): vlam, trap, stopwatch op de fenix 8; speld, accu, thermometer op de 255.
           grep -q "^fenix847mm KERN SOORT betaald=ja thema=1 velden=3,4,5" "$U" && grep -q "^fr255 KERN SOORT betaald=ja thema=2 velden=6,7,8" "$U" && echo "NIEUWE_VELDEN_IN_BEELD goed" >> "$U" || echo "NIEUWE_VELDEN_IN_BEELD FOUT" >> "$U"
+          # Run 135 (punt van Chris): de Instinct 2 en de eerste Venu Sq kregen alleen de tijd (Maten.passen geeft daar false),
+          # dus ze staan niet meer in het manifest. Beide manifesten noemen dezelfde horloges.
+          if ! grep -q -E 'product id="(instinct2|venusq)"' manifest.xml manifest-gratis.xml && [ "$(grep -o 'product id="[^"]*"' manifest.xml | sort)" = "$(grep -o 'product id="[^"]*"' manifest-gratis.xml | sort)" ]; then echo "MANIFEST goed (zonder instinct2 en venusq, betaald en gratis gelijk: $(grep -c 'iq:product id' manifest.xml) horloges)" >> "$U"; else echo "MANIFEST FOUT" >> "$U"; fi
+          # Run 135 (vraag van Daan): de Venu 3S toont stappen, afstand en accu.
+          grep -q "^venu3s KERN SOORT betaald=ja thema=3 velden=2,6,7" "$U" && echo "VENU3S_VELDEN goed" >> "$U" || echo "VENU3S_VELDEN FOUT" >> "$U"
           # De naam op het horloge per versie (Chris, 17 nov): Skiff en Skiff Free.
           [ "$(grep -c '>Skiff<' betaald/strings/strings.xml)" = 1 ] && [ "$(grep -c '>Skiff Free<' gratis/strings/strings.xml)" = 1 ] && echo "NAAM goed (Skiff en Skiff Free)" >> "$U" || echo "NAAM FOUT" >> "$U"
           grep -q "app_id_anders=ja" "$U" && echo "APP_ID goed (gratis en betaald verschillen)" >> "$U" || echo "APP_ID FOUT" >> "$U"
@@ -166,7 +171,7 @@ jobs:
           python3 -c "import numpy, PIL" 2>/dev/null || pip install -q numpy pillow
           # --streng: de job wordt rood als een inbrandscherm boven de 8% zit of niet te meten is.
           CODE=0
-          python3 tel_slaap.py --streng schermen fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2 fr265s > /tmp/slaap.txt || CODE=$?
+          python3 tel_slaap.py --streng schermen fr255 fenix847mm venu3s vivoactive5 fr55 fr245 venusq2 fr265s > /tmp/slaap.txt || CODE=$?
           sudo tee -a schermen/uitslag.txt < /tmp/slaap.txt
           exit $CODE
       - uses: actions/upload-artifact@v4

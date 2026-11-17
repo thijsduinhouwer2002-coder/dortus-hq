@@ -64,6 +64,17 @@ module Teken {
             // zool als twee vlakken met een donkere naad ertussen. Getallen in honderdsten van h, midden cx, cy.
             dc.fillPolygon(vlak(SCHOEN_BOVEN, cx, cy, h));
             dc.fillPolygon(vlak(SCHOEN_ZOOL, cx, cy, h));
+        } else if (soort == 7 && h < KLEIN) {
+            // Run 135 (moet van Daan): klein werd de accu van vlakken een dicht blok. Hier in hele pixels.
+            var d = accuKlein(cx, cy, h);
+            for (var i = 0; i < d.size(); i++) {
+                dc.fillRectangle(d[i][0], d[i][1], d[i][2], d[i][3]);
+            }
+        } else if (soort == 8 && h < KLEIN) {
+            // Run 135 (moet van Daan): klein leek de thermometer een flesje. Dunne steel, ronde bol eronder.
+            var th = thermoKlein(cx, cy, h);
+            dc.fillRectangle(th[0], th[1], th[2], th[3]);
+            dc.fillCircle(th[4], th[5], th[6]);
         } else {
             // Run 134: de zes nieuwe soorten (Mila, ontwerp/garmin/tij/iconen/iconen.mc.txt), elk een paar vlakken.
             var v = vlakken(soort);
@@ -71,6 +82,40 @@ module Teken {
                 dc.fillPolygon(vlak(v[i], cx, cy, h));
             }
         }
+    }
+
+    // Onder deze hoogte (px) tekenen accu en thermometer in hele pixels in plaats van met de vlakken van Mila:
+    // afronden van vlakken maakt de rand van de accu en de steel van de thermometer dan een pixel te dik.
+    const KLEIN = 14;
+
+    // De kleine accu als zes rechthoeken [x, y, breedte, hoogte]: boven, onder, links, rechts (rand van 1 px),
+    // het nopje rechts en de vulling die tegen de linkerrand staat en de helft van de binnenkant vult. De rest
+    // van de binnenkant blijft open, minstens 2 px breed en 2 px hoog, zodat het geen dicht blok wordt.
+    function accuKlein(cx as Number, cy as Number, h as Number) as Array< Array<Number> > {
+        var bw = h;
+        var bh = (h * 2 + 1) / 3;
+        if (bh < 5) {
+            bh = 5;
+        }
+        var x = cx - (bw + 1) / 2;
+        var y = cy - bh / 2;
+        var nh = bh - 4;
+        if (nh < 2) {
+            nh = 2;
+        }
+        var vul = (bw - 2) / 2;
+        return [[x, y, bw, 1], [x, y + bh - 1, bw, 1], [x, y, 1, bh], [x + bw - 1, y, 1, bh],
+            [x + bw, cy - nh / 2, 1, nh], [x + 1, y + 1, vul, bh - 2]] as Array< Array<Number> >;
+    }
+
+    // De kleine thermometer: [steel x, steel y, steel breedte, steel hoogte, bol x, bol y, bol straal]. De bol is
+    // aan elke kant minstens 2 px breder dan de steel (moet van Daan) en blijft binnen de hoogte h.
+    function thermoKlein(cx as Number, cy as Number, h as Number) as Array<Number> {
+        var s = (h < 11) ? 1 : 3;
+        var r = (h < 11) ? 2 : 3;
+        var top = cy - h / 2;
+        var by = top + h - 1 - r;
+        return [cx - s / 2, top, s, by - top, cx, by, r] as Array<Number>;
     }
 
     // De vlakken van een pictogram voor de soorten 3 tot 8 (Veld.mc): vlam (calorieën), trap (trappen), stopwatch

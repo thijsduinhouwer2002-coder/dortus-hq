@@ -74,7 +74,7 @@ module Proef {
 
     // Bouwstraat (run 134): de betaalde proef toont op vier horloges andere velden, zodat de zes nieuwe
     // pictogrammen groot en klein in beeld komen: breedte 454 en 240 vlam, trap en stopwatch; 260 en 208 speld,
-    // accu en thermometer. De andere horloges (176, 320, 360, 390) houden de keuze, dus hart, bliksem en schoen
+    // accu en thermometer. De andere horloges (320, 360; sinds run 135 niet meer 390) houden de keuze, dus hart, bliksem en schoen
     // blijven ook in beeld (punt van de keurder). De gratis proef toont zijn echte, vaste velden.
     (:proef)
     function velden(gekozen as Array<Number>, breedte as Number) as Array<Number> {
@@ -86,6 +86,11 @@ module Proef {
         }
         if (breedte == 260 || breedte == 208) {
             return [Veld.AFSTAND, Veld.ACCU, Veld.TEMP] as Array<Number>;
+        }
+        // Run 135 (vraag van Daan voor plaatje 2): de Venu 3S en de vívoactive 5 (390) tonen stappen, afstand en
+        // accu, zodat Night andere velden toont dan Dusk. Hart, bliksem en schoen blijven op 320 en 360 in beeld.
+        if (breedte == 390) {
+            return [Veld.STAPPEN, Veld.AFSTAND, Veld.ACCU] as Array<Number>;
         }
         return gekozen;
     }

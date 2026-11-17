@@ -142,3 +142,44 @@ function testWinkelEchteVelden(logger as Test.Logger) as Boolean {
     return Proef.veld(Veld.CALORIE, 7) == 7 && Proef.veld(Veld.TEMP, 21) == 21 && Proef.veld(Veld.AFSTAND, null) == null
         && Proef.veld(Veld.TRAPPEN, 0) == 0;
 }
+
+// Run 135 (moet van Daan): de kleine accu is een open rand met een nopje rechts en een vulling van links. Van 9
+// tot 13 px hoog: zes rechthoeken, het open deel rechts van de vulling minstens 2 px breed en 2 px hoog, de
+// vulling begint tegen de linkerrand, het nopje zit rechts buiten de rand en alles blijft binnen de hoogte.
+(:test)
+function testAccuKleinOpen(logger as Test.Logger) as Boolean {
+    for (var h = 9; h < Teken.KLEIN; h++) {
+        var d = Teken.accuKlein(100, 50, h);
+        if (d.size() != 6) {
+            return false;
+        }
+        var links = d[2];
+        var rechts = d[3];
+        var nop = d[4];
+        var vul = d[5];
+        var open = rechts[0] - (vul[0] + vul[2]);
+        if (open < 2 || vul[3] < 2 || vul[2] < 2 || vul[0] != links[0] + 1 || nop[0] != rechts[0] + 1
+            || d[0][1] < 50 - h / 2 || d[1][1] + 1 > 50 - h / 2 + h || nop[1] <= d[0][1] || nop[1] + nop[3] >= d[1][1] + 1) {
+            logger.debug("accu h=" + h + " open=" + open + " vul=" + vul[2] + "x" + vul[3]);
+            return false;
+        }
+    }
+    return true;
+}
+
+// Run 135 (moet van Daan): de bol van de kleine thermometer is aan elke kant minstens 2 px breder dan de steel,
+// de steel loopt van de bovenkant tot in de bol en alles blijft binnen de hoogte.
+(:test)
+function testThermoKleinBol(logger as Test.Logger) as Boolean {
+    for (var h = 9; h < Teken.KLEIN; h++) {
+        var t = Teken.thermoKlein(100, 50, h);
+        var top = 50 - h / 2;
+        var linksMeer = t[0] - (t[4] - t[6]);
+        var rechtsMeer = (t[4] + t[6]) - (t[0] + t[2] - 1);
+        if (linksMeer < 2 || rechtsMeer < 2 || t[1] != top || t[1] + t[3] < t[5] - t[6] || t[5] + t[6] > top + h - 1 || t[3] < 3) {
+            logger.debug("thermo h=" + h + " links=" + linksMeer + " rechts=" + rechtsMeer);
+            return false;
+        }
+    }
+    return true;
+}
