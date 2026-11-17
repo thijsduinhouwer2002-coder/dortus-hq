@@ -73,7 +73,7 @@ def hand_y(soort, stand):
 def haar(ouder, soort, kleur, hk, hs, HZ):
     """Haar als kapje achter en boven op het hoofd, plus een pony. Geen hoed: die zet het spel erop."""
     import held as h
-    kl = {"held": HAAR[kleur % len(HAAR)], "dief": "2a1a1f", "bard": "a8482a", "edelman": "b8b0b8"}[soort]
+    kl = {"held": HAAR[kleur % len(HAAR)], "dief": "2a1a1f", "bard": "a8482a", "edelman": "a49ca6"}[soort]   # edelman: was b8b0b8, Mila 17 nov iets donkerder zodat haar, gezicht en witte hoed niet één klont worden
     m = g.mat("haar_" + soort, kl, rough=0.75)
     h._bol(ouder, hk(0, 0.05, HZ + 0.08), hs(0.375, 0.33, 0.31), m, segs=40)
     for i, x in enumerate((-0.16, -0.05, 0.07, 0.17)):
@@ -100,8 +100,8 @@ def gezicht(ouder, soort, stand, hk, hs, HZ):
     import held as h
     if soort != "edelman" or stand in ("schrik", "vallen"):
         return
-    huid = g.mat("ooglid", h.HUID, rough=0.62, spec=0.25)
-    for kant in ((-1, 1) if stand != "tenen" else ()):   # tenen: ogen wijd open, hij moet opletten; monocle blijft
+    huid = g.mat("ooglid", h.HUID_EDEL, rough=0.75, spec=0.12)
+    for kant in ((-1, 1) if stand not in ("tenen", "na_u2") else ()):   # na_u2 (Daan 03:50): ogen open, anders op spelmaat een bleke vlek zonder ogen   # tenen: ogen wijd open, hij moet opletten; monocle blijft
         # bovenste helft van het oog dicht: een huidkleurig kapje net voor het oogwit, met een donker randje eronder
         h._bol(ouder, hk(0.11 * kant, -0.285, HZ + 0.075), hs(0.112, 0.06, 0.07), huid, segs=24)
         h._blok(ouder, hk(0.11 * kant, -0.335, HZ + 0.03), hs(0.11, 0.012, 0.014), g.mat("ooglidrand", "5a3a2a", rough=0.6), rond=0.004)

@@ -28,7 +28,7 @@ if __name__ == "__main__":
         a = math.radians(30)
         # hoed volgt het hoofd: lokaal -y (naar voren) is na de draai van 30 graden (x, y) = (-sin, -cos) * voor ... rechts in beeld
         dx, dy = -voor * math.sin(a), -voor * math.cos(a)
-        hz = 1.6 - (0.04 if voor else 0.0)
+        hz = 1.6 - o.get("hoed_zak", 0.0)
         hd.bouw(10, (x + dx, dy, hz), schaal=0.9, kantel=0, draai=30)
     g.camera(hoogte_midden=1.15, schaal=1.5 * n + 0.6)
     g.licht()
