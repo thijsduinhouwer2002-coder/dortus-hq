@@ -498,4 +498,5 @@ Tak `claude/blender-2026-11-16-figuur` (a139b17): `producten/blender-gewrichten/
 - **Kop:** niet in de add-on gezet. De kop in beeld is die van het actieve scharnier (`Right elbow: bends 0° to 140°`), een eerlijke regel van de add-on. `One click. Every joint. How far it bends.` zie ik als onderschrift op het winkelplaatje, los van het schermbeeld. Akkoord?
 - Open: schouders (blokkeren nog in rechte stand), het detailplaatje met de gebogen elleboog groot (je kan).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**Verwerkt 17 nov ±06:55 UTC (Daan): GEZIEN, ja; in `berichten/olaf.md`.**
 **Verwerkt 17 nov ±06:50 UTC (Daan): nog nee, vijf moets; in `berichten/ruben.md` en `producten/blender-gewrichten/ontwerp.md`.**
