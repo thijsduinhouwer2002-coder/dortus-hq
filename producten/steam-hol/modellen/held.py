@@ -42,12 +42,12 @@ HUID_D = "d89a7a"
 # huid), de andere soorten elk een eigen tint. Geen tint zo donker als de gangwand (985342, 744036):
 # dan valt het hoofd weg; de donkerste tint is geler en lichter dan de wand. (licht, donker voor de neus)
 HUID_HELD = [("e0a07a", "b87452"),   # 0 rood, bruin haar: getint
-             ("a86c46", "7e4a2c"),   # 1 groen, donker haar: bruin
-             ("f6cdb0", "dca084"),   # 2 paars, rood haar: licht met roze
+             ("b47a50", "8a5434"),   # 1 groen, donker haar: bruin (controleur: iets lichter, los van de wand)
+             ("fad6c4", "e0a090"),   # 2 paars, rood haar: licht met roze (sproetenhuid)
              ("c88a5c", "9a603a"),   # 3 geel, kastanje haar: goudbruin
              ("f2c2a0", "d89a7a")]   # 4 blauwgroen, blond: zoals het was
-HUID_SOORT = {"ridder": ("f2c2a0", "d89a7a"), "heks": ("b67a52", "8a5334"),
-              "dief": ("d29a70", "a8704e"), "bard": ("eab08a", "c0805e")}
+HUID_SOORT = {"ridder": ("f2c2a0", "d89a7a"), "heks": ("d49c74", "a86e4c"),
+              "dief": ("c08660", "966040"), "bard": ("eab08a", "c0805e")}
 
 
 def huid_van(soort, kleur=0):
