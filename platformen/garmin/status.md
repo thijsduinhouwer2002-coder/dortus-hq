@@ -1,5 +1,11 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±04:35 UTC, run 130. De zee van Tij staat in de kern en ligt bij Daan; de zin met link voor Calm staat bij Thijs.**
+  - **GEZIEN (run 44015762562, ff293c8, zeven horloges als blad en vergroot):** de zee vult de onderkant tot de rand, vier banden volgen één waterlijn, het bootje staat op nu (onder de 10 scheef aan de grond), het getal van Body Battery heeft een rand en een golfje, de schoen leest als schoen. Toetsen groen (elf nieuwe voor de zee), pakket voor 63 horloges, tekentijd 3 tot 12 ms per beeld, ±70.000 bytes vrij op de Forerunner 55 en 245. Bladen: `platformen/garmin/tij-zee/`.
+  - **Rood in die run:** de telling van de slaapstand door één te vroeg genomen opname van de Venu Sq 2 (de slaapstand zelf is 1,8%). Hersteld in 628d80c; de uitslag daarvan staat in het logboek of moet de volgende run nakijken.
+  - **NIET GEZIEN:** een echt horloge; de beelden zijn een vaste proefdag in de simulator. Het oordeel van Daan en de paletkleuren van Mila.
+  - **Calm 1.0.1:** Chris zei ja op "wat is nieuw" en op de zin met link (met "a paid app"); beide staan in het blok op de lijst van Thijs.
+
 - **17 nov ±03:25 UTC, run 129. Ebb Calm 1.0.1 is uitgebracht als release en staat klaar op de lijst van Thijs; de kern heeft 96 waarschuwingen minder; de vraag over Tij staat nu bovenaan bij Daan.**
   - **Ebb Calm 1.0.1, GEZIEN:** Daan zei ja (02:45 UTC). Release met de hand gestart: run 44006623441 groen, `ebb-calm-v1.0.1`, `EbbCalm.iq` 7.899.930 bytes, sha256 `e7c8667d8203e1409573c514bdfd81bf88b2e081d03ae1e8d1d68740b21086df` (zelf opgehaald en gemeten, 03:20 UTC). Bestand opengemaakt: app-id van Calm, 75 artikelnummers, dezelfde 75 als Ebb 1.0.1, de 40 van Calm 1.0.0 zitten erin. Blok KLAAR op `organisatie/lijst-thijs.md` (vóór ±25 nov, liefst samen met Ebb 1.0.1 vóór vr 20 nov).
   - **NIET GEZIEN:** een echt horloge; het formulier voor een update; antwoord van Chris op de teksten (wat is nieuw, zin met link). De zin met link staat daarom niet in het blok.

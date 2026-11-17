@@ -1543,3 +1543,18 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Mila 03:10 UTC: dunne tijd ja, schoen voor de voet, kolom 360. Schoen gebouwd in b1432df met toets; run 44009936103 liep bij het afsluiten (03:35 UTC) nog, NIET GEZIEN.
 - Les: een lus die op een run wacht mag samen niet langer duren dan de tijdgrens van één opdracht (10 minuten); anders stopt hij zonder uitslag.
 - Niet gedaan: de zee van Tij (wacht op Daan), punten 5 tot 9 van de taak van run 125.
+
+## Run 130, 17 nov 2026 ±03:55 tot ±04:40 UTC
+- Berichten: Chris (Calm 1.0.1: "wat is nieuw" ja, zin met link ja met "a paid app" en "Das ganze Ebb") verwerkt in `upload/calm-1.0.1.md` deel 3 en als punt 4 in het blok van Calm op de lijst van Thijs. Daan (03:50 UTC): ja op Tij, met punten a tot f voor de zee.
+- Run 44009936103 (schoen, b1432df): groen. De schoen GEZIEN vergroot op fēnix 8 en Forerunner 255 in de latere runs: leest als schoen.
+- **De zee van Tij gebouwd** (skill `bouwen-in-stappen`, ontwerp in `producten/garmin-reeks-kern/ontwerp-kern.md`, deel "De zee"), tak `claude/garmin-reeks-kern`: 453fe69 (zee), e6d8d64 (punten controleur), 292d645 (proefdag, lijn op 64 kleuren), ff293c8 (kolom 360), 628d80c (bouwstraat wacht langer op het slaapbeeld).
+  - Nieuw: `source/Zee.mc` (waterlijn, banden, bootje, ruimte om het getal, kleuren; alleen rekenwerk), `tekenZee` in `KernView.mc`, `Thema.band`, `Proef.bb`, elf toetsen erbij.
+  - Keuze: één waterlijn van 31 punten, vier keer verschoven gevuld. Niet een beeldbuffer (past niet op de Forerunner 245).
+  - Keuring door een aparte agent: geen bouwfout; overgenomen: bootje op de golf bij één meting, vier verschillende banden op 64 kleuren, rand in acht richtingen, MIP toont de plaat in de slaapstand, 360 px zonder maten alleen de tijd.
+  - GEZIEN (run 44015762562, ff293c8, bladen `platformen/garmin/tij-zee/zee-run130-amoled.png` en `-mip.png`): op fēnix 8 47 mm, Venu 3S, vívoactive 5, Forerunner 265S, 255, 245 en 55 vult de zee de onderkant tot de rand, banden op één lijn, bootje, getal met golfje. Tekentijd zee 2 tot 6 ms, heel beeld 3 tot 12 ms. Toetsen groen, pakket bouwt voor 63 horloges, maten per horloge goed.
+  - ROOD in die run: de telling van de slaapstand, alleen door de Venu Sq 2: beeld 2 was daar nog het wakkere beeld (te vroeg genomen), de slaapstand zelf telt 1,8% aan. Hersteld in 628d80c (4 s langer wachten); die run (gestart ±04:26 UTC) heb ik NIET meer GEZIEN tenzij het eindantwoord anders zegt.
+  - Zwak: felle paletkleuren op 64 kleuren (Mila kiest), twee banden op de Forerunner 55, geen gladde randen op AMOLED, Venu Sq 2 alleen de tijd.
+- Kolom 360 van Mila overgenomen (maten en vijf letters, `resources-round-360x360`), fr265s in de proef van de bouwstraat.
+- Les: raw.githubusercontent.com op een taknaam loopt tot vijf minuten achter; haal de commit van de tak met `git ls-remote origin schermen` en lees op die commit.
+- Les: de simulator geeft voor Body Battery één streep van 93 naar 5; voor beelden een vaste proefdag gebruiken (`Proef.bb`).
+- Niet gedaan: winkel meten (volgende meting dag 7, 23 nov), bootje in de slaapstand, gratis en betaald uit één bron, instellingen voor het thema.
