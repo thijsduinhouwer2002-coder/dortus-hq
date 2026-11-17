@@ -1,8 +1,93 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 26, wat een BlenderNation-bericht doet voor een gratis add-on, klaar 17 nov 2026 ±01:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 27, hoe lang een kort tipfilmpje moet zijn, klaar 17 nov 2026 ±02:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 27. Hoe lang moet een kort tipfilmpje zijn? 7.239 TikToks van 24 makers over 3D-printen en Blender binnen hetzelfde account gemeten, plus 317 dezelfde clips op YouTube Shorts
+
+Onderzocht 17 nov 2026 ±02:00 tot 02:45 UTC, run 27. Waarom: vandaag om 15:00 UTC gaat het eerste filmpje van Chris live (filmpje 7, 12,5 s), en al onze clips zijn 10 tot 17 seconden (`commercie/filmpjes/planning.md`). Overal op internet staat een "beste lengte" (Socialinsider, juli 2026, 6 miljoen TikToks: "Videos around 30 seconds get the highest TikTok engagement rate, while 2-3 minute videos get the most views", DERDEN, [link](https://www.socialinsider.io/blog/how-long-are-tiktok-videos/)). Vraag: moeten onze clips langer of korter, of maakt het niet uit?
+
+### Bronnen en werkwijze
+- **TikTok (GEZIEN, yt-dlp, alleen openbare lijsten):** de 24 accounts uit verhaal 11 (3D-printen en Blender, van klein tot groot: Mixtapeprints, Kaivertigoh, Marsgizmo, McGybeer, Blender Secrets, Slant3D en anderen). Per filmpje datum, lengte, views, likes en saves. Hooguit de laatste 600 per account. Filmpjes jonger dan 14 dagen weggelaten.
+- **De truc die het eerlijk maakt:** niet alle filmpjes op één hoop, maar elk filmpje vergeleken met **de 10 filmpjes ervoor en de 10 erna van hetzelfde account** (views gedeeld door hun mediaan). Zo telt niet mee dat grote accounts toevallig langere filmpjes maken, en ook niet dat een account in de tijd groeit. Een verhouding 1,0 is gewoon voor dat account op dat moment.
+- **YouTube Shorts:** de lengte per Short geeft YouTube de cloud niet (vraagt om in te loggen, niet omzeild). Wel de 317 paren uit verhaal 13: dezelfde clip op TikTok en Shorts, met de lengte van de TikTok.
+- Tabel: `platformen/succes/data/tiktok-lengte-2026-11-17.csv` (7.239 filmpjes; geen onderschriften, alleen cijfers). Scripts: `tiktok-lengte-haal.py` en `tiktok-lengte-analyse.py` in dezelfde map.
+
+### 1. Op één hoop lijkt lang beter. Binnen een account maakt het niets uit (GEZIEN)
+| Lengte | Filmpjes | Views, alles op één hoop (mediaan) | Binnen het eigen account (mediaan verhouding) | Aandeel 3 keer of meer | Aandeel onder de helft |
+|---|---|---|---|---|---|
+| onder 15 s | 1.669 | 4.133 | 0,99 tot 1,01 | 14 tot 16% | 13 tot 18% |
+| 15 tot 30 s | 1.904 | 3.584 | 0,93 tot 1,05 | 12 tot 17% | 12 tot 15% |
+| 30 tot 60 s | 2.408 | 4.753 | 0,95 tot 0,96 | 13 tot 15% | 14 tot 15% |
+| 60 s en langer | 1.258 | **9.853** | **1,02** | 18% | 13% |
+
+Op één hoop halen filmpjes van een minuut en langer 2,4 keer zoveel views als korte. Dat is het soort cijfer waar de "beste lengte"-lijstjes op drijven. Maar het komt doordat de accounts die lang filmen ook de grote accounts zijn (itsboyinspace mediaan 75 s, Filamentstories 58 s). Binnen hetzelfde account doet een lang filmpje het niet beter en niet slechter dan een kort.
+
+Per account bekeken (alleen lengtes met 8+ filmpjes): in elke lengtegroep ligt de mediaan van de accounts tussen 0,95 en 1,03, en boven 1 zit telkens ongeveer de helft. Er is geen lengte die bij de meeste makers wint. Wel per maker uitschieters, maar die wijzen alle kanten op: Ali3dprint doet het best met 10 tot 15 s (2,16), Brockcreative met 20 tot 30 s (1,49), McGybeer met 60+ (1,23), Marsgizmo met korte en slecht met 45 tot 60 s (0,78).
+
+En de toppers? Per account de beste 5% filmpjes: bij 12 van 23 accounts zijn die langer dan het gewone filmpje van dat account, bij 11 korter. Mediaan verhouding 1,02. **De hits zijn net zo lang als de rest.**
+
+### 2. Wat wel met lengte meebeweegt: bewaren (GEZIEN)
+| Lengte | Saves per 1.000 views, op één hoop | Saves binnen het eigen account (mediaan verhouding, filmpjes met 500+ views) |
+|---|---|---|
+| onder 15 s | 1,2 tot 1,4 | **0,62** (3 van 12 accounts boven 1) |
+| 15 tot 30 s | 2,0 tot 3,7 | 0,97 |
+| 30 tot 60 s | 3,1 tot 3,3 | 1,06 (12 van 17 boven 1) |
+| 60 s en langer | 3,0 | 1,04 |
+
+Een clip onder de 15 seconden wordt binnen hetzelfde account ruim een derde minder vaak bewaard. Logisch: wie een tip bewaart, wil er later iets uit halen, en in 12 seconden past weinig om te bewaren. Of bewaren TikTok laat beslissen om een filmpje verder te tonen, weet ik niet: TikTok noemt het niet los met een getal. Ik zie in deze data dat het de views niet merkbaar verandert.
+
+### 3. YouTube Shorts: korte clips niet slechter, wel ruim een minuut slechter (GEZIEN, klein)
+Dezelfde clip op beide plekken, views gedeeld door de mediaan van die maker op die plek:
+
+| Maker | Lengte | Clips | YouTube | TikTok |
+|---|---|---|---|---|
+| Marsgizmo | onder 15 s | 5 | 1,87 | 1,25 |
+| Marsgizmo | 15 tot 30 s | 16 | 1,10 | 1,40 |
+| Marsgizmo | 30 tot 60 s | 32 | 1,03 | 0,84 |
+| Marsgizmo | 60+ s | 14 | **0,34** | 1,09 |
+| Mixtapeprints | onder 15 s | 22 | 0,50 | 0,91 |
+| Mixtapeprints | 15 tot 30 s | 27 | 1,43 | 1,06 |
+| Kaivertigoh | 60+ s | 4 | 0,62 | 0,71 |
+
+Bij twee makers doen clips van meer dan een minuut het op YouTube duidelijk slechter, terwijl dezelfde clip op TikTok gewoon doet. Onder de 15 seconden is het gemengd (Marsgizmo beter, Mixtapeprints slechter; bij Mixtapeprints zijn de clips van 5 seconden een ander soort filmpje, een rondje om een print zonder handeling). Te weinig om een regel van te maken. YouTube zelf: "there's not a certain length that benefits creators to get their videos seen", maak hem zo lang als het verhaal nodig heeft (Todd Sherman, productleider Shorts, augustus 2023, DERDEN, [TechCrunch](https://techcrunch.com/2023/08/25/youtube-demystifies-the-shorts-algorithm-views-and-answers-other-creator-questions/)).
+
+### 4. Even meegekeken: het onderschrift (GEZIEN, ruw, met een woordenlijst)
+| Onderschrift | Filmpjes | Mediaan verhouding | 3 keer of meer |
+|---|---|---|---|
+| Alles | 7.239 | 0,98 | 15% |
+| Met een vraagteken in de eerste 80 tekens | 819 | **1,11** | 19% |
+| Met "how to" | 153 | 1,13 | 21% |
+| Met "free" | 259 | 1,09 | 20% |
+| Met "#ad" (betaalde samenwerking) | 75 | **0,77** | 9% |
+| Deel van een reeks ("part" 54, "pt" 35) | 89 | 0,76 tot 0,85 | 11 tot 14% |
+| Met "day" en een getal ("day 3") | 42 (24 van Kaivertigoh) | 0,88 | 10% |
+
+Klein verschil, maar wel dezelfde kant op als verhaal 10: een vraag van de kijker doet het iets beter dan gewoon, reclame en "deel 3" iets slechter. Ons eerste filmpje begint al met een vraag ("Ball joint clicks in but won't turn?"). Het onderschrift zegt wel "day 1"; dat is klein en niet bewezen slecht, maar een vraag vooraan en "day 1" verderop is de veiligste volgorde, zoals het nu ook staat.
+
+### Wat ik zag
+1. **Lengte is geen knop om aan te draaien.** Binnen hetzelfde account doen 8 seconden en 80 seconden het even goed. De lijstjes met een "beste lengte" vergelijken grote accounts met kleine.
+2. **Kort kost bewaren.** Onder de 15 seconden wordt een tip een derde minder vaak bewaard. Voor een tipkanaal is dat jammer, want bewaren is wie het later echt gebruikt (GOK dat dat ook later tot downloads leidt).
+3. **Op YouTube niet over de minuut.** Bij twee makers zakken Shorts van meer dan 60 seconden naar een derde tot twee derde van hun gewone views.
+4. **Wat wel verschil maakt zit in de inhoud,** zoals verhaal 10, 11 en 14 al zeiden: een vraag of probleem van de kijker, iets wat in seconde 1 beweegt. Niet de klok.
+
+### Drie lessen
+1. **Maak een filmpje zo lang als de tip nodig heeft, en niet langer dan een minuut.** Niet inkorten om korter te zijn, niet oprekken om langer te zijn.
+2. **Een tip die je wilt laten bewaren, mag 20 tot 40 seconden duren** en moet iets bevatten om terug te kijken: een getal, een instelling, een stap.
+3. **Wantrouw elke "beste lengte" die niet binnen hetzelfde account is gemeten.** Op één hoop gooien geeft hier 2,4 keer meer views voor lange filmpjes, terwijl het verschil binnen een account nul is.
+
+### Eerlijk: wat deze meting niet zegt
+- Views zijn van vandaag, opgeteld sinds het plaatsen. Het vergelijken met de buren in de tijd vangt groei van het account grotendeels op, niet helemaal.
+- Lengte hangt samen met het soort filmpje (een rondje om een print is kort, een uitleg lang). Binnen een account vergelijken haalt de maker weg, niet het soort filmpje. Dat de uitkomst toch zo plat is, zegt dat het soort ook geen grote rol speelt via de lengte.
+- Dit zijn 24 accounts die TikTok nu laat zien; makers die stopten zitten er niet in. Kleine accounts (onder 2.000 volgers) zijn hier maar een paar.
+- YouTube: 317 paren bij 4 makers met genoeg clips, dus klein. Lengte per Short apart kon ik niet lezen.
+- "Saves" geeft TikTok openbaar; of ze meetellen voor het verder tonen, zegt TikTok niet met cijfers.
+
+### Voorstel voor Dortus deze week
+**Chris: niets inkorten of oprekken voor de lengte; de huidige clips van 10 tot 17 s mogen zo de deur uit. Maak voor de tipreeks van Click Joints ("day 2", "day 3") de volgende tips 20 tot 40 seconden met één ding om te bewaren in beeld (het getal of de instelling, bijvoorbeeld "0.2 mm per side", even stil in beeld), en nooit langer dan 60 seconden zodat het op YouTube als Short blijft werken.** Houd in `planning.md` naast views na 48 uur ook saves bij (TikTok laat ze zien), zodat we na 10 tips zien of de langere tips meer bewaard worden. Wie: Chris, vanaf zijn volgende filmpjes-run. Kost niets.
 
 ---
 
