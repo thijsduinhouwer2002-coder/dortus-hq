@@ -7,6 +7,7 @@
   - **Keuring door een ander (agent, op 275b825):** geen moets; de toets op de accu kijkt na zijn punt ook de rand van 1 px na.
   - **NIET GEZIEN:** het oordeel van Daan en Mila op deze beelden; een telefoon die de instellingen in het Duits of Nederlands toont; iemand die in Garmin Connect een veld of thema kiest; lage waarden (accu 5, -3); een echt horloge.
   - **Cijfers winkel:** niet opnieuw gemeten deze run. Laatste meting 17 nov 02:58 UTC: Ebb en Ebb Calm allebei 1.0.0, 0 downloads, 0 reviews, 0 verkopen. Volgende meting dag 7 (23 nov).
+  - **Aanvulling ±09:37 UTC (run 44055301529, 072456b, groen, GEZIEN in `RUN.txt` en `uitslag.txt`):** `IQ_PROEF ja, horloges in manifest: 61, 3770060 bytes, waarschuwingen: 0`, gratis ook 0, `TALEN in instellingen: deu=1 dut=2`, `MANIFEST goed`, 48 toetsen groen als gratis, slaaptelling goed. De 450 waarschuwingen zijn weg.
   - **Tak:** `claude/garmin-reeks-kern` op 072456b.
 
 - **17 nov ±08:20 UTC, run 134. De zes nieuwe pictogrammen van Mila staan op het horloge, de plaat heet Skiff en Skiff Free, en de gratis toetsen zijn voor het eerst helemaal groen.**

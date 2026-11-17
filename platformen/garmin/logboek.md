@@ -1621,3 +1621,4 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - **Keuring door een ander (agent, op 275b825):** ja, geen moets. Kan-punten: toets op de rand van 1 px (gedaan), de toetsen dekken 9 tot 13 px en niet 4 tot 8 (komt in de maten niet voor, kleinste is 12), commentaar "vier horloges" (hersteld).
 - **Zwak en niet gezien:** de run van 072456b (waarschuwingen terug naar 0) liep nog; een telefoon met Duitse of Nederlandse instellingen; het oordeel van Daan en Mila; lage waarden; een echt horloge. Winkel niet gemeten (dag 7 is 23 nov).
 - Les: een taal toevoegen vraagt elk string-id in die taal, anders telt de bouw honderden waarschuwingen; de teller in `uitslag.txt` liet dat meteen zien.
+- **Daarna nog (±09:37 UTC, GEZIEN):** run 44055301529 (072456b) groen, `waarschuwingen: 0` voor betaald en gratis, talen in het pakket. De tak is daarmee schoon.
