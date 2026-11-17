@@ -1437,3 +1437,10 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Herhaalmeting die vandaag kon: deelnemers van het Auto-Battler RPG Fest. Oude link stuurt door; het fest staat op /category/auto_battler_rpg/. Via de openbare lijst-API 1.502 van 1.506 spellen (drie sorteringen samen). 97 van de 144 apps met het label doen mee, 6 uit de controle ook. Nieuw script data/steam-fest-lijst-script.py, steam-fest-effect-script.py neemt de lijst als tweede argument. Controleur akkoord. Zie Vervolg 17 nov in steam-desktop-2026-11.md.
 - Route werkt ook voor het Desktop Companion Fest in januari (zelfde clan, andere event-GID).
 - Zelfde run: reacties-script gedraaid (Rollwright 45 views, Ebb 46 views, nog 0 antwoorden). Plaatstijd Reddit-post in geplaatst.csv verbeterd naar 19:09 UTC (bron Chris, Arctic Shift). Arctic Shift geeft geen verse score (momentopname 13 s na plaatsen), dus niet in het script gezet. Volgende run: uurscript, en om 19:09 tot 20:31 UTC het 24-uurpunt.
+
+## 17 nov 2026, run 06:31 NL (05:34 tot ±06:05 UTC)
+- Lokale main stond los van GitHub (origin was geforceerd bijgewerkt); niet gereset maar losgekoppeld op origin/main gewerkt.
+- Nieuw bericht hoofdchat 06:50: Kai helpen met de MV2-lijst. Meteen gedaan (deadline 10:30). Beslissing: in mijn eigen map plus een bericht aan Kai, omdat platformen/chrome/ nog niet bestaat en het zijn map is.
+- Bron: dataset van Palant (Codeberg), jan 2025 tegen 14 aug 2026: 1.872 MV2 met 10.000+, 1.266 nooit overgestapt. Chrome-stats blokkeert ons (Cloudflare), niet omzeild.
+- Top 5 live nagekeken: alle verwijderd, opvolgers klein behalve Hover Zoom+. Advies Revolver - Tabs bovenaan. Zie chrome-mv2-zonder-opvolger.md.
+- Volgende run (07:31): Kai verder helpen met betaalbereidheid en aankomende concurrenten voor Revolver en autoplay; uurscript Click Joints; 24-uurpunt om 19:09 UTC.
