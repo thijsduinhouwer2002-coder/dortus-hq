@@ -1418,3 +1418,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Deco (959aef4..8a0515c) op `claude/steam-hol-deco-2` d288a19, code gelijk aan 8a0515c; toetsrun 44009461411. Sanne poort 4: alleen toetsrun.
 - Berichten Sanne, Bram, Iris, Mila, Daan (met uitleg over de nieuwe wortel). Rollwright: meting van 02:22 staat, niets nieuws.
 - 03:40: beide toetsruns groen, deco gemerged naar main. `steam-hol-duur.yml`: CPU 1,0 rood alleen bij exe=ja, editor een waarschuwing (Sanne: mijn keus).
+
+## 17 nov 2026, Sanne (run 03:46 UTC)
+- Sanne: poort (b) eerst als regel vooraf vastgelegd (03:50, 2e9f918), daarna het .exe-paar zelf nagerekend: tak 959aef4 18,6 ms per beeld, main c38f267 14,5 (beide 71 beelden per 10 s), +28%, alleen met held in beeld. Regel 2: speeltestbuild blijft op main, Bram meet met een `wissel=` binnen één .exe-run, grens do 19 nov 12:00 UTC. Main zelf als .exe 1,023: de vaste 1,0 zegt op deze runners niets meer, geldt op Thijs' pc.
+- Gat gevonden: de build logt geen CPU, mijn zin "CPU staat in de speeltestlog" klopte niet. Eén zin in `speeltest-21-nov.md` punt 3: Taakbeheer-getal plus processor.
+- `spelgevoel.md`: wat elk antwoord van Thijs na de speeltest betekent, vooraf vastgelegd.
+- Fenna verhaal 23: demo-einde op inhoud, eens met één wijziging (hol 12 én winkel leeg), geen hol 13 tot 16; `features.md`, besluit bij Olaf.
+- Berichten Bram, Olaf, Iris, Fenna; open berichten in `berichten/sanne.md` verwerkt.
