@@ -3,7 +3,7 @@
 Door Chris, 16 nov 2026, run 66. Opdracht: hoofdchat 16 nov 19:55 (`berichten/chris.md`): YouTube is **@Dortusapps** (gekoppeld in Metricool), TikTok blijft **@dortusstudio** (Blender, Ebb) en **@hatsofthefallen** (het spel). De hoofdchat plant in na een ja van Thijs per filmpje.
 
 **Regels voor elk filmpje hieronder**
-- Bestand: mp4, staand 1080 x 1920 (9:16), H.264, geen geluid. Kies in TikTok een rustig instrumentaal geluid; YouTube Shorts mag zonder.
+- Bestand: mp4, staand 1080 x 1920 (9:16), H.264, **met zelf gemaakt geluid in het bestand** (aangepast 17 nov run 76, verhaal 31 van Joris: "kies in TikTok een geluid" kan niet via Metricool op een persoonlijk account, dus zonder geluid in de mp4 gaat het stil live op TikTok én Shorts). Geluid maken: `commercie/filmpjes/geluid/geluid.py` via workflow `filmpjes-geluid.yml`; uit: `<naam>-geluid.mp4` in release `filmpjes-week-1`. Geen nummer van internet (TikTok kan dat dempen). Was: "geen geluid. Kies in TikTok een rustig instrumentaal geluid; YouTube Shorts mag zonder."
 - Download: release `filmpjes-week-1` in dortus-hq, `https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/filmpjes-week-1/<bestand>` (openbaar, geen login nodig; GEZIEN 16 nov ±20:00 UTC, alle bestanden hieronder staan erin).
 - YouTube-titel: max 100 tekens, zonder hashtags. Beschrijving YouTube = onderschrift TikTok (de hashtags mogen mee). "Link in bio" werkt niet op YouTube; daarom staat bij YouTube de link voluit onder de beschrijving.
 - Geen AI-zin (Thijs 16 nov 20:09). Nooit beweren dat het zonder AI gemaakt is.
@@ -81,6 +81,16 @@ Thijs beslist alleen nog over geld. Wat Daan keurde, plant de hoofdchat zelf in 
 
 ## 16 nov 22:55: TikTok staat
 screencuts.co is nu **@dortusstudio** (naam Dortus, bio en profielfoto uit `kanaal.md`). De 5 oude clips van anderen staan op Alleen ik (niet verwijderd). Filmpjes 7, 9 en 2 staan ook op TikTok ingepland (Metricool, di/wo/do 16:00). TikTok vraagt in Metricool een korte titel per filmpje. Het tweede oude account (worththetrip.co, voor @hatsofthefallen) is nog niet omgezet.
+
+## 17 nov ±07:00 UTC (Chris run 76): bestanden met geluid (verhaal 31 van Joris)
+Waarom: de mp4's hadden geen geluidsspoor en Metricool zet op een persoonlijk TikTok-account geen muziek onder een video (DERDEN via Joris). Stil plaatsen doet bijna niemand (7 van 421, GEZIEN door Joris).
+Wat: zelf gemaakt geluid met code (sinustonen en ruis, geen geluid van een ander, geen AI), het beeld 1 op 1 gekopieerd en dus precies wat Daan keurde (md5 van de videostroom gelijk, GEZIEN). Click Joints: rustige warme toon, zachte tik bij elke nieuwe tekst, zacht zoeven als de delen naar elkaar toe komen, een kort plastic "tok" op het moment dat het gewricht groen oplicht (f7 11,0 s; f2 0,17 en 8,37 s, gemeten per beeld). Ebb: zacht zee-achtig ruisen dat aanzwelt bij in en wegebt bij uit, met een korte zachte zoem aan het begin van elke fase. Luidheid -16 tot -17,5 LUFS, piek -2 dBTP (GEZIEN, toets.py).
+Bestanden voor Metricool (vervangen, TikTok én YouTube; de onderschriften van run 75 blijven):
+- filmpje 7 (vandaag 16:00 NL): https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/filmpjes-week-1/click-joints-7-tip-day-1-clearance-geluid.mp4
+- filmpje 9 (wo 18 nov): https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/filmpjes-week-1/ebb-tip-1-eyes-closed-geluid.mp4
+- filmpje 2 (do 19 nov): https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/filmpjes-week-1/click-joints-2-satisfying-bend-geluid.mp4
+Golfvorm met de klikmomenten: dezelfde naam met `-geluid-golf.png`. Uitleg en eisen: `commercie/filmpjes/geluid/ontwerp.md`. Lukt vervangen niet vóór ±14:30 UTC: filmpje 7 stil laten gaan (Joris), de start niet verschuiven.
+Voor 5, 4, 1, 6 en 3: bij het inplannen eerst in `GELUID` in `geluid.py` de momenten zetten en de naam in `FILMS` van de workflow.
 
 ## 17 nov ±05:20 UTC (Chris run 75): "link in bio" vervangen door een zoekregel (verhaal 29 van Joris)
 Waarom: @dortusstudio heeft geen website in het profiel (een persoonlijk TikTok-account krijgt die pas bij 1.000 volgers, DERDEN via Joris), en in een YouTube Short is een link in de beschrijving niet klikbaar (sinds 31 aug 2023, DERDEN via Joris). "Link in bio" belooft dus iets wat er niet is. Een zoekregel werkt wel: Click Joints staat in Blender zelf onder Get Extensions, en "ebb" in de Connect IQ-zoeker geeft Ebb op plek 2 (Calm op 1, GEZIEN run 74). Alleen het stuk tussen haakjes verandert, verder niets.

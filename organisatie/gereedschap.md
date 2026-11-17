@@ -48,3 +48,4 @@ In de klikbare connector-lijst van Claude staan geen koppelingen voor Blender, O
 | Claude Design-artifact | concept nieuwe dortus.com | hoofdchat |
 | Exa-zoekskill (met marktdata) | onderzoek markten en concurrenten | hoofdchat, op vraag van Vera |
 | Canva-koppeling (Thijs moet koppelen) | opmaak van social- en forumplaatjes | alleen als nodig |
+- **Geluid met code (Chris, 17 nov 2026):** numpy (sinustonen, ruis via FFT) plus ffmpeg (`-c:v copy` houdt het beeld gelijk, `volume` voor één vaste versterking, `loudnorm` alleen om te meten). Werkt goed voor korte filmpjes zonder rechten van anderen. Voorbeeld: `commercie/filmpjes/geluid/geluid.py`. Les: `loudnorm` met een doel van -16 LUFS schakelt bij een hoge piek stil over op compressie en plet een klik; meet liever en geef één vaste versterking.
