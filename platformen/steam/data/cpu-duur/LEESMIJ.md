@@ -60,3 +60,27 @@ Alle drie onder de meetlat van ±3 ms per beeld (placebo op oude runs: 0 tot 2,6
 - Lokaal Godot 4.3 Linux: toets_systemen, toets_held, toets_vleermuis 0 FOUT; 140 s onder Xvfb met `wissel=deco log=...`: wissels op 60,0 en 120,0, `hol_vast` telt bij elke wissel precies één keer op.
 - Vooraf (GOK): de deco staat in het vaste beeld, en dat tekende op de tak niet vaker opnieuw dan op main (zaad 1794860558, 20 min: 39 tegen 43 keer, GEZIEN in `hol.log` van `claude-steam-hol-regels-weg-zaad-1794860558-1920x1080` en `main-zaad-1794860558-1920x1080`). Dan kost de deco per beeld bijna niets en zit het verschil 18,4 tegen 11,9 ms ergens anders. De run beslist.
 - Runs: om 01:23 gestart en om 01:24 gestopt (Olafs losse run 43994541342 liep al en moet alleen draaien). Opnieuw gestart om 01:42 (Olafs run klaar): **43997582851** (editor) en **43997586979** (.exe), beide 20 min, 1920x1080, `extra` = `zaad=1794860558 wissel=deco`. Map op `schermen`: `steam-hol-duur/claude-steam-hol-wissel-deco-zaad-1794860558-wissel-deco-1920x1080(-exe)/`.
+
+## Wissel deco: uitslag, de deco is het niet (Bram, 17 nov ±02:20 UTC)
+Beide runs groen gedraaid tot het eind (20 min, 1920x1080, zaad 1794860558, 20 wissels in elke `hol.log`, GEZIEN op tak `schermen`). De editor-run 43997582851 staat op rood alleen door de CPU-grens van 1,0 in de workflow (1,293; `fout.txt` heeft alleen de geluidskaartmelding van de runner). De twee runs liepen tegelijk; voor de vergelijking binnen één run maakt dat niet uit, voor de grens telt zo'n run niet (Sanne).
+
+`python3 cpu_wissel.py <map>` ("aan" = met deco, even minuten; "uit" = zonder deco, oneven minuten; het script noemt het nog "vlak"):
+
+| run | met deco | zonder deco | verschil per beeld |
+|---|---|---|---|
+| editor (43997582851) | 17,9 ms (1,248 CPU-s per 10 s) | 19,0 ms (1,239) | 1,1 ms, zonder deco duurder |
+| .exe (43997586979) | 11,7 ms (0,982) | 12,1 ms (0,803) | 0,4 ms, zonder deco duurder |
+
+Onder de meetlat van ±3 ms per beeld (placebo 0 tot 2,6). **De losse dingen in gang en kamers kosten per beeld niets meetbaars.** Mijn GOK vooraf klopte: het vaste beeld tekent maar ±0,3 tot 0,5 keer per 10 s opnieuw.
+
+Ter vergelijking `cpu_per_beeld.py`, zelfde zaad, editor tenzij anders:
+
+| run | wat | CPU gem. | ms per beeld |
+|---|---|---|---|
+| 43953076960 | main e6d7b70 | 0,844 | 11,9 |
+| 43994541342 | Olafs `claude/steam-hol-regels` 4a7af62, zonder deco, alleen gedraaid | 1,013 | 14,8 |
+| 43985774466 | `claude/steam-hol-regels-weg` c1fa66a, met deco, alleen gedraaid | 1,321 | 18,4 |
+| 43997582851 | wissel-deco e1de54a, editor | 1,293 | 18,8 |
+| 43997586979 | wissel-deco e1de54a, .exe | 0,862 | 12,1 |
+
+Lezing: tussen editor-runs van bijna dezelfde code zit 14,8 tot 18,8 ms, terwijl de deco binnen één run 0 tot 1 ms scheelt. Het verschil tussen Olafs twee takken is dus runner, niet deco. Dezelfde tak als .exe zit op 12,1 ms, gelijk aan main in de editor. Ik vind in deze runs geen plek waar de tak echt duurder is; wat overblijft valt binnen de ruis van ±30% per run. Deco mag van mij met de spelregels mee; de grens van 1,0 voor de gewone duurtest beslissen Olaf en Sanne. De proeftak `claude/steam-hol-wissel-deco` gaat niet naar main.
