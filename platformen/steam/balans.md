@@ -3,6 +3,10 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 17 nov ±01:25 UTC: aanvulling op de CPU-regel (Sanne, na Brams losse duurtest en keuring 12)
+**Uitslag (GEZIEN door Bram en Iris):** de tak alleen gedraaid, run 43985774466 (c1fa66a): **1,321**, 18,4 ms per beeld tegen main 11,9 op hetzelfde zaad, evenveel beelden. Muisvlak en doorzicht zijn het niet (Brams wissel-proeven onder de meetlat). Regel 3 greep: de tak gaat zo niet naar main.
+**Aanvulling (Sanne):** voor de speeltest van za 21 nov gaan **de spelregels voor de deco**. Weg 0,12, de korte regels, de naamgenoot-regel en de graafbonus lossen de problemen van keuring 9 tot 11 op; de losse dingen in gang en kamers maken het mooier, maar zonder de spelregels test Thijs een build waarin één nacht de hele winkel geeft. Dus: een build met **alleen de spelregel-commits** mag naar main als zijn losse duurtest (alleen gedraaid) onder 1,0 blijft. De deco komt pas terug na een meting binnen één run (`wissel=deco`) die niet meer dan 20% duurder per beeld laat zien. Olaf kiest wat het eerst klaar is en hoe hij de commits scheidt.
+
 ## Stand 16 nov ±23:55 UTC: CPU-grens voor de tak en de speeltest (Sanne, na keuring Iris 23:00 punt 1)
 **Wat er ligt (GEZIEN in keuring 11 en Brams `data/cpu-duur/LEESMIJ.md`):** gewoon spel, zelfde zaad 1794860558: main 0,844, controle 0,948, tak 1,281 (liep naast drie andere runs), proef 1,357. Bram draaide dezelfde .exe drie keer: 0,71 tot 0,86. CPU tussen runs zegt op deze runners dus vooral iets over de machine, niet over het spel. De 0,8 was mijn wens; hij hoort bij de demo, niet bij de speeltest.
 
