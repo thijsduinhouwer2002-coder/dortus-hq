@@ -653,11 +653,53 @@ func _init() -> void:
 	ok(H3.kamer_keuze(b, 4, 2, 12, true) == "kamer_los", "losse kamer zonder buren")
 	ok(H3.kamer_keuze(b, 6, 2, 12, true) == "kamer_begin" and H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_eind",
 		"rij 6-8: begin en eind")
-	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_b", "midden op oneven: b")
+	ok(H3.kamer_keuze(b, 7, 2, 12, true) == "kamer_midden_c", "kamer van drie: midden kaal")
 	b[9] = true
-	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_a", "midden op even: a")
+	ok(H3.kamer_keuze(b, 8, 2, 12, true) == "kamer_midden_c", "rij 6-9: kamer van vier blijft kaal in het midden: " + H3.kamer_keuze(b, 8, 2, 12, true))
 	ok(H3.kamer_keuze(b, 9, 2, 12, true) == "kamer_eind", "3D-schatkamer telt als dicht: eind")
-	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_b", "zonder 3D-schatkamer loopt de kamer door")
+	ok(H3.kamer_keuze(b, 9, 2, 12, false) == "kamer_midden_a", "zonder 3D-schatkamer loopt de kamer door (6-12, midden een stut)")
+	# Daan 16 nov 23:40 (moet): bovenste rij per drie middencellen precies één ding, om en om, nooit twee gelijk na elkaar
+	# kamers van 4 tot 9 cellen: nooit een ding naast fakkel of kistje, nooit twee dingen in drie cellen op een rij
+	# (fakkel en kistje tellen als ding)
+	var kort_ok := true
+	for klang in range(4, 10):
+		var kb2 := []
+		for kk in 30:
+			kb2.append(kk >= 5 and kk < 5 + klang)
+		var rij2 := []
+		for kk in range(5, 5 + klang):
+			var n2: String = H3.kamer_keuze(kb2, kk, 1, 28, false)
+			rij2.append(0 if n2 == "kamer_midden_c" else 1)
+		for j in range(0, rij2.size() - 2):
+			if rij2[j] + rij2[j + 1] + rij2[j + 2] > 1:
+				kort_ok = false
+	ok(kort_ok, "kamers van 4 tot 9 cellen: fakkel, dingen en kistje nooit twee in drie cellen")
+	var kb7 := []
+	for kk in 30:
+		kb7.append(kk >= 5 and kk < 12)
+	ok(H3.kamer_keuze(kb7, 8, 1, 28, false) != "kamer_midden_c", "kamer van zeven: ding precies in het midden")
+	for kst in [3, 4, 5]:
+		var klb := []
+		for kk in 60:
+			klb.append(kk >= kst and kk <= 50)
+		var klijst := []
+		for kk in range(kst + 1, 50):
+			klijst.append(H3.kamer_keuze(klb, kk, 1, 58, false))
+		var kdingen := []
+		var kper_ok := true
+		for g in range(0, klijst.size() - 2, 3):
+			var n := 0
+			for j in 3:
+				if klijst[g + j] != "kamer_midden_c":
+					n += 1
+					kdingen.append(klijst[g + j])
+			if n > 1:
+				kper_ok = false
+		var kwissel_ok := kdingen.size() >= 10
+		for j in range(1, kdingen.size()):
+			if kdingen[j] == kdingen[j - 1]:
+				kwissel_ok = false
+		ok(kper_ok and kwissel_ok, "bovenste rij vanaf %d: per drie middencellen hooguit één ding, om en om (%d dingen)" % [kst, kdingen.size()])
 	b[14] = true
 	b[15] = true
 	ok(H3.kamer_keuze(b, 15, 2, 12, true) == "kamer_eind", "rechterrand telt niet als buur: " + H3.kamer_keuze(b, 15, 2, 12, true))
@@ -783,22 +825,12 @@ func _init() -> void:
 	ok(HV.vol_vloer(vvh, 2, -1) == -1, "vol: geen vloerding op de eerste tegel na de schacht")
 	ok(HV.vol_vloer(vvh, 6, -1) == -1 and HV.vol_vloer(vvh, 7, -1) == -1 and HV.vol_vloer(vvh, 8, -1) == -1, "vol: niets op of naast een val")
 	ok(HV.vol_vloer(vvh, 24, -1) == -1 and HV.vol_vloer(vvh, 27, -1) == -1, "vol: niets bij de hoeden en Gloop, en één tegel vrij ervoor")
-	var vvrij := 0
-	var vgevuld := 0
-	var vzelfde := 0
+	# Daan 16 nov 20:50 (Iris keuring 8): geen behang meer. Los ding (alles behalve de stut) hooguit op 1 van de 3 tegels,
+	# nooit twee losse kolommen naast elkaar, nooit twee keer dezelfde soort na elkaar; stutten mogen regelmatig blijven.
 	var vplafond := 0
 	var vnaast := 0
-	var vvs := -1
 	var vvp := -99
 	for kk in range(2, 28):
-		var c: int = HV.vol_vloer(vvh, kk, vvs)
-		if c >= 0 and c == vvs:
-			vzelfde += 1
-		vvs = c
-		if not (kk == 2 or vvh.vallen.has(kk) or vvh.vallen.has(kk - 1) or vvh.vallen.has(kk + 1) or kk >= 24):
-			vvrij += 1
-			if c >= 0:
-				vgevuld += 1
 		var p: int = HV.vol_plafond(vvh, kk, vvp)
 		if p >= 0:
 			if kk - vvp < 2 or vbk[kk]:
@@ -807,34 +839,100 @@ func _init() -> void:
 				vnaast += 1   # geen stut op of naast een val, één tegel vrij voor de troon (Daan 16 nov, regel c)
 			vplafond += 1
 			vvp = kk
-	ok(vvrij > 0 and vgevuld == vvrij, "vol: elke vrije gangtegel een vloerding (%d van %d)" % [vgevuld, vvrij])
-	ok(vzelfde == 0, "vol: nooit twee keer dezelfde soort naast elkaar (%d)" % vzelfde)
-	ok(vplafond > 0 and vnaast == 0, "vol: plafond los van de vloer, nooit naast elkaar of onder een kamer (%d stuks, %d fout)" % [vplafond, vnaast])
-	# Daan 16 nov regel b: nooit twee grote dingen (ton, krat, stut) op tegels naast elkaar of op dezelfde tegel
+		if HV.vol_vloer(vvh, kk, -1) >= 0 and not HV.is_los(vvh, kk):
+			vnaast += 1
+	ok(vplafond > 0 and vnaast == 0, "vol: plafond nooit naast elkaar of onder een kamer, vloer alleen op losse kolommen (%d stuks, %d fout)" % [vplafond, vnaast])
 	var vrij: Array = HV.vol_rij(vvh)
 	var vgroot := {}
 	var vgfout := 0
-	var vvloer := 0
+	var vlos_k := []
+	var vlos_s := []
+	var vstut := 0
 	for dd in vrij:
 		if dd[1] in HV.GROOT:
 			if vgroot.has(dd[0] - 1) or vgroot.has(dd[0]) or vgroot.has(dd[0] + 1):
 				vgfout += 1
 			vgroot[dd[0]] = true
-		if not dd[2]:
-			vvloer += 1
-	ok(vgroot.size() > 0 and vgfout == 0, "vol: %d grote dingen, %d naast of op een ander groot ding" % [vgroot.size(), vgfout])
-	ok(vvloer == vgevuld, "vol: na regel b nog steeds elke vrije tegel een vloerding (%d van %d)" % [vvloer, vgevuld])
+		if dd[1] == 7:
+			vstut += 1
+		elif HV.is_los(vvh, dd[0]):
+			vlos_k.append(dd[0])
+			vlos_s.append(dd[1])
+	ok(vgfout == 0, "vol: %d grote dingen, %d naast of op een ander groot ding" % [vgroot.size(), vgfout])
+	var vlfout := 0
+	for i in range(1, vlos_k.size()):
+		if vlos_k[i] - vlos_k[i - 1] < 2 or vlos_s[i] == vlos_s[i - 1]:
+			vlfout += 1
+	ok(vlos_k.size() >= 6 and vlfout == 0, "vol: %d losse dingen op 26 tegels, mis (naast elkaar of zelfde soort): %d, %s" % [vlos_k.size(), vlfout, str(vlos_s)])
+	# Daan 16 nov 22:45 (moet): per drie tegels precies één los kolom, op wisselende plek, nooit twee naast elkaar
+	var vblok_fout := 0
+	var vnaast_los := 0
+	var vplekken := {}
+	for z in 40:
+		var hz := {"ingang_kol": 1 + z, "schat_kol": 60 + z, "vallen": {}, "gang": [], "boven": []}
+		var vorig_los := -99
+		for bb in 19:
+			var tel := 0
+			for j in 3:
+				var kk: int = hz.ingang_kol + 1 + bb * 3 + j
+				if HV.is_los(hz, kk):
+					tel += 1
+					vplekken[j] = true
+					if kk - vorig_los < 2:
+						vnaast_los += 1
+					vorig_los = kk
+			if tel != 1:
+				vblok_fout += 1
+	ok(vblok_fout == 0 and vnaast_los == 0 and vplekken.size() == 3, "vol: per drie tegels precies een los, nooit naast elkaar, alle drie plekken komen voor (%d blokken mis, %d naast elkaar)" % [vblok_fout, vnaast_los])
+	var hs := {"ingang_kol": 1, "schat_kol": 40, "vallen": {}, "gang": [], "boven": []}
+	for kk in 42:
+		hs.gang.append(kk >= 1 and kk <= 40)
+		hs.boven.append(false)
+	var vst := 0
+	for dd in HV.vol_rij(hs):
+		if dd[1] == 7:
+			vst += 1
+	ok(vst >= 3, "vol: stutten blijven regelmatig in een hol zonder kamers (%d op 38 tegels)" % vst)
+	# Daan 16 nov 22:45 (moet): kamers losser, 0, 1 of 2 dingen, ongeveer de helft leeg, nooit twee na elkaar gelijk
 	var vkd: Array = HV.kamer_dingen(vvh, false)
-	ok(vkd.size() == 8, "vol: vier kamers van twee kolommen, elk twee dingen (%d)" % vkd.size())
 	var vkok := true
-	for i in range(0, vkd.size(), 2):
-		if vkd[i][0] == vkd[i + 1][0] or vkd[i][1].y != HV.KAMER_VLOER or vkd[i][0] == "lichtzwam":
+	for kd in vkd:
+		if kd[1].y != HV.KAMER_VLOER or kd[0] == "lichtzwam":
 			vkok = false
-	ok(vkok and vkd[0][1] == Vector2(4 * 16 + 10, HV.KAMER_VLOER) and vkd[1][1] == Vector2(5 * 16, HV.KAMER_VLOER),
-		"vol: rechts van de fakkel en links van het kistje, twee verschillende, op de kamervloer: " + str(vkd.slice(0, 2)))
+	ok(vkd.size() <= 8 and vkok, "vol: hooguit twee dingen per kamer, op de kamervloer, geen lichtzwam (%d)" % vkd.size())
 	var vlos := vbk.duplicate()
 	vlos[5] = false
-	ok(HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false).size() == 6, "vol: een losse kamer (kamer_los) krijgt niets extra")
+	for kd in HV.kamer_dingen({"boven": vlos, "ingang_kol": 1, "schat_kol": 29}, false):
+		if int(kd[1].x) / 16 == 4 or int(kd[1].x) / 16 == 5:
+			vkok = false
+	ok(vkok, "vol: een losse kamer (kamer_los) krijgt niets extra")
+	var vk_leeg := 0
+	var vk_tot := 0
+	var vk_gelijk := 0
+	for z in 30:
+		var kb := []
+		for kk in 66:
+			kb.append(kk >= 3 and kk < 60 and ((kk + z) % 3) != 2)   # kamers van twee kolommen, verschoven per z
+		var kh := {"boven": kb, "ingang_kol": 1, "schat_kol": 63}
+		var vk_per := {}
+		for kd in HV.kamer_dingen(kh, false):
+			var kol: int = int(kd[1].x) / 16
+			var start: int = kol if kb[kol + 1] and not kb[kol - 1] else kol - 1   # links: a * 16 + 10, rechts: b * 16
+			if not vk_per.has(start):
+				vk_per[start] = []
+			vk_per[start].append(kd[0] + ("L" if kol == start else "R"))
+		var vorige_i := "x"
+		for kk in range(4, 58):
+			if not (kb[kk] and kb[kk + 1] and not kb[kk - 1]):
+				continue
+			var inr: String = ",".join(vk_per.get(kk, []))
+			vk_tot += 1
+			if inr == "":
+				vk_leeg += 1
+			if inr == vorige_i:
+				vk_gelijk += 1
+			vorige_i = inr
+	ok(vk_gelijk == 0 and vk_leeg * 100 >= vk_tot * 30 and vk_leeg * 100 <= vk_tot * 55, "vol: kamers %d van %d leeg, %d keer twee na elkaar gelijk" % [vk_leeg, vk_tot, vk_gelijk])
 	# hoedenwand (Olaf 16 nov, Mila punt 4): vaste plekken boven de gang, nooit naast elkaar, niet bij schacht en stapel
 	var wvh := {"ingang_kol": 1, "schat_kol": 29, "max_kol": 9999, "gang": vgk, "boven": vbk}
 	var wp: Array = HV.wand_plekken(wvh, true)
