@@ -104,6 +104,19 @@ var t := 0.0
 var hoed_vlucht_van := -99.0  # tijd van de hap met een nieuwe hoed (leven in het spel, punt 2)
 var hoed_van := Vector2(-12, -10)   # waar de hoed vandaan vliegt (hoofd van de held), Gloop-coordinaten
 var hap_van := -10.0
+# Hoeden van de nacht (Sanne 17 nov 06:05, features.md; bouw Bram): de hoeden van terwijl je weg was staan niet meteen op
+# de toren maar wachten hier en vallen na het openen een voor een van boven op de top, met de landing die er al is.
+const NACHT_WACHT_S := 1.0    # na het openen: eerst de wip van het bordje (0,1 + 0,5 s), dan pas vallen
+const NACHT_TUSSEN_S := 0.3   # de eerste NACHT_EEN_VOOR_EEN hoeden elk 0,3 s na elkaar
+const NACHT_EEN_VOOR_EEN := 10   # de rest in één plof, na de tiende; samen nooit meer dan ±4 s
+const VAL_S := 0.25           # zo lang valt een nachthoed recht omlaag (geland vóór de volgende komt)
+const VAL_HOOG := 14.0        # zoveel spelpixels boven de bovenrand van het hol begint de val (buiten beeld)
+var nacht_hoeden: Array[int] = []   # wachten nog, oudste eerst; tellen in de save gewoon mee (naar_dict)
+var nacht_van := -1.0         # t van de eerste val; -1 = nog niet gestart
+var nacht_gelegd := 0         # zoveel van deze nacht staan er al op
+var hoed_valt := false        # de bovenste hoed valt recht omlaag (nacht) in plaats van de boog van de held
+var blij_van := -10.0         # landing van de laatste nachthoed: dan pas blij (alleen als blij_nacht)
+var blij_nacht := false       # blij komt van een nachthoed (anders, zoals altijd, na de hap)
 var leven := ""            # "", "slapen" of "spugen"
 var leven_van := -10.0
 var gespuugd := 0           # laarzen uitgespuugd; hij spuugt alleen als hij meer helden at dan laarzen spuugde
@@ -196,7 +209,7 @@ func knijp_nu() -> Vector2:
 		return Vector2.ONE
 	var k := _knijp_uit(KNIJP_HAP, t - hap_van)
 	if k == Vector2.ONE and blij_tot > 0.0:
-		k = _knijp_uit(KNIJP_BLIJ, t - (hap_van + HAP_S)) if t < blij_tot else Vector2.ONE
+		k = _knijp_uit(KNIJP_BLIJ, t - _blij_start()) if t < blij_tot and t >= _blij_start() else Vector2.ONE
 	if k == Vector2.ONE and adem_aan and not (t < hap_van + HAP_S or t < blij_tot or leven != ""):
 		var m := lijf_maat()
 		k = Vector2(1.0, (m.y + 1.0) / m.y)
@@ -360,9 +373,11 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 		hoeden.append(hoed % HOED_SOORTEN)
 		hoed_vlucht_van = t
 		hoed_van = van
+		hoed_valt = false
 		if moment_hap and moment_vast < 0.0:
 			moment_vast = t + MOMENT_HAP_S
 		blij_tot = t + HAP_S + BLIJ_S     # na de hap even blij om de nieuwe hoed
+		blij_nacht = false
 	set_process(true)
 	return hoeden.size()
 
@@ -372,6 +387,51 @@ func krijg_hoed(hoed: int) -> int:
 	hoeden.append(absi(hoed) % HOED_SOORTEN)
 	queue_redraw()
 	return hoeden.size()
+
+# Hoeden van de nacht: in de rij zetten (Voortgang.geef_hoeden met later=true); vallen pas na start_nacht().
+func krijg_hoed_later(hoed: int) -> int:
+	gegeten += 1
+	nacht_hoeden.append(absi(hoed) % HOED_SOORTEN)
+	return hoeden.size() + nacht_hoeden.size()
+
+func start_nacht(wacht_s := NACHT_WACHT_S) -> void:
+	if nacht_hoeden.is_empty():
+		return
+	nacht_van = t + wacht_s
+	nacht_gelegd = 0
+	set_process(true)
+
+# Hoeveel nachthoeden er op tijd dt na de eerste val moeten liggen (los, zodat de toets het tempo kan nakijken).
+static func nacht_aantal(dt: float, totaal: int) -> int:
+	if dt < 0.0 or totaal <= 0:
+		return 0
+	var n := int(floor(dt / NACHT_TUSSEN_S + 0.0001)) + 1
+	if n > NACHT_EEN_VOOR_EEN:
+		return totaal   # na de tiende: de rest in één plof
+	return mini(n, totaal)
+
+func _nacht_stap() -> void:
+	if nacht_hoeden.is_empty() or nacht_van < 0.0 or t < nacht_van:
+		return
+	var moet := nacht_aantal(t - nacht_van, nacht_gelegd + nacht_hoeden.size())
+	if moet <= nacht_gelegd:
+		return
+	while nacht_gelegd < moet and not nacht_hoeden.is_empty():
+		hoeden.append(nacht_hoeden.pop_front())
+		nacht_gelegd += 1
+	# alleen de bovenste valt in beeld (bij de plof gaan de andere er in één keer onder)
+	hoed_vlucht_van = t - VLUCHT_VAN
+	hoed_valt = true
+	blij_van = t + VAL_S
+	blij_tot = blij_van + BLIJ_S
+	blij_nacht = true
+	if nacht_hoeden.is_empty():
+		nacht_van = -1.0
+	queue_redraw()
+
+# Na de laatste val (of meteen als er niets wachtte): leeg, en of er nog iets in de rij staat.
+func nacht_bezig() -> bool:
+	return not nacht_hoeden.is_empty()
 
 func hoeden_op_hoofd() -> Array:
 	return hoeden.slice(maxi(0, hoeden.size() - OP_HOOFD))
@@ -406,10 +466,12 @@ func hover_regel() -> String:
 
 # Bewaren in de save van Olaf (strook.gd): naar_dict() erin, van_dict() na zet().
 func naar_dict() -> Dictionary:
-	return {"hoeden": hoeden.duplicate(), "gegeten": gegeten, "gespuugd": gespuugd, "keer_plat": keer_plat}
+	return {"hoeden": hoeden + nacht_hoeden, "gegeten": gegeten, "gespuugd": gespuugd, "keer_plat": keer_plat}
 
 func van_dict(d: Dictionary) -> void:
 	hoeden.clear()
+	nacht_hoeden.clear()
+	nacht_van = -1.0
 	for h in d.get("hoeden", []):
 		hoeden.append(absi(int(h)) % HOED_SOORTEN)
 	gegeten = maxi(int(d.get("gegeten", 0)), hoeden.size())
@@ -437,6 +499,7 @@ func stap(delta: float) -> void:
 	t += delta
 	if moment_vast >= 0.0 and t > moment_vast:
 		t = moment_vast   # winkelbeeld moment=hap: Gloop en de vliegende hoed blijven staan
+	_nacht_stap()
 	if spuug_vast >= 0.0:
 		leven = "spugen"
 		leven_van = t - spuug_vast   # keurstrook: het moment blijft staan
@@ -447,7 +510,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot:
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt():
 		set_process(false)
 	_teken_als_anders()
 
@@ -519,7 +582,7 @@ func beeld_3d() -> String:
 	if f[0] == LEVEN and leven == "spugen" and SPUGEN.has(f[1]):
 		return _spuug_3d(SPUGEN.find(f[1]))
 	if f[0] == RUST or (f[0] == LEVEN and (f[1] == OPSTAAN or SLAPEN.has(f[1]))):
-		if f[0] == RUST and t < blij_tot and _heeft_3d("blij"):
+		if f[0] == RUST and t < blij_tot and (not blij_nacht or t >= blij_van) and _heeft_3d("blij"):
 			return "blij"
 		if (f[0] == RUST and t < knipper_tot or f[0] == LEVEN and SLAPEN.has(f[1])) and _heeft_3d("knipper"):
 			return "knipper"     # slapen = ogen dicht
@@ -724,17 +787,23 @@ func _teken_hoed_3d(h: int, x: float, nul: float, hap: bool) -> void:
 # draai naar de toren, dan wiebelen om zijn nulpunt met een uitslag die uitdooft. Daarna gewoon op zijn plek.
 func hoed_vlucht(doel_x: float, doel_nul: float) -> Array:
 	var s := t - hoed_vlucht_van - VLUCHT_VAN
+	var vs := _vlucht_s()
 	# [zichtbaar, x, nul, hoek, hoogte]; x en nul op hele spelpixels (Daan: geen halve pixels), hoek in stapjes
-	if s < -VLUCHT_VAN or s >= VLUCHT_S + WIEBEL_S or is_plat():
+	if s < -VLUCHT_VAN or s >= vs + WIEBEL_S or is_plat():
 		return [true, doel_x, doel_nul, 0.0, 1.0]
 	if s < 0.0:
 		return [false, doel_x, doel_nul, 0.0, 1.0]
-	if s < VLUCHT_S:
+	if hoed_valt and s < vs:
+		# nachthoed: recht omlaag van boven het hol op de top, steeds sneller (vallen), zonder draai
+		var fv := s / vs
+		var van_y := plafond_y() - VAL_HOOG
+		return [true, doel_x, round(lerpf(van_y, doel_nul, fv * fv)), 0.0, 1.0]
+	if not hoed_valt and s < VLUCHT_S:
 		var f := s / VLUCHT_S
 		var g := f * (2.0 - f)   # snel weg, zacht neer
 		var hoek := snappedf(-PI * (1.0 - g), PI / 8.0)
 		return [true, round(lerpf(hoed_van.x, doel_x, g)), round(lerpf(hoed_van.y, doel_nul, g) - sin(f * PI) * VLUCHT_BOOG), hoek, 1.0]
-	var w := s - VLUCHT_S
+	var w := s - vs
 	if w < PLAT_S:
 		return [true, doel_x, doel_nul, 0.0, 0.9]
 	var p := (w - PLAT_S) / (WIEBEL_S - PLAT_S)
@@ -743,7 +812,13 @@ func hoed_vlucht(doel_x: float, doel_nul: float) -> Array:
 
 func hoed_vliegt() -> bool:
 	var s := t - hoed_vlucht_van
-	return s >= 0.0 and s < VLUCHT_VAN + VLUCHT_S + WIEBEL_S
+	return s >= 0.0 and s < VLUCHT_VAN + _vlucht_s() + WIEBEL_S
+
+func _blij_start() -> float:
+	return blij_van if blij_nacht else hap_van + HAP_S
+
+func _vlucht_s() -> float:
+	return VAL_S if hoed_valt else VLUCHT_S
 
 # Hoedenberg links naast hem: een piramide van hoeden, groter per maat. [hoed, x, y].
 func berg() -> Array:

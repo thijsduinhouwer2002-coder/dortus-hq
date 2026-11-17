@@ -1095,6 +1095,94 @@ func _init() -> void:
 	gm.raak(4, Vector2(10, -10))
 	ok(not gm.is_plat() and gm.hoeden.size() == hoeden_voor and gm.hoed_vliegt(), "moment=hap: plat of een volgende hap verandert het stille beeld niet")
 	gm.free()
+	# Hoeden van de nacht (Sanne 17 nov 06:05, features.md; bouw Bram): na weg niet meteen op de toren, maar na de wip
+	# een voor een van boven op de top; eerste 10 elk 0,3 s, de rest in één plof; samen hooguit ±4 s; save gelijk
+	var VG = load("res://systemen/voortgang.gd")
+	var gn = Node2D.new()
+	gn.set_script(load("res://systemen/slijm.gd"))
+	gn.krijg_hoed(1)
+	gn.krijg_hoed(2)
+	var gn_ref = Node2D.new()
+	gn_ref.set_script(load("res://systemen/slijm.gd"))
+	gn_ref.krijg_hoed(1)
+	gn_ref.krijg_hoed(2)
+	var uk := {"opgegeten": 29}
+	var per_n: Array = VG.geef_hoeden([gn], uk, 7, true)
+	VG.geef_hoeden([gn_ref], {"opgegeten": 29}, 7)
+	ok(per_n == [29] and gn.hoeden.size() == 2 and gn.nacht_hoeden.size() == 29 and bool(uk.hoeden_gegeven), "nachthoeden: 29 in de rij, toren nog op 2 (%s)" % str(per_n))
+	ok(gn.naar_dict().hoeden.size() == 31 and gn.naar_dict().hoeden == gn_ref.naar_dict().hoeden and gn.gegeten == gn_ref.gegeten, "nachthoeden: save gelijk aan meteen geven (afsluiten tijdens het vallen verliest niets)")
+	gn.start_nacht()
+	var eerste_t := -1.0
+	var tiende_t := -1.0
+	var alles_t := -1.0
+	var stappen_n := {}
+	var geland_voor_volgende := true
+	var vorige_n := 2
+	var blij_vroeg := false
+	for i in 120:
+		gn.stap(0.05)
+		var nh: int = gn.hoeden.size()
+		if nh > vorige_n:
+			if gn.t - gn.hoed_vlucht_van - gn.VLUCHT_VAN > 0.051:
+				geland_voor_volgende = false
+			stappen_n[nh - vorige_n] = true
+			if eerste_t < 0.0:
+				eerste_t = gn.t
+			if nh >= 12 and tiende_t < 0.0:
+				tiende_t = gn.t
+			if nh == 31:
+				alles_t = gn.t
+			vorige_n = nh
+		if gn.hoed_valt and gn.hoed_vliegt() and gn.t < gn.blij_van and gn.beeld_3d() == "blij":
+			blij_vroeg = true
+	ok(eerste_t >= gn.NACHT_WACHT_S - 0.01 and eerste_t <= gn.NACHT_WACHT_S + 0.06, "nachthoeden: eerste valt na de wip, op %.2f s" % eerste_t)
+	ok(tiende_t > 0.0 and absf(tiende_t - eerste_t - 9 * gn.NACHT_TUSSEN_S) < 0.06, "nachthoeden: tiende 2,7 s na de eerste (%.2f)" % (tiende_t - eerste_t))
+	ok(alles_t > 0.0 and alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S <= 4.0, "nachthoeden: alles staat en wiebelde uit binnen 4 s (%.2f s)" % (alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S))
+	ok(stappen_n.keys().has(1) and stappen_n.keys().has(19) and stappen_n.size() == 2, "nachthoeden: tien keer één, dan één plof van 19 (%s)" % str(stappen_n.keys()))
+	ok(gn.hoeden == gn_ref.hoeden and gn.nacht_hoeden.is_empty(), "nachthoeden: dezelfde hoeden in dezelfde volgorde als meteen geven")
+	ok(geland_voor_volgende and gn.VAL_S < gn.NACHT_TUSSEN_S, "nachthoeden: elke hoed is geland voor de volgende valt")
+	ok(not blij_vroeg, "nachthoeden: Gloop pas blij bij de landing, niet tijdens de val")
+	ok(not gn.is_processing() or gn.get_parent() == null, "nachthoeden: daarna geen werk meer (rij leeg)")
+	# de val zelf: recht omlaag op de top, van boven het hol, steeds lager, geen draai; landing en wiebel als bij de held
+	gn.position.y = 80.0   # zoals in het hol: Gloop staat onderin, de bovenrand ver boven hem
+	gn.hoeden.append(5)
+	gn.hoed_valt = true
+	gn.hoed_vlucht_van = gn.t - gn.VLUCHT_VAN - 0.0001
+	var vy := []
+	var recht := true
+	for i in 6:
+		var vv: Array = gn.hoed_vlucht(3.0, -24.0)
+		vy.append(float(vv[2]))
+		if not vv[0] or not is_equal_approx(float(vv[1]), 3.0) or not is_equal_approx(float(vv[3]), 0.0):
+			recht = false
+		gn.t += gn.VAL_S / 6.0
+	ok(recht and vy[0] < -24.0 and vy[0] <= gn.plafond_y() - gn.VAL_HOOG + 0.5, "nachthoed: begint boven het hol, recht boven de top, zonder draai (%s)" % str(vy))
+	var dalend := true
+	for i in range(1, vy.size()):
+		if vy[i] < vy[i - 1]:
+			dalend = false
+	ok(dalend, "nachthoed: valt alleen omlaag (%s)" % str(vy))
+	gn.t = gn.hoed_vlucht_van + gn.VLUCHT_VAN + gn.VAL_S + 0.02
+	var vland: Array = gn.hoed_vlucht(3.0, -24.0)
+	ok(is_equal_approx(float(vland[2]), -24.0) and is_equal_approx(float(vland[4]), 0.9), "nachthoed: landt op de top met één beeld plat (%s)" % str(vland))
+	gn.t = gn.hoed_vlucht_van + gn.VLUCHT_VAN + gn.VAL_S + gn.WIEBEL_S + 0.01
+	ok(not gn.hoed_vliegt(), "nachthoed: daarna stil")
+	# een held die daarna gegeten wordt, krijgt weer de gewone boog
+	gn.raak(2, Vector2(14, -10))
+	ok(not gn.hoed_valt, "nachthoed: de volgende hap vliegt weer in een boog")
+	# niets in de rij: start_nacht doet niets
+	var g0 = Node2D.new()
+	g0.set_script(load("res://systemen/slijm.gd"))
+	g0.start_nacht()
+	ok(g0.nacht_van < 0.0 and g0.hoeden.is_empty(), "nachthoeden: zonder hoeden van de nacht geen rij")
+	ok(gn.nacht_aantal(-0.1, 5) == 0 and gn.nacht_aantal(0.0, 5) == 1 and gn.nacht_aantal(0.3, 5) == 2 and gn.nacht_aantal(9.0, 5) == 5 and gn.nacht_aantal(3.0, 40) == 40 and gn.nacht_aantal(2.7, 40) == 10, "nachthoeden: tempo volgens het ontwerp")
+	# van_dict (laden) leegt de rij
+	gn.krijg_hoed_later(3)
+	gn.van_dict(gn_ref.naar_dict())
+	ok(gn.nacht_hoeden.is_empty() and gn.hoeden == gn_ref.hoeden, "nachthoeden: laden leegt de rij")
+	gn.free()
+	gn_ref.free()
+	g0.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")
 	ok(PR.hoogte_voor_dpi(96) == 120 and PR.hoogte_voor_dpi(110) == 120, "schaal 100% en 115%: 120 px")

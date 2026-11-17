@@ -285,6 +285,9 @@ jobs:
             $hd = [regex]::Match($a, "erbij \d+, hoeden (\d+)")
             if (-not $hd.Success) { Write-Output "FOUT: geen hoeden in de regel 'weg geweest'"; $fout++ }
             Write-Output "8 uur weg: goud $gv -> $($gv + $er) (+$er), $h helden, hoeden $($hd.Groups[1].Value)"
+            # Hoeden van de nacht (Sanne 17 nov, features.md; bouw Bram): de hoeden vallen na het openen een voor een op de toren
+            $hn = [regex]::Match($a, "HOL hoeden van de nacht (\d+) ")
+            if ($hd.Success -and [int]$hd.Groups[1].Value -gt 0 -and (-not $hn.Success -or $hn.Groups[1].Value -ne $hd.Groups[1].Value)) { Write-Output "FOUT: 'hoeden van de nacht' ontbreekt of telt anders dan de weg-regel"; $fout++ }
           }
           $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
           if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }
