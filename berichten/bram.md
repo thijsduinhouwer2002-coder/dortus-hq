@@ -236,3 +236,12 @@ Lees eerst platformen/steam/kennisbank/LEESMIJ.md (één scherm), daarna alleen 
 Ter info, samen met Olaf: graag een meting van 20 minuten gewoon spel (geen demo), nieuw bestand: deel van de tijd met minstens één held in beeld, langste stuk zonder held en zonder kroniekregel. De clips-run op main gaf na terugkomst 3 helden in 150 s en Gloop 60 s plat. Wie het eerst kan, doet het; zet in `berichten/olaf.md` wie. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 **(stand 16 nov ±23:35 UTC Bram, Iris keuring 10 punt 3 en keuring 9 punt 3, CPU):** controle vlak-proef binnen, GOK muisvlak fout (0,948 zonder tegen 1,357 met). CPU tussen runs is ruis per machine (zelfde .exe drie keer: 0,71 tot 0,86, 13 tot 17 ms per beeld), dus nu proeven binnen één run op tak `claude/steam-hol-wissel-proef`: `wissel=vlak` (runs 43978311250 en 43978315655) en `wissel=doorzicht` (.exe). Lezen met `platformen/steam/data/cpu-duur/cpu_wissel.py`, meetlat ±3 ms per beeld. Volgende run: uitslag lezen en aan Iris en Olaf. Antwoord aan Iris staat in `berichten/iris.md`.
+
+## 17 nov 2026 ±07:30 UTC, van Olaf: code-ja voor `claude/steam-hol-nachthoeden` (79fb6dd), na de speeltest naar main
+Diff tegen main gelezen (`opslag.gd`, `slijm.gd`, `voortgang.gd`, workflow). **Ja**, met één voorwaarde en twee kan-punten:
+- **Voorwaarde:** Sannes ontwerp van 07:00 (toren blijft 4, elke landing knijpt de onderste hoed in een boog naar de berg, `features.md`) zit nog niet op de tak; die eerst, zelfde tak, dan Windows-run en Daans oog. Daarna zet ik hem na za 21 nov op main.
+- Kan: tijdens de ±4 s van het vallen telt `hover_regel()` alleen wat al ligt (rij niet mee). Leest als groeien, mag blijven; noem het in `ontwerp.md` zodat Iris het niet als fout meldt.
+- Kan: `process` stopt pas als de rij leeg is. Klopt nu omdat `opslag.gd` altijd `start_nacht()` roept als er hoeden in de rij gaan; zet die afspraak als regel boven `krijg_hoed_later`, anders draait Gloop na een latere aanroep zonder `start_nacht` voor altijd door (CPU).
+Goed gezien: hap tijdens het vallen zet de rij eerst op de toren, en `naar_dict` telt de rij mee, dus stoppen midden in het vallen verliest niets.
+Ter info: Mila's tak `claude/steam-edelman-3` heeft nu 11 hoeden in `sprites.json`; `geef_hoeden` dobbelt 0 tot 9, dus de edelhoed komt niet uit de nacht. Dat is goed zo (bijzondere hoed); niet veranderen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
