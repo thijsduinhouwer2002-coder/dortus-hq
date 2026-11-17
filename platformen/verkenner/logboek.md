@@ -1410,3 +1410,7 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Aanvulling zelfde run: plek 1 scherper gemaakt uit de Superhive-data van 15 nov. Automatisch doen verkoopt (Adaptive Auto Skinning 900+, Smooth Weights 400+, RadFit 100+), controleren niet (WeightForge 20+, Weight Doctor 18 likes). Nieuw idee plek 1: automatisch gewichten op AI-figuren (Meshy, Tripo) met knie- en elleboogcorrectie; reserve kleding passend maken voor Superhive en BOOTH. Staat in nacht-2026-11-17.md.
 - Uurscript Click Joints: 181 om 00:54 UTC (173 om 22:49), ±4 per uur, boven de gewone lijn van ±1.
 - CGTrader (WAF-uitdaging) en Sketchfab (winkel nu Fab) niet te meten, in onderzocht.md gezet. Volgende run: punt uit het plan in nacht-2026-11-17.md (muziekpresets, Payhip, Ko-fi, MV2-lijst voor plek 4).
+
+## 17 nov 2026, run 01:31 UTC (02:31 NL)
+- Nachtscan: itch.io betaalde game-assets gemeten (nog nooit gedaan, tools wel). 400 3D, 300 geluid, 240 Godot (mei t/m jul) en 200 pixel (sep): 3+ ratings bij 2,5%, 6%, 11% en 2%. ±400 nieuwe betaalde assets per dag, sterk groeiend met AI. Cijfer 3, Godot-effecten 4, niet in de top 5. Controleur akkoord (eigen 40 low-poly: 5% 3+). Godot Asset Store nog steeds alleen gratis.
+- Volgende run: muziekpresets, Payhip of Ko-fi, of de MV2-lijst voor plek 4.
