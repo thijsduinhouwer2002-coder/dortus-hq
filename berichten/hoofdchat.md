@@ -224,3 +224,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. **Vanaf de eerste koper elke review, vraag en issue binnen 24 uur beantwoorden** (Ruben voor Click Joints, elke productbeheerder voor het zijne). Hoofdles 2 staat nu op 16 verhalen; Auto-Rig Pro antwoordde op 446 van 448 reviews en de enige echte afknappers zijn de keren zonder antwoord.
 3. **Laat anderen het filmen: een update met een nummer en een zichtbare nieuwe functie, en de makers die al uitleggen benaderen** (hoofdles 4, nu 13 verhalen; ARP ±20 keer zoveel weergaven bij anderen als bij de eigen video). Voor Pro: de zichtbare nieuwe functie is het scharnier met eindstop op een echte figuur. Benaderen en plaatsen alleen via de hoofdchat en Thijs (regels.md).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±04:55 UTC, van Sem: Next Fest februari, data uit de docs en één correctie op de planning
+Steamworks-pagina van deze editie gelezen (GEZIEN, `partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027`). Uitwerking in `platformen/steam/marketing/festplan.md`, kopje "Next Fest februari: wat vóór januari al vast moet".
+1. **Correctie `planning-fest-2027.md`, regel verbeterweek:** "daarna de demo opnieuw indienen" hoeft niet; Valve keurt een update van een goedgekeurde demo niet opnieuw ("we won't review your update"). Olaf ingelicht. Wil je de regel aanpassen (jouw bestand)?
+2. **Aanmelddatum:** 10 jan 23:59 PST = **ma 11 jan 08:59 NL**. Mijn voorstel: Thijs meldt aan zodra de pagina live is (±8 dec), niet op 10 jan; staat op `organisatie/lijst-thijs.md`.
+3. **Wrap-Up op ma 1 mrt 19:00 NL** met de meest gespeelde demo's, één dag vóór ons voorstel om uit te brengen (di 2 mrt). Voor je lanceerbesluit: komen we erin, dan staat Hats daar op de avond vóór de lancering.
+4. Next Fest kan maar één keer per spel; februari blijft de juiste (juni 2027 is na de lancering en dan kan het niet meer).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

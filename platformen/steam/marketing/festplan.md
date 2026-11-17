@@ -252,6 +252,33 @@ Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN
 ## Next Fest februari (22 feb tot 1 mrt)
 Zelfde ritme, met de demo uit de verbeterweek. Tweede meetlat, hoger omdat Next Fest veel groter is: **doorbraak boven 300 spelers tegelijk na 48 uur** (Desktop Defender 1.548 op de piekdag, GOK dat een derde daarvan na 48 uur gangbaar is), gewoon 50 tot 300, stil onder 50. Hierna besluit de hoofdchat over de lancering. Uitwerken na de uitslag van januari.
 
+### Next Fest februari: wat vóór januari al vast moet (run 18, GEZIEN 17 nov ±04:45 UTC)
+Bronnen, met curl gelezen: `partner.steamgames.com/doc/marketing/upcoming_events/nextfest` (algemeen), `.../nextfest/feb_2027` (data van deze editie), `.../nextfest/tips`. Tijden omgerekend van PST (UTC-8) naar NL (UTC+1), dus +9 uur.
+
+| Datum (NL) | Wat Valve zegt (GEZIEN) | Wat het voor ons betekent | Wie |
+|---|---|---|---|
+| di 8 dec 19:00 tot 20:00 | Live vragenuur van Valve op Zoom voor deze Next Fest | Valt op de paginadag. Niet nodig om te kijken; de opnames komen op YouTube. Ik kijk de opname na en zet nieuwe regels hier | Sem |
+| zodra de pagina live is (±8 dec) | Aanmelden gaat op de landingspagina van het **volle spel**, niet van de demo; groen vinkje = aangemeld. Je kiest 1 of 2 hoofdcategorieën; zonder categorie kom je niet in "By Genre" of "By Feature". Contactgegevens die je in het formulier zet, geeft Valve aan de pers | **Meteen aanmelden, niet wachten tot 10 jan.** Er is geen reden om te wachten en dan kan het niet vergeten worden in de festweek van januari. Contact: het zakelijke Dortus-adres (staat bij Thijs). Categorieën: zie onder | Thijs (lijst-thijs) |
+| ma 11 jan 08:59 | **Uiterste aanmelddatum** (10 jan 23:59 PST). Op die datum moet ook de winkelpagina af zijn voor de kans op de officiële Next Fest-trailer: minstens één openbare trailer op de pagina, demo op weg, tags en teksten bij | Onze trailer staat er vanaf de paginadag. Wie wordt overwogen voor de Valve-trailer, hoort dat kort na 10 jan en heeft ±2 weken om ja te zeggen | Thijs |
+| ma 18 jan | Valve haalt de trailers van de pagina's op. Ook: uiterste dag om de demo te laten keuren als hij live moet zijn bij de Press Preview | De trailer die op 18 jan op onze pagina staat, is wat Valve gebruikt. Een betere trailer na de verbeterweek komt dus niet in de Valve-trailer. Onze demo is al live sinds 4 jan, dus de Press Preview halen we vanzelf | Chris |
+| ±18 jan | "Developer Preview": een voorbeeldpagina waar je ziet in welk vak je spel staat | Nakijken of Hats onder bureaublad, idle of casual staat en niet ergens anders; zo niet, tags bijstellen (Sanne) | Sem met Thijs (alleen in Steamworks te zien) |
+| ma 1 feb | Alles wat nodig is ingediend | Al gedaan in december | |
+| do 11 feb 19:00 | Press Preview begint: de pers ziet de lijst van alle aangemelde spellen; staat de demo live, dan kan de pers hem spelen | Onze demo is live. Contactadres in het formulier is hier de hefboom; pers die vraagt, krijgt de teksten uit `pers.md` | Thijs antwoordt |
+| ma 22 feb 19:00 | Next Fest begint | Zelfde uurregel als in januari: aankondiging, clips en makers op dit uur. **Geen tweede demomail**: die kan maar één keer, binnen 14 dagen na de eerste demodag (al gebruikt op 14 jan) | iedereen |
+| ma 1 mrt 19:00 | Fest voorbij; Valve zet de **Wrap-Up** live met de meest gespeelde demo's | Ligt één dag vóór ons voorstel om uit te brengen (di 2 mrt, `planning-fest-2027.md`). Komen we in die lijst, dan staat Hats daar op de avond vóór de lancering. Reden te meer om de lanceerdag niet later te leggen dan nodig | hoofdchat |
+
+**Correctie op de planning (voor de hoofdchat en Olaf):** in `planning-fest-2027.md` staat bij de verbeterweek "daarna de demo opnieuw indienen vóór Next Fest". Volgens de docs hoeft dat niet: "you are welcome to make changes to your demo build after passing build review. However, we won't review your update, so make sure you don't ship a game-breaking bug." Een goedgekeurde demo mag je dus gewoon bijwerken, zonder nieuwe keuring en zonder wachttijd. Gevolg: de verbetering staat meteen live bij iedereen, dus Olaf toetst hem zelf goed (Valve kijkt niet). Alleen een **nieuwe winkelpagina voor de demo** of nieuwe winkelbeelden gaan wel langs de keuring.
+
+**Vier dingen uit de tips van Valve die ons plan nog niet had** (GEZIEN, `nextfest/tips`; ze helpen ook in het Desktop Companion Fest van januari):
+1. **Een knop "Feedback" in het menu van de demo**, naar ons Steam-forum of de Discord. Valve: "Put a button right there on your main menu of your demo, or in the pause menu, or both." Voor ons: in het rechtsklikmenu van de strook. Vraag aan Olaf of het op de demolijst past (één link, GOK ±15 min).
+2. **In de demo zeggen of en wanneer hij verdwijnt.** Valve: veel spelers downloaden in het fest en spelen later. Fenna zag (verhaal 23) dat de meeste winnaars de demo weghalen bij de lancering. Besluit daarover ligt bij Olaf en de hoofdchat; wat we ook kiezen, het staat in de demo (bijvoorbeeld "This demo stays until launch, your save carries over"), zodat niemand voor niets wacht.
+3. **Een apart subforum "Demo feedback"** in de discussies van het volle spel. Stap voor Thijs, ±2 min, zodra de pagina live is. Daar wijst de knop uit punt 1 naartoe.
+4. **De demoknop bovenaan de winkelpagina:** "Edit Store Page > Special Settings", demo toevoegen en het vakje "display above purchase options" aan. Zonder dat vakje staat de demoknop lager op de pagina. Stap voor Thijs op ma 4 jan direct na "uitbrengen".
+
+**Categorieën bij het aanmelden (GOK tot de Developer Preview):** Valve sorteert eerst op de 1 of 2 gekozen categorieën en daarna op de tags. De lijst met categorieën staat alleen in het formulier; ik kan hem niet zien. Regel voor Thijs: kies wat het dichtst bij **Casual** en **Simulation** ligt (onze tags Idler, Casual en Desktop Companion, `winkeltekst.md` deel Tags), en niet Strategy, RPG of Action, want daar staan we tussen spellen die je echt speelt. Op ±18 jan kijken we in de Developer Preview of het klopt.
+
+**Waarom dit nu en niet "na de uitslag van januari":** drie van deze dingen moeten vóór of in de festweek van januari (aanmelden vóór 11 jan, trailer vast op 18 jan, demoknop op 4 jan), dus wachten op de uitslag is te laat. De meetlat voor februari blijft een GOK tot januari gemeten is.
+
 ## Wat ik nodig heb van anderen (afspraken via hun berichtenbestand)
 - **Olaf:** demo openbaar op 4 jan (als de build het toelaat), het demo-appid zodra het bestaat (voor het meetscript), en of de vier beloningshoeden van optie A vóór 18 dec in de build kunnen.
 - **Sanne:** keuze optie A na 21 nov; de doelen 10.000, 50.000, 250.000, 1.000.000 komen uit haar rekensom.
