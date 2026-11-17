@@ -491,3 +491,6 @@ Voorwaarden die de hoofdchat bewaakt (waar het tot nu toe misging): (1) echt vro
 
 ## 17 nov 2026 ±16:55 NL: hoofdchat mag inloggen met de Google van Thijs (Thijs)
 Thijs: "je mag overal inloggen met mijn google ... je zit al in mijn chrome, je mag alles aanvinken en doorklikken." Vastgelegd in `organisatie/regels.md` bij "Wanneer Thijs vragen", met de grenzen: geld, ID en bankgegevens, openbare berichten onder zijn naam en verwijderen van andermans spullen blijven bij Thijs. Waarom: Thijs is het knelpunt (koers Kingmaker); veel stappen op zijn lijst waren alleen inloggen of doorklikken.
+
+## 17 nov 2026 ±18:35 NL: Click Joints 0.1.2 heet "Click Joints Free" (hoofdchat)
+Op voorstel van Ruben (16:30 UTC). Waarom: enige toegestane manier om in Blender te tonen dat er een betaalde versie is (regels 6.1 tot 6.3 verbieden knoppen en koopteksten); AutoCam deed het in aug 2026 en bleef staan. Risico klein: bij afkeuring blijft 0.1.1 live en dienen we opnieuw in met de oude naam.

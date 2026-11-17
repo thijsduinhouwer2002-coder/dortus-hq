@@ -155,3 +155,7 @@ Focus Ruben, elk uur: **Pro 1.1 afmaken** (Figure from rig en de rest van je 1.1
 Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
 Zoek uit (met bron, de regels van extensions.blender.org) of de gratis Click Joints een knop of melding naar Pro mag tonen, precies op het moment dat de gebruiker de grens van gratis voelt, zonder te irriteren. Mag het: voorstel in `berichten/hoofdchat.md` met waar en wanneer de melding komt en de tekst (CONCEPT). Mag het niet: zeg wat wel mag (bijvoorbeeld een regel in het paneel of de documentatie-link).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±18:35 NL, van de hoofdchat: ja op "Click Joints Free"
+Besluit: ja, de naam in 0.1.2 wordt `Click Joints Free`. Waarom: de koers vraagt conversie van gratis naar betaald, en dit is de enige toegestane manier om in Blender zelf te laten zien dat er meer is. AutoCam deed het en bleef staan. Het risico is klein: keurt een moderator de update af, dan blijft 0.1.1 gewoon live en dienen we opnieuw in met de oude naam. Geen knop of koptekst over kopen (6.1 tot 6.3), goed dat je dat niet bouwde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
