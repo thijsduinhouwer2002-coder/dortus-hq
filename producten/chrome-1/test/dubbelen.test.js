@@ -75,7 +75,7 @@ test("ander eind is geen dubbel", () => {
   assert.equal(vindDubbelen([{ agenda: eigen, events: [a, b] }]).groepen.length, 0);
 });
 
-test("alleen-lezen agenda: zichtbaar, niet aan te vinken, met uitleg; de schrijfbare kopie blijft niet per se", () => {
+test("alleen-lezen agenda: zichtbaar, niet aan te vinken, met uitleg; de eigen kopie blijft", () => {
   const a = ev("Kerst", "2026-12-25", "2026-12-26");
   const b = ev("Kerst", "2026-12-25", "2026-12-26");
   const { groepen } = vindDubbelen([{ agenda: feest, events: [a] }, { agenda: eigen, events: [b] }]);
@@ -89,19 +89,95 @@ test("alleen-lezen agenda: zichtbaar, niet aan te vinken, met uitleg; de schrijf
   assert.deepEqual(teVerwijderen(groepen), []);
 });
 
-test("organisator met gasten: niet aangevinkt, wel aan te vinken", () => {
-  const a = ev("Klantgesprek", "2026-11-24T14:00:00Z", "2026-11-24T15:00:00Z", { created: "2026-01-01T00:00:00Z" });
-  const b = ev("Klantgesprek", "2026-11-24T14:00:00Z", "2026-11-24T15:00:00Z", {
-    created: "2026-02-01T00:00:00Z",
+test("organisator met gasten: de vergadering blijft; een tweede vergadering-kopie staat niet aangevinkt maar kan wel", () => {
+  const los = ev("Klantgesprek", "2026-11-24T14:00:00Z", "2026-11-24T15:00:00Z", { created: "2020-01-01T00:00:00Z" });
+  const met = (created) => ev("Klantgesprek", "2026-11-24T14:00:00Z", "2026-11-24T15:00:00Z", {
+    created,
     organizer: { email: eigen.id, self: true },
     attendees: [{ email: eigen.id, self: true }, { email: "klant@voorbeeld.com" }, { email: "zaal@resource.calendar.google.com", resource: true }],
   });
-  const { groepen } = vindDubbelen([{ agenda: eigen, events: [a, b] }]);
-  const it = groepen[0].items.find((i) => i.eventId === b.id);
+  const b = met("2026-02-01T00:00:00Z"), c = met("2026-03-01T00:00:00Z");
+  const r1 = vindDubbelen([{ agenda: eigen, events: [los, b] }]);
+  assert.equal(r1.groepen[0].items.find((i) => i.blijft).eventId, b.id, "de echte vergadering blijft, ook al is de losse kopie ouder");
+  assert.deepEqual(teVerwijderen(r1.groepen), [{ agendaId: eigen.id, eventId: los.id }]);
+  const r2 = vindDubbelen([{ agenda: eigen, events: [b, c] }]);
+  const it = r2.groepen[0].items.find((i) => i.eventId === c.id);
   assert.equal(it.blijft, false);
   assert.equal(it.kan, true);
   assert.equal(it.aangevinkt, false);
   assert.equal(it.reden, REDENEN.gasten);
+});
+
+test("uitnodiging waar je gast bent blijft, ook als een losse Outlook-kopie ouder is", () => {
+  const outlook = ev("Overleg baas", "2026-11-24T10:00:00Z", "2026-11-24T11:00:00Z", { created: "2020-01-01T00:00:00Z" });
+  const uitnodiging = ev("Overleg baas", "2026-11-24T10:00:00Z", "2026-11-24T11:00:00Z", {
+    created: "2026-05-01T00:00:00Z",
+    organizer: { email: "baas@voorbeeld.com" },
+    attendees: [{ email: "baas@voorbeeld.com", organizer: true }, { email: eigen.id, self: true }],
+  });
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [outlook, uitnodiging] }]);
+  assert.equal(groepen[0].items.find((i) => i.blijft).eventId, uitnodiging.id);
+  assert.deepEqual(teVerwijderen(groepen), [{ agendaId: eigen.id, eventId: outlook.id }]);
+});
+
+test("twee uitnodigingen als gast: de verliezer staat niet aangevinkt, met reden", () => {
+  const u = (created) => ev("Teamdag", "2026-11-30", "2026-12-01", {
+    created, organizer: { email: "hr@voorbeeld.com" }, attendees: [{ email: "hr@voorbeeld.com" }, { self: true }],
+  });
+  const a = u("2026-01-01T00:00:00Z"), b = u("2026-02-01T00:00:00Z");
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [a, b] }]);
+  const it = groepen[0].items.find((i) => i.eventId === b.id);
+  assert.equal(it.aangevinkt, false);
+  assert.equal(it.kan, true);
+  assert.equal(it.reden, REDENEN.gast);
+});
+
+test("attendeesOmitted telt als gasten", () => {
+  const a = ev("Groot overleg", "2026-11-24T12:00:00Z", "2026-11-24T13:00:00Z", { created: "2026-01-01T00:00:00Z", organizer: { self: true }, attendeesOmitted: true, attendees: [{ self: true }] });
+  const b = ev("Groot overleg", "2026-11-24T12:00:00Z", "2026-11-24T13:00:00Z", { created: "2026-02-01T00:00:00Z", organizer: { self: true }, attendeesOmitted: true, attendees: [{ self: true }] });
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [a, b] }]);
+  assert.deepEqual(teVerwijderen(groepen), []);
+  assert.equal(groepen[0].items.find((i) => i.eventId === b.id).reden, REDENEN.gasten);
+});
+
+test("gedeelde agenda van een ander (writer): niet aangevinkt met waarschuwing; writer gaat voor reader", () => {
+  const inTeam = ev("Retro", "2026-11-26T15:00:00Z", "2026-11-26T16:00:00Z", { created: "2026-01-01T00:00:00Z" });
+  const inTeam2 = ev("Retro", "2026-11-26T15:00:00Z", "2026-11-26T16:00:00Z", { created: "2026-02-01T00:00:00Z" });
+  const r = vindDubbelen([{ agenda: team, events: [inTeam, inTeam2] }]);
+  const it = r.groepen[0].items.find((i) => i.eventId === inTeam2.id);
+  assert.equal(it.kan, true);
+  assert.equal(it.aangevinkt, false);
+  assert.equal(it.reden, REDENEN.gedeeld);
+  const inFeest = ev("Retro", "2026-11-26T15:00:00Z", "2026-11-26T16:00:00Z", { created: "2019-01-01T00:00:00Z" });
+  const r2 = vindDubbelen([{ agenda: feest, events: [inFeest] }, { agenda: team, events: [inTeam] }]);
+  assert.equal(r2.groepen[0].items.find((i) => i.blijft).agendaId, team.id);
+});
+
+test("verliezende vergadering met kopieën in twee agenda's: beide kopieën gaan mee, de winnaar met al zijn kopieën blijft", () => {
+  const w = ev("Planning", "2026-11-27T09:00:00Z", "2026-11-27T10:00:00Z", { created: "2025-01-01T00:00:00Z", iCalUID: "win@x" });
+  const wKopie = { ...ev("Planning", "2026-11-27T09:00:00Z", "2026-11-27T10:00:00Z"), iCalUID: "win@x" };
+  const v = ev("Planning", "2026-11-27T09:00:00Z", "2026-11-27T10:00:00Z", { created: "2026-01-01T00:00:00Z", iCalUID: "verlies@x" });
+  const vKopie = { ...ev("Planning", "2026-11-27T09:00:00Z", "2026-11-27T10:00:00Z"), iCalUID: "verlies@x" };
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [w, v] }, { agenda: werk, events: [wKopie, vKopie] }]);
+  assert.equal(groepen[0].aantal, 2);
+  assert.equal(groepen[0].items.filter((i) => i.blijft).length, 2);
+  assert.deepEqual(teVerwijderen(groepen).map((x) => x.eventId).sort(), [v.id, vKopie.id].sort());
+});
+
+test("creator.self zonder organizer telt als eigen afspraak", () => {
+  const a = ev("Eigen", "2026-11-28T09:00:00Z", "2026-11-28T10:00:00Z", { created: "2026-01-01T00:00:00Z", creator: { self: true }, attendees: [{ self: true }, { email: "x@y.z" }] });
+  const b = ev("Eigen", "2026-11-28T09:00:00Z", "2026-11-28T10:00:00Z", { created: "2026-02-01T00:00:00Z", creator: { self: true }, attendees: [{ self: true }, { email: "x@y.z" }] });
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [a, b] }]);
+  assert.equal(groepen[0].items.find((i) => i.eventId === b.id).reden, REDENEN.gasten);
+});
+
+test("verschoven keer van een reeks op hetzelfde moment als een andere keer: aparte identiteit", () => {
+  const gewoon = ev("Les", "2026-12-08T19:00:00Z", "2026-12-08T20:00:00Z", { iCalUID: "les@x", recurringEventId: "r", originalStartTime: { dateTime: "2026-12-08T19:00:00Z" }, created: "2026-01-01T00:00:00Z" });
+  const verschoven = ev("Les", "2026-12-08T19:00:00Z", "2026-12-08T20:00:00Z", { iCalUID: "les@x", recurringEventId: "r", originalStartTime: { dateTime: "2026-12-01T19:00:00Z" }, created: "2026-01-01T00:00:00Z" });
+  const { groepen } = vindDubbelen([{ agenda: eigen, events: [gewoon, verschoven] }]);
+  assert.equal(groepen.length, 1);
+  assert.equal(groepen[0].aantal, 2);
+  assert.equal(teVerwijderen(groepen).length, 1, "nooit allebei weg");
 });
 
 test("alleen een zaal als gast telt niet als gasten", () => {
@@ -159,6 +235,11 @@ test("rare invoer breekt niets", () => {
   assert.deepEqual(vindDubbelen(undefined).groepen, []);
   assert.deepEqual(vindDubbelen([null, {}, { agenda: {} }, { agenda: eigen, events: [null, {}, { id: "x" }] }]).groepen, []);
   assert.deepEqual(teVerwijderen(undefined), []);
+  assert.deepEqual(vindDubbelen({}).groepen, []);
+  assert.deepEqual(vindDubbelen([{ agenda: eigen, events: {} }]).groepen, []);
+  const a = ev("Z", "2026-11-29T08:00:00Z", "2026-11-29T09:00:00Z", { attendees: "x", organizer: "raar" });
+  const b = ev("Z", "2026-11-29T08:00:00Z", "2026-11-29T09:00:00Z", { attendees: [null, 5] });
+  assert.equal(vindDubbelen([{ agenda: eigen, events: [a, b] }]).groepen.length, 1);
   assert.equal(tijdSleutel({}), null);
 });
 

@@ -11,8 +11,10 @@
 // 2. Dubbel = verschillende iCalUID, zelfde titel (hoofdletters, spaties, leestekens en accenten
 //    tellen niet), zelfde begin en eind. Tijden vergelijken als moment (offset maakt niet uit);
 //    hele dagen op datum. Een hele dag en een afspraak met tijd zijn nooit dubbel.
-// 3. Per groep blijft er één: in een agenda die de gebruiker bezit (owner), dan de hoofdagenda,
-//    dan de oudste (created). De rest staat aangevinkt, behalve wat niet mag of riskant is.
+// 3. Per groep blijft er één: eerst een echte vergadering (met andere gasten), dan een agenda die de
+//    gebruiker bezit (owner), dan writer, dan de hoofdagenda, dan de oudste (created).
+//    De rest staat aangevinkt, behalve wat niet mag of riskant is: alleen-lezen (kan niet),
+//    gast in een vergadering, organisator met gasten, of een gedeelde agenda van een ander (wel aan te vinken).
 
 export const SOORTEN_MEE = new Set(["default", "fromGmail"]); // verjaardagen, focustijd e.d. doen niet mee
 const SCHRIJVEN = new Set(["owner", "writer"]);
@@ -20,6 +22,8 @@ const SCHRIJVEN = new Set(["owner", "writer"]);
 export const REDENEN = {
   alleenLezen: "Deze agenda mag je alleen bekijken, dus hier kun je niets weghalen.",
   gasten: "Jij hebt deze afspraak gemaakt en er zijn gasten. Weghalen zegt hem voor hen af, daarom staat hij niet aangevinkt.",
+  gast: "Je bent uitgenodigd voor deze vergadering. Weghalen haalt je eruit (de organisator ziet dat), daarom staat hij niet aangevinkt.",
+  gedeeld: "Dit is een gedeelde agenda van iemand anders. Weghalen laat hem verdwijnen voor iedereen die deze agenda gebruikt, daarom staat hij niet aangevinkt.",
 };
 
 export function normaliseerTitel(titel) {
@@ -48,7 +52,8 @@ export function tijdSleutel(ev) {
 function rang(item) {
   // lager is beter
   return [
-    item.accessRole === "owner" ? 0 : 1,
+    item.vergadering ? 0 : 1,
+    item.accessRole === "owner" ? 0 : item.accessRole === "writer" ? 1 : 2,
     item.primary ? 0 : 1,
     Number.isFinite(item.gemaakt) ? item.gemaakt : Number.MAX_SAFE_INTEGER,
     item.agendaId + "\u0000" + item.eventId, // vaste volgorde bij gelijkspel
@@ -63,12 +68,20 @@ function vergelijk(a, b) {
   return 0;
 }
 
-function ikBenOrganisatorMetGasten(ev) {
+function lijst(x) {
+  return Array.isArray(x) ? x : [];
+}
+
+// Heeft de afspraak andere gasten dan jij (zalen tellen niet)? attendeesOmitted: lijst is ingekort, dus ja.
+function heeftAndereGasten(ev) {
+  if (ev.attendeesOmitted === true) return true;
+  return lijst(ev.attendees).some((a) => a && typeof a === "object" && !a.self && !a.resource);
+}
+
+function ikBenOrganisator(ev) {
   const org = ev.organizer;
-  const ik = !!(org && org.self) || ev.creator?.self === true && !org;
-  if (!ik) return false;
-  const anderen = (ev.attendees || []).filter((a) => !a.self && !a.resource);
-  return anderen.length > 0;
+  if (org && typeof org === "object") return org.self === true;
+  return ev.creator?.self === true || !ev.creator; // zonder organisator: eigen afspraak
 }
 
 export function vindDubbelen(agendas) {
@@ -77,10 +90,10 @@ export function vindDubbelen(agendas) {
   // tijd+titel -> Map(identiteit -> [items])
   const kandidaten = new Map();
 
-  for (const blok of agendas || []) {
+  for (const blok of lijst(agendas)) {
     const agenda = blok && blok.agenda;
     if (!agenda || !agenda.id) continue;
-    for (const ev of blok.events || []) {
+    for (const ev of lijst(blok.events)) {
       if (!ev || !ev.id) continue;
       const uniek = agenda.id + "\u0000" + ev.id;
       if (gezien.has(uniek)) { overgeslagen.dubbelIngelezen++; continue; }
@@ -96,7 +109,11 @@ export function vindDubbelen(agendas) {
       const sleutel = [tijd.heleDag ? "d" : "t", tijd.begin, tijd.eind, titel].join("|");
       // Identiteit: zelfde vergadering = zelfde iCalUID op hetzelfde moment (losse keren van een reeks
       // delen de iCalUID, daarom telt het begin mee). Zonder iCalUID is elke afspraak zichzelf.
-      const identiteit = ev.iCalUID ? "u:" + ev.iCalUID : "e:" + uniek;
+      // Een verschoven keer heeft originalStartTime: die hoort bij die oorspronkelijke keer, niet bij een andere.
+      const orig = ev.originalStartTime ? (ev.originalStartTime.date || String(Date.parse(ev.originalStartTime.dateTime))) : "";
+      const identiteit = ev.iCalUID ? "u:" + ev.iCalUID + "|" + orig : "e:" + uniek;
+      const andereGasten = heeftAndereGasten(ev);
+      const organisator = ikBenOrganisator(ev);
       const item = {
         agendaId: agenda.id,
         agendaNaam: agenda.summaryOverride || agenda.summary || agenda.id,
@@ -107,7 +124,9 @@ export function vindDubbelen(agendas) {
         titel: ev.summary,
         gemaakt: Date.parse(ev.created),
         recurringEventId: ev.recurringEventId || null,
-        gastenRisico: ikBenOrganisatorMetGasten(ev),
+        vergadering: andereGasten,
+        gastenRisico: andereGasten && organisator,
+        gast: andereGasten && !organisator,
         heleDag: tijd.heleDag,
         start: ev.start,
         end: ev.end,
@@ -136,11 +155,13 @@ export function vindDubbelen(agendas) {
         let reden = null;
         if (!blijft && !kan) reden = REDENEN.alleenLezen;
         else if (!blijft && it.gastenRisico) reden = REDENEN.gasten;
+        else if (!blijft && it.gast) reden = REDENEN.gast;
+        else if (!blijft && it.accessRole !== "owner") reden = REDENEN.gedeeld;
         items.push({
           ...it,
           blijft,
           kan: !blijft && kan,
-          aangevinkt: !blijft && kan && !it.gastenRisico,
+          aangevinkt: !blijft && kan && reden === null,
           reden,
         });
       }
