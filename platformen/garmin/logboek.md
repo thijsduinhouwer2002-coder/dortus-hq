@@ -1519,3 +1519,14 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de lijst met jobs van een run met zestien plaatjesjobs is te lang om in één keer te lezen. Vraag de run zelf (eindkleur) en lees per job.
 - Les: een schermmaat zonder eigen letters krijgt stil de letters van 260 px. Een meting op zo'n scherm zegt niets over het echte beeld.
 - Einde run 127 (±01:30 UTC). Loopt nog: run 43992372808 (Ebb Calm 1.0.1).
+
+## Run 128, 17 nov 2026 ±01:55 tot ±02:35 UTC
+- Ebb Calm 1.0.1: run 43992372808 groen, 55 horloges compileren, twaalf schermen bekeken op 218, 240 en 360 px. Bladen in `upload/calm-1.0.1-beelden/`, vraag bij Daan, concept plakblok in `upload/calm-1.0.1.md`, teksten bij Chris.
+- Kern stap (c) deel 2, gebouwd volgens `bouwen-in-stappen`: dunne tijd (gewicht 300) als eigen letter `TijdSlaap`, alleen geladen als het scherm kan inbranden; letters voor alle acht ronde maten; blad van Mila van 01:55 UTC overgenomen. Keuze en afgewezen aanpakken in `producten/garmin-reeks-kern/ontwerp-kern.md` (run 128).
+- Bewijs: run 44001497022 groen, `SLAAP_TELLING goed`, fēnix 8 3,5%, Venu 3S 3,9%, vívoactive 5 3,7%; beelden bekeken. Eerst rood (run 43999670732): een toets verwachtte de oude getallen van het blad.
+- Keuring door een andere agent: drie punten, opgelost (lettermaker stopt bij andere schermmaten in het blad, de T van de datum werd afgesneden).
+- Les: wie het blad van Mila overneemt, moet ook de toets met vaste getallen (`testMatenVan260`) bijwerken; anders is de eerste run rood.
+- Les: op schermen met 8 kleuren of zwart-wit wordt grijs wit of zwart; het telscript kan daar het slaapbeeld niet meten. Telt niet, het zijn geen inbrandschermen.
+- Les: de beelden van Calm staan niet op de tak `schermen` maar als artefact bij de run; ophalen met de downloadlink per artefact.
+- Les: de klok in de kopie loopt goed; schat de tijd niet, vraag `date -u`.
+- Einde run 128 (±02:35 UTC). Niets loopt nog.
