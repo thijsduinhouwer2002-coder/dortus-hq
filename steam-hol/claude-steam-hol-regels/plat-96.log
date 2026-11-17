@@ -1,0 +1,18 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
+HOL zaad 1794878686
+HOL plat zonder regel (2 keer gemeld)
+HOL muisvlak 4 punten, lucht vrij op x=200
+HOL kroniek 4.1 (wacht 0.0): Pim climbs into your hole.
+HOL begin: vallen (Pim)
+HOL held binnen: Pim
+HOL zicht 4.2 1
+HOL kroniek 9.7 (wacht 0.0): Joost is here for your gold.
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Pim climbs into your hole.
+HOL kroniek 16.0 (wacht 0.0): Pim will not be leaving. +6
+HOL kroniek 18.5 (wacht 2.5): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL einde na 24 s, fps=10, goud=26, terugkomers=0
