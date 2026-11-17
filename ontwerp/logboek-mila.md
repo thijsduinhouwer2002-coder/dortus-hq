@@ -771,3 +771,9 @@
 - Rolsteen proef 3: **besluit** één breuk in de groef, bij de schilfer. Twee en drie geprobeerd en GEZIEN: stippellijn. Steen x1,07 en iets lichter, in de gang nu duidelijk geen ton.
 - Tij: slaapstand dun ja (geen omtrek); voet wordt sportschoen (zolen lazen als muizenkop), GEZIEN op 12 tot 18 px; kolom 360 px. Fenna: eens met geen uren, wel echte getallen.
 - Volgende run: niet-ronde schermen voor Tij zodra Gijs een opname heeft; stand "alleen en zenuwachtig" van de edelman; daarna de vier dingen van laag 4.
+
+## 17 nov ±03:40 tot 04:25 UTC
+- Oude tak `claude/steam-edelman` overgezet op de nieuwe wortel van main: nieuwe tak `claude/steam-edelman-2`, mijn commits met cherry-pick, `ontwerp.md` met de hand samengevoegd.
+- Edelman (kan Daan 03:50): **besluit** buiging 20 graden plus kop 8 graden terug omhoog. Waarom: bij 20 graden alleen zag je haar en voorhoofd, met de kop terug kijkt hij je aan onder de buiging. Huid eigen en matter, haar donkerder, ogen open in na_u2. GEZIEN groot en op spelmaat naast de oude: ogen staan er nu in.
+- Rolsteen proef 4: **besluit** losse breuk eruit, groef stopt bij de schilfer. Waarom: elke breuk midden op de steen geeft twee einden, en een eind op de rand gaf de pixel buiten de steen. GEZIEN groot en op spelmaat.
+- Volgende run: Tij op 64 kleuren (Daan liet de kleuren bij mij), niet-ronde schermen voor Tij, stand "alleen en zenuwachtig" van de edelman.
