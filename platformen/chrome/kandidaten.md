@@ -13,7 +13,7 @@ Wat dit betekent:
 - **Les over snelheid:** een goed gebouwde, eerlijke API-versie staat na ruim 3 weken op 28 gebruikers zonder beoordelingen. De zoekbalk geeft een nieuwkomer niet vanzelf verkeer; de bovenste plekken hebben Event Multiselect (3.000) en Bulk Edit (1.000). Reken op weken voor de eerste honderden gebruikers (GOK, op basis van dit ene geval en de mediaan van Lars).
 - **Prijsdruk:** $9 eenmalig naast SUPER $29 per maand. Een jaarprijs van $39 is naast $9 eenmalig moeilijk uit te leggen. Voorstel: levenslang laag houden (GOK $15 tot $19) en de hogere prijs alleen voor een team.
 
-**Waarom wij, in één zin (voorstel):** *"Ruim je Google Agenda op in één keer: onbeperkt gratis verwijderen, dubbele afspraken vinden over al je agenda's heen (ook na een Outlook-koppeling), en titels zoeken en vervangen, met een voorbeeld van elke wijziging vóór je klikt en alles ongedaan te maken."*
+**Waarom wij, in één zin (voorstel):** *"Ruim je Google Agenda op in één keer: onbeperkt gratis verwijderen, dubbele afspraken vinden over al je agenda's heen (ook na een Outlook-koppeling), en titels zoeken en vervangen, met een voorbeeld van elke wijziging vóór je klikt en je laatste 10 acties ongedaan te maken."*
 
 Wat dat boven elke concurrent zet (GEZIEN wat zij beloven, onze kant is ontwerp):
 
