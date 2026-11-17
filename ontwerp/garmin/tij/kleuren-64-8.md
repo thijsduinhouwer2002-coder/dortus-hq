@@ -26,3 +26,8 @@ Eén vaste zee voor alle thema's: band 0 en 1 cyaan 00FFFF, band 2 en 3 blauw 00
 
 ## Wat het zou veranderen
 Een echte opname op de 245 of 255 waarop het nachtblauw 000055 onderaan wegvalt tegen de zwarte rand. Dan wordt band 3 per thema: Dusk 550055, Tide 0000AA, Kelp 005555, Night 0000AA (en schuiven de andere een stap op).
+
+## Startpictogram (17 nov)
+Bestanden `icoon/icoon-<px>.png` in 35, 36, 40, 54, 56, 60, 61, 62, 65 en 70 px, blad `mila-tij-icoon-blad.png` (6x en 1x), bron `tij_icoon.py`.
+Wat erop staat: zwarte schijf, de stijgende zee van Tide in drie banden met de lichte waterlijn, en het witte bootje dat op de golf meevaart. Precies het verhaal van de plaat (je lijn stijgt, het bootje vaart mee), dus eerlijk. Elke maat is apart op de pixel getekend (geen schalen), alleen kleuren uit het palet van 64 (00AAFF, 0055AA, 000055, AAFFFF, wit), harde randen, de hoeken doorzichtig.
+Besluit: geen zon of maan erbij (stond in een proef, GEZIEN), want die zit niet in het product. Zeil los van de romp met een zwarte spleet, anders werd het op 40 px één witte klont (GEZIEN).

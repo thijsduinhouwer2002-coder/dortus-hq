@@ -780,3 +780,5 @@
 
 ## 17 nov ±04:37 tot 05:20 UTC
 - Tij op 64 en 8 kleuren: **besluit** per thema gedempt boven en hetzelfde nachtblauw 000055 onder, zeil altijd wit, waterlijn als vaste lichte themakleur, op 8 kleuren één zee cyaan en blauw. Waarom: zo is elk thema nog herkenbaar aan de bovenkant, zonder neon of bloedrood, en de reeks oogt als één familie. Drie varianten per thema naast elkaar GEZIEN (Dusk A, Kelp A, Tide A, Night B gekozen). Blad `ontwerp/garmin/tij/mila-tij-kleuren-64-8.png` door kleuren te vervangen in de echte opnames van run 44015762562. Waarden bij Gijs, bericht Daan.
+- Startpictogram Tij in tien maten: **besluit** zwarte schijf, stijgende zee, wit bootje met spleet tussen zeil en romp, geen zon. Waarom: het pictogram vertelt de plaat in één beeld en toont niets wat er niet in zit. GEZIEN op 6x en 1x. Bij Gijs.
+- Volgende run: Venu Sq 2 (320 x 360) voor Tij, de kan-punten van Daan op edelman v2 (losse groef, licht hoed en gezicht, romp mee in na_u2), daarna de opname van Gijs met de nieuwe kleuren keuren.
