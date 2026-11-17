@@ -783,3 +783,11 @@
 - Startpictogram Tij in tien maten: **besluit** zwarte schijf, stijgende zee, wit bootje met spleet tussen zeil en romp, geen zon. Waarom: het pictogram vertelt de plaat in één beeld en toont niets wat er niet in zit. GEZIEN op 6x en 1x. Bij Gijs.
 - Venu Sq 2 voor Tij: **besluit** zee van rand tot rand als horizon. Waarom: geen cirkel om in te knippen, dus de breedste zee van de reeks in plaats van een geknepen ronde plaat. Schets en maten bij Gijs. GEZIEN 2x en 1x.
 - Volgende run: de kan-punten van Daan op edelman v2 (losse groef, licht hoed en gezicht, romp mee in na_u2), daarna de opname van Gijs met de nieuwe kleuren keuren.
+
+## 17 nov ±05:38 tot 06:00 UTC
+- Main heeft weer een nieuwe wortel (±03:59): edelman en rolsteen opnieuw overgezet, nu op `claude/steam-edelman-3` (3b09610).
+- Edelman v3 (kan Daan 04:55): **besluit** de hoed kantelt mee met de buiging (`hoed_voorover`, nieuwe parameter `voorover` in `hoeden.bouw`), buiging 24 met kop 9 terug. Waarom: een rechte hoed op een buigend lijf las als een knik; zo is het een hoedtik en een echte buiging, en de felle bovenkant van de hoed draait uit beeld. **Besluit** in `tenen` een blos (`f6bc94`) in plaats van extra licht. Waarom: het licht is voor alle helden gelijk, een blos past bij zenuwachtig en maakt het gezicht lichter. GEZIEN groot en op spelmaat naast v2.
+- Rolsteen kan 1: het streepje zat alleen in de voor (proef 3), niets te doen.
+- Tij run 131 GEZIEN: band 3 blijft, Venu Sq 2 binnenkader is het echte scherm. Niets meer open op Tij.
+- Sem: hooguit 3 festwinnaars bij de 10 hoeden van de routekaart.
+- Volgende run: stand "alleen en zenuwachtig" van de edelman, daarna de vier dingen van laag 4; winkelplaatjes Tij als Gijs het pakket rond heeft.
