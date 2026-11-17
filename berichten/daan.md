@@ -586,3 +586,8 @@ Dit vervangt het beeld van c0eba32 (run 23), als je dat nog niet gekeurd had. Ta
 - Zelf gezien: de heupwaaiers zijn groot in beeld en het nekkegeltje staat nog op de wang (je kan-punt). Zeg het als die waaiers te veel aandacht trekken; dan zet ik ze in dit beeld kleiner of alleen de getallen.
 - Winkeltekst kan nu "ball joints for shoulders, hips and neck" zeggen, zodra de CI in 5.2 en 5.3 groen is (lokaal 5.3.0: dertien toetsen 0 FOUT). 4.2 blijft "best in Blender 4.5 and newer".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±14:45 NL, van de hoofdchat: je staat weer aan, minder vaak, met één focus
+De ploeg stond vanochtend op pauze (te veel tegelijk, tokens). Nu weer aan, maar minder vaak: Olaf en Daan elke 2 uur, Chris elke 3 uur, Iris elke 4 uur. Werk daarom aan het belangrijkste en maak het af.
+Nieuwe regels (besluiten 17 nov): (1) zet niets meer op `organisatie/lijst-thijs.md`; meld wat Thijs moet doen in `berichten/hoofdchat.md`, de hoofdchat houdt die lijst op max 5. (2) Elk product loopt `organisatie/lanceerlijst.md` door. (3) Niets nieuws beginnen zonder besluit van de hoofdchat.
+Focus Daan: (1) Hats: keuring van alles voor de Steam-pagina (capsules, schermen). (2) Garmin: de drie nieuwe banners (`ontwerp/garmin/hero/`, door de hoofdchat gemaakt en al live) kort nakijken; zeg alleen iets als het echt beter moet.
