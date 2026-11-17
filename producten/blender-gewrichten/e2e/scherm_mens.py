@@ -28,8 +28,16 @@ exec(compile(_src, "proef_mens.py", "exec"), M)
 A = M["A"]
 
 staat = {}
-BEUK = (0.80, 0.62, 0.43, 1.0)  # matte lichte beukenhoutkleur (Daan 17 nov moet 3)
-BUIG = {"Right elbow": 90.0, "Right knee": 60.0}  # Daan 17 nov moet 2: een elleboog ±90, een knie ±60, de rest recht
+# Daan 17 nov ±05:30 moet 2: lichtgrijs mat als geprinte PLA, #B9BEC4 (sRGB), hier lineair voor diffuse_color.
+PLA = tuple(((c / 255.0 + 0.055) / 1.055) ** 2.4 for c in (0xD2, 0xD6, 0xDB)) + (1.0,)
+# Iets lichter dan #B9BEC4 gekozen: het studiolicht van de 3D-weergave maakt het een stap donkerder (run 23 gemeten:
+# #B9BEC4 kwam als ±#8A8D90 in beeld). Op het scherm leest het nu als lichtgrijs.
+# Daan 17 nov ±05:30 moet 1: een gebogen elleboog toont het blok van de knokkel en open snijvlakken (een klikscharnier
+# op een dunne arm van 9 mm is een echt mechaniekje, geen huid die om het gewricht sluit). Zijn uitweg: buig in dit
+# beeld alleen de knie, de rest recht. Dan vertellen beeld en paneel hetzelfde (moet 5): het paneel staat op de knie.
+BUIG = {"Right knee": 60.0}
+if os.environ.get("CJ_BUIG"):  # bijvoorbeeld "Right knee:60" (volgorde telt: het laatste lid staat in het paneel)
+    BUIG = {d.split(":")[0]: float(d.split(":")[1]) for d in os.environ["CJ_BUIG"].split(",")}
 
 
 def etalagepop(ob):
@@ -47,12 +55,56 @@ def etalagepop(ob):
         c.y = c.y + (-2.5 - c.y) * w
     for f in ob.data.polygons:
         f.use_smooth = True
-    mat = bpy.data.materials.new("beuk")
-    mat.diffuse_color = BEUK
-    mat.roughness = 0.9
+    mat = bpy.data.materials.new("pla_grijs")
+    mat.diffuse_color = PLA
+    mat.roughness = 1.0
+    mat.metallic = 0.0
     ob.data.materials.clear()
     ob.data.materials.append(mat)
     ob.data.update()
+
+
+def heup_zonder_band(afstand=22.0):
+    """Daan 17 nov ±05:30 moet 3, zijn uitweg: de heupband heeft op een figuur een zaagtand (de snede van de kogel
+    maakt lange vlakken, en de band kleurt per vlak). In dit beeld de heupen als kogel zonder band; de ±8° en ±15°
+    blijven. Alleen kleur in dit schermbeeld (vlakken binnen `afstand` mm van een heupsnede terug naar het materiaal
+    van het dichtstbijzijnde vlak buiten de band); de add-on zelf kleurt de band zoals altijd (CJ_HEUPBAND=1)."""
+    import numpy as np
+    from mathutils.kdtree import KDTree
+    obs = [o for o in bpy.context.scene.objects if o.type == "MESH"]
+    heup = [Vector(o["cj_snijpunt"]) for o in obs if "hip" in str(o.get("cj_naam", "")).lower() and "cj_snijpunt" in o]
+    teruggezet = 0
+    for o in obs:
+        vak = o.get("cj_ring_vak")
+        me = o.data
+        if vak is None or not heup or not len(me.polygons):
+            continue
+        n = len(me.polygons)
+        idx = np.empty(n, dtype=np.int32)
+        me.polygons.foreach_get("material_index", idx)
+        c = np.empty(n * 3)
+        me.polygons.foreach_get("center", c)
+        c = c.reshape(n, 3)
+        mw = np.array(o.matrix_world)
+        cw = c @ mw[:3, :3].T + mw[:3, 3]
+        dicht = np.zeros(n, dtype=bool)
+        for h in heup:
+            dicht |= np.linalg.norm(cw - np.array(h), axis=1) <= afstand
+        terug = (idx == int(vak)) & dicht
+        buiten = np.nonzero(idx != int(vak))[0]
+        if not terug.any() or not len(buiten):
+            continue
+        boom = KDTree(len(buiten))
+        for i, j in enumerate(buiten):
+            boom.insert(Vector(c[j]), i)
+        boom.balance()
+        for j in np.nonzero(terug)[0]:
+            idx[j] = idx[buiten[boom.find(Vector(c[j]))[1]]]
+        me.polygons.foreach_set("material_index", idx)
+        me.update()
+        teruggezet += int(terug.sum())
+    staat["heupband_weg"] = teruggezet
+    log(f"MENS heupband weg in dit beeld: {len(heup)} heupen, {teruggezet} vlakken")
 
 
 def buig():
@@ -61,7 +113,7 @@ def buig():
     delen = {o.get("cj_naam"): o for o in bpy.context.scene.objects
              if o.get("cj_deel") == "B" and o.get("cj_figuur") and o.get("cj_soort") == "SCHARNIER"}
     gebogen = {}
-    for naam in ("Right knee", "Right elbow"):  # elleboog aan de kant van de kijker, zijn waaier staat niet achter de hand
+    for naam in BUIG:  # het laatste lid blijft actief en staat in het paneel
         b = delen.get(naam)
         if b is None:
             continue
@@ -69,6 +121,8 @@ def buig():
         wm.cj_scharnier_pose = BUIG[naam]
         gebogen[naam] = round(float(b.get("cj_pose_graden", 0.0)), 1)
     staat["gebogen"] = gebogen
+    if os.environ.get("CJ_HEUPBAND", "0") != "1":
+        heup_zonder_band()
     log(f"MENS gebogen {gebogen} delen={sorted(k for k in delen if k)}")
 
 
@@ -113,8 +167,11 @@ def rustig():
         bpy.ops.screen.screen_full_area()
     venster, gebied, _ = zijbalk()
     ov = gebied.spaces.active.overlay
-    for k in ("show_floor", "show_axis_x", "show_axis_y", "show_axis_z", "show_cursor", "show_text", "show_outline_selected"):
+    for k in ("show_floor", "show_axis_x", "show_axis_y", "show_axis_z", "show_cursor", "show_text", "show_outline_selected",
+              "show_object_origins"):
         setattr(ov, k, False)
+    # Daan 17 nov ±05:30 moet 4: navigatiegizmo en de knoppen rechtsboven (zoom, hand, camera, raster) uit.
+    gebied.spaces.active.show_gizmo_navigate = False
 
 
 def kijk():
