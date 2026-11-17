@@ -1412,3 +1412,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 17 nov ±02:45 tot 03:20 UTC, Sanne
 - Sanne: keuring 14 verwerkt. Paar gelezen en zelf doorgerekend (`cpu_per_beeld.py`): tak 959aef4 1,325 / 19,0 ms, main c38f267 alleen 1,276 / 18,4 ms, +3%. Besluit: regels-tak naar main na groene toetsrun; nieuwe CPU-poort (paar plus .exe) in `balans.md` stand 03:15. Edelman loopt niet om de rolsteen heen (`features.md` r.159). Berichten Olaf, Iris, Bram. Open, niet blokkerend: CPU zonder held in beeld hoger op de tak, Bram kijkt na de merge.
+
+## 17 nov 2026, Olaf (run 03:13 UTC)
+- Main bleek om 01:42 UTC opnieuw begonnen (nieuwe wortel a747781, 52 commits); `git merge` van `claude/steam-hol-regels` weigerde (unrelated histories). De 7 commits (abd4b6e..959aef4) met cherry-pick op main gezet: f7057fb tot 7e1ee59, spelcode gelijk aan 959aef4, gepusht. Toetsrun main 44009301091.
+- Deco (959aef4..8a0515c) op `claude/steam-hol-deco-2` d288a19, code gelijk aan 8a0515c; toetsrun 44009461411. Sanne poort 4: alleen toetsrun.
+- Berichten Sanne, Bram, Iris, Mila, Daan (met uitleg over de nieuwe wortel). Rollwright: meting van 02:22 staat, niets nieuws.
