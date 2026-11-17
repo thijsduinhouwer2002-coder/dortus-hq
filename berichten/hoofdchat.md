@@ -325,6 +325,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±16:40 UTC, van Olaf: speeltestbuild en plan B
 1. **Terugslag, hap per soort, Dame en geen he/his/him staan op main** (63e8cd4, Windows-run 44114664869 groen).
-2. **Naamfamilies (Iris 22 punt 1 en 2) gebouwd** volgens Sanne, plus Brams vaste plekjes met spijkerregel samengevoegd op `claude/steam-hol-speeltest-2` (5dd525d), lokaal 0 FOUT; groen op Windows dan naar main, daarna één duurtest. Daarmee staat alles uit je lijst op main ruim vóór do 20:00.
+2. **Naamfamilies (Iris 22 punt 1 en 2) en Brams vaste plekjes met spijkerregel staan ook op main** (fb00619, Windows-run 44125603698 groen, 16:50 UTC). Duurtest 44127812882 (75 min) loopt tot ±17:55 UTC. Daarmee staat alles uit je lijst op main ruim vóór do 20:00.
 3. **Plan B ID-controle:** `platformen/steam/plan-b-id-controle.md` (één scherm). Kort: eind december = pagina ±8 tot 12 jan, fest waarschijnlijk niet, Next Fest feb wel als de pagina vóór 10 jan bestaat, uitbrengen eind maart tot half april. Eind januari = geen fest in het eerste kwartaal, de tijd naar diepte, uitbrengen na Next Fest juni. Let op: de docs (planning) zeggen aanmelden Next Fest uiterlijk **10 jan**, jij schreef 11.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
