@@ -23,10 +23,11 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-MELD_VAST = ("This limb is joined to another part of the mesh on both sides of the cut (for example both feet on "
-             "one base), so one joint would cut both. Pick a spot where the limb is free, or split the model first.")
-MELD_DICHT = ("Another part of the mesh is too close to this limb (for example the other leg), so the joint would "
-              "cut it too. Pick another spot, or move the parts a little apart first.")
+# 0.1.2 (kan-punt Daan): het belangrijkste vooraan, de statusbalk knipt lange zinnen af.
+MELD_VAST = ("Pick a spot where the limb is free: here it is joined to another part on both sides of the cut "
+             "(for example both feet on one base), so one joint would cut both. Or split the model first.")
+MELD_DICHT = ("Pick another spot: another part is too close to this limb (for example the other leg) and would be "
+              "cut too. Or move the parts a little apart first.")
 
 STAND = {"h": None, "kant": None, "solver": None, "bronnen": {}}
 LAATSTE = {}  # voor de toetsen: wat bereid de laatste keer besloot

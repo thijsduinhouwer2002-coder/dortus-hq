@@ -92,8 +92,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         dg = context.evaluated_depsgraph_get()
         ok, fout = is_gesloten(bron, dg)
         if not ok:
-            self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
-                                   "2 faces). Click Make watertight first.")
+            self.report({"ERROR"}, f"Click Make watertight first: {bron.name} is not watertight ({fout} edges "
+                                   "without exactly 2 faces).")
             return {"CANCELLED"}
         uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog, omdraaien=self.flip_bend)
         if uit is None:
