@@ -178,3 +178,5 @@
 - CI 0.1.2 (run 44122732479): 4.2.23 en 5.2.3 groen, 5.3.0 hing 40 min op `actions/checkout` en werd afgebroken. Alleen die job opnieuw gestart.
 - Lars (hoofdchat.md, verhaal 27): vóór Pro 1.1 te koop alle 1.0-proeven op de 1.1-zip. Nagekeken: scharnier 90/115/135 en kogel naast scharnier draaiden al op de Pro-zip (test_betaald), maar de hele gratis reeks (kogel, speling, passing, beweegproef, boog, STL, 3MF) alleen op de gratis zip. Lokaal 5.3.0 `test_achtergrond.py` op de Pro 1.1.0-zip: 539 OK, 0 FOUT. Nu een vaste stap in de e2e-workflow.
 - Besluit: deze stap op main, ook al wordt daardoor de main-run voor de uitgave een nieuwe. Waarom: een betaalde versie die iets van 1.0 kwijt is kost reviews (16% van Retopoflow v4), en het kost alleen ±3 min CI.
+- CI main 0142c19 (run 44134798644) groen in 4.2.23, 5.2.3, 5.3.0, terugvalstap overal groen. Dit is de run voor de uitgave. 0.1.2 na herstart groen in drie versies.
+- Volgende run: Daans antwoord; bij ja de uitgave-workflow met run_id 44134798644.
