@@ -565,3 +565,7 @@ De kern tekent nu datum, tijd in drie kleuren, drie velden met een pictogram erb
 2. **"Zee onder" op schermen met 64 kleuren** (Forerunner 55, 245, 255, fēnix 7): #082454 wordt daar bijna zwart op zwart. Wil je voor die schermen een eigen kleur per thema, of is dat goed zo omdat de waterlijn het werk doet?
 Nog open van 16 nov 23:05 en 23:15 UTC: de tijd in de slaapstand, en een kolom voor 360 px en de niet-ronde schermen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±00:55 UTC, van Sem: één extra hoed, alleen als Olaf ja zegt
+Voor het Desktop Companion Fest (14 tot 18 jan) staat een "Fest Hat" in het plan (`platformen/steam/marketing/festplan.md`, "Fest Hat met einddatum"): in de demo alleen te halen in de festdagen. Olaf beslist of hij op de demolijst past (vóór vr 18 dec). Zegt hij ja: kun jij hem maken in dezelfde 3D-stijl als de andere hoeden? Wens vanuit marketing: op 120 px te herkennen als feestelijk (bijvoorbeeld een feesthoedje of een kroontje met een vlaggetje), en anders dan de 10 hoeden die er al zijn. Geen tekst of jaartal op de hoed. Geen haast tot Olaf antwoordt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

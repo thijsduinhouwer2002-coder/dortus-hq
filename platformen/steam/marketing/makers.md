@@ -210,7 +210,7 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 | vr 18 dec, demo af | wie ja zei | vroege demo-sleutel (Steam-sleutels via Steamworks, of Curator Connect) |
 | vr 18 dec, demo af (run 4) | streamers 61, 66 en 71 (GriffyBit, Phenexa, Rusty Champaign), via de route die ze zelf noemen | demosleutel; als chat-helden (optie D bij Sanne) er komt, is dat de eerste zin |
 | ±8 dec, 18 dec en lanceerdag (run 11) | TikTok: T3 en T4 bij pagina live, T1 en T5 bij demo af, T2 op de lanceerdag | zelfde korte mail; voor TikTok de zin "sits on top of your taskbar while you work" vooraan |
-| 8 jan (Valve-trailer, wij mogen melden) | alle 40, ook zonder adres via Curator Connect | herinnering: demo staat in het Desktop Companion Fest, Fest Hat |
+| 8 jan (Valve-trailer, wij mogen melden) | alle 40, ook zonder adres via Curator Connect | herinnering: demo staat in het Desktop Companion Fest, Fest Hat alleen te halen do 14 jan 19:00 tot ma 18 jan 19:00 NL (run 14), dus een video die dag 1 of 2 uitkomt laat iets zien wat kijkers nog kunnen halen |
 | 14 tot 18 jan | groep B (lijstjes) en Nookrium | fest-dag 1: "nieuw in het fest", onze GIF |
 
 Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B, D, E, Curator Connect, showcase).
