@@ -1047,13 +1047,13 @@ func _init() -> void:
 		echt.free()
 	h2.free()
 	# paneel in de 3D-stijl (Olaf 14 nov, Daan ronde 2): Fredoka met gewicht, 3D-bron, terugval naar het pixelpaneel
-	var TK = load("res://kern/tekst.gd")
-	ok(TK.met_3d, "paneel 3D: schakelaar staat aan")
-	ok(TK.PANEEL_3D.get_width() == 384 and TK.BRON_RAND == 128, "paneel 3D: bron 384 px met rand 128")
+	var TKS = load("res://kern/tekst.gd")
+	ok(TKS.met_3d, "paneel 3D: schakelaar staat aan")
+	ok(TKS.PANEEL_3D.get_width() == 384 and TKS.BRON_RAND == 128, "paneel 3D: bron 384 px met rand 128")
 	var tk = Node2D.new()
-	tk.set_script(TK)
+	tk.set_script(TKS)
 	var f6: Font = tk._letter(600)
-	ok(f6 is FontVariation and f6.base_font == TK.FREDOKA and tk._letter(600) == f6, "paneel 3D: Fredoka 600, één keer gemaakt")
+	ok(f6 is FontVariation and f6.base_font == TKS.FREDOKA and tk._letter(600) == f6, "paneel 3D: Fredoka 600, één keer gemaakt")
 	ok(tk._letter(450) != f6, "paneel 3D: tekst 450 is een eigen letter")
 	ok(f6.get_string_size("Buy  45", HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x > 20, "paneel 3D: Fredoka meet tekst")
 	var d1: StyleBoxFlat = tk._doos("knop")
@@ -1072,12 +1072,12 @@ func _init() -> void:
 	ok(m120.kop == 13 and m120.tekst == 13 and m120.uitleg == 12 and m120.knop_dy == 3 and m120.onder == 15 and m120.boven == 13 and m120.kop_dy == 0, "paneel r3: op 120 alles gelijk")
 	tk.schaal = 2; tk.hoogte = 96.0
 	ok(tk.maten().knop_dy == 1 and tk.maten().kop == 12, "paneel r3: op 96 knop 2 px hoger, letter 12")
-	TK.met_3d = false
+	TKS.met_3d = false
 	ok(tk.maten().knop_dy == 3, "paneel r3 uit: oude knopplek")
 	tk.schaal = 4; tk.hoogte = 160.0
 	ok(tk.maten().kop == 13, "paneel r3 uit: op 160 de oude maat")
 	ok(tk._letter(600) == ThemeDB.fallback_font, "paneel 3D uit: de oude letter")
-	TK.met_3d = true
+	TKS.met_3d = true
 	tk.free()
 	# goudmuntjes in de 3D-stijl (Daan 14 nov 06:40): vliegend en koopmuntje rond als het paneelmuntje, draaien door in te drukken
 	var HS = load("res://hol/hol.gd")
@@ -1309,6 +1309,15 @@ func _nieuwe_held() -> bool:
 	nk2.t = 15.0
 	WR.toon(nk2)
 	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
+	# Iris keuring 16 punt 2 (Olaf 17 nov): regels van vóór het weggaan niet onder de telling op het kaartje
+	var tel_w := "115 came, 74 fell, 39 hats. +559 gold."
+	var kr_w: Array[String] = ["Odo fell.", "Joost climbs into your hole.", "Tibbe fled twice.", tel_w]
+	var wr_w: Array[String] = ["Tibbe fled twice.", tel_w]
+	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)) == str([tel_w, "Tibbe fled twice."]), "kaartje na weg: oude regel (Joost) niet onder de telling: %s" % str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)))
+	kr_w.append("Kees II climbs in.")
+	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)) == str([tel_w, "Tibbe fled twice.", "Kees II climbs in."]), "kaartje na weg: nieuwe regel na de telling telt wel")
+	ok(str(TKS.kies_toon(kr_w, "", [] as Array[String], 3, true)) == str(["Tibbe fled twice.", tel_w, "Kees II climbs in."])
+		and str(TKS.kies_toon(kr_w, tel_w, wr_w, 1, false)) == str(["Kees II climbs in."]), "zonder telling of zonder muis: gewoon de laatste regels")
 	# moet Daan 16 nov 23:30 (b): hooguit één regel per held op het kaartje (laatste drie), de telling blijft staan
 	var nk3 = nep_k.new()
 	nk3.tekst = nep_tekst.new()
