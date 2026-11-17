@@ -64,3 +64,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **GEZIEN met Read op 1x en 3x:** de edelhoed is op ware grootte het eerste wat je op de toren ziet (het enige lichte hoge ding, het goud vangt licht), en hij is nooit de koksmuts: die is laag en bol, de edelhoed hoog met een gouden band. Toets 2 van Daan: ja voor mij.
 - Alle 11 naast elkaar: `mila-hoeden-11.png`.
 - Nog te doen: lijf `edelman` in `held_soorten.py` (slippen, ooglid half dicht, bies op de jasrand) en de rolsteen als echt model (bultige bol, groef als boolean, schilfers als platte vlakken, wig donkerder hout).
+
+## Rolsteen proef 1 als echt model (Mila, 17 nov ±01:18 UTC)
+- `producten/steam-hol/modellen/rolsteen.py` op tak `claude/steam-edelman` (nog niet in de pijplijn). Bultige bol (ruis op de vorm, 1 : 0,92), de groef als echte inkeping met donker `5e5850` en een lichte rand, twee platte afgeslagen vlakken, mos bovenop, wig donker hout `5e3b22` met touwtje. Standen `klaar`, `niet_klaar`, `rol` (met draai in graden).
+- Eerst met een icosfeer: GEZIEN, de groef werd een zaagtand. Nu een bol met zijn polen op de groefas, dan loopt de band strak.
+- `mila-rolsteen-proef1.png` (klaar, niet klaar, rollend 45 graden). **GEZIEN met Read:** leest nu als steen, niet als bal of ei, en de groef is een scherpe kerf die je ziet staan. Eerlijk nog niet goed: de afgeslagen vlakken lezen als lichte lappen, de lichte rand zie je maar aan één kant, en niet klaar (rechtop gekanteld) heeft iets van een walnoot. Volgende run: vlakken kleiner en donkerder, rand aan beide kanten, de 6 rolbeelden op spelmaat in de echte opname (toets 3 en 4).
