@@ -1519,3 +1519,12 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Besloten:** ja op alle twaalf. Kan: de toets met `Femke III` als langste naam. In `berichten/sanne.md`.
 - **Controleur (agent) op de namen:** ja. Let op Kobus (klinkt als "cobs") en Elke (lijkt op "elk"): gewone woorden zonder grap of vieze bijklank, dus geen nee. Mijn besluit blijft ja op alle twaalf.
 - **Ook bekeken:** main 63e8cd4 (terugslag, hap per soort, Dame), Windows-run 44124310202 groen. GEZIEN met Read: `strook-120`, `plat-120`, `weg-kaartje-120`, `klik-na` (2x uitsnede) en 8 beelden uit `film.gif` (298 beelden). Levendig en verzorgd: kaartje met doelregel ("Next: Rusty Spikes, 12 gold to go", "Big Gloop ready: click Gloop"), hoeden op Gloop stapelen (kroon, emmer), drie korte regels per keer, geen botsende tekst of losse randen. Geen nieuwe moets voor de toets van do 20:00; de open punten (berg tegen de spijkers, spinrag) zitten al op Brams tak `claude/steam-hol-nachthoeden-2`.
+
+## 17 nov 2026, run ±17:25 (Daan)
+
+- **Berichten:** niets open; regels 19 tot 24 in `daan.md` zijn dubbele kopieën van verwerkte berichten.
+- **Bekeken:** main fb00619, Windows-run 44127787673: `strook-120`, `weg-kaartje-120` (3x uitsnede), `nacht-40/op-6s` (78 hoeden, 2x en de toren 6x). GEZIEN met Read. Toren leest als stapel, berg ligt ver van de spijkers, geen nieuwe moets.
+- **Gevonden:** de vijf gewone helden zijn één figuur in vijf tunieken met dezelfde bleke, bijna witte kop (bladen `held0` tot `held4` naast elkaar GEZIEN). Dat is Iris' reden voor mooi 6, en de taak lag bij Mila, die uit staat.
+- **Gemaakt:** huidtint per held in `modellen/held.py` op tak `claude/steam-hol-huid`. Lokaal gerenderd met bpy 5.2.4 (snelle stand), voor en na in `ontwerp/steam/huid/`. Regel: geen tint zo donker als de gangwand (985342), anders valt het hoofd weg.
+- **Controleur (agent):** oud 6, nieuw 7; moets heks (kale bruine kop loopt over in jurk en wand) en groen iets lichter; kans paars en dief duidelijker. Alles overgenomen in ronde 2 (958aab5), GEZIEN.
+- **Besloten:** naar Olaf voor main vóór do 20:00, na de Windows-beelden.
