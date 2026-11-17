@@ -24,17 +24,17 @@ Ebb Calm werkt nu op meer Garmin-horloges, waaronder fēnix 9, fēnix E, fēnix 
 Geen getal ("twee keer zoveel"): de winkel telt anders dan ons manifest (nu 40 bij 28 regels), en wat de winkel na de upload toont weet ik pas dan.
 
 ## 3. Link naar de betaalde Ebb in de tekst van Calm (advies Joris, verhaal 22)
-In zijn meting hadden gratis apps met zo'n link in de eerste regels vaker een betaald broertje op 100+ (14 van 30 tegen 0 van 12; klein, kan ook aan de maker liggen). Voorstel: de alinea "THE FULL EBB" blijft staan en krijgt het adres erbij, en dezelfde zin komt als tweede alinea direct onder de eerste.
+In zijn meting hadden gratis apps met zo'n link in de eerste regels vaker een betaald broertje op 100+ (14 van 30 tegen 0 van 12; klein, kan ook aan de maker liggen). **Geldend (ja van Chris, 17 nov ±04:00 UTC, met een controleur):** de zin komt als tweede alinea direct onder de eerste; de alinea "THE FULL EBB" blijft staan zoals hij is, zonder het adres (één link is genoeg). In de zin staat dat Ebb geld kost, zodat de lezer dat weet voor hij klikt. Lengte van de beschrijving daarna 2.167, 2.531 en 2.263 tekens (telling Chris).
 ```
-The full Ebb adds breath hold rounds, your own breathing pattern and 24 sea animals: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
-```
-```
-Die volle Ebb bietet zusätzlich Runden mit Atemanhalten, dein eigenes Atemmuster und 24 Meerestiere: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
+The full Ebb, a paid app, adds breath hold rounds, your own breathing pattern and 24 sea animals: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 ```
 ```
-De volle Ebb heeft daarnaast rondes met adem inhouden, je eigen adempatroon en 24 zeedieren: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
+Das ganze Ebb, eine kostenpflichtige App, bietet zusätzlich Runden mit Atemanhalten, dein eigenes Atemmuster und 24 Meerestiere: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
 ```
-NIET GEZIEN: of de winkel een adres in de tekst aanklikbaar maakt. Het adres is dat van de pagina van Ebb (GEZIEN, 17 nov 01:57 UTC: bestaat, 1.0.0, 40 horloges). Pas plakken na een ja van Chris op de drie zinnen.
+```
+De volle Ebb, een betaalde app, heeft daarnaast rondes met adem inhouden, je eigen adempatroon en 24 zeedieren: https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641
+```
+NIET GEZIEN: of de winkel een adres in de tekst aanklikbaar maakt. Het adres is dat van de pagina van Ebb (GEZIEN, 17 nov 01:57 UTC: bestaat, 1.0.0, 40 horloges). Chris zei ja op deze drie zinnen (zijn wijzigingen staan erin: "a paid app" in drie talen en in het Duits "Das ganze Ebb", zoals in de tekst die live staat).
 
 ## 4. Uploadblok (oud concept; de geldende versie staat op `organisatie/lijst-thijs.md`, 17 nov ±03:25 UTC)
 **Ebb Calm bijwerken naar 1.0.1, ±10 min.** Meer horloges; de app zelf is gelijk gebleven.
