@@ -98,7 +98,7 @@ static func samenvatting(weg: int, helden: int, gevallen: int, goud: int) -> Str
 	return "While you were away (%s): %d heroes came, %d fell, %d fled. +%d gold." % [tijd, helden, gevallen, helden - gevallen, goud]
 
 # Drie korte regels met namen voor terwijl je weg was (Sanne 9 nov 19:00): niet alleen "+X gold", maar wie er terug was,
-# welke wrok speelde en of er een aartsvijand kwam. helden = Kroniek.helden (naam -> {gevlucht, wrok, ...}).
+# welke wrok speelde en of er een aartsvijand kwam. helden = naam -> {gevlucht, wrok, ...}, zoals strook.gd ze bijhoudt.
 # vijand_namen = namen van wat er staat ("Gloop the Slime", "the Spike Pit"). Vast zaad: zelfde save, zelfde verhaal.
 # Er gaat niets verloren: een aartsvijand die kwam, vluchtte weer (of viel en werd afgerekend), nooit iets van jou weg.
 static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Array, zaad: int) -> Array[String]:
@@ -163,7 +163,7 @@ static func tempo_regel(uitkomst: Dictionary) -> String:
 # 40% van wie vlucht komt nooit terug (sim/UITKOMST.md) en strook.gd laat ze nu stil verdwijnen. Bewaar hun namen
 # (oudste voorop, hooguit PENSIOEN_MAX) en vraag bij openen deze regel: alleen als je minstens PENSIOEN_NA_S weg was,
 # zodat het klopt dat hij intussen iets anders is gaan doen. Geeft {"naam", "regel"} (haal die naam uit je lijst) of {}.
-# regels: systemen/kroniek_regels.gd (zelfde voorraad als de kroniek, dus geen regel uit de laatste 10).
+# regels: kern/regels.gd zoals de strook hem heeft (pensioen staat in systemen/kroniek_regels.gd, kies() valt daarop terug).
 const PENSIOEN_NA_S := 30 * 60
 const PENSIOEN_MAX := 5
 static func pensioen(namen: Array, uitkomst: Dictionary, regels) -> Dictionary:
