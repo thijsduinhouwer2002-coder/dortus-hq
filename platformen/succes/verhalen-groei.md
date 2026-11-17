@@ -1,8 +1,86 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 26, wat een BlenderNation-bericht doet voor een add-on op extensions.blender.org, 17 nov 2026 vanaf ±01:15 UTC (Joris).
+bezig: niets (laatste: verhaal 26, wat een BlenderNation-bericht doet voor een gratis add-on, klaar 17 nov 2026 ±01:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 26. Wat doet een bericht op BlenderNation voor een gratis add-on op extensions.blender.org? 143 add-onberichten (jul 2024 tot nov 2026) naast de downloads per versie gemeten, met 147 nieuwe add-ons als vergelijking
+
+Onderzocht 17 nov 2026 ±01:00 tot 01:45 UTC, run 26. Waarom: in verhaal 6 bleef open of een grote site met cijfers wel iets doet (een kleine nieuwsbrief deed weinig). In de lancering van Click Joints staat BlenderNation als plek (Chris, keuze A: een bericht over Pro voor EUR 25, geld dus Thijs). Bij Oliver Post (Lars, `verhalen.md`) was BlenderNation telkens de eerste stap, maar dat was 2020 en zonder downloadcijfers. Vraag: wat zie je nu in de downloads als een gratis add-on op BlenderNation komt, en wat kost het?
+
+### Bronnen en werkwijze
+- **Berichten (GEZIEN, curl):** alle 143 berichten in de rubriek Add-ons van BlenderNation van jul 2024 tot 12 nov 2026 (`blendernation.com/category/blender/add-ons/page/N/`), plus 18 uit de zoekfunctie op "extensions.blender.org", "free extension" en "free add-on". De WordPress-API van de site geeft 403 (Cloudflare), de gewone pagina's niet. Van elk bericht de tekst en de links gelezen.
+- **Koppelen aan de winkel:** op link naar `extensions.blender.org/add-ons/<naam>` of op de naam in de titel. Lijst van 1.662 extensies uit `extensions.blender.org/api/v1/extensions/`.
+- **Downloads in de tijd (GEZIEN):** de pagina Version History van de winkel geeft per versie de datum en het aantal downloads. Ik verdeel die downloads gelijk over de dagen dat de versie de nieuwste was. Zo krijg je een grove lijn per dag. Valt een bericht midden in een lange versie, dan is er niets te zien: dat geval tel ik als "niet te meten", niet als "geen effect". Updates tellen mee in de downloads, dus het is een bovengrens voor nieuwe gebruikers.
+- **Vergelijking (GEZIEN):** alle 147 add-ons met een eerste versie tussen 1 sep en 2 nov 2026 (uit `blender-extensions-nieuw-2026-11-16.csv` van verhaal 15): downloads per dag in dag 0 tot 3 tegen dag 4 tot 10. Zo zie ik hoe vaak een nieuwe add-on in week 2 vanzelf ineens veel harder gaat.
+- **Reddit (Arctic Shift):** op naam gezocht in r/blender, r/blenderhelp, r/3Dmodeling en r/b3d, om te zien of er tegelijk een ander bericht was.
+- Tabel: `platformen/succes/data/blendernation-addons-2026-11-17.csv` (25 koppelingen, met elke versie, datum en downloads). Scripts: `blendernation-berichten-haal.py`, `blendernation-versies-haal.py`, `blendernation-rond-bericht.py`, `blendernation-controle-nieuwe-addons.py` in dezelfde map.
+
+### Wat BlenderNation nu is (GEZIEN)
+| Wat | Cijfer |
+|---|---|
+| Berichten in de rubriek Add-ons | 2024: 47 (vanaf jul), 2025: 53, 2026 tot 12 nov: 43. Ongeveer 1 per week |
+| Waarvan door "Community Reporter" (ingestuurd door de maker zelf) in 2026 | 33 van 43 |
+| Waar de berichten van 2026 naartoe linken (ongeveer) | Superhive 15, Gumroad 8, extensions.blender.org 5, GitHub 5, anders of geen 10 |
+| Kosten | **Gratis voor een niet-commercieel bericht.** Commercieel: EUR 25 per bericht of een Patreon-lidmaatschap "Commercial Blender User" (formulier Submit News, GEZIEN 17 nov) |
+| Vorm | De maker vult een volledig bericht in; BlenderNation zet erboven "(naam) writes:" en een eigen inleiding. Geen schreeuwtitels, één beeld 1456 x 672 zonder tekst of logo erop, een video als losse link |
+
+Er komen dus maar ±5 berichten per jaar over een gratis add-on uit de winkel van Blender. De plek is rustig: wie instuurt, staat een paar dagen tussen weinig andere add-ons.
+
+### 1. Het ene schone geval: Ichno, 4,5 keer zo veel downloads in de week van het bericht (GEZIEN)
+Ichno (gratis, technische tekeningen als PDF en SVG uit een Blender-scène, één maker) kwam op 28 okt in de winkel. Op dag 4, 1 nov, stond het op BlenderNation, ingestuurd door de maker. Tegelijk kwam versie 1.0.5, dus de grenzen van de versies liggen precies goed om het te meten:
+
+| Periode | Versie | Downloads per dag |
+|---|---|---|
+| 28 tot 31 okt (dag 0 tot 3) | 1.0.0 tot 1.0.4 | ±30 |
+| 1 tot 7 nov (bericht op 1 nov) | 1.0.5 | **142** |
+| 7 tot 14 nov | 1.0.6 | 107 |
+| 14 tot 17 nov | 1.0.7, 1.0.8 | 41 tot 83 |
+
+Hoe bijzonder is dat? Van de **41 nieuwe add-ons (sep en okt 2026) die net als Ichno met 15 of meer per dag begonnen, ging er maar 1 in dag 4 tot 10 drie keer zo hard: Ichno zelf.** De mediaan van die 41 bleef gelijk (verhouding 1,0). Van alle 147 nieuwe add-ons ging 13% drie keer zo hard, maar dat zijn bijna allemaal add-ons die in dag 0 tot 3 nog maar 1 tot 7 per dag haalden (de eerste versie stond waarschijnlijk nog in de keuring, zie verhaal 15). Op Reddit vond ik geen bericht over Ichno. Wel komt bij zoeken op YouTube een overzichtsvideo "12 New Blender Addons & Updates Have Been Released" van InspirationTuts (20.654 views) boven; de datum en of Ichno erin zit kon ik niet lezen (YouTube vroeg om in te loggen). Dat kan dus meegeholpen hebben, en die kanalen lezen zelf ook BlenderNation (GOK).
+
+Wat er in het bericht stond: vijf zinnen. Wat het doet ("generates technical drawings from a Blender scene in one click"), wat je krijgt (aanzichten, maten, titelblok, stuklijst, PDF en SVG), dat je scène niet verandert, en voor wie: "furniture and interior designers, woodworkers, product designers and 3D printing makers". Twee links: de winkel en de broncode. Geen video.
+
+### 2. De andere gevallen: meestal niets te zien, en twee keer duidelijk geen sprong (GEZIEN)
+| Add-on | Bericht | Dag na eerste versie | Per dag voor | Per dag week erna | Oordeel |
+|---|---|---|---|---|---|
+| Ichno | 1 nov 2026 | 4 | 30 | 142 | sprong |
+| Mat-Baker (gratis bakken van materialen) | 12 nov 2026 | 8 | 100 (versie 1.1.0) | 147 (versie 1.2.0, ook 2 dagen vóór het bericht) | klein, ×1,5 op zijn hoogst; ook een Reddit-bericht op 6 nov (3 punten) |
+| Blend Project Packer | 3 jul 2026 | 24 | 12 | 17 | nauwelijks |
+| Blueprints | 20 mei 2025 | 1 | 12 | 5, daarna 2 | geen sprong |
+| Stroke Material Display | 29 aug 2025 | 9 | 9 | 7 | geen sprong |
+| Light It Up (twee berichten, 11 en 22 sep 2026) | | 14 en 25 | sprong naar ±150 al bij versie 3.0.2 op 5 sep | daarna ±124 | niet te scheiden |
+| SceneTrace, Dead Simple Motion, Node Runner en 11 oudere | | 23 tot 600+ | | | niet te meten (één lange versie), maar SceneTrace haalde in 90 dagen in totaal 405, dus een groot effect kan er niet in zitten |
+
+Dus: van de vijf gevallen die te meten zijn, één duidelijke sprong, één kleine, drie niets. Een bericht is geen vaste motor. Wat Ichno anders had dan de rest: het bericht kwam **in de eerste week**, toen de add-on ook nog in de lijst "nieuw" van de winkel stond (verhaal 15: de winkel zelf is de motor), en het ging over **een nut dat je in één zin snapt voor een duidelijke groep mensen buiten de gewone Blender-kunstenaar** (meubelmakers, productontwerpers, printers). Blueprints en Stroke Material Display zijn kleine hulpjes voor wie al diep in Blender zit.
+
+### 3. Commerciële berichten en printgereedschap: wel veel, niet te meten
+- In 2026 linken 23 van de 43 add-onberichten naar Superhive of Gumroad. Daar staan geen openbare verkoopcijfers per dag, dus wat de EUR 25 oplevert kan ik niet meten. Ik zeg er dus niets over, ook niet dat het niets doet.
+- Rond 3D-printen kwamen er in 2026 vier: SnapSplit (11 apr, gratis, GitHub), 299 Tools (10 sep, gratis, eigen site, met "Clearance Boolean: creates controlled clearance between parts intended to fit together after 3D printing"), Cookie Cutter Maker (30 okt, Superhive) en **3D Print Suite van Sonneblom Digitaal (10 nov, 18 betaalde add-ons, bundel $139 op Gumroad, losse op Superhive, met onder meer een "Fit & Tolerance Test Generator")**. Geen enkele gaat over gewrichten of figuren die bewegen. Wel staat er nu een testkaart-maker voor speling in een betaalde bundel: dat raakt het testkaartje van Click Joints Pro. Voor Bram en Chris om te weten, geen reden om iets te veranderen.
+
+### Drie lessen
+1. **Een gratis bericht op BlenderNation kan een gratis add-on in de eerste week een paar keer zo hard laten gaan, maar meestal zie je niets.** Eén van de vijf meetbare gevallen sprong (Ichno, ×4,5 en daarna nog ×3), en dat was de enige van 41 vergelijkbare nieuwe add-ons die zo sprong. De andere drie bleven gelijk. Reken op GOK: één op vier tot vijf.
+2. **Timing: in de eerste twee weken, als de winkel je ook nog als nieuw laat zien.** Ichno stond er op dag 4. Berichten over oudere add-ons (Node Runner na 16 maanden, SceneTrace na 3 weken) laten niets zien. Dat past bij lessen 2 en 9 (de winkel is de motor, lanceer op een moment): het bericht duwt een add-on die al in beeld komt.
+3. **Kort en voor wie, niet een lijst met knoppen.** Het bericht van Ichno was vijf zinnen met de groep mensen erin bij naam. Mat-Baker had een lange lijst met functies en deed weinig extra. Eén voorbeeld per kant, dus dit is GOK, maar het is goedkoop om het zo te doen.
+
+### Wat ik niet kon meten
+- Downloads per dag zijn er niet, alleen per versie. Midden in een lange versie is een bericht onzichtbaar.
+- Ichno is één geval. De overzichtsvideo van InspirationTuts kan (deels) de oorzaak zijn.
+- Verkopen op Superhive en Gumroad na een betaald bericht.
+
+### Voor Dortus deze week
+Click Joints staat sinds 8 nov in de winkel (dag 9 vandaag) en kreeg op 16 nov versie 0.1.1. Het venster uit les 2 sluit dus nu ongeveer. Volgens verhaal 15 gaat Click Joints ±19 per dag; Ichno ging van 30 naar 142.
+
+**Chris (klaarzetten) en hoofdchat met Thijs (insturen, want plaatsen onder zijn naam): stuur deze week één gratis, niet-commercieel bericht over de gratis Click Joints in bij BlenderNation (Submit News, "Full post", categorie Add-ons, "commercial: No").** Vijf zinnen zoals Ichno: wat het doet (kogel- en scharniergewrichten met speling voor beweegbare prints), wat je krijgt, voor wie (makers van printbare figuren en speelgoed), dat het gratis is, en twee links: `extensions.blender.org/add-ons/click-joints/` en dortus.com/click-joints/. Geen woord over Pro, anders is het commercieel (dan EUR 25, een geldbesluit voor Thijs). Beeld 1456 x 672 zonder tekst of logo (Daan keurt), het filmpje "satisfying bend" als losse YouTube-link zodra het op @Dortusapps staat (do 19 nov). Thijs kost het ±10 minuten. Meten: Bram noteert de downloads per dag van de dag ervoor tot 7 dagen erna, zodat we zien of wij een Ichno zijn of een Blueprints. Over de EUR 25 voor Pro geeft dit verhaal geen nieuw bewijs; eerst het gratis bericht meten.
+
+### Bronnen
+- Submit News met de regels: https://www.blendernation.com/submit-news/
+- Ichno op BlenderNation, 1 nov 2026: https://www.blendernation.com/2026/11/01/ichno-free-one-click-technical-drawings-from-blender-scenes/ en de versies: https://extensions.blender.org/add-ons/ichno/versions/
+- Mat-Baker, 12 nov 2026: https://www.blendernation.com/2026/11/12/introducing-mat-baker-a-free-add-on-for-baking-procedural-materials/ ; Blueprints, 20 mei 2025: https://www.blendernation.com/2025/05/20/manage-backgrounds-with-the-free-blueprints-add-on/
+- 3D Print Suite, 10 nov 2026: https://www.blendernation.com/2026/11/10/3d-print-suite-18-blender-add-ons-for-3d-printing/ ; 299 Tools, 10 sep 2026: https://www.blendernation.com/2026/09/10/299-tools-free-blender-tools-for-figure-3d-printing/
+- Rubriek Add-ons: https://www.blendernation.com/category/blender/add-ons/
 
 ---
 
