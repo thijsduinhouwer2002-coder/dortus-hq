@@ -3,3 +3,5 @@
 project.manifest = manifest-gratis.xml
 project.typecheck = 1
 base.excludeAnnotations = winkel;betaald
+# De map gratis bevat alleen de naam op het horloge (Skiff Free).
+base.resourcePath = $(base.resourcePath);gratis

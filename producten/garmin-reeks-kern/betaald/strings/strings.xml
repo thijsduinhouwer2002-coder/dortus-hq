@@ -1,4 +1,5 @@
 <strings>
+    <string id="AppName">Skiff</string>
     <string id="ThemaTitel">Theme</string>
     <string id="ThemaDusk">Dusk</string>
     <string id="ThemaTide">Tide</string>
@@ -14,6 +15,6 @@
     <string id="VeldTrappen">Floors climbed</string>
     <string id="VeldMinuten">Intensity minutes (week)</string>
     <string id="VeldAfstand">Distance</string>
-    <string id="VeldAccu">Battery</string>
+    <string id="VeldAccu">Watch battery</string>
     <string id="VeldTemp">Temperature (weather)</string>
 </strings>

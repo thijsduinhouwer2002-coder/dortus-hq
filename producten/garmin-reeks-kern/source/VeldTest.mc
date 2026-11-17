@@ -72,3 +72,62 @@ function testKeuzeVeld(logger as Test.Logger) as Boolean {
         && Keuze.veld(true, Veld.STAPPEN) == Veld.STAPPEN && Veld.geldig(3, 0) == Veld.CALORIE
         && Veld.geldig(12, 2) == Veld.STAPPEN;
 }
+
+// Run 134: elk van de zes nieuwe soorten heeft een pictogram van Mila; het aantal vlakken per soort klopt met
+// haar bestand, elk vlak heeft minstens drie punten en hoogstens 64 (grens van fillPolygon), en alles blijft
+// binnen de hoogte (y van -50 tot 50) en in de breedte binnen -62 tot 60 (de accu is het breedst).
+(:test)
+function testIcoonVlakkenPerSoort(logger as Test.Logger) as Boolean {
+    var aantal = [1, 1, 4, 3, 6, 2] as Array<Number>;
+    for (var s = Veld.CALORIE; s < Veld.AANTAL; s++) {
+        var v = Teken.vlakken(s);
+        if (v.size() != aantal[s - Veld.CALORIE]) {
+            logger.debug("soort " + s + " vlakken=" + v.size());
+            return false;
+        }
+        for (var i = 0; i < v.size(); i++) {
+            var rij = v[i];
+            if (rij.size() < 6 || rij.size() % 2 != 0 || rij.size() > 128) {
+                logger.debug("soort " + s + " vlak " + i + " punten=" + rij.size());
+                return false;
+            }
+            for (var j = 0; j < rij.size(); j += 2) {
+                if (rij[j] < -62 || rij[j] > 60 || rij[j + 1] < -50 || rij[j + 1] > 50) {
+                    logger.debug("soort " + s + " vlak " + i + " buiten de maat");
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+// De drie oude soorten en een onbekende soort hebben geen vlakken in deze lijst: lege lijst, geen fout.
+(:test)
+function testIcoonVlakkenOnbekend(logger as Test.Logger) as Boolean {
+    return Teken.vlakken(Veld.HART).size() == 0 && Teken.vlakken(Veld.STAPPEN).size() == 0
+        && Teken.vlakken(-1).size() == 0 && Teken.vlakken(99).size() == 0;
+}
+
+// De vlam op 12 px hoog rond (100, 50): de punt staat boven (y 44), rechts van het midden, en de voet onder het midden.
+(:test)
+function testIcoonVlamOpMaat(logger as Test.Logger) as Boolean {
+    var p = Teken.vlak(Teken.vlakken(Veld.CALORIE)[0], 100, 50, 12);
+    logger.debug("vlam: " + p);
+    return p.size() == 12 && p[0][0] == 101 && p[0][1] == 44 && p[5][1] == 56;
+}
+
+// Het minteken (Mila): 40% van de cijferhoogte lang, minstens 2 px dik, gat van 10% en minstens 1 px.
+(:test)
+function testMinteken(logger as Test.Logger) as Boolean {
+    var groot = Veld.minMaten(30, 3);
+    var klein = Veld.minMaten(9, 1);
+    return groot[0] == 12 && groot[1] == 3 && groot[2] == 3 && klein[0] == 3 && klein[1] == 2 && klein[2] == 1;
+}
+
+// De toetsen bouwen als de winkel: daar telt de keuze van de drager, niet de velden van de proef.
+(:test)
+function testWinkelGekozenVelden(logger as Test.Logger) as Boolean {
+    var v = Proef.velden([Veld.TEMP, Veld.HART, Veld.ACCU] as Array<Number>, 454);
+    return v.size() == 3 && v[0] == Veld.TEMP && v[1] == Veld.HART && v[2] == Veld.ACCU;
+}

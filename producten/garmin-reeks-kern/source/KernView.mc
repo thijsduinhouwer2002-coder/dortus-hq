@@ -85,7 +85,7 @@ class KernView extends WatchUi.WatchFace {
     function instellingenVeranderd() as Void {
         if (gelezen) {
             thema = Proef.thema(Soort.thema(), System.getDeviceSettings().screenWidth);
-            soorten = Soort.velden();
+            soorten = Proef.velden(Soort.velden(), System.getDeviceSettings().screenWidth);
             bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
             System.println("KERN INSTELLING thema=" + thema + " velden=" + soorten[0] + "," + soorten[1] + "," + soorten[2]);
         }
@@ -196,7 +196,8 @@ class KernView extends WatchUi.WatchFace {
                 if (Veld.isMin(soorten[i], v)) {
                     // Temperatuur onder nul: het minteken als streepje links van het getal.
                     var half = dc.getTextWidthInPixels(t, fontV as WatchUi.FontResource) / 2;
-                    dc.fillRectangle(xs[i] - half - dik - streep / 2, yVeld - dik / 2, streep / 2, dik);
+                    var mm = Veld.minMaten(Maten.m(Maten.VELD_PX), dik);
+                    dc.fillRectangle(xs[i] - half - mm[2] - mm[0], yVeld - mm[1] / 2, mm[0], mm[1]);
                 }
             } else {
                 // Geen gegevens: een streepje, getekend (de letter Veld heeft geen streepje).
@@ -331,7 +332,7 @@ class KernView extends WatchUi.WatchFace {
             gelezen = true;
             start = System.getTimer();
             thema = Proef.thema(Soort.thema(), dc.getWidth());
-            soorten = Soort.velden();
+            soorten = Proef.velden(Soort.velden(), dc.getWidth());
             System.println("KERN SOORT betaald=" + (Soort.BETAALD ? "ja" : "nee") + " thema=" + thema
                 + " velden=" + soorten[0] + "," + soorten[1] + "," + soorten[2]);
             leesAlles();

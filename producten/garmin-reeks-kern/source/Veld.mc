@@ -215,6 +215,21 @@ module Veld {
         return soort == TEMP && v != null && v < 0;
     }
 
+    // Maten van het minteken bij een temperatuur onder nul (Mila, 17 nov): lengte 40% van de cijferhoogte, dikte
+    // gelijk aan de veldstreep maar minstens 2 px (op 208 px valt 1 px weg), gat tot het getal 10% van de
+    // cijferhoogte en minstens 1 px. Geeft [lengte, dikte, gat].
+    function minMaten(cijferPx as Number, streepDik as Number) as Array<Number> {
+        var lengte = cijferPx * 40 / 100;
+        if (lengte < 3) {
+            lengte = 3;
+        }
+        var gat = cijferPx / 10;
+        if (gat < 1) {
+            gat = 1;
+        }
+        return [lengte, (streepDik < 2) ? 2 : streepDik, gat] as Array<Number>;
+    }
+
     function waarde(soort as Number, st as Array<Number>) as Number? {
         if (soort == HART) {
             return hart();
