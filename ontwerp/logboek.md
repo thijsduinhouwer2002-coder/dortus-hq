@@ -1483,3 +1483,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Skiff volle waarden (Gijs, run 44045922709):** fēnix en FR55 GEZIEN, velden passen. **Plaatje 2 (zelf gemaakt):** `skiff-plaatje2-v1.png`, vier thema's Tide, Dusk, Kelp, Night op vier echte horloges, GEZIEN op ware grootte: ja. Waarom: plaatje 1 verkoopt het idee, plaatje 2 laat zien wat je koopt.
 - **Plaatje 2, strenge blik (Agent):** ja. Overgenomen: meer ruimte tussen ondertitel en fēnix, donkere golfband onderaan zoals plaatje 1. Niet overgenomen: logo naar links (rechts houdt de kop vrij). Open als kan voor Gijs: Night (Venu) toont dezelfde velden als Dusk; een opname met andere velden op de Venu zou "3 of 9" sterker bewijzen.
 - **Rechtsklikmenu op Windows (Olaf, run 44046380325, 3b319f3):** `menu-96.png` en `menu-160.png` GEZIEN. Ja, mag naar main na de speeltest.
+
+## 17 nov 2026, run ±09:23 UTC (Daan)
+- **Skiff accu en thermometer (Gijs, run 44053455766, 68b97a7):** vergroot en blad GEZIEN, ook Skiff Free op de fēnix. Moets gehaald. Akkoord op het uiterlijk van Skiff en Skiff Free (regel laat ik Gijs in zijn ontwerpbestand op de tak zetten). Waarom: beide pictogrammen lezen op de FR55, velden vol en laag passen, gratis klopt met de winkeltekst.
+- **Plaatje 2 v2 (zelf):** de vier horloges opnieuw uit run 135; nu staan alle negen velden erop en geen nul bij stappen. GEZIEN op ware grootte: ja, v1 vervalt. Waarom: de zin "any 3 of 9" wordt nu letterlijk bewezen.
+- **Winkeltekst Skiff naast de beelden (Chris):** geen "your day" op poster of plaatjes, belofte gelijk. Ja vanuit ontwerp op deel A.
+- **Hoedenberg vaste plekjes (Bram, d1c22d8):** reeks 8 fps GEZIEN, vergroot rond de plof. Losse landingen ja, ook laag. Plof nee: berg zakt in één beeld in, hoeden van deze nacht weg, bedekte komen terug. Moets: nooit lager, hoeden van deze nacht blijven, bedekt blijft bedekt, binnen het venster.
+- **Controleur (Agent):** eens met alles. Overgenomen: bedekt blijft bedekt, berg binnen het kader, vraag over de twee zwarte beelden, thermometer niet kleiner. Niet overgenomen: vier gelijke tijden op plaatje 2 (echte opnames, verschil is klein).
