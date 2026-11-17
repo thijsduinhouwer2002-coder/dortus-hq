@@ -37,31 +37,90 @@ module Thema {
         return kleuren[t * ROLLEN + rol];
     }
 
-    // Banden van de zee op een scherm met 64 kleuren: vaste paletkleuren (elk kanaal 00, 55, AA of FF), licht boven,
-    // donker onder. Voorstel van Daan (17 nov) voor Dusk en Kelp, Tide en Night op dezelfde manier; Mila kiest nog.
-    var mipBanden as Array<Number> = [
-        0xFFAA55, 0xFF5500, 0xAA0000, 0x550000,
-        0x55FFFF, 0x00AAFF, 0x0055AA, 0x000055,
-        0xAAFF55, 0x55FF00, 0x55AA00, 0x005500,
-        0x5555FF, 0x0000FF, 0x0000AA, 0x000055
-    ] as Array<Number>;
+    // Hoeveel kleuren het scherm heeft: VOL (AMOLED en andere schermen met duizenden kleuren), MIP64 of MIP8.
+    const VOL = 0;
+    const MIP64 = 1;
+    const MIP8 = 2;
 
-    // Kleur van band i (0 boven tot 3 onder). Gewoon scherm: in vier stappen van zee boven naar zee onder.
-    function band(thema as Number, i as Number, mip as Boolean) as Number {
+    // 64 kleuren (elk kanaal 00, 55, AA of FF), keuze van Mila (ontwerp/garmin/tij/kleuren-64-8.md, 17 nov):
+    // gedempt boven, en bij elk thema hetzelfde nachtblauw onder.
+    var mipBanden as Array<Number> = [
+        0xAA5555, 0xAA0055, 0x550055, 0x000055,
+        0x55AAAA, 0x0055AA, 0x0000AA, 0x000055,
+        0xAAAA55, 0x55AA55, 0x005555, 0x000055,
+        0x5555AA, 0x5500AA, 0x0000AA, 0x000055
+    ] as Array<Number>;
+    // 64 kleuren: de waterlijn en de minuten per thema, uit dezelfde tabel.
+    var mipLijn as Array<Number> = [0xFFAAAA, 0xAAFFFF, 0xFFFFAA, 0xAAAAFF] as Array<Number>;
+    var mipMinuten as Array<Number> = [0xFFAA55, 0x55FFFF, 0xAAFFAA, 0xAAAAFF] as Array<Number>;
+    // 8 kleuren: één vaste zee voor alle thema's, cyaan boven en blauw onder.
+    const CYAAN = 0x00FFFF;
+    const BLAUW = 0x0000FF;
+
+    // Thema binnen de lijst; onbekend: Tide.
+    function geldig(thema as Number) as Number {
+        return (thema < 0 || thema >= AANTAL) ? TIDE : thema;
+    }
+
+    // Kleur van band i (0 boven tot 3 onder). VOL: in vier stappen van zee boven naar zee onder.
+    function band(thema as Number, i as Number, diepte as Number) as Number {
         if (i < 0) {
             i = 0;
         }
         if (i > 3) {
             i = 3;
         }
-        var t = thema;
-        if (t < 0 || t >= AANTAL) {
-            t = TIDE;
+        var t = geldig(thema);
+        if (diepte == MIP8) {
+            return (i < 2) ? CYAAN : BLAUW;
         }
-        if (mip) {
+        if (diepte == MIP64) {
             return mipBanden[t * 4 + i];
         }
         return Zee.meng(kleur(t, ZEE_BOVEN), kleur(t, ZEE_ONDER), i, 3);
+    }
+
+    // De waterlijn (ook de kleur van het golfje naast het getal).
+    function waterlijn(thema as Number, diepte as Number) as Number {
+        var t = geldig(thema);
+        if (diepte == MIP8) {
+            return CYAAN;
+        }
+        if (diepte == MIP64) {
+            return mipLijn[t];
+        }
+        return Zee.lichter(kleur(t, ZEE_BOVEN), 70);
+    }
+
+    // De minuten (en het hart). 64 kleuren: de lichte themakleur van Mila. 8 kleuren: cyaan.
+    function minuten(thema as Number, diepte as Number) as Number {
+        var t = geldig(thema);
+        if (diepte == MIP8) {
+            return CYAAN;
+        }
+        if (diepte == MIP64) {
+            return mipMinuten[t];
+        }
+        return kleur(t, MINUTEN);
+    }
+
+    // Het zeil. Op 64 en 8 kleuren altijd wit: het lichtste vlak, nooit een kleur die ook in het water zit (moet van Daan).
+    function zeil(thema as Number, diepte as Number) as Number {
+        return (diepte == VOL) ? kleur(thema, MINUTEN) : 0xFFFFFF;
+    }
+
+    // De uren en de dubbele punt. Alleen op 8 kleuren vast: uren wit, punt cyaan.
+    function uren(thema as Number, diepte as Number) as Number {
+        return (diepte == MIP8) ? 0xFFFFFF : kleur(thema, UREN);
+    }
+
+    function punt(thema as Number, diepte as Number) as Number {
+        return (diepte == MIP8) ? CYAAN : kleur(thema, PUNT);
+    }
+
+    // De rand om het getal van Body Battery. VOL: de donkere zee, nog donkerder. 64 en 8 kleuren: zwart.
+    function rand(thema as Number, diepte as Number) as Number {
+        return (diepte == VOL) ? Zee.meng(kleur(thema, ZEE_ONDER), 0x000000, 4, 10) : 0x000000;
     }
 
     // Alleen voor de proef in de bouwstraat (weg in stap (d), als de drager zelf kiest): elk proefhorloge een

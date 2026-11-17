@@ -1,0 +1,4 @@
+<resources>
+    <!-- Aantal kleuren van het scherm als het er maar 8 zijn (dan [8] in resources-<horloge>/jsondata/kleuren.xml); anders [0]. -->
+    <jsonData id="Kleuren">[0]</jsonData>
+</resources>

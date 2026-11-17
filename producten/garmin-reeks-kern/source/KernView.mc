@@ -23,8 +23,10 @@ class KernView extends WatchUi.WatchFace {
     var gelezenOp as Number = 0;
     // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan per proefhorloge een ander (Thema.voorProef).
     var thema as Number = Thema.TIDE;
-    // Scherm met 64 kleuren (geen inbrandgevaar, dus MIP): de zee krijgt dan vaste paletkleuren (Thema.band).
+    // Scherm zonder inbrandgevaar (MIP): geen zwart slaapbeeld, en de zee krijgt vaste paletkleuren.
     var mip as Boolean = false;
+    // Hoeveel kleuren: Thema.VOL, MIP64 of MIP8. 8 kleuren staat per horloge in resources-<horloge>/jsondata (Kleuren).
+    var diepte as Number = Thema.VOL;
 
     function initialize() {
         WatchFace.initialize();
@@ -57,13 +59,18 @@ class KernView extends WatchUi.WatchFace {
         var ds = System.getDeviceSettings();
         var inbrand = (ds has :requiresBurnInProtection) ? ds.requiresBurnInProtection : false;
         mip = !inbrand;
+        diepte = Thema.VOL;
+        if (mip) {
+            var kl = WatchUi.loadResource(Rez.JsonData.Kleuren);
+            diepte = (kl instanceof Lang.Array && kl.size() > 0 && kl[0] == 8) ? Thema.MIP8 : Thema.MIP64;
+        }
         if (inbrand) {
             var ms0 = System.getSystemStats().usedMemory;
             fontS = WatchUi.loadResource(Rez.Fonts.TijdSlaap) as WatchUi.FontResource;
             System.println("KERN FONT tijdslaap=" + (System.getSystemStats().usedMemory - ms0) + " vrij=" + System.getSystemStats().freeMemory);
         }
         System.println("KERN SCHERM " + ds.screenWidth + "x" + ds.screenHeight + " inbrand=" + inbrand
-            + " pool=" + ((Graphics has :createBufferedBitmap) ? "ja" : "nee"));
+            + " pool=" + ((Graphics has :createBufferedBitmap) ? "ja" : "nee") + " diepte=" + diepte);
         // Stap (a) van de kern: de maten van dit scherm uit het blad van Mila.
         System.println("KERN MATEN n=" + Maten.laad().size() + " tijdPx=" + Maten.m(Maten.TIJD_PX) + " bbY=" + Maten.m(Maten.BB_Y)
             + " veilig=" + Maten.m(Maten.VEILIG) + " bytes=" + (System.getSystemStats().usedMemory - m2));
@@ -129,11 +136,11 @@ class KernView extends WatchUi.WatchFace {
             var bp = dc.getTextWidthInPixels(":", f);
             var bm = dc.getTextWidthInPixels(minuut, f);
             var x = (w - bu - bp - bm) / 2;
-            dc.setColor(Thema.kleur(thema, Thema.UREN), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.uren(thema, diepte), Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, yTijd, f, uur, links);
-            dc.setColor(Thema.kleur(thema, Thema.PUNT), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.punt(thema, diepte), Graphics.COLOR_TRANSPARENT);
             dc.drawText(x + bu, yTijd, f, ":", links);
-            dc.setColor(Thema.kleur(thema, Thema.MINUTEN), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.minuten(thema, diepte), Graphics.COLOR_TRANSPARENT);
             dc.drawText(x + bu + bp, yTijd, f, minuut, links);
         }
         if (!heeftMaten) {
@@ -160,7 +167,7 @@ class KernView extends WatchUi.WatchFace {
             var t = Veld.tekst(Veld.waarde(soorten[i], st));
             regel = regel + " " + ((t == null) ? "-" : t);
             // Het hart krijgt de kleur van de minuten (blad van Mila), de andere pictogrammen die van de tekst.
-            dc.setColor(Thema.kleur(thema, (soorten[i] == Veld.HART) ? Thema.MINUTEN : Thema.TEKST), Graphics.COLOR_TRANSPARENT);
+            dc.setColor((soorten[i] == Veld.HART) ? Thema.minuten(thema, diepte) : Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
             Teken.icoon(dc, soorten[i], xs[i], Maten.m(Maten.ICOON_Y), Maten.m(Maten.ICOON_H));
             dc.setColor(Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
             if (t != null && fontV != null) {
@@ -233,14 +240,12 @@ class KernView extends WatchUi.WatchFace {
         }
         var maxOmhoog = (ny - half - dik) - (Maten.m(Maten.VELD_Y) + Maten.m(Maten.VELD_PX) * 4 / 10 + w * 12 / 1000);
         ny -= Zee.schuif(ny + half + dik, g, top - lijnDik / 2, maxOmhoog);
-        var zb = Thema.kleur(thema, Thema.ZEE_BOVEN);
-        var zo = Thema.kleur(thema, Thema.ZEE_ONDER);
         for (var i = 0; i < 4; i++) {
-            dc.setColor(Thema.band(thema, i, mip), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.band(thema, i, diepte), Graphics.COLOR_TRANSPARENT);
             dc.fillPolygon(Zee.band(pts, Maten.m(Maten.BAND_0 + i), w, h));
         }
-        // 64 kleuren: de bovenste band één paletstap lichter (wit las in run 44014109126 als een harde witte rand).
-        var lijnKleur = mip ? Zee.lichter(Thema.band(thema, 0, true), 85) : Zee.lichter(zb, 70);
+        // 64 en 8 kleuren: een vaste kleur per thema uit het blad van Mila (wit las in run 44014109126 als een harde witte rand).
+        var lijnKleur = Thema.waterlijn(thema, diepte);
         dc.setColor(lijnKleur, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(lijnDik);
         for (var i = 0; i + 1 < pts.size(); i++) {
@@ -251,14 +256,14 @@ class KernView extends WatchUi.WatchFace {
             dc.fillPolygon([bootje[0], bootje[1], bootje[2], bootje[3]] as Array<Graphics.Point2D>);
             dc.setPenWidth((w >= 300) ? w / 150 : 2);
             dc.drawLine(bootje[7][0], bootje[7][1], bootje[8][0], bootje[8][1]);
-            dc.setColor(Thema.kleur(thema, Thema.MINUTEN), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.zeil(thema, diepte), Graphics.COLOR_TRANSPARENT);
             dc.fillPolygon([bootje[4], bootje[5], bootje[6]] as Array<Graphics.Point2D>);
         }
         var mid = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         if (tekst != null && fontK != null) {
             var f = fontK as WatchUi.FontResource;
             // Donkere rand van dik px om het getal, dan het getal in wit.
-            dc.setColor(Zee.meng(zo, 0x000000, 4, 10), Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Thema.rand(thema, diepte), Graphics.COLOR_TRANSPARENT);
             // Acht richtingen op afstand dik (punt van de keurder: niet elk tussenpunt, dat kost 24 keer tekenen bij 2 px).
             for (var dx = -dik; dik > 0 && dx <= dik; dx += dik) {
                 for (var dy = -dik; dy <= dik; dy += dik) {
@@ -286,7 +291,7 @@ class KernView extends WatchUi.WatchFace {
         dc.setPenWidth(1);
         if (tik < 2) {
             System.println("KERN ZEE bb=" + bb.size() + " nu=" + ((tekst == null) ? "-" : tekst) + " bootX=" + nuX
-                + " getalY=" + ny + " mip=" + mip + " eerste=" + ((bb.size() > 0) ? bb[0].format("%d") : "-"));
+                + " getalY=" + ny + " mip=" + mip + " diepte=" + diepte + " glad=" + ((!mip && (dc has :setAntiAlias)) ? "ja" : "nee") + " eerste=" + ((bb.size() > 0) ? bb[0].format("%d") : "-"));
         }
     }
 
@@ -330,10 +335,19 @@ class KernView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         var msPlaat = System.getTimer() - t0;
+        // Gladde randen (moet van Daan, 17 nov): alleen op AMOLED en waar het horloge het kan. Op MIP horen harde
+        // randen bij het palet; daar blijft het uit. Elke tekenbeurt aan, na de tekenbeurt weer uit.
+        var glad = !mip && (dc has :setAntiAlias);
+        if (glad) {
+            dc.setAntiAlias(true);
+        }
         // Eerst de zee, dan datum, tijd en velden erover: de tijd staat altijd boven water.
         tekenZee(dc, nu.min);
         var msZee = System.getTimer() - t0 - msPlaat;
         tekenBoven(dc, nu.hour.format("%02d"), nu.min.format("%02d"));
+        if (glad) {
+            dc.setAntiAlias(false);
+        }
         var ms = System.getTimer() - t0;
         if (tik < 4) {
             System.println("KERN TEKEN tik=" + tik + " ms=" + ms + " plaatje_ms=" + msPlaat + " zee_ms=" + msZee);

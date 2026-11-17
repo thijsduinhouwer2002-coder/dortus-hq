@@ -1,0 +1,4 @@
+<resources>
+    <!-- Forerunner 55: 8 kleuren. De zee wordt dan cyaan boven en blauw onder (Thema.MIP8). -->
+    <jsonData id="Kleuren">[8]</jsonData>
+</resources>

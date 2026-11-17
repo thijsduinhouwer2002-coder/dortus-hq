@@ -50,7 +50,7 @@ jobs:
           # Hoeveel geheugen geeft elk horloge uit het manifest aan een wijzerplaat, en welke Connect IQ-versie?
           for d in $(grep -o 'product id="[^"]*"' manifest.xml | cut -d'"' -f2); do
             f=$(find / -path "*Devices/$d/compiler.json" 2>/dev/null | head -1)
-            echo "LIMIET $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '{[^{}]*"watchFace"[^{}]*}') $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"connectIQVersion":"[^"]*"' | sort -u | tail -1)" >> "$U" || true
+            echo "LIMIET $d $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '{[^{}]*"watchFace"[^{}]*}') $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"connectIQVersion":"[^"]*"' | sort -u | tail -1) $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"bitsPerPixel":[0-9]*' | head -1) $(tr -d ' \n' < "$f" 2>/dev/null | grep -o '"launcherIcon":{[^{}]*}' | head -1)" >> "$U" || true
           done
           # Bouwt het pakket voor alle horloges uit het manifest? (wegwerpsleutel, niet voor de winkel)
           mkdir -p /tmp/prg
@@ -90,6 +90,12 @@ jobs:
             grep -q "^${paar%%:*} KERN MATEN n=29 tijdPx=${paar##*:} " "$U" || { echo "MATEN FOUT ${paar%%:*}, verwacht tijdPx=${paar##*:}" >> "$U"; MIS=1; }
           done
           echo "MATEN_PER_HORLOGE $([ $MIS = 0 ] && echo goed || echo FOUT)" >> "$U"
+          # Elk horloge kiest de kleuren van zijn scherm: 0 vol (AMOLED), 1 64 kleuren, 2 8 kleuren (Forerunner 55).
+          MIS=0
+          for paar in fr255:1 fenix847mm:0 venu3s:0 vivoactive5:0 fr55:2 fr245:1 fr265s:0; do
+            grep -q "^${paar%%:*} KERN SCHERM .* diepte=${paar##*:}\$" "$U" || { echo "KLEUREN FOUT ${paar%%:*}, verwacht diepte=${paar##*:}" >> "$U"; MIS=1; }
+          done
+          echo "KLEUREN_PER_HORLOGE $([ $MIS = 0 ] && echo goed || echo FOUT)" >> "$U"
           mogrify -fuzz 2% -trim +repage schermen/*.png
           cat "$U"
           ls -la schermen
@@ -137,14 +143,20 @@ jobs:
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           for poging in 1 2 3 4 5; do
             rm -rf /tmp/s
-            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+            # Alleen onze eigen map ophalen (de tak schermen is groot: in run 44017179674 duurde elke poging minuten en
+            # kwam er geen enkele push door, terwijl de job groen bleef).
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" /tmp/s 2>/dev/null; then
+              git -C /tmp/s sparse-checkout set "garmin-reeks-kern/$NAAM" >/dev/null
+            else
               mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
             fi
             D="/tmp/s/garmin-reeks-kern/$NAAM"
             rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd /tmp/s && git add -A && git commit -q -m "Schermen garmin-reeks-kern/$NAAM run ${GITHUB_RUN_ID}" || exit 0
-            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            if git push -q origin schermen; then cd - >/dev/null; GELUKT=1; break; fi
             cd - >/dev/null; sleep $((poging * 3))
           done
+          # Niet gelukt: de job rood, zodat niemand oude beelden voor nieuwe aanziet.
+          [ "${GELUKT:-0}" = 1 ] || { echo "FOUT: de beelden staan niet op tak schermen"; exit 1; }
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/garmin-reeks-kern/$NAAM"

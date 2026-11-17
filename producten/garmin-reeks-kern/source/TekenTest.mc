@@ -210,8 +210,8 @@ function testZeeSchuif(logger as Test.Logger) as Boolean {
 function testZeeKleuren(logger as Test.Logger) as Boolean {
     return Zee.meng(0xFF8C3C, 0x6E1928, 0, 3) == 0xFF8C3C && Zee.meng(0xFF8C3C, 0x6E1928, 3, 3) == 0x6E1928
         && Zee.meng(0x000000, 0x0000FF, 1, 0) == 0x000000 && Zee.lichter(0xFF8C3C, 70) == 0xFFD282
-        && Thema.band(Thema.DUSK, 0, false) == 0xFF8C3C && Thema.band(Thema.DUSK, 3, false) == 0x6E1928
-        && Thema.band(Thema.DUSK, 0, true) == 0xFFAA55 && Thema.band(99, 9, true) == 0x000055;
+        && Thema.band(Thema.DUSK, 0, Thema.VOL) == 0xFF8C3C && Thema.band(Thema.DUSK, 3, Thema.VOL) == 0x6E1928
+        && Thema.band(Thema.DUSK, 0, Thema.MIP64) == 0xAA5555 && Thema.band(99, 9, Thema.MIP64) == 0x000055;
 }
 
 (:test)
@@ -226,7 +226,7 @@ function testZeeBandenVerschillen(logger as Test.Logger) as Boolean {
     for (var t = 0; t < Thema.AANTAL; t++) {
         for (var m = 0; m < 2; m++) {
             for (var i = 0; i < 3; i++) {
-                if (Thema.band(t, i, m == 1) == Thema.band(t, i + 1, m == 1)) {
+                if (Thema.band(t, i, m) == Thema.band(t, i + 1, m)) {
                     logger.debug("gelijk: thema " + t + " band " + i + " mip " + m);
                     return false;
                 }
@@ -234,6 +234,33 @@ function testZeeBandenVerschillen(logger as Test.Logger) as Boolean {
         }
     }
     return true;
+}
+
+// De kleuren van Mila voor 64 en 8 kleuren (ontwerp/garmin/tij/kleuren-64-8.md): de tabel, het witte zeil, de zwarte
+// rand, en op 8 kleuren één vaste zee voor elk thema. Op een vol scherm verandert er niets.
+(:test)
+function testKleuren64En8(logger as Test.Logger) as Boolean {
+    var goed = Thema.band(Thema.KELP, 0, Thema.MIP64) == 0xAAAA55 && Thema.band(Thema.NIGHT, 1, Thema.MIP64) == 0x5500AA
+        && Thema.band(Thema.TIDE, 3, Thema.MIP64) == 0x000055 && Thema.waterlijn(Thema.DUSK, Thema.MIP64) == 0xFFAAAA
+        && Thema.minuten(Thema.KELP, Thema.MIP64) == 0xAAFFAA && Thema.waterlijn(99, Thema.MIP64) == 0xAAFFFF
+        && Thema.waterlijn(Thema.DUSK, Thema.VOL) == 0xFFD282 && Thema.minuten(Thema.TIDE, Thema.VOL) == 0x3CDCE6
+        && Thema.zeil(Thema.TIDE, Thema.VOL) == 0x3CDCE6 && Thema.rand(Thema.TIDE, Thema.MIP64) == 0x000000
+        && Thema.uren(Thema.DUSK, Thema.MIP64) == 0xFFEED6 && Thema.punt(Thema.NIGHT, Thema.MIP64) == 0x6E6EA0
+        && Thema.mipBanden.size() == Thema.AANTAL * 4 && Thema.mipLijn.size() == Thema.AANTAL && Thema.mipMinuten.size() == Thema.AANTAL;
+    for (var t = 0; t < Thema.AANTAL; t++) {
+        // Het zeil is op 64 en 8 kleuren wit en dus nooit een kleur van het water.
+        for (var d = Thema.MIP64; d <= Thema.MIP8; d++) {
+            goed = goed && Thema.zeil(t, d) == 0xFFFFFF && Thema.rand(t, d) == 0x000000;
+            for (var i = 0; i < 4; i++) {
+                goed = goed && Thema.band(t, i, d) != 0xFFFFFF;
+            }
+        }
+        goed = goed && Thema.band(t, 0, Thema.MIP8) == 0x00FFFF && Thema.band(t, 1, Thema.MIP8) == 0x00FFFF
+            && Thema.band(t, 2, Thema.MIP8) == 0x0000FF && Thema.band(t, 3, Thema.MIP8) == 0x0000FF
+            && Thema.waterlijn(t, Thema.MIP8) == 0x00FFFF && Thema.minuten(t, Thema.MIP8) == 0x00FFFF
+            && Thema.uren(t, Thema.MIP8) == 0xFFFFFF && Thema.punt(t, Thema.MIP8) == 0x00FFFF;
+    }
+    return goed;
 }
 
 (:test)
