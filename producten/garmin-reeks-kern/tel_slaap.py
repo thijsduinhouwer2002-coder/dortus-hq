@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 
 GRENS = 8.0
-INBRAND = {"fenix847mm", "venu3s", "vivoactive5", "venusq2"}
+INBRAND = {"fenix847mm", "venu3s", "vivoactive5", "venusq2", "fr265s"}
 
 def laad(pad):
     return np.asarray(Image.open(pad).convert("RGB")).astype(int)

@@ -109,12 +109,16 @@ module Thema {
         return (diepte == MIP64 || diepte == MIP8) ? 0xFFFFFF : kleur(thema, MINUTEN);
     }
 
-    // De uren en de dubbele punt. Alleen op 8 kleuren vast: uren wit, punt cyaan.
+    // De uren en de dubbele punt. Op 8 kleuren vast: uren wit, punt cyaan. Op 64 kleuren is de punt de kleur van de minuten.
     function uren(thema as Number, diepte as Number) as Number {
         return (diepte == MIP8) ? 0xFFFFFF : kleur(thema, UREN);
     }
 
     function punt(thema as Number, diepte as Number) as Number {
+        if (diepte == MIP64) {
+            // Kan van Daan (17 nov): op 64 kleuren de dubbele punt gelijk aan de minuten, één blok kleur naast wit.
+            return minuten(thema, diepte);
+        }
         return (diepte == MIP8) ? CYAAN : kleur(thema, PUNT);
     }
 

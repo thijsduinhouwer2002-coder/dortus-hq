@@ -90,7 +90,8 @@ class KernView extends WatchUi.WatchFace {
         WatchUi.requestUpdate();
     }
 
-    // Slaapbeeld: zwart, de tijd in grijs (dun op een scherm dat kan inbranden) en een dunne lijn van Body Battery.
+    // Slaapbeeld: zwart, de tijd in grijs (dun op een scherm dat kan inbranden), een dunne lijn van Body Battery
+    // en het bootje als omtrek aan het eind van die lijn.
     function tekenSlaap(dc as Graphics.Dc, tekst as String, n as Number) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
@@ -105,10 +106,24 @@ class KernView extends WatchUi.WatchFace {
         if (fs != null) {
             dc.drawText(w / 2 + dx, h * 14 / 100 + dy, fs as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
         }
-        var lijn = Teken.profiel(bb, w * 20 / 100, w * 80 / 100, h * 78 / 100, h * 64 / 100, 20);
+        // Het bootje als omtrek van 1 px aan het eind van de lijn (kan van Mila en Daan). Alleen met maten voor dit
+        // scherm; de lijn stopt dan bij de punt van de romp. Onder de 10 ligt het scheef, net als wakker.
+        var s = Maten.passen(w, h) ? Maten.m(Maten.BOOT_HALF) : 0;
+        var x1 = w * 80 / 100;
+        var lijn = Teken.profiel(bb, w * 20 / 100, x1 - s, h * 78 / 100, h * 64 / 100, 20);
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(1);
         for (var i = 1; i + 2 < lijn.size(); i++) {
             dc.drawLine(lijn[i][0] + dx, lijn[i][1] + dy, lijn[i + 1][0] + dx, lijn[i + 1][1] + dy);
+        }
+        var bbNu = Veld.laatste(bb);
+        if (s > 0 && lijn.size() >= 4 && bbNu != null) {
+            var eind = lijn[lijn.size() - 2];
+            var stukken = Zee.bootLijnen(Zee.boot(x1, eind[1] as Number, s, (bbNu < 10) ? -22 : 0));
+            for (var i = 0; i < stukken.size(); i++) {
+                var k = stukken[i];
+                dc.drawLine(k[0] + dx, k[1] + dy, k[2] + dx, k[3] + dy);
+            }
         }
     }
 

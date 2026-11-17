@@ -272,7 +272,8 @@ function testKleuren64En8(logger as Test.Logger) as Boolean {
         && Thema.minuten(Thema.KELP, Thema.MIP64) == 0xAAFFAA && Thema.waterlijn(99, Thema.MIP64) == 0xAAFFFF
         && Thema.waterlijn(Thema.DUSK, Thema.VOL) == 0xFFD282 && Thema.minuten(Thema.TIDE, Thema.VOL) == 0x3CDCE6
         && Thema.zeil(Thema.TIDE, Thema.VOL) == 0x3CDCE6 && Thema.rand(Thema.TIDE, Thema.MIP64) == 0x000000
-        && Thema.uren(Thema.DUSK, Thema.MIP64) == 0xFFEED6 && Thema.punt(Thema.NIGHT, Thema.MIP64) == 0x6E6EA0
+        && Thema.uren(Thema.DUSK, Thema.MIP64) == 0xFFEED6 && Thema.punt(Thema.NIGHT, Thema.MIP64) == 0xAAAAFF && Thema.punt(Thema.KELP, Thema.MIP64) == Thema.minuten(Thema.KELP, Thema.MIP64)
+        && Thema.punt(Thema.NIGHT, Thema.VOL) == 0x6E6EA0
         && Thema.mipBanden.size() == Thema.AANTAL * 4 && Thema.mipLijn.size() == Thema.AANTAL && Thema.mipMinuten.size() == Thema.AANTAL;
     for (var t = 0; t < Thema.AANTAL; t++) {
         // Het zeil is op 64 en 8 kleuren wit en dus nooit een kleur van het water.
@@ -303,4 +304,30 @@ function testWinkelEchteGeschiedenis(logger as Test.Logger) as Boolean {
     var echt = [11, 12, 13] as Array<Number>;
     var uit = Proef.bb(echt, Thema.KELP);
     return uit.size() == 3 && uit[0] == 11 && uit[2] == 13 && Proef.bb([] as Array<Number>, Thema.NIGHT).size() == 0;
+}
+
+// Slaapstand: het bootje als omtrek. Acht lijnstukken (romp 4, zeil 3, mast 1), romp en zeil gesloten.
+(:test)
+function testZeeBootLijnen(logger as Test.Logger) as Boolean {
+    var b = Zee.boot(200, 300, 20, 0);
+    var k = Zee.bootLijnen(b);
+    if (k.size() != 8) {
+        return false;
+    }
+    // Romp: elk stuk begint waar het vorige eindigt, en het laatste eindigt op het begin van het eerste.
+    for (var i = 0; i < 4; i++) {
+        var v = k[(i + 3) % 4];
+        if (k[i][0] != v[2] || k[i][1] != v[3]) {
+            return false;
+        }
+    }
+    for (var i = 0; i < 3; i++) {
+        var v = k[4 + (i + 2) % 3];
+        if (k[4 + i][0] != v[2] || k[4 + i][1] != v[3]) {
+            return false;
+        }
+    }
+    // Romp van 180 tot 220 breed, mast recht omhoog van de romp tot 30 px boven de waterlijn.
+    return k[0][0] == 180 && k[0][2] == 220 && k[0][1] == 297 && k[7][0] == 200 && k[7][1] == 297 && k[7][2] == 200 && k[7][3] == 270
+        && Zee.bootLijnen([] as Array<Graphics.Point2D>).size() == 0;
 }

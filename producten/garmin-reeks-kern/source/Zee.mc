@@ -121,6 +121,25 @@ module Zee {
         return p;
     }
 
+    // De omtrek van het bootje als losse lijnstukken [x0, y0, x1, y1], voor de slaapstand (kan van Mila en Daan):
+    // romp (4 stukken, gesloten), zeil (3, gesloten) en de mast (1). Geen negen punten: lege lijst.
+    function bootLijnen(b as Array<Graphics.Point2D>) as Array<Array<Number>> {
+        var uit = [] as Array<Array<Number>>;
+        if (b.size() != 9) {
+            return uit;
+        }
+        for (var i = 0; i < 4; i++) {
+            var j = (i + 1) % 4;
+            uit.add([b[i][0] as Number, b[i][1] as Number, b[j][0] as Number, b[j][1] as Number] as Array<Number>);
+        }
+        for (var i = 0; i < 3; i++) {
+            var j = 4 + (i + 1) % 3;
+            uit.add([b[4 + i][0] as Number, b[4 + i][1] as Number, b[j][0] as Number, b[j][1] as Number] as Array<Number>);
+        }
+        uit.add([b[7][0] as Number, b[7][1] as Number, b[8][0] as Number, b[8][1] as Number] as Array<Number>);
+        return uit;
+    }
+
     // Liggen alle punten binnen de cirkel met midden c, c en deze straal?
     function past(pts as Array<Graphics.Point2D>, c as Number, straal as Number) as Boolean {
         for (var i = 0; i < pts.size(); i++) {
