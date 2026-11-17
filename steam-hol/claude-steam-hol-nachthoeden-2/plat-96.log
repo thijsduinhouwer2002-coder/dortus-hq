@@ -1,18 +1,20 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1794926332
+HOL zaad 1794926707
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.0 (wacht 0.0): Wout read about you in a tavern.
-HOL begin: vallen (Wout)
-HOL held binnen: Wout
+HOL kroniek 4.1 (wacht 0.0): Bram has a map. It is wrong.
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
 HOL muisvlak 4 punten, lucht vrij op x=200
-HOL zicht 4.1 1
+HOL zicht 4.2 1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 10.6 (wacht 0.0): Odo says this is a quick one.
-HOL begin: vluchten (Odo)
-HOL held binnen: Odo
-HOL kroniek zelfde held vervangen: Wout read about you in a tavern.
-HOL kroniek 16.0 (wacht 0.0): Wout stays forever. +6
-HOL kroniek 18.5 (wacht 2.5): New page: the Hero. The pit got him.
-HOL meting t=20 beelden=129 helden=1 hol_vast=3
-HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL kroniek 10.2 (wacht 0.0): Kees read about you in a tavern.
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
+HOL kroniek zelfde held vervangen: Bram has a map. It is wrong.
+HOL kroniek 12.8 (wacht 0.0): Bram fell to the Spike Pit. +6
+HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL kroniek 24.0 (wacht 0.0): Kees escaped with a limp.
+HOL zicht 24.1 0
+HOL einde na 24 s, fps=10, goud=26, terugkomers=1
