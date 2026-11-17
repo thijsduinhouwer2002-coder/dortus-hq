@@ -14,11 +14,22 @@ static func faam_erbij(s, n: int) -> void:
 	for niv in HOL_NIVEAU.erbij(oud, s.faam):
 		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
 
+# Vangst of vlucht die terugslaat op de binnenkomst (Sanne 17 nov 09:02, features.md, Iris keuring 21): een held die
+# bij binnenkomst een soort- of trekregel kreeg, krijgt bij zijn gewone vangst of vlucht een regel uit "val_<soort>" of
+# "vlucht_<soort>" (systemen/kroniek_regels.gd). Afrekening, aartsvijand en hap-met-hoed gaan voor (die roepen dit niet
+# aan). Een terugkomer heeft geen binnen_soort meer (wordt bij de afloop gewist): zijn opzet is te lang geleden.
+static func terugslag(s, info: Dictionary, gewoon: String) -> String:
+	var soort := String(info.get("binnen_soort", ""))
+	if soort == "":
+		return gewoon
+	var eigen := ("vlucht_" if gewoon == "vlucht" else "val_") + soort
+	return eigen if s.regels.heeft(eigen) else gewoon
+
 static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
 	b["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld", "binnen_soort"]:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -58,7 +69,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			s._kroniek(s.regels.kies("schat_weg", {"naam": info.naam}))
 		else:
 			var w: String = String(b.wrok)
-			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
+			s._kroniek(s.regels.kies(terugslag(s, info, "vlucht"), {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
 		boek_regel(s, s.boek.held(String(info.get("soort_held", "")), "ontsnapt", String(info.naam), s._bewoner()))
 		if lied > 0:
 			# sfeerregel: je ziet het lied niet, dus laag zoals binnenkomst en mag vervallen (Sanne toets 9, besluit 2a);
@@ -106,9 +117,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
 			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
 			if r == "":
-				r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
+				r = s.regels.kies(terugslag(s, info, "val_bewoner"), {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 		else:
-			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
+			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
 		# Heldenboek: een stempel door Gloop of door de put (bij afgerekend: wie hem kreeg)
 		# (put alleen als het echt de put was; anders Gloop, ook als zijn bijnaam net veranderde, controleur kan-punt 6)

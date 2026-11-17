@@ -46,8 +46,10 @@ const VOORRAAD := {
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],
 	"val": ["{naam} fell to {val}.", "{naam} found {val}. Hard.", "{naam} stays forever.", "{naam} left gold and one boot.",
-		"{naam} will not be leaving."],
-	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
+		"{naam} will not be leaving.", "{naam} took the short way down.", "{naam} checked the floor. Too late.",
+		"{naam} is part of the hole now."],
+	# "stays forever" alleen nog in val (Sanne 17 nov 09:02: 20 keer in 75 min)
+	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} went down in one gulp."],
 	"plat": ["{bewoner} is flat. Back soon."],
 	"op": ["{bewoner} is up again. Wobbly."],
 	# Heldensoorten (Bram 10 nov, versie 1, systemen/heldensoort.gd). Sanne mag ze herschrijven in kroniek-regels.md.
@@ -58,6 +60,24 @@ const VOORRAAD := {
 	"binnen_slaapkop": ["{naam} yawns. Long walk.", "{naam} brought a pillow.", "{naam} the Sleepy shuffles in."],
 	"binnen_wraakzuchtig": ["{naam} holds grudges. Hard.", "{naam} the Spiteful is here.", "{naam} keeps a list of names."],
 	"binnen_opschepper": ["{naam} tells everyone he slew a dragon.", "{naam} the Boastful struts in.", "{naam} signs autographs. Nobody asked."],
+	# Terugslag (Sanne 17 nov 09:02, teksten-spel.md deel 2, CONCEPT tot Thijs ze schrijft): vangst en vlucht van een held
+	# met een soort- of trekregel slaan terug op zijn binnenkomst (kern/afloop.gd terugslag()). Elke regel moet ook zonder
+	# de opzet werken, want een_per_held haalt de binnenkomstregel weg (Iris keuring 21); daarom zonder pillow, stole
+	# nothing en spite, en zonder "he" (vrouwennamen, Iris keuring 21 punt 1).
+	"val_ridder": ["Sir {naam} was very sure. Was.", "Sir {naam} clanked all the way down."],
+	"val_dief": ["Nobody saw {naam} fall. You saw.", "{naam} picked the wrong floor."],
+	"val_magier": ["{naam} knew every trap but one.", "Candle out. {naam} out.", "{naam} sniffed the pit. Too late."],
+	"val_bard": ["{naam}'s last song was short.", "{naam} hit a low note. Very low.", "The ballad of {naam}: one verse."],
+	"val_slaapkop": ["{naam} gets a long nap now.", "{naam} dozed off. Then fell off."],
+	"val_wraakzuchtig": ["{naam}'s list got one name shorter.", "{naam} holds a grudge. Down there."],
+	"val_opschepper": ["{naam} slew a dragon. Not this hole.", "{naam}'s autograph: in the pit now.", "{naam} will tell no one about this."],
+	"vlucht_ridder": ["Sir {naam} retreats. Slowly. Loudly.", "Sir {naam} will tell it differently."],
+	"vlucht_dief": ["{naam} got away. With nothing. Again.", "{naam} escaped. You saw that too."],
+	"vlucht_magier": ["{naam} saw the trap. Told no one.", "{naam} vanished. Took the stairs."],
+	"vlucht_bard": ["{naam} got away. New song tonight.", "{naam} ran, humming. Uh oh."],
+	"vlucht_slaapkop": ["{naam} woke up and ran. Fair.", "{naam} sleepwalked right out."],
+	"vlucht_wraakzuchtig": ["{naam} added {bewoner} to the list.", "{naam} ran. The list grows."],
+	"vlucht_opschepper": ["{naam} ran. Calls it a victory.", "{naam} fled. Tells it as a win."],
 	"dutje": ["{naam} took a nap in your hole.", "{naam} snored. Gloop watched.", "{naam} slept. Rude."],
 	# Een bard die ontsnapt zingt over je hol: er komen helden bij (heldensoort.LIED_HELDEN).
 	"lied": ["{naam} sang about your hole. More came.", "{naam}'s song got popular. Uh oh.", "A song about you! Heroes on the way."],

@@ -20,8 +20,10 @@ const VOORRAAD := {
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],
 	"aartsvijand": ["Your nemesis {naam} has arrived.", "{naam} again. Of course.", "{naam} trained all week for this."],
 	"val": ["{naam} fell to {val}.", "{naam} found {val}. Hard.", "{naam} stays forever.", "{naam} left gold and one boot.",
-		"{naam} will not be leaving."],
-	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
+		"{naam} will not be leaving.", "{naam} took the short way down.", "{naam} checked the floor. Too late.",
+		"{naam} is part of the hole now."],
+	# "stays forever" alleen nog in val (Sanne 17 nov 09:02: 20 keer in 75 min)
+	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} went down in one gulp."],
 	# "{naam}'s hat goes on the wall." komt pas terug als de wand te zien is (Sanne toets 4, punt 1)
 	# de wrok tegen een val krijgt zijn afloop (Sanne toets 6, punt 1); {Val} = "The Spike Pit"
 	"afgerekend_val": ["{naam} came back. {Val} won.", "{Val} won. Grudge settled.", "{Val} wins round two."],
@@ -56,6 +58,9 @@ func vul(r: String, w: Dictionary) -> String:
 # keer voor de zak weer vol is, en nooit twee keer achter elkaar (ook niet over de grens van de zak heen). Past er niets
 # uit de zak binnen 42 tekens, dan een andere die past, en anders de eerste (die zijn bewust kort).
 var vorig := {}    # soort -> laatst gekozen index
+
+func heeft(soort: String) -> bool:
+	return VOORRAAD.has(soort) or BRAM.VOORRAAD.has(soort)
 
 func kies(soort: String, w: Dictionary, erbij := 0) -> String:
 	var lijst: Array = VOORRAAD.get(soort, BRAM.VOORRAAD.get(soort, ["..."]))

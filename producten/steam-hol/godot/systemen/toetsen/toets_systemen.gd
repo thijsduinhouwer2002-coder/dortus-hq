@@ -1362,5 +1362,35 @@ func _nieuwe_held() -> bool:
 	# Hernoem je het project, laat deze map dan staan (of kopieer de oude map eenmalig) en pas pas daarna deze toets aan.
 	ok(ProjectSettings.get_setting("application/config/use_custom_user_dir", false) == true, "savemap: eigen map aan")
 	ok(ProjectSettings.get_setting("application/config/custom_user_dir_name", "") == "Dortus/Het Hol", "savemap blijft Dortus/Het Hol: " + str(ProjectSettings.get_setting("application/config/custom_user_dir_name", "")))
+	# terugslag (Sanne 17 nov 09:02, Iris keuring 21): elke soort en trek heeft een eigen val- en vluchtlijst, past met " +12"
+	# bij een lange naam, zonder he/his/him, en terugslag() kiest de eigen lijst alleen bij een opzet.
+	var RT = load("res://kern/regels.gd").new()
+	var AF = load("res://kern/afloop.gd")
+	var nep_ts := {"regels": RT}
+	var ts_mist: Array = []
+	var ts_lang: Array = []
+	var ts_hij: Array = []
+	for so in ["ridder", "dief", "magier", "bard", "slaapkop", "wraakzuchtig", "opschepper"]:
+		ok(RT.heeft("binnen_" + so), "terugslag: binnen_%s bestaat" % so)
+		for pre in ["val_", "vlucht_"]:
+			if not RT.heeft(pre + so):
+				ts_mist.append(pre + so)
+				continue
+			for rts in RT.BRAM.VOORRAAD[pre + so]:
+				var v_ts: String = RT.vul(rts, {"naam": "Gerda", "bewoner": "Gloop"})
+				if v_ts.length() > RT.MAX - (4 if pre == "val_" else 0):
+					ts_lang.append(v_ts)
+				for w in [" he ", " he.", " his ", " him", "He "]:
+					if (" " + v_ts).contains(w):
+						ts_hij.append(v_ts)
+	ok(ts_mist.is_empty(), "terugslag: alle val_ en vlucht_ lijsten bestaan (mist %s)" % str(ts_mist))
+	ok(ts_lang.is_empty(), "terugslag: alles past bij Gerda, val met +12 (langere namen: kies() neemt een regel die past) (te lang %s)" % str(ts_lang))
+	ok(ts_hij.is_empty(), "terugslag: geen he/his/him (%s)" % str(ts_hij))
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "ridder"}, "val") == "val_ridder", "terugslag: ridder valt in val_ridder")
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "ridder"}, "val_bewoner") == "val_ridder", "terugslag: ridder bij Gloop ook val_ridder")
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "dief"}, "vlucht") == "vlucht_dief", "terugslag: dief vlucht in vlucht_dief")
+	ok(AF.terugslag(nep_ts, {}, "val") == "val", "terugslag: zonder opzet gewoon val")
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "onbekend"}, "vlucht") == "vlucht", "terugslag: onbekende soort gewoon vlucht")
+	ok(not RT.VOORRAAD["val_bewoner"].has("{naam} stays forever.") and RT.VOORRAAD["val"].size() == 8, "val 8 regels, stays forever niet meer in val_bewoner")
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
