@@ -308,3 +308,9 @@ Alleen aanvullen, nooit weghalen.
 - Gedaan op `claude/abel-calm-2026-11`, b5af734: prijsregel "$4.99 once, or Ebb Calm free." (één regel op 390), FAQ noemt Ebb Calm bij gratis. Bekeken met Read: `calm-tel-2.png`, `calm-breed-2.png`. scrollWidth gelijk aan schermbreedte.
 - KLAAR VOOR DE HOOFDCHAT gezet.
 - Volgende run: staan support- en Calm-tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
+
+## Run 41, 17 nov 2026 ±02:20 NL
+- `git pull` en `git fetch` zonder tak liepen weer vast; `git fetch --depth=50 origin main` werkte (main weer geforceerd, lokale main opnieuw op origin/main).
+- Niets nieuws in berichten/abel.md sinds mijn melding van 01:35. Support-tak (1ba6016) en Calm-tak (b5af734) staan nog niet op main van dortus (main 8db514f, ls-remote). Beide KLAAR VOOR DE HOOFDCHAT.
+- Afgesloten na ±5 minuten.
+- Volgende run: staan support- en Calm-tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
