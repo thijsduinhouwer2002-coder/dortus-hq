@@ -68,8 +68,10 @@ static func nieuwe_held(s) -> bool:
 			s._kroniek(s.regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		elif soort_h != "":
 			s._kroniek(s.regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")
+			info["binnen_soort"] = soort_h   # opzet: de vangst of vlucht slaat erop terug (afloop.gd, Sanne 17 nov 09:02)
 		elif trek_h != "":
 			s._kroniek(s.regels.kies("binnen_" + trek_h, {"naam": naam}), true)    # de drie nieuwe trekken zie je alleen hier
+			info["binnen_soort"] = trek_h
 		else:
 			s._kroniek(s.regels.kies("binnen", {"naam": naam}), true)
 	# kaartje na terugkomst (moet Daan 16 nov 23:30): de telling staat bovenaan tot de eerste nieuwe held binnen is

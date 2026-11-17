@@ -46,18 +46,50 @@ const VOORRAAD := {
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],
 	"val": ["{naam} fell to {val}.", "{naam} found {val}. Hard.", "{naam} stays forever.", "{naam} left gold and one boot.",
-		"{naam} will not be leaving."],
-	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
+		"{naam} will not be leaving.", "{naam} took the short way down.", "{naam} checked the floor. Too late.",
+		"{naam} is part of the hole now."],
+	# "stays forever" alleen nog in val (Sanne 17 nov 09:02: 20 keer in 75 min)
+	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} went down in one gulp."],
+	# Hap per soort (Sanne 17 nov 10:00, teksten-spel.md deel 2b, CONCEPT tot Thijs ze schrijft): als Gloop een nieuwe held
+	# met een soort- of trekregel opeet en er geen hoed-regel komt (kern/afloop.gd hap_soort()). Zo zakt val_bewoner van
+	# ±5 naar ±3 keer per regel per uur (Iris: hooguit 6). Elke regel werkt zonder de opzet; geen he/his/him.
+	# {titel} is "Sir" of "Dame" (kern/namen.gd VROUW, ingevuld door kern/regels.gd vul()).
+	"hap_ridder": ["{bewoner} ate {titel} {naam}. Crunchy.", "{bewoner} ate {titel} {naam}, can and all."],
+	"hap_dief": ["{naam} snuck into {bewoner}. Oops.", "{bewoner} caught {naam} sneaking. Gulp."],
+	"hap_magier": ["No spell beats {bewoner}. Ask {naam}.", "{bewoner} ate {naam}. Fizzy."],
+	"hap_bard": ["{bewoner} ate {naam}. Hums now.", "{naam}'s song ends inside {bewoner}."],
+	"hap_slaapkop": ["{naam} napped. {bewoner} snacked.", "{naam} sleeps inside {bewoner} now."],
+	"hap_wraakzuchtig": ["{bewoner} ate {naam}, list and all.", "{naam}'s grudge tasted great."],
+	"hap_opschepper": ["{naam} lost to a slime. Shh.", "{bewoner} ate {naam}. No autographs."],
 	"plat": ["{bewoner} is flat. Back soon."],
 	"op": ["{bewoner} is up again. Wobbly."],
 	# Heldensoorten (Bram 10 nov, versie 1, systemen/heldensoort.gd). Sanne mag ze herschrijven in kroniek-regels.md.
-	"binnen_ridder": ["Sir {naam} clanks in.", "Sir {naam} polished his armor for this.", "Sir {naam} is very slow. Very sure."],
+	# {titel}: "Sir", of "Dame" bij een vrouwennaam (Sanne 17 nov 10:00, Iris keuring 21 punt 1); geen he/his/him over helden.
+	"binnen_ridder": ["{titel} {naam} clanks in.", "{titel} {naam} polished up for this.", "{titel} {naam} is very slow. Very sure."],
 	"binnen_dief": ["{naam} the Thief tiptoes in.", "{naam} sneaks in. Nobody saw. You saw.", "{naam} picks the lock. It was open."],
 	"binnen_magier": ["{naam} the Wizard sniffs for traps.", "{naam} casts Light. It is a candle.", "{naam} knows every trap. Almost."],
-	"binnen_bard": ["{naam} the Bard tunes his lute.", "{naam} hums on the way in.", "{naam} is here for a story."],
+	"binnen_bard": ["{naam} the Bard tunes a lute.", "{naam} hums on the way in.", "{naam} is here for a story."],
 	"binnen_slaapkop": ["{naam} yawns. Long walk.", "{naam} brought a pillow.", "{naam} the Sleepy shuffles in."],
 	"binnen_wraakzuchtig": ["{naam} holds grudges. Hard.", "{naam} the Spiteful is here.", "{naam} keeps a list of names."],
-	"binnen_opschepper": ["{naam} tells everyone he slew a dragon.", "{naam} the Boastful struts in.", "{naam} signs autographs. Nobody asked."],
+	"binnen_opschepper": ["{naam} slew a dragon. Says {naam}.", "{naam} the Boastful struts in.", "{naam} signs autographs. Nobody asked."],
+	# Terugslag (Sanne 17 nov 09:02, teksten-spel.md deel 2, CONCEPT tot Thijs ze schrijft): vangst en vlucht van een held
+	# met een soort- of trekregel slaan terug op zijn binnenkomst (kern/afloop.gd terugslag()). Elke regel moet ook zonder
+	# de opzet werken, want een_per_held haalt de binnenkomstregel weg (Iris keuring 21); daarom zonder pillow, stole
+	# nothing en spite, en zonder "he" (vrouwennamen, Iris keuring 21 punt 1).
+	"val_ridder": ["{titel} {naam} was very sure. Was.", "{titel} {naam} clanked all the way down."],
+	"val_dief": ["Nobody saw {naam} fall. You saw.", "{naam} picked the wrong floor."],
+	"val_magier": ["{naam} knew every trap but one.", "{naam} cast Fall. It worked.", "{naam} sniffed the pit. Too late."],
+	"val_bard": ["{naam}'s last song was short.", "{naam} hit a low note. Very low.", "The ballad of {naam}: one verse."],
+	"val_slaapkop": ["{naam} gets a long nap now.", "{naam} dozed off. Then fell off."],
+	"val_wraakzuchtig": ["The grudge outlived {naam}.", "{naam} holds a grudge. Down there."],
+	"val_opschepper": ["{naam} slew a dragon. Not this hole.", "{naam}'s autograph: in the pit now.", "{naam} will tell no one about this."],
+	"vlucht_ridder": ["{titel} {naam} retreats. Slowly. Loudly.", "{titel} {naam} will tell it differently."],
+	"vlucht_dief": ["{naam} escaped. You saw that too."],   # "Again." viel af: hij is nieuw (controleur 7)
+	"vlucht_magier": ["{naam} saw the trap. Told no one.", "{naam} vanished. Took the stairs."],
+	"vlucht_bard": ["{naam} got away. New song tonight.", "{naam} ran, humming. Uh oh."],
+	"vlucht_slaapkop": ["{naam} woke up and ran. Fair.", "{naam} sleepwalked right out."],
+	"vlucht_wraakzuchtig": ["{naam} added {bewoner} to the list.", "{naam} ran. The list grows."],
+	"vlucht_opschepper": ["{naam} ran. Calls it a victory.", "{naam} fled. Tells it as a win."],
 	"dutje": ["{naam} took a nap in your hole.", "{naam} snored. Gloop watched.", "{naam} slept. Rude."],
 	# Een bard die ontsnapt zingt over je hol: er komen helden bij (heldensoort.LIED_HELDEN).
 	"lied": ["{naam} sang about your hole. More came.", "{naam}'s song got popular. Uh oh.", "A song about you! Heroes on the way."],
@@ -111,6 +143,8 @@ static func korte_bewoner(naam: String) -> String:
 
 static func vul(sjabloon: String, v: Dictionary) -> String:
 	var r := sjabloon
+	if r.contains("{titel}"):   # "Sir" of "Dame" uit de voornaam (kern/namen.gd VROUW, Sanne 17 nov 10:00)
+		r = r.replace("{titel}", load("res://kern/namen.gd").titel(str(v.get("naam", ""))))
 	for sleutel in ["held", "naam", "bewoner", "val", "n", "bijnaam", "oud", "hoed"]:
 		r = r.replace("{%s}" % sleutel, str(v.get(sleutel, "")))
 	var val := str(v.get("val", ""))
