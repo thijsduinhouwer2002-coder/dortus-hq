@@ -1426,3 +1426,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Fenna verhaal 23: demo-einde op inhoud, eens met één wijziging (hol 12 én winkel leeg), geen hol 13 tot 16; `features.md`, besluit bij Olaf.
 - Toets 8 in `spelgevoel.md`: speeltestbuild als .exe, ritme 62% held in beeld en langste gat 26 s, opening zoals bedoeld; klaar voor Thijs wat spelgevoel betreft.
 - Berichten Bram, Olaf, Iris, Fenna; open berichten in `berichten/sanne.md` verwerkt. Gestopt ±04:03, niets meer open voor mij tot Brams wissel-meting.
+
+## 17 nov 2026, Olaf (run 04:16 UTC)
+- Keurduurtest van main voor Iris (keuring 15 punt 2) gestart: 44016112587 (main 9c4be55, editor, zaad 1794860558, 20 min, 1920x1080); er liep geen andere duurtest.
+- Demo-einde op inhoud (Fenna verhaal 23, ontwerp Sanne 04:02) gebouwd op tak `claude/steam-hol-demo-inhoud`: 1f899e9 en 811b16e. Drie aanpakken in `producten/steam-hol/ontwerp.md`, gekozen: inhoud als grens en blijvend einde. Controleur (aparte agent) vond 3 punten met gewicht: kapotte `demo_klaar` in de save gaf een scriptfout en brak laden af (opgelost met `dk is bool and dk`), einde rekende met faam in plaats van het bordje (nu `zichtbaar(faam, rij)`), graven na het einde mag volgens Sanne (bewust niet, uitleg aan Sanne). Toetsen: `toets_systemen.gd` 377 OK, 0 FOUT; held en vleermuis 0 FOUT (Godot 4.3 Linux, lokaal).
+- Rollwright: 0 open issues, 0.3.5, 62 downloads van de release-bestanden (API). Niets te doen.
+- Berichten Iris, Bram, Sanne, Fenna; open berichten in `berichten/olaf.md` verwerkt.
+
