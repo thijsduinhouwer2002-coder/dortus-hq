@@ -59,6 +59,15 @@ def main():
     rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
     echt = rigm.gewrichten
     rigm.gewrichten = lambda a, meer=False: [x for x in echt(a, meer) if "left elbow" in x[2].lower()]
+    if os.environ.get("CJ_ZWAAI_MIS"):  # toetsen_zwaai: laat de controle na de uitsnede altijd falen
+        zwm = importlib.import_module("bl_ext.user_default.click_joints.betaald.scharnier_zwaai")
+        echt_stukken = zwm.stukken
+        teller = {"n": 0}
+
+        def mis(me):
+            teller["n"] += 1
+            return echt_stukken(me) + (teller["n"] % 2)  # de eerste aanroep (na de uitsnede) telt er één bij
+        zwm.stukken = mis
     r = bpy.ops.click_joints.figuur_uit_rig()
     log(f"rig-stop {EL}, uitslag {r}")
     fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
@@ -95,7 +104,8 @@ def main():
         van = next((o["cj_zwaai_van"] for o in delen if "cj_zwaai_van" in o), None)
         dicht = all(ges.is_gesloten(o)[0] for o in delen)
         st = ",".join(str(zw.stukken(o.data)) for o in delen)
-        log(f"zwaai: van={van} gesloten={dicht} stukken={st}")
+        wees = len([m for m in bpy.data.meshes if m.users == 0])
+        log(f"zwaai: van={van} gesloten={dicht} stukken={st} wees={wees}")
     log("KLAAR")
 
 

@@ -28,6 +28,7 @@ STAP = 10.0        # graden tussen twee uitsneden
 MARGE = 2.0        # pas iets doen als het gemeten bereik meer dan dit onder de stand ligt
 OPZET_MM = 0.15    # hoeveel B dikker wordt, nooit meer dan 3/4 van de speling
 KERN_MM = 1.0      # bol rond het draaipunt: naadstraal plus dit
+GRENS = 1.5        # de uitsnede blijft binnen deze maal de meetbol van de beweegproef
 
 
 def hoeken(voor, stand):
@@ -64,27 +65,34 @@ def _gebakken(ob):
     return bpy.data.meshes.new_from_object(ob.evaluated_get(dg))
 
 
-def _aftrekken(doel, gereedschap, solver):
-    """doel = doel min gereedschap (Boolean-modifier, gebakken); geeft de oude mesh terug om op te ruimen."""
+def _aftrekken(doel, gereedschap, solver, actie="DIFFERENCE"):
+    """doel = doel min (of doorsnede met) gereedschap, gebakken; geeft de oude mesh terug om op te ruimen.
+    De modifier gaat er altijd weer af, ook als het bakken een fout geeft."""
     m = doel.modifiers.new("cj_zwaai", "BOOLEAN")
-    m.operation, m.object, m.solver = "DIFFERENCE", gereedschap, solver
-    me = _gebakken(doel)
-    doel.modifiers.remove(m)
+    try:
+        m.operation, m.object, m.solver = actie, gereedschap, solver
+        me = _gebakken(doel)
+    finally:
+        doel.modifiers.remove(m)
     oud = doel.data
     doel.data = me
     return oud
 
 
-def uitsnijden(a, b, punt, h, buig, lid, bol, stand, voor, achter, rn, s, u, solver, hulp):
-    """Snijdt de zwaairuimte van B uit A. Geeft (voor, achter, gedaan) terug: het nieuwe gemeten bereik, of
-    het oude als er niets te doen was of als het niet lukte (dan is A ongewijzigd)."""
-    if voor is None or beweeg.geen_stop(voor) or voor >= stand - MARGE:
-        return voor, achter, False
-    punt = Vector(punt)
-    voor_as = Vector(lid).cross(Vector(buig)).normalized()
-    opzet = min(OPZET_MM * u, 0.75 * s)
-    # B dikker (langs de normaal) en zonder de kern rond het draaipunt; de kern is rond, dus dit hoeft maar
-    # één keer, daarna alleen draaien.
+def _bol(naam, straal, punt, hulp):
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=24, radius=straal, matrix=Matrix.Translation(punt))
+    me = bpy.data.meshes.new(naam)
+    bm.to_mesh(me)
+    bm.free()
+    ob = bpy.data.objects.new(naam, me)
+    hulp.objects.link(ob)
+    return ob
+
+
+def _gereedschap(b, punt, opzet, kern_r, grens_r, solver, hulp):
+    """B dikker (langs de normaal), zonder de kern rond het draaipunt en alleen binnen de grensbol. Beide bollen
+    zijn rond het draaipunt, dus dit hoeft maar één keer; daarna alleen draaien."""
     bm = bmesh.new()
     bm.from_mesh(b.data)
     bm.transform(b.matrix_world)
@@ -96,41 +104,51 @@ def uitsnijden(a, b, punt, h, buig, lid, bol, stand, voor, achter, rn, s, u, sol
     bm.free()
     t = bpy.data.objects.new("cj_zwaai_b", me_t)
     hulp.objects.link(t)
-    bm = bmesh.new()
-    bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=24, radius=rn + KERN_MM * u,
-                              matrix=Matrix.Translation(punt))
-    me_k = bpy.data.meshes.new("cj_zwaai_kern")
-    bm.to_mesh(me_k)
-    bm.free()
-    kern = bpy.data.objects.new("cj_zwaai_kern", me_k)
-    hulp.objects.link(kern)
-    oud_t = _aftrekken(t, kern, solver)
-    bpy.data.meshes.remove(oud_t)
-    kern.hide_set(True)
-    t.hide_set(True)
+    for bol_ob, actie in ((_bol("cj_zwaai_kern", kern_r, punt, hulp), "DIFFERENCE"),
+                          (_bol("cj_zwaai_grens", grens_r, punt, hulp), "INTERSECT")):
+        oud = _aftrekken(t, bol_ob, solver, actie)
+        if oud.users == 0:
+            bpy.data.meshes.remove(oud)
+    return t
 
+
+def uitsnijden(a, b, punt, h, buig, lid, bol, stand, voor, achter, rn, s, u, solver, hulp):
+    """Snijdt de zwaairuimte van B uit A. Geeft (voor, achter, gedaan) terug: het nieuwe gemeten bereik, of
+    het oude als er niets te doen was of als het niet lukte (dan is A ongewijzigd)."""
+    if voor is None or beweeg.geen_stop(voor) or voor >= stand - MARGE:
+        return voor, achter, False
+    punt = Vector(punt)
+    voor_as = Vector(lid).cross(Vector(buig)).normalized()
+    opzet = min(OPZET_MM * u, 0.75 * s)
     reserve = a.data.copy()
     oude_meshes = []
+    goed, nieuw_voor, nieuw_achter = False, voor, achter
     try:
+        # Alleen binnen GRENS x de meetbol: zo blijft het een plooi bij het gewricht en snijdt een hand of voet
+        # die onderweg langs romp of dij komt daar niets uit (controleur run 25, punt 1). Wat de beweegproef
+        # meet ligt ook binnen de meetbol.
+        t = _gereedschap(b, punt, opzet, rn + KERN_MM * u, GRENS * bol, solver, hulp)
         for g in hoeken(voor, stand):
             t.matrix_world = (Matrix.Translation(punt) @ Matrix.Rotation(math.radians(g), 4, voor_as)
                               @ Matrix.Translation(-punt))
             oude_meshes.append(_aftrekken(a, t, solver))
+        nieuw_voor, nieuw_achter = beweeg.bereik(a, b, punt, h, buig, lid, bol)
+        # Eisen: gesloten, even veel stukken, het bereik groter maar met een echte stop en niet voorbij de stand,
+        # de achterstop gelijk (controleur run 25, punt 2).
+        goed = (is_gesloten(a.data)[0] and stukken(a.data) == stukken(reserve) and nieuw_voor is not None
+                and not beweeg.geen_stop(nieuw_voor) and voor + 0.5 < nieuw_voor <= stand + 1.0
+                and abs((nieuw_achter or 0) - (achter or 0)) < 0.5)
     except RuntimeError:
-        a.data = reserve
-        return voor, achter, False
+        goed = False
     finally:
         for me in oude_meshes:
             if me is not reserve and me.users == 0:
                 bpy.data.meshes.remove(me)
-    nieuw_voor, nieuw_achter = beweeg.bereik(a, b, punt, h, buig, lid, bol)
-    goed = (is_gesloten(a.data)[0] and stukken(a.data) == stukken(reserve) and nieuw_voor is not None
-            and nieuw_voor > voor + 0.5 and abs((nieuw_achter or 0) - (achter or 0)) < 0.5)
     if not goed:
-        kapot = a.data
+        huidig = a.data
         a.data = reserve
-        if kapot.users == 0:
-            bpy.data.meshes.remove(kapot)
+        if huidig is not reserve and huidig.users == 0:
+            bpy.data.meshes.remove(huidig)
         return voor, achter, False
     if reserve.users == 0:
         bpy.data.meshes.remove(reserve)
