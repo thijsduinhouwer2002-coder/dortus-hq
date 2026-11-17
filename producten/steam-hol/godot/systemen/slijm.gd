@@ -618,7 +618,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt():
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt() and t > _berg_glij_van + BERG_GLIJ_S:
 		set_process(false)
 	_teken_als_anders()
 
@@ -626,7 +626,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), beeld_3d(), wip_nu(), knijp_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0]
+	var nu := [frame_nu(), beeld_3d(), wip_nu(), knijp_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0, t if t < _berg_glij_van + BERG_GLIJ_S else 0.0]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
@@ -987,7 +987,7 @@ func _past_op_berg(onder: int) -> int:
 # De hoedenberg met de 3D-hoeden (Bram 14 nov, winkelbeeld Olaf 05:35: pixelhoeden naast de 3D-Gloop): zelfde plekken
 # en volgorde als berg(), elke hoed met zijn nulpunt (midden van de onderrand) waar de onderrand van de pixelhoed lag,
 # dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y]. Leeg als er geen 3D-hoedenblad is (dan pixels).
-const BERG_3D_LUCHT := 1.0   # kan Daan 07:40: de 3D-hoeden zijn ronder en breder, 1 spelpixel extra lucht tot Gloops flank
+const BERG_3D_LUCHT := 3.0   # moet Daan 17 nov 07:45: een paar px lucht tussen de volle berg en Gloop (was 1); kan Daan 07:40: de 3D-hoeden zijn ronder en breder, 1 spelpixel extra lucht tot Gloops flank
 
 func berg_3d(tel := -1) -> Array:
 	var uit := []
@@ -1001,13 +1001,42 @@ func berg_3d(tel := -1) -> Array:
 		uit.append([h, float(b[1]) - BERG_3D_LUCHT, float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
 	return uit
 
+# Moet Daan 17 nov 07:45: wordt de onderste rij van de berg breder (bij 4, 7, 11 ... zichtbare hoeden), dan glijden de
+# hoeden in 0,1 s naar hun nieuwe plek in plaats van in één beeld 6 px te springen. Alleen het beeld; berg() blijft gelijk.
+const BERG_GLIJ_S := 0.1
+var _berg_was: Array = []      # plekken [hoed, x, nul] van het vorige getekende beeld
+var _berg_glij_oud: Array = []  # plekken vlak voor het opschuiven
+var _berg_glij_van := -10.0
+func berg_glij(nieuw: Array) -> Array:
+	if not _berg_was.is_empty() and not nieuw.is_empty() and nieuw.size() != _berg_was.size():
+		var x_oud := float(_berg_was[0][1])
+		var x_nieuw := float(nieuw[0][1])
+		if not is_equal_approx(x_oud, x_nieuw):   # onderste rij breder of smaller: glijden
+			_berg_glij_oud = _berg_was.duplicate()
+			_berg_glij_van = t
+	_berg_was = nieuw
+	var f := (t - _berg_glij_van) / BERG_GLIJ_S
+	if f >= 1.0 or f < 0.0 or _berg_glij_oud.is_empty():
+		return nieuw
+	var uit := []
+	for k in nieuw.size():
+		var b: Array = nieuw[k]
+		if k < _berg_glij_oud.size():
+			var o: Array = _berg_glij_oud[k]
+			uit.append([b[0], round(lerpf(float(o[1]), float(b[1]), f)), round(lerpf(float(o[2]), float(b[2]), f))])
+		else:
+			uit.append(b)   # de nieuwe hoed bovenop ligt meteen op zijn plek (de boog landde daar al)
+	if is_inside_tree():
+		set_process(true)
+	return uit
+
 func _draw() -> void:
 	var berg3 := berg_3d()
 	if berg3.is_empty():
 		for b in berg():
 			draw_texture_rect_region(HOEDEN, Rect2(int(b[1]) - 8, int(b[2]), 16, 16), Rect2(int(b[0]) * 16, 0, 16, 16))
 	else:
-		for b3 in berg3:
+		for b3 in berg_glij(berg3):
 			_teken_hoed_3d(int(b3[0]), float(b3[1]), float(b3[2]), false)
 	var f := frame_nu()
 	var wip := wip_nu()

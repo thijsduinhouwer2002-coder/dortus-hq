@@ -1269,6 +1269,16 @@ func _init() -> void:
 		if int(bz[k][2]) < int(bz[hoogste][2]):
 			hoogste = k
 	ok(int(bz[-1][2]) == int(bz[hoogste][2]), "berg: het laatst gelegde plekje is het hoogste")
+	# opschuiven glijdt in 0,1 s (moet Daan 17 nov 07:45)
+	var oud_b := [[1, -24.0, 0.0], [2, -18.0, 0.0], [3, -21.0, -3.0]]
+	var nw_b := [[1, -30.0, 0.0], [2, -24.0, 0.0], [3, -18.0, 0.0], [4, -27.0, -3.0]]
+	gz.berg_glij(oud_b)
+	var gl0: Array = gz.berg_glij(nw_b)
+	gz.t += 0.05
+	var gl1: Array = gz.berg_glij(nw_b)
+	gz.t += 0.06
+	var gl2: Array = gz.berg_glij(nw_b)
+	ok(float(gl0[0][1]) == -24.0 and float(gl1[0][1]) == -27.0 and gl2 == nw_b and float(gl1[3][1]) == -27.0, "berg: opschuiven glijdt in 0,1 s, nieuwe hoed meteen op zijn plek (%s / %s)" % [str(gl0[0]), str(gl1[0])])
 	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")
