@@ -105,6 +105,18 @@ def main():
     check(all(ges.is_gesloten(o)[0] for o in delen), f"alle {len(delen)} delen gesloten")
     stukken = [A["mesh_staat"](o)["losse_stukken"] for o in delen]
     check(all(s == 1 for s in stukken), f"elk deel één stuk ({stukken})")
+    # Run 21: geen speelgoedkogel. Eerst lag de kogel op het bot aan de rand van de dij en koos de automatische maat
+    # 2 tot 2,5 mm in een dij van 21 mm (Good fit, maar breekt bij het poseren). Nu in het midden van de doorsnede.
+    kogels = {}
+    for o in delen:
+        if o.get("cj_deel") in ("A", "B") and o.get("cj_soort", "KOGEL") == "KOGEL" and o.get("cj_breedte_mm", -1) > 0:
+            kogels[tuple(round(c, 2) for c in o["cj_centrum"])] = (2 * o["cj_kogel_r"], o["cj_breedte_mm"])
+    log(f"kogels (diameter, breedte lid): {sorted(kogels.values())}")
+    check(all(d >= rigm.KOGEL_MIN_DEEL * b - 1e-6 for d, b in kogels.values()),
+          f"elke kogel minstens {rigm.KOGEL_MIN_DEEL} keer de breedte van het lid ({sorted(kogels.values())})")
+    if not oud:
+        heup = [d for d, b in kogels.values() if b > 15]
+        check(any(d >= 8.0 for d in heup), f"een heupkogel van minstens 8 mm in de dij ({heup})")
     dg = bpy.context.evaluated_depsgraph_get()
     for p_naam in ("l-hand", "r-hand", "l-ankle", "r-ankle", "head"):
         p = punten[p_naam]

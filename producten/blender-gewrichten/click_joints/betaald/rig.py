@@ -313,9 +313,28 @@ def kogel_schuif(context, doel, m, lengte):
         if any(abs(t / u - mm) < 1e-6 for _m, mm in uit):
             continue
         k = m.copy()
-        k.col[3][:3] = m.to_translation() + m.col[2].to_3d().normalized() * t
+        o = m.to_translation() + m.col[2].to_3d().normalized() * t
+        # Run 21 (17 nov): het kogelmidden in het midden van de doorsnede. Riggers zetten de heup en de schouder
+        # vaak aan de rand van het lid (MakeHuman-mens 220 mm: dij 20,7 mm breed, maar het bot 2,8 mm van de
+        # huid), en de automatische maat kiest dan een kogel van 2 tot 2,5 mm in een dij van 21 mm: hij past
+        # (Good fit), maar breekt bij de eerste keer poseren.
+        c = midden_doorsnede(bvh, o, k, u)
+        k.col[3][:3] = c if c is not None else o
         uit.append((k, t / u))
     return uit
+
+
+def midden_doorsnede(bvh, o, m, u):
+    """Punt o in het midden van de doorsnede dwars op de lidas (kolom 2 van m): langs kolom 0 en 1 naar het midden
+    tussen de twee huidtreffers, twee keer. None als een straal niets raakt of het punt buiten de mesh valt."""
+    for _ in range(2):
+        for kol in (0, 1):
+            w = m.col[kol].to_3d().normalized()
+            a, b = bvh.ray_cast(o, w), bvh.ray_cast(o, -w)
+            if a[0] is None or b[0] is None:
+                return None
+            o = o + w * (a[3] - b[3]) / 2
+    return o if _binnen_bvh(bvh, o) else None
 
 
 def scharnier_plekken(context, doel, m, lengte):
@@ -381,6 +400,20 @@ def kogel_vast(nieuw):
         if d.get("cj_deel") in ("A", "B") and d.get("cj_soort", "KOGEL") == "KOGEL":
             _s, g = graden(d)
             return g is not None and g < 1.0
+    return False
+
+
+KOGEL_MIN_DEEL = 0.4  # kleinste kogel (diameter) als deel van de breedte van het lid bij de snede
+
+
+def kogel_te_klein(nieuw, u):
+    """Pro 1.1 (run 21): True als de automatische maat een kogel koos die veel kleiner is dan het lid (diameter onder
+    0,4 keer de breedte bij de snede). Gezien op de MakeHuman-mens: kogel van 2,5 mm in een dij van 20,7 mm, Good
+    fit volgens de wand, maar zo'n kogel breekt bij het poseren. Zonder gegevens: False."""
+    for d in nieuw or []:
+        if d.get("cj_deel") in ("A", "B") and d.get("cj_soort", "KOGEL") == "KOGEL":
+            b, r = float(d.get("cj_breedte_mm", -1.0)), float(d.get("cj_kogel_r", 0.0)) / u
+            return b > 0 and 2 * r < KOGEL_MIN_DEEL * b
     return False
 
 
@@ -602,6 +635,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 elif ok and soort == "HINGE" and verloren_stuk(context, doel, nieuw, m.to_translation(),
                                                                max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > 0.06:
                     fout = "the cut lost part of the model here, place it by hand"
+                elif ok and soort != "HINGE" and kogel_te_klein(nieuw, eenheid_per_mm(context.scene)):
+                    fout = "only a tiny ball fits here (the bone sits near the skin), place it by hand"
                 else:
                     fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
                 if fout:
