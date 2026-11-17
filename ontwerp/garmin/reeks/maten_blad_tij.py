@@ -22,7 +22,7 @@ regels = ['| wat | ' + ' | '.join(f'{S}' for S in MATEN) + ' |', '|---|' + '---|
   rij('banden onder de lijn, px', lambda S: '/'.join(str(r(S*o)) for o in P.BANDEN)),
   rij('waterlijn dikte px', lambda S: max(2, S//110)),
   rij('bootje halve breedte, mast px', lambda S: f'{r(S*.05)}, {r(S*.075)}'),
-  rij('BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2)', lambda S: f'{r(S*V.BB_Y)}, {r(S*.11)}, {max(2,S//120)}'),
+  rij('BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2)', lambda S: f'{r(S*V.BB_Y)}, {r(S*.11)}, {max(1, max(2, S//120) - 1)}'),
   rij('ruimte-eis: px tussen onderkant getal (met rand) en golftop/zeil eronder; bootje nooit links van rechterkant getal + halve romp + deze ruimte', lambda S: f'{V.ruimte(S):.1f}'),
   rij('golfje (2 golven, kleur waterlijn): breedte, lijndikte, afstand tot getal px', lambda S: f'{r(max(12,S*.05))}, {max(2,r(max(12,S*.05)*.17))}, {r(max(12,S*.05)*.25)}'),
   rij('veilige straal bootje px', lambda S: r(S*P.VEILIG)),

@@ -12,7 +12,7 @@
 | banden onder de lijn, px | 0/7/17/29 | 0/8/17/31 | 0/8/19/34 | 0/9/21/36 | 0/10/22/39 | 0/14/31/55 | 0/15/33/58 | 0/16/36/64 |
 | waterlijn dikte px | 2 | 2 | 2 | 2 | 2 | 3 | 3 | 4 |
 | bootje halve breedte, mast px | 10, 16 | 11, 16 | 12, 18 | 13, 20 | 14, 21 | 20, 29 | 21, 31 | 23, 34 |
-| BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2) | 131, 23, 2 | 138, 24, 2 | 152, 26, 2 | 164, 29, 2 | 177, 31, 2 | 246, 43, 3 | 263, 46, 3 | 287, 50, 3 |
+| BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2) | 131, 23, 1 | 138, 24, 1 | 152, 26, 1 | 164, 29, 1 | 177, 31, 1 | 246, 43, 2 | 263, 46, 2 | 287, 50, 2 |
 | ruimte-eis: px tussen onderkant getal (met rand) en golftop/zeil eronder; bootje nooit links van rechterkant getal + halve romp + deze ruimte | 4.0 | 4.2 | 4.6 | 5.0 | 5.4 | 7.5 | 8.0 | 8.7 |
 | golfje (2 golven, kleur waterlijn): breedte, lijndikte, afstand tot getal px | 12, 2, 3 | 12, 2, 3 | 12, 2, 3 | 13, 2, 3 | 14, 2, 4 | 20, 3, 5 | 21, 4, 5 | 23, 4, 6 |
 | veilige straal bootje px | 99 | 104 | 114 | 124 | 133 | 185 | 198 | 216 |

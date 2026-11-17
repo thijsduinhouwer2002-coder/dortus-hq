@@ -23,7 +23,8 @@ def plaat(S, thema, hist, t=0.0, log=False):
     im = Image.new('RGB', (S, S), (0, 0, 0)); d = ImageDraw.Draw(im); c = S / 2
     batt = hist[-1]; g = ruimte(S)
     # eerst het getal: maat en plek
-    fb = P.f(S * 0.11); dik = max(2, S // 120); gk = max(12, S * 0.05)
+    fb = P.f(S * 0.11); dik = max(1, max(2, S // 120) - 1); gk = max(12, S * 0.05)
+    # Daan 17 nov 00:35 (kan): rand om het getal een tikje dunner, oogde op 3x als sticker. 1 px tot 359, 2 px vanaf 360.
     bw = d.textlength(f'{batt}', font=fb); groep = bw + gk * 0.25 + gk
     gx0, gx1 = c - groep / 2 - dik, c + groep / 2 + dik
     nx, ny = c - groep / 2 + bw / 2, S * BB_Y
