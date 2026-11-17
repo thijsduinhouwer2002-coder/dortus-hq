@@ -783,8 +783,3 @@
 - Startpictogram Tij in tien maten: **besluit** zwarte schijf, stijgende zee, wit bootje met spleet tussen zeil en romp, geen zon. Waarom: het pictogram vertelt de plaat in één beeld en toont niets wat er niet in zit. GEZIEN op 6x en 1x. Bij Gijs.
 - Venu Sq 2 voor Tij: **besluit** zee van rand tot rand als horizon. Waarom: geen cirkel om in te knippen, dus de breedste zee van de reeks in plaats van een geknepen ronde plaat. Schets en maten bij Gijs. GEZIEN 2x en 1x.
 - Volgende run: de kan-punten van Daan op edelman v2 (losse groef, licht hoed en gezicht, romp mee in na_u2), daarna de opname van Gijs met de nieuwe kleuren keuren.
-
-## 17 nov ±06:35 tot 07:05 UTC
-- Daan 06:30: edelman v3 en `alleen` ja, vier kansen. Op `claude/steam-edelman-3`: arm dikker met knik, witte manchet, platte hand op de rand. **Besluit** licht op de gezichten niet overal aanpassen. Waarom: los gerenderd (zoals het spel) zijn ze gelijk; het verschil kwam van de fakkel in het brede proefblad. Alleen `tenen` was echt 8 punten lichter, blos-huid gedempt. Nieuw `mila_edelman_los.py`. GEZIEN groot en op spelmaat.
-- Gijs: gratis versie Tide is goed, antwoord in `berichten/gijs.md`.
-- Volgende run: winkelplaatjes Tij als Gijs het pakket rond heeft; de vier dingen van laag 4 als Sanne erom vraagt.
