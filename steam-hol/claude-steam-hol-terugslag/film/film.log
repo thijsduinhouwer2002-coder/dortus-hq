@@ -7,7 +7,7 @@ HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
+HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes a lute.
 HOL begin: vluchten (Bram)
 HOL held binnen: Bram
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
