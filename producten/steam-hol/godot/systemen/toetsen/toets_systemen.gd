@@ -697,6 +697,28 @@ func _init() -> void:
 	hvast.klik(Vector2((hvast.ingang_kol - 1) * 16 + 8, 30))
 	hvast.vast.ververs()
 	ok(hvast.vast.keer == 3, "hol_vast: graven links, opnieuw")
+	# demo voorbij: alleen graven geweigerd, stekelput vrij (Iris keuring 17 punt 2, Sanne features.md "niets op slot")
+	var ddk: int = hvast.ingang_kol - 1
+	var dgang_voor: Array = hvast.gang.duplicate()
+	var dboven_voor: Array = hvast.boven.duplicate()
+	ok(hvast.klik(Vector2(ddk * 16 + 8, 30), false) == "geweigerd" and hvast.gang == dgang_voor, "demo voorbij: graven links geweigerd, gang gelijk")
+	var drk: int = hvast.schat_kol + 1
+	ok(hvast.klik(Vector2(drk * 16 + 8, 30), false) == "geweigerd" and hvast.gang == dgang_voor, "demo voorbij: graven rechts geweigerd")
+	var dkk: int = -1
+	for c in range(hvast.ingang_kol + 1, hvast.schat_kol):
+		if hvast.gang[c] and not hvast.boven[c]:
+			dkk = c
+			break
+	if dkk >= 0:
+		ok(hvast.klik(Vector2(dkk * 16 + 8, 12), false) == "geweigerd" and hvast.boven == dboven_voor, "demo voorbij: kamer graven geweigerd")
+	var dvk: int = -1
+	for c in range(hvast.ingang_kol + 1, hvast.schat_kol):
+		if hvast.gang[c]:
+			dvk = c
+			break
+	var dhad_val: bool = hvast.vallen.has(dvk)
+	ok(dvk >= 0 and hvast.klik(Vector2(dvk * 16 + 8, 30), false) == "val" and hvast.vallen.has(dvk) != dhad_val, "demo voorbij: stekelput zetten of weghalen mag wel")
+	hvast.klik(Vector2(dvk * 16 + 8, 30), false)
 	hvast.free()
 	# kamerkeuze in het 3D-hol (Olaf 13 nov, moet 3 Daan): stuk volgt de buren; schacht (2) en 3D-schatkamer (10-12) dicht
 	var H3 = load("res://hol/hol_3d.gd")

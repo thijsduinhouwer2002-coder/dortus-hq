@@ -356,13 +356,17 @@ func tik() -> void:
 	queue_redraw()
 
 # ---- spelen (klikken komen van de strook, in spelpixels) ----
-func klik(pos: Vector2) -> String:
+# mag_graven = false (demo voorbij, kern/demo_einde.gd): een klik die zou graven geeft "geweigerd" en verandert niets;
+# een stekelput neerzetten of weghalen blijft gewoon werken (Sanne features.md "niets op slot", Iris keuring 17 punt 2).
+func klik(pos: Vector2, mag_graven := true) -> String:
 	var k := pos_naar_cel(pos).x
 	var bovenrij := pos.y < GANG_BOVEN
 	if bovenrij:
 		# een kamer graven boven de gang (naast een open cel), niet in de lucht
 		if pos.y < OPP or boven[k] or not gang[k] or k > max_kol:
 			return ""
+		if not mag_graven:
+			return "geweigerd"
 		boven[k] = true
 		_graaf_moment(Vector2i(k, 0))
 		queue_redraw()
@@ -375,6 +379,8 @@ func klik(pos: Vector2) -> String:
 		if k < 1:
 			return ""   # kolom 0 blijft dicht, anders staat de ingang half buiten beeld
 		if k == ingang_kol - 1:
+			if not mag_graven:
+				return "geweigerd"
 			gang[k] = true
 			ingang_van_x = _ingang_x()   # ook als hij nog schuift: vanaf waar hij nu staat, geen sprong
 			ingang_kol = k
@@ -386,6 +392,8 @@ func klik(pos: Vector2) -> String:
 			return "gegraven"
 		# alleen graven naast een bestaande gang; de schat verhuist mee naar het einde, de oude kamer blijft staan
 		if (k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1]):
+			if not mag_graven:
+				return "geweigerd"
 			gang[k] = true
 			_graaf_moment(Vector2i(k, 1))
 			if k > schat_kol:

@@ -189,10 +189,13 @@ jobs:
             $x2 = [int]$s2.Matches[0].Groups[1].Value; $y2 = [int]$s2.Matches[0].Groups[2].Value
             & producten/steam-hol/e2e/klik.ps1 ($x2 + 200) ($y2 + 90)
             Start-Sleep 2
-            $geweigerd = @(Select-String -Path $log2 -Pattern "geweigerd \(klik in het hol\)").Count
-            $geteld = @(Select-String -Path $log2 -Pattern "HOL klik op").Count
-            Write-Output "demo voorbij: klik geweigerd $geweigerd, kliks in het spel $geteld"
-            if ($geweigerd -ne 1 -or $geteld -ne 0) { Write-Output "FOUT: echte klik na het demo-einde niet geweigerd"; $fout++ }
+            # Olaf 17 nov (Iris keuring 17): na het einde is alleen graven geweigerd, een stekelput mag nog
+            $geweigerd = @(Select-String -Path $log2 -Pattern "geweigerd \(graven\)").Count
+            $gegraven = @(Select-String -Path $log2 -Pattern "HOL klik op .*: (gegraven|kamer)").Count
+            $wat = (Select-String -Path $log2 -Pattern "HOL klik op .*: (\w+)" | Select-Object -First 1)
+            $wat = if ($wat) { $wat.Matches[0].Groups[1].Value } else { "" }
+            Write-Output "demo voorbij: klik gaf '$wat', geweigerd $geweigerd, gegraven $gegraven"
+            if ($gegraven -ne 0 -or $wat -eq "" -or ($wat -eq "geweigerd" -and $geweigerd -ne 1)) { Write-Output "FOUT: echte klik na het demo-einde groef toch of telde niet"; $fout++ }
           }
           $p2.WaitForExit(40000) | Out-Null
           if (-not $p2.HasExited) { Stop-Process -Id $p2.Id -Force }
@@ -218,22 +221,25 @@ jobs:
           # 2: zonder steamdemo geen regel en kopen werkt  3: herstart met dezelfde save: speeltijd loopt door, startregel
           # 4: hol.json staat in %APPDATA%/Dortus/Het Hol
           $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots").Path -replace '\\','/'
-          function Speel($log, $args_, $foto = "") {
+          function Speel($log, $args_, $foto = "", $wacht = 12) {
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
               -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 $args_ log=$log" -PassThru
             # beeld na weg: bordje met het wachtkaartje (Mila 16 nov 16:55), na de optocht
-            if ($foto -ne "") { Start-Sleep 12; & producten/steam-hol/e2e/scherm.ps1 $foto }
+            if ($foto -ne "") { Start-Sleep $wacht; & producten/steam-hol/e2e/scherm.ps1 $foto }
             if (-not $p.WaitForExit(120000)) { Stop-Process -Id $p.Id -Force }
             Get-Content $log -ErrorAction SilentlyContinue
           }
           $fout = 0
-          $a = Speel "$uit/demo-einde-1.log" "steamdemo=1 demo_einde=10 demo=1 vers=1 duur=30" | Out-String
+          # beeld op 20 s: na het einde (10 s) en na de eerste geweigerde graafbeurt staat de startregel in beeld (Sanne 04:52, Iris keuring 17)
+          $a = Speel "$uit/demo-einde-1.log" "steamdemo=1 demo_einde=10 demo=1 vers=1 duur=30" "$uit/demo-weiger-120.png" 20 | Out-String
           Write-Output "===== 1 (steamdemo)"; Write-Output $a
           $n = ([regex]::Matches($a, "HOL demo voorbij na")).Count
           if ($n -ne 1 -or $a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): That's the demo\.") { Write-Output "FOUT: eindregel $n keer of niet in de kroniek"; $fout++ }
           if ($a -notmatch "geweigerd \(kopen") { Write-Output "FOUT: kopen niet geweigerd"; $fout++ }
           if ($a -match "HOL koop ") { Write-Output "FOUT: toch gekocht"; $fout++ }
           if ($a -notmatch "geweigerd \(graven") { Write-Output "FOUT: graven niet geweigerd"; $fout++ }
+          $nw = $a.Substring([math]::Max(0, $a.IndexOf("geweigerd (graven")))
+          if ($nw -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Demo over\. The full game keeps it all\.") { Write-Output "FOUT: geweigerd graven gaf geen zichtbare regel"; $fout++ }
           $na = $a.Substring([math]::Max(0, $a.IndexOf("HOL demo voorbij na")))
           if ($na -notmatch "HOL held binnen: ") { Write-Output "FOUT: geen held meer na het einde"; $fout++ }
           $b = Speel "$uit/demo-einde-2.log" "demo=1 vers=1 duur=30" | Out-String

@@ -377,10 +377,10 @@ func _input(event: InputEvent) -> void:
 		if KAARTJE.klik(self, event.position):
 			log_regel("HOL klik op %s: kaartje" % event.position)
 			return
-		if DEMO_EINDE.weiger(self, "klik in het hol"):
-			return
 		var p: Vector2 = (event.position - hol.position) / schaal
-		var wat: String = hol.klik(p)
+		var wat: String = hol.klik(p, not DEMO_EINDE.klaar(self))   # demo voorbij: alleen graven geweigerd, vallen vrij (Iris keuring 17)
+		if wat == "geweigerd":
+			DEMO_EINDE.weiger(self, "graven")
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
