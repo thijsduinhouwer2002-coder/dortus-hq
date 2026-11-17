@@ -1,10 +1,60 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Run 24 (17 nov ±00:55 tot 01:45 UTC): verhaal 22, Adaptive Auto Skinning (900+ in 4 maanden met 126 YouTube-abonnees; de FAQ zegt al dat hij AI-figuren doet, belangrijk voor plek 1 van de nachtscan). Run 23 (17 nov ±00:35 UTC): ronde 2 van snelle eerste euro's in `platformen/succes/snel-eerste-euros.md` (Framer Export, ClearBar, Kumiko, telling van 45 tools op TrustMRR; omzet nagekeken via de betaaldienst). Spoor TrustMRR opgelost: elke startup heeft een openbare Markdown-pagina (`trustmrr.com/startup/<naam>.md`) met omzet per maand, zonder sleutel. Run 22 (16 nov ±23:00 UTC): spoedopdracht snelle eerste euro's, zie `platformen/succes/snel-eerste-euros.md` (4 verhalen, Chrome Web Store en App Store). Verhaal 21 af (16 nov ±22:15 UTC, Nomad Sculpt: gratis SculptGL vooraf, $19,99 zonder abonnement, zes jaar gratis updates, video's van anderen met het versienummer). Model Splitter nagekeken 16 nov ±22:10 UTC (site en RSS, GEZIEN): nog steeds gratis openbare bèta, nog geen Pro of Kickstarter live; de kogelgewrichtvideo van 16 nov staat op 142 weergaven, nog steeds geen scharnier met eindstop. Volgende: Model Splitter blijven volgen, late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Run 25 (17 nov ±01:55 tot 02:40 UTC): verhaal 23, RadFit (kleding passend, 100+ met 12 abonnees en 0 reviews, daarna 11 navolgers waarvan 1 op 10+; reserve van plek 1 is op Superhive bezet, op BOOTH open). Run 24 (17 nov ±00:55 tot 01:45 UTC): verhaal 22, Adaptive Auto Skinning (900+ in 4 maanden met 126 YouTube-abonnees; de FAQ zegt al dat hij AI-figuren doet, belangrijk voor plek 1 van de nachtscan). Run 23 (17 nov ±00:35 UTC): ronde 2 van snelle eerste euro's in `platformen/succes/snel-eerste-euros.md` (Framer Export, ClearBar, Kumiko, telling van 45 tools op TrustMRR; omzet nagekeken via de betaaldienst). Spoor TrustMRR opgelost: elke startup heeft een openbare Markdown-pagina (`trustmrr.com/startup/<naam>.md`) met omzet per maand, zonder sleutel. Run 22 (16 nov ±23:00 UTC): spoedopdracht snelle eerste euro's, zie `platformen/succes/snel-eerste-euros.md` (4 verhalen, Chrome Web Store en App Store). Verhaal 21 af (16 nov ±22:15 UTC, Nomad Sculpt: gratis SculptGL vooraf, $19,99 zonder abonnement, zes jaar gratis updates, video's van anderen met het versienummer). Model Splitter nagekeken 16 nov ±22:10 UTC (site en RSS, GEZIEN): nog steeds gratis openbare bèta, nog geen Pro of Kickstarter live; de kogelgewrichtvideo van 16 nov staat op 142 weergaven, nog steeds geen scharnier met eindstop. Volgende: Model Splitter blijven volgen, late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
 
 ---
+
+## 23. RadFit (ArtTalentStudio, Mostafa Radmard, klein team, kleding passend maken op elk lichaam in Blender, Superhive): 100+ verkopen binnen ±6 weken met 12 YouTube-abonnees, 0 reviews en geen enkele update, en daarna ±11 navolgers (twee daarvan bundels) die bijna allemaal onder de 10 blijven
+
+Onderzocht 17 nov 2026, run 25 (±01:55 tot 02:40 UTC). Waarom: kleding passend maken is de reserve van plek 1 in de nachtscan van Vera (`platformen/verkenner/nacht-2026-11-17.md`), en RadFit is daar het enige nieuwe bewijs voor ("RadFit 100+"). Voor de keuze van 12:00 moet je weten hoe RadFit aan zijn kopers kwam en hoe vol de hoek nu is. Geen cursusverkoper; alles uit winkelpagina's en het eigen YouTube-kanaal. De maker zegt nergens wat hij verdient.
+
+### Bronnen (alle met curl, GEZIEN 17 nov 2026 ±02:00 tot 02:30 UTC)
+- Superhive: superhivemarket.com/products/radfit--fit-any-outfit-to-any-body met /ratings, /faq, /docs en /versions, en /creators/arttalentstudio.
+- YouTube: oEmbed van de trailer (N_ZQ9F5-Wx0), kanaalpagina @ArttalentStudio3Dorg (abonnees) en de RSS van het kanaal (3 video's met weergaven).
+- De verkoopblokken van 15 navolgers en buren in dezelfde hoek, plus onze eigen metingen van 9 nov (`platformen/verkenner/data/superhive-nieuwe-addons-2026-11-09.jsonl`) en 15 nov (`platformen/verkenner/data/superhive-addons-6mnd-2026-11-15.csv`).
+- BOOTH: zoeken op "RadFit" (0 resultaten).
+- Niet gelukt: ArtStation (Cloudflare, 403), BlenderNation (Cloudflare), Reddit via Arctic Shift ("Timeout" in vier subreddits). BlenderArtists zoeken gaf 0 draden over RadFit, ArtTalent of Radmard. Of hij op Reddit of Discord postte weet ik dus niet.
+- Tabel: `platformen/succes/data/radfit-kleding-2026-11-17.tsv`.
+
+### Cijfers (GEZIEN tenzij anders vermeld)
+- Uit rond 25 sep 2026 (trailer op die dag; Superhive zegt nu "about 2 months ago"). Op 9 nov al 100+, op 15 en 17 nov nog steeds 100+. Superhive telt boven de 100 per honderd (Adaptive Auto Skinning ging van 800+ naar 900+), dus RadFit zit nu tussen 100 en 199.
+- Prijs: $19 op 9 nov, nu $20 normaal en $15 in de actie; studiolicentie (meer dan 5 plaatsen) $49, nu $36,75. 12 maanden updates, verlengen voor 50% van de prijs.
+- Omzet GOK: 100 tot 199 verkopen keer $15 tot $20 is ±$1.500 tot $4.000 bruto in 7,5 weken; Superhive houdt een deel.
+- Reviews: 0. Versie: nog steeds 1.0.0 (de documentatie noemt `radfit-1.0.0.zip`, de pagina Version History is leeg). Geen update in 7,5 weken.
+- YouTube: 12 abonnees. Drie video's in één week: RadCut 24 sep (44 weergaven), RadFit 25 sep (622), RadLink PSD 29 sep (113).
+- Zelfde maker, zelfde week, zelfde soort pagina: RadCut (doorsneden renderen, $13) 10+, RadLink PSD (Photoshop naar Blender, $22) en Tatters (stof scheuren, $15) onder 10 (geen blok). Eén van de vier liep.
+- Achtergrond: Art Talent Studio verkocht al penselen, kleding, modellen en tutorials op ArtStation (eigen tekst op de makerspagina). Hoe groot dat publiek is kon ik niet zien.
+
+### De navolgers (GEZIEN 17 nov, alle in de tabel)
+Na RadFit kwamen in 7 weken minstens 11 add-ons (twee daarvan bundels) voor kleding passend, kleding doorsteken of kleding wegen, waarvan 8 van één maker:
+- Meshwright: Outfit Refit ("Fit Any Outfit Onto Your Avatar", ±1 maand, $19) **10+**. ClipFix ("Check It in 10 Poses", RadFit zegt "8 poses"), TightWear, de sets Outfit Refit + ClipFix en Dress Your Avatar, VRChat Avatar Kit, DrapeFix, SkinKit: allemaal **onder 10**.
+- ClipGuard (Mykola Piatkov), WeightPilot (Martyn Tranter), Weight Transfer (serenadan Egwoba): **onder 10**.
+- Alleen MorphBridge (shape keys overzetten tussen verschillende meshes, $10, 3 maanden, dus vóór RadFit) staat op **40+**.
+De koppen en beloften van de navolgers lijken sterk op die van RadFit. Wie eerst kwam met de zin die mensen zoeken, heeft de verkopen; wie twee tot zes weken later met hetzelfde kwam, niet.
+
+### Wat de pagina doet (de enige "marketing" die ik kon vinden)
+1. **De kop is de zoekvraag:** "Fit Any Outfit to Any Body", met daaronder in één zin de handeling: kleren kiezen, lichaam erbij, "Fit Everything".
+2. **Vier meetbare getallen bovenaan:** "1,581 → 0 clipping points, tee + jeans", "3–4 s per refit to a new body", "8 poses checked in one click", "–26% triangles under the clothes". Zelfde soort belofte als de benchmark van Adaptive Auto Skinning (verhaal 22), maar op één voorbeeld.
+3. **Elf korte blokken, elk één klacht met een oplossing:** "Skirts that don't tear", "Move the slider. The clothes follow.", "Find clipping before you animate".
+4. **Voor wie, in vier groepen:** VRChat- en VRM-makers, verkopers van kleding, game-artiesten, Daz/CC/MPFB-gebruikers. En een lijst met rigs die hij leest (Unreal, Unity, VRChat, VRM, Mixamo, Rigify, Auto-Rig Pro, Daz, CC, MMD, MPFB).
+5. **Wat hij níet doet, eerlijk:** geen stofsimulatie, geen kleding maken, geen viervoeters in 1.0.
+6. **Een demoscène met CC0-lichamen en kleding** en een PDF van 19 pagina's, plus "I answer every message".
+
+### 3 lessen
+1. **De eerste met de juiste zin pakt de hoek; navolgers in dezelfde winkel blijven onder de 10.** RadFit 100+, daarna 11 navolgers in 7 weken waarvan 1 op 10+. Dit is het patroon dat we ook zagen bij splitsen (verhaal 9: 23 add-ons, 4 verkopen). Voor Dortus betekent het: kleding passend maken is een bewezen markt, maar nu vol, en "ook een refit" wordt het twaalfde product.
+2. **Het probleem bepaalt de uitkomst, niet het publiek of de werkwijze.** Zelfde maker, zelfde week, zelfde soort pagina en video: één add-on 100+, drie op 10+ of minder. Leite zag hetzelfde (Texture Master 10+, Adaptive Auto Skinning 900+). Met 12 abonnees en een trailer van 622 weergaven kwamen de kopers niet van YouTube; GOK dat de zoekbalk en de nieuwlijst van Superhive het werk deden, plus misschien de VRChat-hoek buiten Superhive (niet gezien).
+3. **Geen updates en geen reviews kan, maar het plafond is lager.** RadFit staat 7,5 weken op 1.0.0 en 0 reviews en blijft hangen tussen 100 en 199. Adaptive Auto Skinning updatete elke week, heeft 20 reviews en ging naar 900+. Twee verhalen zijn geen bewijs dat het een het ander veroorzaakt (het probleem van Leite is ook groter), maar het past bij hoofdles 2. Dat 100+ met 0 reviews kan, past bij hoofdles 5: reviews zeggen weinig over vraag.
+
+### Leggen naast Dortus
+- **Voor de keuze van 12:00:** de reserve "kleding passend maken voor Superhive en BOOTH" is na RadFit en Meshwright een volle hoek op Superhive. Op BOOTH zoekt niemand op RadFit (0 resultaten) en Vera zag daar kleding passend maken (もちふぃった-profielen 652 likes) en shape keys overzetten (678 likes) wel lopen. Als de hoofdchat deze reserve toch kiest, dan eerder BOOTH eerst met een Japanse pagina, waar RadFit en Meshwright niet staan, dan Superhive.
+- **Hetzelfde geldt voor plek 1 (automatisch gewichten):** daar is Adaptive Auto Skinning de eerste met de zin. Twee verhalen op rij zeggen nu: in een hoek waar al een nummer één staat met de zoekzin in de kop, word je met hetzelfde product nummer twaalf.
+- **Wat wij wel goed kunnen overnemen:** de opbouw van de pagina. Click Joints Pro heeft (nog) niet bovenaan vier getallen uit een echte meting, en geen blok "What it doesn't do". Dat kost niets en we hebben de metingen (Blender headless).
+- **Wat RadFit niet deed en wij wel moeten doen:** updaten en reviews vragen. Verhaal 22 en Joris verhaal 18 (één review van 5 sterren zet een add-on bovenin de lijst in Blender) zeggen dat reviews en versies het plafond optillen.
+
+### Voorstel voor Dortus deze week
+**Een "leeg-gat-toets" vóór elk nieuw product, de hoofdchat draait hem vóór de keuze van 12:00, Vera levert de lijst.** Per kandidaat-idee: (1) zoek de zoekzin van het idee op Superhive en BOOTH; (2) staat er al een product van 2 tot 6 maanden met 100+ en de zoekzin in de kop, dan geldt het idee als "bezet", tenzij we in één zin kunnen zeggen wat wij doen wat dat product niet doet, met een meting; (3) tel de navolgers van de laatste 8 weken en hoeveel er boven de 10 kwamen. Uitkomst voor de twee ideeën van vannacht volgens deze toets: automatisch gewichten op AI-figuren: bezet (Adaptive Auto Skinning, FAQ zegt al "AI-generated models"); kleding passend: bezet op Superhive (RadFit, 11 navolgers, 1 op 10+), open op BOOTH. Kost een kwartier per idee. Bericht staat bij de hoofdchat en Vera.
 
 ## 22. Adaptive Auto Skinning (Jessy Leite, solo, automatisch gewichten zetten in Blender, Superhive): 900+ verkopen in 4 maanden met maar 126 YouTube-abonnees, en dezelfde maker verkocht met dezelfde aanpak een andere add-on maar 10+ keer
 
