@@ -72,6 +72,13 @@ static func nieuwe_held(s) -> bool:
 			s._kroniek(s.regels.kies("binnen_" + trek_h, {"naam": naam}), true)    # de drie nieuwe trekken zie je alleen hier
 		else:
 			s._kroniek(s.regels.kies("binnen", {"naam": naam}), true)
+	# kaartje na terugkomst (moet Daan 16 nov 23:30): de telling staat bovenaan tot de eerste nieuwe held binnen is
+	if s.tekst != null and String(s.tekst.vast) != "":
+		s.tekst.vast = ""
+		s.tekst.queue_redraw()
+	s.namen_recent.append(String(info.naam))
+	while s.namen_recent.size() > 24:
+		s.namen_recent.remove_at(0)
 	match stap:
 		"vallen": info["moet_vallen"] = true
 		"terug":

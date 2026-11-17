@@ -127,6 +127,7 @@ static func toon(s) -> void:
 		var oude_plek: int = s.kroniek.rfind(String(volgende.r))
 		if oude_plek >= 0:
 			s.kroniek.remove_at(oude_plek)
+	een_per_held(s, String(volgende.r))
 	s.kroniek.append(String(volgende.r))
 	while s.kroniek.size() > 40:
 		s.kroniek.remove_at(0)
@@ -144,3 +145,45 @@ static func kroniek_bewaar(s) -> Array[String]:
 	while k.size() > 40:
 		k.remove_at(0)
 	return k
+
+# Hooguit één regel per held op het kaartje (moet Daan 16 nov 23:30 b): het kaartje toont de laatste drie regels; noemt de
+# nieuwe regel een held die ook in een van de twee regels ervoor staat, dan vervangt de nieuwe die oude. De telling
+# (tekst.vast) blijft altijd staan. Namen uit `namen_recent` (binnengekomen, terugkomers, pensioen), heel woord.
+static func een_per_held(s, r: String) -> void:
+	var namen: Array = []
+	var recent = s.get("namen_recent")
+	if recent == null:
+		return
+	var vast: String = "" if s.tekst == null or s.tekst.get("vast") == null else String(s.tekst.get("vast"))
+	for n in recent:
+		if String(n) != "" and _noemt(r, String(n)):
+			namen.append(String(n))
+	if namen.is_empty():
+		return
+	var tot: int = maxi(0, s.kroniek.size() - 2)
+	for i in range(s.kroniek.size() - 1, tot - 1, -1):
+		var oud: String = String(s.kroniek[i])
+		if oud == vast:
+			continue
+		for n in namen:
+			if _noemt(oud, n):
+				s.log_regel("HOL kroniek zelfde held vervangen: %s" % oud)
+				s.kroniek.remove_at(i)
+				break
+
+# heel woord, en "Kees" telt niet in "Kees II" (naamgenoten, binnenkomst.gd): na de naam geen letter en geen " I"
+static func _noemt(r: String, naam: String) -> bool:
+	var i := r.find(naam)
+	while i >= 0:
+		var j := i + naam.length()
+		var voor_ok := i == 0 or not _letter(r.unicode_at(i - 1))
+		var na_ok := j >= r.length() or not _letter(r.unicode_at(j))
+		if na_ok and r.substr(j, 2) == " I" and (j + 2 >= r.length() or not _letter(r.unicode_at(j + 2)) or r.substr(j + 2, 1) == "I"):
+			na_ok = false
+		if voor_ok and na_ok:
+			return true
+		i = r.find(naam, i + 1)
+	return false
+
+static func _letter(c: int) -> bool:
+	return (c >= 65 and c <= 90) or (c >= 97 and c <= 122) or c >= 192

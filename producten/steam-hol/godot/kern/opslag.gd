@@ -147,8 +147,14 @@ static func laad(s, begin) -> void:
 		if not s.hol.vallen.is_empty():
 			namen.append("the Spike Pit")
 		# via de wachtrij, zodat je ze bij openen een voor een ziet (controleur punt 4)
-		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
+		var vh: Array[String] = VOORTGANG.verhaal(weg, helden_d, namen, 7)
+		for r in vh:
 			s._kroniek(String(r))
+		# de telling ("115 came, 82 fell ...") blijft bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30 a)
+		if not vh.is_empty():
+			s.tekst.vast = String(vh[vh.size() - 1])
+		for hn in helden_d:
+			s.namen_recent.append(String(hn))
 		var tr := VOORTGANG.tempo_regel(weg)
 		if tr != "":
 			s._kroniek(tr)
@@ -175,6 +181,7 @@ static func laad(s, begin) -> void:
 	var p: Dictionary = VOORTGANG.pensioen(s.pensioen_namen, weg, s.regels)
 	if not p.is_empty():
 		s._kroniek(String(p.regel))
+		s.namen_recent.append(String(p.naam))
 		s.pensioen_namen.erase(p.naam)
 	s.hol.queue_redraw()
 	s.tekst.zet(s.kroniek, s.hol.goud)
