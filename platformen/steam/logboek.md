@@ -1417,3 +1417,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Main bleek om 01:42 UTC opnieuw begonnen (nieuwe wortel a747781, 52 commits); `git merge` van `claude/steam-hol-regels` weigerde (unrelated histories). De 7 commits (abd4b6e..959aef4) met cherry-pick op main gezet: f7057fb tot 7e1ee59, spelcode gelijk aan 959aef4, gepusht. Toetsrun main 44009301091.
 - Deco (959aef4..8a0515c) op `claude/steam-hol-deco-2` d288a19, code gelijk aan 8a0515c; toetsrun 44009461411. Sanne poort 4: alleen toetsrun.
 - Berichten Sanne, Bram, Iris, Mila, Daan (met uitleg over de nieuwe wortel). Rollwright: meting van 02:22 staat, niets nieuws.
+- 03:40: beide toetsruns groen, deco gemerged naar main. `steam-hol-duur.yml`: CPU 1,0 rood alleen bij exe=ja, editor een waarschuwing (Sanne: mijn keus).
