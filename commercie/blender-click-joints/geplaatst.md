@@ -4,6 +4,7 @@ Per plaatsing: datum, plek, link, wie, en de stand na 24 en 48 uur (stemmen, rea
 
 | Datum | Plek | Link | Wie | Na 24 uur | Na 48 uur |
 |---|---|---|---|---|---|
+| 17 nov 2026 ±01:15 NL | awesome-blender (GitHub, 3D Printing, pull request #141, wacht op maintainer) | https://github.com/agmmnn/awesome-blender/pull/141 | hoofdchat via account Thijs (fork thijsduinhouwer2002-coder/awesome-blender, tak patch-1) | | |
 | 16 nov 2026 ±22:20 NL | BlenderNation (inzending, versie C37, wacht op hun keuring) | https://www.blendernation.com/submit-news/ (verstuurd, "Thanks! We'll review") | hoofdchat, ja Thijs 22:14 | | |
 | 16 nov 2026 19:09 UTC (20:09 NL; eerder stond hier ±21:05 NL, Arctic Shift geeft 19:09:09 UTC) | r/blender | https://www.reddit.com/r/blender/comments/1xxy52p/i_made_click_joints_cut_a_printable_ball_joint/ | Thijs | | |
 
