@@ -230,8 +230,7 @@ jobs:
             Get-Content $log -ErrorAction SilentlyContinue
           }
           $fout = 0
-          # beeld op 20 s: na het einde (10 s) en na de eerste geweigerde graafbeurt staat de startregel in beeld (Sanne 04:52, Iris keuring 17)
-          $a = Speel "$uit/demo-einde-1.log" "steamdemo=1 demo_einde=10 demo=1 vers=1 duur=30" "$uit/demo-weiger-120.png" 20 | Out-String
+          $a = Speel "$uit/demo-einde-1.log" "steamdemo=1 demo_einde=10 demo=1 vers=1 duur=30" | Out-String
           Write-Output "===== 1 (steamdemo)"; Write-Output $a
           $n = ([regex]::Matches($a, "HOL demo voorbij na")).Count
           if ($n -ne 1 -or $a -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): That's the demo\.") { Write-Output "FOUT: eindregel $n keer of niet in de kroniek"; $fout++ }
@@ -242,6 +241,12 @@ jobs:
           if ($nw -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Demo over\. The full game keeps it all\.") { Write-Output "FOUT: geweigerd graven gaf geen zichtbare regel"; $fout++ }
           $na = $a.Substring([math]::Max(0, $a.IndexOf("HOL demo voorbij na")))
           if ($na -notmatch "HOL held binnen: ") { Write-Output "FOUT: geen held meer na het einde"; $fout++ }
+          # Olaf 17 nov (Sanne 04:52, Iris keuring 17 punt 3): na het einde (3 s) één echte graafklik naast de gang
+          # via de gewone klikweg; geweigerd, niets gegraven, en de startregel staat in beeld (beeld op ±9 s)
+          $w = Speel "$uit/demo-weiger.log" "steamdemo=1 demo_einde=3 vers=1 duur=15 weiger_proef=1" "$uit/demo-weiger-120.png" 9 | Out-String
+          Write-Output "===== weiger-proef"; Write-Output $w
+          if ($w -notmatch "HOL klik op .*: geweigerd" -or $w -notmatch "geweigerd \(graven\)" -or $w -match "HOL klik op .*: (gegraven|kamer)") { Write-Output "FOUT: graafklik na het einde niet geweigerd"; $fout++ }
+          if ($w -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Demo over\. The full game keeps it all\.") { Write-Output "FOUT: geweigerde graafklik gaf geen zichtbare regel"; $fout++ }
           $b = Speel "$uit/demo-einde-2.log" "demo=1 vers=1 duur=30" | Out-String
           Write-Output "===== 2 (zonder steamdemo)"; Write-Output $b
           if ($b -match "That's the demo" -or $b -notmatch "HOL koop ") { Write-Output "FOUT: zonder steamdemo toch een einde"; $fout++ }

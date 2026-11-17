@@ -52,6 +52,7 @@ var proef_put := 0           # put_proef=<1-3>: de put meteen op die stap, allee
 var proef_moment := ""       # moment=hap|val|munt: zet het spel stil op het mooiste moment voor de winkelschermen (Bram 15 nov, Mila en Olaf)
 var moment_gemeld := false   # "HOL moment vast <m>" staat in de log (de winkel-workflow maakt dan zijn beelden)
 var proef_spuug := 0          # spuug_proef=<1-3>: Gloop blijft in een spuugmoment staan, alleen om spugen in 3D te keuren (Bram 15 nov)
+var proef_weiger := false    # weiger_proef=1: na het demo-einde één graafklik via de gewone klikweg (kern/proef.gd)
 var proef_plat := false      # plat_proef=1: Gloop plat zonder regel (twee keer al gemeld), alleen om te keuren (Daan 16 nov 20:35)
 var proef_laars := false     # laars_proef=1: de laars ligt vast naast Gloop, alleen om de 3D-laars te keuren (Bram 14 nov)
 const FIGUUR := 1.15          # Gloop en helden 1,15 keer zo groot getekend, voetpunt gelijk, hol gelijk (Thijs 15 nov punt 2 "leesbaar op 120 px", keuze Daan)
@@ -298,6 +299,22 @@ func _process(delta: float) -> void:
 	if slijm and hol and int(t * 2.0) != int((t - delta) * 2.0) and gloop_bult() != vlak_gloop:
 		_muis_vlak(vlak_paneel)
 	DEMO_EINDE.tik(self, delta)
+	if proef_weiger and demo_klaar and hol:
+		proef_weiger = false
+		var gk := -1   # eerste dichte cel naast de gang die je zou mogen graven
+		for c in range(1, mini(hol.max_kol, hol.kolommen - 1) + 1):
+			if not hol.gang[c] and (hol.gang[c - 1] or (c + 1 < hol.kolommen and hol.gang[c + 1])):
+				gk = c
+				break
+		var pk: Vector2 = hol.cel_naar_pos(Vector2i(maxi(gk, 1), 1)) - Vector2(0, 6)
+		if gk < 0:   # gang al tot de rand: dan een kamer boven de gang (zelfde plek als de film, kern/ritme.gd)
+			for c in range(hol.ingang_kol + 1, mini(hol.max_kol, hol.kolommen - 1) + 1):
+				if hol.gang[c] and not hol.boven[c]:
+					gk = c
+					break
+			pk = Vector2(gk * HOL.KOL + 8, HOL.OPP + 6)
+		log_regel("HOL weiger-proef: graafklik op kolom %d" % gk)
+		_hol_klik(pk)
 	BEELDTEMPO.tik(self)
 	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7).
 	if slijm and slijm.has_method("kan_vechten"):
@@ -377,11 +394,7 @@ func _input(event: InputEvent) -> void:
 		if KAARTJE.klik(self, event.position):
 			log_regel("HOL klik op %s: kaartje" % event.position)
 			return
-		var p: Vector2 = (event.position - hol.position) / schaal
-		var wat: String = hol.klik(p, not DEMO_EINDE.klaar(self))   # demo voorbij: alleen graven geweigerd, vallen vrij (Iris keuring 17)
-		if wat == "geweigerd":
-			DEMO_EINDE.weiger(self, "graven")
-		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
+		_hol_klik((event.position - hol.position) / schaal, event.position)
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
 	if event is InputEventMouseMotion and holbord != null and holbord.actief():
@@ -395,6 +408,14 @@ func _input(event: InputEvent) -> void:
 		tekst.hover = true
 		tekst.queue_redraw()
 		_muis_vlak(true)
+
+# Klik in het hol op spelpositie p (venster-positie w alleen voor de log). Demo voorbij: alleen graven geweigerd,
+# vallen vrij (Iris keuring 17), en de geweigerde klik zet een regel in beeld (kern/demo_einde.gd weiger).
+func _hol_klik(p: Vector2, w = null) -> void:
+	var wat: String = hol.klik(p, not DEMO_EINDE.klaar(self))
+	if wat == "geweigerd":
+		DEMO_EINDE.weiger(self, "graven")
+	log_regel("HOL klik op %s: %s" % [w if w != null else p, wat if wat != "" else "niets"])
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
