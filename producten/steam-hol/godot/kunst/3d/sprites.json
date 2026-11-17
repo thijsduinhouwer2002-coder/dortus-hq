@@ -64,7 +64,7 @@
   ],
   "blad": "res://kunst/3d/deco.png",
   "bron": "8381bb9721f29c40",
-  "bytes": 49758,
+  "bytes": 49754,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -1057,7 +1057,7 @@
   "anker_x": 30,
   "blad": "res://kunst/3d/hoedenwand.png",
   "bron": "cd34c8b7cb387d01",
-  "bytes": 36996,
+  "bytes": 37002,
   "cel_px": [
    60,
    48
@@ -1152,7 +1152,7 @@
   ],
   "blad": "res://kunst/3d/hol_proef.png",
   "bron": "f07bccfbb267be52",
-  "bytes": 138437,
+  "bytes": 138493,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
