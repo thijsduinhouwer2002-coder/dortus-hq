@@ -47,3 +47,8 @@ Wat ze doen staat bij Sanne in `platformen/steam/features.md`, blok "De rolsteen
 4. In een reeks van 6 beelden tijdens het rollen zie je dat hij rolt (de band draait), niet schuift.
 
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## Schets in 3D (Daan, 17 nov ±00:34 UTC)
+`proef.py` hiernaast (bpy 5.3, draait in ±12 s), uit: `schets-hoeden-steen.png` (koksmuts nr 5, hoge hoed nr 7, edelhoed, steen klaar, steen niet klaar, op het pruimen hol) en `schets-spelmaat-4x.png` (spelmaat, 4x vergroot).
+- **Edelhoed: GEZIEN, werkt.** Naast nr 7 als dag en nacht, en door hoogte en brede gouden band nooit te verwarren met de koksmuts, ook op spelmaat. Opgekrulde flapjes aan de rand geprobeerd: lazen als handvatten, weg. Mila mag deze maten zo overnemen in `hoeden.py`.
+- **Rolsteen: nog niet goed, dat is werk voor het echte model.** Drie rondes: een gladde bol leest als ei of bal, bultjes als schilfers lezen als wratten, een torus als band steekt uit als een touw of een ring om een planeet. Wat het model nodig heeft: een bultige vorm (bol met ruis verplaatst, geen perfecte bol), de band als echte groef erin gesneden (boolean), schilfers als platte afgeslagen vlakken. Kleur `8e8a86` (koeler dan `a8a39c`) is beter onder de fakkel. Wig: leest als oranje driehoekje, mag donkerder hout.
