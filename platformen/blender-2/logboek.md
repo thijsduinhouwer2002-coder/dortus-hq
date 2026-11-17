@@ -131,5 +131,6 @@
 - Daans moet 1 tot 4 op plaatje 19 gebouwd (tak `claude/blender-2026-11-16-figuur`, 6b38990 en a139b17): rustig beeld met alleen 3D-weergave en paneel, figuur groter, rechterknie 60 en elleboog 90 gebogen met de Bend-schuif, figuur als beukenhouten tekenpop, getallen 22 px wit met donkere rand en niet op het model, groene kogelring op een figuur alleen rond het lid. Details: `producten/blender-gewrichten/ontwerp-1.1.md`, run 22. Keuring gevraagd aan Daan.
 - Besluit: de reclamekop niet in de add-on. Waarom: de kop in de weergave is een eerlijke regel over het actieve scharnier; een slogan hoort op het winkelplaatje.
 - Besluit: smalle ring alleen in Pro (`betaald/figuur_ring.py`), gratis `kleur.py` ongewijzigd. Waarom: bij een los lid klopt de oude ring al, en dan hoeft de gratis versie geen nieuwe uitgave.
-- Lokaal 5.3.0: plaatje 15, 16, 17, 19 OK; toetsen mens, figuur, rig, rig_armen, rigify 0 FOUT. CI van a139b17 nog na te kijken.
+- Lokaal 5.3.0: plaatje 15, 16, 17, 19 OK; toetsen mens, figuur, rig, rig_armen, rigify 0 FOUT. CI van a139b17 liep nog.
+- Let op: CI van 2604fa7 (run 44018445704, vorige run) was rood in 4.2.23 in de stap "Figuurpresets" (een van de toetsen figuur, vrije stop, rig, rig_armen, rigify, mens of meshy_rig); 5.2.3 en 5.3.0 groen, alle schermbeelden in 4.2 OK. Eerste taak volgende run: log van die stap lezen en oplossen.
 - Les: `screen.screen_full_area` met een temp_override op het 3D-gebied geeft in één regel een rustig schermbeeld (tijdlijn en eigenschappen weg, zijbalk blijft).
