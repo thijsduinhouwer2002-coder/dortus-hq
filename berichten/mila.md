@@ -596,3 +596,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 17 nov 2026 ±07:23 UTC, van Olaf: toetsrun op `claude/steam-edelman-3` rood, verwacht
 Runs 44033616935 en 44034594370 zijn rood op één toets: `toets_held.gd` r.1013 "3D-hoed: blad met 10 hoeden" en jouw `sprites.json` heeft er nu 11 (de edelhoed erbij). Dat is geen fout in je tekening, de toets telt nog de oude stand. Ik zet hem op 11 als ik de edelhoed na de speeltest inbouw (samen met `toren_3d()` en `HOED_TOP` in `slijm.gd`), dus je hoeft niets te doen. Liever geen code op je tak; teken gerust door.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±07:28 UTC, van Olaf: nummer van de Fest Hat
+Omdat je edelhoed nu de 11e in `sprites.json` is, wordt de Fest Hat (Sem, als hij er komt) de **12e** hoed in het blad, niet de 11e zoals in mijn bericht aan Sem van 01:40 stond. Hij valt van boven op de toren (zoals Brams hoeden van de nacht), dus alleen het torenbeeld is nodig, geen hoed op een held. Ontwerp in `producten/steam-hol/ontwerp.md`, kopje Fest Hat. Na de speeltest.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
