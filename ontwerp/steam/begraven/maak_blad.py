@@ -3,8 +3,8 @@ Uit: producten/steam-hol/godot/kunst/3d/begraven.png (+ .import) en begraven.jso
 Blad: 5 cellen van 64 x 64 bladpixels naast elkaar = 16 x 16 spelpixels per cel bij px 4 (zoals holbord).
   hoed, bot, kist, wortel: gedempt (20 procent minder verzadigd, 15 procent naar de aarde, bot 12 procent minder wit),
     lichte rand van 1 px bovenaan, het onderste derde WEGGESNEDEN met een bultige rand: daar is de cel doorzichtig,
-    zodat de echte aarde van het spel er doorheen komt. Op de rand een zachte lichte lip en een schaduwrandje op het
-    stuk, en drie kluitjes aarde op het stuk. Holletje 15 procent alleen om het zichtbare deel.
+    zodat de echte aarde van het spel er doorheen komt. Op de rand een donkere aardrand (proef 4, Daan 17 nov) met drie
+    kruimels over de snede en een schaduwrandje op het stuk, en kluitjes aarde op het stuk. Holletje 15 procent alleen om het zichtbare deel.
   kist_open: dezelfde kist na het doorgraven, deksel naar achteren open, leeg (donker van binnen). Niet begraven,
     want die cel is dan gang; wel dezelfde demping, en een zachte schaduw eronder.
 Bron: stukken3-blad-4x.png = BLAD=1 <bpy-python> begraven.py stukken3-blad-4x.png
@@ -40,16 +40,27 @@ def begraaf(rgb, al):
         y = int(round(snij + bult[k])); rand[x] = y
         al[y:, x] = 0                                                   # weg: hier komt de echte aarde door
         if dek[y:y + 2, x].any():
-            rgb[y, x] = AARDE * 0.62 + LIP * 0.40; al[y, x] = 1           # lip (1 px bij px 4 is een kwart spelpixel,
-            if y + 1 < 64: rgb[y + 1, x] = AARDE * 0.8 + LIP * 0.2; al[y + 1, x] = 1   # dus 2 rijen: lip en overgang)
+            rgb[y, x] = AARDE * 0.70; al[y, x] = 1                       # donkere aardrand (Daan 17 nov 00:35: de lichte lip
+            if y + 1 < 64: rgb[y + 1, x] = AARDE * 0.84; al[y + 1, x] = 1   # las als geel stippellijntje), 2 rijen: rand en overgang
         for d in (1, 2):
-            if y - d >= 0 and dek[y - d, x]: rgb[y - d, x] *= 0.68 if d == 1 else 0.82   # schaduw op het stuk
-    ks = [x for x in kol if dek[:rand[x] - 4, x].any()]
-    for _ in range(2):                                                  # kluitjes van 3 x 3 bladpixels
-        x = ks[rng.integers(len(ks))]; y = rand[x] - 4 - rng.integers(0, 4)
+            if y - d >= 0 and dek[y - d, x]: rgb[y - d, x] *= 0.74 if d == 1 else 0.88   # schaduw op het stuk
+    zicht = [x for x in kol if dek[:rand[x] - 1, x].any()]
+    plek = np.linspace(0, len(zicht) - 1, 5)[[1, 2, 3]].astype(int) + rng.integers(-2, 3, 3)
+    for k, j in enumerate(plek):                                        # drie kruimels OVER de snede (half op stuk, half op aarde)
+        x = zicht[int(np.clip(j, 0, len(zicht) - 1))]; y = rand[x]
+        w = 3 if k != 1 else 4
+        for dx in range(w):
+            xx = x + dx
+            if xx >= 64 or xx not in rand: continue
+            y0 = rand[xx] - (2 if dx in (0, w - 1) else 3)           # bultje aarde dat op de snede ligt, geen druppel eronder
+            rgb[y0:rand[xx], xx] = AARDE * (1.0 if dx < w - 1 else 0.86); al[y0:rand[xx], xx] = 1
+            rgb[rand[xx], xx] = AARDE * 0.70
+    ks = [x for x in kol if dek[:rand[x] - 5, x].any()]
+    for _ in range(2):                                                  # kluitjes van 3 x 3 bladpixels op het stuk, zonder lichte top
+        x = ks[rng.integers(len(ks))]; y = rand[x] - 5 - rng.integers(0, 4)
         if y < 1 or x + 2 >= 64 or not dek[y:y + 3, x:x + 3].all(): continue
-        rgb[y:y + 3, x:x + 3] = np.clip(AARDE * 1.18, 0, 1); al[y:y + 3, x:x + 3] = 1
-        rgb[y, x:x + 2] = AARDE * 0.62 + LIP * 0.40
+        rgb[y:y + 3, x:x + 3] = AARDE * 0.95; al[y:y + 3, x:x + 3] = 1
+        rgb[y + 2, x:x + 3] = AARDE * 0.7
     return rgb, al
 
 def holletje(al, sterk):

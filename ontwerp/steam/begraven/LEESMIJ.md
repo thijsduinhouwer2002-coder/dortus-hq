@@ -33,3 +33,9 @@ Vraag van Daan (16 nov 20:50, voor de demo van 18 dec, geen haast): op 1920 is i
 - Demping en begraven zitten er al in: het onderste derde is in de cel **doorzichtig** (met lip en schaduwrandje erop), dus de echte aarde van het spel komt er doorheen, waar het ook ligt. Holletje 15 procent zit in de alfa.
 - `kist_open`: dezelfde kist na het doorgraven, deksel helemaal open en plat naar achteren, kist 38 graden naar je toe gekanteld zodat je van boven het lege donkere binnenste ziet; niet begraven (die cel is dan gang), zachte schaduw eronder. Eerst met het deksel rechtop: GEZIEN op 1x, las als een tweede kist of ton, weggegooid. Eerlijk: hij is nu hoger dan de dichte kist omdat je in hem kijkt.
 - Gemaakt met: `BLAD=1 <bpy-python> begraven.py stukken3-blad-4x.png` en daarna `python3 maak_blad.py <strook-10min.png>`. Proef in de echte opname: `blad-echt-1x.png` en `blad-proef.png` (boven 4x uit de 1x, de vijfde = na het doorgraven; onder het blad zelf).
+
+## Proef 4 (17 nov ±00:50 UTC): moet Daan (00:35), donkere aardrand in plaats van de lichte lip
+- In `maak_blad.py`: de lichte lip is weg (las op 4x en in de echte opname op 3x als geel stippellijntje, waardoor de stukken afgeknipt leken). Nu een **donkere aardrand** (aarde maal 0,70, daaronder een overgang van 0,84) en **drie kruimels over de snede**: bultjes aarde die op de rand liggen, half over het stuk. Kluitjes op het stuk zonder lichte top. Schaduwrandje op het stuk iets zachter (0,74).
+- Eerst geprobeerd: kruimels die ook onder de rand doorliepen. GEZIEN, lazen als druppels die naar beneden hangen; weggehaald.
+- `begraven.png` opnieuw gemaakt (zelfde vijf cellen en json). Proef: `proef4-blad-4x.png` (= `blad-proef.png`) en `blad-echt-1x.png`.
+- GEZIEN met Read, boven 4x uit de echte 1x: geen gele lijn meer, hoed, bot, kist en wortel zitten in de grond en de rand valt weg in de aarde. Eerlijk: de kruimels zijn op 1x maar een zweem; het werk doet nu de donkere snede.
