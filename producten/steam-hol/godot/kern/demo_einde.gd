@@ -1,7 +1,8 @@
 extends RefCounted
 # Demo-einde (Olaf, 13 nov 2026; ontwerp in producten/steam-hol/ontwerp.md, sectie Demo-einde).
 # 17 nov 2026 (Olaf): einde op inhoud, niet op de klok (Sanne 04:02 na Fenna verhaal 23, features.md "Demo-einde op inhoud").
-# De gratis Steam-demo is hetzelfde spel. Hij eindigt pas als er echt niets nieuws meer komt: hol-niveau 12 (DEMO_MAX)
+# De gratis Steam-demo is hetzelfde spel. Hij eindigt pas als er echt niets nieuws meer komt: zichtbaar hol-niveau 12 (DEMO_MAX,
+# dus ook geen niveaus meer in de rij bij de ingang)
 # én alle 6 winkeldingen gekocht (2 soorten x 3 stappen). Dan één vriendelijke regel in de kroniek en stopt alleen groeien:
 # graven, kopen en upgrades. Helden, Gloop, goud en winst terwijl je weg bent lopen door. Undo en Remove blijven werken.
 # Het einde is blijvend (veld demo_klaar in de save): wie daarna een stap terugverkoopt, kan hem niet opnieuw kopen en
@@ -63,7 +64,7 @@ static func tik(s, delta: float) -> void:
 	s.speeltijd_s += delta
 	if not s.steamdemo or s.demo_klaar:
 		return
-	var n: int = HOL_NIVEAU.niveau(s.faam)
+	var n: int = HOL_NIVEAU.zichtbaar(s.faam, s.rij)   # het niveau op het bordje: niveaus in de rij bij de ingang komen nog (controleur)
 	if not voorbij(true, n, niveaus_van(s), s.speeltijd_s, s.demo_grens):
 		return
 	s.demo_klaar = true
@@ -77,7 +78,7 @@ static func tik(s, delta: float) -> void:
 # Na het laden: bij elke start na het einde één keer de startregel bovenaan.
 static func bij_start(s) -> void:
 	if s.steamdemo:
-		s.log_regel("HOL demo: speeltijd %d s, hol %d, winkel %s, klaar %s" % [int(s.speeltijd_s), HOL_NIVEAU.niveau(s.faam), str(niveaus_van(s)), str(s.demo_klaar)])
+		s.log_regel("HOL demo: speeltijd %d s, hol %d, winkel %s, klaar %s" % [int(s.speeltijd_s), HOL_NIVEAU.zichtbaar(s.faam, s.rij), str(niveaus_van(s)), str(s.demo_klaar)])
 	var r := regel_bij_start(s.steamdemo, s.demo_klaar)
 	if r != "":
 		s.kroniek.erase(r)   # de vorige startregel eruit, zodat hij niet bij elke start opnieuw in de geschiedenis stapelt

@@ -602,7 +602,7 @@ func _init() -> void:
 	# met een nep-strook: regel één keer, blijvend na terugverkopen, weigeren, startregel
 	var nep_de := GDScript.new()
 	nep_de.source_code = ("extends RefCounted\nvar steamdemo := true\nvar demo_klaar := false\nvar demo_grens := -1.0\n"
-		+ "var speeltijd_s := 0.0\nvar faam := 0\nvar hol\nvar kaart_soort := \"\"\nvar kroniek: Array = []\nvar logs: Array = []\n"
+		+ "var speeltijd_s := 0.0\nvar faam := 0\nvar rij := 0\nvar hol\nvar kaart_soort := \"\"\nvar kroniek: Array = []\nvar logs: Array = []\n"
 		+ "var tekst := Node2D.new()\nvar bewaard := 0\nfunc log_regel(r):\n\tlogs.append(r)\nfunc _kroniek(r):\n\tkroniek.append(r)\n"
 		+ "func bewaar():\n\tbewaard += 1\n")
 	nep_de.reload()
@@ -622,6 +622,10 @@ func _init() -> void:
 	DE.tik(ds, 0.1)
 	ok(not DE.klaar(ds), "winkel leeg maar hol 11: geen einde")
 	ds.faam = 88
+	ds.rij = 2
+	DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds), "faam voor hol 12 maar nog 2 niveaus in de rij (bordje zegt hol 10): geen einde")
+	ds.rij = 0
 	for i in 100:
 		DE.tik(ds, 0.13)
 	ok(DE.klaar(ds) and ds.kroniek.count(DE.REGEL_EINDE) == 1 and ds.bewaard == 1, "hol 12 en winkel leeg: regel precies één keer, bewaard")

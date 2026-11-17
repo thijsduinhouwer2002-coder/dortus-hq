@@ -97,7 +97,8 @@ static func laad(s, begin) -> void:
 	s.rij = maxi(0, int(data.get("rij", 0)))   # rij bij de ingang (Sanne 16 nov 16:00); oude saves 0
 	s.rij_t = float(data.get("rij_t", 0.0))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3
-	s.demo_klaar = data.get("demo_klaar", false) == true   # einde op inhoud (17 nov), blijvend; oude saves false
+	var dk = data.get("demo_klaar", false)   # einde op inhoud (17 nov), blijvend; oude saves false
+	s.demo_klaar = dk is bool and dk   # geen "== true": een string of getal in een kapotte save gaf een scriptfout en brak laden af (controleur)
 	s.pensioen_namen = []
 	var pn = data.get("pensioen_namen", [])
 	if pn is Array:
