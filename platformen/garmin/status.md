@@ -7,7 +7,8 @@
   - **Bouwstraat:** een regel met FOUT, een fout in het log van de simulator of een mislukte bouw maakt de job nu rood.
   - **NIET GEZIEN:** het minteken bij vorst; een veld met een echte waarde van een nieuwe soort; iemand die in Garmin Connect een veld of thema kiest; het oordeel van Daan en Mila op deze beelden; een echt horloge.
   - **Cijfers winkel:** niet opnieuw gemeten deze run. Laatste meting 17 nov 02:58 UTC: Ebb en Ebb Calm allebei 1.0.0, 0 downloads, 0 reviews, 0 verkopen. Volgende meting dag 7 (23 nov).
-  - **Tak:** `claude/garmin-reeks-kern` op ccacf08.
+  - **Aanvulling ±08:35 UTC (run 44045922709, 2fa8182, groen, GEZIEN):** volle velden en het minteken staan nu in beeld met proefwaarden (`platformen/garmin/tij-zee/zee-run134-volle-velden.png`): 1.8K, 12 en 145 op de fēnix 8, 12.4, 50 en een min 4 op de Forerunner 55. `TOETSEN_GRATIS goed: PASSED (passed=46, failed=0, errors=0)`. Het minteken en een vol veld zijn daarmee niet meer NIET GEZIEN; het getal bij het minteken staat wel iets rechts van het pictogram (vraag bij Mila). Een afgebroken run zet geen halve map meer op tak `schermen` (gebouwd, nog niet zien gebeuren).
+  - **Tak:** `claude/garmin-reeks-kern` op 2fa8182.
 
 - **17 nov ±07:25 UTC, run 133. De betaalde versie van Tij kan drie velden kiezen uit negen soorten; de gratis versie is voor het eerst in beeld en wordt nu ook getoetst.**
   - **GEZIEN (run 44035849963, 696f4da, groen; `uitslag.txt` en beelden met Read):** de gratis versie op de fēnix 8 47 mm toont Tide met hartslag, stress en stappen (`platformen/garmin/tij-zee/zee-run133-gratis-wakker.png` en `-slaap.png`; `KERN SOORT betaald=nee thema=1 velden=0,1,2`, `GRATIS_IN_BEELD goed`). Betaald: 40 toetsen groen, `INSTELLINGEN bestanden=3 thema=33 velden=3`, pakket voor 63 horloges zonder waarschuwingen (betaald 3.800.510 bytes, gratis 3.681.092), maten, kleuren en slaaptelling goed, tekenen hoogstens 23 ms (grens 50).
