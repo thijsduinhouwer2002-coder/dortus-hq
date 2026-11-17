@@ -1,9 +1,17 @@
 <?xml version="1.0"?>
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
-    <iq:application id="7e3a2d4b0c9f4a81b2d3e4f5a6b7c8d9" type="watch-app" name="@Strings.AppName" entry="MemoProefApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="6.0.3">
+    <iq:application id="7e3a2d4b0c9f4a81b2d3e4f5a6b7c8d9" type="watch-app" name="@Strings.AppName" entry="MemoProefApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="6.0.0">
         <iq:products>
             <iq:product id="fenix947mm"/>
-            <iq:product id="fenix943mm"/>
+            <iq:product id="fenix847mm"/>
+            <iq:product id="fr970"/>
+            <iq:product id="venu445mm"/>
+            <iq:product id="vivoactive6"/>
+            <iq:product id="fr57047mm"/>
+            <iq:product id="fr170"/>
+            <iq:product id="venux1"/>
+            <iq:product id="enduro3"/>
+            <iq:product id="fenixe"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="AudioInput"/>
