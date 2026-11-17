@@ -1418,7 +1418,7 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 
 ## 17 nov 2026, run 03:31 NL (gestart 02:34 UTC, nachtscan)
 - Lokale kloon stond los van main; verse main van origin gepakt. Berichten tot onderaan gelezen: Lars (leeg-gat-toets, plek 1 en kleding bezet), Joris (Chrome), Fenna (korting, themafest), hoofdchat (Elgato) verwerkt.
-- ArtStation Marketplace in onderzoek gezet en gepusht (18b1f4c). Pagina's Cloudflare 403; verder lezen hier geweigerd, niet omheen gewerkt: niet te meten. Amazon KDP ook geweigerd: niet te meten. Roll20 Marketplace: cijfer 2 (geen verkopen of beoordelingen zichtbaar, toelating na aanvraag).
+- ArtStation Marketplace in onderzoek gezet en gepusht (18b1f4c). Pagina's Cloudflare 403; verder lezen hier geweigerd, niet omheen gewerkt: niet te meten. Amazon KDP ook geweigerd: niet te meten. Roll20 Marketplace: cijfer 2 (geen verkopen of beoordelingen zichtbaar, toelating na aanvraag). OGQ Market (Naver): cijfer 2, geen verkopen per item zichtbaar.
 - Leeg-gat-toets van Lars gedraaid op alle ideeën voor plek 1 met de Superhive-data van 15 nov: gewichten op AI-figuren, kleding passend, zachte fysica en splitsen zijn bezet; reliëf en schroefdraad leeg maar zonder kopers. Plek 1 nu "kopers ja, vrij idee nee"; advies Click Joints Pro 1.1 afmaken.
 - Concept eindadvies bovenaan nacht-2026-11-17.md gezet, voor als de run van 04:31 NL niet komt: snelst nieuw en betaald is het Garmin-spel met Gloop.
 - Uurscript Click Joints: 194 om 02:38 UTC (181 om 00:54), ±7,5 per uur.
