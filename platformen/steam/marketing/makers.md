@@ -22,6 +22,7 @@ De 15 die als eerste een mail of sleutel krijgen, nu gekozen op **wat een video 
 | 71 | Rusty Champaign | 5.900, bijna elke dag een demo | via kanaal | demo af |
 | 20 | Nookrium | 45.000, "best from Next Fest" | via kanaal | festweek (14 jan) |
 | 39 | Dekaff (Dekaif) | 486.000 (2,5x), "unhinged games on Next Fest" | zakelijk adres in kanaaltekst | festweek (14 jan) |
+| T11 | Indie Game Joe (TikTok, run 17) | 667.500 (17x volgers), alleen "binnenkort"-spellen in één vaste vorm | Discord (Thijs) | paginadag |
 Paginadag aangevuld met 75 Kaganath, 76 GameGen, 77 Get To It en 78 Sloth Vibes (zie "Nieuwe kanalen via zoeken"; run 13). Titels en timing nagekeken op hun laatste 12 video's (run 13, ±23:40 UTC): Fleurs en Gaming In The Wild maken lijsten van wat in een maand **uitkomt**, JGigs alleen van uitgebrachte spellen; daarom later. Eruit gehaald uit de eerste ronde (blijven op de lijst, naar Curator Connect bij demo af, geen eigen mail): The Indie Brew (mediaan 208; de 16.602 was een uitschieter), Maybe Sarisa (566, ook haar bureaubladvideo maar 927), Conkbot (27), NextBigGames (1.400), CozyAriGames (1.500), Kosh Idle (1.600), GriffyBit TV (5.000, streams). Waarom: een mail kost Thijs evenveel tijd bij 200 als bij 90.000 weergaven.
 Verwachting (GOK): het totaal aan weergaven van video's waarin Hats kan staan gaat omhoog, maar in een lijstvideo zijn we 1 van 15 tot 30 spellen en grote kanalen geven weergaven, geen kopers (Desktop Survivors 98, Fenna verhaal 9). De begroting in `festplan.md` (makers ±10.000 tot 60.000) laat ik staan tot de paginadag echte doorkliks laat zien.
 
@@ -221,7 +222,7 @@ Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B,
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
-- Stand run 4: **73 makers** (59 YouTube, 8 streamers, 6 aanloopkanalen; Indie Games Hub stond er al als #21), plus 23 curatoren in `curatoren.md`. Vóór di 24 nov: een korte eerste ronde van ±15 namen bovenaan dit bestand zetten, zodat de hoofdchat die in één blik aan Thijs kan laten zien.
+- Stand run 4: **73 makers** (59 YouTube, 8 streamers, 6 aanloopkanalen; Indie Games Hub stond er al als #21), plus 23 curatoren in `curatoren.md`. Vóór di 24 nov: een korte eerste ronde van ±15 namen bovenaan dit bestand zetten, zodat de hoofdchat die in één blik aan Thijs kan laten zien. (Gedaan run 13: "Eerste ronde in één blik" bovenaan; run 17 T11 erbij.)
 
 ## Contact van 41 tot 71 nagelopen (run 7, 16 nov ±17:37 UTC)
 Kanaaltekst van 22 kanalen opnieuw gelezen (`data/contact.py`, uitkomst `data/contact-41-71-2026-11-16.csv`; adressen zelf niet overgenomen, alleen het soort). 
