@@ -209,6 +209,24 @@ Onderwerp: A cozy game where you're the dungeon
 
 **Rusty Champaign (#71), geen adres in tekst.** Na 18 dec via de reactie of het adres dat hij dan noemt: dezelfde tekst als groep A, met zijn video "A Cozy Idle Game About Turning a Desert Into an Oasis!" als persoonlijke zin.
 
+## F. TikTok-lijstaccounts (T11 Indie Game Joe, run 17)
+Doel: één video in zijn vaste vorm op of na de paginadag (±8 dec). Hij heeft geen adres; de route is zijn Discord (discord.gg/indiegamejoe, 15.737 leden). Ik kan niet zien of daar een kanaal voor inzendingen is (alleen met inlog). Thijs kijkt bij binnenkomst welk kanaal ervoor is en plaatst daar, of stuurt het als bericht als de regels dat vragen. Nooit in een algemeen kanaal spammen; staat er nergens dat inzenden mag, dan alleen de nieuwsbrief-route (zelfde tekst) en klaar.
+
+Waarom deze vorm: al zijn 16 gemeten video's volgen hem, en hij moet er zo min mogelijk werk aan hebben (`makers.md` T11).
+
+**Bericht (CONCEPT, Thijs plaatst, ±1 minuut):**
+> Hi Joe, love the "it's called X, you can wishlist it on Steam now" videos. Here's one you could use as is:
+>
+> This indie dev made a slime that lives on top of your taskbar while you work, and heroes keep trying to rob it
+> - Every hero who falls leaves a hat on Gloop's head
+> - The ones who escape come back with a grudge
+> - Open it for a few minutes a day and your hole grows for weeks
+>
+> It's called Hats of the Fallen. Steam page: {link}. Free demo January 4.
+> Clips and a key are yours if you want them: {map met clips}
+
+Regels nagelopen: plek eerst (6d), speelduurzin van Bram (6b), geen "idle" in de eerste zin (TikTok-afspraak met Chris, 16 nov), geen "no AI" of "human-made", geen beloning voor volgen of verlanglijst.
+
 ## Curator Connect (Steamworks, Thijs)
 Korte tekst bij een sleutel via Curator Connect (veld is kort, GOK ±300 tekens; nakijken in Steamworks):
 > Every hero who falls into Gloop's dungeon leaves a hat on his head; the ones who get away come back with a grudge. A silent idle game on top of your taskbar. Free demo in the Desktop Companion Fest, Jan 14 to 18.
