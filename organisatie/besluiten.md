@@ -455,3 +455,6 @@ Ook vandaag: Ebb Calm 1.0.1 ingediend met link naar Ebb en banner. Ebb-filmpje n
 
 ## 17 nov 2026 ±13:40 NL: geen testprint voor Click Joints (Thijs)
 Thijs wil geen testprint laten maken. Gevolg: de Pro-pagina belooft geen "click" meer (aangepast 13:30), en we noemen nergens dat het klikt tot er een echte print of een koper is die het laat zien. Testbestanden blijven in `commercie/blender-click-joints/testprint/` voor als een koper of maker wil helpen.
+
+## 17 nov 2026 ±13:55 NL: Bison & Flex openbaar (Thijs ja 13:47)
+De plugin stond na de goedkeuring van JetBrains nog op "hidden" omdat wij zelf nooit op "Publish Plugin" drukten (bevestiging: "not reversible"). Nu openbaar (API: isHidden false) en vindbaar in de zoekfunctie op "bison", naast Bison Language Support. Prijs: 30 dagen proef, $19 per jaar. Les voor de lanceerlijst: na goedkeuring van een winkel altijd zelf controleren of het product echt zichtbaar en koopbaar is. Per ongeluk een tabblad "Report content" geopend en meteen gesloten, niets verstuurd.
