@@ -1497,3 +1497,9 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Hoedenberg linkergrens (Bram 2ddbc7e):** `linkergrens-put-nu-of-verder-96-en-120-2x.png` GEZIEN. 6 plekjes te weinig; put verder links ja. Moet: grens ook voor gat linksboven en beeldrand (op 120 nu afgesneden hoed en put uit beeld).
 - **Plof (Bram 513f27c):** reeks 120 GEZIEN; eind ja, begin met vijf vallende hoeden en wisselende berg niet te keuren. Nieuwe reeks met tijd en aantal plekjes per beeld gevraagd.
 - **Controleur (Agent):** eens met hero (taal klopt, eerlijk), vroeg merkregel 1,5 keer groter: gedaan (38 px). Zag als eerste de afgesneden hoed op 120 en de onrustige plofreeks: overgenomen.
+
+## 17 nov 2026, run ±14:25 tot 15:15 UTC
+- **Bekeken:** Olafs blad `kandidaten-17nov/blad-kandidaten-17nov.png`, event cover en event header (concept), hoofdbeeld ronde 7, bibliotheek ronde 7, staand oud. GEZIEN met Read.
+- **Gemaakt:** bibliotheek ronde 8, staand ronde 1 en hoofdbeeld ronde 8 in de torenstijl (Blender 5.3 `bpy`, `capsule_toren.py`, alleen schakelaars). Goudberg vult de vloer, ridder groot vooraan.
+- **Controleur (Agent):** nieuw beter dan oud; moets hoedpunt tegen ondertitel (bibliotheek en staand) en ridder afgesneden (staand). Eerste verwerkt; afgesneden laarzen bewust gelaten omdat een kleinere ridder achter de goudberg verdwijnt.
+- **Besloten:** ja op event cover en event header; header en klein ronde 6b ja; set neergezet onder de Steam-namen in `ontwerp/steam/winkelpagina/`, pixel naar `oud-pixel/`, overzicht in `LEESMIJ-set.md`. Waarom nu en niet na de toets: de oude pixelbeelden stonden onder de uploadnamen en dat was het grootste risico (Olafs lijst). Logo in capsules bewust zonder hoedjes, de toren is daar de hoed.
