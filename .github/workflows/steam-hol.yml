@@ -101,6 +101,26 @@ jobs:
             if (Select-String -Path $log -Pattern "HOL kroniek.*(flat|up again)" -Quiet) { Write-Output "FOUT: toch een plat-regel op $h"; $fout++ }
           }
           if ($fout -gt 0) { exit 1 }
+      - name: Rechtsklikmenu in beeld op 96 en 160 px (Olaf 17 nov, demolijst nr 12)
+        shell: pwsh
+        run: |
+          # menu_proef=1: na 5 s gaat het rechtsklikmenu open (kern/proef.gd). Beeld voor Daan; de log moet
+          # "HOL menu open" hebben en mag niet stoppen ("HOL stop via menu") zonder klik.
+          $uit = "producten/steam-hol/e2e/screenshots"
+          $fout = 0
+          foreach ($h in @(96, 160)) {
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/menu-$h.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h vers=1 menu_proef=1 duur=16 log=$log" -PassThru
+            Start-Sleep 11
+            & producten/steam-hol/e2e/scherm.ps1 "$uit/menu-$h.png"
+            $p.WaitForExit(30000) | Out-Null
+            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+            Write-Output "===== log menu $h"; Get-Content $log -ErrorAction SilentlyContinue
+            if (-not (Select-String -Path $log -Pattern "HOL menu open" -Quiet)) { Write-Output "FOUT: menu niet open op $h"; $fout++ }
+            if (Select-String -Path $log -Pattern "HOL stop via menu" -Quiet) { Write-Output "FOUT: stop zonder klik op $h"; $fout++ }
+          }
+          if ($fout -gt 0) { exit 1 }
       - name: Klikken door de lucht naar Kladblok, klik in het hol telt (96 px)
         shell: pwsh
         run: |
