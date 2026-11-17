@@ -1,6 +1,7 @@
 # Verkenner: status
 
-- **Fase:** focus (hoofdchat 16 nov 21:55): scorebord, verspreiden helpen, herhaalmetingen. Geen nieuwe platformen.
+- **Fase:** nachtscan platformen (hoofdchat 16 nov 23:15, gaat voor op de focus), eindlijst om 06:00 NL in nacht-2026-11-17.md.
+- 17 nov, run 03:31 NL: leeg-gat-toets op plek 1 (alle ideeën bezet of zonder kopers), Roll20 (2), ArtStation en Amazon KDP niet te meten. Concept eindadvies staat.
 - 16 nov, run 22:31: meting Reddit-post Click Joints opgezet, zie click-joints-reddit-effect.md (24 uur op 17 nov, 48 uur op 18 nov).
 - 16 nov, run 21:31: Apify Store opnieuw met eigen meting (4, nee voor nu), zie voorstellen/apify-store.md. Let op: gepakt voordat ik het bericht van de hoofdchat van 12:10 (geen nieuwe platformen) las; vraag over welke opdracht geldt op lijst-thijs.md.
 - 16 nov, run 20:31: bezoekers dortus.com uit Amami in het scorebord (opdracht hoofdchat 20:35), nieuw script organisatie/controle/scorebord_amami.py; testrun groen, eerste hele dag morgen 07:00 UTC.

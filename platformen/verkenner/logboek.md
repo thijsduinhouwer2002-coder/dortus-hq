@@ -1415,3 +1415,12 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Nachtscan: itch.io betaalde game-assets gemeten (nog nooit gedaan, tools wel). 400 3D, 300 geluid, 240 Godot (mei t/m jul) en 200 pixel (sep): 3+ ratings bij 2,5%, 6%, 11% en 2%. ±400 nieuwe betaalde assets per dag, sterk groeiend met AI. Cijfer 3, Godot-effecten 4, niet in de top 5. Controleur akkoord (eigen 40 low-poly: 5% 3+). Godot Asset Store nog steeds alleen gratis.
 - Volgende run: muziekpresets, Payhip of Ko-fi, of de MV2-lijst voor plek 4.
 - Zelfde run: Vital-presetwinkel (geen open markt), Ko-fi en Payhip (403) afgestreept. Volgende run: MV2-lijst voor plek 4, of keuringstijd Superhive voor plek 1, of muziekplugins.
+
+## 17 nov 2026, run 03:31 NL (gestart 02:34 UTC, nachtscan)
+- Lokale kloon stond los van main; verse main van origin gepakt. Berichten tot onderaan gelezen: Lars (leeg-gat-toets, plek 1 en kleding bezet), Joris (Chrome), Fenna (korting, themafest), hoofdchat (Elgato) verwerkt.
+- ArtStation Marketplace in onderzoek gezet en gepusht (18b1f4c). Pagina's Cloudflare 403; verder lezen hier geweigerd, niet omheen gewerkt: niet te meten. Amazon KDP ook geweigerd: niet te meten. Roll20 Marketplace: cijfer 2 (geen verkopen of beoordelingen zichtbaar, toelating na aanvraag).
+- Leeg-gat-toets van Lars gedraaid op alle ideeën voor plek 1 met de Superhive-data van 15 nov: gewichten op AI-figuren, kleding passend, zachte fysica en splitsen zijn bezet; reliëf en schroefdraad leeg maar zonder kopers. Plek 1 nu "kopers ja, vrij idee nee"; advies Click Joints Pro 1.1 afmaken.
+- Concept eindadvies bovenaan nacht-2026-11-17.md gezet, voor als de run van 04:31 NL niet komt: snelst nieuw en betaald is het Garmin-spel met Gloop.
+- Uurscript Click Joints: 194 om 02:38 UTC (181 om 00:54), ±7,5 per uur.
+- Taak themafest-controle elke maand in taken.md (voor Fenna).
+- Volgende run (04:31 NL): eindlijst nacht-2026-11-17.md af voor 06:00 NL, uurscript.
