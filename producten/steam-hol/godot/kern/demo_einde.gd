@@ -97,7 +97,7 @@ static func weiger(s, wat: String) -> bool:
 		s._kroniek(REGEL_START)
 	return true
 
-const WEIGER_PAUZE := 20.0
+const WEIGER_PAUZE := 60.0  # Sanne 17 nov 05:58: hooguit één keer per minuut
 static var weiger_laatst := -1000.0
 
 # Mag de regel na een geweigerde klik nu (weer) in beeld: eerste keer altijd, daarna pas na WEIGER_PAUZE s.

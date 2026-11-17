@@ -636,17 +636,17 @@ func _init() -> void:
 	DE.bij_start(ds)
 	DE.bij_start(ds)
 	ok(ds.kroniek.count(DE.REGEL_START) == 1, "startregel stapelt niet bij twee starts")
-	# geweigerde klik doet iets zichtbaars (Sanne 17 nov 04:52): startregel opnieuw, hooguit één keer per 20 s, stapelt niet
-	ok(DE.mag_tonen(0.0, -1000.0) and not DE.mag_tonen(19.9, 0.0) and DE.mag_tonen(20.0, 0.0) and DE.mag_tonen(5.0, 30.0),
-		"weigerregel: eerste keer, dan pas na 20 s, en weer na een klok die terugspringt")
+	# geweigerde klik doet iets zichtbaars (Sanne 17 nov 04:52): startregel opnieuw, hooguit één keer per 60 s (Sanne 05:58), stapelt niet
+	ok(DE.mag_tonen(0.0, -1000.0) and not DE.mag_tonen(59.9, 0.0) and DE.mag_tonen(60.0, 0.0) and DE.mag_tonen(5.0, 30.0),
+		"weigerregel: eerste keer, dan pas na 60 s, en weer na een klok die terugspringt")
 	DE.weiger_laatst = -1000.0
 	ds.kroniek.clear()
 	ok(DE.weiger(ds, "klik 1") and ds.kroniek == [DE.REGEL_START], "geweigerde klik zet de startregel in de kroniek: " + str(ds.kroniek))
 	DE.weiger(ds, "klik 2")
-	ok(ds.kroniek.size() == 1, "tweede klik binnen 20 s: geen tweede regel")
-	ds.speeltijd_s += 25.0
+	ok(ds.kroniek.size() == 1, "tweede klik binnen 60 s: geen tweede regel")
+	ds.speeltijd_s += 65.0
 	DE.weiger(ds, "klik 3")
-	ok(ds.kroniek.count(DE.REGEL_START) == 1 and DE.weiger_laatst == ds.speeltijd_s, "na 20 s weer zichtbaar, stapelt niet in de geschiedenis")
+	ok(ds.kroniek.count(DE.REGEL_START) == 1 and DE.weiger_laatst == ds.speeltijd_s, "na 60 s weer zichtbaar, stapelt niet in de geschiedenis")
 	var ds2 = nep_de.new()
 	ds2.steamdemo = false
 	ds2.hol = ds.hol
