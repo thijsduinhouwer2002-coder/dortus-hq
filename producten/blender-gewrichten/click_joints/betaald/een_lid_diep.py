@@ -199,6 +199,13 @@ def bereid_diep(werk, frame, vlak_z, diepte, marge, solver, hulp):
 _oud = [None]
 
 
+def origineel():
+    """De gratis `een_lid.bereid` (zonder dieper omhulsel). Run 28: in Blender 4.2 (alleen de Exact-solver) liet het
+    diepe omhulsel bij een scharnier het andere onderbeen kwijtraken (CI run 44066480759, toetsen_een_lid en plaatje 16);
+    daar houdt het scharnier de oude vorm, zoals in de groene run 26."""
+    return _oud[0] if _oud[0] is not None else _l.bereid
+
+
 def register():
     if _oud[0] is None:
         _oud[0] = _l.bereid

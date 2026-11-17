@@ -26,6 +26,7 @@ from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
 from . import snippers
+from . import een_lid_diep
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
 from . import scharnier_neus as neus
@@ -160,8 +161,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             werk = bpy.data.objects.new("cj_werk", me_bron.copy())
             hulp.objects.link(werk)
             # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
-            ok_lid, melding = een_lid.bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver,
-                                             hulp)
+            # Run 28: met alleen Exact (4.2) de gratis bereid, het diepe omhulsel kostte daar het andere onderbeen.
+            bereid = een_lid_diep.origineel() if solver == "EXACT" else een_lid.bereid
+            ok_lid, melding = bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
             if not ok_lid:
                 ruim_op(hulp)
                 bpy.data.meshes.remove(me_bron)
