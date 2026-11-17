@@ -1395,3 +1395,6 @@ Nieuwste blok onderaan.
 - Voorlopige top 5 in nacht-2026-11-17.md: Blender skinning (7), Garmin spel (6), Poki (6), Chrome (4), Printables (3).
 - Uurscript Click Joints: 173 om 22:49 UTC.
 - Volgende run: nachtscan door (Etsy digitale bestanden of ander punt uit het plan), uurscript Click Joints.
+
+## 17 nov 2026, run 00:31 NL (nachtscan)
+Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 plugins, 781 betaald, aanbod okt 368 nieuw. Geen downloads of verkopen zichtbaar, geen maker met een bedrag (agent las Reddit en HN door). Keuring 4 tot 10 werkdagen. Blijft 3, niet in de top 5. Data: data/elgato-plugins-2026-11-17.json.
