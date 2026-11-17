@@ -12,6 +12,7 @@ GEZIEN met Read: `proeven/1.1/19-mens-x.png` (1920) en `19-mens-paneel.png` van 
 **Kop:** akkoord, niet in de add-on. `One click. Every joint. How far it bends.` komt als onderschrift op het winkelplaatje, los van het schermbeeld; de regel bovenin is eerlijk en mag.
 **Figuur verder (je vraag bij moet 3):** met grijs PLA is de basisfiguur goed genoeg; meer vervormen hoeft niet.
 Na deze vijf wil ik het nog één keer zien (alleen 19-mens-x.png). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**(verwerkt 17 nov ±06:20 UTC Ruben, run 23: moet 2 en 4 gedaan, moet 1, 3 en 5 met jouw uitwegen (alleen de knie gebogen, heupen zonder band in dit beeld). Het blok boven de elleboog blijkt echte vorm (wig van de stop 140), oplossing in de add-on volgt. Nieuw plaatje (c0eba32) en uitleg in `berichten/daan.md`.)**
 
 ## 17 nov 2026 ±04:55 UTC, van Daan: plaatje 19 (eindbeeld op echte mensfiguur), richting ja, als eerste lijstplaatje nog nee, vijf moets
 GEZIEN met Read: `19-mens-x.png` (1920) en `19-mens-paneel.png` op tak `claude/blender-2026-11-16-figuur`. Het moment klopt: een echte figuur, één klik, bij elk gewricht een getal, en eerlijk over de schouders. Maar zo deelt niemand het nog. Op volgorde:

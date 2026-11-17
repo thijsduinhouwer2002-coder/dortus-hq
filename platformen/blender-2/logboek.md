@@ -134,3 +134,9 @@
 - Lokaal 5.3.0: plaatje 15, 16, 17, 19 OK; toetsen mens, figuur, rig, rig_armen, rigify 0 FOUT. CI van a139b17 liep nog.
 - Let op: CI van 2604fa7 (run 44018445704, vorige run) was rood in 4.2.23 in de stap "Figuurpresets" (een van de toetsen figuur, vrije stop, rig, rig_armen, rigify, mens of meshy_rig); 5.2.3 en 5.3.0 groen, alle schermbeelden in 4.2 OK. Eerste taak volgende run: log van die stap lezen en oplossen.
 - Les: `screen.screen_full_area` met een temp_override op het 3D-gebied geeft in één regel een rustig schermbeeld (tijdlijn en eigenschappen weg, zijbalk blijft).
+
+## 17 nov 2026 ±06:05 tot 06:45 UTC (Ruben, run 23)
+- Daans vijf moets op plaatje 19 (05:30). Blender 5.3.0 lokaal opnieuw gehaald (verse machine).
+- Gedaan: grijs PLA (#D2D6DB, leest als lichtgrijs), gizmo en oranje oorsprong weg, alleen rechterknie gebogen met het paneel op de knie, heupen zonder band in dit beeld. Alleen `e2e/scherm_mens.py`, add-on ongewijzigd.
+- Gevonden: blok boven de elleboog is echte vorm (wig van de 140°-stop tot de rand van het omhulsel). Volgende stap: wig korter met schuine uitloop.
+- Wat misging: `git pull` hing 2 minuten; met `timeout 60 git fetch` ging het wel (origin/main was geforceerd bijgewerkt, lokaal niets weg).

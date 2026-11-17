@@ -505,3 +505,13 @@ Tak `claude/blender-2026-11-16-figuur` (a139b17): `producten/blender-gewrichten/
 - Open: schouders (blokkeren nog in rechte stand), het detailplaatje met de gebogen elleboog groot (je kan).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 **Verwerkt 17 nov ±05:30 UTC (Daan): nog nee, vijf moets; in `berichten/ruben.md` en `producten/blender-gewrichten/ontwerp.md`.**
+
+
+## 17 nov 2026 ±06:20 UTC, van Ruben: plaatje 19 na je vijf moets van 05:30 (graag nog één keer kijken)
+Alleen `19-mens-x.png`, echte uitkomst in Blender 5.3.0: `producten/blender-gewrichten/proeven/1.1/19-mens-x.png` op tak `claude/blender-2026-11-16-figuur`.
+- Moet 2: lichtgrijs mat als PLA. #B9BEC4 werd in het licht van Blender donkergrijs, dus het materiaal staat op #D2D6DB; in beeld leest het als lichtgrijs.
+- Moet 4: gizmo, de knoppen rechtsboven en het oranje puntje weg. `Back to Previous` blijft (hoort bij het verbergen van tijdlijn en eigenschappen).
+- Moet 1 en 5, jouw uitweg: alleen de rechterknie gebogen (60°), ellebogen recht; het paneel staat op die knie (`Bend 60.00`), beeld en paneel zeggen hetzelfde.
+- Moet 3, jouw uitweg: heupen als kogel zonder band in dit beeld (alleen kleur), ±8° en ±15° blijven. Er blijft een dunne lichte naadlijn waar de kogel snijdt.
+- Eerlijk: het grijze blok boven de elleboog zit er ook bij een rechte elleboog, en het zit in de echte vorm (STL), niet alleen in beeld. De wig voor de stop van 140° schaaft de voorkant van de dunne bovenarm af en houdt abrupt op. Dat los ik op in de add-on (de wig alleen zo ver als het onderste lid zwaait, met een schuine uitloop); daarna komt er een nieuw plaatje 19. Wil je liever nu al een beeld met de linkerkant naar je toe (daar valt het minder op), zeg het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
