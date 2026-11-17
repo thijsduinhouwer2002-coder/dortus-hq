@@ -759,3 +759,9 @@
 - ±20:50 tot 21:05 UTC: reeks datawijzerplaten, stijlblad begonnen (`ontwerp/garmin/reeks/LEESMIJ.md`). Winkelbeelden van zes toppers met curl opgehaald (route naar de beelden staat erin): alles is zwart-strak of tactisch, niemand is warm of heeft karakter. Proef 1 "Koers" (pijltje per veld, vier thema's) GEZIEN op 454 en 260: leesbaar, maar nummer zeven in de rij; **niet gekozen**. Volgende run: proef a, b en c uit de LEESMIJ naast de toppers op 200 px.
 - ±21:05 tot 21:15 UTC: proef 2 "Tij" (Body Battery als zee met bootje, leeg = aan de grond). **Besluit:** dit wordt mijn voorstel voor plaat 1. Waarom: tussen zes zwarte toppers is het de enige met kleur en een grap, en het is familie van Ebb. GEZIEN op 454 en 260 in vier standen; eigen fout (getal buiten de rand bij laag water) hersteld. Dichtste concurrent Overflow - Big Liquid Digits. Bij Daan voor ja of nee, Gijs gemeld.
 - Volgende run: Daans oordeel over winkelbeelden Hat Tower en over Tij; bij ja het blad met alle maten en slaapstand.
+
+## 17 nov ±00:37 tot 01:22 UTC
+- Begraven proef 4 (moet Daan): lichte lip werd donkere aardrand met drie kruimels over de snede. Kruimels die onder de rand doorliepen lazen als druppels, weg. GEZIEN in de echte opname. `begraven.png` op main bijgewerkt.
+- Edelhoed: **besluit** Daans maten zo overnemen als nr 10 in `hoeden.py`, plus biesje onder de band. Waarom: zijn schets werkte al op spelmaat; op de toren in de echte opname is hij op 1x het eerste wat je ziet. Op tak `claude/steam-edelman`, want bouwen pas na de speeltest.
+- Rolsteen proef 1 als echt model: icosfeer gaf een zaagtandgroef, bol met polen op de groefas geeft een strakke kerf. Leest als steen; vlakken en rand nog niet goed.
+- Volgende run: Tij-rand dunner (kan Daan), rolsteen vlakken en 6 rolbeelden op spelmaat, lijf edelman in `held_soorten.py`.
