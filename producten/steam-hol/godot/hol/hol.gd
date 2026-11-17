@@ -82,7 +82,7 @@ func leg_aan(s: int, lengte := 10) -> void:
 		boven[i] = false
 	_schatkamer()
 	vallen.clear()
-	vallen[maxi(ingang_kol + 1, mini(ingang_kol + 5, schat_kol - 3))] = "stekelput"
+	vallen[maxi(ingang_kol + 1, mini(ingang_kol + 3, schat_kol - 5))] = "stekelput"   # 2 kolommen verder links dan eerst (Daan 10:50, Olaf 14:30): ruimte voor de hoedenberg
 	queue_redraw()
 
 # drie muntjes vliegen van kolom k naar de schat (Sanne toets 2, punt 2: goud zie je binnenkomen)

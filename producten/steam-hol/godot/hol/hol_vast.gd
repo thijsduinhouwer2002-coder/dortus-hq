@@ -513,7 +513,7 @@ const WAND_Y_MAX := 19
 
 static func wand_plekken(h, schat_3d: bool) -> Array:
 	var kand := []
-	var eind: int = h.schat_kol - (4 if schat_3d else 1)   # 3D: niet achter de stapel hoeden, Gloop en de schatkamer
+	var eind: int = h.schat_kol - (6 if schat_3d else 1)   # 3D: niet achter de stapel hoeden, Gloop en de schatkamer; 6 sinds de berg tot 21 plekjes groeit (Bram 17 nov, Daan 10:50: geen hoed tegen een gat)
 	for k in range(h.ingang_kol + 2, eind):
 		if not h.boven[k] and h.gang[k] and k <= h.max_kol:
 			kand.append(k)
