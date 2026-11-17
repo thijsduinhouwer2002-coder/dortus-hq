@@ -227,7 +227,7 @@ function testZeeBandenVerschillen(logger as Test.Logger) as Boolean {
         for (var m = 0; m < 2; m++) {
             for (var i = 0; i < 3; i++) {
                 if (Thema.band(t, i, m) == Thema.band(t, i + 1, m)) {
-                    logger.debug("gelijk: thema " + t + " band " + i + " mip " + m);
+                    logger.debug("gelijk: thema " + t + " band " + i + " diepte " + m);
                     return false;
                 }
             }

@@ -106,7 +106,7 @@ module Thema {
 
     // Het zeil. Op 64 en 8 kleuren altijd wit: het lichtste vlak, nooit een kleur die ook in het water zit (moet van Daan).
     function zeil(thema as Number, diepte as Number) as Number {
-        return (diepte == VOL) ? kleur(thema, MINUTEN) : 0xFFFFFF;
+        return (diepte == MIP64 || diepte == MIP8) ? 0xFFFFFF : kleur(thema, MINUTEN);
     }
 
     // De uren en de dubbele punt. Alleen op 8 kleuren vast: uren wit, punt cyaan.
@@ -120,7 +120,7 @@ module Thema {
 
     // De rand om het getal van Body Battery. VOL: de donkere zee, nog donkerder. 64 en 8 kleuren: zwart.
     function rand(thema as Number, diepte as Number) as Number {
-        return (diepte == VOL) ? Zee.meng(kleur(thema, ZEE_ONDER), 0x000000, 4, 10) : 0x000000;
+        return (diepte == MIP64 || diepte == MIP8) ? 0x000000 : Zee.meng(kleur(thema, ZEE_ONDER), 0x000000, 4, 10);
     }
 
     // Alleen voor de proef in de bouwstraat (weg in stap (d), als de drager zelf kiest): elk proefhorloge een
