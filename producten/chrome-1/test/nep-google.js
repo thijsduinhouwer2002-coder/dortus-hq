@@ -79,6 +79,9 @@ export function maakNepGoogle({ paginaGrootte = 2500, legePagina = false } = {})
         if (e.status === "cancelled") return fout(404, "notFound");
         const doel = q.get("destination");
         if (!nep.afspraken[doel]) return fout(404, "notFound");
+        const dcal = nep.agendas.find((a) => a.id === doel);
+        if (dcal.accessRole !== "owner" && dcal.accessRole !== "writer") return fout(403, "forbidden");
+        if (e.eventType && e.eventType !== "default") return fout(400, "invalid", "Event type cannot be moved");
         map.delete(evId);
         nep.afspraken[doel].set(evId, e);
         return antwoord(200, e);

@@ -35,6 +35,7 @@ test("token lezen: goed, verlooptijd een minuut eerder", () => {
   const r = leesToken(`https://abc.chromiumapp.org/#access_token=T&expires_in=3599&state=s1&scope=${encodeURIComponent(SCOPES.join(" "))}`, "s1", 1000);
   assert.equal(r.token, "T");
   assert.equal(r.verlooptOp, 1000 + 3539 * 1000);
+  assert.equal(leesToken("https://a.chromiumapp.org/#access_token=T&expires_in=30&state=s1", "s1", 1000).verlooptOp, 1000);
 });
 
 test("token lezen: verkeerde state, fout van Google, geen token, scope niet gegeven, rommel", () => {
@@ -102,10 +103,43 @@ test("verwijderen: 500 na uitvoeren, herhaling geeft 410: telt als gelukt, niets
   assert.deepEqual(geslapen, [1000]);
 });
 
-test("verwijderen van een al verwijderde afspraak zonder herhaling: niet_gevonden", async () => {
+test("verwijderen van een al verwijderde afspraak (410): telt als gelukt; echt onbekende id (404): niet_gevonden", async () => {
   const { nep, g } = opzet();
   nep.afspraak("ik@voorbeeld.nl", { ...afspraak("e1"), status: "cancelled" });
-  await assert.rejects(g.verwijder("ik@voorbeeld.nl", "e1"), (e) => e.soort === "niet_gevonden");
+  assert.equal(await g.verwijder("ik@voorbeeld.nl", "e1"), true);
+  await assert.rejects(g.verwijder("ik@voorbeeld.nl", "bestaatniet"), (e) => e.soort === "niet_gevonden");
+});
+
+test("eerste stille inloggen mislukt: GoogleFout inloggen met melding, geen kale fout", async () => {
+  const nep = maakNepGoogle();
+  nep.agenda("a");
+  const g = maakGoogle({ fetch: nep.fetch, haalToken: async () => { throw new Error("interaction_required"); }, slaap: async () => {} });
+  await assert.rejects(g.agendas(), (e) => e instanceof GoogleFout && e.soort === "inloggen" && /Opnieuw verbinden/.test(e.message));
+  const g2 = maakGoogle({ fetch: nep.fetch, haalToken: async () => "", slaap: async () => {} });
+  await assert.rejects(g2.agendas(), (e) => e.soort === "inloggen");
+});
+
+test("wijziging kwam aan maar antwoord bleef uit: melding onzeker, niet 'niet veranderd'", async () => {
+  const { nep, g } = opzet();
+  nep.afspraak("ik@voorbeeld.nl", afspraak("e1"));
+  nep.storingen.push({ methode: "PATCH", status: 503, reden: "backendError", toch: true });
+  for (let i = 0; i < 4; i++) nep.storingen.push({ methode: "PATCH", status: 503, reden: "backendError" });
+  await assert.rejects(g.wijzig("ik@voorbeeld.nl", "e1", { colorId: "5" }), (e) => e.soort === "onzeker" && !/niet veranderd/.test(e.message));
+  assert.equal(nep.afspraken["ik@voorbeeld.nl"].get("e1").colorId, "5");
+});
+
+test("lezen bij aanhoudende 429: melding over ophalen, niet over wijzigen", async () => {
+  const { nep, g } = opzet();
+  for (let i = 0; i < 5; i++) nep.storingen.push({ status: 429, reden: "rateLimitExceeded" });
+  await assert.rejects(g.agendas(), (e) => e.soort === "quota_lezen" && !/wijzigen/.test(e.message));
+});
+
+test("verplaatsen: naar alleen-lezen agenda 403, verjaardag 400", async () => {
+  const { nep, g } = opzet();
+  nep.afspraak("ik@voorbeeld.nl", afspraak("e1"));
+  nep.afspraak("ik@voorbeeld.nl", { ...afspraak("b1"), eventType: "birthday" });
+  await assert.rejects(g.verplaats("ik@voorbeeld.nl", "e1", "feestdagen"), (e) => e.soort === "geen_toegang");
+  await assert.rejects(g.verplaats("ik@voorbeeld.nl", "b1", "werk#team@group.calendar.google.com"), (e) => e.soort === "onbekend" && e.status === 400);
 });
 
 test("opnieuw proberen bij 429, 403 rateLimitExceeded, userRateLimitExceeded, 503 en geen netwerk", async () => {
@@ -117,11 +151,11 @@ test("opnieuw proberen bij 429, 403 rateLimitExceeded, userRateLimitExceeded, 50
   assert.deepEqual(geslapen, WACHTTIJDEN_MS);
 });
 
-test("blijvende 503: na 4 keer opnieuw een melding in gewone woorden, geen wijziging", async () => {
+test("blijvende 503 bij lezen: na 4 keer opnieuw een melding in gewone woorden", async () => {
   const { nep, g } = opzet();
   nep.afspraak("ik@voorbeeld.nl", afspraak("e1"));
   for (let i = 0; i < 5; i++) nep.storingen.push({ status: 503, reden: "backendError" });
-  await assert.rejects(g.wijzig("ik@voorbeeld.nl", "e1", { colorId: "5" }), (e) => e.soort === "netwerk" && /niet veranderd/.test(e.message));
+  await assert.rejects(g.haal("ik@voorbeeld.nl", "e1"), (e) => e.soort === "netwerk" && /niet veranderd/.test(e.message));
   assert.equal(nep.afspraken["ik@voorbeeld.nl"].get("e1").colorId, undefined);
 });
 

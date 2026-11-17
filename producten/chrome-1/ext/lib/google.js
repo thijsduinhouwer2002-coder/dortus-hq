@@ -14,6 +14,8 @@ export const MAX_PAGINAS = 200; // 200 x 2.500 afspraken; beschermt tegen een AP
 
 export const MELDINGEN = {
   quota: "Google laat je even niet meer wijzigen. Wat gedaan is, blijft gedaan. Probeer het later opnieuw.",
+  quota_lezen: "Google laat je even niets meer ophalen. Probeer het over een paar minuten opnieuw.",
+  onzeker: "Google antwoordde niet. Deze afspraak is misschien toch al veranderd. Ververs de lijst om te zien hoe hij nu staat.",
   inloggen: "Je bent niet meer verbonden met Google. Klik op 'Opnieuw verbinden'.",
   geen_toegang: "Je mag deze agenda of afspraak niet wijzigen.",
   niet_gevonden: "Deze afspraak bestaat niet meer. Misschien is hij net ergens anders veranderd.",
@@ -62,7 +64,7 @@ export function leesToken(redirectUrl, verwachteState, nu) {
   if (scope && !scope.split(/\s+/).includes(SCOPES[0])) throw new GoogleFout("inloggen", 0, "scope");
   const sec = Number(p.get("expires_in"));
   const geldig = Number.isFinite(sec) && sec > 0 ? sec : 3600;
-  return { token, verlooptOp: nu + (geldig - 60) * 1000 }; // een minuut eerder vernieuwen
+  return { token, verlooptOp: nu + Math.max(0, geldig - 60) * 1000 }; // een minuut eerder vernieuwen
 }
 
 // ---------- API ----------
@@ -103,13 +105,18 @@ export function maakGoogle(deps) {
   async function verzoek(method, pad, { query, body, bijHerhaling } = {}) {
     const qs = query ? "?" + new URLSearchParams(Object.entries(query).filter(([, v]) => v !== undefined && v !== null && v !== "").map(([k, v]) => [k, String(v)])).toString() : "";
     const url = API + pad + (qs === "?" ? "" : qs);
-    if (!token) token = await haalToken({ stil: true });
+    if (!token) {
+      try { token = await haalToken({ stil: true }); } catch (e) { throw new GoogleFout("inloggen", 0, e && e.message ? String(e.message) : null); }
+      if (!token) throw new GoogleFout("inloggen", 0, "geen_token");
+    }
     let nieuwToken = false;
     let poging = 0;
     let herhaald = false; // is er al een poging geweest die misschien aankwam?
     for (;;) {
       const r = await eenKeer(method, url, body);
       if (r.status >= 200 && r.status < 300) return r.json;
+      // Een DELETE die 410 "deleted" geeft: de afspraak is al weg, dat was het doel (Google: "no further action is necessary").
+      if (method === "DELETE" && r.status === 410) return null;
       if (herhaald && bijHerhaling) {
         const om = await bijHerhaling(r.status);
         if (om !== undefined) return om;
@@ -129,8 +136,11 @@ export function maakGoogle(deps) {
         if (r.status === 0 || r.status >= 500) herhaald = true;
         continue;
       }
-      if (r.status === 403 && (reden === "quotaExceeded" || reden === "dailyLimitExceeded")) throw new GoogleFout("quota", 403, reden);
-      if (tijdelijk) throw new GoogleFout(r.status === 403 || r.status === 429 ? "quota" : "netwerk", r.status, reden);
+      const lezen = method === "GET";
+      if (r.status === 403 && (reden === "quotaExceeded" || reden === "dailyLimitExceeded")) throw new GoogleFout(lezen ? "quota_lezen" : "quota", 403, reden);
+      // Een wijziging die misschien aankwam (time-out of 5xx eerder): niet zeggen dat er niets veranderde.
+      if (herhaald && !lezen) throw new GoogleFout("onzeker", r.status, reden);
+      if (tijdelijk) throw new GoogleFout(r.status === 403 || r.status === 429 ? (lezen ? "quota_lezen" : "quota") : "netwerk", r.status, reden);
       if (r.status === 403) throw new GoogleFout("geen_toegang", 403, reden);
       if (r.status === 404 || r.status === 410) throw new GoogleFout("niet_gevonden", r.status, reden);
       throw new GoogleFout("onbekend", r.status, reden);
@@ -170,10 +180,7 @@ export function maakGoogle(deps) {
     },
     // Een herhaalde delete die 410 geeft, kwam de eerste keer aan: telt als gelukt.
     async verwijder(calId, evId, { mailGasten = false } = {}) {
-      await verzoek("DELETE", ev(calId, evId), {
-        query: { sendUpdates: mailGasten ? "all" : "none" },
-        bijHerhaling: (status) => (status === 410 ? null : undefined),
-      });
+      await verzoek("DELETE", ev(calId, evId), { query: { sendUpdates: mailGasten ? "all" : "none" } });
       return true;
     },
     async wijzig(calId, evId, velden, { mailGasten = false } = {}) {
@@ -188,7 +195,7 @@ export function maakGoogle(deps) {
       return verzoek("POST", `${ev(calId, evId)}/move`, {
         query: { destination: doelId, sendUpdates: mailGasten ? "all" : "none" },
         bijHerhaling: async (status) => {
-          if (status !== 404) return undefined;
+          if (status < 400 || status >= 500) return undefined; // echte Google: welke 4xx is onbekend (GOK), dus kijk bij elke 4xx
           try {
             const al = await verzoek("GET", ev(doelId, evId));
             return al && al.status !== "cancelled" ? al : undefined;
