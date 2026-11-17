@@ -4,6 +4,8 @@ Opdracht hoofdchat 16 nov 20:20 (`berichten/olaf.md`). Thijs en de hoofdchat lop
 
 **Bijgewerkt 17 nov 2026 ±14:45 UTC (Olaf):** (1) welk bestand in welk vak hoort, met maten en keuring, staat nu in `winkelpagina-klaar.md`; de tabel "Winkelpagina" hieronder is daardoor deels oud (Mila staat uit; de capsules in `ontwerp/steam/winkelpagina/` zijn nog de pixelversies van 10 nov, niet uploaden). (2) Paginadag is ±8 dec (besluiten 17 nov), niet 30 nov; daarvoor indienen uiterlijk vr 27 nov (7 werkdagen, GEZIEN 17 nov). (3) Sem staat uit tot ±1 dec: het formulier van Laughs & Smiles vult de hoofdchat zelf in met de antwoorden uit `marketing/teksten-makers.md`. (4) Wat Thijs moet doen gaat naar `berichten/hoofdchat.md`, niet meer naar `lijst-thijs.md`. Maten nagekeken in de docs op 17 nov: niets veranderd; event cover 800 x 450 is verplicht voor aankondigingen (stond er al).
 
+**Bijgewerkt 17 nov 2026 ±16:55 UTC (Olaf):** ID-controle bij Valve loopt nog (hoofdchat, GEZIEN 17 nov); staat "Create new app..." grijs, volg dan `plan-b-id-controle.md` (één scherm: wat schuift bij eind december of eind januari). Winkelset volledig onder de Steam-namen in `ontwerp/steam/winkelpagina/`, header nu ronde 9 (Daan 15:55); blad voor Thijs wo 20:00 opnieuw gemaakt. Wat in welk vak: `winkelpagina-klaar.md`.
+
 Alle bronnen zijn Steamworks-docs, gelezen met curl op 16 nov 2026 ±20:30 UTC (GEZIEN). Waar de docs niets zeggen staat **GOK**. Persoonsgegevens, nummers en inloggegevens komen hier nooit: "staat bij Thijs".
 
 Stand nu (hoofdchat, 16 nov 20:12): nog geen app, **1 appcredit**, instapproces nog niet af ("Doorgaan met het instapproces"). $100 betaald op 9 nov (lijst-thijs).
