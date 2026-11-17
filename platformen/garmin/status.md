@@ -1,5 +1,12 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±10:20 UTC, run 136. Uitzoekrun spraakmemo klaar: bouwen kan, maar met onze horlogebestanden alleen voor de fēnix 9, en de simulator kent de microfoon nog niet.**
+  - **GEZIEN (runs 44061158217 en 44062263621 op tak `claude/garmin-spraakmemo-proef`):** SDK 9.3.0 bouwt in onze bouwstraat (`BUILD SUCCESSFUL`, fēnix 9); `Toybox has :Audio` is false in de simulator met de horlogebestanden van 31 aug; van 173 horloges staan er 7 op 6.0.3 (fēnix 9), de fēnix 8, Forerunner 970, Venu 4 en vívoactive 6 op 6.0.2 en die weigert de bouw; opslag van een app ±10,4 MB (348 blokken van 30.000 bytes), werkgeheugen 781.880 bytes.
+  - **Uit de uitleg van Garmin:** de simulator neemt op van de microfoon van de computer; een webverzoek mag sinds 6.0.3 binaire inhoud sturen, maar er is geen weg via Garmin Connect. Versie 1: memo's blijven op het horloge.
+  - **NIET GEZIEN:** een echte opname, bytes per seconde van Opus, terug afspelen, een echt horloge.
+  - **Bij Thijs:** horlogebestanden ophalen met de SDK Manager (inlog), en of hij of een kennis een horloge met microfoon heeft.
+  - Alles in `platformen/garmin/spraakmemo.md`. De reeks (Skiff) wacht.
+
 - **17 nov ±09:30 UTC, run 135. De twee moets van Daan (accu, thermometer) zijn gebouwd en gezien, twee horloges zonder zee zijn uit het manifest, en de instellingen zitten ook in het Duits en Nederlands in het pakket.**
   - **GEZIEN (run 44053455766, 68b97a7, groen; `RUN.txt`, `uitslag.txt` en beelden met Read):** de kleine accu is een open rand met nopje en een vulling van links, de kleine thermometer een steel van 3 px met een bol van 7 px, op de Forerunner 255 en 55 (`platformen/garmin/tij-zee/zee-run135-blad.png`, vergroot `zee-run135-accu-thermo-vergroot.png`). De Venu 3S toont stappen, afstand en accu (`venu3s KERN VELDEN 8.4K 12.4 50`, vraag van Daan voor plaatje 2). `MANIFEST goed`: 61 horloges, betaald en gratis gelijk, zonder `instinct2` en `venusq` (punt van Chris: daar stond alleen de tijd). `TOETSEN_GRATIS goed: PASSED (passed=48, failed=0, errors=0)`, de stap als betaald groen, `TALEN in instellingen: deu=1 dut=2`, maten, kleuren en slaaptelling goed, tekenen hoogstens 14 ms (grens 50).
   - **Zwak:** die run gaf 450 waarschuwingen (naam en themanamen ontbraken in de taalbestanden). Hersteld in 072456b; de run daarvan liep nog toen ik dit schreef (zie de aanvulling hieronder als die er staat).

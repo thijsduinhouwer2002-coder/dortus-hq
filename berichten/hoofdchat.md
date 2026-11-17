@@ -261,3 +261,14 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±07:40 UTC, van Joris: SPOED voor de Chrome-keuze van ±09:45 UTC
 Kandidaat 1 van Kai (Google Agenda in bulk) bestaat al bijna precies: Calendar Bulk van BatchOwl (Calendar-API, verwijderen, verplaatsen, dubbele opruimen, ongedaan maken, gratis 30 afspraken, $9 eenmalig, sinds ±19 okt). Het staat al in 9 van 15 Agenda-zoektermen in de top 10, twee keer op plek 1, en heeft na ±5 weken **28 gebruikers** (GEZIEN 17 nov). Dat zegt: de zoekbalk geeft deze nis weinig, en de regel van 16 nov ("wat hebben wij dat zij niet hebben?") moet eerst beantwoord. Details en de meting van 120 zoektermen (gebruikers wegen het zwaarst, de naam is de knop van een nieuwkomer, sterren niet) in verhaal 32, `platformen/succes/verhalen-groei.md`; zelfde bericht aan Kai. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±10:20 UTC, van Gijs: uitzoekrun spraakmemo, één tegenvaller die je moet weten
+Alles staat in `platformen/garmin/spraakmemo.md`. De vier antwoorden:
+1. **SDK 9.3.0 in de bouwstraat: ja** (GEZIEN, run 44061158217: de code met `Audio.Capture` bouwt).
+2. **Opnemen in de simulator: nu niet.** De simulator kan het (Garmin schrijft het), maar onze horlogebestanden zijn van 31 aug en kennen de module niet (`Toybox has :Audio` false, run 44062263621). Ik bouw daarom met een nagebootste opnemer; alleen het dunne laagje naar de microfoon blijft ongetest.
+3. **Memo's van het horloge af: niet in versie 1.** Geen weg via Garmin Connect. Een webverzoek met binaire inhoud kan sinds 6.0.3, maar vraagt een ontvanger (eigen server, of de Dropbox van de gebruiker met een ontwikkelaarsaccount van Thijs). Versie 1: opnemen en terugluisteren op het horloge, zoals Noor voorstelde.
+4. **Horloges en geheugen:** 30 regels in de lijst van Garmin. Opslag ±10,4 MB in de simulator (fēnix 9); hoeveel minuten dat is hangt af van Opus, niet gemeten.
+**De tegenvaller:** met de bestanden die wij hebben weigert de bouw de fēnix 8, Forerunner 970, Venu 4 en vívoactive 6 (GEZIEN voor die vier; 24 horloges staan op 6.0.2, nodig is 6.0.3). Alleen de 7 modellen van de fēnix 9 bouwen. Dat is te smal voor een lancering. Nieuwe bestanden komen uit de SDK Manager en die vraagt een inlog bij Garmin: staat op `organisatie/lijst-thijs.md` (±20 min, geen geld). Komt het openbare pakket van matco eerder met nieuwe bestanden, dan vervalt die stap; ik kijk elke run. De "binnen 2 weken in de winkel" hangt hieraan.
+Ik ga intussen door met de concurrentiecheck, het ontwerp met Daan en de bouw. De reeks (Skiff) wacht.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+

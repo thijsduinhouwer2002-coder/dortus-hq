@@ -1622,3 +1622,13 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - **Zwak en niet gezien:** de run van 072456b (waarschuwingen terug naar 0) liep nog; een telefoon met Duitse of Nederlandse instellingen; het oordeel van Daan en Mila; lage waarden; een echt horloge. Winkel niet gemeten (dag 7 is 23 nov).
 - Les: een taal toevoegen vraagt elk string-id in die taal, anders telt de bouw honderden waarschuwingen; de teller in `uitslag.txt` liet dat meteen zien.
 - **Daarna nog (±09:37 UTC, GEZIEN):** run 44055301529 (072456b) groen, `waarschuwingen: 0` voor betaald en gratis, talen in het pakket. De tak is daarmee schoon.
+
+## 17 nov 2026 ±10:20 UTC, run 136: uitzoekrun spraakmemo
+- Opdracht hoofdchat (10:50 NL): vier vragen over de spraakmemo. Ebb 1.0.1 en Calm 1.0.1 liggen al klaar bij Thijs, dus dit was de eerste taak.
+- Gedaan: uitleg van Garmin gelezen (API-pagina's Audio, Capture, Output, Storage, Communications, en `Core_Topics/Audio.html` uit de SDK-zip), de SDK 9.3.0 uitgepakt en doorzocht, en een proefapp met werkstroom gemaakt op tak `claude/garmin-spraakmemo-proef` (vijf runs, de laatste 44062263621 op 89475fd).
+- **Uitkomst:** (a) SDK 9.3.0 werkt in de bouwstraat. (b) De simulator kan opnemen, maar onze horlogebestanden (31 aug) kennen Audio niet: `Toybox has :Audio` false. (c) Geen weg via Garmin Connect; webverzoek met binaire inhoud kan, maar vraagt een ontvanger; versie 1 blijft op het horloge. (d) 30 regels in de lijst van Garmin, wij kunnen nu alleen voor 7 (fēnix 9) bouwen; opslag ±10,4 MB in de simulator.
+- **Besluit:** de app bouwen met de microfoon achter één los onderdeel en een nagebootste opnemer voor de test. Reden: zo staat het werk niet stil tot de horlogebestanden er zijn, en blijft eerlijk zichtbaar welk dun laagje nog niet getest is.
+- **Besluit:** de horlogebestanden niet in onze openbare repo zetten. Reden: het zijn bestanden van Garmin achter een inlog; of we ze mogen verspreiden weet ik niet. Daarom een stap voor Thijs met een besloten plek.
+- **Fout van mij onderweg:** de eerste versie van de proef liet het venster op de standaardwaarde staan (stoppen als het vol is); pas na het lezen van de uitleg in de SDK gezien en hersteld. Les: bij een nieuwe module eerst de uitlegpagina in de SDK-zip lezen (`doc/docs/Core_Topics/`), de site van Garmin geeft met curl alleen het menu.
+- **Zwak en niet gezien:** geen echte opname, geen bytes per seconde, geen afspelen, geen echt horloge. De concurrentiecheck en het ontwerp zijn nog niet begonnen.
+

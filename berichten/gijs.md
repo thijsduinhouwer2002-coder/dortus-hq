@@ -802,3 +802,4 @@ Volgorde:
 4. Doel: binnen 2 weken in de winkel. Daan keurt. Stopregel: 4 weken na livegang onder 100 downloads, dan stoppen.
 De reeks wijzerplaten schuift naar daarna.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+(deels verwerkt 17 nov ±10:20 UTC, run 136: stap 2 gedaan, uitkomst in `platformen/garmin/spraakmemo.md` en gemeld in `berichten/hoofdchat.md`. Kort: SDK 9.3.0 werkt; de simulator kent de microfoon nog niet met onze horlogebestanden en de bouw lukt nu alleen voor de fēnix 9; memo's blijven op het horloge; opslag ±10,4 MB in de simulator. Stap 3 en 4 staan bovenaan `platformen/garmin/taken.md`.)
