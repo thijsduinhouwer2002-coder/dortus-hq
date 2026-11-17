@@ -360,6 +360,8 @@ func _init() -> void:
 		g.raak(i % 4)
 	ok(g.hoeden.size() == 100 and g.berg_maat() == 3 and g.berg().size() == 10 and g.hoed_bijnaam() == "Milliner", "100 hoeden: maat 3, 10 zichtbaar, Milliner")
 	# Sanne 9 nov 21:50: zesde maat bij 3000; maat 6 breder, niet hoger dan maat 5
+	hol5.ingang_kol = 0   # linkergrens (Bram 17 nov): hier gaat het om de maten, dus ruimte genoeg links van Gloop
+	g.stap(0.01)
 	for i in 900:
 		g.raak(i % 10)
 	var hoogste5 := 0
@@ -379,6 +381,35 @@ func _init() -> void:
 		links6 = mini(links6, int(b[1]))
 	ok(g.berg_maat() == 6 and g.berg().size() == 33, "3000 hoeden: maat 6, 33 zichtbaar (%d)" % g.berg().size())
 	ok(hoogste6 >= hoogste5 and links6 < links5, "maat 6 is breder (x %d < %d), niet hoger (y %d >= %d)" % [links6, links5, hoogste6, hoogste5])
+	# Linkergrens (Daan 17 nov 08:40 punt 3 en 09:45 moet 4): de berg komt niet over de put of de ingang links van Gloop.
+	var vrij_max: int = g.berg_max
+	hol5.vallen[4] = "stekelput"
+	g.stap(0.01)
+	var grens_x: float = 5.0 * 16.0 + g.BERG_GRENS_LUCHT
+	var links_g := 1e9
+	for b in g.berg():   # pixelberg in deze toets; de 3D-berg ligt BERG_3D_LUCHT verder rechts dan berg(), dus nog binnen
+		links_g = minf(links_g, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * absf(g.scale.x))
+	ok(g.berg().size() >= 1 and g.berg().size() < 33 and g.berg().size() == g.berg_max and links_g >= grens_x - 0.01,
+		"linkergrens: put op kolom 4, berg %d plekjes, linkerkant %.1f >= %.1f" % [g.berg().size(), links_g, grens_x])
+	var voor_g: Array = g.berg().duplicate(true)
+	g.raak(3)
+	var anders_g := 0
+	for k in mini(voor_g.size(), g.berg().size()):
+		if int(voor_g[k][3]) != int(g.berg()[k][3]):
+			anders_g += 1
+	ok(g.berg().size() == voor_g.size() and anders_g == 1, "linkergrens: een hoed erbij bedekt er een, de berg wordt niet breder (%d anders)" % anders_g)
+	g.scale = Vector2.ONE * 1.15
+	g.stap(0.01)
+	var links_s := 1e9
+	for b in g.berg():
+		links_s = minf(links_s, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * 1.15)
+	ok(links_s >= grens_x - 0.01 and g.berg().size() <= voor_g.size(), "linkergrens ook op figuur 1,15 (%.1f, %d plekjes)" % [links_s, g.berg().size()])
+	g.scale = Vector2.ONE
+	hol5.vallen.erase(4)
+	g.stap(0.01)
+	ok(g.berg_max == vrij_max and g.berg().size() == 33, "linkergrens: put weg, de berg mag weer breed (%d)" % g.berg().size())
+	hol5.ingang_kol = 2
+	g.stap(0.01)
 	var alle_soorten := true
 	for h in g.hoeden:
 		if h < 0 or h >= 10:
@@ -392,7 +423,7 @@ func _init() -> void:
 	g2.zet(hol5, 8)
 	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
 	g2.van_dict(d)
-	ok(g2.hoeden == g.hoeden and g2.gegeten == 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
+	ok(g2.hoeden == g.hoeden and g2.gegeten == g.gegeten and g.gegeten >= 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
 	hol5.free()
 
 	# Sanne toets 6 punt 1: moet_afgerekend. Wrok tegen de put: overleeft Gloop (kolom 6), valt in de put (kolom 9)

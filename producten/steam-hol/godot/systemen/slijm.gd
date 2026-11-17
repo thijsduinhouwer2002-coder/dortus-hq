@@ -518,7 +518,63 @@ static func berg_zichtbaar_bij(tel: int) -> int:
 		var van: int = int(BERG_MAAT[m - 1])
 		var tot: int = int(BERG_MAAT[m])
 		z += int(floor(float(int(BERG_ZICHTBAAR[m + 1]) - z) * float(tel - van) / float(tot - van)))
-	return mini(z, maxi(0, tel - OP_HOOFD))
+	return mini(mini(z, berg_max), maxi(0, tel - OP_HOOFD))
+
+# Linkergrens van de berg (Daan 17 nov 08:40 punt 3 en 09:45 moet 4, Iris keuring 21): de berg groeit niet over de
+# dichtstbijzijnde stekelput of de ingang links van Gloop heen. Lukt dat niet, dan komen er geen plekjes meer bij (de
+# berg wordt niet breder, de nieuwste bedekt de oudste die je ziet). berg_max = hoeveel plekjes er passen; de linkse
+# plekjes horen bij de onderste rij, dus het telt hele schuine rijen. Verandert de grens (put gebouwd of weg), dan
+# rekenen de plekjes opnieuw (dat is jouw eigen bouwwerk, dan mag de berg anders liggen).
+const BERG_HALF := 5.0          # zichtbare linkerkant van een 3D-hoed vanaf zijn x (cel 6,4 = anker_x / px, de rand is leeg; GEZIEN op 96)
+const BERG_GRENS_LUCHT := 2.0    # spelpixels lucht tussen de berg en de put
+static var berg_max := 1 << 30
+
+static func zet_berg_max(n: int) -> bool:
+	if n == berg_max:
+		return false
+	berg_max = n
+	_pk_tel = -1
+	_pk_kaart = []
+	_pk_waar = {}
+	_pk_bewaard = {}
+	return true
+
+# Hoeveel plekjes passen als de linkerkant van de berg (in Gloop-pixels, negatief) niet verder mag dan ruimte.
+func plekjes_binnen(ruimte: float) -> int:
+	var links := -14 if is_groot() else -12
+	var n := 0
+	var d := 0
+	while d < 200 and float(links - 6 * d) - BERG_3D_LUCHT - BERG_HALF >= ruimte:
+		n += mini(d + 1, BERG_RIJEN)
+		d += 1
+	return n
+
+# Rechterrand van wat links van Gloop in de weg ligt (stekelput of ingang), in hol-pixels; -1e9 = niets.
+func berg_grens_x() -> float:
+	if hol == null or not is_instance_valid(hol):
+		return -1e9
+	var mijn_kol := int(floor(position.x / 16.0))
+	var g := -1e9
+	var vallen = hol.get("vallen")
+	if vallen is Dictionary:
+		for k in vallen:
+			if int(k) < mijn_kol:
+				g = maxf(g, float(int(k) + 1) * 16.0)
+	var ik = hol.get("ingang_kol")
+	if ik != null and int(ik) < mijn_kol:
+		g = maxf(g, float(int(ik) + 1) * 16.0)
+	return g
+
+func werk_berg_grens() -> void:
+	var g := berg_grens_x()
+	var n := 1 << 30
+	if g > -1e8:
+		var sch := maxf(0.001, absf(scale.x))
+		n = plekjes_binnen((g + BERG_GRENS_LUCHT - position.x) / sch)
+	if zet_berg_max(n):
+		_sessie_weg()
+		laatste_beeld = []
+		queue_redraw()
 
 # Met hoeveel hoeden de berg nu getekend wordt: hoeden van een nachtval die nog niet geland zijn tellen niet mee,
 # en de hoed die in een boog naar de berg vliegt ook nog niet.
@@ -615,6 +671,7 @@ func _process(delta: float) -> void:
 
 func stap(delta: float) -> void:
 	t += delta
+	werk_berg_grens()
 	if moment_vast >= 0.0 and t > moment_vast:
 		t = moment_vast   # winkelbeeld moment=hap: Gloop en de vliegende hoed blijven staan
 	_nacht_stap()
@@ -958,6 +1015,7 @@ func _vlucht_s() -> float:
 # Vaste plekjes (Iris keuring 20, Sanne 17 nov 08:50, plan Bram 08:40): plekje k heeft altijd dezelfde plaats; groeit de
 # berg, dan komen er alleen plekjes bij. Welke hoed op welk plekje ligt, geeft berg_plekken().
 func berg(tel := -1) -> Array:
+	werk_berg_grens()   # Gloop draait niet altijd (zuinig): de grens bijwerken waar de berg gevraagd wordt
 	var uit := []
 	if tel < 0:
 		tel = berg_tel()

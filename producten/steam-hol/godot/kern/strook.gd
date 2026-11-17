@@ -380,6 +380,8 @@ func _input(event: InputEvent) -> void:
 			return
 		var p: Vector2 = (event.position - hol.position) / schaal
 		var wat: String = hol.klik(p)
+		if wat != "" and slijm != null:
+			slijm.werk_berg_grens()   # put gebouwd of weg, of gegraven: linkergrens van de hoedenberg (Bram 17 nov)
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
