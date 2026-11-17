@@ -73,6 +73,14 @@ class MemoProefApp extends Application.AppBase {
         var wav8 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_8_KHZ, :channels => Audio.CHANNEL_MONO };
         var wav16 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_16_KHZ, :channels => Audio.CHANNEL_MONO };
         System.println("MEMO heeft Toybox Audio: " + (Toybox has :Audio));
+        if (!(Toybox has :Audio)) {
+            System.println("MEMO geen Audio in deze simulator met deze horlogebestanden, alleen de opslag wordt gemeten");
+            vanger = new Vanger();
+            formaat = null;
+            t3 = new Timer.Timer();
+            t3.start(method(:stap3), 1000, false);
+            return;
+        }
         System.println("MEMO heeft Audio Capture: " + (Audio has :Capture) + ", Output: " + (Audio has :Output));
         System.println("MEMO Capture heeft init: " + (Capture has :initializeAudioCapture) + ", start: " + (Capture has :start) + ", filters: " + (Capture has :getSupportedFilters) + ", staat: " + (Capture has :getState));
         System.println("MEMO Output heeft play: " + (Output has :play) + ", bouwer: " + (Output has :DynamicAudioSourceBuilder));
@@ -117,7 +125,7 @@ class MemoProefApp extends Application.AppBase {
     function stap3() as Void {
         System.println("MEMO na stop: totaal " + vanger.bytes + " bytes, per seconde ongeveer " + (vanger.bytes / 10));
         // terug afspelen uit de bewaarde stukken
-        try {
+        if (formaat != null) { try {
             var bouwer = new Output.DynamicAudioSourceBuilder({ :format => formaat });
             for (var i = 0; i < vanger.stukken.size(); i++) { bouwer.append(vanger.stukken[i]); }
             var bron = bouwer.complete();
@@ -125,7 +133,7 @@ class MemoProefApp extends Application.AppBase {
             System.println("MEMO afspelen gestart, staat: " + Output.getState() + ", fout: " + Output.getError());
         } catch (e) {
             System.println("MEMO afspelen fout: " + e.getErrorMessage());
-        }
+        } }
         // opslag: hoeveel blokken van 30.000 bytes passen erin
         var blok = new [30000]b;
         var n = 0;
@@ -146,7 +154,8 @@ class MemoProefApp extends Application.AppBase {
         } catch (e) {
             System.println("MEMO teruglezen fout: " + e.getErrorMessage());
         }
-        System.println("MEMO afspeelstaat aan het eind: " + Output.getState() + ", fout: " + Output.getError());
+        if (formaat != null) { System.println("MEMO afspeelstaat aan het eind: " + Output.getState() + ", fout: " + Output.getError()); }
+        System.println("MEMO geheugen vrij aan het eind " + System.getSystemStats().freeMemory);
         System.println("MEMO klaar");
         view.regel = "klaar";
         WatchUi.requestUpdate();
