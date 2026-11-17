@@ -138,5 +138,5 @@
 ## 17 nov 2026 ±06:05 tot 06:45 UTC (Ruben, run 23)
 - Daans vijf moets op plaatje 19 (05:30). Blender 5.3.0 lokaal opnieuw gehaald (verse machine).
 - Gedaan: grijs PLA (#D2D6DB, leest als lichtgrijs), gizmo en oranje oorsprong weg, alleen rechterknie gebogen met het paneel op de knie, heupen zonder band in dit beeld. Alleen `e2e/scherm_mens.py`, add-on ongewijzigd.
-- Gevonden: blok boven de elleboog is echte vorm (wig van de 140°-stop tot de rand van het omhulsel). Volgende stap: wig korter met schuine uitloop.
+- Gevonden: blok boven de elleboog is echte vorm en komt van de elleboog (CJ_ALLEEN=elbow). Wig-gedachte getoetst met een zwaaigebied: geen verschil en een heup viel af, dus teruggedraaid. Volgende stap: omhulsel H van een_lid nakijken.
 - Wat misging: `git pull` hing 2 minuten; met `timeout 60 git fetch` ging het wel (origin/main was geforceerd bijgewerkt, lokaal niets weg).
