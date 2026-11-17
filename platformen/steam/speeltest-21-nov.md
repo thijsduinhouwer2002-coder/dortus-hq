@@ -13,7 +13,19 @@ Build: _volgt vr 20 nov_ (workflow `steam-hol-exe.yml` op main, zip 14 dagen bew
 
 Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
 
-## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC)
+## Eigen proef vooraf, opnieuw op main fb00619 (Olaf, 17 nov 17:30 UTC)
+Main na terugslag, Dame, naamfamilies en vaste plekjes. Vers spel (geen save), Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, 5 zaden (4242, 777, 2026, 1, 99), 200 tot 240 s. Uit de logs (GEZIEN):
+- 4,1 s: eerste held binnen, bij alle vijf.
+- 12,8 s: eerste held valt in de stekelput (+6), 15,4 s eerste bladzijde in het heldenboek. **Binnen 30 s gebeurt er iets** (demolijst 3).
+- 26,4 tot 27,3 s: **Gloop eet de tweede held, de kroon gaat op de toren** (alle vijf).
+- 42 tot 45 s: derde held vlucht met een wrok; 56 tot 69 s komt hij terug, 65 tot 78 s **wint de put ronde twee** (+9, hol-niveau 2).
+- 103 tot 119 s: Gloop gaat plat ("Gloop is flat. Back soon."), ±30 s later weer op.
+- Eerste koop mogelijk: 132, 137, 144, 180 s, en bij zaad 1 rond 200 s (goud 50 bij het einde). Ruim onder de grens van 600 s.
+- Stilste stukken in de kroniek: één keer 22 tot 28 s zonder nieuwe regel, steeds net na de terugkomst (rond 65 tot 78 s). Geen SCRIPT ERROR, alleen de bekende geluidsfout (geen geluidskaart).
+
+Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit de spelklok en zijn op Windows gelijk. De oude proef van 15 nov staat hieronder.
+
+## Eigen proef vooraf (Olaf, 15 nov 21:30 UTC, oudere stand)
 Een vers spel (geen save) 150 s laten lopen, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, twee keer met een ander zaad. Uit de log:
 - 4 s: eerste held komt binnen ("Wout brought a torch. And hope.").
 - ±10 s: tweede held.

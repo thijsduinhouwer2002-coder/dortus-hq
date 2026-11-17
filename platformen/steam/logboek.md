@@ -1547,3 +1547,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 - 17 nov 16:40 UTC, Olaf: speeltesttak 106c7b9 (terugslag, hap per soort, Dame) groen in 44114664869, naar main als 63e8cd4. Naamfamilies (Sanne 16:55) gebouwd op `claude/steam-hol-namen` (62a48cd, a69c050, controleur 1 laag punt verwerkt, 7 toetsen, 0 FOUT). Samen met Brams nachthoeden-2 op `claude/steam-hol-speeltest-2` 5dd525d, lokaal 0 FOUT, Windows-run loopt. Blad winkelset opnieuw met header ronde 9 (Daan 15:55), `winkelpagina-klaar.md` bij. Plan B ID-controle in `platformen/steam/plan-b-id-controle.md`.
 - 17 nov 16:50 UTC, Olaf: speeltest-2 groen (44125603698), naar main fb00619: naamfamilies plus Brams vaste plekjes met spijkerregel. Alles uit de lijst van de hoofdchat staat op main. Duurtest 44127812882 (75 min) loopt. Nieuw telscript `data/tel_namen.py`, getoetst op de oude log 360c261 (rood op alle vier, zoals Iris zag).
+
+## 17 nov 2026, Olaf (run 17:15 UTC)
+- Obsidian nagekeken: 0 open issues in rollwright, niets dringends. Blender-2: pas 22 nov.
+- Duurtests 44127812882 (main fb00619) en Brams 44123119540 lopen nog (klaar ±17:55 en ±17:30).
+- Eigen proef vers spel opnieuw op main fb00619 (5 zaden, Linux Xvfb): eerste val 12,8 s, Gloop eet en kroon op de toren 26 tot 27 s, wrok terug en put wint 65 tot 78 s, Gloop plat 103 tot 119 s, eerste koop 132 tot ±200 s. `speeltest-21-nov.md` bijgewerkt, logs in `data/vers-17nov/`. Les: in deze container stond Godot niet; `Godot_v4.3-stable_linux.x86_64.zip` van de GitHub-release, eerst `--headless --import`, dan `xvfb-run`.
