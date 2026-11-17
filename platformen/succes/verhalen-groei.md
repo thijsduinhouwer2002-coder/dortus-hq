@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 33, loont vroeg zijn in een nieuwe winkel (Obsidian en extensions.blender.org), klaar 17 nov 2026 ±08:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 34, waar kwamen de eerste 1.000 gebruikers van een Chrome-extensie vandaan (mijlpaalberichten van makers), gestart 17 nov 2026 ±09:00 UTC, Joris.
 
 Nieuwste bovenaan.
 
