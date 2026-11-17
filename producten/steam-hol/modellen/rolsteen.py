@@ -20,15 +20,20 @@ import hoeden as hd
 
 R = math.radians
 STRAAL = 0.5
+BASIS, SLAG, MOS = "6a6764", "5a5754", "3c5228"
 GROEF_AS = Vector((0.0, 0.42, 1.0)).normalized()   # normaal van het groefvlak: band loopt schuin, zichtbaar in elke stand
 
 
 def steen(ouder, draai=0.0):
-    steen_m = g.mat("rolsteen", "8e8a86", rough=0.95, spec=0.1)
-    groef_m = g.mat("rolsteen_groef", "5e5850", rough=0.95, spec=0.05)
-    rand_m = g.mat("rolsteen_rand", "d8d0c0", rough=0.85, spec=0.15)
-    mos_m = g.mat("rolsteen_mos", "6f8f4a", rough=0.95)
-    slag_m = g.mat("rolsteen_slag", "98938c", rough=0.8, spec=0.2)
+    # Proef 2 (Daan 17 nov 01:30): onder het gedeelde licht werd 8e8a86 blauwig bbb9ca en de vlakken beige.
+    # Daarom basis warmer en donkerder, zodat hij in beeld op 8e8a86 tot a8a39c uitkomt; vlakken dezelfde
+    # tint een stap donkerder; geen lichte rand meer (gestippeld las als stiksel); mos donkerder en kleiner.
+    steen_m = g.mat("rolsteen", BASIS, rough=0.95, spec=0.05)
+    nt = steen_m.node_tree
+    attr = nt.nodes.new("ShaderNodeVertexColor")
+    attr.layer_name = "kleur"
+    nt.links.new(attr.outputs["Color"], nt.nodes["Principled BSDF"].inputs["Base Color"])
+    groef_m = g.mat("rolsteen_groef", "2e2a26", rough=1.0, spec=0.0)
     me = bpy.data.meshes.new("rolsteen")
     o = bpy.data.objects.new("rolsteen_bol", me)
     bpy.context.scene.collection.objects.link(o)
@@ -42,32 +47,43 @@ def steen(ouder, draai=0.0):
         n = v.co.normalized()
         bult = noise.noise(n * 1.6 + Vector((3.1, 0.7, 1.9))) * 0.07 + noise.noise(n * 4.0) * 0.018
         d = n.dot(GROEF_AS)
-        kerf = -0.045 * max(0.0, 1 - (abs(d) / 0.075) ** 2)          # de groef: een echte inkeping
+        kerf = -0.016 * max(0.0, 1 - (abs(d) / 0.05) ** 2)           # ondiepe groef: geen twee opbollende helften
         v.co = n * (STRAAL + bult + kerf)
         v.co.z *= 0.92
     # twee afgeslagen platte vlakken: alles voorbij het vlak terug op het vlak
-    slagen = [(Vector((-0.55, -0.6, 0.45)).normalized(), 0.40), (Vector((0.7, -0.35, -0.2)).normalized(), 0.43)]
+    slagen = [(Vector((-0.55, -0.6, 0.45)).normalized(), 0.43), (Vector((0.7, -0.35, -0.2)).normalized(), 0.45)]
     for v in bm.verts:
         for n, afst in slagen:
             t = v.co.dot(n)
             if t > afst:
                 v.co -= n * (t - afst)
     o.data.materials.append(steen_m)
-    for m in (groef_m, rand_m, mos_m, slag_m):
-        o.data.materials.append(m)
+    o.data.materials.append(groef_m)
+    # Kleur per hoekpunt (zacht verloop), niet per vlak: per vlak gaf kartelranden om vlakken en mos.
     mos_plek = Vector((0.2, -0.15, 1.0)).normalized()
+    srgb = lambda h: tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))   # bytekleur wil sRGB
+    basis, slag, mos = srgb(BASIS), srgb(SLAG), srgb(MOS)
+    laag = bm.loops.layers.color.new("kleur")
+
+    def glad(a, b, x):
+        t = min(1.0, max(0.0, (x - a) / (b - a)))
+        return t * t * (3 - 2 * t)
+
+    kleur_v = {}
+    for v in bm.verts:
+        n = v.co.normalized()
+        k = glad(-0.012, 0.0, max(v.co.dot(sn) - afst for sn, afst in slagen))
+        m = glad(0.90, 0.94, n.dot(mos_plek) + noise.noise(n * 6) * 0.025)
+        c = [basis[i] * (1 - k) + slag[i] * k for i in range(3)]
+        c = [c[i] * (1 - m) + mos[i] * m for i in range(3)]
+        kleur_v[v.index] = (*c, 1.0)
     for f in bm.faces:
         c = f.calc_center_median()
-        n = c.normalized()
         d = abs(Vector((c.x, c.y, c.z / 0.92)).normalized().dot(GROEF_AS))
-        if d < 0.05:
+        if d < 0.042:
             f.material_index = 1
-        elif d < 0.075:
-            f.material_index = 2
-        elif any(c.dot(sn) > afst - 0.004 for sn, afst in slagen):
-            f.material_index = 4
-        elif n.dot(mos_plek) > 0.86 + noise.noise(n * 6) * 0.05:
-            f.material_index = 3
+        for lp in f.loops:
+            lp[laag] = kleur_v[lp.vert.index]
     bm.to_mesh(me); bm.free()
     for p in me.polygons:
         p.use_smooth = True
@@ -92,7 +108,7 @@ def bouw(stand="klaar", plek=(0, 0, 0), draai=0.0):
         hout = g.mat("rolsteen_wig", "5e3b22", rough=0.75)   # Daan: oranje driehoekje, mag donkerder hout
         hd._kegel(ouder, (0.5, -0.02, 0.09), 0.2, 0.2, 0.5, hout, rot=(R(90), 0, R(0)), verts=3)
         bpy.ops.object.shade_flat()
-        touw = g.mat("rolsteen_touw", "c8a870", rough=0.9)
+        touw = g.mat("rolsteen_touw", "6a4e2c", rough=0.95)   # Daan: touwtje mag donkerder
         hd._kegel(ouder, (0.62, -0.28, 0.17), 0.014, 0.014, 0.34, touw, rot=(R(10), R(-25), 0), verts=8)
         hd._bol(ouder, (0.66, -0.25, 0.02), (0.05, 0.05, 0.03), touw, segs=12)
     ouder.location = plek
