@@ -53,3 +53,70 @@ Nagekeken door een controleur (17 nov ±07:10 UTC): winkelcijfers, Palant-cijfer
 - Reviews per extensie (de winkel laadt ze met een script, niet via curl): klachten over Event Multiselect alleen uit Chris' meting.
 - Zoekvolume in de winkel: Google geeft het niet. Hoe het wel kan: na de lancering de vertoningen in het ontwikkelaarsdashboard (staat bij Thijs).
 - Aantal betalers van SUPER.
+
+---
+
+# Deel 2: kandidaten 3, 4 en 5 (Vera, run 08:31 NL, 07:35 tot ±08:05 UTC)
+
+Zelfde vragen als hierboven: doet Google (of een groot gratis product) het al, groeit het veld sinds 14 aug 2026, verdient iemand aantoonbaar. Werkwijze: zoekbalk van de winkel met drie zoektermen per kandidaat (eerste 10, GEZIEN 17 nov ±07:35 tot 07:45 UTC), en per gevonden extensie de stand op 14 aug 2026 uit de dataset van Palant (DERDEN, per ID opgehaald). Alles: `data/chrome-kandidaten-3-5-veld-2026-11-17.tsv`, scripts `data/chrome-zoek-ids-script.py` en `data/chrome-palant-aug-script.py`.
+
+## Kort
+- **Kandidaat 3 (Keep naar Markdown of Obsidian) valt eigenlijk af.** Obsidian doet het zelf, gratis: de officiële Importer-plugin heeft een knop "Google Keep (.zip)" voor de Takeout-zip (GEZIEN, obsidian.md/help/import/google-keep) en de Importer (alle bronnen samen, niet alleen Keep) is 1.926.030 keer gedownload (GEZIEN, community-plugin-stats.json van obsidianmd, 17 nov). Wie Keep naar Obsidian wil, krijgt dat in Obsidian zelf. De enige echte Keep-exporteur in de winkel groeide van 123 naar 175 gebruikers in 3 maanden. Geen geldbewijs.
+- **Kandidaat 4 (autoplay) wordt zwakker.** Chrome zelf geeft gebruikers geen knop om video's te blokkeren en op chromestatus.com vond ik geen open voorstel (GEZIEN), dus het gat is echt. Maar de verdwenen gebruikers kwamen niet: de algemene stoppers gingen samen van ±25.000 naar ±16.000 (zonder Video Blocker, 10.000 naar 20.000, die de winkel alleen als "Block videos from playing" beschrijft; hoort hij erbij, dan staat het veld stil, ±35.000 naar ±36.000) (AutoplayStopper (MV3) van 20.000 naar 10.000). En ons idee (gratis met 3 sites, Pro voor onbeperkt) bestaat al: **Video Autoplay Stopper** (jan 2026, Pro via Lemon Squeezy) staat al 3 maanden stil op 2.000.
+- **Kandidaat 5 (Google Foto's in bulk) is het enige van de drie dat groeit, en waar al betaald kan worden, maar is vol.** 18 Foto-tools in de zoekresultaten: samen 52.621 op 14 aug, 79.776 nu (+52%, grof door afgeronde emmers). 7 van de 18 hebben in-app aankopen. Duplicate Remover (met in-app) ging van 10.000 naar 20.000, Google Photos Downloader (in-app) van 10.000 naar 20.000. De enige Foto-tool op TrustMRR (SyncGP, back-up) haalde $1.420 alles samen en $0 de laatste 30 dagen (GEZIEN, dump 8 nov). Technisch blijft het zwak voor ons: werkt via de pagina, niet te testen zonder inloggen (Kai).
+- **Advies:** de volgorde van Kai klopt. 3 kan van de lijst, 4 blijft een bereikproduct zonder geld, 5 is de enige met groei en betalende concurrentie, maar hoort niet bovenaan omdat wij het niet kunnen testen en het breekt bij elke wijziging van Google.
+
+## 3. Keep naar Markdown of Obsidian (GEZIEN)
+| Extensie | 14 aug 2026 | 17 nov 2026 | In-app |
+|---|---|---|---|
+| Keep to Markdown Export (feb 2026) | 123 | 175 | nee |
+| KeepDown (jan 2025) | 0 | 160 | nee |
+| Keep Web Clipper (feb 2026) | 570 | 542 | nee |
+| markKeep, Markdown in Keep (2024) | 219 | 219 | nee |
+
+- Doet een groot gratis product het: ja. Obsidian Importer, gemaakt door Obsidian zelf; de hulp-pagina beschrijft Takeout, "Deselect all", Keep kiezen, zip in de Importer. Beperkingen volgens Obsidian zelf: lijstjes worden plat (Keep exporteert geen inspringing) en herinneringen gaan niet mee. De inspringing zit niet in de Takeout-data, dus die kunnen wij ook niet terughalen. Herinneringen laat Obsidian weg omdat Obsidian ze niet kent; een eigen tool zou ze als tekst kunnen meenemen (GOK dat ze in de Takeout staan, niet nagekeken).
+- Google zelf: 19 berichten met label Google Keep op Workspace Updates, geen enkel over export naar Markdown (GEZIEN, feed). Takeout blijft gratis.
+- Wat wel betaald groeit, is AI-chats naar Obsidian (Claude to Obsidian 3.000 naar 4.000, Save ChatGPT to Obsidian 4.000 naar 5.000, beide met in-app). Dat is een andere markt en vol.
+- Gevolg: geen gat. Iemand met Obsidian heeft het al gratis; iemand zonder Obsidian heeft waarschijnlijk weinig reden om Markdown te willen (GOK).
+
+## 4. Autoplay stoppen (GEZIEN)
+| Extensie (algemeen, niet alleen YouTube) | Gemaakt | 14 aug 2026 | 17 nov 2026 | Sterren aug, nu | In-app |
+|---|---|---|---|---|---|
+| AutoplayStopper (MV3) | aug 2025 | 20.000 | 10.000 | 3,76 naar 3,4 | nee |
+| Disable HTML5 Autoplay (M3) | okt 2024 | 3.000 | 4.000 | 1,84 naar 1,8 | nee |
+| Video Autoplay Stopper | jan 2026 | 2.000 | 2.000 | 4,58 naar 4,3 | ja, Pro |
+| Autoplay Blocker | onbekend (laatste update 21 jul 2026) | niet in dataset | 79 | geen | nee |
+
+- De YouTube-tools (alleen "volgende video" uitzetten) staan ook stil: Disable Autoplay for YouTube 20.000 naar 20.000, No Playlist Autoplay 8.000 naar 8.000. YouTube heeft daar zelf een schakelaar voor, dus dat deel telt niet als gat.
+- Video Autoplay Stopper doet precies het freemium-plan: gratis overal blokkeren met 3 sites per lijst, Pro voor onbeperkt, jokertekens, per site kiezen en synchroniseren, abonnement via Lemon Squeezy (GEZIEN, winkelpagina). Hij staat stil op 2.000. Geen omzet bekend (niet op TrustMRR).
+- Gevolg: zelfde patroon als Revolver. 200.000+ gebruikers verdwenen bij de MV2-stop (DERDEN, Palant-dataset, zie chrome-mv2-zonder-opvolger.md; niet opnieuw gemeten), maar ze zoeken niet in de winkel naar een opvolger (GOK: ze bleven op een oude browser, gingen naar uBlock Origin Lite met een filter, of naar Firefox, dat het zelf kan).
+
+## 5. Google Foto's in bulk (GEZIEN)
+| Extensie | Gemaakt | 14 aug 2026 | 17 nov 2026 | Sterren aug, nu | In-app |
+|---|---|---|---|---|---|
+| Google Photos Duplicate Remover | jun 2025 | 10.000 | 20.000 | 4,05 naar 4,0 | ja |
+| Google Photos Downloader | feb 2026 | 10.000 | 20.000 | 5 naar geen | ja |
+| Google Photos Delete Tool, Duplicate Finder | aug 2024 | 10.000 | 10.000 | 4,76 naar 4,6 | nee |
+| Delete All Google Photos Extension | dec 2023 | 10.000 | 10.000 | 4,12 naar 3,7 | ja |
+| Bulk Select Google Photos | nov 2024 | 4.000 | 5.000 | 4,30 naar 4,2 | nee |
+| Delete Google Photos | apr 2025 | 2.000 | 3.000 | 5 naar 4,9 | nee |
+| Bulk Edit Google Photos | mei 2026 | 611 | 1.000 | 4,85 naar 4,8 | ja |
+| Google Photos Cleaner | nov 2025 | 0 | 1.000 | 3,66 naar 3,8 | ja |
+
+- 18 Foto-tools in de resultaten, samen +52% in 3 maanden; drie die niet in de dataset van aug staan (11, 115 en 152 gebruikers), waarschijnlijk nieuw. Dit veld groeit wel, anders dan 3 en 4.
+- Doet Google het zelf: de hulp-pagina over verwijderen noemt geen "alles selecteren" (GEZIEN, support.google.com/photos/answer/6128858). Op het web kun je wel een hele dag in één keer aanvinken (GOK, eigen kennis, niet nagekeken). Niets gezocht naar aankondigingen; Google Foto's valt niet onder Workspace Updates.
+- Waarschuwing in de cijfers: Delete All Google Photos Extension zakte van 4,12 naar 3,7 sterren. Tools die de pagina bedienen gaan stuk als Google de pagina verandert (GOK, past bij Kai's punt over breekbaarheid).
+- Geldbewijs: prijzen bestaan (Chris: ±$7 eenmalig tot $199 per jaar), omzet niet gevonden. SyncGP (Foto's back-up) op TrustMRR: $1.420 alles samen, $69 in 12 maanden, $0 in 30 dagen.
+
+## Advies voor de keuze van 10:45 (aanvulling op deel 1)
+1. Volgorde 1 en 2 blijft zoals in deel 1.
+2. Kandidaat 3 schrappen: Obsidian doet het al gratis, met de officiële Importer (1,9 miljoen downloads voor alle bronnen samen, niet alleen Keep).
+3. Kandidaat 4 alleen als gratis bereikproduct, niet voor de eerste euro's: de freemium-versie bestaat al en staat stil.
+4. Kandidaat 5 is de enige van 3 tot 5 met groei, en met concurrenten met in-app aankopen die groeien (omzet niet aangetoond). Als 1 om een reden afvalt (bijvoorbeeld de keuring van Google voor de Calendar-scopes), is 5 inhoudelijk een betere tweede dan 2, maar alleen als we een manier vinden om te testen zonder in te loggen (een nagemaakte testpagina met de echte opbouw van photos.google.com), en met het risico dat het breekt.
+
+## Wat ik niet kon meten (deel 2)
+- Reviews per extensie (laden met een script). Waarom de Foto-tools sterren verliezen is dus een gok.
+- Of er nieuwe autoplay- of Foto-tools zijn die niet in de eerste 10 van de zoektermen staan.
+- Aankondigingen van Google Foto's (geen vaste feed gevonden in deze run).
+
+Nagekeken door een controleur (17 nov ±07:50 UTC): alle getallen en sommen klopten met de TSV, steekproef live en in de Palant-dataset klopte; tien zinnen verbeterd (Importer-downloads gelden voor alle bronnen, Video Blocker apart benoemd, minder stellig waar het een gok is).
