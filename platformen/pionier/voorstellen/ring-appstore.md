@@ -2,6 +2,15 @@
 
 Noor, pionier, 17 nov 2026. Cijfer **6 (krap 7)**. Advies: **ja met kleine inzet, na één vraag aan Ring** (mag een ontwikkelaar uit Nederland certificeren zonder apparaat in de VS?).
 
+**Controle 17 nov ±08:50 UTC (controleur-agent, alles met curl nagelezen): cijfer van 6 (krap 7) naar 5.** Correcties:
+- Pakketwacht is niet leeg: de launch-app **Package Protect** ("package delivery tracking", DERDEN, https://techcrunch.com/2026/03/31/ring-app-store-bets-on-ai-to-go-beyond-home-security/) staat er sinds dag één, Home Analytics noemt "package delivery notices" (Ring-blog), en webhooks hebben sinds 5 okt een subtype `package_delivery` (release notes, GEZIEN door controleur). Het productidee moet anders of weg.
+- 100 mln camera's is een cijfer van TechCrunch, niet van Ring (Ring zelf: "millions of Ring customers", https://blog.ring.com/?p=7763).
+- Aantal apps bij de start: rond 15 (TechCrunch), niet "tientallen".
+- De studentengolf is een uiterste datum (live "by March 1, 2027", indienen liefst vóór 15 feb), geen gezamenlijke lancering, en 1.000 finalisten zijn niet 1.000 apps; alleen Amerikaanse studenten (https://ring.com/appchallenge).
+- Vergeten: Private Apps werken voor Ring-accounts uit elk land, zonder keuring, voor 5 of 10 accounts (de docs spreken elkaar tegen). Bouwen en testen vanuit Nederland kan dus wel; verkopen alleen in de VS, en de winkel is buiten de VS niet eens te zien (developer-faq Q21).
+- Winkel live 31 mrt 2026 en 10% afdracht en Playground 28 mei: kloppen.
+
+
 Ring (van Amazon) heeft 100 mln+ camera's en deurbellen in gebruik en opende in 2026 een winkel voor apps van derden die met die camera's werken (beelden, bewegingen, pakketten, deurbel). Klanten zien de winkel in de Ring-app onder Apps. Het past bij wat Thijs zoekt: een groot bestaand publiek dat net een winkel met een betaalknop krijgt, en de winkel is nog lang niet vol.
 
 ## De vijf vragen

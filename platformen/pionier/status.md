@@ -85,3 +85,5 @@ Voor Hans (9 nov 00:10): XENEON EDGE-widgets is een 6 waar betalen nu al werkt (
 | Android XR audiobrillen (herweging) | 17 nov 2026 | 6 | ja om klaar te zetten (spiekbriefje voor sprekers), beslissen vóór 10 dec; wordt 7 als de bril levert en Play een vindplek voor bril-apps heeft |
 | Meta Muse Connector Platform | 17 nov 2026 | 4 | nee (connectors voor wie al een dienst heeft, geen betaalde connectors) |
 | Ring Appstore (Amazon Ring) | 17 nov 2026 | 6 (krap 7) | ja met kleine inzet na één vraag aan Ring (certificeren buiten de VS?); pakketwacht voor elke camera; vóór 1 mrt 2027 staan |
+| Ring Appstore, na controle | 17 nov 2026 | 5 (was 6) | nee voor nu: pakketwacht bestaat al (Package Protect), verkoop alleen VS; Private Apps laten wel bouwen vanuit NL |
+| Garmin Connect IQ microfoon en luidspreker (Toybox.Audio) | 17 nov 2026 | 7 | ja, nu, via Gijs: brede spraakmemo, live binnen 2 weken; hoek 4 weken oud, 17 apps met AudioInput, geen nummer één |
