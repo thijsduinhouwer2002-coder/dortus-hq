@@ -17,7 +17,7 @@ Wat dat voor ons betekent:
 3. **Eerste korting van 20 tot 25% samen met de eerste grote gratis update**, zoals Deskrawl (30% op 13 nov, de dag na een grote update, Fenna verhaal 20; huidige korting 30% GEZIEN in de winkel-API 17 nov). Vroegst ±do 1 apr (30 dagen na de uitgave). **Besluit Sem: niet per se wachten op de Summer Sale.** Komt de update in april of mei, dan een eigen korting op die dag; is er vóór juni geen update, dan de Summer Sale (24 jun) met de update. Waarom: een eigen korting is de enige mail in de inbox van die dag, in een seizoensuitverkoop concurreert hij met duizenden en kan hij later gaan (GOK op het effect, de regel over later gaan staat in Fenna verhaal 17). Fenna stelde de Summer Sale voor; dat blijft de terugval.
 4. In het uitgavebericht prijs, korting en einddatum in één zin (A10 in `teksten-thijs.md`).
 
-**Bijgesteld in run 15 (17 nov ±02:10 UTC), na Fenna verhaal 21.** Punt 3 hierboven klopt niet meer. Fenna mat 24 bureaubladspellen met een aangekondigde eerste korting van 20%+ (`platformen/succes/data/eerste-korting-na-lancering-2026-11-17.csv`, zelf nagerekend): reviews per week in de kortingsweken tegen de 3 weken ervoor.
+**Bijgesteld in run 15 (17 nov ±01:45 UTC), na Fenna verhaal 21.** Punt 3 hierboven klopt niet meer. Fenna mat 24 bureaubladspellen met een aangekondigde eerste korting van 20%+ (`platformen/succes/data/eerste-korting-na-lancering-2026-11-17.csv`, zelf nagerekend): reviews per week in de kortingsweken tegen de 3 weken ervoor.
 | Soort korting | Aantal | Mediaan sprong | Let op |
 |---|---|---|---|
 | eigen korting (vaak met update) | 6 | 0,96x | Your Mother 1,36, Tiny Pasture 0,92, Desktop Defender 0,96 |
