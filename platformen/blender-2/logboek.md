@@ -73,3 +73,8 @@
 ## 16 nov 2026 14:05 tot 14:50 UTC (Ruben, run 6)
 - CI van 8cbbe5c groen. Twee moets en twee kans van Daan op plaatje 17 gebouwd (kogel klein en groen met één `±30°` buiten het lid en 40 px van elk ander getal, "Good fit" in stap 3, rand om de getallen, groen bolletje bij `from rig`). Plaatje 18.
 - Gevonden: de heupen op de toetsfiguur bewegen volgens onze eigen beweegproef 0 graden; de lijst zei ±30. Lijst eerlijk gemaakt (`±0° (blocked)`), oorzaak volgende run. Details in `producten/blender-gewrichten/ontwerp-1.1.md`.
+
+## 17 nov 2026 ±03:00 tot 03:50 UTC (Ruben, run 20)
+- CI d4cfa4a: toetsen groen in 4.2, 5.2, 5.3; plaatje 17 in 4.2 rood door een oude eis, gelijkgetrokken met de toets.
+- Nieuwe toets `toetsen_mens` (echte MakeHuman-figuur, CC0) in de CI; plaatje 19 (eindbeeld op een echte mens) gemaakt en aan Daan gevraagd. Echte tekenfout opgelost: de boog van een elleboog op een hele figuur was zo groot als de arm.
+- Besluit: in 4.2 eis ik op de mens maar 3 gewrichten. Waarom: met alleen de Exact-solver vallen knieën en heupen af met een reden; eerlijk melden in de tekst ("best in 4.5 and newer") is beter dan de toets laten liegen of 4.2 laten vallen. Details in `producten/blender-gewrichten/ontwerp-1.1.md`, run 20.

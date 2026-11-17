@@ -77,8 +77,37 @@ def dikte(a, b):
         dicht = np.abs(rel @ lid) <= 5.0 * k
         if dicht.any():
             best = max(best, float(np.abs(rel[dicht] @ buig).max()))
+    if b.get("cj_figuur"):
+        best = _dikte_straal(a, b, c, lid, buig, k, best)
     _dikte[sleutel] = best
     return best
+
+
+def _dikte_straal(a, b, c, lid, buig, k, plak):
+    """Bij een figuur (run 20): de plak van 5 knokkelstralen loopt dwars door de romp als deel A het hele lijf is (een
+    elleboog op een echte mens gaf een boog zo groot als de arm). Daarom hier de eigen huid van het lid: stralen vanaf
+    de lidas langs plus en min de buigkant, op 1 tot 5 knokkelstralen langs de lidas, eerste raakpunt in A of B; de
+    grootste daarvan. Lukt geen enkele straal, dan blijft de plak-maat."""
+    import numpy as np
+    from mathutils.bvhtree import BVHTree
+    from ..uit_elkaar import echte_matrix
+    bomen = []
+    for ob in (a, b):
+        mw = echte_matrix(ob)
+        vs = [mw @ v.co for v in ob.data.vertices]
+        bomen.append(BVHTree.FromPolygons(vs, [tuple(p.vertices) for p in ob.data.polygons]))
+    C, L, U = Vector(c.tolist()), Vector(lid.tolist()), Vector(buig.tolist())
+    best = None
+    for f in (-5.0, -4.0, -3.0, -2.0, 2.0, 3.0, 4.0, 5.0):
+        o = C + L * (f * k)
+        for r in (U, -U):
+            raak = [bm.ray_cast(o, r) for bm in bomen]
+            d = [x[3] for x in raak if x[0] is not None]
+            if d:
+                best = max(best or 0.0, min(d))
+    if best is None:
+        return plak
+    return float(np.clip(best, k, plak))
 
 
 def straal(a, b):
