@@ -17,6 +17,16 @@ Wat dat voor ons betekent:
 3. **Eerste korting van 20 tot 25% samen met de eerste grote gratis update**, zoals Deskrawl (30% op 13 nov, de dag na een grote update, Fenna verhaal 20; huidige korting 30% GEZIEN in de winkel-API 17 nov). Vroegst ±do 1 apr (30 dagen na de uitgave). **Besluit Sem: niet per se wachten op de Summer Sale.** Komt de update in april of mei, dan een eigen korting op die dag; is er vóór juni geen update, dan de Summer Sale (24 jun) met de update. Waarom: een eigen korting is de enige mail in de inbox van die dag, in een seizoensuitverkoop concurreert hij met duizenden en kan hij later gaan (GOK op het effect, de regel over later gaan staat in Fenna verhaal 17). Fenna stelde de Summer Sale voor; dat blijft de terugval.
 4. In het uitgavebericht prijs, korting en einddatum in één zin (A10 in `teksten-thijs.md`).
 
+**Bijgesteld in run 15 (17 nov ±02:10 UTC), na Fenna verhaal 21.** Punt 3 hierboven klopt niet meer. Fenna mat 24 bureaubladspellen met een aangekondigde eerste korting van 20%+ (`platformen/succes/data/eerste-korting-na-lancering-2026-11-17.csv`, zelf nagerekend): reviews per week in de kortingsweken tegen de 3 weken ervoor.
+| Soort korting | Aantal | Mediaan sprong | Let op |
+|---|---|---|---|
+| eigen korting (vaak met update) | 6 | 0,96x | Your Mother 1,36, Tiny Pasture 0,92, Desktop Defender 0,96 |
+| gewone seizoensuitverkoop | 11 | 1,5x | maar bij de 5 met minstens 5 reviews per week vooraf: 0,94x; de hoge sprongen zitten bij spellen met 0,3 tot 2 reviews per week (ruis) |
+| themafest of Daily Deal (etalage) | 4 | 3,6x | Fish to Dish 3,9 (Daily Deal, kies je niet zelf), Zen Aquarium 3,75 (Animal Fest), Chonkers 3,5 (Idler Fest), Bao Bao 1,7 (Minimal & Chill) |
+Controle zonder korting 0,7x. Eerlijk: 4 etalagegevallen is weinig, en een Daily Deal kiest Valve, dus GOK hoe groot het voor ons is; maar in alle vier was het meer dan bij elke eigen korting. Een update erbij maakte de eigen korting niet groter (Your Mother en Desktop Defender deden het allebei, 1,36x en 0,96x).
+
+**Besluit Sem (vervangt punt 3):** de eerste korting van 20 tot 25% gaat naar **het eerste themafest waar Hats echt in past** (Valve-lijst `doc/marketing/upcoming_events`, GEZIEN 17 nov). Op die lijst staat tussen maart en juni 2027 niets passends: Rhythm 8 tot 15 mrt, Dinos vs. Robots 29 mrt tot 5 apr, Racing 12 tot 19 apr, Witch 22 tot 26 apr, Fighting 26 apr tot 3 mei, RTS 10 tot 17 mei, Mountaineering 31 mei tot 3 jun. Dus: **terugval Summer Sale 24 jun tot 8 jul**, tenzij Valve vóór die tijd een fest toevoegt dat past (idle, bureaublad, kerker, cozy). Vera kijkt die lijst elke maand na (afspraak Fenna). **De eerste grote update krijgt een eigen dag zonder korting**, want de korting voegde bij de update niets toe en zo bewaren we de kortingsmail voor de etalage. Wat het zou veranderen: een passend fest vóór juni op de lijst (dan daarheen), of als Hats in de Idler Fest of een Desktop Companion Fest 2028 kan.
+
 ## Lanceerweek, wat er klaarstaat
 | Wanneer | Wat | Waar |
 |---|---|---|
@@ -24,7 +34,8 @@ Wat dat voor ons betekent:
 | uitgavedag | uitgavebericht A10, bundelpost A9 als de bundels staan | `teksten-thijs.md` |
 | dag 3 tot 7 | routekaart A8 met 5 vakjes, afvinken in dezelfde post | `routekaart.md` |
 | 4 tot 8 weken erna | gasthoed met Rusty's als update, alleen met iets nieuws om te spelen | `bundels.md`, kopje Crossovers |
-| ±1 apr of later | eerste grote update plus 20 tot 25% korting (punt 3 hierboven) | hier |
+| ±1 apr of later | eerste grote update, eigen dag zonder korting (bijgesteld run 15) | hier |
+| eerste passend themafest, anders Summer Sale 24 jun | eerste korting 20 tot 25% | hier |
 
 ## Open
 - Datum van de eerste grote update: vraag aan Olaf als het volle spel vaststaat (na de bevriezing van 15 feb), niet nu.
