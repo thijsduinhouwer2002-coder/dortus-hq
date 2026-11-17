@@ -26,14 +26,14 @@ Vorm voor elke post: **een titel, één gif of clip, hooguit twee zinnen**. Waar
 | Id | Wanneer | Voorstel (Engels) | Beeld | Woorden | Status |
 |---|---|---|---|---|---|
 | A1 | paginadag ±8 dec, 18:00 NL | Titel: "Hats of the Fallen is on Steam. Free demo on January 4." | trailer | 11 | CONCEPT |
-| A2 | ma 4 jan 18:00 NL | Titel: "The demo is out. Gloop is waiting." | gif: held valt, hoed op Gloop | 7 | CONCEPT |
+| A2 | ma 4 jan 19:15 NL (na het einde van de Winter Sale, festplan run 12) | Titel: "The demo is out. Gloop is waiting." | gif: held valt, hoed op Gloop | 7 | CONCEPT |
 | A3 | wo 13 jan | Titel: "Tomorrow: the Desktop Companion Fest." Zin: "Every hat you collect counts toward hats for everyone." (tweede zin alleen bij optie A, keuze 21 nov) | clip Gloop met hoedenstapel | 14 | CONCEPT |
 | A4 | do 14 jan 19:00 NL | Titel: "We're in the Desktop Companion Fest. Every hat counts." | clip: Gloop zet een hoed op, teller loopt | 9 | CONCEPT |
 | A5 | bij elk gehaald hoedendoel (optie A) | Titel: "[50,000] hats! A new hat for every Gloop." | clip van die hoed | 8 | CONCEPT |
 | A6 | demo-fix tussen 4 en 13 jan | Titel: "Demo 1.0.[x]: [wat er gerepareerd is]" (zin van Olaf, Thijs in eigen woorden) | geen of een gif | ±8 | CONCEPT |
 | A7 | ma 18 jan, einde fest | Titel: "Thank you. The demo stays." Zin: "Your hats come with you to the full game." | schermafbeelding hoedenteller | 14 | CONCEPT |
 | A8 | lanceerweek, dag 3 tot 7 | "What's coming to Hats of the Fallen", 5 vakjes die we in dezelfde post afvinken; volledige concepttekst in `marketing/routekaart.md`, inhoud wacht op Olaf | geen | ±120 | CONCEPT |
-| A9 | lanceerweek | Titel: "Bundles!" per bundel één zin waarom hij past (vorm van Nanomon, `marketing/bundels.md`) | capsules van de bundels | ±40 | CONCEPT, tekst volgt als de bundels vaststaan (±16 feb) |
+| A9 | lanceerweek | Titel: "Bundles!" per bundel één zin waarom hij past (vorm van Nanomon, `marketing/bundels.md`) | capsules van de bundels | ±40 | CONCEPT, tekst volgt als de bundels vaststaan (±16 feb); concept voor de post met Tiny Pasture in hun eigen sjabloon staat in `marketing/bundels.md` (run 13) |
 
 ## Wedstrijd in de festweek (status CONCEPT)
 | Id | Wanneer | Voorstel (Engels) | Woorden | Status |

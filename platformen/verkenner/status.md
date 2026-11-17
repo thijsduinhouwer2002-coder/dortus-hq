@@ -1,6 +1,7 @@
 # Verkenner: status
 
-- **Fase:** doorlopend zoeken.
+- **Fase:** focus (hoofdchat 16 nov 21:55): scorebord, verspreiden helpen, herhaalmetingen. Geen nieuwe platformen.
+- 16 nov, run 22:31: meting Reddit-post Click Joints opgezet, zie click-joints-reddit-effect.md (24 uur op 17 nov, 48 uur op 18 nov).
 - 16 nov, run 21:31: Apify Store opnieuw met eigen meting (4, nee voor nu), zie voorstellen/apify-store.md. Let op: gepakt voordat ik het bericht van de hoofdchat van 12:10 (geen nieuwe platformen) las; vraag over welke opdracht geldt op lijst-thijs.md.
 - 16 nov, run 20:31: bezoekers dortus.com uit Amami in het scorebord (opdracht hoofdchat 20:35), nieuw script organisatie/controle/scorebord_amami.py; testrun groen, eerste hele dag morgen 07:00 UTC.
 - 16 nov, run 17:31: scorebord gebouwd en nagekeken (opdracht hoofdchat 17:05), zie organisatie/scorebord.md. Volgende: Chris helpen met verspreiden.

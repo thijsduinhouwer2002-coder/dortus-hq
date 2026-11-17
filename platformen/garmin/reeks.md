@@ -32,16 +32,80 @@ Lees dit als voorbeelden, niet als telling: 30 reviews per wijzerplaat, vooral t
 
 ## Wat een wijzerplaat mag tonen
 GEZIEN in de uitleg van Garmin (`https://developer.garmin.com/connect-iq/api-docs/Toybox/Complications.html`, 16 nov): er bestaan kant-en-klare velden voor Body Battery, stress, slaapscore, hersteltijd, trainingsstatus, VO2max, hartslag, stappen, trappen, calorieën, intensiteitsminuten, ademhaling, zuurstof, meldingen, agenda, weer nu, temperatuur hoog en laag, verwachting 1 tot 3 dagen, zonsopgang en zonsondergang, hoogte, luchtdruk, weekafstand hardlopen en fietsen, wedstrijdvoorspelling. Training readiness en HRV-status staan **niet** in die lijst.
-NIET GEZIEN, eerst proeven in de simulator: of de geschiedenis van Body Battery en stress (voor een lijntje) op elk horloge te lezen is, het weer per uur, hoeveel geheugen een wijzerplaat per horloge krijgt, en de regels voor de slaapstand op AMOLED (hoeveel pixels aan mogen).
+Stond open tot run 123 (uitslag hieronder): of de geschiedenis van Body Battery en stress (voor een lijntje) op elk horloge te lezen is, het weer per uur, hoeveel geheugen een wijzerplaat per horloge krijgt, en de regels voor de slaapstand op AMOLED (hoeveel pixels aan mogen).
+
+### Uitslag van de proef (run 123, 16 nov ±21:15 UTC): de geschiedenis is er, het geheugen is krap
+Proef: tak `claude/garmin-reeks-kern` (26399a6), map `producten/garmin-reeks-kern`, run 43956535066 groen (3 toetsen, pakket met 63 horloges bouwt). Een kale wijzerplaat die leest en tekent, niet voor de winkel. Alle regels staan in `uitslag.txt` op de tak `schermen`, map `garmin-reeks-kern/claude-garmin-reeks-kern/`.
+
+**GEZIEN in het log van de simulator, op 8 horloges** (Forerunner 255, fēnix 8 47 mm, Venu 3S, vívoactive 5, Venu Sq 2 en de oude Forerunner 55, Forerunner 245 en Instinct 2):
+- **Geschiedenis van Body Battery en van stress: op alle 8 te lezen** (`has ja`, 80 waarden elk, geen lege).
+- **Weer per uur: 12 uur vooruit, op alle 8.**
+- **Kant-en-klare velden van Garmin (Complications):** ja op de 5 nieuwere, nee op Forerunner 55, 245 en Instinct 2. Op oude horloges lezen we velden dus op de oude manier (stappen, hartslag en zo rechtstreeks).
+- **Beeld (GEZIEN met Read, blad van fr255, fenix847mm, instinct2, venusq2 en fr55, ±420 px hoog):** de tijd, de blauwe heuvellijn van Body Battery, de oranje van stress en de groene golf staan er op alle vijf; onderaan `BB80 ST80 W12`. Op de Instinct 2 is alles zwart-wit en valt de laatste cijfer van de tijd achter het ronde venstertje rechtsboven: dat horloge vraagt een eigen opmaak.
+- **Tekenen:** tijd, twee heuvellijnen van 40 punten en een golf van 24 punten samen 1 tot 2 ms op de schermen met weinig kleuren, 7 tot 15 ms op AMOLED (fēnix 8: 9 tot 15 ms). Dat is de simulator op een server, geen horloge.
+- **Geheugen voor een wijzerplaat** (uit de bestanden van de SDK, alle 63 regels geteld in `uitslag.txt`): 131.072 bytes op 56 van de 63, ook op de nieuwste (Venu 4, Forerunner 970, vívoactive 6). 98.304 op Forerunner 55, 245, 945 en Venu Sq; 114.688 op fēnix 6; 65.536 op Instinct 2; 524.288 op vívoactive 4. De kale proef gebruikt ±9.000 bytes. Een spel krijgt 786.432 bytes, een wijzerplaat dus een zesde.
+
+**GEZIEN in de uitleg van Garmin** (`https://developer.garmin.com/connect-iq/api-docs/Toybox/SensorHistory.html`, opgehaald met curl, 16 nov ±21:00 UTC): de lijst "Supported Devices" bij de geschiedenis van Body Battery telt 113 regels, bij stress 116. Erin: alle Forerunners vanaf de 55 en 245, fēnix 6 tot 9, epix, Enduro, Instinct 2 en 3, Venu (alle), vívoactive 4 tot 6, MARQ, Descent, Approach S50, S70 en S72, D2. Er niet in voor Body Battery: fēnix 5 Plus en D2 Air.
+
+**Antwoord op de voorwaarde van Daan (16 nov ±21:05 UTC):** ja, de heuvellijn van Body Battery of stress kan op het grootste deel van de 100+ horloges. Volgens de lijst van Garmin op 113 soorten, in de simulator gezien op 8 waaronder de drie oudste die we zouden meenemen.
+
+**NIET GEZIEN, en dat telt:**
+- Hoeveel uur geschiedenis een echt horloge geeft. De simulator geeft op elk horloge dezelfde 80 nepwaarden (laagste 5, hoogste 93), één per minuut, dus 79 minuten, ook al vroeg ik 4 uur. Garmin schrijft zelf dat de tijd tussen twee waarden per horloge verschilt. Pas een echt horloge zegt of de lijn 4 uur of een hele dag kan tonen.
+- De volgorde: ik vroeg "oudste eerst" en kreeg de nieuwste eerst (de tijd liep 4.740 seconden terug). Bij het bouwen de tijd van elke waarde gebruiken en niet de volgorde vertrouwen.
+- Het kleurverloop als vast plaatje per thema (vraag van Mila): niet geprobeerd. Met 131.072 bytes voor alles is een schermvullend plaatje per thema de eerste zorg; op nieuwere horloges tellen plaatjes mogelijk niet mee in dat geheugen (GOK, eerst meten).
+- De slaapstand op AMOLED en instellingen in Garmin Connect.
+
+### Uitslag van proef 2 (run 124, 16 nov ±22:10 UTC): plaatjes en letters kosten op nieuwe horloges bijna niets, op oude veel
+Proef: zelfde tak, commit bc72807, run 43965812334 groen (toetsen, pakket voor 63 horloges, 8 horloges in de simulator). De proef laadt een eigen cijferletter op twee maten (Poppins, 56 en 110 px, alleen `0123456789:`) en één schermvullend kleurverloop, en print het geheugen ervoor en erna. Ontwerp van de proef: `producten/garmin-reeks-kern/ontwerp.md` op de tak.
+
+**GEZIEN in `uitslag.txt` (simulator, bytes van het geheugen van de app):**
+
+| Horloge | Scherm | Geheugen totaal | Kale proef | Letter 56 px | Letter 110 px | Schermvullend plaatje | Vrij daarna |
+|---|---|---|---|---|---|---|---|
+| Forerunner 255 | 260 | 126.792 | 10.632 | 568 | 320 | 1.192 | 113.984 |
+| fēnix 8 47 mm | 454 | 126.792 | 10.768 | 568 | 320 | 1.296 | 113.744 |
+| Venu 3S, vívoactive 5 | 390 | 126.792 | 10.704 | 568 | 320 | 1.296 (plaatje van 260) | 113.808 |
+| Venu Sq 2 | 320x360 | 126.792 | 10.656 | 568 | 320 | 1.168 (plaatje van 260) | 113.984 |
+| Forerunner 55 | 208 | 94.024 | 11.792 | 2.120 | 4.208 | 22.576 | 53.248 |
+| Forerunner 245 | 240 | 94.024 | 11.784 | 2.776 | 5.328 | 68.544 (plaatje van 260) | 5.512 |
+| Instinct 2 | 176 | 61.256 | 11.808 | 2.120 | 4.208 | 18.624 (plaatje van 260) | 24.416 |
+
+- **Nieuwe horloges (de vijf met `pool=ja`):** een plaatje of een letter telt bijna niet mee in het geheugen van de app, ±1.300 bytes voor een heel scherm. Het beeld zelf staat in een apart geheugen van het horloge. Hoe groot dat aparte geheugen op een echt horloge is: NIET GEZIEN, de simulator klaagt niet.
+- **Oude horloges (Forerunner 55, 245, Instinct 2, `pool=nee`):** het plaatje telt volledig mee. Op de Forerunner 245 blijft na één schermvullend plaatje 5.512 bytes over: dat past dus niet naast een echte wijzerplaat. Letters kosten daar 2.000 tot 5.500 bytes per stuk, dat kan.
+- **Tekenen op de fēnix 8:** het schermvullende plaatje 9 tot 12 ms, de tijd in de eigen letter 2 tot 3 ms, alles samen 13 tot 17 ms. Op de schermen met weinig kleuren 0 tot 1 ms.
+- **Inbranden:** `inbrand=true` op fēnix 8, Venu 3S, vívoactive 5 en Venu Sq 2; `false` op Forerunner 255, 55, 245 en Instinct 2. Op de eerste groep gelden dus de regels van Garmin voor de slaapstand.
+- **Beeld (GEZIEN met Read, blad van 8 beelden, ±390 px breed):** de eigen letter staat er op alle horloges. Het kleurverloop is glad op AMOLED, korrelig op de Forerunner 255 en 245 en grof gestippeld op de Forerunner 55 (8 kleuren). Op Venu 3S vult het plaatje van 260 het scherm van 390 niet: per schermmaat is een eigen plaatje nodig.
+- **NIET GEZIEN:** het slaapbeeld. De proef tekende het pas na 14 s en de laatste schermafbeelding was toen al gemaakt (`KERN SLAAPBEELD` staat wel in het log, `echt=false`: de simulator zet de slaapstand niet zelf aan). Hersteld in 2999205 (na 6 s), zie proef 3.
+
+### Uitslag van proef 3 (run 124, 16 nov ±22:26 UTC): de vier letters van Tij passen overal
+Proef: zelfde tak, commit 2999205, run 43968184893 groen. De vier letters van Mila (Big Shoulders Display): tijd gewicht 900 met `0123456789:`, BB-getal 900 met de cijfers, veldgetal 800 met `0123456789.K`, datum 700 met cijfers, spatie en de letters van de weekdagen. Maten uit `ontwerp/garmin/reeks/maten-tij-tabel.md`: op 260 px 78, 29, 17 en 17; op 454 px 136, 50, 30 en 30; op 208 px maal 0,8 (mijn keuze, staat niet in haar tabel). Horloges met een andere maat kregen in deze proef de letters van 260.
+
+**GEZIEN in `uitslag.txt` (simulator, bytes van het geheugen van de app):**
+
+| Horloge | Tijd | BB-getal | Veld | Datum | Samen | Vrij daarna (zonder plaatje) |
+|---|---|---|---|---|---|---|
+| Forerunner 255, fēnix 8, Venu 3S, vívoactive 5, Venu Sq 2 | 592 | 320 | 320 | 320 | 1.552 | ±114.000 |
+| Forerunner 55 (maten van 208) | 1.952 | 512 | 344 | 664 | 3.472 | 78.056 |
+| Forerunner 245 (maten van 260) | 3.808 | 1.024 | 552 | 944 | 6.328 | 75.208 |
+| Instinct 2 (maten van 260) | 2.856 | 568 | 392 | 664 | 4.480 | 44.264 |
+
+- **Beeld (GEZIEN met Read, blad van 6 beelden, ±520 px breed: Forerunner 255, fēnix 8 47 mm en Forerunner 55, wakker en slaap):** de tijd, de datum "MON 16", drie veldgetallen ("61", "8.4K", "23") en het BB-getal staan er in de letter van Mila, scherp op alle drie. Het BB-getal valt in deze proef achter de heuvel: dat is mijn plaatsing, geen fout van de letter.
+- **Slaapbeeld, nu wel GEZIEN:** zwart, de tijd in grijs en een dunne lijn van Body Battery. De proef tekent het zelf na 6 s (`echt=false`); de echte slaapstand van het horloge en de regels tegen inbranden zijn daarmee NIET getoetst. Op de Forerunner 55 is de dunne grijze lijn niet te zien (8 kleuren): daar moet de lijn wit en 2 px zijn.
+- **Wat dit betekent:** de letters zijn geen zorg voor het geheugen, ook niet op de oudste horloges. Het pakket voor 63 horloges is 2.462.549 bytes.
+
+**Antwoord voor Tij (Mila):** getekende banden in plaats van een plaatje is de goede keuze, want dat werkt ook op de oude horloges en op elk scherm. De vier letters kunnen overal (proef 3 hierboven).
+
+**Wat dit betekent voor het ontwerp:** weinig plaatjes, veel tekenen met lijnen en vlakken; een eigen cijferletter voor de tijd kost geheugen en moet gemeten worden voor Mila hem uitwerkt; de golf en de heuvellijn als veelhoek zijn goedkoop genoeg om elke seconde te tekenen als het horloge wakker is.
 
 ## De kern (één keer bouwen, in elke plaat)
 1. **Velden kiezen** uit de lijst hierboven, in Garmin Connect en waar het kan op het horloge zelf. Bij de wijzerplaten met 100+ noemt 85% dit (Vera).
 2. **Kleuren:** een handvol thema's per plaat, door Mila gekozen en op contrast gemeten (zoals bij de dieren van Ebb), geen vrije kleurkiezer met 64 lelijke uitkomsten.
 3. **Slaapstand** op AMOLED en **aanraken**: tik op een veld en de bijbehorende weergave van Garmin gaat open.
-4. **Gratis en betaald uit één bron.** Gratis: vaste velden, één thema, blijft altijd werken. Betaald ($2,99, of de dichtstbijzijnde prijsstap die het formulier aanbiedt): alles kiezen. Geen proef die omslaat, geen code, geen eigen site. Zin voor de winkel: "Pay once in the Connect IQ Store. The free version stays free."
+4. **Gratis en betaald uit één bron.** Gratis: vaste velden, één thema, blijft altijd werken. Betaald ($3,00; $2,99 bestaat niet bij Garmin, de stappen zijn $2,75 en $3,00): alles kiezen. Geen proef die omslaat, geen code, geen eigen site. Zin voor de winkel: "Pay once in the Connect IQ Store. The free version stays free."
 5. **100+ horloges vanaf de eerste dag.** Het venster "nieuw" duurt 14 dagen en komt niet terug (Joris). De mediaan van een betaalde app is 84 van de 107 soorten horloges waar betaald op kan.
 6. **Winkelpagina:** filmpje (Chris), 5 beelden (Mila), tekst in Engels, Duits en Nederlands, zoekwoord in de naam.
 7. **Meten:** elke plaat krijgt een regel in een meetbestand op dag 0, 7, 14 en 30.
+8. **Het gratis broertje (Joris, 16 nov ±21:50 UTC, verhaal 22 in `platformen/succes/verhalen-groei.md`, 452 paren gemeten):** de betaalde haalt mediaan een tiende van zijn gratis broertje. Daarom: (a) in de eerste regels van de gratis winkeltekst één zin met link naar de betaalde ("The full version adds ...: <link>"); (b) de gratis op alle horloges waar hij draait, ook waar de betaalde niet kan (oude horloges zonder betalen via Garmin); (c) meetlat: de gratis op 1.000 is het doel, de betaalde volgt met ±een tiende. Gratis blijft gratis, geen proef en geen code: dat klopt met wat Joris mat.
 
 De wijzerplaat met Gloop (tak `claude/garmin-wijzerplaat-gloop-2026-11-16`) wordt plaat 3 of later: de hoedentoren groeit echt met je stappen, maar hij krijgt eerst de kern eronder. Een figuur zonder velden haalt half zo vaak 100+ (Vera).
 
@@ -91,3 +155,49 @@ De winkel heeft geen lijst "binnenkort". Wat ik zag: 4 van de 15 gelezen wijzerp
 ## Wat dit omgooit
 - Blijkt in de proef dat de geschiedenis van Body Battery of het weer per uur op de helft van de horloges niet te lezen is: dan vervalt de richting per veld of de ring, en kiezen we opnieuw.
 - Staat plaat 1 met kern, filmpje en 100+ horloges na 30 dagen onder de 10 downloads: dan ligt het aan de drukte en niet aan ons product, en bouwen we geen plaat 3 zonder ander kanaal (Vera schreef hetzelfde over Gloop).
+
+## Tij: concurrentiecheck van de dag en de slaapstand (run 125, 16 nov ±23:00 UTC)
+
+### De check: het idee bestaat al, drie keer, en dat zagen wij eerder niet
+Gemeten met `tij_concurrentiecheck.py` (zoekbalk van de winkel, alleen wijzerplaten): de nieuwste 60 op "body battery" en op "big digits", en de eerste 60 op tide, sea, ocean, wave, boat, sail, water level, ship en "battery level sea". Samen 660 rijen, 601 verschillende wijzerplaten: `tij-concurrentiecheck-2026-11-16.csv`. Van negen de winkeltekst gelezen, van vier de eerste drie winkelbeelden bekeken als blad (`tij-concurrenten-blad-2026-11-16.png`, GEZIEN met Read, 300 px per beeld). Showcase van het forum gelezen (eerste pagina, 20 onderwerpen).
+
+**Mijn fout van run 122:** ik zocht toen op woorden voor gegevens (body battery, big digits, 24h) en niet op woorden voor het beeld (tide, sea, boat). Daardoor schreef Mila "in de 318 rijen vond ik verder geen zee, golf of boot" en zei Daan ja zonder deze drie te kennen. Les: bij een plaat met een beeld ook op het beeld zoeken, vóór het stijlblad.
+
+| De 5 dichtstbijzijnde | Prijs | Downloads, reviews | Horloges | Sinds | Wat het doet (winkeltekst en beeld) | Wat wij hebben dat zij niet hebben |
+|---|---|---|---|---|---|---|
+| **Tide Line**, Fabrique-Futur | gratis | 0, 0 | 1 (Forerunner 970) | 2 nov 2026 | "Your Body Battery is the sea level": het water staat zo hoog als je Body Battery, de tijd drijft er half in, een dunne lijn van de laatste 24 uur over de bodem, "high tide" noemt je piek. Slaapstand: grijze waterlijn en dunne tijd, schuift elke minuut. Beeld: effen blauwe zee, peilschaal links | Hetzelfde idee. Verschil: bij ons ís de waterlijn het verloop (bij hen een los lijntje op de bodem), het bootje op het nu dat scheef valt als je leeg bent, vier thema's, drie velden, 100+ horloges tegen 1 |
+| **Tide - Your battery, poured into the time**, GaminWatch | $2,75, met een gratis versie die na 7 dagen om de betaalde vraagt | 1+, 1 (5,0) | 87 | 13 nov 2026 | De cijfers van de tijd lopen vol met vloeistof; het peil is de accu of Body Battery, stappen, calorieën. Groen naar rood. Beeld: groene cijfers op zwart, verder leeg | Een zee met een verloop in plaats van gevulde cijfers; de gratis versie blijft gratis; velden |
+| **TIDE**, oleg-koval | gratis | 10+, 0 | 76 | 3 aug 2026 | Het scherm is een vat: het water stijgt door het uur, een boei drijft op de waterlijn en beweegt met je hartslag, het water wordt lichter als Body Battery zakt. Beeld: wit geblokt water op zwart, geen cijfers van belang | Leesbaar: de tijd groot, Body Battery als getal en als peil. Bij hen is het water de tijd |
+| **Sailboat Weather Big Digits: Voyage**, fun4watch | gratis, PRO $2,99 met een code via eigen site, 48 uur proef | 0, 0 | 90 | 16 nov 2026 (vandaag) | Een zeilboot met de tijd op de zeilen, de lucht volgt het weer (18 soorten), 53 velden, 8 zeilkleuren. Beeld: druk, kleurig, boot vult het scherm | Rust, en het water betekent iets (je Body Battery); kopen via Garmin |
+| **Overflow - Big Liquid Digits**, TinyDialStudio (eerder gevonden door Mila) | gratis, $2,99 via KiezelPay | 10+ | niet opnieuw gemeten | niet gemeten | Minuutcijfers lopen vol naarmate je stappen haalt | Zie Tide van GaminWatch |
+
+Daarnaast: tientallen wijzerplaten met een zee of zeilboot als achtergrondplaatje (GreenPoint, Stella, Awooche, Vista: bijna allemaal gratis, 10+ tot 100+), en echte getijdenplaten (Tidewell $1,99 100+, Astra Tidemark gratis 100+ en Pro $4,99 10+, Tide Time gratis 1.000+).
+
+**Wat ik eruit haal, eerlijk:**
+1. "Body Battery is het zeepeil" is niet van ons alleen. Tide Line doet het sinds twee weken, op één horloge, met 0 downloads. Het idee is dus nog door niemand op veel horloges en met een winkelpagina die verkoopt uitgevoerd; of mensen het willen is daarmee niet bewezen, ook niet weerlegd.
+2. Wat van ons blijft: de waterlijn als verloop van je dag in getekende lagen (het beeld van Dusk 72 lijkt op geen van de vier), het bootje met de grap, 100+ horloges, gratis die gratis blijft. Dat is uitvoering en bereik, geen idee dat niemand heeft. Zo stond het al in "Kort" punt 1 en 2, en het geldt hier ook.
+3. **De naam Tide of Tij kan niet.** Op "tide" staan er tientallen, waaronder drie die letterlijk Tide heten en echte getijdenplaten; wie "tide" zoekt wil vaak eb en vloed. Dat ligt bij Chris.
+4. Nieuwkomers komen snel: Tide (13 nov), Voyage en Level Up (vandaag). De check moet op de dag van indienen opnieuw.
+
+**Mijn besluit:** de kern (velden, thema's, slaapstand, gratis en betaald uit één bron) bouw ik door, want die is voor elke plaat nodig. Het beeld van plaat 1 blijft Tij, maar Daan moet zijn ja opnieuw geven nu hij Tide Line kent, met het verschil in één zin. Zegt hij nee, dan krijgt de kern een ander beeld en is er geen bouwwerk verloren.
+
+### De slaapstand: regels van Garmin (GEZIEN met curl, 16 nov ±23:00 UTC)
+Bron: `https://developer.garmin.com/connect-iq/articles/connect-iq-faq/How_Do_I_Make_a_Watch_Face_for_AMOLED_Products.html` en `.../articles/user-experience-guidelines/Watch_Faces.html` (de gewone pagina's laden hun tekst pas met een script; deze adressen geven de tekst zelf).
+- In de slaapstand tekent de wijzerplaat **één keer per minuut**.
+- Eerste Venu: hooguit **10% van de pixels aan** en geen pixel langer dan **3 minuten** aan, anders zet het horloge het scherm uit. Een pixel is aan bij elke kleur behalve zwart.
+- Sinds de Venu 2: minder dan **10% van de lichtsterkte van het scherm**. De wijzerplaat vraagt met `System.getDisplayMode()` of het scherm in de zuinige stand staat; of de regel geldt staat in `requiresBurnInProtection` (in proef 2: ja op fēnix 8, Venu 3S, vívoactive 5, Venu Sq 2).
+- Raad van Garmin: weinig wit en blauw (liever lichtgrijs), dunne letters, niets dat stilstaat; wat stilstaat elke minuut tot 4 pixels verschuiven. En: een wijzerplaat voor AMOLED hoort een slaapstand te hebben.
+- De simulator heeft een proef voor inbranden (menu "View Screen Heat Map"). Of die zonder scherm op de bouwstraat te draaien is: NIET GEZIEN.
+
+### Gemeten: de dikke tijd van Tij past niet in de slaapstand
+`tij_slaapstand_meet.py` tekent de slaapstand met de letter van Mila (tijd op de maat uit haar tabel, waterlijn van 2 px, bootje als omtrek) en telt de pixels binnen het ronde scherm. Het is een rekensom op een plaatje, geen horloge; "licht" telt een grijze pixel naar zijn grijswaarde (170 van 255 telt als 67%), en hoe Garmin lichtsterkte precies meet weet ik niet (GOK).
+
+| Tijd in de slaapstand | Pixels aan (390, 416, 454) | Licht |
+|---|---|---|
+| Gewicht 900, vol, wit | 13,3%, 13,1%, 13,3% | 12,7% |
+| Gewicht 900, vol, grijs 170 | 13,3%, 13,1%, 13,3% | 8,5% |
+| Gewicht 900 als omtrek van 2 px, grijs 170 | 5,0%, 4,8%, 4,4% | 2,2 tot 2,6% |
+| Gewicht 400, vol, grijs 170 | 6,5%, 6,7%, 6,3% | ±4,1% |
+| Gewicht 300, vol, grijs 170 | 5,2%, 4,9%, 5,0% | 3,0% |
+
+De volle dikke tijd zet 13% van de pixels aan: boven de 10% van de eerste Venu, en bij grijs maar net onder de 10% licht van de nieuwere. Dat is te krap. **Voorstel aan Mila en Daan:** in de slaapstand de tijd als omtrek van dezelfde dikke cijfers (zelfde vorm, past bij het bootje als omtrek, ±5%) of in gewicht 300 tot 400 (±5 tot 6,5%), grijs en niet wit, en alles elke minuut 1 tot 4 px verschuiven. Een extra letter voor de slaapstand kost op nieuwe horloges ±600 bytes (proef 3); op de oude horloges zonder AMOLED is hij niet nodig.

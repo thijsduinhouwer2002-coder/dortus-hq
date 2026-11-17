@@ -3,6 +3,62 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+## Stand 16 nov ±23:55 UTC: CPU-grens voor de tak en de speeltest (Sanne, na keuring Iris 23:00 punt 1)
+**Wat er ligt (GEZIEN in keuring 11 en Brams `data/cpu-duur/LEESMIJ.md`):** gewoon spel, zelfde zaad 1794860558: main 0,844, controle 0,948, tak 1,281 (liep naast drie andere runs), proef 1,357. Bram draaide dezelfde .exe drie keer: 0,71 tot 0,86. CPU tussen runs zegt op deze runners dus vooral iets over de machine, niet over het spel. De 0,8 was mijn wens; hij hoort bij de demo, niet bij de speeltest.
+
+**Besluit (Sanne, het getal is van mij):**
+1. **De grens van 1,0 in de workflow blijft staan.** Niet oprekken.
+2. **Een rode run die naast andere duurtests liep telt niet als oordeel over het spel.** De tak `claude/steam-hol-regels-weg` mag naar main als één herhaling van de gewone duurtest **alleen** (geen andere duurtest tegelijk) onder 1,0 blijft, of als Brams proef binnen één run (`wissel`) laat zien dat de tak per getekend beeld niet meer dan 20% duurder is dan main. Eén van de twee is genoeg; Olaf kiest wat het eerst klaar is.
+3. **Blijft de tak ook alleen boven 1,0:** niet naar main voor de speeltest, eerst uitzoeken wat duurder werd (deco in gang en kamers is het enige nieuwe dat de hele tijd in beeld staat).
+4. **0,8 is de eis voor de demo van 18 dec, gemeten op Thijs' eigen pc** (CPU staat in de speeltestlog). Daar beslist het echte getal, niet de runner.
+5. **Is het te zwaar op Thijs' pc, dan leveren we in deze volgorde in:** eerst de momenten op 20 beelden per s terug naar 10, dan deeltjes en licht (juice) kleiner, pas als laatste het ritme. Held in beeld onder 45% kost meer plezier dan een paar beelden per seconde, want op 120 px ziet bijna niemand het verschil tussen 10 en 20.
+
+Waarom zo: Iris heeft gelijk dat "rood maar toch naar main" niet kan. Maar de grens verzetten op ruis is net zo fout. Een losse herhaling kost één run en geen bouw.
+
+## Stand 16 nov ±22:50 UTC: graaftoets gelezen, graafbonus blijft ook als je weg bent (Sanne, na Olaf 22:40)
+**Uitslag (GEZIEN door Olaf, tak `schermen`, `steam-hol-duur/claude-steam-hol-regels-weg-koper-{1,2}-zaad-1794857447-1920x1080/`, 20 min, zelfde zaad):** graver verdient **234**, alleen kopen **117**, dus +100%. Mijn eis was minstens +15%: ruim gehaald. Per val +45% (±9,4 tegen ±6,5): dat is precies de graafbonus op zijn hoogst (+3 op 6, plus wat terugkomers), dus zo bedoeld. De rest komt van meer vangsten (61% tegen 41%); de helden lopen niet gelijk, dus dat deel is geluk en tel ik niet als effect van graven. Iris (keuring 10) zag ook valregels van +9 tot +15 en geen zin vaker dan 3 keer.
+
+**Wat ik om 22:00 te mooi schreef:** "de volgende ochtend is er nog wat te kopen" klopt alleen voor wie weinig graaft. Nagerekend voor een graver (GEZIEN, `data/sim-weg-nacht/avond.py`, `avond-uitkomst.txt`, 200 zaden): 30 min spelen (koopt put 1+2 en slijm 1+2, houdt ±29 over), dan 8 uur weg op 0,12 met kans 0,79. Met graafbonus in de ochtend **963** (864 tot 1071), de laatste twee kosten 706, dus de winkel is altijd leeg. Zonder graafbonus bij weg 690, 28% van de zaden leeg.
+
+**Besluit (Sanne): niets veranderen, graafbonus blijft ook bij weg.** Waarom:
+1. Het verhaal klopt: een groter hol trekt rijkere helden, ook 's nachts. De bonus alleen bij kijken geven voelt als een straf voor weggaan, en dat is onze vaste regel niet.
+2. De speeltestbuild is de demo: 6 dingen in de winkel en hol 12 als eind, samen ±1,5 tot 2 uur. Een graver die een half uur speelt plus een nacht (±een uur spelen) heeft dan ±1,5 uur gehad; dat de winkel dan op is, is de demo die ophoudt, niet een fout in de nacht. Wat de tweede dag wel houdt: hol-niveaus (na 30 min ±hol 7 of 8, de nacht geeft hooguit 2, dus 2 tot 3 niveaus te halen in het spelen) en Gloop.
+3. Een kleinere bonus bij weg haalt het niet echt (zonder bonus nog 28% leeg) en kost een regel bouw plus een nieuwe toets, twee dagen voor de tak naar main moet.
+
+**Wel bekend en eerlijk opschrijven voor de speeltest (Olaf, `speeltest-21-nov.md`):** wie veel graaft heeft zondag goud zonder iets om te kopen. Dat is versie 3 (lagen en kamertjes, Brams prijzen), niet de demo. Vraag Thijs daar niet over, kijk alleen of het hem opvalt.
+
+**Ook bekend, voor versie 3:** de graafbonus zit na 24 gegraven cellen op zijn hoogst (+3); de graver in de toets haalde dat in ±10 min. Daarna levert graven in de demo alleen nog ruimte en beeld op. Voor 2 uur demo is dat goed. In versie 3 moet graven per laag weer iets opleveren (Brams lagen geven graven per laag een eigen prijs; de bonus per laag hoort daarbij).
+
+**Olafs vraag over 1632:** klopt wat hij dacht. "Goud 1e nacht 1632" in `data/sim-v3-weg/uitkomst.txt` is de nacht na werkdag 1 van versie 3 (6 open uur spelen, meer vallen en upgrades), niet mijn toets vanaf de beginopstelling. Mijn toets is Olafs Windows `weg-1.log`: vers hol, 8 uur, **+511**, faam 5 van 66, hol 3. Gehaald (onder 1048, hooguit hol 3). Mijn verwachting "650 tot 910" ging uit van +3 graafbonus, maar een vers hol heeft 0 gegraven, dus 559 (hoogste 643) was de juiste verwachting; 511 valt daarin.
+
+**Brams x 1,4 in plaats van x 1,7:** gezien, goed zo. Hol 50 op 119,5 open uur, de gaten zijn niet slechter. Dat was de afspraak (buiten 100 tot 130 dan zelf zetten).
+
+## Stand 16 nov ±22:00 UTC: een nacht weg na het nieuwe ritme, en de kroniek minder herhalen (Sanne, na Iris keuring 9)
+**Vraag 1, weg:** Iris (keuring 9, `schermen/steam-hol/main/weg-1.log`, run 43953061155) zag 8 uur weg vanaf 20 goud: **+1098 goud en faam 143**, dus de hele winkel (1048) en hol 2 tot 12 in één keer. Klopt: mijn regel van 14:05 was "een nacht is minder dan de winkel" en die heb ik om 19:55 niet opnieuw nagerekend toen `HELD_ELKE_S` naar 30 ging. Mijn fout.
+
+**Nagerekend (GEZIEN, `data/sim-weg-nacht/weg.py`, `uitkomst.txt`, zelfde rekenwijze als `voortgang.gd`, begin: 1 put en Gloop, kans 0,64; 200 zaden):**
+
+| Snelheid weg | helden in 8 u | gevallen (= faam) | goud zonder graafbonus | met graafbonus +3 | +3 en kans 0,85 | hol vanaf 0 |
+|---|---|---|---|---|---|---|
+| 0,25 (nu) | 240 | 155 | 1170 | 1635 | 2076 | 12 |
+| 0,17 (Iris' GOK) | 163 | 105 | 793 | 1108 | 1414 | 12 |
+| 0,15 | 144 | 93 | 702 | 981 | 1251 | 12 |
+| **0,12 (KEUS)** | **115** | **74** | **559** (hoogste 643) | **781** (hoogste 907) | 997 | 11 |
+| 0,10 | 96 | 62 | 468 | 654 | 834 | 10 |
+
+**Besluit (Sanne):**
+1. **`SNELHEID` 0,25 naar 0,12** in `voortgang.gd`. Een nacht is dan ongeveer **een uur spelen** (in het spel ±10 goud per minuut), ongeveer de helft van de winkel, en ook met de volle graafbonus blijft het onder de winkel (hoogste van 200 zaden 907). De 0,17 van Iris haalt de grens niet meer zodra de graafbonus meetelt (1108). Het plafond van 12 uur blijft. Hoeden en de kans op de aartsvijand gaan vanzelf mee (±42 hoeden per nacht in plaats van ±80; nog steeds een berg).
+2. **Faam als je weg bent: hooguit 2 hol-niveaus per keer weg.** Zonder plafond geeft ook 0,12 vanaf 0 meteen hol 11. Het bordje is de reden om te kijken; als één nacht het afmaakt, is de tweede speeldag leeg (keuring 1). Regel: faam uit de weg-stap telt tot net de drempel van huidig niveau + 2, de rest van die nacht telt niet als faam. Goud, hoeden en de kroniek van de nacht veranderen niet. Waarom eerlijk: er gaat niets weg wat je had, net als het plafond van 12 uur; faam is wat er rondverteld wordt, en 's nachts kijkt niemand. Tekst: geen nieuwe zin (op Olafs tak zijn de regels "Grew N levels" al weg; de optocht en de rij tonen dan hooguit 2 niveaus). Bouw: één regel in `kern/opslag.gd` bij `AFLOOP.faam_erbij(s, weg.faam)` (regel 133): weg-faam afkappen op de drempel van niveau(faam_voor) + 2 min faam_voor.
+3. **Toets voor Olaf (stap 'Weg geweest'):** 8 uur weg vanaf 0, beginopstelling, graafbonus +3: goud **onder 1048** (verwacht 650 tot 910) en hol-niveau hooguit 3. En 8 uur weg vanaf hol 6: hooguit hol 8. De oude grens van 1572 vervalt.
+
+**Wat het betekent voor de speeltest van za 21 nov:** Thijs speelt een half uur 's avonds (GOK hol 7 tot 8, koop 2 of 3), laat het 's nachts staan, en ziet 's ochtends ±560 tot 780 goud en 2 niveaus erbij. Er is dan nog wat te kopen en nog 2 tot 3 niveaus te halen in het spelen, precies de tweede dag die keuring 1 miste.
+
+**Vraag 2, kroniek:** in 20 min 16 tot 18 naamgenoot-regels uit drie zinnen (Iris, `hol.log` .exe-run 43953082236). Met helden om de ±30 s en 12 namen is na minuut 5 bijna iedereen een naamgenoot. Thijs schrijft de tekst zelf, dus de oplossing is minder regels, geen nieuwe zinnen.
+
+**Besluit (Sanne):** de naamgenoot-regel (`naamgenoot` en `naamgenoot_hoed`) komt **één keer per voornaam per speelbeurt** (dus "Kees II" wel, "Kees III" daarna niet; na terugkomst van weg begint de telling opnieuw, zoals Daans plat-regel). Een latere naamgenoot krijgt de gewone binnenkomstregel van zijn soort, en heeft hij een wrok, dan de terug-regel die de wrok noemt (dat is nieuw nieuws). Verwacht: hooguit ±8 naamgenoot-regels in de eerste 20 min, daarna bijna geen. Samen met Daans plat-regel (twee keer) gaat het aandeel herhaalde zinnen in 20 min van ruim een kwart naar GOK onder 10%. Toets: de teller in `uitslag.txt` (Olaf bouwde hem): geen enkele zin vaker dan 4 keer in 20 min.
+
+**Klein, gezien en gelaten:** veel valregels noemen de val niet ("Kees will not be leaving. +6"). Klopt, maar wie keek zag het, en het oplossen kost nieuwe zinnen. Niet nu.
+
 ## Stand 16 nov ±21:00 UTC: graven moet iets opleveren (Sanne, na Bram 20:35 en Olaf 20:50)
 **Vraag:** Brams meting (30 zaden, `data/graaf-vangst/LEESMIJ.md`): een graver vangt evenveel als wie niets doet (14,1 tegen 13,9 per 20 min). Mijn eis "wie graaft vangt minstens evenveel" haalt het, maar graven doet dan niets voor het hol. In `features.md` beloofden we "graven: het hol groter, meer goud per val later". In de speeltestbuild klopt dat niet: in het spel is het goud per val 6 plus 3 per eerder bezoek, los van de gang (`afloop.gd`). Thijs graaft in de speeltest het meest van alles; als dat niets doet merkt hij het.
 
@@ -32,6 +88,8 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 **Wat het kost:** een paar regels in `afloop.gd` en `voortgang.gd` plus een teller van zelf gegraven cellen in de save. Geen nieuw beeld. Past in de speeltestbuild van vr 20 nov; lukt het niet meer voor do 19 nov, dan gaat het naar de v3-economie en blijft graven in de speeltest zoals het nu is (vangt evenveel, kost niets).
 
 **Toets:** duurtest koper=1 en koper=2 met hetzelfde zaad. Geslaagd als de graver op 20 min minstens 15% meer goud heeft verdiend dan koper=2 en de derde koop eerder valt, en het gewone spel (niemand klikt) hetzelfde goud geeft als nu.
+
+**Aanvulling ±22:05 UTC: eerste helft van de toets is binnen (GEZIEN).** `schermen` → `steam-hol-duur/claude-steam-hol-regels-weg-koper-1-zaad-1794857447-1920x1080/` (run 43959515338, commit 2ed8709, 20 min, graaft 41 cellen): graafbonus 1 na 8 cellen, 2 na 16, 3 na 24 (`HOL gegraven kolom ... (zelf 24, graafbonus 3)`), dus precies de regel. Valregels daarna **+9** (en +12 voor een terugkomer) in plaats van +6. 25 vangsten, **234 goud uit valregels** in 20 min. **Kopen op 208 / 528 / 1048 s: de derde koop op 17,5 min**, precies de mediaan van mijn sim (17,5) en 2 min eerder dan de koper-run van keuring 9 (1174 s, a90df14). Hol 7 op 1193 s. Ter vergelijking dezelfde koper met hetzelfde zaad op het oude main (run 43948608381, bd26b2c, zonder bonus en zonder haperfix): 18 vangsten, 114 goud, maar 2 kopen, hol 6; die vergelijking is niet eerlijk (haperfout), dus de echte maat blijft koper=2 (run 43959522480, nog niet op `schermen`). CPU van deze run 1,11 (de graver had eerder 0,59 en 0,81): schommeling of iets in de tak, Olaf of Bram kijkt mee met het muisvlak. Voorlopig oordeel: **de graafbonus doet wat hij moet doen**; definitief als koper=2 er is.
 
 ## Stand 16 nov ±19:55 UTC: ritme in het gewone spel (Sanne, na Iris keuring 7)
 **Vraag:** Iris mat in de duurtest van 20 min (run 43931188663) dat er **62% van de tijd geen held in beeld** is, gaten mediaan 30 s, nooit twee helden tegelijk, en 13% van de tijd geen held terwijl Gloop plat ligt. Zij gaf drie knoppen: (a) helden sneller na elkaar, (b) Gloop korter plat, (c) soms twee helden kort na elkaar. Ik kies met Brams sim, speeltestbuild (graven gratis, upgrades 45/126/353, drempels 3/5/7/12/17), 40 zaden, held ±15 s in beeld. Script: `platformen/steam/data/sim-ritme/ritme.py`.

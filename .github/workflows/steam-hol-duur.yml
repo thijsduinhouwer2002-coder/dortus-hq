@@ -160,6 +160,11 @@ jobs:
             "soort: $(if ($env:EXE -eq 'ja') { 'echte .exe (release)' } else { 'editor-Godot (--path)' })",
             "eerste koop mogelijk: $((Select-String -Path ($vol + '/hol.log') -Pattern 'HOL eerste koop mogelijk.*' -ErrorAction SilentlyContinue | Select-Object -First 1).Matches.Value)"
           )
+          # Iris keuring 9 (16 nov): hoe vaak dezelfde kroniekzin terugkwam, de vijf vaakste (getoonde regels)
+          $zinnen = Select-String -Path ($vol + '/hol.log') -Pattern 'HOL kroniek [0-9.]+ \(wacht [0-9.]+\): (.*)$' -ErrorAction SilentlyContinue | ForEach-Object { $_.Matches[0].Groups[1].Value }
+          $vaak = $zinnen | Group-Object | Where-Object { $_.Count -gt 1 } | Sort-Object Count -Descending | Select-Object -First 5
+          $samen += "kroniekregels: $(@($zinnen).Count), verschillend $(@($zinnen | Sort-Object -Unique).Count)"
+          $samen += "vaakst herhaald: $(if ($vaak) { ($vaak | ForEach-Object { "$($_.Count)x '$($_.Name)'" }) -join '; ' } else { 'geen' })"
           $samen | Set-Content "$vol/uitslag.txt"
           ($metingen -join "`n") | Set-Content "$vol/cpu-per-10s.txt"
           $samen | ForEach-Object { Write-Output $_ }

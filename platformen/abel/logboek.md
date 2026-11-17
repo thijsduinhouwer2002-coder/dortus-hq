@@ -270,3 +270,34 @@ Alleen aanvullen, nooit weghalen.
 - Daan bijgepraat (aanvulling keuring 11 in berichten/daan.md).
 - Niet gedaan: support.html. De link "Support" bovenaan de voorpagina gaat naar een pagina die alleen de oude Atlassian-apps noemt en support@dortus.com gebruikt, terwijl de productpagina's thijs@dortus.com noemen. Voorgelegd aan de hoofdchat; niet zelf veranderd omdat het ook de Atlassian-pagina's raakt.
 - Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR DE HOOFDCHAT (regel 21:12: geen ja van Thijs meer nodig).
+
+## Run 37, 16 nov 2026 ±22:22 tot 22:45 NL
+- Nieuw: Daan keuring 11 ja met één moet (In short rustiger) en een kan (Click Joints eerste kaart); keuring 11a over de live site met twee kans (Hats-zin, devlog-clip zacht).
+- Gedaan op tak `claude/abel-audit-2026-11`, commit a447782, gepusht:
+  1. In short: van donkerblauwe band naar witte kaart met dunne rand (`.in-short` in styles.css), label IN SHORT klein in kapitalen, tekst gewone grootte, max 720 px, minder lucht. Op Click Joints, Rollwright en Ebb.
+  2. Click Joints eerste kaart op de voorpagina, Ebb tweede.
+  3. Hats-vak: "Your taskbar has a basement now. Our first small game is not in any store yet; we will put it here when it is."
+  4. Devlog-clip: de oude mp4 was 1120 x 240 uit een al zachte bron. Nieuw: Brams gif op ware grootte (560 x 120) 4x vergroot zonder vervaging naar 2240 x 480, h264 crf 16, 185 kB; poster opnieuw. image-rendering pixelated weggehaald, want bij verkleinen in de browser vallen dan lijnen weg. De tekeningen zelf zijn zacht getekend, dus scherper dan dit kan niet uit deze bron.
+- Gecontroleerd in Chromium: scrollWidth gelijk aan schermbreedte (1280, 1366, 390), alleen de bekende 403 van Amami via de proxy. Bekeken met Read: `audit-rw-kort-breed-2.png`, `audit-ebb-kort-tel-2.png`, click-joints breed, `audit-home-devlog-breed.png`, `audit-home-tel-2.png`.
+- KLAAR VOOR DE HOOFDCHAT gezet; Daan het beeld gestuurd; hoofdchat gemeld.
+- Volgende run: staat de tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
+
+## Run 38, 16 nov 2026 ±23:20 tot 23:50 NL
+- Let op: main van dortus-hq op GitHub is herschreven (geforceerd, andere geschiedenis dan mijn oude kloon). Ik werk nu op een tak vanaf origin/main; mijn oude lokale main niet aangeraakt.
+- Nieuw: hoofdchat 23:00, audit-tak staat live, en support.html mag ik doen.
+- Gedaan: support.html opnieuw opgebouwd op tak `claude/abel-support-2026-11` in repo dortus (947f7a6, bovenop main 8db514f, fast-forward kan). Ontwerp met keuze in `dortus-com/ontwerp-support.md` (aanpak 2: bouwstenen van styles.css, kop en voet als de productpagina's).
+  - Kop: thijs@dortus.com, Engels of Nederlands, "We aim to reply within 5 working days" (zelfde als Ebb).
+  - Vier kaarten in twee kolommen (op de telefoon één): Click Joints en Pro, Ebb, Rollwright, Bison & Flex. Per product wat je meestuurt, GitHub-issues waar die er zijn, privacy-link, bij Ebb de 48 uur van Garmin, bij Pro dat de downloadlink in de mail van Gumroad staat. Geen terugbetaalbelofte voor Pro: niet vastgelegd.
+  - Atlassian: één kleine regel onderaan ("no longer sold", vragen naar hetzelfde adres, privacy en terms blijven online).
+  - Head: meta-CSP, referrer, Amami, meta description 137 tekens. support@dortus.com komt niet meer voor.
+- Getest: Chromium op 1280 en 390, scrollWidth gelijk aan schermbreedte, alleen de bekende 403 van Amami via de proxy. Eerste versie had 3 plus 1 kaart op breed (cols-2 is auto-fit 280 px); nu minmax 400 px, dus 2 bij 2. Bekeken met Read: `dortus-com/support-breed.png`, `support-tel.png`.
+- Keuring door een aparte agent: geen punten met hoog. Midden: prijzen staan er niet (bewust, dit is support, prijzen staan op de productpagina's); `reveal-1` bestaat niet in styles.css (onschadelijk, staat ook op de productpagina's).
+- Daan gevraagd (keuring 12, berichten/daan.md).
+- Volgende run: ja van Daan? Moets verwerken, dan KLAAR VOOR DE HOOFDCHAT.
+
+## Run 39, 17 nov 2026 ±00:20 tot 00:55 NL
+- git fetch van dortus-hq liep vast zonder tak (timeout); `git fetch origin main` werkte. Main is weer herschreven (geforceerd); lokale main opnieuw op origin/main gezet.
+- Nieuw: Daan keuring 12 ja, geen moets, drie kansen. Gijs: Ebb Calm live (22:57 UTC).
+- support.html (tak `claude/abel-support-2026-11`, 1ba6016): link naar Garmins ontwikkelaarspagina bij de 48 uur (die pagina zegt "48-hour return window", curl, GEZIEN); voetstuk zonder marge en lijn boven de regel. Pictogrammen niet: bestaan niet op de voorpagina. Bekeken met Read: `support-breed-2.png`, `support-tel-2.png`. KLAAR VOOR DE HOOFDCHAT gezet.
+- Ebb Calm: winkel-API zegt APPROVED, gratis; winkelpagina 200. Tak `claude/abel-calm-2026-11` (5157cac): prijsregel en knop in de Ebb-kaart. Eerste prijsregel liep over twee regels, ingekort. Bekeken met Read: `calm-breed.png`, `calm-tel.png`. scrollWidth gelijk aan schermbreedte. Daan gevraagd (keuring 13).
+- Volgende run: ja van Daan op 13? Dan KLAAR VOOR DE HOOFDCHAT. Support-tak op main? Dan live nakijken met curl.

@@ -13,6 +13,7 @@ stand: "snel" (drie stilstaande beelden, lage kwaliteit, om de buigrichting na t
 import math
 import os
 import sys
+import time
 
 import bpy
 from mathutils import Matrix, Quaternion, Vector
@@ -168,7 +169,14 @@ s = hoogte / 150.0
 lamp("hoofd", zij * 1.0 + voor * 0.7 + Vector((0, 0, 1.1)), 2.5e6 * s * s, hoogte * 0.9)
 lamp("vul", -zij * 0.4 + voor * 1.0 + Vector((0, 0, 0.3)), 8.0e5 * s * s, hoogte * 1.2, (0.85, 0.9, 1.0))
 lamp("rand", -voor * 1.0 + zij * 0.3 + Vector((0, 0, 0.8)), 1.5e6 * s * s, hoogte * 0.6, (0.75, 0.65, 1.0))
+# keuze Daan 16 nov 22:45: een strijklicht van voren op het scharniervlak bovenop de scheen (CJ_LICHT_SCHEEN=1)
+if os.environ.get("CJ_LICHT_SCHEEN", "0") == "1":
+    lamp("scheen", voor * 1.0 + zij * 0.5 + Vector((0, 0, 0.9)), 6.0e5 * s * s, hoogte * 0.4)
+    log("strijklicht op het scharniervlak aan")
 
+# 0.35 is de stand van run 68; hoger kijkt meer van voren (keuze Daan 16 nov 22:45)
+CAM_VOOR = float(os.environ.get("CJ_CAM_VOOR") or "0.35")
+log(f"camera voor {CAM_VOOR:.2f}")
 cd = bpy.data.cameras.new("cam")
 cd.lens = 70
 cam = bpy.data.objects.new("cam", cd)
@@ -178,7 +186,7 @@ sc.camera = cam
 
 def zet_camera(hoek):
     r = Quaternion(Vector((0, 0, 1)), math.radians(hoek))
-    richting = r @ (zij * 1.0 + voor * 0.35 + Vector((0, 0, 0.18)))
+    richting = r @ (zij * 1.0 + voor * CAM_VOOR + Vector((0, 0, 0.18)))
     cam.location = midden + richting.normalized() * hoogte * 2.5
     cam.rotation_euler = (midden - cam.location).to_track_quat("-Z", "Y").to_euler()
 
@@ -212,6 +220,7 @@ else:
     sc.cycles.samples = 40
     sc.render.fps = 24
     os.makedirs(os.path.join(uit, "beelden"), exist_ok=True)
+    t0 = time.time()
     for f in range(1, 241):
         voet_bij(hoek_op(f) * teken)
         zet_camera(-6.0 + 12.0 * (f - 1) / 239)
@@ -219,5 +228,5 @@ else:
         sc.render.filepath = os.path.join(uit, "beelden", f"{f:04d}.png")
         bpy.ops.render.render(write_still=True)
         if f % 20 == 0:
-            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}")
+            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}, {(time.time() - t0) / f:.1f} s per beeld")
 log(f"KLAAR bereik {bereik:.2f}")

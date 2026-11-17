@@ -42,8 +42,11 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 ## Wat wij ermee doen
 Je punten gaan vóór alles (ook vóór de winkelbeelden). Olaf zet ze bovenaan `platformen/steam/taken.md` en bouwt ze in volgorde.
 
+Waar wij zelf op letten (niet aan Thijs vragen, alleen kijken of het hem opvalt; Sanne 16 nov 22:50): wie veel graaft, heeft zondag goud zonder iets om te kopen (30 min spelen plus een nacht weg geeft ±963 goud, de winkel is 1048). Dat is de demo die ophoudt, geen fout.
+
 ## Eerlijk vooraf
 - De naam in het bestand is nog Het Hol; het spel heet Hats of the Fallen.
 - Geluid kan uit staan of kaal zijn; de beelden zijn deels nog oud of paars.
-- Bekend en niet nodig om te melden (keuring Iris 16 nov): de winkel is klein (zes stappen, samen 1048 goud). Laat je het spel een nacht aan, dan koop je de volgende ochtend alles in één keer. De diepe voortgang van ±100 uur (Sanne, `voortgang.md`) zit er nog niet in.
+- Bekend en niet nodig om te melden (keuring Iris 16 nov): de winkel is klein (zes stappen, samen 1048 goud). Speel je eerst een half uur en laat je het spel dan een nacht aan, dan kun je de volgende ochtend de rest van de winkel kopen (vanaf een vers hol geeft een nacht ongeveer de helft, Windows-toets Olaf 22:40: +511). De diepe voortgang van ±100 uur (Sanne, `voortgang.md`) zit er nog niet in.
+- Na een half uur spelen plus een nacht ben je dicht bij het eind van wat er nu in zit (hol 12 en de zes dingen in de winkel, ongeveer wat de demo wordt). Zondag zie je dus hoe de eerste dag voelt, niet hoe week 3 voelt; die diepte komt in versie 3. Vraag 3 gaat daarom over de eerste dag. (Sanne 16 nov 23:55, na keuring Iris 23:00.)
 - Niets hiervan is gepubliceerd: de zip staat alleen als bijlage bij een testrun.

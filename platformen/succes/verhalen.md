@@ -1,8 +1,61 @@
 # Succesverhalen (Lars)
 
-bezig: niets. Verhaal 20 af (16 nov ±21:35 UTC, HueForge: devlog vooraf, Polymaker-bon, uitleg door anderen, 6.454 modellen op Printables). Volgende: Model Splitter volgen (Pro en Kickstarter), late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
+bezig: niets. Run 23 (17 nov ±00:35 UTC): ronde 2 van snelle eerste euro's in `platformen/succes/snel-eerste-euros.md` (Framer Export, ClearBar, Kumiko, telling van 45 tools op TrustMRR; omzet nagekeken via de betaaldienst). Spoor TrustMRR opgelost: elke startup heeft een openbare Markdown-pagina (`trustmrr.com/startup/<naam>.md`) met omzet per maand, zonder sleutel. Run 22 (16 nov ±23:00 UTC): spoedopdracht snelle eerste euro's, zie `platformen/succes/snel-eerste-euros.md` (4 verhalen, Chrome Web Store en App Store). Verhaal 21 af (16 nov ±22:15 UTC, Nomad Sculpt: gratis SculptGL vooraf, $19,99 zonder abonnement, zes jaar gratis updates, video's van anderen met het versienummer). Model Splitter nagekeken 16 nov ±22:10 UTC (site en RSS, GEZIEN): nog steeds gratis openbare bèta, nog geen Pro of Kickstarter live; de kogelgewrichtvideo van 16 nov staat op 142 weergaven, nog steeds geen scharnier met eindstop. Volgende: Model Splitter blijven volgen, late splitsers buiten Superhive. Spoor voor later: TrustMRR ("3D-AGENT AI for Blender", de API vraagt een sleutel).
 
 Nieuwste bovenaan.
+
+---
+
+## 21. Nomad Sculpt (Stéphane Ginier, Hexanomad, solo, boetseerapp voor iPad, Android en sinds 2025 de computer): eerst jaren een gratis webversie, dan één prijs van $19,99 zonder abonnement, zes jaar gratis updates, en de uitleg door anderen met het versienummer in de titel
+
+Onderzocht 16 nov 2026, run 21 (±21:45 tot 22:15 UTC). Waarom: de hoofdchat vroeg verhalen die helpen bij de eerste 100 kopers van Click Joints Pro. Nomad Sculpt is één bouwer, betaald, gebruikt door makers van figuren (ook om te printen), en het is gegroeid naast een gratis reus (Blender) en een dure reus (ZBrush). Geen cursusverkoper: alles komt uit de eigen woorden van de maker op zijn forum, zijn site en de winkels. Omzet noemt hij nergens die ik las.
+
+### Bronnen (alle met curl, GEZIEN 16 nov 2026 ±21:45 tot 22:10 UTC)
+- App Store: itunes.apple.com/lookup?id=1519508653 voor 10 landen (prijs, aantal beoordelingen, eerste uitgave, laatste versie).
+- Google Play: play.google.com/store/apps/details?id=com.stephaneginier.nomad (downloads, reviews, "In-app purchases").
+- Site: nomadsculpt.com (prijzen computer, licentieregels, FAQ).
+- Forum van de maker (forum.nomadsculpt.com, Discourse, JSON): "Coffee Break" (9 nov 2020), "Thank you so much for the Android version" (6 nov 2020), "Finally! I can now delete Forger" (4 mrt 2021), "Mask blur slider" (21 mrt 2021), en zoekresultaten op prijs en abonnement van 2025 en 2026.
+- Sketchfab-blog "Meet Stéphane, creator of SculptGL" (22 jan 2014). 80.lv "Nomad Sculpt Desktop Now In Free Beta" (2 jun 2025).
+- Reddit via Arctic Shift (r/NomadSculpting, en berichten van de maker zelf). YouTube-zoekpagina "nomad sculpt" (18 video's met weergaven). Printables-telling (GraphQL).
+- Tabel: `platformen/succes/data/nomad-sculpt-2026-11-16.tsv`.
+
+### Cijfers (GEZIEN tenzij anders vermeld)
+- App Store: $19,99 eenmalig in de VS, uit sinds 4 aug 2020, nu versie 2.13 (23 okt 2026). Beoordelingen in 10 landen samen 46.481, gemiddeld 4,8: China 16.827, VS 14.678, Japan 4.379, Korea 2.214, VK 2.141, Canada 1.688, Duitsland 1.510, Frankrijk 1.318, Australië 904, Brazilië 822. De prijs verschilt per land (Australië $29,99, Canada $24,99, Duitsland en Frankrijk € 22,99).
+- Google Play: 1M+ downloads, 9.850 reviews, 4,4, gratis te downloaden met aankopen in de app.
+- Computer (Windows en macOS): ±$35 eenmalig, 1 sleutel voor 2 computers, plus "Multiple seats" en "Classroom / Lab" met staffelkorting, betaald via Polar.sh. Een aankoop op mobiel geeft de computerversie niet, en andersom. Gratis te downloaden en te proberen, "No account needed".
+- Omzet: niet gevonden. GOK, en grof: 46.481 beoordelingen in 10 landen; als 1 op 20 tot 1 op 50 kopers een beoordeling geeft, zijn dat ±0,9 tot 2,3 miljoen iPad-aankopen van ±$20. Dat is een schatting met een onbekende verhouding, niet meer.
+- r/NomadSculpting: 11.894 leden, 9.740 berichten, 34.979 reacties; eerste bericht 16 nov 2020, niet door de maker. De maker plaatste één keer iets op Reddit: "SculptGL (new version)" in r/programming, 12 okt 2014.
+- De best bekeken uitlegvideo's zijn van anderen: Dave Reed 540.378 ("Beginner Tutorial"), Small Robot Studio 530.408 ("Beginner's Guide Tutorial 2021") en 127.331, ItsMeaDMaDe 200.063 ("Learn 3D Sculpting for 3D Printing"), Juneva_3D 102.603, Suushimi 79.497 ("Nomad Sculpt vs Zbrush for iPad"). Bij de eerste 18 zoekresultaten staan er 4 met een versienummer in de titel, alle van Dave Reed, waaronder "Nomad Sculpt 2.13: FREE 3D models & History Replay!" twee weken na die versie.
+- Printables: "nomadsculpt" 66 modellen, "nomad sculpt" 3, tegen "zbrush" 3.141. Op Printables noemen makers hun boetseerprogramma zelden; dit zegt weinig over printers als kopers.
+
+### Wat hij in welke volgorde deed
+1. **Jaren gratis vooraf: SculptGL, een boetseerprogramma in de browser, open bron (rond 2013).** Sketchfab bouwde er "Sculptfab" op en nam hem daarna aan (blog 22 jan 2014: "SculptGL (the web sculpting tool we based Sculptfab on)"). Hij noemt zichzelf daar "not an artist". Zijn enige Reddit-bericht is over SculptGL (2014). De kennis en de naam kwamen dus uit een gratis gereedschap, jaren voor er iets te koop was.
+2. **iPad eerst, betaald, één prijs (aug 2020).** Geen gratis versie op iOS, geen abonnement. Zijn voorbeeld: "I know Procreate is the most successful paint app by far on the iPad. Also I was inspired by them for a few things (cheap price without subscription, overall sleek interface, etc)" (forum, 21 mrt 2021). Hij was bang dat betalende kopers strenger zouden zijn: "Before the release I thought the reviews on iOS would be worse because people would be more critical since the app was paid. Well I was wrong." De iOS-cijfers geven hem gelijk: 4,8 op iOS tegen 4,4 op Android, waar de app gratis te proberen is.
+3. **Android gratis te proberen, om een praktische reden (nov 2020).** "the main reason why the app is free on Android was because of older devices ... a free app would solve this as people could test it beforehand." Achteraf twijfelt hij: "There is also the fact that most successful 'Art & design' Android app are free. So… not sure how it would have played out." Opslaan en exporteren zitten achter de betaling (forumreactie van een gebruiker, 2022: "PNG export has always been behind paywall").
+4. **Alles of niets, geen betaalde losse functies.** "I don't want to introduce paid feature, I prefer simple things, like an all-or-nothing approach" (4 mrt 2021). Wel denkt hij hardop over betalen voor updates: "An idea that I prefer is to have a yearly subscription, but only for updates. You would still have access to the app if you stop paying." Dat deed hij niet.
+5. **Eén uitzondering: een plugin van een ander bedrijf in de app.** Quad Remesher van Exoside is op de iPad te koop in Nomad: "The plugin's relative low price on the iPad is due to a deal between exoside and me" (feb 2026), "currently QR is 15$ and Nomad is 20$" (mrt 2026). Een tweede product zonder dat hij het zelf hoeft te bouwen, net als de plugins van anderen bij HueForge (verhaal 20).
+6. **Zes jaar gratis updates, met een versienummer en een naam.** Van 1.0 in 2020 naar 2.13 in okt 2026, voor wie in 2020 $19,99 betaalde. Zijn eigen forum en een Discord zijn de plek voor wensen en fouten; de subreddit maakten gebruikers zelf.
+7. **De prijs blijft, ook als mensen klagen (jan 2026):** "The price is not high, it's a one-time purchase. And I don't plan on changing it. Every app out there charges 20 dollar MONTHLY ... If you are talking about desktop it's a bit higher (35 dollar), it's similar to an indie game."
+8. **Daarna de computer, eerst gratis als bèta (jun 2025, 80.lv), nu betaald (±$35) met plaatsen en klaslokalen.** Op de site staat precies uitgelegd hoe een licentie werkt (2 computers per sleutel, vrijgeven in het portaal, 15 dagen offline), en wat hij niet doet: geen offertes, geen facturen op maat, geen studentenkorting buiten Apple.
+9. **Bereik door anderen.** De maker post nauwelijks zelf; de uitlegvideo's van Dave Reed en Small Robot Studio halen elk meer dan een half miljoen weergaven, en Dave Reed maakt bij nieuwe versies een video met het versienummer in de titel. Een van de grote video's is gericht op printers: "Learn 3D Sculpting for 3D Printing" (200.063).
+
+### 3 lessen
+1. **Een gratis voorganger bouwt de naam, het betaalde product verdient.** SculptGL was gratis en open; Nomad is betaald. Bij Dortus is de gratis Click Joints op extensions.blender.org de voorganger en Pro het betaalde. Nomad laat zien dat dit kan werken, maar het duurde jaren, en de betaalde app moest op zichzelf goed genoeg zijn om $20 te vragen zonder proefversie. (Bij hoofdles 6: bereik eerst.)
+2. **Eén eerlijke prijs, geen abonnement en jaren gratis updates leveren vertrouwen op, ook bij een hogere prijs dan de rest van de winkel.** $19,99 is veel voor een iPad-app, maar de beoordeling is 4,8 en de maker verdedigt de prijs met "one-time purchase". Hij zegt in gewone woorden wat de koper houdt. (Kandidaatles "zeg in gewone woorden wat de koper houdt" komt op 3; plus hoofdles 2.)
+3. **Een update met een nummer en een zichtbare nieuwe functie is een reden voor anderen om een video te maken.** Dave Reed maakt per versie een video ("2.4 Full Tutorial", "2.12 Full Process", "2.13: FREE 3D models & History Replay!"). De kandidaatles "geef makers een reden om zelf te filmen" komt hiermee op 3 en gaat naar de hoofdlijst. (Ook hoofdles 4: anderen maken het bereik.)
+
+### Wat Dortus anders doet
+- Pro 1.1 "Rig to Figure" gaat woensdag 18 nov uit, maar niemand buiten Dortus weet het, en er is geen maker die er een video over kan maken op de dag zelf. Bij Nomad maakt een vaste maker binnen twee weken een video met het versienummer.
+- Onze Pro op Gumroad en Superhive zegt wel "12 maanden updates" (Superhive) maar niet in één zin wat je houdt als die tijd om is. Nomad en HueForge zeggen het allebei op de site.
+- De koper van Click Joints Pro kan Pro niet proberen. Nomad op iOS kon dat ook niet en deed het goed; de proef zit bij ons in de gratis Click Joints, net als SculptGL. Dat is prima, mits de Pro-pagina laat zien wat Pro extra doet (die vergelijking is al in gang, besluit 16 nov 16:09).
+
+### Voorstel voor Dortus deze week
+**Chris (met Ruben voor de beelden): maak van Pro 1.1 een update waar een ander een video over kan maken, en geef die makers het vooraf.** Concreet: (1) noem de versie overal "Click Joints Pro 1.1: Rig to Figure" met één beeld dat het verschil toont (een rig erin, een figuur met scharnieren die stoppen eruit), (2) zet bij de makersmails die al klaarstaan (verhaal 15 en de top 3 van 18:55) één zin: "1.1 comes out on Wednesday, here is a free Studio key and a 30 second clip if you want to show it", zodat een maker een video met "1.1" in de titel kan maken, en (3) zet in de Gumroad-tekst één zin over wat de koper houdt, zoals Nomad en HueForge doen, bijvoorbeeld "One-time purchase. You keep the version you bought forever; 1.1 is free for everyone who bought 1.0." (alleen als dat zo blijft; Ruben of de hoofdchat bevestigt). Kost ±1 uur, geen geld; mails sturen gaat via Thijs zoals afgesproken. Meetlat: of er binnen 14 dagen na 1.1 een video van een ander met "Click Joints" in de titel verschijnt (YouTube-zoekpagina), en verkopen in die week tegen de week ervoor.
+
+### Wat ik niet vond
+- Omzet of aantal kopers. De maker noemt het nergens die ik las; mijn schatting hierboven is een GOK.
+- Hoe de eerste kopers in aug 2020 kwamen (Twitter, Apple, of een video). Twitter kan ik niet lezen zonder account, en een aanbeveling door Apple vond ik niet.
+- Of Dave Reed iets krijgt van de maker (sleutel, betaling). Zijn titel "Patreon Exclusive" wijst op een eigen Patreon, niet op een afspraak met Nomad.
 
 ---
 

@@ -3,26 +3,27 @@
 Opdracht: fest-plan punt 2, klaar di 24 nov. Dit is **versie 1**: 40 YouTube-kanalen die aantoonbaar een bureaublad-, idle- of cozy spel speelden. Twitch en TikTok volgen (zie "Open").
 Niemand is benaderd. Versturen is iets plaatsen op internet en gaat via de hoofdchat en de lijst van Thijs.
 
-## Eerste ronde in één blik (run 4, voorstel voor de hoofdchat en Thijs; niets verstuurd)
-De 15 die als eerste een mail of sleutel krijgen. Gekozen op: actief in de laatste 30 dagen (GEZIEN), maakt precies ons soort video, en een openbare route om ze te bereiken. Details per naam verderop.
-| # | Wie | Waarom (kort) | Route | Wanneer |
+## Eerste ronde in één blik (bijgesteld run 13, 16 nov ±23:40 UTC; voorstel voor de hoofdchat en Thijs; niets verstuurd)
+De 15 die als eerste een mail of sleutel krijgen, nu gekozen op **wat een video van ons soort op dat kanaal gewoonlijk haalt** (mediaan weergaven van zijn recente video's over idle, cozy, desktop, demo, fest of komende spellen; meting en grenzen in "Bereik per maker" hieronder). Run 4 koos op "maakt precies ons soort video" en pakte daardoor kanalen waar zo'n video ±200 weergaven haalt. Mediaan per kanaal: oude ronde 5.000, nieuwe ronde 45.000 (GEZIEN, `data/yt-bereik-2026-11-16.csv`).
+| # | Wie | Ons soort video haalt (mediaan) | Route | Wanneer |
 |---|---|---|---|---|
-| 42 | Maybe Sarisa | video "Cozy Idle Desktop Companion Taskbar Games You've Missed" | eigen domein | pagina live (±8 dec) |
-| 15 | The Indie Brew | "The BEST Idle Games to play While You Work" 16.602; vraagt zelf om mails | eigen domein | pagina live |
-| 68 | I Dream of Indie Games | wekelijkse lijst nieuwe indies, mediaan 11.500 | eigen domein | pagina live |
-| 69 | Cozy With Toxi | "20 HUGE Upcoming Cozy Games" 19.063 | eigen domein | pagina live |
-| 70 | NextBigGames | maandlijst komende idle-spellen | eigen domein | pagina live |
-| 29 | MaxPalaro | Rusty "jogar enquanto trabalha" 51.757; "for keys"; 2,82M abonnees (run 5) | eigen domein | pagina live, Engels of Portugees |
-| 22 | Gaming In The Wild | Next Fest-lijsten 42.114 | bureau | pagina live, nog eens in de festweek |
-| 23 | Easily Distracted Games | cozy-lijsten, mediaan 61.000 | bureau | pagina live, nog eens in de festweek |
-| 16 | Conkbot | maandlijst "Coming in ..." | via kanaal | begin december (lijst januari of maart) |
-| 7 | Kosh Idle | alleen idle, elke dag, mediaan 1.600 | via kanaal | demo af (18 dec) |
-| 19 | CozyAriGames | "First Look" van demo's, ook curator | Curator Connect | demo af |
-| 61 | GriffyBit TV | idle-streamer, 21 van 30 titels idle | via kanaal | demo af |
-| 71 | Rusty Champaign | bijna elke dag een cozy of idle demo | via kanaal | demo af |
-| 44 | Idle cub | half zijn titels idle, mediaan 199.500 | via kanaal | demo af, zonder verwachting |
-| 20 | Nookrium | "best overlooked" uit fests, 97.186 | via kanaal | festweek (14 jan) |
-Verwachting (GOK, rekensom onder "Nog actief?"): als 4 tot 5 van deze 15 iets maken, tientallen tot enkele duizenden bezoekers. Aanloop, geen doorbraak.
+| 23 | Easily Distracted Games | 89.000 (2,5x abonnees); "16 Upcoming Management Games That Look Incredible" 119.000, "18 Upcoming ..." 243.000 | bureau | paginadag (±8 dec), voor hun volgende "upcoming"-lijst |
+| 73 | OKtrix | 37.000 alle soorten; "Top 25 Upcoming Cozy Games You Need to Wishlist Now" 10.000 | gmail in kanaaltekst (Thijs kopieert) | paginadag |
+| 25 | Fleurs | 18.000; maandlijst "All the COZY games releasing November 2026!" 31.000 | kanaaltekst | begin februari, voor haar lijst van de lanceermaand (alleen spellen die die maand uitkomen) |
+| 22 | Gaming In The Wild | 13.000 (0,8x); "The Indie Game Guide To November" 26.000, Next Fest-keuzes 23.000 tot 34.000 | bureau | paginadag kort, daarna begin februari voor de "Indie Game Guide" van de lanceermaand |
+| 68 | I Dream of Indie Games | 6.950, wekelijkse lijst | eigen domein | paginadag |
+| 69 | Cozy With Toxi | 4.300, "upcoming cozy" | eigen domein | paginadag |
+| 44 | Idle cub | 191.000 (0,9x), half zijn titels idle | YouTube-knop (komt op lijst-thijs bij demo af) | demo af (18 dec) |
+| 10 | Gohjoe | 156.000, roguelites en "controls your PC" | zakelijk gmail in kanaaltekst | demo af |
+| 11 | Dex | 129.000, incrementals | kanaaltekst | demo af |
+| 17 | JGigs | 427.500 (4,9x); alleen "I Played 20 [soort] For 2 Hours Each" van uitgebrachte spellen (Tycoon 252.000, eerder idle 812.820) | YouTube-knop (nieuw) | na de lancering, met een sleutel van het volle spel; vóór die tijd niets |
+| 29 | MaxPalaro | 104.500 (0,04x, 2,82M abonnees, Portugees) | eigen domein | demo af, in het Engels |
+| 28 | 강한오빠 (strongbro) | 4.800 (0,9x), kantoorwerkers, speelde Deskrawl | kanaaltekst | demo af |
+| 71 | Rusty Champaign | 5.900, bijna elke dag een demo | via kanaal | demo af |
+| 20 | Nookrium | 45.000, "best from Next Fest" | via kanaal | festweek (14 jan) |
+| 39 | Dekaff (Dekaif) | 486.000 (2,5x), "unhinged games on Next Fest" | zakelijk adres in kanaaltekst | festweek (14 jan) |
+Paginadag aangevuld met 75 Kaganath, 76 GameGen, 77 Get To It en 78 Sloth Vibes (zie "Nieuwe kanalen via zoeken"; run 13). Titels en timing nagekeken op hun laatste 12 video's (run 13, ±23:40 UTC): Fleurs en Gaming In The Wild maken lijsten van wat in een maand **uitkomt**, JGigs alleen van uitgebrachte spellen; daarom later. Eruit gehaald uit de eerste ronde (blijven op de lijst, naar Curator Connect bij demo af, geen eigen mail): The Indie Brew (mediaan 208; de 16.602 was een uitschieter), Maybe Sarisa (566, ook haar bureaubladvideo maar 927), Conkbot (27), NextBigGames (1.400), CozyAriGames (1.500), Kosh Idle (1.600), GriffyBit TV (5.000, streams). Waarom: een mail kost Thijs evenveel tijd bij 200 als bij 90.000 weergaven.
+Verwachting (GOK): het totaal aan weergaven van video's waarin Hats kan staan gaat omhoog, maar in een lijstvideo zijn we 1 van 15 tot 30 spellen en grote kanalen geven weergaven, geen kopers (Desktop Survivors 98, Fenna verhaal 9). De begroting in `festplan.md` (makers ±10.000 tot 60.000) laat ik staan tot de paginadag echte doorkliks laat zien.
 
 **Correctie run 5 (16 nov ±15:50 UTC): abonneegetallen van 19 kanalen waren fout.** Mijn script `data/yt-kanaal.py` nam het eerste "subscribers" op de pagina, en dat is vaak een ander, uitgelicht kanaal. Nu leest het de kop van het kanaal zelf (GEZIEN: bij Dekaif staat 192K naast zijn eigen zakelijke adres, de 705K hoorde bij een uitgelicht kanaal). Alle 67 kanalen opnieuw gemeten; wat meer dan 10% afweek staat nu in de tabellen als "nieuw (was oud)". Fenna had de goede getallen. Wat dit verandert aan de eerste ronde: **MaxPalaro is 2,82M, niet 22,7K** (blijft erin: zijn kanaaltekst vraagt zelf om sleutels, maar reken op minder kans op antwoord); Nookrium 191K en I Dream of Indie Games 64,3K zijn groter dan gedacht; GriffyBit TV 9,63K kleiner. Olexa (298K), Wanderbots (522K) en JGigs (87,8K) zijn ook groter. Kansen heb ik verder niet aangepast: die hingen aan wat ze maken en of ze actief zijn, niet aan de grootte (Fenna: grote kanalen geven weergaven, geen kopers).
 
@@ -208,6 +209,7 @@ Per kanaal de pagina /videos met curl, de nieuwste ±30 video's: hoe lang gelede
 | zodra de winkelpagina live is (±8 dec) | groep A en B met openbaar adres (15, 22, 23, 29, 31 en wie in A een adres in tekst heeft), **plus Maybe Sarisa (42) en de aanloopgroep met eigen adres (68, 69, 70)** (run 4) | korte mail: één zin haak ("Every hero who falls in leaves a hat on Gloop's head"), GIF, link naar de pagina, "demo-sleutel vóór het fest als je wilt" |
 | vr 18 dec, demo af | wie ja zei | vroege demo-sleutel (Steam-sleutels via Steamworks, of Curator Connect) |
 | vr 18 dec, demo af (run 4) | streamers 61, 66 en 71 (GriffyBit, Phenexa, Rusty Champaign), via de route die ze zelf noemen | demosleutel; als chat-helden (optie D bij Sanne) er komt, is dat de eerste zin |
+| ±8 dec, 18 dec en lanceerdag (run 11) | TikTok: T3 en T4 bij pagina live, T1 en T5 bij demo af, T2 op de lanceerdag | zelfde korte mail; voor TikTok de zin "sits on top of your taskbar while you work" vooraan |
 | 8 jan (Valve-trailer, wij mogen melden) | alle 40, ook zonder adres via Curator Connect | herinnering: demo staat in het Desktop Companion Fest, Fest Hat |
 | 14 tot 18 jan | groep B (lijstjes) en Nookrium | fest-dag 1: "nieuw in het fest", onze GIF |
 
@@ -215,7 +217,7 @@ Teksten per groep staan in `platformen/steam/marketing/teksten-makers.md` (A, B,
 
 ## Open (volgende runs)
 - ~~Twitch: wie streamde Rusty, Desktop Defender, Deskrawl.~~ Gedaan run 4 via VOD-kanalen: 60 tot 67 hierboven. Live kijkers op Twitch blijven onbekend zonder Twitch-sleutel.
-- TikTok: makers met bureaubladspellen. yt-dlp mocht niet in deze omgeving (run 4); alleen nog via openbare pagina's met curl, anders aan Chris.
+- ~~TikTok: makers met bureaubladspellen.~~ Deels gedaan run 11: T1 tot T10 onderaan (zoekmachine plus openbaar profiel met curl). Open: idle-RPG-makers op TikTok. Keymailer: besluit "niet nu" (run 11).
 - ~~Curator Connect: andere route zoeken.~~ Gedaan run 3: `curatoren.md` (478 curatoren van 12 spellen, eerste ronde van 18, regel tegen nepvolgers).
 - ~~Per kanaal de laatste video's.~~ Gedaan run 3, zie "Nog actief?" hierboven. Kripparrian (VOD-kanaal) las niet goed door de handle, nog doen.
 - ~~Teksten per groep.~~ Gedaan (run 2 tot 4).
@@ -229,3 +231,58 @@ Kanaaltekst van 22 kanalen opnieuw gelezen (`data/contact.py`, uitkomst `data/co
 | gratis adres in de kanaaltekst | 5 | Hadomancer (#41), Task Bar Hero Dicas (#51), Diomio (#56), Edouard_EMB (#65), Game Launch Central (#67) | Thijs kopieert het adres zelf van het kanaal (repo is openbaar, daarom hier niet) |
 | geen adres in de tekst | 15 | o.a. Idle cub, Krayn, GriffyBit TV, Phenexa, Rusty Champaign, Laimu | de knop "View email address" op YouTube (vraagt inlog en een captcha, dus stap voor Thijs), of Curator Connect zodra de pagina live is |
 **Gevolg voor de eerste ronde:** van de 15 namen in "Eerste ronde in één blik" hebben er nu 5 een eigen-domein-adres (Maybe Sarisa, I Dream of Indie Games, Cozy With Toxi, NextBigGames, plus GameStar alleen als pers) en 1 een gratis adres (Game Launch Central). Voor de anderen (GriffyBit TV, Rusty Champaign, Idle cub, Phenexa) is Curator Connect de route: geen adres nodig, en Valve laat zien wie de sleutel gebruikte. **Besluit Sem:** Thijs hoeft geen captcha's op te lossen voor kanalen onder de 10K; die gaan via Curator Connect. Alleen voor Idle cub (203K, half zijn titels idle; Hadomancer heeft al een adres in zijn tekst) zet ik de knop op de lijst van Thijs zodra de pagina live is. Waarom: een captcha per kanaal kost Thijs tijd, en bij kleine kanalen is de kans op een video klein (GOK) terwijl Curator Connect hetzelfde doet zonder adres. **Kanttekening (zelf gevonden, ±18:08 UTC):** Curator Connect bereikt alleen makers die bij Steam een curatorpagina hebben of hun kanaal daar gekoppeld hebben. Of deze kleine kanalen dat hebben, kon ik van buiten niet nakijken (de zoekfunctie van de curatorlijst negeert de zoekterm zonder inlog). Thijs ziet het in Curator Connect zelf als hij de naam intypt; wie er niet staat, krijgt op 4 jan een reactie onder een recente video met de demolink (door Thijs, klaargezette zin volgt), of valt af.
+
+## Bereik per maker (run 13, GEZIEN 16 nov ±23:36 tot 23:40 UTC)
+Vraag: wie geeft een onbekend spel de meeste ogen? Script `data/yt-bereik.py`, uitkomst `data/yt-bereik-2026-11-16.csv`: van 66 YouTube-kanalen uit deze lijst de abonnees en de laatste ±30 video's (curl). "Ons soort video" = titel met idle, incremental, desktop, taskbar, cozy, demo, fest, upcoming, wishlist, hidden gem, first look, you missed of overlooked. Per kanaal de mediaan van die video's, en die mediaan gedeeld door de abonnees.
+**Bovenaan** (mediaan ons soort, keer abonnees): Dekaif 486.000 (2,5x), JGigs 427.500 (4,9x), Idle cub 191.000 (0,9x), Gohjoe 156.000 (0,8x), Dex 129.000 (0,4x), MaxPalaro 104.500, Easily Distracted 89.000 (2,5x), Nookrium 45.000, OKtrix 37.000 (0,8x), Fleurs 18.000, Gaming In The Wild 13.000 (0,8x).
+**Onderaan, terwijl ze in de eerste ronde van run 4 stonden:** The Indie Brew 208, Maybe Sarisa 566, Conkbot 27, NextBigGames 1.400, CozyAriGames 1.500, Kosh Idle 1.600. Ook laag: Tchii 108, RinKa Plays 6, Phenexa 49, Higher Plain Games 268 (allemaal precies ons soort spel, bijna geen kijkers).
+**Lezing:** passend en groot gaan hier niet samen; de kanalen die precies bureaubladspellen recenseren zijn bijna allemaal klein. De lijstmakers met "upcoming" en "hidden gems" (Easily Distracted, OKtrix, Fleurs, Gaming In The Wild) zitten ertussenin en nemen onbekende spellen op, dus die passen bij de paginadag. Grote kanalen (Idle cub, Dex, Gohjoe, JGigs) maken één spel per video en kiezen zelf, dus die krijgen een demosleutel zonder verwachting.
+**Grenzen van deze meting (eerlijk):** woorden in de titel zijn grof (bij CallMeCarson telt "GTA 6 First Look" mee, bij GameStar een nieuwsvideo); 30 video's is een kort venster; bij kanalen met 1 tot 3 treffers is de mediaan wankel (Dekaif 2, JGigs 2, Gohjoe 3). Weergaven zijn geen kopers.
+
+## Nieuwe kanalen via zoeken (run 13, GEZIEN 16 nov ±23:45 UTC, nummer 75 tot 86)
+Omdat de paginadag maar 6 lijstmakers had, 14 zoektermen (upcoming idle, upcoming cozy wishlist, desktop companion, taskbar games, idle games while working, upcoming incremental, ...) op de YouTube-zoekpagina, video's van hooguit 12 maanden, kanalen die nog niet in deze lijst stonden: 114 kanalen (`data/yt-lijstmakers.py`, `data/yt-lijstmakers-2026-11-16.csv`; veel ruis zoals tech en mobiel). 30 die bij ons passen gemeten met `data/yt-bereik.py` (`data/yt-bereik-nieuw-2026-11-16.csv`), contact gelezen met `data/yt-kanaal.py`. Gratis adressen (gmail) staan niet in de repo; Thijs kopieert ze van het kanaal.
+| # | Wie | Abonnees | Ons soort video haalt (mediaan, keer abonnees) | Voorbeeld | Route | Wanneer |
+|---|---|---|---|---|---|---|
+| 75 | Kaganath (@Kaganath) | 30,3K | 108.500 (3,6x) | "5 Upcoming Cozy Games That ARE NOT Farm Sims" 522.714; zijn plank is cozy waarin je slecht bent ("5 Cozy Games Where You Can Be EVIL" 339.000), maar maar 3 "upcoming"-lijsten in 11 maanden | geen adres in tekst, knop nakijken | **paginadag** (mail uitgeschreven) |
+| 76 | GameGen (@gamegen7745) | 158K | 112.000 (0,7x), 23 van 30 titels lijsten | "Top 16 Upcoming Cozy Games 2026" 371.748 | geen adres in tekst | **paginadag** |
+| 77 | Get To It (@Get_To_It) | 90,4K | 47.000 (0,5x) | "The Most Wishlisted Steam Games" 187.000 | zakelijk gmail in kanaaltekst | **paginadag** |
+| 78 | Sloth Vibes (@SlothVibes-YT) | 3,65K | 6.800 (1,9x) | "Cozy Games to Play When You're Too Tired for Anything Else" 87.000; "10 Cozy Idle Games You Need to Try!" | **hello@theslothvibes.com** (eigen domein) | **paginadag** |
+| 79 | The Backlogs (@TheBacklogs) | 652K | 222.000 (1 treffer, wankel) | "18 Cozy Games You Can Relax With" | geen adres in tekst | festweek, zonder verwachting |
+| 80 | Dragoon (@Dragoon45) | 1,05M | 724.000 (2 treffers) | "The Most Addicting Idle Game" 979.000, "Top 100 Idle Games" 469.961 | geen adres in tekst | demo af, sleutel zonder verwachting |
+| 81 | DangerouslyFunny (@DangerouslyFunny) | 2,78M | 622.500 (2 treffers) | "This Is Absolutely One Of The Best Incremental Games Ever" 2.301.295 | zakelijk adres van zijn manager (onder "email address", niet in de tekst) | demo af, zonder verwachting |
+| 82 | The Spiffing Brit (@thespiffingbrit) | 4,5M | 1.300.000 (2 treffers) | "ORC INCREMENTAL Is A Perfectly Balanced Game ..." 1.410.359 | zakelijk gmail in kanaaltekst | na de lancering (zoekt "exploits" in volle spellen) |
+| 83 | Insym (@Insym) | 1,25M | recente titels geen treffer; zoekhit "Playing New Incremental Games That Look MEGA Satisfying" 116.922 | Nederland, elke dag een video en stream | geen adres in tekst | demo af, zonder verwachting |
+| 84 | Sifd (@Sifd) | 149K | 27.500 (0,2x), incrementals en autobattlers | "In This Wall-Defence Incremental YOU HAVE ONLY ARCHERS!" 36.000 | geen adres in tekst | demo af |
+| 85 | The Cozy Gaming Club (@Cozygamingclub) | 16,1K | 8.200 (0,5x), 21 van 30 titels cozy | "The BIGGEST Month for New Cozy Games" 24.000 | gmail in kanaaltekst | begin februari (maandlijst) |
+| 86 | Sir Eat Alot (@SirEatAlot) | 4,88K | 16.000 (3,3x), Task Bar Hero-gidsen | "TASK BAR HERO: Ultimate Guide Part 1" 109.919 | geen adres | na de lancering (gidsen) |
+**Besluit (Sem):** Kaganath, GameGen, Get To It en Sloth Vibes erbij voor de paginadag; daarmee 10 kanalen op de paginadag (van de 4 zonder adres moet Thijs de knop "View email address" of een reactie gebruiken, dus eerst de 6 met adres). Waarom: Kaganath en GameGen maken precies de lijst "upcoming cozy" waar Hats in kan voordat er een demo is, met 100.000+ weergaven per lijst. Niet meegenomen ondanks de grootte: Linus, gameranx, Bozuse (algemene lijsten van grote spellen).
+**Volgorde op de paginadag (run 13):** wat ons aandeel in een lijst is hangt af van hoeveel spellen erin staan: Kaganath (lijsten van 5) ±21.700 per spel, Easily Distracted ±7.000 tot 15.000, GameGen ±6.000, de rest onder 1.000 (rekensom in `festplan.md`, begroting). Dus eerst Kaganath en Easily Distracted.
+**Grenzen:** zelfde als hierboven; bij Dragoon, DangerouslyFunny, Spiffing Brit en The Backlogs 1 of 2 treffers, dus de mediaan is eigenlijk één video. Een "knop" voor het zakelijke adres kan curl niet zien (YouTube toont die alleen na inloggen), dus "geen adres" betekent: niet in de tekst.
+
+## TikTok: makers die bureaublad- en idle-spellen lieten zien (run 11, GEZIEN 16 nov ±21:42 UTC, nummer T1 tot T10)
+**Hoe ik keek:** TikTok-zoek- en tagpagina's geven met curl geen video's (alles wordt pas in de browser geladen; 8 pagina's geprobeerd, 0 namen). Wel werkt: video's vinden met de zoekmachine (7 zoekopdrachten op tiktok.com naar Rusty's Retirement, Ropuka, Spirit City, Bongo Cat, "sits at the bottom of your screen", "games to play while working") en daarna het openbare profiel lezen met curl (volgers, aantal video's, bio). Zo is het "Open"-punt TikTok uit run 4 deels af. Adressen: alleen het soort; een adres op een bureau- of eigen domein staat in de bio en Thijs kopieert het daar zelf.
+
+| # | Account | Volgers | Bewijs (video over ons soort spel) | Contact in bio | Kans |
+|---|---|---|---|---|---|
+| T1 | @cozyteagames | 711.600 (597 video's) | Rusty's Retirement ("This shouldnt interfere with my productivity", 4 jan 2024, **160.500 weergaven**), Ropuka twee keer, Feather Land ("Use this while you study/work"), Furry Company (gemarkeerd AD) | geen adres in bio | middel: groot en speelt precies onze plank telkens opnieuw; doet ook betaalde video's (AD), dus een gratis mail kan stil blijven |
+| T2 | @cozywithronnie | 123.900 (876) | Ropuka "sits anywhere on your desktop" op de lanceerdag (31 jan 2025, **167.100 weergaven**, meer dan haar volgers) | bureau-adres in bio (management) | middel tot hoog: post op de lanceerdag met prijs erbij, dat is ons lanceermoment |
+| T3 | @imjustjarrod | 53.200 (864) | Rusty "a cozy game that sits at the bottom of your screen while you work" (6 apr 2024, 9.659 weergaven) | zakelijk adres in bio ("Business inquiries") | middel: precies onze zin en een zakelijk adres, maar de video bleef klein |
+| T4 | @cozyreni | 58.600 (874) | "This cozy game boosts your productivity" (26 aug 2025, 18.100 weergaven) | zakelijk adres in bio (eigen domein) | hoog: "I help you find YOUR next cozy game" |
+| T5 | @cozyboardgames | 146.400 (886) | Rusty-demo "lives at the bottom of your screen", vóór de uitgave | geen adres | middel: speelde een demo, ons moment van 4 jan |
+| T6 | @dailyalissa | 184.900 (1.061) | Spirit City als focushulp, "body doubling" | bureau-adres in bio | laag tot middel: productiviteit, geen kerker |
+| T7 | @zelinka21 | 16.600 (473) | Spirit City, sleutel via **Keymailer** (staat in de video) | gratis adres in bio | middel, alleen met Pools; wel een les: makers van TikTok krijgen sleutels via Keymailer |
+| T8 | @herrbanause | 35.500 (384) | "Der HYPE um die Bongo Cat" | gratis adres in bio | laag tot middel (Duits, "Geheimtipps") |
+| T9 | @theymakegames | 1.665 (261) | Ropuka "sits anywhere on your screen" | eigen domein in bio | laag bereik, maar zet makers in het licht en vraagt erom |
+| T10 | @rosy.ree | 4.641 (121) | Spirit City "always on my background while i work" | gratis adres in bio | laag |
+
+Ter vergelijking, geen makers maar wel meetpunten: @wholesomegames 364.600 (al trailer-plek), @mister.morris.games (maker Rusty) 12.900, @conradicalgames (maker Desktop Defender) 18.300.
+
+Weergaven per video gelezen uit de openbare videopagina (curl, `playCount`, GEZIEN ±21:50 UTC).
+
+**Grootste vondst: op TikTok telt de video, niet het account.** @lemon.stones (346 volgers) zette op 27 sep 2026 een video over de demo van Character House ("This is not sponsored I just found the game spontaneously"): **318.900 weergaven, 41.900 likes**. Twee dagen later @astrolillyu ("you can make your OC's into cute desktop pets"): 3.672. Beide komen uit tekenaars- en OC-hoeken, precies wat ik in run 6 als GOK schreef over Character House (`character-house.md`). Gevolg: een makerslijst op volgers mist op TikTok het belangrijkste; wat gedeeld wordt is iets wat de speler zelf maakte of herkent. Voor Hats is dat de hoed op Gloop en de wrok van een held met een naam; de Postcard (Sanne) is het ding dat een speler zelf kan laten zien.
+
+**Wat ik eruit haal:**
+1. Op TikTok is de taal "sits at the bottom of your screen while you work" en "productivity", niet "idle" of "dungeon". Dat past bij de korte winkeltekst (Z5: soort en plek eerst). Voor Chris: dezelfde woorden in de koppen van @hatsofthefallen (bericht in `berichten/chris.md`).
+2. Drie TikTok-makers (T2, T3, T4) hebben een zakelijk adres en posten over precies dit soort spel. **Besluit: T3 en T4 bij de mails op de dag dat de pagina live is (±8 dec), T2 op de lanceerdag in maart** (zij post op lanceerdagen en haalde daar 167.100), T1 en T5 met een demosleutel als de demo af is (18 dec). Waarom: zelfde regel als bij YouTube, eerst wie een openbaar zakelijk adres heeft en ons soort spel speelt.
+3. **Keymailer** is een tweede route naast Curator Connect: daar halen makers zelf sleutels (T7 kreeg Spirit City zo). Prijspagina gelezen (curl, ±21:45 UTC, GEZIEN): "Get started free, add promotions and service when you need them", "Always free for content creators", geen bedragen; het makersdeel heet nu Partnier. Wat gratis precies inhoudt staat er niet (GOK: sleutels aanbieden gratis, gericht uitnodigen betaald). **Besluit: niet nu.** Waarom: Curator Connect van Valve is gratis, laat zien wie de sleutel gebruikte en vraagt geen nieuw account; Keymailer pas als Curator Connect na de demo weinig oplevert, dan als stap voor Thijs (account).
+4. Eerlijk: 10 zoekopdrachten zijn geen volledige lijst. Ik vond vooral cozy-makers. Kerker- en idle-RPG-makers op TikTok vond ik niet: zoeken op Task Bar Hero en Deskrawl gaf alleen verzamelpagina's (vooral Portugees en Spaans) zonder namen. Die makers zitten voor ons op YouTube (groep A).

@@ -23,3 +23,39 @@ Volgende stap: Daan zegt ja of nee op de richting; daarna maak ik het blad met m
 
 ## Samen met Daans zin van 21:05 (hoogteprofiel)
 Daan zei ja op plaat 1 alleen met een eigen beeld: een hoogteprofiel van je Body Battery van de laatste uren, zoals op de fietscomputer. Dat past precies in Tij: **de waterlijn ís het profiel**. Links is het water zoals je batterij uren geleden stond, rechts is nu, en het bootje ligt op het nu. Zo is de zee geen versiering maar je gegevens, en zie je in één blik of het tij stijgt of zakt. Volgende run proef ik dat (proef 3). Zelfde voorwaarde als Daan: de geschiedenis van Body Battery moet op de meeste horloges te lezen zijn (Gijs); zo niet, dan blijft de vlakke zee van proef 2 met alleen het nu.
+
+## Proef 3, Tij met de waterlijn als verloop (16 nov ±22:00 UTC): de moets van Daan (21:45)
+`stijlproef-v3-tij.png` (script `stijl_proef_v3.py`): zes standen op 454, daaronder op 260 ware grootte. `stijlproef-v3-260-3x.png`: drie op 260, 3x vergroot zonder verzachten, om iconen en randen te keuren.
+- **Waterlijn = verloop.** Links is toen, bij het bootje is nu, rechts van het bootje ligt de zee vlak op het nu. De tijd wordt over de breedte uitgerekt, dus 1,5 uur (Tide 35) of 6 uur (Dusk 72) vult allebei de breedte. Met 0 of 1 meting: de golvende zee van proef 2. Hooguit 49 punten voor de lijn plus 6 voor de vlakke zee, onder de 64 van Gijs.
+- **(1) Icoontjes:** hart (in de themakleur), bliksem, twee voetzolen. Op 260 zijn ze 12 px hoog, niet 4 tot 5. BODY BATT als woord is weg: een batterij-icoon naast het getal, dat zich vult.
+- **(2) Bootje binnen de cirkel:** het nu begint op x = 0,70 S en schuift per 1 procent naar links tot romp, zeil en mast binnen straal 0,475 S vallen. Getoetst bij 2 (Night): het ligt nu binnen de rand.
+- **(3) Plafond en kleinste zee:** water bij 100 op y = 0,70 S (mast eindigt 8 px onder 8.4K op 260, zie Kelp 100), bij 0 op y = 0,895 S, nog een zichtbare strook.
+- **(4) Weinig gegevens:** zie boven; Tide 35 met 3 metingen staat goed, de helling is klein maar eerlijk.
+- **(5) Pijltje weg.** De lijn zegt al of het tij stijgt of zakt; zonder geschiedenis weten we het niet, dus dan ook geen pijl.
+- **Kan, gedaan:** het BB-getal heeft altijd een donkere rand (in de donkerste zeekleur); de zee is 4 getekende banden die de waterlijn volgen (0, 3,5, 8 en 14 procent van S eronder), geen plaatje. Dat geeft vanzelf het hoogteprofiel als lagen, zoals op een kaart.
+- **Grap erbij:** onder 10 ligt het bootje 22 graden scheef aan de grond (Night 2). Elke ochtend na een goede nacht vaart het weer recht.
+- GEZIEN met Read op 454, 260 en 3x. Tegen de lat: **stopt scrollen** ja (Dusk 72 met de lagen is het beste beeld, warmer dan alle zes toppers); **herkenbaar** ja; **grap** ja (scheef bootje); **klein** ja, iconen lezen op 260. Eerlijk minder: bij Tide 35 met 1,5 uur is de lijn bijna vlak, dus het winkelbeeld moet een nacht laten zien (Dusk 72), dat is ook echt wat je na een nacht ziet.
+- Eigen fouten onderweg: bliksem en voet waren op 9 px een streepje en een vlek; nu breder, 12 px, en de voet als twee losse zolen.
+
+## Blad met maten voor Gijs (16 nov ±22:05 UTC)
+`maten-tij-tabel.md` (alle maten in px voor 260, 280, 390, 416, 454 en de kleuren per thema in hex) en `maten-tij-454.png` (hulplijnen op 454, 2x). Gemaakt door `maten_blad_tij.py` uit dezelfde getallen als de proef, dus ze lopen niet uit elkaar.
+- Letter: Big Shoulders Display (OFL, `BigShouldersDisplay.ttf` hier). "letter px" in de tabel is de lettergrootte (em); de cijfers zelf zijn ongeveer 0,7 daarvan hoog.
+- **Tekens per maat, voor de geheugenmeting van Gijs:** tijd (gewicht 900, 78 tot 136 px): `0123456789:`. BB-getal (900, 29 tot 50 px): `0123456789`. Veldgetallen (800, 17 tot 30 px): `0123456789.K`. Datum (700, 17 tot 30 px): `0123456789 ` plus `MONTUEWDHFRISA`. Past de tijdletter niet in het geheugen, dan eerst de tijd in Big Shoulders en de rest in de letter van het horloge.
+- **Slaapstand (AOD), voorstel:** alleen de tijd (uren gedimd), de waterlijn als lijn van 2 px zonder banden, en het bootje als omtrek. Geen velden. Lijn en bootje elke minuut 1 tot 2 px verschuiven tegen inbranden.
+- **MIP (weinig kleuren):** de banden zijn vaste kleuren, dus geen verloop nodig; op 64 kleuren kiest Gijs per band de dichtstbijzijnde. Het BB-getal is wit met een rand van 2 px.
+
+## Proef 4, Tij met golfje (16 nov ±23:05 UTC): de moet van Daan (22:45)
+`stijlproef-v4-tij.png` (script `stijl_proef_v4.py`, bouwt op v3), `stijlproef-v4-260-3x.png` en `stijlproef-v4-208-3x.png`.
+- **Moet: geen batterij meer.** Naast het BB-getal staan nu twee kleine golven in de kleur van de waterlijn. Zegt: dit getal is de zee. Geen batterijvorm, dus niemand denkt dat zijn horloge leeg is.
+- **Kans gedaan: vaste plek.** Getal en golfje staan samen gecentreerd, altijd op y = 0,638 S, net boven het plafond (0,70 S). Eerst links geprobeerd (x = 0,37 S, zoals Daan opperde): GEZIEN, het las als een vierde veld onder de hartslag. Midden leest als het tweede ding van de plaat na de tijd. Daarom de drie velden iets omhoog (iconen 0,478 S, getallen 0,54 S) voor lucht.
+- **Rand van het getal minstens 2 px**, ook op 208 en 218 (MIP).
+- GEZIEN met Read op 454, 260 en 3x, en 208 op 3x. Golfje leest op 260 als twee golfjes, niet als batterij. Bij 100 staat het getal vrij van het bootje. Eerlijk minder: op 208 raakt het 12 px hartje bijna het getal 58; daar mag het icoon 10 px.
+- Blad met maten opnieuw gemaakt uit dezelfde getallen (`maten_blad_tij.py`), nu ook voor **208, 218 en 240**.
+
+**Keuze voor de oude horloges (vraag Gijs 22:15):** Forerunner 55 (208) en 245 (240) en de 218-maat horen bij de betaalde. De letters passen (3.472 en 6.328 bytes), de zee is getekend, geen plaatje, dus het geheugenprobleem van de 245 speelt niet. Op 8 kleuren (Forerunner 55): twee banden in plaats van vier (licht en donker uit het palet), waterlijn en slaaplijn wit en 2 px. Instinct 2 (176, zwart-wit, rond venster) niet: die vraagt een eigen opmaak, dus voorlopig alleen de gratis.
+
+## Proef 5, Tij met ruimte (16 nov ±23:45 UTC): de moet van Daan (23:30)
+`stijlproef-v5-tij.png` (script `stijl_proef_v5.py`), `stijlproef-v5-208-3x.png`, `stijlproef-v5-260-3x.png`, meting per maat en stand in `ruimte-v5.txt`.
+- **Moet: altijd ruimte tussen getal en golf.** Eis: minstens 4 px op 208, dus S maal 4/208 (8,7 px op 454). Gedaan met twee vaste maten en een vangnet: plafond van 0,70 naar **0,715 S**, BB-getal van 0,638 naar **0,632 S**. Vangnet voor Gijs: meet de onderkant van het getal (met rand) en de hoogste golf of zeilpunt binnen de breedte van het getal; is de ruimte te klein, schuif het getal omhoog, hooguit tot 0,012 S onder de veldgetallen. In alle 48 gevallen (8 maten, 6 standen) was dat niet nodig: krapst is Kelp 100 op 208 met 5,3 px (eis 4,0), waterlijndikte meegeteld.
+- **Moet: bootje nooit onder het getal.** Het bootje mag niet verder naar links dan rechterkant getal plus halve romp plus de ruimte. Bij 2 (Night) schoof het eerst naar links voor de cirkel; dat stopt nu bij die grens.
+- GEZIEN met Read: blad op 454 en 260, en 208 op 3x. Bij 100 staat tussen 100 en het gras een duidelijke zwarte strook, het zeil staat er rechts naast met lucht. Blad met maten opnieuw gemaakt, met een regel voor de ruimte-eis.

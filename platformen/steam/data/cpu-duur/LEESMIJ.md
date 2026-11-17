@@ -1,0 +1,38 @@
+# CPU in het gewone spel: waarom is de graver zuiniger? (Bram, 16 nov 2026 ±21:35 UTC)
+
+Vraag Iris (keuring 9, `platformen/steam/keuring/2026-11-16-21.md` punt 3): gewoon spel 0,84 tot 1,23 CPU-s per 10 s, de graver (`koper=1`) maar 0,59.
+
+## Wat ik deed
+1. De vier Windows-duurtests van 16 nov (tak `schermen`, `steam-hol-duur/main-1920x1080`, `main-koper-1-1920x1080`, `main-koper-2-1920x1080`, `main-1920x1080-exe`) naast elkaar gelegd: `cpu-per-10s.txt` tegen de regels `HOL meting t= beelden= helden= hol_vast=` uit `hol.log`. Script `cpu_per_beeld.py` en `cpu_plat.py`, uitkomst `uitkomst.txt`.
+2. Hetzelfde spel (main, `zaad=4242`, 250 s, 1920 breed, strook 120) op Linux gedraaid met Godot 4.3 onder xvfb (opengl3, software), gewoon en `koper=1`. Script `meet_linux.sh`, uitkomst in `linux/`.
+
+## Wat de cijfers zeggen (GEZIEN)
+- **Op Windows kost een beeld bij de graver een derde:** gewoon 16,7 ms CPU per getekend beeld, koper=2 (koopt, graaft niet) 15,3, de .exe 14,1, **koper=1 (koopt en graaft) 5,6**. De graver tekent juist meer beelden (105 per 10 s tegen 67 tot 73), dus het ligt niet aan minder tekenen.
+- CPU volgt het aantal beelden (correlatie 0,57 tot 0,69): zonder held in beeld tekent het spel ±1 beeld per s en kost het bijna niets, met een held 10 tot 20 per s. Daarom het patroon hoog, hoog, laag in het ritme van de helden.
+- **Niet Gloop plat:** binnen een run is de CPU met en zonder plat ongeveer gelijk (gewoon 1,41 tegen 1,27 met held; koper-2 1,03 tegen 1,10).
+- **Niet het vaste hol opnieuw tekenen:** de graver tekent het vaste hol het vaakst (1,4 keer per 10 s tegen 0,25) en is toch het zuinigst.
+- **Op Linux is er geen verschil per beeld:** gewoon 9,7 ms, koper=1 10,2 ms per beeld; daar kost de graver juist meer (meer beelden). Het voordeel van de graver bestaat dus alleen op Windows.
+
+## Lezing (GOK, nog niet bewezen)
+Het verschil zit in iets dat alleen op Windows telt en dat graven verandert, niet kopen (koper=2 koopt ook en blijft duur). Graven doet op Windows één ding extra: na elk nieuw vast beeld meet `hol_vast.gd` de bovenrand opnieuw en zet `strook.gd` `rand_veranderd()` het muisvlak opnieuw (`DisplayServer.window_set_mouse_passthrough`). Op Windows is dat een vensterregio: buiten het vlak tekent het venster niets. Mogelijk is het vlak dat bij de start één keer gezet wordt (vóór de bovenrand gemeten is, of met de volle hoogte) groter of anders dan nodig, en kost elk beeld daardoor meer om op het scherm te zetten; de graver zet het vlak steeds opnieuw.
+
+## Proef die het beslist (Windows, voor Olaf)
+Duurtest gewoon spel met één regel erbij die het muisvlak elke 30 s opnieuw zet (`_muis_vlak(vlak_paneel)` in `_process`, alleen met een startargument). Zakt de CPU naar ±0,6, dan is het het vlak: dan het vlak na de eerste meting van de bovenrand nog één keer zetten. Blijft hij hoog: dan zit het in iets anders dat graven verandert (bijvoorbeeld de helden die bij een gegraven hol korter over het gras lopen), en meet ik dat met een logregel per held boven of in de gang.
+
+## Proef gestart (16 nov ±21:35 UTC, Bram)
+Tak `claude/steam-hol-vlak-proef` (7808f65): startargument `vlak_elke=<s>` zet het muisvlak elke s seconden opnieuw, alleen met het argument (2 regels in `kern/strook.gd`, 1 in `kern/proef.gd`; toets_systemen en toets_held lokaal 0 FOUT). Twee duurtests tegelijk op die tak, 20 min, 1920x1080, `zaad=1794860558` (zelfde helden als Olafs gewone run 43948989836): met `vlak_elke=30` (run 43961482697) en zonder (run 43961487906). Uitkomst op tak `schermen` → `steam-hol-duur/claude-steam-hol-vlak-proef-zaad-1794860558-vlak-elke-30-1920x1080/` en `.../claude-steam-hol-vlak-proef-zaad-1794860558-1920x1080/`. Lezing: proef duidelijk lager dan zonder (±0,6 tegen ±1,2) = muisvlak; gelijk = GOK fout, dan meet ik de helden boven en in de gang. De tak gaat niet naar main; Olaf beslist wat er van komt.
+
+
+## Stand 16 nov ±22:30 UTC (Bram, na Iris keuring 10 punt 3)
+- `vlak_elke=30` gaf 1,357 CPU-s per 10 s tegen 0,844 voor main op hetzelfde zaad (Iris). Niet lager, dus **mijn GOK muisvlak is waarschijnlijk fout**. Ik trek hem in tot de controle er is.
+- De controle-run zonder argument (43961487906) stond om 22:30 nog op `in_progress` (gestart 21:34), en staat nog niet op `schermen`. De twee runs liepen tegelijk; Iris ziet 0,59 tot 1,36 voor ongeveer hetzelfde spel, dus de machine per run kan meer schelen dan wat we zoeken.
+- **Volgende stap (eens met Iris):** zodra de controle binnen is, dezelfde run (main, zaad 1794860558) twee keer **na elkaar** draaien, niet tegelijk. Liggen die twee meer dan 0,2 uit elkaar, dan is CPU per run op deze runners ruis en meten we alleen nog CPU per getekend beeld binnen één run (zoals `cpu_per_beeld.py`), niet tussen runs. De vlak-proeftak blijft een proef en gaat niet naar main.
+
+## Controle binnen, en een betere proef (Bram, 16 nov ±23:20 UTC)
+- **Controle zonder argument (run 43961487906) is binnen:** 0,948 CPU-s per 10 s (14,5 ms per beeld) tegen 1,357 (19,5 ms) mét `vlak_elke=30`, zelfde tak en zaad, tegelijk gedraaid. Het muisvlak elke 30 s opnieuw zetten maakt het dus niet zuiniger. **GOK muisvlak als oorzaak van de zuinige graver: fout.**
+- **Ruis tussen runs, GEZIEN:** drie keer dezelfde .exe op zaad 4242 na elkaar (`main-zaad-4242-herhaal-a/b/c`): 0,86 / 0,71 / 0,77, en 17,2 / 13,0 / 15,3 ms per beeld. Hetzelfde spel op zaad 1794860558 gaf 0,84 tot 1,28 over vier runs. Een verschil tussen twee runs onder ±0,4 CPU-s (±30% per beeld) zegt dus niets. Daarom vergelijk ik niet meer tussen runs.
+- **Nieuwe proef binnen één run** (tak `claude/steam-hol-wissel-proef`): startargument `wissel=vlak` zet het muisvlak in oneven minuten uit (hele venster getekend en klikbaar) en in even minuten aan, met een logregel `HOL wissel vlak aan/uit`. `cpu_wissel.py` deelt de CPU per 10 s in naar aan en uit (alleen het midden van elke minuut). Keurder (aparte agent): Godot-kant goed (hoog), randen in het script aangepast.
+- **Meetlat (placebo):** hetzelfde script op tien oude runs zonder wissel geeft tussen de "aan"- en "uit"-minuten 0 tot 2,6 ms per beeld verschil (gemiddeld ±1,2). Pas een verschil van meer dan ±3 ms per beeld (±20%) in de wissel-runs telt.
+- Twee wissel-runs gestart (20 min, 1920x1080, zaad 1794860558): de .exe en de editor-Godot. Uitkomst op tak `schermen` in `steam-hol-duur/claude-steam-hol-wissel-proef-zaad-1794860558-wissel-vlak-1920x1080(-exe)/`; draai `python3 cpu_wissel.py <map>`.
+- **Derde proef gestart:** `wissel=doorzicht` (zelfde tak, 5e3282e) maakt het doorzichtige venster in oneven minuten dicht (zwarte lucht). Het doorzichtige venster en het muisvlak zijn de twee dingen die alleen op Windows zo werken, dus daar zoek ik het verschil Windows tegen Linux. Run .exe, 20 min, zaad 1794860558; map `...-wissel-doorzicht-1920x1080-exe/`. Lokaal op Linux 135 s: wissels op 60,0 en 120,0 s, 0 scriptfouten.
+- **Lezing straks:** scheelt een van beide meer dan ±3 ms per beeld, dan is dat de plek; scheelt geen van beide, dan zit de Windows-kost in het tekenen zelf (ANGLE) en meet ik `--rendering-driver opengl3` tegen `d3d12` op dezelfde manier. De proeftak gaat niet naar main; Olaf beslist wat er van komt.

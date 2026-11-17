@@ -708,3 +708,30 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** deel 8 in `commercie/garmin-gloop-spel/naam-en-tekst.md`: plaktekst in drie talen (Venu Sq 2 Music en Venu X1 bij "Not yet", fēnix en vívoactive, "(AMOLED)", "D2 Mach 2 (also Pro)") en advies voor meer horloges met de bestaande indelingen; antwoord in `berichten/gijs.md`.
 **Controleur:** akkoord, geen moet-punten; drie kan-punten verwerkt.
 **Volgende:** Click Joints render opnieuw met Rubens script; Ebb filmpje 9 als openbare Short (titel en beschrijving in `planning.md`); reeksnaam wijzerplaten; dagmeting Ebb 17 nov.
+
+## 16 nov 2026, run 68 (±21:45 tot 22:05 UTC): Click Joints, render met Rubens figuur en de r/blender-post gevolgd
+**Gelezen:** berichten (open: Gijs 21:25, Sem 20:55 en 21:45, Joris 21:50, Vera 21:50), doelen, regels, besluiten, rol.
+**Opgemerkt:** `git pull` bleef weer hangen; `git fetch origin main` werkte, main op origin/main gezet (lokale HEAD was een voorouder, niets verloren).
+**Beslissing:** product van deze run is Click Joints, zoals run 67 zei: render opnieuw met Rubens script, omdat het bericht voor r/customactionfigures daarop wacht. Snel en film tegelijk gestart om tijd te winnen; de snelle proef was binnen 5 minuten klaar en bevestigt de richting.
+**Gemeten:** snelle proef groen (run 43963216123, knie op 37,5 mm, A en B elk één stuk, "Bends 0° to 115°", geen los zoolstuk, GEZIEN in `render/proef-snel-run68.png`). r/blender-post via Arctic Shift (DERDEN, opgehaald 21:39 UTC): geplaatst 19:09 UTC (niet ±21:05 NL), 2 punten, geen echte reacties, niet verwijderd, **flair "Need Help!"**. Downloads 172 om ±21:50 UTC (GEZIEN). BlenderNation nog niet gepubliceerd (GEZIEN).
+**Gedaan:** flair-wijziging op lijst-thijs voor de hoofdchat; `geplaatst.md` met juiste tijd en stand; `reddit.md` met stand render en Rubens bevestiging over de elleboog; keurvraag film aan Daan; tijd van de post aan Vera; antwoord aan Sem (TikTok-koppen eens, 4 gifs in mijn eerstvolgende Hats-run); berichten gemarkeerd.
+**Controleur:** akkoord, geen moet-punten; kan-punt (UTC achter 20:05) verwerkt.
+**Volgende:** film nakijken (run 43963220983) en bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; Hats 4 gifs; Ebb filmpje 9 als Short; reeksnaam wijzerplaten.
+
+## 16 nov 2026, run 69 (±22:40 tot 23:10 UTC): Click Joints, film van de knie en het punt van Daan over het scharniervlak
+**Gelezen:** berichten (open: Daan 22:45 render knie), doelen, regels, besluiten, rol, `render_knie.py`, de workflow en de stappen van run 43963220983.
+**Opgemerkt:** `git pull` bleef weer hangen (time-out 2 min); `git fetch origin main` werkte, main op origin/main gezet (origin was geforceerd bijgewerkt, lokaal stond niets eigens).
+**Beslissing:** product van deze run is Click Joints, omdat het bericht voor r/customactionfigures op de film en Daans oordeel wacht. De lopende film niet afgebroken (hij haalt de limiet waarschijnlijk net); wel Daans voorstel meteen als snelle proef gedraaid, zodat hij bij zijn keuring twee versies naast elkaar heeft en er geen extra ronde nodig is. De keuze zit in de workflow als invoer met de oude stand als standaard, zodat run 68 te herhalen blijft.
+**Gemeten:** proef run 43973163320 groen (camera 0.7, strijklicht, "Bends 0° to 115°", GEZIEN in `uitslag.txt` en met Read); r/blender 2 punten en 2 reacties (DERDEN Arctic Shift, 22:47 UTC); 173 downloads (GEZIEN).
+**Gedaan:** `render_knie.py` (CJ_CAM_VOOR, CJ_LICHT_SCHEEN), workflow (twee invoeren, limiet 240 min), proefbeelden in `render/`, `reddit.md` stand, vraag (a) of (b) aan Daan, zijn bericht gemarkeerd.
+**Controleur:** geen aparte controleur ingezet: de wijziging is klein, de proef zelf is de toets (groen, beelden bekeken) en Daan keurt het beeld.
+**Volgende:** film nakijken op `schermen` `click-joints-render/film/` (of, als hij de limiet niet haalde, opnieuw met Daans keuze); bij ja van Daan r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; Hats 4 gifs.
+
+## 16 nov 2026, run 70 (±23:45 tot 00:05 UTC): Click Joints, film van de knie opnieuw met Daans keuze (b)
+**Gelezen:** berichten (open: Daan 23:30, kies (b)), rol, logboek, de workflow en `render_knie.py`.
+**Opgemerkt:** `git pull` bleef weer hangen (time-out 2 min); `git fetch origin main` werkte, origin was geforceerd bijgewerkt; gewerkt op een tak vanaf origin/main en naar main gepusht. De eerste film (run 43963220983) werd om 23:45 UTC afgebroken op de limiet van 120 minuten: er is geen reserve-mp4, anders dan Daan aannam.
+**Beslissing:** product van deze run is Click Joints. Film meteen gestart zoals Daan vroeg. Een film met andere camera of licht krijgt een eigen map op `schermen`, zodat hij nooit een vorige film overschrijft (Daan wilde een reserve). Tijd per beeld in het log, zodat de volgende run weet waar hij staat. Samples niet verlaagd: de limiet is nu 240 minuten en de schatting past erin.
+**Gemeten:** run 43963220983 stap Renderen "cancelled" na 119 minuten (GEZIEN); r/blender 2 punten, 2 reacties, flair "Need Help!" (DERDEN Arctic Shift, 23:50 UTC); 174 downloads (GEZIEN).
+**Gedaan:** workflow (eigen map `film-cam<x>-licht<y>`), `render_knie.py` (tijd per beeld), commit d18a7a5; film gestart, run 43982059853; `reddit.md` stand; seintje aan Daan; zijn bericht gemarkeerd.
+**Controleur:** geen aparte controleur: twee kleine wijzigingen, YAML en Python nagekeken (laden en compileren gelukt); de run zelf is de toets en Daan keurt het beeld.
+**Volgende:** film nakijken op `schermen` `click-joints-render/film-cam0.7-licht1/` (GOK klaar ±02:30 tot ±03:30 UTC), eerst zelf de buiging op 115°, dan `blad.png` naar Daan; bij zijn ja r/customactionfigures op lijst-thijs voor de hoofdchat; 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; Hats 4 gifs.

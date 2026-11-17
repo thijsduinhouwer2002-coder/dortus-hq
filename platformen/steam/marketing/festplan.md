@@ -7,7 +7,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 - Desktop Defender: ±200 verlanglijstjes na drie maanden pagina met persbericht, daarna in één Next Fest van 3 naar 1.548 spelers tegelijk in de demo, met spelersdoelen (100, 200, 400, 1.000) die elk extra levels gaven, en bij elk doel een Steam-aankondiging; drie weken later bijna 50.000 verlanglijstjes (Fenna verhaal 5, eigen aankondigingen GEZIEN, pers DERDEN).
 - Vier kerkerspellen die het draaiboek volgden (demo, patches, livestream) bleven op 4 tot 7 reviews; mediaan van 16 kerkerspellen met demo: 8 reviews (Fenna verhaal 8, GEZIEN).
 - Cozy Mining 2.000 verlanglijstjes op dag 2 van Next Fest, 5.000 aan het eind; Black Cat 2.000 na twee kleine fests (Fenna verhaal 7, eigen meldingen GEZIEN).
-- Regels thema-fests (Steamworks-docs `doc/marketing/upcoming_events/themed_sales`, GEZIEN 16 nov met curl): uitnodiging op de tags; vakken voor demo's en "binnenkort"; binnen een vak sortering op "player interest and popularity"; demo's en niet-uitgebrachte spellen komen "in het algemeen" niet in de trailer van Valve; livestreamen op je eigen winkelpagina mag. Uitwerking en datums: `ontwerp/steam/winkelpagina/fest.md` (Sanne).
+- Regels thema-fests (Steamworks-docs `doc/marketing/upcoming_events/themed_sales`, GEZIEN 16 nov met curl): uitnodiging op de tags; vakken voor demo's en "binnenkort"; binnen een vak sortering op "player interest and popularity"; demo's en niet-uitgebrachte spellen komen "in het algemeen" niet in de trailer van Valve; livestreamen op je eigen winkelpagina mag. Uitwerking en datums: `ontwerp/steam/winkelpagina/fest.md` (Sanne). Aanvulling uit de festpagina zelf (`.../themed_sales/desktop_companion_2027`, GEZIEN door Fenna 16 nov, verhaal 18): "discounted released games will be featured most prominently", en geschiktheid komt uit de tags plus "how you describe and represent your game on your store page". Voor ons: als demo staan we lager dan uitgebrachte spellen met korting, en de eerste schermen op de winkelpagina moeten de strook onderaan laten zien. Dat bevestigt de les van het Auto-Battler RPG Fest: het fest geeft ons geen plek bovenaan, wat we op 14 jan 19:00 meebrengen wel.
 - Grote kanalen geven weergaven, geen kopers: Desktop Survivors 98 kreeg IGN, GameGrumps en Bijuu Mike en haalde 551 spelers tegelijk (Fenna verhaal 9, GEZIEN).
 - Wat ons eigen is: de hoeden op Gloop en de helden met een wrok (`platformen/succes/onderscheid-hats.md`). Alles wat we in het fest laten zien, toont die twee.
 
@@ -21,7 +21,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 |---|---|---|---|
 | 0. Klaarzetten | nu tot ±8 dec | lijst van makers af (di 24 nov), teksten klaar, eerste 10 clips TikTok | eigen bestanden |
 | 1. Pagina live | ±8 dec tot 3 jan | **500 verlanglijstjes** vóór de demo openbaar is | Steamworks (Thijs leest af), volgers via `memberslistxml` (GEZIEN werkt zonder inlog) |
-| 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **1.000 verlanglijstjes** op de avond voor het fest | reviews op de demo-pagina, spelers tegelijk via de openbare API |
+| 2. Demo openbaar, rustig | ma 4 jan tot wo 13 jan | demo werkt bij echte spelers, 10+ demo-reviews, **2.500 verlanglijstjes** op de avond voor het fest (run 12, was 1.000; 1.000 is de ondergrens, zie "Les uit dag 1") | reviews op de demo-pagina, spelers tegelijk via de openbare API |
 | 3. Desktop Companion Fest | do 14 jan 19:00 NL tot ma 18 jan 19:00 NL | meetlat hieronder | eigen meetscript elk uur |
 | 4. Verbeterweek | ma 18 jan tot ma 1 feb | één verandering uit wat fest-spelers zeiden (planning-fest-2027.md); als Thijs inzendt: Laughs & Smiles Festival 21 tot 31 jan (vak "binnenkort", `festivals.md`) | |
 | 5. Next Fest februari | ma 22 feb tot ma 1 mrt | doorbraak volgens de tweede meetlat | eigen meetscript |
@@ -33,7 +33,7 @@ Niets hieruit wordt geplaatst of verstuurd zonder ja van Thijs (via de hoofdchat
 | na goedkeuring door Valve | de pagina pas openbaar zetten op een di, wo of do om 18:00 (Valve keurt, de maker kiest het moment; GOK dat midden in de week beter is dan vrijdag, omdat makers en kijkers dan online zijn) | Thijs (lijst-thijs) |
 | paginadag 18:00 | trailer op YouTube en de sterkste clip (de haak uit `onderscheid-hats.md`: hoed op Gloop, held valt, wrok) op TikTok, Shorts en Reels, elk met de Steamlink | Chris maakt, Thijs plaatst |
 | paginadag 18:00 | eerste Steam-aankondiging: "Hats of the Fallen is on Steam. Free demo on January 4." | Chris schrijft, Thijs plaatst |
-| paginadag 18:00 | mails aan aanloopgroep E en Maybe Sarisa (`makers.md`, besluit run 4) | Sem zet klaar, Thijs verstuurt |
+| paginadag 18:00 | mails aan de paginadag-kanalen van de eerste ronde (`makers.md`, bijgesteld run 13: Easily Distracted, OKtrix, I Dream of Indie, Cozy With Toxi, Gaming In The Wild, Get To It, Sloth Vibes; Kaganath en GameGen als hun adres te vinden is) | Sem zet klaar, Thijs verstuurt |
 | paginadag tot 3 jan | elke dag volgers tellen via `memberslistxml` (werkt zonder inlog) | Sem |
 Doel (GOK): **30 volgers na een week is gewoon, 100 is sterk.** Ijking (GEZIEN 16 nov, `data/volgers-binnenkort-2026-11-16.csv`, script `data/volgers.py`): bij 60 aangekondigde bureaubladspellen is de mediaan 9,5 volgers, 75% heeft er 31 of minder, 90% 103 of minder; alleen Character House zit boven de 1.000 (9.752). *(Run 8, aangevuld tot 179 van 736: mediaan 9, 75% heeft 34 of minder, 90% 132 of minder, 23 hebben 100+, 5 hebben 1.000+: Character House 9.752, Orion Blue 1.858, Meowniverse 1.435, Little Writer 1.295, Terraglass 1.019. Het doel 30 gewoon en 100 sterk blijft staan. Rest volgt.)* *(Run 9: 239 van 736, mediaan 10, 75% heeft 30 of minder, 90% 108 of minder, 28 hebben 100+, nog steeds 5 boven de 1.000. Steam gaf weer 429 na ±60 verzoeken; gestopt. Het beeld verandert niet meer met meer spellen, dus ik vul alleen nog aan als er tijd over is.)* Volgers tegenover verlanglijstjes: Character House heeft 9.752 volgers en meldde 200.000 verlanglijstjes, ±1 op 20 (volgers GEZIEN, verlanglijstjes hun eigen melding). Met die verhouding is 30 tot 100 volgers ongeveer 600 tot 2.000 verlanglijstjes; dat sluit aan op het doel van 500 vóór 4 jan, maar één spel is geen regel (GOK).
 
@@ -41,14 +41,21 @@ Doel (GOK): **30 volgers na een week is gewoon, 100 is sterk.** Ijking (GEZIEN 1
 | Wanneer | Wat | Wie |
 |---|---|---|
 | vóór 4 jan | demosleutels naar de makers met "demo af" in de eerste ronde (`makers.md`), met de vraag de video op of na 4 jan te zetten | Sem zet klaar, Thijs verstuurt |
-| ma 4 jan 18:00 | Thijs drukt "uitbrengen" (lijst-thijs); 18:00 NL is 9:00 in Californië en de middag voor de Amerikaanse oostkust, GOK beste moment | Thijs |
-| ma 4 jan 18:00 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
-| ma 4 jan 18:00 | mail aan de rest van de eerste ronde: de demo is er, link | Thijs |
-| ma 4 jan vanaf 18:00 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
+| ma 4 jan 19:15 | Thijs drukt "uitbrengen" (lijst-thijs), **zonder de mailknop**. Run 12: verschoven van 18:00, want de Winter Sale loopt tot ma 4 jan 10:00 Pacific = 19:00 NL (Steamworks `doc/marketing/upcoming_events`: "Winter Sale 2026, December 17, 2026 - January 4, 2027", GEZIEN 16 nov; het eindtijdstip 10:00 Pacific is het gewone tijdstip, GOK, Fenna verhaal 17). 19:15 NL is 10:15 in Californië. | Thijs |
+| ma 4 jan 19:15 | aankondiging "The demo is out. Gloop is waiting." met één gif van een vallende held en een hoed op Gloop | Chris schrijft, Thijs plaatst |
+| ma 4 jan 19:15 | mail aan de rest van de eerste ronde: de demo is er, link (persoonlijke mail, niet de Steam-mail) | Thijs |
+| ma 4 jan vanaf 19:15 | meetscript elk uur op het demo-appid (lijst in `data/meetlijsten.csv`) | Sem |
 | di 5 tot wo 13 jan | elke demo-fix een korte post (zie onder) | Olaf meldt, Chris schrijft |
 Doel (GOK): 20 spelers tegelijk in de eerste 48 uur. Mini Legends Idle had met 2.500 verlanglijstjes 23 tegelijk in zijn demo (GEZIEN 16 nov), Desktop Defender met 200 verlanglijstjes "hoped for maybe 20" en haalde 36 vóór Next Fest (Kotaku, DERDEN).
 
-**Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf.
+**De Steam-mail naar verlanglijsten: op do 14 jan 19:00, niet op de demodag (run 12, voorstel Fenna verhaal 17, nagekeken).** Steamworks-docs `doc/store/application/demos` (GEZIEN 16 nov met curl): "you can trigger sending notifications (emails and mobile app notifications) to players who have the associated full game on their wishlist. This action is available on your demo app landing page for two weeks following the initial launch of your demo. You can only take this action once". Plus: "Wishlist notifications have a two week cooldown per App ID". Dus:
+- Eén mail, één keer, binnen 14 dagen na de eerste demodag. Demo op 4 jan, dan kan de knop tot en met ±18 jan; do 14 jan is dag 10.
+- Op 14 jan 19:00 vallen dan samen: start fest, mailknop, festaankondiging, makersvideo's. Wie de mail opent, landt op een pagina die in het fest staat en ziet de hoedenteller lopen. Op 4 jan zou de mail ook nog in de uitverkoop vallen (Fenna: mails in een seizoensuitverkoop gaan later en vervallen na een week).
+- Grens: demo niet vóór 31 dec openbaar, anders sluit het venster vóór het fest. Komt de keuring pas na 4 jan: elk uitbrengmoment tot 11 jan houdt 14 jan binnen het venster.
+- Afkoeltijd: na 14 jan twee weken geen andere verlanglijstmail. Next Fest 22 feb en de lancering in maart liggen daar ruim na.
+- Op `organisatie/lijst-thijs.md` gezet met datum en uur; het demo-appid vult Olaf in zodra het bestaat.
+
+**Waarom 500 en 1.000:** Black Cat stond na twee kleine fests op 2.000 en Desktop Defender na drie maanden pagina op 200 (verhaal 5 en 7). Wij hebben vier weken pagina plus makers plus TikTok; tussen die twee in is 500 tot 1.000 eerlijk. Het is een GOK; het belang is de sortering in het vak (Valve sorteert op belangstelling), niet het getal zelf. *(Run 12: 1.000 is nu de ondergrens en 2.500 het doel, omdat 1.000 volgens de Auto-Battler-meting en Mini Legends maar ±8 spelers tegelijk geeft, onder de 20 van "gewoon". Eerlijk: 2.500 in vijf weken is meer dan Black Cat na twee fests had; het is een doel om op te sturen, geen verwachting.)*
 
 **Waarom de demo op 4 jan openbaar en niet pas op dag 1 van het fest (besluit Sem, Olaf beslist over de build):**
 - Valve sorteert binnen het demovak op belangstelling en populariteit (GEZIEN). Een demo die al tien dagen spelers en reviews heeft, staat op dag 1 hoger dan een demo met 0.
@@ -88,7 +95,7 @@ Tijden NL. Het fest begint do 14 jan 19:00 (10:00 PST, GEZIEN in fest.md). Elke 
 | Dag | Wat er gebeurt in de demo | Bericht op Steam en clip | Doel spelers tegelijk (piek die dag) |
 |---|---|---|---|
 | wo 13 jan | laatste controle build, geen wijzigingen meer | aankondiging "Tomorrow: the Desktop Companion Fest. The Gloops start eating." | |
-| **do 14 jan (dag 1)** | het bordje "All Gloops: … hats" telt (optie A), eerste doel 10.000 hoeden | "We're in the Desktop Companion Fest. Every hat counts." Clip: Gloop zet een hoed op, teller loopt | 30 |
+| **do 14 jan (dag 1)** | het bordje "All Gloops: … hats" telt (optie A), eerste doel 10.000 hoeden | 19:00: Thijs drukt de mailknop van de demo (verlanglijstmail, eenmalig). "We're in the Desktop Companion Fest. Every hat counts." Clip: Gloop zet een hoed op, teller loopt | 30 |
 | **vr 15 jan (dag 2)** | doel 50.000: een nieuwe hoed komt voor iedereen vrij (zit al in de build) | per gehaald doel een aankondiging met de nieuwe hoed; clip van die hoed | 60 |
 | **za 16 jan, 19:00 meetpunt** | **meetlat lezen** (zie onder), keuze doorbraak, gewoon of stil | | |
 | za 16 jan (dag 3) | doel 250.000 | weekendbericht; bij doorbraak: "Thank you, X Gloops" met het getal | 80 |
@@ -113,7 +120,49 @@ Twee getallen, allebei voor ons zelf te meten:
 | **Stil** | onder 20 | onder 300 | zie "Als het stil blijft" |
 
 Grenzen spelers tegelijk: voorstel Fenna (verhaal 9), GOK. Grenzen verlanglijstjes: ik heb de regel van Olaf (minder dan 1.000 in de hele festweek = haak aanpakken, `planning-fest-2027.md`) teruggerekend naar 48 uur: Cozy Mining haalde er op dag 2 al 2.000 en daarna nog 3.000, dus ongeveer 40% komt in de eerste twee dagen (GEZIEN uit hun twee meldingen, één spel, dus GOK als regel). De weekregel van Olaf blijft de eindtoets op ma 18 jan.
+**Toets op een echt themafest (run 11, Auto-Battler RPG Fest, 112 demo's, drie metingen 19:36 tot 21:37 UTC op dag 1, tak `fest-metingen`, GEZIEN):** boven 100 tegelijk zat er 1 (Here Comes the Horde, demo 240 terwijl het volle spel al uit was), tussen 20 en 100 zaten er 3 tot 5, mediaan 0, samen 534 tot 580. Dus in een themafest is "gewoon" (20 of meer) al de top 5% en "doorbraak" de top 1%. De grenzen blijven staan, want ze gaan over wat het voor de verkoop betekent, niet over de rangorde; maar "stil" (onder 20) is het lot van 95% van de demo's in zo'n fest, ook met een goed spel. Gevolg: **komen we in januari onder de 20 uit, dan kijken we eerst naar onze plek tussen de anderen** (ook in de top 10 van het fest = haak werkt, de aandacht ontbrak, dus Next Fest met meer makers) **voordat we het spel aanpakken** (onderaan het fest = de haak aanpakken). Dag 2 van het Auto-Battler-fest (di 17 nov, Amerikaanse avond) meet ik nog; dan bijstellen als het beeld anders is.
+
 Als de twee getallen elkaar tegenspreken (veel spelers, weinig verlanglijstjes), telt de laagste: spelers die niet op de lijst zetten, kopen ook niet.
+
+## Les uit dag 1 van het Auto-Battler RPG Fest (run 12, GEZIEN 16 nov, 12:50 tot 22:38 UTC)
+Data: `data/autobattler-fest-dag1-2026-11-16.csv` (108 demo's met een getal; gemiddelde van 4 metingen vóór de start tegen 4 metingen erna, uitgavedatum uit de winkel-API, script `data/fest-dag1.py`).
+| Groep | Aantal | Som spelers tegelijk vóór | Na de start | Mediaan vóór en na |
+|---|---|---|---|---|
+| Nog niet uit (zoals wij in januari) | 89 | 318 | 256 (**min 20%**) | 0 en 0 |
+| Op de festdag zelf uitgebracht | 20 | 187 | 299 | 0,7 en 0,5 |
+- Van de 89 demo's die nog niet uit zijn steeg er **4** met 2 of meer spelers (grootste Marque & Reprisal 16 naar 23, uit op 18 nov; ook het bureaubladspel Desktop Fighter 2 naar 5,5). 10 daalden met 2 of meer. Op 20 of meer: 5 vóór, 3 na.
+- Dat is mét de klok in het voordeel: "na" is de Europese avond en de Amerikaanse middag, "vóór" de Europese middag.
+- **Eén spel nam alles:** Here Comes the Horde, uitgebracht op de festdag, demo van 106 naar 247, het volle spel 2.313 tegelijk (22:46 UTC). De andere 19 die op de festdag uitkwamen: mediaan 8 spelers in het volle spel.
+- Beperking: alleen dag 1, een ander genre dan het onze, en een bureaubladdemo draait langer open dan een auto-battler (GOK dat dat ons iets helpt in de sortering, viraal.md les 1). Ik meet dag 2 (di 17 nov, Amerikaanse avond) en de laatste dag (ma 23 nov) na. **Run 13, Amerikaanse middag van dag 1** (23:35 en 23:52 UTC, 112 demo's, tak `fest-metingen`): som 506 en 495, mediaan 0, 3 tot 4 op 20 of meer, top Here Comes the Horde 223 en 209. Lager dan de Europese avond (577 om 20:42). Ook als Amerika wakker is tilt het fest de demo's dus niet op; de les blijft.
+
+**Volgers tegen spelers in hetzelfde fest** (volgers via de openbare memberslistxml, 87 van de 89 nog niet uitgebrachte demo's, `data/autobattler-fest-dag1-volgers-2026-11-16.csv`): hoe meer volgers, hoe meer spelers (rangcorrelatie 0,70).
+| Volgers | Demo's | Mediaan spelers tegelijk na de start | Hoogste |
+|---|---|---|---|
+| onder 100 | 66 | 0 | 17,5 |
+| 100 tot 300 | 9 | 4,8 | 16,8 |
+| 300 tot 1.000 | 10 | 6,2 | 48,5 |
+| 1.000 tot 3.000 | 2 | 11,8 | 23,2 |
+Ter ijking: Mini Legends Idle heeft 59 volgers en ±2.500 verlanglijstjes (eigen melding, GEZIEN eerder vandaag) en 17 tot 24 spelers tegelijk. Volgers zijn dus geen verlanglijstjes; de verhouding verschilt per spel (hier ±1 op 40).
+
+**Wat dit betekent voor ons plan:**
+1. **De festpagina brengt zelf geen spelers naar een demo die nog niet uit is.** Spelers komen van wat wij meebrengen: de verlanglijstmail (14 jan 19:00), de makersvideo's en de clips. Het besluit om alles op hetzelfde uur te leggen wordt daarmee de kern van het plan, niet een extraatje.
+2. **De sortering op belangstelling beloont wie al spelers heeft.** Wie op dag 1 bovenaan komt, blijft er. Daarom telt elk verlanglijstje vóór 14 jan dubbel: het vult de mail én het vak "Op je verlanglijst".
+3. De meetlat (boven 100 tegelijk = doorbraak) blijft staan en is eerder te streng dan te slap: in dit fest haalde géén van de 89 nog niet uitgebrachte demo's 100 op dag 1.
+4. **Ons verlanglijstdoel en onze meetlat passen niet goed bij elkaar.** Met Mini Legends als maat (±2.500 verlanglijstjes, ±20 tegelijk) geven 1.000 verlanglijstjes ±8 spelers tegelijk (GOK, lineair doorgerekend): dat is "stil" op onze eigen meetlat. "Gewoon" (20 tot 100) vraagt ±2.500 verlanglijstjes, "doorbraak" (boven 100) ±12.000, of een moment dat zich verspreidt zoals Desktop Defender (200 verlanglijstjes, toch 1.548 in Next Fest). Besluit (Sem): **verlanglijstdoel op de avond voor het fest van 1.000 naar 2.500**, 1.000 blijft de ondergrens. De meetlat zelf blijft, want die gaat over het fest en niet over de aanloop. Wat er extra nodig is voor die 1.500: elke paginadag-actie op hetzelfde uur, en de makers met de hoogste weergaven per abonnee eerst (`makers.md`).
+5. Voor maart (vraag aan de hoofdchat en Olaf, geen besluit van mij): het volle spel uitbrengen óp een thema-fest gaf de meeste spelers hier weinig (mediaan 8). Uitbrengen in een fest is geen gratis duw; wat telt is hoeveel verlanglijsten je meeneemt.
+
+## Verlanglijstbegroting: waar 2.500 vandaan moet komen (run 12)
+Verlanglijstjes ziet alleen Thijs in Steamworks. Wat ik zelf kan meten zijn **volgers** (memberslistxml) en **weergaven** van video's met onze Steamlink. Omrekening:
+| Stap | Getal | Bron |
+|---|---|---|
+| Verlanglijstjes per volger | 7 tot 20 (CleanFall ±10: 173 volgers, ±1.800 verlanglijstjes; Mini Legends Idle ±44, uitschieter door verlanglijstdoelen) | GameDiscoverCo via Vera (DERDEN), Fenna verhaal 9 en `character-house.md` (GEZIEN) |
+| 2.500 verlanglijstjes in volgers | **±125 tot 360 volgers op 13 jan** | rekensom |
+| Volgers per 1.000 weergaven | ±2,5 (alle video's van Little Writer samen, ±530.000 weergaven, 1.295 volgers) tot 3,4 (alleen zijn aankondigingstrailer) | Fenna verhaal 13, GEZIEN; dat het bij video's van anderen even goed omzet is een GOK |
+| Volgers in weergaven | **±40.000 tot 150.000 weergaven met onze Steamlink vóór 14 jan** | rekensom |
+| Vanzelf, zonder video's | mediaan aangekondigd bureaubladspel 9,5 volgers (±70 tot 190 verlanglijstjes) | `data/volgers-binnenkort-2026-11-16.csv`, GEZIEN |
+Wat de eerste makersronde eerlijk geeft: 4 tot 5 video's van 1.500 tot 30.000 weergaven (`makers.md`), dus ±10.000 tot 60.000. (Run 13: eerste ronde opnieuw gekozen op bereik, mediaan per kanaal nu 45.000 in plaats van 5.000; maar in lijstvideo's zijn we 1 van 15 tot 30, dus deze begroting blijft tot de paginadag doorkliks laat zien, GOK.) **Aandeel per spel (run 13):** weergaven gedeeld door het aantal spellen in de lijst (getal uit de titels, GEZIEN): Kaganath 108.500 / 5 = ±21.700, Easily Distracted 119.000 tot 243.000 / 16 tot 18 = ±7.000 tot 15.000, GameGen 112.000 / 16 tot 21 = ±6.000, Gaming In The Wild 13.000 / 20 = ±650, Sloth Vibes 6.800 / 10 = ±680, OKtrix 10.000 / 25 = ±400, Cozy With Toxi 4.300 / 20 = ±215, I Dream of Indie 6.950 / 25 tot 70 = ±100 tot 280. Samen ±36.000 tot 45.000 als iedereen ons opneemt; met 4 tot 5 van de 10 (GOK) ±15.000 tot 30.000. Dat valt binnen de begroting van 10.000 tot 60.000, dus die blijft. Kaganath en Easily Distracted zijn samen bijna alles: die twee mails eerst. **De rest, ±30.000 tot 90.000, moet uit de trailer en de clips van Chris komen** (TikTok, Shorts, Reels). Een clip die aanslaat doet dat in één keer (@lemon.stones 318.900 voor Character House, `character-house.md`); zonder zo'n clip halen we 2.500 niet (GOK).
+Wat ik ermee doe: (1) vanaf de paginadag elke dag volgers tellen en naast deze lijn leggen (wekelijks doel: ±25 tot 70 volgers per week van 8 dec tot 13 jan); (2) Chris krijgt het getal "weergaven met Steamlink" als zijn maat voor Hats-clips; (3) liggen we op 1 jan onder de 60 volgers, dan halen we de 1.000 ondergrens waarschijnlijk niet en schuift alle makersmoeite naar de demodag in plaats van later.
+Niet doen: verlanglijstdoelen met een beloning zoals Mini Legends (iedereen goud bij 100 verlanglijstjes). Dat beloont verlanglijsten; Valve liet Bongo Cat precies zoiets stoppen (Fenna verhaal 16).
 
 ## Als het stil blijft (onder 20 spelers tegelijk of onder 300 verlanglijstjes na 48 uur)
 Niet gewoon doorgaan. In deze volgorde, en elke stap met een getal dat we daarna opnieuw meten:

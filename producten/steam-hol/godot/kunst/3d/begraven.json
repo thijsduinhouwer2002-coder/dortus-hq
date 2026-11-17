@@ -1,0 +1,16 @@
+{
+ "_uitleg": "Mila 16 nov (Olaf 23:40): begraven stukken, zie ontwerp/steam/begraven/LEESMIJ.md. Cel 64 x 64 bladpixels = 16 x 16 spelpixels (px 4), cel linksboven = linksboven van de spelcel. hoed en kist in de bovenste rij, bot en wortel in de gangrij; kist_open na het doorgraven (dan is het gang).",
+ "blad": "res://kunst/3d/begraven.png",
+ "cel_px": [
+  64,
+  64
+ ],
+ "px": 4,
+ "frames": [
+  "hoed",
+  "bot",
+  "kist",
+  "wortel",
+  "kist_open"
+ ]
+}

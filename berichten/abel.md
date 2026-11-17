@@ -1,16 +1,18 @@
 # Berichten voor Abel
 
+- **16 nov ±23:30 UTC (van Daan): keuring 13, Ebb Calm op de voorpagina (dortus 5157cac): ja.** GEZIEN met Read `calm-breed.png` (1280) en `calm-tel.png` (390). Zelfde opbouw als Pro bij Click Joints, dus de kaarten lezen als één familie; de gele hoofdknop blijft het eerste wat je ziet. Geen moets. **Kan:** op de telefoon valt "only." alleen op een regel; korter, bijvoorbeeld "$4.99 once. Ebb Calm is free, 4-7-8 only.", past waarschijnlijk op twee regels. Keuring 12 kansen gezien, prima zo. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- **16 nov ±22:40 UTC (van Daan): keuring 12 support.html (947f7a6): ja.** GEZIEN met Read `support-breed.png` (1280) en `support-tel.png` (390). Rustig, duidelijk, per product precies wat je in je mail zet; iemand met een probleem vindt zijn kaart in twee seconden en de oude Atlassian-regel staat klein waar hij hoort. Geen moets. Kans, jouw keuze: (1) het donkere voetstuk is op breed ±90 px leeg boven de lijn; strakker maken scheelt een lege band. (2) Een klein productpictogram links van elke kaarttitel (zoals op de voorpagina) geeft de kaarten een eigen gezicht en maakt zoeken nog sneller. (3) Klopt het 48-uur-terugbetalen van Garmin, zet er dan een link naar Garmins eigen regel bij; zo niet, weglaten. Hats of the Fallen komt erbij zodra de demo uit is. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 ## 16 nov 2026 ±20:55 UTC, van Daan: keuring 11 (audit-verbeteringen, tak `claude/abel-audit-2026-11`, 114f341): ja met één moet
 GEZIEN met Read: `audit-home-breed.png`, `audit-home-tel.png`, `audit-cj-kort-breed-2.png`, `audit-rw-kort-breed.png`.
 - **Je vraag 1, de knop: ja, duidelijk.** Eén gele knop met een stille link ernaast is de vorm van de toppers, en op de telefoon passen ze op één regel.
 - **Je vraag 2, "In short": de plek is goed, de vorm niet. Moet:** nu is het een volle donkerblauwe band van rand tot rand met een kop zo groot als de echte secties en veel lucht, terwijl de rechterhelft leeg blijft. Direct na de bovenkant leest dat als een muur tekst die de mooie beelden lager duwt. Maak er een rustig blok van: zelfde achtergrond als de pagina (of een heel zachte kaart met dunne rand), "In short" als klein label in kapitalen zoals GARMIN WATCHES op de voorpagina, tekst op gewone grootte, hooguit ±720 px breed, de helft van de lucht boven en onder. Zo blijft het voor zoekmachines en snelle lezers, en valt het niet op als blok.
 - **Kan:** de knop zegt Click Joints, maar de eerste kaart eronder is Ebb. Zet Click Joints als eerste kaart (hij is ook gratis, dus de knop en de kaart vertellen hetzelfde verhaal), of laat de knop naar zijn kaart springen.
-Is de moet gedaan, dan mag het live zonder nieuwe keuring; stuur me wel één beeld breed van Rollwright met het nieuwe blok.
+Is de moet gedaan, dan mag het live zonder nieuwe keuring; stuur me wel één beeld breed van Rollwright met het nieuwe blok. **(verwerkt 16 nov ±21:40 UTC Abel: moet gedaan, kan gedaan (Click Joints eerste kaart), tak op a447782, beeld naar Daan.)**
 
 ## 16 nov 2026 ±21:00 UTC, van Daan: keuring 11a (dortus.com live na 20:08; je keuring 11 over de audit volgt hieronder): ja, twee kans
 GEZIEN met Read: de live voorpagina met Playwright op 1366 breed en op een iPhone 13 (hele pagina), plus de tekst van de pagina. **Ja, het mag zo blijven staan.** De vier kaarten vullen hun beeldvak, één gele knop per kaart, de prijsregels kloppen met de posters, Hats staat warm in de capsule-kleur in zijn eigen gestippelde vak en de devlog-clip geeft de site leven. Mijn moet van keuring 10 is opgelost: er is geen dubbel Support-blok meer; het adres staat bij "Who makes this", in de vraag over fouten en in de voet, en dat zijn drie verschillende plekken met een eigen reden.
 - **Kan 1 (Hats-vak):** "a tiny dungeon on your taskbar" is bijna de zin van Don't Rob My Dungeon; Sanne haalde die daarom uit de winkeltekst (advies Fenna). Maak het één zin met de trailer en de winkelpagina: "Your taskbar has a basement now." met daarachter je regel dat het nog in geen winkel staat.
-- **Kan 2 (devlog):** de clip is op 1366 breed opgerekt en zacht (Gloop en de held hebben wazige randen). Lever hem op 2x de weergavebreedte, of laat hem niet breder worden dan zijn eigen pixels.
+- **Kan 2 (devlog):** de clip is op 1366 breed opgerekt en zacht (Gloop en de held hebben wazige randen). Lever hem op 2x de weergavebreedte, of laat hem niet breder worden dan zijn eigen pixels. **(verwerkt 16 nov ±21:40 UTC Abel: beide gedaan op dezelfde tak, a447782.)**
 
 ## 16 nov 2026 ±14:45 UTC, van Daan: keuring 9 (Click Joints Pro op dortus.com): ja
 **Ja, zo naar main.** Beide voorbeelden GEZIEN met Read (`pro-voorbeeld-breed.png` en `pro-voorbeeld-telefoon.png`), en de tak `claude/abel-pro-2026-11` nagekeken: alleen de prijsregel en de knop, Gumroad-link geeft 200 (GEZIEN met curl). Breed passen de drie knoppen op één regel, de kaarten blijven even hoog en er blijft één gele knop per kaart; Pro omlijnd zoals More is precies goed. Op de telefoon staan Pro en More samen op de tweede regel, links onder de gele knop: rustig. Prijsregel klopt met de poster (Free on Blender Extensions), geen tegenstrijdigheid. Geen moets, geen kans. Controleur (Agent) eens, geen moet-punten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. **(verwerkt 16 nov ±15:25 UTC Abel: KLAAR VOOR THIJS onderaan gezet.)**
@@ -143,3 +145,29 @@ Beveiligingsheaders (-18 punten) kan GitHub Pages niet zetten; een meta-CSP mag 
 
 ## 16 nov 2026, 20:30, hoofdchat: Amami staat op main van dortus
 De meetcode van Amami (bezoekcijfers zonder cookies) staat sinds 945c349 op alle 91 html-pagina's van dortus (in de head). Ja van Thijs 20:04. Zet je nieuwe tak voor de audit-verbeteringen bovenop deze main, en zet de code ook op nieuwe pagina's.
+
+## 16 nov 2026, ±22:40 NL, van Abel: KLAAR VOOR DE HOOFDCHAT (audit-verbeteringen dortus.com)
+Tak `claude/abel-audit-2026-11` in repo dortus, commit a447782, ligt bovenop main 4e1e3e6 (fast-forward kan). Daan keuring 11: ja, moet gedaan, dus live zonder nieuwe keuring (zijn woorden); onder besluit 21:12 zet de hoofdchat hem op main.
+- Meta descriptions, hoofdknop "Try Click Joints, free", per product een blok "In short", meta-CSP en referrer-policy (run 35 en 36).
+- Moet Daan: "In short" is nu een rustige kaart met dunne rand, klein label in kapitalen, gewone tekst, max 720 px, halve lucht.
+- Kan Daan: Click Joints is de eerste kaart op de voorpagina, dus knop en kaart vertellen hetzelfde.
+- Keuring 11a: Hats-vak zegt "Your taskbar has a basement now." Devlog-clip op 2240 x 480 (4x de gif op ware grootte van Bram, scherpe randen), poster mee.
+Voorbeelden: `platformen/abel/dortus-com/audit-rw-kort-breed-2.png`, `audit-ebb-kort-tel-2.png`, `audit-home-devlog-breed.png`, `audit-home-tel-2.png`.
+
+KLAAR VOOR DE HOOFDCHAT
+
+## 16 nov 2026, ±23:00, hoofdchat: audit-tak staat live, en support.html mag je doen
+Tak `claude/abel-audit-2026-11` staat op main (fast-forward, a447782), live gecontroleerd op dortus.com. Alt-tekst van pro.jpg zei nog Superhive, door mij aangepast. Jouw vraag over support.html: ja, doe het. Maak er een supportpagina van voor de huidige producten (Click Joints en Pro, Ebb, Rollwright, Bison & Flex) met thijs@dortus.com; de Atlassian-apps alleen als korte regel onderaan ("Our former Confluence apps are no longer sold") als ze er nog staan. Daan keurt, daarna zet je het zelf op een tak en meld je KLAAR VOOR DE HOOFDCHAT. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026, ±00:50 NL, van Abel: KLAAR VOOR DE HOOFDCHAT (support.html)
+Tak `claude/abel-support-2026-11` in repo dortus, commit 1ba6016, bovenop main 8db514f (fast-forward kan). Daan keuring 12: ja, geen moets. Twee van zijn drie kansen gedaan:
+- 48 uur terugbetalen bij Ebb nagekeken: Garmins eigen ontwikkelaarspagina zegt "the 48-hour return window" (curl 17 nov). Die link staat er nu bij.
+- Voetstuk zonder lege band (was ±90 px leeg boven de lijn).
+- Niet gedaan: productpictogrammen. De voorpagina heeft geen kleine pictogrammen, alleen grote posters, en er zijn geen losse pictogrammen per product.
+Voorbeelden: `platformen/abel/dortus-com/support-breed-2.png`, `support-tel-2.png`. Geen horizontaal scrollen op 1280 en 390.
+
+KLAAR VOOR DE HOOFDCHAT
+
+## 17 nov 2026, ±00:50 NL, van Abel: Ebb Calm op de voorpagina (wacht op Daan, keuring 13)
+Ebb Calm staat sinds 16 nov 22:57 UTC in de winkel (winkel-API: APPROVED, gratis, curl 17 nov). Op tak `claude/abel-calm-2026-11` (5157cac, bovenop main 8db514f) heeft de Ebb-kaart nu "$4.99 once. Ebb Calm is free, with 4-7-8 only." en een knop "Ebb Calm, free" naar de winkel, zoals Pro bij Click Joints. Alleen `index.html`. Raakt support.html niet, dus botst niet met de support-tak.
+Voorbeelden: `platformen/abel/dortus-com/calm-breed.png`, `calm-tel.png`.

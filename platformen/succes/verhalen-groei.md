@@ -1,8 +1,186 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 22, het gratis broertje bij Garmin-wijzerplaten, 452 paren, klaar 16 nov 2026 ±21:50 UTC). Volgende: Ebb en Ebb Calm als paar meten zodra Calm openbaar is, Ebb-Short nameten 7 dagen na plaatsen, of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 25, wat een update doet voor een Garmin-app die al in de winkel staat, klaar 17 nov 2026 ±00:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 25. Wat doet een update voor een Garmin-app die al in de winkel staat? Nieuwe versie en meer horloges bij 5.588 apps tussen 9 en 17 nov gemeten, plus de reviews rond de laatste update van 1.216 apps
+
+Onderzocht 17 nov 2026 ±00:05 tot 00:50 UTC, run 25. Waarom: Ebb 1.0.1 (in het manifest van 28 naar 55 modellen) staat klaar op `organisatie/lijst-thijs.md` met "uiterlijk do 26 nov". Ebb Calm staat sinds 16 nov in de winkel, ook op 40 artikelnummers. In verhaal 19 vond ik dat de winkel een nieuwe app 14 dagen geeft en dat meer horloges helpt. Open bleef: helpt een update met meer horloges ook nog **na** die 14 dagen, en brengt de lijst "New and Updated" (die op `changedDate` sorteert, Olaf in `commercie/ebb/cijfers.md`) een oude app nieuwe gebruikers? Olaf schreef daar "een nieuwe versie zet changedDate opnieuw (GOK, niet getest)". Dat is nu getest.
+
+### Bronnen en werkwijze
+- **Stand 9 nov** (GEZIEN door Vera, `platformen/verkenner/data/garmin-niet-wijzerplaten-2026-11-09.json.gz`): 6.244 apps, widgets en datavelden (geen wijzerplaten) van alle leeftijden, met downloadklasse, aantal reviews, versie en de lijst met horloges.
+- **Stand 17 nov ±00:05 tot 00:15 UTC** (GEZIEN, open winkel-API `.../api/asw/apps/<id>`, elke app één keer opgehaald, 6 tegelijk): dezelfde velden. 14 gaven geen antwoord. Met een datum van eerste goedkeuring blijven **5.588** apps over.
+- "Update" = een andere versie op 17 nov dan op 9 nov: **459** van de 4.583 apps die op 9 nov al 30 dagen of ouder waren.
+- **Reviews met datum** (GEZIEN, `.../apps/<id>/reviews`, tot 900 per app): bij **1.219 apps** waarvan de laatste versie uitkwam tussen 1 maart en 15 oktober 2026, minstens 60 dagen na de eerste goedkeuring, met minstens 1 review. Zo kan ik binnen dezelfde app tellen: reviews in de 60 dagen vóór de update tegen de 60 dagen erna. Bij 3 apps kwam ik niet ver genoeg terug, dus **1.216**.
+- De winkel toont geen downloads per dag. Ik heb twee maten: de downloadklasse (grof: 0, 1, 10, 100, 1.000 ...) en reviews (fijner, maar niet iedereen schrijft er een). Reviews zijn een benadering van nieuwe gebruikers, geen telling.
+- Tabellen: `platformen/succes/data/garmin-updates-9-17nov-2026-11-17.csv` en `platformen/succes/data/garmin-reviews-rond-update-2026-11-17.csv`. Scripts: `garmin-updates-haal.py` en `garmin-reviews-rond-update-haal.py` in dezelfde map.
+
+### 1. Een update zet een oude app terug in "New and Updated", maar dat is niet te zien in de downloads (GEZIEN)
+De lijst `MOST_RECENT` van de API staat inderdaad vol met oude apps die net een versie kregen (17 nov, eerste 30 watch-apps: o.a. MAWAQIT, eerste goedkeuring 7 jul, nieuwe versie 9 nov; HIIT & WOD Timer, eerste goedkeuring 29 dec 2025). `releaseDate` en `changedDate` krijgen de datum van de nieuwe versie, `firstApprovalDate` blijft. Olafs GOK klopt dus. Maar levert het iets op?
+
+Apps die op 9 nov 30 dagen of ouder waren, 8 dagen later:
+
+| Groep | Aantal | Downloadklasse omhoog | Minstens één nieuwe review |
+|---|---|---|---|
+| Update tussen 9 en 17 nov | 459 | 4 (0,9%) | 83 (18,1%) |
+| Geen update | 4.124 | 42 (1,0%) | 225 (5,5%) |
+| Update met 5 of meer horloges erbij | 80 | **0** | 8 (10%) |
+
+De klasse beweegt met update net zo weinig als zonder. Wel krijgen apps met een update drie keer zo vaak een nieuwe review. Dat leek eerst een effect, maar punt 2 laat zien dat het andersom zit.
+
+### 2. Binnen dezelfde app: geen sprong na de update; de update komt na de klachten (GEZIEN)
+1.216 apps, reviews opgeteld rond de datum van hun laatste versie:
+
+| Venster | Reviews | Per dag | Gemiddeld sterren | 1 of 2 sterren |
+|---|---|---|---|---|
+| 60 tot 30 dagen vóór | 1.125 | 37,5 | 4,20 | 15,9% |
+| 30 tot 0 dagen vóór | 1.164 | 38,8 | 4,02 | 20,6% |
+| **laatste 7 dagen vóór** | 329 | **47,0** | **3,64** | **29,8%** |
+| eerste 7 dagen na | 277 | 39,6 | 4,36 | 13,4% |
+| 0 tot 30 dagen na | 941 | 31,4 | 4,25 | 13,9% |
+| 30 tot 60 dagen na | 630 | 21,0 | 4,21 | 15,6% |
+
+- **Geen sprong.** De eerste week na een update geeft 39,6 reviews per dag, net zoveel als de maand ervoor (38,8). Per app: 181 apps kregen in de 30 dagen na de update meer reviews dan in de 30 dagen ervoor, 248 minder, 787 gelijk. Ter controle dezelfde vergelijking één maand eerder (zonder update ertussen): 206 meer, 207 minder. Kleine apps (klasse 1.000 of lager, 1.038 apps): 20,8 per dag vóór, 19,0 per dag in de eerste week na.
+- **De week vóór de update is de piek, en die is boos.** 30% van de reviews in die week is 1 of 2 sterren, tegen 16% een maand eerder. Daarna zakt het naar 13%. Makers brengen een update **omdat** er klachten komen, en de update lost een deel op. Dat verklaart punt 1: de app met de update had al meer reviews.
+- Wat er in de lage reviews staat (84 met tekst in de 14 dagen na een update, steekproef van 25): bijna allemaal "werkt niet op mijn horloge" of "synct niet" ("Doesn't work with Ace Pro 2", "Instalei, mas não aparece no Forerunner 255", "Funktioniert seit dem Update leider nicht mehr"). Niemand schrijft over iets nieuws in de app.
+- **Let op, eerlijk:** ik kijk naar de **laatste** versie van elke app. Een app die daarna niet meer bijgewerkt werd, is misschien een app die wegzakt. Dat drukt de cijfers ná de update iets naar beneden (de daling van 31 naar 21 per dag zegt dus weinig). De eerste week na de update heeft dat probleem nauwelijks, en daar zie ik ook geen sprong.
+
+### 3. Binnen de 14 dagen helpt een update met meer horloges misschien wel, erna niet (GEZIEN, kleine aantallen)
+Dezelfde 8 dagen, maar nu naar leeftijd op 9 nov:
+
+| Leeftijd op 9 nov | Update met 5+ horloges erbij | Update, (bijna) geen horloges erbij | Geen update |
+|---|---|---|---|
+| 0 tot 14 dagen (in het venster) | 10 van 41 omhoog (24%) | 40 van 189 (21%) | 82 van 558 (15%) |
+| 14 tot 30 dagen | 2 van 6 | 2 van 33 (6%) | 15 van 178 (8%) |
+| 30 dagen of ouder | **0 van 80** | 4 van 379 (1%) | 42 van 4.124 (1%) |
+
+Mediaan kwamen er bij die 127 apps 15 horloges bij (van 90). In het venster van 14 dagen doet een app met een update het iets beter (24% tegen 15%), wat past bij verhaal 19 (meer horloges, meer downloads, ook binnen één maker 27 tegen 8). Met 41 apps is dat een aanwijzing, geen bewijs. Na 30 dagen: 0 van 80. Een maker deed het precies zoals wij van plan zijn: drie apps van 4 dagen oud van 26 naar ±85 artikelnummers (Interval Timer, Kelvenhal Sauna, Pitchwarden); twee gingen van 0 naar 1, één bleef op 1. Klein, maar ze zaten in hun venster.
+
+Ook gezien: horloges kunnen verdwijnen zonder nieuwe versie (Snake Game van 156 naar 102), dus het aantal op de pagina is niet altijd wat de maker indiende.
+
+### Hoe dit past bij wat we eerder zagen
+- Verhaal 19: de winkel geeft een nieuwe app 14 dagen, daarna stijgt nog maar 2 tot 14%. Nu blijkt: een update na die 14 dagen maakt het venster niet opnieuw open, ook niet via "New and Updated", ook niet met meer horloges.
+- Verhaal 14: Ebb draait op weinig horloges. 1.0.1 lost dat op, maar alleen als hij binnen het venster live staat.
+- Verhaal 22: een gratis broertje dat achteraf op slot gaat, geeft boze reviews. Hier hetzelfde patroon van de andere kant: reviews komen vooral als iets niet werkt.
+
+### Drie lessen
+1. **Een update is geen reclame.** Een nieuwe versie zet een oude app terug in "New and Updated", maar in 5.588 apps en in 1.216 apps met reviewdata zie ik daarna geen sprong in downloads of reviews. Bijwerken om zichtbaar te worden heeft geen zin.
+2. **Meer horloges moet erin vóór dag 14, niet erna.** In het venster: 24% van de apps met een update met meer horloges ging een klasse omhoog tegen 15% zonder update. Na 30 dagen: 0 van 80.
+3. **De week vóór een update is de boze week.** Bij 1.216 apps is 30% van de reviews in de 7 dagen vóór de update 1 of 2 sterren, daarna 13%. Klachten over "werkt niet op mijn horloge" snel met een update beantwoorden houdt het cijfer hoog; dat is wat een update wel doet.
+
+### Voorstel voor Dortus deze week
+**Gijs (met de hoofdchat voor het uploadblok van Thijs): Ebb 1.0.1 naar de winkel uiterlijk vr 20 nov, niet "uiterlijk do 26 nov"; en Ebb Calm dezelfde horlogelijst in een 1.0.1 vóór ±25 nov.** Reden: het venster van Ebb sluit op ±27 nov 15:09 UTC (eerste goedkeuring 13 nov 15:09, GEZIEN), dat van Calm op ±30 nov 16:20 UTC. De keuring duurde bij Calm ±2,4 dagen (ingediend 14 nov ±07:30, live 16 nov 16:20, GEZIEN in `meting-ebb-calm.md`), met een weekend ertussen. Op 26 nov uploaden betekent live op ±27 of 28 nov: net op of na de grens, en dan zegt deze meting dat de extra horloges vrijwel niets meer doen. Calm staat nu op 40 artikelnummers, net als Ebb 1.0.0 (GEZIEN 17 nov 00:13 UTC); als het bouwen van Calm met de lijst van 1.0.1 klein werk is, is dit de goedkoopste knop voor de gratis ingang. Daarna: geen updates meer plannen voor bereik, alleen voor klachten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+### Wat ik niet weet
+- Downloads binnen een klasse: een app van 120 naar 180 zie ik niet.
+- Of "New and Updated" op de site of in de telefoon-app echt de API-sortering `MOST_RECENT` is (AFGELEID door Olaf, niet bewezen) en hoeveel plekken je ziet. Dat maakt voor de uitkomst niet uit: er komt geen sprong.
+- Of de oorzaak bij punt 3 de horloges zijn of de makers die in hun eerste twee weken actief bijwerken. Met 41 apps niet te scheiden.
+
+---
+
+## 24. Chrome Web Store: hoeveel gebruikers krijgt een nieuwe extensie van een kleine maker uit de winkel zelf? 725 lanceerberichten op r/chrome_extensions (aug en sep 2026) naast de winkelpagina van vandaag gemeten
+
+Onderzocht 16 nov 2026 ±23:10 tot 23:55 UTC, run 24. Waarom: vannacht kiest de hoofdchat een nieuw platform (besluit Thijs 16 nov 23:10). De Chrome Web Store staat op plek 4 van Vera's nachtscan (`platformen/verkenner/nacht-2026-11-17.md`), en Lars schreef vanavond dat drie van zijn vier snelle eerste verkopen uit de zoekbalk van die winkel kwamen (`platformen/succes/snel-eerste-euros.md`). Dat zijn verhalen van makers die het gelukt is. Mijn vraag is de groeivraag ernaast: wat geeft die winkel een **gewone** nieuwe extensie, en wat maakt het verschil?
+
+### Bronnen en werkwijze
+- **Reddit** (GEZIEN, Arctic Shift, `https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=chrome_extensions`): alle 5.478 berichten van 1 jul tot 30 sep 2026 (drie gaten van een uur, de API gaf daar niets). Uit titel, link en tekst de extensie-ID gehaald: 1.712 extensies. Juli dient als buffer: alleen extensies die **voor het eerst in aug of sep** genoemd worden (1.093).
+- **Winkelpagina** (GEZIEN 16 nov ±23:20 UTC, curl op `chromewebstore.google.com/detail/<id>?hl=en`): naam, gebruikers, beoordelingen, versie, het Featured-badge. 42 van de 1.093 bestaan niet meer.
+- **Lanceerberichten**: titel met "built", "made", "launched", "first", "published" en dergelijke, zonder mijlpaal in de titel ("1.000 users", "$"): **725 extensies**. Daarbinnen **74** waar de maker het letterlijk een lancering of zijn eerste extensie noemt. Daarvan haalde ik er 3 af die aantoonbaar al ouder waren (Broken Link Checker, "about a year ago"; een whiteboard met "a few thousand installs" vóór de post; FreshView versie 3.2.1): **71 echt nieuwe**.
+- "Gebruikers" in de Chrome Web Store zijn gebruikers die de extensie nu hebben, geen totaal aantal downloads zoals bij Blender en Garmin. Staat er geen teller op de pagina (75 keer), dan tel ik 0.
+- Tabel: `platformen/succes/data/chrome-lanceringen-2026-11-16.csv` (extensie-ID, naam, datum eerste post, post-ID, punten, gebruikers, beoordelingen, versie, featured).
+- Google zelf: `https://developer.chrome.com/docs/webstore/discovery` (gelezen met curl).
+
+### 1. Een gewone nieuwe extensie heeft na 7 tot 15 weken ±15 gebruikers (GEZIEN)
+| Groep | Aantal | Mediaan gebruikers | 25% / 75% / 90% | 100+ | 1.000+ |
+|---|---|---|---|---|---|
+| Alle 725 lanceerberichten | 725 | 15 | 6 / 46 / 206 | 119 (16%) | 17 (2%) |
+| Echt nieuw, maker zegt "lancering" of "eerste" | 71 | 17 | | 11 (15%) | 0 |
+- Aug en sep geven bijna hetzelfde (mediaan 15 en 14), dus na de eerste weken groeit een gewone extensie nauwelijks nog.
+- De 17 met 1.000+ zijn bijna allemaal ouder dan de post (versies 4.2.6 en 5.4, "a Chrome extension I made 10 years ago"). Van de 71 echt nieuwe kwam de beste op **521** (Aspect Ratio Changer for YouTube, eerste extensie, post 29 aug) en **489** (Video Transcription, 5 sep).
+- Vergelijk (andere maat, dus voorzichtig): een nieuwe gratis add-on op extensions.blender.org haalt mediaan 11,5 downloads per dag (verhaal 15), dus ±800 na 10 weken. Ook als maar een derde van de Chrome-installaties blijft (GOK), is 17 gebruikers ±50 installaties: zo'n 15 keer minder.
+- Wat makers zelf zeggen klopt hiermee: "a few downloads a day without making any promotional posts" (CaptureFlow, post 1w670iy; nu 65 gebruikers), "3 weeks after submitting my first extension: 40 active users" (1vlcjee, 24 hadden hem al weer verwijderd), "it seemed very hard to get users" (een lezer onder 1w670iy).
+
+### 2. De Reddit-post zelf geeft niets (GEZIEN)
+- De 725 lanceerberichten halen **mediaan 1 punt**, 90% blijft op 3 of minder, maar 12 halen 10+. r/chrome_extensions is een plek waar makers elkaar posten, geen plek waar gebruikers zoeken.
+- Berichten met 5+ punten horen bij extensies met mediaan 45 gebruikers, die met 0 of 1 punt bij 13. Dat is eerder "betere extensie krijgt ook meer punten" dan "punten brengen gebruikers": met 5 punten bereik je geen 30 mensen extra.
+- Een piek uit eigen reacties op internet houdt niet: de maker van Shiritai (Japanse furigana) reageerde een dag lang op mensen die hun JLPT-uitslag deelden en kreeg 165 bezoekers op zijn winkelpagina, 10 keer normaal: "Then the JLPT posts stopped aaand so did the installs" (1w37li0).
+
+### 3. Wat wel verschil maakt: een naam die mensen intypen, en het Featured-badge
+- **Naam** (GEZIEN, eigen indeling): een naam die zegt wat het doet ("Aspect Ratio Changer for YouTube", "Broken Link Checker", met "for", ":" of " - " of vier woorden of meer) haalt mediaan **20** gebruikers en in 20% van de gevallen 100+; een losse merknaam ("Tabox", "Mimik") mediaan **10** en 11% 100+ (434 tegen 291 extensies). Dat klopt met Lars: "de naam is de zoekterm".
+- **Featured-badge** (GEZIEN): 19 van de 725 hebben het. Zij hebben mediaan **271** gebruikers, de rest 14. Dat is deels omgekeerd (Google geeft het aan goede extensies), maar twee makers beschrijven het voor en na:
+  - Broken Link Checker (eerste extensie, gebouwd met Cursor en Claude Code, 1vnjis9): badge aangevraagd twee maanden na de start, bij 300 tot 500 gebruikers. "Before it, I was getting a few installs a day. Afterward, the store started recommending the extension more often, and installs increased to roughly 10-20 per day. That pace has remained fairly consistent." Nu ±3.900 gebruikers per week. Wat volgens hem **niet** hielp: $100 reclame ("terrible"), Product Hunt (#17 van de dag, "can't say that it changed the trajectory"), 24 SEO-artikelen ("almost no traffic"). Wat wel een beetje hielp: de winkeltekst in 52 talen, omdat hij in het Frans en Japans op de eerste pagina komt.
+  - TextReads (1vw5q6l): badge aangevraagd 22 mei, antwoord van Google op 17 aug. "This led to some spike in user installs", en een paar dagen later de eerste 2 betalende gebruikers.
+- **Wat Google zegt** (DERDEN, developer.chrome.com): badges geven "higher rankings in search and filtering" en soms promotie. Het Featured-badge vraag je zelf aan (nominatie) en de eisen zijn onder meer: Engels, gepubliceerd en openbaar, geen overtredingen, en **"Your extension's core features must be accessible without additional credentials or payments."** Een extensie die alleen betaald werkt, of eerst een account vraagt, komt er dus niet voor in aanmerking. Wachten kan maanden duren (TextReads: bijna 3 maanden).
+
+### Drie lessen
+1. **De Chrome Web Store geeft een nieuwe extensie bijna niets vanzelf.** Mediaan ±15 gebruikers na 7 tot 15 weken, ook bij wie een lanceerpost deed; geen van de 71 echt nieuwe kwam boven de 521. De snelle eerste verkopen van Lars zijn de uitzonderingen bovenaan, geen gemiddelde. Wie daar kiest, moet een eigen route naar gebruikers meebrengen.
+2. **Gevonden worden in die winkel = de naam en het badge, niet de post.** Een naam die de zoekterm is, verdubbelt ruwweg de kans; het Featured-badge gaf twee makers een blijvende stap (van een paar per dag naar 10 tot 20 per dag). Posts op r/chrome_extensions halen 1 punt.
+3. **Het badge vraagt een gratis kern.** Een extensie die alleen betaald werkt, of een account eist, kan het badge niet krijgen. Gratis kern plus betaalde extra's (zoals Latr bij Lars, en ytbud met 7 dagen proef) past wel.
+
+### Voorstel voor Dortus deze week
+**Hoofdchat en Vera, bij de keuze van vannacht:** zet bij de Chrome Web Store (plek 4) de groeiverwachting erbij: zonder eigen kanaal ±15 gebruikers na 2 tot 3 maanden (mediaan, GEZIEN), dus eerste euro's zijn mogelijk (Lars) maar €100 per maand niet zonder iets extra's. Kiest de hoofdchat toch Chrome, dan vanaf dag 1 drie dingen, alle drie zonder Thijs behalve de aanvraag: (1) de naam is de zoekterm, met weinig concurrenten (Vera telt ze); (2) een gratis kern zonder account, betaald als extra, zodat het Featured-badge kan; (3) het badge aanvragen zodra de extensie live is en een eigen pagina op dortus.com heeft (het aanvragen staat op het account, dus dat zet de hoofdchat op `organisatie/lijst-thijs.md`). Geen Product Hunt en geen reclame, daar zeggen makers zelf van dat het niets deed.
+
+### Wat ik niet weet
+- De echte startdatum per extensie: de winkel toont alleen "Updated". De eerste post in aug of sep is een benadering; een deel was ouder (ik haalde de 3 duidelijke eruit bij de 71).
+- Alleen makers die posten zitten erin. Wie nooit post, heeft misschien nog minder, of juist een beter product en geen post nodig.
+- Of het Featured-badge oorzaak of gevolg is: de 19 met badge zeggen het niet, alleen de twee verhalen van makers.
+- Gebruikers per week tegen downloads: de vergelijking met Blender is grof (GOK op wie blijft).
+
+---
+
+## 23. Eén kanaal, twee heel verschillende producten: kost het views als @Dortusapps Click Joints en Ebb door elkaar plaatst? Wat YouTube en TikTok zelf zeggen, en 552 Shorts van 5 gemengde kanalen gemeten
+
+Onderzocht 16 nov 2026 ±21:55 tot 22:30 UTC, run 23. Waarom: vanaf di 17 nov plaatst Chris elke dag een filmpje op YouTube @Dortusapps en TikTok @dortusstudio, en die wisselen af tussen Click Joints (Blender, 3D-printen) en Ebb (ademhalen op een Garmin) (`commercie/filmpjes/planning.md`: 7, 9, 2, 5, 4 ...). Dat zijn twee publieken die elkaar bijna niet raken. De vraag: straft YouTube of TikTok een kanaal dat zo wisselt, en moet Ebb een eigen kanaal krijgen (dat kan alleen Thijs aanmaken)?
+
+### Bronnen en werkwijze
+- **YouTube zelf** (DERDEN): Todd Beaupré, hoofd groei en ontdekken bij YouTube, in een video op het officiële kanaal Creator Insider (1 sep 2026, https://www.youtube.com/watch?v=rHLjxrbXmmY), geciteerd met tijdstippen door OutlierKit (https://outlierkit.com/resources/youtube-second-channel-or-same-channel/). De ondertiteling zelf kon ik niet lezen (YouTube weigerde de cloudomgeving, 403), dus de citaten zijn niet door mij nagelezen in de video.
+- **TikTok zelf** (DERDEN): "How TikTok recommends videos #ForYou", https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you (gelezen met curl).
+- **Meting** (GEZIEN, 16 nov ±22:00 UTC, yt-dlp, lijst Shorts per kanaal met views): 40 kleine makerskanalen bekeken (33 kanalen met 10+ Shorts uit de Garmin-winkelfilmpjes van verhaal 21 en zoekresultaten op Blender-add-ons en Garmin-apps; 21 waren te lezen). Daarvan wisselen er **5** echt van onderwerp, samen **552 Shorts**: Kevandram (Blender: kamerplanten, Final Fantasy-tarotkaarten, 3D-prints; 119.000 abonnees), Copperthumb (3D-print-lessen en een eigen winkel met D&D- en MTG-spullen; 1.430), Wim van VAW.BE (Garmin-tips en zijn eigen wijzerplaten; 2.390, ook verhaal 3), Presh Dineshkumar (gezondheidstips en zijn drie eigen apps; 712), white-bear developers (koud-water-livestreams in vier talen en een Garmin-app; 40). De andere 16 bleven bij één onderwerp (bijna allemaal "nieuwe wijzerplaat").
+- Onderwerp per Short ingedeeld op woorden in de titel (eigen regels per kanaal, enkele kunnen fout zijn). "Na een wissel" = de Short ervoor op het kanaal had een ander onderwerp. Geen datums in de lijst, alleen de volgorde.
+- Tabel: `platformen/succes/data/kanaal-gemengd-shorts-2026-11-16.csv` (kanaal, plek, id, onderwerp, views).
+
+### 1. YouTube en TikTok beoordelen elk filmpje apart (DERDEN)
+- YouTube, Beaupré: "The system isn't trying to find a single category for your content. In fact, we are very video-centric." Over een kijker die van één soort alleen het ene wil: "we will try to focus the recommendations on the things that they actually want to watch." En: "even if you do create a separate channel, we can figure out that people who watch this channel also watch this channel".
+- Maar zijn advies over kanalen gaat over **mensen, niet over straf**: "The advice that we give around channels is really to align channels with audiences. If you think it's going to be the same viewers of both topics, then you can try it on the same channel." En: "think about channels similar to brands, and make it easy for audiences to know whether they should expect the same thing or not."
+- TikTok: "neither follower count nor whether the account has had previous high-performing videos are direct factors in the recommendation system." Elke video wordt apart aan kijkers voorgelegd op grond van wat zij eerder deden.
+Kort: geen straf voor wisselen. Wel het advies om één kanaal voor één publiek te houden, zodat een abonnee weet wat hij krijgt.
+
+### 2. In de meting zie ik geen straf na een wissel (GEZIEN)
+| Kanaal | Onderwerp | Shorts | Mediaan views | Na hetzelfde onderwerp | Na een wissel |
+|---|---|---|---|---|---|
+| Kevandram | kamerplanten | 65 | 2.900 | 1.700 (18) | 3.300 (47) |
+| Kevandram | tarotkaarten | 30 | 1.800 | 851 (9) | 1.900 (21) |
+| Kevandram | 3D-prints | 22 | 2.700 | | |
+| Kevandram | de rest (Blender) | 162 | 2.850 | 3.100 (119) | 2.450 (42) |
+| Copperthumb | winkel, D&D | 59 | 1.100 | 1.000 (24) | 1.100 (34) |
+| Copperthumb | lessen | 78 | 1.100 | 1.100 (44) | 1.000 (34) |
+| Wim | eigen wijzerplaat | 11 | 1.400 | | 1.350 (8) |
+| Wim | tips | 37 | 1.500 | 1.950 (28) | 1.350 (8) |
+Een Short na een wissel doet het gemiddeld niet slechter; bij Kevandram doen de kamerplanten het na een wissel zelfs beter. De enige daling is bij de kern van een kanaal (Kevandram-rest en Wim-tips ±20 tot 30% lager na een wissel), op kleine aantallen. **Dit zijn 5 kanalen, geen bewijs voor elk kanaal**; wel klopt het met wat YouTube zegt.
+
+### 3. Wat wel views kost: reclame voor het product en hetzelfde filmpje in vier talen (GEZIEN)
+- **Productfilmpjes tegen tips.** Presh: Shorts over zijn eigen apps mediaan 404 views, zijn gezondheidstips 770; "Introducing SunSeek" haalde 48. Wim: zijn eigen wijzerplaten 1.400, tips 1.500, maar zijn vijf best bekeken (39.000 tot 13.000) gaan alle vijf over horloges van Garmin en anderen, niet over zijn eigen wijzerplaten ("Coros Pace 4 Pro vs Garmin Forerunner 570/970", "Is the Garmin Connect app terrible or awesome?"). Copperthumb zet de winkel in de tekst onder een les, en daar zie ik geen verschil (1.100 tegen 1.100). Dat klopt met verhaal 2 en 4: mensen volgen tips, de reclame rijdt mee.
+- **Eén clip in vier talen op één kanaal.** white-bear developers plaatst elke clip in het Engels, Duits, Spaans en Fins: mediaan 37, 62, 31 en 7 views. Vier keer zo veel werk, en elke versie concurreert met de andere op hetzelfde kanaal. Dat lijkt op het opdrijven met bijna gelijke clips uit verhaal 13.
+
+### 4. Waar Ebb en Click Joints anders zijn dan deze 5 kanalen
+De 5 kanalen wisselen tussen onderwerpen die nog in één wereld zitten (Blender, of Garmin, of gezondheid). Blender-printers en Garmin-ademhalers zijn verder uit elkaar dan wat ik vond; een kanaal met precies die mix vond ik niet. Volgens Beaupré is dat precies het geval voor "different viewers, second channel". Maar met 0 abonnees speelt dat nog niet: elk filmpje gaat apart naar kijkers die er iets mee hebben (punt 1). Het gaat pas wringen als er abonnees zijn: een Blender-abonnee ziet een ademfilmpje in zijn lijst en slaat het over (GOK, niet gemeten).
+
+### Drie lessen
+1. **Wisselen tussen producten wordt niet gestraft.** YouTube en TikTok kiezen per filmpje de kijkers, en in 552 Shorts van 5 gemengde kanalen doet een filmpje na een wissel het niet slechter. Een nieuw kanaal hoeft dus niet per se gesplitst te worden.
+2. **Kanaal = publiek, niet = onderwerp.** Splits pas als blijkt dat de kijkers van het ene product het andere niet willen. Meet dat in plaats van het te gokken.
+3. **Elk filmpje moet op zichzelf staan.** Omdat elk filmpje apart wordt beoordeeld, moet titel en eerste seconde zeggen voor wie het is (Blender, Garmin). Productreclame haalt minder dan een tip; een clip in meerdere talen op één kanaal haalt per versie bijna niets.
+
+### Voorstel voor Dortus deze week
+**Chris:** houd @Dortusapps en @dortusstudio zoals gepland (geen nieuw kanaal, dus niets voor Thijs). Drie kleine dingen: (1) elke titel begint met het platform, zodat het filmpje zonder kanaal te begrijpen is: "Blender tip: ..." en "Garmin: ..." (de titels van 7, 2 en 9 doen het al bijna); (2) maak op YouTube twee afspeellijsten, "Click Joints: printable joints in Blender" en "Ebb: breathing on Garmin", en zet elk filmpje in de goede; (3) geen vertaalde dubbele versies op hetzelfde kanaal. **Meetpunt** (Chris, na 10 filmpjes, rond di 1 dec): vergelijk in YouTube Studio per product de views en vooral de abonnees per filmpje. Halen de Ebb-filmpjes minder dan een derde van de Click Joints-filmpjes en komen er bijna geen abonnees bij Ebb (drempel is een GOK), dan zet de hoofdchat een tweede kanaal voor Garmin op de lijst van Thijs. Ik meet de eerste filmpjes na 7 dagen na (vanaf di 24 nov).
+
+### Wat ik niet weet
+- De citaten van YouTube heb ik niet zelf in de video gehoord (ondertiteling geweigerd); ze komen van een derde die ze met tijdstippen linkt.
+- Een klein kanaal met precies een Blender-product en een Garmin-product naast elkaar heb ik niet gevonden. De 5 kanalen liggen dichter bij elkaar.
+- Abonnees en terugkerende kijkers per filmpje staan niet openbaar; die ziet alleen de eigenaar in YouTube Studio. Daarom het meetpunt bij Chris.
+- TikTok heb ik niet zelf gemeten in deze run; daar geldt wat TikTok zelf schrijft.
 
 ---
 

@@ -1,8 +1,204 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 16 af 16 nov ±22:10 UTC; volgende run: Little Writer meten na 6 jan, of de grootste bureaubladspellen die zelf crossovers doen (Tiny Pasture) van dichtbij: hoe vraag je erom)
+bezig: niets (verhaal 19 af 16 nov ±23:45 UTC; volgende run: Little Writer meten na 6 jan, of de vraag van de hoofdchat als die er is; anders: hoe bureaubladspellen hun eerste week na de uitgave met korting deden (Tap Tap Loot 30%, Typing Farmer 10%), voor het lanceerplan van maart)
 
 Nieuwste bovenaan.
+
+---
+
+## 19. De Typing Fest van februari 2026: een themafest van vier dagen, net als het Desktop Companion Fest. Maar 2 van de 105 typespellen voor het bureaublad zeiden er iets over, allebei van de uitgever van Bongo Cat. Wat ze deden: een cadeau op dag 1, en een open speeltest alleen tijdens de festdagen
+
+**Vraag:** wat doet een themafest van vier dagen met bureaubladspellen, en wat deden de makers die het goed gebruikten? Het Desktop Companion Fest loopt van do 14 jan 10:00 PST tot ma 18 jan 10:00 PST. Dat is vier dagen, net als de "Spotlight Fests" van 2026, en niet de gewone week (Valve's lijst via GamingOnLinux: Typing Fest 5 tot 9 feb, Horse Fest 19 tot 23 feb en Hidden Object Fest 9 tot 13 apr zijn allemaal "(Spotlight Fest)"). In de lijst voor 2027 staat dat woord niet bij het Desktop Companion Fest (GEZIEN). Of Valve het net zo klein opzet, weet ik dus niet (GOK). Van die korte fests is de **Typing Fest** de enige met bureaubladspellen erin: Bongo Cat en zijn navolgers hebben het label Typing.
+
+### Bronnen en hoe ik keek (16 nov, ±23:30 tot 23:45 UTC)
+- Lijst fests 2026 en 2027: https://www.gamingonlinux.com/2026/01/valve-reveal-all-the-steam-events-scheduled-for-2026 en https://gamingonlinux.com/2026/07/valve-announced-the-themed-sale-events-for-the-first-half-of-2027 (GEZIEN met curl).
+- Steamworks-docs over themafests: `partner.steamgames.com/doc/marketing/upcoming_events/themed_sales` (GEZIEN met curl, 17 nov). De pagina van het Desktop Companion Fest gaf deze run een foutmelding; wat erop staat, staat in verhaal 18.
+- Wat er in de Typing Fest in de aanbieding was: Simulation Daily, 6 feb 2026, https://simulationdaily.com/news/steam-typing-fest-2026/, en een maker op het IF-forum, https://intfiction.org/t/steam-typing-festival-05-02-09-02-2026/78930 (DERDEN).
+- Uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`) 290 bureaubladapps: alle 105 met het label Typing, plus alle andere die vóór 28 jan 2026 uitkwamen met 20+ reviews. Van elk alle aankondigingen (nieuws-API) doorzocht op "Typing Fest", en de reviews per week (`store.steampowered.com/appreviewhistogram/<appid>`, lege weken als 0). Festweek = de week van de app die begint tussen 2 en 6 feb; ervoor = het gemiddelde van de drie weken daarvoor.
+- Data: `platformen/succes/data/typing-fest-2026-bureaublad-2026-11-16.csv`.
+- Niet gelukt: de festpagina zelf terugzien. Er is geen archiefversie (archive.org heeft niets), en `store.steampowered.com/category/typing/` is nu de gewone labelpagina. Verlanglijsten van anderen zijn niet openbaar, dus wat het fest aan verlanglijsten gaf, weet ik niet.
+
+### Wat Valve zegt over themafests (GEZIEN, 17 nov)
+- "A discount is not required to participate ... though each event page will most prominently feature discounted games."
+- Elk fest heeft vakken: Discounted, VR, Free to Play, Demos en Upcoming. Daarbinnen sorteert Valve "based on heuristics like player interest and popularity, while other sections may be more random".
+- "Steam themed sale events currently do not include playtests." Een speeltest komt dus niet in het fest; de demo en de pagina "binnenkort" wel.
+- "Even when events are shorter than one week in duration, the official discount will typically still be set to the standard one week duration." Voor ons pas van belang na de uitgave.
+
+### Wie zei er iets over de Typing Fest? (GEZIEN, aankondigingen)
+Van de 105 typespellen voor het bureaublad noemden er **2** de Typing Fest, en van de andere 185 bureaubladapps **geen enkele**. Die twee zijn van dezelfde uitgever:
+- **Bongo Cat** (Irox Games, gratis, 31.301 reviews), 5 feb: "WE ARE PART OF THE STEAM TYPING FEST". Een gratis mecha voor iedereen die het spel bijwerkt en het cadeautje aanklikt, een nieuwe mecha-verzameling in de winkel, en een skin en hoed voor wie 1 miljoen klikken haalt.
+- **Tap Tap Loot** (ontwikkelaar Turtle Knight Games, uitgever Irox Games), toen nog "binnenkort", 5 feb: "Tap Tap Loot is part of the Steam Typing Fest. To celebrate this we will open up the playtest for everyone for a few days (until Typing Fest ends)". In dezelfde update: wie Bongo Cat en Tap Tap Loot tegelijk draait, krijgt extra kracht van een paar Bongo Cat-voorwerpen ("This is a bit of an experiment").
+
+### Wat de festweek deed met de reviews (GEZIEN, histogram)
+| | 3 weken ervoor (gem.) | festweek | week erna |
+|---|---|---|---|
+| Bongo Cat | 947 | **1.046** (+10%) | 1.037 |
+| MISHA (typing, gratis) | 5,7 | 7 | 9 |
+| Farlands: Tiny Harvest (typing, gratis) | 25,7 | 22 | 13 |
+| 41 andere bureaubladspellen met 3+ reviews per week, mediaan | | **0,78 keer** ervoor | 0,69 keer |
+
+Van de 41 andere spellen zaten er 13 in de festweek op of boven hun eigen niveau. Let op: veel van die 41 waren in nov of dec 2025 uitgekomen en zakten toch al (your wife 0,73, Cast n Chill 0,58). Een eerlijke vergelijking is dit dus niet. Bongo Cat, een spel dat al een jaar stabiel liep, ging in de festweek 10% omhoog en bleef de week erna op dat niveau; zijn eigen dag 1-cadeau zat in die week. Meer dan "een klein plusje" kan ik er niet uit halen.
+
+**Wat het fest deed voor onbekende nieuwkomers (GEZIEN):** drie betaalde typespellen voor het bureaublad kwamen 2 tot 3 dagen vóór het fest uit, zonder bericht over het fest: Your Succubus ($6,99, 3 feb) kreeg 2 reviews in de festweek, Text To Speech ($6,99, 3 feb) 1, Idle Crops ($0,99, 2 feb) 1 en de week erna 3. Deskworm (gratis, uit 15 jan, met demobeloning) zakte gewoon door: 22, 9, 7, en in de festweek 4. Een plek in het fest zonder eigen actie gaf deze spellen dus niets wat je terugziet.
+
+### Tap Tap Loot: van festspeeltest naar lancering (GEZIEN, aankondigingen en histogram)
+1. **5 feb 2026, dag 1 Typing Fest:** de speeltest gaat alleen tijdens de festdagen open voor iedereen, met een samenwerking met Bongo Cat.
+2. **22 feb, Next Fest:** pas nu de demo. "Your progress will carry over from the playtest". De voortgang van de demo gaat níet mee naar het volle spel; in de plaats daarvan krijgen demospelers een eigen skin (de Target Dummy).
+3. **7 apr:** datum bekend (13 apr). Over de prijs: "we decided to go with a bit of a higher base price to allow us to discount the title further in the future. That's why we are launching with a 30% discount!" Basisprijs $6,99, met regionale prijzen.
+4. **13 apr, uitgave:** demobeloning, en een bundel met The Farmer Was Replaced (een programmeerspel). Drie dagen later "The Typer Was Replaced": in dat spel kun je nu met `tap()` je Bongo Cat en je Tap Tap Loot-held laten tikken.
+5. **Uitkomst:** week 1 **358 reviews**, net boven het bovenste kwart van 70 lanceringen van bureaubladspellen (p75 345, mediaan 133, `lanceer-verval-bureaublad-2026-11-16.csv`). Week 2 maar 100 (0,28 keer week 1; mediaan van de 70: 0,32). Nu 872 reviews.
+- Ter vergelijking, **Typing Farmer** (MilkwayStudio, ook met Irox als uitgever): demo al sinds januari, geen bericht over de Typing Fest, uitgave 20 apr met lanceerbundels met Tap Tap Loot, Tiny Pasture en drie anderen. Week 1: 113 reviews, onder de mediaan. Nu 456.
+- Wat ik niet kan scheiden: Tap Tap Loot had de grote speler Bongo Cat achter zich (zelfde uitgever, eigen samenwerking in het spel). Wat de Typing Fest zelf deed, is niet te zien.
+
+### Drie lessen
+1. **Bijna niemand doet iets met een themafest, dus wie iets doet, valt op.** 2 van de 105 typespellen voor het bureaublad zetten een bericht neer, en allebei hadden ze een reden om te spelen op dag 1 (een gratis mecha, een open speeltest). Dat past bij Sems meting op dag 1 van het Auto-Battler RPG Fest (alleen wie zelf spelers meebracht, steeg) en bij verhaal 3 (cadeaus in de demo). Het Desktop Companion Fest wordt de eerste keer, dus de kans dat de andere spellen stil blijven is groot (GOK op basis van deze 2 op 105).
+2. **Iets wat alleen tijdens de festdagen kan.** Tap Tap Loot zette zijn speeltest alleen in de vier festdagen open voor iedereen. Daarmee is het fest een moment met een einde, en geen pagina die er toevallig ook staat. Let wel: Valve neemt speeltests niet op in het fest, dus bij Tap Tap Loot kwam het verkeer via de pagina "binnenkort". Bij ons is de demo er al (ma 4 jan); het cadeau moet dus in de demo zitten.
+3. **In een fest van vier dagen gaat het bovenste vak naar spellen die al uit zijn en korting geven.** Ook dat zegt Valve zelf. Een demo of "binnenkort" krijgt een eigen vak, en daarbinnen telt belangstelling. Ons eigen festverkeer moet dus van onszelf komen (mail, makers, bericht om 19:00 NL); het fest geeft vooral een plek.
+
+### Voorstel voor Dortus deze week
+**Sem en Olaf: maak van de Fest Hat (al gepland in `marketing/makers.md` voor 8 jan) een hoed die je alleen kunt halen van do 14 jan 19:00 tot ma 18 jan 19:00 NL. Zet hem in de aankondiging van dag 1 met één zin over hoe je hem pakt: bijwerken en spelen, net zo kort als de mecha van Bongo Cat.** Waarom: de enige twee makers die de Typing Fest gebruikten, gaven op dag 1 iets dat alleen toen te halen was. Een hoed met een einddatum maakt van ons fest een moment, en de hoed gaat via de save mee naar het volle spel (Tap Tap Loot kon dat niet en gaf een skin in de plaats). Kosten: één hoed uit de pijplijn (±½ run Mila, planning Olaf) en een datumcheck in de code (klein, Olaf). Valt het buiten de demolijst van 18 dec, dan beslist Olaf; dan is de terugvaloptie het cadeau dat er al is, maar dan zonder einddatum.
+
+Eerlijk: dit zijn twee berichten van één uitgever met honderdduizenden spelers achter zich (Bongo Cat: 500.000 spelers na 4 weken, eigen opgave, verhaal 3). Of een hoed met een einddatum bij een onbekend spel spelers trekt, laat dit niet zien. Wel laat het zien dat het de gewoonte is van de grootste speler in onze hoek.
+
+---
+
+## 18. Tiny Pasture als lanceerpartner: tien nieuwkomers kregen een bundel en een aankondiging op hun lanceerdag of kort erna, maar waar ik het kan meten zie je geen sprong boven het gewone verval (plus: de eisen van het Desktop Companion Fest, eindelijk gelezen)
+
+**Vraag:** Sem vroeg (16 nov ±21:41) of er een manier is om te zien wat een ruil op de lanceerdag een nieuwkomer oplevert, zoals Bugtopia die op dag 1 een crossover plus bundel met Tiny Pasture kreeg. Ons bundelplan (`marketing/bundels.md`) zet Tiny Pasture als eerste kandidaat voor een ruil rond de lancering van Hats. Eerst heb ik de festpagina van Valve gelezen, die in verhaal 17 een foutmelding gaf.
+
+### Bronnen en hoe ik keek (16 nov, ±22:50 tot 23:40 UTC)
+- Steamworks-docs, gelezen met curl op 16 nov: `partner.steamgames.com/doc/marketing/upcoming_events/themed_sales/desktop_companion_2027` en de ouderpagina `.../themed_sales` (GEZIEN).
+- Alle 59 aankondigingen van Tiny Pasture (appid 3167550) en van de tien partners, via `api.steampowered.com/ISteamNews/GetNewsForApp/v2/` (GEZIEN).
+- Reviews per week van de partners en van een vergelijkingsgroep: alle 253 betaalde bureaubladspellen uit Vera's kaart die tussen juni 2024 en augustus 2026 uitkwamen met 10+ reviews; daarvan 70 met een weekgrafiek vanaf de uitgave, 12+ weken en 50+ reviews in week 1 (`store.steampowered.com/appreviewhistogram/<appid>`, GEZIEN). Week 1 = de eerste 7 dagen na de uitgave.
+- In die 253 spellen ook gezocht naar aankondigingen met "bundle", "crossover" of "collab" in de eerste 10 dagen na de uitgave: 37 spellen hebben er een.
+- Data: `platformen/succes/data/tiny-pasture-lanceerpartners-2026-11-16.csv` (de tien partners) en `platformen/succes/data/lanceer-verval-bureaublad-2026-11-16.csv` (de 70 spellen, verval per week).
+- Niet gelukt: reviews per dag (de route `appreviews` stuurt vanaf onze omgeving door naar de voorpagina, ook met een andere browsernaam). Daardoor kan ik binnen week 1 niets scheiden.
+
+### Eerst: wat Valve eist voor het Desktop Companion Fest (GEZIEN, 16 nov)
+- **Uitnodigen gaat vanzelf, op de tags en de winkelpagina.** "If your game does not that [sic] the Desktop Companion tag, then it is likely not eligible for this Fest." Op de ouderpagina: geschiktheid komt uit de tags "as well as the gameplay that is evident from how you describe and represent your game on your store page". Wie geen uitnodiging kreeg, kijkt op de opt-in-pagina en kan bezwaar maken.
+- **Wat telt als bureaubladspel:** zit "unobtrusively" op een deel van het scherm (meestal onder of opzij), speelt door als je niets doet, meestal casual of idle. **Niet:** spellen die je alleen kleiner kunt maken, schermbeveiligers, software, pomodoro-timers, en spellen voor een heel tweede scherm of volledig scherm.
+- **Demo's mogen, in een eigen vak**, en de demo wordt ingedeeld op de pagina van het volle spel ("keep tags for the base game up to date"). Maar: "Demos are generally not eligible to appear in the official event trailer", en "discounted released games will be featured most prominently".
+- **Datums:** trailer van Valve 8 jan, fest 14 jan 10:00 PST tot 18 jan 10:00 PST. Livestreams staan niet op de festpagina, wel op je eigen winkelpagina.
+- Wat dit voor Hats betekent: de tag Desktop Companion bovenaan (staat al in de planning van 30 nov) en de winkeltekst en schermen moeten de strook onderaan laten zien, anders kan Valve ons niet uitnodigen. In de festtrailer van Valve komen wij als demo waarschijnlijk niet.
+
+### Tiny Pasture doet een vast lanceerprogramma (GEZIEN, aankondigingen)
+Tiny Pasture (7.140 reviews, uitgever Gamersky Games) zette in 13 maanden **tien aankondigingen voor een bundel met een nieuwkomer**, zes daarvan op de dag van de uitgave of de dag erna:
+
+| Nieuwkomer | Uit | Post Tiny Pasture | Dag | Wat | Zelfde uitgever |
+|---|---|---|---|---|---|
+| Maltese's Fluffy Onsen | 13 mei 2025 | 22 mei 2025 | 9 | bundel 10% | nee |
+| Bugtopia | 21 mei 2025 | 22 mei 2025 | 1 | crossover plus bundel 10% | nee (GCORES) |
+| Idle Waters | 12 jun 2025 | 12 jun 2025 | 0 | bundel 10% | nee |
+| Village Tale | 27 jul 2025 | 28 jul 2025 | 1 | bundel 10% | nee |
+| Lakeside Bar | 30 jul 2025 | 31 jul 2025 | 1 | bundel | nee |
+| Sensei! I Like You So Much! | 1.0 op 5 aug 2025 | 5 aug 2025 | 0 | bundel | nee |
+| Fischer's Fishing Journey | 7 aug 2025 | 8 aug 2025 | 1 | bundel 10% | **ja** (Gamersky) |
+| Your Big, Cute Monster Farm | 10 nov 2025 | 11 nov 2025 | 1 | gastpersonage plus bundel | **ja** (Gamersky) |
+| Tingus Goose | 1 dec 2025 | 10 feb 2026 | 71 | bundel | nee |
+| Birdwatching Notebook | 26 mei 2026 | 10 jun 2026 | 15 | bundel 10% | nee |
+
+- **Het is bijna altijd een bundel, geen ruil.** Alleen Bugtopia (andere uitgever) en Monster Farm (eigen uitgever) kregen er een personage bij. Wat Tiny Pasture als ruil doet met spellen van anderen, doet het vooral met grote, al uitgebrachte spellen (Sultan's Game, Backpack Battles bij hun 1.0, Ropuka, Sanfu bij zijn verjaardag; verhaal 16).
+- **De tekst is één sjabloon voor beide kanten.** Idle Waters en Tiny Pasture zetten op 12 jun 2025 dezelfde zinnen ("If you would like to fish while petting animals, then don't miss this bundle", "Exclusive Bundle Deal", "instant 10% discount"). Ook bij de anderen steeds: één regel waarom het past, "10%", "double the fun", over elk spel twee zinnen. De nieuwkomer post zelf meestal dezelfde dag.
+- 8 van de 10 zijn van een andere uitgever. Hoe het contact ontstond staat in geen enkele post (niet gevonden).
+
+### Leverde de post van Tiny Pasture iets op? (GEZIEN, verval per week)
+Bij zes partners viel de post in week 1, samen met de uitgave zelf: daar is het niet te scheiden (Sem had gelijk). Bij drie viel hij later, en daar kan ik de week van de post leggen naast hoe een lancering gewoon daalt:
+
+| Partner | Post in | Reviews | Verhouding | Gewoon in deze hoek (70 spellen) |
+|---|---|---|---|---|
+| Maltese's Fluffy Onsen | week 2 (dag 9) | 487 dan 176 | 0,36 | week 2 tegen week 1: mediaan 0,31 (helft tussen 0,20 en 0,43) |
+| Birdwatching Notebook | week 3 (dag 15) | 241 dan 108 | 0,45 | week 3 tegen week 2: mediaan 0,52 (helft tussen 0,37 en 0,61) |
+| Tingus Goose | week 11 (dag 71) | 15, 17, 12 dan 23, 24 | ±1,6x | stijging van ±8 reviews per week; rond Chinees Nieuwjaar en de nieuwjaarsupdate van Tiny Pasture |
+
+**Bij Maltese en Birdwatching zie je niets boven het gewone verval.** Bij Tingus Goose een klein beetje, maar in dezelfde week als een feestdag in China en een update van Tiny Pasture, dus niet toe te schrijven. En de zes die de post in week 1 kregen, houden het daarna niet beter vol dan de rest: reviews in week 5 tot 12 tegen week 1 tot 4 is bij hen 0,19 tot 0,51 (mediaan ±0,23), bij de rest mediaan 0,30. Hun eerste vier weken (172 tot 570 reviews) liggen rond en boven de mediaan van de groep (216), maar Tiny Pasture kiest zijn partners, dus dat zegt niets over de bundel.
+
+Voor Sem, de manier die wel werkt: **een post na week 1 leggen naast het verval van 70 vergelijkbare lanceringen.** Voor een post in week 1 is er geen eerlijke maat zonder de verlanglijstcijfers van de maker.
+
+### Drie lessen
+1. **Tiny Pasture is een vaste lanceerpartner, geen gunst.** Tien nieuwkomers in 13 maanden, steeds hetzelfde sjabloon: bundel 10%, één zin waarom het past, posts aan beide kanten op dezelfde dag. Vragen is dus normaal; een crossover met personage is de uitzondering (1 keer bij een andere uitgever).
+2. **Een bundelpost van een groot bureaubladspel geeft geen zichtbare golf.** Waar het te meten is (2 keer schoon), valt de week van de post binnen het gewone verval. Dat past bij verhaal 15 (Bottom-Of-Your-Screen) en 16 (crossovers): het spel zelf bepaalt de lancering, partners geven een plek op een pagina, geen kopers.
+3. **Voor het fest tellen de tags en de winkelpagina, niet de demo.** Valve nodigt uit op de tag Desktop Companion en op wat de pagina laat zien, zet uitgebrachte spellen met korting het meest in beeld en neemt demo's meestal niet op in zijn trailer.
+
+### Voorstel voor Dortus deze week
+**Sem past in `marketing/bundels.md` de regel voor Tiny Pasture aan: vraag om hun gewone lanceerbundel (10%, beide kanten posten op de lanceerdag) en lever de tekst kant-en-klaar in hun sjabloon mee (twee zinnen per spel, één zin waarom ze passen); de gasthoed is een extra vraag, geen voorwaarde. Reken er in het lanceerplan op nul extra kopers: het is gratis en het geeft een plek op een pagina met 7.140 reviews, meer niet. Mila of Olaf: de winkeltekst en de eerste schermafbeelding van Hats moeten de strook onderaan het bureaublad laten zien, want Valve nodigt voor het fest uit op tags plus wat de pagina toont.** Kost niets; voorkomt dat we op een ruil rekenen voor groei.
+
+### Eerlijk: wat ik niet weet
+- Wat de bundels in week 1 deden: zonder reviews per dag en zonder verlanglijstcijfers is dat niet te zien.
+- Of Tiny Pasture nee zegt tegen een spel zonder uitgever; alle tien hadden een studio of uitgever, hoe ze contact kregen staat nergens.
+- Of bundels verkopen: Steam toont geen bundelverkopen. Reviews zijn een trage maat; extra verlanglijsten of volgers zie ik niet.
+- Of de Desktop Companion-tag door Valve of door spelers moet komen: de pagina zegt alleen dat het spel hem moet hebben.
+
+---
+
+## 17. Wanneer zet je de demo live, en wanneer druk je op de mailknop? De ene e-mail die Steam stuurt bij een demo moet binnen 14 dagen na de demo, en ons plan (demo ma 4 jan) valt op de laatste dag van de Winter Sale; in 449 demo's van bureaubladspellen zie ik geen beste dag
+
+**Vraag:** in het festplan van Sem gaat de demo van Hats op **ma 4 jan** openbaar, tien dagen vóór het Desktop Companion Fest (14 tot 18 jan), met dezelfde voorbereiding als dag 1 van het fest. Niemand in de repo had uitgezocht wat Steam op de dag van de demo doet met de verlanglijsten, en of de dag van de demo ertoe doet. Dat is nu uit te zoeken en het kost niets om het plan nog te verschuiven.
+
+### Bronnen en hoe ik keek (16 nov, ±21:30 tot 22:15 UTC)
+- Steamworks-docs, gelezen met curl op 16 nov: `partner.steamgames.com/doc/store/application/demos` (kopje "Triggering release notifications"), `doc/marketing/wishlist` (kopje "Wishlist Notifications"), `doc/marketing/upcoming_events/nextfest` (vragen over de demo) en `doc/marketing/upcoming_events/2026_winter_sale` (datum).
+- Chris Zukowski, "What Steam's big demo update means for your marketing strategy", 31 jul 2024: https://howtomarketagame.com/2024/07/31/what-steams-big-demo-update-means-for-your-marketing-strategy/ (DERDEN).
+- Eigen meting: alle 451 bureaubladspellen met een demo uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`). Per spel de demo-appid via `store.steampowered.com/api/appdetails`, en van die demo de datum waarop hij speelbaar werd (449 gelukt). Die datum gelegd naast de eerstvolgende Next Fest (feb, jun en okt van 2024 tot 2026). Uitkomst bij uitgebrachte spellen: reviews (uit de kaart); bij aangekondigde spellen: volgers (Vera's en Sems metingen van 16 nov, 127 van de 241). Data: `platformen/succes/data/demo-timing-bureaublad-2026-11-16.csv`, scripts `demo-timing-haal.py` en `demo-timing-analyse.py` in dezelfde map.
+
+### Wat Valve zegt (GEZIEN, Steamworks-docs, 16 nov)
+1. **Eén mail, alleen in de eerste 14 dagen.** Bij de demo: "This action is available on your demo app landing page for two weeks following the initial launch of your demo. You can only take this action once." Wie de knop niet indrukt, stuurt niets; wie de demo eerder uitbrengt, verliest de knop na twee weken.
+2. **Wij kiezen het uur.** "The timing of this notification is under your control up to two weeks following the release of your demo." De mail hoeft dus niet op de dag van de demo.
+3. **Hooguit één mail per twee weken per spel, en in drukke weken langer.** "Customers who have been notified about an appID within the last 2 weeks (...) will be on e-mail cooldown", en: "This period may be extended in periods of high notification traffic (such as Steam seasonal sales)." Plus: "if an email is held up for over a week for whatever reason, we will stop trying to send that email."
+4. **De Winter Sale loopt van 17 december 2026 tot 4 januari 2027, 10:00 Pacific** (19:00 in Nederland). Onze demodag ma 4 jan valt dus nog in de uitverkoop, precies de drukke tijd waar Valve voor waarschuwt.
+5. **De dag van de demo maakt Valve niet uit.** Next Fest-docs: "Our only requirement is that it is before the start of the event", "We do not require exclusivity or newness for your demo." Demo eerder, op de dag zelf of vlak ervoor noemt Valve "all valid strategies". Een fest stuurt zelf geen mail naar verlanglijsten (niet genoemd in de docs).
+6. **Een demo kan vooraf een eigen "binnenkort"-pagina krijgen** en staat dan in de lijst met aankomende demo's (demos-docs, "Releasing for 'upcoming' visibility").
+
+### Wat een maker erover zegt (DERDEN, Zukowski, jul 2024)
+- Zijn advies sinds de mailknop er is: "Time the festival / streamer / wishlist email to occur on the same day and hour", zodat zoveel mogelijk mensen tegelijk de demo spelen en hij in New & Trending komt.
+- Zijn voorbeeld CleanFall: 173 volgers en ±1.800 verlanglijsten vóór de demo, demo uit op 26 jul 2024, de dag erna in New & Trending, daarna van 1.800 naar 6.000 verlanglijsten. Een YouTuber (Olexa, 166K) speelde de demo meteen; hij zegt zelf dat niet te zien is wat het deed, de YouTuber of de mail.
+- Hij raadt af de demo uit te brengen zolang je weinig verlanglijsten hebt, omdat je de mail maar één keer krijgt, en noemt de Steam-playtest als manier om vreemden eerst te laten spelen: "Playtests and Betas are NOT counted as a 'Demo Release'".
+- Kanttekening: dit is 2024. Hoe druk New & Trending voor demo's nu is, weet ik niet.
+
+### Wat de data zegt: geen beste dag (GEZIEN, 449 demo's)
+Uitgebrachte spellen (demo na 31 jul 2024, minstens 2 maanden uit), reviews nu, naar dagen tussen demo en de eerstvolgende Next Fest:
+
+| Demo vóór het fest | n | Mediaan reviews | Aandeel 100+ reviews |
+|---|---|---|---|
+| 0 tot 3 dagen (op of vlak voor dag 1) | 4 | 38,5 | 1 van 4 (Cornerpond, 2.602) |
+| 4 tot 21 dagen | 28 | 14,5 | 11% |
+| 22 tot 90 dagen | 42 | 19,5 | 24% |
+| 91+ dagen | 6 | 104,5 | 3 van 6 |
+| geen Next Fest tussen demo en uitgave | 28 | 6 | 18% |
+
+Aangekondigde spellen (nu "binnenkort"), volgers op 16 nov:
+
+| Demo vóór het fest | n | Mediaan volgers | Aandeel 100+ volgers |
+|---|---|---|---|
+| 0 tot 3 dagen | 24 | 15 | 17% |
+| 4 tot 21 dagen | 36 | 46 | 33% |
+| 22 tot 90 dagen | 39 | 22 | 13% |
+| nog geen fest gehad (demo na 19 okt) | 22 | 5 | 0% |
+
+**Het patroon draait om.** Bij de uitgebrachte spellen doet "4 tot 21 dagen vóór het fest" (dat is ons plan) het slechtst, bij de aangekondigde het best. Het verschil bij de uitgebrachte is ook niet hard (Mann-Whitney p = 0,37; 3 van 28 tegen 13 van 48 met 100+ reviews, Fisher p = 0,14). Conclusie: **in deze hoek bepaalt de dag van de demo de uitkomst niet zichtbaar.** Wat wel overal terugkomt: wie geen fest had tussen demo en uitgave, bleef laag (mediaan 6 reviews, 5 volgers), wat past bij verhaal 3 en 7.
+
+De winnaars uit eerdere verhalen deden ook beide: Desktop Defender, Bongo Cat en Cornerpond zetten de demo live op dag 1 van een fest; Bao Bao 19 dagen vóór het Idler Fest en Character House een maand vóór Next Fest, buiten elk fest (verhaal 3 en 5, `marketing/character-house.md`).
+
+Eerlijk over de meting: ik weet niet of elk spel echt meedeed aan het fest dat ik toeken (Valve geeft geen openbare deelnemerslijst van oude fests); spellen die hun demo bij de uitgave weghaalden ontbreken (bij de winnaars gebeurt dat vaak, verhaal 8); en of en wanneer iemand op de mailknop drukte, is van buiten niet te zien.
+
+### Drie lessen
+1. **De mail is het enige moment dat Steam zelf iedereen met Hats op de verlanglijst roept, en het venster is 14 dagen na de eerste demodag.** Wie de demo eerder dan 31 dec uitbrengt, kan de mail niet meer op 14 jan sturen.
+2. **Mail niet in een seizoensuitverkoop.** Valve zegt zelf dat mails dan later gaan en na een week vervallen. Ma 4 jan vóór 19:00 Nederlandse tijd is nog Winter Sale.
+3. **De dag van de demo is geen hefboom, het fest wel.** In 449 demo's is er geen beste afstand tot het fest; het verschil zit tussen wél en géén fest. Dus: de demo vroeg genoeg om fouten te vangen, en de klap (mail, makers, aankondiging) op één uur samen met het fest.
+
+### Wat dit betekent voor Hats
+Het plan van Sem (demo ma 4 jan, fest do 14 jan) past binnen het venster, met één aanpassing en één grens:
+- **Demo live op ma 4 jan ná 19:00 Nederlandse tijd (einde Winter Sale) of di 5 jan, zonder mail.** Rustige dagen met echte spelers om fouten te vangen, zoals Sem wil (10+ demo-reviews).
+- **Mailknop op do 14 jan om 19:00 Nederlandse tijd**, het uur dat het fest begint, samen met de aankondiging en de makers die de demo spelen. Dat is dag 9 of 10 van de 14, dus binnen het venster (laatste dag ±18 jan).
+- **Grens: de demo niet vóór 31 dec openbaar**, anders sluit het venster vóór het fest. Schuift de demo naar voren (bijvoorbeeld 22 dec, direct na de keuring), dan valt de mail in de Winter Sale of vóór het fest. Liever een Steam-playtest voor vroege spelers en makers: die telt niet als demo (Zukowski, DERDEN).
+- Next Fest in februari heeft geen eigen mail meer; daar trekt alleen het fest zelf. De lanceermail in maart staat los (die gaat bij uitbrengen, meer dan twee weken na januari).
+- Wat ik niet weet: of een demo die 10 dagen oud is in het fest lager staat dan een nieuwe. Valve sorteert in een themafest op "player interest and popularity" (verhaal 9, Sem); nieuw zijn wordt niet genoemd.
+
+### Voorstel voor Dortus deze week
+**Sem past in `marketing/festplan.md` fase 2 en 3 aan: demo openbaar ma 4 jan na 19:00 NL (of di 5 jan) zonder mail, de mailknop op do 14 jan 19:00 NL, en de regel "demo niet vóór 31 dec openbaar". Olaf zet dezelfde grens in `planning-fest-2027.md` bij 21 dec (indienen is vroeg genoeg, openbaar maken pas 4 jan). Thijs drukt de knop zelf (hij beheert Steamworks): Sem zet hem met datum en uur op `organisatie/lijst-thijs.md` zodra de demo een appid heeft.** Kost niets, voorkomt dat we de enige mail in de Winter Sale of vóór het fest verspelen.
+
+### Eerlijk: wat ik niet weet
+- Hoeveel van de mensen met een spel op hun verlanglijst de demomail openen of de demo starten: Valve geeft geen cijfer, ik vond geen maker met een getal voor deze hoek.
+- Of New & Trending voor demo's in 2026 nog werkt zoals bij CleanFall in 2024.
+- Of het Desktop Companion Fest eigen eisen aan de demo stelt: de pagina van Valve voor dit fest gaf op 16 nov een foutmelding ("Sorry, an error occurred"). Volgende run opnieuw proberen.
 
 ---
 

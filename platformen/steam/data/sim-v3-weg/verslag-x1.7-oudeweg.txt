@@ -1,0 +1,85 @@
+30 zaden, 170 open uur; mediaan open uur tot hol-niveau (- = minder dan de helft haalt het)
+werkdag = 6 open uur; hol 50 op open uur u valt op werkdag u/6 + 1
+weg 0,25 zonder plafond (zoals 21:17)  x1.70 | hol 12 1.1 u | 20 9.1 | 30 34.1 | 40 69.7 | 50 120.0 | goud 1e nacht 3400 | weg-faam afgekapt (mediaan, totaal) 0
+weg 0,12, faam hooguit +2 niveaus      x1.70 | hol 12 1.1 u | 20 10.5 | 30 40.3 | 40 83.8 | 50 144.0 | goud 1e nacht 1632 | weg-faam afgekapt (mediaan, totaal) 0
+
+== verslag x1.70, weg 0,12, faam hooguit +2 niveaus ==
+lagen | None | 30 zaden | luik 400/800/1200 | upgrades 45/126/353/988/2766/7745 | upgrades niet mee naar de nieuwe laag | prijsfactor per laag 1/2.25/5.25/8.25 | hoeden boven tellen voor Gloop: nee
+  per laag (mediaan): luik te koop | gekocht | spaartijd | bank bij openen | gebouwd (40 gangen, stap 3) | bouwtijd | goud per uur van de lagen erboven
+    laag 1: - | 0 | - | 0 | 3.7 u | 3.7 u | 0
+    laag 2: 9.1 u | 9.1 u | 0 min | 4726 | 10.7 u | 1.6 u | 593
+    laag 3: 34.1 u | 34.1 u | 0 min | 38339 | 34.1 u | 0 min | 1201
+    laag 4: 69.7 u | 69.7 u | 0 min | 95902 | 69.7 u | 0 min | 1833
+  verhouding prijs / goud per uur (uren sparen), mediaan over zaden, per soort aankoop; tijd = wanneer gekocht
+    laag 1 graven 6-12           n=210  tijd   4 min  prijs     16  goud/u   447  verhouding  0.04 u (hoogste 13.40)
+    laag 1 upgrade stap 1        n= 60  tijd  40 min  prijs     45  goud/u   550  verhouding  0.08 u (hoogste 0.10)
+    laag 1 graven 13-25          n=390  tijd  45 min  prijs     49  goud/u   573  verhouding  0.09 u (hoogste 0.12)
+    laag 1 graven 26-39          n=420  tijd   2.0 u  prijs    108  goud/u   880  verhouding  0.12 u (hoogste 0.16)
+    laag 1 upgrade stap 2        n= 60  tijd   2.8 u  prijs    126  goud/u   965  verhouding  0.13 u (hoogste 0.17)
+    laag 1 upgrade stap 3        n= 60  tijd   3.6 u  prijs    353  goud/u  1053  verhouding  0.34 u (hoogste 0.40)
+    laag 1 nieuw ding (niveau)   n=150  tijd   5.3 u  prijs    590  goud/u  1144  verhouding  0.52 u (hoogste 0.57)
+    laag 1 upgrade stap 4        n= 60  tijd   6.0 u  prijs    600  goud/u  1132  verhouding  0.53 u (hoogste 0.58)
+    luik naar laag 2             n= 30  tijd   9.1 u  prijs    750  goud/u  1185  verhouding  0.64 u (hoogste 0.68)
+    laag 2 graven 6-12           n=210  tijd   9.1 u  prijs     36  goud/u  1185  verhouding  0.03 u (hoogste 0.04)
+    laag 2 graven 13-25          n=390  tijd   9.1 u  prijs    110  goud/u  1185  verhouding  0.09 u (hoogste 0.15)
+    laag 2 upgrade stap 1        n= 60  tijd   9.1 u  prijs    101  goud/u  1185  verhouding  0.09 u (hoogste 0.09)
+    laag 2 graven 26-39          n=420  tijd   9.1 u  prijs    242  goud/u  1187  verhouding  0.20 u (hoogste 0.25)
+    laag 2 upgrade stap 2        n= 60  tijd   9.3 u  prijs    284  goud/u  1263  verhouding  0.22 u (hoogste 0.25)
+    laag 2 upgrade stap 3        n= 60  tijd  10.4 u  prijs    794  goud/u  1655  verhouding  0.48 u (hoogste 0.52)
+    laag 2 upgrade stap 4        n= 60  tijd  11.7 u  prijs   1170  goud/u  1702  verhouding  0.69 u (hoogste 0.72)
+    laag 2 kamertje              n=150  tijd  14.0 u  prijs   2370  goud/u  1761  verhouding  1.32 u (hoogste 1.97)
+    laag 2 nieuw ding (niveau)   n=120  tijd  16.6 u  prijs   1410  goud/u  1774  verhouding  0.79 u (hoogste 0.87)
+    laag 2 upgrade stap 5        n= 60  tijd  18.0 u  prijs   1950  goud/u  1763  verhouding  1.11 u (hoogste 1.17)
+    luik naar laag 3             n= 30  tijd  34.1 u  prijs   1650  goud/u  1819  verhouding  0.91 u (hoogste 0.98)
+    laag 3 graven 6-12           n=210  tijd  34.1 u  prijs     83  goud/u  1819  verhouding  0.05 u (hoogste 0.06)
+    laag 3 graven 13-25          n=390  tijd  34.1 u  prijs    256  goud/u  1819  verhouding  0.14 u (hoogste 0.23)
+    laag 3 upgrade stap 1        n= 60  tijd  34.1 u  prijs    236  goud/u  1819  verhouding  0.13 u (hoogste 0.14)
+    laag 3 graven 26-39          n=420  tijd  34.1 u  prijs    565  goud/u  1819  verhouding  0.31 u (hoogste 0.41)
+    laag 3 upgrade stap 2        n= 60  tijd  34.1 u  prijs    662  goud/u  1819  verhouding  0.36 u (hoogste 0.39)
+    laag 3 upgrade stap 3        n= 60  tijd  34.1 u  prijs   1853  goud/u  1819  verhouding  1.02 u (hoogste 1.10)
+    laag 3 upgrade stap 4        n= 60  tijd  34.1 u  prijs   1110  goud/u  1819  verhouding  0.61 u (hoogste 0.66)
+    laag 3 upgrade stap 5        n= 60  tijd  34.1 u  prijs   1850  goud/u  1819  verhouding  1.02 u (hoogste 1.10)
+    laag 3 kamertje              n=300  tijd  35.8 u  prijs   3640  goud/u  2349  verhouding  1.76 u (hoogste 2.62)
+    laag 3 nieuw ding (niveau)   n= 90  tijd  42.0 u  prijs   1940  goud/u  2446  verhouding  0.79 u (hoogste 0.84)
+    laag 3 upgrade stap 6        n= 60  tijd  46.3 u  prijs   2960  goud/u  2423  verhouding  1.22 u (hoogste 1.31)
+    luik naar laag 4             n= 30  tijd  69.7 u  prijs   3000  goud/u  2460  verhouding  1.22 u (hoogste 1.29)
+    laag 4 graven 6-12           n=210  tijd  69.7 u  prijs    130  goud/u  2460  verhouding  0.05 u (hoogste 0.07)
+    laag 4 graven 13-25          n=390  tijd  69.7 u  prijs    403  goud/u  2460  verhouding  0.16 u (hoogste 0.26)
+    laag 4 upgrade stap 1        n= 60  tijd  69.7 u  prijs    371  goud/u  2460  verhouding  0.15 u (hoogste 0.16)
+    laag 4 graven 26-39          n=420  tijd  69.7 u  prijs    888  goud/u  2460  verhouding  0.35 u (hoogste 0.47)
+    laag 4 upgrade stap 2        n= 60  tijd  69.7 u  prijs   1040  goud/u  2460  verhouding  0.42 u (hoogste 0.45)
+    laag 4 upgrade stap 3        n= 60  tijd  69.7 u  prijs   2912  goud/u  2460  verhouding  1.18 u (hoogste 1.25)
+    laag 4 upgrade stap 4        n= 60  tijd  69.7 u  prijs   1350  goud/u  2460  verhouding  0.55 u (hoogste 0.58)
+    laag 4 upgrade stap 5        n= 60  tijd  69.7 u  prijs   2250  goud/u  2460  verhouding  0.91 u (hoogste 0.96)
+    laag 4 upgrade stap 6        n= 60  tijd  69.7 u  prijs   3600  goud/u  2460  verhouding  1.46 u (hoogste 1.54)
+    laag 4 kamertje              n=150  tijd  71.5 u  prijs   4920  goud/u  2507  verhouding  2.00 u (hoogste 2.79)
+    laag 4 nieuw ding (niveau)   n=210  tijd  85.8 u  prijs   2430  goud/u  3099  verhouding  0.78 u (hoogste 0.82)
+  hol-niveau met lagen (gevangen helden in de lagen erboven tellen mee):
+    2:1 min  3:5 min  4:8 min  5:10 min  6:17 min  7:21 min  8:25 min  9:31 min  10:42 min  11:55 min  12:1.1 u  13:2.6 u  14:3.3 u  15:4.0 u  16:4.7 u  17:6.0 u  18:6.4 u  19:7.7 u  20:9.1 u  21:11.7 u  22:12.0 u  23:12.6 u  24:17.6 u  25:18.0 u  26:22.5 u  27:24.0 u  28:28.1 u  29:30.0 u  30:34.1 u  31:36.0 u  32:40.0 u  33:42.0 u  34:46.3 u  35:49.6 u  36:53.8 u  37:57.8 u  38:61.7 u  39:65.7 u  40:69.7 u  41:73.0 u  42:78.0 u  43:81.4 u  44:85.8 u  45:90.5 u  46:96.0 u  47:102.0 u  48:108.0 u  49:114.0 u  50:120.0 u
+  Gloop (hoeden van de lagen erboven tellen niet mee): 2:11 min  3:52 min  4:2.0 u  5:3.1 u  6:5.2 u  7:6.0 u  8:10.3 u  9:15.0 u  10:37.1 u
+  ritme (niveaus en aankopen samen, mediaan): ontgrendelingen | langste gat
+    0-1 u: 31 | 6 min
+    1-2 u: 12 | 8 min
+    2-5 u: 18 | 30 min
+    5-10 u: 54 | 45 min
+    10-20 u: 24 | 1.3 u
+    20-40 u: 66 | 4.5 u
+    40-70 u: 70 | 4.1 u
+    70-100 u: 16 | 5.5 u
+    100-130 u: 10 | 6.0 u
+    130-165 u: 0 | 0 min
+  goud op de bank (mediaan) bij uur 5: 271, 10: 292, 20: 4718, 30: 33916, 40: 2447, 57: 54903, 70: 46821, 99: 168337
+  in echte dagen (6 uur open per werkdag, weg x 0.25 met plafond 12 uur; werkdag n = open uur 6n-6 tot 6n):
+    hol-niveau: 5: werkdag 1  10: werkdag 1  12: werkdag 1  15: werkdag 1  20: werkdag 2  25: werkdag 4  30: werkdag 6  35: werkdag 9  40: werkdag 12  45: werkdag 16  50: werkdag 21
+    laag 2 open: werkdag 2 (wk 1 dag 2)
+    laag 3 open: werkdag 6 (wk 2 dag 1)
+    laag 4 open: werkdag 12 (wk 3 dag 2)
+    goud van één nacht weg (mediaan), na werkdag: 1: 3407, 2: 5136, 3: 5290, 5: 5468, 8: 7443, 10: 7387, 15: 9353, 20: 9308, 25: 9268
+    per week (5 werkdagen): week 1: 44 niveaus, 100 aankopen; week 2: 17 niveaus, 60 aankopen; week 3: 11 niveaus, 55 aankopen; week 4: 9 niveaus, 5 aankopen; week 5: 1 niveaus, 0 aankopen; week 6: niets meer
+  goud per uur van alle lagen die je niet ziet bij 100 u: mediaan 1833; gevangen per uur daar: 361
+
+== toets plafond: X min spelen, één nacht (12 u plafond) weg, daarna 1 open uur ==
+  30 min, zonder       hol voor de nacht 8.0, na de nacht 12.0, erbij hooguit 5
+  30 min, met plafond  hol voor de nacht 8.0, na de nacht 10.0, erbij hooguit 2
+  60 min, zonder       hol voor de nacht 11.0, na de nacht 12.0, erbij hooguit 2
+  60 min, met plafond  hol voor de nacht 11.0, na de nacht 12.0, erbij hooguit 2

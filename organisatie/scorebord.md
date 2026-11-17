@@ -1,10 +1,10 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-16 om 19:47 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 07:00 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-16 om 21:40 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 07:00 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand |
 |---|---|---|---|---|---|---|---|
-| Click Joints | Blender | downloads | 169 | geen meting | geen meting |  | versie 0.1.1 |
+| Click Joints | Blender | downloads | 171 | geen meting | geen meting |  | versie 0.1.1 |
 | Click Joints | Blender | beoordelingen | 0 | geen meting | geen meting |  |  |
 | Click Joints Pro | Superhive | verkoopklasse | ? | geen meting | geen meting |  | niet leesbaar (Superhive weigert dit adres soms) |
 | Click Joints Pro | Gumroad | verkopen | zie hoofdchat | geen meting | geen meting |  | Gumroad-verkopen zijn niet openbaar |
@@ -21,7 +21,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | overig |
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-11-16 tot 20:46 (nog niet om, niet in de csv) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 2026-11-16 tot 22:39 (nog niet om, niet in de csv) | 5 | 5 | 6 | 3 | 2 | 0 | 0 | 0 | 0 |
 
 ## Wat niet te zien is
 
