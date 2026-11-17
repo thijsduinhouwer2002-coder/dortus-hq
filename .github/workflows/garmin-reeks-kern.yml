@@ -59,6 +59,9 @@ jobs:
           else
             echo "IQ_PROEF nee" >> "$U"; tail -40 /tmp/iq-proef.log
           fi
+          # De waarschuwingen van het pakket, per soort geteld (zonder de naam van het horloge), zodat ze te lezen zijn.
+          echo "WAARSCHUWINGEN per soort:" >> "$U"
+          grep -a -i warning /tmp/iq-proef.log | sed -E 's/^WARNING: [^:]+: //' | sort | uniq -c | sort -rn | head -40 | cut -c1-300 >> "$U" || true
           for d in fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2; do
             monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
