@@ -33,6 +33,11 @@ jobs:
           persist-credentials: false
       - name: Maten passen bij het blad van Mila
         run: cd "$GITHUB_WORKSPACE/$APP" && python3 maak_maten.py --toets
+      - name: Elk horloge heeft het startpictogram in zijn eigen maat
+        run: |
+          cd "$GITHUB_WORKSPACE/$APP"
+          python3 -c "import PIL" 2>/dev/null || pip install -q pillow
+          python3 maak_iconen.py --toets
       - name: Image ophalen (tot drie pogingen)
         run: |
           for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
