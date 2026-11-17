@@ -18,6 +18,7 @@ class KernView extends WatchUi.WatchFace {
     var fontD as WatchUi.FontResource? = null;
     var slaap as Boolean = false;
     var start as Number = 0;
+    var gelezenOp as Number = 0;
     // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan Tide.
     var thema as Number = Thema.TIDE;
 
@@ -95,7 +96,9 @@ class KernView extends WatchUi.WatchFace {
         var w = dc.getWidth();
         var mid = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         var links = Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER;
-        var heeftMaten = Maten.laad().size() == Maten.AANTAL;
+        // Punt van de keurder (run 126): een scherm zonder eigen map krijgt de maten van 260 px. Past de
+        // veilige cirkel van het blad niet op dit scherm (Instinct 2), dan alleen de tijd in het midden.
+        var heeftMaten = Maten.laad().size() == Maten.AANTAL && Maten.m(Maten.VEILIG) * 2 <= w;
         var yTijd = heeftMaten ? Maten.m(Maten.TIJD_Y) : dc.getHeight() / 2;
         if (fontG != null) {
             var f = fontG as WatchUi.FontResource;
@@ -162,6 +165,13 @@ class KernView extends WatchUi.WatchFace {
             start = System.getTimer();
             leesAlles();
             meetBeelden();
+            gelezenOp = System.getTimer();
+        } else if (System.getTimer() - gelezenOp >= 300000) {
+            // Punt van de keurder (run 126): Body Battery en stress elke vijf minuten opnieuw lezen,
+            // anders blijft de plaat op de waarde van het opstarten staan.
+            gelezenOp = System.getTimer();
+            bb = Lees.hist(0) as Array<Number>;
+            st = Lees.hist(1) as Array<Number>;
         }
         var nu = System.getClockTime();
         var tekst = nu.hour.format("%02d") + ":" + nu.min.format("%02d");
@@ -183,7 +193,7 @@ class KernView extends WatchUi.WatchFace {
         var msTijd = System.getTimer() - t0 - msPlaat;
         // Plek van de zee (komt na het ja van Daan): tot dan het verloop van Body Battery en stress als vlakken
         // tussen het plafond en de bodem van het water uit het blad. Zonder maten: niets.
-        if (Maten.laad().size() == Maten.AANTAL) {
+        if (Maten.laad().size() == Maten.AANTAL && Maten.m(Maten.VEILIG) * 2 <= dc.getWidth()) {
             var x0 = Maten.m(Maten.LIJN_X);
             var x1 = Maten.m(Maten.NU_X);
             var yT = Maten.m(Maten.WATER_TOP);
