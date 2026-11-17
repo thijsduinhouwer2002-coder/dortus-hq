@@ -4,6 +4,11 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 
 
 
+## Stand 17 nov ±10:00 UTC: drempels 49 / 60 / 72 gemeten, keurregel groen (Sanne, GEZIEN in `hol.log` van run 44048277638)
+Run 44048277638 (demo-inhoudtak 31e2c98, nieuwe drempels, `steamdemo=1 koper=2 zaad=1794860558`, 75 min, editor; `schermen` → `steam-hol-duur/claude-steam-hol-demo-inhoud-steamdemo-1-koper-2-zaad-1794860558-1920x1080/`): hol 9 / 10 / 11 / 12 op 1753 / 2255 / 2707 / **3198 s (53,3 min)**. Gaten 8,4 / 7,5 / 8,2 min, het grootste gat in de hele run is 7,7 min (8 naar 9). **Mijn regel vooraf (hol 12 binnen 70 min, geen gat boven 14 min): groen.** Hol 12 komt 5 min eerder dan mijn schatting van 58; dat is goed, niet te snel: eerste uur 12 namen, gemiddeld één per 4,4 min.
+**Wat dit opent (open punt, geen besluit nu):** tussen hol 12 (53 min) en het demo-einde (winkel vol, ±110 min voor koper=2) zit een uur zonder nieuwe naam. In die tijd houdt de winkel het doel in beeld ("Next: Royal Gloop, ... gold to go", Iris 21), en de laatste koop in deze run was pas op 4320 s. Of dat uur te lang voelt, zegt de speeltest van za 21 nov (speeltestpunt over het demo-einde in `spelgevoel.md`). Niet nu de winkel goedkoper maken: de speler van zaterdag haalt de 110 min waarschijnlijk niet in één zit, en het einde is "Your hole keeps going", geen muur.
+**Erbij uit dezelfde run, voor de teksten:** `Gloop says thanks for the snack. +6` 7 keer (meest herhaald), `val_bewoner` samen 16 keer; 6 keer `Sir` voor een vrouwennaam. Beide opgelost in het ontwerp van 10:00 (`features.md`: hap per soort, Dame).
+
 ## Stand 17 nov ±08:58 UTC: drempels 49 / 60 / 72 nagemeten op twee echte runs, blijven staan (Sanne, na Iris keuring 20 punt 3)
 **Hoe:** geen model meer. Elke vangst geeft in `hol.log` een kroniekregel die eindigt op ` +<goud>`; tijd van die regel min zijn wachttijd is het moment van vangst k, dus faam k. Telling klopt precies met alle `HOL hol-niveau`-regels in beide logs (GEZIEN). Script `data/hol-tempo/faam_uit_log.py`, uitkomst `data/hol-tempo/uitkomst-gemeten.txt`. Zo lees je bij een run met de oude drempels af wanneer de nieuwe gehaald waren (dezelfde helden, dezelfde vangsten).
 
