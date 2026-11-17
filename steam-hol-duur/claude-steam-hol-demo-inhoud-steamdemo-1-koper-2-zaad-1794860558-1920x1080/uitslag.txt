@@ -1,8 +1,8 @@
 metingen van 10 s: 448
-CPU-s per 10 s: gemiddeld 0.922, mediaan 1.047, laagste 0, hoogste 2.234
-geheugen aan het eind: 52 MB
+CPU-s per 10 s: gemiddeld 0.921, mediaan 0.953, laagste 0, hoogste 2.688
+geheugen aan het eind: 51 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 241 s speeltijd (goud 47)
-kroniekregels: 323, verschillend 294
-vaakst herhaald: 9x 'Gloop says thanks for the snack. +6'; 3x 'Bram fled. Grudge: Gloop.'; 3x 'Fenna stays forever. +6'; 2x 'Rik II fled, crying a little.'; 2x 'Pim II stays forever. +6'
+eerste koop mogelijk: HOL eerste koop mogelijk na 150 s speeltijd (goud 47)
+kroniekregels: 335, verschillend 302
+vaakst herhaald: 7x 'Gloop says thanks for the snack. +6'; 3x 'Joost III escaped with a limp.'; 3x 'Gerda II stays forever. +6'; 2x 'Tibbe II will not be leaving. +6'; 2x 'Tibbe II stays forever. +6'
