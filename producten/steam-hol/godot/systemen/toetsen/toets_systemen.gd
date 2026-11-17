@@ -1382,6 +1382,8 @@ var tekst
 var gezet := 0
 var gestopt := false
 var getoond := 0
+var wachtrij: Array = []
+var regel_sinds := 0.0
 func log_regel(_r: String) -> void:
 	pass
 func _muis_vlak(_p: bool) -> void:
@@ -1413,6 +1415,13 @@ func stop() -> void:
 	ok(mstr.kaart_soort == "menu" and mstr.tekst.kaart.uitleg == MN.SAVE_REGEL, "menu: vervangt een open kaartje, demo toont de saveregel")
 	MN.doe(mstr, "120")
 	ok(mstr.kaart_soort == "" and mstr.gezet == 160, "menu: de huidige hoogte kiezen sluit alleen, geen herstart")
+	mstr.kaart_soort = "slijm"
+	mstr.kaart_regel = "Big Gloop!"
+	MN.wissel(mstr)
+	ok(mstr.kaart_soort == "", "menu: net na Buy sluit rechtsklik eerst het kaartje, geen menu over de koopregel")
+	ok(mstr.wachtrij.size() == 1 and mstr.wachtrij[0].r == "Big Gloop!", "menu: de koopregel staat vooraan in de wachtrij")
+	MN.wissel(mstr)
+	ok(mstr.kaart_soort == "menu", "menu: volgende rechtsklik opent het menu")
 	ok(MN.link("https://x", true) == "steam://openurl/https://x" and MN.link("https://x", false) == "https://x", "menu: link via Steam-overlay of browser")
 	ok(MN.SAVE_REGEL.length() <= 40, "menu: saveregel hooguit 40 tekens")
 	print("[hol-toets] klaar: %d FOUT" % fout)

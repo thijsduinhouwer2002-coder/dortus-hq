@@ -387,8 +387,6 @@ func _input(event: InputEvent) -> void:
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		MENU.wissel(self)   # was: meteen de volgende hoogte; nu het menu (kern/menu.gd, ontwerp.md Rechtsklikmenu)
-	elif event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE and MENU.is_open(self):
-		KAARTJE.dicht(self)
 	if event is InputEventMouseMotion and holbord != null and holbord.actief():
 		var pb: Vector2 = (event.position - hol.position) / schaal
 		var op_bord: bool = holbord.vlak().has_point(pb)

@@ -271,7 +271,7 @@ func _draw_kaart() -> void:
 	var gx := x + bw - gw - 5 * schaal * f - (15 if met_3d else 6)   # 3D: niet tegen de gouden rand (15: paneel rechts 3 px smaller, ronde 3)
 	_munt(_munt_p(gx, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(vet, Vector2(gx + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), -1, kop, Color("#f6e8ce") if met_3d else Color("#ffe07a"))
-	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, int(M.uitleg), Color("#f3e2c0"))
+	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, int(M.uitleg), Color("#a8968a") if bool(kaart.get("menu", false)) else Color("#f3e2c0"))   # menu: saveregel grijs (zelfde grijs als "more gold")
 	var ky := y0 + regel_h * 2 + int(M.knop_dy)
 	var kh: float = M.knop_h
 	var kx := x

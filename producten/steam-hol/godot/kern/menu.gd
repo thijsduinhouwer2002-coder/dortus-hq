@@ -3,7 +3,8 @@ extends RefCounted
 # Het menu is een soort kaartje (kaart_soort "menu") in het paneel rechts: zelfde vak, letters en knoppen als het
 # upgradekaartje (kern/kaartje.gd, kern/tekst.gd _draw_kaart). Knoppen: 96, 120, 160 (hoogte van de strook), Feedback
 # (alleen als FORUM_URL gevuld is) en Quit. In de demo een grijze regel over de save (Sem M1b, CONCEPT, Thijs kiest).
-# Klik ernaast, Esc, nog een rechtsklik of 6 s niets: dicht (de 6 s komen uit kaartje.gd tik).
+# Klik ernaast, nog een rechtsklik of 6 s niets: dicht (de 6 s komen uit kaartje.gd tik). Geen Esc: het venster
+# krijgt nooit toetsenbordfocus (project.godot no_focus=true), controleur 17 nov.
 # Statisch zoals kaartje.gd; `s` is de strook.
 
 const HOOGTES := [96, 120, 160]
@@ -24,7 +25,6 @@ static func beschrijving(s) -> Dictionary:
 
 static func open(s) -> void:
 	s.kaart_gekocht = false
-	s.kaart_regel = ""   # een wachtende koopregel komt eerst via dicht() in de kroniek; zie wissel()
 	s.kaart_soort = "menu"
 	s.kaart_kol = -1
 	s.kaart_t = s.t
@@ -36,6 +36,11 @@ static func open(s) -> void:
 # Rechtsklik: open het menu, of sluit het als het al open is. Een open upgradekaartje gaat eerst netjes dicht.
 static func wissel(s) -> void:
 	if is_open(s):
+		s.KAARTJE.dicht(s)
+		return
+	if s.kaart_regel != "":
+		# net gekocht: de koopregel moet eerst gezien worden (wachtrij.gd: alleen geziene regels in de kroniek), dus deze
+		# rechtsklik sluit alleen het kaartje; de volgende opent het menu (controleur 17 nov punt 2)
 		s.KAARTJE.dicht(s)
 		return
 	if s.kaart_soort != "":
