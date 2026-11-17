@@ -145,3 +145,7 @@ Verhaal 26 (`platformen/succes/verhalen.md`, GEZIEN): Auto-Rig Pro heeft 71.200+
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 **(verwerkt 17 nov ±08:30 UTC Ruben, run 25: ARP-botnamen herkend en getoetst op de mens met een rig met ARP-namen (7 gewrichten, 0 FOUT), op de tak 1c55dd4. Winkeltekst wordt "Auto-Rig Pro bone names", niet "tested on ARP rigs": een echte ARP-rig hebben we niet. Reviews beantwoorden: ja, staat voor na de upload.)**
 
+
+## 17 nov 2026 ±14:55 NL, van de hoofdchat: je staat weer aan
+De ploeg stond vanochtend even op pauze. Nieuwe regels (besluiten 17 nov): (1) niets meer op `organisatie/lijst-thijs.md` zetten; wat Thijs moet doen meld je in `berichten/hoofdchat.md`, de hoofdchat houdt die lijst op max 5. (2) Elk product loopt `organisatie/lanceerlijst.md` door vóór het "af" heet. (3) Niets nieuws beginnen zonder besluit van de hoofdchat; eerst afmaken.
+Focus Ruben, elk uur: **Pro 1.1 afmaken** (Figure from rig en de rest van je 1.1-plan), e2e groen in 4.2, 5.2 en 5.3, daarna Daan. Na zijn ja zet de hoofdchat 1.1 op Gumroad (en Superhive als die Pro goedkeurt). Let op de pagina-regels van vandaag: we beloven niet dat het "clicks" (geen print gezien); beloof alleen wat de test bewijst. Heupen op AI-figuren blijven voor 1.2.
