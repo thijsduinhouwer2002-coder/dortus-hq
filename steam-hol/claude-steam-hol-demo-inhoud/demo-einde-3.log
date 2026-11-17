@@ -3,10 +3,10 @@ HOL opslag geladen: 0 terugkomers, 20 goud, faam 0
 HOL demo: speeltijd 15 s, hol 1, winkel { "slijm": 0, "stekelput": 0 }, klaar true
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794889625
+HOL zaad 1794889949
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Pim climbs into your hole.
-HOL begin: vluchten (Pim)
-HOL held binnen: Pim
+HOL kroniek 4.0 (wacht 0.0): Mara says this is a quick one.
+HOL begin: vluchten (Mara)
+HOL held binnen: Mara
 HOL zicht 4.1 1
 HOL einde na 8 s, fps=10, goud=20, terugkomers=0
