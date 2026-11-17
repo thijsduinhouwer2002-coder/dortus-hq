@@ -123,7 +123,7 @@ def _hap(ouder, naam):
             m.solver = "EXACT"
 
 
-def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
+def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False, voorover=0):
     nr = int(nr) % len(NAMEN)
     naam = NAMEN[nr]
     voor = set(bpy.data.objects)
@@ -235,7 +235,8 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     # XYZ: eerst kantelen (toren), dan draaien om de staande as (held.py: positief kijkt naar rechts)
-    ouder.rotation_euler = (0, math.radians(kantel), math.radians(-draai))
+    # voorover (Mila 17 nov): graden voorover naar de camera, voor de buiging van de edelman (na_u2); standaard 0, verandert niets
+    ouder.rotation_euler = (math.radians(voorover), math.radians(kantel), math.radians(-draai))
     if hap:
         # na het plaatsen, zodat de hap altijd recht naar de camera wijst, ook als de hoed gedraaid is
         bpy.context.view_layer.update()

@@ -36,6 +36,7 @@ import held_soorten as hs_
 
 HUID = "f2c2a0"
 HUID_D = "d89a7a"
+HUID_EDEL_BLOS = "f6bc94"   # Mila 17 nov: tenen, blozend
 HUID_EDEL = "d9a080"   # Mila 17 nov (Daan 03:50): edelman iets donkerder en matter, anders wordt het gezicht in na_u2 en tenen een bleke vlek naast hoed en jabot
 
 
@@ -89,6 +90,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     huid = g.mat("huid", HUID, rough=0.62, spec=0.25, sss=0.2)
     if soort == "edelman":
         huid = g.mat("huid_edel", HUID_EDEL, rough=0.75, spec=0.12, sss=0.1)
+        if stand == "tenen":
+            # Mila 17 nov (kan Daan 04:55): op de tenen bloost hij van de zenuwen; lichter en warmer, zodat het gezicht niet in de schaduw valt
+            huid = g.mat("huid_edel_blos", HUID_EDEL_BLOS, rough=0.7, spec=0.14, sss=0.15)
     blos = g.mat("hblos", "blos", rough=0.7)
     wit = g.mat("hwit", "oogwit", rough=0.2, spec=0.5)
     pupil = g.mat("hpupil", "pupil", rough=0.35)
@@ -289,7 +293,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         top = HZ + 1.05 * K
         _noem_hoed(voor, "heksenhoed")
 
-    BUIG, KOP = 20, 8
+    BUIG, KOP = 24, 9   # Mila 17 nov (kan Daan 04:55): romp buigt meer mee (was 20, 8), de hoed kantelt mee (hoed_voorover)
     if stand == "na_u2":
         # Mila 17 nov (edelman): kleine buiging, alles boven de riem 20 graden (was 14, Daan 03:50: op spelmaat zag je 14 bijna niet) voorover rond de heup
         romp = bpy.data.objects.new("romp", None); sc.collection.objects.link(romp)
@@ -313,6 +317,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         hy, hz2 = _rx(hy, hz2, 0.0, 0.45, BUIG)
         ouder["hoed_voor"] = -hy             # hoed schuift zoveel naar voren
         ouder["hoed_zak"] = top - hz2        # en zoveel omlaag
+        ouder["hoed_voorover"] = BUIG - KOP  # en kantelt zoveel graden voorover, met de buiging mee (hoeden.bouw voorover=)
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     if stand == "vallen":
