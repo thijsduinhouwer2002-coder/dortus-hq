@@ -98,5 +98,17 @@ Namen van niveau 1 tot 12 (de demo eindigt bij 12, dus deze ziet elke demospeler
 ## 6. Heldensoorten (Heldenboek, uitleg per soort)
 `Knight`: `Heavy armor. Too big for Gloop. Pits love him.` / `Thief`: `Quick. Pits rarely catch him. Hates slime.` / `Wizard`: `Sees traps. No spell works on Gloop.` / `Bard`: `Weak. If he escapes, he sings about you.` Bijnamen die helden krijgen: `Thrice-Fled`, `Hatted`, `Milliner`.
 
-## 7. Nog te doen (Sanne, vóór wo 18 nov 12:00)
-Heldenboek zelf (`systemen/boek.gd`, 62 teksten), heldennamen (`kern/namen.gd`, 17), het rechtsklikmenu (tak `claude/steam-hol-menu`). Let op: `tel_tekst.py` slaat teksten over die met een getal beginnen (`%d came, ...`), dus de echte telling is iets hoger dan 404. Telling met `producten/steam-hol/vertaal/tel_tekst.py`: 404 teksten, 1647 woorden in totaal, waarvan ±120 kroniekregels (deel 1) het meest gelezen worden.
+## 7. Heldenboek (een bladzijde per soort, stempels, hoeden, aartsvijanden)
+- **Titels van bladzijden:** soorten `the Hero` / `the Knight` / `the Thief` / `the Wizard` / `the Bard`; trekken `the Greedy` / `the Timid` / `the Sleepy` / `the Vengeful` / `the Braggart` / `the Lost`; aparte bladzijde `The Hat Pile`.
+- **Stempels (wat een held kan doen):** `touched the hoard` / `turned back at a trap` / `was caught napping` / `fell to his own grudge` / `bragged, then ran` / `got lost`; en `The pit got him.` / `Spikes: one.` / `He got away.` / `Ran off. Counts.`
+- **Op een bladzijde:** `Weak to: Spike Pit` / `First worn by Odo.` / `Grudge: Gloop.` / `Came 3 times.` / `Settled on day 4 by Gloop.`
+- **Kroniek als het boek iets nieuws krijgt (één van):** `New page: the Knight. The pit got him.` / `Page for the Thief. He got away.` / `Booked: ...` / `New stamp: touched the hoard.` / `New stamp for the Bard. ...` / `New hat: Crown. Thanks, Odo.` / `Book: Odo's Crown. Kept.` / `New hat in the book: Crown.` / `The hat pile reached 25. Stamped.` / `New nemesis in the book: Odo.` / `Book: Odo, settled on day 4.` / `Day 4: Odo's grudge is filed.`
+- **Hoeden (10):** `Helmet` / `Pointy hat` / `Hood` / `Cap` / `Crown` / `Chef's hat` / `Bucket` / `Top hat` / `Pan` / `Feather cap`.
+
+## 8. Heldennamen en bijnamen
+- **Voornamen (12):** Bram, Odo, Wout, Gerda, Pim, Rik, Mara, Joost, Fenna, Tibbe, Lotte, Kees. Sanne: een paar zijn namen uit onze eigen ploeg (Bram, Fenna, Kees, Joost). Leuk als knipoog, maar Thijs beslist of dat zo blijft. Wie terugkomt heet Tibbe II, Tibbe III.
+- **Bijnamen na vluchten:** `the Once-Fled` / `the Twice-Fled` / `the Thrice-Fled` / `the 4-Times-Fled`; andere bijnamen: `Hatted`, `Milliner`, `Hoard-Toucher`, `Spooked`, `Lucky`.
+- **Waarom een held wegging (in het boek en de log):** `touched your hoard, took nothing and ran` / `grabbed one coin, saw the hoard wake up and ran` / `saw the Spike Pit again and turned back` / `got hurt by the Spike Pit and ran`.
+
+## 9. Nog te doen (Sanne)
+Het rechtsklikmenu (tak `claude/steam-hol-menu`, nog niet op main): lees ik als het op main staat. Let op: `tel_tekst.py` slaat teksten over die met een getal beginnen (`%d came, ...`), dus de echte telling is iets hoger dan 404 teksten en 1647 woorden. Wat hier staat is alles wat een speler in de demo ziet, behalve het menu.
