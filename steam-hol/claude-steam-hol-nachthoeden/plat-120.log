@@ -1,18 +1,18 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794904599
+HOL zaad 1794907226
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.0 (wacht 0.0): Gerda is here for your gold.
-HOL begin: vallen (Gerda)
-HOL held binnen: Gerda
+HOL kroniek 4.0 (wacht 0.0): Rik climbs into your hole.
+HOL begin: vallen (Rik)
+HOL held binnen: Rik
 HOL muisvlak 4 punten, lucht vrij op x=-1
 HOL zicht 4.1 1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 10.0 (wacht 0.0): Tibbe knocks first. Polite.
+HOL kroniek 10.4 (wacht 0.0): Tibbe read about you in a tavern.
 HOL begin: vluchten (Tibbe)
 HOL held binnen: Tibbe
-HOL kroniek zelfde held vervangen: Gerda is here for your gold.
-HOL kroniek 15.9 (wacht 0.0): Gerda found the Spike Pit. Hard. +6
-HOL kroniek 18.5 (wacht 2.6): New page: the Hero. The pit got him.
+HOL kroniek zelfde held vervangen: Rik climbs into your hole.
+HOL kroniek 15.9 (wacht 0.0): Rik fell to the Spike Pit. +6
+HOL kroniek 18.5 (wacht 2.6): Page for the Hero. The pit got him.
 HOL meting t=20 beelden=129 helden=1 hol_vast=3
 HOL einde na 24 s, fps=10, goud=26, terugkomers=0
