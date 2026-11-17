@@ -10,7 +10,7 @@ Ebb Calm is de gratis versie van Ebb (alleen 4-7-8-ademen). Zelfde manier van me
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 16 nov 22:58 | 0 | 0 | 0 | 1 | 29 | 4 | 6 | 34 | 2 | 40 | 50 | 76 | Run 125, dag 0. Ebb zelf op dezelfde woorden: 2, 31, 5, geen, 43, 6, 33, 55, 4. "breathe": Ebb 16, Calm 17. "free breathing": Calm 28, Ebb 67. "4-7-8" met streepjes geeft 0 resultaten in de zoekbalk |
 | 17 nov 00:02 | 0 | 0 | 0 | 1 | 28 | 4 | 6 | 34 | niet gemeten | 40 | niet gemeten | niet gemeten | Run 126, dag 1 (vroeg, een uur na dag 0). Ebb zelf: ebb 2, breathing 31, breathing exercises 5, relaxation geen, calm 43, breathwork 33. Duits: atemübungen Calm 3 en Ebb 4, entspannung 1 en 3. Nederlands: ademoefeningen Calm 1 en Ebb geen, ontspanning 1 en 4. Ebb nog op 1.0.0, 0 downloads |
-| 17 nov 02:58 | 0 | 0 | 0 | niet gemeten | niet gemeten | niet gemeten | niet gemeten | niet gemeten | niet gemeten | niet gemeten | niet gemeten | niet gemeten | Run 129, alleen de pagina (API): 1.0.0, 40 horloges, 0 downloads. Ebb zelf: 1.0.0, 40 horloges, 0 downloads. Zoekplekken niet gemeten |
+| 17 nov 03:23 | 0 | 0 | 0 | 1 | 25 | 4 | 6 | 34 | 2 | 37 | 51 | 76 | Run 129, dag 1 (GEZIEN, API en zoekbalk). Pagina om 02:58 UTC: 1.0.0, 40 horloges. Ebb zelf op dezelfde woorden: 2, 31, 5, geen, 43, 7, 33, 57, 4; Ebb ook 1.0.0, 40 horloges, 0 downloads. Calm steeg op breathing (28 naar 25) en breathwork (40 naar 37) |
 
 Wat ik hieruit haal: Calm staat op bijna elk woord vlak bij Ebb en meestal er net boven. Op "relaxation" staat alleen Calm (plek 6), op "breath hold" wint Ebb ruim (4 tegen 76), zoals bedoeld. Volgende metingen: dag 1 (17 nov), dag 7 (23 nov), dag 14 (30 nov, het meetpunt van de hoofdchat) en dag 30.
 

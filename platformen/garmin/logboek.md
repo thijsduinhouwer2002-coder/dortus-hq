@@ -1539,4 +1539,5 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Vraag over Tij opnieuw bovenaan bij Daan gezet (stond onderaan, gemist).
 - Winkel 02:58 UTC: Ebb en Calm 1.0.0, 40 horloges, 0 downloads.
 - Les: `.iq` is 7z; `pip install py7zr`. Berichten aan collega's bovenaan als streepjesregel.
-- Niet gedaan: de zee van Tij (wacht op Daan), zoekplekken meten, punten 5 tot 9 van de taak van run 125.
+- Zoekplekken dag 1 gemeten om 03:23 UTC, rij in `meting-ebb-calm.md`.
+- Niet gedaan: de zee van Tij (wacht op Daan), punten 5 tot 9 van de taak van run 125.
