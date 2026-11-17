@@ -416,3 +416,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - 18:00 vandaag: top 3 in berichten/hoofdchat.md (nu: 1 Ring Appstore, 2 Android XR audiobrillen, 3 Fire TV Vega OS; Meta AI-brillen zodra indienen opent).
 - Android XR: probeer of de emulator voor audiobrillen in GitHub Actions start (alleen als een bouwer dat oppakt); zoek half december of Play een bril-sectie heeft.
 - Ring Appstore (Amazon Ring, 100 mln+ camera's; winkel sinds 31 mrt 2026 met partners, ontwikkelaarsportaal meldt nu "Ring APIs & AI-Assisted Development Now Available", met MCP-server en "monetize"; DERDEN TechCrunch, GEZIEN developer.amazon.com/ring): in onderzoek 17 nov 07:55 UTC (Noor); klaar ±08:20, cijfer 6 (krap 7), zie voorstellen/ring-appstore.md. Volgende run: controleur laten nalezen
+
+- Radar "nieuwe hoek in een bestaande grote winkel" (voorstel Joris 17 nov, verhaal 33) en nieuwe sporthorloges of wearables met SDK (Thijs: "een concurrent van Garmin die nu net uitkomt"): nieuwe API of kernfunctie, versie die add-ons breekt, nieuw apparaat in een bestaande winkel. Plus aparte controle van het Ring-voorstel: in onderzoek 17 nov 08:45 UTC (Noor)
