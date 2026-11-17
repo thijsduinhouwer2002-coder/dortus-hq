@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 1172, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 1172 goud, faam 152
+HOL weg geweest 0 s (klok terug: true): goud voor 609, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 609 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794878420
-HOL eerste koop mogelijk na 30 s speeltijd (goud 1172)
+HOL zaad 1794886007
+HOL eerste koop mogelijk na 30 s speeltijd (goud 609)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Odo has a map. It is wrong.
+HOL kroniek 4.0 (wacht 0.0): Odo knocks first. Polite.
 HOL begin: doorlopen (Odo)
 HOL held binnen: Odo
 HOL zicht 4.1 1
-HOL einde na 8 s, fps=10, goud=1172, terugkomers=0
+HOL einde na 8 s, fps=10, goud=609, terugkomers=0
