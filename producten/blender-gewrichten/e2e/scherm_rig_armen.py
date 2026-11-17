@@ -110,7 +110,7 @@ def stap():
     vakken = [k["vak"] for k in kogels if k.get("getal_getekend")]
     for b in bogen:
         if b.get("label_px"):
-            vakken_s = ft.vak(Vector(b["label_px"]), b["getal"], int(16 * schaal))
+            vakken_s = ft.vak(Vector(b["label_px"]), b["getal"], int(boog.FIGUUR_PX * schaal))
             vakken.append(vakken_s)
     gaten = [ft.gat(k["vak"], o) for k in kogels for o in vakken if tuple(o) != tuple(k["vak"])]
     min_gat = round(min(gaten), 1) if gaten else None

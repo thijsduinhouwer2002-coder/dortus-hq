@@ -28,6 +28,48 @@ exec(compile(_src, "proef_mens.py", "exec"), M)
 A = M["A"]
 
 staat = {}
+BEUK = (0.80, 0.62, 0.43, 1.0)  # matte lichte beukenhoutkleur (Daan 17 nov moet 3)
+BUIG = {"Right elbow": 90.0, "Right knee": 60.0}  # Daan 17 nov moet 2: een elleboog ±90, een knie ±60, de rest recht
+
+
+def etalagepop(ob):
+    """Daan 17 nov moet 3: de MakeHuman-figuur als houten tekenpop, niet als kaal mens. Alleen de invoer verandert
+    (vorm, kleur, glad), daarna draait de knop zoals altijd; de toets toetsen_mens rekent op de figuur zonder dit.
+    Borst plat: punten aan de voorkant tussen z 146 en 172 (220 mm hoog, gemeten run 22) schuiven naar het vlak
+    y = -2,5 mm, met een zachte overgang in hoogte en breedte, alleen naar achteren (nooit door de rug)."""
+    for v in ob.data.vertices:
+        c = v.co
+        if c.y >= -2.5 or abs(c.x) < 4.0 or abs(c.x) > 36.0:
+            continue
+        wz = max(0.0, 1.0 - abs(c.z - 159.0) / 13.0)
+        wx = min(1.0, (abs(c.x) - 4.0) / 6.0) * min(1.0, (36.0 - abs(c.x)) / 6.0)
+        w = math.sin(wz * math.pi / 2.0) ** 2 * wx
+        c.y = c.y + (-2.5 - c.y) * w
+    for f in ob.data.polygons:
+        f.use_smooth = True
+    mat = bpy.data.materials.new("beuk")
+    mat.diffuse_color = BEUK
+    mat.roughness = 0.9
+    ob.data.materials.clear()
+    ob.data.materials.append(mat)
+    ob.data.update()
+
+
+def buig():
+    """Moet 2: buig met de eigen Bend-schuif van het paneel (zelfde weg als een koper), eindig op de elleboog."""
+    wm = bpy.context.window_manager
+    delen = {o.get("cj_naam"): o for o in bpy.context.scene.objects
+             if o.get("cj_deel") == "B" and o.get("cj_figuur") and o.get("cj_soort") == "SCHARNIER"}
+    gebogen = {}
+    for naam in ("Right knee", "Right elbow"):  # elleboog aan de kant van de kijker, zijn waaier staat niet achter de hand
+        b = delen.get(naam)
+        if b is None:
+            continue
+        A["actief"](b)
+        wm.cj_scharnier_pose = BUIG[naam]
+        gebogen[naam] = round(float(b.get("cj_pose_graden", 0.0)), 1)
+    staat["gebogen"] = gebogen
+    log(f"MENS gebogen {gebogen} delen={sorted(k for k in delen if k)}")
 
 
 def bouw():
@@ -42,6 +84,8 @@ def bouw():
         if nieuw is not ob:
             bpy.data.objects.remove(ob)
             ob = nieuw
+    if os.environ.get("CJ_POP", "1") == "1":
+        etalagepop(ob)
     naam = ob.name
     arm = M["maak_rig"](punten)
     arm.data.display_type = "STICK"
@@ -56,7 +100,21 @@ def bouw():
     staat["lijst"] = fig.figuur_gewrichten(bpy.context.scene.objects, naam)
     staat["regels"] = [fig.regel(r) for r in staat["lijst"]]
     staat["samenvatting"] = fig.samenvatting(staat["lijst"])
+    buig()
     log(f"MENS knop {staat['knop']} regels={staat['regels']} samenvatting={staat['samenvatting']}")
+
+
+def rustig():
+    """Moet 1: alleen de 3D-weergave met het paneel (tijdlijn en eigenschappen weg), rasters, assen, 3D-cursor en
+    de tekst linksboven uit. Ctrl+Spatie (screen_full_area) houdt kop, gereedschapsbalk en zijbalk."""
+    venster, gebied, _ = zijbalk()
+    regio = next(r for r in gebied.regions if r.type == "WINDOW")
+    with bpy.context.temp_override(window=venster, area=gebied, region=regio):
+        bpy.ops.screen.screen_full_area()
+    venster, gebied, _ = zijbalk()
+    ov = gebied.spaces.active.overlay
+    for k in ("show_floor", "show_axis_x", "show_axis_y", "show_axis_z", "show_cursor", "show_text", "show_outline_selected"):
+        setattr(ov, k, False)
 
 
 def kijk():
@@ -70,8 +128,8 @@ def kijk():
     # Schuin van voren: de knieas ligt langs X (waaier zichtbaar van opzij), de elleboogas niet (zichtbaar van voren).
     rv.view_rotation = Euler((math.radians(float(os.environ.get("CJ_KANTEL", "82"))), 0.0,
                               math.radians(float(os.environ.get("CJ_DRAAI", "-35")))), "XYZ").to_quaternion()
-    rv.view_location = (0.0, 0.0, 112.0)
-    rv.view_distance = float(os.environ.get("CJ_AFSTAND", "330"))
+    rv.view_location = (float(os.environ.get("CJ_MIDX", "-12")), 0.0, float(os.environ.get("CJ_MIDZ", "110")))
+    rv.view_distance = float(os.environ.get("CJ_AFSTAND", "335"))
 
 
 def uitsnede():
@@ -96,6 +154,7 @@ def stap():
         return 1.0
     if n == 2:
         bouw()
+        rustig()
         open_paneel()
         kijk()
         return 1.0
@@ -136,7 +195,7 @@ def stap():
     vakken = [k["vak"] for k in kogels if k.get("getal_getekend")]
     for b in bogen:
         if b.get("label_px"):
-            vakken_s = ft.vak(Vector(b["label_px"]), b["getal"], int(16 * schaal))
+            vakken_s = ft.vak(Vector(b["label_px"]), b["getal"], int(boog.FIGUUR_PX * schaal))
             vakken.append(vakken_s)
     gaten = [ft.gat(k["vak"], o) for k in kogels for o in vakken if tuple(o) != tuple(k["vak"])]
     min_gat = round(min(gaten), 1) if gaten else None

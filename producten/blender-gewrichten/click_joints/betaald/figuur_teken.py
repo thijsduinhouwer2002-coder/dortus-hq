@@ -17,7 +17,8 @@ from mathutils import Vector
 
 FIGUUR_X = 0.7      # zelfde verkleining als de scharnierboog bij een figuur
 AFSTAND_PX = 40.0   # Daan: geen twee getallen binnen 40 px op 1920 van elkaar (gat tussen de tekstvakken)
-PX = 16             # zelfde maat als het scharniergetal bij een figuur
+WIT = (1.0, 1.0, 1.0)  # getal van een figuur: wit met donkere rand
+PX = 22             # zelfde maat als het scharniergetal bij een figuur (Daan 17 nov moet 4: ±22 px op 1920, was 16)
 _oud = [None]
 laatst = {}         # bewijs voor de schermtest: wat de laatste tekenbeurt van de figuur tekende
 
@@ -33,16 +34,17 @@ def kleur(ob):
 
 
 def tekst_rand(punt, tekst, kleur_, px):
-    """Tekst met een donkere rand van 1 px: acht keer donker 1 px verschoven, dan de tekst zelf."""
+    """Tekst met een donkere rand van 2 px: donker verschoven in een ring tot 2 px, dan de tekst zelf.
+    Daan 17 nov moet 4: wit met een donkere rand leest op elke ondergrond, groen op groen niet."""
     import blf
     if punt is None:
         return False
     blf.size(0, px)
     breed, hoog = blf.dimensions(0, tekst)
     x0, y0 = punt.x - breed / 2.0, punt.y - hoog / 2.0
-    for dx in (-1, 0, 1):
-        for dy in (-1, 0, 1):
-            if dx or dy:
+    for dx in (-2, -1, 0, 1, 2):
+        for dy in (-2, -1, 0, 1, 2):
+            if (dx or dy) and abs(dx) + abs(dy) < 4:
                 blf.color(0, 0.05, 0.05, 0.05, 1.0)
                 blf.position(0, x0 + dx, y0 + dy, 0)
                 blf.draw(0, tekst)
@@ -130,6 +132,23 @@ def scharnier_getallen(context, regio, rv3d):
     return uit
 
 
+def op_model(context, regio, rv3d, vk, rand):
+    """True als een straal door het tekstvak (hoeken met rand, middens van de randen, midden) een zichtbaar object
+    raakt. In orthografische en perspectiefweergave gelijk, via de eigen hulp van Blender voor de kijkstraal."""
+    from bpy_extras.view3d_utils import region_2d_to_origin_3d, region_2d_to_vector_3d
+    dg = context.evaluated_depsgraph_get()
+    x0, y0, x1, y1 = vk[0] - rand, vk[1] - rand, vk[2] + rand, vk[3] + rand
+    xm, ym = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+    for x, y in ((x0, y0), (x1, y0), (x0, y1), (x1, y1), (xm, ym), (xm, y0), (xm, y1), (x0, ym), (x1, ym)):
+        o = region_2d_to_origin_3d(regio, rv3d, (x, y))
+        r = region_2d_to_vector_3d(regio, rv3d, (x, y))
+        if rv3d.view_perspective == "ORTHO":
+            o = o - r * 10000.0  # oorsprong van een ortho-straal ligt soms midden in de scène
+        if context.scene.ray_cast(dg, o, r)[0]:
+            return True
+    return False
+
+
 def kogel_plekken(context, regio, rv3d):
     """Plek van elk kogelgetal van een figuur in dit beeld: {naam deel B: (punt, vak)}.
     Begin aan de buitenkant van het lid (van het figuurmidden naar het kogelmidden, in beeld), net buiten de wig;
@@ -169,16 +188,25 @@ def kogel_plekken(context, regio, rv3d):
         r_px = max((naar2d(regio, rv3d, x) - c2).length for x in (v["links"], v["rechts"], v["as_eind"])
                    if naar2d(regio, rv3d, x) is not None) if c2 else 0.0
         gekozen = None
-        for t in [r_px + 22.0 * schaal + 12.0 * schaal * i for i in range(30)]:
-            for g in sorted(range(-165, 181, 15), key=abs):
-                h = math.radians(g)
-                d = Vector((uit.x * math.cos(h) - uit.y * math.sin(h), uit.x * math.sin(h) + uit.y * math.cos(h)))
-                p = c2 + d * t
-                vk = vak(p, v["tekst"], px)
-                if vk[0] < 0 or vk[1] < 0 or vk[2] > regio.width or vk[3] > regio.height - 100.0 * schaal:
-                    continue
-                if all(gat(vk, o) >= AFSTAND_PX * schaal for o in bezet):
+        # Daan 17 nov moet 4: een getal hoort naast het lid, niet op het model (±20° van de nek stond op de kin).
+        # Eerste ronde: alleen plekken waar het tekstvak het model niet raakt (stralen door het vak); niets vrij,
+        # dan de oude regel zonder die eis.
+        for vrij_van_model in (True, False):
+            for t in [r_px + 22.0 * schaal + 12.0 * schaal * i for i in range(30)]:
+                for g in sorted(range(-165, 181, 15), key=abs):
+                    h = math.radians(g)
+                    d = Vector((uit.x * math.cos(h) - uit.y * math.sin(h), uit.x * math.sin(h) + uit.y * math.cos(h)))
+                    p = c2 + d * t
+                    vk = vak(p, v["tekst"], px)
+                    if vk[0] < 0 or vk[1] < 0 or vk[2] > regio.width or vk[3] > regio.height - 100.0 * schaal:
+                        continue
+                    if not all(gat(vk, o) >= AFSTAND_PX * schaal for o in bezet):
+                        continue
+                    if vrij_van_model and op_model(context, regio, rv3d, vk, 4.0 * schaal):
+                        continue
                     gekozen = (p, vk)
+                    break
+                if gekozen:
                     break
             if gekozen:
                 break
@@ -216,7 +244,7 @@ def teken_kogel(regio, rv3d, a, b, schaal):
     for x in ("links", "rechts"):
         waaier._lijn(dik, regio, [c2, naar2d(regio, rv3d, v[x])], (*KL, 0.9), 3.0 * schaal)
     waaier._lijn(dik, regio, boog, (*KL, 0.9), 3.0 * schaal)
-    getal = tekst_rand(p_tekst, v["tekst"], KL, int(PX * schaal))
+    getal = tekst_rand(p_tekst, v["tekst"], WIT, int(PX * schaal))
     uit = {"pose": round(float(b.get("cj_pose_graden", 0.0)), 3), "richting": int(b.get("cj_pose_richting", 0)),
            "getal": v["tekst"], "getal_getekend": getal, "streepjes": 0, "kijkhoek": 90.0, "omtrek": 0,
            "voorbij": False, "voorbij_tekst": None, "label_px": tuple(p_tekst), "figuur": True, "kleur": KL,

@@ -24,7 +24,7 @@ STREEP = 5          # graden tussen twee streepjes
 POSE_LANG = 1.15
 ROOD_PX = 24        # "+N° past limit": groot genoeg voor een winkelplaatje (16 was te klein)
 FIGUUR_X = 0.7      # Pro 1.1 (Daan punt 1): bij een figuur een kleinere boog, in de passingkleur, met alleen het getal
-FIGUUR_PX = 16
+FIGUUR_PX = 22  # Daan 17 nov moet 4 (was 16)
 _handler = [None]
 laatst = {}  # wat de laatste tekenbeurt tekende, voor het bewijs in de schermtest
 
@@ -269,7 +269,7 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
             nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
         if fig:  # donkere rand van 1 px, zodat het getal los van het model staat (Daan, 16 nov, kan)
             from .figuur_teken import tekst_rand
-            getal = tekst_rand(q["label"], f"{v['getal']}°", KL, int(FIGUUR_PX * schaal))
+            getal = tekst_rand(q["label"], f"{v['getal']}°", WIT, int(FIGUUR_PX * schaal))
         else:
             getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int(20 * schaal))
     rood_tekst, vrij = False, None
