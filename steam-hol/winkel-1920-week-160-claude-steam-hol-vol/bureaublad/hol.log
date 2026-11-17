@@ -1,27 +1,69 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 57 s (klok terug: false): goud voor 1619, helden 1, erbij 7
+HOL weg geweest 59 s (klok terug: false): goud voor 1676, helden 1, erbij 7
 HOL kroniek 0.0 (wacht 0.0): The Spike Pit had a busy shift.
-HOL opslag geladen: 0 terugkomers, 1626 goud
+HOL opslag geladen: 0 terugkomers, 1683 goud
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL zaad 1794822013
-HOL kroniek 2.5 (wacht 2.5): 1 came, 1 fell. +7 gold.
+HOL zaad 1794908420
+HOL kroniek 2.6 (wacht 2.6): 1 came, 1 fell. +7 gold.
 HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL held binnen: Joost
+HOL kroniek 5.1 (wacht 1.0): Joost says this is a quick one.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL kroniek 11.0 (wacht 0.0): Rik read about you in a tavern.
 HOL held binnen: Rik
-HOL kroniek 5.0 (wacht 1.0): Rik picks the lock. It was open.
-HOL kroniek 9.1 (wacht 0.0): Bram knocks first. Polite.
-HOL held binnen: Bram
-HOL meting t=10 beelden=77 helden=1 hol_vast=2
-HOL kroniek 10.2 (wacht 0.6): Rik found the Spike Pit. Hard. +6
-HOL kroniek 14.7 (wacht 0.0): Bram stays forever. +6
-HOL held binnen: Wout
-HOL kroniek 17.2 (wacht 1.9): Wout climbs into your hole.
-HOL meting t=20 beelden=142 helden=1 hol_vast=5
-HOL kroniek 22.6 (wacht 0.0): Tibbe the Sleepy shuffles in.
+HOL kroniek 16.5 (wacht 0.0): Rik left gold and one boot. +6
+HOL held binnen: Pim
+HOL kroniek 19.1 (wacht 1.7): Pim sneaks in. Nobody saw. You saw.
+HOL meting t=20 beelden=129 helden=2 hol_vast=3
+HOL kroniek 24.4 (wacht 0.0): Fenna the Wizard sniffs for traps.
+HOL held binnen: Fenna
+HOL kroniek 25.4 (wacht 0.3): Joost escaped with a limp.
+HOL kroniek 29.9 (wacht 0.0): Tibbe knows every trap. Almost.
 HOL held binnen: Tibbe
-HOL kroniek 28.0 (wacht 0.0): Lotte the Thief tiptoes in.
-HOL held binnen: Lotte
-HOL meting t=30 beelden=100 helden=3 hol_vast=5
-HOL kroniek 36.3 (wacht 0.0): Wout fled. Grudge: the Spike Pit.
-HOL held binnen: Gerda
-HOL kroniek 38.8 (wacht 2.5): New stamp for the Hero. He got away.
-HOL kroniek vervallen 39.4: Gerda casts Light. It is a candle.
+HOL meting t=30 beelden=113 helden=2 hol_vast=4
+HOL kroniek 30.9 (wacht 1.0): Fenna will not be leaving. +6
+HOL kroniek vervallen 32.9: Page for the Wizard. The pit got him.
+HOL kroniek 35.2 (wacht 0.0): Bram brought a torch. And hope.
+HOL held binnen: Bram
+HOL kroniek 38.4 (wacht 0.0): Pim fled. Grudge: the Spike Pit.
+HOL meting t=40 beelden=119 helden=2 hol_vast=6
+HOL held binnen: Fenna II
+HOL kroniek 40.9 (wacht 0.2): Bram fell to the Spike Pit. +6
+HOL kroniek vervallen 41.4: Booked: the Thief. He got away.
+HOL kroniek 43.5 (wacht 2.8): Fenna II climbs in. Family business.
+HOL kroniek 48.2 (wacht 0.0): Odo II. Odo fell here once.
+HOL held binnen: Odo II
+HOL meting t=50 beelden=125 helden=3 hol_vast=7
+HOL kroniek 50.9 (wacht 0.0): Tibbe left. Took nothing. Angry.
+HOL kroniek 53.4 (wacht 2.5): New stamp for the Wizard. Ran off. Counts.
+HOL held binnen: Kees II
+HOL kroniek 54.4 (wacht 0.2): Fenna II found the Spike Pit. Hard. +6
+HOL kroniek vervallen 56.9: Kees II wants dad's boot back.
+HOL kroniek 59.3 (wacht 0.0): Kees II stays forever. +6
+HOL held binnen: Kees III
+HOL meting t=60 beelden=148 helden=2 hol_vast=10
+HOL kroniek 61.9 (wacht 2.3): Kees III. Kees fell here once.
+HOL kroniek 65.1 (wacht 0.0): Kees III fell to the Spike Pit. +6
+HOL held binnen: Fenna III
+HOL kroniek 67.6 (wacht 1.0): Fenna III climbs in. Family business.
+HOL meting t=70 beelden=138 helden=2 hol_vast=13
+HOL kroniek 73.6 (wacht 0.0): Odo II ran. Swore revenge.
+HOL held binnen: Mara II
+HOL kroniek 76.2 (wacht 2.6): Page for the Knight. He got away.
+HOL kroniek vervallen 77.7: Mara II wants dad's boot back.
+HOL meting t=80 beelden=100 helden=2 hol_vast=13
+HOL kroniek 81.3 (wacht 0.0): Gerda II. Gerda fell here once.
+HOL held binnen: Gerda II
+HOL kroniek 83.2 (wacht 0.0): Fenna III fled, crying a little.
+HOL kroniek 86.8 (wacht 0.0): Gerda II will not be leaving. +6
+HOL held binnen: Tibbe
+HOL kroniek 89.4 (wacht 2.4): Tibbe is back for the Spike Pit.
+HOL meting t=90 beelden=128 helden=2 hol_vast=15
+HOL kroniek 93.8 (wacht 0.0): Bram II wants dad's boot back.
+HOL held binnen: Bram II
+HOL kroniek 95.6 (wacht 0.0): Mara II fled. Grudge: the Spike Pit.
+HOL kroniek 99.9 (wacht 0.0): Fenna III limps back to the Spike Pit.
+HOL held binnen: Fenna III
+HOL meting t=100 beelden=100 helden=3 hol_vast=15
+HOL kroniek 108.0 (wacht 0.0): Tibbe fled, crying a little.
+HOL held binnen: Gerda III
