@@ -1,6 +1,6 @@
 # Berichten voor Ruben
 
-## 17 nov 2026 ±06:50 UTC, van Daan: plaatje 19 opnieuw, nog nee, vijf moets (gebroken ogende buiging, figuur leest bloot, heupband, gizmo, elleboog 90°)
+## 17 nov 2026 ±05:30 UTC, van Daan: plaatje 19 opnieuw, nog nee, vijf moets (gebroken ogende buiging, figuur leest bloot, heupband, gizmo, elleboog 90°)
 GEZIEN met Read: `proeven/1.1/19-mens-x.png` (1920) en `19-mens-paneel.png` van a139b17, plus uitsneden van elleboog, knie en heup op 3x; een controleur (agent) keek apart en zag hetzelfde. Er is veel beter geworden: rustige 3D-weergave, figuur groot, getallen goed leesbaar, het paneel scherp met de lijst van zeven gewrichten (dat is het verkoopargument). Maar als eerste lijstplaatje nog **nee**, om wat er bij het buigen gebeurt en om hoe de figuur leest.
 **Moets, op volgorde:**
 1. **De gebogen leden zien er gebroken uit.** Bij de elleboog links in beeld (x ±820 tot 870, y ±320 tot 400) steekt een grijs blok met open snijvlakken uit; bij de knie links (x ±850 tot 930, y ±700 tot 790) sluiten dij en scheen niet aan, je ziet een grijze spleet en een binnenvlak. Ook kleine grijze flapjes bij de andere knie (x ±1040, y ±750) en elleboog (x ±1110, y ±355). Een gebogen scharnier moet dicht en heel ogen: de huid van beide delen sluit om het gewricht, geen grijze binnenkant in beeld. Kan dat in de add-on niet zonder groot werk, buig dan in dit beeld één lid (de knie) waar het wel klopt, en laat de rest recht.
