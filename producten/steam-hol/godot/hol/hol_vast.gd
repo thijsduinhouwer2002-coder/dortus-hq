@@ -199,6 +199,7 @@ func teken(d: CanvasItem) -> void:
 	if gang_3d and is_vol(h):
 		_teken_vol(d, vloer)
 		return
+	var berg_l := berg_links(h)   # één keer per tekenbeurt (controleur 15:30)
 	for k in range(h.ingang_kol + 1, h.schat_kol - 1):
 		var hh: int = h._hash(k, 7)
 		if h.deco_proef:   # keurstrook: vaste rij, paddenstoel, stut, ton, schedel, (put), kristal, spinrag, lichtzwam (99 = niets)
@@ -218,7 +219,7 @@ func teken(d: CanvasItem) -> void:
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(c * KOL, 0, KOL, KOL))
 		elif hh < 36 and not h.boven[k]:
 			var web_maar: bool = gang_3d and k * KOL + KOL > spin_grens(h)
-			if _spin_rechts(Vector2(k * KOL + midden, GANG_BOVEN), web_maar, gang_3d) > berg_links(h):
+			if _spin_rechts(Vector2(k * KOL + midden, GANG_BOVEN), web_maar, gang_3d) > berg_l:
 				pass   # niet boven de hoedenberg (Daan 17 nov 10:50), zie berg_links()
 			elif gang_3d and k * KOL + KOL > spin_grens(h) and HOL3D.deco_maat("spinrag") != Vector2.ZERO:
 				_teken_hangend(d, "spinrag", Vector2(k * KOL + midden, GANG_BOVEN))   # bij de berg: web wel, spin niet
@@ -464,8 +465,9 @@ static func spin_grens(hh) -> float:
 static func berg_n(hh) -> int:
 	if hh is Node and hh.get_parent() != null:
 		var sl = hh.get_parent().get("slijm")
-		if sl is Node2D and is_instance_valid(sl) and sl.has_method("berg_zichtbaar"):
-			return sl.berg_zichtbaar()
+		if is_instance_valid(sl) and sl is Node2D and sl.get("hoeden") != null:
+			# zuinig (controleur 15:30): zonder werk_berg_grens, die rekent de slijm zelf bij elke tekenbeurt van de berg
+			return sl.berg_zichtbaar_bij(sl.hoeden.size())
 	return load("res://systemen/slijm.gd").berg_max
 
 static func berg_links(hh) -> float:
@@ -480,7 +482,7 @@ static func berg_links(hh) -> float:
 	if hh is Node and hh.get_parent() != null:
 		var p = hh.get_parent()
 		var sl = p.get("slijm")
-		if sl is Node2D and is_instance_valid(sl):
+		if is_instance_valid(sl) and sl is Node2D:
 			gx = sl.position.x
 			sch = maxf(0.001, absf(sl.scale.x))
 		elif p.get("proef_figuur") != null:
