@@ -32,7 +32,7 @@ SO WIRD GESPIELT
 - Dein Rekord wird auf der Uhr gespeichert.
 
 GUT ZU WISSEN
-- Dies ist ein kostenpflichtiges Spiel. Du zahlst einmal im Connect IQ Store. Keine Werbung, kein Abo, nichts, was du später freischalten musst.
+- Dieses Spiel ist kostenlos. Keine Werbung, kein Abo, nichts freizuschalten.
 - Kein Konto, keine Smartphone-App, kein Internet, keine Berechtigungen.
 - Es ist ein kleines Spiel: ein Bildschirm, ein Modus.
 - Das Spiel ist auf Englisch.

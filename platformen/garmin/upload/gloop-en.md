@@ -32,7 +32,7 @@ HOW IT PLAYS
 - Your best score is saved on the watch.
 
 GOOD TO KNOW
-- This is a paid game. You pay once in the Connect IQ Store. No ads, no subscription, nothing to unlock later.
+- This game is free. No ads, no subscription, nothing to unlock.
 - No account, no phone app, no internet, no permissions.
 - It is a small game: one screen, one mode.
 

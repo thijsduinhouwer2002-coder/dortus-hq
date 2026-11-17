@@ -32,7 +32,7 @@ ZO SPEEL JE
 - Je beste score blijft op je horloge bewaard.
 
 GOED OM TE WETEN
-- Dit is een betaald spel. Je betaalt één keer in de Connect IQ Store. Geen advertenties, geen abonnement, niets om later te ontgrendelen.
+- Dit spel is gratis. Geen advertenties, geen abonnement, niets om te ontgrendelen.
 - Geen account, geen telefoonapp, geen internet, geen rechten nodig.
 - Het is een klein spel: één scherm, één spelvorm.
 - Het spel is in het Engels.
