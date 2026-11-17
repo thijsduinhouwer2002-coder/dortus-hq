@@ -15,6 +15,8 @@ const HOL := preload("res://hol/hol.gd")
 
 static func zet(s, paneel: bool) -> void:
 	s.vlak_paneel = paneel
+	if s.wissel_uit:   # CPU-proef wissel=vlak: in de uit-minuut geen vlak (kern/proef.gd)
+		return
 	DisplayServer.window_set_mouse_passthrough(punten(s, paneel))
 
 # De punten van het vlak (los, voor de toetsen). Per pixelkolom een bovenkant, gelijke stukken samengevoegd.

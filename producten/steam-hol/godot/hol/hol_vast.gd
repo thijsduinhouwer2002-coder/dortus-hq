@@ -39,6 +39,7 @@ var vp: SubViewport
 var beeld: Sprite2D
 var sleutel := ""
 var keer := 0                 # zo vaak opnieuw getekend (voor de toetsen en de meetregel)
+static var ZONDER_DECO := false   # CPU-proef wissel=deco (kern/proef.gd, Bram 17 nov): losse dingen in gang en kamers weg
 # Bovenrand van wat er boven het maaiveld getekend staat, per schermpixel-kolom van het eigen beeld (0 = bovenrand van
 # het hol, OPP * schaal = niets boven het gras). Leeg tot het eerste beeld gelezen is, of als lezen niet kan (headless).
 # strook.gd maakt hiermee het muisvlak: op Windows tekent het venster niets buiten dat vlak (Godot 4.3,
@@ -80,7 +81,7 @@ func _sleutel() -> String:
 	var o: Array = h.put_open.keys()
 	o.sort()
 	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
-		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX)]
+		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX)] + ("|zd" if ZONDER_DECO else "")
 
 # hol.gd roept dit aan het begin van elke _draw aan; kost alleen het maken van de sleutel
 func ververs() -> void:
@@ -195,6 +196,8 @@ func teken(d: CanvasItem) -> void:
 	var gang_3d: bool = h.met_3d and HOL3D.heeft("gang")
 	var midden: float = KOL / 2.0
 	var vorige := -99   # kolom van het laatste stuk: hooguit één stuk per twee gangtegels (Daan 14 nov 02:50)
+	if ZONDER_DECO:
+		return
 	if gang_3d and is_vol(h):
 		_teken_vol(d, vloer)
 		return

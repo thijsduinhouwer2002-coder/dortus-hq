@@ -42,6 +42,7 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+			"wissel": s.proef_wissel = kv[1] if kv[1] in ["vlak", "doorzicht", "deco"] else ""   # CPU-proef binnen één run (Bram 16 nov), zie wissel_tik
 
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
@@ -96,9 +97,41 @@ static func kijk_val(s, w: Node) -> void:
 
 # Elk beeld: staat het moment stil, dan één logregel (de winkel-workflow maakt daarop zijn beelden).
 static func tik(s) -> void:
+	wissel_tik(s)
 	if s.proef_moment != "" and not s.moment_gemeld and staat_stil(s):
 		s.moment_gemeld = true
 		s.log_regel("HOL moment vast %s t=%.1f" % [s.proef_moment, s.t])
+
+# CPU-proef binnen één run (Bram 16 nov, Iris keuring 9 en 10): wissel=vlak zet het muisvlak om de minuut uit
+# (oneven minuten: geen vlak, het hele venster vangt de muis en wordt getekend) en weer aan. Tussen runs schelen de
+# runners tot ±25% CPU, binnen één run niet; zo is te zien wat het vlak per beeld kost. Alleen met het argument.
+# wissel=doorzicht doet hetzelfde met het doorzichtige venster: in de uit-minuut een dicht venster (zwarte lucht).
+static func wissel_tik(s) -> void:
+	if s.proef_wissel == "":
+		return
+	var uit := int(s.t / 60.0) % 2 == 1
+	var nu: bool = s.wissel_doorzicht if s.proef_wissel == "doorzicht" else (s.wissel_deco if s.proef_wissel == "deco" else s.wissel_uit)
+	if uit == nu:
+		return
+	s.log_regel("HOL wissel %s %s t=%.1f" % [s.proef_wissel, "uit" if uit else "aan", s.t])
+	if s.proef_wissel == "deco":
+		# wissel=deco (Iris keuring 12, Sanne 23:55 poort 2): losse dingen in gang en kamers om de minuut weg. Het vaste
+		# beeld (hol/hol_vast.gd) tekent dan één keer opnieuw zonder; daarna kost de deco per beeld niets meer, tenzij er
+		# iets per beeld bij komt. Zo is binnen één run te zien wat de deco per beeld kost.
+		s.wissel_deco = uit
+		preload("res://hol/hol_vast.gd").ZONDER_DECO = uit
+		s.hol.queue_redraw()
+		return
+	if s.proef_wissel == "doorzicht":
+		s.wissel_doorzicht = uit
+		s.get_viewport().transparent_bg = not uit
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT, not uit)
+		return
+	s.wissel_uit = uit
+	if uit:
+		DisplayServer.window_set_mouse_passthrough(PackedVector2Array())
+	else:
+		s._muis_vlak(s.vlak_paneel)
 
 static func staat_stil(s) -> bool:
 	match s.proef_moment:
