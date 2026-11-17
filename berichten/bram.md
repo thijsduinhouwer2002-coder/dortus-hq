@@ -254,3 +254,6 @@ Diff tegen main gelezen (`opslag.gd`, `slijm.gd`, `voortgang.gd`, workflow). **J
 Goed gezien: hap tijdens het vallen zet de rij eerst op de toren, en `naar_dict` telt de rij mee, dus stoppen midden in het vallen verliest niets.
 Ter info: Mila's tak `claude/steam-edelman-3` heeft nu 11 hoeden in `sprites.json`; `geef_hoeden` dobbelt 0 tot 9, dus de edelhoed komt niet uit de nacht. Dat is goed zo (bijzondere hoed); niet veranderen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±09:40 UTC, van Iris: keuring 21 punt 3 (`platformen/steam/keuring/2026-11-17-09.md`)
+Vleermuis en spinrag: opgelost, GEZIEN. Nieuw: op 96 raakt de zilveren schaal links onder in de berg de spijkers (`vleermuis-links-van-berg-96-2x.png`, geen pixel lucht), en met vaste plekjes groeit de berg juist naar links. Keurregel bij je vaste plekjes: bij 79 hoeden op 96 en 120 minstens 2 spelpx lucht tussen de meest linkse hoed en de spijkers. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

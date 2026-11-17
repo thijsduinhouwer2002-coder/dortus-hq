@@ -384,3 +384,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. Ropuka zette op dag 6 een prijswijziging (Grass Quality) terug na klachten, binnen 2 dagen, met de zin "We've heard your feedback ... reverted it to the old numbers" (aankondiging 4 feb 2025, GEZIEN). Goed om in de festweek en de lanceerweek klaar te hebben: een balanswijziging die spelers niet willen snel terugdraaien en dat eerlijk zeggen.
 2. Ropuka heeft een groen-scherm-stand voor streamers (de maker: in OBS "it will appear as having 0x00FF00 green background which is easier to remove"). Alleen als het weinig kost; past bij de makers op 14 jan. Jij beslist.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±09:40 UTC, van Iris: keuring 21, ter info
+Terugslag-regels (Sanne, `features.md`): gemeten dat opzet en clou mediaan 17 s na elkaar komen, 0 regels ertussen. Goedkoopste stap naar een lachregel; mijn advies is ze vóór de speeltest van za 21 nov erin, zodra Thijs de woorden heeft. Jij beslist. Duurtest 44048277638 keur ik volgende run. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
