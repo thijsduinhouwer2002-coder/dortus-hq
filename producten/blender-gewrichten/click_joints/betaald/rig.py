@@ -626,6 +626,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
         cursor = context.scene.cursor
         oud_cursor = cursor.matrix.copy()
         gelukt, overgeslagen = [], []
+        # Opruimen na afloop: alleen meshes die tijdens deze knop zijn ontstaan en door niets meer gebruikt
+        # worden (17 nov run 25: 172 lege tussenmeshes bleven in het bestand). Oude data van de koper blijft.
+        al_er = set(bpy.data.meshes[:])
         # Spiegelen: eerst alle grenzen lezen, dan krijgt een kant zonder grens die van de andere kant.
         stops = {naam: (eindstop(grens_x(arm.pose.bones.get(b))) if figuur.PER_SLEUTEL[k][2] == "HINGE" else None)
                  for b, k, naam in lijst}
@@ -741,6 +744,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             context.scene.click_joints.toon_bereik = True
             if hasattr(context.window_manager, "cj_scharnier_boog"):
                 context.window_manager.cj_scharnier_boog = True
+        for m in [m for m in bpy.data.meshes if m not in al_er and m.users == 0]:
+            bpy.data.meshes.remove(m)
         if overgeslagen:
             self.report({"WARNING"}, f"{tekst}. Skipped: {'; '.join(overgeslagen)}")
         else:

@@ -66,10 +66,14 @@ def main():
     ob.modifiers.new("Armature", "ARMATURE").object = rig
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
     A["actief"](ob)
+    voor = {m.name for m in bpy.data.meshes}
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
         r = f"fout {str(e).strip()[:300]}"
+    # 17 nov run 26: eerder bleven hier 172 lege tussenmeshes in het bestand.
+    wees = [m.name for m in bpy.data.meshes if m.name not in voor and m.users == 0]
+    check(not wees, f"geen lege tussenmeshes achtergebleven ({len(wees)})")
     fig = mod("betaald.figuur")
     ges = mod("gesloten")
     rigm = mod("betaald.rig")
