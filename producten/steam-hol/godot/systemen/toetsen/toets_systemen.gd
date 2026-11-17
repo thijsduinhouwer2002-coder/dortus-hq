@@ -98,6 +98,7 @@ func _init() -> void:
 	var HN = load("res://systemen/hol_niveau.gd")
 	ok(HN.niveau(0) == 1 and HN.niveau(2) == 1 and HN.niveau(3) == 2 and HN.niveau(12) == 5 and HN.niveau(88) == 12, "hol-niveau op de drempels")
 	ok(HN.niveau(100000) == 12 and HN.nog(100000) == 0, "demo stopt op hol-niveau 12")
+	ok(HN.niveau(72) == 12 and HN.niveau(71) == 11 and HN.niveau(60) == 11 and HN.niveau(59) == 10 and HN.niveau(49) == 10 and HN.niveau(48) == 9, "drempels hol 10, 11, 12 op 49 / 60 / 72 (Sanne 17 nov 07:55)")
 	ok(HN.hover(0) == "Level 1: a damp hole. 3 heroes to go.", "hover niveau 1: " + HN.hover(0))
 	ok(HN.hover(11) == "Level 4: a bad idea. 1 hero to go.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
@@ -587,21 +588,79 @@ func _init() -> void:
 	var bk_p: Array = bk.paginas()
 	ok(bk_p.size() == 5 + 5 + 10 + 1 + 1 and String(bk_p[3].titel) == "The Wizard" and bk_p[3].regels[0] == "Weak to: Gloop", "bladzijden in boekvolgorde, magier met zwakte")
 	ok(bk.nieuw_sinds(8).size() == 2 and bk.nieuw_sinds(99).is_empty(), "nieuw_sinds voor while you were away")
-	# demo-einde (Olaf 13 nov, kern/demo_einde.gd): alleen met steamdemo, precies één keer, startregel daarna
+	# demo-einde op inhoud (Olaf 17 nov, kern/demo_einde.gd; Sanne 04:02 features.md): hol 12 én alle 6 winkeldingen,
+	# alleen met steamdemo, precies één keer, blijvend; demo_einde=<s> is alleen nog een testklok
 	var DE = load("res://kern/demo_einde.gd")
-	ok(not DE.voorbij(false, 99999.0) and not DE.voorbij(true, 7199.9) and DE.voorbij(true, 7200.0), "demo voorbij alleen met steamdemo en na 7200 s")
-	ok(DE.regel_bij_einde(true, 59.9, 60.1, 60.0) == DE.REGEL_EINDE and DE.regel_bij_einde(true, 60.1, 60.2, 60.0) == ""
-		and DE.regel_bij_einde(false, 59.9, 60.1, 60.0) == "", "eindregel precies één keer, nooit zonder steamdemo")
-	var keer := 0
-	var st := 0.0
-	for i in 1000:
-		var de_r: String = DE.regel_bij_einde(true, st, st + 0.13, 60.0)
-		st += 0.13
-		if de_r != "":
-			keer += 1
-	ok(keer == 1, "eindregel één keer in 130 s met kleine stapjes: %d" % keer)
-	ok(DE.regel_bij_start(true, 61.0, 60.0) == DE.REGEL_START and DE.regel_bij_start(true, 59.0, 60.0) == ""
-		and DE.regel_bij_start(false, 99999.0) == "", "startregel alleen na het einde, alleen in de demo")
+	var vol3 := {"slijm": 3, "stekelput": 3}
+	ok(DE.inhoud_op(12, vol3) and not DE.inhoud_op(11, vol3) and not DE.inhoud_op(12, {"slijm": 3, "stekelput": 2})
+		and not DE.inhoud_op(12, {"slijm": 3}) and not DE.inhoud_op(12, {}), "inhoud op alleen bij hol 12 EN alle 6 stappen")
+	ok(DE.voorbij(true, 12, vol3) and not DE.voorbij(false, 12, vol3) and not DE.voorbij(true, 11, vol3, 999999.0),
+		"demo voorbij alleen met steamdemo; geen klok zonder testvlag (ook na 277 uur niet)")
+	ok(DE.voorbij(true, 1, {}, 60.0, 60.0) and not DE.voorbij(true, 1, {}, 59.9, 60.0) and not DE.voorbij(false, 1, {}, 99.0, 60.0),
+		"testvlag demo_einde: klok alleen als hij gezet is, alleen in de demo")
+	ok(DE.regel_bij_start(true, true) == DE.REGEL_START and DE.regel_bij_start(true, false) == ""
+		and DE.regel_bij_start(false, true) == "", "startregel alleen na het einde, alleen in de demo")
+	# met een nep-strook: regel één keer, blijvend na terugverkopen, weigeren, startregel
+	var nep_de := GDScript.new()
+	nep_de.source_code = ("extends RefCounted\nvar steamdemo := true\nvar demo_klaar := false\nvar demo_grens := -1.0\n"
+		+ "var speeltijd_s := 0.0\nvar faam := 0\nvar rij := 0\nvar hol\nvar kaart_soort := \"\"\nvar kroniek: Array = []\nvar logs: Array = []\n"
+		+ "var tekst := Node2D.new()\nvar bewaard := 0\nfunc log_regel(r):\n\tlogs.append(r)\nfunc _kroniek(r):\n\tkroniek.append(r)\n"
+		+ "func bewaar():\n\tbewaard += 1\n")
+	nep_de.reload()
+	var nep_hol := GDScript.new()
+	nep_hol.source_code = "extends RefCounted\nvar upgrades\n"
+	nep_hol.reload()
+	var ds = nep_de.new()
+	ds.hol = nep_hol.new()
+	ds.hol.upgrades = load("res://systemen/upgrades.gd").new()
+	ds.faam = 72   # DREMPEL van hol 12 (Sanne 17 nov 07:55)
+	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 2}
+	for i in 100:
+		DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds) and ds.kroniek.is_empty() and not DE.weiger(ds, "proef"), "hol 12 maar één winkelding open: geen einde, kopen mag")
+	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 3}
+	ds.faam = 71
+	DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds), "winkel leeg maar hol 11: geen einde")
+	ds.faam = 72
+	ds.rij = 2
+	DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds), "faam voor hol 12 maar nog 2 niveaus in de rij (bordje zegt hol 10): geen einde")
+	ds.rij = 0
+	for i in 100:
+		DE.tik(ds, 0.13)
+	ok(DE.klaar(ds) and ds.kroniek.count(DE.REGEL_EINDE) == 1 and ds.bewaard == 1, "hol 12 en winkel leeg: regel precies één keer, bewaard")
+	ds.hol.upgrades.verkoop("slijm")
+	for i in 100:
+		DE.tik(ds, 0.1)
+	ok(DE.klaar(ds) and ds.kroniek.count(DE.REGEL_EINDE) == 1 and DE.weiger(ds, "kopen slijm"), "na terugverkopen blijft het einde: geen tweede regel, kopen geweigerd")
+	DE.bij_start(ds)
+	DE.bij_start(ds)
+	ok(ds.kroniek.count(DE.REGEL_START) == 1, "startregel stapelt niet bij twee starts")
+	# geweigerde klik doet iets zichtbaars (Sanne 17 nov 04:52): startregel opnieuw, hooguit één keer per 60 s (Sanne 05:58), stapelt niet
+	ok(DE.mag_tonen(0.0, -1000.0) and not DE.mag_tonen(59.9, 0.0) and DE.mag_tonen(60.0, 0.0) and DE.mag_tonen(5.0, 30.0),
+		"weigerregel: eerste keer, dan pas na 60 s, en weer na een klok die terugspringt")
+	DE.weiger_laatst = -1000.0
+	ds.kroniek.clear()
+	ok(DE.weiger(ds, "klik 1") and ds.kroniek == [DE.REGEL_START], "geweigerde klik zet de startregel in de kroniek: " + str(ds.kroniek))
+	DE.weiger(ds, "klik 2")
+	ok(ds.kroniek.size() == 1, "tweede klik binnen 60 s: geen tweede regel")
+	ds.speeltijd_s += 65.0
+	DE.weiger(ds, "klik 3")
+	ok(ds.kroniek.count(DE.REGEL_START) == 1 and DE.weiger_laatst == ds.speeltijd_s, "na 60 s weer zichtbaar, stapelt niet in de geschiedenis")
+	var ds2 = nep_de.new()
+	ds2.steamdemo = false
+	ds2.hol = ds.hol
+	ds2.faam = 999
+	for i in 100:
+		DE.tik(ds2, 0.1)
+	ok(not DE.klaar(ds2) and ds2.kroniek.is_empty() and ds2.speeltijd_s > 9.9, "zonder steamdemo nooit een einde, speeltijd telt wel")
+	var ds3 = nep_de.new()
+	ds3.hol = nep_hol.new()
+	ds3.demo_grens = 1.0
+	for i in 30:
+		DE.tik(ds3, 0.1)
+	ok(DE.klaar(ds3) and ds3.kroniek.count(DE.REGEL_EINDE) == 1, "testvlag: einde na de testgrens, ook zonder upgrades-object, één keer")
 	ok(DE.REGEL_EINDE.length() <= 42 and DE.REGEL_START.length() <= 42 and DE.KAART.length() <= 42, "demo-regels hooguit 42 tekens")
 	ok(DE.is_demo(PackedStringArray(["steamdemo=1"])) and not DE.is_demo(PackedStringArray(["demo=1", "steamdemo=0"])), "steamdemo=1 herkend, demo=1 is geen Steam-demo")
 	# het vaste deel van het hol (Olaf, hol/hol_vast.gd): alleen opnieuw tekenen als er iets aan verandert
@@ -639,6 +698,28 @@ func _init() -> void:
 	hvast.klik(Vector2((hvast.ingang_kol - 1) * 16 + 8, 30))
 	hvast.vast.ververs()
 	ok(hvast.vast.keer == 3, "hol_vast: graven links, opnieuw")
+	# demo voorbij: alleen graven geweigerd, stekelput vrij (Iris keuring 17 punt 2, Sanne features.md "niets op slot")
+	var ddk: int = hvast.ingang_kol - 1
+	var dgang_voor: Array = hvast.gang.duplicate()
+	var dboven_voor: Array = hvast.boven.duplicate()
+	ok(hvast.klik(Vector2(ddk * 16 + 8, 30), false) == "geweigerd" and hvast.gang == dgang_voor, "demo voorbij: graven links geweigerd, gang gelijk")
+	var drk: int = hvast.schat_kol + 1
+	ok(hvast.klik(Vector2(drk * 16 + 8, 30), false) == "geweigerd" and hvast.gang == dgang_voor, "demo voorbij: graven rechts geweigerd")
+	var dkk: int = -1
+	for c in range(hvast.ingang_kol + 1, hvast.schat_kol):
+		if hvast.gang[c] and not hvast.boven[c]:
+			dkk = c
+			break
+	if dkk >= 0:
+		ok(hvast.klik(Vector2(dkk * 16 + 8, 12), false) == "geweigerd" and hvast.boven == dboven_voor, "demo voorbij: kamer graven geweigerd")
+	var dvk: int = -1
+	for c in range(hvast.ingang_kol + 1, hvast.schat_kol):
+		if hvast.gang[c]:
+			dvk = c
+			break
+	var dhad_val: bool = hvast.vallen.has(dvk)
+	ok(dvk >= 0 and hvast.klik(Vector2(dvk * 16 + 8, 30), false) == "val" and hvast.vallen.has(dvk) != dhad_val, "demo voorbij: stekelput zetten of weghalen mag wel")
+	hvast.klik(Vector2(dvk * 16 + 8, 30), false)
 	hvast.free()
 	# kamerkeuze in het 3D-hol (Olaf 13 nov, moet 3 Daan): stuk volgt de buren; schacht (2) en 3D-schatkamer (10-12) dicht
 	var H3 = load("res://hol/hol_3d.gd")
