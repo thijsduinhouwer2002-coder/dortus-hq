@@ -34,7 +34,7 @@ def kleding(soort, kleur=0):
     elif soort == "dief":
         l, d = "4e4c5e", "2e2c3a"   # ronde 2: antraciet, grijsgroen leek op de groene held (frisse kijker)
     elif soort == "edelman":
-        l, d = "a83a5a", "7a2444"   # wijnrood fluweel (Daan 17 nov); niet de oranjerode held ee6a4f
+        l, d = "bc3f55", "8a2a44"   # wijnrood fluweel; 02:45 een tikje lichter en roder (Daan: viel weg voor de bruine krat), was a83a5a/7a2444
         return g.mat("kleed_" + soort, l, rough=0.6, spec=0.35), g.mat("kleed_d_" + soort, d, rough=0.65, spec=0.3)
     else:
         l, d = "eee4cc", "b0a080"   # ronde 2: room, geen van de vijf heldkleuren, donkere luit komt erop los
@@ -50,11 +50,23 @@ def armen(soort, stand, stap):
     if soort == "dief":
         return 150, 45 - 10 * stap
     if soort == "edelman":
-        return 18 + 8 * stap, 28            # rechts houdt de stok vast, links zwaait iets mee    # links houdt de zak op de schouder, rechts het dolkje naar voren
+        if stand in ("wacht", "wacht_tik"):
+            return -55, -55                 # beide handen voor zich op de knop van de stok
+        if stand == "na_u":
+            return 70, 28                   # linkerarm zwaait naar voren: "na u"
+        if stand == "na_u2":
+            return 95, 28                   # tweede beeld: arm wijd uit, buiging
+        if stand == "tenen":
+            return 135, 135                 # armen omhoog, sierlijk op de tenen om de val heen
+        return 18 + 8 * stap, 28            # rechts houdt de stok vast, links zwaait iets mee
     return None
 
 
 def hand_y(soort, stand):
+    if soort == "edelman" and stand in ("wacht", "wacht_tik"):
+        return -0.3                         # handen voor het lijf, op de stokknop
+    if soort == "edelman" and stand in ("na_u", "na_u2"):
+        return -0.18                        # de zwaai gaat naar voren, naar wie er komt
     return -0.2 if soort == "bard" and stand not in ("schrik", "vallen") else -0.02
 
 
@@ -89,7 +101,7 @@ def gezicht(ouder, soort, stand, hk, hs, HZ):
     if soort != "edelman" or stand in ("schrik", "vallen"):
         return
     huid = g.mat("ooglid", h.HUID, rough=0.62, spec=0.25)
-    for kant in (-1, 1):
+    for kant in ((-1, 1) if stand != "tenen" else ()):   # tenen: ogen wijd open, hij moet opletten; monocle blijft
         # bovenste helft van het oog dicht: een huidkleurig kapje net voor het oogwit, met een donker randje eronder
         h._bol(ouder, hk(0.11 * kant, -0.285, HZ + 0.075), hs(0.112, 0.06, 0.07), huid, segs=24)
         h._blok(ouder, hk(0.11 * kant, -0.335, HZ + 0.03), hs(0.11, 0.012, 0.014), g.mat("ooglidrand", "5a3a2a", rough=0.6), rond=0.004)
@@ -160,7 +172,7 @@ def spullen(ouder, soort, stand, handen, kleur):
             h._bol(ouder, (0.085 * kant, -0.262, 0.57), (0.018, 0.02, 0.17), goud, segs=12)
         # twee slippen achter die bij elke stap meezwaaien: het tweede silhouet naast de hoed
         zw = {"stap1": 12, "stap2": -12}.get(stand, 0) + (35 if stand == "vallen" else 0)
-        jas_d = g.mat("kleed_d_edelman", "7a2444", rough=0.65, spec=0.3)
+        jas_d = g.mat("kleed_d_edelman", "8a2a44", rough=0.65, spec=0.3)
         for kant in (-1, 1):
             a = math.radians(zw + 8 * kant)
             # proef 1 GEZIEN: achter het lijf onzichtbaar; nu langer, lager en wijder, zodat de punten naast de benen uitsteken
@@ -170,7 +182,17 @@ def spullen(ouder, soort, stand, handen, kleur):
                     rot=(math.radians(-10), a + math.radians(10 * kant), 0), rond=0.008)
         # wandelstok met gouden knop in de rechterhand, tot op de vloer (bij schrik en vallen vliegt hij weg)
         stok = g.mat("stok", "2a1a20", rough=0.4)
-        if bang:
+        if stand in ("wacht", "wacht_tik"):
+            # stok recht voor zich, beide handen op de knop; bij de tik even 0,07 los van de vloer
+            til = 0.07 if stand == "wacht_tik" else 0.0
+            kz = 0.6 + til
+            h._blok(ouder, (0.0, -0.36, (kz + til) / 2), (0.045, 0.045, kz - til), stok, rond=0.015)
+            h._bol(ouder, (0.0, -0.36, kz + 0.05), (0.075, 0.075, 0.065), goud, segs=16)
+        elif stand == "tenen":
+            # stok hoog in de rechterhand, schuin omhoog als een dirigent
+            h._blok(ouder, (hx + 0.12, -0.08, hz + 0.25), (0.04, 0.04, 0.6), stok, rot=(0, math.radians(25), 0), rond=0.012)
+            h._bol(ouder, (hx + 0.25, -0.08, hz + 0.53), (0.065, 0.065, 0.065), goud, segs=16)
+        elif bang:
             h._blok(ouder, (0.6, 0.1, 0.35), (0.04, 0.04, 0.8), stok, rot=(0, math.radians(60), 0), rond=0.012)
         else:
             h._blok(ouder, (hx + 0.02, -0.1, hz / 2), (0.045, 0.045, hz), stok, rond=0.015)

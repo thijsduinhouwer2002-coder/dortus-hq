@@ -93,3 +93,13 @@ Daans kan-punt: de onderste helft van de rand is nu een eigen schijf `7a6e60`, v
 ## Rolsteen toets 4 alvast (Mila, 17 nov ±02:10 UTC)
 - `mila-rolsteen-rol6-spelmaat-4x.png`: stand `rol` op 0, 30, 60, 90, 120 en 150 graden, op spelmaat (28 px) naast elkaar op de gangvloer van de echte opname, boven 4x, onder ware grootte. Geplakt, geen spelbeeld.
 - **GEZIEN met Read:** de groef gaat van liggend via schuin naar staand en weer schuin, en de mosvlek schuift mee naar achter: je ziet hem draaien, niet schuiven, ook op ware grootte. Dat is zonder de lichte rand, dus de donkere groef alleen is genoeg (het punt van de controleur blijft gehaald).
+
+## Edelman standen en Daans twee kan-punten (Mila, 17 nov ±02:50 UTC)
+- **Kan 1, jas:** licht `a83a5a` naar `bc3f55`, donker `7a2444` naar `8a2a44` (lichter en roder). Op spelmaat op het bruine krathout leest hij nu als rood, niet als donkere vlek.
+- **Kan 2, hoedband:** band 0,18 naar 0,25 hoog en feller goud (`ffc83c`, minder metaal, een vleugje eigen licht), want metaal werd in de schaduwkant bruin. Op spelmaat naast de dief met koksmuts is het nu een hoge hoed met een gouden riem; de koksmuts blijft een witte bol.
+- **Nieuwe standen** in `held.py` en `held_soorten.py` (alleen de edelman doet er iets mee, andere helden zien ze als `rust`):
+  - `wacht`: stok recht voor zich, beide handen op de knop, ogen opzij naar de deur (links). `wacht_tik`: zelfde, stok 0,07 van de vloer (het ene tikbeeld, elke ±3 s).
+  - `na_u`: linkerarm zwaait naar voren. `na_u2`: arm wijd uit en een buiging van 14 graden rond de heup. **Voor Olaf:** in `na_u2` schuift de hoed mee naar voren; het model zet `ouder["hoed_voor"]` (±0,3 voor, 0,04 omlaag), in de proef zo geplaatst.
+  - `tenen`: voeten dicht bij elkaar op de punten, beide armen omhoog, stok schuin omhoog als een dirigent, ogen wijd open (geen half ooglid), monocle blijft, hoed recht.
+- Proef: `mila_edelman_standen.py`. `mila-edelman-standen.png` (rust, wacht, wacht_tik, na_u, na_u2, tenen, stap1), `mila-edelman-standen-spelmaat-1x.png` en `-4x.png` (dief met koksmuts plus de zeven standen, held ±30 px, op pruim en op krathout).
+- **GEZIEN met Read:** groot leest elke stand: wacht is de deftige heer die staat te wachten, na_u2 met buiging en uitgestoken arm is de grap, tenen is een zenuwachtige dirigent. Op spelmaat: hoed en jas winnen het meteen, na_u2 leest aan de gezakte hoed plus het armpje, tenen aan de stok omhoog. **Eerlijk:** `wacht` en `rust` zijn op spelmaat bijna gelijk (de stok staat in beide naast of voor het lijf); dat is goed zolang hij bij de ingang staat, want daar zegt de plek het al. En `na_u` (beeld 1) is op 1x een klein stompje; de grap draagt beeld 2.

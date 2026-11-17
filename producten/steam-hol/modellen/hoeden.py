@@ -204,7 +204,8 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
     elif nr == 10:   # edelhoed: ivoren zijden hoge hoed van de edelman, maten uit Daans proef (17 nov, GEZIEN: werkt)
         # 30 procent hoger dan nr 7 en getailleerd; zijde (glans), zodat het fakkellicht er een lange streep op legt
         iv = g.mat("edelivoor", "f3ead6", rough=0.3, spec=0.6)
-        goud = g.mat("edelgoud", "goud", rough=0.22, spec=0.9, metaal=0.9)
+        # band feller (Daan 17 nov 02:45, kan): minder metaal en lichter goud, metaal werd in de schaduwkant bruin
+        goud = g.mat("edelgoud", "ffc83c", rough=0.3, spec=0.8, metaal=0.55, emis=0.12)
         _kegel(ouder, (0, 0, 0.036), 0.55, 0.55, 0.028, iv)           # brede rand (opgekrulde flapjes lazen als handvatten)
         # onderste helft van de rand donkerder (Daan 17 nov 01:30): schaduwlijn, zodat hij op 1x een hoge hoed blijft, geen wit blokje
         _kegel(ouder, (0, 0, 0.011), 0.548, 0.552, 0.022, g.mat("edelrandonder", "7a6e60", rough=0.5, spec=0.3))
@@ -212,7 +213,8 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
         _kegel(ouder, (0, 0, 0.27), 0.31, 0.29, 0.43, iv)
         _kegel(ouder, (0, 0, 0.69), 0.29, 0.34, 0.43, iv)
         _kegel(ouder, (0, 0, 0.905), 0.34, 0.33, 0.012, g.mat("edeltop", "fbf5e8", rough=0.25, spec=0.7))
-        _kegel(ouder, (0, 0, 0.15), 0.322, 0.317, 0.18, goud)         # brede band: nooit verwarren met de koksmuts
+        # band breder, 0,18 naar 0,25 (Daan 17 nov 02:45, kan): op 1x naast de koksmuts moet "hoge hoed met goud" winnen
+        _kegel(ouder, (0, 0, 0.18), 0.322, 0.314, 0.25, goud)
         _kegel(ouder, (0, 0, 0.065), 0.323, 0.323, 0.02, g.mat("edelbies", "8a5a1a", rough=0.4, metaal=0.6))
         _bol(ouder, (0.0, -0.33, 0.15), (0.09, 0.05, 0.09), g.mat("edelroos", "8e2a4a", rough=0.6), segs=20)
         _bol(ouder, (0.0, -0.37, 0.15), (0.035, 0.02, 0.035), goud, segs=12)
