@@ -777,3 +777,6 @@
 - Edelman (kan Daan 03:50): **besluit** buiging 20 graden plus kop 8 graden terug omhoog. Waarom: bij 20 graden alleen zag je haar en voorhoofd, met de kop terug kijkt hij je aan onder de buiging. Huid eigen en matter, haar donkerder, ogen open in na_u2. GEZIEN groot en op spelmaat naast de oude: ogen staan er nu in.
 - Rolsteen proef 4: **besluit** losse breuk eruit, groef stopt bij de schilfer. Waarom: elke breuk midden op de steen geeft twee einden, en een eind op de rand gaf de pixel buiten de steen. GEZIEN groot en op spelmaat.
 - Volgende run: Tij op 64 kleuren (Daan liet de kleuren bij mij), niet-ronde schermen voor Tij, stand "alleen en zenuwachtig" van de edelman.
+
+## 17 nov ±04:37 tot 05:20 UTC
+- Tij op 64 en 8 kleuren: **besluit** per thema gedempt boven en hetzelfde nachtblauw 000055 onder, zeil altijd wit, waterlijn als vaste lichte themakleur, op 8 kleuren één zee cyaan en blauw. Waarom: zo is elk thema nog herkenbaar aan de bovenkant, zonder neon of bloedrood, en de reeks oogt als één familie. Drie varianten per thema naast elkaar GEZIEN (Dusk A, Kelp A, Tide A, Night B gekozen). Blad `ontwerp/garmin/tij/mila-tij-kleuren-64-8.png` door kleuren te vervangen in de echte opnames van run 44015762562. Waarden bij Gijs, bericht Daan.
