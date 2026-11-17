@@ -796,6 +796,30 @@ func _init() -> void:
 				b_ok = b_ok and is_equal_approx(float(b3d[k][2]), float(int(bp[k][2]) + 1 + g3.HOED_ONDER[int(bp[k][0])]))
 			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg, 1 spelpixel verder van Gloop (%d)" % b3d.size())
 			ok(b3d.size() > 0 and is_equal_approx(float(b3d[0][2]), 0.0), "3D-berg: onderste rij staat op de vloer")
+			# Waar nachthoeden landen (Sanne 17 nov 07:00): oude toren tot de landing, dan springt de onderste in 0,3 s naar
+			# de top van de berg, en daar ligt hij daarna (bovenste plek = nieuwste)
+			var voor_n3: Array = g3.hoeden.duplicate()
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			var oude_onder: int = g3.hoeden[4]
+			g3.krijg_hoed_later(9)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			ok(g3.nacht_valt() and g3.hoeden.size() == 9 and g3.berg_tel() == 8, "nachtland: tijdens de val telt de berg nog de oude 8 (%d)" % g3.berg_tel())
+			ok(g3.toren_3d(g3.hoeden.slice(4, 8), true).size() == 4 and g3.hoeden_op_hoofd().size() == 4, "nachtland: oude toren 4, geen vijfde plek")
+			ok(not g3.berg_boog()[0], "nachtland: nog geen boog voor de landing")
+			g3.stap(g3.VAL_S + g3.SPRING_S * 0.5 - 0.01)
+			var bb3: Array = g3.berg_boog()
+			var top3: Array = g3.berg_3d(9)[-1]
+			var voet3: Array = g3.toren_3d()[0]
+			ok(not g3.nacht_valt() and bb3[0] and int(bb3[1]) == oude_onder and g3.berg_tel() == 8, "nachtland: na de landing vliegt de oude onderste (%s) in een boog, berg wacht (%s)" % [str(bb3), str(g3.berg_tel())])
+			ok(float(bb3[2]) < float(voet3[1]) and float(bb3[2]) > float(top3[1]) and float(bb3[3]) < minf(float(voet3[2]), float(top3[2])), "nachtland: halverwege tussen toren en berg en hoger dan beide (%s, %s, %s)" % [str(bb3), str(voet3), str(top3)])
+			g3.stap(g3.SPRING_S * 0.5 + 0.02)
+			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and int(g3.berg_3d()[-1][0]) == oude_onder, "nachtland: na 0,3 s ligt hij bovenop de berg")
+			ok(g3.hoeden_op_hoofd() == [5, 6, 7, 9], "nachtland: op de toren de laatste 4 (%s)" % str(g3.hoeden_op_hoofd()))
+			g3.hoeden = voor_n3
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoed_valt = false
 			g3.met_3d = false
 			ok(g3.berg_3d().is_empty(), "3D-berg: zonder met_3d leeg (dan pixels)")
 			g3.met_3d = true
@@ -1219,6 +1243,23 @@ func _init() -> void:
 	gn.free()
 	gn_ref.free()
 	g0.free()
+	# Berg groeit ook binnen een maat (Sanne 17 nov 07:00): recht evenredig naar het aantal van de volgende maat
+	var gz = Node2D.new()
+	gz.set_script(load("res://systemen/slijm.gd"))
+	var zz := []
+	for tz in [0, 4, 5, 24, 25, 44, 70, 99, 100, 299, 300, 1000, 2999, 3000, 9000]:
+		zz.append(gz.berg_zichtbaar(tz))
+	ok(zz == [0, 0, 1, 5, 6, 7, 8, 9, 10, 14, 15, 21, 32, 33, 33], "berg binnen een maat: 44 -> 7, 70 -> 8, grenzen gelijk (%s)" % str(zz))
+	for i in 70:
+		gz.krijg_hoed(i % 10)
+	var bz: Array = gz.berg()
+	ok(bz.size() == 8 and int(bz[-1][0]) == gz.hoeden[gz.hoeden_op_berg() - 1] and int(bz[0][0]) == gz.hoeden[0], "berg: bovenop de nieuwste, onderaan de oudste (%d)" % bz.size())
+	var hoogste := 0
+	for k in bz.size():
+		if int(bz[k][2]) < int(bz[hoogste][2]):
+			hoogste = k
+	ok(int(bz[-1][2]) == int(bz[hoogste][2]), "berg: het laatst gelegde plekje is het hoogste")
+	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")
 	ok(PR.hoogte_voor_dpi(96) == 120 and PR.hoogte_voor_dpi(110) == 120, "schaal 100% en 115%: 120 px")

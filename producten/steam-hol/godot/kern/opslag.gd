@@ -145,6 +145,8 @@ static func laad(s, begin) -> void:
 			if s.slijm.has_method("start_nacht") and hn[0] > 0:
 				s.slijm.start_nacht()
 				s.log_regel("HOL hoeden van de nacht %d (vallen vanaf %.1f s, toren nu %d)" % [hn[0], s.slijm.NACHT_WACHT_S, s.slijm.hoeden.size()])
+				if s.slijm.has_method("berg_zichtbaar"):   # Iris' keurregel (Sanne 17 nov 07:00): groeit de berg zichtbaar?
+					s.log_regel("HOL berg zichtbaar %d -> %d" % [s.slijm.berg_zichtbaar(s.slijm.hoeden.size()), s.slijm.berg_zichtbaar(s.slijm.hoeden.size() + s.slijm.nacht_hoeden.size())])
 		var helden_d := {}
 		for h in s.terugkomers:
 			helden_d[String(h.naam)] = {"gevlucht": int(h.bezoeken), "wrok": String(h.get("wrok", ""))}

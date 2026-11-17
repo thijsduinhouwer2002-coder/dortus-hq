@@ -288,6 +288,9 @@ jobs:
             # Hoeden van de nacht (Sanne 17 nov, features.md; bouw Bram): de hoeden vallen na het openen een voor een op de toren
             $hn = [regex]::Match($a, "HOL hoeden van de nacht (\d+) ")
             if ($hd.Success -and [int]$hd.Groups[1].Value -gt 0 -and (-not $hn.Success -or $hn.Groups[1].Value -ne $hd.Groups[1].Value)) { Write-Output "FOUT: 'hoeden van de nacht' ontbreekt of telt anders dan de weg-regel"; $fout++ }
+            $bz = [regex]::Match($a, "HOL berg zichtbaar (\d+) -> (\d+)")
+            if ($hd.Success -and [int]$hd.Groups[1].Value -gt 0 -and -not $bz.Success) { Write-Output "FOUT: regel 'HOL berg zichtbaar a -> b' ontbreekt"; $fout++ }
+            if ($bz.Success) { Write-Output "berg zichtbaar $($bz.Groups[1].Value) -> $($bz.Groups[2].Value)" }
           }
           $gv0 = [regex]::Match($voor, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$"); $gn = [regex]::Match($na, "gangen=(\d+ vallen=\S+ boven=\S+) upgrades=(.*)$")
           if (-not ($gv0.Success -and $gn.Success) -or $gv0.Groups[1].Value -ne $gn.Groups[1].Value -or $gv0.Groups[2].Value -ne $gn.Groups[2].Value) { Write-Output "FOUT: gangen, vallen, kamers of upgrades veranderd"; $fout++ }

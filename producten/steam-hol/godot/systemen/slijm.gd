@@ -122,6 +122,11 @@ var vorige_val_van := -99.0   # vlucht-start van de vorige nachthoed: die wiebel
 var vorige_idx := -1          # zijn plek in hoeden
 var blij_van := -10.0         # landing van de laatste nachthoed: dan pas blij (alleen als blij_nacht)
 var blij_nacht := false       # blij komt van een nachthoed (anders, zoals altijd, na de hap)
+# Waar ze landen na dag 1 (Sanne 17 nov 07:00, features.md): de toren blijft 4 hoog; tot de landing staan de oude 4 er,
+# de vallende hoed los erboven; bij de landing knijpt de onderste eruit en springt in een boog van 0,3 s op de berg.
+const SPRING_S := 0.3          # boog van toren naar berg
+var val_voor := -1            # zoveel hoeden stonden er voor de laatste val (de oude toren is de bovenste 4 daarvan)
+var nacht_ev: Array = []      # per val [landing t, aantal erbij, springt er een uit de toren]; voor berg_tel() en de boog
 var leven := ""            # "", "slapen" of "spugen"
 var leven_van := -10.0
 var gespuugd := 0           # laarzen uitgespuugd; hij spuugt alleen als hij meer helden at dan laarzen spuugde
@@ -380,6 +385,8 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 		hoeden.append_array(nacht_hoeden)
 		nacht_hoeden.clear()
 		nacht_van = -1.0
+	val_voor = -1
+	nacht_ev.clear()
 	if hoed >= 0:
 		hoeden.append(hoed % HOED_SOORTEN)
 		hoed_vlucht_van = t
@@ -435,9 +442,15 @@ func _nacht_stap() -> void:
 	if hoed_valt and hoed_vliegt():
 		vorige_val_van = hoed_vlucht_van
 		vorige_idx = hoeden.size() - 1
+	val_voor = hoeden.size()
 	while nacht_gelegd < moet and not nacht_hoeden.is_empty():
 		hoeden.append(nacht_hoeden.pop_front())
 		nacht_gelegd += 1
+	var erbij := hoeden.size() - val_voor
+	var springt := maxi(0, hoeden.size() - OP_HOOFD) > maxi(0, val_voor - OP_HOOFD)
+	while not nacht_ev.is_empty() and t >= float(nacht_ev[0][0]) + SPRING_S:
+		nacht_ev.pop_front()
+	nacht_ev.append([t + VAL_S, erbij, springt])
 	# alleen de bovenste valt in beeld (bij de plof gaan de andere er in één keer onder)
 	hoed_vlucht_van = t - VLUCHT_VAN
 	hoed_valt = true
@@ -459,12 +472,64 @@ func hoeden_op_berg() -> int:
 	return maxi(0, hoeden.size() - OP_HOOFD)
 
 # Maat van de hoedenberg: 0 (geen berg) tot 6.
-func berg_maat() -> int:
+func berg_maat(tel := -1) -> int:
+	if tel < 0:
+		tel = hoeden.size()
 	var m := 0
 	for grens in BERG_MAAT:
-		if hoeden.size() >= grens:
+		if tel >= grens:
 			m += 1
 	return m
+
+# Hoeveel hoeden je op de berg ziet bij tel hoeden in totaal. Binnen een maat schuift het aantal mee naar dat van de
+# volgende maat (Sanne 17 nov 07:00), zodat 30 hoeden erbij ook binnen een maat te zien zijn; maat 0 en 6 vast.
+func berg_zichtbaar(tel := -1) -> int:
+	if tel < 0:
+		tel = hoeden.size()
+	var m := berg_maat(tel)
+	var z: int = int(BERG_ZICHTBAAR[m])
+	if m >= 1 and m < BERG_MAAT.size():
+		var van: int = int(BERG_MAAT[m - 1])
+		var tot: int = int(BERG_MAAT[m])
+		z += int(floor(float(int(BERG_ZICHTBAAR[m + 1]) - z) * float(tel - van) / float(tot - van)))
+	return mini(z, maxi(0, tel - OP_HOOFD))
+
+# Met hoeveel hoeden de berg nu getekend wordt: hoeden van een nachtval die nog niet geland zijn tellen niet mee,
+# en de hoed die in een boog naar de berg vliegt ook nog niet.
+func berg_tel() -> int:
+	var tel := hoeden.size()
+	for ev in nacht_ev:
+		if t < float(ev[0]):
+			tel -= int(ev[1])
+		elif bool(ev[2]) and t < float(ev[0]) + SPRING_S:
+			tel -= 1
+	return maxi(0, tel)
+
+# De nachthoed valt nog (voor de landing): dan staat de oude toren er en valt de nieuwe los erboven.
+func nacht_valt() -> bool:
+	return hoed_valt and val_voor >= 0 and not nacht_ev.is_empty() and t < float(nacht_ev[-1][0]) and not is_plat()
+
+# De boog van toren naar berg: [zichtbaar, hoed, x, nul, hoek] in Gloop-coordinaten (3D-hoeden), of [false].
+func berg_boog() -> Array:
+	if is_plat():
+		return [false]
+	for ev in nacht_ev:
+		var s := t - float(ev[0])
+		if not bool(ev[2]) or s < 0.0 or s >= SPRING_S:
+			continue
+		var t3 := toren_3d()
+		var tel := berg_tel() + 1
+		var b3 := berg_3d(tel)
+		if t3.is_empty() or b3.is_empty():
+			return [false]
+		var doel: Array = b3[-1]
+		var f := s / SPRING_S
+		var g := f * (2.0 - f)   # dezelfde boog als held naar toren: snel weg, zacht neer
+		var hoek := snappedf(-PI * (1.0 - g), PI / 8.0)
+		var vx := float(t3[0][1])
+		var vy := float(t3[0][2])
+		return [true, int(doel[0]), round(lerpf(vx, float(doel[1]), g)), round(lerpf(vy, float(doel[2]), g) - sin(f * PI) * VLUCHT_BOOG), hoek]
+	return [false]
 
 # Bijnaam bij 25 en 100 hoeden (kroniek-regels.md). naam() blijft "Gloop the Slime", want de wrok van helden hangt daaraan.
 func hoed_bijnaam() -> String:
@@ -491,6 +556,8 @@ func van_dict(d: Dictionary) -> void:
 	hoeden.clear()
 	nacht_hoeden.clear()
 	nacht_van = -1.0
+	val_voor = -1
+	nacht_ev.clear()
 	for h in d.get("hoeden", []):
 		hoeden.append(absi(int(h)) % HOED_SOORTEN)
 	gegeten = maxi(int(d.get("gegeten", 0)), hoeden.size())
@@ -736,7 +803,7 @@ func toren() -> Array:
 # De toren met de 3D-hoeden (Bram 13 nov 22:40): zelfde volgorde en scheefstand als toren(), maar elke hoed staat met
 # zijn nulpunt (midden van de onderrand) 1 spelpixel in de bovenkant van wat eronder staat, gemeten in het hoedenblad,
 # zodat een hoed nooit zweeft (Daan). [hoed, x, y van het nulpunt, bovenkant]. Leeg als het blad er niet is.
-func toren_3d() -> Array:
+func toren_3d(eigen_op: Array = [], eigen := false) -> Array:
 	var uit := []
 	if not met_3d or beeld_3d() == "":
 		return uit
@@ -746,7 +813,7 @@ func toren_3d() -> Array:
 	var hi: Dictionary = HB.held3d[HB.HOEDEN3D][1]
 	var px: float = float(hi["px"])
 	var ch: float = float(hi["cel_px"][1]) / px
-	var op := hoeden_op_hoofd()
+	var op: Array = eigen_op if eigen else hoeden_op_hoofd()
 	if is_plat():
 		for i in op.size():
 			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, 0.0, -ch])
@@ -855,9 +922,13 @@ func _vlucht_s() -> float:
 	return VAL_S if hoed_valt else VLUCHT_S
 
 # Hoedenberg links naast hem: een piramide van hoeden, groter per maat. [hoed, x, y].
-func berg() -> Array:
+# tel = met zoveel hoeden in totaal rekenen (-1 = berg_tel(): wat er nu zichtbaar geland is, zie nachthoeden).
+func berg(tel := -1) -> Array:
 	var uit := []
-	var n: int = mini(int(BERG_ZICHTBAAR[berg_maat()]), hoeden_op_berg())
+	if tel < 0:
+		tel = berg_tel()
+	var op_berg := maxi(0, tel - OP_HOOFD)
+	var n: int = berg_zichtbaar(tel)
 	if n <= 0:
 		return uit
 	var rij := 0
@@ -872,6 +943,8 @@ func berg() -> Array:
 			if k >= n:
 				break
 			var h: int = hoeden[k]   # de oudste hoeden liggen op de berg
+			if k == n - 1:
+				h = hoeden[op_berg - 1]   # bovenop ligt de nieuwste (Sanne 17 nov 07:00): de laatste die eruit sprong
 			var x := links - 6 * (in_rij - 1) + 6 * j + 3 * rij
 			uit.append([h, x, -1 - int(HOED_ONDER[h]) - 3 * rij])
 			k += 1
@@ -894,14 +967,14 @@ func _past_op_berg(onder: int) -> int:
 # dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y]. Leeg als er geen 3D-hoedenblad is (dan pixels).
 const BERG_3D_LUCHT := 1.0   # kan Daan 07:40: de 3D-hoeden zijn ronder en breder, 1 spelpixel extra lucht tot Gloops flank
 
-func berg_3d() -> Array:
+func berg_3d(tel := -1) -> Array:
 	var uit := []
 	if not met_3d or beeld_3d() == "":
 		return uit
 	HB._laad_3d()
 	if not HB.held3d.has(HB.HOEDEN3D):
 		return uit
-	for b in berg():
+	for b in berg(tel):
 		var h: int = int(b[0])
 		uit.append([h, float(b[1]) - BERG_3D_LUCHT, float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
 	return uit
@@ -943,6 +1016,28 @@ func _draw() -> void:
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)   # hoeden niet knijpen: de toren schuift mee via knijp_dy()
 		_knijp = Vector2.ONE
 	var t3 := toren_3d()
+	var valt := nacht_valt() and not t3.is_empty()
+	var idx0 := hoeden.size() - t3.size()   # index in hoeden van de onderste torenhoed
+	if valt:
+		# Waar ze landen (Sanne 17 nov 07:00): tot de landing de oude toren (geen vijfde plek), de nachthoed valt los erboven
+		var oud := hoeden.slice(maxi(0, val_voor - OP_HOOFD), val_voor)
+		var nieuw: int = hoeden[-1]
+		var doel_x := 0.0
+		var doel_nul := 0.0
+		if oud.size() < OP_HOOFD:
+			var tv := toren_3d(oud + [nieuw], true)
+			doel_x = float(tv[-1][1])
+			doel_nul = float(tv[-1][2])
+		t3 = toren_3d(oud, true)
+		idx0 = val_voor - oud.size()
+		if oud.size() >= OP_HOOFD:
+			doel_x = float(int(SCHEEF[OP_HOOFD - 1]))
+			doel_nul = float(t3[-1][3]) + HB.HOED_IN_KOP
+		var vv := hoed_vlucht(doel_x, doel_nul)
+		if vv[0]:
+			draw_set_transform(Vector2(float(vv[1]), float(vv[2])), float(vv[3]), Vector2(1.0, float(vv[4])))
+			_teken_hoed_3d(nieuw, 0.0, 0.0, false)
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if t3.is_empty():
 		for h in toren():
 			draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
@@ -950,20 +1045,25 @@ func _draw() -> void:
 		for i in t3.size():
 			var h3: Array = t3[i]
 			var boven := i == t3.size() - 1
-			if boven and hoed_vliegt():
+			if boven and hoed_vliegt() and not valt:
 				var v := hoed_vlucht(float(h3[1]), float(h3[2]))   # de nieuwe hoed vliegt erop (leven in het spel, punt 2)
 				if v[0]:
 					draw_set_transform(Vector2(float(v[1]), float(v[2])), float(v[3]), Vector2(1.0, float(v[4])))
 					_teken_hoed_3d(int(h3[0]), 0.0, 0.0, not is_plat())
 					draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				continue
-			var vw := vorige_wiebel(hoeden.size() - t3.size() + i) if hoed_valt else 0.0
+			var vw := vorige_wiebel(idx0 + i) if hoed_valt else 0.0
 			if vw != 0.0:
 				draw_set_transform(Vector2(float(h3[1]), float(h3[2])), vw, Vector2.ONE)   # vorige nachthoed wiebelt uit (Daan)
 				_teken_hoed_3d(int(h3[0]), 0.0, 0.0, false)
 				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				continue
 			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), boven and not is_plat())   # bovenste hoed met hap
+		var bb := berg_boog()
+		if bb[0]:
+			draw_set_transform(Vector2(float(bb[2]), float(bb[3])), float(bb[4]), Vector2.ONE)   # knijp: onderste hoed springt naar de berg
+			_teken_hoed_3d(int(bb[1]), 0.0, 0.0, false)
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if ster_aan(b3):
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
