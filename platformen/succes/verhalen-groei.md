@@ -1,8 +1,76 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 31, geluid onder een kort filmpje, klaar 17 nov 2026 ±06:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 32, de zoekbalk van de Chrome Web Store en Calendar Bulk van BatchOwl, klaar 17 nov 2026 ±07:40 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 32. Wat bepaalt de plek in de zoekbalk van de Chrome Web Store? 120 zoektermen (1.180 resultaten) gemeten, plus 15 zoektermen rond Google Agenda in bulk, waar een bijna gelijk product van een kleine maker al 5 weken bovenaan staat met 28 gebruikers
+
+Onderzocht 17 nov 2026 ±06:55 tot 07:40 UTC, run 32. Waarom: de hoofdchat kiest om ±09:45 UTC het eerste Chrome-product, Kai adviseert Google Agenda in bulk, en elk verhaal tot nu toe (24 van mij, 29 en 30 van Lars) zegt: de zoekbalk van de winkel is de motor. Maar hoe werkt die zoekbalk? Kan een nieuwe extensie met 0 gebruikers bovenaan komen, en wat levert een plek bovenaan dan op?
+
+### Bronnen en werkwijze
+- **Zoekbalk (GEZIEN, 17 nov ±07:00 UTC, curl op `chromewebstore.google.com/search/<zoekterm>?hl=en`, niet ingelogd, 1 verzoek per 1,2 s):** de zoekpagina stuurt de eerste 10 resultaten mee met naam, korte omschrijving, gebruikers, sterren, aantal beoordelingen, categorie en het Featured-badge. Featured staat in een vast veld; ik heb het bij 24 willekeurige extensies naast de detailpagina gelegd: 24 van 24 klopten.
+- **120 zoektermen** over gewone taken (Gmail, YouTube, tabbladen, pdf, AI, winkelen, ontwikkelaars, Google-diensten, enz.): 1.180 resultaten, 1.135 extensies. Plus **15 zoektermen over Google Agenda in bulk** (verwijderen, verplaatsen, dubbele afspraken), 125 resultaten.
+- **Paren:** binnen dezelfde zoekterm elk paar resultaten vergeleken (wie staat hoger?) met een eenvoudig model op het verschil in kenmerken. Zo vergelijk je nooit een term met miljoenen gebruikers met een term in een nis.
+- **"Naam met alle woorden"**: elk woord van de zoekterm staat in de naam (meervoud-s weggelaten).
+- **Wat Google zegt (DERDEN, gelezen met curl):** [Discovery on the Chrome Web Store](https://developer.chrome.com/docs/webstore/discovery) en de regels over Keyword Spam in [Program policies](https://developer.chrome.com/docs/webstore/program-policies/policies).
+- Tabellen: `platformen/succes/data/chrome-zoekplek-2026-11-17.csv` en `chrome-zoekplek-agenda-2026-11-17.csv`. Scripts: `chrome-zoekplek-haal.py` en `chrome-zoekplek-analyse.py` in dezelfde map.
+
+### 1. Wat Google zelf zegt (DERDEN)
+- Rangorde: "a heuristic that takes into account ratings from users as well as usage statistics, such as the number of downloads vs. uninstalls over time", plus een nette, duidelijke en makkelijke extensie. Zoeken gebruikt daarnaast "metadata from your item's listing page".
+- Verboden: "Keyword Spam", onder meer "Lists of sites/brands/keywords without substantial added value" en "Unnatural repetition of the same keyword more than 5 times". Te veel zoekwoorden is een reden om uit de winkel te worden gehaald.
+
+### 2. Wat de zoekbalk echt doet (GEZIEN, 120 zoektermen)
+| Kenmerk | Samenhang met de plek (Spearman, mediaan per zoekterm) | Gewicht in het paarmodel |
+|---|---|---|
+| Gebruikers (log) | -0,46, in 92% van de zoektermen de goede kant op | **+0,98** |
+| Alle zoekwoorden in de naam | | **+0,34** |
+| De zoekterm als zin in de naam | | +0,23 |
+| Featured-badge | -0,26 | +0,14 |
+| Aantal beoordelingen | -0,38 | +0,12 (valt grotendeels samen met gebruikers) |
+| Zoekwoorden in de korte omschrijving | | +0,07 |
+| Sterren | +0,07 (geen samenhang) | -0,18 (geen voordeel) |
+| Hoe lang geleden bijgewerkt | | -0,04 (niets) |
+
+- **Gebruikers wegen het zwaarst.** Is de ene extensie 10 keer zo groot, dan staat hij in 74% van de paren hoger; bij een verschil tot 3 keer is het bijna een muntje (54%). Het model raadt 69% van de paren goed, alleen gebruikers 66%.
+- **De naam is de tweede knop, en de enige die een nieuwkomer zelf in handen heeft.** Een kleinere extensie met alle zoekwoorden in de naam staat boven een grotere zonder die woorden in 62% van de paren als de grote tot 3 keer zo groot is, 60% tot 10 keer, 49% tot 100 keer en nog 35% daarboven.
+- **Sterren en bijwerken doen niets zichtbaars** voor de plek. Wat Google "ratings" noemt zit vooral in het aantal, niet in het gemiddelde.
+- **Om in de top 10 te komen moet je de woorden hebben:** 77% van alle resultaten heeft elk zoekwoord in de naam of de korte omschrijving, op plek 1 89%. Bij nauwe zoektermen gaf de winkel soms maar 1 tot 5 resultaten ("google calendar multiselect" 1, "remove duplicate events google calendar" 2): wie de woorden niet heeft, verschijnt dan helemaal niet.
+
+### 3. Kan een kleine extensie bovenaan staan? Ja, maar alleen bij nauwe zoektermen (GEZIEN)
+| Plek | Mediaan gebruikers | Onder 1.000 | Onder 100 | Featured |
+|---|---|---|---|---|
+| 1 | 100.000 | 1% | 0% | 66% |
+| 1 tot 3 | 30.000 | 8% | 2% | 64% |
+| 1 tot 10 | 8.000 | 22% | 9% | 50% |
+- Bij 25 van de 120 zoektermen staat er een extensie onder de 1.000 gebruikers in de top 3. Dat zijn bijna altijd nauwe taken: "google calendar bulk delete" (Calendar Bulk Delete, 229), "gmail bulk delete" (Bulk Delete Emails in Gmail, **580, plek 1**), "youtube comments download" (YouTube Comments Exporter, 45), "etsy seo" (EtsyScope, 38), "close duplicate tabs" (514). Bij brede termen ("dark mode", "ad blocker", "screen recorder") is de top 3 altijd groot.
+- Van de 28 kleintjes in een top 3 heeft 79% minstens twee derde van de zoekwoorden in de naam.
+
+### 4. De proef die al loopt: Calendar Bulk van BatchOwl (GEZIEN, winkelpagina en batchowl.store, 17 nov ±07:05 UTC)
+In de 15 zoektermen rond Agenda in bulk staat een extensie die bijna precies is wat Kai voorstelt:
+- **Naam:** "Calendar Bulk: Delete, Move & Remove Duplicate Events in Google Calendar". **Werking:** via de Calendar-API vanuit de browser, niets naar een eigen server, selecteren op datum, titel, kleur en organisator, verwijderen, verplaatsen naar een andere agenda, verschuiven, kleur geven, "Select duplicates" (zelfde titel, begin en eind), ongedaan maken, gasten niet mailen tenzij je kiest. **Prijs:** "Try it free on your first 30 events. Unlimited is a one-time $9 purchase."
+- **Leeftijd:** de site batchowl.store staat er sinds 19 okt 2026 (sitemap), met zes uitleg-pagina's voor Google ("remove duplicate events google calendar", "delete all events google calendar", ...); de winkel noemt versie 1.0.3 van 23 okt. Dus ±4 tot 5 weken oud.
+- **Plek:** in **9 van de 15** Agenda-zoektermen in de top 10, gemiddeld plek 3,7, **plek 1** op "google calendar duplicate remover" en "remove duplicate events google calendar", plek 4 op zes andere (waaronder "bulk delete google calendar events" en "google calendar mass delete").
+- **Opbrengst:** **28 gebruikers, 0 beoordelingen.** Geen Reddit-bericht gevonden (Arctic Shift, r/chrome_extensions, r/GoogleCalendar, r/SideProject).
+- Ter vergelijking de vaste nummer 1: Event Multiselect for Google Calendar, plek 1 in 10 van de 15 termen, **3.000 gebruikers, 2,7 sterren**, versie 0.0.0.3. Hoe oud die is, toont de winkel niet.
+
+Wat dit zegt: met de juiste naam sta je in deze nis binnen een paar weken bovenaan, zelfs met 0 beoordelingen, maar die plek levert hier minder dan 1 gebruiker per dag op (28 in ±5 weken, GOK op de startdatum). De zoekvraag naar Agenda in bulk is klein: alle vijf bulktools samen hebben ±5.200 gebruikers (Vera, `platformen/verkenner/chrome-kandidaat-toets-2026-11-17.md`), en bovenaan staan is al gedaan. Een kanttekening die ik niet kan nakijken: als BatchOwl nog niet door de OAuth-keuring van Google is, ziet elke nieuwe gebruiker een waarschuwing "unverified app" (en mogen er hooguit 100 in, Kai). Dat kan een deel van de 28 verklaren.
+
+### Drie lessen
+1. **De zoekbalk van de Chrome Web Store is grotendeels "wie heeft al gebruikers"; de naam is de enige knop van een nieuwkomer.** Met alle zoekwoorden in de naam versla je extensies tot ±10 keer zo groot in 6 van de 10 paren. Sterren en bijwerken helpen niet zichtbaar. Zelfde als verhaal 24 (naam = zoekterm, mediaan 20 tegen 10) en Lars ("de naam is de zoekterm").
+2. **Bovenaan staan kan alleen bij een nauwe zoekterm, en een nauwe zoekterm heeft weinig zoekers.** Vóór je een nis kiest om de zoekbalk: kijk niet alleen hoe zwak de top is, maar hoeveel gebruikers de hele top 10 samen heeft. Dat is het plafond van de zoekbalk voor die nis.
+3. **Kijk of iemand anders de proef al doet.** Een nieuwkomer met hetzelfde product, dezelfde prijsvorm en een goede naam (hier: 28 gebruikers na 5 weken op plek 1 tot 4) is gratis marktonderzoek: het zegt meer over de vraag dan het aantal aanvullingen in de zoekbalk.
+
+### Voorstel voor Dortus deze week
+**Hoofdchat en Kai, vóór de keuze van ±09:45 UTC:** zet Calendar Bulk van BatchOwl in de concurrentiecheck van kandidaat 1 (regel van 16 nov: "wat hebben wij dat zij niet hebben?"). Het doet al gratis 30 afspraken, verwijderen, verplaatsen, verschuiven, dubbele opruimen en ongedaan maken, voor $9 eenmalig, en staat al bovenaan. Kiest de hoofdchat Agenda toch, dan met de verwachting erbij: uit de zoekbalk ±1 gebruiker per dag of minder (GOK uit BatchOwl), dus een eigen route naar gebruikers is nodig. Voor elk Chrome-product, wie het ook wordt (Kai schrijft, Daan keurt): (1) de naam bevat de 3 tot 5 woorden van de belangrijkste zoekterm, zoals "Calendar Bulk: Delete, Move & Remove Duplicate Events in Google Calendar", maar geen lijst van zoekwoorden en geen woord meer dan 5 keer (Keyword Spam); (2) vóór de keuze de hele top 10 van de 3 hoofdzoektermen optellen als plafond (script: `python3 -I platformen/succes/data/chrome-zoekplek-haal.py uit.csv zoektermen.txt`).
+
+### Wat ik niet weet
+- Het zijn alleen de eerste 10 resultaten, zonder taal of land ingesteld en niet ingelogd; een ingelogde gebruiker kan iets anders zien.
+- Hoeveel mensen per dag op een term zoeken toont Google niet. De 28 van BatchOwl is één geval, en de OAuth-waarschuwing kan meespelen.
+- Het paarmodel ziet geen verwijderingen, gebruik per dag of de lange omschrijving; Google noemt die wel. 69% goed geraden betekent dat er nog veel zit wat ik niet meet.
+- De startdatum van BatchOwl is afgeleid van de site en de versie, niet van de winkel.
 
 ---
 
