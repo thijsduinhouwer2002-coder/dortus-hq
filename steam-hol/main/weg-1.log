@@ -1,30 +1,30 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1194, hoeden 81
-HOL hol-niveau 2 (faam 159, t 0.0)
-HOL hol-niveau 3 (faam 159, t 0.0)
-HOL hol-niveau 4 (faam 159, t 0.0)
-HOL hol-niveau 5 (faam 159, t 0.0)
-HOL hol-niveau 6 (faam 159, t 0.0)
-HOL hol-niveau 7 (faam 159, t 0.0)
-HOL hol-niveau 8 (faam 159, t 0.0)
-HOL hol-niveau 9 (faam 159, t 0.0)
-HOL hol-niveau 10 (faam 159, t 0.0)
-HOL hol-niveau 11 (faam 159, t 0.0)
-HOL hol-niveau 12 (faam 159, t 0.0)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 81 new hats.
+HOL weg geweest 28802 s (klok terug: false): goud voor 20, helden 240, erbij 1236, hoeden 96
+HOL hol-niveau 2 (faam 166, t 0.0)
+HOL hol-niveau 3 (faam 166, t 0.0)
+HOL hol-niveau 4 (faam 166, t 0.0)
+HOL hol-niveau 5 (faam 166, t 0.0)
+HOL hol-niveau 6 (faam 166, t 0.0)
+HOL hol-niveau 7 (faam 166, t 0.0)
+HOL hol-niveau 8 (faam 166, t 0.0)
+HOL hol-niveau 9 (faam 166, t 0.0)
+HOL hol-niveau 10 (faam 166, t 0.0)
+HOL hol-niveau 11 (faam 166, t 0.0)
+HOL hol-niveau 12 (faam 166, t 0.0)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 96 new hats.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1214 goud, faam 159
+HOL opslag geladen: 0 terugkomers, 1256 goud, faam 166
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794873489
-HOL eerste koop mogelijk na 15 s speeltijd (goud 1214)
+HOL zaad 1794874345
+HOL eerste koop mogelijk na 15 s speeltijd (goud 1256)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 240 came, 159 fell, 81 hats. +1194 gold.
-HOL begin: vluchten (Joost)
-HOL held binnen: Joost
+HOL kroniek 2.5 (wacht 2.5): 240 came, 166 fell, 96 hats. +1236 gold.
+HOL begin: vluchten (Odo)
+HOL held binnen: Odo
 HOL zicht 4.1 1
-HOL kroniek 5.1 (wacht 5.1): Grew 4 levels while you were away.
-HOL kroniek vervallen 7.1: Joost has a map. It is wrong.
-HOL kroniek 7.7 (wacht 7.7): 7 more to come as you play.
+HOL kroniek 5.0 (wacht 5.0): Grew 4 levels while you were away.
+HOL kroniek vervallen 7.1: Odo is here for your gold.
+HOL kroniek 7.6 (wacht 7.6): 7 more to come as you play.
 HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=1214, terugkomers=0
+HOL einde na 15 s, fps=10, goud=1256, terugkomers=0

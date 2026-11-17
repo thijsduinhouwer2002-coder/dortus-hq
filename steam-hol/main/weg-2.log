@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 1214, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 1214 goud, faam 159
+HOL weg geweest 0 s (klok terug: true): goud voor 1256, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 1256 goud, faam 166
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794873505
-HOL eerste koop mogelijk na 30 s speeltijd (goud 1214)
+HOL zaad 1794874361
+HOL eerste koop mogelijk na 30 s speeltijd (goud 1256)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Kees says this is a quick one.
-HOL begin: doorlopen (Kees)
-HOL held binnen: Kees
-HOL zicht 4.1 1
-HOL einde na 8 s, fps=10, goud=1214, terugkomers=0
+HOL kroniek 4.1 (wacht 0.0): Gerda has a map. It is wrong.
+HOL begin: doorlopen (Gerda)
+HOL held binnen: Gerda
+HOL zicht 4.2 1
+HOL einde na 8 s, fps=10, goud=1256, terugkomers=0
