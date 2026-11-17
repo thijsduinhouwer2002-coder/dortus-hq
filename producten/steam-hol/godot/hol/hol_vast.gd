@@ -79,8 +79,9 @@ func _sleutel() -> String:
 	v.sort()
 	var o: Array = h.put_open.keys()
 	o.sort()
-	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
-		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX)]
+	var bm: int = berg_n(h)   # spinrag niet boven de berg (berg_links)
+	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
+		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX), bm]
 
 # hol.gd roept dit aan het begin van elke _draw aan; kost alleen het maken van de sleutel
 func ververs() -> void:
@@ -216,7 +217,10 @@ func teken(d: CanvasItem) -> void:
 			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[c], Vector2(k * KOL + midden, vloer + 1), false)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(c * KOL, 0, KOL, KOL))
 		elif hh < 36 and not h.boven[k]:
-			if gang_3d and k * KOL + KOL > spin_grens(h) and HOL3D.deco_maat("spinrag") != Vector2.ZERO:
+			var web_maar: bool = gang_3d and k * KOL + KOL > spin_grens(h)
+			if _spin_rechts(Vector2(k * KOL + midden, GANG_BOVEN), web_maar, gang_3d) > berg_links(h):
+				pass   # niet boven de hoedenberg (Daan 17 nov 10:50), zie berg_links()
+			elif gang_3d and k * KOL + KOL > spin_grens(h) and HOL3D.deco_maat("spinrag") != Vector2.ZERO:
 				_teken_hangend(d, "spinrag", Vector2(k * KOL + midden, GANG_BOVEN))   # bij de berg: web wel, spin niet
 			elif not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
@@ -449,6 +453,56 @@ static func spin_grens(hh) -> float:
 			sch = float(p)
 	var V = load("res://systemen/vleermuis.gd")
 	return V.berg_grens((hh.schat_kol - 2) * KOL + KOL / 2.0, true, sch)
+# Geen spinrag boven de hoedenberg (Daan 17 nov 10:50, kan: "spinrag achter de berg tekenen, nu hangt het op 120 boven
+# op een hoed"). De berg staat al vóór het vaste beeld, maar een web dat net boven de bovenste hoed hangt leest als
+# een web óp die hoed. Grens: de linkerkant van het meest linkse plekje van de berg zoals hij er na alle hoeden staat
+# (slijm.gd berg_zichtbaar() telt ook de hoeden die deze nacht nog vallen, dus het web is al weg vóór de eerste
+# landing en komt niet terug: de berg wordt nooit kleiner), groot lijf (-14), min de lucht van de berg. Rechts daarvan
+# geen spinrag, links ervan blijft alles zoals het was. Zonder Gloop (toetsen): de volle berg die past (berg_max), en
+# is die nog niet berekend, de volle berg van de vleermuis (spin_grens). Het aantal zit in _sleutel(), dus groeit de
+# berg een plekje naar links, dan tekent het vaste beeld één keer opnieuw.
+static func berg_n(hh) -> int:
+	if hh is Node and hh.get_parent() != null:
+		var sl = hh.get_parent().get("slijm")
+		if sl is Node2D and is_instance_valid(sl) and sl.has_method("berg_zichtbaar"):
+			return sl.berg_zichtbaar()
+	return load("res://systemen/slijm.gd").berg_max
+
+static func berg_links(hh) -> float:
+	var S = load("res://systemen/slijm.gd")
+	var n := berg_n(hh)
+	if n <= 0:
+		return INF   # geen berg: spinrag overal waar het mag
+	if n >= (1 << 29):
+		return spin_grens(hh)
+	var gx: float = (hh.schat_kol - 2) * KOL + KOL / 2.0
+	var sch := 1.0
+	if hh is Node and hh.get_parent() != null:
+		var p = hh.get_parent()
+		var sl = p.get("slijm")
+		if sl is Node2D and is_instance_valid(sl):
+			gx = sl.position.x
+			sch = maxf(0.001, absf(sl.scale.x))
+		elif p.get("proef_figuur") != null:
+			sch = float(p.get("proef_figuur"))
+	var rp: Vector2i = S.plek_rij_pos(n - 1)
+	var x: float = -14.0 - 6.0 * float(rp.x + rp.y) - S.BERG_3D_LUCHT - S.BERG_HALF
+	return gx + x * sch - S.BERG_GRENS_LUCHT
+
+# Rechterrand van een spinrag dat aan `punt` hangt, in hol-pixels: alleen het web (SPIN_SCHAAL, de eerste 56 bladpixels),
+# het hele 3D-stuk, of het pixelding (één tegel).
+static func _spin_rechts(punt: Vector2, alleen_web: bool, met_3d: bool) -> float:
+	var m := HOL3D.deco_maat("spinrag")
+	if not met_3d or m == Vector2.ZERO:
+		return punt.x + KOL / 2.0
+	var sc := SPIN_SCHAAL if alleen_web else 1.0
+	var plek := HOL3D.deco_plek("spinrag", punt, true, sc)
+	if plek == Vector2.INF:
+		return punt.x + KOL / 2.0
+	var v: Array = HOL3D.deco["spinrag"]["vak_px"]
+	var deel: float = 56.0 / float(v[2]) if alleen_web else 1.0
+	return plek.x + m.x * sc * deel
+
 # Alleen het web uit het vak van het spinrag, in bladpixels binnen `vak_px` [x, y, b, h]: de draad staat vanaf x 57, de
 # spin rechtsonder vanaf x 44 (onder y 34) en x 49 (onder y 31). Nagemeten op kunst/3d/deco.png, vak 80 x 56.
 const SPIN_WEB := [Rect2(0, 0, 56, 31), Rect2(0, 31, 49, 3), Rect2(0, 34, 44, 12)]
@@ -473,6 +527,8 @@ func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
 	var m := HOL3D.deco_maat(naam) * sc
 	var v: Array = HOL3D.deco[naam]["vak_px"]
 	if naam == "spinrag":
+		if _spin_rechts(punt, true, true) > berg_links(h):
+			return   # niet boven de hoedenberg (Daan 17 nov 10:50), zie berg_links()
 		var f := Vector2(m.x / float(v[2]), m.y / float(v[3]))   # spelpixels per bladpixel
 		for r in SPIN_WEB:
 			var w: Rect2 = r

@@ -164,5 +164,19 @@ func _init() -> void:
 	ok(vm2.vm.size() == 0, "spel: kort hol met Gloop, geen vleermuis (%d)" % vm2.vm.size())
 	# spinrag (hol_vast.gd, Olaf 08:35): bij de berg web wel, spin niet; zelfde grens als de vleermuis (groot lijf)
 	ok(is_equal_approx(HV.spin_grens(h), V.berg_grens(28 * 16 + 8.0, true)), "spinrag-grens = vleermuis-grens bij Gloop op schat_kol - 2 (%s)" % str(HV.spin_grens(h)))
+	# spinrag niet boven de hoedenberg (Daan 17 nov 10:50): grens = linkerkant van het meest linkse plekje, groot lijf
+	var S = load("res://systemen/slijm.gd")
+	var bm_oud: int = S.berg_max
+	S.zet_berg_max(10)   # 10 plekjes = 4 schuine rijen, meest links d = 3: -14 - 18 - 3 - 5 = -40, min 2 lucht
+	var verwacht: float = 28 * 16 + 8.0 - 40.0 - 2.0
+	ok(is_equal_approx(HV.berg_links(h), verwacht), "spinrag: bergrand bij 10 plekjes %s (verwacht %s)" % [str(HV.berg_links(h)), str(verwacht)])
+	S.zet_berg_max(1)
+	ok(HV.berg_links(h) > verwacht, "spinrag: kleinere berg, grens verder rechts")
+	S.zet_berg_max(0)
+	ok(HV.berg_links(h) == INF, "spinrag: geen berg, geen grens")
+	S.zet_berg_max(1 << 30)
+	ok(is_equal_approx(HV.berg_links(h), HV.spin_grens(h)), "spinrag: grens nog niet berekend, dan de volle berg van de vleermuis")
+	ok(HV._spin_rechts(Vector2(100, 0), true, false) == 108.0, "spinrag: pixelding is een tegel breed")
+	S.zet_berg_max(bm_oud)
 	print("[hol-toets] KLAAR vleermuis fouten=%d" % fout)
 	quit(1 if fout > 0 else 0)
