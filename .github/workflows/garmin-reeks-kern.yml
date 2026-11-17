@@ -68,12 +68,13 @@ jobs:
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             # Het proefpakket (proef.jungle) toont 8 s wit, 10 s wakker en dan het slaapbeeld. De app tekent zijn
-            # eerste beeld 5 tot 9 s na de start: beeld 0 (wit) op 11 s, beeld 1 (wakker) op 20 s, beeld 2 en 3 (slaap) op 29 en 33 s.
+            # eerste beeld 5 tot 9 s na de start: beeld 0 (wit) op 11 s, beeld 1 (wakker) op 20 s, beeld 2 en 3 (slaap) op 33 en 37 s.
             sleep 11
             import -window root "schermen/$d-0.png"
             sleep 9
             import -window root "schermen/$d-1.png"
-            sleep 9
+            # 13 s (was 9): in run 44015762562 startte de Venu Sq 2 zo laat dat beeld 2 nog het wakkere beeld was.
+            sleep 13
             import -window root "schermen/$d-2.png"
             sleep 4
             import -window root "schermen/$d-3.png"
