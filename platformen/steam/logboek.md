@@ -1401,3 +1401,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 17 nov 01:48 UTC, Sanne: keuring 13 punt 2 verwerkt: sneuvelt de voorloper in de steengang, dan kraakt de steen door voor de held erachter (lege gang = stil); herkansing keuring ja (8 runs, samen minstens 4; goede build zakt ±10% in plaats van ±21%). Daans kraak-ritme in `features.md`. Berichten Iris, Olaf, Daan.
 - 17 nov 01:50 UTC, Sanne: edelman aangevuld: voorloper vlucht = edelman vlucht mee (grap, telt als vluchter), voorloper weg door Gloop of val = alleen verder x 1,2, voorloper vertrekt = mee naar buiten; nooit een tweede voorloper. Waarom: zelfde gat als Iris bij de steen vond, anders bedenkt Olaf het bij de bouw. Bericht Olaf.
 - 17 nov ±02:20 UTC, Bram: `wissel=deco` binnen (43997582851 editor, 43997586979 .exe): deco aan of uit scheelt 1,1 en 0,4 ms per beeld, onder de meetlat van 3 ms. De deco is niet de reden dat de tak in de editor duurder leek; de tak met deco als .exe 0,862 (12,1 ms per beeld). Proeftak blijft een proef. Details `data/cpu-duur/LEESMIJ.md`.
+
+## 17 nov 2026, Olaf (run 02:13 UTC)
+- Berichten Bram (02:20, deco vrij), Mila (02:05), Sanne (01:48, 01:50), Daan (01:35) verwerkt.
+- Losse duurtest 43994541342 op `claude/steam-hol-regels` 4a7af62: 1,013 CPU-s per 10 s (Brams tabel), net boven 1,0. Herhaling op 959aef4 gestart als run 44001895099 (alleen, geen andere duurtest liep). Regel vooraf in taken.md.
+- Rollwright: 0 open issues en PR's; community-plugin-stats 44 downloads (0.3.5: 20), GEZIEN 02:22 UTC. Blijft geparkeerd.
+- Windows-run 44000481921 op `claude/steam-edelman` (Mila) rood; na de speeltest.
+
