@@ -1,0 +1,1 @@
+const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();for(const taal of ['en','de','nl']){const p=await b.newPage({viewport:{width:1440,height:720},deviceScaleFactor:1});await p.goto('file://'+process.cwd()+'/hero.html?taal='+taal);await p.waitForTimeout(1800);await p.screenshot({path:'skiff-hero-'+taal+'.png'});await p.close()}await b.close()})()

@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@500;600&display=block" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}
+body{width:1440px;height:720px;overflow:hidden;background:linear-gradient(180deg,#0c2552 0%,#0a1b40 48%,#071331 100%);font-family:Inter,sans-serif;position:relative}
+.maan{position:absolute;left:870px;top:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(110,230,240,.42) 0%,rgba(63,224,232,.18) 40%,rgba(63,224,232,0) 70%)}
+.ster{position:absolute;width:3px;height:3px;border-radius:50%;background:#cdeef6;opacity:.55}
+svg.zee{position:absolute;left:0;bottom:0;width:1440px;height:300px}
+.glans{position:absolute;left:1000px;bottom:0;width:360px;height:250px;background:linear-gradient(90deg,transparent,rgba(220,250,255,.16) 30%,rgba(220,250,255,.22) 50%,rgba(220,250,255,.16) 70%,transparent);clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);mix-blend-mode:screen}
+.merk{position:absolute;left:84px;top:58px;font-family:'Big Shoulders Display';font-weight:900;font-size:176px;line-height:.9;color:#3fe0e8;letter-spacing:1px;text-shadow:0 0 60px rgba(63,224,232,.35)}
+.by{position:absolute;left:92px;top:220px;font-weight:600;font-size:38px;color:#e6f7fb;letter-spacing:.3px}
+h1{position:absolute;left:84px;top:300px;width:700px;font-family:'Big Shoulders Display';font-weight:800;font-size:78px;line-height:1.02;color:#f2fdff}
+h1 b{color:#3fe0e8;font-weight:800}
+img{position:absolute;filter:drop-shadow(0 34px 44px rgba(0,6,22,.7))}
+.f{height:700px;left:930px;top:14px}
+.v{height:430px;left:735px;top:270px}
+.boot{position:absolute;left:300px;bottom:196px}
+</style></head><body>
+<div class="maan"></div>
+<div class="ster" style="left:820px;top:60px"></div><div class="ster" style="left:760px;top:150px;opacity:.35"></div><div class="ster" style="left:640px;top:40px;opacity:.4"></div><div class="ster" style="left:1390px;top:420px;opacity:.35"></div><div class="ster" style="left:520px;top:120px;opacity:.3"></div>
+<svg class="zee" viewBox="0 0 1440 300" preserveAspectRatio="none">
+<path fill="#3fe0e8" d="M0 98 C150 62 290 126 460 98 S720 116 860 72 S1180 28 1440 46 V300 H0Z"/>
+<path fill="#1e9fc4" d="M0 146 C170 112 320 170 490 146 S740 160 880 122 S1190 84 1440 98 V300 H0Z"/>
+<path fill="#155f97" d="M0 198 C180 166 340 222 510 198 S760 208 900 178 S1200 142 1440 154 V300 H0Z"/>
+<path fill="#0b2a5c" d="M0 252 C190 226 360 274 530 252 S780 256 920 234 S1210 204 1440 212 V300 H0Z"/>
+</svg>
+<div class="glans"></div>
+<svg class="boot" width="66" height="70" viewBox="0 0 54 58"><path d="M24 4 L24 40 L46 40 Z" fill="#f2fdff"/><path d="M4 44 H50 L44 54 H10 Z" fill="#f2fdff"/><rect x="22" y="2" width="3" height="42" fill="#f2fdff"/></svg>
+<img class="v" src="../poster/zee-venu3s.png"><img class="f" src="../poster/zee-fenix847mm.png">
+<div class="merk" id="naam">Skiff</div>
+<div class="by" id="by"></div>
+<h1 id="kop"></h1>
+<script>
+const T={en:{by:"watch face by Dortus",kop:"Your <b>Body Battery</b>,<br>drawn as a small sea"},
+de:{by:"Zifferblatt von Dortus",kop:"Deine <b>Body Battery</b><br>als kleines Meer"},
+nl:{by:"wijzerplaat van Dortus",kop:"Je <b>Body Battery</b><br>als een kleine zee"}};
+const t=T[new URLSearchParams(location.search).get('taal')||'en'];
+document.getElementById('by').textContent=t.by;document.getElementById('kop').innerHTML=t.kop;
+</script>
+</body></html>
