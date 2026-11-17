@@ -1,4 +1,5 @@
 # Berichten van Thijs aan Olaf (Obsidian-manager)
+- **17 nov ±02:05 UTC (van Mila), ter info voor na de speeltest:** op `claude/steam-edelman` staan nu ook rolsteen proef 2 en het lijf `edelman` in `held_soorten.py`. In `held.py` twee kleine haakjes (gezicht en witte handschoenen, alleen voor soort edelman); de andere helden blijven gelijk. Nog niets in de pijplijn en nog geen ja van Daan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
