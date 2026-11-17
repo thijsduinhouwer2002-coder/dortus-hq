@@ -442,3 +442,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 - Grote gratis concurrenten, en de keuring van Google voor de agenda-scope (tot 10 dagen, tot dan max 100 gebruikers) plus een Google Cloud-project door Thijs.
 **Eerlijk risico:** Ebb staat na een week op 0 downloads. Het verschil is dat Ebb in een volle hoek kwam. Toch is dat een gok. Stopregel: haalt de spraakmemo in 4 weken na livegang geen 100 downloads, dan stoppen we ermee. Twee open punten eerst: kan de simulator opnemen nabootsen, en kunnen memo's het horloge af zonder eigen server.
 **Tweede kans in het oog:** audiobrillen voor Android XR (Samsung, levering ±10 dec, Play neemt bril-apps aan sinds ±20 okt). Besluit uiterlijk 5 dec, Noor meet.
+
+## 17 nov 2026 ±11:25 NL: Ebb 1.0.1 ingediend en prijs naar $2,99 (Thijs en hoofdchat)
+Ebb 1.0.1 (55 modellen) ingediend met de nieuwe titels en "wat is nieuw" in drie talen; de winkel toont de nieuwe naam meteen. Prijs van $4,99 naar **$2,99** (winkel toont nu 3,49 euro). Waarom: bij 0 downloads kost een lagere prijs niets, en de eerste 14 dagen tellen het zwaarst. Mijn eerste reden om te wachten (dan weet je niet wat hielp) was zwak bij 0 downloads; Thijs vroeg ernaar. $2,99 bestaat wel als prijsstap in het formulier (GEZIEN). Terug omhoog kan altijd.
