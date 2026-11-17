@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 15:05 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 15:10 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -12,7 +12,7 @@
 | **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 in keuring sinds 17 nov ±11:20. Live is 1.0.0, 0 downloads na een week | $2,99 (was $4,99) | keuring checken 20:00 | Gijs |
 | **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 in keuring (link naar Ebb, banner). Forumantwoord wacht op moderator | gratis | keuring checken 20:00 | Gijs |
 | **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40 | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
-| **Spraakmemo** | Garmin | onderzoek: kan de simulator opnemen, kunnen memo's zonder eigen server het horloge af | nog niet | daarna bouwen met bouwen-in-stappen. Stopregel: <100 downloads in 4 weken | Gijs |
+| **Spraakmemo** | Garmin | **twijfel**: Garmin heeft zelf spraaknotities (opnemen en terugluisteren) op o.a. fēnix 8, fēnix 9, Enduro 3 (GEZIEN 17 nov). Niet bouwen tot dit is uitgezocht | nog niet | Gijs zoekt 15:52 uit welke microfoon-horloges géén ingebouwde notitie hebben; daarna doorgaan, omdraaien of stoppen | Gijs |
 | **Click Joints** (gratis) | Blender extensies | live | gratis | alleen meldingen | Bram |
 | **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
 | **Click Joints Pro 1.1** | idem | Ruben bouwt ("Figure from rig") | idem | plan: di ±18:00 naar Daan, wo ±14:00 op Gumroad | Ruben, Daan |
