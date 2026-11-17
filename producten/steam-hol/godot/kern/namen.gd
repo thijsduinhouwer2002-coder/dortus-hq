@@ -80,13 +80,15 @@ static func vrije_naam(s) -> String:
 		vrij = zonder
 	if vrij.is_empty():
 		return _onthoud(s, NAMEN[s.rng.randi_range(0, NAMEN.size() - 1)])
-	var recent: Array = s.recente_namen.slice(-RECENT) if "recente_namen" in s else []
-	var fris: Array = vrij.filter(func(n): return not recent.has(n))
-	if not fris.is_empty():
-		vrij = fris
-	# alle vrije namen vielen al drie keer: hele telling leeg, nieuwe ronde kale namen
+	# alle vrije namen vielen al drie keer: hele telling leeg, nieuwe ronde kale namen (vóór de recent-filter, zodat een
+	# recente naam op 1 of 2 zijn II of III houdt; controleur 17 nov)
 	if vrij.all(func(n): return int(s.gevallen_namen.get(n, 0)) >= 3):
 		s.gevallen_namen.clear()
+	var recent: Array = s.recente_namen.slice(-RECENT) if "recente_namen" in s else []
+	var fris: Array = vrij.filter(func(n): return not recent.has(n))
+	# niet uit de laatste 6, tenzij er anders niets is (of alleen namen op 3, dan zou er een vierde Gerda komen)
+	if not fris.is_empty() and not fris.all(func(n): return int(s.gevallen_namen.get(n, 0)) >= 3):
+		vrij = fris
 	var laag := 99
 	for n in vrij:
 		laag = mini(laag, int(s.gevallen_namen.get(n, 0)))

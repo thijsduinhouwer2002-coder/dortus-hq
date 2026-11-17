@@ -1448,6 +1448,13 @@ func _nieuwe_held() -> bool:
 		vn_s3.terugkomers.append({"naam": n + " II"})
 	vn_s3.recente_namen = [NM.NAMEN[23]]
 	ok(NM.vrije_naam(vn_s3).begins_with(NM.NAMEN[23]), "vrije_naam: alleen een recente naam vrij, dan toch die")
+	var vn_s4 = VN_S.new()
+	for n in NM.NAMEN:
+		vn_s4.gevallen_namen[n] = 3
+	vn_s4.gevallen_namen["Kees"] = 1
+	vn_s4.recente_namen = ["Kees"]
+	ok(NM.vrije_naam(vn_s4) == "Kees II" and vn_s4.gevallen_namen.size() == 24, "vrije_naam: recente Kees op 1 houdt zijn II, geen vierde naam")
+	vn_s4.wezens.free()
 	vn_s.wezens.free()
 	vn_s2.wezens.free()
 	vn_s3.wezens.free()
