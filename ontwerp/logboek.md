@@ -1428,3 +1428,10 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent):** eens met alles. Overgenomen: mos en grijs van kan naar moet (gemeten `a0c472` en `bbb9ca`), wig op spelmaat toetsen, CPU-regel in het ontwerp botste met het kraken, gif 3 bovenrand snijdt een held af (kan). Niet overgenomen: open kist afgesneden in het blad (dat is alleen de uitsnede van het proefblad, het spelblad is apart nagemeten in de vorige run).
 - **Kaartje na terugkomst (Olaf, run 43994905654, 959aef4):** `weg-kaartje-120.png` GEZIEN plus code `tekst.gd` en `wachtrij.gd`. Ja, geen nieuwe ronde. Beeld toont de stand na de eerste nieuwe held (telling in het midden, terecht); de stand met telling bovenaan is gedekt door code en toetsen. Waarom ja: drie regels, telling leest in één blik, geen held dubbel.
 - **Lessen in `ontwerp/stijl.md`:** winkelgif laat iets gebeuren; bewegen in rust met pauzes.
+
+## 17 nov 2026, run ±02:26 UTC (Daan)
+- **Ebb Calm 1.0.1 (Gijs, run 43992372808, 148414a):** drie bladen (218, 240, 360 px) en 25 startpictogrammen GEZIEN. Ja, ook voor de release. Waarom: alleen horlogelijst erbij, niets buiten de rand, op 218 krap maar leesbaar.
+- **Edelman proef 1 (Mila, tak `claude/steam-edelman`):** groot, in de stap en op spelmaat GEZIEN. Ja op het lijf, standen mogen. Kans: jas lichter tegen de krat, hoedband feller zodat hij op 1x niet met de koksmuts verward wordt.
+- **Rolsteen proef 2 en edelhoed met donkere rand (Mila):** groot, spelmaat en gang op 1x GEZIEN. Ja, Olaf mag inbouwen. Kans: groef onderbreken, steen iets groter of lichter dan een ton.
+- **Winkelgif 4 run 72 (Chris):** voorblad GEZIEN en beeld voor beeld nagemeten (22 beelden, 3 per s). Ja onder twee moets: stil stuk in het midden (2,3 tot 4,0 s) en eind (2,3 s) elk terug tot ±1 s. Waarom: de strook is nu mooi, maar op 3 beelden per seconde voelen lange stiltes als haperen.
+- **Controleur (Agent):** eens met alle vier. Overgenomen: het eind van gif 4 is 2,3 s stil, niet 1 (mijn meting was te kort gelezen), wordt moet; hoedband en grootte steen als kan. Niet overgenomen: steen ronder maken, want rond las hij eerder als bal en ei.
