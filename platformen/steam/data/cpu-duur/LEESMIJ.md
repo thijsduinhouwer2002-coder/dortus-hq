@@ -106,3 +106,17 @@ Op het editor-paar van Olaf (GEZIEN, `hol.log` en `cpu-per-10s.txt` van `scherme
 | main c38f267 (44005445378) | 0,45 / 34 / 13,1 (n=33) | 1,31 / 95 / 13,8 (n=16) | 1,66 / 80 / 20,7 (n=69) |
 
 Lezing (GOK tot de .exe-runs): in de tak kost stil spel twee keer zoveel CPU met minder beelden; met held is het andersom. In de code van de tak tegen main (`git diff`, 10 bestanden) vind ik niets dat elk beeld draait als er niemand is: `plat_wissel` draait alleen als Gloop van stand wisselt, `een_per_held` alleen als er een regel bij komt, het kaartje tekent `vast` alleen bij hover. Tegelijk lagen bij main dezelfde soort runs eerder op 0,94 zonder held. Het kan dus runner zijn. De .exe-runs op hetzelfde zaad beslissen: tak 44008361789, daarna main c38f267 (tak `claude/steam-hol-main-c38f267`, alleen om dat punt vast te houden).
+
+## .exe van de speeltesttak (Bram, 17 nov ±03:40 UTC, Sanne poort b)
+Run **44008361789**: `claude/steam-hol-regels` 959aef4, exe=ja, zaad 1794860558, 20 min, 1920x1080, alleen gedraaid. Rood op de grens. Map `steam-hol-duur/claude-steam-hol-regels-zaad-1794860558-1920x1080-exe/` op `schermen` (GEZIEN): 118 metingen, proces leefde, 52 MB, `fout.txt` alleen de geluidskaart, eerste koop na 155 s, 105 kroniekregels waarvan 102 verschillend.
+
+| | cpu | ms per beeld | stil (geen held, vast gelijk) | geen held, vast nieuw | held in beeld |
+|---|---|---|---|---|---|
+| tak .exe 44008361789 | **1,334** | 18,6 | 0,47 / 29 beelden / 16,3 ms | 1,35 / 103 / 13,1 | 1,68 / 83 / 20,1 |
+| tak editor 44001895099 | 1,325 | 19,0 | 0,95 / 24 / 39,0 | 2,21 / 89 / 24,8 | 1,27 / 85 / 14,9 |
+| main editor 44005445378 | 1,276 | 18,4 | 0,45 / 34 / 13,1 | 1,31 / 95 / 13,8 | 1,66 / 80 / 20,7 |
+
+Lezing:
+1. **Sannes vraag (stil spel):** in de .exe kost de tak als er niemand is 0,47, `cpu bij helden=0` 0,73, gelijk aan main (0,45 en 0,73). Het patroon "zonder held duurder" van de editor-run komt niet terug. Er draait niets extra als er niemand is.
+2. **Poort (b), .exe onder 1,0:** nu niet gehaald (1,334). Maar dezelfde soort .exe gaf voor middernacht 12,1 ms per beeld (43997586979) en main als .exe 0,71 tot 0,86; nu 18,6. Alle runs sinds ±02:00, editor en .exe, tak en main, zitten op 18,4 tot 19,0 ms per beeld. GOK: de runners zijn trager geworden.
+3. Toets: main c38f267 als .exe, zelfde zaad, alleen, direct erna (gestart 03:35, tak `claude/steam-hol-main-c38f267`). Main ook ±1,3: runner, en (b) zegt op deze runners niets; voorstel (b) als paar meten (.exe tak tegen .exe main, hooguit 20% per beeld) en de 1,0 op Thijs' pc laten beslissen. Main ±0,85: de tak is echt duurder, verder zoeken.
