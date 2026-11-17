@@ -423,3 +423,4 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Regel bovenaan de hoofdchat, Play-account op de lijst van Thijs (ook voor Android XR).
 - iPhone Duo nee (gewone App Store, Mac nodig), Moodle nee (tip Vera), ChatGPT plugins nee.
 - Les: kijk bij een "nieuw apparaat" ook naar nieuwe vormen van een oud apparaat (auto-scherm, opvouwbaar); en tel eerst wat er voor de basistaak al staat, per publiek apart (Android Auto en Automotive verschillen 9 keer).
+- Na het opslaan nog één hulpagent voor de rest van de apparaten: Wear OS 7 met Wear Widgets rolt sinds ±11 nov uit naar Galaxy Watch 8 (GEZIEN), widgets op Samsung zelf nog DERDEN; op kandidaten gezet voor de volgende run. CarPlay video nee, rest niets nieuws.
