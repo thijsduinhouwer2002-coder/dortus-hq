@@ -206,15 +206,15 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         dg = context.evaluated_depsgraph_get()
         ok, fout = is_gesloten(bron, dg)  # geëvalueerd: niet toegepaste modifiers tellen mee
         if not ok:
-            self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
-                                   "2 faces). Click Make watertight first.")
+            self.report({"ERROR"}, f"Click Make watertight first: {bron.name} is not watertight ({fout} edges "
+                                   "without exactly 2 faces).")
             return {"CANCELLED"}
         u = eenheid_per_mm(context.scene)
         punt, richting, as_bron = as_en_punt(context, inst)
         terugval = inst.as_bron == "KIJK" and as_bron != "KIJK"
         if terugval:
-            self.report({"WARNING"}, "No 3D viewport found for the view direction; the axis now follows the "
-                                     "Z axis of the 3D cursor. Click Place joint in the 3D viewport.")
+            self.report({"WARNING"}, "Click Place joint in the 3D viewport: no viewport found for the view "
+                                     "direction, so the axis follows the Z axis of the 3D cursor.")
         frame = vormen.frame_voor(punt, richting)
         solver = solver_naam()
 
@@ -327,8 +327,9 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             if o is not None:
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
-        extra = " (axis along the cursor: no 3D viewport)" if terugval else ""
-        self.report({"INFO"}, f"Joint placed. {passing.fit_tekst(kleur, wand)}. {gegevens['cj_duur_s']} s{extra}.{auto_noot}")
+        # 0.1.2 (kan-punt Daan): passing en de Auto-noot vooraan, de tijd achteraan.
+        extra = " Axis along the cursor: no 3D viewport." if terugval else ""
+        self.report({"INFO"}, f"Joint placed. {passing.fit_tekst(kleur, wand)}.{auto_noot}{extra} ({gegevens['cj_duur_s']} s)")
         return {"FINISHED"}
 
 

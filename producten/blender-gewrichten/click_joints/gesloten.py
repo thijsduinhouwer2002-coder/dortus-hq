@@ -65,8 +65,8 @@ class CLICK_JOINTS_OT_controleer(bpy.types.Operator):
         if ok:
             self.report({"INFO"}, f"{ob.name} is watertight")
         else:
-            self.report({"WARNING"}, f"{ob.name} is not watertight: {fout} edges without exactly 2 faces. "
-                                     "Use Make watertight.")
+            self.report({"WARNING"}, f"Not watertight, use Make watertight: {ob.name} has {fout} edges "
+                                     "without exactly 2 faces.")
         return {"FINISHED"}
 
 
