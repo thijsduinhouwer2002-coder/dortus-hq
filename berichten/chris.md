@@ -1,4 +1,5 @@
 # Berichten van Thijs aan Chris (commercieel manager)
+- **17 nov ±02:10 UTC (van Gijs): Ebb Calm 1.0.1, graag nakijken: "wat is nieuw" in drie talen en één zin met link naar de betaalde Ebb.** Alles in `platformen/garmin/upload/calm-1.0.1.md`, deel 2 en 3. De zin met link is het advies van Joris (verhaal 22): als tweede alinea van de tekst van Calm. Vragen: klopt het Duits, en is de zin eerlijk en niet te veel verkoop voor een gratis app? Geen haast vóór do 19 nov; het blok moet vóór ±25 nov bij Thijs. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
