@@ -1506,3 +1506,16 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de actuele hartslag is op een wijzerplaat in de simulator leeg; de geschiedenis geeft hem wel. Lees altijd beide.
 - Les: een scherm zonder eigen map met maten krijgt stil de maten van de map zonder naam (260 px). Een toets op "lijst is gevuld" vangt dat niet; vergelijk de maat met het scherm.
 - Les: de hele tak `schermen` ophalen duurt langer dan mijn tijdslimiet. Vraag de commit met `git ls-remote origin schermen` en haal losse bestanden met curl van raw.githubusercontent.com op die commit.
+
+## Run 127, 17 nov 2026 ±00:55 UTC
+- Bericht van Joris (verhaal 25) verwerkt: Ebb 1.0.1 op `organisatie/lijst-thijs.md` naar uiterlijk vr 20 nov. Reden: een update doet alleen binnen 14 dagen na de eerste goedkeuring nog iets voor bereik, en de keuring kost ±2,5 dag.
+- Run van 952d26c nagekeken: groen, Instinct 2 toont alleen de tijd, Venu 3S en vívoactive 5 bekeken.
+- Kern stap (b) rest (9ae1c71, run 43991794643 groen): `Veld.laatste` voor stress en Body Battery, hartslag uit vijf metingen de eerste geldige, bliksem als twee driehoeken, elk proefhorloge een ander thema. Vier toetsen erbij. Blad bekeken: alle vier de thema's staan erop.
+- Kern stap (c) deel 1 (1c19589, run 43993153363 groen): het slaapbeeld schuift per minuut 2 px over vier plekken; het proefgedrag (wit scherm, slaapbeeld uit zichzelf) zit achter een vlag en zit niet in het winkelpakket (`monkey.jungle` laat `:proef` weg, `proef.jungle` laat `:winkel` weg); `tel_slaap.py` telt in de bouwstraat de pixels die aan staan. Keuze: het scherm vinden met een wit beeld vooraf, omdat de plek van het scherm in de schermafbeelding per horloge anders is. Bewijs dat het masker klopt: 161.892 px geteld, 161.883 uitgerekend voor 454 px rond.
+- Uitkomst telling: fēnix 8 47 mm 7,9% en 9,1% (boven de 8%), Venu 3S 4,4%, vívoactive 5 4,3%, Venu Sq 2 4,6%. De laatste drie laden de letters van 260 px en zijn dus te gunstig.
+- Ebb Calm 1.0.1 (tak `claude/ebb-calm-101`, 148414a): Ebb 1.0.1 ingevoegd, geen botsingen. Het icoon van Calm voor 25 nieuwe mappen gemaakt met `winkel/maak_icoon_calm.py`; eerst nagemaakt voor de Venu 3 en op de pixel gelijk aan het bestaande icoon. Niet gezien: het eind van run 43992372808.
+- Les: twee takken droog samenvoegen kan met `git merge-tree --write-tree --name-only A B`; geen regel met CONFLICT betekent dat het past. Daar is wel geschiedenis voor nodig (`--depth 80` was genoeg).
+- Les: `git archive main <pad>` werkt alleen vanuit de hoofdmap van de repo; in een onderliggende map zoekt hij het pad daar.
+- Les: de lijst met jobs van een run met zestien plaatjesjobs is te lang om in één keer te lezen. Vraag de run zelf (eindkleur) en lees per job.
+- Les: een schermmaat zonder eigen letters krijgt stil de letters van 260 px. Een meting op zo'n scherm zegt niets over het echte beeld.
+- Einde run 127 (±01:30 UTC). Loopt nog: run 43992372808 (Ebb Calm 1.0.1).
