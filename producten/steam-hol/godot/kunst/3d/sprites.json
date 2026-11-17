@@ -63,7 +63,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "8381bb9721f29c40",
+  "bron": "07cf0b35c0b1a450",
   "bytes": 49754,
   "model": "hol.py",
   "px": 4,
@@ -863,8 +863,8 @@
  "hoeden": {
   "anker_x": 32,
   "blad": "res://kunst/3d/hoeden.png",
-  "bron": "a3dbcd8b5608825b",
-  "bytes": 30990,
+  "bron": "e494dc3b079773be",
+  "bytes": 31163,
   "cel_px": [
    63,
    49
@@ -963,8 +963,8 @@
  "hoeden_hap": {
   "anker_x": 31,
   "blad": "res://kunst/3d/hoeden_hap.png",
-  "bron": "64a2b2f2545a7b8f",
-  "bytes": 26618,
+  "bron": "923677bb7f03f59f",
+  "bytes": 26604,
   "cel_px": [
    62,
    46
@@ -1056,7 +1056,7 @@
  "hoedenwand": {
   "anker_x": 30,
   "blad": "res://kunst/3d/hoedenwand.png",
-  "bron": "cd34c8b7cb387d01",
+  "bron": "143456cacd4da038",
   "bytes": 37002,
   "cel_px": [
    60,
@@ -1151,8 +1151,8 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "f07bccfbb267be52",
-  "bytes": 138493,
+  "bron": "db5032735f96f758",
+  "bytes": 138477,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
