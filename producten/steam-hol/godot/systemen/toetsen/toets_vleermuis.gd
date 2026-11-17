@@ -16,6 +16,13 @@ class NepHeld extends Node2D:
 	func is_held() -> bool:
 		return true
 
+class NepGloop extends Node2D:
+	var groot := false
+	func berg(_tel := -1) -> Array:
+		return []
+	func is_groot() -> bool:
+		return groot
+
 func ok(voorwaarde: bool, wat: String) -> void:
 	if voorwaarde:
 		print("[hol-toets] OK ", wat)
@@ -108,5 +115,54 @@ func _init() -> void:
 	held.position = Vector2(int(vm.vm[0]["k"]) * 16 + 3.0, 37.0)
 	vm._process(0.016)
 	ok(vm.vm[0]["t"] < 0.0, "even rust na het landen")
+	# nooit achter de hoedenberg (Mila 17 nov 08:00): rechterrand tegel minstens 70 (groot 72) spelpixels links van Gloop
+	ok(is_equal_approx(V.berg_grens(456.0, false), 386.0) and is_equal_approx(V.berg_grens(456.0, true), 384.0), "berggrens 70, groot 72")
+	ok(is_equal_approx(V.berg_grens(456.0, false, 1.15), 456.0 - 80.5), "berggrens schaalt mee met Gloop (1,15)")
+	var gx := 28 * 16 + 8.0   # Gloop op schat_kol - 2 zoals strook.gd
+	var gr: float = V.berg_grens(gx, false)
+	var pg: Array = V.plekken(h, gr)
+	var achter := false
+	for k in pg:
+		if int(k) * 16 + 16 > gx - 70.0:
+			achter = true
+	ok(not achter and pg.size() > 0 and not pg.has(24) and pg.has(22), "met Gloop: geen plek binnen 70 px van zijn midden (%s)" % str(pg))
+	for k in V.kies(h, 2, gr):
+		ok(V.mag_hangen(h, int(k), gr), "gekozen plek %d ligt links van de berg" % int(k))
+	var dg: int = V.vlucht_doel(h, 20, 20 * 16 + 2.0, [], gr)
+	ok(dg >= 0 and dg * 16 + 16 <= gx - 70.0, "vlucht weg van de held gaat niet achter de berg (%d)" % dg)
+	var kort := nep(2, 12)   # 11 gangtegels, maar links van de berg alleen 4 en 5, en daar zit een val
+	kort.deco_proef = true
+	kort.vallen[4] = "stekelput"
+	kort.vallen[5] = "stekelput"
+	ok(V.kies(kort, 1, V.berg_grens(10 * 16 + 8.0, false)).size() == 0, "kort hol: geen plek links van de berg, dan geen vleermuis")
+	# in het spel: Gloop in Wezens, eerste beeld kiest opnieuw met zijn grens
+	var w2 := Node2D.new()
+	var vm2 := Node2D.new()
+	vm2.set_script(V)
+	root_node.add_child(vm2)
+	root_node.add_child(w2)
+	vm2.zet(h, w2)
+	var gl := NepGloop.new()
+	gl.groot = true
+	gl.position = Vector2(gx, 37.0)
+	w2.add_child(gl)
+	vm2._process(0.016)
+	var alle_links: bool = vm2.vm.size() > 0
+	for v in vm2.vm:
+		if int(v["k"]) * 16 + 16 > gx - 72.0:
+			alle_links = false
+	ok(alle_links, "spel: na het eerste beeld hangt elke vleermuis links van de berg (groot lijf, %s)" % str(vm2.vm))
+	var kort2 := nep(2, 12)
+	kort2.deco_proef = true
+	kort2.vallen[4] = "stekelput"
+	kort2.vallen[5] = "stekelput"
+	vm2.zet(kort2, w2)   # zonder grens: dan hangt er wel een (achter de berg)
+	ok(vm2.vm.size() == 1, "kort hol zonder Gloop-grens: wel een vleermuis (toets toetst iets)")
+	gl.position = Vector2(10 * 16 + 8.0, 37.0)
+	vm2._kijk_t = 1.0
+	vm2._process(0.016)
+	ok(vm2.vm.size() == 0, "spel: kort hol met Gloop, geen vleermuis (%d)" % vm2.vm.size())
+	# spinrag (hol_vast.gd, Olaf 08:35): bij de berg web wel, spin niet; zelfde grens als de vleermuis (groot lijf)
+	ok(is_equal_approx(HV.spin_grens(h), V.berg_grens(28 * 16 + 8.0, true)), "spinrag-grens = vleermuis-grens bij Gloop op schat_kol - 2 (%s)" % str(HV.spin_grens(h)))
 	print("[hol-toets] KLAAR vleermuis fouten=%d" % fout)
 	quit(1 if fout > 0 else 0)
