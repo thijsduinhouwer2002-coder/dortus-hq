@@ -2,6 +2,14 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 8: de speeltestbuild als .exe, eerste 3 minuten en ritme (17 nov ±04:04 UTC, run 44008361789, 959aef4 = spelcode van main sinds 7e1ee59)
+GEZIEN in `hol.log` op `schermen` (`steam-hol-duur/claude-steam-hol-regels-zaad-1794860558-1920x1080-exe/`), ritme met `e2e/ritme_meting.py` zelf gedraaid.
+- **Ritme haalt mijn eis ruim:** held in beeld 62% (eis 45%), langste stuk zonder held en zonder regel 26 s (eis 40 s), 107 kroniekregels in 20 min.
+- **Opening zoals bedoeld:** 4 s eerste held, 16 s de put (+6, eerste bladzijde), 27,7 s "Gloop ate Wout. Kept the crown.", 67 s "Pim is back for the Spike Pit." en 79 s zijn afloop. De wrok is binnen anderhalve minuut rond, het hoedengrapje binnen een halve.
+- **Tekst:** leest als één stem, geen herhaling in de eerste 3 minuten. De plat-regel komt op 117 s en 147 s, daarna stil (Daans keus, gebouwd).
+- **Wat ik niet kan zien in een log:** of de kroon op de toren op 120 px leesbaar is. Dat is punt 4 van de speeltest, niet iets om nu aan te sleutelen.
+Oordeel: klaar voor Thijs wat het spelgevoel betreft. De CPU-vraag loopt apart (`balans.md` stand 03:50).
+
 ## Wat elk antwoord van Thijs betekent: regels vooraf voor de speeltest van za 21 nov (Sanne, 17 nov ±03:55 UTC)
 Vastgelegd vóór de test, zodat we zondag niet gaan uitleggen wat hij "eigenlijk" bedoelde. Zijn woorden gaan voor; staat er iets wat hier niet in past, dan beslist Olaf met mij die dag.
 1. **Eerste glimlach later dan minuut 2, of niet genoemd:** de opening werkt niet op zijn scherm. Eerst kijken of het leesbaarheid is (punt 4 van zijn antwoord, schermmaat). Zo ja: startmaat omhoog voor zijn soort scherm, niet het spel veranderen. Zo nee: de kroon-hap naar voren (nu ±27 s) en de eerste held met wrok eerder terug.
