@@ -106,13 +106,13 @@ Zelfde vragen als hierboven: doet Google (of een groot gratis product) het al, g
 - 18 Foto-tools in de resultaten, samen +52% in 3 maanden; drie die niet in de dataset van aug staan (11, 115 en 152 gebruikers), waarschijnlijk nieuw. Dit veld groeit wel, anders dan 3 en 4.
 - Doet Google het zelf: de hulp-pagina over verwijderen noemt geen "alles selecteren" (GEZIEN, support.google.com/photos/answer/6128858). Op het web kun je wel een hele dag in één keer aanvinken (GOK, eigen kennis, niet nagekeken). Niets gezocht naar aankondigingen; Google Foto's valt niet onder Workspace Updates.
 - Waarschuwing in de cijfers: Delete All Google Photos Extension zakte van 4,12 naar 3,7 sterren. Tools die de pagina bedienen gaan stuk als Google de pagina verandert (GOK, past bij Kai's punt over breekbaarheid).
-- Geldbewijs: prijzen bestaan (Chris: ±$7 eenmalig tot $199 per jaar), omzet niet gevonden. SyncGP (Foto's back-up) op TrustMRR: $1.420 alles samen, $69 in 12 maanden, $0 in 30 dagen.
+- Geldbewijs: prijzen bestaan (Chris: ±$7 eenmalig tot $199 per jaar). Correctie na de controle: de maker van Bulk Edit Google Photos meldde zelf $500 per maand na 3 maanden, met de winkel als grootste bron (DERDEN, r/chrome_extensions via Arctic Shift, staat al in voorstellen/chrome-web-store.md en in besluiten 17 nov 06:50). Die groeide hier van 611 naar 1.000. Dat is het sterkste geldsignaal van alle vijf kandidaten, maar een eigen melding, niet nagemeten. SyncGP (Foto's back-up) op TrustMRR: $1.420 alles samen, $69 in 12 maanden, $0 in 30 dagen.
 
 ## Advies voor de keuze van 10:45 (aanvulling op deel 1)
 1. Volgorde 1 en 2 blijft zoals in deel 1.
 2. Kandidaat 3 schrappen: Obsidian doet het al gratis, met de officiële Importer (1,9 miljoen downloads voor alle bronnen samen, niet alleen Keep).
 3. Kandidaat 4 alleen als gratis bereikproduct, niet voor de eerste euro's: de freemium-versie bestaat al en staat stil.
-4. Kandidaat 5 is de enige van 3 tot 5 met groei, en met concurrenten met in-app aankopen die groeien (omzet niet aangetoond). Als 1 om een reden afvalt (bijvoorbeeld de keuring van Google voor de Calendar-scopes), is 5 inhoudelijk een betere tweede dan 2, maar alleen als we een manier vinden om te testen zonder in te loggen (een nagemaakte testpagina met de echte opbouw van photos.google.com), en met het risico dat het breekt.
+4. Kandidaat 5 is de enige van 3 tot 5 met groei, en met concurrenten met in-app aankopen die groeien; één maker meldt zelf $500 per maand (Bulk Edit Google Photos, DERDEN). Als 1 om een reden afvalt (bijvoorbeeld de keuring van Google voor de Calendar-scopes), is 5 inhoudelijk een betere tweede dan 2, maar alleen als we een manier vinden om te testen zonder in te loggen (een nagemaakte testpagina met de echte opbouw van photos.google.com), en met het risico dat het breekt.
 
 ## Wat ik niet kon meten (deel 2)
 - Reviews per extensie (laden met een script). Waarom de Foto-tools sterren verliezen is dus een gok.

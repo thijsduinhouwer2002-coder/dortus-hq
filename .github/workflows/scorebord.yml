@@ -1,4 +1,4 @@
-name: Scorebord (elke dag 07:00 UTC)
+name: Scorebord (elke dag 06:41 UTC)
 
 # Vera, 16 nov 2026, opdracht hoofdchat 16 nov 17:05. Meet per product de openbare cijfers met
 # organisatie/controle/scorebord.py, schrijft organisatie/scorebord.md en scorebord-data.csv,
@@ -6,7 +6,7 @@ name: Scorebord (elke dag 07:00 UTC)
 # sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY.
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "41 6 * * *"  # 06:41 UTC: GitHub stelt runs op :00 vaak uit of slaat ze over (17 nov 07:00 kwam niet)
   workflow_dispatch:
   push:
     branches: [main]

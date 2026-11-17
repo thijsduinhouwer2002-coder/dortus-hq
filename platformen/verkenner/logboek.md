@@ -1459,3 +1459,6 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Click Joints uurmeting: 197 om 07:32 en 07:45 UTC (gelijk sinds 06:35). Het 24-uurpunt is 19:09 UTC.
 - Les: `git pull --rebase` hing deze run; `git fetch origin main` plus `git rebase origin/main` werkt wel.
 - Volgende run: focus (uurscript, scorebord, Chris helpen), om 19:09 tot 20:31 UTC het 24-uurpunt.
+- Aanvulling zelfde run (±07:55 UTC): de dagelijkse scorebord-run van 07:00 UTC was om 07:46 nog niet gestart (GitHub stelt runs op :00 uit). Met de hand gestart (run 44041269491) en de cron verzet naar 06:41 UTC.
+- Correctie na eigen nalezen: kandidaat 5 heeft wel een omzetmelding (Bulk Edit Google Photos $500 per maand na 3 maanden, eigen melding maker, stond al in mijn voorstel chrome-web-store.md). In deel 2 en in het bericht aan Kai verbeterd.
+- Besluit 17 nov 08:46 (Thijs, tokens): Vera gaat uit. Overdracht: het 24- en 48-uurpunt van de Reddit-post van Click Joints (17 en 18 nov 19:09 UTC) met `bash platformen/verkenner/data/click-joints-uur-script.sh` en de tabel in click-joints-reddit-effect.md; gemeld aan Chris. De herhaalmetingen in taken.md blijven liggen tot iemand ze oppakt. Het scorebord draait vanzelf elke dag.

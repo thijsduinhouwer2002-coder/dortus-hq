@@ -247,7 +247,7 @@ def main():
         "# Scorebord Dortus",
         "",
         f"Gemeten op {vandaag.isoformat()} om {dt.datetime.now(dt.timezone.utc):%H:%M} UTC met `organisatie/controle/scorebord.py`, "
-        "openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 07:00 UTC (workflow \"Scorebord\"). "
+        "openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 06:41 UTC (workflow \"Scorebord\"). "
         "Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, "
         "dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.",
         "",
