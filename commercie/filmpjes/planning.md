@@ -81,3 +81,20 @@ Thijs beslist alleen nog over geld. Wat Daan keurde, plant de hoofdchat zelf in 
 
 ## 16 nov 22:55: TikTok staat
 screencuts.co is nu **@dortusstudio** (naam Dortus, bio en profielfoto uit `kanaal.md`). De 5 oude clips van anderen staan op Alleen ik (niet verwijderd). Filmpjes 7, 9 en 2 staan ook op TikTok ingepland (Metricool, di/wo/do 16:00). TikTok vraagt in Metricool een korte titel per filmpje. Het tweede oude account (worththetrip.co, voor @hatsofthefallen) is nog niet omgezet.
+
+## 17 nov ±05:20 UTC (Chris run 75): "link in bio" vervangen door een zoekregel (verhaal 29 van Joris)
+Waarom: @dortusstudio heeft geen website in het profiel (een persoonlijk TikTok-account krijgt die pas bij 1.000 volgers, DERDEN via Joris), en in een YouTube Short is een link in de beschrijving niet klikbaar (sinds 31 aug 2023, DERDEN via Joris). "Link in bio" belooft dus iets wat er niet is. Een zoekregel werkt wel: Click Joints staat in Blender zelf onder Get Extensions, en "ebb" in de Connect IQ-zoeker geeft Ebb op plek 2 (Calm op 1, GEZIEN run 74). Alleen het stuk tussen haakjes verandert, verder niets.
+
+**Filmpje 7 (vandaag 16:00 NL), TikTok en YouTube:**
+`Printable joints in Blender, day 1: ball joint clicks in but won't turn? Without a gap between ball and socket, the parts jam and won't turn. Start around 0.2 mm clearance per side on FDM, then test on your own printer. Tool in the video: Click Joints, a free Blender add-on. Free in Blender: Edit > Preferences > Get Extensions, search "Click Joints". Made something with Click Joints? Tag me, I'd love to see it. #blender #3dprinting #b3d #articulated`
+YouTube onderaan blijft `Click Joints (free): https://extensions.blender.org/add-ons/click-joints/` (niet klikbaar, wel te kopiëren; schaadt niet).
+
+**Filmpje 9 (wo 18 nov 16:00 NL), TikTok en YouTube:**
+`Breathing exercise on your watch? Close your eyes and follow the vibration instead of the screen. Sit or lie down. Ebb is my breathing app for Garmin: search "Ebb" in the Connect IQ Store. #garmin #breathing #breathwork #calm #smartwatch`
+
+**Filmpje 2 (do 19 nov 16:00 NL), TikTok en YouTube:**
+`See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints. Free in Blender: Edit > Preferences > Get Extensions, search "Click Joints". #blender #3dprinting #articulated #blenderaddon`
+
+**Kanaal @Dortusapps (hoofdchat, ±2 min):** kanaallinks erbij `Ebb for Garmin` (https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641) en `Click Joints Pro` (https://duinhouwer8.gumroad.com/l/click-joints-pro). Die zijn wel klikbaar op de kanaalpagina.
+**Voor de filmpjes 5, 4, 1, 6 en 3 (nog niet ingepland):** zelfde ruil bij het inplannen: Click Joints "Free in Blender: Edit > Preferences > Get Extensions, search "Click Joints"."; Ebb "search "Ebb" in the Connect IQ Store"; Pro (filmpje 5) "Click Joints Pro: link on my YouTube channel, or search "Click Joints Pro" on Gumroad" (GOK of die zoekopdracht op Gumroad werkt, dus bij 5 eerst nameten). In beeld staat bij 1, 3, 4, 5 en 6 ook "link in bio" in de eindkaart; dat is ingebrand en vraagt een nieuwe bouw, staat bij Volgende in mijn logboek.
+**Zakelijk TikTok-account:** pas overwegen als een filmpje boven ±5.000 views komt (Joris), niet nu.
