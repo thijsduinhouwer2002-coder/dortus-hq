@@ -216,7 +216,9 @@ func teken(d: CanvasItem) -> void:
 			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[c], Vector2(k * KOL + midden, vloer + 1), false)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(c * KOL, 0, KOL, KOL))
 		elif hh < 36 and not h.boven[k]:
-			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
+			if gang_3d and k * KOL + KOL > spin_grens(h) and HOL3D.deco_maat("spinrag") != Vector2.ZERO:
+				_teken_hangend(d, "spinrag", Vector2(k * KOL + midden, GANG_BOVEN))   # bij de berg: web wel, spin niet
+			elif not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
 
 # Welke versiering op gangkolom k komt (hh zoals in teken(): onder 14 stut, 14 tot 30 een vloerding, 30 tot 36 spinrag,
@@ -436,6 +438,17 @@ func _teken_vol(d: CanvasItem, vloer: int) -> void:
 # (SPIN_SCHAAL) en zonder de draad en de paarse spin rechts ervan: Daan 16 nov 10:50, moet, "onderaan recht afgesneden met
 # een los draadje ernaast leest als een kapot plaatje"; de spin leek ook op de vleermuis (één kleur per soort beestje).
 const SPIN_SCHAAL := 0.6
+# Geen paarse spin bij de hoedenberg (Daan 17 nov 07:45, Olaf 08:35): reikt een spinragkolom over de grens van de vleermuis
+# (vleermuis.gd berg_grens(): Gloop op schat_kol - 2, volle berg, groot lijf, keer zijn schaal), dan alleen het web
+# zoals in het volle hol (_teken_hangend). Verder van de berg blijft het hele spinrag met spin.
+static func spin_grens(hh) -> float:
+	var sch := 1.0
+	if hh is Node and hh.get_parent() != null:
+		var p = hh.get_parent().get("proef_figuur")
+		if p != null:
+			sch = float(p)
+	var V = load("res://systemen/vleermuis.gd")
+	return V.berg_grens((hh.schat_kol - 2) * KOL + KOL / 2.0, true, sch)
 # Alleen het web uit het vak van het spinrag, in bladpixels binnen `vak_px` [x, y, b, h]: de draad staat vanaf x 57, de
 # spin rechtsonder vanaf x 44 (onder y 34) en x 49 (onder y 31). Nagemeten op kunst/3d/deco.png, vak 80 x 56.
 const SPIN_WEB := [Rect2(0, 0, 56, 31), Rect2(0, 31, 49, 3), Rect2(0, 34, 44, 12)]

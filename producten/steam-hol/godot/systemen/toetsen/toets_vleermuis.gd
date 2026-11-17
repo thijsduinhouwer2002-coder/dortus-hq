@@ -162,5 +162,7 @@ func _init() -> void:
 	vm2._kijk_t = 1.0
 	vm2._process(0.016)
 	ok(vm2.vm.size() == 0, "spel: kort hol met Gloop, geen vleermuis (%d)" % vm2.vm.size())
+	# spinrag (hol_vast.gd, Olaf 08:35): bij de berg web wel, spin niet; zelfde grens als de vleermuis (groot lijf)
+	ok(is_equal_approx(HV.spin_grens(h), V.berg_grens(28 * 16 + 8.0, true)), "spinrag-grens = vleermuis-grens bij Gloop op schat_kol - 2 (%s)" % str(HV.spin_grens(h)))
 	print("[hol-toets] KLAAR vleermuis fouten=%d" % fout)
 	quit(1 if fout > 0 else 0)
