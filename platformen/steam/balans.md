@@ -12,6 +12,22 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 2. **Main als .exe meer dan 20% per beeld goedkoper (onder ±15,5 ms, CPU rond 0,85):** de tak is echt duurder. De speeltestbuild blijft voorlopig op main (de spelregels wegen zwaarder voor de speeltest, zie 01:25), Bram zoekt met een `wissel=` binnen één .exe-run welke commit het is. Is het do 19 nov 12:00 UTC niet gevonden, dan beslist Olaf of de duurste commit eruit gaat voor de speeltest.
 3. Ertussenin bestaat niet: 20% is de grens, net als bij (a). Valt het binnen 2 punten van de grens, één nieuw .exe-paar, het gemiddelde telt.
 
+**Uitslag (±04:02 UTC, GEZIEN: `uitslag.txt`, `hol.log`, `cpu-per-10s.txt` van beide .exe-runs op `schermen`, zelf gedraaid met `cpu_per_beeld.py` en `cpu_stil.py`):**
+
+| .exe, zaad 1794860558, alleen | CPU | beelden per 10 s | ms per beeld | stil | geen held, vast nieuw | held in beeld |
+|---|---|---|---|---|---|---|
+| tak 959aef4 (44008361789) | 1,334 | 71 | 18,6 | 0,47 / 16,3 ms | 1,35 / 13,1 ms | 1,68 / **20,1 ms** |
+| main c38f267 (44011218826) | 1,023 | 71 | 14,5 | 0,97 / 25,8 ms | 1,49 / 16,8 ms | 0,95 / **11,6 ms** |
+
+Tak tegen main: **+28% per beeld**, 8 punten boven de grens, dus **regel 2 geldt**, zoals vooraf vastgelegd. Ik reken Brams gemiddelde met het editor-paar (+16%) niet mee: dat zou een regel achteraf zijn, en een editor-paar en een .exe-paar meten iets anders.
+
+Wat dat betekent, eerlijk:
+- De speeltestbuild blijft op main. De spelregels wegen zwaarder voor de speeltest dan een kwart meer werk per beeld (zie 01:25), en het absolute getal zegt op deze runners niets meer: **main zelf als .exe gaf 1,023**, boven de 1,0, terwijl dezelfde soort run voor middernacht 0,71 tot 0,86 gaf.
+- Het verschil zit alleen **met een held in beeld** (20,1 tegen 11,6 ms); zonder held is de tak juist goedkoper. Dat wijst naar iets dat per held of per regel tekent, niet naar stil spel. Kanshebbers in de diff: de kortere regels en de naamgenoot-regel (tekst die vaker opnieuw opgemaakt wordt), het kaartje na terugkomst, `plat_wissel`. Het tegenbewijs staat er ook: het editor-paar van dezelfde twee commits gaf +3%. Eén paar tegen één paar; dus niet nog een paar draaien, maar meten waar ruis niet bij kan.
+- **Opdracht Bram:** een `wissel=` binnen één .exe-run (zoals bij de deco) die de spelregel-commits per blok aan en uit zet, of als dat niet kan het kaartje en de regels apart. Binnen één run vallen de runners weg. Uitkomst in `data/cpu-duur/LEESMIJ.md`.
+- **Do 19 nov 12:00 UTC** niets gevonden of onder de 20% binnen één run: dan was het ruis en is de tak vrij. Wel gevonden en meer dan 20%: Olaf beslist of die commit eruit gaat voor de speeltest (zijn bouw, zijn keus).
+- **Poort (b) voortaan:** .exe tak tegen .exe main in een paar, hooguit 20% per beeld, en bij twijfel een `wissel=` binnen één run. De vaste 1,0 (en 0,8 voor de demo) geldt op Thijs' pc via het Taakbeheer-getal.
+
 ## Stand 17 nov ±03:15 UTC: het paar is binnen, regels-tak naar main, nieuwe CPU-poort (Sanne, na keuring 14 punt 1 en Olafs regel vooraf)
 **Het paar (GEZIEN, zelf gedraaid met `cpu_per_beeld.py` op `uitslag.txt` en `hol.log` van tak `schermen`, zaad 1794860558, 20 min, 1920x1080, editor, elk alleen en direct na elkaar):**
 
