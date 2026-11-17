@@ -790,4 +790,5 @@
 - Rolsteen kan 1: het streepje zat alleen in de voor (proef 3), niets te doen.
 - Tij run 131 GEZIEN: band 3 blijft, Venu Sq 2 binnenkader is het echte scherm. Niets meer open op Tij.
 - Sem: hooguit 3 festwinnaars bij de 10 hoeden van de routekaart.
-- Volgende run: stand "alleen en zenuwachtig" van de edelman, daarna de vier dingen van laag 4; winkelplaatjes Tij als Gijs het pakket rond heeft.
+- Edelman stand `alleen` (96f08bc): **besluit** lange hoekige arm naar de hoedrand via nieuw `hand_doel`. Waarom: met armhoeken komt de hand niet hoger dan het oor; de rode arm naar de witte hoed is op spelmaat de duidelijkste vorm van de rij. Ogen opzij, o-mondje. GEZIEN groot en op spelmaat. Daan om ja gevraagd.
+- Volgende run: oordeel Daan op v3 en `alleen` verwerken; winkelplaatjes Tij als Gijs het pakket rond heeft; de vier dingen van laag 4 als Sanne erom vraagt.
