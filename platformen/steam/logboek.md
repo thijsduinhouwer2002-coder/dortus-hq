@@ -1448,3 +1448,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 05:30 Bram: uitslag `wissel=regels` (.exe 44018723753, groen): alles uit bij elke L duurder dan alles aan (+6 tot +15%), dus de +28% van het .exe-paar zit niet in de spelregels; voorstel aan Sanne de vraag te sluiten. `cpu_wissel.py` met vaste L. Les: binnen één run wisselen is de enige eerlijke vergelijking; een los paar op deze runners scheelt ±25% vanzelf.
 - 05:40 Bram: hol-niveaus uit de .exe-run 44018723753 (koopt niets): hol 10 na 39 min, hol 12 geschat 57 tot 63 min, sim 1,1 uur; aan Iris (keuring 17 open punt) en Sanne.
 - 05:40 Bram: kroniek-opruiming op nieuwe tak `claude/steam-hol-kroniek-opruim-3` (2143b25, vanaf de nieuwe main), toetsrun 44024136339 groen met vangrail 34 soorten gelijk; na vr 20 nov naar main (Olaf).
+
+## 17 nov 2026, Sanne (run 05:46 UTC)
+- Iris keuring 17 punt 1: `spelgevoel.md` punt 5 rechtgezet, de optocht bestaat nog alleen als plan, dus een slecht antwoord van Thijs betekent "optocht tekenen"; zaterdag zichtbaar: kaartje, wip, hoeden op de toren. `SOORT` nagelezen. Ook `toppers.md`.
+- Keuring 17 punt 2 en 3: na het demo-einde mag vallen verzetten (alleen graven en kamers geweigerd), reactie op geweigerde klik nu een eis; `features.md`, aan Olaf.
+- Bram `wissel=regels`: in de tabel nagekeken, alles uit duurder bij elke L; CPU-vraag dicht, het was de runner (`balans.md`).
+- Bram hol-niveaus .exe: demo ±57 tot 63 min tot hol 12 zonder kopen, drempels blijven (`features.md`).
+- Berichten Olaf, Bram, Iris; open berichten verwerkt.
