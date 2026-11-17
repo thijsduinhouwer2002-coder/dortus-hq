@@ -1,6 +1,8 @@
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Time;
+import Toybox.Time.Gregorian;
 import Toybox.WatchUi;
 
 class KernView extends WatchUi.WatchFace {
@@ -17,6 +19,8 @@ class KernView extends WatchUi.WatchFace {
     var achter as WatchUi.BitmapResource? = null;
     var slaap as Boolean = false;
     var start as Number = 0;
+    // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan Tide.
+    var thema as Number = Thema.TIDE;
 
     function initialize() {
         WatchFace.initialize();
@@ -91,6 +95,62 @@ class KernView extends WatchUi.WatchFace {
         }
     }
 
+    // Stap (b) van de kern: datum, tijd en drie velden op de maten van het blad, in de kleuren van het thema.
+    // Geen maten voor dit scherm (lege lijst): alleen de tijd in het midden, zodat niets op 0,0 belandt.
+    function tekenBoven(dc as Graphics.Dc, uur as String, minuut as String) as Void {
+        var w = dc.getWidth();
+        var mid = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
+        var links = Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER;
+        var heeftMaten = Maten.laad().size() == Maten.AANTAL;
+        var yTijd = heeftMaten ? Maten.m(Maten.TIJD_Y) : dc.getHeight() / 2;
+        if (fontG != null) {
+            var f = fontG as WatchUi.FontResource;
+            var bu = dc.getTextWidthInPixels(uur, f);
+            var bp = dc.getTextWidthInPixels(":", f);
+            var bm = dc.getTextWidthInPixels(minuut, f);
+            var x = (w - bu - bp - bm) / 2;
+            dc.setColor(Thema.kleur(thema, Thema.UREN), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, yTijd, f, uur, links);
+            dc.setColor(Thema.kleur(thema, Thema.PUNT), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x + bu, yTijd, f, ":", links);
+            dc.setColor(Thema.kleur(thema, Thema.MINUTEN), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x + bu + bp, yTijd, f, minuut, links);
+        }
+        if (!heeftMaten) {
+            return;
+        }
+        dc.setColor(Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
+        if (fontD != null) {
+            var dag = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+            var namen = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"] as Array<String>;
+            var d = (dag.day_of_week as Number) - 1;
+            if (d < 0 || d > 6) {
+                d = 0;
+            }
+            dc.drawText(w / 2, Maten.m(Maten.DATUM_Y), fontD as WatchUi.FontResource,
+                namen[d] + " " + (dag.day as Number).format("%d"), mid);
+        }
+        var xs = [Maten.m(Maten.VELD_XL), Maten.m(Maten.VELD_XM), Maten.m(Maten.VELD_XR)] as Array<Number>;
+        var soorten = [Veld.HART, Veld.STRESS, Veld.STAPPEN] as Array<Number>;
+        var yVeld = Maten.m(Maten.VELD_Y);
+        var streep = Maten.m(Maten.VELD_PX) / 2;
+        var dik = Maten.m(Maten.LIJN_DIK);
+        var regel = "";
+        for (var i = 0; i < 3; i++) {
+            var t = Veld.tekst(Veld.waarde(soorten[i], st));
+            regel = regel + " " + ((t == null) ? "-" : t);
+            if (t != null && fontV != null) {
+                dc.drawText(xs[i], yVeld, fontV as WatchUi.FontResource, t, mid);
+            } else {
+                // Geen gegevens: een streepje, getekend (de letter Veld heeft geen streepje).
+                dc.fillRectangle(xs[i] - streep / 2, yVeld - dik / 2, streep, dik);
+            }
+        }
+        if (tik < 2) {
+            System.println("KERN VELDEN hart stress stappen:" + regel + " thema=" + thema);
+        }
+    }
+
     function onUpdate(dc as Graphics.Dc) as Void {
         if (!gelezen) {
             gelezen = true;
@@ -115,25 +175,8 @@ class KernView extends WatchUi.WatchFace {
         var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        if (achter != null) {
-            dc.drawBitmap(0, 0, achter as WatchUi.BitmapResource);
-        }
         var msPlaat = System.getTimer() - t0;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        if (fontD != null) {
-            dc.drawText(w / 2, h * 9 / 100, fontD as WatchUi.FontResource, "MON 16", Graphics.TEXT_JUSTIFY_CENTER);
-        }
-        if (fontG != null) {
-            dc.drawText(w / 2, h * 14 / 100, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
-        }
-        if (fontV != null) {
-            dc.drawText(w * 28 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "61", Graphics.TEXT_JUSTIFY_CENTER);
-            dc.drawText(w * 50 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "8.4K", Graphics.TEXT_JUSTIFY_CENTER);
-            dc.drawText(w * 72 / 100, h * 52 / 100, fontV as WatchUi.FontResource, "23", Graphics.TEXT_JUSTIFY_CENTER);
-        }
-        if (fontK != null) {
-            dc.drawText(w * 37 / 100, h * 60 / 100, fontK as WatchUi.FontResource, "72", Graphics.TEXT_JUSTIFY_CENTER);
-        }
+        tekenBoven(dc, nu.hour.format("%02d"), nu.min.format("%02d"));
         var msTijd = System.getTimer() - t0 - msPlaat;
         var x0 = w * 14 / 100;
         var x1 = w * 86 / 100;

@@ -33,3 +33,39 @@ function testMatenVan260(logger as Test.Logger) as Boolean {
 function testMatenBuitenDeLijst(logger as Test.Logger) as Boolean {
     return Maten.m(-1) == 0 && Maten.m(Maten.AANTAL) == 0 && Maten.m(999) == 0;
 }
+
+// Stap (b) van de kern: thema's en velden.
+(:test)
+function testThemaKleurenUitHetBlad(logger as Test.Logger) as Boolean {
+    return Thema.kleur(Thema.DUSK, Thema.ZEE_BOVEN) == 0xFF8C3C && Thema.kleur(Thema.DUSK, Thema.BOOT) == 0xFFF6E6
+        && Thema.kleur(Thema.TIDE, Thema.ZEE_ONDER) == 0x082454 && Thema.kleur(Thema.TIDE, Thema.MINUTEN) == 0x3CDCE6
+        && Thema.kleur(Thema.KELP, Thema.TEKST) == 0xDCE8C8 && Thema.kleur(Thema.NIGHT, Thema.PUNT) == 0x6E6EA0
+        && Thema.kleur(Thema.NIGHT, Thema.BOOT) == 0xFFDC78 && Thema.kleuren.size() == Thema.AANTAL * Thema.ROLLEN;
+}
+
+(:test)
+function testThemaOnbekend(logger as Test.Logger) as Boolean {
+    return Thema.kleur(99, Thema.UREN) == 0xE1F8FF && Thema.kleur(-1, Thema.UREN) == 0xE1F8FF
+        && Thema.kleur(Thema.TIDE, 99) == 0xFFFFFF && Thema.kleur(Thema.TIDE, -1) == 0xFFFFFF;
+}
+
+function veldIs(v as Number?, verwacht as String) as Boolean {
+    var t = Veld.tekst(v);
+    return t != null && t.equals(verwacht);
+}
+
+(:test)
+function testVeldTekst(logger as Test.Logger) as Boolean {
+    return veldIs(0, "0") && veldIs(61, "61") && veldIs(999, "999") && veldIs(1000, "1.0K") && veldIs(8400, "8.4K")
+        && veldIs(8499, "8.4K") && veldIs(9999, "9.9K") && veldIs(10000, "10K") && veldIs(12345, "12K")
+        && veldIs(999999, "999K") && veldIs(5000000, "999K");
+}
+
+// Zonder gegevens geeft een veld null (de wijzerplaat tekent dan een streepje) en stopt de app niet.
+(:test)
+function testVeldZonderGegevens(logger as Test.Logger) as Boolean {
+    var leeg = [] as Array<Number>;
+    return Veld.tekst(null) == null && Veld.tekst(-1) == null && Veld.stress(leeg) == null
+        && Veld.waarde(Veld.STRESS, leeg) == null && Veld.waarde(99, leeg) == null
+        && Veld.stress([10, 35] as Array<Number>) == 35;
+}
