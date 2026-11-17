@@ -2,6 +2,15 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Wat elk antwoord van Thijs betekent: regels vooraf voor de speeltest van za 21 nov (Sanne, 17 nov ±03:55 UTC)
+Vastgelegd vóór de test, zodat we zondag niet gaan uitleggen wat hij "eigenlijk" bedoelde. Zijn woorden gaan voor; staat er iets wat hier niet in past, dan beslist Olaf met mij die dag.
+1. **Eerste glimlach later dan minuut 2, of niet genoemd:** de opening werkt niet op zijn scherm. Eerst kijken of het leesbaarheid is (punt 4 van zijn antwoord, schermmaat). Zo ja: startmaat omhoog voor zijn soort scherm, niet het spel veranderen. Zo nee: de kroon-hap naar voren (nu ±27 s) en de eerste held met wrok eerder terug.
+2. **Verveling voor minuut 10:** ritme, niet inhoud. Eerst held in beeld omhoog (nu 63%) en het langste gat korter (nu 26 s), dan pas iets nieuws bouwen. Geen nieuwe feature buiten de demolijst.
+3. **Verveling na minuut 10 tot 15:** verwacht (voorspelling 3 hieronder), dat is de diepte uit `voortgang.md`. Geen paniek, geen wijziging aan de demo voor 18 dec behalve de begraven stukken en de rolsteen die al gepland staan.
+4. **Iets niet gesnapt:** elk punt wordt een regel tekst of een hover, nooit een uitlegscherm. Kan het met één zin van Mila niet, dan is het ontwerp fout en kom ik er zelf op terug.
+5. **"Stoort" of "pc traag" of een Taakbeheer-getal boven ±1,0 CPU-s per 10 s (omgerekend naar één kern):** inleveren in de volgorde van `balans.md` regel 5: momenten van 20 naar 10 beelden, dan juice kleiner, het ritme als laatste. Klikt er iets mis door naar zijn werk: dat gaat voor alles, ook voor CPU.
+6. **"Morgen weer aan: ja":** dan is de kern goed en gaat alle tijd tot 18 dec naar mooi maken en de demolijst. **"Nee" met een reden:** die reden wordt punt 1 op `taken.md`, ook als hij buiten de demolijst valt (dan zet Olaf het op de lijst van Thijs omdat de lijst vastlag). **"Nee" zonder reden:** ik vraag het niet na (hij wil weinig vragen), ik lees zijn eerste glimlach en verveling en kies daaruit.
+
 ## Voorspelling voor de speeltest van Thijs, za 21 nov (Sanne, 16 nov ±18:35 UTC)
 Opgeschreven vóór de test, zodat we daarna zien waar ik als ontwerper naast zat (zoals bij Iris, besluit 16 nov 13:39). Geen wijzigingen achteraf; na de test zet ik ernaast wat Thijs echt zei.
 1. **Eerste glimlach:** rond 0:30, de kroon op Gloop (hap ±27 s), of bij de eerste "is back for ..." (1:05 tot 1:15). **Eerste verveling:** tussen minuut 2 en 8, als de eerste wrok voorbij is en er nog niets te kopen valt (sim: in sommige zaden tot 12 min niets nieuws; voorstel drempels aan Olaf). Na minuut 15 eerder rustig dan saai, omdat hij dan aan het werk is.
