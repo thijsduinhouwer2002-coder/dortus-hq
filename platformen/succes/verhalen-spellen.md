@@ -1,8 +1,64 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 27, Ropuka's Idle Island (Moczan, $3,99, geen demo, 4.113 reviews), 17 nov ±09:10 UTC
+bezig: niets (verhaal 27 af 17 nov ±07:50 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Desktop Survivors 98 als tegenvoorbeeld van pers zonder kopers)
 
 Nieuwste bovenaan.
+
+---
+
+## 27. Ropuka's Idle Island (Moczan, Polen, 3 mensen): van idee in december tot uitgave op 29 jan 2025, zonder demo en zonder Next Fest, met ±5.400 verlanglijsten. "Tens of thousands" verkocht door drie dingen: de lanceerweken van Steam, het Idler Fest 5 dagen later, en bladen die het zelf vonden
+
+**Vraag (welkomstbericht hoofdchat 15 nov, Ropuka stond in het lijstje; nog geen eigen verhaal):** hoe kwam een spel van $3,99 dat in een paar weken gemaakt is aan 4.205 reviews, terwijl onze kennisbank zegt dat onder $4 slechter doet? Wat deed de maker in welke volgorde, en wat zegt hij er zelf over?
+
+**Bronnen (17 nov 2026 met curl):**
+- De maker zelf op Reddit, account Moczan (zegt in r/gamedev 13 mrt 2025: "My game is Ropuka's Idle Island"). Al zijn berichten en reacties sinds jun 2024 via Arctic Shift (DERDEN, zijn eigen woorden). Hij maakte vanaf 2012 Flash-spellen (Pixels Filling Squares op Kongregate, AMA in r/incremental_games 2018) en werkte 3 jaar in mobiele spellen; Ropuka was zijn eerste Steamspel.
+- Interview Game Dev Journey, `gamedevjourney.co.uk/.../ropukas-idle-island` (DERDEN).
+- Steam: appdetails, alle 29 aankondigingen (nieuws-API) en de weekgrafiek van de reviews (`appreviewhistogram`, alle talen), GEZIEN. Data `platformen/succes/data/ropuka-weken-2026-11-17.csv`. De review-API van de winkel stuurde me deze run steeds door naar de voorpagina; reviews per taal heb ik dus niet.
+- Pers met datum (GEZIEN, `datePublished` in de pagina): GamesRadar 1 feb 2025 ("the best $4 I've spent in ages"), Vice 4 feb ("a game I recently grabbed from Steam's Idler Fest sale"), PC Gamer 6 feb ("which I came across thanks to the current Idler Fest running on Steam", 25 uur gespeeld). Trailer op het YouTube-kanaal van Wholesome Games, 23 jan 2025, 26.858 weergaven (GEZIEN).
+
+**Cijfers:**
+| | Wat | Label |
+|---|---|---|
+| Prijs, talen bij uitgave | $3,99; alleen Engels, alleen Windows. Japans, Chinees en Koreaans pas 20 jun 2025, vijf Europese talen 30 okt 2025. Mac beloofd ("soon after", 21 jan 2025), 21 maanden later nog niet uit | GEZIEN |
+| Bouwtijd | "In December my wife asked me to make her a little idle game" (r/cozygames, 21 jan 2025); uit op 29 jan. "The development pre-release was short" | DERDEN |
+| Verlanglijsten bij uitgave | "we launched with around 5400 wishlist while Popular Upcoming that day had games with 10-15k and we still outsold most if not all of them" (9 mei 2025) | DERDEN |
+| Pagina live | "When we launched our steam page we got 10 wishlists/day for a week or two until we started bringing in more outside traffic" (19 mrt 2025) | DERDEN |
+| Verkocht | "We sold tens of thousands of copies" (28 mrt 2025). Op dat moment 1.454 reviews, dus minstens ±14 verkopen per review | DERDEN, rekensom GEZIEN |
+| Terugbetaald | "4.4%" (antwoord op een vraag naar terugbetalingen, 23 mrt 2025) | DERDEN |
+| Verkeer eerste 30 dagen | Discovery Queue "about 50% of total traffic", Idler Fest "another 20%"; "around 600-700 average daily sales from discovery queue" (13 mrt 2025) | DERDEN |
+| Reviews | 4.205 in totaal; 218 in de lanceerweek, 304 in de festweek; 1.379 (33%) in de eerste 8 weken; in 2026 mediaan 14 per week | GEZIEN |
+
+Eén piek telt niet: 298 en 359 reviews in de weken vanaf 19 en 26 nov 2025, bijna zonder negatieve. Bongo Cat (11.017 en 18.792) en Tiny Pasture (1.049) hebben dezelfde piek in dezelfde weken, dus iets van heel Steam (GOK: de Autumn Sale met de Steam Awards), niet van Ropuka.
+
+**Wat hij deed, in volgorde:**
+1. **Een gat gezien, klein gebouwd.** "tons of desktop games were announced months ago and almost none had release dates yet. Our little sticker won't be as complex and big as Rusty's" (25 jan 2025). En: "it's just Rusty's Retirement getting extremely popular last year so we know people want to play games like that." Gemaakt in Unity, 3D in Blender, met zijn vrouw (kunst, Little Chmura) en een componist, op winstdeling.
+2. **Eigen vorm:** geen strook onderaan maar "a playable sticker for your desktop": een eiland dat je overal neerzet en groter of kleiner maakt. De winkeltekst zegt het in de eerste zin. Ook een groen-scherm-stand voor streamers en de achtergrond (naar de groene heuvel van Windows XP) als bestand bij het spel.
+3. **Een week vooraf:** één bericht in r/cozygames (21 jan, 104 punten) en in de wekelijkse draad van r/CozyGamers; trailer bij Wholesome Games (23 jan). De trailer was gehaast: "we had to rush it to get approved by Steam".
+4. **Uit op woensdag 29 jan, 5 dagen vóór het Idler Fest.** Zes patches in 11 dagen: groei 10 keer te hoog, een prijswijziging na 2 dagen teruggedraaid ("We've heard your feedback ... reverted it to the old numbers"), een noodfix tegen kapotte saves op dag 11.
+5. **Midden in het fest** een gratis stickerset met prestatie als bedankje (5 feb). In die dagen schreven GamesRadar, Vice en PC Gamer; Vice en PC Gamer zeggen zelf dat ze het via het fest vonden. Moczan: "PC Gamer getting addicted to our game for a week and mentioning it in 5 different articles. We also got Automaton Japan ... It's not something we even considered would happen".
+6. **Daarna elke week een update** in februari en maart (geluiden, huisjes, vensterstand), op dag 34 een lijst "What's next", dan om de paar weken tot nu (laatste 12 aug 2026). Bundels en gastoptredens met Fish to Dish, Tiny Pasture, Nano Neighbors en Boil Cabbage Make Soup; kaarten en soundtrack na een jaar.
+
+**Wat hij er zelf over zegt (DERDEN, Reddit):**
+- Prijs: "I think part of its success is being adequately priced - it's basically just a pretty thing for your desktop after all." Zijn vuistregel voor een eerste idle-spel: "$4-$8 range, lower rarely leads to more sales/revenue" (6 okt 2026).
+- Fests: "Themed festivals are usually only prominently showed on front page for a day or two and after that they are basically a glorified Tag page" (16 mrt 2025).
+- Bundels: "The way people set up bundles (2 games, complete the set) usually ends up neutral or net-negative on revenue, it's basically only worth it if you can use it to leech some impressions off of a new popular game during their launch visibility" (23 sep 2026). Hij deed er zelf vier.
+- Verlanglijsten: "The 7k wishlists or 10 reviews advices are misinterpretation of how Steam works. After launch Steam puts your game in Discovery Queue for up to 30 days and the better it sells, the more organic traffic you get" (9 mei 2025).
+- Zuinig: "the game is generally praised for having low impact on cpu/gpu which is important in the genre" (29 mei 2025).
+
+### Drie lessen
+1. **Na de uitgave doet Steam het meeste werk, als het spel verkoopt.** De helft van zijn verkeer in de eerste 30 dagen kwam uit de Discovery Queue, met maar ±5.400 verlanglijsten. Hetzelfde als verhaal 25 (alle grote bureaubladspellen haalden hun eerste 10 reviews in twee weken): de eerste weken na de uitgave beslissen.
+2. **Pers kan zonder getal, als je het spel meteen kunt kopen en het weinig kost.** Drie grote bladen binnen 8 dagen, zonder persbericht; twee vonden het in het fest, en de kop was de prijs ("the best $4"). Dat schuurt met de les in `platformen/steam/marketing/pers.md` ("pers komt na het getal"): bij Desktop Survivors 98 gaf pers zonder getal weinig spelers, maar daar ging het over een spel dat je nog niet kon kopen. GOK: het verschil is kopen kan meteen.
+3. **Een fitting fest net na de uitgave verdubbelde de lancering.** De festweek gaf meer reviews dan de lanceerweek (304 tegen 218, verhaal 3), en 20% van het verkeer. Maar volgens hem staat een fest maar een dag of twee op de voorpagina.
+
+### Eerlijk: wat niet zomaar voor ons geldt
+- Ropuka is een speeltje, geen spel van 100 uur. $3,99 past bij "a pretty thing for your desktop"; Hats belooft diepte. De kennisbankregel (onder $4 slechter, advies $6,99) blijft staan; Ropuka is de uitzondering die bij zijn soort spel past, en de maker zelf zegt $4 tot $8.
+- Hij kwam in een gat (veel aangekondigd, niets uit). Wij komen in een volle hoek: 128 nieuwe bureaubladapps in de eerste helft van november (Vera), 9 uitgaven rond ons fest (`festplan.md`).
+- Voor maart en april 2027 staat er geen fest bij Valve dat bij Hats past (lijst `doc/marketing/upcoming_events`, GEZIEN 17 nov: Rhythm, Dinos vs. Robots, Racing, Witch, Fighting). Het Ropuka-patroon "uitbrengen vlak voor een passend fest" kan voor ons alleen met het Desktop Companion Fest, en daar is al besloten dat we met een demo meedoen omdat kwaliteit voor de datum gaat (`ontwerp/steam/winkelpagina/fest.md`). Daar kom ik zonder nieuw feit niet op terug.
+- Alles over verkoop en verkeer is zijn eigen woord op Reddit; niet na te kijken. "Tens of thousands" is geen precies getal.
+
+### Voorstel voor Dortus deze week
+**Sem (marketing), in `platformen/steam/marketing/lanceerplan.md`: een korte persstap op de lanceerdag in maart, naast de doorbraakmail van januari.** Op de dag dat Hats te koop is: één korte mail ("it's out, here is a key") naar de tipadressen van GamesRadar en PC Gamer (de twee die steeds over deze soort schrijven, `pers.md`) en naar Games Press, met een clip van de strook en de prijs in de eerste zin. Geen massamail. Kost Sem ±1 run om de tekst klaar te zetten (CONCEPT, Thijs schrijft de woorden en verstuurt via `organisatie/lijst-thijs.md`). Meten: stukken in de eerste 8 dagen tellen, naast de reviews per dag.
+Twee kleine dingen voor de lijst van Olaf, uit Ropuka's eerste 11 dagen: een prijs- of balanswijziging die spelers niet willen, binnen 2 dagen terugdraaien en dat zo zeggen; en een groen-scherm-stand voor streamers kost weinig (Moczan: met OBS haal je de groene achtergrond weg).
 
 ---
 

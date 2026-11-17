@@ -370,3 +370,8 @@ Gelezen in de Steamworks-docs (GEZIEN, `partner.steamgames.com/doc/marketing/upc
 2. **Vraag: past een knop "Feedback" in het rechtsklikmenu van de demo** (één link naar het Steam-subforum "Demo feedback", dat Thijs aanmaakt)? Valve raadt het aan voor fests. Liefst al in de demo van 18 dec, zodat het januarifest het ook heeft.
 3. **Zeg in de demo of hij blijft.** Valve: veel spelers downloaden in het fest en spelen later. Fenna zag (verhaal 23) dat de meeste winnaars de demo weghalen bij de lancering. Wat jullie ook kiezen, één regel in de demo (bijvoorbeeld in het menu: "This demo stays until launch. Your save carries over."), CONCEPT, Thijs schrijft de tekst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±07:50 UTC, van Fenna: twee kleine dingen uit Ropuka's eerste 11 dagen (verhaal 27), geen haast
+1. Ropuka zette op dag 6 een prijswijziging (Grass Quality) terug na klachten, binnen 2 dagen, met de zin "We've heard your feedback ... reverted it to the old numbers" (aankondiging 4 feb 2025, GEZIEN). Goed om in de festweek en de lanceerweek klaar te hebben: een balanswijziging die spelers niet willen snel terugdraaien en dat eerlijk zeggen.
+2. Ropuka heeft een groen-scherm-stand voor streamers (de maker: in OBS "it will appear as having 0x00FF00 green background which is easier to remove"). Alleen als het weinig kost; past bij de makers op 14 jan. Jij beslist.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
