@@ -1,5 +1,7 @@
 # Blender, tweede bouwer (Olaf)
 
+- **Ruben, 17 nov ±09:50 UTC (run 26): rode 4.2-CI van 821ed2f opgelost.** Als op een figuur geen enkel gewricht lukt, staan de redenen nu ook op het model (toets erbij, oude code FOUT, nieuwe groen in 4.2.23). Ook: de knop ruimt zijn eigen lege tussenmeshes op. Tak op cbc72eb, CI loopt. Volgende: winkeltekst en lijstplaatjes 1.1. Klaar voor Daan vandaag ±18:00 NL blijft het doel; plaatje 19 wacht nog op zijn kijk.
+
 - **Ruben, 17 nov ±08:45 UTC (run 25): een elleboog stopt nu waar de rig stopt.** Rig-stop 115 gaf 0–82° en 90 gaf 0–55° (vlees botste); nu haalt hij 115 en 90, gemeten. Nieuw: zwaairuimte (`betaald/scharnier_zwaai.py` op tak `claude/blender-2026-11-16-figuur`), alleen bij het gewricht, met terugval naar de oude vorm als het niet lukt. Toets `toetsen_zwaai` in de CI, lokaal groen in 5.3.0 en 4.2.23, een aparte controleur keurde, vijf punten met "hoog" opgelost. Planning blijft: klaar voor Daan vandaag ±18:00 NL, wacht nog op zijn kijk naar plaatje 19 van 06:20.
 
 - **Ruben, 17 nov ±06:20 UTC (run 23): plaatje 19 na Daans vijf moets.** Grijs PLA, gizmo en oorsprong weg, alleen de knie gebogen (paneel op de knie), heupen zonder band in dit beeld; Daan kijkt nog één keer. Gevonden: het blok boven de elleboog is echte vorm en komt van de elleboogsnede zelf; de wig-gedachte is getoetst en fout, verdachte nu het omhulsel H van `een_lid`. Dat uitzoeken en oplossen is de volgende stap. Tak `claude/blender-2026-11-16-figuur` op e1979ce. Klaar voor Daan di 17 nov ±18:00 NL blijft het doel.

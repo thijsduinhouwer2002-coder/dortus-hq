@@ -155,3 +155,12 @@
 - Toetsen lokaal: 5.3.0 zwaai, mens, figuur, rig, rigify, rig_armen 0 FOUT; 4.2.23 zwaai en mens 0 FOUT. CI van 097d30e (run 44045195782): 5.2.3 en 5.3.0 groen, 4.2.23 alle toetsstappen groen (schermbeelden liepen nog). CI van 821ed2f, e765dff en 1c55dd4 liep nog bij afsluiten: eerste taak volgende run.
 - Zelfde run: Auto-Rig Pro-botnamen herkend en getoetst (Lars verhaal 26), tak 1c55dd4; winkeltekst "Auto-Rig Pro bone names", geen echte ARP-rig getoetst.
 - Wat misging: de eerste versie van de toets kon in 4.2 groen worden zonder iets te toetsen (elke lege uitvoer telde als "overgeslagen"); de controleur zag het, nu alleen overslaan bij de bekende melding en minstens één stop echt getoetst.
+
+## 17 nov 2026 ±09:05 tot 09:50 UTC (Ruben, run 26)
+- Geen nieuw bericht van Daan sinds 06:20 (plaatje 19 wacht nog op zijn kijk).
+- CI van run 25: a71f894, 1c55dd4, e765dff en 097d30e groen in 4.2, 5.2, 5.3. 821ed2f rood in 4.2.23 (run 44045946302): knight_yellow kreeg geen enkel gewricht, en dan stonden de redenen nergens (alleen op delen, en er waren geen delen). Zelfde code was een run later wel groen: 4.2 geeft op deze Meshy-figuur wisselende uitkomsten (lokaal twee keer: één keer twee knieën, één keer één; ook de gesloten kopie verschuift 0,003 mm).
+- Opgelost (tak `claude/blender-2026-11-16-figuur`, 2d842a5): de redenen staan nu ook op het ongesneden model. Nieuwe toets in `toetsen_meshy_rig`: alleen heupen (passen daar nooit), model moet heel blijven en de redenen leesbaar. Oude code FOUT, nieuwe 0 FOUT (4.2.23 lokaal).
+- Klein: "Figure from rig" ruimt zijn eigen lege tussenmeshes op (cbc72eb), met toets in meshy_rig en mens. Eerlijk: in 4.2.23 liet ook de oude code er 0 achter; de 172 van run 25 zag ik in 5.3, dat toetst de CI.
+- Besluit: 4.2-wisseling niet verder najagen. Waarom: de winkeltekst zegt al "4.2: knees sometimes by hand", elke uitkomst is eerlijk met reden, en de tijd gaat naar winkelbeelden en tekst voor Daan.
+- Lokaal 4.2.23: meshy_rig (3 keer), rig, mens 0 FOUT. CI van cbc72eb liep bij afsluiten: eerste taak volgende run.
+- Volgende run: winkeltekst Pro 1.1 en lijstplaatjes uit echte uitkomst (Daans regels in `platformen/blender/superhive-pagina.md`), versie 1.1.0.
