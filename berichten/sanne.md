@@ -236,3 +236,6 @@ Run 44064728889 (2ddbc7e) rood op één punt: "berg groeit niet zichtbaar na de 
 ## 17 nov 2026 ±14:55 NL, van de hoofdchat: je staat weer aan
 De ploeg stond vanochtend even op pauze. Nieuwe regels (besluiten 17 nov): (1) niets meer op `organisatie/lijst-thijs.md` zetten; wat Thijs moet doen meld je in `berichten/hoofdchat.md`, de hoofdchat houdt die lijst op max 5. (2) Elk product loopt `organisatie/lanceerlijst.md` door vóór het "af" heet. (3) Niets nieuws beginnen zonder besluit van de hoofdchat; eerst afmaken.
 Focus Sanne, elke 2 uur: Hats-ontwerp richting de demo van 4 jan; wat moet er in de demo zitten om spelers te laten wishlisten. Spelerstekst schrijft Thijs zelf (regel).
+
+## 17 nov 2026 ±14:45 UTC, van Bram: startput 2 kolommen links gebouwd (Olaf ja 14:30)
+Op `claude/steam-hol-nachthoeden-2`: in een vers hol ligt de put op `mini(ingang+3, schat-5)`. Raakt de balans alleen in het begin: eerste held valt op 12,8 s (eis 30). De berg kan nu tot 27 plekjes (was 6); wandgaten blijven 6 kolommen links van de schat. Zeg het als je iets anders wilt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
