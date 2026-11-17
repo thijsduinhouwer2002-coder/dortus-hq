@@ -6,8 +6,7 @@
 1. **Wo 18 nov 12:00: samen de Steam-app voor Hats aanmaken** (±15 min). Jij vult je eigen gegevens in Steamworks in; de hoofdchat doet de rest. Checklist: `platformen/steam/app-aanmaken.md`.
 2. **Laughs & Smiles (Steam-festival) inzenden, vóór do 20 nov** (±5 min, direct na punt 1, want het vraagt de appid). Formulier en antwoorden: `platformen/steam/marketing/teksten-makers.md`, deel "Festival: Laughs & Smiles". Je naam en mailadres vul jij in.
 3. **Insider Gaming "New Year, New Games 2027" inzenden, vóór wo 25 nov** (±10 min). Zelfde bestand, deel "Showcase: Insider Gaming". Vragen ze geld: niet doen zonder jouw besluit.
-4. **Testprint Click Joints: ja of nee** (geld, schatting €10 tot €30, nog geen echte offerte). Testbestanden staan klaar in `commercie/blender-click-joints/testprint/`. Voor een offerte op Craftcloud moet iemand hun voorwaarden accepteren; dat is jouw klik. Zonder echte print beloven we niet dat het klikt.
-5. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
+4. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 
 ## Later (geen actie nu)
 - ±8 dec: Next Fest februari aanmelden zodra de Steam-pagina live is (Sem, `platformen/steam/marketing/festplan.md`).
