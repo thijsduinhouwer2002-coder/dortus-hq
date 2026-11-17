@@ -124,6 +124,10 @@ module Proef {
         if (soort == Veld.TEMP) {
             return -4;
         }
+        // Run 135: de simulator geeft ook 0 stappen; op plaatje 2 van Daan (Venu 3S) hoort een gewone dag te staan.
+        if (soort == Veld.STAPPEN) {
+            return 8412;
+        }
         return echt;
     }
 
