@@ -40,3 +40,30 @@ Controle zonder korting 0,7x. Eerlijk: 4 etalagegevallen is weinig, en een Daily
 ## Open
 - Datum van de eerste grote update: vraag aan Olaf als het volle spel vaststaat (na de bevriezing van 15 feb), niet nu.
 - Prijs zelf: bij Vera en de hoofdchat; dit plan rekent alleen met procenten.
+
+## Vaste dag op de pagina en de Persoonlijke Kalender (run 19, 17 nov ±05:50 UTC)
+Aanleiding: Fenna verhaal 24 en haar bericht aan de hoofdchat (17 nov ±06:00). Valve-pagina zelf gelezen met curl (`partner.steamgames.com/doc/marketing/visibility/personalcalendar`, GEZIEN 17 nov):
+- Alleen een spel met een zichtbare "Coming Soon"-pagina **met een vaste dag** kan op de kalender. Tip van Valve: dag minstens **60 dagen vooraf** voor de eigen kalenderpagina (8 weken), minstens **3 weken** voor de voorpagina (deze week, twee weken terug, twee weken vooruit).
+- Wie het spel al op zijn verlanglijst heeft, ziet het er altijd in. Voor de rest kiest Steam per speler via "spelers met dezelfde smaak hebben het op hun verlanglijst". Geen drempel.
+- **Verschuiven mag**, ook als het spel er al in stond. Alleen: binnen 2 weken vóór de dag meer dan 24 uur uitstellen = van de kalender tot de uitgave. Demo's komen er niet in. Zaterdag en zondag tellen als maandag.
+
+**Gemeten in onze hoek** (`data/vaste-datum.py`, `data/vaste-datum-2026-11-17.csv`, appdetails van de 251 aangekondigde bureaubladspellen uit run 2, GEZIEN 17 nov): maar **34 van 251 (14%) hebben een vaste dag**; 136 staan op "Coming soon", 32 op een kwartaal, 22 op een maand, 24 op een jaar. In februari tot april 2027 staan er maar **4** met een vaste dag (Desk Hive 1 feb, Loop Tower 24 mrt met 351 volgers, How To Goblin en Little Colony 30 mrt); 16 staan op "Q1 2027" of "March 2027" en kiezen later. Woollings (2 mrt, Fenna) zit niet in mijn lijst van 251, die uit Vera's kaart van 736 wel. Volgers verschillen niet tussen wie wel en geen dag heeft (mediaan 9,5 tegen 9), dus een dag op zich trekt niets; het voordeel is alleen de kalender. Eerlijk: hoeveel die kalender oplevert weet ik alleen van Zukowski (DERDEN, 33,8% doorklik bij één spel), niet zelf gemeten.
+
+**Besluit Sem (marketing, de dag zelf kiest de hoofdchat):**
+1. **Vaste dag op de pagina vanaf de paginadag (±8 dec), niet pas op 1 jan.** Waarom: verschuiven is gratis tot 2 weken vooraf, dus een vroege dag kost niets en geeft de meeste weken op de kalender; en 86% van onze hoek laat die plek liggen. "March 2027" of "Q1 2027" niet gebruiken, die tellen niet.
+2. **De dag ligt vast vanaf 2 weken vooraf** (bij 2 mrt: di 16 feb; bij 29 mrt: ma 15 mrt). Daarna alleen nog verschuiven bij een echte fout, en dan wetend dat we van de kalender gaan.
+3. **Stap voor Thijs** op `organisatie/lijst-thijs.md`: bij pagina live de releasedatum als vaste dag invullen.
+
+**Wat de keuze 2 mrt of eind maart doet met mijn plannen** (zodat de hoofdchat het in één keer ziet; rekenwerk, GEZIEN in de docs waar vermeld):
+| | di 2 mrt | ma 29 mrt tot do 1 apr (Fenna) |
+|---|---|---|
+| uiterste dag voor 60 dagen kalender | vr 1 jan | do 28 tot zo 31 jan |
+| dag ligt vast (2 weken) | di 16 feb, dag na de bevriezing van 15 feb | ma 15 tot do 18 mrt |
+| Next Fest Wrap-Up (ma 1 mrt) | avond vóór de uitgave | 4 weken vóór de uitgave, dus geen extra duw op de dag zelf |
+| bundelmails (±2 weken vooraf, `bundels.md`) | ±16 feb | ±15 mrt, met de Next Fest-cijfers erbij (sterker verhaal voor Mister Morris en Tiny Pasture) |
+| eerste korting mag (30 dagen na uitgave) | vanaf do 1 apr | vanaf ±28 apr; verandert niets, want de eerste korting gaat toch naar de Summer Sale (24 jun) |
+| Spring Sale 18 tot 25 mrt | binnen 30 dagen, geen korting | ligt vóór de uitgave, geen botsing |
+| routekaart dag 3 tot 7 | 5 tot 9 mrt | 1 tot 5 apr |
+| demo staat nog | 1 dag na Next Fest | ±4 weken na Next Fest; Valve: veel spelers downloaden in het fest en spelen later, dus die weken telt de demo nog |
+| let op | | **ma 29 mrt is Tweede Paasdag** (Pasen 2027 is 28 mrt; vrij in NL, DE, UK, FR). Een spel "voor als je werkt" komt dan uit op een vrije dag in Europa; GOK of dat slecht is, maar ik zou di 30 mrt of wo 31 mrt kiezen |
+Mijn oordeel: voor de marketing kan het allebei; mijn plannen schuiven mee zonder verlies, en eind maart geeft de bundelmails sterkere cijfers. Kiest de hoofdchat eind maart, dan **di 30 of wo 31 mrt**, niet ma 29 mrt. Ik verander niets aan de datums in dit plan tot de hoofdchat kiest.
