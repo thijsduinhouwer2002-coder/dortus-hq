@@ -1635,3 +1635,14 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Concurrentiecheck deel 1 gedaan (`spraakmemo-concurrenten.md`): zes apps, winkelgegevens met curl. Antwoord op "wat hebben wij": terugluisteren op de pols zonder account, telefoon of abonnement. **Niet gedaan:** wat eraan komt, en of Garmin zelf spraaknotities op deze horloges heeft (twee zoekpogingen met curl gaven niets leesbaars).
 - Regel voor de code: alleen `Toybox has :Audio` is veilig (run 44063895460).
 
+## 17 nov 2026 ±15:05 UTC, run 137: heeft Garmin zelf spraaknotities, en de keuring
+- Opdracht hoofdchat (15:10 NL): niets bouwen, per horloge nakijken of er een ingebouwde spraaknotitie is, tellen, advies.
+- Gedaan: van tien handleidingen van Garmin de lijst met onderwerpen gelezen (`suitehelp_topic_list.html`), van zes alle pagina's doorzocht op "voice note", "microphone" en "speaker", twee handleidingen als pdf (Enduro 4, Approach S72), plus het forum van Garmin, Notebookcheck, DC Rainmaker en gadgetsandwearables.com. Alles met curl; zoeken met WebSearch.
+- **Uitkomst:** 8 lijnen met microfoon en ingebouwde notitie, 6 zonder microfoon, 1 niet na te lezen (MARQ Gen 3), 0 met microfoon zonder notitie. Tabel in `spraakmemo-concurrenten.md` deel 2.
+- **Besluit (advies aan de hoofdchat): stoppen met de spraakmemo.** Reden: versie 1 is een kopie van iets wat gratis op elk van deze horloges zit; het enige gat (draadloos van het horloge af) vraagt een ontvanger en een account van Thijs, en wie dat nu gratis aanbiedt haalt 1 tot 10 downloads. Wat het zou veranderen: bewijs dat mensen betalen voor memo's naar de telefoon, of een horloge met microfoon zonder notitie.
+- **Fout van mij:** in run 136 gaf ik "niemand speelt terug af op het horloge" door als onze zin, terwijl ik alleen de winkel had bekeken en niet het horloge zelf. Les: eerst nalezen wat het apparaat zelf gratis doet.
+- Les over de bronnen: de handleiding voor Azië loopt achter (Forerunner 570 en 970 kregen de notitie met een update en staan er daar niet in); de Amerikaanse handleiding en het forum gaven het antwoord. Eén handleiding is dus geen bewijs dat iets ontbreekt.
+- Keuring (GEZIEN ±15:02 UTC): Ebb 1.0.1 en Calm 1.0.1 staan live (APPROVED, 74 en 75 artikelnummers, Ebb $2,99 met video). Hat Tower: "The requested app is not approved". Gemeld in `berichten/hoofdchat.md`.
+- **Zwak en niet gezien:** MARQ Gen 3; of de D2 Mach 2 Pro en de Forerunner 170 Music onder dezelfde handleiding vallen; of notities met een kabel van het horloge af kunnen; een echt horloge. Verkoop per model is een gok.
+- Niets nieuws begonnen (regel van vandaag): ik wacht op het besluit van de hoofdchat over de reeks.
+

@@ -1,5 +1,10 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±15:05 UTC, run 137. Spraakmemo: advies stoppen. Ebb 1.0.1 en Calm 1.0.1 staan live, Hat Tower wacht op keuring.**
+  - **Spraakmemo:** elk horloge met microfoon waar een app de microfoon mag gebruiken heeft al de gratis spraaknotitie van Garmin (8 lijnen GEZIEN of DERDEN, MARQ Gen 3 niet na te lezen); 6 lijnen in de lijst van Garmin hebben geen microfoon. Met microfoon en zonder notitie: 0. Tabel met bronnen: `spraakmemo-concurrenten.md` deel 2. Advies aan de hoofdchat: stoppen. Niets gebouwd.
+  - **Winkel (GEZIEN ±15:02 UTC):** Ebb 1.0.1 APPROVED, $2,99, video, 74 artikelnummers, downloads 0. Calm 1.0.1 APPROVED, 75 artikelnummers, downloads 1. Hat Tower (c39ac502...): "not approved", dus nog in keuring.
+  - **Wacht op de hoofdchat:** mag de wijzerplaatreeks weer verder nu de spraakmemo stopt. Tot dan: keuring volgen, dag 7 meten (Ebb 20 nov, Calm 23 nov).
+
 - **17 nov ±10:20 UTC, run 136. Uitzoekrun spraakmemo klaar: bouwen kan, maar met onze horlogebestanden alleen voor de fēnix 9, en de simulator kent de microfoon nog niet.**
   - **GEZIEN (runs 44061158217 en 44062263621 op tak `claude/garmin-spraakmemo-proef`):** SDK 9.3.0 bouwt in onze bouwstraat (`BUILD SUCCESSFUL`, fēnix 9); `Toybox has :Audio` is false in de simulator met de horlogebestanden van 31 aug; van 173 horloges staan er 7 op 6.0.3 (fēnix 9), de fēnix 8, Forerunner 970, Venu 4 en vívoactive 6 op 6.0.2 en die weigert de bouw; opslag van een app ±10,4 MB (348 blokken van 30.000 bytes), werkgeheugen 781.880 bytes.
   - **Uit de uitleg van Garmin:** de simulator neemt op van de microfoon van de computer; een webverzoek mag sinds 6.0.3 binaire inhoud sturen, maar er is geen weg via Garmin Connect. Versie 1: memo's blijven op het horloge.
