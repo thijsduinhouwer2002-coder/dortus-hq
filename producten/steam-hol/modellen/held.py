@@ -36,6 +36,7 @@ import held_soorten as hs_
 
 HUID = "f2c2a0"
 HUID_D = "d89a7a"
+HUID_EDEL = "d9a080"   # Mila 17 nov (Daan 03:50): edelman iets donkerder en matter, anders wordt het gezicht in na_u2 en tenen een bleke vlek naast hoed en jabot
 
 
 def _kind(o, ouder):
@@ -86,6 +87,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
 
     # ronde 3: matte speelgoedlak (frisse kijker ronde 2: "plastic glanst zo sterk dat ze goedkoop ogen")
     huid = g.mat("huid", HUID, rough=0.62, spec=0.25, sss=0.2)
+    if soort == "edelman":
+        huid = g.mat("huid_edel", HUID_EDEL, rough=0.75, spec=0.12, sss=0.1)
     blos = g.mat("hblos", "blos", rough=0.7)
     wit = g.mat("hwit", "oogwit", rough=0.2, spec=0.5)
     pupil = g.mat("hpupil", "pupil", rough=0.35)
@@ -286,15 +289,30 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         top = HZ + 1.05 * K
         _noem_hoed(voor, "heksenhoed")
 
+    BUIG, KOP = 20, 8
     if stand == "na_u2":
-        # Mila 17 nov (edelman): kleine buiging, alles boven de riem 14 graden voorover rond de heup
+        # Mila 17 nov (edelman): kleine buiging, alles boven de riem 20 graden (was 14, Daan 03:50: op spelmaat zag je 14 bijna niet) voorover rond de heup
         romp = bpy.data.objects.new("romp", None); sc.collection.objects.link(romp)
         romp.location = (0, 0, 0.45); bpy.context.view_layer.update()
         for o in [o for o in ouder.children if o.location.z > 0.42]:
             o.parent = romp; o.matrix_parent_inverse = romp.matrix_world.inverted()
-        romp.rotation_euler = (math.radians(14), 0, 0)
+        # kop een stukje terug omhoog (KOP graden), zodat hij onder de buiging door naar je kijkt: anders zie je alleen haar en voorhoofd
+        kop = bpy.data.objects.new("kop", None); sc.collection.objects.link(kop)
+        kop.location = (0, 0, 0.92); bpy.context.view_layer.update()
+        for o in [o for o in romp.children if o.matrix_world.translation.z > 0.9]:
+            mw = o.matrix_world.copy(); o.parent = kop; o.matrix_parent_inverse = kop.matrix_world.inverted()
+        kop.parent = romp; kop.matrix_parent_inverse = romp.matrix_world.inverted()
+        kop.rotation_euler = (math.radians(-KOP), 0, 0)
+        romp.rotation_euler = (math.radians(BUIG), 0, 0)
         romp.parent = ouder
-        ouder["hoed_voor"] = (top - 0.45) * math.sin(math.radians(14))   # voor het spel: hoed schuift zoveel naar voren
+        # voor het spel: waar de onderkant van de hoed (z = top) na buiging en kop terecht komt
+        def _rx(y, z, cy, cz, a):
+            a = math.radians(a); y, z = y - cy, z - cz
+            return cy + y * math.cos(a) - z * math.sin(a), cz + y * math.sin(a) + z * math.cos(a)
+        hy, hz2 = _rx(0.0, top, 0.0, 0.92, -KOP)
+        hy, hz2 = _rx(hy, hz2, 0.0, 0.45, BUIG)
+        ouder["hoed_voor"] = -hy             # hoed schuift zoveel naar voren
+        ouder["hoed_zak"] = top - hz2        # en zoveel omlaag
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     if stand == "vallen":
