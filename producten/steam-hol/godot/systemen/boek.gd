@@ -39,7 +39,7 @@ const MOMENTEN := {
 	"hebzuchtig": "touched the hoard",            # de Hoard-Toucher
 	"schijterig": "turned back at a trap",
 	"slaapkop": "was caught napping",
-	"wraakzuchtig": "fell to his own grudge",
+	"wraakzuchtig": "undone by a grudge",
 	"opschepper": "bragged, then ran",
 	"verdwaald": "got lost",
 }
@@ -101,11 +101,11 @@ func held(soort_held: String, wat: String, naam: String, bewoner := "Gloop") -> 
 	var wie: String = HELD_NAAM[soort_held]
 	var hoe := ""
 	if wat == "slijm":
-		hoe = _kies("hoe_slijm", ["%s got him." % bewoner, "%s says yum." % bewoner])
+		hoe = _kies("hoe_slijm", ["%s got this one." % bewoner, "%s says yum." % bewoner])
 	elif wat == "stekelput":
-		hoe = _kies("hoe_put", ["The pit got him.", "Spikes: one."])
+		hoe = _kies("hoe_put", ["The pit won.", "Spikes: one."])
 	else:
-		hoe = _kies("hoe_weg", ["He got away.", "Ran off. Counts."])
+		hoe = _kies("hoe_weg", ["Got away.", "Ran off. Counts."])
 	var kort := "New stamp: %s." % wie.replace("the ", "")
 	if nieuwe_pagina:
 		return _bewaar(_past(_kies("pagina", ["New page: %s. %s", "Page for %s. %s", "Booked: %s. %s"]) % [wie, hoe], kort))
@@ -161,7 +161,7 @@ func aarts(naam: String, info := {}) -> String:
 		return ""
 	aartsvijanden.append({"naam": naam, "bijnaam": String(info.get("bijnaam", "Thrice-Fled")), "wrok": String(info.get("wrok", "")),
 		"bezoeken": int(info.get("bezoeken", 3)), "littekens": int(info.get("littekens", 0)), "af_door": "", "af_dag": 0})
-	var zin := _kies("aarts", ["New nemesis in the book: %s.", "%s is in the book. In red ink.", "%s got his own page. He'd love it."])
+	var zin := _kies("aarts", ["New nemesis in the book: %s.", "%s is in the book. In red ink.", "%s gets a whole page. Framed it."])
 	return _bewaar(_past(zin % naam, "New nemesis in the book."))
 
 func aarts_af(naam: String, door: String, dag: int) -> String:
