@@ -1443,3 +1443,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Keuring 16 (Iris): uitlijningszin in `balans.md` rechtgezet, kanshebbers weg; `speeltest-21-nov.md` punt 5: regel na de eerste nacht overschrijven, zonder voorbeeld vooraf.
 - Demo-einde (Olaf 811b16e): graven na het einde blijft geweigerd, ook na 21 nov; alleen een zichtbare reactie op de geweigerde klik als die ontbreekt (`features.md`).
 - Bram `wissel=regels` loopt (44018723753), uitslag volgende run. Berichten Olaf, Iris.
+- 05:00: demobelofte `The full game keeps it all.` nagekeken in de code: waar (zelfde savemap, `demo_klaar` alleen in de demo), mits de mapnaam `Dortus/Het Hol` niet meeverandert bij hernoemen; voorstel toets aan Olaf, na de speeltest.
