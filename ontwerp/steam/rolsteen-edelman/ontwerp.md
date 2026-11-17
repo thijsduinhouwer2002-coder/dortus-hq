@@ -38,7 +38,8 @@ Wat ze doen staat bij Sanne in `platformen/steam/features.md`, blok "De rolsteen
 - **Klaar:** ligt boven aan het eind van de gang op een **houten wig met een touwtje** ervoor (Mila's helling-randje). Steen op de wig = klaar. Het belangrijkste teken is aan welk eind hij ligt; de wig maakt het af.
 - **Rollen (±2 s):** de band draait (12 beelden per omwenteling is genoeg), een stofwolkje per cel achter hem, bij elke geraakte held een korte schok (1 beeld, de steen wipt 1 spelpixel). Tegen de ridder: één witte vonk en de steen kaatst een halve cel terug ("Clang.").
 - **Na het rollen:** ligt aan het andere eind **zonder wig, tegen de wand, iets gekanteld** zodat de mosvlek opzij ligt. Zo zie je in één blik: niet klaar. Rolt hij terug (een held springt eroverheen), dan rustig, zonder stof, en de mosvlek komt weer boven.
-- **CPU:** alleen beweging tijdens rollen en terugrollen; in rust één vast plaatje (twee: klaar en niet klaar).
+- **CPU:** alleen beweging tijdens kraken, rollen en terugrollen; in rust één vast plaatje (twee: klaar en niet klaar).
+- **Kraken (Sanne, 17 nov, keuring Daan ±01:30):** zolang een held in de gang loopt schuift het plaatje "klaar" 1 spelpixel heen en weer, in een ritme van twee tikjes kort na elkaar en ±0,6 s stil. Wig staat stil. Geen derde plaatje, tenzij het op 120 px in de strook niet leest.
 
 ## Toets voor de keuring (Daan, ware grootte 1920)
 1. Een frisse kijker krijgt alleen de strook met de edelman tussen drie andere helden en zegt uit zichzelf iets als "die met de hoge hoed is rijk / deftig".
@@ -69,3 +70,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - `producten/steam-hol/modellen/rolsteen.py` op tak `claude/steam-edelman` (nog niet in de pijplijn). Bultige bol (ruis op de vorm, 1 : 0,92), de groef als echte inkeping met donker `5e5850` en een lichte rand, twee platte afgeslagen vlakken, mos bovenop, wig donker hout `5e3b22` met touwtje. Standen `klaar`, `niet_klaar`, `rol` (met draai in graden).
 - Eerst met een icosfeer: GEZIEN, de groef werd een zaagtand. Nu een bol met zijn polen op de groefas, dan loopt de band strak.
 - `mila-rolsteen-proef1.png` (klaar, niet klaar, rollend 45 graden). **GEZIEN met Read:** leest nu als steen, niet als bal of ei, en de groef is een scherpe kerf die je ziet staan. Eerlijk nog niet goed: de afgeslagen vlakken lezen als lichte lappen, de lichte rand zie je maar aan één kant, en niet klaar (rechtop gekanteld) heeft iets van een walnoot. Volgende run: vlakken kleiner en donkerder, rand aan beide kanten, de 6 rolbeelden op spelmaat in de echte opname (toets 3 en 4).
+
+## Keuring Daan, 17 nov ±01:30 UTC
+- **Edelhoed op de toren (`mila-toren-voor-na.png`): ja.** Kan: onderkant van de rand iets donkerder.
+- **Rolsteen proef 1 (`mila-rolsteen-proef1.png`): richting ja, nog niet inbouwen.** Moets: grijs terug naar warm `8e8a86` tot `a8a39c` (nu blauwig `bbb9ca`); afgeslagen vlakken zelfde grijs een stap donkerder (nu beige); lichte rand langs de groef doorlopend aan twee kanten of weg; geen opbollende helften naast de groef (walnoot); mos terug naar `6f8f4a` en kleiner; dan eerst de toets op spelmaat in de echte opname, met de wig nog zichtbaar.
