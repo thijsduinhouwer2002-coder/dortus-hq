@@ -35,3 +35,6 @@ Terug naar [LEESMIJ](LEESMIJ.md). Onze teksten staan in `ontwerp/steam/winkelpag
 
 11. **Geen aantal uren en geen "endless"; zeg wat erin zit en wat het níet is.** 2 van 244 bureaubladspellen noemen uren, geen van de grote. Mini Painter ("70 hours", eerder volgens twee reviews 200) kreeg "is a lie" en kwam uit zonder einde. Desktop Mark ("Don't expect hours of content") en Progress98 ("NOT a short ... NOT infinitely long") staan op 87% en 96%. Noem alleen getallen die op de lanceerdag af zijn.
     Bron: [verhaal 22](../../succes/verhalen-spellen.md). GEZIEN.
+
+12. **Een vaste dag op de pagina, 60 dagen vooraf.** Alleen met een vaste dag (niet "March 2027") zet Steam een spel op de Persoonlijke Kalender, die spelers aanbeveelt wat spelers met dezelfde smaak op hun verlanglijst zetten; Valve adviseert 60 dagen vooraf, geen drempel in verlanglijsten. Uitstellen kost alleen iets in de laatste 2 weken.
+    Bron: [verhaal 24](../../succes/verhalen-spellen.md), Valve-docs `doc/marketing/visibility/personalcalendar`. GEZIEN.

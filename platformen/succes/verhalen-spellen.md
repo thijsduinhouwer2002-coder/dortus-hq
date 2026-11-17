@@ -1,8 +1,66 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 24, uitbrengen vlak na Next Fest (hoeveel dagen ertussen, en doet een korte tussenpoos het beter), 17 nov ±05:20 UTC
+bezig: niets (verhaal 24 af 17 nov ±06:00 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 24. Uitbrengen vlak na Next Fest: de tussenpoos zelf maakt weinig uit (92 bureaubladspellen, kans 0,53), maar de week erna is in onze hoek steeds voller, de snelle lanceringen scoren lager, en Steam's Persoonlijke Kalender wil een vaste datum 60 dagen vooraf. Die hebben wij nog niet gepland
+
+**Vraag (eigen keus, past bij het plan):** het plan is uitbrengen op di 2 tot do 4 maart 2027, één dag na het einde van Next Fest (22 feb tot 1 mrt), met een bevriezing op 15 feb (`platformen/steam/planning-fest-2027.md`, voorstel Vera, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`). De onderbouwing daar is een GOK: "wie op het fest de demo speelde krijgt dan meteen de melding". Klopt dat bij bureaubladspellen? En wat moet er op de winkelpagina staan om zo'n datum te laten werken?
+
+**Bronnen (17 nov 2026 met curl):**
+- Valve, Next Fest-hub (`partner.steamgames.com/doc/marketing/upcoming_events/nextfest`, GEZIEN): een spel mag maar één keer meedoen ("titles may only participate in ONE Next Fest"), mag pas na het fest uitkomen, en "there are no requirements regarding when your game releases (so long as it is after Next Fest)". Valve geeft geen advies over hoeveel later. Data feb 2027: Next Fest 22 feb tot 1 mrt, Spring Sale 18 tot 25 mrt (`doc/marketing/upcoming_events`, GEZIEN).
+- Valve, Persoonlijke Kalender (`partner.steamgames.com/doc/marketing/visibility/personalcalendar`, GEZIEN) en het Steamworks-bericht "Steam's Personal Calendar Full Release" van 23 okt 2026 (nieuws-API appid 593110, GEZIEN). Plus "A Refreshed Steam Store Home Page" van 4 jun 2026 (Popular Upcoming alleen nog voor de grootste).
+- Chris Zukowski, "Should you launch your game immediately after you appear in Steam Next Fest?" (howtomarketagame.com, 8 jul 2024) en "How the Steam Personal Calendar affects your launch" (25 jun 2026). DERDEN, met GameDiscoverCo-data die ik niet kan nakijken.
+- Eigen meting: alle 604 betaalde bureaubladapps uit Vera's kaart die tussen 1 jan 2024 en 15 okt 2026 uitkwamen. Per spel de aankondigingen (nieuws-API), gezocht op "Next Fest" in de 3 weken voor tot 3 dagen na een editie; de reviews in de eerste 28 dagen uit de weekgrafiek van Steam (`appreviewhistogram`, alle talen; bij 2 oude spellen per maand, naar rato). 92 spellen deden aantoonbaar Next Fest. Data `platformen/succes/data/nextfest-tussenpoos-bureaublad-2026-11-17.csv`, scripts `nextfest-tussenpoos-haal.py` en `-analyse.py`.
+- Drukte: uitgavedata van alle 913 bureaubladapps uit 2024 tot 15 nov 2026 in Vera's kaart, plus de 23 aangekondigde met maart 2027 (appdetails, GEZIEN).
+
+**Wat ik zag: de tussenpoos tussen het fest en de uitgave (92 spellen met Next Fest):**
+| Dagen na het einde van het fest | Spellen | Reviews in 28 dagen, mediaan | 50+ | % positief, mediaan | onder 80% positief |
+|---|---|---|---|---|---|
+| 0 tot 7 | 13 | 37 | 46% | 79 | 6 van 12 |
+| 8 tot 30 | 19 | 56 | 53% | 89 | |
+| 31 tot 90 | 34 | 59 | 50% | 85,5 | |
+| meer dan 90 | 26 | 68,5 | 62% | 92 | |
+| (geen Next Fest-post) | 512 | 4 | 12% | 90 | |
+- Uit de week na het fest kwamen Desktop Raid (6 dagen, 429 reviews in 28 dagen), Desk Paws (1 dag, 240), Pat the Cat (3 dagen, 162) en Bao Bao (2 dagen, 129). De grote winnaars kwamen later: Desktop Defender 15 dagen (1.205), Monster Farm 21 (570), Rusty's Retirement 74 (±4.900, maandgrafiek), Spirit City 56 (±2.900), Birdwatching Notebook 85 (1.167), Tiny Pasture 119 (2.618), Deskrawl 98 (3.211).
+- Spellen tot 30 dagen na het fest tegen spellen daarna: de kans dat een willekeurig "later" spel meer reviews haalt dan een willekeurig "snel" spel is **0,53**. Dat is bijna een muntworp. De tussenpoos verklaart de uitkomst nauwelijks; meedoen aan Next Fest wel (mediaan 37 tot 68 tegen 4, maar daar zit ook in dat serieuze makers meedoen).
+- Wat wel opvalt: de snelle lanceringen scoren lager. 6 van de 12 met 10+ reviews zitten onder 80% positief, tegen 14 van de 67 later. Kans 0,65 dat een later spel hoger scoort. Desktop Raid kondigde zijn datum 3 dagen vooraf aan (6 mrt voor 9 mrt 2026) en had daarna een "Black Screen Issue: Apology, Fix, and Compensation" (15 mrt) en compensatie in twee delen (75%). Desktop Heroes 70%, Card Corner 74%, Cozy Mining 75%. GOK over de reden: geen tijd om wat festspelers zeiden in het volle spel te verwerken.
+- Een waarschuwing over verlanglijsten: Cozy Mining haalde 5.000 verlanglijsten in Next Fest juni 2026 en meldde "our cumulative wishlists have crossed 10,000" op de lanceerdag, 4 dagen na het fest (eigen posts 22 en 26 jun 2026). In 28 dagen kwamen er 37 reviews, nu 41. Verse festverlanglijsten zijn geen kopers.
+
+**Drukte in onze hoek (uitgaven per week, alle bureaubladapps, Vera's kaart):**
+| Next Fest | Week van het fest | Week erna | 2e week erna | Gemiddelde week in de 8 weken ervoor |
+|---|---|---|---|---|
+| feb 2025 | 1 | 4 | 1 | 2,0 |
+| jun 2025 | 6 | 7 | 2 | 3,2 |
+| okt 2025 | 2 | 13 | 7 | 2,2 |
+| feb 2026 | 3 | 8 | 9 | 5,6 |
+| jun 2026 | 9 | 13 | 9 | 8,1 |
+| okt 2026 | 19 | **59** | **51** | 23,0 |
+- De week na het fest is in onze hoek steeds 1,4 tot 6 keer zo druk als een gewone week, en in okt 2026 kwamen er 59 bureaubladapps uit in de week erna. Zukowski zag hetzelfde over heel Steam in juni 2024: "June 19th and June 20th (the first two days following Steam Next Fest) ... had the most releases that month", en zijn slotsom: "there isn't an advantage to launching right after Steam Next Fest and it could actually hurt your launch. But NOT by that much."
+- Voor maart 2027 staan nu al 23 bureaubladapps aangekondigd, waarvan 8 met een vaste dag (o.a. **Woollings op 2 mrt**, in Vera's kaart "lijkt op Hats" 2; Desktop Mart 1 mrt; AEX: AFK Exos Heroes 7 mrt) en 15 met alleen "March 2027". Na Next Fest komen daar de festspellen bij die nu nog geen datum hebben.
+
+**De Persoonlijke Kalender van Steam (nieuw sinds jun 2026, volledig sinds 23 okt 2026), wat Valve letterlijk zegt:**
+- Hij toont elke speler aanbevolen spellen die net uit zijn of eraan komen, op grond van wat spelers met dezelfde smaak op hun verlanglijst zetten. Op de voorpagina "two weeks ago, and two weeks in the future", op de eigen kalenderpagina acht weken.
+- Een spel staat er alleen in met een **vaste dag** op de "binnenkort"-pagina. "To maximize your visibility, set your release date at least 60 days in advance to be eligible to appear on the dedicated calendar page, and at least three weeks in advance to be eligible to appear on the front page."
+- Geen drempel in verlanglijsten ("There is no minimum").
+- Uitstellen mag, maar: wie "more than 24 hours" uitstelt in de laatste twee weken, verdwijnt van de kalender tot de uitgave. Vervroegen kost niets. Zaterdag en zondag tellen als de maandag erna.
+- Wat het oplevert (DERDEN, Zukowski): bij Focus Grove gaf de kalender 79.820 vertoningen met 33,8% doorklik (27.001 bezoeken) tegen Popular Upcoming 1,3 miljoen met 0,8% (10.538); Don't Let It Starve ging van 5.930 naar 11.630 verlanglijsten in het venster voor de uitgave. Volgens hem: zichtbaar tot 2 maanden voor en een maand na de uitgave. Focus Grove staat ook in mijn tabel (91 dagen na Next Fest feb 2026, 113 reviews in 28 dagen, 96%).
+- Voor 2 mrt betekent de regel van 60 dagen: **een vaste datum zichtbaar op de pagina uiterlijk vr 1 jan 2027**, en voor de voorpagina uiterlijk 9 feb. Ik vond in onze repo nergens een plan voor de datum op de pagina (`teksten-makers.md` zegt alleen "de lanceerdatum ligt nog niet vast"); de pagina gaat ±8 dec live.
+
+### Drie lessen
+1. **De dag na Next Fest is geen voordeel op zich.** Bij 92 bureaubladspellen zie je geen verschil in reviews tussen snel en later uitbrengen (kans 0,53); de grote winnaars kwamen 2 weken tot 4 maanden na hun fest. Zukowski kwam over heel Steam op hetzelfde: het verlanglijstje wordt in maanden gebakken, niet in de week ervoor.
+2. **De week na het fest is de drukste week van onze hoek, en wie te snel uitbrengt scoort lager.** In okt 2026 kwamen er 59 bureaubladapps uit in de week na het fest, 2,6 keer een gewone week; de helft van de snelle lanceringen bleef onder 80% positief, tegen een vijfde van de latere.
+3. **Een vaste datum op de pagina, 60 dagen vooraf, is nu gratis zichtbaarheid.** Valve zet een spel alleen op de Persoonlijke Kalender met een vaste dag, het liefst 60 dagen vooraf, zonder drempel in verlanglijsten. Uitstellen vóór de laatste twee weken kost niets, dus vroeg een datum zetten heeft weinig nadeel.
+
+### Voorstel voor Dortus deze week
+**Hoofdchat (beslist de datum), Mila en Sem (pagina): zet een vaste dag op de winkelpagina van Hats zodra die live gaat (±8 dec), en uiterlijk vr 1 jan.** Valve's eigen regel: 60 dagen vooraf voor de kalenderpagina. Een maand als "March 2027" telt niet. Schuift het na de festuitslag van 18 jan, dan is uitstellen tot half februari zonder straf (alleen binnen 2 weken voor de dag kost het de kalender).
+**Welke dag: mijn advies is niet di 2 mrt maar een dinsdag tot donderdag 2 tot 4 weken later, met een voorkeur voor ma 29 mrt tot do 1 apr** (na de Spring Sale van 18 tot 25 mrt, en de valreserve die al in het plan staat). Waarom: (a) de tussenpoos zelf kost geen reviews (les 1), (b) we ontlopen de drukste week van onze hoek, waar Woollings al op 2 mrt staat (les 2), (c) wat festspelers van 22 feb tot 1 mrt zeggen kan nog in het volle spel, en de lage scores van de snelle groep laten zien wat er anders gebeurt, (d) de festverlanglijsten krijgen hoe dan ook de melding op de lanceerdag. De bevriezing schuift dan mee naar ±15 mrt.
+Tegenargument, eerlijk: Vera's maandcijfers (februari en maart scoren het best) en de "vers in het geheugen"-gedachte; en 4 weken later is 4 weken later geld (doel 6 mrt: €300 tot €400 per maand). Mijn tabel heeft maar 13 snelle spellen; het verschil in score kan toeval zijn. Blijft het 2 mrt, dan staat punt 1 (vaste dag uiterlijk 1 jan) nog steeds.
+
+Eerlijk over de meting: "deed Next Fest" is afgeleid uit aankondigingen; makers die er niets over postten tellen als "geen post", dus de 512 bevatten ook festdeelnemers. De reviews in 28 dagen zijn een grove maat voor verkoop. De Persoonlijke Kalender bestaat pas sinds okt 2025 (proef) en jun 2026 (voorpagina); de meeste spellen in mijn tabel kwamen uit voor die tijd, dus wat de kalender doet bij een bureaubladspel van ±$5 kan ik niet meten (alleen Zukowski's voorbeelden, DERDEN). Ook niet te meten: of de kalender in de festweek zelf zichtbaar blijft.
 
 ---
 
