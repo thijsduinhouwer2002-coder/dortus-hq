@@ -407,6 +407,8 @@ func krijg_hoed(hoed: int) -> int:
 	return hoeden.size()
 
 # Hoeden van de nacht: in de rij zetten (Voortgang.geef_hoeden met later=true); vallen pas na start_nacht().
+# Regel (kan Olaf 17 nov 07:30): wie hoeden in de rij zet, roept daarna ook start_nacht() (opslag.gd doet dat). Anders
+# stopt _process nooit, want het draait tot de rij leeg is, en kost Gloop voor altijd CPU.
 func krijg_hoed_later(hoed: int) -> int:
 	gegeten += 1
 	nacht_hoeden.append(absi(hoed) % HOED_SOORTEN)
