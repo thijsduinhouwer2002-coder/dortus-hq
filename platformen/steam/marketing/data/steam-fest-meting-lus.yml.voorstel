@@ -1,0 +1,71 @@
+name: Steam fest-meting (spelers tegelijk in demo's)
+
+# VOORSTEL Sem, 17 nov 2026 (run 14), ter vervanging van .github/workflows/steam-fest-meting.yml.
+# Waarom: de geplande start (cron) komt bijna nooit. In 30 uur stond er geen enkele geplande run van deze
+# workflow in de lijst, alleen 6 starts met de hand; het Dashboard "elk half uur" kreeg er 3 per dag
+# (GEZIEN 17 nov, api.github.com .../actions/runs?event=schedule). Voor het fest in januari moet elk uur gemeten worden.
+# Hoe: met de hand (of door een run van Sem) één keer starten met lus=ja. De job meet dan elk uur om :17,
+# 5 keer (±5 uur, onder de grens van 6 uur per job), en start zichzelf daarna opnieuw zolang er in
+# meetlijsten.csv een lijst actief is. Is er niets meer actief, dan stopt de keten vanzelf.
+# workflow_dispatch mag met de eigen GITHUB_TOKEN een nieuwe run starten (uitzondering in de GitHub-docs
+# "Triggering a workflow from a workflow"); daarvoor permissions actions: write. Kosten: niets, openbare repo.
+# Alleen de openbare Steam-API zonder sleutel. Uitkomst op de tak `fest-metingen`, één csv per lijst.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      lus:
+        description: "ja = elk uur blijven meten en zichzelf opnieuw starten zolang een lijst actief is"
+        required: false
+        default: "nee"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: steam-fest-meting
+  cancel-in-progress: false
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    steps:
+      - uses: actions/checkout@v4
+      - name: Meten (één keer, of in een lus) en bewaren op tak fest-metingen
+        env:
+          TOKEN: ${{ github.token }}
+          LUS: ${{ github.event.inputs.lus || 'nee' }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          HIER="$PWD"
+          meet() {
+            for poging in 1 2 3 4 5; do
+              rm -rf /tmp/m
+              if git clone -q --depth 1 --branch fest-metingen "$URL" /tmp/m 2>/dev/null; then :; else
+                mkdir /tmp/m && (cd /tmp/m && git init -q -b fest-metingen && git remote add origin "$URL")
+              fi
+              python3 "$HIER/platformen/steam/marketing/data/fest-meting.py" "$HIER/platformen/steam/marketing/data/meetlijsten.csv" /tmp/m
+              cd /tmp/m
+              git add -A
+              if ! git commit -q -m "Fest-meting $(date -u +%FT%H:%MZ)"; then echo "niets actief"; cd "$HIER"; return 1; fi
+              if git push -q origin fest-metingen; then cd "$HIER"; return 0; fi
+              cd "$HIER"; sleep $((poging * 5))
+            done
+            return 0
+          }
+          if [ "$LUS" != "ja" ]; then meet || true; exit 0; fi
+          for keer in 1 2 3 4 5; do
+            meet || { echo "geen lijst actief, keten stopt"; exit 0; }
+            [ "$keer" = 5 ] && break
+            # wachten tot de volgende :17
+            nu=$(date -u +%s); volgend=$(( (nu / 3600 + 1) * 3600 + 17 * 60 ))
+            [ $((volgend - nu)) -gt 3600 ] && volgend=$((volgend - 3600))
+            sleep $((volgend - nu))
+          done
+          GH_TOKEN="$TOKEN" gh workflow run steam-fest-meting.yml --ref main -f lus=ja -R "$GITHUB_REPOSITORY"
+          echo "volgende schakel gestart"
