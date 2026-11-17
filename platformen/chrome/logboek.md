@@ -6,3 +6,4 @@
 - Beslissing: Revolver-opvolger tweede, niet eerste. Waarom: de 200.000 gebruikers zitten nu verspreid over minstens zes gratis tools van 10.000 tot 30.000; betaalbewijs zwak.
 - Afgevallen: YouTube-beschrijvingen in bulk (Studio kan het zelf, GEZIEN).
 - Mis: niets. Risico voor Agenda: keuring Google tot 10 dagen, daarvoor waarschuwing en hooguit 100 nieuwe gebruikers.
+- Erna: `producten/chrome-1/techniek.md` met voorwerk voor elke kandidaat: Gumroad-sleutelcontrole nagelezen en live geprobeerd (404 bij onbekende sleutel, GEZIEN), testaanpak met nagebootste API's, inlogpad bij Google voor Agenda. Nog geen code: eerst de keuze en het ontwerp (regel 0).
