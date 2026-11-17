@@ -1,8 +1,67 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 22 af 17 nov ±03:05 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: niets (verhaal 23 af 17 nov ±03:55 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 23. Hoe eindigt een demo van een bureaubladspel? Geen enkele van 152 stopt op de klok; ze stoppen bij een stuk inhoud, spelers laten ze dagen tot honderden uren aan staan, en de save mee is wat ze onthouden. De meeste winnaars halen de demo weg bij de lancering
+
+**Vraag (eigen keus, past bij de demo van 21 dec):** de demo van Hats stopt na 2 uur open tijd (`producten/steam-hol/ontwerp.md`, Demo-einde: grens 7200 s) en bevat hol 1 tot 12, dat na ±2,0 open uur bereikt is (`platformen/steam/voortgang.md`, punt 3 en 5). Het volle spel loopt tot hol 50 na ±128 open uur, dus de demo is ±1,6% van de weg. Hoe doen de andere bureaubladspellen het: tijd of inhoud, hoe lang spelen mensen de demo, gaat de save mee, en blijft de demo na de lancering staan?
+
+**Bronnen (alles 17 nov 2026 met curl, GEZIEN tenzij anders):**
+- Winkeltekst van de demo zelf (`store.steampowered.com/api/appdetails` van de demo-appid) voor alle 206 uitgebrachte spellen met een demo uit Vera's kaart en 47 van de 245 aangekondigde. 152 demopagina's hebben echte tekst. Ingedeeld op zoekwoorden (tijdsgrens, inhoudsgrens, save mee), elke tijdtreffer met de hand nagelezen. Data `platformen/succes/data/demo-einde-bureaublad-2026-11-17.csv`, scripts `demo-einde-haal.py` en `demo-einde-analyse.py`.
+- Nieuws-API (`ISteamNews/GetNewsForApp`, aankondigingen van de maker) van de 60 grootste betaalde bureaubladspellen, gezocht op zinnen met "demo" plus weghalen, save, grens. Script `demo-einde-nieuws.py`.
+- De 50 tot 60 meest behulpzame Engelse reviews (communitypagina) van de 53 uitgebrachte spellen met demo en 30+ reviews, plus 15 spellen rond hun demo (de meeste haalden hem weg): 2.731 reviews van 66 spellen, waarvan 74 het woord demo noemen. Script `speeltijd-community-haal.py` uit verhaal 22.
+- Openbare spelersteller `ISteamUserStats/GetNumberOfCurrentPlayers` op een demo-appid.
+
+**Hoe de demo eindigt (152 demopagina's met tekst):**
+| Soort grens | Aantal | Voorbeelden |
+|---|---|---|
+| tijdsgrens (minuten of uren, dan stop) | **0** | geen enkele |
+| zegt hardop "no time limit" | 6 | Lofi Cozy Room, Nanoquarium, A Living Corner, My Little Ranch |
+| inhoudsgrens beschreven | 33 | Tiny Terraces "17 plantable crops (out of 56)" (92%, 1.006 reviews); Mini Cozy Room "25 out of 160 tracks" (96%, 3.697); Birdwatching Notebook "limited to the Balcony" (97%); Book of Fei "the complete first chapter"; Idle Abyss Princesses "reaching stage 20 with a character level cap of 30"; Cat Caffeine "1-2 hours of relaxed play from the early game ... past the demo's stopping point" |
+| niets over de grens | ±113 | |
+In de aankondigingen hetzelfde beeld: Fishing The Abyss "a level cap of 100, but aside from that, there are no restrictions" (26 feb 2025); Desktop Defender gaf in Next Fest extra levels bij elk doel van gelijktijdige spelers (verhaal 5). Ook Cat Caffeine, die "1-2 hours" noemt, stopt bij een punt in het spel, niet bij een klok.
+
+**Hoe lang spelers een bureaubladdemo spelen (uit de reviews van het volle spel):**
+- "after trying the demo for 1 week" (Desk Garden, 184 uur), "played the demo for around 6 hours and immediately bought" (Lakeside Bar), "I put like 13 hours in the demo" (Swarmslam), "Just as good as the demo which I 100% before release" (Deskrawl), "Played the demo lots. All off the above was from the demo experience alone" over het verschil tussen uur 1 en uur 50 (Desktop Defender), "I've played the demo for like 300 hours" (Stress Relief), "well over 500+ hours" (Tap Tap Loot), "Including demo, I've had up to 900 hours" (Daydream Cat). GEZIEN.
+- Van de 74 reviews die de demo noemen zijn er 61 positief; het patroon is steeds "demo gespeeld, toen meteen gekocht". Een tegengeluid: Whimside "I ... kind of liked the demo more than the full game", Deskrawl "Some things look far worse in the full release compared to the demo".
+- Dat de teller van een demo echt meetelt, kun je zien: de demo van Mini Cozy Room had op 17 nov 03:43 UTC **15 spelers tegelijk**, anderhalf jaar na de uitgave (`GetNumberOfCurrentPlayers` op appid 3550820). Die teller is openbaar en werkt dus ook voor een demo.
+
+**De save mee, en wat er gebeurt als die niet meegaat (aankondigingen en reviews):**
+| Spel | Save mee? | Wat er gebeurde |
+|---|---|---|
+| Tap Tap Loot (Irox, 76%) | nee | Na de lancering: "We know we also didn't communicate the demo save wipe enough and we should've found a way to maintain the save files. Again, sorry." plus gratis skins als goedmaker (17 apr 2026). |
+| Stress Relief (83%) | nee | Behulpzame negatieve review: "After 218hrs and 54km distance in the demo, I am regretful to say that I will not be continuing on with this game ... the developers decided to not add a way for you to import your data". |
+| My Little Life (89%) | nee | Haalde de demo vóór de lancering weg "as the save files from the demo won't be transferable ... I didn't want to have people sink many hours into the demo right before the main game comes out" (8 jan 2025). |
+| Tiny Pasture (93%) | nee | "demo save data won't carry over" (12 feb 2025), demo offline op de lanceerdag. Geen review in de 60 behulpzaamste klaagt erover. Dus niet dodelijk. |
+| Cozy Mining, Progress98 | ja | Reviews noemen het als pluspunt: "one of the coolest things is that your progress from the demo transfers ... It made playing the demo feel worthwhile". |
+| Monster Farm, Maltese's Fluffy Onsen, gogh, Duelist, Desktop Raid, Bao Bao, Bit Buddy | ja | Herhaald in bijna elke aankondiging rond de lancering ("your Demo saves WILL carry over", Monster Farm 8 tot 11 nov 2025). Desktop Raid: dag na de lancering "Partial data loss when inheriting Demo save files" als eerste bekende fout. |
+| Typing Farmer, Bugtopia | deels | Munten mee (Typing Farmer 10:1, tot 10.000), Bugtopia munten via een menu. |
+
+**Blijft de demo staan na de lancering?**
+- Van de 20 grootste betaalde bureaubladspellen hebben er nu **3** een demo (To Be or Not to Be, Mini Cozy Room, Cornerpond); van de 60 grootste 16 (Vera's kaart, `demo`-kolom, en appdetails van Rusty's, Desktop Defender, Tiny Pasture, Deskrawl, Ropuka, Spirit City en Bongo Cat: geen demo, GEZIEN).
+- Hardop aangekondigd weghalen op of vlak voor de lanceerdag: Desktop Defender ("the demo will be delisted a few hours before the game comes out", 3 nov 2025), Tiny Pasture, gogh, Maltese, Monster Farm, Loafing Town, Duelist, NoSlack Pets, Sensei. Lootborne hield de demo na Next Fest langer aan "after seeing your support", tot de demo "no longer reflects the current state of the game" (31 jul 2026).
+- Wie hem houdt doet het niet slechter: Mini Cozy Room 96%, Birdwatching Notebook 97%, Bugtopia 92%. Of houden of weghalen meer verkoop geeft, kan ik niet zien: GOK in beide richtingen.
+
+### Drie lessen
+1. **Een bureaubladdemo stopt bij een stuk inhoud, niet op de klok.** 0 van 152 demopagina's noemen een tijdsgrens, 6 zeggen juist "no time limit", 33 beschrijven een inhoudsgrens (gewassen, nummers, een gebied, een levelplafond). Hats is met "na 2 uur open tijd" in deze hoek de enige met een klok.
+2. **Spelers laten een bureaubladdemo dagen aan staan, en dat verkoopt het spel.** Een week, 13 uur, 100% van de demo, honderden uren: dat staat in de reviews van de winnaars, steeds met "toen meteen gekocht". Een demo van een spel dat je laat draaien wordt geproefd in werkdagen, niet in een half uur. Onze demo is ±2 open uur, ongeveer één ochtend werken.
+3. **De save mee is wat spelers onthouden; de demo zelf gaat bij de meeste winnaars offline.** Een wis kostte Tap Tap Loot een openbare verontschuldiging en Stress Relief een behulpzame negatieve review; Cozy Mining kreeg er lof voor. 17 van de 20 grootste hebben nu geen demo meer. Een vaste demo naast het volle spel (`platformen/steam/verdienmodel.md`, "permanente gratis demo") is dus de uitzondering, niet bewezen goed of slecht.
+
+### Voorstel voor Dortus deze week
+**Olaf (beslist) en Sanne (balans): laat de demo van Hats eindigen op inhoud, niet op de klok.** Concreet: de regel `That's the demo. Your hole keeps going.` komt wanneer hol 12 bereikt is (of alle 6 dingen in de winkel gekocht), niet na 7200 s open tijd. Waarom: (a) niemand in deze hoek gebruikt een klok, (b) met een klok krijgt een rustige speler, die maar af en toe klikt, het einde vóór hol 12 en ziet dus minder van het spel dan een graver, terwijl juist de rustige werker onze koper is, (c) de demo-inhoud is al op hol 12 gebouwd (`voortgang.md` punt 5), dus het is een kleine wijziging aan `kern/demo_einde.gd` (de grens wordt een hol-niveau in plaats van seconden; de testvlag `demo_einde=` kan blijven voor de toets). Hoeveel werk precies: Olaf, GOK één run.
+Als Sanne ruimte ziet: hol 13 tot 16 er ook in, zodat de demo eerder een werkdag dan een ochtend duurt. Niet als het nieuwe inhoud vraagt vóór 21 dec.
+
+Ter info voor Olaf (nieuw feit bij zijn "nu niet" over een gezamenlijk doel, 16 nov): Steam telt de spelers van een demo zelf en openbaar (`GetNumberOfCurrentPlayers` werkt op een demo-appid, GEZIEN). Een doel als "bij 100 spelers tegelijk komt hol 13 erbij", zoals Desktop Defender deed, hoeft dus niet door ons geteld te worden. Het blijft een nieuwe feature buiten de demolijst; zijn besluit.
+
+Eerlijk: de indeling van de demoteksten is op zoekwoorden; 113 pagina's zeggen niets over de grens, en daar kan een klok in zitten die de maker niet noemt (GOK: klein, want een klok is iets wat spelers juist zouden noemen, en geen van de 74 demoreviews doet dat). Uren in reviews zijn van tevreden kopers, dus van de spelers die het langst bleven.
+
+### Wat ik niet kon zien
+- Hoe lang de gemiddelde demospeler blijft: Steam toont dat alleen aan de maker.
+- 198 van de 245 aangekondigde demo's (ophalen afgebroken om tijd te sparen; het script gaat verder waar het stopte).
 
 ---
 
