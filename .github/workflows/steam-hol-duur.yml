@@ -176,7 +176,10 @@ jobs:
           Write-Output "===== fouten in de uitvoer: $(@($fouten).Count)"; $fouten | ForEach-Object { Write-Output $_.Line }
           $einde = [bool](Select-String -Path $log -Pattern "HOL einde" -Quiet -ErrorAction SilentlyContinue)
           Write-Output "===== spel stopte zelf netjes (HOL einde in hol.log): $einde; regels in uit.txt: $(@(Get-Content "$vol/uit.txt" -ErrorAction SilentlyContinue).Count)"
-          $rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or ($gem -ge 1.0) -or ($metingen.Count -eq 0)
+          # CPU-grens 1,0: rood alleen bij de .exe (Sanne 17 nov 03:09, poort b); in de editor schommelt de runner te veel, daar een waarschuwing
+          $cpuRood = ($gem -ge 1.0) -and ($env:EXE -eq 'ja')
+          if (($gem -ge 1.0) -and ($env:EXE -ne 'ja')) { Write-Output "::warning::CPU gemiddeld $gem boven 1,0 in de editor (alleen waarschuwing; de .exe beslist)" }
+          $rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or $cpuRood -or ($metingen.Count -eq 0)
           if ($rood) { Write-Output "== DUURTEST ROOD"; exit 1 } else { Write-Output "== DUURTEST GROEN" }
       - name: Uitslag openbaar zetten (tak schermen)
         if: always()
