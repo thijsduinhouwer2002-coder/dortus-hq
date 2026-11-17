@@ -796,4 +796,5 @@
 ## 17 nov ±06:35 tot 07:05 UTC
 - Daan 06:30: edelman v3 en `alleen` ja, vier kansen. Op `claude/steam-edelman-3` (6c1efac): arm dikker met knik, witte manchet, platte hand op de rand. **Besluit** het licht op de gezichten niet overal aanpassen. Waarom: los gerenderd (zoals het spel) zijn ze gelijk; het verschil kwam van de fakkel in het brede proefblad. Alleen `tenen` was echt 8 punten lichter, blos-huid gedempt. Nieuw `mila_edelman_los.py`. GEZIEN groot en op spelmaat.
 - Gijs: gratis versie Tide blijft.
-- Volgende run: Daans winkelposter Tij (`ontwerp/garmin/tij/poster/`) bekijken op wow; winkelplaatjes Tij; de vier dingen van laag 4 als Sanne erom vraagt.
+- Tij-poster v2 van Daan GEZIEN: ja, één kan (ondertekst "run aground", het scheve bootje zit in het product).
+- Volgende run: winkelplaatjes Tij; de vier dingen van laag 4 als Sanne erom vraagt.
