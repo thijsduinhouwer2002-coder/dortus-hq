@@ -2,6 +2,8 @@
 
 Opdracht hoofdchat 16 nov 20:20 (`berichten/olaf.md`). Thijs en de hoofdchat lopen dit woensdag 18 nov in ±15 minuten door. Daarna gaat het formulier van Laughs & Smiles in (deadline do 20 nov, appid en paginalink nodig).
 
+**Bijgewerkt 17 nov 2026 ±14:45 UTC (Olaf):** (1) welk bestand in welk vak hoort, met maten en keuring, staat nu in `winkelpagina-klaar.md`; de tabel "Winkelpagina" hieronder is daardoor deels oud (Mila staat uit; de capsules in `ontwerp/steam/winkelpagina/` zijn nog de pixelversies van 10 nov, niet uploaden). (2) Paginadag is ±8 dec (besluiten 17 nov), niet 30 nov; daarvoor indienen uiterlijk vr 27 nov (7 werkdagen, GEZIEN 17 nov). (3) Sem staat uit tot ±1 dec: het formulier van Laughs & Smiles vult de hoofdchat zelf in met de antwoorden uit `marketing/teksten-makers.md`. (4) Wat Thijs moet doen gaat naar `berichten/hoofdchat.md`, niet meer naar `lijst-thijs.md`. Maten nagekeken in de docs op 17 nov: niets veranderd; event cover 800 x 450 is verplicht voor aankondigingen (stond er al).
+
 Alle bronnen zijn Steamworks-docs, gelezen met curl op 16 nov 2026 ±20:30 UTC (GEZIEN). Waar de docs niets zeggen staat **GOK**. Persoonsgegevens, nummers en inloggegevens komen hier nooit: "staat bij Thijs".
 
 Stand nu (hoofdchat, 16 nov 20:12): nog geen app, **1 appcredit**, instapproces nog niet af ("Doorgaan met het instapproces"). $100 betaald op 9 nov (lijst-thijs).
@@ -52,7 +54,7 @@ Bronnen: `.../store/assets`, `.../store/review_process`, `.../store/page`.
 
 Daarna: "Mark As Ready For Review". **Lever minstens 7 werkdagen voor de gewenste datum in**, de keuring duurt meestal 3 tot 5 werkdagen. Na goedkeuring drukt Thijs zelf op de groene knop "Post as Coming Soon". Bron: `.../store/coming_soon`, `.../store/releasing`.
 
-Rekenvoorbeeld: winkelpagina live op ma 30 nov (`trailer.md`) betekent inleveren uiterlijk vr 20 nov. Lukt dat niet, dan is ±7 dec realistisch, nog ruim voor het Desktop Companion Fest van 14 jan.
+Rekenvoorbeeld (bijgewerkt 17 nov): winkelpagina live op di 8 dec betekent inleveren uiterlijk vr 27 nov; inleveren di 1 dec geeft op zijn vroegst do 10 dec. Beide ruim voor het Desktop Companion Fest van 14 jan.
 
 ### Demo-app
 | Wat | Hoe | Bron |
@@ -94,5 +96,5 @@ Wat de docs vragen (bron `.../gettingstarted/onboarding`). Niets hiervan komt in
 4. App Admin: type Game nakijken, naam in "General Application Settings" gelijk.
 5. "Add Demo": demo-app aanmaken (type Demo, appid van het spel erin). Naam: "Hats of the Fallen Demo".
 6. Ontwikkelaar en uitgever "Dortus".
-7. Appid en link naar Sem (`berichten/sem.md`) voor het formulier Laughs & Smiles.
-8. Rest van de winkelpagina later: niets publiceren tot Daan de beelden keurde.
+7. Appid en link in het formulier van Laughs & Smiles (deadline do 20 nov), door de hoofdchat met de antwoorden uit `marketing/teksten-makers.md` (Sem staat uit tot ±1 dec).
+8. Rest van de winkelpagina later: niets publiceren tot Daan de beelden keurde. Welk bestand in welk vak: `winkelpagina-klaar.md`.
