@@ -153,7 +153,8 @@ static func laad(s, begin) -> void:
 		# de telling ("115 came, 82 fell ...") blijft bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30 a)
 		if not vh.is_empty():
 			s.tekst.vast = String(vh[vh.size() - 1])
-			s.tekst.weg_regels = vh.duplicate()   # Iris keuring 16 punt 2: oude regels niet onder de telling
+			s.tekst.weg_regels = vh.duplicate()   # Iris keuring 16 punt 2: oude regels niet meer op het kaartje
+			s.tekst.weg_tel = s.tekst.vast
 		for hn in helden_d:
 			s.namen_recent.append(String(hn))
 		var tr := VOORTGANG.tempo_regel(weg)
