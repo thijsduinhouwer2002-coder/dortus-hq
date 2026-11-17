@@ -22,13 +22,13 @@ const SOORTEN := ["ridder", "dief", "magier", "bard"]
 # taai: vlucht pas na twee klappen. wapen: plaatje in held_wapens.png (0 zwaard, 1 staf, 2 fakkel), -1 = zoals nu.
 const DATA := {
 	"ridder": {"snel": 0.75, "kans_x": {"slijm": 0.7, "stekelput": 1.4}, "taai": true, "wapen": 0,
-		"naam": "Knight", "uitleg": "Heavy armor. Too big for Gloop. Pits love him."},
+		"naam": "Knight", "uitleg": "Heavy armor. Too big for Gloop. Pits love knights."},
 	"dief": {"snel": 1.3, "kans_x": {"slijm": 1.15, "stekelput": 0.5}, "taai": false, "wapen": -1,
-		"naam": "Thief", "uitleg": "Quick. Pits rarely catch him. Hates slime."},
+		"naam": "Thief", "uitleg": "Quick. Pits rarely catch thieves. Hates slime."},
 	"magier": {"snel": 1.0, "kans_x": {"slijm": 1.25, "stekelput": 0.3}, "taai": false, "wapen": 1,
 		"naam": "Wizard", "uitleg": "Sees traps. No spell works on Gloop."},
 	"bard": {"snel": 1.0, "kans_x": {"slijm": 1.1, "stekelput": 1.1}, "taai": false, "wapen": -1,
-		"naam": "Bard", "uitleg": "Weak. If he escapes, he sings about you."},
+		"naam": "Bard", "uitleg": "Weak. Escapes? Sings about you."},
 }
 
 # Wegingen na de eerste 10 helden: gewoon blijft de meeste (zo blijft de wrok-grap het hart), een bard is zeldzaam.

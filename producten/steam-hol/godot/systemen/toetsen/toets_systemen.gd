@@ -507,9 +507,9 @@ func _init() -> void:
 	var bk = load("res://systemen/boek.gd").new()
 	bk.vast = 0   # de vaste regel (eerste variant)
 	var bk_r1: String = bk.held("magier", "slijm", "Wout")
-	ok(bk_r1 == "New page: the Wizard. Gloop got him.", "eerste vangst van een soort: nieuwe bladzijde (" + bk_r1 + ")")
+	ok(bk_r1 == "New page: the Wizard. Gloop got this one.", "eerste vangst van een soort: nieuwe bladzijde (" + bk_r1 + ")")
 	ok(bk.held("magier", "slijm", "Pim") == "", "zelfde stempel twee keer: geen regel")
-	ok(bk.held("magier", "stekelput", "Pim") == "New stamp for the Wizard. The pit got him.", "tweede stempel op dezelfde bladzijde")
+	ok(bk.held("magier", "stekelput", "Pim") == "New stamp for the Wizard. The pit won.", "tweede stempel op dezelfde bladzijde")
 	ok(bk.zwakte("magier") == "Weak to: Gloop" and bk.zwakte("ridder") == "", "zwakte pas na de eerste vangst, uit heldensoort.gd")
 	bk.held("ridder", "stekelput", "Odo")
 	ok(bk.zwakte("ridder") == "Weak to: Spike Pit", "ridder is zwak tegen de put (Sanne 03:05)")
@@ -569,7 +569,7 @@ func _init() -> void:
 	ok(bv_tel.size() == 3, "alle drie de varianten komen voor")
 	var bv3 = load("res://systemen/boek.gd").new()
 	bv3.vast = 2
-	ok(bv3.berg(1000, "Gloop") == "1000 hats. Gloop is very proud." and bv3.aarts("Odo") == "Odo got his own page. He'd love it." and bv3.held("magier", "stekelput", "Pim") == "Booked: the Wizard. Spikes: one.", "derde varianten zoals Sanne ze schreef")
+	ok(bv3.berg(1000, "Gloop") == "1000 hats. Gloop is very proud." and bv3.aarts("Odo") == "Odo gets a whole page. Framed it." and bv3.held("magier", "stekelput", "Pim") == "Booked: the Wizard. Spikes: one.", "derde varianten zoals Sanne ze schreef")
 	var bk2 = load("res://systemen/boek.gd").new()
 	bk2.vast = 0
 	ok(bk2.held("", "slijm", "Bartholomew the Unbudged").length() <= 42 and bk2.hoed(9, "Bartholomew the Unbudged") == "New hat in the book: Feather cap.", "lange naam: korte regel, nooit te lang")
@@ -1395,5 +1395,44 @@ func _nieuwe_held() -> bool:
 	ok(AF.terugslag(nep_ts, {}, "val") == "val", "terugslag: zonder opzet gewoon val")
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "onbekend"}, "vlucht") == "vlucht", "terugslag: onbekende soort gewoon vlucht")
 	ok(not RT.VOORRAAD["val_bewoner"].has("{naam} stays forever.") and RT.VOORRAAD["val"].size() == 8, "val 8 regels, stays forever niet meer in val_bewoner")
+	# Dame en hap per soort (Sanne 17 nov 10:00, Iris keuring 21 punt 1, features.md keurregel)
+	var NM = load("res://kern/namen.gd")
+	var vr_mist: Array = NM.VROUW.filter(func(n): return not NM.NAMEN.has(n))
+	ok(vr_mist.is_empty() and NM.VROUW.size() == 4, "VROUW staat in NAMEN (%s)" % str(vr_mist))
+	ok(NM.titel("Gerda") == "Dame" and NM.titel("Gerda II") == "Dame" and NM.titel("Lotte the Twice-Fled") == "Dame" and NM.titel("Odo") == "Sir" and NM.titel("Marat") == "Sir", "titel: Dame uit de voornaam, anders Sir")
+	ok(RT.vul("{titel} {naam} clanks in.", {"naam": "Mara III"}) == "Dame Mara III clanks in." and RT.vul("{titel} {naam} clanks in.", {"naam": "Kees"}) == "Sir Kees clanks in.", "vul: {titel} vult zich uit {naam}")
+	ok(RT.kies("binnen_ridder", {"naam": "Fenna"}).begins_with("Dame Fenna"), "kies: ridder Fenna is Dame")
+	var dm_sir: Array = []
+	var dm_hij: Array = []
+	var hp_lang: Array = []
+	var hp_mist: Array = []
+	for so in ["ridder", "dief", "magier", "bard", "slaapkop", "wraakzuchtig", "opschepper"]:
+		if not RT.heeft("hap_" + so) or RT.BRAM.VOORRAAD["hap_" + so].size() != 2:
+			hp_mist.append("hap_" + so)
+		for pre in ["binnen_", "val_", "vlucht_", "hap_"]:
+			for rd in RT.BRAM.VOORRAAD.get(pre + so, []):
+				for nm in NM.NAMEN:
+					var v_dm: String = RT.vul(rd, {"naam": nm + " III", "bewoner": "Gloop", "val": "the Spike Pit"})
+					if NM.VROUW.has(nm) and v_dm.contains("Sir "):
+						dm_sir.append(v_dm)
+					for w in [" he ", " he.", " his ", " him", "He ", " she ", " her "]:
+						if (" " + v_dm).contains(w):
+							dm_hij.append(v_dm)
+					if pre == "hap_" and v_dm.length() > RT.MAX - 3:   # nieuwe held: buit hooguit " +9"
+						hp_lang.append(v_dm)
+					if v_dm.contains("{"):
+						dm_sir.append(v_dm)   # niets mag ongevuld blijven
+	ok(hp_mist.is_empty(), "hap: elke soort heeft 2 hap-regels (mist %s)" % str(hp_mist))
+	ok(dm_sir.is_empty(), "geen Sir bij een vrouwennaam en niets ongevuld (%s)" % str(dm_sir))
+	ok(dm_hij.is_empty(), "geen he/his/him in regels over helden (%s)" % str(dm_hij))
+	ok(hp_lang.is_empty(), "hap: past met elke naam III en +9 (te lang %s)" % str(hp_lang))
+	ok(AF.hap_soort(nep_ts, {"binnen_soort": "dief"}) == "hap_dief" and AF.hap_soort(nep_ts, {}) == "val_bewoner", "hap: eigen soort bij een opzet, anders val_bewoner")
+	ok(AF.hap_soort(nep_ts, {"binnen_soort": "dief", "bezoeken": 2}) == "val_bewoner" and AF.hap_soort({"regels": RT, "demo": true}, {"binnen_soort": "dief"}) == "val_bewoner", "hap: terugkomer en demofilm gewoon val_bewoner")
+	var hs_hij: Array = []
+	for txt in [FileAccess.get_file_as_string("res://systemen/heldensoort.gd"), FileAccess.get_file_as_string("res://systemen/boek.gd")]:
+		for w in ["Pits love him", "catch him", "If he ", "his own", "got him", "He got", "He'd"]:
+			if txt.contains(w):
+				hs_hij.append(w)
+	ok(hs_hij.is_empty(), "Heldenboek en uitleg zonder he/his/him (%s)" % str(hs_hij))
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

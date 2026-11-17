@@ -4,6 +4,13 @@ extends RefCounted
 const REGELS := preload("res://kern/regels.gd")
 # Geen namen met een Engelse betekenis: "Ties" leest als stropdassen, "Wil" als Will (Daan 23:45, keuring-build.md)
 const NAMEN := ["Bram", "Odo", "Wout", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Tibbe", "Lotte", "Kees"]
+# Vrouwennamen uit NAMEN: die krijgen "Dame" in plaats van "Sir" in de regels met {titel} (Sanne 17 nov 10:00, Iris
+# keuring 21 punt 1, "Sir Gerda"). Voeg je een vrouwennaam toe aan NAMEN, zet hem dan ook hier (toets_systemen.gd eist het).
+const VROUW := ["Gerda", "Mara", "Fenna", "Lotte"]
+
+# "Sir" of "Dame", uit de voornaam (eerste woord, dus "Gerda II" en "Gerda the Twice-Fled" tellen mee).
+static func titel(naam: String) -> String:
+	return "Dame" if VROUW.has(naam.strip_edges().split(" ")[0]) else "Sir"
 
 # naam met bijnaam voor een terugkomer ("Kees the Twice-Fled", of "Pim the Hoard-Toucher")
 static func bewoner(s) -> String:

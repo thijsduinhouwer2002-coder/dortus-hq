@@ -27,6 +27,14 @@ static func terugslag(s, info: Dictionary, gewoon: String) -> String:
 	var eigen := ("vlucht_" if gewoon == "vlucht" else "val_") + soort
 	return eigen if s.regels.heeft(eigen) else gewoon
 
+# Hap per soort (Sanne 17 nov 10:00, features.md): dezelfde voorwaarden als terugslag() (een opzet, geen terugkomer,
+# niet in de demofilm), maar dan uit "hap_<soort>". Alleen als er geen hap_hoed kwam; anders val_bewoner.
+static func hap_soort(s, info: Dictionary) -> String:
+	var soort := String(info.get("binnen_soort", ""))
+	if soort == "" or int(info.get("bezoeken", 0)) != 0 or s.get("demo") == true:
+		return "val_bewoner"
+	return "hap_" + soort if s.regels.heeft("hap_" + soort) else "val_bewoner"
+
 static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
@@ -119,7 +127,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
 			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
 			if r == "":
-				r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())   # geen terugslag bij de hap: de regels gaan over de put (controleur 1)
+				# geen terugslag bij de hap (die regels gaan over de put, controleur 1), wel een eigen hap per soort (Sanne 10:00)
+				r = s.regels.kies(hap_soort(s, info), {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 		else:
 			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)

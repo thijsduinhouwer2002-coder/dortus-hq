@@ -49,7 +49,15 @@ const VOORRAAD := {
 var rng: RandomNumberGenerator
 var vorige := {}   # soort -> indexen die deze ronde al geweest zijn (schudzak)
 
+# {titel} ("Sir" of "Dame") vult zichzelf uit {naam} (kern/namen.gd VROUW), zodat geen aanroep hem kan vergeten.
+# namen.gd laadt dit bestand met preload, dus hier load() pas bij gebruik (geen kringverwijzing).
+static var _namen = null
+
 func vul(r: String, w: Dictionary) -> String:
+	if r.contains("{titel}") and not w.has("titel") and w.has("naam"):
+		if _namen == null:
+			_namen = load("res://kern/namen.gd")
+		r = r.replace("{titel}", _namen.titel(String(w["naam"])))
 	for k in w:
 		r = r.replace("{%s}" % k, String(w[k]))
 	return r
