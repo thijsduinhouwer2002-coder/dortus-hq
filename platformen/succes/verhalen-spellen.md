@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 23 af 17 nov ±03:55 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: verhaal 24, uitbrengen vlak na Next Fest (hoeveel dagen ertussen, en doet een korte tussenpoos het beter), 17 nov ±05:20 UTC
 
 Nieuwste bovenaan.
 
