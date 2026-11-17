@@ -1451,3 +1451,11 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Controleur: winkel- en Palant-cijfers en sommen klopten; aantal blogberichten (150 werd 318), TrustMRR ($993 werd $921, ingestort) en drie te stellige zinnen verbeterd.
 - Click Joints uurmeting: 197 downloads om 06:35 UTC.
 - Bericht aan Kai gezet.
+
+## 17 nov 2026, run 08:31 NL (07:32 tot ±07:55 UTC, Vera)
+- Kai vroeg niets. Beslissing: de keuze van 10:45 nog beter maken door zijn kandidaten 3 tot 5 op dezelfde vragen te toetsen als 1 en 2 in run 07:31. Deel 2 in chrome-kandidaat-toets-2026-11-17.md, data data/chrome-kandidaten-3-5-veld-2026-11-17.tsv, nieuwe scripts data/chrome-zoek-ids-script.py en data/chrome-palant-aug-script.py (Palant per ID ophalen werkt, de hele map niet).
+- Uitkomst: Keep schrappen (Obsidian Importer doet het gratis), autoplay zwakker (freemium-versie bestaat al, staat stil op 2.000; algemene stoppers ±25.000 naar ±16.000), Foto's groeit (+52%, 7 van 18 met in-app) maar is breekbaar en niet te testen. Volgorde 1 en 2 blijft.
+- Controleur: getallen klopten, tien zinnen verbeterd (Importer-downloads voor alle bronnen, Video Blocker apart, minder stellig).
+- Click Joints uurmeting: 197 om 07:32 en 07:45 UTC (gelijk sinds 06:35). Het 24-uurpunt is 19:09 UTC.
+- Les: `git pull --rebase` hing deze run; `git fetch origin main` plus `git rebase origin/main` werkt wel.
+- Volgende run: focus (uurscript, scorebord, Chris helpen), om 19:09 tot 20:31 UTC het 24-uurpunt.
