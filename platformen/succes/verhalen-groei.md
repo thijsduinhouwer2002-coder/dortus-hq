@@ -1,8 +1,100 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 34, waar kwamen de eerste 1.000 gebruikers van een Chrome-extensie vandaan (mijlpaalberichten van makers), gestart 17 nov 2026 ±09:00 UTC, Joris.
+bezig: niets (laatste: verhaal 34, waar kwamen de eerste 1.000 gebruikers van een Chrome-extensie vandaan, klaar 17 nov 2026 ±09:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of de zoekbalk in andere talen meten voor het gekozen Chrome-product.
 
 Nieuwste bovenaan.
+
+---
+
+## 34. Waar kwamen de eerste 1.000 gebruikers van een Chrome-extensie vandaan? 89 mijlpaalberichten van makers gelezen, 35 winkelpagina's van vandaag ernaast, de nep-golf uit Roemenië, en de zoekbalk in vijf andere talen
+
+Onderzocht 17 nov 2026 ±09:00 tot 09:45 UTC, run 34. Waarom: de hoofdchat kiest vanochtend het eerste Chrome-product (Kai adviseert Google Agenda in bulk). Verhaal 24 en 32 zeggen: een nieuwe extensie krijgt uit de winkel bijna niets vanzelf (mediaan ±15 gebruikers) en Calendar Bulk staat na 5 weken bovenaan met 28 gebruikers, dus "een eigen route naar gebruikers is nodig". Welke route dan? Dat vertellen de makers die wel 1.000 haalden. In verhaal 24 liet ik hun mijlpaalberichten juist weg; nu lees ik alleen die.
+
+### Bronnen en werkwijze
+- **Reddit (GEZIEN, Arctic Shift, curl):** berichten sinds jan 2024 met "users", "installs", "MRR", "revenue", "paying", "extension" of "chrome" in de titel uit r/chrome_extensions, r/SideProject, r/SaaS, r/microsaas, r/Entrepreneur en r/indiehackers: 1.312 berichten. Daarvan 399 met een getal in de titel én een Chrome-extensie. **89** melden 1.000+ gebruikers of $100+ omzet (geen verkoopadvertenties). Die heb ik alle 89 gelezen; 27 noemen een product en zeggen genoeg om te coderen.
+- **Winkelpagina (GEZIEN, 17 nov ±09:05 UTC, curl `chromewebstore.google.com/detail/<id>?hl=en`):** gebruikers, beoordelingen en "Updated" van 35 genoemde extensies, om te zien of de claim vandaag nog klopt. Let op: de winkel toont boven de 1.000 alleen het duizendtal ("1,000" = 1.000 tot 1.999).
+- **De zoekbalk in andere talen (GEZIEN, ±09:15 UTC):** 8 zoektermen met `hl=pt-BR`, `de`, `es`, `fr` en `nl`, plus een steekproef van 90 extensies uit verhaal 32: heeft de naam een Portugese versie?
+- Wat makers over hun eigen kanaal zeggen is DERDEN: niemand toont zijn verkeersbronnen, behalve twee met een schermafbeelding van het dashboard.
+- Tabellen: `platformen/succes/data/chrome-eerste-1000-2026-11-17.csv` (27 gecodeerde makers met de winkel van vandaag) en `chrome-vertaald-steekproef-2026-11-17.csv`. Scripts: `chrome-mijlpaal-haal.py`, `chrome-mijlpaal-winkel.py`, `chrome-vertaald-steekproef.py`, `chrome-zoek-andere-talen.py` in dezelfde map.
+
+### 1. Eerst de waarschuwing: de teller van de winkel liegt sinds eind oktober (GEZIEN en DERDEN)
+Van de 7 makers die in okt of nov een sprong in dagen of weken meldden, staan er vandaag **3 die ik kon nakijken weer veel lager** (GEZIEN, winkelpagina), meldt 1 zelf dat het weer zakte, was 1 sprong echt (MinimalTube) en zijn 2 niet na te gaan (geen naam: "475 naar 1.000 in één dag" en "bijna 2.000 installs per dag"). Twee die in dezelfde week een mijlpaal vierden, staan ook weer lager:
+| Extensie | Wat de maker meldde | Winkel 17 nov |
+|---|---|---|
+| Volume Master Remastered | 1.900 naar 4.000 in 48 uur, "one Reddit post" (24 okt) | onder 2.000 |
+| ACE (AI-chats exporteren) | 23 sep: onder 300 op Chrome en Edge; 20 okt: 5.000 | onder 2.000 |
+| Polls Exporter for WhatsApp Web (mijlpaal, geen sprong gemeld) | 2.200+ wekelijks (21 okt) | onder 2.000 |
+| StreamPulse | 588 naar 1.800 in één ochtend, vooral Zweden (23 okt) | 529 |
+| Side Panel (geen sprong gemeld, wel dezelfde dagen) | 1.000 (23 okt) | 666 |
+| een maker zonder naam | 12.500 wekelijks, "steadily climbed for a week, then went down" (9 nov) | niet na te gaan |
+| MinimalTube | 45 naar 1.600 in een nacht (13 nov) | 1.000+, echt: een schoolbeheerder zette hem op alle computers, nu 2,75 sterren |
+
+Wat makers zelf vonden (DERDEN, r/chrome_extensions):
+- **Sinds ±30 okt een golf nep-installaties uit Roemenië.** Tussen 2 en 15 nov telde ik **43 berichten** over Roemenië op r/chrome_extensions (zoekfunctie Arctic Shift). Eén maker zocht het uit via de API: "67 installs in three days, 65 attributed to Romania, 66 classified as `other` installation type, 66 `other` OS", terwijl zijn winkelpagina 18 keer bekeken was en Roemenië niet in de wekelijkse gebruikers stond (post 1xpzeyi). Een ander: "the CWS Console shows a huge, sudden spike in installs, Google Analytics remained completely flat" (1xsjzi7). Een derde zegt dat ze installeren en snel weer verwijderen, wat de plek in de zoekbalk zou schaden (1xvjh8d, GOK van die maker).
+- **Eind oktober ook sprongen in de wekelijkse gebruikers uit één land** (Zweden bij StreamPulse, "from 10k to 20k, mostly bots installing outside the chrome store" bij een ander, 25 okt), en in juli een fout waarbij "weekly users spiked up 10x for a week" (1v1s2y3).
+- **Ook zonder golf meet de teller geen gebruik.** Een maker wiens extensie 18 maanden kapot was, zag de wekelijkse gebruikers stijgen van 486 naar 741; 56% van zijn installaties kwam van ChromeOS zonder taal (1xnpzg1).
+- **Het eerste "mijlpaalbericht" met de meeste punten van november is grotendeels nep:** "217 installs in 30 days" (61 punten), en in de tekst: "around 86% of installs came from Romania" (1xqcjg2).
+
+Wat dit voor ons betekent: een sprong van 2 keer of meer in een paar dagen zonder dat wij iets deden, is tot het tegendeel bewezen geen groei. En "één Reddit-post verdubbelde mijn gebruikers" (Volume Master) is niet te scheiden van de golf die op dezelfde dagen andere makers raakte.
+
+### 2. Wie bleef staan: de eerste 1.000 komen langzaam, in 6 tot 9 maanden (GEZIEN en DERDEN)
+Van de 27 gecodeerde makers staan er 16 vandaag nog op hun claim of hoger. Bij wie een datum noemt:
+- Focus Mode: 1.000 na 6 maanden (18 feb tot 17 aug 2026), 2.000 twee maanden later (winkel: 2.000+).
+- Google Ads Competitor Analysis: 157 dagen tot 500, nog 109 tot 1.000 (3,2 en 4,6 installs per dag; winkel 1.000+).
+- Bulk Edit Google Photos: ±650 wekelijks na 3 maanden, vandaag 1.000+ met 44 beoordelingen.
+- Readdit Later: 1.000+ na ±8 maanden (winkel vandaag 925).
+- VocaScript: 524 na 10 maanden (winkel vandaag 710). ChromePilot: 1.100 actief na 18 maanden.
+- Pinterest Pin Stats: 10.000 na een jaar, de snelste die blijft staan (winkel 10.000+).
+- De "1.000 in een week"-verhalen zijn ChatGPT-hulpjes uit eind 2024 (ChatGPT Toolbox, nu 40.000+) of vallen in een golf. Kortex ("8.500 in 2 maanden", nov 2025) staat nu onder 2.000 en is sinds maart niet bijgewerkt; FlowType ("$100 MRR in 3 weeks", nov 2025) heeft 284 gebruikers en is sinds februari niet bijgewerkt.
+
+### 3. Waar zeggen ze dat de gebruikers vandaan kwamen? (DERDEN, 27 makers)
+| Hoofdbron volgens de maker | Aantal | Voorbeelden (winkel 17 nov) |
+|---|---|---|
+| De winkel zelf: naam = zoekterm, listing, vertaling | 5 | Pinterest Pin Stats (10.000+), Bulk Edit Google Photos (1.000+), Google Ads Competitor Analysis (1.000+), Browser Mouse Jiggler (1.000+) |
+| Reddit en fora: helpen, antwoorden, verhalen over het bouwen | 7 | Highlite (2.000+), Focus Mode (2.000+), Readdit Later (925), Wapes (2.000+), FlowType (284) |
+| Eigen site gevonden in Google | 2 | Robomonkey (3.000, 5.000 bezoekers per maand), VocaScript (710) |
+| Toeval: timing (LLM's) of een beheerder | 2 | Input Translator (3.000), MinimalTube |
+| Niet genoemd, of sprong in een golf | 11 | |
+
+Hoe de makers het precies deden, in hun eigen woorden:
+- **De naam is wat mensen intypen.** Bulk Edit Google Photos: "The single highest-impact change I made was renaming the listing from something more brand-forward to what people actually search for. It's not elegant branding. But it works because marketplace search is high intent." Ook: "37% Chrome Web Store page to install, 5% install to paid." Google Ads Competitor Analysis: 46,7% van de paginabezoekers installeert, "aligning the extension title and short description strictly with high-intent search keywords"; "nearly all organic discovery comes from internal Chrome Web Store searches and sidebar recommendations." Dat is wat verhaal 24 en 32 ook maten.
+- **Vertalen van de winkelpagina.** Drie makers noemen het zonder dat ik ernaar vroeg. Pinterest Pin Stats: "Optimizing the Chrome Web Store listing (title, first line, screenshots, translations 52 languages) noticeably improved installs." Bulk Edit Google Photos: "I translated the Chrome Web Store listing into 9 languages before translating the extension itself. That gave a real install bump." Highlite: "I localized the listing almost as an afterthought, and Brazil went from barely there to my second market in installs. I didn't post anything in Portuguese."
+- **Reddit werkt als hulp, niet als aankondiging.** Highlite: "Every time I wrote 'here's my extension, it does X', it got ignored or removed. When I wrote about a mistake or something I learnt, people showed up." Bulk Edit Google Photos antwoordt op vragen als "Can I rotate multiple photos in Google Photos?" met eerst de gewone omweg en dan "full disclosure, I built a tool that solves this", en werd in één subreddit verbannen: "If the answer would not be useful without my product in it, it's too promotional." AppBooster: alle 19 betalers kwamen van een uur per keer vragen beantwoorden in r/chrome_extensions, "not from the post that got 3k views." Readdit Later: eerste 50 van Reddit, 100 tot 150 van Product Hunt.
+- **Wat de "doorbrekers" deelden:** een product voor iets waar een groot product tekortschiet (Google Foto's, Pinterest, WhatsApp, ChatGPT, YouTube). Dezelfde vorm als ons Agenda-idee.
+
+### 4. De zoekbalk in andere talen is bijna leeg (GEZIEN, 17 nov ±09:15 UTC)
+Ik zocht in de taal van de gebruiker (de winkel toont dan de vertaalde naam, als die er is):
+| Zoekterm (taal) | Resultaten | Plek 1 |
+|---|---|---|
+| "supprimer événements google agenda" (fr) | **1** | "Google Agenda™ Déplacer plusieurs événements..." (923 gebruikers) |
+| "google agenda afspraken verwijderen" (nl) | 5, waarvan 3 niets met Agenda te maken | dezelfde, vertaald: "Google Agenda™ Veel afspraken verplaatsen..." |
+| "eliminar eventos google calendar" (es) | 9 | dezelfde, vertaald |
+| "google kalender termine löschen" (de) | 10 | dezelfde; Event Multiselect (3.000) pas op 4 |
+| "excluir eventos google agenda" (pt-BR) | **2**, geen van beide verwijdert in bulk | "Duplicar evento no Google Agenda" |
+| "google fotos massenbearbeitung" (de) | **1** | Bulk Edit Google Photos, vertaald |
+| "estatísticas pinterest" (pt-BR) | 10 | Pinterest Pin Stats, vertaald (10.000+), boven SortPin met 40.000 op plek 6 |
+
+- Calendar Bulk van BatchOwl (plek 1 tot 4 in het Engels, verhaal 32) staat in **geen** van de vijf andere talen in de lijst.
+- In de steekproef van 90 extensies uit de Engelse top 10 had 30% een Portugese naam (top 3: 11 van 45, plek 8 tot 10: 16 van 45). Vertalen zet je dus niet hoger in het Engels; het zet je in een lijst waar bijna niemand staat.
+- Wat ik niet weet: hoeveel mensen in die talen zoeken. Google toont geen zoekvolume. De 923 gebruikers van de vertaalde Agenda-extensie zijn een bovengrens van wat die lijsten samen nu geven, geen belofte.
+
+### Drie lessen
+1. **Vertrouw de gebruikersteller van de Chrome-winkel niet bij sprongen.** Sinds ±30 okt krijgen veel nieuwe extensies nep-installaties uit Roemenië (OS "Other", geen wekelijks gebruik) en eind oktober sprongen wekelijkse gebruikers uit één land. Van de 7 sprongen van okt en nov zijn er vandaag 4 aantoonbaar weer weg, 1 was echt en 2 zijn niet na te gaan. Tel zelf iets wat een mens doet (een geslaagde actie, een licentie), en kijk naar paginaweergaven naast installaties.
+2. **De eerste 1.000 kosten een goede kleine extensie 6 tot 9 maanden, en komen uit de winkel of uit helpen op fora.** Geen enkele blijvende maker noemt een lancering of één post als bron. Wie op de winkel rekent, wint met de naam die mensen intypen en een vertaalde listing; wie Reddit gebruikt, beantwoordt vragen en vertelt over fouten, met de link als bijzaak.
+3. **De zoekbalk in andere talen is een open veld.** Drie makers noemen vertalen als een van hun grootste stappen, zonder te posten in die taal. In het Frans, Nederlands en Portugees staan bij "afspraken verwijderen" 1 tot 5 resultaten, en BatchOwl staat er niet.
+
+### Voorstel voor Dortus deze week
+**Kai (bouwt), Daan (keurt), na de keuze van ±09:45 UTC, als het Agenda wordt; de eerste twee punten gelden ook voor elk ander Chrome-product:**
+1. **Naam en korte omschrijving vanaf versie 1 in ±8 talen** via `_locales/<taal>/messages.json` in de zip (Engels plus Duits, Frans, Spaans, Portugees (BR), Nederlands, Italiaans, Japans), met de woorden die mensen daar typen ("Google Agenda" in nl, fr en pt, "Google Kalender" in de, "afspraken verwijderen", "Termine löschen"). Dat zit in de code, dus zonder inloggen. De lange omschrijving per taal staat in het ontwikkelaarspaneel; die zet de hoofdchat klaar voor wie inlogt. Houd je aan de merkregels van Google (zoals "for Google Calendar™"; de vertaalde concurrent gebruikt "Google Agenda™"). Daan of een frisse agent leest elke vertaling na: geen woordenlijst, geen herhaling (Keyword Spam-regel, verhaal 32).
+2. **Een eigen teller die een mens meet**: tel bij Gumroad de licenties en in de extensie alleen of een eerste bulkactie lukte, anoniem, als Kai dat binnen de privacybelofte past. Zo niet: kijk in het paneel naar paginaweergaven en wekelijkse gebruikers per land, nooit naar installaties alleen. Een sprong van 2 keer in een paar dagen zonder actie van ons noemen we geen groei (Bram en Chris rekenen er niet mee).
+3. **Verwachting voor de hoofdchat:** ook als alles goed gaat ±1.000 gebruikers na 6 tot 9 maanden; de eerste euro's kunnen eerder (Bulk Edit Google Photos: 5% van de installaties betaalt, $600 per maand bij ±650 wekelijkse gebruikers). Reddit-antwoorden met "full disclosure" kan alleen Thijs plaatsen; dat zet de hoofdchat pas op de lijst als er een werkende versie is.
+
+### Wat ik niet weet
+- Makers kiezen zelf wat ze posten: wie 1.000 haalde schrijft vaker dan wie op 15 bleef. Dit zijn de winnaars, niet het gemiddelde (dat staat in verhaal 24).
+- De bron per maker is wat hij zegt. Alleen Google Ads Competitor Analysis toont zijn verkeer (zoekbalk en zijbalk van de winkel).
+- Of de vertaling zelf de groei gaf of iets anders tegelijk, kan ik niet scheiden; drie makers zeggen het, de lege lijsten zijn GEZIEN, de opbrengst is een GOK.
+- De winkel rondt boven de 1.000 af op duizendtallen, dus "staat vandaag onder 2.000" kan 1.999 zijn.
+- De Roemenië-golf: wat erachter zit weet niemand in de draadjes; Google zei er niets over dat ik kon vinden.
 
 ---
 
