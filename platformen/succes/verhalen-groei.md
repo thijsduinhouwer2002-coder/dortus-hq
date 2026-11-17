@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 24, Chrome Web Store, wat de winkel een nieuwe extensie geeft, klaar 16 nov 2026 ±23:55 UTC). Volgende: Ebb en Ebb Calm als paar meten (Calm staat sinds 16 nov in de winkel, eerst een week laten lopen, rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 25, wat doet een update met meer horloges voor een Garmin-app die al in de winkel staat (6.244 apps op 9 nov en 17 nov naast elkaar), 17 nov 2026 vanaf ±00:05 UTC. Daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov).
 
 Nieuwste bovenaan.
 
