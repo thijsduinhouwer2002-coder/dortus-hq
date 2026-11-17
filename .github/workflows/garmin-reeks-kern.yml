@@ -12,6 +12,12 @@ on:
     paths: ["producten/garmin-reeks-kern/**", ".github/workflows/garmin-reeks-kern.yml"]
   workflow_dispatch:
 
+# Eén run per tak tegelijk; een nieuwere push breekt de oudere run af. In run 131 schreef een oudere run zijn
+# beelden over die van een nieuwere heen, omdat hij later klaar was.
+concurrency:
+  group: garmin-reeks-kern-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bouw:
     runs-on: ubuntu-latest
