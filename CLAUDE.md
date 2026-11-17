@@ -6,7 +6,8 @@ Begin altijd zo:
 1. Lees `berichten/<jouw naam>.md` (berichten van Thijs, gaan voor), daarna `organisatie/doelen.md` en `organisatie/regels.md`.
 2. Lees `organisatie/besluiten.md` en de instructie van jouw rol in `organisatie/rollen/`.
 3. Lees je eigen map in `platformen/`.
-4. Ga je iets bouwen (functie, product, site): laad eerst de skill `bouwen-in-stappen` met de Skill-tool. Moet het er goed uitzien (site, winkelbeelden, menu's, filmpjes): laad ook `frontend-design`. Ze staan in `.claude/skills/`.
+4. **Hoofdchat:** lees `organisatie/bord.md` (de stand op één plek) voor je Thijs zegt wat de stand is of wat er nu moet gebeuren, en werk het bij bij elke wijziging aan een product, agent of belofte. Agents: lees het bord om te weten wie wat doet.
+5. Ga je iets bouwen (functie, product, site): laad eerst de skill `bouwen-in-stappen` met de Skill-tool. Moet het er goed uitzien (site, winkelbeelden, menu's, filmpjes): laad ook `frontend-design`. Ze staan in `.claude/skills/`.
 
 Belangrijk:
 - **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt Thijs om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.

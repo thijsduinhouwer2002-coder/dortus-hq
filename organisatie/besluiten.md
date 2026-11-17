@@ -458,3 +458,6 @@ Thijs wil geen testprint laten maken. Gevolg: de Pro-pagina belooft geen "click"
 
 ## 17 nov 2026 ±13:55 NL: Bison & Flex openbaar (Thijs ja 13:47)
 De plugin stond na de goedkeuring van JetBrains nog op "hidden" omdat wij zelf nooit op "Publish Plugin" drukten (bevestiging: "not reversible"). Nu openbaar (API: isHidden false) en vindbaar in de zoekfunctie op "bison", naast Bison Language Support. Prijs: 30 dagen proef, $19 per jaar. Les voor de lanceerlijst: na goedkeuring van een winkel altijd zelf controleren of het product echt zichtbaar en koopbaar is. Per ongeluk een tabblad "Report content" geopend en meteen gesloten, niets verstuurd.
+
+## 17 nov 2026 ±15:05 NL: het bord is weer de ene plek met de stand (Thijs)
+Thijs zag dat de hoofdchat plannen vergat (Ruben, Garmin, Hats). Oorzaak: de stand stond verspreid (besluiten, berichten, geplande taken), `organisatie/bord.md` was sinds 10 nov niet bijgewerkt, en het geheugen van een lange chat wordt ingekort. Besluit: het bord is bijgewerkt en is de ene plek met producten, agents, herinneringen en beloftes. De hoofdchat leest het voor elk "wat nu?" of "hoe staat het?" en werkt het bij bij elke wijziging (regel in CLAUDE.md). De avondcheck vergelijkt het bord elke avond met de echte geplande taken.
