@@ -205,6 +205,22 @@ Wat ik ermee doe: (1) vanaf de paginadag elke dag volgers tellen en naast deze l
 - Wat het zegt: er zijn wegen in de lijst zonder eigen publiek, maar de enige die ik kan zien is **veel en vaak eigen clips** (Terraglass: 110 TikToks voor ±1.000 Steamvolgers, waarvan de TikTok zelf maar 352 volgers heeft; de rest komt dus vooral van elders, GOK YouTube-devlogs). Een Discord van 1.000+ hebben vooral spellen die al lang een pagina hebben; voor ons in zeven weken niet haalbaar.
 - Voor Chris: het ritme van Terraglass en Dreampair (een eigen TikTok met het spel in de naam, link naar Steam in de bio) is het voorbeeld; aantallen video's per week stem ik met hem af. Bericht in `berichten/chris.md`.
 
+**De winnaars hadden een eigen TikTok van de maker (run 16, GEZIEN 17 nov ±02:50 UTC,** video's gevonden met de zoekmachine, weergaven en datum uit de openbare videopagina met curl):
+| Account | Volgers / video's | Video | Weergaven | Datum |
+|---|---|---|---|---|
+| @mister.morris.games (Rusty's Retirement, winnaar 1) | 12.900 / 162 | eerste video "wishlist Rusty's Retirement on Steam ... sits on the bottom of your screen while you do other things" | **493.800** | 4 dec 2023, pagina net live, demo nog niet |
+| | | Mac-versie, "pls add the game to your Steam wishlist" | 7.281 | 13 jan 2024 |
+| | | reuzengewassen, releasedatum | 12.600 | 7 apr 2024 |
+| | | prijs en lanceerkorting | 21.000 | 20 apr 2024 |
+| | | "releases this Friday" (twee keer) | 33.000 en **184.400** | 22 en 24 apr 2024 |
+| @conradicalgames (Desktop Defender, winnaar) | 18.300 / 215 | "Game is called Desktop Defender, wishlist it on Steam now!" | 25.100 | 3 nov 2025 |
+| @weyrdlets (bureaubladhuisdier) | 1.974 / 212 | "If you're a 90's kid ... desktop companions ... wishlist us on Steam" | 76.400 | 26 mrt 2024 |
+| ter vergelijking @wholesomegames | 364.600 | releasedatum Rusty's | 39.100 | 2 apr 2024 |
+- **Wat het zegt:** 2 van de grootste winnaars in ons soort spel hadden een eigen makersaccount met 13.000 tot 18.000 volgers en 160 tot 215 video's. De grootste video van Rusty's was de eerste: het spel in één zin plus "zet hem op je verlanglijst", toen de pagina net live was. Die ene video had meer weergaven dan alle makersvideo's in onze begroting samen. Wholesome Games, 28 keer zoveel volgers, haalde met hetzelfde spel 39.100.
+- **Vragen om de verlanglijst mag** (Rusty's, Desktop Defender en Weyrdlets doen het allemaal in de tekst); een beloning ervoor niet (Bongo Cat, zie hierboven).
+- Wat het niet bewijst: dat het bij ons werkt (3 accounts, en ik vond ze via de zoekmachine, dus de mislukte makersaccounts zie ik niet; GOK). Weyrdlets laat zien dat 212 video's ook bij 2.000 volgers kan blijven.
+- **Gevolg:** de paginadag (±8 dec) krijgt als eerste clip op @hatsofthefallen dezelfde vorm als de video van 493.800: wat het is en waar het zit in één zin ("lives on top of your taskbar while you work", regel van Chris), Gloop met hoed in beeld, en de vraag om de verlanglijst in tekst en bijschrift. Daarna een vast ritme. De tekst is spelerstekst, dus CONCEPT voor Thijs (`platformen/steam/teksten-thijs.md`); wie er praat of in de ik-vorm schrijft beslist Thijs.
+
 **Besluit:** rekdoel **300 volgers op wo 13 jan** (avond voor het fest), gemeten met memberslistxml; het doel van fase 1 (500 verlanglijstjes, ±25 tot 70 volgers, vóór 4 jan) blijft de ondergrens. Waarom: 300 volgers staat gelijk aan de bovenkant van het festdoel (2.500 verlanglijstjes bij ±8 per volger), en dan staan we tijdens het fest in Most Wanted Upcoming; zo meten we één getal voor twee doelen. Eerlijk: 300 is meer dan wat 231 van de 239 aangekondigde bureaubladspellen nu hebben (`data/volgers-binnenkort-2026-11-16.csv`). Zitten we op 1 jan onder de 60, dan geldt de regel hierboven.
 
 Niet doen: verlanglijstdoelen met een beloning zoals Mini Legends (iedereen goud bij 100 verlanglijstjes). Dat beloont verlanglijsten; Valve liet Bongo Cat precies zoiets stoppen (Fenna verhaal 16).
