@@ -1,5 +1,24 @@
 # Balans-simulatie Het Hol: uitkomst (Bram, 9 nov 2026)
 
+## 17 nov 2026 ±00:30 UTC (Bram): rolsteen en edelman (vraag Sanne 17 nov ±00:00, `features.md`)
+Script `rolsteen.py` (sim.py onveranderd, aanpassing in het geheugen), uitkomst `rolsteen-uitkomst.txt`. Speeltestbuild: nieuw ritme, drempels als `hol_niveau.gd`, upgrades 45/126/353, niet graven, 60 tot 100 zaden, 3 uur open. Steen te koop op hol 7 voor 1 uur goud (±540), ligt in de eerste gang, speler koopt hem zodra het kan. Partner in de gang: gat tot de volgende held x 10 px/s / 16 px per cel korter dan 6 cellen (bij een paar van 6 tot 10 s is dat ±90%), de edelman altijd.
+
+| variant | vluchten na koop | paar allebei | winkel leeg (mediaan, vroegst) | hol 12 |
+|---|---|---|---|---|
+| zonder steen, edelman +2 | 19,6% | - | 89,8 min (80,2) | 58,1 min |
+| Sanne: steen 0,35, mis = klap | 26,4% | 11% | 138,5 min (122,9) | 62,5 min |
+| steen 0,35, edelman +0 | 26,4% | 12% | 139,5 min (126,7) | 62,5 min |
+| steen 0,50, mis = klap | 23,6% | 26% | 136,0 min (118,5) | 62,4 min |
+| **steen 0,50, mis = klap alleen voor de ridder** (100 zaden) | **20,7%** | **26%** | 133,2 min (121,9) | 62,1 min |
+| steen 0,55, idem (100 zaden) | 20,3% | 32% | 133,0 min (120,2) | 62,0 min |
+
+- **(1) Vluchten gaat met 0,35 omhoog, niet omlaag:** +6,8 punten. Een mis van de steen is een klap, en een schijterige held keert na een klap de helft van de keren om (tweede klap: altijd). De steen raakt elke held die de gang in loopt als hij klaar ligt, dus er komen veel klappen bij. Rekende Sanne met 35% nu, dan wordt dat ±41%, buiten 30 tot 36. Let op: de sim telt ook de helden die de schat aantikken en vertrekken als naar buiten (19,6%); vergelijk dus het verschil, niet het getal.
+- **(2) Paar allebei bij 0,35: 11%** (zoals 0,35 x 0,35). Voor 1 op 4 moet de kans per held rond 0,5.
+- **Bijgesteld binnen de doelen: basis 0,50, en een mis geeft alleen de ridder een klap** ("Clang.", wrok); andere helden springen opzij. Vluchten +1,1 punt (blijft binnen 30 tot 36 als het nu 35 is), paar allebei 26%. Soortfactoren ongewijzigd (dief 1,4, ridder 0,6, magiër 1,0, bard 1,1).
+- **(3) Edelman +2: de winkel is nooit eerder op dan 1,5 uur.** +2, +1 of +0 scheelt hooguit 1 minuut (de edelman komt ±16 keer in 3 uur, ±9 keer gevangen). Met de steen in de winkel is hij op na 133 tot 139 min (vroegst 118); zonder steen na 90 min (vroegst 80, dat ligt aan de upgrades, niet aan de edelman). **+2 blijft.**
+- **Edelman achter een ander: 100% van zijn bezoeken** (het ritme heeft nooit een gat boven 40 s), dus Iris' eis (minstens de helft) haalt hij ruim. Gang van 4 in plaats van 6 cellen: paar in de gang 7% in plaats van 18% van de worpen.
+- **Bijvangst:** de steen kost ±540 goud op het moment dat de upgrades ook nog moeten; hol 12 schuift daardoor ±4 min op (58 naar 62). Wil Sanne dat niet, dan prijs 0,5 uur goud; niet nagerekend omdat het niet gevraagd is.
+
 ## 16 nov 2026 ±19:30 UTC (Bram): sim tegen het echte spel, duurtest 20 min zonder klikken
 Windows-duurtest run 43931188663 (main 07c48f9, 1920x1080, drempels 3/5/7/12/17, niemand koopt; `hol.log` GEZIEN op tak `schermen`, map `steam-hol-duur/main-1920x1080/`) naast de sim zonder kopen (40 zaden). Script `duur_vergelijk.py`, uitvoer `duur-vergelijk-uitkomst.txt`.
 
