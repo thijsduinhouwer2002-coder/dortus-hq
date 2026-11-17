@@ -1,4 +1,6 @@
 project.manifest = manifest.xml
 project.typecheck = 1
-# Winkel en toetsen: zonder het proefgedrag van de bouwstraat (zie source/Proef.mc).
-base.excludeAnnotations = proef
+# Winkel (betaalde versie) en toetsen: zonder het proefgedrag van de bouwstraat (zie source/Proef.mc) en zonder
+# de code van de gratis versie (zie source/Soort.mc). De map betaald bevat de instellingen voor Garmin Connect.
+base.excludeAnnotations = proef;gratis
+base.resourcePath = $(base.resourcePath);betaald

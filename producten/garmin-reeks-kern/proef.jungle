@@ -1,4 +1,6 @@
 # Alleen voor de schermafbeeldingen in de bouwstraat: wit scherm, wakker, slaapbeeld (zie source/Proef.mc).
+# De proef is de betaalde versie.
 project.manifest = manifest.xml
 project.typecheck = 1
-base.excludeAnnotations = winkel
+base.excludeAnnotations = winkel;gratis
+base.resourcePath = $(base.resourcePath);betaald

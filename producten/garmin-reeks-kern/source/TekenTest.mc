@@ -347,3 +347,9 @@ function testWinkelGekozenThema(logger as Test.Logger) as Boolean {
     return Proef.thema(Thema.DUSK, 454) == Thema.DUSK && Proef.thema(Thema.NIGHT, 260) == Thema.NIGHT
         && Keuze.leesThema() == Thema.TIDE;
 }
+
+// De toetsen bouwen als de betaalde versie: die neemt het thema uit de instellingen.
+(:test)
+function testSoortBetaald(logger as Test.Logger) as Boolean {
+    return Soort.BETAALD && Soort.thema() == Keuze.leesThema();
+}

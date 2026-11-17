@@ -21,7 +21,7 @@ class KernView extends WatchUi.WatchFace {
     var slaap as Boolean = false;
     var start as Number = 0;
     var gelezenOp as Number = 0;
-    // Thema van de plaat: de drager kiest in Garmin Connect (Keuze). Alleen in de bouwstraat per proefhorloge een ander (Proef.thema).
+    // Thema van de plaat: betaald kiest de drager in Garmin Connect (Keuze), gratis is het Tide (Soort). Alleen in de bouwstraat per proefhorloge een ander (Proef.thema).
     var thema as Number = Thema.TIDE;
     // Scherm zonder inbrandgevaar (MIP): geen zwart slaapbeeld, en de zee krijgt vaste paletkleuren.
     var mip as Boolean = false;
@@ -82,7 +82,7 @@ class KernView extends WatchUi.WatchFace {
     // beeld (breedte nog niet bekend) hoeft dat niet: onUpdate leest dan zelf.
     function instellingenVeranderd() as Void {
         if (gelezen) {
-            thema = Proef.thema(Keuze.leesThema(), System.getDeviceSettings().screenWidth);
+            thema = Proef.thema(Soort.thema(), System.getDeviceSettings().screenWidth);
             bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
             System.println("KERN INSTELLING thema=" + thema);
         }
@@ -322,7 +322,7 @@ class KernView extends WatchUi.WatchFace {
         if (!gelezen) {
             gelezen = true;
             start = System.getTimer();
-            thema = Proef.thema(Keuze.leesThema(), dc.getWidth());
+            thema = Proef.thema(Soort.thema(), dc.getWidth());
             leesAlles();
             meetBeelden();
             gelezenOp = System.getTimer();

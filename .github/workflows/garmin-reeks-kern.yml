@@ -70,6 +70,14 @@ jobs:
           else
             echo "IQ_PROEF nee" >> "$U"; tail -40 /tmp/iq-proef.log
           fi
+          # Stap (e): bouwt ook de gratis versie voor alle horloges, met een eigen manifest en zonder instellingen?
+          if monkeyc -e -r -w -f gratis.jungle -y /tmp/key.der -o /tmp/prg/gratis.iq > /tmp/iq-gratis.log 2>&1; then
+            echo "IQ_GRATIS ja, horloges in manifest: $(grep -c 'iq:product id' manifest-gratis.xml), $(stat -c %s /tmp/prg/gratis.iq) bytes, waarschuwingen: $(grep -ci warning /tmp/iq-gratis.log || true)" >> "$U"
+          else
+            echo "IQ_GRATIS nee" >> "$U"; tail -40 /tmp/iq-gratis.log
+          fi
+          mkdir -p /tmp/gr && monkeyc -f gratis.jungle -d fenix847mm -o /tmp/gr/gratis.prg -y /tmp/key.der -l 1 > /tmp/gr/bouw.log 2>&1 || true
+          echo "INSTELLINGEN_GRATIS bestanden=$(ls /tmp/gr | grep -c settings || true) thema=$(cat /tmp/gr/*settings* 2>/dev/null | grep -o 'Thema' | wc -l) app_id_anders=$( [ "$(grep -o 'application id="[^"]*"' manifest.xml)" != "$(grep -o 'application id="[^"]*"' manifest-gratis.xml)" ] && echo ja || echo nee)" >> "$U"
           # De waarschuwingen van het pakket, per soort geteld (zonder de naam van het horloge), zodat ze te lezen zijn.
           echo "WAARSCHUWINGEN per soort:" >> "$U"
           grep -a -i warning /tmp/iq-proef.log | sed -E 's/^WARNING: [^:]+: //' | sort | uniq -c | sort -rn | head -40 | cut -c1-300 >> "$U" || true
