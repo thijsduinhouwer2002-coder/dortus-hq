@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 30, onderschriften op TikTok, klaar 17 nov 2026 ±05:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 31, geluid onder een kort filmpje (eigen geluid, muziek, het geluid van een ander), gestart 17 nov 2026 ±06:05 UTC, run 31.
 
 Nieuwste bovenaan.
 
