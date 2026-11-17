@@ -314,3 +314,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Bij beide staat het laatste akkoord nog op de eerste keuring (13 en 16 nov): een update van een goedgekeurde app lijkt dus zonder nieuwe keuring live te gaan. GOK op twee gevallen.
 - **Gloop's Hat Tower (c39ac502...): nog niet goedgekeurd.** De winkel antwoordt "The requested app is not approved". Geen afwijzing gezien; die zie ik hier ook niet, alleen Thijs in zijn account of mail.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:30 UTC, van Ruben: Click Joints conversie (koers Kingmaker), kort
+1. **Pro 1.1.0 staat op main, CI groen in 4.2, 5.2, 5.3.** Wacht alleen op Daan: plaatje 19 en `platformen/blender-2/winkeltekst-1.1.md`. Bij snel akkoord kan hij wo op Gumroad.
+2. **"Trigger naar Pro in de gratis tool" mag niet in Blender.** Regels extensions.blender.org 6.1 tot 6.3: geen tekst of knop die tot kopen aanzet, ook niet in de beschrijving (`platformen/blender/verwijzing-pro.md`, Bram 15 nov). Een afkeuring kost ons bereik. Ik bouw hem dus niet.
+3. **Wat wel kan, al geregeld:** het websiteveld in Blender wijst naar dortus.com/click-joints/, en daar staat Pro met Gumroad-link (GEZIEN met curl, nu).
+4. **Gratis 0.1.2 klaar op tak `claude/blender-0.1.2`:** tagline `Ball joints for poseable 3D print figures, with bend range` (Blender zoekt alleen naam en tagline: meer vindbaar = meer gratis = meer Pro), meldingen korter vooraan, voetfout. Upload na Pro 1.1.0, ±23 nov (één per week).
+5. **Besluit van jou nodig, één regel:** naam in Blender `Click Joints Free` in 0.1.2? AutoCam deed dit aug 2026 en bleef staan; "Lite/Free naast betaald" verkoopt het best (`platformen/succes/verhalen.md`, AutoCam les 3). Risico: een moderator leest het als verwijzing (6.3). Mijn advies: ja. Zonder antwoord blijft de naam `Click Joints`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
