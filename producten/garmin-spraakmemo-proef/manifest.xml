@@ -3,6 +3,7 @@
     <iq:application id="7e3a2d4b0c9f4a81b2d3e4f5a6b7c8d9" type="watch-app" name="@Strings.AppName" entry="MemoProefApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="6.0.0">
         <iq:products>
             <iq:product id="fenix947mm"/>
+            <iq:product id="fenix9pro47mm"/>
             <iq:product id="fenix847mm"/>
             <iq:product id="fr970"/>
             <iq:product id="venu445mm"/>

@@ -73,7 +73,10 @@ class MemoProefApp extends Application.AppBase {
         var wav8 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_8_KHZ, :channels => Audio.CHANNEL_MONO };
         var wav16 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_16_KHZ, :channels => Audio.CHANNEL_MONO };
         System.println("MEMO heeft Toybox Audio: " + (Toybox has :Audio));
-        if (!(Toybox has :Audio)) {
+        System.println("MEMO Audio heeft CONTAINER_OGG: " + (Audio has :CONTAINER_OGG) + ", Capture: " + (Audio has :Capture) + ", Output: " + (Audio has :Output) + ", AudioResource: " + (Audio has :AudioResource));
+        var kanOpnemen = (Audio has :Capture) && (Capture has :initializeAudioCapture) && (Capture has :start);
+        System.println("MEMO kan opnemen volgens has: " + kanOpnemen);
+        if (!kanOpnemen) {
             System.println("MEMO geen Audio in deze simulator met deze horlogebestanden, alleen de opslag wordt gemeten");
             vanger = new Vanger();
             formaat = null;
