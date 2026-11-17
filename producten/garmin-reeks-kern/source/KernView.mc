@@ -14,6 +14,8 @@ class KernView extends WatchUi.WatchFace {
     // Proef 2 (run 124): de vier letters van Tij (fontG tijd, fontK BB-getal, fontV veld, fontD datum), een schermvullend plaatje, de slaapstand.
     var fontK as WatchUi.FontResource? = null;
     var fontG as WatchUi.FontResource? = null;
+    // De dunne tijd voor de slaapstand; alleen geladen op een scherm dat kan inbranden (anders null en geen geheugen).
+    var fontS as WatchUi.FontResource? = null;
     var fontV as WatchUi.FontResource? = null;
     var fontD as WatchUi.FontResource? = null;
     var slaap as Boolean = false;
@@ -52,6 +54,11 @@ class KernView extends WatchUi.WatchFace {
             + " vrij=" + System.getSystemStats().freeMemory);
         var ds = System.getDeviceSettings();
         var inbrand = (ds has :requiresBurnInProtection) ? ds.requiresBurnInProtection : false;
+        if (inbrand) {
+            var ms0 = System.getSystemStats().usedMemory;
+            fontS = WatchUi.loadResource(Rez.Fonts.TijdSlaap) as WatchUi.FontResource;
+            System.println("KERN FONT tijdslaap=" + (System.getSystemStats().usedMemory - ms0) + " vrij=" + System.getSystemStats().freeMemory);
+        }
         System.println("KERN SCHERM " + ds.screenWidth + "x" + ds.screenHeight + " inbrand=" + inbrand
             + " pool=" + ((Graphics has :createBufferedBitmap) ? "ja" : "nee"));
         // Stap (a) van de kern: de maten van dit scherm uit het blad van Mila.
@@ -73,7 +80,7 @@ class KernView extends WatchUi.WatchFace {
         WatchUi.requestUpdate();
     }
 
-    // Slaapbeeld: zwart, de tijd in de kleine cijferletter in grijs en een dunne lijn van Body Battery.
+    // Slaapbeeld: zwart, de tijd in grijs (dun op een scherm dat kan inbranden) en een dunne lijn van Body Battery.
     function tekenSlaap(dc as Graphics.Dc, tekst as String, n as Number) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
@@ -83,8 +90,10 @@ class KernView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        if (fontG != null) {
-            dc.drawText(w / 2 + dx, h * 14 / 100 + dy, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
+        // Scherm dat kan inbranden: de dunne tijd. Anders (geen inbrandgevaar) de gewone tijd, dat scheelt een letter in het geheugen.
+        var fs = (fontS != null) ? fontS : fontG;
+        if (fs != null) {
+            dc.drawText(w / 2 + dx, h * 14 / 100 + dy, fs as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
         }
         var lijn = Teken.profiel(bb, w * 20 / 100, w * 80 / 100, h * 78 / 100, h * 64 / 100, 20);
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);

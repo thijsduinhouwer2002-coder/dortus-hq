@@ -17,6 +17,8 @@ RIJEN = [('datum:', 2), ('tijd:', 2), ('velden:', 3), ('veld-icoon:', 2), ('veld
 
 def lees_blad(pad):
     regels = [r for r in open(pad, encoding='utf-8').read().split('\n\n')[0].split('\n') if r.startswith('|')]
+    # De rij "ruimte-eis" is een toets voor het ontwerp (kommagetallen), geen maat voor het horloge: overslaan.
+    regels = [r for r in regels if not r.strip('| ').startswith('ruimte-eis')]
     kop = [c.strip() for c in regels[0].strip('|').split('|')]
     maten = [int(c) for c in kop[1:]]
     uit = {S: [] for S in maten}

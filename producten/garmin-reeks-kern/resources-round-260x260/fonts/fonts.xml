@@ -1,5 +1,6 @@
 <fonts>
     <font id="Tijd" filename="tijd.fnt" filter="0123456789:" antialias="true"/>
+    <font id="TijdSlaap" filename="tijdslaap.fnt" filter="0123456789:" antialias="true"/>
     <font id="Bb" filename="bb.fnt" filter="0123456789" antialias="true"/>
     <font id="Veld" filename="veld.fnt" filter="0123456789.K" antialias="true"/>
     <font id="Datum" filename="datum.fnt" filter="0123456789 ADEFHIMNORSTUW" antialias="true"/>

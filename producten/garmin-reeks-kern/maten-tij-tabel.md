@@ -5,14 +5,15 @@
 | velden: x links/midden/rechts | 58/104/150 | 61/109/157 | 67/120/173 | 73/130/187 | 78/140/202 | 109/195/281 | 116/208/300 | 127/227/327 |
 | veld-icoon: midden y, hoogte px | 99, 12 | 104, 12 | 115, 12 | 124, 12 | 134, 12 | 186, 16 | 199, 17 | 217, 18 |
 | veld-getal: midden y, letter px (800) | 112, 14 | 118, 14 | 130, 16 | 140, 17 | 151, 18 | 211, 25 | 225, 27 | 245, 30 |
-| water bij 100 (plafond) y | 146 | 153 | 168 | 182 | 196 | 273 | 291 | 318 |
+| water bij 100 (plafond) y | 149 | 156 | 172 | 186 | 200 | 279 | 297 | 325 |
 | water bij 0 (kleinste zee) y | 186 | 195 | 215 | 233 | 251 | 349 | 372 | 406 |
 | nu (bootje) x, begin | 146 | 153 | 168 | 182 | 196 | 273 | 291 | 318 |
 | lijn begint x | 8 | 9 | 10 | 10 | 11 | 16 | 17 | 18 |
 | banden onder de lijn, px | 0/7/17/29 | 0/8/17/31 | 0/8/19/34 | 0/9/21/36 | 0/10/22/39 | 0/14/31/55 | 0/15/33/58 | 0/16/36/64 |
 | waterlijn dikte px | 2 | 2 | 2 | 2 | 2 | 3 | 3 | 4 |
 | bootje halve breedte, mast px | 10, 16 | 11, 16 | 12, 18 | 13, 20 | 14, 21 | 20, 29 | 21, 31 | 23, 34 |
-| BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2) | 133, 23, 2 | 139, 24, 2 | 153, 26, 2 | 166, 29, 2 | 179, 31, 2 | 249, 43, 3 | 265, 46, 3 | 290, 50, 3 |
+| BB-getal: midden y, letter px, rand px (getal + golfje samen gecentreerd op x = S/2) | 131, 23, 1 | 138, 24, 1 | 152, 26, 1 | 164, 29, 1 | 177, 31, 1 | 246, 43, 2 | 263, 46, 2 | 287, 50, 2 |
+| ruimte-eis: px tussen onderkant getal (met rand) en golftop/zeil eronder; bootje nooit links van rechterkant getal + halve romp + deze ruimte | 4.0 | 4.2 | 4.6 | 5.0 | 5.4 | 7.5 | 8.0 | 8.7 |
 | golfje (2 golven, kleur waterlijn): breedte, lijndikte, afstand tot getal px | 12, 2, 3 | 12, 2, 3 | 12, 2, 3 | 13, 2, 3 | 14, 2, 4 | 20, 3, 5 | 21, 4, 5 | 23, 4, 6 |
 | veilige straal bootje px | 99 | 104 | 114 | 124 | 133 | 185 | 198 | 216 |
 

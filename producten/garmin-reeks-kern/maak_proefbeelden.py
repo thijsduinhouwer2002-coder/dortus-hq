@@ -1,6 +1,6 @@
-"""Maakt de proefbeelden voor de reeksproef (Gijs, run 124): een schermvullend kleurverloop per
-schermmaat en de vier letters van Tij (tijd, BB-getal, veldgetal, datum) op de maten van Mila voor 208, 260 en 454 px. Alleen om geheugen te
-meten, geen ontwerp. Draaien: python3 maak_proefbeelden.py"""
+"""Maakt de letters van Tij per schermmaat (tijd, dunne tijd voor de slaapstand, BB-getal, veldgetal, datum)
+op de maten uit maten-tij-tabel.md van Mila, voor alle acht ronde schermmaten. Maakt ook nog het kleurverloop
+van de eerste proef (run 124) voor 208, 260 en 454 px. Draaien: python3 maak_proefbeelden.py"""
 import os
 from PIL import Image, ImageDraw, ImageFont
 
@@ -62,21 +62,40 @@ def letter(resmap, naam, px, gewicht, tekens):
 
 FONTS_XML = """<fonts>
     <font id="Tijd" filename="tijd.fnt" filter="0123456789:" antialias="true"/>
+    <font id="TijdSlaap" filename="tijdslaap.fnt" filter="0123456789:" antialias="true"/>
     <font id="Bb" filename="bb.fnt" filter="0123456789" antialias="true"/>
     <font id="Veld" filename="veld.fnt" filter="0123456789.K" antialias="true"/>
     <font id="Datum" filename="datum.fnt" filter="0123456789 ADEFHIMNORSTUW" antialias="true"/>
 </fonts>
 """
+# Gewicht van de tijd in de slaapstand: dun, zodat er op een scherm dat kan inbranden minder dan 8% aan staat
+# (de dikke tijd, gewicht 900, kwam op de fenix 8 op 7,9 en 9,1%; run 43993153363). De vorm is nog een keuze van Mila.
+SLAAP_GEWICHT = 300
 # maat van het scherm: (tijd, BB-getal, veldgetal, datum) in px, uit maten-tij-tabel.md van Mila.
-# 208 staat niet in haar tabel: 260 maal 0,8.
-MATEN = {"resources": (78, 29, 17, 17), "resources-round-208x208": (62, 23, 14, 14),
-         "resources-round-260x260": (78, 29, 17, 17), "resources-round-454x454": (136, 50, 30, 30)}
-verloop(260, os.path.join(HIER, "resources", "drawables", "achtergrond.png"))
-for m in (208, 260, 454):
-    verloop(m, os.path.join(HIER, "resources-round-%dx%d" % (m, m), "drawables", "achtergrond.png"))
-for resmap, (t, b, v, dt) in MATEN.items():
-    print(letter(resmap, "tijd", t, 900, "0123456789:"))
-    print(letter(resmap, "bb", b, 900, "0123456789"))
-    print(letter(resmap, "veld", v, 800, "0123456789.K"))
-    print(letter(resmap, "datum", dt, 700, "0123456789 ADEFHIMNORSTUW"))
-    open(os.path.join(HIER, resmap, "fonts", "fonts.xml"), "w").write(FONTS_XML)
+MATEN = {208: (62, 23, 14, 14), 218: (65, 24, 14, 14), 240: (72, 26, 16, 16), 260: (78, 29, 17, 17),
+         280: (84, 31, 18, 18), 390: (117, 43, 25, 25), 416: (125, 46, 27, 27), 454: (136, 50, 30, 30)}
+
+
+def toets_tegen_blad():
+    """Stopt als de lettermaten hierboven niet meer bij het blad van Mila passen."""
+    import maak_maten
+    blad = maak_maten.lees_blad(os.path.join(HIER, "maten-tij-tabel.md"))
+    for S, (t, b, v, dt) in MATEN.items():
+        rij = dict(zip(maak_maten.NAMEN, blad[S]))
+        if (rij["TIJD_PX"], rij["BB_PX"], rij["VELD_PX"], rij["DATUM_PX"]) != (t, b, v, dt):
+            raise SystemExit("lettermaten voor %d px passen niet bij het blad: %r" % (S, rij))
+
+
+if __name__ == "__main__":
+    toets_tegen_blad()
+    verloop(260, os.path.join(HIER, "resources", "drawables", "achtergrond.png"))
+    for m in (208, 260, 454):
+        verloop(m, os.path.join(HIER, "resources-round-%dx%d" % (m, m), "drawables", "achtergrond.png"))
+    mappen = [("resources", MATEN[260])] + [("resources-round-%dx%d" % (S, S), MATEN[S]) for S in sorted(MATEN)]
+    for resmap, (t, b, v, dt) in mappen:
+        print(letter(resmap, "tijd", t, 900, "0123456789:"))
+        print(letter(resmap, "tijdslaap", t, SLAAP_GEWICHT, "0123456789:"))
+        print(letter(resmap, "bb", b, 900, "0123456789"))
+        print(letter(resmap, "veld", v, 800, "0123456789.K"))
+        print(letter(resmap, "datum", dt, 700, "0123456789 ADEFHIMNORSTUW"))
+        open(os.path.join(HIER, resmap, "fonts", "fonts.xml"), "w").write(FONTS_XML)
