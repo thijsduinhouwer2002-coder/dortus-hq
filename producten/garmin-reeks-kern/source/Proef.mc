@@ -95,4 +95,36 @@ module Proef {
     function velden(gekozen as Array<Number>, breedte as Number) as Array<Number> {
         return gekozen;
     }
+
+    // Bouwstraat (run 134): de simulator geeft 0 voor calorieën, trappen, minuten en afstand en nooit vorst. De
+    // betaalde proef toont daarom een gewone dag: 1.840 calorieën, 12 trappen, 145 minuten, 12,4 km en 4 graden
+    // onder nul, zodat een vol veld en het minteken in beeld komen. Accu en de drie oude soorten blijven echt.
+    (:proef)
+    function veld(soort as Number, echt as Number?) as Number? {
+        if (!Soort.BETAALD) {
+            return echt;
+        }
+        if (soort == Veld.CALORIE) {
+            return 1840;
+        }
+        if (soort == Veld.TRAPPEN) {
+            return 12;
+        }
+        if (soort == Veld.MINUTEN) {
+            return 145;
+        }
+        if (soort == Veld.AFSTAND) {
+            return 124;
+        }
+        if (soort == Veld.TEMP) {
+            return -4;
+        }
+        return echt;
+    }
+
+    // Winkel: altijd wat het horloge geeft, ook niets.
+    (:winkel)
+    function veld(soort as Number, echt as Number?) as Number? {
+        return echt;
+    }
 }

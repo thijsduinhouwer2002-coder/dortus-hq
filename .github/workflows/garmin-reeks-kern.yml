@@ -195,6 +195,9 @@ jobs:
         run: |
           SRC="$PWD/schermen"
           [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          # Run 134: een afgebroken run heeft een halve map (run 44042986226 zette die op de tak). Alleen wegschrijven
+          # als de uitslag af is: de slotregel van het tellen van de slaapstand staat erin, ook bij een rode bouw.
+          grep -a -q '^SLAAP_TELLING' "$SRC/uitslag.txt" 2>/dev/null || { echo "uitslag niet af (afgebroken run?), niets weggeschreven"; exit 0; }
           NAAM=$(echo "$TAK" | tr '/' '-')
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"

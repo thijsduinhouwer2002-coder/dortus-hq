@@ -135,3 +135,10 @@ function testWinkelGekozenVelden(logger as Test.Logger) as Boolean {
     var v = Proef.velden([Veld.TEMP, Veld.HART, Veld.ACCU] as Array<Number>, 454);
     return v.size() == 3 && v[0] == Veld.TEMP && v[1] == Veld.HART && v[2] == Veld.ACCU;
 }
+
+// De toetsen bouwen als de winkel: daar telt wat het horloge geeft, nooit een proefwaarde, ook niet bij niets.
+(:test)
+function testWinkelEchteVelden(logger as Test.Logger) as Boolean {
+    return Proef.veld(Veld.CALORIE, 7) == 7 && Proef.veld(Veld.TEMP, 21) == 21 && Proef.veld(Veld.AFSTAND, null) == null
+        && Proef.veld(Veld.TRAPPEN, 0) == 0;
+}

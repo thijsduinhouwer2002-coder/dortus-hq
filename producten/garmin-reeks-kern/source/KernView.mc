@@ -184,7 +184,7 @@ class KernView extends WatchUi.WatchFace {
         var dik = Maten.m(Maten.LIJN_DIK);
         var regel = "";
         for (var i = 0; i < 3; i++) {
-            var v = Veld.waarde(soorten[i], st);
+            var v = Proef.veld(soorten[i], Veld.waarde(soorten[i], st));
             var t = Veld.tekstVan(soorten[i], v);
             regel = regel + " " + ((t == null) ? "-" : t);
             // Het hart krijgt de kleur van de minuten (blad van Mila), de andere pictogrammen die van de tekst.
