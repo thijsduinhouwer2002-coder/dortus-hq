@@ -72,7 +72,7 @@ module Proef {
         return gekozen;
     }
 
-    // Bouwstraat (run 134): de betaalde proef toont op vier horloges andere velden, zodat de zes nieuwe
+    // Bouwstraat (run 134): de betaalde proef toont op de meeste horloges andere velden, zodat de zes nieuwe
     // pictogrammen groot en klein in beeld komen: breedte 454 en 240 vlam, trap en stopwatch; 260 en 208 speld,
     // accu en thermometer. De andere horloges (320, 360; sinds run 135 niet meer 390) houden de keuze, dus hart, bliksem en schoen
     // blijven ook in beeld (punt van de keurder). De gratis proef toont zijn echte, vaste velden.

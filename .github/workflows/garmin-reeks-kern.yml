@@ -85,6 +85,8 @@ jobs:
             monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             # Stap (d): zit de instelling voor het thema in het pakket? (de bouw zet de instellingen naast het programma)
+            # Run 135: zitten de Duitse en Nederlandse werkteksten in het pakket? Eerst alleen tellen (hoe de bouw talen in het bestand zet is nog niet gezien).
+            if [ "$d" = fenix847mm ]; then echo "TALEN in instellingen: deu=$(cat bin/app-fenix847mm*settings* 2>/dev/null | grep -o 'Herzfrequenz' | wc -l) dut=$(cat bin/app-fenix847mm*settings* 2>/dev/null | grep -o 'Hartslag' | wc -l) bestanden: $(ls bin | grep -i 'fenix847mm' | tr '\n' ' ')" >> "$U"; fi
             if [ "$d" = fenix847mm ]; then echo "INSTELLINGEN bestanden=$(ls bin | grep -c settings || true) thema=$(cat bin/*settings* 2>/dev/null | grep -o 'Thema' | wc -l) velden=$(cat bin/app-fenix847mm*settings* 2>/dev/null | grep -o 'Veld[123]' | sort -u | wc -l)" >> "$U"; fi
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!

@@ -158,7 +158,7 @@ function testAccuKleinOpen(logger as Test.Logger) as Boolean {
         var nop = d[4];
         var vul = d[5];
         var open = rechts[0] - (vul[0] + vul[2]);
-        if (open < 2 || vul[3] < 2 || vul[2] < 2 || vul[0] != links[0] + 1 || nop[0] != rechts[0] + 1
+        if (d[0][3] != 1 || d[1][3] != 1 || links[2] != 1 || rechts[2] != 1 || d[0][2] != d[1][2] || open < 2 || vul[3] < 2 || vul[2] < 2 || vul[0] != links[0] + 1 || nop[0] != rechts[0] + 1
             || d[0][1] < 50 - h / 2 || d[1][1] + 1 > 50 - h / 2 + h || nop[1] <= d[0][1] || nop[1] + nop[3] >= d[1][1] + 1) {
             logger.debug("accu h=" + h + " open=" + open + " vul=" + vul[2] + "x" + vul[3]);
             return false;

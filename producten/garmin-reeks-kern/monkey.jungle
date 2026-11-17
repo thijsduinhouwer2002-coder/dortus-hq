@@ -4,3 +4,6 @@ project.typecheck = 1
 # de code van de gratis versie (zie source/Soort.mc). De map betaald bevat de instellingen voor Garmin Connect.
 base.excludeAnnotations = proef;gratis
 base.resourcePath = $(base.resourcePath);betaald
+# Run 135: Duits en Nederlands van de instellingen (alleen de betaalde versie heeft instellingen).
+base.lang.deu = betaald-deu
+base.lang.dut = betaald-dut

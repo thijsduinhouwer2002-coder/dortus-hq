@@ -4,3 +4,6 @@ project.manifest = manifest.xml
 project.typecheck = 1
 base.excludeAnnotations = winkel;gratis
 base.resourcePath = $(base.resourcePath);betaald
+# Run 135: Duits en Nederlands van de instellingen (alleen de betaalde versie heeft instellingen).
+base.lang.deu = betaald-deu
+base.lang.dut = betaald-dut

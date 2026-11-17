@@ -1,0 +1,16 @@
+<strings>
+    <!-- Werkteksten van de instellingen (Chris, commercie/garmin-wijzerplaat-tij/naam-en-teksten.md deel 1). De naam en de namen van de thema's blijven Engels. -->
+    <string id="ThemaTitel">Thema</string>
+    <string id="Veld1Titel">Veld links</string>
+    <string id="Veld2Titel">Veld midden</string>
+    <string id="Veld3Titel">Veld rechts</string>
+    <string id="VeldHart">Hartslag</string>
+    <string id="VeldStress">Stress</string>
+    <string id="VeldStappen">Stappen</string>
+    <string id="VeldCalorie">Calorieën</string>
+    <string id="VeldTrappen">Geklommen etages</string>
+    <string id="VeldMinuten">Intensieve minuten (week)</string>
+    <string id="VeldAfstand">Afstand</string>
+    <string id="VeldAccu">Horlogebatterij</string>
+    <string id="VeldTemp">Temperatuur (weer)</string>
+</strings>

@@ -69,6 +69,8 @@
         </iq:permissions>
         <iq:languages>
             <iq:language>eng</iq:language>
+            <iq:language>deu</iq:language>
+            <iq:language>dut</iq:language>
         </iq:languages>
         <iq:barrels/>
     </iq:application>
