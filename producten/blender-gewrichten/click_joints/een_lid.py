@@ -179,8 +179,15 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
         d0 = (co.xy - m0).length
         return all(d0 <= (co.xy - c).length for c in anderen)
 
+    # Run 27 (17 nov, Ruben): de bol om het midden had straal `diepte`. Dan reikt het omhulsel op de huid van het lid
+    # (straal rl) maar tot sqrt(diepte^2 - rl^2) diep, en bij een platte doorsnede nog minder: op de bovenarm van de
+    # MakeHuman-mens tot 5,5 mm, terwijl de bolnaad 6,5 mm diep gaat. Het stuk bolnaad daaronder werd dan niet uit
+    # deel A gehaald, en de kogel zat in rechte stand al vast ("blocked", schouders). Nu de straal zo groot dat het
+    # omhulsel op de huid van het lid de hele `diepte` haalt.
+    r_bij = (diepte ** 2 + max(v.co.xy.length for e in lus0 for v in e.verts) ** 2) ** 0.5
+
     def bij(v):
-        return (v.co - midden).length <= diepte and eigen_kant(v.co)
+        return (v.co - midden).length <= r_bij and eigen_kant(v.co)
     dicht, punten = set(afstand), set()
     for i in dicht:
         f = bm.faces[i]
