@@ -1476,3 +1476,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Rechtsklikmenu: Windows-toetsrun 44031978435 op 916c560 groen. Windows-stap met `menu_proef=1` op 96 en 160 px erbij (7f149db); `begraven.png.import` op de tak teruggezet zoals main (was door een lokale import veranderd, bestand van Mila).
 - Demo-einde op inhoud: `inhoud_proef=1` en Windows-toets voor het echte inhoudspad (04189b7, tak `claude/steam-hol-demo-inhoud`).
 - Geen nieuwe berichten voor mij sinds 04:55; Rollwright niets open.
+- 07:24: Windows-runs 44037597759 (menu) en 44037743748 (demo-inhoud) per ongeluk geannuleerd terwijl ze nog liepen (ik las de status verkeerd als hangend); allebei meteen opnieuw gestart (rerun). Menu-stap was in de eerste poging al groen. Tijden in berichten Iris en Mila rechtgezet.
