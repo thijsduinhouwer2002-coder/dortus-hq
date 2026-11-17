@@ -135,9 +135,11 @@ jobs:
           [ "$N" = "240" ] || { echo "FOUT: niet alle beelden"; rm -rf /tmp/uit/beelden; exit 1; }
       - name: Film maken met onderschrift
         run: |
+          # Chris run 75 (Daan 17 nov): onderschrift 1,5 keer groter, laatste seconde "Bends 0° to 115°" (tekst van de add-on zelf)
           F=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+          FB=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
           ffmpeg -y -loglevel error -framerate 24 -i /tmp/uit/beelden/%04d.png \
-            -vf "drawtext=fontfile=$F:text='Rendered in Blender from the exported parts':fontsize=30:fontcolor=white@0.75:x=(w-text_w)/2:y=h-70" \
+            -vf "drawtext=fontfile=$F:text='Rendered in Blender from the exported parts':fontsize=44:fontcolor=white@0.8:x=(w-text_w)/2:y=h-80,drawtext=fontfile=$FB:text='Bends 0° to 115°':fontsize=64:fontcolor=white:alpha='min(1,max(0,(t-9)/0.25))':x=(w-text_w)/2:y=44:enable='gte(t,9)'" \
             -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart /tmp/uit/click-joints-pro-knie-render.mp4
           ffmpeg -y -loglevel error -i /tmp/uit/click-joints-pro-knie-render.mp4 -vf "select='eq(n\,0)+eq(n\,72)+eq(n\,144)',scale=360:-1,tile=3x1" -frames:v 1 /tmp/uit/blad.png
           rm -rf /tmp/uit/beelden

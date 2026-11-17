@@ -1,0 +1,71 @@
+name: Click Joints film opnieuw plakken (zonder opnieuw renderen)
+
+# Chris run 75 (Daan 17 nov 04:40): de knie-film is goedgekeurd; alleen de tekst in beeld verandert.
+# Haalt de 240 beelden van een eerdere render-run op (artefacten beelden-1 tot 8, 3 dagen bewaard)
+# en maakt de film opnieuw met een groter onderschrift en in de laatste seconde "Bends 0° to 115°".
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "id van de render-run met de artefacten beelden-1 tot 8"
+        default: "44013473980"
+      map:
+        description: "map op de tak schermen onder click-joints-render/"
+        default: "film-cam0.7-licht1-tekst"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  film:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: ffmpeg ophalen
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+      - name: Delen ophalen uit de render-run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: beelden-*
+          path: /tmp/delen
+          run-id: ${{ github.event.inputs.run_id }}
+          github-token: ${{ github.token }}
+      - name: Beelden samenvoegen
+        run: |
+          mkdir -p /tmp/uit/beelden
+          for d in /tmp/delen/beelden-*; do
+            cp "$d"/beelden/*.png /tmp/uit/beelden/ 2>/dev/null || true
+          done
+          N=$(ls /tmp/uit/beelden | wc -l)
+          echo "[cj-film] beelden: $N van 240 uit run ${{ github.event.inputs.run_id }}" | tee /tmp/uit/uitslag.txt
+          [ "$N" = "240" ] || { echo "FOUT: niet alle beelden"; exit 1; }
+      - name: Film maken met tekst
+        run: |
+          F=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+          FB=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+          ffmpeg -y -loglevel error -framerate 24 -i /tmp/uit/beelden/%04d.png \
+            -vf "drawtext=fontfile=$F:text='Rendered in Blender from the exported parts':fontsize=44:fontcolor=white@0.8:x=(w-text_w)/2:y=h-80,drawtext=fontfile=$FB:text='Bends 0° to 115°':fontsize=64:fontcolor=white:alpha='min(1,max(0,(t-9)/0.25))':x=(w-text_w)/2:y=44:enable='gte(t,9)'" \
+            -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart /tmp/uit/click-joints-pro-knie-render.mp4
+          ffmpeg -y -loglevel error -i /tmp/uit/click-joints-pro-knie-render.mp4 -vf "select='eq(n\,0)+eq(n\,144)+eq(n\,232)',scale=360:-1,tile=3x1" -frames:v 1 /tmp/uit/blad.png
+          rm -rf /tmp/uit/beelden
+          ls -la /tmp/uit
+      - name: Openbaar zetten (tak schermen)
+        env:
+          TOKEN: ${{ github.token }}
+          MAP: ${{ github.event.inputs.map }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            D="/tmp/s/click-joints-render/$MAP"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, beelden uit run ${{ github.event.inputs.run_id }}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$MAP run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then break; fi
+            cd /; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/click-joints-render/$MAP"
