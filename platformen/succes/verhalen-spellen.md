@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 21 af 17 nov ±02:00 UTC; volgende run: vraag van de hoofdchat als die er is; anders: wat een themafest na de lancering deed voor een idle- of bureaubladspel (Idler Fest 2025 van binnen: wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: verhaal 22, speeltijd op de winkelpagina ("40+ hours"): wat zeggen bureaubladspellen en klopt het met wat spelers echt spelen, 17 nov ±02:20 UTC
 
 Nieuwste bovenaan.
 
