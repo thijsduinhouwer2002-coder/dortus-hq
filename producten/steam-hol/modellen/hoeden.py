@@ -205,7 +205,10 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
         # 30 procent hoger dan nr 7 en getailleerd; zijde (glans), zodat het fakkellicht er een lange streep op legt
         iv = g.mat("edelivoor", "f3ead6", rough=0.3, spec=0.6)
         goud = g.mat("edelgoud", "goud", rough=0.22, spec=0.9, metaal=0.9)
-        _kegel(ouder, (0, 0, 0.025), 0.55, 0.55, 0.05, iv)            # brede rand (opgekrulde flapjes lazen als handvatten)
+        _kegel(ouder, (0, 0, 0.036), 0.55, 0.55, 0.028, iv)           # brede rand (opgekrulde flapjes lazen als handvatten)
+        # onderste helft van de rand donkerder (Daan 17 nov 01:30): schaduwlijn, zodat hij op 1x een hoge hoed blijft, geen wit blokje
+        _kegel(ouder, (0, 0, 0.011), 0.548, 0.552, 0.022, g.mat("edelrandonder", "7a6e60", rough=0.5, spec=0.3))
+        bpy.ops.object.shade_flat()   # glad mengde de schaduwlijn weg in het ivoor
         _kegel(ouder, (0, 0, 0.27), 0.31, 0.29, 0.43, iv)
         _kegel(ouder, (0, 0, 0.69), 0.29, 0.34, 0.43, iv)
         _kegel(ouder, (0, 0, 0.905), 0.34, 0.33, 0.012, g.mat("edeltop", "fbf5e8", rough=0.25, spec=0.7))

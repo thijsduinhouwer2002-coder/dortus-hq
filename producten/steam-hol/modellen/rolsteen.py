@@ -98,15 +98,15 @@ def bouw(stand="klaar", plek=(0, 0, 0), draai=0.0):
     bpy.context.scene.collection.objects.link(ouder)
     if stand == "niet_klaar":
         o = steen(ouder, draai=0)
-        o.rotation_euler = (0, R(-75), R(15))      # gekanteld tegen de wand: mos opzij
-        o.location = (0, 0, STRAAL * 0.96)
+        o.rotation_euler = (0, R(-32), R(25))      # proef 2: minder gekanteld (rechtop las als ei of walnoot), mos opzij, groef schuin
+        o.location = (0, 0, STRAAL * 0.93)
     elif stand == "rol":
         o = steen(ouder, draai=0)
         o.rotation_euler = (0, R(-draai), 0)      # rolt langs de gang: om de as naar de camera
     else:
         steen(ouder)
-        hout = g.mat("rolsteen_wig", "5e3b22", rough=0.75)   # Daan: oranje driehoekje, mag donkerder hout
-        hd._kegel(ouder, (0.5, -0.02, 0.09), 0.2, 0.2, 0.5, hout, rot=(R(90), 0, R(0)), verts=3)
+        hout = g.mat("rolsteen_wig", "7a4a26", rough=0.75)   # proef 2: 5e3b22 viel weg in de bruine gangwand op spelmaat
+        hd._kegel(ouder, (0.52, -0.02, 0.12), 0.26, 0.26, 0.55, hout, rot=(R(90), 0, R(0)), verts=3)
         bpy.ops.object.shade_flat()
         touw = g.mat("rolsteen_touw", "6a4e2c", rough=0.95)   # Daan: touwtje mag donkerder
         hd._kegel(ouder, (0.62, -0.28, 0.17), 0.014, 0.014, 0.34, touw, rot=(R(10), R(-25), 0), verts=8)
