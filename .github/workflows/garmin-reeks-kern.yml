@@ -85,7 +85,7 @@ jobs:
             monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             # Stap (d): zit de instelling voor het thema in het pakket? (de bouw zet de instellingen naast het programma)
-            if [ "$d" = fenix847mm ]; then echo "INSTELLINGEN bestanden=$(ls bin | grep -c settings || true) thema=$(cat bin/*settings* 2>/dev/null | grep -o 'Thema' | wc -l) velden=$(cat bin/*settings* 2>/dev/null | grep -o 'Veld[123]' | sort -u | wc -l)" >> "$U"; fi
+            if [ "$d" = fenix847mm ]; then echo "INSTELLINGEN bestanden=$(ls bin | grep -c settings || true) thema=$(cat bin/*settings* 2>/dev/null | grep -o 'Thema' | wc -l) velden=$(cat bin/app-fenix847mm*settings* 2>/dev/null | grep -o 'Veld[123]' | sort -u | wc -l)" >> "$U"; fi
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             # Het proefpakket (proef.jungle) toont 8 s wit, 10 s wakker en dan het slaapbeeld. De app tekent zijn
@@ -126,8 +126,11 @@ jobs:
           # als tester.sh van de image, met gratis.jungle. De laatste regels van de uitslag komen in uitslag.txt.
           if monkeyc -f gratis.jungle -d fenix7 -o /tmp/gr/toets.prg -y /tmp/key.der -t -l 3 > /tmp/gr/toets-bouw.log 2>&1; then
             timeout 180 monkeydo /tmp/gr/toets.prg fenix7 -t > /tmp/gr/toets.log 2>&1 || true
-            grep -a -E "PASS|FAIL|ERROR|Ran " /tmp/gr/toets.log | tail -60 | cut -c1-200 | sed "s/^/TOETS_GRATIS /" >> "$U" || true
-            echo "TOETSEN_GRATIS regels=$(wc -l < /tmp/gr/toets.log) geslaagd=$(grep -a -c -E 'PASS$' /tmp/gr/toets.log || true) mislukt=$(grep -a -c -E '(FAIL|ERROR)$' /tmp/gr/toets.log || true)" >> "$U"
+            grep -a -E "PASS|FAIL|ERROR|Ran |betaald=" /tmp/gr/toets.log | tail -70 | cut -c1-200 | sed "s/^/TOETS_GRATIS /" >> "$U" || true
+            # Alleen de slotregel van Run No Evil telt (punt van de keurder): ontbreekt die of begint hij niet met PASSED, dan FOUT.
+            SLOT=$(grep -a -E '^(PASSED|FAILED) \(passed=' /tmp/gr/toets.log | tail -1)
+            case "$SLOT" in PASSED*) echo "TOETSEN_GRATIS goed: $SLOT" >> "$U";; *) echo "TOETSEN_GRATIS FOUT: ${SLOT:-geen slotregel}" >> "$U";; esac
+            grep -a -q "betaald=nee" /tmp/gr/toets.log && echo "TOETSEN_GRATIS versie gratis" >> "$U" || echo "TOETSEN_GRATIS versie FOUT" >> "$U"
           else
             echo "TOETSEN_GRATIS bouw nee" >> "$U"; tail -30 /tmp/gr/toets-bouw.log | cut -c1-300 | sed "s/^/TOETS_GRATIS BOUW /" >> "$U"
           fi

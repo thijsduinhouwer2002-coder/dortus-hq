@@ -29,6 +29,7 @@ function testVeldTemperatuur(logger as Test.Logger) as Boolean {
     return Veld.graden(null, false) == null && Veld.graden(null, true) == null && Veld.graden(21, false) == 21
         && Veld.graden(0, true) == 32 && Veld.graden(-40, true) == -40 && Veld.graden(21, true) == 70
         && Veld.graden(-18, true) == 0 && Veld.graden(-3, false) == -3
+        && Veld.graden(21.7, false) == 22 && Veld.graden(-0.4, false) == 0 && Veld.graden(21.4, true) == 71
         && tekstIs(Veld.tekstVan(Veld.TEMP, -3), "3") && Veld.isMin(Veld.TEMP, -3)
         && tekstIs(Veld.tekstVan(Veld.TEMP, 0), "0") && !Veld.isMin(Veld.TEMP, 0) && !Veld.isMin(Veld.TEMP, null)
         && !Veld.isMin(Veld.STAPPEN, -3) && tekstIs(Veld.tekstVan(Veld.TEMP, null), null)
@@ -49,7 +50,7 @@ function testVeldLeesAlleSoorten(logger as Test.Logger) as Boolean {
     var leeg = [] as Array<Number>;
     for (var s = Veld.CALORIE; s < Veld.AANTAL; s++) {
         var v = Veld.waarde(s, leeg);
-        logger.debug("soort " + s + " geeft " + v);
+        logger.debug("soort " + s + " geeft " + ((v == null) ? "niets" : v.format("%d")));
         if (v != null && !(v instanceof Lang.Number)) {
             return false;
         }

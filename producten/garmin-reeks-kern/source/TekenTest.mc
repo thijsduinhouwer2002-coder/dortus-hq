@@ -352,6 +352,7 @@ function testWinkelGekozenThema(logger as Test.Logger) as Boolean {
 // uit de instellingen, met als standaard hartslag, stress en stappen; gratis heeft Tide en die drie velden vast.
 (:test)
 function testSoortPastBijVersie(logger as Test.Logger) as Boolean {
+    logger.debug("betaald=" + (Soort.BETAALD ? "ja" : "nee"));
     var v = Soort.velden();
     var drie = v.size() == 3 && v[0] == Veld.HART && v[1] == Veld.STRESS && v[2] == Veld.STAPPEN;
     if (Soort.BETAALD) {

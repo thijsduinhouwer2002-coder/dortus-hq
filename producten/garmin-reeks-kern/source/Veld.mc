@@ -134,15 +134,17 @@ module Veld {
         return "999";
     }
 
-    // Graden voor de drager: Celsius zoals het weer hem geeft, of Fahrenheit, afgerond op hele graden.
-    function graden(celsius as Number?, fahrenheit as Boolean) as Number? {
+    // Graden voor de drager: Celsius zoals het weer hem geeft, of Fahrenheit, afgerond op hele graden. Het horloge
+    // mag ook een kommagetal geven (punt van de keurder, run 133).
+    function graden(celsius as Numeric?, fahrenheit as Boolean) as Number? {
         if (celsius == null) {
             return null;
         }
+        var c = celsius.toFloat();
         if (fahrenheit) {
-            return Math.round(celsius * 9.0 / 5.0 + 32.0).toNumber();
+            c = c * 9.0 / 5.0 + 32.0;
         }
-        return celsius;
+        return Math.round(c).toNumber();
     }
 
     // Accu in hele procenten, naar beneden: het horloge belooft nooit meer dan er in zit. Buiten 0 tot 100: null.
