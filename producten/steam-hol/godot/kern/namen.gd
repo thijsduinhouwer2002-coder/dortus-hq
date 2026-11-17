@@ -5,7 +5,8 @@ const REGELS := preload("res://kern/regels.gd")
 # Geen namen met een Engelse betekenis: "Ties" leest als stropdassen, "Wil" als Will (Daan 23:45, keuring-build.md)
 const NAMEN := ["Bram", "Odo", "Wout", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Tibbe", "Lotte", "Kees"]
 # Vrouwennamen uit NAMEN: die krijgen "Dame" in plaats van "Sir" in de regels met {titel} (Sanne 17 nov 10:00, Iris
-# keuring 21 punt 1, "Sir Gerda"). Voeg je een vrouwennaam toe aan NAMEN, zet hem dan ook hier (toets_systemen.gd eist het).
+# keuring 21 punt 1, "Sir Gerda"). Voeg je een vrouwennaam toe aan NAMEN, zet hem dan ook hier (de toets ziet alleen
+# of VROUW in NAMEN staat, niet of je hem vergat).
 const VROUW := ["Gerda", "Mara", "Fenna", "Lotte"]
 
 # "Sir" of "Dame", uit de voornaam (eerste woord, dus "Gerda II" en "Gerda the Twice-Fled" tellen mee).

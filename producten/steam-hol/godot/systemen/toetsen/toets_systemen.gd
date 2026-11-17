@@ -1424,6 +1424,16 @@ func _nieuwe_held() -> bool:
 						dm_sir.append(v_dm)   # niets mag ongevuld blijven
 	ok(hp_mist.is_empty(), "hap: elke soort heeft 2 hap-regels (mist %s)" % str(hp_mist))
 	ok(dm_sir.is_empty(), "geen Sir bij een vrouwennaam en niets ongevuld (%s)" % str(dm_sir))
+	# ook alle andere soorten (vlucht, val, lied, pensioen...), behalve de ene regel over Gloop (controleur 10:50)
+	for vr in [RT.VOORRAAD, RT.BRAM.VOORRAAD]:
+		for sk_h in vr:
+			for rd in vr[sk_h]:
+				var v_al: String = " " + RT.vul(rd, {"naam": "Gerda", "held": "Gerda the Twice-Fled", "bewoner": "Gloop", "val": "the Spike Pit", "oud": "Gerda", "hoed": "crown", "bijnaam": "Hatful", "n": "3"}) + " "
+				if v_al.contains("taller than him"):
+					continue
+				for w in [" he ", " he.", " he,", " his ", " his.", " him ", " him.", " him,", " He ", " His "]:
+					if v_al.contains(w):
+						dm_hij.append(v_al.strip_edges())
 	ok(dm_hij.is_empty(), "geen he/his/him in regels over helden (%s)" % str(dm_hij))
 	ok(hp_lang.is_empty(), "hap: past met elke naam III en +9 (te lang %s)" % str(hp_lang))
 	ok(AF.hap_soort(nep_ts, {"binnen_soort": "dief"}) == "hap_dief" and AF.hap_soort(nep_ts, {}) == "val_bewoner", "hap: eigen soort bij een opzet, anders val_bewoner")
