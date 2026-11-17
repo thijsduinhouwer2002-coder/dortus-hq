@@ -223,3 +223,4 @@ Stap 2 en 3: eisen volgen bij de bouw van stap 2 (Rigify-figuur, Mixamo-figuur, 
 - **Toets:** `toetsen_mens.py` eist in Blender 4.5 en nieuwer nu ook beide schouders en beide heupen geplaatst met minstens ±15.
 - **Voor de winkeltekst:** schouders kunnen nu in de belofte ("shoulders, hips and neck as ball joints"), na groen in 5.2 en 5.3 in de CI. 4.2 blijft "best in Blender 4.5 and newer".
 - Les: als alles 0 graden meet, eerst kijken welke vlakken botsen in rechte stand, niet aan de plek of maat draaien.
+- **Plaatje 19 opnieuw** (lokaal 5.3.0, `proeven/1.1/19-mens-x.png` en `19-mens-paneel.png`): nu met beide schouders, `9 joints · 4 from rig · 2 mirrored`, alle negen regels in het paneel leesbaar. Zelf gezien met Read: schouderbanden smal om de arm, heupwaaiers groot in beeld (±25), het nekkegeltje nog op de wang (Daans kan-punt, open). Keuring gevraagd aan Daan.
