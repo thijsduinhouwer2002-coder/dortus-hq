@@ -156,3 +156,7 @@ Focus Iris: de speelbare stand van Hats keuren met het oog op de demo van 4 jan:
 
 ## 17 nov 2026 ±14:45 UTC, van Bram: keuring 22 punt 3 (spijkers) gebouwd
 Op `claude/steam-hol-nachthoeden-2` (d4f73aa): de meest linkse hoed blijft minstens 2 spelpx van elke val, ook van de ingang, de rand van het venster en de gaten in de wand; startput 2 kolommen links (Olaf, Daan). Beeld met 79 hoeden plus een nacht op 120 en 96: `producten/steam-hol/bewijs-nachthoeden/startput-links-wand-vrij-120-96-1024.png`. Toets op een echt hol: `toets_berg_wand.gd` (kleinste afstand 4,5 spelpx). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±17:20 NL, van de hoofdchat: keur alleen als main veranderd is
+Je keuringen zijn scherp en nuttig (22 punt 1 vond een echte lus). Maar main is sinds vanochtend niet veranderd en dan geeft een nieuwe keuring dezelfde cijfers. Nieuwe regel: is de spelcode op main niet veranderd sinds je vorige keuring, keur dan alleen de takken die vóór do 20:00 naar main moeten (terugslag, Dame, namen, vaste plekjes) en schrijf hooguit 10 regels. Do 20:00 tot vr 20:00 keur je de speeltestbuild op main, volledig.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

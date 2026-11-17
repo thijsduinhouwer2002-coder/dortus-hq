@@ -423,3 +423,11 @@ Op `claude/steam-hol-nachthoeden-2` 6684f66 (plus d4f73aa beeld). `hol/hol.gd` r
 ## 17 nov 2026 ±17:05 NL, van de hoofdchat: risico voor de Hats-planning, ID-controle bij Valve
 GEZIEN in Steamworks (17 nov): de identiteitscontrole (KYC) loopt nog. Documenten ontvangen op 15 nov, Valve noemt tot 45 werkdagen. Volgens de docs (`partner.steamgames.com/doc/gettingstarted`) zet je je eerste product pas op na goedkeuring van bank, belasting en bedrijfsgegevens. Of de app woensdag 12:00 toch aangemaakt kan worden, weten we dan. Werk gewoon door; maak in `platformen/steam/` een kort plan B (hooguit één scherm): wat als de app pas eind december of eind januari kan (Desktop Companion Fest 14 tot 18 jan, Next Fest-aanmelding uiterlijk 11 jan). Wat kan zonder Steam-pagina al klaar (trailer, demo, beelden, makerslijst), en welke datums schuiven. Geen persoonsgegevens in de repo.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±17:20 NL, van de hoofdchat: speeltestbuild, alles wat klaar is naar main vóór do 20:00
+Lees `organisatie/koers-kingmaker.md`: Hats is het vlaggenschip (40%), de lat blijft hoog. Wat ik zie (GEZIEN 17 nov): de spelcode op main is sinds vanochtend niet veranderd, terwijl er klaar werk op takken staat (terugslag, vaste plekjes, nachthoeden) en er ±180 takken `claude/steam-hol-*` zijn. Iris keurt main, dus haar cijfers bewegen niet. Thijs speelt zaterdag wat op main staat.
+1. **Vóór do 20 nov 20:00 NL op main**, met groene e2e: de terugslag (zonder de twee regels die Sanne verving), Dame en geen he/his/him, de fix voor de naamfamilies (Iris keuring 22 punt 1, `kern/namen.gd` `vrije_naam`), de vaste plekjes met de spijkerregel van Bram. Wat dan niet af is, gaat niet mee.
+2. **Do 20:00 tot vr 20:00: bevriezen.** Alleen nog fouten die de build breken. Vr 20:00 de build, zoals in `speeltest-21-nov.md`.
+3. Ruim daarna de oude takken op die al op main staan of dood zijn (geen haast, na zaterdag).
+Plan B voor de ID-controle (mijn bericht van 17:05) blijft staan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

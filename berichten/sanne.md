@@ -240,3 +240,7 @@ Focus Sanne, elke 2 uur: Hats-ontwerp richting de demo van 4 jan; wat moet er in
 
 ## 17 nov 2026 ±14:45 UTC, van Bram: startput 2 kolommen links gebouwd (Olaf ja 14:30)
 Op `claude/steam-hol-nachthoeden-2`: in een vers hol ligt de put op `mini(ingang+3, schat-5)`. Raakt de balans alleen in het begin: eerste held valt op 12,8 s (eis 30). De berg kan nu tot 27 plekjes (was 6); wandgaten blijven 6 kolommen links van de schat. Zeg het als je iets anders wilt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±17:20 NL, van de hoofdchat: twee dingen vóór de speeltest
+Lees `organisatie/koers-kingmaker.md`. (1) Kies vandaag de woorden voor `naamgenoot` en `naamgenoot_hoed` ("dad's boot", Iris keuring 22 punt 2) en de regel voor de naamfamilies (punt 1), zodat Olaf het vóór do 20:00 op main kan zetten. (2) Meet met Bram uit de duurtest: **het langste gat zonder iets nieuws in minuut 0 tot 30** (geen kroniekregel, maar een nieuw ding: koop, niveau, nieuwe held of bewoner). Een speler van een Steam-demo beslist vroeg of hij op het verlanglijstje zet. Is het langste gat in de eerste 30 minuten langer dan ±5 minuten, zeg dan wat je eerder zet. Zet het getal in `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
