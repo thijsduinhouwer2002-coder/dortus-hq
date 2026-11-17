@@ -89,6 +89,13 @@ def main():
         rel = p - elleboog
         log(f"diepste punt t.o.v. elleboog: {tuple(round(c, 1) for c in rel)} mm")
     log(f"huid erbij (uitstekend > 0,3 mm): {erbij} punten")
+    if os.environ.get("CJ_ZWAAI_INFO"):  # voor toetsen_zwaai.py (run 25)
+        ges = importlib.import_module("bl_ext.user_default.click_joints.gesloten")
+        zw = importlib.import_module("bl_ext.user_default.click_joints.betaald.scharnier_zwaai")
+        van = next((o["cj_zwaai_van"] for o in delen if "cj_zwaai_van" in o), None)
+        dicht = all(ges.is_gesloten(o)[0] for o in delen)
+        st = ",".join(str(zw.stukken(o.data)) for o in delen)
+        log(f"zwaai: van={van} gesloten={dicht} stukken={st}")
     log("KLAAR")
 
 

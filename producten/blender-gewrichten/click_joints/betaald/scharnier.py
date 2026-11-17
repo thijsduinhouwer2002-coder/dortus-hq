@@ -30,6 +30,7 @@ from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
+from . import scharnier_zwaai as zwaai
 
 GRADEN_MIN, GRADEN_MAX = 30, 150  # vrije eindstop (Pro 1.1); buiten dit bereik geen getoetste vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
@@ -213,6 +214,13 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             ruim_op(hulp)
             self.report({"ERROR"}, "The parts overlap before they move; the mesh is unchanged.")
             return {"CANCELLED"}
+        # 1.1 run 25: botst het vlees voor de stand, dan de zwaairuimte van B uit A halen (scharnier_zwaai.py).
+        voor_oud = voor
+        voor, achter, uitgesneden = zwaai.uitsnijden(deel_a, deel_b, draaipunt, h, buig, lid,
+                                                     1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"],
+                                                     maat["stand"], voor, achter, maat["rn"], s, u, solver, hulp)
+        if uitgesneden:
+            gegevens["cj_zwaai_van"] = round(voor_oud, 2)
         gegevens["cj_bereik_graden"] = round(voor, 2)
         gegevens["cj_achter_graden"] = round(achter, 2)
         gegevens["cj_r_lip"] = maat["r_lip"]
