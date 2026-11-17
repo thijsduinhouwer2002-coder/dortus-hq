@@ -1,0 +1,8 @@
+main editor  hol 9 op 32.0 min, vangsten per min vanaf hol 6: 1.03
+   hol 10: oude drempel 53 -> 45.5 min (echt 49.4), nieuwe drempel 49 -> 41.6 min
+   hol 11: oude drempel 69 -> 60.9 min, nieuwe drempel 60 -> 52.2 min
+   hol 12: oude drempel 88 -> 79.3 min, nieuwe drempel 72 -> 63.8 min
+exe Bram     hol 9 op 29.5 min, vangsten per min vanaf hol 6: 1.28
+   hol 10: oude drempel 53 -> 40.4 min (echt 39.1), nieuwe drempel 49 -> 37.3 min
+   hol 11: oude drempel 69 -> 52.9 min, nieuwe drempel 60 -> 45.9 min
+   hol 12: oude drempel 88 -> 67.7 min, nieuwe drempel 72 -> 55.2 min

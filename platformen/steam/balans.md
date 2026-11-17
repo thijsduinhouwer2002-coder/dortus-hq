@@ -4,6 +4,34 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 
 
 
+## Stand 17 nov ±07:55 UTC: hol 10 tot 12 sneller, nieuwe drempels 49 / 60 / 72 (Sanne, na Iris keuring 19 punt 2)
+**Vraag (Iris):** in de duurtest van main (44030107525, editor) komt hol 10 pas op 49 min, met 17,5 min zonder niveau ervoor, en hol 11 en 12 niet binnen het uur. Brams .exe-run (44018723753, zelfde zaad) had hol 10 op 39 min. Waar zit het verschil, en moeten de drempels omlaag?
+
+**Wat ik zag (GEZIEN, `hol.log` op `schermen` → `steam-hol-duur/main-zaad-1794860558-1920x1080/`, script `data/hol-tempo/tempo.py`):**
+- Faam is het aantal gevangen helden (`kern/afloop.gd`: +1 per val). Het tempo is dus vangsten per minuut.
+- Helden komen in main heel gelijk binnen: 19 tot 23 per 10 min, het hele uur. Maar in minuut 30 tot 40 vluchtten er 13 en vielen er maar ±7 (andere blokken: 6 tot 9 vluchters, ±12 vangsten). Dat blok is precies het gat tussen hol 9 en 10.
+- Beide runs lopen gelijk tot hol 4 (296 tegen 307 s) en gaan daarna uit elkaar. Zelfde zaad geeft na een paar minuten niet meer dezelfde helden, omdat editor en .exe andere beeldtijden hebben en het toeval dan anders valt. **Het verschil is dus vooral toeval** (GOK: geen bewijs voor een codeverschil; daarvoor zou ik twee runs op dezelfde code nodig hebben, en die zijn het niet waard).
+- Belangrijker: **ook Brams snelle run haalt hol 12 niet rond 57 tot 63 min.** Met zijn eigen tempo vanaf hol 6 (1,28 vangst per min) komt hol 12 op ±68 min; met het tempo van main (1,03) op ±79 min. De oude schatting kwam uit het tempo van alleen het laatste stuk.
+
+**Besluit (Sanne, balans is mijn keus): drempels voor hol 10, 11 en 12 worden 49, 60 en 72** (waren 53, 69 en 88). Hol 2 tot 9 blijven (3/5/7/12/17/25/31/39).
+
+| | hol 10 | hol 11 | hol 12 | grootste stap |
+|---|---|---|---|---|
+| oud, tempo main 1,03 | 45,5 (echt 49,4) | 60,9 | 79,3 | 19 vangsten, ±18 min |
+| oud, tempo exe 1,28 | 40,4 (echt 39,1) | 52,9 | 67,7 | 19 vangsten, ±15 min |
+| **nieuw, tempo main** | **41,6** | **52,2** | **63,8** | **12 vangsten, ±12 min** |
+| **nieuw, tempo exe** | **37,3** | **45,9** | **55,2** | **12 vangsten, ±9 min** |
+
+**Waarom:** de stappen groeiden van 8 (hol 8 naar 9) ineens naar 14, 16 en 19. Dat is de grindmuur die we niet willen, precies waar de demo moet eindigen. Nu 10, 11, 12: elke stap iets groter, maar nooit meer dan ±12 min wachten voor wie alleen kijkt. Hol 12 komt dan rond een uur (55 tot 64 min), wie koopt is eerder. Het demo-einde hangt ook aan de volle winkel, dus de demo wordt hier niet korter van; alleen het bordje stopt niet meer op hol 10.
+
+**Waarom niet lager:** wie hol 12 al op 45 min heeft, kijkt de rest van het uur naar een vol bordje terwijl de winkel nog niet op is. Op 16 nov 19:55 (punt 5) hield ik de drempels omdat hogere drempels de gaten groter maakten; dit gaat de andere kant op, dus dat bezwaar geldt niet.
+
+**Wat het kost:** één regel in `hol_niveau.gd` (`DREMPEL`). De toetsen in `toets_systemen.gd` blijven groen (88 is nog steeds hol 12, `weg_regel(3, 88)` blijft "Grew 10 levels"); `inhoud_proef=1` zet faam 88 en blijft dus ook goed. Voorstel extra toets: `HN.niveau(72) == 12 and HN.niveau(71) == 11`. Het weg-tempo (hooguit 2 niveaus per nacht) blijft.
+
+**Wanneer:** Olaf beslist. Mijn voorkeur: na de speeltest van za 21 nov, samen met de demo-inhoudtak, zodat de speeltest en de lopende 75-min run (44040279373) op hetzelfde meten. Thijs komt zaterdag met half uur plus een nacht op hol 7 tot 9, dus hij merkt het verschil nog niet.
+
+**Regel vooraf voor de eerste 60-min duurtest daarna (gewoon spel, editor):** groen als hol 12 binnen 70 min komt en geen gat tussen twee niveaus langer is dan 14 min. Haalt hij dat niet, dan kijk ik naar het vangtempo (vluchters), niet weer naar de drempels.
+
 ## Stand 17 nov ±03:50 UTC: regel vooraf voor poort (b), voor de uitslag van main als .exe (Sanne, na Bram 03:40)
 **Wat er ligt (Bram, GEZIEN in `data/cpu-duur/LEESMIJ.md`):** de speeltestbuild als .exe (44008361789, 959aef4, alleen) gaf **1,334**, 18,6 ms per beeld. Stil spel in die .exe 0,47 en `cpu bij helden=0` 0,73, gelijk aan main: mijn vraag over stil spel is dicht (Iris keuring 15: het editorverschil was een uitlijningsfout). Alle runs sinds ±02:00 zitten op 18,4 tot 19,0 ms, voor middernacht gaf dezelfde soort .exe 12,1. Main c38f267 als .exe op hetzelfde zaad loopt (klaar ±03:57).
 
