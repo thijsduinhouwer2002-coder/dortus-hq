@@ -20,7 +20,7 @@ class Vanger {
     function onData(audioData) {
         blokken += 1;
         bytes += audioData.size();
-        if (stukken.size() < 40) { stukken.add(audioData); }
+        if (stukken.size() < 60) { stukken.add(audioData); }
         System.println("MEMO onData blok " + blokken + " grootte " + audioData.size() + " totaal " + bytes);
     }
     function onError(error) { System.println("MEMO onError " + error); }
@@ -83,7 +83,7 @@ class MemoProefApp extends Application.AppBase {
         formaat = opus16;
         vanger = new Vanger();
         try {
-            var terug = Capture.initializeAudioCapture(vanger, { :format => formaat });
+            var terug = Capture.initializeAudioCapture(vanger, { :format => formaat, :windowSize => 4096, :windowFilledBehavior => Capture.WINDOW_FILLED_CONTINUE, :filters => [] });
             System.println("MEMO instellingen terug: " + terug);
             System.println("MEMO staat na init: " + Capture.getState());
             Capture.start();
