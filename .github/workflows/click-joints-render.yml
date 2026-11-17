@@ -24,9 +24,16 @@ permissions:
 
 jobs:
   render:
+    # Chris run 74: de film (240 beelden, meer dan 60 s per beeld) haalde twee keer de limiet niet.
+    # Bij stand film nu 8 jobs tegelijk van 30 beelden; de job "film" plakt ze daarna aan elkaar.
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        deel: ${{ fromJSON(github.event.inputs.stand == 'film' && '[1,2,3,4,5,6,7,8]' || '[1]') }}
     env:
+      CJ_DEEL: ${{ matrix.deel }}
       CJ_HOOGTE: "150"
       CJ_CAM_VOOR: ${{ github.event.inputs.camera_voor }}
       CJ_LICHT_SCHEEN: ${{ github.event.inputs.licht_scheen }}
@@ -56,13 +63,77 @@ jobs:
       - name: Renderen
         run: |
           BLEND=$(ls /tmp/fig/*.blend | head -1)
+          if [ "${{ github.event.inputs.stand }}" = "film" ]; then
+            export CJ_VAN=$(( (CJ_DEEL - 1) * 30 + 1 )) CJ_TOT=$(( CJ_DEEL * 30 ))
+            echo "deel $CJ_DEEL: beeld $CJ_VAN tot en met $CJ_TOT"
+          fi
           mkdir -p /tmp/uit
-          /tmp/blender/blender -b --factory-startup --python commercie/blender-click-joints/render/render_knie.py -- /tmp/click_joints_betaald.zip "$BLEND" /tmp/uit "${{ github.event.inputs.stand }}" 2>&1 | tee /tmp/render.log | grep "\[cj-render\]\|Error\|Traceback"
+          /tmp/blender/blender -b --factory-startup --python commercie/blender-click-joints/render/render_knie.py -- /tmp/click_joints_betaald.zip "$BLEND" /tmp/uit "${{ github.event.inputs.stand }}" 2>&1 | tee /tmp/render.log | grep --line-buffered "\[cj-render\]\|Error\|Traceback"
           grep -q "KLAAR" /tmp/render.log || { tail -40 /tmp/render.log; exit 1; }
           grep "\[cj-render\]\|\[cj-chris\]" /tmp/fig.log /tmp/render.log > /tmp/uit/uitslag.txt
           rm -rf /tmp/uit/stl
+      - name: Beelden bewaren voor de job film
+        if: github.event.inputs.stand == 'film' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beelden-${{ matrix.deel }}
+          path: /tmp/uit
+          retention-days: 3
+      - name: Openbaar zetten (tak schermen)
+        if: always() && github.event.inputs.stand != 'film'
+        env:
+          TOKEN: ${{ github.token }}
+          STAND: ${{ github.event.inputs.stand }}
+        run: |
+          [ -d /tmp/uit ] && [ -n "$(ls -A /tmp/uit)" ] || { echo "niets om te zetten"; exit 0; }
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            # Chris run 70: een film met andere camera of licht krijgt een eigen map, zodat de vorige film (reserve) blijft staan
+            MAP="$STAND"
+            if [ "$STAND" = "film" ] && { [ "${CJ_CAM_VOOR:-0.35}" != "0.35" ] || [ "${CJ_LICHT_SCHEEN:-0}" = "1" ]; }; then
+              MAP="film-cam${CJ_CAM_VOOR:-0.35}-licht${CJ_LICHT_SCHEEN:-0}"
+            fi
+            D="/tmp/s/click-joints-render/$MAP"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$MAP run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then break; fi
+            cd /; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/click-joints-render/$MAP"
+
+  film:
+    needs: render
+    if: github.event.inputs.stand == 'film' && always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CJ_CAM_VOOR: ${{ github.event.inputs.camera_voor }}
+      CJ_LICHT_SCHEEN: ${{ github.event.inputs.licht_scheen }}
+    steps:
+      - name: ffmpeg ophalen
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+      - name: Delen ophalen
+        uses: actions/download-artifact@v4
+        with:
+          pattern: beelden-*
+          path: /tmp/delen
+      - name: Beelden samenvoegen
+        run: |
+          mkdir -p /tmp/uit/beelden
+          for d in /tmp/delen/beelden-*; do
+            cp "$d"/beelden/*.png /tmp/uit/beelden/ 2>/dev/null || true
+            cat "$d"/uitslag.txt >> /tmp/uit/uitslag.txt 2>/dev/null || true
+          done
+          N=$(ls /tmp/uit/beelden | wc -l)
+          echo "[cj-film] beelden: $N van 240" | tee -a /tmp/uit/uitslag.txt
+          for f in $(seq -f "%04g" 1 240); do [ -f /tmp/uit/beelden/$f.png ] || echo "[cj-film] ontbreekt: $f" | tee -a /tmp/uit/uitslag.txt; done
+          [ "$N" = "240" ] || { echo "FOUT: niet alle beelden"; rm -rf /tmp/uit/beelden; exit 1; }
       - name: Film maken met onderschrift
-        if: github.event.inputs.stand == 'film'
         run: |
           F=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
           ffmpeg -y -loglevel error -framerate 24 -i /tmp/uit/beelden/%04d.png \
@@ -75,7 +146,7 @@ jobs:
         if: always()
         env:
           TOKEN: ${{ github.token }}
-          STAND: ${{ github.event.inputs.stand }}
+          STAND: film
         run: |
           [ -d /tmp/uit ] && [ -n "$(ls -A /tmp/uit)" ] || { echo "niets om te zetten"; exit 0; }
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

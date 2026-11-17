@@ -221,12 +221,17 @@ else:
     sc.render.fps = 24
     os.makedirs(os.path.join(uit, "beelden"), exist_ok=True)
     t0 = time.time()
-    for f in range(1, 241):
+    # Chris run 74: de film haalde twee keer de limiet niet (120 en 240 min). De workflow verdeelt de 240 beelden
+    # nu over losse jobs die tegelijk lopen; elke job rendert alleen beeld CJ_VAN tot en met CJ_TOT.
+    van, tot = int(os.environ.get("CJ_VAN", "1")), int(os.environ.get("CJ_TOT", "240"))
+    log(f"film: beeld {van} tot en met {tot}")
+    for f in range(van, tot + 1):
         voet_bij(hoek_op(f) * teken)
         zet_camera(-6.0 + 12.0 * (f - 1) / 239)
         sc.frame_set(f)
         sc.render.filepath = os.path.join(uit, "beelden", f"{f:04d}.png")
         bpy.ops.render.render(write_still=True)
-        if f % 20 == 0:
-            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}, {(time.time() - t0) / f:.1f} s per beeld")
+        n = f - van + 1
+        if n == 1 or n % 5 == 0:
+            log(f"beeld {f}/240, hoek {hoek_op(f):.1f}, {(time.time() - t0) / n:.1f} s per beeld")
 log(f"KLAAR bereik {bereik:.2f}")
