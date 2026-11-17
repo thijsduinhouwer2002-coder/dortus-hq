@@ -65,6 +65,20 @@ Een held met een soort of trek krijgt bij zijn binnenkomst al een eigen regel ("
 | val_wraakzuchtig | `{naam} keeps a list of names.` | `{naam}'s list got one name shorter.` / `Spite did not help {naam}.` / `{naam} holds a grudge. Down there.` |
 | val_opschepper | `{naam} tells everyone he slew a dragon.` | `{naam} slew a dragon. Not this hole.` / `{naam}'s autograph: in the pit now.` / `{naam} will tell no one about this.` |
 
+**Ook bij vluchten** (`vlucht` en `vlucht_zonder`: 50 van 324 regels, elke regel 10 keer in 75 min). Zelfde gedachte, twee per soort (CONCEPT):
+
+| soort | vlucht, nieuw (CONCEPT) |
+|---|---|
+| vlucht_ridder | `Sir {naam} retreats. Slowly. Loudly.` / `Sir {naam} will tell it differently.` |
+| vlucht_dief | `{naam} got away. With nothing. Again.` / `{naam} escaped. You saw that too.` |
+| vlucht_magier | `{naam} saw the trap. Told no one.` / `{naam} vanished. Took the stairs.` |
+| vlucht_bard | `{naam} got away. New song tonight.` / `{naam} ran, humming. Uh oh.` |
+| vlucht_slaapkop | `{naam} woke up and ran. Fair.` / `{naam} sleepwalked right out.` |
+| vlucht_wraakzuchtig | `{naam} added {bewoner} to the list.` / `{naam} ran. The list grows.` |
+| vlucht_opschepper | `{naam} ran. Calls it a victory.` / `{naam} fled. Tells it as a win.` |
+
+De bard die vlucht laat al een lied achter (meer helden), dus "New song tonight" is ook waar.
+
 En `val` van 5 naar 8 regels, zonder dubbele met `val_bewoner` (CONCEPT, erbij): `{naam} took the short way down.` / `{naam} checked the floor. Too late.` / `{naam} is part of the hole now.`
 
 ## 3. Winkel: de zes dingen die je koopt (kaartje en kroniek)
