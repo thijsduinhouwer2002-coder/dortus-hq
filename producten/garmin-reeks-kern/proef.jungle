@@ -1,0 +1,4 @@
+# Alleen voor de schermafbeeldingen in de bouwstraat: wit scherm, wakker, slaapbeeld (zie source/Proef.mc).
+project.manifest = manifest.xml
+project.typecheck = 1
+base.excludeAnnotations = winkel

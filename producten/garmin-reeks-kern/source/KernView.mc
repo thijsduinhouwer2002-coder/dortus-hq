@@ -74,19 +74,22 @@ class KernView extends WatchUi.WatchFace {
     }
 
     // Slaapbeeld: zwart, de tijd in de kleine cijferletter in grijs en een dunne lijn van Body Battery.
-    function tekenSlaap(dc as Graphics.Dc, tekst as String) as Void {
+    function tekenSlaap(dc as Graphics.Dc, tekst as String, n as Number) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
+        var sch = Slaap.schuif(n);
+        var dx = sch[0];
+        var dy = sch[1];
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         if (fontG != null) {
-            dc.drawText(w / 2, h * 14 / 100, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2 + dx, h * 14 / 100 + dy, fontG as WatchUi.FontResource, tekst, Graphics.TEXT_JUSTIFY_CENTER);
         }
         var lijn = Teken.profiel(bb, w * 20 / 100, w * 80 / 100, h * 78 / 100, h * 64 / 100, 20);
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
         for (var i = 1; i + 2 < lijn.size(); i++) {
-            dc.drawLine(lijn[i][0], lijn[i][1], lijn[i + 1][0], lijn[i + 1][1]);
+            dc.drawLine(lijn[i][0] + dx, lijn[i][1] + dy, lijn[i + 1][0] + dx, lijn[i + 1][1] + dy);
         }
     }
 
@@ -177,12 +180,19 @@ class KernView extends WatchUi.WatchFace {
         }
         var nu = System.getClockTime();
         var tekst = nu.hour.format("%02d") + ":" + nu.min.format("%02d");
-        // De simulator zet de slaapstand niet vanzelf aan: 6 s na het eerste beeld tonen we het slaapbeeld zelf.
-        if (slaap || System.getTimer() - start >= 6000) {
+        // Alleen in de bouwstraat (proef.jungle) geeft Proef.fase iets anders dan WAKKER: zie Proef.mc.
+        var fase = Proef.fase(System.getTimer() - start);
+        if (fase == Proef.WIT) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_WHITE);
+            dc.clear();
+            return;
+        }
+        if (slaap || fase == Proef.SLAAP) {
             var ts = System.getTimer();
-            tekenSlaap(dc, tekst);
+            var sn = Proef.schuifTel(nu.min, tik);
+            tekenSlaap(dc, tekst, sn);
             if (tik < 40) {
-                System.println("KERN SLAAPBEELD tik=" + tik + " ms=" + (System.getTimer() - ts) + " echt=" + slaap);
+                System.println("KERN SLAAPBEELD tik=" + tik + " ms=" + (System.getTimer() - ts) + " echt=" + slaap + " schuif=" + Slaap.schuif(sn)[0] + "," + Slaap.schuif(sn)[1]);
             }
             tik++;
             return;

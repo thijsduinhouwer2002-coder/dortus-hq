@@ -114,3 +114,25 @@ function testProefThema(logger as Test.Logger) as Boolean {
     return gezien[0] && gezien[1] && gezien[2] && gezien[3] && Thema.voorProef(260) == Thema.KELP
         && Thema.voorProef(454) == Thema.TIDE && Thema.voorProef(390) == Thema.NIGHT && Thema.voorProef(-5) == Thema.TIDE;
 }
+
+// Slaapstand: vier plekken, twee stappen na elkaar nooit op dezelfde plek en hooguit 4 px uit elkaar.
+(:test)
+function testSlaapSchuif(logger as Test.Logger) as Boolean {
+    for (var n = -3; n < 130; n++) {
+        var a = Slaap.schuif(n);
+        var b = Slaap.schuif(n + 1);
+        var d = (a[0] - b[0]).abs() + (a[1] - b[1]).abs();
+        if (d < 1 || d > 4 || a[0] < 0 || a[0] > 2 || a[1] < 0 || a[1] > 2) {
+            return false;
+        }
+    }
+    return Slaap.schuif(0)[0] == 0 && Slaap.schuif(0)[1] == 0 && Slaap.schuif(59)[0] == 0 && Slaap.schuif(59)[1] == 2
+        && Slaap.schuif(60)[0] == 0 && Slaap.schuif(60)[1] == 0;
+}
+
+// Het winkelpakket (monkey.jungle) heeft geen proefgedrag: nooit een wit scherm of een slaapbeeld uit zichzelf.
+(:test)
+function testWinkelZonderProef(logger as Test.Logger) as Boolean {
+    return Proef.fase(0) == Proef.WAKKER && Proef.fase(7000) == Proef.WAKKER && Proef.fase(600000) == Proef.WAKKER
+        && Proef.schuifTel(41, 7) == 41;
+}

@@ -60,16 +60,20 @@ jobs:
             echo "IQ_PROEF nee" >> "$U"; tail -40 /tmp/iq-proef.log
           fi
           for d in fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2; do
-            monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
+            monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
+            # Het proefpakket (proef.jungle) toont 8 s wit, 10 s wakker en dan het slaapbeeld. De app tekent zijn
+            # eerste beeld 5 tot 9 s na de start: beeld 0 (wit) op 11 s, beeld 1 (wakker) op 20 s, beeld 2 en 3 (slaap) op 29 en 33 s.
             sleep 11
-            # beeld 1 wakker (±11 s), beeld 2 en 3 het slaapbeeld (6 s na het eerste beeld tekent de proef dat zelf)
-            for n in 1 2 3; do
-              import -window root "schermen/$d-$n.png"
-              sleep 4
-            done
+            import -window root "schermen/$d-0.png"
+            sleep 9
+            import -window root "schermen/$d-1.png"
+            sleep 9
+            import -window root "schermen/$d-2.png"
+            sleep 4
+            import -window root "schermen/$d-3.png"
             kill "$MD" 2>/dev/null || true
             grep -a "^KERN" "/tmp/do-$d.log" | head -30 | sed "s/^/$d /" >> "$U" || true
             grep -a -i "error\|exception" "/tmp/do-$d.log" | head -5 | sed "s/^/$d LOG /" >> "$U" || true
@@ -87,6 +91,12 @@ jobs:
           ls -la schermen
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+      - name: Slaapbeeld tellen (pixels aan en verschuiving)
+        if: always()
+        run: |
+          cd "$GITHUB_WORKSPACE/$APP"
+          python3 -c "import numpy, PIL" 2>/dev/null || pip install -q numpy pillow
+          python3 tel_slaap.py schermen fr255 fenix847mm venu3s vivoactive5 fr55 fr245 instinct2 venusq2 | sudo tee -a schermen/uitslag.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
