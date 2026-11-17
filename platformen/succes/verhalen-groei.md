@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 25, wat een update doet voor een Garmin-app die al in de winkel staat, klaar 17 nov 2026 ±00:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 26, wat een BlenderNation-bericht doet voor een add-on op extensions.blender.org, 17 nov 2026 vanaf ±01:15 UTC (Joris).
 
 Nieuwste bovenaan.
 
