@@ -1,3 +1,16 @@
+# Overdracht: begin hier (bijgewerkt 17 nov 2026, 16:10 NL)
+
+**Nieuwe hoofdchat? Lees eerst `CLAUDE.md` en daarna `organisatie/bord.md`.** Het bord is de stand op één plek: producten, agents, herinneringen, beloftes. Daarna `organisatie/lijst-thijs.md` (max 5) en de besluiten van 17 nov onderaan `organisatie/besluiten.md`.
+
+Eerste taak van een nieuwe hoofdchat:
+1. Maak de losse herinneringen uit deel 3 van het bord opnieuw aan met send_later. De oude hangen aan de vorige chat (sessie van 17 nov) en komen daar binnen, niet in de nieuwe: avondcheck vandaag 20:00, Superhive-check wo 18 nov 10:30, Steam-app met Thijs wo 18 nov 12:00. Daarna de oude uitzetten (Avondcheck trig_01WhKTqEqGrpKWEdM28S7oXe, Superhive trig_012JkpmK4SCAySWA2FXWBmmX, Steam trig_01K545VbuHDjt5EYqtWgcypH, Abel trig_01C8MjM8mdFitn3ABamFi5Ve mag weg).
+2. Antwoord Thijs nooit uit je hoofd: lees eerst het bord of het bestand in de repo. Zeg nooit "in dit gesprek niet gevonden": zoek in de repo.
+3. Lessen van 17 nov: elk idee eerst door `organisatie/ideeentest.md`; wat het apparaat of platform zelf al kan is vraag 1. Ebb, Ebb Calm en de spraakmemo zitten ingebouwd in Garmin; Rollwright, Bison & Flex en Click Joints hadden bestaande concurrenten.
+
+Wat hieronder staat is de oude overdracht van 6 nov, alleen als achtergrond.
+
+---
+
 # Overdracht (6 nov 2026, 15:00)
 
 Voor elke Claude die in een nieuwe chat aan Dortus gaat werken. Lees daarna `CLAUDE.md`.

@@ -48,6 +48,9 @@ Verbruik: 12 agents aan, ongeveer gelijk aan de ochtend van 17 nov. Te hard: eer
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 
+Let op: deze hangen aan de chat van 17 nov. Nieuwe hoofdchat: zie `organisatie/overdracht.md` stap 1.
+
+
 - di 17 nov 20:00: avondcheck (Garmin-keuringen, forum, Bison & Flex, bord nakijken).
 - wo 18 nov 10:30: Superhive-keuring Click Joints Pro.
 - wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles.
