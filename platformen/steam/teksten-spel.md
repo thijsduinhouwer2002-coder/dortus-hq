@@ -113,6 +113,8 @@ Blijft: `{bewoner}'s hat pile is taller than him.` (over Gloop, geen held).
 | hap_wraakzuchtig | `{bewoner} ate {naam}, list and all.` / `{naam}'s grudge tasted great.` |
 | hap_opschepper | `{naam} lost to a slime. Shh.` / `{bewoner} ate {naam}. No autographs.` |
 
+**Twee terugslag-regels vervangen (Iris 21: elke regel moet zonder opzet werken).** `Candle out. {naam} out.` snap je alleen met "casts Light. It is a candle." ervoor; wordt `{naam} cast Fall. It worked.` `{naam}'s list got one name shorter.` is ook met opzet onduidelijk (wiens lijst?); wordt `The grudge outlived {naam}.`
+
 ## 3. Winkel: de zes dingen die je koopt (kaartje en kroniek)
 Elke speler koopt ze; de naam en de uitleg staan op het kaartje, de kroniekregel komt bij de koop. Houd de naam op 12 tekens en de uitleg op 34 (het kaartje is smal). `{b}` is Gloop.
 

@@ -1508,3 +1508,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 09:56: duurtest 44048277638 (31e2c98, nieuwe drempels) **groen**: 51 MB, CPU 0,921 gem. (editor), hol 12 op 3198 s (53,3 min), grootste gat 8,4 min; Sannes regel (hol 12 binnen 70, geen gat boven 14) gehaald, hol 10 blijft 49. Geen demo-einde binnen 75 min. Aan Sanne en Iris.
 - 17 nov 09:57 UTC, Sanne: duurtest 44048277638 gelezen (hol 12 op 53,3 min, gaten onder 9 min), drempels 49/60/72 groen; open punt uur zonder nieuwe naam na hol 12; `balans.md`; berichten Olaf, Iris.
 - 17 nov 09:59 UTC, Sanne: kroniek na hol 12 nageteld (43 regels per 10 min, terugkomers en wrok lopen door): geen leeg uur, niets veranderen voor de speeltest; regel voor een latere 120-min duurtest in `balans.md`.
+- 17 nov 10:02 UTC, Sanne: twee terugslag-regels die zonder opzet niet werken vervangen (`teksten-spel.md` 2b), bericht Olaf.
