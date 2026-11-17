@@ -155,6 +155,9 @@ def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset
         return False, ("too thin here for a ball joint" if dun else "nothing was cut"), []
     if len(nieuw) != 2:
         return True, f"{naam}: joint placed, but its parts were not found for the joint list.", nieuw
+    from . import figuur_ring
+    from ..eigenschappen import eenheid_per_mm
+    figuur_ring.smal_paar(nieuw, eenheid_per_mm(context.scene))  # Daan 17 nov moet 4: groene ring van een kogel alleen rond het lid, niet over het lijf
     soort_echt, g = graden(nieuw[0])
     nr = 1 + max([r.get("nr", 0) for o in bpy.data.objects if o.get("cj_figuur") == fig for r in lees(o)]
                  + [r.get("nr", 0) for r in oude] + [0])
