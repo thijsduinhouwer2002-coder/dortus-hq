@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 20 af 17 nov ±00:50 UTC; volgende run: vraag van de hoofdchat als die er is; anders: wat de eerste korting van 20%+ na de lancering deed (seizoensuitverkoop, met of zonder update), of Little Writer meten na 6 jan)
+bezig: verhaal 21, de eerste korting van 20% of meer na de lancering (met of zonder update), 17 nov ±01:10 UTC
 
 Nieuwste bovenaan.
 
