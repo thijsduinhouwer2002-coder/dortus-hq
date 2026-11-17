@@ -72,8 +72,10 @@ def bereik_tekst(soort, g):
 
 def regel(rec):
     """Eén regel in het paneel: "Knee · Hinge · 0–135° · preset"."""
+    # Daan moet 5 (17 nov): "mirrored" liep af achter "Right elbow · Hinge · 0–140°"; in de regel "mirror".
+    herkomst = rec.get("herkomst", "preset")
     return " · ".join((rec["naam"], SOORT_TEKST.get(rec["soort"], rec["soort"]),
-                            bereik_tekst(rec["soort"], rec.get("graden")), rec.get("herkomst", "preset")))
+                            bereik_tekst(rec["soort"], rec.get("graden")), "mirror" if herkomst == "mirrored" else herkomst))
 
 
 def figuur_naam(ob):
@@ -98,14 +100,15 @@ def figuur_gewrichten(objecten, figuur):
 
 
 def samenvatting(lijst):
-    """Korte regel bovenaan: "3 joints" of "6 joints, 4 ranges from your rig"."""
+    """Korte regel bovenaan: "3 joints" of "6 joints · 4 from rig · 1 mirrored". Kort (Daan moet 5, 17 nov): de
+    lange vorm "7 joints, 4 ranges from your rig (2 mirrored)" liep in de zijbalk af."""
     n = len(lijst)
     rig = sum(1 for r in lijst if r.get("herkomst") in ("from rig", "mirrored"))
     sp = sum(1 for r in lijst if r.get("herkomst") == "mirrored")
     kop = f"{n} joint" + ("" if n == 1 else "s")
     if not rig:
         return kop
-    return f"{kop}, {rig} range{'' if rig == 1 else 's'} from your rig" + (f" ({sp} mirrored)" if sp else "")
+    return f"{kop} · {rig} from rig" + (f" · {sp} mirrored" if sp else "")
 
 
 def _snij(context, soort, stand, graden_vrij=0):

@@ -114,7 +114,7 @@ def main():
     lijst = fig.figuur_gewrichten(bpy.context.scene.objects, "pop")
     check([x["naam"] for x in lijst] == ["Knee", "Shoulder"], f"lijst van de figuur ({[x['naam'] for x in lijst]})")
     check(fig.samenvatting(lijst) == "2 joints", f"samenvatting '{fig.samenvatting(lijst)}'")
-    check(fig.samenvatting(lijst + [{"herkomst": "from rig"}]) == "3 joints, 1 range from your rig", "samenvatting met rig")
+    check(fig.samenvatting(lijst + [{"herkomst": "from rig"}]) == "3 joints · 1 from rig", "samenvatting met rig")
 
     links = [o for o in bpy.context.scene.objects if o.get("cj_naam") == "Knee" and o.get("cj_deel") == "A"]
     if links:

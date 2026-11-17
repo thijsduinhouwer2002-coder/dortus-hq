@@ -126,7 +126,7 @@ def stap():
     # Run 20: zelfde eis als toetsen_rig_armen.py sinds run 19: in 4.2 minstens 4 van 8 gewrichten (de knieën
     # vallen daar eerlijk af met reden), dus minstens 2 scharnierbogen; in 5.x alle 8.
     genoeg = len(bogen) >= (2 if oud else 4)
-    acht = any("mirrored" in r for r in staat.get("regels", []))
+    acht = any(r.endswith("mirror") for r in staat.get("regels", []))
     # Daan 16 nov ±13:50: kogels van een figuur klein en groen met één getal ±N° (moet 1: nooit binnen 40 px van
     # een ander getal), en stap 3 zegt niet "No joint yet" naast de gewrichten (moet 2).
     ft = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur_teken")

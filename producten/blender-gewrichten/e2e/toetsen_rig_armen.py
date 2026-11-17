@@ -185,7 +185,7 @@ def streng(per, delen, fig, namen):
     check(re_.get("herkomst") == "mirrored" and re_.get("graden") is not None and 135.0 <= re_["graden"] <= 140.2,
           f"Right elbow mirrored 140: {re_}")
     check(per.get("Right knee", {}).get("herkomst") == "preset", "knieën zonder grens aan beide kanten: preset")
-    check(tekst == "8 joints, 2 ranges from your rig (1 mirrored)", f"samenvatting '{tekst}'")
+    check(tekst == "8 joints · 2 from rig · 1 mirrored", f"samenvatting '{tekst}'")
     # run 7: snippers van de veersleuf in het verkeerde deel lieten de heupen 0 graden bewegen
     for n in ("Left hip", "Right hip"):
         g = per.get(n, {}).get("graden")
