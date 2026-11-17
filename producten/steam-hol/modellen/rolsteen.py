@@ -37,6 +37,12 @@ def heel(n):
     return min(1.0, max(0.0, t))
 
 
+# twee afgeslagen platte vlakken (richting, afstand); proef 4: groef weg vanaf de linker schilfer tot de linkerrand, zodat
+# het eind niet meer als een pixel buiten de steen steekt (Daan 03:50)
+BREUK_X = -0.22   # proef 4: links van hier geen groef (begint bij de rechterrand van de linker schilfer)
+SLAGEN = [(Vector((-0.55, -0.6, 0.45)).normalized(), 0.43), (Vector((0.7, -0.35, -0.2)).normalized(), 0.45)]
+
+
 def steen(ouder, draai=0.0):
     # Proef 2 (Daan 17 nov 01:30): onder het gedeelde licht werd 8e8a86 blauwig bbb9ca en de vlakken beige.
     # Daarom basis warmer en donkerder, zodat hij in beeld op 8e8a86 tot a8a39c uitkomt; vlakken dezelfde
@@ -60,11 +66,13 @@ def steen(ouder, draai=0.0):
         n = v.co.normalized()
         bult = noise.noise(n * 1.6 + Vector((3.1, 0.7, 1.9))) * 0.07 + noise.noise(n * 4.0) * 0.018
         d = n.dot(GROEF_AS)
-        kerf = -0.016 * max(0.0, 1 - (abs(d) / 0.05) ** 2) * min(1.0, heel(n) * 1.5)  # ondiepe groef: geen twee opbollende helften
+        # proef 4 (Daan 03:50): de breuk is nu het afgeslagen vlak zelf: waar de schilfer zit, is ook de groef weg
+        op_vlak = n.x < BREUK_X   # de hele linkerkant vanaf de schilfer, ook achterom: anders steekt het eind als een pixel uit de rand
+        kerf = 0.0 if op_vlak else -0.016 * max(0.0, 1 - (abs(d) / 0.05) ** 2)  # ondiepe groef: geen twee opbollende helften
         v.co = n * (STRAAL + bult + kerf)
         v.co.z *= 0.92
     # twee afgeslagen platte vlakken: alles voorbij het vlak terug op het vlak
-    slagen = [(Vector((-0.55, -0.6, 0.45)).normalized(), 0.43), (Vector((0.7, -0.35, -0.2)).normalized(), 0.45)]
+    slagen = SLAGEN
     for v in bm.verts:
         for n, afst in slagen:
             t = v.co.dot(n)
@@ -93,7 +101,8 @@ def steen(ouder, draai=0.0):
     for f in bm.faces:
         c = f.calc_center_median()
         d = abs(Vector((c.x, c.y, c.z / 0.92)).normalized().dot(GROEF_AS))
-        if d < 0.042 and heel(Vector((c.x, c.y, c.z / 0.92)).normalized()) > 0.5:   # één breuk; breedte laten wisselen kan niet, de groef is één rij vlakken
+        op_vlak = Vector((c.x, c.y, c.z / 0.92)).normalized().x < BREUK_X
+        if d < 0.042 and not op_vlak:   # proef 4: geen groef op het afgeslagen vlak (dat is de breuk), geen losse breuk meer
             f.material_index = 1
         for lp in f.loops:
             lp[laag] = kleur_v[lp.vert.index]
