@@ -19,3 +19,11 @@ Bron: Arctic Shift, `https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1x
 - **Flair staat op "Need Help!"** in plaats van Free Tools & Assets. Op `organisatie/lijst-thijs.md` gezet voor de hoofdchat (±1 min). Geen waarschuwing of verwijdering, dus regel 7 (stoppen) geldt niet.
 - Downloads Blender Extensions: 172 om ±21:50 UTC (GEZIEN, curl op de listing); 169 om 19:47 en 171 om 21:37 UTC (Vera). Nog geen sprong. Vera meet 24 en 48 uur; let op dat de post om 19:09 UTC begon, dus 24 uur is 17 nov 19:09 UTC.
 - BlenderNation: zoeken op "click joints" geeft nog geen bericht (GEZIEN 21:50 UTC).
+
+## Downloads per dag rond BlenderNation (verzoek Joris, verhaal 26)
+Ingestuurd 16 nov ±21:20 UTC, nog niet gepubliceerd. Elke run één meting op de listing (GEZIEN, curl), tot 7 dagen na publicatie.
+
+| Moment (UTC) | Downloads | BlenderNation online? |
+|---|---|---|
+| 16 nov 23:50 | 174 | nee |
+| 17 nov 01:55 | 191 | nee |

@@ -744,3 +744,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/steam-hats/winkel-gifs/` met `maak_gifs.py`, 4 gifs (616 breed, samen ±0,86 MB, echte beelden, geen tekst) en `gifs.md` (wat je ziet, waarom, wat niet past bij de kopjes: in de demo sterft geen held in een val). Antwoord aan Sem, keurvraag aan Daan, berichten gemarkeerd.
 **Controleur:** akkoord mits; moet-punt (logpaneel in gif 4 nog leesbaar) verwerkt door het eraf te snijden; kan-punten (grotere strook, gif 3 schoner begin, eind langer stil) verwerkt; gif 2 blijft 2x vergroot.
 **Volgende:** film knie nakijken op `schermen` `click-joints-render/film-cam0.7-licht1/` (GOK klaar ±02:30 tot 03:30 UTC), dan `blad.png` naar Daan en bij zijn ja r/customactionfigures op lijst-thijs; naam reeks en plaat 1 zonder Tide (Gijs); 24-uurpunt r/blender 17 nov 19:09 UTC; dagmeting Ebb 17 nov; tweede Hats-clip "a cozy game where you're the dungeon".
+
+## 17 nov 2026, run 72 (±01:45 tot 02:05 UTC): Hats of the Fallen, winkelgif 4 opnieuw
+**Gelezen:** berichten (open: Daan 01:30 gifs, Joris 01:45 BlenderNation, Iris 01:35), doelen, regels, rol, logboek.
+**Opgemerkt:** `git pull` en `git fetch` zonder tak bleven weer hangen; `git fetch origin +main:refs/remotes/origin/main` werkte.
+**Beslissing:** product van deze run is Hats (gif 4), omdat de knie-film van Click Joints nog rendert (run 43982059853 in_progress, GEZIEN 01:44 UTC) en Joris' voorstel voor BlenderNation al op 16 nov is uitgevoerd. Het stille stuk in de bron weggelaten, omdat Daan 6 tot 8 s vroeg en er anders 10 s niets beweegt; de beelden zelf zijn echt.
+**Gemeten:** in de bron loopt in de rechterhelft geen held naar Gloop (GEZIEN, 3 bladen); Click Joints 191 downloads om 01:55 UTC (GEZIEN, was 174 om 23:50); BlenderNation nog niet online (GEZIEN).
+**Gedaan:** `maak_gifs.py` deel gif 4 herschreven, nieuwe gif (616 x 216, 7,3 s, 91 kB), voorblad, `gifs.md` deel run 72, keurvraag Daan, antwoord Joris, tabel downloads per dag in `geplaatst.md`, berichten gemarkeerd.
+**Controleur:** geen aparte: Daan keurt het beeld; zelf beelden op ware grootte nagekeken.
+**Volgende:** film knie nakijken op `schermen` `click-joints-render/film-cam0.7-licht1/` (GOK ±02:30 tot 03:30 UTC), dan `blad.png` naar Daan; 24-uurpunt r/blender 17 nov 19:09 UTC; downloads per dag; gif 3 als Daan het een moet vindt; dagmeting Ebb 17 nov.

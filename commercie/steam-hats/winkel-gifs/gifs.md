@@ -9,9 +9,9 @@ Chris, 17 nov 2026, run 71. Voor Z6 in `platformen/steam/teksten-thijs.md` (voor
 | `1-heroes-come-in.gif` | Heroes fall | Een held met een emmer op zijn hoofd loopt het hol in, over de spijkers (hij licht rood op), naar Gloop, en wordt opgegeten. De emmer belandt op Gloop. | 616 x 160 | ±7,3 s | 144 kB |
 | `2-gloop-wears-their-hats.gif` | Gloop wears their hats | Ingezoomd (2x): de hap, de emmer valt op Gloops kroon, munten springen naar de schat. | 616 x 320 | ±5,3 s | 280 kB |
 | `3-they-come-back.gif` | The ones who escape come back | Tibbe de Hoard-Toucher, die eerder ontsnapte, komt terug met een boze bel boven zijn hoofd en loopt naar de spijkers. | 616 x 160 | ±10 s | 322 kB |
-| `4-it-keeps-going-while-you-work.gif` | It keeps going while you work | De strook (zonder het logpaneel rechts), klein, onderaan een eenvoudig bureaublad boven de taakbalk, met twee lege vensters. Het hol na een week spelen (log: "227 came, 198 fell"), met een grote hoedenberg naast Gloop. | 616 x 280 | ±13,7 s | 114 kB |
+| `4-it-keeps-going-while-you-work.gif` | It keeps going while you work | **Nieuw in run 72 (na Daan 17 nov 01:30).** De rechterhelft van het hol (hoedenberg, Gloop, schat, laatste kamer) als strook van 130 px, boven de onderrand van één werkvenster met gevulde regels en een knipperend cursortje, onder een taakbalk. Een munt vliegt naar de schat, Gloop knijpt tevreden een oog dicht; dan de hap en ligt er een laars bij de schat. | 616 x 216 | ±7,3 s (laatste 1 s stil) | 91 kB |
 
-Alles samen ±0,86 MB. Het laatste beeld van gif 1 tot 3 staat ±1,3 s stil, zodat het moment blijft hangen. Bestanden staan in deze map; ze worden gemaakt met `maak_gifs.py` (uitleg bovenin het script).
+Alles samen ±0,84 MB. Het laatste beeld van gif 1 tot 3 staat ±1,3 s stil, zodat het moment blijft hangen. Bestanden staan in deze map; ze worden gemaakt met `maak_gifs.py` (uitleg bovenin het script).
 
 ## Waarom zo
 
@@ -36,3 +36,13 @@ Alles samen ±0,86 MB. Het laatste beeld van gif 1 tot 3 staat ±1,3 s stil, zod
 
 ## Controle
 Controleur (17 nov, run 71): akkoord mits. MOET: het logpaneel in gif 4 was nog te lezen; nu eraf gesneden. KAN verwerkt: gif 4 met grotere strook en kleiner bureaublad, gif 3 begint later en iets naar links (minder halve figuren aan de rand), eind 1,3 s stil. Niet verwerkt: gif 2 blijft een 2x vergroting (iets zacht), tot er opnames op hogere resolutie zijn. De controleur vindt "Heroes fall" wel passen: "fall" is sneuvelen, net als in "Hats of the Fallen".
+
+## Gif 4 opnieuw (run 72, 17 nov ±02:00 UTC), op de moets van Daan
+- **(a) uitsnede rechterhelft:** x 700 tot 1460 uit de strook van 1920, geschaald naar 616 breed, dus 130 px hoog (was 68). Het logpaneel valt erbuiten.
+- **(b) iets wat gebeurt:** bron zoals Daan zei, `steam-hol/winkel-1920-week-160-momenthap-run43741420761/los` op `schermen`. Beelden f210 tot f240 (munt vliegt naar de schat, Gloop knijpt zijn oog dicht) en f280 tot f335 (hap, daarna de laars bij de schat). Het stuk f245 tot f275 is weggelaten: daar beweegt ±10 s niets. Geen beeld is bewerkt of verzonnen.
+- **Eerlijk, wat er niet in zit:** in deze opname komt in de rechterhelft geen held aanlopen. De ridder valt rond f240 in de put links (x ±250), buiten de uitsnede, en bij de hap is geen held te zien. "Held komt aan" en "hoed valt op de stapel" staan dus niet in deze gif. Dat kan pas met een opname waarin een held tot Gloop loopt in de week-strook (Olafs mp4's na de speeltestbuild van vr 20 nov); gif 1 en 2 laten dat al zien.
+- **(c) bovenrand:** één werkvenster, 74 px zichtbaar, vijf gevulde regels in rustig blauw, groen, oker en lila, geen tekst en geen logo's, cursortje knippert om de 2 beelden.
+- **(d) duur:** 22 beelden op 3 per s, ±7,3 s, laatste beeld ±1 s stil. 91 kB.
+- Voorblad met 6 beelden: `gif4-blad-run72.png`.
+- **Gif 3 (kan van Daan, later beginnen):** niet aangepast. Een tel later beginnen haalt beeld 1 schoon, maar de bovenrand snijdt de held omdat de strook maar 160 hoog is; lager kan niet zonder een hogere opname. Volgt als Daan het een moet vindt.
+- Controleur: geen aparte, Daan keurt het beeld; zelf nagekeken: maat, duur, beelden op ware grootte, geen leesbare tekst.
