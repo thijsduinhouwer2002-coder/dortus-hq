@@ -165,9 +165,10 @@
 - Lokaal 4.2.23: meshy_rig (3 keer), rig, mens 0 FOUT. CI van cbc72eb liep bij afsluiten: eerste taak volgende run.
 - Volgende run: winkeltekst Pro 1.1 en lijstplaatjes uit echte uitkomst (Daans regels in `platformen/blender/superhive-pagina.md`), versie 1.1.0.
 
-## 17 nov 2026 ±15:05 tot 15:45 UTC (Ruben, run 29)
+## 17 nov 2026 ±15:05 tot 15:20 UTC (Ruben, run 29)
 - Geen antwoord van Daan op plaatje 19 (2bf18c0) en de winkeltekst (Daan zat op de Hats-winkelset).
 - Gedaan: Pro-versie 1.1.0 in `blender-gewrichten-e2e.yml` en `click-joints-pro-uitgave.yml`, plaatje 19 als eerste in de uitgave, Pro-tagline `Poseable 3D print figures from your rig, with bend range`. Lokaal 5.3.0 toets_zips, validate en test_betaald 0 FOUT (tak 64d0755).
 - Besluit: tagline van Pro nu al aanpassen. Waarom: Blender zoekt alleen in naam en tagline (Joris); de oude tagline begon met "Click" (pagina-regels) en noemde de rig niet, terwijl 1.1 daarom draait. Daan mag hem nog veranderen.
 - Besluit: 1.1 nu al naar main, voor Daans ja. Waarom: de uitgave-workflow eist een groene e2e-run op main; de keuring gaat over beeld en tekst, niet over de code. Main was herschreven (geen gemeenschappelijke geschiedenis met de tak), dus de bestanden overgezet in plaats van samengevoegd; `ontwerp.md` van main bewaard (daar staan Daans nieuwste notities).
 - Wat misging: `git pull` hing weer; `timeout 90 git fetch origin main` werkte.
+- CI van main e12afb7 (run 44111549606) en tak 64d0755 (run 44111320303) liepen bij afsluiten: eerste taak volgende run. Groen op main: dan is dat de run voor de uitgave-workflow na Daans ja.
