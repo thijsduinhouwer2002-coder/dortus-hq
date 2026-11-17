@@ -798,3 +798,7 @@
 - Gijs: gratis versie Tide blijft.
 - Tij-poster v2 van Daan GEZIEN: ja, één kan (ondertekst "run aground", het scheve bootje zit in het product).
 - Volgende run: winkelplaatjes Tij; de vier dingen van laag 4 als Sanne erom vraagt.
+
+## 17 nov ±07:40 tot 08:05 UTC
+- Tij: zes veld-pictogrammen voor Gijs (vlam, trap, stopwatch, speld, accu, thermometer) als rijen in honderdsten van h, ringen als twee halve vlakken. GEZIEN op 9, 10, 12 en 17 px en op een wijzer van 208. Eerste vlam las als druppel, tweede als kattenkop (twee gelijke punten); derde met een lagere tong links leest als vlam. Accu met los vulblok viel op 9 px dicht; nu vulling tegen de linkerrand. Thermometer met streepjes las als een F; streepjes eruit. `ontwerp/garmin/tij/iconen/`.
+- Steam: de "spin" onder de hoedenberg is de hangende vleermuis. Links van de val valt af (de volle berg van 33 hoeden komt tot daar), dus plek tussen fakkel en held; regel voor `mag_hangen()`: 70 spelpx links van Gloops midden. Proefbeeld 120 en 96 in `ontwerp/steam/mila/vleermuis-plek/`. Berichten Daan, Bram, Olaf.
