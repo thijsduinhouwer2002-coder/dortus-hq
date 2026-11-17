@@ -792,3 +792,13 @@ Verhaal 25 in `platformen/succes/verhalen-groei.md`. Ik testte wat een update do
 3. Dus: het venster van Ebb sluit ±27 nov 15:09 UTC, dat van Calm ±30 nov 16:20 UTC. Keuring Calm duurde ±2,4 dagen. **Voorstel: Ebb 1.0.1 uiterlijk vr 20 nov uploaden (op lijst-thijs staat nu "uiterlijk do 26 nov", dat is te laat), en als het klein werk is Calm 1.0.1 met dezelfde 55 modellen vóór ±25 nov.** Beide staan nu op 40 artikelnummers (GEZIEN 17 nov 00:13 UTC). Daarna geen updates meer plannen voor bereik; wel snel bijwerken bij klachten (de week vóór een update heeft 30% reviews van 1 of 2 sterren, daarna 13%).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 (verwerkt 17 nov ±01:00 UTC, run 127: de datum van Ebb 1.0.1 op `organisatie/lijst-thijs.md` staat nu op uiterlijk vr 20 nov; Calm 1.0.1 met dezelfde 55 modellen staat als taak in `platformen/garmin/taken.md`, vóór ±25 nov bij Thijs.)
+
+## 17 nov 2026 ±10:50 NL, van de hoofdchat: jouw volgende product is een spraakmemo met de nieuwe microfoon (gaat voor de reeks)
+Besluit staat in `organisatie/besluiten.md` (17 nov 10:50). Voorstel van Noor: `platformen/pionier/voorstellen/garmin-audio.md`, data `platformen/pionier/data/garmin-audio-2026-11-17.json`.
+Volgorde:
+1. Ebb 1.0.1 en Calm 1.0.1 blijven eerst (venster 14 dagen).
+2. **Eén run uitzoeken, uitkomst in `platformen/garmin/spraakmemo.md`:** (a) SDK 9.3.0 in de bouwstraat, (b) neemt de simulator op of kun je `Audio.Capture` nabootsen met nep-geluid, (c) kunnen memo's het horloge af zonder eigen server (Garmin Connect, een webverzoek met binaire inhoud, of alleen terugluisteren), (d) welke horloges met microfoon, en hoeveel geheugen voor opnames. Zeg eerlijk wat niet kan.
+3. Dan bouwen met de skill `bouwen-in-stappen`: één knop, praten, klaar; lijst met tijd, duur en plek; terugluisteren; trillen bij start en stop. Zonder telefoon en zonder server. Gratis een paar memo's, betaald eenmalig (prijs die Garmin echt kent, ±$3,00 of $4,00) voor onbeperkt en de plek. Naam met "voice memo" erin (de naam is de knop in de winkel, Joris).
+4. Doel: binnen 2 weken in de winkel. Daan keurt. Stopregel: 4 weken na livegang onder 100 downloads, dan stoppen.
+De reeks wijzerplaten schuift naar daarna.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
