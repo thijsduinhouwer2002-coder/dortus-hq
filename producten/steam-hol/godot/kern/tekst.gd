@@ -7,7 +7,8 @@ var goud := 0
 var doel := ""   # kopregel rechts als het kaartje dicht is: volgend doel (kern/kaartje.gd doel_regel, Iris 16 nov)
 var hover := false
 var vast := ""   # telling na terugkomst: bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30)
-var weg_regels: Array[String] = []   # het verhaal van de nacht; regels van vóór het weggaan niet onder de telling (Iris keuring 16 punt 2)
+var weg_regels: Array[String] = []   # het verhaal van de nacht (Iris keuring 16 punt 2): regels van vóór het weggaan niet meer op het kaartje
+var weg_tel := ""   # de telling van de laatste keer weg; blijft deze speelbeurt staan (vast gaat weg bij de eerste nieuwe held)
 var breedte := 1280.0
 var hoogte := 120.0
 var schaal := 3
@@ -157,34 +158,36 @@ func _munt_p(x: float, basis: float, kop: int, f: float) -> Vector2:
 func vak_breedte() -> float:
 	return minf(430.0, breedte * 0.3)
 
-# Welke regels het paneel toont (getoetst in toets_systemen.gd). Met de muis erop en een telling na terugkomst:
-# de telling bovenaan, daaronder de nieuwste regels in volgorde, maar alleen het verhaal van de nacht of wat na de
-# telling kwam, niet een regel van vóór het weggaan (Iris keuring 16 punt 2). Anders de laatste n regels.
-static func kies_toon(r: Array[String], v: String, wr: Array[String], n: int, muis: bool) -> Array[String]:
+# Welke regels het paneel toont (getoetst in toets_systemen.gd). Na terugkomst (tel = de telling van de nacht) nooit
+# een regel van vóór het weggaan, ook niet als de eerste nieuwe held al binnen is (Iris keuring 16 punt 2; in run
+# 44017687872 stond anders "Gerda says this is a quick one." van vóór de nacht boven de telling). Wat telt: wat na de
+# telling kwam, en het verhaal van de nacht (wr), per tekst hooguit zo vaak als in het verhaal ("had a busy shift."
+# van de vorige nacht telt niet, controleur 17 nov). Met de muis erop en vast gezet: vast bovenaan, de rest eronder.
+static func kies_toon(r: Array[String], v: String, wr: Array[String], tel: String, n: int, muis: bool) -> Array[String]:
+	var mag: Array[String] = []   # kandidaten in volgorde, de nieuwste achteraan
+	var ti := r.rfind(tel) if tel != "" else -1
+	var over := {}
+	for w in wr:
+		over[w] = int(over.get(w, 0)) + 1
+	for i in range(r.size() - 1, -1, -1):
+		if ti < 0 or i >= ti:
+			mag.push_front(r[i])
+		elif int(over.get(r[i], 0)) > 0:
+			over[r[i]] = int(over[r[i]]) - 1
+			mag.push_front(r[i])
 	var toon: Array[String] = []
-	if muis and v != "" and r.has(v):
+	if muis and v != "" and mag.has(v):
 		toon.append(v)
 		var rest: Array[String] = []
-		var vi := r.rfind(v)
-		# per tekst hooguit zo vaak als hij in het nachtverhaal staat: "Gloop had a busy shift." van de vorige nacht
-		# telt niet nog eens mee (controleur 17 nov). Van achter naar voren, dus de regels vlak voor de telling eerst.
-		var over := {}
-		for w in wr:
-			over[w] = int(over.get(w, 0)) + 1
-		for i in range(r.size() - 1, -1, -1):
+		for i in range(mag.size() - 1, -1, -1):
 			if rest.size() >= n - 1:
 				break
-			if r[i] == v:
-				continue
-			if i > vi:
-				rest.push_front(r[i])
-			elif int(over.get(r[i], 0)) > 0:
-				over[r[i]] = int(over[r[i]]) - 1
-				rest.push_front(r[i])
+			if mag[i] != v:
+				rest.push_front(mag[i])
 		toon.append_array(rest)
 	else:
-		for i in range(max(0, r.size() - n), r.size()):
-			toon.append(r[i])
+		for i in range(max(0, mag.size() - n), mag.size()):
+			toon.append(mag[i])
 	return toon
 
 func zet(r: Array[String], g: int) -> void:
@@ -307,7 +310,7 @@ func _draw() -> void:
 	var maat: int = M.tekst
 	var f: float = M.munt
 	var n := 3 if hover else 1
-	var toon: Array[String] = kies_toon(regels, vast, weg_regels, n, hover)
+	var toon: Array[String] = kies_toon(regels, vast, weg_regels, weg_tel, n, hover)
 	var regel_h: int = M.regel_h
 	var bw := vak_breedte()
 	var x := breedte - bw - 8

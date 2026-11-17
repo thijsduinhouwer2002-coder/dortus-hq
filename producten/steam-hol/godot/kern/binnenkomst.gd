@@ -75,7 +75,6 @@ static func nieuwe_held(s) -> bool:
 	# kaartje na terugkomst (moet Daan 16 nov 23:30): de telling staat bovenaan tot de eerste nieuwe held binnen is
 	if s.tekst != null and String(s.tekst.vast) != "":
 		s.tekst.vast = ""
-		s.tekst.weg_regels.clear()
 		s.tekst.queue_redraw()
 	s.namen_recent.append(String(info.naam))
 	while s.namen_recent.size() > 24:

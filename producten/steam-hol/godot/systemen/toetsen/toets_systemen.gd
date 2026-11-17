@@ -1309,19 +1309,22 @@ func _nieuwe_held() -> bool:
 	nk2.t = 15.0
 	WR.toon(nk2)
 	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
-	# Iris keuring 16 punt 2 (Olaf 17 nov): regels van vóór het weggaan niet onder de telling op het kaartje
+	# Iris keuring 16 punt 2 (Olaf 17 nov): regels van vóór het weggaan niet meer op het kaartje
 	var tel_w := "115 came, 74 fell, 39 hats. +559 gold."
 	var kr_w: Array[String] = ["Odo fell.", "Joost climbs into your hole.", "Tibbe fled twice.", tel_w]
 	var wr_w: Array[String] = ["Tibbe fled twice.", tel_w]
-	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)) == str([tel_w, "Tibbe fled twice."]), "kaartje na weg: oude regel (Joost) niet onder de telling: %s" % str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)))
-	kr_w.append("Kees II climbs in.")
-	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, 3, true)) == str([tel_w, "Tibbe fled twice.", "Kees II climbs in."]), "kaartje na weg: nieuwe regel na de telling telt wel")
-	ok(str(TKS.kies_toon(kr_w, "", [] as Array[String], 3, true)) == str(["Tibbe fled twice.", tel_w, "Kees II climbs in."])
-		and str(TKS.kies_toon(kr_w, tel_w, wr_w, 1, false)) == str(["Kees II climbs in."]), "zonder telling of zonder muis: gewoon de laatste regels")
+	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, tel_w, 3, true)) == str([tel_w, "Tibbe fled twice."]), "kaartje na weg: oude regel (Joost) niet onder de telling: %s" % str(TKS.kies_toon(kr_w, tel_w, wr_w, tel_w, 3, true)))
+	kr_w.append("Kees brought a torch.")
+	ok(str(TKS.kies_toon(kr_w, tel_w, wr_w, tel_w, 3, true)) == str([tel_w, "Tibbe fled twice.", "Kees brought a torch."]), "kaartje na weg: nieuwe regel na de telling telt wel")
+	ok(str(TKS.kies_toon(kr_w, "", wr_w, tel_w, 3, true)) == str(["Tibbe fled twice.", tel_w, "Kees brought a torch."]), "na de eerste nieuwe held (vast leeg): nog steeds geen oude regel")
+	var kr_g: Array[String] = ["Gerda says this is a quick one.", tel_w, "Kees brought a torch."]
+	ok(str(TKS.kies_toon(kr_g, "", [tel_w] as Array[String], tel_w, 3, true)) == str([tel_w, "Kees brought a torch."]), "run 44017687872: Gerda van vóór de nacht niet meer boven de telling")
+	ok(str(TKS.kies_toon(kr_w, "", [] as Array[String], "", 3, true)) == str(["Tibbe fled twice.", tel_w, "Kees brought a torch."])
+		and str(TKS.kies_toon(kr_w, tel_w, wr_w, tel_w, 1, false)) == str(["Kees brought a torch."]), "zonder weg of zonder muis: gewoon de laatste regels")
 	var bs := "Gloop had a busy shift."
 	var kr_d: Array[String] = [bs, "Old tally.", "Joost climbs into your hole.", bs, tel_w]
 	var wr_d: Array[String] = [bs, tel_w]
-	ok(str(TKS.kies_toon(kr_d, tel_w, wr_d, 3, true)) == str([tel_w, bs]), "kaartje na weg: zelfde tekst als vorige nacht komt maar één keer: %s" % str(TKS.kies_toon(kr_d, tel_w, wr_d, 3, true)))
+	ok(str(TKS.kies_toon(kr_d, tel_w, wr_d, tel_w, 3, true)) == str([tel_w, bs]), "kaartje na weg: zelfde tekst als vorige nacht komt maar één keer: %s" % str(TKS.kies_toon(kr_d, tel_w, wr_d, tel_w, 3, true)))
 	# moet Daan 16 nov 23:30 (b): hooguit één regel per held op het kaartje (laatste drie), de telling blijft staan
 	var nk3 = nep_k.new()
 	nk3.tekst = nep_tekst.new()
