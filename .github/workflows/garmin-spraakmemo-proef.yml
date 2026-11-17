@@ -1,0 +1,84 @@
+name: Garmin spraakmemo proef (SDK 9.3.0, opnemen in de simulator)
+
+# Proef van Gijs, 17 nov 2026: werkt SDK 9.3.0 in onze bouwstraat, en neemt de simulator op
+# als we met PulseAudio een nep-microfoon met een toon aanbieden? Alleen lezen, niets wordt gepusht.
+
+on:
+  push:
+    branches: ["claude/garmin-spraakmemo*"]
+    paths: ["producten/garmin-spraakmemo-proef/**", ".github/workflows/garmin-spraakmemo-proef.yml"]
+  workflow_dispatch:
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      APP: producten/garmin-spraakmemo-proef
+      SDK_ZIP: connectiq-sdk-lin-9.3.0-2026-10-20-95888f262.zip
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen (tot drie pogingen)
+        run: |
+          for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: SDK 9.3.0 ophalen
+        run: |
+          mkdir -p /tmp/sdk930
+          curl -sSL --retry 3 -o /tmp/sdk930.zip "https://developer.garmin.com/downloads/connect-iq/sdks/$SDK_ZIP"
+          ls -la /tmp/sdk930.zip
+          unzip -q /tmp/sdk930.zip -d /tmp/sdk930
+          cat /tmp/sdk930/bin/version.txt
+      - name: Proef in de simulator
+        run: |
+          cat > /tmp/proef.sh <<'SH'
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get update -qq >/dev/null && apt-get install -y -qq pulseaudio pulseaudio-utils sox >/dev/null 2>&1
+          echo "UITSLAG oude SDK in image: $(cat /connectiq/bin/version.txt 2>/dev/null)"
+          export PATH=/sdk930/bin:$PATH
+          echo "UITSLAG nieuwe SDK: $(cat /sdk930/bin/version.txt)"
+          for d in fenix847mm fr970 venu445mm vivoactive6 fenix947mm fr170; do
+            f=/root/.Garmin/ConnectIQ/Devices/$d/compiler.json
+            echo "UITSLAG apparaatbestand $d: $(grep -o '"connectIQVersion"[^,]*' "$f" | sort -u | tr '\n' ' ')"
+            grep -o -i '"[a-z]*\(audio\|speaker\|microphone\)[a-z]*"[^,]*' "$f" | sort -u | head -5
+          done
+          ls /root/.Garmin/ConnectIQ/Devices | wc -l
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          mkdir -p bin
+          GOED=""
+          for d in fenix847mm fr970 venu445mm vivoactive6; do
+            if monkeyc -f monkey.jungle -d "$d" -o "bin/memo-$d.prg" -y /tmp/key.der -l 0 > "/tmp/bouw-$d.log" 2>&1; then
+              echo "UITSLAG bouw $d: goed ($(stat -c %s bin/memo-$d.prg) bytes)"; [ -z "$GOED" ] && GOED=$d
+            else
+              echo "UITSLAG bouw $d: FOUT"; fi
+            tail -15 "/tmp/bouw-$d.log"
+          done
+          [ -n "$GOED" ] || { echo "UITSLAG geen enkel horloge bouwt"; exit 1; }
+          # nep-microfoon: een leeg afspeelapparaat waarvan de monitor de standaardmicrofoon is, met een toon erin
+          pulseaudio -D --exit-idle-time=-1 --disallow-exit 2>&1 | tail -3
+          sleep 2
+          pactl load-module module-null-sink sink_name=nep
+          pactl set-default-sink nep
+          pactl set-default-source nep.monitor
+          pactl info | grep -i -E 'default|server name'
+          sox -n -r 16000 -c 1 /tmp/toon.wav synth 120 sine 440 vol 0.5
+          paplay --device=nep /tmp/toon.wav &
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          simulator > /tmp/sim.log 2>&1 &
+          sleep 10
+          echo "UITSLAG simulator draait: $(pgrep -c simulator)"
+          timeout 60 monkeydo "bin/memo-$GOED.prg" "$GOED" > /tmp/do.log 2>&1
+          echo "UITSLAG monkeydo klaar op $GOED, code $?"
+          echo "==== uitvoer van de app"; cat /tmp/do.log
+          echo "==== log van de simulator (laatste 60 regels)"; tail -60 /tmp/sim.log
+          echo "==== pulse: wie neemt op"; pactl list short source-outputs; pactl list short sink-inputs
+          grep -c 'MEMO onData' /tmp/do.log | sed 's/^/UITSLAG aantal blokken met geluid: /'
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/sdk930:/sdk930 -v /tmp/proef.sh:/tmp/proef.sh "$IMAGE" /tmp/proef.sh
