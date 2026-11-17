@@ -58,7 +58,7 @@ func binnen(naam: String, trek := "", soort_held := "") -> Dictionary:
 		# wil de hoed van zijn vader terug en vindt hem nooit (een hoed gaat nooit van de toren af)
 		h["wrok"] = door_ouder
 		v = _vars(naam, door_ouder)
-		regel = _regel("naamgenoot_hoed", v, "%s wants dad's hat back." % naam)
+		regel = _regel("naamgenoot_hoed", v, "%s wants %s's hat back." % [naam, load("res://kern/namen.gd").ouder(naam)])
 	elif h["bezoeken"] == 1 and ouder != "":
 		v["oud"] = naam.split(" ")[0]   # "Kees II" en "Kees III": Kees viel hier ooit
 		regel = _regel("naamgenoot", v, "%s climbs in." % naam)

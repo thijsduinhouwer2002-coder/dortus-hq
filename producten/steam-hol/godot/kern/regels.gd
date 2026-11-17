@@ -1,7 +1,8 @@
 extends RefCounted
 # Korte regels voor de kroniek in de strook (Olaf), uit de voorraad van Sanne (platformen/steam/kroniek-regels.md).
 # Willekeurig binnen een soort, nooit twee keer dezelfde regel achter elkaar. Engels (winkeltaal).
-# Vullers: {naam} voornaam, {held} naam met bijnaam, {bewoner} "Gloop", {val} "the Spike Pit", {oud} voornaam van een naamgenoot.
+# Vullers: {naam} voornaam, {held} naam met bijnaam, {bewoner} "Gloop", {val} "the Spike Pit", {oud} voornaam van een naamgenoot,
+# {titel} Sir/Dame en {ouder} mom/dad vullen zichzelf uit {naam}.
 # Te lang na invullen (meer dan 42 tekens): dan de eerste regel van de soort die wel past (die zijn bewust kort).
 
 const MAX := 42
@@ -14,7 +15,7 @@ const VOORRAAD := {
 	"binnen": ["{naam} climbs into your hole.", "{naam} is here for your gold.", "{naam} brought a torch. And hope.",
 		"{naam} read about you in a tavern.", "{naam} has a map. It is wrong.", "{naam} knocks first. Polite.",
 		"{naam} says this is a quick one."],
-	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants dad's boot back."],
+	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants {ouder}'s boot back."],
 	"terug": ["{held} is back.", "{naam} came back. Bigger sword.", "{naam} is back. Still limping."],
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],
@@ -58,6 +59,10 @@ func vul(r: String, w: Dictionary) -> String:
 		if _namen == null:
 			_namen = load("res://kern/namen.gd")
 		r = r.replace("{titel}", _namen.titel(String(w["naam"])))
+	if r.contains("{ouder}") and not w.has("ouder") and w.has("naam"):   # "mom" of "dad" (Iris keuring 22 punt 2)
+		if _namen == null:
+			_namen = load("res://kern/namen.gd")
+		r = r.replace("{ouder}", _namen.ouder(String(w["naam"])))
 	for k in w:
 		r = r.replace("{%s}" % k, String(w[k]))
 	return r
