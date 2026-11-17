@@ -1,30 +1,30 @@
-HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1170, hoeden 84
-HOL hol-niveau 2 (faam 155, t 0.0)
-HOL hol-niveau 3 (faam 155, t 0.0)
-HOL hol-niveau 4 (faam 155, t 0.0)
-HOL hol-niveau 5 (faam 155, t 0.0)
-HOL hol-niveau 6 (faam 155, t 0.0)
-HOL hol-niveau 7 (faam 155, t 0.0)
-HOL hol-niveau 8 (faam 155, t 0.0)
-HOL hol-niveau 9 (faam 155, t 0.0)
-HOL hol-niveau 10 (faam 155, t 0.0)
-HOL hol-niveau 11 (faam 155, t 0.0)
-HOL hol-niveau 12 (faam 155, t 0.0)
-HOL kroniek 0.0 (wacht 0.0): Gloop got 84 new hats.
+HOL weg geweest 28801 s (klok terug: false): goud voor 20, helden 240, erbij 1200, hoeden 93
+HOL hol-niveau 2 (faam 160, t 0.0)
+HOL hol-niveau 3 (faam 160, t 0.0)
+HOL hol-niveau 4 (faam 160, t 0.0)
+HOL hol-niveau 5 (faam 160, t 0.0)
+HOL hol-niveau 6 (faam 160, t 0.0)
+HOL hol-niveau 7 (faam 160, t 0.0)
+HOL hol-niveau 8 (faam 160, t 0.0)
+HOL hol-niveau 9 (faam 160, t 0.0)
+HOL hol-niveau 10 (faam 160, t 0.0)
+HOL hol-niveau 11 (faam 160, t 0.0)
+HOL hol-niveau 12 (faam 160, t 0.0)
+HOL kroniek 0.0 (wacht 0.0): Gloop got 93 new hats.
 HOL rij bij de ingang 7 (meteen [2, 3, 4, 5])
 HOL optocht wip, 1.2 poef 4 munt; helden [3, 5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1190 goud, faam 155
+HOL opslag geladen: 0 terugkomers, 1220 goud, faam 160
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794875048
-HOL eerste koop mogelijk na 15 s speeltijd (goud 1190)
+HOL zaad 1794877236
+HOL eerste koop mogelijk na 15 s speeltijd (goud 1220)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 2.5 (wacht 2.5): 240 came, 155 fell, 84 hats. +1170 gold.
-HOL begin: vluchten (Odo)
-HOL held binnen: Odo
+HOL kroniek 2.5 (wacht 2.5): 240 came, 160 fell, 93 hats. +1200 gold.
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
 HOL zicht 4.1 1
 HOL kroniek 5.1 (wacht 5.1): Grew 4 levels while you were away.
-HOL kroniek vervallen 7.1: Odo says this is a quick one.
+HOL kroniek vervallen 7.1: Fenna climbs into your hole.
 HOL kroniek 7.7 (wacht 7.7): 7 more to come as you play.
-HOL meting t=10 beelden=71 helden=1 hol_vast=1
-HOL einde na 15 s, fps=10, goud=1190, terugkomers=0
+HOL meting t=10 beelden=72 helden=1 hol_vast=1
+HOL einde na 15 s, fps=10, goud=1220, terugkomers=0
