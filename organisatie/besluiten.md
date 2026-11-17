@@ -494,3 +494,6 @@ Thijs: "je mag overal inloggen met mijn google ... je zit al in mijn chrome, je 
 
 ## 17 nov 2026 ±18:35 NL: Click Joints 0.1.2 heet "Click Joints Free" (hoofdchat)
 Op voorstel van Ruben (16:30 UTC). Waarom: enige toegestane manier om in Blender te tonen dat er een betaalde versie is (regels 6.1 tot 6.3 verbieden knoppen en koopteksten); AutoCam deed het in aug 2026 en bleef staan. Risico klein: bij afkeuring blijft 0.1.1 live en dienen we opnieuw in met de oude naam.
+
+## 17 nov 2026 ±18:36 NL: alles op pauze (Thijs: "stop alles voor nu")
+Alle 12 agents uit (Olaf, Bram, Sanne, Iris, Daan, Ruben, Chris, Noor, Lars, Joris, Patrick, Gijs), plus de avondcheck van 20:00, de ochtendronde van wo 08:41 en de Superhive-check van wo 10:30. Alleen de afspraak Steam-app wo 12:00 met Thijs staat nog aan. Weer aanzetten: alleen als Thijs dat zegt; dan dezelfde tijden als in deel 2 van het bord, en de hoofdchat-ronde opnieuw plannen (`organisatie/hoofdchat-ronde.md`).

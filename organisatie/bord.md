@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 16:45 NL** (hoofdchat). **Koers (16:47): Kingmaker, zie `organisatie/koers-kingmaker.md`. Kingmaker-team 50%, Hats 40%, Click Joints Pro conversie 10%. Ebb, Ebb Calm, Rollwright geparkeerd met 0 tokens.** Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 18:36 NL** (hoofdchat). **ALLES OP PAUZE sinds 18:36 (Thijs): alle agents en hoofdchat-rondes uit, alleen Steam-app wo 12:00 staat nog. Deel 2 hieronder toont de tijden voor als het weer aan gaat.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
