@@ -797,7 +797,7 @@ func _init() -> void:
 			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg, 1 spelpixel verder van Gloop (%d)" % b3d.size())
 			ok(b3d.size() > 0 and is_equal_approx(float(b3d[0][2]), 0.0), "3D-berg: onderste rij staat op de vloer")
 			# Waar nachthoeden landen (Sanne 17 nov 07:00): oude toren tot de landing, dan springt de onderste in 0,3 s naar
-			# de top van de berg, en daar ligt hij daarna (bovenste plek = nieuwste)
+			# een vast plekje op de berg, en daar ligt hij daarna
 			var voor_n3: Array = g3.hoeden.duplicate()
 			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
 			var oude_onder: int = g3.hoeden[4]
@@ -809,12 +809,18 @@ func _init() -> void:
 			ok(not g3.berg_boog()[0], "nachtland: nog geen boog voor de landing")
 			g3.stap(g3.VAL_S + g3.SPRING_S * 0.5 - 0.01)
 			var bb3: Array = g3.berg_boog()
-			var top3: Array = g3.berg_3d(9)[-1]
+			var top3: Array = []
+			for e3 in g3.berg_3d(9):
+				if int(e3[3]) == 4:
+					top3 = e3   # het plekje van de nieuwste (index 4 in hoeden bij 9 hoeden)
 			var voet3: Array = g3.toren_3d()[0]
 			ok(not g3.nacht_valt() and bb3[0] and int(bb3[1]) == oude_onder and g3.berg_tel() == 8, "nachtland: na de landing vliegt de oude onderste (%s) in een boog, berg wacht (%s)" % [str(bb3), str(g3.berg_tel())])
 			ok(float(bb3[2]) < float(voet3[1]) and float(bb3[2]) > float(top3[1]) and float(bb3[3]) < minf(float(voet3[2]), float(top3[2])), "nachtland: halverwege tussen toren en berg en hoger dan beide (%s, %s, %s)" % [str(bb3), str(voet3), str(top3)])
 			g3.stap(g3.SPRING_S * 0.5 + 0.02)
-			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and int(g3.berg_3d()[-1][0]) == oude_onder, "nachtland: na 0,3 s ligt hij bovenop de berg")
+			var gel := false
+			for e3 in g3.berg_3d():
+				gel = gel or (int(e3[3]) == 4 and int(e3[0]) == oude_onder and is_equal_approx(float(e3[1]), float(top3[1])) and is_equal_approx(float(e3[2]), float(top3[2])))
+			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and gel, "nachtland: na 0,3 s ligt hij op het plekje waar de boog heen ging")
 			ok(g3.hoeden_op_hoofd() == [5, 6, 7, 9], "nachtland: op de toren de laatste 4 (%s)" % str(g3.hoeden_op_hoofd()))
 			# plat tijdens de boog (controleur): geen hoed die nergens staat
 			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
@@ -1263,22 +1269,64 @@ func _init() -> void:
 	for i in 70:
 		gz.krijg_hoed(i % 10)
 	var bz: Array = gz.berg()
-	ok(bz.size() == 8 and int(bz[-1][0]) == gz.hoeden[gz.hoeden_op_berg() - 1] and int(bz[0][0]) == gz.hoeden[0], "berg: bovenop de nieuwste, onderaan de oudste (%d)" % bz.size())
-	var hoogste := 0
-	for k in bz.size():
-		if int(bz[k][2]) < int(bz[hoogste][2]):
-			hoogste = k
-	ok(int(bz[-1][2]) == int(bz[hoogste][2]), "berg: het laatst gelegde plekje is het hoogste")
-	# opschuiven glijdt in 0,1 s (moet Daan 17 nov 07:45)
-	var oud_b := [[1, -24.0, 0.0], [2, -18.0, 0.0], [3, -21.0, -3.0]]
-	var nw_b := [[1, -30.0, 0.0], [2, -24.0, 0.0], [3, -18.0, 0.0], [4, -27.0, -3.0]]
-	gz.berg_glij(oud_b)
-	var gl0: Array = gz.berg_glij(nw_b)
-	gz.t += 0.05
-	var gl1: Array = gz.berg_glij(nw_b)
-	gz.t += 0.06
-	var gl2: Array = gz.berg_glij(nw_b)
-	ok(float(gl0[0][1]) == -24.0 and float(gl1[0][1]) == -27.0 and gl2 == nw_b and float(gl1[3][1]) == -27.0, "berg: opschuiven glijdt in 0,1 s, nieuwe hoed meteen op zijn plek (%s / %s)" % [str(gl0[0]), str(gl1[0])])
+	var nieuwste_ok := false
+	for e in bz:
+		nieuwste_ok = nieuwste_ok or (int(e[3]) == gz.hoeden_op_berg() - 1 and int(e[0]) == gz.hoeden[gz.hoeden_op_berg() - 1])
+	ok(bz.size() == 8 and nieuwste_ok, "berg: 8 zichtbaar, de nieuwste ligt erop (%d)" % bz.size())
+	# Vaste plekjes (Iris keuring 20, Sanne 17 nov 08:50): hoed voor hoed van 5 tot 3200 hoeden. Elk plekje houdt zijn plaats,
+	# er komen alleen plekjes bij, per hoed verandert hooguit één plekje (daar ligt de nieuwste), en je ziet de nieuwste n.
+	gz.hoeden.clear()
+	for i in 3200:
+		gz.hoeden.append(i % 10)
+	var vast_ok := true
+	var een_ok := true
+	var nieuwste_n_ok := true
+	var steun_ok := true
+	var vorige := {}
+	var waarom := ""
+	for tz in range(5, 3200):
+		var bt: Array = gz.berg(tz)
+		var nu := {}
+		var op: int = tz - gz.OP_HOOFD
+		var idx := {}
+		for e in bt:
+			nu[Vector2(float(e[1]), float(e[2]) + gz.HOED_ONDER[int(e[0])])] = int(e[3])
+			idx[int(e[3])] = true
+		for i in range(op - bt.size(), op):
+			if not idx.has(i):
+				nieuwste_n_ok = false
+		var anders := 0
+		for plek in vorige:
+			if not nu.has(plek):
+				vast_ok = false
+				waarom = "tel %d plek %s weg" % [tz, str(plek)]
+			elif int(nu[plek]) != int(vorige[plek]):
+				anders += 1
+				if int(nu[plek]) != op - 1:
+					een_ok = false
+		if anders + (nu.size() - vorige.size()) > 1:
+			een_ok = false
+			waarom = "tel %d: %d anders, %d erbij" % [tz, anders, nu.size() - vorige.size()]
+		vorige = nu
+	for k in 33:
+		var rpk: Vector2i = gz.plek_rij_pos(k)
+		if rpk.x > 0:
+			var a := -1
+			var b := -1
+			for j in k:
+				var q: Vector2i = gz.plek_rij_pos(j)
+				if q == Vector2i(rpk.x - 1, rpk.y):
+					a = j
+				if q == Vector2i(rpk.x - 1, rpk.y + 1):
+					b = j
+			steun_ok = steun_ok and a >= 0 and b >= 0
+	ok(vast_ok, "vaste plekjes: geen zichtbare hoed springt van plek, er komen alleen plekjes bij (%s)" % waarom)
+	ok(een_ok, "vaste plekjes: per hoed verandert hooguit één plekje, en daar ligt de nieuwste (%s)" % waarom)
+	ok(nieuwste_n_ok, "vaste plekjes: de berg toont altijd de nieuwste n hoeden")
+	ok(steun_ok, "vaste plekjes: elk plekje boven de vloer ligt op twee plekjes die er al waren")
+	var k70: Array = gz.berg(74)
+	var k70b: Array = gz.berg(74)
+	ok(k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg (ook na laden), 33 bij 3000+")
 	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")

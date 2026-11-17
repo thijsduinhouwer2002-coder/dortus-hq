@@ -495,8 +495,9 @@ func hoeden_op_berg() -> int:
 
 # Maat van de hoedenberg: 0 (geen berg) tot 6.
 func berg_maat(tel := -1) -> int:
-	if tel < 0:
-		tel = hoeden.size()
+	return berg_maat_bij(hoeden.size() if tel < 0 else tel)
+
+static func berg_maat_bij(tel: int) -> int:
 	var m := 0
 	for grens in BERG_MAAT:
 		if tel >= grens:
@@ -506,9 +507,10 @@ func berg_maat(tel := -1) -> int:
 # Hoeveel hoeden je op de berg ziet bij tel hoeden in totaal. Binnen een maat schuift het aantal mee naar dat van de
 # volgende maat (Sanne 17 nov 07:00), zodat 30 hoeden erbij ook binnen een maat te zien zijn; maat 0 en 6 vast.
 func berg_zichtbaar(tel := -1) -> int:
-	if tel < 0:
-		tel = hoeden.size()
-	var m := berg_maat(tel)
+	return berg_zichtbaar_bij(hoeden.size() if tel < 0 else tel)
+
+static func berg_zichtbaar_bij(tel: int) -> int:
+	var m := berg_maat_bij(tel)
 	var z: int = int(BERG_ZICHTBAAR[m])
 	if m >= 1 and m < BERG_MAAT.size():
 		var van: int = int(BERG_MAAT[m - 1])
@@ -547,6 +549,9 @@ func berg_boog() -> Array:
 		if t3.is_empty() or b3.is_empty():
 			return [false]
 		var doel: Array = b3[-1]
+		for e3 in b3:   # vaste plekjes: hij landt op het plekje van de nieuwste hoed van de berg
+			if int(e3[3]) == tel - OP_HOOFD - 1:
+				doel = e3
 		var f := s / SPRING_S
 		var g := f * (2.0 - f)   # dezelfde boog als held naar toren: snel weg, zacht neer
 		var hoek := snappedf(-PI * (1.0 - g), PI / 8.0)
@@ -620,7 +625,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt() and t > _berg_glij_van + BERG_GLIJ_S:
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt():
 		set_process(false)
 	_teken_als_anders()
 
@@ -628,7 +633,7 @@ func stap(delta: float) -> void:
 # (duurtest: 15 beelden per seconde zonder held). Nu alleen tekenen als wat je ziet verandert. Andere functies die
 # de berg of de toren veranderen roepen zelf queue_redraw aan.
 func _teken_als_anders() -> void:
-	var nu := [frame_nu(), beeld_3d(), wip_nu(), knijp_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0, t if t < _berg_glij_van + BERG_GLIJ_S else 0.0]
+	var nu := [frame_nu(), beeld_3d(), wip_nu(), knijp_nu(), leven, laars_ligt(), laars_pos() if leven == "spugen" else Vector2i.ZERO, hoeden.size(), niveau(), is_plat(), t if hoed_vliegt() else 0.0, berg_tel()]
 	if nu != laatste_beeld:
 		laatste_beeld = nu
 		queue_redraw()
@@ -945,46 +950,94 @@ func _blij_start() -> float:
 func _vlucht_s() -> float:
 	return VAL_S if hoed_valt else VLUCHT_S
 
-# Hoedenberg links naast hem: een piramide van hoeden, groter per maat. [hoed, x, y].
-# tel = met zoveel hoeden in totaal rekenen (-1 = berg_tel(): wat er nu zichtbaar geland is, zie nachthoeden).
+# Hoedenberg links naast hem: [hoed, x, y, index in hoeden], per rij van onder naar boven, in een rij van links naar
+# rechts (een hogere of meer rechtse hoed ligt voor). tel = met zoveel hoeden in totaal rekenen (-1 = berg_tel()).
+# Vaste plekjes (Iris keuring 20, Sanne 17 nov 08:50, plan Bram 08:40): plekje k heeft altijd dezelfde plaats; groeit de
+# berg, dan komen er alleen plekjes bij. Welke hoed op welk plekje ligt, geeft berg_plekken().
 func berg(tel := -1) -> Array:
 	var uit := []
 	if tel < 0:
 		tel = berg_tel()
-	var op_berg := maxi(0, tel - OP_HOOFD)
-	var n: int = berg_zichtbaar(tel)
-	if n <= 0:
+	var kaart := berg_plekken(tel)
+	if kaart.is_empty():
 		return uit
-	var rij := 0
-	var in_rij := 1
-	while _past_op_berg(in_rij) < n:
-		in_rij += 1          # breedte van de onderste rij
 	var links := -14 if is_groot() else -12   # groot lijf en mantel: berg 2 pixels verder naar links (Mila 04:55)
-	var k := 0
-	var breedte := in_rij
-	while k < n and breedte > 0:
-		for j in breedte:
-			if k >= n:
-				break
-			var h: int = hoeden[k]   # de oudste hoeden liggen op de berg
-			if k == n - 1:
-				h = hoeden[op_berg - 1]   # bovenop ligt de nieuwste (Sanne 17 nov 07:00): de laatste die eruit sprong
-			var x := links - 6 * (in_rij - 1) + 6 * j + 3 * rij
-			uit.append([h, x, -1 - int(HOED_ONDER[h]) - 3 * rij])
-			k += 1
-		rij += 1
-		breedte -= 1
-		if rij >= BERG_RIJEN:
-			break
+	var lijst := []
+	for k in kaart.size():
+		var rp := plek_rij_pos(k)
+		var i: int = int(kaart[k])
+		var h: int = hoeden[i] if i < hoeden.size() else 0
+		lijst.append([int(rp.x), -int(rp.y), [h, links - 3 * rp.x - 6 * rp.y, -1 - int(HOED_ONDER[h]) - 3 * rp.x, i]])
+	lijst.sort()   # rij omhoog, dan x van links naar rechts (pos van groot naar klein)
+	for e in lijst:
+		uit.append(e[2])
 	return uit
 
-# Hoeveel hoeden er op een berg met deze onderste rij passen: een piramide, hooguit BERG_RIJEN hoog
-# (daarboven wordt hij een afgeknotte piramide, dus breder en niet hoger).
-func _past_op_berg(onder: int) -> int:
-	var n := 0
-	for r in mini(onder, BERG_RIJEN):
-		n += onder - r
-	return n
+# Plekje k op de berg: Vector2i(rij, pos), pos 0 = het rechtse plekje van die rij (naast Gloop). De plekjes vullen per
+# schuine rij d = rij + pos, van onder naar boven: elk plekje ligt op twee plekjes die er al waren. Na d schuine rijen
+# is het een piramide met d hoeden onderaan (1, 3, 6, 10, 15, 21); hooguit BERG_RIJEN hoog, daarna (maat 6) breder.
+static func plek_rij_pos(k: int) -> Vector2i:
+	var d := 0
+	while true:
+		var in_d := mini(d + 1, BERG_RIJEN)
+		if k < in_d:
+			return Vector2i(k, d - k)
+		k -= in_d
+		d += 1
+	return Vector2i.ZERO
+
+# Welke hoed op welk plekje ligt bij tel hoeden in totaal: kaart[plekje] = index in hoeden. Hoed voor hoed doorgerekend
+# vanaf de eerste (ook de plof en na laden, Sanne 08:50): komt er door een hoed een plekje bij, dan landt hij daar; zo
+# niet, dan op het plekje van de oudste hoed die je ziet (die is dan bedekt). Zo zie je altijd de nieuwste n, en ligt
+# een hoed tot er een op zijn plek landt. Hangt alleen af van tel (niet van welke hoeden), dus gedeeld en bewaard.
+static var _pk_tel := -1
+static var _pk_kaart: Array = []
+static var _pk_waar := {}      # index in hoeden -> plekje
+static var _pk_bewaard := {}   # tel -> kaart, voor de laatste paar tellen (berg en boog vragen tel en tel + 1)
+static func berg_plekken(tel: int) -> Array:
+	if _pk_bewaard.has(tel):
+		return _pk_bewaard[tel]
+	if tel < _pk_tel or _pk_tel < 0:
+		_pk_tel = OP_HOOFD
+		_pk_kaart = []
+		_pk_waar = {}
+	while _pk_tel < tel:
+		_pk_tel += 1
+		var op := _pk_tel - OP_HOOFD
+		if op <= 0:
+			continue
+		var nieuw := op - 1
+		var n := berg_zichtbaar_bij(_pk_tel)
+		var oud_n := _pk_kaart.size()
+		if n > oud_n:
+			# er komen plekjes bij: de nieuwste op het laatste nieuwe, verborgen oudere op de andere (bij een sprong)
+			var erbij := n - oud_n
+			for j in erbij:
+				var i := nieuw if j == erbij - 1 else nieuw - oud_n - (erbij - 1) + j
+				_pk_waar[i] = _pk_kaart.size()
+				_pk_kaart.append(i)
+		elif n == oud_n and n > 0:
+			var oudste := nieuw - n
+			var k: int = int(_pk_waar.get(oudste, 0))
+			_pk_waar.erase(oudste)
+			_pk_kaart[k] = nieuw
+			_pk_waar[nieuw] = k
+		elif n < oud_n:   # komt niet voor (zichtbaar groeit alleen), dan opnieuw: hoed i op plekje i mod n
+			_pk_kaart = []
+			_pk_waar = {}
+			for k in n:
+				_pk_kaart.append(0)
+			for i in range(op - n, op):
+				_pk_kaart[i % n] = i
+				_pk_waar[i] = i % n
+		if _pk_tel >= tel - 1:
+			_pk_bewaard[_pk_tel] = _pk_kaart.duplicate()
+	if _pk_bewaard.size() > 6:
+		_pk_bewaard.clear()
+		_pk_bewaard[tel] = _pk_kaart.duplicate()
+	if not _pk_bewaard.has(tel):
+		_pk_bewaard[tel] = _pk_kaart.duplicate()
+	return _pk_bewaard[tel]
 
 # De hoedenberg met de 3D-hoeden (Bram 14 nov, winkelbeeld Olaf 05:35: pixelhoeden naast de 3D-Gloop): zelfde plekken
 # en volgorde als berg(), elke hoed met zijn nulpunt (midden van de onderrand) waar de onderrand van de pixelhoed lag,
@@ -1000,36 +1053,7 @@ func berg_3d(tel := -1) -> Array:
 		return uit
 	for b in berg(tel):
 		var h: int = int(b[0])
-		uit.append([h, float(b[1]) - BERG_3D_LUCHT, float(int(b[2]) + 1 + int(HOED_ONDER[h]))])
-	return uit
-
-# Moet Daan 17 nov 07:45: wordt de onderste rij van de berg breder (bij 4, 7, 11 ... zichtbare hoeden), dan glijden de
-# hoeden in 0,1 s naar hun nieuwe plek in plaats van in één beeld 6 px te springen. Alleen het beeld; berg() blijft gelijk.
-const BERG_GLIJ_S := 0.1
-var _berg_was: Array = []      # plekken [hoed, x, nul] van het vorige getekende beeld
-var _berg_glij_oud: Array = []  # plekken vlak voor het opschuiven
-var _berg_glij_van := -10.0
-func berg_glij(nieuw: Array) -> Array:
-	if not _berg_was.is_empty() and not nieuw.is_empty() and nieuw.size() != _berg_was.size():
-		var x_oud := float(_berg_was[0][1])
-		var x_nieuw := float(nieuw[0][1])
-		if not is_equal_approx(x_oud, x_nieuw):   # onderste rij breder of smaller: glijden
-			_berg_glij_oud = _berg_was.duplicate()
-			_berg_glij_van = t
-	_berg_was = nieuw
-	var f := (t - _berg_glij_van) / BERG_GLIJ_S
-	if f >= 1.0 or f < 0.0 or _berg_glij_oud.is_empty():
-		return nieuw
-	var uit := []
-	for k in nieuw.size():
-		var b: Array = nieuw[k]
-		if k < _berg_glij_oud.size():
-			var o: Array = _berg_glij_oud[k]
-			uit.append([b[0], round(lerpf(float(o[1]), float(b[1]), f)), round(lerpf(float(o[2]), float(b[2]), f))])
-		else:
-			uit.append(b)   # de nieuwe hoed bovenop ligt meteen op zijn plek (de boog landde daar al)
-	if is_inside_tree():
-		set_process(true)
+		uit.append([h, float(b[1]) - BERG_3D_LUCHT, float(int(b[2]) + 1 + int(HOED_ONDER[h])), int(b[3])])
 	return uit
 
 func _draw() -> void:
@@ -1038,7 +1062,7 @@ func _draw() -> void:
 		for b in berg():
 			draw_texture_rect_region(HOEDEN, Rect2(int(b[1]) - 8, int(b[2]), 16, 16), Rect2(int(b[0]) * 16, 0, 16, 16))
 	else:
-		for b3 in berg_glij(berg3):
+		for b3 in berg3:
 			_teken_hoed_3d(int(b3[0]), float(b3[1]), float(b3[2]), false)
 	var f := frame_nu()
 	var wip := wip_nu()
