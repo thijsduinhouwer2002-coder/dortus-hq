@@ -224,3 +224,10 @@ Stap 2 en 3: eisen volgen bij de bouw van stap 2 (Rigify-figuur, Mixamo-figuur, 
 - **Voor de winkeltekst:** schouders kunnen nu in de belofte ("shoulders, hips and neck as ball joints"), na groen in 5.2 en 5.3 in de CI. 4.2 blijft "best in Blender 4.5 and newer".
 - Les: als alles 0 graden meet, eerst kijken welke vlakken botsen in rechte stand, niet aan de plek of maat draaien.
 - **Plaatje 19 opnieuw** (lokaal 5.3.0, `proeven/1.1/19-mens-x.png` en `19-mens-paneel.png`): nu met beide schouders, `9 joints · 4 from rig · 2 mirrored`, alle negen regels in het paneel leesbaar. Zelf gezien met Read: schouderbanden smal om de arm, heupwaaiers groot in beeld (±25), het nekkegeltje nog op de wang (Daans kan-punt, open). Keuring gevraagd aan Daan.
+
+### Run 28 (17 nov ±14:05 tot 14:50 UTC, Ruben): CI 4.2 rood na run 27, opgelost
+- **CI van 2bf18c0 (run 44066480759):** 5.2 en 5.3 groen, 4.2.23 rood. `toetsen_een_lid` (betaald): het scharnier liet het rechteronderbeen kwijtraken (laagste punt 30 in plaats van 0, volume 29.887 bij 36.744). Daarna sloeg de CI de rig-toetsen in 4.2 over, en plaatje 16 had geen knieën ("the cut lost part of the model here").
+- **Oorzaak:** het diepe omhulsel van run 27 (`betaald/een_lid_diep.py`). Met alleen de Exact-solver gaat de scharniersnede met dat grotere H mis; de kogel (waar het voor bedoeld was) gaat goed.
+- **Gebouwd (3b54c5c):** `een_lid_diep.origineel()` geeft de gratis `bereid` terug; `betaald/scharnier.py` gebruikt die als de solver Exact is. In 5.x blijft alles zoals in run 27 (Manifold).
+- **Lokaal 4.2.23:** `toetsen_een_lid` betaald 0 FOUT (was 2), `toetsen_figuur`, `toetsen_vrije_stop`, `toetsen_rig`, `toetsen_rigify`, `toetsen_zwaai` 0 FOUT. Meshy en mens liepen nog bij het opslaan; de CI (run 44100335363) beslist.
+- **Winkeltekst 1.1 en changelog** als concept voor Daan: `platformen/blender-2/winkeltekst-1.1.md` op main, met per zin de toets erachter. Geen "clicks", geen "print tested" (pagina-regels 17 nov).
