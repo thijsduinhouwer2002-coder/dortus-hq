@@ -1,8 +1,95 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 28, hoe vaak en wanneer plaatsen (gat tussen filmpjes, per week, tijdstip) binnen hetzelfde TikTok-account gemeten, gestart 17 nov 2026 ±03:05 UTC. Daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 28, hoe vaak en wanneer plaatsen, klaar 17 nov 2026 ±03:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 28. Hoe vaak en wanneer plaatsen? Gat tussen filmpjes, drukke weken, tijdstip, weekdag en de dag na een hit, binnen hetzelfde TikTok-account gemeten (7.239 TikToks van 24 makers over 3D-printen en Blender)
+
+Onderzocht 17 nov 2026 ±03:05 tot 03:50 UTC, run 28. Waarom: vandaag om 15:00 UTC gaat het eerste filmpje van Chris live. Het plan is één filmpje per werkdag om 15:00 UTC, en de tijd staat er als GOK bij met "na 10 filmpjes vergelijken" (`commercie/filmpjes/planning.md`). Vraag: maakt het uur, de dag of het aantal per week verschil, en wat doe je als er een filmpje aanslaat?
+
+### Bronnen en werkwijze
+- **Dezelfde tabel als verhaal 27** (`platformen/succes/data/tiktok-lengte-2026-11-17.csv`, GEZIEN, yt-dlp, alleen openbare lijsten, filmpjes ouder dan 14 dagen). Nieuw: het precieze tijdstip van plaatsen. Dat zit in het filmpjesnummer zelf (de bovenste 32 bits van een TikTok-id zijn de Unix-tijd in UTC). Script: `platformen/succes/data/tiktok-ritme-analyse.py`.
+- **Eerlijk vergelijken:** elk filmpje gedeeld door de mediaan van de 10 filmpjes ervoor en de 10 erna van hetzelfde account (1,0 is gewoon voor dat account op dat moment). Voor drukke weken is dat niet genoeg, want dan zijn de buren ook druk. Daarom daar een tweede ijkpunt: de mediaan views van het eigen account van 30 tot 120 dagen ervoor en erna, dus buiten de drukke periode zelf.
+- **Wat de platforms zelf zeggen (DERDEN, niet bij de bron zelf gelezen):** TikTok zou al jaren "één tot vier keer per dag" aanraden (zo samengevat door [Lilach Bullock](https://www.lilachbullock.com/how-many-times-a-day-should-you-post-on-tiktok/); de pagina van TikTok zelf vond ik niet). De productleider van YouTube Shorts, Todd Sherman, zei in augustus 2023 dat ook 10 Shorts per dag de prestaties niet schaadt (kop van [Benzinga](https://www.benzinga.com/news/23/08/34020532/youtube-shorts-chief-debunks-popular-myths-no-posting-10-videos-a-day-doesnt-affect-your-performance); de tekst laadde niet met curl). Bijna alle andere "zo vaak moet je posten"-pagina's zijn van planningsoftware en geven geen meting binnen een account.
+
+### 1. Het gat sinds het vorige filmpje doet niets (GEZIEN)
+| Tijd sinds het vorige filmpje | Filmpjes | Accounts | Mediaan verhouding | 3 keer of meer | Onder de helft | Accounts boven 1 (van accounts met 5+) |
+|---|---|---|---|---|---|---|
+| minder dan 2 uur | 795 | 20 | 0,97 | 12% | 14% | 6 van 15 |
+| 2 tot 8 uur | 413 | 20 | 0,94 | 15% | 12% | 6 van 14 |
+| 8 tot 20 uur | 856 | 24 | 0,99 | 14% | 14% | 7 van 18 |
+| **20 tot 28 uur (dagelijks)** | 1.816 | 24 | **1,00** | 16% | 13% | 12 van 24 |
+| 28 tot 52 uur | 1.169 | 24 | 0,99 | 15% | 14% | 11 van 22 |
+| 52 tot 100 uur | 915 | 23 | 0,97 | 15% | 14% | 7 van 21 |
+| 4 tot 7 dagen | 506 | 23 | 1,02 | 16% | 16% | 11 van 20 |
+| 7 tot 14 dagen | 399 | 23 | 0,98 | 19% | 14% | 10 van 18 |
+| 14 tot 60 dagen | 306 | 21 | 0,95 | 13% | **23%** | 7 van 17 |
+
+Een filmpje dat 2 uur na het vorige komt, doet het binnen 3% even goed als een filmpje na een dag of na een week. Alleen na een pauze van meer dan twee weken valt een filmpje vaker tegen (23% onder de helft tegen 13 tot 16%). De eerste vijf filmpjes na zo'n pauze: mediaan 0,93, 0,87, 0,94, 0,96, 0,96. Een kleine dip, geen straf die weken duurt.
+
+Bij alleen de kleine stukken (de buren halen mediaan minder dan 2.000 views, 17 accounts, het dichtst bij waar wij beginnen): minder dan 20 uur 0,98, dagelijks 1,00, 1 tot 4 dagen 1,01, langer 1,01. Hetzelfde beeld.
+
+### 2. Meer filmpjes per week is bijna allemaal extra bereik (GEZIEN)
+| Week, vergeleken met hoe druk dat account gewoonlijk is | Filmpjes | Views tegen het ijkpunt 30 tot 120 dagen ervoor en erna (mediaan) | Mediaan van de accounts |
+|---|---|---|---|
+| twee keer zo druk of meer | 946 | 0,90 | 0,94 (9 van 20 boven 1) |
+| 1,25 tot 2 keer zo druk | 1.319 | 0,95 | 0,95 |
+| gewoon | 2.437 | 1,02 | 0,98 |
+| rustiger | 2.155 | 1,03 | 1,07 |
+
+In een week met twee keer zoveel filmpjes haalt elk filmpje ±6 tot 10% minder. De week als geheel haalt dus ±1,8 keer zoveel views. Er is een beetje "opeten", maar veel minder dan het extra filmpje oplevert. Per kalenderweek zie je hetzelfde: weken met 1, 2, 3 tot 4, 5 tot 7 en 8 tot 14 filmpjes hebben allemaal een mediaan van 0,96 tot 0,99 per filmpje, en de som groeit mee (1,0, 2,4, 4,6, 9,6, 17,2).
+
+Het filmpje vlak voor een snel volgend filmpje (volgende binnen 8 uur) doet het iets minder: 0,96, en bij de accounts 0,92 met maar 4 van 18 boven 1, en minder vaak een hit (10% tegen 15 tot 17%). Twee filmpjes binnen een paar uur zitten elkaar dus een beetje in de weg. Eén per dag niet.
+
+Waarschuwing uit verhaal 13: Mixtapeprints plaatste ±15 per week met bijna gelijke clips en zakte weg. Hier telt dat mee en het gemiddelde blijft plat, dus het probleem was waarschijnlijk dezelfde clip steeds opnieuw, niet het aantal (GOK).
+
+### 3. Het uur en de weekdag doen niets (GEZIEN)
+| Uur van plaatsen (UTC) | Filmpjes | Mediaan verhouding | Accounts boven 1 |
+|---|---|---|---|
+| 00 tot 04 | 1.096 | 0,97 | 9 van 16 |
+| 04 tot 08 | 711 | 1,04 | 7 van 13 |
+| 08 tot 12 | 959 | 0,97 | 5 van 16 |
+| 12 tot 16 | 1.167 | 0,99 | 8 van 22 |
+| 16 tot 20 | 1.968 | 0,98 | 7 van 20 |
+| 20 tot 24 | 1.338 | 0,98 | 7 van 20 |
+
+Per account: het eigen gewone blok van 4 uur (waar de meeste filmpjes vallen) tegen de andere uren. Bij 14 van 23 accounts doet het gewone uur het beter, bij 7 slechter, bij 2 gelijk; mediaan ±5% beter (gewoon gedeeld door ander: 1,05). Brockcreative haalt buiten zijn gewone uur maar 0,54 (62 filmpjes), Blender Secrets juist 0,78 op zijn gewone uur. Welk uur het is, maakt dus niet uit; één vast uur aanhouden lijkt eerder iets te helpen dan te schaden (GOK waarom: vaste kijkers, of makers houden het uur aan dat bij hen werkt). Weekdagen: maandag 1,01 tot woensdag 0,96, alles binnen 5%, zaterdag en zondag 0,97 en 0,99. De lijstjes met "beste tijd om te posten" vergelijken weer verschillende accounts met elkaar.
+
+Ook belangrijk voor Chris: zelfs met 10 filmpjes kun je een verschil van 5% niet zien. De spreiding per filmpje is veel groter (15% van alle filmpjes haalt 3 keer het gewone, 14% minder dan de helft). "Na 10 filmpjes de tijd vergelijken" kan dus niets opleveren.
+
+### 4. Het filmpje na een hit krijgt een duwtje, ongeacht wanneer (GEZIEN)
+| Het vorige filmpje haalde | Filmpjes | Volgende: mediaan verhouding | Volgende: 3 keer of meer | Accounts boven 1 |
+|---|---|---|---|---|
+| minder dan de helft | 1.029 | 0,91 | 16% | 4 van 21 |
+| 0,5 tot 3 keer | 5.097 | 0,95 tot 1,01 | 13 tot 16% | |
+| 3 tot 10 keer | 677 | 1,00 | 18% | 9 van 19 |
+| **10 keer of meer** | 412 | **1,21** | **26%** | **15 van 17** |
+
+Na een echte uitschieter (10 keer het gewone) doet het volgende filmpje het bij 15 van 17 accounts beter dan gewoon, en de kans op weer een hit is 26% in plaats van 15%. Het duwtje is weg na 3 filmpjes (+2: 1,06, +3: 1,05, +4: 0,97). En het maakt niet uit wanneer dat volgende filmpje komt: binnen 24 uur 1,27, na 1 tot 3 dagen 1,08, na meer dan 3 dagen 1,26. Het gaat om het volgende filmpje, niet om de klok. Waarschijnlijke uitleg (GOK): nieuwe volgers die net binnenkwamen zien het volgende filmpje, en makers volgen een hit vaak op met hetzelfde onderwerp. Dat laatste kon ik hier niet scheiden.
+
+### Wat ik zag
+1. **Vaker plaatsen is extra bereik.** Elk filmpje is een los lot: het tweede in de week doet het bijna even goed als het eerste. Twee keer zo vaak is ±1,8 keer zoveel views.
+2. **Het uur en de dag zijn geen knop.** Welk uur maakt niets uit; een vast eigen uur doet het hooguit iets beter. Met tientallen filmpjes kun je verschillen van die grootte ook niet meten.
+3. **Niet weken stilvallen.** Na 14+ dagen pauze valt een filmpje vaker tegen. Een dag of een weekend overslaan doet niets.
+4. **Een hit verdient een goed vervolg.** Het volgende filmpje na een uitschieter heeft bijna twee keer zoveel kans op weer een hit.
+
+### Drie lessen
+1. **Het aantal filmpjes is de knop, niet het uur.** Kies één vaste tijd die makkelijk is en besteed de tijd aan meer goede filmpjes.
+2. **Eén per dag is veilig; twee binnen een paar uur zitten elkaar een beetje in de weg.** Wil je meer, verspreid ze over de dag.
+3. **Houd na een hit je beste filmpje van hetzelfde product klaar als volgende.** Haast is niet nodig, de volgorde wel.
+
+### Eerlijk: wat deze meting niet zegt
+- Het zijn 24 bestaande accounts met volgers. Ons account begint op 0. Bij de kleine stukken was het beeld hetzelfde, maar een account met 0 volgers is hier niet gemeten.
+- Views zijn van vandaag, opgeteld sinds het plaatsen.
+- De drukke weken kiest de maker zelf (bijvoorbeeld als hij veel te laten zien heeft). Dat kan de meting beide kanten op duwen.
+- Alleen TikTok. Voor YouTube Shorts kan de cloud de tijd per Short niet lezen; daar is alleen het woord van YouTube zelf (zie boven, DERDEN).
+- Uren in UTC; de kijkers zitten in verschillende landen. Dat het uur niets uitmaakt, kan ook komen doordat TikTok een filmpje dagen blijft tonen.
+
+### Voorstel voor Dortus deze week
+**Chris en de hoofdchat: (1) laat het vergelijken van het uur na 10 filmpjes vallen en houd 15:00 UTC vast; (2) plaats ook op zaterdag en zondag zodra er gekeurde clips op voorraad zijn (7 in plaats van 5 per week is volgens deze meting ±35% meer views, zonder dat de clips van doordeweeks minder halen), via Metricool vooruit ingepland zodat het Thijs geen extra tijd kost; (3) haalt een filmpje na 48 uur 10 keer de mediaan van onze eerdere filmpjes, zet dan de sterkste klare clip van hetzelfde product als volgende in de rij.** Wie: Chris zet de volgorde en voorraad in `planning.md`, de hoofdchat plant in.
 
 ---
 
