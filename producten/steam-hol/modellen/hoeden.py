@@ -10,6 +10,7 @@ van wat spelers al kennen verandert:
   3 pet (rood, klep opzij)       7 hoge hoed (antraciet, rode band)
   4 kroon (goud, drie punten)    8 pan (zwart, houten steel)
                                  9 veermuts (blauw, rode veer)
+  10 edelhoed (ivoren zijden hoge hoed, brede gouden band, wijnrood rozetje; alleen de edelman)
 
 Als module:
     import hoeden
@@ -33,7 +34,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
 
-NAMEN = ["helm", "puntmuts", "kap", "pet", "kroon", "koksmuts", "emmer", "hoge_hoed", "pan", "veermuts"]
+NAMEN = ["helm", "puntmuts", "kap", "pet", "kroon", "koksmuts", "emmer", "hoge_hoed", "pan", "veermuts", "edelhoed"]
+# nr 10 edelhoed: alleen voor de edelman (Daan 17 nov, ontwerp/steam/rolsteen-edelman/ontwerp.md). Willekeurige
+# hoeden voor gewone helden blijven 0 tot 9 (held.gd hoed_nr), daarom rekent hoedenwand.py nog met % 10.
 
 
 def _zet(o, ouder, m, glad=True):
@@ -198,6 +201,18 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0, kantel=0, draai=0, hap=False):
         _kegel(ouder, (-0.6, 0, 0.32), 0.055, 0.045, 0.42, g.mat("steel", "9a5a2a", rough=0.6), rot=(0, R(-50), 0), verts=16)
         _kegel(ouder, (-0.42, 0, 0.17), 0.03, 0.03, 0.12, pan, rot=(0, R(-50), 0), verts=12)
         _bol(ouder, (0, -0.0, 0.19), (0.32, 0.32, 0.02), g.mat("panglans", "6a6670", rough=0.2, metaal=0.9), segs=32)
+    elif nr == 10:   # edelhoed: ivoren zijden hoge hoed van de edelman, maten uit Daans proef (17 nov, GEZIEN: werkt)
+        # 30 procent hoger dan nr 7 en getailleerd; zijde (glans), zodat het fakkellicht er een lange streep op legt
+        iv = g.mat("edelivoor", "f3ead6", rough=0.3, spec=0.6)
+        goud = g.mat("edelgoud", "goud", rough=0.22, spec=0.9, metaal=0.9)
+        _kegel(ouder, (0, 0, 0.025), 0.55, 0.55, 0.05, iv)            # brede rand (opgekrulde flapjes lazen als handvatten)
+        _kegel(ouder, (0, 0, 0.27), 0.31, 0.29, 0.43, iv)
+        _kegel(ouder, (0, 0, 0.69), 0.29, 0.34, 0.43, iv)
+        _kegel(ouder, (0, 0, 0.905), 0.34, 0.33, 0.012, g.mat("edeltop", "fbf5e8", rough=0.25, spec=0.7))
+        _kegel(ouder, (0, 0, 0.15), 0.322, 0.317, 0.18, goud)         # brede band: nooit verwarren met de koksmuts
+        _kegel(ouder, (0, 0, 0.065), 0.323, 0.323, 0.02, g.mat("edelbies", "8a5a1a", rough=0.4, metaal=0.6))
+        _bol(ouder, (0.0, -0.33, 0.15), (0.09, 0.05, 0.09), g.mat("edelroos", "8e2a4a", rough=0.6), segs=20)
+        _bol(ouder, (0.0, -0.37, 0.15), (0.035, 0.02, 0.035), goud, segs=12)
     else:   # veermuts: blauwe baret met een rode veer
         bl = g.mat("veermuts", "4a7fd6", rough=0.7)
         _bol(ouder, (0.05, 0, 0.12), (0.47, 0.44, 0.17), bl, segs=40)
@@ -234,9 +249,9 @@ if __name__ == "__main__":
         bouw(int(nr), (0, 0, 0.0), draai=dr, hap=hp)
         g.camera(hoogte_midden=0.35, schaal=1.6)
     else:
-        for i in range(10):
-            bouw(i, ((i - 4.5) * 1.3, 0, 0.0), draai=dr, hap=hp)
-        g.camera(hoogte_midden=0.35, schaal=13.5)
+        for i in range(len(NAMEN)):
+            bouw(i, ((i - 5) * 1.3, 0, 0.0), draai=dr, hap=hp)
+        g.camera(hoogte_midden=0.35, schaal=14.8)
     g.licht()
     g.render(uit, W, H, SAMPLES, doorzichtig=True)
     print("klaar", uit)
