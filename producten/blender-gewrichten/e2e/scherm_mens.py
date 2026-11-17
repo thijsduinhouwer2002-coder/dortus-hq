@@ -147,6 +147,11 @@ def bouw():
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
     A["actief"](ob)
+    if os.environ.get("CJ_ALLEEN"):  # zoals proef_mens: alleen gewrichten met deze stukjes naam (uitzoeken)
+        _rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+        _g = getattr(_rigm, "_cj_echt", _rigm.gewrichten)
+        _rigm._cj_echt, _w = _g, os.environ["CJ_ALLEEN"].split(",")
+        _rigm.gewrichten = lambda a, meer=False: [x for x in _g(a, meer) if any(w in x[2].lower() for w in _w)]
     log("MENS knop start")
     staat["knop"] = bpy.ops.click_joints.figuur_uit_rig()
     arm.hide_set(True)
