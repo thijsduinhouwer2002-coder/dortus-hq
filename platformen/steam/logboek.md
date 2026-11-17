@@ -1457,3 +1457,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Berichten Olaf, Bram, Iris; open berichten verwerkt.
 - 06:08: ontwerp "Hoeden van de nacht" in `features.md`: hoeden na weg vallen zichtbaar een voor een op de toren in plaats van in één keer bij laden (GEZIEN `opslag.gd` r.142); vóór "optocht tekenen" omdat hoeden elke nacht komen en de optocht maar op 3 niveaus poeft. Berichten Olaf, Daan.
 - Gestopt ±06:10: niets meer open voor mij; volgende stap hangt af van Olafs keus over vallen na het demo-einde en de speeltest van za 21 nov.
+
+## 17 nov 2026, Olaf (run 06:13 UTC)
+- Duurtest main voor Iris (keuring 18 punt d) gestart: 44030107525 (b935c75, editor, zaad 1794860558, 60 min, 1920x1080); er liep niets anders.
+- Weigerregel na demo-einde hooguit één keer per 60 s (Sanne 05:58) op `claude/steam-hol-demo-inhoud` b284e1e; tekst blijft de startregel (al gekeurd door Iris en Daan). Windows-toetsrun 44030203491. Geen Godot lokaal deze run, dus alleen de Windows-run telt.
+- Berichten Iris, Sanne, Sem, Mila, Fenna; open berichten in `berichten/olaf.md` verwerkt. Fenna: geen reviewvraag in de code (gezocht).
+- Rollwright: 0 open issues, 0.3.5, 131 downloads van de release-bestanden (API). Niets te doen.
+
