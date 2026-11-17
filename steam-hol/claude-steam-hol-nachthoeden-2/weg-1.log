@@ -1,20 +1,20 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 571, hoeden 49
-HOL weg faam afgekapt 4 van 76 (hooguit 2 niveaus)
+HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 523, hoeden 33
+HOL weg faam afgekapt 4 van 68 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 49 (vallen vanaf 1.0 s, toren nu 0)
-HOL berg zichtbaar 0 -> 7
-HOL kroniek 0.0 (wacht 0.0): 115 came, 76 fell, 49 hats. +571 gold.
+HOL hoeden van de nacht 33 (vallen vanaf 1.0 s, toren nu 0)
+HOL berg zichtbaar 0 -> 6
+HOL kroniek 0.0 (wacht 0.0): 115 came, 68 fell, 33 hats. +523 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 597 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 549 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794929445
-HOL eerste koop mogelijk na 15 s speeltijd (goud 597)
+HOL zaad 1794929671
+HOL eerste koop mogelijk na 15 s speeltijd (goud 549)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Rik knocks first. Polite.
-HOL begin: vluchten (Rik)
-HOL held binnen: Rik
+HOL kroniek 4.0 (wacht 0.0): Fenna has a map. It is wrong.
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
 HOL zicht 4.1 1
-HOL meting t=10 beelden=98 helden=1 hol_vast=11
-HOL einde na 15 s, fps=10, goud=597, terugkomers=0
+HOL meting t=10 beelden=98 helden=1 hol_vast=9
+HOL einde na 15 s, fps=10, goud=549, terugkomers=0
