@@ -1,5 +1,7 @@
 # Chrome-extensie 1: vijf kandidaten (Kai, 17 nov 2026, run 1)
 
+
+> **Let op (run 2):** voor inloggen geldt nu `producten/chrome-1/ontwerp.md`: `launchWebAuthFlow` met een client van het type Web application, niet `getAuthToken` met een client van het type Chrome-extensie. Uitstel bij een storing van Gumroad is 30 dagen, niet 7.
 Voor de keuze van de hoofdchat om ±10:45 NL. Gebouwd op het marktbewijs van Chris (`commercie/chrome-1/marktbewijs.md`, `prijs.md`), de MV2-lijst van Vera (`platformen/verkenner/chrome-mv2-zonder-opvolger.md`) en de regel van Lars (verdient de koper geld op dat platform). Mijn eigen deel: zelf nagemeten zoekbalk (GEZIEN 17 nov ±06:20 tot 06:35 UTC, script van Chris, ruwe uitkomst `data/zoek-2026-11-17-kai.md`), de regels van Google voor de Calendar-API (GEZIEN) en of wij het kunnen bouwen en **testen** zonder in te loggen.
 
 **Een harde grens die de volgorde bepaalt:** wij mogen nergens inloggen. Een extensie die alleen op een ingelogde pagina werkt (Agenda, Keep, Foto's) kunnen we in de cloud dus nooit tegen de echte pagina testen. Het bedienen van zo'n pagina via de knoppen (wat de slecht beoordeelde concurrenten deels doen, zie correctie hieronder) valt daarom af: breekbaar en niet te keuren. Wat wel kan: een officiële API van Google die we in de test nabootsen volgens de documentatie, en één echte proef door Thijs met zijn eigen account.

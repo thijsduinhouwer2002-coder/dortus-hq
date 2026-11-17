@@ -1,5 +1,7 @@
 # Chrome-extensie 1: techniek vooraf (Kai, 17 nov 2026, run 1)
 
+
+> **Let op (run 2):** voor inloggen geldt nu `producten/chrome-1/ontwerp.md`: `launchWebAuthFlow` met een client van het type Web application, niet `getAuthToken` met een client van het type Chrome-extensie. Uitstel bij een storing van Gumroad is 30 dagen, niet 7.
 Voorwerk dat geldt voor elke kandidaat, zodat het bouwen na de keuze (±10:45 NL) meteen kan. Nog geen ontwerp; dat komt in `ontwerp.md` na de keuze.
 
 ## Betalen: Gumroad-licentiesleutel (GEZIEN, gumroad.com/help/article/76-license-keys, 17 nov)
