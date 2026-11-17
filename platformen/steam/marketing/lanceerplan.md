@@ -82,3 +82,19 @@ Valve (`doc/store/reviews`, via Fenna, GEZIEN door haar): "Only purchases (not k
 4. **Wat het vraagt (GOK):** met ±30 verkopen per review (aanname uit het besluit van Hans, 9 nov 20:44) zijn 10 reviews ±300 kopers in de eerste week, ±12% van een lijst van 2.500 verlanglijstjes (het festdoel). Dat is de echte reden waarom het festplan om verlanglijstjes draait: de eerste 10 reviews komen van mensen die al wachten.
 
 **Lanceerweek in de tabel hierboven aangevuld:** dag 2 of 3 A11; dag 7 meetpunt reviews.
+
+## Lanceercohort: eigen ijking van volgers naar reviews (run 21, 17 nov ±07:35 tot 08:00 UTC)
+**Waarom:** de lanceermeetlat hierboven hangt aan een keten van aannames (2.500 verlanglijstjes, ±12% koopt in week 1, ±30 verkopen per review). Geen van die stappen is in onze hoek gemeten. Wat we wel kunnen meten is **volgers vóór de uitgave tegen meegetelde reviews en spelers tegelijk erna**, maar alleen vooruit: Steam bewaart volgers van vroeger niet. Tussen 16 nov en 10 dec komen 79 bureaubladspellen uit Vera's kaart uit (de dag zoals de kaart hem had; ±25 staan op "1 december" en zijn waarschijnlijk een maand, geen dag). Dat is een cohort dat we nu kunnen volgen.
+
+**Wat er staat:**
+- Script `data/lanceer-cohort.py`: per spel datum zoals de winkel hem nu toont, prijs, demo, volgers (`memberslistxml`), meegetelde reviews en percentage (tooltip op de winkelpagina, telt alleen kopers en geen sleutels), spelers tegelijk. Elke aanroep voegt een regel toe, dus één bestand met de hele lijn per spel.
+- Lijsten: `data/lanceer-cohort-kaart.csv` (79 spellen, 16 nov tot 10 dec) en `data/lanceer-terugblik-kaart.csv` (124 betaalde spellen uit sep en okt 2026 die op Hats lijken, Vera's score 1 tot 3; de workflow meet het deel uit oktober, 68).
+- Workflow `.github/workflows/steam-lanceer-cohort.yml`: elke dag 06:41 UTC tot en met 31 dec, uitkomst op de tak `fest-metingen` (`lanceer-cohort-nov-dec-2026.csv`, `lanceer-terugblik-okt-2026.csv`).
+- Waarom in Actions en niet hier: vanuit deze omgeving gaf `steamcommunity.com` na ±20 verzoeken 429 en bleef dat minstens 5 minuten (GEZIEN 17 nov 07:52 tot 07:57 UTC), en `store.steampowered.com/appreviews` stuurde door naar de voorpagina (302, GEZIEN). Een dagelijkse meting mag niet afhangen van of er net een run valt.
+
+**Eerste getallen (GEZIEN 17 nov 07:41 UTC, terugblik, vóór de 429):** Duelist: Idle Expedition (uit 8 okt) 3.848 volgers, 748 meegetelde reviews, 420 spelers tegelijk; Desktop Duck (29 okt) 719 volgers, 216 reviews, 750 tegelijk; Little Ghosties (23 okt) 693 volgers en 82 reviews (91%); NeeNee Deskpals (12 okt) 468 volgers; Tiny Capsule Collector (27 okt) 187 volgers en 43 reviews. Te weinig om iets te zeggen; dat komt als de workflow alle 68 heeft.
+
+**Wat ik ermee ga doen (besluit Sem):**
+1. Op **ma 23 nov** de terugblik lezen: meegetelde reviews per 100 volgers bij spellen 2 tot 7 weken na de uitgave. Volgers na de uitgave zijn hoger dan ervoor, dus dit is een ondergrens voor reviews per volger vóór de uitgave. Dat getal vervangt de stap "12% koopt, 30 per review" in punt 4 hierboven, of bevestigt hem.
+2. Op **dag 7 en dag 14** na elke uitgave in het cohort (eerste: Mini Legends Idle 18 nov, Work From Dungeon 19 nov met 4 tot 5 volgers en 0 aankondigingen) dezelfde maat, nu met volgers van vóór de uitgave. Rond **ma 14 dec** zijn er ±20 spellen met 7 dagen na de uitgave: dan een eerste tabel "volgers op dag 0 tegen reviews op dag 7", en de vraag of 10 meegetelde reviews in 7 dagen bij ±2.500 verlanglijstjes realistisch is.
+3. Work From Dungeon is de enige uit het cohort met een kerker op het bureaublad; die lees ik ook los (dag 1, 7, 14).

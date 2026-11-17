@@ -1,0 +1,49 @@
+name: Steam lanceercohort (volgers en reviews rond de uitgave)
+
+# Sem, 17 nov 2026 (run 21). Meet elke dag de bureaubladspellen die tussen 16 nov en 10 dec 2026 uitkomen
+# (volgers vóór de uitgave, daarna reviews en spelers tegelijk), plus één terugblik op spellen uit oktober 2026.
+# Waarom in Actions: steamcommunity geeft vanuit de Claude-omgeving na ±20 verzoeken 429, en een meting die
+# elke dag moet gebeuren mag niet afhangen van of er net een run van Sem valt.
+# Alleen openbare Steam-pagina's zonder sleutel, rustig (±1 verzoek per 1,5 s). Uitkomst op de tak `fest-metingen`.
+# Stopt vanzelf: na 31 dec doet het script niets meer (zie de datumcheck hieronder).
+on:
+  schedule:
+    - cron: "41 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: steam-lanceer-cohort
+  cancel-in-progress: false
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Meten en bewaren op tak fest-metingen
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(date -u +%Y%m%d)" -gt 20261231 ]; then echo "meetperiode voorbij"; exit 0; fi
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          D=platformen/steam/marketing/data
+          rm -rf /tmp/m
+          if git clone -q --depth 1 --branch fest-metingen "$URL" /tmp/m 2>/dev/null; then :; else
+            mkdir /tmp/m && cd /tmp/m && git init -q -b fest-metingen && git remote add origin "$URL" && cd - >/dev/null
+          fi
+          python3 $D/lanceer-cohort.py $D/lanceer-cohort-kaart.csv /tmp/m/lanceer-cohort-nov-dec-2026.csv 2026-11-16 2026-12-10
+          python3 $D/lanceer-cohort.py $D/lanceer-terugblik-kaart.csv /tmp/m/lanceer-terugblik-okt-2026.csv 2026-10-01 2026-11-01 False
+          cd /tmp/m
+          git add -A && { git commit -q -m "Lanceercohort $(date -u +%FT%H:%MZ)" || { echo "niets nieuw"; exit 0; }; }
+          for poging in 1 2 3 4 5; do
+            if git push -q origin fest-metingen; then echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/fest-metingen"; exit 0; fi
+            git pull -q --rebase origin fest-metingen || true
+            sleep $((poging * 5))
+          done
+          exit 1
