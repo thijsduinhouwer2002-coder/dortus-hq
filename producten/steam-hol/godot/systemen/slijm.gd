@@ -369,6 +369,12 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 		return hoeden.size()   # winkelbeeld moment=hap staat stil: een volgende hap verandert het beeld niet
 	gegeten += 1
 	hap_van = t
+	# hap terwijl de hoeden van de nacht nog vallen (controleur punt 1): de rij eerst meteen op de toren, zodat het getal
+	# en de volgorde kloppen en de boog van de held niet door een nachthoed wordt overgenomen
+	if not nacht_hoeden.is_empty():
+		hoeden.append_array(nacht_hoeden)
+		nacht_hoeden.clear()
+		nacht_van = -1.0
 	if hoed >= 0:
 		hoeden.append(hoed % HOED_SOORTEN)
 		hoed_vlucht_van = t

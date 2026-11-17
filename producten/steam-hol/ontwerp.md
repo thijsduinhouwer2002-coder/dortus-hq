@@ -33,6 +33,9 @@ Eerlijk wat nieuw is (`platformen/steam/idee.md`, GEZIEN): in de 405 Desktop Com
 **Bewust niet.** Geen aftelklok, geen schermvullende melding, geen knop "koop nu" (eerlijk en rustig, past bij nooit straffen). Geen andere save of ander formaat. Niets wordt afgepakt of op slot gezet wat je al had.
 **Af als:** (1) toets in `systemen/toetsen` of een eigen toets: met `steamdemo=1 demo_einde=60` komt de regel na 60 s precies één keer, graven en kopen doen daarna niets (logregel `HOL demo voorbij: graven/kopen geweigerd`), helden blijven komen; (2) zonder `steamdemo` na dezelfde tijd geen regel en kopen werkt; (3) herstart met dezelfde save (zonder `vers=1`): speeltijd loopt door, startregel één keer; (4) toetsrun op Windows groen en `hol.json` staat echt in `%APPDATA%/Dortus/Het Hol`; (5) `demo_einde.gd` getoetst in `toets_systemen.gd`; winkelbeelden van de week laden de save nog.
 
+## Hoeden van de nacht (Bram 17 nov 2026, ontwerp Sanne in `platformen/steam/features.md`)
+Drie aanpakken bekeken: (a) hoeden na `geef_hoeden` weer van de toren halen en opnieuw laten vallen (lelijk, twee keer tellen); (b) een aparte knoop die hoeden laat vallen (nieuw tekenwerk, dubbel met de toren); (c) een rij op de slijm zelf die de bestaande landing van `hoed_vlucht` hergebruikt. Gekozen: (c). Weinig code, geen nieuwe tekening, save gelijk omdat `naar_dict` de rij meetelt. `geef_hoeden(..., later=true)` vult de rij met dezelfde dobbelsteen, `start_nacht()` laat ze na 1 s vallen (vast, de wip van het bordje is na 0,6 s klaar). Een hap tijdens het vallen zet eerst de hele rij op de toren.
+
 ## Testen
 `.github/workflows/steam-hol.yml` op een echte Windows-runner met Kladblok erachter: toetsen van Bram (0 FOUT), scripts laden zonder fout, schermafbeelding op 96, 120 en 160 px, CPU op 120 px, een film van een minuut (Movie Maker, 15 fps) als GIF. Alles op de tak `schermen` onder `steam-hol/<tak>/`.
 

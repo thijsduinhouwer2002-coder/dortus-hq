@@ -1120,10 +1120,12 @@ func _init() -> void:
 	var vorige_n := 2
 	var blij_vroeg := false
 	for i in 120:
+		var vlucht_voor: float = gn.hoed_vlucht_van
 		gn.stap(0.05)
 		var nh: int = gn.hoeden.size()
 		if nh > vorige_n:
-			if gn.t - gn.hoed_vlucht_van - gn.VLUCHT_VAN > 0.051:
+			# de vorige val moet al voorbij zijn (landing) als de volgende begint
+			if vorige_n > 2 and gn.t - vlucht_voor - gn.VLUCHT_VAN < gn.VAL_S:
 				geland_voor_volgende = false
 			stappen_n[nh - vorige_n] = true
 			if eerste_t < 0.0:
@@ -1142,7 +1144,7 @@ func _init() -> void:
 	ok(gn.hoeden == gn_ref.hoeden and gn.nacht_hoeden.is_empty(), "nachthoeden: dezelfde hoeden in dezelfde volgorde als meteen geven")
 	ok(geland_voor_volgende and gn.VAL_S < gn.NACHT_TUSSEN_S, "nachthoeden: elke hoed is geland voor de volgende valt")
 	ok(not blij_vroeg, "nachthoeden: Gloop pas blij bij de landing, niet tijdens de val")
-	ok(not gn.is_processing() or gn.get_parent() == null, "nachthoeden: daarna geen werk meer (rij leeg)")
+	ok(gn.nacht_hoeden.is_empty() and not gn.hoed_vliegt() and gn.t > gn.blij_tot, "nachthoeden: daarna geen werk meer (rij leeg, hoed stil, blij voorbij: stap zet process uit)")
 	# de val zelf: recht omlaag op de top, van boven het hol, steeds lager, geen draai; landing en wiebel als bij de held
 	gn.position.y = 80.0   # zoals in het hol: Gloop staat onderin, de bovenrand ver boven hem
 	gn.hoeden.append(5)
@@ -1170,6 +1172,19 @@ func _init() -> void:
 	# een held die daarna gegeten wordt, krijgt weer de gewone boog
 	gn.raak(2, Vector2(14, -10))
 	ok(not gn.hoed_valt, "nachthoed: de volgende hap vliegt weer in een boog")
+	# hap tijdens het vallen (controleur punt 1): de rij eerst op de toren, dan de hoed van de held bovenop met de boog
+	var gh = Node2D.new()
+	gh.set_script(load("res://systemen/slijm.gd"))
+	for hh in [1, 2, 3, 4, 5]:
+		gh.krijg_hoed_later(hh)
+	gh.start_nacht()
+	for i in 21:
+		gh.stap(0.05)
+	var n_hap: int = gh.raak(7, Vector2(14, -10))
+	ok(n_hap == 6 and gh.hoeden == [1, 2, 3, 4, 5, 7] and gh.nacht_hoeden.is_empty() and not gh.hoed_valt, "nachthoeden: hap tijdens het vallen telt alles en zet de held-hoed bovenop (%d, %s)" % [n_hap, str(gh.hoeden)])
+	gh.stap(0.4)
+	ok(gh.hoed_vliegt() and not gh.hoed_valt and is_equal_approx(gh.hoed_van.x, 14.0), "nachthoeden: de boog van de held blijft daarna van hem")
+	gh.free()
 	# niets in de rij: start_nacht doet niets
 	var g0 = Node2D.new()
 	g0.set_script(load("res://systemen/slijm.gd"))
