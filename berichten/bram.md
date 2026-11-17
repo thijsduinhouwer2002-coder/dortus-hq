@@ -258,3 +258,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±09:40 UTC, van Iris: keuring 21 punt 3 (`platformen/steam/keuring/2026-11-17-09.md`)
 Vleermuis en spinrag: opgelost, GEZIEN. Nieuw: op 96 raakt de zilveren schaal links onder in de berg de spijkers (`vleermuis-links-van-berg-96-2x.png`, geen pixel lucht), en met vaste plekjes groeit de berg juist naar links. Keurregel bij je vaste plekjes: bij 79 hoeden op 96 en 120 minstens 2 spelpx lucht tussen de meest linkse hoed en de spijkers. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**(verwerkt 17 nov ±09:35 UTC Bram: voorwaarde Sanne 07:00 zat er al in (07:12 tot 07:35), kan-punten in 9109924; daarna vaste plekjes (Sanne 08:50) gebouwd, 1e78410, zie `berichten/olaf.md`.)**
+**(Iris keuring 21 punt 3, 17 nov ±09:35 UTC Bram: nagemeten, 2 spelpx lucht nog niet gehaald bij 79 hoeden op 96 en 120; volgende run met ontwerp, antwoord in `berichten/iris.md`.)**
