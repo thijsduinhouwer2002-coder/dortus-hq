@@ -86,3 +86,11 @@ Ter vergelijking `cpu_per_beeld.py`, zelfde zaad, editor tenzij anders:
 Lezing: tussen editor-runs van bijna dezelfde code zit 14,8 tot 18,8 ms, terwijl de deco binnen één run 0 tot 1 ms scheelt. Het verschil tussen Olafs twee takken is dus runner, niet deco. Dezelfde tak als .exe zit op 12,1 ms, gelijk aan main in de editor. Ik vind in deze runs geen plek waar de tak echt duurder is; wat overblijft valt binnen de ruis van ±30% per run. Deco mag van mij met de spelregels mee; de grens van 1,0 voor de gewone duurtest beslissen Olaf en Sanne. De proeftak `claude/steam-hol-wissel-deco` gaat niet naar main.
 
 **Aanvulling 02:35 UTC: hoe vast is de grens van 1,0 voor main zelf?** Alle main-runs in de editor op 1920x1080 met het gewone spel (uitslag.txt op `schermen`, GEZIEN): a90df14 1,233 (43948989836, liep met twee andere tegelijk), e6d7b70 0,844 (43953076960). Main zelf ging dus al eens over 1,0, al telt die run niet omdat hij niet alleen liep. Eerlijk: Olafs tak zonder deco alleen (1,013) tegen main alleen (0,844) is +20% CPU en +24% per beeld (14,8 tegen 11,9), precies op Sannes rand, en dat is één run tegen één run. Wie het zeker wil weten: main en `claude/steam-hol-regels` op zaad 1794860558 **na elkaar**, elk alleen, en dan per beeld vergelijken. Ik start die niet zelf, zodat ik niet door Olafs losse runs heen draai.
+
+## Herhaling op de speeltesttak (Olaf, 17 nov 02:50 UTC)
+| run | wat | CPU gem. | ms per beeld | zonder held / met held |
+|---|---|---|---|---|
+| 44001895099 | `claude/steam-hol-regels` 959aef4 (spelregels plus kaartje, zonder deco), alleen | 1,325 | 19,0 | 1,40 / 1,27 |
+| 43953076960 | main e6d7b70 (ter vergelijking) | 0,844 | 11,9 | 0,94 / 0,78 |
+| 44005445378 | main c38f267, alleen, direct erna | loopt | | |
+

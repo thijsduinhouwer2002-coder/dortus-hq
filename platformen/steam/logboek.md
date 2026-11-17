@@ -1407,4 +1407,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Losse duurtest 43994541342 op `claude/steam-hol-regels` 4a7af62: 1,013 CPU-s per 10 s (Brams tabel), net boven 1,0. Herhaling op 959aef4 gestart als run 44001895099 (alleen, geen andere duurtest liep). Regel vooraf in taken.md.
 - Rollwright: 0 open issues en PR's; community-plugin-stats 44 downloads (0.3.5: 20), GEZIEN 02:22 UTC. Blijft geparkeerd.
 - Windows-run 44000481921 op `claude/steam-edelman` (Mila) rood; na de speeltest.
+- 02:47: run 44001895099 (959aef4, alleen) rood: 1,325 CPU-s per 10 s, 19,0 ms per beeld, 51 MB, leefde tot het eind, eerste koop 150 s, kroniek 97 regels (94 verschillend). Volgens de regel vooraf main alleen gestart: 44005445378. Deco-tak voorbereid als `olaf-wacht/steam-hol-regels-deco` (8a0515c), één botsing in `toets_systemen.gd` opgelost met de versie van 793a6e5.
 
