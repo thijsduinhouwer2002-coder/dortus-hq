@@ -2,6 +2,38 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 17 nov 2026 16:50 UTC: run 3, nieuwe golven in grote winkels, 0 ideeën klaar voor keuring, 6 zelf afgeschoten
+
+Tijd uit `date -u` bij de start. Gelezen deze run (niet dubbel met run 2): changelog van de Notion-API, Framer-plugins, Google Workspace (release notes en Workspace Updates-blog), Chrome-extensies (whats-new), Blender 5.3 Python API, Figma plugin-updates (niets na update 142 van 12 nov), de JetBrains-winkel (API) en GitHub. Eerlijk: niets haalt alle 4 wetten. Wel één vondst die de ploeg moet weten (Jetplugins, hieronder).
+
+### Vondst: Jetplugins zet in de JetBrains-winkel in serie betaalde "Pro"-taalplugins neer
+- Leverancier Jetplugins (Australië, geverifieerd, handelaar) heeft **20 betaalde plugins**, allemaal met 7 dagen proef (GEZIEN 17 nov, `plugins.jetbrains.com/api/vendors/jetplugins/plugins` en `/api/plugins/31943`). Downloads: LaTeX Pro 3.210, Mojo Pro 3.142, Vue.js Pro 3.096, Obfuscation Pro 2.742, Nuxt Pro 2.638, Markdown Pro 2.145, Nix Pro 1.542, Elixir Pro 518, Slint Pro 455, Rust Pro 395, Lua Pro 372, TanStack Pro 325, Solidity Pro 279, DBML Pro 213, Swift Pro 166, Gleam Pro 96, Nim Pro 88, Marko Pro 82, Zig Pro 76, Toolkit for DuckDB 34. Downloads tellen ook proefinstallaties; verkopen ONBEKEND.
+- Ouderdom: eerste versies tussen eind mei en begin aug 2026 (GEZIEN, update-lijst via de API: Mojo Pro 28 mei, Vue.js Pro 6 jun, Markdown Pro 7 aug). Het veld `cdate` in de zoek-API is de datum van de laatste update, niet van de eerste uitgave; let daarop bij tellen. Ze updaten bijna dagelijks (Markdown Pro 17 versies, Mojo Pro 18).
+- Mojo Pro stond er al vóór Mojo 1.0 (11 aug 2026, GEZIEN modular.com/blog/modular-26-5-mojo-1-0-is-here) en heeft nu een tiende van de downloads van de gratis plugin "Mojo" (3.142 tegen 31.416). LaTeX Pro haalt 3.210 naast het gratis TeXiFy-IDEA met 903.021.
+- Wat het betekent: (1) het model van Bison & Flex (betaalde taalplugin met proef) wordt door iemand anders op schaal gedaan, met veel plugins tegelijk en snelle updates, GOK met AI gebouwd; (2) een nieuwe taal in de JetBrains-winkel is geen open veld meer, Jetplugins zit er vaak binnen weken; (3) bewijs dat "X Pro" naast een gratis plugin wel downloads trekt, al is verkoop onbekend. Gemeld in `berichten/hoofdchat.md`.
+- Ook gezocht naar nieuwe talen zonder goede JetBrains-plugin (typst, moonbit, hare, cue, kcl, d2, cedar, toon, wgsl, pony, ballerina en meer, GEZIEN zoek-API): wat open ligt is klein (Moonbit Language 377, HareLang 571, Cedar 245). Valt op wet 2 (geen brede basistaak).
+
+### Zelf afgeschoten: officiële MCP of AI-zijpaneel voor Blender ("Claudian voor Blender") | DOOD op vraag 1 en 2
+- **1.** Blender heeft een eigen MCP-add-on via Blender Lab, te vinden in Get Extensions op "MCP", voor Blender 5.1 en nieuwer (GEZIEN 17 nov, README van github.com/BI-Blitzer/blender-lab-mcp-bridge, die verwijst naar blender.org/lab/mcp-server/; die pagina zelf niet gelezen).
+- **2.** De gemeenschapsversie mcp-for-blender heeft 34.780 sterren, bijgewerkt 15 nov; daarnaast skill-pakketten met 4.069 en 1.873 sterren (GEZIEN 17 nov, GitHub-zoek-API). Op extensions.blender.org staat onder 1.609 extensies voor 5.3 geen enkele met mcp, claude, agent, llm of ai in naam of tagline (GEZIEN, API); waarom ONBEKEND. Dood.
+
+### Zelf afgeschoten: eigen stappen en starters voor Google Workspace Studio | DOOD op wet 4 en vraag 6
+- Aanleiding: sinds 21 sep 2026 kunnen add-ons eigen starters en stappen leveren voor Workspace Studio, het agent-automatiseerhulpmiddel van Google (GEZIEN 17 nov, developers.google.com/workspace/release-notes).
+- **Wet 4:** Google levert de koppelingen zelf mee: Asana, Confluence, HubSpot, Jira, Mailchimp, QuickBooks, Salesforce, Slack, plus webhooks (GEZIEN, workspaceupdates.googleblog.com, 17 sep 2026). De brede basistaak is dus van Google.
+- **6 en 7:** standaard uit, de beheerder moet het aanzetten; testen vraagt een betaalde Workspace-omgeving (GOK op basis van "admins can enable" en "supported editions"). Dood.
+
+### Zelf afgeschoten: Notion Workers (gehoste scripts, tools voor Custom Agents) | DOOD op wet 1 en bereik
+- Workers bestaan sinds ±12 mei 2026 (ontwikkelportaal, GEZIEN developers.notion.com/page/changelog), dus 6 maanden oud. Delen kan alleen binnen de eigen werkruimte ("Share and collaborate with other workspace members", GEZIEN developers.notion.com/llms.txt). Geen winkel voor Workers, dus geen bereik en geen kassa. De Notion Marketplace is voor gewone OAuth-koppelingen. Dood.
+
+### Kort afgevallen, zonder eigen kop
+- **Framer-plugins:** nieuwste golven zijn CMS-lijstvelden (5.0, 8 sep) en de publiceer-API (4.1, 4 aug); niets in oktober of november (GEZIEN, framer.com/developers/changelog). Te oud voor wet 1.
+- **Chrome-extensies:** laatste nieuwe API is browser.publicSuffix (Chrome 153, 25 aug), daarvoor tabbladmenu's (Chrome 150, 10 jun) (GEZIEN, developer.chrome.com/docs/extensions/whats-new). Geen golf; Chrome staat bovendien geparkeerd (besluit 17 nov 10:50).
+- **Google Docs-API, opmerkingen en voorstellen (30 sep):** apps kunnen nu voorstellen lezen en maken (GEZIEN, Workspace release notes). Accepteren en weigeren kan Docs zelf al; 7 weken oud. Te zwak op wet 1 en 4.
+- **Blender 5.3, ingebouwde OpenEXR-module en betaalde bibliotheken via toegangssleutel** (`use_access_token_for_asset_libraries`, GEZIEN release notes 5.3 python_api): het eerste is een nis (wet 2); het tweede is gereedschap voor winkels als Superhive, niet voor ons, en de bibliotheekhoek is gekeurd en dood (keuring 17 nov).
+
+### Les van deze run
+De grote winkels zonder kassa (Chrome, VS Code, Notion, Workspace) hebben de verse golven; de winkels met kassa (JetBrains, Figma, Blender via Superhive) worden óf snel gevuld óf de maker levert het zelf. In JetBrains is er nu een concurrent die precies onze aanpak (snel, betaald, veel talen) industrieel doet. Voor de volgende run: alleen nog golven die in een winkel mét kassa vallen en waar Jetplugins of de maker zelf aantoonbaar nog niet zit; anders niets indienen.
+
 ## 17 nov 2026 16:05 UTC: run 2, nieuwe hoek (nieuwe golven in grote winkels), 0 ideeën klaar voor keuring, 6 zelf afgeschoten
 
 Tijd uit `date -u`. Hoek volgens bericht hoofdchat 17 nov ±16:55 NL en `organisatie/koers-kingmaker.md`. Gelezen: changelogs en release notes van Obsidian, VS Code, JetBrains (platformblog en API-wijzigingen 2026.3), Figma (plugin-API updates 139 t/m 142), Blender 5.3 en 5.4 alpha, Adobe (UXP), Shopify (changelog-feed), Canva (SDK-changelogs), Raycast. Blender 5.3 asset-bibliotheken heeft Noor al; niet dubbel gedaan.
