@@ -318,6 +318,41 @@ def kogel_schuif(context, doel, m, lengte):
     return uit
 
 
+def scharnier_plekken(context, doel, m, lengte):
+    """Pro 1.1 (17 nov run 18): kandidaten voor een scharnier. Rigs zetten het bot van knie en elleboog vaak niet in
+    het midden van het lid (MakeHuman-mens op 180 mm: elleboog 2,75 mm tot de voorkant en 6,55 tot de achterkant),
+    en het scharnier meet de dikte als de kortste kant (scharnier_vorm.maten). Daarom eerst de botkop in het midden
+    van de doorsnede (langs de scharnieras en de buigkant), dan dezelfde plek iets verder het onderste lid in (10 en
+    20% van het bot), waar onderarm en scheen meestal dikker zijn. Lijst van (matrix, mm langs het lid)."""
+    from ..eigenschappen import eenheid_per_mm
+    bvh = bvh_van(doel, context.evaluated_depsgraph_get())
+    u = eenheid_per_mm(context.scene)
+    as_l = m.col[2].to_3d().normalized()
+    uit = [(m, 0.0)]
+    for f in (0.0, 0.1, 0.2):
+        o = m.to_translation() + as_l * f * lengte
+        for _ in range(2):  # twee keer: na de eerste schuif ligt het midden langs de andere as iets anders
+            for kol in (0, 1):
+                w = m.col[kol].to_3d().normalized()
+                a, b = bvh.ray_cast(o, w), bvh.ray_cast(o, -w)
+                if a[0] is None or b[0] is None:
+                    break
+                o = o + w * (a[3] - b[3]) / 2
+        if not _binnen_bvh(bvh, o):
+            continue
+        k = m.copy()
+        k.col[3][:3] = o
+        if all((k.to_translation() - x.to_translation()).length > 0.2 * u for x, _mm in uit):
+            uit.append((k, f * lengte / u))
+    return uit
+
+
+def _binnen_bvh(bvh, punt):
+    richtingen = (Vector((0.5774, 0.5774, 0.5774)), Vector((-0.7071, 0.1, -0.7)).normalized(),
+                  Vector((0.13, -0.98, 0.17)).normalized())
+    return sum(_snijpunten(bvh, punt, r) % 2 for r in richtingen) >= 2
+
+
 BUUR = {"shoulder": "elbow", "hip": "knee"}
 
 
@@ -424,11 +459,20 @@ def draai_terug(context, bron, voor):
     context.view_layer.update()
 
 
+def _in_kader(ob, punt):
+    hoeken = [ob.matrix_world @ Vector(h) for h in ob.bound_box]
+    return all(min(h[i] for h in hoeken) - 1e-4 <= punt[i] <= max(h[i] for h in hoeken) + 1e-4 for i in range(3))
+
+
 def deel_met(context, kandidaten, punt):
     """Het deel van de figuur waar het punt in ligt (het diepste, als het in meer ligt), of None."""
     dg = context.evaluated_depsgraph_get()
     beste = None
     for ob in kandidaten:
+        if not _in_kader(ob, punt):
+            # Run 18 (MakeHuman-mens, 220 mm): het teken van de normaal is op een naad soms vals; een ver deel (de
+            # onderarm) "bevatte" zo de knie en won als diepste. Een punt buiten het kader van een deel ligt er nooit in.
+            continue
         ok, afst = binnen(ob, punt, dg)
         if ok and (beste is None or afst > beste[1]):
             beste = (ob, afst)
@@ -493,6 +537,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # Eerst met de hele bolnaad buiten de romp (vol bereik); is het daar te dicht bij de knie, dan de
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 kandidaten = kogel_schuif(context, doel, m, lengte)
+            else:
+                kandidaten = scharnier_plekken(context, doel, m, lengte)
             geblokkeerd, vangnet = False, None
             for i, (m, _mm) in enumerate(kandidaten):
                 for o in context.view_layer.objects:
@@ -520,7 +566,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     draai_terug(context, doel, voor)
                     ok, melding, vangnet = False, fout, fout
                     continue
-                if ok or i == len(kandidaten) - 1 or "too close" not in (melding or "").lower():
+                laag = (melding or "").lower()
+                verder = "too close" in laag or (soort == "HINGE" and ("too thin" in laag or "tight" in laag))
+                if ok or i == len(kandidaten) - 1 or not verder:
                     break
             if not ok and vangnet:
                 melding = vangnet  # de echte reden; latere plekken zeggen vaak alleen "nothing was cut"
