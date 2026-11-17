@@ -159,6 +159,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         if soort != "dief":   # Bram 15 nov: geen glimstip op het masker, las als losse witte ruis (frisse kijker)
             _bol(ouder, hk(ox + kijk + 0.025, -0.335 + oy, HZ + 0.04), hs(0.02, 0.01, 0.02), glim, segs=12)
         _bol(ouder, hk(0.18 * kant, -0.25, HZ - 0.1), hs(0.06, 0.02, 0.035), blos, segs=16)
+    if soort in hs_.SOORTEN and hasattr(hs_, "gezicht"):
+        hs_.gezicht(ouder, soort, stand, hk, hs, HZ)
     if bang:
         _bol(ouder, hk(0, -0.32, HZ - 0.15), hs(0.05, 0.02, 0.06), g.mat("hmond", "mond", rough=0.6), segs=16)
     else:
@@ -198,7 +200,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
              rot=(math.atan2(-hy, 0.24) if hy < -0.05 else 0, kant * a, 0))
         # Bram 15 nov (kan Daan 07:35): de dief draagt donkere handschoenen. De lichte linkerhand bij zijn wang
         # las op ware grootte als witte druppels naast het masker, zodat de band een witte rand leek te krijgen.
-        hand_mat = g.mat("handschoen", "3a2e34", rough=0.7, spec=0.2) if soort == "dief" else huid
+        hand_mat = (g.mat("handschoen", "3a2e34", rough=0.7, spec=0.2) if soort == "dief" else
+                    g.mat("handschoen_w", "f6efe2", rough=0.7, spec=0.2) if soort == "edelman" else huid)   # edelman: witte handschoenen
         _bol(ouder, (hx, hy, hz), (0.085, 0.085, 0.085), hand_mat, segs=16)
         handen[kant] = (hx, hz)
 
