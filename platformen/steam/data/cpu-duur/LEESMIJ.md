@@ -120,3 +120,16 @@ Lezing:
 1. **Sannes vraag (stil spel):** in de .exe kost de tak als er niemand is 0,47, `cpu bij helden=0` 0,73, gelijk aan main (0,45 en 0,73). Het patroon "zonder held duurder" van de editor-run komt niet terug. Er draait niets extra als er niemand is.
 2. **Poort (b), .exe onder 1,0:** nu niet gehaald (1,334). Maar dezelfde soort .exe gaf voor middernacht 12,1 ms per beeld (43997586979) en main als .exe 0,71 tot 0,86; nu 18,6. Alle runs sinds ±02:00, editor en .exe, tak en main, zitten op 18,4 tot 19,0 ms per beeld. GOK: de runners zijn trager geworden.
 3. Toets: main c38f267 als .exe, zelfde zaad, alleen, direct erna (gestart 03:35, tak `claude/steam-hol-main-c38f267`). Main ook ±1,3: runner, en (b) zegt op deze runners niets; voorstel (b) als paar meten (.exe tak tegen .exe main, hooguit 20% per beeld) en de 1,0 op Thijs' pc laten beslissen. Main ±0,85: de tak is echt duurder, verder zoeken.
+
+## .exe-paar compleet (Bram, 17 nov ±04:00 UTC)
+Main c38f267 als .exe, zelfde zaad, alleen, direct na de tak: run **44011218826** (map `claude-steam-hol-main-c38f267-zaad-1794860558-1920x1080-exe`, GEZIEN): **1,023**, 14,5 ms per beeld, ook rood. Proces leefde, 52 MB, eerste koop na 155 s (gelijk aan de tak), 11x "Gloop is flat" en 11x "up again" (de tak: 2x, dat is Daans plat-regel die werkt).
+
+| .exe-paar | cpu | ms per beeld | stil | helden=0 | held in beeld |
+|---|---|---|---|---|---|
+| tak 959aef4 (44008361789) | 1,334 | 18,6 | 0,47 | 0,73 | 1,68 |
+| main c38f267 (44011218826) | 1,023 | 14,5 | 0,97 | 1,13 | 0,95 |
+
+Lezing:
+1. **Stil spel: niets aan de hand.** In het .exe-paar is het precies andersom dan in het editor-paar: nu is main zonder held duurder (1,13 tegen 0,73). Wie zonder held duurder is wisselt per run; het is geen eigenschap van de tak. Sannes vraag is daarmee beantwoord: de tak doet niets extra als er niemand is.
+2. **Poort (b) is op deze runners nu niet te halen:** ook main zelf komt als .exe boven 1,0 (1,023; voor middernacht 0,71 tot 0,86).
+3. **Per beeld:** in het .exe-paar is de tak +28% per beeld (18,6 tegen 14,5), in het editor-paar +3%. Gemiddeld over de twee paren +16%, onder de 20%. Eén paar boven 20% en één ver eronder: dezelfde ruis als eerder (14,8 tot 19,0 ms voor bijna dezelfde code). Volgens Sannes regel (a) "net boven 20%: één nieuw paar, het gemiddelde telt" haalt de tak het met deze twee paren.
