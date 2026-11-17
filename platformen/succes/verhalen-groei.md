@@ -1,8 +1,64 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 33, loont vroeg zijn in een nieuwe winkel? (Obsidian en extensions.blender.org), 17 nov 2026 ±08:05 UTC. Volgende daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk nameten, of Ebb en Hat Tower na 14 dagen.
+bezig: niets (laatste: verhaal 33, loont vroeg zijn in een nieuwe winkel (Obsidian en extensions.blender.org), klaar 17 nov 2026 ±08:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 33. Loont vroeg zijn in een nieuwe winkel? Twee winkels met datum en downloads per plugin gemeten: Obsidian (10.494 plugins, winkel open sinds okt 2020) en extensions.blender.org (1.124 add-ons, open sinds feb 2024)
+
+Onderzocht 17 nov 2026 ±08:05 tot 08:45 UTC, run 33. Waarom: Thijs koos vanochtend (besluit 17 nov 08:45) voor "vroeg zijn op wat net opent", en Noor zoekt nu jonge winkels. Maar levert vroeg zijn echt meer op, hoe lang blijft het venster open, en wie van de vroege makers wint? Dat is te meten in winkels die per plugin een datum en een downloadteller tonen.
+
+### Bronnen en werkwijze
+- **Obsidian (GEZIEN, 17 nov ±08:05 UTC):** de winkellijst `community-plugins.json` en de teller `community-plugin-stats.json` uit de openbare repo `obsidianmd/obsidian-releases` (git clone, alleen lezen). De datum per plugin is de eerste commit waarin zijn id in de lijst staat: alle 6.912 commits van dat bestand doorgelopen. 10.494 plugins hebben een datum en een teller, samen 171,7 miljoen downloads. Script `vroeg-obsidian-eerst-gezien.py`, analyse `vroeg-obsidian-analyse.py`, tabel `obsidian-vroeg-2026-11-17.csv`.
+- **extensions.blender.org (GEZIEN, 17 nov ±08:10 tot 08:20 UTC):** lijst uit `extensions.blender.org/api/v1/extensions/` (1.359 add-ons), daarna van elke add-on de pagina met "Published" en "Downloads" (curl, 2 tegelijk met pauze). Weggelaten: de 14 mei 2024-lading (de add-ons die eerst in Blender zelf zaten, zoals LoopTools en Bool Tool, maintainer meestal "Community") en dubbele regels. Over: 1.124 add-ons, 15,9 miljoen downloads. Script `vroeg-blender-haal.py`, analyse `vroeg-blender-analyse.py`, tabel `blender-vroeg-2026-11-17.csv`.
+- **Wat ik niet kan zien:** (1) alleen plugins die er nog staan; van de Obsidian-plugins uit 2020 is 15 van 75 weg, uit 2021 79 van 360, dus de vroege groep is iets geflatteerd. (2) Downloads zijn opgeteld sinds de start: een oudere plugin had meer tijd. Daarom ook downloads per dag. Dat vroege plugins in lijsten op downloads bovenaan blijven staan en zo meer krijgen, is niet te scheiden van "vroeg zijn": het is precies het voordeel. (3) De Obsidian-datum is de dag dat de plugin in de lijst kwam, niet de dag van insturen; op 12 mei 2026 kwamen er 706 tegelijk binnen (een rij die in één keer werd verwerkt).
+
+### 1. Obsidian: wie in het eerste jaar kwam, heeft nog steeds de helft van alles (GEZIEN)
+De winkel begon op 29 okt 2020 met de eerste regel in de lijst. Aantal plugins op 1 januari: 73 (2021), 423 (2022), 794 (2023), 1.371 (2024), 2.100 (2025), 2.705 (2026); 2.750 op 1 mei 2026, 6.231 op 1 aug en 10.507 vandaag.
+
+| Kwam in de winkel | Plugins nu | Mediaan downloads | Mediaan per dag | Met 10.000+ | Aandeel van alle downloads | In de top 100 |
+|---|---|---|---|---|---|---|
+| Maand 0 tot 3 (okt tot dec 2020) | 60 | 65.822 | 30,2 | 93% | 15,6% | 15 |
+| Maand 3 tot 12 (tot sep 2021) | 208 | 35.088 | 17,5 | 80% | 33,4% | 38 |
+| Jaar 2 | 270 | 15.566 | 9,3 | 67% | 14,3% | 21 |
+| Jaar 3 | 498 | 9.828 | 7,3 | 50% | 14,3% | 14 |
+| Jaar 4 | 752 | 5.499 | 5,5 | 27% | 7,3% | 5 |
+| Jaar 5 (okt 2024 tot sep 2025) | 657 | 3.283 | 5,2 | 14% | 5,0% | 3 |
+| Okt 2025 tot apr 2026 | 144 | 3.159 | 9,5 | 17% | 1,1% | 2 |
+| Vanaf mei 2026 (de vloed) | 7.905 | 319 | 4,7 | 2% | 9,0% | 2 |
+
+- **De eerste 12 maanden: 268 plugins (2,6% van alles) halen 49% van alle downloads en 53 van de top 100.** De eerste 3 maanden alleen al: 60 plugins, 15 in de top 100.
+- **Per dag krijgen vroege plugins nog steeds meer**, terwijl Obsidian sindsdien veel meer gebruikers kreeg: mediaan 30 per dag tegen ±5 voor alles van na jaar 3. Een nieuwkomer heeft dus een groter publiek maar krijgt minder.
+- **De winnaar van een soort was meestal een van de eersten van die soort** (grove zoekwoordgroepen, naam en omschrijving): Git was de eerste git-plugin (3,47 miljoen), Excalidraw de eerste Excalidraw-plugin (9,07 miljoen), Kanban de tweede kanban-plugin (2,84 miljoen, de eerste heeft 7.144). Tasks (4,63 miljoen) kwam als vijfde in de takengroep, maar de vier ervoor deden iets anders (Todoist koppelen, dagplanning).
+- **Late winners bestaan, maar weinig, en ze hebben iets gemeen.** In de top 30 staan drie plugins van 2025 of later: TaskNotes (plek 11, jun 2025, 2,74 miljoen, kwam als 41e in de takengroep, maar met een andere aanpak: elke taak een eigen notitie), Notebook Navigator (plek 27, sep 2025, 1,15 miljoen, verhaal 5) en **Claudian** (13 mei 2026, 2,74 miljoen): een plugin die Claude Code in Obsidian zet. De eerste plugins rond Claude Code kwamen op 12 mei 2026 in de lijst; Claudian een dag later, en staat nu op plek 12 van 10.494. Agent Client (14 mei, 337.132) is de tweede van die golf. Wat een nieuw ding buiten de winkel opent (hier Claude Code), is een nieuwe lege hoek in een oude winkel.
+- **De vloed:** sinds mei 2026 kwamen er 7.905 plugins bij, ±3 keer zoveel als in de 5,5 jaar ervoor. Mediaan 319 downloads; wie in mei 2026 kwam heeft na een half jaar mediaan 1.239, de groep van okt 2025 tot apr 2026 nog 3.160. GOK: het grootste deel is met AI gebouwd (het tempo past daarbij; de lijst zegt het niet). Rollwright (in de lijst op 8 nov) staat op 44, gewoon voor zijn leeftijd.
+
+### 2. extensions.blender.org: zelfde beeld, maar de vroege winnaars waren oude bekenden (GEZIEN)
+De eerste add-on staat er sinds 19 feb 2024 (bèta); in juli 2024 kwam de winkel in Blender 4.2 zelf.
+
+| Gepubliceerd | Add-ons | Mediaan downloads | Mediaan per dag | Met 10.000+ | Aandeel van alle downloads | In de top 100 |
+|---|---|---|---|---|---|---|
+| Maand 0 tot 3 | 33 | 23.998 | 24,7 | 88% | 9,6% | 12 |
+| Maand 3 tot 6 | 98 | 23.810 | 26,7 | 93% | 32,6% | 34 |
+| Maand 6 tot 12 | 153 | 13.943 | 18,7 | 69% | 27,1% | 30 |
+| Jaar 2, eerste helft | 149 | 8.193 | 15,4 | 39% | 12,1% | 12 |
+| Jaar 2, tweede helft | 196 | 4.619 | 12,4 | 18% | 9,9% | 9 |
+| Jaar 3 (vanaf feb 2026) | 495 | 1.269 | 12,6 | 4% | 8,7% | 3 |
+
+- **Eerste 12 maanden: 284 add-ons (25%) halen 69% van de downloads en 76 van de top 100.** Jaar 3: 44% van de add-ons, 3 in de top 100.
+- **Wie bovenaan staat, was al bekend vóór de winkel:** 3D Print Toolbox (691.544), MMD Tools, VRM format, Ucupaint, Screencast Keys, Bonsai. Het zijn add-ons die al jaren op GitHub of elders stonden en vroeg verhuisden. Vroeg zijn won hier vooral voor wie al een product had.
+- **Late winners vullen een gat:** 3MF Import/Export (30 jan 2026, 124.471; een printformaat dat Blender zelf niet leest), Mixamo Rig (nov 2025, 86.990), Rigi-All (okt 2025, 45.555). Dat past bij verhaal 15 (gat van Blender 5 of een verlaten add-on).
+- **Ook hier stroomt het vol:** 41 tot 52 nieuwe per maand begin 2026, 90 in oktober 2026, het meeste ooit buiten de verhuizing van mei 2024. De winkel geeft wel iedereen een bodem: ook jaar 3 haalt mediaan 12,6 per dag (verhaal 15: 11,5).
+
+### 3 lessen
+1. **Vroeg zijn loont echt en lang, maar het venster is maanden, geen jaren.** In beide winkels houden de plugins uit het eerste jaar ruim de helft van alle downloads (49% en 69%) en 53 en 76 van de top 100, en vijf jaar later krijgen ze per dag nog meer dan nieuwkomers. Na het eerste jaar zakt de kans op 10.000+ downloads van ±80 tot 90% naar 2 tot 4% voor wie nu komt.
+2. **De vroege winnaar doet de basistaak die iedereen in week 1 zoekt** (sjablonen, agenda, git, tabellen, een printformaat, een bekende rig) en is vaak de eerste of tweede van zijn soort. In Blender waren de vroege winnaars bestaande add-ons die verhuisden. Vroeg met iets kleins in een nis levert niet hetzelfde op.
+3. **Een oude winkel krijgt nieuwe lege hoeken, en die gaan nu binnen dagen dicht.** Claudian stond een dag na de eerste Claude Code-plugins in de lijst en is nu nummer 12 van 10.494; TaskNotes en 3MF wonnen laat met een andere aanpak of een gat. Maar Obsidian ging in een half jaar van 2.750 naar 10.500 plugins: met AI-bouwers vult een lege winkel of hoek zich veel sneller dan in 2020.
+
+### Voorstel voor Dortus deze week
+**Noor: neem in de radar ook "nieuw ding in een bestaande grote winkel" op als pionierskans (een nieuwe API of kernfunctie zoals Obsidian Bases, een Blender-versie die add-ons breekt, een nieuwe golf zoals Claude Code, nieuwe Garmin-horloges), en zet bij elk voorstel twee vragen: (1) welke basistaak zoekt elke nieuwe gebruiker in week 1 en bestaat die nog niet goed, (2) kunnen wij binnen 2 tot 4 weken na opening live zijn. Hoofdchat: kies bij een pionierskans het brede basisgereedschap, niet een nis, en plan livegang in weken.** Waarom: in beide winkels won vroeg alleen met de basistaak, en het venster sluit nu in weken (vloed van 7.905 plugins in een half jaar). Meten: bij de volgende pionierskans tellen hoeveel apps er per week bijkomen in de eerste 8 weken; met dit script kan dat voor elke winkel met een openbare lijst. Bericht aan Noor en de hoofdchat.
 
 ---
 
