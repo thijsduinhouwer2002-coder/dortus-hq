@@ -416,6 +416,39 @@ func _init() -> void:
 	hol5.vallen.erase(2)
 	g.stap(0.01)
 	ok(g.berg_max == vrij_max and g.berg().size() == 33, "linkergrens: put weg, de berg mag weer breed (%d)" % g.berg().size())
+	# Daan 17 nov 10:50: de grens geldt voor alles links, ook de beeldrand (hol-x 0) en de gaten in de aardwand.
+	var oud_ik: int = hol5.ingang_kol
+	var oud_px: float = g.position.x
+	hol5.ingang_kol = 99   # ingang rechts: dan telt alleen de rand van het venster
+	g.position.x = 60.0
+	g.stap(0.01)
+	var links_r := 1e9
+	for b in g.berg():
+		links_r = minf(links_r, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * absf(g.scale.x))
+	ok(g.berg().size() >= 1 and g.berg().size() < 33 and links_r >= g.BERG_GRENS_LUCHT - 0.01,
+		"linkergrens: beeldrand, Gloop op x 60, %d plekjes, linkerkant %.1f >= 2" % [g.berg().size(), links_r])
+	g.position.x = oud_px
+	hol5.ingang_kol = oud_ik
+	g.stap(0.01)
+	var vrij_n: int = g.plekjes_binnen(-80.0)
+	var hoog_gat := Rect2(-50.0, -22.0, 13.0, 11.0)   # gat in de wand linksboven, zoals op 120 (GEZIEN 17 nov)
+	var n_gat: int = g.plekjes_binnen(-80.0, [hoog_gat])
+	ok(n_gat >= 3 and n_gat < vrij_n, "linkergrens: gat in de wand houdt de berg kleiner (%d < %d)" % [n_gat, vrij_n])
+	var n_laag: int = g.plekjes_binnen(-80.0, [Rect2(-60.0, -60.0, 10.0, 10.0)])   # gat ver boven de berg: telt niet
+	ok(n_laag == vrij_n, "linkergrens: een gat boven de berg telt niet (%d)" % n_laag)
+	var vak_ok := true
+	for k in n_gat:
+		var rp_g: Vector2i = g.plek_rij_pos(k)
+		var x_g: float = -14.0 - 3.0 * rp_g.x - 6.0 * rp_g.y - g.BERG_3D_LUCHT
+		var vak := Rect2(x_g - g.BERG_HALF, -3.0 * rp_g.x - g.berg_hoog(), g.BERG_HALF * 2.0, g.berg_hoog())
+		if vak.grow(g.BERG_GRENS_LUCHT - 0.01).intersects(hoog_gat):
+			vak_ok = false
+	ok(vak_ok, "linkergrens: geen enkel plekje binnen 2 spelpx van het gat")
+	var vol_ok := false
+	for m in [1, 3, 6, 10, 15, 21, 27, 33]:
+		if n_gat == m:
+			vol_ok = true
+	ok(vol_ok, "linkergrens: bij een gat hele schuine rijen (%d)" % n_gat)
 	hol5.ingang_kol = 2
 	g.stap(0.01)
 	var alle_soorten := true

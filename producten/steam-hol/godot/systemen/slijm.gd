@@ -441,6 +441,14 @@ func _nacht_beelden() -> void:
 func _nacht_foto(pad: String) -> void:
 	if is_inside_tree():
 		get_viewport().get_texture().get_image().save_png(pad)
+		# naast elk beeld wat er op de berg ligt (Daan 17 nov 10:50: tijd en aantal plekjes onder elk beeld)
+		var ligt := []
+		for b in berg():
+			ligt.append(int(b[3]))
+		var f := FileAccess.open(pad.get_basename() + ".json", FileAccess.WRITE)
+		if f != null:
+			f.store_string(JSON.stringify({"t": snappedf(t - nacht_van, 0.001), "plekjes": ligt.size(), "berg_max": berg_max,
+				"ligt": ligt, "kaart": Array(kaart_voor(berg_tel())), "hoeden": hoeden.size(), "nacht_rest": nacht_hoeden.size()}))
 
 # Hoeveel nachthoeden er op tijd dt na de eerste val moeten liggen (los, zodat de toets het tempo kan nakijken).
 static func nacht_aantal(dt: float, totaal: int) -> int:
@@ -543,21 +551,97 @@ static func zet_berg_max(n: int) -> bool:
 # Hoeveel plekjes passen als de linkerkant van de berg (in Gloop-pixels, negatief) niet verder mag dan ruimte.
 # Altijd met de linkerkant van het grote lijf (-14), zodat Big kopen de berg niet laat krimpen (controleur 10:40).
 # Minstens 1 plekje: ligt er een put vlak naast Gloop, dan zie je toch zijn nieuwste berghoed (controleur 10:40).
-func plekjes_binnen(ruimte: float) -> int:
+# wand: rechthoeken (Gloop-pixels) van de hoeden in de aardwand (Daan 17 nov 10:50: ook het gat linksboven); een schuine
+# rij telt alleen als geen van zijn plekjes er tegenaan komt (BERG_GRENS_LUCHT lucht). Zo houdt het hele schuine rijen:
+# een lage staart onder het gat door gaf een lint van hoeden en een boog door het gat heen (beeld 17 nov 14:25, niet gekozen).
+const BERG_HOOG := 13.0   # hoogte van een berghoed boven zijn nulpunt zonder hoedenblad (toetsen); met blad: berg_hoog()
+static var _berg_hoog := -1.0
+# Hoogste 3D-hoed (nul_y - top in het hoedenblad, spelpixels): een plekje kan elke hoed krijgen, dus de hoogste telt.
+static func berg_hoog() -> float:
+	if _berg_hoog > 0.0:
+		return _berg_hoog
+	HB._laad_3d()
+	if not HB.held3d.has(HB.HOEDEN3D):
+		return BERG_HOOG
+	var hi: Dictionary = HB.held3d[HB.HOEDEN3D][1]
+	if not hi.has("nul_y") or not hi.has("top"):
+		return BERG_HOOG
+	var m := 0.0
+	for h in mini(hi["nul_y"].size(), hi["top"].size()):
+		m = maxf(m, float(hi["nul_y"][h]) - float(hi["top"][h]))
+	_berg_hoog = m if m > 0.0 else BERG_HOOG
+	return _berg_hoog
+func plekjes_binnen(ruimte: float, wand: Array = []) -> int:
 	var links := -14
+	var hoog := berg_hoog() if wand.size() > 0 else BERG_HOOG
 	var n := 0
-	var d := 0
-	while d < 200 and float(links - 6 * d) - BERG_3D_LUCHT - BERG_HALF >= ruimte:
-		n += mini(d + 1, BERG_RIJEN)
-		d += 1
+	for d in 200:
+		var vol := mini(d + 1, BERG_RIJEN)
+		var past := true
+		for rij in vol:
+			var x := float(links - 3 * rij - 6 * (d - rij)) - BERG_3D_LUCHT
+			if x - BERG_HALF < ruimte or _raakt_wand(x, float(-3 * rij), hoog, wand):
+				past = false
+				break
+		if not past:
+			break
+		n += vol
 	return maxi(1, n)
 
+func _raakt_wand(x: float, nul: float, hoog: float, wand: Array) -> bool:
+	var vak := Rect2(x - BERG_HALF, nul - hoog, BERG_HALF * 2.0, hoog).grow(BERG_GRENS_LUCHT)
+	for r in wand:
+		if vak.intersects(r):
+			return true
+	return false
+
+# De gaten in de aardwand links van Gloop (hol_vast.gd wand_plekken), als rechthoeken in Gloop-pixels. Alle plekken,
+# ook waar nog geen hoed hangt, met de grootste wandhoed: zo verandert de grens niet als Gloop eet (niets schuift).
+# Leeg zonder 3D-hol of wandblad (toetsen zonder hol): dan telt alleen put, ingang en beeldrand. Bewaard per sleutel
+# (zuinig: berg() vraagt dit elke tekenbeurt); graven verandert boven en gang, dan rekent hij opnieuw.
+var _wand_sleutel := []
+var _wand_uit := []
+func berg_wand(sch: float) -> Array:
+	if hol == null or not is_instance_valid(hol) or hol.get("met_3d") != true or hol.get("boven") == null:
+		return []
+	var H3 = load("res://hol/hol_3d.gd")
+	if not H3.heeft_wand():
+		return []
+	var sl := [position, sch, hol.boven.hash(), hol.gang.hash(), hol.max_kol, hol.schat_kol, hol.ingang_kol]
+	if sl == _wand_sleutel:
+		return _wand_uit
+	var HV = load("res://hol/hol_vast.gd")
+	var links_a := 0.0
+	var rechts_a := 0.0
+	var boven_a := 0.0
+	var onder_a := 0.0
+	for naam in H3.wand:
+		var st: Dictionary = H3.wand[naam]
+		var m: Array = st["maat"]
+		var a := Vector2(m[0] / 2.0, m[1] / 2.0)
+		if st.has("midden") and typeof(st["midden"]) == TYPE_ARRAY and st["midden"].size() == 2:
+			a = Vector2(float(st["midden"][0]), float(st["midden"][1]))
+		links_a = maxf(links_a, a.x)
+		boven_a = maxf(boven_a, a.y)
+		rechts_a = maxf(rechts_a, float(m[0]) - a.x)
+		onder_a = maxf(onder_a, float(m[1]) - a.y)
+	var uit := []
+	for p in HV.wand_plekken(hol, H3.schatkamer_aan(hol)):
+		var r := Rect2(Vector2(p) - Vector2(links_a + 1.0, boven_a + 1.0), Vector2(links_a + rechts_a + 2.0, boven_a + onder_a + 2.0))
+		if r.position.x >= position.x:
+			continue   # rechts van Gloop: niet in de weg van de berg
+		uit.append(Rect2((r.position - position) / sch, r.size / sch))
+	_wand_sleutel = sl
+	_wand_uit = uit
+	return uit
+
 # Rechterrand van wat links van Gloop in de weg ligt (stekelput of ingang), in hol-pixels; -1e9 = niets.
+# De linkerrand van het venster (hol-x 0) telt altijd (Daan 17 nov 10:50): geen afgesneden hoed aan de rand.
 func berg_grens_x() -> float:
 	if hol == null or not is_instance_valid(hol):
 		return -1e9
 	var mijn_kol := int(floor(position.x / 16.0))
-	var g := -1e9
+	var g := 0.0
 	var vallen = hol.get("vallen")
 	if vallen is Dictionary:
 		for k in vallen:
@@ -573,7 +657,7 @@ func werk_berg_grens() -> void:
 	var n := 1 << 30
 	if g > -1e8:
 		var sch := maxf(0.001, absf(scale.x))
-		n = plekjes_binnen((g + BERG_GRENS_LUCHT - position.x) / sch)
+		n = plekjes_binnen((g + BERG_GRENS_LUCHT - position.x) / sch, berg_wand(sch))
 	if zet_berg_max(n):
 		_sessie_weg()
 		laatste_beeld = []
