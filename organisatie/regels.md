@@ -15,6 +15,8 @@ Daarnaast blijven de stappen die alleen hij **kan** doen (geen keuze, maar zijn 
 
 Al het andere beslist de ploeg zelf: Daan keurt (Iris bij Hats), de hoofdchat zet het live en meldt het in de samenvatting van 08:00 of 20:00. Dat geldt ook voor de site, filmpjes, winkelteksten, uploads van gekeurde versies, nieuwe kanalen en wat lastig terug te draaien is; daar beslist de hoofdchat met extra zorg en schrijft het waarom in `organisatie/besluiten.md`. Vaste afspraken van Thijs blijven gelden (Hats-spelerstekst schrijft hij zelf, geen AI-zin in posts, Ebb geen medische claims, geen AI-beeld of -geluid op Steam, privacyregels van de openbare repo).
 
+**Inloggen via Chrome (Thijs, 17 nov 16:50):** de hoofdchat mag in de Chrome van Thijs (HP) overal inloggen met zijn Google-account, vakjes aanvinken, voorwaarden accepteren en doorklikken, zonder het eerst te vragen. Grenzen die blijven: geld uitgeven blijft een ja van Thijs; ID-controle, bankgegevens en andere persoonsgegevens vult Thijs zelf in; een openbaar bericht onder zijn naam gaat pas na zijn ja op de tekst; niets verwijderen wat niet van ons is. Geplande agents hebben geen browser: zij zetten zulke stappen klaar voor de hoofdchat in `berichten/hoofdchat.md`, niet voor Thijs.
+
 Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
 
 ## Werkwijze
