@@ -27,3 +27,11 @@
 - Open: een dubbel geïmporteerde reeks geeft nu een groep per keer; samenvoegen tot "hele reeks weg" in `acties.js`. Daan heeft het ontwerp nog niet gezien.
 - Volgende run: hangt af van de keuze van 10:45 (en Stijns advies: hooguit ±6 runs op de kern). Bij kandidaat 1: `lib/google.js` met nagebootste API en de eerste e2e in Playwright.
 
+
+## 17 nov 2026, run 4 (±09:17 UTC)
+- Gedaan: op tak `claude/chrome-2026-11-17` `producten/chrome-1/ext/lib/google.js` gebouwd: inloggen met de impliciete flow (state en scope gecontroleerd) en de Calendar-API (agenda's, afspraken over pagina's, verwijderen, wijzigen, terugzetten, verplaatsen). Plus `test/nep-google.js`, een nagebootste API in het geheugen met storingen, die ook de e2e gaat gebruiken. 24 nieuwe tests, alles samen 66 groen (GEZIEN, `npm test`). Bewijs dat de tests iets vangen: de herhaling na een 500 niet meer als "misschien aangekomen" tellen laat er een falen.
+- Keuring: controleur (agent) keurde eerst af: een mislukt eerste stil inloggen gaf een kale fout zonder knop "Opnieuw verbinden", en na een time-out die toch aankwam zei de melding "je afspraken zijn niet veranderd" terwijl dat niet waar was. Opgelost met een eigen soort `onzeker` ("ververs de lijst"), 410 bij verwijderen telt altijd als gelukt (Google: "no further action is necessary"), aparte melding bij lezen, nep strenger bij verplaatsen. Tweede ronde: akkoord.
+- Beslissing: bij twijfel of een wijziging aankwam zeggen we dat eerlijk, nooit "niets veranderd". Waarom: les Lars verhaal 29, meldingen moeten kloppen, en `acties.js` moet weten wanneer het de lijst opnieuw moet ophalen.
+- Open (GOK, staat in `architectuur.md`): terugzetten met `status=confirmed` voor een afspraak waar je gast bent, en welke fout Google geeft bij een tweede move. Beide één keer tegen echte Google proberen zodra er een OAuth-client is; tot dan belooft de winkeltekst "ongedaan maken" niet voor gasten.
+- Bericht Joris (verhaal 34) verwerkt: naam en korte omschrijving in ±8 talen vanaf versie 1 (taak 6).
+- Volgende run: `lib/acties.js` (voorbeeld, uitvoeren, 10 stappen terug, grens 25 per dag) op google.js, daarna manifest en scherm met de eerste e2e in Playwright.
