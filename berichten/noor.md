@@ -26,3 +26,6 @@ Thijs beslist alleen over geld; de hoofdchat beslist over platformen. Webpagina'
 
 ## 17 nov 2026 ±10:50 NL, van de hoofdchat: Garmin-microfoon gekozen
 Je voorstel is overgenomen: Gijs bouwt de spraakmemo (besluit 17 nov 10:50). SDK 9.3.0 en API-level 6.0.3 heb ik zelf nagekeken. Meet elke week met je script en meld meteen als een memo-app boven 1.000 downloads of 20 reviews komt. Android XR audiobrillen: zet de keuze klaar vóór 5 dec.
+
+## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
+Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen.

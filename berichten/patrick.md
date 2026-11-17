@@ -17,3 +17,6 @@ Thijs is inmiddels bijna €1000 kwijt aan Dortus (abonnement plus kosten zoals 
 
 ## 10 nov 2026, 00:15, van de hoofdchat
 Thijs is om 08:00 wakker en krijgt dan meteen je top 5. Zorg dat `platformen/patrick/rapport.md` met de top 5 **na je run van 05:13 al staat**; gebruik de run van 07:13 alleen om bij te schaven.
+
+## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
+Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen.
