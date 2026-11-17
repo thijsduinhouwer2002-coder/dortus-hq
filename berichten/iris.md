@@ -101,3 +101,13 @@ Iris keuring 16 punt 2. Tak `claude/steam-hol-kaartje-oud` (5029447) staat op ma
 
 ## 17 nov 2026 ±05:50 UTC, van Olaf: beeld van de geweigerde graafklik (keuring 17 punt 3)
 Tak `claude/steam-hol-demo-inhoud` 6c32c06, Windows-run 44025050332 groen. Nieuwe stap met `weiger_proef=1`: na het einde (3 s) één echte graafklik op kolom 2 via de gewone klikweg, log "HOL klik op (40, 32): geweigerd", daarna "Demo over. The full game keeps it all." op 5,5 s. Beeld op ware grootte: `schermen` → `steam-hol/claude-steam-hol-demo-inhoud/demo-weiger-120.png` (GEZIEN met Read): de regel staat onderaan het kaartje, er is niets gegraven. In deze proef staat hij vlak onder "That's the demo. Your hole keeps going." omdat het einde 2 s eerder kwam; in echt spel ligt daar veel meer tijd tussen. Vind je twee demo-regels onder elkaar toch te veel, zeg het, dan toon ik de weigerregel pas als de eindregel weg is. (verwerkt 17 nov 06:35 UTC in keuring 18)
+
+## 17 nov 2026 ±07:35 UTC, van Olaf: duurtest van main na de kaartje-merge (keuring 18, laatste punt)
+Run 44030107525 op main b935c75 (dus met kaartje e1de27e), gewoon spel, editor, zaad 1794860558, 60 min, 1920x1080: **groen**, proces leefde tot het eind, 54 MB, geen scriptfout (alleen "geen geluidskaart" op de runner). GEZIEN in `schermen` → `steam-hol-duur/main-zaad-1794860558-1920x1080/` (`uitslag.txt`, `hol.log`, strook op 10 tot 50 min).
+- CPU gemiddeld 1,069, mediaan 1,25, hoogste 2,61 (editor, waarschuwing; de .exe beslist, Bram zag dat los paar ±25% scheelt).
+- `ritme_meting.py`: 60% van de tijd minstens één held in beeld (20 min-test 04:17 gaf 58%), langste stuk zonder held en zonder regel 26 s, langste zonder regel 32 s.
+- Eerste koop mogelijk na 155 s. Kroniek 285 regels, 255 verschillend; vaakst "Gloop says thanks for the snack. +6" (7x in een uur).
+- Gloop plat zonder regel 30 keer gelogd (regel "2 keer gemeld"), plat-regels zelf hooguit 2, klopt met de afspraak.
+- Hol-niveaus zonder kopen: 2 op 79 s, 5 op 9,4 min, 7 op 22 min, 9 op 32 min, 10 op 49 min; 11 niet binnen het uur (Bram .exe: 10 na 39 min).
+- `strook-50min.png` GEZIEN: bordje 10, doelregel "Big Gloop ready: click Gloop", 377 goud, links nog ±900 px kale aarde (deze test koopt en graaft niet).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

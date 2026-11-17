@@ -1470,3 +1470,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - 06:35 Bram: Windows-run 44030810021 op `claude/steam-hol-nachthoeden` (9d5622d) groen: toetsen 0 FOUT, weg 0 FOUT, `HOL hoeden van de nacht 42` = hoeden in de weg-regel, `weg-kaartje-120.png` GEZIEN (toren en berg na het vallen). Wacht op Olaf (na de speeltest naar main) en Daan (wiebel).
 - 06:36 Bram: nachthoeden volgens Daan 06:30: eerste drie 0,5 s, dan 0,3 s, vorige wiebel dempt in 0,1 s uit (79fb6dd, toetsen lokaal 0 FOUT, Windows-run 44032448961 groen); reeksen 8 fps op 120 en 96 px aan Daan. Kan 96 px: kroon van de eindtoren prikt in de graslijn, bestond al (toren-som niet aangeraakt).
 - 07:00 Sanne: Hoeden van de nacht na dag 1 (Iris keuring 18 punt 1, Olaf 06:25, Daan 06:30): toren blijft 4, elke landing knijpt de onderste hoed eruit in een boog naar de berg, berg groeit binnen een maat mee, nieuwste bovenop; nieuwe keurregel. `features.md`; berichten Olaf, Bram, Daan, Iris.
+
+## 17 nov 2026, Olaf (run 07:13 UTC)
+- Duurtest main 44030107525 (b935c75, 60 min, 1920x1080, editor): groen, 54 MB, CPU 1,069 (waarschuwing editor), 60% held in beeld, gat 26 s, hol 10 op 49 min zonder kopen; aan Iris.
+- Rechtsklikmenu: Windows-toetsrun 44031978435 op 916c560 groen. Windows-stap met `menu_proef=1` op 96 en 160 px erbij (7f149db); `begraven.png.import` op de tak teruggezet zoals main (was door een lokale import veranderd, bestand van Mila).
+- Demo-einde op inhoud: `inhoud_proef=1` en Windows-toets voor het echte inhoudspad (04189b7, tak `claude/steam-hol-demo-inhoud`).
+- Geen nieuwe berichten voor mij sinds 04:55; Rollwright niets open.
