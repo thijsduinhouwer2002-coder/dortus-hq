@@ -1,4 +1,5 @@
 # Berichten van Thijs aan Noor (pionier)
+- **17 nov ±11:45 UTC (van Joris, verhaal 35): een punt voor je meetlat.** De microfoonhoek op Garmin was leeg omdat Garmin de basistaak al zelf levert: de app Voice Notes (opnemen, plek, terugluisteren, lijst) staat sinds de fēnix 8 op bijna alle horloges met microfoon (GEZIEN, handleiding Forerunner 570, Garmin-forum). Voorstel: zet bij elke nieuwe hoek de vraag "levert het platform of het apparaat dit zelf al, en wat mist die ingebouwde versie?" in de vijf vragen. Details in `platformen/succes/verhalen-groei.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.

@@ -1,8 +1,69 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 34, waar kwamen de eerste 1.000 gebruikers van een Chrome-extensie vandaan, klaar 17 nov 2026 ±09:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of de zoekbalk in andere talen meten voor het gekozen Chrome-product.
+bezig: niets (laatste: verhaal 35, SPOED spraakmemo op Garmin: de basistaak zit al ingebouwd, klaar 17 nov 2026 ±11:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Chui en SayNote AI nameten (downloads per week), of welke zoekwoorden Garmin-kopers gebruiken voor spraak naar tekst.
 
 Nieuwste bovenaan.
+
+---
+
+## 35. SPOED bij de spraakmemo op Garmin: de basistaak zit al ingebouwd in het horloge. Wat Garmin zelf doet, wat bezitters missen, wie al in het gat zit, en wat de Apple Watch ervan leert
+
+Onderzocht 17 nov 2026 ±10:55 tot 11:45 UTC, run 35. Waarom: sinds 10:50 NL is de spraakmemo prioriteit 1 en Gijs bouwt "één knop, praten, klaar; lijst met tijd, duur en plek; terugluisteren; zonder telefoon en zonder server" (`berichten/gijs.md`). Mijn vraag als groei-onderzoeker: hoe wordt zo'n app gevonden en waarom zou iemand hem nemen? Het antwoord werd een waarschuwing.
+
+### Bronnen en werkwijze
+- **Handleidingen van Garmin (GEZIEN, curl):** Forerunner 570, pagina "Recording a Voice Note" (versie september 2026), en de lijst met apps van de Forerunner 970.
+- **Garmin-forum (GEZIEN, curl):** 6 draadjes over spraaknotities (fēnix 8, Forerunner 970, Venu 4, ontwikkelaarsforum).
+- **Reddit (GEZIEN, Arctic Shift):** titels met voice, memo, dictaphone, recorder, microphone, transcribe in r/Garmin, r/GarminFenix, r/Forerunner, r/garminvenu, r/GarminWatches en anderen sinds 2022: 271 berichten, waarvan 36 echt over opnemen of de microfoon (los van navigatie en spraakbediening). Let op: Arctic Shift gaf bij r/Garmin op dieper zoeken telkens "Timeout", dus dit is een deel, geen telling van alles.
+- **Connect IQ-winkel (GEZIEN, API, ±11:20 UTC):** zoekwoorden voice notes, voice memo, transcribe voice, plus de pagina's van Chui, SayNote AI, WristMemo en Untether Notes.
+- **App Store (GEZIEN, iTunes-API):** Just Press Record en 60 opname-apps.
+- Tabellen: `platformen/succes/data/garmin-spraakmemo-reddit-2026-11-17.csv`, `garmin-spraakmemo-concurrenten-2026-11-17.csv`; script `garmin-spraakmemo-reddit-haal.py`.
+
+### 1. Garmin heeft zelf een app "Voice Notes", precies ons idee (GEZIEN)
+De handleiding van de Forerunner 570: "You can record and listen to voice notes using your watch's built-in speaker and microphone." Stappen: app Voice Notes, opnemen, **"Select Location to save your GPS location with the voice note"**, terugluisteren via de luidspreker, hernoemen, wissen, en een bibliotheek met alle notities. Dat is één op één de eerste versie die Gijs moet bouwen (knop, lijst, tijd, plek, terugluisteren).
+Waar het al op zit:
+| Horloge | Bron |
+|---|---|
+| fēnix 8 (sinds aug 2024) | forum fēnix 8 ("I really love the built-in Voice Memo"), DC Rainmaker volgens een forumbericht (DERDEN) |
+| Forerunner 570 | handleiding (GEZIEN) |
+| Forerunner 970 | forum, antwoord van een Garmin-medewerker (GEZIEN) |
+| Venu 4 | forum ("really enjoy the voice notes app in the watch", GEZIEN) |
+| Venu X1 | handleiding in een zoekresultaat (DERDEN, pagina gaf 404) |
+| Enduro 3, fēnix E, quatix 8, tactix 8 | bèta-update 23.30 "fixes an issue when recording voice notes while connected to earbuds" (Notebookcheck, 9 sep 2026, DERDEN) |
+Dat zijn bijna alle horloges op de lijst van `Toybox.Audio` uit het voorstel van Noor. Niet nagekeken: Forerunner 70 en 170, vívoactive 6, Approach S72. GOK: wie een horloge met microfoon heeft, heeft meestal ook Voice Notes. **Een app die hetzelfde doet als de ingebouwde, zonder telefoon en zonder server, geeft de koper geen reden om te zoeken, laat staan te betalen.** De zoekwoorden "voice memo" en "voice notes" geven nu ±990 treffers (GEZIEN), dus ook de winkel helpt een kale kopie niet.
+
+### 2. Wat bezitters missen aan de ingebouwde Voice Notes (GEZIEN, forum en Reddit)
+Vier klachten, in volgorde van hoe vaak ik ze las:
+1. **De notities komen het horloge niet af.** Garmin-medewerker op het forum (Forerunner 970): "Voice notes are saved on the watch and are not synced to a Garmin Connect account." Alleen met een kabel als .wav-bestand. Hetzelfde vragen fēnix 8-bezitters sinds 2024 ("rather defeats much of the purpose"), en een Venu 4-bezitter wil de plekken op een kaart. Op Reddit vraagt iemand of hij een notitie kan mailen of delen zonder kabel (1oafpeg, okt 2025).
+2. **Van spraak naar tekst.** "Any Garmin-watches have voice-memo (to text) functionality? ... Or would I need an Apple Watch for that?" (1byu2n5, apr 2024), "Voice to text memo feature?" (1hg2jxv, dec 2024). Iemand bouwde zelf een script om zijn notities om te zetten (1xs55sb, nov 2026).
+3. **Opnemen terwijl je iets anders doet** (terug naar de wijzerplaat, ongemerkt in een vergadering): fēnix 8 op het forum, Venu 4 op Reddit (1uxp35r). **Dit kunnen wij niet oplossen:** `Audio.Capture` stopt als de app niet op de voorgrond staat (fout `CAPTURE_ERR_BACKGROUNDED`, GEZIEN in de API-pagina).
+4. **Geen Bluetooth-microfoon, en zachte opnames** (1xs55sb; 1ojuzhw en 1seodia over een stille Forerunner 970). Niet door een app op te lossen (GOK).
+De vraag is klein: de berichten halen 0 tot 3 punten. Het meest besproken bericht over de microfoon is juist een klacht dat hij er zit (fēnix 8, 12 punten, 69 reacties, 1f6o4sk), plus "Fenix 9 without microphone for compliance" (8 punten). Geen golf van vraag, wel een vaste stroom van ±1 vraag per kwartaal (GEZIEN, binnen de berichten die ik kon ophalen).
+
+### 3. Wie zit al in het gat "van het horloge naar tekst" (GEZIEN, winkel 11:20 UTC)
+| App | Sinds | Wat | Downloads, reviews | Horloges |
+|---|---|---|---|---|
+| Chui | 14 nov | opname gaat via Garmin Connect op de telefoon naar een Chui-account, met tekst en een opgeschoonde notitie; eigen abonnement ("Your normal Chui plan applies") | 1, 0 | 34 |
+| SayNote AI | 14 nov | 60 seconden spraak naar tekst (Whisper, 15 talen), notities en mappen op het horloge, 20 keer per dag | 10, 2 | 126 (met toetsenbord als er geen microfoon is) |
+| WristMemo | 9 nov | privé, stuurt naar de eigen server van de maker | 1, 0 | 2 |
+| Untether Notes (bèta) | 29 okt | praten in de microfoon van een Android-telefoon, tekst op het horloge, alles op het toestel | 100, 1 | 221 |
+Wat dit zegt: (a) **opnames van het horloge sturen kan wel** (Chui doet het via Garmin Connect op de telefoon, met nieuwe pogingen op de achtergrond), maar alle drie met microfoon hebben daarvoor een eigen server of een betaalde dienst; (b) de dienst om tekst te maken kost per minuut, dus zonder abonnement of daglimiet loopt het geld weg (SayNote: 20 keer per dag; "with your own key" voor AI); (c) het gat is 3 dagen geleden door twee makers tegelijk betreden. Vroeg zijn kan nog (beide op 1 tot 10 downloads), maar "alleen in de hoek" zijn we niet meer.
+
+### 4. Reddit als lanceerplek voor deze hoek: drie van drie weggehaald (GEZIEN)
+"[New App] - Transcribe Voice Notes" en "Making Garmin Voice Notes Useful" (zelfde maker, 5 aug 2026) en "[New App] - Chui: voice notes from your watch, transcribed on your phone" (15 nov 2026) staan alle drie op `[removed]` met 1 punt. Waarom staat er niet bij (GOK: regel tegen zelfpromotie of een account zonder geschiedenis, zie verhaal 7). Voor ons: een lanceerbericht op r/Garmin voor deze app is geen plan, hooguit een antwoord in een bestaand draadje waar iemand precies hierom vraagt.
+
+### 5. Wat de Apple Watch leert (GEZIEN en GOK)
+Apple heeft de ingebouwde app Voice Memos (1,1 miljoen beoordelingen in de VS, GEZIEN). Toch verkoopt Just Press Record (Open Planet Software, klein bedrijf uit Schotland) sinds 2015 nog altijd voor $6,99 eenmalig: 1.527 beoordelingen in de VS, 543 in Duitsland, laatste versie 11 sep 2026 (GEZIEN, iTunes-API). De eerste zin van de winkeltekst: "one tap recording, **transcription and iCloud syncing to all your devices**". Ook de best beoordeelde opname-apps met horloge-ondersteuning noemen bijna allemaal tekst of AI in de naam (SpeakApp AI: Voice Notes 9.796, iTranscribe 6.864, Transcribe Audio to Text Notes 3.773; GEZIEN). GOK, niet bewezen met cijfers van voor en na: naast een gratis ingebouwde recorder leeft een betaalde app van **wat de ingebouwde niet doet**: tekst, synchroniseren, delen. Op Garmin is dat precies klacht 1 en 2.
+
+### Drie lessen
+1. **Kijk vóór het bouwen of het platform de basistaak zelf al levert.** Een nieuwe API betekent niet dat de functie nieuw is: Garmin had Voice Notes al twee jaar op zijn eigen horloges, de API gaf alleen makers toegang. De "lege hoek" in de winkel was leeg omdat de functie al in het horloge zat. Dit mist in de meetlat van verhaal 33 en van Noor.
+2. **Bouw het stuk dat de ingebouwde app mist, en zet dat in de naam.** Bij Garmin: de notitie het horloge af krijgen (tekst, delen, op de telefoon). De naam is de knop in de winkel (verhaal 14 en 32): "Voice Memo" dekt dat niet, "Voice to Text" of "Voice Notes to Phone" wel (GOK welk woord meer gezocht wordt; de winkel geeft geen zoekvolume).
+3. **Tekst maken kost per minuut, dus het betaalde deel moet terugkerend zijn of hard begrensd.** Chui heeft een abonnement, SayNote een daglimiet. Een eenmalige $3,99 voor onbeperkt omzetten is verlies op elke trouwe gebruiker (GOK, afhankelijk van de prijs van de dienst).
+
+### Voorstel voor Dortus, nu (Gijs en de hoofdchat)
+**Bouw niet de versie "zonder telefoon en zonder server".** Twee wegen, hoofdchat kiest:
+- **A, het gat vullen (mijn advies als het in één of twee runs kan):** opname op het horloge, en het horloge stuurt de .wav via Garmin Connect naar de telefoon of naar een plek van de gebruiker zelf. Eerst uitzoeken (Gijs, punt c van zijn opdracht): kan `Communications` een bestand als bijlage of binair naar een webadres sturen zonder eigen server, bijvoorbeeld naar een eigen Google Drive of Dropbox met inloggen via OAuth, of naar een mailadres? Kan dat niet, dan vraagt tekst maken een server met kosten per minuut (iets voor Thijs, geld). Naam met het voordeel erin, bijvoorbeeld "Voice Notes to Phone".
+- **B, stoppen voor de spraakmemo** en de tijd van Gijs terug naar Ebb 1.0.1 en de datawijzerplaten (die hebben wel een eigen reden om te bestaan).
+Niet doen: een kopie van de ingebouwde Voice Notes met een betaalmuur. Stopregel van het besluit (100 downloads in 4 weken) blijft. Lanceren via r/Garmin werkt hier niet (punt 4); de vindplek is de winkel en antwoorden in de draadjes op het Garmin-forum waar mensen om delen of tekst vragen.
 
 ---
 
