@@ -242,3 +242,11 @@ function testZeeHoogte(logger as Test.Logger) as Boolean {
     return Zee.hoogte(p, 15) == 110 && Zee.hoogte(p, 30) == 100 && Zee.hoogte(p, 0) == 100 && Zee.hoogte(p, 99) == 80
         && Zee.hoogte([] as Array<Graphics.Point2D>, 5) == 0;
 }
+
+// De toetsen bouwen als de winkel: daar geeft Proef.bb altijd de echte geschiedenis terug, nooit de vaste proefdag.
+(:test)
+function testWinkelEchteGeschiedenis(logger as Test.Logger) as Boolean {
+    var echt = [11, 12, 13] as Array<Number>;
+    var uit = Proef.bb(echt, Thema.KELP);
+    return uit.size() == 3 && uit[0] == 11 && uit[2] == 13 && Proef.bb([] as Array<Number>, Thema.NIGHT).size() == 0;
+}

@@ -31,7 +31,7 @@ class KernView extends WatchUi.WatchFace {
     }
 
     function leesAlles() as Void {
-        bb = Lees.hist(0) as Array<Number>;
+        bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
         st = Lees.hist(1) as Array<Number>;
         weer = Lees.weerUren() as Number;
         var stats = System.getSystemStats();
@@ -239,7 +239,8 @@ class KernView extends WatchUi.WatchFace {
             dc.setColor(Thema.band(thema, i, mip), Graphics.COLOR_TRANSPARENT);
             dc.fillPolygon(Zee.band(pts, Maten.m(Maten.BAND_0 + i), w, h));
         }
-        var lijnKleur = mip ? 0xFFFFFF : Zee.lichter(zb, 70);
+        // 64 kleuren: de bovenste band één paletstap lichter (wit las in run 44014109126 als een harde witte rand).
+        var lijnKleur = mip ? Zee.lichter(Thema.band(thema, 0, true), 85) : Zee.lichter(zb, 70);
         dc.setColor(lijnKleur, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(lijnDik);
         for (var i = 0; i + 1 < pts.size(); i++) {
@@ -301,7 +302,7 @@ class KernView extends WatchUi.WatchFace {
             // Punt van de keurder (run 126): Body Battery en stress elke vijf minuten opnieuw lezen,
             // anders blijft de plaat op de waarde van het opstarten staan.
             gelezenOp = System.getTimer();
-            bb = Lees.hist(0) as Array<Number>;
+            bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
             st = Lees.hist(1) as Array<Number>;
         }
         var nu = System.getClockTime();
