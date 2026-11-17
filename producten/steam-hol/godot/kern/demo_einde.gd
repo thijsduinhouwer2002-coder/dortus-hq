@@ -89,4 +89,18 @@ static func weiger(s, wat: String) -> bool:
 	if not klaar(s):
 		return false
 	s.log_regel("HOL demo voorbij: graven/kopen geweigerd (%s)" % wat)
+	# Sanne 17 nov 04:52: een geweigerde klik moet iets zichtbaars doen, anders voelt het kapot. De startregel komt
+	# opnieuw in de kroniek, hooguit één keer per WEIGER_PAUZE seconden open tijd, en stapelt niet in de geschiedenis.
+	if mag_tonen(s.speeltijd_s, weiger_laatst):
+		weiger_laatst = s.speeltijd_s
+		s.kroniek.erase(REGEL_START)
+		s._kroniek(REGEL_START)
 	return true
+
+const WEIGER_PAUZE := 20.0
+static var weiger_laatst := -1000.0
+
+# Mag de regel na een geweigerde klik nu (weer) in beeld: eerste keer altijd, daarna pas na WEIGER_PAUZE s.
+# Ook als de klok terugspringt (nieuwe start telt vanaf de save) mag hij.
+static func mag_tonen(nu: float, laatst: float) -> bool:
+	return nu < laatst or nu - laatst >= WEIGER_PAUZE
