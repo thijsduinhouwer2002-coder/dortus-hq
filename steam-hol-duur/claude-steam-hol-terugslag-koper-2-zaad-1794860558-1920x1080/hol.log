@@ -1,0 +1,1140 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(0, 912) held=res://systemen/held.gd
+HOL zaad 1794860558
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Fenna is here for your gold.
+HOL begin: vallen (Fenna)
+HOL held binnen: Fenna
+HOL zicht 4.2 1
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL kroniek 11.0 (wacht 0.0): Wout read about you in a tavern.
+HOL begin: opgegeten (Wout)
+HOL held binnen: Wout
+HOL kroniek zelfde held vervangen: Fenna is here for your gold.
+HOL kroniek 16.0 (wacht 0.0): Fenna checked the floor. Too late. +6
+HOL kroniek 18.6 (wacht 2.6): New page: the Hero. The pit got him.
+HOL meting t=20 beelden=129 helden=1 hol_vast=3
+HOL kroniek 27.7 (wacht 0.0): Gloop ate Wout. Kept the crown. +6
+HOL zicht 27.7 0
+HOL begin: vluchten (Pim)
+HOL held binnen: Pim
+HOL zicht 30.1 1
+HOL meting t=30 beelden=117 helden=1 hol_vast=4
+HOL kroniek 30.3 (wacht 2.6): New stamp for the Hero. Gloop got him.
+HOL kroniek 32.9 (wacht 2.9): Pim brought a torch. And hope.
+HOL meting t=40 beelden=100 helden=1 hol_vast=4
+HOL kroniek zelfde held vervangen: Pim brought a torch. And hope.
+HOL kroniek 48.6 (wacht 0.0): Pim fled, crying a little.
+HOL zicht 48.7 0
+HOL meting t=50 beelden=86 helden=0 hol_vast=4
+HOL kroniek 51.1 (wacht 2.5): New stamp for the Hero. He got away.
+HOL meting t=60 beelden=17 helden=0 hol_vast=4
+HOL kroniek zelfde held vervangen: Pim fled, crying a little.
+HOL kroniek 67.3 (wacht 0.0): Pim is back for the Spike Pit.
+HOL begin: terug (Pim)
+HOL held binnen: Pim
+HOL zicht 67.4 1
+HOL meting t=70 beelden=39 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 79.2)
+HOL kroniek zelfde held vervangen: Pim is back for the Spike Pit.
+HOL kroniek 79.2 (wacht 0.0): Pim came back. The Spike Pit won. +9
+HOL zicht 79.2 0
+HOL bordje wip niveau 2
+HOL meting t=80 beelden=123 helden=0 hol_vast=6
+HOL meting t=90 beelden=14 helden=0 hol_vast=6
+HOL meting t=100 beelden=8 helden=0 hol_vast=6
+HOL kroniek 101.4 (wacht 0.0): Tibbe knocks first. Polite.
+HOL begin: doorlopen (Tibbe)
+HOL held binnen: Tibbe
+HOL zicht 101.5 1
+HOL meting t=110 beelden=93 helden=1 hol_vast=6
+HOL kroniek 117.1 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=120 beelden=100 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Tibbe knocks first. Polite.
+HOL kroniek 121.1 (wacht 0.0): Tibbe touched your hoard!
+HOL meting t=130 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Tibbe touched your hoard!
+HOL kroniek 133.2 (wacht 0.0): Tibbe ran. Hands smell of gold.
+HOL zicht 133.3 0
+HOL kroniek 138.9 (wacht 0.0): Mara climbs into your hole.
+HOL held binnen: Mara
+HOL zicht 139.0 1
+HOL meting t=140 beelden=45 helden=1 hol_vast=6
+HOL kroniek 147.1 (wacht 0.0): Gloop is up again. Wobbly.
+HOL meting t=150 beelden=110 helden=1 hol_vast=7
+HOL kroniek zelfde held vervangen: Mara climbs into your hole.
+HOL kroniek 150.8 (wacht 0.0): Mara will not be leaving. +6
+HOL zicht 150.9 0
+HOL eerste koop mogelijk na 150 s speeltijd (goud 47)
+HOL kaartje open 152.5: slijm
+HOL koop 152.5: slijm niveau 1, goud 2
+HOL kaartje dicht 155.1
+HOL kroniek 155.1 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL meting t=160 beelden=64 helden=0 hol_vast=8
+HOL kroniek 170.3 (wacht 0.0): Gerda has a map. It is wrong.
+HOL held binnen: Gerda
+HOL zicht 170.4 1
+HOL meting t=170 beelden=14 helden=1 hol_vast=8
+HOL meting t=181 beelden=101 helden=1 hol_vast=8
+HOL hol-niveau 3 (faam 5, t 187.0)
+HOL kroniek zelfde held vervangen: Gerda has a map. It is wrong.
+HOL kroniek 187.0 (wacht 0.0): Gloop ate Gerda, saved the chef's hat. +6
+HOL zicht 187.1 0
+HOL bordje wip niveau 3
+HOL meting t=191 beelden=104 helden=0 hol_vast=9
+HOL meting t=201 beelden=10 helden=0 hol_vast=9
+HOL kroniek 205.9 (wacht 0.0): Kees says this is a quick one.
+HOL held binnen: Kees
+HOL zicht 206.0 1
+HOL meting t=211 beelden=57 helden=1 hol_vast=9
+HOL kroniek 213.5 (wacht 0.0): Lotte is here for your gold.
+HOL held binnen: Lotte
+HOL meting t=221 beelden=101 helden=2 hol_vast=9
+HOL kroniek zelfde held vervangen: Kees says this is a quick one.
+HOL kroniek 224.5 (wacht 0.0): Kees ran. Swore revenge.
+HOL zicht 225.5 0
+HOL kroniek zelfde held vervangen: Lotte is here for your gold.
+HOL kroniek 227.0 (wacht 1.6): Lotte fell to the Spike Pit. +6
+HOL meting t=231 beelden=86 helden=0 hol_vast=11
+HOL meting t=241 beelden=28 helden=0 hol_vast=11
+HOL kroniek 243.3 (wacht 0.0): Joost knocks first. Polite.
+HOL held binnen: Joost
+HOL zicht 243.4 1
+HOL meting t=251 beelden=81 helden=1 hol_vast=11
+HOL hol-niveau 4 (faam 7, t 260.0)
+HOL kroniek 260.0 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 260.1 0
+HOL bordje wip niveau 4
+HOL meting t=261 beelden=124 helden=0 hol_vast=12
+HOL meting t=271 beelden=16 helden=0 hol_vast=12
+HOL kroniek 277.8 (wacht 0.0): Odo read about you in a tavern.
+HOL held binnen: Odo
+HOL zicht 277.9 1
+HOL meting t=281 beelden=44 helden=1 hol_vast=12
+HOL kroniek zelfde held vervangen: Odo read about you in a tavern.
+HOL kroniek 289.7 (wacht 0.0): Odo found the Spike Pit. Hard. +6
+HOL zicht 289.8 0
+HOL meting t=291 beelden=121 helden=0 hol_vast=14
+HOL meting t=301 beelden=27 helden=0 hol_vast=14
+HOL meting t=311 beelden=10 helden=0 hol_vast=14
+HOL kroniek 313.8 (wacht 0.0): Rik says this is a quick one.
+HOL held binnen: Rik
+HOL zicht 313.9 1
+HOL kroniek 321.8 (wacht 0.0): Bram brought a torch. And hope.
+HOL held binnen: Bram
+HOL meting t=321 beelden=81 helden=2 hol_vast=14
+HOL kroniek zelfde held vervangen: Rik says this is a quick one.
+HOL kroniek 325.7 (wacht 0.0): Rik is part of the hole now. +6
+HOL meting t=331 beelden=128 helden=1 hol_vast=16
+HOL kroniek zelfde held vervangen: Bram brought a torch. And hope.
+HOL kroniek 333.7 (wacht 0.0): Bram stays forever. +6
+HOL zicht 333.8 0
+HOL meting t=341 beelden=64 helden=0 hol_vast=18
+HOL meting t=351 beelden=10 helden=0 hol_vast=18
+HOL kroniek 356.2 (wacht 0.0): Fenna II climbs in. Family business.
+HOL held binnen: Fenna II
+HOL zicht 356.3 1
+HOL meting t=362 beelden=62 helden=1 hol_vast=18
+HOL kroniek zelfde held vervangen: Bram stays forever. +6
+HOL kroniek 363.0 (wacht 0.0): Bram II. Bram fell here once.
+HOL held binnen: Bram II
+HOL meting t=372 beelden=101 helden=2 hol_vast=18
+HOL kroniek zelfde held vervangen: Fenna II climbs in. Family business.
+HOL kroniek 374.8 (wacht 0.0): Fenna II left. Took nothing. Angry.
+HOL kroniek 377.3 (wacht 2.5): Page for the Thief. Ran off. Counts.
+HOL kroniek 378.7 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=382 beelden=101 helden=1 hol_vast=18
+HOL kroniek 388.8 (wacht 0.0): Bram II escaped with a limp.
+HOL zicht 388.9 0
+HOL meting t=392 beelden=67 helden=0 hol_vast=18
+HOL kroniek 399.7 (wacht 0.0): Gerda II wants dad's boot back.
+HOL held binnen: Gerda II
+HOL zicht 399.8 1
+HOL meting t=402 beelden=27 helden=1 hol_vast=18
+HOL kroniek 408.8 (wacht 0.0): Gloop is up again. Wobbly.
+HOL meting t=412 beelden=101 helden=1 hol_vast=18
+HOL kroniek zelfde held vervangen: Gerda II wants dad's boot back.
+HOL kroniek 416.4 (wacht 0.0): Gerda II went down in one gulp. +6
+HOL zicht 416.5 0
+HOL kroniek 419.0 (wacht 2.5): Booked: the Knight. Gloop says yum.
+HOL meting t=422 beelden=83 helden=0 hol_vast=19
+HOL kroniek 429.1 (wacht 0.0): Gerda III has a map. It is wrong.
+HOL held binnen: Gerda III
+HOL zicht 429.2 1
+HOL meting t=432 beelden=39 helden=1 hol_vast=19
+HOL meting t=442 beelden=100 helden=1 hol_vast=19
+HOL kroniek zelfde held vervangen: Gerda III has a map. It is wrong.
+HOL kroniek 447.7 (wacht 0.0): Gerda III fled. Grudge: the Spike Pit.
+HOL zicht 447.8 0
+HOL meting t=452 beelden=57 helden=0 hol_vast=19
+HOL kroniek 461.2 (wacht 0.0): Odo II climbs in. Family business.
+HOL held binnen: Odo II
+HOL zicht 461.3 1
+HOL meting t=462 beelden=24 helden=1 hol_vast=19
+HOL meting t=472 beelden=101 helden=1 hol_vast=19
+HOL hol-niveau 5 (faam 12, t 477.9)
+HOL kroniek zelfde held vervangen: Odo II climbs in. Family business.
+HOL kroniek 477.9 (wacht 0.0): Gloop ate Odo II. Burp. +6
+HOL zicht 477.9 0
+HOL bordje wip niveau 5
+HOL kaartje open 479.1: stekelput
+HOL koop 479.1: stekelput niveau 1, goud 5
+HOL kaartje dicht 481.7
+HOL kroniek 481.7 (wacht 0.0): The Spike Pit got rusty. Ouch.
+HOL meting t=482 beelden=119 helden=0 hol_vast=21
+HOL meting t=492 beelden=11 helden=0 hol_vast=21
+HOL kroniek 493.9 (wacht 0.0): Mara II wants dad's boot back.
+HOL held binnen: Mara II
+HOL zicht 494.0 1
+HOL meting t=503 beelden=93 helden=1 hol_vast=21
+HOL kroniek zelfde held vervangen: Mara II wants dad's boot back.
+HOL kroniek 505.8 (wacht 0.0): Mara II left gold and one boot. +6
+HOL zicht 505.8 0
+HOL meting t=513 beelden=72 helden=0 hol_vast=23
+HOL meting t=523 beelden=14 helden=0 hol_vast=23
+HOL kroniek 526.4 (wacht 0.0): Fenna II limps back to the Spike Pit.
+HOL held binnen: Fenna II
+HOL zicht 526.5 1
+HOL meting t=533 beelden=71 helden=1 hol_vast=23
+HOL meting t=543 beelden=100 helden=1 hol_vast=23
+HOL kroniek zelfde held vervangen: Fenna II limps back to the Spike Pit.
+HOL kroniek 545.0 (wacht 0.0): Fenna II ran. Swore revenge.
+HOL zicht 545.1 0
+HOL meting t=553 beelden=27 helden=0 hol_vast=23
+HOL kroniek 556.6 (wacht 0.0): Pim II. Pim fell here once.
+HOL held binnen: Pim II
+HOL zicht 556.7 1
+HOL meting t=563 beelden=70 helden=1 hol_vast=23
+HOL kroniek zelfde held vervangen: Pim II. Pim fell here once.
+HOL kroniek 568.5 (wacht 0.0): Pim II took the short way down. +6
+HOL zicht 568.5 0
+HOL meting t=573 beelden=93 helden=0 hol_vast=25
+HOL meting t=583 beelden=10 helden=0 hol_vast=25
+HOL kroniek 591.2 (wacht 0.0): Rik II climbs in. Family business.
+HOL held binnen: Rik II
+HOL zicht 591.3 1
+HOL meting t=593 beelden=31 helden=1 hol_vast=25
+HOL kroniek 600.1 (wacht 0.0): Lotte II. Lotte fell here once.
+HOL held binnen: Lotte II
+HOL kroniek zelfde held vervangen: Rik II climbs in. Family business.
+HOL kroniek 603.1 (wacht 0.0): Rik II found the Spike Pit. Hard. +6
+HOL meting t=603 beelden=114 helden=1 hol_vast=26
+HOL meting t=613 beelden=115 helden=1 hol_vast=27
+HOL kroniek zelfde held vervangen: Lotte II. Lotte fell here once.
+HOL kroniek 618.8 (wacht 0.0): Lotte II fled, crying a little.
+HOL zicht 618.9 0
+HOL meting t=623 beelden=55 helden=0 hol_vast=27
+HOL kroniek 631.5 (wacht 0.0): Tibbe climbs into your hole.
+HOL held binnen: Tibbe
+HOL zicht 631.6 1
+HOL meting t=633 beelden=32 helden=1 hol_vast=27
+HOL kroniek zelfde held vervangen: Tibbe climbs into your hole.
+HOL kroniek 643.4 (wacht 0.0): Tibbe fell to the Spike Pit. +6
+HOL zicht 643.4 0
+HOL meting t=643 beelden=113 helden=0 hol_vast=28
+HOL meting t=653 beelden=34 helden=0 hol_vast=29
+HOL meting t=663 beelden=8 helden=0 hol_vast=29
+HOL kroniek 667.7 (wacht 0.0): Mara III casts Light. It is a candle.
+HOL held binnen: Mara III
+HOL zicht 667.8 1
+HOL meting t=673 beelden=65 helden=1 hol_vast=29
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=683 beelden=101 helden=1 hol_vast=29
+HOL kroniek zelfde held vervangen: Mara III casts Light. It is a candle.
+HOL kroniek 693.5 (wacht 0.0): Mara III saw the trap. Told no one.
+HOL zicht 693.6 0
+HOL meting t=694 beelden=97 helden=0 hol_vast=29
+HOL kroniek 696.0 (wacht 2.5): Page for the Wizard. He got away.
+HOL meting t=704 beelden=1 helden=0 hol_vast=29
+HOL kroniek zelfde held vervangen: Mara III saw the trap. Told no one.
+HOL kroniek 704.1 (wacht 0.0): Mara III wrote a song about Gloop.
+HOL held binnen: Mara III
+HOL zicht 704.2 1
+HOL meting t=714 beelden=101 helden=1 hol_vast=29
+HOL hol-niveau 6 (faam 17, t 720.8)
+HOL kroniek 720.8 (wacht 0.0): Gloop says thanks for the snack. +9
+HOL zicht 720.9 0
+HOL bordje wip niveau 6
+HOL kroniek 723.4 (wacht 2.5): New stamp for the Wizard. Gloop got him.
+HOL meting t=724 beelden=109 helden=0 hol_vast=30
+HOL meting t=734 beelden=8 helden=0 hol_vast=30
+HOL kroniek 737.7 (wacht 0.0): Pim III read about you in a tavern.
+HOL held binnen: Pim III
+HOL zicht 737.8 1
+HOL meting t=744 beelden=77 helden=1 hol_vast=30
+HOL kroniek zelfde held vervangen: Pim III read about you in a tavern.
+HOL kroniek 749.6 (wacht 0.0): Pim III will not be leaving. +6
+HOL zicht 749.6 0
+HOL meting t=754 beelden=95 helden=0 hol_vast=32
+HOL meting t=764 beelden=8 helden=0 hol_vast=32
+HOL kroniek 773.4 (wacht 0.0): Sir Odo III polished his armor for this.
+HOL held binnen: Odo III
+HOL zicht 773.5 1
+HOL meting t=774 beelden=25 helden=1 hol_vast=32
+HOL meting t=784 beelden=101 helden=1 hol_vast=33
+HOL kroniek zelfde held vervangen: Sir Odo III polished his armor for this.
+HOL kroniek 785.3 (wacht 0.0): Sir Odo III clanked all the way down. +6
+HOL zicht 785.4 0
+HOL kroniek 787.9 (wacht 2.5): New stamp for the Knight. Spikes: one.
+HOL meting t=794 beelden=58 helden=0 hol_vast=34
+HOL meting t=804 beelden=10 helden=0 hol_vast=34
+HOL kroniek 808.4 (wacht 0.0): Joost II wants dad's boot back.
+HOL held binnen: Joost II
+HOL zicht 808.5 1
+HOL meting t=814 beelden=80 helden=1 hol_vast=34
+HOL kroniek zelfde held vervangen: Joost II wants dad's boot back.
+HOL kroniek 821.0 (wacht 0.0): Joost II took a nap in your hole.
+HOL meting t=824 beelden=101 helden=1 hol_vast=34
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=834 beelden=100 helden=1 hol_vast=34
+HOL kroniek zelfde held vervangen: Joost II took a nap in your hole.
+HOL kroniek 838.4 (wacht 0.0): Joost II escaped with a limp.
+HOL zicht 838.5 0
+HOL held binnen: Wout II
+HOL zicht 840.3 1
+HOL kroniek 840.9 (wacht 0.7): Wout II climbs in. Family business.
+HOL meting t=844 beelden=84 helden=1 hol_vast=34
+HOL kroniek zelfde held vervangen: Wout II climbs in. Family business.
+HOL kroniek 852.1 (wacht 0.0): Wout II left gold and one boot. +6
+HOL zicht 852.1 0
+HOL meting t=854 beelden=113 helden=0 hol_vast=36
+HOL meting t=864 beelden=7 helden=0 hol_vast=36
+HOL kroniek 872.2 (wacht 0.0): Wout III has a map. It is wrong.
+HOL held binnen: Wout III
+HOL zicht 872.3 1
+HOL meting t=874 beelden=34 helden=1 hol_vast=36
+HOL meting t=884 beelden=101 helden=1 hol_vast=36
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=895 beelden=101 helden=1 hol_vast=36
+HOL kroniek zelfde held vervangen: Wout III has a map. It is wrong.
+HOL kroniek 898.0 (wacht 0.0): Wout III fled. Grudge: Gloop.
+HOL zicht 898.1 0
+HOL meting t=905 beelden=31 helden=0 hol_vast=36
+HOL kroniek 908.2 (wacht 0.0): Joost II is back for Gloop.
+HOL held binnen: Joost II
+HOL zicht 908.3 1
+HOL meting t=915 beelden=70 helden=1 hol_vast=36
+HOL kroniek zelfde held vervangen: Joost II is back for Gloop.
+HOL kroniek 920.8 (wacht 0.0): Joost II snored. Gloop watched.
+HOL meting t=925 beelden=101 helden=1 hol_vast=36
+HOL kroniek zelfde held vervangen: Joost II snored. Gloop watched.
+HOL kroniek 929.1 (wacht 0.0): Gloop ate Joost II. Burp. +9
+HOL zicht 929.2 0
+HOL kroniek 931.7 (wacht 2.5): New stamp for the Thief. Gloop says yum.
+HOL meting t=935 beelden=84 helden=0 hol_vast=37
+HOL kroniek 942.1 (wacht 0.0): Sir Joost III clanks in.
+HOL held binnen: Joost III
+HOL zicht 942.2 1
+HOL meting t=945 beelden=38 helden=1 hol_vast=37
+HOL meting t=955 beelden=100 helden=1 hol_vast=37
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=965 beelden=101 helden=1 hol_vast=37
+HOL kroniek 973.5 (wacht 0.0): Wout III wrote a song about Gloop.
+HOL held binnen: Wout III
+HOL meting t=975 beelden=101 helden=1 hol_vast=37
+HOL kroniek zelfde held vervangen: Sir Joost III clanks in.
+HOL kroniek 976.0 (wacht 2.1): Sir Joost III will tell it differently.
+HOL kroniek vervallen 976.9: New stamp for the Knight. Ran off. Counts.
+HOL meting t=985 beelden=101 helden=1 hol_vast=37
+HOL kroniek zelfde held vervangen: Wout III wrote a song about Gloop.
+HOL kroniek 992.1 (wacht 0.0): Wout III left. Took nothing. Angry.
+HOL zicht 992.2 0
+HOL meting t=995 beelden=69 helden=0 hol_vast=37
+HOL meting t=1005 beelden=14 helden=0 hol_vast=37
+HOL kroniek 1007.0 (wacht 0.0): Kees the Wizard sniffs for traps.
+HOL held binnen: Kees
+HOL zicht 1007.1 1
+HOL meting t=1015 beelden=89 helden=1 hol_vast=37
+HOL kroniek zelfde held vervangen: Kees the Wizard sniffs for traps.
+HOL kroniek 1023.7 (wacht 0.0): Kees went down in one gulp. +6
+HOL zicht 1023.7 0
+HOL meting t=1025 beelden=118 helden=0 hol_vast=38
+HOL meting t=1035 beelden=10 helden=0 hol_vast=38
+HOL kroniek 1041.7 (wacht 0.0): Rik III says this is a quick one.
+HOL held binnen: Rik III
+HOL zicht 1041.8 1
+HOL meting t=1045 beelden=56 helden=1 hol_vast=38
+HOL kroniek zelfde held vervangen: Rik III says this is a quick one.
+HOL kroniek 1053.6 (wacht 0.0): Rik III is part of the hole now. +6
+HOL zicht 1053.6 0
+HOL meting t=1056 beelden=117 helden=0 hol_vast=40
+HOL meting t=1066 beelden=10 helden=0 hol_vast=40
+HOL meting t=1076 beelden=26 helden=0 hol_vast=40
+HOL kroniek 1076.3 (wacht 0.0): Kees II wants dad's boot back.
+HOL held binnen: Kees II
+HOL zicht 1076.4 1
+HOL meting t=1086 beelden=99 helden=1 hol_vast=40
+HOL kroniek zelfde held vervangen: Kees II wants dad's boot back.
+HOL kroniek 1094.9 (wacht 0.0): Kees II fled. Grudge: the Spike Pit.
+HOL zicht 1095.0 0
+HOL meting t=1096 beelden=89 helden=0 hol_vast=40
+HOL kroniek zelfde held vervangen: Kees II fled. Grudge: the Spike Pit.
+HOL kroniek 1104.6 (wacht 0.0): Kees II remembers the Spike Pit.
+HOL held binnen: Kees II
+HOL zicht 1104.7 1
+HOL meting t=1106 beelden=24 helden=1 hol_vast=40
+HOL kroniek 1112.5 (wacht 0.0): Tibbe II. Tibbe fell here once.
+HOL held binnen: Tibbe II
+HOL meting t=1116 beelden=100 helden=2 hol_vast=40
+HOL plat zonder regel (2 keer gemeld)
+HOL kroniek zelfde held vervangen: Tibbe II. Tibbe fell here once.
+HOL kroniek 1124.4 (wacht 0.0): Tibbe II checked the floor. Too late. +6
+HOL meting t=1126 beelden=128 helden=1 hol_vast=42
+HOL kroniek zelfde held vervangen: Kees II remembers the Spike Pit.
+HOL kroniek 1130.5 (wacht 0.0): Kees II escaped with a limp.
+HOL zicht 1130.6 0
+HOL meting t=1136 beelden=44 helden=0 hol_vast=42
+HOL meting t=1146 beelden=0 helden=0 hol_vast=42
+HOL kroniek 1149.3 (wacht 0.0): Tibbe III knocks first. Polite.
+HOL held binnen: Tibbe III
+HOL zicht 1149.4 1
+HOL meting t=1156 beelden=71 helden=1 hol_vast=42
+HOL hol-niveau 7 (faam 25, t 1166.0)
+HOL kroniek zelfde held vervangen: Tibbe III knocks first. Polite.
+HOL kroniek 1166.0 (wacht 0.0): Gloop ate Tibbe III. Burp. +6
+HOL zicht 1166.0 0
+HOL bordje wip niveau 7
+HOL meting t=1166 beelden=114 helden=0 hol_vast=43
+HOL meting t=1176 beelden=36 helden=0 hol_vast=43
+HOL meting t=1186 beelden=9 helden=0 hol_vast=43
+HOL kroniek 1186.9 (wacht 0.0): Pim brought a torch. And hope.
+HOL held binnen: Pim
+HOL zicht 1187.0 1
+HOL meting t=1196 beelden=97 helden=1 hol_vast=43
+HOL kroniek zelfde held vervangen: Pim brought a torch. And hope.
+HOL kroniek 1198.8 (wacht 0.0): Pim stays forever. +6
+HOL zicht 1198.9 0
+HOL meting t=1206 beelden=67 helden=0 hol_vast=45
+HOL meting t=1216 beelden=10 helden=0 hol_vast=45
+HOL kroniek 1224.0 (wacht 0.0): Pim II sneaks in. Nobody saw. You saw.
+HOL held binnen: Pim II
+HOL zicht 1224.1 1
+HOL meting t=1226 beelden=50 helden=1 hol_vast=45
+HOL meting t=1236 beelden=101 helden=1 hol_vast=45
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=1246 beelden=101 helden=1 hol_vast=45
+HOL kroniek zelfde held vervangen: Pim II sneaks in. Nobody saw. You saw.
+HOL kroniek 1249.8 (wacht 0.0): Pim II escaped. You saw that too.
+HOL zicht 1249.9 0
+HOL kroniek 1255.8 (wacht 0.0): Odo picks the lock. It was open.
+HOL held binnen: Odo
+HOL zicht 1255.9 1
+HOL meting t=1256 beelden=42 helden=1 hol_vast=45
+HOL kroniek 1262.9 (wacht 0.0): Wout III is back for the Spike Pit.
+HOL held binnen: Wout III
+HOL meting t=1266 beelden=100 helden=2 hol_vast=45
+HOL kroniek zelfde held vervangen: Odo picks the lock. It was open.
+HOL kroniek 1274.4 (wacht 0.0): Odo escaped. You saw that too.
+HOL zicht 1274.8 0
+HOL kroniek 1276.9 (wacht 2.1): The Spike Pit wins round two. +12
+HOL meting t=1277 beelden=120 helden=0 hol_vast=47
+HOL meting t=1287 beelden=8 helden=0 hol_vast=47
+HOL meting t=1297 beelden=26 helden=0 hol_vast=47
+HOL kroniek zelfde held vervangen: Odo escaped. You saw that too.
+HOL kroniek 1300.7 (wacht 0.0): Odo limps back to the Spike Pit.
+HOL held binnen: Odo
+HOL zicht 1300.8 1
+HOL meting t=1307 beelden=67 helden=1 hol_vast=47
+HOL kroniek 1312.6 (wacht 0.0): The Spike Pit won. Grudge settled. +9
+HOL zicht 1312.7 0
+HOL kroniek 1315.2 (wacht 2.5): New stamp for the Thief. The pit got him.
+HOL meting t=1317 beelden=105 helden=0 hol_vast=49
+HOL meting t=1327 beelden=19 helden=0 hol_vast=49
+HOL meting t=1337 beelden=9 helden=0 hol_vast=49
+HOL kroniek 1337.6 (wacht 0.0): Kees II wrote a song about Gloop.
+HOL held binnen: Kees II
+HOL zicht 1337.7 1
+HOL meting t=1347 beelden=97 helden=1 hol_vast=49
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=1357 beelden=101 helden=1 hol_vast=49
+HOL kroniek zelfde held vervangen: Kees II wrote a song about Gloop.
+HOL kroniek 1363.4 (wacht 0.0): Kees II is in the book. In red ink.
+HOL zicht 1363.5 0
+HOL kroniek zelfde held vervangen: Kees II is in the book. In red ink.
+HOL kroniek 1364.5 (wacht 1.1): Kees II ran. Swore revenge.
+HOL meting t=1367 beelden=62 helden=0 hol_vast=49
+HOL kroniek 1370.2 (wacht 0.0): Odo II the Bard tunes his lute.
+HOL held binnen: Odo II
+HOL zicht 1370.3 1
+HOL meting t=1377 beelden=74 helden=1 hol_vast=49
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=1387 beelden=101 helden=1 hol_vast=49
+HOL kroniek zelfde held vervangen: Odo II the Bard tunes his lute.
+HOL kroniek 1396.0 (wacht 0.0): Odo II fled, crying a little.
+HOL zicht 1396.1 0
+HOL meting t=1397 beelden=84 helden=0 hol_vast=49
+HOL kroniek 1398.6 (wacht 2.6): Booked: the Bard. He got away.
+HOL kroniek zelfde held vervangen: Odo II fled, crying a little.
+HOL kroniek 1401.2 (wacht 5.2): Odo II's song got popular. Uh oh.
+HOL kroniek 1405.2 (wacht 0.0): Mara asks if this is the song hole.
+HOL held binnen: Mara
+HOL zicht 1405.3 1
+HOL meting t=1407 beelden=29 helden=1 hol_vast=49
+HOL kroniek 1417.0 (wacht 0.0): Wout heard the song. Came to see.
+HOL held binnen: Wout
+HOL meting t=1417 beelden=101 helden=2 hol_vast=49
+HOL kroniek zelfde held vervangen: Mara asks if this is the song hole.
+HOL kroniek 1421.9 (wacht 0.0): Gloop ate Mara. Kept the pointy hat. +6
+HOL meting t=1427 beelden=129 helden=1 hol_vast=51
+HOL kroniek zelfde held vervangen: Wout heard the song. Came to see.
+HOL kroniek 1428.9 (wacht 0.0): Wout took the short way down. +6
+HOL zicht 1429.0 0
+HOL kaartje open 1432.0: slijm
+HOL koop 1432.0: slijm niveau 2, goud 2
+HOL kaartje dicht 1434.6
+HOL kroniek 1434.6 (wacht 0.0): Gloop bounces now. Back up in 40 s.
+HOL meting t=1438 beelden=79 helden=0 hol_vast=52
+HOL meting t=1448 beelden=15 helden=0 hol_vast=52
+HOL kroniek 1454.5 (wacht 0.0): Wout II tells everyone he slew a dragon.
+HOL held binnen: Wout II
+HOL zicht 1454.6 1
+HOL meting t=1458 beelden=43 helden=1 hol_vast=52
+HOL meting t=1468 beelden=101 helden=1 hol_vast=52
+HOL hol-niveau 8 (faam 31, t 1471.2)
+HOL kroniek 1471.2 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 1471.3 0
+HOL bordje wip niveau 8
+HOL meting t=1478 beelden=76 helden=0 hol_vast=53
+HOL kroniek 1485.8 (wacht 0.0): Wout III is here for your gold.
+HOL held binnen: Wout III
+HOL zicht 1485.9 1
+HOL meting t=1488 beelden=32 helden=1 hol_vast=53
+HOL kroniek zelfde held vervangen: Wout III is here for your gold.
+HOL kroniek 1497.7 (wacht 0.0): Wout III found the Spike Pit. Hard. +6
+HOL zicht 1497.7 0
+HOL meting t=1498 beelden=115 helden=0 hol_vast=54
+HOL meting t=1508 beelden=32 helden=0 hol_vast=55
+HOL meting t=1518 beelden=8 helden=0 hol_vast=55
+HOL kroniek 1523.4 (wacht 0.0): Pim II wrote a song about Gloop.
+HOL held binnen: Pim II
+HOL zicht 1523.5 1
+HOL meting t=1528 beelden=54 helden=1 hol_vast=55
+HOL meting t=1538 beelden=101 helden=1 hol_vast=55
+HOL kroniek zelfde held vervangen: Pim II wrote a song about Gloop.
+HOL kroniek 1542.0 (wacht 0.0): Pim II left. Took nothing. Angry.
+HOL zicht 1542.1 0
+HOL meting t=1548 beelden=44 helden=0 hol_vast=55
+HOL kroniek 1555.7 (wacht 0.0): Mara II the Sleepy shuffles in.
+HOL held binnen: Mara II
+HOL zicht 1555.8 1
+HOL meting t=1558 beelden=35 helden=1 hol_vast=55
+HOL kroniek zelfde held vervangen: Mara II the Sleepy shuffles in.
+HOL kroniek 1568.3 (wacht 0.0): Mara II slept. Rude.
+HOL meting t=1568 beelden=101 helden=1 hol_vast=55
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=1578 beelden=101 helden=1 hol_vast=55
+HOL kroniek 1583.8 (wacht 0.0): Sir Rik is very slow. Very sure.
+HOL held binnen: Rik
+HOL kroniek zelfde held vervangen: Mara II slept. Rude.
+HOL kroniek 1585.7 (wacht 0.0): Mara II sleepwalked right out.
+HOL meting t=1588 beelden=101 helden=1 hol_vast=55
+HOL meting t=1598 beelden=101 helden=1 hol_vast=55
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=1608 beelden=100 helden=1 hol_vast=55
+HOL kroniek 1612.8 (wacht 0.0): Pim II remembers the Spike Pit.
+HOL held binnen: Pim II
+HOL kroniek 1615.6 (wacht 0.0): Sir Rik retreats. Slowly. Loudly.
+HOL meting t=1619 beelden=101 helden=1 hol_vast=55
+HOL meting t=1629 beelden=101 helden=1 hol_vast=55
+HOL kroniek zelfde held vervangen: Pim II remembers the Spike Pit.
+HOL kroniek 1631.4 (wacht 0.0): New nemesis in the book: Pim II.
+HOL zicht 1631.5 0
+HOL kroniek zelfde held vervangen: New nemesis in the book: Pim II.
+HOL kroniek 1632.5 (wacht 1.1): Pim II fled. Grudge: the Spike Pit.
+HOL meting t=1639 beelden=47 helden=0 hol_vast=55
+HOL kroniek 1645.7 (wacht 0.0): Sir Bram II clanks in.
+HOL held binnen: Bram II
+HOL zicht 1645.8 1
+HOL meting t=1649 beelden=43 helden=1 hol_vast=55
+HOL kroniek zelfde held vervangen: Sir Bram II clanks in.
+HOL kroniek 1657.6 (wacht 0.0): Sir Bram II was very sure. Was. +6
+HOL zicht 1657.6 0
+HOL meting t=1659 beelden=122 helden=0 hol_vast=57
+HOL meting t=1669 beelden=8 helden=0 hol_vast=57
+HOL meting t=1679 beelden=8 helden=0 hol_vast=57
+HOL kroniek 1683.2 (wacht 0.0): Bram III climbs into your hole.
+HOL held binnen: Bram III
+HOL zicht 1683.3 1
+HOL meting t=1689 beelden=65 helden=1 hol_vast=57
+HOL kroniek zelfde held vervangen: Bram III climbs into your hole.
+HOL kroniek 1695.1 (wacht 0.0): Bram III is part of the hole now. +6
+HOL zicht 1695.1 0
+HOL meting t=1699 beelden=98 helden=0 hol_vast=59
+HOL meting t=1709 beelden=10 helden=0 hol_vast=59
+HOL kroniek 1714.9 (wacht 0.0): Odo II is back for Gloop.
+HOL held binnen: Odo II
+HOL zicht 1715.0 1
+HOL meting t=1719 beelden=50 helden=1 hol_vast=59
+HOL meting t=1729 beelden=100 helden=1 hol_vast=59
+HOL kroniek zelfde held vervangen: Odo II is back for Gloop.
+HOL kroniek 1731.6 (wacht 0.0): Odo II came back once too often. +9
+HOL zicht 1731.7 0
+HOL kroniek 1734.2 (wacht 2.5): New stamp for the Bard. Gloop got him.
+HOL meting t=1739 beelden=70 helden=0 hol_vast=60
+HOL kroniek 1746.9 (wacht 0.0): Odo III the Spiteful is here.
+HOL held binnen: Odo III
+HOL zicht 1747.0 1
+HOL meting t=1749 beelden=34 helden=1 hol_vast=60
+HOL meting t=1759 beelden=101 helden=1 hol_vast=60
+HOL kroniek zelfde held vervangen: Odo III the Spiteful is here.
+HOL kroniek 1763.6 (wacht 0.0): Odo III went down in one gulp. +6
+HOL zicht 1763.6 0
+HOL meting t=1769 beelden=82 helden=0 hol_vast=61
+HOL meting t=1779 beelden=17 helden=0 hol_vast=61
+HOL kroniek 1781.1 (wacht 0.0): Bram keeps a list of names.
+HOL held binnen: Bram
+HOL zicht 1781.2 1
+HOL meting t=1789 beelden=89 helden=1 hol_vast=61
+HOL kroniek zelfde held vervangen: Bram keeps a list of names.
+HOL kroniek 1793.0 (wacht 0.0): Bram's list got one name shorter. +6
+HOL zicht 1793.1 0
+HOL meting t=1799 beelden=74 helden=0 hol_vast=63
+HOL meting t=1809 beelden=8 helden=0 hol_vast=63
+HOL kroniek 1813.1 (wacht 0.0): Bram II brought a torch. And hope.
+HOL held binnen: Bram II
+HOL zicht 1813.2 1
+HOL meting t=1819 beelden=75 helden=1 hol_vast=63
+HOL meting t=1830 beelden=101 helden=1 hol_vast=63
+HOL kroniek zelfde held vervangen: Bram II brought a torch. And hope.
+HOL kroniek 1831.7 (wacht 0.0): Bram II fled, crying a little.
+HOL zicht 1831.8 0
+HOL meting t=1840 beelden=40 helden=0 hol_vast=63
+HOL meting t=1850 beelden=8 helden=0 hol_vast=63
+HOL kroniek 1850.2 (wacht 0.0): Wout says this is a quick one.
+HOL held binnen: Wout
+HOL zicht 1850.3 1
+HOL meting t=1860 beelden=101 helden=1 hol_vast=63
+HOL kroniek zelfde held vervangen: Wout says this is a quick one.
+HOL kroniek 1862.1 (wacht 0.0): Wout left gold and one boot. +6
+HOL zicht 1862.1 0
+HOL meting t=1870 beelden=62 helden=0 hol_vast=65
+HOL kroniek 1879.4 (wacht 0.0): Wout II knocks first. Polite.
+HOL held binnen: Wout II
+HOL zicht 1879.5 1
+HOL meting t=1880 beelden=19 helden=1 hol_vast=65
+HOL meting t=1890 beelden=101 helden=1 hol_vast=65
+HOL hol-niveau 9 (faam 39, t 1896.1)
+HOL kroniek zelfde held vervangen: Wout II knocks first. Polite.
+HOL kroniek 1896.1 (wacht 0.0): Gloop ate Wout II. The pointy hat fits. +6
+HOL zicht 1896.1 0
+HOL bordje wip niveau 9
+HOL meting t=1900 beelden=99 helden=0 hol_vast=66
+HOL kroniek 1909.0 (wacht 0.0): Wout III the Thief tiptoes in.
+HOL held binnen: Wout III
+HOL zicht 1909.1 1
+HOL meting t=1910 beelden=22 helden=1 hol_vast=66
+HOL meting t=1920 beelden=100 helden=1 hol_vast=66
+HOL kroniek zelfde held vervangen: Wout III the Thief tiptoes in.
+HOL kroniek 1925.7 (wacht 0.0): Wout III is gone. The top hat stays. +6
+HOL zicht 1925.8 0
+HOL meting t=1930 beelden=96 helden=0 hol_vast=67
+HOL meting t=1940 beelden=13 helden=0 hol_vast=67
+HOL kroniek 1945.0 (wacht 0.0): Odo holds grudges. Hard.
+HOL held binnen: Odo
+HOL zicht 1945.1 1
+HOL meting t=1950 beelden=60 helden=1 hol_vast=67
+HOL meting t=1960 beelden=101 helden=1 hol_vast=68
+HOL kroniek zelfde held vervangen: Odo holds grudges. Hard.
+HOL kroniek 1961.7 (wacht 0.0): Gloop ate Odo. Burp. +6
+HOL zicht 1961.7 0
+HOL meting t=1970 beelden=60 helden=0 hol_vast=68
+HOL kroniek 1973.8 (wacht 0.0): Odo II knows every trap. Almost.
+HOL held binnen: Odo II
+HOL zicht 1973.9 1
+HOL meting t=1980 beelden=72 helden=1 hol_vast=68
+HOL meting t=1990 beelden=101 helden=1 hol_vast=68
+HOL kroniek zelfde held vervangen: Odo II knows every trap. Almost.
+HOL kroniek 1992.4 (wacht 0.0): Odo II vanished. Took the stairs.
+HOL zicht 1992.5 0
+HOL meting t=2001 beelden=26 helden=0 hol_vast=68
+HOL kroniek 2005.3 (wacht 0.0): Bram II limps back to the Spike Pit.
+HOL held binnen: Bram II
+HOL zicht 2005.4 1
+HOL meting t=2011 beelden=60 helden=1 hol_vast=68
+HOL kroniek 2017.2 (wacht 0.0): The Spike Pit wins round two. +9
+HOL zicht 2017.3 0
+HOL meting t=2021 beelden=100 helden=0 hol_vast=70
+HOL meting t=2031 beelden=16 helden=0 hol_vast=70
+HOL kroniek 2033.8 (wacht 0.0): Bram III read about you in a tavern.
+HOL held binnen: Bram III
+HOL zicht 2033.9 1
+HOL meting t=2041 beelden=77 helden=1 hol_vast=70
+HOL kroniek zelfde held vervangen: Bram III read about you in a tavern.
+HOL kroniek 2045.7 (wacht 0.0): Bram III checked the floor. Too late. +6
+HOL zicht 2045.8 0
+HOL meting t=2051 beelden=88 helden=0 hol_vast=72
+HOL meting t=2061 beelden=10 helden=0 hol_vast=72
+HOL kroniek 2069.2 (wacht 0.0): Sir Gerda III polished his armor for this.
+HOL held binnen: Gerda III
+HOL zicht 2069.3 1
+HOL meting t=2071 beelden=47 helden=1 hol_vast=72
+HOL kroniek zelfde held vervangen: Sir Gerda III polished his armor for this.
+HOL kroniek 2081.1 (wacht 0.0): Sir Gerda III clanked all the way down. +6
+HOL zicht 2081.1 0
+HOL meting t=2081 beelden=114 helden=0 hol_vast=73
+HOL meting t=2091 beelden=48 helden=0 hol_vast=74
+HOL kroniek 2099.9 (wacht 0.0): Sir Gerda is very slow. Very sure.
+HOL held binnen: Gerda
+HOL zicht 2100.0 1
+HOL meting t=2101 beelden=24 helden=1 hol_vast=74
+HOL meting t=2111 beelden=101 helden=1 hol_vast=74
+HOL kroniek 2116.6 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 2116.6 0
+HOL meting t=2121 beelden=90 helden=0 hol_vast=75
+HOL kroniek 2128.6 (wacht 0.0): Gerda II climbs into your hole.
+HOL held binnen: Gerda II
+HOL zicht 2128.7 1
+HOL meting t=2131 beelden=38 helden=1 hol_vast=75
+HOL kroniek zelfde held vervangen: Gerda II climbs into your hole.
+HOL kroniek 2140.5 (wacht 0.0): Gerda II will not be leaving. +6
+HOL zicht 2140.5 0
+HOL meting t=2141 beelden=124 helden=0 hol_vast=77
+HOL meting t=2151 beelden=11 helden=0 hol_vast=77
+HOL kroniek 2159.8 (wacht 0.0): Gerda III has a map. It is wrong.
+HOL held binnen: Gerda III
+HOL zicht 2159.9 1
+HOL meting t=2162 beelden=28 helden=1 hol_vast=77
+HOL kroniek zelfde held vervangen: Gerda III has a map. It is wrong.
+HOL kroniek 2171.7 (wacht 0.0): Gerda III stays forever. +6
+HOL zicht 2171.8 0
+HOL meting t=2172 beelden=113 helden=0 hol_vast=78
+HOL meting t=2182 beelden=29 helden=0 hol_vast=79
+HOL kroniek 2190.6 (wacht 0.0): Bram the Spiteful is here.
+HOL held binnen: Bram
+HOL zicht 2190.7 1
+HOL meting t=2192 beelden=23 helden=1 hol_vast=79
+HOL meting t=2202 beelden=107 helden=1 hol_vast=80
+HOL kroniek zelfde held vervangen: Bram the Spiteful is here.
+HOL kroniek 2202.5 (wacht 0.0): Bram holds a grudge. Down there. +6
+HOL zicht 2202.6 0
+HOL meting t=2212 beelden=43 helden=0 hol_vast=81
+HOL meting t=2222 beelden=11 helden=0 hol_vast=81
+HOL kroniek 2225.8 (wacht 0.0): Bram II is here for your gold.
+HOL held binnen: Bram II
+HOL zicht 2225.9 1
+HOL meting t=2232 beelden=71 helden=1 hol_vast=81
+HOL meting t=2242 beelden=109 helden=1 hol_vast=82
+HOL kroniek zelfde held vervangen: Bram II is here for your gold.
+HOL kroniek 2242.5 (wacht 0.0): Bram II went down in one gulp. +6
+HOL zicht 2242.6 0
+HOL meting t=2252 beelden=42 helden=0 hol_vast=82
+HOL kroniek 2257.4 (wacht 0.0): Bram III the Wizard sniffs for traps.
+HOL held binnen: Bram III
+HOL zicht 2257.5 1
+HOL meting t=2262 beelden=60 helden=1 hol_vast=82
+HOL meting t=2272 beelden=100 helden=1 hol_vast=82
+HOL kroniek zelfde held vervangen: Bram III the Wizard sniffs for traps.
+HOL kroniek 2274.1 (wacht 0.0): Gloop ate Bram III. Wears the cap now. +6
+HOL zicht 2274.2 0
+HOL kaartje open 2276.9: stekelput
+HOL koop 2276.9: stekelput niveau 2, goud 2
+HOL kaartje dicht 2279.5
+HOL kroniek 2279.5 (wacht 0.0): The pit got deeper. Echo, echo.
+HOL meting t=2282 beelden=86 helden=0 hol_vast=84
+HOL meting t=2292 beelden=11 helden=0 hol_vast=84
+HOL kroniek 2294.6 (wacht 0.0): Wout picks the lock. It was open.
+HOL held binnen: Wout
+HOL zicht 2294.7 1
+HOL meting t=2302 beelden=84 helden=1 hol_vast=84
+HOL kroniek zelfde held vervangen: Wout picks the lock. It was open.
+HOL kroniek 2311.3 (wacht 0.0): Gloop ate Wout, saved the helmet. +6
+HOL zicht 2311.3 0
+HOL meting t=2312 beelden=125 helden=0 hol_vast=85
+HOL meting t=2322 beelden=10 helden=0 hol_vast=85
+HOL kroniek 2326.9 (wacht 0.0): Rik the Once-Fled is back. Grudge: Gloop
+HOL held binnen: Rik
+HOL zicht 2327.0 1
+HOL meting t=2332 beelden=63 helden=1 hol_vast=85
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=2343 beelden=101 helden=1 hol_vast=85
+HOL meting t=2353 beelden=101 helden=1 hol_vast=85
+HOL kroniek 2357.4 (wacht 0.0): Wout II brought a torch. And hope.
+HOL held binnen: Wout II
+HOL kroniek zelfde held vervangen: Rik the Once-Fled is back. Grudge: Gloop
+HOL kroniek 2358.7 (wacht 0.0): Rik left. Took nothing. Angry.
+HOL meting t=2363 beelden=101 helden=1 hol_vast=85
+HOL kroniek 2364.6 (wacht 0.0): Tibbe says this is a quick one.
+HOL held binnen: Tibbe
+HOL kroniek 2369.3 (wacht 0.0): Wout II fell to the Spike Pit. +6
+HOL meting t=2373 beelden=128 helden=1 hol_vast=87
+HOL hol-niveau 10 (faam 53, t 2376.5)
+HOL kroniek zelfde held vervangen: Tibbe says this is a quick one.
+HOL kroniek 2376.5 (wacht 0.0): Tibbe took the short way down. +6
+HOL zicht 2376.6 0
+HOL bordje wip niveau 10
+HOL meting t=2383 beelden=76 helden=0 hol_vast=89
+HOL meting t=2393 beelden=16 helden=0 hol_vast=89
+HOL kroniek 2396.9 (wacht 0.0): Wout III sneaks in. Nobody saw. You saw.
+HOL held binnen: Wout III
+HOL zicht 2397.0 1
+HOL meting t=2403 beelden=71 helden=1 hol_vast=89
+HOL kroniek 2406.5 (wacht 0.0): Tibbe II knocks first. Polite.
+HOL held binnen: Tibbe II
+HOL meting t=2413 beelden=109 helden=2 hol_vast=90
+HOL kroniek zelfde held vervangen: Wout III sneaks in. Nobody saw. You saw.
+HOL kroniek 2413.6 (wacht 0.0): Gloop ate Wout III. Burp. +6
+HOL held binnen: Gerda
+HOL kroniek 2416.2 (wacht 2.5): Gerda casts Light. It is a candle.
+HOL kroniek 2418.4 (wacht 0.0): Tibbe II checked the floor. Too late. +6
+HOL meting t=2423 beelden=148 helden=1 hol_vast=92
+HOL kroniek zelfde held vervangen: Gerda casts Light. It is a candle.
+HOL kroniek 2430.4 (wacht 0.0): Gloop ate Gerda. Kept the pan. +6
+HOL zicht 2430.5 0
+HOL meting t=2433 beelden=109 helden=0 hol_vast=93
+HOL meting t=2443 beelden=15 helden=0 hol_vast=93
+HOL kroniek 2450.5 (wacht 0.0): Sir Gerda II clanks in.
+HOL held binnen: Gerda II
+HOL zicht 2450.6 1
+HOL meting t=2453 beelden=39 helden=1 hol_vast=93
+HOL kroniek zelfde held vervangen: Sir Gerda II clanks in.
+HOL kroniek 2462.4 (wacht 0.0): Sir Gerda II was very sure. Was. +6
+HOL zicht 2462.5 0
+HOL meting t=2463 beelden=124 helden=0 hol_vast=95
+HOL meting t=2473 beelden=8 helden=0 hol_vast=95
+HOL meting t=2483 beelden=14 helden=0 hol_vast=95
+HOL kroniek 2487.4 (wacht 0.0): Gerda III climbs into your hole.
+HOL held binnen: Gerda III
+HOL zicht 2487.5 1
+HOL meting t=2494 beelden=70 helden=1 hol_vast=95
+HOL meting t=2504 beelden=110 helden=1 hol_vast=96
+HOL kroniek zelfde held vervangen: Gerda III climbs into your hole.
+HOL kroniek 2504.1 (wacht 0.0): Gerda III is gone. The hood stays. +6
+HOL zicht 2504.1 0
+HOL meting t=2514 beelden=42 helden=0 hol_vast=96
+HOL kroniek 2519.3 (wacht 0.0): Tibbe III knows every trap. Almost.
+HOL held binnen: Tibbe III
+HOL zicht 2519.4 1
+HOL meting t=2524 beelden=55 helden=1 hol_vast=96
+HOL kroniek 2527.2 (wacht 0.0): Gerda the Thief tiptoes in.
+HOL held binnen: Gerda
+HOL meting t=2534 beelden=100 helden=2 hol_vast=96
+HOL kroniek zelfde held vervangen: Tibbe III knows every trap. Almost.
+HOL kroniek 2536.0 (wacht 0.0): Tibbe III went down in one gulp. +6
+HOL kroniek 2543.9 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 2543.9 0
+HOL meting t=2544 beelden=141 helden=0 hol_vast=98
+HOL kroniek 2546.5 (wacht 2.6): Gloop is now known as the Hatted.
+HOL meting t=2554 beelden=31 helden=0 hol_vast=98
+HOL kroniek 2557.7 (wacht 0.0): Gerda II picks the lock. It was open.
+HOL held binnen: Gerda II
+HOL zicht 2557.8 1
+HOL meting t=2564 beelden=71 helden=1 hol_vast=98
+HOL kroniek zelfde held vervangen: Gerda II picks the lock. It was open.
+HOL kroniek 2566.0 (wacht 0.0): Gerda II picked the wrong floor. +6
+HOL zicht 2566.0 0
+HOL meting t=2574 beelden=63 helden=0 hol_vast=100
+HOL meting t=2584 beelden=7 helden=0 hol_vast=100
+HOL kroniek 2593.6 (wacht 0.0): Gerda III is here for your gold.
+HOL held binnen: Gerda III
+HOL zicht 2593.7 1
+HOL meting t=2594 beelden=18 helden=1 hol_vast=100
+HOL meting t=2604 beelden=100 helden=1 hol_vast=100
+HOL kroniek zelfde held vervangen: Gerda III is here for your gold.
+HOL kroniek 2605.5 (wacht 0.0): Gerda III stays forever. +6
+HOL zicht 2605.6 0
+HOL meting t=2614 beelden=56 helden=0 hol_vast=102
+HOL kroniek 2622.2 (wacht 0.0): Bram the Thief tiptoes in.
+HOL held binnen: Bram
+HOL zicht 2622.3 1
+HOL meting t=2624 beelden=36 helden=1 hol_vast=102
+HOL meting t=2634 beelden=100 helden=1 hol_vast=102
+HOL kroniek zelfde held vervangen: Bram the Thief tiptoes in.
+HOL kroniek 2638.9 (wacht 0.0): Gloop ate Bram. The cap fits. +6
+HOL zicht 2639.0 0
+HOL meting t=2644 beelden=88 helden=0 hol_vast=103
+HOL meting t=2654 beelden=7 helden=0 hol_vast=103
+HOL kroniek 2658.9 (wacht 0.0): Bram II holds grudges. Hard.
+HOL held binnen: Bram II
+HOL zicht 2659.0 1
+HOL meting t=2664 beelden=61 helden=1 hol_vast=103
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=2674 beelden=101 helden=1 hol_vast=103
+HOL kroniek zelfde held vervangen: Bram II holds grudges. Hard.
+HOL kroniek 2684.7 (wacht 0.0): Bram II added Gloop to the list.
+HOL zicht 2684.8 0
+HOL meting t=2684 beelden=100 helden=0 hol_vast=103
+HOL kroniek 2687.6 (wacht 0.0): Fenna II has a map. It is wrong.
+HOL held binnen: Fenna II
+HOL zicht 2687.7 1
+HOL meting t=2694 beelden=74 helden=1 hol_vast=103
+HOL kroniek zelfde held vervangen: Fenna II has a map. It is wrong.
+HOL kroniek 2704.3 (wacht 0.0): Gloop ate Fenna II. Burp. +6
+HOL zicht 2704.3 0
+HOL meting t=2704 beelden=117 helden=0 hol_vast=104
+HOL meting t=2715 beelden=30 helden=0 hol_vast=104
+HOL kroniek 2722.0 (wacht 0.0): Fenna III casts Light. It is a candle.
+HOL held binnen: Fenna III
+HOL zicht 2722.1 1
+HOL meting t=2725 beelden=38 helden=1 hol_vast=104
+HOL kroniek zelfde held vervangen: Fenna III casts Light. It is a candle.
+HOL kroniek 2733.9 (wacht 0.0): Candle out. Fenna III out. +6
+HOL zicht 2733.9 0
+HOL meting t=2735 beelden=122 helden=0 hol_vast=106
+HOL kroniek 2736.4 (wacht 2.5): New stamp for the Wizard. Spikes: one.
+HOL meting t=2745 beelden=22 helden=0 hol_vast=106
+HOL meting t=2755 beelden=10 helden=0 hol_vast=106
+HOL kroniek 2758.4 (wacht 0.0): Wout read about you in a tavern.
+HOL held binnen: Wout
+HOL zicht 2758.5 1
+HOL meting t=2765 beelden=70 helden=1 hol_vast=106
+HOL kroniek zelfde held vervangen: Wout read about you in a tavern.
+HOL kroniek 2775.1 (wacht 0.0): Wout went down in one gulp. +6
+HOL zicht 2775.2 0
+HOL meting t=2775 beelden=111 helden=0 hol_vast=107
+HOL meting t=2785 beelden=43 helden=0 hol_vast=107
+HOL meting t=2795 beelden=10 helden=0 hol_vast=107
+HOL kroniek 2796.0 (wacht 0.0): Sir Wout II is very slow. Very sure.
+HOL held binnen: Wout II
+HOL zicht 2796.1 1
+HOL meting t=2805 beelden=96 helden=1 hol_vast=107
+HOL kroniek 2812.7 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 2812.8 0
+HOL meting t=2815 beelden=112 helden=0 hol_vast=108
+HOL kroniek 2825.5 (wacht 0.0): Your nemesis Kees II has arrived.
+HOL held binnen: Kees II
+HOL zicht 2825.6 1
+HOL meting t=2825 beelden=17 helden=1 hol_vast=108
+HOL meting t=2835 beelden=100 helden=1 hol_vast=108
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=2845 beelden=101 helden=1 hol_vast=108
+HOL kroniek zelfde held vervangen: Your nemesis Kees II has arrived.
+HOL kroniek 2851.3 (wacht 0.0): Kees II escaped with a limp.
+HOL zicht 2851.4 0
+HOL meting t=2855 beelden=57 helden=0 hol_vast=108
+HOL kroniek 2859.6 (wacht 0.0): Wout III knows every trap. Almost.
+HOL held binnen: Wout III
+HOL zicht 2859.7 1
+HOL meting t=2865 beelden=62 helden=1 hol_vast=108
+HOL meting t=2875 beelden=105 helden=1 hol_vast=109
+HOL kroniek zelfde held vervangen: Wout III knows every trap. Almost.
+HOL kroniek 2876.3 (wacht 0.0): Wout III went down in one gulp. +6
+HOL zicht 2876.4 0
+HOL meting t=2885 beelden=50 helden=0 hol_vast=109
+HOL kroniek 2893.9 (wacht 0.0): Rik is back for Gloop.
+HOL held binnen: Rik
+HOL zicht 2894.0 1
+HOL meting t=2895 beelden=26 helden=1 hol_vast=109
+HOL meting t=2906 beelden=101 helden=1 hol_vast=109
+HOL hol-niveau 11 (faam 69, t 2910.6)
+HOL kroniek zelfde held vervangen: Rik is back for Gloop.
+HOL kroniek 2910.6 (wacht 0.0): Grudge settled. Rik rests. +12
+HOL zicht 2910.7 0
+HOL bordje wip niveau 11
+HOL meting t=2916 beelden=97 helden=0 hol_vast=110
+HOL meting t=2926 beelden=11 helden=0 hol_vast=110
+HOL kroniek 2927.7 (wacht 0.0): Rik II climbs into your hole.
+HOL held binnen: Rik II
+HOL zicht 2927.8 1
+HOL meting t=2936 beelden=84 helden=1 hol_vast=110
+HOL kroniek zelfde held vervangen: Rik II climbs into your hole.
+HOL kroniek 2944.4 (wacht 0.0): Gloop ate Rik II. Burp. +6
+HOL zicht 2944.5 0
+HOL meting t=2946 beelden=123 helden=0 hol_vast=111
+HOL meting t=2956 beelden=15 helden=0 hol_vast=111
+HOL kroniek 2962.4 (wacht 0.0): Rik III says this is a quick one.
+HOL held binnen: Rik III
+HOL zicht 2962.5 1
+HOL meting t=2966 beelden=46 helden=1 hol_vast=111
+HOL kroniek zelfde held vervangen: Rik III says this is a quick one.
+HOL kroniek 2974.3 (wacht 0.0): Rik III fell to the Spike Pit. +6
+HOL zicht 2974.4 0
+HOL meting t=2976 beelden=122 helden=0 hol_vast=113
+HOL meting t=2986 beelden=8 helden=0 hol_vast=113
+HOL meting t=2996 beelden=10 helden=0 hol_vast=113
+HOL kroniek 3000.2 (wacht 0.0): Fenna sneaks in. Nobody saw. You saw.
+HOL held binnen: Fenna
+HOL zicht 3000.3 1
+HOL meting t=3006 beelden=65 helden=1 hol_vast=113
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3016 beelden=101 helden=1 hol_vast=113
+HOL kroniek zelfde held vervangen: Fenna sneaks in. Nobody saw. You saw.
+HOL kroniek 3026.0 (wacht 0.0): Fenna escaped. You saw that too.
+HOL zicht 3026.1 0
+HOL meting t=3026 beelden=95 helden=0 hol_vast=113
+HOL meting t=3036 beelden=3 helden=0 hol_vast=113
+HOL kroniek 3037.8 (wacht 0.0): Lotte II has a map. It is wrong.
+HOL held binnen: Lotte II
+HOL zicht 3037.9 1
+HOL meting t=3046 beelden=92 helden=1 hol_vast=113
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3057 beelden=101 helden=1 hol_vast=113
+HOL kroniek zelfde held vervangen: Lotte II has a map. It is wrong.
+HOL kroniek 3063.6 (wacht 0.0): Lotte II ran. Swore revenge.
+HOL zicht 3063.7 0
+HOL meting t=3067 beelden=67 helden=0 hol_vast=113
+HOL kroniek 3075.5 (wacht 0.0): Rik brought a torch. And hope.
+HOL held binnen: Rik
+HOL zicht 3075.6 1
+HOL meting t=3077 beelden=20 helden=1 hol_vast=113
+HOL meting t=3087 beelden=108 helden=1 hol_vast=114
+HOL kroniek zelfde held vervangen: Rik brought a torch. And hope.
+HOL kroniek 3087.4 (wacht 0.0): Rik found the Spike Pit. Hard. +6
+HOL zicht 3087.5 0
+HOL meting t=3097 beelden=41 helden=0 hol_vast=115
+HOL kroniek 3104.1 (wacht 0.0): Sir Rik II polished his armor for this.
+HOL held binnen: Rik II
+HOL zicht 3104.2 1
+HOL meting t=3107 beelden=38 helden=1 hol_vast=115
+HOL kroniek zelfde held vervangen: Sir Rik II polished his armor for this.
+HOL kroniek 3116.0 (wacht 0.0): Sir Rik II clanked all the way down. +6
+HOL zicht 3116.0 0
+HOL meting t=3117 beelden=124 helden=0 hol_vast=117
+HOL meting t=3127 beelden=16 helden=0 hol_vast=117
+HOL kroniek 3136.5 (wacht 0.0): Rik III read about you in a tavern.
+HOL held binnen: Rik III
+HOL zicht 3136.6 1
+HOL meting t=3137 beelden=20 helden=1 hol_vast=117
+HOL kroniek 3144.5 (wacht 0.0): Wout the Thief tiptoes in.
+HOL held binnen: Wout
+HOL meting t=3147 beelden=100 helden=2 hol_vast=117
+HOL plat zonder regel (2 keer gemeld)
+HOL kroniek zelfde held vervangen: Wout the Thief tiptoes in.
+HOL kroniek 3152.8 (wacht 0.0): Nobody saw Wout fall. You saw. +6
+HOL held binnen: Wout II
+HOL kroniek 3155.4 (wacht 2.5): Sir Wout II clanks in.
+HOL meting t=3157 beelden=128 helden=2 hol_vast=119
+HOL kroniek 3162.4 (wacht 0.0): Rik III escaped with a limp.
+HOL zicht 3164.8 0
+HOL kroniek zelfde held vervangen: Sir Wout II clanks in.
+HOL kroniek 3164.9 (wacht 0.1): Sir Wout II was very sure. Was. +6
+HOL meting t=3167 beelden=112 helden=0 hol_vast=121
+HOL meting t=3177 beelden=7 helden=0 hol_vast=121
+HOL kroniek 3184.8 (wacht 0.0): Wout III knocks first. Polite.
+HOL held binnen: Wout III
+HOL zicht 3184.9 1
+HOL meting t=3187 beelden=52 helden=1 hol_vast=121
+HOL meting t=3197 beelden=101 helden=1 hol_vast=121
+HOL kroniek 3201.5 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 3201.5 0
+HOL meting t=3207 beelden=81 helden=0 hol_vast=122
+HOL kroniek 3215.9 (wacht 0.0): Lotte II wrote a song about Gloop.
+HOL held binnen: Lotte II
+HOL zicht 3216.0 1
+HOL meting t=3217 beelden=34 helden=1 hol_vast=122
+HOL meting t=3227 beelden=100 helden=1 hol_vast=122
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3237 beelden=101 helden=1 hol_vast=122
+HOL kroniek zelfde held vervangen: Lotte II wrote a song about Gloop.
+HOL kroniek 3241.7 (wacht 0.0): Lotte II fled, crying a little.
+HOL zicht 3241.8 0
+HOL kroniek 3247.8 (wacht 0.0): Joost III is here for your gold.
+HOL held binnen: Joost III
+HOL zicht 3247.9 1
+HOL meting t=3247 beelden=40 helden=1 hol_vast=122
+HOL meting t=3258 beelden=101 helden=1 hol_vast=122
+HOL kroniek zelfde held vervangen: Joost III is here for your gold.
+HOL kroniek 3259.7 (wacht 0.0): Joost III will not be leaving. +6
+HOL zicht 3259.7 0
+HOL meting t=3268 beelden=62 helden=0 hol_vast=124
+HOL meting t=3278 beelden=8 helden=0 hol_vast=124
+HOL kroniek 3283.2 (wacht 0.0): Wout sneaks in. Nobody saw. You saw.
+HOL held binnen: Wout
+HOL zicht 3283.3 1
+HOL meting t=3288 beelden=69 helden=1 hol_vast=124
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3298 beelden=101 helden=1 hol_vast=124
+HOL kroniek zelfde held vervangen: Wout sneaks in. Nobody saw. You saw.
+HOL kroniek 3303.0 (wacht 0.0): Wout escaped. You saw that too.
+HOL zicht 3303.1 0
+HOL meting t=3308 beelden=48 helden=0 hol_vast=124
+HOL kroniek 3313.5 (wacht 0.0): Mara II picks the lock. It was open.
+HOL held binnen: Mara II
+HOL zicht 3313.6 1
+HOL meting t=3318 beelden=52 helden=1 hol_vast=124
+HOL kroniek zelfde held vervangen: Mara II picks the lock. It was open.
+HOL kroniek 3324.2 (wacht 0.0): Mara II went down in one gulp. +6
+HOL zicht 3324.2 0
+HOL meting t=3328 beelden=99 helden=0 hol_vast=125
+HOL meting t=3338 beelden=17 helden=0 hol_vast=125
+HOL meting t=3348 beelden=9 helden=0 hol_vast=125
+HOL kroniek 3349.7 (wacht 0.0): Sir Mara III is very slow. Very sure.
+HOL held binnen: Mara III
+HOL zicht 3349.8 1
+HOL meting t=3358 beelden=90 helden=1 hol_vast=125
+HOL kroniek zelfde held vervangen: Sir Mara III is very slow. Very sure.
+HOL kroniek 3361.6 (wacht 0.0): Sir Mara III clanked all the way down. +6
+HOL zicht 3361.6 0
+HOL meting t=3368 beelden=74 helden=0 hol_vast=127
+HOL meting t=3378 beelden=10 helden=0 hol_vast=127
+HOL kroniek 3387.2 (wacht 0.0): Joost knocks first. Polite.
+HOL held binnen: Joost
+HOL zicht 3387.3 1
+HOL meting t=3388 beelden=24 helden=1 hol_vast=127
+HOL kroniek 3395.3 (wacht 0.0): Gerda sneaks in. Nobody saw. You saw.
+HOL held binnen: Gerda
+HOL meting t=3398 beelden=109 helden=2 hol_vast=128
+HOL kroniek zelfde held vervangen: Joost knocks first. Polite.
+HOL kroniek 3399.0 (wacht 0.0): Joost is part of the hole now. +6
+HOL kroniek 3406.0 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL zicht 3406.1 0
+HOL meting t=3408 beelden=134 helden=0 hol_vast=130
+HOL meting t=3418 beelden=7 helden=0 hol_vast=130
+HOL meting t=3428 beelden=15 helden=0 hol_vast=130
+HOL kroniek 3429.9 (wacht 0.0): Gerda II says this is a quick one.
+HOL held binnen: Gerda II
+HOL zicht 3430.0 1
+HOL kroniek 3437.5 (wacht 0.0): Joost II picks the lock. It was open.
+HOL held binnen: Joost II
+HOL meting t=3438 beelden=90 helden=2 hol_vast=130
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3448 beelden=105 helden=2 hol_vast=131
+HOL kroniek zelfde held vervangen: Joost II picks the lock. It was open.
+HOL kroniek 3449.4 (wacht 0.0): Joost II picked the wrong floor. +6
+HOL kroniek zelfde held vervangen: Gerda II says this is a quick one.
+HOL kroniek 3455.7 (wacht 0.0): Gerda II left. Took nothing. Angry.
+HOL zicht 3455.8 0
+HOL meting t=3458 beelden=92 helden=0 hol_vast=132
+HOL meting t=3468 beelden=5 helden=0 hol_vast=132
+HOL kroniek 3471.5 (wacht 0.0): Joost III has a map. It is wrong.
+HOL held binnen: Joost III
+HOL zicht 3471.6 1
+HOL meting t=3479 beelden=78 helden=1 hol_vast=132
+HOL kroniek zelfde held vervangen: Joost III has a map. It is wrong.
+HOL kroniek 3483.4 (wacht 0.0): Joost III took the short way down. +6
+HOL zicht 3483.4 0
+HOL meting t=3489 beelden=86 helden=0 hol_vast=134
+HOL meting t=3499 beelden=8 helden=0 hol_vast=134
+HOL kroniek 3502.4 (wacht 0.0): Mara is here for your gold.
+HOL held binnen: Mara
+HOL zicht 3502.5 1
+HOL meting t=3509 beelden=80 helden=1 hol_vast=134
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=3519 beelden=100 helden=1 hol_vast=134
+HOL kroniek zelfde held vervangen: Mara is here for your gold.
+HOL kroniek 3528.2 (wacht 0.0): Mara ran. Swore revenge.
+HOL zicht 3528.3 0
+HOL meting t=3529 beelden=91 helden=0 hol_vast=134
+HOL kroniek 3535.2 (wacht 0.0): Odo II the Wizard sniffs for traps.
+HOL held binnen: Odo II
+HOL zicht 3535.3 1
+HOL meting t=3539 beelden=42 helden=1 hol_vast=134
+HOL kroniek zelfde held vervangen: Odo II the Wizard sniffs for traps.
+HOL kroniek 3547.8 (wacht 0.0): Odo II snored. Gloop watched.
+HOL meting t=3549 beelden=101 helden=1 hol_vast=134
+HOL kroniek zelfde held vervangen: Odo II snored. Gloop watched.
+HOL kroniek 3556.1 (wacht 0.0): Gloop ate Odo II. Burp. +6
+HOL zicht 3556.1 0
+HOL meting t=3559 beelden=110 helden=0 hol_vast=135
+HOL kroniek 3564.8 (wacht 0.0): Odo III knows every trap. Almost.
+HOL held binnen: Odo III
+HOL zicht 3564.9 1
+HOL meting t=3569 beelden=55 helden=1 hol_vast=135
+HOL kroniek 3571.3 (wacht 0.0): Joost brought a torch. And hope.
+HOL held binnen: Joost
+HOL meting t=3579 beelden=101 helden=2 hol_vast=135
+HOL kroniek 3581.5 (wacht 0.0): Gloop says thanks for the snack. +6
+HOL kroniek zelfde held vervangen: Joost brought a torch. And hope.
+HOL kroniek 3588.0 (wacht 0.0): Joost went down in one gulp. +6
+HOL zicht 3588.1 0
+HOL meting t=3589 beelden=152 helden=0 hol_vast=137
+HOL meting t=3599 beelden=10 helden=0 hol_vast=137
+HOL kroniek 3609.0 (wacht 0.0): Joost II the Thief tiptoes in.
+HOL held binnen: Joost II
+HOL zicht 3609.1 1
+HOL meting t=3609 beelden=18 helden=1 hol_vast=137
+HOL kroniek zelfde held vervangen: Joost II the Thief tiptoes in.
+HOL kroniek 3619.7 (wacht 0.0): Joost II is gone. The chef's hat stays. +6
+HOL zicht 3619.8 0
+HOL meting t=3619 beelden=111 helden=0 hol_vast=138
+HOL meting t=3629 beelden=37 helden=0 hol_vast=138
+HOL einde na 3630 s, fps=10, goud=230, terugkomers=4
