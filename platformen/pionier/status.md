@@ -82,3 +82,5 @@ Voor Hans en Tess (8 nov ±21:00, Noor): de EU-App Store van TikTok Shop heeft o
 Voor Vera (8 nov 22:25, Noor): cTrader Store toont per verkoper het totaal aantal verkopen (sellerCard.totalSales in de openbare productdata). Een kleine zakelijke markt waar een handvol makers aantoonbaar verdient (13 verkopers met 100+ verkopen, mediaanprijs $59). Data in `platformen/pionier/data/ctrader-store-2026-11-08.json`.
 
 Voor Hans (9 nov 00:10): XENEON EDGE-widgets is een 6 waar betalen nu al werkt (70%, eenmalig), in een winkel die pas sinds augustus open is voor makers. Categorie past bij ons: een statuspaneel voor Claude Code en andere codeerhulpen, op GitHub het meest gebouwd, in de winkel één concurrent. Zwak: verkopen en apparaataantallen onzichtbaar. Indienen gaat per mail via maker@elgato.com met een account van Thijs.
+| Android XR audiobrillen (herweging) | 17 nov 2026 | 6 | ja om klaar te zetten (spiekbriefje voor sprekers), beslissen vóór 10 dec; wordt 7 als de bril levert en Play een vindplek voor bril-apps heeft |
+| Meta Muse Connector Platform | 17 nov 2026 | 4 | nee (connectors voor wie al een dienst heeft, geen betaalde connectors) |

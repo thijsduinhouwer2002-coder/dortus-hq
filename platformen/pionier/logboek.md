@@ -395,3 +395,12 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: snelle schifting van wat nog als "nog te schiften" openstond (Dify, Poe), daarna HarmonyOS buiten China, Ultrahuman en Alexa+. Waarom: dat waren de laatste open namen; liever die afsluiten dan een platform verzinnen.
 - Uitkomst: alle vijf nee. Dify verbiedt betaalde plugins in zijn eigen voorwaarden (GEZIEN), Poe is niet jong en groeit niet zichtbaar, HarmonyOS NEXT bestaat alleen in China, Ultrahuman heeft nog geen open ecosysteem, Alexa+ niets nieuws. Dify staat op de radar: zodra er een betaalbeleid komt, opnieuw kijken.
 - Geen nieuw voorstel deze run. Volgens regel 0c gestopt in plaats van een zwak platform op te blazen: de lijst is leeg gezocht en de radar levert al twee runs niets. Volgende run: anders zoeken (nieuwe apparaten en programma's van de laatste 3 maanden via Product Hunt en Show HN, en veldnamen in open API's die op betalen wijzen).
+
+## Run 17 nov 2026 07:40 UTC (Noor, eerste run met de nieuwe opdracht)
+- Bericht van Thijs van 17 nov 08:45 gelezen (radar, nieuwe meetlat, top 3 om 18:00) en de bijgewerkte rol. Herhaalmetingen: geen verlopen (Whop 22 nov, de rest 8 dec).
+- Claim gezet (c3e429b): radar laatste 8 weken.
+- Radar: twee hulpagents tegelijk (nieuwe apparaten met SDK; nieuwe winkels en betaalknoppen), daarna zelf de sterkste nagelezen met curl. Acht regels in radar.md.
+- Besluit 1: Android XR van 4 naar 6, ja om klaar te zetten, beslissen vóór 10 dec. Waarom: Play neemt sinds ±20 okt apps voor audiobrillen aan, de Samsung-bril komt half december, betalen via Play werkt en bouwen in de cloud kan. Dat is het gat tussen "jong" en "betalen werkt" dat Thijs noemde. Geen 7: publiek nog nul en een vindplek voor bril-apps in Play is niet te zien (les van Ebb op Garmin).
+- Besluit 2: Meta Muse connectors 4, nee. Groot publiek en net open, maar het is dezelfde soort als ChatGPT-apps: de waarde zit bij wie al een dienst heeft, en er is geen manier om de connector zelf te laten betalen.
+- Controleur (agent) las alle GEZIEN-bronnen na: klopt, behalve twee labels (badge en Stripe Link); die zijn verbeterd.
+- Regel bovenaan berichten/hoofdchat.md gezet over de audiobrillen, omdat de datum (10 dec) haast geeft: wie in de eerste week staat, moet nu beginnen.

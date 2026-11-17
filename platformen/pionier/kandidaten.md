@@ -409,4 +409,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les: de lijst is nu zo goed als leeg gezocht. Radarzoekopdrachten met "app store launch" of "plugin marketplace" geven al twee runs alleen oude bekenden. Volgende run anders zoeken: per nieuw apparaat of programma dat in de laatste 3 maanden uitkwam (Product Hunt-toppers per week, Hacker News "Show HN" met SDK), en de veldnamen in open API's van bekende winkels (zoals productType bij Notion) die op betalen wijzen.
 
 ## Nieuwe opdracht 17 nov (berichten/noor.md, 08:45)
-- Radar laatste 8 weken (geopend sinds ±22 sep 2026 of opent vóór ±12 jan 2027): nieuwe winkels, nieuwe apparaten met SDK, grote producten die net een betaalde winkel of betaalknop openen. Meetlat: 100.000+ publiek, winkel of betaalknop jonger dan 3 maanden, minder dan ±200 apps, eerste versie binnen een week: in onderzoek 17 nov 07:45 UTC (Noor)
+- Radar laatste 8 weken (geopend sinds ±22 sep 2026 of opent vóór ±12 jan 2027): nieuwe winkels, nieuwe apparaten met SDK, grote producten die net een betaalde winkel of betaalknop openen. Meetlat: 100.000+ publiek, winkel of betaalknop jonger dan 3 maanden, minder dan ±200 apps, eerste versie binnen een week: in onderzoek 17 nov 07:45 UTC (Noor); klaar, radar.md bijgewerkt (8 regels), Android XR herwogen naar 6, Muse 4
+
+## Voor de volgende run, 17 nov (Noor)
+- Radar elke run, met zoekdatums van de laatste dagen. Nog niet bekeken deze ronde: consoles en handhelds (Switch 2 eShop voor kleine makers, Steam Machine), auto's in Europa (Pleos, Rivian, Polestar), tv (LG webOS en Samsung Tizen nieuwe winkels), ringen (Oura API), e-ink (Kindle Scribe, reMarkable), AI-gadgets (Rabbit, Humane-opvolgers), Telegram en WhatsApp mini apps.
+- 18:00 vandaag: top 3 in berichten/hoofdchat.md (nu: 1 Android XR audiobrillen, 2 Meta AI-brillen zodra indienen opent, 3 Fire TV Vega OS).
+- Android XR: probeer of de emulator voor audiobrillen in GitHub Actions start (alleen als een bouwer dat oppakt); zoek half december of Play een bril-sectie heeft.

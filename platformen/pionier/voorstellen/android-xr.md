@@ -33,3 +33,32 @@ Als het opengaat: een bril-app voor korte notities en lijstjes vanaf de telefoon
 
 ## Hoe gemeten
 Onderzoeker (agent) voor groei, winkel, geld en vraag. Zelf nagekeken: installs van Immersive View op Google Play (23.780) en het blog van Google over I/O 2026 (Catalyst Program, Jetpack Projected). Geen aparte controleur: het advies is geen ja. Niet gemeten: de volledige XR-catalogus (Play toont alleen verzamelpagina's), verkoopcijfers 2026, Reddit zelf.
+
+## Aanvulling 17 nov 2026 (Noor): audiobrillen, nieuw cijfer 6
+
+Nieuw feit sinds 8 nov, en precies wat Thijs zoekt (een groot merk dat net een nieuw apparaat met een winkel krijgt):
+- **Google Play neemt sinds ±20 okt 2026 apps voor audiobrillen aan.** Op 28 sep stond er nog dat Play alleen voor headsets en bedrade brillen werkte; nu ook "for augmented experiences on audio glasses". Er is geen aparte releasetrack: de bril-functie zit in de gewone telefoon-app (een projected activity met `requiredDisplayCategory` XR_PROJECTED), en Gemini opent die met "open <appnaam>" (GEZIEN, https://vr.org/articles/google-play-audio-glasses-phone-track-samsung-mid-december-2026; de quality guidelines van Google dragen "Last updated 2026-10-20 UTC", GEZIEN, https://developer.android.com/docs/quality-guidelines/android-xr). Play services 26.42 (26 okt): "You can now connect Android XR glasses to your phone" (DERDEN, zelfde artikel).
+- **Twee niveaus:** "Compatible" (elke gewone app met meldingen, vanzelf, meldingen worden voorgelezen) en "Differentiated", gebouwd met Jetpack XR (Projected, Glimmer, ARCore) (GEZIEN, https://developer.android.com/docs/quality-guidelines/android-xr/augmented.md.txt, kopjes Compatible en Differentiated). Een badge "Differentiated for Glasses" in Play noemt alleen vr.org ("which Google says"); bij Google zelf staat het woord badge niet (DERDEN, controleur 17 nov: 0 treffers op beide pagina's van Google).
+- **Apparaat:** Samsung Intelligent Eyewear (camera, microfoons, speakers, geen scherm; montuur van Gentle Monster en Warby Parker) komt half december in de VS en Zuid-Korea (DERDEN, ChosunBiz via https://9to5google.com/2026/11/02/samsungs-android-xr-intelligent-eyewear-reportedly-launches-in-december/, GEZIEN). Voorverkoop $395, levering 10 dec (DERDEN, https://www.talkandroid.com/534903-samsung-intelligent-eyewear-smart-glasses-preorder-price/, curl geblokkeerd, alleen de kop gezien). Verwachting in mei: "may see 2 million shipments this year" (DERDEN, kop van https://www.sammobile.com/news/samsung-and-googles-smart-eyewear-may-see-2-million-shipments-this-year/; dat was vóór het uitstel naar december, dus voor 2026 te hoog, GOK: honderdduizenden in 2027).
+
+**De meetlat van 17 nov:**
+| Eis | Uitkomst |
+|---|---|
+| Groot publiek (100.000+) | Nog niet: apparaat komt 10 tot ±15 dec. Merk en verwachting wijzen op 100.000+ in 2027 (GOK). Meta verkocht 7 mln+ Ray-Bans (DERDEN, UC Today mei 2026), dus de soort verkoopt. |
+| Winkel jonger dan 3 maanden of binnen 8 weken | Ja: Play voor audiobrillen ±20 okt, apparaat binnen 4 weken. |
+| Minder dan ±200 apps | Ja voor "Differentiated" (geen telling mogelijk, Play toont geen bril-lijst; GOK: tientallen). |
+| Betalen | Ja, gewoon Google Play Billing in de telefoon-app (15% tot $1M). |
+| Eerste versie binnen een week, in de cloud | Ja: Kotlin, Gradle in GitHub Actions, emulator voor audiobrillen in Android Studio. Let op: Jetpack Projected is nog 1.0.0-alpha14 (kan nog veranderen). |
+
+**Waarom 6 en nog geen 7:**
+1. **Vindbaarheid is onbekend.** Er is geen bril-track en geen bril-lijst in Play die wij kunnen zien. Een badge alleen maakt nog geen ranglijst. Zonder plek waar bril-kopers zoeken, kun je ook geen nummer één worden (zelfde les als Ebb op Garmin: goed product, niemand vindt het). Dat is de eerste meting zodra het apparaat uit is: heeft de Play-app of de companion-app van Samsung een sectie "voor je bril"?
+2. **Het publiek is nog nul** tot half december.
+3. **Google en Samsung pakken het voor de hand liggende zelf** (Gemini doet vragen, vertalen, navigatie, muziek). Wij moeten een taak kiezen die Gemini niet doet.
+
+**Categorie en eerste idee:** spiekbriefje in je oor voor sprekers. Je zet je punten op de telefoon, de bril fluistert het volgende punt bij een tik op het pootje, met een oefenstand die meet hoe lang je per punt praat. Gemini doet dit niet. Concurrentie: Meta heeft een teleprompter op de Ray-Ban Display (met scherm, DERDEN, https://petapixel.com/2026/01/06/meta-adds-teleprompter-to-ray-ban-display-glasses-pauses-international-rollout), Glass Prompter op iOS en Even Realities hebben er een voor schermbrillen; voor audiobrillen op Android vonden wij niets (zoekresultaten, niet uitputtend). Andere kandidaten: handsfree stappen voorlezen bij koken of klussen (risico: Gemini), interval-coach voor hardlopen in je oor. Concurrentiecheck volgens de regel van 16 nov nog doen vóór een keuze.
+
+**Advies: ja om klaar te zetten, beslissen vóór 10 dec.** Kleine inzet: één bouwer maakt in ±4 runs een eerste versie met de emulator in Actions, zodat we in de eerste week na levering in Play staan met de badge. Kosten: Google Play-ontwikkelaarsaccount $25 eenmalig (Thijs, als die er nog niet is). Stopregel: heeft Play eind januari nog geen vindplek voor bril-apps of blijft de verkoop van de bril onder ±100.000 (Counterpoint of IDC, Q1 2027), dan stoppen. **Wordt een 7** zodra de bril echt levert en er een bril-sectie in Play of de Samsung-app blijkt te zijn.
+
+**Nagekeken:** controleur (agent) las alle GEZIEN-bronnen opnieuw met curl, 17 nov: klopt, behalve de badge (bij Google zelf niet te vinden, nu DERDEN). Cijfer 6 volgens hem terecht.
+
+**Niet gemeten:** aantal "Differentiated" apps (Play toont geen lijst), voorverkoop van de bril, of de emulator voor audiobrillen in GitHub Actions draait (nog niet geprobeerd).
