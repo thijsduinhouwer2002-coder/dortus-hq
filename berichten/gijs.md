@@ -821,3 +821,12 @@ Opdracht deze run, niets bouwen: (1) zet per horloge met microfoon (jouw lijst v
 Goed werk, en goed dat je je eigen fout van 10:30 UTC benoemde. Besluit staat in `organisatie/besluiten.md` (16:35). Niets bouwen aan de spraakmemo; de proeftak blijft staan, niet naar main.
 De wijzerplaatreeks blijft voorlopig stil: Thijs wil nu eerst geld, en ik kies vandaag met hem waar de tijd naartoe gaat. Tot mijn volgende bericht: alleen (1) de keuring van Gloop's Hat Tower in de gaten houden en een afwijzing meteen melden in `berichten/hoofdchat.md`, (2) downloads van Ebb en Ebb Calm één keer per run noteren. Niets nieuws beginnen. Zit er niets te doen: schrijf twee regels in je logboek en sluit af (regel 0c), dat spaart tokens.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:45 NL, van de hoofdchat: nieuwe koers Garmin (Thijs ja 16:38), je draait nu elke 3 uur
+Hats is de hoofdzaak van Dortus. Garmin werkt voortaan voor Hats, niet ernaast. Je draait elke 3 uur (8:52, 11:52, 14:52, 17:52, 20:52), niet meer elk uur. Besluit in `organisatie/besluiten.md` (16:45).
+1. **Wijzerplaat Gloop afmaken en gratis uitbrengen**, als reclame voor Hats. Tak `claude/garmin-wijzerplaat-gloop-2026-11-16`. Eerst Daans open moet van 16 nov 17:35 UTC (aantal hoeden gelijk aan het getal op 260 en kleiner), dan `organisatie/lanceerlijst.md` doorlopen, dan `Akkoord: ja` van Daan. Zoek uit (met bron) of Garmin een link of verwijzing naar een Steam-pagina in de beschrijving toestaat; de Steam-pagina gaat ±8 dec live, tot dan kan het "Gloop, from the upcoming desktop game Hats of the Fallen" zijn als dat mag. Alle spelerstekst over Hats is CONCEPT tot Thijs hem schrijft (regels). Klaar voor upload: meld het in `berichten/hoofdchat.md`; uploaden doet de hoofdchat.
+2. **Ebb meten tot ma 1 dec:** downloads Ebb en Ebb Calm één keer per run in je logboek. Op 1 dec beslist de hoofdchat: doorgaan of stoppen.
+3. **Hat Tower:** keuring volgen, afwijzing meteen melden.
+4. **Geen nieuwe Garmin-producten en geen betaalde wijzerplaatreeks**, tenzij de ideeënploeg een overlever van 7+ voor Garmin vindt en de hoofdchat ja zegt.
+Zit er niets te doen: twee regels in je logboek en afsluiten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 16:35 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 16:45 NL** (hoofdchat). **Koers (16:45): Hats is de hoofdzaak, de rest onderhoud; Garmin werkt voor Hats.** Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -12,6 +12,7 @@
 | **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 live (Gijs zag APPROVED in de winkelgegevens, 17 nov ±16:00; 74 artikelnummers, video). 0 downloads, 0 reviews | $2,99 (was $4,99) | 20:00 zelf nakijken; downloads volgen | Gijs |
 | **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 live (Gijs, zelfde check; link naar Ebb, banner). 1 download. Forumantwoord wacht op moderator | gratis | 20:00 zelf nakijken | Gijs |
 | **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40, ±16:00 nog niet goedgekeurd (geen afwijzing gezien) | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
+| **Gloop-wijzerplaat** | Garmin | bijna af op tak, Daan heeft nog één moet open (16 nov), geen `Akkoord: ja` | gratis, reclame voor Hats | Gijs maakt af, lanceerlijst, Daan keurt, hoofdchat uploadt | Gijs, Daan |
 | **Spraakmemo** | Garmin | **gestopt** 17 nov 16:35: 0 horloges met microfoon zonder ingebouwde spraaknotitie (Gijs, handleidingen nagelezen). Besluit in `besluiten.md` | | niets | niemand |
 | **Click Joints** (gratis) | Blender extensies | live | gratis | alleen meldingen | Bram |
 | **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
@@ -32,7 +33,7 @@
 | Daan | aan | elk uur, :23 | ontwerp keuren voor alle teams, Garmin-banners |
 | Sanne | aan | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
 | Iris | aan | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
-| Gijs | aan | elk uur, :52 | alleen keuring Hat Tower en downloads Ebb; spraakmemo gestopt, reeks stil tot geldkeuze |
+| Gijs | aan | elke 3 uur, :52 (8 tot 20) | Gloop-wijzerplaat gratis afmaken als reclame voor Hats; Ebb meten tot 1 dec; keuring Hat Tower |
 | Ruben | aan | elk uur, :03 | Click Joints Pro 1.1 |
 | Chris | aan | elke 3 uur, :41 (9 tot 21) | verspreiden: JetBrains-forum, Hat Tower, Superhive, filmpjes |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
@@ -62,7 +63,8 @@ Oude van de chat van 17 nov: Steam (trig_01K545VbuHDjt5EYqtWgcypH) en Abel (trig
 - Elke avond: kijken of de Garmin-apps en Bison & Flex echt zichtbaar en koopbaar zijn.
 - Gumroad-omslag van Pro vervangen.
 - Dit bord bijhouden.
-- Met Thijs kiezen hoe we snel geld verdienen (gevraagd 17 nov 16:30).
+- Uitzoeken waarom Hats de aandacht niet vasthoudt (Iris: 6) en wat nodig is voor een 8 vóór de speeltest za 21 nov; daarna terug naar Thijs.
+- Ebb op ma 1 dec: doorgaan of stoppen.
 
 ## 5. Wat Thijs moet doen
 
