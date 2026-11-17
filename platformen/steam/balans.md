@@ -3,6 +3,25 @@
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
 
+
+## Stand 17 nov ±03:15 UTC: het paar is binnen, regels-tak naar main, nieuwe CPU-poort (Sanne, na keuring 14 punt 1 en Olafs regel vooraf)
+**Het paar (GEZIEN, zelf gedraaid met `cpu_per_beeld.py` op `uitslag.txt` en `hol.log` van tak `schermen`, zaad 1794860558, 20 min, 1920x1080, editor, elk alleen en direct na elkaar):**
+
+| run | wat | CPU gem. | ms per beeld | CPU zonder held in beeld | met held |
+|---|---|---|---|---|---|
+| 44001895099 | `claude/steam-hol-regels` 959aef4 | 1,325 | 19,0 | 1,40 | 1,27 |
+| 44005445378 | main c38f267 | **1,276** | 18,4 | 0,73 | 1,66 |
+
+Tak tegen main in het paar: **+4% CPU, +3% per beeld**, ver onder de 20%. Main zelf zat deze keer ook boven 1,0. Eerder op hetzelfde zaad gaf main 0,844 en de tak 1,013. Dezelfde code geeft dus tussen runs 0,84 tot 1,28: één losse editor-run tegen een vaste 1,0 is een muntworp. Iris had gelijk.
+
+**Besluit (Sanne):**
+1. **`claude/steam-hol-regels` (959aef4) gaat naar main**, als de toetsrun groen is. Volgens Olafs eigen regel vooraf (minder dan 20% per beeld in het paar = runner). Speeltest za 21 nov krijgt de spelregels.
+2. **Nieuwe CPU-poort, vervangt regel 1 tot 3 van 16 nov 23:55 en de aanvulling van 01:25.** Een tak mag langs de poort als (a) **in een paar** (tak en main op hetzelfde zaad, elk alleen, direct na elkaar) de tak per beeld hooguit 20% duurder is dan main, en (b) **de .exe van de tak** (wat Thijs draait) gemiddeld onder 1,0 blijft. Valt (a) net boven 20%: één nieuw paar, het gemiddelde van de twee paren telt. De editor-run alleen tegen een vaste 1,0 beslist niets meer; Olaf mag de rode grens in de editor-duurtest een waarschuwing maken (zijn workflow, zijn keus).
+3. Regel 4 en 5 van 16 nov blijven: 0,8 op Thijs' eigen pc voor de demo, en de volgorde van inleveren.
+4. **Deco** (87ffe43, 793a6e5, 2380714, ee19bd6) mag na de regels naar main zonder nieuwe poort: Brams `wissel=deco` binnen één run is precies zo'n paar (0 tot 1 ms per beeld). Wel één toetsrun, voor fouten, niet voor CPU.
+
+**Eén ding dat ik niet wegpraat (aan Bram, na de speeltest, niet blokkerend):** zonder held in beeld zit de tak twee runs op rij hoger dan main (1,40 tegen 0,94 in Olafs vergelijking, 1,40 tegen 0,73 nu), met minder beelden (47 tegen 54 per 10 s). Met held is het andersom. In totaal valt het weg, maar een bureau-app staat vooral stil. Kijk in de .exe-run na de merge of `cpu bij helden=0` hoger is dan op main voor de merge; zo ja, zoek wat er draait als er niemand is (plat-toestand van Gloop, kaartje, wachtrij).
+
 ## Stand 17 nov ±01:25 UTC: aanvulling op de CPU-regel (Sanne, na Brams losse duurtest en keuring 12)
 **Uitslag (GEZIEN door Bram en Iris):** de tak alleen gedraaid, run 43985774466 (c1fa66a): **1,321**, 18,4 ms per beeld tegen main 11,9 op hetzelfde zaad, evenveel beelden. Muisvlak en doorzicht zijn het niet (Brams wissel-proeven onder de meetlat). Regel 3 greep: de tak gaat zo niet naar main.
 **Aanvulling (Sanne):** voor de speeltest van za 21 nov gaan **de spelregels voor de deco**. Weg 0,12, de korte regels, de naamgenoot-regel en de graafbonus lossen de problemen van keuring 9 tot 11 op; de losse dingen in gang en kamers maken het mooier, maar zonder de spelregels test Thijs een build waarin één nacht de hele winkel geeft. Dus: een build met **alleen de spelregel-commits** mag naar main als zijn losse duurtest (alleen gedraaid) onder 1,0 blijft. De deco komt pas terug na een meting binnen één run (`wissel=deco`) die niet meer dan 20% duurder per beeld laat zien. Olaf kiest wat het eerst klaar is en hoe hij de commits scheidt.

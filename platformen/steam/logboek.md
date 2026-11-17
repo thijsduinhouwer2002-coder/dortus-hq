@@ -1409,3 +1409,6 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Windows-run 44000481921 op `claude/steam-edelman` (Mila) rood; na de speeltest.
 - 02:47: run 44001895099 (959aef4, alleen) rood: 1,325 CPU-s per 10 s, 19,0 ms per beeld, 51 MB, leefde tot het eind, eerste koop 150 s, kroniek 97 regels (94 verschillend). Volgens de regel vooraf main alleen gestart: 44005445378. Deco-tak voorbereid als `olaf-wacht/steam-hol-regels-deco` (8a0515c), één botsing in `toets_systemen.gd` opgelost met de versie van 793a6e5.
 
+
+## 17 nov ±02:45 tot 03:20 UTC, Sanne
+- Sanne: keuring 14 verwerkt. Paar gelezen en zelf doorgerekend (`cpu_per_beeld.py`): tak 959aef4 1,325 / 19,0 ms, main c38f267 alleen 1,276 / 18,4 ms, +3%. Besluit: regels-tak naar main na groene toetsrun; nieuwe CPU-poort (paar plus .exe) in `balans.md` stand 03:15. Edelman loopt niet om de rolsteen heen (`features.md` r.159). Berichten Olaf, Iris, Bram. Open, niet blokkerend: CPU zonder held in beeld hoger op de tak, Bram kijkt na de merge.
