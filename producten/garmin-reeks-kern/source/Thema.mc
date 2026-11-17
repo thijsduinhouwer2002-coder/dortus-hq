@@ -36,4 +36,13 @@ module Thema {
         }
         return kleuren[t * ROLLEN + rol];
     }
+
+    // Alleen voor de proef in de bouwstraat (weg in stap (d), als de drager zelf kiest): elk proefhorloge een
+    // ander thema, zodat alle vier in beeld komen. 208, 240 en 320 px: Dusk, 454: Tide, 260: Kelp, 390: Night.
+    function voorProef(breedte as Number) as Number {
+        if (breedte < 0) {
+            return TIDE;
+        }
+        return (breedte / 10) % AANTAL;
+    }
 }

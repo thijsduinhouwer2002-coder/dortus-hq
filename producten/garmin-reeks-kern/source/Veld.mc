@@ -36,11 +36,27 @@ module Veld {
                 return nu;
             }
         }
-        // Geen actuele hartslag (de wijzerplaat krijgt hem niet altijd): de laatste meting uit de geschiedenis.
+        // Geen actuele hartslag (de wijzerplaat krijgt hem niet altijd): de nieuwste geldige van de laatste
+        // vijf metingen uit de geschiedenis. De nieuwste meting is soms leeg (horloge net omgedaan).
         if (ActivityMonitor has :getHeartRateHistory) {
-            var s = ActivityMonitor.getHeartRateHistory(1, true).next();
-            if (s != null) {
-                return geldigeHart(s.heartRate);
+            var it = ActivityMonitor.getHeartRateHistory(5, true);
+            var lijst = [] as Array<Number?>;
+            var s = it.next();
+            while (s != null && lijst.size() < 5) {
+                lijst.add(s.heartRate);
+                s = it.next();
+            }
+            return eersteGeldigeHart(lijst);
+        }
+        return null;
+    }
+
+    // Eerste geldige hartslag uit een lijst (nieuwste eerst), of null als er geen geldige in staat.
+    function eersteGeldigeHart(lijst as Array<Number?>) as Number? {
+        for (var i = 0; i < lijst.size(); i++) {
+            var v = geldigeHart(lijst[i]);
+            if (v != null) {
+                return v;
             }
         }
         return null;
@@ -60,12 +76,16 @@ module Veld {
         return info.steps;
     }
 
-    // Laatste waarde uit de geschiedenis van stress (oudste eerst), of null bij een lege lijst.
-    function stress(st as Array<Number>) as Number? {
-        if (st.size() == 0) {
+    // Laatste waarde uit een geschiedenis (oudste eerst), of null bij een lege lijst. Voor stress en Body Battery.
+    function laatste(lijst as Array<Number>) as Number? {
+        if (lijst.size() == 0) {
             return null;
         }
-        return st[st.size() - 1];
+        return lijst[lijst.size() - 1];
+    }
+
+    function stress(st as Array<Number>) as Number? {
+        return laatste(st);
     }
 
     function waarde(soort as Number, st as Array<Number>) as Number? {

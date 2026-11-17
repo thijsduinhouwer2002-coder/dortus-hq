@@ -55,8 +55,10 @@ module Teken {
             dc.fillCircle(cx + r, top + r, r);
             dc.fillPolygon([[cx - 2 * r, top + r + 1], [cx + 2 * r, top + r + 1], [cx, top + h]] as Array<Graphics.Point2D>);
         } else if (soort == 1) {
-            dc.fillPolygon([[cx + r, top], [cx - 2 * r, top + h / 2 + 1], [cx, top + h / 2 + 1], [cx - r, top + h],
-                [cx + 2 * r, top + h / 2 - 1], [cx, top + h / 2 - 1]] as Array<Graphics.Point2D>);
+            // Bliksem als twee driehoeken die elkaar in het midden raken: zo blijft de knik ook klein scherp.
+            var mid = top + h / 2;
+            dc.fillPolygon([[cx + r, top], [cx - 2 * r, mid + 1], [cx + 1, mid + 1]] as Array<Graphics.Point2D>);
+            dc.fillPolygon([[cx - r, top + h], [cx + 2 * r, mid - 1], [cx - 1, mid - 1]] as Array<Graphics.Point2D>);
         } else if (soort == 2) {
             dc.fillEllipse(cx, top + h * 5 / 8, r + 1, h * 3 / 8);
             dc.fillCircle(cx - r, top + r / 2 + 1, r / 2 + 1);

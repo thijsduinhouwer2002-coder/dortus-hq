@@ -19,7 +19,7 @@ class KernView extends WatchUi.WatchFace {
     var slaap as Boolean = false;
     var start as Number = 0;
     var gelezenOp as Number = 0;
-    // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan Tide.
+    // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan per proefhorloge een ander (Thema.voorProef).
     var thema as Number = Thema.TIDE;
 
     function initialize() {
@@ -149,8 +149,9 @@ class KernView extends WatchUi.WatchFace {
         }
         // Het getal van Body Battery: de laatste waarde uit de geschiedenis, of een streepje.
         var yBb = Maten.m(Maten.BB_Y);
-        if (bb.size() > 0 && fontK != null) {
-            dc.drawText(w / 2, yBb, fontK as WatchUi.FontResource, bb[bb.size() - 1].format("%d"), mid);
+        var bbNu = Veld.laatste(bb);
+        if (bbNu != null && fontK != null) {
+            dc.drawText(w / 2, yBb, fontK as WatchUi.FontResource, bbNu.format("%d"), mid);
         } else {
             dc.fillRectangle(w / 2 - streep, yBb - dik / 2, streep * 2, dik);
         }
@@ -163,6 +164,7 @@ class KernView extends WatchUi.WatchFace {
         if (!gelezen) {
             gelezen = true;
             start = System.getTimer();
+            thema = Thema.voorProef(dc.getWidth());
             leesAlles();
             meetBeelden();
             gelezenOp = System.getTimer();

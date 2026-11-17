@@ -75,3 +75,42 @@ function testHartOngeldig(logger as Test.Logger) as Boolean {
     return Veld.geldigeHart(null) == null && Veld.geldigeHart(255) == null && Veld.geldigeHart(0) == null
         && Veld.geldigeHart(-3) == null && Veld.geldigeHart(61) == 61 && Veld.geldigeHart(254) == 254;
 }
+
+// Lege Body Battery of stress: null, de plaat tekent dan het streepje. Anders de nieuwste waarde (achteraan).
+(:test)
+function testLaatsteWaarde(logger as Test.Logger) as Boolean {
+    return Veld.laatste([] as Array<Number>) == null && Veld.laatste([5] as Array<Number>) == 5
+        && Veld.laatste([93, 40, 12] as Array<Number>) == 12 && Veld.laatste([0] as Array<Number>) == 0;
+}
+
+// Hartslag uit de geschiedenis: de nieuwste geldige, lege en 255 overslaan; niets geldigs is null.
+(:test)
+function testEersteGeldigeHart(logger as Test.Logger) as Boolean {
+    return Veld.eersteGeldigeHart([] as Array<Number?>) == null
+        && Veld.eersteGeldigeHart([null, 255, 0] as Array<Number?>) == null
+        && Veld.eersteGeldigeHart([255, null, 72, 80] as Array<Number?>) == 72
+        && Veld.eersteGeldigeHart([61, 255] as Array<Number?>) == 61;
+}
+
+// Stappen en hartslag zonder gegevens: geen tekst (streepje), en nul stappen is wel een getal.
+(:test)
+function testStappenEnHartZonderGegevens(logger as Test.Logger) as Boolean {
+    return Veld.tekst(Veld.geldigeHart(null)) == null && Veld.tekst(Veld.eersteGeldigeHart([255] as Array<Number?>)) == null
+        && Veld.tekst(null) == null && veldIs(0, "0");
+}
+
+// De proef laat alle vier de thema's zien, en geeft nooit een thema dat niet bestaat.
+(:test)
+function testProefThema(logger as Test.Logger) as Boolean {
+    var gezien = [false, false, false, false] as Array<Boolean>;
+    var maten = [208, 240, 260, 390, 454, 176, 320, 218, 280, 416] as Array<Number>;
+    for (var i = 0; i < maten.size(); i++) {
+        var t = Thema.voorProef(maten[i]);
+        if (t < 0 || t >= Thema.AANTAL) {
+            return false;
+        }
+        gezien[t] = true;
+    }
+    return gezien[0] && gezien[1] && gezien[2] && gezien[3] && Thema.voorProef(260) == Thema.KELP
+        && Thema.voorProef(454) == Thema.TIDE && Thema.voorProef(390) == Thema.NIGHT && Thema.voorProef(-5) == Thema.TIDE;
+}
