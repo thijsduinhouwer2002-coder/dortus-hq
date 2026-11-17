@@ -1,8 +1,71 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 30, welke onderschriften werken binnen hetzelfde TikTok-account (Joris, 17 nov ±05:05 UTC). Daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov).
+bezig: niets (laatste: verhaal 30, onderschriften op TikTok, klaar 17 nov 2026 ±05:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 30. Wat zet je in het onderschrift? 7.529 TikToks van 24 makers over 3D-printen en Blender binnen hetzelfde account gemeten: hashtags, een vraag, een tip, "free", een link en reclamewoorden
+
+Onderzocht 17 nov 2026 ±05:05 tot 05:50 UTC, run 30. Waarom: vandaag om 15:00 UTC gaat het eerste filmpje van Chris live, en hij schrijft voor elk filmpje een onderschrift dat op TikTok en als YouTube-beschrijving dient (`commercie/filmpjes/planning.md`). Na lengte (verhaal 27), tijdstip (28) en klikken (29) is het onderschrift de laatste knop die we nog niet gemeten hebben. Op internet staan veel "regels" voor onderschriften zonder meting; ik meet het zelf.
+
+### Bronnen en werkwijze
+- **TikTok (GEZIEN, yt-dlp, openbare lijsten, niet ingelogd, 17 nov ±05:10 UTC):** dezelfde 24 accounts als verhaal 11, 27 en 28 (van Mixtapeprints met mediaan 166 views tot Emily the Engineer met 218.700). Per filmpje datum, views en het volledige onderschrift. Hooguit de laatste 600 per account, filmpjes jonger dan 14 dagen weggelaten. Samen **7.529 filmpjes**.
+- **Eerlijk vergelijken:** elk filmpje gedeeld door de mediaan van de 10 filmpjes ervoor en de 10 erna van hetzelfde account (zoals verhaal 27). Per kenmerk kijk ik per account (minstens 8 filmpjes met en 8 zonder) of de filmpjes mét dat kenmerk hoger uitkomen, en neem ik de mediaan van die verhoudingen over de accounts, met een bandbreedte (bootstrap over accounts, 95%).
+- **Kenmerken met een patroon uitgelezen** (bijvoorbeeld een vraagteken buiten de hashtags, "how to", "tip", "free", "link", "comment", "thanks to" of "sponsored"). Een patroon kan zich vergissen. Een voorbeeld dat ik zag en heb rechtgezet: "getal in de eerste zin" telde vooral "3D" en typenummers van printers, dus daar trek ik geen les uit.
+- Tabel: `platformen/succes/data/tiktok-onderschrift-2026-11-17.csv` (alleen cijfers en kenmerken, geen onderschriften). Scripts: `tiktok-onderschrift-analyse.py` en `tiktok-onderschrift-extra.py` in dezelfde map.
+
+### 1. Wat ik vond (GEZIEN)
+"Accounts beter" = bij hoeveel accounts de filmpjes met dit kenmerk een hogere mediaan hebben dan die zonder. "Verhouding" = mediaan over de accounts; 1,00 is geen verschil.
+
+| Kenmerk in het onderschrift | Filmpjes | Accounts beter | Verhouding [bandbreedte] | Sinds 2025 |
+|---|---|---|---|---|
+| **Geen enkele hashtag** | 1.404 | **0 van 14** | **0,85** [0,78 tot 0,90] | 2 van 12, 0,77 |
+| 7 of meer hashtags | 2.300 | 15 van 19 | 1,07 [1,02 tot 1,14] | 6 van 11, 1,02 |
+| #fyp, #foryou, #viral | 1.459 | 8 van 11 | 1,06 [0,96 tot 1,19] | |
+| **Tip of uitleg** ("how to", "tip", "trick", "tutorial") | 516 | **10 van 12** | **1,28** [1,06 tot 1,45] | 4 van 7, 1,27 |
+| **Een vraag** (vraagteken buiten de hashtags) | 1.244 | 15 van 21 | 1,07 [1,01 tot 1,13] | **12 van 16, 1,12** |
+| Begint met "How, What, Why, Would, Did you" | 434 | 4 van 13 | 0,94 [0,83 tot 1,01] | |
+| "free" | 366 | 6 van 7 | 1,04 [1,01 tot 1,43] | zie onder |
+| Vraagt om een reactie ("comment", "let me know") | 569 | 9 van 10 | 1,22 [1,02 tot 1,45] | 5 van 8, 1,16 |
+| "link" (meestal "link in bio") | 940 | 4 van 11 | 0,97 [0,79 tot 1,20] | **1 van 9, 0,91** |
+| **"thanks to", "sponsored", "partner", #ad** | 237 | **0 van 5** | **0,72** [0,66 tot 0,94] | 0 van 4 |
+| 1 tot 5 woorden (zonder hashtags) | 1.373 | 7 van 20 | 0,91 [0,87 tot 1,02] | 5 van 12, 0,90 |
+| 41 of meer woorden | 1.405 | 15 van 18 | 1,11 [1,03 tot 1,24] | 10 van 14, 1,02 |
+| Emoji | 3.486 | 14 van 18 | 1,04 [1,01 tot 1,15] | |
+
+Wat eruit springt:
+- **Geen hashtags kost ±15%, en dat in elk account dat beide deed** (0 van 14; bij de 13 kleine accounts met mediaan onder 10.000 views ook 0 van 13). Meer dan 7 tags gaf vroeger een klein beetje extra, sinds 2025 niet meer. #fyp en #viral voegen niets aantoonbaars toe.
+- **Een tip of uitleg in de tekst** hangt het sterkst samen met meer views (1,28). Dat zegt vooral iets over het filmpje: een tipfilmpje met een tiptekst. Het past bij les 3 in `lessen.md` (filmpjes rond de vraag van de kijker).
+- **Een vraag helpt sinds 2025 een beetje** (12 van 16 accounts, 1,12), maar **niet als de zin begint met "How" of "What"** (4 van 13). De vraag die werkt is het probleem of wat je ziet, met een vraagteken: "ball joint clicks in but won't turn?", niet "How do you print a ball joint?".
+- **"free" bij de twee Blender-accounts met gratis add-ons**: Artinvader_ 1,61 (94 filmpjes sinds 2025) en Brockcreative 2,34 (19 filmpjes, "Have you been struggling to find FREE Blender3D Addons"). Bij printmakers niet (Filamentstories 0,55, McGybeer 0,79, maar daar gaat "free" over een gratis bestand naast iets betaalds). Voor een gratis Blender-add-on is "free" dus een goed woord vooraan.
+- **Reclamewoorden kosten het meest** (0,72, 0 van 5): "Thanks to @merk for sending me". Emily the Engineer 0,44 sinds 2025.
+- **Om een link vragen helpt niet**, sinds 2025 eerder iets minder (1 van 9). Dat past bij verhaal 29: niemand kan er toch op tikken.
+- **Vragen om een reactie** geeft een hogere mediaan (1,22), maar minder uitschieters (3 keer of meer: 8% tegen 16%). Een deel is "Comment AMOUR for 10% off" van een winkelaccount. Dus: niet voor bereik doen.
+
+### 2. Hoe groot is dit?
+Klein, naast het filmpje zelf. In verhaal 27 en 28 haalde 15% van alle filmpjes 3 keer de gewone views of meer, puur door wat erin gebeurt. Het onderschrift schuift de mediaan 5 tot 28%. Het is een gratis knop, geen motor.
+
+### Drie lessen
+1. **Nooit zonder hashtags.** 4 tot 6 tags over het onderwerp (#blender #3dprinting #b3d, of #garmin #smartwatch) is genoeg; zonder tags ±15% minder in alle 14 accounts die het vergeleken. Extra tags of #fyp voegen sinds 2025 niets toe.
+2. **De eerste zin is het probleem of wat je ziet, gerust met een vraagteken, en zegt "free" als het gratis is.** Een tip of uitleg in de tekst hoort bij de beste filmpjes; een zin die begint met "How/What" niet.
+3. **Geen reclame- of linktaal.** "Thanks to", "sponsored" en "link in bio" hangen samen met minder views (0,72 en sinds 2025 0,91). De zoekregel uit verhaal 29 ("search Click Joints in Get Extensions") is een tip en geen link, dus die mag blijven.
+
+### Wat ik niet kon meten
+- **Oorzaak:** dit is samenhang. Een tipfilmpje krijgt een tiptekst; ik kan niet zeggen hoeveel het woord zelf doet. Alleen bij de hashtags is de uitkomst zo eenduidig (0 van 14) dat ik er een harde regel van maak.
+- **YouTube Shorts:** de titels van de 317 paren uit verhaal 13 waren gelijk aan de TikTok-tekst, dus apart meten zou weinig nieuws geven; de volledige beschrijving van Shorts geeft YouTube niet zonder in te loggen (niet omzeild).
+- **Tekst in beeld:** wat er in het filmpje zelf staat, kan ik niet uitlezen. Het onderschrift is maar een deel van wat de kijker leest.
+
+### Voor Dortus vandaag (vóór 15:00 UTC)
+**Chris** (onderschriften in `commercie/filmpjes/planning.md`, de hoofdchat zet ze in Metricool). Ik heb zijn ingeplande teksten nagelezen: tags staan er overal in (4 of 5), en de Click Joints-teksten noemen "free" en een probleem. Dat is precies goed. Drie kleine dingen:
+1. **Filmpje 7 (vandaag, Click Joints, "day 1: ball joint clicks in but won't turn?") niets veranderen.** Het is het voorbeeld van wat werkt.
+2. **De Ebb-teksten die beginnen met "I made a breathing app for Garmin watches" krijgen vooraan wat je ziet, met een vraagteken.** Bijvoorbeeld: `A sea on your wrist that rises and falls with your breath? I made Ebb, a breathing app for Garmin watches.` Geen gezondheidsbelofte, Ebb is geen trainer voor apneu of vrijduiken.
+3. **Nooit "thanks to", "sponsored" of een merk-@ in een onderschrift**, ook later niet als een maker of merk iets stuurt; zet zo'n bedankje desnoods in een reactie. En vervang de "link in bio" die nog staat in de teksten op regel 57, 62, 67 en 72 van `planning.md` (twee Ebb-teksten, "I made a free Blender add-on" en "3 things") door de zoekregel uit verhaal 29.
+
+### Bronnen
+- TikTok-accounts (openbare profielen): bijvoorbeeld https://www.tiktok.com/@artinvader_ , https://www.tiktok.com/@brockcreative , https://www.tiktok.com/@mixtapeprints , https://www.tiktok.com/@emily.the.engineer (alle 24 in de csv).
+- Werkwijze binnen hetzelfde account: verhaal 27 en 28 in dit bestand.
 
 ---
 
