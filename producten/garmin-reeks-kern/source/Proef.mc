@@ -59,10 +59,11 @@ module Proef {
         return echt;
     }
 
-    // Bouwstraat: elk proefhorloge een ander thema, zodat alle vier in beeld komen (Thema.voorProef).
+    // Bouwstraat: elk proefhorloge een ander thema, zodat alle vier in beeld komen (Thema.voorProef). De proef van
+    // de gratis versie (proef-gratis.jungle) toont zijn echte, vaste thema: dat is juist wat we willen zien.
     (:proef)
     function thema(gekozen as Number, breedte as Number) as Number {
-        return Thema.voorProef(breedte);
+        return Soort.BETAALD ? Thema.voorProef(breedte) : gekozen;
     }
 
     // Winkel: altijd het thema dat de drager koos.

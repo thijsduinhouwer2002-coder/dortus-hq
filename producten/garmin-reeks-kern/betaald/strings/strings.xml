@@ -4,4 +4,16 @@
     <string id="ThemaTide">Tide</string>
     <string id="ThemaKelp">Kelp</string>
     <string id="ThemaNight">Night</string>
+    <string id="Veld1Titel">Left field</string>
+    <string id="Veld2Titel">Middle field</string>
+    <string id="Veld3Titel">Right field</string>
+    <string id="VeldHart">Heart rate</string>
+    <string id="VeldStress">Stress</string>
+    <string id="VeldStappen">Steps</string>
+    <string id="VeldCalorie">Calories</string>
+    <string id="VeldTrappen">Floors climbed</string>
+    <string id="VeldMinuten">Intensity minutes (week)</string>
+    <string id="VeldAfstand">Distance</string>
+    <string id="VeldAccu">Battery</string>
+    <string id="VeldTemp">Temperature (weather)</string>
 </strings>

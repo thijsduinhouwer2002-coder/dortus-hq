@@ -85,7 +85,7 @@ jobs:
             monkeyc -f proef.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 1 || { echo "BOUW $d nee" >> "$U"; continue; }
             echo "BOUW $d ja, $(stat -c %s "bin/app-$d.prg") bytes" >> "$U"
             # Stap (d): zit de instelling voor het thema in het pakket? (de bouw zet de instellingen naast het programma)
-            if [ "$d" = fenix847mm ]; then echo "INSTELLINGEN bestanden=$(ls bin | grep -c settings || true) thema=$(cat bin/*settings* 2>/dev/null | grep -o 'Thema' | wc -l)" >> "$U"; fi
+            if [ "$d" = fenix847mm ]; then echo "INSTELLINGEN bestanden=$(ls bin | grep -c settings || true) thema=$(cat bin/*settings* 2>/dev/null | grep -o 'Thema' | wc -l) velden=$(cat bin/*settings* 2>/dev/null | grep -o 'Veld[123]' | sort -u | wc -l)" >> "$U"; fi
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             # Het proefpakket (proef.jungle) toont 8 s wit, 10 s wakker en dan het slaapbeeld. De app tekent zijn
@@ -105,6 +105,32 @@ jobs:
             tail -5 "/tmp/do-$d.log"
             sleep 2
           done
+          # Run 133: de gratis versie in beeld (proef-gratis.jungle): wakker op 20 s, slaap op 33 s. Verwacht thema 1 (Tide).
+          if monkeyc -f proef-gratis.jungle -d fenix847mm -o bin/gratis-fenix847mm.prg -y /tmp/key.der -l 1; then
+            monkeydo bin/gratis-fenix847mm.prg fenix847mm > /tmp/do-gratis.log 2>&1 &
+            MD=$!
+            sleep 20
+            import -window root schermen/gratis-fenix847mm-1.png
+            sleep 13
+            import -window root schermen/gratis-fenix847mm-2.png
+            kill "$MD" 2>/dev/null || true
+            grep -a "^KERN" /tmp/do-gratis.log | head -30 | sed "s/^/gratis-fenix847mm /" >> "$U" || true
+            grep -a -i "error\|exception" /tmp/do-gratis.log | head -5 | sed "s/^/gratis-fenix847mm LOG /" >> "$U" || true
+            sleep 2
+          else
+            echo "BOUW gratis-fenix847mm nee" >> "$U"
+          fi
+          grep -q "^gratis-fenix847mm KERN SOORT betaald=nee thema=1 velden=0,1,2" "$U" && echo "GRATIS_IN_BEELD goed" >> "$U" || echo "GRATIS_IN_BEELD FOUT" >> "$U"
+          grep -q "^fenix847mm KERN SOORT betaald=ja " "$U" && echo "BETAALD_IN_BEELD goed" >> "$U" || echo "BETAALD_IN_BEELD FOUT" >> "$U"
+          # Run 133: dezelfde toetsen ook als gratis versie (de stap hierboven draait ze als betaald). Zelfde opdrachten
+          # als tester.sh van de image, met gratis.jungle. De laatste regels van de uitslag komen in uitslag.txt.
+          if monkeyc -f gratis.jungle -d fenix7 -o /tmp/gr/toets.prg -y /tmp/key.der -t -l 3 > /tmp/gr/toets-bouw.log 2>&1; then
+            timeout 180 monkeydo /tmp/gr/toets.prg fenix7 -t > /tmp/gr/toets.log 2>&1 || true
+            grep -a -E "PASS|FAIL|ERROR|Ran " /tmp/gr/toets.log | tail -60 | cut -c1-200 | sed "s/^/TOETS_GRATIS /" >> "$U" || true
+            echo "TOETSEN_GRATIS regels=$(wc -l < /tmp/gr/toets.log) geslaagd=$(grep -a -c -E 'PASS$' /tmp/gr/toets.log || true) mislukt=$(grep -a -c -E '(FAIL|ERROR)$' /tmp/gr/toets.log || true)" >> "$U"
+          else
+            echo "TOETSEN_GRATIS bouw nee" >> "$U"; tail -30 /tmp/gr/toets-bouw.log | cut -c1-300 | sed "s/^/TOETS_GRATIS BOUW /" >> "$U"
+          fi
           # Elk horloge moet de maten van zijn eigen scherm laden (tijd in px uit het blad van Mila).
           MIS=0
           for paar in fr255:78 fenix847mm:136 venu3s:117 vivoactive5:117 fr55:62 fr245:72 fr265s:108 venusq2:90; do

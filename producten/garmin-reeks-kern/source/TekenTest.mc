@@ -348,8 +348,14 @@ function testWinkelGekozenThema(logger as Test.Logger) as Boolean {
         && Keuze.leesThema() == Thema.TIDE;
 }
 
-// De toetsen bouwen als de betaalde versie: die neemt het thema uit de instellingen.
+// Past bij de versie die gebouwd is (de toetsen draaien als betaald en als gratis): betaald neemt thema en velden
+// uit de instellingen, met als standaard hartslag, stress en stappen; gratis heeft Tide en die drie velden vast.
 (:test)
-function testSoortBetaald(logger as Test.Logger) as Boolean {
-    return Soort.BETAALD && Soort.thema() == Keuze.leesThema();
+function testSoortPastBijVersie(logger as Test.Logger) as Boolean {
+    var v = Soort.velden();
+    var drie = v.size() == 3 && v[0] == Veld.HART && v[1] == Veld.STRESS && v[2] == Veld.STAPPEN;
+    if (Soort.BETAALD) {
+        return drie && Soort.thema() == Keuze.leesThema();
+    }
+    return drie && Soort.thema() == Thema.TIDE;
 }

@@ -23,6 +23,8 @@ class KernView extends WatchUi.WatchFace {
     var gelezenOp as Number = 0;
     // Thema van de plaat: betaald kiest de drager in Garmin Connect (Keuze), gratis is het Tide (Soort). Alleen in de bouwstraat per proefhorloge een ander (Proef.thema).
     var thema as Number = Thema.TIDE;
+    // De drie velden onder de tijd (links, midden, rechts): betaald kiest de drager, gratis ligt vast (Soort.velden).
+    var soorten as Array<Number> = [Veld.HART, Veld.STRESS, Veld.STAPPEN] as Array<Number>;
     // Scherm zonder inbrandgevaar (MIP): geen zwart slaapbeeld, en de zee krijgt vaste paletkleuren.
     var mip as Boolean = false;
     // Hoeveel kleuren: Thema.VOL, MIP64 of MIP8. 8 kleuren staat per horloge in resources-<horloge>/jsondata (Kleuren).
@@ -83,8 +85,9 @@ class KernView extends WatchUi.WatchFace {
     function instellingenVeranderd() as Void {
         if (gelezen) {
             thema = Proef.thema(Soort.thema(), System.getDeviceSettings().screenWidth);
+            soorten = Soort.velden();
             bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
-            System.println("KERN INSTELLING thema=" + thema);
+            System.println("KERN INSTELLING thema=" + thema + " velden=" + soorten[0] + "," + soorten[1] + "," + soorten[2]);
         }
         WatchUi.requestUpdate();
     }
@@ -176,13 +179,13 @@ class KernView extends WatchUi.WatchFace {
                 namen[d] + " " + (dag.day as Number).format("%d"), mid);
         }
         var xs = [Maten.m(Maten.VELD_XL), Maten.m(Maten.VELD_XM), Maten.m(Maten.VELD_XR)] as Array<Number>;
-        var soorten = [Veld.HART, Veld.STRESS, Veld.STAPPEN] as Array<Number>;
         var yVeld = Maten.m(Maten.VELD_Y);
         var streep = Maten.m(Maten.VELD_PX) / 2;
         var dik = Maten.m(Maten.LIJN_DIK);
         var regel = "";
         for (var i = 0; i < 3; i++) {
-            var t = Veld.tekst(Veld.waarde(soorten[i], st));
+            var v = Veld.waarde(soorten[i], st);
+            var t = Veld.tekstVan(soorten[i], v);
             regel = regel + " " + ((t == null) ? "-" : t);
             // Het hart krijgt de kleur van de minuten (blad van Mila), de andere pictogrammen die van de tekst.
             dc.setColor((soorten[i] == Veld.HART) ? Thema.minuten(thema, diepte) : Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
@@ -190,13 +193,18 @@ class KernView extends WatchUi.WatchFace {
             dc.setColor(Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
             if (t != null && fontV != null) {
                 dc.drawText(xs[i], yVeld, fontV as WatchUi.FontResource, t, mid);
+                if (Veld.isMin(soorten[i], v)) {
+                    // Temperatuur onder nul: het minteken als streepje links van het getal.
+                    var half = dc.getTextWidthInPixels(t, fontV as WatchUi.FontResource) / 2;
+                    dc.fillRectangle(xs[i] - half - dik - streep / 2, yVeld - dik / 2, streep / 2, dik);
+                }
             } else {
                 // Geen gegevens: een streepje, getekend (de letter Veld heeft geen streepje).
                 dc.fillRectangle(xs[i] - streep / 2, yVeld - dik / 2, streep, dik);
             }
         }
         if (tik < 2) {
-            System.println("KERN VELDEN hart stress stappen:" + regel + " thema=" + thema);
+            System.println("KERN VELDEN" + regel + " thema=" + thema);
         }
     }
 
@@ -323,6 +331,9 @@ class KernView extends WatchUi.WatchFace {
             gelezen = true;
             start = System.getTimer();
             thema = Proef.thema(Soort.thema(), dc.getWidth());
+            soorten = Soort.velden();
+            System.println("KERN SOORT betaald=" + (Soort.BETAALD ? "ja" : "nee") + " thema=" + thema
+                + " velden=" + soorten[0] + "," + soorten[1] + "," + soorten[2]);
             leesAlles();
             meetBeelden();
             gelezenOp = System.getTimer();

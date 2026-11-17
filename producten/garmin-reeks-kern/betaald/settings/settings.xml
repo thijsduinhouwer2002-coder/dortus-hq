@@ -2,6 +2,11 @@
     <!-- Wat de drager kiest in Garmin Connect of de Connect IQ-app. Thema: 0 Dusk, 1 Tide, 2 Kelp, 3 Night (Thema.mc). -->
     <properties>
         <property id="Thema" type="number">1</property>
+        <!-- De drie velden onder de tijd, links, midden, rechts. Soorten als in Veld.mc: 0 hartslag, 1 stress, 2 stappen,
+             3 calorieën, 4 trappen, 5 intensiteitsminuten (week), 6 afstand, 7 accu, 8 temperatuur (weer). -->
+        <property id="Veld1" type="number">0</property>
+        <property id="Veld2" type="number">1</property>
+        <property id="Veld3" type="number">2</property>
     </properties>
     <settings>
         <setting propertyKey="@Properties.Thema" title="@Strings.ThemaTitel">
@@ -10,6 +15,45 @@
                 <listEntry value="1">@Strings.ThemaTide</listEntry>
                 <listEntry value="2">@Strings.ThemaKelp</listEntry>
                 <listEntry value="3">@Strings.ThemaNight</listEntry>
+            </settingConfig>
+        </setting>
+        <setting propertyKey="@Properties.Veld1" title="@Strings.Veld1Titel">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.VeldHart</listEntry>
+                <listEntry value="1">@Strings.VeldStress</listEntry>
+                <listEntry value="2">@Strings.VeldStappen</listEntry>
+                <listEntry value="3">@Strings.VeldCalorie</listEntry>
+                <listEntry value="4">@Strings.VeldTrappen</listEntry>
+                <listEntry value="5">@Strings.VeldMinuten</listEntry>
+                <listEntry value="6">@Strings.VeldAfstand</listEntry>
+                <listEntry value="7">@Strings.VeldAccu</listEntry>
+                <listEntry value="8">@Strings.VeldTemp</listEntry>
+            </settingConfig>
+        </setting>
+        <setting propertyKey="@Properties.Veld2" title="@Strings.Veld2Titel">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.VeldHart</listEntry>
+                <listEntry value="1">@Strings.VeldStress</listEntry>
+                <listEntry value="2">@Strings.VeldStappen</listEntry>
+                <listEntry value="3">@Strings.VeldCalorie</listEntry>
+                <listEntry value="4">@Strings.VeldTrappen</listEntry>
+                <listEntry value="5">@Strings.VeldMinuten</listEntry>
+                <listEntry value="6">@Strings.VeldAfstand</listEntry>
+                <listEntry value="7">@Strings.VeldAccu</listEntry>
+                <listEntry value="8">@Strings.VeldTemp</listEntry>
+            </settingConfig>
+        </setting>
+        <setting propertyKey="@Properties.Veld3" title="@Strings.Veld3Titel">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.VeldHart</listEntry>
+                <listEntry value="1">@Strings.VeldStress</listEntry>
+                <listEntry value="2">@Strings.VeldStappen</listEntry>
+                <listEntry value="3">@Strings.VeldCalorie</listEntry>
+                <listEntry value="4">@Strings.VeldTrappen</listEntry>
+                <listEntry value="5">@Strings.VeldMinuten</listEntry>
+                <listEntry value="6">@Strings.VeldAfstand</listEntry>
+                <listEntry value="7">@Strings.VeldAccu</listEntry>
+                <listEntry value="8">@Strings.VeldTemp</listEntry>
             </settingConfig>
         </setting>
     </settings>
