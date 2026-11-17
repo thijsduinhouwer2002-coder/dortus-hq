@@ -1175,7 +1175,7 @@ func _nieuwe_held() -> bool:
 	# kroniek (Iris keuring 1, 16 nov): een weggedrukte lied-regel komt alleen terug binnen 4 s; "op" vervalt niet
 	var WR = load("res://kern/wachtrij.gd")
 	var nep_k := GDScript.new()
-	nep_k.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar t := 0.0\nvar regel_sinds := -99.0\nvar regel_binnen := false\nvar regel_nu := {}\nvar kroniek: Array[String] = []\nvar log: Array[String] = []\nvar tekst = null\nvar hol = null\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
+	nep_k.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar t := 0.0\nvar regel_sinds := -99.0\nvar regel_binnen := false\nvar regel_nu := {}\nvar kroniek: Array[String] = []\nvar log: Array[String] = []\nvar tekst = null\nvar namen_recent: Array = []\nvar hol = null\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
 	nep_k.reload()
 	var nep_tekst := GDScript.new()
 	nep_tekst.source_code = "extends RefCounted\nfunc zet(_r, _g) -> void:\n\tpass\n"
@@ -1211,6 +1211,20 @@ func _nieuwe_held() -> bool:
 	nk2.t = 15.0
 	WR.toon(nk2)
 	ok(nk2.kroniek.has("OP"), "kroniek: 'up again' vervalt niet achter gebeurtenissen (Iris)")
+	# moet Daan 16 nov 23:30 (b): hooguit één regel per held op het kaartje (laatste drie), de telling blijft staan
+	var nk3 = nep_k.new()
+	nk3.tekst = nep_tekst.new()
+	nk3.hol = {"goud": 0}
+	nk3.namen_recent = ["Kees", "Kees II", "Lotte"]
+	nk3.kroniek.assign(["115 came, 82 fell. +607 gold.", "Kees was back and left in a hurry.", "Lotte waddles in."])
+	WR.een_per_held(nk3, "Kees fell into the Spike Pit.")
+	ok(nk3.kroniek.size() == 2 and not nk3.kroniek.has("Kees was back and left in a hurry."), "kaartje: tweede regel over Kees vervangt de eerste (Daan 23:30 b)")
+	WR.een_per_held(nk3, "Kees II waddles in.")
+	ok(nk3.kroniek.size() == 2, "kaartje: Kees II is een andere held dan Kees")
+	nk3.kroniek.assign(["Lotte waddles in.", "Pim waddles in.", "Mo waddles in."])
+	WR.een_per_held(nk3, "Lotte fell.")
+	ok(nk3.kroniek.size() == 3, "kaartje: alleen de twee regels ervoor tellen (Lotte drie terug blijft)")
+	ok(WR._noemt("Sir Odo clanks in.", "Sir Odo") and not WR._noemt("Keesje hums.", "Kees") and not WR._noemt("Kees III runs.", "Kees"), "kaartje: naam als heel woord")
 	# Daan 16 nov 20:35: "flat" alleen de eerste twee keer per speelbeurt, "up again" alleen na een getoonde "flat"
 	var np = GDScript.new()
 	np.source_code = "extends RefCounted\nvar wachtrij: Array = []\nvar plat_keer := 0\nvar plat_gemeld := false\nvar log: Array[String] = []\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"

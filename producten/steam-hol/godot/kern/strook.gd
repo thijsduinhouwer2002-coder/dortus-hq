@@ -106,6 +106,7 @@ var holbord: Node2D = null   # systemen/holbord.gd, het bordje met het hol-nivea
 var rij := 0   # hol-niveaus die bij de ingang wachten (hol_niveau.gd weg)
 var rij_t := 0.0   # open seconden sinds het laatste niveau uit de rij
 var optocht := {}   # plan van de optocht na weg zijn (hol_niveau.gd optocht), niet bewaard
+var namen_recent: Array = []   # helden van deze speelbeurt die een regel kunnen krijgen (wachtrij.gd een_per_held, moet Daan 23:30 b)
 var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_niveau.gd, Sanne voortgang.md spoor 1)
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm

@@ -6,6 +6,7 @@ var regels: Array[String] = []
 var goud := 0
 var doel := ""   # kopregel rechts als het kaartje dicht is: volgend doel (kern/kaartje.gd doel_regel, Iris 16 nov)
 var hover := false
+var vast := ""   # telling na terugkomst: bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30)
 var breedte := 1280.0
 var hoogte := 120.0
 var schaal := 3
@@ -276,8 +277,19 @@ func _draw() -> void:
 	var f: float = M.munt
 	var n := 3 if hover else 1
 	var toon: Array[String] = []
-	for i in range(max(0, regels.size() - n), regels.size()):
-		toon.append(regels[i])
+	if hover and vast != "" and regels.has(vast):
+		# telling bovenaan, daaronder de nieuwste regels in volgorde
+		toon.append(vast)
+		var rest: Array[String] = []
+		for i in range(regels.size() - 1, -1, -1):
+			if rest.size() >= n - 1:
+				break
+			if regels[i] != vast:
+				rest.push_front(regels[i])
+		toon.append_array(rest)
+	else:
+		for i in range(max(0, regels.size() - n), regels.size()):
+			toon.append(regels[i])
 	var regel_h: int = M.regel_h
 	var bw := vak_breedte()
 	var x := breedte - bw - 8
