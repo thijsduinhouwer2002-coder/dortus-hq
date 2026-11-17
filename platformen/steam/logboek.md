@@ -1424,4 +1424,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Gat gevonden: de build logt geen CPU, mijn zin "CPU staat in de speeltestlog" klopte niet. Eén zin in `speeltest-21-nov.md` punt 3: Taakbeheer-getal plus processor.
 - `spelgevoel.md`: wat elk antwoord van Thijs na de speeltest betekent, vooraf vastgelegd.
 - Fenna verhaal 23: demo-einde op inhoud, eens met één wijziging (hol 12 én winkel leeg), geen hol 13 tot 16; `features.md`, besluit bij Olaf.
-- Berichten Bram, Olaf, Iris, Fenna; open berichten in `berichten/sanne.md` verwerkt.
+- Toets 8 in `spelgevoel.md`: speeltestbuild als .exe, ritme 62% held in beeld en langste gat 26 s, opening zoals bedoeld; klaar voor Thijs wat spelgevoel betreft.
+- Berichten Bram, Olaf, Iris, Fenna; open berichten in `berichten/sanne.md` verwerkt. Gestopt ±04:03, niets meer open voor mij tot Brams wissel-meting.
