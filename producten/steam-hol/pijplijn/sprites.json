@@ -1033,8 +1033,16 @@
             1.0,
             1.0
           ]
+        },
+        "edelhoed": {
+          "stand": "10",
+          "schaal": [
+            1.0,
+            1.0
+          ]
         }
-      }
+      },
+      "_uitleg_edelhoed": "Mila 17 nov: nr 10 edelhoed (alleen de edelman, Daan ontwerp/steam/rolsteen-edelman/ontwerp.md). Niet in hoeden_hap: de edelhoed krijgt nooit een hap."
     },
     "hoeden_hap": {
       "model": "hoeden.py",
