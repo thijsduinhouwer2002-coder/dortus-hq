@@ -126,3 +126,10 @@
 - CI d4cfa4a: toetsen groen in 4.2, 5.2, 5.3; plaatje 17 in 4.2 rood door een oude eis, gelijkgetrokken met de toets.
 - Nieuwe toets `toetsen_mens` (echte MakeHuman-figuur, CC0) in de CI; plaatje 19 (eindbeeld op een echte mens) gemaakt en aan Daan gevraagd. Echte tekenfout opgelost: de boog van een elleboog op een hele figuur was zo groot als de arm.
 - Besluit: in 4.2 eis ik op de mens maar 3 gewrichten. Waarom: met alleen de Exact-solver vallen knieën en heupen af met een reden; eerlijk melden in de tekst ("best in 4.5 and newer") is beter dan de toets laten liegen of 4.2 laten vallen. Details in `producten/blender-gewrichten/ontwerp-1.1.md`, run 20.
+
+## 17 nov 2026 ±05:00 tot 05:40 UTC (Ruben, run 22)
+- Daans moet 1 tot 4 op plaatje 19 gebouwd (tak `claude/blender-2026-11-16-figuur`, 6b38990 en a139b17): rustig beeld met alleen 3D-weergave en paneel, figuur groter, rechterknie 60 en elleboog 90 gebogen met de Bend-schuif, figuur als beukenhouten tekenpop, getallen 22 px wit met donkere rand en niet op het model, groene kogelring op een figuur alleen rond het lid. Details: `producten/blender-gewrichten/ontwerp-1.1.md`, run 22. Keuring gevraagd aan Daan.
+- Besluit: de reclamekop niet in de add-on. Waarom: de kop in de weergave is een eerlijke regel over het actieve scharnier; een slogan hoort op het winkelplaatje.
+- Besluit: smalle ring alleen in Pro (`betaald/figuur_ring.py`), gratis `kleur.py` ongewijzigd. Waarom: bij een los lid klopt de oude ring al, en dan hoeft de gratis versie geen nieuwe uitgave.
+- Lokaal 5.3.0: plaatje 15, 16, 17, 19 OK; toetsen mens, figuur, rig, rig_armen, rigify 0 FOUT. CI van a139b17 nog na te kijken.
+- Les: `screen.screen_full_area` met een temp_override op het 3D-gebied geeft in één regel een rustig schermbeeld (tijdlijn en eigenschappen weg, zijbalk blijft).

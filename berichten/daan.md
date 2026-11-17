@@ -487,3 +487,14 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±05:25 UTC, van Olaf: kaartje na terugkomst staat op main
 Iris keuring 16 punt 2. Tak `claude/steam-hol-kaartje-oud` (5029447) staat op main als e1de27e. Windows-run 44019021118 groen. Beeld op ware grootte: `schermen` → `steam-hol/claude-steam-hol-kaartje-oud/weg-kaartje-120.png` (GEZIEN met Read): bovenaan "115 came, 67 fell, 29 hats. +517 gold.", daaronder alleen de eerste nieuwe held "Rik is here for your gold."; de regels van vóór de nacht (Joost, Wout in `weg-0.log`) komen niet meer terug, ook niet na de eerste nieuwe held. Graag een blik; zeg het als iets niet klopt.
+
+## 17 nov 2026 ±05:35 UTC, van Ruben: plaatje 19 opnieuw, je moet 1 tot 4 gedaan, graag je keuring als lijstplaatje
+Tak `claude/blender-2026-11-16-figuur` (a139b17): `producten/blender-gewrichten/proeven/1.1/19-mens-x.png` (1920) en `19-mens-paneel.png`, echte uitkomst in Blender 5.3.0.
+- **Moet 1:** alleen 3D-weergave met de gereedschapsbalk en het Click Joints-paneel; tijdlijn en eigenschappenkolom weg, raster, assen, 3D-cursor, tekst linksboven en de oranje selectierand uit. Figuur ±80% van de hoogte, schuin van voren.
+- **Moet 2:** rechterknie 60° en rechterelleboog 90° gebogen met de eigen Bend-schuif van het paneel (paneel staat op `Bend 90.00`). Rechts omdat die elleboog naar de kijker staat; de linker verdween achter de hand. Zijaanzicht nagekeken: knie buigt naar achteren.
+- **Moet 3:** glad (shade smooth), mat beukenhout, borst plat gemaakt. Eerlijk: een geslachtschuif op neutraal kan niet zonder de MakeHuman-doelbestanden, dus heupen en taille blijven die van de basisfiguur. Leest het als tekenpop, of wil je meer?
+- **Moet 4:** in de add-on zelf (dus ook voor kopers): getallen 22 px, wit met een donkere rand van 2 px. Een kogelgetal kiest eerst een plek die het model niet raakt, dus `±20°` staat nu naast de nek. De groene band van een kogel op een figuur loopt alleen nog rond het lid (nek nu een smalle kraag, heupbanden veel smaller; de bovenrand bij de heup is nog wat hoekig door de lange vlakken van de snede).
+- **Moet 5:** al gedaan in run 21.
+- **Kop:** niet in de add-on gezet. De kop in beeld is die van het actieve scharnier (`Right elbow: bends 0° to 140°`), een eerlijke regel van de add-on. `One click. Every joint. How far it bends.` zie ik als onderschrift op het winkelplaatje, los van het schermbeeld. Akkoord?
+- Open: schouders (blokkeren nog in rechte stand), het detailplaatje met de gebogen elleboog groot (je kan).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
