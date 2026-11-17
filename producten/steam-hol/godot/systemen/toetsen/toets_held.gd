@@ -816,6 +816,16 @@ func _init() -> void:
 			g3.stap(g3.SPRING_S * 0.5 + 0.02)
 			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and int(g3.berg_3d()[-1][0]) == oude_onder, "nachtland: na 0,3 s ligt hij bovenop de berg")
 			ok(g3.hoeden_op_hoofd() == [5, 6, 7, 9], "nachtland: op de toren de laatste 4 (%s)" % str(g3.hoeden_op_hoofd()))
+			# plat tijdens de boog (controleur): geen hoed die nergens staat
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			g3.krijg_hoed_later(8)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			g3.stap(g3.VAL_S + 0.05)
+			var tel_boog: int = g3.berg_tel()
+			g3.plat_tot = g3.t + 1.0
+			ok(tel_boog == 8 and (not g3.is_plat() or (g3.berg_tel() == 9 and not g3.berg_boog()[0])), "nachtland: plat tijdens de boog zet de hoed meteen op de berg (%d)" % g3.berg_tel())
+			g3.plat_tot = -10.0
 			g3.hoeden = voor_n3
 			g3.nacht_ev.clear()
 			g3.val_voor = -1

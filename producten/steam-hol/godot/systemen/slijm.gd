@@ -498,6 +498,8 @@ func berg_zichtbaar(tel := -1) -> int:
 # en de hoed die in een boog naar de berg vliegt ook nog niet.
 func berg_tel() -> int:
 	var tel := hoeden.size()
+	if nacht_ev.is_empty() or is_plat() or not met_3d or beeld_3d() == "":
+		return tel   # controleur: plat of zonder 3D-hoeden is er geen val of boog te zien, dan staat alles meteen op de berg
 	for ev in nacht_ev:
 		if t < float(ev[0]):
 			tel -= int(ev[1])
@@ -1038,7 +1040,7 @@ func _draw() -> void:
 			draw_set_transform(Vector2(float(vv[1]), float(vv[2])), float(vv[3]), Vector2(1.0, float(vv[4])))
 			_teken_hoed_3d(nieuw, 0.0, 0.0, false)
 			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	if t3.is_empty():
+	if t3.is_empty() and not valt:   # controleur: nieuwe speler, oude toren leeg, dan geen pixeltoren tijdens de 3D-val
 		for h in toren():
 			draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
 	else:
@@ -1059,11 +1061,11 @@ func _draw() -> void:
 				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				continue
 			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), boven and not is_plat())   # bovenste hoed met hap
-		var bb := berg_boog()
-		if bb[0]:
-			draw_set_transform(Vector2(float(bb[2]), float(bb[3])), float(bb[4]), Vector2.ONE)   # knijp: onderste hoed springt naar de berg
-			_teken_hoed_3d(int(bb[1]), 0.0, 0.0, false)
-			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var bb := berg_boog()
+	if bb[0]:
+		draw_set_transform(Vector2(float(bb[2]), float(bb[3])), float(bb[4]), Vector2.ONE)   # knijp: onderste hoed springt naar de berg
+		_teken_hoed_3d(int(bb[1]), 0.0, 0.0, false)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if ster_aan(b3):
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
 		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
