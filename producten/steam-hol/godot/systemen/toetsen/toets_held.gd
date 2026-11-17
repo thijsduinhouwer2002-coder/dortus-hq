@@ -813,15 +813,45 @@ func _init() -> void:
 			for e3 in g3.berg_3d(9):
 				if int(e3[3]) == 4:
 					top3 = e3   # het plekje van de nieuwste (index 4 in hoeden bij 9 hoeden)
+			ok(not top3.is_empty(), "nachtland: de nieuwste (index 4) ligt op een plekje van de berg bij 9")
+			if top3.is_empty():
+				top3 = [0, 0.0, 0.0, 4]   # controleur 09:30: geen SCRIPT ERROR die de toetsrun laat hangen, maar een FOUT
 			var voet3: Array = g3.toren_3d()[0]
 			ok(not g3.nacht_valt() and bb3[0] and int(bb3[1]) == oude_onder and g3.berg_tel() == 8, "nachtland: na de landing vliegt de oude onderste (%s) in een boog, berg wacht (%s)" % [str(bb3), str(g3.berg_tel())])
 			ok(float(bb3[2]) < float(voet3[1]) and float(bb3[2]) > float(top3[1]) and float(bb3[3]) < minf(float(voet3[2]), float(top3[2])), "nachtland: halverwege tussen toren en berg en hoger dan beide (%s, %s, %s)" % [str(bb3), str(voet3), str(top3)])
-			g3.stap(g3.SPRING_S * 0.5 + 0.02)
+			g3.stap(g3.SPRING_S * 0.48)
+			var bb_eind: Array = g3.berg_boog()
+			ok(bb_eind[0] and absf(float(bb_eind[2]) - float(top3[1])) <= 2.0 and absf(float(bb_eind[3]) - float(top3[2])) <= 2.0, "nachtland: aan het eind van de boog is hij bij zijn plekje (%s tegen %s)" % [str(bb_eind), str(top3)])
+			g3.stap(g3.SPRING_S * 0.02 + 0.02)
 			var gel := false
 			for e3 in g3.berg_3d():
 				gel = gel or (int(e3[3]) == 4 and int(e3[0]) == oude_onder and is_equal_approx(float(e3[1]), float(top3[1])) and is_equal_approx(float(e3[2]), float(top3[2])))
 			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and gel, "nachtland: na 0,3 s ligt hij op het plekje waar de boog heen ging")
 			ok(g3.hoeden_op_hoofd() == [5, 6, 7, 9], "nachtland: op de toren de laatste 4 (%s)" % str(g3.hoeden_op_hoofd()))
+			# plof (Sanne 08:50): 19 hoeden in één nacht, één boog naar het plekje van de laatste hoed van de berg
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			for pi in 19:
+				g3.krijg_hoed_later((pi * 3) % 10)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			var plof_eind: float = float(g3.nacht_ev[-1][0]) + g3.SPRING_S + 0.1 if not g3.nacht_ev.is_empty() else 0.0
+			var bb_plof: Array = [false]
+			var stappen := 0
+			while (g3.t < plof_eind or g3.nacht_bezig() or g3.berg_tel() < g3.hoeden.size()) and stappen < 5000:
+				g3.stap(0.01)
+				stappen += 1
+				var bq: Array = g3.berg_boog()
+				if bq[0]:
+					bb_plof = bq
+			var ip: int = g3.hoeden.size() - g3.OP_HOOFD - 1
+			var plek_p: Array = []
+			for e3 in g3.berg_3d():
+				if int(e3[3]) == ip:
+					plek_p = e3
+			ok(g3.hoeden.size() == 27 and bb_plof[0] and not plek_p.is_empty() and int(bb_plof[1]) == g3.hoeden[ip] and absf(float(bb_plof[2]) - float(plek_p[1])) <= 3.0 and absf(float(bb_plof[3]) - float(plek_p[2])) <= 3.0, "plof: de laatste boog eindigt op het plekje van de nieuwste hoed van de berg (%s tegen %s)" % [str(bb_plof), str(plek_p)])
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoed_valt = false
 			# plat tijdens de boog (controleur): geen hoed die nergens staat
 			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
 			g3.krijg_hoed_later(8)
@@ -1325,8 +1355,14 @@ func _init() -> void:
 	ok(nieuwste_n_ok, "vaste plekjes: de berg toont altijd de nieuwste n hoeden")
 	ok(steun_ok, "vaste plekjes: elk plekje boven de vloer ligt op twee plekjes die er al waren")
 	var k70: Array = gz.berg(74)
+	gz._pk_tel = -1          # zoals na laden: niets bewaard (controleur 09:30)
+	gz._pk_bewaard = {}
+	gz._pk_kaart = []
+	gz._pk_waar = {}
 	var k70b: Array = gz.berg(74)
-	ok(k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg (ook na laden), 33 bij 3000+")
+	ok(k70.size() == 8 and k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg, ook opnieuw gerekend zoals na laden; 33 bij 3000+")
+	var kaart_ro: Array = gz.berg_plekken(74)
+	ok(kaart_ro.is_read_only(), "vaste plekjes: de bewaarde kaart kan niemand aanpassen")
 	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")

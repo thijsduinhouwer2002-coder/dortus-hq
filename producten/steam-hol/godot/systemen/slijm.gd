@@ -958,6 +958,7 @@ func berg(tel := -1) -> Array:
 	var uit := []
 	if tel < 0:
 		tel = berg_tel()
+	tel = mini(tel, hoeden.size())   # nooit nep-hoeden (controleur 09:30)
 	var kaart := berg_plekken(tel)
 	if kaart.is_empty():
 		return uit
@@ -1031,17 +1032,23 @@ static func berg_plekken(tel: int) -> Array:
 				_pk_kaart[i % n] = i
 				_pk_waar[i] = i % n
 		if _pk_tel >= tel - 1:
-			_pk_bewaard[_pk_tel] = _pk_kaart.duplicate()
-	if _pk_bewaard.size() > 6:
-		_pk_bewaard.clear()
-		_pk_bewaard[tel] = _pk_kaart.duplicate()
+			_bewaar(_pk_tel, _pk_kaart)
 	if not _pk_bewaard.has(tel):
-		_pk_bewaard[tel] = _pk_kaart.duplicate()
+		_bewaar(tel, _pk_kaart)   # tel kleiner dan waar de rekening stond kan niet: dan begon hij hierboven opnieuw
+	if _pk_bewaard.size() > 6:   # controleur 09:30: alleen oude tellen weg, tel - 1 tot tel + 1 blijven (berg en boog)
+		for k in _pk_bewaard.keys():
+			if k < tel - 1 or k > tel + 1:
+				_pk_bewaard.erase(k)
 	return _pk_bewaard[tel]
+
+static func _bewaar(tel: int, kaart: Array) -> void:
+	var c := kaart.duplicate()
+	c.make_read_only()   # gedeeld: niemand mag hem aanpassen (controleur 09:30)
+	_pk_bewaard[tel] = c
 
 # De hoedenberg met de 3D-hoeden (Bram 14 nov, winkelbeeld Olaf 05:35: pixelhoeden naast de 3D-Gloop): zelfde plekken
 # en volgorde als berg(), elke hoed met zijn nulpunt (midden van de onderrand) waar de onderrand van de pixelhoed lag,
-# dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y]. Leeg als er geen 3D-hoedenblad is (dan pixels).
+# dus op de vloer of op de rij eronder. [hoed, x, nulpunt-y, index in hoeden]. Leeg als er geen 3D-hoedenblad is (dan pixels).
 const BERG_3D_LUCHT := 3.0   # moet Daan 17 nov 07:45: een paar px lucht tussen de volle berg en Gloop (was 1); kan Daan 07:40: de 3D-hoeden zijn ronder en breder, 1 spelpixel extra lucht tot Gloops flank
 
 func berg_3d(tel := -1) -> Array:
