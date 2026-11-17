@@ -1138,8 +1138,8 @@ func _init() -> void:
 		if gn.hoed_valt and gn.hoed_vliegt() and gn.t < gn.blij_van and gn.beeld_3d() == "blij":
 			blij_vroeg = true
 	ok(eerste_t >= gn.NACHT_WACHT_S - 0.01 and eerste_t <= gn.NACHT_WACHT_S + 0.06, "nachthoeden: eerste valt na de wip, op %.2f s" % eerste_t)
-	ok(tiende_t > 0.0 and absf(tiende_t - eerste_t - 9 * gn.NACHT_TUSSEN_S) < 0.06, "nachthoeden: tiende 2,7 s na de eerste (%.2f)" % (tiende_t - eerste_t))
-	ok(alles_t > 0.0 and alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S <= 4.0, "nachthoeden: alles staat en wiebelde uit binnen 4 s (%.2f s)" % (alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S))
+	ok(tiende_t > 0.0 and absf(tiende_t - eerste_t - 2 * gn.NACHT_TRAAG_S - 7 * gn.NACHT_TUSSEN_S) < 0.06, "nachthoeden: tiende 3,1 s na de eerste (eerste drie 0,5 s, Daan) (%.2f)" % (tiende_t - eerste_t))
+	ok(alles_t > 0.0 and alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S <= 4.3, "nachthoeden: alles staat en wiebelde uit binnen ±4,2 s (Daan) (%.2f s)" % (alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S))
 	ok(stappen_n.keys().has(1) and stappen_n.keys().has(19) and stappen_n.size() == 2, "nachthoeden: tien keer één, dan één plof van 19 (%s)" % str(stappen_n.keys()))
 	ok(gn.hoeden == gn_ref.hoeden and gn.nacht_hoeden.is_empty(), "nachthoeden: dezelfde hoeden in dezelfde volgorde als meteen geven")
 	ok(geland_voor_volgende and gn.VAL_S < gn.NACHT_TUSSEN_S, "nachthoeden: elke hoed is geland voor de volgende valt")
@@ -1190,7 +1190,28 @@ func _init() -> void:
 	g0.set_script(load("res://systemen/slijm.gd"))
 	g0.start_nacht()
 	ok(g0.nacht_van < 0.0 and g0.hoeden.is_empty(), "nachthoeden: zonder hoeden van de nacht geen rij")
-	ok(gn.nacht_aantal(-0.1, 5) == 0 and gn.nacht_aantal(0.0, 5) == 1 and gn.nacht_aantal(0.3, 5) == 2 and gn.nacht_aantal(9.0, 5) == 5 and gn.nacht_aantal(3.0, 40) == 40 and gn.nacht_aantal(2.7, 40) == 10, "nachthoeden: tempo volgens het ontwerp")
+	ok(gn.nacht_aantal(-0.1, 5) == 0 and gn.nacht_aantal(0.0, 5) == 1 and gn.nacht_aantal(0.45, 5) == 1 and gn.nacht_aantal(0.5, 5) == 2 and gn.nacht_aantal(1.0, 5) == 3 and gn.nacht_aantal(1.3, 5) == 4 and gn.nacht_aantal(9.0, 5) == 5 and gn.nacht_aantal(3.1, 40) == 10 and gn.nacht_aantal(3.4, 40) == 40, "nachthoeden: tempo 0,5 / 0,5 / dan 0,3, plof na de tiende (Daan)")
+	# wiebel van de vorige nooit hard afkappen: loopt door tot de nieuwe landt, dan in 0,1 s naar 0
+	var gw = Node2D.new()
+	gw.set_script(load("res://systemen/slijm.gd"))
+	for hh in [1, 2, 3, 4, 5]:
+		gw.krijg_hoed_later(hh)
+	gw.start_nacht(0.0)
+	gw.stap(0.0)
+	var max_voor := 0.0   # tussen eigen landing en landing van de volgende
+	var na_demp := 0.0    # meer dan 0,1 s na de landing van de volgende
+	var gezien_vorige := false
+	for i in 80:
+		gw.stap(0.0125)
+		if gw.hoeden.size() >= 2 and gw.vorige_idx == gw.hoeden.size() - 2:
+			var land_nieuw: float = gw.hoed_vlucht_van + gw.VLUCHT_VAN + gw.VAL_S
+			var a := absf(gw.vorige_wiebel(gw.vorige_idx))
+			if a > 0.0:
+				gezien_vorige = true
+			if gw.t > land_nieuw + gw.UITDEMP_S + 0.001:
+				na_demp = maxf(na_demp, a)
+	ok(gezien_vorige and na_demp == 0.0, "nachthoeden: vorige hoed wiebelt nog even uit onder de nieuwe en staat 0,1 s na diens landing stil")
+	gw.free()
 	# van_dict (laden) leegt de rij
 	gn.krijg_hoed_later(3)
 	gn.van_dict(gn_ref.naar_dict())

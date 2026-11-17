@@ -108,6 +108,9 @@ var hap_van := -10.0
 # de toren maar wachten hier en vallen na het openen een voor een van boven op de top, met de landing die er al is.
 const NACHT_WACHT_S := 1.0    # na het openen: eerst de wip van het bordje (0,1 + 0,5 s), dan pas vallen
 const NACHT_TUSSEN_S := 0.3   # de eerste NACHT_EEN_VOOR_EEN hoeden elk 0,3 s na elkaar
+const NACHT_TRAAG := 3        # Daan 17 nov 06:30: de eerste drie 0,5 s uit elkaar, zodat elke landing helemaal uitwiebelt
+const NACHT_TRAAG_S := 0.5
+const UITDEMP_S := 0.1        # loopt een wiebel nog als de volgende landt, dan dempt hij in 0,1 s uit (nooit hard afkappen, Daan)
 const NACHT_EEN_VOOR_EEN := 10   # de rest in één plof, na de tiende; samen nooit meer dan ±4 s
 const VAL_S := 0.25           # zo lang valt een nachthoed recht omlaag (geland vóór de volgende komt)
 const VAL_HOOG := 14.0        # zoveel spelpixels boven de bovenrand van het hol begint de val (buiten beeld)
@@ -115,6 +118,8 @@ var nacht_hoeden: Array[int] = []   # wachten nog, oudste eerst; tellen in de sa
 var nacht_van := -1.0         # t van de eerste val; -1 = nog niet gestart
 var nacht_gelegd := 0         # zoveel van deze nacht staan er al op
 var hoed_valt := false        # de bovenste hoed valt recht omlaag (nacht) in plaats van de boog van de held
+var vorige_val_van := -99.0   # vlucht-start van de vorige nachthoed: die wiebelt nog uit onder de nieuwe
+var vorige_idx := -1          # zijn plek in hoeden
 var blij_van := -10.0         # landing van de laatste nachthoed: dan pas blij (alleen als blij_nacht)
 var blij_nacht := false       # blij komt van een nachthoed (anders, zoals altijd, na de hap)
 var leven := ""            # "", "slapen" of "spugen"
@@ -411,7 +416,12 @@ func start_nacht(wacht_s := NACHT_WACHT_S) -> void:
 static func nacht_aantal(dt: float, totaal: int) -> int:
 	if dt < 0.0 or totaal <= 0:
 		return 0
-	var n := int(floor(dt / NACHT_TUSSEN_S + 0.0001)) + 1
+	var traag_tot := (NACHT_TRAAG - 1) * NACHT_TRAAG_S   # tijd van de laatste trage
+	var n := 0
+	if dt < traag_tot + 0.0001:
+		n = int(floor(dt / NACHT_TRAAG_S + 0.0001)) + 1
+	else:
+		n = NACHT_TRAAG + int(floor((dt - traag_tot) / NACHT_TUSSEN_S + 0.0001))
 	if n > NACHT_EEN_VOOR_EEN:
 		return totaal   # na de tiende: de rest in één plof
 	return mini(n, totaal)
@@ -422,6 +432,9 @@ func _nacht_stap() -> void:
 	var moet := nacht_aantal(t - nacht_van, nacht_gelegd + nacht_hoeden.size())
 	if moet <= nacht_gelegd:
 		return
+	if hoed_valt and hoed_vliegt():
+		vorige_val_van = hoed_vlucht_van
+		vorige_idx = hoeden.size() - 1
 	while nacht_gelegd < moet and not nacht_hoeden.is_empty():
 		hoeden.append(nacht_hoeden.pop_front())
 		nacht_gelegd += 1
@@ -816,6 +829,21 @@ func hoed_vlucht(doel_x: float, doel_nul: float) -> Array:
 	var graad := snappedf(WIEBEL_GRAAD * (1.0 - p) * sin(p * 3.0 * PI), 4.0)
 	return [true, doel_x, doel_nul, deg_to_rad(graad), 1.0]
 
+# Hoek van de vorige nachthoed (index i in hoeden) die nog uitwiebelt terwijl de nieuwe valt; 0,0 als hij stilstaat.
+# Zijn wiebel loopt gewoon door tot de nieuwe landt, daarna dempt hij in UITDEMP_S uit.
+func vorige_wiebel(i: int) -> float:
+	if i != vorige_idx or is_plat():
+		return 0.0
+	var w := t - vorige_val_van - VLUCHT_VAN - VAL_S
+	if w < PLAT_S or w >= WIEBEL_S:
+		return 0.0
+	var p := (w - PLAT_S) / (WIEBEL_S - PLAT_S)
+	var graad := WIEBEL_GRAAD * (1.0 - p) * sin(p * 3.0 * PI)
+	var nieuw_land := hoed_vlucht_van + VLUCHT_VAN + VAL_S
+	if t >= nieuw_land:
+		graad *= maxf(0.0, 1.0 - (t - nieuw_land) / UITDEMP_S)
+	return deg_to_rad(snappedf(graad, 4.0))
+
 func hoed_vliegt() -> bool:
 	var s := t - hoed_vlucht_van
 	return s >= 0.0 and s < VLUCHT_VAN + _vlucht_s() + WIEBEL_S
@@ -928,6 +956,12 @@ func _draw() -> void:
 					draw_set_transform(Vector2(float(v[1]), float(v[2])), float(v[3]), Vector2(1.0, float(v[4])))
 					_teken_hoed_3d(int(h3[0]), 0.0, 0.0, not is_plat())
 					draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+				continue
+			var vw := vorige_wiebel(hoeden.size() - t3.size() + i) if hoed_valt else 0.0
+			if vw != 0.0:
+				draw_set_transform(Vector2(float(h3[1]), float(h3[2])), vw, Vector2.ONE)   # vorige nachthoed wiebelt uit (Daan)
+				_teken_hoed_3d(int(h3[0]), 0.0, 0.0, false)
+				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				continue
 			_teken_hoed_3d(int(h3[0]), float(h3[1]), float(h3[2]), boven and not is_plat())   # bovenste hoed met hap
 	if ster_aan(b3):
