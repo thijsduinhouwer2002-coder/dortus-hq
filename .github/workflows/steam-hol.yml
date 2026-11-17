@@ -247,6 +247,15 @@ jobs:
           Write-Output "===== weiger-proef"; Write-Output $w
           if ($w -notmatch "HOL klik op .*: geweigerd" -or $w -notmatch "geweigerd \(graven\)" -or $w -match "HOL klik op .*: (gegraven|kamer)") { Write-Output "FOUT: graafklik na het einde niet geweigerd"; $fout++ }
           if ($w -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): Demo over\. The full game keeps it all\.") { Write-Output "FOUT: geweigerde graafklik gaf geen zichtbare regel"; $fout++ }
+          # Olaf 17 nov: het echte einde, op inhoud en zonder klok: inhoud_proef=1 zet hol 12 en de volle winkel na laden.
+          # Met steamdemo één keer "voorbij" met hol 12; zonder steamdemo geen einde. Beeld voor het bordje met de 12.
+          $i = Speel "$uit/demo-inhoud.log" "steamdemo=1 vers=1 duur=12 inhoud_proef=1" "$uit/demo-inhoud-120.png" 8 | Out-String
+          Write-Output "===== inhoud-proef"; Write-Output $i
+          $ni = ([regex]::Matches($i, "HOL demo voorbij na [0-9]+ s speeltijd \(hol 12,")).Count
+          if ($ni -ne 1 -or $i -notmatch "HOL kroniek [0-9.]+ \(wacht [0-9.]+\): That's the demo\.") { Write-Output "FOUT: einde op inhoud $ni keer of zonder regel"; $fout++ }
+          $j = Speel "$uit/demo-inhoud-zonder.log" "vers=1 duur=8 inhoud_proef=1" | Out-String
+          Write-Output "===== inhoud-proef zonder steamdemo"; Write-Output $j
+          if ($j -notmatch "HOL inhoud-proef" -or $j -match "HOL demo voorbij" -or $j -match "That's the demo") { Write-Output "FOUT: inhoud-proef zonder steamdemo gaf een einde (of liep niet)"; $fout++ }
           $b = Speel "$uit/demo-einde-2.log" "demo=1 vers=1 duur=30" | Out-String
           Write-Output "===== 2 (zonder steamdemo)"; Write-Output $b
           if ($b -match "That's the demo" -or $b -notmatch "HOL koop ") { Write-Output "FOUT: zonder steamdemo toch een einde"; $fout++ }

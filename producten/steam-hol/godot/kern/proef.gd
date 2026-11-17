@@ -36,6 +36,7 @@ static func lees_argumenten(s) -> void:
 			"royal_proef": s.proef_royal = kv[1] == "1"
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
+			"inhoud_proef": s.proef_inhoud = kv[1] == "1"   # Olaf 17 nov: hol 12 en volle winkel meteen na laden, om het demo-einde op inhoud op Windows te toetsen
 			"weiger_proef": s.proef_weiger = kv[1] == "1"   # Olaf 17 nov (Iris keuring 17 punt 3): na het demo-einde één echte graafklik links van de ingang, om de weigerregel te keuren
 			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
 			"spuug_proef": s.proef_spuug = clampi(int(kv[1]), 0, 3)
@@ -79,6 +80,17 @@ static func na_laad(s) -> void:
 	if s.proef_plat and "plat_tot" in s.slijm:
 		s.plat_keer = preload("res://kern/wachtrij.gd").PLAT_KEER
 		s.slijm.plat_tot = float(s.slijm.t) + 9999.0
+	# inhoud_proef=1: faam op de drempel van hol 12, geen rij, beide winkelsoorten op de hoogste stap. Dan moet
+	# demo_einde.tik het einde op inhoud geven (niet op de klok), met steamdemo=1 en zonder demo_einde=<s>.
+	if s.proef_inhoud and hol.upgrades != null:
+		s.faam = int(preload("res://systemen/hol_niveau.gd").DREMPEL[-1])
+		s.rij = 0
+		for soort in preload("res://systemen/upgrades.gd").SOORTEN:
+			hol.upgrades.niveaus[soort] = preload("res://systemen/upgrades.gd").MAX_NIVEAU
+		if s.slijm.has_method("upgrade_veranderd"):
+			s.slijm.upgrade_veranderd()
+		hol.queue_redraw()
+		s.log_regel("HOL inhoud-proef: faam %d, winkel %s" % [s.faam, str(hol.upgrades.niveaus)])
 	if s.proef_put > 0 and hol.upgrades != null:
 		hol.upgrades.niveaus["stekelput"] = s.proef_put
 		hol.queue_redraw()
