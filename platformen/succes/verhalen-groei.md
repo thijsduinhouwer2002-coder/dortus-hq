@@ -1,8 +1,70 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 31, geluid onder een kort filmpje (eigen geluid, muziek, het geluid van een ander), gestart 17 nov 2026 ±06:05 UTC, run 31.
+bezig: niets (laatste: verhaal 31, geluid onder een kort filmpje, klaar 17 nov 2026 ±06:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 31. Geluid onder een kort filmpje: eigen geluid, muziek of stil? 7.516 TikToks van 24 makers over 3D-printen en Blender binnen hetzelfde account gemeten, 421 ervan beluisterd, en wat er vandaag om 15:00 UTC met ons geluid gebeurt
+
+Onderzocht 17 nov 2026 ±06:05 tot 06:50 UTC, run 31. Waarom: in `commercie/filmpjes/planning.md` staat: "geen geluid. Kies in TikTok een rustig instrumentaal geluid; YouTube Shorts mag zonder." Geluid is de laatste knop naast lengte (verhaal 27), tijdstip (28), klikken (29) en onderschrift (30). Twee vragen: maakt de soort geluid uit, en komt er bij ons straks echt geluid onder?
+
+### Bronnen en werkwijze
+- **TikTok (GEZIEN, yt-dlp, openbare lijsten, niet ingelogd, 17 nov ±06:10 UTC):** dezelfde 24 accounts als verhaal 11, 27, 28 en 30. Per filmpje datum, views en het geluid zoals TikTok het noemt (titel, maker, album). Hooguit 600 per account, jonger dan 14 dagen weggelaten: **7.516 filmpjes**. Soorten: **eigen geluid** ("original sound" van het account zelf), **muziek** (een nummer uit de bibliotheek van TikTok, met of zonder album), **het geluid van een ander** ("original sound" van een ander account).
+- **Beluisterd (GEZIEN):** een steekproef van 20 filmpjes met eigen geluid per account (421 gelukt). Alleen het geluid gehaald, volume gemeten met ffmpeg, en met een klein spraakmodel (Whisper tiny, op de eigen computer) bepaald of er gesproken wordt. Stil = het hardste moment blijft onder -40 dB (of gemiddeld onder -60 dB). Spraak = minstens 5 seconden en 10 woorden. Het geluid zelf heb ik na meten niet bewaard.
+- **Eerlijk vergelijken:** elk filmpje gedeeld door de mediaan van de 10 filmpjes ervoor en de 10 erna van hetzelfde account, en per account met en zonder vergeleken (minstens 8 filmpjes elk, bij de steekproef 4), mediaan over de accounts met bandbreedte (bootstrap, 95%). Zelfde werkwijze als verhaal 27 en 30.
+- **Onze eigen filmpjes (GEZIEN, 17 nov ±06:20 UTC):** de ingeplande posts in Metricool gelezen (alleen lezen, niets veranderd) en de vier bestanden met ffprobe bekeken; de profielpagina van TikTok @dortusstudio met curl.
+- **Regels van Metricool (DERDEN):** [How to add music to your TikTok posts from Metricool](https://help.metricool.com/en/article/how-to-add-music-to-your-tiktok-posts-from-metricool-1xf6pgx/) en [Why was my TikTok video posted without sound?](https://help.metricool.com/en/article/why-was-my-tiktok-video-posted-without-sound-10s29rq/), gelezen met curl.
+- Tabellen: `platformen/succes/data/tiktok-geluid-2026-11-17.csv` (cijfers en soort, geen titels) en `tiktok-geluid-steekproef-2026-11-17.csv`. Scripts: `tiktok-geluid-haal.py`, `tiktok-geluid-analyse.py`, `tiktok-geluid-audio-haal.py`, `tiktok-geluid-audio-analyse.py` in dezelfde map.
+
+### 1. Wat de makers doen (GEZIEN)
+- **68% eigen geluid, 28% muziek uit de bibliotheek, 3% het geluid van een ander.** Per account loopt het uiteen: Mixtapeprints, STLFlix, Blender Secrets en Filamentstories bijna alles eigen geluid; Fat13creations 87% muziek, McGybeer 81%, Brockcreative 65%.
+- **Eigen geluid is meestal een stem:** van de 421 beluisterde filmpjes met eigen geluid wordt in 288 gesproken (68%), 126 hebben geluid zonder spraak (muziek of het geluid van het ding zelf, 30%), en **maar 7 zijn stil (1,7%)**. Omgerekend op alles (GOK, steekproef maal aandeel): ±47% van de filmpjes heeft een stem, ±50% alleen muziek of ander geluid, ±1% niets.
+- **Stil plaatsen doet dus bijna niemand.** De 7 stille filmpjes halen mediaan 0,68 keer het gewone van hun account en geen enkele haalde 3 keer; in de 2 accounts met stil en niet-stil was stil beide keren lager (0,87 en 0,42). Dat is te weinig voor een harde uitspraak, maar het wijst één kant op.
+
+### 2. Maakt de soort geluid uit? (GEZIEN)
+| Vergelijking binnen hetzelfde account | Filmpjes | Accounts beter | Verhouding [bandbreedte] | 3 keer of meer |
+|---|---|---|---|---|
+| Muziek tegen eigen geluid | 2.087 / 5.144 | 10 van 17 | 1,09 [0,87 tot 1,21] | 16% tegen 15% |
+| Idem, sinds 2025 | 421 / 2.742 | 6 van 8 | 1,23 [0,87 tot 1,38] | 20% tegen 13% |
+| Het geluid van een ander tegen eigen | 247 / 5.144 | 6 van 9 | 1,47 [0,95 tot 2,74] | 19% tegen 15% |
+| Muziek die ook een ander account in de set gebruikt, tegen muziek die alleen dit account gebruikt | 418 / 1.669 | 6 van 15 | 0,93 [0,84 tot 1,12] | 16% tegen 16% |
+| Rustige muziek (lofi, chill, piano, ambient) tegen andere muziek | 240 / 1.847 | 4 van 7 | 1,03 [0,94 tot 1,15] | 15% tegen 16% |
+| Stem tegen geluid zonder spraak (steekproef) | 288 / 126 | 3 van 9 | 0,84 | 17% tegen 17% |
+
+Wat eruit springt:
+- **Geen soort geluid wint duidelijk.** Alle bandbreedtes lopen over 1 heen. Muziek doet het hooguit iets beter dan eigen geluid, sinds 2025 wat meer (6 van 8 accounts), maar niet zeker.
+- **Een stem is geen voorwaarde.** Filmpjes met eigen gesproken uitleg deden het binnen hetzelfde account niet beter dan die met alleen muziek of geluid (3 van 9 accounts, 0,84). Voor ons zonder stem goed nieuws.
+- **Een populair nummer achterna jagen levert niets aan te tonen op** (0,93). Let op: "populair" meet ik grof, als nummer dat ook een ander account in deze set gebruikt. Het geluid van een ander ("original sound" van iemand anders, vaak een geluid dat rondgaat) scoort 1,47, maar in 9 accounts en met een brede bandbreedte; Arwenprints (7,76) trekt het omhoog.
+- **Rustig of druk maakt niet uit** (1,03). Sinds 2025 een hint voor rustig (1,49), maar in maar 2 accounts.
+
+### 3. Wat er bij ons vandaag gebeurt (GEZIEN en DERDEN)
+- **De vier ingeplande bestanden hebben geen geluidsspoor**, ook niet de versies die in Metricool staan (ffprobe: alleen `video`, 17 nov ±06:20 UTC). Het zijn Click Joints 7 (vandaag 16:00 NL), Ebb tip 1 (wo) en Click Joints 2 (do), elk op YouTube en TikTok.
+- **De TikTok-posts staan op automatisch plaatsen, zonder muziek gekozen** (veld `autoPublish: true`, geen muziekveld; GEZIEN).
+- **@dortusstudio is een persoonlijk account** (`commerceUser: false`, GEZIEN). Metricool: "Can I add music to videos with a Personal account? No. With Personal accounts, adding music is only available for photos and carousels, not for videos." Een nummer kiezen kan alleen met een zakelijk account (top 100) of door handmatig plaatsen via een melding in de TikTok-app (DERDEN).
+- **Gevolg: vandaag om 15:00 UTC gaat Click Joints 7 helemaal stil live, op TikTok én YouTube.** Het plan "kies in TikTok een rustig geluid" kan met deze opzet niet. Stil is precies wat 1,7% van de makers doet.
+- Nog iets wat ik zag en niet kan verklaren: in Metricool heet de gekoppelde TikTok "screencuts.co", niet "dortusstudio" (GEZIEN in de merkinstellingen). Op tiktok.com gaf @screencuts.co met curl niets terug. Misschien is het een oude naam van hetzelfde account (GOK). Dat moet de hoofdchat even nakijken vóór 15:00 UTC, anders gaat het filmpje misschien naar het verkeerde account.
+
+### Drie lessen
+1. **Nooit stil plaatsen.** Bijna niemand doet het (7 van 421 met eigen geluid, ±1% van alles), en de paar keer dat het gebeurde lag het lager. Zet het geluid in het bestand zelf, dan komt het overal mee, ook via een planner.
+2. **Welk geluid maakt weinig uit; dat er geluid is wel.** Muziek, eigen geluid, rustig of druk, een stem of niet: geen verschil dat zeker is. Een populair nummer zoeken is geen werk waard.
+3. **Een planner beslist over je geluid.** Metricool kan op een persoonlijk TikTok-account geen nummer onder een video zetten. Wat in een plan "kies in TikTok" heet, moet je nagaan in de weg die het filmpje echt aflegt.
+
+### Wat ik niet kon meten
+- **Oorzaak:** samenhang binnen accounts, geen proef. Stil is zo zeldzaam dat ik het effect niet goed kan meten.
+- **Stem of zang:** het spraakmodel kan zang in een nummer voor spraak aanzien; "geluid zonder spraak" is dan een ondergrens.
+- **YouTube Shorts:** het geluid van Shorts geeft YouTube niet zonder in te loggen (niet omzeild). Of een stille Short minder haalt, weet ik niet; ik neem aan dat het daar ook geen voordeel is (GOK).
+- **Of TikTok muziek uit een bestand dempt:** eigen gemaakt geluid zonder rechten van anderen loopt dat risico niet; een nummer van internet wel (Metricool noemt dempen bij auteursrecht, DERDEN).
+
+### Voor Dortus vandaag (vóór 15:00 UTC)
+**Voorstel, Chris met de hoofdchat:** zet zelf gemaakt geluid in de mp4's en vervang de bestanden in Metricool. Zelf gemaakt (met code: een zachte klik op het moment dat het gewricht klikt, en een rustige toon of zee-achtig ruisen onder Ebb), zodat er geen rechten van anderen in zitten en TikTok niets dempt. Eerst Click Joints 7 (vandaag), daarna Ebb tip 1 en Click Joints 2. Lukt het niet vóór ±14:30 UTC: laat Click Joints 7 dan stil gaan, liever dan de start verschuiven; het verschil per filmpje is klein naast het filmpje zelf. Wat ik niet aanraad: elke dag handmatig plaatsen via de TikTok-app (kost Thijs elke dag tijd), of een nummer van internet in het bestand (kans op dempen).
+**Keuze voor later (hoofdchat, geen geld):** een zakelijk TikTok-account geeft in Metricool de top 100 nummers en meteen een link in het profiel (verhaal 29). Het nadeel uit verhaal 29 (alleen muziek voor bedrijven) weegt na deze meting nog lichter: welk nummer het is, maakte niets aantoonbaars uit.
+
+### Bronnen
+- TikTok-accounts (openbare profielen): bijvoorbeeld https://www.tiktok.com/@mcgybeer , https://www.tiktok.com/@brockcreative , https://www.tiktok.com/@mixtapeprints , https://www.tiktok.com/@cinderwing3d (alle 24 in de csv).
+- Metricool Help: https://help.metricool.com/en/article/how-to-add-music-to-your-tiktok-posts-from-metricool-1xf6pgx/ en https://help.metricool.com/en/article/why-was-my-tiktok-video-posted-without-sound-10s29rq/
+- Werkwijze binnen hetzelfde account: verhaal 27, 28 en 30 in dit bestand.
 
 ---
 
