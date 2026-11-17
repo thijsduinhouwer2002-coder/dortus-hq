@@ -1,6 +1,6 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-17 om 07:49 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 07:00 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-17 om 07:57 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand |
 |---|---|---|---|---|---|---|---|
@@ -22,7 +22,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | overig |
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-11-17 tot 08:49 (nog niet om, niet in de csv) | 3 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 0 |
+| 2026-11-17 tot 08:56 (nog niet om, niet in de csv) | 3 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 0 |
 | 2026-11-16 | 5 | 5 | 6 | 3 | 2 | 0 | 0 | 0 | 0 |
 
 ## Wat niet te zien is
