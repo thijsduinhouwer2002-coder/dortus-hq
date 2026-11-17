@@ -225,6 +225,18 @@ def zoek_armature(mesh):
     return p if p is not None and p.type == "ARMATURE" else None
 
 
+def _snijpunten(bvh, punt, richting):
+    """Hoe vaak een straal vanuit het punt de huid kruist (oneven: binnen)."""
+    n, start = 0, punt.copy()
+    for _ in range(200):
+        plek, _nrm, _i, _afst = bvh.ray_cast(start, richting)
+        if plek is None:
+            break
+        n += 1
+        start = plek + richting * 1e-4
+    return n
+
+
 def binnen(ob, punt, dg):
     """Ligt het punt (wereld) in de mesh? Dichtstbijzijnde punt op de huid en de richting van de normaal."""
     ev = ob.evaluated_get(dg)
@@ -239,6 +251,27 @@ def binnen(ob, punt, dg):
     if plek is None:
         return False, None
     return (punt - plek).dot(normaal) < 0, afst
+
+
+def binnen_streng(ob, punt, dg):
+    """Strengere versie voor het vangnet (run 17). Het teken van de normaal op het dichtstbijzijnde punt is willekeurig
+    als dat punt op een rand of hoek van een boolean-naad ligt; in de CI (5.2.3) lag zo een punt van het onderbeen
+    "binnen" de romp en weigerde de rechterheup op Rigify vals ("both arms"). Hier moet ook een straaltelling in drie
+    scheve richtingen (oneven is binnen, meerderheid) het zeggen. Niet voor deel_met: op een Make watertight-kopie
+    met overlappende schillen klopt de straaltelling niet (4.2.23, man_backpack: linkerknie viel weg)."""
+    ok, _afst = binnen(ob, punt, dg)
+    if not ok:
+        return False
+    ev = ob.evaluated_get(dg)
+    me = ev.to_mesh()
+    try:
+        mw = ob.matrix_world
+        bvh = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(p.vertices) for p in me.polygons])
+    finally:
+        ev.to_mesh_clear()
+    richtingen = (Vector((0.5774, 0.5774, 0.5774)), Vector((-0.7071, 0.1, -0.7)).normalized(),
+                  Vector((0.13, -0.98, 0.17)).normalized())
+    return sum(_snijpunten(bvh, punt, r) % 2 for r in richtingen) >= 2
 
 
 def bvh_van(ob, dg):
@@ -360,15 +393,19 @@ def kogel_fout(context, armature, naam, nieuw):
     if eigen is not None:
         mw = armature.matrix_world
         p = mw @ (eigen.head + 0.75 * (eigen.tail - eigen.head))
-        b = next((d for d in delen if binnen(d, p, dg)[0]), None)
+        b = next((d for d in delen if binnen_streng(d, p, dg)), None)
     if b is None:
         return None
+    # Alleen botten van hetzelfde soort lid tellen (een heup kan geen arm meenemen; run 17 gaf vals "both arms").
+    benen = ("HIP", "KNEE", "ANKLE")
+    eigen_soort = (herken(eigen.name) or ("",))[0]
     for pb in armature.pose.bones:
         h = herken(pb.name)
         if h is None or not h[1].startswith(andere_kant + " "):
             continue
-        ok, _a = binnen(b, armature.matrix_world @ pb.head, dg)
-        if ok:
+        if (h[0] in benen) != (eigen_soort in benen):
+            continue
+        if binnen_streng(b, armature.matrix_world @ pb.head, dg):
             limb = "legs" if h[0] in ("HIP", "KNEE", "ANKLE") else "arms"
             return f"the cut would take both {limb} (they touch here), place it by hand"
     return None
@@ -472,7 +509,13 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     draai_terug(context, doel, voor)
                     ok, melding, geblokkeerd = False, None, True
                     continue
-                fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
+                if ok and soort == "HINGE" and any(stukken(d) > 1 for d in nieuw or []
+                                                   if d.get("cj_deel") in ("A", "B") and d.type == "MESH"):
+                    # Run 17 (CI 4.2.23, knight_yellow): ook een scharnier kan losse stukken achterlaten; dan
+                    # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
+                    fout = "the cut left a loose piece here, place it by hand"
+                else:
+                    fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
                 if fout:
                     draai_terug(context, doel, voor)
                     ok, melding, vangnet = False, fout, fout
