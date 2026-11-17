@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 15:10 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 15:30 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -20,6 +20,7 @@
 | **Rollwright** | Obsidian | live, 44 downloads, 0 verkopen | | geparkeerd, alleen bugs | Olaf |
 | **Klopt** | TikTok Shop | kan niet live (KvK moet 1 jaar oud zijn) | | geparkeerd | niemand |
 | **Chrome-extensie** | Chrome Web Store | niet gebouwd (besluit 17 nov 10:50) | | geparkeerd | niemand |
+| **Nieuwe ideeën** | ideeënploeg | draait sinds 17 nov 15:30, elk idee eerst door de ideeëntest (9 vragen) | | hoofdchat leest elke avond `platformen/ideeen/overlevers.md` | Noor, Lars, Joris, Patrick |
 | **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live (youtube.com/shorts/sgcC965GVps) | | elke dag een filmpje | Chris |
 
 ## 2. Agents (gelijk aan de geplande taken, nagekeken 17 nov 15:00)
@@ -35,12 +36,15 @@
 | Ruben | aan | elk uur, :03 | Click Joints Pro 1.1 |
 | Chris | aan | elke 3 uur, :41 (9 tot 21) | verspreiden: JetBrains-forum, Hat Tower, Superhive, filmpjes |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
-| Noor | uit | | radar nieuwe platformen; terug als er weer ruimte is |
-| Joris, Lars, Fenna, Vera | uit | | onderzoek, genoeg voor nu |
+| Noor | aan | elk uur, :29 (7 tot 22) | ideeënploeg, zoeker: wat net opengaat |
+| Lars | aan | elk uur, :47 (7 tot 22) | ideeënploeg, zoeker: gaten in grote producten |
+| Joris | aan | elk uur, :57 (7 tot 22) | ideeënploeg, zoeker: betaald maar gehaat |
+| Patrick | aan | elk uur, :15 (8 tot 23) | ideeënploeg, afschieter met `organisatie/ideeentest.md` |
+| Fenna, Vera | uit | | |
 | Stijn, Abel, Mila | uit | | |
 | Sem | uit | | terug ±1 dec voor de Hats-marketing (paginadag ±8 dec) |
 
-Verbruik: dit is ongeveer tweederde van de ochtend van 17 nov. Te hard: eerst Sanne en Iris lager.
+Verbruik: 12 agents aan, ongeveer gelijk aan de ochtend van 17 nov. Te hard: eerst Sanne en Iris lager, daarna de zoekers naar elke 2 uur.
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 
