@@ -60,9 +60,22 @@ module Teken {
             dc.fillPolygon([[cx + r, top], [cx - 2 * r, mid + 1], [cx + 1, mid + 1]] as Array<Graphics.Point2D>);
             dc.fillPolygon([[cx - r, top + h], [cx + 2 * r, mid - 1], [cx - 1, mid - 1]] as Array<Graphics.Point2D>);
         } else if (soort == 2) {
-            dc.fillEllipse(cx, top + h * 5 / 8, r + 1, h * 3 / 8);
-            dc.fillCircle(cx - r, top + r / 2 + 1, r / 2 + 1);
-            dc.fillCircle(cx + r, top + r / 2 + 1, r / 2 + 1);
+            // Sportschoen van opzij, punt naar rechts (Mila, ontwerp/garmin/reeks/voet_schoen.py): bovenkant en
+            // zool als twee vlakken met een donkere naad ertussen. Getallen in honderdsten van h, midden cx, cy.
+            dc.fillPolygon(vlak(SCHOEN_BOVEN, cx, cy, h));
+            dc.fillPolygon(vlak(SCHOEN_ZOOL, cx, cy, h));
         }
+    }
+
+    const SCHOEN_BOVEN = [-50, 16, -52, 0, -44, -44, -12, -44, -5, -20, 22, -10, 42, -2, 54, 8, 56, 16];
+    const SCHOEN_ZOOL = [-56, 26, 60, 26, 58, 40, -54, 40];
+
+    // Maakt van een rij x, y in honderdsten van h de punten op het scherm.
+    function vlak(rij as Array<Number>, cx as Number, cy as Number, h as Number) as Array<Graphics.Point2D> {
+        var p = [] as Array<Graphics.Point2D>;
+        for (var i = 0; i + 1 < rij.size(); i += 2) {
+            p.add([cx + Math.round(h * rij[i] / 100.0).toNumber(), cy + Math.round(h * rij[i + 1] / 100.0).toNumber()]);
+        }
+        return p;
     }
 }

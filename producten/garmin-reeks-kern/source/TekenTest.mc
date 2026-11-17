@@ -136,3 +136,12 @@ function testWinkelZonderProef(logger as Test.Logger) as Boolean {
     return Proef.fase(0) == Proef.WAKKER && Proef.fase(7000) == Proef.WAKKER && Proef.fase(600000) == Proef.WAKKER
         && Proef.schuifTel(41, 7) == 41;
 }
+
+// De schoen (stappen): de zool heeft vier punten en schaalt mee met de hoogte van het pictogram.
+(:test)
+function testSchoenZool(logger as Test.Logger) as Boolean {
+    var z = Teken.vlak(Teken.SCHOEN_ZOOL, 100, 50, 12);
+    var b = Teken.vlak(Teken.SCHOEN_BOVEN, 100, 50, 12);
+    logger.debug("zool: " + z + " boven: " + b.size());
+    return z.size() == 4 && b.size() == 9 && z[0][0] == 93 && z[0][1] == 53 && z[1][0] == 107 && z[2][1] == 55;
+}
