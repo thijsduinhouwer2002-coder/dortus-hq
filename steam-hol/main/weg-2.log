@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 1220, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 1220 goud, faam 160
+HOL weg geweest 0 s (klok terug: true): goud voor 1172, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 1172 goud, faam 152
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794877252
-HOL eerste koop mogelijk na 30 s speeltijd (goud 1220)
+HOL zaad 1794878420
+HOL eerste koop mogelijk na 30 s speeltijd (goud 1172)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Fenna climbs into your hole.
-HOL begin: doorlopen (Fenna)
-HOL held binnen: Fenna
-HOL zicht 4.2 1
-HOL einde na 8 s, fps=10, goud=1220, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Odo has a map. It is wrong.
+HOL begin: doorlopen (Odo)
+HOL held binnen: Odo
+HOL zicht 4.1 1
+HOL einde na 8 s, fps=10, goud=1172, terugkomers=0
