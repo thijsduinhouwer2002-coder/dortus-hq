@@ -587,21 +587,64 @@ func _init() -> void:
 	var bk_p: Array = bk.paginas()
 	ok(bk_p.size() == 5 + 5 + 10 + 1 + 1 and String(bk_p[3].titel) == "The Wizard" and bk_p[3].regels[0] == "Weak to: Gloop", "bladzijden in boekvolgorde, magier met zwakte")
 	ok(bk.nieuw_sinds(8).size() == 2 and bk.nieuw_sinds(99).is_empty(), "nieuw_sinds voor while you were away")
-	# demo-einde (Olaf 13 nov, kern/demo_einde.gd): alleen met steamdemo, precies één keer, startregel daarna
+	# demo-einde op inhoud (Olaf 17 nov, kern/demo_einde.gd; Sanne 04:02 features.md): hol 12 én alle 6 winkeldingen,
+	# alleen met steamdemo, precies één keer, blijvend; demo_einde=<s> is alleen nog een testklok
 	var DE = load("res://kern/demo_einde.gd")
-	ok(not DE.voorbij(false, 99999.0) and not DE.voorbij(true, 7199.9) and DE.voorbij(true, 7200.0), "demo voorbij alleen met steamdemo en na 7200 s")
-	ok(DE.regel_bij_einde(true, 59.9, 60.1, 60.0) == DE.REGEL_EINDE and DE.regel_bij_einde(true, 60.1, 60.2, 60.0) == ""
-		and DE.regel_bij_einde(false, 59.9, 60.1, 60.0) == "", "eindregel precies één keer, nooit zonder steamdemo")
-	var keer := 0
-	var st := 0.0
-	for i in 1000:
-		var de_r: String = DE.regel_bij_einde(true, st, st + 0.13, 60.0)
-		st += 0.13
-		if de_r != "":
-			keer += 1
-	ok(keer == 1, "eindregel één keer in 130 s met kleine stapjes: %d" % keer)
-	ok(DE.regel_bij_start(true, 61.0, 60.0) == DE.REGEL_START and DE.regel_bij_start(true, 59.0, 60.0) == ""
-		and DE.regel_bij_start(false, 99999.0) == "", "startregel alleen na het einde, alleen in de demo")
+	var vol3 := {"slijm": 3, "stekelput": 3}
+	ok(DE.inhoud_op(12, vol3) and not DE.inhoud_op(11, vol3) and not DE.inhoud_op(12, {"slijm": 3, "stekelput": 2})
+		and not DE.inhoud_op(12, {"slijm": 3}) and not DE.inhoud_op(12, {}), "inhoud op alleen bij hol 12 EN alle 6 stappen")
+	ok(DE.voorbij(true, 12, vol3) and not DE.voorbij(false, 12, vol3) and not DE.voorbij(true, 11, vol3, 999999.0),
+		"demo voorbij alleen met steamdemo; geen klok zonder testvlag (ook na 277 uur niet)")
+	ok(DE.voorbij(true, 1, {}, 60.0, 60.0) and not DE.voorbij(true, 1, {}, 59.9, 60.0) and not DE.voorbij(false, 1, {}, 99.0, 60.0),
+		"testvlag demo_einde: klok alleen als hij gezet is, alleen in de demo")
+	ok(DE.regel_bij_start(true, true) == DE.REGEL_START and DE.regel_bij_start(true, false) == ""
+		and DE.regel_bij_start(false, true) == "", "startregel alleen na het einde, alleen in de demo")
+	# met een nep-strook: regel één keer, blijvend na terugverkopen, weigeren, startregel
+	var nep_de := GDScript.new()
+	nep_de.source_code = ("extends RefCounted\nvar steamdemo := true\nvar demo_klaar := false\nvar demo_grens := -1.0\n"
+		+ "var speeltijd_s := 0.0\nvar faam := 0\nvar hol\nvar kaart_soort := \"\"\nvar kroniek: Array = []\nvar logs: Array = []\n"
+		+ "var tekst := Node2D.new()\nvar bewaard := 0\nfunc log_regel(r):\n\tlogs.append(r)\nfunc _kroniek(r):\n\tkroniek.append(r)\n"
+		+ "func bewaar():\n\tbewaard += 1\n")
+	nep_de.reload()
+	var nep_hol := GDScript.new()
+	nep_hol.source_code = "extends RefCounted\nvar upgrades\n"
+	nep_hol.reload()
+	var ds = nep_de.new()
+	ds.hol = nep_hol.new()
+	ds.hol.upgrades = load("res://systemen/upgrades.gd").new()
+	ds.faam = 88   # DREMPEL van hol 12
+	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 2}
+	for i in 100:
+		DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds) and ds.kroniek.is_empty() and not DE.weiger(ds, "proef"), "hol 12 maar één winkelding open: geen einde, kopen mag")
+	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 3}
+	ds.faam = 87
+	DE.tik(ds, 0.1)
+	ok(not DE.klaar(ds), "winkel leeg maar hol 11: geen einde")
+	ds.faam = 88
+	for i in 100:
+		DE.tik(ds, 0.13)
+	ok(DE.klaar(ds) and ds.kroniek.count(DE.REGEL_EINDE) == 1 and ds.bewaard == 1, "hol 12 en winkel leeg: regel precies één keer, bewaard")
+	ds.hol.upgrades.verkoop("slijm")
+	for i in 100:
+		DE.tik(ds, 0.1)
+	ok(DE.klaar(ds) and ds.kroniek.count(DE.REGEL_EINDE) == 1 and DE.weiger(ds, "kopen slijm"), "na terugverkopen blijft het einde: geen tweede regel, kopen geweigerd")
+	DE.bij_start(ds)
+	DE.bij_start(ds)
+	ok(ds.kroniek.count(DE.REGEL_START) == 1, "startregel stapelt niet bij twee starts")
+	var ds2 = nep_de.new()
+	ds2.steamdemo = false
+	ds2.hol = ds.hol
+	ds2.faam = 999
+	for i in 100:
+		DE.tik(ds2, 0.1)
+	ok(not DE.klaar(ds2) and ds2.kroniek.is_empty() and ds2.speeltijd_s > 9.9, "zonder steamdemo nooit een einde, speeltijd telt wel")
+	var ds3 = nep_de.new()
+	ds3.hol = nep_hol.new()
+	ds3.demo_grens = 1.0
+	for i in 30:
+		DE.tik(ds3, 0.1)
+	ok(DE.klaar(ds3) and ds3.kroniek.count(DE.REGEL_EINDE) == 1, "testvlag: einde na de testgrens, ook zonder upgrades-object, één keer")
 	ok(DE.REGEL_EINDE.length() <= 42 and DE.REGEL_START.length() <= 42 and DE.KAART.length() <= 42, "demo-regels hooguit 42 tekens")
 	ok(DE.is_demo(PackedStringArray(["steamdemo=1"])) and not DE.is_demo(PackedStringArray(["demo=1", "steamdemo=0"])), "steamdemo=1 herkend, demo=1 is geen Steam-demo")
 	# het vaste deel van het hol (Olaf, hol/hol_vast.gd): alleen opnieuw tekenen als er iets aan verandert

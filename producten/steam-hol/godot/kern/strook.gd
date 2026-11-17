@@ -16,7 +16,7 @@ const BEELDTEMPO := preload("res://kern/beeldtempo.gd")
 const RITME := preload("res://kern/ritme.gd")   # wanneer de volgende held komt; graven in de demo-film
 const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of terugkomer binnen laten
 const KAARTJE := preload("res://kern/kaartje.gd")
-const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
+const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: bij hol 12 en lege winkel stopt alleen groeien
 const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
 const MUISVLAK := preload("res://kern/muisvlak.gd")   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
@@ -67,7 +67,8 @@ var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen
 var meet_beelden := 0
 var zicht_was := false        # Iris keuring 6: log 'HOL zicht' als er een held in beeld komt of de laatste weg is (e2e/ritme_meting.py)
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
-var demo_grens := 7200.0      # demo_einde=<s> voor de toets
+var demo_grens := -1.0        # alleen testvlag demo_einde=<s>; standaard geen klok (kern/demo_einde.gd)
+var demo_klaar := false       # demo eindigde (hol 12 en winkel leeg, of testgrens); blijvend, in de save
 var speeltijd_s := 0.0        # open tijd, in de save (kern/demo_einde.gd)
 var eerste_koop_gemeld := false   # demolijst 3: logregel "HOL eerste koop mogelijk" (kern/kaartje.gd tik)
 
