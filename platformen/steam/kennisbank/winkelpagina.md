@@ -32,3 +32,6 @@ Terug naar [LEESMIJ](LEESMIJ.md). Onze teksten staan in `ontwerp/steam/winkelpag
 
 10. **Na de lancering: een routekaart met vinkjes.** Mini Cozy Room postte er een 6 dagen na de uitgave en vinkte alles af in drie maanden. Sem zet hem bij ons in de lanceerweek, niet bij pagina live (0 van 13 winnaars postte er een vooraf).
     Bron: [verhaal 12](../../succes/verhalen-spellen.md), [routekaart.md](../marketing/routekaart.md). GEZIEN.
+
+11. **Geen aantal uren en geen "endless"; zeg wat erin zit en wat het níet is.** 2 van 244 bureaubladspellen noemen uren, geen van de grote. Mini Painter ("70 hours", eerder volgens twee reviews 200) kreeg "is a lie" en kwam uit zonder einde. Desktop Mark ("Don't expect hours of content") en Progress98 ("NOT a short ... NOT infinitely long") staan op 87% en 96%. Noem alleen getallen die op de lanceerdag af zijn.
+    Bron: [verhaal 22](../../succes/verhalen-spellen.md). GEZIEN.

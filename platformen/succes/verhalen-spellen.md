@@ -1,8 +1,60 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 22, speeltijd op de winkelpagina ("40+ hours"): wat zeggen bureaubladspellen en klopt het met wat spelers echt spelen, 17 nov ±02:20 UTC
+bezig: niets (verhaal 22 af 17 nov ±03:05 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 22. Speeltijd op de winkelpagina: maar 2 van 244 bureaubladspellen noemen een aantal uren, en "endless" hoort bij de slechter beoordeelde kerkerspellen. Spelers rekenen je af op wat er niet is (een einde dat ontbreekt, een belofte van 200 uur), niet op een eerlijk klein getal
+
+**Vraag:** in `platformen/steam/planning-fest-2027.md` staat dat Mila en ik de woorden kiezen voor de speeltijd op de winkelpagina van Hats ("about 40 hours to reach the third layer" of vergelijkbaar, geen "100 hours"). Wat doen bureaubladspellen die het goed doen, en wat gebeurt er als het niet klopt?
+
+**Bronnen:**
+- Eigen meting: winkeltekst (short description en "About this game", `store.steampowered.com/api/appdetails`, 17 nov) van alle 244 uitgebrachte spellen met 30+ reviews uit Vera's kaart (`platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`, zonder de programma's). Daarin gezocht naar uren, "endless", "infinite", "hundreds of" en dergelijke, elke treffer met de hand nagelezen. GEZIEN.
+- Per spel de 20 meest behulpzame Engelse reviews van de communitypagina (`steamcommunity.com/app/<id>/reviews/?browsefilter=toprated`), met "hrs on record": 221 spellen met 5+ reviews, 1.042 negatieve reviews. Bij 8 spellen met een claim tot 80 reviews. (De review-API `appreviews` stuurt ons sinds 16 nov door naar de voorpagina, zie `platformen/verkenner/data/steam-desktop-haal-script.py`.) GEZIEN.
+- Nieuws-API van Mini Painter (`ISteamNews/GetNewsForApp`) en prestatie-percentages (`GetGlobalAchievementPercentagesForApp`). GEZIEN.
+- Data: `platformen/succes/data/speeltijd-winkel-2026-11-17.csv`; scripts `speeltijd-haal.py`, `speeltijd-community-haal.py`, `speeltijd-analyse.py` in dezelfde map.
+
+**Wat de winkelteksten zeggen (244 spellen, GEZIEN):**
+| Soort zin | Aantal | Voorbeelden |
+|---|---|---|
+| een aantal uren inhoud | **2** | Mini Painter "Around 70 hours of meditative gameplay" ($3,99, 197 reviews, 89%); Desktop Driller "300+ hours of content" (gratis, 31 reviews, 61%) |
+| uren zonder getal | 2 | Village Tale "infinitely for tens of hours" (81%); Lowmoor "Hundreds of hours of idle play" (gratis, 82%) |
+| eindeloze voortgang ("endless waves", "no end", "never-ending") | 14 | Desktop Defender 92%, Peckers 97%, maar ook Task Bar Cube 27%, QuestAway 36%, Undealt 42% |
+| eerlijk begrensd | 3 | Desktop Mark: "How many hours of gameplay will I get? Don't expect hours of content." (87%); Progress98: "This is NOT a short incremental! This is NOT an infinitely long incremental!" (96%); Desktopia zegt dat hij geen "thousands of hours of content" heeft zoals Anno (70%) |
+| niets over speeltijd | ±223 | Rusty's Retirement, Bongo Cat, Tiny Pasture, Mini Cozy Room, Deskrawl: geen van de grote noemt uren |
+Wel veel "hundreds of items" (17 keer), maar dat gaat over spullen, niet over tijd. Wat de toppers doen: ze zeggen wat erin zit (zaden, meubels, hoeden), niet hoe lang het duurt.
+
+**Wat spelers ermee doen:**
+| Spel en zin | Wat de reviews zeggen | Bron |
+|---|---|---|
+| **Mini Painter** "Around 70 hours" | 89% en de middelste positieve schrijver heeft 58 uur op de klok, dus het getal klopt ongeveer. Maar twee reviews noemen 200: "200 hours of play is a lie (took me 45, but could be finished faster)" (apr 2026) en "forcing me to restart a 200 hour game at 177 hours" (aug 2025). Of er eerder 200 op de pagina stond kon ik niet zien (het webarchief gaf geen verbinding): GOK, wel twee schrijvers los van elkaar. | GEZIEN (reviews), DERDEN (de 200) |
+| Mini Painter, het einde | Uitgebracht 24 jul 2025 **zonder einde**. Behulpzame negatieve reviews: "A week and a half after launch and there's still no ending ... this is a full release" en "after 177 hours, there is still no ending". Het einde kwam op 5 aug ("The Final Chapter is Here"). Nu haalt **31%** van de spelers met prestaties de prestatie `final`. | GEZIEN |
+| **Incremental Infinity** "infinite progression" | 57%, 37 van de 80 gelezen reviews negatief: "holds up to its name by being an incremental game with infinite progression, but sadly zero depth" (32 behulpzaam), "After 18h, I had 100% achievements ... Very short for a pure idle game". Eindeloos beloven en na 10 uur alles hebben is de slechtste combinatie. | GEZIEN |
+| **Task Bar Cube** "Endless Levels: No level cap, no end" | 27%; de klachten gaan over betalen en lege systemen, niet over lengte: "there is no end, you have to..." staat in een review over betalen om te winnen. | GEZIEN |
+| **Village Tale** "tens of hours" | 81%; "You can easily finish the game ... in 10 hours or so, if you play actively" in een positieve review, en "I feel like I have completed the game in 2-3 days" in een negatieve. Ongeveer wat de pagina zegt. | GEZIEN |
+| **Desktop Mark** "Don't expect hours of content" | 87%, gratis; van de 8 negatieven zegt er geen één dat het te kort is. | GEZIEN |
+| **Progress98** "NOT a short ... NOT infinitely long" | 96%, 28 van 29 positief, uitgebracht 9 nov 2026. Klein en nieuw, dus een eerste teken, geen bewijs. | GEZIEN |
+
+**Breed (221 spellen, 1.042 behulpzame negatieve reviews):**
+- Maar **48 negatieve reviews (5%)** zeggen dat het te kort is of dat de inhoud op is; **94 (9%)** klagen over grind of te traag. GEZIEN, mijn zoekwoorden (lijst in `speeltijd-analyse.py`), dus eerder te laag dan te hoog; "op na een paar dagen" in andere woorden mis ik.
+- **Uren op de klok zeggen weinig bij dit soort spel:** de middelste positieve schrijver heeft 30 uur op de klok, de middelste negatieve 11 (mediaan over de spellen). Een bureaubladspel telt de tijd dat het open staat. "40 hours" is dus minder dan wat een tevreden speler sowieso op zijn klok ziet, en een speler leest het niet als belofte van 40 uur aandacht.
+- **"Endless" bij de gevechts- en kerkerspellen:** de 13 met een eindeloze-voortgangszin staan op een middelste 60% positief, de 52 zonder zo'n zin op 79%. Dat is samenhang, geen oorzaak: wie "endless" roept is vaak het spel met de dunne lus of de winkel erin. Maar de winnaars (Deskrawl, Desktop Heroes, Rusty's) doen het zonder.
+
+### Drie lessen
+1. **De toppers noemen geen uren, ze noemen wat erin zit.** 2 van 244 noemen een getal; Rusty's, Bongo Cat, Tiny Pasture, Mini Cozy Room en Deskrawl geen van allen. Een getal valt dus op, en het wordt nagemeten: Mini Painter kreeg "is a lie" bij een getal dat spelers als te hoog zagen.
+2. **Je wordt afgerekend op wat er niet is, niet op een klein eerlijk getal.** Desktop Mark en Progress98 zeggen hardop wat het spel níet is en staan op 87% en 96%. Mini Painter kwam zonder einde uit en kreeg daarvoor zijn behulpzaamste negatieve reviews ("this is a full release"). Hetzelfde als de Fusion Lab van Monster Farm (verhaal 6).
+3. **"Endless" en "infinite" helpen niet.** Ze staan vooral bij de slechter beoordeelde kerkerspellen, en Incremental Infinity werd op zijn eigen naam afgerekend ("holds up to its name ... but sadly zero depth").
+
+### Voorstel voor Dortus deze week
+**Mila en Thijs: geen aantal uren op de winkelpagina van Hats, en nergens "endless" of "infinite". Wel wat erin zit, met getallen die bij de lancering echt af zijn, plus één eerlijke zin over het soort spel.** Concept, de echte woorden schrijft Thijs (besluit 16 nov 21:05): "50 den levels. 3 layers to dig into. 40 hats to collect." en een regel in de stijl van Progress98, bijvoorbeeld "Not a 10-minute toy, not an endless grind." De getallen pas invullen als de bevriezing van ma 15 feb voorbij is: staat laag 4 dan niet in het spel, dan staat er "3 layers", en de laag in april wordt een eigen bericht ("a new layer"). Olaf: het einde van de hoofdlijn (hol 50, of wat het einde is) moet op 2 maart in het spel zitten, niet in een update erna. Wie: Mila (pagina), Thijs (woorden), Olaf (einde in de lancering). Kosten: niets, één regel in het pagina-plan.
+
+Eerlijk: Mini Painter is één spel, en dat de 200 echt op de pagina stond is een GOK op basis van twee reviews. De vergelijking "endless" tegen geen claim zegt niets over oorzaak. Wat wel vast staat: bijna niemand noemt uren, ook de grootste niet, en de echte klachten gaan over een ontbrekend einde, grind en dunne inhoud.
+
+### Wat ik niet kon zien
+- Of winkelteksten eerder een ander getal hadden (webarchief gaf "connection reset").
+- Alle reviews per spel: de communitypagina geeft per keer 10, dus ik las de 20 meest behulpzame per spel (en tot 80 bij 8 spellen).
 
 ---
 
