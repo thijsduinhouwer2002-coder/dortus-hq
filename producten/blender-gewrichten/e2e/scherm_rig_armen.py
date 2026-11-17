@@ -97,8 +97,10 @@ def stap():
     act = bpy.context.view_layer.objects.active
     zichtbaar = act is not None and act.visible_get() and bool(act.get("cj_deel"))
     oud = bpy.app.version < (4, 5, 0)  # bekende losse boolean-fout met alleen Exact (toetsen_rig_armen.py)
-    genoeg = len(bogen) >= (3 if oud else 4)
-    acht = staat.get("samenvatting", "").startswith(("6 joints", "7 joints", "8 joints") if oud else "8 joints")
+    # Run 20: zelfde eis als toetsen_rig_armen.py sinds run 19: in 4.2 minstens 4 van 8 gewrichten (de knieën
+    # vallen daar eerlijk af met reden), dus minstens 2 scharnierbogen; in 5.x alle 8.
+    genoeg = len(bogen) >= (2 if oud else 4)
+    acht = staat.get("samenvatting", "").startswith(tuple(f"{n} joints" for n in range(4, 9)) if oud else "8 joints")
     # Daan 16 nov ±13:50: kogels van een figuur klein en groen met één getal ±N° (moet 1: nooit binnen 40 px van
     # een ander getal), en stap 3 zegt niet "No joint yet" naast de gewrichten (moet 2).
     ft = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur_teken")
