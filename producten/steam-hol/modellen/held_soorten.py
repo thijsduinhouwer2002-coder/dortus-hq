@@ -66,7 +66,7 @@ def hand_doel(soort, stand):
     """{kant: (x, y, z)}: hand naar een vast punt in plaats van een armhoek. Mila 17 nov: de edelman alleen houdt
     met zijn linkerhand de hoedrand vast (hoed op z 1,6, rand ±0,4 breed), het teken "x 1,2" voor de speler."""
     if soort == "edelman" and stand == "alleen":
-        return {-1: (-0.42, -0.16, 1.66)}   # net op de rand, iets voor: de witte handschoen moet boven de rand uit te zien zijn
+        return {-1: (-0.4, -0.24, 1.67)}   # kan Daan 06:30: hand ligt op de rand (straal ±0,47, rand z 1,62), voor de kroon langs; was (-0.42, -0.16, 1.66) en zweefde ernaast
     return {}
 
 

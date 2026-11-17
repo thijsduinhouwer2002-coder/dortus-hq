@@ -36,7 +36,7 @@ import held_soorten as hs_
 
 HUID = "f2c2a0"
 HUID_D = "d89a7a"
-HUID_EDEL_BLOS = "f6bc94"   # Mila 17 nov: tenen, blozend
+HUID_EDEL_BLOS = "e4aa86"   # Mila 17 nov: tenen, blozend; 06:30 Daan: was f6bc94, los gerenderd 8 punten lichter dan de rest, nu halverwege
 HUID_EDEL = "d9a080"   # Mila 17 nov (Daan 03:50): edelman iets donkerder en matter, anders wordt het gezicht in na_u2 en tenen een bleke vlek naast hoed en jabot
 
 
@@ -212,14 +212,18 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             # Mila 17 nov (edelman alleen): hand naar een vast punt (de hoedrand), arm in twee stukken met de elleboog opzij
             from mathutils import Vector
             sch = Vector((kant * 0.29, 0.0, arm_z)); hnd = Vector(doel[kant])
-            ell = (sch + hnd) / 2 + Vector((kant * 0.24, 0.0, -0.06))
+            # Mila 17 nov (kan Daan 06:30): dikkere arm met een duidelijke knik (elleboog verder opzij en lager),
+            # witte manchet bij de pols zodat de arm niet in de romp verdwijnt, hand plat op de rand in plaats van ernaast
+            ell = (sch + hnd) / 2 + Vector((kant * 0.3, 0.02, -0.14))
             for a_, b_ in ((sch, ell), (ell, hnd)):
                 v = b_ - a_
-                _cil(ouder, tuple((a_ + b_) / 2), 0.055, v.length, kleed, rot=v.to_track_quat("Z", "Y").to_euler())
-            _bol(ouder, tuple(ell), (0.06, 0.06, 0.06), kleed, segs=16)
+                _cil(ouder, tuple((a_ + b_) / 2), 0.068, v.length, kleed, rot=v.to_track_quat("Z", "Y").to_euler())
+            _bol(ouder, tuple(ell), (0.072, 0.072, 0.072), kleed, segs=16)
+            v = hnd - ell; rk = v.normalized()
+            wit_m = g.mat("handschoen_w", "f6efe2", rough=0.7, spec=0.2) if soort == "edelman" else huid
+            _cil(ouder, tuple(hnd - rk * 0.11), 0.082, 0.07, wit_m, rot=v.to_track_quat("Z", "Y").to_euler())   # manchet
             hx, hy_, hz = hnd
-            _bol(ouder, (hx, hy_, hz), (0.085, 0.085, 0.085),
-                 g.mat("handschoen_w", "f6efe2", rough=0.7, spec=0.2) if soort == "edelman" else huid, segs=16)
+            _bol(ouder, (hx, hy_, hz), (0.095, 0.085, 0.07), wit_m, segs=16)   # platte hand die op de rand ligt
             handen[kant] = (hx, hz)
             continue
         a = math.radians(hoek)
