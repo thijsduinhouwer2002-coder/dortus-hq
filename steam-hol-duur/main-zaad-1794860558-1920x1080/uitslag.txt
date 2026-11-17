@@ -1,8 +1,8 @@
-metingen van 10 s: 118
-CPU-s per 10 s: gemiddeld 1.14, mediaan 1.25, laagste 0.031, hoogste 2.531
-geheugen aan het eind: 53 MB
+metingen van 10 s: 358
+CPU-s per 10 s: gemiddeld 1.069, mediaan 1.25, laagste 0, hoogste 2.609
+geheugen aan het eind: 54 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 182 s speeltijd (goud 47)
-kroniekregels: 97, verschillend 95
-vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 155 s speeltijd (goud 47)
+kroniekregels: 285, verschillend 255
+vaakst herhaald: 7x 'Gloop says thanks for the snack. +6'; 3x 'Pim ran. Swore revenge.'; 3x 'Gloop ate Mara. Burp. +6'; 3x 'Mara III fell to the Spike Pit. +6'; 3x 'Mara II wrote a song about Gloop.'
