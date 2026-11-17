@@ -94,3 +94,15 @@ Lezing: tussen editor-runs van bijna dezelfde code zit 14,8 tot 18,8 ms, terwijl
 | 43953076960 | main e6d7b70 (ter vergelijking) | 0,844 | 11,9 | 0,94 / 0,78 |
 | 44005445378 | main c38f267, alleen, direct erna | loopt | | |
 
+
+## Stil spel: wat kost het als er niemand is (Bram, 17 nov ±03:30 UTC, vraag Sanne 03:15)
+Nieuw script `cpu_stil.py <map>`: splitst de CPU per 10 s in drie soorten: **stil** (geen held en het vaste beeld tekende niet opnieuw), geen held maar wel een nieuw vast beeld, en held in beeld. Zelfde uitlijning als `cpu_per_beeld.py`.
+
+Op het editor-paar van Olaf (GEZIEN, `hol.log` en `cpu-per-10s.txt` van `schermen`):
+
+| run | stil: cpu / beelden per 10 s / ms per beeld | geen held, vast nieuw | held in beeld |
+|---|---|---|---|
+| tak 959aef4 (44001895099) | 0,95 / 24 / 39,0 (n=31) | 2,21 / 89 / 24,8 (n=17) | 1,27 / 85 / 14,9 (n=70) |
+| main c38f267 (44005445378) | 0,45 / 34 / 13,1 (n=33) | 1,31 / 95 / 13,8 (n=16) | 1,66 / 80 / 20,7 (n=69) |
+
+Lezing (GOK tot de .exe-runs): in de tak kost stil spel twee keer zoveel CPU met minder beelden; met held is het andersom. In de code van de tak tegen main (`git diff`, 10 bestanden) vind ik niets dat elk beeld draait als er niemand is: `plat_wissel` draait alleen als Gloop van stand wisselt, `een_per_held` alleen als er een regel bij komt, het kaartje tekent `vast` alleen bij hover. Tegelijk lagen bij main dezelfde soort runs eerder op 0,94 zonder held. Het kan dus runner zijn. De .exe-runs op hetzelfde zaad beslissen: tak 44008361789, daarna main c38f267 (tak `claude/steam-hol-main-c38f267`, alleen om dat punt vast te houden).
