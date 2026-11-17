@@ -1,8 +1,66 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: verhaal 21, de eerste korting van 20% of meer na de lancering (met of zonder update), 17 nov ±01:10 UTC
+bezig: niets (verhaal 21 af 17 nov ±02:00 UTC; volgende run: vraag van de hoofdchat als die er is; anders: wat een themafest na de lancering deed voor een idle- of bureaubladspel (Idler Fest 2025 van binnen: wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 21. De eerste korting van 20% of meer na de lancering: de korting zelf doet weinig, de etalage van Steam doet het. Vier spellen in een themafest of Daily Deal kregen 3,6 keer zoveel reviews per week; eigen kortingen en seizoensuitverkopen gaven ongeveer 1 keer, en een update erbij gaf geen extra sprong
+
+**Vraag:** in verhaal 20 stelde ik voor om de eerste korting van 20 tot 25% voor Hats te bewaren voor de Summer Sale van 2027, samen met een gratis update. Wat deed zo'n eerste korting echt bij bureaubladspellen, en helpt een update erbij?
+
+### Bronnen en hoe ik keek (17 nov, ±01:15 tot 01:55 UTC)
+- **Welke spellen:** de 139 betaalde bureaubladapps uit Vera's kaart (via mijn tabel van verhaal 20) die uitkwamen tussen 1 jun 2024 en 31 aug 2026 en nu 30 of meer reviews hebben.
+- **Wanneer de eerste korting kwam:** alle aankondigingen van elk spel (nieuws-API van Steam, volledige tekst), doorzocht op het eerste bericht op of na dag 25 na de uitgave dat de basisprijs met 20% of meer verlaagt. Berichten over bundels, DLC, "extra korting voor wie het al heeft" en een lanceerkorting van een ander spel tellen niet. Zes treffers bleken geen korting (een plafond van 65% in een spelregel, "40% volume", een korting op een zusterspel) en heb ik er met de hand uit gehaald. Over: **24 spellen, waarvan 21 met genoeg weken om te meten.**
+- **Wat het deed:** reviews per week (`store.steampowered.com/appreviewhistogram/<appid>`, alle talen). Ik vergelijk de twee weken vanaf het bericht met het gemiddelde van de drie weken ervoor ("sprong"), en de drie weken daarna met diezelfde drie weken ("erna").
+- **Controle:** reviews dalen na een lancering vanzelf. Daarom dezelfde berekening op hetzelfde aantal dagen na de uitgave bij de 53 spellen in de lijst die nooit iets over korting of uitverkoop schreven. De middelste controlesprong is 0,7: zonder korting zakt een spel in die fase dus ±30% in twee weken.
+- **Regels van Valve:** `partner.steamgames.com/doc/marketing/discounts` en `partner.steamgames.com/doc/marketing/upcoming_events` (GEZIEN met curl, 17 nov).
+- Data: `platformen/succes/data/eerste-korting-na-lancering-2026-11-17.csv`.
+- **Wat ik niet kan zien:** kortingen die de maker niet aankondigde. SteamDB (prijsgeschiedenis) heb ik niet gebruikt, en archive.org is vanaf onze omgeving geblokkeerd (verhaal 20). "Eerste aangekondigde korting" is dus niet altijd de eerste korting.
+
+### Wat ik zag (GEZIEN; alleen spellen met 2 of meer reviews per week vooraf)
+Ik heb de 21 kortingen in drie soorten verdeeld, op wat het bericht zelf zegt:
+
+| Soort korting | Spellen | Sprong (middelste) | Erna (middelste) | Controle |
+|---|---|---|---|---|
+| **in de etalage van Steam:** Daily Deal, themafest of showcase | 4 | **3,6x** | **2,8x** | 0,7 |
+| seizoensuitverkoop van Steam (Summer, Winter) of van de uitgever | 6 | 1,0x | 1,0x | 0,9 |
+| eigen korting, zonder evenement van Steam | 5 | 1,0x | 0,5x | 0,7 |
+
+**De vier in de etalage:**
+- **Fish to Dish: Idle Sushi** ($5,99): Daily Deal op 9 jan 2026 met 20%, samen met update 2.04 ("V2.04 Update Log & Daily Deal!"). Van 21 naar 81 reviews per week (3,9x), daarna 41.
+- **Zen Aquarium**: 25% in de Steam Animal Fest, dag 46. Van 2,7 naar 10 per week (3,8x), en dat bleef (9,7 erna).
+- **Chonkers** ($4,99): 20% in de Idler Fest van februari 2025, dag 54 ("If you have missed the chance during the winter sale, you can now get Chonkers at 20% off"). Van 5 naar 30 en 28 per week, erna nog 20. De Winter Sale ervoor zie je in zijn grafiek niet terug.
+- **Bao Bao's Cozy Laundromat**: 20% in de Minimal & Chill Showcase, dag 47 (het spel van verhaal 3). 1,7x.
+
+**Seizoensuitverkoop:** NoSlack Pets 2,0x (Winter Sale plus update), Little Aviary 1,7x (45%, maar daar stond de controle zelf ook op 1,35), Sensei! 1,1x, gogh 0,9x (Summer Sale 20%, grote update kwam twee weken later; erna 1,4x), Bugtopia 0,7x, Maltese's Fluffy Onsen 0,7x (uitgeversuitverkoop plus update; erna 3,0x, maar dat valt samen met iets wat ik niet kon thuisbrengen).
+
+**Eigen korting:** Lakeside Bar 1,5x, Your Mother 1,4x (Moederdag, met update), Desktop Defender 1,0x (Rebirth-update voor iedereen plus 20%), Whimside 1,0x ("the biggest discount our little game has ever had"), Tiny Pasture 0,9x (gratis DLC plus 20%). Erna zakten ze terug naar de helft.
+
+**Eén uitschieter die buiten de tabel valt:** Meow Palace: Forbidden City (dag 59, "Spring Festival Special Offer", 20%, in de Lunar New Year Sale van Steam). Van 0 tot 2 reviews per week naar 102 en 83; van de 267 reviews in zijn weekgrafiek kwamen er 185 (69%) in die twee weken. Een Chinees spel in de Chinese feestweek.
+
+**Update erbij of niet:** met update middelste sprong 1,0x (7 spellen), zonder 1,6x (8 spellen). Dat betekent niet dat een update schaadt: de spellen met een update zijn vaker de grote, die al hoog stonden. Wel: **een update maakt een korting niet groter.** Desktop Defender en Tiny Pasture deden precies wat Valve aanraadt (korting plus inhoud) en zagen niets bovenop het gewone verval.
+
+**De tiny spellen** (onder 2 reviews per week vooraf, 7 stuks) laten sprongen van 0,6 tot 3,0 zien, maar dat is 1 review tegen 3; daar zeg ik niets over.
+
+### Wat Valve zegt (GEZIEN, 17 nov)
+- Daily Deal, Midweek Deal en de andere voorpagina-plekken kiest Valve zelf: "If your title qualifies for an upcoming curated slot, we will contact you with details." Ze kijken vooral naar "the most-played or best-selling games". **Daar kun je je niet voor aanmelden.**
+- Themafests wel: je meldt je aan, "while discount games are prioritized", en het fest staat op de voorpagina van Steam.
+- Themafests voor 2027 die nu bekend zijn (tot eind mei): Desktop Companion (14 tot 18 jan), Shop Keeper, Sheep, Couch Co-Op, Rhythm, Dinos vs. Robots, Racing, Witch (22 tot 26 apr), Fighting, Real-Time Strategy, Mountaineering. **Na onze uitgave in maart staat er nog geen fest dat echt bij Hats past.** Een Idler Fest voor 2027 staat er (nog) niet.
+- Seizoensuitverkopen 2027: Spring 18 tot 25 mrt, Summer 24 jun tot 8 jul, Autumn nog niet bekend.
+
+### Drie lessen
+1. **Korting alleen verkoopt een bureaubladspel niet.** Een eigen korting van 20% of een gewone seizoensuitverkoop gaf ongeveer 1 keer de reviews van de weken ervoor (tegen 0,7 bij spellen zonder korting); na afloop zakte het terug. Dat past bij verhaal 20: korting maakt geen winnaar.
+2. **De plek is de motor, niet het percentage.** Alle vier spellen met een duidelijke sprong stonden met hun korting in iets van Steam zelf met een thema of de voorpagina (Daily Deal, Animal Fest, Idler Fest, showcase). Bij Chonkers en Zen Aquarium bleef het hoger. Hetzelfde patroon als verhaal 14, 15 en 19: de winkel trekt, maar alleen voor wie hij laat zien.
+3. **Een update maakt de korting niet groter.** Zeven kortingen met een update deden het niet beter dan zonder. Een update is voor de spelers die je al hebt (en voor een eigen moment met een bericht), niet een versterker van de korting.
+
+### Voorstel voor Dortus deze week (bijstelling van mijn voorstel uit verhaal 20)
+**Sem en Vera: zet in het lanceerplan dat de eerste korting van 20% of meer naar het eerste themafest gaat waar Hats in past (en niet automatisch naar de Summer Sale), en kijk elke maand op `partner.steamgames.com/doc/marketing/upcoming_events` of er een Idler-, Cozy- of Desktop-fest na maart 2027 bijkomt.** Komt er vóór de Autumn Sale geen passend fest, dan pas de Summer Sale (24 jun tot 8 jul) als terugval. De gratis update met een nieuwe laag hoeft daar niet aan vast: die mag zijn eigen dag en eigen bericht krijgen, want samen gaven ze geen grotere sprong. Wie: Sem (lanceerplan) en Vera (fests volgen, zij houdt de markt bij). Kosten: één regel in het plan en één blik per maand.
+
+Eerlijk: het zijn 15 meetbare kortingen, 4 in de etalage. Dat is genoeg om te zien dat een themafest iets anders doet dan een eigen korting, niet genoeg om "3,6 keer" als belofte te gebruiken. En de vier etalagespellen kozen hun fest zelf omdat ze erin pasten; een fest waar Hats niet in past (Witch Fest omdat er een heks in zit) is niet hetzelfde.
+
+**Correctie op verhaal 20 (17 nov ±01:50 UTC):** daar staat "Engelse reviews" bij week 1 en week 2. De weekgrafiek van Steam (`appreviewhistogram`) geeft voor elke taalinstelling dezelfde getallen (getest bij Meow Palace: 267 met `l=english`, `l=schinese` en `language=all`). Het zijn dus reviews in alle talen. De vergelijkingen in verhaal 20 blijven staan, want alle spellen zijn op dezelfde manier geteld.
 
 ---
 
