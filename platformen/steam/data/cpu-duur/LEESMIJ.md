@@ -133,3 +133,17 @@ Lezing:
 1. **Stil spel: niets aan de hand.** In het .exe-paar is het precies andersom dan in het editor-paar: nu is main zonder held duurder (1,13 tegen 0,73). Wie zonder held duurder is wisselt per run; het is geen eigenschap van de tak. Sannes vraag is daarmee beantwoord: de tak doet niets extra als er niemand is.
 2. **Poort (b) is op deze runners nu niet te halen:** ook main zelf komt als .exe boven 1,0 (1,023; voor middernacht 0,71 tot 0,86).
 3. **Per beeld:** in het .exe-paar is de tak +28% per beeld (18,6 tegen 14,5), in het editor-paar +3%. Gemiddeld over de twee paren +16%, onder de 20%. Eén paar boven 20% en één ver eronder: dezelfde ruis als eerder (14,8 tot 19,0 ms voor bijna dezelfde code). Volgens Sannes regel (a) "net boven 20%: één nieuw paar, het gemiddelde telt" haalt de tak het met deze twee paren.
+
+## Rechtzetting en regel vooraf voor `wissel=regels` (Bram, 17 nov 04:25 UTC)
+**Rechtzetting (Iris keuring 15 en 16 hebben gelijk).** Mijn lezing 1 van 04:00 ("stil spel: wie zonder held duurder is wisselt per run") kwam doordat `cpu_stil.py` per run een andere L koos (tak -1, main -2). Met één L voor beide (nu nagedraaid, GEZIEN): stil tak/main 1,31/0,97 (L -2), 0,47/0,43 (L -1), 1,36/1,18 (L 0); held in beeld 15,1/11,6, 20,1/16,2, 17,6/12,7 ms per beeld. De tak is stil gelijk of duurder en met held duurder. Zonder uitlijning (som CPU / som beelden) 18,6 tegen 14,5 ms, +28%; dat getal hangt niet van L af. Wel blijft: stil tekent de tak minder beelden (29 tegen 38 per 10 s).
+
+**Scripts:** `cpu_per_beeld.py` en `cpu_stil.py` nemen nu `L=<n>` als eerste argument (één vaste L voor alle mappen, bij een paar die van main) en zetten de L met "(vast)" of "(beste correlatie)" in de uitvoer. `cpu_regels.py` gebruikt één L voor alle vier standen van de run.
+
+**Wat de proef is:** tak `claude/steam-hol-wissel-regels` (89bbd7f, vanaf main e6ad9be, toetsen 0 FOUT in run 44015639027). Startargument `wissel=regels`, per minuut een rondgang: minuut%4 = 0 alles aan, 1 kaartje uit (959aef4: een regel per held, namen bijhouden, telling), 2 regels uit (0ce076d plat/op altijd een regel, 4a7af62 naamgenoot elke keer, cfaafe0 geen graafbonus, b4e2c45 oude doelletter), 3 alles uit. De weg-stukken (a1a171e, hol_niveau en voortgang) draaien alleen bij het laden van een save; de duurtest start met `vers=1` en laadt niets (`strook.gd` regel 232), dus die kunnen in geen enkele .exe-run iets kosten.
+
+**Hoe groot is de ruis van deze manier?** `cpu_regels.py` op de twee .exe-runs zonder wissel (dus vier groepen die allemaal hetzelfde zijn): main 44011218826 tot +15% per beeld tussen de groepen, tak 44008361789 tot +16%. Met n ±15 per groep schuift een groep dus 15% zonder dat er iets verandert.
+
+**Regel vooraf (vastgelegd voor de run):** .exe, zaad 1794860558, 1920x1080, **40 minuten** (n ±30 per stand, de helft van de ruis), `extra` = `wissel=regels zaad=1794860558`.
+1. "alles uit" meer dan 16% goedkoper per beeld dan "alles aan": de spelregel-commits kosten echt; dan wijst "kaartje uit" of "regels uit" het blok aan, en dat blok zoek ik uit.
+2. Binnen 16%: de +28% van het .exe-paar zit niet in de spelregels; samen met Sannes grens (do 19 nov 12:00) is het dan ruis.
+3. "alles uit" duurder dan "alles aan": zelfde als 2.

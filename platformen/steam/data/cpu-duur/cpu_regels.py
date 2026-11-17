@@ -6,14 +6,14 @@ Het spel draait per minuut een vaste rondgang van vier standen (minuut % 4):
 Gebruik: python3 cpu_regels.py <map met cpu-per-10s.txt en hol.log> [...]
 
 Elke meting `HOL meting t=` beslaat de 10 s ervoor; alleen metingen midden in een minuut (t%60 van 20 tot 50) tellen.
-Uitlijning (Iris keuring 15): één vaste L voor de hele run, standaard -1; met L=<n> als extra argument een andere.
-De L staat in de uitvoer. Binnen één run is er geen tweede runner, dus wat overblijft is de prijs van het blok.
+Uitlijning (Iris keuring 15 en 16): één L voor de hele run, dus voor alle vier standen dezelfde. Zonder argument de L
+met de hoogste correlatie tussen CPU en beelden, met L=<n> een vaste. De L staat in de uitvoer. Binnen één run is er geen tweede runner, dus wat overblijft is de prijs van het blok.
 """
 import re, sys, statistics as S
 
 STANDEN = {0: 'alles aan', 1: 'kaartje uit', 2: 'regels uit', 3: 'alles uit'}
 
-L = -1
+L = None
 mappen = []
 for a in sys.argv[1:]:
     if a.startswith('L='):
@@ -26,15 +26,23 @@ for d in mappen:
     log = open(d + '/hol.log').read()
     m = [(int(a), int(b), int(c)) for a, b, c in re.findall(r'meting t=(\d+) beelden=(\d+) helden=(\d+)', log)]
     wissels = len(re.findall(r'HOL wissel regels stand', log))
-    c = cpu[max(0, L):]
-    mm = m[max(0, -L):]
+    bl = [x[1] for x in m]
+    def cor(a, b):
+        k = min(len(a), len(b))
+        try:
+            return S.correlation(a[:k], b[:k]) if k > 3 else 0
+        except S.StatisticsError:
+            return 0
+    l = L if L is not None else max(range(-3, 4), key=lambda x: cor(cpu[max(0, x):], bl[max(0, -x):]))
+    c = cpu[max(0, l):]
+    mm = m[max(0, -l):]
     n = min(len(c), len(mm))
     groep = {k: [] for k in STANDEN}
     for (t, b, h), x in zip(mm[:n], c[:n]):
         if not (20 <= t % 60 <= 50):
             continue
         groep[(t // 60) % 4].append((x, b, h))
-    print(f"{d}\n  vaste L {L}, wissels in log {wissels}, metingen {n}")
+    print(f"{d}\n  L {l} ({'vast' if L is not None else 'beste correlatie'}, voor alle standen gelijk), wissels in log {wissels}, metingen {n}")
     basis = None
     for k, rij in groep.items():
         if not rij:
