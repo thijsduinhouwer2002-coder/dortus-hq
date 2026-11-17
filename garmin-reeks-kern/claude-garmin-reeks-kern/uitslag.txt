@@ -61,7 +61,7 @@ LIMIET fr265s {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"5.2.
 LIMIET fr945 {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.3.6"
 LIMIET venusq {"memoryLimit":98304,"type":"watchFace"} "connectIQVersion":"3.3.6"
 LIMIET instinct3amoled45mm {"memoryLimit":131072,"type":"watchFace"} "connectIQVersion":"6.0.2"
-IQ_PROEF ja, horloges in manifest: 63, 2966342 bytes, waarschuwingen: 64
+IQ_PROEF ja, horloges in manifest: 63, 2986666 bytes, waarschuwingen: 64
 WAARSCHUWINGEN per soort:
       4 The launcher icon (40x40) isn't compatible with the specified launcher icon size of the device 'venusq' (36x36). The image will be scaled to the target size.
       4 The launcher icon (40x40) isn't compatible with the specified launcher icon size of the device 'venu2s' (61x61). The image will be scaled to the target size.
@@ -103,175 +103,176 @@ WAARSCHUWINGEN per soort:
       1 The launcher icon (40x40) isn't compatible with the specified launcher icon size of the device 'epix2pro47mm' (60x60). The image will be scaled to the target size.
       1 The launcher icon (40x40) isn't compatible with the specified launcher icon size of the device 'epix2pro42mm' (60x60). The image will be scaled to the target size.
       1 The launcher icon (40x40) isn't compatible with the specified launcher icon size of the device 'd2mach2pro' (65x65). The image will be scaled to the target size.
-BOUW fr255 ja, 181164 bytes
+BOUW fr255 ja, 181596 bytes
 fr255 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 fr255 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 fr255 KERN WEER uren=12 COMPLICATIES=ja
-fr255 KERN GEHEUGEN gebruikt=14992 totaal=126792 vrij=111800
-fr255 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16608 vrij=110088
+fr255 KERN GEHEUGEN gebruikt=15280 totaal=126792 vrij=111512
+fr255 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16896 vrij=109800
 fr255 KERN SCHERM 260x260 inbrand=false pool=ja
 fr255 KERN MATEN n=29 tijdPx=78 bbY=164 veilig=124 bytes=1168
 fr255 KERN VELDEN hart stress stappen: 80 35 0 thema=2
 fr255 KERN TEKEN tik=0 ms=3 plaatje_ms=0 tijd_ms=2
 fr255 KERN VELDEN hart stress stappen: 80 35 0 thema=2
-fr255 KERN TEKEN tik=1 ms=1 plaatje_ms=0 tijd_ms=1
+fr255 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=1
 fr255 KERN TEKEN tik=2 ms=2 plaatje_ms=0 tijd_ms=1
-fr255 KERN TEKEN tik=3 ms=1 plaatje_ms=0 tijd_ms=1
-fr255 KERN SLAAPBEELD tik=10 ms=0 echt=false schuif=0,2
+fr255 KERN TEKEN tik=3 ms=3 plaatje_ms=0 tijd_ms=2
+fr255 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
 fr255 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 fr255 KERN SLAAPBEELD tik=12 ms=0 echt=false schuif=0,0
-fr255 KERN SLAAPBEELD tik=13 ms=0 echt=false schuif=0,0
+fr255 KERN SLAAPBEELD tik=13 ms=1 echt=false schuif=0,0
 fr255 KERN SLAAPBEELD tik=14 ms=1 echt=false schuif=0,0
-fr255 KERN SLAAPBEELD tik=15 ms=0 echt=false schuif=2,0
-BOUW fenix847mm ja, 332380 bytes
+fr255 KERN SLAAPBEELD tik=15 ms=1 echt=false schuif=2,0
+BOUW fenix847mm ja, 332796 bytes
 fenix847mm KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 fenix847mm KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 fenix847mm KERN WEER uren=12 COMPLICATIES=ja
-fenix847mm KERN GEHEUGEN gebruikt=15128 totaal=126792 vrij=111664
-fenix847mm KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16744 vrij=109952
-fenix847mm KERN FONT tijdslaap=360 vrij=108704
+fenix847mm KERN GEHEUGEN gebruikt=15416 totaal=126792 vrij=111376
+fenix847mm KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=17032 vrij=109664
+fenix847mm KERN FONT tijdslaap=360 vrij=108416
 fenix847mm KERN SCHERM 454x454 inbrand=true pool=ja
 fenix847mm KERN MATEN n=29 tijdPx=136 bbY=287 veilig=216 bytes=1592
 fenix847mm KERN VELDEN hart stress stappen: 80 35 0 thema=1
-fenix847mm KERN TEKEN tik=0 ms=12 plaatje_ms=4 tijd_ms=6
+fenix847mm KERN TEKEN tik=0 ms=11 plaatje_ms=2 tijd_ms=7
 fenix847mm KERN VELDEN hart stress stappen: 80 35 0 thema=1
-fenix847mm KERN TEKEN tik=1 ms=12 plaatje_ms=5 tijd_ms=5
-fenix847mm KERN TEKEN tik=2 ms=11 plaatje_ms=5 tijd_ms=5
-fenix847mm KERN TEKEN tik=3 ms=11 plaatje_ms=4 tijd_ms=6
-fenix847mm KERN SLAAPBEELD tik=10 ms=8 echt=false schuif=0,2
-fenix847mm KERN SLAAPBEELD tik=11 ms=8 echt=false schuif=0,2
-fenix847mm KERN SLAAPBEELD tik=12 ms=8 echt=false schuif=0,0
-fenix847mm KERN SLAAPBEELD tik=13 ms=9 echt=false schuif=0,0
-fenix847mm KERN SLAAPBEELD tik=14 ms=8 echt=false schuif=0,0
-fenix847mm KERN SLAAPBEELD tik=15 ms=7 echt=false schuif=2,0
-BOUW venu3s ja, 191916 bytes
+fenix847mm KERN TEKEN tik=1 ms=10 plaatje_ms=3 tijd_ms=6
+fenix847mm KERN TEKEN tik=2 ms=11 plaatje_ms=4 tijd_ms=6
+fenix847mm KERN TEKEN tik=3 ms=11 plaatje_ms=4 tijd_ms=5
+fenix847mm KERN SLAAPBEELD tik=10 ms=7 echt=false schuif=0,2
+fenix847mm KERN SLAAPBEELD tik=11 ms=7 echt=false schuif=0,2
+fenix847mm KERN SLAAPBEELD tik=12 ms=7 echt=false schuif=0,0
+fenix847mm KERN SLAAPBEELD tik=13 ms=7 echt=false schuif=0,0
+fenix847mm KERN SLAAPBEELD tik=14 ms=6 echt=false schuif=0,0
+fenix847mm KERN SLAAPBEELD tik=15 ms=6 echt=false schuif=2,0
+BOUW venu3s ja, 192332 bytes
 venu3s KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 venu3s KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 venu3s KERN WEER uren=12 COMPLICATIES=ja
-venu3s KERN GEHEUGEN gebruikt=15064 totaal=126792 vrij=111728
-venu3s KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16680 vrij=110016
-venu3s KERN FONT tijdslaap=360 vrij=108768
+venu3s KERN GEHEUGEN gebruikt=15352 totaal=126792 vrij=111440
+venu3s KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16968 vrij=109728
+venu3s KERN FONT tijdslaap=360 vrij=108480
 venu3s KERN SCHERM 390x390 inbrand=true pool=ja
 venu3s KERN MATEN n=29 tijdPx=117 bbY=246 veilig=185 bytes=1592
 venu3s KERN VELDEN hart stress stappen: 80 35 0 thema=3
-venu3s KERN TEKEN tik=0 ms=8 plaatje_ms=2 tijd_ms=4
+venu3s KERN TEKEN tik=0 ms=10 plaatje_ms=2 tijd_ms=6
 venu3s KERN VELDEN hart stress stappen: 80 35 0 thema=3
-venu3s KERN TEKEN tik=1 ms=8 plaatje_ms=2 tijd_ms=5
-venu3s KERN TEKEN tik=2 ms=8 plaatje_ms=3 tijd_ms=4
-venu3s KERN TEKEN tik=3 ms=8 plaatje_ms=2 tijd_ms=5
+venu3s KERN TEKEN tik=1 ms=9 plaatje_ms=3 tijd_ms=5
+venu3s KERN TEKEN tik=2 ms=8 plaatje_ms=2 tijd_ms=5
+venu3s KERN TEKEN tik=3 ms=9 plaatje_ms=3 tijd_ms=5
 venu3s KERN SLAAPBEELD tik=10 ms=5 echt=false schuif=0,2
-venu3s KERN SLAAPBEELD tik=11 ms=4 echt=false schuif=0,2
-venu3s KERN SLAAPBEELD tik=12 ms=4 echt=false schuif=0,0
-venu3s KERN SLAAPBEELD tik=13 ms=4 echt=false schuif=0,0
-venu3s KERN SLAAPBEELD tik=14 ms=4 echt=false schuif=0,0
-venu3s KERN SLAAPBEELD tik=15 ms=4 echt=false schuif=2,0
-BOUW vivoactive5 ja, 193084 bytes
+venu3s KERN SLAAPBEELD tik=11 ms=5 echt=false schuif=0,2
+venu3s KERN SLAAPBEELD tik=12 ms=5 echt=false schuif=0,0
+venu3s KERN SLAAPBEELD tik=13 ms=6 echt=false schuif=0,0
+venu3s KERN SLAAPBEELD tik=14 ms=5 echt=false schuif=0,0
+venu3s KERN SLAAPBEELD tik=15 ms=5 echt=false schuif=2,0
+venu3s KERN SLAAPBEELD tik=16 ms=6 echt=false schuif=2,0
+BOUW vivoactive5 ja, 193516 bytes
 vivoactive5 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 vivoactive5 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 vivoactive5 KERN WEER uren=12 COMPLICATIES=ja
-vivoactive5 KERN GEHEUGEN gebruikt=15064 totaal=126792 vrij=111728
-vivoactive5 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16680 vrij=110016
-vivoactive5 KERN FONT tijdslaap=360 vrij=108768
+vivoactive5 KERN GEHEUGEN gebruikt=15352 totaal=126792 vrij=111440
+vivoactive5 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16968 vrij=109728
+vivoactive5 KERN FONT tijdslaap=360 vrij=108480
 vivoactive5 KERN SCHERM 390x390 inbrand=true pool=ja
 vivoactive5 KERN MATEN n=29 tijdPx=117 bbY=246 veilig=185 bytes=1592
 vivoactive5 KERN VELDEN hart stress stappen: 80 35 0 thema=3
-vivoactive5 KERN TEKEN tik=0 ms=2 plaatje_ms=0 tijd_ms=1
+vivoactive5 KERN TEKEN tik=0 ms=3 plaatje_ms=0 tijd_ms=3
 vivoactive5 KERN VELDEN hart stress stappen: 80 35 0 thema=3
-vivoactive5 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=2
+vivoactive5 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=1
 vivoactive5 KERN TEKEN tik=2 ms=2 plaatje_ms=0 tijd_ms=1
 vivoactive5 KERN TEKEN tik=3 ms=2 plaatje_ms=0 tijd_ms=1
 vivoactive5 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
 vivoactive5 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 vivoactive5 KERN SLAAPBEELD tik=12 ms=0 echt=false schuif=0,0
 vivoactive5 KERN SLAAPBEELD tik=13 ms=1 echt=false schuif=0,0
-vivoactive5 KERN SLAAPBEELD tik=14 ms=1 echt=false schuif=0,0
-vivoactive5 KERN SLAAPBEELD tik=15 ms=1 echt=false schuif=2,0
-BOUW fr55 ja, 131884 bytes
+vivoactive5 KERN SLAAPBEELD tik=14 ms=0 echt=false schuif=0,0
+vivoactive5 KERN SLAAPBEELD tik=15 ms=0 echt=false schuif=2,0
+BOUW fr55 ja, 132556 bytes
 fr55 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 fr55 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 fr55 KERN WEER uren=12 COMPLICATIES=nee
-fr55 KERN GEHEUGEN gebruikt=17760 totaal=94024 vrij=76264
-fr55 KERN FONT tijd=2016 bb=512 veld=344 datum=664 samen=3536 gebruikt=21296 vrij=72632
+fr55 KERN GEHEUGEN gebruikt=18272 totaal=94024 vrij=75752
+fr55 KERN FONT tijd=2016 bb=512 veld=344 datum=664 samen=3536 gebruikt=21808 vrij=72120
 fr55 KERN SCHERM 208x208 inbrand=false pool=nee
 fr55 KERN MATEN n=29 tijdPx=62 bbY=131 veilig=99 bytes=1144
 fr55 KERN VELDEN hart stress stappen: 80 35 0 thema=0
 fr55 KERN TEKEN tik=0 ms=2 plaatje_ms=0 tijd_ms=1
 fr55 KERN VELDEN hart stress stappen: 80 35 0 thema=0
-fr55 KERN TEKEN tik=1 ms=1 plaatje_ms=0 tijd_ms=1
-fr55 KERN TEKEN tik=2 ms=1 plaatje_ms=0 tijd_ms=1
-fr55 KERN TEKEN tik=3 ms=1 plaatje_ms=0 tijd_ms=0
+fr55 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=1
+fr55 KERN TEKEN tik=2 ms=2 plaatje_ms=0 tijd_ms=1
+fr55 KERN TEKEN tik=3 ms=2 plaatje_ms=0 tijd_ms=1
 fr55 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
-fr55 KERN SLAAPBEELD tik=11 ms=0 echt=false schuif=0,2
+fr55 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 fr55 KERN SLAAPBEELD tik=12 ms=0 echt=false schuif=0,0
-fr55 KERN SLAAPBEELD tik=13 ms=0 echt=false schuif=0,0
+fr55 KERN SLAAPBEELD tik=13 ms=1 echt=false schuif=0,0
 fr55 KERN SLAAPBEELD tik=14 ms=1 echt=false schuif=0,0
 fr55 KERN SLAAPBEELD tik=15 ms=0 echt=false schuif=2,0
-BOUW fr245 ja, 182892 bytes
+BOUW fr245 ja, 183564 bytes
 fr245 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 fr245 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 fr245 KERN WEER uren=12 COMPLICATIES=nee
-fr245 KERN GEHEUGEN gebruikt=17752 totaal=94024 vrij=76272
-fr245 KERN FONT tijd=3560 bb=904 veld=488 datum=944 samen=5896 gebruikt=23648 vrij=70280
+fr245 KERN GEHEUGEN gebruikt=18264 totaal=94024 vrij=75760
+fr245 KERN FONT tijd=3560 bb=904 veld=488 datum=944 samen=5896 gebruikt=24160 vrij=69768
 fr245 KERN SCHERM 240x240 inbrand=false pool=nee
 fr245 KERN MATEN n=29 tijdPx=72 bbY=152 veilig=114 bytes=1144
 fr245 KERN VELDEN hart stress stappen: 80 35 0 thema=0
-fr245 KERN TEKEN tik=0 ms=2 plaatje_ms=0 tijd_ms=1
+fr245 KERN TEKEN tik=0 ms=2 plaatje_ms=0 tijd_ms=2
 fr245 KERN VELDEN hart stress stappen: 80 35 0 thema=0
 fr245 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=1
-fr245 KERN TEKEN tik=2 ms=1 plaatje_ms=0 tijd_ms=0
+fr245 KERN TEKEN tik=2 ms=2 plaatje_ms=0 tijd_ms=1
 fr245 KERN TEKEN tik=3 ms=2 plaatje_ms=0 tijd_ms=1
-fr245 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
+fr245 KERN SLAAPBEELD tik=10 ms=0 echt=false schuif=0,2
 fr245 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 fr245 KERN SLAAPBEELD tik=12 ms=1 echt=false schuif=0,0
-fr245 KERN SLAAPBEELD tik=13 ms=1 echt=false schuif=0,0
+fr245 KERN SLAAPBEELD tik=13 ms=0 echt=false schuif=0,0
 fr245 KERN SLAAPBEELD tik=14 ms=0 echt=false schuif=0,0
-fr245 KERN SLAAPBEELD tik=15 ms=1 echt=false schuif=2,0
-BOUW instinct2 ja, 129708 bytes
+fr245 KERN SLAAPBEELD tik=15 ms=0 echt=false schuif=2,0
+BOUW instinct2 ja, 130380 bytes
 instinct2 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 instinct2 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 instinct2 KERN WEER uren=12 COMPLICATIES=nee
-instinct2 KERN GEHEUGEN gebruikt=17776 totaal=61256 vrij=43480
-instinct2 KERN FONT tijd=2920 bb=568 veld=392 datum=664 samen=4544 gebruikt=22320 vrij=38840
+instinct2 KERN GEHEUGEN gebruikt=18288 totaal=61256 vrij=42968
+instinct2 KERN FONT tijd=2920 bb=568 veld=392 datum=664 samen=4544 gebruikt=22832 vrij=38328
 instinct2 KERN SCHERM 176x176 inbrand=false pool=nee
 instinct2 KERN MATEN n=29 tijdPx=78 bbY=164 veilig=124 bytes=1144
 instinct2 KERN TEKEN tik=0 ms=0 plaatje_ms=0 tijd_ms=0
-instinct2 KERN TEKEN tik=1 ms=1 plaatje_ms=0 tijd_ms=0
-instinct2 KERN TEKEN tik=2 ms=0 plaatje_ms=0 tijd_ms=0
+instinct2 KERN TEKEN tik=1 ms=0 plaatje_ms=0 tijd_ms=0
+instinct2 KERN TEKEN tik=2 ms=1 plaatje_ms=0 tijd_ms=1
 instinct2 KERN TEKEN tik=3 ms=0 plaatje_ms=0 tijd_ms=0
-instinct2 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
-instinct2 KERN SLAAPBEELD tik=11 ms=0 echt=false schuif=0,2
+instinct2 KERN SLAAPBEELD tik=10 ms=0 echt=false schuif=0,2
+instinct2 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 instinct2 KERN SLAAPBEELD tik=12 ms=1 echt=false schuif=0,0
-instinct2 KERN SLAAPBEELD tik=13 ms=1 echt=false schuif=0,0
-instinct2 KERN SLAAPBEELD tik=14 ms=1 echt=false schuif=0,0
-instinct2 KERN SLAAPBEELD tik=15 ms=0 echt=false schuif=2,0
-BOUW venusq2 ja, 183788 bytes
+instinct2 KERN SLAAPBEELD tik=13 ms=0 echt=false schuif=0,0
+instinct2 KERN SLAAPBEELD tik=14 ms=0 echt=false schuif=0,0
+instinct2 KERN SLAAPBEELD tik=15 ms=1 echt=false schuif=2,0
+BOUW venusq2 ja, 184220 bytes
 venusq2 KERN BB has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=93
 venusq2 KERN STRESS has ja, waarden=80 leeg=0 span_s=-4740 min=5 max=64
 venusq2 KERN WEER uren=12 COMPLICATIES=ja
-venusq2 KERN GEHEUGEN gebruikt=15016 totaal=126792 vrij=111776
-venusq2 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16632 vrij=110064
-venusq2 KERN FONT tijdslaap=360 vrij=108944
+venusq2 KERN GEHEUGEN gebruikt=15304 totaal=126792 vrij=111488
+venusq2 KERN FONT tijd=656 bb=320 veld=320 datum=320 samen=1616 gebruikt=16920 vrij=109776
+venusq2 KERN FONT tijdslaap=360 vrij=108656
 venusq2 KERN SCHERM 320x360 inbrand=true pool=ja
 venusq2 KERN MATEN n=29 tijdPx=78 bbY=164 veilig=124 bytes=1464
 venusq2 KERN VELDEN hart stress stappen: 80 35 0 thema=0
 venusq2 KERN TEKEN tik=0 ms=3 plaatje_ms=0 tijd_ms=2
 venusq2 KERN VELDEN hart stress stappen: 80 35 0 thema=0
-venusq2 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=2
-venusq2 KERN TEKEN tik=2 ms=1 plaatje_ms=0 tijd_ms=1
-venusq2 KERN TEKEN tik=3 ms=2 plaatje_ms=0 tijd_ms=1
-venusq2 KERN SLAAPBEELD tik=10 ms=1 echt=false schuif=0,2
-venusq2 KERN SLAAPBEELD tik=11 ms=0 echt=false schuif=0,2
+venusq2 KERN TEKEN tik=1 ms=2 plaatje_ms=0 tijd_ms=1
+venusq2 KERN TEKEN tik=2 ms=2 plaatje_ms=0 tijd_ms=1
+venusq2 KERN TEKEN tik=3 ms=3 plaatje_ms=0 tijd_ms=2
+venusq2 KERN SLAAPBEELD tik=10 ms=0 echt=false schuif=0,2
+venusq2 KERN SLAAPBEELD tik=11 ms=1 echt=false schuif=0,2
 venusq2 KERN SLAAPBEELD tik=12 ms=1 echt=false schuif=0,0
 venusq2 KERN SLAAPBEELD tik=13 ms=0 echt=false schuif=0,0
-venusq2 KERN SLAAPBEELD tik=14 ms=1 echt=false schuif=0,0
+venusq2 KERN SLAAPBEELD tik=14 ms=0 echt=false schuif=0,0
 venusq2 KERN SLAAPBEELD tik=15 ms=1 echt=false schuif=2,0
 MATEN_PER_HORLOGE goed
-SLAAP fr255 scherm_px=53574 aan=12.0% en 12.0% schuif=2,-2 oordeel=telt niet (geen inbrandscherm)
-SLAAP fenix847mm scherm_px=161892 aan=3.8% en 3.8% schuif=2,-1 oordeel=goed
+SLAAP fr255 scherm_px=53574 aan=10.9% en 10.9% schuif=0,-2 oordeel=telt niet (geen inbrandscherm)
+SLAAP fenix847mm scherm_px=161892 aan=3.9% en 3.9% schuif=2,-2 oordeel=goed
 SLAAP venu3s scherm_px=118747 aan=4.2% en 4.2% schuif=2,-2 oordeel=goed
-SLAAP vivoactive5 scherm_px=118894 aan=4.1% en 4.1% schuif=2,-2 oordeel=goed
-SLAAP fr55 NIET GEMETEN scherm_px=30118 (scherm met weinig kleuren, grijs wordt wit of zwart) oordeel=telt niet (geen inbrandscherm)
-SLAAP fr245 scherm_px=44266 aan=12.5% en 12.5% schuif=2,-2 oordeel=telt niet (geen inbrandscherm)
-SLAAP instinct2 NIET GEMETEN scherm_px=21236 (scherm met weinig kleuren, grijs wordt wit of zwart) oordeel=telt niet (geen inbrandscherm)
-SLAAP venusq2 scherm_px=115076 aan=4.4% en 3.9% schuif=2,-2 oordeel=goed
+SLAAP vivoactive5 scherm_px=118894 aan=4.0% en 4.0% schuif=2,-2 oordeel=goed
+SLAAP fr55 NIET GEMETEN scherm_px=30080 (scherm met weinig kleuren, grijs wordt wit of zwart) oordeel=telt niet (geen inbrandscherm)
+SLAAP fr245 scherm_px=44266 aan=10.8% en 10.8% schuif=2,-2 oordeel=telt niet (geen inbrandscherm)
+SLAAP instinct2 NIET GEMETEN scherm_px=22014 (scherm met weinig kleuren, grijs wordt wit of zwart) oordeel=telt niet (geen inbrandscherm)
+SLAAP venusq2 scherm_px=115076 aan=1.8% en 1.8% schuif=2,-2 oordeel=goed
 SLAAP_TELLING goed
