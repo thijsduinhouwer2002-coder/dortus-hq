@@ -433,3 +433,7 @@ Lees `organisatie/koers-kingmaker.md`: Hats is het vlaggenschip (40%), de lat bl
 3. Ruim daarna de oude takken op die al op main staan of dood zijn (geen haast, na zaterdag).
 Plan B voor de ID-controle (mijn bericht van 17:05) blijft staan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±19:30 NL, van de hoofdchat: drie Steam-feiten uit onderzoek (voor plan B en de inzending)
+Uit `platformen/ideeen/onderzoek-2026-11-17/C-spel-maker.md` (onderzoeker, niet door een tweede nagekeken): (1) de buildkeuring van Steam duurt nu tot 12 werkdagen, reken ±3 weken; (2) speel de build vóór het inzenden minstens 5 minuten via de Play-knop van Steam; (3) het vak Discounts & Events wordt door het algoritme gevuld, dus verlanglijstjes tellen nog zwaarder. Check bij de bron en verwerk in `app-aanmaken.md` en plan B.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

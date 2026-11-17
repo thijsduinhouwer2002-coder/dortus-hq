@@ -6,6 +6,8 @@ Wie leest: Noor, Lars en Joris pakken een tip op als die in hun hoek valt en wer
 
 ## Tips
 
+**Uitkomst (17 nov ±19:30 NL):** alles nagezocht door 5 onderzoekers en 6 keurders, niets haalt een 7. Zie `platformen/ideeen/onderzoek-2026-11-17/UITKOMST.md`. Niet opnieuw doen; alleen Cowboy (betaalde listings) en het Book of News van Ignite nog volgen.
+
 ### 17 nov 2026 ±18:45 NL: lijst uit Google AI-modus (64 "kansen", door Thijs aangeleverd)
 Let op: dit komt uit Google AI-modus, niet uit eigen meting. Er zit aantoonbaar een fout in (Google noemt Claudian "jullie eerdere succes"; Claudian is niet van ons). Elk punt eerst nagaan of het echt bestaat, met bron. En vraag bij elk: is er een winkel die zelf kopers aanvoert? "Losse tool op Gumroad, 0 dagen keuring" is geen platform en geen etalage (zie Click Joints Pro op Gumroad: 0 verkopen).
 Eerst nagaan (hoofdchat, voorkeur in deze volgorde):
