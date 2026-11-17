@@ -418,6 +418,26 @@ func start_nacht(wacht_s := NACHT_WACHT_S) -> void:
 	nacht_van = t + wacht_s
 	nacht_gelegd = 0
 	set_process(true)
+	_nacht_beelden()
+
+# Keurstand nacht_beeld=<map> (Iris keuring 19 punt 1): beeld van het venster op 1 s en 6 s na het openen en een reeks van
+# 8 beelden per seconde tot 5,5 s, zodat de Windows-stap boog, berg en nieuwste bovenop kan laten zien. Alleen met het argument.
+func _nacht_beelden() -> void:
+	var map := ""
+	for a in OS.get_cmdline_user_args():
+		if a.begins_with("nacht_beeld="):
+			map = a.substr(12)
+	if map == "" or not is_inside_tree():
+		return
+	DirAccess.make_dir_recursive_absolute(map)
+	for k in 45:
+		get_tree().create_timer(k * 0.125).timeout.connect(_nacht_foto.bind("%s/reeks-%03d.png" % [map, k]))
+	get_tree().create_timer(1.0).timeout.connect(_nacht_foto.bind(map + "/op-1s.png"))
+	get_tree().create_timer(6.0).timeout.connect(_nacht_foto.bind(map + "/op-6s.png"))
+
+func _nacht_foto(pad: String) -> void:
+	if is_inside_tree():
+		get_viewport().get_texture().get_image().save_png(pad)
 
 # Hoeveel nachthoeden er op tijd dt na de eerste val moeten liggen (los, zodat de toets het tempo kan nakijken).
 static func nacht_aantal(dt: float, totaal: int) -> int:

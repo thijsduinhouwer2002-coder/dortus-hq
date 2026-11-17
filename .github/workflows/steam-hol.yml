@@ -323,6 +323,19 @@ jobs:
           else { Write-Output "bewaarde tijd bleef staan: $($tv.Groups[1].Value) -> $($tn.Groups[1].Value)" }
           if ($b -notmatch "HOL weg geweest 0 s \(klok terug: true\): goud voor \d+, helden 0, erbij 0") { Write-Output "FOUT: klok terug gaf toch iets of geen regel"; $fout++ }
           if ($b -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR"; $fout++ }
+          # Iris keuring 19 punt 1 (Bram 17 nov): tweede nacht met 40 hoeden vooraf (maat 2, volle toren): knijp, boog naar de berg,
+          # berg groeit binnen een maat; beelden van het spel zelf op 1 en 6 s en een reeks van 8 per seconde in nacht-40/
+          $h40 = python producten/steam-hol/e2e/save_hoeden.py $save 40 28800
+          Write-Output "===== nacht met 40 hoeden: $h40"
+          $c = Speel "$uit/weg-40.log" "duur=12 nacht_beeld=$uit/nacht-40" | Out-String
+          Write-Output (($c -split "`n") | Select-String "weg geweest|hoeden van de nacht|berg zichtbaar|SCRIPT ERROR")
+          $hn4 = [regex]::Match($c, "HOL hoeden van de nacht (\d+) \(vallen vanaf [0-9.]+ s, toren nu (\d+)\)")
+          $bz4 = [regex]::Match($c, "HOL berg zichtbaar (\d+) -> (\d+)")
+          if (-not $hn4.Success -or [int]$hn4.Groups[2].Value -ne 40) { Write-Output "FOUT: nacht met 40 hoeden: geen regel of toren niet op 40"; $fout++ }
+          if (-not $bz4.Success -or [int]$bz4.Groups[2].Value -le [int]$bz4.Groups[1].Value) { Write-Output "FOUT: berg groeit niet zichtbaar na de nacht met 40 hoeden"; $fout++ }
+          $nr = @(Get-ChildItem "$uit/nacht-40" -Filter "reeks-*.png" -ErrorAction SilentlyContinue).Count
+          if (-not (Test-Path "$uit/nacht-40/op-1s.png") -or -not (Test-Path "$uit/nacht-40/op-6s.png") -or $nr -lt 40) { Write-Output "FOUT: beelden nacht-40 ontbreken (reeks $nr)"; $fout++ }
+          if ($c -match "SCRIPT ERROR") { Write-Output "FOUT: SCRIPT ERROR in de nacht met 40 hoeden"; $fout++ }
           Write-Output "weg: $fout FOUT"; "weg: $fout FOUT" | Set-Content "$uit/weg.txt"
           if ($fout -gt 0) { exit 1 }
       - name: Eerste start bij de schaal van het scherm (Olaf 16 nov, speeltest)
