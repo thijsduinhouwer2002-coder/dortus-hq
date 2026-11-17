@@ -1,18 +1,18 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1794900645
+HOL zaad 1794900927
 HOL muisvlak 4 punten, lucht vrij op x=200
 HOL klik op (200, 90): niets
-HOL kroniek 4.1 (wacht 0.0): Odo read about you in a tavern.
-HOL begin: vallen (Odo)
-HOL held binnen: Odo
-HOL zicht 4.2 1
-HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL kroniek 10.1 (wacht 0.0): Rik climbs into your hole.
-HOL begin: opgegeten (Rik)
-HOL held binnen: Rik
-HOL kroniek zelfde held vervangen: Odo read about you in a tavern.
-HOL kroniek 16.0 (wacht 0.0): Odo will not be leaving. +6
-HOL kroniek 18.6 (wacht 2.6): Page for the Hero. The pit got him.
-HOL meting t=20 beelden=129 helden=1 hol_vast=3
+HOL kroniek 4.0 (wacht 0.0): Tibbe is here for your gold.
+HOL begin: vallen (Tibbe)
+HOL held binnen: Tibbe
+HOL zicht 4.1 1
+HOL kroniek 9.2 (wacht 0.0): Pim has a map. It is wrong.
+HOL begin: opgegeten (Pim)
+HOL held binnen: Pim
+HOL meting t=10 beelden=64 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Tibbe is here for your gold.
+HOL kroniek 16.0 (wacht 0.0): Tibbe found the Spike Pit. Hard. +6
+HOL kroniek 18.5 (wacht 2.5): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0
