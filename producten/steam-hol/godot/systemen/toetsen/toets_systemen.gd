@@ -1402,6 +1402,15 @@ func stop() -> void:
 	ok(mstr.kaart_soort == "menu" and mstr.hoogte == 120 and mstr.gezet == 0, "menu: rechtsklik opent het menu, de hoogte verspringt niet")
 	ok(mstr.tekst.kaart.get("menu", false) and mstr.tekst.kaart.nu == 120 and mstr.tekst.kaart.uitleg == "", "menu: kaart met huidige hoogte, vol spel zonder saveregel")
 	ok(mstr.tekst.kaart.feedback == (MN.FORUM_URL != ""), "menu: Feedback alleen met een forumlink (nu leeg: geen knop)")
+	# plekken in het menu (Daan 17 nov 07:45): icoon, 96 120 160 als groep, rechts [Feedback] Quit tot het goud
+	var TK = load("res://kern/tekst.gd")
+	var pl: Array = TK.menu_plekken(100.0, 400.0, 10.0, [30.0, 36.0, 36.0], [40.0], 2)
+	ok(pl.size() == 4 and is_equal_approx(pl[0], 114.0) and is_equal_approx(pl[1], 144.0) and is_equal_approx(pl[2], 180.0), "menu: hoogtes na het icoon, zonder ruimte ertussen: " + str(pl))
+	ok(is_equal_approx(pl[3] + 40.0, 400.0), "menu: Quit eindigt rechts onder het goud")
+	var pl2: Array = TK.menu_plekken(100.0, 400.0, 10.0, [30.0, 36.0, 36.0], [20.0, 40.0], 2)
+	ok(pl2.size() == 5 and is_equal_approx(pl2[3] + 20.0 + 6.0, pl2[4]) and is_equal_approx(pl2[4] + 40.0, 400.0), "menu: Feedback vlak voor Quit")
+	ok(TK.menu_plekken(100.0, 240.0, 10.0, [30.0, 36.0, 36.0], [40.0], 2).is_empty(), "menu: past niet geeft leeg (dan Feedback als ?)")
+	ok(TK.menu_plekken(100.0, INF, 10.0, [30.0, 36.0, 36.0], [20.0, 40.0], 2).size() == 5, "menu: noodweg zonder rand geeft alle plekken")
 	mstr.tekst.knop_menu = [[Rect2(0, 0, 10, 10), "96"], [Rect2(20, 0, 10, 10), "160"], [Rect2(40, 0, 10, 10), "quit"]]
 	ok(MN.klik(mstr, Vector2(25, 5)) and mstr.gezet == 160, "menu: klik op 160 zet de hoogte 160")
 	ok(MN.klik(mstr, Vector2(45, 5)) and mstr.gestopt, "menu: klik op Quit stopt (bewaren zit in strook.stop)")
