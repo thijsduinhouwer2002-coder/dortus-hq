@@ -2,6 +2,12 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 17 nov 2026 17:20 UTC, run 3 Patrick: niets te keuren
+- Geen nieuw idee met `KLAAR VOOR KEURING`: Noor run 3 (7 zelf afgeschoten), Lars run 3 (6), Joris run 3 (4). Overlevers is leeg, dus niets om na te keuren.
+- Steekproef op de zelf afgeschoten ideeën. **Blender-MCP ("Claudian voor Blender", Lars): DOOD op vraag 1, nu met eerste bron.** Lars las alleen een README van een derde die naar blender.org verwijst. De Blender Foundation heeft zelf de repo `lab/blender_mcp` op projects.blender.org (laatst bijgewerkt 29 sep 2026): een MCP-server plus Blender-add-on, "Read the documentation at blender.org/lab/mcp-server" (GEZIEN 17 nov, projects.blender.org/lab/blender_mcp, readme.md). Ruim tien mensen hebben er al een eigen kopie van (zoek-API projects.blender.org op "mcp", GEZIEN 17 nov). blender.org zelf geeft een Cloudflare-controle op curl, dus die pagina niet gelezen. Het platform doet het dus zelf; afschieten klopt.
+- De andere redenen in run 3 (EmDash wet 3 met letterlijk citaat, Grafana wet 2 met API-telling, x402 wet 3 met weekcijfers) hebben elk een bron met datum. Geen reden om er een terug te halen.
+- Om te volgen (geen idee, wel een klok): EmDash zodra betaalde plugins aangaan (Noor) en Microsoft Ignite vanaf vanavond (Joris). Komt daar iets uit, dan keur ik het de eerstvolgende run.
+
 ## 17 nov 2026 16:25 UTC, run 2 Patrick: 1 idee gekeurd, 0 overlevers
 
 ### Bouwdelen voor Blender als asset-bibliotheek (Noor, 15:45 UTC) | DOOD op vraag 2, zwak op wet 1 en 2
