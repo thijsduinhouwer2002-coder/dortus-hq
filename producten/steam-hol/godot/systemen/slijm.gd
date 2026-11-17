@@ -381,8 +381,8 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 	hap_van = t
 	# hap terwijl de hoeden van de nacht nog vallen (controleur punt 1): de rij eerst meteen op de toren, zodat het getal
 	# en de volgorde kloppen en de boog van de held niet door een nachthoed wordt overgenomen
+	_plof(berg_tel(), hoeden.size() + nacht_hoeden.size() + (1 if hoed >= 0 else 0))   # controleur 09:45: hap in de nacht als één plof, vanaf wat je ziet tot alles met de hoed van de held
 	if not nacht_hoeden.is_empty():
-		_plof(hoeden.size(), hoeden.size() + nacht_hoeden.size())   # de rest van de nacht in één keer: als een plof
 		hoeden.append_array(nacht_hoeden)
 		nacht_hoeden.clear()
 		nacht_van = -1.0
@@ -1048,27 +1048,38 @@ static func berg_plekken(tel: int) -> Array:
 # plekje waar zijn boog landt; de andere hoeden van de plof gaan onzichtbaar de berg in. Wat deze nacht los landde blijft
 # liggen, de berg zakt niet, een bedekte hoed komt niet terug. Daarna gaat het hoed voor hoed verder vanaf die stand
 # (bedekt wordt dan de oudste die je ziet). Na laden weer berg_plekken() (mag anders liggen, Sanne 08:50).
-var _sessie_van := -1          # tel vlak voor de laatste plof
-var _sessie_tel := -1          # tel na de laatste plof; -1 = geen plof deze sessie
-var _sessie_voor: Array = []   # kaart vlak voor de plof (tijdens de val en de boog van de plof)
-var _sessie_kaart: Array = []  # kaart na de plof
-var _sk_tel := -1              # verder gerekend vanaf de plof
-var _sk_kaart: Array = []
+var _pl_start := -1        # tel vanaf waar de sessie zelf rekent (vlak voor de eerste plof); -1 = geen plof deze sessie
+var _pl_sprong := {}       # plof: tel ervoor -> tel erna (de hele keten van deze sessie, controleur 09:45)
+var _pl_memo := {}         # tel -> kaart (alleen-lezen) binnen de sessie; tussen van en tot van een plof: de kaart van ervoor
 
 func kaart_voor(tel: int) -> Array:
-	if _sessie_tel < 0 or tel < _sessie_van:
+	if _pl_start < 0 or tel <= _pl_start:
 		return berg_plekken(tel)
-	if tel < _sessie_tel:
-		return _sessie_voor
-	if tel == _sessie_tel:
-		return _sessie_kaart
-	if _sk_tel < _sessie_tel or tel < _sk_tel:
-		_sk_tel = _sessie_tel
-		_sk_kaart = _sessie_kaart.duplicate()
-	while _sk_tel < tel:
-		_sk_tel += 1
-		_sessie_stap(_sk_kaart, _sk_tel)
-	return _sk_kaart
+	if _pl_memo.has(tel):
+		return _pl_memo[tel]
+	var cur := _pl_start
+	for k in _pl_memo:
+		if int(k) <= tel and int(k) > cur:
+			cur = int(k)
+	var kaart: Array = _pl_memo[cur].duplicate()
+	while cur < tel:
+		if _pl_sprong.has(cur):
+			var tot: int = int(_pl_sprong[cur])
+			if tel < tot:
+				_pl_memo[tel] = _pl_memo[cur]   # de plof valt of vliegt nog: de berg van ervoor
+				return _pl_memo[tel]
+			_sessie_stap(kaart, tot)
+			cur = tot
+		else:
+			cur += 1
+			_sessie_stap(kaart, cur)
+		_pl_onthoud(cur, kaart)
+	return _pl_memo[tel]
+
+func _pl_onthoud(tel: int, kaart: Array) -> void:
+	var c := kaart.duplicate()
+	c.make_read_only()
+	_pl_memo[tel] = c
 
 # Een stap naar tel (een gewone hoed, of een plof als tel er meer dan één verder ligt): komen er plekjes bij, dan ligt de
 # nieuwste op het laatste nieuwe en verborgen hoeden op de andere; anders bedekt de nieuwste de oudste die je ziet.
@@ -1097,22 +1108,35 @@ static func _sessie_stap(kaart: Array, tel: int) -> void:
 				k_oud = k
 		kaart[k_oud] = nieuw
 
+# Een plof van tel van naar tel tot (meer dan één hoed tegelijk). Begint hij terwijl een eerdere plof nog niet te zien
+# was (hap tijdens de nacht), dan telt hij vanaf de tel van die eerdere plof: dat is wat je nog ziet.
 func _plof(van: int, tot: int) -> void:
 	if tot - van <= 1:
 		return
-	var voor := kaart_voor(van).duplicate()
-	var na := voor.duplicate()
-	_sessie_stap(na, tot)
-	_sessie_van = van
-	_sessie_tel = tot
-	_sessie_voor = voor
-	_sessie_kaart = na
-	_sk_tel = -1
+	for v in _pl_sprong:
+		if int(v) < van and van < int(_pl_sprong[v]):
+			van = int(v)
+	if _pl_start < 0:
+		_pl_start = van
+		_pl_onthoud(van, berg_plekken(van))
+	elif van < _pl_start:
+		_sessie_weg()
+		_pl_start = van
+		_pl_onthoud(van, berg_plekken(van))
+	for v in _pl_sprong.keys():
+		if int(v) >= van:
+			_pl_sprong.erase(v)
+	var houd := kaart_voor(van)
+	for k in _pl_memo.keys():
+		if int(k) > van:
+			_pl_memo.erase(k)
+	_pl_memo[van] = houd
+	_pl_sprong[van] = tot
 
 func _sessie_weg() -> void:
-	_sessie_van = -1
-	_sessie_tel = -1
-	_sk_tel = -1
+	_pl_start = -1
+	_pl_sprong = {}
+	_pl_memo = {}
 
 static func _bewaar(tel: int, kaart: Array) -> void:
 	var c := kaart.duplicate()

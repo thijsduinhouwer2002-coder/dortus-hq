@@ -849,38 +849,50 @@ func _init() -> void:
 				if int(e3[3]) == ip:
 					plek_p = e3
 			ok(g3.hoeden.size() == 27 and bb_plof[0] and not plek_p.is_empty() and int(bb_plof[1]) == g3.hoeden[ip] and absf(float(bb_plof[2]) - float(plek_p[1])) <= 3.0 and absf(float(bb_plof[3]) - float(plek_p[2])) <= 3.0, "plof: de laatste boog eindigt op het plekje van de nieuwste hoed van de berg (%s tegen %s)" % [str(bb_plof), str(plek_p)])
-			# Daan 09:45: de plof verandert alleen het plekje van zijn boog; niets zakt, niets bedekts komt terug
-			var voor_p := {}
-			for e in g3.berg(g3._sessie_van):
-				voor_p[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
-			var na_p := {}
-			var na_idx := {}
-			for e in g3.berg():
-				na_p[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
-				na_idx[int(e[3])] = true
-			var p_anders := 0
-			var p_ok := na_p.size() >= voor_p.size()
-			for plek in voor_p:
-				if not na_p.has(plek):
-					p_ok = false
-				elif int(na_p[plek]) != int(voor_p[plek]):
-					p_anders += 1
-					p_ok = p_ok and int(na_p[plek]) == ip
-			var p_nieuw_ok := true
-			for i2 in na_idx:
-				if not voor_p.values().has(i2) and i2 < g3._sessie_van - g3.OP_HOOFD:
-					p_nieuw_ok = false   # een hoed van voor de plof die niet te zien was, komt boven
-			var p_groei: int = na_p.size() - voor_p.size()
-			ok(p_ok and p_nieuw_ok and na_idx.has(ip) and (p_anders == 0 if p_groei > 0 else p_anders <= 1), "plof: alleen het plekje van de boog verandert of er komen plekjes bij met hoeden van de plof; niets zakt (%d anders, %d -> %d)" % [p_anders, voor_p.size(), na_p.size()])
-			g3.krijg_hoed(3)
-			var na2 := {}
-			for e in g3.berg():
-				na2[int(e[3])] = true
-			var terug := false
-			for i2 in na2:
-				if not na_idx.has(i2) and i2 != g3.hoeden_op_berg() - 1:
-					terug = true
-			ok(not terug and na2.has(g3.hoeden_op_berg() - 1), "plof: daarna komt een bedekte hoed niet terug, de nieuwe ligt erop")
+			# Daan 09:45 en controleur 09:45: beeld voor beeld (0,01 s) door drie nachten in één sessie, de derde met een hap
+			# midden in de nacht. Per beeld: geen plekje gaat weg, hooguit één plekje krijgt een andere hoed, en een hoed die
+			# bedekt werd komt nooit meer boven.
+			g3._sessie_weg()
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoeden.clear()
+			for i3 in 60:
+				g3.hoeden.append((i3 * 7) % 10)
+			var mon_vorig := {}
+			var bedekt := {}
+			var mon_fout := ""
+			var mon_beelden := 0
+			for nacht in 3:
+				for i3 in 25:
+					g3.krijg_hoed_later((i3 * 3 + nacht) % 10)
+				g3.start_nacht(0.0)
+				var gehapt := false
+				var st := 0
+				while (g3.nacht_bezig() or g3.berg_tel() < g3.hoeden.size() or st < 20) and st < 3000:
+					g3.stap(0.01)
+					st += 1
+					if nacht == 2 and not gehapt and g3.nacht_gelegd >= 5:
+						g3.raak(4)   # hap terwijl de nacht nog valt
+						gehapt = true
+					var mon_nu := {}
+					for e in g3.berg():
+						mon_nu[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
+					var mon_anders := 0
+					for plek in mon_vorig:
+						if not mon_nu.has(plek):
+							mon_fout = "nacht %d t %.2f: plekje %s weg" % [nacht, g3.t, str(plek)]
+						elif int(mon_nu[plek]) != int(mon_vorig[plek]):
+							mon_anders += 1
+							bedekt[int(mon_vorig[plek])] = true
+					for plek in mon_nu:
+						if bedekt.has(int(mon_nu[plek])):
+							mon_fout = "nacht %d t %.2f: bedekte hoed %d komt terug" % [nacht, g3.t, int(mon_nu[plek])]
+					if mon_anders > 1:
+						mon_fout = "nacht %d t %.2f: %d plekjes anders in één beeld" % [nacht, g3.t, mon_anders]
+					mon_vorig = mon_nu
+					mon_beelden += 1
+			ok(mon_fout == "" and g3._pl_start >= 0 and mon_beelden > 100, "plof: beeld voor beeld door drie nachten en een hap, nooit meer dan één plekje anders, niets weg, niets bedekts terug (%s, %d beelden)" % [mon_fout, mon_beelden])
+			g3.stap(5.0)   # de hap en de blije tijd van de monitor uit laten lopen
 			g3._sessie_weg()
 			g3.nacht_ev.clear()
 			g3.val_voor = -1
