@@ -117,3 +117,7 @@
 - Ook genoemd door de hoofdchat: JointLab ($30, early access) en CatPin (vaste pennen) stonden al in de check; geen van beide leest een rig met eindstop.
 - Zelfde run, Pro 1.1: heupen op AI-figuren met een spleet tussen de benen geprobeerd, geen heup; oorzaak gemeten (dij te kort voor kogel plus knie op 150 mm). Besluit: naar 1.2, met een leesbare reden in de lijst. Nieuwe toets `toetsen_meshy_rig` in de CI. Tak 1532a02. Details `producten/blender-gewrichten/ontwerp-1.1.md` run 16 op de tak.
 - Wat misging: twee Blenders tegelijk starten botst op het slot van de extensiemap (tweede installeert niet); de proef stapelde zijn naamfilter per figuur (recursiefout vanaf de tweede figuur), opgelost.
+
+## 17 nov 2026 ±01:05 tot 02:00 UTC (Ruben, run 18)
+- CI d833c09 groen. Eindbeeld op een echte figuur voorbereid: MakeHuman-mens (CC0) met rig op zijn eigen gewrichtspunten. Ellebogen (midden van het lid) en een valse knie (`deel_met` alleen binnen het kader) opgelost, 7 gewrichten op 220 mm. Details `producten/blender-gewrichten/ontwerp-1.1.md` run 18 op de tak (2569d26).
+- Wat misging: `git fetch` zonder tijdslimiet hing 2 minuten; met `timeout` en alleen de nodige takken ging het.
