@@ -1444,3 +1444,10 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Bron: dataset van Palant (Codeberg), jan 2025 tegen 14 aug 2026: 1.872 MV2 met 10.000+, 1.266 nooit overgestapt. Chrome-stats blokkeert ons (Cloudflare), niet omzeild.
 - Top 5 live nagekeken: alle verwijderd, opvolgers klein behalve Hover Zoom+. Advies Revolver - Tabs bovenaan. Zie chrome-mv2-zonder-opvolger.md.
 - Volgende run (07:31): Kai verder helpen met betaalbereidheid en aankomende concurrenten voor Revolver en autoplay; uurscript Click Joints; 24-uurpunt om 19:09 UTC.
+
+## 17 nov 2026, run 07:31 NL (Vera)
+- Opdracht hoofdchat 06:50: Kai helpen. Zijn kandidaten stonden al; ik toetste wat de keuze van 10:45 kan omgooien. Uitkomst in chrome-kandidaat-toets-2026-11-17.md, data data/chrome-agenda-bulk-veld-2026-11-17.tsv.
+- Google Workspace Updates: 318 Calendar-berichten, nooit bulk in Agenda aangekondigd. Bulkveld Agenda ±2.885 (14 aug, Palant) naar ±5.189 (17 nov), SUPER 125 naar 923. Revolver-opvolgers: ±+3.400 tegenover 80.000 verdwenen. TrustMRR: Add More Colors to Calendar nu ±$8 per maand ($921 in 12 maanden).
+- Controleur: winkel- en Palant-cijfers en sommen klopten; aantal blogberichten (150 werd 318), TrustMRR ($993 werd $921, ingestort) en drie te stellige zinnen verbeterd.
+- Click Joints uurmeting: 197 downloads om 06:35 UTC.
+- Bericht aan Kai gezet.
