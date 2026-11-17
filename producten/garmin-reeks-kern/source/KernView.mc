@@ -23,6 +23,8 @@ class KernView extends WatchUi.WatchFace {
     var gelezenOp as Number = 0;
     // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan per proefhorloge een ander (Thema.voorProef).
     var thema as Number = Thema.TIDE;
+    // Scherm met 64 kleuren (geen inbrandgevaar, dus MIP): de zee krijgt dan vaste paletkleuren (Thema.band).
+    var mip as Boolean = false;
 
     function initialize() {
         WatchFace.initialize();
@@ -54,6 +56,7 @@ class KernView extends WatchUi.WatchFace {
             + " vrij=" + System.getSystemStats().freeMemory);
         var ds = System.getDeviceSettings();
         var inbrand = (ds has :requiresBurnInProtection) ? ds.requiresBurnInProtection : false;
+        mip = !inbrand;
         if (inbrand) {
             var ms0 = System.getSystemStats().usedMemory;
             fontS = WatchUi.loadResource(Rez.Fonts.TijdSlaap) as WatchUi.FontResource;
@@ -159,16 +162,116 @@ class KernView extends WatchUi.WatchFace {
                 dc.fillRectangle(xs[i] - streep / 2, yVeld - dik / 2, streep, dik);
             }
         }
-        // Het getal van Body Battery: de laatste waarde uit de geschiedenis, of een streepje.
-        var yBb = Maten.m(Maten.BB_Y);
-        var bbNu = Veld.laatste(bb);
-        if (bbNu != null && fontK != null) {
-            dc.drawText(w / 2, yBb, fontK as WatchUi.FontResource, bbNu.format("%d"), mid);
-        } else {
-            dc.fillRectangle(w / 2 - streep, yBb - dik / 2, streep * 2, dik);
-        }
         if (tik < 2) {
             System.println("KERN VELDEN hart stress stappen:" + regel + " thema=" + thema);
+        }
+    }
+
+    // De zee van Tij (ontwerp-kern.md, deel "De zee"): vier banden onder de waterlijn uit het verloop van Body
+    // Battery, het bootje op nu, en het getal met rand en golfje. Zonder maten: niets. Zonder Body Battery:
+    // een vlakke zee halverwege, geen bootje, een streepje als getal.
+    function tekenZee(dc as Graphics.Dc, t as Number) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        if (Maten.laad().size() != Maten.AANTAL || Maten.m(Maten.VEILIG) * 2 > w) {
+            return;
+        }
+        var c = w / 2;
+        var yT = Maten.m(Maten.WATER_TOP);
+        var yB = Maten.m(Maten.WATER_BODEM);
+        var s = Maten.m(Maten.BOOT_HALF);
+        var dik = Maten.m(Maten.BB_RAND);
+        var lijnDik = Maten.m(Maten.LIJN_DIK);
+        var g = w * 4 / 208;
+        if (g < 4) {
+            g = 4;
+        }
+        var bbNu = Veld.laatste(bb);
+        var tekst = (bbNu != null) ? bbNu.format("%d") : null;
+        var streep = Maten.m(Maten.VELD_PX) / 2;
+        var bw = streep * 2;
+        if (tekst != null && fontK != null) {
+            bw = dc.getTextWidthInPixels(tekst, fontK as WatchUi.FontResource);
+        }
+        // Getal en golfje staan samen in het midden.
+        var groep = bw + ((tekst != null) ? Maten.m(Maten.GOLF_AFSTAND) + Maten.m(Maten.GOLF_B) : 0);
+        var gx1 = c + groep / 2 + dik;
+        var gx0 = c - groep / 2 - dik;
+        var nx = c - groep / 2 + bw / 2;
+        var ny = Maten.m(Maten.BB_Y);
+        var half = Maten.m(Maten.BB_PX) * 4 / 10;
+        // Het bootje: rechts van het getal, binnen de veilige cirkel. Onder de 10 ligt het scheef aan de grond.
+        var nuX = Maten.m(Maten.NU_X);
+        var bootje = [] as Array<Graphics.Point2D>;
+        if (bbNu != null) {
+            var laag = bbNu < 10;
+            var by = Zee.niveau(bbNu, yT, yB) + (laag ? w * 12 / 1000 : 0);
+            var hoek = laag ? -22 : 0;
+            var stap = w / 100;
+            nuX = Zee.bootX(nuX, gx1 + s * 11 / 10 + g, by, s, hoek, c, Maten.m(Maten.VEILIG), stap);
+            bootje = Zee.boot(nuX, by, s, hoek);
+        }
+        var pts = Zee.lijn(bb, Maten.m(Maten.LIJN_X), nuX, w, yT, yB, t);
+        // Ruimte tussen getal en water of zeil: komt het te dichtbij, dan schuift het getal omhoog, tot vlak onder de velden.
+        var top = Zee.topTussen(pts, gx0 - g, gx1 + g);
+        var topBoot = Zee.topTussen(bootje, gx0 - g, gx1 + g);
+        if (topBoot < top) {
+            top = topBoot;
+        }
+        var maxOmhoog = (ny - half - dik) - (Maten.m(Maten.VELD_Y) + Maten.m(Maten.VELD_PX) * 4 / 10 + w * 12 / 1000);
+        ny -= Zee.schuif(ny + half + dik, g, top - lijnDik / 2, maxOmhoog);
+        var zb = Thema.kleur(thema, Thema.ZEE_BOVEN);
+        var zo = Thema.kleur(thema, Thema.ZEE_ONDER);
+        for (var i = 0; i < 4; i++) {
+            dc.setColor(Thema.band(thema, i, mip), Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon(Zee.band(pts, Maten.m(Maten.BAND_0 + i), w, h));
+        }
+        var lijnKleur = mip ? 0xFFFFFF : Zee.lichter(zb, 70);
+        dc.setColor(lijnKleur, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(lijnDik);
+        for (var i = 0; i + 1 < pts.size(); i++) {
+            dc.drawLine(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1]);
+        }
+        if (bootje.size() == 9) {
+            dc.setColor(Thema.kleur(thema, Thema.BOOT), Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon([bootje[0], bootje[1], bootje[2], bootje[3]] as Array<Graphics.Point2D>);
+            dc.setPenWidth((w >= 300) ? w / 150 : 2);
+            dc.drawLine(bootje[7][0], bootje[7][1], bootje[8][0], bootje[8][1]);
+            dc.setColor(Thema.kleur(thema, Thema.MINUTEN), Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon([bootje[4], bootje[5], bootje[6]] as Array<Graphics.Point2D>);
+        }
+        var mid = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
+        if (tekst != null && fontK != null) {
+            var f = fontK as WatchUi.FontResource;
+            // Donkere rand van dik px om het getal, dan het getal in wit.
+            dc.setColor(Zee.meng(zo, 0x000000, 4, 10), Graphics.COLOR_TRANSPARENT);
+            for (var dx = -dik; dx <= dik; dx++) {
+                for (var dy = -dik; dy <= dik; dy++) {
+                    if (dx != 0 || dy != 0) {
+                        dc.drawText(nx + dx, ny + dy, f, tekst, mid);
+                    }
+                }
+            }
+            dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(nx, ny, f, tekst, mid);
+            var gk = Maten.m(Maten.GOLF_B);
+            var golven = Zee.golfje(nx + bw / 2 + Maten.m(Maten.GOLF_AFSTAND) + gk / 2, ny + 1, gk);
+            dc.setColor(lijnKleur, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(Maten.m(Maten.GOLF_DIK));
+            for (var r = 0; r < golven.size(); r++) {
+                var gp = golven[r];
+                for (var i = 0; i + 1 < gp.size(); i++) {
+                    dc.drawLine(gp[i][0], gp[i][1], gp[i + 1][0], gp[i + 1][1]);
+                }
+            }
+        } else {
+            dc.setColor(Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
+            dc.fillRectangle(c - streep, ny - Maten.m(Maten.LIJN_DIK) / 2, streep * 2, Maten.m(Maten.LIJN_DIK));
+        }
+        dc.setPenWidth(1);
+        if (tik < 2) {
+            System.println("KERN ZEE bb=" + bb.size() + " nu=" + ((bbNu == null) ? "-" : bbNu.format("%d")) + " bootX=" + nuX
+                + " getalY=" + ny + " mip=" + mip + " eerste=" + ((bb.size() > 0) ? bb[0].format("%d") : "-"));
         }
     }
 
@@ -210,29 +313,13 @@ class KernView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         var msPlaat = System.getTimer() - t0;
+        // Eerst de zee, dan datum, tijd en velden erover: de tijd staat altijd boven water.
+        tekenZee(dc, nu.min);
+        var msZee = System.getTimer() - t0 - msPlaat;
         tekenBoven(dc, nu.hour.format("%02d"), nu.min.format("%02d"));
-        var msTijd = System.getTimer() - t0 - msPlaat;
-        // Plek van de zee (komt na het ja van Daan): tot dan het verloop van Body Battery en stress als vlakken
-        // tussen het plafond en de bodem van het water uit het blad. Zonder maten: niets.
-        if (Maten.laad().size() == Maten.AANTAL && Maten.m(Maten.VEILIG) * 2 <= dc.getWidth()) {
-            var x0 = Maten.m(Maten.LIJN_X);
-            var x1 = Maten.m(Maten.NU_X);
-            var yT = Maten.m(Maten.WATER_TOP);
-            var yB = Maten.m(Maten.WATER_BODEM);
-            var heuvel = Teken.profiel(bb, x0, x1, yB, yT, 40);
-            if (heuvel.size() >= 3) {
-                dc.setColor(Thema.kleur(thema, Thema.ZEE_BOVEN), Graphics.COLOR_TRANSPARENT);
-                dc.fillPolygon(heuvel);
-            }
-            var stress = Teken.profiel(st, x0, x1, yB, (yT + yB) / 2, 40);
-            if (stress.size() >= 3) {
-                dc.setColor(Thema.kleur(thema, Thema.ZEE_ONDER), Graphics.COLOR_TRANSPARENT);
-                dc.fillPolygon(stress);
-            }
-        }
         var ms = System.getTimer() - t0;
         if (tik < 4) {
-            System.println("KERN TEKEN tik=" + tik + " ms=" + ms + " plaatje_ms=" + msPlaat + " tijd_ms=" + msTijd);
+            System.println("KERN TEKEN tik=" + tik + " ms=" + ms + " plaatje_ms=" + msPlaat + " zee_ms=" + msZee);
         }
         tik++;
     }

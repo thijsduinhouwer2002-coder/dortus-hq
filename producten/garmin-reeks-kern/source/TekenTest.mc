@@ -1,3 +1,4 @@
+import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Test;
 
@@ -144,4 +145,77 @@ function testSchoenZool(logger as Test.Logger) as Boolean {
     var b = Teken.vlak(Teken.SCHOEN_BOVEN, 100, 50, 12);
     logger.debug("zool: " + z + " boven: " + b.size());
     return z.size() == 4 && b.size() == 9 && z[0][0] == 93 && z[0][1] == 53 && z[1][0] == 107 && z[2][1] == 55;
+}
+
+// De zee van Tij (Zee.mc).
+(:test)
+function testZeeNiveau(logger as Test.Logger) as Boolean {
+    return Zee.niveau(0, 186, 233) == 233 && Zee.niveau(100, 186, 233) == 186 && Zee.niveau(150, 186, 233) == 186
+        && Zee.niveau(-5, 186, 233) == 233;
+}
+
+(:test)
+function testZeeLijn(logger as Test.Logger) as Boolean {
+    var p = Zee.lijn([40, 80, 20] as Array<Number>, 10, 182, 260, 186, 233, 0);
+    logger.debug("lijn: " + p.size() + " nu=" + p[Zee.N][0] + "," + p[Zee.N][1] + " eind=" + p[p.size() - 1][0]);
+    return p.size() == Zee.N + Zee.STAART + 1 && p[0][0] == 10 && p[0][1] == Zee.niveau(40, 186, 233)
+        && p[Zee.N][0] == 182 && p[Zee.N][1] == Zee.niveau(20, 186, 233) && p[Zee.N / 2][1] == Zee.niveau(80, 186, 233)
+        && p[p.size() - 1][0] == 260;
+}
+
+// Eén waarde of geen waarde: toch een hele lijn, vlak rond de hoogte van die waarde of halverwege.
+(:test)
+function testZeeLijnWeinigGegevens(logger as Test.Logger) as Boolean {
+    var een = Zee.lijn([55] as Array<Number>, 10, 182, 260, 186, 233, 0);
+    var geen = Zee.lijn([] as Array<Number>, 10, 182, 260, 186, 233, 0);
+    var goed = een.size() == Zee.N + Zee.STAART + 1 && geen.size() == een.size() && een[een.size() - 1][0] == 260;
+    for (var i = 0; i < een.size(); i++) {
+        var d1 = (een[i][1] as Number) - Zee.niveau(55, 186, 233);
+        var d0 = (geen[i][1] as Number) - 209;
+        if (d1 < -4 || d1 > 4 || d0 < -4 || d0 > 4) {
+            goed = false;
+        }
+    }
+    return goed;
+}
+
+(:test)
+function testZeeBand(logger as Test.Logger) as Boolean {
+    var p = Zee.lijn([40, 80, 20] as Array<Number>, 10, 182, 260, 186, 233, 0);
+    var b = Zee.band(p, 9, 260, 260);
+    return b.size() == p.size() + 3 && b[0][0] == 0 && b[1][1] == (p[0][1] as Number) + 9
+        && b[b.size() - 2][0] == 260 && b[b.size() - 2][1] == 260 && b[b.size() - 1][0] == 0
+        && Zee.band([] as Array<Graphics.Point2D>, 9, 260, 260).size() == 0;
+}
+
+// Het bootje schuift naar links tot het in de veilige cirkel past, maar nooit voorbij de grens bij het getal.
+(:test)
+function testZeeBootX(logger as Test.Logger) as Boolean {
+    var vrij = Zee.bootX(182, 150, 200, 13, 0, 130, 124, 2);
+    var krap = Zee.bootX(240, 150, 200, 13, 0, 130, 124, 2);
+    var klem = Zee.bootX(240, 236, 200, 13, 0, 130, 124, 2);
+    logger.debug("bootX vrij=" + vrij + " krap=" + krap + " klem=" + klem);
+    return vrij == 182 && krap < 240 && krap >= 150 && Zee.past(Zee.boot(krap, 200, 13, 0), 130, 124)
+        && klem == 236 && Zee.bootX(100, 150, 200, 13, 0, 130, 124, 0) == 150 && Zee.boot(182, 200, 13, -22).size() == 9;
+}
+
+(:test)
+function testZeeSchuif(logger as Test.Logger) as Boolean {
+    return Zee.schuif(176, 5, 190, 20) == 0 && Zee.schuif(176, 5, 175, 20) == 6 && Zee.schuif(176, 5, 150, 20) == 20
+        && Zee.schuif(176, 5, 150, -3) == 0 && Zee.topTussen([[10, 50], [20, 30], [90, 5]] as Array<Graphics.Point2D>, 0, 40) == 30
+        && Zee.topTussen([] as Array<Graphics.Point2D>, 0, 40) == 9999;
+}
+
+(:test)
+function testZeeKleuren(logger as Test.Logger) as Boolean {
+    return Zee.meng(0xFF8C3C, 0x6E1928, 0, 3) == 0xFF8C3C && Zee.meng(0xFF8C3C, 0x6E1928, 3, 3) == 0x6E1928
+        && Zee.meng(0x000000, 0x0000FF, 1, 0) == 0x000000 && Zee.lichter(0xFF8C3C, 70) == 0xFFD282
+        && Thema.band(Thema.DUSK, 0, false) == 0xFF8C3C && Thema.band(Thema.DUSK, 3, false) == 0x6E1928
+        && Thema.band(Thema.DUSK, 0, true) == 0xFFAA55 && Thema.band(99, 9, true) == 0x000055;
+}
+
+(:test)
+function testZeeGolfje(logger as Test.Logger) as Boolean {
+    var g = Zee.golfje(100, 50, 16);
+    return g.size() == 2 && g[0].size() == 9 && g[0][0][0] == 92 && g[0][8][0] == 108 && (g[0][0][1] as Number) < (g[1][0][1] as Number);
 }

@@ -37,6 +37,33 @@ module Thema {
         return kleuren[t * ROLLEN + rol];
     }
 
+    // Banden van de zee op een scherm met 64 kleuren: vaste paletkleuren (elk kanaal 00, 55, AA of FF), licht boven,
+    // donker onder. Voorstel van Daan (17 nov) voor Dusk en Kelp, Tide en Night op dezelfde manier; Mila kiest nog.
+    var mipBanden as Array<Number> = [
+        0xFFAA55, 0xFF5500, 0xAA0000, 0x550000,
+        0x55FFFF, 0x00AAFF, 0x0055AA, 0x000055,
+        0xAAFF55, 0x55AA00, 0x005500, 0x005500,
+        0x5555FF, 0x0000FF, 0x0000AA, 0x000055
+    ] as Array<Number>;
+
+    // Kleur van band i (0 boven tot 3 onder). Gewoon scherm: in vier stappen van zee boven naar zee onder.
+    function band(thema as Number, i as Number, mip as Boolean) as Number {
+        if (i < 0) {
+            i = 0;
+        }
+        if (i > 3) {
+            i = 3;
+        }
+        var t = thema;
+        if (t < 0 || t >= AANTAL) {
+            t = TIDE;
+        }
+        if (mip) {
+            return mipBanden[t * 4 + i];
+        }
+        return Zee.meng(kleur(t, ZEE_BOVEN), kleur(t, ZEE_ONDER), i, 3);
+    }
+
     // Alleen voor de proef in de bouwstraat (weg in stap (d), als de drager zelf kiest): elk proefhorloge een
     // ander thema, zodat alle vier in beeld komen. 208, 240 en 320 px: Dusk, 454: Tide, 260: Kelp, 390: Night.
     function voorProef(breedte as Number) as Number {
