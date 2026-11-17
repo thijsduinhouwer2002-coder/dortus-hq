@@ -1,6 +1,6 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 19 af 16 nov ±23:45 UTC; volgende run: Little Writer meten na 6 jan, of de vraag van de hoofdchat als die er is; anders: hoe bureaubladspellen hun eerste week na de uitgave met korting deden (Tap Tap Loot 30%, Typing Farmer 10%), voor het lanceerplan van maart)
+bezig: verhaal 20, lanceerkorting van bureaubladspellen (hoeveel procent, wat gaf het in week 1), 17 nov ±00:30 UTC
 
 Nieuwste bovenaan.
 
