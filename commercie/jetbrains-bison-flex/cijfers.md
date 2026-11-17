@@ -32,3 +32,14 @@ Bron: `https://plugins.jetbrains.com/api/plugins/35901` en `/api/plugins/16595` 
 - 35901: `isHidden: true`, `pricingModel: FREE`, 0 downloads, `/updates` leeg, niet in `/plugins/list` (wat de IDE ziet). Nog in moderatie.
 - Bison Language Support (16595): 13.024 downloads.
 - Let op: `approve` van de plugin zegt niets over goedkeuring (ook live plugins staan op `false`); seintje in `lancering.md`, deel run 22.
+
+## Dag 0 (17 nov 2026, ±15:00 UTC, run 80, GEZIEN)
+Openbaar sinds ±12:55 UTC (13:55 NL). Bronnen: `/api/plugins/35901`, `/api/plugins/35901/updates`, `/api/marketplace/plugin/35901/prices?countryCode=US|NL`, `/api/marketplace/plugin/35901/programs`, `/api/searchPlugins?search=<woord>&max=20`.
+- Bison & Flex (35901): `isHidden: false`, `pricingModel: FREEMIUM`, 1 download (versie 2026.1.1; 2026.1.0 heeft 0), geen beoordelingen. Proef 30 dagen.
+- Prijs live: VS $19 persoonlijk en $49 zakelijk per jaar; NL € 19 en € 49 (met btw € 22,99 en € 59,29). Geen maandprijs (besluit Jet: ook $1,90 / $4,90 per maand). Geen staffelkorting.
+- Kortingsprogramma's: geen (`[]`). BashSupport Pro ter vergelijking: STUDENT, CLASSROOM, OPEN_SOURCE, EDUCATIONAL_ORGANIZATION, START_UP, NON_PROFIT, DEVELOPER_RECOGNITION, GRADUATION. Gemeld aan de hoofdchat.
+- `buyUrl: null` is normaal bij verkoop via JetBrains: zo staan ook BashSupport Pro, Monokai Pro, JPA SQL, Database Helper en Bitbucket Integration Pro. De site van JetBrains leest null als "verkocht via JetBrains".
+- Aanraden bij een onbekend bestand (`getImplementations`): `*.l` nog leeg, `*.y` alleen GoYacc en Bison Language Support. Wij staan er (nog) niet in; opnieuw meten op dag 7.
+- Zoekpositie (top 20): bison 2, yacc 3, lex 9, flex niet, lexer niet, parser niet, grammar niet, "bison flex" 1, "flex lexer" 2, "clion yacc" 1.
+- Bison Language Support (16595): 13.056 downloads (8 nov 13.024: +32 in 9 dagen, ±3,6 per dag).
+- Volgende meting: dag 7 (24 nov).

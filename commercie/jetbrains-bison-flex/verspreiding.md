@@ -6,6 +6,9 @@ Door Chris, 8 nov 2026 (run 12), op opdracht van Thijs (8 nov 18:33). Gemeten me
 
 **Voor wie:** mensen die Bison of Flex schrijven in CLion of IntelliJ IDEA: compilerstudenten, docenten, onderhouders van parsers. Hoe groot: Bison Language Support (alleen `.y`) 13.024 downloads (GEZIEN 8 nov, `/api/plugins/16595`), groeit ±4 per dag (GOK, twee metingen). De markt is klein, ±200 downloads per maand (GOK, bouwbesluit Jet).
 
+## Stand 17 nov ±15:00 UTC (dag 0, run 80, GEZIEN)
+Openbaar sinds 17 nov ±12:55 UTC: `isHidden: false`, `pricingModel: FREEMIUM`, versie 2026.1.1 goedgekeurd, 1 download. Prijs live ($19 / $49 per jaar; € 19 / € 49 plus btw). Alle drie de voorwaarden hieronder kloppen dus. Plek 3 (YouTrack) gedaan door de hoofdchat, zie `berichten-geplaatst.md`. Plek 4 (forum) morgen, tekst hieronder nu met de prijs. Nog niet goed: geen kortingsprogramma's (studenten, open bron) en geen maandprijs, gemeld aan de hoofdchat. Zoekpositie in de Marketplace: "bison" 2, "yacc" 3, "lex" 9, "flex" niet in de top 20 (Flash/Flex en de Flexible-reeks staan ervoor), "bison flex" en "flex lexer" 1 en 2.
+
 ## Stand vandaag (8 nov, GEZIEN met `/api/plugins/35901`)
 `approve: false`, 0 downloads, `pricingModel: FREE`, proef 30 dagen. Nog in moderatie. **Niets plaatsen voordat alle drie kloppen:** versie goedgekeurd, Hidden uit, prijs zichtbaar op de pagina. **Let op (run 22, 9 nov):** het veld `approve` van de plugin zelf is géén teken van goedkeuring; het staat ook bij live plugins op `false`. Kijk naar het seintje in `lancering.md`, deel run 22.
 
@@ -48,10 +51,10 @@ Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is 
 ```
 Title: Bison & Flex: Bison/Yacc and Flex/Lex support for CLion and IntelliJ IDEA
 
-I made a plugin for Bison/Yacc (.y, .yy) and Flex/Lex (.l, .ll) files. The JetBrains IDEs open them as plain text, and until now there was nothing for Flex/Lex (.l) files.
+I made a plugin for Bison/Yacc (.y, .yy) and Flex/Lex (.l, .ll) files. The JetBrains IDEs open them as plain text, and until now there was nothing on the Marketplace for Flex/Lex (.l) files.
 
 Free: highlighting (including the C code in actions and $$/$1), syntax errors, folding, the Structure view, and go to definition, find usages and rename within one file (renaming a token the scanner also uses is Pro).
-Pro (30-day free trial): jump from a token in the scanner to its %token in the grammar, rename a token in both files at once, and warnings for undefined and unused symbols.
+Pro ($19 a year for individuals, 30-day free trial): jump from a token in the scanner to its %token in the grammar, rename a token in both files at once, and warnings for undefined and unused symbols.
 
 It's tested in CLion and IntelliJ IDEA. Feedback on what's missing is very welcome.
 
