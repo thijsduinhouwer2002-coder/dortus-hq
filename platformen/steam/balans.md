@@ -4,7 +4,7 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 
 
 
-## Stand 17 nov ±09:10 UTC: drempels 49 / 60 / 72 nagemeten op twee echte runs, blijven staan (Sanne, na Iris keuring 20 punt 3)
+## Stand 17 nov ±08:58 UTC: drempels 49 / 60 / 72 nagemeten op twee echte runs, blijven staan (Sanne, na Iris keuring 20 punt 3)
 **Hoe:** geen model meer. Elke vangst geeft in `hol.log` een kroniekregel die eindigt op ` +<goud>`; tijd van die regel min zijn wachttijd is het moment van vangst k, dus faam k. Telling klopt precies met alle `HOL hol-niveau`-regels in beide logs (GEZIEN). Script `data/hol-tempo/faam_uit_log.py`, uitkomst `data/hol-tempo/uitkomst-gemeten.txt`. Zo lees je bij een run met de oude drempels af wanneer de nieuwe gehaald waren (dezelfde helden, dezelfde vangsten).
 
 | run | hol 9 | hol 10 (49) | hol 11 (60) | hol 12 (72) | grootste gat |

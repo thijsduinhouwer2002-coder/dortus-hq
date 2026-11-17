@@ -7,7 +7,7 @@ Wie vult wat:
 - **Steam-aankondigingen en zinnen voor de winkelpagina**: Sem (marketing), Chris voor de festweekclips.
 
 ## Spel (Sanne)
-_Sanne vult dit in vóór wo 18 nov 12:00._ **Stand 17 nov 09:30:** de kroniek staat in `platformen/steam/teksten-spel.md`, per soort, met hoe vaak een speler elke regel ziet. Begin bovenaan: de vier bovenste rijen zijn meer dan de helft van wat een speler leest. Deel 2 daar is een nieuw voorstel (de vangst die terugslaat op de binnenkomst). Heldenboek, winkel, hol-niveaus, namen en menu volgen. Alles CONCEPT.
+_Sanne vult dit in vóór wo 18 nov 12:00._ **Stand 17 nov 09:02:** de kroniek staat in `platformen/steam/teksten-spel.md`, per soort, met hoe vaak een speler elke regel ziet. Begin bovenaan: de vier bovenste rijen zijn meer dan de helft van wat een speler leest. Deel 2 daar is een nieuw voorstel (de vangst die terugslaat op de binnenkomst). Heldenboek, winkel, hol-niveaus, namen en menu volgen. Alles CONCEPT.
 
 ## Wat Thijs wanneer nodig heeft (Sem, 16 nov)
 Zo hoeft niet alles tegelijk. De datums komen uit `platformen/steam/marketing/festplan.md` en `talen.md`.
