@@ -72,7 +72,7 @@ const VOORRAAD := {
 	"val_wraakzuchtig": ["{naam}'s list got one name shorter.", "{naam} holds a grudge. Down there."],
 	"val_opschepper": ["{naam} slew a dragon. Not this hole.", "{naam}'s autograph: in the pit now.", "{naam} will tell no one about this."],
 	"vlucht_ridder": ["Sir {naam} retreats. Slowly. Loudly.", "Sir {naam} will tell it differently."],
-	"vlucht_dief": ["{naam} got away. With nothing. Again.", "{naam} escaped. You saw that too."],
+	"vlucht_dief": ["{naam} escaped. You saw that too."],   # "Again." viel af: hij is nieuw (controleur 7)
 	"vlucht_magier": ["{naam} saw the trap. Told no one.", "{naam} vanished. Took the stairs."],
 	"vlucht_bard": ["{naam} got away. New song tonight.", "{naam} ran, humming. Uh oh."],
 	"vlucht_slaapkop": ["{naam} woke up and ran. Fair.", "{naam} sleepwalked right out."],

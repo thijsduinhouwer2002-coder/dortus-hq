@@ -1377,17 +1377,20 @@ func _nieuwe_held() -> bool:
 				ts_mist.append(pre + so)
 				continue
 			for rts in RT.BRAM.VOORRAAD[pre + so]:
-				var v_ts: String = RT.vul(rts, {"naam": "Gerda", "bewoner": "Gloop"})
-				if v_ts.length() > RT.MAX - (4 if pre == "val_" else 0):
-					ts_lang.append(v_ts)
-				for w in [" he ", " he.", " his ", " him", "He "]:
-					if (" " + v_ts).contains(w):
-						ts_hij.append(v_ts)
+				for bw in ["Gloop", "the Spike Pit", "you"]:
+					var v_ts: String = RT.vul(rts, {"naam": "Joost III", "bewoner": bw})
+					if v_ts.length() > RT.MAX - (3 if pre == "val_" else 0):   # nieuwe held: buit hooguit " +9"
+						ts_lang.append(v_ts)
+					for w in [" he ", " he.", " his ", " him", "He "]:
+						if (" " + v_ts).contains(w):
+							ts_hij.append(v_ts)
 	ok(ts_mist.is_empty(), "terugslag: alle val_ en vlucht_ lijsten bestaan (mist %s)" % str(ts_mist))
-	ok(ts_lang.is_empty(), "terugslag: alles past bij Gerda, val met +12 (langere namen: kies() neemt een regel die past) (te lang %s)" % str(ts_lang))
+	ok(ts_lang.is_empty(), "terugslag: alles past bij Joost III, val met +9 (te lang %s)" % str(ts_lang))
 	ok(ts_hij.is_empty(), "terugslag: geen he/his/him (%s)" % str(ts_hij))
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "ridder"}, "val") == "val_ridder", "terugslag: ridder valt in val_ridder")
-	ok(AF.terugslag(nep_ts, {"binnen_soort": "ridder"}, "val_bewoner") == "val_ridder", "terugslag: ridder bij Gloop ook val_ridder")
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "ridder", "bezoeken": 1}, "val") == "val", "terugslag: terugkomer gewoon val")
+	ok(AF.terugslag(nep_ts, {"binnen_soort": "bard"}, "vlucht") == "vlucht" and AF.terugslag(nep_ts, {"binnen_soort": "bard"}, "val") == "val_bard", "terugslag: bard vlucht gewoon, valt wel terug")
+	ok(AF.terugslag({"regels": RT, "demo": true}, {"binnen_soort": "ridder"}, "val") == "val", "terugslag: demofilm gewoon val")
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "dief"}, "vlucht") == "vlucht_dief", "terugslag: dief vlucht in vlucht_dief")
 	ok(AF.terugslag(nep_ts, {}, "val") == "val", "terugslag: zonder opzet gewoon val")
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "onbekend"}, "vlucht") == "vlucht", "terugslag: onbekende soort gewoon vlucht")

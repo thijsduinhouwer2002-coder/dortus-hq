@@ -15,13 +15,15 @@ static func faam_erbij(s, n: int) -> void:
 		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
 
 # Vangst of vlucht die terugslaat op de binnenkomst (Sanne 17 nov 09:02, features.md, Iris keuring 21): een held die
-# bij binnenkomst een soort- of trekregel kreeg, krijgt bij zijn gewone vangst of vlucht een regel uit "val_<soort>" of
+# bij binnenkomst een soort- of trekregel kreeg, krijgt bij zijn vangst in de put of vlucht een regel uit "val_<soort>" of
 # "vlucht_<soort>" (systemen/kroniek_regels.gd). Afrekening, aartsvijand en hap-met-hoed gaan voor (die roepen dit niet
 # aan). Een terugkomer heeft geen binnen_soort meer (wordt bij de afloop gewist): zijn opzet is te lang geleden.
 static func terugslag(s, info: Dictionary, gewoon: String) -> String:
 	var soort := String(info.get("binnen_soort", ""))
-	if soort == "":
-		return gewoon
+	if soort == "" or int(info.get("bezoeken", 0)) != 0 or s.get("demo") == true:
+		return gewoon   # geen opzet, een terugkomer, of de demofilm (die houdt zijn vaste tekst, controleur 2 en 5)
+	if soort == "bard" and gewoon == "vlucht":
+		return gewoon   # de liedregel volgt meteen en een_per_held haalt de vluchtregel weg (controleur 3)
 	var eigen := ("vlucht_" if gewoon == "vlucht" else "val_") + soort
 	return eigen if s.regels.heeft(eigen) else gewoon
 
@@ -117,7 +119,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
 			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
 			if r == "":
-				r = s.regels.kies(terugslag(s, info, "val_bewoner"), {"naam": naam, "bewoner": s._bewoner()}, extra.length())
+				r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())   # geen terugslag bij de hap: de regels gaan over de put (controleur 1)
 		else:
 			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
