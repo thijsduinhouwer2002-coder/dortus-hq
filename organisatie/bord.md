@@ -51,7 +51,9 @@ Verbruik: 12 agents aan, ongeveer gelijk aan de ochtend van 17 nov. Te hard: eer
 
 Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oWQXa8TGtqpE). Nieuwe hoofdchat later: zie `organisatie/overdracht.md` stap 1.
 
-- di 17 nov 20:00: avondcheck (Garmin-keuringen, forum, Bison & Flex, overlevers ideeënploeg, bord nakijken). trig_01Dz8krq9BLyD9CD5NZddyK6
+- **Vaste hoofdchat-ronde** 08:41, 14:41, 17:41, 20:41 volgens `organisatie/hoofdchat-ronde.md`; elke ronde plant de volgende.
+- di 17 nov 20:00: avondcheck plus ronde. trig_01Dz8krq9BLyD9CD5NZddyK6
+- wo 18 nov 08:41: eerste ochtendronde. trig_01YQsWUeM3KN6qiY1BPF1pUG
 - wo 18 nov 10:30: Superhive-keuring Click Joints Pro. trig_01WqQUEdmgLcStaopgWfBV7T
 - wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles. trig_01JgmtxeCrzi9WVdSVAG98ed
 
