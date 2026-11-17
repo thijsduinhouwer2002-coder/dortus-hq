@@ -32,9 +32,18 @@ Vorm voor elke post: **een titel, één gif of clip, hooguit twee zinnen**. Waar
 | A5 | bij elk gehaald hoedendoel (optie A) | Titel: "[50,000] hats! A new hat for every Gloop." | clip van die hoed | 8 | CONCEPT |
 | A6 | demo-fix tussen 4 en 13 jan | Titel: "Demo 1.0.[x]: [wat er gerepareerd is]" (zin van Olaf, Thijs in eigen woorden) | geen of een gif | ±8 | CONCEPT |
 | A7 | ma 18 jan, einde fest | Titel: "Thank you. The demo stays." Zin: "Your hats come with you to the full game." | schermafbeelding hoedenteller | 14 | CONCEPT |
-| A8 | lanceerweek, dag 3 tot 7 | "What's coming to Hats of the Fallen", 5 vakjes die we in dezelfde post afvinken; volledige concepttekst in `marketing/routekaart.md`, inhoud wacht op Olaf | geen | ±120 | CONCEPT |
+| A8 | lanceerweek, dag 3 tot 7 | "What's coming to Hats of the Fallen", **4 vakjes** (bijgewerkt run 19 met Olafs lijst: kies je scherm en boven of onder, [10] nieuwe hoeden, een nieuwe laag, één ding dat spelers kiezen; bazen geschrapt), afvinken in dezelfde post; volledige concepttekst in `marketing/routekaart.md` kopje "Run 19"; het vakje met de nieuwe laag alleen als Olaf op do 19 nov "vast" zegt | geen | ±95 | CONCEPT |
 | A9 | lanceerweek | Titel: "Bundles!" per bundel één zin waarom hij past (vorm van Nanomon, `marketing/bundels.md`) | capsules van de bundels | ±40 | CONCEPT, tekst volgt als de bundels vaststaan (±16 feb); concept voor de post met Tiny Pasture in hun eigen sjabloon staat in `marketing/bundels.md` (run 13) |
 | A10 | uitgavedag (±2 mrt) | Titel: "Hats of the Fallen is out. 15% off until [datum]." Zin: "Your demo save comes with you." (prijs, korting en einddatum in één regel, voorstel Fenna verhaal 20; `marketing/lanceerplan.md`) | gif: hoedenstapel op Gloop | 15 | CONCEPT |
+
+## Regel in het rechtsklikmenu van de demo (voorstel Sem run 19, status CONCEPT)
+Olaf (17 nov ±05:20) bouwt een klein menu met hoogte, "Feedback" (opent het subforum "Demo feedback") en stoppen, plus een vierde regel die grijs is en niet klikbaar: wat er met de demo en de save gebeurt. Hooguit 38 tekens, zodat hij op 96 px past. Valve raadt aan dit in de demo te zeggen (`doc/marketing/upcoming_events/nextfest/tips`, GEZIEN 17 nov).
+| Id | Wat | Voorstel (Engels) | Tekens | Status |
+|---|---|---|---|---|
+| M1 | grijze regel | "Your save carries over to the full game." | 40 | CONCEPT |
+| M1b | korter, als 40 niet past | "Your save goes to the full game." | 32 | CONCEPT |
+| M2 | knop | "Feedback" | 8 | CONCEPT |
+Waarom deze en niet "Demo stays until launch": of de demo na de lancering blijft is nog niet beslist (bij Olaf en de hoofdchat; 17 van de 20 grootste bureaubladspellen hebben nu geen demo meer, Fenna verhaal 23). De zin over de save is nu al waar (zelfde map, met een toets vastgezet, Olaf en Sanne 17 nov) en blijft waar wat er ook besloten wordt. En de save mee is wat spelers onthouden (verhaal 23). Olaf zegt dat 40 tekens krap is voor 38; daarom M1b als terugval.
 
 ## Wedstrijd in de festweek (status CONCEPT)
 | Id | Wanneer | Voorstel (Engels) | Woorden | Status |

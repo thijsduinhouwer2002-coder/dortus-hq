@@ -41,3 +41,28 @@ Afvinken: "☐" wordt "✅ (in the game since [datum])" in dezelfde post, plus e
 ## Wanneer opnieuw bekijken
 - Olaf zegt dat er bij de uitgave te weinig in zit om "af" te voelen: dan wordt het Early Access-vraag van de hoofdchat, en past een routekaart vóóraf juist wel (Early Access belooft altijd een plan). Dan zet ik hem op de dag van de uitgave.
 - Een winnaar die het vooraf deed en daar groei van had: dan opnieuw kijken. Volgende keer meet ik de 10 bureaubladspellen die in december en januari uitkomen (Little Writer Desktop Companion, 6 jan, Fenna's volgende verhaal).
+
+## Run 19 (17 nov ±05:45 UTC): inhoud van Olaf, 4 vakjes in plaats van 5
+Olaf (`berichten/sem.md`, 17 nov ±05:30, voorlopig, vast na zijn rekensom van do 19 nov): liever 4 echte vakjes dan 5 met een gok. Zeker: (1) kies je scherm en boven of onder, (2) 10 hoeden (als Mila vanaf 28 nov half op Hats staat), (3) één vakje dat spelers kiezen, hooguit ±3 runs bouw en geen nieuwe heldensoort, (4) een nieuwe laag, "waarschijnlijk zeker". **Bazen geschrapt**: drie nieuwe figuren met eigen gedrag, daar zet hij geen datum op.
+
+**Besluit Sem: 4 vakjes, ik neem Olafs lijst zo over.** Waarom: de regel van dit plan is "geen punt dat we niet kunnen halen" (Fenna, verhaal 12: een niet gehaald vinkje is erger dan geen lijst), en Mini Cozy Room had er ook geen 5 nodig om te werken. Twee aanpassingen in de tekst:
+1. **Het vakje van de spelers zegt vooraf hoe groot het mag zijn.** Olafs voorwaarde komt in de post zelf, in gewone woorden ("one feature, small enough to build in a few weeks"), zodat niemand een nieuwe heldensoort verwacht. Mini Cozy Room schreef eerlijk wat ze kozen en waarom; dat doen wij ook.
+2. **De hoeden-regel noemt de wedstrijd van januari** als de winnende hoeden van W1 bij die 10 horen. Dan sluit de festweek aan op de lanceerweek: wie in januari tekende, ziet zijn hoed in het eerste vinkje. Vraag aan Olaf en Mila (hun berichtenbestand): horen de winnaars bij de 10, en zijn het 10 hoeden bovenop wat er bij de uitgave in zit (nu 10 soorten plus Fest Hat nr 11)? Tot het antwoord staat het tussen haken.
+3. **Het vakje met de nieuwe laag (Olafs punt 4) alleen als hij op do 19 nov "vast" zegt.** Zegt hij "gewijzigd", dan gaat de post met 3 vakjes. Liever 3 die we halen.
+
+Bijgewerkte concepttekst (Engels, CONCEPT, Thijs schrijft hem in eigen woorden; staat ook als A8 in `platformen/steam/teksten-thijs.md`):
+
+> **What's coming to Hats of the Fallen**
+>
+> Thank you for the first week. Here's what we're building next. We'll tick each box in this post the day it's in the game, and post a short note with it.
+>
+> ☐ **Pick your screen, top or bottom.** Put Gloop on your second monitor, or above your windows instead of on the taskbar.
+> ☐ **[10] new hats** for Gloop to eat and wear[, including the winners of the January hat contest].
+> ☐ **A new layer** below the ones you have: new traps for the heroes who dig deeper. Your old layers keep running.
+> ☐ **Your pick.** The most-asked thing in reviews and discussions in the first two weeks goes here: one feature, small enough to build in a few weeks.
+>
+> Your save always comes with you. No update will ever reset your hole.
+
+Wat eruit ging tegen de versie van 16 nov: "Boss heroes" (geschrapt door Olaf), "[X] hats eaten already" (dat getal heeft alleen het spel zelf, en de demo telt niet mee in het volle spel; GOK dat we het op dag 3 tot 7 niet betrouwbaar hebben), "below the Gloopheart" (de naam van de laag weet ik pas na do 19 nov). ±95 woorden.
+
+**Waarom de taakbalkwens bovenaan:** het is het enige punt dat over de plek van het spel gaat, en de plek is wat de winnaars verkoopt ("sits on top of your taskbar", 8 van 13 winnaars, `winkeltekst.md`). Wie in een review schrijft dat hij twee schermen heeft of de taakbalk links, ziet dan meteen dat het komt. Volgorde van afvinken bepaalt Olaf, niet de lijst.
