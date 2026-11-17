@@ -445,3 +445,6 @@ De makersaanvraag van 10 nov bleek nooit verstuurd. Thijs heeft de winkel zelf a
 
 ## 17 nov 2026 ±11:25 NL: Ebb 1.0.1 ingediend en prijs naar $2,99 (Thijs en hoofdchat)
 Ebb 1.0.1 (55 modellen) ingediend met de nieuwe titels en "wat is nieuw" in drie talen; de winkel toont de nieuwe naam meteen. Prijs van $4,99 naar **$2,99** (winkel toont nu 3,49 euro). Waarom: bij 0 downloads kost een lagere prijs niets, en de eerste 14 dagen tellen het zwaarst. Mijn eerste reden om te wachten (dan weet je niet wat hielp) was zwak bij 0 downloads; Thijs vroeg ernaar. $2,99 bestaat wel als prijsstap in het formulier (GEZIEN). Terug omhoog kan altijd.
+
+## 17 nov 2026 ±11:30 NL: hele ploeg op pauze (Thijs)
+Thijs: tokens gaan te hard en we doen te veel tegelijk, waardoor dingen half gebeuren. Alle geplande agents staan uit (Olaf, Bram, Sanne, Iris, Ruben, Gijs, Daan, Chris, Joris, Noor, Stijn; Kai al eerder). Een run die nog liep maakt hij af. Ook de groeironde van de hoofdchat en het bericht van 12:00 staan uit. Aan blijven alleen twee losse herinneringen: Steam-app met Thijs (wo 12:00) en de Superhive-check (wo 10:30). Niets nieuws beginnen; eerst afmaken wat er staat, met een vaste lanceerlijst per product.
