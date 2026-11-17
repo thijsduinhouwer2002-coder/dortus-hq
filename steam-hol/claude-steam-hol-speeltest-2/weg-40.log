@@ -1,0 +1,19 @@
+HOL weg geweest 25209 s (klok terug: false): goud voor 627, helden 100, erbij 502, hoeden 38
+HOL weg faam afgekapt 7 van 67 (hooguit 2 niveaus)
+HOL hol-niveau 4 (faam 12, t 0.0)
+HOL hol-niveau 5 (faam 12, t 0.0)
+HOL hoeden van de nacht 38 (vallen vanaf 1.0 s, toren nu 40)
+HOL berg zichtbaar 6 -> 8
+HOL kroniek 0.0 (wacht 0.0): 100 came, 67 fell, 38 hats. +502 gold.
+HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
+HOL opslag geladen: 0 terugkomers, 1129 goud, faam 12
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 1794933238
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1129)
+HOL bordje wip na weg (niveau 5)
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.0 (wacht 0.0): Rik brought a torch. And hope.
+HOL held binnen: Rik
+HOL zicht 4.1 1
+HOL meting t=10 beelden=98 helden=1 hol_vast=11
+HOL einde na 12 s, fps=10, goud=1129, terugkomers=0
