@@ -1394,4 +1394,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Bewijs: `producten/steam-hol/bewijs-vol/bovenste-rij-per-drie-nagebouwd.png` op de tak (uit het echte blad, geen spelopname), GEZIEN met Read, geen naden. Echte strook pas na de losse CPU-herhaling (run 43985774466), zodat die alleen loopt (Sanne 23:55).
 - Rolsteen en edelman: volgorde na de speeltest begraven stukken, rolsteen, edelman; GOK kosten do 19 nov.
 - Twee dubbele toetsruns van mij op 2380714 geannuleerd (de push start de toetsrun al zelf; handmatig starten is dubbel). Les: na een push niet ook nog `steam-hol.yml` met de hand starten.
-
+- 00:34: toetsrun op ee19bd6 groen op Windows (run 43987448472). De losse CPU-herhaling (run 43985774466) liep na 21 min nog; strook voor Daan dus niet gestart, eerst volgende run. Kaartje-moets van Daan 23:30 als taak gezet (nog niet gebouwd).
