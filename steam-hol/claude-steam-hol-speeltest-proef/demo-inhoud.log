@@ -1,0 +1,17 @@
+HOL inhoud-proef: faam 72, winkel { "slijm": 3, "stekelput": 3 }
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL demo: speeltijd 0 s, hol 12, winkel { "slijm": 3, "stekelput": 3 }, klaar false
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 1794930007
+HOL demo voorbij na 0 s speeltijd (hol 12, winkel { "slijm": 3, "stekelput": 3 })
+HOL kroniek 2.5 (wacht 2.4): That's the demo. Your hole keeps going.
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL begin: vallen (Lotte)
+HOL held binnen: Lotte
+HOL zicht 4.1 1
+HOL kroniek 5.0 (wacht 1.0): Lotte read about you in a tavern.
+HOL kroniek 9.8 (wacht 0.0): Tibbe knocks first. Polite.
+HOL begin: opgegeten (Tibbe)
+HOL held binnen: Tibbe
+HOL meting t=10 beelden=63 helden=2 hol_vast=1
+HOL einde na 12 s, fps=10, goud=20, terugkomers=0

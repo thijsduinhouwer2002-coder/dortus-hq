@@ -1,0 +1,14 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
+HOL zaad 1794929841
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Joost brought a torch. And hope.
+HOL begin: vallen (Joost)
+HOL held binnen: Joost
+HOL zicht 4.2 1
+HOL menu-proef: rechtsklik
+HOL menu open 5.1
+HOL meting t=10 beelden=62 helden=1 hol_vast=1
+HOL begin: opgegeten (Rik)
+HOL held binnen: Rik
+HOL einde na 16 s, fps=11, goud=26, terugkomers=0
