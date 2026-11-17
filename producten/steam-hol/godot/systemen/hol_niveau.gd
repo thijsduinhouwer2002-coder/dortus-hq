@@ -11,7 +11,7 @@ class_name HolNiveau
 # graven gratis, upgrades 45/126/353, de eerste upgrade valt op vangst 4, dus geen drempel op 4; niets valt meer samen
 # behalve hol 5 soms (3 van 40), ergste gat minuut 1 tot 20 van 11,8 naar 10,7 min, mediaan 7,0 naar 6,1; sim/samenval.py deel 3).
 # Bij de v3-economie (graven kost goud) opnieuw kijken: daar gaf Bram 3/4/7/12/16.
-const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 53, 69, 88]
+const DREMPEL := [0, 3, 5, 7, 12, 17, 25, 31, 39, 49, 60, 72]   # hol 10 tot 12: 49 / 60 / 72 (Sanne 17 nov 07:55, was 53 / 69 / 88; balans.md)
 const DEMO_MAX := 12
 # Titel per niveau ("Level 5: a tavern tale. 4 heroes to go."), Engels (winkeltaal).
 # Titels in plaats van wat er bijkomt (voorstel Sanne 16 nov 19:00, ja Daan 19:50): in de speeltestbuild ontgrendelt een

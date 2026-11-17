@@ -98,6 +98,7 @@ func _init() -> void:
 	var HN = load("res://systemen/hol_niveau.gd")
 	ok(HN.niveau(0) == 1 and HN.niveau(2) == 1 and HN.niveau(3) == 2 and HN.niveau(12) == 5 and HN.niveau(88) == 12, "hol-niveau op de drempels")
 	ok(HN.niveau(100000) == 12 and HN.nog(100000) == 0, "demo stopt op hol-niveau 12")
+	ok(HN.niveau(72) == 12 and HN.niveau(71) == 11 and HN.niveau(60) == 11 and HN.niveau(59) == 10 and HN.niveau(49) == 10 and HN.niveau(48) == 9, "drempels hol 10, 11, 12 op 49 / 60 / 72 (Sanne 17 nov 07:55)")
 	ok(HN.hover(0) == "Level 1: a damp hole. 3 heroes to go.", "hover niveau 1: " + HN.hover(0))
 	ok(HN.hover(11) == "Level 4: a bad idea. 1 hero to go.", "hover enkelvoud: " + HN.hover(11))
 	ok(HN.erbij(2, 12) == [2, 3, 4, 5] and HN.erbij(5, 5).is_empty(), "niveaus erbij, oplopend")
@@ -612,16 +613,16 @@ func _init() -> void:
 	var ds = nep_de.new()
 	ds.hol = nep_hol.new()
 	ds.hol.upgrades = load("res://systemen/upgrades.gd").new()
-	ds.faam = 88   # DREMPEL van hol 12
+	ds.faam = 72   # DREMPEL van hol 12 (Sanne 17 nov 07:55)
 	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 2}
 	for i in 100:
 		DE.tik(ds, 0.1)
 	ok(not DE.klaar(ds) and ds.kroniek.is_empty() and not DE.weiger(ds, "proef"), "hol 12 maar één winkelding open: geen einde, kopen mag")
 	ds.hol.upgrades.niveaus = {"slijm": 3, "stekelput": 3}
-	ds.faam = 87
+	ds.faam = 71
 	DE.tik(ds, 0.1)
 	ok(not DE.klaar(ds), "winkel leeg maar hol 11: geen einde")
-	ds.faam = 88
+	ds.faam = 72
 	ds.rij = 2
 	DE.tik(ds, 0.1)
 	ok(not DE.klaar(ds), "faam voor hol 12 maar nog 2 niveaus in de rij (bordje zegt hol 10): geen einde")
