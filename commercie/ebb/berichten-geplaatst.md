@@ -54,3 +54,7 @@ Thanks for reporting this. Which watch and firmware do you have, and what did yo
 Thank you, that's great to hear. If you have ideas for the sea or the animals, I'd like to hear them.
 ```
 (Niet om een beoordeling vragen in de draad; dat is geen afspraak met de forumregels die ik gelezen heb, en het voelt als bedelen.)
+
+## 17 nov 2026 ±12:43 NL: Calm-antwoord in de eigen Showcase-draad (hoofdchat, ja Thijs 11:48)
+Plek: https://forums.garmin.com/developer/connect-iq/f/showcase/448097/watch-app-ebb-breathing-rounds-and-calm-4-7-8-as-a-little-sea-with-animals-that-join-as-you-keep-coming-back
+Stand: verstuurd, wacht op moderator ("All replies are moderated"). Tekst = `lancering.md` punt 5, met één zin erbij: "Ebb is now $2.99." (de zin over meer horloges weggelaten tot 1.0.1 goedgekeurd is).
