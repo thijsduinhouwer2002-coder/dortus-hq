@@ -20,8 +20,21 @@ import hoeden as hd
 
 R = math.radians
 STRAAL = 0.5
-BASIS, SLAG, MOS = "6a6764", "5a5754", "3c5228"
+BASIS, SLAG, MOS = "6e6b67", "5d5a56", "3c5228"   # 17 nov 02:45: basis een tikje lichter (kan Daan)
+GROOT = 1.07   # 17 nov 02:45 (kan Daan): in de gang op 1x was hij even groot en donker als een ton
 GROEF_AS = Vector((0.0, 0.42, 1.0)).normalized()   # normaal van het groefvlak: band loopt schuin, zichtbaar in elke stand
+
+
+# 17 nov 02:45 (kan Daan): groot leest de groef als een strak touw. Op twee plekken is hij weggesleten,
+# dan is het een kerf in steen. heel(n) is 1 in de groef en zakt naar 0 bij de twee breuken.
+_B2 = Vector((-0.5, -0.85, 0.36)).normalized()
+
+
+def heel(n):
+    """1 in de groef, 0 in één breuk. Eén, niet twee of drie: meer breuken lazen als stippellijn (stiksel), GEZIEN."""
+    bp = (_B2 - GROEF_AS * _B2.dot(GROEF_AS)).normalized()
+    t = (1 - n.dot(bp)) / 0.06                       # 0 midden in de breuk, 1 op ±20 graden
+    return min(1.0, max(0.0, t))
 
 
 def steen(ouder, draai=0.0):
@@ -47,7 +60,7 @@ def steen(ouder, draai=0.0):
         n = v.co.normalized()
         bult = noise.noise(n * 1.6 + Vector((3.1, 0.7, 1.9))) * 0.07 + noise.noise(n * 4.0) * 0.018
         d = n.dot(GROEF_AS)
-        kerf = -0.016 * max(0.0, 1 - (abs(d) / 0.05) ** 2)           # ondiepe groef: geen twee opbollende helften
+        kerf = -0.016 * max(0.0, 1 - (abs(d) / 0.05) ** 2) * min(1.0, heel(n) * 1.5)  # ondiepe groef: geen twee opbollende helften
         v.co = n * (STRAAL + bult + kerf)
         v.co.z *= 0.92
     # twee afgeslagen platte vlakken: alles voorbij het vlak terug op het vlak
@@ -80,7 +93,7 @@ def steen(ouder, draai=0.0):
     for f in bm.faces:
         c = f.calc_center_median()
         d = abs(Vector((c.x, c.y, c.z / 0.92)).normalized().dot(GROEF_AS))
-        if d < 0.042:
+        if d < 0.042 and heel(Vector((c.x, c.y, c.z / 0.92)).normalized()) > 0.5:   # één breuk; breedte laten wisselen kan niet, de groef is één rij vlakken
             f.material_index = 1
         for lp in f.loops:
             lp[laag] = kleur_v[lp.vert.index]
@@ -112,6 +125,7 @@ def bouw(stand="klaar", plek=(0, 0, 0), draai=0.0):
         hd._kegel(ouder, (0.62, -0.28, 0.17), 0.014, 0.014, 0.34, touw, rot=(R(10), R(-25), 0), verts=8)
         hd._bol(ouder, (0.66, -0.25, 0.02), (0.05, 0.05, 0.03), touw, segs=12)
     ouder.location = plek
+    ouder.scale = (GROOT, GROOT, GROOT)
     return ouder
 
 
