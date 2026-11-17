@@ -2,6 +2,23 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 17 nov 2026 16:40 UTC: run 3, 0 ideeën klaar voor keuring, 7 zelf afgeschoten
+
+Eerlijk: mijn hoek (wat de laatste 8 weken openging) is grotendeels al gewogen in `platformen/pionier/voorstellen/` (62 voorstellen). Deze run zocht ik naar wat daar nog niet staat. Niets haalt alle 4 wetten. Met de les van Patrick (zoek de taak in de hele winkel) en de les van vandaag (vraag 1 eerst).
+
+Zelf afgeschoten (kort, met bron, zodat niemand ze opnieuw voorstelt):
+- **EmDash-plugins (Cloudflare, plugin-register sinds 28 sep 2026) | DOOD op wet 3, nu.** Open CMS voor Astro van Cloudflare, versie 1.0 op 28 sep, 1.5 op 13 nov; het pakket `emdash` had 499.597 npm-downloads van 18 okt tot 16 nov (GEZIEN 17 nov, api.npmjs.org; npm telt ook bouwservers mee, dus geen maat voor sites). Register op plugins.emdashcms.com: 48 plugins op de zoekpagina (GEZIEN 17 nov). Maar letterlijk: "All registry plugins are free for now. We want plugin authors to be able to sell their work, and we plan to add paid plugins" (GEZIEN 17 nov, emdashcms.com/blog/emdash-plugin-registry). Dat is "betalen komt eraan", hooguit een 6. De basistaak SEO is al twee keer bezet (Rank EmDash, QuixSEO), net als Stripe-winkel en formulieren (GEZIEN, zelfde register). Publiceren vraagt een Atmosphere-account (Bluesky), dus een stap van Thijs. Herhaalmeting: zodra betaalde plugins aangaan, want dan is dit wel een jonge winkel met WordPress-achtige betaalcultuur.
+- **DaVinci Resolve 21.1 (7 sep 2026): MCP-server en Python-scripts | DOOD op vraag 1 en 5.** De MCP-koppeling voor AI-assistenten zit in Resolve Studio zelf ("Studio acquires a native MCP server for AI assistants", GEZIEN 17 nov, digitalproduction.com 8 sep 2026). Voor scripts is er geen winkel of lijst in Resolve, dus een koper vindt ons niet zonder eigen kanaal; en echt testen vraagt een GPU.
+- **Affinity 3.3 Scripting Studio | al gewogen**, cijfer 5 op 8 nov (`platformen/pionier/voorstellen/affinity-scripts.md`). Nieuw feit deze run: Canva zegt zelf dat scripts geen nieuwe gereedschappen kunnen toevoegen, alleen herhaalwerk automatiseren, en de Studio schrijft ze met AI (GEZIEN 17 nov, cgchannel.com 15 sep 2026). Dat maakt vraag 1 zwakker: de gebruiker laat het script door de ingebouwde AI maken. Plus: Affinity draait niet op Linux, dus echt testen in de cloud kan niet (vraag 6).
+- **Cobalt, apps op Kobo-lezers (21 aug 2026) | DOOD op wet 3 en bereik.** Open hobbyproject: eigen launcher, ondertekende winkel en Rust-SDK, installeren via USB (GEZIEN 17 nov, aitoolly.com 22 aug 2026, uit Hacker News). Geen betalen, publiek is wie zijn Kobo durft aan te passen.
+- **DeepSeek Harness-pluginwinkel (aangekondigd 6 nov 2026) | DOOD op wet 1 en 3** (eigenlijk de hoek van Joris). Er zijn al ±35.000 plugins vóór de winkel er is, en de steun is "token incentives", geen verkoop (GEZIEN 17 nov, technode.com 6 nov 2026).
+- **Rokid AI-brillen (AIUI Studio, creator-programma aug 2026) | DOOD op vraag 6.** Testen vraagt de bril; het programma deelt brillen uit aan makers met volgers, niet aan bouwers (GEZIEN 17 nov, androidguys.com 11 aug 2026). Aantal verkochte brillen buiten China: ONBEKEND.
+- **Meta Ray-Ban Display, herhaalmeting** (script `platformen/pionier/data/meta-brillen-meet.py`, 17 nov): indienen nog steeds "soon", GlassApps (winkel van een buitenstaander) telt 41 apps. Niets veranderd; blijft een 5 tot indienen opengaat. Daarbij: de toolkit is open sinds 14 mei, dus al 6 maanden oud (GEZIEN 17 nov, startupfortune.com 2 nov 2026).
+
+Ook bekeken, geen idee: Zoom Marketplace (november-release alleen nieuwe API-velden, GEZIEN developers.zoom.us 9 nov), Google Play (externe winkels in de VS sinds 22 jul, auto-Play met 700+ apps; geen Play-account bij Dortus), Tesla (API alleen voor wagenparken, artikel uit 2023), Siri-acties voor apps in iOS 27.3 (Mac nodig), Godot (betalen nog steeds niet open, roadmap GEZIEN 17 nov).
+
+Les van deze run: bij jonge winkels is de grens nu bijna altijd wet 3. Wat net opengaat is gratis (EmDash, Godot, Blender-bibliotheken, Cobalt); wat betaalt is al ouder of vol. De beste kandidaat voor later is EmDash zodra betaalde plugins aangaan: dan meteen wegen, want dan begint de klok.
+
 ## 17 nov 2026 15:45 UTC Bouwdelen voor Blender: deuren, ramen, trappen en kasten met schuifjes, als asset-bibliotheek | KLAAR VOOR KEURING
 
 (Tijd uit `date -u`. De kop "±16:30 UTC" van run 1 hieronder was Nederlandse tijd met het verkeerde label; Patrick zag dat terecht.)
