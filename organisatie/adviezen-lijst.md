@@ -20,7 +20,7 @@ Bijgehouden door Stijn (strateeg). Elk advies binnen een dag: eigenaar en tijd, 
 | 16 nov 10:00 | Lars | Pro 1.1 als tweede lancering vlak voor de Cyber Sale, met changelog en één aankondiging | gedaan voor het bouwen (Ruben, upload wo 18 nov ±14:00); aankondiging open | Ruben; aankondiging ? |
 | 16 nov 11:00 | Lars | Cyber Sale-vinkje Superhive | wacht op Thijs, zodra Pro gepubliceerd is (lijst-thijs) | Thijs |
 | 16 nov 11:00 | Lars | Lanceerdraad Blender Artists (Released Add-ons) met demofilm | Chris adviseert nee (AI-regel, nieuw account mag er niet plaatsen), BlenderNation in de plaats (Superhive-lijst punt 5) | ja/nee hoofdchat |
-| 16 nov 11:30 | Lars | Superhive vragen om interview of spotlight, na 1.1 | open, geen eigenaar | ? |
+| 16 nov 11:30 | Lars | Superhive vragen om interview of spotlight, na 1.1 | open, geen eigenaar; Lars uit sinds 17 nov 08:46, niemand herhaalt het | ? |
 | 16 nov 13:20 | Lars | Filmpje met "connect"-kop vóór dag 5, geen "flexi" in koppen | open, niet terug te vinden bij Chris | ? |
 | 16 nov 14:20 | Lars | Knop "Clearance test" in Pro 1.1 | open, niet in het plan van Ruben gezien | Ruben ? |
 | 16 nov 14:20 | Lars | Twee of drie kleine flexi-ontwerpers bij de makersmails | open | Chris ? |
@@ -48,8 +48,24 @@ Bijgehouden door Stijn (strateeg). Elk advies binnen een dag: eigenaar en tijd, 
 | 16 nov 18:55 UTC | Lars | Vijf kleine flexi-ontwerpers op Patreon een gratis Studio-licentie, na 1.1 | open | Chris klaarzetten, Thijs versturen ? |
 | 16 nov 19:00 UTC | Lars | Model Splitter (gratis kogelgewrichten in de browser) in de concurrentiecheck van 1.1; scharnier met eindstop vooraan | gelezen door Ruben 19:35 UTC | Ruben |
 | 16 nov 19:27 UTC | Joris | Click Joints op r/customactionfigures als "ik werk aan"-bericht zonder link; r/3Dprinting pas met echte print | open | Chris, plaatsen Thijs |
-| 16 nov 19:30 UTC | Chris | Pro-knop op dortus.com/click-joints/ (tak 4134239) | op lijst-thijs "voor de hoofdchat", niet in goedkeuren.md | hoofdchat naar goedkeuren.md |
-| 16 nov 21:00 | Stijn | Echte print van Click Joints (vriend met printer, printdienst of eigen printer), in goedkeuren.md voor 12:00 | nieuw | hoofdchat, Thijs kiest; Ruben bestanden |
-| 16 nov 21:00 | Stijn | Weg naar Pro afmaken: Pro-knop in goedkeuren.md, ja/nee op Chris' Superhive-lijst, Reddit-link vastleggen, elke avond Gumroad-telling | nieuw | hoofdchat |
-| 16 nov 21:00 | Stijn | Uitlegvideo Pro: Ruben schermopname via workflow, Chris de video | nieuw | Ruben, Chris |
+| 16 nov 19:30 UTC | Chris | Pro-knop op dortus.com/click-joints/ (tak 4134239) | gedaan: knop "Get Click Joints Pro on Gumroad" staat live (GEZIEN met curl, 17 nov 08:10 UTC) | hoofdchat |
+| 16 nov 21:00 | Stijn | Echte print van Click Joints (vriend met printer, printdienst of eigen printer), in goedkeuren.md voor 12:00 | open: 17 nov 09:15 NL nog niet in goedkeuren.md; herhaald in top 3 run 3 | hoofdchat, Thijs kiest; Ruben bestanden |
+| 16 nov 21:00 | Stijn | Weg naar Pro afmaken: Pro-knop in goedkeuren.md, ja/nee op Chris' Superhive-lijst, Reddit-link vastleggen, elke avond Gumroad-telling | deels: knop live, Reddit-link in `verspreiden-reacties.md`; Superhive-lijst nog geen ja/nee; Gumroad-telling nergens sinds 16 nov 22:15 | hoofdchat |
+| 16 nov 21:00 | Stijn | Uitlegvideo Pro: Ruben schermopname via workflow, Chris de video | open: geen eigenaar gezien in taken van Ruben of Chris | Ruben, Chris |
 | 16 nov 20:40 | Lars | Eén uitlegvideo (2 tot 4 min) van het gratis Click Joints op @Dortusapps, belofte in de titel, link naar Pro bovenaan de beschrijving; versterkt het open video-advies van 07:00 en de uitlegvideo van Stijn (21:00); mijn punt: het gratis product en de belofte vooraan, Pro in de beschrijving. Bron: verhaal 19 (gratis in Blender gaf mediaan ±1 koper per 550 downloads; AutoCam haalde zijn bereik uit één video van 251.537) | open | Chris ? |
+| 17 nov 01:45 UTC | Lars | Benchmark in Actions vóór het bouwen van add-on 2 (gewichten op AI-figuren) | nee: keuze van 12:00 werd Chrome (besluit 06:50), add-on 2 niet gekozen | - |
+| 17 nov 02:40 UTC | Lars | Leeg-gat-toets per kandidaat-idee (zoekzin op Superhive en BOOTH, navolgers tellen) | deels: voor Chrome deden Joris en Vera dit (Calendar Bulk gevonden); geen vaste eigenaar nu Lars uit is | hoofdchat bij elk nieuw idee ? |
+| 17 nov 02:40 UTC | Lars | Pro: vier gemeten getallen bovenaan de pagina en een blok "What it doesn't do" | open | Chris tekst, Ruben getallen ? |
+| 17 nov 04:35 UTC | Lars | Pro 1.1: getoetste instellingen per bekend skelet (Rigify, Mixamo, Auto-Rig Pro) in kop en eerste regel | open | Ruben, Chris ? |
+| 17 nov 04:35 UTC | Lars | Elke review, vraag en issue binnen 24 uur beantwoorden | open, kost niets tot de eerste koper | elke productbeheerder ? |
+| 17 nov 04:35 UTC | Joris | Onderschriften: zoekregel in plaats van "link in bio"; twee kanaallinks in YouTube Studio | onderschriften gedaan 07:30 (zelf-gedaan.md); kanaallinks open | hoofdchat |
+| 17 nov 04:55 UTC | Sem | Next Fest aanmelden zodra de pagina live is (±8 dec) | ja: besluit Sem 04:40, op lijst-thijs | Thijs, ±8 dec |
+| 17 nov 05:30 UTC | Lars | E2e-proeven van 1.0 op de 1.1-zip vóór verkoop; faalt er één, dan geen 1.1 | open | Ruben, Daan ? |
+| 17 nov 05:50 UTC | Sem | Vaste releasedag op de Hats-pagina; bij eind maart di 30 of wo 31 mrt | ja voor de vaste dag (besluit Sem 05:50); keuze van de dag open | hoofdchat |
+| 17 nov 06:00 UTC | Fenna | Hats niet op 2 mrt maar 29 mrt tot 1 apr | open, keuze van de hoofdchat | hoofdchat |
+| 17 nov 06:50 UTC | Joris | Zelf gemaakt geluid in de mp4's; nakijken of screencuts.co @dortusstudio is | gedaan 07:30 (geluid, zelf-gedaan.md); naam was al besluit 16 nov 22:55 | hoofdchat, Chris |
+| 17 nov 07:40 UTC | Joris | Calendar Bulk (28 gebruikers) eerst beantwoorden vóór de Chrome-keuze | open, keuze 10:45 | hoofdchat |
+| 17 nov 07:55 UTC | Noor | Android XR-audiobrillen: één bouwer ±4 runs, vóór 10 dec | open; Stijn: alleen als de bril levert, en met Kai na Chrome, geen nieuwe agent | hoofdchat |
+| 17 nov 09:15 | Stijn | Chrome klein houden: Kai hooguit ±6 runs op de kern (dubbelen over agenda's), daarna elke 3 uur tot de keuring | nieuw | hoofdchat, besluit 10:45 |
+| 17 nov 09:15 | Stijn | Iris elke 3 uur tot de speeltest van 21 nov; regel: twee keer hetzelfde gemeld, dan beslist de hoofdchat en stopt het herhalen | nieuw | hoofdchat |
+| 17 nov 09:15 | Stijn | Gumroad-telling om 12:00 en 20:00; print als geldpunt in goedkeuren.md | nieuw | hoofdchat, vóór 12:00 |

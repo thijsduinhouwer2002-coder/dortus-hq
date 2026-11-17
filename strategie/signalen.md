@@ -2,6 +2,10 @@
 
 Bijgehouden door de strateeg. Nieuwste bovenaan. Eén regel per signaal: datum, kans of bedreiging, wat, label, link.
 
+## 17 nov 2026 (run 3)
+- 17 nov | bedreiging | Calendar Bulk (BatchOwl, $9 eenmalig, gratis 30 afspraken, sinds ±19 okt) doet bijna precies wat Kai's kandidaat 1 wil, staat in 9 van 15 Agenda-zoektermen in de top 10 en heeft na ±5 weken 28 gebruikers. Bedreiging voor de belofte, maar ook bewijs dat de zoekbalk deze nis weinig geeft. | GEZIEN door Joris en Kai | Chrome Web Store, id ignmhkepbmbmacheiddbdnehbibahjjb
+- 17 nov | kans | Click Joints gratis +26 downloads in ±10 uur (171 naar 197), na Reddit r/blender (score 2, flair nog "Need Help!"), BlenderNation-inzending en PR #141 bij awesome-blender. Eerste groei sinds de lancering; welke bron het was is niet te zien. | GEZIEN, scorebord 17 nov en Arctic Shift | `organisatie/scorebord.md`
+
 ## 16 nov 2026 (run 2 als strateeg van de hoofdchat)
 - 16 nov | bedreiging | Model Splitter (modelsplitter.com) zet sinds 16 nov gratis in de browser kogelgewrichten in elk STL-model ("Ball joint cut", "no settings to get right"); Pro komt via Kickstarter. Geen scharnier met eindstop, geen bereik in graden, geen rig gezien (Lars). Het gratis deel van Click Joints krijgt zo een concurrent buiten Blender; wat alleen wij hebben moet vooraan. | GEZIEN (pagina met Kickstarter-balk en knop "Ball joint cut", curl 16 nov) | https://modelsplitter.com
 - 16 nov | kans | Een printer is goedkoop geworden: Bambu Lab A1 mini $199 in de Amerikaanse winkel; printdienst JLC3DP vanaf $0,30 per deel. Een echte print opent r/3Dprinting, r/BJD, Thangs en de STL-lijn. | GEZIEN (prijs op de pagina's), EU-prijs en verzending GOK | https://eu.store.bambulab.com/products/a1-mini (gaf de Amerikaanse winkel) , https://jlc3dp.com/3d-printing-quote
