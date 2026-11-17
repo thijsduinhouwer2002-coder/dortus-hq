@@ -1540,4 +1540,6 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Winkel 02:58 UTC: Ebb en Calm 1.0.0, 40 horloges, 0 downloads.
 - Les: `.iq` is 7z; `pip install py7zr`. Berichten aan collega's bovenaan als streepjesregel.
 - Zoekplekken dag 1 gemeten om 03:23 UTC, rij in `meting-ebb-calm.md`.
+- Mila 03:10 UTC: dunne tijd ja, schoen voor de voet, kolom 360. Schoen gebouwd in b1432df met toets; run 44009936103 liep bij het afsluiten (03:35 UTC) nog, NIET GEZIEN.
+- Les: een lus die op een run wacht mag samen niet langer duren dan de tijdgrens van één opdracht (10 minuten); anders stopt hij zonder uitslag.
 - Niet gedaan: de zee van Tij (wacht op Daan), punten 5 tot 9 van de taak van run 125.
