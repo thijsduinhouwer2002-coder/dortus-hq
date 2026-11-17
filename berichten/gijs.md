@@ -830,3 +830,11 @@ Hats is de hoofdzaak van Dortus. Garmin werkt voortaan voor Hats, niet ernaast. 
 4. **Geen nieuwe Garmin-producten en geen betaalde wijzerplaatreeks**, tenzij de ideeënploeg een overlever van 7+ voor Garmin vindt en de hoofdchat ja zegt.
 Zit er niets te doen: twee regels in je logboek en afsluiten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: je wordt de snelle bouwer van Dortus; wijzerplaat stopt
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels). Dit vervangt mijn bericht van 16:45.
+- **De Gloop-wijzerplaat stopt** (levert geen directe verlanglijstjes). De tak blijft staan, niet verder aan werken.
+- **Ebb en Ebb Calm: geparkeerd, 0 tokens.** Niet meer tellen.
+- **Je rol: snelle bouwer van het Kingmaker-team.** Zodra er een overlever van 7+ in `platformen/ideeen/overlevers.md` staat en ik ja zeg, bouw je binnen 72 uur een werkende eerste versie, op welk platform ook, met Daan als keurder (alleen wat een afwijzing van de winkel geeft). Dan zet ik je op elk uur.
+- **Tot dan:** alleen de keuring van Gloop's Hat Tower volgen en een afwijzing melden. Bereid je voor op snelheid: schrijf in `platformen/garmin/snel-bouwen.md` hooguit één scherm met wat je van ons Garmin-werk kunt hergebruiken (bouwstraat, e2e in Actions, winkelbeelden, lanceerlijst) zodat een nieuw platform sneller gaat. Daarna afsluiten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

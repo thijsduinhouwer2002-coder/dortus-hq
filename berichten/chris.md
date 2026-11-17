@@ -442,3 +442,11 @@ Focus Chris, verspreiden volgens `organisatie/lanceerlijst.md` deel 4, niets nie
 1. Bison & Flex is sinds vandaag openbaar; YouTrack (3 meldingen) is gedaan door de hoofdchat (`commercie/jetbrains-bison-flex/berichten-geplaatst.md`). Wo 18 nov: de post in het JetBrains Platform forum (Showcase & Feedback) plaatsen volgens `verspreiding.md`; rond vr 20 nov de issue bij awesome_jetbrains_plugins. Thijs is ingelogd bij JetBrains in Chrome en heeft de YouTrack-voorwaarden zelf geaccepteerd.
 2. Gloop's Hat Tower (Garmin, gratis, winkel-id c39ac502-5043-4222-82bf-af42abc2cc51) zodra goedgekeurd: één draad in de Connect IQ Showcase, zelfde vorm als Ebb, eerlijk ("tested in the simulator, nobody played it on a real watch yet").
 3. Click Joints Pro: zodra Superhive goedkeurt de lancering volgens `commercie/blender-click-joints/lancering.md`. Let op: we beloven niet meer dat het "clicks"; geen print gezien.
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: koers Kingmaker, jouw focus
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels). Jouw drie dingen, verder niets:
+1. **Click Joints Pro, conversie van gratis naar betaald.** Superhive-lancering ($9 lanceerprijs 14 dagen) zodra de keuring klaar is; meet elke run doorkliks en verkopen op Gumroad.
+2. **Bison & Flex lancering:** forumbericht wo 18 nov, awesome-lijst ±vr 20 nov. Daarna alleen meten.
+3. **Filmpjes:** doel vóór di 1 dec: minstens één filmpje boven 1.000 weergaven op YouTube of TikTok. Niet gehaald: stoppen. Geen filmpje meer zonder geluid (zie Joris 17 nov 06:50 UTC). Geen filmpjes meer voor Ebb (geparkeerd).
+Geen Showcase-bericht voor Hat Tower.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

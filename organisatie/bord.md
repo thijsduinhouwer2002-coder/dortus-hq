@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 16:45 NL** (hoofdchat). **Koers (16:45): Hats is de hoofdzaak, de rest onderhoud; Garmin werkt voor Hats.** Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 16:45 NL** (hoofdchat). **Koers (16:47): Kingmaker, zie `organisatie/koers-kingmaker.md`. Kingmaker-team 50%, Hats 40%, Click Joints Pro conversie 10%. Ebb, Ebb Calm, Rollwright geparkeerd met 0 tokens.** Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -9,10 +9,10 @@
 | Product | Platform | Stand | Prijs | Volgende stap | Wie |
 |---|---|---|---|---|---|
 | **Hats of the Fallen** | Steam | In aanbouw. Hoofdzaak (besluit 15 nov 23:19) | nog te kiezen | wo 18 nov 12:00 Steam-app aanmaken met Thijs; wo 18 nov 20:00 winkelbeelden keuren met Thijs; za 21 nov speeltest (link vr 20 nov); **vr 27 nov pagina indienen** (7 werkdagen keuring); pagina live ±8 dec; demo 4 jan; Fest 14 tot 18 jan. Iris 17 nov: leuk 7, aandacht 6, mooi 6, doordacht 6. Open: 3 capsules zonder ja van Daan, staande en bibliotheekcapsule nog oude stijl (Mila staat uit), alle spel- en winkeltekst is concept tot Thijs hem schrijft | Olaf, Bram, Sanne, Daan, Iris |
-| **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 live (Gijs zag APPROVED in de winkelgegevens, 17 nov ±16:00; 74 artikelnummers, video). 0 downloads, 0 reviews | $2,99 (was $4,99) | 20:00 zelf nakijken; downloads volgen | Gijs |
-| **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 live (Gijs, zelfde check; link naar Ebb, banner). 1 download. Forumantwoord wacht op moderator | gratis | 20:00 zelf nakijken | Gijs |
-| **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40, ±16:00 nog niet goedgekeurd (geen afwijzing gezien) | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
-| **Gloop-wijzerplaat** | Garmin | bijna af op tak, Daan heeft nog één moet open (16 nov), geen `Akkoord: ja` | gratis, reclame voor Hats | Gijs maakt af, lanceerlijst, Daan keurt, hoofdchat uploadt | Gijs, Daan |
+| **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 live, 0 downloads. **Geparkeerd, 0 tokens** (koers 16:47) | $2,99 | niets; staat passief | niemand |
+| **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 live, 1 download. **Geparkeerd, 0 tokens** | gratis | niets | niemand |
+| **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40, nog niet goedgekeurd | gratis | alleen keuring volgen (Gijs); geen Showcase-bericht (levert geen verlanglijstjes) | Gijs |
+| **Gloop-wijzerplaat** | Garmin | **gestopt** 17 nov 16:47 (koers: geen losse wijzerplaten zonder directe verlanglijstjes). Tak blijft staan | | niets | niemand |
 | **Spraakmemo** | Garmin | **gestopt** 17 nov 16:35: 0 horloges met microfoon zonder ingebouwde spraaknotitie (Gijs, handleidingen nagelezen). Besluit in `besluiten.md` | | niets | niemand |
 | **Click Joints** (gratis) | Blender extensies | live | gratis | alleen meldingen | Bram |
 | **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
@@ -21,8 +21,8 @@
 | **Rollwright** | Obsidian | live, 44 downloads, 0 verkopen | | geparkeerd, alleen bugs | Olaf |
 | **Klopt** | TikTok Shop | kan niet live (KvK moet 1 jaar oud zijn) | | geparkeerd | niemand |
 | **Chrome-extensie** | Chrome Web Store | niet gebouwd (besluit 17 nov 10:50) | | geparkeerd | niemand |
-| **Nieuwe ideeën** | ideeënploeg | draait sinds 17 nov 15:30, elk idee eerst door de ideeëntest (9 vragen) | | hoofdchat leest elke avond `platformen/ideeen/overlevers.md` | Noor, Lars, Joris, Patrick |
-| **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live (youtube.com/shorts/sgcC965GVps) | | elke dag een filmpje | Chris |
+| **Kingmaker: nieuwe ideeën** | alle platformen | 17 nov: 19 ideeën zelf afgeschoten, 0 overlevers. Zoekers sinds 16:47 alle drie op wat nu opent; Patrick toetst op de 4 wetten | | eerste overlever 7+: Gijs bouwt binnen 72 uur, Gijs dan elk uur | Noor, Lars, Joris, Patrick, Gijs, Daan |
+| **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live; TikTok 1 volger, filmpjes gingen zonder geluid | | doel: vóór di 1 dec één filmpje boven 1.000 weergaven, anders stoppen (Chris) | Chris |
 
 ## 2. Agents (gelijk aan de geplande taken, nagekeken 17 nov 15:00)
 
@@ -30,17 +30,17 @@
 |---|---|---|---|
 | Olaf | aan | elk uur, :13 | Hats: hoofdbouwer, Steam-pagina en demo |
 | Bram | aan | elk uur, :07 | Hats: tweede bouwer. Click Joints alleen bij een melding |
-| Daan | aan | elk uur, :23 | ontwerp keuren voor alle teams, Garmin-banners |
+| Daan | aan | elk uur, :23 | keurt Hats (hoge lat) en de snelle versies van Kingmaker (alleen wat afwijzing geeft) |
 | Sanne | aan | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
 | Iris | aan | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
-| Gijs | aan | elke 3 uur, :52 (8 tot 20) | Gloop-wijzerplaat gratis afmaken als reclame voor Hats; Ebb meten tot 1 dec; keuring Hat Tower |
+| Gijs | aan | elke 3 uur, :52 (8 tot 20); elk uur zodra er een overlever is | snelle bouwer Kingmaker; tot dan alleen keuring Hat Tower |
 | Ruben | aan | elk uur, :03 | Click Joints Pro 1.1 |
-| Chris | aan | elke 3 uur, :41 (9 tot 21) | verspreiden: JetBrains-forum, Hat Tower, Superhive, filmpjes |
+| Chris | aan | elke 3 uur, :41 (9 tot 21) | Click Joints Pro conversie, lancering Bison & Flex, filmpjes met doel van 14 dagen |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
-| Noor | aan | elk uur, :29 (7 tot 22) | ideeënploeg, zoeker: wat net opengaat |
-| Lars | aan | elk uur, :47 (7 tot 22) | ideeënploeg, zoeker: gaten in grote producten |
-| Joris | aan | elk uur, :57 (7 tot 22) | ideeënploeg, zoeker: betaald maar gehaat |
-| Patrick | aan | elk uur, :15 (8 tot 23) | ideeënploeg, afschieter met `organisatie/ideeentest.md` |
+| Noor | aan | elk uur, :29 (7 tot 22) | zoeker: nieuwe winkels en apparaten met een SDK |
+| Lars | aan | elk uur, :47 (7 tot 22) | zoeker: nieuwe golven in grote winkels (zoals Claudian) |
+| Joris | aan | elk uur, :57 (7 tot 22) | zoeker: AI-marktplaatsen en agent-winkels die nu openen |
+| Patrick | aan | elk uur, :15 (8 tot 23) | afschieter: 4 Kingmaker-wetten plus ideeëntest |
 | Fenna, Vera | uit | | |
 | Stijn, Abel, Mila | uit | | |
 | Sem | uit | | terug ±1 dec voor de Hats-marketing (paginadag ±8 dec) |
@@ -64,7 +64,6 @@ Oude van de chat van 17 nov: Steam (trig_01K545VbuHDjt5EYqtWgcypH) en Abel (trig
 - Gumroad-omslag van Pro vervangen.
 - Dit bord bijhouden.
 - Uitzoeken waarom Hats de aandacht niet vasthoudt (Iris: 6) en wat nodig is voor een 8 vóór de speeltest za 21 nov; daarna terug naar Thijs.
-- Ebb op ma 1 dec: doorgaan of stoppen.
 
 ## 5. Wat Thijs moet doen
 

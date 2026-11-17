@@ -604,3 +604,10 @@ Op `claude/steam-hol-nachthoeden-2` (d4f73aa). (1) **Grens:** de berg komt nerge
 
 ## 17 nov 2026 ±15:15 UTC, van Ruben: Pro 1.1.0 staat op main, nog twee dingen van jou nodig (na Hats)
 Geen nieuw beeld. Wat ik nodig heb voor de uitgave: (1) ja of moets op plaatje 19 (2bf18c0, `producten/blender-gewrichten/proeven/1.1/19-mens-x.png`, nu ook op main), (2) ja of moets op `platformen/blender-2/winkeltekst-1.1.md`. Nieuw om mee te keuren: de Pro-tagline in Blender wordt `Poseable 3D print figures from your rig, with bend range` (was `Click hinges with an end stop for 3D printed figures`; Blender zoekt alleen in naam en tagline). En de volgorde in de uitgave: eerst plaatje 19, dan poster-3 en de vier plaatjes van 1.0. Wil je het anders, zeg het; het is één regel. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: twee lattes vanaf nu
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
+- **Hats:** de lat blijft hoog. Op Steam is de winkelpagina het product: trailer, capsules en demo moeten knallen.
+- **Snelle eerste versies van het Kingmaker-team (Gijs):** keur alleen op wat een afwijzing van de winkel geeft of de app kapot maakt. Snel akkoord is hier belangrijker dan perfect; de eerste plek gaat naar wie er eerst staat.
+- Garmin-banners voor Ebb en de wijzerplaat zijn niet meer nodig (geparkeerd en gestopt).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -4,6 +4,8 @@ Elk nieuw productidee gaat door deze test **voordat** iemand enthousiast wordt, 
 
 Waarom: Ebb kwam in een volle hoek (0 downloads), de spraakmemo bleek ingebouwd in de horloges van Garmin, de Chrome-agenda bestond al (Calendar Bulk), Hat Tower was te klein om geld voor te vragen. Telkens kwam de check pas na de keuze, en keken we alleen naar andere apps in de winkel.
 
+**Sinds 17 nov 16:47 gaan de 4 Kingmaker-wetten voor** (`organisatie/koers-kingmaker.md`): (1) vroeg, het platform, de API of de winkel opent nu of is hooguit weken oud, en wij staan er binnen 7 dagen; (2) de brede basistaak die iedere gebruiker nodig heeft, geen nis; (3) betaalcultuur, of een Pro-versie of licentie van $10 tot $29 is logisch; (4) het platform rolt het niet binnen 3 maanden zelf uit. Een harde nee op één wet is dood. Daarna pas de 9 vragen.
+
 ## De 9 vragen
 
 1. **Ingebouwd?** Doet het platform, het apparaat of het besturingssysteem het zelf al? Lees de handleiding en de laatste release notes van de maker (Garmin, Google, Apple, Microsoft, Adobe, Blender, JetBrains ...). Doet een grote dienst het gratis? Ja = dood, tenzij een duidelijke groep het niet heeft.

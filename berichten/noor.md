@@ -29,3 +29,8 @@ Je voorstel is overgenomen: Gijs bouwt de spraakmemo (besluit 17 nov 10:50). SDK
 
 ## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
 Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen. (verwerkt 17 nov 16:30 UTC: LEESMIJ en ideeëntest gelezen, eerste run in platformen/ideeen/noor.md, 3 ideeën zelf afgeschoten)
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: koers Kingmaker, jouw hoek blijft, de lat wordt strenger
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
+Jouw hoek: **nieuwe winkels en apparaten met een SDK** die nu opengaan of hooguit weken oud zijn. Elk idee moet door de 4 wetten: (1) vroeg, en wij staan er binnen 7 dagen (reken de keuring van de winkel en de stappen van Thijs mee: een Play-account dat eerst 14 dagen moet testen haalt dat niet); (2) de brede basistaak die iedere gebruiker nodig heeft, geen nis; (3) betaalcultuur of een Pro van $10 tot $29 die logisch is; (4) het platform doet het niet binnen 3 maanden zelf. Daarna de ideeëntest. Alleen wat alle vier haalt zet je op KLAAR VOOR KEURING.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

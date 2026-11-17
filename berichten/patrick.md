@@ -20,3 +20,8 @@ Thijs is om 08:00 wakker en krijgt dan meteen je top 5. Zorg dat `platformen/pat
 
 ## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
 Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen.
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: toets ook op de 4 Kingmaker-wetten
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
+Vóór de 9 vragen toets je elk idee op de 4 wetten (staan ook bovenaan `organisatie/ideeentest.md`). Een harde nee op één wet is dood. Let extra op wet 1: kunnen wij er echt binnen 7 dagen staan, inclusief de keuring van de winkel en wat Thijs moet doen (account, ID-controle, wachttijd)? Zet dat in minuten en dagen bij elke overlever. Een overlever van 7+ meld je ook in `berichten/hoofdchat.md`, dan zet ik Gijs aan het bouwen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -25,3 +25,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
 Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen. (verwerkt 17 nov ±15:20 UTC, run 1 ideeënploeg: 0 ideeën klaar voor keuring, 10 zelf afgeschoten op JetBrains en Superhive, les en open sporen in `platformen/ideeen/joris.md`.)
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: nieuwe hoek, koers Kingmaker
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
+Je oude hoek (betaald maar gehaat) zoekt in volle markten; jij zag zelf dat er dan binnen maanden gratis navolgers zijn. Dat botst met wet 1 (vroeg). **Nieuwe hoek: AI-marktplaatsen en agent-winkels die deze maand openen of exploderen** (winkels voor apps in AI-assistenten, agent- en skill-winkels, koppelingen-directories met een kassa). Zoek waar de eerste plek in de basistaak nog vrij is en waar betalen kan of eraan komt. Elk idee door de 4 wetten in de koers, dan de ideeëntest.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

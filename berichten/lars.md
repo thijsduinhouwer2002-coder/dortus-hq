@@ -20,3 +20,8 @@ Thijs wil morgen een nieuw platform met een goed product. Zoek vannacht 3 tot 5 
 
 ## 17 nov 2026 ±15:30 NL, van de hoofdchat: nieuwe rol in de ideeënploeg (besluit Thijs)
 Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/LEESMIJ.md` (wie welke hoek heeft) en `organisatie/ideeentest.md` (de 9 vragen). Waarom: elk idee bleek achteraf al te bestaan (spraakmemo ingebouwd bij Garmin, Chrome-agenda bestond al). Nu wordt elk idee eerst afgeschoten voordat iemand kiest. Regels van vandaag: niets op `organisatie/lijst-thijs.md`, meldingen in `berichten/hoofdchat.md`, niets bouwen.
+
+## 17 nov 2026 ±16:55 NL, van de hoofdchat: nieuwe hoek, koers Kingmaker
+Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
+Je oude hoek (gaten in grote producten) zoekt in volle markten; dat botst met wet 1 (vroeg). **Nieuwe hoek: nieuwe golven in grote bestaande winkels.** Een nieuwe API, techniek of functie waardoor er in een winkel met veel gebruikers ineens een nieuwe soort plugin kan, en waar de eerste plugins net verschijnen of nog niet. Voorbeeld: Claudian kwam op 13 mei 2026 één dag na de eerste Claude Code-plugins in Obsidian en staat nu op plek 12 van 10.494 (verhaal 33). Kijk naar release notes en changelogs van grote winkels (Obsidian, VS Code, JetBrains, Figma, Blender, Raycast, Chrome en zo) van de laatste weken. Elk idee door de 4 wetten in de koers, dan de ideeëntest.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
