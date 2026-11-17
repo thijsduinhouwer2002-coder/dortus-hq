@@ -96,6 +96,34 @@ def main():
             stuk = next((s for s in over.split("; ") if s.startswith(kant + " (")), "")
             check(stuk and "not placed" not in stuk and stuk != f"{kant} (nothing was cut)",
                   f"{naam}: {kant} overgeslagen met leesbare reden ({stuk})")
+    # Niets gelukt (17 nov run 26, CI 4.2.23 run 44045946302): alleen heupen, die passen op deze figuren nooit.
+    # Dan moeten de redenen toch op het model te lezen zijn en blijft het model één heel stuk.
+    rigm.gewrichten = lambda a, meer=False: [x for x in echt(a, meer) if "hip" in x[2].lower()]
+    A["leeg"]()
+    ob = A["laad"](args[1])
+    A["actief"](ob)
+    bpy.ops.click_joints.maak_gesloten()
+    nieuw = bpy.context.view_layer.objects.active
+    if nieuw is not ob:
+        bpy.data.objects.remove(ob)
+        ob = nieuw
+    naam = ob.name
+    rig = P["maak_rig"](ob)
+    if rig is not None:
+        ob.modifiers.new("Armature", "ARMATURE").object = rig
+        A["actief"](ob)
+        try:
+            r = bpy.ops.click_joints.figuur_uit_rig()
+        except RuntimeError as e:
+            r = f"fout {str(e).strip()[:200]}"
+        delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") == naam and o.type == "MESH"
+                 and o.visible_get()]
+        over = next((o.get("cj_rig_overgeslagen") for o in delen if o.get("cj_rig_overgeslagen")), "") or ""
+        log(f"{naam} alleen heupen: uitslag {r}, delen {len(delen)}, overgeslagen: {over}")
+        check(len(delen) == 1 and all(A["mesh_staat"](o)["losse_stukken"] == 1 for o in delen),
+              f"{naam} alleen heupen: model heel en ongesneden ({len(delen)} delen)")
+        check(over.startswith("Left hip (") and "Right hip (" in over and "not placed" not in over,
+              f"{naam} alleen heupen: redenen op het model te lezen ({over[:120]})")
     log(f"KLAAR {fouten} FOUT")
 
 

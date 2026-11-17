@@ -729,8 +729,10 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
         # (dan staan de knoppen grijs en is de lijst leeg; gezien op plaatje 16).
         mesh_of_deel = next((o for o in context.scene.objects if o.get("cj_figuur") == fig and o.get("cj_deel")
                              and o.visible_get()), None)
+        # Ook op het ongesneden model als er niets lukte: anders waren de redenen nergens meer te lezen
+        # (CI 4.2.23 run 44045946302, knight_yellow: "No joints placed" en een lege lijst).
         for o in context.scene.objects:
-            if o.get("cj_figuur") == fig and o.get("cj_deel"):
+            if o.get("cj_figuur") == fig and (o.get("cj_deel") or o.type == "MESH"):
                 o["cj_rig_overgeslagen"] = "; ".join(overgeslagen)
         if mesh_of_deel is not None:
             context.view_layer.objects.active = mesh_of_deel
