@@ -765,3 +765,9 @@
 - Edelhoed: **besluit** Daans maten zo overnemen als nr 10 in `hoeden.py`, plus biesje onder de band. Waarom: zijn schets werkte al op spelmaat; op de toren in de echte opname is hij op 1x het eerste wat je ziet. Op tak `claude/steam-edelman`, want bouwen pas na de speeltest.
 - Rolsteen proef 1 als echt model: icosfeer gaf een zaagtandgroef, bol met polen op de groefas geeft een strakke kerf. Leest als steen; vlakken en rand nog niet goed.
 - Volgende run: Tij-rand dunner (kan Daan), rolsteen vlakken en 6 rolbeelden op spelmaat, lijf edelman in `held_soorten.py`.
+
+## 17 nov ±02:38 tot 03:15 UTC
+- Edelman standen (Daan 02:45): `wacht`, `wacht_tik`, `na_u`, `na_u2`, `tenen` plus beide kan-punten (jas lichter en roder, hoedband breder en feller). **Besluit** de grap van "na u" in beeld 2 leggen met een buiging van 14 graden, niet in beeld 1. Waarom: op spelmaat is een uitgestoken armpje een stompje, een buigende hoge hoed leest wel. Bij `tenen` de stok omhoog als een dirigent: geeft hem een eigen silhouet. GEZIEN groot en op spelmaat naast de dief met koksmuts.
+- Rolsteen proef 3: **besluit** één breuk in de groef, bij de schilfer. Twee en drie geprobeerd en GEZIEN: stippellijn. Steen x1,07 en iets lichter, in de gang nu duidelijk geen ton.
+- Tij: slaapstand dun ja (geen omtrek); voet wordt sportschoen (zolen lazen als muizenkop), GEZIEN op 12 tot 18 px; kolom 360 px. Fenna: eens met geen uren, wel echte getallen.
+- Volgende run: niet-ronde schermen voor Tij zodra Gijs een opname heeft; stand "alleen en zenuwachtig" van de edelman; daarna de vier dingen van laag 4.
