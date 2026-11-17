@@ -31,7 +31,7 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 ## Waar je op let
 1. **De eerste 30 seconden:** gebeurt er iets leuks, of zit je naar een leeg hol te kijken?
 2. **De eerste 10 minuten:** kon je iets kopen, en wilde je dat ook?
-3. **Stoort het?** Zit het hol in de weg bij je werk, klikt er iets mis, wordt je pc traag of lawaaiig?
+3. **Stoort het?** Zit het hol in de weg bij je werk, klikt er iets mis, wordt je pc traag of lawaaiig? Kijk na ±10 minuten één keer in Taakbeheer (Ctrl+Shift+Esc, tabblad Processen) welk percentage CPU er bij HetHol staat, en zet dat getal in je antwoord, met je processor (staat onder Prestaties, CPU, bijvoorbeeld "Intel i5-1135G7"). Wij rekenen het om; onze testmachines zijn te wisselend om dat zelf te weten. (Sanne 17 nov 03:55, regel 3 en 4 in `balans.md`.)
 4. **Kun je het lezen** op je eigen scherm: zie je Gloop, de helden en de hoeden, of zijn het een paar pixels? Te groot of te klein? Rechtsklik op de strook wisselt de maat (96, 120, 160, dan weer 96). (Staat je scherm op 125% of meer, dan begint het spel al op 160.) Zet in je antwoord ook je schermmaat en schaal (Instellingen, Systeem, Beeldscherm, bijvoorbeeld "1920 x 1080, 125%"): het spel rekent in echte schermpixels, dus op een laptop of 4K-scherm met hoge schaal is alles kleiner dan bij ons.
 
 ## Drie vragen na afloop (zeg ze in de projectchat, een zin per vraag is genoeg)
