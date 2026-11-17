@@ -849,6 +849,39 @@ func _init() -> void:
 				if int(e3[3]) == ip:
 					plek_p = e3
 			ok(g3.hoeden.size() == 27 and bb_plof[0] and not plek_p.is_empty() and int(bb_plof[1]) == g3.hoeden[ip] and absf(float(bb_plof[2]) - float(plek_p[1])) <= 3.0 and absf(float(bb_plof[3]) - float(plek_p[2])) <= 3.0, "plof: de laatste boog eindigt op het plekje van de nieuwste hoed van de berg (%s tegen %s)" % [str(bb_plof), str(plek_p)])
+			# Daan 09:45: de plof verandert alleen het plekje van zijn boog; niets zakt, niets bedekts komt terug
+			var voor_p := {}
+			for e in g3.berg(g3._sessie_van):
+				voor_p[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
+			var na_p := {}
+			var na_idx := {}
+			for e in g3.berg():
+				na_p[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
+				na_idx[int(e[3])] = true
+			var p_anders := 0
+			var p_ok := na_p.size() >= voor_p.size()
+			for plek in voor_p:
+				if not na_p.has(plek):
+					p_ok = false
+				elif int(na_p[plek]) != int(voor_p[plek]):
+					p_anders += 1
+					p_ok = p_ok and int(na_p[plek]) == ip
+			var p_nieuw_ok := true
+			for i2 in na_idx:
+				if not voor_p.values().has(i2) and i2 < g3._sessie_van - g3.OP_HOOFD:
+					p_nieuw_ok = false   # een hoed van voor de plof die niet te zien was, komt boven
+			var p_groei: int = na_p.size() - voor_p.size()
+			ok(p_ok and p_nieuw_ok and na_idx.has(ip) and (p_anders == 0 if p_groei > 0 else p_anders <= 1), "plof: alleen het plekje van de boog verandert of er komen plekjes bij met hoeden van de plof; niets zakt (%d anders, %d -> %d)" % [p_anders, voor_p.size(), na_p.size()])
+			g3.krijg_hoed(3)
+			var na2 := {}
+			for e in g3.berg():
+				na2[int(e[3])] = true
+			var terug := false
+			for i2 in na2:
+				if not na_idx.has(i2) and i2 != g3.hoeden_op_berg() - 1:
+					terug = true
+			ok(not terug and na2.has(g3.hoeden_op_berg() - 1), "plof: daarna komt een bedekte hoed niet terug, de nieuwe ligt erop")
+			g3._sessie_weg()
 			g3.nacht_ev.clear()
 			g3.val_voor = -1
 			g3.hoed_valt = false

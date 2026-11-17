@@ -382,6 +382,7 @@ func raak(hoed := -1, van := Vector2(-12, -10)) -> int:
 	# hap terwijl de hoeden van de nacht nog vallen (controleur punt 1): de rij eerst meteen op de toren, zodat het getal
 	# en de volgorde kloppen en de boog van de held niet door een nachthoed wordt overgenomen
 	if not nacht_hoeden.is_empty():
+		_plof(hoeden.size(), hoeden.size() + nacht_hoeden.size())   # de rest van de nacht in één keer: als een plof
 		hoeden.append_array(nacht_hoeden)
 		nacht_hoeden.clear()
 		nacht_van = -1.0
@@ -469,6 +470,7 @@ func _nacht_stap() -> void:
 		hoeden.append(nacht_hoeden.pop_front())
 		nacht_gelegd += 1
 	var erbij := hoeden.size() - val_voor
+	_plof(val_voor, hoeden.size())   # Daan 09:45: een plof verandert alleen het plekje van zijn boog
 	var springt := maxi(0, hoeden.size() - OP_HOOFD) > maxi(0, val_voor - OP_HOOFD)
 	while not nacht_ev.is_empty() and t >= float(nacht_ev[0][0]) + SPRING_S:
 		nacht_ev.pop_front()
@@ -582,6 +584,7 @@ func naar_dict() -> Dictionary:
 	return {"hoeden": hoeden + nacht_hoeden, "gegeten": gegeten, "gespuugd": gespuugd, "keer_plat": keer_plat}
 
 func van_dict(d: Dictionary) -> void:
+	_sessie_weg()
 	hoeden.clear()
 	nacht_hoeden.clear()
 	nacht_van = -1.0
@@ -959,7 +962,7 @@ func berg(tel := -1) -> Array:
 	if tel < 0:
 		tel = berg_tel()
 	tel = mini(tel, hoeden.size())   # nooit nep-hoeden (controleur 09:30)
-	var kaart := berg_plekken(tel)
+	var kaart := kaart_voor(tel)
 	if kaart.is_empty():
 		return uit
 	var links := -14 if is_groot() else -12   # groot lijf en mantel: berg 2 pixels verder naar links (Mila 04:55)
@@ -1040,6 +1043,76 @@ static func berg_plekken(tel: int) -> Array:
 			if k < tel - 1 or k > tel + 1:
 				_pk_bewaard.erase(k)
 	return _pk_bewaard[tel]
+
+# De plof (Daan 17 nov 09:45: nee op "de hele berg anders in één beeld"): binnen de sessie verandert een plof alleen het
+# plekje waar zijn boog landt; de andere hoeden van de plof gaan onzichtbaar de berg in. Wat deze nacht los landde blijft
+# liggen, de berg zakt niet, een bedekte hoed komt niet terug. Daarna gaat het hoed voor hoed verder vanaf die stand
+# (bedekt wordt dan de oudste die je ziet). Na laden weer berg_plekken() (mag anders liggen, Sanne 08:50).
+var _sessie_van := -1          # tel vlak voor de laatste plof
+var _sessie_tel := -1          # tel na de laatste plof; -1 = geen plof deze sessie
+var _sessie_voor: Array = []   # kaart vlak voor de plof (tijdens de val en de boog van de plof)
+var _sessie_kaart: Array = []  # kaart na de plof
+var _sk_tel := -1              # verder gerekend vanaf de plof
+var _sk_kaart: Array = []
+
+func kaart_voor(tel: int) -> Array:
+	if _sessie_tel < 0 or tel < _sessie_van:
+		return berg_plekken(tel)
+	if tel < _sessie_tel:
+		return _sessie_voor
+	if tel == _sessie_tel:
+		return _sessie_kaart
+	if _sk_tel < _sessie_tel or tel < _sk_tel:
+		_sk_tel = _sessie_tel
+		_sk_kaart = _sessie_kaart.duplicate()
+	while _sk_tel < tel:
+		_sk_tel += 1
+		_sessie_stap(_sk_kaart, _sk_tel)
+	return _sk_kaart
+
+# Een stap naar tel (een gewone hoed, of een plof als tel er meer dan één verder ligt): komen er plekjes bij, dan ligt de
+# nieuwste op het laatste nieuwe en verborgen hoeden op de andere; anders bedekt de nieuwste de oudste die je ziet.
+static func _sessie_stap(kaart: Array, tel: int) -> void:
+	var op := tel - OP_HOOFD
+	if op <= 0:
+		return
+	var nieuw := op - 1
+	var n := berg_zichtbaar_bij(tel)
+	if n > kaart.size():
+		var erbij := n - kaart.size()
+		var vrij := []
+		var i := nieuw - 1
+		while vrij.size() < erbij - 1 and i >= 0:
+			if not kaart.has(i):
+				vrij.append(i)
+			i -= 1
+		vrij.reverse()
+		vrij.append(nieuw)
+		for v in vrij:
+			kaart.append(v)
+	elif not kaart.is_empty():
+		var k_oud := 0
+		for k in kaart.size():
+			if int(kaart[k]) < int(kaart[k_oud]):
+				k_oud = k
+		kaart[k_oud] = nieuw
+
+func _plof(van: int, tot: int) -> void:
+	if tot - van <= 1:
+		return
+	var voor := kaart_voor(van).duplicate()
+	var na := voor.duplicate()
+	_sessie_stap(na, tot)
+	_sessie_van = van
+	_sessie_tel = tot
+	_sessie_voor = voor
+	_sessie_kaart = na
+	_sk_tel = -1
+
+func _sessie_weg() -> void:
+	_sessie_van = -1
+	_sessie_tel = -1
+	_sk_tel = -1
 
 static func _bewaar(tel: int, kaart: Array) -> void:
 	var c := kaart.duplicate()
