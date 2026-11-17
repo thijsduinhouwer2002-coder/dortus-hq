@@ -148,6 +148,8 @@ static func dicht(s, toon := true) -> void:
 		s._toon()   # wat in de wachtrij stond komt nu
 
 static func ververs(s) -> void:
+	if s.kaart_soort == "menu":
+		return   # het rechtsklikmenu (kern/menu.gd) heeft geen koopvelden om te verversen
 	s.tekst.kaart = beschrijving(s, s.kaart_soort) if s.kaart_soort != "" else {}
 	s.tekst.goud = s.hol.goud
 	s.tekst.queue_redraw()
@@ -309,6 +311,8 @@ static func munt_top(s) -> float:
 	return sl.position.y + top * sy
 
 static func demo_stap(s) -> void:
+	if s.kaart_soort == "menu":
+		return   # het rechtsklikmenu staat open: de demo-film klikt niet door het menu heen (controleur 17 nov)
 	if s.demo_koop == 0 and s.t >= DEMO_KLIK_T and kan(s):
 		s.demo_koop = 1
 		s.log_regel("HOL demo klik op Gloop")

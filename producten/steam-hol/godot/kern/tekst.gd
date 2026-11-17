@@ -57,6 +57,9 @@ func _doos(naam: String) -> StyleBoxFlat:
 			sb.border_color = Color("#e8b040")
 			sb.set_border_width_all(2)
 			sb.anti_aliasing = true
+		"menu_nu":
+			sb.bg_color = Color(0.16, 0.08, 0.05, 0.55)   # zachte donkere pil onder de huidige hoogte (kan Daan 07:45)
+			sb.anti_aliasing = true
 		"knop_glans":
 			sb.bg_color = Color("#c4825a")
 		_:
@@ -74,6 +77,7 @@ var kaart := {}
 var knop_koop := Rect2()   # in vensterpixels, voor de klik (strook.gd); leeg als er geen knop staat
 var knop_undo := Rect2()
 var knop_weg := Rect2()
+var knop_menu: Array = []   # rechtsklikmenu (kern/menu.gd): [[Rect2, actie], ...] in vensterpixels
 
 # Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
 func _paneel(rect: Rect2) -> void:
@@ -270,13 +274,17 @@ func _draw_kaart() -> void:
 	var gx := x + bw - gw - 5 * schaal * f - (15 if met_3d else 6)   # 3D: niet tegen de gouden rand (15: paneel rechts 3 px smaller, ronde 3)
 	_munt(_munt_p(gx, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(vet, Vector2(gx + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), -1, kop, Color("#f6e8ce") if met_3d else Color("#ffe07a"))
-	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, int(M.uitleg), Color("#f3e2c0"))
+	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, int(M.uitleg), Color("#a8968a") if bool(kaart.get("menu", false)) else Color("#f3e2c0"))   # menu: saveregel grijs (zelfde grijs als "more gold")
 	var ky := y0 + regel_h * 2 + int(M.knop_dy)
 	var kh: float = M.knop_h
 	var kx := x
 	knop_koop = Rect2()
 	knop_undo = Rect2()
 	knop_weg = Rect2()
+	knop_menu = []
+	if bool(kaart.get("menu", false)):
+		_draw_menu(kx, ky, kh, x + bw - (15 if met_3d else 6) + 2, M, vet)   # rechts gelijk met het goud op de kopregel (Daan moet 1)
+		return
 	if int(kaart.kost) >= 0 and bool(kaart.get("demo_over", false)):
 		# demo voorbij: tekst in plaats van de knop, zonder klikvlak (kern/demo_einde.gd)
 		var vol: String = preload("res://kern/demo_einde.gd").KAART
@@ -297,11 +305,111 @@ func _draw_kaart() -> void:
 	if bool(kaart.get("weg", false)):
 		knop_weg = _knop(kx, ky, kh, "Remove", int(M.knop2), vet)
 
+# Rechtsklikmenu (kern/menu.gd). Links een hoogte-icoon (pijltje op en neer) en dan 96 120 160 als één groep; rechts,
+# onder de munten, [Feedback] en Quit (Daan 17 nov 07:45, moets 1 en 2). De huidige hoogte is geen knop maar het getal
+# in goud met een streep eronder, op een zachte donkere pil (kan Daan), zonder klikvlak. Past "Feedback" niet tussen de
+# groep en Quit, dan wordt het "?" (zelfde letters).
+func _draw_menu(kx: float, ky: float, kh: float, rechts: float, M: Dictionary, vet: Font) -> void:
+	var maat := int(M.knop2)
+	var icoon := 5.0 * schaal   # breedte van het hoogte-icoon
+	var hoogtes: Array = []
+	for h in kaart.hoogtes:
+		hoogtes.append(vet.get_string_size(str(h), HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal)
+	var rechts_namen: Array = ["Quit"]
+	if bool(kaart.feedback):
+		rechts_namen.push_front("Feedback")
+	var rechts_b: Array = []
+	for t in rechts_namen:
+		rechts_b.append(vet.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal)
+	var plek := menu_plekken(kx, rechts, icoon, hoogtes, rechts_b, schaal)
+	if plek.is_empty() and bool(kaart.feedback):
+		rechts_namen[0] = "?"
+		rechts_b[0] = vet.get_string_size("?", HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal
+		plek = menu_plekken(kx, rechts, icoon, hoogtes, rechts_b, schaal)
+	if plek.is_empty():
+		plek = menu_plekken(kx, INF, icoon, hoogtes, rechts_b, schaal)   # past nooit: liever over de rand dan niets
+	_hoogte_icoon(Vector2(kx, ky), kh)
+	var acties: Array = []
+	var namen: Array = []
+	for h in kaart.hoogtes:
+		acties.append(str(h))
+		namen.append(str(h))
+	if bool(kaart.feedback):
+		acties.append("feedback")
+	acties.append("quit")
+	namen.append_array(rechts_namen)
+	for i in acties.size():
+		var x: float = plek[i]
+		var t: String = namen[i]
+		if acties[i] == str(int(kaart.nu)):
+			var tw := vet.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+			var r := Rect2(x, ky, tw + 6 * schaal, kh)
+			if met_3d:
+				var pil := _doos("menu_nu")
+				pil.set_corner_radius_all(int(kh / 2.0))
+				draw_style_box(pil, r)
+			draw_rect(Rect2(r.position.x + 2 * schaal, r.end.y - 2 * schaal, r.size.x - 4 * schaal, schaal), Color("#f2c14e"))   # streep eronder: dit is nu
+			draw_string(vet, Vector2(x + 3 * schaal, ky + kh / 2.0 + maat * 0.35), t, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#ffe07a"))
+			continue
+		var k := _knop(x, ky, kh, t, maat, vet)
+		knop_menu.append([k, acties[i]])
+
+# Linkerkant van elke menuknop (zelfde volgorde als de knoppen: hoogtes, dan rechts [Feedback] Quit). Het icoon staat op
+# kx, de hoogtes sluiten erachter aan zonder ruimte (één groep), de rechtergroep eindigt op `rechts` met 3 * s
+# ertussen. Leeg als het niet past (minstens 4 * s lucht tussen de groepen). Statisch, zodat de toets het kan narekenen.
+static func menu_plekken(kx: float, rechts: float, icoon: float, hoogtes: Array, rechts_b: Array, s: int) -> Array:
+	var uit: Array = []
+	var x := kx + icoon + 2 * s
+	for b in hoogtes:
+		uit.append(x)
+		x += float(b)
+	var links_eind := x
+	var nood := is_inf(rechts)
+	if nood:
+		rechts = links_eind + 4 * s + _som(rechts_b) + 3 * s * (rechts_b.size() - 1)
+	var r := rechts
+	var rr: Array = []
+	for i in range(rechts_b.size() - 1, -1, -1):
+		r -= float(rechts_b[i])
+		rr.push_front(r)
+		r -= 3 * s
+	if not nood and rr[0] < links_eind + 4 * s:   # noodweg nooit leeg (afronding, controleur 17 nov)
+		return []
+	uit.append_array(rr)
+	return uit
+
+static func _som(a: Array) -> float:
+	var t := 0.0
+	for v in a:
+		t += float(v)
+	return t
+
+# Hoogte-icoon (Daan moet 2): een staafje met een pijlpunt boven en onder, in het goud van de knoppen, 5 spelpx breed.
+func _hoogte_icoon(p: Vector2, kh: float) -> void:
+	var kleur := Color("#f2c14e")
+	var mx := p.x + 2.5 * schaal
+	var top := p.y + kh * 0.18
+	var bodem := p.y + kh * 0.82
+	var punt := 2.0 * schaal
+	if met_3d:
+		draw_line(Vector2(mx, top + punt * 0.6), Vector2(mx, bodem - punt * 0.6), kleur, maxf(2.0, schaal * 0.8), true)
+		draw_colored_polygon(PackedVector2Array([Vector2(mx, top), Vector2(mx - punt, top + punt), Vector2(mx + punt, top + punt)]), kleur)
+		draw_colored_polygon(PackedVector2Array([Vector2(mx, bodem), Vector2(mx - punt, bodem - punt), Vector2(mx + punt, bodem - punt)]), kleur)
+	else:
+		var s := float(schaal)
+		var cx := p.x + 2 * s
+		draw_rect(Rect2(cx, top + 2 * s, s, bodem - top - 4 * s), kleur)
+		draw_rect(Rect2(cx, top, s, s), kleur)
+		draw_rect(Rect2(cx - s, top + s, 3 * s, s), kleur)
+		draw_rect(Rect2(cx, bodem - s, s, s), kleur)
+		draw_rect(Rect2(cx - s, bodem - 2 * s, 3 * s, s), kleur)
+
 func _draw() -> void:
 	if not kaart.is_empty():
 		_draw_kaart()
 		return
 	knop_koop = Rect2()
+	knop_menu = []
 	knop_undo = Rect2()
 	knop_weg = Rect2()
 	var font := _letter(450)

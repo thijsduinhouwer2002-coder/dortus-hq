@@ -36,6 +36,7 @@ static func lees_argumenten(s) -> void:
 			"royal_proef": s.proef_royal = kv[1] == "1"
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
+			"menu_proef": s.proef_menu = kv[1] == "1"   # Olaf 17 nov: rechtsklikmenu na 5 s open, voor het beeld (demolijst nr 12)
 			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
 			"spuug_proef": s.proef_spuug = clampi(int(kv[1]), 0, 3)
 			"moment": s.proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
@@ -96,6 +97,11 @@ static func kijk_val(s, w: Node) -> void:
 
 # Elk beeld: staat het moment stil, dan één logregel (de winkel-workflow maakt daarop zijn beelden).
 static func tik(s) -> void:
+	if s.proef_menu and s.t >= 5.0 and s.hol != null:
+		s.proef_menu = false
+		s.log_regel("HOL menu-proef: rechtsklik")
+		s.MENU.wissel(s)
+		s.kaart_t = s.t + 600.0   # blijft staan voor het beeld
 	if s.proef_moment != "" and not s.moment_gemeld and staat_stil(s):
 		s.moment_gemeld = true
 		s.log_regel("HOL moment vast %s t=%.1f" % [s.proef_moment, s.t])
