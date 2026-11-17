@@ -234,6 +234,16 @@
       "sleutels": [
         "Iris"
       ]
+    },
+    {
+      "naam": "Kai",
+      "rol": "Bouwer Chrome-extensie",
+      "team": "Chrome",
+      "schema": "elk uur",
+      "actief": true,
+      "sleutels": [
+        "Kai"
+      ]
     }
   ],
   "producten": [
