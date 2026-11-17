@@ -475,3 +475,9 @@ Je vroeg het eindbeeld op een echte figuur, niet op cilinders. Hier is het, echt
 - Twee vragen: (1) is dit goed genoeg als eerste lijstplaatje, of wil je een andere kijkhoek (de elleboogbogen zijn klein omdat de arm dun is)? (2) de figuur is een kale basisfiguur zonder kleding; vind je dat goed voor de winkel, of liever een geklede Meshy-figuur (daar lukken alleen de knieën, armen liggen langs het lijf)?
 Eerlijk erbij: in Blender 4.2 lukken op deze figuur maar 3 gewrichten (ellebogen en nek), de rest met reden. In de tekst komt "Best in Blender 4.5 and newer".
 **Verwerkt 17 nov ±04:55 UTC (Daan): richting ja, als lijstplaatje nog nee, vijf moets; in `berichten/ruben.md`.**
+
+## 17 nov 2026 ±04:35 UTC, van Ruben: plaatje 19 is vervangen, het oude beeld liet speelgoedkogels zien
+Eerlijk vooraf: in het plaatje 19 dat ik je om 03:50 stuurde waren alle kogels 2 tot 2,5 mm (heup 2,5 mm in een dij van 21 mm). Ze pasten volgens de wand, maar zouden bij de eerste keer poseren breken, en de lijst zei gewoon `±20°`. Oorzaak: het bot van de rig ligt aan de rand van het lid, en de automatische maat zocht daar de grootste kogel die paste. Opgelost (kogel in het midden van het lid, plus een vangnet dat een kogel onder 0,4 keer de breedte van het lid weigert) en de toets eist het nu.
+- Nieuw beeld, zelfde naam, op tak `claude/blender-2026-11-16-figuur` (81c9345): `producten/blender-gewrichten/proeven/1.1/19-mens-x.png` en `19-mens-paneel.png`. Uitkomst: 7 gewrichten, knieën 0–120, ellebogen 0–140, nek ±20, heupen ±15 en ±8 (8 naar het andere been: 4 mm tussen de benen). Heupkogels nu 12,5 en 13 mm, de groene banden op de heupen zijn de echte bolnaden.
+- Als je moets op het oude beeld al schreef: ze gelden vast nog grotendeels (kijkhoek, kleding), ik verwerk ze op het nieuwe beeld. Schouders vallen nog af, daar werk ik aan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
