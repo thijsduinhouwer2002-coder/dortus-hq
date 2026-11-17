@@ -1,4 +1,8 @@
-# Ebb: winkeltekst (versie 19, CONCEPT, Gijs, 12 nov 2026 18:10 UTC)
+# Ebb: winkeltekst (versie 19b, INGEDIEND bij Garmin op 13 nov 2026, Gijs)
+
+Versie 19b (run 86, 13 nov 2026, opdracht hoofdchat 10:30 NL): gelijkgetrokken met wat Thijs op 13 nov ±10:20 NL heeft ingediend, dat zijn de plakbestanden `platformen/garmin/upload/ebb-en.md`, `ebb-de.md` en `ebb-nl.md` op main. Vier verschillen met versie 19: (1) nieuwe titels zonder "4-7-8" (besluit Thijs 13 nov 09:55 NL: de zoeker van de winkel geeft op "4-7-8" niets terug); (2) "478" erbij in de regel Tags, in drie talen; (3) drie herstelde zinnen in het Duits en Nederlands uit run 76 ("ab einem Anhalten", "ein Lap pro Runde", "één lap per ronde"); (4) versie 19a van run 75: "only a saved activity goes to Garmin Connect" in plaats van "an activity you choose to save", omdat een afgeronde sessie zichzelf opslaat (drie talen). De teksten hieronder zijn door een script letterlijk uit de plakbestanden overgenomen. Alleen tekst, geen code; de app is nog precies e40269e1.
+
+(Oude kop: versie 19, CONCEPT, Gijs, 12 nov 2026 18:10 UTC)
 
 Versie 19 (run 70, productkeuring 12 nov punt 6): alleen het veld Screenshots. Poster v5 en vijf kaarten opnieuw gemaakt uit de echte schermen met de zee en de werelden (krab met zwemband, schildpad onder water); de oude beelden v4.1 zijn weg. Tekst zelf ongewijzigd.
 
@@ -46,10 +50,10 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Velden in de Connect IQ-winkel (om letterlijk over te nemen bij het uploaden)
 - App type: Device App (watch-app). Bestand: `Ebb.iq` uit de release `ebb-v1.0.0` (niet de `-proef`).
-- Title (42 tekens): `Ebb: Breathing, Breath Hold Rounds & 4-7-8`
+- Title (44 tekens): `Ebb: Breathing Exercises, Breath Hold & Calm`
 - Category: Health & Fitness (bijna alle ademapps staan in categorie-id 219, GOK dat dat deze is)
 - Price: $4.99, eenmalig (paid app)
-- Description: de Engelse tekst hieronder, van "Breathwork rounds" tot en met de regel "Tags:" (3996 tekens, geteld in run 69; de grens is waarschijnlijk 4.000).
+- Description: de Engelse tekst hieronder, van "Breathwork rounds" tot en met de regel "Tags:" (3987 tekens; de grens is waarschijnlijk 4.000).
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v3.png` (Mila v3, blauwe walvis in de patrijspoort, `ontwerp/garmin/blad12/`). Het startpictogram op het horloge is haar kleine versie (walvis groot, zonder rand), per horlogemaat in `resources*/drawables/launcher_icon.png`.
@@ -95,7 +99,7 @@ Breaths per round, pace, rounds, recovery hold, weekly goal, vibration and My pa
 
 HONEST AND PRIVATE
 • One payment in the Garmin store. No subscription, no unlock code by e-mail, no extra account, no phone app.
-• Ebb collects nothing. Your sessions, animals and settings stay on your watch. Only an activity you choose to save goes to Garmin Connect, under Garmin's privacy policy. No analytics, no ads.
+• Ebb collects nothing. Your sessions, animals and settings stay on your watch. Only a saved activity goes to Garmin Connect, under Garmin's privacy policy. No analytics, no ads.
 
 SUPPORT AND REFUNDS
 Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days. Refunds follow Garmin's Connect IQ Store policy: a 48-hour return window after you buy.
@@ -103,29 +107,29 @@ Mail thijs@dortus.com with your watch model. We aim to reply within 5 working da
 SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems. Ebb has no CO2 or O2 tables and is not a medical device.
 
-Tags: breathing, breathwork, breath hold, breath training, 4-7-8, relaxation
+Tags: breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation
 
 ## Deutsch
-Titel (39 tekens): `Ebb: Atemübungen, Atem anhalten & 4-7-8`
+Titel (45 tekens): `Ebb: Atemübungen, Atem anhalten & Entspannung`
 
 Breathwork-Runden und ruhiges 4-7-8-Atmen auf deiner Garmin. Folge jeder Phase per Vibration mit geschlossenen Augen, während sich ein kleines Meer mit Tieren füllt, wenn du dranbleibst. Atemübungen und Atem anhalten mit Runden aus kräftigem Atmen, gezeichnet als Wasser: dein rundes Zifferblatt wird zu einem Bullauge. Das Wasser steigt beim Einatmen und sinkt beim Ausatmen, und beim Anhalten tauchst du unter Wasser. Halte den Atem nur an, solange es leicht fällt. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
 • Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Ab 3:00 zeigt die Uhr oben "breathe". Nach fünf Minuten endet das Anhalten von selbst: die Uhr geht zur Erholung über, beendet dann die Sitzung und speichert sie. Dieses Anhalten zählt nicht im Durchschnitt. Vor jeder Sitzung, auch bei Calm und My pattern, erinnert Ebb: setz oder leg dich hin.
 • Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Wochen in Folge mit deinem Wochenziel, standardmäßig 3 Sitzungen, einstellbar 2 bis 7; Ruhetage unterbrechen die Serie nie), nie durch längeres Halten. Pro Tag zählen bis zu zwei Sitzungen. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier. Alle 24 gefunden: dein Meer ist komplett, deine Wochenserie zählt weiter.
-• Calm 4-7-8: 4 ein, 7 halten, 8 aus. My pattern: eigene Sekunden in den Einstellungen. Eine Sitzung zählt ab einer Atempause oder einer Minute Calm.
+• Calm 4-7-8: 4 ein, 7 halten, 8 aus. My pattern: eigene Sekunden in den Einstellungen. Eine Sitzung zählt ab einem Anhalten oder einer Minute Calm.
 • Nach Atemrunden deine Haltezeit pro Runde, nach Calm deine Dauer und Atemzüge; beim ersten kompletten Meer stattdessen ein Festbild mit allen 24 Tieren. Jederzeit im Menü: heute deine Sitzungen als Balken (bis drei) und über 8 Wochen Sitzungen pro Woche und deine durchschnittliche Haltezeit.
 • Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten auf Wunsch alle 30 Sekunden ein sanftes Vibrieren. Die Vibration lässt sich abschalten. Ein Signal bleibt an: alle 30 Sekunden ab 3:00 Anhalten, zu deiner Sicherheit. Beim Atmen und Halten reagiert der Touchscreen nicht; im Pausenmenü kannst du tippen. Ebb macht keinen Ton.
-• Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst, Calm und eine pausierte Sitzung nach 30 Minuten ebenfalls; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
+• Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden ein Lap pro Runde mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst, Calm und eine pausierte Sitzung nach 30 Minuten ebenfalls; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein zusätzliches Konto, keine Handy-App.
-• Datenschutz: Ebb sammelt nichts. Sitzungen, Tiere und Einstellungen bleiben auf der Uhr; nur eine Aktivität, die du speicherst, geht an Garmin Connect (Datenschutzerklärung von Garmin). Keine Analyse, keine Werbung.
+• Datenschutz: Ebb sammelt nichts. Sitzungen, Tiere und Einstellungen bleiben auf der Uhr; nur eine gespeicherte Aktivität geht an Garmin Connect (Datenschutzerklärung von Garmin). Keine Analyse, keine Werbung.
 • Support: thijs@dortus.com, mit deinem Uhrenmodell. Wir antworten möglichst innerhalb von 5 Werktagen. Erstattungen folgen den Regeln des Garmin Connect IQ Store: Garmin gibt dir nach dem Kauf 48 Stunden Rückgabefrist.
 
 Die App ist auf Englisch. Keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
-Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, Entspannung, Atmung
+Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung
 
 ## Nederlands
-Titel (49 tekens): `Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8`
+Titel (48 tekens): `Ebb: Ademhalingsoefeningen, Adem inhouden & Calm`
 
 Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de trilling met je ogen dicht, terwijl een kleine zee zich vult met dieren als je blijft terugkomen. Ademhalingsoefeningen en adem inhouden met rondes krachtig ademen, getekend als water: je ronde horloge wordt een patrijspoort. Het water stijgt als je inademt en zakt als je uitademt, en bij inhouden ga je onder water. Houd alleen in zolang het makkelijk gaat. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
@@ -134,16 +138,17 @@ Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de tril
 • Calm 4-7-8: 4 in, 7 vasthouden, 8 uit. My pattern: eigen seconden in de instellingen. Een sessie telt vanaf één inhoud of één minuut Calm.
 • Na ademrondes je inhoudtijd per ronde, na Calm je duur en ademhalingen; de eerste keer dat je zee compleet is krijg je in plaats daarvan een feestscherm met alle 24 dieren. Altijd in het menu: vandaag je sessies als staven (tot drie) en over 8 weken sessies per week en je gemiddelde inhoudtijd.
 • Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden als je wilt elke 30 seconden een zachte tril. Trillen kun je uitzetten. Eén tril blijft aan: elke 30 seconden na 3:00 inhouden, voor je veiligheid. Tijdens ademen en inhouden doet het aanraakscherm niets; in het pauzemenu kun je tikken. Ebb maakt geen geluid.
-• Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op, Calm en een sessie in pauze doen dat na 30 minuten ook; terugknop voor pauze: doorgaan, opslaan of weggooien.
+• Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes één lap per ronde met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op, Calm en een sessie in pauze doen dat na 30 minuten ook; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
-• Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een activiteit die je opslaat gaat naar Garmin Connect (privacybeleid van Garmin). Geen tracking, geen advertenties.
+• Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een opgeslagen activiteit gaat naar Garmin Connect (privacybeleid van Garmin). Geen tracking, geen advertenties.
 • Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Terugbetalen volgt de regels van de Garmin Connect IQ Store: Garmin geeft je na je aankoop 48 uur om terug te geven.
 
 De app is in het Engels. Geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
-Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
+Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, 478, ontspanning
 
 ## Nagekeken
+- Versie 19b (13 nov 2026, run 86): titels en de drie teksten met een script uit de plakbestanden op main gehaald en daarna teken voor teken vergeleken: gelijk. Gezocht op "freediv", "apne", "apno" tussen "## Description" en "## Nagekeken": 0 keer. De winkelpagina zelf is nog niet openbaar (404 zonder inloggen), dus de tekst zoals Garmin hem toont is NIET GEZIEN.
 - Versie 14 (12 nov 11:20 UTC): gezocht op "freediv", "apne", "apno" in de drie teksten die de winkel in gaan (van "## Description" tot "## Nagekeken"): 0 keer. Terugbetaalzin, supportzin en privacyzin staan in alle drie de talen. "You go under water" bij inhouden en water hoger bij in dan bij uit: GEZIEN op de sessiebeelden van run 43199170851 (krab en schildpad, FR255, fenix 7, fenix 8). NIET nagekeken: Calm ("the sea rising and falling at the bottom") tegen de bouw met werelden; Calm tekent nu nog het oude scherm. De regel hieronder over freediving van versie 11 vervalt.
 - Versie 13 (11 nov 22:40 UTC, keuring bouw 8 punt 4 en besluit hoofdchat 22:55): terugbetaalzin in drie talen, rechte haken weg. GEZIEN in Garmins eigen uitleg (developer.garmin.com/connect-iq/articles/monetization/App_Sales.html en Account_Management.html, gelezen met curl): "Funds are not captured from customers until the 48-hour return window has passed" en "Customers who have purchases still in their return window are allowed to request refunds". NIET GEZIEN: een manier waarop wij als verkoper zelf geld terugsturen. Daarom de terugvalzin uit het besluit (beleid van de winkel, 48 uur) en geen belofte van 14 dagen die we niet kunnen waarmaken.
 - Versie 12 (11 nov 21:45 UTC, regels Garmin gelezen door de hoofdchat, `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`): privacyzin en supportzin erbij in drie talen (regel 6 en 7). De zin over terugbetalen ontbreekt nog met opzet: dat beleid beslist Thijs; de plek staat tussen rechte haken en moet weg voor het indienen. "Within 5 working days" is een streven ("aim"), geen belofte; aanpassen als Thijs iets anders wil. Privacy nagekeken tegen manifest.xml: de app vraagt geen recht om met internet of de telefoon te praten.

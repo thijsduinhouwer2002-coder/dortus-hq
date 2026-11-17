@@ -1,0 +1,15 @@
+info face="EbbCijfers" size=106 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=76 base=76 scaleW=500 scaleH=80 pages=1 packed=0
+page id=0 file="ebb_cijfers.png"
+chars count=11
+char id=48 x=2 y=2 width=47 height=77 xoffset=0 yoffset=0 xadvance=49 page=0 chnl=15
+char id=49 x=53 y=4 width=28 height=74 xoffset=0 yoffset=2 xadvance=30 page=0 chnl=15
+char id=50 x=85 y=3 width=44 height=75 xoffset=0 yoffset=1 xadvance=46 page=0 chnl=15
+char id=51 x=133 y=4 width=44 height=75 xoffset=0 yoffset=2 xadvance=46 page=0 chnl=15
+char id=52 x=181 y=3 width=47 height=75 xoffset=0 yoffset=1 xadvance=49 page=0 chnl=15
+char id=53 x=232 y=4 width=45 height=75 xoffset=0 yoffset=2 xadvance=47 page=0 chnl=15
+char id=54 x=281 y=3 width=45 height=76 xoffset=0 yoffset=1 xadvance=47 page=0 chnl=15
+char id=55 x=330 y=4 width=40 height=75 xoffset=0 yoffset=2 xadvance=42 page=0 chnl=15
+char id=56 x=374 y=2 width=45 height=77 xoffset=0 yoffset=0 xadvance=47 page=0 chnl=15
+char id=57 x=423 y=3 width=44 height=76 xoffset=0 yoffset=1 xadvance=46 page=0 chnl=15
+char id=58 x=471 y=29 width=25 height=49 xoffset=0 yoffset=27 xadvance=27 page=0 chnl=15

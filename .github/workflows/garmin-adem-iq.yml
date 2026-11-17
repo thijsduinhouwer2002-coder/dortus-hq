@@ -58,6 +58,14 @@ jobs:
           docker run --rm --network none --entrypoint bash "$IMAGE" -c \
             'cd /root/.Garmin/ConnectIQ/Devices; for d in fenix7 fr255 venu2 fenix843mm fenix847mm fenix8pro47mm fenix8solar47mm fenix8solar51mm fenix7pro fenix7xpro fenix7x epix2pro42mm epix2pro47mm epix2pro51mm fr165 fr165m fr57042mm fr57047mm fr955 fr970 vivoactive6 venu3s venux1 venu441mm venu445mm; do
                echo "TOESTEL $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"connectIQVersion\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"type\":\"watchApp\"[^}]*" | tr "\n" " ")"; done; for d in fr255 fenix7xpro vivoactive5 fr265 fenix847mm venu2; do echo "LETTERS $d"; ls $d; tr -d " \n\t" < $d/simulator.json | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done; for d in venu3 venu441mm venux1; do echo "KNOPPEN $d"; ls -d $d 2>/dev/null || echo "ONBEKEND $d"; tr -d " \n\t" < $d/simulator.json 2>/dev/null | grep -o "\"keys\":\[.\{0,1500\}" | head -c 1500; echo; tr -d " \n\t" < $d/compiler.json 2>/dev/null | grep -o "\"resolution\":{[^}]*}\|\"displayType\":\"[^\"]*\"\|\"enhancedReadabilityModes\|\"shape\":\"[^\"]*\""; done' || true
+      # Ebb 1.0.1 (16 nov): welke horloges kent de SDK, met schermmaat, startpictogram en geheugen; en de systeemletters
+      # van de maten die Ebb nog niet heeft (218, 240, 360). Alleen ter info voor de volgende stap, telt niet mee.
+      - name: Alle horloges in de SDK (info voor meer horloges)
+        run: |
+          docker run --rm --network none --entrypoint bash "$IMAGE" -c \
+            'cd /root/.Garmin/ConnectIQ/Devices; for d in *; do
+               echo "SDK $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"displayType\":\"[^\"]*\"\|\"shape\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"memoryLimit\":[0-9]*,\"type\":\"watchApp\"" | tr "\n" " ")"; done;
+             for d in fenix7s fenix7spro fr255s fr255sm fr265s venu2s fr255m fenix7pronowifi fenix7xpronowifi enduro3 epix2 venu2plus marq2 marq2aviator d2mach1; do echo "LETTERS $d"; ls -d $d 2>/dev/null || echo "ONBEKEND $d"; tr -d " \n\t" < $d/simulator.json 2>/dev/null | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done' || true
       - name: .iq bouwen (alle horloges uit manifest.xml)
         run: |
           mkdir -p /tmp/uit && chmod 777 /tmp/uit
@@ -125,7 +133,7 @@ jobs:
           else echo "CIQVERSIE: map Devices niet gevonden"; fi
           fout=0
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
-          [ "$n" -ge 28 ] || fout=1
+          [ "$n" -ge 55 ] || fout=1
           exit $fout
           SH
           docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
@@ -151,7 +159,7 @@ jobs:
       matrix:
         # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges: FR255 (MIP 260),
         # fenix 8 47 mm (AMOLED 454) en Venu 3S (AMOLED 390, het kleinste AMOLED-scherm). De bouwtak draait ze alle dertien.
-        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm"]') }}
+        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm","fr255s","fenix7s","fr265s","venu2s","marq2","fenix947mm"]') }}
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -214,6 +222,18 @@ jobs:
               # Bouw 3: de naam volgt de scène die de app zelf meldt ("PLAATJE scene k"), niet de teller van de lus;
               # een overgeslagen start schoof anders alle namen op (inhouden-krab toonde een eindscherm).
               s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$k.log" | tail -1 | awk '{print $3}')
+              # Run 118: op de Enduro 3 gaf de simulator vanaf start 62 geen antwoord meer (run 43882501055: 95 lege
+              # beelden en toch groen). Meldt de app geen scène, dan de simulator opnieuw starten en deze start één keer
+              # overdoen. Lukt het dan nog niet, dan wordt de run rood (regel "GEEN SCENE" in CRASH-<horloge>.txt).
+              if [ -z "$s" ]; then
+                echo "GEEN SCENE bij start $k, simulator opnieuw en nog een keer"
+                kill "$MD" 2>/dev/null || true; pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
+                monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
+                MD=$!
+                case "$d" in fr255|fenix7|fenix7xpro) sleep 12 ;; *) sleep 20 ;; esac
+                s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$k.log" | tail -1 | awk '{print $3}')
+                [ -n "$s" ] || echo "GEEN SCENE bij start $k op $d, ook na een nieuwe simulator" >> /tmp/geen-scene.txt
+              fi
               if [ -n "$s" ]; then import -window root "plaatjes/$d-scene$s.png"; else echo "GEEN SCENE bij start $k"; import -window root "plaatjes/$d-mis$k.png"; fi
               kill "$MD" 2>/dev/null || true; sleep 3
               cat "/tmp/plaatje-$d-$k.log"
@@ -228,6 +248,13 @@ jobs:
           # terugval licht blijft, niet de echte snelheid.
           # Run 71: alleen op de fr255, anders staat er op de andere horloges een regel "TERUGVAL fr255: 0 metingen".
           if [ "$D" = fr255 ]; then grep -h "KRABV2 wereld.*DIRECT" /tmp/plaatje-fr255-*.log 2>/dev/null | awk '{for (i = 1; i < NF - 1; i++) if ($i == "traagste" && $(i+1) == "beurt") { n++; if ($(i+2) + 0 > 60) print "TERUGVAL TRAAG (grens 60 ms): " $0 } } END { print "TERUGVAL fr255: " n + 0 " metingen, grens 60 ms" > "/dev/stderr" }' >> plaatjes/CRASH-$D.txt; fi
+          # Run 119: een nieuwe simulator wist de teller van de app, dan begint hij weer bij scène 0 en blijft de rest
+          # ongemerkt weg (Enduro 3, run 43902431815: 62 van de 157 en toch groen). Daarom het aantal natellen.
+          VERWACHT=$((LAATSTE - EERSTE + 1)); if [ -n "$KEUZE" ]; then VERWACHT=$(echo $KEUZE | wc -w); fi
+          GETELD=$(ls plaatjes/$D-scene*.png 2>/dev/null | wc -l)
+          echo "SCENES $D: $GETELD van $VERWACHT"
+          [ "$GETELD" -ge "$VERWACHT" ] || echo "TE WEINIG SCENES op $D: $GETELD van $VERWACHT" >> /tmp/geen-scene.txt
+          if [ -s /tmp/geen-scene.txt ]; then cat /tmp/geen-scene.txt >> plaatjes/CRASH-$D.txt; fi
           [ -s plaatjes/CRASH-$D.txt ] || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           mkdir -p plaatjes/namen
