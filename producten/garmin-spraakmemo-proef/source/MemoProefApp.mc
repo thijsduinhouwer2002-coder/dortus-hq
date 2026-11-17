@@ -60,6 +60,7 @@ class MemoProefApp extends Application.AppBase {
 
     function probeer(naam, f) {
         try {
+            if (!(Capture has :isFormatSupported)) { System.println("MEMO formaat " + naam + ": isFormatSupported bestaat niet op dit horloge"); return; }
             System.println("MEMO formaat " + naam + " ondersteund: " + Capture.isFormatSupported(f));
         } catch (e) {
             System.println("MEMO formaat " + naam + " fout: " + e.getErrorMessage());
@@ -71,12 +72,17 @@ class MemoProefApp extends Application.AppBase {
         var opus8 = { :containerFormat => Audio.CONTAINER_OGG, :codec => Audio.CODEC_OPUS, :frequency => Audio.FREQ_8_KHZ, :channels => Audio.CHANNEL_MONO };
         var wav8 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_8_KHZ, :channels => Audio.CHANNEL_MONO };
         var wav16 = { :containerFormat => Audio.CONTAINER_WAV, :codec => Audio.CODEC_LPCM, :frequency => Audio.FREQ_16_KHZ, :channels => Audio.CHANNEL_MONO };
+        System.println("MEMO heeft Toybox Audio: " + (Toybox has :Audio));
+        System.println("MEMO heeft Audio Capture: " + (Audio has :Capture) + ", Output: " + (Audio has :Output));
+        System.println("MEMO Capture heeft init: " + (Capture has :initializeAudioCapture) + ", start: " + (Capture has :start) + ", filters: " + (Capture has :getSupportedFilters) + ", staat: " + (Capture has :getState));
+        System.println("MEMO Output heeft play: " + (Output has :play) + ", bouwer: " + (Output has :DynamicAudioSourceBuilder));
+        System.println("MEMO heeft DynamicResource: " + (Application has :DynamicResource));
         probeer("ogg-opus-16k", opus16);
         probeer("ogg-opus-8k", opus8);
         probeer("wav-lpcm-8k", wav8);
         probeer("wav-lpcm-16k", wav16);
         try {
-            System.println("MEMO filters: " + Capture.getSupportedFilters());
+            if (Capture has :getSupportedFilters) { System.println("MEMO filters: " + Capture.getSupportedFilters()); }
         } catch (e) {
             System.println("MEMO filters fout: " + e.getErrorMessage());
         }
