@@ -1511,3 +1511,9 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Controleur (Agent, blind):** B (ronde 9) 8, A (6b) 6; B past beter bij main, leest op 120 px. Moet: ridder raakte het slijm; verwerkt (ridder verder links, nu lucht ertussen, GEZIEN vergroot). Niet overgenomen: alles 10 px hoger (niets is afgesneden, en hoger brengt de hoedpunt tegen de bovenrand).
 - **Besloten:** ronde 9 is de header in de set (`winkelpagina/header-920x430.png`, `LEESMIJ-set.md`). Waarom ik terugkom op "geen goud in de kleine maten" (14:30): het nieuwe feit is het hele blad, waar de header naast main kaal oogt; op 920 en 120 is de goudberg onder Gloop geen vlek naast de titel, want hij ligt laag en rechts. Klein blijft 6b. Rest van het blad: ja. Olaf maakt het blad opnieuw.
 - **Spinrag niet boven de berg (Bram, 71edf43, e771193):** voor en na op 120 en 96 GEZIEN. Ja: het web op de ton (96) is weg, kleine berg houdt zijn web, geen gat in de rij te zien.
+
+## 17 nov 2026, run ±16:26
+
+- **Bekeken:** Sannes 12 nieuwe heldennamen voor het hol (`platformen/steam/features.md`, "Namen zonder families op een rij"). Breedte gemeten met Fredoka (de letter van het spel) op 40 pt voor alle 24 namen met `III`.
+- **Gevonden:** geen Engelse betekenis, geslacht klopt met `VROUW`. `Femke III` (152) en `Anouk III` (149) zijn iets breder dan het breedste nu, `Fenna III` (147); de tekstentoets rekent met `Joost III` (134).
+- **Besloten:** ja op alle twaalf. Kan: de toets met `Femke III` als langste naam. In `berichten/sanne.md`.
