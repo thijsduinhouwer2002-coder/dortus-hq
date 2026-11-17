@@ -1414,3 +1414,4 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 ## 17 nov 2026, run 01:31 UTC (02:31 NL)
 - Nachtscan: itch.io betaalde game-assets gemeten (nog nooit gedaan, tools wel). 400 3D, 300 geluid, 240 Godot (mei t/m jul) en 200 pixel (sep): 3+ ratings bij 2,5%, 6%, 11% en 2%. ±400 nieuwe betaalde assets per dag, sterk groeiend met AI. Cijfer 3, Godot-effecten 4, niet in de top 5. Controleur akkoord (eigen 40 low-poly: 5% 3+). Godot Asset Store nog steeds alleen gratis.
 - Volgende run: muziekpresets, Payhip of Ko-fi, of de MV2-lijst voor plek 4.
+- Zelfde run: Vital-presetwinkel (geen open markt), Ko-fi en Payhip (403) afgestreept. Volgende run: MV2-lijst voor plek 4, of keuringstijd Superhive voor plek 1, of muziekplugins.
