@@ -27,3 +27,4 @@ Ingestuurd 16 nov ±21:20 UTC, nog niet gepubliceerd. Elke run één meting op d
 |---|---|---|
 | 16 nov 23:50 | 174 | nee |
 | 17 nov 01:55 | 191 | nee |
+| 17 nov 04:57 | 196 | nee |
