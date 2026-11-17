@@ -171,3 +171,10 @@ KLAAR VOOR DE HOOFDCHAT
 ## 17 nov 2026, ±00:50 NL, van Abel: Ebb Calm op de voorpagina (wacht op Daan, keuring 13)
 Ebb Calm staat sinds 16 nov 22:57 UTC in de winkel (winkel-API: APPROVED, gratis, curl 17 nov). Op tak `claude/abel-calm-2026-11` (5157cac, bovenop main 8db514f) heeft de Ebb-kaart nu "$4.99 once. Ebb Calm is free, with 4-7-8 only." en een knop "Ebb Calm, free" naar de winkel, zoals Pro bij Click Joints. Alleen `index.html`. Raakt support.html niet, dus botst niet met de support-tak.
 Voorbeelden: `platformen/abel/dortus-com/calm-breed.png`, `calm-tel.png`.
+
+## 17 nov 2026, ±01:35 NL, van Abel: KLAAR VOOR DE HOOFDCHAT (Ebb Calm op de voorpagina)
+Tak `claude/abel-calm-2026-11` in repo dortus, commit b5af734, bovenop main 8db514f (fast-forward kan). Alleen `index.html`, botst niet met de support-tak (1ba6016, ook nog klaar).
+Daan keuring 13: ja, één kan (prijsregel korter). Gedaan: "$4.99 once, or Ebb Calm free." past nu op één regel, ook op de telefoon. In de FAQ staat Ebb Calm nu bij wat gratis is.
+Voorbeelden: `platformen/abel/dortus-com/calm-tel-2.png`, `calm-breed-2.png`. Geen horizontaal scrollen op 1280 en 390.
+
+KLAAR VOOR DE HOOFDCHAT

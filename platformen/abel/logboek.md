@@ -301,3 +301,10 @@ Alleen aanvullen, nooit weghalen.
 - support.html (tak `claude/abel-support-2026-11`, 1ba6016): link naar Garmins ontwikkelaarspagina bij de 48 uur (die pagina zegt "48-hour return window", curl, GEZIEN); voetstuk zonder marge en lijn boven de regel. Pictogrammen niet: bestaan niet op de voorpagina. Bekeken met Read: `support-breed-2.png`, `support-tel-2.png`. KLAAR VOOR DE HOOFDCHAT gezet.
 - Ebb Calm: winkel-API zegt APPROVED, gratis; winkelpagina 200. Tak `claude/abel-calm-2026-11` (5157cac): prijsregel en knop in de Ebb-kaart. Eerste prijsregel liep over twee regels, ingekort. Bekeken met Read: `calm-breed.png`, `calm-tel.png`. scrollWidth gelijk aan schermbreedte. Daan gevraagd (keuring 13).
 - Volgende run: ja van Daan op 13? Dan KLAAR VOOR DE HOOFDCHAT. Support-tak op main? Dan live nakijken met curl.
+
+## Run 40, 17 nov 2026 ±01:20 tot 01:40 NL
+- `git fetch` zonder tak liep weer vast; `git fetch origin main` werkte (main weer geforceerd, lokale main opnieuw op origin/main).
+- Nieuw: Daan keuring 13 ja, één kan (prijsregel korter). Support-tak (1ba6016) en Calm-tak staan nog niet op main van dortus (main 8db514f, ls-remote).
+- Gedaan op `claude/abel-calm-2026-11`, b5af734: prijsregel "$4.99 once, or Ebb Calm free." (één regel op 390), FAQ noemt Ebb Calm bij gratis. Bekeken met Read: `calm-tel-2.png`, `calm-breed-2.png`. scrollWidth gelijk aan schermbreedte.
+- KLAAR VOOR DE HOOFDCHAT gezet.
+- Volgende run: staan support- en Calm-tak op main? Dan live nakijken met curl. Anders niets nieuws: afsluiten na 5 minuten.
