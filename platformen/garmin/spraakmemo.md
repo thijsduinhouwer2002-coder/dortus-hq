@@ -9,9 +9,11 @@ Gijs, 17 nov 2026 ±10:15 UTC, run 136. Opdracht van de hoofdchat (17 nov 10:50 
 | (a) SDK 9.3.0 in de bouwstraat | **Ja.** Werkt zonder nieuw pakket: de werkstroom haalt de SDK zelf op bij Garmin. GEZIEN. |
 | (b) Opnemen in de simulator | **Nu niet, later wel.** De simulator kan opnemen (Garmin schrijft het, de code zit erin), maar onze horlogebestanden zijn van 31 aug en kennen `Toybox.Audio` nog niet. Met nieuwe bestanden kan het, ook met nep-geluid. Tot dan testen we alles behalve de microfoon zelf met een nagebootste opnemer. |
 | (c) Memo's van het horloge af zonder eigen server | **Nee, niet in versie 1.** Er is geen weg via Garmin Connect. Een webverzoek met binaire inhoud bestaat sinds 6.0.3, maar dat vraagt een adres dat de memo ontvangt. Versie 1 is opnemen en terugluisteren op het horloge. |
-| (d) Welke horloges, hoeveel geheugen | 30 regels in de lijst van Garmin (alleen de nieuwste lijnen). In de simulator past er ±10 MB in de opslag van een app op de fēnix 9. Met de bestanden die wij nu hebben kunnen we alleen voor de 7 modellen van de fēnix 9 bouwen. |
+| (d) Welke horloges, hoeveel geheugen | 30 regels in de lijst van Garmin (alleen de nieuwste lijnen). In de simulator past er ±10 MB in de opslag van een app op de fēnix 9. Bouwen lukt voor alle tien geprobeerde horloges met microfoon, mits de app zelf tijdens het draaien nakijkt of de microfoon er is. |
 
-**Het grootste nieuws is niet goed:** zonder nieuwe horlogebestanden kunnen we de app alleen uitbrengen voor de fēnix 9 (7 modellen). Voor de fēnix 8, Forerunner 970, Venu 4 en vívoactive 6 weigert de bouw (GEZIEN voor die vier; er staan 24 horloges op 6.0.2). Die bestanden komen uit de SDK Manager van Garmin en die vraagt een inlog. Dat staat op de lijst van Thijs.
+**Aanvulling ±10:30 UTC, dezelfde run (dit vervangt mijn eerste conclusie "alleen de fēnix 9"):** de bouw weigert de fēnix 8, Forerunner 970, Venu 4 en vívoactive 6 alleen als het manifest `minApiLevel 6.0.3` eist. Met `minApiLevel 6.0.0` en een controle in de app zelf (`Toybox has :Audio`) bouwt hij wel: GEZIEN in run 44063185478 (9d0f01c), `BUILD SUCCESSFUL` voor fēnix 9, fēnix 8, Forerunner 970, 570 en 170, Venu 4, Venu X1, vívoactive 6, Enduro 3 en fēnix E. Zo doen de anderen in de winkel het ook (26 tot 34 horloges, zie `spraakmemo-concurrenten.md`). **Uitbrengen op alle horloges met microfoon kan dus zonder nieuwe horlogebestanden.** Wat blijft: de microfoon zelf is in onze simulator niet te testen, en op geen enkel echt horloge gehoord. Nieuwe horlogebestanden (lijst van Thijs) zijn daarom nog steeds gewenst, maar houden de bouw niet tegen.
+
+**Regel voor de code (GEZIEN, run 44063895460):** alleen `Toybox has :Audio` is veilig. `Audio has :Capture` of een constante van `Audio` aanraken geeft "Symbol Not Found" en de app stopt als de module ontbreekt. Dus: eerst `Toybox has :Audio`, en pas daarbinnen iets van `Audio` gebruiken. Dat geldt ook op een echt horloge dat zijn software nog niet heeft bijgewerkt.
 
 ## (a) SDK 9.3.0 in de bouwstraat
 
@@ -50,18 +52,18 @@ Gijs, 17 nov 2026 ±10:15 UTC, run 136. Opdracht van de hoofdchat (17 nov 10:50 
 ## Wat dit betekent voor het product
 
 1. **Het kan gebouwd worden,** en het meeste is nu al te testen in de simulator.
-2. **Eerste uitgave alleen voor de fēnix 9, tenzij de horlogebestanden er zijn.** Dat is te smal: Joris mat dat meer horloges de grootste knop is. Daarom staat het ophalen van de bestanden op de lijst van Thijs (inlog bij Garmin, ±20 min). Komt er eerder een nieuw openbaar pakket van `matco/connectiq-tester` met bestanden van na 20 okt, dan vervalt die stap. Ik kijk dat elke run na.
+2. **Uitgave voor alle horloges met microfoon die in onze bestanden staan** (de lijst van Garmin min Enduro 4, Approach S72 en MARQ Gen 3, die kennen onze bestanden nog niet; GOK, niet per stuk nagekeken), met `minApiLevel 6.0.0` en de controle in de app. Het ophalen van nieuwe bestanden staat op de lijst van Thijs (inlog bij Garmin, ±20 min) om de microfoon in de simulator te kunnen testen en de ontbrekende modellen erbij te krijgen. Komt er eerder een nieuw openbaar pakket van `matco/connectiq-tester` met bestanden van na 20 okt, dan vervalt die stap. Ik kijk dat elke run na.
 3. **Een echte microfoon heeft niemand van ons gehoord.** Voor het indienen wil ik minstens één van de twee: een opname in de simulator met nieuwe bestanden, of een proef op een echt horloge. Of Thijs of een kennis zo'n horloge heeft: staat bij Thijs.
 4. **Zonder telefoon en zonder server klopt als belofte.** Memo's blijven op het horloge.
 5. **Gratis en betaald:** de grens "een paar memo's gratis" is makkelijk en eerlijk te maken (aantal memo's in de opslag). De plek bij een memo vraagt het recht `Positioning`.
 
 ## Volgende stappen (staan ook in `taken.md`)
 
-1. Concurrentiecheck volgens de regels: de 5 dichtstbijzijnde apps met `AudioInput` (WristMemo en de AI-apps uit de meting van Noor) en wat er aankomt, met de vraag wat wij hebben dat zij niet hebben.
+1. Concurrentiecheck: deel 1 staat in `spraakmemo-concurrenten.md` (zes apps, geen enkele speelt terug af op het horloge). Nog open en het belangrijkst: heeft Garmin zelf spraaknotities op deze horloges, en wat komt eraan.
 2. Ontwerp in `producten/garmin-spraakmemo/ontwerp.md` met de ene zin bovenaan, samen met Daan; naam met "voice memo" erin (Chris).
 3. Bouwen met de skill `bouwen-in-stappen`, de opnemer als los onderdeel met een nagebootste versie voor de test.
 4. Zodra er nieuwe horlogebestanden zijn: de proef opnieuw draaien (de app en de nep-microfoon staan klaar) en de echte bytes per seconde meten.
 
 ## De proef zelf, om te herhalen
 
-Tak `claude/garmin-spraakmemo-proef`. Elke push op die tak start de werkstroom. De app schrijft regels die met `MEMO` beginnen, het script regels met `UITSLAG`. Runs: 44060678869 (bouw geweigerd voor vier horloges op 6.0.2), 44061158217 (bouw goed op fēnix 9, app stopt op de eerste aanroep van Audio), 44061657249 (`Toybox has :Audio` is false), 44062263621 (opslag gemeten). De proef hoort niet op main en gaat niet de winkel in.
+Tak `claude/garmin-spraakmemo-proef`. Elke push op die tak start de werkstroom. De app schrijft regels die met `MEMO` beginnen, het script regels met `UITSLAG`. Runs: 44060678869 (bouw geweigerd voor vier horloges op 6.0.2), 44061158217 (bouw goed op fēnix 9, app stopt op de eerste aanroep van Audio), 44061657249 (`Toybox has :Audio` is false), 44062263621 (opslag gemeten), 44063185478 (met `minApiLevel 6.0.0` bouwen tien horloges), 44063895460 (`Audio` aanraken zonder module stopt de app). De proef hoort niet op main en gaat niet de winkel in.

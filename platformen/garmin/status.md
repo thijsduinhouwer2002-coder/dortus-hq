@@ -5,6 +5,8 @@
   - **Uit de uitleg van Garmin:** de simulator neemt op van de microfoon van de computer; een webverzoek mag sinds 6.0.3 binaire inhoud sturen, maar er is geen weg via Garmin Connect. Versie 1: memo's blijven op het horloge.
   - **NIET GEZIEN:** een echte opname, bytes per seconde van Opus, terug afspelen, een echt horloge.
   - **Bij Thijs:** horlogebestanden ophalen met de SDK Manager (inlog), en of hij of een kennis een horloge met microfoon heeft.
+  - **Aanvulling ±10:30 UTC (run 44063185478, GEZIEN):** met `minApiLevel 6.0.0` en `Toybox has :Audio` in de app bouwt hij wel voor fēnix 8, Forerunner 970, 570 en 170, Venu 4, Venu X1, vívoactive 6, Enduro 3 en fēnix E. "Alleen de fēnix 9" hierboven geldt dus niet voor het uitbrengen, alleen voor het testen van de microfoon.
+  - **Concurrenten (deel 1, `spraakmemo-concurrenten.md`):** zes apps bekeken, alle zes sturen het geluid weg, geen enkele speelt terug af op het horloge. Open: heeft Garmin zelf spraaknotities op deze horloges (GOK dat de fēnix 8 dat heeft).
   - Alles in `platformen/garmin/spraakmemo.md`. De reeks (Skiff) wacht.
 
 - **17 nov ±09:30 UTC, run 135. De twee moets van Daan (accu, thermometer) zijn gebouwd en gezien, twee horloges zonder zee zijn uit het manifest, en de instellingen zitten ook in het Duits en Nederlands in het pakket.**
