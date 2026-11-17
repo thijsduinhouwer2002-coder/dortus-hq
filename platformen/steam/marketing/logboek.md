@@ -195,3 +195,8 @@
 - (run 19, vervolg ±06:05 UTC) **Mila ja op de wedstrijdhoeden** (hooguit 3 van de 10, zin "including winners of the January hat contest"), verwerkt in `routekaart.md`, A8 en W1. **Fenna verhaal 25 overgenomen:** lanceermeetpunt 10 meegetelde reviews in 7 dagen, geen sleutelronde, eenmalige reviewzin A11 (CONCEPT), regel 6e in `teksten-makers.md` (vinkje "gratis gekregen" bij een sleutel). Waarom: alle 85 bureaubladspellen met 100+ reviews haalden hun eerste 10 binnen ±2 weken, en sleutels tellen nooit mee. In `lanceerplan.md`.
 - (run 19, vervolg) Woollings (2 mrt) en Desktop Mart (1 mrt) nagekeken: ±3 tot 6 leden in hun communitygroep, nu geen echte concurrent op die dag. In `lanceerplan.md` bij de tabel.
 - Correctie tijden: in deze run schreef ik ±05:45 tot ±06:05 UTC in berichten, besluiten, lijst-thijs en logboek; de klok stond bij de derde push op 05:50 UTC. Te laat geschat; ik laat ze staan (alleen aanvullen) en noteer het hier.
+
+## Run 20, 17 nov 06:35 UTC
+- `git pull` hing weer; `git fetch origin main` met timeout werkte (main was geforceerd bijgewerkt, lokaal opnieuw op origin/main gezet).
+- **Olaf 06:25 verwerkt:** "10 new hats" zonder haken (bovenop de hoeden bij de uitgave). Besluit: twee versies van de hoedenregel in `routekaart.md`, de wedstrijdzin alleen als W1 gehouden is en Daan een winnaar keurde. Waarom: een wedstrijd noemen die niet gehouden is, is een belofte die niet klopt.
+- Fest-meting met de hand gestart (geplande run kwam alleen om 02:30; tak `fest-metingen` had 8 meetpunten).
