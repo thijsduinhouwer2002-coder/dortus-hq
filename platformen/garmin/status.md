@@ -1,5 +1,11 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±06:20 UTC, run 132. De kern van Tij kan nu het thema laten kiezen en bouwt een gratis en een betaalde versie uit één bron; het bootje staat ook in de slaapstand.**
+  - **GEZIEN (run 44028471568, 986d850, groen; bladen `platformen/garmin/tij-zee/zee-run132-*.png`):** in de slaapstand staat het bootje als omtrek van 1 px aan het eind van de lijn op fēnix 8, Venu 3S, Venu Sq 2, 265S en vívoactive 5 (aan: 2,3 tot 4,4% van het scherm, grens 8%; de 265S telt nu mee als inbrandscherm). Op 64 kleuren heeft de dubbele punt de kleur van de minuten. In `uitslag.txt`: `IQ_PROEF ja` (betaald, 63 horloges, 0 waarschuwingen), `IQ_GRATIS ja` (63 horloges, 0 waarschuwingen), `INSTELLINGEN bestanden=3 thema=33` bij de betaalde en `INSTELLINGEN_GRATIS bestanden=0 thema=0 app_id_anders=ja`, maten, kleuren en slaaptelling goed. Toetsen groen, vier nieuwe.
+  - **NIET GEZIEN:** een echt horloge; het kiezen van een thema in Garmin Connect of in de simulator (de toetsen kijken het lezen na, niemand heeft op de lijst gedrukt); een beeld van de gratis versie; de uitslag per toets (alleen de groene stap).
+  - **Cijfers winkel:** niet opnieuw gemeten deze run. Laatste meting 17 nov 02:58 UTC: Ebb en Ebb Calm allebei 1.0.0, 0 downloads, 0 reviews, 0 verkopen; Hat Tower en de updates staan klaar op de lijst van Thijs. Volgende meting dag 7 (23 nov).
+  - **Tak:** `claude/garmin-reeks-kern` op 986d850.
+
 - **17 nov ±05:30 UTC, run 131. De vier moets van Daan voor de zee van Tij zijn gebouwd en liggen bij Daan en Mila.**
   - **GEZIEN (drie runs groen, bladen in `platformen/garmin/tij-zee/zee-run131-*.png`):** de kleuren van Mila op de Forerunner 255, 245 en 55 (geen neon en geen bloedrood meer, zeil overal wit), gladde randen op fēnix 8, Venu 3S en 265S, de Venu Sq 2 met de zee van rand tot rand, en een volle zee die licht deint. 29 toetsen groen, pakket voor 63 horloges, maten, kleuren en slaaptelling per horloge goed. Tekenen kost hoogstens 22 ms (grens 50).
   - **Hersteld in de bouwstraat:** de beelden kwamen in de run van 04:26 UTC niet aan terwijl de job groen was. Nu haalt de job alleen zijn eigen map op (seconden in plaats van minuten), wordt hij rood als de beelden niet aankomen, en draait er één run per tak.
