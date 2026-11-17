@@ -38,7 +38,7 @@
       "rol": "Ontwerper (wow)",
       "team": "Steam + Garmin",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Mila"
       ]
@@ -109,17 +109,17 @@
       "rol": "Verkenner",
       "team": "Zoeken",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Vera"
       ]
     },
     {
       "naam": "Noor",
-      "rol": "Pionier",
+      "rol": "Pionier, radar nieuwe platformen",
       "team": "Zoeken",
-      "schema": "uit",
-      "actief": false,
+      "schema": "elk uur 07-22",
+      "actief": true,
       "sleutels": [
         "Noor"
       ]
@@ -170,7 +170,7 @@
       "rol": "Accountverzorger",
       "team": "Basis",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Abel"
       ]
@@ -180,7 +180,7 @@
       "rol": "Succesonderzoeker (teamleider)",
       "team": "Onderzoek",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Lars"
       ]
@@ -190,7 +190,7 @@
       "rol": "Succesonderzoeker",
       "team": "Onderzoek",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Fenna"
       ]
@@ -220,7 +220,7 @@
       "rol": "Marketeer spel",
       "team": "Steam",
       "schema": "elk uur",
-      "actief": true,
+      "actief": false,
       "sleutels": [
         "Sem"
       ]
