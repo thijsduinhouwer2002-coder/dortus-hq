@@ -163,6 +163,25 @@ function testZeeLijn(logger as Test.Logger) as Boolean {
         && p[p.size() - 1][0] == 260;
 }
 
+// Een volle zee (100) is geen rechte plank: de lijn deint een paar px, alleen omlaag, nooit boven het plafond.
+(:test)
+function testZeeVolDeint(logger as Test.Logger) as Boolean {
+    var p = Zee.lijn([100, 100, 100] as Array<Number>, 10, 182, 260, 186, 233, 0);
+    var laagste = 186;
+    var hoogste = 999;
+    for (var i = 0; i <= Zee.N; i++) {
+        var y = p[i][1] as Number;
+        if (y > laagste) {
+            laagste = y;
+        }
+        if (y < hoogste) {
+            hoogste = y;
+        }
+    }
+    logger.debug("vol: van " + hoogste + " tot " + laagste);
+    return hoogste >= 186 && laagste <= 190 && laagste > hoogste;
+}
+
 // Eén waarde of geen waarde: toch een hele lijn, vlak rond de hoogte van die waarde of halverwege.
 (:test)
 function testZeeLijnWeinigGegevens(logger as Test.Logger) as Boolean {

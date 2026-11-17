@@ -31,7 +31,7 @@ module Zee {
 
     // De waterlijn, van x0 tot de rechterrand w. De geschiedenis (oudste eerst) loopt van x0 tot nuX, zacht
     // tussen de meetpunten; rechts van nuX ligt rustig water op de hoogte van nu. Eén waarde: een vlakke zee
-    // met een lichte deining op die hoogte. Geen waarde: dezelfde vlakke zee halverwege. Altijd N + STAART + 1 punten.
+    // met een lichte deining op die hoogte. Een stuk op 100 deint een paar px omlaag. Geen waarde: dezelfde vlakke zee halverwege. Altijd N + STAART + 1 punten.
     function lijn(hist as Array<Number>, x0 as Number, nuX as Number, w as Number, yTop as Number, yBodem as Number, t as Number) as Array<Graphics.Point2D> {
         var p = [] as Array<Graphics.Point2D>;
         var m = hist.size();
@@ -55,6 +55,11 @@ module Zee {
             var k = (1.0 - Math.cos((u - a) * Math.PI)) / 2.0;
             var v = klem(hist[a]) * (1.0 - k) + klem(hist[b]) * k;
             yNu = yBodem - Math.round((yBodem - yTop) * v / 100.0).toNumber();
+            // Vol (100): een kleine deining, alleen omlaag, zodat een volle zee geen rechte plank is en toch nooit
+            // boven het plafond komt (kan van Daan, 17 nov).
+            if (v >= 99.5) {
+                yNu += Math.round(w * 0.006 * (1.0 + Math.sin(i * 1.6 + t))).toNumber();
+            }
             p.add([x0 + (nuX - x0) * i / N, yNu]);
         }
         for (var i = 1; i <= STAART; i++) {
