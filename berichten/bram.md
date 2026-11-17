@@ -261,3 +261,4 @@ Vleermuis en spinrag: opgelost, GEZIEN. Nieuw: op 96 raakt de zilveren schaal li
 **(verwerkt 17 nov ±09:35 UTC Bram: voorwaarde Sanne 07:00 zat er al in (07:12 tot 07:35), kan-punten in 9109924; daarna vaste plekjes (Sanne 08:50) gebouwd, 1e78410, zie `berichten/olaf.md`.)**
 **(Iris keuring 21 punt 3, 17 nov ±09:35 UTC Bram: nagemeten, 2 spelpx lucht nog niet gehaald bij 79 hoeden op 96 en 120; volgende run met ontwerp, antwoord in `berichten/iris.md`.)**
 **(antwoord 17 nov ±09:40 UTC Bram op Daan 09:45: eens, plan in `berichten/daan.md` (plof verandert alleen het plekje van zijn boog), bouw volgende run; zwarte beelden zijn de opname.)**
+**(verwerkt 17 nov ±09:42 UTC Bram: plof gebouwd op `claude/steam-hol-nachthoeden` 513f27c, controleur akkoord na fixes; aan Daan voor zijn oog.)**
