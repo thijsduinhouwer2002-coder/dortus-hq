@@ -1,6 +1,6 @@
 # Maakt de 4 gifs voor de lange beschrijving op de Steampagina van Hats of the Fallen (Z6, voorstel Sem).
 # Chris, 17 nov 2026. Bron: echte losse beelden uit de Windows-build (Olaf, tak schermen, commit 453aac1), 3 beelden per s.
-# Gebruik: python3 maak_gifs.py <map-met-beelden> <uitmap>
+# Gebruik: python3 maak_gifs.py <map-met-beelden> <uitmap> [alleen4]   (alleen4: maak alleen gif 4, dan is alleen hap/ nodig)
 #   <map-met-beelden> bevat demo/, week/ en hap/ met f<nr*5>.png zoals op schermen (steam-hol/winkel-1920-demo-160/los en ...-week-.../los).
 # Breedte 616 px: de breedte die Rusty's Retirement voor 3 van zijn 5 beschrijvingsbeelden gebruikt (GEZIEN 17 nov).
 # Geen tekst in de gifs: Steam raadt dat aan, want tekst in beelden moet je per taal opnieuw maken (DERDEN, partner.steamgames.com/doc/store/page/description).
@@ -27,7 +27,7 @@ def gif_uit_beelden(lijst,pad,fps=3,hold_eind=4):
     for j in range(hold_eind): lijst[-1].save(f'{tmp}/{len(lijst)+j:04d}.png')
     subprocess.run(['ffmpeg','-v','error','-y','-framerate',str(fps),'-i',f'{tmp}/%04d.png','-vf',
       'split[a][b];[a]palettegen=max_colors=192:stats_mode=full[p];[b][p]paletteuse=dither=sierra2_4a','-loop','0',pad],check=True)
-for g in GIFS:
+for g in ([] if 'alleen4' in sys.argv[3:] else GIFS):
     schaal=W/g['bw']; h=int(round(160*schaal))
     lijst=[]
     for f in beelden(g['soort'],g['van'],g['tot']):
@@ -42,7 +42,10 @@ for g in GIFS:
 # is weggelaten; de beelden zelf zijn echt en onbewerkt. Laatste beeld ±1 s stil.
 X0,BW=700,760; TB=12; SH=int(round(160*W/BW)); VR=74; H4=VR+SH+TB
 REGELS=[(36,180,(120,150,200)),(52,260,(150,170,150)),(36,120,(200,170,120)),(52,210,(150,160,190)),(36,90,(170,150,190))]
-nrs=list(range(210,241,5))+list(range(280,336,5))
+# Run 73 (na Daan 17 nov 02:45): het stille midden en het lange stille eind ingekort. Gemeten (pixelverschil per beeld,
+# uitsnede x 700 tot 1460): beweging f205 tot f240 en f305 tot f315, verder stil. Nu: begin rustig op f215 (geen munt in de lucht),
+# munt en knipoog f220 tot f240, dan één stil beeld (f300, gelijk aan f240), de hap f305 tot f315 (f315 is ook het eindbeeld: f320 en later zijn gelijk), eind 3 beelden (1 s) stil.
+nrs=list(range(215,241,5))+[300]+list(range(305,316,5))
 lijst=[]
 for k,nr in enumerate(nrs):
     a=achtergrond(W,H4); d=ImageDraw.Draw(a)
@@ -55,6 +58,6 @@ for k,nr in enumerate(nrs):
     d.rectangle((0,H4-TB,W,H4),fill=(28,32,44))                                         # taakbalk
     s=Image.open(f'{BRON}/hap/f{nr:08d}.png').convert('RGBA').crop((X0,0,X0+BW,160)).resize((W,SH),Image.LANCZOS)
     a=a.convert('RGBA'); a.alpha_composite(s,(0,VR)); lijst.append(a.convert('RGB'))
-gif_uit_beelden(lijst,f'{UIT}/4-it-keeps-going-while-you-work.gif',fps=3,hold_eind=3)
+gif_uit_beelden(lijst,f'{UIT}/4-it-keeps-going-while-you-work.gif',fps=3,hold_eind=2)
 for n in sorted(os.listdir(UIT)):
     if n.endswith('.gif'): print(n, os.path.getsize(f'{UIT}/{n}'), Image.open(f'{UIT}/{n}').size, Image.open(f'{UIT}/{n}').n_frames)

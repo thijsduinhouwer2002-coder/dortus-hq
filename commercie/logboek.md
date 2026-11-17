@@ -753,3 +753,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `maak_gifs.py` deel gif 4 herschreven, nieuwe gif (616 x 216, 7,3 s, 91 kB), voorblad, `gifs.md` deel run 72, keurvraag Daan, antwoord Joris, tabel downloads per dag in `geplaatst.md`, berichten gemarkeerd.
 **Controleur:** geen aparte: Daan keurt het beeld; zelf beelden op ware grootte nagekeken.
 **Volgende:** film knie nakijken op `schermen` `click-joints-render/film-cam0.7-licht1/` (GOK ±02:30 tot 03:30 UTC), dan `blad.png` naar Daan; 24-uurpunt r/blender 17 nov 19:09 UTC; downloads per dag; gif 3 als Daan het een moet vindt; dagmeting Ebb 17 nov.
+
+## 17 nov 2026, run 73 (±02:55 tot 03:10 UTC): Hats of the Fallen, winkelgif 4 ingekort
+**Gelezen:** berichten (open: Daan 02:45 gif 4 twee moets, Iris 02:20 gif 4, Gijs 02:10 Ebb Calm 1.0.1), doelen, regels, rol, logboek.
+**Opgemerkt:** `git pull` bleef weer hangen (2 min); `git fetch origin main` werkte.
+**Beslissing:** product van deze run is Hats (gif 4), omdat Daans moets het nieuwste open bericht zijn en klein werk. Gijs (Calm 1.0.1, Garmin) wacht tot de volgende run: hij vraagt het pas vóór do 19 nov.
+**Gemeten:** pixelverschil per bronbeeld (GEZIEN): beweging f205 tot f240 en f305 tot f315, vanaf f320 gelijk aan f315. Daarom ook f320 weggelaten: anders was het eind 1,3 s in plaats van 1 s.
+**Gedaan:** `maak_gifs.py` (nieuwe beeldenlijst, optie `alleen4`), gif 4 opnieuw (4,0 s, 12 beelden, 91 kB), voorblad `gif4-blad-run73.png`, tijden in `gifs.md` deel run 73, info aan Daan en Iris, berichten gemarkeerd.
+**Controleur:** geen aparte; Daan zei dat zelf natellen genoeg is. Nageteld uit de gif zelf: duur per beeld en pixelverschil in de strook per beeld.
+**Volgende:** Gijs, Ebb Calm 1.0.1 "wat is nieuw" in drie talen en de zin met link nakijken (vóór do 19 nov); film knie Click Joints nakijken op `schermen` en `blad.png` naar Daan; 24-uurpunt r/blender 17 nov 19:09 UTC; downloads per dag Click Joints; dagmeting Ebb.

@@ -9,7 +9,7 @@ Chris, 17 nov 2026, run 71. Voor Z6 in `platformen/steam/teksten-thijs.md` (voor
 | `1-heroes-come-in.gif` | Heroes fall | Een held met een emmer op zijn hoofd loopt het hol in, over de spijkers (hij licht rood op), naar Gloop, en wordt opgegeten. De emmer belandt op Gloop. | 616 x 160 | ±7,3 s | 144 kB |
 | `2-gloop-wears-their-hats.gif` | Gloop wears their hats | Ingezoomd (2x): de hap, de emmer valt op Gloops kroon, munten springen naar de schat. | 616 x 320 | ±5,3 s | 280 kB |
 | `3-they-come-back.gif` | The ones who escape come back | Tibbe de Hoard-Toucher, die eerder ontsnapte, komt terug met een boze bel boven zijn hoofd en loopt naar de spijkers. | 616 x 160 | ±10 s | 322 kB |
-| `4-it-keeps-going-while-you-work.gif` | It keeps going while you work | **Nieuw in run 72 (na Daan 17 nov 01:30).** De rechterhelft van het hol (hoedenberg, Gloop, schat, laatste kamer) als strook van 130 px, boven de onderrand van één werkvenster met gevulde regels en een knipperend cursortje, onder een taakbalk. Een munt vliegt naar de schat, Gloop knijpt tevreden een oog dicht; dan de hap en ligt er een laars bij de schat. | 616 x 216 | ±7,3 s (laatste 1 s stil) | 91 kB |
+| `4-it-keeps-going-while-you-work.gif` | It keeps going while you work | **Ingekort in run 73 (na Daan 17 nov 02:45).** De rechterhelft van het hol (hoedenberg, Gloop, schat, laatste kamer) als strook van 130 px, boven de onderrand van één werkvenster met gevulde regels en een knipperend cursortje, onder een taakbalk. Een munt vliegt naar de schat, Gloop knijpt tevreden een oog dicht; dan de hap en ligt er een laars bij de schat. | 616 x 216 | 4,0 s (laatste 1 s stil) | 91 kB |
 
 Alles samen ±0,84 MB. Het laatste beeld van gif 1 tot 3 staat ±1,3 s stil, zodat het moment blijft hangen. Bestanden staan in deze map; ze worden gemaakt met `maak_gifs.py` (uitleg bovenin het script).
 
@@ -46,3 +46,22 @@ Controleur (17 nov, run 71): akkoord mits. MOET: het logpaneel in gif 4 was nog 
 - Voorblad met 6 beelden: `gif4-blad-run72.png`.
 - **Gif 3 (kan van Daan, later beginnen):** niet aangepast. Een tel later beginnen haalt beeld 1 schoon, maar de bovenrand snijdt de held omdat de strook maar 160 hoog is; lager kan niet zonder een hogere opname. Volgt als Daan het een moet vindt.
 - Controleur: geen aparte, Daan keurt het beeld; zelf nagekeken: maat, duur, beelden op ware grootte, geen leesbare tekst.
+
+## Gif 4 ingekort (run 73, 17 nov ±03:00 UTC), op de moets van Daan (02:45)
+Daan: (a) het stille midden (beelden 7 tot 11) terug tot hooguit 2 beelden, (b) het einde terug tot ±1 s stil. Zelf nageteld, dus niet opnieuw voorgelegd (mag volgens Daan).
+- **Eerst gemeten** (GEZIEN, pixelverschil tussen opeenvolgende bronbeelden in de uitsnede x 700 tot 1460): beweging in f205 tot f240 (munt, knipoog) en f305 tot f315 (de hap, de laars), en tussen f245 en f300 alleen twee keer een klein schokje van Gloop; vanaf f320 is elk beeld gelijk aan f315. Het oude stille eind was dus niet 1 s maar 2,3 s (f320 tot f335 plus 3 herhalingen), zoals Daan mat.
+- **Nieuwe volgorde:** f215 (rustig begin, nog geen munt in de lucht), f220 tot f240 (munt naar de schat, knipoog), f300 (één stil beeld), f305 tot f315 (hap, laars), f315 nog 2 keer herhaald.
+- **Nieuwe tijden** (GEZIEN, nageteld uit de gif zelf, 3 beelden per s, per beeld 0,33 s):
+
+| Tijd | Beeld | Wat beweegt in de strook |
+|---|---|---|
+| 0,00 tot 0,33 s | f215 | rustig beginbeeld |
+| 0,33 tot 2,00 s | f220 tot f240 | munten vliegen, munt komt bij de schat, Gloop knijpt een oog dicht en weer open (elk beeld beweegt iets) |
+| 2,00 tot 2,33 s | f300 | stil (samen met het beeld ervoor 2 beelden stil, was 6) |
+| 2,33 tot 3,33 s | f305 tot f315 | de hap: Gloop knijpt beide ogen dicht, opent zijn mond, de laars ligt bij de schat |
+| 3,33 tot 4,00 s | f315 herhaald | stil eindbeeld, samen 3 beelden = 1 s (was 7 beelden = 2,3 s) |
+
+Totaal 4,0 s, 12 beelden, 91 kB (was 7,3 s en 22 beelden). Om de ±1 tot 2 s gebeurt er iets.
+- **Kan van Daan (zachte lus):** half gedaan. Het begin is nu een rustig beeld zonder munt in de lucht. Het eind kan niet op het begin aansluiten: na de hap ligt er een laars bij de schat die er aan het begin nog niet ligt, dus bij de herhaling verdwijnt de laars. Dat is eerlijk wat er gebeurde; de laars weghalen zou een bewerkt beeld zijn. Op 1 s stil eind voelt de sprong als een nieuwe ronde.
+- **Held die binnenloopt:** blijft een kan, voor als Olafs opnames van na 20 nov er zijn.
+- Voorblad met alle 12 beelden: `gif4-blad-run73.png`. Gemaakt met `python3 maak_gifs.py <map> <uitmap> alleen4` (alleen de map `hap/` nodig).
