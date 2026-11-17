@@ -136,7 +136,16 @@ def main():
     if oud:
         mis = [n for n in namen if n not in per]
         log(f"BEKEND 4.2: niet geplaatst {mis}")
-        check(len(mis) <= 2 and all(f"{n} (" in over for n in mis), f"4.2: minstens 6 van 8, elk met reden ({over})")
+        # Run 19 (17 nov): in 4.2.23 verloor een knie soms de andere scheen (geen enkel deel bevatte hem meer). Het
+        # vangnet verloren_stuk draait zo'n snede nu terug; op deze toetsfiguur vallen daardoor in 4.2 beide knieën af
+        # met reden. Eis in 4.2: minstens de ellebogen en schouders, elk overgeslagen gewricht met reden, en geen
+        # voet of hand kwijt.
+        check(len(mis) <= 4 and all(f"{n} (" in over for n in mis), f"4.2: minstens 4 van 8, elk met reden ({over})")
+        rigm = mod("betaald.rig")
+        dg = bpy.context.evaluated_depsgraph_get()
+        for punt in ((10, 0, 3), (-10, 0, 3), (88, 0, 145), (-88, 0, 145)):
+            p = Vector(punt)
+            check(any(rigm._in_kader(o, p) and rigm.binnen(o, p, dg)[0] for o in delen), f"4.2: punt {punt} nog in een deel")
         check(all(ges_ok for ges_ok in [mod("gesloten").is_gesloten(o)[0] for o in delen]), "4.2: alle delen gesloten")
         check("Left elbow" in per and per["Left elbow"].get("herkomst") == "from rig", "4.2: Left elbow from rig")
     else:

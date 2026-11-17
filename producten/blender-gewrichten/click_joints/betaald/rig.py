@@ -407,6 +407,42 @@ def stukken(ob):
     return n
 
 
+def verloren_stuk(context, bron, nieuw, centrum, straal, n=400):
+    """Pro 1.1 vangnet (17 nov run 19, Blender 4.2.23): na een gelukte scharniersnede kan een ver lid helemaal weg
+    zijn (toetsfiguur met armen: de rechterscheen zat in geen enkel deel meer, daarna "joint outside the mesh").
+    Neem tot n punten van de bron, 0,6 mm naar binnen geschoven; buiten een bol rond het gewricht moet elk punt in een
+    van de nieuwe delen liggen. Geeft het deel van de punten dat nergens ligt (0.0 tot 1.0). Gemeten 17 nov: een
+    verloren scheen 9 tot 12%; Make watertight-kopieën (knight_yellow) 3 tot 6% door binnenschillen die de UNION
+    terecht weghaalt. Daarom de grens 6%."""
+    from ..eigenschappen import eenheid_per_mm
+    delen = [d for d in nieuw or [] if d.type == "MESH" and d.get("cj_deel") in ("A", "B")]
+    if not delen or not bron.data.vertices:
+        return 0.0
+    dg = context.evaluated_depsgraph_get()
+    bvhs = [bvh_van(d, dg) for d in delen]
+    eigen = bvh_van(bron, dg)
+    u = eenheid_per_mm(context.scene)
+    mw, rot = bron.matrix_world, bron.matrix_world.to_3x3()
+    vs = bron.data.vertices
+    stap = max(1, len(vs) // n)
+    geteld = mis = 0
+    for v in list(vs)[::stap]:
+        p = mw @ v.co - (rot @ v.normal).normalized() * 0.6 * u
+        if (p - centrum).length < straal:
+            continue
+        plek, normaal, _i, _a = eigen.find_nearest(p)
+        if plek is None or (p - plek).dot(normaal) >= 0:
+            continue  # de toets zegt zelfs in de bron "buiten" (dunne stof, overlappende schillen): niet meetellen
+        geteld += 1
+        for bvh in bvhs:
+            plek, normaal, _i, _a = bvh.find_nearest(p)
+            if plek is not None and (p - plek).dot(normaal) < 0:
+                break
+        else:
+            mis += 1
+    return mis / geteld if geteld else 0.0
+
+
 def kogel_fout(context, armature, naam, nieuw):
     """Pro 1.1 vangnet (run 14, echte Meshy-figuren): een kogel die meer dan zijn eigen lid meeneemt of een los stuk
     achterlaat is kapot, ook als de delen gesloten zijn. Gezien op knight_yellow: de heupkogel nam beide benen mee (de
@@ -466,6 +502,7 @@ def _in_kader(ob, punt):
 
 def deel_met(context, kandidaten, punt):
     """Het deel van de figuur waar het punt in ligt (het diepste, als het in meer ligt), of None."""
+    context.view_layer.update()  # kader van een net gesneden deel is anders nog oud
     dg = context.evaluated_depsgraph_get()
     beste = None
     for ob in kandidaten:
@@ -541,7 +578,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 kandidaten = scharnier_plekken(context, doel, m, lengte)
             geblokkeerd, vangnet = False, None
             for i, (m, _mm) in enumerate(kandidaten):
-                for o in context.view_layer.objects:
+                # Run 19 (CI 2569d26, 4.2.23): na een mislukte snede kan de lijst van de view layer in 4.2 nog een
+                # leeg plekje (None) hebben voor een weggehaald object; dat liet de knop vastlopen.
+                for o in [o for o in context.view_layer.objects if o is not None]:
                     o.select_set(False)
                 doel.select_set(True)
                 context.view_layer.objects.active = doel
@@ -560,6 +599,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     # Run 17 (CI 4.2.23, knight_yellow): ook een scharnier kan losse stukken achterlaten; dan
                     # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
                     fout = "the cut left a loose piece here, place it by hand"
+                elif ok and soort == "HINGE" and verloren_stuk(context, doel, nieuw, m.to_translation(),
+                                                               max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > 0.06:
+                    fout = "the cut lost part of the model here, place it by hand"
                 else:
                     fout = kogel_fout(context, arm, naam, nieuw) if ok and soort != "HINGE" else None
                 if fout:
