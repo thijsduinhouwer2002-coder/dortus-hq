@@ -1,0 +1,58 @@
+name: Filmpjes geluid
+
+# Chris, 17 nov 2026 (verhaal 31 van Joris): zet zelf gemaakt geluid (met code, geen nummer van een ander)
+# onder de gekeurde filmpjes uit release filmpjes-week-1. Het beeld wordt 1 op 1 gekopieerd, dus het blijft
+# precies wat Daan keurde. Uit: <naam>-geluid.mp4 en <naam>-geluid-golf.png in dezelfde release.
+# De originele bestanden blijven staan. Uitleg: commercie/filmpjes/geluid/ontwerp.md.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/geluid/**", ".github/workflows/filmpjes-geluid.yml"]
+  workflow_run:
+    workflows: ["Filmpjes week 1"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: filmpjes-week-1
+  MAP: commercie/filmpjes/geluid
+  FILMS: click-joints-7-tip-day-1-clearance click-joints-2-satisfying-bend ebb-tip-1-eyes-closed
+
+jobs:
+  geluid:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gereedschap
+        run: |
+          sudo apt-get update -q >/dev/null
+          sudo apt-get install -y -q ffmpeg python3-numpy python3-matplotlib >/dev/null
+      - name: Gekeurde filmpjes ophalen en nakijken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/in /tmp/uit
+          cd /tmp/in
+          gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p SHA256SUMS.txt
+          for f in $FILMS; do
+            gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p "$f.mp4"
+            grep " $f.mp4\$" SHA256SUMS.txt | sha256sum -c -
+          done
+      - name: Geluid maken en toetsen
+        run: |
+          for f in $FILMS; do
+            python3 "$MAP/geluid.py" "/tmp/in/$f.mp4" "/tmp/uit/$f-geluid.mp4"
+            python3 "$MAP/toets.py" "/tmp/in/$f.mp4" "/tmp/uit/$f-geluid.mp4" "/tmp/uit/$f-geluid-golf.png"
+          done
+          (cd /tmp/uit && sha256sum *.mp4 | tee GELUID-SHA256SUMS.txt)
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$TAG" /tmp/uit/* --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets --jq '.assets[] | select(.name|test("geluid|GELUID")) | .name + " " + (.size|tostring)'
