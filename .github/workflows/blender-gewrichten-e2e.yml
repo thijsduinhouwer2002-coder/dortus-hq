@@ -91,6 +91,17 @@ jobs:
           mkdir -p "e2e/screenshots/${{ matrix.blender }}"
           cp /tmp/click_joints_betaald.zip "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.zip"
           sha256sum /tmp/click_joints_betaald.zip | tee "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.sha256"
+      - name: Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow)
+        # Lars 17 nov (verhaal 27): Pro 1.1 gaat pas uit als alles wat 1.0 kon nog werkt (kogel, speling, passing,
+        # beweegproef, boog, STL en 3MF), met de Pro-zip zelf geïnstalleerd. Scharnier 90/115/135 toetst test_betaald.
+        env:
+          BLENDER_USER_RESOURCES: /tmp/cj_terug
+          BLENDER_USER_CONFIG: /tmp/cj_terug/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_terug/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          /tmp/blender/blender -b --factory-startup --python e2e/test_achtergrond.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/terug.log
+          grep -q "klaar, fouten: \[\]" /tmp/terug.log
       - name: Eén lid snijden (0.1.1 en 1.0.2, figuur met twee benen uit één stuk)
         # Fout uit de proef met Meshy-figuren (15 nov): een gewricht in één knie sneed beide benen door.
         run: |
