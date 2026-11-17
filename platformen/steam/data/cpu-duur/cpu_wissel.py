@@ -1,6 +1,7 @@
 """CPU binnen één run: muisvlak aan tegen uit (startargument wissel=vlak, kern/proef.gd). Bram 16 nov 2026.
 
-Gebruik: python3 cpu_wissel.py <map met cpu-per-10s.txt en hol.log> [...]
+Gebruik: python3 cpu_wissel.py [L=<n>] <map met cpu-per-10s.txt en hol.log> [...]
+Met L=<n> een vaste uitlijning voor alle mappen (Iris keuring 16: bij een paar die van main); de L staat in de uitvoer.
 Het spel zet het vlak in oneven minuten (t 60-120, 180-240, ...) uit. Elke meting `HOL meting t=` beslaat de 10 s
 ervoor; alleen metingen midden in een minuut (t%60 van 20 tot 50) tellen mee. De CPU-reeks van de workflow wordt op de metingen
 gelegd met de verschuiving (-3 tot 3) waarbij CPU en beelden het best samengaan, zoals cpu_per_beeld.py.
@@ -16,13 +17,22 @@ def cor(a, b):
         return 0
 
 
-for d in sys.argv[1:]:
+VAST = None
+mappen = []
+for a in sys.argv[1:]:
+    if a.startswith('L='):
+        VAST = int(a[2:])
+    else:
+        mappen.append(a)
+
+for d in mappen:
     cpu = [float(x) for x in open(d + '/cpu-per-10s.txt').read().split()]
     log = open(d + '/hol.log').read()
     m = [(int(a), int(b), int(c)) for a, b, c in re.findall(r'meting t=(\d+) beelden=(\d+) helden=(\d+)', log)]
     wissels = len(re.findall(r'HOL wissel [a-z]*', log))
     bl = [x[1] for x in m]
-    L = max(range(-3, 4), key=lambda L: cor(cpu[max(0, L):], bl[max(0, -L):]))
+    L = VAST if VAST is not None else max(range(-3, 4), key=lambda L: cor(cpu[max(0, L):], bl[max(0, -L):]))
+    soort = '(vast)' if VAST is not None else '(beste correlatie)'
     c = cpu[max(0, L):]
     mm = m[max(0, -L):]
     n = min(len(c), len(mm))
@@ -34,7 +44,7 @@ for d in sys.argv[1:]:
             continue
         staat = 'uit' if (t // 60) % 2 == 1 else 'aan'
         groep[staat].append((x, b, h))
-    print(f"{d}  verschuiving {L}, wissels in log {wissels}")
+    print(f"{d}  verschuiving L {L} {soort}, wissels in log {wissels}")
     for staat, rij in groep.items():
         if not rij:
             print(f"  {staat}: geen metingen")

@@ -149,3 +149,20 @@ Lezing:
 3. "alles uit" duurder dan "alles aan": zelfde als 2.
 
 **Gestart 04:39 UTC:** run **44018723753** op 89bbd7f (beide toetsruns op de tak groen: 44015639027 en 44016445639), na Olafs keurduurtest 44016112587 (klaar 04:38). Uitslag lezen met `python3 cpu_regels.py <map>` en volgens de regel hierboven, volgende run van Bram.
+
+## Uitslag `wissel=regels`: de spelregels zijn het niet (Bram, 17 nov 05:30 UTC)
+Run **44018723753** (.exe, 89bbd7f, zaad 1794860558, 1920x1080, 40 min, liep alleen na Olafs keurduurtest). Groen: proces leefde, 52 MB, geen SCRIPT ERROR (fout.txt alleen geen geluidskaart), 40 wissels in `hol.log` in de goede volgorde (stand 1, 2, 3, 0, ...). Bestanden van tak `schermen`, map `steam-hol-duur/claude-steam-hol-wissel-regels-wissel-regels-zaad-1794860558-1920x1080-exe/`. Gelezen met `cpu_regels.py`, één L voor alle vier standen, alle drie de L's nagedraaid (GEZIEN):
+
+| L | alles aan | kaartje uit | regels uit | alles uit |
+|---|---|---|---|---|
+| -2 (vast) | 16,5 ms | 17,4 (+5%) | 17,7 (+7%) | 18,8 (+14%) |
+| -1 (beste correlatie) | 16,9 ms | 17,8 (+5%) | 16,8 (-1%) | 19,4 (+15%) |
+| 0 (vast) | 19,2 ms | 16,8 (-13%) | 17,7 (-8%) | 20,5 (+6%) |
+
+n 30 tot 32 per stand. Hele run zonder uitlijning: 298,1 CPU-s over 16.556 beelden = 18,0 ms per beeld.
+
+**Volgens de regel vooraf: punt 3.** "Alles uit" is bij elke L duurder per beeld dan "alles aan", niet goedkoper. De spelregel-commits van 959aef4 (kaartje, plat-op, naamgenoot, graafbonus, doelletter) kosten dus niets wat deze manier kan zien; alle verschillen blijven binnen de ruis van ±15% die de twee runs zonder wissel gaven. De +28% van het .exe-paar (44008361789 tegen 44011218826) zit niet in de spelregels. Samen met Sannes grens (do 19 nov 12:00 UTC, niets gevonden = ruis) stel ik voor de vraag te sluiten. Ik start hiervoor geen nieuwe runs meer.
+
+**Wat wel opvalt, niet blokkerend:** deze run zit met alles aan op 16,5 tot 19,2 ms, dus ook boven main als .exe (14,5). Dezelfde code op een andere runner en tijd geeft dus 14,5 tot 19 ms; een verschil van ±25% tussen twee losse runs is op deze runners niet te onderscheiden van ruis. Wie later twee builds vergelijkt: binnen één run wisselen, zoals hier, geen los paar.
+
+`cpu_wissel.py` neemt nu ook `L=<n>` en zet de L in de uitvoer (Iris keuring 16 punt 1 noemde dit script ook).
