@@ -20,7 +20,7 @@ import math
 import bpy
 import gedeeld as g
 
-SOORTEN = ("held", "dief", "bard")
+SOORTEN = ("held", "dief", "bard", "edelman")
 
 # (licht, donker): rood, groen, paars, geel, blauwgroen, uit held_lijf_kleuren.png. Paars een stap lichter
 # dan de pixelrij (7a52b0), anders valt hij weg op het pruimen hol (zelfde les als de jurk van de heks).
@@ -33,6 +33,9 @@ def kleding(soort, kleur=0):
         l, d = TUNIEK[kleur % len(TUNIEK)]
     elif soort == "dief":
         l, d = "4e4c5e", "2e2c3a"   # ronde 2: antraciet, grijsgroen leek op de groene held (frisse kijker)
+    elif soort == "edelman":
+        l, d = "a83a5a", "7a2444"   # wijnrood fluweel (Daan 17 nov); niet de oranjerode held ee6a4f
+        return g.mat("kleed_" + soort, l, rough=0.6, spec=0.35), g.mat("kleed_d_" + soort, d, rough=0.65, spec=0.3)
     else:
         l, d = "eee4cc", "b0a080"   # ronde 2: room, geen van de vijf heldkleuren, donkere luit komt erop los
     return g.mat("kleed_" + soort, l, rough=0.72, spec=0.25), g.mat("kleed_d_" + soort, d, rough=0.75, spec=0.2)
@@ -45,7 +48,9 @@ def armen(soort, stand, stap):
     if soort == "bard":
         return 75, 12                 # linkerhand op de hals van de luit, rechterhand tokkelt
     if soort == "dief":
-        return 150, 45 - 10 * stap    # links houdt de zak op de schouder, rechts het dolkje naar voren
+        return 150, 45 - 10 * stap
+    if soort == "edelman":
+        return 18 + 8 * stap, 28            # rechts houdt de stok vast, links zwaait iets mee    # links houdt de zak op de schouder, rechts het dolkje naar voren
     return None
 
 
@@ -56,7 +61,7 @@ def hand_y(soort, stand):
 def haar(ouder, soort, kleur, hk, hs, HZ):
     """Haar als kapje achter en boven op het hoofd, plus een pony. Geen hoed: die zet het spel erop."""
     import held as h
-    kl = {"held": HAAR[kleur % len(HAAR)], "dief": "2a1a1f", "bard": "a8482a"}[soort]
+    kl = {"held": HAAR[kleur % len(HAAR)], "dief": "2a1a1f", "bard": "a8482a", "edelman": "b8b0b8"}[soort]
     m = g.mat("haar_" + soort, kl, rough=0.75)
     h._bol(ouder, hk(0, 0.05, HZ + 0.08), hs(0.375, 0.33, 0.31), m, segs=40)
     for i, x in enumerate((-0.16, -0.05, 0.07, 0.17)):
@@ -76,6 +81,23 @@ def masker(ouder, hk, hs, HZ):
     for kant in (-1, 1):   # knoopje met twee slippen achter het hoofd
         h._blok(ouder, hk(0.12 * kant, 0.36, HZ - 0.02), hs(0.05, 0.03, 0.14), zw,
                 rot=(0, math.radians(25 * kant), 0), rond=0.01)
+
+
+def gezicht(ouder, soort, stand, hk, hs, HZ):
+    """Edelman (Mila 17 nov): ooglid half dicht (verveeld, neus omhoog) en een gouden monocle om het rechteroog."""
+    import held as h
+    if soort != "edelman" or stand in ("schrik", "vallen"):
+        return
+    huid = g.mat("ooglid", h.HUID, rough=0.62, spec=0.25)
+    for kant in (-1, 1):
+        # bovenste helft van het oog dicht: een huidkleurig kapje net voor het oogwit, met een donker randje eronder
+        h._bol(ouder, hk(0.11 * kant, -0.285, HZ + 0.075), hs(0.112, 0.06, 0.07), huid, segs=24)
+        h._blok(ouder, hk(0.11 * kant, -0.335, HZ + 0.03), hs(0.11, 0.012, 0.014), g.mat("ooglidrand", "5a3a2a", rough=0.6), rond=0.004)
+    goud = g.mat("monocle", "goud", rough=0.22, metaal=0.9)
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.085 * 1.2, minor_radius=0.013 * 1.2, location=hk(0.11, -0.345, HZ + 0.01),
+                                     rotation=(math.radians(90), 0, 0), major_segments=32, minor_segments=8)
+    o = bpy.context.object; bpy.ops.object.shade_smooth(); o.data.materials.append(goud); h._kind(o, ouder)
+    h._blok(ouder, hk(0.2, -0.3, HZ - 0.12), hs(0.008, 0.008, 0.16), goud, rot=(0, math.radians(-15), 0), rond=0.003)  # kettinkje
 
 
 def spullen(ouder, soort, stand, handen, kleur):
@@ -127,6 +149,32 @@ def spullen(ouder, soort, stand, handen, kleur):
         h._bol(ouder, (zx, zy, zz), (0.32, 0.26, 0.34), zak, segs=32)
         h._bol(ouder, (zx - 0.08, zy - 0.02, zz + 0.32), (0.07, 0.07, 0.06), g.mat("zakknoop", "5a3a22", rough=0.8), segs=16)
         h._bol(ouder, (zx - 0.22, zy - 0.18, zz - 0.1), (0.07, 0.03, 0.07), goud, segs=16)   # een munt piept eruit
+    elif soort == "edelman":
+        wit = g.mat("jabot", "f6efe2", rough=0.8)
+        for i, z in enumerate((0.86, 0.78, 0.7)):   # kanten jabot: drie bolletjes onder de kin
+            h._bol(ouder, (0.0, -0.27 - 0.01 * i, z), (0.11 - 0.015 * i, 0.06, 0.055), wit, segs=16)
+        for z in (0.6, 0.51, 0.42):   # drie gouden knopen
+            h._bol(ouder, (0.0, -0.3, z), (0.035, 0.02, 0.035), goud, segs=10)
+        # gouden bies langs de voorkant van de jas (op de jasrand, geen losse ring: die zweefde als hoepel)
+        for kant in (-1, 1):
+            h._bol(ouder, (0.085 * kant, -0.262, 0.57), (0.018, 0.02, 0.17), goud, segs=12)
+        # twee slippen achter die bij elke stap meezwaaien: het tweede silhouet naast de hoed
+        zw = {"stap1": 12, "stap2": -12}.get(stand, 0) + (35 if stand == "vallen" else 0)
+        jas_d = g.mat("kleed_d_edelman", "7a2444", rough=0.65, spec=0.3)
+        for kant in (-1, 1):
+            a = math.radians(zw + 8 * kant)
+            # proef 1 GEZIEN: achter het lijf onzichtbaar; nu langer, lager en wijder, zodat de punten naast de benen uitsteken
+            h._blok(ouder, (0.17 * kant + 0.12 * math.sin(a), 0.16, 0.24), (0.11, 0.05, 0.38), jas_d,
+                    rot=(math.radians(-10), a + math.radians(10 * kant), 0), rond=0.03)
+            h._blok(ouder, (0.17 * kant + 0.12 * math.sin(a) + 0.03 * kant, 0.19, 0.06), (0.115, 0.045, 0.025), goud,
+                    rot=(math.radians(-10), a + math.radians(10 * kant), 0), rond=0.008)
+        # wandelstok met gouden knop in de rechterhand, tot op de vloer (bij schrik en vallen vliegt hij weg)
+        stok = g.mat("stok", "2a1a20", rough=0.4)
+        if bang:
+            h._blok(ouder, (0.6, 0.1, 0.35), (0.04, 0.04, 0.8), stok, rot=(0, math.radians(60), 0), rond=0.012)
+        else:
+            h._blok(ouder, (hx + 0.02, -0.1, hz / 2), (0.045, 0.045, hz), stok, rond=0.015)
+            h._bol(ouder, (hx + 0.02, -0.1, hz + 0.07), (0.065, 0.065, 0.065), goud, segs=16)
     else:
         kraag = g.mat("kraag", "f0c040", rough=0.7)
         bpy.ops.mesh.primitive_torus_add(major_radius=0.19, minor_radius=0.05, location=(0, 0, 0.82))
