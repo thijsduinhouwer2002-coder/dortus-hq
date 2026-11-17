@@ -1,8 +1,57 @@
 # Succesverhalen spellen (Fenna)
 
-bezig: niets (verhaal 24 af 17 nov ±06:00 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
+bezig: niets (verhaal 25 af 17 nov ±05:50 UTC; volgende run: vraag van de hoofdchat als die er is; anders: Idler Fest 2025 van binnen (wie deed mee met korting, wie niet), of Little Writer meten na 6 jan)
 
 Nieuwste bovenaan.
+
+---
+
+## 25. De eerste 10 reviews: Steam toont pas een score bij 10 reviews van kopers, sleutels tellen nooit mee. Alle 85 bureaubladspellen met 100+ reviews haalden die 10 in hun eerste twee weken, geen enkel later spel kwam daar nog. Gratis sleutels zie je bijna niet in de eerste 10, en na de tiende review komt er geen sprong
+
+**Vraag (eigen keus, past bij de lancering van maart):** veel makers zeggen dat de eerste 10 reviews de deur naar het algoritme van Steam openen. Wat zegt Valve echt, hoe snel halen bureaubladspellen die 10, helpen gratis sleutels (curatoren, makers, weggeefacties), en zie je na de tiende review meer verkeer? Voor Hats staan er sleutels voor curatoren en makers in het plan (`platformen/steam/marketing/curatoren.md`, `makers.md`), maar nog niets over de eerste reviews na de lancering.
+
+**Bronnen (17 nov 2026 met curl):**
+- Valve, `partner.steamgames.com/doc/store/reviews` (GEZIEN): "Only purchases (not key activation) made by the reviewing account are included in the review score." En bij de regels voor makers: "Don't ask customers to review your product from within your application." en "Don't solicit reviews in exchange for any games, DLC, money, or other rewards", met als uitzondering een exemplaar voor pers en makers. Een speler mag aangeven dat hij het spel gratis kreeg; Valve raadt dat aan voor pers- en promotie-exemplaren.
+- Winkelpagina's van vier bureaubladspellen met 5, 9, 10 en 11 reviews (GEZIEN): bij 5 en 9 staat "Need more user reviews to generate a score", bij 10 en 11 een oordeel ("Mixed", "Positive").
+- Chris Zukowski, "Why your first 10 reviews are the most important" (howtomarketagame.com, 25 jan 2022, DERDEN): zijn stelling is dat Steam een spel pas in de Discovery Queue zet na 10 reviews van kopers ("if (reviews.count() < 10) { nothing(); }", met de toevoeging dat hij de code van Steam niet kent), met grafieken van makers. Gratis sleutels tellen volgens hem niet mee.
+- Eigen meting 1, tempo: de weekgrafiek van Steam (`appreviewhistogram`, telt alleen de meegetelde reviews: bij Kernelbay 51 in de grafiek, 50 op de winkel, 80 op de communitypagina) van 523 van de 604 betaalde bureaubladapps uit Vera's kaart (uit tussen 1 jan 2024 en 15 okt 2026). Gebruikt: de 431 die minstens 3 maanden uit zijn en een weekgrafiek hebben of 0 reviews. Data `platformen/succes/data/eerste-reviews-tempo-bureaublad-2026-11-17.csv`, script `eerste-reviews-tempo-analyse.py`.
+- Eigen meting 2, sleutels: alle reviews op de openbare communitypagina (alle talen, nieuwste eerst, tot het eind doorgebladerd) van de 203 spellen met 10 tot 120 meegetelde reviews uit 2025 en 2026. De communitypagina toont ook reviews die niet meetellen, en het label "Product received for free". 9.966 reviews; 3 spellen niet volledig, die tellen niet mee. Data `eerste-reviews-sleutels-bureaublad-2026-11-17.csv`, scripts `eerste-reviews-community-haal.py`, `eerste-reviews-parse.py`, `eerste-reviews-sleutels-analyse.py`.
+
+**Wat ik zag: hoe snel de eerste 10 meegetelde reviews komen (431 spellen, minstens 3 maanden uit):**
+| 10 meegetelde reviews gehaald | Spellen | Reviews nu, mediaan | 100+ reviews |
+|---|---|---|---|
+| in de uitgaveweek of de week erna (±2 weken) | 188 (44%) | 68 | **85** |
+| week 3 tot 5 | 25 | 14 | 0 |
+| week 6 tot 13 | 26 | 13 | 0 |
+| nog nooit | 151 | 3 | 0 |
+| geen enkele review | 41 | 0 | 0 |
+- **Alle 85 spellen met 100 of meer reviews haalden hun eerste 10 in de eerste twee weken. Van de 51 die er langer over deden kwam er geen boven de 100.** 45% van de snelle groep kwam wel boven de 100. Wie de 10 niet in twee weken haalt, haalt die meestal nooit (151 tegen 51).
+- Dat is een teken, geen oorzaak: een spel met een publiek haalt 10 reviews vanzelf in de eerste dagen (ook bij de kleine spellen van meting 2 kwam de tiende review mediaan op dag 2 na de uitgave, 137 van 200 binnen 7 dagen).
+
+**Na de tiende review: geen sprong (18 trage spellen):**
+- Bij de 18 spellen die hun tiende meegetelde review pas in week 5 of later haalden, met minstens 3 weken grafiek erna, heb ik de reviews per week in de 3 weken vóór en de 3 weken na die week vergeleken. Mediaan 1,2 per week ervoor, 1,0 erna; 5 gingen omhoog, 6 omlaag, 7 bleven gelijk. Grootste stijger Chess Kingdom (1,7 naar 2,3 per week).
+- Dus: als de tiende review een deur opent, levert die deur bij deze spellen geen kopers die reviewen op. Zukowski schrijft zelf dat het verkeer uit de Discovery Queue "typically fades after a few days" en dat Steam een spel daarna alleen blijft tonen als het verkoopt. Bij weinig reviews per week (1 tot 2) is een sprong ook lastig te zien; GOK dat er wel wat bezoekers bij kwamen die niet kochten.
+
+**Gratis sleutels (203 kleine spellen, 9.966 reviews op de communitypagina):**
+- 12,4% van alle reviews telt niet mee (9.966 op de community tegen 8.729 in de grafieken van de winkel). Per spel mediaan 7%; bij 31 van de 200 spellen is het 25% of meer (Herba Project: Desktop Lab 40 reviews, waarvan 11 meetellen; Tiana's Fishing Diary 40 en 11).
+- Maar 320 reviews (3,2%) dragen het label "gratis gekregen", bij 105 spellen. De rest van wat niet meetelt is dus vooral een geactiveerde sleutel zonder dat label (bundels, weggeefacties, sleutelwinkels; GOK, de pagina zegt niet waar een sleutel vandaan kwam).
+- **In de eerste 10 reviews zie je bijna geen gratis exemplaren:** bij 154 van de 200 spellen geen enkele met het label, bij 38 één of twee, bij 8 drie of meer. Reviews vóór de uitgave (curatoren of testers met een vroege sleutel): maar bij 2 van de 200 spellen.
+- Gratis gekregen reviews zijn vaker positief: 92% tegen 86% bij de rest. Ze tellen alleen niet mee voor de score.
+- Spellen waar 20% of meer niet meetelt deden het niet beter: mediaan 23 meegetelde reviews, tegen 25 bij de rest (49 tegen 151 spellen).
+
+### Drie lessen
+1. **De eerste 10 reviews moeten van kopers komen, in de eerste dagen.** Steam toont pas bij 10 meegetelde reviews een oordeel, en sleutels tellen nooit mee (Valve, letterlijk). Bij 431 bureaubladspellen haalde elk spel dat later 100+ reviews kreeg die 10 binnen twee weken; geen laatkomer kwam er nog.
+2. **Je kunt die 10 niet kopen met sleutels.** Een sleutelronde maakt de pagina voller (bij 31 van 200 kleine spellen telt een kwart of meer van de reviews niet mee), maar niet de score, en die spellen deden het niet beter. Gratis exemplaren zijn er voor curatoren en makers met bereik, niet voor de teller.
+3. **De tiende review is geen schakelaar die je achteraf nog omzet.** Bij 18 trage spellen kwam er na de tiende review niets bij. Wat de eerste 10 snel brengt is het publiek van vóór de lancering: verlanglijsten, festspelers en volgers.
+
+### Voorstel voor Dortus deze week
+**Sem (marketing) en Olaf (spel): geen sleutelronde om reviews te halen na de lancering, en de lanceerweek meten op 10 meegetelde reviews in 7 dagen.**
+- Sem: sleutels alleen voor curatoren en makers met bereik (zoals al in `curatoren.md` en `makers.md`), met in de begeleidende tekst dat ze het gratis exemplaar aanvinken (Valve raadt dat aan). Geen weggeefactie van sleutels op Reddit of Discord rond de lancering om de teller te halen; dat telt niet.
+- Wel mag (Valve verbiedt het niet zonder beloning): in de lanceerpost op Steam en in onze Discord één keer zeggen dat een review helpt, zonder beloning en zonder het in het spel te vragen. Tekst is CONCEPT voor Thijs (`teksten-thijs.md`).
+- Olaf: geen reviewvraag in het spel of de demo, ook geen knop "review ons" in het menu. Valve verbiedt dat letterlijk. Ik vond er nu niets van in `producten/steam-hol` (gezocht op review); laat het zo. De knop "Feedback" naar forum of Discord uit `festplan.md` mag wel, want dat is geen review.
+- Meetpunt voor de hoofdchat, net als het festmeetpunt: **10 meegetelde reviews binnen 7 dagen na de uitgave** (Thijs leest af in Steamworks, of de winkelpagina toont dan een oordeel). Haalt Hats dat niet, dan is dat volgens deze 431 spellen een sterk teken dat de lancering geen 100 reviews wordt, en gaat de tijd naar het volgende plan (korting in het eerste themafest, verhaal 21) in plaats van naar meer duwen in de lanceerweek. GOK als grens; het is een rand uit de tabel, geen voorspelling.
+
+Eerlijk over de meting: "meegeteld" lees ik af uit de weekgrafiek van Steam, die ik vergeleken heb met de winkel (klopt bij Kernelbay op 1 na); de weken van de grafiek beginnen niet op de uitgavedag, dus "eerste twee weken" is 8 tot 14 dagen. De communitypagina toont reviews van mensen met een Steam-profiel; verborgen of verwijderde reviews mis ik. Meting 2 gaat alleen over kleine spellen (10 tot 120 reviews), omdat ik bij grote spellen niet tot de eerste review kan bladeren. De vergelijking vóór en na de tiende review heeft maar 18 spellen. Of de Discovery Queue echt wacht op 10 reviews kan ik niet zien; dat is Zukowski's waarneming (DERDEN, 2022) en Valve zegt er niets over in de docs die ik las.
 
 ---
 
