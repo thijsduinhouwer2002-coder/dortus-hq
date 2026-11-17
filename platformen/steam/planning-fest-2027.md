@@ -24,7 +24,7 @@ Besluit Thijs 13 nov 11:51: **beelden blijven eigen werk (route C)**: geen teken
 | **10 jan** | Aanmelden Next Fest februari. | |
 | **vr 15 jan** | **Meetpunt fest** (voorstel Fenna 16 nov 11:15, besluit Olaf): nieuwe verlanglijsten in de festweek tellen (Steamworks, Thijs leest af of geeft het cijfer). | |
 | **ma 18 jan** | **Uitslag fest, regel vooraf vastgezet:** minder dan 1.000 nieuwe verlanglijsten in de festweek (GOK als grens, geen eigen cijfers) betekent: de verbeterweek gaat naar de haak (capsule, eerste 30 seconden, korte tekst) en niet naar de demo zelf, en de hoofdchat bekijkt de lanceerdatum van maart opnieuw. Waarom: van 16 kerkerspellen voor de schermhoek met demo haalden er 3 de 100 reviews, mediaan 8 (`platformen/succes/verhalen-spellen.md`, verhaal 8). | hoofdchat |
-| **ma 18 jan tot ma 1 feb** | **Verbeterweek demo** (voorstel Fenna 16 nov, besluit Olaf): één verandering in de demo uit wat fest-spelers zeiden (reviews, discussies, streams), geen nieuwe inhoud; daarna de demo opnieuw indienen vóór Next Fest. Waarom: van de 11 bureaubladspellen uit Next Fest juni 2026 deden de spellen die na het fest iets veranderden het beter (`platformen/succes/verhalen-spellen.md`, verhaal 7). | Thijs (indienen) |
+| **ma 18 jan tot ma 1 feb** | **Verbeterweek demo** (voorstel Fenna 16 nov, besluit Olaf): één verandering in de demo uit wat fest-spelers zeiden (reviews, discussies, streams), geen nieuwe inhoud; daarna live zetten vóór Next Fest, zonder nieuwe keuring (Valve: na de build-keuring mag je de demo bijwerken, maar ze kijken niet mee, Sem 17 nov 04:55), dus eerst zelf toetsen: Windows-toetsrun groen plus een duurtest van 20 min. Waarom: van de 11 bureaubladspellen uit Next Fest juni 2026 deden de spellen die na het fest iets veranderden het beter (`platformen/succes/verhalen-spellen.md`, verhaal 7). | Thijs (indienen) |
 | **22 feb tot 1 mrt** | Next Fest februari (demo doet mee). | |
 | **di 2 tot do 4 mrt** | **Voorstel uitbrengen** (advies Vera 16 nov, Aanvulling 4 in `platformen/verkenner/steam-desktop-2026-11.md`; Olaf eens). Korting eerste week klaar vóór 18 mrt; niet uitbrengen van 11 tot 25 mrt (Spring Sale). Schuift het: eind maart tot half april. **Besluit ligt bij de hoofdchat.** | hoofdchat |
 
@@ -49,7 +49,7 @@ Kost: niveau en dichte plekken 3 tot 4 dagen code, val plus held ±2 dagen code 
 | balans met de sim, toetsen, tekst erbij (±2 keer zoveel regels in de vertaaltabel) | | 5 tot 7 dagen | |
 | **Totaal** | | **±25 tot 33 dagen** | **±26 tot 36 dagen** |
 Samen **±50 tot 70 dagen werk**. Met vier mensen naast elkaar ±3 tot 4 weken, maar de echte rem is keuren: elk nieuw figuur gaat langs Daan, en Thijs keurt op vaste momenten. Reken op 6 tot 8 weken kalendertijd.
-**(3) Haalt begin maart dat?** Na de demo (21 dec) tot 2 maart zijn het ruim 10 weken, maar januari gaat voor een groot deel naar het fest (meetpunt, verbeterweek, opnieuw indienen). Eerlijk: **±100 uur met nieuwe figuren tot het eind haalt 2 maart niet met de kwaliteit die we voor de demo eisen.** Wat wel kan:
+**(3) Haalt begin maart dat?** Na de demo (21 dec) tot 2 maart zijn het ruim 10 weken, maar januari gaat voor een groot deel naar het fest (meetpunt, verbeterweek, zelf toetsen). Eerlijk: **±100 uur met nieuwe figuren tot het eind haalt 2 maart niet met de kwaliteit die we voor de demo eisen.** Wat wel kan:
 - **A, mijn voorkeur:** uitbrengen begin maart met de hele lus (niveau 50, opnieuw beginnen, 6 vallen, ±8 helden, ±30 hoeden, 1 diepte extra): ±40 tot 50 uur met nieuwe dingen, daarna niveaus met alleen getallen tot 100 uur. Op de winkelpagina zeggen we "40+ hours" en niet 100. Diepten en bazen komen in gratis updates in april en mei, die elk een reden geven om terug te komen en een bericht op Steam.
 - **B:** uitbrengen eind maart tot half april (het schuifvak van Vera) met bijna alles. Kost de week na Next Fest, de beste week voor verlanglijsten.
 - **C: Early Access** in maart. Past slecht bij een spel van ±$5 dat "af" moet voelen; ik raad het af, maar de hoofdchat beslist.
@@ -89,7 +89,7 @@ In dagen van 16 runs: **ik ±2,5 tot 4 dagen, Mila ±5 tot 7 dagen, Bram ±1 dag
 - **Thijs:** smaak en de keuze per laag (sfeer van een nieuwe laag zegt hij ja op). Als hij één keer per dag kijkt: 3 lagen = 3 dagen kalender minimaal, waarschijnlijk 1 tot 2 weken door de feestdagen.
 - **CI:** Windows-run ±10 min, duurtest 20 tot 25 min, valt binnen een run of de volgende. Geen rem.
 - **Echt spelen:** niemand kan 100 uur spelen. De sim rekent het na; wij draaien duurtests van 20 tot 60 min. Spelers zien de lange staart pas na de uitgave. Dat is het grootste risico, niet de tijd.
-- **Januari:** fest (14 tot 18 jan), meetpunt, verbeterweek en opnieuw indienen kosten ±20 tot 40 runs van mij, geen nieuwe inhoud.
+- **Januari:** fest (14 tot 18 jan), meetpunt, verbeterweek en zelf toetsen kosten ±20 tot 40 runs van mij, geen nieuwe inhoud.
 
 **(3) Haalt di 2 maart meer dan 40 tot 50 uur? Ja.** Bouwen kost ±1 week runs voor mij en ±1,5 week voor Mila; er zijn tussen 27 nov en 15 feb ruim 11 weken. Voorstel:
 - **Alles van versie 3 (hol 1 tot 50, 3 lagen) op 2 maart**, met een **bevriezing op ma 15 feb** (twee weken testen, en Next Fest 22 feb draait op de demo, niet op het volle spel).

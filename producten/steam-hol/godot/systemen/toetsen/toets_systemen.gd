@@ -1358,5 +1358,9 @@ func _nieuwe_held() -> bool:
 	pk2.plat_gemeld = true
 	ok(WR.plat_wissel(pk2, false) == "" and pk2.plat_keer == 0 and pk2.wachtrij.is_empty(), "plat nooit getoond: geen op en telt niet mee")
 	ok(WR.plat_wissel(pk2, true) == "plat", "daarna mag plat nog")
+	# savemap vast (Sanne 17 nov 05:00): demo en vol spel delen %APPDATA%\\Dortus\\Het Hol, anders is "The full game keeps it all." niet waar.
+	# Hernoem je het project, laat deze map dan staan (of kopieer de oude map eenmalig) en pas pas daarna deze toets aan.
+	ok(ProjectSettings.get_setting("application/config/use_custom_user_dir", false) == true, "savemap: eigen map aan")
+	ok(ProjectSettings.get_setting("application/config/custom_user_dir_name", "") == "Dortus/Het Hol", "savemap blijft Dortus/Het Hol: " + str(ProjectSettings.get_setting("application/config/custom_user_dir_name", "")))
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
