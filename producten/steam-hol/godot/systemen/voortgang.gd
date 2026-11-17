@@ -65,7 +65,9 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 # Hoeden voor wie weg was: verdeel `opgegeten` over de slijmen (om en om), willekeurige hoedsoort, vast zaad.
 # slijmen = de slijm-nodes (slijm.gd). Geen hap-animatie: het gebeurde terwijl je weg was. Geeft per slijm het aantal.
 # Daarna noemt verhaal() de hoeden pas: uitkomst.hoeden_gegeven wordt waar (anders belooft de kroniek iets wat je niet ziet).
-static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Array[int]:
+# later = true (Hoeden van de nacht, Sanne 17 nov): de hoeden gaan in de rij van de slijm (krijg_hoed_later) en vallen
+# na het openen een voor een op de toren (slijm.start_nacht); de verdeling en de dobbelsteen blijven gelijk.
+static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int, later := false) -> Array[int]:
 	var opgegeten := int(uitkomst.get("opgegeten", 0))
 	var per: Array[int] = []
 	for s in slijmen:
@@ -76,7 +78,10 @@ static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Arra
 	rng.seed = hash([zaad, opgegeten, "geef_hoeden"])
 	for i in opgegeten:
 		var k := i % slijmen.size()
-		if slijmen[k].has_method("krijg_hoed"):   # kern/standin_slijm.gd kent geen hoeden
+		if later and slijmen[k].has_method("krijg_hoed_later"):
+			slijmen[k].krijg_hoed_later(rng.randi_range(0, 9))
+			per[k] += 1
+		elif slijmen[k].has_method("krijg_hoed"):   # kern/standin_slijm.gd kent geen hoeden
 			slijmen[k].krijg_hoed(rng.randi_range(0, 9))   # 10 hoedsoorten (Mila 21:55)
 			per[k] += 1
 	uitkomst["hoeden_gegeven"] = per.reduce(func(a, b): return a + b, 0) > 0

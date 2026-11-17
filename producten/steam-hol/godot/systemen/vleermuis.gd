@@ -18,6 +18,11 @@ const SCHRIK_X := 10.0    # held binnen zoveel spelpixels (x): opvliegen
 const RUST_S := 2.0       # na het landen zo lang niet opnieuw schrikken
 const VLIEG_MAAL := 0.6   # het vliegbeeld is breed (vleugels open); kleiner tekenen, dan is hij even groot als hangend
 const BOOG := 5.0         # zoveel spelpixels zakt hij midden in de vlucht de gang in
+# Nooit achter de hoedenberg (Mila 17 nov 08:00, moet Daan 07:45): de rechterrand van zijn tegel ligt minstens zoveel
+# spelpixels links van Gloops midden. Volle berg 8 onderaan: x = -12 - 6*7 - 3 = -57, plus halve hoed en lucht; groot lijf -59.
+# Keer de schaal van Gloop (proef_figuur), want de berg schaalt mee.
+const BERG_MARGE := 70.0
+const BERG_MARGE_GROOT := 72.0
 
 var hol = null
 var wezens: Node = null
@@ -25,7 +30,8 @@ var ct: CanvasTexture = null
 var info := {}
 var vm: Array = []        # per vleermuis: {"k": kolom, "naar": kolom, "t": tijd in de lucht of -1, "rust": s}
 var _sleutel := ""
-var _kijk_t := 0.0
+var _kijk_t := 1.0   # 1: het eerste beeld kijkt meteen, dan staat Gloop er al (strook.gd zet hem na zet())
+var _grens := 1e9     # rechterrand van een hangplek hooguit hier (spelpixels); 1e9 = geen Gloop gevonden
 # vleermuis_proef=1 (alleen om op te keuren, leest de startargumenten zelf): elke vleermuis vliegt om de 4 s op,
 # ook zonder held eronder. In het echte spel nooit.
 var proef := "vleermuis_proef=1" in OS.get_cmdline_user_args()
@@ -54,16 +60,23 @@ static func aantal(gang_tegels: int) -> int:
 	return 1 if gang_tegels >= MIN_GANG else 0
 
 # Hangen mag onder een dicht plafond in de gang, niet bij schacht, val, Gloop en de schatkamer (zelfde plekken als spinrag).
-static func mag_hangen(h, k: int) -> bool:
+# grens: de rechterrand van de tegel (k * KOL + KOL) mag niet rechts hiervan liggen (hoedenberg, zie BERG_MARGE).
+static func mag_hangen(h, k: int, grens := 1e9) -> bool:
 	if k <= h.ingang_kol + 1 or k >= h.schat_kol - 1 or k >= h.gang.size():
+		return false
+	if k * KOL + KOL > grens:
 		return false
 	return h.gang[k] and not h.boven[k] and not h.vallen.has(k)
 
-static func plekken(h) -> Array:
+# Uiterste rechterrand voor een hangplek bij Gloop op gloop_x: zijn volle berg plus lucht, keer zijn schaal.
+static func berg_grens(gloop_x: float, groot: bool, schaal := 1.0) -> float:
+	return gloop_x - (BERG_MARGE_GROOT if groot else BERG_MARGE) * maxf(1.0, schaal)
+
+static func plekken(h, grens := 1e9) -> Array:
 	var uit: Array = []
 	var bezet := vol_plafond_kols(h)
 	for k in h.gang.size():
-		if mag_hangen(h, k) and not bezet.has(k):
+		if mag_hangen(h, k, grens) and not bezet.has(k):
 			uit.append(k)
 	return uit
 
@@ -90,8 +103,8 @@ static func vol_plafond_kols(h) -> Dictionary:
 	return uit
 
 # Vaste keuze per hol (hash zoals de versiering), minstens 3 kolommen uit elkaar.
-static func kies(h, n: int) -> Array:
-	var kand := plekken(h)
+static func kies(h, n: int, grens := 1e9) -> Array:
+	var kand := plekken(h, grens)
 	kand.sort_custom(func(a, b): return h._hash(a, 11) > h._hash(b, 11) or (h._hash(a, 11) == h._hash(b, 11) and a < b))
 	var uit: Array = []
 	for k in kand:
@@ -106,11 +119,11 @@ static func kies(h, n: int) -> Array:
 	return uit
 
 # Waarheen bij schrik: de dichtstbijzijnde vrije plek minstens 2 kolommen weg, liefst weg van de held.
-static func vlucht_doel(h, van: int, held_x: float, bezet: Array) -> int:
+static func vlucht_doel(h, van: int, held_x: float, bezet: Array, grens := 1e9) -> int:
 	var beste := -1
 	var beste_s := 1e9
 	var weg_rechts: bool = held_x <= van * KOL + KOL / 2.0
-	for k in plekken(h):
+	for k in plekken(h, grens):
 		if absi(k - van) < 2 or bezet.has(k):
 			continue
 		var s := float(absi(k - van))
@@ -128,7 +141,17 @@ static func vlucht_plek(van_x: float, naar_x: float, y: float, f: float) -> Vect
 	return Vector2(lerpf(van_x, naar_x, z), y + sin(PI * g) * BOOG)
 
 func _sleutel_nu() -> String:
-	return "%d|%d|%d|%d|%d" % [hol.gang.count(true), hol.boven.count(true), hol.vallen.size(), hol.schat_kol, hol.ingang_kol]
+	_grens = _grens_nu()
+	return "%d|%d|%d|%d|%d|%d" % [hol.gang.count(true), hol.boven.count(true), hol.vallen.size(), hol.schat_kol, hol.ingang_kol, int(_grens)]
+
+# Gloop staat in Wezens (het kind met berg() en is_groot()); zonder Gloop geen grens.
+func _grens_nu() -> float:
+	if wezens == null:
+		return 1e9
+	for w in wezens.get_children():
+		if w.has_method("berg") and w.has_method("is_groot"):
+			return berg_grens(w.position.x, w.is_groot(), absf(w.scale.x))
+	return 1e9
 
 func herkies() -> void:
 	_sleutel = _sleutel_nu()
@@ -136,7 +159,7 @@ func herkies() -> void:
 	for b in hol.gang:
 		if b:
 			tegels += 1
-	var gekozen := kies(hol, aantal(tegels))
+	var gekozen := kies(hol, aantal(tegels), _grens)   # past er geen plek (kort hol), dan geen vleermuis
 	vm.clear()
 	for k in gekozen:
 		vm.append({"k": k, "naar": k, "t": -1.0, "rust": 0.0})
@@ -172,7 +195,7 @@ func _process(delta: float) -> void:
 				_proef_t = 0.0
 				held_x = int(v["k"]) * KOL + 2.0
 		if held_x > -1e8:
-			var doel := vlucht_doel(hol, int(v["k"]), held_x, bezet)
+			var doel := vlucht_doel(hol, int(v["k"]), held_x, bezet, _grens)
 			if doel >= 0:
 				v["naar"] = doel
 				v["t"] = 0.0

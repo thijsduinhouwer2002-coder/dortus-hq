@@ -82,7 +82,7 @@ func leg_aan(s: int, lengte := 10) -> void:
 		boven[i] = false
 	_schatkamer()
 	vallen.clear()
-	vallen[maxi(ingang_kol + 1, mini(ingang_kol + 5, schat_kol - 3))] = "stekelput"
+	vallen[maxi(ingang_kol + 1, mini(ingang_kol + 3, schat_kol - 5))] = "stekelput"   # 2 kolommen verder links dan eerst (Daan 10:50, Olaf 14:30): ruimte voor de hoedenberg
 	queue_redraw()
 
 # drie muntjes vliegen van kolom k naar de schat (Sanne toets 2, punt 2: goud zie je binnenkomen)
@@ -524,6 +524,8 @@ func _draw() -> void:
 		if not koop_munt_y.has(k) and met_3d:
 			onder_y -= munt_boven_put(HOL3D.put_stuk(self, k))
 		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
+		if koop_munt_y.has(k) and onder_y - 6.0 < float(OPP + 1):
+			mx += MUNT_OPZIJ   # moet Daan 17 nov 07:45 (Bram): toren tot het gras, dan het muntje rechts naast de toren, niet erin
 		if met_3d:
 			# zelfde plek en maat als Mila's munt (rij 1 tot 6 van het 8 x 8 beeld), rond; de twee beelden worden vol en op zijn kant
 			munt_3d(Vector2(mx + 1, my + 3), 3.0, 1.0 if (anim / 3) % 2 == 0 else 0.67)
@@ -534,6 +536,7 @@ func _draw() -> void:
 # steken ±3 spelpixels boven de gang uit en raakten het muntje (weekopname 43620350203, Olaf 14 nov 17:40). Daan 18:30:
 # 3 in plaats van 4, want op 4 raakt de munt een kiezel in de aardrij (eikel met steeltje); op 3 prikken de stekels niet.
 # Andere stukken blijven op de oude plek.
+const MUNT_OPZIJ := 10.0   # spelpixels rechts van het midden van Gloop: naast de bovenste hoed (hoeden ±7 breed vanaf het midden)
 static func munt_boven_put(stuk: String) -> float:
 	return 3.0 if stuk == "put_2" else 0.0
 
