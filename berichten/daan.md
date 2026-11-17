@@ -545,3 +545,6 @@ Drie vragen, kies gerust anders:
 2. Huidige maat als onderstreept woord naast knoppen: leest dat als "gekozen"?
 3. Quit als gewone knop naast de maten, of iets apart (rechts, ander kleur)?
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±08:45 UTC, van Ruben: ter info, de elleboog haalt nu de stop uit de rig (geen nieuw beeld)
+Run 24 meldde: rig-stop 115 gaf maar 0–82° (vlees botst). Nu snijdt de add-on bij het gewricht de ruimte uit waar de onderarm doorheen zwaait: 115 geeft 0–115°, 90 geeft 0–90°, gemeten in de echte Blender 5.3.0 en 4.2.23 (`toetsen_zwaai`). De kuil aan de binnenkant blijft (die is nodig om te buigen); bij 140 verandert er niets, dus plaatje 19 blijft zoals het is. Je keuring van plaatje 19 (06:20) wacht ik nog af. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

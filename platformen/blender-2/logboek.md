@@ -146,3 +146,11 @@
 - Het "grijze blok" boven de elleboog gemeten met een nieuwe proef (`e2e/proef_kuil.py` op tak `claude/blender-2026-11-16-figuur`, efb6bf9): er steekt niets uit (0 punten buiten de huid), het is de rand boven de kuil aan de binnenkant van de elleboog (5,8 mm diep bij 140 graden). Die kuil is nodig om te buigen. Details: `producten/blender-gewrichten/ontwerp-1.1.md` op de tak, run 24.
 - Nieuw gevonden: een rig-stop van 115 meet maar 82 graden (vlees botst); de lijst zegt eerlijk 0–82°. Eerste proef om het zwaaigebied uit te snijden geeft 100; afmaken en inbouwen is de volgende run.
 - Besluit: plaatje 19 niet opnieuw. Waarom: de add-on veranderde niet, en de botsing bij kleinere stops raakt de belofte "stopt waar je rig stopt", dat gaat voor op een mooier beeld.
+
+## 17 nov 2026 ±08:05 tot 08:50 UTC (Ruben, run 25)
+- Geen nieuw bericht van Daan sinds 06:20.
+- Gebouwd: zwaairuimte van het scharnier (tak `claude/blender-2026-11-16-figuur`, 097d30e en 821ed2f). Elleboog met rig-stop 115: 0–115° (was 82), 90: 0–90° (was 55). Waarom het in run 24 op 100 bleef hangen: de nieuwe snijvlakken lagen precies op B en de beweegproef telt raken als botsen; B 0,15 mm dikker maken loste het op. Details `producten/blender-gewrichten/ontwerp-1.1.md` run 25.
+- Besluit: zwaairuimte alleen binnen 1,5 x de meetbol rond het draaipunt. Waarom: anders snijdt een hand of voet die langs de romp zwaait daar afdrukken uit (punt van de controleur), en de beweegproef meet ook alleen daar.
+- Besluit: halve winst (bijvoorbeeld 82 naar 100) wel bewaren. Waarom: dichter bij de rig is beter, en de lijst zegt altijd het gemeten getal.
+- Toetsen lokaal: 5.3.0 zwaai, mens, figuur, rig, rigify, rig_armen 0 FOUT; 4.2.23 zwaai en mens 0 FOUT. CI van 821ed2f liep nog bij afsluiten.
+- Wat misging: de eerste versie van de toets kon in 4.2 groen worden zonder iets te toetsen (elke lege uitvoer telde als "overgeslagen"); de controleur zag het, nu alleen overslaan bij de bekende melding en minstens één stop echt getoetst.
