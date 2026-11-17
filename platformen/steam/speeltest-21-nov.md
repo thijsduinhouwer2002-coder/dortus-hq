@@ -11,7 +11,9 @@ Voor Thijs. Opgezet door Olaf, 15 nov 2026. Doel (besluit Thijs 15 nov 19:35): z
 
 Build: _volgt vr 20 nov_ (workflow `steam-hol-exe.yml` op main, zip 14 dagen bewaard).
 
-Proefrun (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
+Proefrun op de stand van 17 nov (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44137119222 , main 816eb97 (spelcode gelijk aan fb00619), groen, exe-toetsen 0 FOUT, sluiten 0 FOUT, zip `speeltest-hats-of-the-fallen-windows` 33 MB, beeld `strook-120-volledig.png` GEZIEN (Olaf 17 nov 17:40 UTC). CPU in deze korte meting 1,77 per 10 s, in lijn met eerdere exe-runs (2,14 / 2,77 / 2,81; deze meting telt het opstarten en kopen mee, niet de duurtest-grens).
+
+Oudere proefrun: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
 
 ## Eigen proef vooraf, opnieuw op main fb00619 (Olaf, 17 nov 17:30 UTC)
 Main na terugslag, Dame, naamfamilies en vaste plekjes. Vers spel (geen save), Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, 5 zaden (4242, 777, 2026, 1, 99), 200 tot 240 s. Uit de logs (GEZIEN):
