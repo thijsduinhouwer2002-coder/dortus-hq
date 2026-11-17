@@ -2,7 +2,7 @@
 
 Chris, run 32, 13 nov 2026 ±15:15 tot 16:00 UTC. Opdracht: `berichten/chris.md`, bericht van 13 nov 14:10.
 
-**Chris plaatst niets.** De toestemming om onder de naam van Thijs te posten geldt alleen voor de Obsidian-plekken van 8 nov. Alles hieronder plaatst Thijs zelf, en pas als Ebb echt in de winkel staat. **Stand 14 nov 08:45 UTC (GEZIEN, Chris run 35): Ebb staat in de winkel.** Winkelpagina 200, API `status: APPROVED`, $4.99, titel "Ebb: Breathing Exercises, Breath Hold & Calm". De winkellink is overal ingevuld waar eerst `<link>` stond (run 32 schreef: stand 15:22 UTC 13 nov, 404). Alleen `<link Calm>` staat nog open tot Ebb Calm in de winkel staat.
+**Chris plaatst niets.** De toestemming om onder de naam van Thijs te posten geldt alleen voor de Obsidian-plekken van 8 nov. Alles hieronder plaatst Thijs zelf, en pas als Ebb echt in de winkel staat. **Stand 14 nov 08:45 UTC (GEZIEN, Chris run 35): Ebb staat in de winkel.** Winkelpagina 200, API `status: APPROVED`, $4.99, titel "Ebb: Breathing Exercises, Breath Hold & Calm". De winkellink is overal ingevuld waar eerst `<link>` stond (run 32 schreef: stand 15:22 UTC 13 nov, 404). Alleen `https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466` staat nog open tot Ebb Calm in de winkel staat.
 
 Bronnen die ik naast elkaar legde: winkeltekst `platformen/garmin/upload/ebb-en.md` (versie 19a, de ingediende tekst), `calm-en.md` (versie 1.1), de concepten in `platformen/garmin/gebruikers-krijgen-2026-11-13.md` en de plekken in `kanalen-2026-11-13.md`.
 
@@ -95,6 +95,8 @@ Waarom extra voorzichtig (GEZIEN in onze eigen geschiedenis): r/ObsidianMD bleek
 
 ## 5. Tekst voor als Ebb Calm live gaat
 
+**KLAAR OM TE PLAATSEN (Chris, run 74, 17 nov ±04:00 UTC).** Calm is live sinds 16 nov (veld `firstApprovalDate` 16 nov 16:20, ruw), pagina geeft 200, `controleer-winkel.py` zegt "alles gelijk" in drie talen, gratis (geen veld `pricing`), 5 beelden, 40 artikelnummers, 0 downloads (GEZIEN 03:50 tot 04:00 UTC). De echte link staat hieronder ingevuld. Een controleur keurde het antwoord: akkoord (elke bewering staat in `calm-en.md`, één update in de eigen draad past bij de forumregels). Kan-punt: dit één keer plaatsen; komen de horloges van Calm 1.0.1 erbij, dan geen tweede bericht. Te laat: Calm stond al ±12 uur live voordat ik het zag (run 54 keek om 07:47, daarna geen Garmin-run meer tot nu).
+
 Ebb Calm is gratis (prijs 0) en wordt pas ingediend na de goedkeuring van Ebb (`organisatie/lijst-thijs.md`, punt van Gijs). Gecontroleerd tegen `calm-en.md` 1.1.
 
 **Waar:** als antwoord in de eigen Showcase-draad van Ebb (niet een tweede draad: "Reposting to increase post counts is discouraged"). Plus één regel erbij in de handtekening.
@@ -108,7 +110,7 @@ It's the calm part of Ebb: 4-7-8 breathing (in for 4, hold for 7, out for 8) dra
 
 Free: no account, no subscription, no unlock code, no phone app, no ads. The full Ebb, a separate paid app, adds breath hold rounds, your own breathing pattern and the 24 sea animals to collect.
 
-Ebb Calm: <link Calm>
+Ebb Calm: https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466
 Sit or lie down while you practise. Feedback welcome here or at thijs@dortus.com.
 ```
 
@@ -117,7 +119,7 @@ De zin over voortgang tussen de twee apps is geschrapt op advies van de controle
 **Handtekening na Calm:**
 
 ```
-Maker of Ebb (https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641) and the free Ebb Calm (<link Calm>), breathing apps for round Garmin watches
+Maker of Ebb (https://apps.garmin.com/apps/5280653d-1681-452d-8c03-7cbdc7284641) and the free Ebb Calm (https://apps.garmin.com/apps/bcc58192-667b-4bd8-a824-e6fe26794466), breathing apps for round Garmin watches
 ```
 
 **Wanneer:** dezelfde dag dat Calm openbaar is. Minuten Thijs: 3.

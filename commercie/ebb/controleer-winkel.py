@@ -46,8 +46,12 @@ def main():
         print("  FOUT: status is niet APPROVED"); goed = False
     prijs = ((d.get("pricing") or {}).get("listPrice") or {}).get("price")
     print("prijs (listPrice):", prijs if prijs is not None else "NIET GEZIEN", "| paymentModel", d.get("paymentModel"), "| trial", d.get("hasTrialMode"))
-    if voor == "calm" and prijs != 0:
-        print("  FOUT: Calm hoort gratis te zijn (of prijs niet te lezen)"); goed = False
+    # 17 nov (run 74): bij de live Calm ontbreekt het veld pricing helemaal, bij Ebb ($4.99) staat het er.
+    # paymentModel is bij allebei 0, dus zegt niets. Geen pricing = gratis.
+    if voor == "calm" and not (prijs == 0 or d.get("pricing") is None):
+        print("  FOUT: Calm hoort gratis te zijn"); goed = False
+    elif voor == "calm":
+        print("  gratis: geen veld pricing (Ebb heeft het wel)")
     nb = len(d.get("screenshotFileIds") or [])
     print("beelden:", nb, "| icoon:", bool(d.get("iconFileId")))
     if nb != 5:

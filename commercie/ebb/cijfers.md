@@ -16,6 +16,7 @@ Let op bij het lezen: `downloadCount` is de teller van Garmin; hoe vaak die bijg
 | 15 nov 08:44 (Chris, run 40) | 2 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved"; makerlijst Dortus: 1 app) |
 | 16 nov 02:45 (Chris, run 49) | 3 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved") |
 | 16 nov 07:47 (Chris, run 54, tussencheck) | 3 | APPROVED | 0 | 0 | 0 | $4.99 | nee (API op winkel-id van Calm: "The requested app is not approved") |
+| 17 nov 03:55 (Chris, run 74) | 4 | APPROVED | 0 | 0 | 0 | $4.99 | ja, sinds 16 nov (`firstApprovalDate` 16:20 ruw); Calm 0 downloads, 0 beoordelingen, gratis, 40 artikelnummers |
 
 Goedkeuring: 13 nov ±21:09 UTC (veld `firstApprovalDate`; het ruwe getal geeft 15:09 UTC, maar dat kan niet, want om 15:22, 17:46 en 20:45 UTC gaf de winkel nog 404; gelezen als Amerikaanse Central-tijd 21:09 UTC, tijdzone GOK, zie `platformen/garmin/status.md`). Dag 1 is dus ±11,5 uur na de goedkeuring gemeten, nog zonder forumbericht of persoonlijke berichtjes.
 
@@ -93,3 +94,18 @@ Geplaatst door de hoofdchat op 14 nov ±07:35 UTC, eerst "Content Under Review".
 
 GEZIEN met curl. "Bekeken" is de teller van het forum zelf; of die bezoekers zonder inlog telt, is NIET GEZIEN. De 5 volgers zijn waarschijnlijk vaste abonnees van nieuwe draden of de maker zelf (GOK).
 
+
+## Zoeker 17 nov 03:55 UTC (Chris, run 74; eerste 30, mostRelevant, `startPageIndex=0`), nu met Calm
+
+| Zoekwoord | treffers | Ebb | Ebb Calm |
+|---|---|---|---|
+| ebb | 91 | 2 | 1 |
+| ebb calm | 999 | 2 | 1 |
+| breathing exercises | 996 | 5 | 4 |
+| relaxation | 997 | niet | 6 |
+| breathing | 991 | niet (was 30) | 25 |
+| breath hold | 993 | 4 | niet |
+| calm | 999 | niet | niet |
+| 4-7-8 | 0 | niet | niet |
+
+Alles GEZIEN. Calm staat met 0 downloads al hoger dan Ebb op "ebb" en "breathing exercises": de titel met de woorden telt (zie "Hoe de zoeker rangschikt"). Op "calm" staat Calm niet in de eerste 30, ondanks de naam (AFGELEID: veel apps met "calm"; niet verder gemeten).
