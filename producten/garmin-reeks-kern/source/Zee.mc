@@ -11,6 +11,8 @@ module Zee {
     const STAART = 6;
     // De sinus van het golfje naast het getal, anderhalve golf in acht stukken, maal 1000.
     const GOLFJE = [0, 924, 707, -383, -1000, -383, 707, 924, 0];
+    // Het bootje in honderdsten van de halve rompbreedte: romp (4 punten), zeil (3), mast onder en boven.
+    const BOOT = [-100, -15, 100, -15, 60, 35, -60, 35, 8, -145, 8, -35, 85, -35, 0, -15, 0, -150];
 
     function klem(v as Number) as Number {
         if (v < 0) {
@@ -62,6 +64,27 @@ module Zee {
         return p;
     }
 
+    // Hoogte van de lijn op x, tussen de twee punten ernaast. Buiten de lijn: het eerste of laatste punt. Lege lijn: 0.
+    function hoogte(pts as Array<Graphics.Point2D>, x as Number) as Number {
+        var n = pts.size();
+        if (n == 0) {
+            return 0;
+        }
+        if (x <= (pts[0][0] as Number)) {
+            return pts[0][1] as Number;
+        }
+        for (var i = 0; i + 1 < n; i++) {
+            var ax = pts[i][0] as Number;
+            var bx = pts[i + 1][0] as Number;
+            if (x >= ax && x <= bx) {
+                var ay = pts[i][1] as Number;
+                var by = pts[i + 1][1] as Number;
+                return (bx == ax) ? ay : ay + (by - ay) * (x - ax) / (bx - ax);
+            }
+        }
+        return pts[n - 1][1] as Number;
+    }
+
     // Eén band van de zee: de lijn, af px lager, dichtgemaakt langs de linkerrand, de onderrand en de rechterrand.
     function band(pts as Array<Graphics.Point2D>, af as Number, w as Number, h as Number) as Array<Graphics.Point2D> {
         var p = [] as Array<Graphics.Point2D>;
@@ -80,7 +103,7 @@ module Zee {
     // Het bootje op bx, by (waterlijn onder het midden van de romp), s is de halve breedte van de romp.
     // Negen punten: romp (4), zeil (3), mast onder en boven. hoek in graden: bijna leeg ligt het scheef.
     function boot(bx as Number, by as Number, s as Number, hoek as Number) as Array<Graphics.Point2D> {
-        var vorm = [-100, -15, 100, -15, 60, 35, -60, 35, 8, -145, 8, -35, 85, -35, 0, -15, 0, -150];
+        var vorm = BOOT;
         var a = hoek * Math.PI / 180.0;
         var co = Math.cos(a);
         var si = Math.sin(a);

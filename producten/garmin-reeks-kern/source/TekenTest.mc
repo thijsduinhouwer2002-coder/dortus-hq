@@ -219,3 +219,26 @@ function testZeeGolfje(logger as Test.Logger) as Boolean {
     var g = Zee.golfje(100, 50, 16);
     return g.size() == 2 && g[0].size() == 9 && g[0][0][0] == 92 && g[0][8][0] == 108 && (g[0][0][1] as Number) < (g[1][0][1] as Number);
 }
+
+// Vier banden per thema, ook op 64 kleuren alle vier verschillend (punt van de keurder, run 130).
+(:test)
+function testZeeBandenVerschillen(logger as Test.Logger) as Boolean {
+    for (var t = 0; t < Thema.AANTAL; t++) {
+        for (var m = 0; m < 2; m++) {
+            for (var i = 0; i < 3; i++) {
+                if (Thema.band(t, i, m == 1) == Thema.band(t, i + 1, m == 1)) {
+                    logger.debug("gelijk: thema " + t + " band " + i + " mip " + m);
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+(:test)
+function testZeeHoogte(logger as Test.Logger) as Boolean {
+    var p = [[10, 100], [20, 120], [40, 80]] as Array<Graphics.Point2D>;
+    return Zee.hoogte(p, 15) == 110 && Zee.hoogte(p, 30) == 100 && Zee.hoogte(p, 0) == 100 && Zee.hoogte(p, 99) == 80
+        && Zee.hoogte([] as Array<Graphics.Point2D>, 5) == 0;
+}
