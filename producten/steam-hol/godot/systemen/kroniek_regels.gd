@@ -19,7 +19,7 @@ const VOORRAAD := {
 	"valt": ["{naam} fell to {val}.", "{naam} stays forever.", "{naam} found {val}. Hard.", "{bewoner} ate {naam}. Burp.",
 		"{naam} left gold and one boot.", "{naam} will not be leaving.", "{bewoner} says thanks for the snack."],
 	# {naam} is de volle naam ("Kees II"), {oud} de voornaam van wie hier viel ("Kees"); zo ook in kern/strook.gd
-	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants dad's boot back."],
+	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants {ouder}'s boot back."],
 	"pensioen": ["{naam} retired. Opened a bakery.", "{naam} retired. Tells tall tales now.",
 		"{naam} quit heroing. Sells maps.", "{naam} won't be back. Too scared."],
 	"vlucht": ["{naam} fled. Grudge: {bewoner}.", "{naam} ran. Swore revenge.", "{naam} escaped with a limp.",
@@ -30,7 +30,7 @@ const VOORRAAD := {
 	"hoed_eerste": ["{bewoner} wears {naam}'s hat now."],
 	"hoed": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile.",
 		"{bewoner}'s hat pile is taller than him."],
-	"naamgenoot_hoed": ["{naam} wants dad's hat back.", "{naam} glares at the hat pile.",
+	"naamgenoot_hoed": ["{naam} wants {ouder}'s hat back.", "{naam} glares at the hat pile.",
 		"{naam} can't find it. Too many hats."],
 	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
 	# Sanne 9 nov 21:50: "hat goes on the wall" pas terug voor aartsvijanden als de wand te zien is;
@@ -145,6 +145,8 @@ static func vul(sjabloon: String, v: Dictionary) -> String:
 	var r := sjabloon
 	if r.contains("{titel}"):   # "Sir" of "Dame" uit de voornaam (kern/namen.gd VROUW, Sanne 17 nov 10:00)
 		r = r.replace("{titel}", load("res://kern/namen.gd").titel(str(v.get("naam", ""))))
+	if r.contains("{ouder}"):   # "mom" of "dad" uit de voornaam (Iris keuring 22 punt 2)
+		r = r.replace("{ouder}", load("res://kern/namen.gd").ouder(str(v.get("naam", ""))))
 	for sleutel in ["held", "naam", "bewoner", "val", "n", "bijnaam", "oud", "hoed"]:
 		r = r.replace("{%s}" % sleutel, str(v.get(sleutel, "")))
 	var val := str(v.get("val", ""))

@@ -360,6 +360,8 @@ func _init() -> void:
 		g.raak(i % 4)
 	ok(g.hoeden.size() == 100 and g.berg_maat() == 3 and g.berg().size() == 10 and g.hoed_bijnaam() == "Milliner", "100 hoeden: maat 3, 10 zichtbaar, Milliner")
 	# Sanne 9 nov 21:50: zesde maat bij 3000; maat 6 breder, niet hoger dan maat 5
+	hol5.ingang_kol = 0   # linkergrens (Bram 17 nov): hier gaat het om de maten, dus ruimte genoeg links van Gloop
+	g.stap(0.01)
 	for i in 900:
 		g.raak(i % 10)
 	var hoogste5 := 0
@@ -379,6 +381,76 @@ func _init() -> void:
 		links6 = mini(links6, int(b[1]))
 	ok(g.berg_maat() == 6 and g.berg().size() == 33, "3000 hoeden: maat 6, 33 zichtbaar (%d)" % g.berg().size())
 	ok(hoogste6 >= hoogste5 and links6 < links5, "maat 6 is breder (x %d < %d), niet hoger (y %d >= %d)" % [links6, links5, hoogste6, hoogste5])
+	# Linkergrens (Daan 17 nov 08:40 punt 3 en 09:45 moet 4): de berg komt niet over de put of de ingang links van Gloop.
+	var vrij_max: int = g.berg_max
+	hol5.vallen[4] = "stekelput"
+	g.stap(0.01)
+	var grens_x: float = 5.0 * 16.0 + g.BERG_GRENS_LUCHT
+	var links_g := 1e9
+	for b in g.berg():   # pixelberg in deze toets; de 3D-berg ligt BERG_3D_LUCHT verder rechts dan berg(), dus nog binnen
+		links_g = minf(links_g, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * absf(g.scale.x))
+	ok(g.berg().size() >= 1 and g.berg().size() < 33 and g.berg().size() == g.berg_max and links_g >= grens_x - 0.01,
+		"linkergrens: put op kolom 4, berg %d plekjes, linkerkant %.1f >= %.1f" % [g.berg().size(), links_g, grens_x])
+	var voor_g: Array = g.berg().duplicate(true)
+	g.raak(3)
+	var anders_g := 0
+	for k in mini(voor_g.size(), g.berg().size()):
+		if int(voor_g[k][3]) != int(g.berg()[k][3]):
+			anders_g += 1
+	ok(g.berg().size() == voor_g.size() and anders_g == 1, "linkergrens: een hoed erbij bedekt er een, de berg wordt niet breder (%d anders)" % anders_g)
+	hol5.vallen.erase(4)
+	hol5.vallen[5] = "stekelput"   # vlak naast Gloop (kolom 6): toch 1 plekje, de berg verdwijnt niet (controleur 10:40)
+	g.stap(0.01)
+	ok(g.berg().size() == 1, "linkergrens: put vlak naast Gloop, nog 1 plekje (%d)" % g.berg().size())
+	hol5.vallen.erase(5)
+	hol5.vallen[2] = "stekelput"
+	g.scale = Vector2.ONE * 1.15
+	g.stap(0.01)
+	var grens_s: float = 3.0 * 16.0 + g.BERG_GRENS_LUCHT
+	var links_s := 1e9
+	for b in g.berg():
+		links_s = minf(links_s, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * 1.15)
+	var n_s: int = g.berg().size()
+	ok(links_s >= grens_s - 0.01 and n_s > 1 and n_s < 33, "linkergrens ook op figuur 1,15, put op 2 (%.1f >= %.1f, %d plekjes)" % [links_s, grens_s, n_s])
+	g.scale = Vector2.ONE
+	hol5.vallen.erase(2)
+	g.stap(0.01)
+	ok(g.berg_max == vrij_max and g.berg().size() == 33, "linkergrens: put weg, de berg mag weer breed (%d)" % g.berg().size())
+	# Daan 17 nov 10:50: de grens geldt voor alles links, ook de beeldrand (hol-x 0) en de gaten in de aardwand.
+	var oud_ik: int = hol5.ingang_kol
+	var oud_px: float = g.position.x
+	hol5.ingang_kol = 99   # ingang rechts: dan telt alleen de rand van het venster
+	g.position.x = 60.0
+	g.stap(0.01)
+	var links_r := 1e9
+	for b in g.berg():
+		links_r = minf(links_r, g.position.x + (float(b[1]) - g.BERG_3D_LUCHT - g.BERG_HALF) * absf(g.scale.x))
+	ok(g.berg().size() >= 1 and g.berg().size() < 33 and links_r >= g.BERG_GRENS_LUCHT - 0.01,
+		"linkergrens: beeldrand, Gloop op x 60, %d plekjes, linkerkant %.1f >= 2" % [g.berg().size(), links_r])
+	g.position.x = oud_px
+	hol5.ingang_kol = oud_ik
+	g.stap(0.01)
+	var vrij_n: int = g.plekjes_binnen(-80.0)
+	var hoog_gat := Rect2(-50.0, -22.0, 13.0, 11.0)   # gat in de wand linksboven, zoals op 120 (GEZIEN 17 nov)
+	var n_gat: int = g.plekjes_binnen(-80.0, [hoog_gat])
+	ok(n_gat >= 3 and n_gat < vrij_n, "linkergrens: gat in de wand houdt de berg kleiner (%d < %d)" % [n_gat, vrij_n])
+	var n_laag: int = g.plekjes_binnen(-80.0, [Rect2(-60.0, -60.0, 10.0, 10.0)])   # gat ver boven de berg: telt niet
+	ok(n_laag == vrij_n, "linkergrens: een gat boven de berg telt niet (%d)" % n_laag)
+	var vak_ok := true
+	for k in n_gat:
+		var rp_g: Vector2i = g.plek_rij_pos(k)
+		var x_g: float = -14.0 - 3.0 * rp_g.x - 6.0 * rp_g.y - g.BERG_3D_LUCHT
+		var vak := Rect2(x_g - g.BERG_HALF, -3.0 * rp_g.x - g.berg_hoog(), g.BERG_HALF * 2.0, g.berg_hoog())
+		if vak.grow(g.BERG_GRENS_LUCHT - 0.01).intersects(hoog_gat):
+			vak_ok = false
+	ok(vak_ok, "linkergrens: geen enkel plekje binnen 2 spelpx van het gat")
+	var vol_ok := false
+	for m in [1, 3, 6, 10, 15, 21, 27, 33]:
+		if n_gat == m:
+			vol_ok = true
+	ok(vol_ok, "linkergrens: bij een gat hele schuine rijen (%d)" % n_gat)
+	hol5.ingang_kol = 2
+	g.stap(0.01)
 	var alle_soorten := true
 	for h in g.hoeden:
 		if h < 0 or h >= 10:
@@ -392,7 +464,7 @@ func _init() -> void:
 	g2.zet(hol5, 8)
 	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
 	g2.van_dict(d)
-	ok(g2.hoeden == g.hoeden and g2.gegeten == 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
+	ok(g2.hoeden == g.hoeden and g2.gegeten == g.gegeten and g.gegeten >= 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
 	hol5.free()
 
 	# Sanne toets 6 punt 1: moet_afgerekend. Wrok tegen de put: overleeft Gloop (kolom 6), valt in de put (kolom 9)
@@ -796,6 +868,121 @@ func _init() -> void:
 				b_ok = b_ok and is_equal_approx(float(b3d[k][2]), float(int(bp[k][2]) + 1 + g3.HOED_ONDER[int(bp[k][0])]))
 			ok(b_ok, "3D-berg: zelfde hoeden en plekken als de pixelberg, 1 spelpixel verder van Gloop (%d)" % b3d.size())
 			ok(b3d.size() > 0 and is_equal_approx(float(b3d[0][2]), 0.0), "3D-berg: onderste rij staat op de vloer")
+			# Waar nachthoeden landen (Sanne 17 nov 07:00): oude toren tot de landing, dan springt de onderste in 0,3 s naar
+			# een vast plekje op de berg, en daar ligt hij daarna
+			var voor_n3: Array = g3.hoeden.duplicate()
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			var oude_onder: int = g3.hoeden[4]
+			g3.krijg_hoed_later(9)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			ok(g3.nacht_valt() and g3.hoeden.size() == 9 and g3.berg_tel() == 8, "nachtland: tijdens de val telt de berg nog de oude 8 (%d)" % g3.berg_tel())
+			ok(g3.toren_3d(g3.hoeden.slice(4, 8), true).size() == 4 and g3.hoeden_op_hoofd().size() == 4, "nachtland: oude toren 4, geen vijfde plek")
+			ok(not g3.berg_boog()[0], "nachtland: nog geen boog voor de landing")
+			g3.stap(g3.VAL_S + g3.SPRING_S * 0.5 - 0.01)
+			var bb3: Array = g3.berg_boog()
+			var top3: Array = []
+			for e3 in g3.berg_3d(9):
+				if int(e3[3]) == 4:
+					top3 = e3   # het plekje van de nieuwste (index 4 in hoeden bij 9 hoeden)
+			ok(not top3.is_empty(), "nachtland: de nieuwste (index 4) ligt op een plekje van de berg bij 9")
+			if top3.is_empty():
+				top3 = [0, 0.0, 0.0, 4]   # controleur 09:30: geen SCRIPT ERROR die de toetsrun laat hangen, maar een FOUT
+			var voet3: Array = g3.toren_3d()[0]
+			ok(not g3.nacht_valt() and bb3[0] and int(bb3[1]) == oude_onder and g3.berg_tel() == 8, "nachtland: na de landing vliegt de oude onderste (%s) in een boog, berg wacht (%s)" % [str(bb3), str(g3.berg_tel())])
+			ok(float(bb3[2]) < float(voet3[1]) and float(bb3[2]) > float(top3[1]) and float(bb3[3]) < minf(float(voet3[2]), float(top3[2])), "nachtland: halverwege tussen toren en berg en hoger dan beide (%s, %s, %s)" % [str(bb3), str(voet3), str(top3)])
+			g3.stap(g3.SPRING_S * 0.48)
+			var bb_eind: Array = g3.berg_boog()
+			ok(bb_eind[0] and absf(float(bb_eind[2]) - float(top3[1])) <= 2.0 and absf(float(bb_eind[3]) - float(top3[2])) <= 2.0, "nachtland: aan het eind van de boog is hij bij zijn plekje (%s tegen %s)" % [str(bb_eind), str(top3)])
+			g3.stap(g3.SPRING_S * 0.02 + 0.02)
+			var gel := false
+			for e3 in g3.berg_3d():
+				gel = gel or (int(e3[3]) == 4 and int(e3[0]) == oude_onder and is_equal_approx(float(e3[1]), float(top3[1])) and is_equal_approx(float(e3[2]), float(top3[2])))
+			ok(not g3.berg_boog()[0] and g3.berg_tel() == 9 and gel, "nachtland: na 0,3 s ligt hij op het plekje waar de boog heen ging")
+			ok(g3.hoeden_op_hoofd() == [5, 6, 7, 9], "nachtland: op de toren de laatste 4 (%s)" % str(g3.hoeden_op_hoofd()))
+			# plof (Sanne 08:50): 19 hoeden in één nacht, één boog naar het plekje van de laatste hoed van de berg
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			for pi in 19:
+				g3.krijg_hoed_later((pi * 3) % 10)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			var plof_eind: float = float(g3.nacht_ev[-1][0]) + g3.SPRING_S + 0.1 if not g3.nacht_ev.is_empty() else 0.0
+			var bb_plof: Array = [false]
+			var stappen := 0
+			while (g3.t < plof_eind or g3.nacht_bezig() or g3.berg_tel() < g3.hoeden.size()) and stappen < 5000:
+				g3.stap(0.01)
+				stappen += 1
+				var bq: Array = g3.berg_boog()
+				if bq[0]:
+					bb_plof = bq
+			var ip: int = g3.hoeden.size() - g3.OP_HOOFD - 1
+			var plek_p: Array = []
+			for e3 in g3.berg_3d():
+				if int(e3[3]) == ip:
+					plek_p = e3
+			ok(g3.hoeden.size() == 27 and bb_plof[0] and not plek_p.is_empty() and int(bb_plof[1]) == g3.hoeden[ip] and absf(float(bb_plof[2]) - float(plek_p[1])) <= 3.0 and absf(float(bb_plof[3]) - float(plek_p[2])) <= 3.0, "plof: de laatste boog eindigt op het plekje van de nieuwste hoed van de berg (%s tegen %s)" % [str(bb_plof), str(plek_p)])
+			# Daan 09:45 en controleur 09:45: beeld voor beeld (0,01 s) door drie nachten in één sessie, de derde met een hap
+			# midden in de nacht. Per beeld: geen plekje gaat weg, hooguit één plekje krijgt een andere hoed, en een hoed die
+			# bedekt werd komt nooit meer boven.
+			g3._sessie_weg()
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoeden.clear()
+			for i3 in 60:
+				g3.hoeden.append((i3 * 7) % 10)
+			var mon_vorig := {}
+			var bedekt := {}
+			var mon_fout := ""
+			var mon_beelden := 0
+			for nacht in 3:
+				for i3 in 25:
+					g3.krijg_hoed_later((i3 * 3 + nacht) % 10)
+				g3.start_nacht(0.0)
+				var gehapt := false
+				var st := 0
+				while (g3.nacht_bezig() or g3.berg_tel() < g3.hoeden.size() or st < 20) and st < 3000:
+					g3.stap(0.01)
+					st += 1
+					if nacht == 2 and not gehapt and g3.nacht_gelegd >= 5:
+						g3.raak(4)   # hap terwijl de nacht nog valt
+						gehapt = true
+					var mon_nu := {}
+					for e in g3.berg():
+						mon_nu[Vector2(float(e[1]), float(e[2]) + g3.HOED_ONDER[int(e[0])])] = int(e[3])
+					var mon_anders := 0
+					for plek in mon_vorig:
+						if not mon_nu.has(plek):
+							mon_fout = "nacht %d t %.2f: plekje %s weg" % [nacht, g3.t, str(plek)]
+						elif int(mon_nu[plek]) != int(mon_vorig[plek]):
+							mon_anders += 1
+							bedekt[int(mon_vorig[plek])] = true
+					for plek in mon_nu:
+						if bedekt.has(int(mon_nu[plek])):
+							mon_fout = "nacht %d t %.2f: bedekte hoed %d komt terug" % [nacht, g3.t, int(mon_nu[plek])]
+					if mon_anders > 1:
+						mon_fout = "nacht %d t %.2f: %d plekjes anders in één beeld" % [nacht, g3.t, mon_anders]
+					mon_vorig = mon_nu
+					mon_beelden += 1
+			ok(mon_fout == "" and g3._pl_start >= 0 and mon_beelden > 100, "plof: beeld voor beeld door drie nachten en een hap, nooit meer dan één plekje anders, niets weg, niets bedekts terug (%s, %d beelden)" % [mon_fout, mon_beelden])
+			g3.stap(5.0)   # de hap en de blije tijd van de monitor uit laten lopen
+			g3._sessie_weg()
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoed_valt = false
+			# plat tijdens de boog (controleur): geen hoed die nergens staat
+			g3.hoeden.assign([0, 1, 2, 3, 4, 5, 6, 7])
+			g3.krijg_hoed_later(8)
+			g3.start_nacht(0.0)
+			g3.stap(0.01)
+			g3.stap(g3.VAL_S + 0.05)
+			var tel_boog: int = g3.berg_tel()
+			g3.plat_tot = g3.t + 1.0
+			ok(tel_boog == 8 and (not g3.is_plat() or (g3.berg_tel() == 9 and not g3.berg_boog()[0])), "nachtland: plat tijdens de boog zet de hoed meteen op de berg (%d)" % g3.berg_tel())
+			g3.plat_tot = -10.0
+			g3.hoeden = voor_n3
+			g3.nacht_ev.clear()
+			g3.val_voor = -1
+			g3.hoed_valt = false
 			g3.met_3d = false
 			ok(g3.berg_3d().is_empty(), "3D-berg: zonder met_3d leeg (dan pixels)")
 			g3.met_3d = true
@@ -1095,6 +1282,205 @@ func _init() -> void:
 	gm.raak(4, Vector2(10, -10))
 	ok(not gm.is_plat() and gm.hoeden.size() == hoeden_voor and gm.hoed_vliegt(), "moment=hap: plat of een volgende hap verandert het stille beeld niet")
 	gm.free()
+	# Hoeden van de nacht (Sanne 17 nov 06:05, features.md; bouw Bram): na weg niet meteen op de toren, maar na de wip
+	# een voor een van boven op de top; eerste 10 elk 0,3 s, de rest in één plof; samen hooguit ±4 s; save gelijk
+	var VG = load("res://systemen/voortgang.gd")
+	var gn = Node2D.new()
+	gn.set_script(load("res://systemen/slijm.gd"))
+	gn.krijg_hoed(1)
+	gn.krijg_hoed(2)
+	var gn_ref = Node2D.new()
+	gn_ref.set_script(load("res://systemen/slijm.gd"))
+	gn_ref.krijg_hoed(1)
+	gn_ref.krijg_hoed(2)
+	var uk := {"opgegeten": 29}
+	var per_n: Array = VG.geef_hoeden([gn], uk, 7, true)
+	VG.geef_hoeden([gn_ref], {"opgegeten": 29}, 7)
+	ok(per_n == [29] and gn.hoeden.size() == 2 and gn.nacht_hoeden.size() == 29 and bool(uk.hoeden_gegeven), "nachthoeden: 29 in de rij, toren nog op 2 (%s)" % str(per_n))
+	ok(gn.naar_dict().hoeden.size() == 31 and gn.naar_dict().hoeden == gn_ref.naar_dict().hoeden and gn.gegeten == gn_ref.gegeten, "nachthoeden: save gelijk aan meteen geven (afsluiten tijdens het vallen verliest niets)")
+	gn.start_nacht()
+	var eerste_t := -1.0
+	var tiende_t := -1.0
+	var alles_t := -1.0
+	var stappen_n := {}
+	var geland_voor_volgende := true
+	var vorige_n := 2
+	var blij_vroeg := false
+	for i in 120:
+		var vlucht_voor: float = gn.hoed_vlucht_van
+		gn.stap(0.05)
+		var nh: int = gn.hoeden.size()
+		if nh > vorige_n:
+			# de vorige val moet al voorbij zijn (landing) als de volgende begint
+			if vorige_n > 2 and gn.t - vlucht_voor - gn.VLUCHT_VAN < gn.VAL_S:
+				geland_voor_volgende = false
+			stappen_n[nh - vorige_n] = true
+			if eerste_t < 0.0:
+				eerste_t = gn.t
+			if nh >= 12 and tiende_t < 0.0:
+				tiende_t = gn.t
+			if nh == 31:
+				alles_t = gn.t
+			vorige_n = nh
+		if gn.hoed_valt and gn.hoed_vliegt() and gn.t < gn.blij_van and gn.beeld_3d() == "blij":
+			blij_vroeg = true
+	ok(eerste_t >= gn.NACHT_WACHT_S - 0.01 and eerste_t <= gn.NACHT_WACHT_S + 0.06, "nachthoeden: eerste valt na de wip, op %.2f s" % eerste_t)
+	ok(tiende_t > 0.0 and absf(tiende_t - eerste_t - 2 * gn.NACHT_TRAAG_S - 7 * gn.NACHT_TUSSEN_S) < 0.06, "nachthoeden: tiende 3,1 s na de eerste (eerste drie 0,5 s, Daan) (%.2f)" % (tiende_t - eerste_t))
+	ok(alles_t > 0.0 and alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S <= 4.3, "nachthoeden: alles staat en wiebelde uit binnen ±4,2 s (Daan) (%.2f s)" % (alles_t - eerste_t + gn.VAL_S + gn.WIEBEL_S))
+	ok(stappen_n.keys().has(1) and stappen_n.keys().has(19) and stappen_n.size() == 2, "nachthoeden: tien keer één, dan één plof van 19 (%s)" % str(stappen_n.keys()))
+	ok(gn.hoeden == gn_ref.hoeden and gn.nacht_hoeden.is_empty(), "nachthoeden: dezelfde hoeden in dezelfde volgorde als meteen geven")
+	ok(geland_voor_volgende and gn.VAL_S < gn.NACHT_TUSSEN_S, "nachthoeden: elke hoed is geland voor de volgende valt")
+	ok(not blij_vroeg, "nachthoeden: Gloop pas blij bij de landing, niet tijdens de val")
+	ok(gn.nacht_hoeden.is_empty() and not gn.hoed_vliegt() and gn.t > gn.blij_tot, "nachthoeden: daarna geen werk meer (rij leeg, hoed stil, blij voorbij: stap zet process uit)")
+	# de val zelf: recht omlaag op de top, van boven het hol, steeds lager, geen draai; landing en wiebel als bij de held
+	gn.position.y = 80.0   # zoals in het hol: Gloop staat onderin, de bovenrand ver boven hem
+	gn.hoeden.append(5)
+	gn.hoed_valt = true
+	gn.hoed_vlucht_van = gn.t - gn.VLUCHT_VAN - 0.0001
+	var vy := []
+	var recht := true
+	for i in 6:
+		var vv: Array = gn.hoed_vlucht(3.0, -24.0)
+		vy.append(float(vv[2]))
+		if not vv[0] or not is_equal_approx(float(vv[1]), 3.0) or not is_equal_approx(float(vv[3]), 0.0):
+			recht = false
+		gn.t += gn.VAL_S / 6.0
+	ok(recht and vy[0] < -24.0 and vy[0] <= gn.plafond_y() - gn.VAL_HOOG + 0.5, "nachthoed: begint boven het hol, recht boven de top, zonder draai (%s)" % str(vy))
+	var dalend := true
+	for i in range(1, vy.size()):
+		if vy[i] < vy[i - 1]:
+			dalend = false
+	ok(dalend, "nachthoed: valt alleen omlaag (%s)" % str(vy))
+	gn.t = gn.hoed_vlucht_van + gn.VLUCHT_VAN + gn.VAL_S + 0.02
+	var vland: Array = gn.hoed_vlucht(3.0, -24.0)
+	ok(is_equal_approx(float(vland[2]), -24.0) and is_equal_approx(float(vland[4]), 0.9), "nachthoed: landt op de top met één beeld plat (%s)" % str(vland))
+	gn.t = gn.hoed_vlucht_van + gn.VLUCHT_VAN + gn.VAL_S + gn.WIEBEL_S + 0.01
+	ok(not gn.hoed_vliegt(), "nachthoed: daarna stil")
+	# een held die daarna gegeten wordt, krijgt weer de gewone boog
+	gn.raak(2, Vector2(14, -10))
+	ok(not gn.hoed_valt, "nachthoed: de volgende hap vliegt weer in een boog")
+	# hap tijdens het vallen (controleur punt 1): de rij eerst op de toren, dan de hoed van de held bovenop met de boog
+	var gh = Node2D.new()
+	gh.set_script(load("res://systemen/slijm.gd"))
+	for hh in [1, 2, 3, 4, 5]:
+		gh.krijg_hoed_later(hh)
+	gh.start_nacht()
+	for i in 21:
+		gh.stap(0.05)
+	var n_hap: int = gh.raak(7, Vector2(14, -10))
+	ok(n_hap == 6 and gh.hoeden == [1, 2, 3, 4, 5, 7] and gh.nacht_hoeden.is_empty() and not gh.hoed_valt, "nachthoeden: hap tijdens het vallen telt alles en zet de held-hoed bovenop (%d, %s)" % [n_hap, str(gh.hoeden)])
+	gh.stap(0.4)
+	ok(gh.hoed_vliegt() and not gh.hoed_valt and is_equal_approx(gh.hoed_van.x, 14.0), "nachthoeden: de boog van de held blijft daarna van hem")
+	gh.free()
+	# niets in de rij: start_nacht doet niets
+	var g0 = Node2D.new()
+	g0.set_script(load("res://systemen/slijm.gd"))
+	g0.start_nacht()
+	ok(g0.nacht_van < 0.0 and g0.hoeden.is_empty(), "nachthoeden: zonder hoeden van de nacht geen rij")
+	ok(gn.nacht_aantal(-0.1, 5) == 0 and gn.nacht_aantal(0.0, 5) == 1 and gn.nacht_aantal(0.45, 5) == 1 and gn.nacht_aantal(0.5, 5) == 2 and gn.nacht_aantal(1.0, 5) == 3 and gn.nacht_aantal(1.3, 5) == 4 and gn.nacht_aantal(9.0, 5) == 5 and gn.nacht_aantal(3.1, 40) == 10 and gn.nacht_aantal(3.4, 40) == 40, "nachthoeden: tempo 0,5 / 0,5 / dan 0,3, plof na de tiende (Daan)")
+	# wiebel van de vorige nooit hard afkappen: loopt door tot de nieuwe landt, dan in 0,1 s naar 0
+	var gw = Node2D.new()
+	gw.set_script(load("res://systemen/slijm.gd"))
+	for hh in [1, 2, 3, 4, 5]:
+		gw.krijg_hoed_later(hh)
+	gw.start_nacht(0.0)
+	gw.stap(0.0)
+	var max_voor := 0.0   # tussen eigen landing en landing van de volgende
+	var na_demp := 0.0    # meer dan 0,1 s na de landing van de volgende
+	var gezien_vorige := false
+	for i in 80:
+		gw.stap(0.0125)
+		if gw.hoeden.size() >= 2 and gw.vorige_idx == gw.hoeden.size() - 2:
+			var land_nieuw: float = gw.hoed_vlucht_van + gw.VLUCHT_VAN + gw.VAL_S
+			var a := absf(gw.vorige_wiebel(gw.vorige_idx))
+			if a > 0.0:
+				gezien_vorige = true
+			if gw.t > land_nieuw + gw.UITDEMP_S + 0.001:
+				na_demp = maxf(na_demp, a)
+	ok(gezien_vorige and na_demp == 0.0, "nachthoeden: vorige hoed wiebelt nog even uit onder de nieuwe en staat 0,1 s na diens landing stil")
+	gw.free()
+	# van_dict (laden) leegt de rij
+	gn.krijg_hoed_later(3)
+	gn.van_dict(gn_ref.naar_dict())
+	ok(gn.nacht_hoeden.is_empty() and gn.hoeden == gn_ref.hoeden, "nachthoeden: laden leegt de rij")
+	gn.free()
+	gn_ref.free()
+	g0.free()
+	# Berg groeit ook binnen een maat (Sanne 17 nov 07:00): recht evenredig naar het aantal van de volgende maat
+	var gz = Node2D.new()
+	gz.set_script(load("res://systemen/slijm.gd"))
+	var zz := []
+	for tz in [0, 4, 5, 24, 25, 44, 70, 99, 100, 299, 300, 1000, 2999, 3000, 9000]:
+		zz.append(gz.berg_zichtbaar(tz))
+	ok(zz == [0, 0, 1, 5, 6, 7, 8, 9, 10, 14, 15, 21, 32, 33, 33], "berg binnen een maat: 44 -> 7, 70 -> 8, grenzen gelijk (%s)" % str(zz))
+	for i in 70:
+		gz.krijg_hoed(i % 10)
+	var bz: Array = gz.berg()
+	var nieuwste_ok := false
+	for e in bz:
+		nieuwste_ok = nieuwste_ok or (int(e[3]) == gz.hoeden_op_berg() - 1 and int(e[0]) == gz.hoeden[gz.hoeden_op_berg() - 1])
+	ok(bz.size() == 8 and nieuwste_ok, "berg: 8 zichtbaar, de nieuwste ligt erop (%d)" % bz.size())
+	# Vaste plekjes (Iris keuring 20, Sanne 17 nov 08:50): hoed voor hoed van 5 tot 3200 hoeden. Elk plekje houdt zijn plaats,
+	# er komen alleen plekjes bij, per hoed verandert hooguit één plekje (daar ligt de nieuwste), en je ziet de nieuwste n.
+	gz.hoeden.clear()
+	for i in 3200:
+		gz.hoeden.append(i % 10)
+	var vast_ok := true
+	var een_ok := true
+	var nieuwste_n_ok := true
+	var steun_ok := true
+	var vorige := {}
+	var waarom := ""
+	for tz in range(5, 3200):
+		var bt: Array = gz.berg(tz)
+		var nu := {}
+		var op: int = tz - gz.OP_HOOFD
+		var idx := {}
+		for e in bt:
+			nu[Vector2(float(e[1]), float(e[2]) + gz.HOED_ONDER[int(e[0])])] = int(e[3])
+			idx[int(e[3])] = true
+		for i in range(op - bt.size(), op):
+			if not idx.has(i):
+				nieuwste_n_ok = false
+		var anders := 0
+		for plek in vorige:
+			if not nu.has(plek):
+				vast_ok = false
+				waarom = "tel %d plek %s weg" % [tz, str(plek)]
+			elif int(nu[plek]) != int(vorige[plek]):
+				anders += 1
+				if int(nu[plek]) != op - 1:
+					een_ok = false
+		if anders + (nu.size() - vorige.size()) > 1:
+			een_ok = false
+			waarom = "tel %d: %d anders, %d erbij" % [tz, anders, nu.size() - vorige.size()]
+		vorige = nu
+	for k in 33:
+		var rpk: Vector2i = gz.plek_rij_pos(k)
+		if rpk.x > 0:
+			var a := -1
+			var b := -1
+			for j in k:
+				var q: Vector2i = gz.plek_rij_pos(j)
+				if q == Vector2i(rpk.x - 1, rpk.y):
+					a = j
+				if q == Vector2i(rpk.x - 1, rpk.y + 1):
+					b = j
+			steun_ok = steun_ok and a >= 0 and b >= 0
+	ok(vast_ok, "vaste plekjes: geen zichtbare hoed springt van plek, er komen alleen plekjes bij (%s)" % waarom)
+	ok(een_ok, "vaste plekjes: per hoed verandert hooguit één plekje, en daar ligt de nieuwste (%s)" % waarom)
+	ok(nieuwste_n_ok, "vaste plekjes: de berg toont altijd de nieuwste n hoeden")
+	ok(steun_ok, "vaste plekjes: elk plekje boven de vloer ligt op twee plekjes die er al waren")
+	var k70: Array = gz.berg(74)
+	gz._pk_tel = -1          # zoals na laden: niets bewaard (controleur 09:30)
+	gz._pk_bewaard = {}
+	gz._pk_kaart = []
+	gz._pk_waar = {}
+	var k70b: Array = gz.berg(74)
+	ok(k70.size() == 8 and k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg, ook opnieuw gerekend zoals na laden; 33 bij 3000+")
+	var kaart_ro: Array = gz.berg_plekken(74)
+	ok(kaart_ro.is_read_only(), "vaste plekjes: de bewaarde kaart kan niemand aanpassen")
+	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")
 	ok(PR.hoogte_voor_dpi(96) == 120 and PR.hoogte_voor_dpi(110) == 120, "schaal 100% en 115%: 120 px")

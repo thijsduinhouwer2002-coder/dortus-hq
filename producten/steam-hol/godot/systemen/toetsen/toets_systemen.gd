@@ -1398,7 +1398,66 @@ func _nieuwe_held() -> bool:
 	# Dame en hap per soort (Sanne 17 nov 10:00, Iris keuring 21 punt 1, features.md keurregel)
 	var NM = load("res://kern/namen.gd")
 	var vr_mist: Array = NM.VROUW.filter(func(n): return not NM.NAMEN.has(n))
-	ok(vr_mist.is_empty() and NM.VROUW.size() == 4, "VROUW staat in NAMEN (%s)" % str(vr_mist))
+	ok(vr_mist.is_empty() and NM.VROUW.size() == 10, "VROUW staat in NAMEN (%s)" % str(vr_mist))
+	# Namen zonder families op een rij (Sanne 17 nov 16:50, Iris keuring 22 punt 1 en 2)
+	var nm_lang: Array = NM.NAMEN.filter(func(n): return n.length() > 5)
+	var nm_dub := {}
+	for n in NM.NAMEN:
+		nm_dub[n] = true
+	ok(NM.NAMEN.size() == 24 and nm_dub.size() == 24 and nm_lang.is_empty(), "namen: 24, uniek, hooguit 5 letters (%s)" % str(nm_lang))
+	ok(NM.ouder("Fenna II") == "mom" and NM.ouder("Maud") == "mom" and NM.ouder("Kees III") == "dad", "ouder: mom bij VROUW, anders dad")
+	ok(RT.vul("{naam} wants {ouder}'s boot back.", {"naam": "Fenna III"}) == "Fenna III wants mom's boot back." and RT.BRAM.vul("{naam} wants {ouder}'s hat back.", {"naam": "Kees II"}) == "Kees II wants dad's hat back.", "vul: {ouder} vult zich uit {naam} (strook en kroniek)")
+	var nm_dad: Array = []
+	for so in ["naamgenoot", "naamgenoot_hoed"]:
+		for rd in RT.BRAM.VOORRAAD.get(so, []) + RT.VOORRAAD.get(so, []):
+			for nm in NM.VROUW:
+				var vd: String = RT.vul(rd, {"naam": nm + " III", "oud": nm})
+				if vd.contains("dad") or vd.contains("{") or vd.length() > RT.MAX:
+					nm_dad.append(vd)
+	ok(nm_dad.is_empty(), "naamgenoot: geen dad bij een vrouwennaam, alles gevuld, past (%s)" % str(nm_dad))
+	var VN_S := GDScript.new()
+	VN_S.source_code = "extends RefCounted\nvar terugkomers: Array = []\nvar wezens := Node.new()\nvar pensioen_namen: Array = []\nvar rng := RandomNumberGenerator.new()\nvar gevallen_namen := {}\nvar recente_namen: Array = []\n"
+	VN_S.reload()
+	var vn_s = VN_S.new()
+	vn_s.rng.seed = 1794860558
+	var vn_reeks: Array = []
+	var vn_rij := 0
+	var nm_dicht := 0
+	var vn_kaal := true
+	for i in 24 * 3 * 3 + 10:
+		var vn_nn: String = NM.vrije_naam(vn_s)
+		var vn_bs: String = vn_nn.split(" ")[0]
+		if i < 24 and vn_nn != vn_bs:
+			vn_kaal = false
+		var vn_achter: Array = vn_reeks.slice(-6)
+		if vn_achter.has(vn_bs):
+			nm_dicht += 1
+		if vn_reeks.size() > 0 and vn_reeks[-1] == vn_bs:
+			vn_rij += 1
+		vn_reeks.append(vn_bs)
+		vn_s.gevallen_namen[vn_bs] = int(vn_s.gevallen_namen.get(vn_bs, 0)) + 1   # iedereen valt (zoals afloop.gd)
+	ok(vn_kaal, "vrije_naam: eerst valt elke naam één keer kaal")
+	ok(vn_rij == 0 and nm_dicht == 0, "vrije_naam: nooit dezelfde voornaam binnen 6 nieuwe helden (%d op een rij, %d dichtbij)" % [vn_rij, nm_dicht])
+	ok(vn_s.gevallen_namen.values().all(func(t): return int(t) <= 3), "vrije_naam: na III gaat de telling leeg, nooit IV")
+	var vn_s2 = VN_S.new()
+	for n in NM.NAMEN:
+		vn_s2.gevallen_namen[n] = 3
+	ok(NM.vrije_naam(vn_s2).split(" ").size() == 1 and vn_s2.gevallen_namen.size() == 0, "vrije_naam: alle namen op 3, hele telling leeg, kale naam")
+	var vn_s3 = VN_S.new()
+	for n in NM.NAMEN.slice(0, 23):
+		vn_s3.terugkomers.append({"naam": n + " II"})
+	vn_s3.recente_namen = [NM.NAMEN[23]]
+	ok(NM.vrije_naam(vn_s3).begins_with(NM.NAMEN[23]), "vrije_naam: alleen een recente naam vrij, dan toch die")
+	var vn_s4 = VN_S.new()
+	for n in NM.NAMEN:
+		vn_s4.gevallen_namen[n] = 3
+	vn_s4.gevallen_namen["Kees"] = 1
+	vn_s4.recente_namen = ["Kees"]
+	ok(NM.vrije_naam(vn_s4) == "Kees II" and vn_s4.gevallen_namen.size() == 24, "vrije_naam: recente Kees op 1 houdt zijn II, geen vierde naam")
+	vn_s4.wezens.free()
+	vn_s.wezens.free()
+	vn_s2.wezens.free()
+	vn_s3.wezens.free()
 	ok(NM.titel("Gerda") == "Dame" and NM.titel("Gerda II") == "Dame" and NM.titel("Lotte the Twice-Fled") == "Dame" and NM.titel("Odo") == "Sir" and NM.titel("Marat") == "Sir", "titel: Dame uit de voornaam, anders Sir")
 	ok(RT.vul("{titel} {naam} clanks in.", {"naam": "Mara III"}) == "Dame Mara III clanks in." and RT.vul("{titel} {naam} clanks in.", {"naam": "Kees"}) == "Sir Kees clanks in.", "vul: {titel} vult zich uit {naam}")
 	ok(RT.kies("binnen_ridder", {"naam": "Fenna"}).begins_with("Dame Fenna"), "kies: ridder Fenna is Dame")

@@ -112,6 +112,7 @@ var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als
 var slijm
 var slijm_plat := false
 var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
+var recente_namen: Array = []   # voornamen van de laatste nieuwe helden, niet in de save (Sanne 17 nov 16:50 punt 3)
 var naamgenoot_gezien := {}  # voornamen die deze speelbeurt al een naamgenoot-regel kregen (Sanne 16 nov 22:00)
 var plat_keer := 0           # hoe vaak "flat" deze speelbeurt in de rij ging (hooguit WACHTRIJ.PLAT_KEER, Daan 16 nov 20:35)
 var plat_gemeld := false     # staat (of wacht) er een "flat" voor de huidige keer plat; alleen dan komt "up again"
@@ -380,6 +381,8 @@ func _input(event: InputEvent) -> void:
 			return
 		var p: Vector2 = (event.position - hol.position) / schaal
 		var wat: String = hol.klik(p)
+		if wat != "" and slijm != null:
+			slijm.werk_berg_grens()   # put gebouwd of weg, of gegraven: linkergrens van de hoedenberg (Bram 17 nov)
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
