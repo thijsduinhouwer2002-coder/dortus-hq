@@ -283,7 +283,7 @@ func _draw_kaart() -> void:
 	knop_weg = Rect2()
 	knop_menu = []
 	if bool(kaart.get("menu", false)):
-		_draw_menu(kx, ky, kh, x + bw - (15 if met_3d else 6), M, vet)   # rechts gelijk met het goud op de kopregel (Daan moet 1)
+		_draw_menu(kx, ky, kh, x + bw - (15 if met_3d else 6) + 2, M, vet)   # rechts gelijk met het goud op de kopregel (Daan moet 1)
 		return
 	if int(kaart.kost) >= 0 and bool(kaart.get("demo_over", false)):
 		# demo voorbij: tekst in plaats van de knop, zonder klikvlak (kern/demo_einde.gd)
@@ -355,7 +355,7 @@ func _draw_menu(kx: float, ky: float, kh: float, rechts: float, M: Dictionary, v
 		knop_menu.append([k, acties[i]])
 
 # Linkerkant van elke menuknop (zelfde volgorde als de knoppen: hoogtes, dan rechts [Feedback] Quit). Het icoon staat op
-# kx, de hoogtes sluiten erachter aan zonder ruimte (één groep), de rechtergroep eindigt op `rechts` met `tussen`
+# kx, de hoogtes sluiten erachter aan zonder ruimte (één groep), de rechtergroep eindigt op `rechts` met 3 * s
 # ertussen. Leeg als het niet past (minstens 4 * s lucht tussen de groepen). Statisch, zodat de toets het kan narekenen.
 static func menu_plekken(kx: float, rechts: float, icoon: float, hoogtes: Array, rechts_b: Array, s: int) -> Array:
 	var uit: Array = []
@@ -364,7 +364,8 @@ static func menu_plekken(kx: float, rechts: float, icoon: float, hoogtes: Array,
 		uit.append(x)
 		x += float(b)
 	var links_eind := x
-	if is_inf(rechts):
+	var nood := is_inf(rechts)
+	if nood:
 		rechts = links_eind + 4 * s + _som(rechts_b) + 3 * s * (rechts_b.size() - 1)
 	var r := rechts
 	var rr: Array = []
@@ -372,7 +373,7 @@ static func menu_plekken(kx: float, rechts: float, icoon: float, hoogtes: Array,
 		r -= float(rechts_b[i])
 		rr.push_front(r)
 		r -= 3 * s
-	if rr[0] < links_eind + 4 * s:
+	if not nood and rr[0] < links_eind + 4 * s:   # noodweg nooit leeg (afronding, controleur 17 nov)
 		return []
 	uit.append_array(rr)
 	return uit
