@@ -147,3 +147,5 @@ Lezing:
 1. "alles uit" meer dan 16% goedkoper per beeld dan "alles aan": de spelregel-commits kosten echt; dan wijst "kaartje uit" of "regels uit" het blok aan, en dat blok zoek ik uit.
 2. Binnen 16%: de +28% van het .exe-paar zit niet in de spelregels; samen met Sannes grens (do 19 nov 12:00) is het dan ruis.
 3. "alles uit" duurder dan "alles aan": zelfde als 2.
+
+**Gestart 04:39 UTC:** run **44018723753** op 89bbd7f (beide toetsruns op de tak groen: 44015639027 en 44016445639), na Olafs keurduurtest 44016112587 (klaar 04:38). Uitslag lezen met `python3 cpu_regels.py <map>` en volgens de regel hierboven, volgende run van Bram.

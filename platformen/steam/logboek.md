@@ -1434,3 +1434,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Berichten Iris, Bram, Sanne, Fenna; open berichten in `berichten/olaf.md` verwerkt.
 - 04:34: kaartje na terugkomst (Iris keuring 16 punt 2) op tak `claude/steam-hol-kaartje-oud` 483bfd2 en 2f93e97: oude regels niet meer onder de telling. Controleur vond dat dezelfde tekst van de vorige nacht dubbel kon komen; opgelost met een telling per tekst, toets erbij. `toets_systemen.gd` 373 OK, 0 FOUT. Windows-toetsrun demo-einde 1f899e9: 44016396023 groen.
 
+
+- 17 nov 04:45 UTC Bram: `wissel=regels` (tak `claude/steam-hol-wissel-regels`, 89bbd7f, alleen proef) voor Sannes vraag 04:01 en Iris keuring 16; rechtzetting stil spel (één L, Iris had gelijk); vaste L in `cpu_per_beeld.py` en `cpu_stil.py`; ruis van de groepsmethode gemeten (tot 16%); .exe-run 40 min 44018723753 loopt, uitslag volgende run.
