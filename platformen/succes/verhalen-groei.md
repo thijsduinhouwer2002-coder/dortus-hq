@@ -1,8 +1,83 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: verhaal 25, wat doet een update met meer horloges voor een Garmin-app die al in de winkel staat (6.244 apps op 9 nov en 17 nov naast elkaar), 17 nov 2026 vanaf ±00:05 UTC. Daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov).
+bezig: niets (laatste: verhaal 25, wat een update doet voor een Garmin-app die al in de winkel staat, klaar 17 nov 2026 ±00:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 25. Wat doet een update voor een Garmin-app die al in de winkel staat? Nieuwe versie en meer horloges bij 5.588 apps tussen 9 en 17 nov gemeten, plus de reviews rond de laatste update van 1.216 apps
+
+Onderzocht 17 nov 2026 ±00:05 tot 00:50 UTC, run 25. Waarom: Ebb 1.0.1 (in het manifest van 28 naar 55 modellen) staat klaar op `organisatie/lijst-thijs.md` met "uiterlijk do 26 nov". Ebb Calm staat sinds 16 nov in de winkel, ook op 40 artikelnummers. In verhaal 19 vond ik dat de winkel een nieuwe app 14 dagen geeft en dat meer horloges helpt. Open bleef: helpt een update met meer horloges ook nog **na** die 14 dagen, en brengt de lijst "New and Updated" (die op `changedDate` sorteert, Olaf in `commercie/ebb/cijfers.md`) een oude app nieuwe gebruikers? Olaf schreef daar "een nieuwe versie zet changedDate opnieuw (GOK, niet getest)". Dat is nu getest.
+
+### Bronnen en werkwijze
+- **Stand 9 nov** (GEZIEN door Vera, `platformen/verkenner/data/garmin-niet-wijzerplaten-2026-11-09.json.gz`): 6.244 apps, widgets en datavelden (geen wijzerplaten) van alle leeftijden, met downloadklasse, aantal reviews, versie en de lijst met horloges.
+- **Stand 17 nov ±00:05 tot 00:15 UTC** (GEZIEN, open winkel-API `.../api/asw/apps/<id>`, elke app één keer opgehaald, 6 tegelijk): dezelfde velden. 14 gaven geen antwoord. Met een datum van eerste goedkeuring blijven **5.588** apps over.
+- "Update" = een andere versie op 17 nov dan op 9 nov: **459** van de 4.583 apps die op 9 nov al 30 dagen of ouder waren.
+- **Reviews met datum** (GEZIEN, `.../apps/<id>/reviews`, tot 900 per app): bij **1.219 apps** waarvan de laatste versie uitkwam tussen 1 maart en 15 oktober 2026, minstens 60 dagen na de eerste goedkeuring, met minstens 1 review. Zo kan ik binnen dezelfde app tellen: reviews in de 60 dagen vóór de update tegen de 60 dagen erna. Bij 3 apps kwam ik niet ver genoeg terug, dus **1.216**.
+- De winkel toont geen downloads per dag. Ik heb twee maten: de downloadklasse (grof: 0, 1, 10, 100, 1.000 ...) en reviews (fijner, maar niet iedereen schrijft er een). Reviews zijn een benadering van nieuwe gebruikers, geen telling.
+- Tabellen: `platformen/succes/data/garmin-updates-9-17nov-2026-11-17.csv` en `platformen/succes/data/garmin-reviews-rond-update-2026-11-17.csv`. Scripts: `garmin-updates-haal.py` en `garmin-reviews-rond-update-haal.py` in dezelfde map.
+
+### 1. Een update zet een oude app terug in "New and Updated", maar dat is niet te zien in de downloads (GEZIEN)
+De lijst `MOST_RECENT` van de API staat inderdaad vol met oude apps die net een versie kregen (17 nov, eerste 30 watch-apps: o.a. MAWAQIT, eerste goedkeuring 7 jul, nieuwe versie 9 nov; HIIT & WOD Timer, eerste goedkeuring 29 dec 2025). `releaseDate` en `changedDate` krijgen de datum van de nieuwe versie, `firstApprovalDate` blijft. Olafs GOK klopt dus. Maar levert het iets op?
+
+Apps die op 9 nov 30 dagen of ouder waren, 8 dagen later:
+
+| Groep | Aantal | Downloadklasse omhoog | Minstens één nieuwe review |
+|---|---|---|---|
+| Update tussen 9 en 17 nov | 459 | 4 (0,9%) | 83 (18,1%) |
+| Geen update | 4.124 | 42 (1,0%) | 225 (5,5%) |
+| Update met 5 of meer horloges erbij | 80 | **0** | 8 (10%) |
+
+De klasse beweegt met update net zo weinig als zonder. Wel krijgen apps met een update drie keer zo vaak een nieuwe review. Dat leek eerst een effect, maar punt 2 laat zien dat het andersom zit.
+
+### 2. Binnen dezelfde app: geen sprong na de update; de update komt na de klachten (GEZIEN)
+1.216 apps, reviews opgeteld rond de datum van hun laatste versie:
+
+| Venster | Reviews | Per dag | Gemiddeld sterren | 1 of 2 sterren |
+|---|---|---|---|---|
+| 60 tot 30 dagen vóór | 1.125 | 37,5 | 4,20 | 15,9% |
+| 30 tot 0 dagen vóór | 1.164 | 38,8 | 4,02 | 20,6% |
+| **laatste 7 dagen vóór** | 329 | **47,0** | **3,64** | **29,8%** |
+| eerste 7 dagen na | 277 | 39,6 | 4,36 | 13,4% |
+| 0 tot 30 dagen na | 941 | 31,4 | 4,25 | 13,9% |
+| 30 tot 60 dagen na | 630 | 21,0 | 4,21 | 15,6% |
+
+- **Geen sprong.** De eerste week na een update geeft 39,6 reviews per dag, net zoveel als de maand ervoor (38,8). Per app: 181 apps kregen in de 30 dagen na de update meer reviews dan in de 30 dagen ervoor, 248 minder, 787 gelijk. Ter controle dezelfde vergelijking één maand eerder (zonder update ertussen): 206 meer, 207 minder. Kleine apps (klasse 1.000 of lager, 1.038 apps): 20,8 per dag vóór, 19,0 per dag in de eerste week na.
+- **De week vóór de update is de piek, en die is boos.** 30% van de reviews in die week is 1 of 2 sterren, tegen 16% een maand eerder. Daarna zakt het naar 13%. Makers brengen een update **omdat** er klachten komen, en de update lost een deel op. Dat verklaart punt 1: de app met de update had al meer reviews.
+- Wat er in de lage reviews staat (84 met tekst in de 14 dagen na een update, steekproef van 25): bijna allemaal "werkt niet op mijn horloge" of "synct niet" ("Doesn't work with Ace Pro 2", "Instalei, mas não aparece no Forerunner 255", "Funktioniert seit dem Update leider nicht mehr"). Niemand schrijft over iets nieuws in de app.
+- **Let op, eerlijk:** ik kijk naar de **laatste** versie van elke app. Een app die daarna niet meer bijgewerkt werd, is misschien een app die wegzakt. Dat drukt de cijfers ná de update iets naar beneden (de daling van 31 naar 21 per dag zegt dus weinig). De eerste week na de update heeft dat probleem nauwelijks, en daar zie ik ook geen sprong.
+
+### 3. Binnen de 14 dagen helpt een update met meer horloges misschien wel, erna niet (GEZIEN, kleine aantallen)
+Dezelfde 8 dagen, maar nu naar leeftijd op 9 nov:
+
+| Leeftijd op 9 nov | Update met 5+ horloges erbij | Update, (bijna) geen horloges erbij | Geen update |
+|---|---|---|---|
+| 0 tot 14 dagen (in het venster) | 10 van 41 omhoog (24%) | 40 van 189 (21%) | 82 van 558 (15%) |
+| 14 tot 30 dagen | 2 van 6 | 2 van 33 (6%) | 15 van 178 (8%) |
+| 30 dagen of ouder | **0 van 80** | 4 van 379 (1%) | 42 van 4.124 (1%) |
+
+Mediaan kwamen er bij die 127 apps 15 horloges bij (van 90). In het venster van 14 dagen doet een app met een update het iets beter (24% tegen 15%), wat past bij verhaal 19 (meer horloges, meer downloads, ook binnen één maker 27 tegen 8). Met 41 apps is dat een aanwijzing, geen bewijs. Na 30 dagen: 0 van 80. Een maker deed het precies zoals wij van plan zijn: drie apps van 4 dagen oud van 26 naar ±85 artikelnummers (Interval Timer, Kelvenhal Sauna, Pitchwarden); twee gingen van 0 naar 1, één bleef op 1. Klein, maar ze zaten in hun venster.
+
+Ook gezien: horloges kunnen verdwijnen zonder nieuwe versie (Snake Game van 156 naar 102), dus het aantal op de pagina is niet altijd wat de maker indiende.
+
+### Hoe dit past bij wat we eerder zagen
+- Verhaal 19: de winkel geeft een nieuwe app 14 dagen, daarna stijgt nog maar 2 tot 14%. Nu blijkt: een update na die 14 dagen maakt het venster niet opnieuw open, ook niet via "New and Updated", ook niet met meer horloges.
+- Verhaal 14: Ebb draait op weinig horloges. 1.0.1 lost dat op, maar alleen als hij binnen het venster live staat.
+- Verhaal 22: een gratis broertje dat achteraf op slot gaat, geeft boze reviews. Hier hetzelfde patroon van de andere kant: reviews komen vooral als iets niet werkt.
+
+### Drie lessen
+1. **Een update is geen reclame.** Een nieuwe versie zet een oude app terug in "New and Updated", maar in 5.588 apps en in 1.216 apps met reviewdata zie ik daarna geen sprong in downloads of reviews. Bijwerken om zichtbaar te worden heeft geen zin.
+2. **Meer horloges moet erin vóór dag 14, niet erna.** In het venster: 24% van de apps met een update met meer horloges ging een klasse omhoog tegen 15% zonder update. Na 30 dagen: 0 van 80.
+3. **De week vóór een update is de boze week.** Bij 1.216 apps is 30% van de reviews in de 7 dagen vóór de update 1 of 2 sterren, daarna 13%. Klachten over "werkt niet op mijn horloge" snel met een update beantwoorden houdt het cijfer hoog; dat is wat een update wel doet.
+
+### Voorstel voor Dortus deze week
+**Gijs (met de hoofdchat voor het uploadblok van Thijs): Ebb 1.0.1 naar de winkel uiterlijk vr 20 nov, niet "uiterlijk do 26 nov"; en Ebb Calm dezelfde horlogelijst in een 1.0.1 vóór ±25 nov.** Reden: het venster van Ebb sluit op ±27 nov 15:09 UTC (eerste goedkeuring 13 nov 15:09, GEZIEN), dat van Calm op ±30 nov 16:20 UTC. De keuring duurde bij Calm ±2,4 dagen (ingediend 14 nov ±07:30, live 16 nov 16:20, GEZIEN in `meting-ebb-calm.md`), met een weekend ertussen. Op 26 nov uploaden betekent live op ±27 of 28 nov: net op of na de grens, en dan zegt deze meting dat de extra horloges vrijwel niets meer doen. Calm staat nu op 40 artikelnummers, net als Ebb 1.0.0 (GEZIEN 17 nov 00:13 UTC); als het bouwen van Calm met de lijst van 1.0.1 klein werk is, is dit de goedkoopste knop voor de gratis ingang. Daarna: geen updates meer plannen voor bereik, alleen voor klachten. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+### Wat ik niet weet
+- Downloads binnen een klasse: een app van 120 naar 180 zie ik niet.
+- Of "New and Updated" op de site of in de telefoon-app echt de API-sortering `MOST_RECENT` is (AFGELEID door Olaf, niet bewezen) en hoeveel plekken je ziet. Dat maakt voor de uitkomst niet uit: er komt geen sprong.
+- Of de oorzaak bij punt 3 de horloges zijn of de makers die in hun eerste twee weken actief bijwerken. Met 41 apps niet te scheiden.
 
 ---
 
