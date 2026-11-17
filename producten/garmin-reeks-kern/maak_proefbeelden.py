@@ -27,7 +27,10 @@ def letter(resmap, naam, px, gewicht, tekens):
     asc, desc = font.getmetrics()
     hoog = asc + desc
     breedtes = [max(1, int(font.getlength(c) + 0.999)) for c in tekens]
-    cel = max(breedtes) + 2
+    # De inkt van een teken kan rechts voorbij zijn opschuifmaat steken (de T van de datum, 2 px): de cel wordt zo
+    # breed als de inkt, het opschuiven blijft de maat van de letter. Zo snijdt het horloge niets af.
+    inkt = [max(b, font.getbbox(c)[2]) for b, c in zip(breedtes, tekens)]
+    cel = max(inkt) + 2
     # zo vierkant mogelijk, zijden een macht van twee
     W = 32
     while True:
@@ -47,7 +50,7 @@ def letter(resmap, naam, px, gewicht, tekens):
         y = (i // per_rij) * (hoog + 2)
         d.text((x, y), c, fill=255, font=font)
         regels.append("char id=%d x=%d y=%d width=%d height=%d xoffset=0 yoffset=0 xadvance=%d page=0 chnl=15"
-                      % (ord(c), x, y, breedtes[i], hoog, breedtes[i]))
+                      % (ord(c), x, y, inkt[i], hoog, breedtes[i]))
     map_ = os.path.join(HIER, resmap, "fonts")
     os.makedirs(map_, exist_ok=True)
     im.save(os.path.join(map_, naam + ".png"), optimize=True)
@@ -80,6 +83,8 @@ def toets_tegen_blad():
     """Stopt als de lettermaten hierboven niet meer bij het blad van Mila passen."""
     import maak_maten
     blad = maak_maten.lees_blad(os.path.join(HIER, "maten-tij-tabel.md"))
+    if set(blad) != set(MATEN):
+        raise SystemExit("het blad heeft de schermmaten %r, dit script maakt letters voor %r" % (sorted(blad), sorted(MATEN)))
     for S, (t, b, v, dt) in MATEN.items():
         rij = dict(zip(maak_maten.NAMEN, blad[S]))
         if (rij["TIJD_PX"], rij["BB_PX"], rij["VELD_PX"], rij["DATUM_PX"]) != (t, b, v, dt):
