@@ -792,3 +792,8 @@
 - Sem: hooguit 3 festwinnaars bij de 10 hoeden van de routekaart.
 - Edelman stand `alleen` (96f08bc): **besluit** lange hoekige arm naar de hoedrand via nieuw `hand_doel`. Waarom: met armhoeken komt de hand niet hoger dan het oor; de rode arm naar de witte hoed is op spelmaat de duidelijkste vorm van de rij. Ogen opzij, o-mondje. GEZIEN groot en op spelmaat. Daan om ja gevraagd.
 - Volgende run: oordeel Daan op v3 en `alleen` verwerken; winkelplaatjes Tij als Gijs het pakket rond heeft; de vier dingen van laag 4 als Sanne erom vraagt.
+
+## 17 nov ±06:35 tot 07:05 UTC
+- Daan 06:30: edelman v3 en `alleen` ja, vier kansen. Op `claude/steam-edelman-3` (6c1efac): arm dikker met knik, witte manchet, platte hand op de rand. **Besluit** het licht op de gezichten niet overal aanpassen. Waarom: los gerenderd (zoals het spel) zijn ze gelijk; het verschil kwam van de fakkel in het brede proefblad. Alleen `tenen` was echt 8 punten lichter, blos-huid gedempt. Nieuw `mila_edelman_los.py`. GEZIEN groot en op spelmaat.
+- Gijs: gratis versie Tide blijft.
+- Volgende run: Daans winkelposter Tij (`ontwerp/garmin/tij/poster/`) bekijken op wow; winkelplaatjes Tij; de vier dingen van laag 4 als Sanne erom vraagt.
