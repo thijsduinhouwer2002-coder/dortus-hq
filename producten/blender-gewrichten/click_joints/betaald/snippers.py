@@ -62,8 +62,11 @@ def ruim_snippers(ob, u):
         vlakken = {f for v in ids for f in v.link_faces}
         opp = sum(f.calc_area() for f in vlakken)
         vol = 0.0
-        for f in vlakken:  # gesloten stuk: som van de kegels vanaf de oorsprong (elk vlak als waaier)
-            p = [x.co for x in f.verts]
+        # Run 27: kegels vanaf een punt van het stuk zelf, niet vanaf de oorsprong. Met de oorsprong op 45 mm afstand
+        # gaf de afronding (float32) bij een kruimel van 0,08 mm een volume groter dan het echte, en bleef hij staan.
+        o = ids[0].co.copy()
+        for f in vlakken:  # gesloten stuk: som van de kegels vanaf o (elk vlak als waaier)
+            p = [x.co - o for x in f.verts]
             for i in range(1, len(p) - 1):
                 vol += p[0].dot(p[i].cross(p[i + 1])) / 6.0
         vol = abs(vol)

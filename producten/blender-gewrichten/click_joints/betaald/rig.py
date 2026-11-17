@@ -680,6 +680,14 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     cursor.matrix = m
                     voor = {o.name for o in bpy.data.objects}
                     ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    if ok:
+                        # Run 27: ook zonder H (een_lid) kan een snede een kruimel van 0,1 mm achterlaten, ver van het
+                        # gewricht (MakeHuman-mens: 4 punten bij de rechterelleboog na de rechterschoudersnede). Zelfde
+                        # opruimregel als na een snede met H (alleen dunne, kleine losse stukken), dan pas tellen.
+                        from .snippers import ruim_snippers
+                        for d in nieuw or []:
+                            if d.type == "MESH" and d.get("cj_deel") in ("A", "B") and stukken(d) > 1:
+                                d["cj_snippers"] = d.get("cj_snippers", 0) + ruim_snippers(d, eenheid_per_mm(context.scene))
                     if ok and soort != "HINGE" and kogel_vast(nieuw):
                         # Vangnet (16 nov run 11): een kogel die volgens de beweegproef niet beweegt is een kapot
                         # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.

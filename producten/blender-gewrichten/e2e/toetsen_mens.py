@@ -97,6 +97,12 @@ def main():
         check(len(alle) >= 3, f"4.2: minstens 3 gewrichten ({len(alle)})")
     else:
         check(len(alle) >= 6, f"minstens 6 gewrichten ({len(alle)})")
+        # Run 27: schouders blokkeerden in rechte stand (omhulsel H van een_lid haalde de bolnaad maar half uit deel A,
+        # en een kruimel van 0,1 mm bij de elleboog telde als los stuk). Gemeten 5.3.0: beide schouders ±20, heupen ±25.
+        for n in ("Left shoulder", "Right shoulder", "Left hip", "Right hip"):
+            x = per.get(n)
+            g = None if x is None or x.get("graden") is None else float(x["graden"])
+            check(g is not None and g >= 15.0, f"{n} geplaatst en beweegt minstens ±15 ({fig.regel(x) if x else 'ontbreekt'})")
         for n, g, h in (("Left knee", 120, "from rig"), ("Right knee", 120, "mirrored")):
             ok, t = bereik(n, g, h)
             check(ok, f"{n}: 0–{g} {h} ({t})")
