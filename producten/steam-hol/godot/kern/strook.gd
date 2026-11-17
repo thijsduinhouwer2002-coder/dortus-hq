@@ -420,6 +420,8 @@ func _hol_klik(p: Vector2, w = null) -> void:
 	var wat: String = hol.klik(p, not DEMO_EINDE.klaar(self))
 	if wat == "geweigerd":
 		DEMO_EINDE.weiger(self, "graven")
+	elif wat != "" and slijm != null:
+		slijm.werk_berg_grens()   # put gebouwd of weg, of gegraven: linkergrens van de hoedenberg (Bram 17 nov)
 	log_regel("HOL klik op %s: %s" % [w if w != null else p, wat if wat != "" else "niets"])
 
 func _notification(what: int) -> void:

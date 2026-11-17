@@ -140,8 +140,15 @@ static func laad(s, begin) -> void:
 		AFLOOP.faam_erbij(s, wf)
 		# hoeden ook terwijl je weg was, op hetzelfde kwart tempo (Sanne 16 nov 14:05); geef_hoeden zet hoeden_gegeven,
 		# zodat het verhaal ze pas noemt als ze echt op Gloop staan
+		# Hoeden van de nacht (Sanne 17 nov, features.md): niet meteen op de toren, maar in een rij die na de wip
+		# een voor een op de top valt, zodat je de toren ziet groeien. Save blijft gelijk (naar_dict telt de rij mee).
 		if s.slijm != null:
-			VOORTGANG.geef_hoeden([s.slijm], weg, 7)
+			var hn: Array[int] = VOORTGANG.geef_hoeden([s.slijm], weg, 7, true)
+			if s.slijm.has_method("start_nacht") and hn[0] > 0:
+				s.slijm.start_nacht()
+				s.log_regel("HOL hoeden van de nacht %d (vallen vanaf %.1f s, toren nu %d)" % [hn[0], s.slijm.NACHT_WACHT_S, s.slijm.hoeden.size()])
+				if s.slijm.has_method("berg_zichtbaar"):   # Iris' keurregel (Sanne 17 nov 07:00): groeit de berg zichtbaar?
+					s.log_regel("HOL berg zichtbaar %d -> %d" % [s.slijm.berg_zichtbaar(s.slijm.hoeden.size()), s.slijm.berg_zichtbaar(s.slijm.hoeden.size() + s.slijm.nacht_hoeden.size())])
 		var helden_d := {}
 		for h in s.terugkomers:
 			helden_d[String(h.naam)] = {"gevlucht": int(h.bezoeken), "wrok": String(h.get("wrok", ""))}
