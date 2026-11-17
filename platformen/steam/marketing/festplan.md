@@ -249,6 +249,20 @@ Alle aankondigingen vóór de uitgave van 8 winnaars gelezen (nieuws-API, GEZIEN
 - **Postcard (run 7):** Sanne zei ja op "Take a postcard" (één PNG van 1200 x 630 met de strook, de naam van het hol en de beste kroniekregel, ontwerp in `platformen/steam/features.md`), maar het staat niet op de demolijst; Olaf zet het na de demolijst. Zit het in de festdemo, dan vraagt de aankondiging van dag 3 "Share your postcard" in de Screenshots van onze communitypagina, naast de hoedenwedstrijd. Zit het er niet in, dan niets vragen wat de demo niet kan. Nooit een beloning voor delen.
 - Geen inzendingen na dag 2: dan zegt dat iets over de meetlat (stil), en noemen we het niet opnieuw.
 
+## Microtrailer: de 6 seconden die festbezoekers echt zien (run 18, GEZIEN 17 nov)
+**Wat Valve zegt** (`doc/marketing/upcoming_events/nextfest`, FAQ, GEZIEN): "Microtrailers are 6-second looping videos that summarize a game's trailer for use in quick-view locations throughout the Steam Store, as in the various category hubs, special sale pages, and on the homepage during seasonal sales events. Steam generates a game's micro trailer based on the **first video visible in its Store Page**. It does this by taking six 1-second clips from various points in the video and stitching them together. It is not possible to customize microtrailers." Festpagina's en tagpagina's zijn precies zulke plekken. Wie over onze capsule beweegt, ziet dus zes losse seconden uit onze eerste video, klein.
+
+**Gemeten:** de microtrailers van de 47 spellen uit `winkeltekst.md` opgehaald (openbare winkel-API `IStoreBrowseService/GetItems` met `include_trailers`, script `data/microtrailer.py`), per filmpje 6 beelden (op 0,5 tot 6,5 s) op 240 px breed, en met het oog ingedeeld (`data/microtrailer-beelden-2026-11-17.csv`): **groot** (het spel vult het beeld, ingezoomd), **klein op bureaublad** (heel scherm met het spel als smalle strook of klein venster), **tekst of menu** (alleen menu, tabel, tekst of donker).
+| Groep | Spellen | Beelden groot | Klein op bureaublad | Tekst of menu | Spellen met vooral groot |
+|---|---|---|---|---|---|
+| Winnaars | 13 | 55 (80%) | 12 | 2 | **11 van 13** |
+| Stille demo's (0 spelers) | 20 | 49 (48%) | 29 | 24 | **9 van 20** |
+Fisher-toets op de laatste kolom p = 0,03. Voorbeelden: Rusty's, Tiny Pasture, Spirit City en Deskrawl laten in alle zes seconden hun wereld groot zien, het bureaublad hooguit één seconde. Butterflies & Bloom laat zes keer een kladblok op een bureaublad zien met de bloemen als streepje onderaan; Horse Race, Football AFK en The Corner's Big-Year alleen menu's.
+
+**Eerlijk:** indelen met het oog is mijn oordeel (een tweede kijker kan bij 3 tot 5 spellen anders tellen); winnaars hebben ook meer geld en betere trailers, dus dit is samenhang, geen bewijs dat groot beeld spelers brengt. Maar de reden is simpel: op ±240 px breed is een strook van 120 px hoog op een heel bureaublad nog ±15 px, dan zie je Gloop en zijn hoed niet.
+
+**Besluit Sem (Chris beslist over de film zelf):** de **eerste video op de winkelpagina** is de trailer, en die is zo gemaakt dat bijna elke seconde de strook **ingezoomd** toont: Gloop met hoed groot, een held die valt, de hoedentoren. Het hele bureaublad hooguit kort, één keer, om te laten zien waar het spel woont. Geen zwart begin, geen logo van seconden lang, geen menu's. Een tweede video (bijvoorbeeld de bureaubladfilm met de werkdag) mag gerust het hele scherm tonen, want de microtrailer komt alleen uit de eerste. Toets vóór de paginadag: Chris haalt na het uploaden onze eigen microtrailer op met `data/microtrailer.py` (werkt zodra de pagina openbaar is) en kijkt of Gloop in 5 van de 6 seconden te herkennen is. Ook belangrijk voor de Valve-trailer van Next Fest (trailer vast op 18 jan, zie onder).
+
 ## Next Fest februari (22 feb tot 1 mrt)
 Zelfde ritme, met de demo uit de verbeterweek. Tweede meetlat, hoger omdat Next Fest veel groter is: **doorbraak boven 300 spelers tegelijk na 48 uur** (Desktop Defender 1.548 op de piekdag, GOK dat een derde daarvan na 48 uur gangbaar is), gewoon 50 tot 300, stil onder 50. Hierna besluit de hoofdchat over de lancering. Uitwerken na de uitslag van januari.
 
@@ -276,6 +290,14 @@ Bronnen, met curl gelezen: `partner.steamgames.com/doc/marketing/upcoming_events
 4. **De demoknop bovenaan de winkelpagina:** "Edit Store Page > Special Settings", demo toevoegen en het vakje "display above purchase options" aan. Zonder dat vakje staat de demoknop lager op de pagina. Stap voor Thijs op ma 4 jan direct na "uitbrengen".
 
 **Categorieën bij het aanmelden (GOK tot de Developer Preview):** Valve sorteert eerst op de 1 of 2 gekozen categorieën en daarna op de tags. De lijst met categorieën staat alleen in het formulier; ik kan hem niet zien. Regel voor Thijs: kies wat het dichtst bij **Casual** en **Simulation** ligt (onze tags Idler, Casual en Desktop Companion, `winkeltekst.md` deel Tags), en niet Strategy, RPG of Action, want daar staan we tussen spellen die je echt speelt. Op ±18 jan kijken we in de Developer Preview of het klopt.
+
+**De tweede meetlat in verlanglijstjes vertaald (run 18, rekenwerk op cijfers die al in de repo staan, uitkomst GOK).** Spelers tegelijk kan iedereen meten, verlanglijstjes alleen Thijs; daarom beide. Twee ijkpunten voor "verlanglijstjes per speler tegelijk op de piek": Here Comes the Horde ±7.000 in de festweek bij "almost 100" (±70 per speler, hun eigen melding, hierboven) en Desktop Defender ±50.000 in drie weken bij 1.548 (±32 per speler, verhaal 5; die 50.000 vallen deels na het fest, dus de echte verhouding in de festweek ligt lager). Daarmee:
+| Meetlat februari | Spelers tegelijk na 48 uur | Verlanglijstjes in de festweek (GOK) | Wie zat daar (GEZIEN, eigen meldingen) |
+|---|---|---|---|
+| doorbraak | boven 300 | ±10.000 tot 21.000 | Lootborne (10.000 na Next Fest juni 2026), Desktop Defender |
+| gewoon | 50 tot 300 | ±1.600 tot 10.000 | Cozy Mining (2.000 naar 5.000 in Next Fest juni 2026) |
+| stil | onder 50 | onder ±1.600 | |
+De grenzen tussen de vakken reken ik met de lage verhouding (32), want die ligt dichter bij een bureaubladspel. Cozy Mining en Black Cat haalden allebei ±10.000 verlanglijstjes en staan nu op 41 en 76 reviews (verhaal 7): ook "doorbraak" op deze meetlat is nog geen succes bij de lancering. Wat erna komt (diepte, talen, prijs) beslist. Ik laat de grenzen staan tot januari gemeten is; het nut van deze tabel is dat Thijs op vr 26 feb één getal kan aflezen en de hoofdchat dan weet in welk vak we zitten.
 
 **Waarom dit nu en niet "na de uitslag van januari":** drie van deze dingen moeten vóór of in de festweek van januari (aanmelden vóór 11 jan, trailer vast op 18 jan, demoknop op 4 jan), dus wachten op de uitslag is te laat. De meetlat voor februari blijft een GOK tot januari gemeten is.
 
