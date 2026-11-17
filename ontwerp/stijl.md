@@ -203,3 +203,5 @@ Eerder:
 - **Een plof mag niets wegnemen (17 nov, Hats).** Komen veel dingen tegelijk (de rest van de nachthoeden), dan wordt wat er ligt nooit kleiner of lager, en wat de speler net zag landen blijft zichtbaar. Wat bedekt is komt niet terug.
 - **Hero image: naam groot, slogan met het woord dat de koper al kent (17 nov, Skiff).** In een carrousel op een telefoon wordt 1440 x 720 ongeveer 360 px breed: naam, slogan en merkregel moeten daar nog lezen (keuren op 360 px). Slogan noemt wat de drager al kent (Body Battery), niet ons eigen beeld (energie, zee) alleen. Per taal een eigen beeld, echte opnames, geen nul in een veld.
 - **Een berg groeit nooit over iets wat de speler moet zien (17 nov, Hats).** Grens links: put, ingang, gat en rand van het beeld, steeds 2 spelpx lucht. Liever minder plekjes dan een afgesneden hoed.
+
+- **Een winkelset is één familie (17 nov):** leg altijd alle capsules naast elkaar voor je ja zegt. Zelfde figuren, zelfde schaal van het hoofdfiguur, zelfde vloer. Eén beeld dat kaal oogt naast de rest trekt de hele pagina omlaag, ook als het los goed is.
