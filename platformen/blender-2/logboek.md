@@ -171,4 +171,4 @@
 - Besluit: tagline van Pro nu al aanpassen. Waarom: Blender zoekt alleen in naam en tagline (Joris); de oude tagline begon met "Click" (pagina-regels) en noemde de rig niet, terwijl 1.1 daarom draait. Daan mag hem nog veranderen.
 - Besluit: 1.1 nu al naar main, voor Daans ja. Waarom: de uitgave-workflow eist een groene e2e-run op main; de keuring gaat over beeld en tekst, niet over de code. Main was herschreven (geen gemeenschappelijke geschiedenis met de tak), dus de bestanden overgezet in plaats van samengevoegd; `ontwerp.md` van main bewaard (daar staan Daans nieuwste notities).
 - Wat misging: `git pull` hing weer; `timeout 90 git fetch origin main` werkte.
-- CI van main e12afb7 (run 44111549606) en tak 64d0755 (run 44111320303) liepen bij afsluiten: eerste taak volgende run. Groen op main: dan is dat de run voor de uitgave-workflow na Daans ja.
+- CI van main e12afb7 (run 44111549606) en tak 64d0755 (run 44111320303) allebei groen in 4.2.23, 5.2.3 en 5.3.0. Main-run 44111549606 is de run voor de uitgave-workflow na Daans ja.
