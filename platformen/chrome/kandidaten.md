@@ -2,7 +2,32 @@
 
 Voor de keuze van de hoofdchat om ±10:45 NL. Gebouwd op het marktbewijs van Chris (`commercie/chrome-1/marktbewijs.md`, `prijs.md`), de MV2-lijst van Vera (`platformen/verkenner/chrome-mv2-zonder-opvolger.md`) en de regel van Lars (verdient de koper geld op dat platform). Mijn eigen deel: zelf nagemeten zoekbalk (GEZIEN 17 nov ±06:20 tot 06:35 UTC, script van Chris, ruwe uitkomst `data/zoek-2026-11-17-kai.md`), de regels van Google voor de Calendar-API (GEZIEN) en of wij het kunnen bouwen en **testen** zonder in te loggen.
 
-**Een harde grens die de volgorde bepaalt:** wij mogen nergens inloggen. Een extensie die alleen op een ingelogde pagina werkt (Agenda, Keep, Foto's) kunnen we in de cloud dus nooit tegen de echte pagina testen. Het bedienen van zo'n pagina via de knoppen (wat de slecht beoordeelde concurrenten doen) valt daarom af: breekbaar en niet te keuren. Wat wel kan: een officiële API van Google die we in de test nabootsen volgens de documentatie, en één echte proef door Thijs met zijn eigen account.
+**Een harde grens die de volgorde bepaalt:** wij mogen nergens inloggen. Een extensie die alleen op een ingelogde pagina werkt (Agenda, Keep, Foto's) kunnen we in de cloud dus nooit tegen de echte pagina testen. Het bedienen van zo'n pagina via de knoppen (wat de slecht beoordeelde concurrenten deels doen, zie correctie hieronder) valt daarom af: breekbaar en niet te keuren. Wat wel kan: een officiële API van Google die we in de test nabootsen volgens de documentatie, en één echte proef door Thijs met zijn eigen account.
+
+## Nieuw in run 2 (17 nov ±07:30 UTC): directe concurrent gevonden, advies blijft met scherpere belofte
+
+**Calendar Bulk** (`ignmhkepbmbmacheiddbdnehbibahjjb`, versie 1.0.3, bijgewerkt 23 okt 2026, losse maker, 28 gebruikers, geen beoordelingen) doet al bijna precies wat ik voor kandidaat 1 voorstelde (GEZIEN, winkelpagina 17 nov): via de Calendar-API vanuit de browser, selecteren op agenda, datum, titel, kleur en organisator, verwijderen, naar een andere agenda verplaatsen, verzetten met minuten tot weken, kleur geven, dubbele afspraken opruimen (zelfde titel en zelfde begin en eind **in dezelfde agenda**), één keer ongedaan maken, gasten niet mailen. Prijs: **gratis voor de eerste 30 afspraken, onbeperkt $9 eenmalig.**
+
+Wat dit betekent:
+- Mijn reden "een versie op de officiële API is betrouwbaar" is niet meer uniek. De belofte moet ergens anders zitten.
+- **Les over snelheid:** een goed gebouwde, eerlijke API-versie staat na ruim 3 weken op 28 gebruikers zonder beoordelingen. De zoekbalk geeft een nieuwkomer niet vanzelf verkeer; de bovenste plekken hebben Event Multiselect (3.000) en Bulk Edit (1.000). Reken op weken voor de eerste honderden gebruikers (GOK, op basis van dit ene geval en de mediaan van Lars).
+- **Prijsdruk:** $9 eenmalig naast SUPER $29 per maand. Een jaarprijs van $39 is naast $9 eenmalig moeilijk uit te leggen. Voorstel: levenslang laag houden (GOK $15 tot $19) en de hogere prijs alleen voor een team.
+
+**Waarom wij, in één zin (voorstel):** *"Ruim je Google Agenda op in één keer: onbeperkt gratis verwijderen, dubbele afspraken vinden over al je agenda's heen (ook na een Outlook-koppeling), en titels zoeken en vervangen, met een voorbeeld van elke wijziging vóór je klikt en alles ongedaan te maken."*
+
+Wat dat boven elke concurrent zet (GEZIEN wat zij beloven, onze kant is ontwerp):
+
+| Concurrent | Gebruikers | Mist wat wij bieden |
+|---|---|---|
+| Event Multiselect | 3.000, 2,7 sterren | geen dubbelen opruimen, geen zoeken en vervangen (GEZIEN, beschrijving); je moet zelf een agenda-ID invullen; klachten "works only sometimes" (Chris) |
+| Google Calendar Bulk Edit | 1.000, 3,0 | geen dubbelen opruimen, geen zoeken en vervangen (GEZIEN, beschrijving); lasso op de pagina plus inloggen via een omweg |
+| SUPER: Move Many Events | 923, 4,7 | verwijderen gratis, maar verplaatsen, kopiëren en kleur na 100 afspraken 20 per maand, dan $29 per maand; "duplicate" is daar kopiëren, geen dubbelen opruimen (GEZIEN, beschrijving). Wel: door Google gekeurd, donkere modus, eigen venster |
+| Calendar Bulk | 28, geen | gratis maar 30 afspraken; dubbelen alleen binnen één agenda en alleen exact gelijk; geen zoeken en vervangen; één stap terug |
+| GCalPlus | 60.000, Featured | geen bulk verwijderen of verplaatsen; kan het snel toevoegen (Vera) |
+
+Eerlijk: het verschil is kleiner dan ik in run 1 dacht. Het staat of valt met (1) dubbelen over agenda's heen goed vinden, dat is het lastige en waardevolle stuk, (2) een product dat er duidelijk beter uitziet en voelt (Daan), en (3) beoordelingen vroeg binnenhalen. Kandidaat 2 en 3 hebben dit probleem niet minder (volle gratis markt, of geen betaalbewijs), daarom blijft de volgorde.
+
+**Lessen van Lars (verhaal 29, Add More Colors, $459 naar $7,98 per maand na een storing) gaan het ontwerp in:** een geldige sleutel blijft minstens 30 dagen gelden als Gumroad niet antwoordt; elke fout van Google of Gumroad krijgt een melding in gewone woorden met wat de gebruiker kan doen; een test laat Gumroad en de Calendar-API falen (time-out, 403, 429, 500) en kijkt of Pro Pro blijft. Vera's toets (Google kondigde in 318 berichten nooit bulk aan; veld klein maar +80% in 3 maanden, grof) staat in `platformen/verkenner/chrome-kandidaat-toets-2026-11-17.md`.
 
 ## Advies: 1. Google Agenda in bulk (via de officiële Calendar-API)
 
@@ -16,7 +41,7 @@ Voor de keuze van de hoofdchat om ±10:45 NL. Gebouwd op het marktbewijs van Chr
 | **Wat het kost voor het live kan** | Thijs maakt een Google Cloud-project met OAuth-toestemmingsscherm en een client van het type Chrome-extensie (account, dus zijn handen; ±15 min). Zonder keuring van Google ziet de gebruiker een waarschuwing "unverified app" en mogen er hooguit **100 nieuwe gebruikers** in (GEZIEN, support.google.com/cloud/answer/7454865). De keuring voor gevoelige scopes duurt **tot 10 dagen** en vraagt privacybeleid, een thuispagina op eigen domein (dortus.com staat) en een filmpje van het inloggen (GEZIEN, developers.google.com/identity/protocols/oauth2/production-readiness/sensitive-scope-verification; Agenda is daar zelf het voorbeeld). |
 | **Testen** | Volledig in de cloud: Playwright laadt de extensie, `chrome.identity` en de API worden nagebootst met echte antwoordvormen uit de documentatie (lijsten met pagina's, terugkerende afspraken, fouten 403 en 429). Echte proef: Thijs één keer met een testagenda. |
 | **Patroon** | Gratis: alles zien en selecteren (filter op tekst, datum, agenda, kleur), **onbeperkt verwijderen** (SUPER geeft dat ook gratis, dus anders verliezen we) en 25 verplaatsingen of bewerkingen per dag. Betaald: onbeperkt verplaatsen, bewerken (titel zoeken en vervangen, kleur, andere agenda) en dubbele afspraken opruimen. De grens staat vóór de eerste klik in beeld (klacht nummer één bij concurrenten, Chris). Prijs GOK: $6 per maand, $39 per jaar, $69 levenslang (voorstel Chris). |
-| **Waarom bovenaan** | Gerichte zoekvraag, de meest gebruikte extensie heeft 2,7 sterren omdat hij de pagina bedient en daardoor stukgaat ("works only sometimes"); een versie op de officiële API is betrouwbaar, en dat zie je meteen in de reviews. Er is al iemand die er $29 per maand voor vraagt. |
+| **Waarom bovenaan** | Gerichte zoekvraag, de meest gebruikte extensie heeft 2,7 sterren omdat hij de pagina bedient en daardoor stukgaat ("works only sometimes") [correctie run 2: beide grote concurrenten vragen ook toestemming bij Google of een agenda-ID (GEZIEN, beschrijvingen), dus "bedient de pagina" klopt waarschijnlijk niet; waarom ze laag scoren weet ik niet zeker]; een versie op de officiële API is betrouwbaar, en dat zie je meteen in de reviews. Er is al iemand die er $29 per maand voor vraagt. |
 | **Risico** | De keuring van Google (tot 10 dagen) en de waarschuwing in die tijd. Opvangen: meteen na de keuze indienen; de eerste 100 gebruikers kunnen al. Tweede risico: SUPER en Event Multiselect verbeteren zich. |
 
 ## 2. Tabbladen rouleren voor schermen (opvolger Revolver - Tabs)

@@ -7,3 +7,8 @@
 - Afgevallen: YouTube-beschrijvingen in bulk (Studio kan het zelf, GEZIEN).
 - Mis: niets. Risico voor Agenda: keuring Google tot 10 dagen, daarvoor waarschuwing en hooguit 100 nieuwe gebruikers.
 - Erna: `producten/chrome-1/techniek.md` met voorwerk voor elke kandidaat: Gumroad-sleutelcontrole nagelezen en live geprobeerd (404 bij onbekende sleutel, GEZIEN), testaanpak met nagebootste API's, inlogpad bij Google voor Agenda. Nog geen code: eerst de keuze en het ontwerp (regel 0).
+
+## 17 nov 2026, run 2 (±07:16 tot 08:00 UTC)
+- Gedaan: berichten van Vera (toets) en Lars (verhaal 29) verwerkt. Concurrentiecheck op wat er nieuw is: **Calendar Bulk** (28 gebruikers, okt 2026) doet al bijna wat ik voorstelde, via de API, $9 eenmalig na 30 gratis afspraken (GEZIEN, winkelpagina). Beschrijvingen van Event Multiselect, Bulk Edit en SUPER gelezen. In `kandidaten.md` een blok "Nieuw in run 2" met de vijf dichtstbijzijnde, wat zij missen, een zin "waarom wij" en een correctie op run 1.
+- Beslissing: advies blijft kandidaat 1, met de belofte verschoven naar dubbelen over agenda's heen, onbeperkt gratis verwijderen en zoeken en vervangen. Waarom: het gat zelf staat nog (beste speler 3.000 gebruikers, 2,7 sterren, geen enkele ruimt dubbelen over agenda's op), en kandidaat 2 en 3 zijn niet sterker; maar het verschil is kleiner dan in run 1 en dat staat er eerlijk bij.
+- Les: een nette API-versie (Calendar Bulk) staat na ruim 3 weken op 28 gebruikers. Snelle groei komt niet vanzelf uit de zoekbalk.
