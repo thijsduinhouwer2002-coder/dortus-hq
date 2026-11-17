@@ -30,10 +30,25 @@ module Veld {
     // Hartslag van nu, of null als het horloge er geen geeft.
     function hart() as Number? {
         var info = Activity.getActivityInfo();
-        if (info == null) {
+        if (info != null && info.currentHeartRate != null) {
+            return info.currentHeartRate;
+        }
+        // Geen actuele hartslag (de wijzerplaat krijgt hem niet altijd): de laatste meting uit de geschiedenis.
+        if (ActivityMonitor has :getHeartRateHistory) {
+            var s = ActivityMonitor.getHeartRateHistory(1, true).next();
+            if (s != null) {
+                return geldigeHart(s.heartRate);
+            }
+        }
+        return null;
+    }
+
+    // Het horloge geeft 255 als er geen meting is. Alles buiten 1 tot 254 telt als geen hartslag.
+    function geldigeHart(v as Number?) as Number? {
+        if (v == null || v <= 0 || v >= 255) {
             return null;
         }
-        return info.currentHeartRate;
+        return v;
     }
 
     // Stappen van vandaag, of null.

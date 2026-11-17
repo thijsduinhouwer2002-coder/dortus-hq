@@ -42,4 +42,25 @@ module Teken {
         p.add([x1, yB]);
         return p;
     }
+    // Pictogram boven een veld, als vlakken getekend (geen plaatje). soort als in Veld: 0 hart, 1 bliksem
+    // (stress), 2 voet (stappen). cx, cy is het midden, h de hoogte in px. h onder 4: niets, te klein om te lezen.
+    function icoon(dc as Graphics.Dc, soort as Number, cx as Number, cy as Number, h as Number) as Void {
+        if (h < 4) {
+            return;
+        }
+        var r = h / 4;
+        var top = cy - h / 2;
+        if (soort == 0) {
+            dc.fillCircle(cx - r, top + r, r);
+            dc.fillCircle(cx + r, top + r, r);
+            dc.fillPolygon([[cx - 2 * r, top + r + 1], [cx + 2 * r, top + r + 1], [cx, top + h]] as Array<Graphics.Point2D>);
+        } else if (soort == 1) {
+            dc.fillPolygon([[cx + r, top], [cx - 2 * r, top + h / 2 + 1], [cx, top + h / 2 + 1], [cx - r, top + h],
+                [cx + 2 * r, top + h / 2 - 1], [cx, top + h / 2 - 1]] as Array<Graphics.Point2D>);
+        } else if (soort == 2) {
+            dc.fillEllipse(cx, top + h * 5 / 8, r + 1, h * 3 / 8);
+            dc.fillCircle(cx - r, top + r / 2 + 1, r / 2 + 1);
+            dc.fillCircle(cx + r, top + r / 2 + 1, r / 2 + 1);
+        }
+    }
 }

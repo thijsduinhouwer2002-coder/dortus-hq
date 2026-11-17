@@ -16,7 +16,6 @@ class KernView extends WatchUi.WatchFace {
     var fontG as WatchUi.FontResource? = null;
     var fontV as WatchUi.FontResource? = null;
     var fontD as WatchUi.FontResource? = null;
-    var achter as WatchUi.BitmapResource? = null;
     var slaap as Boolean = false;
     var start as Number = 0;
     // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan Tide.
@@ -57,13 +56,8 @@ class KernView extends WatchUi.WatchFace {
         // Stap (a) van de kern: de maten van dit scherm uit het blad van Mila.
         System.println("KERN MATEN n=" + Maten.laad().size() + " tijdPx=" + Maten.m(Maten.TIJD_PX) + " bbY=" + Maten.m(Maten.BB_Y)
             + " veilig=" + Maten.m(Maten.VEILIG) + " bytes=" + (System.getSystemStats().usedMemory - m2));
-        m2 = System.getSystemStats().usedMemory;
-        System.println("KERN PLAATJE laden, gebruikt=" + m2);
-        achter = WatchUi.loadResource(Rez.Drawables.Achtergrond) as WatchUi.BitmapResource;
-        var m3 = System.getSystemStats().usedMemory;
-        var a = achter as WatchUi.BitmapResource;
-        System.println("KERN PLAATJE bytes=" + (m3 - m2) + " maat=" + a.getWidth() + "x" + a.getHeight()
-            + " gebruikt=" + m3 + " vrij=" + System.getSystemStats().freeMemory);
+        // Het schermvullende proefplaatje wordt niet meer geladen: het paste niet op de Forerunner 245
+        // (run 43985122863: Out Of Memory) en de kern tekent alles zelf.
     }
 
     function onEnterSleep() as Void {
@@ -139,12 +133,23 @@ class KernView extends WatchUi.WatchFace {
         for (var i = 0; i < 3; i++) {
             var t = Veld.tekst(Veld.waarde(soorten[i], st));
             regel = regel + " " + ((t == null) ? "-" : t);
+            // Het hart krijgt de kleur van de minuten (blad van Mila), de andere pictogrammen die van de tekst.
+            dc.setColor(Thema.kleur(thema, (soorten[i] == Veld.HART) ? Thema.MINUTEN : Thema.TEKST), Graphics.COLOR_TRANSPARENT);
+            Teken.icoon(dc, soorten[i], xs[i], Maten.m(Maten.ICOON_Y), Maten.m(Maten.ICOON_H));
+            dc.setColor(Thema.kleur(thema, Thema.TEKST), Graphics.COLOR_TRANSPARENT);
             if (t != null && fontV != null) {
                 dc.drawText(xs[i], yVeld, fontV as WatchUi.FontResource, t, mid);
             } else {
                 // Geen gegevens: een streepje, getekend (de letter Veld heeft geen streepje).
                 dc.fillRectangle(xs[i] - streep / 2, yVeld - dik / 2, streep, dik);
             }
+        }
+        // Het getal van Body Battery: de laatste waarde uit de geschiedenis, of een streepje.
+        var yBb = Maten.m(Maten.BB_Y);
+        if (bb.size() > 0 && fontK != null) {
+            dc.drawText(w / 2, yBb, fontK as WatchUi.FontResource, bb[bb.size() - 1].format("%d"), mid);
+        } else {
+            dc.fillRectangle(w / 2 - streep, yBb - dik / 2, streep * 2, dik);
         }
         if (tik < 2) {
             System.println("KERN VELDEN hart stress stappen:" + regel + " thema=" + thema);
@@ -171,31 +176,30 @@ class KernView extends WatchUi.WatchFace {
             return;
         }
         var t0 = System.getTimer();
-        var w = dc.getWidth();
-        var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         var msPlaat = System.getTimer() - t0;
         tekenBoven(dc, nu.hour.format("%02d"), nu.min.format("%02d"));
         var msTijd = System.getTimer() - t0 - msPlaat;
-        var x0 = w * 14 / 100;
-        var x1 = w * 86 / 100;
-        var heuvel = Teken.profiel(bb, x0, x1, h * 72 / 100, h * 44 / 100, 40);
-        if (heuvel.size() >= 3) {
-            dc.setColor(0x00AAFF, Graphics.COLOR_TRANSPARENT);
-            dc.fillPolygon(heuvel);
+        // Plek van de zee (komt na het ja van Daan): tot dan het verloop van Body Battery en stress als vlakken
+        // tussen het plafond en de bodem van het water uit het blad. Zonder maten: niets.
+        if (Maten.laad().size() == Maten.AANTAL) {
+            var x0 = Maten.m(Maten.LIJN_X);
+            var x1 = Maten.m(Maten.NU_X);
+            var yT = Maten.m(Maten.WATER_TOP);
+            var yB = Maten.m(Maten.WATER_BODEM);
+            var heuvel = Teken.profiel(bb, x0, x1, yB, yT, 40);
+            if (heuvel.size() >= 3) {
+                dc.setColor(Thema.kleur(thema, Thema.ZEE_BOVEN), Graphics.COLOR_TRANSPARENT);
+                dc.fillPolygon(heuvel);
+            }
+            var stress = Teken.profiel(st, x0, x1, yB, (yT + yB) / 2, 40);
+            if (stress.size() >= 3) {
+                dc.setColor(Thema.kleur(thema, Thema.ZEE_ONDER), Graphics.COLOR_TRANSPARENT);
+                dc.fillPolygon(stress);
+            }
         }
-        var stress = Teken.profiel(st, x0, x1, h * 72 / 100, h * 58 / 100, 40);
-        if (stress.size() >= 3) {
-            dc.setColor(0xFF5500, Graphics.COLOR_TRANSPARENT);
-            dc.fillPolygon(stress);
-        }
-        dc.setColor(0x00FFAA, Graphics.COLOR_TRANSPARENT);
-        dc.fillPolygon(Teken.golf(x0, x1, h * 74 / 100, h * 80 / 100, tik, 24));
         var ms = System.getTimer() - t0;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, h * 81 / 100, Graphics.FONT_XTINY,
-            "BB" + bb.size() + " ST" + st.size() + " W" + weer + " " + ms + "ms", Graphics.TEXT_JUSTIFY_CENTER);
         if (tik < 4) {
             System.println("KERN TEKEN tik=" + tik + " ms=" + ms + " plaatje_ms=" + msPlaat + " tijd_ms=" + msTijd);
         }

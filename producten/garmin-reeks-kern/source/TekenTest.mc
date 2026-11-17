@@ -69,3 +69,9 @@ function testVeldZonderGegevens(logger as Test.Logger) as Boolean {
         && Veld.waarde(Veld.STRESS, leeg) == null && Veld.waarde(99, leeg) == null
         && Veld.stress([10, 35] as Array<Number>) == 35;
 }
+
+(:test)
+function testHartOngeldig(logger as Test.Logger) as Boolean {
+    return Veld.geldigeHart(null) == null && Veld.geldigeHart(255) == null && Veld.geldigeHart(0) == null
+        && Veld.geldigeHart(-3) == null && Veld.geldigeHart(61) == 61 && Veld.geldigeHart(254) == 254;
+}
