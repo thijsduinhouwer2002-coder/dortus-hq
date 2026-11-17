@@ -37,6 +37,11 @@ VOORVOEGSELS = ("def-", "org-", "mch-", "mixamorig:", "mixamorig1:", "mixamorig2
 def kant_en_kern(botnaam):
     """("L"/"R"/"", kern) uit een botnaam, bijvoorbeeld "mixamorig:LeftForeArm" -> ("L", "forearm")."""
     n = botnaam.strip().lower()
+    # 17 nov run 25: Auto-Rig Pro (Lars, verhaal 26): "forearm_stretch.l", "c_leg_fk.r", "thigh_ref.l", "neck.x".
+    # Kant .l/.r/.x achteraan, c_ vooraan alleen bij een ARP-achtervoegsel; twist-botten tellen niet (dubbel).
+    m = re.match(r"^(c_)?([a-z]+?)(_stretch|_fk|_ref)?\.([lrx])$", n)
+    if m and m.group(2) in _alle_kernen() and (m.group(3) or m.group(4) == "x" or not m.group(1)):
+        return ("" if m.group(4) == "x" else m.group(4).upper()), m.group(2)
     for v in VOORVOEGSELS:
         if n.startswith(v):
             n = n[len(v):]

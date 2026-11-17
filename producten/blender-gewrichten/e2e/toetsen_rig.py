@@ -110,7 +110,12 @@ def main():
                 "upperarm_l": "SHOULDER", "neck_01": "NECK", "CC_Base_L_Forearm": "ELBOW", "CC_Base_R_Calf": "KNEE",
                 "J_Bip_L_UpperLeg": "HIP", "J_Bip_C_Neck": "NECK", "Bip01 L Thigh": "HIP", "Bip01 R Calf": "KNEE",
                 "lShldrBend": "SHOULDER", "rForearmBend": "ELBOW", "lShin": "KNEE", "lHand": None,
-                "clavicle_l": None, "CC_Base_L_Hand": None}
+                "clavicle_l": None, "CC_Base_L_Hand": None,
+                # 17 nov run 25: Auto-Rig Pro (vervormend _stretch, FK c_..._fk, referentie _ref, midden .x)
+                "forearm_stretch.l": "ELBOW", "arm_stretch.r": "SHOULDER", "thigh_stretch.l": "HIP",
+                "leg_stretch.r": "KNEE", "c_forearm_fk.l": "ELBOW", "c_leg_fk.r": "KNEE", "thigh_ref.l": "HIP",
+                "neck.x": "NECK", "c_neck.x": "NECK", "forearm_twist.l": None, "leg_twist.r": None,
+                "c_hand_fk.l": None, "c_thigh_b.l": None}
     for naam, sleutel in verwacht.items():
         h = rigm.herken(naam)
         check((h[0] if h else None) == sleutel, f"naam {naam} -> {h}")

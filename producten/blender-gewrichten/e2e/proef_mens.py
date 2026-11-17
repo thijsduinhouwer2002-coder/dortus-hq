@@ -60,6 +60,19 @@ def laad_mens(pad):
     return body, {k: zet(c) for k, c in pj.items()}
 
 
+# 17 nov run 25: CJ_RIG_NAMEN=arp geeft dezelfde rig met Auto-Rig Pro-namen (vervormende _stretch-botten, .x/.l/.r).
+ARP = {"Hips": "root.x", "Spine": "spine_01.x", "Spine1": "spine_02.x", "Spine2": "spine_03.x", "Neck": "neck.x",
+       "Head": "head.x"}
+for _kn, _k in (("Left", "l"), ("Right", "r")):
+    ARP.update({_kn + "UpLeg": f"thigh_stretch.{_k}", _kn + "Leg": f"leg_stretch.{_k}", _kn + "Foot": f"foot.{_k}",
+                _kn + "Shoulder": f"shoulder.{_k}", _kn + "Arm": f"arm_stretch.{_k}",
+                _kn + "ForeArm": f"forearm_stretch.{_k}", _kn + "Hand": f"hand.{_k}"})
+
+
+def botnaam(naam):
+    return ARP[naam] if os.environ.get("CJ_RIG_NAMEN") == "arp" else "mixamorig:" + naam
+
+
 def maak_rig(p):
     bpy.ops.object.armature_add(enter_editmode=True, location=(0, 0, 0))
     rig = bpy.context.active_object
@@ -69,10 +82,10 @@ def maak_rig(p):
         eb.remove(b)
 
     def bot(naam, kop, staart, ouder=None, z_naar=None):
-        b = eb.new("mixamorig:" + naam)
+        b = eb.new(botnaam(naam))
         b.head, b.tail = kop, staart
         if ouder is not None:
-            b.parent = eb["mixamorig:" + ouder]
+            b.parent = eb[botnaam(ouder)]
         if z_naar is not None:
             b.align_roll(z_naar)
         return b
@@ -93,7 +106,7 @@ def maak_rig(p):
         bot(kn + "Hand", p[k + "-hand"], p[k + "-hand-2"], kn + "ForeArm")
     bpy.ops.object.mode_set(mode="POSE")
     for naam, graden in (("LeftLeg", int(os.environ.get("CJ_KNIE", "120"))), ("LeftForeArm", 140)):
-        c = rig.pose.bones["mixamorig:" + naam].constraints.new("LIMIT_ROTATION")
+        c = rig.pose.bones[botnaam(naam)].constraints.new("LIMIT_ROTATION")
         c.use_limit_x, c.min_x, c.max_x, c.owner_space = True, 0.0, math.radians(graden), "LOCAL"
     bpy.ops.object.mode_set(mode="OBJECT")
     log(f"RIG: {len(rig.data.bones)} botten, knie L {tuple(round(x, 1) for x in p['l-knee'])}, "
