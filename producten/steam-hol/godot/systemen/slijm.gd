@@ -447,7 +447,7 @@ func _nacht_foto(pad: String) -> void:
 			ligt.append(int(b[3]))
 		var f := FileAccess.open(pad.get_basename() + ".json", FileAccess.WRITE)
 		if f != null:
-			f.store_string(JSON.stringify({"t": snappedf(t - nacht_van, 0.001), "plekjes": ligt.size(), "berg_max": berg_max,
+			f.store_string(JSON.stringify({"t": snappedf(t - nacht_van, 0.001), "zichtbaar": ligt.size(), "berg_max": berg_max,
 				"ligt": ligt, "kaart": Array(kaart_voor(berg_tel())), "hoeden": hoeden.size(), "nacht_rest": nacht_hoeden.size()}))
 
 # Hoeveel nachthoeden er op tijd dt na de eerste val moeten liggen (los, zodat de toets het tempo kan nakijken).
@@ -589,14 +589,17 @@ func plekjes_binnen(ruimte: float, wand: Array = []) -> int:
 	return maxi(1, n)
 
 func _raakt_wand(x: float, nul: float, hoog: float, wand: Array) -> bool:
-	var vak := Rect2(x - BERG_HALF, nul - hoog, BERG_HALF * 2.0, hoog).grow(BERG_GRENS_LUCHT)
+	# rechts 2 px breder: met het kleine lijf ligt de berg 2 px verder rechts (-12), en een 3D-hoed reikt rechts tot ±6,2
+	var vak := Rect2(x - BERG_HALF, nul - hoog, BERG_HALF * 2.0 + 2.0, hoog).grow(BERG_GRENS_LUCHT)
 	for r in wand:
 		if vak.intersects(r):
 			return true
 	return false
 
-# De gaten in de aardwand links van Gloop (hol_vast.gd wand_plekken), als rechthoeken in Gloop-pixels. Alle plekken,
-# ook waar nog geen hoed hangt, met de grootste wandhoed: zo verandert de grens niet als Gloop eet (niets schuift).
+# De gaten in de aardwand links van Gloop waar een hoed hangt (hol_vast.gd: de eerste min(hoeden, plekken) worden
+# getekend), als rechthoeken in Gloop-pixels, precies zoals teken_wand ze tekent. Alleen getekende gaten (controleur
+# 17 nov 14:35: met alle plekken bleef de berg in een gewoon hol op 10 van 87, tegen gaten die je niet ziet). Een gat
+# erbij verandert berg_max alleen als de berg al zo groot is; vanaf 64 hoeden is de wand vol en vast.
 # Leeg zonder 3D-hol of wandblad (toetsen zonder hol): dan telt alleen put, ingang en beeldrand. Bewaard per sleutel
 # (zuinig: berg() vraagt dit elke tekenbeurt); graven verandert boven en gang, dan rekent hij opnieuw.
 var _wand_sleutel := []
@@ -607,27 +610,24 @@ func berg_wand(sch: float) -> Array:
 	var H3 = load("res://hol/hol_3d.gd")
 	if not H3.heeft_wand():
 		return []
-	var sl := [position, sch, hol.boven.hash(), hol.gang.hash(), hol.max_kol, hol.schat_kol, hol.ingang_kol]
+	var HV = load("res://hol/hol_vast.gd")
+	var n_wand: int = mini(hoeden.size(), HV.WAND_MAX)
+	var sl := [position, sch, hol.boven.hash(), hol.gang.hash(), hol.max_kol, hol.schat_kol, hol.ingang_kol, n_wand,
+		hoeden.slice(0, n_wand).hash()]
 	if sl == _wand_sleutel:
 		return _wand_uit
-	var HV = load("res://hol/hol_vast.gd")
-	var links_a := 0.0
-	var rechts_a := 0.0
-	var boven_a := 0.0
-	var onder_a := 0.0
-	for naam in H3.wand:
+	var uit := []
+	var wp: Array = HV.wand_plekken(hol, H3.schatkamer_aan(hol))
+	for i in mini(n_wand, wp.size()):
+		var naam := "wand-%d" % int(hoeden[i])
+		if not H3.wand.has(naam):
+			continue
 		var st: Dictionary = H3.wand[naam]
 		var m: Array = st["maat"]
 		var a := Vector2(m[0] / 2.0, m[1] / 2.0)
 		if st.has("midden") and typeof(st["midden"]) == TYPE_ARRAY and st["midden"].size() == 2:
 			a = Vector2(float(st["midden"][0]), float(st["midden"][1]))
-		links_a = maxf(links_a, a.x)
-		boven_a = maxf(boven_a, a.y)
-		rechts_a = maxf(rechts_a, float(m[0]) - a.x)
-		onder_a = maxf(onder_a, float(m[1]) - a.y)
-	var uit := []
-	for p in HV.wand_plekken(hol, H3.schatkamer_aan(hol)):
-		var r := Rect2(Vector2(p) - Vector2(links_a + 1.0, boven_a + 1.0), Vector2(links_a + rechts_a + 2.0, boven_a + onder_a + 2.0))
+		var r := Rect2((Vector2(wp[i]) - a).floor(), Vector2(m[0], m[1]))
 		if r.position.x >= position.x:
 			continue   # rechts van Gloop: niet in de weg van de berg
 		uit.append(Rect2((r.position - position) / sch, r.size / sch))
