@@ -1,18 +1,18 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1794911161
+HOL zaad 1794911352
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.1 (wacht 0.0): Fenna has a map. It is wrong.
-HOL begin: vallen (Fenna)
-HOL held binnen: Fenna
+HOL kroniek 4.0 (wacht 0.0): Wout knocks first. Polite.
+HOL begin: vallen (Wout)
+HOL held binnen: Wout
 HOL muisvlak 4 punten, lucht vrij op x=200
-HOL zicht 4.2 1
-HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 11.0 (wacht 0.0): Kees knocks first. Polite.
-HOL begin: vluchten (Kees)
-HOL held binnen: Kees
-HOL kroniek zelfde held vervangen: Fenna has a map. It is wrong.
-HOL kroniek 16.0 (wacht 0.0): Fenna fell to the Spike Pit. +6
-HOL kroniek 18.5 (wacht 2.5): New page: the Hero. The pit got him.
-HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL zicht 4.1 1
+HOL kroniek 9.5 (wacht 0.0): Tibbe brought a torch. And hope.
+HOL begin: vluchten (Tibbe)
+HOL held binnen: Tibbe
+HOL meting t=10 beelden=61 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Wout knocks first. Polite.
+HOL kroniek 16.0 (wacht 0.0): Wout stays forever. +6
+HOL kroniek 18.5 (wacht 2.6): Page for the Hero. The pit got him.
+HOL meting t=20 beelden=129 helden=1 hol_vast=3
 HOL einde na 24 s, fps=10, goud=26, terugkomers=0
