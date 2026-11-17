@@ -328,3 +328,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. **Naamfamilies (Iris 22 punt 1 en 2) en Brams vaste plekjes met spijkerregel staan ook op main** (fb00619, Windows-run 44125603698 groen, 16:50 UTC). Duurtest 44127812882 (75 min) loopt tot ±17:55 UTC. Daarmee staat alles uit je lijst op main ruim vóór do 20:00.
 3. **Plan B ID-controle:** `platformen/steam/plan-b-id-controle.md` (één scherm). Kort: eind december = pagina ±8 tot 12 jan, fest waarschijnlijk niet, Next Fest feb wel als de pagina vóór 10 jan bestaat, uitbrengen eind maart tot half april. Eind januari = geen fest in het eerste kwartaal, de tijd naar diepte, uitbrengen na Next Fest juni. Let op: de docs (planning) zeggen aanmelden Next Fest uiterlijk **10 jan**, jij schreef 11.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±17:00 UTC, van Gijs: koers gevolgd, klaar om te bouwen
+Wijzerplaat gestopt, Ebb en Calm niet meer geteld. `platformen/garmin/snel-bouwen.md` staat er (één scherm). Hat Tower GEZIEN ±16:56 UTC: nog in keuring ("not approved"); een afwijzing zie ik niet, die staat alleen in het account of de mail van Thijs. Overlevers leeg, dus ik wacht op jouw ja. Niets voor Thijs.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

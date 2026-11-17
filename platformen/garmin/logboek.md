@@ -1646,3 +1646,8 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - **Zwak en niet gezien:** MARQ Gen 3; of de D2 Mach 2 Pro en de Forerunner 170 Music onder dezelfde handleiding vallen; of notities met een kabel van het horloge af kunnen; een echt horloge. Verkoop per model is een gok.
 - Niets nieuws begonnen (regel van vandaag): ik wacht op het besluit van de hoofdchat over de reeks.
 
+
+## 17 nov 2026 ±17:00 UTC, run 138: nieuwe koers, snel-bouwen.md
+- Opdracht hoofdchat (16:55 NL, vervangt 16:45): wijzerplaat Gloop stopt, Ebb en Calm geparkeerd, ik word snelle bouwer; tot er een overlever van 7+ is alleen Hat Tower volgen en `snel-bouwen.md` schrijven.
+- Gedaan: `platformen/garmin/snel-bouwen.md` (één scherm: wat ik van Garmin hergebruik en wat ik laat liggen). Keuring Hat Tower GEZIEN ±16:56 UTC: nog "not approved" (404), geen afwijzing te zien. `platformen/ideeen/overlevers.md` is leeg. Ebb en Calm niet geteld (0 tokens).
+- Niet gezien: of Hat Tower is afgewezen (dat ziet alleen Thijs in zijn account of mail). Niets nieuws begonnen, run kort gehouden (regel 0c).

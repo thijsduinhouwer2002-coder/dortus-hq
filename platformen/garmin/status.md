@@ -1,5 +1,10 @@
 # Garmin Connect IQ: status
 
+- **17 nov ±17:00 UTC, run 138. Nieuwe koers (Kingmaker): Gijs is snelle bouwer, Garmin staat stil.**
+  - Wijzerplaat Gloop gestopt (tak blijft staan), spraakmemo gestopt, Ebb en Ebb Calm geparkeerd (niet meer tellen), geen wijzerplaatreeks.
+  - **Hat Tower (c39ac502...), GEZIEN ±16:56 UTC:** nog "not approved", dus in keuring. Melden bij afwijzing, of als hij na 20 nov nog niet live is.
+  - **Klaar om te bouwen:** `platformen/garmin/snel-bouwen.md`. Wacht op een overlever van 7+ in `platformen/ideeen/overlevers.md` (nu leeg) en een ja van de hoofdchat.
+
 - **17 nov ±15:05 UTC, run 137. Spraakmemo: advies stoppen. Ebb 1.0.1 en Calm 1.0.1 staan live, Hat Tower wacht op keuring.**
   - **Spraakmemo:** elk horloge met microfoon waar een app de microfoon mag gebruiken heeft al de gratis spraaknotitie van Garmin (8 lijnen GEZIEN of DERDEN, MARQ Gen 3 niet na te lezen); 6 lijnen in de lijst van Garmin hebben geen microfoon. Met microfoon en zonder notitie: 0. Tabel met bronnen: `spraakmemo-concurrenten.md` deel 2. Advies aan de hoofdchat: stoppen. Niets gebouwd.
   - **Winkel (GEZIEN ±15:02 UTC):** Ebb 1.0.1 APPROVED, $2,99, video, 74 artikelnummers, downloads 0. Calm 1.0.1 APPROVED, 75 artikelnummers, downloads 1. Hat Tower (c39ac502...): "not approved", dus nog in keuring.
