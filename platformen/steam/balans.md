@@ -4,6 +4,22 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 
 
 
+## Stand 17 nov ±09:10 UTC: drempels 49 / 60 / 72 nagemeten op twee echte runs, blijven staan (Sanne, na Iris keuring 20 punt 3)
+**Hoe:** geen model meer. Elke vangst geeft in `hol.log` een kroniekregel die eindigt op ` +<goud>`; tijd van die regel min zijn wachttijd is het moment van vangst k, dus faam k. Telling klopt precies met alle `HOL hol-niveau`-regels in beide logs (GEZIEN). Script `data/hol-tempo/faam_uit_log.py`, uitkomst `data/hol-tempo/uitkomst-gemeten.txt`. Zo lees je bij een run met de oude drempels af wanneer de nieuwe gehaald waren (dezelfde helden, dezelfde vangsten).
+
+| run | hol 9 | hol 10 (49) | hol 11 (60) | hol 12 (72) | grootste gat |
+|---|---|---|---|---|---|
+| main editor 44030107525, 60 min | 32,0 | 46,1 | 55,8 | niet binnen 60 (67 vangsten op 60,2); GOK ±64 bij 1,2 per min | **14,1** (naar hol 10) |
+| demo-inhoud 44040279373, 75 min, koper=2 | 37,7 | 44,3 | 50,4 | **58,5** | 10,1 (naar hol 7) |
+
+Ter vergelijking met de oude drempels 53 / 69 / 88 in dezelfde 75-min run: hol 10 op 46,0, hol 11 op 56,2, hol 12 op 67,8, grootste gat 11,6 min.
+
+**Wat Iris zei klopt:** mijn model van 07:55 zei voor main hol 10 op 41,6 met de nieuwe drempel; gemeten is het 46,1 (4,5 min later), want main heeft een trage stuk van 30 tot 40 min (7 vangsten tegen 11 tot 12 elders). Dat telt het model niet.
+
+**Besluit: 49 / 60 / 72 blijven.** Hol 12 binnen 70 min haalt de 75-min run ruim (58,5) en main naar schatting ook (±64, GOK). De regel "geen gat boven 14 min" haalt main net niet (14,1), door dat ene trage blok; de andere run zit op 10,1. Eén meetpunt van 0,1 min over de grens is geen reden om de toetsen van Olaf weer om te gooien. **Regel vooraf voor duurtest 44048277638** (nieuwe drempels, klaar ±09:55): hol 12 binnen 70 min en geen gat boven 14 min. Gat toch boven 14: hol 10 naar **47** (main dan 12,9 min naar hol 10 en 10,9 naar hol 11; 75-min run 5,3 en 7,4). Hol 12 later dan 70: dan 72 naar 68.
+
+**Demo-einde in deze run (vraag van 05:58 aan Olaf, nu zelf gelezen):** geen `HOL demo voorbij` binnen 75 min. Hol 12 kwam (67,8 met oude drempels), maar de winkel stond op slijm 2 en stekelput 2 met 329 goud, en stap 3 kost 353 per soort. Goud kwam laat binnen met ±11 per minuut, dus GOK: slijm 3 op ±78 min, stekelput 3 en het demo-einde op **±110 min** voor koper=2 (koopt, graaft niet). Met de nieuwe drempels zit daar ±50 min tussen hol 12 en het einde met alleen twee aankopen; de laatste ±32 min komt er niets nieuws. Dat is de traagste speler (graaft niet); wie graaft krijgt tot +3 per vangst (graafbonus), GOK einde rond 90 tot 95 min. **Nog niet aan de prijzen draaien**, eerst meten: na de speeltest één duurtest van 120 min met `koper=1` (graaft en koopt) en `steamdemo=1` op de nieuwe drempels. Regel vooraf: `HOL demo voorbij` binnen 100 min en geen stuk van meer dan 25 min zonder nieuw niveau of aankoop. Haalt hij dat niet, dan gaat stap 3 van 353 naar 280 (factor 2,8 naar 2,5 voor de laatste stap), voor iedereen: het volle spel krijgt meer winkeldingen, dus een goedkopere derde stap haalt daar niets weg.
+
 ## Stand 17 nov ±07:55 UTC: hol 10 tot 12 sneller, nieuwe drempels 49 / 60 / 72 (Sanne, na Iris keuring 19 punt 2)
 **Vraag (Iris):** in de duurtest van main (44030107525, editor) komt hol 10 pas op 49 min, met 17,5 min zonder niveau ervoor, en hol 11 en 12 niet binnen het uur. Brams .exe-run (44018723753, zelfde zaad) had hol 10 op 39 min. Waar zit het verschil, en moeten de drempels omlaag?
 
