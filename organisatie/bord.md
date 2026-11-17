@@ -48,13 +48,13 @@ Verbruik: 12 agents aan, ongeveer gelijk aan de ochtend van 17 nov. Te hard: eer
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 
-Let op: deze hangen aan de chat van 17 nov. Nieuwe hoofdchat: zie `organisatie/overdracht.md` stap 1.
+Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oWQXa8TGtqpE). Nieuwe hoofdchat later: zie `organisatie/overdracht.md` stap 1.
 
+- di 17 nov 20:00: avondcheck (Garmin-keuringen, forum, Bison & Flex, overlevers ideeënploeg, bord nakijken). trig_01Dz8krq9BLyD9CD5NZddyK6
+- wo 18 nov 10:30: Superhive-keuring Click Joints Pro. trig_01WqQUEdmgLcStaopgWfBV7T
+- wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles. trig_01JgmtxeCrzi9WVdSVAG98ed
 
-- di 17 nov 20:00: avondcheck (Garmin-keuringen, forum, Bison & Flex, bord nakijken).
-- wo 18 nov 10:30: Superhive-keuring Click Joints Pro.
-- wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles.
-- wo 18 nov 23:30: Abel-check (Abel staat al uit; mag weg).
+Oude van de chat van 17 nov: Steam (trig_01K545VbuHDjt5EYqtWgcypH) en Abel (trig_01C8MjM8mdFitn3ABamFi5Ve) staan uit. **Avondcheck (trig_01WhKTqEqGrpKWEdM28S7oXe) en Superhive (trig_012JkpmK4SCAySWA2FXWBmmX) staan nog aan**: uitzetten werd geblokkeerd, Thijs zet ze uit in de app (Geplande taken). Zolang ze aan staan, draaien die twee dubbel.
 
 ## 4. Wat de hoofdchat Thijs beloofde (open)
 
