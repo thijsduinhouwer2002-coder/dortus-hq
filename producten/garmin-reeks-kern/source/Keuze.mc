@@ -48,7 +48,7 @@ module Keuze {
             var ruw = null;
             try {
                 ruw = Application.Properties.getValue(sleutels[i]);
-            } catch (e instanceof Lang.Exception) {
+            } catch (e) {
                 ruw = null;
             }
             uit[i] = veld(ruw, uit[i]);
@@ -61,7 +61,7 @@ module Keuze {
         var ruw = null;
         try {
             ruw = Application.Properties.getValue("Thema");
-        } catch (e instanceof Lang.Exception) {
+        } catch (e) {
             ruw = null;
         }
         return thema(ruw);
