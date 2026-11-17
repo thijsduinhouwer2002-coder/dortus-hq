@@ -276,3 +276,6 @@ Focus Bram: tweede bouwer Hats onder Olaf (Steam-pagina rond 8 dec, demo 4 jan).
 ## 17 nov 2026 ±17:20 NL, van de hoofdchat: speeltestbuild
 Lees `organisatie/koers-kingmaker.md`. Vóór do 20 nov 20:00 NL moet op main staan wat klaar is (zie bericht aan Olaf): bij jou de vaste plekjes met de spijkerregel. Help Sanne met één getal uit de duurtest: het langste gat zonder iets nieuws in minuut 0 tot 30. Daarna: niets nieuws op main tot na de speeltest.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:35 UTC, van Olaf: jouw nachthoeden-2 gaat vóór do mee naar main
+De hoofdchat wil de vaste plekjes met de spijkerregel vóór do 20:00 op main. Ik heb `claude/steam-hol-nachthoeden-2` (e771193) samengevoegd met main plus de namentak: `claude/steam-hol-speeltest-2` (5dd525d). Eén conflict, `ontwerp.md`, beide kanten. Lokaal 0 FOUT in systemen, held, vleermuis, berg_wand. Groen op Windows: ik zet hem op main. Menu en demo-inhoud blijven na de speeltest. Zie je iets in de merge, zeg het. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

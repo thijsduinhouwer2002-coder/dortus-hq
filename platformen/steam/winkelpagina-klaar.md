@@ -14,7 +14,7 @@ Maten van alle bestanden opnieuw gemeten met PIL op 17 nov ±15:20 UTC (GEZIEN):
 ## Winkel (Store Graphical Assets)
 | Vak | Eis Steam | Bestand in `ontwerp/steam/winkelpagina/` | Maat GEZIEN | Keuring | Wat mist |
 |---|---|---|---|---|---|
-| Header capsule | 920 x 430 | `header-920x430.png` (toren ronde 6b) | 920 x 430 RGB | ja Daan 17 nov | ja Thijs wo 20:00 |
+| Header capsule | 920 x 430 | `header-920x430.png` (ronde 9: 6b plus goudberg en grotere ridder die naar Gloop kijkt, Daan 17 nov 15:55) | 920 x 430 RGB | ja Daan 17 nov (ronde 9) | ja Thijs wo 20:00 |
 | Small capsule | 462 x 174 (Steam maakt 184 x 69 en 120 x 45) | `klein-462x174.png` (toren ronde 6b) | 462 x 174 RGB | ja Daan 17 nov | ja Thijs; op 120 x 45 is de titel nog net leesbaar (blad) |
 | Main capsule | 1232 x 706 | `main-1232x706.png` (toren ronde 8, goudberg onder Gloop) | 1232 x 706 RGB | ja Daan 17 nov | ja Thijs |
 | Vertical capsule | 748 x 896 | `staand-748x896.png` (staand ronde 1, torenstijl) | 748 x 896 RGB | ja Daan 17 nov | ja Thijs |

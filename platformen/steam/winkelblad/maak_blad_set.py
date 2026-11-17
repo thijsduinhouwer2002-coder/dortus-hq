@@ -44,7 +44,7 @@ def ruit(im):
 
 # (titel, bestand, weergavebreedte of -hoogte, toelichting)
 rijen = [
-    [("Header capsule 920x430 (ook library header)", "header-920x430.png", {"breedte": 920}, "toren 6b, ja Daan"),
+    [("Header capsule 920x430 (ook library header)", "header-920x430.png", {"breedte": 920}, "ronde 9 (goudberg, grotere ridder), ja Daan"),
      ("Main capsule 1232x706", "main-1232x706.png", {"breedte": 1232}, "toren 8, ja Daan")],
     [("Small capsule 462x174", "klein-462x174.png", {"breedte": 462}, "toren 6b, ja Daan"),
      ("Zo klein toont Steam hem ook: 184x69", "klein-462x174.png", {"breedte": 184}, "zoekresultaat"),

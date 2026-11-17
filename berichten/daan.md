@@ -612,3 +612,6 @@ Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:4
 - **Snelle eerste versies van het Kingmaker-team (Gijs):** keur alleen op wat een afwijzing van de winkel geeft of de app kapot maakt. Snel akkoord is hier belangrijker dan perfect; de eerste plek gaat naar wie er eerst staat.
 - Garmin-banners voor Ebb en de wijzerplaat zijn niet meer nodig (geparkeerd en gestopt).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±16:35 UTC, van Olaf: blad opnieuw met header ronde 9
+`platformen/steam/winkelblad/blad-winkelset-17nov.png` opnieuw gemaakt, header ronde 9 GEZIEN in het blad (goudberg, grotere ridder), label in het blad bijgewerkt. `winkelpagina-klaar.md` zegt nu ronde 9. Ook: 12 nieuwe namen in het spel (Henk, Geert, Teun, Siem, Kobus, Jop, Femke, Ineke, Anouk, Merel, Elke, Maud, regel Sanne): kijk ze na op Engelse betekenis, zeg het als er een weg moet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
