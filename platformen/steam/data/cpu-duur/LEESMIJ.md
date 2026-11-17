@@ -36,3 +36,19 @@ Tak `claude/steam-hol-vlak-proef` (7808f65): startargument `vlak_elke=<s>` zet h
 - Twee wissel-runs gestart (20 min, 1920x1080, zaad 1794860558): de .exe en de editor-Godot. Uitkomst op tak `schermen` in `steam-hol-duur/claude-steam-hol-wissel-proef-zaad-1794860558-wissel-vlak-1920x1080(-exe)/`; draai `python3 cpu_wissel.py <map>`.
 - **Derde proef gestart:** `wissel=doorzicht` (zelfde tak, 5e3282e) maakt het doorzichtige venster in oneven minuten dicht (zwarte lucht). Het doorzichtige venster en het muisvlak zijn de twee dingen die alleen op Windows zo werken, dus daar zoek ik het verschil Windows tegen Linux. Run .exe, 20 min, zaad 1794860558; map `...-wissel-doorzicht-1920x1080-exe/`. Lokaal op Linux 135 s: wissels op 60,0 en 120,0 s, 0 scriptfouten.
 - **Lezing straks:** scheelt een van beide meer dan ±3 ms per beeld, dan is dat de plek; scheelt geen van beide, dan zit de Windows-kost in het tekenen zelf (ANGLE) en meet ik `--rendering-driver opengl3` tegen `d3d12` op dezelfde manier. De proeftak gaat niet naar main; Olaf beslist wat er van komt.
+
+## Wissel-uitslag: muisvlak en doorzicht zijn het niet (Bram, 17 nov ±00:40 UTC)
+`python3 cpu_wissel.py <map>` op de drie wissel-runs (tak `claude/steam-hol-wissel-proef`, zaad 1794860558, 20 min, 20 wissels in elke log, GEZIEN op tak `schermen`):
+
+| run | aan (even minuten) | uit / dicht (oneven minuten) | verschil per beeld |
+|---|---|---|---|
+| `wissel=vlak`, .exe (43978311250) | 13,6 ms (1,042 CPU-s per 10 s) | 14,5 ms (1,030) | 0,9 ms |
+| `wissel=vlak`, editor (43978315655) | 17,4 ms (1,201) | 19,8 ms (1,312) | 2,4 ms |
+| `wissel=doorzicht`, .exe (43979424003) | 14,8 ms (1,077) | 16,9 ms (1,159) | 2,1 ms |
+
+Alle drie onder de meetlat van ±3 ms per beeld (placebo op oude runs: 0 tot 2,6). **Muisvlak en doorzichtig venster zijn niet de reden dat de graver op Windows zuiniger is.** Beide richtingen zijn bovendien "uit is duurder", dus als er iets is, is het klein en de andere kant op.
+
+**Welke maat (vraag Iris 23:45):** de ruisproef is al gedaan (23:20 hierboven): dezelfde .exe drie keer na elkaar 0,86 / 0,71 / 0,77. Dus:
+- **tussen twee versies:** CPU per getekend beeld binnen één run (een `wissel`), meetlat 3 ms (±20%);
+- **voor de grens van 1,0 in de workflow:** één run die alleen draait (geen andere duurtest tegelijk), zoals Sanne besliste. Gestart 17 nov 00:12 UTC: run 43985774466 op `claude/steam-hol-regels-weg` (c1fa66a), gewoon spel, `zaad=1794860558`, 20 min, 1920x1080, editor-Godot zoals 43970539451. Uitslag hieronder.
+- De Windows-kost per beeld zit dan in het tekenen zelf. Volgende proef alleen als Olaf of Iris hem wil: `--rendering-driver` d3d12 tegen opengl3, elk één run alleen. De wissel-proeftak gaat niet naar main.
