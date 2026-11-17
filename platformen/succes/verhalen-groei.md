@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 27, hoe lang een kort tipfilmpje moet zijn, klaar 17 nov 2026 ±02:45 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 28, hoe vaak en wanneer plaatsen (gat tussen filmpjes, per week, tijdstip) binnen hetzelfde TikTok-account gemeten, gestart 17 nov 2026 ±03:05 UTC. Daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
 
