@@ -58,4 +58,16 @@ module Proef {
     function bb(echt as Array<Number>, thema as Number) as Array<Number> {
         return echt;
     }
+
+    // Bouwstraat: elk proefhorloge een ander thema, zodat alle vier in beeld komen (Thema.voorProef).
+    (:proef)
+    function thema(gekozen as Number, breedte as Number) as Number {
+        return Thema.voorProef(breedte);
+    }
+
+    // Winkel: altijd het thema dat de drager koos.
+    (:winkel)
+    function thema(gekozen as Number, breedte as Number) as Number {
+        return gekozen;
+    }
 }

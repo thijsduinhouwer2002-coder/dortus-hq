@@ -21,7 +21,7 @@ class KernView extends WatchUi.WatchFace {
     var slaap as Boolean = false;
     var start as Number = 0;
     var gelezenOp as Number = 0;
-    // Thema van de plaat. Kiezen in Garmin Connect komt in stap (d); tot dan per proefhorloge een ander (Thema.voorProef).
+    // Thema van de plaat: de drager kiest in Garmin Connect (Keuze). Alleen in de bouwstraat per proefhorloge een ander (Proef.thema).
     var thema as Number = Thema.TIDE;
     // Scherm zonder inbrandgevaar (MIP): geen zwart slaapbeeld, en de zee krijgt vaste paletkleuren.
     var mip as Boolean = false;
@@ -76,6 +76,17 @@ class KernView extends WatchUi.WatchFace {
             + " veilig=" + Maten.m(Maten.VEILIG) + " bytes=" + (System.getSystemStats().usedMemory - m2));
         // Het schermvullende proefplaatje wordt niet meer geladen: het paste niet op de Forerunner 245
         // (run 43985122863: Out Of Memory) en de kern tekent alles zelf.
+    }
+
+    // De drager koos iets anders in Garmin Connect: het thema opnieuw lezen en meteen tekenen. Voor het eerste
+    // beeld (breedte nog niet bekend) hoeft dat niet: onUpdate leest dan zelf.
+    function instellingenVeranderd() as Void {
+        if (gelezen) {
+            thema = Proef.thema(Keuze.leesThema(), System.getDeviceSettings().screenWidth);
+            bb = Proef.bb(Lees.hist(0) as Array<Number>, thema);
+            System.println("KERN INSTELLING thema=" + thema);
+        }
+        WatchUi.requestUpdate();
     }
 
     function onEnterSleep() as Void {
@@ -311,7 +322,7 @@ class KernView extends WatchUi.WatchFace {
         if (!gelezen) {
             gelezen = true;
             start = System.getTimer();
-            thema = Thema.voorProef(dc.getWidth());
+            thema = Proef.thema(Keuze.leesThema(), dc.getWidth());
             leesAlles();
             meetBeelden();
             gelezenOp = System.getTimer();

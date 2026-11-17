@@ -331,3 +331,19 @@ function testZeeBootLijnen(logger as Test.Logger) as Boolean {
     return k[0][0] == 180 && k[0][2] == 220 && k[0][1] == 297 && k[7][0] == 200 && k[7][1] == 297 && k[7][2] == 200 && k[7][3] == 270
         && Zee.bootLijnen([] as Array<Graphics.Point2D>).size() == 0;
 }
+
+// Instellingen: wat de telefoon ook stuurt, er komt een geldig thema uit; niets of onzin wordt Tide.
+(:test)
+function testKeuzeThema(logger as Test.Logger) as Boolean {
+    return Keuze.thema(null) == Thema.TIDE && Keuze.thema(0) == Thema.DUSK && Keuze.thema(2) == Thema.KELP
+        && Keuze.thema(3) == Thema.NIGHT && Keuze.thema(4) == Thema.TIDE && Keuze.thema(-1) == Thema.TIDE
+        && Keuze.thema("3") == Thema.NIGHT && Keuze.thema("kelp") == Thema.TIDE && Keuze.thema(2.0) == Thema.KELP
+        && Keuze.thema(true) == Thema.TIDE && Keuze.thema([2] as Array<Number>) == Thema.TIDE;
+}
+
+// De toetsen bouwen als de winkel: daar telt het gekozen thema, niet het thema van de proef. De standaard is Tide.
+(:test)
+function testWinkelGekozenThema(logger as Test.Logger) as Boolean {
+    return Proef.thema(Thema.DUSK, 454) == Thema.DUSK && Proef.thema(Thema.NIGHT, 260) == Thema.NIGHT
+        && Keuze.leesThema() == Thema.TIDE;
+}

@@ -10,7 +10,18 @@ class KernApp extends Application.AppBase {
         AppBase.initialize();
     }
 
+    var view as KernView? = null;
+
     function getInitialView() as [WatchUi.Views] or [WatchUi.Views, WatchUi.InputDelegates] {
-        return [new KernView()];
+        var v = new KernView();
+        view = v;
+        return [v];
+    }
+
+    // De drager veranderde een instelling in Garmin Connect terwijl de plaat draait.
+    function onSettingsChanged() as Void {
+        if (view != null) {
+            (view as KernView).instellingenVeranderd();
+        }
     }
 }
