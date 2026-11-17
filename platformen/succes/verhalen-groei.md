@@ -1,8 +1,79 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 28, hoe vaak en wanneer plaatsen, klaar 17 nov 2026 ±03:50 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: niets (laatste: verhaal 29, van kort filmpje naar klik, klaar 17 nov 2026 ±04:35 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), of Ebb en Hat Tower nameten na 14 dagen.
 
 Nieuwste bovenaan.
+
+---
+
+## 29. Van kort filmpje naar klik: waar kan een kijker van een Short of TikTok echt klikken, staat die link bij ons al klaar, en hoeveel downloads geeft een filmpje zonder link?
+
+Onderzocht 17 nov 2026 ±03:55 tot 04:35 UTC, run 29. Waarom: vandaag om 15:00 UTC gaat het eerste filmpje van Chris live op YouTube @Dortusapps en TikTok @dortusstudio. In de onderschriften staat "link in bio" (TikTok) en de link voluit onder de beschrijving (YouTube) (`commercie/filmpjes/planning.md`). Vraag: werkt die weg, en zo niet, welke wel?
+
+### Bronnen en werkwijze
+- **Regels van de platforms (DERDEN):** YouTube Shorts: [Tubefilter 10 aug 2023](https://www.tubefilter.com/2023/08/10/youtube-shorts-comments-spam/) en [Search Engine Journal 4 sep 2023](https://www.searchenginejournal.com/youtube-adds-shorts-links-limits-links-elsewhere/495463/) (het besluit), plus een overzicht van 2026 dat zegt dat het nog zo is ([link.boo](https://link.boo/guides/youtube-shorts-link-in-description), een bedrijf dat linkpagina's verkoopt, dus alleen gebruikt voor wat ook in de nieuwsberichten staat). TikTok: [Stan, bijgewerkt 16 sep 2026](https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/), ook een verkoper van linkpagina's. De hulppagina's van YouTube en TikTok zelf laden niet met curl (TikTok alleen met JavaScript, de YouTube-pagina die ik probeerde gaf "can't be found"). Dus: DERDEN, niet bij het platform zelf gelezen.
+- **Onze eigen kanalen (GEZIEN, curl, 17 nov ±04:05 UTC):** de openbare profielpagina van TikTok @dortusstudio (velden `followerCount`, `videoCount`, `bioLink`, `commerceUserInfo`) en de pagina "about" van YouTube @Dortusapps (velden met de kanaallinks).
+- **Filmpje zonder link naast de downloads (GEZIEN):** Artinvader_ (TikTok, verhaal 11) maakt een reeks "Free Blender Addon ... Credits to the creator", zonder link. Van zijn 308 TikToks gaan er 83 over een add-on; 12 daarvan heb ik op naam gekoppeld aan een add-on op extensions.blender.org (de rest staat op Gumroad of elders). Per filmpje de downloads per dag van de versie die op die dag liep, naast de versie ervoor (zelfde werkwijze als verhaal 26: downloads per versie gelijk verdeeld over de dagen dat die versie de nieuwste was). Scripts `platformen/succes/data/filmpje-naar-download-ext.py` en `filmpje-naar-download-rond.py`, uitkomst `filmpje-naar-download-artinvader-2026-11-17.csv`.
+- **Wat ik ook probeerde en niet lukte:** dezelfde meting bij grote YouTube-video's over één gratis add-on (AutoCam 251.671 views, askNK 240.736). YouTube vroeg om in te loggen ("Sign in to confirm you're not a bot") en de pagina gaf geen datum. Niet omzeild.
+
+### 1. Waar je kunt klikken (DERDEN)
+| Plek | Klikbaar? | Voorwaarde |
+|---|---|---|
+| YouTube Short: link in de beschrijving | **Nee**, sinds 31 aug 2023, voor elk kanaal | geen uitzondering |
+| YouTube Short: link in een (vastgezette) reactie | **Nee** | |
+| YouTube Short: "related video" | Ja, één per Short, onder de naam van het kanaal in de speler | moet naar een eigen video van het kanaal wijzen; "advanced features" aan |
+| YouTube: links op de kanaalpagina | Ja, tot 14, de eerste bij de knop Subscribe | "advanced features" |
+| YouTube Short: de eerste drie hashtags | Ja, maar alleen naar YouTube zelf | geen |
+| TikTok: website in het profiel ("link in bio") | Ja | **persoonlijk account: 1.000 volgers**; zakelijk account: meteen, maar dan alleen de muziek voor bedrijven |
+| TikTok: link in het onderschrift of een reactie | Nee (een losse vermelding dat het onderschrift vanaf 1.000 volgers kan, vond ik alleen bij link.boo; niet nagekeken) | |
+
+Een kijker van een Short moet dus naar de kanaalpagina tikken, en daar de link vinden. Een TikTok-kijker kan zonder 1.000 volgers of een zakelijk account helemaal nergens tikken.
+
+### 2. Wat er bij ons nu staat (GEZIEN, 17 nov ±04:05 UTC)
+| Kanaal | Stand |
+|---|---|
+| TikTok @dortusstudio | **1 volger, 0 filmpjes, geen website in het profiel** (`bioLink` ontbreekt), persoonlijk account (`commerceUser: false`). Profieltekst: "Blender tips for 3D printing. Free add-on Click Joints. Made by Thijs, NL". |
+| YouTube @Dortusapps | Twee kanaallinks: "Click Joints (free add-on)" naar extensions.blender.org/add-ons/click-joints, en dortus.com. **Geen link naar Ebb en geen naar Click Joints Pro.** |
+
+Gevolg: het onderschrift "link in bio" op TikTok wijst vandaag naar niets. Met dagelijks één filmpje en een begin van mediaan ±325 views per TikTok (verhaal 11) duurt 1.000 volgers lang (GOK: weken tot maanden). Op YouTube werkt "link below" ook niet (de beschrijving van een Short is niet klikbaar en wordt bijna niet opengeklapt); de kanaallink werkt wel, maar alleen voor Click Joints.
+
+### 3. Hoeveel doet een filmpje dat geen link heeft? (GEZIEN)
+| Filmpje Artinvader_ | Views | Downloads per dag, versie ervoor | Versie die op die dag liep | Te meten? |
+|---|---|---|---|---|
+| Parallax Node, 26 feb 2026 | 27.400 | 143 | 77 (114 dagen) | nee, lange versie |
+| Easy Tree, 28 sep 2026 | 20.600 | 32 | 149 (16 maanden) | nee |
+| AutoCam, 27 apr 2026 | 15.800 | 86 | 73 | nee |
+| Motion Sounds, 27 mei 2026 | 14.100 | 35 | 32 | nee |
+| Maze Generator Pro, 2 sep 2026 | 13.600 | 15 | 27 | nee |
+| Bagapie, 27 jan 2026 | 7.304 | 297 | 156 | nee |
+| Terrain Mixer, 4 nov 2026 | 5.228 | 78 | 75 | nee |
+| Color Palette (Wittyming), 20 mei 2026 | 3.355 | 15 | 18 | **ja**, versie begon die dag: ×1,2 |
+| 4 andere (963 tot 2.751 views) | | | | geen sprong |
+
+Bij 9 van de 12 lag het gemiddelde van de versie waarin het filmpje viel lager dan dat van de versie ervoor. Het ene meetbare geval (3.355 views) gaf ×1,2, dat is ruis. Wat dit wel zegt: een golf van duizenden downloads na een TikTok van 14.000 tot 27.000 views zat er niet in. Wat het niet zegt: een paar honderd extra downloads verdwijnen in een versie van maanden (Parallax Node: 1.000 extra zou het gemiddelde maar 9 per dag hoger maken). Dat past bij VibeDesk (verhaal 2): 3.000 views gaven 5 bezoekers op zijn repo.
+
+### Drie lessen
+1. **Op TikTok onder de 1.000 volgers en op YouTube Shorts kan een kijker niet klikken vanaf het filmpje.** Op YouTube kan het via de kanaalpagina, op TikTok alleen met een zakelijk account of vanaf 1.000 volgers (DERDEN). "Link in bio" en een link in de beschrijving van een Short zijn dus geen weg.
+2. **Een filmpje zonder klik geeft weinig meetbare downloads, ook met 14.000 tot 27.000 views** (GEZIEN bij Artinvader_, 12 add-ons; VibeDesk 5 bezoekers uit 3.000 views). De weg die overblijft is zoeken: de kijker moet de naam onthouden en die in de winkel intikken. Click Joints vind je in Blender bij Get Extensions op de naam (verhaal 18), Ebb staat op "ebb" op plek 1 in de Garmin-winkel (Gijs, GEZIEN 13 nov).
+3. **Daarom hoort de naam in beeld, en het zoekwoord in de eerste regel.** Niet "link in bio" maar "Search Click Joints in Blender: Get Extensions", en voor Ebb "Search Ebb in Connect IQ". Dat is GOK als oorzaak (ik kon het effect van een zoekregel niet apart meten), maar het is de enige weg die voor een nieuw kanaal openstaat en het kost niets.
+
+### Wat ik niet kon meten
+- Klikken op de kanaallinks van YouTube en op een TikTok-link zijn niet openbaar. YouTube Studio van @Dortusapps toont ze straks wel (bron "Channel page", "External"), en extensions.blender.org en Garmin tonen de downloads.
+- De effecten van grote YouTube-video's (YouTube vroeg om in te loggen).
+- Of een zakelijk TikTok-account minder bereik krijgt. Ik vond daar alleen beweringen zonder meting, dus ik zeg er niets over.
+
+### Voor Dortus vandaag (vóór 15:00 UTC)
+**Chris (teksten) en de hoofdchat (die de posts in Metricool zette):**
+1. **TikTok-onderschriften: "link in bio" eruit, de zoekregel erin.** Click Joints: `Free in Blender: Edit > Preferences > Get Extensions, search "Click Joints".` Ebb: `Search "Ebb" in the Connect IQ store.` Voor filmpje 7 (vandaag 15:00 UTC) en 9 (morgen) al ingepland, dus aanpassen in Metricool.
+2. **YouTube-onderschriften: "link below" wordt "link on my channel page"**, met dezelfde zoekregel. Zet op @Dortusapps twee kanaallinks erbij: "Ebb for Garmin" en "Click Joints Pro" (de Garmin- en Gumroad-link uit `planning.md`), zodat elk filmpje een link heeft die werkt. Dat is werk in YouTube Studio met de login van Thijs, dus via de hoofdchat.
+3. **Keuze voor de hoofdchat, geen geld: @dortusstudio omzetten naar een zakelijk account** (gratis, in de instellingen, door Thijs). Voordeel: meteen een klikbare link. Nadeel: alleen de muziek voor bedrijven; onze filmpjes hebben geen eigen geluid en Chris kiest een rustig instrumentaal stuk, dus dat lijkt klein (GOK). Mijn advies: eerst alleen de zoekregel (stap 1) en na 10 filmpjes kijken; omzetten pas als een filmpje boven de ±5.000 views komt, want onder dat getal zijn de klikken toch een handvol (verhaal 2).
+4. **Meten:** Chris noteert bij de nameting na 7 dagen naast de views ook de downloads per dag van Click Joints en Ebb op de dag van het filmpje en de dag erna. Ik meet ze vanaf di 24 nov.
+
+### Bronnen
+- YouTube haalt klikbare links uit Shorts: https://www.tubefilter.com/2023/08/10/youtube-shorts-comments-spam/ ; related video: https://www.searchenginejournal.com/youtube-adds-shorts-links-limits-links-elsewhere/495463/ ; overzicht 2026: https://link.boo/guides/youtube-shorts-link-in-description
+- TikTok-link in het profiel: https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/
+- Onze kanalen: https://www.tiktok.com/@dortusstudio en https://www.youtube.com/@Dortusapps/about
+- Artinvader_: https://www.tiktok.com/@artinvader_ ; versies bijvoorbeeld https://extensions.blender.org/add-ons/parallax-node/versions/
 
 ---
 
