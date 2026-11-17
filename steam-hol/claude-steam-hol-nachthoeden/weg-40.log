@@ -1,19 +1,19 @@
-HOL weg geweest 25209 s (klok terug: false): goud voor 603, helden 100, erbij 478, hoeden 34
-HOL weg faam afgekapt 7 van 63 (hooguit 2 niveaus)
+HOL weg geweest 25210 s (klok terug: false): goud voor 633, helden 100, erbij 532, hoeden 39
+HOL weg faam afgekapt 7 van 72 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 34 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 39 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 63 fell, 34 hats. +478 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 72 fell, 39 hats. +532 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1081 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1165 goud, faam 12
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1794903897
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1081)
+HOL zaad 1794904836
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1165)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Odo knocks first. Polite.
-HOL held binnen: Odo
+HOL kroniek 4.0 (wacht 0.0): Pim brought a torch. And hope.
+HOL held binnen: Pim
 HOL zicht 4.1 1
-HOL meting t=10 beelden=98 helden=1 hol_vast=10
-HOL einde na 12 s, fps=10, goud=1081, terugkomers=0
+HOL meting t=10 beelden=98 helden=1 hol_vast=8
+HOL einde na 12 s, fps=10, goud=1165, terugkomers=0
