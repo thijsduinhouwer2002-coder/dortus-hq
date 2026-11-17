@@ -18,8 +18,8 @@ permissions:
   actions: read
 
 env:
-  TAG: click-joints-pro-v1.0.2
-  VERSIE: "1.0.2"
+  TAG: click-joints-pro-v1.1.0
+  VERSIE: "1.1.0"
   RUN: ${{ inputs.run_id }}
 
 jobs:
@@ -59,11 +59,14 @@ jobs:
         run: |
           mkdir -p /tmp/uit
           cp "/tmp/s/5.3.0/click_joints_pro-$VERSIE.zip" "/tmp/uit/click_joints_pro-$VERSIE.zip"
-          cp ontwerp/click-joints/pro/poster-3.png /tmp/uit/1-poster-3.png
-          cp /tmp/s/5.2.3/13-pro-knie-x.png /tmp/uit/2-knie-met-boog.png
-          cp /tmp/s/5.2.3/14-pro-knie-rood-x.png /tmp/uit/3-rood-voorbij-de-stop.png
-          cp /tmp/s/5.2.3/8-winkel-x.png /tmp/uit/4-kogel-passing.png
-          cp /tmp/s/5.2.3/9-winkel-rood-x.png /tmp/uit/5-kogel-rood.png
+          # 1.1 (Ruben, 17 nov run 29): eerst de hele figuur uit de rig (plaatje 19, uit 5.3.0: daar alle negen
+          # gewrichten), dan de plaatjes van 1.0. Volgorde wacht op het ja van Daan.
+          cp /tmp/s/5.3.0/19-mens-x.png /tmp/uit/1-figuur-uit-rig.png
+          cp ontwerp/click-joints/pro/poster-3.png /tmp/uit/2-poster-3.png
+          cp /tmp/s/5.2.3/13-pro-knie-x.png /tmp/uit/3-knie-met-boog.png
+          cp /tmp/s/5.2.3/14-pro-knie-rood-x.png /tmp/uit/4-rood-voorbij-de-stop.png
+          cp /tmp/s/5.2.3/8-winkel-x.png /tmp/uit/5-kogel-passing.png
+          cp /tmp/s/5.2.3/9-winkel-rood-x.png /tmp/uit/6-kogel-rood.png
           python3 - <<'EOF'
           import glob, os, struct
           for f in sorted(glob.glob("/tmp/uit/*.png")):
@@ -91,7 +94,7 @@ jobs:
           Click Joints Pro $VERSIE, betaalde versie voor Superhive (winkel Dortus).
 
           - De zip \`click_joints_pro-$VERSIE.zip\` staat hier bewust niet: dat is de betaalde build (alleen via Superhive). Hij komt uit e2e-run $RUN op main, getest in de echte Blender 4.2.23, 5.2.3 en 5.3.0. sha256 \`$sha\`.
-          - Plaatjes in uploadvolgorde, elk 1920 x 1080 PNG onder 2 MB: \`1-poster-3.png\`, \`2-knie-met-boog.png\`, \`3-rood-voorbij-de-stop.png\`, \`4-kogel-passing.png\`, \`5-kogel-rood.png\`.
+          - Plaatjes in uploadvolgorde, elk 1920 x 1080 PNG onder 2 MB: \`1-figuur-uit-rig.png\`, \`2-poster-3.png\`, \`3-knie-met-boog.png\`, \`4-rood-voorbij-de-stop.png\`, \`5-kogel-passing.png\`, \`6-kogel-rood.png\`.
           - \`SHA256SUMS.txt\`: sha256 van alles.
 
           Tekst, prijs en stappen: \`platformen/blender/superhive-pagina.md\`.

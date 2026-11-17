@@ -18,7 +18,7 @@ jobs:
       matrix:
         blender: ["4.2.23", "5.2.3", "5.3.0"]
     env:
-      PRO_VERSIE: "1.0.2"
+      PRO_VERSIE: "1.1.0"
     defaults:
       run:
         working-directory: producten/blender-gewrichten
