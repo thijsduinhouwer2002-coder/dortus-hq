@@ -220,11 +220,11 @@ static func put_stuk(h, k: int) -> String:
 
 # welk kamerstuk een open cel k in de bovenste rij krijgt, alleen op de buren (zonder te kijken of het blad het heeft).
 # Schacht en 3D-schatkamer tellen als niet gegraven.
-# Midden (Daan 16 nov 23:40, moet: de bovenste rij dezelfde regel als de gang): per drie middencellen precies één ding,
-# de rest kaal (kamer_midden_c). Tel i vanaf de eerste middencel van deze kamer: i % 3 == 1 krijgt een ding, om en om
+# Midden (Daan 16 nov 23:40, moet: de bovenste rij dezelfde regel als de gang): per drie cellen hooguit één ding,
+# de rest kaal (kamer_midden_c). Tel i vanaf de eerste middencel van deze kamer: i % 3 == 2 krijgt een ding, om en om
 # de stut (a) en houweel met ton (b), dus nooit twee keer dezelfde soort na elkaar in een kamer. Welke soort eerst komt
-# hangt af van de beginkolom, zodat niet elke kamer met dezelfde begint. Een kamer van drie cellen blijft kaal in het
-# midden (fakkel, leeg, kistje).
+# hangt af van de beginkolom, zodat niet elke kamer met dezelfde begint. Kamers tot zes cellen blijven kaal in het
+# midden (fakkel, leeg, kistje); in elke drie cellen op een rij staat hooguit één ding, fakkel en kistje meegeteld.
 static func kamer_keuze(boven: Array, k: int, ingang_kol: int, schat_kol: int, schat_3d: bool) -> String:
 	var l := _kamer_open(boven, k - 1, ingang_kol, schat_kol, schat_3d)
 	var r := _kamer_open(boven, k + 1, ingang_kol, schat_kol, schat_3d)
@@ -232,8 +232,14 @@ static func kamer_keuze(boven: Array, k: int, ingang_kol: int, schat_kol: int, s
 		var begin := k - 1
 		while _kamer_open(boven, begin - 1, ingang_kol, schat_kol, schat_3d):
 			begin -= 1
+		var eind := k + 1
+		while _kamer_open(boven, eind + 1, ingang_kol, schat_kol, schat_3d):
+			eind += 1
+		# i telt vanaf de eerste middencel; een ding op i = 2, 5, 8 ... staat altijd drie cellen na de fakkel en na het
+		# vorige ding, en minstens drie cellen voor het kistje (controleur 17 nov: anders staat een stut of ton tegen het
+		# kistje met een los ding uit kamer_dingen erbij). Fakkel en kistje tellen zo mee als ding.
 		var i := k - begin - 1
-		if i % 3 != 1:
+		if i % 3 != 2 or eind - k < 3:
 			return "kamer_midden_c"
 		return "kamer_midden_a" if (i / 3 + begin) % 2 == 0 else "kamer_midden_b"
 	if r:
