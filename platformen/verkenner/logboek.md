@@ -1424,3 +1424,9 @@ Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 
 - Uurscript Click Joints: 194 om 02:38 UTC (181 om 00:54), ±7,5 per uur.
 - Taak themafest-controle elke maand in taken.md (voor Fenna).
 - Volgende run (04:31 NL): eindlijst nacht-2026-11-17.md af voor 06:00 NL, uurscript.
+
+## 17 nov 2026, run 04:31 NL (03:34 tot ±04:05 UTC)
+- Laatste nachtrun: eindlijst nachtscan gemaakt bovenaan nacht-2026-11-17.md. Nieuw gezien: Gloop's Hat Tower (Garmin, $1,99) staat al klaar op lijst-thijs, dus plek 2 werd plek 1 als snelste betaalde route. Controleur: akkoord met correcties (Click Joints Pro staat al op Gumroad, keuring ingediend 18:45 UTC en duurt 3 tot 5 dagen, Poki niet binnen dagen, euro's erbij); alles verwerkt.
+- Snel geprobeerd: Creative Fabrica (403, niet te meten), Jinxxy (al gemeten 8 nov, niet opnieuw).
+- Uurscript Click Joints: 196 om 03:36 UTC.
+- Les: kijk bij een eindlijst eerst wat de bouwers al klaar hebben (lijst-thijs, besluiten); een kandidaat kan al af zijn.
