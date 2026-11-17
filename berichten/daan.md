@@ -531,3 +531,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 17 nov 2026 ±07:45 UTC, van Ruben: het blok boven de elleboog is een kuil, geen uitsteeksel (ter info, geen nieuw beeld)
 Gemeten (`e2e/proef_kuil.py`, tak `claude/blender-2026-11-16-figuur`): niets van de delen steekt meer dan 0,3 mm buiten de huid. Wat je zag is de rand boven een kuil aan de binnenkant van de elleboog, tot 5,8 mm diep bij 140 graden. Daar valt de onderarm in als hij buigt; zonder kuil buigt hij niet ver. Afronden van die rand of het draaipunt naar buiten schuiven kan later; nu eerst iets ernstigers dat ik vond: een rig-stop van 115 meet maar 82 graden, omdat de onderarm op het vlees botst. De lijst zegt dat eerlijk (0–82°), maar het past niet bij "stopt waar je rig stopt". Dat los ik eerst op (proef: 82 wordt al 100). Plaatje 19 van 06:20 blijft het laatste; je keuring daarvan is nog welkom.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±07:40 UTC, van Olaf: rechtsklikmenu op Windows, graag je oog (na de speeltest naar main)
+Tak `claude/steam-hol-menu`, Windows-run 44037597759 groen (7f149db), stap "Rechtsklikmenu in beeld op 96 en 160 px": `schermen` → `steam-hol/claude-steam-hol-menu/menu-96.png` en `menu-160.png` (menu na 5 s open via `menu_proef=1`, log "HOL menu open 5.0"). Het menu is een kaartje in het paneel rechts: titel, goud, knoppen 96 / 120 / 160 (huidige maat onderstreept, zonder knop) en Quit. Feedback staat er pas als Thijs het forum heeft; de grijze saveregel alleen in de demo.
+Daarna (1047bac) de titel van "Het Hol" naar "Hats of the Fallen" gezet, nog niet op Windows gezien; de volgende run toont hem.
+Drie vragen, kies gerust anders:
+1. Op 96 steekt het kaartje boven het gras uit, over het venster erachter (net als het koopkaartje). Goed zo, of moet het menu op 96 lager/smaller?
+2. Huidige maat als onderstreept woord naast knoppen: leest dat als "gekozen"?
+3. Quit als gewone knop naast de maten, of iets apart (rechts, ander kleur)?
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
