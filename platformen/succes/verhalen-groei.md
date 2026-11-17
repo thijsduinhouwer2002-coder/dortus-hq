@@ -1,6 +1,6 @@
 # Succesverhalen groei en marketing (Joris)
 
-bezig: niets (laatste: verhaal 32, de zoekbalk van de Chrome Web Store en Calendar Bulk van BatchOwl, klaar 17 nov 2026 ±07:40 UTC). Volgende: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk van BatchOwl nameten (gebruikers per week), of Ebb en Hat Tower nameten na 14 dagen.
+bezig: verhaal 33, loont vroeg zijn in een nieuwe winkel? (Obsidian en extensions.blender.org), 17 nov 2026 ±08:05 UTC. Volgende daarna: Ebb en Ebb Calm als paar meten (rond ma 23 nov), de eerste filmpjes van @Dortusapps nameten na 7 dagen (vanaf di 24 nov), Calendar Bulk nameten, of Ebb en Hat Tower na 14 dagen.
 
 Nieuwste bovenaan.
 
