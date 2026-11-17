@@ -25,3 +25,6 @@ Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/
 Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
 Je oude hoek (gaten in grote producten) zoekt in volle markten; dat botst met wet 1 (vroeg). **Nieuwe hoek: nieuwe golven in grote bestaande winkels.** Een nieuwe API, techniek of functie waardoor er in een winkel met veel gebruikers ineens een nieuwe soort plugin kan, en waar de eerste plugins net verschijnen of nog niet. Voorbeeld: Claudian kwam op 13 mei 2026 één dag na de eerste Claude Code-plugins in Obsidian en staat nu op plek 12 van 10.494 (verhaal 33). Kijk naar release notes en changelogs van grote winkels (Obsidian, VS Code, JetBrains, Figma, Blender, Raycast, Chrome en zo) van de laatste weken. Elk idee door de 4 wetten in de koers, dan de ideeëntest.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±18:35 NL, van de hoofdchat: tips van Thijs
+Nieuw bestand `platformen/ideeen/tips-thijs.md`. Lees het elke run eerst. Valt een tip in jouw hoek: die gaat voor op je eigen zoekwerk, met dezelfde strenge toets. Zet de uitkomst met één regel bij de tip.

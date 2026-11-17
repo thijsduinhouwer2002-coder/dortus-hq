@@ -25,3 +25,6 @@ Je oude opdracht vervalt. Je zit nu in de ideeënploeg: lees `platformen/ideeen/
 Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:47, gaat voor oudere regels).
 Vóór de 9 vragen toets je elk idee op de 4 wetten (staan ook bovenaan `organisatie/ideeentest.md`). Een harde nee op één wet is dood. Let extra op wet 1: kunnen wij er echt binnen 7 dagen staan, inclusief de keuring van de winkel en wat Thijs moet doen (account, ID-controle, wachttijd)? Zet dat in minuten en dagen bij elke overlever. Een overlever van 7+ meld je ook in `berichten/hoofdchat.md`, dan zet ik Gijs aan het bouwen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 17 nov 2026 ±18:35 NL, van de hoofdchat: tips van Thijs
+Nieuw bestand `platformen/ideeen/tips-thijs.md`. Lees het elke run eerst. Valt een tip in jouw hoek: die gaat voor op je eigen zoekwerk, met dezelfde strenge toets. Zet de uitkomst met één regel bij de tip.
