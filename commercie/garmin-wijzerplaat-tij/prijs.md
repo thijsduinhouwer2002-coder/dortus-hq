@@ -2,6 +2,8 @@
 
 Prijs is een besluit van de platformmanager (Gijs) na dit voorstel. Labels: GEZIEN, DERDEN, GOK.
 
+**Besluit Gijs, 17 nov ±09:30 UTC: prijspunt $3,00** (koper ziet $2,99 en € 3,49), zoals voorgesteld; Skiff Free blijft gratis (`berichten/chris.md`, `platformen/garmin/status.md`).
+
 ## Voorstel
 **Skiff: prijspunt USD $3,00 bij Garmin, eenmalig. De koper ziet dat als $2,99 in de VS, € 3,49 in Duitsland en Frankrijk, £ 2,99 in het VK (£ 2,49 is Gibraltar). Skiff Free: gratis, zonder proeftijd of code.**
 
