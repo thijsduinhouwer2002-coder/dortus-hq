@@ -47,11 +47,13 @@ jobs:
             grep -o -i '"[a-z]*\(audio\|speaker\|microphone\)[a-z]*"[^,]*' "$f" | sort -u | head -5
           done
           ls /root/.Garmin/ConnectIQ/Devices | wc -l
+          echo "UITSLAG horloges in de image met 6.0.3 of hoger: $(grep -l -E '"connectIQVersion": "(6\.0\.[3-9]|6\.[1-9]|[7-9]\.)' /root/.Garmin/ConnectIQ/Devices/*/compiler.json | sed 's#.*/Devices/##; s#/compiler.json##' | tr '\n' ' ')"
+          echo "UITSLAG telling per versie: $(grep -h -o '"connectIQVersion": "[0-9.]*"' /root/.Garmin/ConnectIQ/Devices/*/compiler.json | sort | uniq -c | sort -k4 | tail -8 | tr '\n' ';')"
           openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
           openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
           mkdir -p bin
           GOED=""
-          for d in fenix847mm fr970 venu445mm vivoactive6; do
+          for d in fenix947mm fenix943mm; do
             if monkeyc -f monkey.jungle -d "$d" -o "bin/memo-$d.prg" -y /tmp/key.der -l 0 > "/tmp/bouw-$d.log" 2>&1; then
               echo "UITSLAG bouw $d: goed ($(stat -c %s bin/memo-$d.prg) bytes)"; [ -z "$GOED" ] && GOED=$d
             else
