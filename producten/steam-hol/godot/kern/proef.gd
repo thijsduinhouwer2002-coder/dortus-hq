@@ -112,10 +112,12 @@ static func staat_stil(s) -> bool:
 # 959aef4 per blok aan en uit, per minuut in een vaste rondgang van vier standen:
 #   minuut % 4 == 0  alles aan (zoals main)
 #   minuut % 4 == 1  kaartje uit: geen een_per_held, geen namen_recent, geen vaste telling (959aef4)
-#   minuut % 4 == 2  regels uit: plat/op altijd een regel (0ce076d), naamgenoot elke keer (4a7af62), geen graafbonus (cfaafe0)
+#   minuut % 4 == 2  regels uit: plat/op altijd een regel (0ce076d), naamgenoot elke keer (4a7af62), geen graafbonus (cfaafe0),
+#                    doelletter weer #cdb48f (b4e2c45)
 #   minuut % 4 == 3  alles uit (zoals de basis abd4b6e voor deze stukken)
-# Tussen runs schelen de runners tot 30%, binnen één run niet. Weg-faam (a1a171e) en de lichtere letter (b4e2c45) draaien
-# alleen bij laden of tekenen van het doel, niet per beeld, en blijven aan. Alleen met het argument; zonder blijft alles main.
+# Tussen runs schelen de runners tot 30%, binnen één run niet. Weg-snelheid en weg-faam (a1a171e), de weg-regels in
+# hol_niveau.gd en voortgang.gd en de telling na terugkomst in opslag.gd draaien alleen bij het laden van een save; met
+# vers=1 (duurtest) wordt niets geladen, dus die zitten in geen enkele stand. plat_proef (09c7c12) is alleen een argument. Alleen met het argument; zonder blijft alles main.
 static func wissel_tik(s) -> void:
 	if s.proef_wissel != "regels":
 		return
@@ -127,6 +129,8 @@ static func wissel_tik(s) -> void:
 	s.wissel_regels_uit = stand == 2 or stand == 3
 	if s.wissel_kaartje_uit and s.tekst != null and String(s.tekst.vast) != "":
 		s.tekst.vast = ""
+	if s.tekst != null:
+		s.tekst.oude_kleur = s.wissel_regels_uit   # b4e2c45 (lichtere doelletter)
 		s.tekst.queue_redraw()
 	s.log_regel("HOL wissel regels stand %d kaartje %s regels %s t=%.1f" % [stand,
 		"uit" if s.wissel_kaartje_uit else "aan", "uit" if s.wissel_regels_uit else "aan", s.t])

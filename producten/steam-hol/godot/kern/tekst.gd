@@ -6,6 +6,7 @@ var regels: Array[String] = []
 var goud := 0
 var doel := ""   # kopregel rechts als het kaartje dicht is: volgend doel (kern/kaartje.gd doel_regel, Iris 16 nov)
 var hover := false
+var oude_kleur := false   # CPU-proef wissel=regels (kern/proef.gd): doelletter weer #cdb48f zoals voor b4e2c45
 var vast := ""   # telling na terugkomst: bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30)
 var breedte := 1280.0
 var hoogte := 120.0
@@ -337,5 +338,5 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 		return
 	# kan Daan 16 nov 21:10: de gedempte letter een tikje lichter (was #cdb48f, op het bruin de zwakste tekst); blijft
 	# donkerder dan de kroniekletter #f3e2c0, zodat het een doel blijft en geen knop
-	var kleur := Color("#ffe07a") if klaar else Color("#dcc6a2")
+	var kleur := Color("#ffe07a") if klaar else (Color("#cdb48f") if oude_kleur else Color("#dcc6a2"))
 	_tekst(font, Vector2(x + bw - w - (6 if met_3d else 0), basis), doel, -1, m, kleur)
