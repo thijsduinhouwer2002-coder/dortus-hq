@@ -1444,3 +1444,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Demo-einde (Olaf 811b16e): graven na het einde blijft geweigerd, ook na 21 nov; alleen een zichtbare reactie op de geweigerde klik als die ontbreekt (`features.md`).
 - Bram `wissel=regels` loopt (44018723753), uitslag volgende run. Berichten Olaf, Iris.
 - 05:00: demobelofte `The full game keeps it all.` nagekeken in de code: waar (zelfde savemap, `demo_klaar` alleen in de demo), mits de mapnaam `Dortus/Het Hol` niet meeverandert bij hernoemen; voorstel toets aan Olaf, na de speeltest.
+- 05:05: terugkomen na een nacht geteld in 621 topper-reviews (12 treffers: 4 nacht levert niets of maakt op, 5 gestraft, 2 fijn moment); getoetst tegen ons ontwerp, geen nieuwe feature; regel vooraf voor speeltestpunt 5 in `spelgevoel.md`, telling in `toppers.md`.

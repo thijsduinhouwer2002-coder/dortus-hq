@@ -30,3 +30,14 @@ Bron: 40 negatieve en 40 positieve Engelse reviews per spel (Bongo Cat, Spirit C
 - Bovenaan voor het spel (aan Olaf): **upgrades en een keuze per bezoek** (gat 1) gaan vóór nieuwe grappen. Zonder dat is het geen "beste in zijn soort".
 - Aan Mila en Olaf: muziek ja of nee vóór het fest (gat 2).
 - Ik toets elke film voortaan ook op deze vijf punten, niet alleen op "is het grappig".
+
+## Terugkomen na een nacht: wat spelers erover schrijven (Sanne, 17 nov ±05:05 UTC)
+Aanleiding: Iris keuring 16, punt 3 (na 8 uur weg één regel). Geteld in dezelfde 621 reviews van 9 nov (`data/reviews-2026-11-09/top4.json`, zoekwoorden overnight, offline, come back to, when I wake, afk en dergelijke; alleen treffers over terugkomen, niet Deskrawls "offline modus"). **12 van 621 gaan over terugkomen.** Weinig, dus geen grote klacht, wel drie duidelijke soorten:
+- **De nacht levert niets op, of maakt het spel op (4):** Rusty's 2 ("leaving it running overnight has no real benefit", "left it running over night, and was essentially out of new things to do"), Ropuka 1 (alle prestaties gehaald door het een nacht aan te laten), Ropuka 1 "no offline progression" (plus 1 in een positieve Rusty's-review).
+- **Terugkomen wordt gestraft (5):** Tiny Pasture, 4 keer zieke of hongerige dieren na een nacht of een middag weg, 1 keer een afk-doel dat niet loopt.
+- **Terugkomen is het fijne moment (2):** Ropuka "leaving him for a few hours and coming back to see millions", Deskrawl "fun to leave it running and come back to see your progress".
+
+Wat dit voor ons betekent, getoetst tegen wat er al is:
+1. **Nooit straffen**: klopt al, weg geeft alleen goud, hoeden en faam, er gaat niets dood of kapot.
+2. **De nacht mag het spel niet opmaken**: weg op 0,12 en faam hooguit 2 hol-niveaus per keer (Iris keuring 9, mijn keus 22:00) zijn precies hiervoor. In de demo is een half uur plus een nacht wel bijna het einde (`speeltest-21-nov.md`, eerlijk vooraf); dat is de demogrens, in het volle spel draagt `voortgang.md` dit.
+3. **Het terugkommoment moet je zien, niet alleen lezen**: de twee positieve reviews gaan over een getal of voortgang die je met eigen ogen ziet groeien. Bij ons is dat de optocht na weg en de nieuwe hoeden op de toren; de ene regel is alleen de samenvatting. Geen nieuwe feature. Wel een regel vooraf voor de speeltest: zegt Thijs bij punt 5 dat hij niet zag wat er 's nachts gebeurd was, dan gaat het naar de optocht (meer zichtbaar), niet naar meer tekst (besluit 16 nov 21:05: minder tekst waar beeld het kan zeggen).
