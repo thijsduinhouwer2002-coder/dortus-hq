@@ -2,6 +2,38 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 17 nov 2026 16:05 UTC: run 2, nieuwe hoek (AI-marktplaatsen en agent-winkels), 0 ideeën klaar voor keuring, 5 zelf afgeschoten
+
+Tijd uit `date -u`. Hoek volgens het nieuwste bericht van de hoofdchat (17 nov ±16:55 NL) en `organisatie/koers-kingmaker.md`; dat gaat voor de oude hoek "betaald maar gehaat" die nog in mijn geplande opdracht staat. Al eerder bekeken en niet herhaald: ChatGPT-plugins als winkel, Claude Marketplace, MCP Marketplace, Apify, Notion-agents, Google Connected Apps (`platformen/pionier/onderzocht.md`), Custom GPT naar MCP (Noor).
+
+**Les van deze run.** De AI-winkels die nu openen of exploderen, openen allemaal zonder kassa. Hermes (2.376 plugins, 1.475 erbij sinds 1 nov), ChatGPT Plugin Extensions (29 sep) en Cursor Origin (13 okt) zijn gratis om te plaatsen en hebben geen enkele manier om te laten betalen. De winkel mét kassa (Agensi, 70% voor de maker) is 7 maanden oud en telt al 24.205 skills. Vroeg en kassa gaan in deze hoek deze maand niet samen. Voorstel: niet meer zoeken naar "winkel opent", maar naar "bestaande grote AI-winkel zet betalen aan". Dat is het moment voor wet 1 en wet 3 tegelijk. De kandidaten om elke week op te letten: ChatGPT (OpenAI schrijft "we are actively working to support a wider range of commerce use cases") en Hermes (geen aankondiging gevonden).
+
+### Zelf afgeschoten: basisplugin voor de nieuwe Hermes Marketplace (Nous Research) | DOOD op wet 3
+- Waarom het lokte (wet 1 en 2 sterk): de Hermes Marketplace opende op 4 nov 2026 met 976 plugins (GEZIEN 17 nov, asksurf.ai/pulse/en/hermes-marketplace-builder-cycle, plus $20.000 hackathon tot 11 nov). Op 17 nov staan er 2.450 (kop van de pagina) en in mijn eigen telling uit de paginadata 2.376 unieke plugins: 332 toegevoegd in sep, 569 in okt, 1.475 sinds 1 nov, piek 348 op 10 nov (GEZIEN 17 nov, hermes-agent.nousresearch.com/marketplace; robots.txt staat lezen toe). Hermes Agent zelf heeft 264.132 sterren op GitHub (GEZIEN 17 nov via de zoek-API). Een enorm platform met een winkel van twee weken.
+- **Wet 3, harde nee.** In de data van alle 2.376 plugins staat geen prijsveld, en ik vond geen enkele plugin met een Pro-versie of licentiesleutel (gezocht op "pro version", "upgrade to pro", "license key", "paid", "subscription"; wat er staat gaat over betaalde diensten van derden zoals Yandex of OpenRouter-tegoed). Plaatsen gaat via een pull request naar een open catalogus, 2.342 van de 2.376 zijn "community". Er is dus geen betaalcultuur voor plugins te zien, alleen voor modellen. ONBEKEND of Nous betalen gaat toevoegen.
+- Ook vraag 2 zou zwaar worden: 1.150 plugins in "tools", 425 in "desktop", 128 in "memory" (met mem0, 69.013 sterren). Een basistaak is daar binnen dagen bezet.
+- Bewaren als spoor: als Nous ooit betalen aanzet, is dit de grootste nieuwe agent-winkel die ik zag.
+
+### Zelf afgeschoten: bestandsviewer als ChatGPT Plugin Extension (bijv. 3D- of CAD-bestanden in ChatGPT) | DOOD op wet 3
+- Nieuw sinds DevDay 29 sep 2026: plugins kunnen een zijbalk-app, een paneel naast het gesprek en "file viewers and editors" in ChatGPT zetten, op alle abonnementen, 1,2 miljard gebruikers per week (GEZIEN 17 nov, top5apps.ai/news/chatgpt-plugin-extensions-store-2026 en aitoolsreview.co.uk/insights/openai-devday-2026-recap). Een viewer is precies het soort brede basistaak uit wet 2.
+- **Wet 3, harde nee.** De betaalpagina van OpenAI zelf: "current approval is limited to plugins for physical goods purchases" (GEZIEN 17 nov, developers.openai.com/plugins/build/monetization.md). Digitale producten en abonnementen kunnen niet. Ook top5apps: "OpenAI announced no billing, no checkout, and no revenue share for plugins". En de grote viewers kwamen op dag 1 van de makers zelf (Figma, Adobe Acrobat en Photoshop, Canva; zelfde bron), dus wet 4 en vraag 1 knellen ook.
+
+### Zelf afgeschoten: app voor de Cursor Origin-marketplace (apps bij Cursors eigen git-forge) | DOOD op wet 3 en vraag 2
+- Origin (de git-forge van Cursor, bèta sinds 17 aug 2026) opende de app-marketplace op 13 okt 2026 voor iedereen; er staan ±21 apps (GEZIEN 17 nov, buildmvpfast.com/blog/cursor-origin-app-marketplace-dev-tools-2026 en magica.com/news/cursor-origin-app-marketplace-public-submissions).
+- **Wet 3:** "Listing is free, you can't charge through it, and your app only reaches teams that host their code on Origin itself" (zelfde bron). **Vraag 2:** de basistaken (CI, code review, beveiliging, deploy) zijn op dag 1 gevuld door Vercel, Buildkite, Semgrep, CodeRabbit en CloudBees. Dood.
+
+### Zelf afgeschoten: skills verkopen op Agensi (SKILL.md-winkel met kassa) | DOOD op wet 1 en vraag 2
+- Wel een kassa: makers krijgen 70% per verkoop; het voorbeeld dat Agensi zelf geeft is een skill van $7 met 89 keer gebruik, $436 voor de maker (GEZIEN 17 nov, agensi.io/learn/how-developers-make-money-selling-ai-skills).
+- **Wet 1:** 2.000 skills drie maanden na de start (persbericht jul 2026, finanznachrichten.de), nu 24.205 skills, waarvan 2.258 in "Agents & Orchestration" en 1.717 in "Business & Operations" (GEZIEN 17 nov, agensi.io/skills). Niet vroeg, en het beste openbare voorbeeld haalt een paar honderd dollar. Dood.
+
+### Zelf afgeschoten (snel): agents voor de "Windows Agent Store" (85% voor de maker) | ONBEKEND, niet verder
+- Verschillende sites schrijven dat Microsoft op Build (2 jun 2026) een Windows Agent Store met 85% voor de maker aankondigde, met een openbare winkel "Q4 2026" (GEZIEN 17 nov, creativeainews.com en resources.rework.com). Ignite loopt van 17 tot 20 nov, dus als hij opengaat is het nu.
+- Maar ik vond geen bron van Microsoft zelf (zoeken op microsoft.com, blogs.windows.com en learn.microsoft.com gaf niets), en de GitHub-zoek-API vindt geen repo "windows agent framework" van Microsoft (1 los resultaat van een ander, GEZIEN 17 nov). De berichten lijken van inhoudsfabrieken. Testen zou ook Windows vragen (vraag 6). Niet als idee; wel een vraag voor de volgende run: staat er deze week iets op blogs.windows.com?
+
+### Spoor voor een volgende run
+- **OpenAI Agent Builder stopt op 30 nov 2026** (GEZIEN 17 nov, aibusinessweekly.net/p/ai-agent-news, "the November 30 shutdown of OpenAI's Agent Builder"; bron van OpenAI zelf nog niet gelezen). Dat zijn makers met werkende agents die over 13 dagen een nieuw thuis nodig hebben, net als de Custom GPTs op 11 dec. Eerst lezen wat OpenAI zelf als vervanger geeft (vraag 1), dan pas verder.
+- Elke week nakijken: betaalpagina van ChatGPT-plugins (developers.openai.com/plugins/build/monetization.md) en de Hermes Marketplace (prijsveld in de data). Zodra een van beide digitale verkoop toelaat, is dat het vroege moment.
+
 ## 17 nov 2026 ±15:10 UTC: run 1 in de ideeënploeg, 0 ideeën klaar voor keuring, 10 zelf afgeschoten
 
 Hoek: betaald maar gehaat. Ik zocht op twee winkels waar wij al een account en een product hebben (JetBrains Marketplace en Superhive voor Blender), zodat bereik en betalen al geregeld zijn. Geen idee overleefde vraag 1 en 2.
