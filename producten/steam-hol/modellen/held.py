@@ -114,6 +114,11 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             _cil(ouder, (dx + 0.07 * kant, 0, 0.2), 0.075, 0.3, kleed_d, rot=(0, -kant * sp, 0))
             _bol(ouder, (dx + 0.15 * kant, -0.04, 0.07), (0.1, 0.12, 0.075), laars)
             continue
+        if stand == "tenen":
+            # Mila 17 nov (edelman): op de tenen, voeten dicht bij elkaar en naar beneden gestrekt
+            _cil(ouder, (dx * 0.8, -0.06 * kant, 0.24), 0.075, 0.3, kleed_d)
+            _bol(ouder, (dx * 0.8, -0.1 * kant - 0.03, 0.07), (0.08, 0.1, 0.09), laars, rot=(math.radians(-50), 0, 0))
+            continue
         _cil(ouder, (dx, voor, 0.2 + til), 0.075, 0.3, kleed_d)
         _bol(ouder, (dx, voor - 0.04, 0.06 + til), (0.1, 0.12, 0.075), laars)
 
@@ -151,7 +156,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.0), hs(0.055, 0.05, 0.045), wit)   # Daan proef: oogwit midden in de band, niet erboven
         else:
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
-        kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
+        kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)
+        if stand in ("wacht", "wacht_tik"):
+            kijk = -0.06   # Mila 17 nov (edelman): kijkt opzij naar de deur, links in de strook   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
         if soort == "dief":   # Daan proef: kleine pupil binnen het oogwit, zodat het oog een wit gaatje in de band is
             _bol(ouder, hk(ox + kijk * 0.6, -0.31 + oy, HZ - 0.005), hs(0.03, 0.03, 0.032), pupil)
         else:
@@ -279,6 +286,15 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         top = HZ + 1.05 * K
         _noem_hoed(voor, "heksenhoed")
 
+    if stand == "na_u2":
+        # Mila 17 nov (edelman): kleine buiging, alles boven de riem 14 graden voorover rond de heup
+        romp = bpy.data.objects.new("romp", None); sc.collection.objects.link(romp)
+        romp.location = (0, 0, 0.45); bpy.context.view_layer.update()
+        for o in [o for o in ouder.children if o.location.z > 0.42]:
+            o.parent = romp; o.matrix_parent_inverse = romp.matrix_world.inverted()
+        romp.rotation_euler = (math.radians(14), 0, 0)
+        romp.parent = ouder
+        ouder["hoed_voor"] = (top - 0.45) * math.sin(math.radians(14))   # voor het spel: hoed schuift zoveel naar voren
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     if stand == "vallen":
