@@ -195,7 +195,7 @@ export function maakGoogle(deps) {
       return verzoek("POST", `${ev(calId, evId)}/move`, {
         query: { destination: doelId, sendUpdates: mailGasten ? "all" : "none" },
         bijHerhaling: async (status) => {
-          if (status < 400 || status >= 500) return undefined; // echte Google: welke 4xx is onbekend (GOK), dus kijk bij elke 4xx
+          if (status < 400 || status >= 500 || status === 401) return undefined; // echte Google: welke 4xx is onbekend (GOK), dus kijk bij elke 4xx
           try {
             const al = await verzoek("GET", ev(doelId, evId));
             return al && al.status !== "cancelled" ? al : undefined;

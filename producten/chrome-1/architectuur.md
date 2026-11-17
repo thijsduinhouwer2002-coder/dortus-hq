@@ -16,5 +16,6 @@ Bekende grenzen en aannames (google.js, keuring 17 nov run 4):
 - Terugzetten met `PATCH status=confirmed` staat niet letterlijk in de documentatie (GOK op basis van de events-pagina "can be restored"); werkt mogelijk niet voor een afspraak waar je gast bent. Eén proef tegen echte Google vóór de winkeltekst "ongedaan maken" belooft voor gasten.
 - Welke fout echte Google geeft bij een tweede move op een al verplaatste afspraak is onbekend; daarom kijkt de code bij elke 4xx in de doelagenda.
 - Een herhaalde PATCH met `sendUpdates=all` na een time-out kan gasten twee keer mailen; de afspraak zelf verandert niet dubbel. Standaard mailen we niet.
+- Na een time-out bij move: staat er in de doelagenda een gastkopie met dezelfde event-id (doelagenda was uitgenodigd), dan meldt de code ten onrechte "gelukt" (zeldzaam, zekerheid laag). Na een time-out wint `onzeker` van een duidelijke 403 of 404: voorzichtig, nooit vals.
 - `Retry-After` wordt niet gelezen; de vaste wachttijden zijn langer dan wat Google meestal vraagt.
 - Teksten zijn nog Nederlands; voor de winkel komen ze in `_locales` (Engels eerst).
