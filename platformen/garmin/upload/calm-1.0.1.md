@@ -1,4 +1,4 @@
-# Ebb Calm 1.0.1: meer horloges (concept, nog niet uploaden)
+# Ebb Calm 1.0.1: meer horloges (release staat, blok staat op de lijst van Thijs)
 
 Geschreven door Gijs, run 128, 17 nov 2026 ±02:10 UTC. Reden: Joris verhaal 25, een update met meer horloges helpt alleen binnen de eerste 14 dagen; het venster van Calm sluit ±30 nov 16:20 UTC en de keuring duurde ±2,4 dagen. Dus vóór ±25 nov bij Thijs.
 
@@ -6,7 +6,10 @@ Geschreven door Gijs, run 128, 17 nov 2026 ±02:10 UTC. Reden: Joris verhaal 25,
 - Tak `claude/ebb-calm-101`, commit 148414a: Calm 1.0.0 met de horlogelijst van Ebb 1.0.1 (55 regels in `manifest-calm.xml`, was 28). Verder niets veranderd aan de app.
 - **GEZIEN:** run 43992372808 helemaal groen (bouw, vier toetsen, fit, alle horloges, plaatjes). `COMPILEERT horloges: 55`, bij geen enkel horloge een nee, 0 waarschuwingen. Alle twaalf schermen bekeken op de drie nieuwe schermmaten: `calm-1.0.1-beelden/blad-calm-101-fr255s.png` (218 px), `blad-calm-101-fenix7s.png` (240 px), `blad-calm-101-fr265s.png` (360 px). Niets valt buiten de rand.
 - **NIET GEZIEN:** een echt horloge; de andere dertien proefhorloges van deze run heb ik niet opnieuw bekeken (zelfde schermmaten als 1.0.0).
-- **Wacht op:** ja van Daan (gevraagd 17 nov ±02:00 UTC). Daarna start ik de release met de hand (maakt `ebb-calm-v1.0.1`), meet bytes en sha256 en zet het blok op `organisatie/lijst-thijs.md`.
+- **Daan: ja** (17 nov ±02:45 UTC, ook voor de release; staat bovenaan `producten/garmin-adem/ontwerp.md`).
+- **Release `ebb-calm-v1.0.1` (run 129, GEZIEN):** met de hand gestart, run 44006623441 groen. https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-calm-v1.0.1/EbbCalm.iq 7.899.930 bytes, sha256 `e7c8667d8203e1409573c514bdfd81bf88b2e081d03ae1e8d1d68740b21086df`, zelf opgehaald en gemeten om 03:20 UTC; het getal in het bestand `.sha256` van de release is gelijk. Het bestand opengemaakt: app-id van Calm (036252ca...), 75 artikelnummers, precies dezelfde 75 als in `Ebb.iq` 1.0.1, en de 40 van Calm 1.0.0 zitten er allemaal in.
+- **NIET GEZIEN:** het versienummer staat niet in het bestand zelf (Thijs vult `1.0.1` in op het formulier); wat de winkel na de upload als aantal horloges toont.
+- **Wacht op:** Chris (drie teksten "wat is nieuw" en de zin met link, gevraagd 17 nov ±02:10 UTC).
 
 ## 2. Wat is nieuw (drie talen, zelfde vorm als Ebb 1.0.1; Chris kijkt het na)
 ```
@@ -33,7 +36,7 @@ De volle Ebb heeft daarnaast rondes met adem inhouden, je eigen adempatroon en 2
 ```
 NIET GEZIEN: of de winkel een adres in de tekst aanklikbaar maakt. Het adres is dat van de pagina van Ebb (GEZIEN, 17 nov 01:57 UTC: bestaat, 1.0.0, 40 horloges). Pas plakken na een ja van Chris op de drie zinnen.
 
-## 4. Uploadblok (concept; de definitieve versie komt op `organisatie/lijst-thijs.md`)
+## 4. Uploadblok (oud concept; de geldende versie staat op `organisatie/lijst-thijs.md`, 17 nov ±03:25 UTC)
 **Ebb Calm bijwerken naar 1.0.1, ±10 min.** Meer horloges; de app zelf is gelijk gebleven.
 1. **Bestand:** `EbbCalm.iq` uit de release `ebb-calm-v1.0.1` (LINK, BYTES, SHA256 volgen). Nooit een bestand met "proef" in de naam.
 2. **Inloggen** op de ontwikkelaarspagina van Garmin (jij zelf), Ebb Calm openen en een nieuwe versie uploaden. Niet als nieuwe app.

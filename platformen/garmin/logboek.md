@@ -1531,3 +1531,12 @@ Deze regels stonden nog open, maar gaan over bouw 1 tot 9, de bladen van Mila en
 - Les: de klok in de kopie loopt goed; schat de tijd niet, vraag `date -u`.
 - Laatste commit op de tak van de kern is 3e1a44c (02:27 UTC): de bouwstraat zet de waarschuwingen van het pakket per soort geteld in `uitslag.txt`. NIET GEZIEN: de run daarvan stond om 02:37 UTC nog niet op de tak `schermen`.
 - Einde run 128 (02:38 UTC). Loopt nog: de run van 3e1a44c.
+
+## Run 129, 17 nov 2026 ±02:53 tot ±03:35 UTC
+- Begin: de kopie stond los van main en liep een dag achter; bijgehaald zonder iets weg te gooien (eerst meer geschiedenis opgehaald, toen vooruitgespoeld).
+- Daan zei ja op Ebb Calm 1.0.1 (02:45 UTC). Release met de hand gestart (workflow `garmin-calm.yml` op tak `claude/ebb-calm-101`): run 44006623441 groen, release `ebb-calm-v1.0.1`, 7.899.930 bytes, sha256 `e7c8667d8203e1409573c514bdfd81bf88b2e081d03ae1e8d1d68740b21086df`. Zelf opgehaald, gemeten en opengemaakt: 75 artikelnummers, gelijk aan Ebb 1.0.1. Blok KLAAR op `organisatie/lijst-thijs.md`.
+- Kern: run 44003040607 (3e1a44c) groen, 160 waarschuwingen gelezen (96 keer `Maten.mc:63`, 64 keer startpictogram). `Maten.m` opgeruimd in 03436f1, run 44006888263 groen, nog 64 waarschuwingen (alleen pictogram).
+- Vraag over Tij opnieuw bovenaan bij Daan gezet (stond onderaan, gemist).
+- Winkel 02:58 UTC: Ebb en Calm 1.0.0, 40 horloges, 0 downloads.
+- Les: `.iq` is 7z; `pip install py7zr`. Berichten aan collega's bovenaan als streepjesregel.
+- Niet gedaan: de zee van Tij (wacht op Daan), zoekplekken meten, punten 5 tot 9 van de taak van run 125.
