@@ -8,7 +8,7 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 NAMEN = ['DATUM_Y', 'DATUM_PX', 'TIJD_Y', 'TIJD_PX', 'VELD_XL', 'VELD_XM', 'VELD_XR', 'ICOON_Y', 'ICOON_H',
          'VELD_Y', 'VELD_PX', 'WATER_TOP', 'WATER_BODEM', 'NU_X', 'LIJN_X', 'BAND_0', 'BAND_1', 'BAND_2', 'BAND_3',
          'LIJN_DIK', 'BOOT_HALF', 'MAST', 'BB_Y', 'BB_PX', 'BB_RAND', 'GOLF_B', 'GOLF_DIK', 'GOLF_AFSTAND', 'VEILIG']
-BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq en Sq 2, en 360 px)
+BASIS = 260  # de map "resources" zonder maat: voor schermen zonder eigen map (Instinct 2, Venu Sq en Sq 2)
 # Elke rij van het blad: hoe de naam begint en hoeveel getallen er per cel staan. Wisselt Mila twee rijen
 # of komt er een bij, dan stopt het script in plaats van de maten stil op de verkeerde plek te zetten.
 RIJEN = [('datum:', 2), ('tijd:', 2), ('velden:', 3), ('veld-icoon:', 2), ('veld-getal:', 2), ('water bij 100', 1),
