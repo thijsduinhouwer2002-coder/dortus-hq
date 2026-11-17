@@ -31,3 +31,23 @@ Een echte opname op de 245 of 255 waarop het nachtblauw 000055 onderaan wegvalt 
 Bestanden `icoon/icoon-<px>.png` in 35, 36, 40, 54, 56, 60, 61, 62, 65 en 70 px, blad `mila-tij-icoon-blad.png` (6x en 1x), bron `tij_icoon.py`.
 Wat erop staat: zwarte schijf, de stijgende zee van Tide in drie banden met de lichte waterlijn, en het witte bootje dat op de golf meevaart. Precies het verhaal van de plaat (je lijn stijgt, het bootje vaart mee), dus eerlijk. Elke maat is apart op de pixel getekend (geen schalen), alleen kleuren uit het palet van 64 (00AAFF, 0055AA, 000055, AAFFFF, wit), harde randen, de hoeken doorzichtig.
 Besluit: geen zon of maan erbij (stond in een proef, GEZIEN), want die zit niet in het product. Zeil los van de romp met een zwarte spleet, anders werd het op 40 px één witte klont (GEZIEN).
+
+## Venu Sq 2, 320 x 360 (17 nov)
+Schets `mila-tij-venusq2-schets.png` (2x en 1x, Dusk), bron `tij_venusq2_schets.py`. Letter is een stand-in; op het horloge blijft het eigen lettertype van Tij.
+**Besluit: de zee loopt hier van rand tot rand.** Op een rechthoek is er geen cirkel om de zee in te knippen, dus wordt het een echte horizon: je lijn van de hele breedte is je dag van links naar rechts, en de afgeronde hoeken van het scherm knippen de zee vanzelf mooi af. Dat maakt de Sq-versie niet een geknepen ronde plaat, maar de breedste zee van de reeks.
+| wat (W 320, H 360) | waarde |
+|---|---|
+| datum: midden y, letter px | 34, 19 |
+| tijd: midden y, letter px | 106, 90 |
+| velden x links/midden/rechts | 90/160/230 |
+| veld-icoon midden y, hoogte | 164, 14 |
+| veld-getal midden y, letter px | 186, 21 |
+| BB-getal midden y, letter px, rand | 222, 36, 2 |
+| water bij 100 y / bij 0 y | 248 / 318 |
+| lijn begint x | 0 (van rand tot rand, ook rechts tot 320) |
+| nu (bootje) x | 250 |
+| banden onder de lijn px | 0/12/26/45, onderste band tot H |
+| waterlijn dikte | 3 |
+| bootje halve breedte, mast | 16, 24 |
+| golfje breedte, dikte, afstand | 16, 3, 5 |
+Veilige rand: niets van tekst binnen 14 px van de zijkant; het bootje blijft links van x 290.
