@@ -115,6 +115,16 @@ Blijft: `{bewoner}'s hat pile is taller than him.` (over Gloop, geen held).
 
 **Twee terugslag-regels vervangen (Iris 21: elke regel moet zonder opzet werken).** `Candle out. {naam} out.` snap je alleen met "casts Light. It is a candle." ervoor; wordt `{naam} cast Fall. It worked.` `{naam}'s list got one name shorter.` is ook met opzet onduidelijk (wiens lijst?); wordt `The grudge outlived {naam}.`
 
+## 2c. Nieuw (17 nov ±16:50 UTC, Sanne): naamgenoot met mom of dad (CONCEPT, ontwerp in `features.md` "Namen zonder families op een rij")
+Waarom: Iris keuring 22 punt 2, GEZIEN `Fenna II wants dad's boot back.` De naamgenoot erft de naam van wie viel, dus bij een vrouwennaam is het de moeder. `{ouder}` is "mom" bij een naam uit `VROUW`, anders "dad".
+
+| soort | was | wordt (CONCEPT) |
+|---|---|---|
+| naamgenoot | `{naam} wants dad's boot back.` | `{naam} wants {ouder}'s boot back.` |
+| naamgenoot_hoed | `{naam} wants dad's hat back.` | `{naam} wants {ouder}'s hat back.` |
+
+Nieuwe voornamen (12, CONCEPT, Thijs beslist net als over de oude): Henk, Geert, Teun, Siem, Kobus, Jop, Femke, Ineke, Anouk, Merel, Elke, Maud.
+
 ## 3. Winkel: de zes dingen die je koopt (kaartje en kroniek)
 Elke speler koopt ze; de naam en de uitleg staan op het kaartje, de kroniekregel komt bij de koop. Houd de naam op 12 tekens en de uitleg op 34 (het kaartje is smal). `{b}` is Gloop.
 
@@ -154,7 +164,7 @@ Namen van niveau 1 tot 12 (de demo eindigt bij 12, dus deze ziet elke demospeler
 - **Hoeden (10):** `Helmet` / `Pointy hat` / `Hood` / `Cap` / `Crown` / `Chef's hat` / `Bucket` / `Top hat` / `Pan` / `Feather cap`.
 
 ## 8. Heldennamen en bijnamen
-- **Voornamen (12):** Bram, Odo, Wout, Gerda, Pim, Rik, Mara, Joost, Fenna, Tibbe, Lotte, Kees. Sanne: een paar zijn namen uit onze eigen ploeg (Bram, Fenna, Kees, Joost). Leuk als knipoog, maar Thijs beslist of dat zo blijft. Wie terugkomt heet Tibbe II, Tibbe III.
+- **Voornamen (12, voorstel 24 in deel 2c):** Bram, Odo, Wout, Gerda, Pim, Rik, Mara, Joost, Fenna, Tibbe, Lotte, Kees. Sanne: een paar zijn namen uit onze eigen ploeg (Bram, Fenna, Kees, Joost). Leuk als knipoog, maar Thijs beslist of dat zo blijft. Wie terugkomt heet Tibbe II, Tibbe III.
 - **Bijnamen na vluchten:** `the Once-Fled` / `the Twice-Fled` / `the Thrice-Fled` / `the 4-Times-Fled`; andere bijnamen: `Hatted`, `Milliner`, `Hoard-Toucher`, `Spooked`, `Lucky`.
 - **Waarom een held wegging (in het boek en de log):** `touched your hoard, took nothing and ran` / `grabbed one coin, saw the hoard wake up and ran` / `saw the Spike Pit again and turned back` / `got hurt by the Spike Pit and ran`.
 
