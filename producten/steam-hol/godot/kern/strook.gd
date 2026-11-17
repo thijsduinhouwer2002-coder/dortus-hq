@@ -112,6 +112,10 @@ var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als
 var slijm
 var slijm_plat := false
 var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
+var proef_wissel := ""       # wissel=regels: spelregel-blokken per minuut aan en uit, CPU-proef binnen één run (kern/proef.gd)
+var wissel_stand := 0         # wissel=regels: stand van de rondgang (0 alles aan)
+var wissel_kaartje_uit := false
+var wissel_regels_uit := false
 var naamgenoot_gezien := {}  # voornamen die deze speelbeurt al een naamgenoot-regel kregen (Sanne 16 nov 22:00)
 var plat_keer := 0           # hoe vaak "flat" deze speelbeurt in de rij ging (hooguit WACHTRIJ.PLAT_KEER, Daan 16 nov 20:35)
 var plat_gemeld := false     # staat (of wacht) er een "flat" voor de huidige keer plat; alleen dan komt "up again"
@@ -304,7 +308,7 @@ func _process(delta: float) -> void:
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
 			# laag: toestand, geen gebeurtenis; welke regel (of geen) beslist wachtrij.gd plat_wissel (Daan 16 nov 20:35)
-			var ps: String = WACHTRIJ.plat_wissel(self, nu_plat)
+			var ps: String = WACHTRIJ.plat_wissel_oud(self, nu_plat) if wissel_regels_uit else WACHTRIJ.plat_wissel(self, nu_plat)
 			if ps != "":
 				_kroniek(regels.kies(ps, {"bewoner": _bewoner()}), true, ps)
 	var helden := 0

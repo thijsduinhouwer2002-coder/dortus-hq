@@ -72,6 +72,23 @@ static func plat_wissel(s, nu_plat: bool) -> String:
 		return "op"
 	return ""
 
+# Zoals voor 0ce076d, alleen voor de CPU-proef wissel=regels (kern/proef.gd): altijd een regel, geen telling.
+static func plat_wissel_oud(s, nu_plat: bool) -> String:
+	var oud_plat := -1
+	var oud_op := -1
+	for i in s.wachtrij.size():
+		if String(s.wachtrij[i].get("soort", "")) == "plat":
+			oud_plat = i
+		elif String(s.wachtrij[i].get("soort", "")) == "op":
+			oud_op = i
+	if not nu_plat and oud_plat >= 0:
+		s.wachtrij.remove_at(oud_plat)
+		return ""
+	if nu_plat and oud_op >= 0:
+		s.wachtrij.remove_at(oud_op)
+		return ""
+	return "plat" if nu_plat else "op"
+
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
 	for i in range(s.wachtrij.size() - 1, -1, -1):
@@ -127,7 +144,8 @@ static func toon(s) -> void:
 		var oude_plek: int = s.kroniek.rfind(String(volgende.r))
 		if oude_plek >= 0:
 			s.kroniek.remove_at(oude_plek)
-	een_per_held(s, String(volgende.r))
+	if s.get("wissel_kaartje_uit") != true:   # CPU-proef wissel=regels (kern/proef.gd)
+		een_per_held(s, String(volgende.r))
 	s.kroniek.append(String(volgende.r))
 	while s.kroniek.size() > 40:
 		s.kroniek.remove_at(0)

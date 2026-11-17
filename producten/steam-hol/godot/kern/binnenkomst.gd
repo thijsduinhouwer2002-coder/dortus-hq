@@ -62,7 +62,7 @@ static func nieuwe_held(s) -> bool:
 			# (Sanne toets 9, punt 3). lied_helden telt pas af in _process als deze held er is.
 			info["lied_held"] = true
 			s._kroniek(s.regels.kies("binnen_lied", {"naam": naam}), false, "binnen_lied")
-		elif (naam.ends_with(" II") or naam.ends_with(" III")) and not s.naamgenoot_gezien.has(naam.split(" ")[0]):
+		elif (naam.ends_with(" II") or naam.ends_with(" III")) and (s.get("wissel_regels_uit") == true or not s.naamgenoot_gezien.has(naam.split(" ")[0])):
 			# één naamgenoot-regel per voornaam per speelbeurt (Sanne 16 nov 22:00, balans.md vraag 2); daarna de gewone regel
 			s.naamgenoot_gezien[naam.split(" ")[0]] = true
 			s._kroniek(s.regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
@@ -76,9 +76,10 @@ static func nieuwe_held(s) -> bool:
 	if s.tekst != null and String(s.tekst.vast) != "":
 		s.tekst.vast = ""
 		s.tekst.queue_redraw()
-	s.namen_recent.append(String(info.naam))
-	while s.namen_recent.size() > 24:
-		s.namen_recent.remove_at(0)
+	if s.get("wissel_kaartje_uit") != true:   # CPU-proef wissel=regels (kern/proef.gd)
+		s.namen_recent.append(String(info.naam))
+		while s.namen_recent.size() > 24:
+			s.namen_recent.remove_at(0)
 	match stap:
 		"vallen": info["moet_vallen"] = true
 		"terug":

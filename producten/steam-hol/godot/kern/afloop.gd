@@ -70,7 +70,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	else:
 		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
 		# plus graafbonus: +1 per 8 zelf gegraven cellen, hooguit +3 (Sanne 16 nov 21:00, balans.md)
-		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven))
+		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + (0 if s.get("wissel_regels_uit") == true else VOORTGANG.graafbonus(int(s.zelf_gegraven)))
 		s.hol.goud += buit
 		faam_erbij(s, 1)
 		var naam: String = String(info.naam)

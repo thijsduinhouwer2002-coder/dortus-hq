@@ -42,6 +42,7 @@ static func lees_argumenten(s) -> void:
 			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
+			"wissel": s.proef_wissel = kv[1] if kv[1] == "regels" else ""   # CPU-proef binnen één run (Bram 17 nov, Sanne 04:01), zie wissel_tik
 
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
@@ -96,6 +97,7 @@ static func kijk_val(s, w: Node) -> void:
 
 # Elk beeld: staat het moment stil, dan één logregel (de winkel-workflow maakt daarop zijn beelden).
 static func tik(s) -> void:
+	wissel_tik(s)
 	if s.proef_moment != "" and not s.moment_gemeld and staat_stil(s):
 		s.moment_gemeld = true
 		s.log_regel("HOL moment vast %s t=%.1f" % [s.proef_moment, s.t])
@@ -105,3 +107,26 @@ static func staat_stil(s) -> bool:
 		"val", "munt": return bool(s.hol.moment_val_vast)
 		"hap": return "moment_vast" in s.slijm and float(s.slijm.moment_vast) >= 0.0 and float(s.slijm.t) >= float(s.slijm.moment_vast)
 	return false
+
+# CPU-proef binnen één run (Bram 17 nov, Sanne 04:01, balans.md stand 03:50): wissel=regels zet de spelregel-commits van
+# 959aef4 per blok aan en uit, per minuut in een vaste rondgang van vier standen:
+#   minuut % 4 == 0  alles aan (zoals main)
+#   minuut % 4 == 1  kaartje uit: geen een_per_held, geen namen_recent, geen vaste telling (959aef4)
+#   minuut % 4 == 2  regels uit: plat/op altijd een regel (0ce076d), naamgenoot elke keer (4a7af62), geen graafbonus (cfaafe0)
+#   minuut % 4 == 3  alles uit (zoals de basis abd4b6e voor deze stukken)
+# Tussen runs schelen de runners tot 30%, binnen één run niet. Weg-faam (a1a171e) en de lichtere letter (b4e2c45) draaien
+# alleen bij laden of tekenen van het doel, niet per beeld, en blijven aan. Alleen met het argument; zonder blijft alles main.
+static func wissel_tik(s) -> void:
+	if s.proef_wissel != "regels":
+		return
+	var stand := int(s.t / 60.0) % 4
+	if stand == s.wissel_stand:
+		return
+	s.wissel_stand = stand
+	s.wissel_kaartje_uit = stand == 1 or stand == 3
+	s.wissel_regels_uit = stand == 2 or stand == 3
+	if s.wissel_kaartje_uit and s.tekst != null and String(s.tekst.vast) != "":
+		s.tekst.vast = ""
+		s.tekst.queue_redraw()
+	s.log_regel("HOL wissel regels stand %d kaartje %s regels %s t=%.1f" % [stand,
+		"uit" if s.wissel_kaartje_uit else "aan", "uit" if s.wissel_regels_uit else "aan", s.t])
