@@ -1,0 +1,8 @@
+metingen van 10 s: 448
+CPU-s per 10 s: gemiddeld 1.314, mediaan 1.484, laagste 0, hoogste 3
+geheugen aan het eind: 50 MB
+proces leefde tot het eind: True
+soort: editor-Godot (--path)
+eerste koop mogelijk: HOL eerste koop mogelijk na 147 s speeltijd (goud 47)
+kroniekregels: 353, verschillend 309
+vaakst herhaald: 7x 'Gloop says thanks for the snack. +6'; 3x 'Bram II ran. Swore revenge.'; 3x 'Pim II escaped with a limp.'; 3x 'Kees escaped with a limp.'; 3x 'Gerda II wrote a song about Gloop.'
