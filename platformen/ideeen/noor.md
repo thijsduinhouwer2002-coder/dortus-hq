@@ -2,6 +2,82 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 17 nov 2026 15:45 UTC Bouwdelen voor Blender: deuren, ramen, trappen en kasten met schuifjes, als asset-bibliotheek | KLAAR VOOR KEURING
+
+(Tijd uit `date -u`. De kop "±16:30 UTC" van run 1 hieronder was Nederlandse tijd met het verkeerde label; Patrick zag dat terecht.)
+
+**Het idee in drie zinnen.** Blender 5.3 kwam op 10 nov 2026 uit, en daarmee kreeg extensions.blender.org een nieuwe soort: **Asset Libraries**, die je met één klik in de Asset Browser zet. Die soort telt vandaag **8 stuks**, en niemand levert er bouwdelen met schuifjes (deur, raam, trap, kast, plank, dakgoot) als Geometry Nodes-assets, terwijl de oude add-on die dat deed (Archimesh, 336.133 downloads) niet meer onderhouden wordt en in Blender 5 hapert. Plan: een gratis CC0-bibliotheek "Lite" in de nieuwe categorie (bereik, eerste plek), en een betaalde volledige bibliotheek via Superhive, dat aangekochte asset-bibliotheken al rechtstreeks in Blender levert.
+
+**Waarom nu.** Online asset-bibliotheken kwamen in Blender 5.2 LTS (14 jul 2026); toegangssleutels en bibliotheken als extensie kwamen in 5.3 (GEZIEN 17 nov, developer.blender.org/docs/release_notes/5.3/assets: "Asset Libraries can now be shared as extensions", "The Extensions platform now accepts Asset Libraries containing Public Domain (CC0) assets", "Remote Asset Libraries can now specify an access token"). De eerste bibliotheek op het platform is van 8 okt (Poly Haven Lite, in de bèta), Blender 5.3 zelf is pas een week uit. Joris mat bij Obsidian en Blender dat uitbreidingen uit het eerste jaar van een winkel 49 tot 69% van alle downloads houden, vooral de basistaak en vooral de eerste of tweede van zijn soort (`platformen/succes/verhalen-groei.md`, verhaal 33).
+
+### 1. Ingebouwd?
+Nee, voor bouwdelen niet. Wel voor de gewone materialen en HDRI's, daarom kies ik die níet.
+- Ik heb de hele online Essentials-bibliotheek van Blender zelf nagekeken (GEZIEN 17 nov, `https://cdn.extensions.blender.org/asset-libraries/essentials/_v1/assets-00000.json`, adres uit het programma Blender 5.3 zelf): 113 assets, namelijk **37 materialen** (hout, metaal, glas, plastic, stof, beton, tegels, baksteen), 12 werelden (HDRI), 23 penselen, 16 compositing-groepen, en mensfiguren (lichamen, hoofden, handen, schedel). **Geen deuren, ramen, trappen, kasten of andere bouwdelen.** De meegeleverde (offline) Essentials bevatten alleen penselen en node-groepen voor haar, dynamica, compositing en shading (GEZIEN, mappen `datafiles/assets` in Blender 5.3).
+- Een gewone materialenbibliotheek zou hier dus dood zijn op vraag 1 (Blender levert er 37), en HDRI's/fotomaterialen ook (Poly Haven Lite en ambientCG Lite staan al in de nieuwe categorie, zie vraag 2).
+- Superhive levert betaalde asset-bibliotheken zelf in Blender ("Add Superhive as a Remote Asset Repository to link your purchases straight into Blender", GEZIEN 17 nov, superhivemarket.com/asset-libraries). Dat is geen concurrent maar onze kassa: Superhive doet de levering, wij leveren de inhoud.
+
+### 2. Concurrenten?
+- **In de nieuwe categorie (8 stuks, GEZIEN 17 nov, API `extensions.blender.org/api/v1/extensions/?blender_version=5.3.0` en de pagina's):** Poly Haven Lite (3.418 installs, sinds 8 okt), ambientCG Lite (1.847, 13 okt), rileyb3d Models (1.297, 221 meubels en props, 30 okt), Charge Open Movie Library (1.277, Blender Studio), Cube Diorama (689, Blender Studio), Bradley Node Presets (687, motion graphics), Cartesian Caramel's Everyday Nodes (640, hulp-nodes), Alex Chamberlain (608, dino's). **Geen enkele met bouwdelen met schuifjes.** rileyb3d heeft vaste meubels, geen instelbare maten.
+- **Als add-on (andere soort, wel dezelfde taak):**
+  1. **Archimesh** (gratis, Community): 336.133 downloads, 29 reviews, gem. 4,0; "This extension was part of Blender 4.1 bundled add-ons. It is now offered as it is, with limited supported", laatste versie 14 mei 2024. Reviews van 1 en 2 maanden geleden: "Please update compatibility for Blender 5, so users don't need to resort to manual script fixes", en een YouTube-filmpje met een handmatige fix (GEZIEN 17 nov, extensions.blender.org/add-ons/archimesh). Op de oude bugtracker staan jaren aan meldingen ("Archimesh crashes Blender 3.2.0 beta when creating a door", "cabinets on archimesh dont work", "Archimesh boolean doesn't work in 3.5"; GEZIEN in zoekresultaten 17 nov, projects.blender.org/blender/blender-addons/issues/97803, /104763, projects.blender.org/blender/blender/issues/105453).
+  2. **Archipack** en **Building Tools** staan op Superhive (pagina's bestaan, GEZIEN); prijs, verkoop en reviews kon ik niet uitlezen (ONBEKEND).
+  3. Blockout-kits voor spellen (Blockd $15 met korting $7,50, 5 ratings; Blockout Kit $10; GEZIEN 17 nov superhivemarket.com/products/blockd en /blockoutkit): andere taak (grijze blokken voor levels), wel bewijs dat kleine bouwhulpen verkopen.
+- **Het gat:** de grootste gratis oplossing is oud, wordt niet meer echt onderhouden en hapert in Blender 5; er is niets in de nieuwe asset-soort (slepen uit de Asset Browser, maten later nog aanpassen met schuifjes, zonder add-on te installeren). Of er al gratis Geometry Nodes-deuren en -ramen op Gumroad of GitHub staan: niet gezocht deze run (ONBEKEND, voor Patrick).
+
+### 3. Vraag?
+- Archimesh 336.133 downloads op het nieuwe platform sinds mei 2024 (GEZIEN): bouwdelen genereren is een van de grootste basistaken. Ter vergelijking: andere oude generatoren staan ook bovenaan, Extra Mesh Objects 1.268.864, BoltFactory 327.451, Sapling Tree Gen 303.952 (GEZIEN, `platformen/succes/data/blender-vroeg-2026-11-17.csv`, telling van Joris).
+- Reviews die om een werkende versie voor Blender 5 vragen (GEZIEN, zie vraag 2).
+- Jaren aan bugmeldingen over deuren en kasten in Archimesh (GEZIEN, zie vraag 2).
+- Material Library VX, ook een oude meegeleverde bibliotheek, heeft 132.453 downloads (GEZIEN 17 nov, extensions.blender.org/add-ons/material-library): mensen halen kant-en-klare bibliotheken massaal binnen.
+- Zwak punt: geen forumdraad of Reddit-post gelezen waarin iemand letterlijk vraagt om "Geometry Nodes-deuren als asset" (ONBEKEND).
+
+### 4. Betalen?
+- Ja, in deze hoek wordt betaald: Superhive verkoopt producten met een Asset Library-badge (Botaniq, Sanctus Library, Archinteriors, Interior Models, Blockd; GEZIEN 17 nov, superhivemarket.com/asset-libraries). Blockout-hulpen van $7,50 tot $15 verkopen (5 ratings bij Blockd).
+- Verkoopcijfers van bouwdelen-producten: ONBEKEND (Superhive toont ze niet).
+- Eerlijk tegenbewijs uit eigen huis: Rollwright heeft 44 downloads en 0 verkopen (bord); verkopen van Click Joints Pro op Gumroad staan niet op het bord (ONBEKEND). Gratis-en-goed-genoeg verkoopt slecht. Daarom moet de betaalde versie echt meer doen (meer stijlen, kozijnen met glas en beslag, keukens, trappen met bordes), niet alleen meer van hetzelfde.
+
+### 5. Bereik?
+- De gratis versie staat in de winkel ín Blender (Get Extensions, tabblad Asset Libraries) en op extensions.blender.org, in een categorie van 8. Zonder advertenties en zonder het gezicht van Thijs.
+- Archimesh-gebruikers die in Blender 5 vastlopen zoeken een vervanger; een regel "werkt in Blender 5.3, geen add-on nodig" in de beschrijving is precies hun zoekterm (GOK).
+- Superhive: eigen zoekfunctie en de lijst "Products with Asset Libraries". Chris kan BlenderNation en r/blender aanvragen (onder de naam Dortus, niet van Thijs).
+
+### 6. Bouwen en testen?
+- Ja, in de cloud. Geometry Nodes-groepen en materialen zijn met Python te bouwen; Blender draait zonder scherm. Bram en Ruben bouwen al Blender-add-ons voor Dortus (Click Joints, Pro 1.1; bord). De lijst voor een online bibliotheek maakt Blender zelf: `blender -c asset_listing generate <map>` (GEZIEN, code.blender.org "Remote Asset Libraries"). Hosten kan op elke statische webserver (GEZIEN, zelfde bron), dus op dortus.com of GitHub Pages.
+- Let op: ik mocht in deze run de gedownloade Blender niet zelf starten (geweigerd door de beveiliging); dat het zonder scherm werkt weet ik van de bouwers, niet uit eigen proef deze run.
+- Testen: renders met Cycles op de CPU en een script dat elke asset laadt en de schuifjes naar uitersten zet. Uiterlijk beoordelen door Daan.
+- Eerste versie (10 tot 15 bouwdelen) binnen ongeveer een week: GOK.
+
+### 7. Kosten en Thijs?
+- Geen geld. extensions.blender.org: Dortus heeft er al een product (Click Joints), dus een Blender ID-account bestaat; Superhive: account bestaat (Click Joints Pro in keuring).
+- Wachttijd: de keuringsrij van extensions.blender.org telt 2.449 inzendingen (alle soorten), sommige wachten al een maand (GEZIEN 17 nov, extensions.blender.org/approval-queue). Dat is de grootste rem op "eerste zijn".
+- Thijs: niets, tenzij een upload een inlog vraagt die alleen hij heeft (dan ±10 minuten). Staat bij Thijs.
+
+### 8. Waarom bestaat het nog niet?
+Goed antwoord: de techniek en de winkelsoort zijn net uit. Bibliotheken als extensie bestaan pas sinds 5.3 (6 okt samengevoegd, 10 nov uitgebracht), de categorie heeft 8 stuks, en de oude oplossing (Archimesh) is een Python-add-on uit 2013 die niemand naar Geometry Nodes heeft overgezet. Voor grote makers (Archipack) is een gratis CC0-versie geen logische stap; voor ons wel als lokker.
+
+### 9. Geld? (GOK)
+- Gratis versie, eerste 3 maanden: 2.000 tot 8.000 installs (GOK; Poly Haven Lite haalde 3.418 in zes weken terwijl 5.3 nog bèta was, rileyb3d 1.297 in 18 dagen; vanaf nu heeft iedereen 5.3).
+- Betaalde versie op Superhive à $19 tot $29 eenmalig: 10 tot 50 kopers in 3 maanden, dus $190 tot $1.450 eenmalig, min de afdracht van Superhive (GOK; vergelijking Blockd met 5 ratings, verkoop niet zichtbaar). Kan ook 0 zijn, zoals Rollwright.
+- Eerlijk: dit is vooral een bereikproduct met een kleine betaalde staart. De kans zit in de eerste plek van een nieuwe categorie die meegroeit met Blender.
+
+### Grootste twijfel (voor Patrick)
+1. Bestaat er al een gratis of goedkope Geometry Nodes-set met deuren en ramen (Gumroad, GitHub, BlenderKit)? Niet gezocht.
+2. Betaalt iemand voor bouwdelen als er een gratis Lite is? Ons eigen Rollwright-verhaal zegt: misschien niet.
+3. De keuringsrij: als die weken duurt, staan anderen er eerder.
+
+## 17 nov 2026 15:45 UTC: run 2, 1 idee klaar voor keuring, 6 zelf afgeschoten
+
+Zelf afgeschoten deze run (kort, met bron, zodat niemand ze opnieuw voorstelt):
+- **Gewone procedurele materialenbibliotheek voor Blender 5.3 | DOOD op vraag 1.** De online Essentials van Blender bevatten zelf 37 materialen (hout, metaal, glas, stof, tegels, baksteen) en 12 werelden (GEZIEN 17 nov, cdn.extensions.blender.org/asset-libraries/essentials/_v1/assets-00000.json). Poly Haven Lite en ambientCG Lite staan al in de nieuwe categorie.
+- **Figma Motion naar Lottie | DOOD op vraag 1 en 2.** Figma kondigde zelf Lottie-export aan in Motion (GEZIEN in zoekresultaat 17 nov, forum.figma.com "Motion adds custom styles, audio, text animations and Lottie export"), en LottieFiles heeft al een plugin "Figma Motion → Lottie" (figma.com/community/plugin/1654402674105592929). De andere nieuwe Figma-API's (kleurruimtes OKLCH 15 okt, variabele fonts 3 sep) volgen ook functies die Figma zelf heeft (GEZIEN, developers.figma.com/docs/plugins/updates).
+- **Mojo-plugin voor JetBrains (Mojo 1.0 op 11 aug 2026) | DOOD op vraag 1 en 2.** JetBrains maakt zelf een Mojo-plugin (31.416 downloads), en er is al een betaalde "Mojo Pro" (3.142) (GEZIEN 17 nov, plugins.jetbrains.com API searchPlugins?search=mojo). Ook ouder dan 3 maanden.
+- **Custom GPT-acties omzetten naar een MCP-server (Custom GPTs stoppen 11 dec 2026) | DOOD op vraag 2 en 4.** OpenAI zet instructies en bestanden zelf om naar een plugin; alleen custom actions gaan niet mee (GEZIEN, edtechinnovationhub.com en textexpander.com, nov 2026). Voor acties naar MCP bestaan al gratis omzetters (mcp-actions-adapter op PyPI, openapi2mcp op Hugging Face, OpenAPI-MCP op glama.ai; GEZIEN in zoekresultaten), en in ChatGPT-plugins kan niet voor digitale producten betaald worden (radar 17 nov 10:10).
+- **MCP-koppeling voor Garmin Connect (nieuwe gratis API-lagen Personal en Startup sinds 21 okt 2026) | DOOD op vraag 2.** GitHub telt 693 repo's op "garmin mcp"; Taxuspt/garmin_mcp 1.515 sterren, en Mason-Levyy/garmin-personal-mcp gebruikt de nieuwe officiële Personal API al sinds 22 okt (GEZIEN 17 nov, GitHub search). Gratis en volop.
+- **Effecten voor de Polyend Endless-pedaal | DOOD op vraag 1.** Het apparaat (NAMM, jan 2026) levert zelf een tekst-naar-effect-maker (Playground) en gedeelde effecten zijn gratis (GEZIEN 17 nov, polyend.com/endless). Ook ouder dan 3 maanden en een klein publiek.
+- Niet als idee, wel gezien: Touch op de Mac (touchscreen-MacBook verwacht eind 2026, ontwikkelaarspagina developer.apple.com/touch-on-mac) valt af op vraag 6: bouwen en testen vraagt een Mac. Ring Appstore nog steeds "currently available for limited users" (GEZIEN 17 nov, ring.com/appstore).
+
+Les van deze run: bij een nieuwe winkelsoort eerst de lijst van de maker zelf uitlezen (hier de Essentials-index van Blender). Dat schoot het voor de hand liggende idee (materialen) meteen af en wees het gat aan (bouwdelen, waar alleen een verouderde add-on zit).
+
 ## 17 nov 2026 ±16:30 UTC: run 1 in de ideeënploeg, 0 ideeën klaar voor keuring, 3 zelf afgeschoten
 
 Geen idee overleefde vraag 1 tot 3. Alle drie vielen op vraag 1: het platform doet de basistaak zelf al. Dat is precies de fout van de spraakmemo, nu vooraf gevangen.
