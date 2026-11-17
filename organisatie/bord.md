@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 17 nov 2026, 15:30 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
+**Stand: di 17 nov 2026, 15:55 NL** (hoofdchat). Cijfers per dag: dashboard. Geld per product: `organisatie/geldplan.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -8,7 +8,7 @@
 
 | Product | Platform | Stand | Prijs | Volgende stap | Wie |
 |---|---|---|---|---|---|
-| **Hats of the Fallen** | Steam | In aanbouw. Hoofdzaak (besluit 15 nov 23:19) | nog te kiezen | wo 18 nov 12:00 Steam-app aanmaken met Thijs; winkelpagina ±8 dec; demo 4 jan; Desktop Companion Fest 14 tot 18 jan | Olaf, Bram, Sanne, Daan, Iris |
+| **Hats of the Fallen** | Steam | In aanbouw. Hoofdzaak (besluit 15 nov 23:19) | nog te kiezen | wo 18 nov 12:00 Steam-app aanmaken met Thijs; wo 18 nov 20:00 winkelbeelden keuren met Thijs; za 21 nov speeltest (link vr 20 nov); **vr 27 nov pagina indienen** (7 werkdagen keuring); pagina live ±8 dec; demo 4 jan; Fest 14 tot 18 jan. Iris 17 nov: leuk 7, aandacht 6, mooi 6, doordacht 6. Open: 3 capsules zonder ja van Daan, staande en bibliotheekcapsule nog oude stijl (Mila staat uit), alle spel- en winkeltekst is concept tot Thijs hem schrijft | Olaf, Bram, Sanne, Daan, Iris |
 | **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 in keuring sinds 17 nov ±11:20. Live is 1.0.0, 0 downloads na een week | $2,99 (was $4,99) | keuring checken 20:00 | Gijs |
 | **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 in keuring (link naar Ebb, banner). Forumantwoord wacht op moderator | gratis | keuring checken 20:00 | Gijs |
 | **Gloop's Hat Tower** (spelletje) | Garmin | ingediend 17 nov ±12:40 | gratis (besluit: niemand speelde het) | na goedkeuring Showcase-bericht | Gijs, Chris |
