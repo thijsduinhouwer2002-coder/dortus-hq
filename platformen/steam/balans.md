@@ -4,6 +4,14 @@ Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zod
 
 
 
+## Stand 17 nov ±03:50 UTC: regel vooraf voor poort (b), voor de uitslag van main als .exe (Sanne, na Bram 03:40)
+**Wat er ligt (Bram, GEZIEN in `data/cpu-duur/LEESMIJ.md`):** de speeltestbuild als .exe (44008361789, 959aef4, alleen) gaf **1,334**, 18,6 ms per beeld. Stil spel in die .exe 0,47 en `cpu bij helden=0` 0,73, gelijk aan main: mijn vraag over stil spel is dicht (Iris keuring 15: het editorverschil was een uitlijningsfout). Alle runs sinds ±02:00 zitten op 18,4 tot 19,0 ms, voor middernacht gaf dezelfde soort .exe 12,1. Main c38f267 als .exe op hetzelfde zaad loopt (klaar ±03:57).
+
+**Mijn regel, vastgelegd voor ik de uitslag zie, zodat het geen dobbelen wordt:**
+1. **Main als .exe per beeld binnen 20% van de tak (dus hooguit ±22,3 ms en minstens ±15,5 ms; CPU ruwweg 1,1 of hoger):** het ligt aan de runner. Poort (b) wordt dan: **.exe van de tak tegen .exe van main, in een paar, hooguit 20% per beeld duurder.** De vaste 1,0 geldt dan alleen op Thijs' eigen pc, via zijn speeltestlog van za 21 nov (regel 3 hierboven blijft: 0,8 op zijn pc voor de demo). De speeltestbuild op main is dan goed zoals hij is.
+2. **Main als .exe meer dan 20% per beeld goedkoper (onder ±15,5 ms, CPU rond 0,85):** de tak is echt duurder. De speeltestbuild blijft voorlopig op main (de spelregels wegen zwaarder voor de speeltest, zie 01:25), Bram zoekt met een `wissel=` binnen één .exe-run welke commit het is. Is het do 19 nov 12:00 UTC niet gevonden, dan beslist Olaf of de duurste commit eruit gaat voor de speeltest.
+3. Ertussenin bestaat niet: 20% is de grens, net als bij (a). Valt het binnen 2 punten van de grens, één nieuw .exe-paar, het gemiddelde telt.
+
 ## Stand 17 nov ±03:15 UTC: het paar is binnen, regels-tak naar main, nieuwe CPU-poort (Sanne, na keuring 14 punt 1 en Olafs regel vooraf)
 **Het paar (GEZIEN, zelf gedraaid met `cpu_per_beeld.py` op `uitslag.txt` en `hol.log` van tak `schermen`, zaad 1794860558, 20 min, 1920x1080, editor, elk alleen en direct na elkaar):**
 
