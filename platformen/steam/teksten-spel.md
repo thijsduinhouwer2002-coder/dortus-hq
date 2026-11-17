@@ -81,6 +81,38 @@ De bard die vlucht laat al een lied achter (meer helden), dus "New song tonight"
 
 En `val` van 5 naar 8 regels, zonder dubbele met `val_bewoner` (CONCEPT, erbij): `{naam} took the short way down.` / `{naam} checked the floor. Too late.` / `{naam} is part of the hole now.`
 
+## 2b. Nieuw (17 nov ±10:00 UTC, Sanne): hap per soort, en Dame in plaats van Sir (CONCEPT, ontwerp in `features.md`)
+Waarom: Iris keuring 21 punt 1 (`Sir Gerda`, `Fenna the Bard tunes his lute.`) en Olafs vraag over `hap_<soort>` (`val_bewoner` ±5 keer per regel per uur). Nageteld met de langste naam (`Tibbe III`, ook `Gerda III`) en Gloop: hapregels onder 38 tekens, dus met ` +12` onder 42. Wat te lang is slaat `regels.kies` vanzelf over voor die ene held.
+
+**`{titel}` is "Sir", of "Dame" bij Gerda, Mara, Fenna en Lotte.**
+
+| soort | was | wordt (CONCEPT) |
+|---|---|---|
+| binnen_ridder | `Sir {naam} clanks in.` / `Sir {naam} polished his armor for this.` / `Sir {naam} is very slow. Very sure.` | `{titel} {naam} clanks in.` / `{titel} {naam} polished up for this.` / `{titel} {naam} is very slow. Very sure.` |
+| val_ridder | `Sir {naam} was very sure. Was.` / `Sir {naam} clanked all the way down.` | `{titel} {naam} was very sure. Was.` / `{titel} {naam} clanked all the way down.` |
+| vlucht_ridder | `Sir {naam} retreats. Slowly. Loudly.` / `Sir {naam} will tell it differently.` | `{titel} {naam} retreats. Slowly. Loudly.` / `{titel} {naam} will tell it differently.` |
+| binnen_bard | `{naam} the Bard tunes his lute.` | `{naam} the Bard tunes a lute.` |
+| binnen_opschepper | `{naam} tells everyone he slew a dragon.` | `{naam} slew a dragon. Says {naam}.` |
+| Heldenboek stempel | `fell to his own grudge` | `undone by a grudge` |
+| Heldenboek hoe | `{bewoner} got him.` / `The pit got him.` / `He got away.` | `{bewoner} got this one.` / `The pit got this one.` / `Got away.` |
+| kroniek aarts | `{naam} got his own page. He'd love it.` | `{naam} gets a whole page. Framed it.` |
+| kroniek boek | `New page: the Knight. The pit got him.` / `Page for the Thief. He got away.` | `New page: the Knight. The pit won.` / `Page for the Thief. Got away.` |
+| uitleg soort | `Pits love him.` / `Pits rarely catch him.` / `Weak. If he escapes, he sings about you.` | `Pits love knights.` / `Pits rarely catch thieves.` / `Weak. Escapes? Sings about you.` |
+
+Blijft: `{bewoner}'s hat pile is taller than him.` (over Gloop, geen held).
+
+**Hap per soort (`hap_<soort>`, nieuw, 2 per soort).** Komt als Gloop een nieuwe held met soort- of trekregel opeet en er geen aartsvijand of hoed bij is. Elke regel werkt ook zonder de binnenkomstregel.
+
+| soort | regels (CONCEPT) |
+|---|---|
+| hap_ridder | `{bewoner} ate {titel} {naam}. Crunchy.` / `{bewoner} ate {titel} {naam}, can and all.` |
+| hap_dief | `{naam} snuck into {bewoner}. Oops.` / `{bewoner} caught {naam} sneaking. Gulp.` |
+| hap_magier | `No spell beats {bewoner}. Ask {naam}.` / `{bewoner} ate {naam}. Fizzy.` |
+| hap_bard | `{bewoner} ate {naam}. Hums now.` / `{naam}'s song ends inside {bewoner}.` |
+| hap_slaapkop | `{naam} napped. {bewoner} snacked.` / `{naam} sleeps inside {bewoner} now.` |
+| hap_wraakzuchtig | `{bewoner} ate {naam}, list and all.` / `{naam}'s grudge tasted great.` |
+| hap_opschepper | `{naam} lost to a slime. Shh.` / `{bewoner} ate {naam}. No autographs.` |
+
 ## 3. Winkel: de zes dingen die je koopt (kaartje en kroniek)
 Elke speler koopt ze; de naam en de uitleg staan op het kaartje, de kroniekregel komt bij de koop. Houd de naam op 12 tekens en de uitleg op 34 (het kaartje is smal). `{b}` is Gloop.
 
