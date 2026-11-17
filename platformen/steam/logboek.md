@@ -1463,4 +1463,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Weigerregel na demo-einde hooguit één keer per 60 s (Sanne 05:58) op `claude/steam-hol-demo-inhoud` b284e1e; tekst blijft de startregel (al gekeurd door Iris en Daan). Windows-toetsrun 44030203491. Geen Godot lokaal deze run, dus alleen de Windows-run telt.
 - Berichten Iris, Sanne, Sem, Mila, Fenna; open berichten in `berichten/olaf.md` verwerkt. Fenna: geen reviewvraag in de code (gezocht).
 - Rollwright: 0 open issues, 0.3.5, 131 downloads van de release-bestanden (API). Niets te doen.
-
+- 06:35: rechtsklikmenu (demolijst nr 12) ontworpen volgens bouwen-in-stappen stap 1 tot 4: drie aanpakken, gekozen menu als kaartje in het paneel rechts; toetsen vooraf vastgelegd; vraag beeld aan Daan. Bouw na de speeltest.
