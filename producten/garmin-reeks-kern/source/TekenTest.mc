@@ -347,7 +347,7 @@ function testWinkelGekozenThema(logger as Test.Logger) as Boolean {
     var proef = Proef.thema(Thema.DUSK, 454) == Thema.DUSK && Proef.thema(Thema.NIGHT, 260) == Thema.NIGHT;
     // Run 134: de instelling lezen alleen bij de betaalde versie. De gratis versie heeft geen instellingen en roept
     // Keuze.leesThema nergens aan (Soort.thema is daar vast Tide); in de simulator stopt die aanroep zonder
-    // instellingen met een fout die niet te vangen is (runs 44035849963 en 44037821030).
+    // instellingen met een fout die de catch in Keuze niet ving (runs 44035849963 en 44037821030; waarom is niet uitgezocht).
     if (Soort.BETAALD) {
         return proef && Keuze.leesThema() == Thema.TIDE;
     }

@@ -125,7 +125,8 @@ jobs:
           # Run 134: de zes nieuwe pictogrammen in beeld (Proef.velden): vlam, trap, stopwatch op de fenix 8; speld, accu, thermometer op de 255.
           grep -q "^fenix847mm KERN SOORT betaald=ja thema=1 velden=3,4,5" "$U" && grep -q "^fr255 KERN SOORT betaald=ja thema=2 velden=6,7,8" "$U" && echo "NIEUWE_VELDEN_IN_BEELD goed" >> "$U" || echo "NIEUWE_VELDEN_IN_BEELD FOUT" >> "$U"
           # De naam op het horloge per versie (Chris, 17 nov): Skiff en Skiff Free.
-          echo "NAAM betaald=$(grep -o '>Skiff<' betaald/strings/strings.xml | wc -l) gratis=$(grep -o '>Skiff Free<' gratis/strings/strings.xml | wc -l)" >> "$U"
+          [ "$(grep -c '>Skiff<' betaald/strings/strings.xml)" = 1 ] && [ "$(grep -c '>Skiff Free<' gratis/strings/strings.xml)" = 1 ] && echo "NAAM goed (Skiff en Skiff Free)" >> "$U" || echo "NAAM FOUT" >> "$U"
+          grep -q "app_id_anders=ja" "$U" && echo "APP_ID goed (gratis en betaald verschillen)" >> "$U" || echo "APP_ID FOUT" >> "$U"
           # Run 133: dezelfde toetsen ook als gratis versie (de stap hierboven draait ze als betaald). Zelfde opdrachten
           # als tester.sh van de image, met gratis.jungle. De laatste regels van de uitslag komen in uitslag.txt.
           if monkeyc -f gratis.jungle -d fenix7 -o /tmp/gr/toets.prg -y /tmp/key.der -t -l 3 > /tmp/gr/toets-bouw.log 2>&1; then
@@ -153,9 +154,9 @@ jobs:
           mogrify -fuzz 2% -trim +repage schermen/*.png
           cat "$U"
           ls -la schermen
-          # Run 134 (punt van de keurder, run 133): een regel met FOUT of een mislukte bouw maakt de job rood. De beelden
+          # Run 134 (punt van de keurder, run 133): een regel met FOUT, een fout in het log van de simulator (LOG) of een mislukte bouw maakt de job rood. De beelden
           # en uitslag.txt gaan daarna nog steeds naar de tak schermen (de stappen erna draaien altijd).
-          if grep -a -E 'FOUT|^(IQ_PROEF|IQ_GRATIS|BOUW [^ ]+|TOETSEN_GRATIS bouw) nee' "$U"; then echo "ROOD: zie de regels hierboven"; exit 1; fi
+          if grep -a -E 'FOUT| LOG |^(IQ_PROEF|IQ_GRATIS|BOUW [^ ]+|TOETSEN_GRATIS bouw) nee' "$U"; then echo "ROOD: zie de regels hierboven"; exit 1; fi
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
       - name: Slaapbeeld tellen (pixels aan en verschuiving)

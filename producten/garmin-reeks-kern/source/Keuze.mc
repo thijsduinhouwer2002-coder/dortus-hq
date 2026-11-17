@@ -56,7 +56,9 @@ module Keuze {
         return uit;
     }
 
-    // Leest het gekozen thema. Bestaat de instelling niet of geeft het horloge een fout: Tide, de plaat stopt niet.
+    // Leest het gekozen thema. Geeft het horloge een fout bij het lezen: Tide. Alleen voor de betaalde versie: in een
+    // pakket zonder instellingen (de gratis versie) stopte deze aanroep in de toets ondanks de catch (run 44037821030);
+    // de gratis versie roept hem daarom nergens aan (Soort.thema is daar vast Tide).
     function leesThema() as Number {
         var ruw = null;
         try {

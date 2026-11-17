@@ -72,19 +72,19 @@ module Proef {
         return gekozen;
     }
 
-    // Bouwstraat (run 134): de betaalde proef toont per horloge andere velden, zodat de zes nieuwe pictogrammen
-    // in beeld komen: breedte 240, 360, 390 en 454 vlam, trap en stopwatch; 176, 208, 260 en 320 speld, accu en
-    // thermometer. De rest houdt de keuze. De gratis proef toont zijn echte, vaste velden.
+    // Bouwstraat (run 134): de betaalde proef toont op vier horloges andere velden, zodat de zes nieuwe
+    // pictogrammen groot en klein in beeld komen: breedte 454 en 240 vlam, trap en stopwatch; 260 en 208 speld,
+    // accu en thermometer. De andere horloges (176, 320, 360, 390) houden de keuze, dus hart, bliksem en schoen
+    // blijven ook in beeld (punt van de keurder). De gratis proef toont zijn echte, vaste velden.
     (:proef)
     function velden(gekozen as Array<Number>, breedte as Number) as Array<Number> {
-        if (!Soort.BETAALD || breedte < 0) {
+        if (!Soort.BETAALD) {
             return gekozen;
         }
-        var k = (breedte / 10) % 3;
-        if (k == 0) {
+        if (breedte == 454 || breedte == 240) {
             return [Veld.CALORIE, Veld.TRAPPEN, Veld.MINUTEN] as Array<Number>;
         }
-        if (k == 2) {
+        if (breedte == 260 || breedte == 208) {
             return [Veld.AFSTAND, Veld.ACCU, Veld.TEMP] as Array<Number>;
         }
         return gekozen;

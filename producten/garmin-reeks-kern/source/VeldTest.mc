@@ -122,7 +122,11 @@ function testIcoonVlamOpMaat(logger as Test.Logger) as Boolean {
 function testMinteken(logger as Test.Logger) as Boolean {
     var groot = Veld.minMaten(30, 3);
     var klein = Veld.minMaten(9, 1);
-    return groot[0] == 12 && groot[1] == 3 && groot[2] == 3 && klein[0] == 3 && klein[1] == 2 && klein[2] == 1;
+    // Heel klein of nul (punt van de keurder): de ondergrenzen 3, 2 en 1 gelden.
+    var mini = Veld.minMaten(5, 0);
+    var nul = Veld.minMaten(0, 0);
+    return groot[0] == 12 && groot[1] == 3 && groot[2] == 3 && klein[0] == 3 && klein[1] == 2 && klein[2] == 1
+        && mini[0] == 3 && mini[1] == 2 && mini[2] == 1 && nul[0] == 3 && nul[1] == 2 && nul[2] == 1;
 }
 
 // De toetsen bouwen als de winkel: daar telt de keuze van de drager, niet de velden van de proef.
