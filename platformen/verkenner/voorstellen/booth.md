@@ -50,3 +50,29 @@ Een kleine Unity-editortool voor VRChat-avatars, niet-destructief en werkend met
 
 ## Extra bron (geen tool)
 - DERDEN (note.com, kg13, 5 apr 2026): een avatar van ¥800 verkocht op BOOTH 23 keer in 4,5 maand (¥14.500 bruto), en in de nieuwe VRChat Avatar Marketplace 85 keer in een maand. De markt in VRChat zelf kan dus voor sommige spullen meer opleveren dan BOOTH. Staat als nieuwe kandidaat in kandidaten.md.
+
+## Herhaling 17 nov 2026 (nachtscan, run 01:31 NL): Blender-add-ons op BOOTH, cijfer 4 als tweede winkel
+
+Vraag van de nachtscan: kunnen wij hier binnen een paar dagen iets betaalds neerzetten met wat we al hebben (Blender)? Dus niet Unity, maar Blender-add-ons.
+
+**Hoe gemeten (GEZIEN, 17 nov, curl):** zoeken op "Blender アドオン", gesorteerd op nieuw, alle 25 pagina's (1.473 items), per item de open JSON. Add-on = naam met アドオン, addon, add-on, プラグイン of スクリプト en geen 3D-model (563 items). Ter controle ook alle items in 3Dツール・システム en ソフトウェア (breder filter). Data: `data/booth-blender-addons-2026-11-17.csv`, scripts `data/booth-blender-haal-script.py` en `data/booth-blender-analyse-script.py`.
+
+**Cijfers, betaalde Blender-add-ons (GEZIEN):**
+| Lichting | Betaald | Mediaan likes | 100+ likes | 500+ likes | Mediaanprijs |
+|---|---|---|---|---|---|
+| 2025 | 34 | 7 | 9% | 9% | ¥399 |
+| jan t/m apr 2026 | 33 | 7 | 3% | 3% | ¥300 |
+| mei t/m aug 2026 | 56 | 7,5 | 9% | 7% | ¥300 |
+| sep t/m nov 2026 (nog jong) | 86 | 2,5 | 5% | 0% | ¥780 |
+Breder filter mei t/m aug (n=94): mediaan 7,5 likes, 40% 10+, 12% 100+. Zelfde beeld.
+
+- Aanbod stijgt hard: nieuwe Blender-add-ons per maand jan 14, apr 35, jul 27, okt 43, **1 t/m 16 nov al 61**. GOK: veel met AI gemaakt, zoals bij Elgato.
+- Wat verkoopt is bijna alleen **VRChat-avatarwerk**: tussenvormen van shape keys naar FBX (tohawork, 800 likes, ¥1.500), shape keys overzetten (objet, 678, ¥1.500), kleding passend maken (amanoissui, 652, ¥1.000), lattice sneller (fujitsubox, 627, ¥500). Daaronder valt het snel weg: plek 5 heeft 100 likes.
+- GOK met de 36% likes naar aankopen (paper NekoDOS1, zie boven): de middelste betaalde add-on ±3 verkopen in 3 tot 6 maanden, ±$6. De top 4 ±220 tot 290 verkopen, ±¥220.000 tot ¥430.000 ($1.400 tot $2.800).
+- **Ons idee van plek 1 bestaat hier al twee keer:** Weight Doctor for Blender (aksk-studio, 19 jun 2026, ¥980, 18 likes, GOK ±6 verkopen) en een ウェイト監査アドオン die ontbrekende gewichten, som niet 1 en links-rechts-verschil telt (miyabix-tool, 16 nov 2026, ¥680). Een gewichten-checker alleen is dus niet bijzonder genoeg.
+- **Concurrent voor Click Joints Pro 1.1 "Rig to Figure":** Pose to Print (zemia, 3 nov 2026, ¥3.500, 3 likes): figuur met rig omzetten naar een printbare miniatuur. Gemeld aan Ruben.
+- 3D-printen is klein op BOOTH: "3Dプリント Blender アドオン" geeft 26 items.
+
+**Tijd tot de winkel:** items van 16 nov staan binnen uren na hun publicatietijd in de zoeklijst (GEZIEN); een keuring vooraf vond ik nergens beschreven (GOK: geen, live binnen een uur). Thijs eenmalig: pixiv-account, BOOTH-winkel, PayPal als uitbetaaladres (booth.pm/announcements/562). Kosten 5,6% + ¥45 per verkoop. Openheid over AI: BOOTH vraagt AI-werk te melden, niet verstoppen.
+
+**Oordeel:** kopers bestaan, maar voor een gewone nieuwe Blender-add-on zijn het er een handvol, tegen 46% 10+ verkopen in de skinning-hoek van Superhive. Waarde voor ons: een **tweede winkel** voor elke add-on die we toch maken, met een Japanse pagina, live in een uur. Een eigen product alleen voor BOOTH alleen als het VRChat-avatarwerk doet (shape keys, kleding passend maken). Cijfer 4.

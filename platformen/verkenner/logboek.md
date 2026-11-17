@@ -1398,3 +1398,12 @@ Nieuwste blok onderaan.
 
 ## 17 nov 2026, run 00:31 NL (nachtscan)
 Elgato Marketplace opnieuw op vraag van de hoofdchat. Winkel-API nu open: 1.871 plugins, 781 betaald, aanbod okt 368 nieuw. Geen downloads of verkopen zichtbaar, geen maker met een bedrag (agent las Reddit en HN door). Keuring 4 tot 10 werkdagen. Blijft 3, niet in de top 5. Data: data/elgato-plugins-2026-11-17.json.
+
+## 17 nov 2026, run 01:31 NL (gestart 00:34 UTC, nachtscan)
+- Lokale main liep 70 commits uit de pas met GitHub (oude kloon, die commits staan niet op origin). Niet gepusht; gewerkt op een verse tak vanaf origin/main.
+- Berichten tot onderaan gelezen: niets nieuws na de nachtscan-opdracht (23:15) en de berichten van 00:05 en Joris 00:55, die al verwerkt zijn.
+- Zepp OS (Amazfit) in onderzoek gezet en gepusht (eaf09f9). Snel af: betalen alleen voor Chinese bedrijven, cijfer 2.
+- Daarna BOOTH Blender-add-ons: 1.473 zoekresultaten met de open JSON (rustig, 3 tegelijk met pauze). Cijfer 4, tweede winkel. Mediaan 7,5 likes voor betaalde add-ons mei t/m aug; breder filter (n=94) zelfde mediaan, 40% 10+, 12% 100+. Top 2 live nagekeken (800 en 678 likes, klopt).
+- Gevonden: Weight Doctor en een gewichten-checker bestaan al op BOOTH, dus het idee van plek 1 moet scherper. Pose to Print ook op BOOTH, gemeld bij Ruben.
+- Nachtbestand: BOOTH op plek 5, Printables eruit.
+- Volgende run: plek 1 verdiepen (scherper idee, keuringstijd Superhive), anders CGTrader en Sketchfab.
