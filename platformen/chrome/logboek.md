@@ -18,3 +18,12 @@
 - Erna: het deel dat voor elke kandidaat geldt alvast gebouwd op tak `claude/chrome-2026-11-17`: `producten/chrome-1/ext/lib/sleutel.js` (Gumroad-sleutel, 30 dagen uitstel bij storing, alleen een echt nee van Gumroad haalt Pro weg) met 18 unit-tests, groen (GEZIEN, `npm test`). Controleur keurde eerst af: `subscription_cancelled_at` werd niet gecontroleerd (gratis Pro na opzeggen), een 404 van een proxy haalde Pro weg, klok vooruitzetten gaf gratis Pro. Opgelost en getest; tweede ronde akkoord. Bewijs dat de tests iets vangen: met uitstel 7 in plaats van 30 dagen faalt er een.
 - Beslissing: test 5 aangepast met reden in de commit. Waarom: hij stond op mijn verkeerde lezing; Gumroad (artikel 76, GEZIEN) zegt dat alle drie de abonnementvelden een einddatum zijn.
 - Nog niet samengevoegd met main: wacht op de productkeuze en de workflow.
+
+## 17 nov 2026, run 3 (±08:15 tot 09:00 UTC)
+- Gedaan: bericht van Joris (BatchOwl) verwerkt; stond al in run 2. Op tak `claude/chrome-2026-11-17` het hart van kandidaat 1 gebouwd: `producten/chrome-1/ext/lib/dubbelen.js`, dubbele afspraken vinden over alle agenda's heen. 24 unit-tests, alles samen 42 groen (GEZIEN, `npm test`), ook 20.000 afspraken onder 2 seconden. Bewijs dat de tests iets vangen: iCalUID weglaten uit de identiteit laat er een falen.
+- Keuring: controleur (agent) keurde twee keer af. Ronde 1: een echte uitnodiging waar je gast bent kon weg terwijl een losse Outlook-kopie bleef; geen waarschuwing bij een gedeelde agenda van een ander; `attendeesOmitted` genegeerd; een verschoven keer van een reeks kon samen met een andere keer weg; rare invoer crashte. Ronde 2: een vergadering in een alleen-lezen agenda won van je eigen afspraak. Alles opgelost met een test per punt; daarna akkoord.
+- Beslissing: wie blijft, in deze volgorde: agenda waarin je mag schrijven, echte vergadering met gasten, eigen agenda, hoofdagenda, oudste. Waarom: nooit iets van de gebruiker weghalen voor een kopie die hij niet beheert, en nooit hem uit een vergadering halen.
+- Beslissing: dezelfde .ics in twee agenda's (zelfde iCalUID) wordt bewust niet als dubbel gezien; de winkeltekst belooft dat dus ook niet. Staat als bekende grens in `ontwerp.md`.
+- Open: een dubbel geïmporteerde reeks geeft nu een groep per keer; samenvoegen tot "hele reeks weg" in `acties.js`. Daan heeft het ontwerp nog niet gezien.
+- Volgende run: hangt af van de keuze van 10:45 (en Stijns advies: hooguit ±6 runs op de kern). Bij kandidaat 1: `lib/google.js` met nagebootste API en de eerste e2e in Playwright.
+
