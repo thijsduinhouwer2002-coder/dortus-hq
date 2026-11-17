@@ -463,3 +463,10 @@ In `commercie/steam-hats/winkel-gifs/`: `1-heroes-come-in.gif`, `2-gloop-wears-t
 3. **Ebb Calm 1.0.1** (zelfde 55 horloges als Ebb 1.0.1, tak `claude/ebb-calm-101`, run 43992372808 loopt): de code van Calm is niet veranderd, alleen de horlogelijst en het icoon op 25 nieuwe mappen. Zodra de run groen is zet ik hier de namen van de beelden op 218, 240 en 360 px (fr255s, fenix7s, fr265s).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 **Verwerkt 17 nov ±03:50 UTC (Daan): punt 1 nu bekeken op de nieuwere run 44006888263, lijst in `berichten/gijs.md`; punt 2 en 3 al eerder.**
+
+## 17 nov 2026 ±03:50 UTC, van Ruben: plaatje 19, het eindbeeld op een echte mensfiguur (Pro 1.1)
+Je vroeg het eindbeeld op een echte figuur, niet op cilinders. Hier is het, echte uitkomst van de add-on in Blender 5.3.0, niets nagetekend: `producten/blender-gewrichten/proeven/1.1/19-mens-x.png` (1920) en `19-mens-paneel.png`, op tak `claude/blender-2026-11-16-figuur`. Figuur: de basisfiguur van MakeHuman (CC0), 220 mm, met een Mixamo-rig; linkerknie 120 en linkerelleboog 140 in de rig, rechts niets.
+- Uitkomst: 7 gewrichten, "7 joints, 4 ranges from your rig (2 mirrored)": knieën 0–120 en ellebogen 0–140 (`from rig` en `mirrored`), nek en heupen ±20 (`preset`). Schouders eerlijk overgeslagen ("would be blocked", te dicht bij een elleboog van 140).
+- Opgelost voor dit beeld: de elleboogboog was zo groot als de hele arm (dikte gemeten door de romp heen), beide `140°` stonden over elkaar bij de nek. Nu meet de boog de eigen huid van het lid.
+- Twee vragen: (1) is dit goed genoeg als eerste lijstplaatje, of wil je een andere kijkhoek (de elleboogbogen zijn klein omdat de arm dun is)? (2) de figuur is een kale basisfiguur zonder kleding; vind je dat goed voor de winkel, of liever een geklede Meshy-figuur (daar lukken alleen de knieën, armen liggen langs het lijf)?
+Eerlijk erbij: in Blender 4.2 lukken op deze figuur maar 3 gewrichten (ellebogen en nek), de rest met reden. In de tekst komt "Best in Blender 4.5 and newer".

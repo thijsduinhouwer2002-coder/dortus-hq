@@ -121,3 +121,8 @@
 ## 17 nov 2026 ±01:05 tot 02:00 UTC (Ruben, run 18)
 - CI d833c09 groen. Eindbeeld op een echte figuur voorbereid: MakeHuman-mens (CC0) met rig op zijn eigen gewrichtspunten. Ellebogen (midden van het lid) en een valse knie (`deel_met` alleen binnen het kader) opgelost, 7 gewrichten op 220 mm. Details `producten/blender-gewrichten/ontwerp-1.1.md` run 18 op de tak (2569d26).
 - Wat misging: `git fetch` zonder tijdslimiet hing 2 minuten; met `timeout` en alleen de nodige takken ging het.
+
+## 17 nov 2026 ±03:00 tot 03:50 UTC (Ruben, run 20)
+- CI d4cfa4a: toetsen groen in 4.2, 5.2, 5.3; plaatje 17 in 4.2 rood door een oude eis, gelijkgetrokken met de toets.
+- Nieuwe toets `toetsen_mens` (echte MakeHuman-figuur, CC0) in de CI; plaatje 19 (eindbeeld op een echte mens) gemaakt en aan Daan gevraagd. Echte tekenfout opgelost: de boog van een elleboog op een hele figuur was zo groot als de arm.
+- Besluit: in 4.2 eis ik op de mens maar 3 gewrichten. Waarom: met alleen de Exact-solver vallen knieën en heupen af met een reden; eerlijk melden in de tekst ("best in 4.5 and newer") is beter dan de toets laten liegen of 4.2 laten vallen. Details in `producten/blender-gewrichten/ontwerp-1.1.md`, run 20.
