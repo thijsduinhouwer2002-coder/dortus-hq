@@ -37,6 +37,24 @@ import held_soorten as hs_
 HUID = "f2c2a0"
 HUID_D = "d89a7a"
 
+# Daan 17 nov (Iris keuring 6 tot 10, "mooi": alle helden hetzelfde lijf en dezelfde bleke kop).
+# Huidtint per held: de gewone held per kleur_nr (vast aan de tuniek, dus Kees komt terug met dezelfde
+# huid), de andere soorten elk een eigen tint. Geen tint zo donker als de gangwand (985342, 744036):
+# dan valt het hoofd weg; de donkerste tint is geler en lichter dan de wand. (licht, donker voor de neus)
+HUID_HELD = [("e0a07a", "b87452"),   # 0 rood, bruin haar: getint
+             ("a86c46", "7e4a2c"),   # 1 groen, donker haar: bruin
+             ("f6cdb0", "dca084"),   # 2 paars, rood haar: licht met roze
+             ("c88a5c", "9a603a"),   # 3 geel, kastanje haar: goudbruin
+             ("f2c2a0", "d89a7a")]   # 4 blauwgroen, blond: zoals het was
+HUID_SOORT = {"ridder": ("f2c2a0", "d89a7a"), "heks": ("b67a52", "8a5334"),
+              "dief": ("d29a70", "a8704e"), "bard": ("eab08a", "c0805e")}
+
+
+def huid_van(soort, kleur=0):
+    if soort == "held":
+        return HUID_HELD[kleur % len(HUID_HELD)]
+    return HUID_SOORT.get(soort, (HUID, HUID_D))
+
 
 def _kind(o, ouder):
     o.parent = ouder
@@ -85,7 +103,8 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     sc.collection.objects.link(ouder)
 
     # ronde 3: matte speelgoedlak (frisse kijker ronde 2: "plastic glanst zo sterk dat ze goedkoop ogen")
-    huid = g.mat("huid", HUID, rough=0.62, spec=0.25, sss=0.2)
+    huid_l, huid_d = huid_van(soort, kleur)
+    huid = g.mat("huid", huid_l, rough=0.62, spec=0.25, sss=0.2)
     blos = g.mat("hblos", "blos", rough=0.7)
     wit = g.mat("hwit", "oogwit", rough=0.2, spec=0.5)
     pupil = g.mat("hpupil", "pupil", rough=0.35)
@@ -174,7 +193,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         for kant in (-1, 1):
             _blok(ouder, hk(0.13 * kant, -0.31, HZ + 0.15), hs(0.1, 0.02, 0.025), brauw,
                   rot=(0, math.radians(18 * kant), 0), rond=0.01)
-    _bol(ouder, hk(0, -0.34, HZ - 0.05), hs(0.04, 0.03, 0.035), g.mat("neus", HUID_D, rough=0.5), segs=16)
+    _bol(ouder, hk(0, -0.34, HZ - 0.05), hs(0.04, 0.03, 0.035), g.mat("neus", huid_d, rough=0.5), segs=16)
 
     # armen en handen
     arm_z = 0.7
