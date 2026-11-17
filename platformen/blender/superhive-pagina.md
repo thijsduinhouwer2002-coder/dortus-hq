@@ -35,7 +35,7 @@
 Status (10 nov 10:40 UTC, Bram): tekst, prijs, licenties en uploadstappen definitief; poster 2 en Pro-zip-build klaar op de tak; uploadregel staat (als "nog niet") op de lijst van Thijs. Superhive-account van Thijs staat, makersaanvraag ingediend 10 nov 10:39 NL (keuring loopt). Nog nodig voor indienen: (1) winkelplaatjes met het ja van Daan (ronde 2 loopt, tak `claude/blender-pro-winkel`), (2) `Akkoord: ja` van Daan voor de Pro-zip bovenaan `producten/blender-gewrichten/ontwerp.md`, (3) de betaalde zip uit `maak_zip.sh betaald` na een groene test, (4) de makersaanvraag goedgekeurd. Prijs is een voorstel; Chris mag hem bijstellen.
 
 ## Instellingen
-- **Naam:** Click Joints Pro (zo heet hij ook in Blender: de betaalde build zet naam, versie 1.0.0 en tagline "Click hinges with an end stop for 3D printed figures" in de manifest; id blijft click_joints)
+- **Naam:** Click Joints Pro (zo heet hij ook in Blender: de betaalde build zet naam, versie en tagline in de manifest; id blijft click_joints. Vanaf 1.1.0 (17 nov, Ruben): tagline "Poseable 3D print figures from your rig, with bend range", daarvoor "Click hinges with an end stop for 3D printed figures")
 - **Categorie:** Add-ons, Modeling / 3D Printing
 - **Prijs (voorstel):** $12 gewone licentie, lanceerprijs $9 de eerste twee weken (GOK, ontwerp.md). Netto per verkoop van $12: 70% min $0,49 = ±$7,91.
 - **Studiolicentie:** tot 5 personen, $45 (GOK; CatPin $80, Split-3DPrint $59, wij zijn kleiner en nieuwer).

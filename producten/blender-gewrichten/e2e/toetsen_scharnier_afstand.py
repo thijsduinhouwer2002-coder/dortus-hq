@@ -7,6 +7,9 @@ kogel: as = X, 3,0 mm, Auto uit), Exploded view uit (alles in echte coordinaten)
     grens = reik scharnier + reik kogel, reik scharnier = max(t_vlak sin a, Rn, lip) + s (uit de opgeslagen maten),
     reik kogel = max(naad_r + 0,4 r, r + s), gemeten van snijpunt scharnier tot kogelmidden. De maten van kogel en
     scharnier komen van een eerst geplaatst gewricht op een losse staaf van dezelfde dikte. N = grens naar boven.
+    Pro 1.1 (16 nov, Ruben): aan de komkant van de kogel (a2: scharnier boven het kogelmidden langs de as) is de
+    reik van de kogel r + s + 0,5 mm (alleen de kom en een wand); aan de snijvlakkant (a1) blijft het bovenstaande.
+    Bij a2 ook: binnen r + s + 0,45 mm van het kogelmidden komen geen nieuwe hoekpunten (de kom blijft heel).
     Net onder de grens (grens - 0,2 mm): geweigerd met "Too close to another joint (keep N mm apart).", geen nieuwe
     objecten, de delen van het andere gewricht heel. Net boven (grens + 0,2 mm): geplaatst, twee gesloten delen.
 (b) Drie scharnieren op één staaf: 1 op x = 0, 2 op deel B op x = 4 reik + 2 (ver van 1). Het middendeel draagt
@@ -38,6 +41,28 @@ def _reik_h(ob, u):
 def _reik_k(ob, u):
     r, naad, s = float(ob["cj_kogel_r"]), float(ob["cj_naad_r"]), float(ob["cj_speling_mm"]) * u
     return max(naad + 0.4 * r, r + s) / u
+
+
+def _reik_kom(ob, u):
+    """Pro 1.1: reik van de kogel aan de komkant, r + s + 0,5 mm."""
+    return (float(ob["cj_kogel_r"]) + float(ob["cj_speling_mm"]) * u) / u + 0.5
+
+
+def _kom_heel(oud, nieuw, centrum, straal):
+    """Geen nieuwe hoekpunten binnen straal van het kogelmidden: elk punt daar bestond al in oud (binnen 0,001)."""
+    from mathutils.kdtree import KDTree
+    pts = [oud.matrix_world @ v.co for v in oud.data.vertices]
+    kd = KDTree(len(pts))
+    for i, p in enumerate(pts):
+        kd.insert(p, i)
+    kd.balance()
+    vreemd = 0
+    for ob in nieuw:
+        for v in ob.data.vertices:
+            p = ob.matrix_world @ v.co
+            if (p - centrum).length < straal and kd.find(p)[2] > 1e-3:
+                vreemd += 1
+    return vreemd
 
 
 def _scharnier(x, bron, cursor):
@@ -137,8 +162,12 @@ def toets(stap, eigen, cursor):
                  f"A {onder and _xs(onder, afstand, u)} B {boven and _xs(boven, afstand, u)}")
             stap("afstand (a1): deel A van het scharnier heel", _heel(gesloten, (s1a,)))
 
-    # (a2) Eerst kogel, dan scharnier op deel B van de kogel (komkant, x > kogelmidden).
+    # (a2) Eerst kogel, dan scharnier op deel B van de kogel (komkant, x > kogelmidden). Pro 1.1: grens met de kom.
     c = Vector(s2b["cj_centrum"]).x / u
+    grens = reik_h + _reik_kom(s2b, u)
+    n = math.ceil(grens - 1e-9)
+    kom_r = (float(s2b["cj_kogel_r"]) + float(s2b["cj_speling_mm"]) * u) + 0.45 * u
+    print(f"[cj-betaald] METING afstand (a2): grens komkant {grens:.3f} mm, N {n}")
     for d, mag in ((grens - 0.2, False), (grens + 0.2, True)):
         uitslag, nieuw, tekst = _poging(lambda: _scharnier(c + d, s2b, cursor), s2b)
         delen = [o for o in nieuw if o.get("cj_deel")]
@@ -154,6 +183,8 @@ def toets(stap, eigen, cursor):
             stap(f"afstand (a2): scharnier {d:.3f} mm van de kogel (grens + 0,2) geplaatst, twee gesloten delen",
                  uitslag == {"FINISHED"} and len(delen) == 2 and _heel(gesloten, delen), str(uitslag))
             stap("afstand (a2): deel A van de kogel heel", _heel(gesloten, (s2a,)))
+            vreemd = _kom_heel(s2b, delen, Vector(s2b["cj_centrum"]), kom_r)
+            stap("afstand (a2): kom heel (geen nieuwe hoekpunten binnen r + s + 0,45 mm)", vreemd == 0, f"{vreemd} nieuw")
 
     # (b) Drie scharnieren op een staaf.
     s3 = figuren.staaf("s3", 5.0, lengte=160.0)

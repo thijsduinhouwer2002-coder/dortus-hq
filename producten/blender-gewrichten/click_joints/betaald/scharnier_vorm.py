@@ -145,7 +145,7 @@ def maten(bvh, frame, s, stand, u):
         theta_s = s / t
         alfa = (math.radians(stand - MARGE) - theta_s) / 2
     r_lip = zij[3] - e                # van H tot de achterkant van het lid (raakpunt achterstop)
-    return {"s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
+    return {"t_reik": vlak_reik(bvh, frame, e, s, alfa, wx, rn + s), "s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten, "t_vlak": t}, ""
 
 
@@ -155,7 +155,78 @@ def reik(m):
     return max(m["t_vlak"] * math.sin(m["alfa"]), m["rn"], m["lip"]) + m["s"]
 
 
-def te_dicht(bron, punt, m, u):
+def snede_reik(m):
+    """Pro 1.1 (16 nov run 11): hoe ver de snede van het scharnier het lid echt in gaat (Blender-eenheden). De
+    stopvlakken lopen door tot de huid of tot de grens van een_lid (scharnier.py: 1,2 keer de reik plus s), wat het
+    eerst komt. reik(m) rekent met min(t_A, t_B), de lengte die de stop bepaalt; bij een lid dat schuin staat of
+    boven het scharnier dikker is loopt het langste vlak verder. Gezien op de Rigify-metarig: knie met reik 19,6 mm,
+    de voorkant van de dij was weg tot 22,3 mm boven de knie, de kom van de heup kwam erin en de heup bewoog 0 graden.
+    Dit getal staat als cj_reik en in cj_scharnieren, dus de afstandsregels (kogel en scharnier) rekenen ermee.
+    Op een recht lid is het gelijk aan reik(m)."""
+    r = reik(m)
+    t = m.get("t_reik")
+    if t is None:
+        return r
+    return min(max(r, t * math.sin(m["alfa"]) + m["s"]), 1.2 * r + m["s"])
+
+
+def vlak_reik(bvh, frame, e, s, alfa, wx, t_min):
+    """Pro 1.1 (run 11): de langste treffer van beide stopvlakken over vijf doorsneden langs H, of None. Alleen
+    vanaf een voet binnen de huid: anders is de eerste treffer een intreden (ander lid, romp). Voor snede_reik."""
+    ca, sa = math.cos(alfa), math.sin(alfa)
+    beste = None
+    for x in (0.0, -0.4 * wx, 0.4 * wx, -0.8 * wx, 0.8 * wx):
+        for start, richting in (((x, -e - s / 2 * sa, -s / 2 * ca), (0, ca, -sa)),
+                                ((x, -e - s / 2 * sa, s / 2 * ca), (0, ca, sa))):
+            o = frame @ Vector(start)
+            if _buiten(bvh, o):
+                continue
+            w = (frame.to_3x3() @ Vector(richting)).normalized()
+            hit = bvh.ray_cast(o, w)
+            if hit[0] is not None and hit[3] >= t_min:
+                beste = hit[3] if beste is None else max(beste, hit[3])
+    return beste
+
+
+def _buiten(bvh, q):
+    """Ligt q buiten de huid? (dichtstbijzijnde vlak, normaal wijst naar buiten; de mesh is gesloten)."""
+    loc, nor, _i, _d = bvh.find_nearest(q)
+    return loc is not None and (q - loc).dot(nor) > 0.0
+
+
+def ander_lid(bvh, punt, p, rand, u):
+    """Pro 1.1: ligt het oude gewricht p op een ander lid dan punt? Ja als de rechte lijn ertussen een stuk
+    van minstens 2 mm door de lucht gaat (bijvoorbeeld van de ene knie naar de andere tussen de benen door).
+    Dan kunnen hun stopvlakken elkaar niet raken en telt de afstand niet.
+    Niet meegeteld: de eerste mm bij het nieuwe punt en `rand` rond p (knokkelstraal plus speling plus 1 mm),
+    want daar zit de sleuf van het oude scharnier: lucht op hetzelfde lid. De eerste versie met een straal zag
+    de rand van die sleuf als huid en liet een tweede scharnier op hetzelfde lid te dicht toe (eis 6 rood);
+    de hele reik overslaan was te veel (reik 22 mm bij knieën 18 mm uit elkaar)."""
+    if bvh is None:
+        return False
+    a, b = Vector(punt), Vector(p)
+    d = b - a
+    lengte = d.length
+    if lengte < 1e-9:
+        return False
+    rich = d / lengte
+    stap = 0.25 * u
+    van, tot = 1.0 * u, lengte - max(rand, 1.0 * u)
+    nodig = 2.0 * u
+    run = 0.0
+    t = van
+    while t <= tot:
+        if _buiten(bvh, a + rich * t):
+            run += stap
+            if run >= nodig - 1e-9:
+                return True
+        else:
+            run = 0.0
+        t += stap
+    return False
+
+
+def te_dicht(bron, punt, m, u, bvh=None):
     """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een gewricht op
     `bron` ligt, anders None.
     - Naast elk scharnier op het deel (afstand.scharnieren: alle, niet alleen het laatste): afstand tussen de
@@ -163,11 +234,12 @@ def te_dicht(bron, punt, m, u):
       er tussen de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe
       al tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort.
     - Naast de kogel of pen waarvan het deel komt: van snijpunt tot kogelmidden minstens de reik van het scharnier
-      plus de reik van de kogel (afstand.kogel_reik, uitleg in afstand.py).
+      plus de reik van de kogel naar het scharnier toe (afstand.kogel_van met punt, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
-    eigen = reik(m)
-    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, _k in afstand.scharnieren(bron) if r >= 0]
-    kogel = afstand.kogel_van(bron, u)
+    eigen = snede_reik(m)  # 1.1 (run 11): hoe ver de snede echt gaat, niet alleen de rekensom
+    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, k in afstand.scharnieren(bron)
+             if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
+    kogel = afstand.kogel_van(bron, u, punt)  # 1.1: aan de komkant alleen de kom (afstand.py)
     if kogel is not None:
         paren.append(((Vector(punt) - kogel[0]).length, eigen + kogel[1]))
     return afstand.nodig_mm(paren, u)

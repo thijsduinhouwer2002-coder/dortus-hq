@@ -18,7 +18,7 @@ jobs:
       matrix:
         blender: ["4.2.23", "5.2.3", "5.3.0"]
     env:
-      PRO_VERSIE: "1.0.2"
+      PRO_VERSIE: "1.1.0"
     defaults:
       run:
         working-directory: producten/blender-gewrichten
@@ -100,6 +100,115 @@ jobs:
               /tmp/blender/blender -b --factory-startup --python e2e/toetsen_een_lid.py -- "/tmp/$z.zip" 2>&1 | tee "/tmp/lid_$z.log"
             grep -q "KLAAR 0 FOUT" "/tmp/lid_$z.log" || { echo "FOUT: een lid ($z)"; exit 1; }
           done
+      - name: Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          d=/tmp/cj_figuur
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_figuur.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/figuur.log
+          grep -q "KLAAR 0 FOUT" /tmp/figuur.log || { echo "FOUT: figuurpresets"; exit 1; }
+          # Stap 2a: vrije eindstop 30 tot 150 graden (voor Rig to Figure), zelfde lege mappen.
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_vrije_stop.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/vrij.log
+          grep -q "KLAAR 0 FOUT" /tmp/vrij.log || { echo "FOUT: vrije eindstop"; exit 1; }
+          # Stap 2b: Figure from rig (knieën uit een kleine rig, eindstop uit Limit Rotation, ander been telt niet).
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_rig.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig.log
+          grep -q "KLAAR 0 FOUT" /tmp/rig.log || { echo "FOUT: figure from rig"; exit 1; }
+          # Hele figuur met armen: acht gewrichten, kogels uit de romp, kogel aan de komkant alleen de kom (16 nov run 5).
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_rig_armen.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/armen.log
+          grep -q "KLAAR 0 FOUT" /tmp/armen.log || { echo "FOUT: figure from rig met armen"; exit 1; }
+          # Echte Rigify-metarig (16 nov run 11): heupen bewegen naast de knieën, nooit een gewricht op blocked.
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_rigify.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rigify.log
+          grep -q "KLAAR 0 FOUT" /tmp/rigify.log || { echo "FOUT: figure from rig op de Rigify-metarig"; exit 1; }
+          # Echte Meshy-figuur army_man (Chris 16 nov 20:00): een knie laat de zool niet als los stuk in B achter.
+          pip install -q remotezip
+          mkdir -p /tmp/meshy && (cd /tmp/meshy && python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/army_man.glb', '.')")
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_meshy_voet.py -- /tmp/click_joints_betaald.zip /tmp/meshy/MESHY_GLB/people/army_man.glb 2>&1 | tee /tmp/voet.log
+          grep -q "KLAAR 0 FOUT" /tmp/voet.log || { echo "FOUT: knie in army_man laat de voet achter"; exit 1; }
+          # Echte Meshy-figuren met Mixamo-namen (16 nov run 16): knieën from rig en mirrored, elk deel één stuk,
+          # heup die niet past met leesbare reden.
+          (cd /tmp/meshy && python3 -c "from remotezip import RemoteZip; z=RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip'); [z.extract(f'MESHY_GLB/people/{n}.glb', '.') for n in ('man_backpack', 'knight_yellow')]")
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_meshy_rig.py -- /tmp/click_joints_betaald.zip /tmp/meshy/MESHY_GLB/people/man_backpack.glb /tmp/meshy/MESHY_GLB/people/knight_yellow.glb 2>&1 | tee /tmp/mrig.log
+          grep -q "KLAAR 0 FOUT" /tmp/mrig.log || { echo "FOUT: figure from rig op Meshy-figuren"; exit 1; }
+          # Echte mensfiguur (17 nov run 20): MakeHuman base.obj (CC0 1.0) met Mixamo-rig op de eigen gewrichtspunten,
+          # 220 mm: knieën en ellebogen from rig en mirrored met het gemeten bereik, niets kwijt, alle delen één stuk.
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_mens.py -- /tmp/click_joints_betaald.zip /tmp/mh_base.obj 2>&1 | tee /tmp/mens.log
+          grep -q "KLAAR 0 FOUT" /tmp/mens.log || { echo "FOUT: figure from rig op de MakeHuman-figuur"; exit 1; }
+          # Auto-Rig Pro-namen (17 nov run 25, Lars verhaal 26): zelfde mens en rig, botten als forearm_stretch.l, neck.x.
+          CJ_RIG_NAMEN=arp BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_mens.py -- /tmp/click_joints_betaald.zip /tmp/mh_base.obj 2>&1 | tee /tmp/mens_arp.log
+          grep -q "KLAAR 0 FOUT" /tmp/mens_arp.log || { echo "FOUT: figure from rig met Auto-Rig Pro-namen"; exit 1; }
+          # Zwaairuimte (17 nov run 25): elleboog met rig-stop 115 en 90 haalt 115 en 90 (zonder uitsnede 82 en 55).
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_zwaai.py -- /tmp/click_joints_betaald.zip /tmp/mh_base.obj 2>&1 | tee /tmp/zwaai.log
+          grep -q "KLAAR 0 FOUT" /tmp/zwaai.log || { echo "FOUT: zwaairuimte van de elleboog"; exit 1; }
+      - name: Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_fig_s
+          BLENDER_USER_CONFIG: /tmp/cj_fig_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_fig_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/scherm_figuur.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/figuur_s.log || true
+          grep -q "FIGUUR OK" /tmp/figuur_s.log || { echo "FOUT: plaatje 15 figuurpresets"; exit 1; }
+          for f in 15-figuur-x.png 15-figuur-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_rig_s
+          BLENDER_USER_CONFIG: /tmp/cj_rig_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_rig_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_r.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_r.blend --python e2e/scherm_rig.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig_s.log || true
+          grep -q "RIG BEELD OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16 Figure from rig"; exit 1; }
+          for f in 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_armen_s
+          BLENDER_USER_CONFIG: /tmp/cj_armen_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_armen_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_a.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_a.blend --python e2e/scherm_rig_armen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/armen_s.log || true
+          grep -q "ARMEN BEELD OK" /tmp/armen_s.log || { echo "FOUT: plaatje 17 hele figuur"; exit 1; }
+          for f in 17-figuur-heel-x.png 17-figuur-heel-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Schermafbeelding echte mensfiguur (Pro 1.1, plaatje 19, eindbeeld voor Daan)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_mens_s
+          BLENDER_USER_CONFIG: /tmp/cj_mens_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_mens_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          [ -s /tmp/mh_base.obj ] || curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_m.blend')"
+          CJ_MENS_OBJ=/tmp/mh_base.obj timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_m.blend --python e2e/scherm_mens.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mens_s.log || true
+          grep -q "MENS BEELD OK" /tmp/mens_s.log || { echo "FOUT: plaatje 19 mensfiguur"; exit 1; }
+          for f in 19-mens-x.png 19-mens-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - name: Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12)
         # Eis 8 van het scharnier: eigen stap en eigen lege mappen, zodat de gratis schermtest gelijk blijft.
         env:

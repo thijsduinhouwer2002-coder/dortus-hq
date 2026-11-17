@@ -23,6 +23,8 @@ _dikte = {}         # (naam A, naam B, aantal hoekpunten) -> halve dikte; in de 
 STREEP = 5          # graden tussen twee streepjes
 POSE_LANG = 1.15
 ROOD_PX = 24        # "+N° past limit": groot genoeg voor een winkelplaatje (16 was te klein)
+FIGUUR_X = 0.7      # Pro 1.1 (Daan punt 1): bij een figuur een kleinere boog, in de passingkleur, met alleen het getal
+FIGUUR_PX = 22  # Daan 17 nov moet 4 (was 16)
 _handler = [None]
 laatst = {}  # wat de laatste tekenbeurt tekende, voor het bewijs in de schermtest
 
@@ -75,8 +77,37 @@ def dikte(a, b):
         dicht = np.abs(rel @ lid) <= 5.0 * k
         if dicht.any():
             best = max(best, float(np.abs(rel[dicht] @ buig).max()))
+    if b.get("cj_figuur"):
+        best = _dikte_straal(a, b, c, lid, buig, k, best)
     _dikte[sleutel] = best
     return best
+
+
+def _dikte_straal(a, b, c, lid, buig, k, plak):
+    """Bij een figuur (run 20): de plak van 5 knokkelstralen loopt dwars door de romp als deel A het hele lijf is (een
+    elleboog op een echte mens gaf een boog zo groot als de arm). Daarom hier de eigen huid van het lid: stralen vanaf
+    de lidas langs plus en min de buigkant, op 1 tot 5 knokkelstralen langs de lidas, eerste raakpunt in A of B; de
+    grootste daarvan. Lukt geen enkele straal, dan blijft de plak-maat."""
+    import numpy as np
+    from mathutils.bvhtree import BVHTree
+    from ..uit_elkaar import echte_matrix
+    bomen = []
+    for ob in (a, b):
+        mw = echte_matrix(ob)
+        vs = [mw @ v.co for v in ob.data.vertices]
+        bomen.append(BVHTree.FromPolygons(vs, [tuple(p.vertices) for p in ob.data.polygons]))
+    C, L, U = Vector(c.tolist()), Vector(lid.tolist()), Vector(buig.tolist())
+    best = None
+    for f in (-5.0, -4.0, -3.0, -2.0, 2.0, 3.0, 4.0, 5.0):
+        o = C + L * (f * k)
+        for r in (U, -U):
+            raak = [bm.ray_cast(o, r) for bm in bomen]
+            d = [x[3] for x in raak if x[0] is not None]
+            if d:
+                best = max(best or 0.0, min(d))
+    if best is None:
+        return plak
+    return float(np.clip(best, k, plak))
 
 
 def straal(a, b):
@@ -182,13 +213,40 @@ def _tot_vak(van, m, breed, hoog, rand):
     return m - d * min(1.0, sx, sy)
 
 
-def _teken_een(regio, rv3d, a, b, schaal):
+def figuur_kleur(a):
+    """Kleur van de boog bij een figuur: de passingkleur van het gewricht. Een scharnier bestaat alleen bij
+    Good fit (Tight geeft geen scharnier, eis 3), dus groen, zoals de ring rond de snede in de weergave."""
+    from ..passing import KLEUREN
+    rgba = KLEUREN.get(a.get("cj_passing", "groen"), KLEUREN["groen"])
+    return tuple(rgba[:3])
+
+
+def _klein(v, f):
+    """De boog f keer zo groot om het middelpunt (bij een figuur: zes waaiers naast elkaar mogen niet overlappen)."""
+    c = v["centrum"]
+
+    def k(x):
+        return c + (x - c) * f if x is not None else None
+    w = dict(v)
+    for sleutel in ("as_eind", "grens_eind", "label", "label_0", "pose_eind"):
+        w[sleutel] = k(v[sleutel])
+    w["boog"] = [k(x) for x in v["boog"]]
+    w["rood_vlak"] = [k(x) for x in v["rood_vlak"]]
+    w["streepjes"] = [(g, k(s0), k(s1)) for g, s0, s1 in v["streepjes"]]
+    return w
+
+
+def _teken_een(regio, rv3d, a, b, schaal, actief=True):
     import gpu
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
 
     from .. import waaier  # alleen de tekenhulpjes lezen, het gratis deel verandert niet
     pose = float(b.get("cj_pose_graden", 0.0))
     v = vorm(a, b, pose)
+    fig = bool(b.get("cj_figuur"))
+    KL = figuur_kleur(a) if fig else WIT
+    if fig:
+        v = _klein(v, FIGUUR_X)
 
     def p(x):
         return naar2d(regio, rv3d, x) if x is not None else None
@@ -196,19 +254,24 @@ def _teken_een(regio, rv3d, a, b, schaal):
     boog = [p(x) for x in v["boog"]]
     vlak = gpu.shader.from_builtin("UNIFORM_COLOR")
     dik = gpu.shader.from_builtin("POLYLINE_UNIFORM_COLOR")
-    waaier._waaiervlak(vlak, q["centrum"], boog, (*WIT, 0.15))
-    waaier._lijn(dik, regio, [q["centrum"], q["as_eind"]], (*WIT, 0.55), 2.0 * schaal)
-    waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*WIT, 0.9), 3.0 * schaal)
-    waaier._lijn(dik, regio, boog, (*WIT, 0.9), 3.0 * schaal)
+    waaier._waaiervlak(vlak, q["centrum"], boog, (*KL, 0.22 if fig else 0.15))
+    waaier._lijn(dik, regio, [q["centrum"], q["as_eind"]], (*KL, 0.55), 2.0 * schaal)
+    waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*KL, 0.9), 3.0 * schaal)
+    waaier._lijn(dik, regio, boog, (*KL, 0.9), 3.0 * schaal)
     hoek = waaier.kijkhoek(rv3d, v)
     streep, getal, nul = [], False, False
     if hoek >= waaier.SCHUIN_MIN:
-        streep = waaier.streep_lijnen([(g, p(s0), p(s1)) for g, s0, s1 in v["streepjes"]], schaal)
-        for _, s0, s1 in streep:
-            waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
-        getal = waaier._tekst(0, q["label"], f"{v['getal']}°", WIT, int(20 * schaal))
-        # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
-        nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
+        if not fig:  # bij een figuur geen streepjes en geen 0°: klein houden, alleen het getal
+            streep = waaier.streep_lijnen([(g, p(s0), p(s1)) for g, s0, s1 in v["streepjes"]], schaal)
+            for _, s0, s1 in streep:
+                waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
+            # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
+            nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
+        if fig:  # donkere rand van 1 px, zodat het getal los van het model staat (Daan, 16 nov, kan)
+            from .figuur_teken import tekst_rand
+            getal = tekst_rand(q["label"], f"{v['getal']}°", WIT, int(FIGUUR_PX * schaal))
+        else:
+            getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int(20 * schaal))
     rood_tekst, vrij = False, None
     if q["pose_eind"] is not None:
         if v["voorbij"]:
@@ -226,14 +289,19 @@ def _teken_een(regio, rv3d, a, b, schaal):
                              (*ROOD, 0.9), 2.0 * schaal)
             rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, groot)
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
+    # Bij een figuur alleen voor het actieve gewricht, anders staan zes regels over elkaar.
     kop = tekst(a)
-    kop_getekend = waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop, WIT,
-                                 int(28 * schaal))
+    if fig and b.get("cj_naam"):  # bij een figuur met de naam erbij: "Left knee: bends 0° to 120°"
+        kop = f"{b['cj_naam']}: {kop[:1].lower()}{kop[1:]}"
+    kop_getekend = actief and waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop,
+                                            WIT, int(28 * schaal))
     return {"pose": round(pose, 3), "getal": f"{v['getal']}°", "getal_getekend": getal, "nul_getekend": nul,
             "straal": round((v["boog"][0] - v["centrum"]).length, 3),
             "streepjes": len(streep), "kijkhoek": round(hoek, 1), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None,
-            "kop": kop if kop_getekend else None, "rood_vrij": vrij}
+            "kop": kop if kop_getekend else None, "rood_vrij": vrij, "figuur": fig, "kleur": KL,
+            "naam": b.get("cj_naam", ""), "centrum_px": tuple(q["centrum"]) if q["centrum"] is not None else None,
+            "label_px": tuple(q["label"]) if getal and q["label"] is not None else None}
 
 
 def teken():
@@ -251,12 +319,16 @@ def teken():
     gpu.state.blend_set("ALPHA")
     gpu.state.depth_test_set("NONE")
     getekend = []
-    for b in [o for o in context.scene.objects
-              if o.get("cj_soort") == "SCHARNIER" and o.get("cj_deel") == "B" and o.visible_get()]:
+    bs = [o for o in context.scene.objects
+          if o.get("cj_soort") == "SCHARNIER" and o.get("cj_deel") == "B" and o.visible_get()]
+    act = context.view_layer.objects.active
+    for b in bs:
         a, _ = paar(context.scene, b)
         if a is None or "cj_bereik_graden" not in a or beweeg.geen_stop(float(a["cj_bereik_graden"])):
             continue
-        getekend.append(_teken_een(regio, rv3d, a, b, schaal))
+        # Kopregel: altijd bij een los scharnier (1.0), bij een figuur alleen voor het actieve deel.
+        actief = not b.get("cj_figuur") or act is b  # bij een figuur: alleen als je het lid voorbij het gewricht kiest
+        getekend.append(_teken_een(regio, rv3d, a, b, schaal, actief))
     gpu.state.blend_set("NONE")
     laatst.clear()
     laatst["bogen"] = getekend

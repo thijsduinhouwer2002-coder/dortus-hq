@@ -20,7 +20,7 @@ case "$soort" in
     cat e2e/betaald/init_betaald.py >> "$werk/click_joints/__init__.py"
     # Eigen naam en versie voor Superhive (id blijft click_joints, zodat de weigering naast de gratis werkt).
     m="$werk/click_joints/blender_manifest.toml"
-    sed -i 's/^name = .*/name = "Click Joints Pro"/; s/^version = .*/version = "'"${PRO_VERSIE:-1.0.0}"'"/; s/^tagline = .*/tagline = "Click hinges with an end stop for 3D printed figures"/' "$m"
+    sed -i 's/^name = .*/name = "Click Joints Pro"/; s/^version = .*/version = "'"${PRO_VERSIE:-1.0.0}"'"/; s/^tagline = .*/tagline = "Poseable 3D print figures from your rig, with bend range"/' "$m"
     rm -f /tmp/click_joints_betaald.zip
     (cd "$werk/click_joints" && zip -qr /tmp/click_joints_betaald.zip .)
     rm -rf "$werk"

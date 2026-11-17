@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, scharnier, scharnier_beweeg, scharnier_boog
+from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
@@ -121,6 +121,8 @@ def register(eigen=None):
     if paneel is not None:
         paneel.append(scharnier.teken_knop)
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
+    figuur_teken.register()  # 1.1: figuurkogel klein en groen, één getal buiten het lid (gratis deel onveranderd)
+    figuur.register()  # 1.1 stap 1: figuurpresets en de lijst met gewrichten (na teken_knop, dus eronder)
     # Omhullen pas als alles staat (kan-punt controleur eis 7), zodat een fout hierboven geen omhulsel achterlaat.
     # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand en zet op in de module.
     if _oude_afstand[0] is None:
@@ -129,6 +131,8 @@ def register(eigen=None):
     if _oude_zet[0] is None:
         _oude_zet[0] = uit_elkaar.zet
         uit_elkaar.zet = _zet
+    een_lid_diep.register()  # 1.1 run 27: omhulsel H haalt de hele diepte (gratis deel onveranderd)
+    snippers.register(gewricht)  # 1.1: losse snippers na een snede met één lid weg (gratis deel onveranderd)
     afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
@@ -136,6 +140,8 @@ def register(eigen=None):
 
 
 def unregister():
+    figuur.unregister()
+    figuur_teken.unregister()
     scharnier_boog.unregister()
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
@@ -153,6 +159,8 @@ def unregister():
         if uit_elkaar.zet is _zet:
             uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
+    snippers.unregister(gewricht)
+    een_lid_diep.unregister()
     afstand.unregister(gewricht)
     if _oude_enable[0] is not None:
         if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven

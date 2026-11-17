@@ -15,8 +15,8 @@ import time
 
 import bmesh
 import bpy
-from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty
-from mathutils import Vector
+from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty, IntProperty
+from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 from ..eigenschappen import eenheid_per_mm
@@ -25,11 +25,15 @@ from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
+from . import snippers
+from . import een_lid_diep
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
+from . import scharnier_zwaai as zwaai
 
+GRADEN_MIN, GRADEN_MAX = 30, 150  # vrije eindstop (Pro 1.1); buiten dit bereik geen getoetste vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
 
 
@@ -70,6 +74,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
     stand: EnumProperty(name="Bends up to", items=STAND_KEUZES, default=str(vorm.STAND_STANDAARD))
     flip_bend: BoolProperty(name="Flip bend", default=False,
                             description="Bend the other way: the end stop moves to the other side of the part")
+    # Pro 1.1 (ontwerp-1.1.md, stap 2a): eindstop op een vrij getal, bijvoorbeeld uit Limit Rotation van een rig.
+    # 0 = de knop (stand). Alleen voor "Figure from rig" en scripts, daarom verborgen.
+    graden: IntProperty(default=0, min=0, max=180, options={"HIDDEN", "SKIP_SAVE"})
     # Leeg (0, 0, 0) = kijkrichting uit de 3D-weergave. Alleen voor scripts en de toets zonder venster.
     kijk_richting: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
     kijk_omhoog: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
@@ -117,46 +124,79 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bm.to_mesh(me)
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
-        maat, reden = vorm.maten(bvh, frame, s, int(self.stand), u)
+        stand = int(self.stand)
+        if self.graden:
+            if not GRADEN_MIN <= self.graden <= GRADEN_MAX:
+                bpy.data.meshes.remove(me)
+                self.report({"WARNING"}, f"End stop {self.graden}°: pick {GRADEN_MIN}° to {GRADEN_MAX}°.")
+                return {"CANCELLED"}
+            stand = int(self.graden)
+        maat, reden = vorm.maten(bvh, frame, s, stand, u)
         if maat is not None:
             # Eis 3: klikneus en rek, of Tight (dan geen scharnier); de sleuf nooit door de onderkant van A.
             reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
             maat = None if reden else maat
         if maat is None:
             bpy.data.meshes.remove(me)
+            bron["cj_weigering"] = reden  # 1.1: Figure from rig zet de reden in "Skipped: ..."
             self.report({"WARNING"}, reden)
             return {"CANCELLED"}
-        nodig = vorm.te_dicht(bron, punt, maat, u)  # eis 6: zelfde melding als bij de kogel
+        nodig = vorm.te_dicht(bron, punt, maat, u, bvh)  # 1.1: een scharnier op een ander lid telt niet  # eis 6: zelfde melding als bij de kogel
         if nodig is not None:
             bpy.data.meshes.remove(me)
             bron["cj_te_dicht_mm"] = nodig
             self.report({"WARNING"}, f"Too close to another joint (keep {nodig} mm apart).")
             return {"CANCELLED"}
-        hulp = bpy.data.collections.new("cj_hulp")
-        context.scene.collection.children.link(hulp)
-        werk = bpy.data.objects.new("cj_werk", me)
-        hulp.objects.link(werk)
         solver = solver_naam()
-        # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
-        ok_lid, melding = een_lid.bereid(werk, frame, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
-        if not ok_lid:
+        # 1.1: met alleen de Exact-solver (Blender voor 4.5) gaf een tweede knie op hetzelfde deel soms open randen
+        # (samenvallende vlakken met de eerste snede). Dan nog twee keer, het snijvlak een honderdste mm verschoven
+        # langs het lid; dat verschil is niet te printen en niet te meten in het bereik.
+        pogingen = (0.0, 0.013, -0.017) if solver == "EXACT" else (0.0,)
+        me_bron = me
+        laatste = len(pogingen) - 1
+        for i, eps in enumerate(pogingen):
+            frame_i = (Matrix.Translation(Vector(lid) * (eps * u)) @ frame) if eps else frame
+            hulp = bpy.data.collections.new("cj_hulp")
+            context.scene.collection.children.link(hulp)
+            werk = bpy.data.objects.new("cj_werk", me_bron.copy())
+            hulp.objects.link(werk)
+            # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
+            # Run 28: met alleen Exact (4.2) de gratis bereid, het diepe omhulsel kostte daar het andere onderbeen.
+            bereid = een_lid_diep.origineel() if solver == "EXACT" else een_lid.bereid
+            ok_lid, melding = bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
+            if not ok_lid:
+                ruim_op(hulp)
+                bpy.data.meshes.remove(me_bron)
+                bron["cj_weigering"] = melding
+                self.report({"WARNING"}, melding)
+                return {"CANCELLED"}
+            try:
+                deel_a, deel_b = vorm.snij(hulp, werk, frame_i, maat, solver)
+                if snippers.actief():  # 1.1: dunne losse snippers van de snede met H weg
+                    for d in (deel_a, deel_b):
+                        d["cj_snippers"] = snippers.ruim_snippers(d, u)
+            except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
+                ruim_op(hulp)
+                if i < laatste:
+                    continue
+                bpy.data.meshes.remove(me_bron)
+                self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
+                return {"CANCELLED"}
+            finally:
+                een_lid.reset()
+            uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
+            if all(ok for ok, _ in uitslag):
+                break
             ruim_op(hulp)
-            self.report({"WARNING"}, melding)
-            return {"CANCELLED"}
-        try:
-            deel_a, deel_b = vorm.snij(hulp, werk, frame, maat, solver)
-        except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
-            ruim_op(hulp)
-            self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
-            return {"CANCELLED"}
-        finally:
-            een_lid.reset()
-        uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
-        if not all(ok for ok, _ in uitslag):
-            ruim_op(hulp)
-            self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
-                                   f"{uitslag[0][1]}, part B {uitslag[1][1]}); the mesh is unchanged.")
-            return {"CANCELLED"}
+            if i == laatste:
+                bpy.data.meshes.remove(me_bron)
+                self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
+                                       f"{uitslag[0][1]}, part B {uitslag[1][1]}); the mesh is unchanged.")
+                return {"CANCELLED"}
+        bpy.data.meshes.remove(me_bron)
+        if eps:
+            frame = frame_i
+            punt = Vector(punt) + Vector(lid) * (eps * u)
         draaipunt = frame @ Vector((0, -maat["e"], 0))
         gegevens = {"cj_bron": bron.name, "cj_soort": "SCHARNIER", "cj_speling_mm": inst.speling_mm,
                     "cj_as": list(lid), "cj_scharnier_as": list(h), "cj_buigkant": list(buig),
@@ -168,7 +208,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_neus_klik": maat["neus_klik"],
                     "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
                     "cj_rek": maat["rek"], "cj_zaag_diepte": maat.get("zaag_diepte", -1.0),
-                    "cj_reik": vorm.reik(maat)}
+                    "cj_reik": vorm.snede_reik(maat)}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
@@ -176,6 +216,13 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             ruim_op(hulp)
             self.report({"ERROR"}, "The parts overlap before they move; the mesh is unchanged.")
             return {"CANCELLED"}
+        # 1.1 run 25: botst het vlees voor de stand, dan de zwaairuimte van B uit A halen (scharnier_zwaai.py).
+        voor_oud = voor
+        voor, achter, uitgesneden = zwaai.uitsnijden(deel_a, deel_b, draaipunt, h, buig, lid,
+                                                     1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"],
+                                                     maat["stand"], voor, achter, maat["rn"], s, u, solver, hulp)
+        if uitgesneden:
+            gegevens["cj_zwaai_van"] = round(voor_oud, 2)
         gegevens["cj_bereik_graden"] = round(voor, 2)
         gegevens["cj_achter_graden"] = round(achter, 2)
         gegevens["cj_r_lip"] = maat["r_lip"]
