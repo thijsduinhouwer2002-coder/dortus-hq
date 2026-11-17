@@ -1455,3 +1455,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Bram `wissel=regels`: in de tabel nagekeken, alles uit duurder bij elke L; CPU-vraag dicht, het was de runner (`balans.md`).
 - Bram hol-niveaus .exe: demo ±57 tot 63 min tot hol 12 zonder kopen, drempels blijven (`features.md`).
 - Berichten Olaf, Bram, Iris; open berichten verwerkt.
+- 06:08: ontwerp "Hoeden van de nacht" in `features.md`: hoeden na weg vallen zichtbaar een voor een op de toren in plaats van in één keer bij laden (GEZIEN `opslag.gd` r.142); vóór "optocht tekenen" omdat hoeden elke nacht komen en de optocht maar op 3 niveaus poeft. Berichten Olaf, Daan.
