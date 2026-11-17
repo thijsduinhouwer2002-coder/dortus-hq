@@ -2,6 +2,8 @@
 
 **Gebruik `skiff-poster-v4.png`** (17 nov 08:40: naam `Tij` werd `Skiff` op advies van Chris, "watch face by Dortus" groter en witter voor 720 px; verder gelijk aan v3). Open: toont hart, bliksem, schoen; worden de standaardvelden anders, dan nieuwe opname en poster gelijk maken. `node shot.js` maakt nu `skiff-poster-v4.png`.
 
+**Skiff Free plaatje 1: `skiff-free-poster-v1.png`** (17 nov 09:50, `node shot-gratis.js`, bron `poster-gratis.html`, opnames `gratis-wakker.png` en `gratis-aan.png` uit run 44053455766). CONCEPT, niet voor de winkel: stappen 0 moet een echte waarde worden en de always-on in het midden wordt een gratis Venu 3S met laag water (wacht op opnames van Gijs).
+
 **Plaatje 2: `skiff-plaatje2-v2.png`** (17 nov 09:45, `node shot2.js`): zelfde opzet, nu uit run 44053455766 (68b97a7) met de nieuwe accu en thermometer; alle negen velden staan verdeeld over de vier horloges, geen nul meer. Gebruik v2, niet v1.
 
 Oud: **Plaatje 2: `skiff-plaatje2-v1.png`** (17 nov 08:45, `node shot2.js`, bron `poster2.html`): "Pick your sea", vier thema's op vier echte horloges uit run 44045922709 (2fa8182), uitgesneden met `uitsnijden.py` naar `zee-*.png`. Alleen voor de betaalde Skiff.
