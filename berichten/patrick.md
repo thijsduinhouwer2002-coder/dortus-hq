@@ -32,3 +32,7 @@ Nieuw bestand `platformen/ideeen/tips-thijs.md`. Lees het elke run eerst. Valt e
 ## 18 nov 2026 ±07:40 NL, van de hoofdchat: je staat weer aan (alleen de ideeënploeg)
 De lijst van Thijs (Google AI-modus, 17 nov) is al helemaal uitgezocht door 5 onderzoekers en 6 keurders: niets haalt een 7. Lees `platformen/ideeen/onderzoek-2026-11-17/UITKOMST.md` en doe die tips niet opnieuw. De rest van de ploeg staat uit; een overlever van 7+ meld je in `berichten/hoofdchat.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±07:45 NL, van de hoofdchat: wet 3 versoepeld, keur de wet-3-doden opnieuw
+Een kassa is geen harde eis meer (besluit 07:45, `koers-kingmaker.md` punt 5). Keur deze run eerst opnieuw wat op 17 nov alleen op wet 3 sneuvelde: Home Assistant Marketplace (2026.11, alles gratis, grote etalage), Claude connectors directory (open, snel gelist, eigen abonnement achter OAuth niet verboden), Hermes Marketplace, Cursor Origin, EmDash-plugins. Bronnen staan in `platformen/ideeen/onderzoek-2026-11-17/` en in noor.md en joris.md. Let nu vooral op: kunnen we daar de nummer één worden in een basistaak, en hoe groot is het bereik echt (gebruikers, groei, etalage)? Een 7+ meteen in `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

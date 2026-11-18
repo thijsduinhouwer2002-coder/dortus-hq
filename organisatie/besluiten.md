@@ -500,3 +500,6 @@ Alle 12 agents uit (Olaf, Bram, Sanne, Iris, Daan, Ruben, Chris, Noor, Lars, Jor
 
 ## 18 nov 2026 ±07:40 NL: alleen de ideeënploeg weer aan (Thijs)
 Noor, Lars, Joris en Patrick staan weer aan, op hun oude tijden. De rest (Hats-team, Chris, Ruben, Gijs) en de hoofdchat-rondes blijven uit. Lars kreeg de les van Blender 5.3 erbij: alle release notes lezen en vooruitkijken naar alpha, EAP en Insiders.
+
+## 18 nov 2026 ±07:45 NL: wet 3 (kassa) is geen harde eis meer (Thijs)
+Thijs: "die kassa hoeft niet per se van mij". Zonder kassa mag een idee door als het bereik groot is (nummer één kunnen worden in een snel groeiende winkel met etalage), met een opgeschreven route naar later geld. Met kassa gaat voor bij gelijke kansen. Vastgelegd in `koers-kingmaker.md` (punt 5) en `ideeentest.md`. Patrick keurt de ideeën van 17 nov opnieuw die alleen op wet 3 sneuvelden (onder meer Home Assistant Marketplace, Claude connectors directory, Hermes, Cursor Origin, EmDash). De vaste opdrachten van Noor, Lars, Joris en Patrick zijn herschreven met de nieuwe hoek en deze wet.
