@@ -1,21 +1,21 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1794933715
+HOL zaad 1795042143
 HOL demo voorbij na 3 s speeltijd
-HOL kroniek 3.0 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL kroniek 3.1 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL muisvlak 4 punten, lucht vrij op x=200
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL begin: vallen (Kobus)
-HOL held binnen: Kobus
-HOL zicht 4.1 1
-HOL kroniek 5.5 (wacht 1.5): Kobus climbs into your hole.
-HOL kroniek 9.2 (wacht 0.0): Joost is here for your gold.
-HOL begin: opgegeten (Joost)
-HOL held binnen: Joost
-HOL meting t=10 beelden=64 helden=2 hol_vast=1
-HOL kroniek zelfde held vervangen: Kobus climbs into your hole.
-HOL kroniek 12.8 (wacht 0.0): Kobus checked the floor. Too late. +6
-HOL kroniek 15.3 (wacht 2.5): New page: the Hero. The pit won.
-HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL begin: vallen (Mara)
+HOL held binnen: Mara
+HOL zicht 4.2 1
+HOL kroniek 5.6 (wacht 1.5): Mara is here for your gold.
+HOL meting t=10 beelden=64 helden=1 hol_vast=1
+HOL kroniek 11.0 (wacht 0.0): Wout brought a torch. And hope.
+HOL begin: opgegeten (Wout)
+HOL held binnen: Wout
+HOL kroniek zelfde held vervangen: Mara is here for your gold.
+HOL kroniek 12.8 (wacht 0.0): Mara fell to the Spike Pit. +6
+HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit won.
+HOL meting t=20 beelden=129 helden=1 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0
