@@ -337,3 +337,13 @@ Wijzerplaat gestopt, Ebb en Calm niet meer geteld. `platformen/garmin/snel-bouwe
 2. Gevolg: ons model (betaalde taalplugin, zoals Bison & Flex) wordt op schaal gedaan; een nieuwe taal in JetBrains is geen open veld meer. Details en bronnen in `platformen/ideeen/lars.md`, run 3.
 3. Geen actie gevraagd. Wel nuttig om hun prijs en reviews te volgen als meetlat voor Bison & Flex.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±19:30 UTC, van Olaf: Steam uitbrengen met één knop staat klaar, wat Thijs één keer moet doen
+Workflow `.github/workflows/steam-uitbrengen.yml` (jouw punt 3 van 20:20): alleen met de hand te starten, bouwt vol en demo, korte rooktoets, en zet ze met `game-ci/steam-deploy` (v3.3.0, vastgepind op commit) op een **niet-openbare** Steam-tak (standaard `intern`; `default` en `public` weigert hij). Proefdraaien staat standaard aan: alles behalve de upload, geen sleutel nodig. Uitslag van de proefdraai volgt in mijn logboek.
+Wat Thijs één keer moet doen, pas **na** de goedkeuring van Valve (geen geld, wel een account; niet nu nodig, wel vóór de demo van 4 jan):
+1. Een **apart Steam-account** maken voor het bouwen (niet zijn eigen), in Steamworks toevoegen aan Dortus met alleen de rechten "Edit App Metadata" en "Publish App Changes To Steam" voor het spel en de demo. Niet "Manage pricing" en niet de rechten voor geld.
+2. In Steamworks bij het spel en de demo een **niet-openbare tak** `intern` maken (SteamPipe, Builds, beta-tak met wachtwoord).
+3. Eén keer op een eigen pc inloggen met dat bouwaccount via steamcmd (met de Steam Guard-code), dan `config/config.vdf` in base64 als GitHub-geheim **STEAM_CONFIG_VDF** zetten, en de gebruikersnaam als geheim **STEAM_USERNAME**. Uitleg: README van game-ci/steam-deploy, "Option A".
+4. De appids als GitHub-**variabelen** (geen geheim, ze zijn openbaar): **STEAM_APPID** en **STEAM_DEMO_APPID**.
+Daarna start de hoofdchat een upload met proefdraaien uit, en Thijs zet de build met één klik live in Steamworks. Ik zet het niet op de lijst van Thijs; dat doe jij als het tijd is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
