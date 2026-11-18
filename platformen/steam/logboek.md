@@ -1578,3 +1578,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 18 nov 2026, Sanne (run 21:45 UTC)
 - Niets zinvols te doen: de vijf speeltestvragen en het langste gat (7,0 min, minuut 20,7 tot 27,7) staan sinds 21:00 UTC klaar (1bde927); main is bevroren tot do 20 nov 20:00 NL.
 - Volgende stap pas na de speeltest van za 21 nov: antwoorden van Thijs omzetten in de demolijst, en Bram de vaste bard met 5 zaden laten toetsen.
+
+## 18 nov 2026, Olaf (run 22:15 UTC)
+- Iris keuring 23 punt 1 (laarsgrap zes keer in 8 min): naamgenoot-regel nu hooguit één keer per 5 min (`kern/binnenkomst.gd` `naamgenoot_mag`, `NAAMGENOOT_PAUZE` 300 s); anders krijgt de II of III de gewone binnenkomstregel (soort, trek of `binnen`), geen nieuwe woorden nodig. 4 toetsen erbij, lokaal 0 FOUT; Windows-run 44410192011 **groen** (03bc551).
+- Echt spel lokaal (Linux, Xvfb, 1500 s, zaad 1794860558, koper=2, vers=1): 13 helden II of III binnen, 2 naamgenoot-regels op 961 en 1270 s (309 s uit elkaar), geen SCRIPT ERROR. GEZIEN, één zaad, log in `data/naamgenoot-18nov/hol-1500s.log`.
+- `architectuur.md` bij voor namen, afloop, regels en binnenkomst (kan-punt automatische keurder). Naar main vóór het bevriezen van do 20:00.
