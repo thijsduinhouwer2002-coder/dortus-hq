@@ -1564,3 +1564,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 18 nov 2026, Sanne (run ±20:40 tot 21:05 UTC)
 - Speeltest 21 nov: vijf vragen in `speeltest-21-nov.md` (afhaken, glimlach, meer, vast, terug en verlanglijst).
 - Langste gat zonder iets nieuws in minuut 0 tot 30 gemeten uit duurtest 44127812882: 20,7 tot 27,7 min (7,0), GEZIEN, één zaad. Voorstel na de speeltest: eerste bard vast als ±40e held; Bram toetst. Gemeld aan hoofdchat en Bram.
+
+## 18 nov 2026, Olaf (run ±20:15 UTC)
+- Opdracht hoofdchat 21:25 NL: `steam-uitbrengen.yml` start nu ook bij een tag `hats-steam-v*` en, omdat **een tag pushen vanuit onze sessies 403 geeft** (GEZIEN, `git push origin <tag>`), ook bij een tak `uitgave/hats-steam-v*` (tak pushen lukt wel). Naam eindigt op `-proefN`: alleen proefdraaien.
+- Nieuwe job `toetsen` vóór het bouwen: geldige naam, versie gelijk aan `product_version` in `export_presets.cfg`, nieuwer dan elke eerdere echte uitgave (tags en uitgavetakken), tests groen (geslaagde `steam-hol.yml` op main met precies dezelfde map `producten/steam-hol`, via de API), akkoord Daan (regel in nieuw `platformen/steam/uitgaven.md` met bestaand keuringsbestand; bij proef alleen waarschuwing). Lokaal 10 gevallen nagespeeld met een nep-API, allemaal zoals bedoeld.
+- Op GitHub GEZIEN: `uitgave/hats-steam-v0.1.0-proef2` run 44390112270 **groen** (controles vonden groene run op fb00619, bouwen, rooktoets, depots, uploadstappen overgeslagen); `uitgave/hats-steam-vfoo` run 44390117492 **rood in toetsen**, bouwen en uploaden overgeslagen. Echte upload zonder akkoord alleen lokaal getoetst (stopt in toetsen).
+- Takken `uitgave/hats-steam-v0.1.0-proef1`, `-proef2` en `uitgave/hats-steam-vfoo` blijven staan: tak verwijderen geeft ook 403. Opruimen kan Thijs of later. Nog niet gekeurd door een ander.
