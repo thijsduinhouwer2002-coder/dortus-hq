@@ -10,7 +10,8 @@ import re
 import sys
 
 BRONNEN = ["CLAUDE.md", "START.md"] + glob.glob(".claude/skills/*/SKILL.md") + glob.glob("organisatie/regels/*.md") \
-    + ["organisatie/regels.md", "organisatie/toegang.md", "organisatie/sjablonen/agent-opdracht.md"]
+    + ["organisatie/regels.md", "organisatie/toegang.md", "organisatie/sjablonen/agent-opdracht.md"] \
+    + glob.glob("organisatie/rollen/*.md")
 PAD = re.compile(r"`([A-Za-z0-9_.\-/]+)`")
 VOORVOEGSELS = ("organisatie/", "platformen/", "producten/", "commercie/", "berichten/", ".claude/", ".github/",
                 "ontwerp/", "strategie/", "rapporten/")
