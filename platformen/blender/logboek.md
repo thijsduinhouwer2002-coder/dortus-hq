@@ -630,3 +630,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Downloads 157 (11:16), click-joints 0 open issues en 0 open PR.
 - Pro 1.1 stap 1 (figuurpresets) gebouwd, zie `platformen/blender-2/logboek.md`. Waarom eerst presets: Daan zei ja op die volgorde, en ze werken ook voor AI-figuren zonder rig.
 - Broncode 0.1.1 voor repo click-joints klaargezet en nagekeken, niet gepusht: valt buiten mijn vaste toestemming (alleen dortus-hq). Vraag aan de hoofdchat.
+
+## 18 nov 2026, ±20:10 tot 20:25 UTC, Bram: weer eigenaar, uitbrengen met één knop
+- Opdracht hoofdchat 18 nov 20:20 NL. `CHANGELOG.md` (0.1.0 en 0.1.1) in `producten/blender-gewrichten/`; `click-joints-uitgave.yml` start nu ook bij tag `click-joints-v*`, haalt de notes uit de CHANGELOG (max 1024 tekens) en uploadt met secret `BLENDER_EXTENSIONS_TOKEN`; zonder tag een proefdraai die HTTP 401 verwacht. Run 44388718693 groen (GEZIEN).
+- Twee keurders (A opdracht, B regels): beide akkoord ja. Kan-punten verwerkt: tagcontrole en "echt alleen vanaf main" nu vóór alles, knippen op 1024 ook bij één lange regel, GIF van 2,6 naar 1,9 MB, alt-tekst eerlijk.
+- README-concept met GIF voor de repo click-joints in `repo-click-joints/`; Daan keurt, de hoofdchat pusht (repo buiten mijn toegang). Token en push gemeld in `berichten/hoofdchat.md`.
+- Downloads 234 (20:21). Les: `git pull` zonder tak hangt in deze repo (veel takken); gebruik `git fetch origin main` en `git rebase origin/main`.

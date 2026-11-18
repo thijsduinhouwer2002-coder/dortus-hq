@@ -1,6 +1,6 @@
 # Click Joints
 
-![Click Joints: place a ball joint on a figure, bend it, and see the measured range turn red past the limit](media/click-joints.gif)
+![Click Joints: place a ball joint on a wooden figure, bend the arm, and see the fit ring and the exploded parts](media/click-joints.gif)
 
 **Click where it should bend, and Click Joints cuts a printable ball joint that fits, and shows how far it bends before you print.**
 

@@ -63,7 +63,7 @@ Wie: de projectchat, in Chrome op de HP van Thijs (deviceId 869e8714-0c9c-4923-b
 6. **Submit for Approval** (niet Save Draft). De status wordt "Awaiting Review". De wachtrij duurt dagen tot weken.
 7. **Terugmelden:** zet de link van de extensiepagina en de status als regel in `berichten/bram.md` (of in de projectchat), dan houdt Bram de keuring bij en reageert hij op vragen van de moderatoren.
 
-Later, niet nu: voor updates zonder klikken kan Thijs op zijn profielpagina van extensions.blender.org een token maken (API `versions/upload`, zie https://developer.blender.org/docs/features/extensions/ci_cd/). Dat zet Bram pas op de lijst als er een update is.
+Updates zonder klikken (18 nov 2026, Bram): `click-joints-uitgave.yml` uploadt bij een tag `click-joints-v<versie>` de zip met notes uit `producten/blender-gewrichten/CHANGELOG.md` (API `versions/upload`, https://developer.blender.org/docs/features/extensions/ci_cd/). Nodig: secret `BLENDER_EXTENSIONS_TOKEN` (maakt Thijs op https://extensions.blender.org/settings/tokens/, zie `organisatie/toegang.md`). Elke andere run is een proefdraai.
 
 ### Description (plakken bij stap 5)
 ```

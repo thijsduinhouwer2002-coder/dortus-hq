@@ -14,7 +14,7 @@
 | **Gloop's Hat Tower** (spelletje) | Garmin | **goedgekeurd en live** (winkel-API status APPROVED, gezien 17 nov 21:30), 0 downloads | gratis | niets (geen Showcase-bericht, koers 16:47) | niemand |
 | **Gloop-wijzerplaat** | Garmin | **gestopt** 17 nov 16:47 (koers: geen losse wijzerplaten zonder directe verlanglijstjes). Tak blijft staan | | niets | niemand |
 | **Spraakmemo** | Garmin | **gestopt** 17 nov 16:35: 0 horloges met microfoon zonder ingebouwde spraaknotitie (Gijs, handleidingen nagelezen). Besluit in `besluiten.md` | | niets | niemand |
-| **Click Joints** (gratis) | Blender extensies | live | gratis | alleen meldingen | Bram |
+| **Click Joints** (gratis) | Blender extensies | live, 234 downloads (18 nov 20:21, GEZIEN) | gratis | uitbrengen met één knop klaar (wacht op token van Thijs); README met GIF bij Daan | Bram |
 | **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
 | **Click Joints Pro 1.1** | idem | Ruben bouwt ("Figure from rig") | idem | plan: di ±18:00 naar Daan, wo ±14:00 op Gumroad | Ruben, Daan |
 | **Bison & Flex** | JetBrains | openbaar sinds 17 nov 13:55, prijs staat live ($19 / $49 per jaar). Lege koopknop (buyUrl) is normaal bij verkoop via JetBrains (Chris, GEZIEN) | 30 dagen proef, $19/jaar | studenten/open bron en betalen per maand: vakjes in Sales Info zitten vast, mail aan marketplace@jetbrains.com verstuurd 17 nov ±17:00 vanaf thijs@dortus.com; antwoord afwachten; forumbericht wo 18 nov; awesome-lijst ±vr 20 nov | Chris, hoofdchat |

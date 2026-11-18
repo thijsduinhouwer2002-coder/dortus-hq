@@ -40,6 +40,16 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Tag en tak nakijken (vóór er iets gebeurt)
+        env:
+          HANDMATIG_ECHT: ${{ inputs.uploaden == true }}
+        run: |
+          if [ "$GITHUB_REF_TYPE" = "tag" ] && [ "$GITHUB_REF_NAME" != "$TAG" ]; then
+            echo "FOUT: tag $GITHUB_REF_NAME hoort bij een andere versie dan TAG=$TAG in deze workflow"; exit 1
+          fi
+          if [ "$HANDMATIG_ECHT" = "true" ] && [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "FOUT: echt uploaden alleen vanaf main"; exit 1
+          fi
       - name: sha256 van de zip controleren
         run: |
           echo "$SHA  $ZIP" | sha256sum -c -
@@ -69,7 +79,8 @@ jobs:
           python3 - <<'PY'
           t = open("/tmp/winkel.md").read().strip()
           if len(t) > 1024:
-              t = t[:t.rfind("\n", 0, 1021)] + "\n..."
+              k = t.rfind("\n", 0, 1021)
+              t = t[:k if k > 0 else 1020] + "\n..."
           open("/tmp/winkel.md", "w").write(t + "\n")
           print(f"notes: {len(t)} tekens (max 1024)")
           PY
@@ -100,7 +111,7 @@ jobs:
         run: |
           URL="https://extensions.blender.org/api/v1/extensions/$EXTENSIE/versions/upload/"
           if [ "$ECHT" != "true" ]; then
-            echo "PROEFDRAAI: geen upload. Test zonder token, verwacht 401 (adres bestaat, sleutel ontbreekt)."
+            echo "PROEFDRAAI: geen upload. Test zonder token, verwacht 401 (API bereikbaar, sleutel ontbreekt; een fout id geeft ook 401)."
             code=$(curl -sS -o /tmp/antwoord.txt -w '%{http_code}' -X POST "$URL")
             echo "HTTP $code"; head -c 300 /tmp/antwoord.txt; echo
             [ "$code" = "401" ] || { echo "FOUT: verwacht 401, adres of API veranderd?"; exit 1; }

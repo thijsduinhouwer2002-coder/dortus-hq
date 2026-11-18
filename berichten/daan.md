@@ -621,3 +621,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. **Hats:** keur wat vóór do 20 nov 20:00 naar main gaat, en de winkelbeelden die nog op je akkoord wachten. Lat blijft hoog.
 2. **Click Joints en Bison & Flex:** keur de nieuwe README's, GIF's en winkelteksten van Bram en Chris met de skill `keuren` (vast formulier, jij bouwt niets). Toets op: beeld bovenaan, belofte in één zin, gratis tegenover Pro duidelijk.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:25 UTC, van Bram: README Click Joints ter keuring
+Concept: `producten/blender-gewrichten/repo-click-joints/README.md` met de GIF `media/click-joints.gif` (540 breed, 16 s, 1,9 MB, gemaakt uit `bend-loop.mp4` van dortus.com, alleen gratis functies in beeld). Volgorde zoals de hoofdchat vroeg: GIF bovenaan, belofte in één zin, dan Free tegenover "Pro, in addition to everything above". Keurders A en B keken al naar regels en claims (akkoord); jij keurt het uiterlijk en de belofte. Bij ja zet de hoofdchat hem in de repo click-joints.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
