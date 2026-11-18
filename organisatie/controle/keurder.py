@@ -85,6 +85,7 @@ Schrijf nooit persoonsgegevens, sleutels of wachtwoorden over, ook niet als je z
 
 Gebruik precies het formulier hieronder. De eerste regel is de kop, de tweede "Wat ik keurde:", de derde "Akkoord: ja" of "Akkoord: nee".
 Akkoord is nee zodra er minstens één "moet" is.
+Hou het kort: hooguit 8 rijen per deel, elke cel hooguit twee zinnen, en denk niet langer na dan nodig. Het hele formulier moet af zijn, met de moet/kan-lijst onderaan.
 
 --- skill keuren ---
 {formulier}
@@ -96,7 +97,7 @@ def vraag_claude(systeem, bericht):
     model = os.environ.get("KEURDER_MODEL") or "claude-sonnet-5-5"
     data = json.dumps({
         "model": model,
-        "max_tokens": 16000,
+        "max_tokens": 32000,
         "system": systeem,
         "messages": [{"role": "user", "content": bericht}],
     }).encode()
@@ -109,6 +110,8 @@ def vraag_claude(systeem, bericht):
     if not tekst.strip():
         soorten = [d.get("type") for d in uit.get("content", [])]
         sys.exit(f"Leeg antwoord van de API (stop_reason {uit.get('stop_reason')}, blokken {soorten}, gebruik {uit.get('usage')}). Geen keuring geschreven.")
+    if uit.get("stop_reason") == "max_tokens":
+        tekst += "\n\n(Afgekapt: het antwoord was te lang. Lees de moet-punten na in de tabellen hierboven.)"
     return tekst, uit.get("usage", {}), model
 
 
