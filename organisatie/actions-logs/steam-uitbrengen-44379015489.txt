@@ -1,0 +1,122 @@
+# gemaakt: 2026-11-18T23:02:42Z
+# workflow: Het Hol naar Steam (met de hand, niet-openbare tak) (.github/workflows/steam-uitbrengen.yml)
+# run: 44379015489 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44379015489
+# commit: b7970e27 tak main gestart door workflow_dispatch
+# mislukte stappen: uploaden: Sleutels aanwezig? (alleen bij een echte upload)
+# per mislukte job de laatste 200 regels; persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== uploaden / UNKNOWN STEP (laatste 113 van 113 regels) =====
+﻿2026-11-18T19:20:48.6742599Z Current runner version: '2.338.2'
+##[group]Runner Image Provisioner
+Hosted Compute Agent
+Version: 20261103.629
+Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+Build Date: 2026-11-03T17:26:59Z
+Worker ID: {beec3041-e96a-4d97-a1f7-9d1385c5f981}
+Region: southcentralus
+Cloud: Azure
+##[endgroup]
+##[group]Operating System
+Ubuntu
+26.04.1
+LTS
+##[endgroup]
+##[group]Runner Image
+Image: ubuntu-26.04
+Version: 20261111.196.1
+Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+##[endgroup]
+##[group]GITHUB_TOKEN Permissions
+Contents: read
+Metadata: read
+##[endgroup]
+Secret source: Actions
+Cache mode: write
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+Download action repository 'game-ci/steam-deploy@1c487ecde10efac6b6630e38978187c09497c427' (SHA:1c487ecde10efac6b6630e38978187c09497c427)
+Complete job name: uploaden
+##[group]Run actions/download-artifact@v4
+with:
+  name: steam-depots
+  path: steam
+  merge-multiple: false
+  repository: thijsduinhouwer2002-coder/dortus-hq
+  run-id: 44379015489
+##[endgroup]
+Downloading single artifact
+(node:2083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Preparing to download the following artifacts:
+- steam-depots (ID: 14462791302, Size: 33342645, Expected Digest: sha256:6493c9409c23a955da82e0ced836cd574fe0a48ab8e3d672e3a8e6b940ad1f3a)
+Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/d23706ba-23b7-444c-9b6b-228c4c0c8d12/workflow-job-run-14383094-1639-5a6f-914a-f6bf2c64cd0e/artifacts/ebe451c77d4ebcb2694f6aa75a5a085accc275f1f599489cedcaa851a8e05f7d.zip
+Starting download of artifact to: /home/runner/work/dortus-hq/dortus-hq/steam
+(node:2083) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+SHA256 digest of downloaded artifact is 6493c9409c23a955da82e0ced836cd574fe0a48ab8e3d672e3a8e6b940ad1f3a
+Artifact download completed successfully.
+Total of 1 artifact(s) downloaded
+Download artifact has finished successfully
+##[group]Run fout=0
+^[[36;1mfout=0^[[0m
+^[[36;1mS="$GITHUB_STEP_SUMMARY"^[[0m
+^[[36;1mecho "## Het Hol naar Steam: $( [ "$PROEF" = "true" ] && echo PROEFDRAAIEN || echo ECHTE UPLOAD )" >> "$S"^[[0m
+^[[36;1mecho "Commit \`$GITHUB_SHA\`, Steam-tak \`$TAK\`, build: $WELKE" >> "$S"^[[0m
+^[[36;1mfor d in vol demo; do^[[0m
+^[[36;1m  [ "$WELKE" = "beide" ] || [ "$WELKE" = "$d" ] || continue^[[0m
+^[[36;1m  [ -f "steam/$d/HetHol.exe" ] || { echo "FOUT: steam/$d/HetHol.exe ontbreekt"; fout=$((fout+1)); continue; }^[[0m
+^[[36;1m  # verboden in een depot: logs, saves, debugbestanden en vdf's (steam-deploy sluit *.pdb, *.log, *.vdf ook uit)^[[0m
+^[[36;1m  vreemd=$(find "steam/$d" -type f \( -name '*.log' -o -name '*.pdb' -o -name '*.vdf' -o -name '*.save' -o -name '*.tres' -o -name '*.tmp' \) | wc -l)^[[0m
+^[[36;1m  [ "$vreemd" -eq 0 ] || { echo "FOUT: $vreemd vreemde bestanden in steam/$d"; fout=$((fout+1)); }^[[0m
+^[[36;1m  mb=$(du -sm "steam/$d" | cut -f1)^[[0m
+^[[36;1m  [ "$mb" -lt 500 ] || { echo "FOUT: steam/$d is $mb MB"; fout=$((fout+1)); }^[[0m
+^[[36;1m  id=$([ "$d" = "vol" ] && echo "${APPID:-APPID}" || echo "${DEMO_APPID:-DEMO_APPID}")^[[0m
+^[[36;1m  depot=$([[ "$id" =~ ^[0-9]+$ ]] && echo $((id+1)) || echo "${id}+1")^[[0m
+^[[36;1m  m="manifest-$d.vdf"^[[0m
+^[[36;1m  # zelfde vorm als het manifest dat steam-deploy voor steamcmd maakt (app_build met één depot en SetLive op de tak)^[[0m
+^[[36;1m  {^[[0m
+^[[36;1m    echo "\"AppBuild\""; echo "{"^[[0m
+^[[36;1m    echo "  \"AppID\" \"$id\""^[[0m
+^[[36;1m    echo "  \"Desc\" \"Het Hol $d ${GITHUB_SHA:0:7} run $GITHUB_RUN_ID\""^[[0m
+^[[36;1m    echo "  \"ContentRoot\" \"steam/$d\""^[[0m
+^[[36;1m    echo "  \"SetLive\" \"$TAK\""^[[0m
+^[[36;1m    echo "  \"Depots\" { \"$depot\" { \"FileMapping\" { \"LocalPath\" \"*\" \"DepotPath\" \".\" \"recursive\" \"1\" } \"FileExclusion\" \"*.pdb\" \"FileExclusion\" \"*.log\" \"FileExclusion\" \"*.vdf\" } }"^[[0m
+^[[36;1m    echo "}"^[[0m
+^[[36;1m  } > "$m"^[[0m
+^[[36;1m  echo "### $d: $mb MB, $(find "steam/$d" -type f | wc -l) bestanden" >> "$S"^[[0m
+^[[36;1m  echo '```' >> "$S"; find "steam/$d" -type f -printf '%P  %s\n' >> "$S"; cat "$m" >> "$S"; echo '```' >> "$S"^[[0m
+^[[36;1mdone^[[0m
+^[[36;1mecho "uitslag: $fout FOUT" | tee -a "$S"^[[0m
+^[[36;1m[ "$fout" -eq 0 ] || exit 1^[[0m
+shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+env:
+  TAK: intern
+  WELKE: demo
+  PROEF: false
+  APPID: 
+  DEMO_APPID: 
+##[endgroup]
+uitslag: 0 FOUT
+##[group]Run mis=""
+^[[36;1mmis=""^[[0m
+^[[36;1m[ -n "$GEBRUIKER" ] || mis="$mis STEAM_USERNAME(geheim)"^[[0m
+^[[36;1m[ -n "$VDF" ] || mis="$mis STEAM_CONFIG_VDF(geheim)"^[[0m
+^[[36;1mif [ "$WELKE" != "demo" ]; then [[ "$APPID" =~ ^[0-9]+$ ]] || mis="$mis STEAM_APPID(variabele)"; fi^[[0m
+^[[36;1mif [ "$WELKE" != "vol" ]; then [[ "$DEMO_APPID" =~ ^[0-9]+$ ]] || mis="$mis STEAM_DEMO_APPID(variabele)"; fi^[[0m
+^[[36;1mif [ -n "$mis" ]; then echo "::error::Echte upload kan niet, dit ontbreekt:$mis. Draai met proefdraaien aan, of laat Thijs het zetten (berichten/hoofdchat.md)."; exit 1; fi^[[0m
+^[[36;1mecho "sleutels en appids aanwezig"^[[0m
+shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+env:
+  GEBRUIKER: 
+  VDF: 
+  APPID: 
+  DEMO_APPID: 
+  WELKE: demo
+##[endgroup]
+##[error]Echte upload kan niet, dit ontbreekt: STEAM_USERNAME(geheim) STEAM_CONFIG_VDF(geheim) STEAM_DEMO_APPID(variabele). Draai met proefdraaien aan, of laat Thijs het zetten (berichten/hoofdchat.md).
+##[error]Process completed with exit code 1.
+Cleaning up orphan processes
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

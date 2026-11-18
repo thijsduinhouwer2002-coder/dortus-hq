@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-18T23:02:38Z
+# workflow: Het Hol naar Steam (met de hand of met een tag, niet-openbare tak) (.github/workflows/steam-uitbrengen.yml)
+# run: 44390117492 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44390117492
+# commit: 6adb0ba9 tak uitgave/hats-steam-vfoo gestart door push
+# mislukte stappen: toetsen: Controles (tag, versie, tests groen, akkoord Daan)
+# per mislukte job de laatste 200 regels; persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== toetsen / UNKNOWN STEP (laatste 200 van 750 regels) =====
+ * [new branch]            ontwerp/rollwright-v2d   -> origin/ontwerp/rollwright-v2d
+ * [new branch]            ontwerp/rollwright-v2e   -> origin/ontwerp/rollwright-v2e
+ * [new branch]            ontwerp/rollwright-v2f   -> origin/ontwerp/rollwright-v2f
+ * [new branch]            ontwerp/rollwright-v2g   -> origin/ontwerp/rollwright-v2g
+ * [new branch]            ontwerp/rollwright-vergelijk -> origin/ontwerp/rollwright-vergelijk
+ * [new branch]            ontwerp/rollwright-vergelijk3 -> origin/ontwerp/rollwright-vergelijk3
+ * [new branch]            ontwerp/rollwright-wereld -> origin/ontwerp/rollwright-wereld
+ * [new branch]            ontwerp/rollwright-wereldbeweging -> origin/ontwerp/rollwright-wereldbeweging
+ * [new branch]            ontwerp/steam-fakkel     -> origin/ontwerp/steam-fakkel
+ * [new branch]            ontwerp/steam-hol-melding -> origin/ontwerp/steam-hol-melding
+ * [new branch]            ontwerp/winkel           -> origin/ontwerp/winkel
+ * [new branch]            schermen                 -> origin/schermen
+ * [new branch]            uitgave/hats-steam-v0.1.0-proef1 -> origin/uitgave/hats-steam-v0.1.0-proef1
+ * [new branch]            uitgave/hats-steam-v0.1.0-proef2 -> origin/uitgave/hats-steam-v0.1.0-proef2
+ * [new branch]            uitgave/hats-steam-vfoo  -> origin/uitgave/hats-steam-vfoo
+ * [new branch]            verkenner-data           -> origin/verkenner-data
+ * [new tag]               bison-flex-2026.1.0-20261108 -> bison-flex-2026.1.0-20261108
+ * [new tag]               click-joints-pro-film-v1 -> click-joints-pro-film-v1
+ * [new tag]               click-joints-pro-v1.0.1  -> click-joints-pro-v1.0.1
+ * [new tag]               click-joints-pro-v1.0.2  -> click-joints-pro-v1.0.2
+ * [new tag]               click-joints-v0.1.0      -> click-joints-v0.1.0
+ * [new tag]               click-joints-v0.1.1      -> click-joints-v0.1.1
+ * [new tag]               ebb-calm-v1.0.0          -> ebb-calm-v1.0.0
+ * [new tag]               ebb-calm-v1.0.1          -> ebb-calm-v1.0.1
+ * [new tag]               ebb-v1.0.0               -> ebb-v1.0.0
+ * [new tag]               ebb-v1.0.0-proef         -> ebb-v1.0.0-proef
+ * [new tag]               ebb-v1.0.1               -> ebb-v1.0.1
+ * [new tag]               filmpjes-week-1          -> filmpjes-week-1
+ * [new tag]               gloop-hat-tower-v1.0.0   -> gloop-hat-tower-v1.0.0
+[command]/usr/bin/git branch --list --remote origin/uitgave/hats-steam-vfoo
+  origin/uitgave/hats-steam-vfoo
+[command]/usr/bin/git rev-parse refs/remotes/origin/uitgave/hats-steam-vfoo
+6adb0ba9753da9b4ebb721459ca5f410b53c0a4e
+##[endgroup]
+##[group]Determining the checkout info
+##[endgroup]
+[command]/usr/bin/git sparse-checkout disable
+[command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+##[group]Checking out the ref
+[command]/usr/bin/git checkout --progress --force -B uitgave/hats-steam-vfoo refs/remotes/origin/uitgave/hats-steam-vfoo
+Updating files:  43% (2992/6905)
+Updating files:  44% (3039/6905)
+Updating files:  45% (3108/6905)
+Updating files:  46% (3177/6905)
+Updating files:  47% (3246/6905)
+Updating files:  48% (3315/6905)
+Updating files:  49% (3384/6905)
+Updating files:  50% (3453/6905)
+Updating files:  51% (3522/6905)
+Updating files:  52% (3591/6905)
+Updating files:  53% (3660/6905)
+Updating files:  54% (3729/6905)
+Updating files:  55% (3798/6905)
+Updating files:  56% (3867/6905)
+Updating files:  56% (3915/6905)
+Updating files:  57% (3936/6905)
+Updating files:  58% (4005/6905)
+Updating files:  59% (4074/6905)
+Updating files:  60% (4143/6905)
+Updating files:  61% (4213/6905)
+Updating files:  62% (4282/6905)
+Updating files:  63% (4351/6905)
+Updating files:  64% (4420/6905)
+Updating files:  65% (4489/6905)
+Updating files:  66% (4558/6905)
+Updating files:  67% (4627/6905)
+Updating files:  68% (4696/6905)
+Updating files:  69% (4765/6905)
+Updating files:  70% (4834/6905)
+Updating files:  71% (4903/6905)
+Updating files:  72% (4972/6905)
+Updating files:  73% (5041/6905)
+Updating files:  74% (5110/6905)
+Updating files:  75% (5179/6905)
+Updating files:  75% (5243/6905)
+Updating files:  76% (5248/6905)
+Updating files:  77% (5317/6905)
+Updating files:  78% (5386/6905)
+Updating files:  79% (5455/6905)
+Updating files:  80% (5524/6905)
+Updating files:  80% (5567/6905)
+Updating files:  81% (5594/6905)
+Updating files:  82% (5663/6905)
+Updating files:  83% (5732/6905)
+Updating files:  84% (5801/6905)
+Updating files:  85% (5870/6905)
+Updating files:  86% (5939/6905)
+Updating files:  87% (6008/6905)
+Updating files:  88% (6077/6905)
+Updating files:  89% (6146/6905)
+Updating files:  90% (6215/6905)
+Updating files:  91% (6284/6905)
+Updating files:  92% (6353/6905)
+Updating files:  93% (6422/6905)
+Updating files:  94% (6491/6905)
+Updating files:  95% (6560/6905)
+Updating files:  96% (6629/6905)
+Updating files:  97% (6698/6905)
+Updating files:  98% (6767/6905)
+Updating files:  99% (6836/6905)
+Updating files: 100% (6905/6905)
+Updating files: 100% (6905/6905), done.
+Switched to a new branch 'uitgave/hats-steam-vfoo'
+branch 'uitgave/hats-steam-vfoo' set up to track 'origin/uitgave/hats-steam-vfoo'.
+##[endgroup]
+[command]/usr/bin/git log -1 --format=%H
+6adb0ba9753da9b4ebb721459ca5f410b53c0a4e
+##[group]Run S="$GITHUB_STEP_SUMMARY"; fout=0; waarsch=0
+^[[36;1mS="$GITHUB_STEP_SUMMARY"; fout=0; waarsch=0^[[0m
+^[[36;1mnaam="${GITHUB_REF_NAME#uitgave/}"^[[0m
+^[[36;1mif [ "$GITHUB_REF_TYPE" = "tag" ] || [ "$naam" != "$GITHUB_REF_NAME" ]; then^[[0m
+^[[36;1m  bron="$GITHUB_REF_TYPE $GITHUB_REF_NAME"^[[0m
+^[[36;1m  if [[ "$naam" =~ ^hats-steam-v([0-9]+)\.([0-9]+)\.([0-9]+)(-proef[a-z0-9]*)?$ ]]; then^[[0m
+^[[36;1m    versie="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.${BASH_REMATCH[3]}"^[[0m
+^[[36;1m    if [ -n "${BASH_REMATCH[4]}" ]; then proef=true; else proef=false; fi^[[0m
+^[[36;1m  else^[[0m
+^[[36;1m    echo "::error::Geen geldige naam: '$GITHUB_REF_NAME'. Vorm: hats-steam-v1.2.3 (echt) of hats-steam-v1.2.3-proef1 (proefdraai), als tag of als tak uitgave/..."; exit 1^[[0m
+^[[36;1m  fi^[[0m
+^[[36;1m  tak=intern; welke=beide; streng=true^[[0m
+^[[36;1melse^[[0m
+^[[36;1m  bron="handmatig"; proef="$IN_PROEF"; tak="$IN_TAK"; welke="$IN_WELKE"^[[0m
+^[[36;1m  versie=""; [ "$proef" = "true" ] && streng=false || streng=true^[[0m
+^[[36;1mfi^[[0m
+^[[36;1m# een fout telt als echte fout als we streng zijn, anders als waarschuwing^[[0m
+^[[36;1mmeld() { if [ "$1" = "hard" ]; then echo "::error::$2"; echo "- FOUT: $2" >> "$S"; fout=$((fout+1));^[[0m
+^[[36;1m         else echo "::warning::$2"; echo "- waarschuwing: $2" >> "$S"; waarsch=$((waarsch+1)); fi; }^[[0m
+^[[36;1mernst=$([ "$streng" = "true" ] && echo hard || echo zacht)^[[0m
+^[[36;1mecho "## Controles vóór bouwen ($bron, $( [ "$proef" = "true" ] && echo proefdraai || echo ECHTE UPLOAD ))" >> "$S"^[[0m
+^[[36;1m^[[0m
+^[[36;1m# a. versie uit export_presets.cfg (beide presets gelijk)^[[0m
+^[[36;1mpv=$(grep -o 'application/product_version="[^"]*"' producten/steam-hol/godot/export_presets.cfg | cut -d'"' -f2 | sort -u || true)^[[0m
+^[[36;1mif [ "$(echo "$pv" | wc -l)" -ne 1 ]; then meld hard "product_version verschilt tussen de presets: $(echo $pv)"; fi^[[0m
+^[[36;1mpv3=$(echo "$pv" | head -1 | cut -d. -f1-3)^[[0m
+^[[36;1m[ -n "$versie" ] || versie="$pv3"^[[0m
+^[[36;1mif [ "$versie" != "$pv3" ]; then meld hard "tag zegt $versie, export_presets.cfg zegt $pv3 (zet product_version en file_version op $versie.0)"; fi^[[0m
+^[[36;1mecho "- versie: $versie (export_presets.cfg $pv)" >> "$S"^[[0m
+^[[36;1m^[[0m
+^[[36;1m# b. nieuwe versie: hoger dan elke eerdere echte tag^[[0m
+^[[36;1mhoogste=$(git for-each-ref --format='%(refname)' refs/tags/ refs/remotes/origin/uitgave/ | sed -E 's#^refs/(tags|remotes/origin/uitgave)/##' | grep -E '^hats-steam-v' | grep -Ev -- '-proef' | grep -vx "$naam" | sed 's/^hats-steam-v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)^[[0m
+^[[36;1mif [ -n "$hoogste" ]; then^[[0m
+^[[36;1m  top=$(printf '%s\n%s\n' "$hoogste" "$versie" | sort -V | tail -1)^[[0m
+^[[36;1m  if [ "$hoogste" = "$versie" ] || [ "$top" != "$versie" ]; then^[[0m
+^[[36;1m    meld "$ernst" "versie $versie is niet nieuw: er is al een echte uitgave hats-steam-v$hoogste (tag of tak uitgave/)"^[[0m
+^[[36;1m  fi^[[0m
+^[[36;1mfi^[[0m
+^[[36;1mecho "- hoogste eerdere echte uitgave: ${hoogste:-geen}" >> "$S"^[[0m
+^[[36;1m^[[0m
+^[[36;1m# c. tests groen: geslaagde steam-hol.yml-run op main met dezelfde spelcode^[[0m
+^[[36;1mboom=$(git rev-parse "$GITHUB_SHA:producten/steam-hol")^[[0m
+^[[36;1mcurl -fsS -H "Authorization: ***" -H "Accept: application/vnd.github+json" \^[[0m
+^[[36;1m  "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/steam-hol.yml/runs?branch=main&status=success&per_page=50" \^[[0m
+^[[36;1m  -o runs.json || { meld hard "runs van steam-hol.yml niet op te vragen"; echo '{"workflow_runs":[]}' > runs.json; }^[[0m
+^[[36;1mgroen=""^[[0m
+^[[36;1mfor r in $(jq -r '.workflow_runs[] | "\(.head_sha),\(.id)"' runs.json); do^[[0m
+^[[36;1m  sha=${r%,*}; id=${r#*,}^[[0m
+^[[36;1m  git cat-file -e "$sha^{commit}" 2>/dev/null || continue^[[0m
+^[[36;1m  if [ "$(git rev-parse "$sha:producten/steam-hol" 2>/dev/null)" = "$boom" ]; then groen="$id op ${sha:0:7}"; break; fi^[[0m
+^[[36;1mdone^[[0m
+^[[36;1mif [ -n "$groen" ]; then echo "- tests groen: steam-hol.yml run $groen (zelfde spelcode, boom ${boom:0:7})" >> "$S"^[[0m
+^[[36;1melse meld "$ernst" "geen geslaagde steam-hol.yml-run op main met deze spelcode (boom ${boom:0:7}); eerst de tests groen op main"; fi^[[0m
+^[[36;1m^[[0m
+^[[36;1m# d. akkoord Daan^[[0m
+^[[36;1mrij=$(grep -E "^\| *$versie *\|" platformen/steam/uitgaven.md 2>/dev/null | head -1 || true)^[[0m
+^[[36;1mkeuring=$(echo "$rij" | awk -F'|' '{gsub(/[ `]/,"",$4); print $4}')^[[0m
+^[[36;1moordeel=$(echo "$rij" | awk -F'|' '{gsub(/ /,"",$3); print tolower($3)}')^[[0m
+^[[36;1mif [ "$oordeel" = "ja" ] && [ -n "$keuring" ] && [ -f "$keuring" ]; then echo "- akkoord Daan: ja ($keuring)" >> "$S"^[[0m
+^[[36;1melse^[[0m
+^[[36;1m  d_ernst="$ernst"; [ "$proef" = "true" ] && d_ernst=zacht^[[0m
+^[[36;1m  meld "$d_ernst" "geen akkoord van Daan voor $versie in platformen/steam/uitgaven.md (regel '| $versie | ja | <keuringsbestand> |', bestand moet bestaan)"^[[0m
+^[[36;1mfi^[[0m
+^[[36;1m^[[0m
+^[[36;1mecho "proef=$proef" >> "$GITHUB_OUTPUT"; echo "tak=$tak" >> "$GITHUB_OUTPUT"; echo "welke=$welke" >> "$GITHUB_OUTPUT"^[[0m
+^[[36;1mecho "uitslag controles: $fout FOUT, $waarsch waarschuwing(en); tak $tak, build $welke" | tee -a "$S"^[[0m
+^[[36;1m[ "$fout" -eq 0 ] || exit 1^[[0m
+shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+env:
+  GH_TOKEN: ***
+  IN_PROEF: 
+  IN_TAK: 
+  IN_WELKE: 
+##[endgroup]
+##[error]Geen geldige naam: 'uitgave/hats-steam-vfoo'. Vorm: hats-steam-v1.2.3 (echt) of hats-steam-v1.2.3-proef1 (proefdraai), als tag of als tak uitgave/...
+##[error]Process completed with exit code 1.
+Post job cleanup.
+[command]/usr/bin/git version
+git version 2.56.1
+Temporarily overriding HOME='/home/runner/work/_temp/fa5f24e7-b596-4b20-82c8-71ebccd24699' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+[command]/usr/bin/git config --global --add safe.directory /home/runner/work/dortus-hq/dortus-hq
+[command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+http.https://github.com/.extraheader
+[command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Evaluate and set job outputs
+Cleaning up orphan processes
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
