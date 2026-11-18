@@ -22,7 +22,7 @@ De GitHub-sleutel in onze sessies werkt niet (GH_TOKEN ongeldig, GEZIEN 18 nov),
 | Gumroad | verkopen en doorkliks lezen | secret `GUMROAD_ACCESS_TOKEN` (alleen lezen gebruiken) | staat er (18 nov 21:34) | niets |
 | Kit (maillijst) | aanmeldingen en mails als concept | secret `KIT_API_KEY` | account en sleutel staan er (18 nov 21:39), naam Dortus, gratis plan | bevestigingsmail van Kit aanklikken; postadres (geen woonadres) pas bij de eerste mail |
 | Steam (uploaden) | build naar verborgen tak | secrets `STEAM_USERNAME`, `STEAM_CONFIG_VDF` | wacht op Valve | na goedkeuring: apart bouwaccount met alleen uploadrechten, ±15 min |
-| Steam Web API | verlanglijsten per dag lezen | secret `STEAM_WEB_API_KEY` | na paginadag | sleutel aanmaken, ±3 min |
+| Steam verlanglijsten | verlanglijsten per dag lezen (`GetAppWishlistReporting`) | secret `STEAM_FINANCIAL_API_KEY`: een sleutel van een **Financial API Group** in Steamworks, een gewone Web API-sleutel werkt hier niet (GEZIEN in de Steamworks-documentatie door zoeker B, 18 nov) | na paginadag | groep en sleutel aanmaken, ±5 min |
 | YouTube Data API | video's en cijfers lezen | secret `YOUTUBE_API_KEY` | **ontbreekt** | Google Cloud, API-sleutel alleen voor YouTube Data, ±10 min (mag later) |
 | Google Search Console | zoekcijfers dortus.com | Chrome (hoofdchat) | geverifieerd 18 nov 21:43 (HTML-bestand in de root van dortus.com; laten staan) | niets |
 | Google Alerts | vermeldingen volgen | secret `GOOGLE_ALERTS_FEEDS` (4 RSS-adressen, één per regel: Click Joints, Hats of the Fallen, Bison & Flex, Dortus) | staat er (18 nov 21:46) | niets |
