@@ -1,0 +1,28 @@
+name: Wegwijzer (dode verwijzingen in instructies)
+
+# Afgekeken bij Twenty (ci-agent-skills-drift): instructies verouderen stil.
+# Draait als CLAUDE.md, een skill, de regels of de workflows veranderen, en elke maandag.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "CLAUDE.md"
+      - "START.md"
+      - ".claude/skills/**"
+      - "organisatie/regels/**"
+      - "organisatie/regels.md"
+      - "organisatie/toegang.md"
+      - ".github/workflows/**"
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wegwijzer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 organisatie/controle/wegwijzer.py

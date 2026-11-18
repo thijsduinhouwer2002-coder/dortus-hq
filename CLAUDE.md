@@ -29,6 +29,8 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 | iets live zetten of een update uitbrengen | skill `uitbrengen`, `organisatie/regels/uitbrengen.md` |
 | een winkeltekst, changelog of post schrijven | skill `update-tekst` |
 | werk van een ander keuren | skill `keuren` |
+| iets zichtbaars af melden (spel, beeld, site, README) | skill `kijken` |
+| meldingen, reviews of vragen van gebruikers | skill `triage` |
 | iets wat Thijs, zijn accounts of iets openbaars raakt | `organisatie/regels/thijs.md` |
 | twijfelen waar je mag schrijven, of iets op dortus.com zetten | `organisatie/regels/opslaan.md` |
 | iets moois maken (site, winkelbeelden, menu's, filmpjes) | skill `frontend-design` |

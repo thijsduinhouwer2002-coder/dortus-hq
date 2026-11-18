@@ -17,6 +17,19 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/organisatie/controle/check_bestand.py",
+            "timeout": 15,
+            "statusMessage": "Controle openbare repo..."
+          }
+        ]
+      }
     ]
   }
 }
