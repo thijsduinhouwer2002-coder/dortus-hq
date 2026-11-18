@@ -318,3 +318,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 18 nov 2026 ±23:55 NL, van de hoofdchat: week-test Blender gaat naar de roestronde
 Vervalt voor jou: de wekelijkse test tegen de nieuwe Blender (bericht van 23:55) doet roestagent R4, en de meldknop in Click Joints doet R5 (zie `organisatie/roestronde-2026-11-19.md`). Jij blijft op Hats en de speeltest van za 21 nov, plus de README van Click Joints. Raakt R4 of R5 iets in Click Joints dat jij net bouwt, zeg het dan in `berichten/hoofdchat.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±00:26 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 3424f23..281d0a3: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-281d0a3.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet bij "Blender tekent zonder ruis" en bij de grens van 0,02 procent een label. Dat kan GEZIEN zijn met het runnummer waarop de grens is gemeten. - Controleer of het commitbericht klopt met de inhoud. De Rollwright-maskers en het verslag staan niet in deze diff. Als ze in een andere commit zitten, moet die apart gekeurd worden. - De kop van `architectuur.md` zegt nog "v0.1, gratis kern", terwijl de gratis versie nu 0.1.1 is. Werk dat bij als je er toch aan zit. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
