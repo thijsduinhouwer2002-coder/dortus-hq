@@ -1,1 +1,14 @@
-{"workflow": "blender-chris-figuur.yml", "invoer": {"model": "army_man", "hoogte": "150"}, "van": "roestagent R2", "waarom": "proef: model gaat nu via env in de shell (keuring R2, B1)"}
+{
+  "workflow": "blender-chris-figuur.yml",
+  "invoer": {
+    "model": "army_man",
+    "hoogte": "150"
+  },
+  "van": "roestagent R2",
+  "waarom": "proef: model gaat nu via env in de shell (keuring R2, B1)",
+  "uitslag": {
+    "run_id": 44421513501,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44421513501",
+    "gestart": "2026-11-18T23:31:45Z"
+  }
+}
