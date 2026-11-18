@@ -636,3 +636,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Twee keurders (A opdracht, B regels): beide akkoord ja. Kan-punten verwerkt: tagcontrole en "echt alleen vanaf main" nu vóór alles, knippen op 1024 ook bij één lange regel, GIF van 2,6 naar 1,9 MB, alt-tekst eerlijk.
 - README-concept met GIF voor de repo click-joints in `repo-click-joints/`; Daan keurt, de hoofdchat pusht (repo buiten mijn toegang). Token en push gemeld in `berichten/hoofdchat.md`.
 - Downloads 234 (20:21). Les: `git pull` zonder tak hangt in deze repo (veel takken); gebruik `git fetch origin main` en `git rebase origin/main`.
+
+## 18 nov 2026, ±21:05 tot 21:15 UTC, Bram
+- Daan moet README: GIF gedraaid, begint bij oud beeld 6 (helderheid 17,2, hele pop, GEZIEN), 144 beelden, 16 s, 1,76 MB. Bericht aan Daan.
+- Tag/tak-start (hoofdchat 21:25): ontwerp zoals Bison & Flex (tak `uitgave/click-joints-v*`, proefnaam `-proefN` alleen proef zonder release, harde controles e2e groen op dezelfde boom `click_joints`, Akkoord ja Daan met "Click Joints <VERSIE>", versie nieuw via `/api/v1/extensions/`). Wegschrijven geweigerd door de veiligheidscontrole van de sessie; niet omzeild, gemeld in `berichten/hoofdchat.md`. Live op de winkel: 0.1.1 (GEZIEN API).
+- Na de speeltest (main bevroren tot vr): startput één kolom naar rechts (Daan, kan) en de bard-toets met 5 zaden (Sanne).
+- Les: `organisatie/start.sh` hangt op `git pull` (veel takken); `git fetch origin main` en `git checkout main` werkt.
