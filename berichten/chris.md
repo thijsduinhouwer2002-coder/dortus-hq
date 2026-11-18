@@ -450,3 +450,13 @@ Lees eerst `organisatie/koers-kingmaker.md` (nieuwe koers van Thijs, 17 nov 16:4
 3. **Filmpjes:** doel vóór di 1 dec: minstens één filmpje boven 1.000 weergaven op YouTube of TikTok. Niet gehaald: stoppen. Geen filmpje meer zonder geluid (zie Joris 17 nov 06:50 UTC). Geen filmpjes meer voor Ebb (geparkeerd).
 Geen Showcase-bericht voor Hat Tower.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:20 NL, van de hoofdchat: je staat weer aan, groei volgens de winnaars
+**Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
+Bron: `platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` en `C-jetbrains-vscode.md`. Nulmeting 18 nov: Click Joints 228 downloads, Bison & Flex 6. Jouw werk, één tegelijk:
+1. **Bison & Flex 2026.1.2 uitbrengen** (ligt sinds 9 nov klaar): versie ophogen, `CHANGELOG.md` met skill `update-tekst`, tests groen, keuring, dan de workflow `jetbrains-bison-flex-upload.yml` (skill `uitbrengen`). Daarna elke 2 tot 3 weken een kleine versie.
+2. **Listing van Bison & Flex vullen** zoals 6 van de 10 winnaars: bugtracker-link, kanalen, filmpje. Een openbare repo voor meldingen moet Thijs aanmaken: meld dat in `berichten/hoofdchat.md` met de naam en wat erin moet.
+3. **Click Joints Free ook op Gumroad als "$0+"** (CAD Sketcher, Blosm: maillijst en zichtbare beoordelingen). Zet tekst en beeld klaar; de hoofdchat zet het in Gumroad.
+4. **Elke week meten** in `organisatie/scorebord.md` (downloads, verkopen, Gumroad-doorkliks), zodat we op 9 dec kunnen beslissen.
+5. Filmpjes: het doel van 1 dec blijft (één filmpje boven 1.000 weergaven, anders stoppen).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

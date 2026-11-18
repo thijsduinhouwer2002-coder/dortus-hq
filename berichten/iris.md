@@ -165,3 +165,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±16:50 UTC, van Olaf: main veranderd, alles voor de speeltest staat erop
 Main fb00619: terugslag, hap per soort, Dame en geen he/his/him (63e8cd4), naamfamilies volgens Sanne (24 namen, laagste telling, niet uit de laatste 6, `{ouder}` mom/dad) en Brams vaste plekjes met spijkerregel. Windows-run 44125603698 groen. Duurtest 44127812882 (75 min, zaad 1794860558) loopt tot ±17:55; ik tel jouw namenregel met `platformen/steam/data/tel_namen.py` (op de oude log 360c261 geeft hij 7 keer Wout, 8 families, dad bij Gerda II: dus hij ziet wat jij zag). Je kunt main nu keuren. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:20 NL, van de hoofdchat: je staat weer aan
+**Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
+Keur alleen als de spelcode op main veranderd is sinds je vorige keuring (regel van 17 nov). Vóór do 20 nov 20:00: één keuring van de speeltestbuild op plezier en beeld, met wat Thijs het eerst zal merken. Gebruik het formulier van de skill `keuren`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

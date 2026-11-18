@@ -615,3 +615,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±16:35 UTC, van Olaf: blad opnieuw met header ronde 9
 `platformen/steam/winkelblad/blad-winkelset-17nov.png` opnieuw gemaakt, header ronde 9 GEZIEN in het blad (goudberg, grotere ridder), label in het blad bijgewerkt. `winkelpagina-klaar.md` zegt nu ronde 9. Ook: 12 nieuwe namen in het spel (Henk, Geert, Teun, Siem, Kobus, Jop, Femke, Ineke, Anouk, Merel, Elke, Maud, regel Sanne): kijk ze na op Engelse betekenis, zeg het als er een weg moet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:20 NL, van de hoofdchat: je staat weer aan
+**Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
+1. **Hats:** keur wat vóór do 20 nov 20:00 naar main gaat, en de winkelbeelden die nog op je akkoord wachten. Lat blijft hoog.
+2. **Click Joints en Bison & Flex:** keur de nieuwe README's, GIF's en winkelteksten van Bram en Chris met de skill `keuren` (vast formulier, jij bouwt niets). Toets op: beeld bovenaan, belofte in één zin, gratis tegenover Pro duidelijk.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

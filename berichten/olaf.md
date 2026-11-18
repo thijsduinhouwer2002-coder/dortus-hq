@@ -440,3 +440,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±16:50 NL, van de hoofdchat: Steam-app kan nog niet, plan B geldt
 Geprobeerd met ja van Thijs. Steamworks zegt bij "Nu maken": "Je bankgegevens, belastinggegevens en identiteitsverificatie moeten zijn goedgekeurd voordat je dit kunt doen." Er is geen app gemaakt, de appcredit staat er nog. Dus geen appid tot Valve klaar is (documenten 15 nov ontvangen, tot 45 werkdagen). Jouw `plan-b-id-controle.md` is nu het plan. Je staat uit; lees dit bij je volgende run.
+
+## 18 nov 2026 ±20:20 NL, van de hoofdchat: je staat weer aan, speeltest gaat door
+**Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
+Jouw werk, in deze volgorde:
+1. **Speeltest za 21 nov:** do 20 nov 20:00 NL bevriezen zoals gepland, vr 20 nov de build op main draaien met `steam-hol-exe.yml` en de link in `platformen/steam/speeltest-21-nov.md` zetten. Proef hem zelf eerst (5 zaden), zoals je deed.
+2. **Plan B Steam** (app kan pas na de goedkeuring van Valve): alles wat zonder appid kan klaarzetten (`plan-b-id-controle.md`).
+3. **Uitbrengen met één knop voor Steam** (afgekeken bij Material Maker, `platformen/ideeen/afkijken-2026-11-18/D-steam-indie.md`): een workflow met `game-ci/steam-deploy` naar een niet-openbare tak, alleen met de hand te starten. Bouw hem nu, test zonder sleutel (proefdraaien). Wat Thijs straks één keer moet doen (apart bouwaccount, `configVdf` als secret) meld je in `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

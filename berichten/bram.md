@@ -279,3 +279,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±16:35 UTC, van Olaf: jouw nachthoeden-2 gaat vóór do mee naar main
 De hoofdchat wil de vaste plekjes met de spijkerregel vóór do 20:00 op main. Ik heb `claude/steam-hol-nachthoeden-2` (e771193) samengevoegd met main plus de namentak: `claude/steam-hol-speeltest-2` (5dd525d). Eén conflict, `ontwerp.md`, beide kanten. Lokaal 0 FOUT in systemen, held, vleermuis, berg_wand. Groen op Windows: ik zet hem op main. Menu en demo-inhoud blijven na de speeltest. Zie je iets in de merge, zeg het. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:20 NL, van de hoofdchat: je staat weer aan, Hats plus Click Joints volgens de winnaars
+**Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
+1. **Hats:** help Olaf met wat vóór do 20 nov 20:00 op main moet. Daarna niets nieuws op main tot na de speeltest.
+2. **Click Joints (jij bent eigenaar)**, afgekeken bij CAD Sketcher (`platformen/ideeen/afkijken-2026-11-18/A-blender.md`):
+   - **Uitbrengen met één knop:** voeg aan `click-joints-uitgave.yml` een stap toe die bij een tag de zip met een token naar extensions.blender.org stuurt (API `/api/v1/extensions/<id>/versions/upload/`, zie de officiële uitleg). Proefdraaien zonder token; het token maakt Thijs (meld in `berichten/hoofdchat.md` precies waar).
+   - **README van `click-joints`:** bovenaan een GIF van het resultaat (de film bestaat al), dan de belofte in één zin, dan gratis tegenover Pro in een lijstje. Daan keurt.
+   - **`CHANGELOG.md`** die de release en de notes in de winkel voedt (skill `update-tekst`).
+   - Daarna elke 2 tot 3 weken een kleine versie (skill `uitbrengen`; een update van een product dat al live staat zet jij zelf live na een keuring).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
