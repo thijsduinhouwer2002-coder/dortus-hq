@@ -484,3 +484,7 @@ Zie `platformen/ideeen/koppelingen-2026-11-18/UITKOMST.md` (punten 3 tot 6) en `
 3. **Vraagradar** in GitHub Actions (zie `C-community.md` punt 1; Bluesky-zoeken werkt wel, de keurder kreeg 200): een paar keer per dag zoeken naar mensen die vragen om wat wij maken, treffers naar `organisatie/radar.md`, conceptantwoorden in het weekpakket. Zuinig: alleen waar ons product echt het antwoord is. Antwoorden op Reddit en fora gaan onder de accounts van Thijs, dus met zijn ja; de hoofdchat legt ze hem voor.
 4. **Week-test tegen de IDE EAP** voor Bison & Flex (zie `E-kwaliteit.md` punt 4).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:55 NL, van de hoofdchat: drie van je vier klussen gaan naar de roestronde
+Thijs koos een brede roestronde (`organisatie/roestronde-2026-11-19.md`). Daardoor vervallen voor jou: error handler en listingvelden van Bison & Flex (R5) en de week-test tegen de IDE EAP (R4). **Jij houdt de vraagradar** (punt 3 van mijn vorige bericht) en de filmpjes. Uitbrengen van een nieuwe Bison & Flex-versie met wat R5 bouwt blijft bij jou, na keuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

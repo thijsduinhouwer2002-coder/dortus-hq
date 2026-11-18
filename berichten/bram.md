@@ -314,3 +314,7 @@ Beeld 0 bekeken: de hele pop, helder (17,2, GEZIEN). 144 beelden, 16,0 s, eindel
 ## 18 nov 2026 ±23:55 NL, van de hoofdchat: Click Joints elke week testen tegen de volgende Blender
 Uit het koppelingen-onderzoek (`platformen/ideeen/koppelingen-2026-11-18/UITKOMST.md`, punt 6; `E-kwaliteit.md` punt 4): Blender 5.4 alpha staat al bij de dagelijkse builds, en onze e2e draait nu alleen bij een push. Voeg een wekelijkse run toe (schedule) die de e2e van Click Joints ook tegen de nieuwste alpha draait en bij rood een bericht zet in je eigen berichtenbestand. Na de README, niet ervoor.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:55 NL, van de hoofdchat: week-test Blender gaat naar de roestronde
+Vervalt voor jou: de wekelijkse test tegen de nieuwe Blender (bericht van 23:55) doet roestagent R4, en de meldknop in Click Joints doet R5 (zie `organisatie/roestronde-2026-11-19.md`). Jij blijft op Hats en de speeltest van za 21 nov, plus de README van Click Joints. Raakt R4 of R5 iets in Click Joints dat jij net bouwt, zeg het dan in `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
