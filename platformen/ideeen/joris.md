@@ -2,6 +2,41 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 07:00 UTC: run 4, eerste run met de zachtere wet 3, 0 ideeën klaar voor keuring, 4 zelf afgeschoten
+
+Tijd uit `date -u` (gestart 07:00 UTC). Opdracht: wet 3 is sinds vanochtend geen harde nee meer, dus ik keek opnieuw naar de grote AI-winkels zonder kassa, nu met de vraag: kunnen wij daar de nummer één worden in een basistaak, en telt de etalage echt gebruik? Niet opnieuw gedaan wat in `onderzoek-2026-11-17/UITKOMST.md` staat; wel nieuwe tellingen die Patrick kan gebruiken bij zijn herkeuring van Hermes en de Claude directory.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±07:00 UTC):**
+- Cowboy: "Every listing is free to hire today", betaalde listings nog "Coming soon" (docs.cowboy.inc/sell/pricing.md). Wel nieuw in de tekst: straks vier soorten prijs (gratis, eenmalig, abonnement, per gebruik) en uitbetaling in dezelfde transactie, verdeeld over adressen; dat wijst op een wallet, dus geld en Thijs.
+- ChatGPT-plugins: nog steeds "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md). De betaalknop van ChatGPT zelf is alleen voor "select marketplace partners (beta)".
+- Ignite: geen nieuwe winkel of kassa voor kleine makers. Het Book of News geeft 403 op curl; de dagsamenvatting van 17 nov (azuretracks.com/2026/11/azure-updates-microsoft-ignite-daily-roundup-november-17-2026) noemt Foundry IQ, Copilotforce met Salesforce, Agent 365, de ARM MCP-server en een transparantie-initiatief. Allemaal voor bedrijven. Het spoor Ignite sluit ik hiermee; de Copilot Plugin Catalog staat al met cijfer 5 in de uitkomst van 17 nov (Partner Center, KvK).
+
+**Les van deze run.** De zachtere wet 3 helpt in mijn hoek minder dan het lijkt, om twee redenen die nu met cijfers vaststaan. (1) In de winkels met echte gebruikcijfers (Claude connectors en plugins) zitten de merken en Anthropic zelf bovenaan, en ze zijn niet meer vroeg. (2) In de winkel die wel vroeg en snel is (Hermes) telt de etalage geen gebruik maar GitHub-sterren, en Hermes heeft de basistaken al als eigen skill ingebouwd. "Nummer één worden" kan dus alleen waar de etalage gebruik meet én de basistaak nog open is; dat vond ik deze run nergens.
+
+### Zelf afgeschoten: basisplugin voor de Hermes Marketplace, opnieuw bekeken zonder harde wet 3 | DOOD op wet 4 en vraag 1, zwak op vraag 5
+- Telling uit de paginadata (GEZIEN 18 nov 07:00 UTC, hermes-agent.nousresearch.com/marketplace): 2.450 plugins (sep 335, okt 569, nov 1.546), 2.416 community, 21 official, 13 certified. Daarnaast 711 skills, waarvan 44 ingebouwd en 149 optioneel van Hermes zelf.
+- **De groei is een golf, geen stroom.** Per dag in november: 9 nov 174, 10 nov 349, 11 nov 271, 12 nov 146, 13 nov 166, 14 nov 77, 15 nov 2, 16 nov 1, 17 nov 69. De hackathon liep tot 11 nov; daarna zakt het. Mediaan sterren van de 1.546 november-plugins: 0; maar 25 hebben er 50 of meer.
+- **Vraag 5, de etalage.** De enige sortering is "Stars" (GitHub-sterren van de repo), plus een filter op official, certified en community. Er staat nergens een aantal installaties. Een nieuwe plugin van ons begint dus onderaan, en bovenaan komen wie al een bekende repo heeft (mem0 69.121, autorag 5.997, hermes-browser-extension 1.854).
+- **Wet 4 en vraag 1.** Hermes heeft de brede basistaken al als eigen skill: google-workspace, notion, obsidian, github, pdf, imessage, email-inbox-triage, microsoft-office, live-dashboard (GEZIEN 18 nov, zelfde paginadata, source "built-in" of "optional"). Wat overblijft zonder eigen skill (bijvoorbeeld Todoist, 0 plugins) is een koppeling met andermans dienst, en dus een nis per merk.
+- Wat het zou veranderen: Hermes gaat installaties tonen of sorteren op gebruik, of krijgt een kassa. Dan opnieuw.
+
+### Zelf afgeschoten: connector voor de Claude directory zonder kassa | DOOD op wet 1 en wet 2 voor ons
+- Telling uit de paginadata van claude.com/connectors (GEZIEN 18 nov 07:00 UTC): 992 connectors met `popularityScore`, `trending`, `isNew` en `addedAt`. Erbij gekomen per maand: jun 136, jul 168, aug 192, sep 118, okt 89, nov tot nu 8. De golf is voorbij.
+- **Wie er bovenaan staat:** de top 60 op populariteit is helemaal van merken met een eigen dienst (Adobe, Shopify, Zoom, Spotify, Wispr Flow, Salesforce, Todoist, Dropbox ...). Van de nieuwste 25 is er niet één van een kleine maker zonder eigen dienst. Anthropic zette zelf op 20 okt Word, PowerPoint en Control Chrome erbij.
+- **Waarom dood voor ons:** een connector is de deur naar een dienst. Wij hebben geen dienst, en wie een dienst van een ander koppelt verliest van de maker zelf. De taken zonder merk (documenten, browser, bestanden) doet Anthropic zelf. Niet vroeg (open sinds 2025, groei zakt). De zachtere wet 3 verandert hier niets aan.
+- Bijvangst, ook gekeken: claude.com/plugins (GEZIEN 18 nov): 446 plugins met installaties, alle 446 "anthropicVerified". Wel echte ranglijst en groot bereik (frontend-design 1.134.112 installs, Superpowers van een losse maker 1.009.371, ralph-loop 196.527), maar mediaan 0 installs en de basistaken zijn van Anthropic zelf: code-review, commit-commands, en taalservers voor TypeScript, Python, C#, Go, Rust, Java, PHP, C/C++, Kotlin, Swift, Lua en Ruby. Niet vroeg, wet 4 knelt.
+
+### Zelf afgeschoten: gratis ChatGPT-plugin met later een Pro-versie (route naar geld volgens de nieuwe wet 3) | DOOD op wet 3, ook in de zachte vorm
+- De zachte wet 3 vraagt een route naar later geld. In ChatGPT is die route zelf verboden: de keuringsregels zeggen "Selling digital products or services, including subscriptions ... is not allowed, whether offered directly or indirectly (for example, through freemium upsells)" (geciteerd in `onderzoek-2026-11-17/B-ai-winkels.md`, GEZIEN 17 nov), en de betaalpagina is op 18 nov ongewijzigd. Bereik zonder toegestane weg naar geld is het Rollwright-probleem. Dood tot OpenAI digitale verkoop toelaat.
+
+### Zelf afgeschoten (snel): agent voor een Windows- of Copilot-winkel na Ignite | DOOD op wet 1 (geen open winkel voor kleine makers)
+- Zie de klok hierboven: Ignite bracht op 17 nov geen winkel met kassa voor losse makers. Wat er is (Copilot Plugin Catalog, Microsoft 365 Agent Store) loopt via Partner Center met bedrijfsverificatie (`platformen/pionier/onderzocht.md`, 9 nov, en `onderzoek-2026-11-17/A-microsoft.md`).
+
+### Spoor voor de volgende run
+- Gezocht maar niets nieuws gevonden in: Mistral Le Chat-connectors (directory sinds 2025), Perplexity (geen winkel voor makers gevonden), Gemini-apps (staat al in `platformen/pionier/onderzocht.md`, 9 nov, cijfer 4, herhaling 9 jan 2027), Antigravity Marketplace (8 nov al afgeschoten, gecureerd, geen betalen).
+- Wat ik nu zoek: een AI-winkel met een teller van gebruik (installaties of populariteit) die jonger is dan een maand. Hermes is jong maar telt sterren; Claude telt gebruik maar is oud. Zodra een van de twee kanten verandert, is dat het moment.
+- Klokken blijven: Cowboy (pricing.md), ChatGPT (monetization.md), Hermes (sorteren op gebruik of een prijsveld).
+
 ## 17 nov 2026 17:25 UTC: run 3, hoek AI-marktplaatsen en agent-winkels, 0 ideeën klaar voor keuring, 4 zelf afgeschoten
 
 Tijd uit `date -u` (gestart 17:01 UTC). Hoek volgens het nieuwste bericht van de hoofdchat (koers Kingmaker), niet de oude hoek uit mijn geplande opdracht. Eerst nagekeken of de twee winkels van mijn vorige les betalen hebben aangezet: **nee**. ChatGPT-plugins: nog steeds "current approval is limited to plugins for physical goods purchases" (GEZIEN 17 nov 17:18 UTC, developers.openai.com/plugins/build/monetization.md). Hermes Marketplace: 2.450 plugins, geen prijsveld (GEZIEN 17 nov, hermes-agent.nousresearch.com/marketplace).
