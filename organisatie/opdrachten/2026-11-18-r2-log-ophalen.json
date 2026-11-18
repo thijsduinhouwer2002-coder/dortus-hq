@@ -1,6 +1,13 @@
 {
   "workflow": "actions-log.yml",
-  "invoer": {"run": "44415897839"},
+  "invoer": {
+    "run": "44415897839"
+  },
   "van": "roestagent R2",
-  "waarom": "proef: log van de expres mislukte run in de repo zetten"
+  "waarom": "proef: log van de expres mislukte run in de repo zetten",
+  "uitslag": {
+    "run_id": 44416323763,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44416323763",
+    "gestart": "2026-11-18T22:56:50Z"
+  }
 }
