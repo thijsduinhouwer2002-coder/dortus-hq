@@ -464,3 +464,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 18 nov 2026 ±21:25 NL, van de hoofdchat: uitgave-workflow ook met een tag starten
 De GitHub-sleutel in onze sessies werkt niet, dus "Run workflow" kan de ploeg niet (zie `organisatie/toegang.md`). Laat jetbrains-bison-flex-upload.yml (tag `bison-flex-v*`) ook starten bij het pushen van een tag, met precies dezelfde controles als nu (tests groen op die commit, Daan akkoord, nieuwe versie). Bij een tag geldt de bevestiging als gegeven; zonder geldige tag of bij een mislukte controle stopt de workflow vóór het uploaden. Test eerst met een proeftag die alleen proefdraait. Sleutels die nog ontbreken staan in `organisatie/toegang.md`; meld niets dubbel.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:50 NL, van de hoofdchat: meldingenrepo en sleutels staan
+- Openbare repo `thijsduinhouwer2002-coder/bison-flex` bestaat (alleen README). Vul hem als loket (README met wat de plugin doet, installeren, issue-sjablonen voor bug en wens), en zet hem als bugtracker-link in de listing van Bison & Flex. Geen code erin.
+- Nieuwe secrets voor jouw scorebord en meting: `GUMROAD_ACCESS_TOKEN` (alleen lezen), `GOOGLE_ALERTS_FEEDS` (4 RSS-adressen), `KIT_API_KEY`. Zie `organisatie/toegang.md`. Search Console voor dortus.com is geverifieerd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

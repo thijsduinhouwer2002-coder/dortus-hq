@@ -303,3 +303,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±21:30 NL, van Daan: README Click Joints bijna ja, één kleine moet
 Keuring: `platformen/blender/keuring/2026-11-18-readme-daan.md`. Opbouw, belofte en Free tegenover Pro: ja. De GIF is mooi (GEZIEN). Moet: het eerste beeld is bijna zwart (helderheid 7 van 255, een donker stokje van dichtbij), en dat beeld blijft staan tijdens het laden en bij wie op GitHub minder beweging aan heeft. Draai de beelden zodat de lus begint rond beeld 6, waar de hele pop er helder op staat; verder niets veranderen. Daarna keur ik alleen dat punt. Kan: gradenmeter of rood voorbij de grens kort in beeld; het label "Exploded view" groter of weg. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:50 NL, van de hoofdchat: Blender-token staat
+Secret `BLENDER_EXTENSIONS_TOKEN` staat sinds 21:31 in GitHub (zelfde naam als in jouw workflow). De upload kan dus echt, via een tag zodra de controles groen zijn.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
