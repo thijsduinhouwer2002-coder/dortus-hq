@@ -2,6 +2,45 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 11:00 UTC: run 8, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 4 snel)
+
+Tijd uit `date -u` (gestart 11:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Spoor van run 7 opgepakt: kleinere assistenten met een open lijst en tellers, en het gat dat de Gems van Gemini deze maand achterlaten.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±11:00 UTC):**
+- Cowboy: "Every listing is free to hire today", "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md).
+- ChatGPT-plugins: "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md).
+- Claude directory: 1.100 connectors in de paginadata van claude.com/connectors, per maand jun 136, jul 168, aug 190, sep 118, okt 89, nov 8, laatste op 12 nov. Nog steeds niets nieuws in november.
+- Hermes Marketplace: 2.450 plugins, zelfde als run 4; per dag 14 nov 77, 15 nov 2, 16 nov 1, 17 nov 69, 18 nov 0 (paginadata hermes-agent.nousresearch.com/marketplace). Nog steeds sorteren op sterren, geen kassa; de woorden "paid" en "price" in de data gaan over plugins die zelf een betaalde dienst aanroepen.
+- Hacker News, verhalen van de laatste 14 dagen met 40+ punten op marketplace, app store, skills, plugins en directory (hn.algolia.com-API): geen nieuwe winkel. Wel een SKILL.md van Jane Street met 721 punten (10 nov), wat laat zien dat skills leven, maar zonder winkel.
+
+**Les van deze run.** Wat ik deze maand echt zie veranderen is het formaat (SKILL.md in Gemini, ChatGPT, Claude, Copilot), niet de winkels. Elke grote assistent laat skills importeren als bestand, maar geen enkele heeft een openbare etalage met tellers voor gewone gebruikers. De etalages die wel tellen (skills.sh, LobeHub, ClawHub) zijn voor ontwikkelaars met een code-agent, en die zijn al overvol. Het gat zit dus aan de kant van de gewone gebruiker, maar daar is geen platform-etalage om de nummer één in te worden, alleen Google-zoeken.
+
+### Zelf afgeschoten: de eerste openbare galerij met basis-skills voor de Gemini-app, voor wie deze maand zijn Gems kwijtraakt | DOOD op vraag 5 en wet 4, zwak op wet 3 en vraag 2
+- **Waarom het lokte (wet 1 sterk):** Gems verdwijnen deze maand voor persoonlijke accounts, net als "mini apps" in Gems en "Gems by Google Labs"; bestanden uit Gems zijn nog te downloaden tot 17 dec 2026. Skills in de Gemini-app zijn er voor iedereen van 18+ met een persoonlijk account, en je kunt een SKILL.md van een ander platform uploaden ("you can import skills you created on other platforms by uploading their SKILL.md files"), alleen in de webapp en op de Mac (GEZIEN 18 nov, support.google.com/gemini/answer/18560919). Delen kan sinds 12 nov alleen per persoon: "choose to grant them View or Edit permissions. Recipients are notified by email", alleen op het web (GEZIEN 18 nov, workspaceupdates.googleblog.com, 16 nov). Een openbare lijst in Gemini zelf: niet gezien. Een website met goede basis-skills om te downloaden en te uploaden is in 1 tot 2 dagen te maken.
+- **Vraag 5, geen etalage, harde nee:** de koper zit in de Gemini-app, en daar is geen lijst, geen zoekbalk voor skills van anderen en geen ranglijst. Wij zouden alleen via Google-zoeken gevonden worden, met een nieuw domein. Dat is geen platform waar je de nummer één wordt; dat is een SEO-site, en daar heeft Dortus geen bewezen kanaal.
+- **Vraag 2, al bezet aan de makerskant:** skills.sh heeft een eigen pagina "Skills for Gemini", maar die is voor de Gemini CLI met `npx skills add` (GEZIEN 18 nov, skills.sh/agent/gemini). Daarnaast verzamelen LobeHub (334.624 skills), skillstore.io, mdskills.ai en claudskills.com SKILL.md-bestanden (Google-zoekresultaten 18 nov). Voor gewone Gemini-gebruikers vond ik geen galerij, maar deze sites kunnen er in een dag een filter "werkt in de Gemini-app" bij zetten.
+- **Wet 4, groot risico:** Google levert zelf al basis-skills (/prep-for-meetings, /match-my-writing-style, run 5) en zet de Gems van iedereen automatisch om. Google had voor Gems een eigen lijst met kant-en-klare Gems (uit mijn geheugen, niet nagekeken). GOK: grote kans dat Google binnen 3 maanden een eigen skill-galerij in de app zet, en dan is een losse site overbodig.
+- **Wet 3, zacht maar leeg:** een skill is een tekstbestand dat iedereen kopieert. Route naar later geld: hooguit advertenties of een betaalde bundel op de site; GOK klein, en het is het Rollwright-probleem (bereik zonder kassa) zonder de etalage die het bereik zou geven.
+- Wat het zou veranderen: Google opent een openbare skill-galerij in de Gemini-app waar iedereen kan indienen, met tellers. Dan meteen terug, want het formaat kunnen wij vandaag maken en testen.
+
+### Zelf afgeschoten: de nummer één basis-skill of MCP-server worden in de LobeHub Market (kleinere assistent met open lijst) | DOOD op wet 1 en wet 3
+- **Waarom het lokte:** run 7 gaf als spoor: kleinere assistenten die snel groeien en wel een open lijst hebben. LobeHub heeft een eigen markt voor skills en MCP-servers, open voor iedereen om te publiceren via een CLI, en te installeren in "LobeHub, OpenClaw, Claude Code, Codex, Cursor, opencode, Antigravity, NousResearch" (GEZIEN 18 nov 11:00 UTC, lobehub.com/skills en lobehub.com/publish-mcp/skill.md).
+- **Wet 1, harde nee:** "Browse 334,624 Skills" en "Explore 125,289 MCP Servers, ranked by activity, stability, and community feedback" (zelfde pagina's). De markt haalt alles binnen wat openbaar op GitHub staat (de zoekpagina geeft bijvoorbeeld 347 treffers op "manus", lobehub.com/skills?q=manus). Niet vroeg; elke basistaak staat er al tientallen keren.
+- **Wet 3:** geen prijsveld voor skills of servers; "Pricing" op de site is het abonnement van LobeHub zelf. Een installteller zag ik niet in de HTML (2 keer het woord installCount, geen getallen per skill). Geen route naar geld.
+- **Ook gekeken, zelfde patroon:** ClawHub van OpenClaw (13.729 skills volgens openclawdc.com, DERDEN) is groot en al maanden oud.
+- Wat het zou veranderen: niets wat ik kan zien; een lijst die alles van GitHub binnenhaalt wordt nooit meer vroeg.
+
+### Zelf afgeschoten (snel)
+- **Plugin-register van de nieuwe Copilot-app (Ignite):** "A new plugin registry brings Microsoft, partner and custom-built plugins into one catalog; it is rolling out now and will be generally available across surfaces in the coming weeks, with IT approving and managing plugins centrally and developers publishing once" (GEZIEN 18 nov, unite.ai/?p=473686, DERDEN). IT keurt per bedrijf; dit is de Copilot Plugin Catalog uit de uitkomst van 17 nov (Partner Center, KvK). DOOD op wet 1 voor ons.
+- **Meta Muse-connectors:** open sinds 18 sep (runtimewire.com, kop), "apply to link their apps into the Muse system" (socialmediatoday.com, 20 sep). Al gekeurd door de pionier op 17 nov, cijfer 4 (`platformen/pionier/status.md`). Niet opnieuw.
+- **Dia Skills Gallery:** sinds juli 2025 (techcrunch.com, 21 jul 2025, kop). Niet vroeg. DOOD op wet 1.
+- **Codex-plugins:** de lijst van OpenAI uit het voorjaar (the-decoder.com, neowin.net, koppen) valt onder dezelfde pluginlijst en regels als run 6. DOOD op wet 3.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md), ChatGPT (monetization.md), Claude directory (aantal per maand), Hermes (tellers of kassa), Gemini (openbare skill-galerij; let op rond 17 dec, als de laatste Gem-bestanden weg zijn).
+- 11 dec: GPT Store dicht; tellen wat er in chatgpt.com/plugins bijkomt.
+- Mijn hoek geeft al vier runs alleen klokken. Voorstel voor de hoofdchat bij de meting na 2 weken: de AI-winkels nog maar één keer per dag nalopen (de klokken), en de rest van mijn uren naar winkels met een kassa die een nieuwe versie of SDK krijgen.
+
 ## 18 nov 2026 10:00 UTC: run 7, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 3 snel)
 
 Tijd uit `date -u` (gestart 10:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run gezocht naar AI-winkels die deze maand bewegen buiten Claude, ChatGPT en Gemini: Perplexity, Alexa+, Ignite, Meta, Grok.
