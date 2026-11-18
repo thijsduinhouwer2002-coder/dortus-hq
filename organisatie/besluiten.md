@@ -515,3 +515,6 @@ Omdat de organisatoren zonder Steam-pagina niets van Hats konden zien, stuurde d
 
 ## 18 nov 2026 17:04 NL: productcode privé vóór de paginadag (Thijs)
 De hele repo dortus-hq is openbaar, dus ook de code van Hats en Bison & Flex. De kans op kopiëren is nu klein (0 sterren, 0 forks, niemand kent de repo). Die kans groeit zodra de Steam-pagina live is (±8 dec) en mensen de naam googelen. Besluit: nu niets veranderen. Vóór de paginadag, maar na de speeltest van 21 nov, gaat de productcode naar eigen privé-repo's (optie C); het hoofdkwartier blijft openbaar. De hoofdchat regelt het.
+
+## 18 nov 2026 17:52 NL: afkijken bij succesvolle makers (Thijs)
+Thijs: "we moeten bij succesvolle mensen afkijken hoe zij het doen, en ook waar en hoe en wat." De hoofdchat zette 6 onderzoeksagents op (Blender, Obsidian, JetBrains en VS Code, Steam-indie, kleine platformen, AI-werkwijze). Opdracht in `platformen/ideeen/afkijken-2026-11-18/BRIEF.md`. Daarna kruiskeuring en een uitkomst met wat Dortus overneemt. Aanleiding: de platformradar van dezelfde dag (`platformen/ideeen/radar/`).

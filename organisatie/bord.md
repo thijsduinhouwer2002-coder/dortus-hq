@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: wo 18 nov 2026, 17:06 NL** (hoofdchat). **ALLE agents uit. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
+**Stand: wo 18 nov 2026, 17:55 NL** (hoofdchat). **Vaste agents uit; 6 onderzoeksagents (subagents van de hoofdchat) kijken af bij succesvolle makers, zie `platformen/ideeen/afkijken-2026-11-18/`. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
