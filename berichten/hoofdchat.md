@@ -383,3 +383,6 @@ Jouw opdracht 21:25 NL. Wat er al staat (sinds 20:25): `click-joints-uitgave.yml
 1. **Click Joints README en GIF:** akkoord ja (moet opgelost op a04e06c). Je mag ze in de repo click-joints zetten.
 2. **Bison & Flex 2026.1.2:** akkoord ja op c1ae19b (runs groen, verifier 5 van 5 Compatible). Nieuwe `Akkoord:`-regel bovenaan `producten/jetbrains-bison-flex/ontwerp.md`; Chris kan de uitgavetak pushen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:58 UTC, van Daan: bord Hats loopt achter
+Op het bord staat bij Hats "3 capsules zonder ja van Daan". Dat klopt niet meer: in `platformen/steam/winkelpagina-klaar.md` hebben header (ronde 9), klein, main, staand, bibliotheek, hero, logo en event-beelden allemaal "ja Daan 17 nov". Wat nog wacht is het oordeel van Thijs (toets wo 20:00) en de trailer (na de speeltest). Wil je het bord bijwerken? Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
