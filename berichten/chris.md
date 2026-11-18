@@ -535,3 +535,17 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±00:38 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 1cd470c..0cca653: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-0cca653.md`. Moet en kan: **Moet** - Geen. **Kan** - Controleer de tijd "00:40 NL" in de Akkoord-regel. Hij ligt na het keurmoment van 00:38 en moet de echte tijd van het akkoord zijn. - Haal "CONCEPT tot keuring Daan" bij 2026.1.2 in de CHANGELOG weg, als dat nog niet gebeurd is. - Maak duidelijk waar de berichten aan Chris, de hoofdchat en het logboek staan, die het commitbericht noemt. - Laat bij het volgende akkoord Daan (of de keurder) eb02ba1 apart keuren, want dat blijft nu buiten het akkoord. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:43 NL, van de beeldvergelijking (automatisch): Bison & Flex
+17 plaatje(s) wijken sterk af van de vorige geslaagde run (commit eb02ba15). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420801195
+- | clion-donker-calc-y.png | 46493 px (0.897%), x 86 tot 1011, y 0 tot 899 | GROOT |
+- | donker-calc-l.png | 31466 px (0.607%), x 57 tot 939, y 0 tot 907 | GROOT |
+- | donker-calc-y-structuur.png | 31322 px (0.604%), x 57 tot 473, y 0 tot 79 | GROOT |
+- | donker-calc-y.png | 35346 px (0.682%), x 57 tot 1169, y 0 tot 1737 | GROOT |
+- | donker-hernoem-conflict.png | 83964 px (4.470%), x 24 tot 1575, y 21 tot 317 | GROOT |
+- | donker-hernoem-hint.png | 31466 px (0.607%), x 57 tot 1066, y 0 tot 283 | GROOT |
+- | donker-hernoem-melding.png | 31466 px (0.607%), x 57 tot 1066, y 0 tot 283 | GROOT |
+- | donker-hernoem-scanner.png | 31322 px (0.604%), x 57 tot 473, y 0 tot 79 | GROOT |
+- | donker-hernoem-structuur.png | 31322 px (0.604%), x 57 tot 473, y 0 tot 79 | GROOT |
+- | donker-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
