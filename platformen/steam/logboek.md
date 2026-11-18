@@ -1583,3 +1583,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Iris keuring 23 punt 1 (laarsgrap zes keer in 8 min): naamgenoot-regel nu hooguit één keer per 5 min (`kern/binnenkomst.gd` `naamgenoot_mag`, `NAAMGENOOT_PAUZE` 300 s); anders krijgt de II of III de gewone binnenkomstregel (soort, trek of `binnen`), geen nieuwe woorden nodig. 4 toetsen erbij, lokaal 0 FOUT; Windows-run 44410192011 **groen** (03bc551).
 - Echt spel lokaal (Linux, Xvfb, 1500 s, zaad 1794860558, koper=2, vers=1): 13 helden II of III binnen, 2 naamgenoot-regels op 961 en 1270 s (309 s uit elkaar), geen SCRIPT ERROR. GEZIEN, één zaad, log in `data/naamgenoot-18nov/hol-1500s.log`.
 - `architectuur.md` bij voor namen, afloop, regels en binnenkomst (kan-punt automatische keurder). Naar main vóór het bevriezen van do 20:00.
+
+## 19 nov 2026, Bram (run ±00:10 tot 00:45 NL)
+- Bard-toets van Sanne alvast gedaan op tak `claude/steam-hol-bard-40` (9c7f1c5, main blijft bevroren): 40e held altijd een bard verkort het langste gat in minuut 0 tot 30 van 8,7 naar 7,4 min (mediaan, 10 zaden, GEZIEN lokaal), lat ≤5 min bij 0 van 10. Uitslag bij Sanne. Toetsen held en systemen 0 FOUT.
+- Les: Godot headless met `--fixed-fps 15` speelt 30 min in 4 s; zo zijn veel zaden in een minuut te toetsen zonder Windows-run.
