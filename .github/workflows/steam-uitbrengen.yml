@@ -31,10 +31,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: steam-uitbrengen
-  cancel-in-progress: false
-
 jobs:
   bouwen:
     runs-on: windows-latest
@@ -123,6 +119,10 @@ jobs:
   uploaden:
     needs: bouwen
     runs-on: ubuntu-latest
+    # alleen de uploads na elkaar (een tweede wachtende run vervangt de eerste wachtende; bouwen en toetsen lopen vrij)
+    concurrency:
+      group: steam-uitbrengen
+      cancel-in-progress: false
     timeout-minutes: 20
     steps:
       - uses: actions/download-artifact@v4
