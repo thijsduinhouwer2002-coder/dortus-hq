@@ -5,6 +5,20 @@ on:
     branches: [main, "claude/jetbrains-*"]
     paths: ["producten/jetbrains-bison-flex/**", ".github/workflows/jetbrains-bison-flex-e2e.yml"]
   workflow_dispatch:
+  # Week-test (roestronde R4): week-test.yml roept deze workflow aan met de nieuwste IntelliJ- en CLion-EAP.
+  workflow_call:
+    inputs:
+      idea_build:
+        description: 'build van de nieuwste IntelliJ IDEA EAP (leeg: IDEA Community 2025.2 zoals bij een push)'
+        type: string
+        default: ''
+      clion_build:
+        description: 'build van de nieuwste CLion EAP (leeg: de vaste build uit ClionTest.kt)'
+        type: string
+        default: ''
+      week:
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -43,11 +57,55 @@ jobs:
           echo "DISPLAY=:99" >> "$GITHUB_ENV"
       - name: Unittests
         run: ./gradlew --no-daemon test
-      - name: Test in de echte IDE (IDEA Community 2025.2)
-        run: ./gradlew --no-daemon integrationTest
-      - name: Test in de echte CLion (EAP 2026.3)
+      - name: Test in de echte IDE (${{ inputs.idea_build && format('IntelliJ IDEA EAP {0}', inputs.idea_build) || 'IDEA Community 2025.2' }})
+        run: ./gradlew --no-daemon integrationTest ${{ inputs.idea_build && format('-PideBuild={0}', inputs.idea_build) || '' }}
+      - name: Test in de echte CLion (${{ inputs.clion_build && format('EAP {0}', inputs.clion_build) || 'EAP 2026.3, vaste build' }})
         if: success() || failure()
-        run: ./gradlew --no-daemon clionTest
+        run: ./gradlew --no-daemon clionTest ${{ inputs.clion_build && format('-PclionBuild={0}', inputs.clion_build) || '' }}
+      # Beeldvergelijking (roestronde R4): elk plaatje naast dat van de vorige geslaagde run. Nooit rood.
+      # Grens 0,3 procent: de IDE geeft tussen runs tot 0,11 procent ruis bij deze drempel (GEZIEN, clion-donker-calc-y.png).
+      - name: Beeldvergelijking met de vorige geslaagde run
+        id: bv
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          NAAM: ${{ inputs.week && 'week' || github.ref_name }}
+        run: |
+          B=organisatie/controle/beelden.sh
+          if [ ! -f "$B" ]; then mkdir -p /tmp/bvs; for f in beelden.sh beeldvergelijk.py; do curl -fsSL --retry 3 -o "/tmp/bvs/$f" "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/organisatie/controle/$f"; done; B=/tmp/bvs/beelden.sh; fi
+          echo "B=$B" >> "$GITHUB_ENV"
+          N=$(echo "$NAAM" | tr '/' '-')
+          bash "$B" vergelijk producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" \
+            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beeldverschil-jetbrains-bison-flex
+          path: /tmp/beeldverschil
+          if-no-files-found: ignore
+      - name: Referentiebeelden bijwerken (alleen als alles groen is)
+        if: success()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          NAAM: ${{ inputs.week && 'week' || github.ref_name }}
+        run: |
+          N=$(echo "$NAAM" | tr '/' '-')
+          bash "$B" bewaar producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" "jetbrains-bison-flex $N"
+      - name: Groot beeldverschil melden aan Chris (alleen main, geen rood)
+        if: always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## $(bash "$B" datum) NL, van de beeldvergelijking (automatisch): Bison & Flex"
+            echo "${{ steps.bv.outputs.groot }} plaatje(s) wijken sterk af van de vorige geslaagde run (commit ${GITHUB_SHA::8}). Geen rode test: kijk of het zo bedoeld is."
+            echo "Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            grep "| GROOT |" /tmp/beeldverschil/verslag.md | head -10 | sed 's/^/- /'
+          } > /tmp/bericht.md
+          bash "$B" bericht chris /tmp/bericht.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -63,7 +121,7 @@ jobs:
         working-directory: .
         env:
           TOKEN: ${{ github.token }}
-          TAK: ${{ github.ref_name }}
+          TAK: ${{ inputs.week && 'week' || github.ref_name }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/jetbrains-bison-flex/e2e/screenshots"
           [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }

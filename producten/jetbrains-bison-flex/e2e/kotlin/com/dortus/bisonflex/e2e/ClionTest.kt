@@ -114,14 +114,17 @@ interface RegistryOpAfstand {
 /**
  * Eis 1 in de echte CLion (de doelgroep van de plugin), los van IdeTest: een eigen Gradle-taak `clionTest`.
  * Gebruikt de EAP-build van CLion, want die heeft een ingebouwde tijdelijke licentie (30 dagen na de builddatum,
- * Starter weigert een verlopen EAP zelf). Is de build verlopen, kies dan de nieuwste EAP en pas [CLION_BUILD] aan.
+ * Starter weigert een verlopen EAP zelf). Is de build verlopen, kies dan de nieuwste EAP en pas [CLION_BUILD_VAST] aan.
  * Verschijnt er toch een licentie- of voorwaardenvenster, dan klikt de test niets weg: schermafbeelding, titel in
  * het log, en de test faalt met die reden.
  */
 class ClionTest {
     companion object {
         /** CLion 2026.3 EAP van 23 okt 2026, geldig tot ongeveer 22 nov 2026. */
-        const val CLION_BUILD = "263.7307.35"
+        private const val CLION_BUILD_VAST = "263.7307.35"
+
+        /** Week-test (roestronde R4): -PclionBuild=<build> kiest de nieuwste CLion EAP, anders [CLION_BUILD_VAST]. */
+        val CLION_BUILD: String = System.getProperty("dortus.e2e.clionBuild")?.takeIf { it.isNotBlank() } ?: CLION_BUILD_VAST
         private const val PLUGIN_ID = "com.dortus.bisonflex"
         private val VERDACHT = Regex("licen|activat|agreement|terms|eula|register|subscription|trial|log ?in|sign ?in|evaluat|privacy|data sharing|expired", RegexOption.IGNORE_CASE)
     }

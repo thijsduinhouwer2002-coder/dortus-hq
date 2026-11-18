@@ -5,6 +5,16 @@ on:
     branches: [main, "claude/obsidian-*"]
     paths: ["producten/obsidian-rollwright/**", ".github/workflows/rollwright-e2e.yml"]
   workflow_dispatch:
+  # Week-test (roestronde R4): week-test.yml roept deze workflow aan met de nieuwste Obsidian en de nieuwste installer.
+  workflow_call:
+    inputs:
+      obsidian:
+        description: 'JSON-lijst van {"app": ..., "installer": ...}, bijvoorbeeld [{"app": "latest", "installer": "latest"}]'
+        type: string
+        required: false
+      week:
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,6 +23,15 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        # Bij een push: app latest, installer earliest (zoals wdio.conf.mjs). De week-test geeft er meer mee.
+        obsidian: ${{ fromJSON(inputs.obsidian || '[{"app":"latest","installer":"earliest"}]') }}
+    env:
+      OBSIDIAN_APP: ${{ matrix.obsidian.app }}
+      OBSIDIAN_INSTALLER: ${{ matrix.obsidian.installer }}
+      SUB: ${{ inputs.week && format('week/{0}-{1}', matrix.obsidian.app, matrix.obsidian.installer) || github.ref_name }}
     defaults:
       run:
         working-directory: producten/obsidian-rollwright
@@ -31,7 +50,7 @@ jobs:
       - uses: actions/cache/restore@v4
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.obsidian.installer }}
           restore-keys: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-
       # Obsidian (installer en app) en chromedriver vooraf in de cache zetten, met tot acht pogingen en steeds langer wachten.
       # Op 8 nov gaf github.com voor obsidian-1.15.0.asar.gz drie keer op rij 504 binnen drie minuten; Daan kreeg
@@ -43,7 +62,8 @@ jobs:
           cat > /tmp/vooraf.mjs <<'JS'
           import ObsidianLauncher from "obsidian-launcher";
           const l = new ObsidianLauncher({ cacheDir: process.cwd() + "/.obsidian-cache" });
-          const [app, installer] = await l.resolveVersion("latest", "earliest");
+          const [app, installer] = await l.resolveVersion(process.env.OBSIDIAN_APP || "latest", process.env.OBSIDIAN_INSTALLER || "earliest");
+          console.log("OBSIDIAN VERSIE app", app, "installer", installer);
           console.log("installer", await l.downloadInstaller(installer));
           console.log("app", await l.downloadApp(app));
           console.log("chromedriver", await l.downloadChromedriver(installer));
@@ -78,11 +98,52 @@ jobs:
         if: always()
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.obsidian.installer }}
+      # Beeldvergelijking (roestronde R4): elk plaatje naast dat van de vorige geslaagde run. Nooit rood.
+      # De dobbelstenen hebben een vast zaad (wdio.conf.mjs), dus een lage grens.
+      - name: Beeldvergelijking met de vorige geslaagde run
+        id: bv
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          B=organisatie/controle/beelden.sh
+          if [ ! -f "$B" ]; then mkdir -p /tmp/bvs; for f in beelden.sh beeldvergelijk.py; do curl -fsSL --retry 3 -o "/tmp/bvs/$f" "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/organisatie/controle/$f"; done; B=/tmp/bvs/beelden.sh; fi
+          echo "B=$B" >> "$GITHUB_ENV"
+          N=$(echo "$SUB" | tr '/' '-')
+          echo "N=$N" >> "$GITHUB_ENV"
+          bash "$B" vergelijk producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" \
+            /tmp/beeldverschil 0.15 "Rollwright, Obsidian $OBSIDIAN_APP met installer $OBSIDIAN_INSTALLER ($N)" "rollwright/$N"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: rollwright-screenshots
+          name: beeldverschil-rollwright-${{ matrix.obsidian.app }}-${{ matrix.obsidian.installer }}
+          path: /tmp/beeldverschil
+          if-no-files-found: ignore
+      - name: Referentiebeelden bijwerken (alleen als alles groen is)
+        if: success()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+        run: bash "$B" bewaar producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" "rollwright $N"
+      - name: Groot beeldverschil melden aan Olaf (alleen main, geen rood)
+        if: always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## $(bash "$B" datum) NL, van de beeldvergelijking (automatisch): Rollwright"
+            echo "${{ steps.bv.outputs.groot }} plaatje(s) wijken sterk af van de vorige geslaagde run (commit ${GITHUB_SHA::8}). Geen rode test: kijk of het zo bedoeld is."
+            echo "Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            grep "| GROOT |" /tmp/beeldverschil/verslag.md | head -10 | sed 's/^/- /'
+          } > /tmp/bericht.md
+          bash "$B" bericht olaf /tmp/bericht.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rollwright-screenshots${{ inputs.week && format('-{0}-{1}', matrix.obsidian.app, matrix.obsidian.installer) || '' }}
           path: producten/obsidian-rollwright/e2e/screenshots
           if-no-files-found: warn
       - name: Schermafbeeldingen openbaar zetten (tak schermen)
@@ -93,6 +154,8 @@ jobs:
           TAK: ${{ github.ref_name }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/obsidian-rollwright/e2e/screenshots"
+          # Week-test: eigen map, zodat de beelden van main blijven staan.
+          [ "${SUB#week/}" != "$SUB" ] && TAK="$SUB"
           [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
           NAAM=$(echo "$TAK" | tr '/' '-')
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

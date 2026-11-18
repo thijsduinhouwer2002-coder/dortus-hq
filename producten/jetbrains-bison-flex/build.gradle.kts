@@ -76,6 +76,16 @@ intellijPlatform {
             create(IntelliJPlatformType.IntellijIdea, "2025.3")
             create(IntelliJPlatformType.IntellijIdea, "2026.2")
             create(IntelliJPlatformType.CLion, "2026.2")
+            // Week-test (roestronde R4): -PverifierExtra=IU:2026.3,CL:2026.3 voegt de nieuwste releases toe.
+            (findProperty("verifierExtra") as String?)?.split(",")?.map { it.trim() }?.filter { ":" in it }?.forEach {
+                val (soort, versie) = it.split(":", limit = 2)
+                val type = when (soort.uppercase()) {
+                    "IU" -> IntelliJPlatformType.IntellijIdea
+                    "CL" -> IntelliJPlatformType.CLion
+                    else -> error("Onbekende IDE '$soort' in verifierExtra, kies IU of CL")
+                }
+                create(type, versie)
+            }
         }
     }
 }
@@ -91,6 +101,9 @@ fun Test.ideTestInstellingen() {
     systemProperty("dortus.e2e.project", layout.projectDirectory.dir("e2e/project").asFile.absolutePath)
     systemProperty("dortus.e2e.winkelproject", layout.projectDirectory.dir("e2e/calculator").asFile.absolutePath)
     systemProperty("dortus.e2e.screenshots", layout.projectDirectory.dir("e2e/screenshots").asFile.absolutePath)
+    // Week-test (roestronde R4, .github/workflows/week-test.yml): nieuwste IntelliJ- en CLion-EAP, zie IdeTest en ClionTest.
+    (findProperty("ideBuild") as String?)?.let { systemProperty("dortus.e2e.ideBuild", it) }
+    (findProperty("clionBuild") as String?)?.let { systemProperty("dortus.e2e.clionBuild", it) }
     testLogging { events("passed", "failed", "skipped", "standard_out", "standard_error"); showStandardStreams = true }
 }
 

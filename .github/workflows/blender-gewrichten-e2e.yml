@@ -5,6 +5,16 @@ on:
     branches: [main, "claude/blender-*"]
     paths: ["producten/blender-gewrichten/**", ".github/workflows/blender-gewrichten-e2e.yml"]
   workflow_dispatch:
+  # Week-test (roestronde R4): week-test.yml roept deze workflow aan met de nieuwste Blender alpha en dailies.
+  workflow_call:
+    inputs:
+      blender:
+        description: 'JSON-lijst van versies, bijvoorbeeld ["5.3.0", "5.4.0-alpha", "5.2.4-stable"] (met -alpha, -beta, -rc of -stable: daily van builder.blender.org)'
+        type: string
+        required: false
+      week:
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -16,7 +26,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        blender: ["4.2.23", "5.2.3", "5.3.0"]
+        # Vaste versies bij een push; week-test.yml leest deze lijst en geeft zijn eigen lijst mee.
+        blender: ${{ fromJSON(inputs.blender || '["4.2.23", "5.2.3", "5.3.0"]') }}
     env:
       PRO_VERSIE: "1.1.0"
     defaults:
@@ -31,6 +42,21 @@ jobs:
       - name: Blender ${{ matrix.blender }} ophalen
         run: |
           V="${{ matrix.blender }}"; KORT="${V%.*}"
+          # Week-test: versie met -alpha, -beta, -rc of -stable komt als daily van builder.blender.org.
+          case "$V" in *-alpha|*-beta|*-rc|*-stable)
+            NUM="${V%-*}"; CYC="${V##*-}"
+            U=$(curl -fsSL --retry 3 "https://builder.blender.org/download/daily/?format=json&v=1" | python3 -c "
+          import json, sys
+          r = [b for b in json.load(sys.stdin) if b['version'] == '$NUM' and b['release_cycle'] == '$CYC' and b['platform'] == 'linux'
+               and b['architecture'] == 'x86_64' and b['file_extension'] == 'xz']
+          print(r[0]['url'] if r else '')")
+            [ -n "$U" ] || { echo "FOUT: daily $V niet in de lijst van builder.blender.org"; exit 1; }
+            echo "daily: $U"
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$U" || { echo "FOUT: daily $V niet te downloaden"; exit 1; }
+            mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+            /tmp/blender/blender --version | head -1
+            exit 0 ;;
+          esac
           # download.blender.org geeft vanuit Actions soms 403 (16 nov, run 43792521740); --retry probeert 403 niet
           # opnieuw, dus dan een spiegel (zelfde bestand, GEZIEN 200 en 407 MB voor 5.3.0).
           B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
@@ -254,6 +280,50 @@ jobs:
           grep -q "PRO OK pose" /tmp/pro.log || { echo "FOUT: plaatje 13 niet goed"; exit 1; }
           grep -q "PRO OK rood" /tmp/pro.log || { echo "FOUT: plaatje 14 niet goed"; exit 1; }
           for f in 13-pro-knie-schoon-x.png 13-pro-knie-x.png 14-pro-knie-rood-x.png pro-knie.json; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      # Beeldvergelijking (roestronde R4): elk plaatje naast dat van de vorige geslaagde run. Nooit rood.
+      # Blender tekent zonder ruis (0 px verschil over 6 runs, zoeker E), dus een lage grens.
+      - name: Beeldvergelijking met de vorige geslaagde run
+        id: bv
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          NAAM: ${{ inputs.week && 'week' || github.ref_name }}
+        run: |
+          B=organisatie/controle/beelden.sh
+          if [ ! -f "$B" ]; then mkdir -p /tmp/bvs; for f in beelden.sh beeldvergelijk.py; do curl -fsSL --retry 3 -o "/tmp/bvs/$f" "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/organisatie/controle/$f"; done; B=/tmp/bvs/beelden.sh; fi
+          echo "B=$B" >> "$GITHUB_ENV"
+          N=$(echo "$NAAM" | tr '/' '-')
+          bash "$B" vergelijk "producten/blender-gewrichten/e2e/screenshots/${{ matrix.blender }}" "referentie/blender-gewrichten/$N/${{ matrix.blender }}" \
+            /tmp/beeldverschil 0.02 "Click Joints, Blender ${{ matrix.blender }} ($N)" "blender-gewrichten/$N/${{ matrix.blender }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beeldverschil-blender-gewrichten-${{ matrix.blender }}
+          path: /tmp/beeldverschil
+          if-no-files-found: ignore
+      - name: Referentiebeelden bijwerken (alleen als alles groen is)
+        if: success()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          NAAM: ${{ inputs.week && 'week' || github.ref_name }}
+        run: |
+          N=$(echo "$NAAM" | tr '/' '-')
+          bash "$B" bewaar "producten/blender-gewrichten/e2e/screenshots/${{ matrix.blender }}" "referentie/blender-gewrichten/$N/${{ matrix.blender }}" "blender-gewrichten $N ${{ matrix.blender }}"
+      - name: Groot beeldverschil melden aan Bram (alleen main, geen rood)
+        if: always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## $(bash "$B" datum) NL, van de beeldvergelijking (automatisch): Click Joints, Blender ${{ matrix.blender }}"
+            echo "${{ steps.bv.outputs.groot }} plaatje(s) wijken sterk af van de vorige geslaagde run (commit ${GITHUB_SHA::8}). Geen rode test: kijk of het zo bedoeld is."
+            echo "Verschilbeelden (rood is anders): artefact beeldverschil-blender-gewrichten-${{ matrix.blender }} in https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            grep "| GROOT |" /tmp/beeldverschil/verslag.md | head -10 | sed 's/^/- /'
+          } > /tmp/bericht.md
+          bash "$B" bericht bram /tmp/bericht.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -265,7 +335,7 @@ jobs:
         working-directory: .
         env:
           TOKEN: ${{ github.token }}
-          TAK: ${{ github.ref_name }}
+          TAK: ${{ inputs.week && 'week' || github.ref_name }}
         run: |
           SRC="$GITHUB_WORKSPACE/producten/blender-gewrichten/e2e/screenshots"
           [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }

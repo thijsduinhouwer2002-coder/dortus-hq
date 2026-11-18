@@ -5,6 +5,13 @@ on:
     branches: [main, "claude/jetbrains-*"]
     paths: ["producten/jetbrains-bison-flex/**", ".github/workflows/jetbrains-bison-flex-clion.yml"]
   workflow_dispatch:
+  # Week-test (roestronde R4): week-test.yml voegt de nieuwste IntelliJ- en CLion-release toe aan de Plugin Verifier.
+  workflow_call:
+    inputs:
+      verifier_extra:
+        description: 'extra IDEs voor de Plugin Verifier, bijvoorbeeld IU:2026.3,CL:2026.3.0.1'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -46,9 +53,9 @@ jobs:
       - name: Platform-informatie (welke IDE was het)
         if: always()
         run: find ~/.gradle/caches -maxdepth 6 -type d -iname '*clion*' 2>/dev/null | head -5 || true
-      - name: Plugin Verifier (CLion 2025.2 en 2026.2, IDEA 2025.2, 2025.3 en 2026.2)
+      - name: Plugin Verifier (CLion 2025.2 en 2026.2, IDEA 2025.2, 2025.3 en 2026.2${{ inputs.verifier_extra && format(', week-test {0}', inputs.verifier_extra) || '' }})
         if: always()
-        run: ./gradlew --no-daemon verifyPlugin
+        run: ./gradlew --no-daemon verifyPlugin ${{ inputs.verifier_extra && format('-PverifierExtra={0}', inputs.verifier_extra) || '' }}
       - name: Samenvatting Plugin Verifier
         if: always()
         run: |

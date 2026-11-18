@@ -1,0 +1,109 @@
+name: Week-test (volgende Blender, IDE en Obsidian)
+
+# Roestronde R4. Eén keer per week draaien de e2e-tests van Click Joints, Bison & Flex en Rollwright tegen wat
+# eraan komt: Blender alpha en nieuwe dailies naast de huidige 5.3.0, de nieuwste IntelliJ- en CLion-EAP (en de
+# nieuwste releases in de Plugin Verifier), en de nieuwste Obsidian met de oudste en de nieuwste installer.
+# Rood blokkeert niets: de job melden zet een bericht onderaan berichten/<eigenaar>.md (Bram, Chris, Olaf) met de
+# versie en de stap, plus de plaatjes die sterk veranderden sinds de vorige geslaagde week-test.
+# Versies kiezen en melden: organisatie/controle/weektest.py. Beeldvergelijking: organisatie/controle/beelden.sh.
+
+on:
+  schedule:
+    - cron: '37 3 * * 1'   # maandag 04:37 NL (wintertijd), buiten het hele uur
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/week-test.yml']
+
+permissions:
+  contents: write   # schermen, referentiebeelden en berichten
+  actions: read     # jobs en stappen van deze run lezen voor het bericht
+
+concurrency:
+  group: week-test
+  cancel-in-progress: false
+
+jobs:
+  versies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      blender: ${{ steps.v.outputs.blender }}
+      idea_build: ${{ steps.v.outputs.idea_build }}
+      clion_build: ${{ steps.v.outputs.clion_build }}
+      verifier_extra: ${{ steps.v.outputs.verifier_extra }}
+      obsidian: ${{ steps.v.outputs.obsidian }}
+      overzicht: ${{ steps.v.outputs.overzicht }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            .github/workflows
+            organisatie/controle
+      - name: Versies van deze week
+        id: v
+        run: python3 -I organisatie/controle/weektest.py versies
+
+  blender:
+    name: Click Joints
+    needs: versies
+    uses: ./.github/workflows/blender-gewrichten-e2e.yml
+    with:
+      blender: ${{ needs.versies.outputs.blender }}
+      week: true
+
+  bisonflex:
+    name: Bison & Flex
+    needs: versies
+    uses: ./.github/workflows/jetbrains-bison-flex-e2e.yml
+    with:
+      idea_build: ${{ needs.versies.outputs.idea_build }}
+      clion_build: ${{ needs.versies.outputs.clion_build }}
+      week: true
+
+  bisonflex-verifier:
+    name: Bison & Flex verifier
+    needs: versies
+    uses: ./.github/workflows/jetbrains-bison-flex-clion.yml
+    with:
+      verifier_extra: ${{ needs.versies.outputs.verifier_extra }}
+
+  rollwright:
+    name: Rollwright
+    needs: versies
+    uses: ./.github/workflows/rollwright-e2e.yml
+    with:
+      obsidian: ${{ needs.versies.outputs.obsidian }}
+      week: true
+
+  melden:
+    needs: [versies, blender, bisonflex, bisonflex-verifier, rollwright]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: beeldverschil-*
+          path: /tmp/bv
+        continue-on-error: true
+      - name: Berichten aan de eigenaren (alleen bij rood of een groot beeldverschil)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOKEN: ${{ github.token }}
+          OVERZICHT: ${{ needs.versies.outputs.overzicht }}
+        run: |
+          export DATUM="$(TOKEN=x bash organisatie/controle/beelden.sh datum)"
+          mkdir -p /tmp/bv
+          python3 -I organisatie/controle/weektest.py melden /tmp/bv /tmp/berichten
+          for f in /tmp/berichten/*.md; do
+            [ -f "$f" ] || continue
+            bash organisatie/controle/beelden.sh bericht "$(basename "$f" .md)" "$f"
+          done

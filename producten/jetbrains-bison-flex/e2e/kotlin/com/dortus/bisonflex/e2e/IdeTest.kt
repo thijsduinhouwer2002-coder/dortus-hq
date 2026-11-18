@@ -61,19 +61,30 @@ class IdeTest {
     companion object {
         /** Vast, zodat de test niet stilletjes naar een nieuwere IDE schuift (build 252.28539.149). */
         const val IDE_VERSIE = "2025.2.6.4"
+
+        /**
+         * Week-test (roestronde R4, .github/workflows/week-test.yml): met -PideBuild=<build> draait dezelfde test in de
+         * nieuwste IntelliJ IDEA EAP (IU, ingebouwde EAP-licentie) in plaats van IDEA Community [IDE_VERSIE].
+         */
+        private val EAP_BUILD: String? = System.getProperty("dortus.e2e.ideBuild")?.takeIf { it.isNotBlank() }
+
+        /** Vanaf 2025.3 heten de standaardthema's Islands (zie ClionTest); oude ids bestaan daar niet meer. */
+        private val ISLANDS = EAP_BUILD != null && (EAP_BUILD.substringBefore('.').toIntOrNull() ?: 0) >= 253
     }
 
     init { zetCiServer() }
 
     @Test
-    fun lichtThema() = draai("licht", "ExperimentalLight", "Light")
+    fun lichtThema() = if (ISLANDS) draai("licht", "Islands Light", "Light") else draai("licht", "ExperimentalLight", "Light")
 
     @Test
-    fun donkerThema() = draai("donker", "ExperimentalDark", "Dark")
+    fun donkerThema() = if (ISLANDS) draai("donker", "Islands Dark", "Islands Dark") else draai("donker", "ExperimentalDark", "Dark")
 
     private fun draai(naam: String, themaId: String, kleurenschema: String) {
         val project = winkelproject("bisonflex-$naam")
-        Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
+        val geval = EAP_BUILD?.let { TestCase(IdeProductProvider.IU, LocalProjectInfo(project)).useEAP(it) }
+            ?: TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE)
+        Starter.newContext("bisonflex-$naam", geval)
             .apply {
                 // Thema vooraf vastzetten (GOK: zo werkt het in een verse config, de schermen laten het zien).
                 richIn(themaId, kleurenschema) {
