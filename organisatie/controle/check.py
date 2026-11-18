@@ -34,7 +34,14 @@ def diff(van, tot):
     # --no-renames: een hernoemd bestand telt als nieuw, dus de hele inhoud wordt gecontroleerd.
     basis = ["git", "-c", "core.quotePath=false", "diff", "--unified=0", "--no-color", "--no-renames", "--diff-filter=AM"]
     cmd = basis + [van, tot] if tot else basis + [van]
-    return subprocess.run(cmd, capture_output=True, text=True, errors="replace").stdout
+    uit = subprocess.run(cmd, capture_output=True, text=True, errors="replace")
+    # Faalt git diff (bijv. blob:none kan een oud bestand niet ophalen), dan is er niets gecontroleerd:
+    # dat is rood, nooit stil groen (keuring R1, 19 nov).
+    if uit.returncode != 0:
+        print("Controle openbare repo: NIET OK. git diff faalde, dus er is niets gecontroleerd:")
+        print("  " + (uit.stderr.strip().splitlines() or ["(geen foutmelding)"])[-1][:300])
+        sys.exit(2)
+    return uit.stdout
 
 
 def main():

@@ -31,7 +31,6 @@ TOEGESTAAN = {
     "scorebord.yml",
     "blender-gewrichten-e2e.yml",
     "blender-gewrichten-proef.yml",
-    "blender-proef-e2e.yml",
     "blender-chris-figuur.yml",
     "click-joints-render.yml",
     "click-joints-pro-film.yml",
@@ -52,9 +51,6 @@ TOEGESTAAN = {
     "steam-hol-winkel.yml",
     "steam-proef.yml",
     "steam-fest-meting.yml",
-    "verkenner-steam-desktop.yml",
-    "verkenner-superhive.yml",
-    "tiktok-boekhouding-schermen.yml",
 }
 
 
