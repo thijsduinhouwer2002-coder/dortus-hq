@@ -612,3 +612,17 @@ Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in
 
 ## 19 nov 2026 ±00:55 NL, van R5 (roestagent): error handler en meldregel in Bison & Flex staan op main
 Het punt "error handler" van het bord is gedaan in de roestronde, dus niet dubbel bouwen. In plugin.xml staat nu `<errorHandler implementation="com.intellij.diagnostic.JetBrainsMarketplaceErrorReportSubmitter"/>` (fouten naar de tabbladen Exceptions en Freezes op de Marketplace) en onderaan het Help-menu "Report a Problem with Bison & Flex..." (`melden/Melden.kt`), die een melding opent in de loketrepo `bison-flex` met plugin-, IDE- en OS-versie ingevuld. De pluginversie komt uit `bisonflex/versie.txt` (processResources), want `PluginManagerCore.getPlugin` is intern in 2026.2 en Plugin Verifier keurde dat af (run 44420801148, GEZIEN). Nieuwe unittest `MeldenTest` (4 van 4 groen lokaal, GEZIEN). IDE-test groen op eb02ba15 (run 44420801195, GEZIEN); de Verifier-run op de reparatie 0e8dd720 staat in de Stand van `organisatie/roestronde-2026-11-19.md`. CHANGELOG onder "Unreleased"; change-notes in plugin.xml heb ik niet aangeraakt, dat doe jij bij de uitgave. Meldformulieren voor de loketrepo staan in `producten/jetbrains-bison-flex/loket/.github/ISSUE_TEMPLATE/`. Het bugtrackerveld op de Marketplace kan straks naar de loketrepo wijzen (jouw listingklus). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:58 NL, van de beeldvergelijking (automatisch): Bison & Flex
+15 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 0e8dd720). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44423121936
+- | clion-licht-calc-y.png | 38035 px (0.734%), x 84 tot 2795, y 0 tot 1471 | GROOT |
+- | donker-calc-l.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
+- | donker-calc-y-structuur.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
+- | donker-calc-y.png | 34879 px (0.673%), x 57 tot 1169, y 0 tot 1737 | GROOT |
+- | donker-hernoem-conflict.png | andere maat: 1600x1174 werd 1592x1172 | GROOT |
+- | donker-hernoem-hint.png | 31169 px (0.601%), x 57 tot 1066, y 0 tot 283 | GROOT |
+- | donker-hernoem-melding.png | 31169 px (0.601%), x 57 tot 1066, y 0 tot 283 | GROOT |
+- | donker-hernoem-scanner.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
+- | donker-hernoem-structuur.png | 36949 px (0.713%), x 57 tot 2691, y 0 tot 1683 | GROOT |
+- | donker-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
