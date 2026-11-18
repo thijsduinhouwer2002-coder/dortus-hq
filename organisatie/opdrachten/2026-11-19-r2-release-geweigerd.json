@@ -1,1 +1,7 @@
-{"workflow": "filmpjes-geluid.yml", "van": "roestagent R2", "waarom": "proef: schrijft in een release, moet geweigerd worden"}
+{
+  "workflow": "filmpjes-geluid.yml",
+  "van": "roestagent R2",
+  "waarom": "proef: schrijft in een release, moet geweigerd worden",
+  "fout": "workflow 'filmpjes-geluid.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-18T23:29:40Z"
+}

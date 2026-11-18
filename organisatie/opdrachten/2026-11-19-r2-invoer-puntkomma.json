@@ -1,1 +1,10 @@
-{"workflow": "wegwijzer.yml", "invoer": {"x": "a; touch /tmp/gehackt"}, "van": "roestagent R2", "waarom": "proef: invoer met ; moet geweigerd worden"}
+{
+  "workflow": "wegwijzer.yml",
+  "invoer": {
+    "x": "a; touch /tmp/gehackt"
+  },
+  "van": "roestagent R2",
+  "waarom": "proef: invoer met ; moet geweigerd worden",
+  "fout": "invoer x: alleen letters, cijfers, spatie en . _ , / - toegestaan",
+  "fout_tijd": "2026-11-18T23:29:40Z"
+}
