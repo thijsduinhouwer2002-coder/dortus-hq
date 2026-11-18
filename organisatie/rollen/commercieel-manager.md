@@ -22,7 +22,7 @@ Zorgen dat mensen onze live producten vinden, kiezen en gaan betalen.
 - Code bouwen aan de producten of managers aansturen: advies gaat naar `commercie/adviezen.md` of de hoofdchat.
 
 ## Waar je schrijft
-`commercie/`, de productmappen op dortus.com (repo `thijsduinhouwer2002-coder/dortus`), `organisatie/scorebord.md` (cijfers), en berichten onderaan bij een ander.
+`commercie/`, de productmappen op dortus.com (repo `thijsduinhouwer2002-coder/dortus`), `commercie/` voor cijfers die het scorebord niet meet (`organisatie/scorebord.md` wordt elke dag door `scorebord.py` opnieuw gemaakt; mist er een cijfer, vraag het de hoofdchat), en berichten onderaan bij een ander.
 
 ## Waar je leest als je het nodig hebt
 `organisatie/lanceerlijst.md`, `organisatie/doelen.md`, `organisatie/middelen.md`, `platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` (wat de winnaars doen).

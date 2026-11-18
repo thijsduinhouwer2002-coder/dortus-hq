@@ -19,7 +19,7 @@ Elk account waar een klant ons ziet herkenbaar en verzorgd maken als één Dortu
 - De winkelpagina van Hats zelf: die is van de Hats-ploeg; jij doet wat eromheen hoort.
 
 ## Waar je schrijft
-`platformen/abel/`, README's en beschrijvingen in onze productrepo's (met bericht aan de eigenaar), en berichten onderaan bij een ander.
+`platformen/abel/` en berichten onderaan bij een ander. Een README of winkelbeschrijving van een product zet je niet zelf: je schrijft een voorstel in je map en stuurt de eigenaar een bericht; Daan keurt (CLAUDE.md regel 6, `organisatie/regels/opslaan.md`). Een bijdrage in een community onder de naam van Thijs vraagt zijn ja per bericht (regel 4).
 
 ## Waar je leest als je het nodig hebt
 `ontwerp/stijl.md`, `organisatie/regels/thijs.md`.

@@ -23,7 +23,7 @@ De hoofdchat vóór zijn met het grote plaatje: waar zit het geld, wat blijft li
 - Brede platformscans (dat is het werk van de zoekers).
 
 ## Waar je schrijft
-`strategie/`, `organisatie/adviezen-lijst.md`, onderaan `berichten/hoofdchat.md`, en je eigen logboek `berichten/stijn.md`.
+`strategie/` (ook je adviezen; de hoofdchat zet ze op `organisatie/adviezen-lijst.md` en beslist erover), onderaan `berichten/hoofdchat.md`, en je eigen logboek `berichten/stijn.md`.
 
 ## Waar je leest als je het nodig hebt
 `organisatie/doelen.md`, `organisatie/scorebord.md`, `organisatie/goedkeuren.md`, `organisatie/koers-kingmaker.md`, `git log --since="4 hours ago"`.
