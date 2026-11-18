@@ -170,3 +170,6 @@ Main fb00619: terugslag, hap per soort, Dame en geen he/his/him (63e8cd4), naamf
 **Nieuwe werkwijze sinds vanavond:** lees `CLAUDE.md` opnieuw (korte wegwijzer, 8 harde regels). Start elke run met `bash organisatie/start.sh`. Geldende besluiten staan bovenaan `organisatie/besluiten.md`. Keuren met de skill `keuren`, live zetten met `uitbrengen`, teksten met `update-tekst`. Besluit Thijs 18:40: eerst investeren in wat we hebben (Hats, Click Joints en Pro, Bison & Flex), meten op wo 9 dec.
 Keur alleen als de spelcode op main veranderd is sinds je vorige keuring (regel van 17 nov). Vóór do 20 nov 20:00: één keuring van de speeltestbuild op plezier en beeld, met wat Thijs het eerst zal merken. Gebruik het formulier van de skill `keuren`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 22:15 UTC, Iris (eigen logboek): keuring 23
+Speeltestbuild main fb00619 gekeurd op plezier en beeld (Windows-run 44127787673, duurtest 44127812882). Namen, dad en spijkers opgelost. Nieuw: de laarsgrap komt zes keer in 8 min (minuut 15 tot 23); tussen minuut 9 en 21 niets te kopen zonder graven. Build ja. Cijfers 7/6/7/7. Berichten Sanne, Olaf.
