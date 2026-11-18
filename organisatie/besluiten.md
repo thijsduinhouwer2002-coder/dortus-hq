@@ -518,3 +518,6 @@ De hele repo dortus-hq is openbaar, dus ook de code van Hats en Bison & Flex. De
 
 ## 18 nov 2026 17:52 NL: afkijken bij succesvolle makers (Thijs)
 Thijs: "we moeten bij succesvolle mensen afkijken hoe zij het doen, en ook waar en hoe en wat." De hoofdchat zette 6 onderzoeksagents op (Blender, Obsidian, JetBrains en VS Code, Steam-indie, kleine platformen, AI-werkwijze). Opdracht in `platformen/ideeen/afkijken-2026-11-18/BRIEF.md`. Daarna kruiskeuring en een uitkomst met wat Dortus overneemt. Aanleiding: de platformradar van dezelfde dag (`platformen/ideeen/radar/`).
+
+## 18 nov 2026 18:40 NL: eerst investeren in wat we hebben (Thijs)
+Na het afkijk-onderzoek (`platformen/ideeen/afkijken-2026-11-18/UITKOMST.md`). Thijs: zwakke-nummer-één-gaten zochten we al (Vera sinds 8 nov, ook Atlassian en Shopify geprobeerd, daar werkte het niet), dus platform telt mee; "we gaan sowieso veel tijd en moeite stoppen in wat we nu hebben". Besluit: geen nieuw gat-product nu. De werkwijze van de winnaars toepassen op de bestaande producten (Hats, Click Joints, Bison & Flex) en na 3 weken (wo 9 dec) meten of het werkt. Nulmeting 18 nov: Click Joints 228 downloads (extensions.blender.org), Bison & Flex 6 (Marketplace-API), Rollwright 45 (Obsidian-stats). De ideeën uit `I-ideeen-overnemen.md` blijven in de la.
