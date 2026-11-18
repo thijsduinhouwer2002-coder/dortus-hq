@@ -39,7 +39,7 @@ GROOT: 12 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 52 plaatjes ver
 | 3-kijkrichting.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
 | 4-material-preview.png | gelijk | |
-| 5-waaier-x.png | gelijk | |
+| 5-waaier-x.png | 28 px (0.001%), ruis | |
 | 5-waaier.png | gelijk | |
 | 6-rood-x.png | gelijk | |
 | 6-rood.png | gelijk | |
