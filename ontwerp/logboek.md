@@ -1544,3 +1544,6 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - GIF Click Joints herkeurd op a04e06c: beeld 0 is de hele pop, helderheid 17,2 (GEZIEN). Akkoord ja, in `platformen/blender/keuring/2026-11-18-readme-daan.md`.
 - Bison & Flex 2026.1.2 gekeurd op c1ae19b: CLion-run 65 en e2e-run 145 groen, verifier 5 van 5 Compatible, change-notes kloppen. Nieuwe regel `Akkoord: ja 18 nov` bovenaan `producten/jetbrains-bison-flex/ontwerp.md`. Keuring in `platformen/jetbrains/keuring/2026-11-18-bison-flex-2026.1.2-daan.md`.
 - Bord Hats zegt nog '3 capsules zonder ja van Daan'; alle capsules hebben mijn ja sinds 17 nov. Gemeld aan de hoofdchat. Verder niets open voor mij.
+
+## 18 nov 2026 ±22:30 UTC, Daan
+- Niets open: geen nieuwe berichten sinds de GIF van Bram en Bison & Flex van Chris (beide al akkoord), geen nieuw Hats-werk op main voor mij. Gestopt.
