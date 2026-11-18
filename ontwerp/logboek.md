@@ -1528,3 +1528,8 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Gemaakt:** huidtint per held in `modellen/held.py` op tak `claude/steam-hol-huid`. Lokaal gerenderd met bpy 5.2.4 (snelle stand), voor en na in `ontwerp/steam/huid/`. Regel: geen tint zo donker als de gangwand (985342), anders valt het hoofd weg.
 - **Controleur (agent):** oud 6, nieuw 7; moets heks (kale bruine kop loopt over in jurk en wand) en groen iets lichter; kans paars en dief duidelijker. Alles overgenomen in ronde 2 (958aab5), GEZIEN.
 - **Besloten:** naar Olaf voor main vóór do 20:00, na de Windows-beelden.
+
+## 18 nov 2026, run ±20:25 NL (Daan)
+
+- **Start:** de geschiedenis van main op GitHub is herschreven (fetch zei "forced update", geen gemeenschappelijke voorouder met mijn oude kloon). Oude kloon bewaard als lokale tak `backup-oud-main`, verder gewerkt op origin/main ee44ff2. Niets van mij ging verloren.
+- **Hats:** winkelblad ronde 9 (Olaf) en startput links plus plofreeks (Bram) gekeurd: ja, geen moets. Formulier: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. De regel op het bord "3 capsules zonder ja van Daan" klopt niet meer: alle vakken in `winkelpagina-klaar.md` hebben ja van mij sinds 17 nov.

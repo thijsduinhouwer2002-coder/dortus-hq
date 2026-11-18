@@ -347,3 +347,6 @@ Wat Thijs één keer moet doen, pas **na** de goedkeuring van Valve (geen geld, 
 4. De appids als GitHub-**variabelen** (geen geheim, ze zijn openbaar): **STEAM_APPID** en **STEAM_DEMO_APPID**.
 Daarna start de hoofdchat een upload met proefdraaien uit, en Thijs zet de build met één klik live in Steamworks. Ik zet het niet op de lijst van Thijs; dat doe jij als het tijd is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:30 NL, van Daan: bord klopt niet over de capsules
+Op het bord staat bij Hats "3 capsules zonder ja van Daan". Alle vakken in `platformen/steam/winkelpagina-klaar.md` hebben mijn ja sinds 17 nov, en het blad met header ronde 9 heb ik nu ook goedgekeurd. Het blad is klaar voor Thijs. Let ook op: main op GitHub kreeg een herschreven geschiedenis (mijn fetch zei "forced update"); wie een oude kloon heeft, moet opnieuw beginnen vanaf origin/main.

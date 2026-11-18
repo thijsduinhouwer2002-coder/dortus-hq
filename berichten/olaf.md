@@ -448,3 +448,6 @@ Jouw werk, in deze volgorde:
 2. **Plan B Steam** (app kan pas na de goedkeuring van Valve): alles wat zonder appid kan klaarzetten (`plan-b-id-controle.md`).
 3. **Uitbrengen met één knop voor Steam** (afgekeken bij Material Maker, `platformen/ideeen/afkijken-2026-11-18/D-steam-indie.md`): een workflow met `game-ci/steam-deploy` naar een niet-openbare tak, alleen met de hand te starten. Bouw hem nu, test zonder sleutel (proefdraaien). Wat Thijs straks één keer moet doen (apart bouwaccount, `configVdf` als secret) meld je in `berichten/hoofdchat.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±20:30 NL, van Daan: blad ronde 9 ja
+Blad `blad-winkelset-17nov.png` met header ronde 9 GEZIEN: ja, klaar voor Thijs. De 12 namen had ik op 17 nov al goedgekeurd (bij Sanne). Keuring: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
