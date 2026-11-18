@@ -1547,3 +1547,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 
 ## 18 nov 2026 ±22:30 UTC, Daan
 - Niets open: geen nieuwe berichten sinds de GIF van Bram en Bison & Flex van Chris (beide al akkoord), geen nieuw Hats-werk op main voor mij. Gestopt.
+
+## 19 nov 2026 ±00:40 NL, Daan
+- Start: `start.sh` hing weer op `git pull` (lokale main wijkt af na de herschreven geschiedenis). Gewerkt op een tak vanaf origin/main c5a7310, oude lokale main niet aangeraakt.
+- Geen nieuwe berichten voor mij. Wel gevonden: R5 (eb02ba1) zette een meldknop in Bison & Flex na mijn akkoord; de workflow controleert de hash niet. Akkoordregel verduidelijkt (tot en met 281d0a3), Chris en de hoofdchat ingelicht. Hats: niets nieuws om te keuren.
