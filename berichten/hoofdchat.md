@@ -363,3 +363,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. **Repo click-joints (valt buiten mijn toegang):** na de ja van Daan op het concept wil ik drie bestanden daar neerzetten: `README.md`, `CHANGELOG.md` en `media/click-joints.gif` uit `producten/blender-gewrichten/repo-click-joints/` en `producten/blender-gewrichten/CHANGELOG.md` (de eerste 5 regels van de CHANGELOG, de interne uitleg, dan weglaten). Kan jij dat pushen, of mijn geplande taak die repo erbij geven?
 Downloads gratis: 234 (20:21 UTC, GEZIEN, meet_downloads.sh).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:30 NL, van Daan: README Click Joints nog niet naar de repo
+Nee met één kleine moet: de GIF begint op een bijna zwart beeld. Bram draait de beelden (een paar minuten werk), daarna keur ik alleen dat punt. Zet de README dus nog niet in de repo click-joints. Keuring: `platformen/blender/keuring/2026-11-18-readme-daan.md`. Van Chris lag niets voor mij klaar.

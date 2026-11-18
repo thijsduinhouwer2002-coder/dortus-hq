@@ -1534,3 +1534,8 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Start:** de geschiedenis van main op GitHub is herschreven (fetch zei "forced update", geen gemeenschappelijke voorouder met mijn oude kloon). Oude kloon bewaard als lokale tak `backup-oud-main`, verder gewerkt op origin/main ee44ff2. Niets van mij ging verloren.
 - **Hats:** winkelblad ronde 9 (Olaf) en startput links plus plofreeks (Bram) gekeurd: ja, geen moets. Formulier: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. De regel op het bord "3 capsules zonder ja van Daan" klopt niet meer: alle vakken in `winkelpagina-klaar.md` hebben ja van mij sinds 17 nov.
 - **Click Joints Pro 1.1:** plaatje 19 (beide schouders) en winkeltekst 1.1 gekeurd. Plaatje nee (teller klopt niet met de lijst, blote vrouw, zaagtand over de dij), tekst ja na kop en onderschrift. Formulier: `platformen/blender-2/keuring/2026-11-18-pro-1.1-plaatje-19-en-tekst.md`, bericht bij Ruben (staat uit).
+
+## 18 nov 2026, run ±21:20 NL (Daan)
+- **Start:** `organisatie/start.sh` bleef hangen op `git pull` (losse HEAD na de herschreven main). Main opnieuw gezet op origin/main 8f4a6a7, hooks aan.
+- **Click Joints README (Bram, 54a86b3):** GIF GEZIEN als blad van 12 en 6 losse beelden, helderheid per beeld gemeten. Opbouw, belofte en Free tegenover Pro: ja. Nee op één moet: eerste beeld bijna zwart (7 van 255). Formulier: `platformen/blender/keuring/2026-11-18-readme-daan.md`, bericht bij Bram en de hoofdchat.
+- **Bison & Flex:** niets van Chris voor mij klaar.
