@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.dortus"
-version = "2026.1.1"
+version = "2026.1.2"
 
 kotlin { jvmToolchain(21) }
 

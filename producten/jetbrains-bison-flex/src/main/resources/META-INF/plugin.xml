@@ -39,6 +39,7 @@ Made for C and C++ developers who write parsers and lexers.</p>
 More at <a href="https://dortus.com/bison-flex/">dortus.com/bison-flex</a>.</p>
     ]]></description>
     <change-notes><![CDATA[
+<p>2026.1.2: ready for newer IDEs. No deprecated API left, and the Structure view now uses only public API, so it keeps working in IntelliJ IDEA 2026.2 and later. Checked with Plugin Verifier against IntelliJ IDEA 2025.3 and 2026.2 and CLion 2026.2.</p>
 <p>2026.1.1: when the IDE has no Register dialog, "Start free trial" in the Pro notification now opens the Bison &amp; Flex page on JetBrains Marketplace.</p>
 <p>2026.1.0: first release. Bison/Yacc and Flex/Lex file types, highlighting, syntax errors,
 folding, Structure view, and go to definition, find usages and rename within a file.
