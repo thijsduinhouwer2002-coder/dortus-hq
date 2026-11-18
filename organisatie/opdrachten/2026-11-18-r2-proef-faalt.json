@@ -1,6 +1,13 @@
 {
   "workflow": "actions-log-proef.yml",
-  "invoer": {"zin": "hallo van R2"},
+  "invoer": {
+    "zin": "hallo van R2"
+  },
   "van": "roestagent R2",
-  "waarom": "proef van actions-log.yml: run die expres faalt"
+  "waarom": "proef van actions-log.yml: run die expres faalt",
+  "uitslag": {
+    "run_id": 44415897839,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44415897839",
+    "gestart": "2026-11-18T22:54:00Z"
+  }
 }

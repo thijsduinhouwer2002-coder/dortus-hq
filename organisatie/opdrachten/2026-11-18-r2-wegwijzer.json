@@ -2,5 +2,10 @@
   "workflow": "wegwijzer.yml",
   "invoer": {},
   "van": "roestagent R2",
-  "waarom": "proef van opdracht.yml: onschuldige workflow starten"
+  "waarom": "proef van opdracht.yml: onschuldige workflow starten",
+  "uitslag": {
+    "run_id": 44415901800,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44415901800",
+    "gestart": "2026-11-18T22:54:02Z"
+  }
 }

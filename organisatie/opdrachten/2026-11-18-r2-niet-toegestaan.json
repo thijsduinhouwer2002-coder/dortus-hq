@@ -2,5 +2,7 @@
   "workflow": "jetbrains-bison-flex-upload.yml",
   "invoer": {},
   "van": "roestagent R2",
-  "waarom": "proef: deze moet geweigerd worden (upload staat niet op de lijst)"
+  "waarom": "proef: deze moet geweigerd worden (upload staat niet op de lijst)",
+  "fout": "workflow 'jetbrains-bison-flex-upload.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-18T22:54:00Z"
 }
