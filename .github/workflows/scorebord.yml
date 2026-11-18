@@ -3,14 +3,15 @@ name: Scorebord (elke dag 06:41 UTC)
 # Vera, 16 nov 2026, opdracht hoofdchat 16 nov 17:05. Meet per product de openbare cijfers met
 # organisatie/controle/scorebord.py, schrijft organisatie/scorebord.md en scorebord-data.csv,
 # draait de controle voor de openbare repo en commit naar main. Openbare bronnen, niet inloggen;
-# sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY.
+# sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY; sinds 18 nov (R6)
+# ook Gumroad, Kit, Discord en YouTube (organisatie/controle/scorebord_bronnen.py).
 on:
   schedule:
     - cron: "41 6 * * *"  # 06:41 UTC: GitHub stelt runs op :00 vaak uit of slaat ze over (17 nov 07:00 kwam niet)
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py", "organisatie/controle/scorebord_amami.py"]
+    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py", "organisatie/controle/scorebord_amami.py", "organisatie/controle/scorebord_bronnen.py"]
 
 permissions:
   contents: write
@@ -33,6 +34,12 @@ jobs:
         env:
           # alleen deze stap ziet de sleutel; het script print hem nooit (16 nov 20:35, hoofdchat)
           AMAMI_API_KEY: ${{ secrets.AMAMI_API_KEY }}
+          # roestronde R6 (18 nov): Gumroad en Kit alleen lezen, alleen aantallen; de webhook alleen om de
+          # server-id van de Hats-Discord te vinden als er geen uitnodigingscode is (er wordt niets gepost).
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          HATS_DISCORD_INVITE: ${{ vars.HATS_DISCORD_INVITE }}
         # Elke poging begint op de nieuwste main en meet opnieuw, zodat er nooit een rebase-conflict
         # op scorebord.md of de csv kan ontstaan (controleur 16 nov, punt M2).
         run: |

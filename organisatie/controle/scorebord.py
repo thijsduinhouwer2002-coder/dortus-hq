@@ -16,9 +16,13 @@ Wat het meet (alles openbaar, niet inloggen):
   Het makernummer wordt bij elke run uit het antwoord van Ebb gelezen en nergens opgeschreven.
 - Obsidian: downloads van Rollwright uit community-plugin-stats.json.
 - JetBrains: downloads, keuring en beoordeling van Bison & Flex.
-- Gumroad: verkopen zijn niet openbaar, daar staat "zie hoofdchat".
+- Gumroad (sinds 18 nov, R6): verkopen en omzet per product uit de API met GUMROAD_ACCESS_TOKEN (alleen lezen).
+- Kit (R6): actieve abonnees in totaal en per tag met KIT_API_KEY (alleen aantallen).
+- Discord (R6): leden en online van de Hats-server via de openbare invite-API (code in scorebord_bronnen.py).
+- YouTube (R6): weergaven per filmpje van @Dortusapps uit de openbare RSS, zonder sleutel.
+  Zie scorebord_bronnen.py.
 - dortus.com (sinds 16 nov 20:35): bezoekers per dag uit Amami, totaal en per productpagina.
-  Dit is de enige bron met een sleutel: AMAMI_API_KEY als GitHub-secret, alleen gelezen uit de
+  Met sleutel: AMAMI_API_KEY als GitHub-secret, alleen gelezen uit de
   omgeving, nooit geprint of opgeslagen. Zonder sleutel slaat het script dit deel over. Het
   website-id wordt elke run uit de html van dortus.com gelezen. Amami bewaart cijfers 7 dagen,
   dus het script haalt elke run de afgelopen 6 hele dagen (Amsterdamse tijd, vanaf 16 nov) die nog
@@ -39,6 +43,7 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scorebord_amami as amami  # noqa: E402
+import scorebord_bronnen as bronnen  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 ORG = os.path.dirname(HIER)
@@ -137,7 +142,6 @@ def superhive():
         m = re.search(r'"reviewCount"\s*:\s*"?(\d+)', t)
         meet(naam, "Superhive", "verkoopklasse", klasse, "Superhive toont alleen klassen")
         meet(naam, "Superhive", "beoordelingen", int(m.group(1)) if m else 0, "")
-    meet("Click Joints Pro", "Gumroad", "verkopen", "zie hoofdchat", "Gumroad-verkopen zijn niet openbaar")
 
 
 def garmin():
@@ -188,6 +192,36 @@ def jetbrains():
         meet(naam, "JetBrains", "beoordelingen", stemmen, "")
 
 
+def gumroad():
+    bronnen.gumroad(meet, NOTEN)
+
+
+def kit():
+    bronnen.kit(meet, NOTEN)
+
+
+def discord():
+    bronnen.discord(meet, NOTEN)
+
+
+def youtube():
+    bronnen.youtube(meet, NOTEN)
+
+
+# Waar elk cijfer vandaan komt (alles GEZIEN: het script leest het zelf, elke run)
+BRON = {
+    "Blender": "GEZIEN, extensions.blender.org (API en productpagina)",
+    "Superhive": "GEZIEN, superhivemarket.com productpagina",
+    "Garmin": "GEZIEN, apps.garmin.com winkel-API",
+    "Obsidian": "GEZIEN, obsidian-releases community-plugin-stats.json",
+    "JetBrains": "GEZIEN, plugins.jetbrains.com API",
+    "Gumroad": "GEZIEN, Gumroad API v2 /products (leessleutel)",
+    "Kit": "GEZIEN, Kit API (leessleutel), alleen aantallen",
+    "Discord": "GEZIEN, discord.com invite-API (with_counts)",
+    "YouTube": "GEZIEN, youtube.com/feeds/videos.xml (RSS)",
+}
+
+
 def lees_geschiedenis():
     if not os.path.exists(DATA):
         return []
@@ -220,7 +254,7 @@ def verschil(nu, oud):
 def main():
     droog = "--droog" in sys.argv
     vandaag = dt.datetime.now(dt.timezone.utc).date()
-    for stap in (blender, superhive, garmin, obsidian, jetbrains):
+    for stap in (blender, superhive, garmin, obsidian, jetbrains, gumroad, kit, discord, youtube):
         try:
             stap()
         except Exception as e:  # noqa: BLE001
@@ -247,22 +281,24 @@ def main():
         "# Scorebord Dortus",
         "",
         f"Gemeten op {vandaag.isoformat()} om {dt.datetime.now(dt.timezone.utc):%H:%M} UTC met `organisatie/controle/scorebord.py`, "
-        "openbare bronnen, plus bezoekers van dortus.com uit Amami (met sleutel). Draait elke dag om 06:41 UTC (workflow \"Scorebord\"). "
+        "openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow \"Scorebord\"). "
         "Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, "
         "dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.",
         "",
-        "| Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand | Bron |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for p, pl, m, w, toel in METINGEN:
         g, gd = waarde_op([r for r in oud if r["platform"] != "dortus.com"], p, m, gister)
         k, kd = waarde_op(oud, p, m, week)
         gt = tekst(g) + (f" ({gd})" if gd and gd != gister else "") if g is not None else "geen meting"
         kt = tekst(k) + (f" ({kd})" if kd and kd != week else "") if k is not None else "geen meting"
-        regels.append(f"| {p} | {pl} | {m} | {tekst(w)} | {gt} | {kt} | {verschil(w, k)} | {toel} |")
+        regels.append(f"| {p} | {pl} | {m} | {tekst(w)} | {gt} | {kt} | {verschil(w, k)} | {toel} | {BRON.get(pl, 'GEZIEN')} |")
     regels += amami.bezoek_tabel(alles)
     regels += ["", "## Wat niet te zien is", "",
-               "- Gumroad-verkopen (Click Joints Pro) zijn niet openbaar: zie hoofdchat.",
+               "- Gumroad-bezoekers staan niet in de Gumroad API v2 (alleen verkopen en omzet per product); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",
+               "- YouTube: de RSS toont alleen de nieuwste openbare filmpjes (max 15); oudere filmpjes en abonnees vragen de YouTube Data API (sleutel ontbreekt nog, zie toegang.md).",
+               "- Kit en Gumroad: alleen aantallen, nooit namen of mailadressen van kopers of abonnees.",
                "- Superhive toont alleen een verkoopklasse (0, 10+, 100+ ...), geen precies aantal.",
                "- Garmin telt downloads per app; bij een betaalde app is dat ongeveer het aantal kopers, inclusief terugbetalingen binnen 48 uur (GOK).",
                "- Steam (Hats of the Fallen) is nog niet in de winkel; volgers zijn pas te meten als de pagina openbaar is."]
