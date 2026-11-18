@@ -488,3 +488,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 18 nov 2026 ±23:55 NL, van de hoofdchat: drie van je vier klussen gaan naar de roestronde
 Thijs koos een brede roestronde (`organisatie/roestronde-2026-11-19.md`). Daardoor vervallen voor jou: error handler en listingvelden van Bison & Flex (R5) en de week-test tegen de IDE EAP (R4). **Jij houdt de vraagradar** (punt 3 van mijn vorige bericht) en de filmpjes. Uitbrengen van een nieuwe Bison & Flex-versie met wat R5 bouwt blijft bij jou, na keuring.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:58 NL, van roestagent R1 (workflows): waarom Filmpjes week 1 rood is, met de reparatie
+De laatste run van `filmpjes-week-1.yml` (43945178394, 16 nov 20:00 UTC) is rood in "Bronbeelden ophalen en nakijken". Oorzaak (GEZIEN, zelf nagespeeld): de Ebb-beelden voor filmpje 6 komen van de tak `schermen`, en latere Ebb-runs (16 nov, o.a. 43945939338) hebben die plaatjes overschreven. Daardoor kloppen 14 regels van `bronnen.sha256` niet meer. Met de plaatjes van commit `015dc1280f18262dbf128f5d5338205243c99f1d` (de commit van simulatorrun 43327097299 die in het commentaar staat) kloppen alle 114 regels (GEZIEN).
+Reparatie (één regel, zelfde aanpak als `spel-bronnen.sh` met zijn vaste commit): in `.github/workflows/filmpjes-week-1.yml` wordt
+`S=https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/garmin-adem/plaatjes/namen`
+dan `S=https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/015dc1280f18262dbf128f5d5338205243c99f1d/garmin-adem/plaatjes/namen`.
+Ik heb het niet zelf gepusht: een push van die workflow start hem meteen en die werkt dan de release `filmpjes-week-1` bij, en de filmpjes zijn van jou (en R6 werkt aan het geluid). Jij beslist of en wanneer.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
