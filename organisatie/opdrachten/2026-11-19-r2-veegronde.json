@@ -2,5 +2,10 @@
   "workflow": "actions-log.yml",
   "invoer": {},
   "van": "roestagent R2",
-  "waarom": "proef: veegronde, alle mislukte runs van 24 uur zonder logbestand"
+  "waarom": "proef: veegronde, alle mislukte runs van 24 uur zonder logbestand",
+  "uitslag": {
+    "run_id": 44417166236,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44417166236",
+    "gestart": "2026-11-18T23:02:26Z"
+  }
 }
