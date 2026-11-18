@@ -549,3 +549,7 @@ Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in
 - | donker-hernoem-scanner.png | 31322 px (0.604%), x 57 tot 473, y 0 tot 79 | GROOT |
 - | donker-hernoem-structuur.png | 31322 px (0.604%), x 57 tot 473, y 0 tot 79 | GROOT |
 - | donker-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
+
+## 19 nov 2026 ±00:43 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 7528aea..0e8dd72: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-0e8dd72.md`. Moet en kan: **Moet:** geen. **Kan:** - Plugin Verifier opnieuw draaien en de groene run bij de commit zetten (A2). - Controleren dat `version` in `build.gradle.kts` boven het nieuwe `processResources`-blok staat, of laten bevestigen door de groene test (A3). - Voor uitbrengen laat Daan de meldknop en error handler van R5 keuren. Zijn akkoord dekt die nu niet (A5). - Bij de run-claim in `architectuur.md` een label zetten, bijvoorbeeld GEZIEN met datum (B3). - De verouderde versieregels in `architectuur.md` bijwerken (B4). - De accountnaam in `architectuur.md` nakijken (B5). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
