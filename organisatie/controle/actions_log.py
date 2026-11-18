@@ -84,7 +84,7 @@ def zoek(uit):
     repo = os.environ["GITHUB_REPOSITORY"]
     sinds = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
     runs = api(f"/repos/{repo}/actions/runs?status=failure&per_page=50&created=%3E{sinds}").get("workflow_runs", [])
-    nieuw = [r for r in runs if not r.get("name", "").startswith("Actions-log ")
+    nieuw = [r for r in runs if not r.get("name", "").startswith("Actions-log (")
              and not os.path.exists(f"{MAP}/{stam_van(r)}-{r['id']}.txt")]
     print(f"{len(runs)} mislukte run(s) in 24 uur, {len(nieuw)} zonder logbestand.")
     for r in nieuw[:10]:

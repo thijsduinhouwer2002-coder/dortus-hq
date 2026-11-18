@@ -1,6 +1,6 @@
-name: Actions-log proef (faalt expres, R2)
+name: Proef actions-log (faalt expres, R2)
 
-# Tijdelijk: test dat actions-log.yml het log van een mislukte run in de repo zet. Wordt na de test weggehaald.
+# Tijdelijk (naam begint bewust niet met Actions-log, anders slaat actions-log.yml hem over): test dat actions-log.yml het log van een mislukte run in de repo zet. Wordt na de test weggehaald.
 
 on:
   push:
