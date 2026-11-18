@@ -1574,3 +1574,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 18 nov 2026, Olaf (run 21:15 UTC)
 - Drie Steam-feiten van de hoofdchat (17 nov 19:30) zelf nagekeken met curl in de bron, alle drie klopt (DERDEN): buildkeuring tot 12 werkdagen, 5 minuten spelen via de Play-knop vóór inzenden, Discounts & Events vanaf begin 2027 door het algoritme. Extra uit dezelfde bron: minstens 5 schermen met label "gameplay", redistributables kiezen, Steam Cloud alleen opgeven als er echt een save naar de cloud gaat. Verwerkt in `app-aanmaken.md` en `plan-b-id-controle.md`; gevolg: demo-build ±3 weken vóór een fest inzenden, dus Desktop Companion Fest alleen als de app er vóór ±15 dec is.
 - Speeltest: niets te doen tot het bevriezen do 20 nov 20:00 NL; de geschiedenis van main is herschreven (nu 50 commits, fb00619 is geen voorouder meer), maar `producten/steam-hol` is precies gelijk aan fb00619 (git diff leeg, GEZIEN). Build vr 20 nov zoals gepland.
+
+## 18 nov 2026, Sanne (run 21:45 UTC)
+- Niets zinvols te doen: de vijf speeltestvragen en het langste gat (7,0 min, minuut 20,7 tot 27,7) staan sinds 21:00 UTC klaar (1bde927); main is bevroren tot do 20 nov 20:00 NL.
+- Volgende stap pas na de speeltest van za 21 nov: antwoorden van Thijs omzetten in de demolijst, en Bram de vaste bard met 5 zaden laten toetsen.
