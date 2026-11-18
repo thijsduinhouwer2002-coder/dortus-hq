@@ -4,6 +4,17 @@ const SOORT := preload("res://systemen/heldensoort.gd")   # ridder, dief, magier
 # Losgehaald 13 nov 2026 (strook.gd was 512 regels, regel onder ±400). Statisch; `s` is de strook.
 # Gedrag gelijk aan voor het splitsen (film.log van de demo gelijk).
 
+# Mag deze held de naamgenoot-regel krijgen? Alleen een II of III, één keer per voornaam per speelbeurt, en hooguit
+# één naamgenoot-regel per NAAMGENOOT_PAUZE seconden (Iris keuring 23 punt 1: zes keer "wants dad's boot back" tussen
+# 884 en 1363 s in duurtest 44127812882). Anders krijgt hij de gewone binnenkomstregel; zijn voornaam blijft vrij.
+const NAAMGENOOT_PAUZE := 300.0
+static func naamgenoot_mag(naam: String, gezien: Dictionary, t: float, laatst: float) -> bool:
+	if not (naam.ends_with(" II") or naam.ends_with(" III")):
+		return false
+	if gezien.has(naam.split(" ")[0]):
+		return false
+	return t - laatst >= NAAMGENOOT_PAUZE
+
 static func nieuwe_held(s) -> bool:
 	var info := {}
 	var stap: String = s._begin_stap()
@@ -62,9 +73,10 @@ static func nieuwe_held(s) -> bool:
 			# (Sanne toets 9, punt 3). lied_helden telt pas af in _process als deze held er is.
 			info["lied_held"] = true
 			s._kroniek(s.regels.kies("binnen_lied", {"naam": naam}), false, "binnen_lied")
-		elif (naam.ends_with(" II") or naam.ends_with(" III")) and not s.naamgenoot_gezien.has(naam.split(" ")[0]):
+		elif naamgenoot_mag(naam, s.naamgenoot_gezien, s.t, s.naamgenoot_laatst):
 			# één naamgenoot-regel per voornaam per speelbeurt (Sanne 16 nov 22:00, balans.md vraag 2); daarna de gewone regel
 			s.naamgenoot_gezien[naam.split(" ")[0]] = true
+			s.naamgenoot_laatst = s.t
 			s._kroniek(s.regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		elif soort_h != "":
 			s._kroniek(s.regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")

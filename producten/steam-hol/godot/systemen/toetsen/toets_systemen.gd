@@ -1415,6 +1415,26 @@ func _nieuwe_held() -> bool:
 				if vd.contains("dad") or vd.contains("{") or vd.length() > RT.MAX:
 					nm_dad.append(vd)
 	ok(nm_dad.is_empty(), "naamgenoot: geen dad bij een vrouwennaam, alles gevuld, past (%s)" % str(nm_dad))
+	# naamgenoot hooguit één keer per 5 min (Iris keuring 23 punt 1), één keer per voornaam, alleen II en III
+	var BK = load("res://kern/binnenkomst.gd")
+	ok(BK.naamgenoot_mag("Kees II", {}, 10.0, -1000.0) and not BK.naamgenoot_mag("Kees", {}, 10.0, -1000.0), "naamgenoot: II mag, zonder II niet")
+	ok(not BK.naamgenoot_mag("Kees II", {"Kees": true}, 900.0, -1000.0), "naamgenoot: één keer per voornaam")
+	ok(not BK.naamgenoot_mag("Maud III", {}, 1100.0, 884.0) and BK.naamgenoot_mag("Maud III", {}, 1184.0, 884.0), "naamgenoot: niet binnen 300 s na de vorige, wel daarna")
+	var ng_gezien := {}
+	var ng_laatst := -1000.0
+	var ng_tijden: Array = []
+	for ng_i in 40:   # elke 20 s een II tussen 800 en 1600 s, zoals na ±14 min in duurtest 44127812882
+		var ng_naam: String = String(NM.NAMEN[ng_i % NM.NAMEN.size()]) + " II"
+		var ng_t := 800.0 + 20.0 * ng_i
+		if BK.naamgenoot_mag(ng_naam, ng_gezien, ng_t, ng_laatst):
+			ng_gezien[ng_naam.split(" ")[0]] = true
+			ng_laatst = ng_t
+			ng_tijden.append(ng_t)
+	var ng_te_kort := 0
+	for ng_j in range(1, ng_tijden.size()):
+		if ng_tijden[ng_j] - ng_tijden[ng_j - 1] < 300.0:
+			ng_te_kort += 1
+	ok(ng_te_kort == 0 and ng_tijden.size() == 3, "naamgenoot: 40 II's in 800 s geven 3 regels, 300 s uit elkaar (%s)" % str(ng_tijden))
 	var VN_S := GDScript.new()
 	VN_S.source_code = "extends RefCounted\nvar terugkomers: Array = []\nvar wezens := Node.new()\nvar pensioen_namen: Array = []\nvar rng := RandomNumberGenerator.new()\nvar gevallen_namen := {}\nvar recente_namen: Array = []\n"
 	VN_S.reload()
