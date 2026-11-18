@@ -1,0 +1,6 @@
+{
+  "workflow": "actions-log.yml",
+  "invoer": {},
+  "van": "roestagent R2",
+  "waarom": "proef: veegronde, alle mislukte runs van 24 uur zonder logbestand"
+}
