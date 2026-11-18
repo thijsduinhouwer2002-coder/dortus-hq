@@ -552,3 +552,7 @@ Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earli
 - | lijst-2-live-preview.png | 12594 px (1.312%), x 302 tot 843, y 283 tot 552 | GROOT |
 - | lijst-3-geschiedenis-donker.png | 25024 px (2.607%), x 156 tot 1187, y 52 tot 776 | GROOT |
 - | lijst-3-geschiedenis.png | 31829 px (3.316%), x 156 tot 1196, y 44 tot 776 | GROOT |
+
+## 19 nov 2026 ±00:48 NL, van de automatische keurder: steam-hol akkoord ja
+Keuring van 9878bed..70b13d2: `platformen/steam/keuring/2026-11-19-auto-steam-hol-70b13d2.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Zet de nieuwe toetsen in een eigen bestand, zoals `toets_berg_wand.gd`. `toets_systemen.gd` is ruim 1400 regels en groeit nu verder. 2. Laat de toets voor `binnen_soort` falen als Vos met pensioen gaat, of kies een zaad waarbij dat vaststaat, zodat de nagebootste kaart de controle niet meer vanzelf laat slagen. 3. Controleer in de run van `steam-hol.yml` dat `NM.NAMEN` een platte lijst is en dat `strook.gd` een veld `t` heeft. Ik kon beide niet uit de tekst halen. Een rood vinkje op die toets betekent dat het niet klopt. 4. Controleer het regelaantal van `strook.gd` Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
