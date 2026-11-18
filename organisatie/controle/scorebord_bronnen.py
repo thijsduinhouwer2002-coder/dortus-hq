@@ -1,8 +1,7 @@
 """Extra bronnen voor scorebord.py: Gumroad, Kit, Discord en YouTube. Roestronde R6, 18 nov 2026.
 
 Regels:
-- Sleutels komen alleen uit de omgeving (GitHub-secrets GUMROAD_ACCESS_TOKEN, KIT_API_KEY,
-  DISCORD_WEBHOOK) en staan altijd in een kop of worden nooit geprint. Foutregels noemen alleen
+- Sleutels komen alleen uit de omgeving (GitHub-secrets GUMROAD_ACCESS_TOKEN, KIT_API_KEY) en staan altijd in een kop of worden nooit geprint. Foutregels noemen alleen
   de bron en de foutcode, nooit een adres met een sleutel erin.
 - Alleen lezen. Alleen aantallen opslaan: nooit namen, mailadressen of andere gegevens van kopers
   of abonnees. De Gumroad-productlijst en de Kit-teltellers geven geen kopers of abonnees terug;
@@ -150,28 +149,12 @@ def kit(meet, noten):
 
 # ---------------------------------------------------------------- Discord
 
-def _invite_via_webhook():
-    """Webhook geeft de server-id; de widget van de server (als die aan staat) geeft een uitnodiging."""
-    hook = os.environ.get("DISCORD_WEBHOOK", "").strip()
-    if not hook.startswith("https://"):
-        return None, "geen DISCORD_WEBHOOK"
-    w, code = _get(hook)
-    if not isinstance(w, dict) or not w.get("guild_id"):
-        return None, f"webhook niet leesbaar ({code})"
-    widget, code = _get(f"https://discord.com/api/guilds/{w['guild_id']}/widget.json")
-    if not isinstance(widget, dict) or not widget.get("instant_invite"):
-        return None, f"widget van de server staat uit ({code})"
-    return widget["instant_invite"].rstrip("/").rsplit("/", 1)[-1], None
-
-
 def discord(meet, noten):
     code_ = (os.environ.get("HATS_DISCORD_INVITE") or HATS_DISCORD_INVITE).strip().rstrip("/").rsplit("/", 1)[-1]
-    waarom = None
-    if not code_:
-        code_, waarom = _invite_via_webhook()
+    # Alleen de openbare uitnodigingscode; de webhook (kan posten) hoort hier niet (keuring R6, 19 nov).
     if not code_:
         meet(DISCORD_NAAM, "Discord", "leden", None, "uitnodigingscode ontbreekt (vraag staat bij de hoofdchat)")
-        noten.append(f"Discord: geen uitnodigingscode ({waarom}). Zet de code in HATS_DISCORD_INVITE in scorebord_bronnen.py.")
+        noten.append("Discord: geen uitnodigingscode. Zet de code in HATS_DISCORD_INVITE in scorebord_bronnen.py.")
         return
     if not re.fullmatch(r"[A-Za-z0-9-]{2,40}", code_):
         noten.append("Discord: uitnodigingscode heeft een vreemde vorm, overgeslagen.")
