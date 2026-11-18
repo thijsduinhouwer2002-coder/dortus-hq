@@ -2,6 +2,41 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 08:00 UTC: run 5, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 1 snel)
+
+Tijd uit `date -u` (gestart 08:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±08:05 UTC):**
+- Cowboy: "Every listing is free to hire today", "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md).
+- ChatGPT-plugins: "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md).
+- Claude directory: 1.098 connectors in de paginadata van claude.com/connectors; erbij per maand jun 135, jul 166, aug 192, sep 117, okt 89, nov 8 (laatste op 12 nov). Geen woord "monetiz"; de golf blijft voorbij.
+
+**Nieuw moment gevonden: Gemini schakelt deze week van Gems naar skills.** Gems verdwijnen vanaf 17 nov voor persoonlijke accounts (werk en school in 2027); skills gebruiken hetzelfde SKILL.md-formaat als Claude (agentskills.io), Google neemt een SKILL.md "made in other platforms" aan, en sinds 16 nov kan een skill bestanden meenemen en gedeeld worden (GEZIEN 18 nov, support.google.com/gemini/answer/18560919 en 9to5google.com/2026/11/16/gemini-skills-files-sharing/). Tegelijk stoppen de Custom GPTs op 11 dec (help.openai.com/articles/20001519, niet zelf gelezen; Noor deed die overstap al). Twee grote assistenten gaan dus binnen een maand naar één bestandsformaat. Dat is echt nieuw, maar zie hieronder: er hoort geen etalage bij.
+
+**Les van deze run.** Een nieuw formaat is nog geen winkel. Gemini-skills deel je per mail, niet via een lijst met zoeken en ranglijst; wie de nummer één wil worden heeft een etalage nodig die gebruik telt. De enige skill-etalage met tellers (skills.sh) is al overvol en lijkt opgeblazen. Wat ik nu zoek blijft hetzelfde: een etalage die gebruik telt en jonger is dan een maand. Klok erbij: krijgt Gemini een openbare skill-galerij (zoals de oude Gem-lijst van Google)? Dan opnieuw.
+
+### Zelf afgeschoten: basispakket Gemini-skills voor wie zijn Gems kwijtraakt | DOOD op vraag 1 en vraag 5, zwak op wet 3
+- Waarom het lokte (wet 1 sterk): Gemini heeft volgens eerder onderzoek 750 mln+ gebruikers per maand (`platformen/pionier/onderzocht.md`, 9 nov, DERDEN), en deze week moeten al die Gem-gebruikers over naar skills. Een set goede basis-skills (schrijven, samenvatten, mails, plannen) of een omzetter Gem naar skill leek een vroege basistaak.
+- **Vraag 1, ingebouwd:** "When we remove Gems, we'll automatically recreate your Gems as skills" (GEZIEN 18 nov, support.google.com/gemini/answer/18560919). De omzetter is dus van Google zelf. Google levert ook zelf de eerste basis-skills: /prep-for-meetings en /match-my-writing-style (GEZIEN 18 nov, eesel.ai/blog/gemini-skills). Precies de brede taken.
+- **Vraag 5, etalage:** delen gaat via Customize > Skills met rechten View of Edit; "Recipients will receive an email and can review the skill before adding it" (9to5google, 16 nov). Er is geen openbare lijst, geen zoeken, geen ranglijst. Een nummer één bestaat hier niet.
+- **Wet 3 zacht:** een skill is een tekstbestand dat iedereen kan kopiëren en doorsturen. Route naar later geld: ONBEKEND; hooguit een skill die een eigen dienst aanroept, en die hebben wij niet.
+- Wat het zou veranderen: Google opent een skill-galerij in Gemini met tellers. Dan meteen terug, want het formaat kunnen wij vandaag al maken en testen.
+
+### Zelf afgeschoten: de nummer één basis-skill worden op skills.sh, meeliftend op Gemini en ChatGPT | DOOD op wet 1 en wet 3
+- Waarom het lokte: skills.sh (Vercel) is de enige skill-etalage die ik ken met een ranglijst op installaties, en als Gemini en ChatGPT hetzelfde formaat gaan gebruiken kan het bereik groeien.
+- **Wet 1:** de lijst telt 1.410.375 skills (GEZIEN 18 nov 08:10 UTC, skills.sh, "All Time (1,410,375)"). Bovenaan find-skills 4,4 mln installs, daarna heygen hyperframes 1,6 mln, mattpocock/skills (samen 6,2 mln), frontend-design van Anthropic 1,1 mln, en open.feishu.cn met 20 skills samen 15,6 mln. Niet vroeg.
+- **De tellers zijn niet te vertrouwen:** vier skills van één account (magentosh/superpowers) staan elk op ±944.000 installs, binnen 1.000 van elkaar (zelfde pagina). Dat ziet eruit als opdrijven. Met kwaliteit win je zo'n lijst niet.
+- **Wet 3:** gratis bestanden uit openbare repo's, geen prijsveld; installeren gaat met `npx skills add`, dus alleen ontwikkelaars met een code-agent, niet de gewone Gemini- of ChatGPT-gebruiker (GOK op basis van de installatieregel op de pagina). Bereik zonder route naar geld is het Rollwright-probleem.
+- Ook al bekeken en dood: Agensi (kassa, 24.205 skills, run 2).
+
+### Zelf afgeschoten (snel): agent verkopen via de AI-agentcategorie van Google Cloud Marketplace (Gemini Enterprise) | DOOD op wet 1 en vraag 7
+- Wel een echte kassa: verkopen via de Producer Portal als "AI Agent as a Service", met publieke prijs of eigen aanbod, en Google keurt vooraf functie, veiligheid en prijs (GEZIEN 18 nov, itbrief.news/story/google-opens-marketplace-path-for-ai-agents-in-gemini, 7 jul 2026).
+- Maar: open sinds juli (niet vroeg), alleen voor bedrijven met een Google Cloud-factuuraccount, en vraagt Marketplace-inschrijving als partner, eigen hosting, A2A, OAuth met Dynamic Client Registration en een koppeling met de inkoop-API (zelfde bron). Dat is werk en een zakelijk partneraccount voor Thijs, ver buiten 7 dagen, en de kopers zijn IT-afdelingen. Zelfde patroon als Grafana (run 3) en de Copilot-catalogus.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md), ChatGPT (monetization.md), Claude directory (aantal per maand), en nieuw: een openbare skill-galerij in Gemini.
+- Nog niet nagekeken: of de ChatGPT-plugins die de Custom GPTs op 11 dec vervangen een eigen lijst met tellers krijgen (de GPT Store had een ranglijst). Als die lijst verdwijnt zonder opvolger, verdwijnt ook daar de etalage.
+
 ## 18 nov 2026 07:00 UTC: run 4, eerste run met de zachtere wet 3, 0 ideeën klaar voor keuring, 4 zelf afgeschoten
 
 Tijd uit `date -u` (gestart 07:00 UTC). Opdracht: wet 3 is sinds vanochtend geen harde nee meer, dus ik keek opnieuw naar de grote AI-winkels zonder kassa, nu met de vraag: kunnen wij daar de nummer één worden in een basistaak, en telt de etalage echt gebruik? Niet opnieuw gedaan wat in `onderzoek-2026-11-17/UITKOMST.md` staat; wel nieuwe tellingen die Patrick kan gebruiken bij zijn herkeuring van Hermes en de Claude directory.
