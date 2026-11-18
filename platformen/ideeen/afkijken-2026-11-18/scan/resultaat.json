@@ -1,0 +1,6222 @@
+[
+{
+"topic": "blender-addon",
+"repo": "ahujasid/mcp-for-blender",
+"sterren": 34921,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "carson-katri/dream-textures",
+"sterren": 8253,
+"licentie": "GPL-3.0",
+"push": "2026-09-17",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "agmmnn/awesome-blender",
+"sterren": 7684,
+"licentie": "CC0-1.0",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Gumroad",
+"Superhive/Blender Market",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "arjun988/blender-skills",
+"sterren": 4246,
+"licentie": "MIT",
+"push": "2026-11-06",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "EpicGames/BlenderTools",
+"sterren": 3413,
+"licentie": "MIT",
+"push": "2026-09-09",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "nortikin/sverchok",
+"sterren": 2561,
+"licentie": "GPL-3.0",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "rlguy/Blender-FLIP-Fluids",
+"sterren": 1987,
+"licentie": "GPL-3.0",
+"push": "2026-11-10",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Superhive/Blender Market"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "nutti/fake-bpy-module",
+"sterren": 1829,
+"licentie": "MIT",
+"push": "2026-08-09",
+"workflows": 5,
+"winkels": [
+"PyPI"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "ranjian0/building_tools",
+"sterren": 1522,
+"licentie": "MIT",
+"push": "2026-09-24",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "nutti/Screencast-Keys",
+"sterren": 1438,
+"licentie": "GPL-3.0",
+"push": "2026-10-16",
+"workflows": 3,
+"winkels": [
+"Blender extensions",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Superhive/Blender Market"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "BradyAJohnston/MolecularNodes",
+"sterren": 1414,
+"licentie": "GPL-3.0",
+"push": "2026-11-16",
+"workflows": 12,
+"winkels": [
+"PyPI",
+"Blender extensions",
+"GitHub Release"
+],
+"geld": [
+"Buy Me a Coffee",
+"Patreon"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "SBCV/Blender-Addon-Photogrammetry-Importer",
+"sterren": 1382,
+"licentie": "MIT",
+"push": "2026-02-16",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "passivestar/quickmenu",
+"sterren": 1382,
+"licentie": "GPL-3.0",
+"push": "2026-07-29",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "Kiri-Innovation/3dgs-render-blender-addon",
+"sterren": 1268,
+"licentie": "GPL-2.0",
+"push": "2026-11-11",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Superhive/Blender Market"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "benrugg/AI-Render",
+"sterren": 1236,
+"licentie": "MIT",
+"push": "2025-12-28",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Gumroad",
+"Superhive/Blender Market"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "cgtinker/BlendArMocap",
+"sterren": 1098,
+"licentie": "GPL-3.0",
+"push": "2025-12-01",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"Patreon"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "scenario-labs/blender-plugin",
+"sterren": 1049,
+"licentie": "GPL-3.0",
+"push": "2026-11-13",
+"workflows": 24,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "LuxCoreRender/BlendLuxCore",
+"sterren": 886,
+"licentie": "GPL-3.0",
+"push": "2026-11-15",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Superhive/Blender Market"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "blender-addon",
+"repo": "30350n/pcb2blender",
+"sterren": 801,
+"licentie": "GPL-3.0",
+"push": "2026-04-21",
+"workflows": 1,
+"winkels": [
+"Blender extensions"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "blender-addon",
+"repo": "Victor-IX/Blender-Launcher-V2",
+"sterren": 745,
+"licentie": "GPL-3.0",
+"push": "2026-11-16",
+"workflows": 10,
+"winkels": [
+"GitHub Release",
+"Microsoft Store/winget"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "AgriciDaniel/claude-obsidian",
+"sterren": 16595,
+"licentie": "MIT",
+"push": "2026-10-25",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md",
+".cursor/",
+".github/copilot-instructions.md",
+"GEMINI.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "YishenTu/claudian",
+"sterren": 16028,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 8,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "Vinzent03/obsidian-git",
+"sterren": 12299,
+"licentie": "MIT",
+"push": "2026-11-05",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"Ko-fi"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "blacksmithgu/obsidian-dataview",
+"sterren": 9446,
+"licentie": "MIT",
+"push": "2025-11-17",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "logancyang/obsidian-copilot",
+"sterren": 8016,
+"licentie": "AGPL-3.0",
+"push": "2026-11-18",
+"workflows": 5,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "brianpetro/obsidian-smart-connections",
+"sterren": 5565,
+"licentie": "NOASSERTION",
+"push": "2026-10-10",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "SilentVoid13/Templater",
+"sterren": 5404,
+"licentie": "AGPL-3.0",
+"push": "2026-11-09",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "obsidianmd/obsidian-sample-plugin",
+"sterren": 4716,
+"licentie": "0BSD",
+"push": "2026-08-02",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee",
+"Patreon"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "community-archive/obsidian-kanban",
+"sterren": 4565,
+"licentie": "GPL-3.0",
+"push": "2026-03-06",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "obsidian-tasks-group/obsidian-tasks",
+"sterren": 4104,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 6,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "ivan-lednev/obsidian-day-planner",
+"sterren": 2741,
+"licentie": "MIT",
+"push": "2026-10-08",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "tgrosinger/advanced-tables-obsidian",
+"sterren": 2623,
+"licentie": "GPL-3.0",
+"push": "2026-05-13",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "st3v3nmw/obsidian-spaced-repetition",
+"sterren": 2622,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"Ko-fi"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "community-archive/obsidian-style-settings",
+"sterren": 2593,
+"licentie": "GPL-3.0",
+"push": "2026-07-13",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "artisticat1/obsidian-latex-suite",
+"sterren": 2574,
+"licentie": "MIT",
+"push": "2026-11-10",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "RAIT-09/obsidian-agent-client",
+"sterren": 2476,
+"licentie": "Apache-2.0",
+"push": "2026-11-17",
+"workflows": 4,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/",
+".github/copilot-instructions.md",
+"GEMINI.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "chhoumann/quickadd",
+"sterren": 2403,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 7,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "zhaohongxuan/obsidian-weread-plugin",
+"sterren": 2317,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "obsidian-plugin",
+"repo": "scambier/obsidian-omnisearch",
+"sterren": 2203,
+"licentie": "GPL-3.0",
+"push": "2026-10-24",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "obsidian-plugin",
+"repo": "platers/obsidian-linter",
+"sterren": 2119,
+"licentie": "MIT",
+"push": "2026-10-31",
+"workflows": 5,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/kotlin",
+"sterren": 53582,
+"licentie": null,
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "intellij-plugin",
+"repo": "YiiGuxing/TranslationPlugin",
+"sterren": 11870,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Open Collective"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/ideavim",
+"sterren": 10294,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 26,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "izhangzhihao/intellij-rainbow-brackets",
+"sterren": 4670,
+"licentie": "NOASSERTION",
+"push": "2026-06-01",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "intellij-plugin",
+"repo": "shuzijun/leetcode-editor",
+"sterren": 3993,
+"licentie": "Apache-2.0",
+"push": "2026-08-13",
+"workflows": 4,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/intellij-platform-plugin-template",
+"sterren": 3768,
+"licentie": "Apache-2.0",
+"push": "2026-10-17",
+"workflows": 4,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "mintlify/writer",
+"sterren": 3129,
+"licentie": "MIT",
+"push": "2026-06-12",
+"workflows": 3,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "halirutan/IntelliJ-Key-Promoter-X",
+"sterren": 3072,
+"licentie": "BSD-3-Clause",
+"push": "2026-11-13",
+"workflows": 2,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "flutter/flutter-intellij",
+"sterren": 2018,
+"licentie": "BSD-3-Clause",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "gejun123456/MyBatisCodeHelper-Pro",
+"sterren": 1952,
+"licentie": null,
+"push": "2026-11-10",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "intellij-plugin",
+"repo": "carlrobertoh/ProxyAI",
+"sterren": 1942,
+"licentie": "Apache-2.0",
+"push": "2026-05-28",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "intellij-plugin",
+"repo": "intellij-elixir/intellij-elixir",
+"sterren": 1899,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 9,
+"winkels": [
+"JetBrains",
+"Firefox AMO",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Patreon",
+"Open Collective"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "EmmyLua/IntelliJ-EmmyLua",
+"sterren": 1837,
+"licentie": "Apache-2.0",
+"push": "2026-08-17",
+"workflows": 2,
+"winkels": [
+"JetBrains"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "intellij-plugin",
+"repo": "minecraft-dev/MinecraftDev",
+"sterren": 1827,
+"licentie": "LGPL-3.0",
+"push": "2026-11-17",
+"workflows": 4,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "dineug/erd-editor",
+"sterren": 1755,
+"licentie": "MIT",
+"push": "2026-11-03",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "skydoves/compose-stability-analyzer",
+"sterren": 1666,
+"licentie": "Apache-2.0",
+"push": "2026-10-14",
+"workflows": 4,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/intellij-platform-gradle-plugin",
+"sterren": 1533,
+"licentie": "Apache-2.0",
+"push": "2026-11-16",
+"workflows": 13,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "kalessil/phpinspectionsea",
+"sterren": 1485,
+"licentie": "NOASSERTION",
+"push": "2026-08-28",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/idea-gitignore",
+"sterren": 1328,
+"licentie": "Apache-2.0",
+"push": "2026-03-26",
+"workflows": 2,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "intellij-plugin",
+"repo": "JetBrains/intellij-sdk-docs",
+"sterren": 1298,
+"licentie": "Apache-2.0",
+"push": "2026-11-17",
+"workflows": 6,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "viatsko/awesome-vscode",
+"sterren": 29249,
+"licentie": "CC0-1.0",
+"push": "2026-06-21",
+"workflows": 1,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "vscode-extension",
+"repo": "voideditor/void",
+"sterren": 28709,
+"licentie": "Apache-2.0",
+"push": "2026-06-02",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "vscode-extension",
+"repo": "Kilo-Org/kilocode",
+"sterren": 28047,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 41,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "rocketride-org/rocketride-server",
+"sterren": 20018,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 29,
+"winkels": [
+"VS Code Marketplace",
+"Open VSX",
+"npm",
+"PyPI",
+"Docker",
+"GitHub Release",
+"Homebrew"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursorrules",
+".claude/",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "VSCodeVim/Vim",
+"sterren": 15231,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [
+"VS Code Marketplace",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "yoavbls/pretty-ts-errors",
+"sterren": 14101,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "zilliztech/claude-context",
+"sterren": 12702,
+"licentie": "MIT",
+"push": "2026-11-12",
+"workflows": 3,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "pixel-agents-hq/pixel-agents",
+"sterren": 10287,
+"licentie": "MIT",
+"push": "2026-11-10",
+"workflows": 4,
+"winkels": [
+"VS Code Marketplace",
+"Open VSX",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "gitkraken/vscode-gitlens",
+"sterren": 9981,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 11,
+"winkels": [
+"VS Code Marketplace",
+"Open VSX",
+"Firefox AMO",
+"npm",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "xonsh/xonsh",
+"sterren": 9705,
+"licentie": "NOASSERTION",
+"push": "2026-11-16",
+"workflows": 8,
+"winkels": [
+"PyPI",
+"GitHub Release",
+"Microsoft Store/winget"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "hediet/vscode-drawio",
+"sterren": 9515,
+"licentie": "GPL-3.0",
+"push": "2026-11-17",
+"workflows": 4,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "vscode-neovim/vscode-neovim",
+"sterren": 7761,
+"licentie": "MIT",
+"push": "2026-11-07",
+"workflows": 3,
+"winkels": [
+"VS Code Marketplace",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "pyrefly-org/pyrefly",
+"sterren": 7210,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 27,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "ritwickdey/vscode-live-server",
+"sterren": 6885,
+"licentie": "MIT",
+"push": "2026-06-10",
+"workflows": 2,
+"winkels": [
+"VS Code Marketplace"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "microsoft/vscode-cpptools",
+"sterren": 6185,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 25,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "Shopify/polaris-react-archive",
+"sterren": 6146,
+"licentie": "NOASSERTION",
+"push": "2026-09-11",
+"workflows": 16,
+"winkels": [
+"VS Code Marketplace",
+"Firefox AMO",
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "Huachao/vscode-restclient",
+"sterren": 6063,
+"licentie": "MIT",
+"push": "2026-04-23",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "vscode-extension",
+"repo": "breaking-brake/cc-wf-studio",
+"sterren": 5459,
+"licentie": "NOASSERTION",
+"push": "2026-10-07",
+"workflows": 6,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "shufo/vscode-blade-formatter",
+"sterren": 5263,
+"licentie": "MIT",
+"push": "2026-10-31",
+"workflows": 10,
+"winkels": [
+"VS Code Marketplace",
+"Open VSX",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "vscode-extension",
+"repo": "vscode-icons/vscode-icons",
+"sterren": 5192,
+"licentie": "MIT",
+"push": "2026-11-13",
+"workflows": 5,
+"winkels": [
+"VS Code Marketplace"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "jaywcjlove/linux-command",
+"sterren": 37236,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [
+"npm",
+"Docker"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "refined-github/refined-github",
+"sterren": 32509,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 8,
+"winkels": [
+"Chrome Web Store",
+"Firefox AMO",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "nextai-translator/nextai-translator",
+"sterren": 25068,
+"licentie": "AGPL-3.0",
+"push": "2026-11-16",
+"workflows": 6,
+"winkels": [
+"Microsoft Store/winget"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "xifangczy/cat-catch",
+"sterren": 23016,
+"licentie": "GPL-3.0",
+"push": "2026-11-17",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "gildas-lormeau/SingleFile",
+"sterren": 22950,
+"licentie": "AGPL-3.0",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "darkreader/darkreader",
+"sterren": 22601,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Open Collective"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "AutomaApp/automa",
+"sterren": 21723,
+"licentie": "NOASSERTION",
+"push": "2026-03-02",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "voyager-crew/voyager",
+"sterren": 20663,
+"licentie": "GPL-3.0",
+"push": "2026-11-17",
+"workflows": 16,
+"winkels": [
+"Chrome Web Store",
+"Firefox AMO",
+"npm",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "dailydotdev/daily",
+"sterren": 20151,
+"licentie": "AGPL-3.0",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "immersive-translate/immersive-translate",
+"sterren": 19838,
+"licentie": null,
+"push": "2026-11-13",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "alyssaxuu/screenity",
+"sterren": 19001,
+"licentie": "GPL-3.0",
+"push": "2026-11-08",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "Automattic/harper",
+"sterren": 17840,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 8,
+"winkels": [
+"VS Code Marketplace"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "nanobrowser/nanobrowser",
+"sterren": 14344,
+"licentie": "Apache-2.0",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "ajayyy/SponsorBlock",
+"sterren": 14121,
+"licentie": "GPL-3.0",
+"push": "2026-11-07",
+"workflows": 6,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "Anarios/return-youtube-dislike",
+"sterren": 13854,
+"licentie": "GPL-3.0",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Patreon"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "crimx/ext-saladict",
+"sterren": 13438,
+"licentie": "MIT",
+"push": "2026-11-06",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "ChatGPTBox-dev/chatGPTBox",
+"sterren": 10778,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 8,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "chrome-extension",
+"repo": "chathub-dev/chathub",
+"sterren": 10663,
+"licentie": "GPL-3.0",
+"push": "2026-10-20",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "chrome-extension",
+"repo": "mengxi-ream/read-frog",
+"sterren": 10477,
+"licentie": "GPL-3.0",
+"push": "2026-11-18",
+"workflows": 9,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "DouyinFE/semi-design",
+"sterren": 10494,
+"licentie": "NOASSERTION",
+"push": "2026-11-16",
+"workflows": 10,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "Shopify/polaris-react-archive",
+"sterren": 6146,
+"licentie": "NOASSERTION",
+"push": "2026-09-11",
+"workflows": 16,
+"winkels": [
+"VS Code Marketplace",
+"Firefox AMO",
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "ruucm/shadergradient",
+"sterren": 3199,
+"licentie": null,
+"push": "2026-09-23",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "itmeo/webgradients",
+"sterren": 2504,
+"licentie": "MIT",
+"push": "2026-08-03",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "figma/plugin-samples",
+"sterren": 1867,
+"licentie": "MIT",
+"push": "2026-03-23",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "awdr74100/figwright",
+"sterren": 1450,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 5,
+"winkels": [
+"npm"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "lukasoppermann/design-tokens",
+"sterren": 1130,
+"licentie": "MIT",
+"push": "2026-02-16",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "yuanqing/create-figma-plugin",
+"sterren": 1121,
+"licentie": "MIT",
+"push": "2026-03-21",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "figma/community-resources",
+"sterren": 865,
+"licentie": "MIT",
+"push": "2026-07-17",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "penpot/penpot-exporter-figma-plugin",
+"sterren": 465,
+"licentie": "MPL-2.0",
+"push": "2026-11-03",
+"workflows": 3,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "saoudi-h/solar-icons",
+"sterren": 293,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 10,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "channel-io/bezier-react",
+"sterren": 285,
+"licentie": "Apache-2.0",
+"push": "2026-11-16",
+"workflows": 7,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "TranHoaiHung/figma-ui-mcp",
+"sterren": 268,
+"licentie": "MIT",
+"push": "2026-10-26",
+"workflows": 1,
+"winkels": [
+"npm",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "TrackMan/Unity.Package.FigmaToUnity",
+"sterren": 249,
+"licentie": "NOASSERTION",
+"push": "2026-10-01",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "wakatime/macos-wakatime",
+"sterren": 234,
+"licentie": "BSD-3-Clause",
+"push": "2026-08-09",
+"workflows": 2,
+"winkels": [
+"GitHub Release",
+"Homebrew"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "bannzai/Sigma",
+"sterren": 216,
+"licentie": "MIT",
+"push": "2026-08-05",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "jan-dh/figma-tailwindcss",
+"sterren": 212,
+"licentie": null,
+"push": "2026-03-25",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "LekoArts/figma-theme-ui",
+"sterren": 178,
+"licentie": "MIT",
+"push": "2026-09-04",
+"workflows": 3,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "figma-plugin",
+"repo": "praveenjuge/mynaui-icons",
+"sterren": 177,
+"licentie": "MIT",
+"push": "2026-09-18",
+"workflows": 3,
+"winkels": [
+"npm",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "figma-plugin",
+"repo": "denysosadchyi/figmosha2",
+"sterren": 122,
+"licentie": "MIT",
+"push": "2026-10-06",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "sunnyyoung/WeChatTweak",
+"sterren": 13838,
+"licentie": "AGPL-3.0",
+"push": "2026-02-08",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "XInTheDark/raycast-g4f",
+"sterren": 1088,
+"licentie": "GPL-3.0",
+"push": "2025-12-20",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "MassimilianoPasquini97/raycast_ollama",
+"sterren": 253,
+"licentie": "MIT",
+"push": "2026-09-04",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "marcjulianschwarz/obsidian-raycast",
+"sterren": 155,
+"licentie": "MIT",
+"push": "2026-04-02",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "Fatpandac/DocSearch",
+"sterren": 117,
+"licentie": "MIT",
+"push": "2026-06-21",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "raycast-extension",
+"repo": "j3lte/awesome-raycast",
+"sterren": 117,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "jellydn/gpt4free-demo",
+"sterren": 97,
+"licentie": null,
+"push": "2026-08-19",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Ko-fi",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "dougfernando/everything-raycast-extension",
+"sterren": 36,
+"licentie": null,
+"push": "2026-02-27",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "raycast-extension",
+"repo": "anyproto/anytype-raycast",
+"sterren": 32,
+"licentie": null,
+"push": "2026-10-16",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "wordpress-plugin",
+"repo": "WordPress/gutenberg",
+"sterren": 11797,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 30,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "wp-graphql/wp-graphql",
+"sterren": 3797,
+"licentie": "GPL-3.0",
+"push": "2026-11-17",
+"workflows": 25,
+"winkels": [
+"WordPress.org",
+"GitHub Release"
+],
+"geld": [
+"Open Collective"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "afragen/git-updater",
+"sterren": 3321,
+"licentie": "GPL-3.0",
+"push": "2026-11-04",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "humanmade/S3-Uploads",
+"sterren": 2161,
+"licentie": "GPL-2.0",
+"push": "2026-11-11",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "Automattic/jetpack",
+"sterren": 1858,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 24,
+"winkels": [
+"Firefox AMO",
+"Docker"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "ampproject/amp-wp",
+"sterren": 1809,
+"licentie": "GPL-2.0",
+"push": "2026-11-16",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "johnbillion/query-monitor",
+"sterren": 1783,
+"licentie": "GPL-2.0",
+"push": "2026-11-13",
+"workflows": 10,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "reduxframework/redux-framework",
+"sterren": 1781,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [
+"WordPress.org"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "wordpress-plugin",
+"repo": "pronamic/advanced-custom-fields-pro",
+"sterren": 1356,
+"licentie": null,
+"push": "2026-11-03",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "wordpress-plugin",
+"repo": "10up/ElasticPress",
+"sterren": 1300,
+"licentie": "GPL-2.0",
+"push": "2026-11-11",
+"workflows": 15,
+"winkels": [
+"WordPress.org"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "themeum/kirki",
+"sterren": 1271,
+"licentie": "MIT",
+"push": "2026-04-10",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "wordpress-plugin",
+"repo": "wpmetabox/meta-box",
+"sterren": 1248,
+"licentie": null,
+"push": "2026-11-17",
+"workflows": 12,
+"winkels": [
+"WordPress.org"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "pods-framework/pods",
+"sterren": 1118,
+"licentie": "GPL-2.0",
+"push": "2026-11-18",
+"workflows": 15,
+"winkels": [
+"WordPress.org",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "benbalter/wordpress-static-site-exporter",
+"sterren": 1082,
+"licentie": "GPL-3.0",
+"push": "2026-11-14",
+"workflows": 7,
+"winkels": [
+"WordPress.org"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+".claude/",
+".github/copilot-instructions.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "roots/acorn",
+"sterren": 1012,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 5,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "awesomemotive/easy-digital-downloads",
+"sterren": 895,
+"licentie": "GPL-2.0",
+"push": "2026-10-29",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "wordpress-plugin",
+"repo": "WordPress/two-factor",
+"sterren": 828,
+"licentie": "GPL-2.0",
+"push": "2026-11-16",
+"workflows": 5,
+"winkels": [
+"WordPress.org",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "godaddy-wordpress/coblocks",
+"sterren": 793,
+"licentie": "GPL-2.0",
+"push": "2026-03-05",
+"workflows": 15,
+"winkels": [
+"WordPress.org",
+"GitHub Release"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "wp-media/wp-rocket",
+"sterren": 769,
+"licentie": "GPL-2.0",
+"push": "2026-11-18",
+"workflows": 15,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".claude/",
+".github/copilot-instructions.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "wordpress-plugin",
+"repo": "msrbuilds/elementor-mcp",
+"sterren": 768,
+"licentie": "GPL-2.0",
+"push": "2026-11-17",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Gumroad",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "AhmadHassan-BTed/ShopifyAutoAuth",
+"sterren": 4695,
+"licentie": "MIT",
+"push": "2026-11-10",
+"workflows": 3,
+"winkels": [
+"PyPI",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "shopify-app",
+"repo": "Shopify/shopify-app-template-node",
+"sterren": 1018,
+"licentie": "MIT",
+"push": "2026-08-05",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "shopify-app",
+"repo": "kinngh/shopify-nextjs-prisma-app",
+"sterren": 516,
+"licentie": "MIT",
+"push": "2026-10-24",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "kinngh/shopify-node-express-mongodb-app",
+"sterren": 345,
+"licentie": "MIT",
+"push": "2026-10-24",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "Mini-Sylar/shopify-app-vue-template",
+"sterren": 84,
+"licentie": "MIT",
+"push": "2026-11-04",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "lightward/mechanic-tasks",
+"sterren": 75,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "shopify-app",
+"repo": "workwithpact/StoreDuplicator",
+"sterren": 62,
+"licentie": "MIT",
+"push": "2026-02-27",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "jaayperez/shopify-node-react-app",
+"sterren": 38,
+"licentie": "MIT",
+"push": "2026-02-16",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "shopify-app",
+"repo": "celadonworks/pixiehog-app",
+"sterren": 34,
+"licentie": "NOASSERTION",
+"push": "2026-09-05",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "gdquest-demos/godot-2d-space-game",
+"sterren": 1114,
+"licentie": "NOASSERTION",
+"push": "2026-05-16",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "C7-Game/OpenCiv3",
+"sterren": 698,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "godot-game",
+"repo": "danilw/godot-utils-and-other",
+"sterren": 350,
+"licentie": "MIT",
+"push": "2026-02-11",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "grazianobolla/godot-monke-net",
+"sterren": 250,
+"licentie": null,
+"push": "2026-10-22",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "nezvers/Godot_Public_Examples",
+"sterren": 242,
+"licentie": "MIT",
+"push": "2026-04-23",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "TinyTakinTeller/GodotProjectZero",
+"sterren": 212,
+"licentie": "NOASSERTION",
+"push": "2026-05-02",
+"workflows": 1,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "Blurck1/g2g-fast-game",
+"sterren": 154,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "godot-game",
+"repo": "roalyr/GDTLancer-legacy",
+"sterren": 133,
+"licentie": "GPL-3.0",
+"push": "2026-08-30",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "Poobslag/turbofat",
+"sterren": 84,
+"licentie": "MIT",
+"push": "2026-09-30",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "Valks-Games/sankari",
+"sterren": 75,
+"licentie": "MIT",
+"push": "2026-02-16",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "wheafun/bread-adventure",
+"sterren": 73,
+"licentie": "Apache-2.0",
+"push": "2026-04-15",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "Malkverbena/mysql",
+"sterren": 65,
+"licentie": "MIT",
+"push": "2026-10-19",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "beralee/PtcgDeckAgent",
+"sterren": 61,
+"licentie": "Apache-2.0",
+"push": "2026-10-06",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "code-forge-temple/local-llm-npc",
+"sterren": 54,
+"licentie": "CC-BY-4.0",
+"push": "2026-02-26",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "teeeece/godot_open_star_fighter",
+"sterren": 36,
+"licentie": "MIT",
+"push": "2026-06-20",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-game",
+"repo": "non-npc/Diablo-Survivors",
+"sterren": 31,
+"licentie": null,
+"push": "2026-11-07",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "stream-deck-plugin",
+"repo": "ciderapp/CiderDeck",
+"sterren": 34,
+"licentie": null,
+"push": "2026-10-12",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "homeassistant-ai/ha-mcp",
+"sterren": 7981,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 47,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "hacs/integration",
+"sterren": 7893,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 9,
+"winkels": [
+"Docker",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "piitaya/lovelace-mushroom",
+"sterren": 5274,
+"licentie": "Apache-2.0",
+"push": "2026-11-12",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "Clooos/Bubble-Card",
+"sterren": 4734,
+"licentie": "MIT",
+"push": "2026-10-31",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee",
+"Patreon"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "AlexxIT/SonoffLAN",
+"sterren": 3354,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "AlexxIT/XiaomiGateway3",
+"sterren": 2814,
+"licentie": "MIT",
+"push": "2026-10-15",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "Tasshack/dreame-vacuum",
+"sterren": 2302,
+"licentie": "MIT",
+"push": "2026-11-03",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "custom-components/ble_monitor",
+"sterren": 2253,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 3,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "AlexxIT/WebRTC",
+"sterren": 2207,
+"licentie": "MIT",
+"push": "2026-10-15",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "UI-Lovelace-Minimalist/UI",
+"sterren": 2087,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 8,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "AlexxIT/YandexStation",
+"sterren": 2020,
+"licentie": "MIT",
+"push": "2026-11-13",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "hacs",
+"repo": "wuwentao/midea_ac_lan",
+"sterren": 1957,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 7,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".github/copilot-instructions.md",
+"GEMINI.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "FezVrasta/cafe-hass",
+"sterren": 1743,
+"licentie": "MIT",
+"push": "2026-09-25",
+"workflows": 5,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/",
+"GEMINI.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "bramstroker/homeassistant-powercalc",
+"sterren": 1657,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 31,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"Buy Me a Coffee"
+],
+"ai": [
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "KartoffelToby/better_thermostat",
+"sterren": 1569,
+"licentie": "AGPL-3.0",
+"push": "2026-11-16",
+"workflows": 9,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Buy Me a Coffee"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "3dg1luk43/ha_washdata",
+"sterren": 1481,
+"licentie": "AGPL-3.0",
+"push": "2026-11-18",
+"workflows": 14,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [
+"CLAUDE.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor",
+"sterren": 1438,
+"licentie": "MIT",
+"push": "2026-02-20",
+"workflows": 5,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi",
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "mbillow/localthings",
+"sterren": 1392,
+"licentie": "MIT",
+"push": "2026-11-15",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "ollo69/ha-smartthinq-sensors",
+"sterren": 1331,
+"licentie": "Apache-2.0",
+"push": "2026-05-25",
+"workflows": 6,
+"winkels": [
+"Firefox AMO",
+"GitHub Release"
+],
+"geld": [
+"Buy Me a Coffee"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "hacs",
+"repo": "blakeblackshear/frigate-hass-integration",
+"sterren": 1309,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "umanamente/n8n-nodes-imap",
+"sterren": 167,
+"licentie": "MIT",
+"push": "2026-11-13",
+"workflows": 6,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "jreyesr/n8n-nodes-tesseractjs",
+"sterren": 126,
+"licentie": "MIT",
+"push": "2026-10-16",
+"workflows": 1,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "mbakgun/n8n-slack-socket-mode",
+"sterren": 93,
+"licentie": null,
+"push": "2026-04-22",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "hansdoebel/n8n-nodes-ticktick",
+"sterren": 87,
+"licentie": "MIT",
+"push": "2026-11-15",
+"workflows": 1,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "swimmingkiim/n8n-nodes-crawl-and-scrape",
+"sterren": 61,
+"licentie": "NOASSERTION",
+"push": "2025-12-18",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "jreyesr/n8n-nodes-carbonejs",
+"sterren": 55,
+"licentie": "NOASSERTION",
+"push": "2026-02-03",
+"workflows": 1,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "pfrankov/n8n-nodes-max",
+"sterren": 47,
+"licentie": "MIT",
+"push": "2026-10-23",
+"workflows": 3,
+"winkels": [
+"Firefox AMO",
+"npm"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "jreyesr/n8n-nodes-docxtemplater",
+"sterren": 46,
+"licentie": "MIT",
+"push": "2025-12-12",
+"workflows": 1,
+"winkels": [
+"npm"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "Jihad/n8n-fireflyiii-node",
+"sterren": 44,
+"licentie": "MIT",
+"push": "2026-02-10",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "saifyxpro/n8n-nodes-headlessx",
+"sterren": 33,
+"licentie": "NOASSERTION",
+"push": "2026-02-09",
+"workflows": 1,
+"winkels": [
+"npm"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "luka-n8n-nodes/n8n-nodes-feishu-project",
+"sterren": 32,
+"licentie": "MIT",
+"push": "2026-08-11",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "n8n-community-node-package",
+"repo": "TheFehr/n8n-nodes-pocketbase",
+"sterren": 32,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "mcp-server",
+"repo": "n8n-io/n8n",
+"sterren": 210931,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 112,
+"winkels": [
+"Docker"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "google-gemini/gemini-cli",
+"sterren": 108918,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 47,
+"winkels": [],
+"geld": [],
+"ai": [
+"GEMINI.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "D4Vinci/Scrapling",
+"sterren": 104161,
+"licentie": "BSD-3-Clause",
+"push": "2026-11-17",
+"workflows": 5,
+"winkels": [
+"PyPI",
+"Docker",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "mcp-server",
+"repo": "koala73/worldmonitor",
+"sterren": 90886,
+"licentie": "AGPL-3.0",
+"push": "2026-11-18",
+"workflows": 65,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "ruvnet/ruflo",
+"sterren": 82025,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 38,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "upstash/context7",
+"sterren": 65072,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"npm",
+"Docker",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "sansan0/TrendRadar",
+"sterren": 63721,
+"licentie": "GPL-3.0",
+"push": "2026-11-15",
+"workflows": 4,
+"winkels": [
+"Docker"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "mcp-server",
+"repo": "ChromeDevTools/chrome-devtools-mcp",
+"sterren": 58182,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 8,
+"winkels": [
+"npm",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "DeusData/codebase-memory-mcp",
+"sterren": 48823,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 25,
+"winkels": [
+"Homebrew"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "reactive-resume/reactive-resume",
+"sterren": 45899,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 6,
+"winkels": [
+"Docker",
+"GitHub Release",
+"App stores"
+],
+"geld": [
+"GitHub Sponsors",
+"Open Collective"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "bytedance/UI-TARS-desktop",
+"sterren": 39604,
+"licentie": "Apache-2.0",
+"push": "2026-10-09",
+"workflows": 8,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "DayuanJiang/next-ai-draw-io",
+"sterren": 37052,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 7,
+"winkels": [
+"npm",
+"Docker",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "github/github-mcp-server",
+"sterren": 34566,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 13,
+"winkels": [
+"Docker",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+".github/copilot-instructions.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "mksglu/context-mode",
+"sterren": 34270,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "oraios/serena",
+"sterren": 31506,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 9,
+"winkels": [
+"PyPI",
+"Docker",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "assafelovic/gpt-researcher",
+"sterren": 30772,
+"licentie": "Apache-2.0",
+"push": "2026-11-12",
+"workflows": 5,
+"winkels": [
+"Docker"
+],
+"geld": [],
+"ai": [
+".cursorrules",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "yikart/AiToEarn",
+"sterren": 28318,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 6,
+"winkels": [
+"Docker"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "pascalorg/editor",
+"sterren": 25605,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"npm",
+"Docker",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/",
+".github/copilot-instructions.md",
+"GEMINI.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "activepieces/activepieces",
+"sterren": 25603,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 38,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "mcp-server",
+"repo": "modelcontextprotocol/python-sdk",
+"sterren": 24896,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 10,
+"winkels": [
+"PyPI"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "DietrichGebert/ponytail",
+"sterren": 193862,
+"licentie": "MIT",
+"push": "2026-10-29",
+"workflows": 2,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md",
+".cursor/",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "thedotmack/claude-mem",
+"sterren": 118182,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 9,
+"winkels": [
+"Firefox AMO",
+"npm"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "career-ops-hq/career-ops",
+"sterren": 83513,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 30,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/",
+".github/copilot-instructions.md",
+"GEMINI.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "ayghri/i-have-adhd",
+"sterren": 61612,
+"licentie": "MIT",
+"push": "2026-10-19",
+"workflows": 4,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".cursor/",
+"GEMINI.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "coreyhaines31/marketingskills",
+"sterren": 61190,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "wshobson/agents",
+"sterren": 42657,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "google/elephant-goldfish-model",
+"sterren": 21065,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 9,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "lemomo-ai/lemo-opuscar",
+"sterren": 18262,
+"licentie": "NOASSERTION",
+"push": "2026-11-17",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "kyegomez/OpenMythos",
+"sterren": 14929,
+"licentie": "MIT",
+"push": "2026-05-23",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "tigerless-labs/autoharness",
+"sterren": 11175,
+"licentie": "MIT",
+"push": "2026-11-12",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "rehan-remade/universal-modder",
+"sterren": 9768,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".cursor/",
+".claude/",
+"GEMINI.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "revfactory/harness",
+"sterren": 9380,
+"licentie": "Apache-2.0",
+"push": "2026-09-28",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "patch-gg/pixelfx",
+"sterren": 8115,
+"licentie": "MIT",
+"push": "2026-11-13",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "nateherkai/scroll-craft",
+"sterren": 5226,
+"licentie": "MIT",
+"push": "2026-09-30",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "Manavarya09/design-extract",
+"sterren": 5152,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"npm"
+],
+"geld": [
+"GitHub Sponsors",
+"Stripe",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "haydenschmitty/floorplan",
+"sterren": 4791,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "zenbu-labs/terminal-browser",
+"sterren": 4714,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 4,
+"winkels": [
+"npm",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "nyldn/claude-octopus",
+"sterren": 4469,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 2,
+"winkels": [
+"Homebrew"
+],
+"geld": [
+"GitHub Sponsors",
+"Pro/Premium-versie"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/",
+".github/copilot-instructions.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "claude-code-plugin",
+"repo": "nowork-studio/notfair-plugin",
+"sterren": 4252,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "claude-code-plugin",
+"repo": "agenticnotetaking/arscontexta",
+"sterren": 3519,
+"licentie": "MIT",
+"push": "2026-02-24",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "JetBrains/intellij-sdk-code-samples",
+"sterren": 1230,
+"licentie": "Apache-2.0",
+"push": "2026-11-05",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "ben-gibson/GitLink",
+"sterren": 939,
+"licentie": "MIT",
+"push": "2026-10-31",
+"workflows": 2,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "Liubsyy/JarEditor",
+"sterren": 793,
+"licentie": "Apache-2.0",
+"push": "2026-11-17",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "one-dark/jetbrains-one-dark-theme",
+"sterren": 656,
+"licentie": "ISC",
+"push": "2026-06-29",
+"workflows": 1,
+"winkels": [
+"JetBrains"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "Swttch/swttch",
+"sterren": 330,
+"licentie": "AGPL-3.0",
+"push": "2026-11-16",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "carla-butler-46/jetbrains-pycharm-desktop",
+"sterren": 249,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "cam-watts-2007/jetbrains-intellij-idea-desktop",
+"sterren": 248,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "kagof/intellij-pokemon-progress",
+"sterren": 230,
+"licentie": "MIT",
+"push": "2026-05-01",
+"workflows": 2,
+"winkels": [
+"JetBrains"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "Nako0/devglobe-extension",
+"sterren": 218,
+"licentie": "MIT",
+"push": "2026-10-23",
+"workflows": 8,
+"winkels": [
+"VS Code Marketplace",
+"Open VSX",
+"JetBrains",
+"npm",
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "camel-tooling/camel-idea-plugin",
+"sterren": 210,
+"licentie": "Apache-2.0",
+"push": "2026-11-16",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "zhensherlock/intellij-platform-git-stats-plugin",
+"sterren": 210,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 2,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "JetBrains/rider-efcore",
+"sterren": 195,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "jetbrains-plugin",
+"repo": "WhiteVermouth/intellij-investor-dashboard",
+"sterren": 168,
+"licentie": "Apache-2.0",
+"push": "2026-10-13",
+"workflows": 1,
+"winkels": [
+"JetBrains",
+"GitHub Release"
+],
+"geld": [
+"Buy Me a Coffee"
+],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "liangxiegame/QFramework",
+"sterren": 5622,
+"licentie": "MIT",
+"push": "2026-10-23",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "Maaack/Godot-Game-Template",
+"sterren": 1739,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [
+"itch.io"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "gaea-godot/gaea",
+"sterren": 1666,
+"licentie": "MIT",
+"push": "2026-10-18",
+"workflows": 6,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "2shady4u/godot-sqlite",
+"sterren": 1462,
+"licentie": "MIT",
+"push": "2026-09-19",
+"workflows": 2,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "godot-addon",
+"repo": "Maran23/script-ide",
+"sterren": 1068,
+"licentie": "MIT",
+"push": "2026-10-20",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "TokisanGames/Sky3D",
+"sterren": 958,
+"licentie": "NOASSERTION",
+"push": "2026-11-05",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "anthonyec/godot_little_camera_preview",
+"sterren": 779,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "Federico-Ciuffardi/GodotTouchInputManager",
+"sterren": 595,
+"licentie": "MIT",
+"push": "2026-06-24",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "chickensoft-games/GodotEnv",
+"sterren": 586,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "godot-addon",
+"repo": "InvadingOctopus/comedot",
+"sterren": 551,
+"licentie": "MIT",
+"push": "2026-11-02",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Patreon"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "nklbdev/godot-4-importality",
+"sterren": 548,
+"licentie": "MIT",
+"push": "2026-03-21",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "cloudofoz/godot-smashthemesh",
+"sterren": 504,
+"licentie": "MIT",
+"push": "2026-04-15",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "ClarkThyLord/Voxel-Core",
+"sterren": 494,
+"licentie": "MIT",
+"push": "2026-09-07",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "Maaack/Godot-Menus-Template",
+"sterren": 492,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "godot-addon",
+"repo": "JekSun97/gdTree3D",
+"sterren": 391,
+"licentie": "NOASSERTION",
+"push": "2026-10-06",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "firefox-addon",
+"repo": "Kenshin/simpread",
+"sterren": 8756,
+"licentie": "GPL-3.0",
+"push": "2026-09-05",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "firefox-addon",
+"repo": "floccusaddon/floccus",
+"sterren": 8667,
+"licentie": "MPL-2.0",
+"push": "2026-11-15",
+"workflows": 9,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Open Collective"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "firefox-addon",
+"repo": "DIYgod/RSSHub-Radar",
+"sterren": 7421,
+"licentie": "AGPL-3.0",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "firefox-addon",
+"repo": "iorate/ublacklist",
+"sterren": 6686,
+"licentie": "MIT",
+"push": "2026-11-14",
+"workflows": 6,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "firefox-addon",
+"repo": "brookhong/Surfingkeys",
+"sterren": 6207,
+"licentie": "MIT",
+"push": "2026-11-14",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "firefox-addon",
+"repo": "zxlie/FeHelper",
+"sterren": 5690,
+"licentie": "MIT",
+"push": "2026-11-14",
+"workflows": 2,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".cursor/"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "firefox-addon",
+"repo": "obsidianmd/obsidian-clipper",
+"sterren": 5617,
+"licentie": "MIT",
+"push": "2026-09-22",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "firefox-addon",
+"repo": "extension-js/extension.js",
+"sterren": 5216,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 21,
+"winkels": [
+"Firefox AMO"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "Comfy-Org/ComfyUI",
+"sterren": 147493,
+"licentie": "GPL-3.0",
+"push": "2026-11-18",
+"workflows": 29,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "ATH-MaaS/Pixelle-Video",
+"sterren": 30220,
+"licentie": "Apache-2.0",
+"push": "2026-06-14",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "LykosAI/StabilityMatrix",
+"sterren": 9049,
+"licentie": "AGPL-3.0",
+"push": "2026-11-17",
+"workflows": 8,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "TheLastBen/fast-stable-diffusion",
+"sterren": 7914,
+"licentie": "MIT",
+"push": "2025-11-29",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "Osmantic/ODS",
+"sterren": 7851,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 46,
+"winkels": [
+"Homebrew"
+],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "11cafe/jaaz",
+"sterren": 6751,
+"licentie": "NOASSERTION",
+"push": "2026-03-02",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "wiltodelta/remove-ai-watermarks",
+"sterren": 6444,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"PyPI",
+"Homebrew"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"CLAUDE.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "ATH-MaaS/ComfyUI-Copilot",
+"sterren": 5588,
+"licentie": "MIT",
+"push": "2026-09-11",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "mcmonkeyprojects/SwarmUI",
+"sterren": 4795,
+"licentie": "MIT",
+"push": "2026-11-12",
+"workflows": 2,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Patreon"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "Arekejoker/qwen21-nsfw-pose-skill",
+"sterren": 4468,
+"licentie": "Apache-2.0",
+"push": "2026-10-26",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "Lightricks/ComfyUI-LTXVideo",
+"sterren": 4269,
+"licentie": "NOASSERTION",
+"push": "2026-11-12",
+"workflows": 1,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "nunchux-ai/nunchaku",
+"sterren": 3969,
+"licentie": "Apache-2.0",
+"push": "2026-09-06",
+"workflows": 9,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": true,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "comfyui",
+"repo": "MrForExample/ComfyUI-3D-Pack",
+"sterren": 3913,
+"licentie": "MIT",
+"push": "2025-12-29",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "rgthree/rgthree-comfy",
+"sterren": 3673,
+"licentie": "MIT",
+"push": "2026-10-30",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "comfyui",
+"repo": "pythongosssss/ComfyUI-Custom-Scripts",
+"sterren": 3238,
+"licentie": "MIT",
+"push": "2026-02-12",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "nikandr-surkov/Hamster-Kombat-Telegram-Mini-App-Clone",
+"sterren": 275,
+"licentie": null,
+"push": "2026-06-29",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "UselessStudio/TeleOTP",
+"sterren": 129,
+"licentie": "BSD-3-Clause",
+"push": "2026-10-29",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "CrazyTapok-bit/tgWebValid",
+"sterren": 69,
+"licentie": "MIT",
+"push": "2026-03-26",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "telegram-mini-app",
+"repo": "bbstom/TelegramGroup",
+"sterren": 59,
+"licentie": null,
+"push": "2026-08-10",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "TelechaBot/Kitan",
+"sterren": 53,
+"licentie": "Apache-2.0",
+"push": "2026-11-18",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "Open-Yescoin/Telegram-Unity-Bridge",
+"sterren": 48,
+"licentie": "MIT",
+"push": "2026-01-05",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "nimaxin/init-data-py",
+"sterren": 45,
+"licentie": "MIT",
+"push": "2026-10-18",
+"workflows": 2,
+"winkels": [
+"PyPI"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "telegram-mini-app",
+"repo": "qiyascc/ubique-pay",
+"sterren": 39,
+"licentie": null,
+"push": "2026-06-30",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "telegram-mini-app",
+"repo": "bruhxax/Link-Bot",
+"sterren": 33,
+"licentie": null,
+"push": "2026-11-12",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "telegram-mini-app",
+"repo": "redtidev1918/TelePost",
+"sterren": 31,
+"licentie": "MIT",
+"push": "2026-11-04",
+"workflows": 15,
+"winkels": [
+"PyPI",
+"GitHub Release"
+],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "ersinkoc/phonebox",
+"sterren": 3105,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 6,
+"winkels": [
+"GitHub Release",
+"Homebrew",
+"Microsoft Store/winget"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "BarRaider/streamdeck-tools",
+"sterren": 564,
+"licentie": "MIT",
+"push": "2026-04-02",
+"workflows": 1,
+"winkels": [],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "SeriousOldMan/Simulator-Controller",
+"sterren": 459,
+"licentie": "NOASSERTION",
+"push": "2026-11-18",
+"workflows": 0,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Patreon",
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "stream-deck",
+"repo": "OpenMacroBoard/StreamDeckSharp",
+"sterren": 397,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 0,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "stream-deck",
+"repo": "ChrisRegado/streamdeck-googlemeet",
+"sterren": 397,
+"licentie": "MIT",
+"push": "2026-07-25",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": false
+},
+{
+"topic": "stream-deck",
+"repo": "puritysb/AgentDeck",
+"sterren": 301,
+"licentie": "MIT",
+"push": "2026-11-17",
+"workflows": 19,
+"winkels": [
+"Firefox AMO",
+"npm",
+"GitHub Release",
+"Homebrew",
+"App stores"
+],
+"geld": [],
+"ai": [
+"AGENTS.md",
+".claude/"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "elgatosf/streamdeck",
+"sterren": 278,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "moeilijk/hwinfo-streamdeck",
+"sterren": 262,
+"licentie": "GPL-3.0",
+"push": "2026-11-13",
+"workflows": 3,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "Julusian/node-elgato-stream-deck",
+"sterren": 208,
+"licentie": "MIT",
+"push": "2026-11-12",
+"workflows": 3,
+"winkels": [
+"npm",
+"GitHub Release"
+],
+"geld": [
+"GitHub Sponsors"
+],
+"ai": [],
+"beeld_echt": false,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "rahatsagor/CmdPalm",
+"sterren": 203,
+"licentie": "AGPL-3.0",
+"push": "2026-11-17",
+"workflows": 2,
+"winkels": [
+"GitHub Release",
+"Homebrew"
+],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "DCS-Skunkworks/DCSFlightpanels",
+"sterren": 191,
+"licentie": "MIT",
+"push": "2026-11-02",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": false
+},
+{
+"topic": "stream-deck",
+"repo": "ggfto/DroidDeck",
+"sterren": 164,
+"licentie": "Apache-2.0",
+"push": "2026-11-04",
+"workflows": 3,
+"winkels": [
+"GitHub Release"
+],
+"geld": [
+"Pro/Premium-versie"
+],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": true,
+"discord": false,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "emaspa/openxlr",
+"sterren": 157,
+"licentie": "GPL-3.0",
+"push": "2026-11-18",
+"workflows": 7,
+"winkels": [],
+"geld": [
+"GitHub Sponsors",
+"Ko-fi",
+"Buy Me a Coffee"
+],
+"ai": [
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": true,
+"changelog": true,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "alkabdohagag/fxdeck-fivem-command-deck",
+"sterren": 153,
+"licentie": "MIT",
+"push": "2026-11-18",
+"workflows": 1,
+"winkels": [],
+"geld": [],
+"ai": [],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": false,
+"tests": true
+},
+{
+"topic": "stream-deck",
+"repo": "JakubWawrzola/deskmate",
+"sterren": 130,
+"licentie": "MIT",
+"push": "2026-11-16",
+"workflows": 5,
+"winkels": [],
+"geld": [],
+"ai": [
+"CLAUDE.md",
+"AGENTS.md"
+],
+"beeld_echt": true,
+"gif_echt": false,
+"discord": false,
+"changelog": true,
+"tests": true
+}
+]
