@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: wo 18 nov 2026, 19:30 NL** (hoofdchat). **Vaste agents uit; werkwijze omgebouwd naar het model van de winnaars (besluit 19:30); afkijk-onderzoek klaar en gekeurd (`platformen/ideeen/afkijken-2026-11-18/UITKOMST.md`), keuze ligt bij Thijs, zie `platformen/ideeen/afkijken-2026-11-18/`. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
+**Stand: wo 18 nov 2026, 20:15 NL** (hoofdchat). **Zes agents weer aan (Olaf, Bram, Daan, Sanne, Iris, Chris); werkwijze omgebouwd naar het model van de winnaars (besluit 19:30); afkijk-onderzoek klaar en gekeurd (`platformen/ideeen/afkijken-2026-11-18/UITKOMST.md`), keuze ligt bij Thijs, zie `platformen/ideeen/afkijken-2026-11-18/`. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -24,18 +24,18 @@
 | **Kingmaker: nieuwe ideeën** | alle platformen | 17 nov: 19 ideeën zelf afgeschoten, 0 overlevers. Zoekers sinds 16:47 alle drie op wat nu opent; Patrick toetst op de 4 wetten | | eerste overlever 7+: Gijs bouwt binnen 72 uur, Gijs dan elk uur | Noor, Lars, Joris, Patrick, Gijs, Daan |
 | **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live; TikTok 1 volger, filmpjes gingen zonder geluid | | doel: vóór di 1 dec één filmpje boven 1.000 weergaven, anders stoppen (Chris) | Chris |
 
-## 2. Agents (alle geplande agents UIT sinds 18 nov 16:35, op verzoek van Thijs; kolom 'Focus' is de laatste opdracht)
+## 2. Agents (18 nov 20:12: zes weer aan op verzoek van Thijs, met de nieuwe korte opdracht; de rest uit)
 
 | Agent | Aan? | Hoe vaak (NL-tijd) | Focus nu |
 |---|---|---|---|
-| Olaf | uit | elk uur, :13 | Hats: hoofdbouwer, Steam-pagina en demo |
-| Bram | uit | elk uur, :07 | Hats: tweede bouwer. Click Joints alleen bij een melding |
-| Daan | uit | elk uur, :23 | keurt Hats (hoge lat) en de snelle versies van Kingmaker (alleen wat afwijzing geeft) |
-| Sanne | uit | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
-| Iris | uit | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
+| Olaf | aan | elk uur, :13 | Hats: speeltest za 21 nov (bevriezen do 20:00, build vr), plan B Steam, Steam-upload met één knop |
+| Bram | aan | elk uur, :07 | Hats tweede bouwer; Click Joints volgens de winnaars (upload met één knop, README met GIF, CHANGELOG) |
+| Daan | aan | elk uur, :23 | keurt Hats en de nieuwe README's en winkelteksten (skill keuren) |
+| Sanne | aan | elke 2 uur, :43 (8 tot 22) | Hats: speeltest voorbereiden, daarna demolijst |
+| Iris | aan | elke 4 uur, :39 (10 tot 22) | Hats: één keuring van de speeltestbuild, alleen als main veranderde |
 | Gijs | uit | elke 3 uur, :52 (8 tot 20); elk uur zodra er een overlever is | snelle bouwer Kingmaker; tot dan alleen keuring Hat Tower |
 | Ruben | uit | elk uur, :03 | Click Joints Pro 1.1 |
-| Chris | uit | elke 3 uur, :41 (9 tot 21) | Click Joints Pro conversie, lancering Bison & Flex, filmpjes met doel van 14 dagen |
+| Chris | aan | elke 3 uur, :41 (9 tot 21) | groei: Bison & Flex 2026.1.2 en listing, Click Joints Free op Gumroad $0+, weekmeting, filmpjes tot 1 dec |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
 | Noor | uit | elk uur, :29 (7 tot 22) | zoeker: nieuwe winkels en apparaten met een SDK |
 | Lars | uit | elk uur, :47 (7 tot 22) | zoeker: nieuwe golven in grote winkels (zoals Claudian) |
@@ -45,7 +45,7 @@
 | Stijn, Abel, Mila | uit | | |
 | Sem | uit | | terug ±1 dec voor de Hats-marketing (paginadag ±8 dec) |
 
-Verbruik: 0 geplande agents aan. Aanzetten alleen als Thijs het zegt, en dan eerst de opdracht herschrijven naar `organisatie/sjablonen/agent-opdracht.md`.
+Verbruik: 6 agents aan (was 12 op 17 nov). Zoekers en Ruben blijven uit tot de meting van wo 9 dec.
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 
