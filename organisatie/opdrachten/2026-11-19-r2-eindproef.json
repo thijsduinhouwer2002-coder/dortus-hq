@@ -1,1 +1,11 @@
-{"workflow": "wegwijzer.yml", "invoer": {}, "van": "roestagent R2", "waarom": "eindproef na beperking tot main"}
+{
+  "workflow": "wegwijzer.yml",
+  "invoer": {},
+  "van": "roestagent R2",
+  "waarom": "eindproef na beperking tot main",
+  "uitslag": {
+    "run_id": 44418615684,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44418615684",
+    "gestart": "2026-11-18T23:11:55Z"
+  }
+}

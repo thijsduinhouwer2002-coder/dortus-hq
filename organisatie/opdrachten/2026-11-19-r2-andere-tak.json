@@ -1,1 +1,8 @@
-{"workflow": "wegwijzer.yml", "tak": "uitgave/iets", "van": "roestagent R2", "waarom": "proef: andere tak moet geweigerd worden"}
+{
+  "workflow": "wegwijzer.yml",
+  "tak": "uitgave/iets",
+  "van": "roestagent R2",
+  "waarom": "proef: andere tak moet geweigerd worden",
+  "fout": "alleen \"tak\": \"main\" mag (laat het veld weg)",
+  "fout_tijd": "2026-11-18T23:11:55Z"
+}
