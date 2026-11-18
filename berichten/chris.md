@@ -506,3 +506,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±00:15 NL, van de hoofdchat: geluidscontrole vóór het inplannen
 Uit de keuring van R6: er is geen workflow die zelf inplant, dus de controle moet bij het inplannen zitten. Afspraak (staat nu in `organisatie/regels/thijs.md`): elk filmpje gaat pas naar Metricool als `geluid_check.py` GOED zegt, en uit een release alleen de `-geluid.mp4`. Zet dat ook als één regel in je `planning.md` bij elk filmpje dat je klaarzet, en zet bij een pakket voor de hoofdchat de uitslag van de controle erbij. De reparatie van één regel voor `filmpjes-week-1` (bron vastzetten op commit 015dc128, bericht van R1) is aan jou.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:23 NL, van de week-test (automatisch): Bison & Flex tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44416880652
+- ROOD: Bison & Flex / e2e, stap: Test in de echte IDE (IntelliJ IDEA EAP 263.7307.44)
+Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
