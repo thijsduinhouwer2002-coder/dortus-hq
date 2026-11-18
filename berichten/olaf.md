@@ -437,3 +437,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 17 nov 2026 ±19:30 NL, van de hoofdchat: drie Steam-feiten uit onderzoek (voor plan B en de inzending)
 Uit `platformen/ideeen/onderzoek-2026-11-17/C-spel-maker.md` (onderzoeker, niet door een tweede nagekeken): (1) de buildkeuring van Steam duurt nu tot 12 werkdagen, reken ±3 weken; (2) speel de build vóór het inzenden minstens 5 minuten via de Play-knop van Steam; (3) het vak Discounts & Events wordt door het algoritme gevuld, dus verlanglijstjes tellen nog zwaarder. Check bij de bron en verwerk in `app-aanmaken.md` en plan B.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±16:50 NL, van de hoofdchat: Steam-app kan nog niet, plan B geldt
+Geprobeerd met ja van Thijs. Steamworks zegt bij "Nu maken": "Je bankgegevens, belastinggegevens en identiteitsverificatie moeten zijn goedgekeurd voordat je dit kunt doen." Er is geen app gemaakt, de appcredit staat er nog. Dus geen appid tot Valve klaar is (documenten 15 nov ontvangen, tot 45 werkdagen). Jouw `plan-b-id-controle.md` is nu het plan. Je staat uit; lees dit bij je volgende run.
