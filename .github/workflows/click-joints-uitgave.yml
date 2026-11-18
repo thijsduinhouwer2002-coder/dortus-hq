@@ -4,11 +4,22 @@ name: Click Joints uitgave (release met zip en winkelplaatjes)
 # zodat het indienen op extensions.blender.org alleen downloaden en uploaden is.
 # Controleert eerst de sha256 van de zip (gelijk aan platformen/blender/indienen.md)
 # en laat de echte Blender de zip valideren, zoals extensions.blender.org dat doet.
+# Uitbrengen met één knop (18 nov 2026, Bram, afgekeken bij CAD Sketcher):
+# de notes komen uit producten/blender-gewrichten/CHANGELOG.md (sectie van VERSIE, max 1024 tekens).
+# Een tag click-joints-v* pushen, of handmatig starten met "uploaden" aan, stuurt de zip met het
+# token (secret BLENDER_EXTENSIONS_TOKEN, maakt Thijs) naar extensions.blender.org. Een moderator keurt nog.
+# Elke andere run is een proefdraai: alles behalve de echte upload, plus een test zonder token (verwacht 401).
 on:
   push:
     branches: [main]
-    paths: [".github/workflows/click-joints-uitgave.yml"]
+    paths: [".github/workflows/click-joints-uitgave.yml", "producten/blender-gewrichten/CHANGELOG.md"]
+    tags: ["click-joints-v*"]
   workflow_dispatch:
+    inputs:
+      uploaden:
+        description: "Echt uploaden naar extensions.blender.org (alleen een nieuwe versie)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -20,6 +31,8 @@ env:
   TAG: click-joints-v0.1.1
   ZIP: producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip
   SHA: d1643ba56f09540986a3a951d78fbc5046ad5744fd30c324730ae5b9f980fe3d
+  EXTENSIE: click_joints
+  CHANGELOG: producten/blender-gewrichten/CHANGELOG.md
 
 jobs:
   uitgave:
@@ -48,6 +61,19 @@ jobs:
       - name: Versie in de zip nakijken
         run: |
           unzip -p "$ZIP" blender_manifest.toml | grep -qx "version = \"$VERSIE\"" || { echo "FOUT: versie"; exit 1; }
+      - name: Notes uit CHANGELOG.md halen
+        run: |
+          awk -v v="$VERSIE" '$0 ~ "^## "v" " {aan=1; next} /^## / {aan=0} aan' "$CHANGELOG" \
+            | sed -e '/./,$!d' > /tmp/winkel.md
+          [ -s /tmp/winkel.md ] || { echo "FOUT: geen sectie '## $VERSIE' in $CHANGELOG"; exit 1; }
+          python3 - <<'PY'
+          t = open("/tmp/winkel.md").read().strip()
+          if len(t) > 1024:
+              t = t[:t.rfind("\n", 0, 1021)] + "\n..."
+          open("/tmp/winkel.md", "w").write(t + "\n")
+          print(f"notes: {len(t)} tekens (max 1024)")
+          PY
+          cat /tmp/winkel.md
       - name: Bestanden voor de release klaarzetten
         run: |
           mkdir -p /tmp/uit
@@ -57,19 +83,37 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cat > /tmp/notes.md <<EOF
-          Click Joints $VERSIE, gratis versie voor extensions.blender.org.
-
-          - \`click_joints-$VERSIE.zip\`: de extensie (Akkoord ja van Daan, e2e groen in de echte Blender 4.2.23, 5.2.3 en 5.3.0, gevalideerd met \`blender --command extension validate\`).
-          - Fixed: on a one-piece figure, a joint in one knee no longer cuts through the other leg. Only the limb at the 3D cursor is cut; if another part touches it, Click Joints refuses with a clear message.
-          - Icoon en plaatjes zijn niet veranderd; die staan in release click-joints-v0.1.0.
-
-          Stappen voor de update: \`platformen/blender/indienen.md\`, onderaan.
-          EOF
-          sed -i 's/^          //' /tmp/notes.md
+          { echo "Click Joints $VERSIE, free version for extensions.blender.org."; echo
+            cat /tmp/winkel.md; echo
+            echo "\`click_joints-$VERSIE.zip\` is validated with \`blender --command extension validate\`. Icon and images: release click-joints-v0.1.0."
+          } > /tmp/notes.md
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" /tmp/uit/* --clobber
           else
             gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints $VERSIE" --notes-file /tmp/notes.md
           fi
           gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
+      - name: Uploaden naar extensions.blender.org (of proefdraaien)
+        env:
+          TOKEN: ${{ secrets.BLENDER_EXTENSIONS_TOKEN }}
+          ECHT: ${{ startsWith(github.ref, 'refs/tags/click-joints-v') || inputs.uploaden == true }}
+        run: |
+          URL="https://extensions.blender.org/api/v1/extensions/$EXTENSIE/versions/upload/"
+          if [ "$ECHT" != "true" ]; then
+            echo "PROEFDRAAI: geen upload. Test zonder token, verwacht 401 (adres bestaat, sleutel ontbreekt)."
+            code=$(curl -sS -o /tmp/antwoord.txt -w '%{http_code}' -X POST "$URL")
+            echo "HTTP $code"; head -c 300 /tmp/antwoord.txt; echo
+            [ "$code" = "401" ] || { echo "FOUT: verwacht 401, adres of API veranderd?"; exit 1; }
+            [ -n "$TOKEN" ] && echo "Token staat klaar als secret." || echo "Nog geen secret BLENDER_EXTENSIONS_TOKEN (maakt Thijs)."
+            exit 0
+          fi
+          if [ "$GITHUB_REF_TYPE" = "tag" ] && [ "$GITHUB_REF_NAME" != "$TAG" ]; then
+            echo "FOUT: tag $GITHUB_REF_NAME hoort bij een andere versie dan TAG=$TAG in deze workflow"; exit 1
+          fi
+          [ -n "$TOKEN" ] || { echo "FOUT: secret BLENDER_EXTENSIONS_TOKEN ontbreekt (Thijs maakt hem op extensions.blender.org/settings/tokens/)"; exit 1; }
+          code=$(curl -sS -o /tmp/antwoord.txt -w '%{http_code}' -X POST "$URL" \
+            -H "Authorization:bearer $TOKEN" \
+            -F "version_file=@/tmp/uit/click_joints-$VERSIE.zip" \
+            --form-string "release_notes=$(cat /tmp/winkel.md)")
+          echo "HTTP $code"; cat /tmp/antwoord.txt; echo
+          case "$code" in 2??) echo "Geüpload: $VERSIE wacht nu op de moderator.";; *) echo "FOUT bij uploaden"; exit 1;; esac
