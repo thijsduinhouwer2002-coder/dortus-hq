@@ -4,11 +4,21 @@ name: Actions-log (log van mislukte runs in de repo)
 # 200 regels van de mislukte stap in organisatie/actions-logs/<workflow>-<run>.txt (persoonsgegevens eruit,
 # na 7 dagen opgeruimd). Lezen: python3 organisatie/controle/actions.py <run> --log. Uitleg: skill actions.
 # Draait na elke workflow, maar doet alleen iets bij een mislukte run (anders "overgeslagen", kost niets).
+# workflow_run gaat NIET af voor runs die met de workflow-sleutel zijn gestart (zoals runs uit een
+# opdrachtbestand), daarom veegt hij ook elk kwartier: mislukte runs van 24 uur zonder logbestand.
 
 on:
   workflow_run:
     workflows: ["**", "!Actions-log*"]
     types: [completed]
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:   # ook via een opdrachtbestand, als je niet op de veegronde wilt wachten
+    inputs:
+      run:
+        description: "Runnummer (leeg = alle mislukte runs van 24 uur zonder logbestand)"
+        required: false
+        default: ""
 
 permissions:
   contents: write   # logbestand opslaan
@@ -16,7 +26,7 @@ permissions:
 
 jobs:
   log:
-    if: github.event.workflow_run.conclusion == 'failure'
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -31,12 +41,15 @@ jobs:
       - name: Log ophalen
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN: ${{ github.event.workflow_run.id }}
-        run: python3 organisatie/controle/actions_log.py maak "$RUN" "$RUNNER_TEMP/uit"
+          RUN: ${{ github.event.workflow_run.id || inputs.run }}
+        run: |
+          if [ -n "$RUN" ]; then python3 organisatie/controle/actions_log.py maak "$RUN" "$RUNNER_TEMP/uit"
+          else python3 organisatie/controle/actions_log.py zoek "$RUNNER_TEMP/uit"; fi
       - name: Opslaan in de repo (en logs ouder dan 7 dagen weg)
         env:
-          RUN: ${{ github.event.workflow_run.id }}
+          RUN: ${{ github.event.workflow_run.id || inputs.run || 'veegronde' }}
         run: |
+          mkdir -p "$RUNNER_TEMP/uit"
           git config user.name "dortus-actions-log"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for i in 1 2 3 4 5 6; do
@@ -44,9 +57,9 @@ jobs:
             git reset -q --hard origin/main
             cp -r "$RUNNER_TEMP/uit/." .
             python3 organisatie/controle/actions_log.py opruimen
-            git add organisatie/actions-logs
+            if [ -d organisatie/actions-logs ]; then git add -A organisatie/actions-logs; fi
             if git diff --cached --quiet; then echo "Niets veranderd."; exit 0; fi
-            git commit -q -m "Actions-log: mislukte run $RUN"
+            git commit -q -m "Actions-log: log van mislukte run ($RUN)"
             python3 organisatie/controle/check.py origin/main HEAD || exit 1
             if git push -q origin HEAD:main; then echo "Log staat in de repo."; exit 0; fi
             sleep $((i * 5))

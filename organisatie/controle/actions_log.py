@@ -6,7 +6,10 @@ van de mislukte stap, met persoonsgegevens en sleutels weggehaald (zelfde patron
 
 Gebruik in de workflow:
   python3 organisatie/controle/actions_log.py maak <run_id> <uitmap>   nodig: GH_TOKEN, GITHUB_REPOSITORY
+  python3 organisatie/controle/actions_log.py zoek <uitmap>            alle mislukte runs van de laatste 24 uur zonder logbestand
   python3 organisatie/controle/actions_log.py opruimen                 haalt logs ouder dan 7 dagen weg (git rm)
+"zoek" is nodig omdat workflow_run niet afgaat voor runs die met de workflow-sleutel zijn gestart
+(zoals runs uit een opdrachtbestand, GEZIEN 18 nov bij run 44415897839).
 """
 import datetime
 import glob
@@ -73,12 +76,30 @@ def via_api(repo, run, jobs):
     return per_job
 
 
-def maak(run, uit):
+def stam_van(r):
+    return os.path.splitext(os.path.basename(r.get("path", "onbekend.yml").split("@")[0]))[0]
+
+
+def zoek(uit):
     repo = os.environ["GITHUB_REPOSITORY"]
-    r = api(f"/repos/{repo}/actions/runs/{run}")
+    sinds = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    runs = api(f"/repos/{repo}/actions/runs?status=failure&per_page=50&created=%3E{sinds}").get("workflow_runs", [])
+    nieuw = [r for r in runs if not r.get("name", "").startswith("Actions-log ")
+             and not os.path.exists(f"{MAP}/{stam_van(r)}-{r['id']}.txt")]
+    print(f"{len(runs)} mislukte run(s) in 24 uur, {len(nieuw)} zonder logbestand.")
+    for r in nieuw[:10]:
+        try:
+            maak(r["id"], uit, r)
+        except Exception as e:  # één kapotte run mag de rest niet tegenhouden
+            print(f"Run {r['id']}: log maken lukte niet ({e})")
+
+
+def maak(run, uit, r=None):
+    repo = os.environ["GITHUB_REPOSITORY"]
+    r = r or api(f"/repos/{repo}/actions/runs/{run}")
     jobs = api(f"/repos/{repo}/actions/runs/{run}/jobs?per_page=100").get("jobs", [])
     per_job = via_gh(repo, run) or via_api(repo, run, jobs)
-    stam = os.path.splitext(os.path.basename(r.get("path", "onbekend.yml").split("@")[0]))[0]
+    stam = stam_van(r)
     nu = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     mislukt = [f"{j['name']}: {s['name']}" for j in jobs if j.get("conclusion") == "failure"
                for s in j.get("steps", []) if s.get("conclusion") == "failure"]
@@ -116,6 +137,8 @@ def opruimen():
 if __name__ == "__main__":
     if sys.argv[1:2] == ["maak"]:
         maak(sys.argv[2], sys.argv[3])
+    elif sys.argv[1:2] == ["zoek"]:
+        zoek(sys.argv[2])
     elif sys.argv[1:2] == ["opruimen"]:
         opruimen()
     else:

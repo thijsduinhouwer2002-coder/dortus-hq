@@ -27,6 +27,7 @@ MAP = "organisatie/opdrachten"
 TOEGESTAAN = {
     "wegwijzer.yml",
     "actions-log-proef.yml",
+    "actions-log.yml",
     "dashboard.yml",
     "scorebord.yml",
     "blender-gewrichten-e2e.yml",

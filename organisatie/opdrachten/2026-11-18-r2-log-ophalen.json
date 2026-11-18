@@ -1,0 +1,6 @@
+{
+  "workflow": "actions-log.yml",
+  "invoer": {"run": "44415897839"},
+  "van": "roestagent R2",
+  "waarom": "proef: log van de expres mislukte run in de repo zetten"
+}

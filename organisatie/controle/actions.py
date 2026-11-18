@@ -115,8 +115,9 @@ def toon_log(r, jobs):
                 return
             except urllib.error.HTTPError:
                 break
-    print(f"\nNog geen logbestand ({pad}). De workflow actions-log.yml zet het er ±1 minuut na de mislukte run neer;"
-          " doe dan `git pull --rebase` en probeer opnieuw.")
+    print(f"\nNog geen logbestand ({pad}). De workflow actions-log.yml zet het er neer: ±1 minuut na de run als"
+          " die door een push startte, anders bij de veegronde (elk kwartier). Sneller: een opdrachtbestand met"
+          f' {{"workflow": "actions-log.yml", "invoer": {{"run": "{r["id"]}"}}}}. Daarna `git pull --rebase` en opnieuw.')
 
 
 def lijst():
