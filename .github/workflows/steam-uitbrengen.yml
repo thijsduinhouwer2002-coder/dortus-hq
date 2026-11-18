@@ -7,6 +7,8 @@ name: Het Hol naar Steam (met de hand of met een tag, niet-openbare tak)
 # Twee manieren om te starten (opdracht hoofdchat 18 nov 21:25 NL, de ploeg kan "Run workflow" niet, zie organisatie/toegang.md):
 #   1. tag pushen:  hats-steam-v0.2.0        echte upload naar tak "intern" (de tag geldt als bevestiging)
 #                   hats-steam-v0.2.0-proef1 proefdraai: alle controles, geen upload (om te testen)
+#      of, omdat een tag pushen vanuit onze sessies 403 geeft, dezelfde naam als tak: uitgave/hats-steam-v0.2.0
+#      (git push origin HEAD:refs/heads/uitgave/hats-steam-v0.2.0). Werkt precies hetzelfde.
 #   2. met de hand (workflow_dispatch), proefdraaien staat standaard aan.
 # Controles in job "toetsen", vóór er iets gebouwd of geüpload wordt (bij een tag en bij een echte upload stopt elke fout de run):
 #   a. geldige tag (alleen bij een tag), versie = application/product_version in export_presets.cfg (beide presets)
@@ -25,6 +27,8 @@ name: Het Hol naar Steam (met de hand of met een tag, niet-openbare tak)
 on:
   push:
     tags: ["hats-steam-v*"]
+    # een tag pushen geeft vanuit onze sessies 403 (GEZIEN 18 nov, Olaf); een tak pushen lukt wel. Daarom ook deze taknaam.
+    branches: ["uitgave/hats-steam-v*"]
   workflow_dispatch:
     inputs:
       proefdraaien:
@@ -67,13 +71,14 @@ jobs:
           IN_WELKE: ${{ inputs.welke }}
         run: |
           S="$GITHUB_STEP_SUMMARY"; fout=0; waarsch=0
-          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-            bron="tag $GITHUB_REF_NAME"
-            if [[ "$GITHUB_REF_NAME" =~ ^hats-steam-v([0-9]+)\.([0-9]+)\.([0-9]+)(-proef[a-z0-9]*)?$ ]]; then
+          naam="${GITHUB_REF_NAME#uitgave/}"
+          if [ "$GITHUB_REF_TYPE" = "tag" ] || [ "$naam" != "$GITHUB_REF_NAME" ]; then
+            bron="$GITHUB_REF_TYPE $GITHUB_REF_NAME"
+            if [[ "$naam" =~ ^hats-steam-v([0-9]+)\.([0-9]+)\.([0-9]+)(-proef[a-z0-9]*)?$ ]]; then
               versie="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.${BASH_REMATCH[3]}"
               if [ -n "${BASH_REMATCH[4]}" ]; then proef=true; else proef=false; fi
             else
-              echo "::error::Geen geldige tag: '$GITHUB_REF_NAME'. Vorm: hats-steam-v1.2.3 (echt) of hats-steam-v1.2.3-proef1 (proefdraai)."; exit 1
+              echo "::error::Geen geldige naam: '$GITHUB_REF_NAME'. Vorm: hats-steam-v1.2.3 (echt) of hats-steam-v1.2.3-proef1 (proefdraai), als tag of als tak uitgave/..."; exit 1
             fi
             tak=intern; welke=beide; streng=true
           else
@@ -95,14 +100,14 @@ jobs:
           echo "- versie: $versie (export_presets.cfg $pv)" >> "$S"
 
           # b. nieuwe versie: hoger dan elke eerdere echte tag
-          hoogste=$(git tag -l 'hats-steam-v*' | grep -Ev -- '-proef' | grep -vx "${GITHUB_REF_NAME}" | sed 's/^hats-steam-v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)
+          hoogste=$(git for-each-ref --format='%(refname)' refs/tags/ refs/remotes/origin/uitgave/ | sed -E 's#^refs/(tags|remotes/origin/uitgave)/##' | grep -E '^hats-steam-v' | grep -Ev -- '-proef' | grep -vx "$naam" | sed 's/^hats-steam-v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)
           if [ -n "$hoogste" ]; then
             top=$(printf '%s\n%s\n' "$hoogste" "$versie" | sort -V | tail -1)
             if [ "$hoogste" = "$versie" ] || [ "$top" != "$versie" ]; then
-              meld "$ernst" "versie $versie is niet nieuw: er is al een echte tag hats-steam-v$hoogste"
+              meld "$ernst" "versie $versie is niet nieuw: er is al een echte uitgave hats-steam-v$hoogste (tag of tak uitgave/)"
             fi
           fi
-          echo "- hoogste eerdere echte tag: ${hoogste:-geen}" >> "$S"
+          echo "- hoogste eerdere echte uitgave: ${hoogste:-geen}" >> "$S"
 
           # c. tests groen: geslaagde steam-hol.yml-run op main met dezelfde spelcode
           boom=$(git rev-parse "$GITHUB_SHA:producten/steam-hol")
