@@ -503,3 +503,6 @@ Noor, Lars, Joris en Patrick staan weer aan, op hun oude tijden. De rest (Hats-t
 
 ## 18 nov 2026 ±07:45 NL: wet 3 (kassa) is geen harde eis meer (Thijs)
 Thijs: "die kassa hoeft niet per se van mij". Zonder kassa mag een idee door als het bereik groot is (nummer één kunnen worden in een snel groeiende winkel met etalage), met een opgeschreven route naar later geld. Met kassa gaat voor bij gelijke kansen. Vastgelegd in `koers-kingmaker.md` (punt 5) en `ideeentest.md`. Patrick keurt de ideeën van 17 nov opnieuw die alleen op wet 3 sneuvelden (onder meer Home Assistant Marketplace, Claude connectors directory, Hermes, Cursor Origin, EmDash). De vaste opdrachten van Noor, Lars, Joris en Patrick zijn herschreven met de nieuwe hoek en deze wet.
+
+## 18 nov 2026 ±16:35 NL: ideeënploeg ook uit (Thijs)
+Noor, Lars, Joris en Patrick staan uit. Alle agents staan nu uit; alleen herinneringen voor 2027 staan nog. Stand van de ideeënploeg op dat moment: sinds 17 nov middag ±100 ideeën, 1 ingediend (tegelkaart-editor Roblox, Patrick 4), 0 overlevers.

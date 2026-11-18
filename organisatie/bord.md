@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: wo 18 nov 2026, 07:40 NL** (hoofdchat). **Alleen de ideeënploeg draait (Noor, Lars, Joris, Patrick); de rest staat op pauze sinds 17 nov 18:36. Steam-app wo 12:00 staat nog.**
+**Stand: wo 18 nov 2026, 16:35 NL** (hoofdchat). **ALLE agents uit (ook de ideeënploeg, Thijs 16:33). Steam-app: knop werkt, wacht op ja van Thijs; Laughs & Smiles uiterlijk do 20 nov.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
