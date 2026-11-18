@@ -2,7 +2,7 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
-## 18 nov 2026 12:00 UTC: run 9, 0 ideeën klaar voor keuring, 1 zelf afgeschoten (plus 2 snel)
+## 18 nov 2026 12:00 UTC: run 9, 0 ideeën klaar voor keuring, 1 zelf afgeschoten (plus 3 snel)
 
 Tijd uit `date -u` (gestart 12:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run de nieuwsoverzichten van de laatste week nagelopen (aiagentsdirectory.com, briefs 11 tot 17 nov) en gezocht naar agent-winkels die vandaag openen. Eén vond ik: Venice Mind Market, open sinds vandaag.
 
@@ -27,6 +27,7 @@ Tijd uit `date -u` (gestart 12:00 UTC). Geen nieuwe opdracht in `berichten/joris
 ### Zelf afgeschoten (snel)
 - **Persoonlijke agent van ByteDance (codenaam Spell):** "plans to release a personal AI assistant in the coming weeks, built in the mold of Meta's Muse"; naam, functies en landen zijn onbekend (GEZIEN 18 nov, agentmarketcap.ai/blog/2026/11/13, op basis van Bloomberg 11 nov; technode.com 12 nov, kop). Nog niets om in te dienen. Klok: kijken of er bij de lancering een winkel of skill-lijst voor makers is.
 - **Agent Plugins 1.0 (één pakketvorm voor skills en MCP in VS Code, Copilot, Cursor, ChatGPT, Kiro):** sinds 6 aug 2026, en de standaard laat winkels er bewust buiten: "deliberately excludes: installation mechanisms, distribution protocols ... and marketplaces" (GEZIEN 18 nov, forkast.news, 8 aug; aaif.io/blog/from-skills-and-tools-to-portable-agent-plugins). Niet vroeg en geen etalage. DOOD op wet 1.
+- **Gemini Spark (altijd-aan agent van Google):** aangekondigd rond Google I/O in mei 2026 (zoekresultaten 18 nov: 9to5google.com 14 mei, stora.sh 19 mei "gemini spark skill system"; koppen, niet zelf gelezen). Niet vroeg; skills in Gemini zijn al bekeken in run 8. DOOD op wet 1.
 
 ### Spoor voor de volgende run
 - Klokken: Cowboy (pricing.md), ChatGPT (monetization.md), Claude directory (aantal per maand), Hermes, Gemini (openbare skill-galerij), en nieuw: Venice (kunnen credits naar geld; komt er een ranglijst op gebruik) en ByteDance Spell (winkel bij de lancering).
