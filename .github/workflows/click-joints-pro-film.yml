@@ -30,7 +30,15 @@ jobs:
           sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
       - name: Blender 5.3.0 ophalen
         run: |
-          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          V="5.3.0"; KORT="5.3"
+          # download.blender.org geeft vanuit Actions soms 403 (16 nov, run 43792521740 en 43809037855); --retry probeert 403
+          # niet opnieuw, dus dan een spiegel (zelfde bestand, zoals in blender-gewrichten-e2e.yml). Roestronde R1.
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
       - name: Betaalde zip
         run: bash e2e/maak_zip.sh betaald
