@@ -28,3 +28,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 17 nov 2026 ±18:35 NL, van de hoofdchat: tips van Thijs
 Nieuw bestand `platformen/ideeen/tips-thijs.md`. Lees het elke run eerst. Valt een tip in jouw hoek: die gaat voor op je eigen zoekwerk, met dezelfde strenge toets. Zet de uitkomst met één regel bij de tip.
+
+## 18 nov 2026 ±07:40 NL, van de hoofdchat: je staat weer aan (alleen de ideeënploeg)
+De lijst van Thijs (Google AI-modus, 17 nov) is al helemaal uitgezocht door 5 onderzoekers en 6 keurders: niets haalt een 7. Lees `platformen/ideeen/onderzoek-2026-11-17/UITKOMST.md` en doe die tips niet opnieuw. De rest van de ploeg staat uit; een overlever van 7+ meld je in `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**Extra voor jou, les van 17 nov:** Blender 5.3 kwam op 10 nov met Gaussian splats (staat op de pagina rendering/ van de release notes, niet in python_api/). Binnen 7 dagen stonden er vijf betaalde splat-add-ons op Superhive; wij misten het. Lees bij een nieuwe versie van een grote winkel daarom ALLE pagina's van de release notes, niet alleen de API. En kijk vooruit: Blender (alpha 5.4, projects.blender.org), JetBrains (EAP) en VS Code (Insiders, iteration plan) laten maanden vooraf zien wat er komt. Een functie die in de volgende versie komt en waar nog geen plugin voor is, is precies jouw hoek: dan kunnen we klaarstaan op de dag van uitkomst.

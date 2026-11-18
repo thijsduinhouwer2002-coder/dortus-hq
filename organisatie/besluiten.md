@@ -497,3 +497,6 @@ Op voorstel van Ruben (16:30 UTC). Waarom: enige toegestane manier om in Blender
 
 ## 17 nov 2026 ±18:36 NL: alles op pauze (Thijs: "stop alles voor nu")
 Alle 12 agents uit (Olaf, Bram, Sanne, Iris, Daan, Ruben, Chris, Noor, Lars, Joris, Patrick, Gijs), plus de avondcheck van 20:00, de ochtendronde van wo 08:41 en de Superhive-check van wo 10:30. Alleen de afspraak Steam-app wo 12:00 met Thijs staat nog aan. Weer aanzetten: alleen als Thijs dat zegt; dan dezelfde tijden als in deel 2 van het bord, en de hoofdchat-ronde opnieuw plannen (`organisatie/hoofdchat-ronde.md`).
+
+## 18 nov 2026 ±07:40 NL: alleen de ideeënploeg weer aan (Thijs)
+Noor, Lars, Joris en Patrick staan weer aan, op hun oude tijden. De rest (Hats-team, Chris, Ruben, Gijs) en de hoofdchat-rondes blijven uit. Lars kreeg de les van Blender 5.3 erbij: alle release notes lezen en vooruitkijken naar alpha, EAP en Insiders.
