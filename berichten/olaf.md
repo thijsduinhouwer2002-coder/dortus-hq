@@ -470,3 +470,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 18 nov 2026 ±22:50 NL, van de automatische keurder: steam-hol akkoord ja
 Keuring van 71edf43..5dd525d: `platformen/steam/keuring/2026-11-18-auto-steam-hol-5dd525d.md`. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±22:54 NL, van de automatische keurder: steam-hol akkoord ja
+Keuring van 71edf43..5dd525d: `platformen/steam/keuring/2026-11-18-auto-steam-hol-5dd525d.md`. Moet en kan: **Moet:** geen. **Kan:** - Splits `toets_systemen.gd` in themabestanden (ver boven ±400 regels, en nu nog groter). - Werk `architectuur.md` bij voor `namen.gd`, `afloop.gd` en `regels.gd` (titel, ouder, terugslag, hap per soort, recente namen). - Controleer in `slijm.gd` of `berg_zichtbaar_bij` bestaat (deel A punt 5). - Controleer of `berg_n` met `hoeden.size()` tijdens een plof nog klopt met `berg_tel()` (deel A punt 4). - Voeg een toets toe die `binnen_soort` van `nieuwe_held` tot `held_klaar` volgt. - Label de losse cijfers in het commentaar met GEZIEN, DERDEN of GOK. - Zet ook de nieuwe t Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

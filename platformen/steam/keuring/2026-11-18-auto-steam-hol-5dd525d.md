@@ -1,29 +1,44 @@
-# Keuring steam-hol (71edf43..5dd525d), 18-11-2026, automatische keurder
-Wat ik keurde: commits 71edf43..5dd525d (terugslag en hap per soort, Dame/{ouder}, 24 namen zonder families, zuinige spinrag-grens) tegen `producten/steam-hol/ontwerp.md`
+# Keuring steam-hol, 18-11-2026, automatische keurder
+Wat ik keurde: commits 71edf43..5dd525d (de tekst van de wijziging; ik heb niets gedraaid of gezien)
 Akkoord: ja
 
-Ik las alleen tekst. Ik draaide geen toetsen en zag geen beelden of testlog. "0 FOUT" uit de commitberichten kon ik dus niet nakijken. Het bestand `lokaal-a1ca6f6-kroniek.txt` kreeg ik niet mee en heb ik niet beoordeeld.
-
 ## Deel A: doet het wat beloofd is?
-| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+| # | Bevinding | Feit of vermoeden | Zekerheid (hoog/midden/laag) | Wat het zou bevestigen of weerleggen |
 |---|---|---|---|---|
-| 1 | `{titel}` (Sir/Dame) en `{ouder}` (mom/dad) vullen zichzelf uit `{naam}`, in zowel `regels.gd` als `kroniek_regels.gd`, en de naamgenoot-regels gebruiken `{ouder}`. De toets loopt alle binnen/val/vlucht/hap-regels af met elke naam plus III op Sir bij vrouwennamen, ongevulde accolades en lengte. | Feit (uit de code en de toetstekst) | Hoog | Een groene toetsrun in het workflow-log. |
-| 2 | `hap_soort()` volgt de belofte in ontwerp.md: eigen hap-regel bij een opzet, geen terugkomer en geen demofilm, en alleen als er geen `hap_hoed` kwam. Zoniet blijft het `val_bewoner`. Alle 7 soorten hebben 2 regels, en de toets eist dat ze passen met " +9". | Feit | Hoog | Toetsrun. |
-| 3 | De terugslag zit in `held_klaar`: `binnen_soort` wordt bij binnenkomst gezet en bij afloop weer gewist, zodat het niet in de terugkomers belandt. De getoetste logica (`terugslag()`, `hap_soort()`) klopt. De toetsen roepen alleen die losse functies aan. Dat `held_klaar` ze ook echt kiest, en dat `binnen_soort` niet lekt, wordt nergens getoetst. | Vermoeden | Midden | Een toets die een held door `held_klaar` stuurt met `binnen_soort="ridder"` en de gekozen soort controleert. |
-| 4 | `vrije_naam` doet wat de commentaren beloven: 24 namen van hooguit 5 letters, laagste telling eerst, niet uit de laatste 6, en een lege telling zodra alle vrije namen op 3 staan. De bron van de regel (`features.md`, Sanne 16:50) zag ik niet. Het kan dus afwijken van haar tekst zonder dat ik het merk. Randgeval: de telling wordt ook gewist voor namen die op dat moment bezet zijn. Een volgende "Kees" kan dan weer "Kees II" heten terwijl er al een Kees II is gevallen. | Vermoeden | Laag | Dezelfde reeks lopen met een terugkomer erbij, en `features.md` naast de code leggen. |
-| 5 | `berg_n` in `hol_vast.gd` telt nu `hoeden.size()` via `berg_zichtbaar_bij`, niet meer de zichtbare berg. Tijdens de ±4 s dat een nachthoed valt kan de spinrag-grens dus anders staan dan de getekende berg. De aanroep heeft geen `has_method`-controle meer en `slijm.gd` stond niet in deze wijziging. Als `berg_zichtbaar_bij` daar ontbreekt, geeft dat een fout bij het tekenen. | Vermoeden | Midden | Zoeken naar `func berg_zichtbaar_bij` in `slijm.gd` (grep), en `toets_berg_wand.gd` plus een beeld tijdens een nachtval. |
-| 6 | Heldenboek en soortuitleg zijn zonder he/his/him herschreven, en de toets leest daarvoor de bronbestanden. De boektoetsen kloppen met de nieuwe tekst. "The pit won." wijkt bewust af van Sanne en dat staat in ontwerp.md. | Feit | Hoog | Toetsrun. |
-| 7 | `begraven.png.import` staat in de diff met een nieuwe uid en een nieuw pad-hash, terwijl `begraven.png` zelf niet wijzigde. Het commitbericht zegt dat het van main blijft. Dat kan alleen kloppen als main een nieuwere versie heeft dan 71edf43. Het is kunst van Daan, buiten deze opdracht. | Vermoeden | Midden | `git diff main -- producten/steam-hol/godot/kunst/3d/begraven.png.import` moet leeg zijn. |
+| 1 | `namen.gd` heeft 24 namen van hooguit 5 letters, kiest de laagste telling en neemt geen naam uit de laatste 6. De telling gaat leeg als alle vrije namen op 3 staan, en een recente naam houdt zijn II of III. | Feit (code gelezen) | hoog | De toetsrun van `toets_systemen.gd` (0 FOUT). De toets doorloopt 226 namen en test ook de randgevallen. |
+| 2 | `{titel}` (Sir of Dame) en `{ouder}` (mom of dad) vullen zichzelf uit `{naam}`, zowel in `regels.gd` als in `kroniek_regels.gd`. De toets loopt alle binnen-, val-, vlucht- en hapregels langs met elke naam plus III. | Feit | hoog | Dezelfde toetsrun. |
+| 3 | Terugslag en hap per soort gebruiken dezelfde voorwaarden: een opzet, geen terugkomer en geen demofilm. `binnen_soort` wordt in `held_klaar` gewist, dus een terugkomer krijgt hem nooit. | Feit voor de logica, vermoeden voor de bedrading | midden | Een toets of `film.log` waarin `nieuwe_held` en `held_klaar` samen draaien. De huidige toetsen testen `terugslag()` en `hap_soort()` met een nep-strook, niet de keten vanaf de binnenkomst. |
+| 4 | `berg_n` rekent nu met `sl.hoeden.size()`. Het ontwerp zegt dat hoeden die nog vallen of vliegen niet meetellen (`berg_tel()`). Tijdens een plof kan de spinraggrens dus voor een grotere berg gelden dan de zichtbare. | Vermoeden | laag | Een beeld of toets tijdens een plof (`toets_berg_wand.gd` of de schermafbeeldingen) die de spinragplaatsing vergelijkt. |
+| 5 | De controle `has_method("berg_zichtbaar_bij")` is weggehaald. Die methode staat niet in deze wijziging; `slijm.gd` zit er niet in. | Vermoeden dat hij al bestaat | midden | Zoek `func berg_zichtbaar_bij` in `systemen/slijm.gd`, of een groene scriptlaad-stap in `steam-hol.yml`. |
+| 6 | Heldenboek en uitleg zijn zonder he/his/him herschreven (`boek.gd`, `heldensoort.gd`). Een toets leest die bestanden op de oude zinnen. | Feit | hoog | Toetsrun. |
+| 7 | Het bewijsbestand voor de terugslag (`lokaal-a1ca6f6-kroniek.txt`) is niet meegestuurd. De claim "2 keer in 13 min, beide na hun opzet" kan ik niet nalezen. | Vermoeden | laag | Het bestand lezen, of de `film.log` van de Windows-run. |
+| 8 | Hoe de regels, namen en de spinrag er in de strook uitzien en lezen, kan ik niet beoordelen. | Vermoeden | laag | Daan keurt het beeld en Iris keurt op plezier. |
 
 ## Deel B: houdt het zich aan onze regels?
 | # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
 |---|---|---|---|---|
-| 1 | Geen toets is verwijderd of verzwakt. Alleen de verwachte boek-teksten zijn aangepast, samen met de bewuste tekstwijziging, en er zijn veel nieuwe toetsen bij. | Feit | Hoog | Tests niet aangepast om te slagen: ok |
-| 2 | `toets_systemen.gd` was al ver boven de ±400 regels (de diff begint op regel ~1362) en groeit nu met ~140 regels. Er bestaat al een aparte toetsmap en een los toetsbestand (`toets_berg_wand.gd`), dus splitsen kan. | Feit | Hoog | Bestanden onder ±400 regels |
-| 3 | `architectuur.md` is niet bijgewerkt. De regels voor Namen en Afloop noemen niets over de titel/ouder, de lijst van 24 namen met recente-6-regel, de terugslag en `hap_soort`. In ontwerp.md staat alleen "Dame en hap per soort". De 24 namen, de terugslag en de zuinige spinrag-grens ontbreken. | Feit | Hoog | architectuur.md bijgewerkt |
-| 4 | In de wijziging staan geen persoonsgegevens, sleutels of wachtwoorden. Alleen verzonnen heldennamen en teamnamen in commentaar. | Feit | Hoog | Geen persoonsgegevens |
-| 5 | Cijfers in commentaar missen een label: "20 keer in 75 min", "val_bewoner van ±5 naar ±3 keer per regel per uur", "Iris: hooguit 6". | Feit | Hoog | Cijfers met GEZIEN/DERDEN/GOK |
-| 6 | De nieuwe terugslag- en hap-regels zijn in het commentaar als CONCEPT gemarkeerd. De gewijzigde Heldenboek- en uitlegte
+| 1 | De boektoetsen zijn aangepast aan de nieuwe tekst ("got this one", "The pit won."). Dat volgt uit een bedoelde tekstwijziging, en er zijn veel nieuwe toetsen bij. Het is geen aanpassing om te slagen. | Feit | hoog | Tests niet aangepast om te slagen: voldaan. |
+| 2 | `toets_systemen.gd` groeit met ±140 regels en staat al ruim boven de 1500 regels. Het bestand was al te groot, maar wordt nog groter. | Feit | hoog | Bestanden onder ±400 regels: overtreden, bestaand. Zie Kan. |
+| 3 | `architectuur.md` is niet bijgewerkt. De rijen Namen, Afloop en Regels noemen titel, ouder, `terugslag()`, `hap_soort()` en `recente_namen` niet. | Feit | hoog | architectuur.md bijgewerkt: niet gedaan. Zie Kan. |
+| 4 | Er staan geen persoonsgegevens, sleutels of wachtwoorden in de wijziging. Alleen verzonnen heldennamen. | Feit | hoog | Geen persoonsgegevens: voldaan. |
+| 5 | In commentaar staan cijfers zonder label ("20 keer in 75 min", "±5 naar ±3 keer per uur"). | Feit | hoog | Cijfers met GEZIEN/DERDEN/GOK. Zie Kan. |
+| 6 | De nieuwe terugslag- en hapregels zijn als CONCEPT gemarkeerd. De wijzigingen in `boek.gd` en `heldensoort.gd` hebben die markering niet. De commits heten "Hats", maar het gaat om Het Hol. | Feit | midden | Spelerstekst alleen als CONCEPT. Zie Kan. |
+| 7 | `systemen/kroniek.gd` en `kroniek_regels.gd` laden nu `kern/namen.gd` (via `load`). Dat is een nieuwe koppeling van systemen naar kern, buiten de afspraak met `hol.gd`. | Feit | midden | Afspraak kern en systemen. Zie Kan. |
+| 8 | `kunst/3d/begraven.png.import` is gewijzigd (uid en pad). De commit zegt dat de versie van main behouden moet blijven. De kunst is van Daan. | Vermoeden dat het alleen de stand van main volgt | midden | Vergelijk dit bestand met `main`: geen verschil betekent in orde. |
+
+## Moet (blokkeert akkoord) / Kan (mag later)
+**Moet:** geen.
+
+**Kan:**
+- Splits `toets_systemen.gd` in themabestanden (ver boven ±400 regels, en nu nog groter).
+- Werk `architectuur.md` bij voor `namen.gd`, `afloop.gd` en `regels.gd` (titel, ouder, terugslag, hap per soort, recente namen).
+- Controleer in `slijm.gd` of `berg_zichtbaar_bij` bestaat (deel A punt 5).
+- Controleer of `berg_n` met `hoeden.size()` tijdens een plof nog klopt met `berg_tel()` (deel A punt 4).
+- Voeg een toets toe die `binnen_soort` van `nieuwe_held` tot `held_klaar` volgt.
+- Label de losse cijfers in het commentaar met GEZIEN, DERDEN of GOK.
+- Zet ook de nieuwe teksten in `boek.gd` en `heldensoort.gd` als CONCEPT tot Thijs ze goedkeurt.
+- Controleer of `begraven.png.import` gelijk is aan de versie op main.
+- Lever het bewijsbestand voor de terugslag mee.
 
 ---
-Automatische keurder, model `claude-sonnet-5-5`, 39287 tokens in, 16000 tokens uit (GEZIEN in het antwoord van de API). Deze keurder leest alleen tekst; beeld en speelplezier keuren Daan en Iris nog steeds.
+Automatische keurder, model `claude-sonnet-5-5`, 39368 tokens in, 11054 tokens uit (GEZIEN in het antwoord van de API). Deze keurder leest alleen tekst; beeld en speelplezier keuren Daan en Iris nog steeds.
