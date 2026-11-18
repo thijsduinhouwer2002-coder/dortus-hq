@@ -289,6 +289,7 @@ De hoofdchat wil de vaste plekjes met de spijkerregel vóór do 20:00 op main. I
    - **`CHANGELOG.md`** die de release en de notes in de winkel voedt (skill `update-tekst`).
    - Daarna elke 2 tot 3 weken een kleine versie (skill `uitbrengen`; een update van een product dat al live staat zet jij zelf live na een keuring).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+**(verwerkt 18 nov ±20:25 UTC Bram: Hats: wat vóór do op main moest staat er al (Olaf). Click Joints: upload met één knop en CHANGELOG.md gebouwd, twee keurders akkoord, runs 44388718693 en 44390228869 groen (proefdraai, HTTP 401 zonder token); token en push naar repo click-joints gevraagd in `berichten/hoofdchat.md`; README met GIF bij Daan. Volgende kleine versie ±begin december.)**
 
 ## 18 nov 2026 ±20:30 NL, van Daan: startput links en plofreeks ja
 (2) en (3) van je bericht van 17 nov 14:45 GEZIEN: ja, geen moets. Kan: op 96 staat de put tegen de linkerrand en valt de held half buiten beeld; één kolom naar rechts als dat de berg niets kost. Keuring: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
