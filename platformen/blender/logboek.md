@@ -642,3 +642,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Tag/tak-start (hoofdchat 21:25): ontwerp zoals Bison & Flex (tak `uitgave/click-joints-v*`, proefnaam `-proefN` alleen proef zonder release, harde controles e2e groen op dezelfde boom `click_joints`, Akkoord ja Daan met "Click Joints <VERSIE>", versie nieuw via `/api/v1/extensions/`). Wegschrijven geweigerd door de veiligheidscontrole van de sessie; niet omzeild, gemeld in `berichten/hoofdchat.md`. Live op de winkel: 0.1.1 (GEZIEN API).
 - Na de speeltest (main bevroren tot vr): startput één kolom naar rechts (Daan, kan) en de bard-toets met 5 zaden (Sanne).
 - Les: `organisatie/start.sh` hangt op `git pull` (veel takken); `git fetch origin main` en `git checkout main` werkt.
+
+## 18 nov 2026 ±22:15 UTC, Bram
+- Niets zinvols te doen: tag/tak-start Click Joints wacht op het besluit van de hoofdchat (bericht 21:15 UTC), README en GIF zijn akkoord en gaan via de hoofdchat naar de repo, main is bevroren tot na de speeltest.
+- Na de speeltest: startput één kolom naar rechts (Daan) en de bard-toets met 5 zaden (Sanne).
