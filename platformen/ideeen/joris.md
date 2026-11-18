@@ -2,6 +2,36 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 12:00 UTC: run 9, 0 ideeën klaar voor keuring, 1 zelf afgeschoten (plus 2 snel)
+
+Tijd uit `date -u` (gestart 12:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run de nieuwsoverzichten van de laatste week nagelopen (aiagentsdirectory.com, briefs 11 tot 17 nov) en gezocht naar agent-winkels die vandaag openen. Eén vond ik: Venice Mind Market, open sinds vandaag.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±12:00 UTC):**
+- Cowboy: "Every listing is free to hire today", "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md).
+- ChatGPT-plugins: "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md).
+- Claude directory: 1.098 connectors met `addedAt` in de paginadata van claude.com/connectors, per maand jun 135, jul 166, aug 192, sep 117, okt 89, nov 8, laatste op 12 nov. Nog steeds niets nieuws.
+- Claude Marketplace (claude.com/plugins): "533 plugins", 531 met een veld `installs` (GEZIEN 18 nov ±12:02 UTC). Nieuw gezien: het deel "Agents and products" (48 producten, kopen met je bestaande Anthropic-budget) is alleen voor grote partners als Asana, Cursor, CrowdStrike en Datadog. Niet voor ons.
+- Hermes Marketplace: paginadata opgehaald (2,9 MB), zelfde woorden "paid" en "price" als in run 8, geen kassa gezien.
+
+**Les van deze run.** Een agent-winkel met een "kassa" in eigen tegoed is geen kassa. Venice betaalt makers uit in Venice-credits, die je alleen bij Venice weer kunt opmaken. Dat is een cadeaubon, geen omzet. En in een winkel waar je een agent maakt door één zin te typen (Venice maakt hem dan voor je), is de brede basistaak de app zelf; wat overblijft zijn nissen en personages.
+
+### Zelf afgeschoten: de nummer één basis-Mind worden in de Venice Mind Market (open sinds 18 nov) | DOOD op wet 3 en wet 4, zwak op wet 1 en wet 2
+- **Waarom het lokte (wet 1 en een soort kassa):** Venice opende vandaag Venice Minds en de Mind Market. "Now live Venice Minds ... make your own and earn credits every time someone puts it to work", "Chat on Free, build and earn on Pro", en voor makers: "Add a markup to Venice's inference rates. You keep 90% of your markup. Venice takes 10% as a platform fee and uses all of it to buy and burn VVV" (GEZIEN 18 nov ±12:03 UTC, venice.ai/lp/minds). Nieuws van vandaag: kucoin.com, tokenpost.com (18 nov 2:27 EST), chaincatcher.com. Venice heeft "3.5 million registered users" en verwerkt "1.3 trillion tokens per month" (GEZIEN, venice.ai/blog/venice-raises-65-million-series-a, 1 jul 2026). Een winkel van één dag oud, met een opbrengstdeling, bij een assistent met miljoenen gebruikers: precies waar ik naar zoek.
+- **Wet 3, harde nee (ook in de zachte vorm):** "90% You keep 90% Of your margin, paid out in Venice credits" en "Earnings are platform credits from paid usage" (zelfde pagina). Een manier om credits in geld om te zetten zag ik niet op de pagina, in de prijzen of in het nieuws (ONBEKEND of die er komt). Route naar later geld buiten Venice: een Mind is een prompt met aangezette gereedschappen, zonder eigen login of dienst, dus geen Pro-versie elders. Het Rollwright-probleem, met credits als troostprijs.
+- **Wet 4 en vraag 1, al gebeurd:** de gewone chat van Venice heeft zelf al zoeken, webpagina's lezen, plaatjes, video en sub-agents; een Mind zet alleen een selectie daarvan aan uit dezelfde lijst ("Web search, Web scrape, Image search, Generate image ... Calculator, Clock, Currency conversion", zelfde pagina). En: "Describe one in a sentence ... Venice drafts the Mind for you: its name, its face, its tools." Een brede basis-Mind (onderzoek, schrijven, code) voegt dus niets toe aan wat de app zelf al doet, en iedereen maakt zijn eigen variant in één zin.
+- **Wet 1, niet echt leeg:** de markt start niet bij nul. "Thousands of Minds to choose from", en op de pagina staat een Mind van 23 sep 2026 (story-writer-2743) naast nieuwe van 13 en 14 nov met nummers rond 10.000. GOK: de oude personages van Venice (al sinds 2024 te maken op Pro, "Create and share custom characters", venice.ai/pricing) zijn omgezet naar Minds. De eerste plekken zijn dus al gevuld, vooral met personages en verhalen.
+- **Wet 2 en vraag 5:** de etalage heeft categorieën en zoeken (changelog: "Mind search now uses full-text search", GEZIEN 18 nov, venice.ai/changelog), maar ook "Anyone can also burn VVV to a Mind to boost it in discovery" (venice.ai/lp/minds): een plek kopen met cryptomunten. Een ranglijst op gebruik heb ik niet kunnen zien; de lijst laadt pas in de browser en de interne API heb ik niet bevraagd (ONBEKEND).
+- **Vraag 7:** bouwen en verdienen vraagt Pro, $18 per maand (GEZIEN, venice.ai/pricing), plus een account. Dat moet Thijs doen en betalen. Merk: Venice profileert zich als "uncensored", met Minds voor erotica op de voorpagina; GOK dat dit slecht past bij de naam Dortus.
+- Wat het zou veranderen: Venice laat makers credits uitbetalen in geld (of in VVV dat te verkopen is, met een duidelijke regel), en er komt een openbare ranglijst op gebruik. Dan een basis-Mind met iets wat de chat niet zelf kan, bijvoorbeeld een vaste werkwijze met sub-agents.
+
+### Zelf afgeschoten (snel)
+- **Persoonlijke agent van ByteDance (codenaam Spell):** "plans to release a personal AI assistant in the coming weeks, built in the mold of Meta's Muse"; naam, functies en landen zijn onbekend (GEZIEN 18 nov, agentmarketcap.ai/blog/2026/11/13, op basis van Bloomberg 11 nov; technode.com 12 nov, kop). Nog niets om in te dienen. Klok: kijken of er bij de lancering een winkel of skill-lijst voor makers is.
+- **Agent Plugins 1.0 (één pakketvorm voor skills en MCP in VS Code, Copilot, Cursor, ChatGPT, Kiro):** sinds 6 aug 2026, en de standaard laat winkels er bewust buiten: "deliberately excludes: installation mechanisms, distribution protocols ... and marketplaces" (GEZIEN 18 nov, forkast.news, 8 aug; aaif.io/blog/from-skills-and-tools-to-portable-agent-plugins). Niet vroeg en geen etalage. DOOD op wet 1.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md), ChatGPT (monetization.md), Claude directory (aantal per maand), Hermes, Gemini (openbare skill-galerij), en nieuw: Venice (kunnen credits naar geld; komt er een ranglijst op gebruik) en ByteDance Spell (winkel bij de lancering).
+- 11 dec: GPT Store dicht; tellen wat er in chatgpt.com/plugins bijkomt.
+
 ## 18 nov 2026 11:00 UTC: run 8, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 4 snel)
 
 Tijd uit `date -u` (gestart 11:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Spoor van run 7 opgepakt: kleinere assistenten met een open lijst en tellers, en het gat dat de Gems van Gemini deze maand achterlaten.
