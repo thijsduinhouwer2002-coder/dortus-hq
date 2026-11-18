@@ -114,6 +114,7 @@ var slijm_plat := false
 var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
 var recente_namen: Array = []   # voornamen van de laatste nieuwe helden, niet in de save (Sanne 17 nov 16:50 punt 3)
 var naamgenoot_gezien := {}  # voornamen die deze speelbeurt al een naamgenoot-regel kregen (Sanne 16 nov 22:00)
+var naamgenoot_laatst := -1000.0   # t van de laatste naamgenoot-regel, hooguit één per 5 min (Iris keuring 23 punt 1)
 var plat_keer := 0           # hoe vaak "flat" deze speelbeurt in de rij ging (hooguit WACHTRIJ.PLAT_KEER, Daan 16 nov 20:35)
 var plat_gemeld := false     # staat (of wacht) er een "flat" voor de huidige keer plat; alleen dan komt "up again"
 var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort

@@ -10,11 +10,12 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Ritme | `kern/ritme.gd` | Olaf | wanneer de volgende held komt (ook na het lied van een bard) en het graven in de demo-film |
 | Kroniek-wachtrij | `kern/wachtrij.gd` | Olaf | welke regel wanneer in het tekstvak komt (gebeurtenis gaat voor, binnenkom-regel vervalt na 3 s) |
 | Beeldtempo | `kern/beeldtempo.gd` | Olaf | 10 beelden per s, 20 tijdens een moment (val, hap, muntjes); `fps=<n>` houdt het vast. Helden lopen in hele pixels op een klok van 0,1 s (`systemen/held.gd` PAS) |
-| Namen | `kern/namen.gd` | Olaf | vrije naam (geen twee tegelijk, Kees II), bijnamen, de terugkomer-regel met bijnaam |
-| Afloop | `kern/afloop.gd` | Olaf | wat er gebeurt als een held klaar is: vlucht met wrok, of val met goud, munten en hoed op de toren |
+| Binnenkomst | `kern/binnenkomst.gd` | Olaf | een nieuwe held of terugkomer binnen laten: stap van het begin, soort en trek, binnenkomstregel; `naamgenoot_mag` (II of III, één keer per voornaam, hooguit één naamgenoot-regel per 5 min) |
+| Namen | `kern/namen.gd` | Olaf | vrije naam uit 24 namen in families (laagste telling eerst, niet uit de laatste 6 recente namen, na III alles tegelijk wissen), `titel` (Dame voor vrouwennamen), `ouder` (mom of dad voor de naamgenoot), bijnamen, de terugkomer-regel met bijnaam |
+| Afloop | `kern/afloop.gd` | Olaf | wat er gebeurt als een held klaar is: vlucht met wrok, of val met goud, munten en hoed op de toren; `terugslag` (de vangst slaat terug op de binnenkomst, `binnen_soort`), `hap_soort` (eigen hapregel per heldensoort, terugkomers en demofilm gewoon `val_bewoner`) |
 | Opslag | `kern/opslag.gd` | Olaf | bewaren en laden (`user://hol.json`), voortgang terwijl je weg was (via `systemen/voortgang.gd`) |
 | Tekstvak | `kern/tekst.gd` | Olaf | goud, laatste regel, paneel bij hover |
-| Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort, schudzak, max 42 tekens |
+| Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult {naam}, {held}, {oud} en {ouder} (die laatste uit de naam via `namen.gd`) |
 | Hol | `hol/hol.gd` | Olaf | raster, graven, put, schat, munten, tekenen |
 | Systemen | `systemen/*.gd` | Bram | held, slijm (Gloop), kroniek, upgrades, voortgang; toetsen in `systemen/toetsen/` |
 | Kunst | `kunst/` | Daan, Mila | plaatjes |
