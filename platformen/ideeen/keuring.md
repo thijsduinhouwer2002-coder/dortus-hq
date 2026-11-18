@@ -2,6 +2,49 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 07:25 UTC, run 4 Patrick: de vijf wet-3-doden opnieuw gekeurd met de zachte wet 3, 0 overlevers
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 4, Lars run 4, Joris run 4: 0 ingediend). Opdracht van de hoofdchat (18 nov ±07:45 NL) gevolgd: wat op 17 nov alleen op wet 3 sneuvelde opnieuw gekeurd, nu met de vraag of wij daar de nummer één in een basistaak kunnen worden en hoe groot het bereik echt is. Zelf opnieuw gezocht in de primaire bron, met andere ingangen dan de zoekers (GitHub-zoek-API, analytics van Home Assistant, de registerpagina zelf, de changelog van Cursor).
+
+**Uitslag: niets haalt een 7. Zonder harde wet 3 sneuvelen ze nu op wet 1, 2 of 4.** Les voor iedereen: de zachte wet 3 vraagt een etalage die gebruik meet (installaties, downloads) én een basistaak die nog open is. Van de vijf meet alleen Home Assistant echt gebruik, en daar is niets meer vroeg.
+
+| Winkel | Oud cijfer | Nieuw | Doodsoorzaak nu |
+|---|---|---|---|
+| Home Assistant Marketplace | 4 | 3 | Wet 1 en 2: het is de oude HACS-catalogus met een nieuw bord, en al overspoeld |
+| EmDash-plugins | 6 (hooguit) | 4 | Wet 2 en vraag 5: basistaken al 2 tot 3 keer bezet, geen teller van gebruik, bereik ONBEKEND |
+| Claude connectors directory | 5 | 3 | Wet 1 en 2: golf voorbij, merken bovenaan, wij hebben geen eigen dienst |
+| Hermes Marketplace | geen | 3 | Wet 4 en vraag 5: basistaken ingebouwd, etalage telt GitHub-sterren |
+| Cursor Origin | 2 | 2 | Wet 2 en bereik: alleen teams op een bètaforge, basistaken op dag 1 van grote partners |
+
+### Home Assistant Marketplace | DOOD op wet 1 en wet 2, cijfer 3
+- **Bereik is echt groot:** 734.694 actieve installaties die analytics delen (GEZIEN 18 nov, analytics.home-assistant.io/data.json, veld `active_installations`). Het echte aantal is hoger, want delen is vrijwillig. En de winkel staat nu in elke installatie onder Instellingen.
+- **Maar niets is vroeg.** De maker zelf: "my goal was simple: if you use HACS today, it should feel like only the name changed", en "The Marketplace brings the existing HACS experience into Home Assistant" (GEZIEN 18 nov, home-assistant.io/blog/2026/11/04/release-202611/). De catalogus is de HACS-lijst van GitHub, die sinds 2019 groeit. De basistaken (kaarten, thema's) hebben al jaren hun winnaars (Mushroom, card-mod; uit `onderzoek-2026-11-17/C-spel-maker.md`, niet zelf geteld).
+- **En het stroomt al over.** In de lijst `hacs/default` zijn 1.385 pull requests samengevoegd tussen 1 en 18 nov, 1.345 in oktober, en er staan er nog 949 open (GEZIEN 18 nov, GitHub-zoek-API `repo:hacs/default is:pr is:merged`). Bijna allemaal "Adds new integration" of "Adds new plugin" voor één merk, één land of één apparaat (bijvoorbeeld een Franse waterleverancier, een Vietnamese kalender). Wie er nu bij komt, staat tussen honderden per week.
+- **Wet 3 zacht:** "Everything in the Marketplace is free, and that will not change" (zelfde blog). Route naar later geld zou alleen een eigen betaalde dienst achter een integratie zijn; die hebben wij niet. Zonder eigen dienst blijft het een Rollwright: bereik, geen geld.
+- Wat het zou veranderen: een brede taak die de catalogus aantoonbaar niet heeft, met een vraag van honderden stemmen op community.home-assistant.io. Niet gevonden.
+
+### EmDash-plugins (Cloudflare) | ZWAK, cijfer 4, blijft een klok
+- **Nieuw feit:** het register telt nu **321 plugins** (GEZIEN 18 nov, plugins.emdashcms.com/search, "321 in the registry"). Noor telde op 17 nov 48; dat was de eerste pagina. Het groeit dus snel, en de basistaken zijn al bezet: SEO drie keer (SEO & Schema Markup, Rank EmDash, QuixSEO) plus een AI-zichtbaarheidscheck, plus Stripe-winkel, contactformulier, onderhoudspagina, Notion-import (zelfde pagina).
+- **Vraag 5, etalage:** de lijst sorteert op "Updated"; nergens een aantal installaties. Nummer één worden is daar niet te meten of te winnen met kwaliteit.
+- **Wet 3:** nog steeds "All registry plugins are free for now ... we plan to add paid plugins" (GEZIEN 18 nov, emdashcms.com/blog/emdash-plugin-registry). Dat is de geloofwaardigste route naar later geld van de vijf, en de reden dat dit een 4 is en geen 2.
+- **Bereik:** hoeveel echte sites EmDash draaien: ONBEKEND. De npm-telling van Noor (±500.000 per maand) telt ook bouwservers mee.
+- **Wet 1, Thijs:** publiceren vraagt een Atmosphere-account (Bluesky), dus een account van Thijs (GEZIEN door Noor 17 nov, niet opnieuw nagelezen).
+- Wat het zou veranderen: betaalde plugins gaan aan. Dan meteen opnieuw, met de vraag welke basistaak nog geen betaalde winnaar heeft.
+
+### Claude connectors directory | DOOD op wet 1 en wet 2 voor ons, cijfer 3
+- Zelf nageteld in de paginadata van claude.com/connectors (GEZIEN 18 nov): toegevoegd per maand jun 135, jul 166, aug 192, sep 117, okt 89, nov 8. Komt overeen met de telling van Joris (run 4). De golf is voorbij.
+- Een connector is de deur naar een eigen dienst; bovenaan staan merken die hun eigen dienst koppelen, en de taken zonder merk doet Anthropic zelf (Joris, run 4, met bron). Wij hebben geen dienst. De zachte wet 3 maakt de route "eigen abonnement achter OAuth" wel toegestaan, maar dan moeten we eerst een dienst hebben die iemand wil. Dat is een ander idee, niet deze winkel.
+
+### Hermes Marketplace | DOOD op wet 4 en zwak op vraag 5, cijfer 3
+- Zelf nagelezen in de paginadata (GEZIEN 18 nov, hermes-agent.nousresearch.com/marketplace): geen veld voor installaties, downloads of prijs; "Sort by" geeft sterren of datum. Eens met Joris: de etalage beloont wie al een bekende GitHub-repo heeft, niet wie de beste basistool maakt. De basistaken (Google Workspace, Notion, GitHub, pdf, mail) zijn eigen skills van Hermes (Joris run 4, met bron). De instroom zakte na de hackathon van 11 nov naar bijna nul per dag (zelfde bron).
+
+### Cursor Origin App Marketplace | DOOD op wet 2 en bereik, cijfer 2
+- Nu met primaire bron: de changelog van Cursor (13 okt 2026, "Origin App Marketplace"): ruim 20 apps van partners (Cloudflare, Netlify, Render, Vercel, Buildkite, CircleCI ...), "open to public submissions", Cursor keurt elke inzending (GEZIEN 18 nov, cursor.com/changelog). Origin zelf: "Early beta now available on all paid plans" (GEZIEN 18 nov, cursor.com/origin).
+- Bereik: alleen teams die hun code op een bètaforge van Cursor zetten; aantal ONBEKEND en zeker klein naast GitHub. Basistaken (deploy, CI, review, beveiliging) op dag 1 door grote partners. Bouwen vraagt een betaald Cursor-plan, dus geld van Thijs. Geen route naar geld in de winkel.
+
+### Stand per zoeker (18 nov)
+- Alle drie 0 ingediend in run 4, en dat is eerlijk: Joris telde zelf de etalages na (goed werk, ik kwam op dezelfde cijfers), Lars las vooruit in alpha en Insiders zoals gevraagd.
+- Tip voor de volgende runs: zoek een winkel die (1) jonger is dan een maand, (2) installaties of downloads toont, en (3) waar een zoekterm voor een brede taak nog 0 of 1 treffer geeft. Alle drie tegelijk, anders niet indienen. Het canvas-spoor van Lars (VS Code) faalt nu op punt 2; het EmDash-spoor op punt 2 en de kassa.
+
 ## 17 nov 2026 17:20 UTC, run 3 Patrick: niets te keuren
 - Geen nieuw idee met `KLAAR VOOR KEURING`: Noor run 3 (7 zelf afgeschoten), Lars run 3 (6), Joris run 3 (4). Overlevers is leeg, dus niets om na te keuren.
 - Steekproef op de zelf afgeschoten ideeën. **Blender-MCP ("Claudian voor Blender", Lars): DOOD op vraag 1, nu met eerste bron.** Lars las alleen een README van een derde die naar blender.org verwijst. De Blender Foundation heeft zelf de repo `lab/blender_mcp` op projects.blender.org (laatst bijgewerkt 29 sep 2026): een MCP-server plus Blender-add-on, "Read the documentation at blender.org/lab/mcp-server" (GEZIEN 17 nov, projects.blender.org/lab/blender_mcp, readme.md). Ruim tien mensen hebben er al een eigen kopie van (zoek-API projects.blender.org op "mcp", GEZIEN 17 nov). blender.org zelf geeft een Cloudflare-controle op curl, dus die pagina niet gelezen. Het platform doet het dus zelf; afschieten klopt.
