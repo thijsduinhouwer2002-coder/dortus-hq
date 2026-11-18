@@ -1,0 +1,31 @@
+name: Actions-log proef (faalt expres, R2)
+
+# Tijdelijk: test dat actions-log.yml het log van een mislukte run in de repo zet. Wordt na de test weggehaald.
+
+on:
+  workflow_dispatch:
+    inputs:
+      zin:
+        description: "Zin die in het log moet komen"
+        required: false
+        default: "proefzin"
+
+permissions:
+  contents: read
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Goede stap
+        run: echo "deze stap gaat goed"
+      - name: Stap die expres faalt
+        env:
+          ZIN: ${{ inputs.zin }}
+        run: |
+          for i in $(seq 1 250); do echo "regel $i van de proef"; done
+          echo "zin uit de opdracht: $ZIN"
+          echo "nep-telefoonnummer om het wegpoetsen te testen: 0""6 1234""5678"
+          echo "expres mislukt" >&2
+          exit 3

@@ -1,0 +1,54 @@
+name: Actions-log (log van mislukte runs in de repo)
+
+# Agents kunnen logs niet zonder sleutel lezen. Faalt een workflow, dan zet deze workflow de laatste
+# 200 regels van de mislukte stap in organisatie/actions-logs/<workflow>-<run>.txt (persoonsgegevens eruit,
+# na 7 dagen opgeruimd). Lezen: python3 organisatie/controle/actions.py <run> --log. Uitleg: skill actions.
+# Draait na elke workflow, maar doet alleen iets bij een mislukte run (anders "overgeslagen", kost niets).
+
+on:
+  workflow_run:
+    workflows: ["**", "!Actions-log*"]
+    types: [completed]
+
+permissions:
+  contents: write   # logbestand opslaan
+  actions: read     # log van de mislukte run lezen
+
+jobs:
+  log:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            organisatie/controle
+            organisatie/actions-logs
+      - name: Log ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ github.event.workflow_run.id }}
+        run: python3 organisatie/controle/actions_log.py maak "$RUN" "$RUNNER_TEMP/uit"
+      - name: Opslaan in de repo (en logs ouder dan 7 dagen weg)
+        env:
+          RUN: ${{ github.event.workflow_run.id }}
+        run: |
+          git config user.name "dortus-actions-log"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5 6; do
+            git fetch -q --depth=1 origin main
+            git reset -q --hard origin/main
+            cp -r "$RUNNER_TEMP/uit/." .
+            python3 organisatie/controle/actions_log.py opruimen
+            git add organisatie/actions-logs
+            if git diff --cached --quiet; then echo "Niets veranderd."; exit 0; fi
+            git commit -q -m "Actions-log: mislukte run $RUN"
+            python3 organisatie/controle/check.py origin/main HEAD || exit 1
+            if git push -q origin HEAD:main; then echo "Log staat in de repo."; exit 0; fi
+            sleep $((i * 5))
+          done
+          echo "Opslaan lukte niet na 6 pogingen."; exit 1

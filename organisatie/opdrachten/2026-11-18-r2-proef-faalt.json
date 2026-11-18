@@ -1,0 +1,6 @@
+{
+  "workflow": "actions-log-proef.yml",
+  "invoer": {"zin": "hallo van R2"},
+  "van": "roestagent R2",
+  "waarom": "proef van actions-log.yml: run die expres faalt"
+}

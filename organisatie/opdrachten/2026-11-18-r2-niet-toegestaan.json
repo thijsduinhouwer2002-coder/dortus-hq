@@ -1,0 +1,6 @@
+{
+  "workflow": "jetbrains-bison-flex-upload.yml",
+  "invoer": {},
+  "van": "roestagent R2",
+  "waarom": "proef: deze moet geweigerd worden (upload staat niet op de lijst)"
+}

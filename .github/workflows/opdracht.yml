@@ -1,0 +1,56 @@
+name: Opdracht (workflow starten met een bestand)
+
+# Agents hebben geen werkende GitHub-sleutel. Ze pushen een opdrachtbestand naar organisatie/opdrachten/
+# en deze workflow start de genoemde workflow met zijn eigen sleutel, alleen als hij op de lijst staat
+# in organisatie/controle/opdracht.py. Het runnummer komt terug in hetzelfde bestand. Uitleg: skill actions.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "organisatie/opdrachten/*.json"
+
+permissions:
+  contents: write   # runnummer terugschrijven
+  actions: write    # workflow starten
+
+# Eén tegelijk, zodat een opdracht nooit twee keer start.
+concurrency:
+  group: opdracht
+  cancel-in-progress: false
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main          # nieuwste stand, ook als een vorige opdracht-run net iets terugschreef
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            .github/workflows
+            organisatie/controle
+            organisatie/opdrachten
+      - name: Opdrachten starten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 organisatie/controle/opdracht.py "$RUNNER_TEMP/uit"
+      - name: Uitslag terugzetten in de repo
+        run: |
+          [ -d "$RUNNER_TEMP/uit" ] || { echo "Niets terug te zetten."; exit 0; }
+          git config user.name "dortus-opdracht"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q --depth=1 origin main
+            git reset -q --hard origin/main
+            cp -r "$RUNNER_TEMP/uit/." .
+            git add organisatie/opdrachten
+            if git diff --cached --quiet; then echo "Niets veranderd."; exit 0; fi
+            git commit -q -m "Opdracht gestart (run ${GITHUB_RUN_ID})"
+            python3 organisatie/controle/check.py origin/main HEAD || exit 1
+            if git push -q origin HEAD:main; then echo "Uitslag staat in de repo."; exit 0; fi
+            sleep $((i * 5))
+          done
+          echo "Terugzetten lukte niet na 5 pogingen."; exit 1
