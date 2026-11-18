@@ -524,3 +524,17 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±00:37 NL, van de automatische keurder: obsidian-rollwright akkoord ja
 Keuring van a237762..1cd470c: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-1cd470c.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer bij de eerstvolgende e2e-run op main dat geen test rood wordt door het nieuwe begin van de reeks (A3). - Controleer dat crit en classic hun eigen `Math.random` altijd herstellen, ook bij falen (A4). - Zoek of iets op "ZAAD GEZET" in het log vertrouwt, en zet zo nodig een logregel terug (B5). - Zet een lege regel tussen de koptekst en de nieuwe JSDoc boven `zaai()`. Dat is puur netheid. - Voeg het bericht aan Olaf toe of controleer dat het in de commit zit (A5). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:38 NL, van de beeldvergelijking (automatisch): Rollwright
+13 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 8fa9e1f6). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44421652172
+- | lijst-1-lezen-donker.png | 5481 px (0.571%), x 302 tot 689, y 445 tot 483 | GROOT |
+- | lijst-1-lezen.png | 5554 px (0.579%), x 302 tot 689, y 445 tot 483 | GROOT |
+- | lijst-2-live-preview-donker.png | 5481 px (0.571%), x 302 tot 689, y 514 tot 552 | GROOT |
+- | lijst-2-live-preview.png | 5554 px (0.579%), x 302 tot 689, y 514 tot 552 | GROOT |
+- | lijst-3-geschiedenis-donker.png | 12634 px (1.316%), x 152 tot 1134, y 134 tot 776 | GROOT |
+- | lijst-3-geschiedenis.png | 12757 px (1.329%), x 152 tot 1134, y 134 tot 776 | GROOT |
+- | skin-tegels-licht.png | 58879 px (9.346%), x 273 tot 896, y 47 tot 692 | GROOT |
+- | winkel-1-lezen-donker.png | 5481 px (0.669%), x 214 tot 601, y 445 tot 483 | GROOT |
+- | winkel-1-lezen.png | 5554 px (0.678%), x 214 tot 601, y 445 tot 483 | GROOT |
+- | winkel-2-live-preview-donker.png | 5481 px (0.669%), x 214 tot 601, y 514 tot 552 | GROOT |
