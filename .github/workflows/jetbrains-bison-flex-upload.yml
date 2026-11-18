@@ -1,13 +1,30 @@
 name: Bison & Flex update uploaden (Marketplace)
 
 # Zet een nieuwe versie van Bison & Flex op plugins.jetbrains.com (plugin 35901).
-# Alleen met de hand te starten (Jet). Werkt pas als Thijs het secret
-# JETBRAINS_MARKETPLACE_TOKEN heeft gezet (zie organisatie/lijst-thijs.md).
 # Uploadt alleen als: Daan staat op "Akkoord: ja" in ontwerp.md, de CLion- en
-# e2e-run op precies deze commit groen zijn, unittests groen, Plugin Verifier
+# e2e-run groen zijn op deze plugincode, unittests groen, Plugin Verifier
 # Compatible, en de versie in build.gradle.kts nieuw is.
+#
+# Drie manieren om te starten (Chris, 18 nov 2026, opdracht hoofdchat 21:25 NL;
+# de ploeg kan "Run workflow" niet, zie organisatie/toegang.md):
+#   1. tag pushen:   bison-flex-v2026.1.2         echte upload (de tag geldt als bevestiging)
+#                    bison-flex-v2026.1.2-proef1  proefdraai: alle controles, geen upload
+#   2. omdat een tag pushen vanuit onze sessies 403 geeft (GEZIEN Olaf 18 nov),
+#      dezelfde naam als tak: git push origin HEAD:refs/heads/uitgave/bison-flex-v2026.1.2
+#      Werkt precies als de tag.
+#   3. met de hand (workflow_dispatch): uploaden alleen met bevestig = uploaden.
+# Bij een tag of tak moet de versie in de naam gelijk zijn aan version in build.gradle.kts.
+# Bij een proefnaam zijn "akkoord Daan" en "versie nieuw" alleen een waarschuwing
+# (zo kun je de workflow testen op een versie die al live staat); al het andere blijft hard.
+# release-date blijft bij een tag of tak altijd zoals in plugin.xml (kleine update).
+# Groen "op deze plugincode": een geslaagde CLion- en e2e-run op een commit met precies
+# dezelfde map producten/jetbrains-bison-flex (de commit zelf mag anders zijn, want andere
+# agents pushen intussen naar main).
 
 on:
+  push:
+    tags: ["bison-flex-v*"]
+    branches: ["uitgave/bison-flex-v*"]
   workflow_dispatch:
     inputs:
       releasedatum:
@@ -32,6 +49,29 @@ jobs:
         working-directory: producten/jetbrains-bison-flex
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Hoe gestart (tag, tak of met de hand)
+        env:
+          IN_BEVESTIG: ${{ inputs.bevestig }}
+        run: |
+          VERSIE=$(grep -E '^version *=' build.gradle.kts | sed -E 's/.*"(.*)".*/\1/')
+          naam="${GITHUB_REF_NAME#uitgave/}"
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            if [[ "$naam" =~ ^bison-flex-v([0-9]+\.[0-9]+\.[0-9]+)(-proef[a-z0-9]*)?$ ]]; then
+              TAGVERSIE="${BASH_REMATCH[1]}"
+              if [ -n "${BASH_REMATCH[2]}" ]; then UPLOADEN=nee; ZACHT=ja; else UPLOADEN=ja; ZACHT=nee; fi
+            else
+              echo "FOUT: geen geldige naam '$GITHUB_REF_NAME'. Vorm: bison-flex-v2026.1.2 of bison-flex-v2026.1.2-proef1 (tag, of tak uitgave/...)"; exit 1
+            fi
+            [ "$TAGVERSIE" = "$VERSIE" ] || { echo "FOUT: naam zegt $TAGVERSIE, build.gradle.kts zegt $VERSIE"; exit 1; }
+          else
+            [ "$IN_BEVESTIG" = "uploaden" ] && UPLOADEN=ja || UPLOADEN=nee
+            ZACHT=nee
+          fi
+          echo "Gestart via $GITHUB_EVENT_NAME $GITHUB_REF_NAME; versie $VERSIE; uploaden: $UPLOADEN; proefnaam: $ZACHT"
+          echo "### Gestart via $GITHUB_EVENT_NAME \`$GITHUB_REF_NAME\`, versie $VERSIE, uploaden: $UPLOADEN" >> "$GITHUB_STEP_SUMMARY"
+          echo "UPLOADEN=$UPLOADEN" >> "$GITHUB_ENV"; echo "ZACHT=$ZACHT" >> "$GITHUB_ENV"
       - name: Sleutel aanwezig?
         env:
           TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
@@ -44,22 +84,32 @@ jobs:
           # Jet met "**").
           L=$(grep -m1 -E '^Akkoord: (ja|nee)' ontwerp.md || true)
           echo "Oordeel Daan: $L"
-          echo "$L" | grep -q '^Akkoord: ja' || { echo "FOUT: het oordeel van Daan bovenaan ontwerp.md is geen 'Akkoord: ja'"; exit 1; }
-      - name: IDE-runs op deze commit groen
+          if ! echo "$L" | grep -q '^Akkoord: ja'; then
+            if [ "$ZACHT" = "ja" ]; then echo "::warning::proefnaam: oordeel van Daan is geen 'Akkoord: ja' (bij een echte uitgave stopt dit)"
+            else echo "FOUT: het oordeel van Daan bovenaan ontwerp.md is geen 'Akkoord: ja'"; exit 1; fi
+          fi
+      - name: IDE-runs groen op deze plugincode
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          boom=$(git rev-parse "$GITHUB_SHA:producten/jetbrains-bison-flex")
           for wf in jetbrains-bison-flex-clion.yml jetbrains-bison-flex-e2e.yml; do
-            U=$(gh run list -R "$GITHUB_REPOSITORY" --workflow "$wf" --commit "$GITHUB_SHA" --status success --json databaseId -q '.[0].databaseId')
-            [ -n "$U" ] || { echo "FOUT: geen groene run van $wf op $GITHUB_SHA"; exit 1; }
-            echo "$wf groen: run $U"
+            groen=""
+            for r in $(gh run list -R "$GITHUB_REPOSITORY" --workflow "$wf" --status success -L 50 --json headSha,databaseId -q '.[] | "\(.headSha),\(.databaseId)"'); do
+              sha=${r%,*}; id=${r#*,}
+              git cat-file -e "$sha^{commit}" 2>/dev/null || continue
+              if [ "$(git rev-parse "$sha:producten/jetbrains-bison-flex" 2>/dev/null)" = "$boom" ]; then groen="run $id op ${sha:0:7}"; break; fi
+            done
+            [ -n "$groen" ] || { echo "FOUT: geen groene run van $wf met deze plugincode (boom ${boom:0:7}); eerst groen op main"; exit 1; }
+            echo "$wf groen: $groen"
           done
       - name: Versie nieuw?
         run: |
           VERSIE=$(grep -E '^version *=' build.gradle.kts | sed -E 's/.*"(.*)".*/\1/')
           echo "Versie: $VERSIE"
           if curl -sfL "https://plugins.jetbrains.com/api/plugins/35901/updates" | grep -q "\"version\":\"$VERSIE\""; then
-            echo "FOUT: versie $VERSIE staat al op de Marketplace, verhoog version in build.gradle.kts"; exit 1
+            if [ "$ZACHT" = "ja" ]; then echo "::warning::proefnaam: versie $VERSIE staat al op de Marketplace (bij een echte uitgave stopt dit)"
+            else echo "FOUT: versie $VERSIE staat al op de Marketplace, verhoog version in build.gradle.kts"; exit 1; fi
           fi
           echo "VERSIE=$VERSIE" >> "$GITHUB_ENV"
       - uses: actions/setup-java@v4
@@ -95,13 +145,13 @@ jobs:
           [ -n "$V" ] || { echo "FOUT: geen verifier-uitslag"; exit 1; }
           for f in $V; do cat "$f"; grep -q '^Compatible' "$f" || { echo "FOUT: niet Compatible"; exit 1; }; done
       - name: Uploaden naar de Marketplace
-        if: ${{ inputs.bevestig == 'uploaden' }}
+        if: ${{ env.UPLOADEN == 'ja' }}
         env:
           PUBLISH_TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
         run: |
           ./gradlew --no-daemon publishPlugin
           echo "### Versie $VERSIE geüpload naar plugin 35901 (wacht op keuring JetBrains)" >> "$GITHUB_STEP_SUMMARY"
       - name: Proefdraaien (niets geüpload)
-        if: ${{ inputs.bevestig != 'uploaden' }}
+        if: ${{ env.UPLOADEN != 'ja' }}
         run: |
-          echo "### Proefdraaien: alles groen, niets geüpload. Start opnieuw met bevestig = uploaden." >> "$GITHUB_STEP_SUMMARY"
+          echo "### Proefdraaien: alles groen, niets geüpload. Echt uploaden: tak uitgave/bison-flex-v<versie> pushen (zonder -proef), of met de hand met bevestig = uploaden." >> "$GITHUB_STEP_SUMMARY"
