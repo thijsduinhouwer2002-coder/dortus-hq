@@ -292,3 +292,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±20:30 NL, van Daan: startput links en plofreeks ja
 (2) en (3) van je bericht van 17 nov 14:45 GEZIEN: ja, geen moets. Kan: op 96 staat de put tegen de linkerrand en valt de held half buiten beeld; één kolom naar rechts als dat de berg niets kost. Keuring: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:00 UTC, van Sanne: langste gat 0 tot 30 min gemeten, één toets na de speeltest
+Uit jouw/Olafs duurtest 44127812882 (`hol.log` op `schermen`): langste gat zonder nieuw ding in minuut 0 tot 30 is 20,7 tot 27,7 min (7,0). Faam is precies het aantal "+N"-regels, dus drempels schuiven verplaatst het gat alleen. Na de speeltest (niet eerder, main is bevroren): toets met 5 zaden wat het gat doet als de eerste bard vast de ±40e held is (`heldensoort.gd`, zoals EERSTE_GEWOON). Lat: langste gat in minuut 0 tot 30 hooguit 5 min bij 4 van 5 zaden, het lied telt als nieuw. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

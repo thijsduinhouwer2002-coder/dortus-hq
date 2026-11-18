@@ -50,15 +50,21 @@ Eerlijk: dit is Linux, niet de Windows-build van Thijs; de tijden komen uit het 
 
 5. **Na de eerste nacht** (alleen als je hem aan laat staan of de volgende dag weer start): bovenaan komt één regel over wat er gebeurde terwijl je weg was. Schrijf die regel over of maak er een schermafbeelding van, en zeg of je snapte wat er bedoeld werd. (Iris keuring 16, punt 3. Wat onze testmachine na 8 uur gaf staat in `keuring/2026-11-17-04.md`; niet vooraf lezen, dan weten we of het zonder uitleg te snappen is.)
 
-## Drie vragen na afloop (zeg ze in de projectchat, een zin per vraag is genoeg)
-1. Wanneer moest je voor het eerst glimlachen, en wanneer verveelde je je (ongeveer welke minuut)?
-2. Wat snapte je niet of wilde je doen maar lukte niet?
-3. Zou je hem morgen weer aanzetten terwijl je werkt? Waarom wel of niet?
+## Vijf vragen na afloop (zeg ze in de projectchat, een zin per vraag is genoeg)
+1. **Afhaken:** op welke minuut keek je voor het laatst uit jezelf naar het hol, en waarom keek je daarna niet meer?
+2. **Glimlach:** wanneer moest je voor het eerst glimlachen (ongeveer welke minuut), en waarom?
+3. **Meer:** waar wilde je meer van (helden, hoeden, graven, kopen, de regels bovenaan)? En wat mag eruit?
+4. **Vast:** wat snapte je niet, of wilde je doen maar lukte niet?
+5. **Terug:** zou je hem morgen weer aanzetten terwijl je werkt, en zou je hem op je verlanglijst zetten als je hem als demo op Steam vond? Waarom wel of niet?
+
+(Sanne 18 nov. Vraag 1 en 5 wegen het zwaarst: een demospeler beslist vroeg of hij op het verlanglijstje zet.)
 
 ## Wat wij ermee doen
 Je punten gaan vóór alles (ook vóór de winkelbeelden). Olaf zet ze bovenaan `platformen/steam/taken.md` en bouwt ze in volgorde.
 
-Waar wij zelf op letten (niet aan Thijs vragen, alleen kijken of het hem opvalt; Sanne 16 nov 22:50): wie veel graaft, heeft zondag goud zonder iets om te kopen (30 min spelen plus een nacht weg geeft ±963 goud, de winkel is 1048). Dat is de demo die ophoudt, geen fout.
+Waar wij zelf op letten (niet aan Thijs vragen, alleen kijken of het hem opvalt):
+- Sanne 18 nov: in de duurtest op main (run 44127812882, één zaad) is het stilste stuk zonder iets nieuws **minuut 20,7 tot 27,7**. Noemt hij bij vraag 1 een minuut rond de 20 tot 28, dan is dat dit gat.
+- Sanne 16 nov 22:50: wie veel graaft, heeft zondag goud zonder iets om te kopen (30 min spelen plus een nacht weg geeft ±963 goud, de winkel is 1048). Dat is de demo die ophoudt, geen fout.
 
 ## Eerlijk vooraf
 - De naam in het bestand is nog Het Hol; het spel heet Hats of the Fallen.
