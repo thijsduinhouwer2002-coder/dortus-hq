@@ -27,7 +27,8 @@ MAP = "organisatie/actions-logs"
 REGELS_PER_JOB = 200
 MAX_JOBS = 4
 BEWAAR_DAGEN = 7
-TIJD = re.compile(r"^\d{4}-\d\d-\d\dT[\d:.]+Z ")
+TIJD = re.compile(r"^\ufeff?\d{4}-\d\d-\d\dT[\d:.]+Z ")
+KLEUR = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
 
 
 def api(pad, ruw=False):
@@ -40,7 +41,7 @@ def api(pad, ruw=False):
 
 def schoon(regel):
     """Tijdstempel eraf, persoonsgegevens en sleutels eruit."""
-    regel = TIJD.sub("", regel.rstrip("\n"))
+    regel = KLEUR.sub("", TIJD.sub("", regel.rstrip("\n"))).lstrip("\ufeff")
     for naam, patroon, _ in REGELS:
         regel = patroon.sub("-" if naam == "gedachtestreepje" else f"[weggehaald: {naam}]", regel)
     return regel
@@ -68,9 +69,6 @@ def via_api(repo, run, jobs):
             regels = api(f"/repos/{repo}/actions/jobs/{j['id']}/logs", ruw=True).splitlines()
         except Exception as e:  # log weg of verlopen
             regels = [f"(log niet op te halen: {e})"]
-        fout = [i for i, r in enumerate(regels) if "##[error]" in r]
-        if fout:
-            regels = regels[: fout[-1] + 3]
         stap = next((s["name"] for s in j.get("steps", []) if s.get("conclusion") == "failure"), "?")
         per_job[f"{j['name']} / {stap}"] = regels
     return per_job
@@ -99,6 +97,17 @@ def maak(run, uit, r=None):
     r = r or api(f"/repos/{repo}/actions/runs/{run}")
     jobs = api(f"/repos/{repo}/actions/runs/{run}/jobs?per_page=100").get("jobs", [])
     per_job = via_gh(repo, run) or via_api(repo, run, jobs)
+    # gh zegt soms "UNKNOWN STEP" en geeft dan het hele joblog: naam uit de API, en afkappen na de laatste fout,
+    # zodat de laatste regels over de fout gaan en niet over het opruimen na afloop.
+    stapnaam = {j["name"]: next((s["name"] for s in j.get("steps", []) if s.get("conclusion") == "failure"), "?") for j in jobs}
+    netjes = {}
+    for naam, regels in per_job.items():
+        job, _, stap = naam.partition(" / ")
+        if stap == "UNKNOWN STEP":
+            naam = f"{job} / {stapnaam.get(job, '?')}"
+        fout = [i for i, r in enumerate(regels) if "##[error]" in r]
+        netjes[naam] = regels[: fout[-1] + 3] if fout else regels
+    per_job = netjes
     stam = stam_van(r)
     nu = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     mislukt = [f"{j['name']}: {s['name']}" for j in jobs if j.get("conclusion") == "failure"

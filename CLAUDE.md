@@ -36,6 +36,7 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 | iets moois maken (site, winkelbeelden, menu's, filmpjes) | skill `frontend-design` |
 | doelen en geld | `organisatie/doelen.md` |
 | een sleutel, account of toegang nodig hebben | `organisatie/toegang.md` |
+| een workflow starten of de uitslag lezen | skill `actions` |
 | alle producten met hun statusbestanden, of de kennisbank van Hats | `START.md`, `platformen/steam/kennisbank/` |
 
 ## Afsluiten

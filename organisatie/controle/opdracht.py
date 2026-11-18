@@ -26,7 +26,6 @@ MAP = "organisatie/opdrachten"
 # Een workflow toevoegen: alleen als hij niets naar buiten zet en niets kost; zet er een reden bij.
 TOEGESTAAN = {
     "wegwijzer.yml",
-    "actions-log-proef.yml",
     "actions-log.yml",
     "dashboard.yml",
     "scorebord.yml",
