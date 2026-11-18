@@ -10,7 +10,7 @@ Naast de fests van Valve (Desktop Companion Fest 14 tot 18 jan, Next Fest 22 feb
 ## Open voor aanmelding (16 nov) en past bij Hats
 | Festival | Wanneer | Aanmelden tot | Past? | Actie |
 |---|---|---|---|---|
-| Laughs & Smiles Festival (Crunching Koalas) | 21 tot 31 jan 2027 | **do 20 nov** | ja: grappig en cozy, vak "binnenkort" | **ingestuurd 18 nov ±16:55** zonder appid (Steam-app wacht op Valve), status "nog niet aangekondigd"; uitslag uiterlijk 27 nov |
+| Laughs & Smiles Festival (Crunching Koalas) | 21 tot 31 jan 2027 | **do 20 nov** | ja: grappig en cozy, vak "binnenkort" | **ingestuurd 18 nov ±16:55** zonder appid (Steam-app wacht op Valve), status "nog niet aangekondigd"; 17:01 mail met key art, 2 schermen en 2 gifs aan info@crunchingkoalas.com (Thijs ja); belofte: link en appid sturen zodra de pagina live is; uitslag uiterlijk 27 nov |
 | Insider Gaming "New Year, New Games 2027" (showcase) | 14 jan 2027 | wo 25 nov | ja | op lijst-thijs sinds run 3 |
 
 Bekeken en niet gekozen (open, maar past niet): The Medieval Festival (middeleeuws Europa als geschiedenis), Yuri Game Festival, Dead of Winter (horror), Rocks and Rolls, Rogue Bots, Spring into Love, American Worlds Roadshow (Amerikaanse makers), En Live Game Jam Showcase (betaald, game jams), Rainbow Games Showcase (LGBTQ+ verhalen, juni), Capital Creative Showcase (betaald, beurs).

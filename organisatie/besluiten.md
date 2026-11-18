@@ -509,3 +509,6 @@ Noor, Lars, Joris en Patrick staan uit. Alle agents staan nu uit; alleen herinne
 
 ## 18 nov 2026 ±16:55 NL: Laughs & Smiles ingestuurd zonder appid (Thijs ja)
 De Steam-app kon niet worden aangemaakt (Steamworks: bank, belasting en ID moeten eerst goedgekeurd zijn). Thijs koos optie 2: toch insturen met eerlijke tekst. In de vakken Steam-link en appid staat dat de app wacht op de partnercontrole van Valve en dat de pagina er vóór het fest is; status "As of yet unannounced, but will be by the time the event starts"; "Yes, as the Developer". Google Forms bevestigde: "Je antwoord is opgeslagen." Uitslag uiterlijk 27 nov.
+
+## 18 nov 2026 17:01 NL: mail met beelden aan Crunching Koalas (Thijs ja)
+Omdat de organisatoren zonder Steam-pagina niets van Hats konden zien, stuurde de hoofdchat na een ja van Thijs op de tekst een mail vanaf thijs@dortus.com aan info@crunchingkoalas.com (adres van hun eigen site). Inhoud: korte uitleg, key art, schermen 1 en 2, gifs 2 en 3 (nog niet gekeurd door Daan, wel echte opnames). De beelden staan in de mail als links naar de openbare repo (bijlagen kon niet: geen map op de laptop gedeeld). **Belofte:** zodra de Steam-pagina live is, sturen we hun de link en het appid. Wie de pagina live zet, doet dat ook.
