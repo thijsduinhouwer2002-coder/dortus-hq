@@ -400,3 +400,17 @@ Verschilbeelden (rood is anders): artefact beeldverschil-blender-gewrichten-4.2.
 - | 17-figuur-heel-x.png | 63140 px (3.045%), x 1316 tot 1541, y 81 tot 659 | GROOT |
 - | 19-mens-paneel.png | 81222 px (28.539%), x 21 tot 246, y 3 tot 721 | GROOT |
 - | 19-mens-x.png | 81222 px (3.917%), x 1650 tot 1875, y 84 tot 802 | GROOT |
+
+## 19 nov 2026 00:53 NL, van de beeldvergelijking (automatisch): Click Joints, Blender 4.2.23
+12 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 8fa9e1f6). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-blender-gewrichten-4.2.23 in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44421652381
+- | 1-paneel-x.png | 494 px (0.024%), x 1316 tot 1484, y 681 tot 696 | GROOT |
+- | 10-winkel-paneel-x.png | 9234 px (0.445%), x 1637 tot 1889, y 809 tot 848 | GROOT |
+- | 15-figuur-paneel.png | 75688 px (28.964%), x 21 tot 246, y 0 tot 662 | GROOT |
+- | 15-figuur-x.png | 75688 px (3.650%), x 1316 tot 1541, y 81 tot 743 | GROOT |
+- | 16-figuur-rig-paneel.png | 77525 px (29.667%), x 21 tot 246, y 0 tot 683 | GROOT |
+- | 16-figuur-rig-x.png | 77525 px (3.739%), x 1316 tot 1541, y 81 tot 764 | GROOT |
+- | 17-figuur-heel-paneel.png | 63140 px (24.162%), x 21 tot 246, y 0 tot 578 | GROOT |
+- | 17-figuur-heel-x.png | 63140 px (3.045%), x 1316 tot 1541, y 81 tot 659 | GROOT |
+- | 19-mens-paneel.png | 81222 px (28.539%), x 21 tot 246, y 3 tot 721 | GROOT |
+- | 19-mens-x.png | 81222 px (3.917%), x 1650 tot 1875, y 84 tot 802 | GROOT |
