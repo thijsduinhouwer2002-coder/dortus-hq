@@ -25,6 +25,9 @@ Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk 
 - **Schrijven en bewerken:** alles in de repo's van thijsduinhouwer2002-coder. De afspraken hieronder over wie waar schrijft blijven gelden, zodat jullie elkaars werk niet overschrijven.
 - Wat nooit mag: inloggen, accounts aanmaken, betalen, gegevens of wachtwoorden invullen, voorwaarden accepteren, andermans spullen verwijderen, posten onder de naam van Thijs.
 
+## Posten op de kanalen van Dortus (18 nov 2026, 23:17)
+Thijs koos: posts op de eigen kanalen van Dortus (YouTube, TikTok via Metricool, de Discord van Hats, later nieuwe Dortus-kanalen) gaan eruit na een keuring door een ander (skill `keuren`), zonder zijn ja per post. Een agent schrijft, een ander keurt, de hoofdchat plaatst en zet het in `geplaatst.md` of het logboek van het kanaal. Vaste afspraken blijven: geen AI-zin in posts, Hats-spelerstekst schrijft Thijs, beelden uit het echte product. Mislukt een post of komt er een klacht, dan haalt de hoofdchat hem weg en meldt het Thijs. Onder de naam van Thijs (mail, zijn eigen Reddit, berichten aan persmensen en streamers) blijft zijn ja op de tekst nodig.
+
 ## Plaatsen op Reddit en andere communities (16 nov 2026)
 Alleen de hoofdchat plaatst, op het eigen account van Thijs, en alleen na zijn ja op de precieze tekst en het beeld. Agents schrijven en zoeken de regels van elke community uit (zelfpromotie, dag, flair), plaatsen nooit zelf. Eén product per community per keer, geen dubbele posts, reageren op vragen doet de hoofdchat met Thijs. Beelden en filmpjes komen uit het echte product; een render staat er als render bij.
 
