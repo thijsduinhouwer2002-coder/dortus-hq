@@ -41,6 +41,7 @@ class MeldenTest : BasePlatformTestCase() {
         val v = velden(Melden.urlHier())
         assertFalse(v["ide"].isNullOrBlank())
         assertEquals(Melden.systeem(), v["os"])
+        assertTrue("versie uit versie.txt: ${v["version"]}", Regex("""\d{4}\.\d+\.\d+""").matches(v["version"]!!))
         val naam = System.getProperty("user.name") ?: ""
         if (naam.length >= 4) assertFalse("geen gebruikersnaam in het systeem", v["os"]!!.contains(naam))
     }

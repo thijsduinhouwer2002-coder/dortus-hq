@@ -129,6 +129,14 @@ intellijPlatformTesting.testIdeUi.register("filmTest") {
     }
 }
 
+// Roestronde R5: de pluginversie voor de meldregel (melden/Melden.kt) komt uit dit bestand, niet uit
+// PluginManagerCore.getPlugin: die is intern in IDEA 2026.2 en Plugin Verifier keurt dat af (run 44420801148).
+tasks.processResources {
+    val versie = project.version.toString()
+    inputs.property("versie", versie)
+    filesMatching("bisonflex/versie.txt") { expand("versie" to versie) }
+}
+
 tasks.test {
     systemProperty("dortus.testdata", layout.projectDirectory.dir("testdata").asFile.absolutePath)
     testLogging { events("passed", "failed", "skipped") }

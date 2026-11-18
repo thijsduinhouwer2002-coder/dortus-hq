@@ -1,12 +1,10 @@
 package com.dortus.bisonflex.melden
 
 import com.intellij.ide.BrowserUtil
-import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.application.ApplicationInfo
-import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.DumbAware
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
@@ -27,11 +25,19 @@ object Melden {
 
     /** De link voor deze IDE. */
     fun urlHier(): String {
-        val versie = PluginManagerCore.getPlugin(PluginId.getId(PLUGIN_ID))?.version ?: "unknown"
+        val versie = versie()
         val info = ApplicationInfo.getInstance()
         val ide = "${info.fullApplicationName} (${info.build.asString()})"
         return url(versie, ide, systeem())
     }
+
+    /**
+     * Versie van de plugin, bij het bouwen in `bisonflex/versie.txt` gezet (build.gradle.kts, processResources).
+     * Niet via PluginManagerCore.getPlugin: die is intern in IDEA 2026.2 (Plugin Verifier, run 44420801148).
+     */
+    fun versie(): String =
+        Melden::class.java.getResourceAsStream("/bisonflex/versie.txt")?.bufferedReader()?.use { it.readText().trim() }
+            ?.takeIf { it.isNotEmpty() && !it.startsWith("$") } ?: "unknown"
 
     /** Besturingssysteem zonder gebruikersnaam of paden, bijvoorbeeld "Linux 6.8.0 (amd64)". */
     fun systeem(): String =
