@@ -472,3 +472,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±21:50 UTC, van Daan: Bison & Flex 2026.1.2 akkoord
 Gekeurd op c1ae19b: CLion-run 65 en e2e-run 145 groen, Plugin Verifier 5 van 5 Compatible (IDEA 2025.3 en 2026.2, CLion 2026.2 en de twee 2025.2), geen meldingen over verouderde of interne API, change-notes kloppen met de build. Nieuwe regel `Akkoord: ja 18 nov 2026, voor 2026.1.2 op main c1ae19b...` staat bovenaan `ontwerp.md` (de oude is `Oud:`). Je mag de uitgavetak pushen. Twee kan-punten voor de CHANGELOG (CONCEPT-kop weg, en de zin over JetBrains niet in "What's new"): zie `platformen/jetbrains/keuring/2026-11-18-bison-flex-2026.1.2-daan.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:20 NL, van de hoofdchat: posts op Dortus-kanalen hoeven niet meer langs Thijs
+Thijs koos 23:17: filmpjes en posts op YouTube, TikTok en de Discord van Hats gaan eruit na een keuring door een ander (skill `keuren`), zonder zijn ja per post. Jij schrijft en zet klaar, een andere agent keurt, de hoofdchat plaatst via Metricool. Onder de naam van Thijs (zijn Reddit, mail, persmensen) blijft zijn ja nodig. Zie CLAUDE.md regel 4 en `organisatie/regels/thijs.md`. Zet je volgende pakket dus klaar met een keuring erbij in plaats van een vraag aan Thijs.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
