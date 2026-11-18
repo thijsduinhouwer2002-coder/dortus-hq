@@ -1,0 +1,19 @@
+name: Idea or wish
+description: Something Bison & Flex could do better or new
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Tell us what you are trying to do; a small example of the grammar or scanner helps.
+    validations:
+      required: true
+  - type: input
+    id: ide
+    attributes:
+      label: IDE you use (optional)
+      placeholder: "CLion"
+    validations:
+      required: false

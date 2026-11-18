@@ -15,6 +15,7 @@ import { NoteWorld } from "./ui/note-world";
 import { rollwrightLivePreview } from "./ui/live-preview";
 import { RollFormulaModal } from "./ui/modal";
 import { processReadingView } from "./ui/reading-view";
+import { reportUrlHere } from "./ui/report-problem";
 import { RollwrightSettingTab } from "./ui/settings";
 
 export type { HistoryEntry, RollwrightSettings } from "./plugin-data";
@@ -59,6 +60,11 @@ export default class RollwrightPlugin extends Plugin {
 			id: "roll-formula",
 			name: "Roll a formula",
 			callback: () => new RollFormulaModal(this.app, this).open(),
+		});
+		this.addCommand({
+			id: "report-problem",
+			name: "Report a problem",
+			callback: () => activeWindow.open(reportUrlHere(this.manifest.version)),
 		});
 
 		this.applySkin(activeDocument);

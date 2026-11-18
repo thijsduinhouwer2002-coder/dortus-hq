@@ -338,3 +338,9 @@ Voor Daan, volgens `ontwerp/bison-flex/film.md`: beelden in de echte IDE (IDEA C
 - **Nieuw bewezen:** Ctrl+Click van calc.l naar `%token NUM` in calc.y werkt met Pro in de echte IDE (1 onderstreping, cursor op regel 9), voor het eerst getoetst.
 - Klein, voor jouw oordeel: in scène 5 staat rechts ook een tabblad calc.l naast calc.y, en de lange regel 14 van calc.l valt links net af. Zeg het als je dat anders wilt; een nieuwe opname kost één run (push op een tak `claude/jetbrains-*-film*`, workflow `jetbrains-bison-flex-film.yml`, test `FilmOpname.kt`).
 
+
+## Ontwerp meldregel en error handler (roestronde R5, 19 nov 2026)
+Doel: klachten bij ons in plaats van in de reviews. Af als: Help, "Report a Problem with Bison & Flex..." opent een melding in de loketrepo met plugin-, IDE- en OS-versie ingevuld, de error handler van de Marketplace staat in plugin.xml, en unittests, IDE-test en Plugin Verifier blijven groen.
+Plek: onderaan het Help-menu (daar zoekt een gebruiker hulp; ook vindbaar via Find Action). Alternatief was een knop in de Pro-melding of een eigen menu; afgewezen, want een melding is er niet altijd en een eigen menu is rommel. Error handler: de klasse van JetBrains zelf (één regel, "simplest supported setup" in de SDK-documentatie); een eigen ErrorReportSubmitter naar GitHub afgewezen (meer werk, en meldingen met stacktraces worden openbaar).
+
+Keuzes voor alle drie: (a) link met `template=bug.yml`: vult het formulier het best, maar het formulier staat nog niet in de loketrepo en het is onzeker wat GitHub dan doet (GOK: kan een 404 geven); (b) alleen `body`: werkt altijd, maar gebruikt het formulier niet; (c) de veld-ids van het formulier plus een `body`, zonder `template=`. Gekozen: (c). Werkt met en zonder formulier, en zodra het formulier er staat vullen dezelfde ids de velden. Geen telemetrie: alleen een link die de gebruiker zelf opent.

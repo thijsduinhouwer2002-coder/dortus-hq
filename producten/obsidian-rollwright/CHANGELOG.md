@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- New command "Report a problem": opens a bug report on GitHub with your Rollwright version, Obsidian version and system already filled in. Nothing is sent until you submit it yourself.
+
 ## 0.3.5
 
 - Fixes from the Obsidian community review of 0.3.4: the paid skins no longer use `!important` or `clip-path` in their CSS. Nothing changes in how they look.

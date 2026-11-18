@@ -1,0 +1,12 @@
+name: Idea or wish
+description: Something Click Joints could do better or new
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Tell us what you are printing or modelling; a picture helps.
+    validations:
+      required: true

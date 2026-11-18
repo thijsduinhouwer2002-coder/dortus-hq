@@ -3,6 +3,10 @@
 Eén bron voor de change-notes in plugin.xml, de "What's new" op de Marketplace en posts (skill `update-tekst`).
 De regels hieronder staan in het Engels omdat ze zo naar de winkel gaan.
 
+## Unreleased
+- New: Help > Report a Problem with Bison & Flex... opens a bug report on GitHub with the plugin, IDE and OS versions already filled in. Nothing is sent until you submit it yourself.
+- New: when the IDE shows an error caused by Bison & Flex, you can choose "Report to third-party plugin" in the error dialog, so we see it and can fix it.
+
 ## 2026.1.2 (18 nov 2026), CONCEPT tot keuring Daan
 - Better: ready for newer IDEs. No deprecated API left (JetBrains flagged one or two uses in 2026.1.1).
 - Better: the Structure view now uses only public API, so it keeps working in IntelliJ IDEA 2026.2 and later.

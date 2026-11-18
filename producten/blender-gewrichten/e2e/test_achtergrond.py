@@ -19,6 +19,7 @@ import toetsen_auto  # noqa: E402
 import toetsen_beweeg  # noqa: E402
 import toetsen_boog  # noqa: E402
 import toetsen_correcties  # noqa: E402
+import toetsen_melden  # noqa: E402
 import toetsen_schaal  # noqa: E402
 import toetsen_teksten  # noqa: E402
 import toetsen_uit_elkaar  # noqa: E402
@@ -32,6 +33,7 @@ def main():
     for op in ("plaats", "controleer", "maak_gesloten", "exporteer"):
         stap(f"operator click_joints.{op} bestaat", op in dir(bpy.ops.click_joints))
     stap("paneel geregistreerd", hasattr(bpy.types, "CLICK_JOINTS_PT_paneel"))
+    toetsen_melden.alles(zip_pad)  # roestronde R5: knop Report a problem
     toetsen_schaal.alles()  # schaalwaarschuwing en lege exportmap, eindigt in de mm-scene
     figuren.mm_scene()
 

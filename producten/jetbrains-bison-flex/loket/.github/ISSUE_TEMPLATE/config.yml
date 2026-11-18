@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Bison & Flex on JetBrains Marketplace
+    url: https://plugins.jetbrains.com/plugin/35901-bison--flex
+    about: Plugin page, versions and documentation.
+  - name: Email
+    url: https://dortus.com/bison-flex/
+    about: Rather not use GitHub? The contact address is on this page.

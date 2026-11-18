@@ -1,0 +1,60 @@
+name: Bug report
+description: Something in Bison & Flex does not work as it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! "Help > Report a Problem with Bison & Flex..." in the IDE fills in the versions for you.
+        Please do not paste private code you cannot share; a few lines that show the problem are enough.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, and what went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: A few lines of the .y or .l file that show the problem help a lot.
+      render: text
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Bison & Flex version
+      placeholder: "2026.1.2"
+    validations:
+      required: true
+  - type: input
+    id: ide
+    attributes:
+      label: IDE and version
+      placeholder: "CLion 2025.2.3 (CL-252.27397.1)"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 (amd64)"
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: Error text or stack trace (optional)
+      description: 'If the IDE showed an error, paste it here. In the IDE error dialog you can also choose "Report to third-party plugin".'
+      render: text
+    validations:
+      required: false

@@ -53,8 +53,9 @@ for n in namen:
 # Bewust bijgewerkt 16 nov (Bram): 0.1.1, een_lid.py nieuw, gewricht.py en manifest veranderd (kniefout).
 # Opnieuw 16 nov ±02:20 (Bram): een_lid.py ronde 2 (H = omhulsel rond het vlak plus het lid zelf; Meshy man_backpack).
 # Opnieuw 16 nov ±20:30 (Ruben): een_lid.py voetfout (UNION liet het lid weg, zool los in B; Chris army_man). Gaat mee in gratis 0.1.2.
+# Opnieuw 19 nov (roestagent R5): meld.py nieuw (knop Report a problem, zonder enige verwijzing naar de betaalde versie) en __init__.py registreert meld.
 GEKEURD = {
-    "__init__.py": "437490cf374b88f1b7b5ef68c5b42cad514fd6c182aad2ed0af2905bae51a4b4",
+    "__init__.py": "526d677349cf407344d268dc15dbcb1bb68116dcdff387ceb221f6e80d88861e",
     "beweeg.py": "f7d9f2f26d2e780984b3b94e4e21ec983557f79e6d54f6f406b1ff83517219c6",
     "blender_manifest.toml": "549981612a4be6a5fe997a06c83c4769ff3241868e149164eb6a1ed7cdeb9851",
     "drie_mf.py": "2cf1603e681bb5c4d1fb9a3f6fb46d73b7c264800ee6adf566a65d0f73f4f1f3",
@@ -66,6 +67,7 @@ GEKEURD = {
     "gradenboog.py": "159a503b3621da1073c8c29ee026454c9146a9b46a90d0028fec97096612e251",
     "kleur.py": "9f98ca165bfbe06d5c5737185bd4eee973accb8818563dbec0c794c2e5c9e1c4",
     "maat.py": "db5be6fea8bf18b478ba699a5cf68f564aeb7f33e7923f226b4cff108d2c9a9f",
+    "meld.py": "77ca1508acd1b3f98eca2749462e37fbb80bb6da14789df7b395eb626dacd7b4",
     "paneel.py": "f3ed14701ac2db96e071c9f372b4a850b69133b4b25305c8817ed87f20b3f6ea",
     "passing.py": "26d843fc8fd39a519b82539811365cfe46d8115072ddafd85e9ca61889ea3aa9",
     "schaal.py": "bfcd37332fd8edd4e751cf4b44d03925ff66436b66e70c75e32670d735ac6c85",

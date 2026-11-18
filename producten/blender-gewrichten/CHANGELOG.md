@@ -5,6 +5,11 @@ This file feeds the GitHub release and the release notes on extensions.blender.o
 (`click-joints-uitgave.yml` takes the section of the version it ships, max 1024 characters).
 Write each line from the user's side, at most 5 lines per version.
 
+## Unreleased
+
+### Added
+- "Report a problem" at the bottom of the Click Joints tab opens a bug report on GitHub with your Click Joints, Blender and system versions already filled in. Nothing is sent until you submit it yourself.
+
 ## 0.1.1 (2026-11-16)
 
 ### Fixed

@@ -1,0 +1,58 @@
+name: Bug report
+description: Something in Click Joints does not work as it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! The "Report a problem" button at the bottom of the Click Joints tab (sidebar N) fills in the versions for you.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, and what went wrong? A screenshot of the panel helps a lot.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The steps you took. If you can share it, a small .blend or STL of the model helps (drag it into this box, zip it first).
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Add-on and version
+      placeholder: "Click Joints 0.1.1"
+    validations:
+      required: true
+  - type: input
+    id: blender
+    attributes:
+      label: Blender version
+      placeholder: "4.2.23 LTS"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 10 (AMD64)"
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: Error text (optional)
+      description: If Blender showed an error or the system console printed one, paste it here.
+      render: text
+    validations:
+      required: false

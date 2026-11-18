@@ -85,7 +85,19 @@ and warnings for undefined and unused names, with a quick fix to remove unused o
         <localInspection language="BisonFlex.Flex" shortName="FlexOngebruikt" displayName="Unused start condition" groupName="Bison &amp; Flex"
                          enabledByDefault="true" level="WEAK WARNING" implementationClass="com.dortus.bisonflex.meldingen.FlexOngebruikt"/>
         <postStartupActivity implementation="com.dortus.bisonflex.meldingen.StandLuisteraar"/>
+        <!-- Roestronde R5: fouten en vastlopers van de plugin naar de tabbladen Exceptions en Freezes op JetBrains Marketplace.
+             Na toestemming van de gebruiker in het foutvenster van de IDE (plugins.jetbrains.com/docs/marketplace/error-handler.html).
+             Geen modules (geen split mode), dus hier in de hoofd-plugin.xml. -->
+        <errorHandler implementation="com.intellij.diagnostic.JetBrainsMarketplaceErrorReportSubmitter"/>
     </extensions>
+    <actions>
+        <!-- Roestronde R5: Help, melding op GitHub met plugin-, IDE- en OS-versie ingevuld (melden/Melden.kt). -->
+        <action id="BisonFlex.ReportProblem" class="com.dortus.bisonflex.melden.MeldProbleemActie"
+                text="Report a Problem with Bison &amp;&amp; Flex..."
+                description="Open a bug report on GitHub with the Bison &amp; Flex, IDE and OS versions filled in">
+            <add-to-group group-id="HelpMenu" anchor="last"/>
+        </action>
+    </actions>
     <applicationListeners>
         <!-- Weet of er een echte ga-naar-actie bezig is, zodat Ctrl+zweven geen Pro-melding geeft (GaNaarActie.kt). -->
         <listener class="com.dortus.bisonflex.pro.GaNaarActie" topic="com.intellij.openapi.actionSystem.ex.AnActionListener"/>

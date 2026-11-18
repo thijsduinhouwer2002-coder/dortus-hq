@@ -1,0 +1,1 @@
+# Meldingen uit de loketrepo's die al in berichten/hoofdchat.md staan (organisatie/loket/ophalen.py, workflow loket-meldingen.yml).

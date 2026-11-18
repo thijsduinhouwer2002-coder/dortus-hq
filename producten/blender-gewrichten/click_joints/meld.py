@@ -1,0 +1,80 @@
+"""Knop "Report a problem" onder het paneel (roestronde R5): opent een nieuwe melding op GitHub met de naam en versie
+van de add-on, de Blender-versie en het systeem al ingevuld.
+
+Alleen een link die de gebruiker zelf opent (wm.url_open), niets gaat vanzelf het netwerk op. Naam en versie komen uit
+blender_manifest.toml naast dit bestand, zodat elke build zijn eigen naam en versie meestuurt zonder dat de code ze
+noemt. Bewust geen template= in de URL: zolang het meldformulier nog niet in de loketrepo staat, werkt de link dan ook
+(gewone melding met de body ingevuld). De velden version, blender en os hebben dezelfde id als in het formulier."""
+import os
+import platform
+import tomllib
+from urllib.parse import quote
+
+import bpy
+
+LOKET = "https://github.com/thijsduinhouwer2002-coder/click-joints"
+
+
+def manifest():
+    """(naam, versie) uit blender_manifest.toml van deze add-on."""
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "blender_manifest.toml"), "rb") as f:
+            m = tomllib.load(f)
+        return m.get("name", "Click Joints"), m.get("version", "unknown")
+    except (OSError, tomllib.TOMLDecodeError):
+        return "Click Joints", "unknown"
+
+
+def systeem():
+    """Besturingssysteem zonder gebruikersnaam of paden, bijvoorbeeld "Linux 6.8.0 (x86_64)"."""
+    return f"{platform.system()} {platform.release()} ({platform.machine()})"
+
+
+def body(naam, versie, blender, os_tekst):
+    return ("**What happened?**\n\n\n"
+            "**What did you expect?**\n\n\n"
+            "**Steps to reproduce** (a screenshot of the panel or a small .blend helps a lot)\n\n\n"
+            "---\n"
+            f"Add-on: {naam} {versie}\n"
+            f"Blender: {blender}\n"
+            f"OS: {os_tekst}")
+
+
+def url(naam, versie, blender, os_tekst):
+    velden = (("version", f"{naam} {versie}"), ("blender", blender), ("os", os_tekst),
+              ("body", body(naam, versie, blender, os_tekst)))
+    return f"{LOKET}/issues/new?" + "&".join(f"{k}={quote(v, safe='')}" for k, v in velden)
+
+
+def url_hier():
+    naam, versie = manifest()
+    return url(naam, versie, bpy.app.version_string, systeem())
+
+
+class CLICK_JOINTS_OT_meld(bpy.types.Operator):
+    bl_idname = "click_joints.meld"
+    bl_label = "Report a problem"
+    bl_description = "Open a bug report on GitHub with the add-on, Blender and system versions filled in"
+
+    def execute(self, context):
+        bpy.ops.wm.url_open(url=url_hier())
+        return {"FINISHED"}
+
+
+class CLICK_JOINTS_PT_meld(bpy.types.Panel):
+    """Subpaneel zonder kop onderaan het hoofdpaneel, zodat paneel.py gelijk blijft en de knop altijd als laatste
+    staat, ook onder knoppen die andere code aan het hoofdpaneel hangt (een los paneel zonder kop zet Blender
+    juist bovenaan, GEZIEN in Blender 4.2)."""
+    bl_label = "Report a problem"
+    bl_idname = "CLICK_JOINTS_PT_meld"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_category = "Click Joints"
+    bl_parent_id = "CLICK_JOINTS_PT_paneel"
+    bl_options = {"HIDE_HEADER"}
+
+    def draw(self, context):
+        self.layout.operator(CLICK_JOINTS_OT_meld.bl_idname, icon="URL", emboss=False)
+
+
+KLASSEN = (CLICK_JOINTS_OT_meld, CLICK_JOINTS_PT_meld)
