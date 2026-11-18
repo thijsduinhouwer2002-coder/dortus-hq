@@ -129,8 +129,8 @@ def main():
             if eerste_keer:
                 f.write("# Meldingen uit de loketrepo's die al in berichten/hoofdchat.md staan (organisatie/loket/ophalen.py).\n")
             f.write("".join(f"{s}\n" for s, _ in nieuwe))
-    if fouten and not per_repo:
-        sys.exit(1)  # geen enkele repo gelezen: rood, zodat het opvalt (Actions-log zet de fout in de repo)
+    if fouten:
+        sys.exit(1)  # een repo niet gelezen: wat wel binnenkwam is geschreven, maar de run wordt rood (Actions-log)
 
 
 if __name__ == "__main__":

@@ -44,12 +44,13 @@ jobs:
           for i in 1 2 3 4 5 6; do
             git fetch -q --depth=1 origin main
             git reset -q --hard origin/main
-            python3 -I organisatie/loket/ophalen.py
+            # Een repo die niet te lezen is maakt de run rood, maar wat wel binnenkwam wordt eerst opgeslagen.
+            fout=0; python3 -I organisatie/loket/ophalen.py || fout=1
             git add organisatie/loket/gemeld.txt berichten/hoofdchat.md 2>/dev/null || true
-            if git diff --cached --quiet; then echo "Geen nieuwe meldingen."; exit 0; fi
+            if git diff --cached --quiet; then echo "Geen nieuwe meldingen."; exit $fout; fi
             git commit -q -m "Loket: nieuwe meldingen naar berichten/hoofdchat.md"
             python3 organisatie/controle/check.py origin/main HEAD || exit 1
-            if git push -q origin HEAD:main; then echo "Meldingen staan in berichten/hoofdchat.md."; exit 0; fi
+            if git push -q origin HEAD:main; then echo "Meldingen staan in berichten/hoofdchat.md."; exit $fout; fi
             sleep $((i * 5))
           done
           echo "Opslaan lukte niet na 6 pogingen."; exit 1
