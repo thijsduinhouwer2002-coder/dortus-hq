@@ -27,6 +27,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2500
+          filter: blob:none   # git log heeft alleen commits nodig, geen oude bestanden (repo is 1,2 GB)
       - name: Dashboard bouwen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

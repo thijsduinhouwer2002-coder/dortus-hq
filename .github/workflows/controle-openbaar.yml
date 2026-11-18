@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none   # hele geschiedenis voor de diff, bestanden pas ophalen als de diff ze nodig heeft (repo is 1,2 GB)
       - name: Controle
         env:
           VAN: ${{ github.event.before }}

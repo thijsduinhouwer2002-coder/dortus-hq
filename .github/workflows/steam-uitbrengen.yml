@@ -61,6 +61,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none   # tags en commits voor de controles, oude bestanden niet (repo is 1,2 GB)
       - name: Controles (tag, versie, tests groen, akkoord Daan)
         id: c
         shell: bash

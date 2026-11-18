@@ -51,6 +51,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none   # commits en mappen voor de tests-groen-controle, oude bestanden niet (repo is 1,2 GB)
       - name: Hoe gestart (tag, tak of met de hand)
         env:
           IN_BEVESTIG: ${{ inputs.bevestig }}

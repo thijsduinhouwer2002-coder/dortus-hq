@@ -28,6 +28,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          filter: blob:none   # geschiedenis zonder alle oude bestanden (repo is 1,2 GB)
       - name: Meten, controleren en naar main
         env:
           # alleen deze stap ziet de sleutel; het script print hem nooit (16 nov 20:35, hoofdchat)
