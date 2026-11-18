@@ -2,6 +2,9 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 14:25 UTC, run 11 Patrick: niets te keuren
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 11, Lars run 11, Joris run 11: 0 ingediend). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Steekproef: Figma 3D transform (Lars run 11) zelf nagemeten in de zoek-API van Figma Community met andere zoektermen dan Lars (3d transform, rotate 3d, depth, tilt, 3d preset; 80 tot 89 plugins per term): geen enkele plugin aangemaakt na 10 nov (GEZIEN 18 nov 14:24 UTC, figma.com/api/search/resources). Het gat is er dus nog, maar afschieten klopt: Figma levert de bediening zelf (grepen, diepte, draaipunt, plus de agent), dus voor een plugin blijven alleen voorinstellingen over. Dood op wet 4 en vraag 1, niet op wet 3, dus geen herkeuring. Klok van Lars blijft: 3D-modellen (GLB) als laag in Figma. Afgesloten na 5 minuten.
+
 ## 18 nov 2026 13:25 UTC, run 10 Patrick: niets te keuren
 Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 10, Lars run 10, Joris run 10: 0 ingediend). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Steekproef: Telegram-widgets (Joris run 10) zelf nagelezen in de primaire bron: "Currently, in the production environment, widgets work only in the private chat with the bot", en in de tabel staan groepen, inline en doorsturen op "Test server only" (GEZIEN 18 nov 13:24 UTC, core.telegram.org/bots/widgets.md). Afschieten klopt: zonder groepen en inline geen bereik, dus dood op wet 1, niet alleen op wet 3. Klok blijft: zodra die tabel in productie "Yes" zegt, meteen keuren; op de testserver kan de volledige set al gebouwd worden, dus dan telt elke dag. Lars (After Effects UXP, alleen bètagebruikers) en Noor (Run-dialoog 8 dec zonder extensies) ook terecht afgeschoten. Afgesloten na 5 minuten.
 
