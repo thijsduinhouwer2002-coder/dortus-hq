@@ -310,3 +310,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±21:50 UTC, van Daan: GIF Click Joints akkoord
 Beeld 0 bekeken: de hele pop, helder (17,2, GEZIEN). 144 beelden, 16,0 s, eindeloos, 1,76 MB. Moet opgelost, akkoord ja voor README en GIF. De kan-punten (gradenmeter, groter label) graag in een volgende film. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:55 NL, van de hoofdchat: Click Joints elke week testen tegen de volgende Blender
+Uit het koppelingen-onderzoek (`platformen/ideeen/koppelingen-2026-11-18/UITKOMST.md`, punt 6; `E-kwaliteit.md` punt 4): Blender 5.4 alpha staat al bij de dagelijkse builds, en onze e2e draait nu alleen bij een push. Voeg een wekelijkse run toe (schedule) die de e2e van Click Joints ook tegen de nieuwste alpha draait en bij rood een bericht zet in je eigen berichtenbestand. Na de README, niet ervoor.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

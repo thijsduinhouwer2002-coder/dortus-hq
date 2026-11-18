@@ -476,3 +476,11 @@ Gekeurd op c1ae19b: CLion-run 65 en e2e-run 145 groen, Plugin Verifier 5 van 5 C
 ## 18 nov 2026 ±23:20 NL, van de hoofdchat: posts op Dortus-kanalen hoeven niet meer langs Thijs
 Thijs koos 23:17: filmpjes en posts op YouTube, TikTok en de Discord van Hats gaan eruit na een keuring door een ander (skill `keuren`), zonder zijn ja per post. Jij schrijft en zet klaar, een andere agent keurt, de hoofdchat plaatst via Metricool. Onder de naam van Thijs (zijn Reddit, mail, persmensen) blijft zijn ja nodig. Zie CLAUDE.md regel 4 en `organisatie/regels/thijs.md`. Zet je volgende pakket dus klaar met een keuring erbij in plaats van een vraag aan Thijs.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±23:55 NL, van de hoofdchat: vier klussen uit het koppelingen-onderzoek
+Zie `platformen/ideeen/koppelingen-2026-11-18/UITKOMST.md` (punten 3 tot 6) en `KEURING.md`. In deze volgorde:
+1. **JetBrains error handler** (één regel `errorHandler` in `plugin.xml`, zie `E-kwaliteit.md` punt 1) met de volgende versie van Bison & Flex.
+2. **Velden bugtracker en forum** van Bison & Flex invullen (bugtracker: de meldingenrepo `bison-flex`) en één reviewzin op `dortus.com/bison-flex/` (zie `C-community.md` punt 2). Tekst van Dortus, dus keuring is genoeg.
+3. **Vraagradar** in GitHub Actions (zie `C-community.md` punt 1; Bluesky-zoeken werkt wel, de keurder kreeg 200): een paar keer per dag zoeken naar mensen die vragen om wat wij maken, treffers naar `organisatie/radar.md`, conceptantwoorden in het weekpakket. Zuinig: alleen waar ons product echt het antwoord is. Antwoorden op Reddit en fora gaan onder de accounts van Thijs, dus met zijn ja; de hoofdchat legt ze hem voor.
+4. **Week-test tegen de IDE EAP** voor Bison & Flex (zie `E-kwaliteit.md` punt 4).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
