@@ -56,6 +56,12 @@ Bronnen: `.../store/assets`, `.../store/review_process`, `.../store/page`.
 
 Daarna: "Mark As Ready For Review". **Lever minstens 7 werkdagen voor de gewenste datum in**, de keuring duurt meestal 3 tot 5 werkdagen. Na goedkeuring drukt Thijs zelf op de groene knop "Post as Coming Soon". Bron: `.../store/coming_soon`, `.../store/releasing`.
 
+**Nieuw sinds 3 nov (nagekeken door Olaf, 18 nov ±21:30 UTC, met curl in de bron):**
+1. **Buildkeuring duurt nu tot 12 werkdagen** (doel blijft 3 tot 5). DERDEN: https://www.invenglobal.com/articles/28152/valve-says-steam-pre-release-reviews-now-take-up-to-12-business-days (4 nov 2026, over de Steamworks-aankondiging van 3 nov). De officiele doc zegt nog 3 tot 5 werkdagen voor pagina en build (DERDEN: https://partner.steamgames.com/doc/store/review_process, gelezen 18 nov). Wij rekenen voor een build (spel of demo) **3 weken**; de pagina houden we op 7 werkdagen.
+2. **Vóór het inzenden van een build: minstens 5 minuten spelen via de Play-knop van Steam**, binnen de laatste 7 dagen of na de laatste upload (speeltijd van elke gebruiker telt). Zelfde bron. Dus: na elke upload naar tak `intern` speelt Thijs of de hoofdchat 5 minuten via Steam, pas dan inzenden.
+3. **Nieuwe punten op de checklist** (zelfde bron): kiezen welke redistributables Steam installeert (bij Godot: "geen nodig", GOK, nakijken bij de eerste build); onvolledige achievements worden gemarkeerd (wij hebben er nu geen, dan niets invullen); wie Steam Cloud opgeeft moet vóór de keuring een save naar de cloud schrijven (wij geven het niet op zolang er geen GodotSteam in zit); **minstens 5 schermafbeeldingen met het label "gameplay"** (labels nu: gameplay, menu, concept art, cinematic). Keurders kijken naar: pagina duidelijk en compleet, build doet wat de pagina belooft, gevoelige inhoud en AI-gebruik eerlijk in de Content Survey.
+4. **Discounts & Events wordt vanaf begin 2027 door het algoritme gevuld** (geen handmatige plekken meer; Valve zag zo 10x meer spellen per dag in dat vak, met meer verlanglijsten). DERDEN: https://www.gamedeveloper.com/pc/steam-s-discounts-and-events-tab-will-soon-be-fully-algorithm-driven (29 sep 2026). Voor ons: verlanglijsten en klikratio tellen nog zwaarder; geen plek om "aan te vragen".
+
 Rekenvoorbeeld (bijgewerkt 17 nov): winkelpagina live op di 8 dec betekent inleveren uiterlijk vr 27 nov; inleveren di 1 dec geeft op zijn vroegst do 10 dec. Beide ruim voor het Desktop Companion Fest van 14 jan.
 
 ### Demo-app
