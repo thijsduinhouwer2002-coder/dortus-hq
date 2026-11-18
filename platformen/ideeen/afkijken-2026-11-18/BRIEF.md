@@ -28,3 +28,11 @@ Bestand `<LETTER>-<platform>.md` in deze map:
 3. **Verrassingen:** iets wat je niet verwachtte.
 4. **Wat Dortus kan overnemen:** max 5 punten, concreet, met waarom. Kijk naar onze eigen repo (`producten/`, `commercie/`, `organisatie/`) om te zien wat wij nu doen.
 Antwoord aan de hoofdchat: max 15 regels samenvatting.
+
+## Aanvulling 18 nov 17:56: de hoofdvraag omgedraaid (Thijs: "dat lijkt mij het relevantst")
+A tot en met F kijken op platformen waar Dortus al zit. Dat is de verkeerde volgorde. **G en H zijn de hoofdzaak:** waar verdienen kleine makers (1 tot 5 mensen, geen investeerders) aantoonbaar het meeste geld, en hoe doen ze dat? Platform-onafhankelijk; ook platformen waar wij niet zitten.
+
+- **G (omzet die makers zelf delen):** makers en kleine bedrijven met openbare, liefst geverifieerde omzet (bijvoorbeeld via Stripe gekoppelde lijsten zoals TrustMRR, Open Startups-pagina's, Indie Hackers, openbare omzet-dashboards, build-in-public berichten met cijfers). Verzamel 30 of meer voorbeelden met omzet per maand. Indelen naar **platform of verkoopkanaal** (eigen SaaS-site, Chrome-extensie, Shopify-app, mobiele app, WordPress, Figma, Notion-templates, Gumroad, Steam, enzovoort) en naar wat het is. Welke kanalen leveren het vaakst ≥ $1.000 per maand op voor kleine makers?
+- **H (winkels met openbare cijfers):** per winkel of platform: hoeveel kleine makers verdienen er geld, wat verdient een typische winnaar, wat is de omzetverdeling of commissie, hoe kom je erin. Gebruik openbare cijfers (gebruikersaantallen in de Chrome Web Store, installs en reviews bij Shopify, downloads bij WordPress, Steam-reviews x vuistregel, verkoopaantallen op Gumroad of Superhive als die zichtbaar zijn, rapporten van het platform zelf). Rangschik de 10 tot 15 platformen op: kans voor een klein team om er ≥ $1.000 per maand te halen.
+
+Uitvoer G en H: tabel met bron per regel, de top 5 kanalen met waarom, en per top-kanaal 2 of 3 makers als voorbeeld van **hoe** ze het doen (wat, waar, hoe: product, prijs, marketing, uitbrengen). Daarna worden G en H kruiselings gekeurd.
