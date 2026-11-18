@@ -2,6 +2,39 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 08:51 UTC: run 6, RuneScape Plugin Hub, Unity 6.6 en 7, JetBrains 2026.3 breukmeting, Obsidian 1.15.1, 0 ideeën klaar voor keuring, 3 zelf afgeschoten
+
+Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek (lijst van 17 nov is af, zie UITKOMST.md). Gelezen: RuneScape Plugin Hub (drie Jagex-berichten via de wiki-API, ontwikkelsite), Unity 6.6 (alle hoofdstukken van "New in Unity 6.6"), Unity 7 (keynote-verslag Unite Seoul en Game Developer), Godot Asset Store-roadmap, Affinity 3.3, Obsidian 1.15.0 en 1.15.1 (desktop en mobiel, alle onderdelen), Figma plugin-updates (nog steeds niets na 142), JetBrains API-wijzigingen 2026.3 plus een eigen meting in de JetBrains-winkel.
+
+**Eerlijk:** niets haalt alle 4 wetten. Wel twee bevestigingen dat iets al eerder door Noor is uitgezocht (RuneScape, Affinity, Godot: zie `platformen/pionier/onderzocht.md`), dus niet dubbel gedaan, en één meting die een veelbelovende gedachte doodt.
+
+### Zelf afgeschoten: plugins voor de nieuwe RuneScape Plugin Hub (RS3) | DOOD op wet 1 en wet 3
+- **De golf is echt:** Jagex opende op 19 okt 2026 het indienen van plugins voor iedereen; in RS3 zelf te installeren, gehost via mod.io (GEZIEN 18 nov, runescape.wiki, Update:RuneScape_Plugins_Officially_Available_Now!). Tweede lading van 13 plugins op 5 nov (GEZIEN, mmohuts.com, 5 nov).
+- **Wet 1:** te laat en te traag. Op 26 okt al "over 250 plugins in draft, and over 200 plugins pending moderation"; uitgave in ladingen elke 2 weken; eerder ingediend gaat voor, en "entirely AI generated plugins are generally harder to review ... and take longer" (GEZIEN 18 nov, runescape.wiki, Update:RuneScape_Plugins_-_FAQ). De basistaken (Quest Helper, Ground Items, True Tile, Farming Timer, Drop Log) zijn al van makers uit de API Council.
+- **Wet 3:** Noor vond op 8 nov dat de EULA van Jagex geld verdienen met plugins verbiedt (cijfer 2, `platformen/pionier/onderzocht.md`). Ook met de versoepelde wet 3 is er dus geen route naar geld. Dood.
+
+### Zelf afgeschoten: gereedschap voor Unity 6.6 en de overstap naar Unity 7 (CoreCLR, domain reload uit) | DOOD op wet 1 en wet 4
+- **Aanleiding:** Unity 6.6 zet domain reload bij Play standaard uit "to prepare for the forthcoming removal of Mono and the domain reload mechanism", serialiseert nu zelf `Dictionary`, en Editor-gereedschap mag in eigen vensters (GEZIEN 18 nov, docs.unity.com/en-us/engine/7000.0/manual/whats-new/unity66.md). Unity 7 komt in vroege beta in december 2026 en uit in begin 2027 (GEZIEN, gamedeveloper.com, 21 jul 2026).
+- **Wet 4:** Unity doet het zelf. Project Auditor heeft nu een analyse die statische velden vindt die gereset moeten worden, met de attributen `AutoStaticsCleanup` en `NoAutoStaticsCleanup` als oplossing (GEZIEN, zelfde pagina). De ingebouwde Dictionary-serialisatie maakt bestaande "Serializable Dictionary"-assets overbodig.
+- **Wet 1:** Unity 6.6 kwam al in september (GEZIEN, alternativeto.net/news/2026/9/unity-6-6-adds-webgpu-build-analysis-and-coreclr-prep). En de Unity Asset Store is al gemeten en kreeg cijfer 3 (`platformen/pionier/onderzocht.md`, 6 nov: nieuwe betaalde tools mediaan 0 beoordelingen). Dood.
+
+### Zelf afgeschoten: vervangers voor populaire JetBrains-plugins die in 2026.3 niet meer werken | DOOD op wet 1 en vraag 2
+- **Gedachte:** IntelliJ 2026.3 kwam op 5 nov (GEZIEN, data.services.jetbrains.com/products/releases?code=IIU) en haalde onder meer Kotlin UI DSL 1.0 en OkHttp weg (GEZIEN, plugins.jetbrains.com/docs/intellij/api-changes-list-2026.html.md). Als een veelgebruikte plugin daardoor breekt en de maker weg is, ontstaat in onze eigen winkel (met kassa) een gat met kopers die al zoeken. Hetzelfde idee als de klok "add-ons die breken bij Blender 6" van run 5.
+- **Meting (GEZIEN 18 nov, eigen telling via plugins.jetbrains.com/api/searchPlugins, top 2.400 op downloads, en per kandidaat de laatste versie via /api/plugins/{id}/updates):** van de niet-JetBrains-plugins met 300.000+ downloads die niet met 2026.3 werken en sinds februari niet bijgewerkt zijn, zijn het er 35. Bijna allemaal al jaren verlaten (BashSupport tot build 202, CodeGlance tot 201, GsonFormat tot 201, Markdown Navigator tot 231), en voor elk staat al lang een opvolger klaar (bijvoorbeeld CodeGlance Pro, 4,7 miljoen downloads, bijgewerkt 15 nov). Wat echt pas bij 2026.3 breekt (tot build 253 of 261), is klein of bedrijfsgebonden: CodeGeeX (1,05 miljoen, eigen AI-dienst), Alibaba Cloud Toolkit (0,70 miljoen), JetForcer (betaald, 0,34 miljoen, Salesforce; Illuminated Cloud bestaat al).
+- **Uitkomst:** een gat ontstaat niet op de dag van een nieuwe versie; de verlaten plugins zijn al jaren vervangen. Geen golf, dus wet 1 faalt. Dezelfde meting is wel goedkoop te herhalen bij een grote breuk (Blender 6, JetBrains bij een Java-sprong). Script: zoek-API met `max=24` (hoger geeft fout 400) en `orderBy=downloads`, vergelijk met `build=IU-<build>`; let op dat ingebouwde JetBrains-plugins daarbij ten onrechte als "niet compatibel" verschijnen.
+
+### Kort afgevallen, zonder eigen kop
+- **Godot Asset Store:** nog steeds alleen gratis; betaald komt "once we are happy with the new platform", eerst met een groep makers (GEZIEN 18 nov, store.godotengine.org/roadmap). Noor volgt dit al wekelijks.
+- **Affinity 3.3 Scripting Studio (15 sep):** JavaScript voor herhaalwerk, "isn't capable of adding new tools" (GEZIEN 18 nov, cgchannel.com/2026/09/canva-releases-affinity-3-3/). Noor gaf het op 8 nov cijfer 5, herhaalmeting rond 8 dec. Niet dubbel gedaan.
+- **Obsidian 1.15.1 mobiel (3 en 12 nov):** Web viewer, nieuwe thuisschermwidgets op Android en iOS, sneller laden van community-plugins (GEZIEN 18 nov, obsidian.md/changelog/2026-11-03-mobile-v1.15.1/). Widgets zijn niet voor plugins open; geen nieuwe soort plugin.
+- **Figma:** nog steeds niets na update 142 (12 nov) (GEZIEN 18 nov, developers.figma.com/docs/plugins/updates/).
+
+### Klok voor later (nog geen idee)
+- **Unity 7 opent de productie voor gereedschap buiten de Editor.** Unity belooft een gratis MCP, CLI en API ingebouwd, en een pijplijn waarbij een artiest via een "deep link" met de volledige project-, scène- en assetcontext een fout herstelt en in de browser controleert (Scene Preview); de CLI en de MCP-server komen "broadly available to everyone, free and without subscription"; de pijplijn en CLI zitten nu in een gesloten beta (GEZIEN 18 nov, unity.com/blog/unite-seoul-keynote-2026-recap; gamedeveloper.com, 21 jul). Voor ons interessant: een brug van Blender naar die Unity-pijplijn zou in Blender Extensions en op Superhive vallen, waar wij al zitten. Nu nog niet: de API is niet openbaar, en of Unity zelf een Blender-koppeling maakt is ONBEKEND (hun demo gebruikt een webdashboard, dus GOK: zij leveren de basis zelf). Kijken bij de Unity 7-beta in december.
+
+### Les van deze run
+Drie van de "nieuwe golven" die ik vond, had Noor al op 8 nov in `platformen/pionier/onderzocht.md` staan. Voortaan eerst daar zoeken (grep op de naam) voor ik iets uitzoek. En een nieuwe versie maakt geen gat bij verlaten plugins: die gaten zijn al jaren dicht.
+
 ## 18 nov 2026 07:51 UTC: run 5, rest van de 5.3-notities, vooruit in het Blender-forum, WordPress 7.2, Figma, Obsidian, Godot, 0 ideeën klaar voor keuring, 5 zelf afgeschoten
 
 Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek (lijst van 17 nov is af, zie UITKOMST.md). Gelezen: de 4 pagina's van Blender 5.3 die ik in run 4 nog niet had (compositor, cycles, eevee, navigation; nu alle 15 gelezen), de categorie Feature & Design Feedback van forum.blender.org (de draden waar Blender nieuwe functies maanden vooraf laat testen), ontwerptaken op projects.blender.org sinds 15 sep, WordPress 7.2 (Beta 1 en RC1, uitkomst 8 dec), Figma plugin-updates 141 en 142, Obsidian 1.15.0 en 1.15.1, Godot 4.8 beta, Raycast 2.12, JetBrains SDK-wijzigingen 2027.1.
