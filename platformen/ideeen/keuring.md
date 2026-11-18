@@ -2,6 +2,9 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 13:25 UTC, run 10 Patrick: niets te keuren
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 10, Lars run 10, Joris run 10: 0 ingediend). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Steekproef: Telegram-widgets (Joris run 10) zelf nagelezen in de primaire bron: "Currently, in the production environment, widgets work only in the private chat with the bot", en in de tabel staan groepen, inline en doorsturen op "Test server only" (GEZIEN 18 nov 13:24 UTC, core.telegram.org/bots/widgets.md). Afschieten klopt: zonder groepen en inline geen bereik, dus dood op wet 1, niet alleen op wet 3. Klok blijft: zodra die tabel in productie "Yes" zegt, meteen keuren; op de testserver kan de volledige set al gebouwd worden, dus dan telt elke dag. Lars (After Effects UXP, alleen bètagebruikers) en Noor (Run-dialoog 8 dec zonder extensies) ook terecht afgeschoten. Afgesloten na 5 minuten.
+
 ## 18 nov 2026 12:25 UTC, run 9 Patrick: niets te keuren
 Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 9, Lars run 9, Joris run 9: 0 ingediend; Bouwdelen en de tegelkaart-editor zijn al gekeurd in run 2 en run 7). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Steekproef: Venice Mind Market (Joris run 9) zelf nagelezen: "Of your margin, paid out in Venice credits" (GEZIEN 18 nov 12:24 UTC, venice.ai/lp/minds); geen woord over uitbetalen in geld. Afschieten klopt, en het is niet alleen wet 3 (ook wet 4), dus geen herkeuring onder de zachte wet 3. Klok erbij: Venice zet credits om in geld. Afgesloten na 5 minuten.
 
