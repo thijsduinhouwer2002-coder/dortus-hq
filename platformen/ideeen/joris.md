@@ -2,6 +2,41 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 09:00 UTC: run 6, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 4 snel)
+
+Tijd uit `date -u` (gestart 09:01 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Spoor van run 5 opgepakt: wat gebeurt er met de etalage van de GPT Store als de Custom GPTs op 11 dec stoppen.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±09:05 tot 09:35 UTC):**
+- Cowboy: "Every listing is free to hire today", "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md). Verkopen nog steeds op uitnodiging ("Request an invite" op cowboy.inc), de winkel heeft "over 100 curated actors" (docs.cowboy.inc/getting-started/hire-from-the-store.md). Klein en dicht.
+- ChatGPT-plugins: "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md).
+- Claude directory: 1.098 connectors, per maand jun 135, jul 166, aug 192, sep 117, okt 89, nov 8, laatste op 12 nov (paginadata claude.com/connectors). Zelfde als run 5.
+- Nieuw in het nieuws, maar geen winkel voor ons: ChatGPT Wallet (13 nov, agents betalen met een betaaltoken, alleen Pro in de VS) en Businesses in ChatGPT (10 nov, bedrijven claimen hun vermelding, alleen VS-winkels) (GEZIEN 18 nov, aireviewrating.com/articles/ai-news-week-of-2026-11-16, DERDEN die naar de bronnen van OpenAI linken). Allebei voor wie fysieke spullen of een bedrijf heeft.
+
+**Les van deze run.** De grootste verschuiving in mijn hoek deze maand is het einde van de GPT Store op 11 dec: de pagina's van alle GPT's verdwijnen, en alleen wie apart een plugin indient en door de keuring komt staat straks in de openbare lijst. Dat klinkt als een leeg veld, maar de opvolger is een etalage die OpenAI zelf vult (vaste lijsten "Featured" en "New & Noteworthy", geen zichtbare teller van gebruik), met een verbod op digitale verkoop. Een nieuw leeg veld is pas een kans als de etalage gebruik beloont en er een weg naar geld is. Die twee ontbreken hier allebei.
+
+### Zelf afgeschoten: de nummer één skills-only plugin worden in de ChatGPT Plugin Directory als de GPT Store op 11 dec dichtgaat | DOOD op wet 3, zwak op vraag 5 en wet 4
+- **Waarom het lokte (wet 1 en bereik):** ChatGPT heeft volgens OpenAI 1,2 mld gebruikers per week (DERDEN, aireviewrating.com, citeert OpenAI 13 nov). Op 11 dec stoppen de Custom GPTs; "Conversations survive, GPT pages do not", en voor de openbare lijst is "a separate plugin submission" nodig (GEZIEN 18 nov, developersdigest.tech/blog/custom-gpt-retirement-migrate-to-plugins). Veel GPT-makers zullen die keuring niet doen. Een plugin met alleen skills (geen eigen server) kan een geverifieerde losse maker indienen: "Your plugin can include MCP connections, skills, or both" en "Complete individual or business verification" (GEZIEN 18 nov, developers.openai.com/plugins/deploy/submission.md). Bouwen kan in een dag.
+- **Wet 3 (ook zacht):** "Selling digital products or services, including subscriptions, digital content, tokens, or credits, is not allowed, whether offered directly or indirectly (for example, through freemium upsells)" (GEZIEN 18 nov, developers.openai.com/plugins/plugin-guidelines.md). Wel toegestaan: "Users may sign in to an existing paid account", maar "Plugins must not display subscription plans, initiate new subscriptions, or promote upgrades" (zelfde bron). Correctie op run 4: inloggen op een eigen betaald account mag dus wel; alleen moet de koper dat account al elders gekocht hebben, en de plugin mag er niet naar wijzen. Voor een skills-only plugin is er geen login, dus geen route. Met een eigen dienst achter OAuth kan het in theorie, maar die dienst hebben we niet en verkopen moet dan buiten ChatGPT zonder hulp van de etalage. Dat is het Rollwright-probleem.
+- **Vraag 5, de etalage:** de paginadata van chatgpt.com/plugins (GEZIEN 18 nov 09:20 UTC) toont vaste lijsten per categorie ("featured", "new-and-noteworthy", "small-business", "productivity" ...) met plugin-id's die OpenAI kiest; "New & Noteworthy" telt een handvol vaste id's. Een teller van installaties of een ranglijst op gebruik heb ik niet gezien (ONBEKEND of die er na inloggen is). Daarnaast: "Skills-only plugins may be subject to additional eligibility requirements for listing in the Directory" (plugin-guidelines.md). Of een skills-only plugin van een losse maker überhaupt in de lijst komt: ONBEKEND.
+- **Wet 4 en vraag 1:** de brede taken van de oude GPT-toppers (schrijven, PDF lezen, plaatjes, samenvatten) doet ChatGPT zelf; OpenAI zet GPT's zelf om met "Migrate to plugin" en levert een eigen Plugin Creator in de lijst (submission.md). Wat overblijft is een nis of een merk met een eigen dienst.
+- Wat het zou veranderen: OpenAI laat digitale verkoop toe (klok monetization.md), of de lijst krijgt een openbare ranglijst op gebruik met plek voor skills-only plugins van losse makers.
+
+### Zelf afgeschoten: basisplugin voor Claude zelf (de plugins "Works with Claude" in Cowork) | DOOD op wet 4 en vraag 1, zwak op wet 1
+- **Waarom het lokte:** in de pluginlijst van Anthropic werken maar 32 plugins met de Claude-app zelf, tegen 202 met Claude Code in hetzelfde stuk paginadata, met een echte teller van installaties (GEZIEN 18 nov 09:30 UTC, paginadata claude.com/plugins; de hele lijst noemt 532 plugins). Een kleine lijst met tellers leek een jonge etalage.
+- **Wie er staat:** de brede basisplugins zijn van Anthropic zelf: Productivity, Sales, Legal, Finance, Customer Support, Product Management, Enterprise Search, Design, Engineering, Operations, Brand Voice, Small Business, Data. De rest zijn merken met een eigen dienst: Slack 92.287 installs, Adobe 2.945, ZoomInfo 2.363, Apollo 1.462, Dropbox 220, monday.com, NetSuite, LSEG. Alle plugins hebben "anthropicVerified" true (zelfde paginadata).
+- **Waarom dood:** de basistaak per beroep heeft Anthropic al gevuld (wet 4 is hier al gebeurd, niet over 3 maanden), en de overige plekken gaan naar wie een dienst heeft om te koppelen. Indienen kan via claude.com/docs/plugins/submit, maar niet vroeg (Claude Code-plugins draaien al maanden, Superpowers 1 mln+ installs, run 4) en geen kassa.
+
+### Zelf afgeschoten (snel)
+- **Windows Agent Store (85% voor de maker):** het ONBEKEND-spoor van run 2 opgelost. Aangekondigd op Build 2 jun 2026 als "a curated marketplace for distributing agents to enterprise users" met Adobe en Zoom als partners, in preview (GEZIEN 18 nov, resources.rework.com en alatirok.com, DERDEN). Op Ignite (17 nov) geen opening: Thurrott schrijft "we won't see agents seamlessly integrated with Windows 11 until late 2027 at the earliest" (GEZIEN 18 nov, thurrott.com/microsoft/343991). DOOD op wet 1.
+- **Slack "Add to Slack" voor agents:** 20 aug 2026, een knop in tien agentbouwers (n8n, Lovable, Vercel ...) om een eigen agent in je eigen werkruimte te zetten; geen nieuwe winkel (GEZIEN 18 nov, slack.com/blog/news/add-to-slack). DOOD op wet 1 en vraag 5.
+- **ElevenLabs Marketplace (13 nov):** "a directory of voice agents and apps built with ElevenLabs for sectors such as healthcare, financial services, and retail" (GEZIEN 18 nov, theneuron.ai digest 13 nov). Voor bedrijven die op ElevenLabs bouwen; stond al als tip met cijfer 1 tot 3 in `onderzoek-2026-11-17/UITKOMST.md`. Niet verder.
+- **Notion Agent Hall of Fame:** juni 2026, een lijst met agent-sjablonen die Notion zelf kiest (GEZIEN 18 nov, createwith.com, 22 jun). Niet vroeg; Notion is de hoek van Lars.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md, en of "Request an invite" verdwijnt), ChatGPT (monetization.md en plugin-guidelines.md, de zin over digitale verkoop), Claude directory (aantal per maand), openbare skill-galerij in Gemini.
+- Op 11 dec (GPT Store dicht) en de week erna: tellen hoeveel plugins er in chatgpt.com/plugins bij komen en of er een ranglijst op gebruik verschijnt.
+- Wat ik zoek blijft: een etalage die gebruik telt, jonger dan een maand, waar de basistaak niet al van het platform zelf is.
+
 ## 18 nov 2026 08:00 UTC: run 5, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 1 snel)
 
 Tijd uit `date -u` (gestart 08:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`.
