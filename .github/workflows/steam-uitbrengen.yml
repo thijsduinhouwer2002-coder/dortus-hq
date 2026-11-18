@@ -1,0 +1,211 @@
+name: Het Hol naar Steam (met de hand, niet-openbare tak)
+
+# Olaf, 18 nov 2026 (opdracht hoofdchat 20:20 NL, afgekeken bij Material Maker, platformen/ideeen/afkijken-2026-11-18/D-steam-indie.md punt 1).
+# Bouwt het volle spel en de demo zoals steam-hol-exe.yml en zet ze met game-ci/steam-deploy op een NIET-openbare Steam-tak.
+# Alleen met de hand te starten (workflow_dispatch). Thijs zet een build daarna zelf live in Steamworks.
+#
+# Proefdraaien (standaard aan): alles behalve de upload. Maakt de depotmappen, toetst ze en schrijft de manifesten
+# die steamcmd zou krijgen naar de samenvatting. Geen sleutel nodig, niets gaat naar Steam.
+#
+# Echt uploaden kan pas als Thijs één keer heeft gezet (zie berichten/hoofdchat.md, 18 nov):
+#   variabelen (Settings, Variables):  STEAM_APPID, STEAM_DEMO_APPID   (appids zijn openbaar, daarom geen geheim)
+#   geheimen  (Settings, Secrets):     STEAM_USERNAME, STEAM_CONFIG_VDF (apart bouwaccount met alleen uploadrechten)
+# Ontbreekt er iets, dan stopt de echte upload met een duidelijke melding.
+on:
+  workflow_dispatch:
+    inputs:
+      proefdraaien:
+        description: "Proefdraaien: alles behalve de upload (laat aan tot de sleutels er zijn)"
+        type: boolean
+        default: true
+      steamtak:
+        description: "Steam-tak (beta) waar de build op komt. Nooit default of public; de tak moet in Steamworks bestaan."
+        type: string
+        default: "intern"
+      welke:
+        description: "Welke build"
+        type: choice
+        options: [beide, vol, demo]
+        default: beide
+
+permissions:
+  contents: read
+
+concurrency:
+  group: steam-uitbrengen
+  cancel-in-progress: false
+
+jobs:
+  bouwen:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Tak toetsen (nooit de openbare tak)
+        shell: bash
+        env:
+          TAK: ${{ inputs.steamtak }}
+        run: |
+          t=$(echo "$TAK" | tr 'A-Z' 'a-z' | xargs)
+          if [ -z "$t" ] || [ "$t" = "default" ] || [ "$t" = "public" ]; then
+            echo "::error::Steam-tak '$TAK' mag niet: een build gaat alleen naar een niet-openbare tak. Live zetten doet Thijs in Steamworks."; exit 1
+          fi
+          if ! echo "$t" | grep -Eq '^[a-z0-9_-]{1,32}$'; then
+            echo "::error::Steam-tak '$TAK': alleen kleine letters, cijfers, - en _ (max 32)."; exit 1
+          fi
+          echo "Steam-tak: $t"
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 en de Windows-sjablonen downloaden
+        shell: pwsh
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -OutFile sjablonen.zip
+          $doel = Join-Path $env:APPDATA "Godot/export_templates/4.3.stable"
+          New-Item -ItemType Directory -Force $doel | Out-Null
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path sjablonen.zip).Path)
+          foreach ($e in $zip.Entries) {
+            if ($e.FullName -match '^templates/(windows_.*|version\.txt)$') {
+              [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path $doel $e.Name), $true)
+            }
+          }
+          $zip.Dispose()
+          $rc = Join-Path $env:RUNNER_TEMP "rcedit"; New-Item -ItemType Directory -Force $rc | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" -OutFile (Join-Path $rc "rcedit.exe")
+          Add-Content $env:GITHUB_PATH $rc
+      - name: Importeren
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Bouwen
+        shell: pwsh
+        env:
+          WELKE: ${{ inputs.welke }}
+        run: |
+          $lijst = @()
+          if ($env:WELKE -ne "demo") { $lijst += ,@("Windows", "vol") }
+          if ($env:WELKE -ne "vol") { $lijst += ,@("Windows demo", "demo") }
+          $fout = 0
+          foreach ($v in $lijst) {
+            New-Item -ItemType Directory -Force "producten/steam-hol/steam/$($v[1])" | Out-Null
+            $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release $v[0] "../steam/$($v[1])/HetHol.exe" 2>&1 | Out-String
+            Write-Output "===== $($v[0])"; Write-Output $uit
+            if (-not (Test-Path "producten/steam-hol/steam/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
+            if ($uit -match "Resources Modification|completed with warnings") { Write-Output "FOUT: icoon of versie niet gezet voor $($v[0])"; $fout++ }
+          }
+          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC" | Set-Content "producten/steam-hol/steam/VERSIE.txt"
+          if ($fout -gt 0) { exit 1 }
+      - name: Korte rooktoets (start de volle exe 20 s, geen SCRIPT ERROR)
+        if: inputs.welke != 'demo'
+        shell: pwsh
+        run: |
+          $glog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log"
+          Remove-Item $glog -ErrorAction SilentlyContinue
+          $p = Start-Process -FilePath "producten/steam-hol/steam/vol/HetHol.exe" -PassThru
+          Start-Sleep 20
+          $leeft = -not $p.HasExited
+          Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+          Start-Sleep 2
+          $log = if (Test-Path $glog) { Get-Content $glog -Raw } else { "" }
+          Write-Output "draaide na 20 s nog: $leeft; godot.log $($log.Length) tekens"
+          if (-not $leeft) { Write-Output "FOUT: de exe stopte binnen 20 s"; exit 1 }
+          if ($log -match "SCRIPT ERROR") { Write-Output $log; Write-Output "FOUT: SCRIPT ERROR in godot.log"; exit 1 }
+          # de log is van deze run en mag niet in de depot terechtkomen
+          Get-ChildItem -Recurse producten/steam-hol/steam -Include *.log | Remove-Item -ErrorAction SilentlyContinue
+      - uses: actions/upload-artifact@v4
+        with:
+          name: steam-depots
+          path: producten/steam-hol/steam/
+          retention-days: 7
+
+  uploaden:
+    needs: bouwen
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: steam-depots
+          path: steam
+      - name: Depots toetsen en manifesten schrijven
+        shell: bash
+        env:
+          TAK: ${{ inputs.steamtak }}
+          WELKE: ${{ inputs.welke }}
+          PROEF: ${{ inputs.proefdraaien }}
+          APPID: ${{ vars.STEAM_APPID }}
+          DEMO_APPID: ${{ vars.STEAM_DEMO_APPID }}
+        run: |
+          fout=0
+          S="$GITHUB_STEP_SUMMARY"
+          echo "## Het Hol naar Steam: $( [ "$PROEF" = "true" ] && echo PROEFDRAAIEN || echo ECHTE UPLOAD )" >> "$S"
+          echo "Commit \`$GITHUB_SHA\`, Steam-tak \`$TAK\`, build: $WELKE" >> "$S"
+          for d in vol demo; do
+            [ "$WELKE" = "beide" ] || [ "$WELKE" = "$d" ] || continue
+            [ -f "steam/$d/HetHol.exe" ] || { echo "FOUT: steam/$d/HetHol.exe ontbreekt"; fout=$((fout+1)); continue; }
+            # verboden in een depot: logs, saves, debugbestanden en vdf's (steam-deploy sluit *.pdb, *.log, *.vdf ook uit)
+            vreemd=$(find "steam/$d" -type f \( -name '*.log' -o -name '*.pdb' -o -name '*.vdf' -o -name '*.save' -o -name '*.tres' -o -name '*.tmp' \) | wc -l)
+            [ "$vreemd" -eq 0 ] || { echo "FOUT: $vreemd vreemde bestanden in steam/$d"; fout=$((fout+1)); }
+            mb=$(du -sm "steam/$d" | cut -f1)
+            [ "$mb" -lt 500 ] || { echo "FOUT: steam/$d is $mb MB"; fout=$((fout+1)); }
+            id=$([ "$d" = "vol" ] && echo "${APPID:-APPID}" || echo "${DEMO_APPID:-DEMO_APPID}")
+            depot=$([[ "$id" =~ ^[0-9]+$ ]] && echo $((id+1)) || echo "${id}+1")
+            m="manifest-$d.vdf"
+            # zelfde vorm als het manifest dat steam-deploy voor steamcmd maakt (app_build met één depot en SetLive op de tak)
+            {
+              echo "\"AppBuild\""; echo "{"
+              echo "  \"AppID\" \"$id\""
+              echo "  \"Desc\" \"Het Hol $d ${GITHUB_SHA:0:7} run $GITHUB_RUN_ID\""
+              echo "  \"ContentRoot\" \"steam/$d\""
+              echo "  \"SetLive\" \"$TAK\""
+              echo "  \"Depots\" { \"$depot\" { \"FileMapping\" { \"LocalPath\" \"*\" \"DepotPath\" \".\" \"recursive\" \"1\" } \"FileExclusion\" \"*.pdb\" \"FileExclusion\" \"*.log\" \"FileExclusion\" \"*.vdf\" } }"
+              echo "}"
+            } > "$m"
+            echo "### $d: $mb MB, $(find "steam/$d" -type f | wc -l) bestanden" >> "$S"
+            echo '```' >> "$S"; find "steam/$d" -type f -printf '%P  %s\n' >> "$S"; cat "$m" >> "$S"; echo '```' >> "$S"
+          done
+          echo "uitslag: $fout FOUT" | tee -a "$S"
+          [ "$fout" -eq 0 ] || exit 1
+      - name: Sleutels aanwezig? (alleen bij een echte upload)
+        if: inputs.proefdraaien == false
+        shell: bash
+        env:
+          GEBRUIKER: ${{ secrets.STEAM_USERNAME }}
+          VDF: ${{ secrets.STEAM_CONFIG_VDF }}
+          APPID: ${{ vars.STEAM_APPID }}
+          DEMO_APPID: ${{ vars.STEAM_DEMO_APPID }}
+          WELKE: ${{ inputs.welke }}
+        run: |
+          mis=""
+          [ -n "$GEBRUIKER" ] || mis="$mis STEAM_USERNAME(geheim)"
+          [ -n "$VDF" ] || mis="$mis STEAM_CONFIG_VDF(geheim)"
+          if [ "$WELKE" != "demo" ]; then [[ "$APPID" =~ ^[0-9]+$ ]] || mis="$mis STEAM_APPID(variabele)"; fi
+          if [ "$WELKE" != "vol" ]; then [[ "$DEMO_APPID" =~ ^[0-9]+$ ]] || mis="$mis STEAM_DEMO_APPID(variabele)"; fi
+          if [ -n "$mis" ]; then echo "::error::Echte upload kan niet, dit ontbreekt:$mis. Draai met proefdraaien aan, of laat Thijs het zetten (berichten/hoofdchat.md)."; exit 1; fi
+          echo "sleutels en appids aanwezig"
+      - name: Volle spel naar Steam
+        if: inputs.proefdraaien == false && inputs.welke != 'demo'
+        uses: game-ci/steam-deploy@1c487ecde10efac6b6630e38978187c09497c427 # v3.3.0
+        with:
+          username: ${{ secrets.STEAM_USERNAME }}
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+          appId: ${{ vars.STEAM_APPID }}
+          buildDescription: Het Hol vol ${{ github.sha }} run ${{ github.run_id }}
+          rootPath: steam
+          depot1Path: vol
+          releaseBranch: ${{ inputs.steamtak }}
+          cliVersion: v0.1.76
+      - name: Demo naar Steam
+        if: inputs.proefdraaien == false && inputs.welke != 'vol'
+        uses: game-ci/steam-deploy@1c487ecde10efac6b6630e38978187c09497c427 # v3.3.0
+        with:
+          username: ${{ secrets.STEAM_USERNAME }}
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+          appId: ${{ vars.STEAM_DEMO_APPID }}
+          buildDescription: Het Hol demo ${{ github.sha }} run ${{ github.run_id }}
+          rootPath: steam
+          depot1Path: demo
+          releaseBranch: ${{ inputs.steamtak }}
+          cliVersion: v0.1.76
