@@ -24,28 +24,28 @@
 | **Kingmaker: nieuwe ideeën** | alle platformen | 17 nov: 19 ideeën zelf afgeschoten, 0 overlevers. Zoekers sinds 16:47 alle drie op wat nu opent; Patrick toetst op de 4 wetten | | eerste overlever 7+: Gijs bouwt binnen 72 uur, Gijs dan elk uur | Noor, Lars, Joris, Patrick, Gijs, Daan |
 | **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live; TikTok 1 volger, filmpjes gingen zonder geluid | | doel: vóór di 1 dec één filmpje boven 1.000 weergaven, anders stoppen (Chris) | Chris |
 
-## 2. Agents (gelijk aan de geplande taken, nagekeken 17 nov 15:00)
+## 2. Agents (alle geplande agents UIT sinds 18 nov 16:35, op verzoek van Thijs; kolom 'Focus' is de laatste opdracht)
 
 | Agent | Aan? | Hoe vaak (NL-tijd) | Focus nu |
 |---|---|---|---|
-| Olaf | aan | elk uur, :13 | Hats: hoofdbouwer, Steam-pagina en demo |
-| Bram | aan | elk uur, :07 | Hats: tweede bouwer. Click Joints alleen bij een melding |
-| Daan | aan | elk uur, :23 | keurt Hats (hoge lat) en de snelle versies van Kingmaker (alleen wat afwijzing geeft) |
-| Sanne | aan | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
-| Iris | aan | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
-| Gijs | aan | elke 3 uur, :52 (8 tot 20); elk uur zodra er een overlever is | snelle bouwer Kingmaker; tot dan alleen keuring Hat Tower |
-| Ruben | aan | elk uur, :03 | Click Joints Pro 1.1 |
-| Chris | aan | elke 3 uur, :41 (9 tot 21) | Click Joints Pro conversie, lancering Bison & Flex, filmpjes met doel van 14 dagen |
+| Olaf | uit | elk uur, :13 | Hats: hoofdbouwer, Steam-pagina en demo |
+| Bram | uit | elk uur, :07 | Hats: tweede bouwer. Click Joints alleen bij een melding |
+| Daan | uit | elk uur, :23 | keurt Hats (hoge lat) en de snelle versies van Kingmaker (alleen wat afwijzing geeft) |
+| Sanne | uit | elke 2 uur, :43 (8 tot 22) | Hats: wat moet er in de demo |
+| Iris | uit | elke 4 uur, :39 (10 tot 22) | Hats: is het leuk genoeg voor een demo |
+| Gijs | uit | elke 3 uur, :52 (8 tot 20); elk uur zodra er een overlever is | snelle bouwer Kingmaker; tot dan alleen keuring Hat Tower |
+| Ruben | uit | elk uur, :03 | Click Joints Pro 1.1 |
+| Chris | uit | elke 3 uur, :41 (9 tot 21) | Click Joints Pro conversie, lancering Bison & Flex, filmpjes met doel van 14 dagen |
 | Kai | uit | | geparkeerd (Chrome gaat niet door) |
-| Noor | aan | elk uur, :29 (7 tot 22) | zoeker: nieuwe winkels en apparaten met een SDK |
-| Lars | aan | elk uur, :47 (7 tot 22) | zoeker: nieuwe golven in grote winkels (zoals Claudian) |
-| Joris | aan | elk uur, :57 (7 tot 22) | zoeker: AI-marktplaatsen en agent-winkels die nu openen |
-| Patrick | aan | elk uur, :15 (8 tot 23) | afschieter: 4 Kingmaker-wetten plus ideeëntest |
+| Noor | uit | elk uur, :29 (7 tot 22) | zoeker: nieuwe winkels en apparaten met een SDK |
+| Lars | uit | elk uur, :47 (7 tot 22) | zoeker: nieuwe golven in grote winkels (zoals Claudian) |
+| Joris | uit | elk uur, :57 (7 tot 22) | zoeker: AI-marktplaatsen en agent-winkels die nu openen |
+| Patrick | uit | elk uur, :15 (8 tot 23) | afschieter: 4 Kingmaker-wetten plus ideeëntest |
 | Fenna, Vera | uit | | |
 | Stijn, Abel, Mila | uit | | |
 | Sem | uit | | terug ±1 dec voor de Hats-marketing (paginadag ±8 dec) |
 
-Verbruik: 12 agents aan, ongeveer gelijk aan de ochtend van 17 nov. Te hard: eerst Sanne en Iris lager, daarna de zoekers naar elke 2 uur.
+Verbruik: 0 geplande agents aan. Aanzetten alleen als Thijs het zegt, en dan eerst de opdracht herschrijven naar `organisatie/sjablonen/agent-opdracht.md`.
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 

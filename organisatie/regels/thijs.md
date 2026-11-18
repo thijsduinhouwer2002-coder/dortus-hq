@@ -8,15 +8,15 @@ Thijs: "alleen over 1, de rest vertrouw ik jou mee en heb geen tijd om continu t
 
 Daarnaast blijven de stappen die alleen hij **kan** doen (geen keuze, maar zijn handen): inloggen met zijn wachtwoord, een account aanmaken, betalen, voorwaarden accepteren, een sleutel (token) of secret aanmaken, eigen gegevens invullen, plaatsen onder zijn naam op plekken die voor ons geblokkeerd zijn (Reddit). Zet die klaar zodat het hem zo min mogelijk tijd kost.
 
-Al het andere beslist de ploeg zelf: Daan keurt (Iris bij Hats), de hoofdchat zet het live en meldt het in de samenvatting van 08:00 of 20:00. Dat geldt ook voor de site, filmpjes, winkelteksten, uploads van gekeurde versies, nieuwe kanalen en wat lastig terug te draaien is; daar beslist de hoofdchat met extra zorg en schrijft het waarom in `organisatie/besluiten.md`. Vaste afspraken van Thijs blijven gelden (Hats-spelerstekst schrijft hij zelf, geen AI-zin in posts, Ebb geen medische claims, geen AI-beeld of -geluid op Steam, privacyregels van de openbare repo).
+Al het andere beslist de ploeg zelf: Daan keurt (Iris bij Hats), de hoofdchat zet de eerste lancering live (updates van een product dat al live staat: zie `regels/uitbrengen.md`) en meldt het in de samenvatting van 08:00 of 20:00. Dat geldt ook voor de site, filmpjes, winkelteksten, uploads van gekeurde versies, nieuwe kanalen en wat lastig terug te draaien is; daar beslist de hoofdchat met extra zorg en schrijft het waarom in `organisatie/besluiten.md`. Vaste afspraken van Thijs blijven gelden (Hats-spelerstekst schrijft hij zelf, geen AI-zin in posts, Ebb geen medische claims, geen AI-beeld of -geluid op Steam, privacyregels van de openbare repo).
 
 **Inloggen via Chrome (Thijs, 17 nov 16:50):** de hoofdchat mag in de Chrome van Thijs (HP) overal inloggen met zijn Google-account, vakjes aanvinken, voorwaarden accepteren en doorklikken, zonder het eerst te vragen. Grenzen die blijven: geld uitgeven blijft een ja van Thijs; ID-controle, bankgegevens en andere persoonsgegevens vult Thijs zelf in; een openbaar bericht onder zijn naam gaat pas na zijn ja op de tekst; niets verwijderen wat niet van ons is. Geplande agents hebben geen browser: zij zetten zulke stappen klaar voor de hoofdchat in `berichten/hoofdchat.md`, niet voor Thijs.
 
-Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
+Agents melden zo'n vraag of stap in `berichten/hoofdchat.md`; alleen de hoofdchat zet hem op `organisatie/lijst-thijs.md` (max 5, regel Thijs 17 nov). Schrijf erbij: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
 
 ## Gedeeld account (tijdelijk)
 Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk mee doet. Tot Dortus een eigen account heeft:
-- **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo of Claude Docs**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
+- **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
 - **Chrome:** gebruik alleen de browser van Thijs' HP (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0). Kies nooit een andere browser.
 - Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen. Dortus-taken heten Stijn, Hans, Vera, Olaf, Jet (of beginnen met "Dortus").
 

@@ -7,6 +7,8 @@ description: Gebruik dit als je een product of nieuwe versie live zet in een win
 
 Afgekeken bij OpenStatus (`/ship`: vaste stappen, stop bij de eerste fout) en de winnaars uit `platformen/ideeen/afkijken-2026-11-18/`. Regels erachter: `organisatie/regels/uitbrengen.md`.
 
+**Wie drukt op de knop?** De eerste lancering van een product, alles in een nieuwe winkel en elke prijswijziging: de hoofdchat, na Daan. Een update van een product dat al live staat: de eigenaar zelf via de workflow, na een keuring. Zo blijft het ritme van elke 2 tot 3 weken haalbaar.
+
 Loop de stappen in volgorde. **Faalt er één: stop, schrijf in je logboek wat faalde en waarom, en ga niet verder.** Niets overslaan "omdat het vast goed is".
 
 1. **Versie:** het versienummer in het manifest is nieuw en gelijk aan de kop in `CHANGELOG.md` (maak die met de skill `update-tekst`).
@@ -17,4 +19,4 @@ Loop de stappen in volgorde. **Faalt er één: stop, schrijf in je logboek wat f
 6. **Controleren of het echt live is:** haal de winkelpagina of winkel-API op met `curl` en zie de nieuwe versie staan. Pas dan is het uitgebracht (les Bison & Flex 17 nov: goedgekeurd is niet zichtbaar).
 7. **Vastleggen:** `organisatie/scorebord.md` (versie en datum), het bord via de hoofdchat, en de post of aankondiging als CONCEPT klaar voor de hoofdchat.
 
-Wat alleen Thijs kan (eerste aanmelding bij een winkel, een sleutel aanmaken, betalen) zet je klaar in `organisatie/lijst-thijs.md`, met precies wat hij moet doen.
+Wat alleen Thijs kan (eerste aanmelding bij een winkel, een sleutel aanmaken, betalen) meld je in `berichten/hoofdchat.md`, met precies wat hij moet doen; de hoofdchat zet het op de lijst voor Thijs.

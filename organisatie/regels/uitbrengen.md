@@ -9,8 +9,11 @@ Lees dit als je een product of versie live zet. Laad ook de skill `uitbrengen`.
 - Alleen uitbrengen als de e2e-test groen is en Daan akkoord gaf, ook voor de README (dat is de winkelpagina).
 - De allereerste aanmelding bij een platform (bijvoorbeeld Obsidian via community.obsidian.md) doet Thijs één keer met zijn eigen login. Zet die klaar op zijn lijst met precies wat hij moet invullen.
 
+## Wie zet live (18 nov 2026)
+Eerste lancering, nieuwe winkel of prijswijziging: de hoofdchat, na Daan. Update van een product dat al live staat: de eigenaar via de workflow, na een keuring (skill `keuren`). Dit vervangt voor updates de oudere regel dat alleen de hoofdchat live zet.
+
 ## Ritme na het uitbrengen (18 nov 2026, afgekeken bij de winnaars)
-Bron: `platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` en `J-brede-scan.md`. Winnaars zijn niet beter in bouwen maar in alles daarna. Voor elk live product:
+Bron: `platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` en `J-brede-scan.md`. Winnaars zijn niet beter in bouwen maar in alles daarna. Voor elk live product waar we in investeren (nu Hats, Click Joints en Pro, Bison & Flex). Geparkeerde producten krijgen alleen bugfixes.
 1. **Uitbrengen met één knop.** Een workflow bouwt, test en zet de versie in de winkel (zoals `submit-blender` bij CAD Sketcher, één workflow naar VS Code én Open VSX bij GitLens). Thijs klikt niet per update. Waar de winkel geen sleutel toestaat, zet de workflow alles klaar tot de laatste klik.
 2. **Elke 2 tot 3 weken een kleine versie**, ook als het weinig is (een fix, een tekst, een kleine verbetering). Winnaars brengen 16 tot 45 versies per jaar uit; bij Obsidian telt elke update mee in de downloadteller.
 3. **Eén `CHANGELOG.md` per product** die alles voedt: de release, de "wat is nieuw" in de winkel en de post. Maak de tekst met de skill `update-tekst`.

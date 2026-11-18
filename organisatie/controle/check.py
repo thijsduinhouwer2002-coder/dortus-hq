@@ -18,8 +18,8 @@ ZELF = "organisatie/controle/check.py"
 REGELS = [
     ("IBAN of rekeningnummer", re.compile(r"\b[A-Z]{2}\d{2}[ ]?[A-Z]{4}[ ]?\d{4}[ ]?\d{4}[ ]?\d{2}\b"), False),
     ("telefoonnummer", re.compile(r"(?<![\w.])(?:\+31|0031)[\s-]?6[\s-]?\d{8}\b|(?<![\w.])06[\s-]?\d{8}\b"), False),
-    ("prive-mailadres (gmail)", re.compile(r"[\w.+-]+@gmail\.com", re.I), False),
-    ("GitHub-sleutel", re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}"), False),
+    ("prive-mailadres", re.compile(r"[\w.+-]+@(?:gmail|googlemail|hotmail|outlook|live|icloud|me|yahoo|ziggo|kpnmail|xs4all|planet)\.(?:com|nl)\b", re.I), False),
+    ("GitHub-sleutel", re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}|\bgithub_pat_[A-Za-z0-9_]{30,}"), False),
     ("API-sleutel", re.compile(r"\bsk-(?:ant-)?[A-Za-z0-9_-]{20,}"), False),
     ("AWS-sleutel", re.compile(r"\bAKIA[0-9A-Z]{16}\b"), False),
     ("privesleutel", re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"), False),
@@ -30,8 +30,10 @@ TEKST = (".md", ".txt")
 
 
 def diff(van, tot):
-    cmd = ["git", "diff", "--unified=0", "--no-color", "--diff-filter=AM", van, tot] if tot else \
-          ["git", "diff", "--unified=0", "--no-color", "--diff-filter=AM", van]
+    # quotePath=false: ook bestanden met een naam als "ideeën/" worden gecontroleerd.
+    # --no-renames: een hernoemd bestand telt als nieuw, dus de hele inhoud wordt gecontroleerd.
+    basis = ["git", "-c", "core.quotePath=false", "diff", "--unified=0", "--no-color", "--no-renames", "--diff-filter=AM"]
+    cmd = basis + [van, tot] if tot else basis + [van]
     return subprocess.run(cmd, capture_output=True, text=True, errors="replace").stdout
 
 
@@ -45,7 +47,8 @@ def main():
     bestand, regelnr, fouten = None, 0, []
     for regel in diff(van, tot).splitlines():
         if regel.startswith("+++ "):
-            bestand = regel[6:] if regel.startswith("+++ b/") else None
+            pad = regel[4:].strip().strip('"')
+            bestand = pad[2:] if pad.startswith("b/") else None
             continue
         if regel.startswith("@@"):
             m = re.search(r"\+(\d+)", regel)

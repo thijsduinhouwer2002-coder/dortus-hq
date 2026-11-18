@@ -1,5 +1,7 @@
 # Koers Kingmaker (Thijs, 17 nov 2026 16:47, akkoord op het voorstel van de hoofdchat)
 
+> **Stand 18 nov 2026 18:40 (besluit Thijs, gaat voor dit stuk zolang het geldt):** tijdelijk geen nieuwe producten of zoekers. Eerst de werkwijze van de winnaars toepassen op Hats, Click Joints en Bison & Flex; meten op wo 9 dec. Daarna besluiten we of de zoekers weer aan gaan. Zie bovenaan `organisatie/besluiten.md`.
+
 Dit is de koers van Dortus vanaf 17 nov 2026. Hij gaat voor oudere regels waar die botsen, met de aanpassingen onderaan. Hieronder de tekst van Thijs zoals hij hem gaf.
 
 ---
