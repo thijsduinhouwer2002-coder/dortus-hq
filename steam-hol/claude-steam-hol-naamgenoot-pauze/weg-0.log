@@ -1,15 +1,15 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795040698
+HOL zaad 1795040806
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Pim read about you in a tavern.
-HOL begin: vallen (Pim)
-HOL held binnen: Pim
-HOL zicht 4.2 1
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL kroniek 10.5 (wacht 0.0): Ineke knocks first. Polite.
-HOL begin: opgegeten (Ineke)
-HOL held binnen: Ineke
-HOL kroniek zelfde held vervangen: Pim read about you in a tavern.
-HOL kroniek 12.8 (wacht 0.0): Pim is part of the hole now. +6
-HOL einde na 15 s, fps=19, goud=26, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Merel read about you in a tavern.
+HOL begin: vallen (Merel)
+HOL held binnen: Merel
+HOL zicht 4.1 1
+HOL kroniek 9.2 (wacht 0.0): Henk brought a torch. And hope.
+HOL begin: opgegeten (Henk)
+HOL held binnen: Henk
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Merel read about you in a tavern.
+HOL kroniek 12.8 (wacht 0.0): Merel left gold and one boot. +6
+HOL einde na 15 s, fps=20, goud=26, terugkomers=0
