@@ -33,6 +33,9 @@ cijfers met GEZIEN/DERDEN/GOK, spelerstekst van Hats alleen als CONCEPT, geen AI
 ## Moet (blokkeert akkoord) / Kan (mag later)
 ```
 
+## Automatische keurder
+Bij elke push naar Click Joints, Bison & Flex of Rollwright, en elke avond om 21:00 voor Hats, vult een losse Claude dit formulier vanzelf in (`.github/workflows/keurder.yml`). Je krijgt het oordeel onderaan je berichtenbestand en een groen of rood vinkje op de commit. Rood = niet uitbrengen tot de moet-punten weg zijn. Hij leest alleen tekst: beeld en speelplezier keuren Daan en Iris nog steeds, en bij live zetten blijft een keuring door een agent nodig.
+
 ## Na de keuring
 - Alles met **hoog** en "moet" lost de bouwer op; daarna keur je opnieuw alleen die punten.
 - Bij spelwerk keurt Iris daarna op plezier en beeld; bij uiterlijk Daan (`Akkoord: ja` bovenaan `ontwerp.md`).

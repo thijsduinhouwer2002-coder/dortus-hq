@@ -1,0 +1,124 @@
+name: Automatische keurder
+
+# Een losse Claude keurt elke wijziging aan een live product (deel A: doet het wat beloofd is,
+# deel B: houdt het zich aan onze regels). Hats één keer per dag, omdat daar elk uur gepusht wordt.
+# Uitkomst: keuring in platformen/<platform>/keuring/, bericht aan de eigenaar, groen of rood vinkje.
+# Script: organisatie/controle/keurder.py. Kosten staan onderaan elke keuring (tokens, GEZIEN).
+
+on:
+  push:
+    branches: [main, 'claude/**']
+    paths:
+      - 'producten/blender-gewrichten/**'
+      - 'producten/jetbrains-bison-flex/**'
+      - 'producten/obsidian-rollwright/**'
+  schedule:
+    - cron: '0 20 * * *'   # 21:00 NL: Hats, alles van de laatste 24 uur
+  workflow_dispatch:
+    inputs:
+      product:
+        description: 'blender-gewrichten, jetbrains-bison-flex, obsidian-rollwright of steam-hol'
+        required: true
+      van:
+        description: 'commit vanaf (leeg = 24 uur terug)'
+        required: false
+      tot:
+        description: 'commit tot (leeg = nu)'
+        required: false
+
+permissions:
+  contents: write
+  statuses: write
+
+concurrency:
+  group: keurder
+  cancel-in-progress: false
+
+jobs:
+  keuren:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bepaal wat te keuren
+        id: wat
+        env:
+          EVENT: ${{ github.event_name }}
+          VOOR: ${{ github.event.before }}
+          NA: ${{ github.sha }}
+          IN_PRODUCT: ${{ inputs.product }}
+          IN_VAN: ${{ inputs.van }}
+          IN_TOT: ${{ inputs.tot }}
+        run: |
+          set -e
+          if [ "$EVENT" = "push" ]; then
+            VAN="$VOOR"; TOT="$NA"
+            if [ -z "$VAN" ] || [ "$VAN" = "0000000000000000000000000000000000000000" ]; then VAN="$TOT~1"; fi
+            LIJST=$(git diff --name-only "$VAN" "$TOT" -- producten | cut -d/ -f2 | sort -u \
+              | grep -xE 'blender-gewrichten|jetbrains-bison-flex|obsidian-rollwright' || true)
+          else
+            TOT="${IN_TOT:-$(git rev-parse HEAD)}"
+            VAN="${IN_VAN:-$(git rev-list -1 --before='24 hours ago' "$TOT" || true)}"
+            [ -z "$VAN" ] && VAN="$TOT~1"
+            LIJST="${IN_PRODUCT:-steam-hol}"
+          fi
+          echo "van=$(git rev-parse "$VAN")" >> "$GITHUB_OUTPUT"
+          echo "tot=$(git rev-parse "$TOT")" >> "$GITHUB_OUTPUT"
+          echo "lijst=$(echo $LIJST)" >> "$GITHUB_OUTPUT"
+          echo "Keuren: ${LIJST:-niets} ($VAN..$TOT)"
+
+      - name: Keuren
+        id: keur
+        if: steps.wat.outputs.lijst != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KEURDER_MODEL: ${{ vars.KEURDER_MODEL }}
+          VAN: ${{ steps.wat.outputs.van }}
+          TOT: ${{ steps.wat.outputs.tot }}
+          LIJST: ${{ steps.wat.outputs.lijst }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "Secret ANTHROPIC_API_KEY ontbreekt"; exit 1; fi
+          ROOD=0
+          export KEURDER_UIT="$RUNNER_TEMP/uit"
+          for P in $LIJST; do
+            : > uit.txt
+            GITHUB_OUTPUT=uit.txt python3 organisatie/controle/keurder.py "$P" "$VAN" "$TOT"
+            AKKOORD=$(grep '^akkoord=' uit.txt | cut -d= -f2)
+            BESTAND=$(grep '^bestand=' uit.txt | cut -d= -f2)
+            [ "$AKKOORD" = "leeg" ] && continue
+            if [ "$AKKOORD" = "ja" ]; then STAAT=success; else STAAT=failure; ROOD=1; fi
+            gh api "repos/$REPO/statuses/$TOT" -f state="$STAAT" -f context="keurder/$P" \
+              -f description="akkoord $AKKOORD: $BESTAND" \
+              -f target_url="https://github.com/$REPO/blob/main/$BESTAND" > /dev/null || true
+          done
+          rm -f uit.txt
+          echo "rood=$ROOD" >> "$GITHUB_OUTPUT"
+
+      - name: Controle en opslaan (altijd bovenop de nieuwste main)
+        if: steps.wat.outputs.lijst != ''
+        env:
+          UIT: ${{ runner.temp }}/uit
+        run: |
+          set -e
+          [ -d "$UIT" ] || { echo "Niets op te slaan"; exit 0; }
+          git config user.name "dortus-keurder"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main
+            git checkout -q -f -B opslaan origin/main
+            (cd "$UIT" && find platformen -type f) | while read -r F; do mkdir -p "$(dirname "$F")"; cp "$UIT/$F" "$F"; done
+            for B in "$UIT"/berichten/*.md; do [ -f "$B" ] && cat "$B" >> "berichten/$(basename "$B")"; done
+            git add -A platformen berichten
+            git diff --cached --quiet && { echo "Niets op te slaan"; exit 0; }
+            git commit -q -m "Automatische keuring ${{ steps.wat.outputs.lijst }}"
+            python3 organisatie/controle/check.py HEAD~1 HEAD
+            git push -q origin opslaan:main && exit 0
+            sleep $((i * 5))
+          done
+          echo "Opslaan lukte niet na 5 pogingen"; exit 1

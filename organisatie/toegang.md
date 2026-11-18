@@ -27,7 +27,8 @@ De GitHub-sleutel in onze sessies werkt niet (GH_TOKEN ongeldig, GEZIEN 18 nov),
 | Google Search Console | zoekcijfers dortus.com | Chrome (hoofdchat) | geverifieerd 18 nov 21:43 (HTML-bestand in de root van dortus.com; laten staan) | niets |
 | Google Alerts | vermeldingen volgen | secret `GOOGLE_ALERTS_FEEDS` (4 RSS-adressen, één per regel: Click Joints, Hats of the Fallen, Bison & Flex, Dortus) | staat er (18 nov 21:46) | niets |
 | Metricool | inplannen en cijfers | koppeling (hoofdchat) | werkt (Free, 20 posts per maand) | TikTok @hatsofthefallen koppelen als we dat kanaal gebruiken |
-| Discord | Hats-community | Chrome | **bestaat niet** | server maken (de hoofdchat kan het voorbereiden), webhook als secret `DISCORD_WEBHOOK` |
+| Discord | Hats-community | Chrome (hoofdchat); berichten via secret `DISCORD_WEBHOOK` | server Hats of the Fallen staat, account thijs@dortus.com; webhook staat er (18 nov) | niets |
+| Anthropic API | automatische keurder (`.github/workflows/keurder.yml`) | secret `ANTHROPIC_API_KEY` (sleutel `dortus-keurder`, Standaardwerkruimte); model kiezen kan met variabele `KEURDER_MODEL` | aangemaakt 18 nov ±22:30; betaald uit het API-tegoed van Thijs ($200 per maand, GEZIEN in de console) | maandlimiet in de console in de gaten houden |
 | Meldingenrepo Bison & Flex | bugtracker-link in de listing | GitHub `thijsduinhouwer2002-coder/bison-flex` (openbaar) | aangemaakt 18 nov 21:47, alleen README | niets; Chris vult hem en zet hem in de listing |
 | Superhive, Gumroad, Garmin, Steamworks, JetBrains-dashboard | instellingen, teksten, keuringen | Chrome (hoofdchat) | werkt | niets |
 
