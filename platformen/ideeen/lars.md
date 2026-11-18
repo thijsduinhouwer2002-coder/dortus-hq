@@ -2,6 +2,41 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 14:50 UTC: run 12, Rhino 9 met Grasshopper 2 en RhinoAI, Premiere 27 (MoGRT-tekst in UXP), Photoshop UXP, roadmap Obsidian, JetBrains-blog 11 tot 17 nov, 0 ideeën klaar voor keuring, 2 zelf afgeschoten
+
+Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek. Eerst gezocht in `platformen/pionier/onderzocht.md` en alle ideeënbestanden: Rhino, Grasshopper, Premiere en Photoshop had nog niemand bekeken. Gelezen: rhino3d.com/9/new (hele pagina, alle onderdelen), de downloadpagina en het nieuwsblog van Rhino (sep tot 18 nov), het forum van McNeel (zoek-API), de UXP-changelog van Premiere en van Photoshop, het hulpartikel over data-gestuurde MoGRT's, de roadmap van Obsidian, de RSS van het JetBrains-blog (11 tot 17 nov).
+
+**Eerlijk:** niets haalt alle 4 wetten.
+
+### Zelf afgeschoten: de eerste basistools voor Grasshopper 2 en Rhino 9 (bijvoorbeeld een AI-brug of de eerste GH2-native componentenset) | DOOD op wet 4 (AI) en vraag 2 (GH2), zwak op wet 1 en vraag 6
+
+**De golf.** Rhino 9 staat op de downloadpagina als "Latest Licensed Version", met een proefversie van 90 dagen (GEZIEN 18 nov, rhino3d.com/download). Grote nieuwe dingen: **Grasshopper 2**, "a ground-up rewrite of Grasshopper", met parallel rekenen, lussen in clusters ("for growth, relaxation and simulations without plugins") en metadata, en Grasshopper 2 nu als "development target" voor makers van plugins (GEZIEN 18 nov, rhino3d.com/9/new, onderdelen Grasshopper 2 en Developers). Plus **RhinoAI**: "connects an AI assistant to your open Rhino and Grasshopper document. That can be Claude, Codex, another assistant you already use, or a model running on your own machine" (zelfde pagina). Grasshopper is een grote pluginwereld met betaalde plugins (food4Rhino), dus een rewrite leek een kans om als eerste de basis voor GH2 neer te zetten.
+
+**Waarom dood.**
+1. **AI-brug: het platform doet het zelf.** RhinoAI zit "by default in Rhino BETA", heeft een eigen chatpaneel, een Claude Desktop-connector, een MCP-server met parallelle agents, en kan zelfs GH1-scripts naar GH2 omzetten (GEZIEN 18 nov, discourse.mcneel.com/t/223146, eerste bericht van McNeel, 30 sep). Daarnaast staat Raven er al als sponsor van Rhino World 2026 met AI in Rhino (GEZIEN 18 nov, rhino3d.com/news, 9 nov). Wet 4: harde nee.
+2. **GH2-basisset: geen gat.** "Grasshopper 1 inside: drop a Grasshopper 1 component on the canvas and it just works" (GEZIEN 18 nov, rhino3d.com/9/new). De bestaande grote plugins (Kangaroo, Ladybug en de rest) werken dus gewoon door in GH2; er breekt niets wat wij kunnen vervangen. En de lussen die vroeger een plugin vroegen, doet GH2 nu zelf.
+3. **Wet 1: niet vroeg genoeg te zien.** De releasedatum van Rhino 9 heb ik niet gevonden: ONBEKEND. Op het forum heet het op 9 okt nog "Rhino 9 Beta" en op 16 nov is er al een "R9 sr3 release candidate" (GEZIEN 18 nov, discourse.mcneel.com/t/223414 en /t/224689); makers kondigen in okt en nov nog plugins "for Rhino 8" aan (GEZIEN 18 nov, rhino3d.com/news, 15 okt en 5 nov). De bèta liep ruim een jaar, dus makers hadden lang de tijd.
+4. **Vraag 6 en 7: zwak.** Rhino 9 kost een licentie (geld van Thijs); food4Rhino geeft curl een 403, dus de winkel is niet na te meten (GEZIEN 18 nov). Wel nieuw en handig: Rhino.Compute draait nu op Linux, dus testen in de cloud kan in principe (rhino3d.com/9/new, Developers), maar ook dat vraagt een licentie.
+
+**Wat het levend maakt:** een lijst van grote GH1-plugins die in GH2 toch niet werken (bijvoorbeeld plugins met eigen schermpjes op het canvas), met klachten op het forum. Dan is er een vervangtaak met kopers die al zoeken. Klok: forum van McNeel, zoekterm "GH2" plus "plugin" plus "not working", eens per week.
+
+### Zelf afgeschoten: batch-tekst voor MoGRT's in Premiere 27 (ondertitels, namen, lower thirds uit een lijst) | DOOD op vraag 1, zwak op wet 1
+
+**De golf.** Premiere 27.0 gaf de UXP-plugins twee nieuwe klassen: `MogrtText` "allows for reading and editing Source Text content, fonts, sizes, and styles", en `MogrtComment`; plus timecode-hulpfuncties (GEZIEN 18 nov, developer.adobe.com/premiere-pro/uxp/changelog/, Premiere v27.0.0). Voor het eerst kan een UXP-plugin de tekst in een sjabloon op de tijdlijn aanpassen. Een plugin die 200 namen uit een lijst in 200 lower thirds zet, leek een brede klus voor iedere editor.
+
+**Waarom dood.**
+1. **Vraag 1:** Premiere doet het voor een groot deel zelf. Data-gestuurde Motion Graphics-sjablonen vullen grafieken en teksten "with spreadsheet data" (GEZIEN 18 nov, helpx.adobe.com/premiere-pro/using/data-driven-motion-graphics-templates.html, bijgewerkt 7 jan 2026). En de oude CEP-panelen kunnen MoGRT-tekst al jaren via ExtendScript zetten; dat er daarvoor al betaalde panelen bestaan op aescripts is GOK, niet nagekeken.
+2. **Wet 1:** dit is een nieuwe API voor iets wat al kon, geen nieuwe soort plugin voor gebruikers. Adobe zegt zelf "Currently these only work with single-run text" (zelfde changelog).
+3. **Wet 3 en vraag 7:** de winkel is Adobe Exchange (robots.txt verbiedt lezen, zie tips-thijs.md) of aescripts; beide vragen een verkopersaccount van Thijs.
+
+**Wat het levend maakt:** Adobe opent in UXP iets wat CEP nooit kon (bijvoorbeeld effecten of overgangen op de GPU schrijven in JavaScript). Dan is de eerste brede plugin daarvoor een echte golf. Zelfde klok als After Effects (run 10).
+
+### Kort afgevallen, zonder eigen kop
+- **Photoshop UXP:** de nieuwste regel in de changelog is Photoshop 27.4 (februari 2026), met nieuwe laagsoorten Grain en Clarity; daarvoor `generativeUpscale` (27.2, dec 2025) (GEZIEN 18 nov, developer.adobe.com/photoshop/uxp/2022/ps_reference/changelog/). Geen nieuwe golf, en de pagina loopt kennelijk achter op de echte versie (ONBEKEND welke versie nu uit is).
+- **Roadmap Obsidian:** gepland zijn "Calendar view for Bases", "PDF annotation", "Multiplayer" en Bases en Canvas in Publish; actief: Obsidian for Work, achtergrond-Sync op mobiel en een native iOS-scherm (GEZIEN 18 nov, obsidian.md/roadmap). Dat sluit ideeën uit: een kalenderweergave voor Bases of een PDF-markeerplugin bouwen is wet 4. Voor de ploeg: wie een Obsidian-idee heeft, kijkt eerst op die pagina.
+- **JetBrains-blog 11 tot 17 nov:** Rider 2026.3 krijgt Lua- en Verse-plugins die JetBrains zelf maakt, en "Rider's built-in command-line argument presets replace the EzArgs plugin" (GEZIEN 18 nov, blog.jetbrains.com/dotnet/2026/11/11/rider-2026-3-for-gamedev/). Air (agents in de IDE, 11 nov) en PhpStorm Light (17 nov, een proef, "not a product") openen geen nieuwe soort plugin (GEZIEN 18 nov, blog.jetbrains.com, RSS). Les: JetBrains neemt populaire kleine plugins zelf over; een JetBrains-idee moet dus een taak zijn die JetBrains niet in zijn eigen IDE wil hebben.
+- **Niet gelukt:** de commitgeschiedenis van AdobeDocs op GitHub lezen (deze run heeft geen toegang tot die repo's); food4Rhino (403).
+
 ## 18 nov 2026 13:51 UTC: run 11, Figma 3D transform (12 nov), Blender 5.4 bijgewerkt, Raycast MCP, Resolve 21.1, meting nieuwkomers Blender Extensions, 0 ideeën klaar voor keuring, 1 zelf afgeschoten
 
 Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek. In run 5 las ik Figma-update 142 alleen als API-regel; nu de functie zelf nagelopen (les van de splats: ook de pagina voor gebruikers lezen). Gelezen: de release notes van Figma (12 tot 17 nov), plugin-update 142, het hulpartikel "Create 3D effects in Figma Design" (bijgewerkt 17 nov), de hulpartikelen over publiceren en verkopen, een eigen meting in de zoek-API van Figma Community (16 zoektermen, 359 plugins); de commits van 15 tot 18 nov in de 5.4-notities van Blender; de changelog van Raycast 2.13 (vandaag); zoekresultaten over DaVinci Resolve 21.1 en 21.1.2; VS Code 1.148 Insiders; de lijst van Blender Extensions (API) tegen die van gisteren; de tablet-taken van Blender.
