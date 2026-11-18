@@ -53,6 +53,7 @@ TOEGESTAAN = {
     "steam-hol-winkel.yml",            # winkelbeelden maken (niet uploaden), naar schermen
     "steam-proef.yml",                 # Godot-proef, beelden naar schermen
     "steam-fest-meting.yml",           # leest openbare spelertallen, schrijft in de repo
+    "loket-meldingen.yml",             # R5: leest openbare issues van de loketrepo's, schrijft in berichten/hoofdchat.md
 }
 
 # Invoer komt in workflows terecht; alleen gewone tekens, zodat er nooit een commando in kan sluipen.
@@ -105,6 +106,8 @@ def controleer(o):
             return f"invoer {k}: langer dan {INVOER_MAX} tekens"
         if not INVOER_TEKENS.fullmatch(w):
             return f"invoer {k}: alleen letters, cijfers, spatie en . _ , / - toegestaan"
+        if w.lstrip().startswith("-"):
+            return f"invoer {k}: mag niet met - beginnen (zou als optie gelezen kunnen worden)"
     # Alleen main: op een andere tak kan een workflow met dezelfde naam iets anders doen dan op de lijst bedoeld is.
     if o.get("tak", "main") != "main":
         return 'alleen "tak": "main" mag (laat het veld weg)'
