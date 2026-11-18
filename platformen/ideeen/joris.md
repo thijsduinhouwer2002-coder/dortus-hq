@@ -2,6 +2,40 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 10:00 UTC: run 7, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 3 snel)
+
+Tijd uit `date -u` (gestart 10:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run gezocht naar AI-winkels die deze maand bewegen buiten Claude, ChatGPT en Gemini: Perplexity, Alexa+, Ignite, Meta, Grok.
+
+**Vaste klokken (GEZIEN 18 nov ±10:00 tot 10:10 UTC):**
+- Cowboy: nog steeds "Every listing is free to hire today" en "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md). Niets veranderd.
+- ChatGPT-plugins: nog steeds "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md). Nieuw gezien, geen kans: OpenAI heeft een eigen gids om een Claude Code-plugin om te zetten en in te dienen (developers.openai.com/plugins/guides/submit-claude-plugin.md). Het is dezelfde lijst als in run 6, dus dezelfde wet 3.
+- Claude directory: 1.103 connectors in de paginadata van claude.com/connectors (veld `addedAt`), per maand jun 135, jul 166, aug 192, sep 117, okt 89, nov 8, laatste op 12 nov. Vijf meer dan in run 6, maar geen nieuwe in november. De golf blijft voorbij.
+- Ignite (17 tot 20 nov): het Book of News-spoor is dicht. Het dagoverzicht van 17 nov (azuretracks.com) noemt Foundry IQ, Work IQ, Copilotforce met Salesforce, Edge for Business en beveiliging, allemaal voor bedrijven. Geen nieuwe winkel voor losse makers. De blog van Microsoft zelf gaf een 403.
+
+**Les van deze run.** Bij Perplexity en Alexa+ zie je hetzelfde als bij Anthropic en OpenAI: de nieuwe winkels in AI-assistenten vullen ze eerst met de eigen brede basistaken en met een handvol partners die data of een merk hebben. Een losse maker kan er niet eens indienen. Wat ik zoek (een etalage die gebruik telt, jonger dan een maand, waar de basistaak nog vrij is, en open voor iedereen) bestaat op dit moment niet in de grote assistenten. De plekken waar het misschien gaat komen staan als klok hieronder.
+
+### Zelf afgeschoten: basisplugin voor de Plugins- en Skills-winkel van Perplexity Computer | DOOD op wet 1 (geen open inzending) en wet 4
+- **Waarom het lokte:** Perplexity Computer kreeg op 21 sep een "public Skills Marketplace" die je "even without signing in" kunt bekijken (GEZIEN 18 nov, perplexity.ai/changelog/effort-mode-gpt-6-astra-and-skills-marketplace). Nu heet het deel "Plugins" met de tabs Plugins en Skills, categorieën en een filter "All publishers" (GEZIEN 18 nov ±10:05 UTC, perplexity.ai/computer/skills, in een browser geopend). Een jonge lijst bij een grote assistent.
+- **Wie er staat:** het filter noemt Perplexity zelf plus Carbon Arc, Crunchbase, Daloopa, Dun & Bradstreet, Public, Ramp en Wall Street Prompt (zelfde pagina). Bijna allemaal bedrijven met eigen data. De brede taken (account outreach, brand reputation, competitive intelligence, security-audit, billable hours) zijn van Perplexity zelf. Een teller van installaties zag ik niet.
+- **Waarom dood:** ik vond geen weg om als losse maker in te dienen; de changelog praat alleen over bladeren en installeren, en over skills binnen je eigen bedrijf. Zoeken naar inzenden van plugins voor Perplexity Computer gaf niets (GEZIEN 18 nov). Wet 1: er binnen 7 dagen staan kan dus niet. Wet 4: de basistaken heeft Perplexity al zelf gevuld. Bovendien zat Computer bij de start achter Max ($200 per maand, testingcatalog.com, 4 mrt 2026), dus het bereik is klein (GOK dat dat nog zo is).
+- Wat het zou veranderen: Perplexity opent inzending voor iedereen, met een teller in de lijst.
+
+### Zelf afgeschoten: Alexa+ add-on via de nieuwe MCP-toolkit van Amazon | DOOD op wet 1 en wet 2, zwak op vraag 5
+- **Waarom het lokte:** Amazon zet Alexa+ open voor MCP-servers ("brands bring their own MCP server"), met een Amazon Wallet om af te rekenen (GEZIEN 18 nov, digitaltrends.com, 23 jul 2026). Alexa+ staat volgens de kop van techrepublic.com bij alle gebruikers in de VS (niet zelf gelezen). Een assistent met een eigen kassa leek precies wat wet 3 wil.
+- **Wet 1:** "you request access to the Private Preview. After approval, you receive credentials" (GEZIEN 18 nov, developer.amazon.com/en-US/docs/alexaplus/add-ons/alexa-plus-add-on-development-stages.html). Daarna nog certificering. Niet binnen 7 dagen, en de toegang ligt niet bij ons.
+- **Wet 2 en vraag 5:** "The user doesn't need to remember specific invocation words or brand names ... Alexa+ will activate your service when appropriate"; de vaste soorten zijn "restaurant reservation, home services, food ordering, travel booking, movie ticket booking", en add-ons draaien op "account linking" met een bestaande klantrelatie (GEZIEN 18 nov, developer.amazon.com/en-US/docs/alexaplus/add-ons/overview.html, bijgewerkt 2 okt). Alexa kiest zelf wie de taak krijgt; er is geen lijst waarin je de nummer één wordt, en het is voor bedrijven met een dienst (Priceline, Lyft, Headspace, Fandango). Wij hebben geen dienst.
+- Wat het zou veranderen: Alexa+ opent een openbare lijst met add-ons zonder merk, en de preview gaat open.
+
+### Zelf afgeschoten (snel)
+- **Meta Pocket (spelletjes maken met een prompt):** sinds 20 aug 2026 in de VS, een feed met door gebruikers gemaakte "gizmos" (GEZIEN 18 nov, unite.ai). Geen winkel voor makers van gereedschap en niet vroeg. DOOD op wet 1 en wet 2.
+- **OpenAI Dots (altijd-aan agents, DevDay 29 sep):** werkt "across more than 4,000 apps", dus via de bestaande koppelingen en plugins van ChatGPT (koppen van siliconangle.com en digitaltrends.com, 29 sep). Geen eigen winkel; valt onder de pluginlijst van run 6. DOOD op wet 1 en wet 3.
+- **Skills in Chrome en Grok Skills:** Chrome sinds 14 apr 2026 met een bibliotheek die Google zelf vult (blog.google), Grok sinds mei 2026 (x.ai/news/grok-skills, kop). Niet vroeg, geen open lijst. DOOD op wet 1.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md), ChatGPT (monetization.md, zin over fysieke spullen), Claude directory (aantal per maand en of er in november nog iets bijkomt), Perplexity (komt er een knop om in te dienen), Gemini (openbare skill-galerij).
+- 11 dec: de GPT Store gaat dicht; tellen wat er in chatgpt.com/plugins bijkomt.
+- Ik loop vast in de grote assistenten. Volgende run kijk ik naar kleinere die snel groeien en wel een open lijst met tellers hebben (bijvoorbeeld de skill- en pluginlijsten van Manus, Kimi of LobeHub), met de vraag of daar een basistaak vrij is en of wij er komen zonder buitenlands telefoonnummer of bedrijf.
+
 ## 18 nov 2026 09:00 UTC: run 6, 0 ideeën klaar voor keuring, 2 zelf afgeschoten (plus 4 snel)
 
 Tijd uit `date -u` (gestart 09:01 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Spoor van run 5 opgepakt: wat gebeurt er met de etalage van de GPT Store als de Custom GPTs op 11 dec stoppen.
