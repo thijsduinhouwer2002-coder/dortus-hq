@@ -32,6 +32,9 @@ jobs:
           cp "$MAP/click-joints-pro-demo.mp4" "$MAP/click-joints-pro-demo.gif" /tmp/uit/
           cp "$MAP/film-v3-11-beelden.jpg" /tmp/uit/
           (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Geluidscontrole (geen filmpje zonder hoorbaar geluid naar buiten, roestronde R6)
+        # De demofilm v3 heeft geen geluid; een nieuwe release van deze workflow kan pas met geluid eronder.
+        run: python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
       - name: Release maken of bijwerken
         env:
           GH_TOKEN: ${{ github.token }}

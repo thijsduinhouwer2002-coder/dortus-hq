@@ -50,6 +50,8 @@ jobs:
             python3 "$MAP/toets.py" "/tmp/in/$f.mp4" "/tmp/uit/$f-geluid.mp4" "/tmp/uit/$f-geluid-golf.png"
           done
           (cd /tmp/uit && sha256sum *.mp4 | tee GELUID-SHA256SUMS.txt)
+      - name: Geluidscontrole (geen filmpje zonder hoorbaar geluid naar buiten, roestronde R6)
+        run: python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
       - name: In de release zetten
         env:
           GH_TOKEN: ${{ github.token }}

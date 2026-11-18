@@ -50,6 +50,15 @@ jobs:
           ffmpeg -y -loglevel error -i /tmp/uit/click-joints-pro-knie-render.mp4 -vf "select='eq(n\,0)+eq(n\,144)+eq(n\,232)',scale=360:-1,tile=3x1" -frames:v 1 /tmp/uit/blad.png
           rm -rf /tmp/uit/beelden
           ls -la /tmp/uit
+      - name: Geluid nakijken (keurfilm, geen blokkade; roestronde R6)
+        # Deze film is een keurbeeld voor de tak schermen, nog niet voor buiten. GELUID.txt naast de film zegt
+        # of hij geluid heeft; zonder geluid eerst geluid eronder (zie commercie/filmpjes/planning.md) voor iemand hem plaatst.
+        run: |
+          curl -sSfL -o /tmp/geluid_check.py "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/organisatie/controle/geluid_check.py"
+          if ! python3 /tmp/geluid_check.py /tmp/uit/*.mp4 > /tmp/uit/GELUID.txt; then
+            echo "NIET PLAATSEN: deze film heeft geen hoorbaar geluid. Eerst geluid eronder en opnieuw nakijken." | tee -a /tmp/uit/GELUID.txt
+            echo "::warning::Film zonder hoorbaar geluid: niet plaatsen voordat er geluid onder staat (GELUID.txt)"
+          fi
       - name: Openbaar zetten (tak schermen)
         env:
           TOKEN: ${{ github.token }}
