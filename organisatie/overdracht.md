@@ -1,6 +1,8 @@
-# Overdracht: begin hier (bijgewerkt 17 nov 2026, 16:10 NL)
+# Overdracht: begin hier (bijgewerkt 18 nov 2026, 19:30 NL)
 
-**Nieuwe hoofdchat? Lees eerst `CLAUDE.md` en daarna `organisatie/bord.md`.** Het bord is de stand op één plek: producten, agents, herinneringen, beloftes. Daarna `organisatie/lijst-thijs.md` (max 5) en de besluiten van 17 nov onderaan `organisatie/besluiten.md`.
+**Sinds 18 nov 19:30 is de werkwijze omgebouwd** (besluit onderaan `organisatie/besluiten.md`): `CLAUDE.md` is een korte wegwijzer, de geldende besluiten staan bovenaan `organisatie/besluiten.md` (oude in `organisatie/archief/`), de regels per onderwerp in `organisatie/regels/`, en opdrachten voor geplande agents volgen `organisatie/sjablonen/agent-opdracht.md`. Zet je een agent weer aan, herschrijf zijn opdracht dan eerst naar dat sjabloon.
+
+**Nieuwe hoofdchat? Lees eerst `CLAUDE.md` en daarna `organisatie/bord.md`.** Het bord is de stand op één plek: producten, agents, herinneringen, beloftes. Daarna `organisatie/lijst-thijs.md` (max 5) en de geldende besluiten bovenaan `organisatie/besluiten.md`.
 
 **Koers sinds 17 nov 16:47: `organisatie/koers-kingmaker.md`.** Lees die direct na dit bestand. Hij gaat voor oudere regels waar die botsen.
 

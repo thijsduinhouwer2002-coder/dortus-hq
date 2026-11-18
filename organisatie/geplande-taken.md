@@ -3,6 +3,7 @@
 Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt kunnen worden als er een verloren gaat. Bijgewerkt op 7 nov 2026 (overstap naar het eigen account van Thijs).
 
 ## Belangrijk bij opnieuw aanmaken
+- **Sinds 18 nov 2026:** nieuwe of herstarte opdrachten volgen het korte sjabloon `organisatie/sjablonen/agent-opdracht.md`. De lange blokken hieronder zijn historie.
 - Een geplande taak krijgt alleen de repo-toegang die de chat had toen hij werd aangemaakt. Maak taken dus aan vanuit een chat die **dortus-hq, dortus en rollwright met push** heeft gekoppeld (add_repo, access push).
 - Instellingen voor alle taken: model Opus 5.5 (claude-opus-5-5), Auto (geen goedkeuring per stap), draaien in de cloud (niet aan een computer gekoppeld).
 - Wijzig je een opdracht in Claude, werk dan ook dit bestand bij.

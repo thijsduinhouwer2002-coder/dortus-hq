@@ -1,8 +1,22 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch",
       "WebSearch"
+    ],
+    "deny": [
+      "WebFetch"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash organisatie/start.sh"
+          }
+        ]
+      }
     ]
   }
 }

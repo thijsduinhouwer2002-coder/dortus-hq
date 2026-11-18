@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Draait vanzelf voor elke git push (aangezet door organisatie/start.sh).
+# Stopt de push als er persoonsgegevens, sleutels of gedachtestreepjes in de nieuwe regels staan.
+nul=0000000000000000000000000000000000000000
+fout=0
+while read -r lokaal_ref lokaal_sha remote_ref remote_sha; do
+  [ "$lokaal_sha" = "$nul" ] && continue
+  if [ "$remote_sha" = "$nul" ]; then
+    van=$(git merge-base "$lokaal_sha" origin/main 2>/dev/null || echo "")
+  else
+    van=$remote_sha
+  fi
+  if [ -n "$van" ]; then
+    python3 organisatie/controle/check.py "$van" "$lokaal_sha" || fout=1
+  fi
+done
+if [ $fout -ne 0 ]; then
+  echo "Push gestopt door de controle van de openbare repo. Haal het weg, commit opnieuw en push dan."
+  exit 1
+fi
+exit 0
