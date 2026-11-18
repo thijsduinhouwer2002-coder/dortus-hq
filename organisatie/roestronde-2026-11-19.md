@@ -18,3 +18,4 @@ Thijs, 18 nov 23:46: "ja we doen A, maar maak hem breed". Doel: de komende 30 da
 
 ## Stand
 (de roestagents schrijven hier per punt een regel onderaan: datum, wat af is, keuring, hash)
+- 19 nov 00:15, hoofdchat, H deels af: aanmeldvak "Updates by email" op dortus.com/click-joints, /bison-flex en /rollwright (Kit-formulier 10210621, gewone HTML-post zonder script, CSP form-action uitgebreid met app.kit.com), live en bekeken in Chrome (GEZIEN). Open: (1) Thijs klikt de bevestigingslink van Kit aan, dan doet hij één proefaanmelding met zijn eigen adres; (2) pagina `/hats` wacht op tekst van Thijs (Hats-tekst schrijft hij zelf); (3) abonnees tellen in het scorebord doet R6. Site-commit dfcab05.
