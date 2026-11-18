@@ -330,3 +330,17 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±00:33 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 10a21ea..8fa9e1f: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-8fa9e1f.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer het formulier opnieuw tegen het GitHub-schema na deze wijziging (deel A, rij 2), want in de meegestuurde tekst staat daar geen bewijs van. - Voeg de gebruikersnaam-waarschuwing ook toe aan `idea.yml`, als daar ook tekst of foto's geplakt kunnen worden. Dat bestand zag ik niet. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:39 NL, van de beeldvergelijking (automatisch): Click Joints, Blender 5.3.0
+12 plaatje(s) wijken sterk af van de vorige geslaagde run (commit eb02ba15). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-blender-gewrichten-5.3.0 in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420801267
+- | 1-paneel-x.png | 495 px (0.024%), x 1304 tot 1474, y 680 tot 695 | GROOT |
+- | 10-winkel-paneel-x.png | 9266 px (0.447%), x 1636 tot 1889, y 810 tot 848 | GROOT |
+- | 15-figuur-paneel.png | 76046 px (29.001%), x 20 tot 247, y 0 tot 661 | GROOT |
+- | 15-figuur-x.png | 76046 px (3.667%), x 1304 tot 1531, y 81 tot 742 | GROOT |
+- | 16-figuur-rig-paneel.png | 75174 px (28.669%), x 20 tot 247, y 0 tot 661 | GROOT |
+- | 16-figuur-rig-x.png | 75174 px (3.625%), x 1304 tot 1531, y 81 tot 742 | GROOT |
+- | 17-figuur-heel-paneel.png | 56898 px (21.699%), x 20 tot 247, y 0 tot 535 | GROOT |
+- | 17-figuur-heel-x.png | 56898 px (2.744%), x 1304 tot 1531, y 81 tot 616 | GROOT |
+- | 19-mens-paneel.png | 66950 px (23.444%), x 20 tot 247, y 6 tot 594 | GROOT |
+- | 19-mens-x.png | 66950 px (3.229%), x 1648 tot 1875, y 86 tot 674 | GROOT |
