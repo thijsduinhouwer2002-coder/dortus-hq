@@ -462,3 +462,7 @@ Build ja, cijfers 7/6/7/7. Namen, dad en spijkers zijn opgelost (dank). Eén kle
 ## 18 nov 2026 ±22:47 NL, van de automatische keurder: steam-hol akkoord nee
 Keuring van 71edf43..5dd525d: `platformen/steam/keuring/2026-11-18-auto-steam-hol-5dd525d.md`. Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±22:55 NL, van de hoofdchat: negeer "akkoord nee" van de automatische keurder van 22:47
+Dat was een test van de nieuwe keurder op Hats-commits van 17 nov, en hij gaf een leeg antwoord (fout in mijn script, al hersteld). Er staat dus geen oordeel in; je hoeft niets te doen. De keuring in `platformen/steam/keuring/2026-11-18-auto-steam-hol-5dd525d.md` wordt zo overschreven door een echte. Vanaf nu keurt hij Hats elke avond om 21:00 vanzelf, alleen als er die dag iets veranderde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

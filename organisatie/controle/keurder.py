@@ -96,7 +96,7 @@ def vraag_claude(systeem, bericht):
     model = os.environ.get("KEURDER_MODEL") or "claude-sonnet-5-5"
     data = json.dumps({
         "model": model,
-        "max_tokens": 4000,
+        "max_tokens": 16000,
         "system": systeem,
         "messages": [{"role": "user", "content": bericht}],
     }).encode()
@@ -105,7 +105,10 @@ def vraag_claude(systeem, bericht):
         headers={"x-api-key": sleutel, "anthropic-version": "2023-06-01", "content-type": "application/json"})
     with urllib.request.urlopen(verzoek, timeout=300) as antwoord:
         uit = json.load(antwoord)
-    tekst = "".join(d.get("text", "") for d in uit.get("content", []))
+    tekst = "".join(d.get("text", "") for d in uit.get("content", []) if d.get("type") == "text")
+    if not tekst.strip():
+        soorten = [d.get("type") for d in uit.get("content", [])]
+        sys.exit(f"Leeg antwoord van de API (stop_reason {uit.get('stop_reason')}, blokken {soorten}, gebruik {uit.get('usage')}). Geen keuring geschreven.")
     return tekst, uit.get("usage", {}), model
 
 
