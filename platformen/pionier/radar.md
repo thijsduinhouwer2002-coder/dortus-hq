@@ -2,6 +2,11 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 18 nov 2026 12:45 | Windows 11 nieuwe Run-dialoog (gebouwd op code van PowerToys Command Palette) naar Release Preview 13 nov, voor iedereen met Patch Tuesday 8 dec; geen extensies, Gallery blijft 97 | https://www.windowslatest.com/2026/11/14/windows-11s-modern-run-box-arrives-for-everyone-in-december-and-microsoft-found-almost-nobody-ever-clicked-browse-in-the-old-one/ | GEZIEN | nee nu; opnieuw zodra Run of Search Gallery-extensies laadt
+- 18 nov 2026 12:45 | Plaud Embedded: Device SDK, transcriptie-API, MCP en CLI, partnerprogramma zonder winkel | https://www.plaud.ai/pages/developer-platform | GEZIEN | nee
+- 18 nov 2026 12:45 | Snap Specs: $2.195, levering "later this fall", nog geen datum op 31 okt | https://oxivue.com/guides/snap-specs-2026 | DERDEN | blijft 4
+- 18 nov 2026 12:45 | Meta Ray-Ban Display herhaalmeting: indienen nog "soon", GlassApps 41 | script meta-brillen-meet.py | GEZIEN | blijft 5
+
 - 18 nov 2026 07:36 | **Samsung Intelligent Eyewear: levering 10 dec bevestigd** (VS en Zuid-Korea, voorverkoop sinds 12 nov, alleen met Galaxy-telefoons, $395 tot $489); Gemini, vertalen, Maps-navigatie, meldingen, foto's en Samsung Notes zitten er zelf in | https://news.samsung.com/global/samsung-announces-december-release-for-intelligent-eyewear-bringing-a-smarter-way-to-see-the-world | GEZIEN | nee (basistaken ingebouwd); kijken na 10 dec of Galaxy Store of Play een bril-sectie heeft
 - 18 nov 2026 07:36 | OBS Studio 33 (24 okt): nieuwe plugin-mappen op Windows, oude plekken werken tot OBS 34 | https://www.elgato.com/de/en/explorer/news/streaming/obs-studio-33-0-update-whats-new/ | GEZIEN | nee voor mij (geen winkel, geen kassa); golf voor Lars
 - 18 nov 2026 07:36 | TikTok Minis: alleen partners via contactpersoon bij TikTok, vooral mini-drama's | https://developers.tiktok.com/docs/en/minis-preparation-stage | GEZIEN | nee
