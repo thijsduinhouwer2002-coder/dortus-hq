@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: wo 18 nov 2026, 16:50 NL** (hoofdchat). **ALLE agents uit. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles: geen appid.**
+**Stand: wo 18 nov 2026, 16:57 NL** (hoofdchat). **ALLE agents uit. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), uitslag uiterlijk 27 nov.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -55,7 +55,7 @@ Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oW
 - di 17 nov 20:00: avondcheck plus ronde. trig_01Dz8krq9BLyD9CD5NZddyK6
 - wo 18 nov 08:41: eerste ochtendronde. trig_01YQsWUeM3KN6qiY1BPF1pUG
 - wo 18 nov 10:30: Superhive-keuring Click Joints Pro. trig_01WqQUEdmgLcStaopgWfBV7T
-- wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles. trig_01JgmtxeCrzi9WVdSVAG98ed
+- ~~wo 18 nov 12:00: Steam-app aanmaken met Thijs, daarna Laughs & Smiles~~ (gedaan 16:55, zie besluiten). trig_01JgmtxeCrzi9WVdSVAG98ed
 
 Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 16:11, Avondcheck en Superhive om 17:12).
 
