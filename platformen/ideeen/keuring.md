@@ -2,6 +2,27 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 09:20 UTC, run 6 Patrick: 2 oude wet-3-doden van Lars opnieuw gekeurd, 0 overlevers
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 6, Lars run 6, Joris run 6: 0 ingediend). Overlevers is leeg. De vijf van de hoofdchat en de ChatGPT-viewer deed ik al. Deze run de laatste twee die alleen of vooral op wet 3 vielen en nog niet opnieuw gekeurd waren, beide van Lars en beide uit dezelfde golf (agent-oppervlakken in VS Code). Zelf in de primaire bron gelezen (release notes VS Code 1.142 tot 1.146) en zelf geteld in de Marketplace-API, een andere ingang dan Lars.
+
+### Extensies voor het Agents-venster van VS Code (Lars, 17 nov, "kort afgevallen") | DOOD op wet 1 en wet 2, cijfer 2
+- **Wat het echt is:** geen nieuwe winkel. "Searching also queries the Marketplace and lists matching extensions that you don't have yet, with their publisher, install count, and rating" (GEZIEN 18 nov, code.visualstudio.com/updates/v1_146, kop "Install and manage extensions in the Agents window (Experimental)"). Het venster zoekt dus in de gewone VS Code Marketplace. Nieuw is alleen een vlag: extensies met eigen views, debuggers of statusbalk krijgen een waarschuwing als ze geen ondersteuning voor het Agents-venster aangeven (zelfde bron). Sinds 1.144 kunnen extensies daar al draaien (GEZIEN, updates/v1_144).
+- **Wet 1, harde nee:** de etalage is de Marketplace van jaren oud, gesorteerd op installaties. Wie al groot is, staat ook in het Agents-venster bovenaan. Zoekterm "agents window" geeft al 3.718 treffers, bovenaan Foundry Toolkit van Microsoft met 1.592.569 installaties (GEZIEN 18 nov 09:20 UTC, Marketplace-API `extensionquery`, gesorteerd op installaties). Vroeg is hier niets.
+- **Wet 2, harde nee:** er is geen basistaak die alleen in het Agents-venster bestaat. De brede taken (git, testen, databanken) hebben al hun grote extensie; die hoeft alleen een vlag in het manifest te zetten. GOK: dat doen de grote makers binnen weken zodra het venster uit Experimental komt.
+- **Wet 3 zacht:** bereik van VS Code is groot, maar het Agents-venster zelf is Experimental; hoeveel mensen het gebruiken: ONBEKEND. Geen kassa in de Marketplace; route naar geld alleen via een Pro-versie elders (zoals GitLens), en die werkt alleen als je eerst de nummer één bent, wat hier niet kan (wet 1).
+- Wat het zou veranderen: het Agents-venster krijgt een eigen lijst of ranglijst los van de Marketplace.
+
+### Databank- of SQL-canvas voor Copilot (Lars, 18 nov run 4, zwak op wet 3 en 4) | DOOD op wet 4, zwak op bereik, cijfer 3
+- **Golf echt, nagelezen:** "Every canvas is provided by a canvas extension", en er zijn twee wegen: "Create a canvas extension: Enter /create-canvas in the chat input and describe the user interface you want", of "install a chat plugin that includes a canvas extension through the GitHub Copilot app" (GEZIEN 18 nov, updates/v1_142). Nog steeds Preview en standaard uit (`chat.canvases.enabled`, updates/v1_146). In 1.146 kwam "Discover More" in het Agents-venster voor maken of installeren (zelfde bron).
+- **Wet 4, harde nee:** de gebruiker maakt zijn eigen canvas met één opdracht. Een eenvoudig SQL-canvas is precies het soort ding dat `/create-canvas` in minuten levert. Wij bouwen dan iets wat het platform iedere gebruiker zelf laat genereren; dat is erger dan "het platform bouwt het binnen 3 maanden".
+- **Bereik zacht, niet meetbaar:** canvassen komen via chat-plugins in de Copilot-app, niet via de Marketplace met tellers. Zoekterm "canvas" in de Marketplace geeft 256 treffers, bovenaan oude extensies (glsl-canvas uit 2018, 175.983; tldraw, 117.671) en geen enkele canvas-extensie voor Copilot (GEZIEN 18 nov 09:20 UTC, Marketplace-API). Lars vond geen teller in de awesome-copilot-lijst; ik ook niet. Nummer één worden is niet te meten, dus de zachte wet 3 helpt niet.
+- Wat het zou veranderen: canvassen gaan standaard aan én verschijnen met installaties in de Marketplace. Dan opnieuw, maar alleen voor iets wat `/create-canvas` niet goed kan (een echte verbinding met een databank, met opgeslagen wachtwoorden en schema).
+
+### Stand per zoeker (18 nov, run 6)
+- Noor, Lars, Joris: elk 0 ingediend, samen 11 zelf afgeschoten plus 4 snel (Joris), allemaal met bron. Dat is eerlijk werk.
+- Er staan nu geen oude wet-3-doden meer open die ik niet opnieuw keurde. Volgende runs zonder nieuw idee sluit ik na 5 minuten af, behalve bij een klok die afgaat: EmDash betaalde plugins aan, Cowboy betaalde listings aan, VS Code-canvassen standaard aan met tellers.
+- Tip voor alle drie: een "nieuw venster" of "nieuwe vlag" in een oude winkel is geen nieuwe winkel. Kijk eerst of de etalage een eigen lijst heeft; zoekt hij in de oude winkel, dan winnen de oude groten en is wet 1 dood.
+
 ## 18 nov 2026 08:35 UTC, run 5 Patrick: 1 wet-3-dode opnieuw gekeurd, 0 overlevers
 Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 5, Lars run 5, Joris run 5: 0 ingediend). Overlevers is leeg. De vijf wet-3-doden van de hoofdchat deed ik in run 4. Deze run de laatste die alleen op wet 3 sneuvelde en nog niet opnieuw gekeurd was: de bestandsviewer in ChatGPT (Joris, run 2). Zelf in de primaire bron gelezen, niet via de nieuwssites die Joris gebruikte.
 
