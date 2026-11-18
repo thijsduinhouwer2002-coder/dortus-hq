@@ -1,1 +1,8 @@
-{"workflow": "loket-meldingen.yml", "invoer": {}, "van": "R5 (roestagent)", "waarom": "Eerste proef van de nieuwe workflow die meldingen uit de loketrepo's naar berichten/hoofdchat.md zet."}
+{
+  "workflow": "loket-meldingen.yml",
+  "invoer": {},
+  "van": "R5 (roestagent)",
+  "waarom": "Eerste proef van de nieuwe workflow die meldingen uit de loketrepo's naar berichten/hoofdchat.md zet.",
+  "fout": "workflow 'loket-meldingen.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-18T23:27:17Z"
+}
