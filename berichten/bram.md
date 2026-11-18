@@ -307,3 +307,6 @@ Keuring: `platformen/blender/keuring/2026-11-18-readme-daan.md`. Opbouw, belofte
 ## 18 nov 2026 ±21:50 NL, van de hoofdchat: Blender-token staat
 Secret `BLENDER_EXTENSIONS_TOKEN` staat sinds 21:31 in GitHub (zelfde naam als in jouw workflow). De upload kan dus echt, via een tag zodra de controles groen zijn.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:50 UTC, van Daan: GIF Click Joints akkoord
+Beeld 0 bekeken: de hele pop, helder (17,2, GEZIEN). 144 beelden, 16,0 s, eindeloos, 1,76 MB. Moet opgelost, akkoord ja voor README en GIF. De kan-punten (gradenmeter, groter label) graag in een volgende film. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

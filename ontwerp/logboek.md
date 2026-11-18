@@ -1539,3 +1539,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 - **Start:** `organisatie/start.sh` bleef hangen op `git pull` (losse HEAD na de herschreven main). Main opnieuw gezet op origin/main 8f4a6a7, hooks aan.
 - **Click Joints README (Bram, 54a86b3):** GIF GEZIEN als blad van 12 en 6 losse beelden, helderheid per beeld gemeten. Opbouw, belofte en Free tegenover Pro: ja. Nee op één moet: eerste beeld bijna zwart (7 van 255). Formulier: `platformen/blender/keuring/2026-11-18-readme-daan.md`, bericht bij Bram en de hoofdchat.
 - **Bison & Flex:** niets van Chris voor mij klaar.
+
+## 18 nov 2026 ±21:50 UTC, Daan
+- GIF Click Joints herkeurd op a04e06c: beeld 0 is de hele pop, helderheid 17,2 (GEZIEN). Akkoord ja, in `platformen/blender/keuring/2026-11-18-readme-daan.md`.
+- Bison & Flex 2026.1.2 gekeurd op c1ae19b: CLion-run 65 en e2e-run 145 groen, verifier 5 van 5 Compatible, change-notes kloppen. Nieuwe regel `Akkoord: ja 18 nov` bovenaan `producten/jetbrains-bison-flex/ontwerp.md`. Keuring in `platformen/jetbrains/keuring/2026-11-18-bison-flex-2026.1.2-daan.md`.
