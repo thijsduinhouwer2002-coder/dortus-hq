@@ -553,3 +553,17 @@ Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in
 ## 19 nov 2026 ±00:43 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 7528aea..0e8dd72: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-0e8dd72.md`. Moet en kan: **Moet:** geen. **Kan:** - Plugin Verifier opnieuw draaien en de groene run bij de commit zetten (A2). - Controleren dat `version` in `build.gradle.kts` boven het nieuwe `processResources`-blok staat, of laten bevestigen door de groene test (A3). - Voor uitbrengen laat Daan de meldknop en error handler van R5 keuren. Zijn akkoord dekt die nu niet (A5). - Bij de run-claim in `architectuur.md` een label zetten, bijvoorbeeld GEZIEN met datum (B3). - De verouderde versieregels in `architectuur.md` bijwerken (B4). - De accountnaam in `architectuur.md` nakijken (B5). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:44 NL, van de beeldvergelijking (automatisch): Bison & Flex
+19 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 281d0a3b). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420689784
+- | clion-donker-calc-y.png | 67097 px (1.294%), x 52 tot 997, y 0 tot 222 | GROOT |
+- | licht-calc-l.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
+- | licht-calc-y-structuur.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
+- | licht-calc-y.png | 40557 px (0.782%), x 47 tot 1169, y 0 tot 1739 | GROOT |
+- | licht-hernoem-conflict.png | andere maat: 1600x1174 werd 1592x1172 | GROOT |
+- | licht-hernoem-hint.png | 35607 px (0.687%), x 47 tot 1066, y 0 tot 283 | GROOT |
+- | licht-hernoem-melding.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
+- | licht-hernoem-scanner.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
+- | licht-hernoem-structuur.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
+- | licht-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
