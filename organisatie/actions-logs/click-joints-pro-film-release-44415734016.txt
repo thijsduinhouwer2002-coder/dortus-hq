@@ -7,8 +7,8 @@
 # wordt na 7 dagen vanzelf opgeruimd.
 
 ===== release / Geluidscontrole (geen filmpje zonder hoorbaar geluid naar buiten, roestronde R6) (laatste 10 van 10 regels) =====
-﻿2026-11-18T22:53:35.0296062Z ##[group]Run python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
-^[[36;1mpython3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4^[[0m
+##[group]Run python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
+python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
 shell: /usr/bin/bash -e {0}
 env:
   TAG: click-joints-pro-film-v1

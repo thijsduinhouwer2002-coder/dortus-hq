@@ -55,7 +55,9 @@ jobs:
         run: find ~/.gradle/caches -maxdepth 6 -type d -iname '*clion*' 2>/dev/null | head -5 || true
       - name: Plugin Verifier (CLion 2025.2 en 2026.2, IDEA 2025.2, 2025.3 en 2026.2${{ inputs.verifier_extra && format(', week-test {0}', inputs.verifier_extra) || '' }})
         if: always()
-        run: ./gradlew --no-daemon verifyPlugin ${{ inputs.verifier_extra && format('-PverifierExtra={0}', inputs.verifier_extra) || '' }}
+        env:
+          VERIFIER_EXTRA: ${{ inputs.verifier_extra }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
+        run: ./gradlew --no-daemon verifyPlugin ${VERIFIER_EXTRA:+"-PverifierExtra=$VERIFIER_EXTRA"}
       - name: Samenvatting Plugin Verifier
         if: always()
         run: |

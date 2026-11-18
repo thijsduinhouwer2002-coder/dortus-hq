@@ -43,10 +43,13 @@ jobs:
           python-version: "3.13"
       - name: Wat moet opnieuw (render.py --plan)
         id: plan
+        env:
+          SPRITES: ${{ github.event.inputs.sprites }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
         run: |
           python -m pip install --quiet pillow
           cd producten/steam-hol/pijplijn
-          python render.py --plan ${{ github.event.inputs.sprites }}
+          read -ra S <<< "$SPRITES"
+          python render.py --plan "${S[@]}"
 
   a:
     needs: plan

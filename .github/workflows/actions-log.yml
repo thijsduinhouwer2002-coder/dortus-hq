@@ -5,12 +5,16 @@ name: Actions-log (log van mislukte runs in de repo)
 # na 7 dagen opgeruimd). Lezen: python3 organisatie/controle/actions.py <run> --log. Uitleg: skill actions.
 # Draait na elke workflow, maar doet alleen iets bij een mislukte run (anders "overgeslagen", kost niets).
 # workflow_run gaat NIET af voor runs die met de workflow-sleutel zijn gestart (zoals runs uit een
-# opdrachtbestand), daarom veegt hij ook elk kwartier: mislukte runs van 24 uur zonder logbestand.
+# opdrachtbestand), daarom veegt hij ook: mislukte runs van 24 uur zonder logbestand. Vegen gebeurt bij elke
+# push naar main en volgens schema; het schema alleen is niet genoeg, want GitHub laat geplande runs in deze
+# repo vaak vallen (GEZIEN 19 nov: "Dashboard (elk half uur)" draaide uren niet, veegronde nog nooit).
 
 on:
   workflow_run:
     workflows: ["**", "!Actions-log*"]
     types: [completed]
+  push:
+    branches: [main]
   schedule:
     - cron: "7,22,37,52 * * * *"
   workflow_dispatch:   # ook via een opdrachtbestand, als je niet op de veegronde wilt wachten
@@ -19,6 +23,12 @@ on:
         description: "Runnummer (leeg = alle mislukte runs van 24 uur zonder logbestand)"
         required: false
         default: ""
+
+# Eén veegronde tegelijk (een wachtende nieuwere vervangt een oudere, dat is goed: hij doet hetzelfde werk).
+# Runs na een mislukte workflow (workflow_run) hebben elk een eigen groep en wachten nooit.
+concurrency:
+  group: actions-log-${{ github.event_name == 'workflow_run' && github.run_id || 'veeg' }}
+  cancel-in-progress: false
 
 permissions:
   contents: write   # logbestand opslaan

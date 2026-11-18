@@ -22,6 +22,7 @@ jobs:
     env:
       PRO_VERSIE: "1.0.2"
       CJ_HOOGTE: ${{ github.event.inputs.hoogte }}
+      MODEL: ${{ github.event.inputs.model }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
     defaults:
       run:
         working-directory: producten/blender-gewrichten
@@ -40,11 +41,11 @@ jobs:
         run: |
           pip install -q remotezip
           mkdir -p /tmp/meshy && cd /tmp/meshy
-          python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/${{ github.event.inputs.model }}.glb', '.')"
+          python3 -c "import os; from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/' + os.environ['MODEL'] + '.glb', '.')"
       - name: Pro bouwen en figuur maken
         run: |
           bash e2e/maak_zip.sh betaald
-          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/uit "/tmp/meshy/MESHY_GLB/people/${{ github.event.inputs.model }}.glb" 2>&1 | tee /tmp/uit.log
+          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/uit "/tmp/meshy/MESHY_GLB/people/${MODEL}.glb" 2>&1 | tee /tmp/uit.log
           grep "\[cj-chris\]" /tmp/uit.log > /tmp/uit/uitslag.txt
           grep -q "gelukt: \[.*knie" /tmp/uit.log || { echo "FOUT: knie niet gelukt"; exit 1; }
       - uses: actions/upload-artifact@v4

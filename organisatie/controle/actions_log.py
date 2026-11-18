@@ -28,7 +28,34 @@ REGELS_PER_JOB = 200
 MAX_JOBS = 4
 BEWAAR_DAGEN = 7
 TIJD = re.compile(r"^\ufeff?\d{4}-\d\d-\d\dT[\d:.]+Z ")
-KLEUR = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
+KLEUR = re.compile(r"(?:\x1b|\^\[)\[[0-9;]*[A-Za-z]")
+
+# Bovenop de patronen van check.py: alles wat in een log een sleutel of persoonsgegeven kan zijn (keuring R2, B3).
+# Volgorde telt: eerst hele adressen en koppen, dan losse reeksen.
+EXTRA = [
+    ("Discord-webhook", re.compile(r"https?://(?:\w+\.)?discord(?:app)?\.com/api/webhooks/\S+", re.I)),
+    ("adres met sleutel", re.compile(r"\b((?:access_?)?token|key|api_?key|secret|api_secret|client_secret|password|passwd|sig|signature)=[^\s&\"']+", re.I)),
+    ("Authorization-kop", re.compile(r"\b(authorization|x-api-key|private-token|cookie)\s*[:=]\s*\S.*", re.I)),
+    ("Bearer-sleutel", re.compile(r"\b(bearer|token|basic)\s+(?=\S*\d)[A-Za-z0-9._~+/=-]{8,}", re.I)),
+    ("JWT", re.compile(r"\beyJ[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{5,}")),
+    ("mailadres", re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.[A-Za-z]{2,}\b")),
+    ("lange hex-reeks", re.compile(r"\b[0-9a-fA-F]{32,}\b")),
+    ("lange base64-reeks", re.compile(r"(?<![\w/+=-])[A-Za-z0-9+/_-]{32,}={0,2}(?![\w/+=-])")),
+]
+
+
+def mag_blijven(naam, tekst):
+    """Uitzonderingen zodat het log leesbaar blijft: noreply-adressen, en paden zonder hoofdletters of cijfers."""
+    if naam == "mailadres":
+        return "noreply" in tekst.lower()
+    if naam == "lange base64-reeks":
+        # Een sleutel heeft hoofdletters, kleine letters en cijfers door elkaar; een pad of woord meestal niet.
+        return not (re.search(r"[A-Z]", tekst) and re.search(r"[a-z]", tekst) and re.search(r"\d", tekst))
+    return False
+
+# Workflows met secrets of klantgegevens: alleen foutregels opslaan, niet de 200 regels.
+GEVOELIG = re.compile(r"^(steam-uitbrengen|scorebord|keurder|click-joints-pro-uitgave|.*-upload|.*-uitgave)$")
+FOUTREGEL = re.compile(r"##\[error\]|\bError\b")
 
 
 def api(pad, ruw=False):
@@ -44,6 +71,8 @@ def schoon(regel):
     regel = KLEUR.sub("", TIJD.sub("", regel.rstrip("\n"))).lstrip("\ufeff")
     for naam, patroon, _ in REGELS:
         regel = patroon.sub("-" if naam == "gedachtestreepje" else f"[weggehaald: {naam}]", regel)
+    for naam, patroon in EXTRA:
+        regel = patroon.sub(lambda m, n=naam: m.group(0) if mag_blijven(n, m.group(0)) else f"[weggehaald: {n}]", regel)
     return regel
 
 
@@ -93,6 +122,8 @@ def zoek(uit):
 
 
 def maak(run, uit, r=None):
+    if not str(run).isdigit():
+        raise SystemExit(f"Runnummer moet uit cijfers bestaan, niet {str(run)[:40]!r}.")
     repo = os.environ["GITHUB_REPOSITORY"]
     r = r or api(f"/repos/{repo}/actions/runs/{run}")
     jobs = api(f"/repos/{repo}/actions/runs/{run}/jobs?per_page=100").get("jobs", [])
@@ -118,12 +149,21 @@ def maak(run, uit, r=None):
         f"# run: {run} {r.get('html_url')}",
         f"# commit: {r.get('head_sha', '')[:8]} tak {r.get('head_branch')} gestart door {r.get('event')}",
         "# mislukte stappen: " + ("; ".join(mislukt) or "geen stap gemarkeerd (zie de run)"),
-        f"# per mislukte job de laatste {REGELS_PER_JOB} regels; persoonsgegevens en sleutels weggehaald.",
+        f"# per mislukte job de laatste {REGELS_PER_JOB} regels (bij workflows met secrets alleen de foutregels);"
+        " persoonsgegevens en sleutels weggehaald.",
         "# wordt na 7 dagen vanzelf opgeruimd.",
     ]
     if not per_job:
         uitvoer.append("\n(geen log gevonden; misschien faalde de run voor er een stap draaide, bijvoorbeeld een fout in de yml)")
+    gevoelig = bool(GEVOELIG.match(stam))
+    if gevoelig:
+        uitvoer.append("# workflow met secrets of klantgegevens: alleen de foutregels, niet het hele log.")
     for naam, regels in list(per_job.items())[:MAX_JOBS]:
+        if gevoelig:
+            fout = [x for x in regels if FOUTREGEL.search(x)][-40:]
+            uitvoer.append(f"\n===== {naam} (alleen foutregels: {len(fout)}) =====")
+            uitvoer += [schoon(x) for x in fout]
+            continue
         uitvoer.append(f"\n===== {naam} (laatste {min(len(regels), REGELS_PER_JOB)} van {len(regels)} regels) =====")
         uitvoer += [schoon(x) for x in regels[-REGELS_PER_JOB:]]
     doel = os.path.join(uit, MAP, f"{stam}-{run}.txt")

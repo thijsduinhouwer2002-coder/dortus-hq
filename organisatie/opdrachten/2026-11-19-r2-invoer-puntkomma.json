@@ -1,0 +1,1 @@
+{"workflow": "wegwijzer.yml", "invoer": {"x": "a; touch /tmp/gehackt"}, "van": "roestagent R2", "waarom": "proef: invoer met ; moet geweigerd worden"}

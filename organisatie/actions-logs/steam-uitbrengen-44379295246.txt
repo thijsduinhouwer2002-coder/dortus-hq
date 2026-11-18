@@ -5,54 +5,8 @@
 # mislukte stappen: bouwen: Tak toetsen (nooit de openbare tak)
 # per mislukte job de laatste 200 regels; persoonsgegevens en sleutels weggehaald.
 # wordt na 7 dagen vanzelf opgeruimd.
+# workflow met secrets of klantgegevens: alleen de foutregels, niet het hele log.
 
-===== bouwen / UNKNOWN STEP (laatste 49 van 49 regels) =====
-﻿2026-11-18T19:19:36.8037367Z Current runner version: '2.338.2'
-##[group]Runner Image Provisioner
-Hosted Compute Agent
-Version: 20261103.629
-Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
-Build Date: 2026-11-03T17:26:59Z
-Worker ID: {ec10d3a3-65ac-4aae-8265-a91578bd18fe}
-Region: westus2
-Cloud: Azure
-##[endgroup]
-##[group]Operating System
-Microsoft Windows Server 2025
-10.0.26100
-Datacenter
-##[endgroup]
-##[group]Runner Image
-Image: windows-2025-vs2026
-Version: 20261103.298.1
-Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261103.298/images/windows/Windows2025-VS2026-Readme.md
-Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261103.298
-##[endgroup]
-##[group]GITHUB_TOKEN Permissions
-Contents: read
-Metadata: read
-##[endgroup]
-Secret source: Actions
-Cache mode: write
-Prepare workflow directory
-Prepare all required actions
-Getting action download info
-Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
-Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
-Complete job name: bouwen
-##[group]Run t=$(echo "$TAK" | tr 'A-Z' 'a-z' | xargs)
-^[[36;1mt=$(echo "$TAK" | tr 'A-Z' 'a-z' | xargs)^[[0m
-^[[36;1mif [ -z "$t" ] || [ "$t" = "default" ] || [ "$t" = "public" ]; then^[[0m
-^[[36;1m  echo "::error::Steam-tak '$TAK' mag niet: een build gaat alleen naar een niet-openbare tak. Live zetten doet Thijs in Steamworks."; exit 1^[[0m
-^[[36;1mfi^[[0m
-^[[36;1mif ! echo "$t" | grep -Eq '^[a-z0-9_-]{1,32}$'; then^[[0m
-^[[36;1m  echo "::error::Steam-tak '$TAK': alleen kleine letters, cijfers, - en _ (max 32)."; exit 1^[[0m
-^[[36;1mfi^[[0m
-^[[36;1mecho "Steam-tak: $t"^[[0m
-shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
-env:
-  TAK: Public
-##[endgroup]
+===== (alleen foutregels) =====
 ##[error]Steam-tak 'Public' mag niet: een build gaat alleen naar een niet-openbare tak. Live zetten doet Thijs in Steamworks.
 ##[error]Process completed with exit code 1.
-Cleaning up orphan processes

@@ -21,6 +21,8 @@ jobs:
   film:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      RUN_ID: ${{ github.event.inputs.run_id }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
     steps:
       - name: ffmpeg ophalen
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
@@ -38,7 +40,7 @@ jobs:
             cp "$d"/beelden/*.png /tmp/uit/beelden/ 2>/dev/null || true
           done
           N=$(ls /tmp/uit/beelden | wc -l)
-          echo "[cj-film] beelden: $N van 240 uit run ${{ github.event.inputs.run_id }}" | tee /tmp/uit/uitslag.txt
+          echo "[cj-film] beelden: $N van 240 uit run ${RUN_ID}" | tee /tmp/uit/uitslag.txt
           [ "$N" = "240" ] || { echo "FOUT: niet alle beelden"; exit 1; }
       - name: Film maken met tekst
         run: |
@@ -72,7 +74,7 @@ jobs:
             git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
             D="/tmp/s/click-joints-render/$MAP"
             rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
-            echo "run ${GITHUB_RUN_ID}, beelden uit run ${{ github.event.inputs.run_id }}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            echo "run ${GITHUB_RUN_ID}, beelden uit run ${RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd /tmp/s && git add -A && git commit -q -m "Schermen click-joints-render/$MAP run ${GITHUB_RUN_ID}" || exit 0
             if git push -q origin schermen; then break; fi
             cd /; sleep $((poging * 3))

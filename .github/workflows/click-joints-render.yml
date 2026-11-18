@@ -37,6 +37,8 @@ jobs:
       CJ_HOOGTE: "150"
       CJ_CAM_VOOR: ${{ github.event.inputs.camera_voor }}
       CJ_LICHT_SCHEEN: ${{ github.event.inputs.licht_scheen }}
+      MODEL: ${{ github.event.inputs.model }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
+      STAND: ${{ github.event.inputs.stand }}
     steps:
       - uses: actions/checkout@v4
       - name: Blender 5.3.0 en ffmpeg ophalen
@@ -53,22 +55,22 @@ jobs:
         run: |
           pip install -q remotezip
           mkdir -p /tmp/meshy && cd /tmp/meshy
-          python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/${{ github.event.inputs.model }}.glb', '.')"
+          python3 -c "import os; from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/' + os.environ['MODEL'] + '.glb', '.')"
       - name: Figuur met Pro-knie maken (script van Ruben)
         working-directory: producten/blender-gewrichten
         run: |
           bash e2e/maak_zip.sh betaald
-          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/fig "/tmp/meshy/MESHY_GLB/people/${{ github.event.inputs.model }}.glb" 2>&1 | tee /tmp/fig.log | grep "\[cj-chris\]"
+          /tmp/blender/blender -b --factory-startup --python e2e/maak_chris_figuur.py -- /tmp/click_joints_betaald.zip /tmp/fig "/tmp/meshy/MESHY_GLB/people/${MODEL}.glb" 2>&1 | tee /tmp/fig.log | grep "\[cj-chris\]"
           grep -q "gelukt: \[.*knie" /tmp/fig.log || { echo "FOUT: knie niet gelukt"; exit 1; }
       - name: Renderen
         run: |
           BLEND=$(ls /tmp/fig/*.blend | head -1)
-          if [ "${{ github.event.inputs.stand }}" = "film" ]; then
+          if [ "$STAND" = "film" ]; then
             export CJ_VAN=$(( (CJ_DEEL - 1) * 30 + 1 )) CJ_TOT=$(( CJ_DEEL * 30 ))
             echo "deel $CJ_DEEL: beeld $CJ_VAN tot en met $CJ_TOT"
           fi
           mkdir -p /tmp/uit
-          /tmp/blender/blender -b --factory-startup --python commercie/blender-click-joints/render/render_knie.py -- /tmp/click_joints_betaald.zip "$BLEND" /tmp/uit "${{ github.event.inputs.stand }}" 2>&1 | tee /tmp/render.log | grep --line-buffered "\[cj-render\]\|Error\|Traceback"
+          /tmp/blender/blender -b --factory-startup --python commercie/blender-click-joints/render/render_knie.py -- /tmp/click_joints_betaald.zip "$BLEND" /tmp/uit "$STAND" 2>&1 | tee /tmp/render.log | grep --line-buffered "\[cj-render\]\|Error\|Traceback"
           grep -q "KLAAR" /tmp/render.log || { tail -40 /tmp/render.log; exit 1; }
           grep "\[cj-render\]\|\[cj-chris\]" /tmp/fig.log /tmp/render.log > /tmp/uit/uitslag.txt
           rm -rf /tmp/uit/stl

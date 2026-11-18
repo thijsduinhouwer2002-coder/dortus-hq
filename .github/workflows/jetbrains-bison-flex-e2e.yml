@@ -58,10 +58,14 @@ jobs:
       - name: Unittests
         run: ./gradlew --no-daemon test
       - name: Test in de echte IDE (${{ inputs.idea_build && format('IntelliJ IDEA EAP {0}', inputs.idea_build) || 'IDEA Community 2025.2' }})
-        run: ./gradlew --no-daemon integrationTest ${{ inputs.idea_build && format('-PideBuild={0}', inputs.idea_build) || '' }}
+        env:
+          IDEA_BUILD: ${{ inputs.idea_build }}   # invoer via env, nooit rechtstreeks in de shell (roestronde R2)
+        run: ./gradlew --no-daemon integrationTest ${IDEA_BUILD:+"-PideBuild=$IDEA_BUILD"}
       - name: Test in de echte CLion (${{ inputs.clion_build && format('EAP {0}', inputs.clion_build) || 'EAP 2026.3, vaste build' }})
         if: success() || failure()
-        run: ./gradlew --no-daemon clionTest ${{ inputs.clion_build && format('-PclionBuild={0}', inputs.clion_build) || '' }}
+        env:
+          CLION_BUILD: ${{ inputs.clion_build }}
+        run: ./gradlew --no-daemon clionTest ${CLION_BUILD:+"-PclionBuild=$CLION_BUILD"}
       # Beeldvergelijking (roestronde R4): elk plaatje naast dat van de vorige geslaagde run. Nooit rood.
       # Grens 0,3 procent: de IDE geeft tussen runs tot 0,11 procent ruis bij deze drempel (GEZIEN, clion-donker-calc-y.png).
       - name: Beeldvergelijking met de vorige geslaagde run

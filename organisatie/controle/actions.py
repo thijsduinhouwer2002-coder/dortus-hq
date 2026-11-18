@@ -121,7 +121,10 @@ def toon_log(r, jobs):
 
 
 def lijst():
-    for r in haal(f"{API}/actions/runs?per_page=15").get("workflow_runs", []):
+    # Lege "overgeslagen" runs van Actions-log (één na elke workflow) laten we weg.
+    runs = [r for r in haal(f"{API}/actions/runs?per_page=40").get("workflow_runs", [])
+            if not (r["name"].startswith("Actions-log (") and r.get("conclusion") == "skipped")]
+    for r in runs[:15]:
         print(f"[{TEKEN.get(r.get('conclusion'), r.get('conclusion'))}] {r['id']}  {r['created_at']}  {r['name']}")
 
 
