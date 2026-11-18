@@ -2,6 +2,38 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 14:00 UTC: run 11, 0 ideeën klaar voor keuring, 1 zelf afgeschoten (plus 4 snel)
+
+Tijd uit `date -u` (gestart 14:00 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run de release notes van Anthropic, het nieuwsoverzicht van deze week (aiagentstore.ai, week van 18 nov) en Hacker News (verhalen van de laatste 4 dagen met 80+ punten, hn.algolia.com-API) nagelopen op een nieuwe winkel of een nieuwe kassa. Eén nieuwe kassa-achtige wijziging gevonden: Linked billing van Anthropic (17 nov). Geen nieuwe winkel.
+
+**Vaste klokken, niets veranderd (GEZIEN 18 nov ±14:05 UTC):**
+- Cowboy: "Every listing is free to hire today", "Coming soon: paid listings" (docs.cowboy.inc/sell/pricing.md).
+- ChatGPT-plugins: "current approval is limited to plugins for physical goods purchases" (developers.openai.com/plugins/build/monetization.md).
+- Telegram-widgets: groepen, inline en doorsturen nog steeds "Test server only"; "Currently, in the production environment, widgets work only in the private chat with the bot" (core.telegram.org/bots/widgets.md).
+- Google Connected Apps Platform (Gemini en Search): nog steeds "Apply for the preview" (developers.google.com/connected-apps). Geen open inzending.
+- Claude Marketplace (claude.com/plugins, paginadata): 533 plugins; 312 werken met Claude Code, 38 met de Claude-app zelf. Van die 38 zijn er op 2 na allemaal van Anthropic zelf (veld anthropicVerified) of van een groot merk (Slack 92.287 installs, Data 7.655, Adobe 2.945, ZoomInfo 2.363); de brede basisplugins (Productivity, Sales, Legal, Finance, Marketing) zijn van Anthropic. Mediaan over alle 533: 195 installs, 70 boven de 10.000. Bevestigt run 6: aan de kant van de Claude-app geen open plek voor een losse maker.
+
+**Les van deze run.** Een nieuwe kassa bij een AI-platform is nog geen kassa voor ons. Linked billing laat klanten betalen voor wat jouw app bij Claude verbruikt, maar dat haalt alleen kosten weg, het levert geen omzet op, en het werkt alleen voor bedrijven die al een API-rekening bij Anthropic hebben. Een kassa telt pas als er ook een etalage bij zit waar kopers ons vinden.
+
+### Zelf afgeschoten: een gratis basis-app op Claude waarvan de gebruiker zelf het verbruik betaalt (Claude Platform OAuth, Linked billing, 17 nov) | DOOD op vraag 5 en wet 2, zwak op wet 3
+- **Waarom het lokte (wet 1 en kosten):** sinds 17 nov in bèta: "Your customers can now pay for the Claude usage in your app through their own Claude organization" (GEZIEN 18 nov ±14:20 UTC, platform.claude.com/docs/en/release-notes/overview.md, kop "November 17, 2026"). De klant klikt op "Link your Claude organization", keurt de app goed en kan een maandplafond zetten (platform.claude.com/docs/en/manage-claude/oauth-apps/overview.md). Voor ons zou dat betekenen: een AI-tool aanbieden zonder dat wij de rekening van de gebruikers betalen.
+- **Vraag 5, geen etalage, harde nee:** het is een betaalkoppeling, geen winkel. Er is geen lijst van apps waar klanten zoeken; je moet de klanten zelf al hebben. De gids zegt het zelf: "This guide is for developers whose app users are primarily Claude Platform customers" (platform.claude.com/docs/en/manage-claude/oauth-apps/organization-billing-connections.md).
+- **Wet 2, de groep is smal:** alleen organisaties die Anthropic direct betalen voor API-gebruik. "The same is true of organizations that have only a Claude subscription plan. Requests for them are refused with 403 user_profile_not_billable" (zelfde pagina). Gewone Claude-gebruikers met een abonnement vallen er dus buiten; het gaat om ontwikkelaars en bedrijven.
+- **Wet 3:** het is geen omzet. "You may bill a customer only for the requests they direct you to make, never for your own usage" (overview.md). Een eigen prijs moeten we nog steeds zelf innen.
+- **Vraag 7:** de app begint in testen met hooguit 10 testgebruikers en een plafond van $50 per maand per link, daarna een keuring door Anthropic, mogelijk met bewijs dat je het domein bezit; de opzet vraagt een identiteitsdienst zoals AWS, Google Cloud of Entra ID in plaats van een geheime sleutel (app-review.md en overview.md). Account, betaalgegevens en keuring liggen bij Thijs. Binnen 7 dagen live: GOK nee.
+- Wat het zou veranderen: Anthropic zet een openbare lijst van gekoppelde apps in de Console of in Claude, of laat ook abonnees zo betalen. Dan opnieuw, want dan is er een etalage plus een kassa voor verbruik.
+
+### Zelf afgeschoten (snel)
+- **Replit Missions en Devin Bots (deze week):** zwermen van code-agents met een vast budget (GEZIEN 18 nov, aiagentstore.ai/ai-agent-news/this-week). Producten, geen winkel waar wij in kunnen staan. DOOD op vraag 5.
+- **ChatGPT Work en het einde van Atlas:** Atlas stopt, de browser gaat op in de ChatGPT-desktopapp; plugins zijn dezelfde lijst als in run 6 (GEZIEN 18 nov, pulse2.com, bericht uit juli). Niet vroeg en dezelfde wet 3. DOOD.
+- **Meta Pocket (mini-spelletjes uit één zin, met feed en remix):** sinds 20 aug in de VS (GEZIEN 18 nov, sqmagazine.co.uk). Niet vroeg, geen kassa voor makers, alleen VS. DOOD op wet 1 en wet 3.
+- **Coinbase, marktplaats voor modellen en agents:** alleen een voorstel, nog niets open (GEZIEN 18 nov, tokenpost.com/news/technology/59951, 17 nov). Klok, meer niet.
+
+### Spoor voor de volgende run
+- Klokken: Cowboy (pricing.md), ChatGPT (monetization.md), Claude directory (aantal per maand), Telegram-widgets in productie (widgets.md), Google Connected Apps (open inzending), Hermes, Gemini (openbare skill-galerij), Venice (credits naar geld), ByteDance Spell, en nieuw: Claude Platform OAuth (komt er een openbare lijst van gekoppelde apps).
+- 11 dec: GPT Store dicht; tellen wat er in chatgpt.com/plugins bijkomt.
+- Herhaling van het voorstel uit run 8: mijn hoek geeft al vijf runs op rij alleen klokken. De klokken passen in één korte run per dag; de rest van de uren is beter besteed aan winkels met een kassa die een nieuwe versie of SDK krijgen (alpha, EAP, Insiders; les 3 uit `onderzoek-2026-11-17/UITKOMST.md`).
+
 ## 18 nov 2026 13:00 UTC: run 10, 0 ideeën klaar voor keuring, 1 zelf afgeschoten (plus 3 snel)
 
 Tijd uit `date -u` (gestart 13:01 UTC). Geen nieuwe opdracht in `berichten/joris.md`, geen nieuwe tip in mijn hoek in `tips-thijs.md`. Deze run buiten de AI-assistenten gezocht naar een agent- en botwinkel die deze maand echt beweegt. Gevonden: de HTML-widgets van Telegram (Bot API 10.4, 9 nov).
