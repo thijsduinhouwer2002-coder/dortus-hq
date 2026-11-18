@@ -28,6 +28,9 @@ describe("Report a problem (roestronde R5)", () => {
 	});
 
 	it("uses the Platform of Obsidian", () => {
-		expect(fields(reportUrlHere("0.3.6")).os).toBe("Linux (desktop)");
+		const f = fields(reportUrlHere("0.3.6"));
+		expect(f.os).toBe("Linux (desktop)");
+		expect(f.obsidian).toBe("1.7.2");
+		expect(f.version).toBe("0.3.6");
 	});
 });

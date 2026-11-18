@@ -7,6 +7,7 @@ body:
     attributes:
       value: |
         Thanks for reporting! The "Report a problem" button at the bottom of the Click Joints tab (sidebar N) fills in the versions for you.
+        Everything here is public. Remove your name or user folder from file paths (for example C:\Users\yourname) before you paste an error.
   - type: textarea
     id: what
     attributes:

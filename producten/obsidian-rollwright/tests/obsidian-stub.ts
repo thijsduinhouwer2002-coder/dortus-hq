@@ -66,7 +66,13 @@ export class PluginSettingTab {
 }
 
 /** The Obsidian version the stub pretends to be; tests set it to try both ways of drawing settings. */
-export const apiVersion = { current: "1.7.2" };
+export const apiVersion = {
+	current: "1.7.2",
+	/** In Obsidian apiVersion is a string; as text the stub gives its current version. */
+	toString(): string {
+		return this.current;
+	},
+};
 /** Desktop on Linux, enough for the "Report a problem" link (ui/report-problem.ts). */
 export const Platform = { isLinux: true, isMobile: false };
 export function requireApiVersion(version: string): boolean {

@@ -53,5 +53,5 @@ export function reportUrl(version: string, obsidian: string, system: string): st
 
 /** The link for this Obsidian. */
 export function reportUrlHere(version: string): string {
-	return reportUrl(version, apiVersion, systemName(Platform));
+	return reportUrl(version, String(apiVersion), systemName(Platform));
 }

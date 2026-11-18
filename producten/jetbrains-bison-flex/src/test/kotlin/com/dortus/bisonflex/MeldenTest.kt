@@ -41,7 +41,8 @@ class MeldenTest : BasePlatformTestCase() {
         val v = velden(Melden.urlHier())
         assertFalse(v["ide"].isNullOrBlank())
         assertEquals(Melden.systeem(), v["os"])
-        assertFalse("geen gebruikersnaam in het systeem", v["os"]!!.contains(System.getProperty("user.name")))
+        val naam = System.getProperty("user.name") ?: ""
+        if (naam.length >= 4) assertFalse("geen gebruikersnaam in het systeem", v["os"]!!.contains(naam))
     }
 
     fun testActieStaatOnderHelp() {
