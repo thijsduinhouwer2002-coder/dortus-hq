@@ -33,6 +33,7 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 | twijfelen waar je mag schrijven, of iets op dortus.com zetten | `organisatie/regels/opslaan.md` |
 | iets moois maken (site, winkelbeelden, menu's, filmpjes) | skill `frontend-design` |
 | doelen en geld | `organisatie/doelen.md` |
+| een sleutel, account of toegang nodig hebben | `organisatie/toegang.md` |
 | alle producten met hun statusbestanden, of de kennisbank van Hats | `START.md`, `platformen/steam/kennisbank/` |
 
 ## Afsluiten

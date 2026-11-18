@@ -1,5 +1,7 @@
 # Middelen: alle sites en programma's die Dortus gebruikt
 
+**Sinds 18 nov:** wie waar bij kan en welke sleutels er zijn of ontbreken staat in `organisatie/toegang.md`. Inloggen in Chrome mag de hoofdchat sinds 17 nov overal met de Google van Thijs (zie `regels/thijs.md`); de oude kolom "Inloggen" hieronder is daarvoor niet bijgewerkt.
+
 Bijgehouden door de hele ploeg. Begin je iets nieuws te gebruiken (site, programma, dienst, account)? Zet het hier meteen bij. Stop je ermee? Zet het onder "Gestopt".
 
 Kolom **Inloggen** zegt wie er mag inloggen:
