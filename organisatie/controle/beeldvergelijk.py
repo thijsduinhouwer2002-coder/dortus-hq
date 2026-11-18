@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Beeldvergelijking (roestronde R4): schermafbeeldingen van deze run naast die van de vorige geslaagde run.
 
-Gebruik: python3 beeldvergelijk.py <nu-map> <ref-map> <uit-map> <grens-procent> <naam>
+Gebruik: python3 beeldvergelijk.py <nu-map> <ref-map> <uit-map> <grens-procent> <naam> [maskers]
+
+maskers: vakken die niet meetellen omdat ze elke run anders zijn, gescheiden door ';', elk als
+<bestandspatroon>:<x0>,<y0>,<x1>,<y1> (pixels, x1 en y1 tellen niet mee), bijvoorbeeld de willekeurige
+kluisnaam van Obsidian: "*:50,755,345,800".
 
 Per PNG die in beide mappen staat: aantal pixels dat verschilt (een kanaal wijkt meer dan DREMPEL af,
 zodat zachte randen niet tellen), als procent van het plaatje. Boven de grens heet het "groot" en komt er
@@ -12,6 +16,7 @@ Nooit een rode stap: het verslag (verslag.md) en de verschilbeelden zijn voor de
 Schrijft groot=<aantal> en verslag=<pad> naar GITHUB_OUTPUT als die bestaat.
 Nodig: Pillow en numpy.
 """
+import fnmatch
 import os
 import sys
 from pathlib import Path
@@ -34,7 +39,16 @@ def verschilbeeld(oud, mask, pad):
     Image.fromarray(beeld).save(pad)
 
 
-def vergelijk(nu, ref, uit, grens, naam):
+def lees_maskers(tekst):
+    maskers = []
+    for deel in filter(None, (tekst or "").split(";")):
+        patroon, vak = deel.rsplit(":", 1)
+        maskers.append((patroon.strip(), [int(v) for v in vak.split(",")]))
+    return maskers
+
+
+def vergelijk(nu, ref, uit, grens, naam, maskers=""):
+    maskers = lees_maskers(maskers)
     nu, ref, uit = Path(nu), Path(ref), Path(uit)
     uit.mkdir(parents=True, exist_ok=True)
     nieuw_lijst = {p.relative_to(nu).as_posix() for p in nu.rglob("*.png")} if nu.is_dir() else set()
@@ -52,6 +66,9 @@ def vergelijk(nu, ref, uit, grens, naam):
             regels.append(f"| {rel} | andere maat: {a.shape[1]}x{a.shape[0]} werd {b.shape[1]}x{b.shape[0]} | GROOT |")
             continue
         mask = (np.abs(a - b) > DREMPEL).any(axis=2)
+        for patroon, (x0, y0, x1, y1) in maskers:
+            if fnmatch.fnmatch(rel, patroon):
+                mask[y0:y1, x0:x1] = False
         n = int(mask.sum())
         pct = 100.0 * n / mask.size
         if n == 0:
@@ -73,7 +90,8 @@ def vergelijk(nu, ref, uit, grens, naam):
     kop = [
         f"## Beeldvergelijking {naam}",
         f"GROOT: {len(groot)} (grens {grens}% van de pixels, drempel {DREMPEL}/255 per kanaal; "
-        f"{len(nieuw_lijst & ref_lijst)} plaatjes vergeleken)",
+        f"{len(nieuw_lijst & ref_lijst)} plaatjes vergeleken"
+        + (f"; niet meegeteld: {'; '.join(f'{p} {v}' for p, v in maskers)})" if maskers else ")"),
         opmerking,
         "| plaatje | verschil met de vorige geslaagde run | |",
         "|---|---|---|",
@@ -95,7 +113,7 @@ def vergelijk(nu, ref, uit, grens, naam):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 6:
+    if len(sys.argv) not in (6, 7):
         print(__doc__)
         sys.exit(2)
-    vergelijk(sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4]), sys.argv[5])
+    vergelijk(sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4]), sys.argv[5], sys.argv[6] if len(sys.argv) == 7 else "")

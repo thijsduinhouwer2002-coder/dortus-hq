@@ -7,7 +7,7 @@
 #       het terugvalpad (de laatste run, geslaagd of niet). Niets gevonden: lege doelmap, geen fout.
 #   beelden.sh bewaar <bronmap> <pad op tak schermen> <omschrijving>
 #       Zet de beelden van deze (geslaagde) run als nieuwe referentie op de tak schermen.
-#   beelden.sh vergelijk <nu-map> <pad op tak schermen> <uitmap> <grens-procent> <naam> [terugvalpad]
+#   beelden.sh vergelijk <nu-map> <pad op tak schermen> <uitmap> <grens-procent> <naam> [terugvalpad] [maskers]
 #       haal plus organisatie/controle/beeldvergelijk.py (Pillow en numpy in een eigen venv).
 #   beelden.sh datum
 #       Datum en tijd in Nederland voor de kop van een bericht, bijvoorbeeld "19 nov 2026 04:20".
@@ -63,7 +63,7 @@ bewaar() {
 }
 
 vergelijk() {
-  local nu="$1" pad="$2" uit="$3" grens="$4" naam="$5" terug="${6:-}"
+  local nu="$1" pad="$2" uit="$3" grens="$4" naam="$5" terug="${6:-}" maskers="${7:-}"
   rm -rf /tmp/bv-ref
   haal "$pad" /tmp/bv-ref "$terug" | tee /tmp/bv-haal.txt
   if grep -q TERUGVAL /tmp/bv-haal.txt; then
@@ -78,7 +78,9 @@ vergelijk() {
   if [ "$py" = python3 ] && ! python3 -c "import PIL, numpy" 2>/dev/null; then
     python3 -m pip install -q --user --break-system-packages pillow numpy >/dev/null 2>&1 || { echo "Pillow niet te installeren, geen vergelijking"; return 0; }
   fi
-  "$py" -I "$HIER/beeldvergelijk.py" "$nu" /tmp/bv-ref "$uit" "$grens" "$naam"
+  "$py" -I "$HIER/beeldvergelijk.py" "$nu" /tmp/bv-ref "$uit" "$grens" "$naam" "$maskers"
+  # Verslag ook naast de schermen, zodat het op de tak schermen staat (zonder sleutel te lezen).
+  [ -f "$uit/verslag.md" ] && [ -d "$nu" ] && cp "$uit/verslag.md" "$nu/BEELDVERSCHIL.md"
   rm -rf /tmp/bv-ref
 }
 

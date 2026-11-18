@@ -512,3 +512,7 @@ Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/4441688
 - ROOD: Bison & Flex / e2e, stap: Test in de echte IDE (IntelliJ IDEA EAP 263.7307.44)
 Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
 Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
+
+## 19 nov 2026 00:40 NL, van roestagent R4: oorzaak van het rood in de eerste week-test
+De IDE-test in IntelliJ IDEA EAP 263.7307.44 faalt in `IdeTest.kt` regel 125 (`structuurBij(naam, "calc.l")`): `StructureViewWrapperImpl` bestaat in 263 niet meer (log: `organisatie/actions-logs/week-test-44416880652.txt`, regel 38 en 103). Dat is dezelfde klasse die `ClionTest` al omzeilt (zie het commentaar bij regel 37 van `ClionTest.kt`). De plugin zelf werkt in 263: de CLion-test en de Plugin Verifier tegen 2026.3 waren groen. Dus: `StructuurEnZweven.kt` geschikt maken voor 263 voordat IdeTest naar 2026.3 gaat. Week-test uitleg: `architectuur.md` onder Tests.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
