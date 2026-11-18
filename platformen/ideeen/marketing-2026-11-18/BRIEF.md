@@ -25,3 +25,11 @@ Antwoord aan de hoofdchat: max 15 regels.
 ## Regels
 - **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt Thijs om toestemming en dan staat alles stil. WebSearch mag om bronnen te vinden.
 - Verzin niets. Geen persoonsgegevens. Niet committen; alleen je eigen bestand in deze map schrijven. Nederlands, gewone woorden, geen gedachtestreepjes.
+
+## Aanvulling 18 nov 20:45: tweede ronde (Thijs: "Meer onderzoek")
+Vijf extra hoeken, letters F tot en met J. Zelfde regels en uitvoer als hierboven. Lees ook wat A tot en met E al opleverden in deze map, en doe dat niet over.
+- **F. Hele reizen van 0 naar de eerste 1.000 gebruikers of $1.000:** 8 tot 10 kleine makers van tools (Blender, JetBrains, VS Code, Chrome, Obsidian) en kleine spellen die het van begin tot eind beschreven. Tijdlijn per week: wat deden ze, wat werkte, wat niet. Gemeenschappelijk recept.
+- **G. Lanceerplekken en pers:** Product Hunt, Show HN, BlenderNation, 80.lv, nieuwsbrieven, podcasts, gamepers. Wat leverde het kleine makers echt op (bezoekers, downloads, verkopen), wanneer werkt het, hoe dien je in.
+- **H. Zoeken en uitleg:** eigen pagina's op dortus.com, lange YouTube-uitleg en tutorials, SEO voor "how to ..." vragen. Bewijs dat uitlegcontent installs geeft (bijvoorbeeld Flex en Bison-tutorials met 68.000 tot 120.000 weergaven), en wat wij per product kunnen maken. Wat kan automatisch.
+- **I. Betaalde advertenties met een klein budget:** Reddit, Google, YouTube, Meta, TikTok Spark, advertenties in nieuwsbrieven, Steam-advertenties. Echte proeven van kleine makers met kosten per installatie of verlanglijst. Alleen als voorstel met bedrag en verwachte opbrengst; Thijs beslist.
+- **J. Eigen publiek en doorverwijzen:** maillijst en Discord laten groeien, en van het ene product naar het andere sturen (Hat Tower naar Hats, Click Joints Free naar Pro, Bison & Flex naar volgende plugins). Conversiecijfers van makers, wat werkt binnen de regels van elke winkel (bijvoorbeeld geen koopknop in Blender), wat automatisch kan.
