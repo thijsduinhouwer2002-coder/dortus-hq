@@ -1,0 +1,1 @@
+{"workflow": "blender-chris-figuur.yml", "invoer": {"model": "army_man", "hoogte": "150"}, "van": "roestagent R2", "waarom": "proef: model gaat nu via env in de shell (keuring R2, B1)"}
