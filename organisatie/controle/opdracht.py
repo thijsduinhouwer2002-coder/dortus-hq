@@ -2,7 +2,7 @@
 """Start workflows uit opdrachtbestanden (draait in .github/workflows/opdracht.yml, niet zelf draaien).
 
 Een agent pusht `organisatie/opdrachten/<datum>-<naam>.json`:
-  {"workflow": "wegwijzer.yml", "invoer": {}, "tak": "main", "van": "<naam>", "waarom": "<een zin>"}
+  {"workflow": "wegwijzer.yml", "invoer": {}, "van": "<naam>", "waarom": "<een zin>"}
 Dit script start elke opdracht zonder "uitslag" of "fout", als de workflow op de lijst TOEGESTAAN staat,
 en schrijft het runnummer terug in hetzelfde bestand (veld "uitslag"), of de reden in "fout".
 
@@ -92,9 +92,9 @@ def controleer(o):
     invoer = o.get("invoer", {})
     if not isinstance(invoer, dict) or not all(isinstance(k, str) and isinstance(v, (str, int, float, bool)) for k, v in invoer.items()):
         return '"invoer" moet een object zijn met alleen tekst, getallen of ja/nee'
-    tak = o.get("tak", "main")
-    if not isinstance(tak, str) or not tak or tak.startswith("-"):
-        return '"tak" moet een taknaam zijn'
+    # Alleen main: op een andere tak kan een workflow met dezelfde naam iets anders doen dan op de lijst bedoeld is.
+    if o.get("tak", "main") != "main":
+        return 'alleen "tak": "main" mag (laat het veld weg)'
     return None
 
 
@@ -110,7 +110,7 @@ def zoek_run(repo, wf, sinds):
 
 
 def start(repo, o):
-    wf, tak = o["workflow"], o.get("tak", "main")
+    wf, tak = o["workflow"], "main"
     invoer = {k: (str(v).lower() if isinstance(v, bool) else str(v)) for k, v in o.get("invoer", {}).items()}
     sinds = nu()
     s, d = api("POST", f"/repos/{repo}/actions/workflows/{wf}/dispatches",

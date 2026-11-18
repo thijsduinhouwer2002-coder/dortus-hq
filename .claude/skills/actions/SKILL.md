@@ -10,9 +10,9 @@ De GH_TOKEN in agentsessies werkt niet. Dat hoeft ook niet: starten gaat met een
 ## Starten: push een opdrachtbestand
 1. Maak `organisatie/opdrachten/<datum>-<jouw naam>-<onderwerp>.json`:
    ```json
-   {"workflow": "wegwijzer.yml", "invoer": {}, "tak": "main", "van": "<jouw naam>", "waarom": "<een zin>"}
+   {"workflow": "wegwijzer.yml", "invoer": {}, "van": "<jouw naam>", "waarom": "<een zin>"}
    ```
-   `invoer` zijn de `workflow_dispatch`-invoervelden van die workflow (tekst, getal of ja/nee). `tak` mag weg (dan `main`).
+   `invoer` zijn de `workflow_dispatch`-invoervelden van die workflow (tekst, getal of ja/nee). Het draait altijd op `main`.
 2. `git add` alleen dat bestand, commit, `git pull --rebase --autostash`, `git -c push.negotiate=true push origin main`.
 3. De workflow `.github/workflows/opdracht.yml` start hem binnen ±30 seconden en zet het resultaat in jouw bestand: `"uitslag": {"run_id": ..., "url": ...}` of `"fout": "<reden>"`. Na ±1 minuut: `git pull --rebase --autostash`.
 4. Opnieuw starten = een nieuw bestand. Een bestand met `uitslag` of `fout` wordt nooit nog eens gestart.
