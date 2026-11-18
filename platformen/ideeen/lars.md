@@ -2,6 +2,52 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 07:51 UTC: run 5, rest van de 5.3-notities, vooruit in het Blender-forum, WordPress 7.2, Figma, Obsidian, Godot, 0 ideeën klaar voor keuring, 5 zelf afgeschoten
+
+Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek (lijst van 17 nov is af, zie UITKOMST.md). Gelezen: de 4 pagina's van Blender 5.3 die ik in run 4 nog niet had (compositor, cycles, eevee, navigation; nu alle 15 gelezen), de categorie Feature & Design Feedback van forum.blender.org (de draden waar Blender nieuwe functies maanden vooraf laat testen), ontwerptaken op projects.blender.org sinds 15 sep, WordPress 7.2 (Beta 1 en RC1, uitkomst 8 dec), Figma plugin-updates 141 en 142, Obsidian 1.15.0 en 1.15.1, Godot 4.8 beta, Raycast 2.12, JetBrains SDK-wijzigingen 2027.1.
+
+**Eerlijk:** niets haalt alle 4 wetten. De les van de splats herhaalt zich bij twee andere functies uit 5.3 (hieronder): wie de testversies volgde, stond er op dag 1 al. Het echte vooruitkijkwerk is dus het forum, niet de notities. Drie klokken voor 5.4 staan onderaan.
+
+### Zelf afgeschoten: toon- en anime-shaders met de nieuwe Material Lighting-nodes (Blender 5.3) | DOOD op vraag 2 en wet 1
+- **Aanleiding (pagina eevee/ van 5.3, niet in python_api/):** EEVEE kreeg nodes waarmee een materiaal zelf bepaalt hoe het op lampen reageert (Light Accumulation, Light Info, Light Evaluation, Shadow Raycast). Bedoeld voor "toon and stylized shading" (GEZIEN 18 nov, release_notes/5.3/eevee.md). Dit is wat tot nu toe alleen in de Goo Engine (een aparte Blender-versie voor anime) kon.
+- **Vraag was er:** forumdraad "Material Lighting Nodes - Feedback": 11.005 keer bekeken, 256 likes, 140 berichten (GEZIEN 18 nov, forum.blender.org/t/45695.json).
+- **Maar die draad loopt al sinds 19 aug**, met testversies. Makers hadden 3 maanden voorsprong. VRToon Shader Manager V2 ($20, 200+ verkopen) gebruikt de nieuwe nodes al sinds v2.3 (5 okt) en kwam op 14 nov met v2.4.0 voor 5.3. Toon Shader for Blender ($35, 214 assets) kreeg update 1.2 met 5.3-steun, 20 dagen geleden gepubliceerd. Daarnaast NPR Shader Kit ($9,99, 40+), Stylized BSDF ($10, 100+), Advanced Toon Shader ($2, 800+) (GEZIEN 18 nov, superhivemarket.com/products/vrtoon-shader-manager-v2, toon-shader-for-blender, npr-shader-kit--stylized-rendering, stylizedbsdf, advanced-toon-shader). Op YouTube staan al uitleg-filmpjes over toon shading in 5.3 (GEZIEN in zoekresultaten).
+- **Wet 2:** toon is een stijl, niet een taak die iedere gebruiker heeft. Dood.
+
+### Zelf afgeschoten: pakket compositor-effecten voor de nieuwe Effects Stack (Blender 5.3) | DOOD op vraag 1 en 2
+- **Aanleiding (pagina compositor/):** de compositor werkt nu met een stapel effecten zoals modifiers; elk effect is een node-groep. Bloom zit er als ingebouwd asset bij (GEZIEN 18 nov, release_notes/5.3/compositor.md).
+- **1:** het stapelen zelf was precies wat betaalde add-ons verkochten, en dat doet Blender nu zelf. Post FX ($15, 200+ verkopen): "Stack effects like layers" (GEZIEN 18 nov, superhivemarket.com/products/post-fx). Compositor FX ($8,99): "add them to a stack, adjust their parameters, reorder them" (GEZIEN, /products/compositor-fx).
+- **2:** effectpakketten bestaan al jaren: MP_Comp ($15, 60+), Compositing FX ($25, 10), Compositing Effects ($10, 10+) (GEZIEN 18 nov, zelfde site). Wie nu effecten als node-groep in de stapel wil, krijgt die van deze makers met een kleine update. Dood.
+
+### Zelf afgeschoten: OpenPBR-omzetter of OpenPBR-materialen (Blender 5.4) | DOOD op wet 4, zwak op wet 2
+- **Vooruit gezien:** OpenPBR komt als shader-node in Cycles en EEVEE, "We expect this to be ready in Blender 5.4", testversie beschikbaar (GEZIEN 18 nov, forum.blender.org/t/45831.json, 25 sep, 2.904 keer bekeken).
+- **Wet 4:** Blender regelt de omzetting zelf. In de ontwerptaak "Material compatibility" stellen de beheerders voor dat één Principled-node alle varianten aankan (Principled, OpenPBR, later WebGL) met een keuze op bestand- of projectniveau, en dat Blender waarschuwt bij onderdelen die niet passen (GEZIEN 18 nov, projects.blender.org/blender/blender/issues/163341, reacties van dfelinto 3 sep). Een omzetter wordt dan overbodig.
+- **Wet 2:** OpenPBR is vooral voor wie tussen programma's wisselt (pijplijnen), niet voor iedere gebruiker. Materialenpakketten zijn een volle hoek (BlenderKit, Poly Haven, keuring 17 nov). Dood.
+
+### Zelf afgeschoten: plugin voor de Secrets API van WordPress 7.2 | DOOD, de functie gaat niet door
+- **Aanleiding:** WordPress 7.2 (RC1 op 17 nov, uitkomst 8 dec 2026) zou een Secrets API krijgen met "customizable storage providers" (GEZIEN 18 nov, wordpress.org/news/feed, Beta 1). Dat leek een nieuwe soort plugin (opslag van sleutels in een kluis), in een winkel met zichtbare installaties en een gewone freemium-cultuur.
+- **Uitkomst:** "Update 2026-11-17: The Secrets API will no longer be shipping with WordPress 7.2" (GEZIEN 18 nov, make.wordpress.org/core/2026/11/11/the-secrets-api-in-wordpress-7-2/). Was ook al een nis (alleen voor makers en bureaus). De rest van 7.2 (On This Day-widget, media in de browser verkleinen, tekstschaduw) doet WordPress zelf. Dood. **Volgen:** komt de Secrets API terug in 7.3, dan opnieuw kijken.
+
+### Zelf afgeschoten: OKLCH-kleurgereedschap voor Figma (kleurruimtes in de plugin-API) | DOOD op vraag 2
+- **Aanleiding:** Figma update 141 (15 okt 2026): plugins kunnen kleuren lezen en schrijven in SRGB, DISPLAY_P3, HSL, HSB, OKLAB en OKLCH, en Figma bewaart de oorspronkelijke kleurruimte (GEZIEN 18 nov, developers.figma.com/docs/plugins/updates/2026/10/15/version-1-update-141). In de kleurkiezer van Figma zelf zit OKLCH nog niet: op het forum schreef iemand op 5 nov dat zijn plugin "doesn't add native OKLCH support to Figma's color picker or variables" (GEZIEN 18 nov, forum.figma.com/suggest-a-feature-11/support-oklab-and-oklch-8257, pagina 7).
+- **2:** vol. De zoek-API van Figma Community geeft **191 plugins op "oklch"**, met OkColor (10.862 gebruikers), OKLCH Color Variations (10.378), PencilColor (3.550), Paletto (3.438), en de betaalde UI Color Palette (96.928) (GEZIEN 18 nov, figma.com/api/search/resources?query=oklch&resource_type=plugin).
+- **Wet 4:** dat Figma de oorspronkelijke kleurruimte nu al opslaat, wijst erop dat een eigen OKLCH-kiezer eraan komt: GOK. Dood.
+
+### Kort afgevallen, zonder eigen kop
+- **Obsidian 1.15:** Mermaid draait nu op de eigen bibliotheek Pele, die "can't run code"; verder zoeken zonder accenten en sneller opstarten (GEZIEN 18 nov, obsidian.md/changelog, 1.15.0 en 1.15.1). Geen nieuwe soort plugin, en geen kassa.
+- **Godot 4.8 (beta 3, 9 nov):** in feature freeze. Nieuw: Trail3D ingebouwd (maakt bestaande trail-add-ons overbodig), fuzzy search, hoofdscherm als dock (GEZIEN 18 nov, godotengine.org/article/dev-snapshot-godot-4-8-beta-1). Geen nieuwe soort plugin.
+- **Raycast 2.12 (13 nov):** nieuwe rekenmachine, ingebouwd (GEZIEN, raycast.com/changelog). Raycast heeft geen kassa (al eerder zwak).
+- **JetBrains 2027.1:** enige wijziging tot nu toe: modules `intellij.platform.execution` los getrokken (GEZIEN 18 nov, plugins.jetbrains.com/docs/intellij/api-changes-list-2027.html.md). Nog geen EAP-functies.
+- **VS Code:** het maandelijkse iteration plan bestaat niet meer na februari 2026 (laatste: #293855, GEZIEN via GitHub-zoek-API); vooruitkijken kan alleen via Insiders-notities (gedaan in run 4).
+
+### Klokken voor Blender 5.4 en later (uit het forum en de ontwerptaken, nog geen idee)
+1. **3D Texture Paint (5.4 alpha, experimenteel).** De oude projectie-penselen worden vervangen door echte 3D-penselen; te testen in elke 5.4 alpha (GEZIEN 18 nov, forum.blender.org/t/46202.json, 31 okt, 1.788 keer bekeken). Het hoort bij het grote project Layered Textures and Baking (#155954, #158285): Blender bouwt zelf lagen, schilderen en bakken. Dat is wet 4 voor elk lagen-gereedschap (en slecht nieuws voor betaalde schilder-add-ons). Wat mogelijk wel open blijft: penseel-pakketten voor de nieuwe 3D-penselen. Pas kijken als de penselen af zijn.
+2. **Blender op tablets ("Tablet: Path to Release", #165985, aangemaakt 2 nov).** Eerst Android, iOS "under consideration"; er is een demo met aanraakgebaren en een modifier-wiel, en ontwerpwerk voor kortere menu's (#166531, 12 nov) (GEZIEN 18 nov, projects.blender.org/blender/blender/issues/165985, 164191, 166531). Geen datum. Komt het uit, dan is dat een grote golf in een winkel waar wij al zitten: add-ons moeten met aanraking werken, en er is plek voor gereedschap dat het bureaublad-werk naar de tablet brengt. Elke run even kijken.
+3. **Hoeveel add-ons breken bij een grote versie.** Een onderzoek op het forum: van 874 add-ons op het platform braken er 116 (13%) bij Blender 5.0, en ±30% daarvan is na een paar versies nog (deels) kapot (GEZIEN 18 nov, forum.blender.org/t/46289.json, 7 nov). Bij Blender 6 kan dat een golf van vervangers geven voor populaire add-ons die niet meer bijgewerkt worden. Nu nog geen idee, wel een lijst om te bewaren (ruwe data in de repository PyBreakImpact).
+
+### Les van deze run
+Blender laat grote functies maanden vooraf testen in de categorie Feature & Design Feedback op forum.blender.org (toon-nodes vanaf 19 aug, OpenPBR vanaf 25 sep, 3D-penselen vanaf 31 okt). De betaalde makers lezen daar mee en zijn op de dag van uitkomst klaar. Wie pas bij de release notes begint, is te laat. Voorstel voor de ploeg: die categorie elke run lezen (`forum.blender.org/c/feature-design-feedback/30.json`, sorteren op aanmaakdatum) en bij een nieuwe draad met veel likes meteen kijken of er een brede taak in zit die Blender zelf niet doet.
+
 ## 18 nov 2026 06:52 UTC: run 4, vooruitkijken (Blender 5.4 alpha, VS Code Insiders, JetBrains, Obsidian), 0 ideeën klaar voor keuring, 2 zelf afgeschoten
 
 Tijd uit `date -u` bij de start. Opdracht van 18 nov ±07:40 NL gevolgd: alle pagina's van de release notes, en vooruit. Gelezen: alle 19 pagina's van Blender 5.4 alpha en de 5.3-pagina's core, assets, user_interface, pipeline_io, python_api, rendering, animation_rigging, modeling, sculpt, grease_pencil, geometry_nodes (bron: `projects.blender.org/blender/blender-developer-docs`, map `docs/release_notes/`, GEZIEN 18 nov); open PR's met "python api" op projects.blender.org; VS Code 1.142 t/m 1.146 en de Insiders-notities (1.147, 10 t/m 12 nov); JetBrains platformblog en nieuwsbrief Q3; Obsidian-changelog 1.15.1. Tips van Thijs: niets nieuws in mijn hoek (de lijst van 17 nov is af, zie UITKOMST.md).
