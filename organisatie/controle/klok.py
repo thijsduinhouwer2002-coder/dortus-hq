@@ -122,7 +122,8 @@ def zet(tip, naam, regel):
     if tip:
         rijen = [r for r in git("ls-tree", tip).splitlines() if r and r.split("\t", 1)[1] != f"{naam}.txt"]
     rijen.append(f"100644 blob {blob}\t{naam}.txt")
-    boom = git("mktree", invoer="\n".join(sorted(rijen, key=lambda r: r.split("\t", 1)[1])) + "\n")
+    # --missing: de checkout is blobloos (filter blob:none), de bestanden van andere taken staan dan niet lokaal
+    boom = git("mktree", "--missing", invoer="\n".join(sorted(rijen, key=lambda r: r.split("\t", 1)[1])) + "\n")
     env = dict(os.environ, GIT_AUTHOR_NAME="dortus-klok", GIT_COMMITTER_NAME="dortus-klok",
                GIT_AUTHOR_EMAIL="41898282+github-actions[bot]@users.noreply.github.com",
                GIT_COMMITTER_EMAIL="41898282+github-actions[bot]@users.noreply.github.com")
