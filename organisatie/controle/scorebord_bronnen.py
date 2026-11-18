@@ -27,7 +27,7 @@ YOUTUBE_NAAM = "YouTube @Dortusapps"
 # Discord van Hats of the Fallen: de uitnodigingscode is openbaar bedoeld (komt op de Steampagina).
 # De hoofdchat vult hem hier in (alleen de code, bijv. "abcDEF12"), of zet de GitHub-variabele
 # HATS_DISCORD_INVITE. Leeg: dan probeert het script de code via de webhook en de widget van de server.
-HATS_DISCORD_INVITE = ""
+HATS_DISCORD_INVITE = "CSpG6QEqCB"  # openbare uitnodiging Hats-Discord, verloopt nooit (hoofdchat, 19 nov)
 DISCORD_NAAM = "Hats of the Fallen"
 
 
