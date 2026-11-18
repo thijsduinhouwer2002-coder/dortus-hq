@@ -2,6 +2,29 @@
 
 Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
+## 18 nov 2026 11:35 UTC: run 9, 0 ideeën klaar voor keuring, 3 zelf afgeschoten
+
+Berichten: niets nieuws (laatste van 18 nov 07:40 NL al verwerkt). Tips van Thijs: niets nieuws in mijn hoek. Deze run gezocht naar nieuwe API's en apparaten buiten Play en buiten Vega: een nieuw scriptdeel in een groot gratis programma (Affinity), een nieuw apparaat met een Steam-etalage (Steam Frame), en Hacker News van de laatste 10 dagen (zoek-API op plugin, extensions, marketplace, app store, SDK, store developers, 30+ punten). Niets haalt alle 4 wetten.
+
+### Zelf afgeschoten: scripts (kleine gereedschappen met eigen venster) voor Affinity 3.3 | DOOD op wet 1 (geen etalage) en vraag 1
+- **Wat is nieuw:** Affinity 3.3 (15 sep 2026) kreeg een Scripting Studio met JavaScript. "Scripts can even have their own dialogs, turning a repeated process into a reusable tool", met een Scripts Panel en "a library of examples" (GEZIEN 18 nov, affinity.studio/blog/affinity-automation-scripting-claude, 15 sep 2026). Affinity is gratis voor Windows en macOS (GEZIEN 18 nov, cgchannel.com/2026/09/canva-releases-affinity-3-3/). Groot publiek: aantal gebruikers ONBEKEND (geen getal van Canva gevonden), maar een gratis Adobe-vervanger van Canva is zeker 100.000+ (GOK).
+- **Mijn gedachte:** zoals bij InDesign, waar losse scripts verkocht worden, kan er een brede basisset komen (batch-export, data samenvoegen, maten tekenen). Wij kunnen JavaScript schrijven op Windows.
+- **Waarom dood, wet 1 en vraag 5:** er is geen winkel of etalage. Scripts deel je zelf; het blog zegt alleen "share it with the team". Zonder plek waar kopers zoeken is er geen nummer één te worden. Op GitHub staan sinds 1 sep 21 repo's met "affinity scripts", allemaal met 0 sterren (GEZIEN 18 nov, GitHub zoek-API), dus ook daar geen verzamelplek met bereik.
+- **Vraag 1, ook zwak:** Canva levert zelf de "AI Connector for Claude": "Describe a process once, and Claude builds a reusable script" (GEZIEN, zelfde blog). Een script dat je in één zin laat maken verkoopt slecht. En scripts kunnen "geen nieuwe gereedschappen toevoegen of bestaande veranderen" (GEZIEN, cgchannel: "it isn't capable of adding new tools to the software").
+- **Wat het zou veranderen:** Canva opent een scriptgalerij of een plugin-API met een lijst in Affinity zelf. Dan meteen opnieuw: de eerste brede scripts staan dan bovenaan. Tip voor Lars (nieuwe API in een groot product): houd de release notes van Affinity 3.4 in de gaten.
+
+### Zelf afgeschoten: basisgereedschap voor de Steam Frame (Valve) | DOOD op wet 1 en bereik
+- **Feit:** de Steam Frame kwam op 14 sep 2026, $1.059 of £889, via een loting voor kopers (GEZIEN 18 nov, thesixthaxis.com 14 sep 2026). Steam heeft labels "Great on Frame" (DERDEN, tweaktown.com 15 aug 2026). Steam is voor ons wel bereikbaar vanaf Windows.
+- **Waarom dood:** ruim 9 weken oud, dus niet meer "weken". Het publiek is klein: een bril van ruim $1.000 met een loting; het aantal verkochte brillen is ONBEKEND. VR op Steam krimpt: "2025 was the worst year for VR games on Steam for a decade. Just 481 VR games" (GEZIEN 18 nov, pcgamer.com 14 sep 2026). Testen kan alleen met de bril zelf, die wij niet hebben (vraag 6). De bekende basistaken (pc-scherm in de bril, video kijken) doet Valve met SteamOS en Steam Link zelf of bestaan al jaren als betaalde VR-apps op Steam (GOK, niet nageteld).
+- **Wat het zou veranderen:** verkoopcijfers van Valve boven een paar honderdduizend, plus iemand bij Dortus met een Frame.
+
+### Zelf afgeschoten, kort
+- **Grok Build Plugin Marketplace (xAI) | DOOD op wet 1, hoek van Joris.** Open sinds 11 jun 2026, inzenden via een pull request op xai-org/plugin-marketplace, partners op dag 1 (MongoDB, Vercel, Sentry, Cloudflare) (GEZIEN 18 nov, x.ai/news/grok-plugin-marketplace). Een nieuwssite noemt "per-use pricing" (alleen kop gezien, ai-cost-estimator.com); op de pagina van xAI staat geen prijs of kassa. Vijf maanden oud.
+- **Hacker News, laatste 10 dagen:** geen nieuwe winkel of apparaat met een SDK. Wel Apple Foundation Models framework (12 nov, Mac nodig), Gemini Decisions API en A2UI 1.0 (11 en 12 nov, hoek van Joris), KetchUp (open SketchUp-vervanger, 8 nov, geen plugin-winkel).
+- **Nieuwsfeeds:** Xiaomi 18 Pro met achterscherm dat Google-apps, Spotify en "custom GenAI apps" draait (kop 9to5google, 13 nov); geen winkel voor makers gevonden. Meta: in-app aankopen op Quest leveren nu meer op dan betaalde apps (kop uploadvr, 12 nov); Quest is een oude winkel.
+
+Les van deze run: een nieuwe API in een groot programma (Affinity) is pas een kans als er ook een plek is waar kopers zoeken. Zonder etalage helpt vroeg zijn niet. Volgende run: de klokken (Pebble 8 dec, Samsung-bril 10 dec, Alexa+ "select partners"), en zoeken naar grote gratis programma's die een plugin-lijst in de app zelf openen (Affinity, Cavalry, KetchUp, DaVinci Resolve 21).
+
 ## 18 nov 2026 10:35 UTC: run 8, 0 ideeën klaar voor keuring, 2 zelf afgeschoten
 
 Berichten: niets nieuws (laatste van 18 nov 07:40 NL al verwerkt). Tips van Thijs: niets nieuws in mijn hoek. Zoals gepland in run 7: in Vega (Fire TV) zoeken naar een lichte basistaak die wel in React Native past. Vondst: de grootste reden waarom mensen een Fire TV Stick kopen, een IPTV-speler (eigen M3U- of Xtream-lijst afspelen), werkt op Vega niet meer via TiviMate of Smarters. Maar de plek is al genomen. Daarnaast een brede zoektocht naar winkels die deze maand opengaan: niets nieuws gevonden dat niet al in `platformen/pionier/voorstellen/` staat.
