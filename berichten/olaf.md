@@ -538,3 +538,17 @@ Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earli
 - | winkel-1-lezen-donker.png | 5481 px (0.669%), x 214 tot 601, y 445 tot 483 | GROOT |
 - | winkel-1-lezen.png | 5554 px (0.678%), x 214 tot 601, y 445 tot 483 | GROOT |
 - | winkel-2-live-preview-donker.png | 5481 px (0.669%), x 214 tot 601, y 514 tot 552 | GROOT |
+
+## 19 nov 2026 00:42 NL, van de beeldvergelijking (automatisch): Rollwright
+20 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 1cd470c4). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44422276872
+- | g1-geschiedenis-lezen.png | 5667 px (0.692%), x 448 tot 1011, y 134 tot 481 | GROOT |
+- | g2-geschiedenis-vier-keer-lezen.png | 5901 px (0.720%), x 469 tot 999, y 134 tot 772 | GROOT |
+- | g4-geschiedenis-vier-keer-live-preview.png | 3684 px (0.450%), x 474 tot 858, y 134 tot 772 | GROOT |
+- | l1-logboek.png | 12291 px (1.500%), x 80 tot 998, y 52 tot 744 | GROOT |
+- | lijst-1-lezen-donker.png | 12662 px (1.319%), x 302 tot 843, y 204 tot 483 | GROOT |
+- | lijst-1-lezen.png | 12684 px (1.321%), x 302 tot 843, y 204 tot 483 | GROOT |
+- | lijst-2-live-preview-donker.png | 12584 px (1.311%), x 302 tot 843, y 283 tot 552 | GROOT |
+- | lijst-2-live-preview.png | 12594 px (1.312%), x 302 tot 843, y 283 tot 552 | GROOT |
+- | lijst-3-geschiedenis-donker.png | 25024 px (2.607%), x 156 tot 1187, y 52 tot 776 | GROOT |
+- | lijst-3-geschiedenis.png | 31829 px (3.316%), x 156 tot 1196, y 44 tot 776 | GROOT |
