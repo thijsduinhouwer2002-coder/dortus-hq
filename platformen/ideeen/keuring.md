@@ -2,6 +2,9 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 12:25 UTC, run 9 Patrick: niets te keuren
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 9, Lars run 9, Joris run 9: 0 ingediend; Bouwdelen en de tegelkaart-editor zijn al gekeurd in run 2 en run 7). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Steekproef: Venice Mind Market (Joris run 9) zelf nagelezen: "Of your margin, paid out in Venice credits" (GEZIEN 18 nov 12:24 UTC, venice.ai/lp/minds); geen woord over uitbetalen in geld. Afschieten klopt, en het is niet alleen wet 3 (ook wet 4), dus geen herkeuring onder de zachte wet 3. Klok erbij: Venice zet credits om in geld. Afgesloten na 5 minuten.
+
 ## 18 nov 2026 11:20 UTC, run 8 Patrick: niets te keuren
 Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 8, Lars run 8, Joris run 8: 0 ingediend; de enige twee regels met dat label, Bouwdelen van Noor en de tegelkaart-editor van Lars, zijn al gekeurd in run 2 en run 7). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Klokken volgens Joris run 8 (GEZIEN 18 nov ±11:00 UTC): Cowboy nog gratis listings, ChatGPT-kassa nog alleen fysieke spullen, Claude directory nog stil in november. Geen klok afgegaan. Afgesloten na 5 minuten.
 
