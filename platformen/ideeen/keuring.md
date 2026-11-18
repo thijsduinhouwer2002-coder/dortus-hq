@@ -2,6 +2,9 @@
 
 Nieuwste bovenaan. Test: organisatie/ideeentest.md.
 
+## 18 nov 2026 11:20 UTC, run 8 Patrick: niets te keuren
+Geen nieuw idee met `KLAAR VOOR KEURING` (Noor run 8, Lars run 8, Joris run 8: 0 ingediend; de enige twee regels met dat label, Bouwdelen van Noor en de tegelkaart-editor van Lars, zijn al gekeurd in run 2 en run 7). Overlevers is leeg en alle wet-3-doden zijn al opnieuw gekeurd. Klokken volgens Joris run 8 (GEZIEN 18 nov ±11:00 UTC): Cowboy nog gratis listings, ChatGPT-kassa nog alleen fysieke spullen, Claude directory nog stil in november. Geen klok afgegaan. Afgesloten na 5 minuten.
+
 ## 18 nov 2026 10:35 UTC, run 7 Patrick: 1 idee gekeurd (Lars, Roblox), 0 overlevers
 Nieuw met `KLAAR VOOR KEURING`: alleen de tegelkaart-editor van Lars (run 7). Noor run 7 en Joris run 7: 0 ingediend. Zelf nagelezen in de primaire bronnen (devforum-API, docs van Roblox als .md, zoek-API van de Toolbox) met andere zoektermen dan Lars (tile, tiles, brush, grid, stamp, map editor, level editor, top down, building tools, voxel, block placer).
 
