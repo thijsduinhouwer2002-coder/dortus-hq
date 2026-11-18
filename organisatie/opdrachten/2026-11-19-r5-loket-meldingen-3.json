@@ -1,1 +1,11 @@
-{"workflow": "loket-meldingen.yml", "invoer": {}, "van": "R5 (roestagent)", "waarom": "Proef na de strengere foutcontrole: alle drie de loketrepo's moeten te lezen zijn."}
+{
+  "workflow": "loket-meldingen.yml",
+  "invoer": {},
+  "van": "R5 (roestagent)",
+  "waarom": "Proef na de strengere foutcontrole: alle drie de loketrepo's moeten te lezen zijn.",
+  "uitslag": {
+    "run_id": 44421760994,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44421760994",
+    "gestart": "2026-11-18T23:33:30Z"
+  }
+}
