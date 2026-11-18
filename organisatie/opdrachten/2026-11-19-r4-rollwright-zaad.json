@@ -1,1 +1,11 @@
-{"workflow": "rollwright-e2e.yml", "invoer": {}, "van": "roestagent R4", "waarom": "nagaan of de schermen met het vaste zaad per test gelijk blijven tussen twee runs van dezelfde code"}
+{
+  "workflow": "rollwright-e2e.yml",
+  "invoer": {},
+  "van": "roestagent R4",
+  "waarom": "nagaan of de schermen met het vaste zaad per test gelijk blijven tussen twee runs van dezelfde code",
+  "uitslag": {
+    "run_id": 44423264613,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44423264613",
+    "gestart": "2026-11-18T23:44:13Z"
+  }
+}
