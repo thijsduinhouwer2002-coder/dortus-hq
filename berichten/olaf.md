@@ -498,3 +498,17 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 281d0a3b). Geen rode test: kijk of het zo bedoeld is.
 Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420689824
 - | l1-logboek.png | 12154 px (1.484%), x 80 tot 998, y 52 tot 744 | GROOT |
+
+## 19 nov 2026 00:32 NL, van de beeldvergelijking (automatisch): Rollwright
+13 plaatje(s) wijken sterk af van de vorige geslaagde run (commit eb02ba15). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420801178
+- | lijst-1-lezen-donker.png | 5481 px (0.571%), x 302 tot 689, y 445 tot 483 | GROOT |
+- | lijst-1-lezen.png | 5554 px (0.579%), x 302 tot 689, y 445 tot 483 | GROOT |
+- | lijst-2-live-preview-donker.png | 5481 px (0.571%), x 302 tot 689, y 514 tot 552 | GROOT |
+- | lijst-2-live-preview.png | 5554 px (0.579%), x 302 tot 689, y 514 tot 552 | GROOT |
+- | lijst-3-geschiedenis-donker.png | 12773 px (1.331%), x 152 tot 1134, y 134 tot 776 | GROOT |
+- | lijst-3-geschiedenis.png | 12907 px (1.344%), x 152 tot 1134, y 134 tot 776 | GROOT |
+- | skin-tegels-licht.png | 58879 px (9.346%), x 273 tot 896, y 47 tot 692 | GROOT |
+- | winkel-1-lezen-donker.png | 5481 px (0.669%), x 214 tot 601, y 445 tot 483 | GROOT |
+- | winkel-1-lezen.png | 5554 px (0.678%), x 214 tot 601, y 445 tot 483 | GROOT |
+- | winkel-2-live-preview-donker.png | 5481 px (0.669%), x 214 tot 601, y 514 tot 552 | GROOT |
