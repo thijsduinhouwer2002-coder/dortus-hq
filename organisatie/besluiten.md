@@ -120,18 +120,17 @@
 - Garmin-ontwikkelaarsaccount betaald; uploaden gaat met de hand. (16 nov 13:58)
 - Kanalen: YouTube @Dortusapps, TikTok @dortusstudio en @hatsofthefallen, via Metricool. (16 nov 19:51; 16 nov 22:55)
 
-## Twijfel (nog uit te zoeken met Thijs)
-
-1. "Eerst de eerste euro" en "kiezen op euro per week werk" (10 nov 11:46 en 11:49): lijken vervangen door Kingmaker en wet 3, maar zijn nooit expliciet opgeheven.
-2. Kingmaker-verdeling 50/40/10 (17 nov 16:50): alle agents staan uit en 18 nov 18:40 zegt "eerst wat we hebben". Geldt de verdeling nog bij herstart?
-3. Home Assistant en Claude-koppelingen: afgewezen op betalen, maar door wet 3 opnieuw te keuren. Uitslag van Patrick ontbreekt.
-4. Android XR-audiobrillen: besluit uiterlijk 5 dec (17 nov 10:50), maar Noor staat uit.
-5. Stopregels Click Joints (minder dan 10 verkopen in 6 weken, 8 nov) en Bison & Flex (dag 30 onder 30 gebruikers): nog van kracht naast de meting van 9 dec?
-6. Terugbetaalbeleid Ebb "14 dagen" (11 nov 22:55): is uitgezocht of dat via Garmin kan?
-7. "Keuzes nooit haasten" (6 nov, `doelen.md`) botst met de 7-dagenregel van Kingmaker; vermoedelijk alleen nog voor Hats.
-8. Tussendoel 20 dec (1.000 gebruikers, € 100 per maand, 8 nov) en tussenstappen in `doelen.md`: nergens opgeheven, maar niet meer genoemd.
-9. Eigen openbare repo per product (7 nov) tegenover productcode privé (18 nov 17:04): geldt het privé maken alleen voor Hats en Bison & Flex?
-10. "Gedeeld account" in `regels.md` (geen Gmail-koppeling): de overstap naar het eigen account is op 7 nov afgerond, maar de regel staat er nog.
+## Twijfelgevallen, uitgezocht 18 nov 2026 20:15 (hoofdchat)
+1. "Eerst de eerste euro" en "kiezen op euro per week werk" (10 nov): **vervallen**, vervangen door Kingmaker (17 nov), wet 3 versoepeld (18 nov 07:45) en Thijs 18 nov ("de kassa hoeft niet per se van mij"). Geld blijft het doel, maar is geen poort meer per idee.
+2. Kingmaker-verdeling 50/40/10 (17 nov 16:50): **opgeschort tot de meting van wo 9 dec.** Nu gaat alle aandacht naar Hats, Click Joints en Pro en Bison & Flex (18 nov 18:40). Na 9 dec opnieuw besluiten.
+3. Home Assistant en Claude-koppelingen opnieuw keuren door wet 3: **opgeschort tot 9 dec** (geen nieuwe producten nu).
+4. Android XR-audiobrillen, besluit vóór 5 dec: **opgeschort tot 9 dec**, om dezelfde reden. Komt mee in het besluit van 9 dec.
+5. Oude stopregels van Click Joints (minder dan 10 verkopen in 6 weken) en Bison & Flex (dag 30 onder 30 gebruikers): **vervangen door de meting van wo 9 dec** tegen de nulmeting van 18 nov. Dan beslissen we per product: doorgaan, veranderen of stoppen.
+6. Terugbetalen van Ebb binnen 14 dagen: **niet uitgezocht en nu niet nodig** (0 kopers, geparkeerd). Uitzoeken bij de eerste koper.
+7. "Keuzes nooit haasten" (doelen.md) tegenover de 7-dagenregel van Kingmaker: **geen botsing meer.** Voor Hats gaat kwaliteit voor de datum; de 7-dagenregel geldt alleen voor nieuwe Kingmaker-ideeën, en die liggen stil tot 9 dec.
+8. Tussendoel 20 dec (1.000 gebruikers, € 100 per maand) en de tussenstappen in `doelen.md`: **ligt bij Thijs** (zijn doelen). Zie de vraag aan Thijs van 18 nov 20:15.
+9. Eigen openbare repo per product (7 nov) tegenover productcode privé (18 nov 17:04): **allebei, voor verschillende producten.** Betaalde code (Hats, Bison & Flex, Click Joints Pro) gaat privé vóór de paginadag van Hats; de openbare repo blijft als loket voor meldingen en voor gratis producten (zoals de winnaars bij JetBrains doen).
+10. "Gedeeld account" en de verboden koppelingen: **blijft gelden** (harde regel 7 in CLAUDE.md).
 
 ## Nieuwe besluiten (vanaf 18 nov 2026 19:30)
 
