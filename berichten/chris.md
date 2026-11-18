@@ -567,3 +567,17 @@ Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in
 - | licht-hernoem-scanner.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
 - | licht-hernoem-structuur.png | 35463 px (0.684%), x 47 tot 516, y 0 tot 79 | GROOT |
 - | licht-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
+
+## 19 nov 2026 00:47 NL, van de beeldvergelijking (automatisch): Bison & Flex
+31 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 07bb11cc). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44421193304
+- | clion-donker-calc-y.png | 80622 px (1.555%), x 52 tot 1013, y 0 tot 899 | GROOT |
+- | clion-licht-calc-y.png | 64591 px (1.246%), x 56 tot 961, y 0 tot 212 | GROOT |
+- | donker-calc-l.png | 16854 px (0.325%), x 88 tot 939, y 0 tot 907 | GROOT |
+- | donker-calc-y-structuur.png | 16710 px (0.322%), x 88 tot 328, y 0 tot 79 | GROOT |
+- | donker-calc-y.png | 20719 px (0.400%), x 88 tot 1169, y 0 tot 1737 | GROOT |
+- | donker-hernoem-hint.png | 16854 px (0.325%), x 88 tot 1066, y 0 tot 283 | GROOT |
+- | donker-hernoem-melding.png | 16710 px (0.322%), x 88 tot 328, y 0 tot 79 | GROOT |
+- | donker-hernoem-scanner.png | 16710 px (0.322%), x 88 tot 328, y 0 tot 79 | GROOT |
+- | donker-hernoem-structuur.png | 22634 px (0.437%), x 88 tot 2691, y 0 tot 1683 | GROOT |
+- | donker-kleurenpagina.png | 80862 px (2.881%), x 390 tot 1549, y 18 tot 1265 | GROOT |
