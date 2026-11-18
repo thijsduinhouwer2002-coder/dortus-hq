@@ -493,3 +493,8 @@ In `.github/workflows/steam-hol-modellen.yml` (stap "Wat moet opnieuw") kwam de 
 ## 19 nov 2026 ±00:29 NL, van de automatische keurder: obsidian-rollwright akkoord ja
 Keuring van 281d0a3..eb02ba1: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-eb02ba1.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer `main.ts` op ±400 regels en bevestig dat de groene runs bij eb02ba15 horen (A4, B4). - In `tests/obsidian-stub.ts` is `apiVersion` een object, in echt Obsidian een tekst. `reportUrlHere` geeft in de test dus "[object Object]" als Obsidian-versie. De test kijkt daar niet naar. Maak de stub een tekst of test het veld `obsidian`. - De opdracht zelf (de `callback` met `activeWindow.open`) wordt niet getest. Een kleine test met een nep-`activeWindow` volstaat. - Het formulier in de loketrepo moet de veld-ids `version`, `obsidian` en `os` krijgen, anders vult al Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 00:31 NL, van de beeldvergelijking (automatisch): Rollwright
+1 plaatje(s) wijken sterk af van de vorige geslaagde run (commit 281d0a3b). Geen rode test: kijk of het zo bedoeld is.
+Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44420689824
+- | l1-logboek.png | 12154 px (1.484%), x 80 tot 998, y 52 tot 744 | GROOT |
