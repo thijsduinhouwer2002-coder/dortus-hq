@@ -13,6 +13,7 @@ import datetime
 import glob
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -21,37 +22,43 @@ import urllib.request
 MAP = "organisatie/opdrachten"
 
 # Alleen deze workflows mogen via een opdrachtbestand starten: tests, proeven, renders, meten.
-# Bewust NIET: alles wat naar een winkel uploadt of iets openbaar uitbrengt (die gaan via de tag-route
-# in de skill uitbrengen), en workflows die geld kosten (keurder.yml gebruikt het API-tegoed van Thijs).
-# Een workflow toevoegen: alleen als hij niets naar buiten zet en niets kost; zet er een reden bij.
+# Bewust NIET: alles wat naar een winkel uploadt of in een (openbare) GitHub-release schrijft (die gaan via de
+# tag-route in de skill uitbrengen; daarom ook niet jetbrains-bison-flex-zip.yml en filmpjes-geluid.yml), en
+# workflows die geld kosten (keurder.yml gebruikt het API-tegoed van Thijs).
+# Een workflow toevoegen: alleen als hij niets naar buiten zet en niets kost, met een reden erachter, en
+# zonder invoer met ${{ }} rechtstreeks in een run-stap (invoer via env:, zie roestronde R2).
+# "schermen" = de tak schermen in deze repo, waar testbeelden staan; "artefact" = bestand bij de run zelf.
 TOEGESTAAN = {
-    "wegwijzer.yml",
-    "actions-log.yml",
-    "dashboard.yml",
-    "scorebord.yml",
-    "blender-gewrichten-e2e.yml",
-    "blender-gewrichten-proef.yml",
-    "blender-chris-figuur.yml",
-    "click-joints-render.yml",
-    "click-joints-pro-film.yml",
-    "click-joints-film-plak.yml",
-    "filmpjes-geluid.yml",
-    "garmin-proef.yml",
-    "jetbrains-bison-flex-clion.yml",
-    "jetbrains-bison-flex-e2e.yml",
-    "jetbrains-bison-flex-film.yml",
-    "jetbrains-bison-flex-zip.yml",
-    "rollwright-e2e.yml",
-    "rollwright-ontwerp.yml",
-    "steam-hol.yml",
-    "steam-hol-exe.yml",
-    "steam-hol-duur.yml",
-    "steam-hol-clips.yml",
-    "steam-hol-modellen.yml",
-    "steam-hol-winkel.yml",
-    "steam-proef.yml",
-    "steam-fest-meting.yml",
+    "wegwijzer.yml",                   # leest alleen de repo, schrijft niets
+    "actions-log.yml",                 # schrijft alleen logbestanden in organisatie/actions-logs/
+    "dashboard.yml",                   # bouwt het dashboard uit de repo, schrijft alleen in de repo
+    "scorebord.yml",                   # leest openbare cijfers en tellers (alleen-lezen sleutels), schrijft in de repo
+    "blender-gewrichten-e2e.yml",      # test in echte Blender, beelden naar schermen
+    "blender-gewrichten-proef.yml",    # bouwproef in echte Blender, schrijft niets
+    "blender-chris-figuur.yml",        # figuur maken, alleen artefact
+    "click-joints-render.yml",         # render, beelden naar schermen en artefact
+    "click-joints-pro-film.yml",       # demofilm renderen, alleen artefact (geen release)
+    "click-joints-film-plak.yml",      # film plakken uit een eerdere run, naar schermen
+    "garmin-proef.yml",                # simulator-test, beelden naar schermen
+    "jetbrains-bison-flex-clion.yml",  # unittests en Plugin Verifier, alleen artefact
+    "jetbrains-bison-flex-e2e.yml",    # test in de echte IDE, beelden naar schermen
+    "jetbrains-bison-flex-film.yml",   # beelden in de echte IDE, naar schermen
+    "rollwright-e2e.yml",              # test in echte Obsidian, beelden naar schermen
+    "rollwright-ontwerp.yml",          # ontwerptest, beelden naar schermen
+    "steam-hol.yml",                   # Godot-test op Windows, beelden naar schermen
+    "steam-hol-exe.yml",               # .exe bouwen als artefact, geen upload naar Steam
+    "steam-hol-duur.yml",              # duurtest, uitslag naar schermen
+    "steam-hol-clips.yml",             # clips maken, naar schermen
+    "steam-hol-modellen.yml",          # 3D-modellen renderen, schrijft in de repo en artefact
+    "steam-hol-winkel.yml",            # winkelbeelden maken (niet uploaden), naar schermen
+    "steam-proef.yml",                 # Godot-proef, beelden naar schermen
+    "steam-fest-meting.yml",           # leest openbare spelertallen, schrijft in de repo
 }
+
+# Invoer komt in workflows terecht; alleen gewone tekens, zodat er nooit een commando in kan sluipen.
+INVOER_TEKENS = re.compile(r"[A-Za-z0-9._,/ -]*")
+INVOER_MAX = 200
+SLEUTEL_TEKENS = re.compile(r"[A-Za-z0-9_-]{1,50}")
 
 
 def nu():
@@ -88,6 +95,16 @@ def controleer(o):
     invoer = o.get("invoer", {})
     if not isinstance(invoer, dict) or not all(isinstance(k, str) and isinstance(v, (str, int, float, bool)) for k, v in invoer.items()):
         return '"invoer" moet een object zijn met alleen tekst, getallen of ja/nee'
+    if len(invoer) > 25:
+        return "te veel invoervelden (max 25)"
+    for k, v in invoer.items():
+        if not SLEUTEL_TEKENS.fullmatch(k):
+            return f"invoerveld {k[:50]!r}: alleen letters, cijfers, _ en - in de naam"
+        w = str(v)
+        if len(w) > INVOER_MAX:
+            return f"invoer {k}: langer dan {INVOER_MAX} tekens"
+        if not INVOER_TEKENS.fullmatch(w):
+            return f"invoer {k}: alleen letters, cijfers, spatie en . _ , / - toegestaan"
     # Alleen main: op een andere tak kan een workflow met dezelfde naam iets anders doen dan op de lijst bedoeld is.
     if o.get("tak", "main") != "main":
         return 'alleen "tak": "main" mag (laat het veld weg)'
