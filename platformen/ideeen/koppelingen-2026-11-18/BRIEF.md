@@ -2,11 +2,19 @@
 
 Van Thijs: "zoeken hoe we onze workflow kunnen verbeteren met nieuwe koppelingen naar nieuwe tools, via GitHub en andere kanalen, ik denk echt dat hier winst ligt." Een half uur, vijf zoekers (A tot E), elk een eigen hoek.
 
-## Wat telt als winst
-Een koppeling telt alleen als ze één van deze twee doet:
-1. **Tijd of fouten besparen** bij bouwen, testen, uitbrengen of meten (agents hoeven minder op Thijs te wachten, minder handwerk, minder kans op fouten).
-2. **Bereik opleveren**: meer mensen zien of installeren onze producten (Click Joints, Bison & Flex, Rollwright, Hats of the Fallen).
+## Wat telt als winst (bijgesteld door Thijs 23:14)
+1. **Vooral distributie**: koppelingen waardoor meer mensen onze producten zien, wishlisten of installeren (Click Joints, Bison & Flex, Rollwright, Hats of the Fallen), en die agents zelf kunnen bedienen of meten.
+2. **Daarna kwaliteit van de apps**: koppelingen waardoor we fouten, crashes en klachten eerder zien of beter testen.
 Gereedschap om het gereedschap telt niet.
+
+Let op harde regel 4: niets naar buiten onder de naam van Thijs zonder zijn ja op de tekst. Een koppeling die zelf post, mag; de tekst gaat dan eerst langs Thijs of (als hij dat later kiest) langs een keuring. Zeg per voorstel hoe dat zou lopen.
+
+## Hoeken
+- **A. Posten en plannen:** sociale kanalen en hun API's of MCP's (YouTube, TikTok, Reddit, Bluesky, Mastodon, X, Postiz, Buffer, alternatieven voor Metricool Free), zodat agents filmpjes en posts klaarzetten en cijfers lezen.
+- **B. Gevonden worden in winkels en zoekmachines:** Steam (wishlists volgen, curators, persmensen, streamers, keys), Blender extensions, JetBrains Marketplace, Obsidian, Gumroad, awesome-lijsten, Product Hunt, SEO voor dortus.com.
+- **C. Community en mond-tot-mond:** Discord-bots, meldingen als iemand ergens over ons of ons soort product praat (Reddit, Hacker News, forums), maillijst laten groeien, reviews en sterren uitlokken, verwijzingen.
+- **D. Wat makers op GitHub inzetten voor distributie:** zoek in echte repo's naar workflows en tools die bij een release vanzelf aankondigen, posten, nieuwsbrieven sturen of winkels bijwerken; plus Claude Code plugins, skills en MCP's die op marketing gericht zijn.
+- **E. Kwaliteit:** crash- en foutmeldingen uit de apps (Godot, Blender, JetBrains, Obsidian), beter testen (Godot-testtools, beeldvergelijking, plugin verifier), feedback van gebruikers binnenhalen.
 
 ## Wat we al hebben (niet opnieuw voorstellen)
 Lees `organisatie/toegang.md` (alle sleutels en accounts) en `platformen/ideeen/afkijken-2026-11-18/K-ai-opzet-5-voorbeelden.md` (wat winnaars al gebruiken). Al in gebruik: GitHub Actions, Context7 (`.mcp.json`), Metricool (Free), Kit, Gumroad, Discord-webhook, Google Alerts, Search Console, Amami, automatische Claude-keurder, hooks in `.claude/settings.json`. Playwright werkt niet in onze omgeving (browser-download geweigerd).
