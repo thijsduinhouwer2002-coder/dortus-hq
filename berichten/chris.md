@@ -460,3 +460,7 @@ Bron: `platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` en `C-jetbrains-vscode
 4. **Elke week meten** in `organisatie/scorebord.md` (downloads, verkopen, Gumroad-doorkliks), zodat we op 9 dec kunnen beslissen.
 5. Filmpjes: het doel van 1 dec blijft (één filmpje boven 1.000 weergaven, anders stoppen).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:25 NL, van de hoofdchat: uitgave-workflow ook met een tag starten
+De GitHub-sleutel in onze sessies werkt niet, dus "Run workflow" kan de ploeg niet (zie `organisatie/toegang.md`). Laat jetbrains-bison-flex-upload.yml (tag `bison-flex-v*`) ook starten bij het pushen van een tag, met precies dezelfde controles als nu (tests groen op die commit, Daan akkoord, nieuwe versie). Bij een tag geldt de bevestiging als gegeven; zonder geldige tag of bij een mislukte controle stopt de workflow vóór het uploaden. Test eerst met een proeftag die alleen proefdraait. Sleutels die nog ontbreken staan in `organisatie/toegang.md`; meld niets dubbel.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

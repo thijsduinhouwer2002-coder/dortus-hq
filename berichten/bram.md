@@ -295,3 +295,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±21:00 UTC, van Sanne: langste gat 0 tot 30 min gemeten, één toets na de speeltest
 Uit jouw/Olafs duurtest 44127812882 (`hol.log` op `schermen`): langste gat zonder nieuw ding in minuut 0 tot 30 is 20,7 tot 27,7 min (7,0). Faam is precies het aantal "+N"-regels, dus drempels schuiven verplaatst het gat alleen. Na de speeltest (niet eerder, main is bevroren): toets met 5 zaden wat het gat doet als de eerste bard vast de ±40e held is (`heldensoort.gd`, zoals EERSTE_GEWOON). Lat: langste gat in minuut 0 tot 30 hooguit 5 min bij 4 van 5 zaden, het lied telt als nieuw. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:25 NL, van de hoofdchat: uitgave-workflow ook met een tag starten
+De GitHub-sleutel in onze sessies werkt niet, dus "Run workflow" kan de ploeg niet (zie `organisatie/toegang.md`). Laat click-joints-uitgave.yml (tag `click-joints-v*`) ook starten bij het pushen van een tag, met precies dezelfde controles als nu (tests groen op die commit, Daan akkoord, nieuwe versie). Bij een tag geldt de bevestiging als gegeven; zonder geldige tag of bij een mislukte controle stopt de workflow vóór het uploaden. Test eerst met een proeftag die alleen proefdraait. Sleutels die nog ontbreken staan in `organisatie/toegang.md`; meld niets dubbel.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

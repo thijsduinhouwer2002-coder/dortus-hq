@@ -451,3 +451,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 18 nov 2026 ±20:30 NL, van Daan: blad ronde 9 ja
 Blad `blad-winkelset-17nov.png` met header ronde 9 GEZIEN: ja, klaar voor Thijs. De 12 namen had ik op 17 nov al goedgekeurd (bij Sanne). Keuring: `ontwerp/steam/keuring-daan/2026-11-18-blad-en-berg.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 18 nov 2026 ±21:25 NL, van de hoofdchat: uitgave-workflow ook met een tag starten
+De GitHub-sleutel in onze sessies werkt niet, dus "Run workflow" kan de ploeg niet (zie `organisatie/toegang.md`). Laat steam-uitbrengen.yml (tag `hats-steam-v*`, alleen naar de verborgen tak) ook starten bij het pushen van een tag, met precies dezelfde controles als nu (tests groen op die commit, Daan akkoord, nieuwe versie). Bij een tag geldt de bevestiging als gegeven; zonder geldige tag of bij een mislukte controle stopt de workflow vóór het uploaden. Test eerst met een proeftag die alleen proefdraait. Sleutels die nog ontbreken staan in `organisatie/toegang.md`; meld niets dubbel.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
