@@ -512,3 +512,7 @@ Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earli
 - | winkel-1-lezen-donker.png | 5481 px (0.669%), x 214 tot 601, y 445 tot 483 | GROOT |
 - | winkel-1-lezen.png | 5554 px (0.678%), x 214 tot 601, y 445 tot 483 | GROOT |
 - | winkel-2-live-preview-donker.png | 5481 px (0.669%), x 214 tot 601, y 514 tot 552 | GROOT |
+
+## 19 nov 2026 ±00:33 NL, van de automatische keurder: obsidian-rollwright akkoord ja
+Keuring van 10a21ea..8fa9e1f: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-8fa9e1f.md`. Moet en kan: **Moet:** niets. **Kan:** - Maak de commitboodschap eerlijk: de privacyzin in de formulieren en de gebruikersnaamtest staan niet in deze commit. Laat zien in welke commit ze zitten, of voeg ze toe. - Voeg een test toe die bevestigt dat de link geen gebruikersnaam of pad bevat (Deel A 4). - Bij de volgende release (0.3.6) hoort het nieuwe commando een ontwerp-akkoord van Daan in `ontwerp.md`. Het zichtbare deel van `ontwerp.md` noemt het niet, maar de tekst is afgekapt. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
