@@ -1,0 +1,46 @@
+name: Automatische keurder Hats (één keer per dag, na 21:00 NL)
+
+# Roestronde R7, 19 nov 2026. Het schema van keurder.yml (21:00 NL) draaide nog nooit vanzelf: GitHub laat geplande
+# runs in deze repo vallen. Deze workflow start daarom ook bij elke push naar main. De job klok
+# (organisatie/controle/klok.py, taak keurder-hats) geeft één beurt per dag, op de eerste start na 20:00 UTC; die
+# beurt start keurder.yml met product steam-hol (alles van de laatste 24 uur). De keuring zelf staat alleen in
+# keurder.yml. Kost API-tegoed: daarom niet op de lijst van opdracht.py, en een mislukte keuring telt als beurt.
+
+on:
+  schedule:
+    - cron: '7 20 * * *'   # 21:07 NL, buiten het hele uur; de pushes zijn de echte klok
+  push:
+    branches: [main]
+  workflow_dispatch:      # slaat de klok over en keurt meteen
+
+permissions:
+  contents: write   # tijd op de tak klok zetten
+  actions: write    # keurder.yml starten
+
+jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py keurder-hats 1d-na-20:00UTC
+
+  start-keuring:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: keurder.yml starten voor steam-hol
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run keurder.yml -R "$GITHUB_REPOSITORY" --ref main -f product=steam-hol
+          echo "keurder.yml gestart voor steam-hol. Uitslag: python3 organisatie/controle/actions.py keurder.yml"

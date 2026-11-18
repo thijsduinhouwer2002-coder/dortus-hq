@@ -7,20 +7,38 @@ on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
+  # Roestronde R7 (19 nov): GitHub liet het schema hier ±elke 8 uur draaien in plaats van elk half uur, daarom ook
+  # bij elke push naar main. De job klok (organisatie/controle/klok.py) laat hem hooguit elk half uur bouwen, en
+  # altijd als de push dashboard/ of deze workflow raakt (het oude paths-filter) of bij een handmatige start.
   push:
     branches: [main]
-    paths: ["dashboard/**", ".github/workflows/dashboard.yml"]
 
 permissions:
   contents: write
   actions: read
 
-concurrency:
-  group: dashboard
-  cancel-in-progress: true
-
 jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py dashboard 30m --paden "dashboard/**,.github/workflows/dashboard.yml"
+
   bouw:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    # niet afbreken: de klok is al gezet, een afgebroken bouw zou een half uur geen dashboard geven
+    concurrency:
+      group: dashboard
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

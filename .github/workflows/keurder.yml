@@ -1,7 +1,8 @@
 name: Automatische keurder
 
 # Een losse Claude keurt elke wijziging aan een live product (deel A: doet het wat beloofd is,
-# deel B: houdt het zich aan onze regels). Hats één keer per dag, omdat daar elk uur gepusht wordt.
+# deel B: houdt het zich aan onze regels). Hats één keer per dag, omdat daar elk uur gepusht wordt: dat start
+# keurder-hats.yml (met de klok, roestronde R7), want het schema hier draaide nooit vanzelf.
 # Uitkomst: keuring in platformen/<platform>/keuring/, bericht aan de eigenaar, groen of rood vinkje.
 # Script: organisatie/controle/keurder.py. Kosten staan onderaan elke keuring (tokens, GEZIEN).
 
@@ -12,8 +13,6 @@ on:
       - 'producten/blender-gewrichten/**'
       - 'producten/jetbrains-bison-flex/**'
       - 'producten/obsidian-rollwright/**'
-  schedule:
-    - cron: '0 20 * * *'   # 21:00 NL: Hats, alles van de laatste 24 uur
   workflow_dispatch:
     inputs:
       product:

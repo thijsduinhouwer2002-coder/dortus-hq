@@ -9,19 +9,36 @@ on:
   schedule:
     - cron: "41 6 * * *"  # 06:41 UTC: GitHub stelt runs op :00 vaak uit of slaat ze over (17 nov 07:00 kwam niet)
   workflow_dispatch:
+  # Roestronde R7 (19 nov): GitHub laat geplande runs hier vallen (1 geplande run ooit), daarom ook bij elke push
+  # naar main. De job klok (organisatie/controle/klok.py) laat hem één keer per dag na 06:30 UTC meten, en altijd
+  # als de push de scorebordbestanden raakt (het oude paths-filter) of bij een handmatige start.
   push:
     branches: [main]
-    paths: [".github/workflows/scorebord.yml", "organisatie/controle/scorebord.py", "organisatie/controle/scorebord_amami.py", "organisatie/controle/scorebord_bronnen.py"]
 
 permissions:
   contents: write
 
-concurrency:
-  group: scorebord
-  cancel-in-progress: false
-
 jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py scorebord 1d-na-06:30UTC --paden ".github/workflows/scorebord.yml,organisatie/controle/scorebord*.py"
+
   meet:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    concurrency:
+      group: scorebord
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

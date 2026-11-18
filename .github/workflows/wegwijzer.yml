@@ -2,17 +2,12 @@ name: Wegwijzer (dode verwijzingen in instructies)
 
 # Afgekeken bij Twenty (ci-agent-skills-drift): instructies verouderen stil.
 # Draait als CLAUDE.md, een skill, de regels of de workflows veranderen, en elke maandag.
+# Roestronde R7 (19 nov): het maandagschema draaide nog nooit vanzelf, daarom start hij bij elke push naar main en
+# beslist de job klok (organisatie/controle/klok.py): aan de beurt als de push een van de bestanden hieronder raakt
+# (het oude paths-filter), als de laatste keer 7 dagen geleden is, of bij een handmatige start.
 on:
   push:
     branches: [main]
-    paths:
-      - "CLAUDE.md"
-      - "START.md"
-      - ".claude/skills/**"
-      - "organisatie/regels/**"
-      - "organisatie/regels.md"
-      - "organisatie/toegang.md"
-      - ".github/workflows/**"
   schedule:
     - cron: "17 6 * * 1"
   workflow_dispatch:
@@ -21,7 +16,25 @@ permissions:
   contents: read
 
 jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write   # alleen om de tijd op de tak klok te zetten
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py wegwijzer 7d --paden "CLAUDE.md,START.md,.claude/skills/**,organisatie/regels/**,organisatie/regels.md,organisatie/toegang.md,.github/workflows/**"
+
   wegwijzer:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

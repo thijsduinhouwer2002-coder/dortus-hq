@@ -7,16 +7,36 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
+  # Roestronde R7 (19 nov): GitHub liet het schema hier ±elke 9 uur draaien in plaats van elk uur, daarom ook bij
+  # elke push naar main. De job klok (organisatie/controle/klok.py) laat hem hooguit elk uur meten, en altijd als de
+  # push het script, de meetlijsten of deze workflow raakt, of bij een handmatige start.
+  push:
+    branches: [main]
 
 permissions:
   contents: write
 
-concurrency:
-  group: steam-fest-meting
-  cancel-in-progress: false
-
 jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py steam-fest-meting 1h --paden ".github/workflows/steam-fest-meting.yml,platformen/steam/marketing/data/fest-meting.py,platformen/steam/marketing/data/meetlijsten.csv"
+
   meet:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    concurrency:
+      group: steam-fest-meting
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
