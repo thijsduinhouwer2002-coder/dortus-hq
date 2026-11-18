@@ -34,6 +34,10 @@ const DATA := {
 # Wegingen na de eerste 10 helden: gewoon blijft de meeste (zo blijft de wrok-grap het hart), een bard is zeldzaam.
 const KIES_GEWICHT := {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
 const EERSTE_GEWOON := 10
+# Sanne 18 nov 21:00: langste gat zonder iets nieuws in minuut 0 tot 30 was 20,7 tot 27,7 min. De ±40e held (±19 min)
+# is daarom altijd een bard, zodat zijn lied (als hij ontsnapt) in dat gat valt. Toets met 5 zaden: tak claude/steam-hol-bard-40.
+# De rng loopt gelijk door (zelfde trekking), dus alleen deze ene held verandert. 0 = uit.
+const EERSTE_BARD := 40
 const LIED_HELDEN := 2        # zoveel helden extra na een lied (strook.gd laat ze binnen de volgende minuut komen)
 
 # Sanne features.md (eerste tien minuten): geen aartsvijand in het eerste uur van een nieuw spel. Geteld in nieuwe
@@ -55,6 +59,9 @@ static func geldig(s: String) -> bool:
 static func kies(nr: int, r: RandomNumberGenerator) -> String:
 	if nr <= EERSTE_GEWOON:
 		return ""
+	if nr == EERSTE_BARD:
+		r.randi_range(1, 100)   # zelfde trekking als hieronder, zodat de rest van het spel gelijk blijft
+		return "bard"
 	var totaal := 0
 	for k in KIES_GEWICHT:
 		totaal += int(KIES_GEWICHT[k])

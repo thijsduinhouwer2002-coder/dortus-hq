@@ -635,11 +635,15 @@ func _init() -> void:
 	kr.seed = 3
 	var gekozen := {}
 	var eerste_tien_gewoon := true
+	var gekozen_40 := ""
 	for nr in range(1, 1001):
 		var ks: String = HS.kies(nr, kr)
 		if nr <= 10 and ks != "":
 			eerste_tien_gewoon = false
+		if nr == HS.EERSTE_BARD:
+			gekozen_40 = ks
 		gekozen[ks] = int(gekozen.get(ks, 0)) + 1
+	ok(String(gekozen_40) == "bard", "de %de held is altijd een bard (Sanne 18 nov, gat 0 tot 30 min)" % HS.EERSTE_BARD)
 	ok(eerste_tien_gewoon, "de eerste 10 helden van een nieuw spel zijn gewoon (eerste tien minuten blijven gelijk)")
 	ok(gekozen.size() == 5 and int(gekozen[""]) > 450 and int(gekozen.get("bard", 0)) < int(gekozen.get("dief", 0)), "daarna meestal gewoon, een bard is zeldzaam %s" % str(gekozen))
 	var hd := Node2D.new()
