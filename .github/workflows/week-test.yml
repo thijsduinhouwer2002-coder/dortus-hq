@@ -6,6 +6,10 @@ name: Week-test (volgende Blender, IDE en Obsidian)
 # Rood blokkeert niets: de job melden zet een bericht onderaan berichten/<eigenaar>.md (Bram, Chris, Olaf) met de
 # versie en de stap, plus de plaatjes die sterk veranderden sinds de vorige geslaagde week-test.
 # Versies kiezen en melden: organisatie/controle/weektest.py. Beeldvergelijking: organisatie/controle/beelden.sh.
+# GitHub laat geplande runs in deze repo vaak vallen (hoofdchat 19 nov), dus hij start ook bij elke push naar main.
+# De eerste stap kijkt dan of de week-test deze week al liep (bestand week-test/week.txt op de tak schermen, met
+# de ISO-week) en stopt anders meteen; wie draait, zet eerst de week in dat bestand (een push die botst = een ander
+# was eerder). Met de hand starten (workflow_dispatch) draait altijd.
 
 on:
   schedule:
@@ -13,21 +17,17 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/week-test.yml']
 
 permissions:
   contents: write   # schermen, referentiebeelden en berichten
   actions: read     # jobs en stappen van deze run lezen voor het bericht
-
-concurrency:
-  group: week-test
-  cancel-in-progress: false
 
 jobs:
   versies:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
+      draai: ${{ steps.klok.outputs.draai }}
       blender: ${{ steps.v.outputs.blender }}
       idea_build: ${{ steps.v.outputs.idea_build }}
       clion_build: ${{ steps.v.outputs.clion_build }}
@@ -42,13 +42,43 @@ jobs:
           sparse-checkout: |
             .github/workflows
             organisatie/controle
+      - name: Klok (al gedraaid deze week?)
+        id: klok
+        env:
+          TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          WEEK=$(date -u +%G-W%V)
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "dortus-week-test"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/k
+            git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" /tmp/k || { sleep 5; continue; }
+            git -C /tmp/k sparse-checkout set week-test
+            LAATST=$(cat /tmp/k/week-test/week.txt 2>/dev/null | head -1 | cut -d' ' -f1)
+            if [ "$EVENT" != "workflow_dispatch" ] && [ "$LAATST" = "$WEEK" ]; then
+              echo "Week-test liep al in $WEEK ($(cat /tmp/k/week-test/week.txt)), niets te doen."
+              echo "draai=nee" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            mkdir -p /tmp/k/week-test
+            echo "$WEEK run $GITHUB_RUN_ID ($EVENT, $(date -u +%FT%TZ))" > /tmp/k/week-test/week.txt
+            git -C /tmp/k add week-test/week.txt && git -C /tmp/k commit -q -m "Week-test $WEEK run $GITHUB_RUN_ID"
+            if git -C /tmp/k push -q origin HEAD:schermen; then
+              echo "Week-test draait voor $WEEK."; echo "draai=ja" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            sleep $((poging * 3))
+          done
+          echo "Klok niet te zetten, voor de zekerheid niet draaien."; echo "draai=nee" >> "$GITHUB_OUTPUT"
       - name: Versies van deze week
         id: v
+        if: steps.klok.outputs.draai == 'ja'
         run: python3 -I organisatie/controle/weektest.py versies
 
   blender:
     name: Click Joints
     needs: versies
+    if: needs.versies.outputs.draai == 'ja'
     uses: ./.github/workflows/blender-gewrichten-e2e.yml
     with:
       blender: ${{ needs.versies.outputs.blender }}
@@ -57,6 +87,7 @@ jobs:
   bisonflex:
     name: Bison & Flex
     needs: versies
+    if: needs.versies.outputs.draai == 'ja'
     uses: ./.github/workflows/jetbrains-bison-flex-e2e.yml
     with:
       idea_build: ${{ needs.versies.outputs.idea_build }}
@@ -66,6 +97,7 @@ jobs:
   bisonflex-verifier:
     name: Bison & Flex verifier
     needs: versies
+    if: needs.versies.outputs.draai == 'ja'
     uses: ./.github/workflows/jetbrains-bison-flex-clion.yml
     with:
       verifier_extra: ${{ needs.versies.outputs.verifier_extra }}
@@ -73,6 +105,7 @@ jobs:
   rollwright:
     name: Rollwright
     needs: versies
+    if: needs.versies.outputs.draai == 'ja'
     uses: ./.github/workflows/rollwright-e2e.yml
     with:
       obsidian: ${{ needs.versies.outputs.obsidian }}
@@ -80,7 +113,7 @@ jobs:
 
   melden:
     needs: [versies, blender, bisonflex, bisonflex-verifier, rollwright]
-    if: always()
+    if: always() && needs.versies.outputs.draai == 'ja'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
