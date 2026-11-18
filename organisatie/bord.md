@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: wo 18 nov 2026, 17:02 NL** (hoofdchat). **ALLE agents uit. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
+**Stand: wo 18 nov 2026, 17:06 NL** (hoofdchat). **ALLE agents uit. Steam-app geweigerd tot Valve bank, belasting en ID goedkeurt (appcredit intact). Laughs & Smiles ingestuurd ±16:55 zonder appid (eerlijke uitleg), 17:01 mail met beelden aan info@crunchingkoalas.com (Thijs ja), uitslag uiterlijk 27 nov.**
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
@@ -65,6 +65,7 @@ Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 
 - Elke avond: kijken of de Garmin-apps en Bison & Flex echt zichtbaar en koopbaar zijn.
 - Gumroad-omslag van Pro vervangen.
 - Dit bord bijhouden.
+- **Vóór de Steam-pagina live gaat (±8 dec), uiterlijk ma 7 dec: productcode privé maken** (Thijs 18 nov 17:04, optie C). Hats (`producten/steam-hol`) en Bison & Flex naar een eigen privé-repo, hoofdkwartier blijft openbaar. Niet vóór de speeltest van za 21 nov. Eerst uitzoeken: Actions-minuten (Windows-builds tellen dubbel), hoe agents dan lezen, en de 5 beelden uit de mail aan Crunching Koalas laten werken (blijven in deze openbare repo, dus geen probleem). Waarom: na de paginadag googelen mensen de naam, en dan kan de repo met de hele bouwtekening opduiken.
 - Uitzoeken waarom Hats de aandacht niet vasthoudt (Iris: 6) en wat nodig is voor een 8 vóór de speeltest za 21 nov; daarna terug naar Thijs.
 
 ## 5. Wat Thijs moet doen
