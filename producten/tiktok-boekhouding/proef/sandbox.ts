@@ -1,7 +1,7 @@
 // Proef in de Moneybird-sandbox "Klopt test" (Jet, 9 nov 2026). Geen product, geen test die bij elke wijziging draait.
 // Loopt de vijf open vragen af uit ontwerp-moneybird.md (sandbox-test) en rgs-codes.md (vijfde vraag),
 // met onze eigen code waar die bestaat, zodat we ook zien of die tegen het echte Moneybird klopt.
-// Ontwerp en veiligheidsregels: proef/README.md. Draait alleen via .github/workflows/tiktok-boekhouding-sandbox.yml.
+// Ontwerp en veiligheidsregels: proef/README.md. Draait alleen via .github/workflows-uit/tiktok-boekhouding-sandbox.yml (staat uit sinds 18 nov, terugzetten naar .github/workflows/ om te draaien).
 //
 // Veilig: alleen administratie ADM (anders stoppen), alles wat we maken heeft "Dortus proef" of kenmerk
 // TikTokShop-99..., en wordt aan het eind weer verwijderd. Het token komt nooit in de uitvoer.

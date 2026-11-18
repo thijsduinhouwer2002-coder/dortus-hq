@@ -2,7 +2,7 @@
 
 Jet, 9 nov 2026, na het bericht van Thijs (22:48 NL): de sandbox-administratie "Klopt test" (id 503358859490886985) staat, het token zit als secret `MONEYBIRD_SANDBOX_TOKEN` in dortus-hq.
 
-**Wat het doet.** `sandbox.ts` loopt via de workflow `.github/workflows/tiktok-boekhouding-sandbox.yml` (handmatig of bij een wijziging aan het script op main) de open vragen af uit `ontwerp-moneybird.md` en `rgs-codes.md`, en gebruikt daarbij onze eigen code (`boekAfrekening`, `maakMemoriaal`, `grootboekrekeningen`, `btwTarieven`, `administraties`), zodat we meteen zien of die tegen het echte Moneybird klopt:
+**Wat het doet.** `sandbox.ts` loopt via de workflow `.github/workflows-uit/tiktok-boekhouding-sandbox.yml (staat uit sinds 18 nov, terugzetten naar .github/workflows/ om te draaien)` (handmatig of bij een wijziging aan het script op main) de open vragen af uit `ontwerp-moneybird.md` en `rgs-codes.md`, en gebruikt daarbij onze eigen code (`boekAfrekening`, `maakMemoriaal`, `grootboekrekeningen`, `btwTarieven`, `administraties`), zodat we meteen zien of die tegen het echte Moneybird klopt:
 0. toegang (401 geeft de letterlijke fout en stopt), staat de administratie erin, komt het grote id als tekst of als getal, en `period_locked_until`;
 1. memoriaal zonder btw aanmaken, terugzoeken op kenmerk (exact, deel van het kenmerk, kleine letters) en nog eens boeken zonder id (verwacht `ongewijzigd`);
 2. vervangen met `_destroy` en regel-id's als tekst, van 3 naar 4 regels (verwacht `vervangen`, zelfde document-id, oude regels weg), daarna `ongewijzigd`;

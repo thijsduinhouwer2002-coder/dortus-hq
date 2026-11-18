@@ -1,7 +1,7 @@
 // Proef 2 in de Moneybird-sandbox "Klopt test" (Jet, 10 nov 2026): verlegde btw op de commissie van TikTok.
 // Vraag van Tess (taken.md, 10 nov): is er een inkooptarief voor verlegde btw op diensten uit de EU, en kan
 // Klopt dat op de commissieregel van het memoriaal meegeven, zodat rubriek 4b en 5b vanzelf gevuld worden?
-// Ontwerp en veiligheidsregels: proef/README.md, kop "Proef 2". Draait alleen via de workflow tiktok-boekhouding-sandbox.yml.
+// Ontwerp en veiligheidsregels: proef/README.md, kop "Proef 2". Draait alleen via de workflow .github/workflows-uit/tiktok-boekhouding-sandbox.yml (staat uit sinds 18 nov).
 //
 // Veilig: alleen administratie ADM (anders stoppen), maakt hoogstens één memoriaal met kenmerk TikTokShop-98...
 // en verwijdert dat aan het eind. Maakt geen rekeningen, geen contacten, geen tarieven (de API kan dat ook niet).

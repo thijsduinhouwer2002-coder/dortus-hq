@@ -18,7 +18,7 @@ Besluit hoofdchat 16 nov 11:20 NL: Ruben neemt Click Joints (gratis en Pro) over
 |---|---|---|
 | `blender-gewrichten-e2e.yml` | push op main en `claude/blender-*`, of met de hand | Alle toetsen in de echte Blender **4.2.23, 5.2.3 en 5.3.0** (matrix), gratis en betaald, zip-toets. Dit is de groene test die telt voor indienen. |
 | `blender-gewrichten-proef.yml` | alleen bij wijzigingen in `proef/**` | Losse bouwproeven. |
-| `blender-proef-e2e.yml` | push | Oude proef-add-on van 7 nov; mag blijven, telt niet. |
+| `blender-proef-e2e.yml` | staat uit (in `.github/workflows-uit/` sinds 18 nov, roestronde R1) | Oude proef-add-on van 7 nov; telt niet. |
 | `click-joints-uitgave.yml` | push op main of met de hand | Gratis zip plus winkelplaatjes in release `click-joints-v<versie>` (bouwt in 4.2.23). |
 | `click-joints-pro-uitgave.yml` | alleen met de hand, invoer `run_id` = een groene e2e-run op main | Pro-zip als **Actions-artefact** (verloopt na 3 dagen), plaatjes en SHA256SUMS in release `click-joints-pro-v<versie>`. De Pro-zip komt nooit als openbare download in een release. |
 | `click-joints-pro-film.yml` en `-film-release.yml` | push of met de hand (invoer `staand`) | Demofilm en staande filmpjes in Blender 5.3.0, daarna in een release. |

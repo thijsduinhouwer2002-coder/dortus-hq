@@ -1,6 +1,6 @@
 // Plaatjes van de echte schermen voor Daan (ontwerp-schermen.md, laatste stap van deel 1). Draait de router met
 // nagebootste TikTok, Moneybird en D1 op een lokale server en maakt met Playwright plaatjes op 1280 en 390 breed.
-// Gebruik: node schermen/maak.ts <uitmap>. In GitHub Actions: .github/workflows/tiktok-boekhouding-schermen.yml.
+// Gebruik: node schermen/maak.ts <uitmap>. In GitHub Actions: .github/workflows-uit/tiktok-boekhouding-schermen.yml (staat uit sinds 18 nov).
 import { createServer } from "node:http";
 import { readFileSync, mkdirSync } from "node:fs";
 import { createRequire } from "node:module";
