@@ -3,8 +3,8 @@
 **Regel (17 nov, Thijs): nooit meer dan 5 punten.** Alleen wat echt alleen Thijs kan: geld uitgeven, inloggen met wachtwoord, eigen gegevens, voorwaarden accepteren, Reddit. Al het andere doet de hoofdchat zelf, of probeert het eerst zelf. Agents zetten niets meer direct hier: ze melden het in `berichten/hoofdchat.md`, de hoofdchat kiest. De oude lijst staat in `organisatie/lijst-thijs-archief-2026-11-17.md`.
 
 ## Nu (max 5)
-1. **Wo 18 nov 12:00: samen de Steam-app voor Hats aanmaken** (±15 min). Jij vult je eigen gegevens in Steamworks in; de hoofdchat doet de rest. Checklist: `platformen/steam/app-aanmaken.md`.
-2. **Laughs & Smiles (Steam-festival) inzenden, vóór do 20 nov** (±5 min, direct na punt 1, want het vraagt de appid). Formulier en antwoorden: `platformen/steam/marketing/teksten-makers.md`, deel "Festival: Laughs & Smiles". Je naam en mailadres vul jij in.
+1. ~~Steam-app aanmaken~~: geprobeerd 18 nov 16:47, Steamworks weigert tot Valve bank, belasting en ID goedkeurt. Niets te doen tot dan.
+2. ~~Laughs & Smiles~~: ingestuurd 18 nov ±16:55 door de hoofdchat (Thijs ja), zonder appid met eerlijke uitleg. Uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
 3. **Insider Gaming "New Year, New Games 2027" inzenden, vóór wo 25 nov** (±10 min). Zelfde bestand, deel "Showcase: Insider Gaming". Vragen ze geld: niet doen zonder jouw besluit.
 4. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 

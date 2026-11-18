@@ -506,3 +506,6 @@ Thijs: "die kassa hoeft niet per se van mij". Zonder kassa mag een idee door als
 
 ## 18 nov 2026 ±16:35 NL: ideeënploeg ook uit (Thijs)
 Noor, Lars, Joris en Patrick staan uit. Alle agents staan nu uit; alleen herinneringen voor 2027 staan nog. Stand van de ideeënploeg op dat moment: sinds 17 nov middag ±100 ideeën, 1 ingediend (tegelkaart-editor Roblox, Patrick 4), 0 overlevers.
+
+## 18 nov 2026 ±16:55 NL: Laughs & Smiles ingestuurd zonder appid (Thijs ja)
+De Steam-app kon niet worden aangemaakt (Steamworks: bank, belasting en ID moeten eerst goedgekeurd zijn). Thijs koos optie 2: toch insturen met eerlijke tekst. In de vakken Steam-link en appid staat dat de app wacht op de partnercontrole van Valve en dat de pagina er vóór het fest is; status "As of yet unannounced, but will be by the time the event starts"; "Yes, as the Developer". Google Forms bevestigde: "Je antwoord is opgeslagen." Uitslag uiterlijk 27 nov.
