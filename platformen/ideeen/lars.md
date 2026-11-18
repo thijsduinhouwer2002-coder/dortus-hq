@@ -6,7 +6,9 @@ Nieuwste bovenaan. Werkwijze: platformen/ideeen/LEESMIJ.md.
 
 Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek. Eerst gezocht in `platformen/pionier/onderzocht.md` en alle ideeënbestanden: Roblox, Unreal, Stream Deck en SketchUp waren nog door niemand bekeken. Gelezen: alle aankondigingen van Roblox van 29 okt tot 13 nov (devforum, categorie Announcements), de draad Orthographic Camera helemaal (eerste bericht plus 48 reacties), de draad AnimatedImages, "RDC26: What We Announced" en "Creator Roadmap 2026: Fall Update" (de hele tekst), de verkoopregels van de Creator Store, en de Creator Store zelf (zoek-API van de Toolbox, 14 zoektermen).
 
-### Idee: tegelkaart-editor voor Roblox Studio (Tilemap: tegels schilderen voor 2D-, top-down- en isometrische spellen) | KLAAR VOOR KEURING, eigen cijfer 6
+## 18 nov 2026 09:55 UTC Tegelkaart-editor voor Roblox Studio (tegels schilderen voor 2D-, top-down- en isometrische spellen) | KLAAR VOOR KEURING
+
+Eigen cijfer 6. Hoort bij run 7 hierboven.
 
 **De golf.** Roblox maakt 2D "first-class". Op 30 okt kwam de orthografische camera in Studio Beta: "Orthographic Camera is one piece of making 2D games first-class on Roblox" (GEZIEN 18 nov, devforum.roblox.com/t/4966772, 536 likes, 7.035 keer bekeken, eerste reactie: "WE'VE BEEN WAITING YEARS FOR THIS!"). Op 27 okt de Early Access voor AnimatedImages met directe import van Aseprite-bestanden (GEZIEN, devforum.roblox.com/t/4960734, 579 likes, 8.638 keer bekeken). Gepubliceerde spellen mogen de camera nog niet gebruiken; volledige uitgave staat op "Late 2026" (GEZIEN, RDC26-bericht devforum.roblox.com/t/4865880 en roadmap devforum.roblox.com/t/4880208). De echte golf (iedereen mag 2D-spellen uitbrengen) komt dus nog, waarschijnlijk binnen weken (GOK).
 
@@ -31,6 +33,14 @@ Tijd uit `date -u` bij de start. Tips van Thijs: niets nieuws in mijn hoek. Eers
 
 **Zelf afgeschoten, waar het kan sneuvelen:** (a) 2D blijft op Roblox een kleine hoek; dan is het een nis-tool in een grote winkel. (b) Testen kan niet zonder Studio. (c) Roblox noemt "other 2D tools ... through the rest of the year"; als daar een tegel-editor bij zit, is het dood. (d) Een nieuw account bij een nieuwe winkel, terwijl we al op 3 winkels zitten.
 **Wat het cijfer naar 7+ brengt:** een manier om Studio te draaien voor tests (Windows-machine in de cloud of Thijs), en een datum voor de volledige uitgave van de ortho-camera.
+
+### Kort afgevallen, zonder eigen kop (run 7)
+- **Andere Roblox-golven van deze weken:** Studio MCP Server met Open Cloud (4 nov), Scene Generation (30 okt), animaties uit een prompt (5 nov), Performance Simulator (6 nov) (GEZIEN 18 nov, devforum Announcements). Alles door Roblox zelf gebouwd of AI van Roblox; wet 4. Een losse ortho-camera-plugin voor Studio is ook dood: Roblox noemt zelf "hotkeys to snap the view to the top, front, or side" (ortho-draad, What's Next).
+- **Unreal Engine 5.8:** uit sinds 17 jun 2026, nu hotfix 5.8.4 (20 okt) (GEZIEN 18 nov, forums.unrealengine.com, zoek-API). Geen nieuwe golf deze weken, en een Fab-plugin vraagt C++ voor meerdere engineversies en een editor met GPU: vraag 6 zwak.
+- **Corsair iCUE Widgets (Widget API 1.9.0) en Stream Deck 7.6 (Neo Infobar):** widgets vragen "Compatible CORSAIR device for testing" en draaien alleen op Windows (GEZIEN 18 nov, docs.elgato.com/icue/widgets/); de Infobar is een klein schermpje op één apparaat (docs.elgato.com/streamdeck/sdk/references/changelog). Hardware nodig, en apparaten met SDK zijn de hoek van Noor. Niet verder uitgezocht.
+
+### Les van deze run
+Roblox is een grote winkel met kassa die niemand van ons volgde. Roblox zet alles wat komt op een openbare roadmap met halfjaren (Late 2026, Early 2027) en kondigt elke beta aan op het devforum, met likes en weergaven als maat voor de honger. Voorstel: de categorie Announcements (`devforum.roblox.com/c/updates/announcements/36.json`) elke run lezen, net als het forum van Blender. Grootste blok voor elk Roblox-idee: Studio draait niet in onze cloud.
 
 ## 18 nov 2026 08:51 UTC: run 6, RuneScape Plugin Hub, Unity 6.6 en 7, JetBrains 2026.3 breukmeting, Obsidian 1.15.1, 0 ideeën klaar voor keuring, 3 zelf afgeschoten
 
