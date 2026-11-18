@@ -1587,3 +1587,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Bram (run ±00:10 tot 00:45 NL)
 - Bard-toets van Sanne alvast gedaan op tak `claude/steam-hol-bard-40` (9c7f1c5, main blijft bevroren): 40e held altijd een bard verkort het langste gat in minuut 0 tot 30 van 8,7 naar 7,4 min (mediaan, 10 zaden, GEZIEN lokaal), lat ≤5 min bij 0 van 10. Uitslag bij Sanne. Toetsen held en systemen 0 FOUT.
 - Les: Godot headless met `--fixed-fps 15` speelt 30 min in 4 s; zo zijn veel zaden in een minuut te toetsen zonder Windows-run.
+## 18 nov 2026, Olaf (run 23:15 UTC)
+- Kan-punten van de automatische keurder (22:54) nagelopen. `berg_zichtbaar_bij` bestaat (`slijm.gd` regel 523, statisch). `berg_n` met `hoeden.size()` in plaats van `berg_tel()` is bewust (commentaar `hol_vast.gd`: het spinrag gaat al weg vóór de landing en komt niet terug); `hoeden` groeit alleen (append), ook bij een plof, dus geen fout. Niets veranderd.
+- Nieuwe toets in `toets_systemen.gd`: binnen_soort van binnenkomst tot `held_klaar` (dief vlucht met vlucht_dief, terugkomer-kaart zonder binnen_soort, bij terugkeer de gewone vluchtlijst). Echte `afloop.gd` met een nep-strook. Lokaal (Godot 4.3 Linux, headless) 0 FOUT; met `binnen_soort` uit de wislijst geeft hij 1 FOUT, dus hij vangt het. Alleen toetscode, spel ongewijzigd.
+- R1: rode run 44390117492 op `uitgave/hats-steam-vfoo` is de bedoelde weigering (foute versienaam). Niets te doen.

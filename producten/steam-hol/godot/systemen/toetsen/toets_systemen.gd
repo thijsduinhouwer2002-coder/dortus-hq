@@ -1394,6 +1394,37 @@ func _nieuwe_held() -> bool:
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "dief"}, "vlucht") == "vlucht_dief", "terugslag: dief vlucht in vlucht_dief")
 	ok(AF.terugslag(nep_ts, {}, "val") == "val", "terugslag: zonder opzet gewoon val")
 	ok(AF.terugslag(nep_ts, {"binnen_soort": "onbekend"}, "vlucht") == "vlucht", "terugslag: onbekende soort gewoon vlucht")
+	# binnen_soort van binnenkomst tot held_klaar (kan-punt automatische keurder 18 nov 22:54): een held die als dief
+	# binnenkwam vlucht met vlucht_dief, zijn terugkomer-kaart heeft geen binnen_soort meer, en bij zijn terugkeer
+	# vlucht hij met de gewone vluchtlijst. Echte afloop.gd met een nep-strook die alleen de gekozen soorten bijhoudt.
+	var BS_R := GDScript.new()
+	BS_R.source_code = "extends RefCounted\nvar echt = load(\"res://kern/regels.gd\").new()\nvar soorten: Array = []\nfunc heeft(s: String) -> bool:\n\treturn echt.heeft(s)\nfunc kies(s: String, _w: Dictionary, _e := 0) -> String:\n\tsoorten.append(s)\n\treturn \"x\"\n"
+	BS_R.reload()
+	var BS_S := GDScript.new()
+	BS_S.source_code = "extends RefCounted\nvar regels\nvar boek = load(\"res://systemen/boek.gd\").new()\nvar t := 100.0\nvar demo := false\nvar rng := RandomNumberGenerator.new()\nvar terugkomers: Array = []\nvar pensioen_namen: Array = []\nvar begin_vlucht := \"\"\nvar vlucht_t := 0.0\nvar vlucht_tijd := {}\nvar lied_helden := 0\nvar volgende_held := 999.0\nfunc _kroniek(_r: String, _b := false, _s := \"\") -> void:\n\tpass\nfunc _bewoner() -> String:\n\treturn \"Gloop\"\n"
+	BS_S.reload()
+	var bs_s = BS_S.new()
+	bs_s.regels = BS_R.new()
+	bs_s.rng.seed = 7   # eerste randf() < 0,6: hij komt terug (anders telt de toets hieronder zelf)
+	var bs_info := {"naam": "Vos", "kleur": Color.RED, "hoed": Color.BLUE, "bezoeken": 0, "wrok": "", "soort_held": "dief", "binnen_soort": "dief", "lied": 0}
+	AF.held_klaar(bs_s, null, "ontsnapt", bs_info)
+	ok(bs_s.regels.soorten.has("vlucht_dief"), "binnen_soort: dief die binnenkwam vlucht met vlucht_dief (%s)" % str(bs_s.regels.soorten))
+	var bs_kaart: Dictionary = {}
+	for bs_k in bs_s.terugkomers:
+		if String(bs_k.naam) == "Vos":
+			bs_kaart = bs_k
+	if bs_kaart.is_empty():
+		bs_kaart = bs_info.duplicate()
+		bs_kaart.erase("binnen_soort")
+		bs_kaart["bezoeken"] = 1
+		print("[toets] let op: Vos ging met pensioen bij dit zaad, kaart nagebootst")
+	ok(not bs_kaart.has("binnen_soort") and int(bs_kaart.get("bezoeken", 0)) == 1, "binnen_soort: terugkomer-kaart zonder binnen_soort, bezoeken 1")
+	bs_s.regels.soorten.clear()
+	var bs_terug: Dictionary = bs_kaart.duplicate()
+	bs_terug["kleur"] = Color.RED
+	bs_terug["hoed"] = Color.BLUE
+	AF.held_klaar(bs_s, null, "ontsnapt", bs_terug)
+	ok(bs_s.regels.soorten.has("vlucht") and not bs_s.regels.soorten.has("vlucht_dief"), "binnen_soort: bij terugkeer de gewone vluchtlijst (%s)" % str(bs_s.regels.soorten))
 	ok(not RT.VOORRAAD["val_bewoner"].has("{naam} stays forever.") and RT.VOORRAAD["val"].size() == 8, "val 8 regels, stays forever niet meer in val_bewoner")
 	# Dame en hap per soort (Sanne 17 nov 10:00, Iris keuring 21 punt 1, features.md keurregel)
 	var NM = load("res://kern/namen.gd")
