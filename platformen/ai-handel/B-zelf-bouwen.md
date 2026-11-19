@@ -253,3 +253,125 @@ Wat verandert ten opzichte van run 2: Hyperliquid maakt route 2 qua kosten veel 
 3. **Grok als ogen op X is duurder dan gedacht**: $5 per 1.000 posts; het voorbeeld van xAI kost ±80 cent per run, dus van ±$40 tot ±$600 per maand afhankelijk van hoe vaak (GEZIEN plus eigen som). Eerst goedkoop verzamelen en terugtesten.
 4. **Voor voorspellingsmarkten**: Kalshi kost een taker tot 3,5% van de inzet (DERDEN), NautilusTrader kan Kalshi alleen met limietorders en kan NEE-posities niet terugtesten; HIP-4 op Hyperliquid is nieuw en nu zonder kosten (GEZIEN).
 5. **Veiligheid blijft het grootste punt**: nooit opnamerecht, IP of API-wallet vastzetten, alleen officiële repo's, en MCP-servers van derden eerst zelf lezen (GEZIEN en GOK, zie per punt).
+
+## Run 4 (19 nov 2026, ±04:00 Nederlandse tijd)
+
+Deze run: het gereedschap voor de route die D nu bovenaan zet (een bot die de liquiditeitsbeloning van Polymarket pakt), want daar ontbrak nog een bouwplan. Plus de Freqtrade-config met alle remmen uit mijn lijst "nog te doen". Niets geïnstalleerd of uitgevoerd; code alleen gelezen.
+
+### 21. Welke software: de oude Polymarket-bibliotheken zijn afgeschreven
+- De officiële Python-bibliotheek heet nu **`polymarket-client`** (versie 0.20.0, 16 nov 2026), één pakket voor marktdata, account en handel, met een async-versie voor bots (GEZIEN, [docs Python SDK](https://docs.polymarket.com/getting-started/python.md), [PyPI](https://pypi.org/project/polymarket-client/)).
+- **`py-clob-client` en `py-clob-client-v2` zijn "deprecated"**; Polymarket vraagt over te stappen (GEZIEN, PyPI-pagina van py-clob-client-v2 en het [changelog van 12 nov 2026](https://docs.polymarket.com/changelog/predictions.md)). Bijna alle bots en uitlegfilmpjes op internet gebruiken nog die oude pakketten (GOK, op basis van wat ik las, zie punt 25).
+- Op **14 december 2026** veranderen drie zoekopdrachten voor orders en trades op de CLOB-API; oude code die op `asset_id` filtert krijgt dan foutmelding 400 (GEZIEN, zelfde changelog). Een bot die je nu van GitHub haalt, kan dus over een maand stuk zijn.
+
+### 22. Nederland en de API: de site blokkeert, de API niet
+- Polymarket zet Nederland op de lijst **"Close-Only on Frontend"**, met de zin: "Close-only on the Polymarket frontend; the API itself is not restricted" (GEZIEN, [docs Geographic Restrictions](https://docs.polymarket.com/api-reference/geoblock.md)). Ook Ierland, Japan en Zuid-Korea staan daar. België, Frankrijk, Duitsland en Italië zijn wel ook via de API op slot (alleen sluiten).
+- Je kunt vooraf controleren wat Polymarket van je IP vindt met `GET https://polymarket.com/api/geoblock` (GEZIEN, zelfde pagina; vanaf deze cloudmachine gaf hij `"blocked":true` met land US, dus het werkt).
+- De servers staan in **eu-west-2 (Londen)** (GEZIEN, zelfde pagina). Een VPS in Londen geeft de kortste weg (GOK, volgt uit de docs).
+- Dit verandert niets aan de wet: de Ksa ziet Polymarket als illegaal gokken in Nederland (D, run 1). Dat de API openstaat, maakt het technisch makkelijk, niet legaal. Risico blijft grijs: bij een nieuwe blokkade kun je alleen nog sluiten, en je hebt geen Nederlandse rechter als het saldo vast komt te zitten (GOK).
+
+### 23. Veiligheid: gebruik een Session Key, nooit de hoofdsleutel in de bot
+- Polymarket heeft sinds kort **Session Keys**: een aparte sleutel die mag handelen maar "cannot withdraw funds from the Deposit Wallet", geldig tot 180 dagen, en te beperken tot alleen de orderboek-handel (scope `CLOB`) (GEZIEN, [docs Session Keys](https://docs.polymarket.com/trading/session-keys.md)). Dat is hetzelfde idee als een beurssleutel zonder opnamerecht.
+- Werkt alleen met een **Deposit Wallet**; elke account-wallet die op of na 4 mei 2026 is gemaakt is er een (GEZIEN, [docs Wallets](https://docs.polymarket.com/trading/wallets-auth.md)).
+- De open bots die ik las vragen nog de **privésleutel van je wallet** in een `.env`-bestand (GEZIEN, README van poly-maker: "`PK`, the private key of your signer wallet"). Wie die sleutel heeft, kan alles opnemen. Met een Session Key is een gestolen sleutel "alleen" slechte trades, geen lege wallet (GOK, volgt uit de docs).
+- **Malware rond Polymarket-bots is een echt en groot probleem**:
+  - Maart 2026: de geverifieerde GitHub-organisatie `dev-protocol` (568 volgers) werd gekaapt en verspreidde een Polymarket-copybot "with a polished README, hundreds of stars" die echt werkte, maar via twee nagemaakte npm-pakketten de sleutel uit `.env` stal en een SSH-achterdeur opende (DERDEN, [StepSecurity](https://www.stepsecurity.io/blog/malicious-polymarket-bot-hides-in-hijacked-dev-protocol-github-org-and-steals-wallet-keys)).
+  - Mei 2026: negen npm-pakketten van één nep-account, waaronder **`polymarket-claude-code`** en `polymarket-ai-agent`, vroegen bij installatie om je privésleutel ("stays encrypted") en stuurden die onversleuteld weg (DERDEN, [SafeDep](https://safedep.io/malicious-polymarket-npm-crypto-wallet-drainer/)). Dit richt zich precies op mensen die met een AI-assistent een handelsbot bouwen.
+  - Regels: alleen `polymarket-client` van PyPI met die exacte naam; geen npm-pakketten met "polymarket" in de naam van onbekenden; sterren en een nette README zeggen niets; laat je AI-assistent nooit zelf een pakket kiezen en installeren zonder dat je de naam naast de officiële docs legt (GOK, volgt uit de twee zaken).
+
+### 24. Remmen die Polymarket zelf al heeft (hoef je niet te bouwen)
+- **Heartbeat als dodemansknop**: stuur elke 5 seconden een heartbeat; na 10 seconden zonder probeert Polymarket al je open orders te annuleren. Let op: "Cancellation timing and success are not guaranteed" (GEZIEN, [CLOB OpenAPI](https://docs.polymarket.com/api-spec/clob-openapi.yaml), `/heartbeats` en `/v1/heartbeats`). Zet hem aan: als je VPS of internet uitvalt, blijven je orders anders liggen terwijl het nieuws binnenkomt.
+- **Cancel-all** werkt ook als de beurs in "cancel-only" staat (GEZIEN, [API-overzicht](https://docs.polymarket.com/_llms/en/api-reference/predictions.txt)).
+- **Herstarts van de matching engine**: worden ±2 dagen vooraf aangekondigd; daarna 2 minuten alleen post-only orders. Een bot moet die foutmelding herkennen en wachten (GEZIEN, [docs Matching Engine Restarts](https://docs.polymarket.com/trading/matching-engine.md)).
+- **Snelheidslimiet** voor een nieuwe gebruiker: 40 orders per seconde (piek 60) en 80 annuleringen per seconde (piek 120), per sleutel (GEZIEN, [docs Trading Rate Limits](https://docs.polymarket.com/api-reference/trading-rate-limits.md)). Ruim genoeg voor een paar honderd markten als je niet elke seconde alles vervangt (GOK).
+- Polymarkets eigen advies voor market makers: beide kanten quoten, scheef zetten naar je voorraad, oude orders direct weghalen, **GTD-orders die vanzelf verlopen voor een bekend moment** (uitslag, debat), en een kill switch (GEZIEN, [docs Market Making](https://docs.polymarket.com/trading/market-making.md)).
+
+### 25. Bestaande open bot gelezen: warproxxx/poly-maker
+Gelezen met `git clone --filter=blob:none` (alleen lezen, niets geïnstalleerd). Sterren kon ik niet zien (GitHub-API voor andere repo's staat dicht in deze sessie).
+- Eerste commit 31 maart 2025, laatste 9 juli 2026, 37 commits; in juli 2026 herschreven voor **CLOB V2**, alleen maker-orders (post-only), papiermodus (`run --paper`), heartbeat aan, en harde grenzen in `config.toml`: maximaal totaal risico, maximaal per markt, en een **dagverlies-stop** (GEZIEN, code en config).
+- In de broncode alleen adressen van Polymarket zelf en openbare Polygon-RPC's (publicnode, ankr, llamarpc); geen `eval`, `exec` of base64 (GEZIEN, korte zoektocht met grep; dat is geen volledige controle, en de afhankelijkheden zijn niet nagekeken).
+- Hangt vast aan **`py-clob-client-v2==1.0.2`**, dus aan het afgeschreven pakket (GEZIEN, `pyproject.toml`). Goed om van te leren, niet om blind te draaien.
+- Het mooiste stuk is `TIPS.md`, een verslag van een echte sessie met toezicht. Uitkomst: **ongeveer −$15,51** over twee markten, waarvan ±$10 door één te grote order in een dunne markt (GEZIEN, TIPS.md; DERDEN in de zin dat ik het niet kan controleren). Hun lessen, op volgorde van wat het kostte:
+  1. In een dunne markt alleen de **minimale grootte** neerzetten die nog beloning krijgt; een vulling moet klein en weg te gooien zijn.
+  2. Orders onder `rewardsMinSize` verdienen niets, en die grens verandert (zij zagen 50 naar 100). Ververs de marktinfo regelmatig.
+  3. Niet te vaak vervangen: dan verlies je je plek en word je minder vaak meegeteld voor de beloning.
+  4. De positie-API loopt achter bij snelle bewegingen; vertrouw het orderboek en de keten.
+  5. Uitstappen met een marktorder kost takerkosten; zij zagen ±$4 op ±$127.
+- Ouder en eenvoudiger: Polymarkets eigen **`poly-market-maker`** (elke 30 seconden het midden ophalen en orders bijzetten, strategie "Bands" of "AMM", "experimental") (GEZIEN, [README](https://raw.githubusercontent.com/Polymarket/poly-market-maker/main/README.md)). Te traag en te simpel voor nieuwe markten (GOK).
+
+### 26. Wat er misgaat als je beloning jaagt (verslagen van anderen)
+- **Een bot leeggetrokken met een val**: in november 2025 zette een handelaar een kleine order neer die de spread net binnen de beloningsgrens bracht; de bot "sunshines" sprong er direct met een grote order naast, waarna de handelaar die opkocht. Zo herhaald vier uur lang, samen **ruim $1.500**, tot het account van de bot leeg was (DERDEN, [BlockBeats via ChainCatcher](https://www.chaincatcher.com/en/article/2223433)). Les: als je bot voorspelbaar reageert op een prikkel, kunnen anderen daarop handelen (GOK).
+- **Een gekloonde market-making-bot** gaf beloning en wat spread, maar "net profit was negative after accounting for bugs, testing losses, and directional hits"; beweeglijke markten "can wipe out weeks of rewards in minutes" (DERDEN, [dev.to](https://dev.to/fatherson/i-cloned-a-polymarket-market-making-bot-and-ran-it-heres-what-i-learned-46ag); geen cijfers, dus zwak bewijs).
+- Hetzelfde patroon bij Hummingbot in 2021: 3 tot 4% beloning per week op gewone paren, daarna in 20 minuten 20% kwijt op een dunne munt met hoge beloning (DERDEN, [CryptoQuants](https://thecryptoquant.substack.com/p/how-i-lost-20-in-20-minutes)).
+- Samengevat: de beloningspot is echt (D meet hem), maar **de bot is vooral een risicobeheer-probleem**, niet een slimheidsprobleem. De meeste winst of verlies zit in welke markten je mijdt en hoe klein je orders zijn (GOK, uit de verslagen hierboven).
+
+### 27. Bouwplan voor een beloningsbot op Polymarket (van nul tot schaduw, zonder account)
+Elke stap kan zonder account, behalve stap 7. De AI (Claude, ChatGPT, Grok) schrijft de code; jij legt elke regel die geld raakt naast de docs.
+1. **Lezen (2 uur)**: docs Market Making, Liquidity Rewards, Matching Engine, Session Keys (links hierboven). Laat de AI daaruit een lijst eisen maken.
+2. **Marktenlijst (dag 1)**: elke 10 minuten `clob.polymarket.com/rewards/markets/current` plus de startdatum uit Gamma ophalen; houd alleen markten jonger dan 2 dagen, met beloning boven een drempel, en zonder bekende uitslag binnen 48 uur (D punt 13 voor de filters). Openbaar, geen account (GEZIEN door D).
+3. **Orderboek live bijhouden (dag 2 tot 3)**: de openbare market-websocket per token (docs Real-Time Data). Alles opslaan in SQLite; dat is meteen je eigen historie om later terug te testen (A raadt hetzelfde aan).
+4. **Schaduwbot (week 1 tot 2)**: rekent elke minuut uit welke orders hij zou zetten (minimale grootte, binnen de beloningsgrens, scheef naar voorraad) en **doet alsof hij gevuld wordt** als een echte trade door zijn prijs gaat. Hij telt zijn beloning met de formule uit de docs en zijn verlies op die nepvullingen. Dit is de meting die nu bij iedereen ontbreekt.
+5. **Remmen erin, vóór er geld bij komt**: dagverlies-stop, maximum per markt en totaal, GTD-orders die 1 uur voor een bekend moment verlopen, heartbeat elke 5 seconden, cancel-all bij elke onverwachte fout, herstart-afhandeling (punt 24).
+6. **Beslismoment**: draait de schaduwbot na 2 weken netto plus (beloning min nepverlies) in de meeste dagen? Zo nee: stoppen, kost niets. Zo ja: verder (GOK op de drempel; zet hem vooraf vast en schuif niet).
+7. **Pas dan echt, klein**: een Deposit Wallet met een **Session Key, scope alleen CLOB**, geen hoofdsleutel op de VPS; eerst één markt met minimale orders (grijs in Nederland, zie punt 22; geld uitgeven en account aanmaken alleen na eigen besluit van Thijs).
+Uren: GOK 25 tot 40 voor stap 1 tot 5 met een AI als programmeur, daarna 3 tot 5 per week kijken. Kosten tot stap 6: alleen een VPS van een paar euro per maand (run 2, punt 12), of gratis op een eigen pc.
+
+### 28. Freqtrade-config met alle remmen (alleen tekst, sleutelnamen GEZIEN in [config_full.example.json](https://raw.githubusercontent.com/freqtrade/freqtrade/develop/config_examples/config_full.example.json) en [protections.md](https://raw.githubusercontent.com/freqtrade/freqtrade/develop/docs/includes/protections.md))
+Let op: de beschermingen staan sinds een tijd **in de strategie** (een `protections`-property), niet meer in de config (GEZIEN, protections.md). De getallen zijn voorbeelden (GOK), geen advies.
+
+Config (stukje):
+```json
+{
+  "dry_run": true,
+  "dry_run_wallet": 1000,
+  "max_open_trades": 3,
+  "stake_amount": "unlimited",
+  "tradable_balance_ratio": 0.9,
+  "stoploss": -0.08,
+  "cancel_open_orders_on_exit": true,
+  "force_entry_enable": false,
+  "initial_state": "stopped",
+  "api_server": { "enabled": true, "listen_ip_address": "127.0.0.1", "listen_port": 8080 }
+}
+```
+Strategie (stukje):
+```python
+@property
+def protections(self):
+    return [
+        {"method": "CooldownPeriod", "stop_duration_candles": 5},
+        {"method": "StoplossGuard", "lookback_period_candles": 24, "trade_limit": 3,
+         "stop_duration_candles": 12, "only_per_pair": False},
+        {"method": "MaxDrawdown", "calculation_mode": "equity", "lookback_period_candles": 48,
+         "trade_limit": 10, "stop_duration_candles": 24, "max_allowed_drawdown": 0.10},
+        {"method": "LowProfitPairs", "lookback_period_candles": 24, "trade_limit": 2,
+         "stop_duration_candles": 24, "required_profit": 0.0},
+    ]
+```
+Waarom zo: `dry_run` aan tot de terugtest en weken papier kloppen; `initial_state: stopped` zodat een herstart van de server niet vanzelf gaat handelen; `force_entry_enable` uit zodat een AI via MCP of Telegram niet zelf kan kopen (run 3); API alleen op 127.0.0.1. `calculation_mode: "equity"` raadt Freqtrade aan voor nieuwe opzetten (GEZIEN). Dry-run geldt pas als echt geld als je hem bewust op `false` zet (GEZIEN, voorbeeldconfig).
+
+### 29. Rangorde van bouwroutes na run 4 (kans maal opbrengst, alles GOK)
+Wat verandert: de beloningsbot op Polymarket krijgt een eigen plek bovenaan, omdat D de pot heeft gemeten, de API vanuit Nederland niet geblokkeerd is en er nu een veilige sleutel bestaat. De kans blijft onder die van D (15 tot 25%), omdat elk verslag van een echte bot dat ik vond op verlies eindigde.
+
+| # | Route en gereedschap | Inleg geld / uren per week | Kans op €10.000 netto in 3 mnd | Ergste geval | Gedaan door anderen? |
+|---|---|---|---|---|---|
+| 1 | Beloningsbot Polymarket (`polymarket-client`, Session Key, eerst 2 weken schaduw); grijs in NL | €2.000 tot €5.000 / 25 tot 40 bouwen, daarna 3 tot 5 | 8 tot 15% | groot deel inleg kwijt bij nieuws of een val (punt 26); saldo vast, niet af te dwingen | ja, maar de verslagen die ik vond eindigden op verlies (punt 25 en 26) |
+| 2 | Voorspellingsmarkt-maker op favorieten 70 tot 90 cent (A), zelfde gereedschap | €1.000 tot €5.000 / 20+ | 5 tot 10% | inleg kwijt, account dicht | voordeel gemeten door A en Kalshi-studie, geen live bot gevonden |
+| 3 | Freqtrade futures op Hyperliquid; grijs | €2.000+ / 10 tot 15 | 2 tot 5% | inleg in dagen kwijt | verhalen, zelden controleerbaar |
+| 4 | NautilusTrader op HIP-4 | €500+ / 15+ | onder 2% | inleg kwijt | niet gevonden |
+| 5 | Freqtrade op Kraken of Bitvavo (legaal, duur of traag) | €10.000+ / 5 tot 10 | onder 2% | daling plus kosten | ja, bescheiden (A) |
+| 6 | Grok-sentiment als hoofdsignaal | $40 tot $600 per maand API / 10 | bijna 0% | API-kosten plus verlies | niet gevonden |
+
+Reden voor 8 tot 15% bij route 1: D's model geeft na een zware korting $5.000 tot $30.000 in 90 dagen; de drie verslagen hierboven laten zien dat vullingen en fouten dat makkelijk wegvreten; de schaduwbot (stap 4) maakt de gok binnen 2 weken gratis een meting.
+
+### Nog te doen
+- De schaduwbot (punt 27, stap 2 tot 4) als losse code uitschrijven in tekst, met de echte veldnamen uit de OpenAPI-bestanden.
+- AFM-waarschuwingslijst nalezen op Hyperliquid en Polymarket.
+- Kalshi-beloning en of Kalshi Nederlandse gebruikers toelaat (samen met D).
+- Hyperliquid: maximale hefboom per munt en incidenten met de brug.
+
+## Stand na run 4 (19 nov 2026, ±04:00)
+1. **Voor de beloningsbot op Polymarket (D's route 1) is het gereedschap er**: officieel `polymarket-client` (de oude `py-clob-client` pakketten zijn afgeschreven, en op 14 dec veranderen API-routes), de API is volgens Polymarket zelf vanuit Nederland niet geblokkeerd (alleen de site), servers in Londen (GEZIEN). Juridisch blijft het grijs (Ksa).
+2. **Veilig kan nu**: een Session Key handelt maar "cannot withdraw", 180 dagen, scope alleen CLOB; heartbeat elke 5 seconden annuleert je orders als de bot uitvalt (GEZIEN). Nooit de hoofdsleutel van de wallet in een `.env`.
+3. **Malware is hier extreem**: een gekaapte geverifieerde GitHub-organisatie met een werkende Polymarket-bot die sleutels stal (maart 2026), en npm-pakketten als `polymarket-claude-code` die je sleutel vragen (mei 2026) (DERDEN). Alleen het officiële pakket, niets van onbekenden.
+4. **Elk verslag van een echte beloningsbot dat ik vond eindigde op verlies**: poly-maker ±−$15 in een korte sessie, een gekloonde bot netto negatief, een bot met een val leeggetrokken voor ruim $1.500 (DERDEN). De winst zit in klein blijven, dunne markten en momenten vlak voor nieuws mijden.
+5. **Bouwplan in 7 stappen**, waarvan 6 zonder account en zonder geld: marktenlijst, orderboek opslaan, 2 weken schaduwbot die zijn eigen beloning en nepverlies telt, remmen erin, dan pas beslissen (GOK op uren: 25 tot 40). Voor Freqtrade staat nu een config met alle remmen klaar (punt 28).
