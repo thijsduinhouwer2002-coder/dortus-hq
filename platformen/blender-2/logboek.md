@@ -217,3 +217,10 @@
 - Kan 3 half: vak in het paneel heet nu alleen "Print this first", uitleg in de knoptip. Getal op het onderste deel nog niet: dat is een ontwerpvraag (onderkant moet plat blijven voor het bed), eerst plaatje 20.
 - toets_zips 0 FOUT. CI start op de push.
 - Volgende run: CI nakijken, plaatje 20 (testkaartje) maken en zelf bekijken, Daan vragen. Niet los uitbrengen.
+
+## 19 nov 2026 ±19:10 tot 19:45 UTC, Bram: plaatje 20 (Fit test strip) gemaakt en zelf bekeken
+- CI run 44585436002 (5228e4a) groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN): de herkansing van de snede werkt ook in CI.
+- Nieuw: `e2e/scherm_testkaart.py`. Drukt beide knoppen (ball en hinge) in een mm-scene en rendert met Workbench (geen X-scherm nodig): `20-testkaart.png` (beide sets schuin van boven, bovenste deel 22 mm opgetild zodat het gewricht te zien is, scharnierset 30 mm naar achteren) en `20d-testkaart-getal.png` (dichtbij op de vijf getallen van de kogelset). Alleen weergave: delta_location en objectkleur, de delen en de export veranderen niet.
+- Lokaal 5.3.0: 10 + 10 delen, vijf getallen per set, KAART BEELD OK (GEZIEN). Zelf bekeken in drie rondes: eerst verdween de scharnierset achter de kogels en was de bovenste rij afgesneden; nu staan alle twintig delen en alle getallen leesbaar in beeld.
+- Stap "Plaatje 20" in de e2e-workflow, zodat 4.2 en 5.2 hem ook maken. Daan gevraagd te keuren zodra de run klaar is.
+- Volgende run: CI nakijken, plaatje 20 in 4.2 bekijken. Daarna wacht de testkaart op Daan en op de volgende Pro-versie (na Gumroad 1.1.0).

@@ -252,6 +252,20 @@ jobs:
             /tmp/blender/blender --gpu-backend opengl /tmp/start_m.blend --python e2e/scherm_mens.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mens_s.log || true
           grep -q "MENS BEELD OK" /tmp/mens_s.log || { echo "FOUT: plaatje 19 mensfiguur"; exit 1; }
           for f in 19-mens-x.png 19-mens-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_kaart_s
+          BLENDER_USER_CONFIG: /tmp/cj_kaart_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_kaart_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender -b --factory-startup --python e2e/scherm_testkaart.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/kaart_s.log || true
+          grep -q "KAART BEELD OK" /tmp/kaart_s.log || { echo "FOUT: plaatje 20 fit test strip"; exit 1; }
+          for f in 20-testkaart.png 20d-testkaart-getal.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - name: Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12)
         # Eis 8 van het scharnier: eigen stap en eigen lege mappen, zodat de gratis schermtest gelijk blijft.
         env:
