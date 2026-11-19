@@ -3,7 +3,7 @@
 Waarom zelf: de veiligheidscontrole weigert dat een agent een taak inplant die zelfstandig plaatst (19 nov, twee keer). Maakt Thijs hem zelf aan, dan loopt de tak daarna zonder hem. Regels van de tak: `marketing/REGELS.md`. De naam begint met "Dortus", zodat de hoofdchat hem in de lijst van taken als Dortus-taak herkent (`organisatie/regels/thijs.md`, gedeeld account).
 
 **Naam:** Dortus Roep: maken en plaatsen
-**Wanneer:** elke dag om 08:13, 14:13 en 20:13 (Nederlandse tijd)
+**Wanneer:** elke dag om 20:13 (Nederlandse tijd; de app geeft één tijd per dag)
 **Cron-regel:** `CRON_TZ=Europe/Amsterdam 13 8,14,20 * * *`
 **Repo:** dortus-hq
 **Koppelingen aan:** alleen **Metricool**. Alle andere koppelingen uit (zeker Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API en Polar).
