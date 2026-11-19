@@ -7,7 +7,9 @@ Per beurs één functie die in één of twee verzoeken alle USDT- of USD-perpetu
 
 Welke rate: steeds de rate die bij de eerstvolgende verrekening betaald wordt (GEZIEN in de API-velden, zie
 README.md). Binance en Bybit weigeren vanaf de server en waarschijnlijk vanaf GitHub (VS): niet gemeten.
-Takerkosten op de perp (standaard laagste trede) staan in TAKER_PERP; allemaal GOK, niet nagekeken.
+Takerkosten op de perp (standaard laagste trede) staan in TAKER_PERP. GEZIEN in de contract-API (19 nov, curl,
+veld takerFeeRate of taker_fee_rate bij BTC): Gate 0,075%, MEXC 0,02%, Bitget en KuCoin 0,06%, BingX 0,05%.
+Kraken Futures 0,05%: DERDEN (de keurder zag het op kraken.com/pro/fees). OKX, Hyperliquid en dYdX: GOK.
 """
 import json
 import os
@@ -20,7 +22,7 @@ import urllib.request
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scanner"))
 import beurzen  # noqa: E402
 
-TAKER_PERP = {"okx": 0.0005, "gate": 0.0005, "mexc": 0.0002, "bitget": 0.0006, "kucoin": 0.0006,
+TAKER_PERP = {"okx": 0.0005, "gate": 0.00075, "mexc": 0.0002, "bitget": 0.0006, "kucoin": 0.0006,
               "bingx": 0.0005, "kraken": 0.0005, "hyperliquid": 0.00045, "dydx": 0.0005}
 # Welke spotbeurs bij de perpbeurs hoort (zelfde naam in beurzen.py). Hyperliquid en dYdX hebben geen spot die we
 # meten: daar kiest de radar een andere spotbeurs (laagste takerkosten).

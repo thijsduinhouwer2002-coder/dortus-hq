@@ -235,24 +235,121 @@ class TestFunding(unittest.TestCase):
             self.assertEqual(p["verrekeningen"], 1)
             self.assertAlmostEqual(p["ontvangen_pct"], 0.2)
             self.assertAlmostEqual(p["kosten_pct"], 2 * (0.05 + 0.1))   # perp 0,05% (okx) en spot 0,1% (nep)
+            self.assertEqual(p["overmaak_eur"], 0.0)                    # spot en perp op dezelfde beurs
             self.assertAlmostEqual(p["basis_pct"], 0.0)                 # spot en perp allebei +10%
             self.assertAlmostEqual(p["netto_pct"], 0.2 - 0.3, places=4)
             self.assertAlmostEqual(p["winst500"], -0.001 * 500 * 2 / 3, places=2)
             self.assertEqual(p["spot"], "okx")
 
-    def test_einde_run_houdt_spotprijs(self):
-        spot = nep_beurs("okx", [[("ABC", "USDT")]], koersen={("ABC", "USDT"): (10.0, 10.0)})
-        bron = lambda: {"ABC": {"rate": 0.002, "uur": 8, "volgende": time.time() + 999, "prijs": 10.0, "vol_usd": 1}}
+    def bron_uit(self, stappen):
+        staat = {"i": 0}
+
+        def bron():
+            x = stappen[min(staat["i"], len(stappen) - 1)]
+            staat["i"] += 1
+            return {"ABC": dict(x)}
+        return bron
+
+    def test_open_piek_gaat_mee_naar_volgende_run(self):
+        t = time.time()
+        k1 = {("ABC", "USDT"): (10.0, 10.0)}
+        k2 = {("ABC", "USDT"): (12.0, 12.0)}
         with tempfile.TemporaryDirectory() as d:
+            spot = nep_beurs("okx", [[("ABC", "USDT")]], koersen=k1)
+            bron = self.bron_uit([{"rate": 0.002, "uur": 8, "volgende": t + 1000, "prijs": 10.0, "vol_usd": 1}])
             r = radar.Radar(d, spot_klassen=[spot], perp_bronnen={"okx": bron}, log=lambda s: None)
             r.ronde_paren()
             r.ronde_funding()
-            r.ronde_funding()
             r.afsluiten()
+            self.assertEqual(lees(os.path.join(d, "funding.jsonl")), [])   # niet doorgeknipt
+            pad = os.path.join(d, "pieken-open.json")
+            self.assertTrue(os.path.exists(pad))
+            d2 = os.path.join(d, "run2")
+            spot2 = nep_beurs("okx", [[("ABC", "USDT")]], koersen=k2)
+            bron2 = self.bron_uit([{"rate": 0.0001, "uur": 8, "volgende": t + 30000, "prijs": 11.0, "vol_usd": 1}])
+            r2 = radar.Radar(d2, spot_klassen=[spot2], perp_bronnen={"okx": bron2}, log=lambda s: None, pieken=pad)
+            self.assertIn(("okx", "ABC"), r2.pieken)
+            r2.ronde_paren()
+            r2.ronde_funding()     # verrekening (volgende schoof op) en daarna onder 0,05%: dicht
+            rs = lees(os.path.join(d2, "funding.jsonl"))
+            self.assertEqual(len(rs), 1)
+            p = rs[0]
+            self.assertTrue(p["uit_vorige_run"])
+            self.assertFalse(p["einde_run"])
+            self.assertEqual(p["verrekeningen"], 1)
+            self.assertAlmostEqual(p["ontvangen_pct"], 0.2)
+            # spot +20%, perp +10%: de short verliest 10%, de spot wint 20%, netto +10% prijsverschil
+            self.assertAlmostEqual(p["basis_pct"], 10.0, places=4)
+            self.assertAlmostEqual(p["kosten_pct"], 2 * (0.05 + 0.1))
+            self.assertAlmostEqual(p["netto_pct"], 0.2 + 10.0 - 0.3, places=4)
+            self.assertEqual(p["spotstand"], "ok")
+
+    def test_oude_open_pieken_na_lang_gat(self):
+        with tempfile.TemporaryDirectory() as d:
+            pad = os.path.join(d, "pieken-open.json")
+            p = {"beurs": "okx", "munt": "ABC", "richting": "positief", "begin_t": 1000.0, "laatst_t": 2000.0,
+                 "instap_t": 1000.0, "uur": 8, "r8_begin": 0.002, "max_r8": 0.002, "r8s": [0.002], "ontvangen": 0.0,
+                 "verrekeningen": 0, "verrekeningen_geschat": 0, "prijs_perp_in": 10.0, "prijs_perp_uit": 10.0,
+                 "vol_usd": 1, "spot": "okx", "spot_quote": "USDT", "spot_in": 10.0, "spot_laatst": [10.0, 10.0],
+                 "spot_anders": False, "taker_perp": 0.0005, "taker_spot": 0.001, "min_spot_eur": 1,
+                 "min_perp_eur": 1, "al_bij_start": False, "uit_vorige_run": False, "overmaak_eur": 0.0,
+                 "overmaak_bron": "zelfde beurs", "overmaak_min_eur": 0.0}
+            with open(pad, "w") as fh:
+                json.dump({"t": time.time() - 3 * 3600, "pieken": [{"sleutel": ["okx", "ABC"], "piek": p}]}, fh)
+            r = radar.Radar(d, spot_klassen=[], perp_bronnen={}, log=lambda s: None, pieken=pad)
+            self.assertEqual(r.pieken, {})
+            rs = lees(os.path.join(d, "funding.jsonl"))
+            self.assertEqual(rs[0]["reden"], "gat te lang")
+            self.assertTrue(rs[0]["einde_run"])
+
+    def test_spotkoers_ontbreekt_is_geen_ander_ding(self):
+        t = time.time()
+        with tempfile.TemporaryDirectory() as d:
+            spot = nep_beurs("okx", [[("ABC", "USDT")]], koersen={})
+            bron = self.bron_uit([{"rate": 0.002, "uur": 8, "volgende": t + 1000, "prijs": 10.0, "vol_usd": 1}])
+            r = radar.Radar(d, spot_klassen=[spot], perp_bronnen={"okx": bron}, log=lambda s: None)
+            r.ronde_paren()
+            r.ronde_funding()
+            p = r.pieken[("okx", "ABC")]
+            self.assertFalse(p["spot_anders"])
+            self.assertEqual(p["spot"], "okx")
+            self.assertIsNone(p["instap_t"])
+            r.spot["okx"].__class__.koersen = lambda self: {("ABC", "USDT"): (10.1, 10.1)}
+            r.ronde_funding()
+            self.assertIsNotNone(p["instap_t"])          # nu wel ingestapt
+            self.assertAlmostEqual(p["spot_in"], 10.1)
+
+    def test_andere_spotprijs_is_ander_ding(self):
+        t = time.time()
+        with tempfile.TemporaryDirectory() as d:
+            spot = nep_beurs("okx", [[("ABC", "USDT")]], koersen={("ABC", "USDT"): (13.0, 13.0)})
+            bron = self.bron_uit([{"rate": 0.002, "uur": 8, "volgende": t + 1000, "prijs": 10.0, "vol_usd": 1},
+                                  {"rate": 0.0001, "uur": 8, "volgende": t + 1000, "prijs": 10.0, "vol_usd": 1}])
+            r = radar.Radar(d, spot_klassen=[spot], perp_bronnen={"okx": bron}, log=lambda s: None)
+            r.ronde_paren()
+            r.ronde_funding()
+            self.assertTrue(r.pieken[("okx", "ABC")]["spot_anders"])
+            r.ronde_funding()      # nooit ingestapt: dicht zodra de piek weg is
+            self.assertEqual(lees(os.path.join(d, "funding.jsonl"))[0]["spotstand"], "ander ding")
+
+    def test_overmaken_bij_twee_beurzen(self):
+        t = time.time()
+        w = {"USDT": {"opname": True, "storting": True, "fee": 1.0, "contracten": set()}}
+        spot = nep_beurs("mexc", [[("ABC", "USDT")]], koersen={("ABC", "USDT"): (10.0, 10.0)}, wallet=w)
+        bron = self.bron_uit([{"rate": 0.002, "uur": 1, "volgende": t + 100, "prijs": 10.0, "vol_usd": 1},
+                              {"rate": 0.00001, "uur": 1, "volgende": t + 3700, "prijs": 10.0, "vol_usd": 1}])
+        with tempfile.TemporaryDirectory() as d:
+            r = radar.Radar(d, spot_klassen=[spot], perp_bronnen={"hyperliquid": bron}, log=lambda s: None)
+            r.eur["USDT"] = 0.9
+            r.ronde_paren()
+            r.ververs_wallets(["mexc"])
+            r.ronde_funding()
+            r.ronde_funding()
             p = lees(os.path.join(d, "funding.jsonl"))[0]
-            self.assertTrue(p["einde_run"])
-            self.assertEqual(p["basis_pct"], 0.0)
-            self.assertTrue(p["al_bij_start"])
+            self.assertEqual(p["spot"], "mexc")
+            self.assertAlmostEqual(p["overmaak_eur"], 0.9)
+            netto = (0.002 - 2 * (0.00045 + 0.001))
+            self.assertAlmostEqual(p["winst100"], round(netto * 100 * 2 / 3 - 0.9, 2), places=2)
 
     def test_lage_funding_geen_piek(self):
         with tempfile.TemporaryDirectory() as d:
@@ -303,28 +400,107 @@ class TestRapport(unittest.TestCase):
         self.assertFalse(rapport.haalbaar({"min_spot_eur": 1, "min_perp_eur": 70}, 100, "B"))
         self.assertTrue(rapport.haalbaar({"min_spot_eur": 1, "min_perp_eur": 60}, 100, "B"))
 
+    def piek(self, begin, eind, w150, beurs="okx", **extra):
+        r = {"beurs": beurs, "munt": "A", "richting": "positief", "spot": beurs, "spot_quote": "USDT",
+             "spotstand": "ok", "netto_pct": 0.5, "begin": begin, "eind": eind, "instap": begin, "duur_s": 3600,
+             "min_spot_eur": 1, "min_perp_eur": 5, "overmaak_eur": 0.0, "overmaak_min_eur": 0.0, "einde_run": False,
+             "taker_spot": 0.001, "taker_perp": 0.0005, "r8_max_pct": 0.2, "ontvangen_pct": 0.8,
+             "verrekeningen": 1, "kosten_pct": 0.3, "basis_pct": 0.0, "vol_usd": 2e6}
+        r.update({f"winst{i}": w150 * i / 150 for i in (100, 150, 200, 500, 2000, 5000)})
+        r.update(extra)
+        return r
+
+    def schrijf(self, m, naam, regels):
+        os.makedirs(m, exist_ok=True)
+        with open(os.path.join(m, naam), "a") as fh:
+            for r in regels:
+                fh.write(json.dumps(r) + "\n")
+
+    def test_een_pot(self):
+        rs = [self.piek("2026-11-19T10:00:00Z", "2026-11-19T12:00:00Z", 1.0),
+              self.piek("2026-11-19T11:00:00Z", "2026-11-19T11:30:00Z", 5.0),    # pot zit vast: niet gepakt
+              self.piek("2026-11-19T12:00:00Z", "2026-11-19T13:00:00Z", 2.0),
+              self.piek("2026-11-19T12:00:00Z", "2026-11-19T12:10:00Z", 3.0)]    # zelfde start: de beste
+        gepakt, som = rapport.pot(rs, 150, "B")
+        self.assertEqual([r["winst150"] for r in gepakt], [1.0, 3.0])
+        self.assertAlmostEqual(som, 4.0)
+        self.assertEqual(rapport.max_tegelijk(rs), 2)   # om 12:00 eindigt de eerste net
+
+    def test_oud_tarief_en_ontdubbelen(self):
+        self.assertTrue(rapport.oud_tarief({"spot": "kraken", "taker_spot": 0.004, "munt": "LQTY", "spot_quote": "USD"}))
+        self.assertFalse(rapport.oud_tarief({"spot": "kraken", "taker_spot": 0.008, "munt": "LQTY", "spot_quote": "USD"}))
+        self.assertTrue(rapport.oud_tarief({"beurs": "kraken", "taker": 0.008, "munt": "EURQ", "quote": "EUR"}))
+        self.assertFalse(rapport.oud_tarief({"beurs": "kraken", "taker": 0.002, "munt": "EURQ", "quote": "EUR"}))
+        a = self.piek("2026-11-19T10:00:00Z", "2026-11-19T11:00:00Z", 1.0)
+        b = self.piek("2026-11-19T10:00:00Z", "2026-11-19T14:00:00Z", 2.0)
+        self.assertEqual(rapport.ontdubbel_funding([a, b]), [b])
+
+    def test_getallen_met_komma(self):
+        self.assertEqual(rapport.eur(-1234.5), "-€1.234,50")
+        self.assertEqual(rapport.pct(0.19), "0,19%")
+        self.assertEqual(rapport.pct(None), "-")
+
     def test_rapport_draait_en_proef_telt_niet(self):
         with tempfile.TemporaryDirectory() as d:
             vast, proef = os.path.join(d, "2026-11-19", "run-1"), os.path.join(d, "2026-11-19", "run-2-proef")
             for m in (vast, proef):
-                os.makedirs(m)
-                with open(os.path.join(m, "stand.jsonl"), "w") as fh:
-                    fh.write(json.dumps({"t": "2026-11-19T10:00:00Z"}) + "\n" +
-                             json.dumps({"t": "2026-11-19T11:00:00Z"}) + "\n")
-                with open(os.path.join(m, "funding.jsonl"), "w") as fh:
-                    fh.write(json.dumps({"beurs": "okx", "munt": "A", "richting": "positief", "spot": "okx",
-                                         "netto_pct": 0.5, "winst100": 0.33, "winst500": 1.67, "winst2000": 6.67,
-                                         "winst5000": 16.7, "winst150": 0.5, "winst200": 0.67, "begin":
-                                         "2026-11-19T10:10:00Z", "duur_s": 3600, "min_spot_eur": 1,
-                                         "min_perp_eur": 5, "r8_max_pct": 0.2, "ontvangen_pct": 0.8,
-                                         "verrekeningen": 1, "kosten_pct": 0.3, "basis_pct": 0, "vol_usd": 2e6})
-                             + "\n")
+                self.schrijf(m, "stand.jsonl", [{"t": "2026-11-19T10:00:00Z"}, {"t": "2026-11-19T11:00:00Z"}])
+                self.schrijf(m, "funding.jsonl", [self.piek("2026-11-19T10:10:00Z", "2026-11-19T11:10:00Z", 0.5)])
+            # oude regels: apart, niet geteld
+            self.schrijf(vast, "funding.jsonl", [{"beurs": "kraken", "munt": "Z", "richting": "positief",
+                                                  "spot": "kraken", "netto_pct": 1, "einde_run": True,
+                                                  "begin": "2026-11-19T10:00:00Z", "eind": "2026-11-19T10:05:00Z"}])
+            self.schrijf(vast, "stable-afwijking.jsonl", [
+                {"beurs": "kraken", "munt": "EURQ", "quote": "EUR", "kant": "goedkoop", "taker": 0.002,
+                 "basis_ratio": None, "ruimte_eur_max": 1000, "begin": "2026-11-19T10:00:00Z",
+                 "eind": "2026-11-19T10:05:00Z", "eerste": {"na_kosten_pct": 0.5, "winst150": 1}}])
             tekst = rapport.rapport(d)
-            self.assertIn("1 positief met spotmarkt", tekst)
-            self.assertIn("1.1 uur", tekst)
-            self.assertIn("| €100 | 1 / 1 |", tekst)
+            self.assertIn("**B, funding-pieken:** 1 pieken afgerond", tekst)
+            self.assertIn("1 keer kunnen instappen, samen €0,50", tekst)
+            self.assertIn("1,1 uur", tekst)
+            self.assertIn("zonder overmaken): 1 (waarvan 1 positief), waarvan 1 doorgeknipt", tekst)
+            self.assertIn("Zonder basislijn (munt te nieuw of geen bron, niet geteld): 1", tekst)
+            self.assertNotIn("None", tekst)
             tekst2 = rapport.rapport(d, met_proef=True)
-            self.assertIn("2 positief met spotmarkt", tekst2)
+            self.assertIn("**B, funding-pieken:** 1 pieken afgerond", tekst2)   # zelfde piek: één keer
+
+
+class TestKrakenEnBasis(unittest.TestCase):
+    def test_kraken_taker(self):
+        with tempfile.TemporaryDirectory() as d:
+            r = radar.Radar(d, spot_klassen=[], perp_bronnen={}, log=lambda s: None)
+            r.paren = {"kraken": {("BTC", "USDT"): {"taker": None}, ("EURQ", "EUR"): {"taker": None}}}
+            self.assertEqual(r.taker("kraken", "BTC", "USDT"), 0.008)
+            self.assertEqual(r.taker("kraken", "EURQ", "EUR"), 0.002)    # niet in de lijst van de scanner
+            self.assertEqual(r.taker("kraken", "USDT", "EUR"), 0.002)
+            r.paren["gate"] = {("X", "USDT"): {"taker": 0.002}}
+            self.assertEqual(r.taker("gate", "X", "USDT"), 0.002)
+
+    def test_basislijn_c2(self):
+        dag0 = int(time.time()) // 86400 * 86400 - 40 * 86400
+        dagen = [(dag0 + i * 86400, 0.97) for i in range(30)]
+        k = {("EURQ", "EUR"): (0.969, 0.970)}
+        boek = {"EURQEUR": ([(0.969, 5000)], [(0.970, 5000)])}
+        x = nep_beurs("kraken", [list(k) + [("EUR", "USD")]], koersen={**k, ("EUR", "USD"): (1.1, 1.1)},
+                      boeken=boek)
+        with tempfile.TemporaryDirectory() as d:
+            r = radar.Radar(d, spot_klassen=[x], perp_bronnen={}, log=lambda s: None,
+                            basis_bron=lambda b, sym: dagen)
+            r.ronde_paren()
+            r.ververs_basis()
+            self.assertAlmostEqual(r.basis["EURQ"]["ratio"], 0.97)
+            r.ronde_stable()
+            self.assertEqual(r.volg_c2.open, {})        # 3% onder de euro, maar op zijn gewone prijs: geen kans
+            # nu zakt hij naar 0,95: 2% onder zijn basislijn
+            x.koersen = lambda self: {("EURQ", "EUR"): (0.949, 0.950), ("EUR", "USD"): (1.1, 1.1)}
+            x.boek = lambda self, sym: ([(0.949, 5000)], [(0.950, 5000)])
+            r.ronde_stable()
+            self.assertIn(("kraken", "EURQ", "EUR", "goedkoop"), r.volg_c2.open)
+            r.afsluiten()
+            c2 = lees(os.path.join(d, "stable-afwijking.jsonl"))[0]
+            self.assertAlmostEqual(c2["basis_ratio"], 0.97)
+            self.assertAlmostEqual(c2["eerste"]["afwijking_pct"], (0.97 - 0.95) / 0.97 * 100, places=3)
+            self.assertAlmostEqual(c2["eerste"]["afwijking_koppeling_pct"], -5.0, places=3)
 
 
 if __name__ == "__main__":

@@ -7,8 +7,10 @@ name: Kansenradar (onderzoek ai-handel)
 #
 # Ritme: één job van ±5 uur 25 minuten, daarna de volgende. GitHub laat geplande runs in deze repo vaak vallen,
 # daarom start hij ook bij elke push naar main en beslist de klok (organisatie/controle/klok.py, interval 6h) of
-# hij aan de beurt is. Een push die de radar zelf raakt, start hem opnieuw met de nieuwe code (de oude run stopt
-# en bewaart wat hij had). Met de hand starten (opdrachtbestand) is een proefrun: eigen rij, raakt de klok en de
+# hij aan de beurt is. Een push die de code van de radar raakt (*.py, *.sh, deze workflow, en beurzen.py en
+# scanner.py van de scanner, die de radar gebruikt), start hem opnieuw met de nieuwe code; een tekst (README,
+# keuring) niet. De oude run stopt en bewaart wat hij had, ook de open funding-pieken (pieken-open.json), die de
+# volgende run afmaakt. Met de hand starten (opdrachtbestand) is een proefrun: eigen rij, raakt de klok en de
 # vaste run niet.
 on:
   schedule:
@@ -39,7 +41,7 @@ jobs:
           filter: blob:none
           sparse-checkout: organisatie/controle
       - id: klok
-        run: python3 -I organisatie/controle/klok.py radar 6h --paden "platformen/ai-handel/radar/**,.github/workflows/radar.yml"
+        run: python3 -I organisatie/controle/klok.py radar 6h --paden "platformen/ai-handel/radar/*.py,platformen/ai-handel/radar/*.sh,.github/workflows/radar.yml,platformen/ai-handel/scanner/beurzen.py,platformen/ai-handel/scanner/scanner.py"
 
   meet:
     needs: klok
@@ -76,8 +78,15 @@ jobs:
           curl -sf -m 30 -o "$VORIGE" \
             "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/ai-handel-data/radar/paren-laatst.json" \
             || rm -f "$VORIGE"
+          # open funding-pieken van de vorige vaste run afmaken (niet bij een proef: die raakt de vaste meting niet)
+          PIEKEN="$RUNNER_TEMP/pieken-vorige.json"
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || ! curl -sf -m 30 -o "$PIEKEN" \
+            "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/ai-handel-data/radar/pieken-open.json"; then
+            rm -f "$PIEKEN"
+          fi
           echo "Meten: $MINUTEN minuten, naar $UIT"
-          python3 -u platformen/ai-handel/radar/radar.py --minuten "$MINUTEN" --uit "$UIT" --vorige "$VORIGE" &
+          python3 -u platformen/ai-handel/radar/radar.py --minuten "$MINUTEN" --uit "$UIT" --vorige "$VORIGE" \
+            --pieken "$PIEKEN" &
           PID=$!
           # Bij afbreken stuurt de runner SIGINT/SIGTERM naar deze shell; doorgeven, zodat de radar zijn open
           # momenten en samenvatting.json nog wegschrijft.

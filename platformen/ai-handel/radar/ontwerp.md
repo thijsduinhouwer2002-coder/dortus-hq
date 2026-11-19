@@ -41,3 +41,18 @@ tests zijn groen.
 Stap van 15 seconden tot 3 minuten (snellere partijen zijn eerder); perp-diepte niet gemeten (laatste prijs);
 overmaaktijd niet gemeten; minima en opnamestatus niet bij elke beurs openbaar; perp-takerkosten GOK; perps voor
 EU-particulieren niet per beurs nagekeken. Alles staat in README.md.
+
+## Na de keuring (19 nov, KEURING.md, akkoord nee)
+- B: een ontbrekende spotkoers is geen "andere munt" meer; de piek wacht op een koers en staat anders als "onbekend"
+  apart. Overmaken (één opname van USDT of USDC) telt mee als spot en perp op twee beurzen zitten.
+- B: open pieken gaan via `pieken-open.json` op de datatak naar de volgende run; geen doorgeknipte pieken meer die
+  twee keer kosten betalen. Gekozen boven "doorgeknipte pieken apart zetten", omdat pieken die langer dan een run
+  duren juist de interessante zijn. De 27 doorgeknipte pieken uit de eerste uren staan apart in het rapport en tellen
+  niet mee (de rest van zo'n piek is niet gevolgd, dus niet na te rekenen).
+- C2 meet tegen een basislijn (mediaan per dag over 45 dagen uit de OHLC-API), niet tegen 1 dollar of 1 euro.
+- Rapport: sommen met één pot (geen geld dat tegelijk op tien plekken zit), een zin per hoek bovenaan, komma's.
+- Kraken-taker via `beurzen.taker_standaard` (0,80%, stablecoin- en FX-paren 0,20%); oude data apart.
+- Klok start alleen op code (`*.py`, `*.sh`, de workflow, `beurzen.py` en `scanner.py`), niet op teksten.
+- `radar.py` gesplitst in `radar.py`, `rekenen.py`, `hoek_a.py`, `hoek_b.py`, `hoek_c.py` en `basislijn.py`.
+- Gate perp-taker 0,075% (GEZIEN in de API).
+

@@ -2,7 +2,7 @@
 # Zet de meetdata van de kansenradar op de tak ai-handel-data, in de map radar/ (de scanner en de schaduwbot
 # gebruiken dezelfde tak, maar een andere map). Maakt daar ook radar/rapport.md opnieuw en zet de nieuwste lijst
 # met munten per beurs in radar/paren-laatst.json (de volgende run vergelijkt daarmee, zodat een notering tussen
-# twee runs niet verloren gaat).
+# twee runs niet verloren gaat), en de open funding-pieken in radar/pieken-open.json.
 # Nooit geforceerd: lukt de push niet (een ander was net eerder), dan opnieuw ophalen en opnieuw proberen.
 # Gebruik (in de workflow):  bash opslaan.sh <map met <datum>/<run>/...>     nodig: GH_TOKEN, GITHUB_REPOSITORY
 set -u
@@ -23,6 +23,9 @@ for poging in 1 2 3 4 5; do
   # nieuwste lijst met munten (van een vaste run, niet van een proef) naar radar/paren-laatst.json
   LAATST="$(ls -t "$BRON"/*/run-*/paren-laatst.json 2>/dev/null | grep -v -- '-proef/' | head -1)"
   [ -n "$LAATST" ] && cp "$LAATST" "$W/radar/paren-laatst.json"
+  # open funding-pieken (van een vaste run) naar radar/pieken-open.json: de volgende run maakt ze af
+  PIEK="$(ls -t "$BRON"/*/run-*/pieken-open.json 2>/dev/null | grep -v -- '-proef/' | head -1)"
+  [ -n "$PIEK" ] && cp "$PIEK" "$W/radar/pieken-open.json"
   if python3 -I "$HIER/radar_rapport.py" "$W/radar" > "$W/rapport.tmp" && [ -s "$W/rapport.tmp" ]; then
     mv "$W/rapport.tmp" "$W/radar/rapport.md"
   else
