@@ -69,8 +69,13 @@ de grens.
 Na de tweede herkeuring (KEURING.md, "Tweede herkeuring simulatie"): Kraken-taker 0,80% (GEZIEN, kraken.com/pro/fees;
 0,20% op stablecoin- en FX-paren, `beurzen.taker_standaard`). De opgeslagen kansen met Kraken (gemeten met 0,40%)
 rekent `rapport.herreken` opnieuw door: 0,40% van de inzet extra op elk gemeten punt, ruimte tot het punt met de meeste
-winst (GOK, het boek is niet bewaard). Rapport van 15:52 UTC: Bitvavo-Kraken 25 echte kansen (was 46); netto handel
-€150: €0,11 bij 1% en 2%, -€5,38 bij 5%; €2.000: €2,09 bij alle drie. Gelijk aan de schatting van de keurder (T6).
+winst (GOK, het boek is niet bewaard). Op de data van 15:38 UTC (9 runs): Bitvavo-Kraken 25 echte kansen (was 46);
+netto handel €150: €0,11 bij 1% en 2%, -€5,38 bij 5%; €2.000: €2,09 bij alle drie, gelijk aan de schatting van de
+keurder (T6). Rapport van 15:53 UTC (12 runs, 399 Kraken-kansen herrekend, 233 houden winst): Bitvavo-Kraken 33 kansen;
+€150: €0,14, €0,14, -€2,31; €2.000: €5,16, -€0,10, -€0,10 (1%, 2%, 5%).
+`beurzen.py` is niet gesplitst: de driehoek-meter zet `B.QUOTES` om, en de beursklassen lezen QUOTES uit hun eigen
+module; na een splitsing zou die aanpassing stil niet meer werken. `scanner.py` is wel kleiner: de rekensom staat in
+`rekensom.py` (scanner.py zet de namen door voor de radar).
 Bitvavo 0,25% is nu ook GEZIEN (help-center-API van support.bitvavo.com).
 
 ## Bekende grenzen

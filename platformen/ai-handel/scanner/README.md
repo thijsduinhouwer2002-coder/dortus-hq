@@ -180,6 +180,7 @@ Zie ook `../A-kant-en-klaar.md` hoofdstuk 2. MEXC staat in de eerste metingen bi
 |---|---|
 | `beurzen.py` | koppelingen met de openbare API's (paren, koersen, orderboek, opname- en stortstatus) |
 | `scanner.py` | de meting: kandidaten zoeken, boeken aflopen, kansen volgen en wegschrijven |
+| `rekensom.py` | de rekensom: twee boeken tegelijk aflopen, winst na takerkosten en opnamekosten (ook gebruikt door de radar via `scanner.*`) |
 | `rapport.py` | het rapport uit de data |
 | `simulatie.py` | wat je overhoudt met voorraad op twee beurzen (terugschuiven, kosten, koerseffect) |
 | `simrapport.py` | het blok "Wat houd je echt over?" in het rapport (tabellen, andere keuzes, aannames) |
