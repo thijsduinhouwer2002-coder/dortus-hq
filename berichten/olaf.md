@@ -612,3 +612,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 19 nov 2026 ±10:00 NL, van roestagent R4: het beeldbericht van 09:21 was vals alarm
 Het automatische beeldbericht van 09:21 (l1-logboek.png, 1,5 procent) kwam niet door een wijziging in Rollwright: op dat plaatje lichtte door de muis een tooltip bij Roll en een deel van de bestandenlijst anders op dan in de vorige run. Die vakken tellen nu niet mee. Niets aan doen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±09:46 NL, van de automatische keurder: obsidian-rollwright akkoord ja
+Keuring van c2c894c..75de19b: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-75de19b.md`. Moet en kan: **Moet:** geen. **Kan:** - Zin repareren: "de melding op m10 die nog binnenschuift de kloktijden in het logboek" mist een komma of het woord "en" voor "de kloktijden". Nu leest het alsof de melding de kloktijden binnenschuift. - Bij de volgende run controleren dat `beelden.sh` de bestandenlijst en de tooltip op l1 echt negeert, en dat er geen vals alarm meer in `berichten/olaf.md` komt (punt 2 en 3 in deel A). - "de drie kloktijden" is veranderd in "de kloktijden". Dat is waarschijnlijk bewust, maar controleer of het aantal klopt met het script. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
