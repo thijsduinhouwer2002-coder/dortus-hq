@@ -95,3 +95,58 @@ Deze run nog geen bronnen nagelezen; dit zijn gangbare regels, als GOK gelabeld.
 3. **Bitcoin-koers voorspellen** op 1 tot 6 maanden lukt in geen enkele peer-reviewed studie overtuigend (DERDEN, juni 2026); tweet-sentiment voorspelde volume, geen rendement (DERDEN).
 4. **Grok laten meelezen op X is duur**: $5 per 1000 posts (GEZIEN), dus tientallen tot honderden dollars per maand bij uurlijkse checks (GOK). Gebruik een model hooguit als filter, en test alleen na zijn kennisgrens.
 5. **Gratis data genoeg**: Bitvavo-candles en de Binance-archieven zijn zonder account te halen (GEZIEN). €10.000 in 3 maanden past niet bij een eerlijke spot-strategie met een kleine pot (GOK).
+
+## Run 2 (19 nov 2026, ±01:35 tot 02:05 UTC)
+Nieuwe hoek: D en B zetten voorspellingsmarkten bovenaan als bot-route. Ik keek dus vanuit "strategie en testen" naar die markten: welke prijsfout is aangetoond, en kun je die zelf eerlijk nameten? Freqtrade-remmen (StoplossGuard, MaxDrawdown) staan al bij B punt 13; die herhaal ik niet.
+
+### 9. Aangetoond op Kalshi: goedkope contracten verliezen, dure winnen een beetje (DERDEN)
+Studie van University College Dublin, jan 2026, met transactiedata van meer dan 300.000 contracten op Kalshi, 2021 tot 2025 (DERDEN, [Bürgi, Deng en Whelan, "Makers and Takers", pdf](https://www.karlwhelan.com/Papers/Kalshi.pdf); samenvatting op [VoxEU](https://cepr.org/voxeu/columns/economics-kalshi-prediction-market)):
+- Wie contracten van 10 cent of minder koopt, verliest gemiddeld **meer dan 60%** van zijn inleg. Contracten boven 50 cent geven een klein positief rendement, boven 70 cent statistisch zeker maar klein (DERDEN, zelfde pdf).
+- Gemiddeld rendement van alle Kalshi-contracten: **ongeveer min 20%** (DERDEN).
+- **Makers** (je zet een order in het boek) haalden gemiddeld -9,64%, **takers** (je pakt een bestaande order) -31,46%. Makers die contracten van 50 cent of meer kochten, haalden **+2,6%** (DERDEN, zelfde pdf, pag. bij figuur 6).
+- De fout werd in 2025 kleiner (DERDEN): wie hierop bouwt, bouwt op iets wat langzaam verdwijnt (GOK).
+- Op Polymarket weermarkten vond een studie uit okt 2026 dat vlak voor sluiten (laatste 1 tot 12 uur) juist de **favorieten te duur** zijn, bijna tien keer sterker dan de longshot-fout (DERDEN, [arXiv 2610.13593](https://arxiv.org/abs/2610.13593)). Dus: de richting van de fout verschilt per platform, soort markt en tijdstip.
+
+**Wat dit betekent voor een bot** (GOK, volgt uit het bovenstaande): de enige strategie met echt bewijs is saai: **als maker** dure contracten kopen (50 cent en meer) en nooit longshots als taker. Opbrengst ±2 à 3% per contract vóór je geld weer vrij is. Dat past bij D punt 10 ("bijna zeker kopen is een eerlijke prijs") en maakt duidelijk dat €10.000 in 3 maanden hiermee alleen kan met een zeer grote pot of heel veel omloop.
+
+### 10. Eigen meting op Polymarket: het tegendeel, en waarom je dat niet moet geloven (GEZIEN)
+**Wat:** openbare API's zonder account. Gesloten ja/nee-markten uit `gamma-api.polymarket.com/markets` met de uitslag, en de dagkoers van "Ja" uit `clob.polymarket.com/prices-history` (`fidelity=1440`; uurdata gaf lege antwoorden). Per markt de prijs 1, 7 en 30 dagen voor sluiten, beide kanten (ja en nee) meegeteld. Twee steekproeven: (a) de 900 gesloten markten met het **meeste volume** sinds jan 2025 (892 met koersgeschiedenis), (b) de 900 laatst gesloten markten met minstens $20.000 volume, 6 tot 17 nov 2026 (867 met koers; 336 daarvan "Bitcoin Up or Down").
+
+| Prijs 1 dag voor sluiten | (a) n | (a) gewonnen | (a) rendement | (b) n | (b) gewonnen | (b) rendement |
+|---|---|---|---|---|---|---|
+| 0 tot 10 cent (gem. 3 à 4) | 167 | 6,6% | +100% | 56 | 12,5% | +199% |
+| 40 tot 60 cent | 297 | 50,2% | ±0% | 359 | 49,9% | ±0% |
+| 90 tot 100 cent (gem. 96 à 97) | 167 | 93,4% | -3,4% | 56 | 87,5% | -8,7% |
+
+(GEZIEN, eigen telling; zonder kosten, op de middenkoers. 7 en 30 dagen voor sluiten gaven hetzelfde beeld voor longshots, maar met grillige tussenbanden.)
+
+Op het oog: longshots kopen wint, favorieten kopen verliest, precies andersom dan Kalshi. **Dat is vrijwel zeker een testfout** (GOK, met reden):
+1. **Kiezen op volume lekt de uitslag.** Een markt waar een verrassing gebeurt, krijgt in de laatste dagen veel extra handel. Wie "markten met het meeste volume" kiest, kiest dus vooral markten waar de longshot won. Dat is een blik in de toekomst, net als in punt 4 regel 4.
+2. **Middenkoers is geen prijs die je kon krijgen.** Bij dunne boeken ligt de laatprijs voor een longshot vaak een paar cent hoger; op 3 cent gemiddeld is 1 cent verschil al een derde van de inleg (GOK).
+3. **Te weinig gevallen.** 56 tot 167 longshots, waarvan er maar 7 tot 11 wonnen. Een paar markten uit hetzelfde event (bijv. een WK-wedstrijd) hangen samen. De Kalshi-studie had 300.000 contracten.
+4. **Dagkoers is grof.** De laatste dagnotering kan uren oud zijn op het moment dat het nieuws al bekend is.
+
+**Les voor wie een voorspellingsmarkt-bot test** (GOK, eigen protocol uit deze meting plus de studies):
+- Kies markten op iets wat je **vooraf** wist (aanmaakdatum, categorie, volume tot het moment van instappen), nooit op eindvolume.
+- Gebruik de **laatprijs of biedprijs** op het moment van instappen (het orderboek bewaren vanaf nu; de API geeft geen oude boeken), niet de middenkoers.
+- Minstens enkele duizenden markten, verdeeld over categorieën en maanden; reken per event, niet per contract.
+- Kosten erin: Polymarket haalt op 20 nov de kortingen voor kleine handelaren weg (GEZIEN door D punt 8).
+- Begin met papier: de koersen en uitslagen zijn openbaar, dus een bot kan weken meedraaien zonder geld en zonder account (GEZIEN, de API's hierboven werkten zonder inloggen).
+
+### 11. Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Voorspellingsmarkten als maker, alleen favorieten, eerst op papier**: de enige strategie in mijn hoek met groot bewijs (300.000 contracten), maar klein rendement per keer (±2,6% vóór je geld vrij is, DERDEN) en de fout krimpt. Voor €10.000 in 3 maanden: kans onder 5% met een kleine pot (GOK). Grijs in Nederland, zie D punt 3.
+2. Simpele trendregel op spot (run 1): beperkt dalingen, geen geldmachine. Kans op het doel onder 1% (GOK, zelfde als B).
+3. Longshots kopen omdat een terugtest dat mooi laat zien: **valt af**; mijn eigen meting laat zien hoe makkelijk die terugtest liegt.
+4. LLM-sentiment als hoofdsignaal en hefboom: vallen af (run 1).
+
+### Nog te doen (volgende runs)
+- Meting op Polymarket zonder volumefout: markten kiezen op aanmaakdatum, meer dan 2.000 stuks; kijken of de gamma-API verder pagineert dan 900 (beide keren stopte het daar, GEZIEN).
+- Momentum over meer munten tegelijk met volatiliteit richten, op Binance-archieven, met dubbele kosten (stond al op de lijst).
+- Openbaar, controleerbaar verslag van een LLM die maanden live meebeslist.
+
+## Stand na run 02:05 (19 nov 2026)
+1. **Enige aangetoonde prijsfout die ik vond die een kleine bot kan pakken**: op Kalshi verliezen goedkope contracten (10 cent of minder) gemiddeld meer dan 60%, en makers die contracten van 50 cent of meer kopen haalden +2,6% (DERDEN, 300.000 contracten, UCD jan 2026). Klein per keer, en het gat wordt kleiner.
+2. **Mijn eigen Polymarket-meting liet het tegendeel zien** (longshots +100% tot +199%, GEZIEN), maar dat is een testfout: kiezen op eindvolume lekt de uitslag. Dit is het schoolvoorbeeld waarom je een terugtest niet gelooft zonder vooraf vastgelegde keuzes en echte laatprijzen.
+3. **Terugtests voorspellen weinig** (run 1: Sharpe 1,86 naar 0,33 in mijn eigen trendtest, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Trendvolgen beperkt dalingen, maakt geen fortuin.
+4. **Grok of een ander model**: geen bewijs dat sentiment van X het rendement in crypto voorspelt (DERDEN), en meelezen kost $5 per 1000 posts (GEZIEN). Hooguit als filter; laat de AI vooral de code schrijven en controleren.
+5. **€10.000 in 3 maanden** haalt geen van de routes in hoek A met een kleine pot (GOK). De beste kans binnen deze hoek is een maker-bot op voorspellingsmarkten die eerst weken op papier draait op openbare data (GEZIEN: alles zonder account op te halen), met de grijze risico's die D beschrijft.
