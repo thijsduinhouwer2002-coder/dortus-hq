@@ -98,6 +98,7 @@ func _init() -> void:
 	ok(not BK.naamgenoot_mag("Maud III", {}, 1100.0, 884.0) and BK.naamgenoot_mag("Maud III", {}, 1184.0, 884.0), "naamgenoot: niet binnen 300 s na de vorige, wel daarna")
 	# laarsgrap alleen als de ouder zelf een laars achterliet (Iris 19 nov): niet in de gewone voorraad, ouder is de vorige
 	ok(not str(RT.VOORRAAD["naamgenoot"]).contains("boot") and str(RT.VOORRAAD["naamgenoot_laars"]).contains("boot"), "naamgenoot: laarsgrap apart")
+	ok(not str(load("res://systemen/kroniek_regels.gd").VOORRAAD["naamgenoot"]).contains("boot"), "kroniek: naamgenoot zonder laarsgrap (Iris 19 nov)")
 	ok(BK.ouder_naam("Merel II") == "Merel" and BK.ouder_naam("Merel III") == "Merel II", "naamgenoot: ouder van II en III")
 	var ng_gezien := {}
 	var ng_laatst := -1000.0

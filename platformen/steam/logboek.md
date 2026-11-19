@@ -1679,3 +1679,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±17:15 NL)
 - Niets zinvols te doen: geen nieuwe opdracht (Sanne's bard-gat is voor na de speeltest), spelcode ongewijzigd sinds de groene Windows-run; bevriezen vanavond 20:00 NL, itch.io wacht op de speeltest.
 - Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
+
+## 19 nov 2026, Olaf (run ±18:15 NL)
+- Laarsgrap ook uit de kroniek gehaald: `systemen/kroniek_regels.gd` had "{naam} wants {ouder}'s boot back." nog in de gewone naamgenoot-lijst, dus daar kon dezelfde fout als bij Iris (Merel II, geen laars van Merel) nog komen. Toets erbij in `toets_namen.gd`. Vóór het bevriezen van 20:00.
+- Volgende stap: Windows-run van deze commit groen zien; vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.

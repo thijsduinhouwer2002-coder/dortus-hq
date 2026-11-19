@@ -19,7 +19,8 @@ const VOORRAAD := {
 	"valt": ["{naam} fell to {val}.", "{naam} stays forever.", "{naam} found {val}. Hard.", "{bewoner} ate {naam}. Burp.",
 		"{naam} left gold and one boot.", "{naam} will not be leaving.", "{bewoner} says thanks for the snack."],
 	# {naam} is de volle naam ("Kees II"), {oud} de voornaam van wie hier viel ("Kees"); zo ook in kern/strook.gd
-	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants {ouder}'s boot back."],
+	# geen laarsgrap hier: de kroniek weet niet of de ouder een laars achterliet (Iris 19 nov, zie kern/regels.gd naamgenoot_laars)
+	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once."],
 	"pensioen": ["{naam} retired. Opened a bakery.", "{naam} retired. Tells tall tales now.",
 		"{naam} quit heroing. Sells maps.", "{naam} won't be back. Too scared."],
 	"vlucht": ["{naam} fled. Grudge: {bewoner}.", "{naam} ran. Swore revenge.", "{naam} escaped with a limp.",
