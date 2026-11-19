@@ -19,7 +19,7 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 4. **Niets naar buiten onder de naam van Thijs** (mail, bericht, zijn eigen accounts zoals Reddit) zonder zijn ja op de tekst. **Posts op de kanalen van Dortus** (YouTube, TikTok, de Discord van Hats) mogen na een keuring door een ander, zonder zijn ja (Thijs, 18 nov 23:17). Agents plaatsen nooit zelf; de hoofdchat doet het.
 5. **Eerlijk:** elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK. Verzin niets. Werk is pas af als een ander het keurde (skill `keuren`) en de tests groen zijn.
 6. **Alleen schrijven waar je mag:** je eigen map, je product, een regel onderaan de besluiten, en een bericht onderaan in `berichten/<naam>.md` van een ander (met datum en van wie; nooit iets weghalen). Iets wat alleen Thijs kan, meld je in `berichten/hoofdchat.md`; alleen de hoofdchat zet het op `organisatie/lijst-thijs.md` (max 5). Nooit iets verwijderen wat niet van ons is. Nooit geforceerd pushen.
-7. **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar** (kunnen van iemand anders zijn). Chrome alleen op de HP van Thijs, en alleen de hoofdchat.
+7. **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar** (kunnen van iemand anders zijn). Chrome alleen op de HP van Thijs en zijn werklaptop (privé Google-profiel, Thijs 19 nov 10:18), en alleen de hoofdchat.
 8. Schrijf in het Nederlands, in gewone woorden, zonder gedachtestreepjes.
 
 ## Wegwijzer: lees dit alleen als je het nodig hebt
