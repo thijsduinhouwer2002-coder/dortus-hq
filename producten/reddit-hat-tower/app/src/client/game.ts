@@ -1,5 +1,7 @@
 // Het spel in de post (Devvit-entrypoint "game"): startscherm, spelen, uitslag.
 // De regels staan in shared/spel.ts; de server speelt de dagbeurt na en bewaart hem.
+// Eerst de filmklok (doet alleen iets met ?film=1), vóór de rest de tijd gaat lezen.
+import './filmklok.ts'
 import type {InitRsp, ScoreRsp, UitslagOpslag} from '../shared/api.ts'
 import {
   begin,
@@ -32,6 +34,7 @@ const eindLaag = $('einde')
 const tikHint = $('tik-hint')
 
 type Modus = 'dag' | 'oefen'
+const FILM = new URLSearchParams(location.search).has('film')
 
 let info: InitRsp | undefined
 let netFout = ''
@@ -49,6 +52,18 @@ let stilTot = 0
 let laatsteTeller = 0
 let simTijd = 0
 let eindeSinds = 0
+// Hoe lang het spel tijdens deze ronde op de achtergrond stond (het spel staat dan stil).
+let pauzeMs = 0
+let wegSinds = 0
+let startEcht = 0
+let startKlok = 0
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) wegSinds = Date.now()
+  else if (wegSinds) {
+    pauzeMs += Date.now() - wegSinds
+    wegSinds = 0
+  }
+})
 
 const getal = (n: number): string => n.toLocaleString('en-US')
 
@@ -125,6 +140,10 @@ function start(nieuweModus: Modus): void {
   volgorde = hoedVolgorde(modus === 'dag' ? dag : vandaagDag())
   beeld = vulBeeld(nieuwBeeld())
   begin(p)
+  pauzeMs = 0
+  startEcht = Date.now()
+  startKlok = performance.now()
+  geluid.start()
   if (modus === 'dag' && !netFout) {
     // De dagbeurt telt vanaf nu. Was hij al gestart (herladen, tweede tabblad), dan wordt dit oefenen.
     void stuurStart({dag}).then(a => {
@@ -135,7 +154,7 @@ function start(nieuweModus: Modus): void {
   simTijd = performance.now()
   startLaag.hidden = true
   eindLaag.hidden = true
-  tikHint.hidden = false
+  tikHint.hidden = FILM
   tikHint.textContent =
     'Tap when he reaches the mouth. Perfect gulps stack more hats.'
 }
@@ -219,7 +238,13 @@ async function naEinde(): Promise<void> {
   let rsp: ScoreRsp | undefined
   let fout = ''
   if (modus === 'dag' && !netFout) {
-    const a = await stuurScore({dag: p.dag, drukken: p.drukken})
+    // In het filmpje staat het spel tussen twee beelden stil; die tijd telt als pauze.
+    if (FILM)
+      pauzeMs = Math.max(
+        pauzeMs,
+        Date.now() - startEcht - (performance.now() - startKlok),
+      )
+    const a = await stuurScore({dag: p.dag, drukken: p.drukken, pauzeMs})
     if (a.ok) {
       rsp = a.data
       if (info) {
@@ -252,7 +277,7 @@ stage.addEventListener('pointerdown', ev => {
   if ((ev.target as HTMLElement).closest('button, a, .laag')) return
   ev.preventDefault()
   geluid.wekGeluid()
-  drukNu(ev.timeStamp || performance.now())
+  drukNu(FILM ? performance.now() : ev.timeStamp || performance.now())
 })
 
 window.addEventListener('keydown', ev => {
@@ -281,7 +306,7 @@ geluidKnop.addEventListener('click', () => {
 })
 zetGeluidKnop()
 // In het filmpje geen knop in beeld.
-if (new URLSearchParams(location.search).has('film')) geluidKnop.hidden = true
+if (FILM) geluidKnop.hidden = true
 
 // ---------- opstarten ----------
 

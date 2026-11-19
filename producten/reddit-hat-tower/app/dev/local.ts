@@ -20,7 +20,8 @@ import {dagNummer} from '../src/shared/spel.ts'
 const POORT = Number(process.env.PORT ?? 5173)
 const MAP = join(import.meta.dirname, '..', 'public')
 const db = new GeheugenOpslag()
-const SUB = 'GloopTowerTest'
+// Naam van de proef-subreddit (alleen lokaal); te kiezen met SUB=... npm run local.
+const SUB = process.env.SUB ?? 'GloopsHatTower'
 
 const SOORT: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',

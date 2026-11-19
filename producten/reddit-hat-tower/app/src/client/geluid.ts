@@ -6,7 +6,7 @@ let aan = localStorage.getItem('gloop-geluid') !== 'uit'
 const FILM = new URLSearchParams(location.search).has('film')
 const logboek: {t: number; naam: Klank; arg: number[]}[] = []
 
-type Klank = 'gulp' | 'goud' | 'lucht' | 'mis' | 'einde' | 'land'
+type Klank = 'gulp' | 'goud' | 'lucht' | 'mis' | 'einde' | 'land' | 'start'
 
 export function geluidAan(): boolean {
   return aan
@@ -74,6 +74,11 @@ const KLANKEN: Record<Klank, (c: Doel, t: number, arg: number[]) => void> = {
   lucht: (c, t) => toon(c, t, 180, 140, 0.06, 'square', 0.06),
   mis: (c, t) => toon(c, t, 320, 240, 0.16, 'sine', 0.12),
   land: (c, t) => toon(c, t, 520, 780, 0.08, 'triangle', 0.08),
+  // Begin van de ronde: een korte, opgewekte "boing" omhoog.
+  start: (c, t) => {
+    toon(c, t, 220, 660, 0.18, 'triangle', 0.22)
+    toon(c, t, 440, 880, 0.12, 'sine', 0.12, 0.12)
+  },
   einde: (c, t) => {
     toon(c, t, 523, 523, 0.12, 'triangle', 0.2)
     toon(c, t, 659, 659, 0.12, 'triangle', 0.2, 0.12)
@@ -94,6 +99,7 @@ export const lucht = (): void => speel('lucht')
 export const mis = (): void => speel('mis')
 export const einde = (): void => speel('einde')
 export const land = (): void => speel('land')
+export const start = (): void => speel('start')
 
 /** Alleen voor het filmpje: rendert alle gespeelde klanken vanaf `vanaf` (performance.now) tot een WAV (base64). */
 async function filmGeluid(vanaf: number, seconden: number): Promise<string> {

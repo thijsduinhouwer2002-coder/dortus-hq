@@ -69,7 +69,7 @@ export function toonEinde(e: EindInfo): void {
   )
   $('kaart-voorbeeld').textContent = tekst
   $('kaart-wie').textContent = info?.naam
-    ? `Posts as u/${info.naam} under today's post:`
+    ? 'Posts as a comment from your account, under this post:'
     : 'Your result:'
   const plaats = $<HTMLButtonElement>('knop-reactie')
   plaats.disabled = false

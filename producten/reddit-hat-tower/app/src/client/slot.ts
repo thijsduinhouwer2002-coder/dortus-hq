@@ -64,14 +64,15 @@ export function maakSlot(
   // Bij een te hoge toren begint de camera bij de top en zakt hij naar Gloop.
   const vStart = pan ? BOVEN - (top - voet) * zoom : vEind
   const camKlaar = nu + (pan ? 600 + 1500 : 900)
-  const n = naarSamen && beeld.sub ? Math.min(p.hoeden, 14) : 0
+  const n = naarSamen && beeld.sub ? Math.min(p.hoeden, 10) : 0
   const vluchten = Array.from({length: n}, (_, i) => ({
-    start: camKlaar + 150 + i * 70,
-    duur: 700,
+    start: camKlaar + 150 + i * 90,
+    duur: 900,
     hoed: volgorde[(p.hoeden - 1 - i + 100) % 10] as number,
-    i: p.hoeden - 1 - Math.floor((i * p.hoeden) / Math.max(1, n)),
+    // Van onderin je toren (vlak boven Gloop, goed in beeld), niet van de top die buiten beeld kan staan.
+    i: Math.min(i, p.hoeden - 1),
   }))
-  const laatste = n > 0 ? camKlaar + 150 + (n - 1) * 70 + 700 : camKlaar
+  const laatste = n > 0 ? camKlaar + 150 + (n - 1) * 90 + 900 : camKlaar
   const samenVan = beeld.samen
   const samenTot = n > 0 ? beeld.samen + p.hoeden : beeld.samen
   const m = n > 0 ? mijlpaal(samenVan, samenTot) : null
@@ -87,7 +88,7 @@ export function maakSlot(
     samenVan,
     samenTot,
     mijlpaal: m
-      ? `r/${beeld.sub}\npassed ${m.toLocaleString('en-US')} hats today!`
+      ? `r/${beeld.sub}\npassed ${m.toLocaleString('en-US')}\nhats today!`
       : '',
     mijlpaalVanaf: laatste,
     mijlpaalGeklonken: false,
@@ -133,8 +134,8 @@ export function tekenSlot(
   const g = k.maten.gloop
   const plekken = scene.hoedPlekken(slot.hoeden, volgorde)
   const naarX = SAMEN_X
-  // De top van de gezamenlijke toren, of het bordje als hij boven de grot uitkomt.
-  const naarY = Math.max(samenTop() + 10, 70)
+  // De top van de gezamenlijke toren; staat die boven de grot uit, dan een plek op de toren die in beeld is.
+  const naarY = Math.max(samenTop() + 10, scene.h * 0.28)
   let geland = 0
   for (const v of slot.vluchten) {
     const f = (nu - v.start) / v.duur
@@ -148,12 +149,13 @@ export function tekenSlot(
     const vanX = CX + beeld.opzij + (wx - CX) * beeld.zoom
     const vanY = (beeld.voetY ?? scene.voet) + (wy - scene.voet) * beeld.zoom
     const x = vanX + (naarX - vanX) * f
-    const y = vanY + (naarY - vanY) * f - 160 * 4 * f * (1 - f)
+    const y = vanY + (naarY - vanY) * f - 120 * 4 * f * (1 - f)
     const m = k.maten.hoed[v.hoed] as {b: number; h: number}
-    const s = 0.75 - 0.3 * f
+    // Groot genoeg om te zien: begint op ware grootte, krimpt naar de maat van de verre toren.
+    const s = 1.05 - 0.6 * f
     ctx.save()
     ctx.translate(x, y)
-    ctx.rotate(f * 5)
+    ctx.rotate(Math.sin(f * Math.PI) * 0.8)
     ctx.drawImage(
       k.hoed[v.hoed] as HTMLImageElement,
       (-m.b * s) / 2,
@@ -170,15 +172,37 @@ export function tekenSlot(
       : Math.round(
           slot.samenVan + ((slot.samenTot - slot.samenVan) * geland) / n,
         )
-  if (slot.mijlpaal && nu >= slot.mijlpaalVanaf) {
+  // "+N hats" stijgt op bij het bordje zodra je eerste hoed aankomt.
+  if (geland > 0) {
+    const t0 = (slot.vluchten[0]?.start ?? 0) + (slot.vluchten[0]?.duur ?? 0)
+    const op = Math.min(1, (nu - t0) / 1200)
+    tekst(
+      ctx,
+      `+${slot.samenTot - slot.samenVan} hats`,
+      SAMEN_X + 52,
+      naarY + 34 - op * 24,
+      24,
+      'right',
+      '#8ff0c4',
+    )
+  }
+  // De mijlpaal staat links in de lege lichtbaan, niet over je eigen toren.
+  // Staat 1,9 s en vervaagt dan, zodat het uitslagvel en zijn teksten vrij blijven.
+  if (
+    slot.mijlpaal &&
+    nu >= slot.mijlpaalVanaf &&
+    nu < slot.mijlpaalVanaf + 2200
+  ) {
     const t = nu - slot.mijlpaalVanaf
     const veer = t < 160 ? 1.35 - (0.35 * t) / 160 : 1
     ctx.save()
-    ctx.translate(CX, scene.h * 0.13)
+    ctx.globalAlpha = t > 1900 ? 1 - (t - 1900) / 300 : 1
+    ctx.translate(14, scene.h * 0.1)
     ctx.scale(veer, veer)
-    const [eerste, tweede] = slot.mijlpaal.split('\n')
-    tekst(ctx, eerste ?? '', 0, 0, 22, 'center', '#fff6e6')
-    tekst(ctx, tweede ?? '', 0, 26, 30, 'center', '#ffc93c')
+    const [eerste, tweede, derde] = slot.mijlpaal.split('\n')
+    tekst(ctx, eerste ?? '', 0, 0, 20, 'left', '#fff6e6')
+    tekst(ctx, tweede ?? '', 0, 26, 32, 'left', '#ffc93c')
+    tekst(ctx, derde ?? '', 0, 62, 32, 'left', '#ffc93c')
     ctx.restore()
     if (!slot.mijlpaalGeklonken) {
       slot.mijlpaalGeklonken = true

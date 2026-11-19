@@ -16,6 +16,6 @@ Devvit Web-app op de officiële template `reddit/devvit-template-bare`. Alles st
 | Uitslagvel | `src/client/uitslag.ts`, `public/uitslag.css` | Score, vakjes met uitleg, reactie met voorbeeld, lid worden, ranglijsten van vandaag en gisteren. |
 | Post in de feed | `src/client/splash.ts`, `public/splash.html` | Gloop met toren, de dag, de knop die het spel groot opent. |
 | Plaatjes | `public/kunst/` | Renders uit de 3D-modellen van Hats (`../kunst/render.sh`, `../kunst/knip.py`); maten en ankers in `kunst.json`. |
-| Lokaal | `dev/local.ts`, `dev/schermen.py`, `dev/film.py` | Server zonder Reddit (`?dag=N` speelt als een oude post); Playwright-speler voor schermbeelden; het inzendfilmpje op 1080x1920 met geluid. |
+| Lokaal | `dev/local.ts`, `dev/schermen.py`, `dev/film.py` | Server zonder Reddit (`?dag=N` speelt als een oude post); Playwright-speler voor schermbeelden; het inzendfilmpje op 1080x1920 met geluid, beeld voor beeld op een eigen klok (`src/client/filmklok.ts`, alleen met `?film=1`). |
 
 Toetsen: `src/shared/spel.test.ts` en `src/server/logica.test.ts` (`npm test`: types, lint, toetsen, bouw).

@@ -43,7 +43,12 @@ export type StartReq = {dag: number}
 export type StartRsp = {telt: boolean}
 
 /** De dagbeurt: de server speelt hem zelf na uit de drukken, dus de score komt niet van de client. */
-export type ScoreReq = {dag: number; drukken: number[]}
+export type ScoreReq = {
+  dag: number
+  drukken: number[]
+  /** Hoe lang het spel op de achtergrond stond (gepauzeerd); telt niet als te laat (max 10 minuten). */
+  pauzeMs?: number
+}
 export type ScoreRsp = {
   uitslag: UitslagOpslag
   dagenOpRij: number

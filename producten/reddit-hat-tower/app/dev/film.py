@@ -1,11 +1,13 @@
-"""Maakt het inzendfilmpje: 1080x1920, onder 1 minuut, met geluid, een hele ronde en het eindmoment.
+"""Maakt het inzendfilmpje: 1080x1920 echt (beeld voor beeld op 3x), ±33 s, met geluid.
 
 Gebruik (lokale server moet draaien: PROEF=1 npm run local):
     python3 dev/film.py <uit.mp4>
 
-Hoe: het screencast van Chrome levert beelden op 1080x1920 (360x640 op 3x), elk met zijn tijd. Het spel onthoudt in ?film=1 elke klank
-met zijn tijd en rendert die achteraf tot een WAV (OfflineAudioContext). De tijden zetten
-beeld en geluid gelijk via performance.timeOrigin. De Engelse teksten komen er met ffmpeg overheen.
+Hoe: met ?film=1 loopt het spel op een eigen klok (src/client/filmklok.ts). Dit script zet de klok
+telkens 1/30 s verder (in 4 stapjes, zodat de speler precies kan mikken) en maakt dan een
+schermbeeld op 360x640 bij 3x, dus echt 1080x1920. De klanken van het spel worden met hun tijd
+onthouden en achteraf tot een WAV gerenderd. Het filmpje begint meteen met de ronde, een stuk uit
+het midden gaat eruit, en de Engelse teksten komen er met ffmpeg overheen.
 """
 import base64
 import re
@@ -21,105 +23,97 @@ UIT = Path(sys.argv[1] if len(sys.argv) > 1 else "/tmp/gloop-film.mp4")
 APP = Path(__file__).resolve().parent.parent
 LETTER = APP / "public/fonts/LilitaOne-Regular.ttf"
 WERK = Path(tempfile.mkdtemp(prefix="gloop-film-"))
+FPS = 30
 SPELER = re.search(r'SPELER_JS = """(.*?)"""', (APP / "dev/schermen.py").read_text(), re.S).group(1)
 # Voor het filmpje mikt de speler iets beter (zoals iemand die het spel kent).
 SPELER = SPELER.replace("* 40", "* 22").replace("< 0.12", "< 0.04")
+# Het stuk uit het midden van de ronde dat eruit gaat (seconden vanaf de start), zodat het ±33 s wordt.
+KNIP = (12.0, 17.0)
 
+ruw = WERK / "ruw.mp4"
+enc = subprocess.Popen(
+    ["ffmpeg", "-v", "error", "-y", "-f", "image2pipe", "-framerate", str(FPS), "-c:v", "png", "-i", "-",
+     "-c:v", "libx264", "-preset", "veryfast", "-crf", "10", "-pix_fmt", "yuv420p", str(ruw)],
+    stdin=subprocess.PIPE,
+)
 with sync_playwright() as pw:
-    browser = pw.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--autoplay-policy=no-user-gesture-required"])
+    browser = pw.chromium.launch(executable_path="/usr/bin/google-chrome")
     ctx = browser.new_context(viewport={"width": 360, "height": 640}, device_scale_factor=3, is_mobile=True, has_touch=True)
     pagina = ctx.new_page()
     fouten = []
     pagina.on("pageerror", lambda e: fouten.append(str(e)))
-    pagina.goto(f"http://localhost:5173/game.html?proef=1&film=1&u=film{int(time.time()) % 100000}")
+    pagina.goto(f"http://localhost:5173/game.html?proef=1&film=1&u=speler{int(time.time()) % 100000}")
     pagina.wait_for_selector("body.klaar")
-    # Beelden op ware grootte (1080x1920) met hun tijd, via het screencast van Chrome.
-    beelden = []
-    cdp = ctx.new_cdp_session(pagina)
-
-    def beeld(e):
-        n = len(beelden)
-        (WERK / f"b{n:05d}.jpg").write_bytes(base64.b64decode(e["data"]))
-        beelden.append(e["metadata"]["timestamp"])
-        cdp.send("Page.screencastFrameAck", {"sessionId": e["sessionId"]})
-
-    cdp.on("Page.screencastFrame", beeld)
-    cdp.send("Page.startScreencast", {"format": "jpeg", "quality": 90, "maxWidth": 1080, "maxHeight": 1920, "everyNthFrame": 1})
-    pagina.wait_for_timeout(500)
-    oorsprong = pagina.evaluate("performance.timeOrigin")
-    merk = pagina.evaluate("performance.now()")
-    pagina.wait_for_timeout(3000)
-    print("start,", len(beelden), "beelden", flush=True)
+    pagina.evaluate("gloopFilmStap(100)")
     pagina.click("#knop-speel")
-    t_speel = pagina.evaluate("performance.now()")
+    t0 = pagina.evaluate("performance.now()")
     pagina.evaluate(SPELER)
-    for _ in range(600):
-        if pagina.evaluate("window.gloopProef().toestand") == 5:
+    beelden = 0
+    t_einde = None
+    t_vel = None
+    while True:
+        pagina.evaluate(f"gloopFilmStap({1000 / FPS}, 4)")
+        enc.stdin.write(pagina.screenshot(type="png"))
+        beelden += 1
+        nu = pagina.evaluate("performance.now()")
+        if t_einde is None and pagina.evaluate("window.gloopProef().toestand") == 5:
+            t_einde = nu
+        if t_einde is not None and t_vel is None and pagina.evaluate("!document.getElementById('einde').hidden"):
+            t_vel = nu
+        if t_vel is not None and nu - t_vel > 2600:
             break
-        pagina.wait_for_timeout(100)
-    print("ronde klaar,", len(beelden), "beelden", flush=True)
-    t_einde = pagina.evaluate("performance.now()")
-    pagina.wait_for_timeout(6500)
-    # Rustig door het uitslagvel naar de ranglijst.
-    pagina.evaluate("document.getElementById('einde').scrollTo({top: 420, behavior: 'smooth'})")
-    pagina.wait_for_timeout(2600)
-    t_stop = pagina.evaluate("performance.now()")
-    cdp.send("Page.stopScreencast")
-    duur = (t_stop - merk) / 1000 + 0.5
-    wav = pagina.evaluate(f"window.gloopFilmGeluid({merk}, {duur})")
+        if beelden > FPS * 60:
+            raise SystemExit("ronde liep niet af")
+        if beelden % 150 == 0:
+            print(f"{beelden} beelden", flush=True)
+    duur = beelden / FPS
+    wav = pagina.evaluate(f"window.gloopFilmGeluid({t0}, {duur + 0.5})")
     (WERK / "geluid.wav").write_bytes(base64.b64decode(wav))
     ctx.close()
     browser.close()
+enc.stdin.close()
+enc.wait()
 
-# Tijden in seconden vanaf het merk (begin van het filmpje).
-nul = (oorsprong + merk) / 1000
-lijst = []
-for i, ts in enumerate(beelden):
-    if ts >= nul:
-        lijst.append((i, ts - nul))
-with open(WERK / "lijst.txt", "w") as f:
-    for k, (i, tt) in enumerate(lijst):
-        volgende = lijst[k + 1][1] if k + 1 < len(lijst) else tt + 0.04
-        f.write(f"file 'b{i:05d}.jpg'\nduration {max(0.001, volgende - tt):.4f}\n")
-    f.write(f"file 'b{lijst[-1][0]:05d}.jpg'\n")
-eerste = lijst[0][1]
-print(f"{len(lijst)} beelden, gemiddeld {len(lijst) / ((t_stop - merk) / 1000):.1f} per seconde")
+e = (t_einde - t0) / 1000
+a, b = KNIP
+lengte = duur - (b - a)
 
 
-def t(perf):
-    return (perf - merk) / 1000 - eerste
+def na(t):
+    """Tijd in het ingekorte filmpje."""
+    return t if t <= a else t - (b - a)
 
 
-s, e = t(t_speel), t(t_einde)
-eind = t(t_stop)
-teksten = [
-    (s + 2.6, s + 6.0, "One tap. 30 seconds."),
-    (s + 9.0, s + 13.0, "Perfect gulps stack more hats"),
-    (s + 17.0, s + 21.0, "Same tower for everyone today"),
-    (s + 24.0, s + 28.5, "Every subreddit builds one tower"),
-    (e + 7.0, eind, "Share your run. New tower tomorrow."),
-]
-filters = []
-for a, b, tekst in teksten:
-    filters.append(
-        f"drawtext=fontfile={LETTER}:text='{tekst}':fontsize=66:fontcolor=white:borderw=9:bordercolor=0x2b1206:"
-        f"x=(w-text_w)/2:y=h*0.17:enable='between(t,{a:.2f},{b:.2f})'"
+def tekst(s, van, tot, grootte=66, y="h*0.17", kleur="white"):
+    return (
+        f"drawtext=fontfile={LETTER}:text='{s}':fontsize={grootte}:fontcolor={kleur}:borderw=9:bordercolor=0x2b1206:"
+        f"x=(w-text_w)/2:y={y}:enable='between(t,{van:.2f},{tot:.2f})'"
     )
+
+
+teksten = [
+    tekst("Gloop's Hat Tower".replace("'", "’"), 0.0, 2.4, 116, "h*0.14", "0x6fe0b0"),
+    tekst("a daily game on Reddit", 0.0, 2.4, 60, "h*0.14+135"),
+    tekst("One tap. 30 seconds.", 2.6, 6.0),
+    tekst("Perfect gulps stack more hats", 6.6, 10.4),
+    tekst("Same tower for everyone today", na(b + 0.3), na(b + 4.0)),
+    tekst("Every subreddit builds one tower", na(b + 4.8), na(e - 0.4)),
+    tekst("Share your run. New tower tomorrow.", na(t_vel_s := (t_vel - t0) / 1000) + 0.2, lengte, 60, "h*0.05"),
+]
+filter_complex = (
+    f"[0:v]trim=0:{a},setpts=PTS-STARTPTS[v1];[0:v]trim={b}:{duur},setpts=PTS-STARTPTS[v2];"
+    f"[1:a]atrim=0:{a},asetpts=PTS-STARTPTS[a1];[1:a]atrim={b}:{duur},asetpts=PTS-STARTPTS[a2];"
+    f"[v1][a1][v2][a2]concat=n=2:v=1:a=1[v][au];[v]{','.join(teksten)}[vt]"
+)
 subprocess.run(
-    [
-        "ffmpeg", "-v", "error", "-y",
-        "-f", "concat", "-safe", "0", "-i", str(WERK / "lijst.txt"),
-        "-ss", f"{eerste:.3f}", "-i", str(WERK / "geluid.wav"),
-        "-t", f"{eind:.2f}",
-        "-vf", ",".join(["fps=30", "scale=1080:1920:flags=lanczos", *filters]),
-        "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
-        str(UIT),
-    ],
+    ["ffmpeg", "-v", "error", "-y", "-i", str(ruw), "-i", str(WERK / "geluid.wav"),
+     "-filter_complex", filter_complex, "-map", "[vt]", "-map", "[au]",
+     "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-pix_fmt", "yuv420p",
+     "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(UIT)],
     check=True,
 )
 for f in WERK.iterdir():
     f.unlink()
 WERK.rmdir()
-print(f"filmpje: {UIT} ({eind:.1f} s), ronde begint op {s:.1f} s, einde op {e:.1f} s")
+print(f"filmpje: {UIT} ({lengte:.1f} s, {beelden} beelden opgenomen), einde ronde op {na(e):.1f} s, vel op {na(t_vel_s):.1f} s")
 print("fouten in de browser:", fouten or "geen")

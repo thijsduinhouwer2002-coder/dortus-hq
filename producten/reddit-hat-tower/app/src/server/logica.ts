@@ -121,6 +121,8 @@ export type Dagen = {post: number; nu: number}
 
 /** Insturen kan tot zo lang na het eind van de ronde (en niet eerder dan de ronde kan duren). */
 export const INSTUUR_MARGE_MS = 60_000
+/** Zo lang mag een dagbeurt op de achtergrond staan zonder te laat te zijn. */
+export const MAX_PAUZE_MS = 600_000
 
 export async function init(db: Opslag, wie: Wie, d: Dagen): Promise<InitRsp> {
   const sub = wie.subreddit
@@ -215,8 +217,11 @@ export async function score(
   const begon = await db.get(sleutel.start(sub, dag, user))
   if (!begon) throw new FoutVerzoek('start the tower first', 409)
   const duur = nuMs - Number(begon)
-  if (duur > RONDE_MS + INSTUUR_MARGE_MS)
+  // Op de achtergrond staat het spel stil; die tijd telt niet mee (tot 10 minuten).
+  const pauze = Math.min(Math.max(0, Number(req.pauzeMs) || 0), MAX_PAUZE_MS)
+  if (duur - pauze > RONDE_MS + INSTUUR_MARGE_MS) {
     throw new FoutVerzoek('this run was sent too late', 409)
+  }
   if (duur < RONDE_MS - 3000)
     throw new FoutVerzoek('this run was sent too early', 409)
   // Eerst claimen, dan pas tellen: twee gelijktijdige inzendingen tellen zo maar één keer.

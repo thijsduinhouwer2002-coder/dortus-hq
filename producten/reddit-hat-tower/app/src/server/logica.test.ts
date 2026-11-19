@@ -193,3 +193,28 @@ test('beste toren wordt ook de eerste keer bewaard', async () => {
   assert.equal((await init(db, ana, D(2))).besteOoit, r1.besteOoit)
   assert.ok(r1.besteOoit > 0)
 })
+
+test('pauzeren tijdens de beurt telt niet als te laat (tot 10 minuten)', async () => {
+  const db = new GeheugenOpslag()
+  const p = speelProef(5)
+  await start(db, ana, D(5), {dag: 5}, T0)
+  const r = await score(
+    db,
+    ana,
+    D(5),
+    {dag: 5, drukken: p.drukken, pauzeMs: 300_000},
+    T0 + 31_000 + 300_000,
+  )
+  assert.equal(r.uitslag.hoeden, p.hoeden)
+  await start(db, bas, D(5), {dag: 5}, T0)
+  await assert.rejects(
+    score(
+      db,
+      bas,
+      D(5),
+      {dag: 5, drukken: p.drukken, pauzeMs: 3_600_000},
+      T0 + 31_000 + 3_600_000,
+    ),
+    /too late/,
+  )
+})

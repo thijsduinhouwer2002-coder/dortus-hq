@@ -1,5 +1,27 @@
 # Stand: Gloop's Hat Tower op Reddit
 
+## Do 19 nov 2026 middag, filmpje opnieuw en kleine spelpunten (bouwer), nog niet gekeurd
+Na de keuring van 2b (spel akkoord ja, filmpje nee).
+
+### Filmpje `beelden/inzendfilmpje-1080x1920.mp4` (GEZIEN, zelf bekeken)
+- **33,8 s**, 1080x1920, 30 beelden per seconde, H.264 met AAC-geluid.
+- **Begint met actie:** beeld 0 is al de ronde; de held valt vanaf de eerste seconde, op 0 s klinkt een korte startklank (nieuw, ook in het spel), de eerste "PERFECT!" met slokklank valt op ±1,8 s. Titel in beeld de eerste 2,4 s: "Gloop's Hat Tower / a daily game on Reddit". Geen startscherm meer.
+- **Echt scherp:** het spel loopt in het filmpje op een eigen klok (`src/client/filmklok.ts`, alleen met `?film=1`); `dev/film.py` zet de klok per beeld 1/30 s verder (in 4 stapjes, zodat de speler precies kan mikken) en maakt een PNG op 360x640 bij 3x, dus echt 1080x1920. Op ware grootte nagekeken (uitsnede 600x700): randen van Gloop, hoeden en letters scherp, geen jpeg-blokjes.
+- **Geen proefnamen:** de lokale subreddit heet nu r/GloopsHatTower (`SUB=` om te kiezen); de ranglijst komt niet in beeld, en de regel boven het voorbeeld van de reactie noemt geen gebruikersnaam meer ("Posts as a comment from your account, under this post:"; dat lost ook "today's post" op een oude post op). Of r/GloopsHatTower op Reddit vrij is, is ONBEKEND; de echte naam komt met de opname op Reddit.
+- **Ingekort:** 5 s uit het midden van de ronde eruit (van 12 tot 17 s), dus één harde knip waarbij de teller van ±15 naar ±31 springt. De vijf teksten staan er nog in, plus de titel.
+- Inhoud: ronde met 56 hoeden, reeks tot 10, gouden held, een misser met "bye!", de camera van de top naar Gloop, je hoeden die groot naar de gezamenlijke toren vliegen met "+56 hats", "r/GloopsHatTower passed 150 hats today!" links in beeld, en het uitslagvel. Speler is de speler in de pagina; de 129 hoeden van vandaag komen van lokale proefspelers die niet in beeld komen.
+- Nog niet: opname op Reddit zelf (post in de feed, tik, groot spel, reactie). Kan pas na de login van Thijs.
+
+### Spel
+- Mijlpaal staat links in de lege lichtbaan, niet meer over je eigen toren, en vervaagt na 1,9 s, zodat het uitslagvel vrij blijft.
+- Je hoeden vliegen nu groot (op ware grootte, krimpend naar de maat van de verre toren), trager (0,9 s, 10 stuks), van onderin je toren naar een plek op de gezamenlijke toren die in beeld is, met "+N hats" bij de toren.
+- Pauzeren of wegzetten tijdens de dagbeurt telt niet als te laat: het spel meet hoe lang het op de achtergrond stond en stuurt dat mee; de server trekt dat af (tot 10 minuten). Toets erbij.
+- Nieuwe startklank bij het begin van een ronde.
+
+Nieuwe beelden (uit het filmpje, 720 breed): `beelden/4-perfect-reeks.png`, `beelden/5-mijlpaal-gezamenlijke-toren.png`, `beelden/6-uitslag-delen.png`. De oudere `1-start.png` tot `3-uitslag.png` zijn lokale proefbeelden van 2a met de oude proefnaam.
+
+Toetsen: `npm test` groen (types, lint, 22 toetsen, bouw).
+
 ## Do 19 nov 2026 middag, fase 2b af (bouwer), nog niet gekeurd
 Na de herkeuring (akkoord ja, UX 8, Polish 7, Reddity 7, Daily 7).
 
