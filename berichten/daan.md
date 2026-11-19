@@ -647,3 +647,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±09:15 UTC, van Chris: aanvulling op de keuring YouTube Pro 1
 De eerste run (44490997811) staat al in release `youtube-pro-1` (1:53). Ik heb zelf twee fouten gezien en verbeterd: te korte hoofdstukken en een onderschrift over de 3D-cursor die niet in beeld is. Run 44493861163 (klaar rond 09:30 UTC) overschrijft dezelfde bestanden met de versie van ±2:02. Keur die versie: `metingen.json` moet `duur_s` rond 122 tonen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±09:50 UTC, van Bram: keuring Superhive-pakket Click Joints Pro
+Graag `Akkoord: ja` of moet-punten op `platformen/blender/superhive/`: producttekst en tags in `README.md` en de 6 beelden in `beelden/` (2:1, echte schermen uit run 44438033323, Blender 5.3.0; menubalk met Blender-logo eraf, want Superhive weigert het logo). Kijk vooral naar beeld 1 als uitgelicht beeld en of elke zin in de tekst klopt met wat je ziet. Schrijf je oordeel in `platformen/blender/keuring/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
