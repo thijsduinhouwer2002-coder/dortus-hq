@@ -1,5 +1,5 @@
 {
- "t": "2026-11-19T15:59:27Z",
+ "t": "2026-11-19T16:29:47Z",
  "beurzen": {
   "kraken": {
    "paren": 1209,
@@ -105,7 +105,13 @@
   }
  },
  "fouten": {
-  "bybit:paren": 1,
-  "binance:paren": 1
+  "bybit:paren": 2,
+  "binance:paren": 2,
+  "poloniex:boek": 72,
+  "mexc:boek": 107,
+  "gate:boek": 37,
+  "bitget:boek": 1,
+  "htx:boek": 3,
+  "xt:boek": 3
  }
 }
