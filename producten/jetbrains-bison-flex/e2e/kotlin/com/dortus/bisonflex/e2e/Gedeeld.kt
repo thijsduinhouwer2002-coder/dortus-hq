@@ -54,7 +54,9 @@ internal fun winkelproject(voorvoegsel: String): Path {
     // Scheiding in het instellingenvenster vast (roestronde R4, herkeuring 2): standaard 0,2, maar de boom links
     // duwde hem van run tot run naar 474 tot 630 px (kleurenpagina). Met 0,33 ligt hij voorbij die breedtes en blijft
     // hij staan. Projectinstelling settings.editor.splitter.proportion (SettingsEditor.java) in .idea/workspace.xml.
-    project.resolve(".idea").createDirectories().resolve("workspace.xml").writeText(
+    // Alleen voor IDEA (de kleurenpagina zit in IdeTest): met dit bestand koos CLion van run tot run een andere breedte
+    // voor het zijpaneel (runs 44496665424 en 44496687498), zonder bleef CLion gelijk.
+    if (voorvoegsel.startsWith("bisonflex-")) project.resolve(".idea").createDirectories().resolve("workspace.xml").writeText(
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n" +
             "  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n" +
             "    \"settings.editor.splitter.proportion\": \"0.33\"\n  }\n}]]></component>\n</project>\n"
