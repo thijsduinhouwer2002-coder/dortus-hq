@@ -1,0 +1,95 @@
+{
+ "begin": "2026-11-19T16:07:23Z",
+ "eind": "2026-11-19T16:21:14Z",
+ "minuten": 13.9,
+ "beurzen": {
+  "bitvavo": {
+   "rondes": 208,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 435,
+   "driehoeken_bekend": 22,
+   "laatste_fout": null
+  },
+  "kraken": {
+   "rondes": 166,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 1352,
+   "driehoeken_bekend": 2352,
+   "laatste_fout": null
+  },
+  "okx": {
+   "rondes": 277,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA-dochter",
+   "paren": 1248,
+   "driehoeken_bekend": 2336,
+   "laatste_fout": null
+  },
+  "kucoin": {
+   "rondes": 277,
+   "fouten": 0,
+   "boeken": 24,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA-dochter",
+   "paren": 968,
+   "driehoeken_bekend": 452,
+   "laatste_fout": null
+  },
+  "gate": {
+   "rondes": 207,
+   "fouten": 0,
+   "boeken": 6,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA-dochter",
+   "paren": 2156,
+   "driehoeken_bekend": 372,
+   "laatste_fout": null
+  },
+  "bitget": {
+   "rondes": 275,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "grijs",
+   "paren": 3659,
+   "driehoeken_bekend": 202,
+   "laatste_fout": null
+  },
+  "mexc": {
+   "rondes": 277,
+   "fouten": 0,
+   "boeken": 437,
+   "driehoeken": 3,
+   "bevestigd": 0,
+   "status": "grijs",
+   "paren": 1664,
+   "driehoeken_bekend": 886,
+   "laatste_fout": null
+  },
+  "bitstamp": {
+   "rondes": 165,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 252,
+   "driehoeken_bekend": 346,
+   "laatste_fout": null
+  }
+ }
+}
