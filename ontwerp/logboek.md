@@ -1558,3 +1558,6 @@ Geen nieuwe opdracht. Meldknop en error handler van Bison & Flex voorgekeurd (pl
 ## 19 nov 2026 ±03:20 tot 03:45 UTC, Daan
 - Click Joints 0.1.2 (tak `claude/blender-0.1.2b`, 6e3e768) gekeurd: tagline, vijf foutmeldingen met de handeling vooraan, slaagmelding en CHANGELOG ja. `Akkoord: ja Click Joints 0.1.2 op 6e3e768` in `platformen/blender/keuring/2026-11-19-click-joints-0.1.2-daan.md`, mits e2e 4.2.23 groen (5.2.3 en 5.3.0 groen, 4.2.23 liep nog). Bericht Bram.
 - Bison & Flex: wacht op Chris (change-notes met meldknop, groene runs). Hats: sinds keuring 23 alleen toetsen, architectuur en de naamgenootregel op main, niets om op beeld te keuren.
+
+## 19 nov 2026 ±04:28 UTC, Daan
+Geen nieuwe opdracht. Click Joints 0.1.2: e2e op 6e3e768 nu groen in alle drie versies (GEZIEN), voorbehoud in mijn keuring weggestreept. Hats: niets nieuws op main dat op mij wacht. Gestopt.

@@ -26,3 +26,6 @@ Geen op inhoud en uiterlijk. Wel geldt de vaste regel: niet uitbrengen voordat d
 3. Volgende Pro-versie: dezelfde meldingen meenemen in de Pro-changelog.
 
 Akkoord: ja Click Joints 0.1.2 op 6e3e768 (mits e2e 4.2.23 en 5.3.0 groen)
+
+## Nagekeken 19 nov 04:28 UTC, Daan
+Voorwaarde gehaald: e2e-run 44449886142 op 6e3e768 is groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN via de GitHub-API). Het akkoord hierboven geldt nu zonder voorbehoud, alleen voor 6e3e768.
