@@ -6,6 +6,7 @@ import unittest
 
 import rapport
 import scanner
+import simulatie
 
 
 class TestVul(unittest.TestCase):
@@ -212,6 +213,79 @@ class TestRapport(unittest.TestCase):
                 fh.write(json.dumps(self.regel(munt="P")) + "\n")
             self.assertNotIn("P-USDT", rapport.maak(d))
             self.assertIn("P-USDT", rapport.maak(d, met_proef=True))
+
+
+class TestSimulatie(unittest.TestCase):
+    """Voorraad-simulatie op kunstmatige kansen (geen netwerk)."""
+
+    def kans(self, minuut, **kw):
+        r = {"munt": "X", "quote": "EUR", "koop": "a", "verkoop": "b", "eur_per_quote": 1.0,
+             "begin": f"2026-11-19T10:{minuut:02d}:00Z", "eind": f"2026-11-19T10:{minuut + 3:02d}:00Z",
+             "ruimte_eur_med": 1000, "winst100_med": 0.5, "winst500_med": 4.5, "winst1000_med": 9.5,
+             "winst2500_med": 9.5, "winst_ruimte_med": 9.5, "opname_eur": 0.5}
+        r.update(kw)
+        return r
+
+    def test_bruto_lineair_en_nooit_meer_dan_de_ruimte(self):
+        r = self.kans(0, ruimte_eur_med=400, winst100_med=1, winst500_med=4, winst_ruimte_med=5)
+        self.assertAlmostEqual(simulatie.bruto_bij(r, 100), 1.5)      # opnamekosten tellen niet per kans
+        self.assertAlmostEqual(simulatie.bruto_bij(r, 250), 3.5)
+        self.assertAlmostEqual(simulatie.bruto_bij(r, 1000), 5.5)     # niet meer dan de ruimte op het boek
+        self.assertEqual(simulatie.bruto_bij(r, 0), 0)
+
+    def test_voorraad_beperkt_en_terugschuiven(self):
+        # inleg 2000: per beurs 500 euro en 500 euro aan munten. Kans 1 kan maar 500 (geld op a en munt op b op).
+        # Daarna gaat de munt van a naar b (30 min) en het geld van b naar a (EUR: 1 dag, GOK): kans 2 en 3 gemist.
+        ks = [self.kans(0), self.kans(10), self.kans(20)]
+        s = simulatie.Sim(ks, 2000, ("a", "b")).draai()
+        d = s.dagen()["2026-11-19"]
+        self.assertEqual((d["kansen"], d["gemist"], d["beperkt"]), (3, 2, 1))
+        self.assertAlmostEqual(d["bruto"], 5.0)                       # 4,5 + 0,5 opname terug
+        self.assertEqual(d["schuif"], 2)
+        self.assertAlmostEqual(d["kosten"], 0.5 + 1.0)                # munt (gemeten) en euro (GOK 1 EUR)
+        self.assertAlmostEqual(s.waarde() - 2000, d["netto"], places=6)
+
+    def test_munt_aangekomen_kans_weer_mogelijk(self):
+        # Munt is na 30 minuten op b; met genoeg geld op a (USDT, 30 min) gaat kans 2 weer door.
+        ks = [self.kans(0, quote="USDT"), self.kans(45, quote="USDT", eind="2026-11-19T10:50:00Z")]
+        d = simulatie.Sim(ks, 2000, ("a", "b")).draai().dagen()["2026-11-19"]
+        self.assertEqual(d["gemist"], 0)
+        self.assertGreater(d["bruto"], 5.0)
+
+    def test_niet_schuiven_als_kosten_te_hoog(self):
+        ks = [self.kans(0, opname_eur=100.0, winst500_med=-95.5, winst100_med=-99.5, winst1000_med=-90.5,
+                        winst2500_med=-90.5, winst_ruimte_med=-90.5)]
+        s = simulatie.Sim(ks, 2000, ("a", "b")).draai()
+        self.assertFalse(any(x[1] == "X" for x in s.schuif_log))     # 100 euro kosten op 500: niet schuiven
+
+    def test_koerseffect_apart_en_netto_klopt(self):
+        t_mid = simulatie.ts("2026-11-19T10:05:00Z")
+        koers = lambda munt, t: 1.0 if t < t_mid else 2.0             # munt verdubbelt om 10:05
+        ks = [self.kans(0), self.kans(10)]
+        s = simulatie.Sim(ks, 2000, ("a", "b"), koers).draai()
+        d = s.dagen()["2026-11-19"]
+        self.assertAlmostEqual(d["koers"], 1000 - 0.5, places=6)      # alle munten (1000, min opname) x2
+        self.assertAlmostEqual(d["netto"], d["bruto"] - d["kosten"] + d["koers"])
+        self.assertAlmostEqual(s.waarde() - 2000, d["netto"], places=6)
+        self.assertTrue(s.koers_bekend)
+
+    def test_koersen_uit_candles(self):
+        def haal(beurs, munt, quote, van, tot):
+            if beurs == "kraken":
+                raise OSError("geen verbinding")
+            return [(200, 3.0), (100, 2.0)]
+        k = simulatie.Koersen({"X": ("EUR", ["kraken", "bitvavo"]), "Y": ("EUR", ["kraken"])}, 0, 300, haal)
+        self.assertEqual(k("X", 150), 2.0)
+        self.assertEqual(k("X", 250), 3.0)
+        self.assertIsNone(k("Y", 150))                                # onbekend, niet 0
+
+    def test_blok_in_rapport(self):
+        ks = [self.kans(0, koop="bitvavo", verkoop="kraken"), self.kans(10, koop="mexc", verkoop="kraken")]
+        tekst = "\n".join(simulatie.blok(ks, [], rapport.MICA))
+        self.assertIn("| bitvavo - kraken | €2.000,00 | 2026-11-19 |", tekst)
+        self.assertIn("| kraken - mexc | €5.000,00 |", tekst)
+        self.assertIn("onbekend", tekst)                              # zonder koersen: koerseffect onbekend
+        self.assertIn("**Aannames:**", tekst)
 
 
 if __name__ == "__main__":

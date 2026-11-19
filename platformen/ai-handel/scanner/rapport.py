@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rapport van de koersverschil-scanner.
 
-Gebruik:  python3 rapport.py <map met data> [--met-proef]   (bijv. een checkout van de tak ai-handel-data, map scanner/)
+Gebruik:  python3 rapport.py <map met data> [--met-proef] [--zonder-koers]   (bijv. een checkout van de tak ai-handel-data, map scanner/)
 Leest alle */*/kansen.jsonl en stand.jsonl daaronder en schrijft het rapport als Markdown naar stdout.
 Proefruns (map eindigt op -proef) lopen gelijk met de vaste run en tellen dus niet mee, tenzij --met-proef.
 
@@ -24,6 +24,9 @@ import json
 import os
 import statistics
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # opslaan.sh draait met python3 -I
+import simulatie  # noqa: E402
 
 MIN_RUIMTE = 100
 MIN_DUUR = 120
@@ -151,7 +154,8 @@ def dekking(stand):
             "deel_nooit": med([x["nooit_gecontroleerd"] / x["kandidaten"] for x in rijen])}
 
 
-def maak(map_, met_proef=False):
+def maak(map_, met_proef=False, koersbron=None):
+    """koersbron: zie simulatie.blok (None = geen koersen ophalen, zoals in de tests)."""
     kansen, stand = lees(map_, met_proef)
     uren = gemeten_uren(stand)
     uit = ["# Rapport koersverschil-scanner", ""]
@@ -281,6 +285,7 @@ def maak(map_, met_proef=False):
                 "somber kan zijn: niet alle kandidaten zijn gecontroleerd, en met voorraad op beide beurzen kun je "
                 "dezelfde kans vaker pakken als het boek zich aanvult; dat telt hier niet mee."]
     uit.append("")
+    uit += simulatie.blok(alle_echte, stand, MICA, koersbron, INLEGGEN)
 
     bronnen = collections.Counter(r.get("opname_bron") for r in echte)
     uit += ["## Over de meting", "",
@@ -301,5 +306,6 @@ def maak(map_, met_proef=False):
 
 
 if __name__ == "__main__":
-    args = [a for a in sys.argv[1:] if a != "--met-proef"]
-    print(maak(args[0] if args else ".", "--met-proef" in sys.argv))
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    print(maak(args[0] if args else ".", "--met-proef" in sys.argv,
+               None if "--zonder-koers" in sys.argv else simulatie.Koersen))

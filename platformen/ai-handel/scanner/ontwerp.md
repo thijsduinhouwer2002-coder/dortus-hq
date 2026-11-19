@@ -34,6 +34,22 @@ mediane winst, beste munten en beurzen en een som voor €2.000 en €5.000 van,
 - Proefruns (met de hand) hebben een eigen concurrency-rij en raken de klok niet, zodat een proef de vaste meting
   niet stopt of 6 uur uitstelt.
 
+## Voorraad-simulatie (19 nov 2026, `simulatie.py`)
+**Wat en voor wie:** voor Thijs: wat houd je echt over als je geld en munten op twee beurzen hebt staan en af en toe
+moet terugschuiven? **Af** = het rapport toont per beurspaar (alle MiCA-paren) per dag bruto, kosten terugschuiven,
+koerseffect, netto, rendement en gemiste kansen, elk cijfer GEZIEN of GOK, en de tests met kunstmatige kansen zijn groen.
+
+Drie aanpakken:
+1. **Vaste aftrek per kans** (bijv. 1/5 opname per kans). Klein, maar zegt niets over gemiste kansen en tijd onderweg.
+2. **Opnieuw meten met echte voorraad in de scanner.** Precies, maar raakt de lopende meting en kost dagen.
+3. **Gekozen: naspelen op de opgeslagen kansen.** Per paar een voorraad, elke kans op zijn begintijd uitgevoerd met
+   de gemeten winst bij €100/€500/€1.000/€2.500/volle ruimte (lineair ertussen), terugschuiven met kosten en
+   reistijd, koerseffect uit openbare candles. Raakt de meting niet en werkt ook op oude data.
+
+Keuzes: beide richtingen van een paar delen één voorraad; opnamekosten van de munt uit de data (die de scanner per kans
+al opsloeg); netto is precies eindwaarde min inleg (een test dwingt dat af); koersen alleen in het echte rapport
+(`rapport.py` vanaf de opdrachtregel), niet in de tests; geen koers = "onbekend", nooit 0.
+
 ## Bekende grenzen
 Netwerk alleen vergeleken waar beide beurzen het geven; overmaaktijd niet gemeten; opnamekosten bij een deel van de beurzen geschat;
 de API is de wereldwijde versie, niet altijd de EU-versie met vergunning. Alles staat in README.md.

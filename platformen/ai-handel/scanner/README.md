@@ -81,6 +81,32 @@ ze te rooskleurig of te somber kunnen zijn, staat eronder.
 
 Het eerste rapport zegt iets na een paar runs (een dag); na 7 dagen is het een week aan metingen.
 
+## Wat houd je echt over? (voorraad-simulatie)
+De sommen hierboven nemen aan dat je geld overal tegelijk staat. In het echt heb je geld en munten op twee beurzen
+staan, en na een paar kansen is de ene kant leeg. `simulatie.py` rekent dat na op de opgeslagen echte kansen. Het
+rapport toont het in het blok **"Wat houd je echt over?"**, per beurspaar (alle MiCA-paren en de 5 beste grijze
+paren), per dag, voor een inleg van €2.000 en €5.000.
+
+Hoe het rekent, met een voorbeeld van €2.000 op Bitvavo en Kraken:
+- Je begint met €1.000 in euro en €1.000 in munten (verdeeld over de munten die op dat paar echte kansen hadden),
+  en alles half op elke beurs: €500 euro en €500 aan munten op Bitvavo, net zo op Kraken.
+- Bij elke echte kans koop je op de goedkope beurs en verkoop je tegelijk op de dure beurs uit je voorraad. Je zet
+  niet meer in dan er winstgevend op het boek lag (gemeten), niet meer dan het geld op de koopbeurs en niet meer dan
+  de munten op de verkoopbeurs. Er gaat bij een kans niets over de keten.
+- Zakt een kant onder 25% van wat er aan het begin stond, dan schuif je terug: de helft van het verschil gaat naar
+  de lege kant. Dat kost opnamekosten (munt: wat de beurs zelf noemt; euro: Bitvavo €0, Kraken €1 met Instant SEPA)
+  en tijd (munt 30 minuten, euro 1 uur vanaf Kraken en 1 werkdag vanaf Bitvavo, USDT 30 minuten; tijden zijn een
+  GOK). Wat onderweg is, kun je niet gebruiken. Kansen die daardoor niet konden, staan als **gemist**; kansen die
+  kleiner moesten, als **kleiner door voorraad**.
+- De munten die je aanhoudt, worden meer of minder waard. Dat is het **koerseffect**, apart gemeld (koersen uit de
+  openbare candles van Bitvavo, KuCoin, Gate of Kraken). Lukt het ophalen niet, dan staat er "onbekend".
+- **Netto** = bruto winst min kosten terugschuiven plus koerseffect, en **rendement** = netto gedeeld door de inleg.
+
+Wat je moet weten: de munten in de voorraad zijn achteraf gekozen (vooraf weet je niet welke munten kansen geven);
+het koerseffect kan veel groter zijn dan de winst (een munt die op één dag 50% stijgt of daalt); en andere bots die
+dezelfde kans pakken tellen niet mee. Alle aannames staan onder de tabel in het rapport.
+Zonder koersen draaien (sneller, geen netwerk): `python3 rapport.py <map> --zonder-koers`.
+
 ## Takerkosten per beurs (standaardtarief, laagste trede)
 Waar de API het tarief per paar geeft, gebruikt de scanner dat (GEZIEN, uit de API, per paar). Anders deze tabel.
 
@@ -142,6 +168,7 @@ Zie ook `../A-kant-en-klaar.md` hoofdstuk 2. MEXC staat in de eerste metingen bi
 | `beurzen.py` | koppelingen met de openbare API's (paren, koersen, orderboek, opname- en stortstatus) |
 | `scanner.py` | de meting: kandidaten zoeken, boeken aflopen, kansen volgen en wegschrijven |
 | `rapport.py` | het rapport uit de data |
+| `simulatie.py` | wat je overhoudt met voorraad op twee beurzen (terugschuiven, kosten, koerseffect) |
 | `opslaan.sh` | zet de data op de tak `ai-handel-data` (nooit geforceerd) |
-| `test_scanner.py` | tests van de rekensom, het volgen van kansen en het rapport |
+| `test_scanner.py` | tests van de rekensom, het volgen van kansen, het rapport en de simulatie |
 | `ontwerp.md` | waarom zo gebouwd |
