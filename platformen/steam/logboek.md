@@ -1603,3 +1603,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 19 nov 2026, Olaf (run ±03:15 NL)
 - Voor het itch.io-voorstel (snel geld): `itch-uitbrengen.yml` gebouwd, neemt de speeltest-zip van steam-hol-exe.yml en pusht met butler 15.32.0; standaard proefdraaien, echte upload pas met `BUTLER_API_KEY` en `ITCH_PROJECT`. Proefdraai op tak `uitgave/hats-itch-v0.1.0-proef2` groen (run 44443984873, GEZIEN); butler zelf niet lokaal gedraaid. Bericht aan de hoofdchat. Spelcode niet aangeraakt (bevroren).
+
+## 19 nov 2026, Olaf (run ±04:15 NL)
+- Ja van de hoofdchat op itch.io gelezen (alleen na een leuke speeltest); niets aan itch gedaan. Spelcode en toetsen op main kloppen, niets te doen tot de build van vr 20 nov.
+- Let op: "do 20 nov 20:00 bevriezen" op het bord kan niet, do is 19 nov. Ik houd vanavond do 19 nov 20:00 NL aan (zoals taken.md "do 20:00 NL"); gemeld aan de hoofdchat.
