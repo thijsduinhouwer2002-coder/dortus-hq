@@ -125,9 +125,11 @@ def maak(d, uitslag, koers, dagen, inlegs):
         ts, prijs, aantal = int(r["ts"]), float(r["prijs"]), float(r["aantal"])
         teken = 1 if r["kant"] == "bod" else -1      # bod: we kochten JA; laat: we verkochten JA
         later = midden_op(d, r["markt"], ts + 3600)
+        vijf = midden_op(d, r["markt"], ts + 300)
         u = uitslag.get(r["markt"])
         vul.append({**r, "ts": ts, "dag": dag_van(ts), "geld": prijs * aantal,
                     "uur": teken * aantal * (later - prijs) if later is not None else None,
+                    "vijf": teken * aantal * (vijf - prijs) if vijf is not None else None,
                     "uitslag": teken * aantal * (u - prijs) if u is not None else None,
                     "streng": r["streng"] == "1"})
 
@@ -179,6 +181,13 @@ def maak(d, uitslag, koers, dagen, inlegs):
           f"{geld(tot['hoog'])} | {int(tot['n'])} / {int(tot['streng'])} | {geld(tot['geld'])} | {geld(tot['uur'])} | "
           f"{geld(tot['ui'])} | {geld(tot['laag'] + tot['uur'])} tot {geld(tot['hoog'] + tot['uur'])} |")
         w("")
+        f5 = [f for f in vul if f["variant"] == v and f["vijf"] is not None]
+        if f5:
+            g5 = sum(f["geld"] for f in f5)
+            w(f"Resultaat vullingen 5 minuten later (vroege aanwijzing, GEZIEN): {geld(sum(f['vijf'] for f in f5))} "
+              f"over {len(f5)} vullingen en {geld(g5)}, dus {100 * sum(f['vijf'] for f in f5) / g5:+.2f}% per gevulde "
+              f"dollar.")
+            w("")
         fs = [f for f in vul if f["variant"] == v and f["uur"] is not None]
         if fs:
             g = sum(f["geld"] for f in fs)

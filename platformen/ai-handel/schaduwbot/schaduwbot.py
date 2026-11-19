@@ -556,20 +556,24 @@ def main():
     einde = begin + a.duur * 60
     volgende_lijst = 0.0
     volgende_flush = begin + a.flush * 60
+    laatst_gemeten = -1
     log(f"schaduwbot start: run {run}, {a.duur:.0f} minuten, varianten {VARIANTEN}, grootte {VASTE_GROOTTE}+")
     while time.time() < einde:
         try:
             if time.time() >= volgende_lijst:
                 bot.ververs_markten()
                 volgende_lijst = time.time() + 600
-            # op een willekeurige seconde in de minuut, zoals Polymarket zelf meet
+            # één keer per minuut op een willekeurige seconde, zoals Polymarket zelf meet; geen minuut overslaan
             nu = time.time()
-            doel = (nu // 60 + 1) * 60 + random.uniform(0, 50)
-            if bot.tellers["minuten"] == 0:
-                doel = nu
+            deze = int(nu // 60)
+            if deze > laatst_gemeten:
+                doel = max(nu, deze * 60 + random.uniform(0, 55))
+            else:
+                doel = (deze + 1) * 60 + random.uniform(0, 55)
             time.sleep(max(0.0, min(doel, einde) - time.time()))
             if time.time() >= einde:
                 break
+            laatst_gemeten = int(time.time() // 60)
             totaal = bot.minuut()
             n = bot.trades()
             t = totaal.get("1c", [0, 0, 0, 0])
