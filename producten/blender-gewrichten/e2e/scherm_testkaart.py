@@ -9,7 +9,7 @@ rendert met Workbench (geen X-scherm nodig):
 Op elk plaatje staat onderin "Shown pulled apart" (Daan keuring 20, moet 2), zodat niemand denkt dat de kaart zo uit
 de printer komt.
 Alleen weergave: optillen gaat met delta_location, kleuren met objectkleur; de delen en de export veranderen niet.
-De regel "KAART BEELD OK" is wat de workflow eist (10 + 10 delen, vijf getallen per set, beide plaatjes bestaan)."""
+De regel "KAART BEELD OK" is wat de workflow eist (10 + 10 delen, vijf getallen per set, alle drie plaatjes bestaan)."""
 import math
 import os
 import sys
@@ -151,7 +151,7 @@ def main():
         o.select_set(False)
     m, maat = midden(alle)
     log(f"midden {tuple(round(x, 1) for x in m)} maat {tuple(round(x, 1) for x in maat)}")
-    camera(m, 1.6 * max(maat), 36, 0)
+    camera(m, 1.45 * max(maat), 36, 0)  # Daan herkeuring 20, kan: iets dichterbij
     ok = render("20-testkaart.png") and ok
     for plaatje, set_ in (("20d-testkaart-getal.png", kogels), ("20h-testkaart-scharnier.png", scharnieren)):
         for o in alle:
@@ -162,7 +162,7 @@ def main():
             camera(Vector((mb.x, mb.y, mb.z + maat_b.z / 4)), 1.75 * maat_b.x, 60, 8, lens=60)
         else:  # 20h: hele scharnierset, zodat vork en bovendeel samen in beeld staan
             mh, maat_h = midden(set_)
-            camera(mh, 2.3 * maat_h.x, 42, 8, lens=50)
+            camera(mh, 2.3 * maat_h.x, 42, 38, lens=50)  # Daan herkeuring 20, kan: 30 graden gedraaid, platte kant tong en pengat in beeld
         ok = render(plaatje) and ok
     log(f"KAART BEELD {'OK' if ok else 'FOUT'}")
 

@@ -230,3 +230,9 @@
 - Lokaal Blender 4.2.3: 10 + 10 delen, vijf getallen per set, KAART BEELD OK; alle drie beelden zelf bekeken in vijf rondes (GEZIEN). Workflow eist nu ook 20h.
 - Gemist aan het begin van deze run: lokale main stond los van GitHub (oude stand); hersteld naar origin/main. Hats-vraag van 17 nov (langste gat 0 tot 30 min) is al opgepakt door Sanne (keuze 19 nov 17:45, bouwen na de speeltest). Uit de main-duurtest 44127812882 nog nagerekend (GEZIEN, één zaad): langste gat met koop, niveau en eerste held van een nieuwe soort 4,5 min (min 23,2 tot 27,7), past bij Sannes gat rond 23 tot 25.
 - Volgende run: CI nakijken, keuring Daan op 20 en 20h; daarna Sannes vaste eerste bard (zondag, na de speeltest).
+
+## 19 nov 2026 ±21:10 tot 21:30 UTC, Bram: kan-punten plaatje 20 na ja van Daan
+- Daan akkoord ja op 20, 20d en 20h (run 44607850018), automatische keurder ja op 3ff874a. Lokale main stond weer los van GitHub (oude stand); oude stand bewaard in tak `backup-oud-main` (alleen lokaal), werk op origin/main.
+- Kan van Daan gedaan in `e2e/scherm_testkaart.py`: 20h camera 30 graden gedraaid (platte kant tong en pengat), 20 iets dichterbij (1,6 naar 1,45). Kop van het script zegt nu "alle drie plaatjes". 20h gaat mee naar tak `schermen` (hele map screenshots, de workflow eist 20h al).
+- Geen Blender hier, dus nog niet zelf gezien: de CI rendert ze. Volgende run: 20 en 20h op tak `schermen` bekijken (niets afgesneden?), anders terugdraaien. 20h alleen op Superhive, niet op extensions.blender.org (ToS 6.2, keurder).
+- Daarna wacht de testkaart op de volgende Pro-versie (na Gumroad 1.1.0, bij Thijs) en Hats op de speeltest za 21 nov.
