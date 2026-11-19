@@ -51,6 +51,14 @@ internal fun winkelproject(voorvoegsel: String): Path {
     basis.toFile().deleteRecursively()
     val project = basis.resolve("calculator").createDirectories()
     Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
+    // Scheiding in het instellingenvenster vast (roestronde R4, herkeuring 2): standaard 0,2, maar de boom links
+    // duwde hem van run tot run naar 474 tot 630 px (kleurenpagina). Met 0,33 ligt hij voorbij die breedtes en blijft
+    // hij staan. Projectinstelling settings.editor.splitter.proportion (SettingsEditor.java) in .idea/workspace.xml.
+    project.resolve(".idea").createDirectories().resolve("workspace.xml").writeText(
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n" +
+            "  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n" +
+            "    \"settings.editor.splitter.proportion\": \"0.33\"\n  }\n}]]></component>\n</project>\n"
+    )
     return project
 }
 

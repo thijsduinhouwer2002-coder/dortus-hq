@@ -76,9 +76,9 @@ jobs:
       # de twee hernoem-plaatjes met een melding of tooltip neemt de test pas op als het beeld stilstaat (schermStil).
       # Twee bomen klappen in de ene run wel en in de andere niet open, ook als het beeld stilstaat (runs 44436778211
       # en 44436781019, GEZIEN): de boom in het conflictvenster bij hernoemen en het Find-paneel op winkel-alleplekken.
-      # Die vakken tellen niet mee; de rest van die plaatjes wel. Op de kleurenpagina schuift de scheiding tussen boom
-      # en paneel van run tot run (±55 px, run 44481997077, ook met vaste venstermaat): daar telt alleen het paneel
-      # rechts, vergeleken met de best passende horizontale verschuiving. Grens 0,3 procent.
+      # Die vakken tellen niet mee; de rest van die plaatjes wel. Op de kleurenpagina schoof de scheiding tussen boom
+      # en paneel van run tot run (474 tot 630 px, runs 44481997077 en 44486167190, ook met vaste venstermaat): de
+      # test zet hem vast op 0,33 (winkelproject in Gedeeld.kt). Grens 0,3 procent.
       - name: Beeldvergelijking met de vorige geslaagde run
         id: bv
         if: always()
@@ -92,7 +92,7 @@ jobs:
           echo "B=$B" >> "$GITHUB_ENV"
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" vergelijk producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" \
-            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*@2880x1800:0,0,1000,80;*-calc-y.png@2880x1800:80,1700,1040,1760;*-hernoem-conflict.png:0,60,1600,330;winkel-alleplekken.png:180,1225,2800,1745;*-kleurenpagina.png%560,0,1920,1300,80"
+            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*@2880x1800:0,0,1000,80;*-calc-y.png@2880x1800:80,1700,1040,1760;*-hernoem-conflict.png:0,60,1600,330;winkel-alleplekken.png:180,1225,2800,1745"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
