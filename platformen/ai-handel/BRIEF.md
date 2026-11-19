@@ -4,6 +4,9 @@ Thijs wil met eigen geld gaan handelen met hulp van een AI-bot en ziet op TikTok
 
 **De repo is openbaar.** Schrijf nooit bedragen, rekeningen, accounts, wallets of andere persoonlijke of financiële gegevens van Thijs op. Alleen algemene informatie over tools en werkwijzen.
 
+## Vraag van Thijs 19 nov 01:13: arbitrage (gaat voor, zoeker A)
+Thijs denkt aan een arbitrage-bot (crypto, aandelen of een andere markt). Zoek uit, met cijfers en bronnen: (1) prijsarbitrage tussen beurzen en driehoeksarbitrage voor iemand met een klein bedrag: wat blijft er na kosten, opnametijd en snelheid over, en waar wint de gewone gebruiker nog; (2) funding-rate-arbitrage (spot kopen en de perpetual shorten): echte rendementen over 2025 en 2026, de risico's (funding draait om, liquidatie, beurs valt om), hoeveel geld je minimaal nodig hebt, en of en waar dit in Nederland mag met een MiCA- of MiFID-partij (perpetuals zijn voor particulieren in de EU beperkt); (3) arbitrage in kleine, weinig efficiënte markten (bijv. tweedehands, kaartjes, verzamelobjecten, voorspellingsmarkten): waar een bot prijsverschillen vindt die grote spelers laten liggen, wat het oplevert en wat het kost. Open source arbitrage-projecten op GitHub (bijv. Hummingbot) en ervaringen op forums horen erbij.
+
 ## Vraag van Thijs 19 nov 01:11 (gaat voor, beide zoekers)
 Thijs wil elke maand een vast bedrag van een paar honderd euro inleggen en zoekt een bot of opzet die daarbij past, gevonden op GitHub en in forums. Zoek daarom ook, elk in je eigen hoek:
 - **A (strategie en testen):** welke aanpakken passen bij een vaste maandelijkse inleg van die grootte: periodiek kopen (DCA), DCA met regels (meer kopen na een daling), grid, herbalanceren tussen een paar munten of ETF's, en wat terugtests en ervaringen daarover zeggen tegenover gewoon elke maand kopen en vasthouden. Let op kosten: bij kleine bedragen eten kosten per trade de winst op; reken een voorbeeld door met echte tarieven (DERDEN met link).
