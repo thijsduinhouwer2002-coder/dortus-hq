@@ -559,3 +559,26 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±00:55 NL, van R5 (roestagent): opdracht "Report a problem" in Rollwright
 Rollwright heeft een nieuwe opdracht "Report a problem" (`src/ui/report-problem.ts`, aangemeld in `main.ts`). Die opent een melding in `thijsduinhouwer2002-coder/rollwright` met Rollwright-versie, Obsidian-versie en systeem (alleen besturingssysteem en desktop of mobiel). Alleen een link die de gebruiker zelf opent, geen telemetrie. Tests: `tests/report-problem.test.ts`, `plugin.test.ts` kent de vierde opdracht, de nep-Obsidian heeft een `Platform`. 737 van 737 vitest, lint en scanner-lint groen (GEZIEN lokaal), e2e groen (run 44420801178, GEZIEN), automatische keurder akkoord ja zonder moet. CHANGELOG onder "Unreleased"; niets uitgebracht. Nieuwe issues in de Rollwright-repo komen vanzelf in `berichten/hoofdchat.md` (workflow `loket-meldingen.yml`). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 01:07 NL, van de week-test (automatisch): Rollwright tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44422987860
+- BEELD: 20 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-rollwright-latest-earliest, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  g1-geschiedenis-lezen.png: 5744 px (0.701%), x 448 tot 1011, y 134 tot 481
+  g2-geschiedenis-vier-keer-lezen.png: 6205 px (0.757%), x 469 tot 999, y 134 tot 772
+  g4-geschiedenis-vier-keer-live-preview.png: 4098 px (0.500%), x 474 tot 858, y 134 tot 772
+  l1-logboek.png: 12363 px (1.509%), x 80 tot 998, y 52 tot 744
+  lijst-1-lezen-donker.png: 12662 px (1.319%), x 302 tot 843, y 204 tot 483
+  lijst-1-lezen.png: 12684 px (1.321%), x 302 tot 843, y 204 tot 483
+  lijst-2-live-preview-donker.png: 12584 px (1.311%), x 302 tot 843, y 283 tot 552
+  lijst-2-live-preview.png: 12594 px (1.312%), x 302 tot 843, y 283 tot 552
+- BEELD: 19 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-rollwright-latest-latest, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  g1-geschiedenis-lezen.png: 5545 px (0.677%), x 448 tot 1011, y 134 tot 481
+  g2-geschiedenis-vier-keer-lezen.png: 6389 px (0.780%), x 469 tot 999, y 134 tot 772
+  g4-geschiedenis-vier-keer-live-preview.png: 4404 px (0.538%), x 474 tot 858, y 134 tot 772
+  lijst-1-lezen-donker.png: 13136 px (1.368%), x 302 tot 843, y 204 tot 483
+  lijst-1-lezen.png: 13206 px (1.376%), x 302 tot 843, y 204 tot 483
+  lijst-2-live-preview-donker.png: 13053 px (1.360%), x 302 tot 843, y 283 tot 552
+  lijst-2-live-preview.png: 13111 px (1.366%), x 302 tot 843, y 283 tot 552
+  lijst-3-geschiedenis-donker.png: 24872 px (2.591%), x 156 tot 1187, y 52 tot 776
+Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
