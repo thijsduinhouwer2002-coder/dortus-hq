@@ -17,7 +17,7 @@ Vaste toestemming van Thijs: je mag alles doen wat nodig is voor het werk van Do
 
 Repo: staat dortus-hq er al, gebruik die. Zo niet: add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push), kloon hem, en roep register_repo_root aan. Lees CLAUDE.md en volg daarna precies organisatie/hoofdchat-ronde.md.
 
-Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. De koppeling Metricool mag wel (brand 8156503).
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. Gmail mag je lezen (nooit versturen). De koppeling Metricool mag wel (brand 8156503).
 
 Werktijd: ±20 minuten (er komt elk uur een nieuwe ronde). Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes. Sluit af zoals CLAUDE.md zegt (git ls-remote, hash in je eindantwoord), met in hooguit 100 woorden wat je plaatste en of Thijs iets moet doen.
 ```

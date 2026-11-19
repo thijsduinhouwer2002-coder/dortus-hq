@@ -5,7 +5,7 @@ Doel (Thijs, 18 nov 21:12): de ploeg en de hoofdchat kunnen overal bij wat nodig
 ## Drie manieren van toegang
 1. **GitHub-secret** (voor workflows in Actions; de agents starten die workflow met een tag-push, zie onder). Thijs zet de sleutel één keer in GitHub: dortus-hq, Settings, Secrets and variables, Actions, New repository secret. Een sleutel mag maar één ding kunnen.
 2. **Chrome van Thijs** (alleen de hoofdchat, op de HP): inloggen met zijn Google en doorklikken mag (besluit 17 nov). Geld, ID, bank en eigen gegevens blijven bij Thijs.
-3. **Koppeling in Claude** (hoofdchat): Metricool werkt. Gmail, Polar-koppeling en de andere uit harde regel 7: niet.
+3. **Koppeling in Claude** (hoofdchat): Metricool werkt. Gmail werkt en mag (alleen lezen; dat is zijn privé-Gmail, niet thijs@dortus.com: Superhive, Help Scout en mail via het dortus.com-adres zie je daar niet). Polar en de andere uit harde regel 7: niet.
 
 ## Workflows starten zonder GitHub-sleutel
 De GitHub-sleutel in onze sessies werkt niet (GH_TOKEN ongeldig, GEZIEN 18 nov), dus "Run workflow" kan de ploeg niet. Oplossing: **elke uitgave-workflow start ook bij het pushen van een tag** (bijvoorbeeld `click-joints-v0.1.3`, `bison-flex-v2026.1.2`), met dezelfde controles als nu (tests groen, Daan akkoord). Een tag pushen kan iedereen met git. Dit bouwen de eigenaars (Bram voor Click Joints, Chris voor Bison & Flex, Olaf voor Steam).

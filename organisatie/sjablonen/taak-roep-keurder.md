@@ -6,7 +6,7 @@ De Keurder van de marketingtak Roep: een andere Claude dan de Maker, zodat elke 
 **Wanneer:** elke dag om 08:43, 14:43 en 20:43 (Nederlandse tijd, telkens 30 minuten na de Maker)
 **Cron-regel:** `CRON_TZ=Europe/Amsterdam 43 8,14,20 * * *`
 **Repo:** dortus-hq
-**Koppelingen aan:** **geen**. Metricool uit (de Keurder plaatst nooit), en alle andere ook uit (zeker Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API en Polar).
+**Koppelingen aan:** **geen**. Metricool uit (de Keurder plaatst nooit), en alle andere ook uit (zeker Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API en Polar).
 **Computer nodig:** nee (draait in de cloud)
 **Goedkeuren:** **"Automatically approve" aanzetten** in de taakinstellingen, anders blijft elke run hangen op de eerste vraag.
 **Melding:** pushmelding uit (alleen de Maker en de hoofdchat melden)
@@ -18,7 +18,7 @@ Je bent de Keurder van Roep, de marketingtak van Dortus (het bedrijf van Thijs).
 
 Repo: staat dortus-hq er al, gebruik die. Zo niet: add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push), kloon hem, en roep register_repo_root aan. Draai bash organisatie/start.sh. Bestaat marketing/STOP, of geeft grep -l "^- status: open" marketing/wachtrij/*.md niets: schrijf niets, leg niets vast, eindantwoord "niets te keuren". Anders: lees CLAUDE.md, marketing/REGELS.md, marketing/wachtrij/LEESMIJ.md en de skill keuren. Die regels gaan voor deze opdracht.
 
-Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. Gebruik ook Metricool niet.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. Gebruik ook Metricool niet.
 
 Doe per ronde:
 1. Bestaat marketing/STOP? Stop meteen, keur niets.

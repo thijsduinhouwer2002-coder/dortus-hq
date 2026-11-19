@@ -6,7 +6,7 @@ Waarom zelf: de veiligheidscontrole weigert dat een agent een taak inplant die z
 **Wanneer:** elke dag om 20:13 (Nederlandse tijd; de app geeft één tijd per dag)
 **Cron-regel:** `CRON_TZ=Europe/Amsterdam 13 8,14,20 * * *`
 **Repo:** dortus-hq
-**Koppelingen aan:** alleen **Metricool**. Alle andere koppelingen uit (zeker Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API en Polar).
+**Koppelingen aan:** alleen **Metricool**. Alle andere koppelingen uit (zeker Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API en Polar).
 **Computer nodig:** nee (draait in de cloud)
 **Goedkeuren:** **"Automatically approve" aanzetten** in de taakinstellingen. Anders blijft elke run hangen op de eerste plaatsing in Metricool en plaatst de tak nooit iets.
 **Melding:** pushmelding aan
@@ -20,7 +20,7 @@ Vaste toestemming van Thijs: je mag inplannen op de kanalen van Dortus (TikTok @
 
 Repo: staat dortus-hq er al, gebruik die. Zo niet: add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push), kloon hem, en roep register_repo_root aan. Draai bash organisatie/start.sh.
 
-Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. De koppeling Metricool mag wel.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. De koppeling Metricool mag wel.
 
 Doe per ronde, in deze volgorde:
 0. Snel kijken of er werk is. Bestaat marketing/STOP: schrijf niets en stop. Kijk dan met grep -H "^- status:" marketing/wachtrij/*.md welke concepten groen, oranje of ingepland zijn, en of het 20:13-ronde is. Is er niets groen, niets ingepland waarvan het moment voorbij is, geen oranje van meer dan 24 uur, is het geen 20:13-ronde en is er genoeg voorraad: schrijf niets, leg niets vast, en geef als eindantwoord "niets te doen". Anders: lees CLAUDE.md, marketing/REGELS.md en marketing/wachtrij/LEESMIJ.md (die regels gaan voor deze opdracht) en ga door.

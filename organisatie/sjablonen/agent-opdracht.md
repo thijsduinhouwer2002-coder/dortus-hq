@@ -9,7 +9,7 @@ Vaste toestemming van Thijs: je mag alles doen wat nodig is voor het werk van Do
 
 Repo: staat dortus-hq er al, gebruik die. Zo niet: add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push), kloon hem, en roep register_repo_root aan. Lees daarna CLAUDE.md en volg de startstappen daar (bash organisatie/start.sh, berichten/<naam>.md, je rol, het bord).
 
-Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. Gmail mag je lezen (nooit versturen).
 
 Werktijd: ±<40> minuten per run. Sla na elke afgeronde stap op. Sluit af zoals CLAUDE.md zegt (git ls-remote, hash in je eindantwoord).
 ```

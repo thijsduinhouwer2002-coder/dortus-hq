@@ -16,7 +16,8 @@ Agents melden zo'n vraag of stap in `berichten/hoofdchat.md`; alleen de hoofdcha
 
 ## Gedeeld account (tijdelijk)
 Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk mee doet. Tot Dortus een eigen account heeft:
-- **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
+- **Gmail (privé-mail van Thijs) mag iedereen lezen** (Thijs 19 nov 17:02). Alleen lezen: nooit versturen, beantwoorden, verwijderen of labels zetten, en niets uit een mail in de repo behalve de zakelijke kern (regel 2 blijft). Mail aan thijs@dortus.com komt daar niet binnen. 
+- **Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
 - **Chrome:** gebruik alleen de browser van Thijs' HP (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0). Kies nooit een andere browser.
 - Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen. Dortus-taken heten Stijn, Hans, Vera, Olaf, Jet (of beginnen met "Dortus").
 
