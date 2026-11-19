@@ -61,3 +61,51 @@ nagespeeld met een los script buiten de repo (niets aan de code veranderd).
 - Gat tussen runs eerlijk beschrijven (B5); dYdX-rate nakijken (A18).
 
 akkoord nee: moet 1 t/m 7 (B: spotkoers, overmaken, doorknippen; C2: EURQ; sommen per inleg; Kraken-taker en klok; samenvatting voor Thijs)
+
+## Herkeuring, 19 nov 2026, keurder (losse Claude)
+Wat ik keurde: commit 4c7cb14b (main op a9d3b38b; daarna niets meer aan de radar veranderd). Tests: radar 31 groen,
+scanner en driehoek groen. Ik draaide de radar zelf 6 minuten (proef in /tmp, niets gepusht) voor de basislijn en
+C2, en las de lopende run 44564990545 (gestart 16:20 op 4c7cb14b, nog bezig).
+Akkoord: nee
+
+### Oude moet-punten
+| # | Was | Nu | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| 1 | spotkoers onbekend gooit piek weg | Opgelost. Zonder koers wacht de piek en stapt later in (`instappen`); alleen een echte, andere prijs is "ander ding". Test `test_spotkoers_ontbreekt_is_geen_ander_ding` doet precies mijn proef van toen. | Feit | hoog |
+| 2 | overmaken telt niet | Opgelost. Eén opname van USDT of USDC (goedkoopste bekende) als vast bedrag per piek als spot en perp op twee beurzen zitten. Met de hand: test `test_overmaken_bij_twee_beurzen`, netto 0,002 min 2 x (0,00045 + 0,001) = -0,0009; bij €100 is de positie €66,67, dus -0,06 min €0,90 overmaken = -€0,96. Klopt met de test. Terugboeken van het onderpand telt niet (één keer, staat als "minstens één keer"). | Feit | hoog |
+| 3 | pieken doorgeknipt | Opgelost. `afsluiten` schrijft open pieken alleen naar `pieken-open.json`, niet meer naar `funding.jsonl`; de volgende vaste run laadt ze (proef niet). Gat > 2 uur: "gat te lang", apart. Oude doorgeknipte pieken apart. Zie D2 voor het restrisico. | Feit | hoog |
+| 4 | EURQ telt als kans | Opgelost. Basislijn = mediaan van 45 dagslotkoersen. Mijn eigen run: EURQ 0,9676 (kraken EURQ-EUR, 45 dagen), gelijk aan wat ik toen met de hand vond. EURQ telt niet meer als "goedkoop"; op Kraken stond hij nu juist 0,78% boven de basislijn ("duur"), maar met €32 op het boek (onder de €100, dus niet geteld). | Feit | hoog |
+| 5 | sommen alsof alles tegelijk kan | Opgelost met één pot per inleg per hoek en de kolom "Tegelijk open (hoogst)". Test `test_een_pot` nagelopen: 10:00 tot 12:00 gepakt, 11:00 overgeslagen (pot vast), om 12:00 de beste van twee: som 4,0, hoogst 2 tegelijk. Klopt. | Feit | hoog |
+| 6 | Kraken-taker en klok | Opgelost. Kraken 0,80% via `taker_standaard`, 0,20% op alle stablecoins van de radar; klok kijkt ook naar `scanner/beurzen.py` en `scanner.py`, niet meer naar teksten. Oude data apart, niet herrekend (mocht volgens moet 6). Zie D1 voor USDe en USDG. | Feit | hoog |
+| 7 | geen antwoord bovenaan | Opgelost. "Het antwoord tot nu toe" met een zin per hoek bij €150, komma als decimaalteken, geen `None`, jargon vervangen ("Hoogste funding per 8 uur", "Ontvangen funding"). Uit mijn eigen run: leesbaar. | Feit | hoog |
+
+### Wat de hoofdchat vroeg
+| # | Vraag | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| D1 | Kraken-tarieven van de stablecoins | **Niet goed voor USDe en USDG.** kraken.com/pro/fees (curl, 19 nov): "USDG $0+ maker 0,00% taker 0,01%" en "USDe Any 0,00% 0,00%, all USDe pairs". De radar (`Radar.taker`) en het rapport (`kraken_taker`, voor "oud tarief") rekenen voor allebei 0,20%. Bij C2 (drempel 0,3%) betekent dat: een USDe-afwijking van 0,3 tot 0,4% op Kraken telt nu als verlies, terwijl hij na kosten winst is. Ook C1 met USDe of USDG op Kraken komt te slecht uit. De rest klopt: 0,20% op "FX, stablecoin-base and pegged-token pairs" (tier 1), 0,80% op gewone munten. | Feit | hoog |
+| D2 | Kan een piek dubbel tellen? | Bij een gewone herstart niet: de oude run wacht (concurrency) tot ook zijn stap Opslaan klaar is, en die zet `pieken-open.json` en `funding.jsonl` samen weg. Dubbel kan alleen als de nieuwe run een oudere `pieken-open.json` leest dan de laatste (raw.githubusercontent.com bewaart een antwoord ±5 minuten, of de laatste opslag mislukt terwijl een eerdere wel lukte). Dan kiest `ontdubbel_funding` de regel die het laatst eindigt: dat is juist de voortzetting uit de oude stand, met "geschatte" verrekeningen tegen een rate die misschien al weg was. Kans klein, gevolg te mooi. | Vermoeden | midden |
+| D3 | Valt een echte depeg weg doordat de basislijn meeschuift? | Nee, niet snel. Het is een mediaan over 45 hele dagen (vandaag telt niet mee), elke 6 uur ververst: een plotselinge depeg moet ±23 dagen duren voor hij de mediaan verschuift. Een munt met minder dan 20 dagen geschiedenis krijgt geen basislijn en telt niet (apart getoond). Wel: één bron per munt geldt voor alle beurzen (EURQ: Kraken), terwijl EURQ per beurs anders staat (eerder Kraken 0,9885 en Bitfinex 0,992 tegen EUR, en XT en Bitfinex tegen USDT ±2,5% onder de koppeling). Een beurs met een eigen vaste afwijking kan zo blijven opduiken. En bij een USDT-depeg komt hij binnen als "USDC duur tegen USDT", want USD-stablecoins meten tegen USDT. Gezien wordt hij wel. | Feit (mediaan), vermoeden (per beurs) | hoog / midden |
+| D4 | Is de som met één pot juist? | Ja, als gewone bot: op volgorde van instap, pot vast tot het einde, verliezers (B) tellen mee. Twee kanttekeningen: het is één pot **per hoek** (wie de vier zinnen optelt, heeft vier potten van €150 nodig), en "bij gelijke start de beste" kijkt bij B naar de afloop, die een bot vooraf niet weet (klein). | Feit | hoog |
+| D5 | Klopt de 1/3-regel bij 2x? | Ja. Inleg I: spot 2I/3, onderpand I/3, short van 2I/3 = 2x. `haalbaar` toetst min. spotorder en min. perporder tegen 2I/3 en het minimale opnamebedrag (onderpand naar de perpbeurs) tegen I/3. Liquidatie ligt net onder +50% (onderhoudsmarge), het rapport zegt "±50%". | Feit | hoog |
+| D6 | Handrekening C2 (mijn eigen run) | Kraken EURQ-EUR, kant duur: bod 0,9751, basislijn 0,9676: (0,9751 - 0,9676) / 0,9676 = 0,775%; na 2 x 0,20% = 0,375%. Per euro: 0,998 - 0,9676/0,9751 x 1,002 = 0,0037; €32,43 op het boek geeft €0,12. Gelijk aan de data (0,7751; 0,3751; 0,1202). | Feit | hoog |
+| D7 | Gate-taker | 0,075% in `TAKER_PERP`, gelijk aan de API. | Feit | hoog |
+
+### Deel B (regels)
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| B1 | Alle codebestanden onder 400 regels, behalve `test_radar.py` (507). | Feit | hoog | bestanden onder ±400 regels |
+| B2 | Kraken-tarief in README als DERDEN "via de keuring": de keurder zag het op kraken.com/pro/fees, dus GEZIEN met die bron mag. | Feit | hoog | eerlijk |
+| B3 | Geen persoonsgegevens, geen sleutels; workflow schrijft alleen op `ai-handel-data`, gewone push. | Feit | hoog | openbare repo |
+
+### Moet (blokkeert akkoord)
+1. **Kraken USDe 0% en USDG 0,01% taker** (D1, GEZIEN kraken.com/pro/fees): in `Radar.taker` en in `kraken_taker` van het rapport (anders zet het rapport de goede regels als "oud tarief" apart). Met een test.
+
+### Kan (mag later)
+- D2: bij dubbele regels de regel houden die níet uit een overgenomen piek komt (of die met de minste `verrekeningen_geschat`), en `pieken-open.json` lezen met `git` of de API in plaats van raw (geen cache).
+- `verrekeningen_geschat` in de tabel van B tonen, zodat Thijs ziet welk deel van de funding GOK is.
+- C2 "duur" betekent dat je de stablecoin al moet hebben; één zin in het rapport. Basislijn per beurs waar die bron er is (D3).
+- Eén zin bij de antwoorden bovenaan: elke hoek heeft zijn eigen pot van €150 (D4).
+- `overmaken` wordt één keer bepaald bij het begin van een piek; is de wallet dan nog niet bekend, dan blijft hij "onbekend" (later opnieuw proberen).
+- `test_radar.py` splitsen (B1).
+
+akkoord nee: moet 1 (Kraken USDe 0% en USDG 0,01% in radar en rapport); de zeven oude moet-punten zijn opgelost
