@@ -403,3 +403,50 @@ Een maandinleg van een paar honderd euro brengt binnen weken geen noemenswaardig
 3. **Alleen BTC is zonder uitzonderlijke groei bijna kop of munt** (39 tot 46% kans op verlies na 3 jaar bij 0 tot 10% groei per jaar), met wel een grote staart naar boven (GOK, punt 21). Een trendfilter helpt alleen bij 100% BTC (GEZIEN, run 3 en 4).
 4. **Kosten: aanbieder kiezen is de grootste knop.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, links in run 1 en 2).
 5. **Een eigen bot voegt voor een maandinleg bijna niets toe**, en een maandinleg brengt binnen weken geen noemenswaardig geld op: het is vermogen opbouwen, niet snel geld (GOK, punt 23).
+
+## Run 6 (19 nov 2026, ±06:05 UTC)
+Deze run: welke dag en welke frequentie (een vraag die in elk forum terugkomt), forumervaringen via een bron die curl wel toelaat, en de tarieven van Bitvavo en Trade Republic nagelopen. Scripts en data stonden in /tmp, niet in de repo.
+
+### 24. Eigen meting: maakt de koopdag of de frequentie uit? (GEZIEN)
+**Data:** dagkoersen BTC-EUR van de openbare Bitvavo-API (`api.bitvavo.com/v2/BTC-EUR/candles`, zonder account), mrt 2019 tot nov 2026; dagkoersen IWDA van de openbare grafiek-API van Yahoo Finance, nov 2011 tot nov 2026 (GEZIEN). Elke maand 300 (voorbeeldbedrag), kopen tegen de openingskoers op de gekozen dag (of de eerste handelsdag erna), BTC 0,25% kosten, ETF 0 kosten. Wekelijks en dagelijks: hetzelfde maandbedrag verdeeld over de weken of dagen. Vensters van 36 maanden: 56 voor BTC, 144 voor IWDA.
+
+| | BTC: mediaan tegen kopen op de 1e | BTC: wint van de 1e | IWDA: mediaan tegen de 1e | IWDA: wint van de 1e |
+|---|---|---|---|---|
+| Op de 15e | -0,99% | 22 van 56 | -0,42% | 32 van 144 |
+| Op de 28e | -1,86% | 7 van 56 | -0,65% | 1 van 144 |
+| Wekelijks (maandag) | -0,25% | 19 van 56 | -0,30% | 6 van 144 |
+| Dagelijks | -0,95% | 14 van 56 | -0,37% | 6 van 144 |
+| Verschil beste en slechtste dag van de maand (mediaan, max) | 3,5%, 7,2% | | 1,1%, 1,9% | |
+
+(GEZIEN, eigen meting. Hele periode BTC: x3,45 op de 1e tegen x3,29 op de 28e en x3,34 dagelijks.)
+
+**Wat ik eruit haal:**
+- **Er is geen slimme dag; vroeg is beter.** Dat de 1e wint, komt niet door de dag zelf maar doordat het geld eerder in de markt zit en beide markten in deze periode stegen (GOK, volgt uit dat later in de maand bijna altijd verloor, zonder vast patroon in de dagen ertussen). De les: koop zodra het geld binnen is (bijv. de dag na het salaris), niet wachten op een "goede" dag.
+- **Wekelijks of dagelijks spreiden levert niets op**, het kost juist een beetje, omdat een deel van het geld een paar weken langer stilstaat (GEZIEN). Met een vaste prijs per aankoop (1 euro bij Trade Republic voor een losse order) wordt wekelijks nog eens 4 keer zo duur (run 1 punt 3).
+- **Toeval per venster is wel groot bij BTC:** binnen één periode van 3 jaar kan de keuze van de dag 3,5% (soms 7%) schelen, maar je weet vooraf niet welke dag (GEZIEN). Dat is ruis, geen knop.
+- Kanttekening: in een dalende markt zou later kopen juist iets winnen (GOK). Dit zegt alleen dat er geen dag is die vast wint.
+
+### 25. Forumervaringen: Hacker News (DERDEN)
+Reddit, Bogleheads en Tweakers weigeren curl (run 5). De zoek-API van Hacker News (`hn.algolia.com`) werkt wel. Het grootste draadje: ["Show HN: Bitcoin investing using Dollar Cost Averaging strategy"](https://news.ycombinator.com/item?id=15117037), aug 2017, 120 reacties (GEZIEN). Wat mensen er zelf zeiden (DERDEN, allemaal uit dat draadje):
+- **Beurs gehackt, alles weg:** iemand had een herbalanceer-bot op de beurs Cryptsy; die maakte "een kleine winst tot Cryptsy gehackt werd en al mijn munten kwijt raakte". Voor een maandinleg is het tegenpartijrisico van de beurs groter dan wat een slimme regel oplevert (GOK, volgt uit punt 2 en 12). Een beurs met MiCA-vergunning en eens in de zoveel tijd opnemen naar een eigen wallet verkleint dat (B gaat over veiligheid).
+- **Sleutels in platte tekst:** een reactie wees erop dat het script de API-sleutels onversleuteld op schijf zette. Zelfde punt als bij B: sleutel zonder opnamerecht.
+- **De beurs doet het al:** "dit is een functie op Coinbase", en een ander noemde het script overbodig. Zelfde conclusie als run 1 punt 4.
+- **Kosten per transactie:** mensen rekenden voor dat kleine dagelijkse aankopen met een vaste prijs een groot deel opeten; anderen antwoordden dat procentuele kosten (0,25 tot 0,26%) dat probleem niet hebben en dat je alleen af en toe moet opnemen. Klopt met run 1 punt 3.
+- **Trendfilter (koers boven het gemiddelde van 10 maanden) genoemd als beter**, met direct tegenspraak ("geen glazen bol"). Mijn eigen meting (run 3 en 4): helpt alleen bij 100% BTC tegen diepe dalingen, niet in een mix.
+- Een jonger draadje, ["Show HN: I built a Bitcoin DCA bot"](https://news.ycombinator.com/item?id=45221852) (sep 2025, 6 reacties), gaat over een DCA met vermenigvuldiger; de enige inhoudelijke vraag ("hoe doet hij het in een crypto-winter van maanden?") bleef zonder cijfers (GEZIEN). Run 1 punt 2: de vermenigvuldiger gaf bij BTC geen voordeel.
+
+### 26. Tarieven nagelopen (DERDEN)
+- **Bitvavo:** periodiek kopen vanaf 5 euro, dagelijks, wekelijks, om de twee weken of maandelijks (GEZIEN, [Bitvavo nieuws, 11 jan 2024](https://www.bitvavo.com/en/news/recurring-buy)). Maker 0,15%, taker 0,25%, onveranderd (DERDEN, [Capitalo, stand 8 okt 2026](https://www.capitalo.de/anbieter/bitvavo/produkte/crypto)). Dezelfde pagina noemt op de ene plek een gemiddelde spread van 0,01% en op een andere 0,50%; die tegenspraak kan ik zonder account niet oplossen (GOK: 0,50% hoort bij "simpel kopen" in de app, 0,01% bij het orderboek; ik mat zelf 0,002% op het orderboek, run 2 punt 8). De tarievenpagina van Bitvavo zelf gaf 403. Open: of periodiek kopen tegen orderboekprijs gaat of met een spread.
+- **Trade Republic:** spaarplannen nog steeds zonder uitvoeringskosten; de spread bij Lang & Schwarz ligt "meestal tussen 0,5% en 2%" volgens [Northern Finance, 28 mei 2026](https://northern.finance/nl/?p=322951) (DERDEN; die site verdient aan een bonuslink). Dat is ruimer dan de 0,50% van Capitalo (run 2). Tip uit dezelfde bron: bij aandelen en ETF's zijn spreads het kleinst tijdens de handelsuren van XETRA (9:00 tot 17:30). Voor een spaarplan kies je de tijd niet zelf (GOK).
+- Geen wijziging gevonden die de rangorde van run 4 punt 19 verandert.
+
+### Nog te doen (volgende runs)
+- Uitzoeken of periodiek kopen bij Bitvavo tegen de orderboekprijs gaat (helpcentrum, met curl, of via een zoekfragment).
+- Meer ervaringen: Hacker News zoeken op "rebalancing", "index fund crypto allocation".
+
+## Stand na run 06:05 UTC (19 nov 2026)
+1. **Gewone DCA wint van bijna alle slimme regels.** Dip-regels, value averaging, grid en mandjes van tien munten eindigden in elke meting lager dan gewoon elke maand kopen (GEZIEN, eigen metingen, run 1 tot 5). Ook de koopdag en de frequentie zijn geen knop: kopen op de 1e won mediaan 1 tot 2% van later in de maand, wekelijks of dagelijks spreiden won niets. Koop zodra het geld er is (GEZIEN, punt 24).
+2. **Beste evenwicht blijft een wereld-ETF met 10 tot 20% BTC, zonder filter**, maar de hoge uitkomst kwam uit een uitzonderlijke periode; groeit BTC voortaan als aandelen, dan is de mediaan na 3 jaar bijna gelijk aan alleen de ETF met twee keer zoveel kans op verlies (GOK, punt 21).
+3. **Kosten: aanbieder kiezen is de grootste knop.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders; let op de spread, die bij Trade Republic 0,5 tot 2% kan zijn (DERDEN, punt 26).
+4. **Het grootste echte risico is de beurs zelf, niet de strategie**: forumverhalen gaan over gehackte beurzen en gelekte sleutels, niet over een verkeerde koopregel (DERDEN, punt 25). Vergunde beurs, sleutel zonder opnamerecht.
+5. **Een eigen bot voegt voor een maandinleg bijna niets toe**, en een maandinleg brengt binnen weken geen noemenswaardig geld op: het is vermogen opbouwen, niet snel geld (GOK, punt 23).
