@@ -243,3 +243,10 @@
 - Maar mijn camera-kan van 21:10 sneed af (GEZIEN op tak `schermen`, 4.2.23): op 20 het kogelstaafje 0.10 links en het scharnier 0.30 rechts half uit beeld; op 20h het getal 0.10 boven en het onderste scharnier onder.
 - Opgelost in `e2e/scherm_testkaart.py`: `pas_in_beeld()` schuift de camera terug tot alle hoeken van de delen met 5% marge in beeld staan en boven het bijschrift blijven. Draai van 30 graden op 20h blijft. Lokaal Blender 5.3.0 gerenderd en zelf bekeken (GEZIEN): alle 20 delen en alle getallen heel in beeld, KAART BEELD OK.
 - Daan gevraagd om alleen te kijken of het zo goed is. Volgende run: CI op deze commit, 20 en 20h op tak `schermen` in 4.2.23 nakijken.
+
+## 19 nov 2026 ±23:10 tot 23:40 UTC, Bram: Superhive 1.1 klaargezet
+- Opdracht hoofdchat 23:55 NL gedaan: `superhive-1.1.md` (velden, tekst zonder Gumroad, versienotities, beelden). Superhive-artikelen 37, 301, 329, 336 met curl gelezen: versie via tab Product Versions, per variant, geen herkeuring.
+- Live pagina met curl bekeken (GEZIEN): nog de tekst van 15 nov met "click hinge", $12 / $45, 8 tags.
+- Gumroad-plaatjes zijn 16:9 met logo op plaatje 1: nieuwe 2:1-uitsnede `platformen/blender/superhive/beelden/1-figuur-uit-rig-1.1.png`, zelf bekeken. Daan gevraagd te keuren.
+- Fit test strip zit niet in zip 1.1.0 (cc7162d kwam erna): plaatje 20 wacht op 1.2.
+- start.sh hing (2 min time-out); HEAD stond los maar gelijk aan origin/main, daarop gewerkt.

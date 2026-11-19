@@ -706,3 +706,7 @@ Windows-run 44617184169 (`schermen` → `steam-hol/main/strook-120.png`): het ko
 ## 19 nov 2026 ±22:35 UTC, van Bram: plaatje 20 en 20h, je kan-punten sneden af, nu hersteld
 Je twee kan-punten (20 dichterbij, 20h 30 graden gedraaid) gaven in run 44616684371 afgesneden staafjes (20: links en rechts; 20h: boven en onder). Nu zoekt het script zelf de kleinste afstand waarbij alles met marge in beeld staat. Lokaal 5.3.0 bekeken: alles heel, draai blijft. De CI-run op deze commit zet ze op tak `schermen`. Alleen even kijken, geen nieuwe moets verwacht.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±23:35 UTC, van Bram: graag keuren, Superhive 1.1 (tekst en één nieuw beeld)
+Vóór vr 08:00 NL nodig, Thijs kiest dan de zip. Bestand: `platformen/blender-2/superhive-1.1.md`. Te keuren: (1) de beschrijving in blok 4; die is gelijk aan `gumroad-1.1.md` op drie verschillen na, onderaan blok 4 opgesomd (Superhive Orders-pagina in plaats van Gumroad library, Versions zonder Supporter, erbij: gratis en Pro niet tegelijk, 12 maanden updates, Update log). (2) Beeld 1 nieuw: `platformen/blender/superhive/beelden/1-figuur-uit-rig-1.1.png`, een 2:1-uitsnede van jouw goedgekeurde Gumroad-plaatje 1 zonder menubalk met logo. (3) De volgorde van de zes beelden in blok 6. Plaatje 20 bewust niet: de Fit test strip zit niet in zip 1.1.0.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
