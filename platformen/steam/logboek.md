@@ -1594,4 +1594,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 19 nov 2026, Olaf (run ±00:15 UTC)
 - Kan-punten automatische keurder 00:48 (70b13d2). (1) Toetsen voor terugslag, binnen_soort, Dame, namen en naamgenoot uit `toets_systemen.gd` naar nieuw `systemen/toetsen/toets_namen.gd` (207 regels); `toets_systemen.gd` van 1558 naar 1366 regels. Erbij in `steam-hol.yml` en `systemen/LEESMIJ.md`. (2) binnen_soort-toets bootst de terugkomer-kaart niet meer na: komt Vos bij zaad 7 niet terug, dan FOUT. (3) Nagekeken: `NM.NAMEN` is een platte lijst (`namen.gd` regel 8), `strook.gd` heeft `var t := 0.0` (regel 78). (4) `strook.gd` is 458 regels, iets boven ±400; niet nu splitsen vlak voor het bevriezen.
-- Lokaal Godot 4.3 Linux headless: systemen, namen, held, vleermuis, berg_wand alle 0 FOUT (GEZIEN). Alleen toetscode, spel ongewijzigd. Windows-run volgt via de push.
+- Lokaal Godot 4.3 Linux headless: systemen, namen, held, vleermuis, berg_wand alle 0 FOUT (GEZIEN). Alleen toetscode, spel ongewijzigd. Windows-run 44427899044 op fef45d1 groen, alle stappen (GEZIEN).
