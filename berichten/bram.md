@@ -640,3 +640,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 22:36 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 6 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±23:17 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 49f8c53..bb82f18: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-bb82f18.md`. Moet en kan: **Moet:** geen. **Kan:** - Na de volgende run de plaatjes 20 en 20h bekijken met de Read-tool en de logregel "camera afstand" nalezen (Deel A 2). - Nagaan of `camera()` bij elke herhaling nieuwe objecten laat liggen, en die zo nodig opruimen (Deel A 3). - Een waarschuwing in het log zetten als de lus na 40 stappen nog niet past (Deel A 4). - De compositie nakijken op te veel lucht of scheef in het kader (Deel C 1 en 2). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
