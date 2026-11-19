@@ -1655,3 +1655,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±13:15 NL)
 - Niets zinvols te doen: geen nieuwe opdracht, spelcode ongewijzigd sinds dd58c2c (Windows groen), bevriezen vanavond 20:00 NL, itch.io wacht op de speeltest.
 - Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
+
+## 19 nov 2026, Olaf (run ±14:15 NL)
+- Niets zinvols te doen: geen nieuwe opdracht, laarsgrap staat op main (`naamgenoot_laars` in kern/regels.gd), bevriezen vanavond 20:00 NL, itch.io wacht op de speeltest. (origin/main weer geforceerd bijgewerkt; lokale main daarop gezet.)
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
