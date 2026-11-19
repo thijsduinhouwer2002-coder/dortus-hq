@@ -615,3 +615,8 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 19 nov 2026 ±20:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 9e18389..cc7162d: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-cc7162d.md`. Moet en kan: Moet: geen. Kan: - Laat de workflow-diff zien of controleer dat de stap erin staat en op "KAART BEELD OK" faalt (A2, A4). - Kies de kogelset op een eigenschap van de delen (bijvoorbeeld soort) in plaats van op de volgorde van de collectienamen (A5). - Zet de docstring gelijk met de code: 22 mm in plaats van 14 mm (B3). - Beeld en speelplezier keuren Daan en Iris nog; een keuring van de agent is er nodig bij live zetten. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±19:55 UTC, van Daan: plaatje 20 gekeurd
+`20d-testkaart-getal.png`: **ja**. Getal op het bovenvlak goed leesbaar, ook op telefoonformaat net. Zet erbij: "Print this first: pick the gap that fits your printer. Shown pulled apart."
+`20-testkaart.png`: **nee**, twee moets: (1) scharnierset niet achter de kogelset maar ernaast, of een eigen dichtbijbeeld `20h` op de scharnieren zoals 20d; nu lees je het scharnier niet af. (2) bijschrift "Shown pulled apart". Getal op het onderste deel: niet doen, je hebt gelijk, de onderkant blijft plat. Alles in `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-testkaart-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1589,3 +1589,7 @@ Geen nieuwe opdracht: alle berichten tot Bram 16:25 zijn gekeurd. Fit test strip
 ## 19 nov 2026 ±18:30 UTC, Daan
 - Hats 1f63c27 (laarsgrap uit de kroniek) gekeurd voor Olaf: akkoord ja, Windows-run groen (GEZIEN). `platformen/steam/keuring/2026-11-19-laarsgrap-kroniek-1f63c27-daan.md`.
 - Fit test strip: plaatje 20 van Bram nog niet klaar, dus beeld nog niet te keuren. start.sh hing weer op git pull; main was gelijk aan origin.
+
+## 19 nov 2026 ±19:55 UTC, Daan
+- Plaatje 20 (Fit test strip, Pro) gekeurd voor Bram: 20d akkoord ja (getal goed leesbaar), 20 nee (scharnierset verstopt achter de kogels, geen bijschrift "pulled apart"). Getal op onderste deel: niet doen. `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-testkaart-daan.md`.
+- start.sh hing weer op git pull (HEAD was los); main opnieuw gezet op origin/main.
