@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 09:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen geplande post heeft een klikbare weg naar Pro: TikTok-bio zakelijk plus link is lijst punt 1, vóór vr 15:00. Chris gevraagd om een liggende YouTube-video over de Pro-scharnier vóór vr 12:00 (link via dortus.com/click-joints/?ref=yt). Vandaag 16:00 filmpje 2; vr 16:00 filmpje 5 (Pro), GEZIEN in Metricool. Snel-geld-onderzoek gekeurd (rangorde in `platformen/ideeen/snel-geld-2026-11-19/KEURING.md`). Hats bevriezen vanavond 20:00, speeltest za 21 nov. Click Joints 0.1.2 klaar, uitgave niet vóór 23 nov.
+**Stand: do 19 nov 2026, 10:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** TikTok-bio zakelijk plus link is lijst punt 1, vóór vr 15:00. Chris maakte de liggende YouTube-video over de Pro-scharnier (run 44490997811 loopt, keuring Daan open); na ja plaatst de hoofdchat hem, link dortus.com/click-joints/?ref=yt. Vandaag 16:00 filmpje 2; vr 16:00 filmpje 5 (Pro), GEZIEN in Metricool. Steam-tags gekeurd (Sanne). Hats bevriezen vanavond 20:00, speeltest za 21 nov. Click Joints 0.1.2 klaar, uitgave niet vóór 23 nov.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
