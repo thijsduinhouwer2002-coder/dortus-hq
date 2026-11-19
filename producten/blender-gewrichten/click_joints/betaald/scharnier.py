@@ -234,6 +234,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         for deel in (deel_a, deel_b):
             for k, v in gegevens.items():
                 deel[k] = v
+            # Daan 19 nov (film youtube-pro-1, 0:47): anders zegt "3 Fit and export" "No joint yet" naast een scharnier.
+            # Een scharnier bestaat alleen bij Good fit (maten_neus weigert Tight), dus groen is waar. Zoals figuur.py.
+            deel["cj_passing"] = "groen"
             # Kan-punt controleur (b): elk deel erft de oude scharnieren aan zijn kant, plus dit nieuwe.
             lijst = [e for e in oude if vorm.kant(frame, maat, e[0]) == deel["cj_deel"]]
             deel["cj_scharnieren"] = afstand.plat(lijst + [(Vector(punt), gegevens["cj_reik"], maat["r"])])

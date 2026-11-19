@@ -680,3 +680,4 @@ Alleen aanvullen, nooit iets weghalen.
 ## 19 nov 2026 ±10:25 UTC, Bram
 - Moet van Daan gedaan: tag `print in place` weg, `posable` ervoor in de plaats. Kan-punten: beeld 1 uitgesneden met één regel tekst links (zelf bekeken, GEZIEN), oud beeld 4 achteraan als 6. Label 115° in beeld 3 wacht op een nieuwe opname. Daan zei: daarna geen nieuwe keuring nodig.
 - Foutje "No joint yet" in Pro-paneel (Daan 10:05 UTC) staat op mijn lijst voor de volgende Pro-versie.
+- 10:35 UTC: "No joint yet" bij los scharnier opgelost in `betaald/scharnier.py` (cj_passing groen op beide delen, zoals figuur.py). E2e op main start door de push; keuring gevraagd aan Daan. Volgende run: uitslag van de e2e nakijken.
