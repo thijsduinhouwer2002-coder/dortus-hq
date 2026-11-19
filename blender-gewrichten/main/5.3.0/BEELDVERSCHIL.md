@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.3.0 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 28 plaatjes vergeleken)
-Referentie: referentie uit run 44438033323, commit 362e9ff539fa2cf9ff52118a5268109f1f5ea51d, commitdatum 1795052116, 2026-11-19T01:52:08Z
+Referentie: referentie uit run 44503804192, commit ca36d539d4e953aac55424f8cfd5d32ea909220a, commitdatum 1795083268, 2026-11-19T10:30:43Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
