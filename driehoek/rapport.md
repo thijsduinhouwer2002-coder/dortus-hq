@@ -2,11 +2,11 @@
 
 ## Kort antwoord
 
-Op de beurzen met vergunning (MiCA, ook via een EU-dochter): nog geen enkele driehoek die je met €100 tot €200 had kunnen pakken. Na de kosten en na 3 seconden bleef er niets over met minstens €100 diepte. De beste driehoek per ronde zat in de mediaan op -0,22% (negatief = verlies; positief zegt nog niet dat er op het boek iets te halen was). Op de grijze beurzen (geen vergunning): nog geen enkele driehoek die je met €100 tot €200 had kunnen pakken. Na de kosten en na 3 seconden bleef er niets over met minstens €100 diepte. De beste driehoek per ronde zat in de mediaan op 0,03% (negatief = verlies; positief zegt nog niet dat er op het boek iets te halen was).
+Op de beurzen met vergunning (MiCA, ook via een EU-dochter): nog geen enkele driehoek die je met €100 tot €200 had kunnen pakken. Na de kosten en na 3 seconden bleef er niets over met minstens €100 diepte. De beste driehoek per ronde zat in de mediaan op -0,21% (negatief = verlies; positief zegt nog niet dat er op het boek iets te halen was). Op de grijze beurzen (geen vergunning): nog geen enkele driehoek die je met €100 tot €200 had kunnen pakken. Na de kosten en na 3 seconden bleef er niets over met minstens €100 diepte. De beste driehoek per ronde zat in de mediaan op 0,03% (negatief = verlies; positief zegt nog niet dat er op het boek iets te halen was).
 
 Uitleg: **takerkosten** zijn wat de beurs per order rekent als je meteen koopt of verkoopt tegen de prijs die er ligt (0% tot 0,8% per order; een driehoek is drie orders). **Diepte** is hoeveel euro je tegen die winstgevende prijzen echt kunt kopen en verkopen voordat de prijs slechter wordt. Wij meten elke 3 tot 5 seconden; snelle bots pakken zulke kansen meestal binnen milliseconden, dus wat hier staat is wat er na hen overbleef.
 
-Data: 50 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±1,0 uur per beurs (GEZIEN, uit stand.jsonl).
+Data: 50 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±1,2 uur per beurs (GEZIEN, uit stand.jsonl).
 
 Een **echte driehoek**: winst na drie keer takerkosten op het orderboek, op twee metingen die minstens 3 seconden uit elkaar liggen elk minstens €100 diepte, bij de latere meting minstens €0,05 winst, en niet meer dan 5% winst (verdacht). Alle bedragen zijn die van de latere meting: wat er na 3 seconden nog stond. Driehoeken op dezelfde beurs die binnen 5 seconden van elkaar bevestigd werden en een paar delen dat geen paar van twee hoofdmunten is (EUR, USD, USDT, USDC, BTC, ETH), tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek. Er wordt niet doorgeketend: een driehoek hoort alleen bij een kans als hij met elk lid ervan dat stukje deelt. Omdat samenvoegen ook te streng kan zijn, staan aantallen en geld er ook los geteld bij (bovengrens).
 
@@ -18,14 +18,14 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 
 | Beurs | Status | Paren | Driehoeken | Uur | Rondes | Fouten (te veel) | Beste marge mediaan | Beste marge hoogst | Kandidaten | Bekeken | Overgeslagen | Zelfde | Winst op boek | Echt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitget | grijs | 3659 | 202 | 1,0 | 974 | 0 (0) | -0,279% | -0,054% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitstamp | MiCA | 252 | 346 | 1,0 | 587 | 0 (0) | -0,761% | -0,222% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitvavo | MiCA | 435 | 22 | 1,0 | 737 | 0 (0) | -0,760% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
-| gate | MiCA-dochter | 2156 | 372 | 1,0 | 731 | 0 (0) | -0,215% | 0,273% | 69 | 23 | 0 | 46 | 0 | 0 |
-| kraken | MiCA | 1352 | 2352 | 1,0 | 589 | 0 (0) | -0,567% | -0,200% | 0 | 0 | 0 | 0 | 0 | 0 |
-| kucoin | MiCA-dochter | 968 | 452 | 1,0 | 977 | 0 (0) | 0,502% | 1,077% | 1733 | 1195 | 8 | 528 | 0 | 0 |
-| mexc | grijs | 1664 | 886 | 1,0 | 975 | 0 (0) | 0,498% | 1,660% | 4088 | 2292 | 160 | 1623 | 409 | 0 |
-| okx | MiCA-dochter | 1248 | 2336 | 1,0 | 980 | 0 (0) | -0,130% | 0,363% | 155 | 148 | 0 | 7 | 0 | 0 |
+| bitget | grijs | 3659 | 202 | 1,2 | 1248 | 0 (0) | -0,279% | -0,014% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitstamp | MiCA | 252 | 346 | 1,2 | 752 | 0 (0) | -0,680% | -0,102% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitvavo | MiCA | 435 | 22 | 1,2 | 943 | 0 (0) | -0,760% | -0,671% | 0 | 0 | 0 | 0 | 0 | 0 |
+| gate | MiCA-dochter | 2156 | 372 | 1,2 | 936 | 0 (0) | -0,178% | 1,100% | 72 | 25 | 0 | 47 | 0 | 0 |
+| kraken | MiCA | 1352 | 2352 | 1,2 | 754 | 0 (0) | -0,509% | -0,200% | 0 | 0 | 0 | 0 | 0 | 0 |
+| kucoin | MiCA-dochter | 968 | 452 | 1,2 | 1252 | 0 (0) | 0,591% | 1,077% | 2078 | 1215 | 8 | 853 | 0 | 0 |
+| mexc | grijs | 1664 | 886 | 1,2 | 1249 | 0 (0) | 0,504% | 1,660% | 4767 | 2368 | 160 | 2226 | 409 | 0 |
+| okx | MiCA-dochter | 1248 | 2336 | 1,2 | 1255 | 0 (0) | -0,132% | 0,363% | 155 | 148 | 0 | 7 | 0 | 0 |
 
 ## Trechter
 
