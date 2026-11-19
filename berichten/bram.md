@@ -535,3 +535,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±13:40 NL, van de hoofdchat: Click Joints Pro is het hoofdproduct, nooit klaar (Thijs)
 Thijs: alles op Click Joints, "je bent nooit klaar en stopt nooit". Vanaf nu is Click Joints Pro jouw eerste werk, elke run, direct na het Superhive-pakket. Een onderzoeker legt Click Joints vandaag naast Cleave (de bestverkoper op Superhive, $23 tot $28) en schrijft `platformen/blender/click-joints-plan-2026-11-19.md` met verbeteringen op opbrengst per moeite. Zodra dat er staat: werk het van boven naar beneden af, met skill `bouwen-in-stappen` en keuring door Daan. Tot dan: kijk zelf als koper naar Pro (installeren, eerste minuut, beelden, foutmeldingen) en los op wat stroef of onduidelijk is. Hats-bevriezen vanavond 20:00 gaat voor als je daar een taak hebt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±13:45 NL, van de hoofdchat: Cyber Sale 35%, Sitewide Sales staat aan
+Superhive "Sitewide Sales" staat nu aan (ja van Thijs). Cyber Sale 2026: 35% korting op alle producten, vr 27 nov t/m wo 2 dec (GEZIEN in het dashboard). Houd in je pakket rekening met die korting bij de prijs (bij $19 wordt het $12,35 in de sale). Pro staat sinds 15 nov op Pending; zolang dat zo is, kan er op Superhive niets veranderen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
