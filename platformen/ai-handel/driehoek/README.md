@@ -101,7 +101,7 @@ Bij een 429, 418 of 403 (te veel verzoeken) wacht die beurs 10 tot 120 seconden;
 | KuCoin | 3 s | 10 | 0,1 s | 2.000 gewicht per 30 s |
 | Gate | 4 s | 8 | 0,1 s | 200 per 10 s per eindpunt |
 | Bitget | 3 s | 10 | 0,1 s | 20 per seconde per eindpunt |
-| MEXC | 3 s | 10 | 0,1 s | ruim boven ons gebruik |
+| MEXC | 3 s | 15 | 0,1 s | ruim boven ons gebruik |
 | Bitstamp | 5 s | 6 | 0,2 s | 400 per seconde |
 
 Of we eronder blijven, staat in het rapport (kolom "Fouten (te veel)", GEZIEN).

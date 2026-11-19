@@ -48,7 +48,7 @@ STATUS = {"bitvavo": "MiCA", "kraken": "MiCA", "bitstamp": "MiCA", "okx": "MiCA-
 # Grenzen van de openbare API (per IP), zie README.md. We blijven er ruim onder.
 RITME = {
     "bitvavo": (4, 6, 0.2), "kraken": (5, 3, 1.0), "okx": (3, 10, 0.1), "kucoin": (3, 10, 0.1),
-    "gate": (4, 8, 0.1), "bitget": (3, 10, 0.1), "mexc": (3, 10, 0.1), "bitstamp": (5, 6, 0.2),
+    "gate": (4, 8, 0.1), "bitget": (3, 10, 0.1), "mexc": (3, 15, 0.1), "bitstamp": (5, 6, 0.2),
 }
 
 FIAT = {"EUR", "USD", "GBP", "CAD", "AUD", "JPY", "CHF"}

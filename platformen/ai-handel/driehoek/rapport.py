@@ -204,7 +204,7 @@ def maak(map_, met_proef=False):
         for r in bijna:
             h = r["hoog"]
             u.append(f"| {r['beurs']} | {r['driehoek']} | {eur(h['winst_eur'])} | {eur(h['diepte_eur'], 0)} |"
-                     f" {h.get('duur_s', 0)} s | {'ja' if r.get('verdacht') else 'nee'} |")
+                     f" {round(h.get('duur_s', 0))} s | {'ja' if r.get('verdacht') else 'nee'} |")
         u.append("")
 
     # ----- kleine inleg
