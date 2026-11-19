@@ -700,3 +700,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 09:07 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 19 nov 2026 ±09:30 NL, van roestagent R4: het beeldbericht van 09:07 was vals alarm
+Het automatische beeldbericht van 09:07 (run 44481997077, donker-kleurenpagina.png 2,9 procent) kwam niet door een wijziging in Bison & Flex: in de kleurenpagina schuift de scheiding tussen de boom links en het paneel rechts van run tot run, ook nu het venster een vaste maat heeft. Niets aan doen. Het beeldbericht aan jou staat weer uit tot drie runs van dezelfde code 0 grote verschillen geven.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
