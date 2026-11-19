@@ -221,6 +221,58 @@ Op basis van wat er nu ligt (radar, BlenderArtists-draad, de cijfers hierboven).
 - **Oor** kan als geplande sessie elk uur draaien (Jetstream 36 uur buffer), dus Actions is pas nodig voor kanalen met een geheime sleutel.
 - **Dagrapport** (1 bestand, `marketing/dagrapport.md`): gemaakt, gekeurd, ingepland, echt geplaatst, fouten, weergaven, kliks, verkopen.
 
+## Nieuw in run 4 (19 nov ±04:00): de posts gaan naar het verkeerde TikTok-account, en de plaatsende taak moet van Thijs komen
+
+### 1. Metricool plaatst niet op @dortusstudio
+- `tiktok.com/@dortusstudio` is openbaar te lezen zonder account: naam Dortus, bio "Blender tips for 3D printing. Free add-on Click Joints.", 1 volger, 55 likes, 2 video's, geen link in de bio, `commerceUser: false` (gewoon persoonlijk account), handle nooit gewijzigd (`uniqueIdModifyTime: 0`), aangemaakt rond 7 sep 2026 (alles GEZIEN, 19 nov 03:52, uit de pagina-data).
+- Metricool zegt dat zijn TikTok-account `screencuts.co` is (GEZIEN, `getBrandSettings`). `tiktok.com/@screencuts.co` geeft statuscode 10221, geen profiel (GEZIEN). Metricool telt op dat account 1 video, 33 weergaven, 1 like, 1 volger (GEZIEN, `getAnalyticsDataByMetrics` 10 tot 19 nov).
+- Omdat de handle van @dortusstudio nooit veranderde, is `screencuts.co` geen oude naam ervan. **Conclusie (GOK, maar sterk): wat via Metricool op TikTok gaat, komt op een ander account dan @dortusstudio.** De 2 posts die vandaag en vrijdag klaarstaan gaan dus waarschijnlijk niet naar het Dortus-kanaal. Dit was run 1 punt 4 als vraag; nu is het een fout die vóór 16:00 vandaag opgelost moet zijn.
+- **Oplossing:** Thijs koppelt in Metricool het TikTok-account @dortusstudio (Metricool Free: 1 merk, dus het andere eraf). 5 minuten. Tot dan zet de hoofdchat de TikTok-helft van de geplande posts niet op `autoPublish` (of laat ze staan als ze naar een account mogen dat niemand ziet: dan zijn het 2 verspilde posts van het quotum).
+
+### 2. Geen link in de bio = TikTok kan nu geen geld opleveren
+- Een persoonlijk TikTok-account krijgt pas een klikbare link bij 1.000 volgers; een zakelijk account krijgt hem meteen, maar verliest de bibliotheek met populaire muziek (DERDEN, [Stan, sep 2026](https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/)). Ook een eigen omslagbeeld via Metricool werkt alleen bij een zakelijk gekoppeld account (GEZIEN in de toolbeschrijving van `createScheduledPost`: "TikTok (Business-connected accounts only)").
+- Tegen de hoofdzaak gelegd: bij 1 volger nu duurt 1.000 volgers weken tot maanden (GOK). Zonder link moet een kijker zelf "Click Joints" zoeken; weinigen doen dat (GOK). **Advies: @dortusstudio meteen omzetten naar zakelijk** (gratis, in de app, 2 minuten, Thijs) en de link naar een pagina met Click Joints gratis plus Pro zetten. Muziek komt dan uit de commerciële bibliotheek; `autoAddMusic` via Metricool kiest zelf een nummer (GEZIEN, veld bestaat; of TikTok dan commerciële muziek kiest: GOK, eerste post nakijken).
+- Dit is waarschijnlijk de grootste geldhefboom van de hele TikTok-lijn: zonder uitgang zijn weergaven niets waard (A, voorbeeld 20).
+
+### 3. Metricool-API is betaald, de koppeling niet: de Plaatser moet een Claude-sessie zijn
+- "The Metricool API is available only on Advanced and Custom plans. Metricool MCP is available on any plan, including Free." (DERDEN, [Metricool help](https://help.metricool.com/plans-add-ons-and-api-access-explained-xux1u)). De Free-limiet van 20 posts per maand geldt ook via de koppeling (DERDEN, [MCP-limieten](https://help.metricool.com/mcp-limits-and-plan-requirements-h72jg)).
+- Gevolg: een GitHub Actions-workflow kan niet gratis via Metricool plaatsen. Voor TikTok blijft de Plaatser dus een **geplande Claude-sessie met de Metricool-koppeling**. Actions blijft alleen zinvol voor kanalen met een eigen sleutel (YouTube OAuth, Bluesky, Mastodon, Discord).
+- Besluit 19 nov 01:35 zegt dat de omgeving het aanmaken van een plaatsende taak twee keer weigerde. Dat past bij hoe geplande taken werken: een taak die een agent zelf aanmaakt om iets naar buiten te zetten, wordt tegengehouden; een taak die Thijs zelf aanmaakt of goedkeurt, mag. **Dus: de hoofdchat schrijft de taaktekst, Thijs maakt de taak aan in de app** (en zet hem desgewenst op "Automatically approve" in de taakinstellingen, als dat in zijn account kan). Daarna kan de tak 24/7 zonder hem.
+
+### 4. Metricool-velden die we nodig hebben (GEZIEN in de toolbeschrijving)
+- `tiktokData.autoAddMusic` (muziek onder een diashow), `photoCoverIndex` (welke dia de omslag is), `privacyOption` (standaard openbaar), `title`, `disableComment`.
+- `tiktokData.isAigc`, `youtubeData.isAiGeneratedContent` en `instagramData.isAiGenerated` staan standaard op false. Met het besluit "nergens een AI-melding" botst dat niet zolang beeld en geluid echt zijn (run 3, punt 6): we vullen geen onware "nee" in, we laten de standaard staan voor beelden die niet door AI gemaakt zijn. Zodra een agent AI-beeld wil gebruiken: rood, hoofdchat beslist.
+- Metricool kan ook naar **Bluesky en Threads** plaatsen (`providers`, GEZIEN), maar dat telt mee in de 20. Bluesky dus direct via de eigen API, niet via Metricool.
+- Er is **geen inbox in de koppeling** (geen tool voor reacties of DM's, GEZIEN in de toollijst). Reacties op TikTok lezen en beantwoorden kan dus niet door de tak; dat blijft de app op de telefoon van Thijs of de hoofdchat met Chrome.
+
+### 5. TikTok lezen zonder account: alleen profielcijfers
+- Profielen geven zonder account volgers, likes en aantal video's (GEZIEN, ook voor @blenderguru: 109 volgers, 1 video). Daarmee kan het Oor elke dag de groei van @dortusstudio en van een paar vergelijkbare makers bijhouden, zonder Metricool.
+- Video-lijsten, hashtags en zoeken: nee. In een echte browser (Playwright, headless) laadt `/tag/blender3d` met "Something went wrong" en geven `api/challenge/item_list` en `api/post/item_list` 200 met 0 video's (GEZIEN). De trends-API van het Creative Center geeft `40101 no permission` (GEZIEN). De vraag van A ("kan de kijk-taak TikTok lezen zonder account?") is dus: **nee, niet vanuit onze omgeving**. Nabouwen wat werkt moet uit YouTube Shorts (RSS per kanaal), Bluesky (Jetstream) en wat Thijs zelf op zijn telefoon ziet en in een bericht zet.
+
+### 6. Klaar om te plakken: de twee taken die Thijs aanmaakt
+Beide als geplande taak in de app, elk uur, zonder computer. De hoofdchat mag de tekst aanpassen; deze versie volgt de regels van nu.
+
+**Taak "Roep: maken en plaatsen" (elk uur, minuut 7):**
+> Je bent de Schrijver en Plaatser van Dortus. Repo dortus-hq, draai `bash organisatie/start.sh`, lees CLAUDE.md en `marketing/REGELS.md`. Webpagina's lees je met curl in Bash, nooit met WebFetch. (1) Lees `marketing/STOP`; bestaat dat bestand, stop meteen. (2) Lees met de Metricool-koppeling de geplande posts van de komende 14 dagen en de cijfers van de laatste 7 dagen; zet fouten (status ERROR) en cijfers in `marketing/dagrapport.md`. (3) Plaats via `createScheduledPost` alleen concepten uit `marketing/wachtrij/` met `"keuring": "groen"` en een keurder die niet jij bent, hoogstens 1 TikTok per dag en nooit meer dan het quotum dat over is, met `autoPublish: true`. Schrijf de plannerUrl terug in het concept. (4) Is er minder dan 3 dagen voorraad, maak dan hoogstens 2 nieuwe concepten met echte schermbeelden uit het product (geen AI-beeld, geen AI-stem, geen AI-melding, geen `<` of `>` in YouTube-tekst) en zet ze op `"keuring": "open"`. Nooit iets onder de naam van Thijs, nooit geld uitgeven, nooit reageren op mensen. Commit alleen `marketing/`, nooit geforceerd.
+
+**Taak "Roep: keuren" (elk uur, minuut 37):**
+> Je bent de Keurder van Dortus. Repo dortus-hq, `bash organisatie/start.sh`, lees CLAUDE.md, `marketing/REGELS.md` en de skill `keuren`. Webpagina's lees je met curl in Bash, nooit met WebFetch. Keur elk concept in `marketing/wachtrij/` met `"keuring": "open"` met het vaste formulier (8 vragen uit `marketing/REGELS.md` plus de techniek-check per kanaal) en bekijk elk beeld zelf. Zet `groen` (eigen kanaal, gewone post), `oranje` (prijs, korting, mail, Hats, klacht: wacht op de hoofdchat) of `rood` (onder de naam van Thijs of tegen een regel), met een reden van 1 zin en je naam in `keurder`. Je maakt en plaatst zelf niets. Commit alleen `marketing/wachtrij/`.
+
+**Vorm van een concept** (`marketing/wachtrij/2026-11-20-tiktok-pro-scharnier.json`):
+```json
+{"kanaal":"tiktok","soort":"diashow","product":"click-joints-pro",
+ "tekst":"...","dia":["marketing/beeld/pro-1.png","..."],"muziek_auto":true,
+ "tijd":"2026-11-20T18:00:00+01:00","doel":"link in bio (Gumroad Pro)",
+ "bronnen":["producten/click-joints/CHANGELOG.md"],
+ "keuring":"open","keurder":null,"reden":null,"plannerUrl":null}
+```
+Beelden moeten op een openbare URL staan voor Metricool (`media` neemt "public URLs", GEZIEN); de repo is openbaar, dus `raw.githubusercontent.com/.../marketing/beeld/...` werkt (GOK, niet geprobeerd want dat zou een post aanmaken).
+
+### Bijgesteld ontwerp na run 4
+- **Volgorde gewijzigd:** eerst het juiste TikTok-account koppelen en zakelijk maken met link (Thijs, ±7 minuten), dan pas de taken aanzetten. Zonder die twee is elke TikTok-post verloren moeite voor de hoofdzaak.
+- **"Wat Thijs eenmalig regelt"** wordt: (1) @dortusstudio koppelen in Metricool, (2) @dortusstudio zakelijk maken plus link, (3) de twee taken hierboven aanmaken in de app. Bluesky, Mastodon, YouTube OAuth en Discord-bot pas als TikTok de drempel uit run 3 haalt.
+- **Reageren op TikTok** valt uit het ontwerp van de tak (geen inbox in de koppeling); de Schrijver zet wel elke dag in het dagrapport hoeveel reacties er zijn (Metricool-cijfer `TKEV04`), zodat de hoofdchat weet wanneer ze moet kijken.
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -232,6 +284,7 @@ Op basis van wat er nu ligt (radar, BlenderArtists-draad, de cijfers hierboven).
 - [YouTube spambeleid](https://support.google.com/youtube/answer/2801973)
 - [Metricool Free tegenover betaald](https://help.metricool.com/en/article/main-differences-between-free-and-premium-plans-1udj06m/), [Postiz limieten](https://docs.postiz.com/cloud/limits.md), [Postiz API](https://docs.postiz.com/public-api/introduction.md), [DEV AI-regels](https://dev.to/guidelines-for-ai-assisted-articles-on-dev), [DevForge 3 agents](https://dev.to/devforgedev/how-i-run-a-3-agent-content-marketing-team-with-claude-code-49b8), [Activepieces over Metricool-prijzen](https://www.activepieces.com/blog/metricool-pricing-2026-free-starter-advanced-plans)
 - [ContentStudio: YouTube verbiedt < en >](https://docs.contentstudio.io/article/996-youtube-errors-while-publishing), [Kapwing: wanneer een AI-label](https://www.kapwing.com/resources/when-should-you-label-videos-as-ai/)
+- Run 4: [Metricool plannen en API](https://help.metricool.com/plans-add-ons-and-api-access-explained-xux1u), [Metricool MCP-limieten](https://help.metricool.com/mcp-limits-and-plan-requirements-h72jg), [Stan: link in TikTok-bio](https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/), [TikTok photo post API](https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post)
 - [Buffer: content engine met GitHub Actions](https://buffer.com/resources/i-built-a-content-engine-that-creates-21-social-posts-a-week-using-the-buffer-api/), [Postiz: Accentify](https://postiz.com/blog/how-one-founder-automated-social-media-posting-with-ai-agents-notion-and-postiz-to-hit-1300-mrr)
 
 ## Stand na run 19 nov 01:05 (run 1)
@@ -260,3 +313,12 @@ Op basis van wat er nu ligt (radar, BlenderArtists-draad, de cijfers hierboven).
 5. **Jetstream speelt ±36 uur terug** (GEZIEN): het Oor kan elk uur als geplande sessie, zonder Actions en zonder account. AI-geschreven tekst bij echte beelden vraagt geen AI-label (DERDEN), dus het besluit "geen AI-melding" blijft houdbaar als we nooit AI-beeld of AI-stem gebruiken.
 
 **Voorstel:** de hoofdchat zet vandaag twee geplande sessies aan die geen sleutel nodig hebben: (1) **Schrijver plus Plaatser** elk uur, alleen TikTok-diashows en filmpjes uit echte schermbeelden via Metricool, ±1 per dag tot het quotum op is, met statuscontrole en dagrapport; (2) **Keurder** als aparte sessie die elk concept met het vaste formulier plus de techniek-check keurt voor de Plaatser het inplant (week 1: hoofdchat kijkt mee). Doel en stopregel: vóór 1 dec één TikTok met gemiddeld meer dan 5 seconden kijktijd en meer dan 1.000 weergaven; anders stopt TikTok voor Click Joints. Thijs hoeft hiervoor niets te doen; de YouTube-OAuth vragen we pas als TikTok die drempel haalt.
+
+## Stand na run 19 nov 04:00 (run 4)
+1. **TikTok-posts via Metricool gaan waarschijnlijk niet naar @dortusstudio** maar naar `screencuts.co`, een account zonder openbaar profiel (GEZIEN: handle @dortusstudio nooit gewijzigd, andere tellingen; conclusie GOK). De posts van vandaag 16:00 en vrijdag lopen dus mis tenzij Thijs eerst @dortusstudio in Metricool koppelt.
+2. **@dortusstudio heeft geen link en is een persoonlijk account** (GEZIEN): bij 1 volger komt de link pas na 1.000 volgers. Zakelijk maken geeft meteen een link (DERDEN). Zonder link levert TikTok geen geld op.
+3. **De Metricool-API is betaald (Advanced), de koppeling gratis** (DERDEN): de TikTok-Plaatser moet een geplande Claude-sessie zijn, geen Actions. Omdat de omgeving een plaatsende taak van een agent weigert, maakt Thijs de taak zelf aan; de tekst staat klaar in punt 6.
+4. **TikTok lezen zonder account kan alleen voor profielcijfers** (GEZIEN); hashtags, zoeken en video-lijsten geven niets, ook niet in een headless browser. Reacties op TikTok lezen kan ook niet via de koppeling (geen inbox).
+5. **Metricool heeft `autoAddMusic` en `photoCoverIndex`** (GEZIEN): diashows met muziek kunnen volledig zonder mens, als de beelden op een openbare URL staan (de openbare repo, GOK).
+
+**Voorstel:** de hoofdchat zet vandaag vóór 15:00 op de lijst van Thijs één punt van ±10 minuten: "TikTok @dortusstudio in Metricool koppelen, omzetten naar zakelijk, link naar Click Joints in de bio, en de twee taken uit B-ontwerp punt 6 aanmaken". Tot het account goed staat haalt de hoofdchat `autoPublish` van de TikTok-helft van de geplande posts af. Daarna draait de tak zonder Thijs. Volgende run (als er een is): `marketing/REGELS.md` voorschrijven met het formulier van 8 vragen en de techniek-check per kanaal, zodat de bouwer morgen alleen nog mappen hoeft aan te maken.
