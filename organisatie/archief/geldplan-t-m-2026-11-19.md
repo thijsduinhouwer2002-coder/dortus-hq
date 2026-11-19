@@ -1,3 +1,5 @@
+> **Archief (19 nov 2026):** dit geldplan van Hans (10 nov) geldt niet meer (Hans draait niet, Ebb kost $2,99, hoofdzaak sinds 19 nov: snel veel geld verdienen). Verplaatst uit `organisatie/` op besluit van Thijs (19 nov 17:31, punt 5). Wat nu geldt: `organisatie/doelen.md`.
+
 # Geldplan Dortus
 
 Bijgehouden door Hans (hoofdmanager). Elke maandag bijgewerkt. Eerste versie: 10 nov 2026, 06:45 (extra run op verzoek van Thijs).
