@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 28 plaatjes vergeleken)
-Referentie: referentie uit run 44435462652, commit 309280658f277438527911d61f85097f6cded8cf, commitdatum 1795050839, 2026-11-19T01:28:26Z
+Referentie: referentie uit run 44438033323, commit 362e9ff539fa2cf9ff52118a5268109f1f5ea51d, commitdatum 1795052116, 2026-11-19T01:51:48Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -10,9 +10,9 @@ Referentie: referentie uit run 44435462652, commit 309280658f277438527911d61f850
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | 26 px (0.001%), ruis | |
 | 13-pro-knie-x.png | 8 px (0.000%), ruis | |
-| 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
-| 14-pro-knie-rood-x.png | 13 px (0.001%), ruis | |
-| 14b-pro-knie-rood-los-x.png | 9 px (0.000%), ruis | |
+| 13d-pro-knie-dicht-x.png | gelijk | |
+| 14-pro-knie-rood-x.png | gelijk | |
+| 14b-pro-knie-rood-los-x.png | 5 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -21,14 +21,14 @@ Referentie: referentie uit run 44435462652, commit 309280658f277438527911d61f850
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | 4 px (0.000%), ruis | |
+| 2-gewricht-x.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 6 px (0.000%), ruis | |
+| 5-waaier-x.png | 8 px (0.000%), ruis | |
 | 6-rood-x.png | 23 px (0.001%), ruis | |
-| 7-plat-x.png | 24 px (0.001%), ruis | |
-| 8-winkel-x.png | 98 px (0.005%), ruis | |
-| 9-winkel-rood-x.png | 84 px (0.004%), ruis | |
-| p13-d-x.png | 40 px (0.002%), ruis | |
-| p13-e-x.png | 1 px (0.000%), ruis | |
-| p14b-e-x.png | 7 px (0.000%), ruis | |
+| 7-plat-x.png | gelijk | |
+| 8-winkel-x.png | gelijk | |
+| 9-winkel-rood-x.png | gelijk | |
+| p13-d-x.png | gelijk | |
+| p13-e-x.png | gelijk | |
+| p14b-e-x.png | gelijk | |
