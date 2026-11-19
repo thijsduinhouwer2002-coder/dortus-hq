@@ -58,6 +58,7 @@ TOEGESTAAN = {
     "scanner.yml",                     # ai-handel: proefrun koersverschil-scanner, leest openbare koersen, schrijft op tak ai-handel-data (map scanner/)
     "driehoek.yml",                    # ai-handel: proefrun driehoek-meter, leest openbare orderboeken, schrijft op tak ai-handel-data (map driehoek/)
     "radar.yml",                       # ai-handel: proefrun kansenradar, leest openbare lijsten, funding en orderboeken, schrijft op tak ai-handel-data (map radar/)
+    "ideeen-radar.yml",                # repo-radar: leest openbare GitHub-zoekresultaten en README's (GITHUB_TOKEN, geen geld), schrijft op tak ideeen-data (map repo-radar/)
 }
 
 # Invoer komt in workflows terecht; alleen gewone tekens, zodat er nooit een commando in kan sluipen.

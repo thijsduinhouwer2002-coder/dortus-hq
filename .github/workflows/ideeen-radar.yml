@@ -1,0 +1,68 @@
+name: Repo-radar (ideeën uit nieuwe GitHub-repo's)
+
+# Bouwer repo-radar, 19 nov 2026, opdracht Thijs 19 nov 17:18. Zoekt één keer per dag nieuwe GitHub-repo's waarin
+# iemand een app-idee of een ander geldplan uitschrijft (saas, pricing, waitlist, gumroad, pro version ...), leest
+# de README en geeft een voorselectie met vaste regels. Alleen de zoek-API van GitHub met de GITHUB_TOKEN van deze
+# run en raw.githubusercontent.com: geen eigen sleutel, geen geld, niets naar buiten. Uitleg:
+# platformen/ideeen/repo-radar/README.md. Data en rapport gaan naar de tak ideeen-data, map repo-radar/ (niet main).
+#
+# Ritme: GitHub laat geplande runs in deze repo vaak vallen, daarom start hij ook bij elke push naar main en
+# beslist de klok (organisatie/controle/klok.py, 1d-na-04:00UTC) of hij aan de beurt is: hooguit één keer per dag,
+# en altijd als de push de radar zelf raakt. Met de hand starten (opdrachtbestand) is altijd aan de beurt.
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  klok:
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py ideeen-radar 1d-na-04:00UTC --paden "platformen/ideeen/repo-radar/*.py,platformen/ideeen/repo-radar/opslaan.sh,.github/workflows/ideeen-radar.yml"
+
+  zoek:
+    needs: klok
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || needs.klok.outputs.beurt == 'ja') }}
+    concurrency:
+      group: ideeen-radar
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: platformen/ideeen/repo-radar
+      - name: Tests
+        run: cd platformen/ideeen/repo-radar && python3 -m unittest test_radar
+      - name: Zoeken, lezen en scoren
+        run: |
+          UIT="$RUNNER_TEMP/repo-radar"
+          mkdir -p "$UIT"
+          # wat er al eens in de top stond (van de tak ideeen-data), zodat elke dag nieuwe namen bovenaan staan
+          curl -sf -m 30 -o "$UIT/gezien.json" \
+            "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/ideeen-data/repo-radar/gezien.json" \
+            || echo '{}' > "$UIT/gezien.json"
+          python3 -u platformen/ideeen/repo-radar/radar.py --uit "$UIT/$(date -u +%Y-%m-%d)" --gezien "$UIT/gezien.json"
+      - name: Opslaan op de tak ideeen-data
+        run: bash platformen/ideeen/repo-radar/opslaan.sh "$RUNNER_TEMP/repo-radar"
+      - name: Rapport in het log
+        if: always()
+        run: cat "$RUNNER_TEMP"/repo-radar/*/rapport.md 2>/dev/null | head -80 || true

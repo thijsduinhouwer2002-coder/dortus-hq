@@ -24,5 +24,8 @@ Doel: nieuwe producten vinden die geld kunnen opleveren en die **nog niet goed b
 4. Overlevers vanaf een 7 in `overlevers.md`, gesorteerd op cijfer. Een 8 of hoger meld je ook in `berichten/hoofdchat.md`.
 5. Elke dag één regel per zoeker onderaan `keuring.md`: hoeveel van zijn ideeën overleefden en wat hij beter kan.
 
+## Repo-radar (19 nov 2026)
+Elke dag een top 25 van nieuwe GitHub-repo's met een geldplan, op de tak `ideeen-data` (`repo-radar/rapport.md`). Uitleg: `repo-radar/README.md`. Eén keer per week beoordeelt een agent de top met `repo-radar/opdracht-beoordelaar.md`.
+
 ## Daarna
 De hoofdchat leest `overlevers.md` elke avond. Een overlever gaat pas bouwen na een besluit van de hoofdchat (en bij geld: Thijs).
