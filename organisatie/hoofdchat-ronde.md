@@ -1,13 +1,12 @@
-# Hoofdchat-ronde (vast, sinds 17 nov 2026)
+# Hoofdchat-ronde (vast, 4 keer per dag: 09:47, 13:47, 17:47, 21:47 NL)
 
-De hoofdchat draait deze ronde om 08:41, 14:41, 17:41 en 20:41 NL (ook als Thijs weg is). Koers: `organisatie/koers-kingmaker.md`. Kort en zonder vergadercultuur: doen, niet rapporteren.
+Draait als geplande taak ("Hoofdchat-ronde"), ook als Thijs weg is. Dit ís de hoofdchat: plaatsen mag hier (CLAUDE.md regel 4). Hoofdzaak: snel veel geld verdienen (bovenaan CLAUDE.md). Doen, niet rapporteren.
 
-1. `git pull --rebase`. Lees `organisatie/bord.md`, `berichten/hoofdchat.md` (wat nieuw is sinds de vorige ronde) en de nieuwste besluiten.
-2. **Kingmaker:** staat er een nieuwe overlever van 7+ in `platformen/ideeen/overlevers.md` of een melding van Patrick? Toets hem zelf op de 4 wetten. Ja: opdracht in `berichten/gijs.md` (eerste versie binnen 72 uur, Daan keurt alleen op afwijzing), Gijs naar elk uur (`CRON_TZ=Europe/Amsterdam 52 * * * *`), bord en besluit. Nee: één regel waarom in `platformen/ideeen/keuring.md`.
-3. **Hats:** loopt het naar "alles op main vóór do 20 nov 20:00, bevriezen, build vr 20:00"? Antwoord van Sanne en Bram over het langste gat in minuut 0 tot 30? Eén keer per dag in Steamworks (Chrome) kijken of de ID-controle klaar is.
-4. **Click Joints Pro:** Superhive-keuring (curl de productpagina); live: lanceerprijs zetten en Chris laten lanceren. Antwoord van Ruben over de knop naar Pro: beslissen.
-5. **Bison & Flex:** antwoord van JetBrains in de inbox thijs@dortus.com (Chrome, Gmail u/4); verwerken.
-6. Wat binnen de regels valt doe je zelf, ook inloggen en doorklikken in Chrome (regel Thijs 16:50). Alleen geld uitgeven gaat naar Thijs.
-7. Bord bijwerken, `python3 organisatie/controle/check.py`, push, `git ls-remote`.
-8. Bericht aan Thijs (SendUserMessage) alleen als er iets veranderde of hij iets moet doen. Hooguit 150 woorden.
-9. Plan de volgende ronde met send_later volgens het ritme hierboven, met als bericht: "Hoofdchat-ronde: volg organisatie/hoofdchat-ronde.md". Kijk eerst met list_triggers of die er al staat, zodat er geen dubbele komt.
+1. `bash organisatie/start.sh`. Lees `organisatie/bord.md`, het einde van `berichten/hoofdchat.md` (nieuw sinds de vorige ronde), de besluiten bovenaan en de nieuwste onderaan `organisatie/besluiten.md`.
+2. **Plaatsen (distributie gaat voor):** zet elke post of elk filmpje dat klaarstaat met een keuring door een ander (`Gekeurd: ja`, skill `keuren`) op de kanalen van Dortus via Metricool: YouTube en TikTok (Free plan: 20 posts per maand, verdeel ze). Bronnen: `commercie/filmpjes/planning.md`, `commercie/lanceerposts.md` en wat Chris of een ander in `berichten/hoofdchat.md` klaarzet. Filmpjes alleen als `python3 organisatie/controle/geluid_check.py <bestand>` GOED zegt, en uit een release alleen de `-geluid.mp4`. **Geen AI-melding, nergens** (besluit Thijs 19 nov 01:28). Schrijf elke plaatsing in `commercie/geplaatst.md` (datum, kanaal, link). Onder de naam van Thijs (zijn Reddit, mail, persmensen) plaats je niet: zet de tekst klaar op `organisatie/lijst-thijs.md`.
+3. **Geld:** staat Click Joints Pro al op Superhive (`curl` de makerspagina)? Zo niet en het is na ma 23 nov: contact via de inbox in Chrome alleen als dit de HP van Thijs is, anders op de lijst. Nieuwe verkopen en cijfers staan in `organisatie/scorebord.md`.
+4. **Agents in de gaten houden:** zette elke agent die aan staat echt iets op GitHub sinds zijn vorige run (`git log`, `last_run` in list_triggers)? Draait iemand rondjes, stuur bij met een bericht onderaan zijn berichtenbestand. Staat er een kant-en-klare keuring of melding voor de hoofdchat, handel hem af.
+5. Bord bijwerken: alleen de statusregel bovenaan vervangen (niet erbij plakken), hooguit ±600 tekens. `python3 organisatie/controle/check.py`, push, `git ls-remote origin main`.
+6. Moet Thijs iets doen of veranderde er iets groots: zet het op `organisatie/lijst-thijs.md` (max 5) en zeg het in je eindantwoord in hooguit 100 woorden.
+
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
