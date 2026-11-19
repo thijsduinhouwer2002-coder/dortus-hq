@@ -74,6 +74,22 @@ Alles staat apart voor **MiCA** (de beurs of een EU-dochter heeft een vergunning
 een dag (4 runs) is het eerste rapport bruikbaar; na 7 dagen is het een week aan metingen, inclusief weekend en
 drukke uren.
 
+## Eerste meting: proef van 10 minuten (19 nov 2026, 15:31 tot 15:41 UTC)
+GEZIEN, run 44555682966 op een GitHub-runner, data op `ai-handel-data` in `driehoek/2026-11-19/run-44555682966-proef/`.
+- Alle 8 beurzen antwoordden vanaf GitHub, 0 fouten, geen enkele keer "te veel verzoeken".
+- 0 echte driehoeken. Wel 3 keer winst op het boek, alle op MEXC (grijs), USDT > BTC > BDX > USDT: €0,02 winst
+  op €16 diepte, 3 tot 12 seconden. Te dun om iets mee te doen.
+- Beste driehoek per ronde na kosten (mediaan): Kraken -0,59%, Bitvavo -0,76%, Bitstamp -1,02%, Bitget -0,28%,
+  OKX -0,10%, Gate -0,12%. KuCoin +0,35% en MEXC +0,37%, maar daar gaf het orderboek geen winst (de bulk-koers
+  liep achter of er lag maar een paar cent op die prijs).
+- Met €100 kun je op elke beurs bijna alle driehoeken rondmaken (Bitstamp 333 van 346, OKX 2.332 van 2.336, de
+  rest allemaal): de kleinste inleg die alle drie orders boven het minimum houdt, is in de mediaan €10 of minder
+  (Bitstamp €12,50). Een kleine inleg valt dus niet af door het minimum, maar door de kosten.
+- Op MEXC werd 12% van de kandidaten overgeslagen door het budget; daarom is het budget daar naar 15 boeken per
+  ronde gegaan.
+
+Tien minuten zeggen weinig: het rapport wordt zinvol na een dag (4 vaste runs) en echt na de week.
+
 ## Takerkosten per stap (standaardtarief, laagste trede)
 
 | Beurs | Taker | Bron |
