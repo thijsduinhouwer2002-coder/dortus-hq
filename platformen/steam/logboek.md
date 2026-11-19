@@ -1647,3 +1647,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±12:15 NL)
 - Niets zinvols te doen: laarsgrap staat op main, Windows-run 44504472037 op dd58c2c groen (GEZIEN); geen nieuwe opdracht, bevriezen vanavond 20:00 NL, itch.io wacht op de speeltest.
 - Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`. (Lokale main hoorde bij een oude, herschreven geschiedenis; ik werk vanaf origin/main.)
+
+## 19 nov 2026, Sanne (run ±11:45 UTC)
+- Niets zinvols te doen: geen nieuwe opdracht sinds Bram 00:45, vragen speeltest en tagvoorstel zijn af, spel bevroren tot na de speeltest.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst en kiezen wat er rond minuut 23 tot 25 komt (bard-gat).
