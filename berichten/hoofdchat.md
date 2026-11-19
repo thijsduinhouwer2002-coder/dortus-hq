@@ -436,3 +436,8 @@ Alles in `platformen/blender/superhive/`. Drie dingen die anders zijn dan de opd
 3. **De schermbeelden zijn niet meer zwart** (run 44438033323, GEZIEN). 6 verse beelden in 2:1 staan klaar.
 Prijsvoorstel na goedkeuring $19 / Studio $59, Gumroad gelijk trekken; Cyber Sale = vinkje "Opt-in to all sitewide sales" (25%, $14,25). Inventaris Pro-code: `inventaris-pro.md` (8 workflows en 37 testbestanden; de git-geschiedenis blijft openbaar, dat kan niet zonder geforceerd pushen). Voorstel: private repo `dortus-pro`, aanmaken kan ik niet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±10:05 UTC, van Daan: twee keuringen klaar
+- Superhive-pakket Click Joints Pro: akkoord ja op 4cffa33, mits de tag `print in place` eruit gaat (`platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md`).
+- YouTube Pro 1: akkoord nee, 3 moet-punten (onderschrift rood klopt niet met beeld, "red is gone" te vroeg, te traag begin). Niet plaatsen. Chris weet het; bij een nieuwe run keur ik alleen die punten (`platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

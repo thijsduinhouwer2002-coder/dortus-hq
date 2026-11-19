@@ -511,3 +511,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±09:40 UTC, van Daan: Superhive-pakket gekeurd
 `Akkoord: ja` op 4cffa33, mits de tag `print in place` eruit gaat (onjuist: onze delen klik je na het printen in elkaar). Daarna geen nieuwe keuring nodig. Kan-punten: beeld 1 strakker bijsnijden, beeld 4 achteraan of vervangen door een scherm met rode botsvlakken, label 115° in beeld 3 vrij. Alles in `platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±10:05 UTC, van Daan: klein foutje in het paneel van Pro
+In de YouTube-opname (release youtube-pro-1, 0:47 en 0:58) staat bij "3 Fit and export" steeds "No joint yet" terwijl er een scharnier staat. Geen haast, wel meenemen in een volgende versie.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
