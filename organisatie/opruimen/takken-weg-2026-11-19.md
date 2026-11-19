@@ -1,8 +1,10 @@
-# Takken weggehaald op 19 nov 2026 (opruimen fase 1)
+# Takken die weg mogen (opruimen fase 1, lijst van 19 nov 2026)
+
+**Stand 19 nov ±18:25: nog niets weggehaald.** `git push origin --delete` werd in de sessie van de opruim-bouwer geweigerd door de proxy van de omgeving (HTTP 403, een policy-weigering; gewone pushes naar main werken wel). Niet omheen gewerkt. Weghalen kan Thijs (of een sessie die het wel mag) met de namen uit de tabel "Weg" hieronder, in groepjes: `git push origin --delete <tak> <tak> ...`. Controleer vlak ervoor met `git ls-remote --heads origin` dat de hash nog gelijk is; is een tak intussen veranderd, laat hem staan.
 
 Besluit Thijs 19 nov 17:31, punt 2: oude takken weg, behalve `main`, `schermen`, `klok`, `dashboard`, de datatakken en takken met werk van de laatste 3 dagen. Gemeten met `git ls-remote --heads origin` en een kloon met alleen commits (`--filter=tree:0`), 19 nov ±18:10. Grens voor "laatste 3 dagen": laatste commit op of na ma 16 nov 00:00 (NL), ruim genomen. Open pull requests: 0 (GEZIEN, GitHub-API).
 
-Op origin: 496 takken. Weggehaald: 407. Blijven: 89.
+Op origin: 496 takken. Weg: 407. Blijven: 89.
 
 **Terughalen:** `git fetch origin <hash>` en dan `git push origin <hash>:refs/heads/<naam>`. Dat werkt zolang GitHub de commit nog bewaart; de hash staat hieronder. Weghalen met `git push origin --delete` is geen geforceerde push en herschrijft geen geschiedenis.
 
@@ -100,7 +102,7 @@ Op origin: 496 takken. Weggehaald: 407. Blijven: 89.
 | `uitgave/hats-steam-vfoo` | 6adb0ba975 | 2026-11-18 20:21 | commit in de laatste 3 dagen; bovendien een uitgave-tak (een push naar uitgave/* start een uitgave-workflow), dus ook later alleen weghalen na nakijken van die workflow |
 | `verkenner-data` | 43fda29b68 | 2026-11-16 04:22 | datatak |
 
-## Weggehaald
+## Weg (nog niet weggehaald)
 
 | Tak | Laatste commit | Datum (UTC) |
 |---|---|---|
