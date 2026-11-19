@@ -6,7 +6,8 @@ Eisen:
 1. precies 10 delen met cj_deel, allemaal in een collectie die met "Fit test" begint;
 2. per speling precies twee delen met die cj_speling_mm, en het getal (cj_kaart_getal) klopt met de speling;
 3. alle tien delen gesloten;
-4. scene.click_joints.speling_mm, de cursor en een eigen object van de koper blijven zoals ze waren;
+4. scene.click_joints.speling_mm, Auto-diameter (kogel_auto), de cursor en een eigen object van de koper blijven
+   zoals ze waren;
 5. Export daarna geeft 10 bestanden;
 6. een tweede klik maakt een nieuwe set die de eerste niet raakt (20 delen, geen overlap);
 7. in een scene in meters zijn de staafjes even groot in mm als in een mm-scene.
@@ -86,6 +87,7 @@ def proef(soort):
     scene = bpy.context.scene
     inst = scene.click_joints
     inst.speling_mm, inst.uit_elkaar = 0.17, False
+    inst.kogel_auto = True
     eigen = figuren.staaf("mijn_model", 5.0)
     eigen_verts = len(eigen.data.vertices)
     m = Matrix.Translation((3.0, -2.0, 1.0))
@@ -103,6 +105,7 @@ def proef(soort):
     open_ = [o.name for o in lijst if not gesloten(o)]
     check(not open_, f"{soort}: alle delen gesloten (open: {open_})")
     check(abs(inst.speling_mm - 0.17) < 1e-6, f"{soort}: speling scene blijft 0.17 ({inst.speling_mm:.3f})")
+    check(inst.kogel_auto, f"{soort}: Auto-diameter blijft aan")
     check((scene.cursor.matrix.translation - m.translation).length < 1e-6, f"{soort}: cursor blijft staan")
     check(eigen.name in scene.objects and len(eigen.data.vertices) == eigen_verts and not eigen.get("cj_deel")
           and not in_kaart(eigen), f"{soort}: eigen model niet aangeraakt")

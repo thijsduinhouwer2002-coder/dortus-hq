@@ -19,6 +19,9 @@ RELIEF_MM = 0.6
 IN_MM = 0.2  # het getal steekt zoveel in de staaf, zodat de union één stuk wordt
 MAX_VER_MM = 1000.0  # verder dan 1 m achter de scene zetten we hem niet; dan gewoon bij de oorsprong
 UITLEG = "Print all five. Use the clearance of the one that turns without wobble."
+# Kleine schuif van de cursor tegen vlakken die precies samenvallen. Lukt de snede niet, dan nog een keer met de
+# volgende: in 4.2.23 weigerde in een scene in meters soms één scharnier (19 nov, run 44576138702).
+SCHUIVEN_MM = ((0.031, 0.137, 0.071), (0.083, -0.052, 0.113), (-0.047, 0.091, -0.129), (0.119, 0.023, -0.061))
 
 
 def _staaf(naam, r, lengte, plek, collectie):
@@ -93,6 +96,31 @@ def _zet_getal(deel, tekst, u, collectie):
     return False
 
 
+def _snijd(context, inst, soort, staaf, plek, u, schuif, collectie):
+    """Eén gewricht midden op de staaf. Geeft de twee delen, of [] als het niet lukte (staaf dan onaangeraakt)."""
+    scene = context.scene
+    scene.cursor.matrix = Matrix.Translation(plek + Vector((schuif[0] * u, schuif[1] * u,
+                                                             LENGTE_MM * u / 2 + schuif[2] * u)))
+    context.view_layer.update()
+    for o in context.view_layer.objects:
+        o.select_set(False)
+    staaf.select_set(True)
+    context.view_layer.objects.active = staaf
+    try:
+        if soort == "KOGEL":
+            uit = bpy.ops.click_joints.plaats()
+        else:
+            uit = bpy.ops.click_joints.plaats_scharnier(stand="115")
+    except RuntimeError:
+        uit = {"CANCELLED"}
+    delen = [o for o in collectie.objects if o.get("cj_deel") and o.get("cj_bron") == staaf.name]
+    if uit == {"FINISHED"} and len(delen) == 2:
+        return delen
+    for o in delen:
+        bpy.data.objects.remove(o)
+    return []
+
+
 def _bezette_y(context):
     """Hoogste y van wat er al in de scene staat (meshes van de koper en eerdere Fit test-sets), of None."""
     ys = [(o.matrix_world @ Vector(h)).y for o in context.scene.objects if o.type == "MESH" and o.visible_get()
@@ -124,8 +152,9 @@ class CLICK_JOINTS_OT_testkaart(bpy.types.Operator):
             begin.y = max(0.0, bezet + r + TUSSEN_MM * u)
         collectie = bpy.data.collections.new("Fit test")
         scene.collection.children.link(collectie)
-        oud = {k: getattr(inst, k) for k in ("speling_mm", "soort", "kogel_auto", "as_bron", "uit_elkaar",
-                                              "pose_graden", "kogel_mm") if hasattr(inst, k)}
+        # kogel_mm vóór kogel_auto: een nieuwe kogel_mm zet Auto uit (eigenschappen._handmatig).
+        oud = {k: getattr(inst, k) for k in ("speling_mm", "soort", "kogel_mm", "kogel_auto", "as_bron", "uit_elkaar",
+                                              "pose_graden") if hasattr(inst, k)}
         oud_cursor = scene.cursor.matrix.copy()
         oud_actief = context.view_layer.objects.active
         oud_kies = [o for o in context.view_layer.objects if o.select_get()]
@@ -141,21 +170,13 @@ class CLICK_JOINTS_OT_testkaart(bpy.types.Operator):
                 plek = begin + Vector((i * stap, 0, 0))
                 staaf = _staaf(f"Fit {tekst}", r, LENGTE_MM * u, plek, collectie)
                 inst.speling_mm = s
-                scene.cursor.matrix = Matrix.Translation(plek + Vector((0.031 * u, 0.137 * u, LENGTE_MM * u / 2 + 0.071 * u)))
-                context.view_layer.update()
-                for o in context.view_layer.objects:
-                    o.select_set(False)
-                staaf.select_set(True)
-                context.view_layer.objects.active = staaf
-                if self.soort == "KOGEL":
-                    uit = bpy.ops.click_joints.plaats()
-                else:
-                    uit = bpy.ops.click_joints.plaats_scharnier(stand="115")
-                delen = [o for o in collectie.objects if o.get("cj_deel") and o.get("cj_bron") == staaf.name]
-                if uit != {"FINISHED"} or len(delen) != 2:
+                delen = []
+                for schuif in SCHUIVEN_MM:
+                    delen = _snijd(context, inst, self.soort, staaf, plek, u, schuif, collectie)
+                    if delen:
+                        break
+                if not delen:
                     mis.append(tekst)
-                    for o in delen:
-                        bpy.data.objects.remove(o)
                     bpy.data.objects.remove(staaf)
                     continue
                 bpy.data.objects.remove(staaf)  # de bron is van ons, niet van de koper: weg na de snede
@@ -188,7 +209,7 @@ class CLICK_JOINTS_OT_testkaart(bpy.types.Operator):
 
 def teken_knop(self, context):
     vak = self.layout.box()
-    vak.label(text="Print this first: five joints from 0.10 to 0.30 mm")
+    vak.label(text="Print this first")  # uitleg staat in de knoptip; past in een smalle zijbalk
     rij = vak.row(align=True)
     rij.operator(CLICK_JOINTS_OT_testkaart.bl_idname, text="Fit test: ball").soort = "KOGEL"
     rij.operator(CLICK_JOINTS_OT_testkaart.bl_idname, text="Fit test: hinge").soort = "SCHARNIER"

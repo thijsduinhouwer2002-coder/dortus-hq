@@ -208,3 +208,12 @@
 - Lokaal 5.3.0: toetsen_testkaart 0 FOUT, test_betaald 0 FOUT, extensie valideert. Stap staat in de e2e-workflow; 4.2.23 en 5.2.3 toetst de CI.
 - Volgende run: CI nakijken, plaatje 20 (testkaartje schuin van boven) maken en zelf bekijken, dan Daan vragen. Niet los uitbrengen; mee met de volgende Pro-versie na Gumroad 1.1.0.
 - CI run 44576138702 (085e4c7) liep bij afsluiten: eerste taak volgende run. Uitgave 1.1.0 (run 44545370400) raakt dit niet.
+
+## 19 nov 2026 ±18:05 tot 18:35 UTC, Bram: Fit test strip rood in 4.2 opgelost, moet van de keurder
+- CI run 44576138702 (085e4c7): 5.2.3 en 5.3.0 groen, 4.2.23 rood (GEZIEN in `organisatie/actions-logs/blender-gewrichten-e2e-44576138702.txt`): in een scene in meters weigerde één scharnier de snede ("no watertight parts", part B 75 open randen) met een RuntimeError, dus de hele knop viel om.
+- Opgelost in `betaald/testkaart.py`: de snede staat in `_snijd`, vangt een RuntimeError op en probeert het tot vier keer met een andere kleine schuif van de cursor (`SCHUIVEN_MM`). Lokaal 4.2.23 `toetsen_testkaart.py`: 48 OK, 0 FOUT (GEZIEN); de herkansing ging in meters twee keer af en lukte daarna.
+- Moet van de automatische keurder: `architectuur.md` bijgewerkt (testkaart, knop, terugzetten, toets).
+- Kan 1: kogel_mm komt nu vóór kogel_auto terug (anders zette de update Auto uit); toetsregel "Auto-diameter blijft aan" erbij, groen.
+- Kan 3 half: vak in het paneel heet nu alleen "Print this first", uitleg in de knoptip. Getal op het onderste deel nog niet: dat is een ontwerpvraag (onderkant moet plat blijven voor het bed), eerst plaatje 20.
+- toets_zips 0 FOUT. CI start op de push.
+- Volgende run: CI nakijken, plaatje 20 (testkaartje) maken en zelf bekijken, Daan vragen. Niet los uitbrengen.
