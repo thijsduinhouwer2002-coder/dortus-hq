@@ -352,6 +352,64 @@ meer dan 1.000 weergaven en gemiddeld meer dan 5 s kijktijd, anders stopt die re
 - **"Wat Thijs eenmalig regelt" wordt korter:** (1) @dortusstudio zakelijk maken plus link in de bio (±3 minuten, gratis), (2) de twee taken uit run 4 punt 6 aanmaken in de app. Omkoppelen in Metricool vervalt.
 - **Het Oor (zonder account, elk uur):** YouTube-RSS van @Dortusapps, de openbare TikTok-pagina van elke video waarvan Metricool het adres gaf (weergaven, likes, reacties), profielcijfers van @dortusstudio, en Jetstream voor Bluesky. Alles naar `marketing/dagrapport.md`.
 
+## Nieuw in run 6 (19 nov ±05:50 UTC): geen van de geplande posts heeft een klikbare weg naar geld, en het eindontwerp op één plek
+
+### 1. De vier geplande posts: drie wijzen naar gratis, de vierde heeft geen klikbare link
+Metricool-planner om 05:50 UTC (GEZIEN met `getScheduledPosts`, alleen lezen): vier posts op PENDING, alle met `autoPublish: true`.
+- **Vandaag 16:00 NL, TikTok en YouTube Short (filmpje 2):** tekst wijst naar de gratis add-on ("search Click Joints"). Geen woord over Pro.
+- **Vr 20 nov 16:00 NL, YouTube Short (filmpje 5):** de enige post over Pro, met de Gumroad-link in de beschrijving. Links in de beschrijving van een Short zijn niet klikbaar sinds 31 aug 2023 (DERDEN, al gemeld door Joris in `berichten/hoofdchat.md`). De link staat er dus, maar niemand kan erop tikken.
+- **Vr 20 nov 16:00 NL, TikTok (filmpje 5):** noemt het Gumroad-domein als losse tekst, zonder link. @dortusstudio heeft nog steeds geen link in het profiel: `commerceUser: false`, geen `bioLink`, 1 volger, 2 video's (GEZIEN 05:50 UTC met curl op de profielpagina).
+
+**Gevolg:** zolang lijst punt 5 (zakelijk plus link in de bio) niet gedaan is, kan geen van de vier posts één euro opleveren, alleen bereik. Dat is precies wat de hoofdzaak niet wil.
+
+### 2. De gratis add-on mag niet naar Pro wijzen: Blender verbiedt het
+Uit de voorwaarden van extensions.blender.org (GEZIEN met curl, `extensions.blender.org/terms-of-service/`):
+- (6.1) "Advertisements (links to commercial and funding websites ... prompting users to purchase anything) are not allowed inside the Blender UI. Linking to external funding platforms is allowed on the platform (in the extension's description)."
+- (6.2) "Showcasing features from commercial versions will be considered an advertisement and is not allowed."
+- (6.3) "Extension must not use Blender's UI elements to promote its updates, commercial versions, or other extensions."
+
+Onze gratis zip en de pagina houden zich daaraan: `e2e/toets_zips.py` weigert de woorden pro, hinge en superhive in de gratis zip, en de extensiepagina noemt Pro, Gumroad of Superhive nergens (GEZIEN). Goed voor de veiligheid, maar het betekent: **de 244 mensen die de gratis add-on haalden (GEZIEN 05:50 UTC, was 234 op 18 nov 20:21) horen via Blender nooit van Pro.** De weg naar geld moet dus volledig via onze eigen kanalen lopen. Dat maakt de marketingtak de enige verkoper van Click Joints Pro ($12, GEZIEN op de Gumroad-pagina; 0 beoordelingen, verkoopaantal niet openbaar).
+
+Grijs randje: 6.1 staat een link naar een "funding platform" in de beschrijving toe. Een "betaal wat je wilt"-pagina voor de gratis versie (Chris heeft "Click Joints Free op Gumroad $0+" op zijn lijst) zou daar misschien mogen, maar Gumroad is ook een winkel en de keurders van Blender kunnen het als reclame zien (GOK). Risico: de extensie wordt afgekeurd of verborgen. Niet doen zonder dat de hoofdchat het afweegt.
+
+### 3. Waar wél een klikbare link kan, gratis en zonder mens
+| Plek | Klikbaar? | Kan de tak het zelf? |
+|---|---|---|
+| TikTok-profiel @dortusstudio | ja, na omzetten naar zakelijk (DERDEN, run 4) | nee, Thijs (lijst punt 5, ±3 min) |
+| YouTube Short, "gerelateerde video" | ja, een tik naar een lange video van ons kanaal (DERDEN, [YouTube Help](https://support.google.com/youtube/answer/14075157)) | alleen in YouTube Studio; of Metricool dit veld heeft: niet gezien in de toolbeschrijving (GOK: nee) |
+| Beschrijving van een gewone (lange) YouTube-video | ja (DERDEN, zelfde reden waarom Shorts het niet hebben) | ja via Metricool, `youtubeData.type` kent naast "short" ook gewone video's (GEZIEN: veld `type` in de geplande posts) |
+| Kanaallinks @Dortusapps (bovenaan het kanaal) | ja (DERDEN, Joris) | nee, eenmalig in Studio |
+| Bluesky en Mastodon | ja, elke link in een post | ja, met app-wachtwoord of token (run 1) |
+| Discord van Hats | ja | ja (webhook staat er), maar dat publiek wil Hats, geen Blender |
+| Kit-mail | ja | ja, oranje (run 1) |
+
+**Voorstel voor de tak:** per Pro-functie één gewone YouTube-video van 2 tot 4 minuten (liggend, schermopname uit Blender, Gumroad- en Superhive-link bovenaan de beschrijving), en elke Short wijst daarnaar als gerelateerde video. Die koppeling zet de hoofdchat of Thijs eenmalig per Short in Studio (±1 min, GOK) tot we eigen YouTube-OAuth hebben. Shorts zijn dan de lokker, de lange video de winkel.
+
+### 4. Kleine fout die de Keurder moet vangen
+Filmpje 5 op YouTube heeft de gratis link en de Pro-link in de beschrijving, maar het is een Short, dus beide zijn dood. De techniek-check per kanaal in `marketing/REGELS.md` (run 5 punt 4) krijgt er één regel bij: **"YouTube Short met een URL in de tekst: oranje, want niet klikbaar. Zet de link in de gerelateerde video of maak er een gewone video van."** En voor TikTok: **"TikTok die naar een link verwijst terwijl het profiel geen link heeft (`bioLink` leeg op de profielpagina): rood."** Beide zijn in code te toetsen zonder AI.
+
+### 5. Eindontwerp in één blik (vervangt de losse "bijgesteld"-stukken van run 1 tot 5)
+Voor de hoofdchat die vandaag de tak ontwerpt. Alles hierboven blijft als onderbouwing.
+
+**Doel:** Click Joints Pro verkopen (enige product dat nu via eigen kanalen geld kan opleveren: Bison & Flex verkoopt via JetBrains, Hats kan nog niet op Steam). Meetlat: verkopen per dag op Gumroad naast de posts van die dag (hoek A patroon 22).
+
+**Wie (2 agents plus 1 lezer, alle drie geplande sessies, geen Actions nodig):**
+1. **Schrijver en Plaatser** (elk uur, minuut 7): leest STOP, leest planner en cijfers via Metricool, plant groen gekeurde concepten in, maakt nieuwe concepten als er minder dan 3 dagen voorraad is. Tekst van de taak: run 4 punt 6.
+2. **Keurder** (elk uur, minuut 37): andere Claude, vast formulier van 8 vragen plus techniek-check (run 5 punt 4, aangevuld met punt 4 hierboven). Groen, oranje of rood.
+3. **Oor** (kan in de taak van de Schrijver, stap 2): YouTube-RSS, openbare TikTok-pagina's per video, TikTok-profiel (ook `bioLink`), extensiepagina Blender (downloads), Gumroad-pagina. Alles naar `marketing/dagrapport.md`.
+
+**Kanalen nu (zonder nieuwe accounts):** TikTok en YouTube via Metricool Free (±14 posts over in november, run 3). Lange YouTube-video's met klikbare links tellen ook mee in dat quotum (GOK).
+**Kanalen later (pas na de drempel):** eigen YouTube-OAuth (eigen quotum, reageren), Bluesky, Mastodon. **Nooit zelf:** Reddit, Hacker News, BlenderArtists, makers en pers (onder de naam van Thijs, regel 4).
+
+**Wat Thijs doet (eenmalig, ±10 minuten):** (1) @dortusstudio zakelijk maken plus link naar Click Joints Pro in de bio; (2) de twee taken uit run 4 punt 6 aanmaken in de app (de omgeving weigert een plaatsende taak die een agent aanmaakt, run 4); (3) liefst ook een kanaallink naar Gumroad bovenaan @Dortusapps.
+
+**Wat de hoofdchat vandaag kan doen zonder Thijs:** in Metricool de TikTok van vr 20 nov laten staan maar de tekst "Gumroad (domein)" vervangen door "link in profiel" zodra punt 1 gedaan is; zo niet, de post een week opschuiven zodat de enige Pro-post niet zonder uitgang uitgaat (spaart ook quotum). Dat is een wijziging in een geplande post op een kanaal van Dortus, dus binnen regel 4 na keuring.
+
+**Kosten:** € 0 per maand (Metricool Free, Kit Free, geplande sessies onder het abonnement: GOK). Pas geld vragen als TikTok of YouTube de drempel haalt (één video boven 1.000 weergaven vóór 1 dec).
+
+**Stopregel:** 14 dagen per reeks. Na 14 dagen zonder één verkoop op een dag met een post: die reeks stopt, de tak schuift naar de volgende vorm (diashow, lange video, ander product).
+
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -365,6 +423,8 @@ meer dan 1.000 weergaven en gemiddeld meer dan 5 s kijktijd, anders stopt die re
 - [ContentStudio: YouTube verbiedt < en >](https://docs.contentstudio.io/article/996-youtube-errors-while-publishing), [Kapwing: wanneer een AI-label](https://www.kapwing.com/resources/when-should-you-label-videos-as-ai/)
 - Run 4: [Metricool plannen en API](https://help.metricool.com/plans-add-ons-and-api-access-explained-xux1u), [Metricool MCP-limieten](https://help.metricool.com/mcp-limits-and-plan-requirements-h72jg), [Stan: link in TikTok-bio](https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/), [TikTok photo post API](https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post)
 - [Buffer: content engine met GitHub Actions](https://buffer.com/resources/i-built-a-content-engine-that-creates-21-social-posts-a-week-using-the-buffer-api/), [Postiz: Accentify](https://postiz.com/blog/how-one-founder-automated-social-media-posting-with-ai-agents-notion-and-postiz-to-hit-1300-mrr)
+
+- Run 6: Blender-voorwaarden `extensions.blender.org/terms-of-service/` (GEZIEN, artikel 4.3 en 6.1 tot 6.3); gerelateerde video bij Shorts [YouTube Help 14075157](https://support.google.com/youtube/answer/14075157) (DERDEN); Metricool `getScheduledPosts` en `getBrandSettings` (GEZIEN, alleen lezen); profielpagina TikTok @dortusstudio en Gumroad-pagina Click Joints Pro met curl (GEZIEN).
 
 ## Stand na run 19 nov 01:05 (run 1)
 1. **Zonder geld kan een agent echt zelfstandig plaatsen en reageren op YouTube, Bluesky, Mastodon en Discord;** TikTok alleen plaatsen via Metricool. Reddit en HN blijven mensenwerk.
@@ -411,3 +471,11 @@ meer dan 1.000 weergaven en gemiddeld meer dan 5 s kijktijd, anders stopt die re
 
 **Voorstel:** de hoofdchat haalt vandaag het omkoppelen van punt 5 op de lijst van Thijs af (het zakelijk maken plus link blijft), laat een bouwer `marketing/REGELS.md` uit punt 4 en een lege `marketing/wachtrij/` aanmaken, en vraagt Thijs de twee taken uit run 4 punt 6 aan te maken. Vóór de post van vandaag 16:00 hoeft er niets meer te gebeuren; om ±18:00 kijkt de hoofdchat of het adres van filmpje 2 in Metricool (`TKPO03`) en in de YouTube-RSS staat.
 
+## Stand na run 19 nov 05:55 UTC (run 6)
+1. **Geen van de vier geplande posts kan nu geld opleveren** (GEZIEN in de Metricool-planner): vandaag twee keer de gratis add-on, vrijdag Pro met een link die op een Short niet klikbaar is (DERDEN) en een TikTok die naar een domein in tekst wijst terwijl het profiel geen link heeft (`commerceUser: false`, GEZIEN).
+2. **Blender verbiedt dat de gratis add-on of de extensiepagina naar Pro wijst** (GEZIEN, voorwaarden 6.1 tot 6.3). De 244 gebruikers van de gratis versie (GEZIEN, +10 sinds gisteravond) horen dus nooit via Blender van Pro; de marketingtak is de enige verkoper van Pro ($12, GEZIEN).
+3. **Klikbare uitgangen zonder geld:** TikTok-bio na zakelijk maken, gewone (lange) YouTube-video's via Metricool, gerelateerde video onder een Short (DERDEN), kanaallinks, en later Bluesky en Mastodon.
+4. **Twee nieuwe regels voor de techniek-check** die in code te toetsen zijn: URL in een YouTube Short = oranje; TikTok die naar een link wijst zonder `bioLink` = rood.
+5. **Eindontwerp staat nu op één plek** (run 6 punt 5): 2 agents plus het Oor als geplande sessies, Metricool Free, € 0 per maand, Thijs ±10 minuten eenmalig.
+
+**Voorstel:** de hoofdchat zet lijst punt 5 (zakelijk plus bio-link naar Pro) bovenaan de lijst van Thijs met de reden "zonder dit kan de Pro-post van vrijdag niets verkopen", en schuift de TikTok van vr 20 nov een week op als dat vóór vrijdag 15:00 niet gedaan is. Daarnaast laat ze per Pro-functie één liggende YouTube-video van 2 tot 4 minuten maken met de Gumroad-link bovenaan de beschrijving, waar elke Short als gerelateerde video naar wijst. Dan pas de twee taken van de tak aanzetten.
