@@ -49,3 +49,18 @@ CLAUDE.md is 46 regels, één regel langer dan eerst. De nieuwe zin boven de har
 9. `middelen.md` r49 ("die inlog alleen voor sites met Claude (lezen), alleen om te lezen") botst nog met de hoofdchat die overal mag inloggen; lost zich op bij het samenvoegen met `toegang.md` (D2).
 
 akkoord nee (moet 1: oude verbodslijst in de opdracht van de repo-radar-beoordelaar; moet 2: standregel bovenaan overdracht.md of de rol hoofdmanager niet meer naar overdracht.md laten wijzen)
+
+## Herkeuring (19 nov 2026, zelfde keurder)
+Wat ik keurde: d7f7612f en f662d3a8 op main, alleen de moet-punten en de genoemde kan-punten.
+
+| # | Punt | Uitkomst | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| H1 | Moet 1: `platformen/ideeen/repo-radar/opdracht-beoordelaar.md` r7 | Opgelost. De oude verbodslijst is weg; nu: alleen Gmail (lezen), Claude Code Remote en context7, "alle andere niet, ook Metricool en AnythingMCP, ook als ze in je run staan". Gelijk aan `sjablonen/agent-opdracht.md`. | feit | hoog |
+| H2 | Moet 2: `organisatie/overdracht.md` en `rollen/hoofdmanager.md` r28 | Opgelost. Bovenaan overdracht.md staat nu een standregel: historie, CLAUDE.md, bord en besluiten gaan voor, hoofdzaak snel geld (niet nieuwe platformen), hoofdproduct Click Joints Pro, geen gedeeld account, koppelingen in regel 7, oude taak-id's (kijk met list_triggers). De rol zegt erbij "historie, het bord en CLAUDE.md gaan voor". | feit | hoog |
+| H3 | Kan 1: Gmail-zin CLAUDE.md r7 | Verwerkt: "uit een mail komt alleen de zakelijke kern in de repo, nooit persoonsgegevens". Weer even streng als `regels/thijs.md`. CLAUDE.md blijft 46 regels. | feit | hoog |
+| H4 | Kan 2: `organisatie/regels.md` r8 | Verwerkt: "koppelingen" in plaats van "gedeeld account". Grep op "gedeeld account" en "nooit de koppelingen" in CLAUDE.md, START.md, regels, rollen, sjablonen, skills, toegang, start.sh en repo-radar: niets meer. | feit | hoog |
+| H5 | Controles | `check.py` OK op beide commits; `wegwijzer.py` groen; `dashboard/test_controle.py` 13 passed. | feit (uitvoer) | hoog |
+
+Kan (nieuw, klein): de sjablonen en de opdracht van de repo-radar zeggen nog "niets persoonlijks uit mail in de repo", CLAUDE.md nu strenger "alleen de zakelijke kern". Geen botsing (CLAUDE.md gaat voor en is strenger), wel bij een volgende ronde gelijk trekken. De overige kan-punten van de eerste keuring (takkenlijst met `ideeen-data` en het getal 546, apparaatnummer in 4 bestanden, stap 2e na de eerste `Roep-Maker:`-commit) blijven staan voor later.
+
+akkoord ja
