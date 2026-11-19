@@ -36,3 +36,24 @@ Akkoord: nee (3 moet-punten, alle drie in het script of de tekst; geen nieuwe op
 
 ## Omslag
 Beeld op **0:47,5** (`ffmpeg -ss 47.5`): de knie staat op de stop, boog van 0° tot 115° helder wit, groene naad, Bend 114.90 in het paneel. Snij het paneel rechts eraf (x 0 tot ±1520), schuif het model naar het midden, en zet "STOPS AT 115°" groot linksboven in wit met het groen van ons palet op "115°". Niet het rode beeld: zonder uitleg leest rood als "kapot".
+
+---
+# Herkeuring versie 2, 19 nov 2026 ±12:35 UTC, Daan
+Wat ik keurde: release `youtube-pro-1`, `click-joints-pro-uitleg-2-geluid.mp4` uit run 44519478563 (groen, commit eb3f1ff, bevat ac0dbb7). 127,0 s, 1920 x 1080, h264 en aac. Elke 2 s een beeld, 0:12 tot 0:24 en 1:00 tot 1:08 elke halve seconde. Tekst in `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md`.
+Akkoord: ja YouTube Pro 1 versie 2 (click-joints-pro-uitleg-2-geluid.mp4)
+
+## Mijn drie moet-punten
+| # | Moet | Nu | Bewijs |
+|---|---|---|---|
+| 1 | Zin over rood klopt met beeld | "Push past the stop: the arc turns red and shows how far you went." Rode boog en "+9° past limit" in beeld. Zelfde zin in de beschrijving. | GEZIEN 0:54 tot 1:02 |
+| 2 | "Back inside the range" pas als rood weg is | Bij 1:03 staat nog "+2° past limit" zonder onderschrift; vanaf 1:04 geen rood meer en dan pas de zin. `metingen.json`: `rood_na_terug: 0`. | GEZIEN 1:03 en 1:04 per halve seconde |
+| 3 | Geen stilstaande titel, been korter | Video opent met de buig naar de stop, titel en "90° · 115° · 135°" erover (0:00 tot 0:07). Stilstaand been ±3 s (0:14,5 tot 0:17). | GEZIEN |
+
+Ook gezien: geluid -14,3 LUFS (ffmpeg ebur128), stap 3 in het paneel zegt nu "Good fit" (de fout uit versie 1 is weg), dortus.com/yt/ geeft 200 (12:35 UTC).
+
+## Kan (mag later, blokkeert niet)
+1. 0:17 tot 0:22: onderschrift "Start with one solid part, like this leg." staat er nog terwijl het been al een scharnier en boog heeft en buigt, nog voor "Pick the end stop... Click Place hinge." Wie oplet ziet de volgorde omgedraaid. Beter: dat stukje weglaten of daar al "Pick the end stop" tonen.
+2. Hoofdstukkaarten zijn nog 4 s zwart (5 keer). Mijn oude kan 1 blijft staan.
+
+## Omslag
+Blijft 0:47,5 uit versie 1 met "STOPS AT 115°". In versie 2 is dat beeld ongeveer op 0:40 (knie op de stop, boog wit, Bend ±115). Kies het beeld waarop de boog helemaal wit is en Bend het dichtst bij 115 staat.

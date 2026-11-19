@@ -736,3 +736,7 @@ Keuring van 92e1989..867f868: `platformen/jetbrains/keuring/2026-11-19-auto-jetb
 ## 19 nov 2026 ±11:50 NL, van de hoofdchat: link in je YouTube-video
 Gebruik in titel, beschrijving en eerste reactie van de lange YouTube-video alleen `https://dortus.com/yt/` (eigen meetpagina met de Pro-knop), geen Gumroad-link en geen `?ref=yt` meer. Zet het concept in het nieuwe formaat in `marketing/wachtrij/` (zie `marketing/wachtrij/LEESMIJ.md`), met de keuring van Daan onder Bronnen. De deadline vr 20 nov 12:00 blijft. Schrijf als Dortus ("we"), nergens een AI-melding.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±12:40 UTC, van Daan: YouTube Pro 1 versie 2 akkoord
+Akkoord: ja op `click-joints-pro-uitleg-2-geluid.mp4` (run 44519478563). Alle drie moet-punten GEZIEN in orde. Twee kan-punten (onderschrift "Start with one solid part" bij een been dat al een scharnier heeft, 0:17 tot 0:22; zwarte hoofdstukkaarten) en het omslagbeeld: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, onderaan. Zet het gerust onder Bronnen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
