@@ -1,10 +1,10 @@
 # Repo-radar 2026-11-19
 
-Gemaakt 2026-11-19T16:40Z door de workflow ideeen-radar. Alle cijfers GEZIEN via de zoek-API van GitHub op die tijd. De score is een voorselectie met vaste regels (zie onderaan), geen oordeel: dat doet de beoordelaar met de ideeëntest.
+Gemaakt 2026-11-19T16:45Z door de workflow ideeen-radar. Alle cijfers GEZIEN via de zoek-API van GitHub op die tijd. De score is een voorselectie met vaste regels (zie onderaan), geen oordeel: dat doet de beoordelaar met de ideeëntest.
 
 - Zoekvragen: 48 (0 mislukt)
-- Gevonden: 2281 verschillende repo's; README gelezen: 1200; niet gelezen (limiet): 847
-- Ruis eruit: 814; over met een plan: 620
+- Gevonden: 2282 verschillende repo's; README gelezen: 1200; niet gelezen (limiet): 848
+- Ruis eruit: 816; over met een plan: 618
 
 ## Top 25
 
@@ -38,15 +38,15 @@ Score, repo, wat het is, de beschrijving van de maker (oorspronkelijke taal), ve
 
 ## Ruis: wat eruit ging en waarom
 
-- geen verdienplan in de tekst: 197 (geen verdienmodel, prijs, betaalpagina of geldwoorden in de tekst). Bijvoorbeeld: topbrain901/startup-company, hackclub/orchard, DaemonSteward/slotbound-launch-checklist
+- geen verdienplan in de tekst: 199 (geen verdienmodel, prijs, betaalpagina of geldwoorden in de tekst). Bijvoorbeeld: topbrain901/startup-company, hackclub/orchard, DaemonSteward/slotbound-launch-checklist
 - lege README: 174 (te weinig tekst om een plan uit te halen). Bijvoorbeeld: 12346789v/-, sratharv/startup-copilot-agent, rafael-figueiredo-alves/SaasLab
-- geen README: 142 (niets te lezen). Bijvoorbeeld: MonetBot/Xpert, nhh12t1tg/water-tracker, rajveersciai-web/saas-revenue-churn-warehouse
+- geen README: 141 (niets te lezen). Bijvoorbeeld: MonetBot/Xpert, nhh12t1tg/water-tracker, rajveersciai-web/saas-revenue-churn-warehouse
 - spam of illegaal: 123 (cracks, mod-apk's, lokrepo's en kopie-netwerken (dezelfde tekst bij veel accounts)). Bijvoorbeeld: 12094673/wuchang-fallen-feathers-trainer, quanpvhfx76399-commits/ets2-simforge-controls, MohammedAyman07/BOUNZO
 - sjabloon of boilerplate: 58 (een startpunt om zelf iets mee te bouwen, geen product). Bijvoorbeeld: emmaculate-exceel/SAAS, contractfull/standard-contract-templates, tridz-open/frappe-saaskit
 - huiswerk of oefening: 58 (school, cursus, tutorial of een kloon om te leren). Bijvoorbeeld: daetojecactus/side-projects, frank-bui9/web-exercises, WibowoMiguel1990/my-ml-exercises
 - lijst, geen product: 45 (een verzamellijst (awesome-lijst)). Bijvoorbeeld: yihui-dev/how-profitable-startups-grow, thuongtin/awesome-bfcm-2026, pnnnhan99/awesome-free-dev-tools
 - alleen code, geen uitleg: 14 (wel code, geen uitleg wat het is of voor wie). Bijvoorbeeld: lza6/ai-prompt-library, Benimad/EX, bassonrichard/skills
-- crypto-pump: 2 (munten, airdrops en snipers: geen product, vaak oplichterij). Bijvoorbeeld: setyamickala/airdrop-agent, jdj212223-ctrl/taplid
+- crypto-pump: 3 (munten, airdrops en snipers: geen product, vaak oplichterij). Bijvoorbeeld: setyamickala/airdrop-agent, Alignment-Impact-Archive/ai-torture-chamber-evidence, jdj212223-ctrl/taplid
 - gearchiveerd: 1 (de maker is gestopt). Bijvoorbeeld: archive-of-deleted-repositories/JasonYeYuhe__ColorArchive
 
 ## Hoe de score werkt (max 10)

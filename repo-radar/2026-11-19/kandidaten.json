@@ -1,11 +1,11 @@
 {
  "datum": "2026-11-19",
- "gemaakt": "2026-11-19T16:40Z",
+ "gemaakt": "2026-11-19T16:45Z",
  "zoekvragen": 48,
  "zoekvragen_mislukt": 0,
- "gevonden": 2281,
+ "gevonden": 2282,
  "gelezen": 1200,
- "niet_gelezen": 847,
+ "niet_gelezen": 848,
  "plannen": [
   {
    "naam": "workinwithai-create/LockFour",
@@ -2573,6 +2573,41 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "weltk234/stripe-payments",
+   "link": "https://github.com/weltk234/stripe-payments",
+   "wat": "Stripe Dashboard Payments screen rebuilt with Next.js, TypeScript, Tailwind and Radix",
+   "voor_wie": [
+    "ontwikkelaars"
+   ],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [
+    "$599"
+   ],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 6,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-18",
+   "laatste_push": "2026-11-18",
+   "taal": "TypeScript",
+   "score": 5,
+   "waarom_score": "verdienmodel +2, prijs +2, web +1",
+   "zoektermen": [
+    "stripe"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "jamaldeenabdulazeezjide-web/moregrow-stripe",
    "link": "https://github.com/jamaldeenabdulazeezjide-web/moregrow-stripe",
    "wat": "Payments, Invoicing and Tax for moregrowglobalsearch.com (WordPress + Elementor, HQ in Denver CO, clients in the US, Nigeria and elsewhere). Your sales flow...",
@@ -2606,41 +2641,6 @@
    "taal": "JavaScript",
    "score": 5,
    "waarom_score": "verdienmodel +2, prijs +2, betaalpagina of wachtlijst +1",
-   "zoektermen": [
-    "stripe"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "weltk234/stripe-payments",
-   "link": "https://github.com/weltk234/stripe-payments",
-   "wat": "Stripe Dashboard Payments screen rebuilt with Next.js, TypeScript, Tailwind and Radix",
-   "voor_wie": [
-    "ontwikkelaars"
-   ],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [
-    "$599"
-   ],
-   "platform": [
-    "web"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 6,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
-   "taal": "TypeScript",
-   "score": 5,
-   "waarom_score": "verdienmodel +2, prijs +2, web +1",
    "zoektermen": [
     "stripe"
    ],
@@ -3773,42 +3773,9 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "oynrg1/nvme-vps-pricing",
-   "link": "https://github.com/oynrg1/nvme-vps-pricing",
-   "wat": "Cheap NVMe VPS: What Gen4 Storage Really Costs Per Month, Which Plan Is Enough, and Which Fine Print Changes the Math",
-   "voor_wie": [],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [
-    "$1.57/maand",
-    "$18.88/jaar",
-    "$3.89/maand"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 6,
-   "site": false,
-   "sterren": 1,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-17",
-   "taal": "",
-   "score": 4,
-   "waarom_score": "verdienmodel +2, prijs +2",
-   "zoektermen": [
-    "pricing"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "vufnbwf/lightlayer-vps-pricing",
-   "link": "https://github.com/vufnbwf/lightlayer-vps-pricing",
-   "wat": "VPS promo code: does it still work, what does year two cost, and which LightLayer plan do you actually need? (full plan table + checkout checklist)",
+   "naam": "vdxyuugz/lightlayer-pricing-codes",
+   "link": "https://github.com/vdxyuugz/lightlayer-pricing-codes",
+   "wat": "Lightlayer discount code: which codes still work, what each plan costs, and when a code is the wrong thing to chase (full price table + renewal rules)",
    "voor_wie": [
     "startups"
    ],
@@ -3817,9 +3784,9 @@
     "per gebruik betalen"
    ],
    "prijs": [
-    "$4.00/maand",
-    "$24.99/jaar",
-    "$2.08/maand"
+    "$3",
+    "$6.18",
+    "$4/maand"
    ],
    "platform": [],
    "ander_platform": [],
@@ -3827,7 +3794,7 @@
    "wachtlijst": false,
    "prijskop": false,
    "plankoppen": 0,
-   "geldwoorden": 10,
+   "geldwoorden": 8,
    "site": false,
    "sterren": 1,
    "forks": 0,
@@ -6103,7 +6070,7 @@
    "plankoppen": 0,
    "geldwoorden": 2,
    "site": false,
-   "sterren": 28,
+   "sterren": 29,
    "forks": 4,
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-19",
@@ -7740,39 +7707,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "yadu732/subscriptioniq-saas-analytics",
-   "link": "https://github.com/yadu732/subscriptioniq-saas-analytics",
-   "wat": "Analyze monthly recurring revenue, customer churn, revenue retention, acquisition channels, and customer cohorts. Includes a Streamlit dashboard and SQLite...",
-   "voor_wie": [
-    "ontwikkelaars"
-   ],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [],
-   "platform": [
-    "web"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 5,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "Python",
-   "score": 3,
-   "waarom_score": "verdienmodel +2, web +1",
-   "zoektermen": [
-    "subscription"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "belen-shell-merier/subscription-retention-ltv",
    "link": "https://github.com/belen-shell-merier/subscription-retention-ltv",
    "wat": "Which subscribers to target with which retention offer, and what it is worth: segmentation, logistic regression, discounted LTV, expected value and pilot...",
@@ -7799,6 +7733,39 @@
    "aangemaakt": "2026-11-18",
    "laatste_push": "2026-11-18",
    "taal": "Jupyter Notebook",
+   "score": 3,
+   "waarom_score": "verdienmodel +2, web +1",
+   "zoektermen": [
+    "subscription"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "yadu732/subscriptioniq-saas-analytics",
+   "link": "https://github.com/yadu732/subscriptioniq-saas-analytics",
+   "wat": "Analyze monthly recurring revenue, customer churn, revenue retention, acquisition channels, and customer cohorts. Includes a Streamlit dashboard and SQLite...",
+   "voor_wie": [
+    "ontwikkelaars"
+   ],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 5,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "Python",
    "score": 3,
    "waarom_score": "verdienmodel +2, web +1",
    "zoektermen": [
@@ -10143,6 +10110,70 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "rtlatn958/racknerd-vps-pricing",
+   "link": "https://github.com/rtlatn958/racknerd-vps-pricing",
+   "wat": "黑五vps优惠怎么挑：RackNerd 最低价那档够用吗？续费涨不涨？哪几档其实不必买（附全套餐价格与三档选购规则）",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [
+    "$21.99",
+    "$119.99",
+    "$17.99"
+   ],
+   "platform": [],
+   "ander_platform": [
+    "WordPress"
+   ],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 1,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-17",
+   "taal": "",
+   "score": 2,
+   "waarom_score": "prijs +2",
+   "zoektermen": [
+    "pricing"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "xtxccamq/lightlayer-gpu-pricing",
+   "link": "https://github.com/xtxccamq/lightlayer-gpu-pricing",
+   "wat": "lightlayer gpu服务器价格与选型：1/2/4/8 卡各多少钱、8 卡物理机和新加坡机型差在哪、买了能不能退（附套餐对照表）",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [
+    "$365",
+    "$730",
+    "$1460"
+   ],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 1,
+   "forks": 0,
+   "aangemaakt": "2026-11-18",
+   "laatste_push": "2026-11-18",
+   "taal": "",
+   "score": 2,
+   "waarom_score": "prijs +2",
+   "zoektermen": [
+    "pricing"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "szojd18/racknerd-pricing-plans",
    "link": "https://github.com/szojd18/racknerd-pricing-plans",
    "wat": "racknerd 服务器购买怎么选：促销款和常规套餐差多少钱？独服 $105/月的机器在哪买？支付宝怎么付、买错能不能退？（附全套餐价格表）",
@@ -10167,67 +10198,6 @@
    "forks": 0,
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-17",
-   "taal": "",
-   "score": 2,
-   "waarom_score": "prijs +2",
-   "zoektermen": [
-    "pricing"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "cincrc052/lightlayer-vps-pricing",
-   "link": "https://github.com/cincrc052/lightlayer-vps-pricing",
-   "wat": "2026 便宜vps推荐：年付 $24.99 的 LightLayer 够用吗？续费会不会涨、退款卡在哪、香港和洛杉矶线路怎么选（附全套餐价格表）",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [
-    "$24.99",
-    "$2.08",
-    "$150"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 1,
-   "site": false,
-   "sterren": 1,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
-   "taal": "",
-   "score": 2,
-   "waarom_score": "prijs +2",
-   "zoektermen": [
-    "pricing"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "cqh907/cloud-server-pricing",
-   "link": "https://github.com/cqh907/cloud-server-pricing",
-   "wat": "云服务器哪家好：38元/年能不能买？续费会不会涨？轻量和CVM差在哪？不同预算怎么选（附同配置报价表）",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [
-    "$2.45",
-    "$4.9"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 1,
-   "site": false,
-   "sterren": 1,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
    "taal": "",
    "score": 2,
    "waarom_score": "prijs +2",
@@ -12008,37 +11978,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "rus1117/subscription-warranty-tracker",
-   "link": "https://github.com/rus1117/subscription-warranty-tracker",
-   "wat": "Локальное веб-приложение на FastAPI и SQLite для учета регулярных подписок, хранения чеков и контроля сроков гарантии на купленные товары. - Учет подписок:...",
-   "voor_wie": [],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [
-    "Telegram"
-   ],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 1,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
-   "taal": "Python",
-   "score": 2,
-   "waarom_score": "verdienmodel +2",
-   "zoektermen": [
-    "subscription"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "advance-lion/dsh-gemini-subscription",
    "link": "https://github.com/advance-lion/dsh-gemini-subscription",
    "wat": "DeepSeek Harness plugin for Google AI subscriptions via the official Antigravity CLI. Windows installer, streaming and client tool calls.",
@@ -12063,6 +12002,37 @@
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-17",
    "taal": "JavaScript",
+   "score": 2,
+   "waarom_score": "verdienmodel +2",
+   "zoektermen": [
+    "subscription"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "rus1117/subscription-warranty-tracker",
+   "link": "https://github.com/rus1117/subscription-warranty-tracker",
+   "wat": "Локальное веб-приложение на FastAPI и SQLite для учета регулярных подписок, хранения чеков и контроля сроков гарантии на купленные товары. - Учет подписок:...",
+   "voor_wie": [],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [
+    "Telegram"
+   ],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-18",
+   "laatste_push": "2026-11-18",
+   "taal": "Python",
    "score": 2,
    "waarom_score": "verdienmodel +2",
    "zoektermen": [
@@ -14926,36 +14896,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "ChengKeJ/game-aifly-tools",
-   "link": "https://github.com/ChengKeJ/game-aifly-tools",
-   "wat": "game.aifly.tools , H5 game hall with 100+ online mini-games. Separate from aifly.tools main site. No AdSense on game pages; monetization via in-game ads...",
-   "voor_wie": [],
-   "verdienmodel": [
-    "advertenties"
-   ],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 2,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-19",
-   "taal": "HTML",
-   "score": 1,
-   "waarom_score": "zwak verdienmodel +1",
-   "zoektermen": [
-    "monetization",
-    "monetize"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "troxerr/HighlightDesk",
    "link": "https://github.com/troxerr/HighlightDesk",
    "wat": "Kick live automatic highlights are being integrated. See Kick setup and live validation status before using the separate Kick-enabled build. Open Monitor…...",
@@ -15355,33 +15295,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "yusierni7/lola",
-   "link": "https://github.com/yusierni7/lola",
-   "wat": ". 3mQwKr.js - mybid.io READ THIS BEFORE USING, COPYING, FORKING, OR REUSING ANYTHING FROM THIS REPOSITORY. 🚨 DO NOT COPY OR REUSE This repository is a...",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 3,
-   "site": true,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-18",
-   "taal": "HTML",
-   "score": 1,
-   "waarom_score": "eigen site +1",
-   "zoektermen": [
-    "monetize"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "yusierni7/adsterra-test",
    "link": "https://github.com/yusierni7/adsterra-test",
    "wat": ". 3mQwKr.js - mybid.io READ THIS BEFORE USING, COPYING, FORKING, OR REUSING ANYTHING FROM THIS REPOSITORY. 🚨 DO NOT COPY OR REUSE This repository is a...",
@@ -15400,6 +15313,33 @@
    "forks": 0,
    "aangemaakt": "2026-11-19",
    "laatste_push": "2026-11-19",
+   "taal": "HTML",
+   "score": 1,
+   "waarom_score": "eigen site +1",
+   "zoektermen": [
+    "monetize"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "yusierni7/lola",
+   "link": "https://github.com/yusierni7/lola",
+   "wat": ". 3mQwKr.js - mybid.io READ THIS BEFORE USING, COPYING, FORKING, OR REUSING ANYTHING FROM THIS REPOSITORY. 🚨 DO NOT COPY OR REUSE This repository is a...",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 3,
+   "site": true,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-18",
    "taal": "HTML",
    "score": 1,
    "waarom_score": "eigen site +1",
@@ -15525,6 +15465,35 @@
    "waarom_score": "web +1",
    "zoektermen": [
     "monetize"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "ChengKeJ/game-aifly-tools",
+   "link": "https://github.com/ChengKeJ/game-aifly-tools",
+   "wat": "game.aifly.tools , H5 game hall with 100+ online mini-games. Separate from aifly.tools main site. No AdSense on game pages; monetization via in-game ads...",
+   "voor_wie": [],
+   "verdienmodel": [
+    "advertenties"
+   ],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 2,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-19",
+   "taal": "HTML",
+   "score": 1,
+   "waarom_score": "zwak verdienmodel +1",
+   "zoektermen": [
+    "monetization"
    ],
    "eerder_gemeld": null
   },
@@ -16668,33 +16637,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "NayanKanaparthi/nstack",
-   "link": "https://github.com/NayanKanaparthi/nstack",
-   "wat": "Nayan’s Claude setup: the skills and plugins I use to plan, build, check and ship my work. New ones land as I build them.",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 4,
-   "site": false,
-   "sterren": 1,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-17",
-   "taal": "Python",
-   "score": 0,
-   "waarom_score": "",
-   "zoektermen": [
-    "go-to-market"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "hassancs91/lwh-ai-coding-skills",
    "link": "https://github.com/hassancs91/lwh-ai-coding-skills",
    "wat": "Claude Code skills that take you from an app idea to a built, tested app, and teach the building blocks of a solid app along the way.",
@@ -17639,33 +17581,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "crzyc0d3r/nimble-pricing-monitor",
-   "link": "https://github.com/crzyc0d3r/nimble-pricing-monitor",
-   "wat": "Compare dated pricing snapshots and replay a local multi-role research workflow.",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 5,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
-   "taal": "Python",
-   "score": 0,
-   "waarom_score": "",
-   "zoektermen": [
-    "pricing"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "dkleismantas/fuel-delivery-pricing",
    "link": "https://github.com/dkleismantas/fuel-delivery-pricing",
    "wat": "A console program that calculates invoices for fuel deliveries (gasoline, diesel and LPG) from shipments.json . It is written in Python 3 and uses only the...",
@@ -17685,6 +17600,33 @@
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-17",
    "taal": "Python",
+   "score": 0,
+   "waarom_score": "",
+   "zoektermen": [
+    "pricing"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "Sharmaelechvac/sharma-material-pricing",
+   "link": "https://github.com/Sharmaelechvac/sharma-material-pricing",
+   "wat": "One app, two links , Electrical and HVAC prices are never blended: - Landing: - Electrical: - HVAC: - Combined: Both trade pages sit behind the office code...",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 2,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-18",
+   "taal": "JavaScript",
    "score": 0,
    "waarom_score": "",
    "zoektermen": [
@@ -21107,6 +21049,12 @@
    "fase": "readme"
   },
   {
+   "naam": "Alignment-Impact-Archive/ai-torture-chamber-evidence",
+   "link": "https://github.com/Alignment-Impact-Archive/ai-torture-chamber-evidence",
+   "reden": "crypto-pump",
+   "fase": "readme"
+  },
+  {
    "naam": "nhh12t1tg/water-tracker",
    "link": "https://github.com/nhh12t1tg/water-tracker",
    "reden": "geen README",
@@ -21287,8 +21235,14 @@
    "fase": "readme"
   },
   {
-   "naam": "bpwbx71/hongkong-vps-pricing",
-   "link": "https://github.com/bpwbx71/hongkong-vps-pricing",
+   "naam": "wjjgg204/yuyun-rcs-pricing",
+   "link": "https://github.com/wjjgg204/yuyun-rcs-pricing",
+   "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
+   "naam": "rmirm380/rainyun-annual-pricing",
+   "link": "https://github.com/rmirm380/rainyun-annual-pricing",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
@@ -21653,15 +21607,15 @@
    "fase": "readme"
   },
   {
-   "naam": "ICONicboites/NorteHub-Utang",
-   "link": "https://github.com/ICONicboites/NorteHub-Utang",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
    "naam": "Schifftacular/sixpence",
    "link": "https://github.com/Schifftacular/sixpence",
    "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
+   "naam": "ICONicboites/NorteHub-Utang",
+   "link": "https://github.com/ICONicboites/NorteHub-Utang",
+   "reden": "geen README",
    "fase": "readme"
   },
   {
@@ -21857,15 +21811,15 @@
    "fase": "readme"
   },
   {
-   "naam": "jaystarlightgaze/side-project",
-   "link": "https://github.com/jaystarlightgaze/side-project",
-   "reden": "geen verdienplan in de tekst",
-   "fase": "readme"
-  },
-  {
    "naam": "sky-0131/side_project_",
    "link": "https://github.com/sky-0131/side_project_",
    "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "jaystarlightgaze/side-project",
+   "link": "https://github.com/jaystarlightgaze/side-project",
+   "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
   {
@@ -22073,30 +22027,6 @@
    "fase": "readme"
   },
   {
-   "naam": "oksana-gomes/my-sql-lab",
-   "link": "https://github.com/oksana-gomes/my-sql-lab",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "Mnowak64/my-algorithms-notes",
-   "link": "https://github.com/Mnowak64/my-algorithms-notes",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "moonleafg1t608/fast-demos",
-   "link": "https://github.com/moonleafg1t608/fast-demos",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "loudlink52/my-sql-sandbox",
-   "link": "https://github.com/loudlink52/my-sql-sandbox",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
    "naam": "Samuelromanov/cool-experiment",
    "link": "https://github.com/Samuelromanov/cool-experiment",
    "reden": "lege README",
@@ -22123,6 +22053,30 @@
   {
    "naam": "high-free-slow/cli-sandbox",
    "link": "https://github.com/high-free-slow/cli-sandbox",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "oksana-gomes/my-sql-lab",
+   "link": "https://github.com/oksana-gomes/my-sql-lab",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "Mnowak64/my-algorithms-notes",
+   "link": "https://github.com/Mnowak64/my-algorithms-notes",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "moonleafg1t608/fast-demos",
+   "link": "https://github.com/moonleafg1t608/fast-demos",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "loudlink52/my-sql-sandbox",
+   "link": "https://github.com/loudlink52/my-sql-sandbox",
    "reden": "lege README",
    "fase": "readme"
   },
@@ -22559,14 +22513,14 @@
    "fase": "readme"
   },
   {
-   "naam": "shazilfaridi2011-source/gta6-clips-automation",
-   "link": "https://github.com/shazilfaridi2011-source/gta6-clips-automation",
+   "naam": "AndroidCraftLabs/AndroidCraftLabs",
+   "link": "https://github.com/AndroidCraftLabs/AndroidCraftLabs",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
   {
-   "naam": "AndroidCraftLabs/AndroidCraftLabs",
-   "link": "https://github.com/AndroidCraftLabs/AndroidCraftLabs",
+   "naam": "shazilfaridi2011-source/gta6-clips-automation",
+   "link": "https://github.com/shazilfaridi2011-source/gta6-clips-automation",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
@@ -23045,6 +22999,12 @@
    "fase": "readme"
   },
   {
+   "naam": "Jochris67/Study-Subscription-Pattern",
+   "link": "https://github.com/Jochris67/Study-Subscription-Pattern",
+   "reden": "geen README",
+   "fase": "readme"
+  },
+  {
    "naam": "r333oe/openwrt-podkop-subscription",
    "link": "https://github.com/r333oe/openwrt-podkop-subscription",
    "reden": "geen README",
@@ -23053,12 +23013,6 @@
   {
    "naam": "Emanhashim/Customer-Subscription-Prediction",
    "link": "https://github.com/Emanhashim/Customer-Subscription-Prediction",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
-   "naam": "Jochris67/Study-Subscription-Pattern",
-   "link": "https://github.com/Jochris67/Study-Subscription-Pattern",
    "reden": "geen README",
    "fase": "readme"
   },
@@ -23129,14 +23083,14 @@
    "fase": "readme"
   },
   {
-   "naam": "emilioquintero936-art/subscription-signup-form",
-   "link": "https://github.com/emilioquintero936-art/subscription-signup-form",
+   "naam": "wayneze/pagerelay-fanqie-subscription",
+   "link": "https://github.com/wayneze/pagerelay-fanqie-subscription",
    "reden": "geen README",
    "fase": "readme"
   },
   {
-   "naam": "wayneze/pagerelay-fanqie-subscription",
-   "link": "https://github.com/wayneze/pagerelay-fanqie-subscription",
+   "naam": "emilioquintero936-art/subscription-signup-form",
+   "link": "https://github.com/emilioquintero936-art/subscription-signup-form",
    "reden": "geen README",
    "fase": "readme"
   },
@@ -24179,6 +24133,12 @@
    "fase": "readme"
   },
   {
+   "naam": "stephenstilwell/gtm-commercial-engineering",
+   "link": "https://github.com/stephenstilwell/gtm-commercial-engineering",
+   "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
    "naam": "ApecSinlapachai/ApecSinlapachai",
    "link": "https://github.com/ApecSinlapachai/ApecSinlapachai",
    "reden": "geen verdienplan in de tekst",
@@ -24560,12 +24520,6 @@
    "naam": "KoungMyatHein-UM/StartupEngineering2026",
    "link": "https://github.com/KoungMyatHein-UM/StartupEngineering2026",
    "reden": "geen verdienplan in de tekst",
-   "fase": "readme"
-  },
-  {
-   "naam": "tomtomcodes/StartupEngCourse",
-   "link": "https://github.com/tomtomcodes/StartupEngCourse",
-   "reden": "geen README",
    "fase": "readme"
   }
  ]
