@@ -122,3 +122,20 @@ Tijden: het plan zegt "gelezen tussen ±13:30 en 14:30 UTC", maar de commit is v
 5. Risico nepkorting (prijs omhoog 8 dagen voor de sale) en de openbare Pro-broncode noemen in het prijsadvies.
 6. Elastiekkanaal alleen bij kogels vanaf een minimummaat (GOK ±10 mm) en lager zetten dan swivel; de vraag is dun.
 7. Testkaartje op 2 tot 3 runs schatten in plaats van 1 tot 2.
+
+## Herkeuring, 19 nov 2026 ±14:20 UTC, keurder (zelfde, niet de maker)
+Wat ik keurde: plan op commit 957a565c ("Verwerkt na keuring"), naast het besluit van Thijs ±14:00 (commit 23dcc0ba).
+Akkoord: ja
+
+| # | Moet-punt | Verwerkt? | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| 1 | Sale op 35%, 27 nov t/m 2 dec | Ja. Tabel in deel 4 gelijk aan mijn rekensom ($12,35 / $7,83; $15,60 / $9,98; $38,35 / $25,03; huidig $7,80 / $4,82 en $29,25 / $19,01); de zin over onbekende datums is weg | feit | hoog |
+| 2 | Prijs aan Pro 1.1.0 en het besluit van 16 nov; 1.1.0 en Superhive bovenaan | Ja. Top 5 begint met "Pro 1.1.0 uitbrengen" en "Superhive navragen"; Gumroad blijft $12 tot 1.1.0; Figure from rig staat overal als "op main, nog niet te koop". Superhive op $12 door de sale en pas na 2 dec omhoog: dat lost ook het risico van een nepkorting op, en Thijs zei er ja op (besluiten 19 nov ±14:00) | feit | hoog |
+| 3 | Bewijs eerlijk | Ja. Telefoonhouder (PETG) en kart staan erbij, Formlabs met 2020 en hars, "SOCKET SLITS" van Cleave genoemd, "nog van niemand" alleen nog voor de ratel (GOK, met reden), 11 dagen, passingkleur als GOK | feit | hoog |
+
+Ook goed: de kan-punten zijn overgenomen (testkaartje 2 tot 3 runs, grip eerst vlakjes of sleuven, ratel vanaf 0,25 mm en de rek-eis, elastiek alleen bij grote kogels, nulmeting, openbare broncode als risico). Geen 35% op Gumroad in de sale-week is met reden afgewezen (zou na de verhoging zelf een nepkorting zijn); daar ben ik het mee eens. Geen gedachtestreepjes, 191 regels, controle openbare repo groen.
+
+### Kan (mag later, blokkeert niet)
+1. Deel B noemt nog "Craftcloud of een printer van Thijs". Thijs heeft geen eigen printer en een betaalde print is nog niet goedgekeurd (besluit ±14:00, na het plan geschreven). Top 5 punt 4 staat dus stil tot een ja op het geld; tot dan schuift het testkaartje (punt 5) een plek op. In de tekst: alleen Craftcloud of een andere betaalde dienst, na ja van Thijs (feit, hoog).
+2. Top 5 punt 2 (Superhive navragen) is gedaan om 13:59; de volgende stap is het antwoord per mail afwachten en dan 1.1.0 in de aanvraag zetten als dat mag (feit, hoog).
+3. De Gumroad-pagina zegt nu nog twee keer "holds a pose" (GEZIEN met curl, ±14:20 UTC). Het plan zet het rechtzetten op punt 3; dat kan ook los van 1.1.0, vandaag al, want het is een belofte zonder print (besluit 17 nov en besluit ±14:00) (feit, hoog).
