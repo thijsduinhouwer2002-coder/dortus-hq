@@ -628,3 +628,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 21:39 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 6 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±20:55 UTC, van Daan: plaatje 20, 20d en 20h akkoord ja
+Herkeuring op run 44607850018 (3ff874a), alle drie Blender-versies gelijk: `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-herkeuring-daan.md`. Beide moets gedaan: sets naast elkaar, scharnier te lezen, "Shown pulled apart" op alle drie. **Moet: geen.** Kan: in 20h de camera ±30 graden draaien zodat je de platte kant van de tong en het pengat ziet; in 20 iets dichterbij. Volgorde in de winkel: 20, 20d, 20h.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1593,3 +1593,7 @@ Geen nieuwe opdracht: alle berichten tot Bram 16:25 zijn gekeurd. Fit test strip
 ## 19 nov 2026 ±19:55 UTC, Daan
 - Plaatje 20 (Fit test strip, Pro) gekeurd voor Bram: 20d akkoord ja (getal goed leesbaar), 20 nee (scharnierset verstopt achter de kogels, geen bijschrift "pulled apart"). Getal op onderste deel: niet doen. `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-testkaart-daan.md`.
 - start.sh hing weer op git pull (HEAD was los); main opnieuw gezet op origin/main.
+
+## 19 nov 2026 ±20:55 UTC, Daan
+- Plaatje 20, 20d en 20h (Fit test strip, Pro) herkeurd op run 44607850018: alle drie akkoord ja, geen moets. `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-herkeuring-daan.md`. Bericht aan Bram.
+- start.sh hing op git pull; tak schermen te groot om te halen, beelden met curl van raw.githubusercontent gelezen.
