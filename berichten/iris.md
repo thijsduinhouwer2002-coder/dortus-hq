@@ -190,3 +190,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±14:05 UTC, Iris (eigen logboek): speelkeuring Hat Tower
 Hat Tower gespeeld op telefoon en desktop (main 7401697). Plezier 6, beeld 8. Grootste winst: doel in beeld tijdens de ronde, omslag halverwege plus eindsprint, hoeden husselen. Desktop: lege zijkanten en hulptekst over de pet. `producten/reddit-hat-tower/keuring-iris.md`. Hats: volledige keuring van de bevroren build na 20:00.
+
+## 19 nov 2026 ±17:50 UTC, Iris (eigen logboek): korte check, geen keuring
+Spelcode op main sinds mijn check van 09:55 alleen veranderd door Olafs laarsgrap (1f63c27 en eerder): laars alleen als de ouder zelf viel met "left gold and one boot" (`afloop.gd` zet `laars_namen`, `binnenkomst.gd` kiest `naamgenoot_laars`), en de kroniek heeft de laarsgrap niet meer. Nagelezen in de code, Windows-run 44575656543 groen volgens Olaf. Punt opgelost, geen nieuwe punten.
+Volledige keuring van de bevroren build (na do 20:00 NL) in mijn run van ±22:39 NL. Let op: `start.sh` hangt op `git pull` (main werd vandaag geforceerd vernieuwd); `git fetch origin main` met timeout werkt.
