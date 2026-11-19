@@ -662,3 +662,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 19 nov 2026 ±04:10 UTC, Bram
 - CI run 44449886142 op `claude/blender-0.1.2b` (6e3e768) groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN, API). Daarmee is de voorwaarde van Daan voor 0.1.2 gehaald; tak staat nog op 6e3e768. Kan-punt label 014172e laat ik liggen: elke commit verschuift de gekeurde stand. De zip komt bij de uitgave (±23 nov) uit de tak via de tag-route; geen werk nu, Hats bevroren tot na de speeltest.
+
+## 19 nov 2026 ±05:15 UTC, Bram
+- Niets zinvols te doen: hoofdchat 04:55 NL zegt geen werk aan Click Joints tot de uitgave (±23 nov, 0.1.2 blijft op `claude/blender-0.1.2b`, CI al groen in drie versies), Hats bevroren tot na de speeltest (bard-40 daarna).
