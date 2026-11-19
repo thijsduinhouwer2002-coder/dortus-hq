@@ -275,6 +275,83 @@ Beelden moeten op een openbare URL staan voor Metricool (`media` neemt "public U
 - **"Wat Thijs eenmalig regelt"** wordt: (1) @dortusstudio koppelen in Metricool, (2) @dortusstudio zakelijk maken plus link, (3) de twee taken hierboven aanmaken in de app. Bluesky, Mastodon, YouTube OAuth en Discord-bot pas als TikTok de drempel uit run 3 haalt.
 - **Reageren op TikTok** valt uit het ontwerp van de tak (geen inbox in de koppeling); de Schrijver zet wel elke dag in het dagrapport hoeveel reacties er zijn (Metricool-cijfer `TKEV04`), zodat de hoofdchat weet wanneer ze moet kijken.
 
+## Nieuw in run 5 (19 nov ±05:00 UTC): run 4 rechtgezet, het Oor leest TikTok rechtstreeks, en de regels voor de tak klaar om te plakken
+
+### 1. Run 4 punt 1 was fout: Metricool plaatst op @dortusstudio
+- Metricool kan per geplaatste TikTok het adres teruggeven (`TKPO03`, "Video Url"). Voor de enige TikTok die het in sep tot nov plaatste is dat `https://www.tiktok.com/@dortusstudio/video/7709109994217671968` (GEZIEN 19 nov ±04:55). De videopagina zelf, met curl zonder account, geeft `uniqueId: dortusstudio`, geplaatst 17 nov ±12:03 UTC, geluid "origineel geluid - Dortus" (GEZIEN).
+- Mijn fout in run 4: ik leidde uit `uniqueIdModifyTime: 0` af dat de handle nooit veranderde. Dat veld zegt dat dus niet. Les voor de tak: **controleer waar een post landde aan het adres van de geplaatste post, nooit aan namen in de instellingen.** Dat wordt een vaste stap in de techniek-check (punt 4).
+- Gevolg: geen omkoppelen nodig. Wat wel blijft: @dortusstudio is een persoonlijk account zonder link (GEZIEN run 4), dus zakelijk maken plus link blijft de geldhefboom voor TikTok.
+
+### 2. Metricool telt minder weergaven dan TikTok zelf
+- Zelfde video: Metricool 33 weergaven, gemiddeld 2 seconden gekeken, 100% uit "Voor jou" (GEZIEN, `TKPO07`, `TKPO15`, `TKPO16`); de TikTok-pagina 127 weergaven, 1 like, 0 reacties (GEZIEN, `playCount`). Profiel: 1 volger, 55 hartjes, 2 video's (GEZIEN).
+- Of Metricool achterloopt of anders telt: GOK. Voor het Oor betekent het: weergaven en reacties per video lezen we rechtstreeks van de openbare videopagina (gratis, zonder account, werkt vanuit onze omgeving), kijktijd en bron uit Metricool. Het adres van elke video komt uit `TKPO03`, dus het Oor hoeft TikTok niet te doorzoeken (dat kan niet, run 4 punt 5).
+- `commentCount` op de videopagina geeft het Oor ook het aantal reacties per TikTok. Lezen wat er staat kan nog steeds niet; maar zodra het getal stijgt kan het dagrapport zeggen "kijk in de app".
+
+### 3. Op 18 nov kwam er niets uit, op geen van beide kanalen
+- YouTube @Dortusapps heeft in de RSS 1 video (Ebb, 17 nov, 77 weergaven), TikTok volgens Metricool ook 1 (Ebb) (GEZIEN). Wat voor 18 nov gepland stond kwam op YouTube niet uit door de ERROR uit run 3; op TikTok staat er voor 18 nov ook niets (GEZIEN: Metricool kent geen tweede TikTok; waarom: GOK, Metricool laat oude geplande posts niet meer zien).
+- Dit bevestigt run 3: zonder een taak die na elk plaatsmoment terugleest, merkt niemand het. In het ontwerp doet de Plaatser dat nu in elke ronde (stap 2 van de taaktekst) én met het adres-bewijs uit punt 1.
+- Vandaag 16:00 staan er 2 posts klaar (filmpje 2: TikTok en YouTube Short), vrijdag 16:00 nog 2 (filmpje 5, Pro) (GEZIEN, alle 4 `PENDING`, `autoPublish: true`). In de TikTok-tekst van vrijdag staat de Gumroad-link als gewone tekst; op TikTok is een link in het onderschrift niet klikbaar (GOK, algemeen bekend, niet nagelezen). Weinig schade, maar de Schrijver zet in TikTok-tekst voortaan de zoekregel, geen URL.
+
+### 4. Klaar om te plakken: `marketing/REGELS.md` (de bouwer maakt alleen het bestand aan)
+```
+# Regels van de marketingtak Roep
+
+Doel: kliks naar een winkel (Gumroad Pro, Superhive, Blender Extensions, Connect IQ,
+JetBrains) en inschrijvingen op Kit. Bereik telt alleen als het daarheen leidt.
+
+## Wat de tak zelf mag
+- Plaatsen op: TikTok @dortusstudio (via Metricool), YouTube @Dortusapps, later Bluesky,
+  Mastodon en de Discord van Hats. Alleen na groen van een andere Claude.
+- Nooit: iets onder de naam van Thijs (Reddit, mail van Thijs, persmensen, makers),
+  Hacker News, fora, Steam, geld uitgeven, reageren op TikTok (geen inbox).
+- Beeld en geluid altijd uit het echte product. Geen AI-beeld, geen AI-stem, geen AI-melding.
+
+## Keurformulier (alle 8 ja = groen; 1 nee = rood met reden)
+1. Klopt elke bewering met een bron in het concept (changelog, winkelpagina, meting)?
+2. Geen AI-zinnen ("Great question", "game-changer", "unlock", "dive in") en geen AI-melding?
+3. Geen medische claim (Ebb: "rustiger", niet "tegen stress" of "genezen")?
+4. Niets over Hats in spelersstem (die tekst schrijft Thijs)?
+5. Beeld uit het echte product bekeken met eigen ogen; filmpje heeft geluid (`geluid_check.py` GOED)?
+6. Geen persoonsgegevens, geen adres van Thijs, geen e-mail?
+7. Past bij het kanaal: lengte, haak in de eerste seconde, titel begint met het platform
+   ("Blender tip: ...")?
+8. Niet bijna gelijk aan een post van de laatste 14 dagen op hetzelfde kanaal?
+
+## Oranje (wacht op de hoofdchat, 08:00 en 20:00 NL)
+Prijs of korting, Cyber Sale, mail aan de Kit-lijst, alles over Hats, een antwoord op een
+klacht. Geen besluit binnen 24 uur = rood.
+
+## Techniek-check per kanaal (de Keurder vóór groen, de Plaatser na plaatsen)
+- Alle kanalen: media is een openbare URL die 200 geeft; tijd ligt in de toekomst;
+  plafond per dag niet overschreden; `marketing/STOP` bestaat niet.
+- YouTube: geen `<` of `>` in titel of beschrijving; titel hoogstens 100 tekens;
+  `madeForKids: false`; type `short` bij staand onder 60 s.
+- TikTok: geen URL in de tekst (niet klikbaar), wel de zoekregel; video met geluidsspoor
+  (ffprobe), of diashow met `autoAddMusic: true`; tekst hoogstens 2.200 tekens.
+- Bluesky: hoogstens 300 tekens.
+- Na plaatsen: de Plaatser leest het adres van de post terug (TikTok via Metricool `TKPO03`,
+  YouTube via de RSS van het kanaal) en controleert de handle (@dortusstudio, @Dortusapps).
+  Geen adres binnen 2 uur na het plaatsmoment, of status ERROR: melding in
+  `marketing/dagrapport.md` bovenaan, en die soort post gaat terug naar oranje.
+
+## Plafonds per dag
+TikTok 1, YouTube 2, Bluesky 4, Mastodon 3, Discord 3. Metricool Free: 20 per maand voor
+alle kanalen samen; houd er altijd 2 over voor spoed.
+
+## Stopregel
+Elke reeks heeft een doel en 14 dagen. TikTok Click Joints: vóór 1 dec een video met
+meer dan 1.000 weergaven en gemiddeld meer dan 5 s kijktijd, anders stopt die reeks.
+```
+(De drempels en plafonds zijn GOK, overgenomen uit run 1 en run 3. De lengtegrenzen: TikTok 2.200 tekens is GOK; Bluesky 300 GEZIEN in de Metricool-toolbeschrijving; YouTube 100 tekens is GOK.)
+
+### 5. Laatste tik door een mens (hoek A, patroon 16): bij ons alleen voor oranje
+- A meldt dat makers op nieuwe TikTok-accounts eerst als concept plaatsen en zelf de laatste tik doen (DERDEN, zie A-voorbeelden run 4). Bij ons is dat `autoPublish: false`: Metricool stuurt dan een melding naar de telefoon van Thijs om zelf te plaatsen (GEZIEN in de toolbeschrijving).
+- Onze eerste TikTok ging met `autoPublish: true` en kreeg 127 weergaven, 100% uit "Voor jou" (GEZIEN). Het account is dus niet afgeknepen door API-plaatsen. **Besluit voor het ontwerp: groen gaat met `autoPublish: true`; `false` alleen als noodrem** (als een video onder de 50 weergaven blijft terwijl de vorige het wel haalde: dan 1 week laatste tik door Thijs als proef). Dat vraagt Thijs anders elke dag een tik, en hij wil zo min mogelijk gevraagd worden.
+
+### Bijgesteld ontwerp na run 5
+- **"Wat Thijs eenmalig regelt" wordt korter:** (1) @dortusstudio zakelijk maken plus link in de bio (±3 minuten, gratis), (2) de twee taken uit run 4 punt 6 aanmaken in de app. Omkoppelen in Metricool vervalt.
+- **Het Oor (zonder account, elk uur):** YouTube-RSS van @Dortusapps, de openbare TikTok-pagina van elke video waarvan Metricool het adres gaf (weergaven, likes, reacties), profielcijfers van @dortusstudio, en Jetstream voor Bluesky. Alles naar `marketing/dagrapport.md`.
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -324,3 +401,13 @@ Beelden moeten op een openbare URL staan voor Metricool (`media` neemt "public U
 5. **Metricool heeft `autoAddMusic` en `photoCoverIndex`** (GEZIEN): diashows met muziek kunnen volledig zonder mens, als de beelden op een openbare URL staan (de openbare repo, GOK).
 
 **Voorstel:** de hoofdchat zet vandaag vóór 15:00 op de lijst van Thijs één punt van ±10 minuten: "TikTok @dortusstudio in Metricool koppelen, omzetten naar zakelijk, link naar Click Joints in de bio, en de twee taken uit B-ontwerp punt 6 aanmaken". Tot het account goed staat haalt de hoofdchat `autoPublish` van de TikTok-helft van de geplande posts af. Daarna draait de tak zonder Thijs. Volgende run (als er een is): `marketing/REGELS.md` voorschrijven met het formulier van 8 vragen en de techniek-check per kanaal, zodat de bouwer morgen alleen nog mappen hoeft aan te maken.
+
+## Stand na run 19 nov 05:05 UTC (run 5)
+1. **Correctie: Metricool plaatst wel op @dortusstudio** (GEZIEN: adres van de geplaatste video en `uniqueId` op de videopagina). Run 4 punt 1 was fout; punt 5 op de lijst van Thijs hoeft alleen nog "zakelijk maken plus link in de bio".
+2. **Metricool telt 33 weergaven, TikTok zelf 127** voor dezelfde video (GEZIEN). Het Oor leest weergaven en reacties rechtstreeks van de openbare videopagina; het adres krijgt het uit Metricool.
+3. **Op 18 nov kwam er op geen enkel kanaal iets uit** (GEZIEN: YouTube en TikTok hebben elk alleen Ebb van 17 nov). Na elk plaatsmoment het adres terugzoeken is nu een vaste stap.
+4. **`marketing/REGELS.md` staat klaar om te plakken** (punt 4): wat de tak mag, keurformulier van 8 vragen, oranje, techniek-check per kanaal, plafonds en stopregel.
+5. **Laatste tik door Thijs is niet nodig op TikTok** zolang video's uit "Voor jou" weergaven halen (eerste video 100% "Voor jou", GEZIEN); alleen als noodrem.
+
+**Voorstel:** de hoofdchat haalt vandaag het omkoppelen van punt 5 op de lijst van Thijs af (het zakelijk maken plus link blijft), laat een bouwer `marketing/REGELS.md` uit punt 4 en een lege `marketing/wachtrij/` aanmaken, en vraagt Thijs de twee taken uit run 4 punt 6 aan te maken. Vóór de post van vandaag 16:00 hoeft er niets meer te gebeuren; om ±18:00 kijkt de hoofdchat of het adres van filmpje 2 in Metricool (`TKPO03`) en in de YouTube-RSS staat.
+
