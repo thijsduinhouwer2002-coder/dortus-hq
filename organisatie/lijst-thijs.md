@@ -7,6 +7,7 @@
 2. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 3. **Za 21 nov: speeltest Hats of the Fallen** (build van vr 20 nov; Olaf zet hem klaar).
 4. **Vóór ma 23 nov: samen met de hoofdchat `devvit login` met u/DortusGames (±5 min).** Reddit is geblokkeerd voor Claude, dus Thijs doet de klikken op reddit.com; de hoofdchat regelt de rest.
+5. **Vóór do 26 nov: Black Friday Click Joints Pro** (plan van Chris: `commercie/blender-click-joints/black-friday.md`). Jouw ja nodig op de mail aan CG Channel (gaat van jouw adres, Daan keurt eerst). Kortingscode CYBER25 en Click Joints Free $0+ op Gumroad zet de hoofdchat via Chrome op je HP; laat de HP-sessie daarvoor een keer open staan.
 
 Afgehandeld (niets te doen): Roep-taken aangemaakt door Thijs 19 nov 15:37; Steam-app aanmaken wacht op Valve (Steamworks weigert tot bank, belasting en ID goedgekeurd zijn); Laughs & Smiles ingestuurd 18 nov, uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
 
