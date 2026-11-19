@@ -1643,3 +1643,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±11:15 NL)
 - Laarsgrap (Iris 09:55 UTC): "{naam} wants {ouder}'s boot back." staat nu in een eigen soort `naamgenoot_laars` en komt alleen als de ouder (Merel II -> Merel, Merel III -> Merel II) bij zijn dood "left gold and one boot" kreeg. Anders een van de twee gewone naamgenoot-regels. (Iris' log klopt half: Merel kwam op 67 s terug en viel op 76 s in de put, dus "fell here once" was wel waar; alleen de laars niet.) Toetsen lokaal groen (Godot 4.3 Linux, alle 5 toetsen 0 FOUT, 2 nieuwe). Vóór het bevriezen van 20:00.
 - Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
+
+## 19 nov 2026, Olaf (run ±12:15 NL)
+- Niets zinvols te doen: laarsgrap staat op main, Windows-run 44504472037 op dd58c2c groen (GEZIEN); geen nieuwe opdracht, bevriezen vanavond 20:00 NL, itch.io wacht op de speeltest.
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`. (Lokale main hoorde bij een oude, herschreven geschiedenis; ik werk vanaf origin/main.)
