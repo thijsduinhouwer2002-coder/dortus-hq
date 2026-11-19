@@ -1708,3 +1708,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±22:15 NL)
 - Moet-punt van de automatische keurder (3ff874a) beantwoord: `steam-hol.yml` draait `toets_namen` al (regel 34, Windows-run 44575656543 groen, GEZIEN). `laars_namen` en `naamgenoot_laars` in `architectuur.md` gezet; `strook.gd` (459 regels) opsplitsen en de andere kan-punten na de speeltest, spel blijft bevroren.
 - Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten bovenaan `taken.md`, dan `strook.gd` splitsen.
+
+## 19 nov 2026, Sanne (run ±21:45 UTC)
+- Niets zinvols te doen: geen nieuw bericht sinds de vorige run, vragen en tags af en gekeurd, bard-keuze ligt bij Bram, spel bevroren en speeltestbuild met 5 zaden geproefd (Olaf).
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
