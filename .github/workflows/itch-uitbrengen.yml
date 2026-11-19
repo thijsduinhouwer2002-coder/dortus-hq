@@ -1,0 +1,155 @@
+name: Het Hol naar itch.io (met een tak, standaard proefdraaien)
+
+# Olaf, 19 nov 2026. Voorbereiding op het voorstel "Hats eerder laten verdienen via itch.io" (berichten/hoofdchat.md, 19 nov 02:30 NL).
+# Nog geen besluit: deze workflow doet niets echts tot Thijs een itch.io-account heeft en de sleutel zet.
+# Bouwt niets zelf: neemt de speeltest-zip (volle spel plus LEES-MIJ-EERST.txt) van de nieuwste geslaagde
+# run van steam-hol-exe.yml op main met precies dezelfde spelcode, en zet die met butler op itch.io.
+# Een upload met butler maakt de pagina NIET openbaar; zichtbaarheid en prijs zet Thijs zelf op itch.io.
+#
+# Starten (een tag pushen geeft vanuit onze sessies 403, daarom een tak, net als steam-uitbrengen.yml):
+#   git push origin HEAD:refs/heads/uitgave/hats-itch-v0.2.0         echte upload (de taknaam geldt als bevestiging)
+#   git push origin HEAD:refs/heads/uitgave/hats-itch-v0.2.0-proef1  proefdraai: alles behalve de upload
+#   of met de hand (workflow_dispatch), proefdraaien staat standaard aan.
+# Controles (bij een echte upload stopt elke fout de run vóór het uploaden):
+#   a. geldige naam, versie = product_version in export_presets.cfg
+#   b. een geslaagde steam-hol-exe.yml-run op main met dezelfde spelcode (map producten/steam-hol), artifact nog aanwezig
+#   c. akkoord Daan: regel "| <versie> | ja | <keuringsbestand> |" in platformen/steam/uitgaven.md (zelfde regel als voor Steam)
+#   d. inhoud: HetHol.exe, LEES-MIJ-EERST.txt, geen logs of saves, kleiner dan 500 MB
+# Echt uploaden kan pas als Thijs één keer zet (Settings van de repo):
+#   geheim    BUTLER_API_KEY  (itch.io, Settings, API keys)
+#   variabele ITCH_PROJECT    (vorm gebruiker/spel, openbaar, staat ook in de url van de pagina)
+on:
+  push:
+    branches: ["uitgave/hats-itch-v*"]
+  workflow_dispatch:
+    inputs:
+      proefdraaien:
+        description: "Proefdraaien: alles behalve de upload (laat aan tot de sleutel er is)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: itch-uitbrengen
+  cancel-in-progress: false
+
+env:
+  BUTLER_VERSIE: "15.32.0"   # DERDEN: https://broth.itch.zone/butler/linux-amd64/LATEST gaf 15.32.0 op 19 nov 2026
+
+jobs:
+  itch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - name: Controles (naam, versie, build, akkoord Daan)
+        id: c
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          IN_PROEF: ${{ inputs.proefdraaien }}
+        run: |
+          S="$GITHUB_STEP_SUMMARY"; fout=0
+          naam="${GITHUB_REF_NAME#uitgave/}"
+          if [ "$naam" != "$GITHUB_REF_NAME" ]; then
+            if [[ "$naam" =~ ^hats-itch-v([0-9]+)\.([0-9]+)\.([0-9]+)(-proef[a-z0-9]*)?$ ]]; then
+              versie="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.${BASH_REMATCH[3]}"
+              [ -n "${BASH_REMATCH[4]}" ] && proef=true || proef=false
+            else
+              echo "::error::Geen geldige naam '$GITHUB_REF_NAME'. Vorm: uitgave/hats-itch-v1.2.3 of uitgave/hats-itch-v1.2.3-proef1"; exit 1
+            fi
+          else
+            versie=""; proef="$IN_PROEF"
+          fi
+          meld() { if [ "$proef" = "true" ]; then echo "::warning::$1"; echo "- waarschuwing: $1" >> "$S";
+                   else echo "::error::$1"; echo "- FOUT: $1" >> "$S"; fout=$((fout+1)); fi; }
+          echo "## Controles ($( [ "$proef" = "true" ] && echo proefdraai || echo ECHTE UPLOAD ), $GITHUB_REF_NAME)" >> "$S"
+
+          # a. versie
+          pv=$(grep -o 'application/product_version="[^"]*"' producten/steam-hol/godot/export_presets.cfg | cut -d'"' -f2 | sort -u | head -1 | cut -d. -f1-3)
+          [ -n "$versie" ] || versie="$pv"
+          [ "$versie" = "$pv" ] || meld "taknaam zegt $versie, export_presets.cfg zegt $pv"
+          echo "- versie: $versie" >> "$S"
+
+          # b. geslaagde exe-run op main met dezelfde spelcode
+          boom=$(git rev-parse "$GITHUB_SHA:producten/steam-hol")
+          curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/steam-hol-exe.yml/runs?branch=main&status=success&per_page=30" \
+            -o runs.json || echo '{"workflow_runs":[]}' > runs.json
+          run=""
+          for r in $(jq -r '.workflow_runs[] | "\(.head_sha),\(.id)"' runs.json); do
+            sha=${r%,*}; id=${r#*,}
+            git cat-file -e "$sha^{commit}" 2>/dev/null || continue
+            [ "$(git rev-parse "$sha:producten/steam-hol" 2>/dev/null)" = "$boom" ] || continue
+            n=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs/$id/artifacts" \
+                | jq '[.artifacts[] | select(.name=="speeltest-hats-of-the-fallen-windows" and .expired==false)] | length')
+            if [ "${n:-0}" -gt 0 ]; then run="$id"; break; fi
+          done
+          if [ -n "$run" ]; then echo "- build: steam-hol-exe.yml run $run (zelfde spelcode, boom ${boom:0:7})" >> "$S"
+          else echo "::error::geen geslaagde steam-hol-exe.yml-run op main met deze spelcode en een levend speeltest-artifact (boom ${boom:0:7}). Start die eerst."; exit 1; fi
+
+          # c. akkoord Daan
+          rij=$(grep -E "^\| *$versie *\|" platformen/steam/uitgaven.md 2>/dev/null | head -1 || true)
+          keuring=$(echo "$rij" | awk -F'|' '{gsub(/[ `]/,"",$4); print $4}')
+          oordeel=$(echo "$rij" | awk -F'|' '{gsub(/ /,"",$3); print tolower($3)}')
+          if [ "$oordeel" = "ja" ] && [ -n "$keuring" ] && [ -f "$keuring" ]; then echo "- akkoord Daan: ja ($keuring)" >> "$S"
+          else meld "geen akkoord van Daan voor $versie in platformen/steam/uitgaven.md"; fi
+
+          echo "proef=$proef" >> "$GITHUB_OUTPUT"; echo "versie=$versie" >> "$GITHUB_OUTPUT"; echo "run=$run" >> "$GITHUB_OUTPUT"
+          echo "uitslag controles: $fout FOUT" | tee -a "$S"
+          [ "$fout" -eq 0 ] || exit 1
+      - uses: actions/download-artifact@v4
+        with:
+          name: speeltest-hats-of-the-fallen-windows
+          path: itch/windows
+          run-id: ${{ steps.c.outputs.run }}
+          github-token: ${{ github.token }}
+      - name: Inhoud toetsen
+        shell: bash
+        run: |
+          fout=0; d=itch/windows; S="$GITHUB_STEP_SUMMARY"
+          [ -f "$d/HetHol.exe" ] || { echo "FOUT: HetHol.exe ontbreekt"; fout=$((fout+1)); }
+          [ -f "$d/LEES-MIJ-EERST.txt" ] || { echo "FOUT: LEES-MIJ-EERST.txt ontbreekt"; fout=$((fout+1)); }
+          vreemd=$(find "$d" -type f \( -name '*.log' -o -name '*.pdb' -o -name '*.save' -o -name '*.tmp' -o -name '*.vdf' \) | wc -l)
+          [ "$vreemd" -eq 0 ] || { echo "FOUT: $vreemd vreemde bestanden"; fout=$((fout+1)); }
+          mb=$(du -sm "$d" | cut -f1); [ "$mb" -lt 500 ] || { echo "FOUT: $mb MB"; fout=$((fout+1)); }
+          echo "### inhoud ($mb MB)" >> "$S"; echo '```' >> "$S"; find "$d" -type f -printf '%P  %s\n' >> "$S"; echo '```' >> "$S"
+          echo "uitslag inhoud: $fout FOUT" | tee -a "$S"
+          [ "$fout" -eq 0 ] || exit 1
+      - name: butler ophalen
+        shell: bash
+        run: |
+          curl -fsSL -o butler.zip "https://broth.itch.zone/butler/linux-amd64/$BUTLER_VERSIE/archive/default"
+          mkdir -p "$RUNNER_TEMP/butler" && unzip -oq butler.zip -d "$RUNNER_TEMP/butler" && chmod +x "$RUNNER_TEMP/butler/butler"
+          echo "$RUNNER_TEMP/butler" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/butler/butler" -V
+      - name: Proefdraai (wat er geüpload zou worden)
+        if: steps.c.outputs.proef == 'true'
+        shell: bash
+        env:
+          ITCH_PROJECT: ${{ vars.ITCH_PROJECT }}
+          VERSIE: ${{ steps.c.outputs.versie }}
+        run: |
+          echo "PROEFDRAAI, niets geüpload. Echt zou zijn:" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "    butler push itch/windows ${ITCH_PROJECT:-GEBRUIKER/SPEL}:windows --userversion $VERSIE --if-changed" | tee -a "$GITHUB_STEP_SUMMARY"
+          butler push --help >/dev/null 2>&1 && echo "butler push bestaat (help leesbaar)"
+      - name: Echte upload naar itch.io
+        if: steps.c.outputs.proef == 'false'
+        shell: bash
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          ITCH_PROJECT: ${{ vars.ITCH_PROJECT }}
+          VERSIE: ${{ steps.c.outputs.versie }}
+        run: |
+          mis=""
+          [ -n "$BUTLER_API_KEY" ] || mis="$mis BUTLER_API_KEY(geheim)"
+          [[ "$ITCH_PROJECT" =~ ^[A-Za-z0-9_-]+/[A-Za-z0-9_-]+$ ]] || mis="$mis ITCH_PROJECT(variabele, vorm gebruiker/spel)"
+          if [ -n "$mis" ]; then echo "::error::Echte upload kan niet, dit ontbreekt:$mis. Proefdraaien kan wel; Thijs zet dit (berichten/hoofdchat.md)."; exit 1; fi
+          butler push itch/windows "$ITCH_PROJECT:windows" --userversion "$VERSIE" --if-changed
+          butler status "$ITCH_PROJECT:windows" | tee -a "$GITHUB_STEP_SUMMARY"
