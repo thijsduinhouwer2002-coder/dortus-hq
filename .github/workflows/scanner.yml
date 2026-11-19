@@ -70,9 +70,12 @@ jobs:
           echo "Meten: $MINUTEN minuten, naar $UIT"
           python3 -u platformen/ai-handel/scanner/scanner.py --minuten "$MINUTEN" --uit "$UIT" &
           PID=$!
+          # Bij afbreken stuurt de runner SIGINT/SIGTERM naar deze shell; een achtergrondproces krijgt dat niet
+          # vanzelf. Doorgeven, zodat de scanner zijn open kansen en samenvatting.json nog wegschrijft (keuring A13).
+          trap 'kill -TERM "$PID" 2>/dev/null; wait "$PID"; exit 1' INT TERM
           LAATST=$(date +%s)
           while kill -0 "$PID" 2>/dev/null; do
-            sleep 30
+            sleep 30 & wait $!
             if [ $(( $(date +%s) - LAATST )) -ge 1800 ]; then
               bash platformen/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan" || true
               LAATST=$(date +%s)

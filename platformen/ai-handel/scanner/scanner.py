@@ -33,7 +33,8 @@ VERDACHT = 0.15          # bruto verschil boven 15%: bijna altijd een andere mun
 PLAFONDS_EUR = (100, 500, 1000, 2500)   # winst uitgerekend bij deze bedragen per kans
 RUIMTE_MAX_EUR = 20000   # hoe ver we het boek aflopen om de winstgevende ruimte te meten
 META_ELKE_S = 1800       # paren, kosten en opnamestatus elk half uur opnieuw
-SLUIT_NA_S = 75          # een open kans die zo lang niet gecontroleerd is, telt als gesloten
+SLUIT_NA_S = 180         # een open kans die zo lang niet gecontroleerd is, telt als gesloten
+TRAAG_S = 55             # open kansen met opnemen of storten dicht of onbekend: hooguit eens per ±3 rondes controleren
 # Hefboomtokens (ETH3S, BTC5L, ...) zijn producten van één beurs: niet over te maken, dus geen kans.
 HEFBOOM = re.compile(r"(\d[LS]|BULL|BEAR)$")
 
@@ -96,8 +97,9 @@ def bereken(laten, biedingen, fee_koop, fee_verkoop, opname_munt, eur_per_quote)
 
 
 def is_kans(r):
-    """Er ligt na alle kosten winst op het boek (bij de volle winstgevende ruimte)."""
-    return bool(r) and r["winst_ruimte"] is not None and r["winst_ruimte"] > 0
+    """Er ligt na alle kosten winst op het boek (bij de volle winstgevende ruimte), en het verschil op het boek is
+    niet groter dan de grens voor "verdacht" (die geldt ook op het boek, niet alleen op de ticker; keuring A8)."""
+    return bool(r) and r["winst_ruimte"] is not None and r["winst_ruimte"] > 0 and r["bruto_pct"] <= VERDACHT * 100
 
 
 def kandidaten(koersen, paren, wallets=None, verdacht=VERDACHT):
@@ -162,13 +164,30 @@ def opname_fee(wallets, beurs, munt):
     return None, "onbekend"
 
 
+def netwerk_stand(wallets, a, b, munt):
+    """Is er een netwerk waarover je de munt van A (opnemen) naar B (storten) krijgt? Geeft (stand, fee):
+    "open" (een gemeenschappelijk netwerk is open; fee = laagste opnamefee op A over zo'n netwerk, of None),
+    "dicht" (de beurzen hebben netwerken gemeen, maar geen enkele is aan beide kanten open), of "onbekend" (een
+    van de twee geeft geen netwerken, of de namen zijn niet te koppelen)."""
+    na = (wallets.get(a, {}).get(munt) or {}).get("netwerken") or {}
+    nb = (wallets.get(b, {}).get(munt) or {}).get("netwerken") or {}
+    samen = set(na) & set(nb)
+    if not samen:
+        return "onbekend", None
+    open_ = [n for n in samen if na[n]["opname"] and nb[n]["storting"]]
+    if not open_:
+        return "dicht", None
+    fees = [na[n]["fee"] for n in open_ if na[n].get("fee") is not None]
+    return "open", (min(fees) if fees else None)
+
+
 def wallet_stand(wallets, beurs, munt, veld):
     w = wallets.get(beurs, {}).get(munt)
     return None if w is None else w.get(veld)
 
 
 class Scanner:
-    def __init__(self, uitmap, interval=20, max_checks=100, beurs_klassen=None, log=print):
+    def __init__(self, uitmap, interval=20, max_checks=120, beurs_klassen=None, log=print):
         self.uitmap = uitmap
         self.interval = interval
         self.max_checks = max_checks
@@ -248,15 +267,20 @@ class Scanner:
         self.stand["rondes"] += 1
         self.stand["kandidaten"] += len(kand)
 
-        # Rooster: open kansen eerst, dan kandidaten die nog nooit gecontroleerd zijn (grootste verschil eerst),
-        # dan de kandidaten die het langst niet gecontroleerd zijn. Zo komt elke kandidaat binnen een paar rondes
-        # aan de beurt, ook als er honderden zijn.
+        # Rooster (keuring A5): eerst open kansen waar opnemen, storten en netwerk open zijn; dan kandidaten die nog
+        # nooit gecontroleerd zijn (grootste verschil eerst); dan open kansen waar iets dicht of onbekend is, maar
+        # hooguit eens per TRAAG_S seconden; dan de rest, langst niet gecontroleerd eerst. Zo vreten kansen die
+        # toch niet meetellen (bijv. opnemen dicht, kan uren blijven staan) niet elke ronde de plekken op.
         sleutels = {(m, q, a, b): br for m, q, a, b, br in kand}
-        volgorde = [k for k in self.open if k in sleutels]
-        rest = [k for k in sleutels if k not in self.open]
-        rest.sort(key=lambda k: (k in self.gecheckt, self.gecheckt.get(k, 0), -sleutels[k]))
-        te_checken = (volgorde + rest)[: self.max_checks]
         self.gecheckt = {k: v for k, v in self.gecheckt.items() if k in sleutels}
+        goed, traag = [], []
+        for k in self.open:
+            if k in sleutels:
+                (goed if self.status_open(k) else traag).append(k)
+        traag = [k for k in traag if t0 - self.gecheckt.get(k, 0) >= TRAAG_S]
+        nooit = sorted((k for k in sleutels if k not in self.open and k not in self.gecheckt), key=lambda k: -sleutels[k])
+        oud = sorted((k for k in sleutels if k not in self.open and k in self.gecheckt), key=lambda k: self.gecheckt[k])
+        te_checken = (goed + nooit + traag + oud)[: self.max_checks]
         boeken = {}
         nodig = {(k[2], k[0], k[1]) for k in te_checken} | {(k[3], k[0], k[1]) for k in te_checken}
         bmap = {b.naam: b for b in self.beurzen}
@@ -275,21 +299,30 @@ class Scanner:
                 continue
             self.stand["checks"] += 1
             self.gecheckt[k] = tm
-            fee_m, fee_bron = opname_fee(self.wallets, a, m)
+            netwerk, fee_net = netwerk_stand(self.wallets, a, b, m)
+            if fee_net is not None:
+                fee_m, fee_bron = fee_net, "netwerk"
+            else:
+                fee_m, fee_bron = opname_fee(self.wallets, a, m)
             r = bereken(ba[1], bb[0], taker(self.paren, a, (m, q)), taker(self.paren, b, (m, q)), fee_m,
                         self.eur.get(q, 0))
             if is_kans(r):
-                self.werk_bij(k, r, tm, fee_bron)
+                self.werk_bij(k, r, tm, fee_bron, netwerk)
             elif k in self.open:
                 self.sluit(k, tm)
         # kansen die niet meer bij de kandidaten staan, of te lang niet gecontroleerd zijn, sluiten
         for k in list(self.open):
             if k not in sleutels or tm - self.open[k]["laatst_t"] > SLUIT_NA_S:
                 self.sluit(k, tm)
-        self.schrijf_stand(t0, len(koersen), vergeleken, len(kand), verdacht, len(te_checken))
+        nooit_na = sum(1 for k in sleutels if k not in self.gecheckt)
+        self.schrijf_stand(t0, len(koersen), vergeleken, len(kand), verdacht, len(te_checken), nooit_na)
         return nu_s() - t0
 
-    def werk_bij(self, k, r, t, fee_bron):
+    def status_open(self, k):
+        o = self.open[k]
+        return o["opname_koop"] is True and o["storting_verkoop"] is True and o.get("netwerk") != "dicht"
+
+    def werk_bij(self, k, r, t, fee_bron, netwerk="onbekend"):
         o = self.open.get(k)
         if o is None:
             m, q, a, b = k
@@ -298,7 +331,7 @@ class Scanner:
                 "opname_koop": wallet_stand(self.wallets, a, m, "opname"),
                 "storting_verkoop": wallet_stand(self.wallets, b, m, "storting"),
                 "contract": contract_stand(self.paren, self.wallets, a, b, (m, q)),
-                "opname_bron": fee_bron, "taker_koop": taker(self.paren, a, (m, q)),
+                "opname_bron": fee_bron, "netwerk": netwerk, "taker_koop": taker(self.paren, a, (m, q)),
                 "taker_verkoop": taker(self.paren, b, (m, q)), "eur_per_quote": self.eur.get(q),
             }
         o["laatst_t"] = t
@@ -315,7 +348,7 @@ class Scanner:
             return round(max(w), 4) if w else None
         regel = {
             **{x: o[x] for x in ("munt", "quote", "koop", "verkoop", "opname_koop", "storting_verkoop", "contract",
-                                 "opname_bron", "taker_koop", "taker_verkoop", "eur_per_quote")},
+                                 "opname_bron", "netwerk", "taker_koop", "taker_verkoop", "eur_per_quote")},
             "begin": iso(o["begin_t"]), "eind": iso(o["laatst_t"]), "duur_s": round(o["laatst_t"] - o["begin_t"]),
             "metingen": len(ms), "bruto_pct_med": med("bruto_pct"), "bruto_pct_max": mx("bruto_pct"),
             "ruimte_eur_med": med("ruimte_eur"), "ruimte_eur_max": mx("ruimte_eur"),
@@ -328,17 +361,18 @@ class Scanner:
             fh.write(json.dumps(regel) + "\n")
         self.stand["kansen_gesloten"] += 1
 
-    def schrijf_stand(self, t0, n_beurzen, vergeleken, n_kand, verdacht, n_checks):
+    def schrijf_stand(self, t0, n_beurzen, vergeleken, n_kand, verdacht, n_checks, nooit=0):
         if self.stand["rondes"] % 15 != 1:   # elke ±5 minuten één regel
             return
         regel = {"t": iso(t0), "beurzen_ok": n_beurzen, "paren_vergeleken": vergeleken, "kandidaten": n_kand,
                  "verdacht": verdacht, "gecontroleerd": n_checks, "open": len(self.open),
-                 "nooit_gecontroleerd": n_kand - len(self.gecheckt),
+                 "nooit_gecontroleerd": nooit,
                  "eur_per_usdt": round(self.eur.get("USDT", 0), 5), "duur_ronde_s": round(nu_s() - t0, 1)}
         with open(os.path.join(self.uitmap, "stand.jsonl"), "a") as fh:
             fh.write(json.dumps(regel) + "\n")
         self.log(f"{regel['t']} beurzen={n_beurzen} paren={vergeleken} kandidaten={n_kand} verdacht={verdacht} "
-                 f"open={len(self.open)} gesloten={self.stand['kansen_gesloten']} ronde={regel['duur_ronde_s']}s")
+                 f"nooit={nooit} open={len(self.open)} gesloten={self.stand['kansen_gesloten']} "
+                 f"ronde={regel['duur_ronde_s']}s")
 
     def draai(self, minuten):
         eind = nu_s() + minuten * 60
@@ -363,10 +397,11 @@ def main():
     ap.add_argument("--minuten", type=float, default=10)
     ap.add_argument("--uit", default="data")
     ap.add_argument("--interval", type=float, default=20)
-    ap.add_argument("--max-checks", type=int, default=100)
+    ap.add_argument("--max-checks", type=int, default=120)
     a = ap.parse_args()
     # Bij stoppen (workflow afgebroken) netjes afsluiten: open kansen wegschrijven.
     signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))
+    signal.signal(signal.SIGINT, lambda *_: sys.exit(0))
     s = Scanner(a.uit, a.interval, a.max_checks, log=lambda x: print(x, flush=True))
     s.draai(a.minuten)
     print(json.dumps(s.stand, indent=1))

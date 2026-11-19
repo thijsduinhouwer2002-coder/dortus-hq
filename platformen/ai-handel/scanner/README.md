@@ -16,23 +16,29 @@ zie `../D-arbitrage.md` hoofdstuk 1). Deze scanner meet een week lang alle munte
   kans, en hoeveel euro er in totaal winstgevend op het boek ligt (tot €20.000).
 - Hij houdt bij hoe lang elk verschil blijft staan (begin en eind, in stappen van ±20 seconden).
 - Hij noteert per kans of **opnemen op de koopbeurs** en **storten op de verkoopbeurs** open staan, volgens de
-  openbare API van de beurs (elk half uur ververst).
-- Hij gooit weg: verschillen boven 15% (bijna altijd een andere munt met dezelfde naam of een dode markt),
+  openbare API van de beurs (elk half uur ververst). Geven beide beurzen hun netwerken per munt (KuCoin, Gate,
+  Bitget, HTX, XT, Bitstamp, Bitvavo, Poloniex), dan kijkt hij of er een netwerk is dat aan beide kanten open is
+  (namen als "ERC20", "ETH" en "Ethereum" tellen als hetzelfde) en neemt hij de opnamekosten van dat netwerk.
+- Rooster: per ronde hooguit 120 boekcontroles. Eerst open kansen waar alles open is, dan kandidaten die nog nooit
+  bekeken zijn, dan open kansen waar opnemen, storten of netwerk dicht of onbekend is (hooguit eens per ±3 rondes),
+  dan de rest. Het rapport meldt hoeveel kandidaten nooit bekeken zijn.
+- Hij gooit weg: verschillen boven 15%, op de ticker en op het boek (bijna altijd een andere munt met dezelfde naam of een dode markt),
   hefboomtokens (ETH3S, BTC5L: bestaan maar op één beurs) en markten die niet handelen.
 - Hij markeert munten waarvan de contractadressen op beide beurzen bekend zijn maar niet gelijk: dan is het
   waarschijnlijk een andere munt met dezelfde naam (bijv. twee verschillende "AI"-tokens). Die tellen niet.
 
 ## Wat hij niet doet
 - Geen account, geen sleutel, geen handel, geen geld. Alleen openbare API's lezen.
-- Hij kijkt niet of beide beurzen hetzelfde **netwerk** voor de munt gebruiken (de ene beurs alleen ERC-20, de
-  andere alleen BEP-20 komt voor). Dat staat als onzekerheid in het rapport.
+- Het **netwerk** vergelijkt hij alleen als beide beurzen hun netwerken geven en de namen te koppelen zijn. Anders
+  staat het netwerk als "niet te koppelen"; zulke kansen tellen mee en staan apart in de trechter.
 - Hij meet niet hoe snel een opname echt aankomt. Het rapport toont daarom per overmaaktijd (5, 10, 30, 60
   minuten) welk deel van de kansen dan nog stond.
 - Opname- en stortstatus: Kraken, Bitvavo, Bitstamp, KuCoin, Gate, Bitget, HTX, Poloniex en XT geven die openbaar.
   OKX, MEXC, Crypto.com, BingX, Bitfinex, Bybit, Binance en Coinbase niet (Coinbase alleen "online").
   Kansen met zo'n beurs staan als **status onbekend** en tellen niet mee als echte kans; het rapport toont ze apart.
 - Opnamekosten: openbaar bij Bitvavo, KuCoin, Bitget, HTX, Poloniex en XT. Bij de andere nemen we de mediaan van
-  wat de beurzen die het wel noemen voor die munt vragen (GOK, staat als "geschat" in de data).
+  wat de beurzen die het wel noemen voor die munt vragen (GOK, staat als "geschat" in de data). Noemt geen enkele
+  beurs ze, dan is de kans geen echte kans (niet als 0 gerekend).
 
 ## Hoe het draait
 - Workflow `.github/workflows/scanner.yml`: één job van ±5 uur 25 minuten, daarna de volgende. Hij start bij een
@@ -51,20 +57,27 @@ zie `../D-arbitrage.md` hoofdstuk 1). Deze scanner meet een week lang alle munte
 ## Het rapport lezen
 Het staat op `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/ai-handel-data/scanner/rapport.md`.
 
-Een **echte kans** moet aan alle vijf voldoen: (1) winst na takerkosten en opnamekosten, (2) opnemen en storten
-open (bekend), (3) minstens €100 winstgevend op het boek, (4) minstens 2 minuten blijven staan, (5) niet
-zichtbaar een andere munt. Kansen van dezelfde munt die in de tijd overlappen (bijv. goedkoop op MEXC, duur op vijf
+Een **echte kans** moet aan alles voldoen: (1) winst na takerkosten en opnamekosten (die bekend of geschat zijn),
+(2) opnemen en storten open (bekend), en geen netwerk-mismatch als beide beurzen hun netwerken geven, (3) minstens
+€100 winstgevend op het boek, (4) minstens 2 minuten blijven staan, (5) niet zichtbaar een andere munt.
+
+Alles staat in drie kolommen: **alle beurzen**, **alleen MiCA-beurzen** (beide beurzen vergund) en **met minstens
+één grijze beurs**. Zo zie je wat de route met alleen vergunde beurzen oplevert en wat de grijze route erbij doet. Kansen van dezelfde munt die in de tijd overlappen (bijv. goedkoop op MEXC, duur op vijf
 andere beurzen) tellen als **één** kans, met het beste beurspaar.
 
+- **Hoeveel wordt er gecontroleerd**: kandidaten per ronde, hoeveel met het boek bekeken en hoeveel nog nooit.
+  Zolang dat laatste meer dan 5% is, zijn alle aantallen en sommen een **ondergrens**.
 - **Trechter**: hoeveel verschillen er waren en bij welke stap ze afvallen. Hier zie je hoe vaak het gat er alleen
-  is omdat opnemen of storten dicht staat.
+  is omdat opnemen of storten dicht staat, en hoeveel kansen een onbekend contractadres of netwerk hebben.
 - **Per dag**: aantal echte kansen, mediane winst per kans bij €500 en bij de volle ruimte op het boek, mediane duur.
 - **Beste munten en beursparen**.
 - **Overmaaktijd**: welk deel van de echte kansen er na 5, 10, 30 en 60 minuten nog stond. Zonder voorraad op
   beide beurzen moet je de munt overmaken; dan telt alleen de regel die past bij de snelheid van dat netwerk.
 - **3 maanden bij €2.000 en €5.000**: twee sommen, allebei GOK. De bovengrens neemt aan dat je elke kans pakt met
   de helft van je inleg aan elke kant (geld overal tegelijk, kan in het echt niet). De tweede neemt alleen het
-  beste beurspaar (al je geld op twee beurzen). Waarom beide te rooskleurig of te somber kunnen zijn, staat eronder.
+  beste beurspaar (al je geld op twee beurzen); dat paar is achteraf gekozen en het model neemt aan dat je van elke
+munt al voorraad op de verkoopbeurs hebt. Beide sommen staan apart voor alleen MiCA en voor alle beurzen. Waarom
+ze te rooskleurig of te somber kunnen zijn, staat eronder.
 
 Het eerste rapport zegt iets na een paar runs (een dag); na 7 dagen is het een week aan metingen.
 

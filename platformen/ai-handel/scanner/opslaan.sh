@@ -18,7 +18,12 @@ for poging in 1 2 3 4 5; do
   fi
   mkdir -p "$W/scanner"
   cp -r "$BRON"/. "$W/scanner/"
-  python3 -I "$HIER/rapport.py" "$W/scanner" > "$W/scanner/rapport.md" || echo "rapport mislukt (data wel bewaard)"
+  # eerst naar een tijdelijk bestand: een mislukt rapport laat het vorige rapport.md staan (geen leeg bestand)
+  if python3 -I "$HIER/rapport.py" "$W/scanner" > "$W/rapport.tmp" && [ -s "$W/rapport.tmp" ]; then
+    mv "$W/rapport.tmp" "$W/scanner/rapport.md"
+  else
+    echo "rapport mislukt (data wel bewaard, vorig rapport blijft staan)"; rm -f "$W/rapport.tmp"
+  fi
   git -C "$W" add scanner
   if git -C "$W" diff --cached --quiet; then echo "niets nieuw"; rm -rf "$W"; exit 0; fi
   git -C "$W" -c user.name="dortus-scanner" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \

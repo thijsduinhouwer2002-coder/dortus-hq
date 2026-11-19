@@ -12,6 +12,7 @@ standaardtarief van de laagste trede uit TAKER hieronder; de bron staat in READM
 import gzip
 import json
 import os
+import re
 import ssl
 import urllib.request
 
@@ -25,14 +26,32 @@ TAKER = {
     "cryptocom": 0.0050, "poloniex": 0.0020, "xt": 0.0020, "bingx": 0.0010, "bitfinex": 0.0, "binance": 0.0010,
 }
 
-# Andere namen voor dezelfde munt.
-ALIAS = {"XBT": "BTC", "XDG": "DOGE", "UST": "USDT", "UDC": "USDC", "DSH": "DASH", "IOT": "IOTA"}
+# Andere namen voor dezelfde munt. XBT en XDG zijn namen van Kraken; die van Bitfinex staan bij Bitfinex zelf
+# (keuring A9: UST en IOT niet op elke beurs omzetten, daar kunnen het andere munten zijn).
+ALIAS = {"XBT": "BTC", "XDG": "DOGE"}
+ALIAS_BITFINEX = {"UST": "USDT", "UDC": "USDC", "DSH": "DASH", "IOT": "IOTA"}
 QUOTES = {"USDT", "USDC", "EUR", "USD"}
+
+# Netwerknamen verschillen per beurs ("ERC20", "ETH", "Ethereum"); dit maakt ze vergelijkbaar. Een naam die hier
+# niet staat, blijft zoals hij is (hoofdletters, zonder leestekens). Lukt het niet om een gemeenschappelijk netwerk
+# te vinden, dan is de netwerkstand "onbekend", niet "dicht".
+NET = {"ERC20": "ETH", "ETHEREUM": "ETH", "ETHERC20": "ETH", "ETHEREUMERC20": "ETH",
+       "BEP20": "BSC", "BNBSMARTCHAIN": "BSC", "BEP20BSC": "BSC", "BSCBEP20": "BSC", "BNBSMARTCHAINBEP20": "BSC",
+       "TRC20": "TRX", "TRON": "TRX", "TRONTRC20": "TRX", "SOLANA": "SOL", "SPL": "SOL",
+       "ARBITRUM": "ARB", "ARBITRUMONE": "ARB", "ARBEVM": "ARB", "ARBONE": "ARB", "ARBI": "ARB",
+       "OPTIMISM": "OP", "OPMAINNET": "OP", "OPETH": "OP", "BASEEVM": "BASE", "BASEMAINNET": "BASE",
+       "MATIC": "POLYGON", "POLYGONPOS": "POLYGON", "POL": "POLYGON",
+       "AVAXCCHAIN": "AVAXC", "CCHAIN": "AVAXC", "AVALANCHECCHAIN": "AVAXC"}
 
 
 def norm(s):
     s = (s or "").upper().strip()
     return ALIAS.get(s, s)
+
+
+def net(s):
+    k = re.sub(r"[^A-Z0-9]", "", str(s or "").upper())
+    return NET.get(k, k)
 
 
 def haal(url, timeout=12):
@@ -61,22 +80,32 @@ def _ja(x):
     return str(x).lower() in ("true", "1", "ok", "enabled", "allowed", "yes")
 
 
-def _wallet_uit_ketens(ketens, open_opname, open_storting, fee_veld, contract_veld=None):
-    """Eén munt: opname open als minstens één keten open is; fee = laagste fee van een open keten."""
+def _wallet_uit_ketens(ketens, open_opname, open_storting, fee_veld, contract_veld=None, naam_veld=None):
+    """Eén munt: opname open als minstens één keten open is; fee = laagste fee van een open keten.
+    "netwerken": per netwerk (genormaliseerde naam) opname, storting en fee, zodat de scanner kan kijken of er
+    een netwerk is dat op beide beurzen open is."""
     opname = storting = False
     fee = None
     contracten = set()
+    netwerken = {}
     for k in ketens or []:
         o, s = open_opname(k), open_storting(k)
         opname |= o
         storting |= s
-        if o and fee_veld:
-            v = k.get(fee_veld)
-            if v not in (None, ""):
-                fee = f(v) if fee is None else min(fee, f(v))
+        v = k.get(fee_veld) if fee_veld else None
+        kfee = f(v) if v not in (None, "") else None
+        if o and kfee is not None:
+            fee = kfee if fee is None else min(fee, kfee)
         if contract_veld and k.get(contract_veld):
             contracten.add(str(k[contract_veld]).lower())
-    return {"opname": opname, "storting": storting, "fee": fee, "contracten": contracten}
+        if naam_veld and k.get(naam_veld):
+            n = net(k[naam_veld])
+            oud = netwerken.get(n)
+            if oud is None or (o and not oud["opname"]):
+                netwerken[n] = {"opname": o, "storting": s or bool(oud and oud["storting"]), "fee": kfee}
+            else:
+                oud["storting"] |= s
+    return {"opname": opname, "storting": storting, "fee": fee, "contracten": contracten, "netwerken": netwerken}
 
 
 class Beurs:
@@ -154,9 +183,14 @@ class Bitvavo(Beurs):
         return _rijen(r["bids"]), _rijen(r["asks"])
 
     def wallet(self):
-        return {norm(a["symbol"]): {"opname": a.get("withdrawalStatus") == "OK", "storting": a.get("depositStatus") == "OK",
-                                    "fee": f(a.get("withdrawalFee")) if a.get("withdrawalFee") not in (None, "") else None,
-                                    "contracten": set()} for a in haal(f"{self.B}/assets")}
+        uit = {}
+        for a in haal(f"{self.B}/assets"):
+            o, s = a.get("withdrawalStatus") == "OK", a.get("depositStatus") == "OK"
+            fee = f(a.get("withdrawalFee")) if a.get("withdrawalFee") not in (None, "") else None
+            uit[norm(a["symbol"])] = {"opname": o, "storting": s, "fee": fee, "contracten": set(),
+                                      "netwerken": {net(n): {"opname": o, "storting": s, "fee": fee}
+                                                    for n in a.get("networks") or []}}
+        return uit
 
 
 class Coinbase(Beurs):
@@ -225,9 +259,16 @@ class Bitstamp(Beurs):
         return _rijen(r["bids"][:50]), _rijen(r["asks"][:50])
 
     def wallet(self):
-        return {norm(c["currency"]): {"opname": c.get("withdrawal") == "Enabled", "storting": c.get("deposit") == "Enabled",
-                                      "fee": None, "contracten": set()}
-                for c in haal(f"{self.B}/currencies/") if c.get("type") == "crypto"}
+        uit = {}
+        for c in haal(f"{self.B}/currencies/"):
+            if c.get("type") != "crypto":
+                continue
+            w = _wallet_uit_ketens(c.get("networks"), lambda k: k.get("withdrawal") == "Enabled",
+                                   lambda k: k.get("deposit") == "Enabled", None, None, "network")
+            if not c.get("networks"):
+                w.update(opname=c.get("withdrawal") == "Enabled", storting=c.get("deposit") == "Enabled")
+            uit[norm(c["currency"])] = w
+        return uit
 
 
 class Okx(Beurs):
@@ -283,7 +324,7 @@ class Kucoin(Beurs):
         for c in haal(f"{self.B}/v3/currencies")["data"]:
             uit[norm(c["currency"])] = _wallet_uit_ketens(
                 c.get("chains"), lambda k: bool(k.get("isWithdrawEnabled")), lambda k: bool(k.get("isDepositEnabled")),
-                "withdrawalMinFee", "contractAddress")
+                "withdrawalMinFee", "contractAddress", "chainName")
         return uit
 
 
@@ -319,7 +360,7 @@ class Gate(Beurs):
             w = _wallet_uit_ketens(c.get("chains") or [{"withdraw_disabled": c.get("withdraw_disabled"),
                                                         "deposit_disabled": c.get("deposit_disabled")}],
                                    lambda k: not k.get("withdraw_disabled"), lambda k: not k.get("deposit_disabled"),
-                                   None, "addr")
+                                   None, "addr", "name")
             uit[norm(c["currency"])] = w  # fee van Gate is niet openbaar
         return uit
 
@@ -404,7 +445,7 @@ class Bitget(Beurs):
         for c in haal(f"{self.B}/public/coins")["data"]:
             uit[norm(c["coin"])] = _wallet_uit_ketens(c.get("chains"), lambda k: _ja(k.get("withdrawable")),
                                                      lambda k: _ja(k.get("rechargeable")), "withdrawFee",
-                                                     "contractAddress")
+                                                     "contractAddress", "chain")
         return uit
 
 
@@ -436,7 +477,7 @@ class Htx(Beurs):
         for c in haal(f"{self.B}/v2/reference/currencies")["data"]:
             uit[norm(c["currency"])] = _wallet_uit_ketens(c.get("chains"), lambda k: k.get("withdrawStatus") == "allowed",
                                                          lambda k: k.get("depositStatus") == "allowed",
-                                                         "transactFeeWithdraw")
+                                                         "transactFeeWithdraw", None, "displayName")
         return uit
 
 
@@ -493,10 +534,12 @@ class Poloniex(Beurs):
         for rij in haal(f"{self.B}/currencies"):
             for naam, c in rij.items():
                 weg = c.get("delisted") or c.get("walletState") != "ENABLED"
-                uit[norm(naam)] = {"opname": not weg and c.get("walletWithdrawalState") == "ENABLED",
-                                   "storting": not weg and c.get("walletDepositState") == "ENABLED",
-                                   "fee": f(c.get("withdrawalFee")) if c.get("withdrawalFee") not in (None, "") else None,
-                                   "contracten": set()}
+                o = not weg and c.get("walletWithdrawalState") == "ENABLED"
+                s = not weg and c.get("walletDepositState") == "ENABLED"
+                fee = f(c.get("withdrawalFee")) if c.get("withdrawalFee") not in (None, "") else None
+                uit[norm(naam)] = {"opname": o, "storting": s, "fee": fee, "contracten": set(),
+                                   "netwerken": {net(c["blockchain"]): {"opname": o, "storting": s, "fee": fee}}
+                                   if c.get("blockchain") else {}}
         return uit
 
 
@@ -528,7 +571,7 @@ class Xt(Beurs):
         for c in haal(f"{self.B}/wallet/support/currency")["result"]:
             uit[norm(c["currency"])] = _wallet_uit_ketens(c.get("supportChains"), lambda k: bool(k.get("withdrawEnabled")),
                                                          lambda k: bool(k.get("depositEnabled")), "withdrawFeeAmount",
-                                                         "contract")
+                                                         "contract", "chain")
         return uit
 
 
@@ -570,7 +613,8 @@ class Bitfinex(Beurs):
             b, q = s[:3], s[3:]
         else:
             return None
-        return norm(b), norm(q)
+        b, q = b.upper(), q.upper()
+        return norm(ALIAS_BITFINEX.get(b, b)), norm(ALIAS_BITFINEX.get(q, q))
 
     def paren(self):
         uit = {}

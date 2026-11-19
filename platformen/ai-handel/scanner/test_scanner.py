@@ -67,6 +67,58 @@ class TestKandidaten(unittest.TestCase):
         self.assertEqual((kand, verd), ([], 1))
 
 
+class TestNetwerk(unittest.TestCase):
+    def w(self, **netten):
+        return {"X": {"opname": True, "storting": True, "fee": 9.0, "contracten": set(),
+                      "netwerken": {n: {"opname": o, "storting": st, "fee": fee} for n, (o, st, fee) in netten.items()}}}
+
+    def test_open_dicht_onbekend(self):
+        wallets = {"a": self.w(ETH=(True, True, 2.0), BSC=(True, True, 0.5)), "b": self.w(ETH=(True, True, None)),
+                   "c": self.w(ETH=(True, False, None)), "d": self.w(SOL=(True, True, None)), "e": {}}
+        self.assertEqual(scanner.netwerk_stand(wallets, "a", "b", "X"), ("open", 2.0))  # fee van het gedeelde net
+        self.assertEqual(scanner.netwerk_stand(wallets, "a", "c", "X"), ("dicht", None))  # storten dicht op c
+        self.assertEqual(scanner.netwerk_stand(wallets, "a", "d", "X"), ("onbekend", None))
+        self.assertEqual(scanner.netwerk_stand(wallets, "a", "e", "X"), ("onbekend", None))
+
+    def test_namen_koppelen(self):
+        import beurzen
+        self.assertEqual({beurzen.net(x) for x in ("ERC20", "Ethereum", "ETH", "Ethereum(ERC20)")}, {"ETH"})
+        self.assertEqual({beurzen.net(x) for x in ("BEP20", "BNB Smart Chain", "BSC")}, {"BSC"})
+
+    def test_grens_op_het_boek(self):
+        r = scanner.bereken([(1, 1000)], [(1.2, 1000)], 0, 0, 0, 1.0)  # 20% op het boek
+        self.assertFalse(scanner.is_kans(r))
+
+
+class TestRooster(unittest.TestCase):
+    """Open kansen met opnemen dicht mogen de nooit gecontroleerde kandidaten niet verdringen."""
+
+    def test_dichte_kansen_wachten(self):
+        n_munten = 30
+
+        class A:
+            naam = "a"
+            def paren(self): return {(f"M{i}", "EUR"): {"id": f"M{i}", "taker": 0.0, "contract": ""} for i in range(n_munten)}
+            def wallet(self): return {f"M{i}": {"opname": False, "storting": True, "fee": 0.0, "contracten": set()}
+                                      for i in range(n_munten)}
+            def koersen(self): return {(f"M{i}", "EUR"): (0.99, 1.0) for i in range(n_munten)}
+            def boek(self, s): return [(0.99, 1000)], [(1.0, 1000)]
+
+        class B(A):
+            naam = "b"
+            def koersen(self): return {(f"M{i}", "EUR"): (1.05, 1.06) for i in range(n_munten)}
+            def boek(self, s): return [(1.05, 1000)], [(1.06, 1000)]
+
+        with tempfile.TemporaryDirectory() as d:
+            s = scanner.Scanner(d, max_checks=10, beurs_klassen=[A, B], log=lambda x: None)
+            for _ in range(3):
+                s.ronde()
+            # 30 kandidaten (opnemen dicht op a), 10 per ronde: na 3 rondes is elke kandidaat één keer gezien
+            self.assertEqual(len(s.gecheckt), n_munten)
+            self.assertEqual(len(s.open), n_munten)
+            s.pool.shutdown()
+
+
 class TestScannerVolgen(unittest.TestCase):
     """Nepbeurzen: een kans die 3 rondes staat en dan weg is, geeft één regel met de juiste duur."""
 
@@ -108,7 +160,7 @@ class TestRapport(unittest.TestCase):
              "storting_verkoop": True, "contract": "zelfde", "duur_s": 300, "ruimte_eur_med": 400,
              "winst_ruimte_med": 5, "winst100_med": 1, "winst500_med": 4, "winst1000_med": 4,
              "winst2500_med": 4, "begin": "2026-11-19T10:00:00Z", "eind": "2026-11-19T10:05:00Z",
-             "opname_bron": "beurs"}
+             "opname_bron": "beurs", "netwerk": "open"}
         r.update(kw)
         return r
 
@@ -120,6 +172,13 @@ class TestRapport(unittest.TestCase):
         self.assertFalse(rapport.echt(self.regel(ruimte_eur_med=50)))
         self.assertFalse(rapport.echt(self.regel(contract="anders")))
         self.assertFalse(rapport.echt(self.regel(winst_ruimte_med=-1)))
+        self.assertFalse(rapport.echt(self.regel(opname_bron="onbekend")))
+        self.assertFalse(rapport.echt(self.regel(netwerk="dicht")))
+        self.assertTrue(rapport.echt(self.regel(netwerk="onbekend", contract="onbekend")))
+
+    def test_vergund_en_grijs(self):
+        self.assertEqual(rapport.soort(self.regel(koop="kraken", verkoop="bitvavo")), "vergund")
+        self.assertEqual(rapport.soort(self.regel(koop="mexc", verkoop="kraken")), "grijs")
 
     def test_samenvoegen(self):
         a = self.regel(koop="a", verkoop="b", winst500_med=4)
@@ -137,12 +196,22 @@ class TestRapport(unittest.TestCase):
                 for i in range(3):
                     fh.write(json.dumps(self.regel(duur_s=200 * (i + 1))) + "\n")
                 fh.write(json.dumps(self.regel(opname_koop=False)) + "\n")
+                fh.write(json.dumps(self.regel(koop="kraken", verkoop="bitvavo", munt="Z")) + "\n")
             with open(os.path.join(d, "2026-11-19", "run1", "stand.jsonl"), "w") as fh:
-                fh.write(json.dumps({"t": "2026-11-19T10:00:00Z"}) + "\n")
+                fh.write(json.dumps({"t": "2026-11-19T10:00:00Z", "kandidaten": 100, "gecontroleerd": 50,
+                                     "nooit_gecontroleerd": 40}) + "\n")
                 fh.write(json.dumps({"t": "2026-11-19T12:00:00Z"}) + "\n")
             tekst = rapport.maak(d)
             self.assertIn("Echte kansen", tekst)
-            self.assertIn("3", tekst)
+            self.assertIn("ondergrens", tekst)
+            self.assertIn("Alleen MiCA", tekst)
+            self.assertIn("| Alleen MiCA | €2.000,00 | bovengrens", tekst)  # som voor vergund apart
+            self.assertIn("kraken > bitvavo | vergund", tekst)
+            os.makedirs(os.path.join(d, "2026-11-19", "run2-proef"))
+            with open(os.path.join(d, "2026-11-19", "run2-proef", "kansen.jsonl"), "w") as fh:
+                fh.write(json.dumps(self.regel(munt="P")) + "\n")
+            self.assertNotIn("P-USDT", rapport.maak(d))
+            self.assertIn("P-USDT", rapport.maak(d, met_proef=True))
 
 
 if __name__ == "__main__":
