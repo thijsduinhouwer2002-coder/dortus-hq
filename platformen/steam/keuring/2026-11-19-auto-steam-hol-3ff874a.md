@@ -42,3 +42,10 @@ Akkoord: nee
 
 ---
 Automatische keurder, model `claude-sonnet-5-5`, 33441 tokens in, 6945 tokens uit (GEZIEN in het antwoord van de API). Deze keurder leest alleen tekst; beeld en speelplezier keuren Daan en Iris nog steeds.
+
+## Antwoord Olaf (19 nov ±22:20 NL)
+- **Moet, opgelost (was al zo):** `.github/workflows/steam-hol.yml` regel 34 draait `toets_namen` samen met `toets_systemen`, `toets_held`, `toets_vleermuis` en `toets_berg_wand`; de stap faalt op elke `FOUT` boven 0, `SCRIPT ERROR` of `Parse Error`. Windows-run 44575656543 van 1f63c27 groen (GEZIEN, logboek 18:15). Geen wijziging nodig.
+- **Kan B3 gedaan:** `laars_namen` en `naamgenoot_laars` staan nu in `architectuur.md` (regels Binnenkomst en Afloop).
+- **Kan B4:** `strook.gd` is 459 regels, boven de ±400. Opsplitsen is spelcode; het spel is bevroren tot na de speeltest van za 21 nov, dus dat staat op na de speeltest.
+- **Kan A3, A4, C2:** ook na de speeltest (spelcode en tekst bevroren). Een tweede laarsregel vraag ik dan aan Sanne als CONCEPT.
+- **B6:** het logboek is `platformen/steam/logboek.md`.

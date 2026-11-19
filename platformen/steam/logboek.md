@@ -1704,3 +1704,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±21:15 NL)
 - 5 zaden geproefd op de bevroren stand 1f63c27 (Linux Xvfb, 220 s): eerste val 12,8 s, kroon 26 tot 27 s, eerste koop 141 tot 206 s (zaad 99 niet binnen 220 s), langste stilte 22 tot 28 s, geen SCRIPT ERROR. Gelijk aan 17 nov. Uitkomst onder de link in `speeltest-21-nov.md`, logs in `data/vers-19nov/`. Daarmee is het werk voor vr 20 nov al af.
 - Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten bovenaan `taken.md`.
+
+## 19 nov 2026, Olaf (run ±22:15 NL)
+- Moet-punt van de automatische keurder (3ff874a) beantwoord: `steam-hol.yml` draait `toets_namen` al (regel 34, Windows-run 44575656543 groen, GEZIEN). `laars_namen` en `naamgenoot_laars` in `architectuur.md` gezet; `strook.gd` (459 regels) opsplitsen en de andere kan-punten na de speeltest, spel blijft bevroren.
+- Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten bovenaan `taken.md`, dan `strook.gd` splitsen.
