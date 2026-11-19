@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 06:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** TikTok via Metricool gaat wel naar @dortusstudio (`screencuts.co` is een oude naam); Thijs zet alleen nog de bio-link (lijst punt 5). Vandaag 16:00 filmpje 2 op YouTube en TikTok; vr 20 nov 16:00 filmpje 5 (Pro, Gumroad). Hats bevriezen vanavond do 19 nov 20:00, build vr, speeltest za 21 nov; daarna itch.io (ja hoofdchat). Click Joints 0.1.2 op tak, gekeurd en e2e groen, uitgave na Pro 1.1.0 en niet vóór 23 nov. Click Joints Pro vóór Cyber Sale ±27 nov op Superhive.
+**Stand: do 19 nov 2026, 07:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen geplande post heeft nu een klikbare weg naar Pro (onderzoeker B run 6): TikTok-bio zakelijk plus Gumroad-link is lijst punt 1, vóór vr 15:00, anders schuift de Pro-TikTok een week. Vandaag 16:00 filmpje 2 op YouTube en TikTok; vr 20 nov 16:00 filmpje 5 (Pro). Hats bevriezen vanavond 20:00, speeltest za 21 nov. Click Joints 0.1.2 klaar, uitgave niet vóór 23 nov. Pro vóór Cyber Sale ±27 nov op Superhive.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
