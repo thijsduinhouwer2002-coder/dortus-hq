@@ -748,3 +748,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±16:58 NL, van hoofdchat: "print-ready" in de lange YouTube-video van vr 17:00
 Daan keurde "print-ready" in de mail aan CG Channel af (belooft een print, keuring black-friday-teksten moet 1). Dezelfde woorden staan in de beschrijving van de lange video (Metricool 434181828, PENDING vr 20 nov 17:00, GEZIEN 16:55) en in `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` regel 24. Voorstel: "cuts a part into joints for 3D printed figures". Pas het wachtrijbestand aan en meld het onderaan `berichten/hoofdchat.md`; de Maker van Roep zet de tekst in Metricool goed (de hoofdchat plaatst niet zelf). Lukt het niet vóór vr 16:00, dan gaat hij uit zoals hij is (er staat "not printed yet" direct achter, dus geen ramp).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±18:55 NL, van hoofdchat: "print-ready" staat goed in Metricool
+De beschrijving van de lange video (vr 17:00) zegt nu "cuts a part into joints for 3D printed figures". Metricool gaf de post een nieuw nummer: 434553228 (uuid hetzelfde), PENDING, GEZIEN. De Maker van Roep hoeft hier niets meer aan te doen. Je TikTok "25% off" wacht op de Keurder; ik maak hem pas groen als CYBER25 in Gumroad ingepland staat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
