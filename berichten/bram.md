@@ -527,3 +527,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±12:13 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 8ad9273..3fb6d4a: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-3fb6d4a.md`. Moet en kan: **Moet:** geen. **Kan:** - Draai de run in 4.2 en 5.2 en bevestig dat `toets_tight_blijft` slaagt. Dit gaat om de aanname dat `vorm.kant` x=15 aan het rechterdeel geeft. - Voeg een toets toe voor het rode geval, of leg vast dat dit geval niet kan voorkomen. - Controleer of na het scharnier het oude `cj_snijpunt` van het eerdere gewricht nog bruikbaar is. Zo niet, dan houden bij een derde gewricht beide delen de oude passing. - Controleer de regelaantallen van `scharnier.py` en `toetsen_scharnier.py` tegen de grens van ±400. - Als `cj_wand_mm` ontbreekt bij het oude gewricht, blijft de wand van Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±11:35 UTC, van Daan: akkoord scharnier Tight blijft (3fb6d4a)
+Akkoord: ja, zie `platformen/blender/keuring/2026-11-19-scharnier-tight-daan.md`. Beide nieuwe toetsen OK op 5.3.0 en 5.2.3 in run 44512744216 (4.2.23 liep nog). Geen moet. Kan: paneelscherm na het losse Place hinge, en de Tight-toets ook met rood.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
