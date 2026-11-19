@@ -47,6 +47,7 @@ def laad(map_, soort="dag"):
         with open(pad, encoding="utf-8") as f:
             meta = json.load(f)
         d["markten"].update(meta.get("markten") or {})
+        d["instellingen"] = meta.get("instellingen") or d.get("instellingen") or {}
         r = d["runs"].setdefault(str(meta["run"]), [meta["van"], meta["tot"]])
         r[0], r[1] = min(r[0], meta["van"]), max(r[1], meta["tot"])
     for soort in ("beloning", "minuut", "vullingen"):
@@ -143,6 +144,83 @@ def voorraad_geld(d, vul, variant):
     return piek, piek_ts, per_dag
 
 
+UITBETAAL_DREMPEL = 1.0   # docs Liquidity Rewards: "The minimum reward payout is $1" (per dag uitbetaald)
+
+
+def tempo_verlies(vul, variant):
+    """Verlies per gevulde dollar: 1 uur later, of 5 minuten later als er nog niets met een uur is. (tempo, bron)"""
+    for veld, bron in (("uur", "1 uur later"), ("vijf", "5 minuten later")):
+        fs = [f for f in vul if f["variant"] == variant and f[veld] is not None]
+        g = sum(f["geld"] for f in fs)
+        if g > 0:
+            return sum(f[veld] for f in fs) / g, bron
+    return None, None
+
+
+def klein_geld(d, vul, variant, inlegs, koers):
+    """Wat een kleine inleg had opgeleverd. Een kleine inleg staat maar in een paar markten tegelijk.
+    Per markt is het geld nodig: de denkbeeldige orders (minimale grootte van die markt, afgerond op zijn tick, zoals
+    gemeten) plus de ruimte voor voorraad tot de rem (2 keer de ordergrootte aan de duurste kant, voorzichtig, want
+    met weinig geld kun je anders geen orders meer zetten). Twee keuzes van markten:
+      gemiddeld  = zoveel gemiddelde markten als in de inleg passen (gemiddelde opbrengst per markt-minuut);
+      beste      = achteraf de markten met de meeste opbrengst per dollar (te mooi: gekozen op dezelfde data).
+    Geeft een lijst per inleg met (inleg, markten, beloning per dag, netto per dag) voor beide keuzes."""
+    rem = float((d.get("instellingen") or {}).get("max_voorraad") or 2)
+    vaste = float((d.get("instellingen") or {}).get("vaste_grootte") or 20)
+    tempo, _bron = tempo_verlies(vul, variant)
+    per = defaultdict(lambda: defaultdict(float))
+    for r in d["beloning"]:
+        if r["variant"] == variant:
+            p = per[r["markt"]]
+            p["min"] += int(r["minuten"])
+            p["laag"] += float(r["beloning_laag"])
+            p["hoog"] += float(r["beloning_hoog"])
+            p["kap"] += float(r["kapitaal_som"])
+    for f in vul:
+        if f["variant"] == variant:
+            if f["uur"] is not None:
+                per[f["markt"]]["res"] += f["uur"]
+            elif tempo is not None:
+                per[f["markt"]]["res"] += tempo * f["geld"]
+    laatste_midden = {}
+    for (_run, markt), reeks in d["midden"].items():
+        if reeks:
+            laatste_midden[markt] = reeks[-1][1]
+    markten = []
+    for s, p in per.items():
+        if p["min"] < 60 or p["kap"] <= 0:  # minder dan een uur gemeten is te toevallig
+            continue
+        meta = d["markten"].get(s) or {}
+        grootte = max(vaste, float(meta.get("min") or 0))
+        mid = laatste_midden.get(s, 0.5)
+        nodig = p["kap"] / p["min"] + rem * grootte * max(mid, 1 - mid)
+        markten.append({"nodig": nodig, "laag": p["laag"] / p["min"], "hoog": p["hoog"] / p["min"],
+                        "res": p["res"] / p["min"]})
+    uit = []
+    for inleg in inlegs:
+        geldig = [m for m in markten if m["nodig"] <= inleg * koers]
+        if not geldig:
+            uit.append((inleg, None, None))
+            continue
+        gem_nodig = sum(m["nodig"] for m in geldig) / len(geldig)
+        n = int(inleg * koers // gem_nodig)
+        tot_min = len(geldig)
+        gem = {k: sum(m[k] for m in geldig) / tot_min for k in ("laag", "hoog", "res")}
+        a = (n, n * gem["laag"] * 1440, n * gem["hoog"] * 1440, n * (gem["laag"] + gem["res"]) * 1440,
+             n * (gem["hoog"] + gem["res"]) * 1440)
+        over, gekozen = inleg * koers, []
+        # kiezen op beloning per dollar (dat zie je vooraf ongeveer aan pot en boek), niet op het toevallige
+        # resultaat van de vullingen
+        for m in sorted(geldig, key=lambda m: -m["laag"] / m["nodig"]):
+            if m["nodig"] <= over:
+                gekozen.append(m)
+                over -= m["nodig"]
+        b = (len(gekozen), sum(m["laag"] for m in gekozen) * 1440, sum(m["hoog"] for m in gekozen) * 1440,
+             sum(m["laag"] + m["res"] for m in gekozen) * 1440, sum(m["hoog"] + m["res"] for m in gekozen) * 1440)
+        uit.append((inleg, a, b))
+    return uit, len(markten), tempo
+
+
 def dag_van(ts):
     import datetime as dt
     return dt.datetime.fromtimestamp(int(ts), dt.timezone.utc).strftime("%Y-%m-%d")
@@ -186,6 +264,19 @@ def maak(d, uitslag, koers, dagen, inlegs):
       "Beloning = GOK (formule van Polymarket; voor de concurrentie een ondergrens en een hoge schatting). "
       "Vullingen en verlies = GEZIEN (echte trades en gemeten midden), behalve waar GOK staat.")
     w("")
+    klein_varianten = sorted({r["variant"] for r in d["minuut"]})
+    klein_v = "1c" if "1c" in klein_varianten else (klein_varianten[0] if klein_varianten else None)
+    klein = klein_geld(d, vul, klein_v, [100, 150, 200], koers) if klein_v else ([], 0, None)
+    for inleg, a, _b in klein[0]:
+        if inleg == 150:
+            if a and a[0] > 0:
+                w(f"**Met €150: netto {geld(a[3])} tot {geld(a[4])} per dag (GOK)**, in {a[0]} gemiddelde markten "
+                  f"tegelijk (variant {klein_v}, ondergrens tot hoge schatting van de beloning, min het verlies op "
+                  f"vullingen)" + (". Let op: de beloning valt dan onder de uitbetaaldrempel van $1 per dag, dus in "
+                                    "het echt krijg je die niet." if a[1] < UITBETAAL_DREMPEL else "."))
+            else:
+                w("**Met €150: geen enkele gemeten markt past in die inleg (GOK).**")
+            w("")
     runs = d["runs"]
     if runs:
         totaal_min = sum(len(x["min"]) for (dg, v), x in dagen_map.items() if v == varianten[0]) if varianten else 0
@@ -309,6 +400,36 @@ def maak(d, uitslag, koers, dagen, inlegs):
                      f"{len(u2)}" if u2 else "") + " (GEZIEN).")
         w("")
 
+    # --- kleine inleg
+    if klein_v and klein[0]:
+        w(f"## Met weinig geld: €100, €150 en €200 (variant {klein_v}, GOK)")
+        w("")
+        w("Een kleine inleg staat maar in een paar markten tegelijk. Per markt is nodig: de orders zelf (minimale "
+          "grootte van die markt, vaak 20 aandelen, soms 100, afgerond op de tick van de markt, zoals gemeten) plus "
+          "ruimte voor voorraad tot de rem (2 keer de ordergrootte aan de duurste kant). Markten die meer vragen dan de "
+          f"hele inleg vallen af. Gerekend over {klein[1]} markten met minstens 60 gemeten minuten.")
+        w("")
+        w(f"| Inleg | Gemiddelde markten: aantal | Beloning per dag | Netto per dag | Achteraf beste markten: aantal "
+          f"| Beloning per dag | Netto per dag |")
+        w("|---|---|---|---|---|---|---|")
+        for inleg, a, b in klein[0]:
+            if not a:
+                w(f"| €{inleg} | geen markt past | | | | | |")
+                continue
+            def drempel(x):
+                return " (onder $1: niet uitbetaald)" if x < UITBETAAL_DREMPEL else ""
+            w(f"| €{inleg} | {a[0]} | {geld(a[1])} tot {geld(a[2])}{drempel(a[1])} | {geld(a[3])} tot {geld(a[4])} | "
+              f"{b[0]} | {geld(b[1])} tot {geld(b[2])}{drempel(b[1])} | {geld(b[3])} tot {geld(b[4])} |")
+        w("")
+        w("Lees zo: per dag = gemeten opbrengst per markt-minuut × 1440 × aantal markten (GOK). \"Achteraf beste\" "
+          "kiest de markten die in deze data het meest opleverden per dollar; dat is te mooi, want vooraf weet je niet "
+          "welke dat zijn. Netto = beloning min het verlies op vullingen 1 uur later; vullingen zonder prijs 1 uur "
+          "later zijn geschat met het verlies per dollar van de rest"
+          + (f" ({100 * klein[2]:+.2f}%)" if klein[2] is not None else "") + ". Polymarket betaalt pas uit vanaf $1 "
+          "beloning per dag (docs Liquidity Rewards); daaronder krijg je niets, maar het verlies op vullingen blijft. "
+          "Geen belasting of verbod in Nederland meegerekend.")
+        w("")
+
     # --- per markt (variant 1c als die er is, anders de eerste)
     if varianten:
         v = "1c" if "1c" in varianten else varianten[0]
@@ -386,7 +507,7 @@ def main():
     ap.add_argument("--schrijf", help="schrijf het rapport ook naar dit bestand")
     ap.add_argument("--koers", type=float, default=1.0, help="dollar per euro (standaard 1,0: GOK, zelf invullen)")
     ap.add_argument("--dagen", type=int, default=90)
-    ap.add_argument("--inleg", default="2000,5000")
+    ap.add_argument("--inleg", default="2000,5000", help="grote inleg voor de lineaire opschaling; €100, €150 en €200 staan er altijd in")
     ap.add_argument("--geen-uitslag", action="store_true")
     ap.add_argument("--soort", choices=["dag", "proef"], default="dag", help="dag = echte meting, proef = test")
     ap.add_argument("--zet-op-tak", action="store_true",

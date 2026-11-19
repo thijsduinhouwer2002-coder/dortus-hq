@@ -115,6 +115,10 @@ class Rapport(unittest.TestCase):
             self.assertIn("€2,000", tekst)
             # voorraad: 20 x 0,49 vast, plus open orders van gemiddeld $20 = $29,80 nodig
             self.assertIn("**$29.80**", tekst)
+            # weinig geld: per markt $20 orders plus rem 2 x 20 x 0,60 = $44 nodig, dus €100 = 2 markten,
+            # beloning ondergrens 2 x 0,005 x 1440 = $14,40 per dag
+            self.assertIn("| €100 | 2 | $14.40", tekst)
+            self.assertIn("**Met €150: netto", tekst)
 
     def test_voorraadgeld_streept_ja_en_nee_weg_en_komt_vrij(self):
         d = {"markten": {"abc": {"stop": 1795000000}, "def": {"stop": 1795500000}}}
