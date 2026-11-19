@@ -1,1 +1,13 @@
-{"workflow": "actions-log.yml", "invoer": {"run": "44562420725"}, "van": "keurder driehoek", "waarom": "nagaan waarom de afgebroken run 44562420725 niets op ai-handel-data zette"}
+{
+  "workflow": "actions-log.yml",
+  "invoer": {
+    "run": "44562420725"
+  },
+  "van": "keurder driehoek",
+  "waarom": "nagaan waarom de afgebroken run 44562420725 niets op ai-handel-data zette",
+  "uitslag": {
+    "run_id": 44565802167,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44565802167",
+    "gestart": "2026-11-19T16:24:47Z"
+  }
+}
