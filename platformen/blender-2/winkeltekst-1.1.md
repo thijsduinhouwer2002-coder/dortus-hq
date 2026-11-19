@@ -16,6 +16,20 @@ Pick your rigged figure, press one button, and Click Joints Pro cuts it into pri
 - **No rig? Six presets:** Shoulder, Hip, Neck, Elbow, Knee and Ankle, each with its own icon. Place the 3D cursor and click the body part.
 - **Everything from Pro 1.0:** hinge with end stop and pose slider, red where parts hit past the stop, green fit band, spacing checks, ball joints with a fit colour, split into parts, export to STL or 3MF.
 
+## Nieuwe blokken (Bram 19 nov, opdracht hoofdchat punt 2; plan `platformen/blender/click-joints-plan-2026-11-19.md` regel 121 tot 125)
+Onder "Wat je krijgt", in deze volgorde. Geen "holds a pose", geen "clicks", geen namen van andere add-ons.
+
+**From rig to a figure that moves.**
+> Rigged your character already? Then the hard part is done. Figure from rig reads the bones you made, puts a hinge at every elbow and knee and a ball joint at shoulders, hips and neck, and gives each hinge the same limit your rig has. One button, then you check the list.
+
+**Split with anything. Make it move.**
+> Already split your model into printable parts with another tool? Keep those parts. Open one, put the 3D cursor on the knee or elbow, and Click Joints Pro cuts a hinge or a ball joint right there, with the clearance you set and the range in degrees. Splitting makes it fit on the bed. Click Joints makes it move.
+
+**Why not a ball joint by hand?**
+> You can. A sphere, a boolean and some offset get you a joint. What you only find out after the print is that the knee bends backwards, the wall next to the socket is 0.4 mm thin, or the ball is stuck. Click Joints shows all three before you print: an end stop on every hinge, the wall and clearance as a number, and the range in degrees.
+
+Toetsen: "same limit your rig has" = `rig.py` (Limit Rotation, 30 tot 150, anders gespiegeld of preset; de tekst zegt "the same limit", dus geldt voor botten met grens; de lijst toont de rest). "wall ... as a number" = paneel Fit (wand en speling in mm, `architectuur.md`). "Open one, put the 3D cursor" = elk los onderdeel is een eigen mesh; Place joint snijdt alleen het lid bij de cursor (0.1.1, `toetsen_een_lid.py`).
+
 ## Goed om te weten
 - Works best on figures with separate arms and legs, at about 200 mm tall or more. On a realistic figure at 150 mm the arms are too thin for a hinge; the list says so.
 - On AI-made figures where the legs touch (trousers, tunic), hips are skipped with a reason; knees still work. Hips on such figures are planned for 1.2.
@@ -40,8 +54,8 @@ Pick your rigged figure, press one button, and Click Joints Pro cuts it into pri
 ## Onderschrift winkelplaatje (Daan, 17 nov)
 `One button. Every joint. How far it bends.` Alleen als onderschrift op het plaatje, niet in de add-on (Daan 19 nov kan 3: geen "click", er is nog geen print die klikt).
 
-## Prijs (voorstel, besluit hoofdchat)
-$15 na de lancering van 1.1 (hoofdchat 16 nov: $15 tot $19). Onderste stap omdat niemand het nog geprint heeft (lanceerlijst punt 1); naar $19 na de eerste echte print of de eerste reviews.
+## Prijs (besluit, ja van Thijs 19 nov)
+$19, Supporter $24 (zelfde download), Studio $59. De hoofdchat zet het op Gumroad bij het uitbrengen van 1.1.0. Superhive blijft tot na 2 dec zoals het is (Cyber Sale 35%: $19 wordt $12,35).
 
 ## Toetsen achter elke zin
 | Zin | Toets (e2e, CI op de tak) |

@@ -89,7 +89,7 @@ Regel "Elk product": de belofte moet overal precies hetzelfde zijn. Nu (GEZIEN 1
 **Let op: het hele Superhive-deel is pas na bouw.** Geen van de betaalde functies is gebouwd (de bouw gaat nu nog over vorm v0.3). Elke functie komt pas in de tekst als hij op main staat met een groene test.
 - **Wat de koper erbij krijgt (concept, alleen wat gebouwd is komt erin):** hinge with an end stop for knees and elbows (bends from straight to where a knee should stop, for example 0° to 115°); printer profiles with a test card (print five clearances, pick the one that fits best, Click Joints remembers it per printer); all limbs in one go; magnet holes and friction ribs. Plus alles van de gratis versie, ook de beweegproef (besluit Bram, run 3 hierboven).
 - **Eerste alinea (concept, run 3):**
-  > Cutting a figure into parts is easy. Getting a whole figure that moves, holds a pose and doesn't snap on the first try is not. Click Joints colours every cut by fit and tells you how far each joint bends before you print. This version adds what a full figure needs: hinges that stop where a knee or elbow should stop, all limbs in one go, and the clearance that works on your printer, remembered per printer.
+  > Cutting a figure into parts is easy. Getting a whole figure that moves, stops where a knee should stop and doesn't snap on the first try is not. Click Joints colours every cut by fit and tells you how far each joint bends before you print. This version adds what a full figure needs: hinges that stop where a knee or elbow should stop, all limbs in one go, and the clearance that works on your printer, remembered per printer.
 
   Waarom zo: de koper op Superhive ziet de gratis functies ook (kleur, bereik) als reden om Click Joints te kiezen boven Cleave of Cut Flex, en de betaalde functies als reden om te betalen in plaats van de gratis versie te houden. Het verschil is "één gewricht" tegen "een heel figuur". De zinnen over buigen pas na bouw.
 
@@ -139,7 +139,7 @@ Waarom nu: de gratis versie staat in de wachtrij van extensions.blender.org (dag
 ### Beschrijving (Engels, tab About)
 > **See how far it bends, before you print.**
 >
-> Cutting a figure into parts is easy. Getting a figure that moves, holds a pose and doesn't snap on the first print is not. Click Joints Pro places joints that move, colours every cut by how well it will fit, and tells you how far each ball joint bends, before you send anything to the printer.
+> Cutting a figure into parts is easy. Getting a figure that moves, stops where a knee should stop and doesn't snap on the first print is not. Click Joints Pro places joints that move, colours every cut by how well it will fit, and tells you how far each ball joint bends, before you send anything to the printer.
 >
 > **What Pro adds**
 > [- **Hinges with an end stop** for knees and elbows. Pick 90°, 115° or 135°: the hinge bends from straight to that angle and stops there, like a real knee. The panel shows the range it measured.]

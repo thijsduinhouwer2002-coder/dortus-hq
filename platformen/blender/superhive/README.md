@@ -24,7 +24,7 @@ Opdracht hoofdchat 19 nov 09:20 NL. Alles hier is klaar om te plakken of te uplo
 
 ## Producttekst (Engels, na goedkeuring plakken in plaats van de tekst van 15 nov)
 
-**Excerpt:** Turn a rigged character into a poseable 3D print: click hinges and ball joints with the bend range shown in degrees before you print.
+**Excerpt:** Turn a rigged character into a poseable 3D print: hinges with an end stop and ball joints with the bend range shown in degrees before you print.
 
 **Title:** Click Joints Pro: poseable 3D print figures from your rig
 
@@ -32,14 +32,18 @@ Opdracht hoofdchat 19 nov 09:20 NL. Alles hier is klaar om te plakken of te uplo
 
 **Make your figure poseable before you print it.**
 
-Click Joints Pro cuts a character into printable parts with real joints: click hinges for knees and elbows that stop at their limit, and ball joints for shoulders, hips and neck. You see the bend range of every joint in degrees in the viewport, so you know how far the printed figure will move before you spend hours printing.
+Click Joints Pro cuts a character into printable parts with real joints: hinges for knees and elbows that stop at their limit, and ball joints for shoulders, hips and neck. You see the bend range of every joint in degrees in the viewport, so you know how far the printed figure will move before you spend hours printing.
 
 What you get:
 - **Figure from rig.** Select a rigged mesh and press one button. Click Joints places joints on shoulders, elbows, hips, knees and neck. Where your rig has a rotation limit, the hinge uses it ("from rig"); otherwise it takes 90°, 115° or 135°.
-- **Click hinge with an end stop** for knees and elbows. Measured in Blender: our test knee bends 0° to 115° and stops there, shown as a degree arc around the axis.
+- **Hinge with an end stop** for knees and elbows. Measured in Blender: our test knee bends 0° to 115° and stops there, shown as a degree arc around the axis.
 - **Red past the limit.** Bend further than the stop and the spots that collide turn red, with the number of degrees past the limit.
 - **Green fit band.** A joint is only placed when the fit is good; the seam turns green.
 - **Everything from the free Click Joints:** ball joints with a fit colour and ±degrees, split into watertight parts, export to STL or 3MF in millimetres.
+
+**Split with anything. Make it move.** Already split your model into printable parts with another tool? Keep those parts. Open one, put the 3D cursor on the knee or elbow, and Click Joints Pro cuts a hinge or a ball joint right there, with the clearance you set and the range in degrees.
+
+**Why not a ball joint by hand?** You can. What you only find out after the print is that the knee bends backwards, the wall next to the socket is too thin, or the ball is stuck. Click Joints shows all three before you print: an end stop on every hinge, the wall and clearance as a number, and the range in degrees.
 
 Good to know:
 - Clearance 0.2 mm by default. Print a test joint first; every printer is different.
@@ -48,7 +52,7 @@ Good to know:
 - Pure Python, no other add-ons needed.
 - Support: the Superhive inbox, or https://github.com/thijsduinhouwer2002-coder/click-joints/issues
 
-Nagekeken tegen de code en de beelden: knoppen Shoulder, Elbow, Hip, Knee, Ankle, Neck en "Place hinge, bends up to: 90° 115° 135°" staan in het paneel (beeld 1 en 6); 0 tot 115 en "+3° past limit" in beeld 2 en 3; 0,2 mm in het paneel (Clearance 0.20). Geen woord over AI, geen "I".
+Nagekeken tegen de code en de beelden: knoppen Shoulder, Elbow, Hip, Knee, Ankle, Neck en "Place hinge, bends up to: 90° 115° 135°" staan in het paneel (beeld 1 en 6); 0 tot 115 en "+3° past limit" in beeld 2 en 3; 0,2 mm in het paneel (Clearance 0.20). Geen woord over AI, geen "I". 19 nov (Bram): "click hinge" werd "hinge" (geen klik beloven zonder print, opdracht hoofdchat) en de blokken "Split with anything" en "Why not by hand" erbij, zelfde als `platformen/blender-2/winkeltekst-1.1.md`.
 
 ## Beelden (map `beelden/`, allemaal 2:1, echte schermen uit Blender 5.3.0)
 Superhive eist minstens 5 beelden in 2:1, aanbevolen 1200 x 600 (DERDEN, artikel 41), en geen Blender-logo als ontwerpelement (artikel 253). De menubalk met het logo is er overal af gesneden.
