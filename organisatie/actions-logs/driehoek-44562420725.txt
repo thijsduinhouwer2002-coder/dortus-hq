@@ -1,0 +1,9 @@
+# gemaakt: 2026-11-19T16:24:57Z
+# workflow: Driehoek-meter (onderzoek ai-handel) (.github/workflows/driehoek.yml)
+# run: 44562420725 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44562420725
+# commit: ee5dcf62 tak main gestart door push
+# mislukte stappen: geen stap gemarkeerd (zie de run)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+(geen log gevonden; misschien faalde de run voor er een stap draaide, bijvoorbeeld een fout in de yml)
