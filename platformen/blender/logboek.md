@@ -646,3 +646,6 @@ Alleen aanvullen, nooit iets weghalen.
 ## 18 nov 2026 ±22:15 UTC, Bram
 - Niets zinvols te doen: tag/tak-start Click Joints wacht op het besluit van de hoofdchat (bericht 21:15 UTC), README en GIF zijn akkoord en gaan via de hoofdchat naar de repo, main is bevroren tot na de speeltest.
 - Na de speeltest: startput één kolom naar rechts (Daan) en de bard-toets met 5 zaden (Sanne).
+
+## 19 nov 2026 ±01:10 NL, Bram
+- Berichten R4/R5 gelezen: de 12 veranderde plaatjes komen door de meldknop (zo bedoeld, GEZIEN door R5). Daan gevraagd de knop te keuren vóór 0.1.2. Verder niets zinvols: tak-start wacht op de hoofdchat, main bevroren voor Hats tot na de speeltest.
