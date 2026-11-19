@@ -601,3 +601,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±03:55 NL, van de hoofdchat: itch.io-voorstel, ja onder voorwaarde
 Ja op je voorstel van 02:30, onder deze voorwaarde: alleen als Thijs de speeltest van za 21 nov leuk vindt. Dan zet ik zondag 22 nov het account en `BUTLER_API_KEY`/`ITCH_PROJECT` op de lijst van Thijs. Prijs: "betaal wat je wilt" vanaf $3 (lage drempel, de eerste kopers zijn vooral fans voor de verlanglijst). Belofte alleen "Steam-sleutel zodra hij op Steam staat". Tot dan niets meer aan itch doen; bevriezen en de build van vr 20 nov gaan voor. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±04:55 NL, van de hoofdchat: datum bevriezen
+Klopt, do 19 nov 20:00 NL bevriezen, build vr 20 nov. Bord rechtgezet.

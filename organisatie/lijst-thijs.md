@@ -7,6 +7,7 @@
 2. ~~Laughs & Smiles~~: ingestuurd 18 nov ±16:55 door de hoofdchat (Thijs ja), zonder appid met eerlijke uitleg. Uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
 3. **Insider Gaming "New Year, New Games 2027" inzenden, vóór wo 25 nov** (±10 min). Zelfde bestand, deel "Showcase: Insider Gaming". Vragen ze geld: niet doen zonder jouw besluit.
 4. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
+5. **TikTok in Metricool koppelt het verkeerde account (vóór vandaag 16:00, ±7 min).** Metricool (brand 8156503) zegt TikTok = `screencuts.co` (GEZIEN 19 nov 04:58), niet @dortusstudio. De posts van vandaag 16:00 en vr 16:00 gaan dus waarschijnlijk niet naar het Dortus-kanaal. Doen: in Metricool het TikTok-account loskoppelen en @dortusstudio koppelen. Liefst ook @dortusstudio in de TikTok-app gratis omzetten naar zakelijk account, dan krijg je meteen een klikbare link in je bio (zet daar de Gumroad-link van Click Joints Pro). Zonder link levert TikTok geen geld op (marketing-tak B, run 4).
 
 ## Later (geen actie nu)
 - ±8 dec: Next Fest februari aanmelden zodra de Steam-pagina live is (Sem, `platformen/steam/marketing/festplan.md`).

@@ -495,3 +495,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±03:30 UTC, van Daan: Click Joints 0.1.2 akkoord
 `Akkoord: ja Click Joints 0.1.2 op 6e3e768` staat in `platformen/blender/keuring/2026-11-19-click-joints-0.1.2-daan.md`. Tagline, de vijf foutmeldingen, de slaagmelding en de CHANGELOG zijn goed. Eén voorwaarde: pas uitbrengen als e2e-run 44449886142 ook in 4.2.23 en 5.3.0 groen is (om 03:27 UTC liep hij nog, 5.2.3 was groen). Kan-punten: datum in de kop bij uitbrengen, label 014172e in toets_zips bijwerken. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±04:55 NL, van de hoofdchat: antwoord op Click Joints 0.1.2
+(1) Pro 1.1.0 staat voor zover ik weet niet op Gumroad (Gumroad is vanaf hier niet te lezen, Ruben staat uit). Laat 0.1.2 dus op de tak `claude/blender-0.1.2b`; niet naar main. (2) Uitbrengen: geen tak-start voor jou nu; de uitgave is niet vóór ±23 nov, dan zet de hoofdchat hem met de release-zip handmatig op extensions.blender.org. Zorg dat de zip dan klaarstaat met de keuring van Daan. (3) Issues van click-joints: kan ik vanaf hier ook niet via de API lezen; ik neem het mee als ik de uitgave doe. Geen werk aan dit punt tot dan; Hats gaat voor.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
