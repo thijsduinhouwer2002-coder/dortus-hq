@@ -1,8 +1,8 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 17:00",
-    "door": "hoofdchat-ronde"
+    "datum": "2026-11-19 17:50",
+    "door": "hoofdchat"
   },
   "projecten": [
     {
@@ -563,7 +563,7 @@
       "status": {
         "woord": "meten",
         "kleur": "op-koers",
-        "zin": "Gekeurd ja; meet nu, data op de tak ai-handel-data."
+        "zin": "Derde herkeuring ja (Kraken 0,80%). Met €150 ±€0 per dag, met €2.000 tussen ±€0 en ±€5 (GOK, ±7 uur gemeten)."
       },
       "eigenaar": "hoofdchat",
       "agents": [],
@@ -574,21 +574,21 @@
         "bron": "platformen/ai-handel/scanner/KEURING.md"
       },
       "prognose": {
-        "tekst": "geen bedragen",
+        "tekst": "€150: ±€0 per dag",
         "label": "GOK",
-        "reden": "Meetproject van Thijs zelf, los van Dortus.",
-        "bron": "platformen/ai-handel/scanner/README.md"
+        "reden": "Simulatie op ±7 uur meetdata, Bitvavo-Kraken; minimumbedragen en terugschuifkosten eten de winst op.",
+        "bron": "platformen/ai-handel/scanner/KEURING.md"
       },
-      "volgende_stap": "Rapport aan Thijs na 1 dag (vr 20 nov) en na een week (wo 26 nov).",
+      "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
       "deadline": {
-        "datum": "2026-11-20",
-        "wat": "Rapport na 1 dag"
+        "datum": "2026-11-26",
+        "wat": "Weekrapport"
       },
       "thijs": [],
       "risico": "Geen geld in het spel; alleen leesverzoeken.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-19 17:50",
+        "door": "hoofdchat"
       },
       "links": [
         {
@@ -630,10 +630,10 @@
         "bron": "platformen/ai-handel/schaduwbot/KEURING.md"
       },
       "prognose": {
-        "tekst": "geen bedragen",
+        "tekst": "€150: -$0,83 tot +$4,23 per dag",
         "label": "GOK",
-        "reden": "Meetproject van Thijs zelf, los van Dortus.",
-        "bron": "platformen/ai-handel/schaduwbot/README.md"
+        "reden": "Dag 1, opschaling met minimale ordergrootte; verlies -2,55% per gevulde dollar.",
+        "bron": "platformen/ai-handel/schaduwbot/KEURING.md"
       },
       "volgende_stap": "Eerste uitslagen za 21 nov; na 2 weken (do 3 dec) de beslisregel uit de README.",
       "deadline": {
@@ -643,8 +643,8 @@
       "thijs": [],
       "risico": "Geen geld in het spel; alleen leesverzoeken.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-19 17:50",
+        "door": "hoofdchat"
       },
       "links": [
         {
@@ -662,6 +662,118 @@
       ],
       "keuringen": [
         "platformen/ai-handel/schaduwbot/KEURING.md"
+      ]
+    },
+    {
+      "id": "driehoek",
+      "naam": "Driehoek-meter",
+      "kort": "Driehoek",
+      "wat": "Meet of een rondje van drie wissels op één beurs (bijv. EUR>BTC>ETH>EUR) na kosten winst geeft, op 8 beurzen. Alleen lezen, geen geld.",
+      "soort": "meetproject",
+      "voor": "Thijs-zelf",
+      "platform": "GitHub Actions",
+      "status": {
+        "woord": "meten",
+        "kleur": "op-koers",
+        "zin": "Tweede herkeuring ja; meet sinds 19 nov, data op ai-handel-data/driehoek."
+      },
+      "eigenaar": "hoofdchat",
+      "agents": [],
+      "kans": {
+        "tekst": "niet van toepassing",
+        "label": "GOK",
+        "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+        "bron": "platformen/ai-handel/driehoek/KEURING.md"
+      },
+      "prognose": {
+        "tekst": "€150: €0 per dag",
+        "label": "GOK",
+        "reden": "Na ±1 uur meten nog geen enkel rondje met €100 diepte dat 3 seconden bleef staan.",
+        "bron": "platformen/ai-handel/driehoek/KEURING.md"
+      },
+      "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
+      "deadline": {
+        "datum": "2026-11-26",
+        "wat": "Weekrapport"
+      },
+      "thijs": [],
+      "risico": "Geen geld in het spel; alleen leesverzoeken.",
+      "laatste_update": {
+        "datum": "2026-11-19 17:50",
+        "door": "hoofdchat"
+      },
+      "links": [
+        {
+          "naam": "Uitleg",
+          "url": "platformen/ai-handel/driehoek/README.md"
+        },
+        {
+          "naam": "Keuring",
+          "url": "platformen/ai-handel/driehoek/KEURING.md"
+        }
+      ],
+      "cijfers": [],
+      "mappen": [
+        "platformen/ai-handel/driehoek"
+      ],
+      "keuringen": [
+        "platformen/ai-handel/driehoek/KEURING.md"
+      ]
+    },
+    {
+      "id": "radar",
+      "naam": "Kansenradar",
+      "kort": "Radar",
+      "wat": "Kijkt naar nieuwe munten, funding-pieken op perps en stablecoins die van hun gewone prijs afwijken. Alleen lezen, geen geld.",
+      "soort": "meetproject",
+      "voor": "Thijs-zelf",
+      "platform": "GitHub Actions",
+      "status": {
+        "woord": "meten",
+        "kleur": "op-koers",
+        "zin": "Tweede herkeuring ja; meet sinds 19 nov, data op ai-handel-data/radar. Elke hoek rekent met een eigen pot."
+      },
+      "eigenaar": "hoofdchat",
+      "agents": [],
+      "kans": {
+        "tekst": "niet van toepassing",
+        "label": "GOK",
+        "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+        "bron": "platformen/ai-handel/radar/KEURING.md"
+      },
+      "prognose": {
+        "tekst": "€150: €0 per dag tot nu toe",
+        "label": "GOK",
+        "reden": "Eerste uren: geen moment dat je met één pot van €150 had kunnen pakken; funding-uitkomsten komen pas na verrekeningen.",
+        "bron": "platformen/ai-handel/radar/KEURING.md"
+      },
+      "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
+      "deadline": {
+        "datum": "2026-11-26",
+        "wat": "Weekrapport"
+      },
+      "thijs": [],
+      "risico": "Geen geld in het spel; alleen leesverzoeken.",
+      "laatste_update": {
+        "datum": "2026-11-19 17:50",
+        "door": "hoofdchat"
+      },
+      "links": [
+        {
+          "naam": "Uitleg",
+          "url": "platformen/ai-handel/radar/README.md"
+        },
+        {
+          "naam": "Keuring",
+          "url": "platformen/ai-handel/radar/KEURING.md"
+        }
+      ],
+      "cijfers": [],
+      "mappen": [
+        "platformen/ai-handel/radar"
+      ],
+      "keuringen": [
+        "platformen/ai-handel/radar/KEURING.md"
       ]
     }
   ]

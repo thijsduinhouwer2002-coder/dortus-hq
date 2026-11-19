@@ -62,7 +62,7 @@ Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oW
 
 Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 16:11, Avondcheck en Superhive om 17:12).
 
-- **Meetprojecten van Thijs zelf (los van Dortus), sinds 19 nov, gekeurd ja:** koersverschil-scanner (`scanner.yml`) en schaduwbot Polymarket (`schaduwbot.yml`), alleen lezen, geen geld. Data op tak `ai-handel-data`; de rapporten `scanner/rapport.md` en `dag/rapport.md` staan op die tak, niet op main.
+- **Meetprojecten van Thijs zelf (los van Dortus), alle vier gekeurd ja (19 nov 17:50):** schaduwbot (`schaduwbot.yml`), koersverschil-scanner (`scanner.yml`), driehoek-meter (`driehoek.yml`) en kansenradar (`radar.yml`). Alleen lezen, geen geld, gratis op GitHub Actions. Data op tak `ai-handel-data`. Eerste beeld met €150: rond €0 per dag bij alle vier (GOK). Weekrapport met de €150-lijn wo 26 nov; bots zonder uitkomst gaan uit. Schaduwbot beslissing do 3 dec. Rapporten staan op die tak, niet op main.
 
 ## 4. Wat de hoofdchat Thijs beloofde (open)
 - Rapporten meetprojecten aan Thijs: scanner vr 20 nov (1 dag) en wo 26 nov (week); schaduwbot za 21 nov (eerste uitslagen) en do 3 dec (2 weken, beslisregel in README).
