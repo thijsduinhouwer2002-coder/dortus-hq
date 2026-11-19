@@ -105,3 +105,86 @@ Een maandinleg van een paar honderd euro haalt dat doel niet, met geen enkele aa
 3. **Aanbieder kiezen is de grootste knop:** periodiek kopen kost van 0,2% (OKX) en 0,25% (Bitvavo) tot 1% (Kraken) en bijna 2% plus spread (Coinbase) (DERDEN, [CryptoTicker](https://cryptoticker.io/nl/vergelijking/bitcoin-spaarplan/)). ETF-spaarplan bij Trade Republic gratis, DEGIRO 1 euro via Tradegate (DERDEN).
 4. **Een eigen bot voegt voor gewone DCA bijna niets toe** (hooguit 0,1% maker-voordeel, GOK op GEZIEN-tarief) en brengt een API-sleutel als risico mee. Als leerproject zijn [raphaellueckl/kraken-dca](https://github.com/raphaellueckl/kraken-dca) (actief, één bestand, sleutel zonder opname) en [jorijn/bitcoin-dca](https://github.com/jorijn/bitcoin-dca) (Bitvavo en Kraken, vraagt wel opnamerecht) de bruikbare voorbeelden (GEZIEN).
 5. **De maandinleg haalt het doel van 10.000 euro in 3 maanden niet** (GOK); zie het als aparte, rustige pot naast de routes van A, B en D.
+
+## Run 2 (19 nov 2026, ±02:05 tot 02:35 UTC)
+Deze run: een brede ETF en een mix ETF plus BTC doorgemeten over 12 jaar, grid met maandinleg teruggetest op uurdata, spreads nagemeten, en wat de belasting in Nederland doet met herbalanceren. Script en data stonden in /tmp en zijn niet in de repo gezet; de opzet staat erbij.
+
+### 6. Eigen meting: wereld-ETF, BTC en een mix (GEZIEN)
+**Data:** dagkoersen IWDA (iShares MSCI World, Euronext Amsterdam, in euro, stapelend) en BTC-EUR, openbare grafiek-API van Yahoo Finance via curl, zonder account. Gebruikt: de eerste handelsdag van elke maand, nov 2014 tot nov 2026, 146 maanden.
+
+**Opzet:** elke maand 300 euro (voorbeeldbedrag), gesplitst in een vast deel ETF en een vast deel BTC. ETF zonder kosten (spaarplan Trade Republic is gratis, DERDEN in run 1), BTC 0,25% (Bitvavo). Variant "herb": eens per jaar terug naar de vaste verdeling (met 0,25% op BTC en 1 euro op de ETF; bij bijkopen van BTC heb ik de 0,25% niet gerekend, dus een fractie te gunstig). Uitkomst = waarde gedeeld door ingelegd. Vensters van 36 en 60 maanden over elke startmaand.
+
+| Verdeling ETF/BTC | 36 mnd mediaan | 36 mnd slechtste | 36 mnd beste | 60 mnd mediaan | 60 mnd slechtste | Diepste tussenstand | Hele periode |
+|---|---|---|---|---|---|---|---|
+| 100/0 | x1,18 | x0,93 | x1,38 | x1,35 | x1,02 | x0,84 | x2,28 |
+| 95/5 | x1,26 | x0,95 | x2,44 | x1,48 | x1,25 | x0,84 | x4,52 |
+| 90/10 | x1,30 | x0,96 | x3,74 | x1,57 | x1,27 | x0,83 | x6,75 |
+| 90/10 herb | x1,31 | x0,98 | x2,39 | x1,53 | x1,36 | x0,83 | |
+| 80/20 | x1,42 | x1,00 | x6,34 | x1,78 | x1,31 | x0,83 | x11,22 |
+| 80/20 herb | x1,43 | x1,03 | x3,89 | x1,76 | x1,40 | x0,83 | |
+| 50/50 | x1,79 | x1,00 | x14,15 | x2,34 | x1,40 | x0,72 | x24,63 |
+| 0/100 | x2,39 | x0,91 | x27,16 | x3,33 | x1,35 | x0,51 | x46,98 |
+
+(Alles GEZIEN, eigen meting; "diepste tussenstand" = laagste waarde gedeeld door ingelegd op enig moment in enig venster.)
+
+**Wat ik eruit haal:**
+- **Een klein deel BTC naast een brede ETF verhoogde de uitkomst flink zonder dat de diepste dip veel dieper werd.** Bij 90/10 en 80/20 bleef de diepste tussenstand x0,83, bijna gelijk aan alleen de ETF (x0,84). Bij alleen BTC was dat x0,51: op enig moment stond je de helft van je inleg kwijt (GEZIEN).
+- **Jaarlijks herbalanceren maakte de slechtste vensters iets beter en de beste vensters veel minder goed** (80/20: slechtste x1,03 tegen x1,00, beste x3,89 tegen x6,34). De mediaan bleef gelijk. Het is een rem op uitschieters, geen extra rendement (GEZIEN).
+- **Grote waarschuwing:** deze 12 jaar bevatten de sterkste groei die BTC ooit had (van ongeveer 300 naar 57.000 euro). Dat de BTC-kolommen zo hoog uitkomen, zegt niets over de komende 12 jaar. Het "beste venster" x27 komt uit 2015 tot 2018 en is niet te herhalen op deze schaal (GOK, maar met een reden: een markt van biljoenen kan niet nog eens 190 keer groeien zoals bij een kleine markt).
+- Ook de ETF had een gunstige periode (wereldaandelen in euro 2014 tot 2026). Een venster van 36 maanden met alleen de ETF eindigde 1 keer onder de inleg (x0,93), bij 60 maanden nooit (GEZIEN).
+
+### 7. Eigen meting: grid met maandinleg tegen gewone DCA (GEZIEN)
+**Data:** uurkoersen BTC-EUR, Binance openbare archieven (`data.binance.vision/data/spot/monthly/klines/BTCEUR/1h/`), jan 2023 tot okt 2026, 33.599 uren, zonder account. In die periode ging BTC van ongeveer 15.400 naar 68.600 euro (GEZIEN).
+
+**Opzet:** elke maand 300 euro in kas. De grid koopt telkens als de koers een trede (1, 2 of 5%) lager komt, en verkoopt dat stukje weer zodra het een trede hoger staat. Kosten 0,15% per kant (Bitvavo maker, aanname dat elke limietorder vol wordt uitgevoerd, dus gunstig). Koopbedrag per trede: een vast bedrag (15, 30, 60 euro) of een deel van de kas (10 of 25%). Gewone DCA: elke 1e van de maand alles kopen, 0,25%.
+
+| Aanpak | Eindwaarde / ingelegd | Aantal orders |
+|---|---|---|
+| Gewone DCA, maandelijks | **x1,48** | 46 |
+| Grid 2%, 25% van kas per trede | x1,25 | 1.978 |
+| Grid 5%, 25% van kas | x1,27 | 306 |
+| Grid 1%, 10% van kas | x1,10 | 7.302 |
+| Grid met vast bedrag 60 euro (stap 1 tot 5%) | x1,02 tot x1,07 | 306 tot 7.266 |
+| 80% DCA, 20% grid 2% | x1,43 | 1.838 |
+
+(GEZIEN, eigen meting.)
+
+**Wat ik eruit haal:**
+- **Grid verloor in alle varianten van gewone DCA**, ook met lage maker-kosten. Twee redenen: de grid verkoopt elk stukje na 1 tot 5% winst en mist zo de rest van de stijging; en met een vast koopbedrag bleef het grootste deel van het geld als kas liggen (GEZIEN).
+- Dit was wel een stijgende periode. In een markt die jaren zijwaarts gaat, doet een grid het relatief beter (GOK; bekend uit hoe grid werkt, niet zelf gemeten op zo'n periode).
+- Een grid met 2.000 tot 7.000 orders in vier jaar betekent ook een bot die dag en nacht draait, een API-sleutel met handelsrecht, en veel regels voor de belasting en de administratie (GOK).
+- Conclusie voor deze hoek: grid past niet bij een vaste maandinleg die je jaren wilt laten groeien.
+
+### 8. Spreads nagemeten
+- **Bitvavo orderboek** (openbare API, zonder account, 19 nov 2026 02:12 UTC): BTC-EUR beste bod 57.217, beste vraag 57.218, dus een spread van 0,002%. ETH-EUR 1.618,80 tegen 1.618,89, 0,006% (GEZIEN, `api.bitvavo.com/v2/BTC-EUR/book`). Wie via de API of de Pro-weergave met een limietorder koopt, betaalt dus vrijwel alleen de 0,15 of 0,25%. De prijs bij "simpel kopen" in de app kan ik zonder account niet zien; nog open.
+- **Trade Republic crypto:** naast 1 euro per losse order gemiddeld ongeveer **0,50% spread** (DERDEN, [Capitalo](https://www.capitalo.de/anbieter/traderepublic/produkte/krypto)). Ook bij een spaarplan zonder kosten betaal je die spread (GOK, de spread zit in de prijs). Op 300 euro is dat ongeveer 1,50 euro per aankoop (eigen som, GOK). Dat maakt Trade Republic voor crypto duurder dan Bitvavo of OKX periodiek kopen (0,2 tot 0,25%), en voor ETF's juist het goedkoopst (gratis spaarplan).
+- Zelfde bron: Coinbase 0,60/1,20% plus 0,50% spread, Bitpanda 0,99%, 21Bitcoin 0,79% plus 1,25% spread (DERDEN, Capitalo).
+
+### 9. Correctie op run 1: kraken-dca en de nieuwe Kraken-tarieven
+In run 1 schreef ik dat [raphaellueckl/kraken-dca](https://github.com/raphaellueckl/kraken-dca) via Kraken Pro koopt en zo de 1%-knop ontwijkt. B vond dat Kraken Pro sinds juli 2026 voor kleine klanten **0,40% maker en 0,80% taker** rekent (DERDEN via B, [Kraken support](https://support.kraken.com/articles/cross-platform-fee-tier-changes)). Dat script bespaart op Kraken dus nog wel iets tegenover 1%, maar is duurder dan gewoon periodiek kopen bij Bitvavo (0,25%) of OKX (0,2%) (GOK, eigen vergelijking).
+
+### 10. Belasting in Nederland (algemeen, niets over Thijs)
+- **2026: box 3 met een vast verondersteld rendement.** Beleggingen en crypto vallen onder "overige bezittingen" met een forfait van **6%**; heffingsvrij vermogen 59.357 euro per persoon (DERDEN, [SRA, 8 jan 2026](https://www.sra.nl/nieuws/259001/2026/01/box-3-percentages-vrijstellingen-en-bedragen-2026)); tarief 36% (DERDEN, [Rendement](https://www.rendement.nl/inkomen-uit-sparen-en-beleggen/nieuws/box-3-tarief-blijft-36-in-2026.html)). Is het werkelijke rendement lager, dan kun je dat aantonen met de tegenbewijsregeling (DERDEN, SRA).
+- **Gevolg voor de aanpak:** onder dit stelsel kost herbalanceren of verkopen op zich geen extra belasting; alleen de waarde op 1 januari telt (GOK op basis van hoe het forfait werkt). Herbalanceren is dus nu alleen een kostenvraag (punt 6), geen belastingvraag.
+- **Vanaf 2028 verandert het waarschijnlijk.** In oktober 2026 koos het kabinet voor een vermogenswinstbelasting per 2028 voor financiële bezittingen zoals spaargeld en aandelen, en pas in 2030 met een nieuwe wet ook crypto. De Eerste Kamer moest het nog behandelen (DERDEN, [Eerste Kamer, 6 okt 2026](https://www.eerstekamer.nl/nieuws/20261006/mondeling_overleg_over_box_3)). Dan gaan jaarlijkse waardestijging en dus ook elke verkoop met winst meetellen (GOK, details nog niet vast). Een grid of vaak herbalanceren wordt dan voor de aangifte veel meer werk.
+
+### 11. Bijgestelde rangorde binnen hoek C (kans maal opbrengst, GOK)
+1. **Spaarplan in een brede ETF, met eventueel een klein vast deel BTC (5 tot 20%) via de goedkoopste aanbieder per soort** (ETF: Trade Republic gratis of DEGIRO 1 euro; BTC: OKX of Bitvavo 0,2 tot 0,25%). In de meting gaf dit het beste evenwicht tussen uitkomst en diepste dip (punt 6). Geen bot nodig.
+2. **Hetzelfde, met eens per jaar herbalanceren** als je uitschieters wilt dempen. Kan met de hand in tien minuten per jaar (GOK); een bot voegt niets toe.
+3. **Eigen script voor DCA met limietorders of een eigen koopregel.** Hooguit 0,1% goedkoper (punt 8), regels gaven geen voordeel bij BTC (run 1). Alleen als leerproject.
+4. **Grid of wachten op dips met de maandinleg.** In beide metingen slechter dan gewone DCA (run 1 punt 2, run 2 punt 7).
+
+Voor het doel van 10.000 euro in 3 maanden verandert er niets: geen van deze aanpakken haalt dat (run 1 punt 5).
+
+### Nog te doen (volgende runs)
+- Prijs bij "simpel kopen" en bij het spaarplan van Bitvavo tegenover het orderboek (kan alleen met een openbare bron of schermafbeelding van een ander; zelf niet inloggen).
+- Grid testen op een zijwaartse periode (bijv. BTC 2018 tot 2020) om te zien of het daar wel wint.
+- Forumervaringen ordenen (Tweakers, r/BitcoinBeginners, r/eupersonalfinance) over spaarplannen en kleine bedragen.
+- Wekelijks tegen maandelijks kopen met echte vaste kosten (bijv. 1 euro bij DEGIRO) doorrekenen.
+
+## Stand na run 02:35 (19 nov 2026)
+1. **Gewone DCA wint van slimme regels en van grid.** BTC 2020 tot 2026: geen dip- of multiplierregel won vaker dan 6 van 45 vensters (run 1). Grid op uurdata 2023 tot 2026: x1,02 tot x1,27 tegen x1,48 voor gewone maandelijkse DCA (GEZIEN, eigen metingen).
+2. **Een klein vast deel BTC naast een wereld-ETF gaf in 2014 tot 2026 veel meer uitkomst met bijna dezelfde diepste dip** (80/20: mediaan 36 maanden x1,42 tegen x1,18, diepste tussenstand x0,83 tegen x0,84; alleen BTC x0,51) (GEZIEN). Let op: dit was de uitzonderlijke groeiperiode van BTC; niet door te trekken (GOK).
+3. **Aanbieder per soort kiezen is de grootste knop:** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen ongeveer 0,5% spread bij Trade Republic, 0,99% Bitpanda, tot bijna 2% bij Coinbase (DERDEN, links in run 1 en punt 8). Kraken Pro is sinds juli 2026 voor kleine klanten 0,40/0,80% (DERDEN via B).
+4. **Een eigen bot voegt voor een maandinleg bijna niets toe:** het orderboek van Bitvavo heeft een spread van 0,002% (GEZIEN), dus het enige voordeel is maker tegen taker (0,1%), tegenover een API-sleutel als risico. Herbalanceren eens per jaar kan met de hand.
+5. **Belasting:** in 2026 telt alleen de waarde op 1 januari (forfait 6% op beleggingen, DERDEN), dus herbalanceren kost nu geen extra belasting. Vanaf 2028 komt waarschijnlijk een vermogenswinstbelasting, voor crypto pas vanaf 2030; nog niet vast (DERDEN, Eerste Kamer). De maandinleg haalt het doel van 10.000 euro in 3 maanden niet (GOK).
