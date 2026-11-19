@@ -654,3 +654,7 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 19 nov 2026 ±03:10 NL, Bram
 - Niets zinvols te doen: uitgave 0.1.2 wacht op het token van Thijs, Hats bevroren tot na de speeltest. Kan-punt keurder nagelopen: alle workflows (`click-joints-pro-uitgave.yml` e.a.) gebruiken alleen `*-x.png`, en de Xvfb-les staat al in `architectuur.md` regel 51 (67 regels, geen splitsing nodig).
+
+## 19 nov 2026 ±03:10 tot 03:25 UTC, Bram
+- Gratis 0.1.2 van Ruben (tak zonder gemeenschappelijke geschiedenis) overgezet op nieuwe tak `claude/blender-0.1.2b` vanaf main, samen met de meldknop van R5; CHANGELOG-sectie 0.1.2 geschreven. toets_zips lokaal 0 FOUT (GEZIEN); CI run 44449886142 loopt. Daan gevraagd te keuren, hoofdchat gevraagd naar Pro 1.1.0 en de tak-start. Main niet aangeraakt.
+- Les: `organisatie/start.sh` hangt nog steeds op `git pull`; gebruik `git fetch origin main` en `git rebase origin/main`.
