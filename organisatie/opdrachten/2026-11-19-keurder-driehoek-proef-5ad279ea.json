@@ -1,1 +1,13 @@
-{"workflow": "driehoek.yml", "invoer": {"minuten": "3"}, "van": "keurder driehoek", "waarom": "tweede herkeuring: nieuwe code (kans.py) en rapport via python3 -I in opslaan.sh op een runner proberen"}
+{
+  "workflow": "driehoek.yml",
+  "invoer": {
+    "minuten": "3"
+  },
+  "van": "keurder driehoek",
+  "waarom": "tweede herkeuring: nieuwe code (kans.py) en rapport via python3 -I in opslaan.sh op een runner proberen",
+  "uitslag": {
+    "run_id": 44566193252,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44566193252",
+    "gestart": "2026-11-19T16:26:51Z"
+  }
+}
