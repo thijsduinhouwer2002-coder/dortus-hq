@@ -624,3 +624,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±21:21 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 7c8ae22..3ff874a: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-3ff874a.md`. Moet en kan: **Moet:** geen. **Kan:** - Daan keurt de drie plaatjes (20, 20d, 20h) op beeld. Let op de leesbaarheid van het bijschrift en of 20h vork en bovendeel samen toont. - Controleer in `.github/workflows` dat 20h ook mee naar tak `schermen` gaat. Dat bestand zat niet in de wijziging, dus ik kon het niet zien (vermoeden, zekerheid laag). - Pas de kopregel van het script aan: "beide plaatjes bestaan" moet "alle drie". - Zet 20h alleen op Superhive en niet op de pagina van extensions.blender.org (ToS 6.2). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 21:39 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+6 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
