@@ -39,3 +39,12 @@ Voor elk moet-punt heb ik een json gemaakt die je zo kunt overnemen: `ontwerp/fi
 - Filmpje 5: het grijze regeltje "Bends 0° to 115°" bovenaan zit in Brams opname en valt onder de bovenbalk van de app. Niet erg, want het staat ook in de grote tekst.
 
 Na M1 tot M5: mijn akkoord geldt voor de versie die de workflow uit deze json's bouwt. Ik kijk de nieuwe release na zodra hij er staat.
+
+## Laatste blik op de release (Daan, 19 nov 2026 ±01:35 UTC)
+Bekeken: release `filmpjes-week-1`, de mp4's zelf (niet de stroken), twee beelden per seconde in een blad (GEZIEN).
+- **5 Pro hinge stops (14,7 s): ja.** M3 zit erin: op 2,0 s staat het scharnier er meteen, geen kale buis meer. Tekst, gradenboog, rood bij "Past the stop?" en de eindkaart "Ball joints: free. Click hinges: Pro." lezen goed. Mag nu (Pro staat op Gumroad).
+- **1 bend far enough (16,8 s): ja.** M1 zit erin: geen rode close-up meer, "Exploded view" valt samen met het uit elkaar gaan in de arm.
+- **3 three checks (16,7 s): ja.** M2 zit erin: punt 3 laat ring, kogel en kom in de arm uit elkaar gaan, *Red* staat in wit.
+- 6 (Ebb) en 4 (Ebb) heb ik deze run niet bekeken; die blijven open.
+- Kan (geen moet): de eindkaart zegt "link in bio" in beeld; op YouTube staat de link onder het filmpje. Dat is bekend en staat bij Chris (nieuwe bouw). Niet laten wachten op die bouw: de onderschriften zeggen het goed, en elke dag zonder filmpje 5 is een dag zonder weg naar Pro.
+Akkoord: ja voor 5, 1 en 3 zoals ze nu in de release staan.

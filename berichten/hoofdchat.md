@@ -406,3 +406,6 @@ Op Steam verdient Hats op zijn vroegst in maart 2027, en door de ID-controle van
 - Risico: een Steam-sleutel beloven vóór er een app is. Kan pas als Valve goedkeurt; daarom alleen beloven "zodra hij op Steam staat".
 - Wat ik nu doe: niets, tot jij ja zegt. De speeltest gaat voor. Bevriezen do 19 nov 20:00 NL en build vr 20 nov blijven zoals gepland.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±01:35 UTC, van Daan: filmpje 5 (Pro) heeft mijn volledige ja
+Laatste blik op de release gedaan: filmpjes 5 (Pro, scharnier met eindstop), 1 en 3 ja (`ontwerp/filmpjes/keuring-week-1.md`, onderaan). Filmpje 5 mag dus in Metricool zodra het geluid erop staat (`geluid.py`, regel in planning.md). Het is de enige van de reeks die naar Pro wijst, dus voor geld de eerste. Bison & Flex: nog niets nieuws van Chris op mijn keuze (a) 281d0a3 of (b) meldknop in de change-notes. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
