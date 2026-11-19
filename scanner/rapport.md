@@ -1,6 +1,6 @@
 # Rapport koersverschil-scanner
 
-Gemaakt 2026-11-19 15:38 UTC uit 9 runs, samen ±6.6 uur gemeten (GEZIEN).
+Gemaakt 2026-11-19 15:44 UTC uit 9 runs, samen ±6.6 uur gemeten (GEZIEN).
 Echte kans = winst na alle kosten (opnamekosten bekend), opnemen en storten open (en een netwerk dat aan beide kanten open is, als de beurzen dat geven), minstens €100,00 op het boek, minstens 2 minuten blijven staan, geen andere munt met dezelfde naam.
 **Vergund** = beide beurzen hebben een MiCA-vergunning (ESMA-register), vaak via een EU-dochter die minder munten kan hebben dan de wereldwijde API die we meten (GOK). **Grijs** = minstens één beurs zonder vergunning (MEXC, Bitget, HTX, Poloniex, XT, Bitfinex, Binance). Zie README.md.
 
@@ -102,7 +102,7 @@ Waarom dit te rooskleurig is (GOK): elke kans wordt maar één keer geteld met h
 
 Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen het boek zoals gemeten (niet meer dan de ruimte op het boek en niet meer dan de voorraad op die beurs), terugschuiven als een kant leeg dreigt te raken (met opnamekosten en tijd onderweg), en het koerseffect van de aangehouden munten apart. Netto = bruto min kosten terugschuiven plus koerseffect. **Gemeten** (GEZIEN): de kansen, het boek en de koersen; **de rest is een rekenmodel** (GOK, aannames onder de tabel). Geen advies.
 
-**Met €150: netto €0,20 per dag op bitvavo - kraken (koerseffect erbovenop €0,30), €0,40 per dag op gate - kucoin (koerseffect erbovenop €-0,68) (GOK: netto handel, rekenmodel op ±6.6 uur meting per dag, alleen MiCA).**
+**Met €150: netto €0,20 per dag op bitvavo - kraken (koerseffect erbovenop €0,30), €0,40 per dag op gate - kucoin (koerseffect erbovenop €-0,68) (GOK: netto handel, rekenmodel op ±6.6 uur meting per dag, alleen MiCA).** "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
 
 ### Alleen MiCA-beurzen (alle paren met echte kansen)
 
@@ -190,16 +190,20 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 
 | Keuze | Inleg | Kansen | Gemist | Bruto winst | Kosten terugschuiven | Netto handel |
 |---|---|---|---|---|---|---|
+| standaard (schuifdrempel 25%, kostengrens 1%) | €150,00 | 46 | 40 | €0,20 | €0,00 | **€0,20** |
+| standaard (schuifdrempel 25%, kostengrens 1%) | €2.000,00 | 46 | 26 | €15,85 | €7,94 | **€7,91** |
 | schuifdrempel 10% | €150,00 | 46 | 40 | €0,20 | €0,00 | **€0,20** |
 | schuifdrempel 10% | €2.000,00 | 46 | 30 | €10,42 | €5,99 | **€4,43** |
-| schuifdrempel 25% (standaard) | €150,00 | 46 | 40 | €0,20 | €0,00 | **€0,20** |
-| schuifdrempel 25% (standaard) | €2.000,00 | 46 | 26 | €15,85 | €7,94 | **€7,91** |
 | schuifdrempel 40% | €150,00 | 46 | 40 | €0,20 | €0,00 | **€0,20** |
 | schuifdrempel 40% | €2.000,00 | 46 | 28 | €12,44 | €8,60 | **€3,83** |
+| kostengrens 2% (achteraf vergeleken) | €150,00 | 46 | 40 | €0,20 | €0,00 | **€0,20** |
+| kostengrens 2% (achteraf vergeleken) | €2.000,00 | 46 | 24 | €15,21 | €13,48 | **€1,73** |
+| kostengrens 5% (achteraf vergeleken) | €150,00 | 46 | 37 | €0,25 | €2,19 | **€-1,94** |
+| kostengrens 5% (achteraf vergeleken) | €2.000,00 | 46 | 24 | €15,21 | €13,48 | **€1,73** |
 | alleen MERL en DYM (meer voorraad per munt, achteraf gekozen) | €150,00 | 29 | 27 | €0,23 | €0,00 | **€0,23** |
 | alleen MERL en DYM (meer voorraad per munt, achteraf gekozen) | €2.000,00 | 29 | 21 | €20,45 | €6,47 | **€13,98** |
 
-Bij "alleen ..." tellen de kansen in andere munten niet mee (je hebt die munten dan niet).
+Kostengrens: terugschuiven mag alleen als de opnamekosten hooguit dat deel van het bedrag zijn. De standaard van 1% is **achteraf** gekozen, nadat bleek dat bij 5% de kosten de winst opaten; de rijen met 2% en 5% laten zien hoeveel de uitkomst van die ene regel afhangt. Bij "alleen ..." tellen de kansen in andere munten niet mee (je hebt die munten dan niet).
 
 Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); het koerseffect loopt door over de hele tijd van de eerste tot de laatste meting. Rendement = netto gedeeld door de inleg, voor die dag. * = koers niet op te halen, koerseffect onbekend (niet als 0 bedoeld). **Het koerseffect is het risico van de voorraad, geen opbrengst van de methode:** bij één munt over een paar uur is het vooral toeval. Kijk voor wat de methode oplevert naar Netto handel.
 
@@ -207,7 +211,7 @@ Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); 
 
 - Winst per kans: de mediaan van wat de scanner op het boek mat bij €100, €500, €1.000, €2.500 en de volle ruimte (GEZIEN), lineair daartussen (GOK). Uitgevoerd 2 minuten na het begin (dan pas weet je dat hij meetelt), één keer per kans; gaat dezelfde kans binnen 5 minuten weer open, dan is het deel van het boek dat je al gebruikte op (GOK).
 - Inleg: de helft geld (de quote van de kansen), de helft munten, verdeeld over de munten die op dat paar echte kansen hadden, en alles half op elke beurs (GOK). Die munten zijn **achteraf** gekozen; vooraf weet je dat niet.
-- Terugschuiven zodra een kant onder 25% van zijn beginvoorraad komt: de helft van het verschil gaat terug, alleen als de opnamekosten hooguit 1% van het bedrag zijn (GOK, eigen regel).
+- Terugschuiven zodra een kant onder 25% van zijn beginvoorraad komt: de helft van het verschil gaat terug, alleen als de opnamekosten hooguit 1% van het bedrag zijn (GOK, eigen regel). Die 1% is **achteraf** gekozen: eerst stond hier 5%, en pas nadat bleek dat de kosten bij 5% de winst opaten, is het 1% geworden (reden: een kans levert ±0,3 tot 1% bruto). Zie de rijen kostengrens 2% en 5% bij Andere keuzes.
 - Opnamekosten van de munt: wat de scanner bij die beurs zag (GEZIEN uit de API van de beurs; bij Kraken en Gate geschat uit andere beurzen, GOK). Geld: zie de tabel hieronder.
 - Een munt is na 30 minuten op de andere beurs (GOK). Zolang iets onderweg is, telt het niet als voorraad; kansen die daardoor niet of kleiner konden, staan als gemist of beperkt.
 - Minimale order (in euro en in munten) en minimale opname van de munt per beurs en munt: uit de openbare API van Bitvavo, Kraken, KuCoin en Gate (GEZIEN, opgehaald bij het maken van het rapport). Een kans onder het minimum telt als gemist; een terugschuif onder het opnameminimum wordt opgehoogd tot het minimum. Andere beurzen of geen antwoord: minimale order 10 euro (GOK). Kraken geeft zijn opnameminimum niet openbaar: daar geen minimum (GOK). USDT telt tegen de koers van het moment van de kans; de koers USDT-EUR zelf beweegt niet mee (GOK).
