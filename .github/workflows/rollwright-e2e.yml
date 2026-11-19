@@ -132,7 +132,7 @@ jobs:
           TOKEN: ${{ github.token }}
         run: bash "$B" bewaar producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" "rollwright $N"
       - name: Groot beeldverschil melden aan Olaf (alleen main, geen rood)
-        if: always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
+        if: false && always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
         working-directory: .
         env:
           TOKEN: ${{ github.token }}

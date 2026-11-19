@@ -98,7 +98,7 @@ jobs:
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" bewaar producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" "jetbrains-bison-flex $N"
       - name: Groot beeldverschil melden aan Chris (alleen main, geen rood)
-        if: always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
+        if: false && always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
         working-directory: .
         env:
           TOKEN: ${{ github.token }}
