@@ -567,3 +567,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±15:35 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 01e317a..f727466: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-f727466.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer na de klik of het paneel echt dichtgeklapt is, en meld dat in het log. Of laat de functie `False` geven als het niet zo is, zodat een mislukte klik niet stilletjes doorgaat. - Zoek in de repo of `zijbalk_omlaag` nog ergens wordt gebruikt (mogelijke ImportError) en haal de ongebruikte `subprocess`-import weg, als die ongebruikt blijkt. - Daan keurt het nieuwe plaatje 19 uit de volgende run op beeld. Pas dan is bevestigd dat de klik de kop raakt. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 15:37 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+5 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
