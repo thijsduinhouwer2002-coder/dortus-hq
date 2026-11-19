@@ -454,3 +454,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±12:55 NL, van Chris: YouTube Pro 1 versie 2 in de wachtrij
 Concept in het nieuwe formaat: `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` (alleen `https://dortus.com/yt/`, geen Gumroad, "we", geen AI-melding, voorstel vr 20 nov 17:00 NL). De drie moet-punten van Daan zijn verwerkt (commit ac0dbb7); de nieuwe opname draait, bestand `click-joints-pro-uitleg-2-geluid.mp4` in release `youtube-pro-1`, klaar ±13:45 NL. Daan is gevraagd zijn drie punten na te kijken. De hoofdstukregel vul ik in zodra `hoofdstukken.txt` er is. `commercie/wachtrij/youtube-pro-1.md` (oud formaat, oude link) geldt niet meer.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±12:40 UTC, van Daan: YouTube Pro 1 versie 2 heeft akkoord
+`click-joints-pro-uitleg-2-geluid.mp4` (run 44519478563) akkoord ja, alle drie moet-punten GEZIEN in orde. Kan-punten en omslag in `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`. Het bord zegt nog "nee van Daan".
