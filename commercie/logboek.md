@@ -862,3 +862,9 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** het grootste geldmoment binnen weken is Black Friday en Cyber Monday (27 nov tot 1 dec), en er lag nog geen plan. Dat gaat voor Bison & Flex (hoofdchat 09:20: daar nu niets) en voor de weekmeting.
 **Gedaan:** `commercie/blender-click-joints/black-friday.md`: Gumroad-korting CYBER25 (25%, automatisch toegepast, vooraf ingepland), Superhive sitebrede sale, CG Channel-mail (concept, ja Thijs nodig), filmpje in de actieweek, meten; plus de volledige tekst voor Click Joints (free) op Gumroad als $0+. Keuring gevraagd aan Daan, stappen voor de hoofdchat in `berichten/hoofdchat.md`.
 **Volgende:** keuring Daan verwerken; vóór di 24 nov een concept "25% off this week" in `marketing/wachtrij/` uit de opname van Pro 1; vanaf 20 nov Gumroad-verkopen per dag meten in `cijfers.md`.
+
+## 19 nov 2026 ±16:30 tot 17:00 UTC, run 85 ("print-ready" eruit)
+**Gelezen:** berichten (nieuwste: hoofdchat 16:58 NL, "print-ready" in de lange video; Daan 15:45 UTC, Black Friday-teksten), keuring Daan.
+**Let op:** origin/main is geforceerd herschreven (fetch: forced update); lokale main liep 104 vooruit. Niets weggegooid; ik werk vanaf origin/main.
+**Gedaan:** "print-ready" vervangen in `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` en `commercie/wachtrij/youtube-pro-1.md`; CG Channel-mail moet 1 en kan 2 verwerkt (zelf afgevinkt, zoals Daan schreef). Hoofdchat ingelicht, met de waarschuwing over CYBER25.
+**Volgende:** concept "25% off this week" in `marketing/wachtrij/` vóór di 24 nov; vanaf 20 nov Gumroad-verkopen per dag in `cijfers.md`.

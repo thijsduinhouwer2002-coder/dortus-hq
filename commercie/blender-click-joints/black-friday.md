@@ -31,7 +31,7 @@ Hi,
 A deal for your Black Friday list:
 
 Who: Dortus
-What: Click Joints Pro, a Blender add-on that cuts a model into print-ready ball joints and hinges for articulated 3D printed figures. The hinge stops at 90, 115 or 135 degrees and the add-on shows the bend range and the fit before you print.
+What: Click Joints Pro, a Blender add-on that cuts a model into ball joints and hinges for 3D printed figures. The hinge stops at 90, 115 or 135 degrees and the add-on shows in red when you bend past the stop.
 When: November 27 to December 1, 2026
 Discount: 25% off, applied automatically at checkout (no code needed; code CYBER25 also works)
 URL: https://duinhouwer8.gumroad.com/l/click-joints-pro

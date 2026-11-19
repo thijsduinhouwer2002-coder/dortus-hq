@@ -21,7 +21,7 @@ Blender hinge for 3D printing that stops at 115° | Click Joints Pro
 ```
 https://dortus.com/yt/
 
-We make Click Joints, a Blender add-on that cuts a part into print-ready joints. This video shows the hinge from Click Joints Pro: pick an end stop of 90°, 115° or 135°, click Place hinge, and drag Bend to see how far it goes. Push past the stop and the arc turns red and shows how far you went, so you see the limit before you print.
+We make Click Joints, a Blender add-on that cuts a part into joints for 3D printed figures. This video shows the hinge from Click Joints Pro: pick an end stop of 90°, 115° or 135°, click Place hinge, and drag Bend to see how far it goes. Push past the stop and the arc turns red and shows how far you went, so you see the limit before you print.
 
 Measured in Blender, not printed yet. Recorded in Blender 5.3 with the add-on itself; the colours and the arc come from the add-on.
 
