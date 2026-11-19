@@ -349,3 +349,7 @@ body {
     margin-top: 40dvh;
   }
 }
+
+.geluid[hidden] {
+  display: none;
+}

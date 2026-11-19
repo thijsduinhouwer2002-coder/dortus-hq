@@ -3,6 +3,7 @@
 import type {InitRsp, ScoreRsp, UitslagOpslag} from '../shared/api.ts'
 import {
   begin,
+  dagDatum,
   dagNummer,
   dagRegel,
   druk,
@@ -18,6 +19,7 @@ import * as geluid from './geluid.ts'
 import {laadKunst} from './kunst.ts'
 import {haalInit, stuurScore, stuurStart} from './net.ts'
 import {type Beeld, nieuwBeeld, Scene} from './scene.ts'
+import {maakSlot} from './slot.ts'
 import {toonEinde} from './uitslag.ts'
 
 const $ = <T extends HTMLElement>(id: string): T =>
@@ -52,6 +54,7 @@ const getal = (n: number): string => n.toLocaleString('en-US')
 
 function vulBeeld(b: Beeld): Beeld {
   b.samen = info?.gemeenschap.hoedenVandaag ?? 0
+  b.samenTeller = b.samen
   b.sub = info?.subreddit ?? ''
   return b
 }
@@ -69,6 +72,12 @@ function toonStart(): void {
     .map(g => `#${g}`)
     .join(', ')
     .replace(/, ([^,]*)$/, ' and $1')}`
+  // Een oude post speelt de toren van zijn eigen dag; zeg dat er een nieuwere is.
+  const oud = $('dag-oud')
+  oud.hidden = !info || info.dag >= info.dagVandaag
+  if (info && !oud.hidden) {
+    oud.textContent = `This is tower #${info.dag} from ${dagDatum(info.dag)}. Today's tower #${info.dagVandaag} is in the newest post.`
+  }
   const al = info?.vandaag
   const knop = $<HTMLButtonElement>('knop-speel')
   const oefen = $<HTMLButtonElement>('knop-oefen')
@@ -77,8 +86,8 @@ function toonStart(): void {
     knop.hidden = true
     mijn.hidden = false
     mijn.innerHTML = al.afgebroken
-      ? `Your run for tower #${dag} was started and not finished, so it counts as 0. Tower #${dag + 1} comes tomorrow.`
-      : `You stacked <b>${al.hoeden}</b> hats today, place ${al.plek}. Tower #${dag + 1} comes tomorrow.`
+      ? `Your run for tower #${dag} was started and not finished, so it counts as 0.`
+      : `You stacked <b>${al.hoeden}</b> hats on tower #${dag}, place ${al.plek}. A new tower comes every day.`
     oefen.textContent = 'Practice'
     oefen.classList.add('hoofd')
   } else {
@@ -169,6 +178,15 @@ function verwerkGebeurtenis(nu: number): void {
   } else if (soort === 'einde') {
     geluid.einde()
     eindeSinds = nu
+    // Alleen een dagbeurt telt mee voor de gezamenlijke toren; dan vliegen je hoeden erheen.
+    beeld.slot = maakSlot(
+      scene,
+      p,
+      beeld,
+      volgorde,
+      nu,
+      modus === 'dag' && !netFout,
+    )
     void naEinde()
   }
 }
@@ -185,16 +203,6 @@ function lus(t: number): void {
   rekenTot(t)
   const dt = Math.min(50, t - vorigBeeld)
   vorigBeeld = t
-  if (p.toestand === Toestand.Einde) {
-    // Camera trekt terug tot de hele toren in beeld is, boven het uitslagvel.
-    const f = Math.min(1, (t - eindeSinds) / 900)
-    const e = 1 - (1 - f) ** 3
-    const top = scene.torenTop(p.hoeden, volgorde)
-    const ruimte = scene.h * 0.42 - 30
-    const nodig = scene.voet - top + 20
-    beeld.zoom = 1 + (Math.min(1, ruimte / nodig) - 1) * e
-    beeld.voetPlek = 1 + (0.44 - 1) * e
-  }
   scene.teken(p, beeld, volgorde, dt, t)
   requestAnimationFrame(lus)
 }
@@ -228,7 +236,10 @@ async function naEinde(): Promise<void> {
           : `Not saved: ${a.fout}.`
     }
   }
-  const wacht = Math.max(0, 950 - (performance.now() - eindeSinds))
+  const wacht = Math.max(
+    0,
+    (beeld.slot?.klaarOp ?? eindeSinds + 950) - performance.now(),
+  )
   setTimeout(() => {
     beeld.bordje = false
     toonEinde({modus, dag: p.dag, u: rsp?.uitslag ?? eigen, rsp, fout, info})
@@ -269,6 +280,8 @@ geluidKnop.addEventListener('click', () => {
   zetGeluidKnop()
 })
 zetGeluidKnop()
+// In het filmpje geen knop in beeld.
+if (new URLSearchParams(location.search).has('film')) geluidKnop.hidden = true
 
 // ---------- opstarten ----------
 

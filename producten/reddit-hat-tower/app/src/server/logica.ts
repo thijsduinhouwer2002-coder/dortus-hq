@@ -113,22 +113,29 @@ function reeksNu(r: Reeks, dag: number): number {
   return r.laatsteDag >= dag - 1 ? r.dagen : 0
 }
 
-export async function init(
-  db: Opslag,
-  wie: Wie,
-  dag: number,
-): Promise<InitRsp> {
+/**
+ * Welke dag: `post` is de toren van deze post (elke post speelt de toren van zijn eigen dag),
+ * `nu` is vandaag. Dagen op rij tellen alleen met de toren van vandaag (of gisteren, rond middernacht).
+ */
+export type Dagen = {post: number; nu: number}
+
+/** Insturen kan tot zo lang na het eind van de ronde (en niet eerder dan de ronde kan duren). */
+export const INSTUUR_MARGE_MS = 60_000
+
+export async function init(db: Opslag, wie: Wie, d: Dagen): Promise<InitRsp> {
   const sub = wie.subreddit
+  const dag = d.post
   let vandaag: UitslagOpslag | undefined
   let dagenOpRij = 0
   let besteOoit = 0
   if (wie.userId) {
     vandaag = await leesUitslag(db, sub, dag, wie.userId)
-    dagenOpRij = reeksNu(await leesReeks(db, wie.userId), dag)
+    dagenOpRij = reeksNu(await leesReeks(db, wie.userId), d.nu)
     besteOoit = Number((await db.get(sleutel.beste(wie.userId))) ?? 0)
   }
   return {
     dag,
+    dagVandaag: d.nu,
     subreddit: sub,
     naam: wie.naam,
     vandaag,
@@ -140,7 +147,7 @@ export async function init(
   }
 }
 
-/** De uitslag van vandaag, of een lege als de dagbeurt gestart is maar nooit is ingestuurd. */
+/** De uitslag van deze toren, of een lege als de beurt gestart is maar nooit (op tijd) is ingestuurd. */
 async function leesUitslag(
   db: Opslag,
   sub: string,
@@ -158,20 +165,22 @@ async function leesUitslag(
 const BEZIG = 'bezig'
 
 /**
- * De dagbeurt begint. Eén sleutel per speler per dag, alleen gezet als hij nog niet bestaat:
- * herladen of een tweede tabblad geeft geen nieuwe dagbeurt, die speelt dan als oefening.
+ * De beurt begint. Eén sleutel per speler per toren, alleen gezet als hij nog niet bestaat:
+ * herladen of een tweede tabblad geeft geen nieuwe beurt, die speelt dan als oefening.
+ * In de sleutel staat de starttijd, zodat insturen alleen binnen een redelijke tijd kan.
  */
 export async function start(
   db: Opslag,
   wie: Wie,
-  dagNu: number,
+  d: Dagen,
   req: StartReq,
+  nuMs = Date.now(),
 ): Promise<StartRsp> {
   if (!wie.userId) throw new FoutVerzoek('log in to save your tower', 401)
-  if (req.dag !== dagNu)
-    throw new FoutVerzoek('this tower is from another day', 409)
-  const key = sleutel.start(wie.subreddit, dagNu, wie.userId)
-  const eerste = await db.setNX(key, String(Date.now()))
+  if (req.dag !== d.post || d.post > d.nu)
+    throw new FoutVerzoek('this is not the tower of this post', 409)
+  const key = sleutel.start(wie.subreddit, d.post, wie.userId)
+  const eerste = await db.setNX(key, String(nuMs))
   await db.expire(key, BEWAAR_DAG_S)
   return {telt: eerste}
 }
@@ -179,24 +188,23 @@ export async function start(
 export async function score(
   db: Opslag,
   wie: Wie,
-  dagNu: number,
+  d: Dagen,
   req: ScoreReq,
+  nuMs = Date.now(),
 ): Promise<ScoreRsp> {
   if (!wie.userId) throw new FoutVerzoek('log in to save your tower', 401)
-  // Een ronde die vlak voor middernacht (UTC) begon, telt nog voor de dag waarop hij begon.
-  if (req.dag !== dagNu && req.dag !== dagNu - 1) {
-    throw new FoutVerzoek('this tower is from another day', 409)
-  }
+  if (req.dag !== d.post)
+    throw new FoutVerzoek('this is not the tower of this post', 409)
   const max = RONDE_MS / STAP_MS
   if (
     !Array.isArray(req.drukken) ||
     req.drukken.length > 2000 ||
     req.drukken.some(
-      (d, i) =>
-        !Number.isInteger(d) ||
-        d < 0 ||
-        d > max ||
-        (i > 0 && d < (req.drukken[i - 1] as number)),
+      (x, i) =>
+        !Number.isInteger(x) ||
+        x < 0 ||
+        x > max ||
+        (i > 0 && x < (req.drukken[i - 1] as number)),
     )
   ) {
     throw new FoutVerzoek('bad presses')
@@ -204,12 +212,17 @@ export async function score(
   const sub = wie.subreddit
   const user = wie.userId
   const dag = req.dag
-  if (!(await db.get(sleutel.start(sub, dag, user))))
-    throw new FoutVerzoek('start the tower first', 409)
+  const begon = await db.get(sleutel.start(sub, dag, user))
+  if (!begon) throw new FoutVerzoek('start the tower first', 409)
+  const duur = nuMs - Number(begon)
+  if (duur > RONDE_MS + INSTUUR_MARGE_MS)
+    throw new FoutVerzoek('this run was sent too late', 409)
+  if (duur < RONDE_MS - 3000)
+    throw new FoutVerzoek('this run was sent too early', 409)
   // Eerst claimen, dan pas tellen: twee gelijktijdige inzendingen tellen zo maar één keer.
   const uitslagKey = sleutel.uitslag(sub, dag, user)
   if (!(await db.setNX(uitslagKey, BEZIG)))
-    throw new FoutVerzoek('you already played today', 409)
+    throw new FoutVerzoek('you already played this tower', 409)
   await db.expire(uitslagKey, BEWAAR_DAG_S)
 
   // De server speelt het potje zelf na; de client kan geen score verzinnen.
@@ -236,21 +249,25 @@ export async function score(
   await db.expire(spKey, BEWAAR_DAG_S)
   await db.incrBy(sleutel.hoedenOoit(sub), p.hoeden)
 
+  // Dagen op rij: alleen de toren van vandaag (of gisteren, als de ronde rond middernacht viel).
   const oud = await leesReeks(db, user)
-  const nieuw: Reeks = {
-    laatsteDag: dag,
-    dagen: oud.laatsteDag === dag - 1 ? oud.dagen + 1 : 1,
+  let nieuw = oud
+  if (dag >= d.nu - 1 && dag > oud.laatsteDag) {
+    nieuw = {
+      laatsteDag: dag,
+      dagen: oud.laatsteDag === dag - 1 ? oud.dagen + 1 : 1,
+    }
+    await db.set(sleutel.reeks(user), JSON.stringify(nieuw))
   }
-  await db.set(sleutel.reeks(user), JSON.stringify(nieuw))
 
   const besteOud = Number((await db.get(sleutel.beste(user))) ?? 0)
-  // Pas een record als er al een vorige toren was; de eerste keer is geen "nieuw beste".
+  // Een record pas als er al een vorige toren was; de eerste keer is geen "nieuw beste".
   const nieuwBeste = besteOud > 0 && p.hoeden > besteOud
-  if (nieuwBeste) await db.set(sleutel.beste(user), String(p.hoeden))
+  if (p.hoeden > besteOud) await db.set(sleutel.beste(user), String(p.hoeden))
 
   return {
     uitslag,
-    dagenOpRij: nieuw.dagen,
+    dagenOpRij: reeksNu(nieuw, d.nu),
     besteOoit: Math.max(besteOud, p.hoeden),
     nieuwBeste,
     gemeenschap: await gemeenschap(db, sub, dag),
@@ -258,15 +275,36 @@ export async function score(
   }
 }
 
-/** Tekst van de uitslagkaart van deze speler voor vandaag, opgemaakt als Reddit-reactie. */
+/** Tekst van de uitslagkaart van deze speler voor deze toren, opgemaakt als Reddit-reactie. */
 export async function deelTekst(
   db: Opslag,
   wie: Wie,
-  dag: number,
+  d: Dagen,
 ): Promise<string> {
   if (!wie.userId) throw new FoutVerzoek('log in to share', 401)
-  const u = await leesUitslag(db, wie.subreddit, dag, wie.userId)
-  if (!u || u.afgebroken) throw new FoutVerzoek('play today first', 409)
-  const r = reeksNu(await leesReeks(db, wie.userId), dag)
-  return kaartTekst(dag, u.hoeden, u.besteReeks, u.uitslagen, r, 'reactie')
+  const u = await leesUitslag(db, wie.subreddit, d.post, wie.userId)
+  if (!u || u.afgebroken) throw new FoutVerzoek('play this tower first', 409)
+  const r = reeksNu(await leesReeks(db, wie.userId), d.nu)
+  return kaartTekst(d.post, u.hoeden, u.besteReeks, u.uitslagen, r, 'reactie')
+}
+
+/** Onthoud bij een nieuwe post welke dag hij is. */
+export async function zetPostDag(
+  db: Opslag,
+  postId: string,
+  dag: number,
+): Promise<void> {
+  await db.set(`post:${postId}`, String(dag))
+}
+
+/** De dag van een post; voor posts zonder dag (of lokaal) is het vandaag. */
+export async function postDag(
+  db: Opslag,
+  postId: string | undefined,
+  vandaag: number,
+): Promise<number> {
+  if (!postId) return vandaag
+  const ruw = await db.get(`post:${postId}`)
+  const dag = ruw ? Number(ruw) : Number.NaN
+  return Number.isFinite(dag) && dag <= vandaag ? dag : vandaag
 }

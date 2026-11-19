@@ -1,6 +1,7 @@
 // Basis van het speelveld: maten, het geheugen van het beeld (Beeld) en de plek van mond en toren.
 import {Deeltjes, Schok, Veer} from './effecten.ts'
 import type {Kunst} from './kunst.ts'
+import type {Slot} from './slot.ts'
 
 export const B = 454
 export const CX = B / 2
@@ -17,11 +18,14 @@ export type Vlucht = {
 /** Alles wat het beeld onthoudt tussen frames (veren, timers, deeltjes). */
 export type Beeld = {
   zoom: number
-  voetPlek: number
+  /** Waar de voet van Gloop op het scherm staat (eenheden); null = gewoon onderaan. */
+  voetY: number | null
   opzij: number
   gloopVeer: Veer
   torenVeer: Veer
   deeltjes: Deeltjes
+  /** Deeltjes in schermeenheden (los van de camera), voor het eindmoment. */
+  schermDeeltjes: Deeltjes
   schok: Schok
   vluchten: Vlucht[]
   /** Hoeden die echt op de toren staan (de rest vliegt nog). */
@@ -38,6 +42,10 @@ export type Beeld = {
   kreetSinds: number
   /** Hoeden van de subreddit vandaag (zonder deze ronde). */
   samen: number
+  /** Wat de gezamenlijke toren nu laat zien (telt aan het eind op). */
+  samenTeller: number
+  /** Het eindmoment, als dat bezig is. */
+  slot: Slot | null
   sub: string
   /** Bordje bij de gezamenlijke toren (uit achter het start- en uitslagscherm). */
   bordje: boolean
@@ -46,11 +54,12 @@ export type Beeld = {
 export function nieuwBeeld(): Beeld {
   return {
     zoom: 1,
-    voetPlek: 1,
+    voetY: null,
     opzij: 0,
     gloopVeer: new Veer(0.0011, 0.011),
     torenVeer: new Veer(0.0006, 0.004),
     deeltjes: new Deeltjes(),
+    schermDeeltjes: new Deeltjes(),
     schok: new Schok(),
     vluchten: [],
     toren: 0,
@@ -65,6 +74,8 @@ export function nieuwBeeld(): Beeld {
     kreetSub: '',
     kreetSinds: -9999,
     samen: 0,
+    samenTeller: 0,
+    slot: null,
     sub: '',
     bordje: true,
   }

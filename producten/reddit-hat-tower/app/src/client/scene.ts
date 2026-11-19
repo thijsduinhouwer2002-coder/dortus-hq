@@ -4,9 +4,11 @@
 import {inVangzone, type Potje, Toestand} from '../shared/spel.ts'
 import {B, type Beeld, CX, type Vlucht} from './basis.ts'
 import {klem, veerUit} from './effecten.ts'
+import * as geluid from './geluid.ts'
 import {tekenGrot, tekenSamen, tekst} from './grot.ts'
 import {MetHeld} from './held.ts'
 import type {GloopStand} from './kunst.ts'
+import {tekenSlot, zetCamera} from './slot.ts'
 
 export {B, type Beeld, nieuwBeeld} from './basis.ts'
 
@@ -75,14 +77,15 @@ export class Scene extends MetHeld {
         ctx,
         this.k,
         this.voet,
-        beeld.samen + beeld.toren,
+        beeld.samenTeller,
         beeld.sub,
         volgorde,
         beeld.bordje,
       )
 
     const voet = this.voet
-    const doelVoet = beeld.voetPlek * this.h - (beeld.voetPlek < 1 ? 0 : 46)
+    if (beeld.slot) zetCamera(beeld.slot, beeld, voet, nu)
+    const doelVoet = beeld.voetY ?? voet
     ctx.save()
     ctx.translate(CX + beeld.opzij, doelVoet)
     ctx.scale(beeld.zoom, beeld.zoom)
@@ -111,6 +114,8 @@ export class Scene extends MetHeld {
     this.tekenVluchten(beeld, kruin, volgorde, nu)
     beeld.deeltjes.teken(ctx, dt)
     ctx.restore()
+    if (beeld.slot) tekenSlot(this, beeld.slot, beeld, volgorde, nu)
+    beeld.schermDeeltjes.teken(ctx, dt)
 
     if (p.toestand !== Toestand.Klaar && p.toestand !== Toestand.Einde) {
       this.tekenTijd(p)
@@ -206,6 +211,7 @@ export class Scene extends MetHeld {
       beeld.vluchten.shift()
       beeld.toren += 1
       beeld.landMs = nu
+      geluid.land()
       beeld.torenVeer.stoot((Math.random() < 0.5 ? -1 : 1) * 0.012)
     }
   }

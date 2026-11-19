@@ -4,7 +4,7 @@ import {dagRegel} from './spel.ts'
 
 const VAKJE: Record<string, string> = {
   perfect: '🟩',
-  gulp: '🟨',
+  gulp: '🟧',
   gold: '🌟',
   miss: '⬛',
 }

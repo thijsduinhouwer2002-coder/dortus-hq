@@ -1,6 +1,26 @@
 # Stand: Gloop's Hat Tower op Reddit
 
-## Do 19 nov 2026 middag, fase 2a af (bouwer), nog niet gekeurd
+## Do 19 nov 2026 middag, fase 2b af (bouwer), nog niet gekeurd
+Na de herkeuring (akkoord ja, UX 8, Polish 7, Reddity 7, Daily 7).
+
+### Wat er veranderd is (GEZIEN, zelf gedraaid en bekeken)
+1. **Eindmoment terug.** De camera zoomt nooit verder uit dan 0,5. Past de toren dan niet, dan begint de camera bij de top en zakt hij in 1,5 s naar Gloop (gezien bij 58 en 67 hoeden). Bij een lage toren zoomt hij gewoon uit zoals eerst.
+2. **Elke post speelt de toren van zijn eigen dag** (keuring A10). Bij het maken van een post (menu, installatie, dagtaak) zet de server `post:<id>` = dag in Redis. Een oude post speelt die toren, met zijn eigen ranglijst en één beurt per speler. Op het startscherm staat dan "This is tower #3 from 2026-11-21. Today's tower #9 is in the newest post." Dagen op rij tellen alleen met de toren van vandaag (of gisteren, rond middernacht). Posts zonder bekende dag spelen vandaag.
+3. **Je hoeden vliegen naar de gezamenlijke toren.** Na de camera vliegen tot 14 hoeden van jouw toren naar de toren van de subreddit; de teller op het bordje telt mee op. Passeer je een rond getal (25, 50, 100, 150, 200, 250, ... 1.000, 1.500, ...), dan verschijnt "r/... passed 150 hats today!" met goud en een klank. Alleen bij een dagbeurt die echt meetelt, niet bij oefenen. Tijdens het spelen groeit de gezamenlijke toren niet meer live mee (dat zou dubbel tellen). De gezamenlijke toren staat nu helemaal binnen beeld (midden op x 392) met zijn voet op de vloer, en is op het startscherm doffer.
+4. **Insturen alleen op tijd.** De starttijd staat in de startsleutel. Insturen kan vanaf 27 s na de start (eerder kan de ronde niet klaar zijn) tot 60 s na het eind van de ronde. Te laat telt als afgebroken (0 hoeden). Toets erbij.
+5. **Inzendfilmpje** `beelden/inzendfilmpje-1080x1920.mp4`: 1080x1920, 43,9 s, H.264 met AAC-geluid. Startscherm, een hele ronde (67 hoeden, reeks tot 17, gouden held, een misser met "bye!"), de camera van de top naar Gloop, de hoeden naar de gezamenlijke toren met "r/GloopTowerTest passed 150 hats today!", het uitslagvel en de ranglijst. Engelse tekst in beeld: "One tap. 30 seconds.", "Perfect gulps stack more hats", "Same tower for everyone today", "Every subreddit builds one tower", "Share your run. New tower tomorrow." Gemaakt met `app/dev/film.py`: beelden op ware grootte uit het screencast van Chrome (55 per seconde), geluid uit dezelfde klanken van het spel, achteraf gerenderd in een OfflineAudioContext en op tijd gezet. Speler is de Playwright-speler in de pagina (mikt rond de bek, 4% te laat); de ranglijst komt van lokale proefspelers. Subreddit-naam in beeld is de lokale proefnaam GloopTowerTest.
+6. Klein: het gulp-vakje in de reactie is nu oranje (zoals in het spel), een klank als een hoed op de toren landt, de beste toren werd de eerste keer niet bewaard (opgelost, toets erbij), geen geluidsknop in het filmpje.
+
+Nieuwe beelden: `beelden/4-perfect-reeks.png`, `beelden/5-mijlpaal-gezamenlijke-toren.png`, `beelden/6-uitslag-delen.png` (stilstaande beelden uit het filmpje, 720x1280, met de Engelse tekst erop).
+
+Toetsen: `npm test` groen (types, lint, 21 toetsen, bouw).
+
+### Nog open
+- Alles wat Reddit zelf doet is nog niet getest (Redis nx, reactie en lid worden namens de speler, dagtaak, de dag per post). Vraagt de login van Thijs.
+- Het filmpje heeft alleen de spelklanken, geen muziek. Of het zo goed genoeg is voor de jury, beslist de hoofdchat; muziek erbij kan met een eigen of vrij stuk (niets kopen zonder ja).
+- Niemand heeft het als mens gespeeld.
+
+## Do 19 nov 2026 middag, fase 2a (bouwer)
 Na de keuring (`KEURING.md`: akkoord nee, UX 6, Polish 6, Reddity 5, Daily 7) en de reactie van Thijs op de animatie.
 
 ### Wat er veranderd is (GEZIEN, zelf gedraaid en bekeken)

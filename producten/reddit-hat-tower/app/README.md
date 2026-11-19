@@ -21,11 +21,14 @@ Every day there is one new tower for everyone, and every subreddit stacks one sh
 - **One tower per day, the same for everyone.** Every player gets the same heroes in the same rhythm,
   with the same golden heroes. Your first run of the day counts from the moment you press Play;
   reloading does not give a new run. Practice as much as you like.
+- **Every post is the tower of its own day.** Older posts keep their tower and leaderboard, so you
+  can still play them; days in a row only count with today's tower.
 - **A daily rule** changes how the tower plays: Classic, Rush Hour, Heavy Heroes, Golden Hour or Big Mouth.
 - **Today's tallest towers**: a leaderboard per subreddit, per day.
 - **Days in a row**: come back tomorrow to keep your streak.
 - **The community tower**: every hat anyone stacks today goes on one shared tower for the subreddit.
-  It stands at the back of the cave while you play, and your hats join it live.
+  It stands at the back of the cave. After your daily run your hats fly over to it, and the
+  game tells you when the subreddit passes a round number ("passed 1,000 hats today!").
 - **Share your run** as a comment: one square per hero, so others can compare. You see the comment
   before it is posted.
 - **Join the subreddit** from the result screen to get tomorrow's tower.
@@ -33,8 +36,8 @@ Every day there is one new tower for everyone, and every subreddit stacks one sh
 ```
 Gloop's Hat Tower #1 (Classic)
 🎩 16 hats, best streak 5
-🟩⬛🟩🌟🟩🟩🟩🟨🟨🟩
-🟩🟨🟩🟨🟩
+🟩⬛🟩🌟🟩🟩🟩🟧🟧🟩
+🟩🟧🟩🟧🟩
 ```
 
 ## For moderators
@@ -51,7 +54,8 @@ Gloop's Hat Tower #1 (Classic)
 
 The server never trusts a score from the browser. The game runs in fixed steps of 4 ms, so the
 browser only sends the moments you tapped, and the server replays the whole run to get the score.
-A run is claimed at the start, and a second submission of the same run never counts twice.
+A run is claimed at the start and must be sent within a minute after the round ends; a second
+submission of the same run never counts twice.
 
 ## For developers
 

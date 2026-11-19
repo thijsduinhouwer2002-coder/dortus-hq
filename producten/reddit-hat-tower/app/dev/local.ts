@@ -57,20 +57,22 @@ async function proefspelers(dag: number): Promise<void> {
   ] as const
   for (const [i, [naam, mik, ruis, mis]] of spelers.entries()) {
     const p = speelProef(dag, mik, ruis, mis, 11 + i * 97)
-    await start(db, {subreddit: SUB, naam, userId: `t2_${naam}`}, dag, {dag})
-    await score(db, {subreddit: SUB, naam, userId: `t2_${naam}`}, dag, {
-      dag,
-      drukken: p.drukken,
-    })
+    const wie = {subreddit: SUB, naam, userId: `t2_${naam}`}
+    const d = {post: dag, nu: dagNummer(Date.now())}
+    await start(db, wie, d, {dag}, Date.now() - 31_000)
+    await score(db, wie, d, {dag, drukken: p.drukken})
   }
 }
 
 const server = createServer(async (req, rsp) => {
   const url = new URL(req.url ?? '/', `http://localhost:${POORT}`)
   const pad = url.pathname.slice(1)
+  // ?dag=N speelt als de post van dag N (zoals een oude post op Reddit).
+  const vandaag = dagNummer(Date.now())
   const dag = url.searchParams.get('dag')
     ? Number(url.searchParams.get('dag'))
-    : dagNummer(Date.now())
+    : vandaag
+  const d = {post: Math.min(dag, vandaag), nu: vandaag}
   const stuur = (status: number, json: unknown): void => {
     const body = JSON.stringify(json)
     rsp.writeHead(status, {'Content-Type': 'application/json'})
@@ -78,17 +80,17 @@ const server = createServer(async (req, rsp) => {
   }
   try {
     if (pad === Endpoint.Init && req.method === 'GET')
-      return stuur(200, await init(db, wieVan(req), dag))
+      return stuur(200, await init(db, wieVan(req), d))
     if (pad === Endpoint.Score && req.method === 'POST') {
       return stuur(
         200,
-        await score(db, wieVan(req), dag, (await leesJson(req)) as never),
+        await score(db, wieVan(req), d, (await leesJson(req)) as never),
       )
     }
     if (pad === Endpoint.Start && req.method === 'POST') {
       return stuur(
         200,
-        await start(db, wieVan(req), dag, (await leesJson(req)) as never),
+        await start(db, wieVan(req), d, (await leesJson(req)) as never),
       )
     }
     if (pad === Endpoint.Lid && req.method === 'POST') {
@@ -96,7 +98,7 @@ const server = createServer(async (req, rsp) => {
       return stuur(200, {ok: true})
     }
     if (pad === Endpoint.Deel && req.method === 'POST') {
-      const tekst = await deelTekst(db, wieVan(req), dag)
+      const tekst = await deelTekst(db, wieVan(req), d)
       console.log(`[reactie die op Reddit geplaatst zou worden]\n${tekst}\n`)
       return stuur(200, {ok: true, tekst})
     }

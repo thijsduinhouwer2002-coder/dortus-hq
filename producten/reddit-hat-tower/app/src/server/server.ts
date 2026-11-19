@@ -22,7 +22,17 @@ import {
   type StartRsp,
 } from '../shared/api.ts'
 import {dagNummer, dagRegel} from '../shared/spel.ts'
-import {deelTekst, FoutVerzoek, init, score, start, type Wie} from './logica.ts'
+import {
+  type Dagen,
+  deelTekst,
+  FoutVerzoek,
+  init,
+  postDag,
+  score,
+  start,
+  type Wie,
+  zetPostDag,
+} from './logica.ts'
 import {redisOpslag} from './redis-opslag.ts'
 
 type AnyRsp =
@@ -70,7 +80,12 @@ async function route(
 ): Promise<void> {
   const endpoint = reqMsg.url?.slice(1).split('?')[0] as Endpoint
   const method = EndpointMethod[endpoint]
-  const dag = dagNummer(Date.now())
+  const vandaag = dagNummer(Date.now())
+  // Elke post speelt de toren van zijn eigen dag; de dag staat in Redis bij het maken van de post.
+  const dagen = async (): Promise<Dagen> => ({
+    post: await postDag(redisOpslag, context.postId, vandaag),
+    nu: vandaag,
+  })
 
   let rsp: AnyRsp
   if (method !== reqMsg.method) {
@@ -78,13 +93,13 @@ async function route(
   } else {
     switch (endpoint) {
       case Endpoint.Init:
-        rsp = await init(redisOpslag, wie(), dag)
+        rsp = await init(redisOpslag, wie(), await dagen())
         break
       case Endpoint.Start:
         rsp = await start(
           redisOpslag,
           wie(),
-          dag,
+          await dagen(),
           await readJson<StartReq>(reqMsg),
         )
         break
@@ -97,13 +112,13 @@ async function route(
         rsp = await score(
           redisOpslag,
           wie(),
-          dag,
+          await dagen(),
           await readJson<ScoreReq>(reqMsg),
         )
         break
       case Endpoint.Deel: {
-        const req = await readJson<DeelReq>(reqMsg)
-        const tekst = await deelTekst(redisOpslag, wie(), req.dag)
+        await readJson<DeelReq>(reqMsg)
+        const tekst = await deelTekst(redisOpslag, wie(), await dagen())
         const postId = context.postId
         if (!postId) throw new FoutVerzoek('no post')
         // Fase 2: werkt pas na `devvit upload`; Reddit plaatst de reactie namens de speler.
@@ -138,6 +153,7 @@ async function maakDagPost(): Promise<UiResponse> {
   const post = await reddit.submitCustomPost({
     title: `Gloop's Hat Tower #${dag}: ${dagRegel(dag).naam}`,
   })
+  await zetPostDag(redisOpslag, post.id, dag)
   return {
     showToast: {text: `Tower #${dag} posted.`, appearance: 'success'},
     navigateTo: post.url,

@@ -5,7 +5,10 @@ export type RijRanglijst = {naam: string; hoeden: number; reeks: number}
 
 /** Wat het spel bij het openen ophaalt. */
 export type InitRsp = {
+  /** De toren van deze post. */
   dag: number
+  /** De toren van vandaag (nieuwste post). */
+  dagVandaag: number
   subreddit: string
   /** undefined als de speler niet is ingelogd. */
   naam: string | undefined

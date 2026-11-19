@@ -107,6 +107,14 @@ function tekenWand(
  * De gezamenlijke toren van de subreddit, achterin rechts en verder weg (kleiner, doffer).
  * Een hoed per hoed van vandaag, tot hij boven de grot uitkomt; het bordje noemt het echte aantal.
  */
+/** Waar de gezamenlijke toren staat (midden), binnen beeld ook op een telefoon. */
+export const SAMEN_X = 392
+
+/** De bovenkant van de gezamenlijke toren zoals hij nu getekend is. */
+export function samenTop(): number {
+  return samenCache?.top ?? 200
+}
+
 let samenCache:
   | {sleutel: string; doek: HTMLCanvasElement; top: number}
   | undefined
@@ -128,9 +136,9 @@ export function tekenSamen(
   const nu = performance.now()
   ctx.save()
   // De hele toren wiegt heel langzaam, alsof hij net niet omvalt.
-  ctx.translate(404, voet)
+  ctx.translate(SAMEN_X, voet)
   ctx.rotate(Math.sin(nu / 1400) * 0.012)
-  ctx.globalAlpha = 0.55
+  ctx.globalAlpha = bordje ? 0.55 : 0.3
   ctx.drawImage(samenCache.doek, -60, -voet - 40, 120, voet + 40)
   ctx.restore()
   if (!bordje) return
@@ -163,7 +171,8 @@ function bouwSamen(
   c.translate(60, voet + 40)
   c.filter = 'brightness(0.72) saturate(0.8)'
   const schaal = 0.42
-  let y = -34
+  // De voet staat op de vloer (de vloer loopt hier al iets omhoog).
+  let y = -2
   for (let i = 0; i < Math.min(aantal, 160) && y > -voet - 40; i++) {
     const nr = volgorde[(i * 3) % 10] as number
     const m = k.maten.hoed[nr] as {b: number; h: number}
