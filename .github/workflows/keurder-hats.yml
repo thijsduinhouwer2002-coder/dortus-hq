@@ -14,13 +14,15 @@ on:
   workflow_dispatch:      # slaat de klok over en keurt meteen
 
 permissions:
-  contents: write   # tijd op de tak klok zetten
-  actions: write    # keurder.yml starten
+  contents: read
+
 
 jobs:
   klok:
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    permissions:
+      contents: write   # alleen de tijd op de tak klok zetten
     outputs:
       beurt: ${{ steps.klok.outputs.beurt }}
     steps:
@@ -35,6 +37,8 @@ jobs:
   start-keuring:
     needs: klok
     if: needs.klok.outputs.beurt == 'ja'
+    permissions:
+      actions: write    # alleen keurder.yml starten
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:

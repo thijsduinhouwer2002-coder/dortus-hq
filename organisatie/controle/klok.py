@@ -13,8 +13,14 @@ Gebruik door een agent:
 Interval:
   30m, 1h, 7d          aan de beurt als er minstens zo lang verstreken is (min 10%, max 30 minuten speling,
                        zodat een schema dat een paar minuten vroeg komt niet net een beurt mist)
-  1d-na-20:00UTC       aan de beurt als de laatste keer van vóór het laatste 20:00 UTC was (één keer per dag,
-                       op de eerste start na 20:00 UTC); 7d-na-06:00UTC = één keer per 7 dagen, na 06:00
+  1d-na-20:00UTC       aan de beurt als de laatste keer van vóór het laatste 20:00 UTC was ÉN minstens 20 uur
+                       geleden is. Zo komt er hooguit één beurt per "dag" van 20:00 tot 20:00 UTC, en nooit
+                       twee binnen 20 uur, ook niet na een gemiste avond: een inhaalbeurt om 08:00 geeft om
+                       20:01 geen tweede, de volgende komt de dag erna om 04:00 en zo schuift hij in een paar
+                       dagen terug naar de avond. Een regel "alleen na 20:00" zou een gemiste avond nooit
+                       inhalen (dan blijven 24 uur commits ongekeurd); deze is de eenvoudigste die inhaalt en
+                       toch hooguit één keer per dag geeft (keuring R7, punt A2).
+                       7d-na-06:00UTC = één keer per 7 dagen na 06:00, minstens 7 dagen min 4 uur ertussen
 --paden              een push die een van deze bestanden raakt (glob, ** mag) is altijd aan de beurt;
                        zo blijft het oude paths-filter van de workflow werken
 Handmatig gestart (workflow_dispatch) is altijd aan de beurt.
@@ -31,12 +37,15 @@ De klok wordt gezet vóór het werk: een mislukte run telt als beurt (geen herha
 keurder API-tegoed zou kosten). Opnieuw proberen = met de hand starten.
 
 Uitvoer: regel beurt=ja of beurt=nee in $GITHUB_OUTPUT. Code 0, of 1 als de klok niet te lezen of te zetten
-was (dan beurt=nee, voor de zekerheid niet draaien).
+was (dan beurt=nee, voor de zekerheid niet draaien). "Nog nooit gedraaid" alleen als de tak klok niet bestaat of
+<naam>.txt er echt niet in staat; mislukt het ophalen, het lezen van het bestand of staat er geen tijd in, dan is
+dat een fout (code 1, geen beurt), ook bij een handmatige start.
 """
 import datetime as dt
 import fnmatch
 import json
 import os
+import random
 import re
 import subprocess
 import sys
@@ -72,11 +81,15 @@ def beslis(interval, laatst, nu):
         if grens > nu:
             grens -= dt.timedelta(days=1)
         grens -= dt.timedelta(days=dagen - 1)
+        minimaal = dt.timedelta(days=dagen) - dt.timedelta(hours=4)
         if laatst is None:
             return True, "nog nooit gedraaid"
-        if laatst < grens:
-            return True, f"laatst {laatst:%Y-%m-%d %H:%M} UTC, van voor {grens:%Y-%m-%d %H:%M} UTC"
-        return False, f"laatst {laatst:%Y-%m-%d %H:%M} UTC, na {grens:%Y-%m-%d %H:%M} UTC"
+        if laatst >= grens:
+            return False, f"laatst {laatst:%Y-%m-%d %H:%M} UTC, na {grens:%Y-%m-%d %H:%M} UTC"
+        if nu - laatst < minimaal:
+            return False, (f"laatst {laatst:%Y-%m-%d %H:%M} UTC, minder dan "
+                           f"{int(minimaal.total_seconds() // 3600)} uur geleden")
+        return True, f"laatst {laatst:%Y-%m-%d %H:%M} UTC, van voor {grens:%Y-%m-%d %H:%M} UTC"
     m = re.fullmatch(r"(\d+)([mhd])", interval)
     if not m:
         raise ValueError(f"onbekend interval: {interval} (voorbeelden: 30m, 1h, 7d, 1d-na-20:00UTC)")
@@ -135,6 +148,22 @@ def zet(tip, naam, regel):
     return r.returncode == 0
 
 
+def lees_laatst(tip, naam):
+    """Laatste keer van een taak, of None als de taak echt nog nooit draaide (naam niet op de tak klok).
+    Elke andere fout (ophalen mislukt, bestand onleesbaar, geen tijd erin) is een RuntimeError: dan geen beurt,
+    want "nooit gedraaid" bij een leesfout zou een extra (betaalde) keuring geven (keuring R7, punt A1)."""
+    if not tip:
+        return None
+    namen = git("ls-tree", "--name-only", tip).splitlines()
+    if f"{naam}.txt" not in namen:
+        return None
+    regel = git("show", f"{tip}:{naam}.txt")
+    tijd = lees_tijd(regel)
+    if tijd is None:
+        raise RuntimeError(f"{naam}.txt op de tak {TAK} heeft geen leesbare tijd: {regel[:80]!r}")
+    return tijd
+
+
 def uitvoer(beurt):
     pad = os.environ.get("GITHUB_OUTPUT")
     if pad:
@@ -151,13 +180,7 @@ def klok(naam, interval, paden):
     for poging in range(1, 6):
         nu = dt.datetime.now(UTC).replace(microsecond=0)
         tip = tip_van_klok()
-        laatst_regel = ""
-        if tip:
-            try:
-                laatst_regel = git("show", f"{tip}:{naam}.txt")
-            except RuntimeError:
-                laatst_regel = ""
-        laatst = lees_tijd(laatst_regel)
+        laatst = lees_laatst(tip, naam)
         aan_de_beurt, reden = beslis(interval, laatst, nu)
         if event == "workflow_dispatch":
             aan_de_beurt, reden = True, f"met de hand gestart ({reden})"
@@ -170,7 +193,7 @@ def klok(naam, interval, paden):
         if zet(tip, naam, regel):
             print(f"Klok {naam} ({interval}): aan de beurt: {reden}. Gezet: {regel}")
             return True
-        time.sleep(poging * 2)
+        time.sleep(poging * 2 + random.uniform(0, 3))  # willekeurig, zodat taken niet in de pas blijven botsen
     raise RuntimeError("klok niet te zetten na 5 pogingen")
 
 

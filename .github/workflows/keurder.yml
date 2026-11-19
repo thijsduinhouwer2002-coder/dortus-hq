@@ -64,6 +64,11 @@ jobs:
             VAN="${IN_VAN:-$(git rev-list -1 --before='24 hours ago' "$TOT" || true)}"
             [ -z "$VAN" ] && VAN="$TOT~1"
             LIJST="${IN_PRODUCT:-steam-hol}"
+            # handmatige invoer: alleen een naam uit de vaste lijst, anders stoppen (roestronde R7, keuring B5)
+            case "$LIJST" in
+              blender-gewrichten|jetbrains-bison-flex|obsidian-rollwright|steam-hol) ;;
+              *) echo "Onbekend product (kies blender-gewrichten, jetbrains-bison-flex, obsidian-rollwright of steam-hol)"; exit 1 ;;
+            esac
           fi
           echo "van=$(git rev-parse "$VAN")" >> "$GITHUB_OUTPUT"
           echo "tot=$(git rev-parse "$TOT")" >> "$GITHUB_OUTPUT"
@@ -104,6 +109,7 @@ jobs:
         if: steps.wat.outputs.lijst != ''
         env:
           UIT: ${{ runner.temp }}/uit
+          LIJST: ${{ steps.wat.outputs.lijst }}   # via env, nooit rauw in een run-regel
         run: |
           set -e
           [ -d "$UIT" ] || { echo "Niets op te slaan"; exit 0; }
@@ -116,7 +122,7 @@ jobs:
             for B in "$UIT"/berichten/*.md; do [ -f "$B" ] && cat "$B" >> "berichten/$(basename "$B")"; done
             git add -A platformen berichten
             git diff --cached --quiet && { echo "Niets op te slaan"; exit 0; }
-            git commit -q -m "Automatische keuring ${{ steps.wat.outputs.lijst }}"
+            git commit -q -m "Automatische keuring $LIJST"
             python3 organisatie/controle/check.py HEAD~1 HEAD
             git push -q origin opslaan:main && exit 0
             sleep $((i * 5))
