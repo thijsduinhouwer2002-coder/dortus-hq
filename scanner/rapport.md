@@ -3,6 +3,7 @@
 Gemaakt 2026-11-19 15:53 UTC uit 12 runs, samen ±6.9 uur gemeten (GEZIEN).
 Echte kans = winst na alle kosten (opnamekosten bekend), opnemen en storten open (en een netwerk dat aan beide kanten open is, als de beurzen dat geven), minstens €100,00 op het boek, minstens 2 minuten blijven staan, geen andere munt met dezelfde naam.
 **Vergund** = beide beurzen hebben een MiCA-vergunning (ESMA-register), vaak via een EU-dochter die minder munten kan hebben dan de wereldwijde API die we meten (GOK). **Grijs** = minstens één beurs zonder vergunning (MEXC, Bitget, HTX, Poloniex, XT, Bitfinex, Binance). Zie README.md.
+**Kraken-tarief:** Kraken rekent 0,80% taker op munt tegen EUR, USD, USDT of USDC (GEZIEN, kraken.com/pro/fees, laagste trede); de scanner rekende tot 19 nov met 0,40%. 399 opgeslagen kansen met Kraken uit die runs zijn hier **opnieuw doorgerekend met 0,80%** (GOK-benadering: 0,40% van de inzet aan de Kraken-kant extra op elk gemeten punt van het boek; het boek zelf is niet bewaard). 233 houden daarna nog winst op het boek. Dat ze met hogere kosten ook korter bleven staan, telt niet mee (dus eerder te gunstig).
 
 ## Hoeveel wordt er gecontroleerd? (GEZIEN, stand.jsonl)
 
@@ -13,49 +14,49 @@ Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 
 | Stap | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| Verschillen met winst op het boek na alle kosten | 6651 | 973 | 5678 |
-| ...waarvan opnemen of storten dicht | 1472 | 132 | 1340 |
-| ...waarvan status onbekend (beurs geeft het niet openbaar) | 3654 | 566 | 3088 |
-| Opnemen en storten open | 1525 | 275 | 1250 |
+| Verschillen met winst op het boek na alle kosten | 6485 | 809 | 5676 |
+| ...waarvan opnemen of storten dicht | 1469 | 129 | 1340 |
+| ...waarvan status onbekend (beurs geeft het niet openbaar) | 3608 | 521 | 3087 |
+| Opnemen en storten open | 1408 | 159 | 1249 |
 | ...en geen netwerk dat aan beide kanten open is: valt af | 22 | 1 | 21 |
 | ...en opnamekosten onbekend: valt af | 0 | 0 | 0 |
-| ...en minstens €100,00 op het boek | 537 | 206 | 331 |
-| ...en minstens 2 minuten blijven staan | 165 | 75 | 90 |
-| ...en geen andere munt met dezelfde naam | 147 | 67 | 80 |
+| ...en minstens €100,00 op het boek | 420 | 90 | 330 |
+| ...en minstens 2 minuten blijven staan | 144 | 54 | 90 |
+| ...en geen andere munt met dezelfde naam | 126 | 46 | 80 |
 |    ...waarvan contractadres bekend en gelijk | 8 | 1 | 7 |
-|    ...waarvan contractadres onbekend (telt mee, kan een andere munt zijn) | 139 | 66 | 73 |
+|    ...waarvan contractadres onbekend (telt mee, kan een andere munt zijn) | 118 | 45 | 73 |
 |    ...waarvan netwerk gekoppeld en open | 67 | 12 | 55 |
-|    ...waarvan netwerk niet te koppelen (telt mee) | 80 | 55 | 25 |
-| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 102 | 67 | 47 |
-| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 192 | 53 | 158 |
+|    ...waarvan netwerk niet te koppelen (telt mee) | 59 | 34 | 25 |
+| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 81 | 46 | 47 |
+| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 188 | 49 | 158 |
 
 ## Echte kansen per dag (GEZIEN)
 
 | Dag | Echt, alleen MiCA | Echt, met grijs | Mediane winst per kans bij €500 (MiCA / grijs) | Mediane duur |
 |---|---|---|---|---|
-| 2026-11-19 | 55 | 47 | €2,43 / €1,20 | 4.3 min |
-| Totaal | 55 | 47 | €2,43 / €1,20 | 4.3 min |
+| 2026-11-19 | 34 | 47 | €2,01 / €1,20 | 5.0 min |
+| Totaal | 34 | 47 | €2,01 / €1,20 | 5.0 min |
 
 ## Beste munten (GEZIEN)
 
 | | Soort | Kansen | Som winst bij €500 per kans |
 |---|---|---|---|
-| MERL-EUR | vergund | 11 | €127,36 |
+| MERL-EUR | vergund | 11 | €105,36 |
 | LUNC-USDT | grijs | 7 | €34,44 |
-| GMT-EUR | vergund | 9 | €26,46 |
-| DYM-EUR | vergund | 21 | €24,84 |
-| LUNA-EUR | vergund | 6 | €20,65 |
-| AVA-EUR | vergund | 5 | €19,95 |
 | USTC-USDT | grijs | 5 | €19,89 |
 | YB-USDT | grijs | 1 | €16,34 |
 | WAN-USDT | grijs | 3 | €12,65 |
 | VERONA-USDT | grijs | 7 | €11,93 |
+| AVA-EUR | vergund | 4 | €11,22 |
+| LUNA-EUR | vergund | 4 | €10,37 |
+| GMT-EUR | vergund | 7 | €9,70 |
+| WARD-USDT | grijs | 2 | €5,46 |
 
 ## Beste beursparen (kopen op > verkopen op) (GEZIEN)
 
 | | Soort | Kansen | Som winst bij €500 per kans |
 |---|---|---|---|
-| bitvavo > kraken | vergund | 54 | €221,79 |
+| bitvavo > kraken | vergund | 33 | €140,60 |
 | kucoin > bitget | grijs | 7 | €20,42 |
 | kucoin > htx | grijs | 7 | €19,11 |
 | bitget > gate | grijs | 5 | €18,41 |
@@ -66,7 +67,7 @@ Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 | bitget > htx | grijs | 7 | €5,51 |
 | bitget > kucoin | grijs | 6 | €3,67 |
 
-Beurzen die het vaakst meedoen (koop of verkoop): bitvavo 54, kraken 54, bitget (grijs) 29, kucoin 24, htx (grijs) 21, gate 10, xt (grijs) 10, poloniex (grijs) 2 (GEZIEN).
+Beurzen die het vaakst meedoen (koop of verkoop): bitvavo 33, kraken 33, bitget (grijs) 29, kucoin 24, htx (grijs) 21, gate 10, xt (grijs) 10, poloniex (grijs) 2 (GEZIEN).
 
 ## Hoeveel kansen blijven staan terwijl je geld schuift? (GEZIEN, duur uit eigen metingen)
 
@@ -74,10 +75,10 @@ Wie geen voorraad op beide beurzen heeft, moet kopen, de munt opnemen, wachten t
 
 | Overmaaktijd | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| 5 min | 47 van 102 (46%) | 27 van 67 (40%) | 24 van 47 (51%) |
-| 10 min | 19 van 102 (19%) | 13 van 67 (19%) | 8 van 47 (17%) |
-| 30 min | 14 van 102 (14%) | 10 van 67 (15%) | 5 van 47 (11%) |
-| 60 min | 5 van 102 (5%) | 4 van 67 (6%) | 2 van 47 (4%) |
+| 5 min | 42 van 81 (52%) | 22 van 46 (48%) | 24 van 47 (51%) |
+| 10 min | 18 van 81 (22%) | 12 van 46 (26%) | 8 van 47 (17%) |
+| 30 min | 14 van 81 (17%) | 10 van 46 (22%) | 5 van 47 (11%) |
+| 60 min | 5 van 81 (6%) | 4 van 46 (9%) | 2 van 47 (4%) |
 
 ## Wat zou het opleveren over 3 maanden? (GOK, doorgetrokken uit de metingen)
 
@@ -85,14 +86,14 @@ Gemeten over ±6.9 uur (GEZIEN), doorgetrokken naar 90 dagen (GOK: aanname dat d
 
 | Beurzen | Inleg | Model | Kansen per uur | Per kans (mediaan) | 3 maanden |
 |---|---|---|---|---|---|
-| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.69 | €3,95 | €82.673,30 |
-| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 7.81 | €4,61 | €117.091,24 |
-| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.69 | €5,29 | €110.659,28 |
-| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 7.81 | €6,12 | €189.961,67 |
-| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 14.75 | €2,99 | €95.128,23 |
-| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 7.81 | €4,61 | €117.091,24 |
-| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 14.75 | €3,70 | €117.717,82 |
-| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 7.81 | €6,12 | €189.961,67 |
+| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 6.65 | €2,96 | €42.570,58 |
+| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 4.77 | €3,10 | €69.943,59 |
+| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 6.65 | €3,05 | €43.857,66 |
+| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 4.77 | €3,15 | €100.142,18 |
+| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 11.71 | €2,20 | €55.559,16 |
+| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 4.77 | €3,10 | €69.943,59 |
+| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 11.71 | €2,81 | €71.039,34 |
+| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 4.77 | €3,15 | €100.142,18 |
 
 Bovengrens: elke kans met de helft van de inleg aan elke kant, alsof het geld op alle beurzen tegelijk staat (kan in het echt niet). Beste beurspaar: het paar is **achteraf** gekozen uit de metingen (vooraf kiezen levert minder op), en het model neemt aan dat je van elke munt al voorraad op de verkoopbeurs hebt.
 
@@ -102,28 +103,28 @@ Waarom dit te rooskleurig is (GOK): elke kans wordt maar één keer geteld met h
 
 Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen het boek zoals gemeten (niet meer dan de ruimte op het boek en niet meer dan de voorraad op die beurs), terugschuiven als een kant leeg dreigt te raken (met opnamekosten en tijd onderweg), en het koerseffect van de aangehouden munten apart. Netto = bruto min kosten terugschuiven plus koerseffect. **Gemeten** (GEZIEN): de kansen, het boek en de koersen; **de rest is een rekenmodel** (GOK, aannames onder de tabel). Geen advies.
 
-**Met €150: netto €0,23 per dag op bitvavo - kraken (koerseffect erbovenop €-0,55), €0,40 per dag op gate - kucoin (koerseffect erbovenop €-0,35) (GOK: netto handel, rekenmodel op ±6.9 uur meting per dag, alleen MiCA).** "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
+**Met €150: netto €0,14 per dag op bitvavo - kraken (koerseffect erbovenop €-0,56), €0,40 per dag op gate - kucoin (koerseffect erbovenop €-0,35) (GOK: netto handel, rekenmodel op ±6.9 uur meting per dag, alleen MiCA).** "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
 
 ### Alleen MiCA-beurzen (alle paren met echte kansen)
 
 | Beurspaar | Inleg | Dag | Gemeten | Kansen | Gemist (geen voorraad) | Kleiner door voorraad | Bruto winst | Kosten terugschuiven | **Netto handel (bruto min kosten)** | Rendement handel | Koerseffect voorraad | Netto met koerseffect | Rendement met koerseffect |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitvavo - kraken | €100,00 | 2026-11-19 | 6.9 u | 54 | 54 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,37 | €-0,37 | -0.37% |
-| bitvavo - kraken | €150,00 | 2026-11-19 | 6.9 u | 54 | 47 | 7 | €0,23 | €0,00 (0x) | **€0,23** | 0.15% | €-0,55 | €-0,32 | -0.22% |
-| bitvavo - kraken | €200,00 | 2026-11-19 | 6.9 u | 54 | 47 | 7 | €0,31 | €0,00 (0x) | **€0,31** | 0.15% | €-0,74 | €-0,43 | -0.22% |
-| bitvavo - kraken | €2.000,00 | 2026-11-19 | 6.9 u | 54 | 36 | 18 | €10,70 | €6,60 (17x) | **€4,09** | 0.20% | €-7,38 | €-3,29 | -0.16% |
-| bitvavo - kraken | €5.000,00 | 2026-11-19 | 6.9 u | 54 | 35 | 19 | €25,42 | €10,52 (21x) | **€14,89** | 0.30% | €-18,42 | €-3,53 | -0.07% |
+| bitvavo - kraken | €100,00 | 2026-11-19 | 6.9 u | 33 | 33 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,37 | €-0,37 | -0.37% |
+| bitvavo - kraken | €150,00 | 2026-11-19 | 6.9 u | 33 | 27 | 6 | €0,14 | €0,00 (0x) | **€0,14** | 0.09% | €-0,56 | €-0,42 | -0.28% |
+| bitvavo - kraken | €200,00 | 2026-11-19 | 6.9 u | 33 | 27 | 6 | €0,19 | €0,00 (0x) | **€0,19** | 0.09% | €-0,74 | €-0,56 | -0.28% |
+| bitvavo - kraken | €2.000,00 | 2026-11-19 | 6.9 u | 33 | 18 | 15 | €12,21 | €7,04 (16x) | **€5,16** | 0.26% | €-7,46 | €-2,29 | -0.11% |
+| bitvavo - kraken | €5.000,00 | 2026-11-19 | 6.9 u | 33 | 16 | 17 | €21,57 | €10,65 (19x) | **€10,92** | 0.22% | €-18,58 | €-7,66 | -0.15% |
 | gate - kucoin | €100,00 | 2026-11-19 | 6.9 u | 13 | 7 | 6 | €0,27 | €0,00 (0x) | **€0,27** | 0.27% | €-0,23 | €0,03 | 0.03% |
 | gate - kucoin | €150,00 | 2026-11-19 | 6.9 u | 13 | 7 | 6 | €0,40 | €0,00 (0x) | **€0,40** | 0.27% | €-0,35 | €0,05 | 0.03% |
 | gate - kucoin | €200,00 | 2026-11-19 | 6.9 u | 13 | 7 | 6 | €0,53 | €0,00 (0x) | **€0,53** | 0.27% | €-0,47 | €0,06 | 0.03% |
 | gate - kucoin | €2.000,00 | 2026-11-19 | 6.9 u | 13 | 4 | 9 | €7,05 | €2,98 (9x) | **€4,07** | 0.20% | €-4,67 | €-0,60 | -0.03% |
 | gate - kucoin | €5.000,00 | 2026-11-19 | 6.9 u | 13 | 3 | 5 | €13,52 | €2,37 (7x) | **€11,15** | 0.22% | €-11,69 | €-0,54 | -0.01% |
 
-- bitvavo - kraken, €100,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT, SSV; bruto zonder voorraadgrens zou €884,13 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €150,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT, SSV; bruto zonder voorraadgrens zou €883,44 zijn, met voorraad €0,23 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €200,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT, SSV; bruto zonder voorraadgrens zou €883,21 zijn, met voorraad €0,31 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €2.000,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT, SSV; bruto zonder voorraadgrens zou €852,72 zijn, met voorraad €10,70 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €5.000,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT, SSV; bruto zonder voorraadgrens zou €805,76 zijn, met voorraad €25,42 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €100,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT; bruto zonder voorraadgrens zou €441,31 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €150,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT; bruto zonder voorraadgrens zou €440,90 zijn, met voorraad €0,14 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €200,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT; bruto zonder voorraadgrens zou €440,77 zijn, met voorraad €0,19 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €2.000,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT; bruto zonder voorraadgrens zou €421,07 zijn, met voorraad €12,21 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €5.000,00: munten AVA, DYM, GMT, LUNA, MERL, PROMPT; bruto zonder voorraadgrens zou €388,08 zijn, met voorraad €21,57 (GEZIEN boek, GOK model).
 - gate - kucoin, €100,00: munten ERG, IR, LUNC, USTC, VERONA; bruto zonder voorraadgrens zou €48,05 zijn, met voorraad €0,27 (GEZIEN boek, GOK model).
 - gate - kucoin, €150,00: munten ERG, IR, LUNC, USTC, VERONA; bruto zonder voorraadgrens zou €48,05 zijn, met voorraad €0,40 (GEZIEN boek, GOK model).
 - gate - kucoin, €200,00: munten ERG, IR, LUNC, USTC, VERONA; bruto zonder voorraadgrens zou €48,05 zijn, met voorraad €0,53 (GEZIEN boek, GOK model).
@@ -190,18 +191,18 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 
 | Keuze | Inleg | Kansen | Gemist | Bruto winst | Kosten terugschuiven | Netto handel |
 |---|---|---|---|---|---|---|
-| standaard (schuifdrempel 25%, kostengrens 1%) | €150,00 | 54 | 47 | €0,23 | €0,00 | **€0,23** |
-| standaard (schuifdrempel 25%, kostengrens 1%) | €2.000,00 | 54 | 36 | €10,70 | €6,60 | **€4,09** |
-| schuifdrempel 10% | €150,00 | 54 | 47 | €0,23 | €0,00 | **€0,23** |
-| schuifdrempel 10% | €2.000,00 | 54 | 36 | €14,31 | €6,93 | **€7,39** |
-| schuifdrempel 40% | €150,00 | 54 | 47 | €0,23 | €0,00 | **€0,23** |
-| schuifdrempel 40% | €2.000,00 | 54 | 33 | €14,50 | €9,53 | **€4,97** |
-| kostengrens 2% (achteraf vergeleken) | €150,00 | 54 | 47 | €0,23 | €0,00 | **€0,23** |
-| kostengrens 2% (achteraf vergeleken) | €2.000,00 | 54 | 35 | €11,35 | €10,52 | **€0,83** |
-| kostengrens 5% (achteraf vergeleken) | €150,00 | 54 | 47 | €0,23 | €1,00 | **€-0,77** |
-| kostengrens 5% (achteraf vergeleken) | €2.000,00 | 54 | 35 | €11,35 | €10,52 | **€0,83** |
-| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €150,00 | 20 | 18 | €0,34 | €0,00 | **€0,34** |
-| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €2.000,00 | 20 | 12 | €23,65 | €8,56 | **€15,09** |
+| standaard (schuifdrempel 25%, kostengrens 1%) | €150,00 | 33 | 27 | €0,14 | €0,00 | **€0,14** |
+| standaard (schuifdrempel 25%, kostengrens 1%) | €2.000,00 | 33 | 18 | €12,21 | €7,04 | **€5,16** |
+| schuifdrempel 10% | €150,00 | 33 | 27 | €0,14 | €0,00 | **€0,14** |
+| schuifdrempel 10% | €2.000,00 | 33 | 21 | €8,32 | €5,12 | **€3,20** |
+| schuifdrempel 40% | €150,00 | 33 | 27 | €0,14 | €0,00 | **€0,14** |
+| schuifdrempel 40% | €2.000,00 | 33 | 19 | €9,37 | €6,72 | **€2,65** |
+| kostengrens 2% (achteraf vergeleken) | €150,00 | 33 | 27 | €0,14 | €0,00 | **€0,14** |
+| kostengrens 2% (achteraf vergeleken) | €2.000,00 | 33 | 17 | €10,54 | €10,65 | **€-0,10** |
+| kostengrens 5% (achteraf vergeleken) | €150,00 | 33 | 24 | €0,18 | €2,48 | **€-2,31** |
+| kostengrens 5% (achteraf vergeleken) | €2.000,00 | 33 | 17 | €10,54 | €10,65 | **€-0,10** |
+| alleen MERL en AVA (meer voorraad per munt, achteraf gekozen) | €150,00 | 15 | 13 | €0,19 | €0,00 | **€0,19** |
+| alleen MERL en AVA (meer voorraad per munt, achteraf gekozen) | €2.000,00 | 15 | 9 | €13,48 | €5,60 | **€7,88** |
 
 Kostengrens: terugschuiven mag alleen als de opnamekosten hooguit dat deel van het bedrag zijn. De standaard van 1% is **achteraf** gekozen, nadat bleek dat bij 5% de kosten de winst opaten; de rijen met 2% en 5% laten zien hoeveel de uitkomst van die ene regel afhangt. Bij "alleen ..." tellen de kansen in andere munten niet mee (je hebt die munten dan niet).
 
@@ -221,7 +222,7 @@ Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); 
 
 ## Over de meting
 
-- Opnamekosten bij de echte kansen: 26 van een netwerk dat aan beide kanten open is, 70 van de beurs zelf (laagste open netwerk), 6 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
+- Opnamekosten bij de echte kansen: 26 van een netwerk dat aan beide kanten open is, 49 van de beurs zelf (laagste open netwerk), 6 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
 - Netwerk: KuCoin, Gate, Bitget, HTX, XT, Bitstamp, Bitvavo en Poloniex geven hun netwerken per munt. Als beide beurzen dat doen en de namen te koppelen zijn, moet er een netwerk zijn dat aan beide kanten open is. Anders is het netwerk "niet te koppelen" en telt de kans mee (staat apart in de trechter).
 - De duur is gemeten in stappen van ±20 seconden; een kans kan een paar rondes eerder begonnen zijn dan we zagen.
 - Takerkosten: uit de API waar die ze per paar geeft, anders het standaardtarief uit de README (deels GOK).
