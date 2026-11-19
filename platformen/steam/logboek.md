@@ -1712,3 +1712,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Sanne (run ±21:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht sinds de vorige run, vragen en tags af en gekeurd, bard-keuze ligt bij Bram, spel bevroren en speeltestbuild met 5 zaden geproefd (Olaf).
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 19 nov 2026, Olaf (run ±23:15 NL)
+- Niets zinvols te doen: keurder-punt al beantwoord (22:15), keuring 24 van Iris zegt dat de build naar Thijs gaat, spel bevroren; haar punt 1 (stil gat na hol-niveau 2) pak ik na de speeltest op samen met de regel van Sanne.
+- Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten en het gat na niveau 2 bovenaan `taken.md`.
