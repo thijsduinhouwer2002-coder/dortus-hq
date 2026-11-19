@@ -420,3 +420,35 @@ In Click Joints (gratis en Pro) staat nu onderaan het tabblad een kleine knop "R
 
 ## 19 nov 2026 ±01:05 NL, van R5 (roestagent): de 12 veranderde plaatjes van Click Joints komen door de meldknop, zo bedoeld
 De beeldvergelijking van R4 meldde na eb02ba15 12 plaatjes met grote verschillen. Nagekeken (GEZIEN, oud plaatje van schermen-commit 34ec3d98 naast het nieuwe van run 44421652381): de enige echte verandering is de regel "Report a problem" onderaan het hoofdpaneel. Bij `1-paneel-x` en `10-winkel-paneel-x` is dat precies die ene band (y 680 tot 695 en 810 tot 848). Bij `15` tot `19` (figuur, rig, heel, mens) is het paneel naar beneden gescrold tot "Figure joints"; de extra regel schuift alles erboven één regel omhoog, daarom lijkt 22 tot 30 procent van het paneel anders. Inhoud, knoppen en volgorde zijn verder gelijk. Geen actie nodig, behalve dat de winkelplaatjes bij een volgende uitgave de knop tonen (Daan laten kijken). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 01:07 NL, van de week-test (automatisch): Click Joints tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44422987860
+- BEELD: 12 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-blender-gewrichten-5.2.4-stable, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  1-paneel-x.png: 495 px (0.024%), x 1304 tot 1474, y 680 tot 695
+  10-winkel-paneel-x.png: 9266 px (0.447%), x 1636 tot 1889, y 810 tot 848
+  15-figuur-paneel.png: 76050 px (29.003%), x 20 tot 247, y 0 tot 661
+  15-figuur-x.png: 76050 px (3.668%), x 1304 tot 1531, y 81 tot 742
+  16-figuur-rig-paneel.png: 75356 px (28.738%), x 20 tot 247, y 0 tot 661
+  16-figuur-rig-x.png: 75356 px (3.634%), x 1304 tot 1531, y 81 tot 742
+  17-figuur-heel-paneel.png: 57080 px (21.768%), x 20 tot 247, y 0 tot 535
+  17-figuur-heel-x.png: 57080 px (2.753%), x 1304 tot 1531, y 81 tot 616
+- BEELD: 12 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-blender-gewrichten-5.3.0, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  1-paneel-x.png: 495 px (0.024%), x 1304 tot 1474, y 680 tot 695
+  10-winkel-paneel-x.png: 9266 px (0.447%), x 1636 tot 1889, y 810 tot 848
+  15-figuur-paneel.png: 76046 px (29.001%), x 20 tot 247, y 0 tot 661
+  15-figuur-x.png: 76046 px (3.667%), x 1304 tot 1531, y 81 tot 742
+  16-figuur-rig-paneel.png: 75174 px (28.669%), x 20 tot 247, y 0 tot 661
+  16-figuur-rig-x.png: 75174 px (3.625%), x 1304 tot 1531, y 81 tot 742
+  17-figuur-heel-paneel.png: 56898 px (21.699%), x 20 tot 247, y 0 tot 535
+  17-figuur-heel-x.png: 56898 px (2.744%), x 1304 tot 1531, y 81 tot 616
+- BEELD: 12 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-blender-gewrichten-5.4.0-alpha, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  1-paneel-x.png: 495 px (0.024%), x 1304 tot 1474, y 680 tot 695
+  10-winkel-paneel-x.png: 9266 px (0.447%), x 1636 tot 1889, y 810 tot 848
+  15-figuur-paneel.png: 76046 px (29.001%), x 20 tot 247, y 0 tot 661
+  15-figuur-x.png: 76046 px (3.667%), x 1304 tot 1531, y 81 tot 742
+  16-figuur-rig-paneel.png: 75174 px (28.669%), x 20 tot 247, y 0 tot 661
+  16-figuur-rig-x.png: 75174 px (3.625%), x 1304 tot 1531, y 81 tot 742
+  17-figuur-heel-paneel.png: 56898 px (21.699%), x 20 tot 247, y 0 tot 535
+  17-figuur-heel-x.png: 56898 px (2.744%), x 1304 tot 1531, y 81 tot 616
+Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
