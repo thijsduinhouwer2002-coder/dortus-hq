@@ -20,7 +20,7 @@ Opdracht hoofdchat 19 nov 09:20 NL. Alles hier is klaar om te plakken of te uplo
 - Mijn advies: **niet doen**. $49 per maand vraagt ±5 verkopen per maand alleen om quitte te spelen (GOK, rekensom), en de gratis versie staat al op extensions.blender.org (234 downloads, GEZIEN 18 nov). Wil Thijs het toch: zip `producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip` (gelijk aan Extensions) als variant "Free (ball joints only)" $0.
 
 ## Tags (max die het formulier toelaat; de 9 van 15 nov aanvullen met de woorden van de koper)
-`3d printing`, `3d print`, `joints`, `ball joint`, `hinge`, `articulated`, `poseable`, `action figure`, `figure`, `rig to print`, `print in place`, `stl`, `3mf`, `cosplay`, `miniature`
+`3d printing`, `3d print`, `joints`, `ball joint`, `hinge`, `articulated`, `poseable`, `action figure`, `figure`, `rig to print`, `posable`, `stl`, `3mf`, `cosplay`, `miniature`
 
 ## Producttekst (Engels, na goedkeuring plakken in plaats van de tekst van 15 nov)
 
@@ -48,7 +48,7 @@ Good to know:
 - Pure Python, no other add-ons needed.
 - Support: the Superhive inbox, or https://github.com/thijsduinhouwer2002-coder/click-joints/issues
 
-Nagekeken tegen de code en de beelden: knoppen Shoulder, Elbow, Hip, Knee, Ankle, Neck en "Place hinge, bends up to: 90° 115° 135°" staan in het paneel (beeld 1 en 4); 0 tot 115 en "+3° past limit" in beeld 2 en 3; 0,2 mm in het paneel (Clearance 0.20). Geen woord over AI, geen "I".
+Nagekeken tegen de code en de beelden: knoppen Shoulder, Elbow, Hip, Knee, Ankle, Neck en "Place hinge, bends up to: 90° 115° 135°" staan in het paneel (beeld 1 en 6); 0 tot 115 en "+3° past limit" in beeld 2 en 3; 0,2 mm in het paneel (Clearance 0.20). Geen woord over AI, geen "I".
 
 ## Beelden (map `beelden/`, allemaal 2:1, echte schermen uit Blender 5.3.0)
 Superhive eist minstens 5 beelden in 2:1, aanbevolen 1200 x 600 (DERDEN, artikel 41), en geen Blender-logo als ontwerpelement (artikel 253). De menubalk met het logo is er overal af gesneden.
@@ -58,11 +58,11 @@ Superhive eist minstens 5 beelden in 2:1, aanbevolen 1200 x 600 (DERDEN, artikel
 | 1 (uitgelicht) | `1-figuur-van-rig.png` | MakeHuman-figuur (CC0) na Figure from rig, knieën 120°, ellebogen 140°, paneel rechts | `19-mens-x.png` |
 | 2 | `2-knie-boog-0-115.png` | knie met gradenboog 0° tot 115° | `13-pro-knie-x.png` |
 | 3 | `3-rood-voorbij-de-stop.png` | rood, "+3° past limit" | `14-pro-knie-rood-x.png` |
-| 4 | `4-figuur-rig-scharnieren.png` | hele figuur, 4 scharnieren en kogels na één knop | `17-figuur-heel-x.png` |
-| 5 | `5-groene-passing.png` | groene passingband dichtbij | `13d-pro-knie-dicht-x.png` |
-| 6 | `6-kogel-rood-gratis-deel.png` | kogel met rood voorbij 20° (zit ook in gratis) | `9-winkel-rood-x.png` |
+| 4 | `4-groene-passing.png` | groene passingband dichtbij | `13d-pro-knie-dicht-x.png` |
+| 5 | `5-kogel-rood-gratis-deel.png` | kogel met rood voorbij 20° (zit ook in gratis) | `9-winkel-rood-x.png` |
+| 6 | `6-figuur-rig-scharnieren.png` | hele figuur, 4 scharnieren en kogels na één knop (achteraan, kan-punt Daan) | `17-figuur-heel-x.png` |
 
-Bron: tak `schermen`, `referentie/blender-gewrichten/main/5.3.0/`, run 44438033323. Beeld 1 en 4 zijn het hele scherm met een donkere rand links en rechts tot 2:1 (anders viel de figuur eraf); de rest is bijgesneden 1920 x 960. Demofilm v3 blijft de eerste preview (release `click-joints-pro-film-v1`), al toont die nog de knie zonder Figure from rig.
+Bron: tak `schermen`, `referentie/blender-gewrichten/main/5.3.0/`, run 44438033323. Beeld 1 (19 nov 10:20 UTC, kan-punt Daan): figuur en paneel uitgesneden, links één regel tekst "From rig to poseable print in one click." in Inter, dan 1920 x 960. Beeld 6 is het hele scherm met een donkere rand tot 2:1; de rest is bijgesneden 1920 x 960. Label 115° in beeld 3 vrijmaken vraagt een nieuwe opname: bij een volgende run. Demofilm v3 blijft de eerste preview (release `click-joints-pro-film-v1`), al toont die nog de knie zonder Figure from rig.
 
 ## Zip
 Na goedkeuring 1.1.0 uploaden (de pagina heeft nu 1.0.1). Workflow `click-joints-pro-uitgave.yml` met een groene e2e-run op main maakt artefact `click-joints-pro-zip-1.1.0`. Het artefact van 1.0.2 is verlopen op 19 nov 04:41 UTC; 1.1.0 is nieuwer en vervangt het.
