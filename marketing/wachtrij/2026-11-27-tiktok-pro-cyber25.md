@@ -1,6 +1,6 @@
 # Click Joints Pro 25% off (Black Friday)
 
-- status: open
+- status: rood
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -29,6 +29,19 @@ A hinge that stops at 115° and turns red when you bend past it? Click Joints Pr
 - Geen "link in bio", geen klikbare link, geen "clicks"-belofte, geen "print-ready". Korting = oranje volgens `marketing/REGELS.md`.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Roep-Keurder, 19 nov 2026 ±21:00 NL
+- 1 bron klopt: nee, in het beeld (vanaf ±10 s) staat "a print-ready hinge with a real end stop", terwijl de bronnen zeggen "not printed yet" en Daan "print-ready" afkeurde; ook staat CYBER25 nog niet in Gumroad (wacht op de HP-sessie van Thijs)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (6 beelden op 0, 1, 4, 8, 12 en 16 s; GOED -16,9 dB)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja (haak "25% off" in de eerste seconde)
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: media-URL 200 goed; eerste reactie leeg goed; geen Gumroad-adres, geen klikbare link goed; dortus.com/tt zelf niet te controleren (proxy 403); korting is bovendien oranje volgens REGELS
+- uitkomst: rood
+- reden: het beeld belooft "print-ready" tegen de bronnen in en de korting bestaat nog niet; maak een v2 met een knip zonder die regel, zodra CYBER25 staat.
 
 ## Oranje-besluit
