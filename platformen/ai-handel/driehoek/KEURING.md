@@ -97,3 +97,33 @@ Akkoord: **nee**, nog één moet-punt: het samenvoegen tot één kans is te ruim
 H9 nagekeken (skill `actions`, 16:17 UTC): run 44563925310 voor de push van deze herkeuring (c3336d63, alleen KEURING.md): job klok OK, job meet **overgeslagen**; de vaste run 44562420725 (ee5dcf62) loopt door. Een push met alleen tekst herstart de meting dus niet meer (GEZIEN).
 
 akkoord nee: moet 1 (samenvoegen tot één kans te ruim: open-tijd, ketting, gedeeld hoofdpaar)
+
+## Tweede herkeuring, 19 nov 2026 ±16:40 UTC, keurder (dezelfde losse Claude, niet de bouwer)
+Wat ik keurde: commit 5ad279ea op main (`kans.py`, `rapport.py`, `kosten.py`, `test_driehoek.py`, workflow,
+README, ontwerp); data op `ai-handel-data` tot 3ebeb2ed (16:30 UTC), waaronder de afgebroken run 44562420725 en
+een eigen proefrun van 3 minuten (44566193252, via opdrachtbestand) met deze code.
+Akkoord: **ja**. Het moet-punt over samenvoegen is opgelost en de kan-punten zijn verwerkt.
+
+| # | Punt | Uitkomst | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| T1 | Geval (a): alleen BTC/EUR gedeeld | EUR>BTC>X en EUR>BTC>Y tegelijk: **2 kansen** (nagespeeld met `kans.kansen`). Paren van twee hoofdmunten tellen niet mee als reden. | feit | hoog |
+| T2 | Geval (b): ketting | EUR>BTC>X, EUR>USDT>X, EUR>USDT>Z: 2 kansen (de eerste twee delen X/EUR, terecht samen; Z apart). Ketting met alt-paren (EUR>X>Y, EUR>Y>Z, EUR>Z>W): 2 kansen, nooit A en C samen. Een driehoek komt alleen in een groep als hij met elk lid samen mag. | feit | hoog |
+| T3 | Geval (c): lange open-tijd | Tijd is nu het moment van `na_3s`, binnen 5 s. Zelfde X/BTC 80 minuten uit elkaar: 2 kansen; 6 s uit elkaar: 2; andere beurs: 2. Zelfde X/BTC via EUR en USDT binnen 2 s: 1 kans (dubbel tellen blijft weg). | feit | hoog |
+| T4 | MEXC-data van vandaag | De regels van vandaag (vóór 16:07) hebben geen `na_3s`; ik gaf ze voor deze proef een `na_3s` op hun eindtijd. 53 driehoeken worden 49 kansen. Samen: USDT>SOL>BTC, USDC>SOL>BTC, EUR>SOL>BTC en BTC>BRL>SOL om 16:02:08 (delen allemaal SOL/BTC: terecht één kans). BDX en SOL werden nooit binnen 5 s van elkaar bevestigd, dus niet samen; en als ze dat wel waren, delen ze alleen BTCUSDT en blijven ze apart (T1). Klopt. | feit | hoog |
+| T5 | Twee getallen | Kort antwoord, trechter, per dag en opschaling tonen samengevoegd (ondergrens) en los (bovengrens), bijvoorbeeld "1,0 / 2,0" en "€5,00 / €8,00" in de test. | feit | hoog |
+| T6 | `python3 -I` vindt kans.py | `rapport.py` zet zijn eigen map vooraan in het zoekpad (alleen de map van de code, niet de datamap). Lokaal met `python3 -I` vanuit `/` op de data van de tak: werkt. Op een runner: proefrun 44566193252 groen, `opslaan.sh` zette om 16:30:30 commit 3ebeb2ed op de tak, en `rapport.md` op de tak is nu het nieuwe rapport (met kort antwoord en "samengevoegd / los"). | feit | hoog |
+| T7 | Afgebroken run met de nieuwe code | Run 44562420725 (ee5dcf62) werd om 16:21 afgebroken door de push van 5ad279ea (code, dus terecht). Data staat op de tak (commit 0a73315b, 16:21:21) met `samenvatting.json`: 13,9 minuten, 8 beurzen. | feit | hoog |
+| T8 | Kan-punten | Zin over regels van vóór 16:07 UTC staat in het rapport. `scanner/beurzen.py` zit in het paths-filter, met reden in de workflow. USDGO op 0,20% met bron (DERDEN). | feit | hoog |
+| T9 | Tests | driehoek 32, scanner 31, radar 22: alle groen (zelf gedraaid). Nieuwe tests voor (a), (b), (c) en voor 5 s / andere beurs. De oude samenvoegtest is vervangen door strengere gevallen, niet zwakker gemaakt. | feit | hoog |
+| T10 | Eerste echte data met `na_3s` | Run 44562420725: 3 driehoeken met winst, alle MEXC. USDT>LUNC>USDC>USDT had €100 diepte, maar de twee metingen lagen **2,9 s** uit elkaar (`duur_100_s` 2,9), dus niet bevestigd. Op beurzen met een ritme van 3 s (OKX, KuCoin, Bitget, MEXC) liggen twee metingen na elkaar soms net onder 3 s; dan zijn er drie metingen nodig (±6 s). Iets strenger dan "twee metingen na elkaar" in de README. | feit | hoog |
+
+### Moet
+Geen.
+
+### Kan (mag later)
+1. T10: een kleine marge in de duur (bijvoorbeeld 2,5 s), of in README en rapport schrijven dat het op beurzen met 3 s ritme soms drie metingen zijn.
+2. De zin "Daar zat ook niets in dat 3 seconden met €100 diepte stond" staat vast in de code; klopt nu (nagekeken in de herkeuring), maar laat hem liever uitrekenen.
+
+Opmerking: voor deze keuring zette ik twee opdrachtbestanden op main (`organisatie/opdrachten/2026-11-19-keurder-driehoek-*.json`): één om een log op te halen (er bleek geen log van afgebroken runs te zijn) en één voor de proefrun van 3 minuten. Er is geen geld uitgegeven en niets veranderd aan de code.
+
+akkoord ja
