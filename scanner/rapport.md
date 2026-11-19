@@ -1,41 +1,41 @@
 # Rapport koersverschil-scanner
 
-Gemaakt 2026-11-19 20:39 UTC uit 16 runs, samen ±11.8 uur gemeten (GEZIEN).
+Gemaakt 2026-11-19 21:09 UTC uit 16 runs, samen ±12.3 uur gemeten (GEZIEN).
 Echte kans = winst na alle kosten (opnamekosten bekend), opnemen en storten open (en een netwerk dat aan beide kanten open is, als de beurzen dat geven), minstens €100,00 op het boek, minstens 2 minuten blijven staan, geen andere munt met dezelfde naam.
 **Vergund** = beide beurzen hebben een MiCA-vergunning (ESMA-register), vaak via een EU-dochter die minder munten kan hebben dan de wereldwijde API die we meten (GOK). **Grijs** = minstens één beurs zonder vergunning (MEXC, Bitget, HTX, Poloniex, XT, Bitfinex, Binance). Zie README.md.
 **Kraken-tarief:** Kraken rekent 0,80% taker op munt tegen EUR, USD, USDT of USDC (GEZIEN, kraken.com/pro/fees, laagste trede); de scanner rekende tot 19 nov met 0,40%. 399 opgeslagen kansen met Kraken uit die runs zijn hier **opnieuw doorgerekend met 0,80%** (GOK-benadering: 0,40% van de inzet aan de Kraken-kant extra op elk gemeten punt van het boek; het boek zelf is niet bewaard). 233 houden daarna nog winst op het boek. Dat ze met hogere kosten ook korter bleven staan, telt niet mee (dus eerder te gunstig).
 
 ## Hoeveel wordt er gecontroleerd? (GEZIEN, stand.jsonl)
 
-Per ronde (mediaan over 142 metingen): 1054 kandidaten (verschil op de ticker groter dan de takerkosten), 120 met het orderboek gecontroleerd, 3 nog nooit gecontroleerd (0%).
+Per ronde (mediaan over 148 metingen): 1054 kandidaten (verschil op de ticker groter dan de takerkosten), 120 met het orderboek gecontroleerd, 2 nog nooit gecontroleerd (0%).
 Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 
 ## Trechter (GEZIEN, eigen metingen)
 
 | Stap | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| Verschillen met winst op het boek na alle kosten | 11134 | 1514 | 9620 |
-| ...waarvan opnemen of storten dicht | 2656 | 239 | 2417 |
-| ...waarvan status onbekend (beurs geeft het niet openbaar) | 6458 | 1048 | 5410 |
-| Opnemen en storten open | 2020 | 227 | 1793 |
-| ...en geen netwerk dat aan beide kanten open is: valt af | 25 | 1 | 24 |
+| Verschillen met winst op het boek na alle kosten | 11601 | 1623 | 9978 |
+| ...waarvan opnemen of storten dicht | 2753 | 256 | 2497 |
+| ...waarvan status onbekend (beurs geeft het niet openbaar) | 6760 | 1132 | 5628 |
+| Opnemen en storten open | 2088 | 235 | 1853 |
+| ...en geen netwerk dat aan beide kanten open is: valt af | 29 | 2 | 27 |
 | ...en opnamekosten onbekend: valt af | 0 | 0 | 0 |
-| ...en minstens €100,00 op het boek | 593 | 131 | 462 |
-| ...en minstens 2 minuten blijven staan | 198 | 70 | 128 |
-| ...en geen andere munt met dezelfde naam | 175 | 60 | 115 |
-|    ...waarvan contractadres bekend en gelijk | 14 | 2 | 12 |
+| ...en minstens €100,00 op het boek | 604 | 134 | 470 |
+| ...en minstens 2 minuten blijven staan | 199 | 70 | 129 |
+| ...en geen andere munt met dezelfde naam | 176 | 60 | 116 |
+|    ...waarvan contractadres bekend en gelijk | 15 | 2 | 13 |
 |    ...waarvan contractadres onbekend (telt mee, kan een andere munt zijn) | 161 | 58 | 103 |
-|    ...waarvan netwerk gekoppeld en open | 102 | 18 | 84 |
+|    ...waarvan netwerk gekoppeld en open | 103 | 18 | 85 |
 |    ...waarvan netwerk niet te koppelen (telt mee) | 73 | 42 | 31 |
-| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 118 | 60 | 73 |
-| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 340 | 83 | 289 |
+| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 119 | 60 | 74 |
+| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 350 | 86 | 298 |
 
 ## Echte kansen per dag (GEZIEN)
 
 | Dag | Echt, alleen MiCA | Echt, met grijs | Mediane winst per kans bij €500 (MiCA / grijs) | Mediane duur |
 |---|---|---|---|---|
-| 2026-11-19 | 45 | 73 | €2,00 / €1,05 | 5.3 min |
-| Totaal | 45 | 73 | €2,00 / €1,05 | 5.3 min |
+| 2026-11-19 | 45 | 74 | €2,00 / €1,10 | 5.3 min |
+| Totaal | 45 | 74 | €2,00 / €1,10 | 5.3 min |
 
 ## Beste munten (GEZIEN)
 
@@ -67,7 +67,7 @@ Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 | htx > xt | grijs | 4 | €10,41 |
 | bitget > htx | grijs | 13 | €8,77 |
 
-Beurzen die het vaakst meedoen (koop of verkoop): bitget (grijs) 42, kraken 41, bitvavo 39, kucoin 38, htx (grijs) 36, xt (grijs) 18, gate 17, poloniex (grijs) 3 (GEZIEN).
+Beurzen die het vaakst meedoen (koop of verkoop): bitget (grijs) 43, kraken 41, bitvavo 39, kucoin 38, htx (grijs) 36, gate 18, xt (grijs) 18, poloniex (grijs) 3 (GEZIEN).
 
 ## Hoeveel kansen blijven staan terwijl je geld schuift? (GEZIEN, duur uit eigen metingen)
 
@@ -75,25 +75,25 @@ Wie geen voorraad op beide beurzen heeft, moet kopen, de munt opnemen, wachten t
 
 | Overmaaktijd | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| 5 min | 63 van 118 (53%) | 31 van 60 (52%) | 38 van 73 (52%) |
-| 10 min | 32 van 118 (27%) | 19 van 60 (32%) | 17 van 73 (23%) |
-| 30 min | 21 van 118 (18%) | 14 van 60 (23%) | 9 van 73 (12%) |
-| 60 min | 7 van 118 (6%) | 5 van 60 (8%) | 3 van 73 (4%) |
+| 5 min | 63 van 119 (53%) | 31 van 60 (52%) | 38 van 74 (51%) |
+| 10 min | 32 van 119 (27%) | 19 van 60 (32%) | 17 van 74 (23%) |
+| 30 min | 21 van 119 (18%) | 14 van 60 (23%) | 9 van 74 (12%) |
+| 60 min | 7 van 119 (6%) | 5 van 60 (8%) | 3 van 74 (4%) |
 
 ## Wat zou het opleveren over 3 maanden? (GOK, doorgetrokken uit de metingen)
 
-Gemeten over ±11.8 uur (GEZIEN), doorgetrokken naar 90 dagen (GOK: aanname dat de week die we maten gewoon is).
+Gemeten over ±12.3 uur (GEZIEN), doorgetrokken naar 90 dagen (GOK: aanname dat de week die we maten gewoon is).
 
 | Beurzen | Inleg | Model | Kansen per uur | Per kans (mediaan) | 3 maanden |
 |---|---|---|---|---|---|
-| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 5.07 | €2,73 | €29.873,92 |
-| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.30 | €3,10 | €51.120,36 |
-| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 5.07 | €3,05 | €33.437,66 |
-| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.30 | €3,41 | €73.945,25 |
-| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.97 | €1,58 | €34.081,68 |
-| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.30 | €3,10 | €51.120,36 |
-| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.97 | €1,85 | €39.858,35 |
-| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.30 | €3,41 | €73.945,25 |
+| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 4.86 | €2,73 | €28.662,85 |
+| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.16 | €3,10 | €49.047,96 |
+| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 4.86 | €3,05 | €32.082,11 |
+| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.16 | €3,41 | €70.947,54 |
+| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.65 | €1,58 | €33.013,61 |
+| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.16 | €3,10 | €49.047,96 |
+| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.65 | €1,92 | €39.938,95 |
+| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 3.16 | €3,41 | €70.947,54 |
 
 Bovengrens: elke kans met de helft van de inleg aan elke kant, alsof het geld op alle beurzen tegelijk staat (kan in het echt niet). Beste beurspaar: het paar is **achteraf** gekozen uit de metingen (vooraf kiezen levert minder op), en het model neemt aan dat je van elke munt al voorraad op de verkoopbeurs hebt.
 
@@ -103,27 +103,27 @@ Waarom dit te rooskleurig is (GOK): elke kans wordt maar één keer geteld met h
 
 Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen het boek zoals gemeten (niet meer dan de ruimte op het boek en niet meer dan de voorraad op die beurs), terugschuiven als een kant leeg dreigt te raken (met opnamekosten en tijd onderweg), en het koerseffect van de aangehouden munten apart. Netto = bruto min kosten terugschuiven plus koerseffect. **Gemeten** (GEZIEN): de kansen, het boek en de koersen; **de rest is een rekenmodel** (GOK, aannames onder de tabel). Geen advies.
 
-**Met €150: netto €1,78 per dag op bitstamp - kraken (koerseffect erbovenop €1,20), €0,14 per dag op bitvavo - kraken (koerseffect erbovenop €-0,91), €0,39 per dag op gate - kucoin (koerseffect erbovenop €-1,89) (GOK: netto handel, rekenmodel op ±11.8 uur meting per dag, alleen MiCA).** "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
+**Met €150: netto €1,78 per dag op bitstamp - kraken (koerseffect erbovenop €1,83), €0,14 per dag op bitvavo - kraken (koerseffect erbovenop €-0,69), €0,39 per dag op gate - kucoin (koerseffect erbovenop €-1,53) (GOK: netto handel, rekenmodel op ±12.3 uur meting per dag, alleen MiCA).** "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
 
 ### Alleen MiCA-beurzen (alle paren met echte kansen)
 
 | Beurspaar | Inleg | Dag | Gemeten | Kansen | Gemist (geen voorraad) | Kleiner door voorraad | Bruto winst | Kosten terugschuiven | **Netto handel (bruto min kosten)** | Rendement handel | Koerseffect voorraad | Netto met koerseffect | Rendement met koerseffect |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitstamp - kraken | €100,00 | 2026-11-19 | 11.8 u | 2 | 1 | 1 | €1,18 | €0,00 (0x) | **€1,18** | 1.18% | €0,80 | €1,98 | 1.98% |
-| bitstamp - kraken | €150,00 | 2026-11-19 | 11.8 u | 2 | 1 | 1 | €1,78 | €0,00 (0x) | **€1,78** | 1.18% | €1,20 | €2,97 | 1.98% |
-| bitstamp - kraken | €200,00 | 2026-11-19 | 11.8 u | 2 | 1 | 1 | €2,37 | €0,00 (0x) | **€2,37** | 1.18% | €1,60 | €3,97 | 1.98% |
-| bitstamp - kraken | €2.000,00 | 2026-11-19 | 11.8 u | 2 | 1 | 0 | €11,71 | €0,00 (0x) | **€11,71** | 0.59% | €15,99 | €27,70 | 1.38% |
-| bitstamp - kraken | €5.000,00 | 2026-11-19 | 11.8 u | 2 | 1 | 0 | €11,71 | €0,00 (0x) | **€11,71** | 0.23% | €39,97 | €51,68 | 1.03% |
-| bitvavo - kraken | €100,00 | 2026-11-19 | 11.8 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,61 | €-0,61 | -0.61% |
-| bitvavo - kraken | €150,00 | 2026-11-19 | 11.8 u | 39 | 33 | 6 | €0,14 | €0,00 (0x) | **€0,14** | 0.09% | €-0,91 | €-0,77 | -0.52% |
-| bitvavo - kraken | €200,00 | 2026-11-19 | 11.8 u | 39 | 33 | 6 | €0,19 | €0,00 (0x) | **€0,19** | 0.09% | €-1,22 | €-1,03 | -0.52% |
-| bitvavo - kraken | €2.000,00 | 2026-11-19 | 11.8 u | 39 | 24 | 15 | €12,21 | €7,04 (16x) | **€5,16** | 0.26% | €-12,12 | €-6,96 | -0.35% |
-| bitvavo - kraken | €5.000,00 | 2026-11-19 | 11.8 u | 39 | 18 | 21 | €24,25 | €13,56 (22x) | **€10,69** | 0.21% | €-30,34 | €-19,64 | -0.39% |
-| gate - kucoin | €100,00 | 2026-11-19 | 11.8 u | 19 | 12 | 7 | €0,26 | €0,00 (0x) | **€0,26** | 0.26% | €-1,26 | €-1,00 | -1.00% |
-| gate - kucoin | €150,00 | 2026-11-19 | 11.8 u | 19 | 12 | 7 | €0,39 | €0,00 (0x) | **€0,39** | 0.26% | €-1,89 | €-1,50 | -1.00% |
-| gate - kucoin | €200,00 | 2026-11-19 | 11.8 u | 19 | 12 | 7 | €0,52 | €0,00 (0x) | **€0,52** | 0.26% | €-2,52 | €-2,00 | -1.00% |
-| gate - kucoin | €2.000,00 | 2026-11-19 | 11.8 u | 19 | 6 | 13 | €8,28 | €4,02 (14x) | **€4,26** | 0.21% | €-25,18 | €-20,93 | -1.05% |
-| gate - kucoin | €5.000,00 | 2026-11-19 | 11.8 u | 19 | 4 | 10 | €17,16 | €3,65 (12x) | **€13,51** | 0.27% | €-63,00 | €-49,49 | -0.99% |
+| bitstamp - kraken | €100,00 | 2026-11-19 | 12.3 u | 2 | 1 | 1 | €1,18 | €0,00 (0x) | **€1,18** | 1.18% | €1,22 | €2,40 | 2.40% |
+| bitstamp - kraken | €150,00 | 2026-11-19 | 12.3 u | 2 | 1 | 1 | €1,78 | €0,00 (0x) | **€1,78** | 1.18% | €1,83 | €3,61 | 2.40% |
+| bitstamp - kraken | €200,00 | 2026-11-19 | 12.3 u | 2 | 1 | 1 | €2,37 | €0,00 (0x) | **€2,37** | 1.18% | €2,44 | €4,81 | 2.40% |
+| bitstamp - kraken | €2.000,00 | 2026-11-19 | 12.3 u | 2 | 1 | 0 | €11,71 | €0,00 (0x) | **€11,71** | 0.59% | €24,42 | €36,12 | 1.81% |
+| bitstamp - kraken | €5.000,00 | 2026-11-19 | 12.3 u | 2 | 1 | 0 | €11,71 | €0,00 (0x) | **€11,71** | 0.23% | €61,04 | €72,75 | 1.45% |
+| bitvavo - kraken | €100,00 | 2026-11-19 | 12.3 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,46 | €-0,46 | -0.46% |
+| bitvavo - kraken | €150,00 | 2026-11-19 | 12.3 u | 39 | 33 | 6 | €0,14 | €0,00 (0x) | **€0,14** | 0.09% | €-0,69 | €-0,55 | -0.37% |
+| bitvavo - kraken | €200,00 | 2026-11-19 | 12.3 u | 39 | 33 | 6 | €0,19 | €0,00 (0x) | **€0,19** | 0.09% | €-0,92 | €-0,74 | -0.37% |
+| bitvavo - kraken | €2.000,00 | 2026-11-19 | 12.3 u | 39 | 24 | 15 | €12,21 | €7,04 (16x) | **€5,16** | 0.26% | €-9,19 | €-4,03 | -0.20% |
+| bitvavo - kraken | €5.000,00 | 2026-11-19 | 12.3 u | 39 | 18 | 21 | €24,25 | €13,56 (22x) | **€10,69** | 0.21% | €-22,98 | €-12,29 | -0.25% |
+| gate - kucoin | €100,00 | 2026-11-19 | 12.3 u | 19 | 12 | 7 | €0,26 | €0,00 (0x) | **€0,26** | 0.26% | €-1,02 | €-0,76 | -0.76% |
+| gate - kucoin | €150,00 | 2026-11-19 | 12.3 u | 19 | 12 | 7 | €0,39 | €0,00 (0x) | **€0,39** | 0.26% | €-1,53 | €-1,13 | -0.76% |
+| gate - kucoin | €200,00 | 2026-11-19 | 12.3 u | 19 | 12 | 7 | €0,52 | €0,00 (0x) | **€0,52** | 0.26% | €-2,03 | €-1,51 | -0.76% |
+| gate - kucoin | €2.000,00 | 2026-11-19 | 12.3 u | 19 | 6 | 13 | €8,28 | €4,02 (14x) | **€4,26** | 0.21% | €-20,34 | €-16,08 | -0.80% |
+| gate - kucoin | €5.000,00 | 2026-11-19 | 12.3 u | 19 | 4 | 10 | €17,16 | €3,65 (12x) | **€13,51** | 0.27% | €-50,86 | €-37,35 | -0.75% |
 
 - bitstamp - kraken, €100,00: munten SKY; bruto zonder voorraadgrens zou €22,30 zijn, met voorraad €1,18 (GEZIEN boek, GOK model).
 - bitstamp - kraken, €150,00: munten SKY; bruto zonder voorraadgrens zou €21,71 zijn, met voorraad €1,78 (GEZIEN boek, GOK model).
@@ -145,31 +145,31 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 
 | Beurspaar | Inleg | Dag | Gemeten | Kansen | Gemist (geen voorraad) | Kleiner door voorraad | Bruto winst | Kosten terugschuiven | **Netto handel (bruto min kosten)** | Rendement handel | Koerseffect voorraad | Netto met koerseffect | Rendement met koerseffect |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| kucoin - xt | €100,00 | 2026-11-19 | 11.8 u | 11 | 11 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,28 | €-0,28 | -0.28% |
-| kucoin - xt | €150,00 | 2026-11-19 | 11.8 u | 11 | 8 | 3 | €0,35 | €0,00 (0x) | **€0,35** | 0.24% | €-0,42 | €-0,07 | -0.04% |
-| kucoin - xt | €200,00 | 2026-11-19 | 11.8 u | 11 | 8 | 3 | €0,47 | €0,00 (0x) | **€0,47** | 0.24% | €-0,56 | €-0,09 | -0.04% |
-| kucoin - xt | €2.000,00 | 2026-11-19 | 11.8 u | 11 | 3 | 8 | €12,75 | €4,81 (9x) | **€7,94** | 0.40% | €-5,59 | €2,34 | 0.12% |
-| kucoin - xt | €5.000,00 | 2026-11-19 | 11.8 u | 11 | 2 | 8 | €25,26 | €4,47 (8x) | **€20,79** | 0.42% | €-14,03 | €6,76 | 0.14% |
-| bitget - xt | €100,00 | 2026-11-19 | 11.8 u | 8 | 6 | 2 | €0,31 | €0,11 (2x) | **€0,20** | 0.20% | €1,77 | €1,97 | 1.97% |
-| bitget - xt | €150,00 | 2026-11-19 | 11.8 u | 8 | 6 | 2 | €0,46 | €0,11 (2x) | **€0,35** | 0.24% | €2,66 | €3,01 | 2.01% |
-| bitget - xt | €200,00 | 2026-11-19 | 11.8 u | 8 | 6 | 2 | €0,62 | €0,11 (2x) | **€0,51** | 0.25% | €3,55 | €4,06 | 2.03% |
-| bitget - xt | €2.000,00 | 2026-11-19 | 11.8 u | 8 | 4 | 3 | €6,20 | €0,92 (3x) | **€5,29** | 0.26% | €35,47 | €40,75 | 2.04% |
-| bitget - xt | €5.000,00 | 2026-11-19 | 11.8 u | 8 | 4 | 3 | €17,45 | €0,92 (4x) | **€16,54** | 0.33% | €88,67 | €105,21 | 2.10% |
-| bitget - gate | €100,00 | 2026-11-19 | 11.8 u | 11 | 11 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,82 | €-0,82 | -0.82% |
-| bitget - gate | €150,00 | 2026-11-19 | 11.8 u | 11 | 11 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,23 | €-1,23 | -0.82% |
-| bitget - gate | €200,00 | 2026-11-19 | 11.8 u | 11 | 7 | 4 | €0,54 | €0,02 (2x) | **€0,52** | 0.26% | €-1,64 | €-1,11 | -0.56% |
-| bitget - gate | €2.000,00 | 2026-11-19 | 11.8 u | 11 | 4 | 6 | €9,36 | €2,37 (9x) | **€6,99** | 0.35% | €-16,38 | €-9,39 | -0.47% |
-| bitget - gate | €5.000,00 | 2026-11-19 | 11.8 u | 11 | 3 | 6 | €15,55 | €1,25 (6x) | **€14,30** | 0.29% | €-40,93 | €-26,63 | -0.53% |
-| htx - xt | €100,00 | 2026-11-19 | 11.8 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,17 | €-0,17 | -0.17% |
-| htx - xt | €150,00 | 2026-11-19 | 11.8 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,25 | €-0,25 | -0.17% |
-| htx - xt | €200,00 | 2026-11-19 | 11.8 u | 16 | 12 | 4 | €0,42 | €0,00 (0x) | **€0,42** | 0.21% | €-0,34 | €0,08 | 0.04% |
-| htx - xt | €2.000,00 | 2026-11-19 | 11.8 u | 16 | 5 | 10 | €11,99 | €6,31 (12x) | **€5,67** | 0.28% | €-3,41 | €2,26 | 0.11% |
-| htx - xt | €5.000,00 | 2026-11-19 | 11.8 u | 16 | 5 | 10 | €22,72 | €5,86 (11x) | **€16,87** | 0.34% | €-8,51 | €8,36 | 0.17% |
-| bitget - kucoin | €100,00 | 2026-11-19 | 11.8 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,51 | €-1,51 | -1.51% |
-| bitget - kucoin | €150,00 | 2026-11-19 | 11.8 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,27 | €-2,27 | -1.51% |
-| bitget - kucoin | €200,00 | 2026-11-19 | 11.8 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,03 | €-3,03 | -1.51% |
-| bitget - kucoin | €2.000,00 | 2026-11-19 | 11.8 u | 19 | 7 | 12 | €5,28 | €2,23 (11x) | **€3,05** | 0.15% | €-30,28 | €-27,24 | -1.36% |
-| bitget - kucoin | €5.000,00 | 2026-11-19 | 11.8 u | 19 | 7 | 10 | €10,79 | €8,49 (18x) | **€2,30** | 0.05% | €-75,69 | €-73,39 | -1.47% |
+| kucoin - xt | €100,00 | 2026-11-19 | 12.3 u | 11 | 11 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,03 | €0,03 | 0.03% |
+| kucoin - xt | €150,00 | 2026-11-19 | 12.3 u | 11 | 8 | 3 | €0,35 | €0,00 (0x) | **€0,35** | 0.24% | €0,04 | €0,40 | 0.26% |
+| kucoin - xt | €200,00 | 2026-11-19 | 12.3 u | 11 | 8 | 3 | €0,47 | €0,00 (0x) | **€0,47** | 0.24% | €0,05 | €0,53 | 0.26% |
+| kucoin - xt | €2.000,00 | 2026-11-19 | 12.3 u | 11 | 3 | 8 | €12,75 | €4,81 (9x) | **€7,94** | 0.40% | €0,55 | €8,48 | 0.42% |
+| kucoin - xt | €5.000,00 | 2026-11-19 | 12.3 u | 11 | 2 | 8 | €25,26 | €4,47 (8x) | **€20,79** | 0.42% | €1,35 | €22,15 | 0.44% |
+| bitget - xt | €100,00 | 2026-11-19 | 12.3 u | 8 | 6 | 2 | €0,31 | €0,11 (2x) | **€0,20** | 0.20% | €1,68 | €1,88 | 1.88% |
+| bitget - xt | €150,00 | 2026-11-19 | 12.3 u | 8 | 6 | 2 | €0,46 | €0,11 (2x) | **€0,35** | 0.24% | €2,51 | €2,87 | 1.91% |
+| bitget - xt | €200,00 | 2026-11-19 | 12.3 u | 8 | 6 | 2 | €0,62 | €0,11 (2x) | **€0,51** | 0.25% | €3,35 | €3,86 | 1.93% |
+| bitget - xt | €2.000,00 | 2026-11-19 | 12.3 u | 8 | 4 | 3 | €6,20 | €0,92 (3x) | **€5,29** | 0.26% | €33,51 | €38,79 | 1.94% |
+| bitget - xt | €5.000,00 | 2026-11-19 | 12.3 u | 8 | 4 | 3 | €17,45 | €0,92 (4x) | **€16,54** | 0.33% | €83,76 | €100,30 | 2.01% |
+| bitget - gate | €100,00 | 2026-11-19 | 12.3 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,75 | €1,75 | 1.75% |
+| bitget - gate | €150,00 | 2026-11-19 | 12.3 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,63 | €2,63 | 1.75% |
+| bitget - gate | €200,00 | 2026-11-19 | 12.3 u | 12 | 7 | 5 | €0,75 | €0,01 (2x) | **€0,75** | 0.37% | €3,51 | €4,25 | 2.13% |
+| bitget - gate | €2.000,00 | 2026-11-19 | 12.3 u | 12 | 4 | 8 | €10,03 | €2,20 (9x) | **€7,83** | 0.39% | €35,10 | €42,93 | 2.15% |
+| bitget - gate | €5.000,00 | 2026-11-19 | 12.3 u | 12 | 3 | 7 | €18,08 | €1,99 (7x) | **€16,09** | 0.32% | €87,68 | €103,77 | 2.08% |
+| htx - xt | €100,00 | 2026-11-19 | 12.3 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,05 | €-0,05 | -0.05% |
+| htx - xt | €150,00 | 2026-11-19 | 12.3 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,08 | €-0,08 | -0.05% |
+| htx - xt | €200,00 | 2026-11-19 | 12.3 u | 16 | 12 | 4 | €0,42 | €0,00 (0x) | **€0,42** | 0.21% | €-0,10 | €0,32 | 0.16% |
+| htx - xt | €2.000,00 | 2026-11-19 | 12.3 u | 16 | 5 | 10 | €11,99 | €6,31 (12x) | **€5,67** | 0.28% | €-1,07 | €4,61 | 0.23% |
+| htx - xt | €5.000,00 | 2026-11-19 | 12.3 u | 16 | 5 | 10 | €22,72 | €5,86 (11x) | **€16,87** | 0.34% | €-2,60 | €14,27 | 0.29% |
+| bitget - kucoin | €100,00 | 2026-11-19 | 12.3 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,55 | €-1,55 | -1.55% |
+| bitget - kucoin | €150,00 | 2026-11-19 | 12.3 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,33 | €-2,33 | -1.55% |
+| bitget - kucoin | €200,00 | 2026-11-19 | 12.3 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,10 | €-3,10 | -1.55% |
+| bitget - kucoin | €2.000,00 | 2026-11-19 | 12.3 u | 19 | 7 | 12 | €5,28 | €2,23 (11x) | **€3,05** | 0.15% | €-31,03 | €-27,98 | -1.40% |
+| bitget - kucoin | €5.000,00 | 2026-11-19 | 12.3 u | 19 | 7 | 10 | €10,79 | €8,49 (18x) | **€2,30** | 0.05% | €-77,56 | €-75,26 | -1.51% |
 
 - kucoin - xt, €100,00: munten DAG, FIGHT, LUNC; bruto zonder voorraadgrens zou €420,17 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - kucoin - xt, €150,00: munten DAG, FIGHT, LUNC; bruto zonder voorraadgrens zou €420,17 zijn, met voorraad €0,35 (GEZIEN boek, GOK model).
@@ -181,11 +181,11 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 - bitget - xt, €200,00: munten KOR, LUNC; bruto zonder voorraadgrens zou €388,05 zijn, met voorraad €0,62 (GEZIEN boek, GOK model).
 - bitget - xt, €2.000,00: munten KOR, LUNC; bruto zonder voorraadgrens zou €383,10 zijn, met voorraad €6,20 (GEZIEN boek, GOK model).
 - bitget - xt, €5.000,00: munten KOR, LUNC; bruto zonder voorraadgrens zou €372,45 zijn, met voorraad €17,45 (GEZIEN boek, GOK model).
-- bitget - gate, €100,00: munten BABYSHARK, IR, LUNC, VERONA; bruto zonder voorraadgrens zou €63,45 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - gate, €150,00: munten BABYSHARK, IR, LUNC, VERONA; bruto zonder voorraadgrens zou €63,45 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - gate, €200,00: munten BABYSHARK, IR, LUNC, VERONA; bruto zonder voorraadgrens zou €63,34 zijn, met voorraad €0,54 (GEZIEN boek, GOK model).
-- bitget - gate, €2.000,00: munten BABYSHARK, IR, LUNC, VERONA; bruto zonder voorraadgrens zou €59,54 zijn, met voorraad €9,36 (GEZIEN boek, GOK model).
-- bitget - gate, €5.000,00: munten BABYSHARK, IR, LUNC, VERONA; bruto zonder voorraadgrens zou €60,33 zijn, met voorraad €15,55 (GEZIEN boek, GOK model).
+- bitget - gate, €100,00: munten BABYSHARK, IR, LUNC, RARE, VERONA; bruto zonder voorraadgrens zou €68,92 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - gate, €150,00: munten BABYSHARK, IR, LUNC, RARE, VERONA; bruto zonder voorraadgrens zou €68,92 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - gate, €200,00: munten BABYSHARK, IR, LUNC, RARE, VERONA; bruto zonder voorraadgrens zou €68,59 zijn, met voorraad €0,75 (GEZIEN boek, GOK model).
+- bitget - gate, €2.000,00: munten BABYSHARK, IR, LUNC, RARE, VERONA; bruto zonder voorraadgrens zou €65,56 zijn, met voorraad €10,03 (GEZIEN boek, GOK model).
+- bitget - gate, €5.000,00: munten BABYSHARK, IR, LUNC, RARE, VERONA; bruto zonder voorraadgrens zou €62,71 zijn, met voorraad €18,08 (GEZIEN boek, GOK model).
 - htx - xt, €100,00: munten CBK, LUNC, SEI, XDC; bruto zonder voorraadgrens zou €54,94 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - htx - xt, €150,00: munten CBK, LUNC, SEI, XDC; bruto zonder voorraadgrens zou €54,94 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - htx - xt, €200,00: munten CBK, LUNC, SEI, XDC; bruto zonder voorraadgrens zou €54,80 zijn, met voorraad €0,42 (GEZIEN boek, GOK model).
@@ -232,7 +232,7 @@ Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); 
 
 ## Over de meting
 
-- Opnamekosten bij de echte kansen: 46 van een netwerk dat aan beide kanten open is, 57 van de beurs zelf (laagste open netwerk), 15 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
+- Opnamekosten bij de echte kansen: 46 van een netwerk dat aan beide kanten open is, 57 van de beurs zelf (laagste open netwerk), 16 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
 - Netwerk: KuCoin, Gate, Bitget, HTX, XT, Bitstamp, Bitvavo en Poloniex geven hun netwerken per munt. Als beide beurzen dat doen en de namen te koppelen zijn, moet er een netwerk zijn dat aan beide kanten open is. Anders is het netwerk "niet te koppelen" en telt de kans mee (staat apart in de trechter).
 - De duur is gemeten in stappen van ±20 seconden; een kans kan een paar rondes eerder begonnen zijn dan we zagen.
 - Takerkosten: uit de API waar die ze per paar geeft, anders het standaardtarief uit de README (deels GOK).
