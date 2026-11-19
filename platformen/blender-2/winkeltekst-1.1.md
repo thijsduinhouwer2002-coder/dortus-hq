@@ -38,7 +38,7 @@ Pick your rigged figure, press one button, and Click Joints Pro cuts it into pri
 ```
 
 ## Onderschrift winkelplaatje (Daan, 17 nov)
-`One click. Every joint. How far it bends.` Alleen als onderschrift op het plaatje, niet in de add-on. "One click" gaat over de knop (één klik op Figure from rig), niet over een klikkend gewricht; vindt Daan dat te dubbel na de nieuwe pagina-regels, dan `One button. Every joint. How far it bends.`
+`One button. Every joint. How far it bends.` Alleen als onderschrift op het plaatje, niet in de add-on (Daan 19 nov kan 3: geen "click", er is nog geen print die klikt).
 
 ## Prijs (voorstel, besluit hoofdchat)
 $15 na de lancering van 1.1 (hoofdchat 16 nov: $15 tot $19). Onderste stap omdat niemand het nog geprint heeft (lanceerlijst punt 1); naar $19 na de eerste echte print of de eerste reviews.

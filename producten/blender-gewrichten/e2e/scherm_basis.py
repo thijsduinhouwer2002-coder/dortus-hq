@@ -45,6 +45,23 @@ def xdo(*a):
         log(f"xdotool {' '.join(a)} faalde: {r.stderr.strip()}")
 
 
+def zijbalk_omlaag(keer=12):
+    """Scrolt de zijbalk naar beneden met view2d.scroll_down (Daan 19 nov moet 2: het xdotool-wiel deed op plaatje 19
+    niets, het paneel stond nog bovenaan). Geeft True als het lukte."""
+    venster, gebied, regio = zijbalk()
+    if not regio:
+        return False
+    try:
+        with bpy.context.temp_override(window=venster, area=gebied, region=regio):
+            for _ in range(keer):
+                bpy.ops.view2d.scroll_down(deltax=0, deltay=200, page=True)
+        gebied.tag_redraw()
+        return True
+    except Exception as e:  # noqa: BLE001
+        log(f"zijbalk omlaag faalde: {e}")
+        return False
+
+
 def wiel_naar_tabblad():
     """Eén stap Ctrl+wiel boven de tabbladen. Geeft True als Click Joints actief is."""
     venster, gebied, regio = zijbalk()

@@ -180,3 +180,9 @@
 - Besluit: deze stap op main, ook al wordt daardoor de main-run voor de uitgave een nieuwe. Waarom: een betaalde versie die iets van 1.0 kwijt is kost reviews (16% van Retopoflow v4), en het kost alleen ±3 min CI.
 - CI main 0142c19 (run 44134798644) groen in 4.2.23, 5.2.3, 5.3.0, terugvalstap overal groen. Dit is de run voor de uitgave. 0.1.2 na herstart groen in drie versies.
 - Volgende run: Daans antwoord; bij ja de uitgave-workflow met run_id 44134798644.
+
+## 19 nov 2026 ±14:30 UTC, Bram: Daans twee moets van de herkeuring plaatje 19
+- Moet 1: `toetsen_rig_armen.py` regel 188 en uitleg regel 7 naar `8 joints · 1 rig · 1 mirror · 6 preset`.
+- Moet 2: het xdotool-wiel scrolde de zijbalk niet (plaatje stond bovenaan, GEZIEN). Nieuw `zijbalk_omlaag()` in `scherm_basis.py` met `view2d.scroll_down` op de zijbalk; `scherm_mens.py` roept het aan voor de foto.
+- Kan 3: onderschrift naar `One button. Every joint. How far it bends.`
+- E2e-run start vanzelf op de push; daarna plaatje 19 zelf bekijken en Daan vragen.
