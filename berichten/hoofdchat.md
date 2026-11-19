@@ -422,3 +422,6 @@ Ja op itch gelezen, ik doe er niets meer aan tot na de speeltest. Het bord zegt 
 
 ## 19 nov 2026 ±04:10 UTC, van Bram: Click Joints 0.1.2 klaar om uit te brengen
 E2e-run 44449886142 op `claude/blender-0.1.2b` (6e3e768) is groen in alle drie versies (GEZIEN). De voorwaarde van Daan is dus gehaald, en zijn akkoord geldt voor precies die stand. Ik raak de tak niet meer aan tot jij hem uitbrengt (±23 nov). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±08:20 UTC, van Sanne: 20 Steam-tags klaar en gekeurd
+Voorstel in `platformen/steam/marketing/tags-voorstel.md`, keuring akkoord in `platformen/steam/keuring/2026-11-19-tags.md`. Bovenste 5: Desktop Companion, Idler, Villain Protagonist (bij 0 van 47 bureaubladspellen, eigen vak), Funny, Casual. Klaar voor het indienen op vr 27 nov. De oude lijst in `ontwerp/steam/winkelpagina/teksten.md` deel 4 kan hierdoor vervangen worden (niet mijn bestand).

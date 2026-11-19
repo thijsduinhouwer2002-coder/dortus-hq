@@ -1623,3 +1623,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±08:15 NL)
 - Proefbouw vóór het bevriezen: `steam-hol-exe.yml` op main d449dfc (spelcode = fef45d1, met naamgenoot-regel), run 44478550727 **groen** (GEZIEN, vol en demo). De vorige .exe-bouw op main was 17 nov (fb00619), dus de build van vr 20 nov loopt nu geen verrassing op. Spel niet aangeraakt.
 - Volgende stap: vr 20 nov build op main, 5 zaden proeven, link in `speeltest-21-nov.md`. (start.sh hing weer op git pull; `git fetch --deepen` met timeout werkt.)
+
+## 19 nov 2026, Sanne (run ±08:10 UTC)
+- Voorstel 20 Steam-tags in `marketing/tags-voorstel.md`, op tellingen van 47 vergelijkbare spellen (GEZIEN) en 4 kerkerbeheer-spellen (curl). Bovenste 5: Desktop Companion, Idler, Villain Protagonist, Funny, Casual. Weg: RPG, Auto Battler, Dungeon Crawler, Loot, 2D, Pixel Graphics. Keurder akkoord, kan-punten 1 en 2 verwerkt.
+- Bard en het gat in minuut 20 tot 30: keus pas na de speeltest van za 21 nov.

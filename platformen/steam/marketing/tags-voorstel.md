@@ -12,7 +12,7 @@ Vervangt de lijst van 9 nov in `ontwerp/steam/winkelpagina/teksten.md` deel 4 (d
 
 ## Wat de telling zegt
 - Bij **alle 13 winnaars** staan Desktop Companion, Idler en Casual. Relaxing 11, Cute 10, Singleplayer 10, Incremental 9, Simulation 8 (GEZIEN).
-- De **4 flops** hangen samen aan RPG (4 van 4), Auto Battler (3), Fantasy (3), Loot (3), Dungeon Crawler (2). Hats heeft helden in een kerker en wordt dus snel in die hoek gezet. Die tags laten we weg: ze kloppen niet (jij vecht en lootst niet) en het is de hoek die niet verkoopt.
+- De **4 flops** hangen samen aan RPG (4 van 4), Auto Battler (3), Fantasy (3), Loot (3), Dungeon Crawler (2). Hats heeft helden in een kerker en wordt dus snel in die hoek gezet. Die tags laten we weg omdat ze niet kloppen (jij vecht en lootst niet). Dat het de hoek is die niet verkoopt is een GOK: het rust op maar 4 flops, en ook 3 winnaars hebben RPG of Loot.
 - **Villain Protagonist** staat bij Dungeon Keeper 2, Gold en Legend of Keepers, maar bij **geen enkele** van de 47 bureaubladspellen. Dat is onze eigen plek: wie "jij bent de kerker" zoekt, vindt in deze hoek alleen ons.
 
 ## De lijst, op volgorde (de bovenste 5 vertellen het spel, de bovenste 15 tellen voor filters)
@@ -40,7 +40,7 @@ Vervangt de lijst van 9 nov in `ontwerp/steam/winkelpagina/teksten.md` deel 4 (d
 | 20 | Cartoony | past bij de stijl; Mila mag hem schrappen |
 
 ## Bewust niet
-- **2D** en **Pixel Graphics**: het spel is sinds 13 nov 3D (Valve noemt "2D voor een 3D-spel" als voorbeeld van een foute tag). **3D** ook niet in de top 20: je ziet een platte strook, dat zou verwachtingen wekken die niet kloppen.
+- **2D, 3D** en **Pixel Graphics**: het spel is een plat zijaanzicht met 3D-gerenderde figuren. Pixel Graphics klopt sinds 13 nov niet meer; 2D en 3D zijn elk maar half waar (Valve noemt "2D voor een 3D-spel" als foute tag), dus geen van beide. 7 van 13 winnaars dragen wel 2D; kiest Mila dat het zijaanzicht als 2D leest, dan mag 2D op plek 20 in plaats van Cartoony.
 - **RPG, Auto Battler, Dungeon Crawler, Loot**: kloppen niet en het is de flophoek.
 - **Tower Defense**: je bouwt geen torens en stuurt niets tijdens het lopen.
 - **Strategy, God Game**: te zwaar voor wat het is; zou Dungeon Keeper-spelers teleurstellen.
@@ -48,7 +48,10 @@ Vervangt de lijst van 9 nov in `ontwerp/steam/winkelpagina/teksten.md` deel 4 (d
 - **Utilities**: Hats doet niets nuttigs naast je werk; 5 van 13 winnaars hebben hem wel, maar dan als hulpmiddel (klok, focus).
 
 ## Verschil met de lijst van 9 nov
-Eruit: 2D (spel is 3D), Building (Base Building zegt het beter). Erin: Collectathon, Underground. Villain Protagonist en Funny van plek 9 en 4 naar 3 en 4, zodat de bovenste 5 het spel vertellen: bureaubladspel, speelt zichzelf, jij bent de schurk, grappig, makkelijk.
+Eruit: 2D (half waar, zie boven), Building (Base Building zegt het beter). Erin: Collectathon, Underground. Villain Protagonist en Funny van plek 9 en 4 naar 3 en 4, zodat de bovenste 5 het spel vertellen: bureaubladspel, speelt zichzelf, jij bent de schurk, grappig, makkelijk.
 
 ## Wat nog kan (niet nodig vóór 27 nov)
 Klachten in recensies van de 13 winnaars lezen om te zien of tags verkeerde verwachtingen wekten. Na het fest kijken welke tags spelers zelf toevoegen en de volgorde in de Tag Wizard bijstellen.
+
+## Keuring
+Akkoord ja, 19 nov (`platformen/steam/keuring/2026-11-19-tags.md`). Kan-punt 1 (reden bij 2D) en 2 (GOK bij de flophoek) verwerkt. Open: Funny en Comedy, Stylized en Cartoony overlappen deels; Mila mag één plek ruilen voor een tag van de winnaars.
