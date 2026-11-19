@@ -2,14 +2,14 @@
 
 Voor Thijs. Opgezet door Olaf, 15 nov 2026. Doel (besluit Thijs 15 nov 19:35): zien of het **leuk** is voordat het mooi wordt. Lelijke of ontbrekende beelden horen erbij.
 
-**Stand:** de build komt uiterlijk **vr 20 nov 20:00 UTC**. Hieronder staat dan de link naar de run. Tot die tijd is dit bestand een concept.
+**Stand:** de build staat klaar (do 19 nov, een dag vroeg, op de bevroren stand). Link hieronder bij "Build".
 
 ## De build ophalen (±2 min)
 1. Ga naar de run die hieronder bij "Build" staat (je moet ingelogd zijn op GitHub).
 2. Onderaan de pagina bij "Artifacts": klik **speeltest-hats-of-the-fallen-windows**. Je krijgt een zip.
 3. Pak de zip uit en lees `LEES-MIJ-EERST.txt` (starten, klikken, stoppen). Kort: dubbelklik `HetHol.exe`; zegt Windows "Windows heeft uw pc beschermd", dan "Meer informatie" en "Toch uitvoeren" (de .exe is nog niet ondertekend).
 
-Build: _volgt vr 20 nov_ (workflow `steam-hol-exe.yml` op main, zip 14 dagen bewaard).
+Build: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44597872156 , zip `speeltest-hats-of-the-fallen-windows` (33 MB, te halen tot 3 dec). Main 1cb8219, spelcode gelijk aan de bevroren stand 1f63c27. Groen: bouwen, toetsen op de echte .exe en sluiten via de taakbalk (GEZIEN, Olaf 19 nov 20:40 NL). Eigen proef van 5 zaden volgt vr 20 nov.
 
 Proefrun op de stand van 17 nov (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44137119222 , main 816eb97 (spelcode gelijk aan fb00619), groen, exe-toetsen 0 FOUT, sluiten 0 FOUT, zip `speeltest-hats-of-the-fallen-windows` 33 MB, beeld `strook-120-volledig.png` GEZIEN (Olaf 17 nov 17:40 UTC). CPU in deze korte meting 1,77 per 10 s, in lijn met eerdere exe-runs (2,14 / 2,77 / 2,81; deze meting telt het opstarten en kopen mee, niet de duurtest-grens).
 

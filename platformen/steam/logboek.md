@@ -1692,3 +1692,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±19:15 NL)
 - Niets zinvols te doen: geen nieuwe opdracht sinds de run van 18:15, laarsgrap uit regels en kroniek staat op main (Windows-run groen, keuring bij Daan); om 20:00 NL bevroren. (start.sh hing weer op git pull; fetch met timeout werkte.)
 - Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
+
+## 19 nov 2026, Olaf (run ±20:15 NL)
+- Speeltestbuild een dag vroeg gemaakt op de bevroren stand: run 44597872156 groen (bouwen, exe-toetsen, sluiten via taakbalk; GEZIEN), zip 33 MB tot 3 dec. Link staat in `speeltest-21-nov.md`. Reden: valt hij om, dan is er vr nog een hele dag.
+- Volgende stap: vr 20 nov 5 zaden proeven op 1f63c27 en de uitkomst onder de link zetten. (start.sh hing weer op git pull; eerste push liep vast, tweede lukte.)
