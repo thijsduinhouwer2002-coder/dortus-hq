@@ -119,7 +119,7 @@ jobs:
           echo "N=$N" >> "$GITHUB_ENV"
           bash "$B" vergelijk producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" \
             /tmp/beeldverschil 0.4 "Rollwright, Obsidian $OBSIDIAN_APP met installer $OBSIDIAN_INSTALLER ($N)" "rollwright/$N" \
-            "*:50,755,345,800;*:290,0,610,28;m10-*:880,28,1024,105;l1-*:845,126,930,150;l1-*:765,186,845,210;l1-*:765,270,845,294"
+            "*:50,755,345,800;*:290,0,610,28;m10-*:880,28,1024,105;l1-*:845,126,930,150;l1-logboek.png:765,186,845,210;l1-logboek.png:765,270,845,294;l1-logboek-tekst.png:765,218,845,236;l1-logboek-tekst.png:765,288,845,306;l1-logboek-tekst.png:765,372,845,390"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

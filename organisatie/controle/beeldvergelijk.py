@@ -7,6 +7,10 @@ maskers: vakken die niet meetellen omdat ze elke run anders zijn, gescheiden doo
 <bestandspatroon>[@<breedte>x<hoogte>]:<x0>,<y0>,<x1>,<y1> (pixels, x1 en y1 tellen niet mee), bijvoorbeeld de
 willekeurige kluisnaam van Obsidian: "*:50,755,345,800". Met @2880x1800 geldt het vak alleen voor plaatjes van
 die maat (zo dekt een masker voor het hele IDE-venster de kopregel van een dialoog niet af).
+Een vak met % in plaats van : en een vijfde getal, <bestandspatroon>%<x0>,<y0>,<x1>,<y1>,<schuif>, betekent: van dat
+plaatje telt alleen dit vak, en daarin klopt een pixel ook als hij klopt met het nieuwe plaatje horizontaal verschoven
+over de verschuiving (tot <schuif> px) die in het vak het best past. Voor een paneel achter een scheiding die van run
+tot run verschuift (kleurenpagina van Bison & Flex, herkeuring 2 van R4).
 
 Per PNG die in beide mappen staat: aantal pixels dat verschilt (een kanaal wijkt meer dan DREMPEL af,
 zodat zachte randen niet tellen), als procent van het plaatje. Boven de grens heet het "groot" en komt er
@@ -51,11 +55,32 @@ def verschilbeeld(oud, mask, pad):
 
 
 def lees_maskers(tekst):
-    maskers = []
+    maskers, panelen = [], []
     for deel in filter(None, (tekst or "").split(";")):
+        if "%" in deel:
+            patroon, vak = deel.rsplit("%", 1)
+            panelen.append((patroon.strip(), [int(v) for v in vak.split(",")]))
+            continue
         patroon, vak = deel.rsplit(":", 1)
         maskers.append((patroon.strip(), [int(v) for v in vak.split(",")]))
-    return maskers
+    return maskers, panelen
+
+
+def paneel_verschil(a, b, vak):
+    """Alleen het vak telt; daarin is een pixel anders als hij ook bij de best passende horizontale verschuiving niet klopt."""
+    x0, y0, x1, y1, schuif = vak
+    mask = np.zeros(a.shape[:2], dtype=bool)
+    y1, x1 = min(y1, a.shape[0], b.shape[0]), min(x1, a.shape[1])
+    A = a[y0:y1, x0:x1]
+
+    def diff(sx):
+        if x0 + sx < 0 or x1 + sx > b.shape[1]:
+            return None
+        return (np.abs(A - b[y0:y1, x0 + sx:x1 + sx]) > DREMPEL).any(axis=2)
+    recht = diff(0)
+    beste = min((d.sum(), sx, d) for sx in range(-schuif, schuif + 1) if (d := diff(sx)) is not None)
+    mask[y0:y1, x0:x1] = recht & beste[2] if recht is not None else beste[2]
+    return mask, beste[1]
 
 
 def past(patroon, rel, vorm):
@@ -81,7 +106,7 @@ def verschil_verschoven(a, b):
 
 
 def vergelijk(nu, ref, uit, grens, naam, maskers=""):
-    maskers = lees_maskers(maskers)
+    maskers, panelen = lees_maskers(maskers)
     nu, ref, uit = Path(nu), Path(ref), Path(uit)
     uit.mkdir(parents=True, exist_ok=True)
     nieuw_lijst = {p.relative_to(nu).as_posix() for p in nu.rglob("*.png")} if nu.is_dir() else set()
@@ -116,6 +141,10 @@ def vergelijk(nu, ref, uit, grens, naam, maskers=""):
             continue
         else:
             mask = (np.abs(a - b) > DREMPEL).any(axis=2)
+        for patroon, vak in panelen:
+            if past(patroon, rel, a.shape):
+                mask, sx = paneel_verschil(a, b, vak)
+                notitie += f" (alleen het paneel {vak[:4]}, best passend {sx:+d} px verschoven)"
         for patroon, (x0, y0, x1, y1) in maskers:
             if past(patroon, rel, a.shape):
                 mask[y0:y1, x0:x1] = False
@@ -141,7 +170,8 @@ def vergelijk(nu, ref, uit, grens, naam, maskers=""):
         f"## Beeldvergelijking {naam}",
         f"GROOT: {len(groot)} (grens {grens}% van de pixels, drempel {DREMPEL}/255 per kanaal; "
         f"{len(nieuw_lijst & ref_lijst)} plaatjes vergeleken"
-        + (f"; niet meegeteld: {'; '.join(f'{p} {v}' for p, v in maskers)})" if maskers else ")"),
+        + (f"; niet meegeteld: {'; '.join(f'{p} {v}' for p, v in maskers)}" if maskers else "")
+        + (f"; alleen paneel: {'; '.join(f'{p} {v}' for p, v in panelen)}" if panelen else "") + ")",
         f"Referentie: {os.environ.get('BV_REF', 'onbekend')}",
         opmerking,
         "| plaatje | verschil met de vorige geslaagde run | |",
