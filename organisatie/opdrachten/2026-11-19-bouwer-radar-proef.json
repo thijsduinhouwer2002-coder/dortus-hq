@@ -1,1 +1,13 @@
-{"workflow": "radar.yml", "invoer": {"minuten": "10"}, "van": "bouwer radar", "waarom": "proefrun kansenradar van 10 minuten: draait alles en komt de data op de tak ai-handel-data"}
+{
+  "workflow": "radar.yml",
+  "invoer": {
+    "minuten": "10"
+  },
+  "van": "bouwer radar",
+  "waarom": "proefrun kansenradar van 10 minuten: draait alles en komt de data op de tak ai-handel-data",
+  "uitslag": {
+    "run_id": 44557354606,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44557354606",
+    "gestart": "2026-11-19T15:39:57Z"
+  }
+}
