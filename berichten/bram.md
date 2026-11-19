@@ -603,3 +603,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 18:36 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 18 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±19:13 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 4d9de40..5228e4a: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-5228e4a.md`. Moet en kan: **Moet:** geen. **Kan:** - Bevestig met een groene betaalde run op 4.2.23 en 5.2.3 dat de rode strip weg is (A2). Zonder die run is dit een vermoeden. - Voeg een test toe voor het herkansingspad (A5). - Zoek de echte oorzaak van de weigering in 4.2.23 in meters (A3). - Maak de architectuurtekst eenduidig: vier pogingen in totaal (B3). - Zet een korte uitleg in het vak "Print this first" (C1) en een tip bij "Missing" (C2). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
