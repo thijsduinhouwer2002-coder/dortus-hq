@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 30 plaatjes vergeleken)
-Referentie: referentie uit run 44596237768, commit cc7162dce914d7c21f5565bc432eb3002cae458f, commitdatum 1795115659, 2026-11-19T19:36:57Z
+GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 31 plaatjes vergeleken)
+Referentie: referentie uit run 44607850018, commit 3ff874a7d81bfe15d125d81bee825f1ec3f19add, commitdatum 1795119688, 2026-11-19T20:39:02Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -10,8 +10,8 @@ Referentie: referentie uit run 44596237768, commit cc7162dce914d7c21f5565bc432eb
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | gelijk | |
-| 14-pro-knie-rood-x.png | gelijk | |
+| 13d-pro-knie-dicht-x.png | 1 px (0.000%), ruis | |
+| 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
@@ -22,16 +22,16 @@ Referentie: referentie uit run 44596237768, commit cc7162dce914d7c21f5565bc432eb
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
 | 2-gewricht-x.png | gelijk | |
-| 20-testkaart.png | 694588 px (33.497%), x 76 tot 1842, y 88 tot 1068 | GROOT |
-| 20d-testkaart-getal.png | 4131 px (0.199%), x 78 tot 430, y 974 tot 1016 | GROOT |
+| 20-testkaart.png | 482274 px (23.258%), x 0 tot 1919, y 269 tot 792 | GROOT |
+| 20d-testkaart-getal.png | gelijk | |
+| 20h-testkaart-scharnier.png | 519729 px (25.064%), x 328 tot 1619, y 0 tot 1079 | GROOT |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | gelijk | |
+| 5-waaier-x.png | 9 px (0.000%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | gelijk | |
-| 8-winkel-x.png | gelijk | |
-| 9-winkel-rood-x.png | gelijk | |
-| p13-d-x.png | gelijk | |
-| p13-e-x.png | gelijk | |
-| p14b-e-x.png | gelijk | |
-| 20h-testkaart-scharnier.png | nieuw (niet in de referentie) | |
+| 7-plat-x.png | 110 px (0.005%), ruis | |
+| 8-winkel-x.png | 28 px (0.001%), ruis | |
+| 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
+| p13-d-x.png | 33 px (0.002%), ruis | |
+| p13-e-x.png | 1 px (0.000%), ruis | |
+| p14b-e-x.png | 7 px (0.000%), ruis | |
