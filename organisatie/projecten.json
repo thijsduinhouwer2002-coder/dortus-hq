@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 17:50",
+    "datum": "2026-11-19 17:55",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -119,17 +119,16 @@
         "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Pro 1.1.0 heeft akkoord ja van Daan (19 nov ±16:30, plaatje 19 en winkelblokken); Bram brengt uit, dan Gumroad naar $19/$24/$59 en Black Friday (CYBER25, Click Joints Free $0+) via Chrome op de HP van Thijs. Superhive: navraag 13:59, antwoord per mail; Superhive-prijs pas na 2 dec omhoog.",
+      "volgende_stap": "Pro 1.1.0 uitgebracht (run 44563401805 groen, GEZIEN) en Gumroad-tekst gekeurd door Daan (akkoord ja, 19 nov ±16:35). Nu: zip 1.0.2 vervangen door 1.1.0, prijzen $19/$24/$59 en nieuwe omslag op Gumroad, via Chrome op de HP van Thijs (alles in platformen/blender-2/gumroad-1.1.md). Zip-artefact verloopt 22 nov 16:12 UTC. Daarna Black Friday (CYBER25, Free $0+).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
       },
-      "thijs": [],
+      "thijs": [
+        "HP-sessie open laten zodat de hoofdchat Pro 1.1.0 op Gumroad kan zetten, vóór zo 22 nov 16:00"
+      ],
       "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
-      "laatste_update": {
-        "datum": "2026-11-19 17:00",
-        "door": "hoofdchat-ronde"
-      },
+      "laatste_update": "2026-11-19 17:55",
       "links": [
         {
           "naam": "Winkelpagina",

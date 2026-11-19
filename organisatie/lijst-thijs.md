@@ -7,11 +7,12 @@
 2. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 3. **Za 21 nov: speeltest Hats of the Fallen** (build van vr 20 nov; Olaf zet hem klaar).
 4. **Vóór ma 23 nov: samen met de hoofdchat `devvit login` met u/DortusGames (±5 min).** Reddit is geblokkeerd voor Claude, dus Thijs doet de klikken op reddit.com; de hoofdchat regelt de rest.
-5. **Vóór do 26 nov: Black Friday Click Joints Pro** (plan van Chris: `commercie/blender-click-joints/black-friday.md`). Jouw ja nodig op de mail aan CG Channel (gaat van jouw adres, Daan keurt eerst). Kortingscode CYBER25 en Click Joints Free $0+ op Gumroad zet de hoofdchat via Chrome op je HP; laat de HP-sessie daarvoor een keer open staan.
+5. **Vóór zo 22 nov 16:00: laat je HP-sessie een keer open staan** (±15 min, jij hoeft niets te typen). Dan zet de hoofdchat via Chrome Click Joints Pro 1.1.0 op Gumroad (zip, prijzen $19/$24/$59, nieuwe omslag; gekeurd door Daan), daarna Black Friday: kortingscode CYBER25 en Click Joints Free $0+. De zip van 1.1.0 verloopt zo 22 nov 16:12 UTC (opnieuw maken kan, kost een run). Jouw ja nodig op de mail aan CG Channel vóór do 26 nov (gaat van jouw adres, Daan keurt eerst; plan `commercie/blender-click-joints/black-friday.md`).
 
 Afgehandeld (niets te doen): Roep-taken aangemaakt door Thijs 19 nov 15:37; Steam-app aanmaken wacht op Valve (Steamworks weigert tot bank, belasting en ID goedgekeurd zijn); Laughs & Smiles ingestuurd 18 nov, uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
 
 ## Later (geen actie nu)
+- Als je tijd hebt, in de app: projectbeschrijving van "Dortus-HQ" bijwerken (voorstel van opruim-bouwer onderaan `berichten/hoofdchat.md`, 19 nov ±18:15) en de koppelingen die niet mogen weghalen bij de geplande taken. Niet dringend: CLAUDE.md gaat voor.
 - ±8 dec: Next Fest februari aanmelden zodra de Steam-pagina live is (Sem, `platformen/steam/marketing/festplan.md`).
 - Vóór ±7 dec: vier zakelijke mailadressen van YouTubers zichtbaar maken (Sem; details in het archief).
 - Januari: twee knoppen in Steamworks voor de Hats-demo (4 en 14 jan; details in het archief).

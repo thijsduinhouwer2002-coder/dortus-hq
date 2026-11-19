@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 17:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Metricool GEZIEN 16:55: filmpje 2 PUBLISHED op YouTube (shorts/65JiRlDupNc) en TikTok; vr 16:00 filmpje 5 Pro en vr 17:00 lange video Pro 1 v2 PENDING (Chris gevraagd "print-ready" eruit te halen). Pro 1.1.0 heeft akkoord ja van Daan, Bram brengt uit; daarna Gumroad $19/$24/$59 en Black Friday. Roep: eerste ronde vanavond 20:13. Hats bevriezen 20:00, speeltest za 21 nov.
+**Stand: do 19 nov 2026, 17:55 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 uitgebracht (run 44563401805 groen, GEZIEN), Gumroad-tekst akkoord ja van Daan. Wacht op de HP-sessie van Thijs om 1.1.0, prijzen $19/$24/$59 en omslag op Gumroad te zetten (zip verloopt zo 22 nov 16:12 UTC), dan Black Friday. Metricool: vr 16:00 filmpje 5 en 17:00 lange video PENDING. Roep: eerste ronde vanavond 20:13. Hats bevriezen 20:00, speeltest za 21 nov. Superhive: nog in keuring.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
