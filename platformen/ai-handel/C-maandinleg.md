@@ -259,3 +259,77 @@ Open punt uit run 2: wint grid wel als de markt niet stijgt? Zelfde opzet als pu
 3. **Een klein vast deel BTC naast een wereld-ETF gaf in 2014 tot 2026 veel meer uitkomst met bijna dezelfde diepste dip** (80/20: mediaan 36 maanden x1,42 tegen x1,18; diepste x0,83 tegen x0,84) (GEZIEN, run 2). Uitzonderlijke periode voor BTC, niet door te trekken (GOK).
 4. **Kosten: aanbieder kiezen is de grootste knop, frequentie alleen bij vaste kosten.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, run 1 en 2). Bij 1 euro per order kost wekelijks kopen 1,44% van de inleg tegen 0,33% maandelijks (GOK, eigen som).
 5. **Grid wint alleen in zijwaartse of dalende jaren** (x1,15 tegen x1,06 in 2019 tot 2020) **en verliest over een hele cyclus** (x1,44 tegen x1,94 in 2018 tot 2020) (GEZIEN). De maandinleg haalt het doel van 10.000 euro in 3 maanden met geen enkele aanpak (GOK).
+
+## Run 4 (19 nov 2026, ±03:45 tot 04:15 UTC)
+Deze run: het trendfilter uit run 3 binnen een mix met de wereld-ETF (open punt), een mandje van tien munten tegen alleen BTC (zonder dat ik achteraf de winnaars kies), en of er een open project is dat "spaarplan plus trendfilter" doet. Scripts en data stonden in /tmp, niet in de repo; de opzet staat erbij.
+
+### 16. Eigen meting: trendfilter op het BTC-deel van een mix met de wereld-ETF (GEZIEN)
+**Data:** IWDA (Euronext Amsterdam, euro, stapelend) en BTC-EUR, dagkoersen van de openbare grafiek-API van Yahoo Finance, zonder account. Eerste handelsdag van elke maand, mei 2015 tot nov 2026, 139 maanden (begint later dan run 2, omdat het gemiddelde van 200 dagen eerst moet vollopen).
+
+**Opzet:** elke maand 300 (voorbeeldbedrag). ETF zonder kosten, BTC 0,25% per kant. "trend": het BTC-deel staat alleen in BTC als de koers boven het gemiddelde van 200 dagen staat; eronder wordt het verkocht en blijft het als kas staan (0% rente, en een variant met 2% rente per jaar op die kas). "mnd" = alleen op de 1e gecheckt, "dag" = elke dag (signaal van gisteren, order tegen de koers van vandaag).
+
+| Aanpak | 36 mnd mediaan | slechtste | beste | diepste tussenstand | 60 mnd mediaan | 60 mnd slechtste | Hele periode | Verkopen en kopen |
+|---|---|---|---|---|---|---|---|---|
+| 100/0 | x1,19 | x0,93 | x1,38 | x0,84 | x1,36 | x1,02 | x2,21 | 0 |
+| 90/10 | x1,30 | x0,96 | x2,33 | x0,83 | x1,54 | x1,27 | x5,58 | 0 |
+| 90/10 trend mnd | x1,29 | x0,95 | x1,89 | x0,82 | x1,50 | x1,32 | x4,79 | 99 |
+| 80/20 | **x1,39** | **x1,00** | x3,54 | **x0,83** | **x1,70** | x1,31 | **x8,95** | 0 |
+| 80/20 trend mnd | x1,35 | x0,96 | x2,71 | x0,80 | x1,64 | x1,40 | x7,38 | 99 |
+| 80/20 trend mnd, 2% rente op kas | x1,35 | x0,96 | x2,71 | x0,80 | x1,65 | x1,41 | x7,81 | 99 |
+| 80/20 trend dag | x1,30 | x1,00 | x3,04 | x0,78 | x1,57 | x1,31 | x6,25 | 165 |
+| 0/100 | x2,11 | x0,91 | x13,20 | x0,51 | x3,19 | x1,35 | x35,90 | 0 |
+| 0/100 trend mnd | x1,86 | x0,90 | x9,25 | x0,66 | x2,82 | x1,81 | x28,03 | 99 |
+
+Trend tegen zonder trend, vensters van 36 maanden: 53 van 104 gewonnen (mnd), 36 van 104 (dag). Vensters van 60 maanden: 21 van 80 (mnd), 11 van 80 (dag) (GEZIEN, eigen meting).
+
+**Wat ik eruit haal:**
+- **In een mix met 10 tot 20% BTC doet het trendfilter niets nuttigs.** Het haalt de diepste dip niet op maar maakt hem iets dieper (x0,80 tegen x0,83), het slechtste venster van 36 maanden ook (x0,96 tegen x1,00), en de hele periode eindigt ongeveer een zesde lager (x7,38 tegen x8,95) (GEZIEN). De diepe momenten in de mix komen vooral van de ETF (zoals maart 2020 en 2022), en daar kijkt het filter niet naar (GOK, volgt uit dat 100/0 al x0,84 als diepste had).
+- Alleen bij **100% BTC** werkt het filter als verzekering, net als in run 3: diepste tussenstand x0,66 tegen x0,51, slechtste venster van 60 maanden x1,81 tegen x1,35, maar de mediaan lager (GEZIEN).
+- **Rente op de kas veranderde bijna niets** (x1,65 tegen x1,64 bij 60 maanden), omdat de kas maar een klein deel van het geheel is (GEZIEN).
+- **Gevolg voor punt 15:** de tweede plek ("plus een trendfilter op het BTC-deel") vervalt voor wie al een mix heeft. Wie de dip van BTC wil dempen, kan dat beter met een kleiner vast BTC-deel doen dan met een filter: van 20 naar 10% BTC gaf dezelfde diepste dip (x0,83) zonder één verkoop (GEZIEN).
+
+### 17. Eigen meting: mandje van tien munten tegen alleen BTC (GEZIEN)
+Om te voorkomen dat ik achteraf de winnaars kies, nam ik **de tien grootste munten van januari 2020** (zonder stablecoins en zonder BSV, dat Binance had geschrapt): BTC, ETH, XRP, BCH, LTC, BNB, EOS, XTZ, XLM, ADA (GOK dat dit ongeveer de top tien van toen was; de volgorde weet ik uit mijn eigen kennis, niet uit een bron die ik deze run las). EOS ging in mei 2025 1 op 1 over in de munt "A" (Vaulta); vanaf dan telt de koers van A.
+
+**Data:** maandkoersen in USDT (dollars) van de openbare marktdata-spiegel van Binance (`data-api.binance.vision/api/v3/klines`, interval 1M), zonder account; kopen tegen de openingskoers van elke maand. Periode feb 2020 tot nov 2026, 82 maanden, 47 vensters van 36 maanden. Elke maand 300 (voorbeeldbedrag), gelijk verdeeld, 0,25% kosten.
+
+**Koers nov 2026 gedeeld door feb 2020** (GEZIEN): BNB x38,5; ETH x12,5; BTC x8,3; XRP x5,2; ADA x3,6; XLM x2,8; LTC x0,82; BCH x0,76; XTZ x0,15; EOS/A x0,02.
+
+| Aanpak | 36 mnd mediaan | slechtste | beste | diepste tussenstand | Hele periode | Wint van alleen BTC (36 mnd) |
+|---|---|---|---|---|---|---|
+| Alleen BTC | **x1,50** | x0,87 | x3,05 | x0,49 | **x2,60** | |
+| BTC en ETH, half om half | x1,60 | x0,79 | x2,38 | x0,45 | x2,35 | 10 van 47 |
+| Mandje van tien, gelijk verdeeld | x1,19 | x0,70 | x2,41 | x0,43 | x1,79 | 6 van 47 |
+| Mandje van tien, jaarlijks herbalanceren | x1,18 | x0,70 | x2,39 | x0,43 | x1,33 | 3 van 47 |
+| De acht zonder BTC en ETH | x1,09 | x0,68 | x2,42 | x0,42 | x1,66 | 4 van 47 |
+
+(GEZIEN, eigen meting.)
+
+**Wat ik eruit haal:**
+- **Spreiden over veel munten verlaagde de uitkomst en verdiepte de dip.** Anders dan bij aandelen dalen bijna alle munten tegelijk (de diepste tussenstand was voor elk mandje x0,42 tot x0,49), dus spreiden geeft geen bescherming, terwijl een paar munten bijna alles verloren (EOS x0,02, XTZ x0,15) (GEZIEN).
+- **Jaarlijks herbalanceren maakte het mandje nog slechter** (x1,33 tegen x1,79): je verkoopt elk jaar een stuk van de winnaars (BNB, ETH) om de verliezers bij te kopen (GEZIEN). Dat is het omgekeerde van bij de mix ETF en BTC in run 2, waar herbalanceren alleen de uitschieters dempte.
+- Dit is één periode en één mandje. Wie in 2020 juist BNB had gekozen, deed het veel beter, maar dat wist je toen niet (GOK). Voor een maandinleg blijft de les: BTC, eventueel met ETH, en de spreiding uit een brede ETF halen, niet uit meer munten.
+- Kanttekening: dit is in dollars, run 2 en 16 in euro; de verhoudingen tussen de aanpakken veranderen daar weinig door (GOK).
+
+### 18. Bestaat er een open project voor "spaarplan plus trendfilter"? (GEZIEN, zoekopdracht via de GitHub-zoek-API, alleen namen en beschrijvingen gelezen)
+- Zoeken op "dca moving average bitcoin", "dca 200 day bitcoin" en "smart dca bitcoin" gaf alleen projecten met 0 sterren (bijv. tmm22/btc-stacker voor de Australische beurs Bitaroo, en een Braziliaans leerproject). Geen gebruikt project dat precies dit doet.
+- Voor Bitvavo zijn er naast [jorijn/bitcoin-dca](https://github.com/jorijn/bitcoin-dca) (85 sterren, run 1) alleen kleine scripts: melroy89/auto-invest-bitvavo (2 sterren, laatste push okt 2022), ErhanCitil/bitvavo-dca (1, nov 2023), bossan/dca-bot (0, jul 2024, koopt en stuurt naar een eigen wallet, dus een sleutel met opnamerecht) (GEZIEN, op 19 nov 2026).
+- **Conclusie (GOK):** een trendfilter op een maandaankoop is een paar regels code (koers ophalen, gemiddelde van 200 dagen, kopen of verkopen). Na punt 16 is de vraag wel of je het nodig hebt: alleen als je 100% in BTC zit en diepe dalingen wilt dempen. Met de hand eens per maand kijken op een grafiek kan ook.
+
+### 19. Bijgestelde rangorde binnen hoek C (kans maal opbrengst, GOK)
+1. **Spaarplan in een brede ETF met een klein vast deel BTC (10 tot 20%)**, bij de goedkoopste aanbieder per soort. Geen bot, geen filter, geen herbalanceren nodig (punten 6, 16).
+2. **Alleen BTC (of BTC en ETH), gewone DCA**, voor wie de diepe dalingen (de helft van de inleg op papier kwijt) aankan. Hoogste uitkomst in de metingen, maar alles in één soort en een uitzonderlijke periode (punten 2, 6, 17).
+3. **Alleen BTC met een trendfilter**: minder diep, minder eindwaarde (run 3 punt 12, punt 16). Het enige wat een eigen script toevoegt.
+4. **Mandje van veel munten, dip-regels, value averaging, grid**: slechter dan gewone DCA in elke meting (run 1 tot 4).
+
+### Nog te doen (volgende runs)
+- Een tweede mandje (top tien van januari 2018 of 2021) om te zien of punt 17 niet aan één startjaar ligt.
+- Forumervaringen via een bron die curl wel toelaat (bijv. Bogleheads of een Discourse-forum) over spaarplannen met crypto erbij.
+- Wat er met de mix gebeurt als BTC de komende jaren gewoon zo hard groeit als aandelen (scenario zonder de uitzonderlijke groei), om de verwachting van punt 19 eerlijker te maken.
+
+## Stand na run 04:15 UTC (19 nov 2026)
+1. **Gewone DCA wint van bijna alle slimme regels.** Dip-regels, value averaging, grid en een mandje van tien munten eindigden in elke meting lager dan gewoon elke maand kopen (BTC 2018 tot 2026: x2,63 tot x3,44 tegen x4,68; mandje 2020 tot 2026: x1,79 tegen x2,60 voor alleen BTC) (GEZIEN, eigen metingen, run 1 tot 4).
+2. **Beste evenwicht: een wereld-ETF met 10 tot 20% BTC, zonder filter.** 80/20 over 2015 tot 2026: mediaan 36 maanden x1,39 tegen x1,19 voor alleen de ETF, diepste tussenstand x0,83 tegen x0,84 (GEZIEN). Uitzonderlijke periode voor BTC, niet door te trekken (GOK).
+3. **Een trendfilter helpt alleen bij 100% BTC** (diepste x0,66 tegen x0,51), **niet in een mix** (diepste x0,80 tegen x0,83, hele periode x7,38 tegen x8,95) (GEZIEN). Een kleiner vast BTC-deel dempt beter dan een filter.
+4. **Kosten: aanbieder kiezen is de grootste knop.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, links in run 1 en 2). Frequentie telt alleen bij vaste kosten per order.
+5. **Een eigen bot voegt voor een maandinleg bijna niets toe**: geen gebruikt open project doet "spaarplan plus filter" (GEZIEN), het filter helpt in een mix niet, en het maker-voordeel is 0,1%. De maandinleg haalt het doel van 10.000 euro in 3 maanden met geen enkele aanpak (GOK).
