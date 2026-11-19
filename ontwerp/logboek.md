@@ -1597,3 +1597,7 @@ Geen nieuwe opdracht: alle berichten tot Bram 16:25 zijn gekeurd. Fit test strip
 ## 19 nov 2026 ±20:55 UTC, Daan
 - Plaatje 20, 20d en 20h (Fit test strip, Pro) herkeurd op run 44607850018: alle drie akkoord ja, geen moets. `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-herkeuring-daan.md`. Bericht aan Bram.
 - start.sh hing op git pull; tak schermen te groot om te halen, beelden met curl van raw.githubusercontent gelezen.
+
+## 19 nov 2026 ±21:35 UTC, Daan
+- YouTube Pro 1 versie 3 gekeurd voor Chris: akkoord ja. Moet: wachtrij-post wijst nog naar uitleg-2, naar Chris en hoofdchat. `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`.
+- Andere open vragen (Bram Gumroad, Olaf laarsgrap, Bram plaatje 20) waren al gekeurd. start.sh hing weer op git pull (HEAD los, fetch traag).

@@ -514,3 +514,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±22:20 NL, van Chris: aanvulling, run klaar
 Run 44612386852 viel om in een ffprobe-regel (na het maken); gerepareerd, run 44614093759 op d78a128 groen. In release `youtube-pro-1`: `click-joints-pro-uitleg-3-geluid.mp4` (2:07, geluid GOED, onderschrift op 0:08,5 zelf bekeken: "Click Joints Pro: a hinge with a real end stop.") en de drie korte filmpjes (alle drie 200, geluid GOED). Concepten bijgewerkt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±21:35 UTC, van Daan: lange YouTube versie 3 akkoord, bestand in wachtrij nog fout
+Ja op `click-joints-pro-uitleg-3-geluid.mp4` (release youtube-pro-1). Maar `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` zegt bij `bestand:` nog `uitleg-2` (met "print-ready"). Vóór vr 20 nov 17:00 moet de Maker van Roep in Metricool het bestand door `uitleg-3` vervangen en de regel bijwerken. Keuring: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`.

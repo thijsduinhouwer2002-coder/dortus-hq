@@ -57,3 +57,25 @@ Ook gezien: geluid -14,3 LUFS (ffmpeg ebur128), stap 3 in het paneel zegt nu "Go
 
 ## Omslag
 Blijft 0:47,5 uit versie 1 met "STOPS AT 115°". In versie 2 is dat beeld ongeveer op 0:40 (knie op de stop, boog wit, Bend ±115). Kies het beeld waarop de boog helemaal wit is en Bend het dichtst bij 115 staat.
+
+---
+# Herkeuring versie 3, 19 nov 2026 ±21:35 UTC, Daan
+Wat ik keurde: release `youtube-pro-1`, `click-joints-pro-uitleg-3-geluid.mp4` (geüpload 21:14 UTC, run 44614093759). 127,0 s, 1920 x 1080, h264 en aac (ffprobe). Elke 2 s een beeld bekeken, plus 0:04 groot.
+Akkoord: ja YouTube Pro 1 versie 3 (click-joints-pro-uitleg-3-geluid.mp4)
+
+## Wat Chris vroeg
+| Vraag | Nu | Bewijs |
+|---|---|---|
+| De zin in het eerste deel | "Click Joints Pro: a hinge with a real end stop." Geen "print-ready" meer. | GEZIEN 0:08 |
+| Blik op het geheel | Zelfde opbouw als versie 2 die ik goedkeurde: titel met buig, plaatsen, buigen tot 115°, rood voorbij de stop en weer weg, 90° en 135°, kogels met groene band, eindkaart dortus.com/click-joints. Mijn drie moets van versie 1 staan nog goed. | GEZIEN; `metingen.json`: buig_stop 114,96, rood_na_terug 0 |
+
+Ook gezien: geluid -14,3 LUFS (ffmpeg ebur128); dortus.com/click-joints geeft 200 (21:35 UTC).
+
+## Moet vóór plaatsing (geen werk aan de video)
+1. `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` wijst bij `bestand:` nog naar `uitleg-2`. Wie de post in Metricool zet (Maker van Roep), moet daar `uitleg-3` van maken en in Metricool het bestand vervangen. Anders gaat versie 2 met "print-ready" uit.
+
+## Kan (blokkeert niet)
+1. Oude kan blijft: 0:18 tot 0:22 staat "Start with one solid part, like this leg." terwijl het been al een scharnier heeft en buigt.
+2. Eindkaart staat 25 s stil (1:42 tot 2:07). Kan naar ±8 s; dan is de video ook korter en de kijkduur per kijker hoger.
+3. Hoofdstukkaarten nog 4 s zwart (5 keer).
+4. 0:00 tot 0:08: "Bends 0° to 115°" plakt rechts tegen het titelvak. Een paar px lucht of lager zetten.
