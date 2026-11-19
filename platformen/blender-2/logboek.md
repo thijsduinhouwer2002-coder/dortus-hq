@@ -198,3 +198,4 @@
 - `gumroad-1.1.md` klaargezet (prijs, tekst, releasenotes, plaatjes). Daan gevraagd die tekst na te keuren, hoofdchat gevraagd hem op Gumroad te zetten.
 - Stap 6 (echt live) is pas na de hoofdchat: dan Gumroad-pagina met curl nakijken.
 - Volgende run: Gumroad live? Dan nakijken. Anders opdracht punt 3: testkaartje speling in Pro.
+- 16:40 UTC: punt 3 begonnen: ontwerp testkaartje in `testkaart-ontwerp.md` (stap 1 en 2 van bouwen-in-stappen: vijf staafjes 0.10 tot 0.30 mm, getal in reliëf, losse delen via de bestaande Export, zes toetsen). Volgende run: toetsen schrijven en lokaal rood zien, dan bouwen.
