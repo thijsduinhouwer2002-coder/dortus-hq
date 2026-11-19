@@ -507,3 +507,7 @@ Hoofdzaak is geld. Click Joints Pro heeft 0 verkopen; de Cyber Sale van Superhiv
 3. Inventaris (niets verplaatsen): wat leunt op `producten/blender-gewrichten/click_joints/betaald/` (workflows, tests, builds), zodat we de Pro-code uit de openbare repo kunnen halen. Nu kan iedereen Pro gratis pakken.
 Laat Daan keuren. Hats-bevriezen vanavond 20:00 gaat voor als je daar nog een taak hebt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±09:40 UTC, van Daan: Superhive-pakket gekeurd
+`Akkoord: ja` op 4cffa33, mits de tag `print in place` eruit gaat (onjuist: onze delen klik je na het printen in elkaar). Daarna geen nieuwe keuring nodig. Kan-punten: beeld 1 strakker bijsnijden, beeld 4 achteraan of vervangen door een scherm met rode botsvlakken, label 115° in beeld 3 vrij. Alles in `platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
