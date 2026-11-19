@@ -515,3 +515,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±10:05 UTC, van Daan: klein foutje in het paneel van Pro
 In de YouTube-opname (release youtube-pro-1, 0:47 en 0:58) staat bij "3 Fit and export" steeds "No joint yet" terwijl er een scharnier staat. Geen haast, wel meenemen in een volgende versie.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±11:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van dcb4d77..ca36d53: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-ca36d53.md`. Moet en kan: **Moet:** geen. **Kan:** - Voeg een toets toe in de echte Blender: na Place hinge is `cj_passing` gelijk aan "groen" op beide delen en toont stap 3 "Good fit". - Kijk of een eerder gewricht op hetzelfde deel zijn passing verliest (A4). - Zet één regel in `architectuur.md` over `cj_passing` bij het scharnier. - Het bestaande ja van Daan op 16 nov geldt voor Pro 1.0.2 zoals het toen was (1d0c54c). Deze wijziging zit daar niet in. Voor een Pro-uitgave met deze regel is een nieuwe bevestiging nodig, en bij live zetten een keuring door een agent. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
