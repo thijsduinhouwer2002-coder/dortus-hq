@@ -44,3 +44,46 @@ Akkoord: nee
 - Voor de hoofdchat (B5, niet van R4): de stap "Schermafbeeldingen openbaar zetten" in de e2e's sparse of blob:none laten klonen, en de vaste CLion-build 263.7307.35 verloopt rond 22 nov (staat in ClionTest.kt), dan wordt de push-e2e van Bison & Flex rood.
 
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## Herkeuring 19 nov
+Keurder: losse keurder (niet de bouwer), ±02:00 NL. Wat ik keurde: commits e133d25c, 7f492ff2, 33882071, d5a38b50, d0cde729, 6ff2d218; runs 44427731945 (Click Joints), 44427732156 en 44427918561 (Bison & Flex), 44427731943 en 44428668244 (Rollwright), hun logs en artefacten `beeldverschil-*`; tak schermen via raw.githubusercontent.com en de API; `git log -p` op `berichten/bram.md`, `chris.md`, `olaf.md` sinds e133d25c.
+Akkoord: nee (moet 2 opgelost, moet 1 niet af)
+
+### Moet 2: één beeldbericht per run per eigenaar, niet twee keer hetzelfde. Uitslag: ja
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| 1 | Sinds e133d25c kreeg elke eigenaar precies één beeldbericht: Bram 1 (c042920e, run 44427731945, drie Blender-versies samen, 4 regels), Olaf 1 (b398971f, run 44427731943), Chris 1 (0c1011ec, run 44427732156). De berichten zijn kort (±400 tekens); de lijst met plaatjes staat in `GEMELD.md` op schermen, niet in het berichtenbestand. Rollwright-run 44428668244 daarna: log "geen groot beeldverschil", geen bericht. | feit | hoog |
+| 2 | Het bericht aan Chris kwam van run 44427732156 op 7f492ff2, gestart een minuut voor 33882071 het bericht aan Chris uitzette. Run 44427918561 op 33882071: job `beeldbericht` "skipped" (GEZIEN). Het staat nu echt uit, met reden in de workflow (`if: false && ...`, regel 148 tot 150) en in `architectuur.md`. | feit | hoog |
+| 3 | Niet twee keer hetzelfde: `beeldbericht.py` maakt een sleutel uit product, tak en per plaatje LEEG of de referentierun; `beelden.sh meld` claimt die eerst met een gewone push op schermen en stuurt pas daarna, bij botsen opnieuw ophalen en dan "al gemeld". Code klopt. De tak "al gemeld" heb ik nog niet in een echte run gezien (er was na de reparatie geen tweede run met een groot verschil). | feit (code), vermoeden (praktijk) | midden |
+| 4 | `GEMELD.md` van Bison & Flex en Rollwright is weg (404 op schermen): de bewaarstap van runs 44427918561 en 44428668244 wiste de map nog, vóór d0cde729 dat repareerde. Click Joints houdt hem wel (bewaart per versie in een submap). Na d0cde729 blijft hij staan (code gelezen, nog niet in een run gezien). | feit | hoog |
+| 5 | Rest-risico voor Bram: `4-material-preview-x.png` in Blender 5.3.0 wisselt tussen twee standen (in twee runs na elkaar precies 359405 px, 17 procent; het verschilbeeld toont "Compiling EEVEE engine shaders"). Omdat de sleutel de referentierun bevat, geeft elke wissel een nieuwe sleutel en dus een nieuw bericht aan Bram, met de 72 lege plaatjes er weer bij. Hooguit één kort bericht per Blender-run, geen vloed, maar wel steeds hetzelfde vals alarm. | feit (wisselen), vermoeden (volgende berichten) | midden |
+
+### Moet 1: Bison & Flex vals alarm. Uitslag: deels, niet af
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| 1 | Vaste projectmap (`Gedeeld.kt`, `winkelproject()`) en de maskers voor de projectknop (`*:0,0,1000,80`) en de balk onder de projectboom (`*-calc-y.png:80,1700,1040,1760`) zijn redelijk voor de hoofdvensters (2880x1800): ik heb het masker op `donker-calc-y.png` nagelopen, het raakt alleen menu, projectknop en schuifbalk, niet de editor of de projectboom. De wijziging in `Gedeeld.kt` raakt geen assert. | feit | hoog |
+| 2 | **De maatspeling verbergt echte plaatjes.** In beide runs 44427732156 en 44427918561 zijn `licht-kleurenpagina.png`, `donker-kleurenpagina.png` en `donker-hernoem-conflict.png` "maat licht anders, niet vergeleken": de maat wisselt elke run (2002x1402 en 1994x1400; 1592x1172 en 1600x1174). Die drie worden dus nooit vergeleken, en de kleurenpagina is een kernscherm van de plugin. De keuring vroeg de venstermaat vast te zetten of alleen een vast vak te vergelijken; nu valt het plaatje helemaal weg. De speling (16 px) geldt ook voor Click Joints en Rollwright. | feit | hoog |
+| 3 | Het masker `*:0,0,1000,80` geldt ook voor dialoogvensters: op `licht-hernoem-venster.png` (720x450) valt de hele kopregel "Rename rule 'exp' and its usages to:" weg, op de 1600 brede dialogen de titel. Een verkeerde tekst daar glipt door. | feit | hoog |
+| 4 | Twee push-runs met 0 groot: niet gehaald. 44427732156 gaf 1 groot, 44427918561 gaf 2 groot (tooltip in `licht-hernoem-conflict.png`, 4,4 procent; vervagende melding in `licht-hernoem-structuur.png`, 3,1 procent). Dat timingprobleem is niet opgelost, alleen beschreven. De run die nu loopt (44430734777 op d0cde729) telt niet mee: de referentie op schermen is weer van run 44426983619 (e133d25c, oude code zonder vaste map), die als laatste klaar was en de referentie overschreef vóór de beveiliging van d0cde729. | feit | hoog |
+| 5 | Onderbouwing rechtgezet: de 0,11 procent is weg uit de workflow en `architectuur.md`, nu "zonder maskers 0,34 tot 1,56 procent", klopt met de eerste keuring. "Bericht aan Chris blijft uit tot twee runs met 0 groot" staat duidelijk in de workflow en in `architectuur.md`. Kleine fout: dezelfde alinea in `architectuur.md` zegt daarna toch "op main één kort bericht per run in `berichten/chris.md`", dat spreekt het "staat nog uit" tegen. | feit | hoog |
+| 6 | Rollwright (geen moet, wel nieuw van R4, d5a38b50): het masker `l1-*:730,120,1024,760` dekt het hele logboekpaneel af, en dat is juist wat `l1-logboek.png` en `l1-logboek-tekst.png` laten zien (nagetekend op het plaatje). Alleen de kloktijden wisselen; een fout in het logboek zelf glipt zo door. | feit | hoog |
+
+### Zwarte plaatjes. Uitslag: ja
+Zelf bekeken met de Read-tool (tak schermen, `blender-gewrichten/main/5.3.0/`): `1-paneel.png` en `15-figuur.png` zijn helemaal zwart (standaardafwijking 0,00); `1-paneel-x.png` (paneel Click Joints met pop, Report a problem) en `15-figuur-paneel.png` zijn goed. `beeldvergelijk.py` lokaal op deze vier: de twee zwarte als "LEEG ... GROOT", de twee goede "gelijk". In run 44427731945 kwamen alle 24 zwarte per versie als LEEG in het verslag en in `GEMELD.md`, geen enkel `-x`- of `-paneel`-plaatje vals als LEEG. Bram heeft een duidelijk bericht van R4 over de oorzaak.
+
+### Regels. Uitslag: ja
+- Niets geforceerd: geen `--force`, `-f` of `+HEAD` in de nieuwe regels; alle R4-commits staan gewoon in de geschiedenis van main; `meld` en `bewaar` pushen gewoon en halen bij botsen opnieuw op.
+- Geen test verzwakt: de enige wijziging in e2e-testcode is `Gedeeld.kt` (vaste map), geen assert, grens of overgeslagen test; de vaste versielijsten zijn ongewijzigd.
+- Geen rauwe invoer: nieuwe `${{ }}` in de workflows alleen `github.token` in `env:`; de nieuwe run-regels gebruiken geen expressies.
+
+## Moet (blokkeert akkoord)
+1. **Bison & Flex: vergelijk alles wat er is.** Zet de dialoogmaat vast of vergelijk een vast vak (bijvoorbeeld het gedeelde deel linksboven) in plaats van "niet vergeleken", zodat de kleurenpagina en het conflictvenster weer meetellen. Laat het kopmasker alleen gelden voor de hoofdvensters (2880x1800), niet voor dialogen. Los de timing op (tooltip weg of wachten tot de melding weg is) en laat twee push-runs van dezelfde code 0 groot zien, met een referentie van de nieuwe code (GEZIEN met runnummers). Bericht aan Chris blijft tot dan uit.
+2. **Rollwright: masker l1 kleiner.** Alleen de regels met de kloktijd afdekken (of de klok vastzetten), niet het hele logboek.
+
+## Kan (mag later)
+- Click Joints 5.3.0: `4-material-preview-x.png` wachten tot de EEVEE-shaders klaar zijn (of dat vak maskeren), anders krijgt Bram bij elke wissel een nieuw bericht (moet 2, punt 5).
+- `architectuur.md` van Bison & Flex: de zin over "op main één kort bericht per run" laten aansluiten op "staat nog uit".
+- Nagaan in de eerstvolgende runs dat "al gemeld" en het bewaren van `GEMELD.md` echt werken (nu alleen code gelezen).
+- Buiten R4, al bekend (logboek Blender): de Pro-zip `click_joints_pro-1.1.0.zip` staat bij elke run openbaar op de tak schermen. Voor de hoofdchat om te beslissen of dat zo moet nu er geld mee verdiend moet worden.
+
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
