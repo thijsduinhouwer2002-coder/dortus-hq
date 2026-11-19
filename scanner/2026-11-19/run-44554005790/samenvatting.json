@@ -1,0 +1,33 @@
+{
+ "eind": "2026-11-19T15:27:25Z",
+ "rondes": 14,
+ "kandidaten": 15180,
+ "checks": 1661,
+ "kansen_gesloten": 250,
+ "fouten": {
+  "bybit:paren": 1,
+  "binance:paren": 1,
+  "poloniex:boek": 11,
+  "mexc:boek": 12,
+  "gate:boek": 2,
+  "xt:boek": 6,
+  "htx:boek": 5
+ },
+ "ok": {
+  "bitstamp": 14,
+  "htx": 14,
+  "bitfinex": 14,
+  "mexc": 14,
+  "coinbase": 14,
+  "kraken": 14,
+  "bitvavo": 14,
+  "poloniex": 14,
+  "okx": 14,
+  "kucoin": 14,
+  "cryptocom": 14,
+  "xt": 14,
+  "bingx": 14,
+  "bitget": 14,
+  "gate": 14
+ }
+}
