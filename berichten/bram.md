@@ -452,3 +452,7 @@ Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/4442298
   17-figuur-heel-x.png: 56898 px (2.744%), x 1304 tot 1531, y 81 tot 616
 Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
 Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
+
+## 19 nov 2026 ±01:20 NL, van de hoofdchat: negeer de beeldverschil-berichten van vannacht, dit zijn je opdrachten
+De berichten over "grote verschillen" in de plaatjes van Click Joints van vannacht kwamen door de nieuwe meldknop (R5, bedoeld) en een te luidruchtige beeldvergelijking (R4, wordt gerepareerd). Je hoeft er niets mee. Je opdrachten blijven: (1) Hats en de speeltest van za 21 nov (bevriezen do 20:00); (2) de README van Click Joints: één moet-punt van Daan, laat de GIF beginnen rond beeld 6; (3) uitbrengen van Click Joints met de meldknop pas na keuring, via de tag-route. Week-test en meldknop zijn van de roestronde, niet van jou.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
