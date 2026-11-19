@@ -1,5 +1,5 @@
 {
-  "_uitleg": "Wie er in de ploeg zit en wanneer ze draaien. De hoofdchat werkt dit bij als er iemand aan of uit gaat. Het dashboard-script leest dit; 'sleutels' zijn woorden waarmee hun commits beginnen.",
+  "_uitleg": "Wie er in de ploeg zit en wanneer ze draaien. De hoofdchat werkt dit bij als er iemand aan of uit gaat. Het dashboard-script leest dit; 'sleutels' zijn woorden waarmee hun commits beginnen. 'vast': true voor hoofdchat en keurders (niet op het bord). Aan of uit komt uit organisatie/bord.md deel 2; wie niet op het bord staat telt als 'ook bezig' als er de laatste 3 uur iets van hem op GitHub kwam.",
   "mensen": [
     {
       "naam": "Olaf",
@@ -258,7 +258,8 @@
         "Besluit",
         "Toegang",
         "Lijst"
-      ]
+      ],
+      "vast": true
     },
     {
       "naam": "Roep",
@@ -290,7 +291,8 @@
         "Keuring",
         "Herkeuring",
         "Automatische keuring"
-      ]
+      ],
+      "vast": true
     }
   ],
   "producten": [

@@ -4,6 +4,10 @@
 
 **Regels:** geen persoonsgegevens van Thijs (schrijf "staat bij Thijs"); elk getal krijgt een label GEZIEN, DERDEN of GOK; verzin niets, schrijf "nog geen schatting" als een keuring geen bedrag of kans geeft. Bij elke wijziging aan een project ook `laatste_update` bijwerken.
 
+**Schrijf voor Thijs, niet voor agents.** De statuszin, volgende stap en het risico leest Thijs in één oogopslag: gewone woorden, zoals een eigenaar het zegt ("Speelt op de computer, wacht op een tweede keuring"). Geen commit-hashes, geen run-nummers, geen vaktaal als "moet-punten", "Pending", "e2e" of "R4". Op het overzicht staat alleen het begin van de statuszin (één regel): zet het belangrijkste vooraan.
+
+**Controle:** `dashboard/bouw.py` controleert dit bestand eerst (`dashboard/controle.py`). Klopt er iets niet (geen geldige JSON, een tekst waar een getal hoort, een datum als "27 nov"), dan bouwt het dashboard toch en zet bovenaan de pagina een rode melding met wat er mis is; het foute veld wordt weggelaten. Zelf nakijken vóór een push: `python3 dashboard/controle.py`.
+
 ## Bovenaan
 - `bijgewerkt`: `datum` ("JJJJ-MM-DD UU:MM", NL-tijd) en `door` van de laatste ronde die het bestand naliep.
 
@@ -23,7 +27,7 @@
 | `prognose` | euro's binnen 12 weken (tot do 11 feb 2027). `verwacht` is een getal of `[van, tot]`, en is al kans maal opbrengst (zo rekenen de keurders). `laag` en `hoog` zijn de slechtste en beste uitkomst, als de keuring die geeft. `samen: true` als het bedrag voor meer projecten samen geldt. Geen bedrag: `tekst`. Altijd `label`, `reden`, `bron` | |
 | `volgende_stap` | één zin | |
 | `deadline` | `datum` (JJJJ-MM-DD), optioneel `tijd` (NL), en `wat`; of `null` | |
-| `thijs` | wat alleen Thijs kan: `doen` en `voor` (datum), of `null` als hij niets hoeft. Staat het ook op `lijst-thijs.md`, dan dezelfde woorden | |
+| `thijs` | **een lijst** met wat alleen Thijs kan voor dit project, elk punt met `doen` en optioneel `voor` (JJJJ-MM-DD); `[]` als hij niets hoeft. Een project kan dus meer punten hebben. "Jij moet doen" op het dashboard is `lijst-thijs.md` plus deze punten, zonder dubbelingen (zelfde woorden of zelfde datum telt als hetzelfde punt). De lijst van Thijs blijft van de hoofdchat: zet een punt dat echt moet ook daar | `[{"doen": "Speeltest spelen", "voor": "2026-11-21"}]` |
 | `risico` | één zin: wat kan het laten mislukken | |
 | `laatste_update` | `datum` en `door` | |
 | `links` | lijst van `naam` en `url`; een pad in de repo wordt vanzelf een GitHub-link | |
@@ -31,8 +35,8 @@
 | `mappen` | mappen in de repo; het dashboard toont de laatste commits die ze raakten | |
 | `keuringen` | keuringsbestanden; het dashboard toont de regel "Akkoord:" en de kop | |
 
-## Hoe het dashboard sorteert
-Op de overzichtstab staan projecten van Dortus eerst, gesorteerd op verwachte opbrengst (het midden van `verwacht`, dat al kans maal opbrengst is). Daarna projecten zonder schatting, dan projecten met €0, en als laatste de meetprojecten van Thijs zelf. De strook bovenaan telt `verwacht` van alle Dortus-projecten op.
+## Hoe het dashboard sorteert en wat het toont
+Op de overzichtstab staan projecten van Dortus eerst, gesorteerd op verwachte opbrengst (het midden van `verwacht`, dat al kans maal opbrengst is). Daarna projecten zonder schatting, dan projecten met €0, en als laatste de meetprojecten van Thijs zelf. De kop van het overzicht telt `verwacht` van alle Dortus-projecten op. Bovenaan staat ook "Stand projecten" uit `bijgewerkt`; die wordt oranje als hij ouder is dan 3 uur, dus werk `bijgewerkt` elke ronde bij, ook als er niets veranderde. GEZIEN, DERDEN of GOK staat alleen bij getallen; een woord als "middel" of "laag" krijgt geen label op het scherm, maar wel in dit bestand.
 
 ## Wat de ronde elk uur bijwerkt
 1. `status` (woord, kleur, zin), `volgende_stap`, `deadline` en `thijs` van elk project dat veranderde (lees bord, berichten, logboeken).

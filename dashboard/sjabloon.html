@@ -4,238 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta http-equiv="refresh" content="900">
 <title>Dortus, projecten</title>
-<style>
-:root{
-  --papier:#f4f5f7; --vlak:#ffffff; --vlak2:#f9fafb; --inkt:#172030; --grijs:#5a6474; --zacht:#8a93a3; --lijn:#e3e6eb; --lijn2:#d3d8e0;
-  --accent:#2446ad; --accent-zacht:#e8edfb; --accent-inkt:#1b3787;
-  --goed:#167a4b; --goed-z:#e3f3ea; --let:#9a6206; --let-z:#fbf0dc; --fout:#b83227; --fout-z:#fbe6e3; --stil:#7a8394; --stil-z:#eef0f3;
-  --r:10px; --schaduw:0 1px 2px rgba(23,32,48,.05);
-  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --papier:#141820; --vlak:#1a1f29; --vlak2:#1e2430; --inkt:#e6e9ef; --grijs:#a1a9b8; --zacht:#7d8697; --lijn:#2a313d; --lijn2:#363e4c;
-    --accent:#8ea6ff; --accent-zacht:#232c4a; --accent-inkt:#b5c4ff;
-    --goed:#55c48f; --goed-z:#17322a; --let:#e5ae4c; --let-z:#3a2e17; --fout:#ff8173; --fout-z:#3d2020; --stil:#8f98a8; --stil-z:#252b36;
-    --schaduw:none;
-  }
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--papier);color:var(--inkt);font:15px/1.5 var(--font);font-variant-numeric:tabular-nums;min-height:100vh}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:2px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-button{font:inherit;color:inherit}
-
-/* opbouw */
-.app{display:grid;grid-template-columns:252px minmax(0,1fr);min-height:100vh;background:linear-gradient(to right,var(--vlak) 251px,var(--lijn) 251px,var(--lijn) 252px,transparent 252px)}
-.zij{position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--lijn);background:var(--vlak);padding:22px 14px 24px;display:flex;flex-direction:column;gap:18px}
-.merk{padding:0 10px}
-.merk b{display:block;font-size:19px;font-weight:700;letter-spacing:-.015em}
-.merk small{display:block;color:var(--grijs);font-size:12.5px;margin-top:2px}
-.oud{color:var(--let);font-weight:600}
-.nav{display:flex;flex-direction:column;gap:1px}
-.nav .groep{font-size:12px;color:var(--zacht);padding:14px 10px 6px}
-.nav a{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--inkt);font-size:14px;line-height:1.3}
-.nav a:hover{background:var(--vlak2);text-decoration:none}
-.nav a[aria-current="page"]{background:var(--accent-zacht);color:var(--accent-inkt);font-weight:600}
-.nav a .eind{margin-left:auto;color:var(--zacht);font-size:12.5px}
-.nav a[aria-current="page"] .eind{color:inherit}
-.hoofd{min-width:0;padding:30px 40px 80px}
-.binnen{max-width:1080px;margin:0 auto}
-
-/* tekst */
-h1{font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-.02em}
-h2{font-size:17px;font-weight:650;letter-spacing:-.01em}
-.sub{color:var(--grijs);margin-top:6px;max-width:68ch}
-.klein{font-size:13px;color:var(--grijs)}
-.sectie{margin-top:36px}
-.sectie>.kop{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
-.sectie>.kop .klein{text-align:right}
-
-/* labels GEZIEN / DERDEN / GOK */
-.lb{display:inline-block;font-size:9.5px;line-height:1;font-weight:650;letter-spacing:.04em;padding:3px 4px 2px;border-radius:3px;border:1px solid var(--lijn2);color:var(--grijs);vertical-align:2px;margin-left:5px;white-space:nowrap}
-.lb-gezien{border-color:color-mix(in srgb,var(--goed) 45%,transparent);color:var(--goed)}
-.lb-derden{border-color:color-mix(in srgb,var(--accent) 45%,transparent);color:var(--accent)}
-
-/* status: kleur, vorm en woord */
-.st{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:2px 8px 2px 7px;border-radius:99px;white-space:nowrap;background:var(--stil-z);color:var(--stil)}
-.st i{width:8px;height:8px;flex:none;background:currentColor}
-.st-op-koers{background:var(--goed-z);color:var(--goed)} .st-op-koers i{border-radius:50%}
-.st-let-op{background:var(--let-z);color:var(--let)} .st-let-op i{clip-path:polygon(50% 0,100% 100%,0 100%);width:9px;height:8px}
-.st-risico{background:var(--fout-z);color:var(--fout)} .st-risico i{transform:rotate(45deg);width:7px;height:7px}
-.st-stil i{background:none;border:1.5px solid currentColor;border-radius:50%}
-
-/* strook bovenaan */
-.strook{display:grid;grid-template-columns:1.45fr 1fr 1fr;background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);box-shadow:var(--schaduw);margin-top:22px}
-.strook>div{padding:18px 20px 20px;min-width:0}
-.strook>div+div{border-left:1px solid var(--lijn)}
-.strook h2{font-size:13.5px;font-weight:600;color:var(--grijs);margin-bottom:10px;display:flex;gap:8px;align-items:baseline}
-.strook .groot{font-size:28px}
-.strook h2 .tel{color:var(--accent);font-size:13.5px}
-.doen{list-style:none;display:flex;flex-direction:column;gap:10px}
-.doen li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
-.doen .vink{width:16px;height:16px;border:1.5px solid var(--accent);border-radius:4px;margin-top:2px}
-.doen li.klein-punt .vink{border-color:var(--lijn2)}
-.doen .t{font-weight:600;font-size:14px;line-height:1.35}
-.doen li.klein-punt .t{font-weight:500;color:var(--grijs)}
-.doen .m{font-size:12.5px;color:var(--grijs);margin-top:2px}
-.doen .m a{font-weight:500}
-.wanneer{font-weight:600;color:var(--accent-inkt)}
-.wanneer.laat{color:var(--fout)}
-.groot{font-size:31px;line-height:1.05;font-weight:700;letter-spacing:-.025em}
-.groot .lb{vertical-align:12px}
-.dl{list-style:none;display:flex;flex-direction:column;gap:9px}
-.dl li{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:baseline}
-.dl .d{font-weight:650;font-size:13.5px}
-.dl .w{font-size:13.5px;line-height:1.35}
-.dl .w small{display:block;color:var(--grijs);font-size:12px}
-
-/* ranglijst */
-.lijst{background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);box-shadow:var(--schaduw);overflow:hidden}
-.rij,.rijkop{display:grid;grid-template-columns:34px minmax(0,1fr) 280px 124px 112px;gap:18px;align-items:center;padding:16px 20px}
-.rijkop{padding-top:12px;padding-bottom:10px;font-size:12px;color:var(--zacht);border-bottom:1px solid var(--lijn);background:var(--vlak2)}
-.rij{border-top:1px solid var(--lijn);color:inherit;position:relative}
-.rijkop+.rij{border-top:0}
-.rij:hover{background:var(--vlak2);text-decoration:none}
-.rang{font-size:15px;font-weight:650;color:var(--zacht);align-self:start;padding-top:1px}
-.naam{font-size:16px;font-weight:650;letter-spacing:-.01em;line-height:1.25;color:var(--inkt)}
-.onder{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:6px;font-size:13px;color:var(--grijs)}
-.zin{font-size:13.5px;color:var(--grijs);margin-top:6px;line-height:1.4;max-width:62ch}
-.jij{display:inline-flex;gap:6px;align-items:baseline;margin-top:8px;font-size:13px;color:var(--accent-inkt);background:var(--accent-zacht);padding:3px 9px;border-radius:6px;line-height:1.35}
-.jij b{font-weight:650}
-.cel .w{font-size:14.5px;font-weight:600;line-height:1.3}
-.cel .k{font-size:12px;color:var(--grijs);margin-top:2px}
-.nw{white-space:nowrap}
-.kl{display:none;font-size:12px;color:var(--zacht)}
-
-/* geldlat: alle projecten op dezelfde euro-as */
-.lat{position:relative;height:42px}
-.lat .as{position:absolute;left:0;right:0;top:28px;height:4px;border-radius:2px;background:var(--lijn)}
-.lat .tik{position:absolute;top:24px;width:1px;height:12px;background:var(--lijn2)}
-.lat .span{position:absolute;top:29px;height:2px;background:var(--grijs);opacity:.55}
-.lat .span.samen{background:none;border-top:2px dotted var(--grijs);opacity:.7;height:0}
-.lat .band{position:absolute;top:24px;height:12px;border-radius:3px;background:var(--accent);min-width:4px}
-.lat .nul{position:absolute;top:23px;width:4px;height:14px;border-radius:2px;background:var(--grijs)}
-.lat .bedrag{position:absolute;top:0;font-size:12.5px;font-weight:650;white-space:nowrap;transform:translateX(-50%);color:var(--inkt)}
-.lat .bedrag .lb{margin-left:4px}
-.lat.leeg{display:block;font-size:13px;color:var(--grijs);height:auto;line-height:1.4}
-.askop{position:relative;height:16px}
-.askop span{position:absolute;transform:translateX(-50%);white-space:nowrap}
-.askop span:first-child{transform:none}
-
-
-/* projectpagina */
-.terug{display:none;font-size:14px;margin-bottom:14px}
-.kopregel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:2px 9px;border-radius:99px;border:1px solid var(--lijn2);color:var(--grijs);background:var(--vlak)}
-a.chip{color:var(--inkt)}
-a.chip:hover{border-color:var(--accent);text-decoration:none}
-.statuszin{margin-top:16px;font-size:16px;line-height:1.5;max-width:70ch}
-.feiten{display:grid;grid-template-columns:1fr 1.35fr 1fr 1fr;background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);margin-top:22px;box-shadow:var(--schaduw)}
-.feiten>div{padding:16px 18px 18px;min-width:0}
-.feiten>div+div{border-left:1px solid var(--lijn)}
-.feiten h3{font-size:12.5px;font-weight:600;color:var(--grijs);margin-bottom:8px}
-.feiten .groot{font-size:26px}
-.feiten .groot .lb{vertical-align:7px}
-.feiten p{font-size:13px;color:var(--grijs);margin-top:8px;line-height:1.45}
-.feiten .jijvak{color:var(--accent-inkt)}
-.feiten .jijvak .t{font-weight:650;font-size:14.5px;line-height:1.4;color:var(--inkt)}
-.tweeluik{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
-.tweeluik h3{font-size:13px;font-weight:600;color:var(--grijs);margin-bottom:6px}
-.tweeluik p{font-size:15px;line-height:1.5}
-.wie{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.tabel{background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);box-shadow:var(--schaduw);overflow:hidden}
-.cijfer{display:grid;grid-template-columns:minmax(0,1.3fr) 130px 120px minmax(0,1.2fr);gap:16px;align-items:center;padding:13px 18px;border-top:1px solid var(--lijn)}
-.cijfer:first-child{border-top:0}
-.cijfer .maat{font-weight:600;font-size:14.5px}
-.cijfer .maat small{display:block;font-weight:400;color:var(--grijs);font-size:12.5px}
-.cijfer .waarde{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.cijfer .waarde small{display:block;font-size:12px;font-weight:500;color:var(--grijs);letter-spacing:0;margin-top:3px}
-.plus{color:var(--goed)} .min{color:var(--fout)}
-.cijfer .bron{font-size:12.5px;color:var(--grijs);line-height:1.4}
-svg.spark{display:block;width:120px;height:34px;overflow:visible}
-svg.spark path{fill:none;stroke:var(--accent);stroke-width:1.75;stroke-linejoin:round;stroke-linecap:round}
-svg.spark circle{fill:var(--accent)}
-.spark-leeg{font-size:12px;color:var(--zacht)}
-.regels{list-style:none;background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);box-shadow:var(--schaduw)}
-.regels li{padding:12px 18px;border-top:1px solid var(--lijn);display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;font-size:14px;line-height:1.45}
-.regels li:first-child{border-top:0}
-.regels .tijd{font-size:12.5px;color:var(--grijs);padding-top:1px}
-.regels .door{font-weight:600}
-.regels .hash{font-size:12px;color:var(--zacht);margin-left:6px}
-.oordeel{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:650;padding:1px 7px;border-radius:5px;margin-right:6px}
-.oordeel.ja{background:var(--goed-z);color:var(--goed)}
-.oordeel.nee{background:var(--fout-z);color:var(--fout)}
-.oordeel.open{background:var(--stil-z);color:var(--stil)}
-.links{display:flex;flex-wrap:wrap;gap:8px}
-.voet{margin-top:40px;padding-top:16px;border-top:1px solid var(--lijn);font-size:12.5px;color:var(--grijs)}
-
-/* ploeg */
-.persoon{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 270px;gap:18px;padding:14px 18px;border-top:1px solid var(--lijn);align-items:start}
-.persoon:first-child{border-top:0}
-.persoon .n{font-weight:650;font-size:15px}
-.persoon .n small{display:block;font-weight:400;color:var(--grijs);font-size:12.5px;margin-top:1px}
-.persoon .f{font-size:14px;line-height:1.45}
-.persoon .f .wie{margin-top:7px}
-.persoon .l{font-size:13px;line-height:1.4}
-.persoon .l b{font-weight:600}
-.persoon .l span{display:block;color:var(--grijs);font-size:12.5px;margin-top:2px}
-.persoon.uit .n,.persoon.uit .f{color:var(--grijs)}
-.niets{padding:30px;text-align:center;color:var(--grijs)}
-
-/* telefoon en smal */
-@media (max-width:1100px){
-  .rij,.rijkop{grid-template-columns:28px minmax(0,1fr) 240px 96px 104px;gap:14px}
-  .feiten{grid-template-columns:1fr 1fr}
-  .feiten>div:nth-child(3){border-left:0}
-  .feiten>div:nth-child(n+3){border-top:1px solid var(--lijn)}
-}
-@media (max-width:860px){
-  .app{grid-template-columns:1fr;background:none}
-  .zij{position:sticky;top:0;z-index:5;height:auto;flex-direction:column;gap:10px;padding:12px 0 0;border-right:0;border-bottom:1px solid var(--lijn)}
-  .merk{padding:0 16px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-  .merk b{font-size:17px}
-  .merk small{margin:0;text-align:right}
-  .nav{flex-direction:row;overflow-x:auto;gap:4px;padding:0 12px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .nav::-webkit-scrollbar{display:none}
-  .nav .groep{display:none}
-  .nav a{flex:none;padding:6px 11px;border:1px solid var(--lijn);font-size:13.5px}
-  .nav a .eind{display:none}
-  .nav a[aria-current="page"]{border-color:transparent}
-  .hoofd{padding:20px 16px 60px}
-  h1{font-size:24px}
-  .strook{grid-template-columns:1fr}
-  .strook>div+div{border-left:0;border-top:1px solid var(--lijn)}
-  .groot{font-size:30px}
-  .rijkop{display:block;padding:9px 16px 7px 46px}
-  .rijkop>span{display:none}
-  .rij{grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:"r n n" ". l l" ". k d";gap:10px 12px;padding:16px 16px 16px 12px}
-  .rij>.rang{grid-area:r}.rij>.hoofdcel{grid-area:n}.rij>.latcel{grid-area:l;margin-top:2px}.rij>.kanscel{grid-area:k}.rij>.dlcel{grid-area:d;text-align:right}
-  .kl{display:block}
-  .rij>.kanscel,.rij>.dlcel{align-self:start}
-  .feiten{grid-template-columns:1fr}
-  .feiten>div+div{border-left:0;border-top:1px solid var(--lijn)}
-  .tweeluik{grid-template-columns:1fr;gap:18px}
-  .cijfer{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"m w" "s s" "b b";gap:8px 12px}
-  .cijfer .maat{grid-area:m}.cijfer .waarde{grid-area:w;text-align:right}.cijfer .grafiek{grid-area:s}.cijfer .bron{grid-area:b}
-  svg.spark{width:160px;height:38px}
-  .regels li{grid-template-columns:1fr;gap:2px}
-  .persoon{grid-template-columns:1fr;gap:6px}
-  .terug{display:inline-block}
-}
-@media (prefers-reduced-motion:no-preference){
-  .lat .band{transition:none}
-}
-</style>
+<link rel="icon" href="data:,">
+<style>/*STIJL*/</style>
 </head>
 <body>
 <div class="app">
   <aside class="zij">
-    <div class="merk"><b>Dortus</b><small id="gebouwd"></small></div>
+    <div class="merk"><b>Dortus</b><span>projecten</span></div>
     <nav class="nav" id="nav" aria-label="Tabs"></nav>
   </aside>
   <main class="hoofd"><div class="binnen" id="view"></div></main>
@@ -246,9 +22,21 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const MAANDEN = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
 const DAGEN = ["zo","ma","di","wo","do","vr","za"];
-const nf = new Intl.NumberFormat("nl-NL", {maximumFractionDigits: 0});
-const euro = n => "€" + nf.format(n);
+const nf = new Intl.NumberFormat("nl-NL", {maximumFractionDigits: 2});
+const euro = n => "€" + new Intl.NumberFormat("nl-NL", {maximumFractionDigits: 0}).format(n);
 const lb = (l, titel) => l ? `<span class="lb lb-${esc(l.toLowerCase())}"${titel ? ` title="${esc(titel)}"` : ""}>${esc(l)}</span>` : "";
+/* laatste woord en label blijven samen op één regel */
+function metLabel(tekst, label, titel){
+  const t = String(tekst ?? ""), i = t.lastIndexOf(" ");
+  return esc(t.slice(0, i + 1)) + `<span class="nw">${esc(t.slice(i + 1))}${lb(label, titel)}</span>`;
+}
+/* getal uit het scorebord in Nederlandse schrijfwijze, met evenveel decimalen */
+function nlGetal(s){
+  const t = String(s).trim(), n = Number(t.replace(",", "."));
+  if (t === "" || isNaN(n)) return t;
+  const dec = (t.split(/[.,]/)[1] || "").length;
+  return new Intl.NumberFormat("nl-NL", {minimumFractionDigits: dec, maximumFractionDigits: dec}).format(n);
+}
 
 function dag(iso){ const [j,m,d] = iso.slice(0,10).split("-").map(Number); return new Date(j, m-1, d); }
 function datumKort(iso){ const t = dag(iso); return `${DAGEN[t.getDay()]} ${t.getDate()} ${MAANDEN[t.getMonth()]}`; }
@@ -262,144 +50,169 @@ function aftellen(iso){
   if (n === 1) return "morgen";
   return `over ${n} dagen`;
 }
+function minutenOud(iso){ return iso ? Math.round((Date.now() - new Date(iso)) / 6e4) : Infinity; }
 function geleden(iso){
   if (!iso) return "langer dan 3 weken";
-  const m = Math.max(0, Math.round((Date.now() - new Date(iso)) / 6e4));
+  const m = Math.max(0, minutenOud(iso));
   if (m < 60) return `${m} min geleden`;
   if (m < 60*24) return `${Math.floor(m/60)} uur geleden`;
   const d = Math.floor(m/1440); return d === 1 ? "1 dag geleden" : `${d} dagen geleden`;
 }
-/* laatste woord en label blijven samen op één regel */
-function metLabel(tekst, label, titel){
-  const t = String(tekst ?? ""), i = t.lastIndexOf(" ");
-  return esc(t.slice(0, i + 1)) + `<span class="nw">${esc(t.slice(i + 1))}${lb(label, titel)}</span>`;
-}
-const status = s => s ? `<span class="st st-${esc(s.kleur || "stil")}"><i aria-hidden="true"></i>${esc(s.woord)}</span>` : "";
 const STATUS_UITLEG = {"op-koers":"op koers","let-op":"let op","risico":"risico","stil":"geparkeerd of stil"};
+const status = s => s ? `<span class="st st-${esc(s.kleur || "stil")}"><i aria-hidden="true"></i>${esc(s.woord)}</span>` : "";
+const stip = s => `<span class="stip st-${esc((s && s.kleur) || "stil")}" aria-hidden="true"><i></i></span>`;
 const project = id => D.projecten.find(p => p.id === id);
+const isDortus = p => p.voor !== "Thijs-zelf";
 
-/* kans en prognose in woorden */
+/* kans en prognose */
+const kansGetal = k => k && k.laag != null && k.hoog != null;
 function kansTekst(k){
-  if (!k) return "nog geen schatting";
-  if (k.laag != null && k.hoog != null) return k.laag === k.hoog ? `${k.laag}%` : `${k.laag} tot ${k.hoog}%`;
-  return k.tekst || "nog geen schatting";
+  if (kansGetal(k)) return k.laag === k.hoog ? `${k.laag}%` : `${k.laag} tot ${k.hoog}%`;
+  return (k && k.tekst) || "nog geen schatting";
+}
+function geldSoort(p){
+  const g = p.prognose || {}, v = g.verwacht;
+  if (Array.isArray(v) && v[1] > 0) return "eigen";
+  if (typeof v === "number" && v > 0) return "eigen";
+  if (v === 0 || (Array.isArray(v) && v[1] === 0)) return "nul";
+  if (g.samen && g.hoog != null) return "samen";
+  return "geen";
 }
 function verwachtTekst(p){
-  const g = p.prognose || {}; const v = g.verwacht;
-  if (Array.isArray(v)) return `${euro(v[0])} tot ${euro(v[1])}`;
+  const g = p.prognose || {}, v = g.verwacht;
+  if (Array.isArray(v)) return v[0] === v[1] ? euro(v[0]) : `${euro(v[0])} tot ${euro(v[1])}`;
   if (typeof v === "number") return euro(v);
   if (g.samen && g.hoog != null) return `${euro(g.laag || 0)} tot ${euro(g.hoog)}`;
   return g.tekst || "nog geen schatting";
 }
 
-/* geldlat: één log-as van €0 tot €20.000 voor alle projecten */
+/* geldlat: log-as van €0 tot €20.000, alleen voor projecten met een eigen bedrag */
 const AS_MAX = 20000;
 const pos = e => Math.min(100, Math.max(0, Math.log10(1 + Math.max(0, e)) / Math.log10(1 + AS_MAX) * 100));
 const TIKKEN = [0, 100, 1000, 10000];
-function lat(p, metBedrag = true){
-  const g = p.prognose || {}; const v = g.verwacht;
-  const heeftSpan = g.laag != null && g.hoog != null;
-  if (v == null && !heeftSpan) return `<div class="lat leeg">${esc(g.tekst || "nog geen schatting")}${lb(g.label)}</div>`;
-  let h = `<div class="lat" role="img" aria-label="Prognose 12 weken: ${esc(verwachtTekst(p))}"><div class="as"></div>`;
+const AS_LABELS = [0, 100, 10000];
+function lat(p){
+  if (geldSoort(p) !== "eigen") return `<div></div>`;
+  const g = p.prognose, v = Array.isArray(g.verwacht) ? g.verwacht : [g.verwacht, g.verwacht];
+  let h = `<div class="lat" aria-hidden="true"><div class="as"></div>`;
   for (const t of TIKKEN) h += `<div class="tik" style="left:${pos(t)}%"></div>`;
-  if (heeftSpan && g.hoog > (g.laag || 0)) h += `<div class="span${g.samen ? " samen" : ""}" style="left:${pos(g.laag)}%;width:${pos(g.hoog) - pos(g.laag)}%"></div>`;
-  let midden = null;
-  if (Array.isArray(v)) { h += `<div class="band" style="left:${pos(v[0])}%;width:${pos(v[1]) - pos(v[0])}%"></div>`; midden = (pos(v[0]) + pos(v[1])) / 2; }
-  else if (typeof v === "number" && v > 0) { h += `<div class="band" style="left:calc(${pos(v)}% - 2px);width:4px"></div>`; midden = pos(v); }
-  else if (v === 0) { h += `<div class="nul" style="left:0"></div>`; midden = 0; }
-  else if (g.samen) midden = (pos(g.laag || 0) + pos(g.hoog)) / 2;
-  if (metBedrag && midden != null) {
-    const plek = midden < 28 ? "left:0;transform:none" : midden > 72 ? "left:100%;transform:translateX(-100%)" : `left:${midden}%`;
-    h += `<div class="bedrag" style="${plek}">${esc(verwachtTekst(p))}${g.samen ? " samen" : ""}${lb(g.label)}</div>`;
-  }
+  if (g.laag != null && g.hoog != null && g.hoog > g.laag) h += `<div class="span" style="left:${pos(g.laag)}%;width:${pos(g.hoog) - pos(g.laag)}%"></div>`;
+  h += `<div class="band" style="left:${pos(v[0])}%;width:${Math.max(0.8, pos(v[1]) - pos(v[0]))}%"></div>`;
   return h + `</div>`;
 }
 function askop(){
-  return `<div class="askop">` + TIKKEN.map(t => `<span style="left:${pos(t)}%">${t ? euro(t) : "€0"}</span>`).join("") + `</div>`;
+  return `<div class="askop">` + AS_LABELS.map(t => {
+    const x = pos(t), kl = x < 5 ? "links" : x > 85 ? "rechts" : "";
+    return `<span class="${kl}" style="left:${x}%">${euro(t)}</span>`;
+  }).join("") + `</div>`;
+}
+function geldCel(p){
+  const g = p.prognose || {}, soort = geldSoort(p);
+  let getal;
+  if (soort === "eigen") getal = `<span class="getal">${metLabel(verwachtTekst(p), g.label)}</span>`;
+  else if (soort === "nul") getal = `<span class="getal licht">${metLabel(verwachtTekst(p), g.label)}</span>`;
+  else if (soort === "samen") getal = `<span class="getal licht" title="${esc(g.reden || "")}">${esc(verwachtTekst(p))}<small>samen</small>${lb(g.label)}</span>`;
+  else getal = `<span class="getal geen">${esc(g.tekst || "nog geen schatting")}</span>`;
+  return `<div class="geld"><div><span class="kl">Verwacht</span>${getal}</div>${lat(p)}</div>`;
 }
 
 function spark(reeks){
   const pts = (reeks || []).map(r => r[1]);
   if (pts.length < 2) return `<span class="spark-leeg">${pts.length ? "1 meting, nog geen reeks" : "geen reeks"}</span>`;
-  const W = 120, H = 34, min = Math.min(...pts), max = Math.max(...pts), sp = (max - min) || 1;
+  const W = 130, H = 34, min = Math.min(...pts), max = Math.max(...pts), sp = (max - min) || 1;
   const xy = pts.map((v, i) => [i / (pts.length - 1) * W, H - 3 - (v - min) / sp * (H - 6)]);
-  const d = xy.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const d = xy.map((q, i) => (i ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1)).join(" ");
   const eind = xy[xy.length - 1];
   const titel = reeks.map(r => `${datumKort(r[0])}: ${nf.format(r[1])}`).join(", ");
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(titel)}"><title>${esc(titel)}</title><path d="${d}" vector-effect="non-scaling-stroke"/><circle cx="${eind[0]}" cy="${eind[1]}" r="2.6"/></svg>`;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(titel)}"><title>${esc(titel)}</title><path d="${d}"/><circle cx="${eind[0]}" cy="${eind[1]}" r="2.6"/></svg>`;
 }
 
 /* ---------- navigatie ---------- */
-function teken_nav(huidig){
-  const dortus = D.projecten.filter(p => p.voor !== "Thijs-zelf");
-  const zelf = D.projecten.filter(p => p.voor === "Thijs-zelf");
+function tekenNav(huidig){
   const item = (href, tekst, eind, titel) => `<a href="#${href}"${huidig === href ? ' aria-current="page"' : ""}${titel ? ` title="${esc(titel)}"` : ""}>${tekst}${eind ? `<span class="eind">${eind}</span>` : ""}</a>`;
-  const proj = p => item(p.id, `${status_stip(p.status)}<span>${esc(p.kort || p.naam)}</span>`, "", STATUS_UITLEG[(p.status||{}).kleur]);
+  const proj = p => item(p.id, `${stip(p.status)}<span>${esc(p.kort || p.naam)}</span>`, "", STATUS_UITLEG[(p.status||{}).kleur]);
   $("nav").innerHTML =
     item("overzicht", "Overzicht", D.doen.length ? `${D.doen.length} voor jou` : "") +
-    item("ploeg", "Ploeg", `${D.ploeg.filter(x => x.aan).length} aan`) +
-    `<div class="groep">Projecten van Dortus</div>` + dortus.map(proj).join("") +
-    `<div class="groep">Meetprojecten van Thijs zelf</div>` + zelf.map(proj).join("");
+    item("ploeg", "Ploeg", `${D.ploeg.filter(x => x.groep === "aan").length} aan`) +
+    `<div class="groep">Projecten van Dortus</div>` + D.projecten.filter(isDortus).map(proj).join("") +
+    `<div class="groep">Meetprojecten van Thijs zelf</div>` + D.projecten.filter(p => !isDortus(p)).map(proj).join("");
   const a = $("nav").querySelector('[aria-current="page"]');
   if (a && window.matchMedia("(max-width:860px)").matches) a.scrollIntoView({block: "nearest", inline: "center"});
 }
-function status_stip(s){
-  const k = (s && s.kleur) || "stil";
-  return `<span class="st st-${esc(k)}" style="padding:0;background:none" aria-hidden="true"><i></i></span>`;
+
+function standRegel(){
+  const b = D.projecten_bijgewerkt || {};
+  const oudStand = minutenOud(b.iso) > 180, oudBouw = minutenOud(D.gebouwd) > 120;
+  const stand = b.iso ? `Stand projecten <b>${esc(tijdKort(b.iso))}</b>${b.door ? `, door ${esc(b.door)}` : ""}` : "Stand projecten onbekend";
+  return `<div class="stand"><div class="${oudStand ? "oud" : ""}">${stand}${oudStand ? ` (${esc(geleden(b.iso))})` : ""}</div>` +
+    `<div class="${oudBouw ? "oud" : ""}">Pagina gebouwd ${esc(tijdKort(D.gebouwd))}${oudBouw ? ` (${esc(geleden(D.gebouwd))})` : ""}</div></div>`;
+}
+function foutBlok(){
+  if (!D.fouten || !D.fouten.length) return "";
+  return `<div class="fouten" role="alert"><b>projecten.json heeft ${D.fouten.length === 1 ? "een fout" : D.fouten.length + " fouten"}.</b> Wat hieronder staat kan daardoor onvolledig zijn; de hoofdchat herstelt het.<ul>${D.fouten.map(f => `<li>${esc(f)}</li>`).join("")}</ul></div>`;
 }
 
 /* ---------- overzicht ---------- */
-function teken_overzicht(){
-  const dortus = D.projecten.filter(p => p.voor !== "Thijs-zelf");
-  const zelf = D.projecten.filter(p => p.voor === "Thijs-zelf");
+function tekenOverzicht(){
+  const dortus = D.projecten.filter(isDortus), zelf = D.projecten.filter(p => !isDortus(p));
   const t = D.totaal;
+  const metGeld = dortus.filter(p => geldSoort(p) === "eigen").map(p => {
+    const v = p.prognose.verwacht, a = Array.isArray(v) ? v : [v, v];
+    return {p, m: (a[0] + a[1]) / 2};
+  });
+  const som = metGeld.reduce((s, x) => s + x.m, 0) || 1;
+  const verdeling = metGeld.map(x => `<span style="width:${x.m / som * 100}%" title="${esc(x.p.naam)}: ${esc(verwachtTekst(x.p))}"></span>`).join("");
+  const verdelingTekst = metGeld.map(x => `${esc(x.p.kort || x.p.naam)} ${esc(verwachtTekst(x.p))}`).join(", ");
+
   const doen = D.doen.map(d => {
     const p = d.project ? project(d.project) : null;
-    const wanneer = d.voor ? `<span class="wanneer${dagenTot(d.voor) < 0 ? " laat" : ""}">vóór ${esc(datumKort(d.voor))}, ${esc(aftellen(d.voor))}</span>` : "";
-    const meta = [wanneer, p ? `<a href="#${esc(p.id)}">${esc(p.kort || p.naam)}</a>` : "", d.bron === "lijst" ? "op je lijst" : ""].filter(Boolean).join(", ");
-    return `<li class="${d.klein ? "klein-punt" : ""}"><span class="vink" aria-hidden="true"></span><div><div class="t">${esc(d.titel)}</div>${meta ? `<div class="m">${meta}</div>` : ""}</div></li>`;
+    const wanneerKort = d.voor ? `<span class="wanneer${dagenTot(d.voor) < 0 ? " laat" : ""}">${esc(aftellen(d.voor))}</span>` : "";
+    const meta = [p ? `<a href="#${esc(p.id)}">${esc(p.kort || p.naam)}</a>` : "", wanneerKort].filter(Boolean).join(", ");
+    return `<li class="${d.klein ? "klein-punt" : ""}"><span class="vink" aria-hidden="true"></span><div class="t" title="${esc(d.titel)}">${esc(d.titel)}</div><div class="m">${meta}</div></li>`;
   }).join("");
-  const dls = D.deadlines.slice(0, 4).map(d => `<li><span class="d">${esc(datumKort(d.datum))}</span><span class="w"><a href="#${esc(d.project)}">${esc(d.naam)}</a>: ${esc(d.wat)}<small>${esc(aftellen(d.datum))}${d.tijd ? `, ${esc(d.tijd)} NL` : ""}</small></span></li>`).join("");
+  const dls = D.deadlines.slice(0, 5).map(d => `<li><span class="d">${esc(datumKort(d.datum))}</span><span class="w" title="${esc(d.naam + ": " + d.wat)}"><a href="#${esc(d.project)}">${esc(d.naam)}</a>: ${esc(d.wat)}</span><small>${esc(aftellen(d.datum))}</small></li>`).join("");
 
   const rij = (p, i) => {
-    const th = p.thijs && p.thijs.doen ? `<div class="jij"><b>Jij:</b><span>${esc(p.thijs.doen)}${p.thijs.voor ? ` Vóór ${esc(datumKort(p.thijs.voor))}.` : ""}</span></div>` : "";
-    const dl = p.deadline ? `<div class="w">${esc(datumKort(p.deadline.datum))}</div><div class="k">${esc(aftellen(p.deadline.datum))}</div>` : `<div class="w" style="color:var(--zacht)">geen</div>`;
     const k = p.kans || {};
+    const actie = (p.thijs || []).length ? `<span class="actie" title="${esc(p.thijs.map(x => x.doen).join(" En: "))}">actie voor jou</span>` : "";
+    const dl = p.deadline ? `<div class="w">${esc(datumKort(p.deadline.datum))}</div><div class="k">${esc(aftellen(p.deadline.datum))}</div>` : `<div class="w woord">geen</div>`;
     return `<a class="rij" href="#${esc(p.id)}">
       <span class="rang">${i + 1}</span>
-      <div class="hoofdcel"><div class="naam">${esc(p.naam)}</div>
-        <div class="onder">${status(p.status)}<span>${esc(p.platform)}</span></div>
-        <div class="zin">${esc(p.status && p.status.zin)}</div>${th}</div>
-      <div class="latcel">${lat(p)}</div>
-      <div class="cel kanscel"><div class="kl">Kans</div><div class="w">${metLabel(kansTekst(k), k.label)}</div></div>
+      <div class="hoofdcel"><div class="boven"><span class="naam">${esc(p.naam)}</span>${status(p.status)}${actie}</div>
+        <div class="zin" title="${esc(p.status && p.status.zin)}">${esc(p.status && p.status.zin)}</div></div>
+      ${geldCel(p)}
+      <div class="cel kanscel"><div class="kl">Kans</div>${kansGetal(k) ? `<div class="w">${metLabel(kansTekst(k), k.label)}</div>` : `<div class="w woord">${esc(kansTekst(k))}</div>`}</div>
       <div class="cel dlcel"><div class="kl">Deadline</div>${dl}</div>
     </a>`;
   };
   const zelfRij = p => `<a class="rij" href="#${esc(p.id)}">
       <span class="rang" aria-hidden="true"></span>
-      <div class="hoofdcel"><div class="naam">${esc(p.naam)}</div><div class="onder">${status(p.status)}<span>${esc(p.platform)}</span></div><div class="zin">${esc(p.volgende_stap)}</div></div>
-      <div class="latcel"><div class="lat leeg">${esc((p.prognose||{}).tekst || "geen bedragen")}</div></div>
-      <div class="cel kanscel"><div class="kl">Kans</div><div class="w" style="font-weight:500;color:var(--grijs)">n.v.t.</div></div>
+      <div class="hoofdcel"><div class="boven"><span class="naam">${esc(p.naam)}</span>${status(p.status)}</div><div class="zin">${esc(p.volgende_stap)}</div></div>
+      <div class="geld"><div><span class="kl">Geld</span><span class="getal geen">geen bedragen</span></div><div></div></div>
+      <div class="cel kanscel"><div class="kl">Kans</div><div class="w woord">n.v.t.</div></div>
       <div class="cel dlcel"><div class="kl">Volgende</div>${p.deadline ? `<div class="w">${esc(datumKort(p.deadline.datum))}</div><div class="k">${esc(p.deadline.wat)}</div>` : ""}</div>
     </a>`;
 
   return `
-    <h1>Hoe staan de projecten</h1>
-    <p class="sub">Gesorteerd op verwachte opbrengst in 12 weken (kans maal opbrengst, uit de keuringen). Klik een project voor alles erover.</p>
+    <div class="kopblok">
+      <div><div class="wat">Verwacht in 12 weken, tot 11 feb 2027</div>
+        <div class="totaal">${metLabel(`${euro(t.laag)} tot ${euro(t.hoog)}`, t.label, "Optelsom van de verwachte opbrengst per project, uit de keuringen")}</div>
+        ${metGeld.length ? `<div class="verdeling" aria-hidden="true">${verdeling}</div>` : ""}
+        <p class="verdeling-tekst">${verdelingTekst}.${t.zonder_schatting.length ? ` ${esc(t.zonder_schatting.map(n => n.split(",")[0]).join(", "))}: nog geen schatting.` : ""}</p></div>
+      ${standRegel()}
+    </div>
+    ${foutBlok()}
     <div class="strook">
-      <div><h2>Jij moet doen <span class="tel">${D.doen.length}</span></h2>${D.doen.length ? `<ul class="doen">${doen}</ul>` : `<p class="klein">Niets. De ploeg kan door.</p>`}</div>
-      <div><h2>Verwacht in 12 weken</h2>
-        <div class="groot">${metLabel(`${euro(t.laag)} tot ${euro(t.hoog)}`, t.label, "Optelsom van de verwachte opbrengst per project, uit de keuringen")}</div>
-        <p class="klein" style="margin-top:8px">Optelsom van de projecten met een bedrag, tot do 11 feb 2027.${t.zonder_schatting.length ? ` Nog geen schatting: ${esc(t.zonder_schatting.join(", "))}.` : ""}</p></div>
+      <div><h2>Jij moet doen<span class="tel">${D.doen.length}</span></h2>${D.doen.length ? `<ul class="doen">${doen}</ul>` : `<p class="klein">Niets. De ploeg kan door.</p>`}</div>
       <div><h2>Eerstvolgende deadlines</h2><ul class="dl">${dls || `<li class="klein">Geen deadlines.</li>`}</ul></div>
     </div>
     <section class="sectie">
-      <div class="kop"><h2>Projecten van Dortus</h2><span class="klein">${dortus.length} projecten</span></div>
+      <div class="kop"><h2>Projecten van Dortus</h2><span class="klein">op volgorde van verwacht geld (kans maal opbrengst)</span></div>
       <div class="lijst">
-        <div class="rijkop"><span>#</span><span>Project en stand</span><div>${askop()}</div><span>Kans op geld</span><span>Deadline</span></div>
+        <div class="rijkop"><span></span><span>Project en stand</span><div class="geld"><span>Verwacht</span>${askop()}</div><span>Kans op geld</span><span>Deadline</span></div>
         ${dortus.map(rij).join("")}
       </div>
-      <p class="klein" style="margin-top:10px">Balk: verwachte opbrengst. Lijn: slechtste tot beste uitkomst. Stippellijn: bedrag voor meer projecten samen. De as loopt van €0 tot €20.000 en wordt naar rechts steeds ruimer, zodat kleine en grote bedragen allebei te zien zijn.</p>
+      <p class="klein" style="margin-top:8px">Balk: verwachte opbrengst, lijn: slechtste tot beste uitkomst, op een as die naar rechts ruimer wordt. "Samen": één bedrag voor meer projecten.</p>
     </section>
     <section class="sectie">
       <div class="kop"><h2>Meetprojecten van Thijs zelf</h2><span class="klein">los van Dortus, zonder geld</span></div>
@@ -408,82 +221,86 @@ function teken_overzicht(){
 }
 
 /* ---------- projectpagina ---------- */
-function teken_project(p){
+function tekenProject(p){
   const k = p.kans || {}, g = p.prognose || {};
   const bronLink = x => x && x.bron_link ? ` <a href="${esc(x.bron_link)}">bron</a>` : "";
-  const prognoseExtra = (g.laag != null && g.hoog != null) ? `<p>Slechtste ${euro(g.laag)}, beste ${euro(g.hoog)}${g.samen ? " (samen)" : ""}.</p>` : "";
-  const dl = p.deadline ? `<div class="groot">${esc(datumKort(p.deadline.datum))}</div><p><b style="color:var(--inkt);font-weight:600">${esc(aftellen(p.deadline.datum))}</b>${p.deadline.tijd ? `, ${esc(p.deadline.tijd)} NL` : ""}. ${esc(p.deadline.wat)}</p>` : `<div class="groot" style="color:var(--zacht)">geen</div>`;
-  const jij = p.thijs && p.thijs.doen
-    ? `<div class="t">${esc(p.thijs.doen)}</div>${p.thijs.voor ? `<p class="wanneer${dagenTot(p.thijs.voor) < 0 ? " laat" : ""}">Vóór ${esc(datumKort(p.thijs.voor))}, ${esc(aftellen(p.thijs.voor))}</p>` : ""}`
-    : `<div class="groot" style="color:var(--zacht)">niets</div><p>De ploeg kan zonder jou verder.</p>`;
+  const soort = geldSoort(p);
+  const geldGroot = soort === "geen" ? `<div class="groot woord leeg">${esc(verwachtTekst(p))}</div>` : `<div class="groot">${metLabel(verwachtTekst(p), g.label)}</div>`;
+  const prognoseExtra = (g.laag != null && g.hoog != null && soort !== "nul") ? `<p>Slechtste ${euro(g.laag)}, beste ${euro(g.hoog)}${g.samen ? ", samen met andere projecten" : ""}.</p>` : "";
+  const dl = p.deadline ? `<div class="groot">${esc(datumKort(p.deadline.datum))}</div><p><b style="color:var(--inkt);font-weight:600">${esc(aftellen(p.deadline.datum))}</b>${p.deadline.tijd ? `, ${esc(p.deadline.tijd)} NL` : ""}. ${esc(p.deadline.wat)}</p>` : `<div class="groot woord leeg">geen</div>`;
+  const punten = p.thijs || [];
+  const jij = punten.length
+    ? `<ul class="jijpunten">${punten.map(x => `<li><div class="t">${esc(x.doen)}</div>${x.voor ? `<div class="klein wanneer${dagenTot(x.voor) < 0 ? " laat" : ""}">Vóór ${esc(datumKort(x.voor))}, ${esc(aftellen(x.voor))}</div>` : ""}</li>`).join("")}</ul>`
+    : `<div class="groot woord leeg">niets</div><p>De ploeg kan zonder jou verder.</p>`;
   const agents = [...new Set([p.eigenaar, ...(p.agents || [])].filter(Boolean))];
   const cijfers = (p.cijfers || []).map(c => {
-    const nu = parseFloat(String(c.waarde).replace(",", ".")), gis = parseFloat(String(c.gisteren).replace(",", "."));
     let verschil = "";
-    if (!isNaN(nu) && !isNaN(gis)) { const d = nu - gis; verschil = d > 0 ? `<span class="plus">+${nf.format(d)} sinds gisteren</span>` : d < 0 ? `<span class="min">${nf.format(d)} sinds gisteren</span>` : "gelijk aan gisteren"; }
-    else if (c.reeks.length >= 2) { const d = c.reeks.at(-1)[1] - c.reeks.at(-2)[1]; verschil = d ? `${d > 0 ? "+" : ""}${nf.format(d)} sinds vorige meting` : "gelijk aan vorige meting"; }
+    if (c.waarde != null) {
+      const nu = Number(String(c.waarde).replace(",", ".")), gis = Number(String(c.gisteren).replace(",", "."));
+      if (c.gisteren !== "" && !isNaN(gis)) { const d = nu - gis; verschil = d > 0 ? `<span class="plus">+${nf.format(d)} sinds gisteren</span>` : d < 0 ? `<span class="min">${nf.format(d)} sinds gisteren</span>` : "gelijk aan gisteren"; }
+      else if (c.reeks.length >= 2) { const d = c.reeks.at(-1)[1] - c.reeks.at(-2)[1]; verschil = d ? `${d > 0 ? "+" : ""}${nf.format(d)} sinds vorige meting` : "gelijk aan vorige meting"; }
+    }
     const wanneer = c.gemeten ? (c.gemeten.length > 10 ? tijdKort(c.gemeten) : datumKort(c.gemeten)) : "onbekend";
+    const waarde = c.waarde != null ? `<div class="waarde">${metLabel(nlGetal(c.waarde), c.label)}<small>${verschil}</small></div>` : `<div class="waarde niet">niet gelezen</div>`;
     return `<div class="cijfer">
       <div class="maat">${esc(c.maat)}<small>${esc(c.product)}, ${esc(c.platform)}${c.stand ? `. ${esc(c.stand)}` : ""}</small></div>
-      <div class="waarde">${metLabel(c.waarde, c.label)}<small>${verschil}</small></div>
-      <div class="grafiek">${spark(c.reeks)}</div>
+      ${waarde}<div class="grafiek">${spark(c.reeks)}</div>
       <div class="bron">${esc(c.bron)}<br>gemeten ${esc(wanneer)}</div></div>`;
   }).join("");
-  const keuringen = (p.keuringen || []).map(x => `<li><span class="tijd">${x.tijd ? esc(tijdKort(x.tijd)) : ""}</span><div><span class="oordeel ${x.oordeel || "open"}">${x.oordeel === "ja" ? "akkoord ja" : x.oordeel === "nee" ? "akkoord nee" : "oordeel"}</span><a href="${esc(x.link)}">${esc(x.kop)}</a><div class="klein" style="margin-top:3px">${esc(x.akkoord)}</div></div></li>`).join("");
+  const keuringen = (p.keuringen || []).map(x => `<li><span class="tijd">${x.tijd ? esc(tijdKort(x.tijd)) : ""}</span><div><span class="oordeel ${x.oordeel || "open"}">${x.oordeel === "ja" ? "akkoord" : x.oordeel === "nee" ? "nog niet akkoord" : "oordeel"}</span><a href="${esc(x.link)}">${esc(x.kop)}</a><div class="klein" style="margin-top:3px">${esc(x.akkoord)}</div></div></li>`).join("");
   const recent = (p.recent || []).map(c => `<li><span class="tijd">${esc(geleden(c.tijd))}</span><div><span class="door">${esc(c.wie)}</span>: ${esc(c.wat)}<a class="hash" href="https://github.com/${esc(D.repo)}/commit/${esc(c.hash)}">${esc(c.hash)}</a></div></li>`).join("");
   return `
     <a class="terug" href="#overzicht">Terug naar het overzicht</a>
+    ${foutBlok()}
     <h1>${esc(p.naam)}</h1>
     <p class="sub">${esc(p.wat)}</p>
-    <div class="kopregel">${status(p.status)}<span class="chip">${esc(p.soort === "meetproject" ? "meetproject" : p.soort)}${p.voor === "Thijs-zelf" ? ", Thijs zelf" : ""}</span><span class="chip">${esc(p.platform)}</span></div>
+    <div class="kopregel">${status(p.status)}${punten.length ? `<span class="actie">actie voor jou</span>` : ""}<span class="chip">${esc(p.soort)}${isDortus(p) ? "" : ", Thijs zelf"}</span><span class="chip">${esc(p.platform)}</span></div>
     <p class="statuszin">${esc(p.status && p.status.zin)}</p>
     <div class="feiten">
-      <div><h3>Kans op geld in 12 weken</h3><div class="groot">${metLabel(kansTekst(k), k.label)}</div><p>${esc(k.reden)}${bronLink(k)}</p></div>
-      <div><h3>Prognose 12 weken</h3><div class="groot" style="font-size:22px">${metLabel(verwachtTekst(p), g.label)}</div>${(g.verwacht != null || g.samen) ? `<div style="margin-top:10px">${lat(p, false)}${askop()}</div>` : ""}${prognoseExtra}<p>${esc(g.reden)}${bronLink(g)}</p></div>
+      <div><h3>Kans op geld in 12 weken</h3>${kansGetal(k) ? `<div class="groot">${metLabel(kansTekst(k), k.label)}</div>` : `<div class="groot woord">${esc(kansTekst(k))}</div>`}<p>${esc(k.reden)}${bronLink(k)}</p></div>
+      <div><h3>Verwacht in 12 weken</h3>${geldGroot}${soort === "eigen" ? `<div style="margin-top:12px">${lat(p)}${askop()}</div>` : ""}${prognoseExtra}<p>${esc(g.reden)}${bronLink(g)}</p></div>
       <div><h3>Deadline</h3>${dl}</div>
-      <div class="jijvak"><h3>Wat jij moet doen</h3>${jij}</div>
+      <div><h3>Wat jij moet doen</h3>${jij}</div>
     </div>
     <div class="tweeluik">
       <div><h3>Volgende stap</h3><p>${esc(p.volgende_stap)}</p></div>
       <div><h3>Risico</h3><p>${esc(p.risico)}</p></div>
     </div>
-    <div class="tweeluik" style="margin-top:20px">
+    <div class="tweeluik" style="margin-top:18px">
       <div><h3>Eigenaar en wie eraan werkt</h3><div class="wie">${agents.length ? agents.map((a, i) => `<a class="chip" href="#ploeg">${esc(a)}${i === 0 ? " (eigenaar)" : ""}</a>`).join("") : `<span class="klein">niemand</span>`}</div></div>
       <div><h3>Links</h3><div class="links">${(p.links || []).map(l => `<a class="chip" href="${esc(l.url)}">${esc(l.naam)}</a>`).join("")}</div></div>
     </div>
     <section class="sectie">
       <div class="kop"><h2>Echte cijfers</h2><span class="klein">uit het scorebord${D.scorebord_gemeten ? `, gemeten ${esc(tijdKort(D.scorebord_gemeten))}` : ""}</span></div>
-      ${cijfers ? `<div class="tabel">${cijfers}</div>` : `<div class="tabel"><div class="niets">${p.voor === "Thijs-zelf" ? "Geen cijfers op dit dashboard: de uitslagen staan in de rapporten op de tak ai-handel-data." : "Nog geen cijfers in het scorebord voor dit project."}</div></div>`}
+      <div class="tabel">${cijfers || `<div class="niets">${isDortus(p) ? "Nog geen cijfers in het scorebord voor dit project." : "Geen cijfers op dit dashboard: de uitslagen staan in de rapporten op de tak ai-handel-data."}</div>`}</div>
     </section>
-    ${keuringen ? `<section class="sectie"><div class="kop"><h2>Keuringen</h2><span class="klein">laatste oordeel per bestand</span></div><ul class="regels">${keuringen}</ul></section>` : ""}
+    ${keuringen ? `<section class="sectie"><div class="kop"><h2>Keuringen</h2><span class="klein">laatste oordeel per keuring</span></div><ul class="regels">${keuringen}</ul></section>` : ""}
     <section class="sectie">
-      <div class="kop"><h2>Laatste wijzigingen</h2><span class="klein">commits in ${esc((p.mappen || []).join(", ") || "geen map")}</span></div>
-      ${recent ? `<ul class="regels">${recent}</ul>` : `<div class="tabel"><div class="niets">Nog geen commits.</div></div>`}
+      <div class="kop"><h2>Laatste wijzigingen</h2><span class="klein">zonder logboekregels zonder nieuws</span></div>
+      ${recent ? `<ul class="regels">${recent}</ul>` : `<div class="tabel"><div class="niets">Geen wijzigingen met nieuws.</div></div>`}
     </section>
     <p class="voet">Laatst bijgewerkt ${esc(p.laatste_update ? `${p.laatste_update.datum} door ${p.laatste_update.door}` : "onbekend")}. Bron: organisatie/projecten.json.</p>`;
 }
 
 /* ---------- ploeg ---------- */
-function teken_ploeg(){
-  const aan = D.ploeg.filter(x => x.aan), uit = D.ploeg.filter(x => !x.aan);
-  const persoon = x => `<div class="persoon${x.aan ? "" : " uit"}">
+function tekenPloeg(){
+  const groep = g => D.ploeg.filter(x => x.groep === g);
+  const persoon = x => `<div class="persoon">
       <div class="n">${esc(x.naam)}<small>${esc(x.rol)}</small></div>
-      <div class="f">${esc(x.focus || x.team)}${x.projecten.length ? `<div class="wie">${x.projecten.map(id => { const p = project(id); return p ? `<a class="chip" href="#${esc(id)}">${status_stip(p.status)}${esc(p.kort || p.naam)}</a>` : ""; }).join("")}</div>` : ""}</div>
-      <div class="l"><b>${esc(geleden(x.laatst))}</b>${x.vandaag ? ` <span style="display:inline;margin:0">(${x.vandaag} vandaag)</span>` : ""}<span>${esc(x.laatst_wat)}</span></div>
+      <div class="f">${esc(x.focus || x.team)}${x.projecten.length ? `<div class="wie">${x.projecten.map(id => { const p = project(id); return p ? `<a class="chip" href="#${esc(id)}">${stip(p.status)}${esc(p.kort || p.naam)}</a>` : ""; }).join("")}</div>` : ""}</div>
+      <div class="l"><b>${esc(geleden(x.laatst))}</b>${x.vandaag ? `, ${x.vandaag} vandaag` : ""}<span>${esc(x.laatst_wat)}</span></div>
     </div>`;
-  const tests = (D.tests || []).map(r => `<li><span class="tijd">${esc(geleden(r.tijd))}</span><div><span class="oordeel ${r.uitkomst === "success" ? "ja" : r.uitkomst === "failure" ? "nee" : "open"}">${r.uitkomst === "success" ? "groen" : r.uitkomst === "failure" ? "rood" : esc(r.uitkomst || "bezig")}</span>${esc(r.naam)}</div></li>`).join("");
+  const blok = (titel, uitleg, lijst) => lijst.length ? `<section class="sectie"><div class="kop"><h2>${titel}</h2><span class="klein">${uitleg}</span></div><div class="tabel">${lijst.map(persoon).join("")}</div></section>` : "";
+  const uit = groep("uit");
+  const tests = (D.tests || []).map(r => `<li><span class="tijd">${esc(geleden(r.tijd))}</span><div><span class="oordeel ${r.uitkomst === "success" ? "ja" : "nee"}">${r.uitkomst === "success" ? "gelukt" : "mislukt"}</span>${r.url ? `<a href="${esc(r.url)}">${esc(r.naam)}</a>` : esc(r.naam)}</div></li>`).join("");
   return `
     <h1>Ploeg</h1>
-    <p class="sub">Wie nu aan staat, waar hij aan werkt (uit het bord) en wanneer hij voor het laatst iets op GitHub zette.</p>
-    <section class="sectie">
-      <div class="kop"><h2>Aan</h2><span class="klein">${aan.length} agents</span></div>
-      <div class="tabel">${aan.map(persoon).join("") || `<div class="niets">Niemand staat aan.</div>`}</div>
-    </section>
-    <section class="sectie">
-      <div class="kop"><h2>Uit</h2><span class="klein">${uit.length} agents</span></div>
-      <div class="tabel">${uit.map(persoon).join("")}</div>
-    </section>
-    ${tests ? `<section class="sectie"><div class="kop"><h2>Laatste runs</h2><span class="klein">GitHub Actions, per workflow</span></div><ul class="regels">${tests}</ul></section>` : ""}
+    <p class="sub">Wie aan staat en waaraan hij werkt (uit het bord, deel 2), en wanneer hij voor het laatst iets op GitHub zette.</p>
+    ${blok("Aan", `${groep("aan").length} volgens het bord`, groep("aan"))}
+    ${blok("Ook bezig", "niet op het bord, wel iets op GitHub in de laatste 3 uur", groep("bezig"))}
+    ${blok("Hoofdchat en keurders", "vast, niet op het bord", groep("vast"))}
+    ${uit.length ? `<section class="sectie"><details class="uit"><summary><b>${uit.length} uit:</b> ${esc(uit.map(x => x.naam).join(", "))}</summary><div>${uit.map(persoon).join("")}</div></details></section>` : ""}
+    ${tests ? `<section class="sectie"><div class="kop"><h2>Laatste runs met echt werk</h2><span class="klein">per workflow; runs die alleen de klok raadpleegden tellen niet</span></div><ul class="regels">${tests}</ul></section>` : ""}
     <p class="voet">Aan of uit en focus komen uit organisatie/bord.md, de rest uit git log en dashboard/ploeg.json.</p>`;
 }
 
@@ -493,14 +310,19 @@ function teken(){
   const h = decodeURIComponent(location.hash.slice(1)) || "overzicht";
   const p = project(h);
   const huidig = p ? p.id : (h === "ploeg" ? "ploeg" : "overzicht");
-  $("view").innerHTML = p ? teken_project(p) : huidig === "ploeg" ? teken_ploeg() : teken_overzicht();
+  $("view").innerHTML = p ? tekenProject(p) : huidig === "ploeg" ? tekenPloeg() : tekenOverzicht();
   document.title = (p ? p.naam : huidig === "ploeg" ? "Ploeg" : "Overzicht") + ", Dortus";
-  teken_nav(huidig);
-  const oud = Math.round((Date.now() - new Date(D.gebouwd)) / 6e4);
-  $("gebouwd").innerHTML = `Gebouwd ${esc(tijdKort(D.gebouwd))}` + (oud > 120 ? ` <span class="oud">(${esc(geleden(D.gebouwd))})</span>` : "");
+  tekenNav(huidig);
 }
 window.addEventListener("hashchange", () => { teken(); window.scrollTo(0, 0); });
 teken();
+/* nieuwe stand ophalen zonder iemand midden in het lezen te storen: alleen als het tabblad
+   een tijd verborgen was, of na een uur stilte */
+const geladen = Date.now();
+let laatsteActie = Date.now();
+["scroll","pointerdown","keydown"].forEach(e => window.addEventListener(e, () => { laatsteActie = Date.now(); }, {passive: true}));
+document.addEventListener("visibilitychange", () => { if (!document.hidden && Date.now() - geladen > 15 * 6e4) location.reload(); });
+setInterval(() => { if (Date.now() - geladen > 30 * 6e4 && Date.now() - laatsteActie > 60 * 6e4) location.reload(); }, 5 * 6e4);
 </script>
 </body>
 </html>
