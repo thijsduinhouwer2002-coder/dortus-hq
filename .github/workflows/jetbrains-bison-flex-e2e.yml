@@ -151,10 +151,8 @@ jobs:
   # (keuring R4: eerst kwam er een bericht per job en per run). Alleen main, niet in de week-test.
   beeldbericht:
     needs: e2e
-    # Tijdelijk uit (keuring R4): pas aan als twee push-runs van dezelfde code 0 grote verschillen geven. Stand 19 nov:
-    # na vaste projectmap en maskers nog 2 groot tussen runs 44427732156 en 44427918561, allebei door timing
-    # (licht-hernoem-conflict met een tooltip, licht-hernoem-structuur met een melding die nog vervaagt).
-    if: false && always() && github.ref_name == 'main' && !inputs.week
+    # Weer aan na twee runs met 0 groot tegen de referentie van de nieuwe code (44478690203 en 44478693136, GEZIEN).
+    if: always() && github.ref_name == 'main' && !inputs.week
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
