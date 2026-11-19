@@ -183,6 +183,10 @@ class TestRapport(unittest.TestCase):
         self.assertEqual(beurzen.taker_standaard("kraken", "SSV", "EUR"), 0.008)    # GEZIEN kraken.com/pro/fees
         self.assertEqual(beurzen.taker_standaard("kraken", "USDT", "EUR"), 0.002)   # stablecoin en FX
         self.assertEqual(beurzen.taker_standaard("bitvavo", "SSV", "EUR"), 0.0025)
+        self.assertEqual(beurzen.taker_standaard("kraken", "USDE", "USD"), 0.0)      # GEZIEN kraken.com/pro/fees
+        self.assertEqual(beurzen.taker_standaard("kraken", "USDG", "USD"), 0.0001)
+        self.assertEqual(beurzen.taker_standaard("kraken", "EURQ", "EUR"), 0.002)
+        self.assertEqual(beurzen.taker_standaard("gate", "USDE", "USDT"), 0.002)
         self.assertEqual(scanner.taker({}, "kraken", ("SSV", "EUR")), 0.008)
 
     def test_herreken_oud_kraken_tarief(self):

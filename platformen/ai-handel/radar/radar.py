@@ -112,16 +112,10 @@ class Radar(hoek_a.NoteringenMixin, hoek_b.FundingMixin, hoek_c.StableMixin):
 
     def taker(self, beurs, munt, quote):
         """Takerkosten van een spotpaar: uit de API als de beurs ze per paar geeft, anders
-        beurzen.taker_standaard van de scanner (Kraken 0,80%, op stablecoin- en FX-paren 0,20%). De lijst met
-        stablecoins van de scanner is korter dan die van de radar (EURQ, RLUSD, ...): die tellen hier ook als
-        stablecoin-paar, want Kraken rekent 0,20% op alle "stablecoin-base pairs" (GEZIEN volgens de keuring,
-        kraken.com/pro/fees)."""
+        beurzen.taker_standaard van de scanner (Kraken 0,80%; stablecoin- en FX-paren 0,20%; USDe 0%; USDG 0,01%).
+        Eén plek voor scanner, radar en rapport."""
         t = self.paren.get(beurs, {}).get((munt, quote), {}).get("taker")
-        if t is not None:
-            return t
-        if beurs in beurzen.TAKER_STABIEL and munt in STABLE | {"EUR", "USD"} and quote in QUOTE_FIAT:
-            return beurzen.TAKER_STABIEL[beurs]
-        return beurzen.taker_standaard(beurs, munt, quote)
+        return beurzen.taker_standaard(beurs, munt, quote) if t is None else t
 
     # ---------- wallets ----------
     def ververs_wallets(self, welke):

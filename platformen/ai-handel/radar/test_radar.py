@@ -430,6 +430,10 @@ class TestRapport(unittest.TestCase):
         self.assertTrue(rapport.oud_tarief({"spot": "kraken", "taker_spot": 0.004, "munt": "LQTY", "spot_quote": "USD"}))
         self.assertFalse(rapport.oud_tarief({"spot": "kraken", "taker_spot": 0.008, "munt": "LQTY", "spot_quote": "USD"}))
         self.assertTrue(rapport.oud_tarief({"beurs": "kraken", "taker": 0.008, "munt": "EURQ", "quote": "EUR"}))
+        self.assertTrue(rapport.oud_tarief({"beurs": "kraken", "taker": 0.002, "munt": "USDE", "quote": "USD"}))
+        self.assertFalse(rapport.oud_tarief({"beurs": "kraken", "taker": 0.0, "munt": "USDE", "quote": "USD"}))
+        self.assertFalse(rapport.oud_tarief({"koop": "kraken", "taker_koop": 0.0001, "munt": "USDG", "quote": "USDT",
+                                             "verkoop": "gate", "taker_verkoop": 0.002}))
         self.assertFalse(rapport.oud_tarief({"beurs": "kraken", "taker": 0.002, "munt": "EURQ", "quote": "EUR"}))
         a = self.piek("2026-11-19T10:00:00Z", "2026-11-19T11:00:00Z", 1.0)
         b = self.piek("2026-11-19T10:00:00Z", "2026-11-19T14:00:00Z", 2.0)
@@ -471,7 +475,10 @@ class TestKrakenEnBasis(unittest.TestCase):
             r = radar.Radar(d, spot_klassen=[], perp_bronnen={}, log=lambda s: None)
             r.paren = {"kraken": {("BTC", "USDT"): {"taker": None}, ("EURQ", "EUR"): {"taker": None}}}
             self.assertEqual(r.taker("kraken", "BTC", "USDT"), 0.008)
-            self.assertEqual(r.taker("kraken", "EURQ", "EUR"), 0.002)    # niet in de lijst van de scanner
+            self.assertEqual(r.taker("kraken", "EURQ", "EUR"), 0.002)
+            r.paren["kraken"].update({("USDE", "USD"): {"taker": None}, ("USDG", "USDT"): {"taker": None}})
+            self.assertEqual(r.taker("kraken", "USDE", "USD"), 0.0)      # GEZIEN kraken.com/pro/fees
+            self.assertEqual(r.taker("kraken", "USDG", "USDT"), 0.0001)
             self.assertEqual(r.taker("kraken", "USDT", "EUR"), 0.002)
             r.paren["gate"] = {("X", "USDT"): {"taker": 0.002}}
             self.assertEqual(r.taker("gate", "X", "USDT"), 0.002)

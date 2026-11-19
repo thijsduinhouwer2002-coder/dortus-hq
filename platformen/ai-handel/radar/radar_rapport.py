@@ -32,6 +32,10 @@ import os
 import statistics
 import sys
 
+# Kraken-tarief uit één plek: beurzen.taker_standaard van de scanner (alleen standaardbibliotheek, dus ook met -I).
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scanner"))
+import beurzen  # noqa: E402
+
 INLEG = (100, 150, 200, 500, 2000, 5000)
 KLEIN = (100, 150, 200)
 MIN_UREN_WEEK = 3   # korter gemeten: geen som per week
@@ -40,9 +44,6 @@ MIN_RUIMTE = 100
 MICA = {"bitvavo", "kraken", "coinbase", "bitstamp", "okx", "cryptocom", "bybit", "kucoin", "gate", "bingx"}
 # Perps: spotvergunning onder MiCA. Of de EU-dochter perps aan Nederlandse particulieren geeft: GOK, zie README.
 MICA_PERP = {"okx", "gate", "kucoin", "bingx", "kraken"}
-# Stablecoins en fiat voor het Kraken-tarief (0,20% op stablecoin- en FX-paren, anders 0,80%). Gelijk aan radar.
-STABIEL = {"USDT", "USDC", "FDUSD", "PYUSD", "USDE", "DAI", "TUSD", "USD1", "RLUSD", "USDG", "USDS", "USDP", "USDQ",
-           "EURC", "EURE", "EURI", "EURCV", "EUROP", "EURT", "AEUR", "EURR", "EURQ", "EURAU", "EUR", "USD"}
 
 
 # ---------- lezen ----------
@@ -82,7 +83,7 @@ def ontdubbel_funding(rs):
 
 # ---------- tarief en soort ----------
 def kraken_taker(munt, quote):
-    return 0.002 if munt in STABIEL and quote in STABIEL else 0.008
+    return beurzen.taker_standaard("kraken", munt, quote)
 
 
 def oud_tarief(r):

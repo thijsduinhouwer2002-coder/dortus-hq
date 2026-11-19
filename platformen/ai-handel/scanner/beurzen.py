@@ -26,13 +26,22 @@ TAKER = {
     "cryptocom": 0.0050, "poloniex": 0.0020, "xt": 0.0020, "bingx": 0.0010, "bitfinex": 0.0, "binance": 0.0010,
 }
 
-# Kraken rekent op stablecoin- en FX-paren (bijv. USDT-EUR) 0,20% in plaats van 0,80% (GEZIEN, kraken.com/pro/fees).
+# Kraken rekent op stablecoin- en FX-paren (bijv. USDT-EUR) 0,20% in plaats van 0,80% (GEZIEN, kraken.com/pro/fees:
+# "FX, stablecoin-base and pegged-token pairs"). STABIEL_FIAT is ook de lijst stablecoins van de kansenradar.
 TAKER_STABIEL = {"kraken": 0.0020}
-STABIEL_FIAT = {"USDT", "USDC", "EUR", "USD", "DAI", "PYUSD", "EURC", "USDG"}
+STABIEL_FIAT = {"USDT", "USDC", "EUR", "USD", "DAI", "PYUSD", "EURC", "USDG", "FDUSD", "USDE", "TUSD", "USD1", "RLUSD",
+                "USDS", "USDP", "USDQ", "EURE", "EURI", "EURCV", "EUROP", "EURT", "AEUR", "EURR", "EURQ", "EURAU"}
+# Kraken heeft voor alle paren met USDe (0% taker) en USDG (0,01% taker) een eigen tarief (GEZIEN, kraken.com/pro/fees,
+# 19 nov 2026: "USDG pair fees 0.00% maker, 0.01% taker", "USDG and USDe pair fees"; voorbeeldpaar USDG/USD).
+TAKER_MUNT = {"kraken": {"USDE": 0.0, "USDG": 0.0001}}
 
 
 def taker_standaard(beurs, munt, quote, standaard=0.002):
     """Standaard takerkosten (fractie) voor een paar als de API er per paar geen geeft."""
+    eigen = TAKER_MUNT.get(beurs, {})
+    for x in (munt, quote):
+        if x in eigen:
+            return eigen[x]
     if beurs in TAKER_STABIEL and munt in STABIEL_FIAT and quote in STABIEL_FIAT:
         return TAKER_STABIEL[beurs]
     return TAKER.get(beurs, standaard)

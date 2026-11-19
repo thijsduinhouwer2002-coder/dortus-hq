@@ -122,10 +122,10 @@ Het rapport: `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus
 
 ## Kosten en minima
 - **Spot-takerkosten:** uit de API waar de beurs ze per paar geeft, anders `beurzen.taker_standaard` van de scanner
-  (tabel in `../scanner/README.md`). Kraken: 0,80% op gewone munten en 0,20% op stablecoin- en FX-paren (DERDEN,
-  kraken.com/pro/fees via de scanner en de keuring). De radar rekent dat 0,20% op al zijn stablecoins (ook EURQ,
-  RLUSD en andere die de lijst van de scanner niet heeft). Data van vóór deze fix (Kraken op 0,40%, of een
-  stablecoin op Kraken op 0,40/0,80%) zet het rapport apart.
+  (tabel in `../scanner/README.md`). Kraken: 0,80% op gewone munten, 0,20% op stablecoin- en FX-paren (ook EURQ, RLUSD en
+  de andere stablecoins van de radar), 0% op alle USDe-paren en 0,01% op USDG-paren (GEZIEN, kraken.com/pro/fees,
+  19 nov). Radar, rapport en scanner gebruiken dezelfde functie. Data met een ander Kraken-tarief dan dit (van
+  vóór de fixes) zet het rapport apart.
 - **Perp-takerkosten:** Gate 0,075%, MEXC 0,02%, Bitget en KuCoin 0,06%, BingX 0,05% (GEZIEN, contract-API, 19 nov);
   Kraken Futures 0,05% (DERDEN, kraken.com/pro/fees volgens de keuring); OKX 0,05%, Hyperliquid 0,045%, dYdX 0,05% (GOK).
 - **Minimale bedragen** (GEZIEN, veld in de openbare API, 19 nov 2026):
