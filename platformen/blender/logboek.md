@@ -649,3 +649,5 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 19 nov 2026 ±01:10 NL, Bram
 - Berichten R4/R5 gelezen: de 12 veranderde plaatjes komen door de meldknop (zo bedoeld, GEZIEN door R5). Daan gevraagd de knop te keuren vóór 0.1.2. Verder niets zinvols: tak-start wacht op de hoofdchat, main bevroren voor Hats tot na de speeltest.
+
+- 19 nov 00:30 UTC, Daan: meldknop "Report a problem" van Click Joints gekeurd, akkoord ja (`keuring/2026-11-19-meldknop-daan.md`, schermen 4.2.23 en 5.3.0 GEZIEN). Verder niets open voor mij: README, GIF, Bison & Flex 2026.1.2 en de 12 namen waren al gekeurd.
