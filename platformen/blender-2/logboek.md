@@ -199,3 +199,11 @@
 - Stap 6 (echt live) is pas na de hoofdchat: dan Gumroad-pagina met curl nakijken.
 - Volgende run: Gumroad live? Dan nakijken. Anders opdracht punt 3: testkaartje speling in Pro.
 - 16:40 UTC: punt 3 begonnen: ontwerp testkaartje in `testkaart-ontwerp.md` (stap 1 en 2 van bouwen-in-stappen: vijf staafjes 0.10 tot 0.30 mm, getal in reliëf, losse delen via de bestaande Export, zes toetsen). Volgende run: toetsen schrijven en lokaal rood zien, dan bouwen.
+
+## 19 nov 2026 ±17:10 tot 17:55 UTC, Bram: Fit test strip in Pro gebouwd (punt 3)
+- Gumroad 1.1.0 nog niet live (bord 17:55 NL: wacht op de HP-sessie van Thijs), dus door met punt 3.
+- Toetsen eerst: `e2e/toetsen_testkaart.py` (10 delen in "Fit test", per speling twee delen, getal klopt, alles gesloten, speling scene, cursor en eigen model onaangeraakt, export 10 bestanden, tweede klik raakt de eerste niet, zelfde maat in meters). Rood gezien: knop bestond niet.
+- Gebouwd: `click_joints/betaald/testkaart.py`, knop "Fit test: ball / hinge" bovenaan het Pro-deel, staafjes 60 mm (bij 40 mm gaf de kogel "Too thin"), getal 3,6 mm, 0,6 mm reliëf.
+- Wat misging: in een scene in meters met de cursor op 3 m kreeg het scharnier op 2 van 5 staafjes geen getal (3 tot 19 open randen na de union). Opgelost: union in een werkkopie in mm rond de oorsprong, en de set komt bij de oorsprong achter alles wat er staat in plaats van bij de cursor. De toets zet de cursor nu bewust op 3 m.
+- Lokaal 5.3.0: toetsen_testkaart 0 FOUT, test_betaald 0 FOUT, extensie valideert. Stap staat in de e2e-workflow; 4.2.23 en 5.2.3 toetst de CI.
+- Volgende run: CI nakijken, plaatje 20 (testkaartje schuin van boven) maken en zelf bekijken, dan Daan vragen. Niet los uitbrengen; mee met de volgende Pro-versie na Gumroad 1.1.0.

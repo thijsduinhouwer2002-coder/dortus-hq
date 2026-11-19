@@ -8,10 +8,10 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep
+from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, testkaart
 
 ACTIEF = True
-KLASSEN = scharnier.KLASSEN
+KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN
 MELDING = "Disable the free Click Joints first. Your settings stay in the .blend file."
 MELDING_UIT = "Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again."
 
@@ -119,6 +119,7 @@ def register(eigen=None):
         name="Flip bend", default=False, description="Bend the other way: the end stop moves to the other side")
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
+        paneel.append(testkaart.teken_knop)  # "Print this first": bovenaan het Pro-deel
         paneel.append(scharnier.teken_knop)
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
     figuur_teken.register()  # 1.1: figuurkogel klein en groen, één getal buiten het lid (gratis deel onveranderd)
@@ -146,6 +147,7 @@ def unregister():
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.remove(scharnier.teken_knop)
+        paneel.remove(testkaart.teken_knop)
     if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
         del bpy.types.WindowManager.cj_flip_bend
     for k in reversed(KLASSEN):
