@@ -1,3 +1,39 @@
+# Keuring afwisseling, do 19 nov 2026, keurder (agent van de hoofdchat)
+Wat ik keurde: commit 1bd4448d (helden wisselen van kant, soort, draaiing en tempo; nieuw inzendfilmpje). `npm test` in een kopie in /tmp; dagen 1, 3 en 5 gespeeld op 390x780 met 16 beelden per ronde; eerlijkheid nagerekend met `speelNa` over dag 1 tot 20; filmpje bekeken als blad (1 per seconde, eerste 10 s 2 per seconde), eindkaart en uitsnede op ware grootte. Beelden in /tmp, na afloop opgeruimd.
+Akkoord: ja. Geen moet-punten. Het filmpje blijft een concept tot de opname op Reddit (moet 4 van fase 2b).
+
+## Eerlijkheid
+| # | Wat ik toetste | Uitslag | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| 1 | `npm test`: 23 toetsen groen, met een nieuwe toets dat kant, soort en tempo vast zijn per dag en heldnummer en tussen dagen verschillen. | in orde | Feit | hoog |
+| 2 | **Zelfde toren voor iedereen.** `heldStijl(dag, held)` hangt alleen af van dagcode en heldnummer; held 1 is altijd een ridder van links op gewoon tempo. Elke dag zitten alle vijf de banen erin (dag 12: vier). | in orde | Feit | hoog |
+| 3 | **Server speelt met tempo na.** Het tempo (0,90 tot 1,10) zit in `spel.ts` zelf (`stap` en de inhaaltijd na een vangst), dus browser en server rekenen hetzelfde. Nagerekend op dag 1 tot 20: de proefspeler en `speelNa` met dezelfde tikken geven 20 van de 20 keer precies dezelfde hoeden. | in orde | Feit (GEZIEN) | hoog |
+| 4 | **Mikken loont nog.** Dag 1 tot 20, 40 spelers per soort: blind tikken (vast ritme 160 tot 480 ms) meestal 13 tot 19, gemikt (spreiding 45) meestal 33 tot 46. Zelfs tegen het beste blinde ritme achteraf haalt de middelste gemikte speler op elke dag meer (kleinste verschil 17%). | in orde | Feit (GEZIEN) | hoog |
+| 5 | De banen zijn alleen beeld: alle bogen eindigen op hetzelfde punt van de val (y 815, midden van de voltreffer) in de mond, dus de hap valt bij elke baan op hetzelfde moment. Wel verschilt hoe snel de held er op het scherm naartoe lijkt te gaan (de stuiter en de val van boven versnellen op het laatst anders dan links en rechts). Het gele "!" en de lichtbaan helpen. | in orde, kan later | Feit (code) | midden |
+| 6 | Lokaal draaide alleen dag 1 echt mee met opslaan (dag 3 en 5 via `?dag=` geven lokaal "this is not the tower of this post" en een 409 in de console, omdat vandaag dag 1 is). Dat is de lokale proefopzet, geen fout. Dag 1 werd bewaard ("You stacked 31 hats on tower #1, place 2"). | in orde | Feit | hoog |
+
+## Deel C: is het nu leuk en gevarieerd?
+Wat beter is (GEZIEN op dag 1, 3 en 5): helden komen van links, rechts, van boven en stuiterend tegen de wand; zes soorten (ridder, heks, avonturiers, dief, bard) in verschillende kleuren; ze tuimelen verschillend. Gloop kijkt mee, de uitroepen wisselen ("CHOMP!", "PERFECT!", "ON A ROLL!", "GOLDEN!", "not today!"), en de mijlpaal staat nu onder Gloop in de lege grot. Binnen een ronde van 30 s weet je niet meer precies waar de volgende vandaan komt, en dat maakt elke vangst een klein momentje. Het voelt minder als een metronoom.
+
+Wat nog herhalend is:
+- **Het ritme zelf.** Elke held eindigt op dezelfde plek in de mond met hetzelfde venster; het enige wat je beslist is wanneer. Na ±10 helden is de nieuwigheid van de banen eraf. Dat hoort bij een spel met één knop, maar er gebeurt halverwege niets nieuws (geen bijzondere held, geen twee tegelijk, geen gebeurtenis bij streak 10).
+- **De toren ziet er elke ronde hetzelfde uit.** De tien hoeden komen in een vaste volgorde, alleen per dag gedraaid; bij 40 hoeden zie je vier keer hetzelfde patroon.
+- **De dagregels zijn vooral tempoknoppen** (Rush Hour, Heavy Heroes); de held-afwisseling is nu sterker dan het verschil tussen de regels.
+- Grot, licht en geluid zijn elke dag gelijk.
+
+Mijn oordeel (GOK): leuk genoeg voor een dagspel waarvan je er één per dag speelt. Het grootste wat nog punten geeft voor weinig werk is één verrassing halverwege de ronde (bijvoorbeeld bij streak 10 of held 15 een bijzondere held met een eigen hoed), en de hoedvolgorde per dag husselen in plaats van draaien.
+
+## Het filmpje
+34,5 s, 1080x1920, 30 beelden per seconde, met geluid (GEZIEN met ffprobe). Opent in de actie met de titel rechts (de held vliegt er niet meer overheen), eerste PERFECT op ±1,5 s. In beeld nu ook de nieuwe afwisseling: helden van beide kanten en van boven, verschillende soorten, één misser met "not today!", "ON A ROLL!" en "GOLDEN!". De knip op ±12 s heeft nu een overgang. Eindkaart "New tower every day on r/GloopsHatTower" over het gedimde uitslagvel: duidelijk. Uitsnede op ware grootte scherp. Stilte van 0,17 tot 1,67 s tussen de startklank en de eerste slok; mag. Nog steeds "Place 2 of 6 today" en "124 hats today" van de lokale proefspelers; in de opname op Reddit wordt dat echt.
+
+## Kan
+1. Een verrassing halverwege de ronde (zie deel C).
+2. Hoedvolgorde per dag husselen, zodat een hoge toren minder herhaalt.
+3. Het laatste stuk van elke baan gelijk laten lopen op het scherm, zodat het moment van tikken bij elke baan even goed te lezen is (punt 5).
+4. Opname op Reddit (moet 4 van fase 2b), na de login.
+
+---
+
 # Herkeuring filmpje, do 19 nov 2026, keurder (agent van de hoofdchat)
 Wat ik keurde: commit 3fddb918. Filmpje `beelden/inzendfilmpje-1080x1920.mp4` (33,8 s, 1080x1920, 30 beelden per seconde, AAC; GEZIEN met ffprobe): blad van de eerste 10 s (2 per seconde), van 10,5 tot 18,5 s (4 per seconde), de knip beeld voor beeld, het hele filmpje (1 per seconde), uitsnede op ware grootte, geluid met ffmpeg. Spel: `npm test` en een dagbeurt op 390x780 met 10 beelden van het eindmoment. Beelden in /tmp, na afloop opgeruimd.
 Akkoord: ja voor het spel. Ja voor het filmpje als concept, tot de opname op Reddit (moet 4 van de keuring fase 2b blijft staan).
