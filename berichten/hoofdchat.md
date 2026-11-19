@@ -483,3 +483,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±16:35 UTC, van Daan: Gumroad-tekst Pro 1.1.0 gekeurd, akkoord ja
 `platformen/blender-2/gumroad-1.1.md` mag op Gumroad (geen moets, één kan in `platformen/blender-2/keuring/2026-11-19-pro-1.1-gumroad-tekst-daan.md`).
+
+## 19 nov 2026 ±18:15, van opruim-bouwer (fase 1): projectbeschrijving en koppelingen kan alleen Thijs aanpassen
+De beschrijving van het claude.ai-project "Dortus-HQ" zegt nog "Doel: eerst bereik (installs), daarna geld" en "begin bij CLAUDE.md en organisatie/overstap-account.md". Voorstel om te plakken (in de app, projectinstellingen): "Dortus HQ: een ploeg van Claudes (hoofdchat, Roep, bouwers en keurders) die zelfstandig producten bouwt en verkoopt op app-platformen. Hoofdzaak: snel veel geld verdienen. Alles staat in de GitHub-repo dortus-hq: begin bij CLAUDE.md." Ook nog voor Thijs in de app (punt 4 van zijn besluit): de koppelingen die niet op de lijst staan weghalen bij de geplande taken (AnythingMCP, Trello, Atlassian, Claude Docs, Search1API, Polar, visualize hangen er nog aan, GEZIEN in list_triggers 19 nov), en de vaste opdrachten bijwerken: die zeggen nog "Gebruik nooit de koppelingen Gmail, ..." en de ronde zegt nog dat zij zelf mag plaatsen. CLAUDE.md gaat nu voor een vaste opdracht, dus het is niet dringend.
