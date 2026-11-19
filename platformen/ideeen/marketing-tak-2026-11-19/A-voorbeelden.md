@@ -128,3 +128,58 @@ Vijf belangrijkste dingen:
 5. Het snelste geld in alle bronnen kwam van snelheid op een trend met een product (Mindmush: $100K+ in een maand), niet van een marketingagent.
 
 Voorstel (scherper dan run 1): bouw de tak als **maak-agent + keur-agent die alleen op kanalen met eigen sleutel plaatst** (YouTube Shorts via de API, TikTok via Metricool), met een dagrapport dat telt: gemaakt, echt geplaatst, weergaven, verkopen (Gumroad, winkels). Geen Reddit, geen X-reacties, geen persmails. Geef de agent een tweede vaste taak: **trendradar** die elke dag 1 voorstel doet voor een klein product of filmpje op een trend van die dag, want daar zat het snelle geld. Volgende run: makers van Steam-spellen en Blender-add-ons die Shorts of TikTok automatiseren (YouTube zelf doorzoeken), en of Larry-achtige diashows ook werken voor desktop-software in plaats van iOS-apps.
+
+## Ronde 3 (run 03:00 UTC): diashows van dichterbij, Shorts met agents, en het model met veel accounts
+
+Deze ronde: werkt het Larry-model ook buiten één iOS-app, wat levert een agent op YouTube Shorts op, en hoe doen de grote spelers het (veel accounts). Steam- en Blender-makers die hun marketing door een agent laten doen heb ik **niet** gevonden: de zoekresultaten geven alleen bureaus, gidsen en Glitch (voorbeeld 7). Een Indie Hackers-post "i built a saas because i couldnt promote my blender add on" bestaat, maar zit achter Cloudflare (alleen titel gezien).
+
+### 16. Correctie op Larry: TikTok kan via de API wel zelf muziek toevoegen
+- In de officiële TikTok Content Posting API (fotopost) staat het veld `auto_add_music`: "recommended music will be automatically added to photos". Werkt alleen bij `post_mode = DIRECT_POST`, dus bij openbaar plaatsen, niet bij een concept (GEZIEN: [TikTok developers, photo post](https://developers.tiktok.com/doc/content-posting-api-reference-photo-post), met curl gelezen 19 nov).
+- Blotato (verkoper) bouwt er een hele flow op: diashow met auto-muziek rechtstreeks openbaar, en alleen voor een trend "post as draft and pick a trending sound" (DERDEN: [Blotato-blog, bijgewerkt 12 aug 2026](https://www.blotato.com/blog/automate-tiktok-slideshows)). Kosten volgens hen $0,05 tot $0,20 per diashow aan API (DERDEN).
+- **Wat dit voor ons betekent:** de "laatste klik door een mens" uit voorbeeld 1 is niet nodig voor gewone diashows. Aanbevolen muziek is wel iets anders dan een trending geluid; voor een trend blijft het concept + mens. Of Metricool `auto_add_music` doorgeeft weet ik niet (vraag voor B).
+
+### 17. "Joe", een OpenAI Dot: 5,4 miljoen weergaven op 3 diashows
+- **Opzet:** een altijd-aan ChatGPT-agent (OpenAI Dots, sinds 29 sep 2026) met een eigen cloudcomputer en **een eigen TikTok-account om mee te kijken**. Elke ochtend om 8:00 zoekt hij 20 nieuwe virale posts die op een app passen, legt uit waarom ze werken (hook, tekstplaats, pose, tempo), en bouwt de winnaar 1 op 1 na rond de app met een lange "masterprompt". Van één winnaar maakt hij varianten (zelfde opbouw, andere hook, ander personage, app op dia 12 van 14). Een mens keurt elke dia; Postiz plant ze **verspreid over meerdere accounts en dagen** (DERDEN: [Postiz-blog 10 nov 2026](https://postiz.com/blog/openai-dots-tiktok-app-marketing), verkoper).
+- **Opbrengst:** 2,3 miljoen, 2,0 miljoen en 1,1 miljoen weergaven in een paar dagen (DERDEN, zelfde bron). Geen installaties of omzet genoemd.
+- **Kwaliteit:** "Do not let a dot generate a slideshow and post it on autopilot": tekst fout, verkeerde schermafbeeldingen, iemand met drie armen (DERDEN).
+- **Les:** het werk van de agent is vooral **onderzoek naar wat nu werkt en dat nabouwen**, niet zelf iets verzinnen. Dat past bij onze trendradar.
+
+### 18. NerdSip: twee natuurkundigen, 350.000 weergaven in twee weken, eigen app
+- **Opzet:** OpenClaw maakt in één sessie twee weken aan onderwerpen, bijschriften en hashtags als JSON. Een script vraagt per onderwerp één panoramabeeld (21:9, 4K) aan Gemini ("Nano Banana 2") en knipt dat met sharp in Node in 6 staande dia's; wie swipet, loopt door één doorlopend beeld. Elk beeld krijgt een menselijke controle van ± 5 seconden; ± 1 op de 10 beelden heeft AI-fouten. Daarna ingepland, 2 posts per dag (DERDEN: [NerdSip-blog 3 apr 2026](https://nerdsip.pages.dev/blog/we-automated-tiktok-with-ai-350k-views), eigen verslag van de makers, geen tool die ze verkopen).
+- **Opbrengst na 2 weken:** 24 posts, 350.000 weergaven, 5.000 likes, 450 volgers vanaf nul, beste post 100.000, slechtste 1.200. TikTok werd hun **tweede bron van installaties** na zoeken in de App Store; aantallen installaties noemen ze niet (DERDEN).
+- **Wat misging:** abstracte onderwerpen (kwantum) scoorden 50 keer slechter dan tastbare ("waarom je jezelf niet kunt kietelen"); 3 zinnen per dia werd overgeslagen, 1 zin werkt; 15+ hashtags deed het slecht, 5 tot 7 beter; tijdstip maakte weinig uit (DERDEN).
+- **Les:** dit is het nuttigste recept voor ons: geen gezicht, geen stem, alleen beelden en één zin per dia, en het product komt niet in elke post terug.
+
+### 19. Twee Claude-agents op YouTube Shorts, 6 weken: veel werk, weinig publiek
+- **Opzet:** een arts/ingenieur liet twee Claude-agents met eigen geheugen ("Midnight" voor video, analyse en uploaden via de YouTube-API; "Dusk" voor X en blog) om de paar uur zelf werken. Video's met TTS, vertaald in 14 tot 15 talen. De mens keurt ideeën en kijkt elke video na voor die openbaar gaat (DERDEN: [dev.to, wcamon, feb 2026](https://dev.to/wcamon/i-let-ai-agents-run-my-youtube-channel-for-6-weeks-heres-what-actually-happened-21b1)).
+- **Opbrengst na 6 weken:** 52 video's, 30.170 weergaven, **29 abonnees**, 4 tot 5% likes. Geen omzet genoemd (DERDEN).
+- **Wat misging:** nul reacties onder alle video's, ook met vragen erin; de Analytics-API loopt 72+ uur achter, dus de agent stuurt op oude cijfers; video's werden korter dan gevraagd (41 in plaats van 60 seconden); AI-beelden gaan op elkaar lijken (DERDEN).
+- **Les:** Shorts met een agent geeft per video honderden weergaven, geen abonnees en geen gesprek. Vergelijk NerdSip: 24 TikTok-posts gaven 350.000 weergaven. Voor snelle bereik zit TikTok vóór Shorts; Shorts blijven wel langer vindbaar via zoeken (DERDEN, [Bugnet-blog 10 jun 2026](https://bugnet.io/blog/youtube-shorts-for-indie-game-marketing): zet de Steam-link in de vastgezette reactie, titels schrijven voor zoeken).
+
+### 20. Weergaven zonder uitgang zijn niets waard (knipkanalen met Claude)
+- Een Japans verhaal op X (769.000 weergaven) over een knipkanaal dat met Claude clips van een bekende maker verspreidt: 530.000 weergaven in 7 dagen leverden ± **$200 per maand** aan YouTube-advertenties op. Het claimde geld ($16.000 per maand) komt alleen van een link naar "iets erachter" (cursus, affiliate, eigen product) (DERDEN: [YouMind-vertaling, 1 jul 2026](https://youmind.com/landing/x-viral-articles/claude-youtube-clipping-automation-workflow); duidelijk verkooppraat, eindigt bij een LINE-groep; de $16.000 is een rekensom, geen bewijs).
+- **Les:** het enige bruikbare: de waarde zit in de uitgang. Voor ons is dat de link naar Gumroad, een winkelpagina of de maillijst, en die moet in elke bio en vastgezette reactie staan.
+
+### 21. Het model met veel accounts: Studley AI, en wat onderzoekers erover zeggen
+- **Studley AI** (studie-app, ± $13 per maand) laat 110+ TikTok-accounts draaien door betaalde studenten: $20 per post plus tot $2.000 bonus op weergaven. 152,1 miljoen weergaven, $50K per maand; eerder 98 miljoen weergaven in een half jaar met **diashows** (slechte cijfers "met ChatGPT" tegenover goede "met Studley") (DERDEN: [8x.social](https://www.8x.social/en/blog/studley-ai-creator-network), een bureau dat dit verkoopt). Dit zijn mensen, geen agents, en de posts lijken geen reclame.
+- **AI Forensics** onderzocht 354 "Agentic AI Accounts" op TikTok: 43.000 posts, 4,5 miljard weergaven in een maand, TikTok labelde minder dan 1,38% als AI (DERDEN: [AI Forensics, 3 dec 2025](https://aiforensics.org/work/agentic-ai-accounts)). Groot bereik dus mogelijk, en tegelijk het soort accounts waar pers en platform op letten.
+- **Grijs gebied, voor ons:** meerdere eigen merkaccounts van Dortus (bijv. één per product) is gewoon gebruik. Betaalde posts die niet als reclame herkenbaar zijn, is sluikreclame en valt onder bedrog: niet doen. Studley kost bovendien geld (regel 1).
+
+### 22. Kort: Claude Code die zelf Meta-advertenties draait
+- Giorgio Liapakis gaf een agent $1.500 en volledige controle over een Meta Ads-account voor een maand (DERDEN: [Technically, 9 apr 2026](https://read.technically.dev/p/i-let-claude-code-autonomously-run); achter een betaalmuur, alleen de inleiding gelezen, uitkomst onbekend). Kost geld, dus voor ons pas na een ja van Thijs; wel het noemen waard als snelste weg naar meetbare verkopen.
+
+## Patronen na ronde 3
+12. **Alle diashow-successen zijn mobiele apps** (Larry, ashen, Joe, NerdSip, Studley): de kijker zit op zijn telefoon en installeert met één tik. Voor desktopsoftware (Blender-add-ons, Obsidian) heb ik geen enkel voorbeeld gevonden. GOK: de omzetting is daar veel lager, want de kijker kan op zijn telefoon niets installeren. Uitgang dan: maillijst ("stuur me de link") of een Steam-verlanglijst, die werkt wel vanaf de telefoon.
+13. **Nabouwen wat al werkt** wint van verzinnen (Joe: 20 virale posts per ochtend, 1 op 1 nabouwen; NerdSip: eerst kijken wat in de niche werkt). De maak-agent heeft dus een kijk-taak nodig: TikTok lezen kan zonder account via de zoekpagina's? (onbekend, vraag voor B).
+14. **De menselijke keuring is kort en visueel:** 5 seconden per beeld (NerdSip), elke dia (Joe). Een keur-agent die beelden bekijkt (drie armen, verkeerde tekst) kan dit deels overnemen.
+15. **TikTok > Shorts voor snelle weergaven:** 24 TikTok-posts 350.000 tegenover 52 Shorts 30.170 (twee verschillende makers en onderwerpen, dus GOK als vergelijking).
+
+## Stand na run 03:20 UTC (19 nov 2026, klok van de container)
+Vijf belangrijkste dingen:
+1. TikTok kan via de API zelf aanbevolen muziek onder een diashow zetten (`auto_add_music`, GEZIEN in de officiële docs). Larry's "mens moet muziek kiezen" geldt alleen voor trending geluid. Volledig zelfstandig diashows plaatsen op TikTok kan dus.
+2. Het sterkste eerlijke recept is NerdSip: één panoramabeeld in 6 dia's, één zin per dia, tastbare onderwerpen, 2 posts per dag, 5 seconden keuring per beeld: 350.000 weergaven en 450 volgers in 2 weken vanaf nul (DERDEN).
+3. Agents die vooral **onderzoeken en nabouwen** wat al viraal is (Joe, 5,4 miljoen weergaven op 3 posts, DERDEN via verkoper) doen het beter dan agents die zelf verzinnen.
+4. YouTube Shorts met agents: 52 video's, 29 abonnees, 0 reacties (DERDEN). Shorts als bijvangst van dezelfde beelden, niet als hoofdkanaal.
+5. Alle successen zijn mobiele apps; voor onze desktopproducten is geen bewijs gevonden. Weergaven zonder uitgang (link, maillijst) leveren bijna niets op ($200 per 530.000 weergaven, DERDEN).
+
+Voorstel (aanvulling op run 2): laat de maak-agent als eerste product een **telefoonvriendelijke uitgang** kiezen (de Steam-verlanglijst van Hats, of de maillijst met een gratis add-on), en bouw de NerdSip-pijplijn na: één beeldmodel, knippen met sharp of Pillow, één zin per dia, 2 per dag, met de keur-agent die elk beeld bekijkt. Plaatsen direct openbaar met `auto_add_music` als onze planner dat doorgeeft (B checken), anders via de TikTok-API zelf. Volgende run: of TikTok zonder account te lezen is voor de kijk-taak, en voorbeelden van diashows voor games op Steam (wishlists) in plaats van apps.
