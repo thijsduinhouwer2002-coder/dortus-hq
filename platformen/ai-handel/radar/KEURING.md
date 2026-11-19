@@ -109,3 +109,29 @@ Akkoord: nee
 - `test_radar.py` splitsen (B1).
 
 akkoord nee: moet 1 (Kraken USDe 0% en USDG 0,01% in radar en rapport); de zeven oude moet-punten zijn opgelost
+
+## Tweede herkeuring, 19 nov 2026, keurder (losse Claude)
+Wat ik keurde: commit e9b629af (`scanner/beurzen.py` `taker_standaard`, `radar.py` `taker`, `radar_rapport.py`
+`kraken_taker`, de nieuwe toetsen), en of scanner en driehoek-meter er last van hebben.
+Akkoord: ja
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| T1 | **Moet 1 is opgelost op één plek.** `taker_standaard("kraken", ...)` geeft: USDE-USD 0,0; USDG-EUR 0,0001; EURQ-USDT 0,002; BTC-USDE 0,0 (alle USDe-paren); BTC-USDT 0,008. Dat volgt kraken.com/pro/fees zoals ik het eerder met curl las ("USDe Any 0,00% 0,00%, all USDe pairs"; "USDG $0+ 0,00% 0,01%"; "FX, stablecoin-base and pegged-token pairs" 0,20%; crypto tier 1 0,80%). `TAKER_MUNT` vergelijkt hele namen, dus USDGO valt er niet onder. | Feit | hoog |
+| T2 | `Radar.taker` neemt eerst het tarief uit de API (Kraken geeft dat niet per paar) en anders `taker_standaard`; `kraken_taker` in het rapport roept dezelfde functie. Radar en rapport kunnen dus niet meer uit elkaar lopen. Alle 23 stablecoins van de radar staan in `STABIEL_FIAT` (nagelopen tegen `STABLE` in `rekenen.py`). | Feit | hoog |
+| T3 | **Handrekening C2 met USDe op Kraken:** laat 0,9965, basislijn 1,0007. Afwijking (1,0007 - 0,9965) / 1,0007 = 0,4197%; met 0% taker blijft 0,4197% over, winst bij €100 = 100 x (1,0007 / 0,9965 - 1) = €0,4215. Met het oude 0,20% bleef 0,0197% over (€0,02). `rekenen.afwijking` geeft precies 0,4197 / 0,4197 / 0,4215. Het verschil is dus groot. | Feit | hoog |
+| T4 | `oud_tarief` zet een Kraken-regel alleen apart als het tarief afwijkt van `taker_standaard` (marge 1e-9). USDe-regels uit de run van 16:20 tot 16:35 (die nog 0,20% rekende) komen zo terecht apart te staan. De radar is op e9b629af opnieuw gestart (run 44567693599). | Feit | hoog |
+| T5 | **Scanner niet slechter.** Tests 31 groen. Het rapport van de scanner op de echte data van de tak `ai-handel-data` is gelijk vóór en na deze commit (diff alleen de regel "Gemaakt"). `herreken` werkt ook als het nieuwe tarief lager is (stablecoin op Kraken van 0,40% naar 0,20% of 0%): dan wordt de winst hoger, tot de oude ruimte (voorzichtig). Regels die de scanner tussen b335b992 en e9b629af met 0,80% rekende voor EURQ, RLUSD en dergelijke op Kraken worden niet herrekend; dat is de voorzichtige kant (te duur gerekend), en ik zag er in het rapport geen echte kans door veranderen. | Feit | hoog |
+| T6 | **Driehoek-meter botst niet.** `driehoek/kosten.py` heeft een eigen Kraken-tabel en roept `taker_standaard` niet aan; uit `beurzen.py` gebruikt hij alleen `TAKER` (niet veranderd) als terugval voor andere beurzen. Tests 32 groen. De twee tabellen geven hetzelfde voor USDe (0%), USDG (0,01%), stablecoins (0,20%) en gewone munten (0,80%). Ze verschillen alleen in randgevallen (zie kan). | Feit | hoog |
+| T7 | Radar-rapport op de echte data: gelijk vóór en na deze commit; tests radar 31 groen. | Feit | hoog |
+| T8 | USDG "alle paren": de pagina geeft USDG/USD als voorbeeld en spreekt van "USDG and USDe pairs". Dat 0,01% ook voor bijvoorbeeld USDG/EUR geldt, is een redelijke lezing maar niet letterlijk zo gezien. De driehoek leest het net zo. | Vermoeden | midden |
+
+### Moet
+Geen.
+
+### Kan (mag later)
+- FX-paren op Kraken (GBP, CHF, CAD, AUD, JPY tegen USD of EUR) kosten 0,20%, maar `STABIEL_FIAT` kent ze niet en geeft 0,80%. In de data: een Kraken-perp op GBP met spot GBP-USD op Kraken tegen 0,008 (negatieve piek, telt nu niet mee). De driehoek heeft ze wel (`FIAT`).
+- Eén lijst voor scanner, radar en driehoek: de driehoek heeft USDR, USDGO en de koppelparen (TBTC/BTC, WBTC/BTC), `beurzen.py` heeft EURE, EURI, EURT, AEUR en EURAU. Nu botst het niet, maar twee tabellen lopen op den duur uit elkaar.
+- Docstring van `herreken` zegt "te laag oud tarief"; hij werkt ook als het te hoog was.
+
+akkoord ja
