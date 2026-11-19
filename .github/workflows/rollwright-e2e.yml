@@ -103,7 +103,8 @@ jobs:
       # De dobbelstenen hebben een vast zaad (wdio.conf.mjs). Wat elke run anders blijft: de willekeurige kluisnaam
       # (linksonder en in de titelbalk), animaties die half in beeld zijn (tot 0,36 procent) en de melding op m10
       # die nog binnenschuift (GEZIEN 19 nov, main tegen week in dezelfde commit), en de kloktijden in het logboek
-      # op l1 (vals alarm 19 nov, run 44427731943). Die tellen niet mee, de grens is 0,4 procent.
+      # op l1 (vals alarm 19 nov, run 44427731943; alleen de drie tijden, niet het hele paneel). Die tellen niet mee,
+      # de grens is 0,4 procent.
       - name: Beeldvergelijking met de vorige geslaagde run
         id: bv
         if: always()
@@ -118,7 +119,7 @@ jobs:
           echo "N=$N" >> "$GITHUB_ENV"
           bash "$B" vergelijk producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" \
             /tmp/beeldverschil 0.4 "Rollwright, Obsidian $OBSIDIAN_APP met installer $OBSIDIAN_INSTALLER ($N)" "rollwright/$N" \
-            "*:50,755,345,800;*:290,0,610,28;m10-*:880,28,1024,105;l1-*:730,120,1024,760"
+            "*:50,755,345,800;*:290,0,610,28;m10-*:880,28,1024,105;l1-*:845,126,930,150;l1-*:765,186,845,210;l1-*:765,270,845,294"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

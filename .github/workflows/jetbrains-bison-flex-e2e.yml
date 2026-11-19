@@ -69,8 +69,10 @@ jobs:
       # Beeldvergelijking (roestronde R4): elk plaatje naast dat van de vorige geslaagde run. Nooit rood.
       # Ruis tussen runs zonder maskers: 0,34 tot 1,56 procent (keuring R4, 19 nov), door de willekeurige tijdelijke
       # projectmap (in de projectboom en als kleur van de projectknop bovenaan) en de voortgangsbalk van het indexeren.
-      # Daarom: vaste projectmap (Gedeeld.kt), de strook bovenaan links (projectknop) en de voortgangsbalk onder de
-      # projectboom tellen niet mee, en dialoogvensters die een paar pixels van maat springen worden niet vergeleken.
+      # Daarom: vaste projectmap (Gedeeld.kt), de strook linksboven (projectknop) en de voortgangsbalk onder de
+      # projectboom tellen niet mee, alleen op schermen van het hele IDE-venster (2880x1800, niet op dialogen).
+      # Dialogen die een paar pixels van maat springen worden met verschuiving vergeleken (beeldvergelijk.py), en
+      # de twee hernoem-plaatjes met een melding of tooltip neemt de test pas op als het beeld stilstaat (schermStil).
       # Grens 0,3 procent.
       - name: Beeldvergelijking met de vorige geslaagde run
         id: bv
@@ -85,7 +87,7 @@ jobs:
           echo "B=$B" >> "$GITHUB_ENV"
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" vergelijk producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" \
-            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*:0,0,1000,80;*-calc-y.png:80,1700,1040,1760"
+            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*@2880x1800:0,0,1000,80;*-calc-y.png@2880x1800:80,1700,1040,1760"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

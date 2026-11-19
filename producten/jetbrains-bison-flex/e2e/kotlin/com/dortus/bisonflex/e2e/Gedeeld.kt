@@ -127,6 +127,30 @@ internal fun vensters(): List<Pair<String, String>> = try {
  * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
  * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
  */
+/**
+ * Zoals [scherm], maar pas als het venster stilstaat: twee opnamen na elkaar (300 ms ertussen) zijn gelijk, hooguit
+ * [pogingen] keer. Voor beelden met een melding die nog invaagt of een tooltip die nog komt (roestronde R4: zulke
+ * plaatjes verschilden van run tot run, zodat de beeldvergelijking vals alarm gaf).
+ */
+internal fun schermStil(bestand: String, pogingen: Int = 10) {
+    val venster = actiefVenster() ?: "root"
+    var vorige: ByteArray? = null
+    for (i in 1..pogingen) {
+        val tijdelijk = Files.createTempFile("dortus-stil", ".rgb")
+        ProcessBuilder("import", "-window", venster, "rgb:$tijdelijk").start().waitFor()
+        val nu = Files.readAllBytes(tijdelijk)
+        Files.deleteIfExists(tijdelijk)
+        if (vorige != null && nu.isNotEmpty() && nu.contentEquals(vorige)) {
+            println("DORTUS-E2E $bestand: beeld stil na $i opnamen")
+            break
+        }
+        if (i == pogingen) println("DORTUS-E2E $bestand: beeld niet stil na $pogingen opnamen, toch opgenomen")
+        vorige = nu
+        Thread.sleep(300)
+    }
+    scherm(bestand)
+}
+
 internal fun scherm(bestand: String) {
     val doel = schermen.resolve(bestand)
     val venster = actiefVenster()

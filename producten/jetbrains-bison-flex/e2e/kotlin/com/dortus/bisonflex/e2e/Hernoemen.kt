@@ -149,8 +149,8 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     val inBeeld = wacht(3) { withContext(OnDispatcher.EDT) { melding.balloonZonderEditorInBeeld() } }
     println("DORTUS-E2E [$naam] Shift+F6 op NUM in de structuurweergave: hint zonder editor $structuur (aantal ${melding.aantalHintsZonderEditor()}), " +
         "laatste hint '${melding.laatsteHint()}', balloon in beeld $inBeeld, plek '${melding.laatstePlekZonderEditor()}'")
-    // Het scherm meteen, de balloon gaat na 8 s vanzelf weg.
-    scherm("$naam-hernoem-structuur.png")
+    // Het scherm meteen, de balloon gaat na 8 s vanzelf weg. Wel pas als hij helemaal ingevaagd is (roestronde R4).
+    schermStil("$naam-hernoem-structuur.png", pogingen = 4)
     toets("Escape")
     assertTrue(structuur, "hint zonder editor bij hernoemen vanuit de structuurweergave ($naam)")
     val verwacht = "NUM is also used in calc.l and calc.ll. Rename across grammar and scanner is a Pro feature."
@@ -185,7 +185,7 @@ private fun IdeTest.hernoemvenster(d: Driver, naam: String, melding: ProMeldingO
         wacht(20) { actiefVenster().let { it != null && it != ide && it != venster }.also { if (it) conflict = actiefVenster() } }
         Thread.sleep(2_000)
         println("DORTUS-E2E [$naam] naam 'line' ingevuld: conflictvenster ${conflict ?: "niet gezien"}")
-        if (conflict != null) scherm("$naam-hernoem-conflict.png")
+        if (conflict != null) schermStil("$naam-hernoem-conflict.png")
     } finally {
         // Alles dicht tot de IDE weer actief is (Escape is Cancel in beide vensters).
         for (i in 1..4) {

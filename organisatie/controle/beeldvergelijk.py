@@ -4,14 +4,17 @@
 Gebruik: python3 beeldvergelijk.py <nu-map> <ref-map> <uit-map> <grens-procent> <naam> [maskers]
 
 maskers: vakken die niet meetellen omdat ze elke run anders zijn, gescheiden door ';', elk als
-<bestandspatroon>:<x0>,<y0>,<x1>,<y1> (pixels, x1 en y1 tellen niet mee), bijvoorbeeld de willekeurige
-kluisnaam van Obsidian: "*:50,755,345,800".
+<bestandspatroon>[@<breedte>x<hoogte>]:<x0>,<y0>,<x1>,<y1> (pixels, x1 en y1 tellen niet mee), bijvoorbeeld de
+willekeurige kluisnaam van Obsidian: "*:50,755,345,800". Met @2880x1800 geldt het vak alleen voor plaatjes van
+die maat (zo dekt een masker voor het hele IDE-venster de kopregel van een dialoog niet af).
 
 Per PNG die in beide mappen staat: aantal pixels dat verschilt (een kanaal wijkt meer dan DREMPEL af,
 zodat zachte randen niet tellen), als procent van het plaatje. Boven de grens heet het "groot" en komt er
-een verschilbeeld bij (het oude plaatje grijs, de verschillen rood). Een andere maat telt ook als groot, behalve
-als hij hooguit MAAT_SPELING pixels scheelt: losse dialoogvensters van de IDE springen tussen runs een paar pixels
-(1600x1174 en 1592x1172, keuring R4); die staan als "maat licht anders, niet vergeleken" in het verslag.
+een verschilbeeld bij (het oude plaatje grijs, de verschillen rood). Een andere maat telt als groot, behalve als
+hij hooguit MAAT_SPELING pixels scheelt: losse dialoogvensters van de IDE springen tussen runs een paar pixels
+(1600x1174 en 1592x1172, keuring R4). Dan wordt toch vergeleken: een pixel telt alleen als anders als hij ook niet
+klopt met het nieuwe plaatje verschoven naar rechts, onder of rechtsonder (zo kloppen knoppen die aan de rechter- of
+onderkant vastzitten), en het verschil telt net zo tegen de grens.
 Nieuwe en verdwenen plaatjes staan in het verslag maar tellen niet als groot.
 Een plaatje van deze run dat (bijna) helemaal één kleur is (standaardafwijking onder LEEG_GRENS, bijvoorbeeld
 helemaal zwart) telt altijd als groot, met "LEEG", ook als de referentie net zo leeg is (keuring R5: 1-paneel.png
@@ -54,6 +57,28 @@ def lees_maskers(tekst):
     return maskers
 
 
+def past(patroon, rel, vorm):
+    naam, _, maat = patroon.partition("@")
+    if maat and maat != f"{vorm[1]}x{vorm[0]}":
+        return False
+    return fnmatch.fnmatch(rel, naam)
+
+
+def verschil_verschoven(a, b):
+    """Masker op de maat van a: anders als b op geen van de vier hoekuitlijningen klopt."""
+    ha, wa, hb, wb = a.shape[0], a.shape[1], b.shape[0], b.shape[1]
+    dy, dx = hb - ha, wb - wa
+    mask = np.ones((ha, wa), dtype=bool)
+    for sy, sx in ((0, 0), (dy, 0), (0, dx), (dy, dx)):
+        y0, y1 = max(0, -sy), min(ha, hb - sy)
+        x0, x1 = max(0, -sx), min(wa, wb - sx)
+        if y1 <= y0 or x1 <= x0:
+            continue
+        deel = (np.abs(a[y0:y1, x0:x1] - b[y0 + sy:y1 + sy, x0 + sx:x1 + sx]) > DREMPEL).any(axis=2)
+        mask[y0:y1, x0:x1] &= deel
+    return mask
+
+
 def vergelijk(nu, ref, uit, grens, naam, maskers=""):
     maskers = lees_maskers(maskers)
     nu, ref, uit = Path(nu), Path(ref), Path(uit)
@@ -80,30 +105,32 @@ def vergelijk(nu, ref, uit, grens, naam, maskers=""):
         except Exception as e:
             regels.append(f"| {rel} | referentie niet te lezen: {e} | |")
             continue
+        notitie = ""
         if a.shape != b.shape and abs(a.shape[0] - b.shape[0]) <= MAAT_SPELING and abs(a.shape[1] - b.shape[1]) <= MAAT_SPELING:
-            regels.append(f"| {rel} | maat licht anders: {a.shape[1]}x{a.shape[0]} werd {b.shape[1]}x{b.shape[0]}, niet vergeleken | |")
-            continue
-        if a.shape != b.shape:
+            notitie = f" (maat {a.shape[1]}x{a.shape[0]} werd {b.shape[1]}x{b.shape[0]}, vergeleken met verschuiving)"
+            mask = verschil_verschoven(a, b)
+        elif a.shape != b.shape:
             groot.append(rel)
             regels.append(f"| {rel} | andere maat: {a.shape[1]}x{a.shape[0]} werd {b.shape[1]}x{b.shape[0]} | GROOT |")
             continue
-        mask = (np.abs(a - b) > DREMPEL).any(axis=2)
+        else:
+            mask = (np.abs(a - b) > DREMPEL).any(axis=2)
         for patroon, (x0, y0, x1, y1) in maskers:
-            if fnmatch.fnmatch(rel, patroon):
+            if past(patroon, rel, a.shape):
                 mask[y0:y1, x0:x1] = False
         n = int(mask.sum())
         pct = 100.0 * n / mask.size
         if n == 0:
-            regels.append(f"| {rel} | gelijk | |")
+            regels.append(f"| {rel} | gelijk{notitie} | |")
             continue
         ys, xs = np.nonzero(mask)
         vak = f"x {xs.min()} tot {xs.max()}, y {ys.min()} tot {ys.max()}"
         if pct > grens:
             groot.append(rel)
             verschilbeeld(a, mask, uit / "verschil" / rel)
-            regels.append(f"| {rel} | {n} px ({pct:.3f}%), {vak} | GROOT |")
+            regels.append(f"| {rel} | {n} px ({pct:.3f}%), {vak}{notitie} | GROOT |")
         else:
-            regels.append(f"| {rel} | {n} px ({pct:.3f}%), ruis | |")
+            regels.append(f"| {rel} | {n} px ({pct:.3f}%), ruis{notitie} | |")
     for rel in sorted(nieuw_lijst - ref_lijst):
         if ref_lijst:
             regels.append(f"| {rel} | nieuw (niet in de referentie) | |")
