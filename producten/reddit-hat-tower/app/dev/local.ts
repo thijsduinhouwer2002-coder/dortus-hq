@@ -56,6 +56,7 @@ async function proefspelers(dag: number): Promise<void> {
   ] as const
   for (const [i, [naam, mik, ruis, mis]] of spelers.entries()) {
     const p = speelProef(dag, mik, ruis, mis, 11 + i * 97)
+    await start(db, {subreddit: SUB, naam, userId: `t2_${naam}`}, dag, {dag})
     await score(db, {subreddit: SUB, naam, userId: `t2_${naam}`}, dag, {
       dag,
       drukken: p.drukken,
@@ -83,6 +84,16 @@ const server = createServer(async (req, rsp) => {
         await score(db, wieVan(req), dag, (await leesJson(req)) as never),
       )
     }
+    if (pad === Endpoint.Start && req.method === 'POST') {
+      return stuur(
+        200,
+        await start(db, wieVan(req), dag, (await leesJson(req)) as never),
+      )
+    }
+    if (pad === Endpoint.Lid && req.method === 'POST') {
+      console.log(`[${wieVan(req).naam} wordt lid van r/${SUB}]`)
+      return stuur(200, {ok: true})
+    }
     if (pad === Endpoint.Deel && req.method === 'POST') {
       const tekst = await deelTekst(db, wieVan(req), dag)
       console.log(`[reactie die op Reddit geplaatst zou worden]\n${tekst}\n`)
@@ -107,7 +118,10 @@ const server = createServer(async (req, rsp) => {
   }
 })
 
-if (process.env.PROEF) await proefspelers(dagNummer(Date.now()))
+if (process.env.PROEF) {
+  await proefspelers(dagNummer(Date.now()) - 1)
+  await proefspelers(dagNummer(Date.now()))
+}
 server.listen(POORT, () =>
   console.log(
     `Gloop's Hat Tower lokaal: http://localhost:${POORT}/splash.html`,

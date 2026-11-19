@@ -15,6 +15,7 @@ export type InitRsp = {
   besteOoit: number
   gemeenschap: GemeenschapStand
   top: RijRanglijst[]
+  topGisteren: RijRanglijst[]
 }
 
 export type GemeenschapStand = {
@@ -30,7 +31,13 @@ export type UitslagOpslag = {
   besteReeks: number
   uitslagen: string[]
   plek: number
+  /** Dagbeurt gestart maar nooit ingestuurd (herladen of weggegaan): telt als gebruikt, 0 hoeden. */
+  afgebroken?: boolean
 }
+
+/** Begin van de dagbeurt. Telt alleen de eerste keer per speler per dag. */
+export type StartReq = {dag: number}
+export type StartRsp = {telt: boolean}
 
 /** De dagbeurt: de server speelt hem zelf na uit de drukken, dus de score komt niet van de client. */
 export type ScoreReq = {dag: number; drukken: number[]}
@@ -47,10 +54,15 @@ export type ScoreRsp = {
 export type DeelReq = {dag: number}
 export type DeelRsp = {ok: boolean; tekst: string}
 
+/** Word lid van deze subreddit (namens de speler, na een tik). */
+export type LidRsp = {ok: boolean}
+
 export type Endpoint = (typeof Endpoint)[keyof typeof Endpoint]
 export const Endpoint = {
   Init: 'api/init',
+  Start: 'api/start',
   Score: 'api/score',
+  Lid: 'api/join',
   Deel: 'api/share',
   OnAppInstall: 'internal/on/app/install',
   OnMenuNewPost: 'internal/on/menu/new-post',
@@ -59,7 +71,9 @@ export const Endpoint = {
 
 export const EndpointMethod = {
   [Endpoint.Init]: 'GET',
+  [Endpoint.Start]: 'POST',
   [Endpoint.Score]: 'POST',
+  [Endpoint.Lid]: 'POST',
   [Endpoint.Deel]: 'POST',
   [Endpoint.OnAppInstall]: 'POST',
   [Endpoint.OnMenuNewPost]: 'POST',

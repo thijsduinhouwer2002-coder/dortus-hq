@@ -6,6 +6,8 @@ import type {
   RijRanglijst,
   ScoreReq,
   ScoreRsp,
+  StartReq,
+  StartRsp,
   UitslagOpslag,
 } from '../shared/api.ts'
 import {kaartTekst} from '../shared/kaart.ts'
@@ -15,6 +17,8 @@ import {RONDE_MS, STAP_MS, speelNa} from '../shared/spel.ts'
 export interface Opslag {
   get(key: string): Promise<string | undefined>
   set(key: string, value: string): Promise<void>
+  /** Zet alleen als de sleutel nog niet bestaat; true als deze aanroep hem zette. */
+  setNX(key: string, value: string): Promise<boolean>
   incrBy(key: string, value: number): Promise<number>
   zAdd(key: string, member: string, score: number): Promise<void>
   zScore(key: string, member: string): Promise<number | undefined>
@@ -37,6 +41,8 @@ const sleutel = {
   rang: (sub: string, dag: number) => `rang:${sub}:${dag}`,
   uitslag: (sub: string, dag: number, user: string) =>
     `uitslag:${sub}:${dag}:${user}`,
+  start: (sub: string, dag: number, user: string) =>
+    `start:${sub}:${dag}:${user}`,
   hoedenDag: (sub: string, dag: number) => `hoeden:${sub}:${dag}`,
   spelersDag: (sub: string, dag: number) => `spelers:${sub}:${dag}`,
   hoedenOoit: (sub: string) => `hoeden:${sub}:ooit`,
@@ -117,8 +123,7 @@ export async function init(
   let dagenOpRij = 0
   let besteOoit = 0
   if (wie.userId) {
-    const ruw = await db.get(sleutel.uitslag(sub, dag, wie.userId))
-    vandaag = ruw ? (JSON.parse(ruw) as UitslagOpslag) : undefined
+    vandaag = await leesUitslag(db, sub, dag, wie.userId)
     dagenOpRij = reeksNu(await leesReeks(db, wie.userId), dag)
     besteOoit = Number((await db.get(sleutel.beste(wie.userId))) ?? 0)
   }
@@ -131,7 +136,44 @@ export async function init(
     besteOoit,
     gemeenschap: await gemeenschap(db, sub, dag),
     top: await top(db, sub, dag),
+    topGisteren: await top(db, sub, dag - 1),
   }
+}
+
+/** De uitslag van vandaag, of een lege als de dagbeurt gestart is maar nooit is ingestuurd. */
+async function leesUitslag(
+  db: Opslag,
+  sub: string,
+  dag: number,
+  user: string,
+): Promise<UitslagOpslag | undefined> {
+  const ruw = await db.get(sleutel.uitslag(sub, dag, user))
+  if (ruw && ruw !== BEZIG) return JSON.parse(ruw) as UitslagOpslag
+  if (ruw === BEZIG || (await db.get(sleutel.start(sub, dag, user)))) {
+    return {hoeden: 0, besteReeks: 0, uitslagen: [], plek: 0, afgebroken: true}
+  }
+  return undefined
+}
+
+const BEZIG = 'bezig'
+
+/**
+ * De dagbeurt begint. Eén sleutel per speler per dag, alleen gezet als hij nog niet bestaat:
+ * herladen of een tweede tabblad geeft geen nieuwe dagbeurt, die speelt dan als oefening.
+ */
+export async function start(
+  db: Opslag,
+  wie: Wie,
+  dagNu: number,
+  req: StartReq,
+): Promise<StartRsp> {
+  if (!wie.userId) throw new FoutVerzoek('log in to save your tower', 401)
+  if (req.dag !== dagNu)
+    throw new FoutVerzoek('this tower is from another day', 409)
+  const key = sleutel.start(wie.subreddit, dagNu, wie.userId)
+  const eerste = await db.setNX(key, String(Date.now()))
+  await db.expire(key, BEWAAR_DAG_S)
+  return {telt: eerste}
 }
 
 export async function score(
@@ -141,8 +183,10 @@ export async function score(
   req: ScoreReq,
 ): Promise<ScoreRsp> {
   if (!wie.userId) throw new FoutVerzoek('log in to save your tower', 401)
-  if (req.dag !== dagNu)
+  // Een ronde die vlak voor middernacht (UTC) begon, telt nog voor de dag waarop hij begon.
+  if (req.dag !== dagNu && req.dag !== dagNu - 1) {
     throw new FoutVerzoek('this tower is from another day', 409)
+  }
   const max = RONDE_MS / STAP_MS
   if (
     !Array.isArray(req.drukken) ||
@@ -159,13 +203,19 @@ export async function score(
   }
   const sub = wie.subreddit
   const user = wie.userId
-  const al = await db.get(sleutel.uitslag(sub, dagNu, user))
-  if (al) throw new FoutVerzoek('you already played today', 409)
+  const dag = req.dag
+  if (!(await db.get(sleutel.start(sub, dag, user))))
+    throw new FoutVerzoek('start the tower first', 409)
+  // Eerst claimen, dan pas tellen: twee gelijktijdige inzendingen tellen zo maar één keer.
+  const uitslagKey = sleutel.uitslag(sub, dag, user)
+  if (!(await db.setNX(uitslagKey, BEZIG)))
+    throw new FoutVerzoek('you already played today', 409)
+  await db.expire(uitslagKey, BEWAAR_DAG_S)
 
   // De server speelt het potje zelf na; de client kan geen score verzinnen.
-  const p = speelNa(dagNu, req.drukken)
+  const p = speelNa(dag, req.drukken)
 
-  const rangKey = sleutel.rang(sub, dagNu)
+  const rangKey = sleutel.rang(sub, dag)
   await db.zAdd(rangKey, user, rangScore(p.hoeden, p.besteReeks))
   await db.expire(rangKey, BEWAAR_DAG_S)
   await db.set(sleutel.naam(user), wie.naam ?? 'someone')
@@ -176,12 +226,10 @@ export async function score(
     uitslagen: p.uitslagen,
     plek,
   }
-  const uitslagKey = sleutel.uitslag(sub, dagNu, user)
   await db.set(uitslagKey, JSON.stringify(uitslag))
-  await db.expire(uitslagKey, BEWAAR_DAG_S)
 
-  const hdKey = sleutel.hoedenDag(sub, dagNu)
-  const spKey = sleutel.spelersDag(sub, dagNu)
+  const hdKey = sleutel.hoedenDag(sub, dag)
+  const spKey = sleutel.spelersDag(sub, dag)
   await db.incrBy(hdKey, p.hoeden)
   await db.incrBy(spKey, 1)
   await db.expire(hdKey, BEWAAR_DAG_S)
@@ -190,8 +238,8 @@ export async function score(
 
   const oud = await leesReeks(db, user)
   const nieuw: Reeks = {
-    laatsteDag: dagNu,
-    dagen: oud.laatsteDag === dagNu - 1 ? oud.dagen + 1 : 1,
+    laatsteDag: dag,
+    dagen: oud.laatsteDag === dag - 1 ? oud.dagen + 1 : 1,
   }
   await db.set(sleutel.reeks(user), JSON.stringify(nieuw))
 
@@ -205,21 +253,20 @@ export async function score(
     dagenOpRij: nieuw.dagen,
     besteOoit: Math.max(besteOud, p.hoeden),
     nieuwBeste,
-    gemeenschap: await gemeenschap(db, sub, dagNu),
-    top: await top(db, sub, dagNu),
+    gemeenschap: await gemeenschap(db, sub, dag),
+    top: await top(db, sub, dag),
   }
 }
 
-/** Tekst van de uitslagkaart van deze speler voor vandaag. */
+/** Tekst van de uitslagkaart van deze speler voor vandaag, opgemaakt als Reddit-reactie. */
 export async function deelTekst(
   db: Opslag,
   wie: Wie,
   dag: number,
 ): Promise<string> {
   if (!wie.userId) throw new FoutVerzoek('log in to share', 401)
-  const ruw = await db.get(sleutel.uitslag(wie.subreddit, dag, wie.userId))
-  if (!ruw) throw new FoutVerzoek('play today first', 409)
-  const u = JSON.parse(ruw) as UitslagOpslag
+  const u = await leesUitslag(db, wie.subreddit, dag, wie.userId)
+  if (!u || u.afgebroken) throw new FoutVerzoek('play today first', 409)
   const r = reeksNu(await leesReeks(db, wie.userId), dag)
-  return kaartTekst(dag, u.hoeden, u.besteReeks, u.uitslagen, r)
+  return kaartTekst(dag, u.hoeden, u.besteReeks, u.uitslagen, r, 'reactie')
 }

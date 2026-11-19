@@ -11,6 +11,11 @@ export class GeheugenOpslag implements Opslag {
   async set(key: string, value: string): Promise<void> {
     this.#waarden.set(key, value)
   }
+  async setNX(key: string, value: string): Promise<boolean> {
+    if (this.#waarden.has(key)) return false
+    this.#waarden.set(key, value)
+    return true
+  }
   async incrBy(key: string, value: number): Promise<number> {
     const n = Number(this.#waarden.get(key) ?? 0) + value
     this.#waarden.set(key, String(n))

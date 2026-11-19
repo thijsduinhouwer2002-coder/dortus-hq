@@ -3,6 +3,7 @@ import {
   begin,
   druk,
   inVangzone,
+  meng,
   nieuwPotje,
   type Potje,
   stap,
@@ -19,8 +20,8 @@ export function speelProef(
 ): Potje {
   let z = zaad
   const toeval = (): number => {
-    z = (z * 1103515245 + 12345) & 0x7fffffff
-    return z / 0x7fffffff
+    z = meng(z)
+    return z / 0x100000000
   }
   const p = nieuwPotje(dag)
   begin(p)

@@ -1,8 +1,9 @@
-// Spelregels van Gloop's Hat Tower, overgezet uit Spel.mc (Garmin, tak claude/garmin-gloop-11).
-// Zelfde getallen en hetzelfde gevoel; nieuw is alleen wat het een dagspel maakt:
+// Spelregels van Gloop's Hat Tower, overgezet uit Spel.mc van het horlogespel.
+// Zelfde getallen en hetzelfde gevoel; nieuw is wat het een eerlijk dagspel maakt:
 // - vaste stap van 4 ms, zodat client en server precies hetzelfde potje uitrekenen;
 // - per held een eigen toevalsgetal uit de dagcode, zodat held 7 voor iedereen dezelfde is;
-// - gouden helden (drie hoeden in één slok) en een dagregel.
+// - mikken loont: voltreffers en reeksen geven extra hoeden, vroeg happen geeft geen tempo;
+// - gouden helden (2 hoeden extra) en een dagregel.
 // Dit bestand draait in de browser en op de server (geen DOM, geen Node).
 
 export const Toestand = {
@@ -21,8 +22,25 @@ export const RAAK_BOVEN = 780
 export const RAAK_ONDER = 850
 export const SLOK_MS = 300
 export const WEG_MS = 600
-export const DICHT_MS = 250
-export const GOUD_WAARDE = 3
+/** Te vroeg gehapt: zo lang blijft de bek dicht (horloge 250; hier 350, zodat blind tikken niet loont). */
+export const DICHT_MS = 350
+/** Een gouden held geeft zoveel hoeden extra. */
+export const GOUD_EXTRA = 2
+/** Een voltreffer geeft 1 + de reeks hoeden, tot deze grens (2, 3, 4, 4, ...). */
+export const REEKS_MAX = 3
+
+/**
+ * Hoeveel hoeden een vangst oplevert. Mikken loont: een voltreffer telt dubbel en een reeks
+ * voltreffers telt op. Een gewone vangst is 1 hoed, zoals op het horloge.
+ */
+export function waardeVangst(
+  raak: boolean,
+  reeks: number,
+  goud: boolean,
+): number {
+  const basis = raak ? 1 + Math.min(reeks, REEKS_MAX) : 1
+  return basis + (goud ? GOUD_EXTRA : 0)
+}
 
 /** Uitslag per held, voor de uitslagkaart. */
 export const Uitslag = {
@@ -183,6 +201,9 @@ export type Potje = {
   /** Nummer van de held die nu valt (vanaf 1). */
   held: number
   stap: number
+  inhaal: number
+  /** Hoeden van de laatste vangst (voor het scherm en de vliegende hoeden). */
+  winst: number
   uitslagen: Uitslag[]
   /** Stappen waarop gedrukt is, voor de controle op de server. */
   drukken: number[]
@@ -212,6 +233,8 @@ export function nieuwPotje(dag: number): Potje {
     hapDicht: 0,
     held: 0,
     stap: 0,
+    inhaal: 0,
+    winst: 0,
     uitslagen: [],
     drukken: [],
     laatste: {soort: null, teller: 0},
@@ -250,10 +273,14 @@ export function druk(p: Potje): void {
   if (p.toestand !== Toestand.Valt || p.hapDicht > 0) return
   if (inVangzone(p)) {
     const goud = isGoud(p)
-    p.hoeden += goud ? GOUD_WAARDE : 1
     p.raak = p.y >= RAAK_BOVEN && p.y <= RAAK_ONDER
     p.reeks = p.raak ? p.reeks + 1 : 0
+    p.winst = waardeVangst(p.raak, p.reeks, goud)
+    p.hoeden += p.winst
     p.besteReeks = Math.max(p.besteReeks, p.reeks)
+    // Vroeg vangen geeft geen tempo: de pauze erna duurt zolang de held nog tot de onderkant van de
+    // bek had moeten vallen. Zo levert vroeg happen (blind tikken) geen extra helden op.
+    p.inhaal = Math.round((p.regel.vangOnder - p.y) / p.snelheid)
     p.snelheid = Math.min(p.snelheid * p.regel.sneller, p.regel.snelMax)
     p.uitslagen.push(goud ? Uitslag.Goud : p.raak ? Uitslag.Raak : Uitslag.Hap)
     p.toestand = Toestand.Slok
@@ -262,6 +289,8 @@ export function druk(p: Potje): void {
   } else {
     // Te vroeg: Gloop hapt in de lucht en heeft even zijn bek dicht. Kost niets.
     p.hapDicht = DICHT_MS
+    // Kost geen hoed, wel de reeks: wie blind tikt, bouwt nooit een reeks voltreffers op.
+    p.reeks = 0
     meld(p, 'lucht')
   }
 }
@@ -317,7 +346,8 @@ export function stap(p: Potje): void {
 function wacht(p: Potje): void {
   p.toestand = Toestand.Wacht
   p.fase = 0
-  p.wachtDuur = wachtNa(p)
+  p.wachtDuur = wachtNa(p) + p.inhaal
+  p.inhaal = 0
 }
 
 /** Speelt een heel potje na uit de stappen waarop gedrukt is. Gebruikt door de server. */

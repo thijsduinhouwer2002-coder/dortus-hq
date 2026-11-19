@@ -7,6 +7,9 @@ export const redisOpslag: Opslag = {
   set: async (key, value) => {
     await redis.set(key, value)
   },
+  // Redis SET NX geeft "OK" als de sleutel nieuw was (GOK op de vorm; testen in playtest).
+  setNX: async (key, value) =>
+    (await redis.set(key, value, {nx: true})) === 'OK',
   incrBy: (key, value) => redis.incrBy(key, value),
   zAdd: async (key, member, score) => {
     await redis.zAdd(key, {member, score})

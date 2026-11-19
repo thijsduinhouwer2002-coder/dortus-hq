@@ -21,7 +21,7 @@ import {
   Toestand,
 } from '../shared/spel.ts'
 import * as geluid from './geluid.ts'
-import {deel, haalInit, stuurScore} from './net.ts'
+import {deel, haalInit, stuurScore, stuurStart} from './net.ts'
 import {type Beeld, laadPlaatjes, nieuwBeeld, Tekenaar} from './teken.ts'
 
 const $ = <T extends HTMLElement>(id: string): T =>
@@ -124,6 +124,12 @@ function start(nieuweModus: Modus): void {
   volgorde = hoedVolgorde(modus === 'dag' ? dag : vandaagDag())
   beeld = nieuwBeeld()
   begin(p)
+  if (modus === 'dag' && !netFout) {
+    // De dagbeurt telt vanaf nu. Was hij al gestart (herladen, tweede tabblad), dan wordt dit oefenen.
+    void stuurStart({dag}).then(a => {
+      if (a.ok && !a.data.telt) modus = 'oefen'
+    })
+  }
   laatsteTeller = p.laatste.teller
   simTijd = performance.now()
   startLaag.hidden = true

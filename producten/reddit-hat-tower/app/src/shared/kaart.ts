@@ -15,6 +15,7 @@ export function kaartTekst(
   besteReeks: number,
   uitslagen: readonly string[],
   dagenOpRij: number,
+  opmaak: 'plat' | 'reactie' = 'plat',
 ): string {
   const regel = dagRegel(dag)
   const vakjes = uitslagen.map(u => VAKJE[u] ?? '⬛')
@@ -23,9 +24,10 @@ export function kaartTekst(
     rijen.push(vakjes.slice(i, i + 10).join(''))
   const regels = [
     `Gloop's Hat Tower #${dag} (${regel.naam})`,
-    `🎩 ${hoeden} hats, best streak ${besteReeks}`,
+    `🎩 ${hoeden} hats, best perfect streak ${besteReeks}`,
     ...rijen,
   ]
   if (dagenOpRij > 1) regels.push(`🔥 ${dagenOpRij} days in a row`)
-  return regels.join('\n')
+  // In een Reddit-reactie wordt één regelovergang geen nieuwe regel; daar een witregel ertussen.
+  return regels.join(opmaak === 'reactie' ? '\n\n' : '\n')
 }

@@ -14,6 +14,7 @@ import {
   speelNa,
   stap,
   Toestand,
+  waardeVangst,
 } from './spel.ts'
 
 test('dag 1 is 19 november 2026 (UTC)', () => {
@@ -53,6 +54,47 @@ test('ronde eindigt na precies 30 seconden', () => {
   assert.equal(p.hoeden, 0)
 })
 
+test('mikken loont: op elke dagregel haalt mikken (spreiding 45) 25% meer dan het beste vaste tikritme', () => {
+  // Dag 1 tot 5 zijn de vijf regels een keer (zie de toets hierboven).
+  for (let dag = 1; dag <= 5; dag++) {
+    let blind = 0
+    for (let ms = 200; ms <= 400; ms += 4) {
+      for (const fase of [0, 13, 29, 41, 57]) {
+        const drukken: number[] = []
+        for (let t = fase; t < RONDE_MS / STAP_MS; t += ms / STAP_MS)
+          drukken.push(Math.round(t))
+        blind = Math.max(blind, speelNa(dag, drukken).hoeden)
+      }
+    }
+    let som = 0
+    for (let z = 1; z <= 10; z++)
+      som += speelProef(dag, 815, 45, 0.1, z * 31).hoeden
+    const mik = som / 10
+    assert.ok(
+      mik >= blind * 1.25,
+      `${dagRegel(dag).naam}: mikken ${mik}, blind ${blind}`,
+    )
+  }
+})
+
+test('waarde van een vangst: gewoon 1, voltreffer 1 + reeks (max 3 erbij), goud 2 extra', () => {
+  assert.equal(waardeVangst(false, 0, false), 1)
+  assert.equal(waardeVangst(true, 1, false), 2)
+  assert.equal(waardeVangst(true, 2, false), 3)
+  assert.equal(waardeVangst(true, 7, false), 4)
+  assert.equal(waardeVangst(false, 0, true), 3)
+})
+
+test('te vroeg happen breekt de reeks, maar kost geen hoed', () => {
+  const p = nieuwPotje(1)
+  begin(p)
+  p.reeks = 3
+  const voor = p.hoeden
+  druk(p)
+  assert.equal(p.reeks, 0)
+  assert.equal(p.hoeden, voor)
+})
+
 test('missen kost nooit een hoed, te vroeg drukken ook niet', () => {
   const p = nieuwPotje(1)
   begin(p)
@@ -61,8 +103,8 @@ test('missen kost nooit een hoed, te vroeg drukken ook niet', () => {
   assert.ok(p.hapDicht > 0)
   const goed = speelProef(1, 815, 0, 0.5, 4)
   assert.ok(goed.uitslagen.includes('miss'))
-  const raak = goed.uitslagen.filter(u => u !== 'miss').length
-  assert.ok(goed.hoeden >= raak)
+  const gevangen = goed.uitslagen.filter(u => u !== 'miss').length
+  assert.ok(goed.hoeden >= gevangen)
 })
 
 test('eerste hoed binnen 2,5 seconde (eis van het horloge)', () => {

@@ -4,8 +4,11 @@ import {
   type DeelRsp,
   Endpoint,
   type InitRsp,
+  type LidRsp,
   type ScoreReq,
   type ScoreRsp,
+  type StartReq,
+  type StartRsp,
 } from '../shared/api.ts'
 
 /** Alleen lokaal: wie speelt er (?u=naam), zodat je met meer spelers kunt proeven. Reddit negeert dit. */
@@ -56,5 +59,9 @@ export const haalInit = (): Promise<Antwoord<InitRsp>> =>
   vraag<InitRsp>(Endpoint.Init)
 export const stuurScore = (req: ScoreReq): Promise<Antwoord<ScoreRsp>> =>
   vraag<ScoreRsp>(Endpoint.Score, req)
+export const stuurStart = (req: StartReq): Promise<Antwoord<StartRsp>> =>
+  vraag<StartRsp>(Endpoint.Start, req)
+export const wordLid = (): Promise<Antwoord<LidRsp>> =>
+  vraag<LidRsp>(Endpoint.Lid, {})
 export const deel = (req: DeelReq): Promise<Antwoord<DeelRsp>> =>
   vraag<DeelRsp>(Endpoint.Deel, req)

@@ -15,14 +15,19 @@ import {
   EndpointMethod,
   type ErrorRsp,
   type InitRsp,
+  type LidRsp,
   type ScoreReq,
   type ScoreRsp,
+  type StartReq,
+  type StartRsp,
 } from '../shared/api.ts'
 import {dagNummer, dagRegel} from '../shared/spel.ts'
-import {deelTekst, FoutVerzoek, init, score, type Wie} from './logica.ts'
+import {deelTekst, FoutVerzoek, init, score, start, type Wie} from './logica.ts'
 import {redisOpslag} from './redis-opslag.ts'
 
 type AnyRsp =
+  | StartRsp
+  | LidRsp
   | InitRsp
   | ScoreRsp
   | DeelRsp
@@ -74,6 +79,19 @@ async function route(
     switch (endpoint) {
       case Endpoint.Init:
         rsp = await init(redisOpslag, wie(), dag)
+        break
+      case Endpoint.Start:
+        rsp = await start(
+          redisOpslag,
+          wie(),
+          dag,
+          await readJson<StartReq>(reqMsg),
+        )
+        break
+      case Endpoint.Lid:
+        // Alleen na een tik op "Join r/...": Reddit vraagt dat de speler weet wat er gebeurt.
+        await reddit.subscribeToCurrentSubreddit()
+        rsp = {ok: true}
         break
       case Endpoint.Score:
         rsp = await score(
