@@ -188,3 +188,74 @@ Voor het doel van 10.000 euro in 3 maanden verandert er niets: geen van deze aan
 3. **Aanbieder per soort kiezen is de grootste knop:** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen ongeveer 0,5% spread bij Trade Republic, 0,99% Bitpanda, tot bijna 2% bij Coinbase (DERDEN, links in run 1 en punt 8). Kraken Pro is sinds juli 2026 voor kleine klanten 0,40/0,80% (DERDEN via B).
 4. **Een eigen bot voegt voor een maandinleg bijna niets toe:** het orderboek van Bitvavo heeft een spread van 0,002% (GEZIEN), dus het enige voordeel is maker tegen taker (0,1%), tegenover een API-sleutel als risico. Herbalanceren eens per jaar kan met de hand.
 5. **Belasting:** in 2026 telt alleen de waarde op 1 januari (forfait 6% op beleggingen, DERDEN), dus herbalanceren kost nu geen extra belasting. Vanaf 2028 komt waarschijnlijk een vermogenswinstbelasting, voor crypto pas vanaf 2030; nog niet vast (DERDEN, Eerste Kamer). De maandinleg haalt het doel van 10.000 euro in 3 maanden niet (GOK).
+
+## Run 3 (19 nov 2026, ±03:00 UTC)
+Deze run: de enige botregel die bij een maandinleg echt iets anders doet (een trendfilter) doorgemeten, value averaging, wekelijks tegen maandelijks, en grid op een zijwaartse en een dalende periode (open punt uit run 2). Data: dagkoersen en uurkoersen BTC-USDT van de openbare Binance-archieven (`data.binance.vision/data/spot/monthly/klines/BTCUSDT/`), 17 aug 2017 tot 31 okt 2026, 3363 dagen, zonder account. In dollars in plaats van euro, omdat BTC-EUR pas in 2020 begint; de verhoudingen zijn daardoor iets anders dan in euro (GOK). Scripts stonden in /tmp, niet in de repo.
+
+### 12. Eigen meting: trendfilter en value averaging met maandinleg (GEZIEN)
+**Opzet:** elke 1e van de maand 300 (voorbeeldbedrag), kosten 0,25% per kant. Vensters van 36 maanden (67 stuks) en 60 maanden (43 stuks), startmaanden apr 2018 tot de laatste die past.
+- **dca:** elke maand alles kopen.
+- **week:** hetzelfde jaarbedrag elke maandag in 52 stukken.
+- **trend maand:** op de 1e kopen als de koers boven het gemiddelde van 200 dagen staat; staat hij eronder, alles verkopen en de inleg als kas houden.
+- **trend dag:** zelfde regel, maar elke dag gecheckt; het signaal komt van de slotkoers van gisteren en de order gaat tegen de slotkoers van vandaag (geen kijken in de toekomst).
+- **va (value averaging):** doelwaarde groeit elke maand met 300; koop het tekort bij, maximaal 3x de inleg, nooit verkopen.
+- **va+verkoop:** zelfde, maar boven het doel verkopen.
+
+| Aanpak | 36 mnd mediaan | slechtste | beste | wint van dca | diepste tussenstand | 60 mnd mediaan | 60 mnd slechtste | wint (60) |
+|---|---|---|---|---|---|---|---|---|
+| dca | x1,96 | x0,89 | x7,62 | | x0,43 | x2,95 | x1,39 | |
+| week | x1,98 | x0,89 | x7,55 | 24 van 67 | x0,44 | x2,88 | x1,40 | 13 van 43 |
+| trend maand | x1,69 | x1,04 | x5,73 | 18 van 67 | x0,59 | x2,42 | x1,34 | 7 van 43 |
+| trend dag | x1,58 | x1,03 | x6,15 | 27 van 67 | x0,63 | x2,44 | x1,40 | 11 van 43 |
+| va | x1,91 | x1,02 | x6,16 | 27 van 67 | x0,43 | x2,57 | x1,50 | 5 van 43 |
+| va+verkoop | x1,77 | x1,04 | x3,36 | 26 van 67 | x0,43 | x2,26 | x1,46 | 3 van 43 |
+
+Hele periode apr 2018 tot okt 2026: dca x4,68, week x4,66, trend maand x3,16, trend dag x3,42, va x3,44, va+verkoop x2,63 (GEZIEN, eigen meting). De mediaan van de diepste tussenstand per venster: dca x0,58, trend x0,85 tot x0,86.
+
+**Wat ik eruit haal:**
+- **Een trendfilter is een verzekering, geen motor.** Hij haalde de diepste tussenstand op van x0,43 naar x0,59 tot x0,63, en geen enkel venster van 36 maanden eindigde nog onder de inleg (slechtste x1,03 tegen x0,89). Maar de gewone uitkomst werd lager: mediaan x1,58 tot x1,69 tegen x1,96, en over de hele periode ongeveer een derde minder (GEZIEN). Dat klopt met wat A vond: trendvolgen beperkt dalingen, meer niet (A, stand 02:55).
+- Dit is ook de **enige botregel in hoek C die iets doet wat een spaarplan van een beurs niet kan** (verkopen bij een daling, later terugkopen). Wie liever minder diep zakt dan meer verdient, heeft hier een reden voor een klein script. Wie zo veel mogelijk wil eindigen: niet doen (GOK op basis van deze ene periode).
+- Let op: de dagversie handelde 114 keer in 8,5 jaar (GEZIEN). Onder de belasting vanaf 2028 tot 2030 (punt 10) telt elke verkoop met winst mee; dat is administratie (GOK).
+- **Value averaging** won in 27 van 67 korte vensters maar in maar 5 van 43 lange, en over de hele periode x3,44 tegen x4,68. Het geld dat stilstaat als het doel al gehaald is, kost in een stijgende markt rendement, net als de dip-regels in run 1 (GEZIEN).
+- **Wekelijks of maandelijks maakt bijna niets uit** bij procentuele kosten: mediaan x1,98 tegen x1,96, hele periode x4,66 tegen x4,68 (GEZIEN). Een openbaar experiment op het Finanztip-forum (maandelijks, wekelijks en dagelijks naast elkaar, heel 2026) komt op hetzelfde uit: "de verschillen bleven klein", wekelijks lag in juli net voor (DERDEN, [Finanztip forum, Project 365](https://www.finanztip.de/community/forum/thema/42483-project-365-mein-itcoin-experiment-f%C3%BCr-2026/)).
+- **Met vaste kosten per aankoop maakt het wel uit** (eigen som, GOK op het DERDEN-tarief uit run 1): bij DEGIRO 1 euro per order is 300 per maand maandelijks 12 euro per jaar (0,33% van de inleg), wekelijks (52 orders van ongeveer 69) 52 euro per jaar (1,44%). Bij een gratis spaarplan (Trade Republic ETF) of een procentueel tarief (Bitvavo) is de frequentie dus vrij te kiezen, bij een vast tarief kies je maandelijks.
+
+### 13. Eigen meting: grid op een zijwaartse en een dalende periode (GEZIEN)
+Open punt uit run 2: wint grid wel als de markt niet stijgt? Zelfde opzet als punt 7 (300 per maand in kas, kopen een trede lager, dat stukje verkopen een trede hoger, 0,15% per kant, elke limietorder telt als gevuld, dus gunstig), op uurkoersen BTC-USDT.
+
+| Periode (koers begin en eind) | Gewone DCA | Beste grid | Slechtste grid | Orders grid |
+|---|---|---|---|---|
+| jun 2019 tot jun 2020, zijwaarts (8.586 naar 9.139) | x1,06 | x1,15 (2%, 25% van kas) | x1,06 (1%, 25%) | 142 tot 1.369 |
+| 2018, daling (13.529 naar 3.703) | x0,50 | x0,79 (5%, 10%) | x0,54 (1%, 25%) | 216 tot 1.731 |
+| jan 2018 tot okt 2020, hele cyclus (13.529 naar 13.791) | **x1,94** | x1,44 (2%, 25%) | x1,28 (5%, 10%) | 411 tot 3.665 |
+
+(GEZIEN, eigen meting.)
+
+**Wat ik eruit haal:**
+- **Grid wint alleen zolang de markt zijwaarts gaat of daalt**, en in de daling vooral omdat er veel geld als kas bleef liggen, niet omdat de grid slim handelde (GOK, volgt uit dat de voorzichtigste grid het beste deed).
+- **Over een hele cyclus verloor grid toch ruim:** x1,44 tegen x1,94, ook al eindigde de koers bijna waar hij begon (GEZIEN). Wie tijdens de daling met elke maandinleg gewoon kocht, had veel goedkope munten toen de koers terugkwam; de grid had die al met 2% winst verkocht.
+- Omdat niemand van tevoren weet welke periode het wordt, blijft de conclusie van run 2 staan: grid past niet bij een maandinleg die jaren moet groeien.
+
+### 14. Wat forums zeggen, en wat ik niet kon lezen
+- **Reddit** (r/BitcoinBeginners, r/freqtrade) geeft zonder account een blokkadepagina via curl; niet gelezen. **Tweakers** leverde in de zoekmachine geen draad over spaarplannen op. Niets verzonnen over wat daar staat.
+- **Mustachianpost-forum, draad "Bitcoin Saving Plan"** (71 berichten, 2020 tot 2022, DERDEN, [link](https://forum.mustachianpost.com/t/bitcoin-saving-plan-sparplan/4953)): de rode draad is dat app-spaarplannen (daar Revolut, 1,5 tot 2,5% per aankoop) te duur waren, en dat mensen daarom een klein script tegen de Kraken-API draaiden ("stacking-sats-kraken"). Dat was toen de reden voor een eigen bot: de goedkope route bestond nog niet. Nu bieden Bitvavo en OKX periodiek kopen voor 0,2 tot 0,25% (DERDEN, run 1), dus die reden is grotendeels weg (GOK).
+- **Bitvavo, prijs bij "simpel kopen":** CryptoTicker geeft voor Bitvavo via het orderboek 0,25% kosten en 0,00% spread, peildatum 4 nov 2026 (DERDEN, [CryptoTicker Bitvavo kosten](https://cryptoticker.io/nl/bitvavo/kosten/)). Voor de knop "simpel kopen" in de app staat er geen apart getal; de supportpagina van Bitvavo blokkeert curl. Blijft open.
+- GitHub-gegevens van stacking-sats-kraken kon ik deze run niet opvragen: de proxy van deze sessie laat api.github.com alleen toe voor de eigen repo's van Dortus. Dat raakt alleen het naslaan van sterren en datums, verder niets.
+
+### 15. Bijgestelde rangorde binnen hoek C (kans maal opbrengst, GOK)
+1. **Spaarplan in een brede ETF met eventueel een klein vast deel BTC**, bij de goedkoopste aanbieder per soort, frequentie vrij bij gratis of procentuele kosten, maandelijks bij een vast tarief (punten 6, 11, 12). Geen bot.
+2. **Zelfde, plus een trendfilter op het BTC-deel** (verkopen onder het gemiddelde van 200 dagen) als je diepe dalingen wilt dempen en lager rendement accepteert (punt 12). Dit is de enige plek in hoek C waar een eigen script iets kan wat de beurs niet kan. Kan ook met de hand, eens per maand kijken (GOK).
+3. **Value averaging of dip-regels.** Korte vensters soms beter, lange vensters bijna altijd slechter (run 1 punt 2, punt 12).
+4. **Grid.** Wint alleen in zijwaartse of dalende jaren, verliest over een hele cyclus (punten 7 en 13).
+
+### Nog te doen (volgende runs)
+- Trendfilter op het BTC-deel binnen een mix met de wereld-ETF (bijv. 80/20) meten, in euro, met IWDA uit run 2.
+- Kijken of er een open source project is dat precies "spaarplan plus trendfilter" doet, of dat het een script van een paar regels is (lezen, niet uitvoeren).
+- Forumervaringen via een bron die curl wel toelaat (bijv. Freqtrade-forum of Discourse-fora).
+
+## Stand na run 03:10 (19 nov 2026)
+1. **Gewone DCA wint van bijna alle slimme regels als het om de eindwaarde gaat.** BTC 2018 tot 2026: dip-regels, value averaging en grid eindigden lager (hele periode x2,63 tot x3,44 tegen x4,68 voor gewone DCA), wekelijks of maandelijks maakt niets uit (x4,66 tegen x4,68) (GEZIEN, eigen metingen, run 1 tot 3).
+2. **Een trendfilter (verkopen onder het gemiddelde van 200 dagen) is de enige regel die iets toevoegt, en dan als verzekering:** diepste tussenstand x0,63 in plaats van x0,43, geen venster van 36 maanden onder de inleg, maar de mediaan zakt van x1,96 naar x1,58 tot x1,69 (GEZIEN). Dit is ook het enige wat een eigen script kan en een spaarplan niet.
+3. **Een klein vast deel BTC naast een wereld-ETF gaf in 2014 tot 2026 veel meer uitkomst met bijna dezelfde diepste dip** (80/20: mediaan 36 maanden x1,42 tegen x1,18; diepste x0,83 tegen x0,84) (GEZIEN, run 2). Uitzonderlijke periode voor BTC, niet door te trekken (GOK).
+4. **Kosten: aanbieder kiezen is de grootste knop, frequentie alleen bij vaste kosten.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, run 1 en 2). Bij 1 euro per order kost wekelijks kopen 1,44% van de inleg tegen 0,33% maandelijks (GOK, eigen som).
+5. **Grid wint alleen in zijwaartse of dalende jaren** (x1,15 tegen x1,06 in 2019 tot 2020) **en verliest over een hele cyclus** (x1,44 tegen x1,94 in 2018 tot 2020) (GEZIEN). De maandinleg haalt het doel van 10.000 euro in 3 maanden met geen enkele aanpak (GOK).
