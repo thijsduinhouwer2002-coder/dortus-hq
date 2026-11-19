@@ -168,6 +168,59 @@ Te koop nu: **Click Joints Pro $12** (Gumroad live, Superhive in keuring, Cyber 
 - **Oor zonder account vanaf dag 1:** het script hierboven, ook voordat Thijs iets regelt. Alleen reageren onder onze eigen posts vraagt de accounts.
 - **Volgorde van bouwen:** eerst Oor (gratis, nu al mogelijk), dan Schrijver plus Keurder voor TikTok via Metricool (werkt nu al), dan YouTube OAuth, dan Bluesky en Mastodon.
 
+## Nieuw in run 3 (19 nov ±03:00): wat er al misging, wat Metricool nog meer kan, en een proefronde van de Schrijver
+
+### 1. Er ging al iets mis zonder dat iemand het zag
+- In Metricool staat de YouTube-versie van filmpje 1 (17 nov 16:00) op **status ERROR: "The request metadata specifies an invalid video description."** De TikTok-versie van dezelfde post ging wel live (GEZIEN 19 nov ±02:55 met `getScheduledPosts`, alleen gelezen).
+- Oorzaak (GOK, maar sterk): de tekst bevatte "Edit > Preferences > Get Extensions". YouTube staat in titel en beschrijving alle tekens toe behalve `<` en `>` (DERDEN, [ContentStudio](https://docs.contentstudio.io/article/996-youtube-errors-while-publishing)). De nieuwe YouTube-post voor vandaag (aangemaakt 18 nov 20:34) schrijft "open Edit, Preferences, Get Extensions" en staat op PENDING (GEZIEN). Iemand heeft het dus al gerepareerd, maar filmpje 1 kwam nooit op YouTube.
+- **Les voor het ontwerp:** (a) de Keurder krijgt een vaste techniek-check per kanaal: YouTube geen `<` of `>`, Bluesky max 300 tekens (eis in de Metricool-toolbeschrijving, GEZIEN), TikTok titel kort; (b) de Plaatser-sessie leest elk uur de status terug en zet elke ERROR in het dagrapport en in `berichten/hoofdchat.md`. Dit is precies patroon 9 van A-voorbeelden ("meet wat naar buiten ging").
+
+### 2. Quotum november: ±14 over
+In de planner staan voor november 6 posts: 3 TikTok (2 geplaatst, 1 vandaag), 3 YouTube (1 geplaatst, 1 ERROR, 1 vandaag) (GEZIEN). Of een mislukte post meetelt voor de 20 per maand weet ik niet (GOK: ja, hij staat in de planner). Er zijn dus nog ±14 plaatsen voor 19 tot 30 nov, ruim 1 per dag. Omdat YouTube via Metricool het quotum opeet, blijft het advies: YouTube zo snel mogelijk via de eigen Data API (eigen pot), Metricool alleen TikTok.
+
+### 3. Metricool kan TikTok-diashows plaatsen
+De toolbeschrijving van `createScheduledPost` zegt bij TikTok "is a must to have at least one image or video", heeft een veld `photoCoverIndex` en zegt dat `isAigc` "is silently ignored ... when the post has no video" (GEZIEN). Een TikTok-post met alleen foto's (een diashow) kan dus via onze koppeling. Niet geprobeerd, want dat maakt een post aan.
+- **Waarom dit telt voor geld:** het enige herhaalbare geldpatroon in A-voorbeelden is Larry met TikTok-diashows. Een diashow van 4 tot 6 schermafbeeldingen uit de echte add-on kan de Schrijver zelf maken (Blender headless renderen of schermafbeeldingen uit de bestaande filmpjes knippen met ffmpeg), zonder montage en zonder stem. Dat maakt 1 post per dag haalbaar zonder dat een bouwer filmpjes moet maken.
+- `autoAddMusic` bestaat ook (GEZIEN in de beschrijving): TikTok zet er zelf muziek onder, wat bij diashows gebruikelijk is (GOK).
+
+### 4. Cijfers lezen via Metricool werkt, en het eerste cijfer is slecht
+Met `getAnalyticsDataByMetrics` (TikTok, connector posts) kan een sessie per video weergaven, reacties, gemiddelde kijktijd, percentage volledig bekeken en de bron (For You, zoeken, hashtag) lezen (GEZIEN, 22 velden). Uitslag nu: alleen de Ebb-video van 17 nov 13:00 staat erin: **33 weergaven, 0 reacties, gemiddeld 2 seconden gekeken, volledig bekeken bij 0,03 %** (GEZIEN). De Click Joints-video van 17 nov 16:00 staat er nog niet in (GEZIEN, ontbreekt; GOK: vertraging bij Metricool).
+- **Gevolg:** kijkers haken in de eerste 2 seconden af. De Schrijver moet per post deze drie cijfers terugzien (kijktijd, volledig bekeken, For You) en de opening bijsturen, zoals Larry deed op zijn hooks (A-voorbeelden 13). Dit is het scorebord dat de tak nodig heeft, en het kan nu al zonder sleutel, via de koppeling in een geplande sessie.
+
+### 5. Jetstream speelt ±36 uur terug
+Proef 19 nov ±02:55 UTC, script hieronder (alles GEZIEN): met een cursor van 2 uur en 12 uur terug begint de stroom precies daar; met 48 of 96 uur terug begint hij op **36,25 uur terug** (daar houdt de opslag op). Eén poging op 24 uur gaf een fout en daarna wel resultaat bij de volgende vraag, dus opnieuw proberen hoort in het script. Terugspelen gaat met ±8.700 posts per seconde (71.317 posts in 8 seconden). **Gevolg:** het Oor hoeft niet elke 15 minuten; elk uur is genoeg, en mist het een dag door storing, dan haalt het alles in tot 36 uur terug. Elk uur past ook in een geplande Claude-sessie, dus het Oor kan zonder Actions starten.
+```js
+// js.mjs: node js.mjs <uren terug>; leest alleen
+const h=Number(process.argv[2]), cur=(Date.now()-h*3600e3)*1000;
+const ws=new WebSocket(`wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post&cursor=${cur}`);
+let eerste=null,n=0; ws.onmessage=e=>{n++; eerste??=JSON.parse(e.data).time_us;};
+setTimeout(()=>{console.log(h, eerste&&((Date.now()*1000-eerste)/3600e6).toFixed(2), n); ws.close();},8000);
+```
+
+### 6. AI-melding: geen botsing zolang beeld en geluid echt zijn
+TikTok eist een label bij AI-inhoud met "realistic images, audio, or video"; YouTube hoeft geen ja bij hulp met script of thumbnail; door AI geschreven onderschriften en een AI-geholpen montage van eigen beelden hebben geen label nodig (DERDEN, [Kapwing, "last verified November 2026"](https://www.kapwing.com/resources/when-should-you-label-videos-as-ai/)). Het besluit "nergens een AI-melding" houdt dus stand als de Schrijver alleen echte schermopnames en schermafbeeldingen gebruikt. **Harde regel voor de tak: geen AI-beeld, geen AI-stem, geen AI-persoon.** Een AI-stem is op TikTok grijs gebied (zelfde bron), dus niet doen.
+
+### 7. Proefronde: wat de Schrijver in één ronde zou maken
+Op basis van wat er nu ligt (radar, BlenderArtists-draad, de cijfers hierboven). Alleen voorbeeld, niets ingepland.
+
+```json
+{"id":"2026-11-19-tiktok-vijf-gewrichten","kanaal":"tiktok","soort":"diashow",
+ "tekst":"5 joints for printable action figures, and which one breaks first. Free Blender add-on: Click Joints (Get Extensions). #blender #3dprinting #articulated",
+ "beelden":["shots/ball.png","shots/hinge.png","shots/peg.png","shots/swivel.png","shots/clearance.png"],
+ "tijd":"2026-11-20T18:00:00+01:00","product":"click-joints","doel":"Pro op Gumroad via profiel-link",
+ "bronnen":{"0.2 mm":"README Click Joints"},"keuring":null,"geplaatst":null}
+```
+- **Post 1 (TikTok-diashow, groen na week 1):** zoals hierboven. Opening is een lijstje met een vraag ("welke breekt eerst"), omdat de Ebb-video na 2 seconden verloor.
+- **Post 2 (YouTube Short, wacht op OAuth):** dezelfde beelden als filmpje, titel zonder `<` of `>`.
+- **Antwoord (rood, naar de hoofdchat):** de BlenderArtists-draad "Help Creating a Custom Articulated 3D-Printable Figure" krijgt een concept-antwoord dat eerst de vraag beantwoordt en pas aan het eind de gratis add-on noemt. Een forum is mensenwerk (run 1), dus dit gaat als concept naar `berichten/hoofdchat.md`.
+- **Wat de ronde níet doet:** geen Bluesky- of Mastodon-post zolang we daar 0 volgers en geen account hebben; geen Bison & Flex-post op TikTok (publiek zit daar niet, GOK).
+
+### Bijgesteld ontwerp na run 3
+- **Agent 1 Schrijver** krijgt een vaste eerste stap: cijfers van de laatste 7 dagen lezen via Metricool (kijktijd, volledig bekeken, For You) en daaruit 1 zin "wat ik anders doe" in het dagrapport.
+- **Plaatser-sessie** (elk uur) doet drie dingen: groen gekeurde TikTok-posts inplannen, status van alles in de planner teruglezen (ERROR melden), en de teller "nog over deze maand" bijhouden.
+- **Oor** kan als geplande sessie elk uur draaien (Jetstream 36 uur buffer), dus Actions is pas nodig voor kanalen met een geheime sleutel.
+- **Dagrapport** (1 bestand, `marketing/dagrapport.md`): gemaakt, gekeurd, ingepland, echt geplaatst, fouten, weergaven, kliks, verkopen.
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -178,6 +231,7 @@ Te koop nu: **Click Joints Pro $12** (Gumroad live, Superhive in keuring, Cyber 
 - [HN guidelines](https://news.ycombinator.com/newsguidelines.html)
 - [YouTube spambeleid](https://support.google.com/youtube/answer/2801973)
 - [Metricool Free tegenover betaald](https://help.metricool.com/en/article/main-differences-between-free-and-premium-plans-1udj06m/), [Postiz limieten](https://docs.postiz.com/cloud/limits.md), [Postiz API](https://docs.postiz.com/public-api/introduction.md), [DEV AI-regels](https://dev.to/guidelines-for-ai-assisted-articles-on-dev), [DevForge 3 agents](https://dev.to/devforgedev/how-i-run-a-3-agent-content-marketing-team-with-claude-code-49b8), [Activepieces over Metricool-prijzen](https://www.activepieces.com/blog/metricool-pricing-2026-free-starter-advanced-plans)
+- [ContentStudio: YouTube verbiedt < en >](https://docs.contentstudio.io/article/996-youtube-errors-while-publishing), [Kapwing: wanneer een AI-label](https://www.kapwing.com/resources/when-should-you-label-videos-as-ai/)
 - [Buffer: content engine met GitHub Actions](https://buffer.com/resources/i-built-a-content-engine-that-creates-21-social-posts-a-week-using-the-buffer-api/), [Postiz: Accentify](https://postiz.com/blog/how-one-founder-automated-social-media-posting-with-ai-agents-notion-and-postiz-to-hit-1300-mrr)
 
 ## Stand na run 19 nov 01:05 (run 1)
@@ -197,3 +251,12 @@ Te koop nu: **Click Joints Pro $12** (Gumroad live, Superhive in keuring, Cyber 
 5. **Afgevallen:** Dev.to (eist AI-melding en verbiedt reclame voor eigen werk, GEZIEN) en Postiz cloud (geen gratis plan, GEZIEN).
 
 **Voorstel:** de hoofdchat laat vandaag een bouwer `marketing/oor.mjs` plus een workflow elke 15 minuten maken (gratis, geen account nodig), en zet de Schrijver als geplande taak elke 4 uur aan voor alleen TikTok-concepten in `marketing/wachtrij/`, in week 1 alles oranje zodat de hoofdchat ze zelf in Metricool zet. Thijs hoeft daarvoor niets te regelen. Volgende run: de BlenderArtists-draad en Mastodon-vragen omzetten in een voorbeeld van wat de Schrijver per ronde zou opleveren, en nagaan hoe ver Jetstream terugspeelt.
+
+## Stand na run 19 nov 03:10 (run 3)
+1. **Filmpje 1 kwam nooit op YouTube**: status ERROR door `>` in de beschrijving (GEZIEN; oorzaak DERDEN). Niemand merkte het. De tak moet de status zelf teruglezen en melden; de Keurder krijgt een techniek-check per kanaal.
+2. **Het eerste TikTok-cijfer is slecht**: Ebb 33 weergaven, gemiddeld 2 seconden gekeken (GEZIEN via Metricool). Cijfers per video zijn via de koppeling te lezen, dus de Schrijver kan op kijktijd bijsturen zonder extra sleutel.
+3. **Metricool kan TikTok-diashows plaatsen** (GEZIEN in de toolbeschrijving): het Larry-patroon kan bij ons met schermafbeeldingen uit het echte product, zonder montage of stem.
+4. **Quotum november ±14 posts over** (GEZIEN 6 in de planner; GOK dat de ERROR meetelt). YouTube via Metricool vreet quotum: eigen OAuth blijft punt 1 voor Thijs.
+5. **Jetstream speelt ±36 uur terug** (GEZIEN): het Oor kan elk uur als geplande sessie, zonder Actions en zonder account. AI-geschreven tekst bij echte beelden vraagt geen AI-label (DERDEN), dus het besluit "geen AI-melding" blijft houdbaar als we nooit AI-beeld of AI-stem gebruiken.
+
+**Voorstel:** de hoofdchat zet vandaag twee geplande sessies aan die geen sleutel nodig hebben: (1) **Schrijver plus Plaatser** elk uur, alleen TikTok-diashows en filmpjes uit echte schermbeelden via Metricool, ±1 per dag tot het quotum op is, met statuscontrole en dagrapport; (2) **Keurder** als aparte sessie die elk concept met het vaste formulier plus de techniek-check keurt voor de Plaatser het inplant (week 1: hoofdchat kijkt mee). Doel en stopregel: vóór 1 dec één TikTok met gemiddeld meer dan 5 seconden kijktijd en meer dan 1.000 weergaven; anders stopt TikTok voor Click Joints. Thijs hoeft hiervoor niets te doen; de YouTube-OAuth vragen we pas als TikTok die drempel haalt.
