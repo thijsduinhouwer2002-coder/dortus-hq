@@ -1,0 +1,1 @@
+{"workflow": "driehoek.yml", "invoer": {"minuten": "10"}, "van": "bouwer driehoek-meter", "waarom": "proefrun van 10 minuten: antwoorden de openbare API's vanaf een GitHub-runner"}
