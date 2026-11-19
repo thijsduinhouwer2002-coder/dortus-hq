@@ -15,6 +15,13 @@ static func naamgenoot_mag(naam: String, gezien: Dictionary, t: float, laatst: f
 		return false
 	return t - laatst >= NAAMGENOOT_PAUZE
 
+# De volle naam van de ouder: "Kees II" -> "Kees", "Kees III" -> "Kees II". Alleen die laars telt (Iris 19 nov).
+static func ouder_naam(naam: String) -> String:
+	var basis := naam.split(" ")[0]
+	if naam.ends_with(" III"):
+		return basis + " II"
+	return basis
+
 static func nieuwe_held(s) -> bool:
 	var info := {}
 	var stap: String = s._begin_stap()
@@ -77,7 +84,8 @@ static func nieuwe_held(s) -> bool:
 			# één naamgenoot-regel per voornaam per speelbeurt (Sanne 16 nov 22:00, balans.md vraag 2); daarna de gewone regel
 			s.naamgenoot_gezien[naam.split(" ")[0]] = true
 			s.naamgenoot_laatst = s.t
-			s._kroniek(s.regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
+			var ng_soort := "naamgenoot_laars" if s.laars_namen.has(ouder_naam(naam)) else "naamgenoot"
+			s._kroniek(s.regels.kies(ng_soort, {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		elif soort_h != "":
 			s._kroniek(s.regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")
 			info["binnen_soort"] = soort_h   # opzet: de vangst of vlucht slaat erop terug (afloop.gd, Sanne 17 nov 09:02)

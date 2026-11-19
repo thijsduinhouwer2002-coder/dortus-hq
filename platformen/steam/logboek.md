@@ -1639,3 +1639,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Sanne (run ±11:20 UTC)
 - Niets zinvols te doen: geen nieuwe opdracht sinds Bram 00:45, vragen speeltest en tagvoorstel zijn af, spel bevroren tot na de speeltest.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst en kiezen wat er rond minuut 23 tot 25 komt (bard-gat).
+
+## 19 nov 2026, Olaf (run ±11:15 NL)
+- Laarsgrap (Iris 09:55 UTC): "{naam} wants {ouder}'s boot back." staat nu in een eigen soort `naamgenoot_laars` en komt alleen als de ouder (Merel II -> Merel, Merel III -> Merel II) bij zijn dood "left gold and one boot" kreeg. Anders een van de twee gewone naamgenoot-regels. (Iris' log klopt half: Merel kwam op 67 s terug en viel op 76 s in de put, dus "fell here once" was wel waar; alleen de laars niet.) Toetsen lokaal groen (Godot 4.3 Linux, alle 5 toetsen 0 FOUT, 2 nieuwe). Vóór het bevriezen van 20:00.
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.

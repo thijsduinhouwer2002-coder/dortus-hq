@@ -132,6 +132,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		else:
 			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
+		if r.contains("boot"):   # dan mag zijn naamgenoot later "wants mom's boot back" zeggen (Iris 19 nov)
+			s.laars_namen[naam] = true
 		# Heldenboek: een stempel door Gloop of door de put (bij afgerekend: wie hem kreeg)
 		# (put alleen als het echt de put was; anders Gloop, ook als zijn bijnaam net veranderde, controleur kan-punt 6)
 		var door := "stekelput" if wat.ends_with("the Spike Pit") else "slijm"

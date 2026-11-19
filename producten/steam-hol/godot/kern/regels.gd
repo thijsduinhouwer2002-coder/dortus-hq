@@ -15,7 +15,9 @@ const VOORRAAD := {
 	"binnen": ["{naam} climbs into your hole.", "{naam} is here for your gold.", "{naam} brought a torch. And hope.",
 		"{naam} read about you in a tavern.", "{naam} has a map. It is wrong.", "{naam} knocks first. Polite.",
 		"{naam} says this is a quick one."],
-	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once.", "{naam} wants {ouder}'s boot back."],
+	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once."],
+	# alleen als de ouder echt een laars achterliet (Iris 19 nov: "Merel II wants mom's boot back" terwijl Merel geen laars liet)
+	"naamgenoot_laars": ["{naam} wants {ouder}'s boot back."],
 	"terug": ["{held} is back.", "{naam} came back. Bigger sword.", "{naam} is back. Still limping."],
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],

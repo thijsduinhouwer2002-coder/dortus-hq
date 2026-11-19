@@ -84,7 +84,7 @@ func _init() -> void:
 	ok(NM.ouder("Fenna II") == "mom" and NM.ouder("Maud") == "mom" and NM.ouder("Kees III") == "dad", "ouder: mom bij VROUW, anders dad")
 	ok(RT.vul("{naam} wants {ouder}'s boot back.", {"naam": "Fenna III"}) == "Fenna III wants mom's boot back." and RT.BRAM.vul("{naam} wants {ouder}'s hat back.", {"naam": "Kees II"}) == "Kees II wants dad's hat back.", "vul: {ouder} vult zich uit {naam} (strook en kroniek)")
 	var nm_dad: Array = []
-	for so in ["naamgenoot", "naamgenoot_hoed"]:
+	for so in ["naamgenoot", "naamgenoot_hoed", "naamgenoot_laars"]:
 		for rd in RT.BRAM.VOORRAAD.get(so, []) + RT.VOORRAAD.get(so, []):
 			for nm in NM.VROUW:
 				var vd: String = RT.vul(rd, {"naam": nm + " III", "oud": nm})
@@ -96,6 +96,9 @@ func _init() -> void:
 	ok(BK.naamgenoot_mag("Kees II", {}, 10.0, -1000.0) and not BK.naamgenoot_mag("Kees", {}, 10.0, -1000.0), "naamgenoot: II mag, zonder II niet")
 	ok(not BK.naamgenoot_mag("Kees II", {"Kees": true}, 900.0, -1000.0), "naamgenoot: één keer per voornaam")
 	ok(not BK.naamgenoot_mag("Maud III", {}, 1100.0, 884.0) and BK.naamgenoot_mag("Maud III", {}, 1184.0, 884.0), "naamgenoot: niet binnen 300 s na de vorige, wel daarna")
+	# laarsgrap alleen als de ouder zelf een laars achterliet (Iris 19 nov): niet in de gewone voorraad, ouder is de vorige
+	ok(not str(RT.VOORRAAD["naamgenoot"]).contains("boot") and str(RT.VOORRAAD["naamgenoot_laars"]).contains("boot"), "naamgenoot: laarsgrap apart")
+	ok(BK.ouder_naam("Merel II") == "Merel" and BK.ouder_naam("Merel III") == "Merel II", "naamgenoot: ouder van II en III")
 	var ng_gezien := {}
 	var ng_laatst := -1000.0
 	var ng_tijden: Array = []
