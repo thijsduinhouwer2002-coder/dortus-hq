@@ -62,7 +62,7 @@ jobs:
           python3 organisatie/controle/geluid_check.py /tmp/klaar/*.mp4
           cp /tmp/film.log /tmp/klaar/opname.log
           (cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
-          ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact /tmp/klaar/*.mp4
+          for f in /tmp/klaar/*.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$f"; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
