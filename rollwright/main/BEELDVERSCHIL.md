@@ -1,13 +1,13 @@
 ## Beeldvergelijking Rollwright, Obsidian latest met installer earliest (main)
-GROOT: 1 (grens 0.4% van de pixels, drempel 24/255 per kanaal; 87 plaatjes vergeleken; niet meegeteld: * [50, 755, 345, 800]; * [290, 0, 610, 28]; m10-* [880, 28, 1024, 105])
-Referentie: referentie uit run 44427615009, commit 4ed153d4173597144fa127d4534c282a331dc281, 2026-11-19T00:21:15Z
+GROOT: 0 (grens 0.4% van de pixels, drempel 24/255 per kanaal; 87 plaatjes vergeleken; niet meegeteld: * [50, 755, 345, 800]; * [290, 0, 610, 28]; m10-* [880, 28, 1024, 105]; l1-* [730, 120, 1024, 760])
+Referentie: referentie uit run 44427731943, commit 7f492ff2ac453e02558e0883d9288cb90f2df75b, 2026-11-19T00:22:41Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-leesweergave.png | gelijk | |
 | b1-bewaren-voor-herstart.png | gelijk | |
-| b2-bewaren-na-herstart.png | 2141 px (0.261%), ruis | |
-| b3-klik-en-herstart.png | 1068 px (0.130%), ruis | |
+| b2-bewaren-na-herstart.png | 12 px (0.001%), ruis | |
+| b3-klik-en-herstart.png | 2122 px (0.259%), ruis | |
 | blok-lezen-donker.png | gelijk | |
 | blok-lezen.png | gelijk | |
 | blok-live-preview-donker.png | gelijk | |
@@ -18,44 +18,44 @@ Referentie: referentie uit run 44427615009, commit 4ed153d4173597144fa127d4534c2
 | classic-rustig-fumble-licht.png | gelijk | |
 | classic-rustig-naast-arcane.png | gelijk | |
 | classic-rustig-naast-parchment.png | gelijk | |
-| crit-crit-donker.png | 123 px (0.015%), ruis | |
-| crit-crit-licht.png | 128 px (0.016%), ruis | |
-| crit-fumble-donker.png | 205 px (0.025%), ruis | |
-| crit-fumble-licht.png | 214 px (0.026%), ruis | |
-| g1-geschiedenis-lezen.png | 1668 px (0.204%), ruis | |
-| g2-geschiedenis-vier-keer-lezen.png | 1105 px (0.135%), ruis | |
-| g3-geschiedenis-live-preview.png | 1134 px (0.138%), ruis | |
-| g4-geschiedenis-vier-keer-live-preview.png | 435 px (0.053%), ruis | |
-| l1-logboek-tekst.png | 306 px (0.037%), ruis | |
-| l1-logboek.png | 12205 px (1.490%), x 80 tot 998, y 52 tot 744 | GROOT |
+| crit-crit-donker.png | 260 px (0.032%), ruis | |
+| crit-crit-licht.png | 256 px (0.031%), ruis | |
+| crit-fumble-donker.png | 432 px (0.053%), ruis | |
+| crit-fumble-licht.png | 430 px (0.052%), ruis | |
+| g1-geschiedenis-lezen.png | 577 px (0.070%), ruis | |
+| g2-geschiedenis-vier-keer-lezen.png | 709 px (0.087%), ruis | |
+| g3-geschiedenis-live-preview.png | 731 px (0.089%), ruis | |
+| g4-geschiedenis-vier-keer-live-preview.png | 725 px (0.089%), ruis | |
+| l1-logboek-tekst.png | 87 px (0.011%), ruis | |
+| l1-logboek.png | 1306 px (0.159%), ruis | |
 | lijst-1-lezen-donker.png | gelijk | |
 | lijst-1-lezen.png | gelijk | |
 | lijst-2-live-preview-donker.png | gelijk | |
 | lijst-2-live-preview.png | gelijk | |
-| lijst-3-geschiedenis-donker.png | 394 px (0.041%), ruis | |
-| lijst-3-geschiedenis.png | 406 px (0.042%), ruis | |
+| lijst-3-geschiedenis-donker.png | 397 px (0.041%), ruis | |
+| lijst-3-geschiedenis.png | 397 px (0.041%), ruis | |
 | m1-venster-live-preview.png | gelijk | |
 | m10-ingevoegd-melding.png | gelijk | |
 | m10-venster-zonder-formule.png | gelijk | |
-| m2-na-replace-live-preview.png | 1570 px (0.192%), ruis | |
+| m2-na-replace-live-preview.png | gelijk | |
 | m3-venster-ongedaan.png | gelijk | |
 | m4-na-ctrl-z.png | gelijk | |
 | m5-venster-voor-escape.png | gelijk | |
 | m6-venster-lezen.png | gelijk | |
 | m7-na-replace-lezen.png | gelijk | |
-| m8-venster-tabel.png | 75 px (0.009%), ruis | |
+| m8-venster-tabel.png | gelijk | |
 | m9-venster-enter.png | gelijk | |
-| notitiesfeer-eis2.png | 31 px (0.004%), ruis | |
+| notitiesfeer-eis2.png | gelijk | |
 | parchment-nat20-donker.png | gelijk | |
 | parchment-nat20-licht.png | gelijk | |
 | s1-secties-lezen.png | gelijk | |
 | s2-secties-live-preview.png | gelijk | |
-| s3-ctrl-klik-lezen.png | 124 px (0.015%), ruis | |
-| s4-ctrl-klik-live-preview.png | 447 px (0.055%), ruis | |
+| s3-ctrl-klik-lezen.png | 132 px (0.016%), ruis | |
+| s4-ctrl-klik-live-preview.png | 299 px (0.036%), ruis | |
 | skin-tegels-donker.png | gelijk | |
 | skin-tegels-licht.png | gelijk | |
-| skins-parchment-donker.png | 42 px (0.005%), ruis | |
-| skins-parchment-licht.png | 137 px (0.017%), ruis | |
+| skins-parchment-donker.png | gelijk | |
+| skins-parchment-licht.png | gelijk | |
 | t1-tabellen-lezen.png | gelijk | |
 | t2-tabellen-live-preview.png | gelijk | |
 | tabel-arcane-donker.png | gelijk | |
@@ -78,8 +78,8 @@ Referentie: referentie uit run 44427615009, commit 4ed153d4173597144fa127d4534c2
 | winkel-1-lezen.png | gelijk | |
 | winkel-2-live-preview-donker.png | gelijk | |
 | winkel-2-live-preview.png | gelijk | |
-| winkel-3-geschiedenis-donker.png | 394 px (0.048%), ruis | |
-| winkel-3-geschiedenis.png | 406 px (0.050%), ruis | |
+| winkel-3-geschiedenis-donker.png | 397 px (0.048%), ruis | |
+| winkel-3-geschiedenis.png | 397 px (0.048%), ruis | |
 | z1-zichzelf-lezen.png | gelijk | |
 | z2-zichzelf-live-preview.png | gelijk | |
 | z3-zichzelf-ingevoegd.png | gelijk | |
