@@ -553,3 +553,56 @@ Toets: het verlies als deel van de pot in de eerste 12 uur tegenover de tweede 1
 3. **Streamer- en beursgangmarkten zijn geen rustige markten**, ook al lijken ze telbaar (GEZIEN). Dat verfijnt D's regel "alleen telbaar of gepland".
 4. **Gereedschap verandert snel**: Data API v1 is sinds 2 nov uit (v2 met cursor), `py-clob-client` is afgeschreven en op 14 dec veranderen API-routes; de kosten veranderen op 20 nov (D). Een AI die code schrijft gebruikt het oude spul tenzij je het verbiedt (GEZIEN plus GOK).
 5. **De route blijft nummer 1 met dezelfde kans (8 tot 15%, GOK)**: de pot is groot en de mediaan is gunstig, maar de uitkomst per dag hangt aan één omslaande markt. De schaduwbot beslist op het slechtste dag-resultaat. Vaste regels blijven: `polymarket-client`, Session Key, nooit de hoofdsleutel, juridisch grijs in Nederland.
+
+## Run 8 (19 nov 2026, ±08:00 Nederlandse tijd)
+
+Deze run: twee punten uit "nog te doen" van run 7. (1) Verliezen vullingen dicht bij het midden meer, waar een beloningsbot staat? (2) Haalt een simpele woordenlijst vooraf de slechte markten weg? Zelfde werkwijze als punt 39, alleen openbare API's, geen account, niets van anderen uitgevoerd.
+
+### 41. Nieuwe meting, en waarom die niet onafhankelijk is (GEZIEN, eigen berekening, 19 nov ±07:20 UTC)
+- Top 100 op `rate_per_day`, nu direct gesorteerd opgehaald: `/rewards/markets/multi?order_by=rate_per_day&position=DESC&limit=100` (GEZIEN; zonder sortering moet je meer dan 25.000 markten doorbladeren, dat kostte mij 10 minuten voor niets). Pot top 100: ±$25.600 per dag, alle beloonde markten samen ±$34.100 (GEZIEN, som van de lijst).
+- 16.325 trades in 24 uur, ±$2,29 miljoen omzet, 98 markten met handel. Makers samen na 5 minuten −$8.800, na 60 minuten **−$14.200** tegen $25.200 pot. Mediaan verlies als deel van de pot: **15%** (run 7: 9%).
+- Let op: het venster overlapt ±23 uur met run 7. Dit is dus geen tweede dag, alleen een controle dat de som stabiel is. De meting over echt verschillende dagen blijft open.
+
+### 42. Vullingen dicht bij het midden verliezen bijna twee keer zoveel per dollar (GEZIEN, zelfde data)
+Toets: alleen trades met een prijs binnen 1 cent van de minuutprijs op dat moment (zo staat een beloningsbot), tegenover alle trades.
+| | Omzet | Makers na 60 min | Per $ omzet |
+|---|---|---|---|
+| Alle vullingen | ±$2,29 mln | −$14.200 | **−0,62%** |
+| Binnen 1 cent van het midden | ±$1,68 mln | −$17.500 | **−1,05%** |
+- Dit bevestigt punt 40.5 en D: wie dicht bij het midden staat, wordt vooral gevuld als de prijs net gaat lopen. Verder weg staan gaf makers samen zelfs winst.
+- Gevolg voor de rekensom (GOK): reken voor de eigen bot met ±1% verlies per dollar die gevuld wordt, niet met het gemiddelde van alle makers. Wie per dag $1.000 gevuld krijgt, verliest dan ±$10 en moet meer dan dat aan beloning verdienen.
+
+### 43. Een woordenlijst vooraf haalt het meeste verlies weg, maar ook de helft van de pot (GEZIEN als som, de lijst is GOK)
+Twee eenvoudige filters op de vraagtekst (hoofdletters maken niet uit):
+- **Live bron**: stream, say/says/said, mention, speech, tweet, post, game, score, match, vs., beat, finish, complete, goal, points, kills, during, live, press conference, interview.
+- **Eén groot nieuwsmoment**: ipo, fed, rate, ceasefire, deal, strike, announce, "by nov"/"on nov", release, earnings, cpi, jobs.
+
+| Groep | Markten | Pot per dag | Makers na 5 min | Makers na 60 min | Per $ binnen 1 cent | Pot min verlies negatief |
+|---|---|---|---|---|---|---|
+| Live bron | 16 | $3.800 | −$2.000 | −$2.900 | −5,0% | 4 |
+| Nieuwsmoment (zonder live) | 37 | $10.300 | −$6.900 | −$9.100 | −1,4% | 9 |
+| **Rest, filter laat staan** | 45 | **$11.200** | **+$200** | **−$2.200** | **−0,18%** | 5 |
+
+Wat dit zegt:
+- De filters schrapten 53 markten met 84% van het verlies, maar ook 56% van de pot. Pot min verlies van alle makers samen: zonder filter ±$11.000, met filter ±$9.000. De opbrengst daalt dus weinig, het risico van één omslag veel (GEZIEN als som).
+- Binnen de rest is het verlies per dollar dicht bij het midden zes keer kleiner (−0,18% tegen −1,05%). Dat is het getal dat de route kan dragen (GOK).
+- In de rest bleef één soort over die wel pijn deed: "wie wordt de volgende topman of premier" (Jensen Huang terug bij NVIDIA −$1.800, Rene Haas −$800, Netanyahu −$760, Matt Murphy −$690). Dat zijn persoonsmarkten die op één bericht omslaan. Ze toevoegen aan het filter (woorden "next CEO", "next Prime Minister", "rejoin") ligt voor de hand.
+- **Grote korrel zout:** ik koos de woorden nadat ik run 7 had gezien. Dit is dus gemeten op dezelfde soort data waarop de lijst bedacht is (overfitting, A schrijft hierover). Een eerlijke toets is: de lijst nu vastzetten, en de schaduwbot er twee weken mee laten draaien op nieuwe markten.
+
+### 44. Wat dit verandert aan het bouwplan (GOK)
+1. Het marktfilter van de schaduwbot (punt 33) wordt vast: de twee woordenlijsten hierboven plus persoonsmarkten. Zet ze als lijst in het configuratiebestand, zodat je ze kunt aanpassen zonder code.
+2. Sorteer bij het ophalen op de server (`order_by=rate_per_day&position=DESC`). Zet ook dit in de opdracht aan de AI die de code schrijft.
+3. Log per nepvulling de afstand tot het midden; de beslissing na 2 weken kijkt naar het verlies per dollar binnen 1 cent, met als grens: kleiner dan beloning per gevulde dollar.
+4. De rem uit punt 40.2 (maximale voorraad per markt) blijft nodig: ook na het filter waren 5 van 45 markten op de dag negatief.
+
+### Nog te doen
+- De meting herhalen over een venster dat niet overlapt (morgen of later), met de woordenlijst vastgezet: dat is de eerlijke toets.
+- Uitspraak in de zaak Polymarket tegen de Ksa volgen.
+- De nieuwe kosten van 20 nov (D) in de rekensom zetten zodra ze gelden.
+
+## Stand na run 8 (19 nov 2026, ±08:00)
+1. **Dicht bij het midden verlies je bijna twee keer zoveel per gevulde dollar** (−1,05% tegen −0,62% voor alle makers, GEZIEN, eigen meting). Reken voor een beloningsbot met ±1%, niet met het gemiddelde.
+2. **Een simpele woordenlijst vooraf (live bron, groot nieuwsmoment) haalde 84% van het verlies weg en hield 44% van de pot over**, met in de overgebleven markten maar −0,18% verlies per dollar dicht bij het midden (GEZIEN als som). De lijst is bedacht na het zien van eerdere data, dus nog niet eerlijk getoetst (GOK op de waarde).
+3. **Persoonsmarkten ("volgende topman") zijn de volgende klasse om te mijden**: ze zaten in de gefilterde rest en kostten het meest (GEZIEN).
+4. **Gereedschap**: sorteer de beloningslijst op de server, gebruik Data API v2 met cursor, `polymarket-client` en een Session Key; geef dit allemaal letterlijk mee aan de AI die de code schrijft (GEZIEN plus GOK).
+5. **De route blijft nummer 1 (kans 8 tot 15%, GOK)**, nu met een concreet filter en een concrete toets: twee weken schaduwbot met vastgezette lijst, beslissen op verlies per dollar binnen 1 cent en het slechtste dag-resultaat. Juridisch grijs in Nederland blijft gelden.
