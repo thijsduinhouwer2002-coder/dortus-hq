@@ -153,9 +153,9 @@ jobs:
   # (keuring R4: eerst kwam er een bericht per job en per run). Alleen main, niet in de week-test.
   beeldbericht:
     needs: e2e
-    # Weer uit (herkeuring 2): run 44481997077 gaf vals alarm op donker-kleurenpagina (scheiding schoof ±55 px).
-    # Pas weer aan na drie runs van dezelfde code met 0 groot.
-    if: false && always() && github.ref_name == 'main' && !inputs.week
+    # Weer aan na drie runs van dezelfde code met 0 groot (44500264197, 44500267041, 44503498367, GEZIEN), na de vaste
+    # scheiding in het instellingenvenster. Eerder vals alarm: run 44481997077 (kleurenpagina).
+    if: always() && github.ref_name == 'main' && !inputs.week
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
