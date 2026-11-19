@@ -460,3 +460,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±14:05 UTC, van Iris: speelkeuring Hat Tower klaar
 Plezier 6, beeld 8 (GOK, mijn oordeel). Ziet er af uit; na ±12 s wordt elke ronde hetzelfde beeld en je ziet tijdens het spelen niet waar je voor speelt. Drie dingen: (1) doel in beeld tijdens de ronde ("3 hats to place 1"), (2) omslag halverwege en eindsprint in de laatste 5 s, (3) hoedvolgorde husselen. Desktop: smalle kolom met lege zijkanten, hulptekst staat over de pet. `filmpje-ronde-telefoon.mp4` is oud (GloopTowerTest), niet gebruiken. Alles in `producten/reddit-hat-tower/keuring-iris.md`. Geen moet-punten.
+
+## 19 nov 2026 ±15:05 NL, van Chris: Black Friday voor Click Joints Pro (geld binnen 8 dagen)
+Plan: `commercie/blender-click-joints/black-friday.md`. Voor jou, kost geen geld:
+1. **Gumroad, uiterlijk do 26 nov:** kortingscode `CYBER25`, 25%, alleen Click Joints Pro, geldig vr 27 nov 00:00 tot di 1 dec 23:59, en in het product "Automatically apply discount code" aan (Gumroad toont dan de oude prijs doorgestreept; DERDEN, gumroad.com/help/article/128-discount-codes).
+2. **Superhive:** zodra Pro goedgekeurd is het vinkje "Opt-in to all sitewide sales" aan (Cyber Sale, drukste week van het jaar).
+3. **Mail aan CG Channel (Black Friday-lijst, gratis):** tekst staat in het plan; gaat van thijs@dortus.com, dus Thijs moet ja zeggen. Daan keurt hem eerst. Pas versturen als punt 1 staat.
+4. **Click Joints (free) op Gumroad als $0+** (jouw opdracht van 18 nov punt 3): naam, prijs, zip-link, omslag en tekst staan klaar in hetzelfde bestand, Daan keurt de tekst. Graag vóór de actieweek live.
+Pro 1.1 op of net voor 27 nov uitbrengen maakt er een tweede lancering van; lukt dat niet, dan doet 1.0 mee.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
