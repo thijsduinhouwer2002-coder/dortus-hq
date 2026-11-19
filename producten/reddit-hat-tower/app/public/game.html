@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    >
+    <title>Gloop's Hat Tower</title>
+    <link rel="modulepreload" href="game.js">
+    <link
+      rel="preload"
+      href="fonts/LilitaOne-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    >
+    <link rel="stylesheet" href="stijl.css">
+    <link rel="icon" href="data:,">
+  </head>
+  <body class="spel">
+    <div id="stage">
+      <canvas
+        id="canvas"
+        aria-label="Gloop's Hat Tower. Tap or press space when the hero reaches Gloop's mouth."
+      ></canvas>
+
+      <p id="tik-hint" hidden></p>
+
+      <section id="start" class="laag start" hidden>
+        <header class="kop">
+          <h1 class="titel">
+            <span class="titel-klein">Gloop's</span>
+            Hat Tower
+          </h1>
+          <p class="dag">
+            <span id="dag-titel">Tower</span>:
+            <span id="dag-regel" class="regelnaam"></span>
+          </p>
+          <p id="dag-uitleg" class="uitleg"></p>
+          <p id="dag-goud" class="goud"></p>
+        </header>
+        <div class="knoppen">
+          <p id="mijn-dag" class="mijn" hidden></p>
+          <button id="knop-speel" class="knop hoofd" type="button">Play</button>
+          <button id="knop-oefen" class="knop" type="button">
+            Warm up first
+          </button>
+          <p id="samen" class="samen"></p>
+          <p id="reeks" class="reeks"></p>
+        </div>
+        <p class="hoe">
+          Tap when the hero reaches Gloop's mouth. 30 seconds. Missing never
+          costs a hat.
+        </p>
+      </section>
+
+      <section id="einde" class="laag einde" hidden>
+        <div class="vel">
+          <p id="eind-kop" class="eind-kop"></p>
+          <p class="eind-score">
+            <span id="eind-getal" class="eind-getal">0</span>
+            <span id="eind-woord">hats</span>
+          </p>
+          <p id="eind-regels" class="eind-regels"></p>
+          <div
+            id="eind-vakjes"
+            class="vakjes"
+            role="img"
+            aria-label="Every hero of your run"
+          ></div>
+          <div id="eind-delen" class="delen">
+            <button id="knop-reactie" class="knop hoofd" type="button">
+              Comment my result
+            </button>
+            <button id="knop-kopie" class="knop klein" type="button">
+              Copy
+            </button>
+          </div>
+          <p id="eind-samen" class="samen"></p>
+          <p id="eind-top-kop" class="top-kop">Today's tallest towers</p>
+          <ol id="eind-top" class="top"></ol>
+          <div class="delen">
+            <button id="knop-weer" class="knop" type="button">Practice</button>
+            <button id="knop-terug" class="knop klein" type="button">
+              Back
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <button id="knop-geluid" class="geluid" type="button" aria-pressed="true">
+        Sound on
+      </button>
+    </div>
+    <script src="game.js" type="module"></script>
+  </body>
+</html>

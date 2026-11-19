@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gloop's Hat Tower</title>
+    <link rel="modulepreload" href="splash.js">
+    <link
+      rel="preload"
+      href="fonts/LilitaOne-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    >
+    <link rel="stylesheet" href="stijl.css">
+    <link rel="icon" href="data:,">
+  </head>
+  <body class="splash">
+    <div id="stage" class="splash-stage">
+      <canvas id="canvas" aria-hidden="true"></canvas>
+      <div class="splash-tekst">
+        <h1 class="titel">
+          <span class="titel-klein">Gloop's</span>
+          Hat Tower
+        </h1>
+        <p id="dag" class="dag">Today's tower</p>
+        <p id="samen" class="samen"></p>
+        <button id="knop-speel" class="knop hoofd" type="button">
+          Play today's tower
+        </button>
+      </div>
+    </div>
+    <script src="splash.js" type="module"></script>
+  </body>
+</html>
