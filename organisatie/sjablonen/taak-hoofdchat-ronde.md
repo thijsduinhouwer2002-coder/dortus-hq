@@ -3,7 +3,7 @@
 Waarom zelf: de veiligheidscontrole weigert dat een agent een taak inplant die zelfstandig plaatst. Maakt Thijs hem zelf aan, dan loopt hij daarna volledig zelfstandig.
 
 **Naam:** Hoofdchat-ronde (plaatsen, geld, agents)
-**Wanneer:** elke dag om 09:47, 13:47, 17:47 en 21:47 (Europe/Amsterdam)
+**Wanneer:** elk uur (vaker kan niet bij geplande taken in de cloud; Thijs wilde elk half uur)
 **Repo:** dortus-hq
 **Melding:** pushmelding aan
 **Goedkeuren:** automatisch goedkeuren aan (anders blijft elke run hangen op een vraag)
@@ -19,7 +19,7 @@ Repo: staat dortus-hq er al, gebruik die. Zo niet: add_repo (owner thijsduinhouw
 
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil. Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar. De koppeling Metricool mag wel (brand 8156503).
 
-Werktijd: ±30 minuten. Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes. Sluit af zoals CLAUDE.md zegt (git ls-remote, hash in je eindantwoord), met in hooguit 100 woorden wat je plaatste en of Thijs iets moet doen.
+Werktijd: ±20 minuten (er komt elk uur een nieuwe ronde). Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes. Sluit af zoals CLAUDE.md zegt (git ls-remote, hash in je eindantwoord), met in hooguit 100 woorden wat je plaatste en of Thijs iets moet doen.
 ```
 
 ## Ook zelf aanpassen (±1 minuut)
