@@ -100,6 +100,8 @@ Hoe het rekent, met een voorbeeld van €2.000 op Bitvavo en Kraken:
   dat vaak zo: bij €100 over 5 munten heb je €5 per munt per beurs, en Bitvavo wil minstens €5 per order.
 - Zakt een kant onder 25% van wat er aan het begin stond, dan schuif je terug: de helft van het verschil gaat naar
   de lege kant, maar alleen als de kosten hooguit 1% van het bedrag zijn (een kans levert maar ±0,3 tot 1% op).
+  Die 1% is achteraf gekozen (eerst 5%, daar aten de kosten met €150 de winst op); de tabel "Andere keuzes"
+  laat ook 2% en 5% zien.
   Met weinig geld schuif je daardoor bijna nooit: je handelt tot een kant leeg is en dan stopt het. Dat kost opnamekosten (munt: wat de beurs zelf noemt; euro: Bitvavo €0, Kraken €1 met Instant SEPA)
   en tijd (munt 30 minuten, euro 1 uur vanaf Kraken en 1 werkdag vanaf Bitvavo, USDT 30 minuten; tijden zijn een
   GOK). Wat onderweg is, kun je niet gebruiken. Kansen die daardoor niet konden, staan als **gemist**; kansen die
@@ -180,6 +182,7 @@ Zie ook `../A-kant-en-klaar.md` hoofdstuk 2. MEXC staat in de eerste metingen bi
 | `scanner.py` | de meting: kandidaten zoeken, boeken aflopen, kansen volgen en wegschrijven |
 | `rapport.py` | het rapport uit de data |
 | `simulatie.py` | wat je overhoudt met voorraad op twee beurzen (terugschuiven, kosten, koerseffect) |
+| `simrapport.py` | het blok "Wat houd je echt over?" in het rapport (tabellen, andere keuzes, aannames) |
 | `simbronnen.py` | koersen (candles) en minimale order- en opnamebedragen uit de openbare API's, voor de simulatie |
 | `opslaan.sh` | zet de data op de tak `ai-handel-data` (nooit geforceerd) |
 | `test_scanner.py` | tests van de rekensom, het volgen van kansen, het rapport en de simulatie |

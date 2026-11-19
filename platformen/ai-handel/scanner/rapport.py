@@ -26,6 +26,7 @@ import statistics
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # opslaan.sh draait met python3 -I
+import simrapport  # noqa: E402
 import simulatie  # noqa: E402
 
 MIN_RUIMTE = 100
@@ -155,7 +156,7 @@ def dekking(stand):
 
 
 def maak(map_, met_proef=False, koersbron=None, minima=None):
-    """koersbron en minima: zie simulatie.blok (None = niets van het net halen, zoals in de tests)."""
+    """koersbron en minima: zie simrapport.blok (None = niets van het net halen, zoals in de tests)."""
     kansen, stand = lees(map_, met_proef)
     uren = gemeten_uren(stand)
     uit = ["# Rapport koersverschil-scanner", ""]
@@ -285,7 +286,7 @@ def maak(map_, met_proef=False, koersbron=None, minima=None):
                 "somber kan zijn: niet alle kandidaten zijn gecontroleerd, en met voorraad op beide beurzen kun je "
                 "dezelfde kans vaker pakken als het boek zich aanvult; dat telt hier niet mee."]
     uit.append("")
-    uit += simulatie.blok(alle_echte, stand, MICA, koersbron, minima=minima)
+    uit += simrapport.blok(alle_echte, stand, MICA, koersbron, minima=minima)
 
     bronnen = collections.Counter(r.get("opname_bron") for r in echte)
     uit += ["## Over de meting", "",

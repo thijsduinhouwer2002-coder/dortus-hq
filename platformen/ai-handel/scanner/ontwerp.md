@@ -57,6 +57,16 @@ krijgt niet opnieuw het volle boek; koers van de laatste gesloten candle; schuiv
 at het terugschuiven met €150 alle winst op); een tabel met andere drempels en minder munten. Koersen en minima staan
 in `simbronnen.py`, zodat `simulatie.py` onder de ±400 regels blijft.
 
+Na de herkeuring (KEURING.md, "Herkeuring simulatie"): de tabel "Andere keuzes" toont ook de kostengrens 2% en 5%,
+en bij de aanname staat dat 1% achteraf gekozen is. De kop "per dag" zegt dat het om één gemeten dag gaat die begint
+met een gelijk verdeelde voorraad (en of de voorraad aan het eind scheef staat). Het rapportblok staat nu in
+`simrapport.py`. Eigen run op de data van 15:08 UTC (Bitvavo-Kraken, netto handel): €150: 1% €0,19, 2% €0,19, 5%
+-€5,96; €2.000: €2,39 bij alle drie. De keurder kwam bij €2.000 op €7,79 (1%) en €1,67 (2% en 5%); dat krijg ik niet
+terug. Bij €2.000 kost elke terugschuif hier hooguit 1% (de duurste, GMT, 0,98%), dus de grens maakt niets uit; met
+een grens van 0,95% valt die ene schuif weg en wordt het €3,37. De uitkomst hangt dus aan één schuif rond de grens,
+en kleine verschillen in koers (candles worden bij elke run opnieuw opgehaald) kunnen hem net over of onder de grens
+duwen.
+
 ## Bekende grenzen
 Netwerk alleen vergeleken waar beide beurzen het geven; overmaaktijd niet gemeten; opnamekosten bij een deel van de beurzen geschat;
 de API is de wereldwijde versie, niet altijd de EU-versie met vergunning. Alles staat in README.md.

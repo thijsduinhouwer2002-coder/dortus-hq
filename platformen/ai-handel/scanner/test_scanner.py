@@ -6,6 +6,7 @@ import unittest
 
 import rapport
 import scanner
+import simrapport
 import simulatie
 
 
@@ -258,6 +259,14 @@ class TestSimulatie(unittest.TestCase):
         s = simulatie.Sim(ks, 2000, ("a", "b")).draai()
         self.assertFalse(any(x[1] == "X" for x in s.schuif_log))     # 100 euro kosten op 500: niet schuiven
 
+    def test_kostengrens_instelbaar(self):
+        ks = [self.kans(0, opname_eur=10.0)]                          # 10 euro kosten op een schuif van 500: 2%
+        s = simulatie.Sim(ks, 2000, ("a", "b")).draai()
+        self.assertFalse(any(x[1] == "X" for x in s.schuif_log))     # standaard 1%: niet schuiven
+        self.assertTrue(s.scheef())                                   # munt op b blijft leeg
+        s = simulatie.Sim(ks, 2000, ("a", "b"), max_kosten=0.05).draai()
+        self.assertTrue(any(x[1] == "X" for x in s.schuif_log))      # grens 5%: wel schuiven
+
     def test_koerseffect_apart_en_netto_klopt(self):
         t_mid = simulatie.ts("2026-11-19T10:05:00Z")
         koers = lambda munt, t: 1.0 if t < t_mid else 2.0             # munt verdubbelt om 10:05
@@ -308,17 +317,20 @@ class TestSimulatie(unittest.TestCase):
         self.assertAlmostEqual(d["handel"], d["bruto"] - d["kosten"])
         self.assertAlmostEqual(d["netto"], d["handel"] + d["koers"])
         ks = [self.kans(0, koop="bitvavo", verkoop="kraken")]
-        tekst = "\n".join(simulatie.blok(ks, [], rapport.MICA))
+        tekst = "\n".join(simrapport.blok(ks, [], rapport.MICA))
         self.assertIn("Netto handel", tekst)
         self.assertNotIn("%' if", tekst)
         rij = next(x for x in tekst.split("\n") if x.startswith("| bitvavo - kraken | €150,00"))
         self.assertTrue(rij.rstrip(" |").endswith("onbekend*"))      # rendement met onbekende koers: geen getal
         self.assertIn("**Met €150: netto", tekst)
         self.assertIn("schuifdrempel 40%", tekst)
+        self.assertIn("| kostengrens 5% (achteraf vergeleken) | €150,00 |", tekst)
+        self.assertIn("| kostengrens 2% (achteraf vergeleken) | €2.000,00 |", tekst)
+        self.assertIn("\"Per dag\" is hier één gemeten dag die begint met een gelijk verdeelde voorraad", tekst)
 
     def test_blok_in_rapport(self):
         ks = [self.kans(0, koop="bitvavo", verkoop="kraken"), self.kans(10, koop="mexc", verkoop="kraken")]
-        tekst = "\n".join(simulatie.blok(ks, [], rapport.MICA))
+        tekst = "\n".join(simrapport.blok(ks, [], rapport.MICA))
         self.assertIn("| bitvavo - kraken | €2.000,00 | 2026-11-19 |", tekst)
         self.assertIn("| kraken - mexc | €5.000,00 |", tekst)
         self.assertIn("onbekend", tekst)                              # zonder koersen: koerseffect onbekend
