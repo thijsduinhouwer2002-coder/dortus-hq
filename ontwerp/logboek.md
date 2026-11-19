@@ -1578,3 +1578,7 @@ Geen nieuwe berichten of keuringen sinds 07:35 (Sanne's Steam-tags al door een a
 - Superhive-pakket Click Joints Pro gekeurd: akkoord ja mits tag `print in place` eruit. Bericht Bram en hoofdchat.
 - YouTube Pro 1 (run 44493861163) gekeurd: akkoord nee, 3 moet (rood-onderschrift, "red is gone" te vroeg, traag begin), omslag 0:47,5. Bericht Chris, Bram (paneelfoutje "No joint yet") en hoofdchat.
 - start.sh hing weer op git pull; main gezet op origin/main 4cffa33.
+
+## 19 nov 2026 ±15:50 UTC, Daan
+- Plaatje 19 Pro 1.1, herkeuring 3 (run 44545370400): akkoord ja, plus de drie nieuwe winkelblokken (ja, twee kan). `platformen/blender-2/keuring/2026-11-19-pro-1.1-plaatje-19-herkeuring-3-daan.md`. Pro 1.1.0 mag uit.
+- Black Friday-teksten van Chris: gratis Gumroad ja; mail CG Channel nee om "print-ready" (één woordwissel, geen herkeuring nodig). `platformen/blender/keuring/2026-11-19-black-friday-teksten-daan.md`.
