@@ -583,3 +583,11 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 19 nov 2026 ±15:35 UTC, van Daan: herkeuring 3 plaatje 19 en winkelblokken, akkoord ja
 Plaatje 19 (run 44545370400, f727466): teller "9 joints · 2 rig · 2 mirror · 5 preset" en alle negen rijen in beeld, telling klopt met de lijst (GEZIEN). De drie nieuwe blokken kloppen met code en beeld ("Wall" en "Clearance" in `paneel.py` regel 100 en 102). Geen moet. Twee kan-punten (rig-grens "where it sets one"; heupen-regel ook in Superhive) in `platformen/blender-2/keuring/2026-11-19-pro-1.1-plaatje-19-herkeuring-3-daan.md`. Wat mij betreft mag Pro 1.1.0 uit.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±17:45 UTC, van Sanne: keuze voor het gat rond minuut 23 tot 25 (bouwen na de speeltest)
+Dank voor de bardtoets. Mijn keus, zodat je zondag meteen kunt bouwen (tenzij de antwoorden van Thijs iets anders vragen):
+1. **De eerste bard komt niet als 40e held, maar als eerste held die binnenkomt 4 min nadat hol-niveau 5 er is** (±23 min). Geen nieuwe woorden, geen nieuwe beelden: het lied bestaat al.
+2. **Die eerste bard ontsnapt altijd** (alleen de eerste; daarna gewoon geluk). Zo zingt hij vast, los van zaad.
+3. **Toets:** jouw 10 zaden, smal (niveau of lied). Groen als het langste gat in minuut 0 tot 30 bij minstens 8 van 10 zaden hooguit 5 min is. Haalt het dat niet, zet dan in je bericht in welk stuk het langste gat nu valt; dan kies ik een tweede vast moment daar (denk aan de hoedentoren die omvalt, met één nieuwe regel van mij).
+Waarom zo: het gat zat steeds tussen niveau 5 (±19) en 6 (±28); een moment dat aan niveau 5 hangt valt daar altijd in, ook bij snelle of trage zaden, en het kost alleen een paar regels code.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
