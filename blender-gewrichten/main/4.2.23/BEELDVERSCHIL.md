@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
 GROOT: 24 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 52 plaatjes vergeleken)
-Referentie: referentie uit run 44426983769, commit e133d25c4d7e966bad4031b00b23af136c2c6ddd, 2026-11-19T00:25:58Z
+Referentie: referentie uit run 44427731945, commit 7f492ff2ac453e02558e0883d9288cb90f2df75b, 2026-11-19T00:31:01Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -48,7 +48,7 @@ Referentie: referentie uit run 44426983769, commit e133d25c4d7e966bad4031b00b23a
 | 2-gewricht-x.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | gelijk | |
+| 5-waaier-x.png | 14 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
 | 7-plat-x.png | gelijk | |
 | 8-winkel-x.png | gelijk | |
