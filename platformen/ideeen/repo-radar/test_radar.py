@@ -104,12 +104,72 @@ class TestPlan(unittest.TestCase):
         tekst2 = "# Kit\n\nUse this template to launch your SaaS fast with Stripe subscriptions and pricing pages. " * 3
         self.assertEqual(regels.ruis_op_readme(regels.lees_plan(repo(), tekst2), tekst2), "sjabloon of boilerplate")
 
+    def test_prijs_alleen_uit_eigen_verkoop(self):
+        # tarieven van concurrenten en API-kosten in een tabel zijn niet onze prijs (keuring A3)
+        readme = ("# PayCompare\n\nOpen-source comparison of payment processors for US businesses, with fees and APIs.\n\n"
+                  "## Fees\n\n| Provider | Fee |\n|---|---|\n| Stripe | 2.9% + $0.30 |\n| Rival | $25 per month |\n\n"
+                  "Monthly costs at $5.00 and $1.00 per transaction depend on volume, see the chart below for details.\n")
+        p = regels.lees_plan(repo(description="Comparison of payment processors", topics=[], homepage=""), readme)
+        self.assertEqual(p["prijs"], [])
+        self.assertNotIn("abonnement", p["verdienmodel"])
+        # wel: prijs onder een eigen kopje, en een regel over de eigen Pro-versie
+        r2 = readme + "\n## Pro\n\nUnlock exports for $12 one-time.\n"
+        self.assertEqual(regels.lees_plan(repo(description="x", topics=[]), r2)["prijs"], ["$12 eenmalig"])
+        r3 = readme + "\nGet the Pro version on Gumroad for $19.\n"
+        self.assertEqual(regels.lees_plan(repo(description="x", topics=[]), r3)["prijs"], ["$19"])
+
+    def test_kassa_bij_de_techniek(self):
+        readme = ("# GuardAI\n\nUpload security logs, detect threats and get remediation plans from an AI analyst for small teams. " * 2
+                  + "\n## Stack\n\n- Lemon Squeezy for subscription and payment management.\n")
+        p = regels.lees_plan(repo("mohammedadnan/guardai", description="AI SOC analyst SaaS", topics=[]), readme)
+        self.assertIn("abonnement", p["verdienmodel"])
+
+    def test_ontkenning_is_geen_abonnement(self):
+        readme = "# Heroic\n\nA Windows writing studio. No subscription, pay once and own it forever. " * 3
+        p = regels.lees_plan(repo(description="Writing studio. Buy on Gumroad", topics=[]), readme)
+        self.assertNotIn("abonnement", p["verdienmodel"])
+        self.assertIn("eenmalige koop", p["verdienmodel"])
+
+    def test_gumroad_telt_niet_dubbel(self):
+        p = regels.lees_plan(repo(description="Windows fan tool, Pro on Gumroad $5.99", topics=[], homepage="",
+                                  stargazers_count=0), "Get Pro at https://x.gumroad.com/l/fan for $5.99. " * 5)
+        s, uitleg = regels.score(p)
+        self.assertNotIn("platform van ons", uitleg)
+        self.assertIn("betaalpagina of wachtlijst +1", uitleg)
+
+    def test_iphone_app_met_paywall_en_uitleg_in_tabel(self):
+        readme = ("# MyEx\n\n| What | How |\n|---|---|\n| Track spending with a friend | shared ledger synced over iCloud |\n"
+                  "| Paywall | RevenueCat monthly plan unlocks charts, exports and unlimited friends |\n"
+                  "| Who | couples and roommates who split rent, groceries and trips every month |\n"
+                  "| Why | splitting costs in a spreadsheet is slow, and existing apps push ads on every screen |\n\n"
+                  "```swift\nlet x = 1\n```\n")
+        p = regels.lees_plan(repo(description="iOS app", topics=["swiftui"], homepage=""), readme)
+        self.assertIn("in-app aankopen of paywall", p["verdienmodel"])
+        self.assertIsNone(regels.ruis_op_readme(p, readme))
+
+    def test_wordpress_pro_met_homework_is_geen_huiswerk(self):
+        readme = ("# TutorHelper\n\nWordPress plugins for tutors: collect homework submissions and grade them online. "
+                  "The free plugin covers one class. ## Pro\n\nThe Pro license costs $49 per year and adds unlimited classes. ") * 2
+        p = regels.lees_plan(repo(description="WordPress plugins for tutors", topics=[]), readme)
+        self.assertIsNone(regels.ruis_op_readme(p, readme))
+
+    def test_kopie_van_andermans_repo(self):
+        readme = GOEDE_README + "\nReport bugs at https://github.com/echtemaker/invoicefox/issues\n"
+        p = regels.lees_plan(repo("kopieerder/invoicefox"), readme)
+        self.assertEqual(regels.ruis_op_readme(p, readme), "kopie van andermans repo")
+        eigen = GOEDE_README + "\nReport bugs at https://github.com/iemand/invoicefox/issues\n"
+        self.assertIsNone(regels.ruis_op_readme(regels.lees_plan(repo(), eigen), eigen))
+
     def test_schoon_haalt_persoonsgegevens_weg(self):
         t = regels.schoon("Contact jan.jansen@example.com or +1 555 0100 2000 \u2014 see https://x.y/z [site](https://a.b)")
         self.assertNotIn("@", t)
         self.assertNotIn("0100", t)
         self.assertNotIn("http", t)
         self.assertNotIn("\u2014", t)
+        t2 = regels.schoon("Made by @kimpau_ever and @nvm.byte0 for creators")
+        self.assertNotIn("@", t2)
+        self.assertNotIn("kimpau", t2)
+        self.assertIn("for creators", t2)
         self.assertLessEqual(len(regels.schoon("woord " * 100)), 160)
 
 
@@ -141,7 +201,20 @@ class TestRuisOpNaam(unittest.TestCase):
         self.assertIn("apimartq1/other1", spam)      # 6 eigenaren die met apimart beginnen
         self.assertNotIn("eerlijk/app", spam)        # zelfde tekst bij maar 2 eigenaren
         self.assertNotIn("ander/app", spam)
-        self.assertIn("willekeurig2q/m2", spam)      # zelfde eind van de tekst bij 4 eigenaren
+        self.assertIn("willekeurig2q/m2", spam)
+
+    def test_eerlijke_gelijke_namen_zijn_geen_spam(self):
+        # vijf losse makers die Mohammed heten, elk met een eigen product (keuring A4, GuardAI)
+        repos = [
+            repo("mohammedali/guardai", description="AI guard for SaaS apps with Lemon Squeezy subscriptions"),
+            repo("mohammedkhan/recipe-box", description="Meal planner for busy parents, pro plan with grocery lists"),
+            repo("mohammedayman07/bounzo", description="Bouncy arcade game for Steam with a paid soundtrack"),
+            repo("mohammed-s/invoicer", description="Invoicing tool for freelancers in Egypt"),
+            repo("mohammedr99/tutorly", description="Marketplace connecting tutors and students, takes a commission"),
+            repo("mohammedx/landing", description="Landing page builder with waitlist forms for SaaS apps"),
+            repo("mohammedz/guardpro", description="Free open source SaaS apps guard with pricing page"),
+        ]
+        self.assertEqual(regels.spamnetwerk(repos), set())      # zelfde eind van de tekst bij 4 eigenaren
 
 
 class TestRapport(unittest.TestCase):
@@ -170,13 +243,16 @@ class TestRapport(unittest.TestCase):
         self.assertIn("waarvan 1 al eerder in de top", tekst)
         self.assertNotIn("\u2014", tekst)
 
-    def test_hooguit_twee_per_maker(self):
+    def test_hooguit_een_per_maker(self):
         d = self.data()
         for p in d["plannen"][:5]:
             p["naam"] = "zelfde/" + p["naam"].split("/")[1]
         namen = [p["naam"] for p in rapport.top(d)]
-        self.assertEqual(sum(n.startswith("zelfde/") for n in namen), 2)
+        self.assertEqual(sum(n.startswith("zelfde/") for n in namen), 1)
         self.assertEqual(len(namen), 25)
+
+    def test_zin_voor_thijs(self):
+        self.assertIn("Voor Thijs: je hoeft hier niets mee te doen.", rapport.maak(self.data()))
 
     def test_leeg(self):
         d = self.data()
@@ -216,6 +292,8 @@ class TestRun(unittest.TestCase):
             with open(os.path.join(d, "uit", "kandidaten.json")) as f:
                 opgeslagen = json.load(f)
             self.assertNotIn("owner", json.dumps(opgeslagen))  # geen eigenaargegevens, alleen naam en link
+            self.assertTrue(opgeslagen["plannen"][0]["in_top"])
+            self.assertTrue(opgeslagen["plannen"][0]["wat"])
             with open(gezien) as f:
                 g = json.load(f)
             self.assertEqual(g, {"oud/repo": "2026-11-01", "maker/invoicefox": "2026-11-19"})

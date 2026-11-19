@@ -189,10 +189,17 @@ def run(uit, gezien_pad=None, max_readmes=2000, dagen=2, vandaag=None, log=print
         "plannen": plannen,
         "ruis": ruis,
     }
+    tekst = rapport.maak(data)
+    # Privacy (keuring B4): de beschrijving van de maker kan namen bevatten die wij niet herkennen. Die bewaren we
+    # alleen voor de top van vandaag (die moet de beoordelaar lezen); bij de rest blijft "wat" leeg.
+    in_top = {p["naam"] for p in rapport.top(data)}
+    for p in plannen:
+        p["in_top"] = p["naam"] in in_top
+        if not p["in_top"]:
+            p["wat"] = ""
     os.makedirs(uit, exist_ok=True)
     with open(os.path.join(uit, "kandidaten.json"), "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
-    tekst = rapport.maak(data)
     with open(os.path.join(uit, "rapport.md"), "w") as f:
         f.write(tekst)
     # bijwerken wat we gemeld hebben (alleen de top van vandaag), voor de volgende dagen

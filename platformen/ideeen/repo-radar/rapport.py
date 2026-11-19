@@ -10,12 +10,12 @@ import sys
 TOP = 25
 
 
-PER_MAKER = 2
+PER_MAKER = 1
 
 
 def top(data, n=TOP):
-    """De beste n plannen die niet op een eerdere dag al in de top stonden, hooguit 2 per maker (in de eerste
-    proefrun had één account 4 bijna gelijke repo's in de top)."""
+    """De beste n plannen die niet op een eerdere dag al in de top stonden, hooguit 1 per maker (in de eerste
+    proefrun had één account 4 bijna gelijke repo's in de top; keuring A12)."""
     uit, per_maker = [], {}
     for p in data["plannen"]:
         maker = p["naam"].split("/")[0].lower()
@@ -82,6 +82,9 @@ def maak(data):
     uit = [
         f"# Repo-radar {data['datum']}",
         "",
+        "**Voor Thijs: je hoeft hier niets mee te doen.** Dit is een voorselectie; een agent van ons beoordeelt de "
+        "top één keer per week met de ideeëntest en meldt alleen kansen van 7 of hoger aan de hoofdchat.",
+        "",
         f"Gemaakt {data['gemaakt']} door de workflow ideeen-radar. Alle cijfers GEZIEN via de zoek-API van GitHub "
         "op die tijd. De score is een voorselectie met vaste regels (zie onderaan), geen oordeel: dat doet de "
         "beoordelaar met de ideeëntest.",
@@ -110,6 +113,7 @@ def maak(data):
         "geen README": "niets te lezen",
         "lege README": "te weinig tekst om een plan uit te halen",
         "alleen code, geen uitleg": "wel code, geen uitleg wat het is of voor wie",
+        "kopie van andermans repo": "de README verwijst naar dezelfde repo van een andere maker",
         "geen verdienplan in de tekst": "geen verdienmodel, prijs, betaalpagina of geldwoorden in de tekst",
     }
     for reden, n in per_reden.most_common():
@@ -118,11 +122,13 @@ def maak(data):
         "",
         "## Hoe de score werkt (max 10)",
         "",
-        "- verdienmodel genoemd: +2 (abonnement, eenmalige koop, pro-versie, per gebruik, commissie), +1 als het "
+        "- verdienmodel genoemd: +2 (abonnement, paywall of in-app aankopen, eenmalige koop, pro-versie, per gebruik, commissie), +1 als het "
         "alleen advertenties, affiliate of donaties is; kopje met prijzen in de README: +1; plan uitgeschreven "
         "(2+ kopjes zoals probleem, doelgroep, verdienmodel, concurrentie, roadmap): +1",
-        "- prijs gevonden: +2",
-        "- platform dat wij kennen: Blender, Obsidian, JetBrains, Garmin, Steam, Chrome of Gumroad +2, web +1",
+        "- prijs gevonden: +2 (alleen in de beschrijving, onder een kopje met prijzen, Pro, kopen of licentie, of op "
+        "een regel over de eigen verkoop; bedragen in vergelijkingstabellen of API-kosten tellen niet)",
+        "- platform dat wij kennen: Blender, Obsidian, JetBrains, Garmin, Steam of Chrome +2, web +1 (Gumroad is de "
+        "kassa en telt alleen als betaalpagina)",
         "- tractie: 10+ sterren +1, 50+ sterren +2; betaalpagina of wachtlijst +1; eigen site +1",
         "",
         "Volledige gegevens per repo: kandidaten.json in dezelfde map.",

@@ -15,7 +15,6 @@ ZOEKTERMEN = [
     ("monetization", False),
     ("pricing", False),
     ("subscription", False),
-    ("mrr", False),
     ("revenue", False),
     ("gumroad", True),
     ("stripe", False),
@@ -43,7 +42,7 @@ PLATFORMEN = [
     ("Steam", 2, r"\bon steam\b|steam (page|store|game|deck)|steamworks|wishlist on steam|\bgodot\b"),
     ("Chrome", 2, r"chrome[ -]extension|browser[ -]extension|manifest v3|chrome web store"),
     ("web", 1, r"\bsaas\b|web ?app|\bnext\.?js\b|\bnuxt\b|\bsvelte ?kit\b|landing page|\bsupabase\b|\bvercel\b"),
-    ("Gumroad", 2, r"\bgumroad\b"),  # laatst: "verkocht via Gumroad" zegt niets over waar het draait
+    ("Gumroad", 0, r"\bgumroad\b"),  # 0 punten: Gumroad is de kassa (telt al als betaalpagina), niet waar het draait
 ]
 # Platformen die wij (nog) niet bedienen: wel noemen, geen punten.
 ANDERE_PLATFORMEN = [
@@ -58,26 +57,27 @@ ANDERE_PLATFORMEN = [
 
 # Verdienmodel: label in gewone woorden, patroon.
 VERDIENMODELLEN = [
-    ("abonnement", r"subscription|per month|/ ?mo(nth)?\b|monthly plan|\bmrr\b|recurring|per user per|annual plan|/ ?year\b"),
+    ("abonnement", r"subscription|per month|/ ?mo(nth)?\b|monthly plan|recurring|per user per|annual plan|/ ?year\b"),
+    ("in-app aankopen of paywall", r"paywall|revenuecat|in-app purchases?|storekit|\biap\b"),
     ("eenmalige koop", r"one[- ]time (payment|purchase|fee)|lifetime (deal|access|license)|pay once|\bbuy (it )?now\b"),
-    ("gratis met betaalde pro-versie", r"freemium|free tier|pro version|premium (version|features|plan|tier)|upgrade to pro|\bpro plan\b|paid plan"),
+    ("gratis met betaalde pro-versie", r"freemium|free tier|pro version|premium (version|features|plan|tier)|upgrade to pro|\bpro plan\b|paid plan|pro licen[cs]e|licen[cs]e key|\bpro (edition|tier|upgrade)\b"),
     ("per gebruik betalen", r"pay[- ]as[- ]you[- ]go|credits? (system|pack)|usage[- ]based|per (request|credit|generation)"),
     ("commissie of transactiekosten", r"commission|transaction fee|platform fee|take rate|marketplace fee"),
     ("advertenties", r"\badsense\b|advertis(ing|ement)s? revenue|ad[- ]supported|display ads"),
     ("affiliate", r"\baffiliate\b"),
     ("donaties", r"buy ?me ?a ?coffee|ko-fi\.com|github sponsors|patreon|donat(e|ion)"),
 ]
-STERKE_MODELLEN = {"abonnement", "eenmalige koop", "gratis met betaalde pro-versie", "per gebruik betalen",
+STERKE_MODELLEN = {"abonnement", "in-app aankopen of paywall", "eenmalige koop", "gratis met betaalde pro-versie", "per gebruik betalen",
                    "commissie of transactiekosten"}
 
-# Betaalpagina's en wachtlijsten (tractie: iemand kan al betalen of zich aanmelden).
-BETAALLINKS = [
-    ("Stripe", r"buy\.stripe\.com|checkout\.stripe\.com|stripe\.com/(payment|checkout)"),
-    ("Gumroad", r"gumroad\.com/l/|\w+\.gumroad\.com"),
-    ("Lemon Squeezy", r"lemonsqueezy\.com/(checkout|buy)|\w+\.lemonsqueezy\.com"),
-    ("Paddle", r"paddle\.com/checkout|buy\.paddle\.com|pay\.paddle\.io"),
-    ("Polar", r"polar\.sh/[\w-]+"),
-    ("Ko-fi of Buy Me a Coffee", r"ko-fi\.com/|buymeacoffee\.com/"),
+# Betaalpagina's en wachtlijsten (tractie: iemand kan al betalen of zich aanmelden). Ko-fi en Buy Me a Coffee
+# niet: dat zijn donaties (staan bij verdienmodel), geen verkoop.
+BETAALLINKS = [  # alleen links naar een eigen kassa, niet naar de site van Stripe of Lemon Squeezy zelf
+    ("Stripe", r"buy\.stripe\.com/|checkout\.stripe\.com/"),
+    ("Gumroad", r"gumroad\.com/l/|\b(?!www\.|app\.|help\.|docs\.)[\w-]+\.gumroad\.com"),
+    ("Lemon Squeezy", r"lemonsqueezy\.com/(checkout|buy)/|\b(?!www\.|app\.|docs\.)[\w-]+\.lemonsqueezy\.com"),
+    ("Paddle", r"buy\.paddle\.com|pay\.paddle\.io|paddle\.com/checkout"),
+    ("Polar", r"polar\.sh/(?!docs|pricing|features|blog|signup|login)[\w-]+"),
 ]
 WACHTLIJST = r"join (the|our) wait ?list|wait ?list|getwaitlist\.com|launchlist|tally\.so|typeform\.com|early access sign ?up"
 
@@ -114,7 +114,7 @@ RUIS_NAAM = [  # op naam, beschrijving en topics
 RUIS_README = [  # op de README zelf
     ("spam of illegaal", r"patched build|\bnulled\b|premium unlocked|unlocked premium|activation bypass|license bypass|\bkeygen\b|cracked version"),
     ("sjabloon of boilerplate", r"use this template|this (is a )?(template|boilerplate)|starter (kit|template)|boilerplate for|clone this (repo|template) to start"),
-    ("huiswerk of oefening", r"\bhomework\b|\bassignment\b|course project|for learning purposes|learning project|practice project|bootcamp|\bcs50\b|as part of (a|the|my) (course|class|program)|university project|school project|this tutorial"),
+    ("huiswerk of oefening", r"\bmy (final |school |class )?(assignment|homework)\b|(final|course|class) (assignment|project)|for learning purposes|learning project|practice project|bootcamp|\bcs50\b|as part of (a|the|my) (course|class|program)|university project|school project|this tutorial"),
     ("crypto-pump", r"memecoin|meme coin|pump\.fun|presale|airdrop|token launch|sniper bot|\b100x\b"),
 ]
 
@@ -134,6 +134,7 @@ EENHEID = [(r"mo(nth)?|maand", "/maand"), (r"yr|year|jaar", "/jaar"), (r"user|se
 MAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 TELEFOON = re.compile(r"\+?\d[\d\s().-]{8,}\d")
 URL = re.compile(r"https?://\S+|www\.\S+")
+AT_NAAM = re.compile(r"(?<![\w.])@[\w.-]{2,}")
 
 
 def _zoek(patroon, tekst):
@@ -141,12 +142,14 @@ def _zoek(patroon, tekst):
 
 
 def schoon(tekst, maxlen=160):
-    """Eén regel platte tekst: geen markdown, links, mailadressen of telefoonnummers; geen gedachtestreepjes."""
+    """Eén regel platte tekst: geen markdown, links, mailadressen, @-namen of telefoonnummers; geen gedachtestreepjes.
+    Gewone namen in de tekst herkennen we niet; daarom bewaren we de beschrijving alleen voor de top (zie radar.py)."""
     t = re.sub(r"<[^>]+>", " ", tekst or "")
     t = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", t)          # plaatjes
     t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)        # links: alleen de tekst
     t = MAIL.sub("[mail]", t)
     t = URL.sub("", t)
+    t = AT_NAAM.sub("", t)                                 # @-namen van mensen of accounts
     t = TELEFOON.sub("", t)
     t = re.sub(r"[`*_#>|]+", " ", t)
     t = t.replace("\u2014", ",").replace("\u2013", "-")
@@ -163,7 +166,12 @@ def proza(readme):
     regels = []
     for r in t.splitlines():
         s = r.strip()
-        if not s or s.startswith(("#", "|", "    ", "\t", "![", "[![", "<img", "<p align", "$ ", "npm ", "pip ")):
+        if s.startswith("|"):  # tabel: de tekst in de cellen telt mee als uitleg, de scheidingsregel niet
+            s = "" if re.fullmatch(r"[|:\- ]+", s) else re.sub(r"\s*\|\s*", " ", s).strip()
+            if s:
+                regels.append(s)
+            continue
+        if not s or s.startswith(("#", "    ", "\t", "![", "[![", "<img", "<p align", "$ ", "npm ", "pip ")):
             continue
         regels.append(s)
     return "\n".join(regels)
@@ -225,31 +233,63 @@ def ruis_op_naam(repo):
     return None
 
 
+VERKOOPKOP = re.compile(r"^(#{1,4})\s*.*\b(pricing|plans?|prices?|prijzen|tarieven|pro|premium|buy|purchase|licen[cs]es?|licensing|upgrade|get it|download pro)\b", re.I)
+VERKOOPWOORD = re.compile(r"\bpro\b|premium|\bbuy\b|purchase|licen[cs]e|lifetime|one[- ]time|paywall|in-app|"
+                          r"gumroad\.com|(on|via|at|from) gumroad|lemonsqueezy\.com/(checkout|buy)|buy\.stripe|checkout\.stripe|buy\.paddle|our price|costs? (just|only)|"
+                          r"pay once|freemium|free tier|paid plan|subscribe|revenuecat|"
+                          # eigen kassa genoemd bij de techniek: "Lemon Squeezy for subscription and payment management"
+                          r"\b(stripe|lemon ?squeezy|paddle|gumroad|polar)\b.{0,40}\b(subscriptions?|billing|payments?)\b|"
+                          r"\b(subscriptions?|billing|payments?)\b.{0,40}\b(stripe|lemon ?squeezy|paddle|gumroad|polar)\b", re.I)
+# Kopjes over prijzen van anderen: geen eigen verkoop ("Pricing models explained", "Price comparison", "vs Stripe").
+NIET_EIGEN = re.compile(r"compar|\bvs\.?\b|versus|alternative|benchmark|explained|\bmodels?\b|competitor|\bother\b|\bcosts? of\b", re.I)
+TARIEF = re.compile(r"\d%\s*\+\s*[$€£]")  # "2.9% + $0.30": tarief van een betaalprovider
+ONTKENNING = re.compile(r"\b(no|without|never|zero|not an?|free of)\s+(\w+\s+){0,2}?(subscriptions?|monthly fees?|recurring( fees?)?|paywalls?|ads)\b", re.I)
+
+
+def verkooptekst(readme):
+    """Waar de maker over zijn eigen verkoop schrijft: de stukken onder een kopje met prijzen, Pro, kopen of
+    licentie, plus losse regels met zulke woorden of een betaallink. Bedragen elders (vergelijkingstabellen met
+    tarieven van concurrenten, API-kosten, omzet van cases) tellen zo niet als onze prijs (keuring A3)."""
+    uit, niveau = [], 0
+    for r in (readme or "").splitlines():
+        kop = re.match(r"^(#{1,6})\s", r)
+        if kop:
+            niveau = 0 if (niveau and len(kop.group(1)) <= niveau) else niveau
+            m = VERKOOPKOP.match(r)
+            if m and not niveau and not NIET_EIGEN.search(r):
+                niveau = len(m.group(1))
+        if (niveau or VERKOOPWOORD.search(r)) and not TARIEF.search(r):
+            uit.append(r)
+    return ONTKENNING.sub(" ", "\n".join(uit))
+
+
 def lees_plan(repo, readme):
     """Haal het plan uit naam, beschrijving, topics en README. Geeft een dict met velden in gewone woorden.
 
     Platform en doelgroep alleen uit de kop en het begin van de README (verderop staan lijsten met koppelingen
-    die anders alles laten lijken op een Blender- of Garmin-project); verdienmodel, prijs en betaallinks uit
-    de hele README (de prijzen staan vaak onderaan).
+    die anders alles laten lijken op een Blender- of Garmin-project); verdienmodel en prijs alleen uit de
+    verkooptekst (zie verkooptekst), betaallinks uit de hele README.
     """
     beschrijving = repo.get("description") or ""
     topics = " ".join(repo.get("topics") or [])
     kop = " ".join([repo.get("name", "").replace("-", " "), beschrijving, topics])
     begin = kop + "\n" + (readme or "")[:3000]
     heel = kop + "\n" + (readme or "")
+    geld = ONTKENNING.sub(" ", kop) + "\n" + verkooptekst(readme)
     homepage = (repo.get("homepage") or "").strip()
     return {
         "naam": repo["full_name"],
         "link": repo["html_url"],
         "wat": schoon(beschrijving) if len(beschrijving.strip()) >= 15 else schoon(eerste_alinea(readme)),
         "voor_wie": labels(DOELGROEPEN, begin, 2),
-        "verdienmodel": labels(VERDIENMODELLEN, heel, 2),
-        "prijs": prijzen(heel),
+        "verdienmodel": labels(VERDIENMODELLEN, geld, 2),
+        "prijs": prijzen(geld),
         "platform": labels(PLATFORMEN, begin, 2),
         "ander_platform": labels(ANDERE_PLATFORMEN, begin, 2),
         "betaallinks": labels(BETAALLINKS, readme or "", 3),
         "wachtlijst": _zoek(WACHTLIJST, heel),
-        "prijskop": _zoek(r"^#{1,4}\s*(pricing|plans|prijzen|tarieven)\b", readme or ""),
+        "prijskop": any(not NIET_EIGEN.search(m.group(0)) for m in
+                        re.finditer(r"^#{1,4}\s*(pricing|plans|prijzen|tarieven)\b.*$", readme or "", re.I | re.M)),
         "plankoppen": len(set(m.group(1).lower() for m in re.finditer(PLANKOPPEN, readme or "", re.I | re.M))),
         "geldwoorden": len(set(m.group(0).lower() for m in re.finditer(GELDWOORDEN, heel, re.I))),
         "site": bool(homepage) and "github.com" not in homepage,  # alleen ja/nee, de link zelf bewaren we niet
@@ -261,9 +301,23 @@ def lees_plan(repo, readme):
     }
 
 
+# Woorden die in bijna elke beschrijving van een geldproject staan; die zeggen niets over kopieën.
+GEWOON = set("with your that this from into for and the free open source tool tools apps app saas based built "
+             "simple fast easy using make made more best page pages platform online powered self hosted".split())
+
+
+def _woorden(r):
+    tekst = (r.get("name", "") + " " + (r.get("description") or "")).lower()
+    return set(re.findall(r"[a-z]{4,}", tekst.replace("-", " ").replace("_", " "))) - GEWOON
+
+
 def spamnetwerk(repos, min_groep=3):
-    """Namen van repo's die bij een kopie-netwerk horen: hetzelfde begin (80 tekens) of eind (50 tekens, dan 4+) van de
-    beschrijving bij 3+ verschillende eigenaren, of 5+ eigenaren waarvan de naam met dezelfde 7 tekens begint (zoals apimart1, apimart2, ...)."""
+    """Namen van repo's die bij een kopie-netwerk horen:
+    - hetzelfde begin (80 tekens) van de beschrijving bij 3+ eigenaren, of hetzelfde eind (50 tekens) bij 4+;
+    - of 5+ eigenaren waarvan de naam met dezelfde 7 tekens begint (zoals apimart1, apimart2) én die ook in hun
+      repo's op elkaar lijken (minstens de helft van de woorden in naam en beschrijving, zonder gewone woorden, gelijk aan die van een
+      andere eigenaar uit de groep). Alleen een gelijk begin van de naam is niet genoeg: veel mensen heten
+      Mohammed of Christopher (keuring A4)."""
     per_tekst, per_begin = {}, {}
     for r in repos:
         eigenaar = r["full_name"].split("/")[0].lower()
@@ -274,7 +328,7 @@ def spamnetwerk(repos, min_groep=3):
             if len(tekst) >= 60:
                 per_tekst.setdefault("e:" + tekst[-50:], set()).add(r["full_name"])
         if len(eigenaar) >= 8:
-            per_begin.setdefault(eigenaar[:7], {}).setdefault(eigenaar, set()).add(r["full_name"])
+            per_begin.setdefault(eigenaar[:7], {}).setdefault(eigenaar, []).append(r)
     spam = set()
     for sleutel, namen in per_tekst.items():
         # een gelijk eind telt pas bij 4+ eigenaren: korte staarten als "built with next.js and supabase" komen vaker voor
@@ -282,9 +336,19 @@ def spamnetwerk(repos, min_groep=3):
         if len({n.split("/")[0] for n in namen}) >= nodig:
             spam |= namen
     for eigenaars in per_begin.values():
-        if len(eigenaars) >= 5:
-            for namen in eigenaars.values():
-                spam |= namen
+        if len(eigenaars) < 5:
+            continue
+        woorden = {e: set().union(*(_woorden(r) for r in rs)) for e, rs in eigenaars.items()}
+        lijkend = set()
+        for a in woorden:
+            for b in woorden:
+                if a < b and woorden[a] and woorden[b]:
+                    gedeeld = len(woorden[a] & woorden[b]) / min(len(woorden[a]), len(woorden[b]))
+                    if gedeeld >= 0.5:
+                        lijkend |= {a, b}
+        if len(lijkend) >= 5:
+            for e in lijkend:
+                spam |= {r["full_name"] for r in eigenaars[e]}
     return spam
 
 
@@ -299,6 +363,15 @@ def ruis_op_readme(plan, readme):
     for reden, pat in RUIS_README:
         if _zoek(pat, readme[:6000]):
             return reden
+    # Losse woorden als "homework" of "assignment" zijn alleen huiswerk als er geen echt verdienplan staat:
+    # "collect homework submissions" in een betaalde leerapp is een product (keuring A6, TutorHelper).
+    sterk_plan = any(m in STERKE_MODELLEN for m in plan["verdienmodel"])
+    if not sterk_plan and _zoek(r"\bhomework\b|\bassignments?\b", readme[:6000]):
+        return "huiswerk of oefening"
+    eigenaar, naam = plan["naam"].lower().split("/", 1)
+    for m in re.finditer(r"github\.com/([\w-]+)/([\w.-]+?)(?:\.git)?(?=[/)\s#?\]\"']|$)", readme, re.I):
+        if m.group(2).lower() == naam and m.group(1).lower() != eigenaar:
+            return "kopie van andermans repo"
     if woorden < 40:
         # veel tekst maar weinig lopende zinnen: codeblokken, commando's of tabellen zonder uitleg
         heeft_code = "```" in readme or len(readme.strip()) - len(p) > 300
