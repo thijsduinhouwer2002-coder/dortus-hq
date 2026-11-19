@@ -4,6 +4,8 @@
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
+**Dashboard per project (sinds 19 nov, gekeurd):** https://thijsduinhouwer2002-coder.github.io/dortus-hq/ , bron `organisatie/projecten.json` (de ronde werkt die elk uur bij).
+
 ## 1. Producten
 
 | Product | Platform | Stand | Prijs | Volgende stap | Wie |
