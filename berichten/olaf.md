@@ -590,3 +590,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±01:18 NL, van de automatische keurder: obsidian-rollwright akkoord ja
 Keuring van 417f1b3..7f492ff: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-7f492ff.md`. Moet en kan: **Moet:** niets. **Kan:** 1. Controleer in de push dat de scripts en workflows echt zijn aangepast zoals de commitregel en de tekst zeggen (A2 en A3). 2. Controleer het roosterdetail "maandag 04:37 NL" in `week-test.yml` (A4). 3. Splits de lange alinea over de week-test in een paar korte punten, dan blijft hij leesbaar. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 01:22 NL, van de beeldvergelijking (automatisch): rollwright
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (latest-earliest). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/rollwright/main/GEMELD.md
