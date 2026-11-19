@@ -186,7 +186,6 @@ export function tekenSlot(
       '#8ff0c4',
     )
   }
-  // De mijlpaal staat links in de lege lichtbaan, niet over je eigen toren.
   // Staat 1,9 s en vervaagt dan, zodat het uitslagvel en zijn teksten vrij blijven.
   if (
     slot.mijlpaal &&
@@ -197,12 +196,13 @@ export function tekenSlot(
     const veer = t < 160 ? 1.35 - (0.35 * t) / 160 : 1
     ctx.save()
     ctx.globalAlpha = t > 1900 ? 1 - (t - 1900) / 300 : 1
-    ctx.translate(14, scene.h * 0.1)
+    // Onder Gloop, in de lege grot: nooit over je eigen toren.
+    ctx.translate(CX, scene.h * 0.56)
     ctx.scale(veer, veer)
     const [eerste, tweede, derde] = slot.mijlpaal.split('\n')
-    tekst(ctx, eerste ?? '', 0, 0, 20, 'left', '#fff6e6')
-    tekst(ctx, tweede ?? '', 0, 26, 32, 'left', '#ffc93c')
-    tekst(ctx, derde ?? '', 0, 62, 32, 'left', '#ffc93c')
+    tekst(ctx, eerste ?? '', 0, 0, 22, 'center', '#fff6e6')
+    tekst(ctx, tweede ?? '', 0, 28, 36, 'center', '#ffc93c')
+    tekst(ctx, derde ?? '', 0, 68, 36, 'center', '#ffc93c')
     ctx.restore()
     if (!slot.mijlpaalGeklonken) {
       slot.mijlpaalGeklonken = true

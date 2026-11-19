@@ -1,5 +1,28 @@
 # Stand: Gloop's Hat Tower op Reddit
 
+## Do 19 nov 2026 middag, afwisseling (bouwer), nog niet gekeurd
+Thijs zag dat de helden steeds van dezelfde kant vielen. Nu wisselt er per held en per ronde van alles, zonder dat het spel moeilijker te snappen wordt.
+
+### Afwisseling (wat er wisselt)
+| Wat | Hoe | Vast voor iedereen? |
+|---|---|---|
+| Kant en baan van de held | links, rechts, van boven (langs de toren) of eerst tegen de wand stuiteren (links of rechts), met stof en een boing bij de stuiter | ja: uit de dagcode en het heldnummer (`heldStijl` in `src/shared/spel.ts`) |
+| Soort held | 6 helden uit de 3D-modellen van Hats: ridder, heks, avonturier rood, avonturier paars, dief, bard | ja |
+| Draaiing | een halve tot twee keer rond, linksom of rechtsom (van boven sneller) | ja |
+| Tempo | 0,90 tot 1,10 keer de valsnelheid; telt mee in de regels, de server speelt het mee na | ja |
+| Eerste held | altijd de ridder van links op gewoon tempo, zodat de eerste hap meteen te lezen is | ja |
+| Lichtbaan | wijst naar waar de held vandaan komt; in de pauze al naar de volgende (een hint) | volgt de held |
+| Gloop | draait zich om naar de kant waar de held vandaan komt; knipoogt na een gewone hap, lacht na een voltreffer | volgt de held |
+| Woorden | gewone hap: GULP!, CHOMP!, SLURP!, MUNCH!, NOM!; reeks van 5: ON A ROLL!; 10, 15, ...: UNSTOPPABLE!; gemist: bye!, nope!, see ya!, phew!, not today! | per held |
+| Klanken | elke slok net andere toonhoogte; een klein "wie!" per soort held als hij binnenkomt; boing bij de stuiter | slok willekeurig, rest per held |
+| Gemist | de held landt en loopt weg naar de kant waar hij vandaan kwam | per held |
+
+Eerlijk: elke baan eindigt op hetzelfde moment in de mond (de hap blijft op tijd te lezen, met het gele "!" en de open bek). De toets "mikken loont" blijft groen; nagerekend op dag 1 tot 15: mikken haalt 33% tot ruim het dubbele meer dan het beste vaste tikritme (eerst 30%). Nieuwe toets: kant, soort en tempo zijn vast per dag en heldnummer, en alle vijf kanten komen voor. `npm test` groen (23 toetsen).
+
+### Inzendfilmpje opnieuw: `beelden/inzendfilmpje-1080x1920.mp4`
+34,5 s, 1080x1920, beeld voor beeld op 3x, met geluid. Nieuw: titel rechts (de eerste held komt van links, dus niet meer over de G), op de knip een overgang van 0,3 s en de nieuwe tekst precies daar, de mijlpaal onder Gloop in de lege grot (nooit meer over je toren), en het eind is een kaart "New tower every day / on r/GloopsHatTower". In de ronde komen helden van links, rechts, boven en via de wand, met verschillende soorten, en ON A ROLL!, GOLDEN!, PERFECT! en "not today!".
+Beelden uit het filmpje: `beelden/4-perfect-reeks.png`, `beelden/5-mijlpaal-gezamenlijke-toren.png`, `beelden/6-eindkaart.png`, `beelden/7-perfect-reeks-7.png`.
+
 ## Do 19 nov 2026 middag, filmpje opnieuw en kleine spelpunten (bouwer), nog niet gekeurd
 Na de keuring van 2b (spel akkoord ja, filmpje nee).
 
