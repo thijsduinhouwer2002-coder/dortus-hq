@@ -611,3 +611,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 19:34 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 18 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±20:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 9e18389..cc7162d: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-cc7162d.md`. Moet en kan: Moet: geen. Kan: - Laat de workflow-diff zien of controleer dat de stap erin staat en op "KAART BEELD OK" faalt (A2, A4). - Kies de kogelset op een eigenschap van de delen (bijvoorbeeld soort) in plaats van op de volgorde van de collectienamen (A5). - Zet de docstring gelijk met de code: 22 mm in plaats van 14 mm (B3). - Beeld en speelplezier keuren Daan en Iris nog; een keuring van de agent is er nodig bij live zetten. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
