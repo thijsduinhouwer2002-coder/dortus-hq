@@ -54,6 +54,8 @@ TOEGESTAAN = {
     "steam-proef.yml",                 # Godot-proef, beelden naar schermen
     "steam-fest-meting.yml",           # leest openbare spelertallen, schrijft in de repo
     "loket-meldingen.yml",             # R5: leest openbare issues van de loketrepo's, schrijft in berichten/hoofdchat.md
+    "schaduwbot.yml",                  # ai-handel: korte proef, leest alleen openbare marktdata, schrijft op tak ai-handel-data
+    "scanner.yml",                     # ai-handel: proefrun koersverschil-scanner, leest openbare koersen, schrijft op tak ai-handel-data (map scanner/)
 }
 
 # Invoer komt in workflows terecht; alleen gewone tekens, zodat er nooit een commando in kan sluipen.

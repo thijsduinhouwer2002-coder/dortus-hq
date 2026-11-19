@@ -1,0 +1,103 @@
+name: Schaduwbot Polymarket (alleen lezen)
+
+# Onderzoek ai-handel, 19 nov 2026 (platformen/ai-handel/schaduwbot/README.md). Leest alleen openbare marktgegevens
+# van Polymarket en rekent uit wat een denkbeeldige makerbot had verdiend en verloren. Geen account, geen sleutel,
+# geen wallet, geen orders, geen geld. Data gaat naar de tak `ai-handel-data`, nooit naar main.
+#
+# Doorlopend meten met runs van 5 uur 45: GitHub laat het schema in deze repo vaak vallen (roestronde R7), dus net
+# als het dashboard start hij ook bij elke push naar main. De job klok (organisatie/controle/klok.py) geeft hooguit
+# elke 6 uur een beurt (na 5 uur 30 met de speling); concurrency laat een nieuwe lange run wachten tot de vorige
+# klaar is, zodat er nooit twee tegelijk meten en er geen gat valt zolang er pushes of schema's komen.
+# Met de hand (of via organisatie/opdrachten/*.json) gestart: korte proef, data in proef/ (telt niet mee).
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      duur:
+        description: "Minuten meten (proef). Lange runs via schema of push: 345."
+        required: false
+        default: "10"
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  klok:
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py schaduwbot 6h
+
+  lang:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    concurrency:
+      group: schaduwbot-lang
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: platformen/ai-handel/schaduwbot
+      - name: Tests
+        run: cd platformen/ai-handel/schaduwbot && python3 -m unittest test_schaduwbot.py
+      - name: Meten (5 uur 45)
+        run: python3 platformen/ai-handel/schaduwbot/schaduwbot.py --duur 345 --uit "$RUNNER_TEMP/uit" --git .
+      - name: Rapport op de tak
+        if: always()
+        run: python3 platformen/ai-handel/schaduwbot/rapport.py --tak . --zet-op-tak --schrijf "$RUNNER_TEMP/rapport.md" > /dev/null
+      - name: Rapport in het overzicht van de run
+        if: always()
+        run: cat "$RUNNER_TEMP/rapport.md" >> "$GITHUB_STEP_SUMMARY" || true
+
+  proef:
+    if: github.event_name == 'workflow_dispatch'
+    concurrency:
+      group: schaduwbot-proef
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: platformen/ai-handel/schaduwbot
+      - name: Tests
+        run: cd platformen/ai-handel/schaduwbot && python3 -m unittest test_schaduwbot.py
+      - name: Bereikbaar vanaf de runner?
+        run: |
+          for url in "https://gamma-api.polymarket.com/events?limit=1" \
+                     "https://clob.polymarket.com/rewards/markets/current" \
+                     "https://data-api.polymarket.com/v2/status"; do
+            echo "$url -> $(curl -s -o /dev/null -w '%{http_code}' --compressed -A 'Mozilla/5.0 (schaduwbot)' "$url")"
+          done
+      - name: Meten (proef)
+        env:
+          DUUR: ${{ inputs.duur }}
+        run: |
+          case "$DUUR" in ''|*[!0-9]*) echo "duur moet een getal zijn"; exit 1;; esac
+          if [ "$DUUR" -gt 100 ]; then DUUR=100; fi
+          python3 platformen/ai-handel/schaduwbot/schaduwbot.py --duur "$DUUR" --flush 5 --soort proef \
+            --uit "$RUNNER_TEMP/uit" --git .
+      - name: Rapport (proef) op de tak
+        if: always()
+        run: python3 platformen/ai-handel/schaduwbot/rapport.py --tak . --soort proef --zet-op-tak --schrijf "$RUNNER_TEMP/rapport.md" > /dev/null
+      - name: Rapport in het overzicht van de run
+        if: always()
+        run: cat "$RUNNER_TEMP/rapport.md" >> "$GITHUB_STEP_SUMMARY" || true
