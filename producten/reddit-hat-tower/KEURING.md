@@ -1,3 +1,60 @@
+# Herkeuring Gloop's Hat Tower op Reddit fase 2a, do 19 nov 2026, keurder (agent van de hoofdchat)
+Wat ik keurde: commit 8ad9273f (fase 2a), dezelfde map. Opnieuw lokaal gespeeld in een kopie in /tmp (npm ci, `npm test`, `PROEF=1 npm run local`), met Playwright op 390x780 (3x, aanraken), 1280x760, 1280x560, liggend 844x390 en de post in de feed op 390x512 en 740x512. Filmpje `beelden/filmpje-ronde-telefoon.mp4` bekeken als blad van 33 beelden (1 per seconde). Beelden in /tmp, na afloop opgeruimd; de beelden van de bouwer in `beelden/` laten hetzelfde zien.
+Akkoord: ja (beide moet-punten opgelost en zelf nagerekend; nog wel de keuring van Iris op plezier en beeld, en niemand heeft het als mens gespeeld)
+
+## De moet-punten van de eerste keuring
+| # | Wat ik toetste | Uitslag | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| M1 | **Mikken loont.** Zelf nagerekend met `speelNa`, dag 1 tot 10, 40 spelers per soort. Blind tikken met een vast ritme (160 tot 480 ms, 4 fasen): middelste uitslag 13 tot 20 hoeden, hoogste 23 tot 28 (dat hoogste kies je alleen achteraf). Blind met menselijke spreiding in het ritme: middelste 13 tot 19, hoogste 18 tot 25. Gemikt (spreiding 45, 12% te laat): middelste 33 tot 45. Slordig gemikt (spreiding 70, 25% te laat): middelste 16 tot 20, dus ongeveer gelijk aan blind. Mikken levert nu ruim het dubbele op; de nieuwe toets ("25% boven het beste vaste ritme", dag 1 tot 5) is groen en is streng genoeg, want hij vergelijkt met het beste ritme achteraf. | opgelost | Feit (GEZIEN) | hoog |
+| M2 | **Eén dagbeurt.** Dagbeurt gestart, 4 keer getikt, herladen: de knop "Play tower #1" is weg, er staat "Your run for tower #1 was started and not finished, so it counts as 0. Tower #2 comes tomorrow." en alleen Practice (GEZIEN op telefoon en desktop). Server: insturen kan alleen na `api/start`, de uitslag wordt eerst geclaimd met zet-als-nieuw; toetsen voor herladen, dubbele inzending en middernacht groen. | opgelost | Feit | hoog |
+| M2b | De claim gebruikt `redis.set(key, value, {nx: true}) === 'OK'`. De bouwer noemt dat GOK. In `@devvit/redis` 0.15.4 zelf (`test/mocks/RedisMock.js`) geeft Set het antwoord van Redis terug: "OK" als hij zette, anders een lege tekst; Devvit's eigen `cache/PromiseCache.js` leunt er op dezelfde manier op. Dus waarschijnlijk goed. Gaat het mis, dan krijgt elke speler "you already played today" en wordt niets bewaard: in playtest als eerste testen. | waarschijnlijk goed | Vermoeden, met bron in het pakket | midden |
+
+## Wat ik zag (skill kijken)
+- **Plaatjes:** scherp, ook ingezoomd op 3x. De trapjes en de zwarte pixelrand van het slokbeeld zijn weg. Gloop, held en hoeden komen nu allemaal uit dezelfde 3D-modellen en passen bij elkaar.
+- **Animatie:** echt beter. Strook van zes beelden rond een slok: "PERFECT! +3 hats, streak 2", Gloop zakt in met slijmbelletjes, knippert, de held tuimelt ondersteboven met de hoed op, het gele "!" bij de bek, bij een misser hupt de held weg met "bye!" en kijkt Gloop met een dichtgeknepen oog. In het filmpje groeit de toren de hele ronde door tot boven het scherm uit; dat is de grap van het spel en die komt nu over.
+- **Gezamenlijke toren:** rechts achterin, doffer, met het bordje "r/GloopTowerTest 131 hats today". Vult de lege grot. Op de telefoon staat hij half buiten de rechterrand en zweeft net boven de grond; op het startscherm raakt hij de tekst "together." en de uitleg.
+- **Eindscherm:** uitleg van de vakjes, voorbeeld van de reactie ("Posts as u/... under today's post"), "Post as comment", Copy, "Join r/...", "Since tower #1: 290 hats", vandaag en gisteren. Reactie in het log van de server heeft witregels (GEZIEN). Klein: in het voorbeeld is een gewone gulp een geel vakje, in het spel en de uitleg oranje.
+- **Eindbeeld bij hoge score:** bij 50 hoeden trekt de camera zo ver terug dat de toren een dunne streep wordt en Gloop een stipje (GEZIEN op desktop). Nu de scores door de reeksen hoger worden (30 tot 50), verliest het sterkste moment zijn kracht.
+- **Liggend (844x390):** opgelost, knoppen naast elkaar, alles leesbaar. **Feed:** knoptekst op één regel, pet binnen beeld.
+- **Filmpje:** 32,5 s, 390x780 op 1x, een hele ronde plus het uitslagvel. Goed om te kijken, geen inzendfilmpje: voor YouTube te klein (minstens 1080x1920 nodig) en zonder geluid.
+- Geen fouten of waarschuwingen in de console (GEZIEN).
+- Let op bij mijn eigen meting: op de telefoonmaat haalde mijn Playwright-speler gemikt maar 17 tegen 21 blind, op desktop 50 gemikt. Dat komt door de vertraging van de aanraak-tik in Playwright op 3x (veel late gulps), niet door het spel; de berekening in M1 is het bewijs.
+
+## Nieuwe bevindingen
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel of bron |
+|---|---|---|---|---|
+| N1 | Nog open (A10): een post speelt de toren van vandaag, niet die uit de titel. Staat eerlijk in stand.md. | Feit | hoog | |
+| N2 | `score` aanvaardt ook gisteren als er een start van gisteren is. Wie gisteren startte en afbrak, kan vandaag met een zelfgemaakt verzoek alsnog insturen. Kan alleen met een script. Goedkope rem: insturen alleen binnen bijvoorbeeld 60 s na de start (de starttijd staat al in de sleutel). | Feit (code) | midden | |
+| N3 | Bestanden onder 400 regels (hoogste `stijl.css` 351), `architectuur.md` is er, LICENSE zegt nu "Copyright (c) 2026 Dortus" met Gloop, helden, hoeden en plaatjes van Dortus, OFL-teksten bij de letters, README met een stuk voor moderators. Geen `claude`, geen link naar buiten, geen Garmin of Steam in spel of README (grep). | Feit | hoog | B4 tot B8 van de eerste keuring |
+| N4 | De plaatjes komen uit `producten/steam-hol/modellen` (eigen modellen van Hats, `kunst/render.sh`): eigen IP, en de port blijft echt. | Feit | hoog | wedstrijd: eigen IP |
+| N5 | Niet getest, kan pas na de login: Redis met nx (M2b), `submitComment` en `subscribeToCurrentSubreddit` namens de speler, de dagtaak, uitgelogd spelen. | Feit | hoog | |
+
+## Moet (blokkeert akkoord)
+Geen.
+
+## Kan (volgorde: punten per moeite)
+1. Eindbeeld bij hoge torens: niet verder uitzoomen dan een vaste grens; laat de camera van de top van de toren naar Gloop zakken, of laat de toren boven het vel uit lopen met het getal ernaast.
+2. Dag per post bewaren (N1).
+3. Insturen alleen kort na de start (N2).
+4. Gezamenlijke toren op de telefoon helemaal in beeld en op de grond; op het startscherm niet achter de tekst.
+5. Gulp-vakje in het voorbeeld van de reactie dezelfde kleur als in het spel (of de uitleg aanpassen).
+6. Inzendfilmpje: 1080x1920, onder 1 minuut, met geluid, eindigend op de toren en het uitslagvel.
+
+## Tegen de vier jurypunten (stand nu, lokaal; GOK, mijn oordeel)
+| Punt | Eerst | Nu | Waarom |
+|---|---|---|---|
+| Delightful UX | 6 | 8 | Scherpe, samenhangende plaatjes, echte animatie (Gloop reageert, held tuimelt en hupt weg), mikken voelt nu de moeite waard met "PERFECT! streak". Min: het eindbeeld wordt bij hoge scores een streep; nog niet door een mens gespeeld. |
+| Polish | 6 | 7 | Geen fouten, liggend en feed in orde, LICENSE, OFL, README voor moderators, eerlijke start en score met toetsen. Min: niets is op Reddit getest (Redis nx, reactie, lid worden, dagtaak); zonder werkende demopost blijft dit GOK 2 of 3. |
+| Reddity | 5 | 7 | Gezamenlijke toren in elke ronde met het bordje van de subreddit, reactie met voorbeeld, Join-knop, gisteren en alle dagen. Min: de gezamenlijke toren is een zuil aan de rand, nog geen moment waarop jij er zichtbaar iets aan toevoegt; in een kleine demo-subreddit blijft het stil. |
+| Daily Content | 7 | 7 | Zelfde toren voor iedereen, vijf dagregels, gouden helden vooraf, dagen op rij, gisteren te zien. Min: post en dag lopen nog uit elkaar (N1); de regels zijn vooral tempoknoppen. |
+
+## Top 3 voor de volgende ronde
+1. **Op Reddit krijgen en de vier onbekende delen testen** (Redis nx, reactie, lid worden, dagtaak) in een demopost. Vraagt de login van Thijs (uiterlijk ma 23 nov). Dit levert de meeste punten: Polish hangt er helemaal aan.
+2. **Het eindmoment terug** (kan 1) **plus dag per post** (kan 2). Klein werk; het eindbeeld is ook het beeld voor het filmpje en de Devpost-pagina.
+3. **Je eigen hoeden zichtbaar naar de gezamenlijke toren** aan het eind (een seconde: jouw toren vliegt over naar de zuil van de subreddit, met "r/... passed 1,000 hats today" bij een mijlpaal), daarna het inzendfilmpje op 1080x1920 met dat moment erin. Maakt Reddity zichtbaar in de eerste 10 seconden van de jury.
+
+---
+
 # Keuring Gloop's Hat Tower op Reddit fase 1, do 19 nov 2026, keurder (agent van de hoofdchat)
 Wat ik keurde: commit a542cc35, `producten/reddit-hat-tower/` (ontwerp.md, stand.md, app/, beelden/). Lokaal gespeeld in een kopie in /tmp (npm ci, `npm test`, `PROEF=1 npm run local`), met Playwright op 390x780 (3x, aanraken), 1280x760, 1280x560, 1024x600, de post in de feed op 390x512 en 740x512, en liggend 844x390. Regels zelf gelezen met curl op 19 nov: redditgameofday2026.devpost.com (overzicht en /rules) en developers.reddit.com/docs/devvit_rules en /docs/capabilities/server/userActions.
 Akkoord: nee (twee moet-punten, allebei klein: samen GOK een halve dag werk)
