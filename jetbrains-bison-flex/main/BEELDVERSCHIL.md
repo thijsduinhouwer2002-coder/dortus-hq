@@ -1,40 +1,40 @@
 ## Beeldvergelijking Bison & Flex (main)
-GROOT: 15 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+GROOT: 19 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| clion-donker-calc-y.png | 5550 px (0.107%), ruis | |
-| clion-licht-calc-y.png | 38035 px (0.734%), x 84 tot 2795, y 0 tot 1471 | GROOT |
-| donker-calc-l.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-calc-y-structuur.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-calc-y.png | 34879 px (0.673%), x 57 tot 1169, y 0 tot 1737 | GROOT |
-| donker-hernoem-conflict.png | andere maat: 1600x1174 werd 1592x1172 | GROOT |
-| donker-hernoem-hint.png | 31169 px (0.601%), x 57 tot 1066, y 0 tot 283 | GROOT |
-| donker-hernoem-melding.png | 31169 px (0.601%), x 57 tot 1066, y 0 tot 283 | GROOT |
-| donker-hernoem-scanner.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-hernoem-structuur.png | 36949 px (0.713%), x 57 tot 2691, y 0 tot 1683 | GROOT |
-| donker-hernoem-venster.png | gelijk | |
-| donker-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
-| donker-meldingen-oplossing.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-meldingen.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-pro-hint.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
-| donker-pro-melding.png | 31169 px (0.601%), x 57 tot 1866, y 0 tot 643 | GROOT |
-| licht-calc-l.png | gelijk | |
-| licht-calc-y-structuur.png | gelijk | |
-| licht-calc-y.png | 23735 px (0.458%), x 82 tot 1169, y 168 tot 1739 | GROOT |
+| clion-donker-calc-y.png | 17441 px (0.336%), x 104 tot 997, y 0 tot 222 | GROOT |
+| clion-licht-calc-y.png | 4105 px (0.079%), ruis | |
+| donker-calc-l.png | 1495 px (0.029%), ruis | |
+| donker-calc-y-structuur.png | 1495 px (0.029%), ruis | |
+| donker-calc-y.png | 5486 px (0.106%), ruis | |
+| donker-hernoem-conflict.png | andere maat: 1592x1172 werd 1600x1174 | GROOT |
+| donker-hernoem-hint.png | 1495 px (0.029%), ruis | |
+| donker-hernoem-melding.png | 1639 px (0.032%), ruis | |
+| donker-hernoem-scanner.png | 1495 px (0.029%), ruis | |
+| donker-hernoem-structuur.png | 1495 px (0.029%), ruis | |
+| donker-hernoem-venster.png | 68 px (0.021%), ruis | |
+| donker-kleurenpagina.png | andere maat: 2002x1402 werd 1994x1400 | GROOT |
+| donker-meldingen-oplossing.png | 1495 px (0.029%), ruis | |
+| donker-meldingen.png | 1495 px (0.029%), ruis | |
+| donker-pro-hint.png | 1495 px (0.029%), ruis | |
+| donker-pro-melding.png | 1639 px (0.032%), ruis | |
+| licht-calc-l.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-calc-y-structuur.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-calc-y.png | 31703 px (0.612%), x 68 tot 1169, y 0 tot 208 | GROOT |
 | licht-hernoem-conflict.png | gelijk | |
-| licht-hernoem-hint.png | 144 px (0.003%), ruis | |
-| licht-hernoem-melding.png | 144 px (0.003%), ruis | |
-| licht-hernoem-scanner.png | gelijk | |
-| licht-hernoem-structuur.png | gelijk | |
+| licht-hernoem-hint.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-hernoem-melding.png | 26866 px (0.518%), x 68 tot 1066, y 0 tot 283 | GROOT |
+| licht-hernoem-scanner.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-hernoem-structuur.png | 189777 px (3.661%), x 68 tot 2777, y 0 tot 1719 | GROOT |
 | licht-hernoem-venster.png | gelijk | |
 | licht-kleurenpagina.png | 68 px (0.002%), ruis | |
-| licht-meldingen-oplossing.png | gelijk | |
-| licht-meldingen.png | 144 px (0.003%), ruis | |
-| licht-pro-hint.png | gelijk | |
-| licht-pro-melding.png | gelijk | |
-| winkel-alleplekken.png | gelijk | |
-| winkel-hernoemd.png | gelijk | |
-| winkel-melding-menu.png | gelijk | |
-| winkel-melding-na.png | gelijk | |
-| winkel-melding-zweef.png | gelijk | |
+| licht-meldingen-oplossing.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-meldingen.png | 26866 px (0.518%), x 68 tot 1002, y 0 tot 1699 | GROOT |
+| licht-pro-hint.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| licht-pro-melding.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| winkel-alleplekken.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| winkel-hernoemd.png | 26866 px (0.518%), x 68 tot 426, y 0 tot 555 | GROOT |
+| winkel-melding-menu.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
+| winkel-melding-na.png | 26866 px (0.518%), x 68 tot 424, y 0 tot 1039 | GROOT |
+| winkel-melding-zweef.png | 26722 px (0.515%), x 68 tot 424, y 0 tot 79 | GROOT |
