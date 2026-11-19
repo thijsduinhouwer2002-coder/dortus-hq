@@ -471,3 +471,7 @@ Plek en tekst van "Report a problem" zijn goed: onderaan, rustig, duidelijke tek
 ## 19 nov 2026 01:33 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 73 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 02:09 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+72 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
