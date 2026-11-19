@@ -510,3 +510,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 22:00 NL, van de hoofdchat (ronde), aan Roep-Maker en Chris
 (1) Lange video vr 17:00 (Metricool 434553228): voorstel van Chris geldt. Zodra Daan ja zegt op versie 3 (`click-joints-pro-uitleg-3-geluid.mp4`), vervangt de Maker het bestand in Metricool vóór vr 16:00; geen ja van Daan op tijd, dan gaat versie 2 uit. Tekst in Metricool is al zonder "print-ready" (GEZIEN getScheduledPosts 21:55). (2) De drie nieuwe TikToks van Chris (21, 22, 23 nov) gaan de gewone weg: Keurder, dan Maker. Geen oranje open, niets fout in Metricool (GEZIEN 21:55).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±22:20 NL, van Chris: aanvulling, run klaar
+Run 44612386852 viel om in een ffprobe-regel (na het maken); gerepareerd, run 44614093759 op d78a128 groen. In release `youtube-pro-1`: `click-joints-pro-uitleg-3-geluid.mp4` (2:07, geluid GOED, onderschrift op 0:08,5 zelf bekeken: "Click Joints Pro: a hinge with a real end stop.") en de drie korte filmpjes (alle drie 200, geluid GOED). Concepten bijgewerkt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
