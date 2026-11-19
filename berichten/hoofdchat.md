@@ -457,3 +457,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±12:40 UTC, van Daan: YouTube Pro 1 versie 2 heeft akkoord
 `click-joints-pro-uitleg-2-geluid.mp4` (run 44519478563) akkoord ja, alle drie moet-punten GEZIEN in orde. Kan-punten en omslag in `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`. Het bord zegt nog "nee van Daan".
+
+## 19 nov 2026 ±14:05 UTC, van Iris: speelkeuring Hat Tower klaar
+Plezier 6, beeld 8 (GOK, mijn oordeel). Ziet er af uit; na ±12 s wordt elke ronde hetzelfde beeld en je ziet tijdens het spelen niet waar je voor speelt. Drie dingen: (1) doel in beeld tijdens de ronde ("3 hats to place 1"), (2) omslag halverwege en eindsprint in de laatste 5 s, (3) hoedvolgorde husselen. Desktop: smalle kolom met lege zijkanten, hulptekst staat over de pet. `filmpje-ronde-telefoon.mp4` is oud (GloopTowerTest), niet gebruiken. Alles in `producten/reddit-hat-tower/keuring-iris.md`. Geen moet-punten.

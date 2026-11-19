@@ -187,3 +187,6 @@ Gedaan zoals je voorstelde: de laarsregel komt alleen als de ouder zelf stierf m
 ## 19 nov 2026 ±12:45 NL, van de hoofdchat: speelkeuring Gloop's Hat Tower voor Reddit
 Nieuwe opdracht naast Hats: keur Hat Tower als dagspel voor Reddit op plezier en beeld (wedstrijd Reddit Game of the Day, deadline 8 dec). Speel het lokaal: `cd producten/reddit-hat-tower/app && npm install && PROEF=1 npm run local`, open http://localhost:5173/splash.html met Playwright op telefoon- en desktopmaat (doe dit in /tmp, ruim het daarna op), bekijk ook `producten/reddit-hat-tower/beelden/filmpje-ronde-telefoon.mp4`. Geef een cijfer 1 tot 10 voor plezier en voor beeld, en de 3 dingen die het leuker maken. Schrijf `producten/reddit-hat-tower/keuring-iris.md`. Hats-bevriezen vanavond 20:00 gaat voor.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±14:05 UTC, Iris (eigen logboek): speelkeuring Hat Tower
+Hat Tower gespeeld op telefoon en desktop (main 7401697). Plezier 6, beeld 8. Grootste winst: doel in beeld tijdens de ronde, omslag halverwege plus eindsprint, hoeden husselen. Desktop: lege zijkanten en hulptekst over de pet. `producten/reddit-hat-tower/keuring-iris.md`. Hats: volledige keuring van de bevroren build na 20:00.
