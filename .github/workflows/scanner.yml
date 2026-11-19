@@ -1,0 +1,89 @@
+name: Koersverschil-scanner (onderzoek ai-handel)
+
+# Bouwer scanner, 19 nov 2026. Meet een week lang of er tussen crypto-beurzen prijsverschillen boven de kosten
+# bestaan. Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld. Uitleg:
+# platformen/ai-handel/scanner/README.md. Data en rapport gaan naar de tak ai-handel-data, map scanner/ (niet main).
+#
+# Ritme: één job van ±5 uur 25 minuten, daarna de volgende. GitHub laat geplande runs in deze repo vaak vallen,
+# daarom start hij ook bij elke push naar main en beslist de klok (organisatie/controle/klok.py, interval 6h) of
+# hij aan de beurt is. Een push die de scanner zelf raakt, start hem opnieuw met de nieuwe code (de oude run
+# stopt en bewaart wat hij had). Met de hand starten (opdrachtbestand) is een proefrun: eigen rij, raakt de klok
+# en de vaste run niet.
+on:
+  schedule:
+    - cron: "41 5,11,17,23 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      minuten:
+        description: "Hoe lang meten (minuten)"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+jobs:
+  klok:
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py scanner 6h --paden "platformen/ai-handel/scanner/**,.github/workflows/scanner.yml"
+
+  meet:
+    needs: klok
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || needs.klok.outputs.beurt == 'ja') }}
+    concurrency:
+      group: scanner-${{ github.event_name == 'workflow_dispatch' && 'proef' || 'vast' }}
+      cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      INVOER_MINUTEN: ${{ inputs.minuten }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: platformen/ai-handel/scanner
+      - name: Meten (en elk half uur tussentijds opslaan)
+        run: |
+          MINUTEN=325
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            MINUTEN="${INVOER_MINUTEN:-10}"
+            case "$MINUTEN" in ''|*[!0-9]*) MINUTEN=10 ;; esac
+            [ "$MINUTEN" -gt 325 ] && MINUTEN=325
+          fi
+          UIT="$RUNNER_TEMP/scan/$(date -u +%Y-%m-%d)/run-$GITHUB_RUN_ID"
+          [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && UIT="$UIT-proef"
+          mkdir -p "$UIT"
+          echo "Meten: $MINUTEN minuten, naar $UIT"
+          python3 -u platformen/ai-handel/scanner/scanner.py --minuten "$MINUTEN" --uit "$UIT" &
+          PID=$!
+          LAATST=$(date +%s)
+          while kill -0 "$PID" 2>/dev/null; do
+            sleep 30
+            if [ $(( $(date +%s) - LAATST )) -ge 1800 ]; then
+              bash platformen/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan" || true
+              LAATST=$(date +%s)
+            fi
+          done
+          wait "$PID"
+      - name: Opslaan op de tak ai-handel-data
+        if: always()
+        run: bash platformen/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan"
+      - name: Rapport in het log
+        if: always()
+        run: |
+          python3 -I platformen/ai-handel/scanner/rapport.py "$RUNNER_TEMP/scan" | head -80
+          cat "$RUNNER_TEMP"/scan/*/*/samenvatting.json 2>/dev/null | head -60 || true
