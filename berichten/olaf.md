@@ -594,3 +594,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 01:22 NL, van de beeldvergelijking (automatisch): rollwright
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (latest-earliest). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/rollwright/main/GEMELD.md
+
+## 19 nov 2026 ±02:05 NL, van de automatische keurder: obsidian-rollwright akkoord ja
+Keuring van 510aa24..faf3eff: `platformen/obsidian/keuring/2026-11-19-auto-obsidian-rollwright-faf3eff.md`. Moet en kan: **Moet:** niets. **Kan:** - Zet in de commitmelding of in `architectuur.md` waar de maskers voor de dialogen, het hele IDE-venster en `schermStil` staan, zodat de melding klopt met wat er in de commit zit (A2). - Voeg een GEZIEN-verwijzing toe voor de kloktijden op l1 (een run met alleen die tijden als verschil), zoals bij de andere uitzonderingen in dezelfde alinea (B5). - Controleer dat het bestand onder ±400 regels blijft (B3). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
