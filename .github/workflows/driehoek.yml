@@ -1,0 +1,102 @@
+name: Driehoek-meter (onderzoek ai-handel)
+
+# Bouwer driehoek-meter, 19 nov 2026. Meet een week lang of er binnen één beurs driehoeken (bijv. EUR > BTC > ETH
+# > EUR) bestaan met winst na drie keer takerkosten. Alleen openbare API's: geen account, geen sleutel, geen
+# handel, geen geld. Uitleg: platformen/ai-handel/driehoek/README.md. Data en rapport gaan naar de tak
+# ai-handel-data, map driehoek/ (niet main).
+#
+# Ritme zoals de scanner: één job van ±5 uur 25 minuten, daarna de volgende. GitHub laat geplande runs in deze
+# repo vaak vallen, daarom start hij ook bij elke push naar main en beslist de klok (organisatie/controle/klok.py,
+# interval 6h) of hij aan de beurt is. Met de hand starten (opdrachtbestand) is een proefrun: eigen rij, raakt de
+# klok en de vaste run niet. Na de meetweek (EINDE) slaat de vaste run het meten over; verlengen = EINDE aanpassen.
+on:
+  schedule:
+    - cron: "47 5,11,17,23 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      minuten:
+        description: "Hoe lang meten (minuten)"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+env:
+  EINDE: "2026-11-27"
+
+jobs:
+  klok:
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - name: Na de meetweek niet meer
+        id: week
+        run: |
+          if [ "$(date -u +%Y-%m-%d)" \> "$EINDE" ]; then echo "na=ja" >> "$GITHUB_OUTPUT"; echo "Meetweek voorbij ($EINDE)"; else echo "na=nee" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.week.outputs.na == 'nee'
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        if: steps.week.outputs.na == 'nee'
+        run: python3 -I organisatie/controle/klok.py driehoek 6h --paden "platformen/ai-handel/driehoek/**,.github/workflows/driehoek.yml"
+
+  meet:
+    needs: klok
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || needs.klok.outputs.beurt == 'ja') }}
+    concurrency:
+      group: driehoek-${{ github.event_name == 'workflow_dispatch' && 'proef' || 'vast' }}
+      cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      INVOER_MINUTEN: ${{ inputs.minuten }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            platformen/ai-handel/driehoek
+            platformen/ai-handel/scanner
+      - name: Meten (en elk half uur tussentijds opslaan)
+        run: |
+          MINUTEN=325
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            MINUTEN="${INVOER_MINUTEN:-10}"
+            case "$MINUTEN" in ''|*[!0-9]*) MINUTEN=10 ;; esac
+            [ "$MINUTEN" -gt 325 ] && MINUTEN=325
+          fi
+          UIT="$RUNNER_TEMP/dh/$(date -u +%Y-%m-%d)/run-$GITHUB_RUN_ID"
+          [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && UIT="$UIT-proef"
+          mkdir -p "$UIT"
+          echo "Meten: $MINUTEN minuten, naar $UIT"
+          python3 -u platformen/ai-handel/driehoek/driehoek.py --minuten "$MINUTEN" --uit "$UIT" &
+          PID=$!
+          # Bij afbreken het signaal doorgeven, zodat de meter zijn open driehoeken en samenvatting.json nog wegschrijft.
+          trap 'kill -TERM "$PID" 2>/dev/null; wait "$PID"; exit 1' INT TERM
+          LAATST=$(date +%s)
+          while kill -0 "$PID" 2>/dev/null; do
+            sleep 30 & wait $!
+            if [ $(( $(date +%s) - LAATST )) -ge 1800 ]; then
+              bash platformen/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh" || true
+              LAATST=$(date +%s)
+            fi
+          done
+          wait "$PID"
+      - name: Opslaan op de tak ai-handel-data
+        if: always()
+        run: bash platformen/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh"
+      - name: Rapport in het log
+        if: always()
+        run: |
+          python3 -I platformen/ai-handel/driehoek/rapport.py "$RUNNER_TEMP/dh" --met-proef | head -120
+          cat "$RUNNER_TEMP"/dh/*/*/samenvatting.json 2>/dev/null | head -80 || true
