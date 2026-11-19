@@ -683,4 +683,4 @@ Alleen aanvullen, nooit iets weghalen.
 - 10:35 UTC: "No joint yet" bij los scharnier opgelost in `betaald/scharnier.py` (cj_passing groen op beide delen, zoals figuur.py). E2e op main start door de push; keuring gevraagd aan Daan. Volgende run: uitslag van de e2e nakijken.
 
 ## 19 nov 2026 ±12:15 UTC, Bram
-- Kan-punten keurder en Daan bij het scharnier: een eerder Tight of Too thin blijft op het deel waar dat gewricht ligt (groen gaat er niet overheen), toets na Place hinge (beide delen Good fit) en toets `toets_tight_blijft`, regel in `architectuur.md`. Geen Blender hier; e2e start door de push. Volgende run: uitslag nakijken en Daan vragen.
+- Kan-punten keurder en Daan bij het scharnier: een eerder Tight of Too thin blijft op het deel waar dat gewricht ligt (groen gaat er niet overheen), toets na Place hinge (beide delen Good fit) en toets `toets_tight_blijft`, regel in `architectuur.md`. Geen Blender hier; e2e start door de push. E2e-run 44512744216 loopt, Daan gevraagd. Volgende run: uitslag nakijken.
