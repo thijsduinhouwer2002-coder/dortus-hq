@@ -25,11 +25,11 @@ De schaduwbot toetst route 1 uit `../D-arbitrage.md`: de beloning van Polymarket
 - **Voorraadrem:** nooit meer dan 2 keer de ordergrootte netto aan één kant (B punt 40); dan zet hij die kant niet meer.
 
 ### De beloning (GOK)
-Per order: punten = ((v − afstand) / v)² × grootte, met v = `rewards_max_spread` in centen. Bod en laat tellen elk aan één kant; de score is het minimum van de twee kanten, en tussen 0,10 en 0,90 telt één kant ook, gedeeld door 3 (docs Liquidity Rewards). Ons aandeel in een minuut = onze score / (onze score + die van de anderen). De score van de anderen kun je uit het openbare boek niet precies halen (je ziet niet wie wat heeft staan), dus hij schrijft twee grenzen weg (B punt 32):
-- **laag:** alle orders in het boek tellen, beide kanten opgeteld (de anderen zo sterk mogelijk);
-- **hoog:** alleen prijsniveaus met minstens de minimale grootte, met de regel van het minimum (de anderen zo zwak als redelijk).
+Per order: punten = ((v − afstand) / v)² × grootte, met v = `rewards_max_spread` in centen. Bod en laat tellen elk aan één kant; de score is het minimum van de twee kanten, en tussen 0,10 en 0,90 telt één kant ook, gedeeld door 3 (docs Liquidity Rewards). Ons aandeel in een minuut = onze score / (onze score + die van de anderen). De score van de anderen kun je uit het openbare boek niet precies halen (je ziet niet wie wat heeft staan), dus hij schrijft twee schattingen weg (B punt 32):
+- **ondergrens (laag):** alle orders in het boek tellen, beide kanten opgeteld (de anderen zo sterk mogelijk). Ons echte aandeel is nooit kleiner (bij het geschatte midden);
+- **hoge schatting (hoog):** alleen prijsniveaus met minstens de minimale grootte, met de regel van het minimum (de anderen zo zwak als redelijk). Dit is geen harde bovengrens: een niveau kan uit kleine orders bestaan die niet tellen (keuring A4).
 
-Beloning per minuut = dagbedrag / 1440 × aandeel. De echte beloning ligt waarschijnlijk tussen laag en hoog.
+Beloning per minuut = dagbedrag / 1440 × aandeel. De echte beloning ligt waarschijnlijk tussen de ondergrens en de hoge schatting.
 
 ### Vullingen en verlies (GEZIEN)
 - Een trade van een nemer wordt omgerekend naar de JA-kant (NEE kopen voor q = JA verkopen voor 1 − q).
@@ -42,14 +42,14 @@ Het nieuwste rapport staat op de tak: `https://raw.githubusercontent.com/<eigena
 python3 platformen/ai-handel/schaduwbot/rapport.py --tak .          # haalt de tak op en drukt het rapport af
 python3 platformen/ai-handel/schaduwbot/rapport.py <map>            # vanaf een map met dag/<datum>/...
 ```
-- **Per dag en totaal**, per variant: gemeten minuten, gemiddeld aantal markten en geld op het boek, beloning laag tot hoog (GOK), vullingen los en streng, gevuld bedrag, resultaat 1 uur later en tegen de uitslag (GEZIEN), en netto.
+- **Per dag en totaal**, per variant: gemeten minuten, gemiddeld aantal markten en geld in open orders, hoogste stand van het geld in gevulde voorraad, beloning ondergrens tot hoge schatting (GOK), vullingen los en streng, gevuld bedrag, resultaat 1 uur later en tegen de uitslag (GEZIEN), en netto.
 - **Verlies per gevulde dollar:** vergelijk met B (−1,05% voor alle makers binnen 1 cent) en D (−0,1 tot −0,3% in temperatuurmarkten). Dit is het getal waar de route op staat of valt.
-- **Opgeschaald (GOK):** netto per dag = gemeten netto × 1440 / gemeten minuten. Bij een inleg van €2.000 of €5.000: lineair naar het geld op de boeken, maar nooit boven wat de bot echt gebruikte (meer geld in dezelfde markten geeft geen evenredig grotere beloning). Koers standaard 1 $ per € (GOK; geef `--koers` mee).
+- **Opgeschaald (GOK):** netto per dag = gemeten netto × 1440 / gemeten minuten. Vullingen die nog geen prijs 1 uur later hebben tellen niet als 0: hun verlies wordt geschat met het verlies per dollar van de andere vullingen, en het rapport zegt hoeveel het er zijn. Het geld dat de bot nodig had = gemiddeld geld in open orders **plus** de hoogste stand van het geld dat vastzit in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar weggestreept, vrij ±30 uur na het begin van de dag, GOK). Bij een inleg van €2.000 of €5.000: lineair naar dat geld, maar nooit erboven (meer geld in dezelfde markten geeft geen evenredig grotere beloning). De voorraad groeit tot de eerste markten beslist zijn, dus de eerste 2 tot 3 dagen is het benodigde geld te laag en de opbrengst per euro te hoog. Koers standaard 1 $ per € (GOK; geef `--koers` mee).
 - **Per markt** (beste en slechtste 10) en **per stad**.
-- **Beslisregel (vooraf vast, B punt 27 en 40):** na 2 weken meten alleen verder kijken als de **lage** beloning min het verlies 1 uur later in de meeste dagen positief is en het **slechtste dag-resultaat** te dragen is. Is alleen de hoge grens positief: niet doorgaan.
+- **Beslisregel (vooraf vast, B punt 27 en 40):** na 2 weken meten alleen verder kijken als de beloning (**ondergrens**) min het verlies op de dagen positief is, zowel **1 uur later** als **tegen de uitslag** (de bot houdt zijn voorraad tot de uitslag, dus dat is het echte resultaat), en het **slechtste dag-resultaat** te dragen is met het geld uit orders plus voorraad. Is alleen de hoge schatting positief: niet doorgaan.
 
 ## Wanneer het rapport zinvol is
-- Na 1 run (5 uur 45) zie je of het draait en de grootte van de beloning; het verlies is dan nog ruis (weinig vullingen, uitslagen nog niet bekend).
+- Na 1 run (5 uur 35) zie je of het draait en de grootte van de beloning; het verlies is dan nog ruis (weinig vullingen, uitslagen nog niet bekend).
 - Na 2 tot 3 dagen zijn de eerste markten beslist en is het verlies tegen de uitslag te lezen.
 - Na 2 weken is er genoeg voor de beslisregel hierboven.
 
@@ -66,7 +66,7 @@ Tak `ai-handel-data`, map `dag/<UTC-datum>/` (proef: `proef/`). Per run elk half
 Markt-sleutel = teken 3 tot 12 van de condition id.
 
 ## Hoe het draait
-`.github/workflows/schaduwbot.yml`: runs van 5 uur 45, één tegelijk. GitHub laat het schema in deze repo vaak vallen, dus net als het dashboard start hij ook bij elke push naar main; de klok (`organisatie/controle/klok.py`, naam `schaduwbot`, 6 uur) geeft hooguit elke 5,5 tot 6 uur een beurt en een nieuwe run wacht tot de vorige klaar is. Een korte proef start je met een opdrachtbestand (skill `actions`): `{"workflow": "schaduwbot.yml", "invoer": {"duur": "10"}, ...}`; die schrijft naar `proef/` en telt niet mee. Openbare repo, dus GitHub Actions kost niets.
+`.github/workflows/schaduwbot.yml`: runs van 5 uur 35 (job-limiet 358 minuten, dus ruim tijd voor het rapport), één tegelijk. GitHub laat het schema in deze repo vaak vallen, dus net als het dashboard start hij ook bij elke push naar main; de klok (`organisatie/controle/klok.py`, naam `schaduwbot`, 6 uur) geeft hooguit elke 5,5 tot 6 uur een beurt en een nieuwe run wacht tot de vorige klaar is. Een korte proef start je met een opdrachtbestand (skill `actions`): `{"workflow": "schaduwbot.yml", "invoer": {"duur": "10"}, ...}`; die schrijft naar `proef/` en telt niet mee. Openbare repo, dus GitHub Actions kost niets.
 
 Lokaal: `python3 schaduwbot.py --duur 10 --uit /tmp/uit` (zonder `--git` schrijft hij alleen bestanden). Tests: `python3 -m unittest test_schaduwbot.py`. Alleen standaardbibliotheek.
 

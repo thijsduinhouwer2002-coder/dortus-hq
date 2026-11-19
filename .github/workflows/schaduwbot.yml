@@ -4,7 +4,7 @@ name: Schaduwbot Polymarket (alleen lezen)
 # van Polymarket en rekent uit wat een denkbeeldige makerbot had verdiend en verloren. Geen account, geen sleutel,
 # geen wallet, geen orders, geen geld. Data gaat naar de tak `ai-handel-data`, nooit naar main.
 #
-# Doorlopend meten met runs van 5 uur 45: GitHub laat het schema in deze repo vaak vallen (roestronde R7), dus net
+# Doorlopend meten met runs van 5 uur 35: GitHub laat het schema in deze repo vaak vallen (roestronde R7), dus net
 # als het dashboard start hij ook bij elke push naar main. De job klok (organisatie/controle/klok.py) geeft hooguit
 # elke 6 uur een beurt (na 5 uur 30 met de speling); concurrency laat een nieuwe lange run wachten tot de vorige
 # klaar is, zodat er nooit twee tegelijk meten en er geen gat valt zolang er pushes of schema's komen.
@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       duur:
-        description: "Minuten meten (proef). Lange runs via schema of push: 345."
+        description: "Minuten meten (proef). Lange runs via schema of push: 335."
         required: false
         default: "10"
   push:
@@ -47,7 +47,7 @@ jobs:
       group: schaduwbot-lang
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 358
     steps:
       - uses: actions/checkout@v4
         with:
@@ -56,8 +56,8 @@ jobs:
           sparse-checkout: platformen/ai-handel/schaduwbot
       - name: Tests
         run: cd platformen/ai-handel/schaduwbot && python3 -m unittest test_schaduwbot.py
-      - name: Meten (5 uur 45)
-        run: python3 platformen/ai-handel/schaduwbot/schaduwbot.py --duur 345 --uit "$RUNNER_TEMP/uit" --git .
+      - name: Meten (5 uur 35)
+        run: python3 platformen/ai-handel/schaduwbot/schaduwbot.py --duur 335 --uit "$RUNNER_TEMP/uit" --git .
       - name: Rapport op de tak
         if: always()
         run: python3 platformen/ai-handel/schaduwbot/rapport.py --tak . --zet-op-tak --schrijf "$RUNNER_TEMP/rapport.md" > /dev/null

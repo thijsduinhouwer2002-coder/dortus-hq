@@ -113,6 +113,23 @@ class Rapport(unittest.TestCase):
             self.assertIn("$-9.80", tekst)          # tegen uitslag: 20 x (0 - 0,49)
             self.assertIn("$0.60 tot $1.20", tekst)  # beloning laag tot hoog over 120 minuten
             self.assertIn("€2,000", tekst)
+            # voorraad: 20 x 0,49 vast, plus open orders van gemiddeld $20 = $29,80 nodig
+            self.assertIn("**$29.80**", tekst)
+
+    def test_voorraadgeld_streept_ja_en_nee_weg_en_komt_vrij(self):
+        d = {"markten": {"abc": {"stop": 1795000000}, "def": {"stop": 1795500000}}}
+        vul = [
+            {"variant": "1c", "markt": "abc", "ts": 1794990000, "kant": "bod", "prijs": "0.49", "aantal": "20"},
+            {"variant": "1c", "markt": "def", "ts": 1794990100, "kant": "bod", "prijs": "0.30", "aantal": "10"},
+            {"variant": "1c", "markt": "abc", "ts": 1794990200, "kant": "laat", "prijs": "0.51", "aantal": "10"},
+        ]
+        piek, _ts, _dag = rapport.voorraad_geld(d, vul, "1c")
+        # na twee vullingen: 9,80 + 3,00 = 12,80; daarna 10 paren JA plus NEE weg: 4,90 + 3,00
+        self.assertAlmostEqual(piek, 12.80)
+        vul.append({"variant": "1c", "markt": "def", "ts": 1795200000, "kant": "bod", "prijs": "0.50", "aantal": "40"})
+        piek, _ts, _dag = rapport.voorraad_geld(d, vul, "1c")
+        # abc komt vrij 30 uur na zijn stop (1795108000), dus bij de laatste vulling staat alleen def: 3 + 20
+        self.assertAlmostEqual(piek, 23.0)
 
 
 if __name__ == "__main__":

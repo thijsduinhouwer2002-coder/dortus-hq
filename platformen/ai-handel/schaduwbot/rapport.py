@@ -96,6 +96,53 @@ def haal_uitslagen(d, sleutels):
     return uit
 
 
+VRIJ_NA_STOP = 30 * 3600   # GOK: geld in voorraad komt vrij ±30 uur na het begin van de dag (uitslag de dag erna)
+
+
+def voorraad_geld(d, vul, variant):
+    """Geld dat vastzit in gevulde voorraad tot de uitslag, als reeks over de tijd.
+    Per markt: JA gekocht (kosten = prijs) en NEE gekocht (een laat op JA voor a = NEE kopen voor 1 - a).
+    Een paar JA plus NEE is samen altijd $1 waard en kan terug naar geld, dus die strepen we tegen elkaar weg
+    (gemiddelde kostprijs); wat overblijft zit vast tot de uitslag. Geeft (hoogste stand, tijd, per dag hoogste)."""
+    gebeurtenissen = []
+    for f in vul:
+        if f["variant"] == variant:
+            gebeurtenissen.append((f["ts"], 0, f))
+    for markt in {f["markt"] for f in vul if f["variant"] == variant}:
+        stop = (d["markten"].get(markt) or {}).get("stop")
+        if stop:
+            gebeurtenissen.append((int(stop) + VRIJ_NA_STOP, 1, markt))
+    stand = {}            # markt -> [ja_aantal, ja_kosten, nee_aantal, nee_kosten]
+    totaal, piek, piek_ts, per_dag = 0.0, 0.0, None, defaultdict(float)
+    for ts, soort, x in sorted(gebeurtenissen, key=lambda g: (g[0], g[1])):
+        if soort == 1:
+            oud = stand.pop(x, None)
+            if oud:
+                totaal -= oud[1] + oud[3]
+        else:
+            st = stand.setdefault(x["markt"], [0.0, 0.0, 0.0, 0.0])
+            oud = st[1] + st[3]
+            aantal, prijs = float(x["aantal"]), float(x["prijs"])
+            if x["kant"] == "bod":
+                st[0] += aantal
+                st[1] += aantal * prijs
+            else:
+                st[2] += aantal
+                st[3] += aantal * (1 - prijs)
+            paar = min(st[0], st[2])
+            if paar > 0:
+                st[1] -= st[1] * paar / st[0]
+                st[3] -= st[3] * paar / st[2]
+                st[0] -= paar
+                st[2] -= paar
+            totaal += st[1] + st[3] - oud
+        if totaal > piek:
+            piek, piek_ts = totaal, ts
+        dg = dag_van(ts)
+        per_dag[dg] = max(per_dag[dg], totaal)
+    return piek, piek_ts, per_dag
+
+
 def dag_van(ts):
     import datetime as dt
     return dt.datetime.fromtimestamp(int(ts), dt.timezone.utc).strftime("%Y-%m-%d")
@@ -136,7 +183,7 @@ def maak(d, uitslag, koers, dagen, inlegs):
     w("# Schaduwbot Polymarket: rapport")
     w("")
     w("Denkbeeldige makerbot in jonge temperatuurmarkten. Geen account, geen geld, niets geplaatst. "
-      "Beloning = GOK (formule van Polymarket, twee grenzen voor de concurrentie: laag en hoog). "
+      "Beloning = GOK (formule van Polymarket; voor de concurrentie een ondergrens en een hoge schatting). "
       "Vullingen en verlies = GEZIEN (echte trades en gemeten midden), behalve waar GOK staat.")
     w("")
     runs = d["runs"]
@@ -149,10 +196,12 @@ def maak(d, uitslag, koers, dagen, inlegs):
     for v in varianten:
         w(f"## Variant {v} (orders op {v.rstrip('c')} cent van het midden)")
         w("")
-        w("| Dag (UTC) | Minuten gemeten | Markten gem. | Kapitaal gem. | Beloning laag tot hoog (GOK) | "
-          "Vullingen los / streng | Gevuld | Resultaat vullingen 1 uur later | Tegen uitslag | "
-          "Netto (laag tot hoog, 1 uur later) |")
-        w("|---|---|---|---|---|---|---|---|---|---|")
+        piek, piek_ts, voorraad_dag = voorraad_geld(d, vul, v)
+        w("| Dag (UTC) | Minuten gemeten | Markten gem. | Orders op het boek gem. | Hoogste stand voorraadgeld | "
+          "Beloning ondergrens tot hoge schatting (GOK) | Vullingen los / streng | Gevuld | "
+          "Resultaat vullingen 1 uur later | Tegen uitslag | Netto (ondergrens tot hoge schatting, alleen "
+          "vullingen met prijs 1 uur later) |")
+        w("|---|---|---|---|---|---|---|---|---|---|---|")
         tot = defaultdict(float)
         alle_dagen = sorted({dg for (dg, vv) in dagen_map if vv == v} | {f["dag"] for f in vul if f["variant"] == v})
         for dg in alle_dagen:
@@ -163,7 +212,7 @@ def maak(d, uitslag, koers, dagen, inlegs):
             zonder = sum(1 for f in fv if f["uur"] is None)
             ui = [f["uitslag"] for f in fv if f["uitslag"] is not None]
             w(f"| {dg} | {len(x['min'])} | {x['markten'] / n_min:.0f} | {geld(x['kap'] / n_min)} | "
-              f"{geld(x['laag'])} tot {geld(x['hoog'])} | {len(fv)} / {sum(f['streng'] for f in fv)} | "
+              f"{geld(voorraad_dag.get(dg, 0.0))} | {geld(x['laag'])} tot {geld(x['hoog'])} | {len(fv)} / {sum(f['streng'] for f in fv)} | "
               f"{geld(sum(f['geld'] for f in fv))} | {geld(uur)}" + (f" ({zonder} nog zonder prijs)" if zonder else "")
               + f" | {geld(sum(ui))} ({len(ui)} van {len(fv)} beslist) | "
               f"{geld(x['laag'] + uur)} tot {geld(x['hoog'] + uur)} |")
@@ -177,7 +226,7 @@ def maak(d, uitslag, koers, dagen, inlegs):
             tot["streng"] += sum(f["streng"] for f in fv)
             tot["geld"] += sum(f["geld"] for f in fv)
         n_min = tot["min"] or 1
-        w(f"| **Totaal** | {int(tot['min'])} | | {geld(tot['kapmin'] / n_min)} | {geld(tot['laag'])} tot "
+        w(f"| **Totaal** | {int(tot['min'])} | | {geld(tot['kapmin'] / n_min)} | {geld(piek)} | {geld(tot['laag'])} tot "
           f"{geld(tot['hoog'])} | {int(tot['n'])} / {int(tot['streng'])} | {geld(tot['geld'])} | {geld(tot['uur'])} | "
           f"{geld(tot['ui'])} | {geld(tot['laag'] + tot['uur'])} tot {geld(tot['hoog'] + tot['uur'])} |")
         w("")
@@ -199,23 +248,66 @@ def maak(d, uitslag, koers, dagen, inlegs):
             w("")
         # --- opschalen
         if tot["min"] >= 60:
-            k_gem = tot["kapmin"] / n_min
-            per_dag_laag = (tot["laag"] + tot["uur"]) / n_min * 1440
-            per_dag_hoog = (tot["hoog"] + tot["uur"]) / n_min * 1440
-            w(f"**Opgeschaald (GOK):** per dag {geld(per_dag_laag)} tot {geld(per_dag_hoog)} netto met gemiddeld "
-              f"{geld(k_gem)} aan orders op het boek (gemeten minuten × 1440 / {int(tot['min'])}).")
+            orders = tot["kapmin"] / n_min
+            k_gem = orders + piek
+            fv = [f for f in vul if f["variant"] == v]
+            zonder = [f for f in fv if f["uur"] is None]
+            met = [f for f in fv if f["uur"] is not None]
+            met5 = [f for f in fv if f["vijf"] is not None]
+            if met and sum(f["geld"] for f in met) > 0:
+                tempo, bron = sum(f["uur"] for f in met) / sum(f["geld"] for f in met), "1 uur later"
+            elif met5 and sum(f["geld"] for f in met5) > 0:
+                tempo, bron = sum(f["vijf"] for f in met5) / sum(f["geld"] for f in met5), "5 minuten later"
+            else:
+                tempo, bron = None, None
+            schatting = tempo * sum(f["geld"] for f in zonder) if (zonder and tempo is not None) else 0.0
+            verlies = tot["uur"] + schatting
+            per_dag_laag = (tot["laag"] + verlies) / n_min * 1440
+            per_dag_hoog = (tot["hoog"] + verlies) / n_min * 1440
+            w(f"**Opgeschaald (GOK):** per dag {geld(per_dag_laag)} (ondergrens) tot {geld(per_dag_hoog)} (hoge "
+              f"schatting) netto (gemeten minuten × 1440 / {int(tot['min'])}).")
+            if zonder:
+                w("")
+                w(f"{len(zonder)} van de {len(fv)} vullingen ({geld(sum(f['geld'] for f in zonder))}) hebben nog geen "
+                  f"prijs 1 uur later. Die tellen niet als 0: " + (
+                      f"hun verlies is geschat met het verlies per dollar van de andere vullingen ({bron}, "
+                      f"{100 * tempo:+.2f}%): {geld(schatting)} (GOK)." if tempo is not None else
+                      "er is nog geen enkele vulling met een prijs erna, dus het verlies ontbreekt in deze som."))
             w("")
-            w(f"| Inleg | Op de boeken (× {koers} $/€, hooguit wat de bot gebruikte) | Netto over {dagen} dagen (GOK) |")
+            w(f"Geld dat de bot nodig had: gemiddeld {geld(orders)} in open orders plus de hoogste stand van "
+              f"{geld(piek)} vastzittend in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar "
+              f"weggestreept; vrij ±30 uur na het begin van de dag, GOK) = **{geld(k_gem)}**. De voorraad groeit tot de "
+              f"eerste markten beslist zijn (2 tot 3 dagen na de start), dus tot dan is dit getal te laag.")
+            w("")
+            w(f"| Inleg | Te gebruiken (× {koers} $/€, hooguit orders plus voorraad) | Netto over {dagen} dagen (GOK) |")
             w("|---|---|---|")
             for inleg in inlegs:
                 eff = min(inleg * koers, k_gem) if k_gem > 0 else 0
                 f = eff / k_gem if k_gem > 0 else 0
                 w(f"| €{inleg:,} | {geld(eff)} | {geld(per_dag_laag * f * dagen)} tot {geld(per_dag_hoog * f * dagen)} |")
             w("")
-            w("Opschalen gaat lineair met het geld op de boeken, en nooit boven wat de bot echt gebruikte: meer geld "
-              "in dezelfde markten geeft geen evenredig grotere beloning (je deelt de pot). Kansspelbelasting (37,8%, "
-              "mogelijk) en het verbod in Nederland staan hier niet in; zie README.")
+            w("Opschalen gaat lineair met het geld dat de bot nodig had (orders plus voorraad), en nooit daarboven: meer "
+              "geld in dezelfde markten geeft geen evenredig grotere beloning (je deelt de pot). Kansspelbelasting "
+              "(37,8%, mogelijk) en het verbod in Nederland staan hier niet in; zie README.")
             w("")
+        fu = [f for f in vul if f["variant"] == v and f["uitslag"] is not None]
+        if fu:
+            gu = sum(f["geld"] for f in fu)
+            w(f"Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): {geld(sum(f['uitslag'] for f in fu))} over "
+              f"{len(fu)} vullingen en {geld(gu)}, dus {100 * sum(f['uitslag'] for f in fu) / gu:+.2f}% per gevulde "
+              f"dollar (GEZIEN).")
+            w("")
+        for soort in ("highest", "lowest"):
+            fs2 = [f for f in vul if f["variant"] == v and f["vijf"] is not None
+                   and (d["markten"].get(f["markt"]) or {}).get("event", "").startswith(soort)]
+            g2 = sum(f["geld"] for f in fs2)
+            if g2 > 0:
+                u2 = [f for f in fs2 if f["uur"] is not None]
+                w(f"- {'Hoogste' if soort == 'highest' else 'Laagste'} temperatuur: 5 minuten later "
+                  f"{100 * sum(f['vijf'] for f in fs2) / g2:+.2f}% per dollar over {len(fs2)} vullingen"
+                  + (f", 1 uur later {100 * sum(f['uur'] for f in u2) / sum(f['geld'] for f in u2):+.2f}% over "
+                     f"{len(u2)}" if u2 else "") + " (GEZIEN).")
+        w("")
 
     # --- per markt (variant 1c als die er is, anders de eerste)
     if varianten:
@@ -240,9 +332,9 @@ def maak(d, uitslag, koers, dagen, inlegs):
         rijen = sorted(per.items(), key=lambda kv: kv[1]["laag"] + kv[1]["uur"])
         w(f"## Per markt (variant {v})")
         w("")
-        w("Slechtste 10 en beste 10 op netto (beloning laag plus resultaat 1 uur later).")
+        w("Slechtste 10 en beste 10 op netto (beloning ondergrens plus resultaat 1 uur later).")
         w("")
-        w("| Markt | Minuten | Beloning laag tot hoog (GOK) | Vullingen | 1 uur later | Tegen uitslag |")
+        w("| Markt | Minuten | Beloning ondergrens tot hoge schatting (GOK) | Vullingen | 1 uur later | Tegen uitslag |")
         w("|---|---|---|---|---|---|")
         keuze = rijen[:10] + ([("...", None)] if len(rijen) > 20 else []) + rijen[-10:] if len(rijen) > 20 else rijen
         for s, p in keuze:
@@ -262,7 +354,7 @@ def maak(d, uitslag, koers, dagen, inlegs):
                 stad[f"{sl} ({soort})"][k2] += val
         w(f"## Per stad (variant {v})")
         w("")
-        w("| Stad | Beloning laag tot hoog (GOK) | Vullingen | 1 uur later | Netto laag |")
+        w("| Stad | Beloning ondergrens tot hoge schatting (GOK) | Vullingen | 1 uur later | Netto ondergrens |")
         w("|---|---|---|---|---|")
         for s, p in sorted(stad.items(), key=lambda kv: -(kv[1]["laag"] + kv[1]["uur"])):
             w(f"| {s} | {geld(p['laag'])} tot {geld(p['hoog'])} | {int(p['n'])} | {geld(p['uur'])} | "
