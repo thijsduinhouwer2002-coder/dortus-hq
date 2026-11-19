@@ -1595,3 +1595,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±00:15 UTC)
 - Kan-punten automatische keurder 00:48 (70b13d2). (1) Toetsen voor terugslag, binnen_soort, Dame, namen en naamgenoot uit `toets_systemen.gd` naar nieuw `systemen/toetsen/toets_namen.gd` (207 regels); `toets_systemen.gd` van 1558 naar 1366 regels. Erbij in `steam-hol.yml` en `systemen/LEESMIJ.md`. (2) binnen_soort-toets bootst de terugkomer-kaart niet meer na: komt Vos bij zaad 7 niet terug, dan FOUT. (3) Nagekeken: `NM.NAMEN` is een platte lijst (`namen.gd` regel 8), `strook.gd` heeft `var t := 0.0` (regel 78). (4) `strook.gd` is 458 regels, iets boven ±400; niet nu splitsen vlak voor het bevriezen.
 - Lokaal Godot 4.3 Linux headless: systemen, namen, held, vleermuis, berg_wand alle 0 FOUT (GEZIEN). Alleen toetscode, spel ongewijzigd. Windows-run 44427899044 op fef45d1 groen, alle stappen (GEZIEN).
+
+## 19 nov 2026, Olaf (run ±02:15 NL)
+- Main nagekeken: naamgenoot-regel en de nieuwe toetsen staan erop; niets meer naar main nodig vóór het bevriezen. Bard-40 (Bram) wacht bewust tot na de speeltest.
+- Nieuwe hoofdzaak "snel geld" (besluit 19 nov 01:21): voorstel aan de hoofdchat om Hats na een goede speeltest als betaalde vroege versie op itch.io te zetten (10% standaard, DERDEN itch.io docs). Alleen met ja van de hoofdchat en een account van Thijs. Verder niets te doen tot de build van vr 20 nov.
