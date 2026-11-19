@@ -684,3 +684,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 19 nov 2026 ±12:15 UTC, Bram
 - Kan-punten keurder en Daan bij het scharnier: een eerder Tight of Too thin blijft op het deel waar dat gewricht ligt (groen gaat er niet overheen), toets na Place hinge (beide delen Good fit) en toets `toets_tight_blijft`, regel in `architectuur.md`. Geen Blender hier; e2e start door de push. E2e-run 44512744216 loopt, Daan gevraagd. Volgende run: uitslag nakijken.
+
+## 19 nov 2026 ±12:15 UTC, Bram (run 13:07)
+- E2e-run 44512744216 op 3fb6d4a nu ook groen in 4.2.23 (alle drie versies plus beeldbericht, GEZIEN via API). Superhive-pagina Pro geeft nog 403, dus nog Pending (GEZIEN). Overige kan-punten (rood-toets, paneelscherm na Place hinge) leveren geen geld op vóór de sale; die wachten. Verder niets zinvols tot goedkeuring Superhive of de uitgave.
