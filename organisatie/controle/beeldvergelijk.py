@@ -9,8 +9,13 @@ kluisnaam van Obsidian: "*:50,755,345,800".
 
 Per PNG die in beide mappen staat: aantal pixels dat verschilt (een kanaal wijkt meer dan DREMPEL af,
 zodat zachte randen niet tellen), als procent van het plaatje. Boven de grens heet het "groot" en komt er
-een verschilbeeld bij (het oude plaatje grijs, de verschillen rood). Een andere maat telt ook als groot.
+een verschilbeeld bij (het oude plaatje grijs, de verschillen rood). Een andere maat telt ook als groot, behalve
+als hij hooguit MAAT_SPELING pixels scheelt: losse dialoogvensters van de IDE springen tussen runs een paar pixels
+(1600x1174 en 1592x1172, keuring R4); die staan als "maat licht anders, niet vergeleken" in het verslag.
 Nieuwe en verdwenen plaatjes staan in het verslag maar tellen niet als groot.
+Een plaatje van deze run dat (bijna) helemaal één kleur is (standaardafwijking onder LEEG_GRENS, bijvoorbeeld
+helemaal zwart) telt altijd als groot, met "LEEG", ook als de referentie net zo leeg is (keuring R5: 1-paneel.png
+en 10-winkel-paneel.png waren sinds 8 nov zwart en heetten "gelijk").
 
 Nooit een rode stap: het verslag (verslag.md) en de verschilbeelden zijn voor de keurder.
 Schrijft groot=<aantal> en verslag=<pad> naar GITHUB_OUTPUT als die bestaat.
@@ -25,6 +30,8 @@ import numpy as np
 from PIL import Image
 
 DREMPEL = 24  # van 255 per kanaal
+MAAT_SPELING = 16  # pixels
+LEEG_GRENS = 2.0  # standaardafwijking van de pixelwaarden
 
 
 def laad(pad):
@@ -55,11 +62,26 @@ def vergelijk(nu, ref, uit, grens, naam, maskers=""):
     ref_lijst = {p.relative_to(ref).as_posix() for p in ref.rglob("*.png")} if ref.is_dir() else set()
     regels, groot = [], []
     opmerking = "" if ref_lijst else f"Nog geen referentie voor {naam}: deze run wordt de referentie als hij groen is.\n"
+    for rel in sorted(nieuw_lijst):
+        try:
+            sd = float(laad(nu / rel).std())
+        except Exception as e:  # kapot plaatje: melden, niet stoppen
+            groot.append(rel)
+            regels.append(f"| {rel} | niet te lezen: {e} | GROOT |")
+            continue
+        if sd < LEEG_GRENS:
+            groot.append(rel)
+            regels.append(f"| {rel} | LEEG: (bijna) helemaal één kleur (standaardafwijking {sd:.2f}) | GROOT |")
     for rel in sorted(nieuw_lijst & ref_lijst):
+        if rel in groot:
+            continue
         try:
             a, b = laad(ref / rel), laad(nu / rel)
-        except Exception as e:  # kapot plaatje: melden, niet stoppen
-            regels.append(f"| {rel} | niet te lezen: {e} | |")
+        except Exception as e:
+            regels.append(f"| {rel} | referentie niet te lezen: {e} | |")
+            continue
+        if a.shape != b.shape and abs(a.shape[0] - b.shape[0]) <= MAAT_SPELING and abs(a.shape[1] - b.shape[1]) <= MAAT_SPELING:
+            regels.append(f"| {rel} | maat licht anders: {a.shape[1]}x{a.shape[0]} werd {b.shape[1]}x{b.shape[0]}, niet vergeleken | |")
             continue
         if a.shape != b.shape:
             groot.append(rel)
@@ -92,6 +114,7 @@ def vergelijk(nu, ref, uit, grens, naam, maskers=""):
         f"GROOT: {len(groot)} (grens {grens}% van de pixels, drempel {DREMPEL}/255 per kanaal; "
         f"{len(nieuw_lijst & ref_lijst)} plaatjes vergeleken"
         + (f"; niet meegeteld: {'; '.join(f'{p} {v}' for p, v in maskers)})" if maskers else ")"),
+        f"Referentie: {os.environ.get('BV_REF', 'onbekend')}",
         opmerking,
         "| plaatje | verschil met de vorige geslaagde run | |",
         "|---|---|---|",

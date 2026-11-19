@@ -131,19 +131,6 @@ jobs:
         env:
           TOKEN: ${{ github.token }}
         run: bash "$B" bewaar producten/obsidian-rollwright/e2e/screenshots "referentie/rollwright/$N" "rollwright $N"
-      - name: Groot beeldverschil melden aan Olaf (alleen main, geen rood)
-        if: false && always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
-        working-directory: .
-        env:
-          TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "## $(bash "$B" datum) NL, van de beeldvergelijking (automatisch): Rollwright"
-            echo "${{ steps.bv.outputs.groot }} plaatje(s) wijken sterk af van de vorige geslaagde run (commit ${GITHUB_SHA::8}). Geen rode test: kijk of het zo bedoeld is."
-            echo "Verschilbeelden (rood is anders): artefact beeldverschil-rollwright-latest-earliest in https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-            grep "| GROOT |" /tmp/beeldverschil/verslag.md | head -10 | sed 's/^/- /'
-          } > /tmp/bericht.md
-          bash "$B" bericht olaf /tmp/bericht.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -167,7 +154,10 @@ jobs:
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
           for poging in 1 2 3 4 5; do
             rm -rf /tmp/s
-            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+            # Alleen onze eigen map (zoals Click Joints): de hele tak schermen is 6,7 GB en kostte 12 tot 15 minuten.
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" /tmp/s 2>/dev/null; then
+              git -C /tmp/s sparse-checkout set "rollwright/$NAAM"
+            else
               mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
             fi
             D="/tmp/s/rollwright/$NAAM"
@@ -179,3 +169,28 @@ jobs:
           done
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/rollwright/$NAAM"
           ls "$SRC"
+
+  # Eén beeldbericht per run voor alle jobs samen, en niet opnieuw als hetzelfde verschil al gemeld is
+  # (keuring R4: eerst kwam er een bericht per job en per run). Alleen main, niet in de week-test.
+  beeldbericht:
+    needs: e2e
+    if: always() && github.ref_name == 'main' && !inputs.week
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: beeldverschil-rollwright*
+          path: /tmp/bv
+      - name: Beeldbericht aan Olaf (alleen bij een groot of leeg plaatje dat nog niet gemeld is)
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/bv
+          bash organisatie/controle/beelden.sh meld rollwright olaf /tmp/bv main

@@ -45,7 +45,11 @@ internal fun zetCiServer() {
  * netjes zijn (Daan, beoordeling 3).
  */
 internal fun winkelproject(voorvoegsel: String): Path {
-    val project = Files.createTempDirectory(voorvoegsel).resolve("calculator").createDirectories()
+    // Vaste map in plaats van createTempDirectory (roestronde R4): de willekeurige mapnaam stond in de projectboom
+    // en kleurde de projectknop bovenaan elke run anders, waardoor de beeldvergelijking vals alarm gaf.
+    val basis = Path.of(System.getProperty("java.io.tmpdir"), voorvoegsel)
+    basis.toFile().deleteRecursively()
+    val project = basis.resolve("calculator").createDirectories()
     Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
     return project
 }

@@ -311,19 +311,6 @@ jobs:
         run: |
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" bewaar "producten/blender-gewrichten/e2e/screenshots/${{ matrix.blender }}" "referentie/blender-gewrichten/$N/${{ matrix.blender }}" "blender-gewrichten $N ${{ matrix.blender }}"
-      - name: Groot beeldverschil melden aan Bram (alleen main, geen rood)
-        if: false && always() && steps.bv.outputs.groot != '' && steps.bv.outputs.groot != '0' && steps.bv.outputs.terugval != '1' && github.ref_name == 'main' && !inputs.week
-        working-directory: .
-        env:
-          TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "## $(bash "$B" datum) NL, van de beeldvergelijking (automatisch): Click Joints, Blender ${{ matrix.blender }}"
-            echo "${{ steps.bv.outputs.groot }} plaatje(s) wijken sterk af van de vorige geslaagde run (commit ${GITHUB_SHA::8}). Geen rode test: kijk of het zo bedoeld is."
-            echo "Verschilbeelden (rood is anders): artefact beeldverschil-blender-gewrichten-${{ matrix.blender }} in https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-            grep "| GROOT |" /tmp/beeldverschil/verslag.md | head -10 | sed 's/^/- /'
-          } > /tmp/bericht.md
-          bash "$B" bericht bram /tmp/bericht.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -359,3 +346,28 @@ jobs:
             cd - >/dev/null; git -C /tmp/s fetch -q origin schermen 2>/dev/null; sleep $((poging * 3))
           done
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/blender-gewrichten/$NAAM"
+
+  # Eén beeldbericht per run voor alle jobs samen, en niet opnieuw als hetzelfde verschil al gemeld is
+  # (keuring R4: eerst kwam er een bericht per job en per run). Alleen main, niet in de week-test.
+  beeldbericht:
+    needs: e2e
+    if: always() && github.ref_name == 'main' && !inputs.week
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: beeldverschil-blender-gewrichten*
+          path: /tmp/bv
+      - name: Beeldbericht aan Bram (alleen bij een groot of leeg plaatje dat nog niet gemeld is)
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/bv
+          bash organisatie/controle/beelden.sh meld blender-gewrichten bram /tmp/bv main

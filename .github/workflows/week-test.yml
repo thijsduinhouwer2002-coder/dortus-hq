@@ -69,7 +69,17 @@ jobs:
             fi
             sleep $((poging * 3))
           done
-          echo "Klok niet te zetten, voor de zekerheid niet draaien."; echo "draai=nee" >> "$GITHUB_OUTPUT"
+          # Tak schermen niet te lezen of te schrijven: met de hand gestart draait hij toch; gepland meldt hij het
+          # aan de hoofdchat (bij een push niet, anders komt er bij elke push een bericht).
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "Klok niet te zetten, maar met de hand gestart: draaien."; echo "draai=ja" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Klok niet te zetten, niet draaien."; echo "draai=nee" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT" = "schedule" ]; then
+            printf '## %s, van de week-test (automatisch): klok kapot\nDe geplande week-test kon de tak schermen niet lezen of schrijven (week-test/week.txt) en draaide niet. Run: https://github.com/%s/actions/runs/%s\n' \
+              "$(date -u '+%F %H:%M UTC')" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > /tmp/klok.md
+            bash organisatie/controle/beelden.sh bericht hoofdchat /tmp/klok.md || true
+          fi
       - name: Versies van deze week
         id: v
         if: steps.klok.outputs.draai == 'ja'

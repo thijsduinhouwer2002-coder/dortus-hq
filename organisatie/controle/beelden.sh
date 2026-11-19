@@ -9,6 +9,10 @@
 #       Zet de beelden van deze (geslaagde) run als nieuwe referentie op de tak schermen.
 #   beelden.sh vergelijk <nu-map> <pad op tak schermen> <uitmap> <grens-procent> <naam> [terugvalpad] [maskers]
 #       haal plus organisatie/controle/beeldvergelijk.py (Pillow en numpy in een eigen venv).
+#   beelden.sh meld <product> <eigenaar> <map met beeldverschil-artefacten> <tak>
+#       Eén kort bericht per run voor alle jobs samen (beeldbericht.py), alleen als dat verschil nog niet gemeld
+#       is: de sleutel staat in referentie/<product>/<tak>/GEMELD.md op de tak schermen en wordt eerst daar
+#       geclaimd (een push die botst = een andere run was eerder), pas daarna komt het bericht.
 #   beelden.sh datum
 #       Datum en tijd in Nederland voor de kop van een bericht, bijvoorbeeld "19 nov 2026 04:20".
 #   beelden.sh bericht <naam> <tekstbestand>
@@ -78,7 +82,7 @@ vergelijk() {
   if [ "$py" = python3 ] && ! python3 -c "import PIL, numpy" 2>/dev/null; then
     python3 -m pip install -q --user --break-system-packages pillow numpy >/dev/null 2>&1 || { echo "Pillow niet te installeren, geen vergelijking"; return 0; }
   fi
-  "$py" -I "$HIER/beeldvergelijk.py" "$nu" /tmp/bv-ref "$uit" "$grens" "$naam" "$maskers"
+  BV_REF="$(head -1 /tmp/bv-ref/RUN.txt 2>/dev/null || echo geen)" "$py" -I "$HIER/beeldvergelijk.py" "$nu" /tmp/bv-ref "$uit" "$grens" "$naam" "$maskers"
   # Verslag ook naast de schermen, zodat het op de tak schermen staat (zonder sleutel te lezen).
   [ -f "$uit/verslag.md" ] && [ -d "$nu" ] && cp "$uit/verslag.md" "$nu/BEELDVERSCHIL.md"
   rm -rf /tmp/bv-ref
@@ -102,6 +106,38 @@ bericht() {
   echo "bericht aan $naam lukte niet na 5 pogingen"; return 1
 }
 
+meld() {
+  local product="$1" eigenaar="$2" art="$3" tak="$4" w poging sleutel pad
+  rm -rf /tmp/bb
+  python3 -I "$HIER/beeldbericht.py" "$art" "$product" "$tak" /tmp/bb
+  [ -s /tmp/bb/sleutel.txt ] || return 0
+  sleutel=$(head -1 /tmp/bb/sleutel.txt)
+  pad="referentie/$product/$tak"
+  wie
+  for poging in 1 2 3 4 5; do
+    w=$(mktemp -d)
+    git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" "$w/s" 2>/dev/null || { rm -rf "$w"; sleep $((poging * 4)); continue; }
+    git -C "$w/s" sparse-checkout set "$pad"
+    if [ "$(head -1 "$w/s/$pad/GEMELD.md" 2>/dev/null)" = "$sleutel" ]; then
+      echo "al gemeld: $sleutel"; rm -rf "$w"; return 0
+    fi
+    mkdir -p "$w/s/$pad" && cp /tmp/bb/gemeld.md "$w/s/$pad/GEMELD.md"
+    git -C "$w/s" add "$pad/GEMELD.md" && git -C "$w/s" commit -q -m "Beeldverschil gemeld: $sleutel (run ${GITHUB_RUN_ID:-?})"
+    if git -C "$w/s" push -q origin HEAD:schermen; then
+      rm -rf "$w"
+      {
+        echo "## $(datum) NL, van de beeldvergelijking (automatisch): $product"
+        cat /tmp/bb/bericht.md
+        echo "Welke plaatjes: https://github.com/${GITHUB_REPOSITORY}/blob/schermen/$pad/GEMELD.md"
+      } > /tmp/bb/volledig.md
+      bericht "$eigenaar" /tmp/bb/volledig.md
+      return $?
+    fi
+    rm -rf "$w"; sleep $((poging * 4))
+  done
+  echo "claim op schermen lukte niet, geen bericht (de volgende run probeert het weer)"
+}
+
 datum() {
   python3 -c "import datetime,zoneinfo; n=datetime.datetime.now(zoneinfo.ZoneInfo('Europe/Amsterdam')); m='jan feb mrt apr mei jun jul aug sep okt nov dec'.split()[n.month-1]; print(f'{n.day} {m} {n.year} {n:%H:%M}')"
 }
@@ -112,6 +148,7 @@ case "$opdracht" in
   bewaar) bewaar "$@" ;;
   vergelijk) vergelijk "$@" ;;
   bericht) bericht "$@" ;;
+  meld) meld "$@" ;;
   datum) datum ;;
-  *) sed -n '2,17p' "$0"; exit 2 ;;
+  *) sed -n '2,21p' "$0"; exit 2 ;;
 esac

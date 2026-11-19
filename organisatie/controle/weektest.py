@@ -30,6 +30,23 @@ EIGENAREN = [  # (begin van de jobnaam, begin van de artefactnaam, eigenaar, pro
     ("Bison & Flex", "beeldverschil-jetbrains-bison-flex", "chris", "Bison & Flex"),
     ("Rollwright", "beeldverschil-rollwright", "olaf", "Rollwright"),
 ]
+# Welke push-workflow op main hoort bij een job van de week-test (om te zien of het aan de nieuwe versie ligt).
+PUSHWORKFLOW = [
+    ("Click Joints", "blender-gewrichten-e2e.yml"),
+    ("Bison & Flex verifier", "jetbrains-bison-flex-clion.yml"),
+    ("Bison & Flex", "jetbrains-bison-flex-e2e.yml"),
+    ("Rollwright", "rollwright-e2e.yml"),
+]
+
+
+def laatste_push(repo, token, workflow):
+    try:
+        d = haal(f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs"
+                 "?branch=main&event=push&status=completed&per_page=1", token)
+        r = d["workflow_runs"][0]
+        return f"laatste push-run op main van {workflow}: {r['conclusion']} (run {r['id']}, commit {r['head_sha'][:8]})"
+    except Exception as e:  # alleen ter info
+        return f"laatste push-run op main van {workflow}: onbekend ({e})"
 
 
 def haal(url, token=None):
@@ -137,7 +154,9 @@ def melden(artmap, uitmap):
         stappen = [s["name"] for s in j.get("steps", []) if s.get("conclusion") == "failure"]
         for begin, _, naam, _ in EIGENAREN:
             if j["name"].startswith(begin):
-                regels[naam].append(f"- ROOD: {j['name']}, stap: {'; '.join(stappen) or 'onbekend (zie log)'}")
+                wf = next(w for b, w in PUSHWORKFLOW if j["name"].startswith(b))
+                regels[naam].append(f"- ROOD: {j['name']}, stap: {'; '.join(stappen) or 'onbekend (zie log)'}. "
+                                    f"Ter vergelijking, {laatste_push(repo, token, wf)}.")
                 break
         else:
             if j["name"] == "versies":
