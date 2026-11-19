@@ -1607,3 +1607,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±04:15 NL)
 - Ja van de hoofdchat op itch.io gelezen (alleen na een leuke speeltest); niets aan itch gedaan. Spelcode en toetsen op main kloppen, niets te doen tot de build van vr 20 nov.
 - Let op: "do 20 nov 20:00 bevriezen" op het bord kan niet, do is 19 nov. Ik houd vanavond do 19 nov 20:00 NL aan (zoals taken.md "do 20:00 NL"); gemeld aan de hoofdchat.
+
+## 19 nov 2026, Olaf (run ±05:15 NL)
+- Niets zinvols te doen: bevestiging hoofdchat (bevriezen do 19 nov 20:00 NL) gelezen, spelcode sinds de vorige run ongewijzigd, itch.io staat stil tot na de speeltest.
+- Volgende stap: vr 20 nov de build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
