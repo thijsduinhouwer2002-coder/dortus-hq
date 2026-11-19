@@ -1,1 +1,11 @@
-{"workflow": "steam-hol-exe.yml", "invoer": {}, "van": "olaf", "waarom": "Speeltestbuild op de bevroren stand 1f63c27 (bevroren do 20:00), een dag vroeg zodat er vr tijd is als hij faalt."}
+{
+  "workflow": "steam-hol-exe.yml",
+  "invoer": {},
+  "van": "olaf",
+  "waarom": "Speeltestbuild op de bevroren stand 1f63c27 (bevroren do 20:00), een dag vroeg zodat er vr tijd is als hij faalt.",
+  "uitslag": {
+    "run_id": 44597872156,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44597872156",
+    "gestart": "2026-11-19T19:23:47Z"
+  }
+}
