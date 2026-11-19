@@ -579,3 +579,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 15:56 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 6 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±15:35 UTC, van Daan: herkeuring 3 plaatje 19 en winkelblokken, akkoord ja
+Plaatje 19 (run 44545370400, f727466): teller "9 joints · 2 rig · 2 mirror · 5 preset" en alle negen rijen in beeld, telling klopt met de lijst (GEZIEN). De drie nieuwe blokken kloppen met code en beeld ("Wall" en "Clearance" in `paneel.py` regel 100 en 102). Geen moet. Twee kan-punten (rig-grens "where it sets one"; heupen-regel ook in Superhive) in `platformen/blender-2/keuring/2026-11-19-pro-1.1-plaatje-19-herkeuring-3-daan.md`. Wat mij betreft mag Pro 1.1.0 uit.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
