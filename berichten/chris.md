@@ -626,3 +626,16 @@ Verschilbeelden (rood is anders): artefact beeldverschil-jetbrains-bison-flex in
 - | donker-hernoem-scanner.png | 31025 px (0.598%), x 57 tot 466, y 0 tot 79 | GROOT |
 - | donker-hernoem-structuur.png | 36949 px (0.713%), x 57 tot 2691, y 0 tot 1683 | GROOT |
 - | donker-kleurenpagina.png | andere maat: 1994x1400 werd 2002x1402 | GROOT |
+
+## 19 nov 2026 01:07 NL, van de week-test (automatisch): Bison & Flex tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44422987860
+- ROOD: Bison & Flex verifier / clion, stap: Plugin Verifier (CLion 2025.2 en 2026.2, IDEA 2025.2, 2025.3 en 2026.2, week-test IU:2026.3,CL:2026.3.0.1)
+- ROOD: Bison & Flex / e2e, stap: Test in de echte IDE (IntelliJ IDEA EAP 263.7307.44)
+- BEELD: 5 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-jetbrains-bison-flex, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  clion-donker-calc-y.png: 64464 px (1.244%), x 56 tot 2793, y 0 tot 1497
+  clion-licht-calc-y.png: 29630 px (0.572%), x 91 tot 2795, y 0 tot 1471
+  donker-calc-y-structuur.png: 34884 px (0.673%), x 79 tot 601, y 0 tot 85
+  donker-calc-y.png: 38393 px (0.741%), x 79 tot 1167, y 0 tot 1729
+  licht-calc-y.png: 23636 px (0.456%), x 85 tot 2857, y 22 tot 1731
+Geteste versies: Blender: 5.2.4-stable, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3 build 263.7307.44 van 2026-10-23; CL: EAP 2026.3 build 263.7307.35 van 2026-10-23; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
