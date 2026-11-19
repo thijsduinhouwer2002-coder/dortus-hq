@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 12:57",
+    "datum": "2026-11-19 13:57",
     "door": "hoofdchat-ronde"
   },
   "projecten": [
@@ -127,8 +127,8 @@
       "thijs": [],
       "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-19 13:57",
+        "door": "hoofdchat-ronde"
       },
       "links": [
         {

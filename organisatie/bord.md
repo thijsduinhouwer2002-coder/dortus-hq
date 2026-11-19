@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 12:57 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Metricool GEZIEN: vandaag 16:00 filmpje 2 (YouTube en TikTok), vr 16:00 filmpje 5 Pro met meetadressen dortus.com/tt en /yt, alle vier PENDING. YouTube Pro 1 kreeg nee van Daan, wacht op nieuwe run van Chris. Roep-taken nog niet aangemaakt (lijst punt 1), dus de ronde plaatst nog op de oude manier. Reddit Hat Tower fase 2a akkoord, 2b loopt; login met Thijs vóór ma 23 nov. Hats bevriezen vanavond 20:00, speeltest za 21 nov.
+**Stand: do 19 nov 2026, 13:57 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Metricool GEZIEN: vandaag 16:00 filmpje 2 (YouTube en TikTok), vr 16:00 filmpje 5 Pro (dortus.com/tt en /yt), **vr 17:00 lange YouTube-video Pro 1 versie 2 (akkoord Daan, 434181828)**, alle PENDING. Click Joints Pro is hoofdproduct; Superhive Pending, Cyber Sale 35% 27 nov t/m 2 dec aan. Roep-taken nog niet aangemaakt (lijst punt 1), dus de ronde plaatst nog op de oude manier. Reddit Hat Tower: login met Thijs vóór ma 23 nov. Hats bevriezen vanavond 20:00, speeltest za 21 nov.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

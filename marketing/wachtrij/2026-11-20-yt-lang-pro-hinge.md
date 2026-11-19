@@ -1,6 +1,6 @@
 # Click Joints Pro: de click hinge die stopt (lange YouTube-video 1)
 
-- status: open
+- status: geplaatst (ingepland)
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -45,7 +45,7 @@ Get Click Joints Pro, with the hinge that stops at 90°, 115° or 135°: https:/
 - Ball joints, fit band, Exploded view, STL en 3MF in Pro: `producten/blender-gewrichten/` en dortus.com/yt/ (GEZIEN 19 nov 11:50 UTC, geeft 200).
 - Gratis versie op extensions.blender.org: winkelpagina Click Joints (eerdere metingen in `commercie/blender-click-joints/`).
 - Keuring Daan versie 1: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, akkoord nee, 3 moet. Verwerkt in commit ac0dbb7: (1) zin over rood in video en tekst aangepast, (2) "Back inside the range" pas vanaf 2,1 s in dat deel (na de beweging terug, het rood is dan gemeten weg), (3) geen stilstaande titel meer: de video opent met de buig naar de stop met titel en "90° · 115° · 135°" erover, het stilstaande been van 9 naar 3 s. Kan 3 ook: geluid naar -14 LUFS.
-- Herkeuring Daan versie 2: (volgt)
+- Herkeuring Daan versie 2: akkoord ja (run 44519478563), `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md` regel 41-43, GEZIEN.
 
 ## Keuring
 (leeg tot de Keurder komt)
@@ -55,3 +55,4 @@ Get Click Joints Pro, with the hinge that stops at 90°, 115° or 135°: https:/
 
 ## Na plaatsen
 (alleen de Maker)
+- do 19 nov 2026 ±13:55 NL, hoofdchat-ronde (oude werkwijze, nog geen Maker-blok): ingepland in Metricool vr 20 nov 17:00 NL op YouTube @Dortusapps, lange video, nummer 434181828 (uuid -5926201830585186666), PENDING, GEZIEN. Hoofdstukken uit `hoofdstukken.txt` ingevuld; eerste reactie erbij; geluid_check GOED (-16,6 dB, piek -1,3 dB); geen AI-melding; tag "print in place" bewust weggelaten (keuring Daan Superhive).
