@@ -30,6 +30,12 @@ Akkoord: ja | nee
 cijfers met GEZIEN/DERDEN/GOK, spelerstekst van Hats alleen als CONCEPT, geen AI-beeld of -geluid op Steam)
 | # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
 
+## Deel C: zou een gebruiker het leuk en fijn vinden? (alles wat je kunt zien of spelen)
+(kijk als de speler of koper, niet als programmeur: wat is na 30 seconden saai, herhalend of voorspelbaar,
+bijv. steeds dezelfde kant, dezelfde held, dezelfde reactie of klank; wat voelt stroef of goedkoop; wat mist er
+dat het leuker of duidelijker maakt. Noem het ook als niemand erom vroeg. Thijs, 19 nov: "dit soort dingen uit jezelf doen".)
+| # | Bevinding | Wat het beter maakt | Moeite (klein/midden/groot) |
+
 ## Moet (blokkeert akkoord) / Kan (mag later)
 ```
 
