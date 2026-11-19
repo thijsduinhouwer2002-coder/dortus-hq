@@ -1,6 +1,6 @@
 # Driehoek-meter: rapport
 
-Data: 22 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±0,5 uur per beurs (GEZIEN, uit stand.jsonl).
+Data: 47 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±0,8 uur per beurs (GEZIEN, uit stand.jsonl).
 
 **Lees dit eerst.** Wij meten elke 3 tot 5 seconden met de openbare API. Snelle partijen (bots naast de server van de beurs) pakken een winstgevende driehoek meestal binnen milliseconden. Wat wij zien, is wat er na hen overbleef: driehoeken die korter stonden dan onze ronde zien we vaak niet, en wat wij wel zien, kan jij alleen pakken als je sneller bent dan wie hem nu laat liggen. De sommen onderaan zijn GOK.
 
@@ -12,22 +12,22 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 
 | Beurs | Status | Paren | Driehoeken | Uur | Rondes | Fouten (te veel) | Beste marge mediaan | Beste marge hoogst | Kandidaten | Bekeken | Overgeslagen | Zelfde | Winst op boek | Echt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitget | grijs | 3659 | 202 | 0,5 | 466 | 0 (0) | -0,283% | -0,089% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitstamp | MiCA | 252 | 346 | 0,5 | 281 | 0 (0) | -0,761% | -0,406% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitvavo | MiCA | 435 | 22 | 0,5 | 353 | 0 (0) | -0,764% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
-| gate | MiCA-dochter | 2156 | 372 | 0,5 | 349 | 0 (0) | -0,129% | 0,273% | 60 | 20 | 0 | 40 | 0 | 0 |
-| kraken | MiCA | 1352 | 2352 | 0,5 | 282 | 0 (0) | -0,567% | -0,271% | 0 | 0 | 0 | 0 | 0 | 0 |
-| kucoin | MiCA-dochter | 968 | 452 | 0,5 | 465 | 0 (0) | 0,502% | 0,580% | 1020 | 881 | 8 | 129 | 0 | 0 |
-| mexc | grijs | 1664 | 886 | 0,5 | 465 | 0 (0) | 0,523% | 1,549% | 2532 | 1517 | 159 | 846 | 123 | 0 |
-| okx | MiCA-dochter | 1248 | 2336 | 0,5 | 468 | 0 (0) | -0,121% | 0,363% | 126 | 123 | 0 | 3 | 0 | 0 |
+| bitget | grijs | 3659 | 202 | 0,8 | 700 | 0 (0) | -0,281% | -0,054% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitstamp | MiCA | 252 | 346 | 0,8 | 422 | 0 (0) | -0,944% | -0,406% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitvavo | MiCA | 435 | 22 | 0,8 | 529 | 0 (0) | -0,760% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
+| gate | MiCA-dochter | 2156 | 372 | 0,8 | 524 | 0 (0) | -0,178% | 0,273% | 64 | 21 | 0 | 43 | 0 | 0 |
+| kraken | MiCA | 1352 | 2352 | 0,8 | 423 | 0 (0) | -0,593% | -0,271% | 0 | 0 | 0 | 0 | 0 | 0 |
+| kucoin | MiCA-dochter | 968 | 452 | 0,8 | 700 | 0 (0) | 0,502% | 0,613% | 1455 | 1187 | 8 | 258 | 0 | 0 |
+| mexc | grijs | 1664 | 886 | 0,8 | 699 | 0 (0) | 0,504% | 1,660% | 3446 | 2144 | 160 | 1130 | 375 | 0 |
+| okx | MiCA-dochter | 1248 | 2336 | 0,8 | 703 | 0 (0) | -0,122% | 0,363% | 155 | 148 | 0 | 7 | 0 | 0 |
 
 ## Trechter
 
 | Stap | Alle beurzen | MiCA (ook via EU-dochter) | Grijs |
 |---|---|---|---|
-| winst op het boek, met de lage kosten (bovengrens) | 22 | 0 | 22 |
-| winst op het boek, met de gewone kosten | 22 | 0 | 22 |
-| en minstens €100 diepte | 0 | 0 | 0 |
+| winst op het boek, met de lage kosten (bovengrens) | 47 | 0 | 47 |
+| winst op het boek, met de gewone kosten | 47 | 0 | 47 |
+| en minstens €100 diepte | 1 | 0 | 1 |
 | en minstens 3 s blijven staan | 0 | 0 | 0 |
 | en niet verdacht = **echt** | 0 | 0 | 0 |
 
@@ -52,14 +52,14 @@ Grootste driehoeken die **niet** echt waren (te kort, te dun of verdacht):
 
 | Beurs | Driehoek | Winst | Diepte | Duur | Verdacht |
 |---|---|---|---|---|---|
-| mexc | USDT>SOL>BTC>USDT | €0,06 | €75 | 15 s | nee |
-| mexc | USDT>SOL>BTC>USDT | €0,04 | €75 | 42 s | nee |
-| mexc | USDT>SOL>BTC>USDT | €0,04 | €75 | 15 s | nee |
-| mexc | USDT>SOL>BTC>USDT | €0,03 | €75 | 21 s | nee |
-| mexc | USDT>SOL>BTC>USDT | €0,03 | €75 | 42 s | nee |
-| mexc | USDT>BTC>BDX>USDT | €0,03 | €16 | 33 s | nee |
-| mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 33 s | nee |
-| mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 6 s | nee |
+| mexc | USDT>SOL>BTC>USDT | €0,29 | €75 | 357 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,16 | €75 | 24 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,16 | €75 | 3 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,15 | €75 | 9 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,15 | €75 | 0 s | nee |
+| mexc | EUR>SOL>BTC>EUR | €0,13 | €75 | 150 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,11 | €75 | 0 s | nee |
+| mexc | USDC>SOL>BTC>USDC | €0,10 | €75 | 6 s | nee |
 
 ## Kan een kleine inleg meedoen? (€100, €150, €200)
 
@@ -68,7 +68,7 @@ Minimale ordergrootte per paar uit de openbare API van elke beurs (aantal munten
 | Beurs | Status | Driehoeken | Met EUR | Mediaan minimale inleg | Mogelijk met €100 | €150 | €200 | Met EUR en €100 |
 |---|---|---|---|---|---|---|---|---|
 | bitget | grijs | 202 | 46 | ≤ €10 | 202 | 202 | 202 | 46 |
-| bitstamp | MiCA | 346 | 260 | €12 | 333 | 334 | 334 | 249 |
+| bitstamp | MiCA | 346 | 260 | €12 | 335 | 336 | 336 | 251 |
 | bitvavo | MiCA | 22 | 22 | ≤ €10 | 22 | 22 | 22 | 22 |
 | gate | MiCA-dochter | 372 | 0 | ≤ €10 | 372 | 372 | 372 | 0 |
 | kraken | MiCA | 2352 | 1368 | ≤ €10 | 2352 | 2352 | 2352 | 1368 |
