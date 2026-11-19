@@ -1,0 +1,12 @@
+name: Idea or wish
+description: Something Rollwright could do better or new
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Tell us which game or system you play and what you want to roll; an example of the dice code helps.
+    validations:
+      required: true

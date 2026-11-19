@@ -1,0 +1,60 @@
+name: Bug report
+description: Something in Rollwright does not work as it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! The command "Rollwright: Report a problem" in the command palette fills in the versions for you.
+        Everything here is public. Remove your name or folder names from file paths before you paste an error.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, and what went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The dice code from your note (for example dice:2d6+3) and the view you used (reading view or Live Preview) help a lot.
+      render: markdown
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Rollwright version
+      placeholder: "0.3.5"
+    validations:
+      required: true
+  - type: input
+    id: obsidian
+    attributes:
+      label: Obsidian version
+      placeholder: "1.9.14"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: System
+      placeholder: "Windows (desktop)"
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: Error text (optional)
+      description: If the developer console (Ctrl+Shift+I) shows an error from Rollwright, paste it here.
+      render: text
+    validations:
+      required: false
