@@ -105,16 +105,25 @@ def beslis(interval, laatst, nu):
 
 
 def geraakte_paden(patronen):
-    """Bestanden uit de push (GITHUB_EVENT_PATH) die op een patroon lijken."""
+    """Bestanden uit de push die op een patroon lijken. Eerst de echte diff before..after (zoals het paths-filter
+    van GitHub, ook bij meer dan 20 commits); lukt dat niet, dan de lijsten uit de push-melding."""
     pad = os.environ.get("GITHUB_EVENT_PATH")
     if not patronen or os.environ.get("GITHUB_EVENT_NAME") != "push" or not pad or not os.path.exists(pad):
         return []
     with open(pad, encoding="utf-8") as f:
         event = json.load(f)
     bestanden = set()
-    for c in event.get("commits") or []:
-        for soort in ("added", "modified", "removed"):
-            bestanden.update(c.get(soort) or [])
+    voor, na = event.get("before") or "", event.get("after") or ""
+    if re.fullmatch(r"[0-9a-f]{40}", voor) and voor.strip("0") and re.fullmatch(r"[0-9a-f]{40}", na):
+        try:
+            git("fetch", "-q", "--depth=1", "origin", voor, na)
+            bestanden.update(git("diff", "--name-only", voor, na).splitlines())
+        except RuntimeError as e:
+            print(f"  diff van de push niet te maken, ik neem de push-melding: {e}")
+    if not bestanden:
+        for c in event.get("commits") or []:
+            for soort in ("added", "modified", "removed"):
+                bestanden.update(c.get(soort) or [])
     pats = [p.strip().replace("**", "*") for p in patronen.split(",") if p.strip()]
     return sorted(b for b in bestanden if any(fnmatch.fnmatchcase(b, p) for p in pats))
 
