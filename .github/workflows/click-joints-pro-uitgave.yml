@@ -41,6 +41,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           for v in 4.2.23 5.2.3 5.3.0; do gh run download "$RUN" -n "blender-gewrichten-screenshots-$v" -D /tmp/s; done   # elk artefact heeft zijn eigen map <versie>/
+          # Sinds 19 nov staat de betaalde zip in een eigen artefact (niet meer bij de schermen, die gaan openbaar
+          # naar de tak schermen). Oudere runs hebben hem nog bij de schermen.
+          for v in 4.2.23 5.2.3 5.3.0; do gh run download "$RUN" -n "click-joints-pro-zip-e2e-$v" -D /tmp/s 2>/dev/null || echo "geen eigen zip-artefact voor $v (oudere run)"; done
           ls -la /tmp/s/*/click_joints_pro-*
       - name: Zip nakijken (sha256, versie, gelijk in alle drie de Blenders)
         run: |

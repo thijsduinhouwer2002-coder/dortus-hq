@@ -114,9 +114,11 @@ jobs:
           python3 -I e2e/toets_zips.py /tmp/click_joints.zip /tmp/click_joints_betaald.zip
           /tmp/blender/blender --command extension validate /tmp/click_joints_betaald.zip
           /tmp/blender/blender -b --factory-startup --python e2e/test_betaald.py -- /tmp/click_joints_betaald.zip /tmp/click_joints.zip
-          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
-          cp /tmp/click_joints_betaald.zip "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.zip"
-          sha256sum /tmp/click_joints_betaald.zip | tee "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.sha256"
+          # De betaalde zip hoort NIET bij de schermen (die gaan openbaar naar de tak schermen): eigen map en eigen
+          # artefact met korte bewaartijd, dat click-joints-pro-uitgave.yml ophaalt (keuring R4, 19 nov).
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}" "/tmp/pro-zip/${{ matrix.blender }}"
+          cp /tmp/click_joints_betaald.zip "/tmp/pro-zip/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.zip"
+          sha256sum /tmp/click_joints_betaald.zip | tee "/tmp/pro-zip/${{ matrix.blender }}/click_joints_pro-${PRO_VERSIE}.sha256"
       - name: Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow)
         # Lars 17 nov (verhaal 27): Pro 1.1 gaat pas uit als alles wat 1.0 kon nog werkt (kogel, speling, passing,
         # beweegproef, boog, STL en 3MF), met de Pro-zip zelf geïnstalleerd. Scharnier 90/115/135 toetst test_betaald.
@@ -311,6 +313,14 @@ jobs:
         run: |
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" bewaar "producten/blender-gewrichten/e2e/screenshots/${{ matrix.blender }}" "referentie/blender-gewrichten/$N/${{ matrix.blender }}" "blender-gewrichten $N ${{ matrix.blender }}"
+      - name: Betaalde zip als eigen artefact (3 dagen, nooit op de tak schermen)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: click-joints-pro-zip-e2e-${{ matrix.blender }}
+          path: /tmp/pro-zip
+          retention-days: 3
+          if-no-files-found: ignore
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -340,6 +350,8 @@ jobs:
             fi
             D="/tmp/s/blender-gewrichten/$NAAM/${{ matrix.blender }}"
             rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC/${{ matrix.blender }}"/. "$D"/ 2>/dev/null || true
+            # Alleen schermafbeeldingen en verslagen openbaar: nooit een zip of code (keuring R4).
+            find "$D" -type f \( -name '*.zip' -o -name '*.py' -o -name '*.sha256' \) -delete
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd /tmp/s && git add -A && git commit -q -m "Schermen blender-gewrichten/$NAAM/${{ matrix.blender }} run ${GITHUB_RUN_ID}" || exit 0
             if git push -q origin schermen; then cd - >/dev/null; break; fi
