@@ -43,8 +43,9 @@ zie `../D-arbitrage.md` hoofdstuk 1). Deze scanner meet een week lang alle munte
   `beurzen.json` (welke beurzen antwoorden, hoeveel paren) en `samenvatting.json`. Ook `scanner/rapport.md`
   wordt bij elke keer opslaan opnieuw gemaakt.
 - Een proefrun (met de hand, via een opdrachtbestand met invoer `minuten`) krijgt `-proef` achter de mapnaam en
-  raakt de klok en de vaste run niet.
-- Zelf draaien: `python3 scanner.py --minuten 10 --uit /tmp/scan` en dan `python3 rapport.py /tmp`.
+  raakt de klok en de vaste run niet. Het rapport telt proefruns niet mee (ze lopen gelijk met de vaste run en
+  zouden dubbel tellen); `python3 rapport.py <map> --met-proef` neemt ze wel mee.
+- Zelf draaien: `python3 scanner.py --minuten 10 --uit /tmp/scan` en dan `python3 rapport.py /tmp --met-proef`.
 - Tests: `python3 -m unittest test_scanner` (in deze map).
 
 ## Het rapport lezen

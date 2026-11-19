@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Rapport van de koersverschil-scanner.
 
-Gebruik:  python3 rapport.py <map met data>      (bijv. een checkout van de tak ai-handel-data, map scanner/)
+Gebruik:  python3 rapport.py <map met data> [--met-proef]   (bijv. een checkout van de tak ai-handel-data, map scanner/)
 Leest alle */*/kansen.jsonl en stand.jsonl daaronder en schrijft het rapport als Markdown naar stdout.
+Proefruns (map eindigt op -proef) lopen gelijk met de vaste run en tellen dus niet mee, tenzij --met-proef.
 
 Een ECHTE kans (alle vijf moeten waar zijn):
   1. na takerkosten aan beide kanten en de opnamekosten van de munt blijft er winst over;
@@ -32,12 +33,13 @@ def echt(r):
         and (r.get("duur_s") or 0) >= MIN_DUUR and r.get("contract") != "anders"
 
 
-def lees(map_):
+def lees(map_, met_proef=False):
     kansen, stand = [], []
-    for p in sorted(glob.glob(os.path.join(map_, "**", "kansen.jsonl"), recursive=True)):
+    telt = lambda p: met_proef or not os.path.dirname(p).endswith("-proef")
+    for p in filter(telt, sorted(glob.glob(os.path.join(map_, "**", "kansen.jsonl"), recursive=True))):
         with open(p) as fh:
             kansen += [json.loads(x) for x in fh if x.strip()]
-    for p in sorted(glob.glob(os.path.join(map_, "**", "stand.jsonl"), recursive=True)):
+    for p in filter(telt, sorted(glob.glob(os.path.join(map_, "**", "stand.jsonl"), recursive=True))):
         with open(p) as fh:
             rij = [json.loads(x) for x in fh if x.strip()]
         if rij:
@@ -89,8 +91,8 @@ def winst_bij(r, plafond):
     return r.get("winst2500_med")
 
 
-def maak(map_):
-    kansen, stand = lees(map_)
+def maak(map_, met_proef=False):
+    kansen, stand = lees(map_, met_proef)
     uren = gemeten_uren(stand)
     uit = ["# Rapport koersverschil-scanner", ""]
     uit.append(f"Gemaakt {dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC uit {len(stand)} runs, "
@@ -225,4 +227,5 @@ def maak(map_):
 
 
 if __name__ == "__main__":
-    print(maak(sys.argv[1] if len(sys.argv) > 1 else "."))
+    args = [a for a in sys.argv[1:] if a != "--met-proef"]
+    print(maak(args[0] if args else ".", "--met-proef" in sys.argv))

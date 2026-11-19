@@ -85,5 +85,5 @@ jobs:
       - name: Rapport in het log
         if: always()
         run: |
-          python3 -I platformen/ai-handel/scanner/rapport.py "$RUNNER_TEMP/scan" | head -80
+          python3 -I platformen/ai-handel/scanner/rapport.py "$RUNNER_TEMP/scan" --met-proef | head -80
           cat "$RUNNER_TEMP"/scan/*/*/samenvatting.json 2>/dev/null | head -60 || true
