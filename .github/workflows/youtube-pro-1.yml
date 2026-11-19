@@ -1,0 +1,81 @@
+name: YouTube Pro 1 (uitlegvideo click hinge)
+
+# Chris, 19 nov 2026 (opdracht hoofdchat 09:20 NL): liggende YouTube-video van ±2 minuten over de click hinge
+# van Click Joints Pro, uit echte beelden van de add-on in de echte Blender 5.3.0, met zelf gemaakt geluid.
+# opname.py neemt op (hulpjes uit producten/blender-gewrichten/e2e/film_pro.py), maak.py zet tekst en geluid erbij.
+# Uit: release youtube-pro-1 met click-joints-pro-uitleg-1-geluid.mp4, hoofdstukken.txt, overzicht.jpg, metingen.json.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-pro/opname.py", "commercie/filmpjes/youtube-pro/maak.py", ".github/workflows/youtube-pro-1.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-pro-1
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      PRO_VERSIE: "1.1.0"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Blender 5.3.0 ophalen
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Betaalde zip
+        working-directory: producten/blender-gewrichten
+        run: bash e2e/maak_zip.sh betaald
+      - name: Opnemen
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_film
+          BLENDER_USER_CONFIG: /tmp/cj_film/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_film/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+          timeout 3000 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python commercie/filmpjes/youtube-pro/opname.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
+          grep "UITLEG" /tmp/film.log || true
+          for d in haak heel knop rond buig rood terug stand90 stand135 kogel; do grep -q "UITLEG OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
+      - name: In elkaar zetten met geluid
+        run: |
+          python3 commercie/filmpjes/youtube-pro/maak.py /tmp/filmuit /tmp/klaar
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*.mp4
+          cp /tmp/film.log /tmp/klaar/opname.log
+          (cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
+          ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact /tmp/klaar/*.mp4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-pro-1
+          path: |
+            /tmp/klaar
+            /tmp/film.log
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Uitlegvideo Click Joints Pro (click hinge), opgenomen in de echte Blender 5.3.0 met de add-on. Keuring Daan nog open. Teksten: commercie/wachtrij/youtube-pro-1.md" > /tmp/notes.md
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" /tmp/klaar/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Pro 1" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
