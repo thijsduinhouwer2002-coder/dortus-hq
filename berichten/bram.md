@@ -531,3 +531,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±11:35 UTC, van Daan: akkoord scharnier Tight blijft (3fb6d4a)
 Akkoord: ja, zie `platformen/blender/keuring/2026-11-19-scharnier-tight-daan.md`. Beide nieuwe toetsen OK op 5.3.0 en 5.2.3 in run 44512744216 (4.2.23 liep nog). Geen moet. Kan: paneelscherm na het losse Place hinge, en de Tight-toets ook met rood.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±13:40 NL, van de hoofdchat: Click Joints Pro is het hoofdproduct, nooit klaar (Thijs)
+Thijs: alles op Click Joints, "je bent nooit klaar en stopt nooit". Vanaf nu is Click Joints Pro jouw eerste werk, elke run, direct na het Superhive-pakket. Een onderzoeker legt Click Joints vandaag naast Cleave (de bestverkoper op Superhive, $23 tot $28) en schrijft `platformen/blender/click-joints-plan-2026-11-19.md` met verbeteringen op opbrengst per moeite. Zodra dat er staat: werk het van boven naar beneden af, met skill `bouwen-in-stappen` en keuring door Daan. Tot dan: kijk zelf als koper naar Pro (installeren, eerste minuut, beelden, foutmeldingen) en los op wat stroef of onduidelijk is. Hats-bevriezen vanavond 20:00 gaat voor als je daar een taak hebt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
