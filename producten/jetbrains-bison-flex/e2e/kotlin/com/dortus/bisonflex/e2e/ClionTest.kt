@@ -222,7 +222,9 @@ class ClionTest {
         val meter = service<WindowManagerOpAfstand>().getStatusBar(singleProject())?.getWidget("Memory")
         println("DORTUS-E2E [clion-$naam] geheugenmeter in de statusbalk: ${meter != null}")
         assertTrue(meter == null, "geen geheugenmeter in de statusbalk ($naam)")
-        scherm("clion-$naam-calc-y.png")
+        // Pas als het beeld stilstaat (roestronde R4): in run 44490202883 was de kleuring van calc.y nog niet klaar.
+        // De cursor knippert, dus soms wordt het nooit helemaal stil; dan na 15 opnamen toch (±12 s later).
+        schermStil("clion-$naam-calc-y.png", pogingen = 15)
     }
 
     /**
