@@ -134,11 +134,14 @@ class TestRuisOpNaam(unittest.TestCase):
         repos = [repo(f"apimart{i}x/guide{i}", description=tekst) for i in range(3)]
         repos += [repo(f"apimartq{i}/other{i}", description=f"iets anders nummer {i} met een eigen beschrijving") for i in range(3)]
         repos += [repo("eerlijk/app"), repo("ander/app", description="Simple invoicing SaaS for freelancers")]
+        staart = ": model id, pricing, parameters and copy-paste examples for the OpenAI-compatible APIMart endpoint."
+        repos += [repo(f"willekeurig{i}q/m{i}", description=f"Model {chr(65 + i)}{i * 7} Turbo API" + staart) for i in range(4)]
         spam = regels.spamnetwerk(repos)
         self.assertIn("apimart0x/guide0", spam)      # zelfde tekst bij 3 eigenaren
         self.assertIn("apimartq1/other1", spam)      # 6 eigenaren die met apimart beginnen
         self.assertNotIn("eerlijk/app", spam)        # zelfde tekst bij maar 2 eigenaren
         self.assertNotIn("ander/app", spam)
+        self.assertIn("willekeurig2q/m2", spam)      # zelfde eind van de tekst bij 4 eigenaren
 
 
 class TestRapport(unittest.TestCase):

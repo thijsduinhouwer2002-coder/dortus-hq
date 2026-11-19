@@ -262,19 +262,24 @@ def lees_plan(repo, readme):
 
 
 def spamnetwerk(repos, min_groep=3):
-    """Namen van repo's die bij een kopie-netwerk horen: dezelfde beschrijving bij 3+ repo's van verschillende
-    eigenaren, of 5+ eigenaren waarvan de naam met dezelfde 7 tekens begint (zoals apimart1, apimart2, ...)."""
+    """Namen van repo's die bij een kopie-netwerk horen: hetzelfde begin (80 tekens) of eind (50 tekens, dan 4+) van de
+    beschrijving bij 3+ verschillende eigenaren, of 5+ eigenaren waarvan de naam met dezelfde 7 tekens begint (zoals apimart1, apimart2, ...)."""
     per_tekst, per_begin = {}, {}
     for r in repos:
         eigenaar = r["full_name"].split("/")[0].lower()
-        tekst = re.sub(r"\W+", " ", (r.get("description") or "").lower()).strip()[:80]
+        tekst = re.sub(r"\W+", " ", (r.get("description") or "").lower()).strip()
         if len(tekst) >= 25:
-            per_tekst.setdefault(tekst, set()).add(r["full_name"])
+            # begin en eind apart: spamsjablonen wisselen vaak alleen de modelnaam voorin of achterin
+            per_tekst.setdefault("b:" + tekst[:80], set()).add(r["full_name"])
+            if len(tekst) >= 60:
+                per_tekst.setdefault("e:" + tekst[-50:], set()).add(r["full_name"])
         if len(eigenaar) >= 8:
             per_begin.setdefault(eigenaar[:7], {}).setdefault(eigenaar, set()).add(r["full_name"])
     spam = set()
-    for namen in per_tekst.values():
-        if len({n.split("/")[0] for n in namen}) >= min_groep:
+    for sleutel, namen in per_tekst.items():
+        # een gelijk eind telt pas bij 4+ eigenaren: korte staarten als "built with next.js and supabase" komen vaker voor
+        nodig = min_groep if sleutel.startswith("b:") else min_groep + 1
+        if len({n.split("/")[0] for n in namen}) >= nodig:
             spam |= namen
     for eigenaars in per_begin.values():
         if len(eigenaars) >= 5:
