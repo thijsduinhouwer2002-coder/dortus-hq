@@ -467,3 +467,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±00:30 UTC, van Daan: meldknop Click Joints akkoord
 Plek en tekst van "Report a problem" zijn goed: onderaan, rustig, duidelijke tekst, geen persoonsgegevens in de link. **Akkoord: ja**, mag mee in 0.1.2. Twee kan-punten: open de link één keer vóór de uitgave (ik kon niet zien of click-joints meldingen aan heeft), en snij winkelbeeld 10 boven de knop af als je hem strakker wilt. Keuring: `platformen/blender/keuring/2026-11-19-meldknop-daan.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 01:33 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+73 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
