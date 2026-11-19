@@ -1,3 +1,44 @@
+# Keuring fase 2b, do 19 nov 2026, keurder (agent van de hoofdchat)
+Wat ik keurde: commit bd77639f. Lokaal gespeeld in een kopie in /tmp (npm ci, `npm test`, `PROEF=1 npm run local`), Playwright op 390x780 (2x, aanraken) en 1280x760, een dagbeurt per maat met daarna 22 beelden van het eindmoment (elke 0,3 s). Inzendfilmpje `beelden/inzendfilmpje-1080x1920.mp4` bekeken als blad van de eerste 10 s (2 per seconde) en van het hele filmpje (1 per seconde), losse beelden op ware grootte, en het geluid gemeten met ffmpeg. Beelden in /tmp, na afloop opgeruimd.
+Akkoord: ja voor het spel. Nee voor het inzendfilmpje: dat is nog een concept (vier moet-punten hieronder, vóór de inzending).
+
+## Nieuwe punten van 2b
+| # | Wat ik toetste | Uitslag | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| 1 | `npm test`: types, lint, 21 toetsen, bouw. | groen | Feit | hoog |
+| 2 | **Tijdregel.** Insturen kan alleen tussen 27 s en 90 s na `api/start` (starttijd in de sleutel, klok van de server). Toets: na 5 s "too early", na 91 s "too late" (telt dan als afgebroken, 0 hoeden, geen nieuwe beurt), na 89 s goed. In het echt kwam de uitslag 31,2 s na de start binnen en werd bewaard (GEZIEN, telefoon en desktop). Daarmee is ook N2 van de herkeuring dicht: een afgebroken beurt van gisteren kun je niet later nog insturen. | in orde | Feit | hoog |
+| 3 | Wat de tijdregel kost: het spel pauzeert als het tabblad of de app op de achtergrond gaat (geen beelden, inhalen begrensd op 250 ms). Wie midden in de dagbeurt een minuut wegswipet, krijgt "sent too late" en 0. Streng maar eerlijk; zo zeldzaam dat het mag. | kan later | Feit (code) | midden |
+| 4 | **Elke post speelt zijn eigen dag.** Dag bij het maken van de post in Redis (`post:<id>`), bij openen gelezen; een post zonder dag of uit de toekomst speelt vandaag. Dagen op rij tellen alleen met de toren van vandaag of gisteren. Op een oude post: "This is tower #N from <datum>. Today's tower #M is in the newest post." Toets groen; lokaal kon ik het niet spelen (vandaag is dag 1). | in orde | Feit (toets en code) | hoog |
+| 5 | **Eindmoment.** Bij 47 en 62 hoeden zoomt de camera niet verder uit dan de helft en zakt hij van de top naar Gloop; de toren blijft een toren, geen streep (GEZIEN). Daarna "r/GloopTowerTest passed 150 hats today!" en het uitslagvel. Klein: de mijlpaaltekst staat over je eigen toren heen (leesbaar door de rand). Het overvliegen van je hoeden naar de gezamenlijke toren gebeurt klein rechtsboven; op de telefoon en in het filmpje zie je het nauwelijks. | in orde | Feit | hoog |
+| 6 | Voorbeeld van de reactie: gulp is nu een oranje vakje, gelijk aan het spel. | in orde | Feit | hoog |
+| 7 | Geen fouten of waarschuwingen in de console. | in orde | Feit | hoog |
+
+## Het inzendfilmpje, als jury in de eerste 10 seconden
+43,9 s, 1080x1920, 30 beelden per seconde, AAC stereo (GEZIEN met ffprobe). De teksten kloppen met het spel en zijn goed: "One tap. 30 seconds.", "Perfect gulps stack more hats", "Same tower for everyone today", "Every subreddit builds one tower", "Share your run. New tower tomorrow." Van 10 tot 35 s groeit de toren mooi door, met "PERFECT! +4 hats, streak 8" tot streak 17, en het eind laat het uitslagvel met Post as comment en Join zien. Maar:
+- **Haakt niet in de eerste seconden.** 0 tot 3 s is een stilstaand startscherm (zes keer hetzelfde beeld), en 0 tot 4,8 s is stil (silencedetect bij -40 dB). Het eerste wat beweegt komt na ±3,5 s, de eerste "PERFECT!" na ±5 s. Een jury die 10 s kijkt, ziet vooral een menu.
+- **Proefnamen in beeld.** "r/GloopTowerTest" staat het hele filmpje rechtsboven en in de mijlpaal, en op het uitslagvel staan "u/film88760" en vier keer "u/practice_bot_..." op de ranglijst. Dat ogen als nep en als test.
+- **Niet echt scherp.** Op ware grootte zijn de randen zacht en zijn er blokjes van jpeg te zien, ook op Gloop en de tekst (GEZIEN, uitsnede op 1080). Vermoeden: het screencast van Chrome levert beelden op 360x640 die naar 1080x1920 zijn opgeschaald (`dev/film.py`: viewport 360x640, schalen met lanczos). Mijn eigen schermbeelden op 3x zijn duidelijk scherper.
+- **Niet op Reddit.** De wedstrijd vraagt "footage that shows the Project functioning on the device for which it was built". Nu is het alleen het spel, zonder post, feed of reacties eromheen. Kan pas na de login.
+- Van 12 tot 30 s lijken de beelden erg op elkaar; 30 tot 35 s is genoeg.
+- Geluid: gemiddeld -31 dB, piek -3,3 dB, alleen klanken met gaten van 1 tot 2 s ertussen; geen muziek. Mag, maar de stilte aan het begin valt op.
+
+## Moet (blokkeert akkoord op het filmpje, niet op het spel)
+1. **Begin met de actie.** Binnen de eerste seconde beweging: bijvoorbeeld de hoge toren met "PERFECT! streak 12" en een titel "Gloop's Hat Tower, a daily game on Reddit", daarna pas een korte start. Geen stil begin.
+2. **Geen proefnamen.** Opnemen in de echte demo-subreddit met zijn echte naam en zonder `practice_bot_...` en `u/film...` op de ranglijst (lege ranglijst, of echte spelers die het weten, of de ranglijst niet in beeld).
+3. **Echt scherp.** Beeld voor beeld op 3x vastleggen (zoals de schermbeelden) of het screencast op 1080 breed laten leveren; daarna nog eens op ware grootte bekijken.
+4. **Opnemen op Reddit**, in de post (feed, tik, groot spel, reactie eronder), na de login en de playtest.
+
+## Kan
+1. Mijlpaaltekst niet over je eigen toren; het overvliegen naar de gezamenlijke toren groter of dichterbij, zodat de jury het ziet.
+2. Filmpje inkorten tot ±30 tot 35 s.
+3. "Posts as u/... under today's post" wordt op een oude post "under this post".
+4. Achtergrond (punt 3 in de tabel): bij terugkomen binnen de tijd gewoon doorspelen, daarna pas te laat.
+
+## Jurypunten (stand nu, lokaal; GOK)
+Delightful UX 8 (eindmoment is terug), Polish 7 (niets op Reddit getest; met het filmpje zoals het nu is eerder lager), Reddity 7, Daily Content 8 (elke post speelt zijn eigen toren, met een verwijzing naar die van vandaag).
+
+---
+
 # Herkeuring Gloop's Hat Tower op Reddit fase 2a, do 19 nov 2026, keurder (agent van de hoofdchat)
 Wat ik keurde: commit 8ad9273f (fase 2a), dezelfde map. Opnieuw lokaal gespeeld in een kopie in /tmp (npm ci, `npm test`, `PROEF=1 npm run local`), met Playwright op 390x780 (3x, aanraken), 1280x760, 1280x560, liggend 844x390 en de post in de feed op 390x512 en 740x512. Filmpje `beelden/filmpje-ronde-telefoon.mp4` bekeken als blad van 33 beelden (1 per seconde). Beelden in /tmp, na afloop opgeruimd; de beelden van de bouwer in `beelden/` laten hetzelfde zien.
 Akkoord: ja (beide moet-punten opgelost en zelf nagerekend; nog wel de keuring van Iris op plezier en beeld, en niemand heeft het als mens gespeeld)
