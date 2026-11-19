@@ -399,3 +399,54 @@ Controle op de prijzen zelf (laatste prijs vóór de aftrap, per markt, beide ka
 3. **Makers worden vóór de aftrap bijna niet gevuld** (GEZIEN: 146 maker-trades tegen 4.255 nemer-trades; ±78% van de handel is tijdens de wedstrijd). De maker-route uit run 5 valt af.
 4. **Terugtests liegen makkelijk, nu vier keer gezien in dit bestand**: Sharpe 1,86 naar 0,33 (run 1), longshot-"winst" door volumekeuze (run 2), "+16%" door de getoonde koers (run 5), en "favorieten winnen" doordat trades tijdens de wedstrijd meetelden (run 6). Altijd: vooraf vastleggen, knippen op het beslismoment van de bot, echte prijzen en kosten.
 5. **Wat overblijft in hoek A**: de simpele trendregel op spot (run 1) als rustige basis, geen route naar €10.000 in 3 maanden (GOK, kans onder 1%). Volgende toets: voorspellingsmarkten met tarief 0,01 buiten sport, met dezelfde strenge opzet.
+
+## Run 7 (19 nov 2026, ±06:35 tot 07:20 UTC)
+Hoek: het eerste open punt van run 6. Werkt de favorieten-toets **buiten sport**, waar het tarief vanaf 20 nov naar 0,01 gaat, als je alleen echte aankopen vóór het beslismoment telt? De liquiditeitsbeloning (tweede open punt) laat ik liggen: zoeker D heeft die al per markt gemeten (D punt 9 en 13), dat doe ik niet dubbel.
+
+### 22. Nieuw veld gevonden: de categorie staat in elke markt (GEZIEN)
+Gamma geeft per markt `feeType` en `feeSchedule` mee (bijv. `politics_fees`, `economics_fees`, `zero_fees`, `sports_fees_v3`; bij een tech-markt `rate 0.04, takerOnly`). Daarmee kun je sport en niet-sport netjes scheiden zonder op de vraagtekst te gokken (GEZIEN, `gamma-api.polymarket.com/markets`). Let op voor wie zelf ophaalt: de `keyset`-route gaf weer massaal dubbele regels (156.000 regels voor 2.332 markten); de gewone route met `offset` en `limit=100` werkt wel (53.644 unieke markten). En `data-api` geeft een 403 zonder `User-Agent`-kop; mijn eerste telling was daardoor stil leeg (alle drie GEZIEN). Een bot moet zo'n fout dus hard melden, niet inslikken.
+
+### 23. Eigen meting buiten sport: alleen de bijna-zekere kant houdt stand (GEZIEN, vooraf vastgelegd)
+**Opzet** (vooraf vastgelegd, zelfde lessen als run 3 tot 6):
+- Gesloten ja/nee-markten met een geplande einddatum tussen 1 sep en 17 nov 2026, begonnen minstens 8 dagen vóór die einddatum, **geen sport** (op `feeType`), uitslag netjes 1 of 0, en niet eerder dan 1 dag vóór de geplande einddatum gesloten (vroeg sluiten lekt de uitslag). Dat gaf 10.869 markten; daaruit 1.000 willekeurig (seed 7).
+- Per markt en per kant: de **laatste echte koop door een nemer** in de 24 uur vóór het beslismoment (7 dagen of 1 dag vóór de geplande einddatum), uit `data-api.polymarket.com/v2/trades`. Dat is een prijs die iemand echt betaalde, geen middenkoers.
+- Rendement per gekochte dollar, met het nieuwe tarief 0,01 × p × (1 − p) erbij; band uit bootstrap per event (1.000 keer).
+
+**7 dagen vóór de einddatum** (442 kopen, 270 events; GEZIEN, eigen telling):
+
+| Prijs | n | gem. prijs | gewonnen | na tarief 0,01 | 90%-band |
+|---|---|---|---|---|---|
+| 0 tot 10 cent | 77 | 3,2 ct | 1,3% | **-84%** | -100% tot -51% |
+| 10 tot 30 cent | 60 | 19,6 ct | 16,7% | -13% | -57% tot +33% |
+| 30 tot 70 cent | 101 | 50,1 ct | 53,5% | +5% | -6% tot +16% |
+| 70 tot 90 cent | 59 | 79,6 ct | 81,4% | +2,4% | -8,6% tot +13,3% |
+| 90 tot 97 cent | 38 | 94,2 ct | 97,4% | +3,4% | -2,4% tot +6,6% |
+| 97 tot 100 cent | 107 | 99,2 ct | 100% | **+0,8%** | +0,6% tot +1,0% |
+
+**1 dag vóór de einddatum** (619 kopen, 366 events; GEZIEN): 0 tot 10 cent -86% (band -100% tot -56%), 70 tot 90 cent -1,5% (band -11% tot +8%), 90 tot 97 cent +0,9%, 97 tot 100 cent ±0,0% (band -1,0% tot +0,6%; gewonnen 99,5%, dus ±1 misser op 182).
+
+**Wat dit leert** (GOK, op basis van de meting):
+1. **Kanshebbers onder 10 cent zijn buiten sport fors te duur**: 1 op 77 won, bij een prijs die ±1 op 31 beloofde. Zelfde richting als Kalshi (punt 9) en run 3. Loten kopen is de slechtste bot die je kunt bouwen.
+2. **De middenband (70 tot 90 cent) geeft buiten sport geen bruikbaar voordeel**: +2,4% met een band van -9% tot +13% na 7 dagen, -1,5% na 1 dag. Dat past bij run 3 (niet-sport +1,2%). Het tarief 0,01 doet er bijna niets toe (0,2 procentpunt); het voordeel was er gewoon niet.
+3. **Het enige smalle resultaat**: de bijna-zekere kant (97 tot 100 cent) een week vóór de einddatum kopen gaf +0,8% per week (107 van 107 gewonnen). Maar 107 keer goed sluit niet uit dat het 1 op 150 keer misgaat, en één misser bij 99 cent kost evenveel als ±120 keer winst. Een dag vóór het einde zag ik die misser al, en daar was het netto 0%. Het bekende patroon "stuivers oprapen voor een stoomwals": rustig plus, zelden een harde klap.
+4. **Rekensom voor Thijs' doel** (GOK): +0,8% per week op een pot die een week vastzit is ±10% in 3 maanden, vóór missers en zolang er genoeg stukken van 99 cent te koop liggen. Voor €10.000 winst moet er dan ±€100.000 in, en die diepte is er in deze markten niet (punt 16: boeken zijn dun). Geen route naar snel veel geld.
+
+**Waarom je dit nog niet gelooft:** 1.000 markten uit 2,5 maand, kleine aantallen per band (38 tot 107), scheve verdeling over categorieën (politiek is ruim de helft van de kopen tussen 70 en 90 cent), en "laatste koop in de 24 uur ervoor" is niet wat jij op dat moment voor jouw bedrag kon krijgen.
+
+### Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Simpele trendregel op spot (run 1)**: blijft de rustige basis, geen geldmachine. Kans op €10.000 in 3 maanden met een kleine pot: onder 1%.
+2. **Bijna-zekere kant een week voor het einde (punt 23)**: klein, smal plus, met staartrisico en weinig ruimte. Alleen als papiertest, met een harde regel: nooit meer dan 2% van de pot in één event.
+3. Favorieten 70 tot 90 cent, sport vóór de aftrap of buiten sport: **valt af** (punt 21 en 23).
+4. Kanshebbers kopen, LLM-sentiment als hoofdsignaal, hefboom: vallen af.
+Voor snel geld verwijs ik naar zoeker D (beloning in jonge temperatuurmarkten, D route 1): dat hangt niet af van gelijk hebben, en daar stranden mijn metingen steeds op.
+
+### Nog te doen (volgende runs)
+- Punt 23: alle 10.869 markten tellen om te zien hoe vaak 97 tot 100 cent een week vooraf echt verliest; pas dan weet je of +0,8% overleeft.
+- De diepte aan de verkoopkant op 97 tot 99 cent in lopende niet-sport markten meten (openbaar boek), om de ruimte voor punt 23 te kennen.
+
+## Stand na run 07:20 UTC (19 nov 2026)
+1. **Buiten sport is er in de middenband geen voordeel** (GEZIEN, 1.000 markten, echte nemer-kopen): 70 tot 90 cent gaf +2,4% met band -9% tot +13% een week vooraf, -1,5% een dag vooraf. Het lage tarief vanaf 20 nov verandert dat niet. Samen met run 6 (sport vóór de aftrap -2,4%): **favorieten kopen vóór het beslismoment is geen strategie.**
+2. **Loten onder 10 cent zijn zwaar te duur** (GEZIEN: 1 op 77 won bij een prijs van 3,2 cent, -84%; Kalshi zag hetzelfde, punt 9). Een bot koopt nooit loten.
+3. **Bijna-zeker (97 tot 100 cent) een week vooraf: +0,8% per week** (GEZIEN, 107 van 107), maar met staartrisico (een dag vooraf ±1 misser op 182, netto 0%) en weinig diepte. Hooguit een papiertest, geen route naar €10.000 (GOK).
+4. **Terugtests liegen makkelijk**: Sharpe 1,86 naar 0,33 (run 1), longshot-"winst" door volumekeuze (run 2), "+16%" door de getoonde koers (run 5), "favorieten winnen" door trades tijdens de wedstrijd (run 6), en hier een stil lege telling door een 403. Altijd: vooraf vastleggen, knippen op het beslismoment, echte prijzen en kosten, bootstrap per event, fouten hard melden.
+5. **Conclusie hoek A voor "snel veel geld"**: alles wat afhangt van beter voorspellen dan de markt sneuvelt in mijn metingen. Wat overblijft is de trendregel op spot als rustige basis (run 1); voor snel geld ligt de beste kans bij zoeker D (beloning voor liquiditeit), niet bij een voorspellende bot (GOK).
